@@ -5579,6 +5579,7 @@ html[dir="rtl"] .rank-v {
 /* Soft look (Nico's pick, 2026-10-17): rounder shapes, 16px text, sentence-case labels, borderless cards,
    less space above each page. Kept as one block at the end so it wins over the older rules above. */
 :root {
+  --font-display: var(--font-sans);
   --r: 24px;
   --r-sm: 12px;
   --card: #f7f9fb;
@@ -5613,7 +5614,7 @@ h1 {
   max-width: 24em;
   font-size: clamp(1.9rem, 4vw, 2.6rem);
   font-weight: 700;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
 }
 
 /* Section and card titles and the big stat numbers share the headline face. */
