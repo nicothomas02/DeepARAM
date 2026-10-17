@@ -1237,7 +1237,15 @@
     if (m && m.clips) { soundFiles = m; soundBase = base; return true; }
     return false;
   }).catch(() => false);
-  if (FULL) loadSounds(DATA + "sounds/").then((ok) => ok || loadSounds("/assets/sounds/"));
+  // The site serves files whole (no byte ranges), so a player can't jump into the middle of one and every
+  // clip would start at 0:00, which is Aatrox's first sound. A copy held in memory can be jumped into.
+  let soundUrl = null;
+  if (FULL) loadSounds(DATA + "sounds/").then((ok) => ok || loadSounds("/assets/sounds/")).then((ok) => {
+    if (!ok) return;
+    fetch(soundBase + soundFiles.file + BUST).then((r) => (r.ok ? r.blob() : null)).then((b) => {
+      if (b) soundUrl = URL.createObjectURL(b);
+    }).catch(() => {});
+  });
   // A few audio players reused round robin. Each is started once inside the first click or
   // key press, which lets it play later from the animation loop (Safari needs this per player).
   const voices = [];
@@ -1282,18 +1290,27 @@
   }
   function playSound(c, slot, volume) {
     if (!FULL) { if (soundOn && gestured && c && masterVolume > 0) synth(slot, volume); return; }
-    if (!soundOn || !gestured || !voices.length || !c) return;
+    if (!soundOn || !gestured || !voices.length || !c || !soundUrl) return;
     const packed = soundFiles.clips && soundFiles.clips[c.id] && soundFiles.clips[c.id][slot];
     if (!packed) return;
     const a = voices[nextVoice++ % voices.length];
     a.pause();
-    a.src = `${soundBase}${soundFiles.file}${BUST}#t=${packed[0]},${packed[0] + packed[1]}`;
-    a.volume = Math.min(1, volume * masterVolume);
-    const p = a.play();
-    if (p && p.catch) p.catch(() => {});
-    // Media fragments stop late in some browsers; end the clip on time so it never runs into the next one.
     clearTimeout(a.stopTimer);
+    a.volume = Math.min(1, volume * masterVolume);
+    // Every champion's clips sit in one file; jump to this clip's start.
+    const src = soundUrl;
+    const start = () => {
+      a.currentTime = packed[0];
+      const p = a.play();
+      if (p && p.catch) p.catch(() => {});
+    };
     a.onplaying = () => { clearTimeout(a.stopTimer); a.stopTimer = setTimeout(() => a.pause(), packed[1] * 1000); };
+    if (a.dataset.src === src && a.readyState >= 1) start();
+    else {
+      a.dataset.src = src;
+      a.onloadedmetadata = () => { a.onloadedmetadata = null; start(); };
+      a.src = src;
+    }
   }
   // The champion's pick quote, when you choose a champion.
   let pickVoice = null;
