@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Barlow, Chakra_Petch } from "next/font/google";
+import { Mona_Sans } from "next/font/google";
 import Link from "next/link";
 import FeedbackBox from "@/components/FeedbackBox";
 import PageTransitions from "@/components/PageTransitions";
@@ -34,9 +34,8 @@ import ViewMemory from "@/components/ViewMemory";
 import { VIEW_SCRIPT } from "@/lib/url-state";
 import BackToTop from "@/components/BackToTop";
 
-// Barlow for text and numbers, Chakra Petch for headlines; next/font serves both from deeparam.com.
-const sans = Barlow({ subsets: ["latin", "latin-ext", "vietnamese"], weight: ["400", "500", "600", "700"], variable: "--font-sans" });
-const display = Chakra_Petch({ subsets: ["latin", "latin-ext", "vietnamese"], weight: ["600", "700"], variable: "--font-display" });
+// Mona Sans for headlines, text and numbers; next/font serves it from deeparam.com.
+const sans = Mona_Sans({ subsets: ["latin", "latin-ext", "vietnamese"], variable: "--font-sans" });
 
 const DESCRIPTION = "ARAM Mayhem tier list, augment win rates and a teamfight simulator for the current patch.";
 // Home's title in search results; other pages set their own with pageMeta.
@@ -98,7 +97,7 @@ export default function RootLayout({
 }>) {
   const kofi = kofiUrl();
   return (
-    <html lang="en" className={`${sans.variable} ${display.variable}`} data-patch={livePatch() ?? undefined} suppressHydrationWarning>
+    <html lang="en" className={sans.variable} data-patch={livePatch() ?? undefined} suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: DEVICE_SCRIPT + THEME_SCRIPT + SETTINGS_SCRIPT + VIEW_SCRIPT + LANG_SCRIPT }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: STRUCTURED_DATA }} />
