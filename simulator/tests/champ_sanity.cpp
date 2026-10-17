@@ -249,6 +249,16 @@ int main(int argc, char** argv) {
         }
         CHECK(stuns && named, "crowd control is recorded with its kind, on enemies and on you");
 
+        // Toggles stay on while enemies are in reach, and the replay sees them switch on.
+        for (const char* n : {"Singed", "Karthus", "Amumu", "Anivia"}) {
+            const ChampionKit& tk = *calm.find(n);
+            bool always = false;
+            for (const auto& ab : tk.abilities) always |= ab.toggle && ab.aura;
+            bool shown = false;
+            for (const auto& e : traceFight(calm, tk, cap, calm.scenarioFor(tk), 4).events) shown |= e.kind == "toggle" && e.flag;
+            CHECK(always && shown, (std::string(n) + "'s toggle stays on and shows in the replay").c_str());
+        }
+
         // Shields: Lux's W shields her, and Sterak's Gage shields you when you drop low.
         const ChampionKit& lux = *calm.find("Lux");
         const FightTrace xt = traceFight(calm, lux, cap, calm.scenarioFor(lux), 3);

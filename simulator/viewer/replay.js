@@ -139,13 +139,14 @@
     const end = ev.find((e) => e.k === "end");
     const f = { duration: Math.max(tr.fight.duration, end ? end.t : 0), length: tr.fight.duration, engage: tr.fight.engage_at, maxHp: tr.fight.max_hp, events: ev,
       casts: [], attacks: [], procs: [], cc: [], kills: [], self: [], spawns: new Map(), focus: [], numbers: [],
-      ecc: [], heals: [], shields: [],
+      ecc: [], heals: [], shields: [], toggles: [],
       damage: [], death: null, pos: [], geo: {}, poros: [] };
     for (const a of tr.abilities || []) f.geo[a.slot] = a;
     let lastNum = null;
     for (const e of ev) {
       switch (e.k) {
         case "cast": f.casts.push(e); break;
+        case "toggle": f.toggles.push(e); break;
         case "attack": f.attacks.push(e); break;
         case "proc": f.procs.push(e); break;
         case "cc": f.cc.push(e); break;
@@ -691,6 +692,22 @@
         g.beginPath(); g.arc(p.x, p.y - hop, rad, 0, Math.PI * 2); g.stroke();
       }
       g.globalAlpha = 1;
+    }
+
+    // Toggles (Singed Q, Karthus E, Amumu W, Anivia R): a slowly turning ring while switched on,
+    // around you or, for one placed on a target, around it.
+    const toggleOn = new Map();
+    if (!s.dead) for (const e of fight.toggles) { if (e.t > time) break; if (e.f) toggleOn.set(e.s, e); else toggleOn.delete(e.s); }
+    for (const [slot, e] of toggleOn) {
+      const at = e.u !== undefined ? posOf(e.u) : st.me;
+      const rad = world ? Math.max(20 * u, (e.a || 300) * view.k) : (e.u !== undefined ? 50 : 70) * u;
+      const col = SLOT_COLORS[slot] || "#fff";
+      g.save();
+      g.fillStyle = col; g.strokeStyle = col;
+      g.globalAlpha = 0.1 + 0.04 * Math.sin(time * 4); g.beginPath(); g.arc(at.x, at.y, rad, 0, Math.PI * 2); g.fill();
+      g.globalAlpha = 0.55; g.lineWidth = 2.5 * u; g.setLineDash([10 * u, 8 * u]); g.lineDashOffset = -time * 30 * u;
+      g.beginPath(); g.arc(at.x, at.y, rad, 0, Math.PI * 2); g.stroke();
+      g.restore();
     }
 
     // Ability casts.
