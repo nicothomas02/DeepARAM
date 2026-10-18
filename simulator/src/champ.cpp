@@ -361,6 +361,7 @@ Library Library::load(const std::string& rulesPath, const Settings& settings, co
     lib.rules.hitbox = m["hitbox_radius"].asNumber(lib.rules.hitbox);
     lib.rules.laneHalfWidth = m["lane_half_width"].asNumber(lib.rules.laneHalfWidth);
     lib.rules.inRangeBoost = m["in_range_damage_boost"].asNumber(lib.rules.inRangeBoost);
+    lib.rules.focusRamp = m["focus_ramp"].asNumber(lib.rules.focusRamp);
     lib.rules.castMin = m["cast_time_min"].asNumber(lib.rules.castMin);
     lib.rules.castMax = m["cast_time_max"].asNumber(lib.rules.castMax);
     lib.rules.minCooldown = m["min_cooldown"].asNumber(lib.rules.minCooldown);
@@ -1342,6 +1343,12 @@ private:
         }
     }
 
+    // How much of the enemies' attention is on you: in a team fight their first spells and attacks
+    // are split with your teammates, so their damage on you builds up over focus_ramp seconds.
+    double focus(double now) const {
+        return rules_.focusRamp > 0 ? std::min(1.0, std::max(0.0, now - engageAt_) / rules_.focusRamp) : 1.0;
+    }
+
     // Enemies cast whatever is up and in range; returns the damage their hits deal you this step.
     double enemyCasts(double now) {
         if (enemyKits_.empty() || now <= engageAt_) return 0;
@@ -1363,7 +1370,7 @@ private:
                 // Your crowd control on it stops only its share of a team's casts.
                 const double acting = now < e.ccUntil ? ccLeft_ : 1.0;
                 if (!abilityRng_.chance(c.land)) continue;
-                double dmg = incomingDps_ * e.damageWeight * c.burst * acting * (now < e.shrinkUntil ? 1.0 - shrink_ : 1.0);
+                double dmg = incomingDps_ * e.damageWeight * c.burst * acting * (now < e.shrinkUntil ? 1.0 - shrink_ : 1.0) * focus(now);
                 if (c.slot != 'R') dmg *= rules_.longRange(distTo(e));  // ARAM long-range cut
                 burstRaw_ += dmg / throughResists_;
                 if (now < reductionUntil_) dmg *= 1.0 - get(fx_, "r_reduction");
@@ -1511,7 +1518,7 @@ private:
                         // crowd control stops just one of them (all of it in a five-enemy fight).
                         share += e.damageWeight * (now < e.ccUntil ? ccLeft_ : 1.0) * (now < e.shrinkUntil ? 1.0 - shrink_ : 1.0) *
                                  streamShare(e);
-                dps = incomingDps_ * share;
+                dps = incomingDps_ * share * focus(now);
                 rawTick = dps * dt / throughResists_;
                 if (now < reductionUntil_) dps *= 1.0 - get(fx_, "r_reduction");
                 exposureSum_ += share * dt;

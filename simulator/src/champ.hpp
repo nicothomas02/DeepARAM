@@ -165,6 +165,7 @@ struct Rules {
     // Enemies only hurt you while in reach, so their damage while in reach is scaled
     // up to keep a fight's total about where real games put it.
     double inRangeBoost = 1.0;
+    double focusRamp = 0;     // seconds over which the enemies' damage on you builds up to full
     double comboOrder = 1;  // 1: cast in each champion's recommended combo order; 0: by damage
     // Enemies cast their own abilities: their damage partly arrives as those abilities' hits (on
     // their cooldowns, in their range), and their crowd control is their own (rate kept to real games).
