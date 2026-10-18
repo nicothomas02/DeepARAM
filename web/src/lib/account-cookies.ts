@@ -9,9 +9,6 @@ export const OWNER_FLAG = "deeparam-admin-ui";
 /** HttpOnly, five minutes: the passkey challenge this browser was just sent. */
 export const CHALLENGE_COOKIE = "deeparam-passkey";
 
-/** HttpOnly, ten minutes: the state of a Sign in with Riot this browser started, and whether it signs in or connects. */
-export const RSO_COOKIE = "deeparam-rso";
-
 /** HttpOnly, ten minutes: state and nonce of a Sign in with Google, Apple, Discord etc. this browser started. */
 export const OAUTH_COOKIE = "deeparam-oauth";
 

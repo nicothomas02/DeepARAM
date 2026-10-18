@@ -7,7 +7,6 @@ import { ACCOUNT_EVENT, forgetAccount, syncAccount } from "@/lib/account-sync";
 import { useBotCheck } from "@/lib/bot-check-client";
 import championNames from "@/data/champion-names.json";
 import { LocalDate, useNames, useT } from "./I18n";
-import PlayerExtras from "./PlayerExtras";
 
 // The account page (/account): sign in or create an account, then manage it. Settings
 // sync on their own (lib/account-sync.ts); this page covers passkeys, the password, the connected Riot
@@ -26,8 +25,6 @@ type Account = {
   passkeys: { id: string; label: string; created: string }[];
   riot: { name: string; platform: string | null; page: string | null } | null;
   passkeySession: boolean;
-  /** Sign in with Riot is switched on (lib/rso.ts). */
-  rso: boolean;
   /** Sign in with Google or Apple: the ones switched on (lib/oauth.ts), and the ones this account uses. */
   providers: Provider[];
   logins: { provider: Provider; name: string; email: string | null }[];
@@ -48,8 +45,8 @@ const PROVIDER_NAMES: Record<Provider, string> = {
 // Shown as buttons; the rest sit under "More".
 const MAIN: Provider[] = ["google", "apple", "discord", "twitch"];
 
-/** Buttons for the sign-in services that are switched on: Riot and the main ones, then a "More" menu. */
-function ProviderButtons({ providers, rso, mode }: { providers: Provider[]; rso: boolean; mode: "signin" | "connect" }) {
+/** Buttons for the sign-in services that are switched on: the main ones, then a "More" menu. */
+function ProviderButtons({ providers, mode }: { providers: Provider[]; mode: "signin" | "connect" }) {
   const t = useT("account");
   const main = providers.filter((p) => MAIN.includes(p));
   const more = providers.filter((p) => !MAIN.includes(p));
@@ -61,11 +58,6 @@ function ProviderButtons({ providers, rso, mode }: { providers: Provider[]; rso:
   );
   return (
     <>
-      {rso && (
-        <a className="btn ghost acct-provider" href={`/api/account/rso/start?mode=${mode}`}>
-          {label("Riot")}
-        </a>
-      )}
       {main.map(link)}
       {more.length > 0 && (
         <details className="acct-more">
@@ -121,14 +113,12 @@ function deviceLabel() {
 export default function AccountPanel({ children }: { children?: React.ReactNode }) {
   const t = useT("account");
   const [account, setAccount] = useState<Account | null | undefined>(undefined);
-  const [rso, setRso] = useState(false);
   const [providers, setProviders] = useState<Provider[]>([]);
-  // Coming back from Sign in with Riot: /account?riot=connected or ?riot-error=<what went wrong>.
+  // Coming back from another sign-in service: ?signin-error=<what went wrong>, or a Riot connect: ?riot=connected / ?riot-error=.
   const [riotMsg, setRiotMsg] = useState<Msg>(null);
 
   const refresh = useCallback(async () => {
     const a = await fetch("/api/account", { cache: "no-store" }).then((r) => r.json()).catch(() => null);
-    setRso(Boolean(a?.rso));
     setProviders(Array.isArray(a?.providers) ? a.providers : []);
     setAccount(a?.signedIn ? a : null);
   }, []);
@@ -160,7 +150,7 @@ export default function AccountPanel({ children }: { children?: React.ReactNode 
         </Manage>
       ) : (
         <>
-          <SignIn onDone={signedIn} rso={rso} providers={providers} />
+          <SignIn onDone={signedIn} providers={providers} />
           {children}
         </>
       )}
@@ -168,7 +158,7 @@ export default function AccountPanel({ children }: { children?: React.ReactNode 
   );
 }
 
-function SignIn({ onDone, rso, providers }: { onDone: () => Promise<void>; rso: boolean; providers: Provider[] }) {
+function SignIn({ onDone, providers }: { onDone: () => Promise<void>; providers: Provider[] }) {
   const [mode, setMode] = useState<"signin" | "signup">("signin");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -261,13 +251,13 @@ function SignIn({ onDone, rso, providers }: { onDone: () => Promise<void>; rso: 
           {busy ? t("One moment…") : signup ? t("Create account") : t("Sign in")}
         </button>
       </form>
-      {(passkeys || rso || providers.length > 0) && <p className="acct-or">{t("or")}</p>}
+      {(passkeys || providers.length > 0) && <p className="acct-or">{t("or")}</p>}
       {passkeys && (
         <button type="button" className="btn ghost acct-passkey" onClick={signup ? createPasskey : passkey} disabled={busy}>
           {signup ? t("Create a passkey") : t("Sign in with a passkey")}
         </button>
       )}
-      <ProviderButtons providers={providers} rso={rso} mode="signin" />
+      <ProviderButtons providers={providers} mode="signin" />
       <Note msg={msg} />
       <p className="acct-hint">
         {signup
@@ -373,7 +363,6 @@ function Manage({ account, refresh, children }: { account: Account; refresh: () 
         <h2>{t("Riot account")}</h2>
         <div className="acct-grid">
           <RiotCard account={account} refresh={refresh} />
-          {account.riot && <PlayerExtras />}
         </div>
       </section>
 
@@ -630,16 +619,10 @@ function RiotCard({ account, refresh }: { account: Account; refresh: () => Promi
       ) : (
         <>
           {expired && <p className="acct-note error">{t("That code expired. Get a new one.")}</p>}
-          <p className="acct-hint">{t("Connect the Riot account you play on to see your mastery and Clash team here. Only you can connect yours: My Stats checks it with the Riot Client on your computer.")}</p>
-          {account.rso && (
-            <a className="btn" href="/api/account/rso/start?mode=connect">
-              {t("Connect with Riot sign-in")}
-            </a>
-          )}
-          <button type="button" className={account.rso ? "btn ghost" : "btn"} onClick={getCode}>
-            {expired ? t("Get a new code") : account.rso ? t("Use a code from My Stats instead") : t("Get my code")}
+          <p className="acct-hint">{t("Connect the Riot account you play on so My Stats can bring your games here. Only you can connect yours: My Stats checks it with the Riot Client on your computer.")}</p>
+          <button type="button" className="btn" onClick={getCode}>
+            {expired ? t("Get a new code") : t("Get my code")}
           </button>
-          {!account.rso && <p className="acct-hint">{t("Coming soon: connect straight from this page with your Riot sign-in.")}</p>}
         </>
       )}
       <Note msg={msg} />
@@ -680,7 +663,7 @@ function ProvidersCard({ account, refresh }: { account: Account; refresh: () => 
           ))}
         </ul>
       )}
-      <ProviderButtons providers={missing} rso={false} mode="connect" />
+      <ProviderButtons providers={missing} mode="connect" />
       <Note msg={msg} />
     </section>
   );

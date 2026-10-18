@@ -29,10 +29,8 @@ export default function Privacy() {
           password there, and we receive only an account identifier and, if they have confirmed it, your email address. You can stop signing in that way from the account page.
         </p>
         <p>
-          If you connect a Riot account, we keep its Riot ID, server and Riot&apos;s player identifier, and show you its champion mastery, challenge standing,
-          the title and challenge tokens you show in the game, and ARAM Clash team from Riot Games. Connecting is confirmed by the Riot Client on your own computer,
-          or by signing in with Riot, so nobody can connect yours. Signing in with Riot happens on Riot&apos;s own page: we never see your Riot password, and we
-          receive only your Riot ID, server and player identifier. You can disconnect it at any time.
+          If you connect a Riot account through My Stats, we keep its Riot ID, server and Riot&apos;s player identifier with your account. Connecting is
+          confirmed by the Riot Client on your own computer, so nobody can connect yours. You can disconnect it at any time.
         </p>
         <p>
           If you send a build to The Kitchen from the Simulator, we keep it with your account: the champion, items and augments, the name and text you

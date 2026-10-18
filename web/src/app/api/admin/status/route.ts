@@ -9,7 +9,6 @@ export function GET() {
   return NextResponse.json({
     OWNER_EMAIL: has("OWNER_EMAIL"),
     GITHUB_TOKEN: has("GITHUB_TOKEN"),
-    RIOT_API_KEY: has("RIOT_API_KEY"),
     bindings: bindingNames(),
   });
 }
