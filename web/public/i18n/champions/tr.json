@@ -84,5 +84,10 @@
  "Spells": "Büyüler",
  "DeepScore": "DeepScore",
  "More details": "Daha fazla ayrıntı",
- "Best DeepScore first, with each item's pick rate and win rate.": "Önce en iyi DeepScore; her eşyanın seçilme ve kazanma oranıyla."
+ "Best DeepScore first, with each item's pick rate and win rate.": "Önce en iyi DeepScore; her eşyanın seçilme ve kazanma oranıyla.",
+ "Legendary": "Efsanevi",
+ "Epic": "Destansı",
+ "Basic": "Temel",
+ "Starter": "Başlangıç",
+ "Grouped by tier, best DeepScore first in each, with each item's pick rate and win rate.": "Seviyeye göre gruplandı, her grupta en iyi DeepScore önce, her eşyanın seçilme ve kazanma oranıyla."
 }

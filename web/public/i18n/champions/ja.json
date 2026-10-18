@@ -84,5 +84,10 @@
  "Spells": "スペル",
  "DeepScore": "DeepScore",
  "More details": "詳細",
- "Best DeepScore first, with each item's pick rate and win rate.": "DeepScoreの高い順に、各アイテムのピック率と勝率を表示。"
+ "Best DeepScore first, with each item's pick rate and win rate.": "DeepScoreの高い順に、各アイテムのピック率と勝率を表示。",
+ "Legendary": "レジェンダリー",
+ "Epic": "エピック",
+ "Basic": "ベーシック",
+ "Starter": "スターター",
+ "Grouped by tier, best DeepScore first in each, with each item's pick rate and win rate.": "ティアごとに分け、それぞれ DeepScore の高い順に、各アイテムのピック率と勝率を表示します。"
 }

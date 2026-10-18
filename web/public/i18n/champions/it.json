@@ -84,5 +84,10 @@
  "Spells": "Incantesimi",
  "DeepScore": "DeepScore",
  "More details": "Altri dettagli",
- "Best DeepScore first, with each item's pick rate and win rate.": "Prima il DeepScore migliore, con tasso di scelta e tasso di vittoria di ogni oggetto."
+ "Best DeepScore first, with each item's pick rate and win rate.": "Prima il DeepScore migliore, con tasso di scelta e tasso di vittoria di ogni oggetto.",
+ "Legendary": "Leggendario",
+ "Epic": "Epico",
+ "Basic": "Base",
+ "Starter": "Iniziale",
+ "Grouped by tier, best DeepScore first in each, with each item's pick rate and win rate.": "Raggruppati per livello, con il DeepScore migliore per primo in ciascuno, e la percentuale di scelta e di vittoria di ogni oggetto."
 }

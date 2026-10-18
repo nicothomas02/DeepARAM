@@ -84,5 +84,10 @@
  "Spells": "Vrăji",
  "DeepScore": "DeepScore",
  "More details": "Mai multe detalii",
- "Best DeepScore first, with each item's pick rate and win rate.": "Cel mai bun DeepScore întâi, cu rata de alegere și rata de victorie a fiecărui obiect."
+ "Best DeepScore first, with each item's pick rate and win rate.": "Cel mai bun DeepScore întâi, cu rata de alegere și rata de victorie a fiecărui obiect.",
+ "Legendary": "Legendar",
+ "Epic": "Epic",
+ "Basic": "De bază",
+ "Starter": "De start",
+ "Grouped by tier, best DeepScore first in each, with each item's pick rate and win rate.": "Grupate pe niveluri, cu cel mai bun DeepScore primul în fiecare, plus rata de alegere și rata de victorie a fiecărui obiect."
 }

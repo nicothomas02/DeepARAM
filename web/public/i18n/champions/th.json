@@ -84,5 +84,10 @@
  "Spells": "สเปล",
  "DeepScore": "DeepScore",
  "More details": "รายละเอียดเพิ่มเติม",
- "Best DeepScore first, with each item's pick rate and win rate.": "DeepScore สูงสุดก่อน พร้อมอัตราการเลือกและอัตราชนะของแต่ละไอเทม"
+ "Best DeepScore first, with each item's pick rate and win rate.": "DeepScore สูงสุดก่อน พร้อมอัตราการเลือกและอัตราชนะของแต่ละไอเทม",
+ "Legendary": "ระดับตำนาน",
+ "Epic": "ระดับมหากาพย์",
+ "Basic": "พื้นฐาน",
+ "Starter": "เริ่มต้น",
+ "Grouped by tier, best DeepScore first in each, with each item's pick rate and win rate.": "จัดกลุ่มตามระดับ เรียง DeepScore ดีที่สุดก่อนในแต่ละกลุ่ม พร้อมอัตราการเลือกและอัตราชนะของแต่ละไอเทม"
 }

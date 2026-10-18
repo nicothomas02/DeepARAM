@@ -84,5 +84,10 @@
  "Spells": "Kouzla",
  "DeepScore": "DeepScore",
  "More details": "Další podrobnosti",
- "Best DeepScore first, with each item's pick rate and win rate.": "Nejlepší DeepScore jako první, s mírou výběru a mírou výher každého předmětu."
+ "Best DeepScore first, with each item's pick rate and win rate.": "Nejlepší DeepScore jako první, s mírou výběru a mírou výher každého předmětu.",
+ "Legendary": "Legendární",
+ "Epic": "Epický",
+ "Basic": "Základní",
+ "Starter": "Startovní",
+ "Grouped by tier, best DeepScore first in each, with each item's pick rate and win rate.": "Seskupeno podle úrovně, v každé nejdřív nejlepší DeepScore, s mírou výběru a mírou výher každého předmětu."
 }

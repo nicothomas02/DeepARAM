@@ -34,7 +34,16 @@ import AugmentTable from "@/components/champion/AugmentTable";
 import SectionRail from "@/components/champion/SectionRail";
 import { BaseStatsTable, MayhemChanges } from "@/components/champion/Details";
 import { fillGames, fillSpells, type SpellRow } from "@/lib/fill";
+import { ITEM_TIERS, type ItemTier } from "@/lib/items";
 import "../champion-page.css";
+
+const TIER_LABEL: Record<ItemTier, string> = {
+  legendary: "Legendary",
+  boots: "Boots",
+  epic: "Epic",
+  basic: "Basic",
+  starter: "Starter",
+};
 
 // One page per champion, so each can be found in search. Laid out like a stat site's champion page: a header
 // with the headline numbers, then a summary card (best build, skill order), ranked tables in the middle and
@@ -90,7 +99,16 @@ function Spells({ r }: { r: SpellRow }) {
   return (
     <span className="cp-icons">
       {r.spells.map((s) => (
-        <img key={s.id} className="cp-icon" src={s.icon} alt={s.name} title={s.name} width={36} height={36} loading="lazy" />
+        <img
+          key={s.id}
+          className="cp-icon"
+          src={s.icon}
+          alt={s.name}
+          title={s.name}
+          width={36}
+          height={36}
+          loading="lazy"
+        />
       ))}
     </span>
   );
@@ -134,7 +152,8 @@ export default async function ChampionPage({
   const bestStart = bestRow(p.starting);
   const bestSkill = bestRow(p.skills, 0.1);
   const spells = fillSpells(c.alias, c.winRate ?? 0.5);
-  const bestSpells = bestRow(spells.filter((r) => r.pickRate >= 0.05)) ?? spells[0];
+  const bestSpells =
+    bestRow(spells.filter((r) => r.pickRate >= 0.05)) ?? spells[0];
   const games = fillGames()?.[c.alias];
   const radar = new Map(c.radar.map((a) => [a.key, a]));
   const perf = (
@@ -265,7 +284,9 @@ export default async function ChampionPage({
               </div>
             )}
             <Cell value={pct(c.pickRate ?? 0)} label="Pick rate" />
-            {games !== undefined && <Cell value={games.toLocaleString("en-US")} label="Games" />}
+            {games !== undefined && (
+              <Cell value={games.toLocaleString("en-US")} label="Games" />
+            )}
             <div className="cp-cell">
               <b>#{c.rank}</b>
               <small>
@@ -405,31 +426,53 @@ export default async function ChampionPage({
               note={
                 <T ns={NS}>
                   {
-                    "Best DeepScore first, with each item's pick rate and win rate."
+                    "Grouped by tier, best DeepScore first in each, with each item's pick rate and win rate."
                   }
                 </T>
               }
             >
-              <div className="cp-strip-x" role="list">
-                {p.items.map((r) => (
-                  <div key={r.items[0]} className="cp-tile" role="listitem">
-                    <ItemIcon id={r.items[0]} info={info} />
-                    <ItemName id={r.items[0]} info={info} />
-                    {r.deepScore !== undefined && (
-                      <DeepScore
-                        value={r.deepScore}
-                        help={ITEM_DEEPSCORE_HELP}
-                      />
-                    )}
-                    <Cell value={pct(r.pickRate)} label="Pick rate" />
-                    <Cell
-                      value={pct(r.winRate)}
-                      label="Win rate"
-                      tone={tone(r.lift)}
-                    />
-                  </div>
-                ))}
-              </div>
+              {ITEM_TIERS.map((tier) => {
+                const list = p.items.filter(
+                  (r) => (r.tier ?? "legendary") === tier,
+                );
+                if (!list.length) return null;
+                return (
+                  <section
+                    key={tier}
+                    className="cp-itier"
+                    aria-label={TIER_LABEL[tier]}
+                  >
+                    <h4 className="cp-itier-h">
+                      <T ns={NS}>{TIER_LABEL[tier]}</T>{" "}
+                      <span>{list.length}</span>
+                    </h4>
+                    <div className="cp-strip-x" role="list">
+                      {list.map((r) => (
+                        <div
+                          key={r.items[0]}
+                          className="cp-tile"
+                          role="listitem"
+                        >
+                          <ItemIcon id={r.items[0]} info={info} />
+                          <ItemName id={r.items[0]} info={info} />
+                          {r.deepScore !== undefined && (
+                            <DeepScore
+                              value={r.deepScore}
+                              help={ITEM_DEEPSCORE_HELP}
+                            />
+                          )}
+                          <Cell value={pct(r.pickRate)} label="Pick rate" />
+                          <Cell
+                            value={pct(r.winRate)}
+                            label="Win rate"
+                            tone={tone(r.lift)}
+                          />
+                        </div>
+                      ))}
+                    </div>
+                  </section>
+                );
+              })}
             </Panel>
           )}
 
