@@ -901,10 +901,81 @@ async function setupProfile() {
 }
 
 // ---------- connect account ----------
-// Links the Riot account signed in to this computer to a deeparam.com account, using the one-time code the
-// site's account page shows. The helper proves which Riot account it is; nothing else is sent.
+// Links the Riot account signed in to this computer to a deeparam.com account. One click: the helper opens the
+// account page, the player confirms there, and this page notices (it asks every few seconds and when the window
+// comes back into focus). The player can also tick "save my games" on that page, and saving then starts here.
+// The older way, typing the one-time code from the account page, stays as a fallback. The helper proves which
+// Riot account it is; nothing else is sent.
 
 const linkStatus = $("link-status");
+const PAIR_EVERY = 10000; // the site allows a few requests a minute from the helper
+let pairing = null;
+
+function linked(j) {
+  linkStatus.textContent = j.riotId
+    ? t("Connected {riotId}. Reload your account page on deeparam.com to see it.", { riotId: j.riotId })
+    : t("Connected your Riot account. Reload your account page on deeparam.com to see it.");
+}
+
+async function pairCall(body) {
+  const res = await fetch("api/profile", {
+    method: "POST", headers: { "X-Mayhem": "1", "Content-Type": "application/json" }, body: JSON.stringify(body),
+  });
+  const j = await res.json().catch(() => ({}));
+  if (!res.ok) throw new Error(t(j.error || "Something went wrong. Try again."));
+  return j;
+}
+
+async function checkPair() {
+  if (!pairing || pairing.busy || Date.now() - pairing.last < 4000) return;
+  pairing.busy = true;
+  pairing.last = Date.now();
+  try {
+    const j = await pairCall({ action: "pair-status", pair: pairing.id });
+    if (j.expired) return stopPair(t("That took too long. Choose Connect to deeparam.com again."));
+    if (!j.linked) return;
+    stopPair();
+    linked(j);
+    if (j.save) {
+      // Ticked on the account page: save the games here to the account, then import any new ones.
+      showHistory({ enabled: true, available: true, saved: 0 });
+      const note = $("history-status");
+      note.hidden = false;
+      note.textContent = t("Saving your games…");
+      try {
+        showHistory(await historyCall({ enabled: true }));
+        note.textContent = t("Saving is on. New games are saved after each import.");
+        startSync();
+      } catch (e) { note.textContent = e.message; }
+    }
+  } catch (e) { /* try again on the next tick */ } finally {
+    if (pairing) pairing.busy = false;
+  }
+}
+
+function stopPair(msg) {
+  if (pairing) clearInterval(pairing.timer);
+  pairing = null;
+  $("pair-start").disabled = false;
+  if (msg) linkStatus.textContent = msg;
+}
+
+$("pair-start").addEventListener("click", async () => {
+  const btn = $("pair-start");
+  btn.disabled = true;
+  linkStatus.hidden = false;
+  linkStatus.textContent = t("Opening your account page…");
+  try {
+    const j = await pairCall({ action: "pair" });
+    if (!j.pair) throw new Error(t("Something went wrong. Try again."));
+    if (pairing) clearInterval(pairing.timer);
+    pairing = { id: j.pair, last: Date.now(), busy: false, timer: setInterval(checkPair, PAIR_EVERY) };
+    linkStatus.textContent = t("Your account page opened in your browser. Sign in if you need to, then choose Connect there. This page updates by itself.");
+  } catch (err) {
+    stopPair(err.message);
+  }
+});
+addEventListener("focus", checkPair);
 
 $("link-form").addEventListener("submit", async (e) => {
   e.preventDefault();
@@ -922,9 +993,7 @@ $("link-form").addEventListener("submit", async (e) => {
     });
     const j = await res.json().catch(() => ({}));
     if (!res.ok || !j.linked) throw new Error(t(j.error || "Something went wrong. Try again."));
-    linkStatus.textContent = j.riotId
-      ? t("Connected {riotId}. Reload your account page on deeparam.com to see it.", { riotId: j.riotId })
-      : t("Connected your Riot account. Reload your account page on deeparam.com to see it.");
+    linked(j);
     input.value = "";
   } catch (err) {
     linkStatus.textContent = err.message;

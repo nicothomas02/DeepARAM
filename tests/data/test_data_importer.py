@@ -598,3 +598,21 @@ def test_run_import_saves_owned_champions_and_skins(mi, monkeypatch, tmp_path):
     assert summary["added"] == 0
     out = json.loads(path.read_text())  # saved even with no new games, because the collection changed
     assert out["owned"] == {"champions": [103], "skins": [103001]}
+
+
+def test_pair_opens_the_account_page_on_the_site_only(mi, monkeypatch):
+    import webbrowser
+    opened, sent = [], []
+    monkeypatch.setattr(webbrowser, "open", opened.append)
+    monkeypatch.setattr(mi, "find_client", lambda lockfile=None: FakeLcu(mi))
+    replies = iter([{"pair": "a" * 32, "connect": "/account?connect=" + "a" * 32 + "#my-stats"},
+                    {"pair": "b" * 32, "connect": "https://elsewhere.example/"}])
+
+    def site_post(lcu, path_, payload):
+        sent.append(payload)
+        return next(replies)
+    monkeypatch.setattr(mi, "site_post", site_post)
+    assert mi.site_profile("pair")["url"] == mi.SITE + "/account?connect=" + "a" * 32 + "#my-stats"
+    mi.site_profile("pair")  # anything but the account page isn't opened
+    assert opened == [mi.SITE + "/account?connect=" + "a" * 32 + "#my-stats"]
+    assert sent[0] == {"action": "pair", "pair": None}

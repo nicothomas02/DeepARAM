@@ -1,10 +1,13 @@
 import { NextRequest } from "next/server";
 import { AccountError, linkRiot } from "@/lib/accounts";
+import { isPairId, pairStatus, startPair } from "@/lib/riot-pair";
 import { cleanProfile, isPlatform, profileByPuuid, profilePath, removeProfile, saveProfile, tokenOwner } from "@/lib/profiles";
 
-// POST /api/profile {action: "publish" | "remove" | "status" | "link", token, platform, data?, code?}, sent by the
-// My Stats helper on the player's computer. The token decides whose page it is; see lib/profiles.ts.
-// "link" connects that Riot account to the site account that showed `code` (lib/accounts.ts).
+// POST /api/profile {action: "publish" | "remove" | "status" | "link" | "pair" | "pair-status", token, platform,
+// data?, code?, pair?}, sent by the My Stats helper on the player's computer. The token decides whose page it is;
+// see lib/profiles.ts. "link" connects that Riot account to the site account that showed `code` (lib/accounts.ts);
+// "pair" starts a one-click connect the player confirms on their account page, and "pair-status" asks how it went
+// (lib/riot-pair.ts).
 const MAX_BODY = 32_000;
 
 const json = (obj: unknown, status = 200) => Response.json(obj, { status, headers: { "Cache-Control": "no-store" } });
@@ -31,6 +34,14 @@ export async function POST(req: NextRequest) {
       throw err;
     }
     return json({ linked: true, riotId: `${owner.name}#${owner.tag}` });
+  }
+  if (action === "pair") {
+    const pair = await startPair(owner, platform);
+    return json({ pair, connect: `/account?connect=${pair}#my-stats` });
+  }
+  if (action === "pair-status") {
+    if (!isPairId(body.pair)) return json({ error: "Bad request" }, 400);
+    return json(await pairStatus(body.pair, owner.puuid));
   }
   if (action === "remove") {
     await removeProfile(owner.puuid);
