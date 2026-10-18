@@ -174,6 +174,20 @@ def bin_stats(item):
     return {k: clean(item[f]) for k, f in BIN_STATS.items() if item.get(f)}
 
 
+# Stats the simulator reads as effect keys (move speed, tenacity, heal and shield power).
+BIN_STAT_EFFECTS = {
+    "ms": "mFlatMovementSpeedMod",
+    "ms_pct": "mPercentMovementSpeedMod",
+    "tenacity": "mPercentTenacityItemMod",
+    "heal_shield_power": "mPercentHealingAmountMod",
+}
+
+# item_effects.json group -> items.json slot. Only boots and legendaries go into the build search;
+# components, starters and the items augments hand out can be put in a build by hand.
+GROUPS = {"boots": "boots", "items": "legendary", "components": "component", "starters": "starter",
+          "rewards": "reward"}
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     ap.add_argument("--cache", default=DEFAULT_CACHE)
@@ -187,8 +201,8 @@ def main():
     with open(os.path.join(DATA, "item_effects.json"), encoding="utf-8") as f:
         hand = json.load(f)
     out, from_bin, changed = {}, 0, []
-    for group in ("boots", "items"):
-        for item_id, h in hand[group].items():
+    for group, slot in GROUPS.items():
+        for item_id, h in hand.get(group, {}).items():
             iid = int(item_id)
             it, b = listing.get(iid), bins.get(iid)
             if it is None or b is None:
@@ -197,7 +211,8 @@ def main():
             stats.update(h.get("stats", {}))
             for k, v in h.get("stats_add", {}).items():
                 stats[k] = stats.get(k, 0) + v
-            effects = dict(h.get("effects", {}))
+            effects = {k: clean(b[f]) for k, f in BIN_STAT_EFFECTS.items() if b.get(f)}
+            effects.update(h.get("effects", {}))
             vals, calcs = data_values(b), b.get("mItemCalculations", {})
             for key, getter in BIN_EFFECTS.get(h["key"], {}).items():
                 v = getter(vals, calcs)
@@ -212,7 +227,7 @@ def main():
             out[h["key"]] = {
                 "id": iid,
                 "name": it["name"],
-                "slot": "boots" if group == "boots" else "legendary",
+                "slot": slot,
                 "cost": it["priceTotal"],
                 "roles": h.get("roles", []),
                 "stats": stats,

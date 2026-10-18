@@ -127,7 +127,9 @@ Settings: `start_distance`, `enemy_spread` (fight), `dodge_chance` 0.75, `reacti
 | `proc_*`, `active_*` | Luden's-style procs and active items |
 | `aura_flat`, `aura_bonus_hp` | Sunfire-style aura damage per second |
 
-Items that share a group in `item_effects.json` (`group`: Last Whisper, Blight, Hydra, Lifeline) can't be in one build, as in the game: `--items` with two of them is an error and the build search skips such pairs. Move speed goes through the game's soft caps (above 415 only 80% counts, above 490 only 50%).
+`item_effects.json` lists every item the Howling Abyss shop sells (consumables aside) plus the items augments hand out, in groups: `boots`, `items` (legendaries), `components`, `starters` and `rewards`. Only boots and legendaries go into the build search; the rest can be put in a build by hand. Move speed, tenacity and heal and shield power come from the item bin as the effect keys `ms`, `ms_pct`, `tenacity` and `heal_shield_power`.
+
+Items that share a group in `item_effects.json` (`group`: Last Whisper, Blight, Hydra, Lifeline, Magical Opus) can't be in one build, as in the game: `--items` with two of them is an error and the build search skips such pairs. Move speed goes through the game's soft caps (above 415 only 80% counts, above 490 only 50%).
 
 `data/augments.json` has every Mayhem augment in the live patch (216), with Riot's Kiwi ids. 141 of them have an effect in the simulator; the rest carry a `not_modeled` reason (they help allies, change summoner spells, give gold or items, need takedowns or movement, or double champion stacks) and the optimizer skips them. The original 14 augments keep a hand-written mapping in `tools/build_augments.py`; every other augment's effect keys are written in `tools/augment_effects.py`, with values read from the augment spell's DataValues and calculations (`dv`, `calc`, and `lvl` for values that grow from level 1 to 18). Values with no client equivalent stay hand-written with a note: Erosion assumes 15 stacks on average, Tank Engine 10 takedowns, and Witchful Thinking gives 20-80 AP by level as its tooltip shows (its unused DataValue says 70).
 
