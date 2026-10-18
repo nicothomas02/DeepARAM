@@ -66,5 +66,5 @@ export const AUGMENT_DEEPSCORE_HELP =
   `better than they are, and trusts rarely picked augments less. Tiers: ${CUTS}, D below.`;
 
 export const ITEM_DEEPSCORE_HELP =
-  "DeepScore rates each item from 0 to 100 against this champion's other items, where 50 is average. It starts " +
+  "DeepScore rates each item from 0 to 100 against this champion's other items of the same tier, where 50 is average. It starts " +
   `from the item's win rate with this champion and trusts rarely built items less. Tiers: ${CUTS}, D below.`;

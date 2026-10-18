@@ -84,5 +84,10 @@
  "Spells": "Phép bổ trợ",
  "DeepScore": "DeepScore",
  "More details": "Thêm chi tiết",
- "Best DeepScore first, with each item's pick rate and win rate.": "DeepScore cao nhất trước, kèm tỉ lệ chọn và tỉ lệ thắng của từng trang bị."
+ "Best DeepScore first, with each item's pick rate and win rate.": "DeepScore cao nhất trước, kèm tỉ lệ chọn và tỉ lệ thắng của từng trang bị.",
+ "Legendary": "Huyền thoại",
+ "Epic": "Sử thi",
+ "Basic": "Cơ bản",
+ "Starter": "Khởi đầu",
+ "Grouped by tier, best DeepScore first in each, with each item's pick rate and win rate.": "Chia theo cấp, mỗi cấp xếp DeepScore cao nhất trước, kèm tỉ lệ chọn và tỉ lệ thắng của từng trang bị."
 }

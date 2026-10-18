@@ -84,5 +84,10 @@
  "Spells": "تعويذات",
  "DeepScore": "DeepScore",
  "More details": "مزيد من التفاصيل",
- "Best DeepScore first, with each item's pick rate and win rate.": "الأعلى في DeepScore أولًا، مع نسبة اختيار كل عنصر ونسبة فوزه."
+ "Best DeepScore first, with each item's pick rate and win rate.": "الأعلى في DeepScore أولًا، مع نسبة اختيار كل عنصر ونسبة فوزه.",
+ "Legendary": "أسطوري",
+ "Epic": "ملحمي",
+ "Basic": "أساسي",
+ "Starter": "بداية",
+ "Grouped by tier, best DeepScore first in each, with each item's pick rate and win rate.": "مجمّعة حسب الفئة، وأعلى DeepScore أولًا في كل فئة، مع نسبة الاختيار ونسبة الفوز لكل عنصر."
 }

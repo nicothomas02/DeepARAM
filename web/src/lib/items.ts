@@ -40,3 +40,24 @@ export function rewardItems(): Set<number> {
   );
   return rewards;
 }
+
+export type ItemTier = "legendary" | "boots" | "epic" | "basic" | "starter";
+export const ITEM_TIERS: ItemTier[] = ["legendary", "boots", "epic", "basic", "starter"];
+
+/** An item's shop tier from its recipe: boots, finished (legendary), a component of one (epic or basic), or a cheap standalone starter. */
+type Recipe = { id: number; from: number[]; to: number[]; categories: string[]; priceTotal: number; specialRecipe: number };
+let recipes: Map<number, Recipe> | null = null;
+export function itemTier(id: number): ItemTier {
+  if (!recipes) {
+    const file = join(process.cwd(), "public", "assets", "cd", "latest", GAME_DATA, "v1", "items.json");
+    recipes = new Map((existsSync(file) ? (JSON.parse(readFileSync(file, "utf8")) as Recipe[]) : []).map((r) => [r.id, r]));
+  }
+  const r = recipes.get(id);
+  if (!r) return "legendary";
+  if (r.categories?.includes("Boots")) return "boots";
+  // Transformations (Whispering Circlet into Diadem of Songs) aren't upgrades.
+  const upgrades = (r.to ?? []).filter((t) => recipes!.get(t)?.specialRecipe !== id);
+  if (upgrades.length) return r.from?.length ? "epic" : "basic";
+  if (!r.from?.length && r.priceTotal < 1000) return "starter";
+  return "legendary";
+}

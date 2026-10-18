@@ -84,5 +84,10 @@
  "Spells": "주문",
  "DeepScore": "DeepScore",
  "More details": "자세히 보기",
- "Best DeepScore first, with each item's pick rate and win rate.": "DeepScore가 높은 순으로, 각 아이템의 선택률과 승률을 함께 표시합니다."
+ "Best DeepScore first, with each item's pick rate and win rate.": "DeepScore가 높은 순으로, 각 아이템의 선택률과 승률을 함께 표시합니다.",
+ "Legendary": "전설",
+ "Epic": "서사",
+ "Basic": "기본",
+ "Starter": "시작",
+ "Grouped by tier, best DeepScore first in each, with each item's pick rate and win rate.": "등급별로 묶고 각 등급에서 DeepScore가 높은 순으로, 아이템별 선택률과 승률을 보여 줍니다."
 }

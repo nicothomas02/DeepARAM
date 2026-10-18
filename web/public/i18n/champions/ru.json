@@ -84,5 +84,10 @@
  "Spells": "Заклинания",
  "DeepScore": "DeepScore",
  "More details": "Подробнее",
- "Best DeepScore first, with each item's pick rate and win rate.": "Сначала лучший DeepScore, с частотой выбора и процентом побед каждого предмета."
+ "Best DeepScore first, with each item's pick rate and win rate.": "Сначала лучший DeepScore, с частотой выбора и процентом побед каждого предмета.",
+ "Legendary": "Легендарные",
+ "Epic": "Эпические",
+ "Basic": "Базовые",
+ "Starter": "Стартовые",
+ "Grouped by tier, best DeepScore first in each, with each item's pick rate and win rate.": "По уровням, в каждом сначала лучший DeepScore, с частотой выбора и долей побед каждого предмета."
 }

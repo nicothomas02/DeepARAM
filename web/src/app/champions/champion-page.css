@@ -692,3 +692,15 @@ html[data-view="simple"] .cp-panel[data-detailed] {
 .cp-tile .cp-cell {
   align-items: center;
 }
+
+/* All items, one row per tier (Legendary, Boots, Epic...). */
+.cp-itier-h {
+  margin: 0;
+  padding: 0.25rem 1rem 0;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+.cp-itier-h span {
+  font-weight: 400;
+}

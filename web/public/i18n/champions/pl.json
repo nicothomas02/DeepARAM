@@ -84,5 +84,10 @@
  "Spells": "Czary",
  "DeepScore": "DeepScore",
  "More details": "Więcej szczegółów",
- "Best DeepScore first, with each item's pick rate and win rate.": "Najlepszy DeepScore na początku, z odsetkiem wyborów i zwycięstw każdego przedmiotu."
+ "Best DeepScore first, with each item's pick rate and win rate.": "Najlepszy DeepScore na początku, z odsetkiem wyborów i zwycięstw każdego przedmiotu.",
+ "Legendary": "Legendarny",
+ "Epic": "Epicki",
+ "Basic": "Podstawowy",
+ "Starter": "Startowy",
+ "Grouped by tier, best DeepScore first in each, with each item's pick rate and win rate.": "Pogrupowane według poziomu, w każdym najpierw najlepszy DeepScore, z odsetkiem wyborów i zwycięstw każdego przedmiotu."
 }

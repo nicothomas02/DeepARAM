@@ -1084,8 +1084,7 @@ async function setupProfile() {
 // Links the Riot account signed in to this computer to a deeparam.com account. One click: the helper opens the
 // account page, the player confirms there, and this page notices (it asks every few seconds and when the window
 // comes back into focus). The player can also tick "save my games" on that page, and saving then starts here.
-// The older way, typing the one-time code from the account page, stays as a fallback. The helper proves which
-// Riot account it is; nothing else is sent.
+// The helper proves which Riot account it is; nothing else is sent.
 
 const linkStatus = $("link-status");
 const PAIR_EVERY = 10000; // the site allows a few requests a minute from the helper
@@ -1156,31 +1155,6 @@ $("pair-start").addEventListener("click", async () => {
   }
 });
 addEventListener("focus", checkPair);
-
-$("link-form").addEventListener("submit", async (e) => {
-  e.preventDefault();
-  const input = $("link-code");
-  const code = input.value.trim().toUpperCase();
-  linkStatus.hidden = false;
-  if (!/^[A-Z0-9]{8}$/.test(code)) { linkStatus.textContent = t("Enter the 8-character code from your account page."); return; }
-  const btn = e.submitter || $("link-form").querySelector("button");
-  btn.disabled = true;
-  linkStatus.textContent = t("Connecting…");
-  try {
-    const res = await fetch("api/profile", {
-      method: "POST", headers: { "X-Mayhem": "1", "Content-Type": "application/json" },
-      body: JSON.stringify({ action: "link", code }),
-    });
-    const j = await res.json().catch(() => ({}));
-    if (!res.ok || !j.linked) throw new Error(t(j.error || "Something went wrong. Try again."));
-    linked(j);
-    input.value = "";
-  } catch (err) {
-    linkStatus.textContent = err.message;
-  } finally {
-    btn.disabled = false;
-  }
-});
 
 function setupLink() {
   if (helperOnline && !state.sample) $("link-card").hidden = false;
