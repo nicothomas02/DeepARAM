@@ -85,11 +85,16 @@ def fair_augments():
     return out
 
 
-def data_dragon():
-    """{champion id: {"name", "tags", "stats"}} from the newest Data Dragon copy in the repo."""
+def dd_file(name):
+    """Path of a file in the newest Data Dragon copy in the repo (data/en_US/<name>)."""
     dirs = sorted(glob.glob(os.path.join(REPO, "web", "public", "assets", "dd", "[0-9]*")),
                   key=lambda p: [int(x) for x in os.path.basename(p).split(".")])
-    data = load(os.path.join(dirs[-1], "data", "en_US", "champion.json"))["data"]
+    return os.path.join(dirs[-1], "data", "en_US", name)
+
+
+def data_dragon():
+    """{champion id: {"name", "tags", "stats"}} from the newest Data Dragon copy in the repo."""
+    data = load(dd_file("champion.json"))["data"]
     return {v["key"]: {"name": v["name"], "tags": v["tags"], "stats": v["stats"]} for v in data.values()}
 
 

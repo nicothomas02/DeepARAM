@@ -4,7 +4,7 @@
 Sections (all for the live patch; every number here is an estimate unless noted):
   vs_average         champion damage/tank share, kill participation, time dead vs the pick-weighted
                      field (exact, from the feed)
-  profiles           per champion kills, deaths, assists, multikills, damage/min and its physical/magic/
+  profiles           per champion game length, kills, deaths, assists, multikills, CS, largest spree, damage/min and its physical/magic/
                      true split, damage taken and mitigated/min, healing/min, crowd control, gold/min,
                      turret damage, each with a band (high/average/low vs the field)
   augments           per champion: each augment's win rate on that champion and its lift
@@ -17,6 +17,7 @@ Sections (all for the live patch; every number here is an estimate unless noted)
   game_length        typical game length
   side               blue/red side win rate
   fun                short top-10 lists from the above
+  item_timing        minute each item of the most common core build is finished
 
 Usage: python3 data/estimates/build.py   (standard library only)
 """
@@ -87,6 +88,28 @@ def profiles(stats, fitted):
         tot = sum(raw.values()) or 1
         out[c]["damage_split"] = {k: round(v / tot, 3) for k, v in raw.items()}
     return dict(out)
+
+
+START_GOLD = 1400  # gold every player starts a Mayhem game with
+
+
+def item_timing(stats, builds, prof):
+    """Minute each core item is finished: cumulative cost of the most common core build, less the
+    starting gold, over the champion's estimated gold per minute (its earned gold includes the start)."""
+    cost = {int(k): v["gold"]["total"] for k, v in cm.load(cm.dd_file("item.json"))["data"].items()}
+    out = {}
+    for c, b in builds.items():
+        core = b["items"]["core"]
+        if c not in prof or not core:
+            continue
+        mins = prof[c]["game_minutes"]["value"]
+        gpm = prof[c]["gold_per_min"]["value"] - START_GOLD / mins
+        total, times = 0, []
+        for i in core[0]["items"]:
+            total += cost.get(i, 0)
+            times.append(round(max(total - START_GOLD, 0) / gpm, 1))
+        out[c] = {"items": core[0]["items"], "minutes": times}
+    return out
 
 
 def augments_on_champions(stats, builds, fair, model):
@@ -248,6 +271,7 @@ def main():
         "game_length": game_length(fitted),
         "side": {"blue": fitted["length_side"]["blue_win_rate"], "red": round(1 - fitted["length_side"]["blue_win_rate"], 4)},
         "fun": fun(stats, prof),
+        "item_timing": item_timing(stats, builds, prof),
     }
     with open(os.path.join(cm.HERE, "estimates.json"), "w", encoding="utf-8") as f:
         json.dump(out, f, ensure_ascii=False, separators=(",", ":"))

@@ -38,6 +38,9 @@ PROFILE_STATS = {
     "cc_seconds": (["timeCCingOthers"], "game"),
     "gold_per_min": (["goldEarned"], "min"),
     "turret_damage": (["damageDealtToTurrets"], "game"),
+    "cs": (["totalMinionsKilled"], "game"),
+    "largest_spree": (["largestKillingSpree"], "game"),
+    "game_minutes": ([], "length"),
 }
 PRIOR_GAMES = 40  # games a champion needs before its own average outweighs the prediction
 
@@ -137,7 +140,9 @@ def per_champion_values(pl, champs=None):
         s = p["stats"]
         for name, (fields, kind) in PROFILE_STATS.items():
             v = sum(s.get(f, 0) for f in fields)
-            if kind == "min":
+            if kind == "length":
+                v = p["mins"]
+            elif kind == "min":
                 v /= p["mins"]
             elif kind == "share":
                 tot = s.get("totalDamageDealtToChampions", 0)
