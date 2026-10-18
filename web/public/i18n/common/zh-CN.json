@@ -171,5 +171,11 @@
  "That email address doesn't look right.": "这个邮箱地址看起来不对。",
  "That's 5 messages today. Try again tomorrow, or email us.": "今天已经发了 5 条留言。请明天再试，或给我们发邮件。",
  "The bot check didn't pass. Try again.": "人机验证未通过，请重试。",
- "Too many submissions.": "提交次数过多。"
+ "Too many submissions.": "提交次数过多。",
+ "Where should we open your email?": "要在哪里打开邮件？",
+ "Gmail (new tab)": "Gmail（新标签页）",
+ "Outlook.com (new tab)": "Outlook.com（新标签页）",
+ "Mail app (Outlook, Apple Mail and others)": "邮件应用（Outlook、Apple Mail 等）",
+ "Open email": "打开邮件",
+ "Copy address": "复制地址"
 }

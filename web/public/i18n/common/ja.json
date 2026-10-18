@@ -171,5 +171,11 @@
  "That email address doesn't look right.": "メールアドレスが正しくないようです。",
  "That's 5 messages today. Try again tomorrow, or email us.": "今日はもう5件送信しました。明日もう一度試すか、メールでご連絡ください。",
  "The bot check didn't pass. Try again.": "ボットチェックに失敗しました。もう一度お試しください。",
- "Too many submissions.": "送信が多すぎます。"
+ "Too many submissions.": "送信が多すぎます。",
+ "Where should we open your email?": "メールをどこで開きますか？",
+ "Gmail (new tab)": "Gmail（新しいタブ）",
+ "Outlook.com (new tab)": "Outlook.com（新しいタブ）",
+ "Mail app (Outlook, Apple Mail and others)": "メールアプリ（Outlook、Apple Mail など）",
+ "Open email": "メールを開く",
+ "Copy address": "アドレスをコピー"
 }

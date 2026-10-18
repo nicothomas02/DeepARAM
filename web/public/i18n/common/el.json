@@ -171,5 +171,11 @@
  "That email address doesn't look right.": "Αυτή η διεύθυνση email δεν φαίνεται σωστή.",
  "That's 5 messages today. Try again tomorrow, or email us.": "Έστειλες ήδη 5 μηνύματα σήμερα. Δοκίμασε ξανά αύριο ή στείλε μας email.",
  "The bot check didn't pass. Try again.": "Ο έλεγχος για bot απέτυχε. Δοκίμασε ξανά.",
- "Too many submissions.": "Πάρα πολλές υποβολές."
+ "Too many submissions.": "Πάρα πολλές υποβολές.",
+ "Where should we open your email?": "Πού να ανοίξουμε το email σου;",
+ "Gmail (new tab)": "Gmail (νέα καρτέλα)",
+ "Outlook.com (new tab)": "Outlook.com (νέα καρτέλα)",
+ "Mail app (Outlook, Apple Mail and others)": "Εφαρμογή αλληλογραφίας (Outlook, Apple Mail και άλλες)",
+ "Open email": "Άνοιγμα email",
+ "Copy address": "Αντιγραφή διεύθυνσης"
 }

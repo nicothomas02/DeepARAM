@@ -171,5 +171,11 @@
  "That email address doesn't look right.": "Этот адрес почты выглядит неправильно.",
  "That's 5 messages today. Try again tomorrow, or email us.": "Это уже 5 сообщений за сегодня. Попробуй завтра или напиши нам на почту.",
  "The bot check didn't pass. Try again.": "Проверка на бота не пройдена. Попробуй ещё раз.",
- "Too many submissions.": "Слишком много отправок."
+ "Too many submissions.": "Слишком много отправок.",
+ "Where should we open your email?": "Где открыть вашу почту?",
+ "Gmail (new tab)": "Gmail (новая вкладка)",
+ "Outlook.com (new tab)": "Outlook.com (новая вкладка)",
+ "Mail app (Outlook, Apple Mail and others)": "Почтовое приложение (Outlook, Apple Mail и другие)",
+ "Open email": "Открыть почту",
+ "Copy address": "Копировать адрес"
 }

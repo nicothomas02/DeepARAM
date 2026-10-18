@@ -171,5 +171,11 @@
  "That email address doesn't look right.": "يبدو أن عنوان البريد الإلكتروني غير صحيح.",
  "That's 5 messages today. Try again tomorrow, or email us.": "أرسلت 5 رسائل اليوم. حاول مجددًا غدًا أو راسلنا عبر البريد.",
  "The bot check didn't pass. Try again.": "لم يتم اجتياز التحقق من الروبوت. حاول مرة أخرى.",
- "Too many submissions.": "عدد كبير جدًا من الإرسالات."
+ "Too many submissions.": "عدد كبير جدًا من الإرسالات.",
+ "Where should we open your email?": "أين نفتح بريدك الإلكتروني؟",
+ "Gmail (new tab)": "Gmail (علامة تبويب جديدة)",
+ "Outlook.com (new tab)": "Outlook.com (علامة تبويب جديدة)",
+ "Mail app (Outlook, Apple Mail and others)": "تطبيق البريد (Outlook وApple Mail وغيرهما)",
+ "Open email": "فتح البريد",
+ "Copy address": "نسخ العنوان"
 }

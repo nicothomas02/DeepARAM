@@ -171,5 +171,11 @@
  "That email address doesn't look right.": "ที่อยู่อีเมลนี้ดูไม่ถูกต้อง",
  "That's 5 messages today. Try again tomorrow, or email us.": "วันนี้ส่งครบ 5 ข้อความแล้ว ลองใหม่พรุ่งนี้ หรือส่งอีเมลหาเรา",
  "The bot check didn't pass. Try again.": "การตรวจสอบบอตไม่ผ่าน ลองอีกครั้ง",
- "Too many submissions.": "ส่งบ่อยเกินไป"
+ "Too many submissions.": "ส่งบ่อยเกินไป",
+ "Where should we open your email?": "จะเปิดอีเมลของคุณที่ไหน?",
+ "Gmail (new tab)": "Gmail (แท็บใหม่)",
+ "Outlook.com (new tab)": "Outlook.com (แท็บใหม่)",
+ "Mail app (Outlook, Apple Mail and others)": "แอปอีเมล (Outlook, Apple Mail และอื่น ๆ)",
+ "Open email": "เปิดอีเมล",
+ "Copy address": "คัดลอกที่อยู่"
 }

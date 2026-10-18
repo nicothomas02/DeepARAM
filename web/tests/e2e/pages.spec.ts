@@ -192,9 +192,15 @@ test("Contact us sends a message or opens email", async ({ page }) => {
     sent = r.request().postDataJSON();
     await r.fulfill({ status: 201, contentType: "application/json", body: '{"ok":true}' });
   });
+  // Home's first-visit tour would cover the footer.
+  await page.addInitScript(() => localStorage.setItem("deeparam-tour", "done"));
   await page.goto("/");
   const box = page.locator(".feedback-box");
-  await expect(box.locator('a[href^="mailto:admin@deeparam.com"]')).toBeVisible();
+  await box.getByRole("button", { name: "Email admin@deeparam.com" }).click();
+  await expect(box.getByRole("radio", { name: "Gmail (new tab)" })).toBeChecked();
+  await expect(box.getByRole("link", { name: "Open email" })).toHaveAttribute("href", /^https:\/\/mail\.google\.com\/mail\/\?view=cm/);
+  await box.getByRole("radio", { name: /Mail app/ }).check();
+  await expect(box.getByRole("link", { name: "Open email" })).toHaveAttribute("href", /^mailto:admin@deeparam\.com/);
   await box.getByRole("button", { name: "Write to us" }).click();
   await box.locator("textarea").fill("The Duos tab is great.");
   await box.getByRole("button", { name: "Send" }).click();

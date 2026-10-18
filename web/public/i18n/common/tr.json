@@ -171,5 +171,11 @@
  "That email address doesn't look right.": "Bu e-posta adresi doğru görünmüyor.",
  "That's 5 messages today. Try again tomorrow, or email us.": "Bugün 5 mesaj oldu. Yarın tekrar dene ya da bize e-posta gönder.",
  "The bot check didn't pass. Try again.": "Bot kontrolü geçilemedi. Tekrar dene.",
- "Too many submissions.": "Çok fazla gönderim."
+ "Too many submissions.": "Çok fazla gönderim.",
+ "Where should we open your email?": "E-postanı nerede açalım?",
+ "Gmail (new tab)": "Gmail (yeni sekme)",
+ "Outlook.com (new tab)": "Outlook.com (yeni sekme)",
+ "Mail app (Outlook, Apple Mail and others)": "E-posta uygulaması (Outlook, Apple Mail ve diğerleri)",
+ "Open email": "E-postayı aç",
+ "Copy address": "Adresi kopyala"
 }

@@ -171,5 +171,11 @@
  "That email address doesn't look right.": "Địa chỉ email đó có vẻ không đúng.",
  "That's 5 messages today. Try again tomorrow, or email us.": "Hôm nay bạn đã gửi 5 tin nhắn. Hãy thử lại vào ngày mai hoặc gửi email cho chúng tôi.",
  "The bot check didn't pass. Try again.": "Kiểm tra chống bot không thành công. Hãy thử lại.",
- "Too many submissions.": "Gửi quá nhiều lần."
+ "Too many submissions.": "Gửi quá nhiều lần.",
+ "Where should we open your email?": "Mở email của bạn ở đâu?",
+ "Gmail (new tab)": "Gmail (tab mới)",
+ "Outlook.com (new tab)": "Outlook.com (tab mới)",
+ "Mail app (Outlook, Apple Mail and others)": "Ứng dụng thư (Outlook, Apple Mail và các ứng dụng khác)",
+ "Open email": "Mở email",
+ "Copy address": "Sao chép địa chỉ"
 }

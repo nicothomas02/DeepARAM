@@ -171,5 +171,11 @@
  "That email address doesn't look right.": "이메일 주소가 올바르지 않은 것 같아요.",
  "That's 5 messages today. Try again tomorrow, or email us.": "오늘 메시지를 5개 보냈어요. 내일 다시 시도하거나 이메일을 보내 주세요.",
  "The bot check didn't pass. Try again.": "봇 확인에 실패했어요. 다시 시도해 주세요.",
- "Too many submissions.": "제출이 너무 많습니다."
+ "Too many submissions.": "제출이 너무 많습니다.",
+ "Where should we open your email?": "이메일을 어디에서 열까요?",
+ "Gmail (new tab)": "Gmail (새 탭)",
+ "Outlook.com (new tab)": "Outlook.com (새 탭)",
+ "Mail app (Outlook, Apple Mail and others)": "메일 앱 (Outlook, Apple Mail 등)",
+ "Open email": "이메일 열기",
+ "Copy address": "주소 복사"
 }

@@ -171,5 +171,11 @@
  "That email address doesn't look right.": "Ten adres e-mail nie wygląda poprawnie.",
  "That's 5 messages today. Try again tomorrow, or email us.": "To już 5 wiadomości dzisiaj. Spróbuj jutro albo napisz do nas e-mail.",
  "The bot check didn't pass. Try again.": "Weryfikacja antybotowa nie powiodła się. Spróbuj ponownie.",
- "Too many submissions.": "Zbyt wiele zgłoszeń."
+ "Too many submissions.": "Zbyt wiele zgłoszeń.",
+ "Where should we open your email?": "Gdzie otworzyć Twój e-mail?",
+ "Gmail (new tab)": "Gmail (nowa karta)",
+ "Outlook.com (new tab)": "Outlook.com (nowa karta)",
+ "Mail app (Outlook, Apple Mail and others)": "Aplikacja pocztowa (Outlook, Apple Mail i inne)",
+ "Open email": "Otwórz e-mail",
+ "Copy address": "Kopiuj adres"
 }

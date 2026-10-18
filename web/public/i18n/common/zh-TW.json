@@ -171,5 +171,11 @@
  "That email address doesn't look right.": "這個電子郵件地址看起來不正確。",
  "That's 5 messages today. Try again tomorrow, or email us.": "今天已經送出 5 則留言。請明天再試，或寄電子郵件給我們。",
  "The bot check didn't pass. Try again.": "機器人驗證未通過，請再試一次。",
- "Too many submissions.": "提交次數過多。"
+ "Too many submissions.": "提交次數過多。",
+ "Where should we open your email?": "要在哪裡開啟郵件？",
+ "Gmail (new tab)": "Gmail（新分頁）",
+ "Outlook.com (new tab)": "Outlook.com（新分頁）",
+ "Mail app (Outlook, Apple Mail and others)": "郵件 App（Outlook、Apple Mail 等）",
+ "Open email": "開啟郵件",
+ "Copy address": "複製地址"
 }
