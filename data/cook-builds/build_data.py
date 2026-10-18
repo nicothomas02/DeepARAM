@@ -282,7 +282,7 @@ def main():
             "href": "/kitchen#chefs-special",
             "archive_href": "/kitchen#chef-archive",
             # Sharing: the dated link keeps opening this special after it is replaced; the image is its link preview.
-            "share_href": "/kitchen#chefs-special-" + chef["chef"],
+            "share_href": "/kitchen/" + chef["chef"],  # its link preview shows the share image
             "share_image": site + "share/" + chef["id"] + ".png",
             "item_ids": chef["item_ids"],
             "i18n": chef_i18n(chef),

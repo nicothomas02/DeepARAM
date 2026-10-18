@@ -9,7 +9,7 @@
   <p><a href="cook-builds/index.html">The Kitchen</a></p>
   <script>
     // The Kitchen is the Chef Special page. Old Lab links still work: #chefs-special, #chefs-special-YYYY-MM-DD and
-    // #chef-archive open that special, and the calculators that moved to other tabs open there.
+    // #chef-archive open that special, #community the community builds, and the calculators that moved to other tabs open there.
     (function () {
       var go = location.hash.slice(1).replace(/[^a-z0-9-]/g, "");
       var moved = { "ryze-calculator": "/simulator/infinite-ryze", "region-teams": "/info/region-teams" }[go];
@@ -17,7 +17,7 @@
         try { if (window.top !== window) return void window.top.location.replace(moved); } catch (e) { /* not same origin */ }
         return location.replace(go + "/index.html");
       }
-      location.replace("cook-builds/index.html" + (/^(chefs-special|chef-archive)/.test(go) ? "#" + go : ""));
+      location.replace("cook-builds/index.html" + (/^(chefs-special|chef-archive|community$)/.test(go) ? "#" + go : ""));
     })();
   </script>
 </body>

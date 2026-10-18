@@ -164,3 +164,23 @@ test("the Tier List's Items tab filters items and links to item pages", async ({
   await first.click();
   await expect(page).toHaveURL(new RegExp(`${href}$`));
 });
+
+test("share links for a Chef Special and a build give link previews their card", async ({ page, request }) => {
+  const special = await request.get("/kitchen/2026-10-17");
+  expect(special.status()).toBe(200);
+  const html = await special.text();
+  expect(html).toMatch(/<meta property="og:image" content="[^"]*\/embed\/fun\/cook-builds\/share\/tryndamere-bloodlust-doctor\.png"/);
+  expect(html).toContain('name="twitter:card" content="summary_large_image"');
+  expect((await request.get("/kitchen/2001-01-01")).status()).toBe(404);
+
+  const build = await request.get("/share/builds?champ=Jinx&items=berserkers,infinity_edge&augs=deft&to=sim");
+  const image = (await build.text()).match(/<meta property="og:image" content="([^"]+)"/)?.[1]?.replace(/&amp;/g, "&");
+  expect(image).toContain("/share/builds/image?champ=Jinx");
+  const png = await request.get(new URL(image!).pathname + new URL(image!).search);
+  expect(png.status()).toBe(200);
+  expect(png.headers()["content-type"]).toBe("image/png");
+
+  // A visitor goes on to the build in the Simulator's fight replay.
+  await page.goto("/share/builds?champ=Jinx&items=berserkers,infinity_edge&augs=deft&to=sim");
+  await expect(page).toHaveURL(/\/simulator\?tab=replays#Jinx&items=berserkers,infinity_edge&augs=deft$/);
+});

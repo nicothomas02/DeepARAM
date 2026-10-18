@@ -16,11 +16,12 @@ LabI18n.ready(function () {
   const specials = data.builds.filter((b) => b.chef).sort((a, b) => b.chef.localeCompare(a.chef));
   const chef = specials[0] || null;
 
-  // Share links open a special on the site's Kitchen page by its date, so they keep working after it is replaced.
+  // Share links open a special by its date, so they keep working after it is replaced. On the site that's
+  // /kitchen/<date>, whose link preview shows the special's card; elsewhere (a saved copy) the page's own #hash.
   function shareUrl(hash) {
-    let page = location.href.replace(/#.*$/, "");
-    try { if (window.top !== window && window.top.location.origin === location.origin) page = window.top.location.origin + window.top.location.pathname; } catch (e) { /* not same origin */ }
-    return page + "#" + hash;
+    const date = hash.replace(/^chefs-special-/, "");
+    if (/^https?:$/.test(location.protocol) && /^\d{4}-\d{2}-\d{2}$/.test(date)) return location.origin + "/kitchen/" + date;
+    return location.href.replace(/#.*$/, "") + "#" + hash;
   }
   // Same look and words as the site's Share button (web/src/components/ShareButton.tsx).
   const SHARE_ICON = '<svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a4 4 0 0 0 5.66 0l3-3a4 4 0 0 0-5.66-5.66l-1 1M14 10a4 4 0 0 0-5.66 0l-3 3a4 4 0 0 0 5.66 5.66l1-1"/></svg>';
@@ -29,7 +30,7 @@ LabI18n.ready(function () {
   document.addEventListener("click", async (e) => {
     const btn = e.target.closest("button[data-share]");
     if (!btn) return;
-    const url = shareUrl(btn.dataset.share);
+    const url = btn.dataset.url || shareUrl(btn.dataset.share);
     const label = btn.querySelector("span");
     if (navigator.share && matchMedia("(pointer: coarse)").matches) {
       try { await navigator.share({ title: btn.dataset.title + " · DeepARAM", url }); return; }
@@ -103,6 +104,8 @@ LabI18n.ready(function () {
   // (/api/kitchen/community). Their own words stay as written; names follow the page's language.
   function communityCard(c) {
     const by = c.by ? T("by {name}", { name: c.by }) : T("by a DeepARAM player");
+    // Its share link's preview shows the build's card (web/src/app/share/builds).
+    const link = location.origin + "/share/builds?" + new URLSearchParams({ champ: c.champion, items: c.items.map((i) => i.id).join(","), augs: c.augments.map((a) => a.id).join(","), title: c.title, to: "kitchen" });
     return `<article class="card community-card">
       <div class="card-head">
         <img src="/icons/champions/${esc(c.champion)}.webp" alt="" width="52" height="52" loading="lazy">
@@ -110,6 +113,7 @@ LabI18n.ready(function () {
           <h2 dir="auto">${esc(c.title)}</h2>
           <div class="sub">${esc(LabI18n.name("champions", c.champion, c.championName))} <span class="muted" dir="auto">· ${esc(by)}</span></div>
         </div>
+        <button type="button" class="share" data-url="${esc(link)}" data-title="${esc(c.title)}" aria-label="${esc(T("Share {title}", { title: c.title }))}">${SHARE_ICON}<span aria-live="polite">${T("Share")}</span></button>
       </div>
       <p class="why" dir="auto">${esc(c.description)}</p>
       <div class="cols">
@@ -126,6 +130,7 @@ LabI18n.ready(function () {
         if (!list.length) return;
         document.getElementById("community-builds").innerHTML = list.map(communityCard).join("");
         document.getElementById("community").hidden = false;
+        if (location.hash === "#community") document.getElementById("community").scrollIntoView();
       })
       .catch(() => {});
   }
