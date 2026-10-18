@@ -50,7 +50,7 @@
  "Win rate by map": "맵별 승률",
  "Recorded games only": "기록된 게임만",
  "Share games anonymously": "게임 익명 공유",
- "Off unless you turn it on. When on, each import also sends your games to help build stats across all players, such as matchups, augment combos and team comps. Shared games carry champions, items, augments, runes, spells and results, never names or account ids. Turning it off removes everything you shared.": "직접 켜기 전까지는 꺼져 있습니다. 켜면 가져올 때마다 게임도 함께 전송되어 상대 구도, 증강 조합, 팀 조합 등 전체 플레이어 통계를 만드는 데 쓰입니다. 공유되는 게임에는 챔피언, 아이템, 증강, 룬, 주문, 결과만 담기며 이름이나 계정 ID는 절대 포함되지 않습니다. 끄면 공유한 모든 데이터가 삭제됩니다.",
+ "Off unless you turn it on. When on, each import also sends your games to help build stats across all players, such as matchups, augment combos and team comps. Shared games carry champions, items, augments, runes, spells, results and each player's gold and experience minute by minute, never names or account ids. Turning it off removes everything you shared.": "직접 켜기 전까지는 꺼져 있습니다. 켜면 가져올 때마다 게임도 함께 전송되어 상대 구도, 증강 조합, 팀 조합 등 전체 플레이어 통계를 만드는 데 쓰입니다. 공유되는 게임에는 챔피언, 아이템, 증강, 룬, 주문, 결과, 각 플레이어의 분당 골드와 경험치만 담기며 이름이나 계정 ID는 절대 포함되지 않습니다. 끄면 공유한 모든 데이터가 삭제됩니다.",
  "Share my games": "내 게임 공유",
  "Connect account": "계정 연결",
  "Connect": "연결",

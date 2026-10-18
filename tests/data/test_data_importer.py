@@ -265,7 +265,7 @@ def test_compact_kills(mi):
 
 def test_fill_kill_maps(mi):
     a, b, c, d = (dict(fixture("lcu_game_mayhem.json"), gameId=i) for i in (1, 2, 3, 4))
-    d["killMap"] = [[1, 2, 3, 4, 5]]
+    d["killMap"], d["curves"] = [[1, 2, 3, 4, 5]], {}
     lcu = FakeLcu(mi, timelines={1: fixture("timeline.json"), 2: None, 3: ConnectionError("down")})
     changed = mi.fill_kill_maps(lcu, [a, b, c, d], progress=lambda m: None)
     assert changed == 2
@@ -275,6 +275,29 @@ def test_fill_kill_maps(mi):
     assert d["killMap"] == [[1, 2, 3, 4, 5]]
     assert not any(p.endswith("/4") for p in lcu.calls)
     assert mi.fill_kill_maps(lcu, [d], progress=lambda m: None) == 0
+
+
+def timeline_with_frames():
+    t = fixture("timeline.json")
+    t["frames"][0]["participantFrames"] = {"1": {"totalGold": 500, "xp": 0}, "6": {"totalGold": 500, "xp": 0}}
+    t["frames"][1]["participantFrames"] = {"1": {"totalGold": 1400, "xp": 380}, "6": {"totalGold": 1100, "xp": 300}}
+    return t
+
+
+def test_compact_curves(mi):
+    assert mi.compact_curves(timeline_with_frames()) == {"1": [[500, 0], [1400, 380]], "6": [[500, 0], [1100, 300]]}
+    assert mi.compact_curves(None) == {} and mi.compact_curves(fixture("timeline.json")) == {}
+
+
+def test_fill_kill_maps_adds_curves_to_games_that_only_have_kills(mi):
+    old, gone, done = (dict(fixture("lcu_game_mayhem.json"), gameId=i) for i in (1, 2, 3))
+    old["killMap"] = [[1, 2, 3, 4, 5]]
+    gone["killMap"] = None  # the client had no timeline: not asked again
+    done["killMap"], done["curves"] = [], {"1": [[500, 0]]}
+    lcu = FakeLcu(mi, timelines={1: timeline_with_frames()})
+    assert mi.fill_kill_maps(lcu, [old, gone, done], progress=lambda m: None) == 1
+    assert old["curves"]["1"] == [[500, 0], [1400, 380]] and len(old["killMap"]) == 3
+    assert not any(p.endswith(("/2", "/3")) for p in lcu.calls)
 
 
 def test_fill_kill_maps_prefers_the_service_and_falls_back_to_the_client(mi, monkeypatch):
@@ -366,7 +389,7 @@ def test_run_import_refuses_another_accounts_archive(mi, monkeypatch, tmp_path):
 
 def test_run_import_nothing_new_leaves_file_untouched(mi, monkeypatch, tmp_path):
     old = fixture("lcu_game_old.json")
-    old["killMap"] = []
+    old["killMap"], old["curves"] = [], {}
     path = tmp_path / "same.json"
     path.write_text(json.dumps({"puuid": ME, "games": [old]}))
     before = path.read_text()
@@ -395,6 +418,17 @@ def test_anonymise_strips_identity(mi):
     assert p0["items"] == [3006, 3095, 3115] and p0["cs"] == 42 and p0["multi"] == [1, 0, 0, 0]
     assert p0["perks"] == [8005, 9111] and p0["spells"] == [4, 32] and p0["styles"] == [8000, 8100]
     assert [t["win"] for t in a["teams"]] == [True, False]
+    assert p0["goldMin"] == [] and p0["xpMin"] == []  # no timeline yet
+
+
+def test_anonymise_shares_each_players_gold_and_xp_by_minute(mi):
+    g = dict(fixture("lcu_game_mayhem.json"))
+    pid = g["participants"][0]["participantId"]
+    g["curves"] = {str(pid): [[500, 0], [1400, 380]]}
+    a = mi.anonymise(g)
+    p = next(p for p in a["players"] if p["champ"] == g["participants"][0]["championId"])
+    assert p["goldMin"] == [500, 1400] and p["xpMin"] == [0, 380]
+    assert sum(bool(p["goldMin"]) for p in a["players"]) == 1
 
 
 def test_anonymise_converts_millisecond_durations_and_rejects_bad_games(mi):
