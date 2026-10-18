@@ -157,5 +157,19 @@
  "Simulator →": "ซิมูเลเตอร์ →",
  "{n} DPS": "{n} DPS",
  "Patch {patch} recap": "สรุปแพตช์ {patch}",
- "The Kitchen →": "ครัว →"
+ "The Kitchen →": "ครัว →",
+ "Write to us": "เขียนถึงเรา",
+ "Email {email}": "อีเมลถึง {email}",
+ "Your message": "ข้อความของคุณ",
+ "Your email, if you'd like a reply (optional)": "อีเมลของคุณ หากต้องการคำตอบ (ไม่บังคับ)",
+ "Send": "ส่ง",
+ "Sending…": "กำลังส่ง…",
+ "Thanks! Your message is on its way.": "ขอบคุณ! ข้อความของคุณกำลังส่งไป",
+ "Something went wrong. Try again.": "เกิดข้อผิดพลาด ลองอีกครั้ง",
+ "Write a little more first.": "เขียนเพิ่มอีกนิดก่อนนะ",
+ "That's too long. Keep it under 2,000 characters.": "ยาวเกินไป เขียนไม่เกิน 2,000 ตัวอักษร",
+ "That email address doesn't look right.": "ที่อยู่อีเมลนี้ดูไม่ถูกต้อง",
+ "That's 5 messages today. Try again tomorrow, or email us.": "วันนี้ส่งครบ 5 ข้อความแล้ว ลองใหม่พรุ่งนี้ หรือส่งอีเมลหาเรา",
+ "The bot check didn't pass. Try again.": "การตรวจสอบบอตไม่ผ่าน ลองอีกครั้ง",
+ "Too many submissions.": "ส่งบ่อยเกินไป"
 }

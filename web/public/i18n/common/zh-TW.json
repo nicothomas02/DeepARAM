@@ -157,5 +157,19 @@
  "Simulator →": "模擬器 →",
  "{n} DPS": "{n} DPS",
  "Patch {patch} recap": "版本 {patch} 回顧",
- "The Kitchen →": "廚房 →"
+ "The Kitchen →": "廚房 →",
+ "Write to us": "寫信給我們",
+ "Email {email}": "寄信至 {email}",
+ "Your message": "你的留言",
+ "Your email, if you'd like a reply (optional)": "你的電子郵件，如需回覆（選填）",
+ "Send": "送出",
+ "Sending…": "傳送中…",
+ "Thanks! Your message is on its way.": "謝謝！你的留言已送出。",
+ "Something went wrong. Try again.": "發生錯誤，請再試一次。",
+ "Write a little more first.": "請再多寫一點。",
+ "That's too long. Keep it under 2,000 characters.": "太長了，請控制在 2,000 字以內。",
+ "That email address doesn't look right.": "這個電子郵件地址看起來不正確。",
+ "That's 5 messages today. Try again tomorrow, or email us.": "今天已經送出 5 則留言。請明天再試，或寄電子郵件給我們。",
+ "The bot check didn't pass. Try again.": "機器人驗證未通過，請再試一次。",
+ "Too many submissions.": "提交次數過多。"
 }

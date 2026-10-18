@@ -150,5 +150,13 @@
  "Kitchen builds": "Build Dapur",
  "Sign-in and security": "Masuk dan keamanan",
  "Name and icon": "Nama dan ikon",
- "Connect the Riot account you play on to see your mastery and Clash team here. Only you can connect yours: My Stats checks it with the Riot Client on your computer.": "Hubungkan akun Riot yang kamu pakai bermain untuk melihat mastery dan tim Clash-mu di sini. Hanya kamu yang bisa menghubungkan akunmu: Statistik Saya memeriksanya lewat Riot Client di komputermu."
+ "Connect the Riot account you play on to see your mastery and Clash team here. Only you can connect yours: My Stats checks it with the Riot Client on your computer.": "Hubungkan akun Riot yang kamu pakai bermain untuk melihat mastery dan tim Clash-mu di sini. Hanya kamu yang bisa menghubungkan akunmu: Statistik Saya memeriksanya lewat Riot Client di komputermu.",
+ "Messages": "Pesan",
+ "What people wrote in the Contact us box at the bottom of every page.": "Apa yang ditulis orang di kotak Hubungi kami di bagian bawah setiap halaman.",
+ "Reply to {email}": "Balas ke {email}",
+ "No email left for a reply": "Tidak ada email untuk dibalas",
+ "Delete": "Hapus",
+ "Delete this message?": "Hapus pesan ini?",
+ "Deleted.": "Dihapus.",
+ "No messages yet.": "Belum ada pesan."
 }

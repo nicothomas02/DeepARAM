@@ -150,5 +150,13 @@
  "Kitchen builds": "Mutfak buildleri",
  "Sign-in and security": "Giriş ve güvenlik",
  "Name and icon": "Ad ve simge",
- "Connect the Riot account you play on to see your mastery and Clash team here. Only you can connect yours: My Stats checks it with the Riot Client on your computer.": "Ustalığını ve Clash takımını burada görmek için oynadığın Riot hesabını bağla. Hesabını yalnızca sen bağlayabilirsin: İstatistiklerim bunu bilgisayarındaki Riot İstemcisi ile doğrular."
+ "Connect the Riot account you play on to see your mastery and Clash team here. Only you can connect yours: My Stats checks it with the Riot Client on your computer.": "Ustalığını ve Clash takımını burada görmek için oynadığın Riot hesabını bağla. Hesabını yalnızca sen bağlayabilirsin: İstatistiklerim bunu bilgisayarındaki Riot İstemcisi ile doğrular.",
+ "Messages": "Mesajlar",
+ "What people wrote in the Contact us box at the bottom of every page.": "İnsanların her sayfanın altındaki Bize ulaş kutusuna yazdıkları.",
+ "Reply to {email}": "{email} adresine yanıtla",
+ "No email left for a reply": "Yanıt için e-posta bırakılmadı",
+ "Delete": "Sil",
+ "Delete this message?": "Bu mesaj silinsin mi?",
+ "Deleted.": "Silindi.",
+ "No messages yet.": "Henüz mesaj yok."
 }

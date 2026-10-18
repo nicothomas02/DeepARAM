@@ -3083,6 +3083,67 @@ html[data-motion="reduce"] .btn:hover {
   filter: brightness(1.08);
 }
 
+.feedback-mail {
+  border: 0;
+  font: inherit;
+  cursor: pointer;
+}
+
+.feedback-mail:disabled {
+  opacity: 0.55;
+  cursor: default;
+}
+
+.feedback-alt {
+  padding: 0.45rem 0.5rem;
+  color: var(--muted);
+  overflow-wrap: anywhere;
+}
+
+.feedback-form {
+  display: grid;
+  flex-basis: 100%;
+  gap: 0.75rem;
+  min-width: 0;
+}
+
+.feedback-form label {
+  display: grid;
+  gap: 0.3rem;
+}
+
+.feedback-form textarea,
+.feedback-form input {
+  width: 100%;
+  padding: 0.55rem 0.7rem;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--bg);
+  color: var(--fg);
+  font: inherit;
+  font-size: 0.9375rem;
+}
+
+.feedback-form textarea {
+  resize: vertical;
+}
+
+.feedback-form-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.contact-msg-text {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.feedback-error {
+  color: var(--bad);
+}
+
 /* Page transitions (components/PageTransitions.tsx) */
 .champ-hero-title {
   display: flex;

@@ -150,5 +150,13 @@
  "Kitchen builds": "Builduri pentru Bucătărie",
  "Sign-in and security": "Conectare și securitate",
  "Name and icon": "Nume și pictogramă",
- "Connect the Riot account you play on to see your mastery and Clash team here. Only you can connect yours: My Stats checks it with the Riot Client on your computer.": "Conectează contul Riot pe care joci ca să vezi aici măiestria și echipa ta de Clash. Doar tu îl poți conecta pe al tău: Statisticile mele îl verifică prin Clientul Riot de pe computerul tău."
+ "Connect the Riot account you play on to see your mastery and Clash team here. Only you can connect yours: My Stats checks it with the Riot Client on your computer.": "Conectează contul Riot pe care joci ca să vezi aici măiestria și echipa ta de Clash. Doar tu îl poți conecta pe al tău: Statisticile mele îl verifică prin Clientul Riot de pe computerul tău.",
+ "Messages": "Mesaje",
+ "What people wrote in the Contact us box at the bottom of every page.": "Ce au scris oamenii în caseta Contactează-ne din josul fiecărei pagini.",
+ "Reply to {email}": "Răspunde la {email}",
+ "No email left for a reply": "Niciun e-mail lăsat pentru răspuns",
+ "Delete": "Șterge",
+ "Delete this message?": "Ștergi acest mesaj?",
+ "Deleted.": "Șters.",
+ "No messages yet.": "Încă nu există mesaje."
 }

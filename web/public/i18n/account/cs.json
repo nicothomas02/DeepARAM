@@ -150,5 +150,13 @@
  "Kitchen builds": "Buildy v Kuchyni",
  "Sign-in and security": "Přihlášení a zabezpečení",
  "Name and icon": "Jméno a ikona",
- "Connect the Riot account you play on to see your mastery and Clash team here. Only you can connect yours: My Stats checks it with the Riot Client on your computer.": "Propoj účet Riot, na kterém hraješ, a uvidíš tady svá mistrovství a tým pro Clash. Svůj účet můžeš propojit jen ty: Moje statistiky ho ověří přes Riot Client na tvém počítači."
+ "Connect the Riot account you play on to see your mastery and Clash team here. Only you can connect yours: My Stats checks it with the Riot Client on your computer.": "Propoj účet Riot, na kterém hraješ, a uvidíš tady svá mistrovství a tým pro Clash. Svůj účet můžeš propojit jen ty: Moje statistiky ho ověří přes Riot Client na tvém počítači.",
+ "Messages": "Zprávy",
+ "What people wrote in the Contact us box at the bottom of every page.": "Co lidé napsali do pole Napiš nám dole na každé stránce.",
+ "Reply to {email}": "Odpovědět na {email}",
+ "No email left for a reply": "Bez e-mailu pro odpověď",
+ "Delete": "Smazat",
+ "Delete this message?": "Smazat tuto zprávu?",
+ "Deleted.": "Smazáno.",
+ "No messages yet.": "Zatím žádné zprávy."
 }

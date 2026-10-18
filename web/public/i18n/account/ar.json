@@ -150,5 +150,13 @@
  "Kitchen builds": "بناياتك في المطبخ",
  "Sign-in and security": "تسجيل الدخول والأمان",
  "Name and icon": "الاسم والأيقونة",
- "Connect the Riot account you play on to see your mastery and Clash team here. Only you can connect yours: My Stats checks it with the Riot Client on your computer.": "اربط حساب Riot الذي تلعب به لترى إتقانك وفريق Clash هنا. لا يمكن لأحد غيرك ربط حسابك: يتحقق منه إحصائياتي عبر Riot Client على الكمبيوتر."
+ "Connect the Riot account you play on to see your mastery and Clash team here. Only you can connect yours: My Stats checks it with the Riot Client on your computer.": "اربط حساب Riot الذي تلعب به لترى إتقانك وفريق Clash هنا. لا يمكن لأحد غيرك ربط حسابك: يتحقق منه إحصائياتي عبر Riot Client على الكمبيوتر.",
+ "Messages": "الرسائل",
+ "What people wrote in the Contact us box at the bottom of every page.": "ما كتبه الناس في مربع «تواصل معنا» أسفل كل صفحة.",
+ "Reply to {email}": "الرد على {email}",
+ "No email left for a reply": "لم يُترك بريد إلكتروني للرد",
+ "Delete": "حذف",
+ "Delete this message?": "حذف هذه الرسالة؟",
+ "Deleted.": "تم الحذف.",
+ "No messages yet.": "لا توجد رسائل بعد."
 }

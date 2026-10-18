@@ -150,5 +150,13 @@
  "Kitchen builds": "Build Nhà Bếp",
  "Sign-in and security": "Đăng nhập và bảo mật",
  "Name and icon": "Tên và biểu tượng",
- "Connect the Riot account you play on to see your mastery and Clash team here. Only you can connect yours: My Stats checks it with the Riot Client on your computer.": "Liên kết tài khoản Riot bạn dùng để chơi để xem thông thạo và đội Clash của bạn tại đây. Chỉ bạn mới liên kết được tài khoản của mình: Thống kê của tôi kiểm tra qua Riot Client trên máy tính của bạn."
+ "Connect the Riot account you play on to see your mastery and Clash team here. Only you can connect yours: My Stats checks it with the Riot Client on your computer.": "Liên kết tài khoản Riot bạn dùng để chơi để xem thông thạo và đội Clash của bạn tại đây. Chỉ bạn mới liên kết được tài khoản của mình: Thống kê của tôi kiểm tra qua Riot Client trên máy tính của bạn.",
+ "Messages": "Tin nhắn",
+ "What people wrote in the Contact us box at the bottom of every page.": "Những gì mọi người viết vào ô Liên hệ ở cuối mỗi trang.",
+ "Reply to {email}": "Trả lời {email}",
+ "No email left for a reply": "Không để lại email để trả lời",
+ "Delete": "Xóa",
+ "Delete this message?": "Xóa tin nhắn này?",
+ "Deleted.": "Đã xóa.",
+ "No messages yet.": "Chưa có tin nhắn nào."
 }
