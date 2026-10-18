@@ -243,5 +243,21 @@
  "Mapping kills": "Χαρτογράφηση φόνων",
  "Sharing games": "Κοινοποίηση παιχνιδιών",
  "Saving to your account": "Αποθήκευση στον λογαριασμό σου",
- "Done": "Ολοκληρώθηκε"
+ "Done": "Ολοκληρώθηκε",
+ "Teammates": "Συμπαίκτες",
+ "Players you've teamed up with · at least": "Παίκτες με τους οποίους έπαιξες στην ίδια ομάδα · τουλάχιστον",
+ "Choose a name to see how they did in your games together.": "Διάλεξε ένα όνομα για να δεις πώς τα πήγε στα κοινά σας παιχνίδια.",
+ "Player": "Παίκτης",
+ "Games together": "Παιχνίδια μαζί",
+ "Win rate together": "Ποσοστό νικών μαζί",
+ "Their KDA": "Το KDA του",
+ "{name} with you": "{name} μαζί σου",
+ "Close": "Κλείσιμο",
+ "Their damage per game": "Η ζημιά του ανά παιχνίδι",
+ "Their champions": "Οι ήρωές του",
+ "Their champion": "Ο ήρωάς του",
+ "Your champion": "Ο ήρωάς σου",
+ "Their K / D / A": "Τα Φ / Θ / Β του",
+ "1 game": "1 παιχνίδι",
+ "{n} games": "{n} παιχνίδια"
 }

@@ -243,5 +243,21 @@
  "Mapping kills": "Skorlar haritalanıyor",
  "Sharing games": "Maçlar paylaşılıyor",
  "Saving to your account": "Hesabına kaydediliyor",
- "Done": "Tamamlandı"
+ "Done": "Tamamlandı",
+ "Teammates": "Takım arkadaşları",
+ "Players you've teamed up with · at least": "Birlikte takım olduğun oyuncular · en az",
+ "Choose a name to see how they did in your games together.": "Ortak maçlarınızda nasıl oynadığını görmek için bir isim seç.",
+ "Player": "Oyuncu",
+ "Games together": "Ortak maçlar",
+ "Win rate together": "Birlikte kazanma oranı",
+ "Their KDA": "Onun KDA'sı",
+ "{name} with you": "{name} seninle",
+ "Close": "Kapat",
+ "Their damage per game": "Onun maç başına hasarı",
+ "Their champions": "Onun şampiyonları",
+ "Their champion": "Onun şampiyonu",
+ "Your champion": "Senin şampiyonun",
+ "Their K / D / A": "Onun S / Ö / A",
+ "1 game": "1 maç",
+ "{n} games": "{n} maç"
 }

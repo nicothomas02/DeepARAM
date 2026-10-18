@@ -243,5 +243,21 @@
  "Mapping kills": "กำลังระบุตำแหน่งการสังหาร",
  "Sharing games": "กำลังแชร์เกม",
  "Saving to your account": "กำลังบันทึกลงในบัญชีของคุณ",
- "Done": "เสร็จสิ้น"
+ "Done": "เสร็จสิ้น",
+ "Teammates": "เพื่อนร่วมทีม",
+ "Players you've teamed up with · at least": "ผู้เล่นที่คุณเคยร่วมทีมด้วย · อย่างน้อย",
+ "Choose a name to see how they did in your games together.": "เลือกชื่อเพื่อดูว่าเขาเล่นเป็นอย่างไรในเกมที่เล่นด้วยกัน",
+ "Player": "ผู้เล่น",
+ "Games together": "เกมที่เล่นด้วยกัน",
+ "Win rate together": "อัตราชนะเมื่อเล่นด้วยกัน",
+ "Their KDA": "KDA ของเขา",
+ "{name} with you": "{name} กับคุณ",
+ "Close": "ปิด",
+ "Their damage per game": "ดาเมจต่อเกมของเขา",
+ "Their champions": "แชมเปี้ยนของเขา",
+ "Their champion": "แชมเปี้ยนของเขา",
+ "Your champion": "แชมเปี้ยนของคุณ",
+ "Their K / D / A": "K / D / A ของเขา",
+ "1 game": "1 เกม",
+ "{n} games": "{n} เกม"
 }

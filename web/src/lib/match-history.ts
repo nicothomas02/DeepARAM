@@ -3,8 +3,9 @@ import { db } from "./accounts";
 
 // The site owner's own Mayhem games, saved to their account from My Stats so the dashboard on /account shows
 // them on any device. Private: only the account they belong to can read them, and nothing here is public or
-// shared. Each game keeps the player's own stats and only the champion and team of everyone else; the
-// player's own participant is marked "me" instead of an account id.
+// shared. Each game keeps the player's own stats, the Riot ID and a few stats of their teammates (for the
+// Teammates card), and only the champion and team of the other team; the player's own participant is marked
+// "me" instead of an account id. No one else's account id is kept.
 // Data: the PROFILES D1 database, next to the accounts it belongs to.
 
 const SCHEMA = [
@@ -18,6 +19,8 @@ const STATS = [
   "pentaKills", "quadraKills", "playerAugment1", "playerAugment2", "playerAugment3", "playerAugment4", "playerAugment5",
   "playerAugment6", "item0", "item1", "item2", "item3", "item4", "item5", "item6",
 ] as const;
+
+const MATE_STATS = ["kills", "deaths", "assists", "totalDamageDealtToChampions"] as const;
 
 const n = (v: unknown, max = 1e9) => (Number.isFinite(Number(v)) ? Math.max(0, Math.min(max, Math.round(Number(v)))) : 0);
 const name = (v: unknown) => (typeof v === "string" ? v.replace(/[<>\p{C}]/gu, "").slice(0, 40) : undefined);
@@ -35,7 +38,7 @@ export function cleanHistoryGame(raw: unknown): HistoryGame | null {
   const participants = (Array.isArray(g.participants) ? g.participants : []).slice(0, 10).map((x) => {
     const p = (x ?? {}) as Record<string, unknown>;
     const base = { participantId: n(p.participantId, 20), teamId: n(p.teamId, 300), championId: n(p.championId, 1e5) };
-    if (p.puuid !== ME) return base;
+    if (p.puuid !== ME) return { ...base, mate: p };
     mine++;
     const s = (p.stats ?? {}) as Record<string, unknown>;
     const stats: Record<string, number | boolean> = { win: s.win === true };
@@ -43,10 +46,22 @@ export function cleanHistoryGame(raw: unknown): HistoryGame | null {
     return { ...base, puuid: ME, championName: name(p.championName), riotIdGameName: name(p.riotIdGameName), riotIdTagline: name(p.riotIdTagline), stats };
   });
   if (mine !== 1) return null;
+  // Teammates keep their Riot ID and a few stats (My Stats' Teammates card); the other team only champions.
+  const team = participants.find((p) => "puuid" in p)?.teamId;
+  const cleaned = participants.map((p) => {
+    if (!("mate" in p)) return p;
+    const { mate, ...base } = p;
+    const gameName = name(mate.riotIdGameName);
+    if (base.teamId !== team || !gameName) return base;
+    const s = (mate.stats ?? {}) as Record<string, unknown>;
+    const stats: Record<string, number> = {};
+    for (const k of MATE_STATS) stats[k] = n(s[k]);
+    return { ...base, riotIdGameName: gameName, riotIdTagline: name(mate.riotIdTagline), stats };
+  });
   const killMap = Array.isArray(g.killMap)
     ? g.killMap.slice(0, 400).filter(Array.isArray).map((k) => (k as unknown[]).slice(0, 5).map((v) => n(v, 1e6)))
     : undefined;
-  return { gameId, gameCreation: n(g.gameCreation, 1e14), gameDuration: n(g.gameDuration, 1e7), queueId: n(g.queueId, 1e5), gameVersion: version, participants, killMap };
+  return { gameId, gameCreation: n(g.gameCreation, 1e14), gameDuration: n(g.gameDuration, 1e7), queueId: n(g.queueId, 1e5), gameVersion: version, participants: cleaned, killMap };
 }
 
 async function table() {

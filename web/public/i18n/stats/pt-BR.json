@@ -243,5 +243,21 @@
  "Mapping kills": "Mapeando abates",
  "Sharing games": "Compartilhando partidas",
  "Saving to your account": "Salvando na sua conta",
- "Done": "Concluído"
+ "Done": "Concluído",
+ "Teammates": "Aliados",
+ "Players you've teamed up with · at least": "Jogadores com quem você jogou no mesmo time · pelo menos",
+ "Choose a name to see how they did in your games together.": "Escolha um nome para ver como ele foi nas partidas de vocês juntos.",
+ "Player": "Jogador",
+ "Games together": "Partidas juntos",
+ "Win rate together": "Taxa de vitórias juntos",
+ "Their KDA": "KDA dele",
+ "{name} with you": "{name} com você",
+ "Close": "Fechar",
+ "Their damage per game": "Dano dele por partida",
+ "Their champions": "Campeões dele",
+ "Their champion": "Campeão dele",
+ "Your champion": "Seu campeão",
+ "Their K / D / A": "A / M / A dele",
+ "1 game": "1 partida",
+ "{n} games": "{n} partidas"
 }

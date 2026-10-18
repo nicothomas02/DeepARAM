@@ -700,6 +700,7 @@ HISTORY_BATCH = 100
 HISTORY_STATS = ("win", "kills", "deaths", "assists", "totalDamageDealtToChampions", "totalDamageTaken", "totalHeal",
                  "largestKillingSpree", "pentaKills", "quadraKills",
                  *(f"playerAugment{i}" for i in range(1, 7)), *(f"item{i}" for i in range(7)))
+HISTORY_MATE_STATS = ("kills", "deaths", "assists", "totalDamageDealtToChampions")
 
 
 def history_settings():
@@ -718,17 +719,22 @@ def save_history_settings(settings):
 
 
 def private_game(game, owner):
-    """The game as the owner's account keeps it; None if the owner isn't in it."""
+    """The game as the owner's account keeps it; None if the owner isn't in it. Teammates keep their Riot ID
+    and a few stats, for My Stats' Teammates card; the other team keeps only champions."""
     ids = {pi.get("participantId"): (pi.get("player") or {}) for pi in game.get("participantIdentities") or []}
-    participants, mine = [], False
+    mine = next((p for p in game.get("participants") or []
+                 if (ids.get(p.get("participantId")) or {}).get("puuid") == owner), None)
+    participants = []
     for p in game.get("participants") or []:
         row = {"participantId": p.get("participantId"), "teamId": p.get("teamId"), "championId": p.get("championId")}
         player = ids.get(p.get("participantId")) or {}
-        if player.get("puuid") == owner:
-            mine = True
-            s = p.get("stats") or {}
+        s = p.get("stats") or {}
+        if p is mine:
             row.update(puuid="me", championName=p.get("championName"), riotIdGameName=player.get("gameName"),
                        riotIdTagline=player.get("tagLine"), stats={k: s.get(k) for k in HISTORY_STATS})
+        elif mine and p.get("teamId") == mine.get("teamId") and player.get("gameName"):
+            row.update(riotIdGameName=player.get("gameName"), riotIdTagline=player.get("tagLine"),
+                       stats={k: s.get(k) for k in HISTORY_MATE_STATS})
         participants.append(row)
     if not mine or not game.get("gameId"):
         return None

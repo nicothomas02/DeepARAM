@@ -243,5 +243,21 @@
  "Mapping kills": "キル位置を取得中",
  "Sharing games": "試合を共有中",
  "Saving to your account": "アカウントに保存中",
- "Done": "完了"
+ "Done": "完了",
+ "Teammates": "味方",
+ "Players you've teamed up with · at least": "一緒のチームでプレイしたプレイヤー · 最低",
+ "Choose a name to see how they did in your games together.": "名前を選ぶと、一緒にプレイした試合での成績が表示されます。",
+ "Player": "プレイヤー",
+ "Games together": "一緒にプレイした試合",
+ "Win rate together": "一緒のときの勝率",
+ "Their KDA": "相手のKDA",
+ "{name} with you": "あなたと{name}",
+ "Close": "閉じる",
+ "Their damage per game": "相手の1試合あたりのダメージ",
+ "Their champions": "相手のチャンピオン",
+ "Their champion": "相手のチャンピオン",
+ "Your champion": "あなたのチャンピオン",
+ "Their K / D / A": "相手のK / D / A",
+ "1 game": "1試合",
+ "{n} games": "{n}試合"
 }

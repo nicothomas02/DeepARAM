@@ -243,5 +243,21 @@
  "Mapping kills": "킬 위치 매핑 중",
  "Sharing games": "게임 공유 중",
  "Saving to your account": "계정에 저장 중",
- "Done": "완료"
+ "Done": "완료",
+ "Teammates": "아군",
+ "Players you've teamed up with · at least": "같은 팀으로 플레이한 플레이어 · 최소",
+ "Choose a name to see how they did in your games together.": "이름을 선택하면 함께한 게임에서의 성적을 볼 수 있습니다.",
+ "Player": "플레이어",
+ "Games together": "함께한 게임",
+ "Win rate together": "함께할 때 승률",
+ "Their KDA": "상대의 KDA",
+ "{name} with you": "{name}와(과) 함께",
+ "Close": "닫기",
+ "Their damage per game": "상대의 게임당 피해량",
+ "Their champions": "상대의 챔피언",
+ "Their champion": "상대의 챔피언",
+ "Your champion": "내 챔피언",
+ "Their K / D / A": "상대의 K / D / A",
+ "1 game": "1게임",
+ "{n} games": "{n}게임"
 }

@@ -243,5 +243,21 @@
  "Mapping kills": "Mapowanie zabójstw",
  "Sharing games": "Udostępnianie gier",
  "Saving to your account": "Zapisywanie na twoim koncie",
- "Done": "Gotowe"
+ "Done": "Gotowe",
+ "Teammates": "Sojusznicy",
+ "Players you've teamed up with · at least": "Gracze, z którymi grałeś w drużynie · co najmniej",
+ "Choose a name to see how they did in your games together.": "Wybierz nazwę, aby zobaczyć, jak radził sobie w waszych wspólnych grach.",
+ "Player": "Gracz",
+ "Games together": "Wspólne gry",
+ "Win rate together": "Odsetek zwycięstw razem",
+ "Their KDA": "Jego KDA",
+ "{name} with you": "{name} z tobą",
+ "Close": "Zamknij",
+ "Their damage per game": "Jego obrażenia na grę",
+ "Their champions": "Jego bohaterowie",
+ "Their champion": "Jego bohater",
+ "Your champion": "Twój bohater",
+ "Their K / D / A": "Jego Z / Ś / A",
+ "1 game": "1 gra",
+ "{n} games": "Gry: {n}"
 }

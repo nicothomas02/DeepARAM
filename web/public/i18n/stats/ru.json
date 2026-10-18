@@ -243,5 +243,21 @@
  "Mapping kills": "Отметка убийств на карте",
  "Sharing games": "Отправка игр",
  "Saving to your account": "Сохранение в аккаунт",
- "Done": "Готово"
+ "Done": "Готово",
+ "Teammates": "Союзники",
+ "Players you've teamed up with · at least": "Игроки, с которыми вы были в одной команде · не менее",
+ "Choose a name to see how they did in your games together.": "Выберите имя, чтобы увидеть, как он играл в ваших совместных играх.",
+ "Player": "Игрок",
+ "Games together": "Игр вместе",
+ "Win rate together": "Процент побед вместе",
+ "Their KDA": "Его KDA",
+ "{name} with you": "{name} с вами",
+ "Close": "Закрыть",
+ "Their damage per game": "Его урон за игру",
+ "Their champions": "Его чемпионы",
+ "Their champion": "Его чемпион",
+ "Your champion": "Ваш чемпион",
+ "Their K / D / A": "Его У / С / П",
+ "1 game": "1 игра",
+ "{n} games": "Игр: {n}"
 }

@@ -243,5 +243,21 @@
  "Mapping kills": "正在标记击杀位置",
  "Sharing games": "正在分享对局",
  "Saving to your account": "正在保存到你的账号",
- "Done": "完成"
+ "Done": "完成",
+ "Teammates": "队友",
+ "Players you've teamed up with · at least": "与你组过队的玩家 · 至少",
+ "Choose a name to see how they did in your games together.": "选择一个名字，查看对方在你们共同对局中的表现。",
+ "Player": "玩家",
+ "Games together": "共同对局",
+ "Win rate together": "共同胜率",
+ "Their KDA": "对方的 KDA",
+ "{name} with you": "{name} 与你",
+ "Close": "关闭",
+ "Their damage per game": "对方每局伤害",
+ "Their champions": "对方的英雄",
+ "Their champion": "对方的英雄",
+ "Your champion": "你的英雄",
+ "Their K / D / A": "对方的 杀 / 死 / 助",
+ "1 game": "1 场",
+ "{n} games": "{n} 场"
 }

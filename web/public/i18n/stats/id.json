@@ -243,5 +243,21 @@
  "Mapping kills": "Memetakan kill",
  "Sharing games": "Membagikan game",
  "Saving to your account": "Menyimpan ke akunmu",
- "Done": "Selesai"
+ "Done": "Selesai",
+ "Teammates": "Rekan tim",
+ "Players you've teamed up with · at least": "Pemain yang pernah setim denganmu · minimal",
+ "Choose a name to see how they did in your games together.": "Pilih nama untuk melihat performanya di game bersamamu.",
+ "Player": "Pemain",
+ "Games together": "Game bersama",
+ "Win rate together": "Win rate bersama",
+ "Their KDA": "KDA mereka",
+ "{name} with you": "{name} bersamamu",
+ "Close": "Tutup",
+ "Their damage per game": "Damage mereka per game",
+ "Their champions": "Champion mereka",
+ "Their champion": "Champion mereka",
+ "Your champion": "Champion-mu",
+ "Their K / D / A": "K / D / A mereka",
+ "1 game": "1 game",
+ "{n} games": "{n} game"
 }

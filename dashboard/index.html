@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Mayhem Stats</title>
-  <link rel="stylesheet" href="/assets/fonts/fonts.css">
+  <link rel="stylesheet" href="/assets/fonts/mona-sans.css">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -139,6 +139,14 @@
       <div class="card-h"><h3>Best teammate champions</h3>
         <span class="foot">Allies you win most with · at least <input type="number" id="f-minally" value="5" min="1" class="tiny" aria-label="Minimum games"> games together</span></div>
       <div class="tbl-wrap"><table id="t-allies"></table></div>
+    </section>
+
+    <section class="card" id="mates-card" hidden>
+      <div class="card-h"><h3>Teammates</h3>
+        <span class="foot">Players you've teamed up with · at least <input type="number" id="f-minmate" value="2" min="1" class="tiny" aria-label="Minimum games"> games together</span></div>
+      <p class="sub mates-hint">Choose a name to see how they did in your games together.</p>
+      <div class="tbl-wrap"><table id="t-mates"></table></div>
+      <div id="mate-panel" class="mate-panel" hidden></div>
     </section>
 
     <section class="card">

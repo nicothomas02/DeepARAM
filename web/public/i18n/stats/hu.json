@@ -243,5 +243,21 @@
  "Mapping kills": "Ölések feltérképezése",
  "Sharing games": "Meccsek megosztása",
  "Saving to your account": "Mentés a fiókodba",
- "Done": "Kész"
+ "Done": "Kész",
+ "Teammates": "Csapattársak",
+ "Players you've teamed up with · at least": "Játékosok, akikkel egy csapatban voltál · legalább",
+ "Choose a name to see how they did in your games together.": "Válassz egy nevet, hogy lásd, hogyan teljesített a közös meccseiteken.",
+ "Player": "Játékos",
+ "Games together": "Közös meccsek",
+ "Win rate together": "Közös győzelmi arány",
+ "Their KDA": "Az ő KDA-ja",
+ "{name} with you": "{name} veled",
+ "Close": "Bezárás",
+ "Their damage per game": "Az ő sebzése meccsenként",
+ "Their champions": "Az ő hősei",
+ "Their champion": "Az ő hőse",
+ "Your champion": "A te hősöd",
+ "Their K / D / A": "Az ő Ö / H / S értéke",
+ "1 game": "1 meccs",
+ "{n} games": "{n} meccs"
 }

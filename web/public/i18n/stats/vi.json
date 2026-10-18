@@ -243,5 +243,21 @@
  "Mapping kills": "Đang định vị hạ gục",
  "Sharing games": "Đang chia sẻ trận",
  "Saving to your account": "Đang lưu vào tài khoản của bạn",
- "Done": "Xong"
+ "Done": "Xong",
+ "Teammates": "Đồng đội",
+ "Players you've teamed up with · at least": "Người chơi bạn từng cùng đội · tối thiểu",
+ "Choose a name to see how they did in your games together.": "Chọn một tên để xem họ chơi thế nào trong các trận cùng bạn.",
+ "Player": "Người chơi",
+ "Games together": "Trận cùng nhau",
+ "Win rate together": "Tỉ lệ thắng cùng nhau",
+ "Their KDA": "KDA của họ",
+ "{name} with you": "{name} cùng bạn",
+ "Close": "Đóng",
+ "Their damage per game": "Sát thương mỗi trận của họ",
+ "Their champions": "Tướng của họ",
+ "Their champion": "Tướng của họ",
+ "Your champion": "Tướng của bạn",
+ "Their K / D / A": "H / C / HT của họ",
+ "1 game": "1 trận",
+ "{n} games": "{n} trận"
 }

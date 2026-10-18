@@ -243,5 +243,21 @@
  "Mapping kills": "Mapping kills",
  "Sharing games": "Sharing games",
  "Saving to your account": "Saving to your account",
- "Done": "Done"
+ "Done": "Done",
+ "Teammates": "Teammates",
+ "Players you've teamed up with · at least": "Players you've teamed up with · at least",
+ "Choose a name to see how they did in your games together.": "Choose a name to see how they did in your games together.",
+ "Player": "Player",
+ "Games together": "Games together",
+ "Win rate together": "Win rate together",
+ "Their KDA": "Their KDA",
+ "{name} with you": "{name} with you",
+ "Close": "Close",
+ "Their damage per game": "Their damage per game",
+ "Their champions": "Their champions",
+ "Their champion": "Their champion",
+ "Your champion": "Your champion",
+ "Their K / D / A": "Their K / D / A",
+ "1 game": "1 game",
+ "{n} games": "{n} games"
 }

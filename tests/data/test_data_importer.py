@@ -425,14 +425,18 @@ def test_save_new_history_is_off_by_default(mi, tmp_path):
     assert mi.save_new_history(str(tmp_path / "x.json")) is None
 
 
-def test_private_game_keeps_only_the_players_own_stats(mi):
+def test_private_game_keeps_own_stats_teammates_names_and_only_enemy_champions(mi):
     game = dict(fixture("lcu_game_mayhem.json"), killMap=[[60, 100, 200, 1, 6]])
     g = mi.private_game(game, ME)
     mine = [p for p in g["participants"] if p.get("puuid") == "me"]
     assert len(mine) == 1 and len(g["participants"]) == len(game["participants"])
     assert set(mine[0]["stats"]) == set(mi.HISTORY_STATS)
-    others = [p for p in g["participants"] if p.get("puuid") != "me"]
-    assert all(set(p) == {"participantId", "teamId", "championId"} for p in others)
+    team = mine[0]["teamId"]
+    mates = [p for p in g["participants"] if p.get("puuid") != "me" and p["teamId"] == team]
+    enemies = [p for p in g["participants"] if p["teamId"] != team]
+    assert mates and all(p.get("riotIdGameName") and set(p["stats"]) == set(mi.HISTORY_MATE_STATS) for p in mates)
+    assert all("puuid" not in p for p in mates)
+    assert enemies and all(set(p) == {"participantId", "teamId", "championId"} for p in enemies)
     assert ME not in json.dumps(g) and "participantIdentities" not in g
     assert g["killMap"] == [[60, 100, 200, 1, 6]]
     assert mi.private_game(game, "someone-else") is None
