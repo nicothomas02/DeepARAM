@@ -235,5 +235,13 @@
  "Connected {riotId}. Mayhem Stats on your computer now saves your games here; go back to it to watch it finish.": "Connected {riotId}. Mayhem Stats on your computer now saves your games here; go back to it to watch it finish.",
  "Connected {riotId}. You can go back to Mayhem Stats.": "Connected {riotId}. You can go back to Mayhem Stats.",
  "Sign in above to connect Mayhem Stats. You'll be asked to confirm right after.": "Sign in above to connect Mayhem Stats. You'll be asked to confirm right after.",
- "This connect link has expired. Choose Connect account in My Stats again.": "This connect link has expired. Choose Connect account in My Stats again."
+ "This connect link has expired. Choose Connect account in My Stats again.": "This connect link has expired. Choose Connect account in My Stats again.",
+ "new games": "new games",
+ "new game": "new game",
+ "Finding your games…": "Finding your games…",
+ "Importing games": "Importing games",
+ "Mapping kills": "Mapping kills",
+ "Sharing games": "Sharing games",
+ "Saving to your account": "Saving to your account",
+ "Done": "Done"
 }

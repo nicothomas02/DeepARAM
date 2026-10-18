@@ -235,5 +235,13 @@
  "Connected {riotId}. Mayhem Stats on your computer now saves your games here; go back to it to watch it finish.": "{riotId} összekapcsolva. A gépeden futó Mayhem Stats mostantól ide menti a meccseidet; térj vissza hozzá, és nézd meg, ahogy befejezi.",
  "Connected {riotId}. You can go back to Mayhem Stats.": "{riotId} összekapcsolva. Visszatérhetsz a Mayhem Stats alkalmazáshoz.",
  "Sign in above to connect Mayhem Stats. You'll be asked to confirm right after.": "Jelentkezz be fent a Mayhem Stats összekapcsolásához. Közvetlenül utána meg kell erősítened.",
- "This connect link has expired. Choose Connect account in My Stats again.": "Ez az összekapcsolási link lejárt. Válaszd újra a Fiók összekapcsolása gombot a Statisztikáim oldalon."
+ "This connect link has expired. Choose Connect account in My Stats again.": "Ez az összekapcsolási link lejárt. Válaszd újra a Fiók összekapcsolása gombot a Statisztikáim oldalon.",
+ "new games": "új meccs",
+ "new game": "új meccs",
+ "Finding your games…": "Meccseid keresése…",
+ "Importing games": "Meccsek importálása",
+ "Mapping kills": "Ölések feltérképezése",
+ "Sharing games": "Meccsek megosztása",
+ "Saving to your account": "Mentés a fiókodba",
+ "Done": "Kész"
 }

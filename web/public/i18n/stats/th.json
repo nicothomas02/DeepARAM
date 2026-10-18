@@ -235,5 +235,13 @@
  "Connected {riotId}. Mayhem Stats on your computer now saves your games here; go back to it to watch it finish.": "เชื่อมต่อ {riotId} แล้ว ตอนนี้ Mayhem Stats บนคอมพิวเตอร์ของคุณจะบันทึกเกมของคุณที่นี่ กลับไปที่โปรแกรมเพื่อดูจนเสร็จ",
  "Connected {riotId}. You can go back to Mayhem Stats.": "เชื่อมต่อ {riotId} แล้ว คุณกลับไปที่ Mayhem Stats ได้เลย",
  "Sign in above to connect Mayhem Stats. You'll be asked to confirm right after.": "ลงชื่อเข้าใช้ด้านบนเพื่อเชื่อมต่อ Mayhem Stats คุณจะถูกขอให้ยืนยันทันทีหลังจากนั้น",
- "This connect link has expired. Choose Connect account in My Stats again.": "ลิงก์เชื่อมต่อนี้หมดอายุแล้ว เลือก “เชื่อมต่อบัญชี” ในสถิติของฉันอีกครั้ง"
+ "This connect link has expired. Choose Connect account in My Stats again.": "ลิงก์เชื่อมต่อนี้หมดอายุแล้ว เลือก “เชื่อมต่อบัญชี” ในสถิติของฉันอีกครั้ง",
+ "new games": "เกมใหม่",
+ "new game": "เกมใหม่",
+ "Finding your games…": "กำลังค้นหาเกมของคุณ…",
+ "Importing games": "กำลังนำเข้าเกม",
+ "Mapping kills": "กำลังระบุตำแหน่งการสังหาร",
+ "Sharing games": "กำลังแชร์เกม",
+ "Saving to your account": "กำลังบันทึกลงในบัญชีของคุณ",
+ "Done": "เสร็จสิ้น"
 }

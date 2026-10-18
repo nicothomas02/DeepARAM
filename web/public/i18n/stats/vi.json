@@ -235,5 +235,13 @@
  "Connected {riotId}. Mayhem Stats on your computer now saves your games here; go back to it to watch it finish.": "Đã kết nối {riotId}. Mayhem Stats trên máy tính của bạn giờ sẽ lưu trận vào đây; quay lại đó để xem nó hoàn tất.",
  "Connected {riotId}. You can go back to Mayhem Stats.": "Đã kết nối {riotId}. Bạn có thể quay lại Mayhem Stats.",
  "Sign in above to connect Mayhem Stats. You'll be asked to confirm right after.": "Đăng nhập ở trên để kết nối Mayhem Stats. Bạn sẽ được yêu cầu xác nhận ngay sau đó.",
- "This connect link has expired. Choose Connect account in My Stats again.": "Liên kết kết nối này đã hết hạn. Hãy chọn lại Kết nối tài khoản trong Thống kê của tôi."
+ "This connect link has expired. Choose Connect account in My Stats again.": "Liên kết kết nối này đã hết hạn. Hãy chọn lại Kết nối tài khoản trong Thống kê của tôi.",
+ "new games": "trận mới",
+ "new game": "trận mới",
+ "Finding your games…": "Đang tìm trận của bạn…",
+ "Importing games": "Đang nhập trận",
+ "Mapping kills": "Đang định vị hạ gục",
+ "Sharing games": "Đang chia sẻ trận",
+ "Saving to your account": "Đang lưu vào tài khoản của bạn",
+ "Done": "Xong"
 }

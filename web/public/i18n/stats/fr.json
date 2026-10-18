@@ -235,5 +235,13 @@
  "Connected {riotId}. Mayhem Stats on your computer now saves your games here; go back to it to watch it finish.": "{riotId} associé. Mayhem Stats, sur votre ordinateur, enregistre maintenant vos parties ici ; revenez-y pour suivre la fin de l'opération.",
  "Connected {riotId}. You can go back to Mayhem Stats.": "{riotId} associé. Vous pouvez revenir à Mayhem Stats.",
  "Sign in above to connect Mayhem Stats. You'll be asked to confirm right after.": "Connectez-vous ci-dessus pour associer Mayhem Stats. Vous devrez confirmer juste après.",
- "This connect link has expired. Choose Connect account in My Stats again.": "Ce lien d'association a expiré. Choisissez à nouveau Associer le compte dans Mes stats."
+ "This connect link has expired. Choose Connect account in My Stats again.": "Ce lien d'association a expiré. Choisissez à nouveau Associer le compte dans Mes stats.",
+ "new games": "nouvelles parties",
+ "new game": "nouvelle partie",
+ "Finding your games…": "Recherche de vos parties…",
+ "Importing games": "Import des parties",
+ "Mapping kills": "Placement des éliminations",
+ "Sharing games": "Partage des parties",
+ "Saving to your account": "Enregistrement sur votre compte",
+ "Done": "Terminé"
 }

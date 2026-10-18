@@ -235,5 +235,13 @@
  "Connected {riotId}. Mayhem Stats on your computer now saves your games here; go back to it to watch it finish.": "تم ربط {riotId}. يحفظ Mayhem Stats على حاسوبك مبارياتك هنا الآن؛ عد إليه لتتابع اكتماله.",
  "Connected {riotId}. You can go back to Mayhem Stats.": "تم ربط {riotId}. يمكنك العودة إلى Mayhem Stats.",
  "Sign in above to connect Mayhem Stats. You'll be asked to confirm right after.": "سجّل الدخول أعلاه لربط Mayhem Stats. سيُطلب منك التأكيد بعدها مباشرة.",
- "This connect link has expired. Choose Connect account in My Stats again.": "انتهت صلاحية رابط الربط هذا. اختر «ربط الحساب» في إحصائياتي مجددًا."
+ "This connect link has expired. Choose Connect account in My Stats again.": "انتهت صلاحية رابط الربط هذا. اختر «ربط الحساب» في إحصائياتي مجددًا.",
+ "new games": "مباريات جديدة",
+ "new game": "مباراة جديدة",
+ "Finding your games…": "جارٍ البحث عن مبارياتك…",
+ "Importing games": "استيراد المباريات",
+ "Mapping kills": "تحديد مواقع القتل",
+ "Sharing games": "مشاركة المباريات",
+ "Saving to your account": "الحفظ في حسابك",
+ "Done": "تم"
 }

@@ -56,6 +56,33 @@ h1 { font: 700 clamp(32px, 5vw, 52px)/1.04 var(--display); letter-spacing: -.035
 .sample-note::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); }
 .sync-status { font-size: 13.5px; color: var(--muted); margin-top: -8px; }
 .sync-status.error { color: var(--bad); }
+
+/* Import animation: a live counter, a progress bar and the champions of the games as they come in */
+.sync-live { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px; margin-top: -4px;
+  display: grid; gap: 10px; overflow: hidden; animation: sl-in .35s ease-out; }
+.sync-live.leaving { opacity: 0; transform: translateY(-6px); transition: opacity .5s, transform .5s; }
+.sl-top { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.sl-count { font-size: 15px; color: var(--muted); }
+.sl-count b { display: inline-block; font-size: 26px; color: var(--fg); font-variant-numeric: tabular-nums; margin-right: 2px; }
+.sl-count b.bump { animation: sl-bump .3s ease-out; }
+.sl-step { font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.sl-bar { height: 8px; border-radius: 99px; background: var(--raised); overflow: hidden; position: relative; }
+.sl-bar i { position: absolute; inset: 0 auto 0 0; width: 0; border-radius: inherit; background-color: var(--accent);
+  background-image: linear-gradient(110deg, transparent 30%, rgba(255,255,255,.35) 50%, transparent 70%);
+  background-size: 200% 100%; animation: sl-shine 1.4s linear infinite; transition: width .45s ease-out; }
+.sync-live.waiting .sl-bar i { width: 35% !important; animation: sl-sweep 1.2s ease-in-out infinite alternate; }
+.sync-live.done .sl-bar i { width: 100% !important; background-color: var(--good); background-image: none; }
+.sl-champs { display: flex; gap: 6px; min-height: 40px; align-items: center; }
+.sl-champs:empty { display: none; }
+.sl-champs img { width: 40px; height: 40px; border-radius: 10px; box-shadow: 0 0 0 2px var(--bad); animation: sl-pop .45s cubic-bezier(.3,1.5,.6,1) both; }
+.sl-champs img.win { box-shadow: 0 0 0 2px var(--good); }
+.sl-champs img.out { animation: sl-out .3s ease-in forwards; }
+@keyframes sl-in { from { opacity: 0; transform: translateY(-8px); } }
+@keyframes sl-bump { 40% { transform: scale(1.25); color: var(--accent); } }
+@keyframes sl-shine { from { background-position: 100% 0; } to { background-position: -100% 0; } }
+@keyframes sl-sweep { from { left: 0; } to { left: 65%; } }
+@keyframes sl-pop { from { opacity: 0; transform: translateY(10px) scale(.4); } }
+@keyframes sl-out { to { opacity: 0; transform: scale(.6); width: 0; margin-left: -6px; } }
 .client-note { font-size: 13px; color: var(--muted); margin-top: 10px; }
 
 /* Buttons and fields */

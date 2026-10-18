@@ -616,3 +616,11 @@ def test_pair_opens_the_account_page_on_the_site_only(mi, monkeypatch):
     mi.site_profile("pair")  # anything but the account page isn't opened
     assert opened == [mi.SITE + "/account?connect=" + "a" * 32 + "#my-stats"]
     assert sent[0] == {"action": "pair", "pair": None}
+
+
+def test_my_pick_names_the_players_champion_and_result(mi):
+    game = {"participantIdentities": [{"participantId": 1, "player": {"puuid": "x"}}, {"participantId": 2, "player": {"puuid": "me"}}],
+            "participants": [{"participantId": 1, "championId": 10, "stats": {"win": False}},
+                             {"participantId": 2, "championId": 22, "stats": {"win": True}}]}
+    assert mi.my_pick(game, "me") == {"champion": 22, "win": True}
+    assert mi.my_pick(game, "nobody") is None

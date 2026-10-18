@@ -407,7 +407,15 @@ def fill_kill_maps(lcu, games, progress=log, limit=TIMELINES_PER_RUN):
 
 # ---------- import ----------
 
-def run_import(out, full=False, lockfile=None, sgp_host=None, progress=log):
+def my_pick(game, puuid):
+    """The champion this player played in a game and whether they won, for the import animation."""
+    me = next((pi.get("participantId") for pi in game.get("participantIdentities") or []
+               if (pi.get("player") or {}).get("puuid") == puuid), None)
+    p = next((p for p in game.get("participants") or [] if p.get("participantId") == me), None)
+    return {"champion": p.get("championId"), "win": bool((p.get("stats") or {}).get("win"))} if p else None
+
+
+def run_import(out, full=False, lockfile=None, sgp_host=None, progress=log, on_game=None):
     """Merge new Mayhem games from the signed-in client into `out`. Returns a summary dict."""
     container, games = load_archive(out)
     lcu = find_client(lockfile)
@@ -436,6 +444,8 @@ def run_import(out, full=False, lockfile=None, sgp_host=None, progress=log):
 
     pending = [i for i in dict.fromkeys(ids) if i not in known]
     progress(f"Found {len(ids)} matching games; {len(pending)} are new.")
+    if on_game:
+        on_game(0, len(pending), 0, None)
 
     added = failed = 0
     try:
@@ -446,10 +456,14 @@ def run_import(out, full=False, lockfile=None, sgp_host=None, progress=log):
                 failed += 1
                 progress(f"  [{n}/{len(pending)}] game {game_id}: {e}; a later run will retry it")
                 continue
+            pick = None
             if game.get("queueId") in MAYHEM_QUEUE_IDS:
                 games.append(game)
                 known.add(game_id)
                 added += 1
+                pick = my_pick(game, puuid)
+            if on_game:
+                on_game(n, len(pending), added, pick)
             if n % 25 == 0 or n == len(pending):
                 progress(f"  [{n}/{len(pending)}] {added} added")
             time.sleep(0.05)  # be gentle with the client
@@ -942,7 +956,9 @@ def serve(out, port, lockfile=None, sgp_host=None, open_browser=True, record_liv
     import threading
     import webbrowser
 
-    state = {"running": False, "log": [], "result": None, "error": None}
+    # "progress": how far the import of new games is, and the champions of the latest ones, for the dashboard's
+    # import animation.
+    state = {"running": False, "log": [], "result": None, "error": None, "progress": None}
     lock = threading.Lock()
     live = {"recording": None, "enabled": record_live}
     stop_live = threading.Event()
@@ -954,8 +970,13 @@ def serve(out, port, lockfile=None, sgp_host=None, open_browser=True, record_liv
             log(msg)
             with lock:
                 state["log"] = (state["log"] + [msg.strip()])[-50:]
+        def on_game(done, total, added, pick):
+            with lock:
+                p = state["progress"] or {"recent": []}
+                recent = (p["recent"] + [pick])[-12:] if pick else p["recent"]
+                state["progress"] = {"done": done, "total": total, "added": added, "recent": recent}
         try:
-            result = run_import(out, full, lockfile, sgp_host, progress)
+            result = run_import(out, full, lockfile, sgp_host, progress, on_game)
             try:
                 shared = share_new_games(out, lockfile, progress)
                 if shared is not None:
@@ -1077,7 +1098,7 @@ def serve(out, port, lockfile=None, sgp_host=None, open_browser=True, record_liv
                 return self.send_json({"error": "not found"}, 404)
             with lock:
                 if not state["running"]:
-                    state.update(running=True, log=[], result=None, error=None)
+                    state.update(running=True, log=[], result=None, error=None, progress=None)
                     full = "full=1" in query.split("&")
                     threading.Thread(target=sync_worker, args=(full,), daemon=True).start()
                 return self.send_json(dict(state), 202)

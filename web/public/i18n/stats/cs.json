@@ -235,5 +235,13 @@
  "Connected {riotId}. Mayhem Stats on your computer now saves your games here; go back to it to watch it finish.": "Propojeno: {riotId}. Mayhem Stats na tvém počítači teď ukládá tvoje hry sem; vrať se do něj a sleduj, jak to dokončí.",
  "Connected {riotId}. You can go back to Mayhem Stats.": "Propojeno: {riotId}. Můžeš se vrátit do Mayhem Stats.",
  "Sign in above to connect Mayhem Stats. You'll be asked to confirm right after.": "Přihlas se výše a propoj Mayhem Stats. Hned potom tě požádáme o potvrzení.",
- "This connect link has expired. Choose Connect account in My Stats again.": "Platnost tohoto odkazu k propojení vypršela. Zvol znovu Propojit účet v sekci Moje statistiky."
+ "This connect link has expired. Choose Connect account in My Stats again.": "Platnost tohoto odkazu k propojení vypršela. Zvol znovu Propojit účet v sekci Moje statistiky.",
+ "new games": "nových her",
+ "new game": "nová hra",
+ "Finding your games…": "Hledám tvoje hry…",
+ "Importing games": "Import her",
+ "Mapping kills": "Mapování zabití",
+ "Sharing games": "Sdílení her",
+ "Saving to your account": "Ukládání do tvého účtu",
+ "Done": "Hotovo"
 }

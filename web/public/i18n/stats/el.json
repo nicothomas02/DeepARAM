@@ -235,5 +235,13 @@
  "Connected {riotId}. Mayhem Stats on your computer now saves your games here; go back to it to watch it finish.": "Συνδέθηκε το {riotId}. Το Mayhem Stats στον υπολογιστή σου αποθηκεύει τώρα τα παιχνίδια σου εδώ· γύρνα σε αυτό για να δεις να ολοκληρώνεται.",
  "Connected {riotId}. You can go back to Mayhem Stats.": "Συνδέθηκε το {riotId}. Μπορείς να επιστρέψεις στο Mayhem Stats.",
  "Sign in above to connect Mayhem Stats. You'll be asked to confirm right after.": "Συνδέσου παραπάνω για να συνδέσεις το Mayhem Stats. Αμέσως μετά θα σου ζητηθεί επιβεβαίωση.",
- "This connect link has expired. Choose Connect account in My Stats again.": "Αυτός ο σύνδεσμος σύνδεσης έληξε. Επίλεξε ξανά Σύνδεση λογαριασμού στην ενότητα Τα στατιστικά μου."
+ "This connect link has expired. Choose Connect account in My Stats again.": "Αυτός ο σύνδεσμος σύνδεσης έληξε. Επίλεξε ξανά Σύνδεση λογαριασμού στην ενότητα Τα στατιστικά μου.",
+ "new games": "νέα παιχνίδια",
+ "new game": "νέο παιχνίδι",
+ "Finding your games…": "Αναζήτηση των παιχνιδιών σου…",
+ "Importing games": "Εισαγωγή παιχνιδιών",
+ "Mapping kills": "Χαρτογράφηση φόνων",
+ "Sharing games": "Κοινοποίηση παιχνιδιών",
+ "Saving to your account": "Αποθήκευση στον λογαριασμό σου",
+ "Done": "Ολοκληρώθηκε"
 }

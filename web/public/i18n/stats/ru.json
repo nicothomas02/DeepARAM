@@ -235,5 +235,13 @@
  "Connected {riotId}. Mayhem Stats on your computer now saves your games here; go back to it to watch it finish.": "{riotId} привязан. Mayhem Stats на вашем компьютере теперь сохраняет игры сюда; вернитесь в него, чтобы увидеть завершение.",
  "Connected {riotId}. You can go back to Mayhem Stats.": "{riotId} привязан. Можете вернуться в Mayhem Stats.",
  "Sign in above to connect Mayhem Stats. You'll be asked to confirm right after.": "Войдите выше, чтобы привязать Mayhem Stats. Сразу после этого нужно будет подтвердить.",
- "This connect link has expired. Choose Connect account in My Stats again.": "Срок действия этой ссылки для привязки истёк. Снова нажмите «Привязать аккаунт» в разделе «Моя статистика»."
+ "This connect link has expired. Choose Connect account in My Stats again.": "Срок действия этой ссылки для привязки истёк. Снова нажмите «Привязать аккаунт» в разделе «Моя статистика».",
+ "new games": "новых игр",
+ "new game": "новая игра",
+ "Finding your games…": "Поиск ваших игр…",
+ "Importing games": "Импорт игр",
+ "Mapping kills": "Отметка убийств на карте",
+ "Sharing games": "Отправка игр",
+ "Saving to your account": "Сохранение в аккаунт",
+ "Done": "Готово"
 }
