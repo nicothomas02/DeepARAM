@@ -93,3 +93,32 @@ function localize(dir) {
   return changed;
 }
 if (existsSync(join(web, "public", "assets", "manifest.json"))) console.log(`sync-embeds: pointed ${localize(out)} files at /assets`);
+
+// Names and icons for shared build link previews (src/app/share/builds/image): champion icons, items by simulator key and
+// by game id with a PNG icon (Data Dragon copy where there is one), augments by key and id with their rarity.
+{
+  const GD = join(web, "public", "assets", "cd", "latest", "plugins", "rcp-be-lol-game-data", "global", "default");
+  const read = (p) => (existsSync(p) ? JSON.parse(readFileSync(p, "utf8")) : null);
+  const cdItems = read(join(GD, "v1", "items.json")) ?? [];
+  const simItems = read(join(repo, "simulator", "data", "items.json"))?.items ?? {};
+  const simAugs = read(join(repo, "simulator", "data", "augments.json"))?.augments ?? {};
+  const items = {};
+  for (const i of cdItems) {
+    if (!i.iconPath || !i.name) continue;
+    const cd = "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/" + i.iconPath.replace(/^\/lol-game-data\/assets\//i, "").toLowerCase();
+    const icon = SWAP[cd] ?? cd;
+    if (existsSync(join(web, "public", icon))) items[i.id] = { name: i.name, icon };
+  }
+  for (const [key, v] of Object.entries(simItems)) if (items[v.id]) items[key] = { ...items[v.id], name: v.name };
+  const augments = {};
+  for (const [key, v] of Object.entries(simAugs)) augments[key] = augments[v.id] = { name: v.name, rarity: v.rarity };
+  const champions = {};
+  const version = read(swapFile)?.version;
+  const ddChamps = version && existsSync(join(web, "public", "assets", "dd", version, "img", "champion")) ? readdirSync(join(web, "public", "assets", "dd", version, "img", "champion")) : [];
+  for (const alias of Object.keys(read(join(web, "src", "data", "champion-names.json")) ?? {})) {
+    const file = ddChamps.find((f) => f.toLowerCase() === alias.toLowerCase() + ".png");
+    if (file) champions[alias] = `/assets/dd/${version}/img/champion/${file}`;
+  }
+  writeFileSync(join(web, "src", "data", "share-builds.json"), JSON.stringify({ champions, items, augments }));
+  console.log(`sync-embeds: share-builds.json with ${Object.keys(items).length} item and ${Object.keys(augments).length} augment entries`);
+}
