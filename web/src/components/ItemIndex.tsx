@@ -3,8 +3,10 @@
 
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
+import DeepScore from "@/components/DeepScore";
 import { EmptyState } from "@/components/EmptyState";
 import { ITEM_TAGS, TAG_GROUPS, itemTag } from "@/lib/item-tags";
+import { ITEM_TIER_DEEPSCORE_HELP } from "@/lib/deepscore";
 import { getParam, setParams } from "@/lib/url-state";
 import { useLang, useNames, useT } from "./I18n";
 
@@ -20,8 +22,20 @@ type Item = {
   cost: number;
   tags: string[];
   popularity: number;
+  tier: Tier;
+  deepScore: number | null;
 };
+// Shop tiers (lib/items.ts itemTier), in the order the DeepScore view groups them.
+type Tier = "legendary" | "boots" | "starter" | "epic" | "basic";
+const TIERS: [Tier, string][] = [
+  ["legendary", "Legendary"],
+  ["boots", "Boots"],
+  ["starter", "Starter"],
+  ["epic", "Epic"],
+  ["basic", "Basic"],
+];
 const SORTS = [
+  ["deepscore", "DeepScore"],
   ["popular", "Most built"],
   ["name", "Name"],
   ["cost", "Cost"],
@@ -36,7 +50,7 @@ export default function ItemIndex({ items }: { items: Item[] }) {
   const name = (i: Item) => names("items", i.id, i.name);
   const [picked, setPicked] = useState<string[]>([]);
   const [query, setQuery] = useState("");
-  const [sort, setSort] = useState<Sort>("popular");
+  const [sort, setSort] = useState<Sort>("deepscore");
 
   useEffect(() => {
     setPicked((getParam("itag") ?? "").split(",").filter((t) => itemTag(t)));
@@ -50,6 +64,7 @@ export default function ItemIndex({ items }: { items: Item[] }) {
     const q = query.trim().toLowerCase();
     const list = items.filter((i) => picked.every((t) => i.tags.includes(t)) && (!q || `${i.name} ${name(i)}`.toLowerCase().includes(q)));
     const byName = (a: Item, b: Item) => name(a).localeCompare(name(b), lang);
+    if (sort === "deepscore") return list.sort((a, b) => (b.deepScore ?? -1) - (a.deepScore ?? -1) || b.popularity - a.popularity);
     return list.sort((a, b) => (sort === "name" ? byName(a, b) : sort === "cost" ? b.cost - a.cost || byName(a, b) : b.popularity - a.popularity));
     // eslint-disable-next-line react-hooks/exhaustive-deps -- name follows names
   }, [items, picked, query, sort, names, lang]);
@@ -104,7 +119,7 @@ export default function ItemIndex({ items }: { items: Item[] }) {
               aria-pressed={sort === k}
               onClick={() => {
                 setSort(k);
-                setParams({ isort: k === "popular" ? null : k });
+                setParams({ isort: k === "deepscore" ? null : k });
               }}
             >
               {t(l)}
@@ -114,30 +129,43 @@ export default function ItemIndex({ items }: { items: Item[] }) {
         <span className="items-count">{t("{n} of {total}", { n: shown.length, total: items.length })}</span>
       </div>
       {shown.length ? (
-        <ul className="items-grid">
-          {shown.map((i) => (
-            <li key={i.id}>
-              <Link href={`/items/${i.slug}`} className="item-card">
-                {i.icon && <img src={i.icon} alt="" width={48} height={48} loading="lazy" />}
-                <span className="item-card-body">
-                  <b>{name(i)}</b>
-                  {i.cost > 0 && (
-                    <small>
-                      {t("{cost} gold", {
-                        cost: i.cost.toLocaleString(lang === "en" ? "en-US" : lang),
-                      })}
-                    </small>
-                  )}
-                  <span className="item-card-tags">
-                    {i.tags.map((k) => (
-                      <span key={k} className="item-dot" data-group={itemTag(k)?.group} title={itemTag(k) && t(itemTag(k)!.label)} />
-                    ))}
-                  </span>
-                </span>
-              </Link>
-            </li>
-          ))}
-        </ul>
+        (sort === "deepscore" ? TIERS.map(([k, l]) => [l, shown.filter((i) => i.tier === k)] as const) : [[null, shown] as const])
+          .filter(([, list]) => list.length)
+          .map(([label, list]) => (
+            <section key={label ?? "all"} className="items-tier" aria-label={label ? t(label) : undefined}>
+              {label && (
+                <h3 className="items-tier-h">
+                  {t(label)} <span>{list.length}</span>
+                </h3>
+              )}
+              <ul className="items-grid">
+                {list.map((i) => (
+
+                <li key={i.id}>
+                  <Link href={`/items/${i.slug}`} className="item-card">
+                    {i.icon && <img src={i.icon} alt="" width={48} height={48} loading="lazy" />}
+                    <span className="item-card-body">
+                      <b>{name(i)}</b>
+                      {i.cost > 0 && (
+                        <small>
+                          {t("{cost} gold", {
+                            cost: i.cost.toLocaleString(lang === "en" ? "en-US" : lang),
+                          })}
+                        </small>
+                      )}
+                      {sort === "deepscore" && i.deepScore !== null && <DeepScore value={i.deepScore} help={ITEM_TIER_DEEPSCORE_HELP} static />}
+                      <span className="item-card-tags">
+                        {i.tags.map((k) => (
+                          <span key={k} className="item-dot" data-group={itemTag(k)?.group} title={itemTag(k) && t(itemTag(k)!.label)} />
+                        ))}
+                      </span>
+                    </span>
+                  </Link>
+                </li>
+                ))}
+              </ul>
+            </section>
+          ))
       ) : (
         <EmptyState
           title={t("No item has all of those")}

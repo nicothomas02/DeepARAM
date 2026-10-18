@@ -60,5 +60,10 @@
  "Magic Penetration": "Penetrare magică",
  "Base Health Regen": "Regenerare de bază a vieții",
  "Critical Strike Damage": "Daune de lovitură critică",
- "Armor Penetration": "Penetrare a armurii"
+ "Armor Penetration": "Penetrare a armurii",
+ "DeepScore": "DeepScore",
+ "Legendary": "Legendar",
+ "Starter": "De start",
+ "Epic": "Epic",
+ "Basic": "De bază"
 }

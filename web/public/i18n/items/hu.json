@@ -60,5 +60,10 @@
  "Magic Penetration": "Mágiaátütés",
  "Base Health Regen": "Alap életerő-regeneráció",
  "Critical Strike Damage": "Kritikus sebzés",
- "Armor Penetration": "Páncélátütés"
+ "Armor Penetration": "Páncélátütés",
+ "DeepScore": "DeepScore",
+ "Legendary": "Legendás",
+ "Starter": "Kezdő",
+ "Epic": "Epikus",
+ "Basic": "Alap"
 }

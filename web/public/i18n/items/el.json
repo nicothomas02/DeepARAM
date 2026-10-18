@@ -60,5 +60,10 @@
  "Magic Penetration": "Μαγική Διαπέραση",
  "Base Health Regen": "Βασική Αναπλήρωση Ζωής",
  "Critical Strike Damage": "Ζημιά Καίριου Χτυπήματος",
- "Armor Penetration": "Διαπέραση Θωράκισης"
+ "Armor Penetration": "Διαπέραση Θωράκισης",
+ "DeepScore": "DeepScore",
+ "Legendary": "Θρυλικό",
+ "Starter": "Αρχικό",
+ "Epic": "Επικό",
+ "Basic": "Βασικό"
 }

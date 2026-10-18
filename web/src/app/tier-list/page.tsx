@@ -158,7 +158,7 @@ export default function TierListPage() {
     });
   }
   // Formerly the Items page (/items redirects here); each item keeps its own page at /items/<slug>.
-  const items = itemPages().map(({ id, slug, name, icon, cost, tags, popularity }) => ({ id, slug, name, icon, cost, tags, popularity }));
+  const items = itemPages().map(({ id, slug, name, icon, cost, tags, popularity, tier, deepScore }) => ({ id, slug, name, icon, cost, tags, popularity, tier, deepScore }));
   if (items.length) {
     tabs.push({
       id: "items",

@@ -212,10 +212,10 @@ export function championPage(alias: string): ChampionPage | null {
   const page = {
     winRate: base,
     skills,
-    starting: rows(b?.items?.starting),
-    boots: rows(b?.items?.boots),
-    core: rows(b?.items?.core),
-    full: rows(b?.items?.full_builds),
+    starting: scoreItems(rows(b?.items?.starting)),
+    boots: scoreItems(rows(b?.items?.boots)),
+    core: scoreItems(rows(b?.items?.core)),
+    full: scoreItems(rows(b?.items?.full_builds)),
     items: tiered([
       ...rows(b?.items?.other),
       ...rows(b?.items?.boots),

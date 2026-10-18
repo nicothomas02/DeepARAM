@@ -60,5 +60,10 @@
  "Magic Penetration": "Penetração Mágica",
  "Base Health Regen": "Regeneração de Vida Base",
  "Critical Strike Damage": "Dano de Acerto Crítico",
- "Armor Penetration": "Penetração de Armadura"
+ "Armor Penetration": "Penetração de Armadura",
+ "DeepScore": "DeepScore",
+ "Legendary": "Lendário",
+ "Starter": "Inicial",
+ "Epic": "Épico",
+ "Basic": "Básico"
 }

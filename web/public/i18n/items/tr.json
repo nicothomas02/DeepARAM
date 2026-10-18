@@ -60,5 +60,10 @@
  "Magic Penetration": "Büyü Nüfuzu",
  "Base Health Regen": "Temel Can Yenilenmesi",
  "Critical Strike Damage": "Kritik Vuruş Hasarı",
- "Armor Penetration": "Zırh Delme"
+ "Armor Penetration": "Zırh Delme",
+ "DeepScore": "DeepScore",
+ "Legendary": "Efsanevi",
+ "Starter": "Başlangıç",
+ "Epic": "Destansı",
+ "Basic": "Temel"
 }
