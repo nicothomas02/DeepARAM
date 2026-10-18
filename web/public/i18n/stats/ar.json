@@ -243,5 +243,21 @@
  "Mapping kills": "تحديد مواقع القتل",
  "Sharing games": "مشاركة المباريات",
  "Saving to your account": "الحفظ في حسابك",
- "Done": "تم"
+ "Done": "تم",
+ "Teammates": "الزملاء",
+ "Players you've teamed up with · at least": "اللاعبون الذين لعبت معهم في فريق واحد · على الأقل",
+ "Choose a name to see how they did in your games together.": "اختر اسمًا لترى كيف كان أداؤه في مبارياتكما معًا.",
+ "Player": "اللاعب",
+ "Games together": "مباريات معًا",
+ "Win rate together": "نسبة الفوز معًا",
+ "Their KDA": "KDA الخاص به",
+ "{name} with you": "{name} معك",
+ "Close": "إغلاق",
+ "Their damage per game": "ضرره لكل مباراة",
+ "Their champions": "أبطاله",
+ "Their champion": "بطله",
+ "Your champion": "بطلك",
+ "Their K / D / A": "K / D / A الخاص به",
+ "1 game": "مباراة واحدة",
+ "{n} games": "المباريات: {n}"
 }

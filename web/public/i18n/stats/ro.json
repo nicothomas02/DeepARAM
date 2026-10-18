@@ -243,5 +243,21 @@
  "Mapping kills": "Se cartografiază uciderile",
  "Sharing games": "Se partajează meciurile",
  "Saving to your account": "Se salvează în contul tău",
- "Done": "Gata"
+ "Done": "Gata",
+ "Teammates": "Coechipieri",
+ "Players you've teamed up with · at least": "Jucătorii cu care ai fost în echipă · cel puțin",
+ "Choose a name to see how they did in your games together.": "Alege un nume ca să vezi cum s-a descurcat în meciurile voastre împreună.",
+ "Player": "Jucător",
+ "Games together": "Meciuri împreună",
+ "Win rate together": "Rată de victorie împreună",
+ "Their KDA": "KDA-ul lui",
+ "{name} with you": "{name} cu tine",
+ "Close": "Închide",
+ "Their damage per game": "Daunele lui pe meci",
+ "Their champions": "Campionii lui",
+ "Their champion": "Campionul lui",
+ "Your champion": "Campionul tău",
+ "Their K / D / A": "U / M / A ale lui",
+ "1 game": "1 meci",
+ "{n} games": "{n} meciuri"
 }

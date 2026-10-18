@@ -243,5 +243,21 @@
  "Mapping kills": "Mapování zabití",
  "Sharing games": "Sdílení her",
  "Saving to your account": "Ukládání do tvého účtu",
- "Done": "Hotovo"
+ "Done": "Hotovo",
+ "Teammates": "Spoluhráči",
+ "Players you've teamed up with · at least": "Hráči, se kterými jsi hrál v týmu · alespoň",
+ "Choose a name to see how they did in your games together.": "Vyber jméno a uvidíš, jak se mu dařilo ve vašich společných hrách.",
+ "Player": "Hráč",
+ "Games together": "Společné hry",
+ "Win rate together": "Procento výher spolu",
+ "Their KDA": "Jeho KDA",
+ "{name} with you": "{name} s tebou",
+ "Close": "Zavřít",
+ "Their damage per game": "Jeho poškození za hru",
+ "Their champions": "Jeho šampioni",
+ "Their champion": "Jeho šampion",
+ "Your champion": "Tvůj šampion",
+ "Their K / D / A": "Jeho Z / S / A",
+ "1 game": "1 hra",
+ "{n} games": "Hry: {n}"
 }

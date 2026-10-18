@@ -1,27 +1,31 @@
-/* Tokens from the site redesign (DeepARAM): cool neutrals, blue accent,
-   Bricolage Grotesque headings, Geist text, Geist Mono labels and numbers. */
+/* The site's tokens (web/src/app/globals.css, Soft look): cool neutrals, glacial blue accent, Mona Sans,
+   filled borderless cards with 24px corners. Kept in step with the site so My Stats looks the same in the
+   Mayhem Stats helper as on deeparam.com. */
 :root {
   color-scheme: light;
   --bg: #e7ebef; --surface: #f0f3f6; --raised: #e0e5eb; --fg: #1f252e; --muted: #525b68; --line: #d3dae2;
-  --accent: #b07a1a; --accent-ink: #1d1602; --accent-soft: color-mix(in srgb, var(--accent) 16%, transparent);
+  --card: #f7f9fb;
+  --accent: #09659d; --accent-ink: #ffffff; --accent-soft: #d6e6f1;
   --good: #197048; --bad: #a83831; --gold: #80601a; --silver: #59626e;
-  --display: "Bricolage Grotesque", "Geist", system-ui, sans-serif;
-  --sans: "Geist", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --mono: "Geist Mono", ui-monospace, "SF Mono", Menlo, monospace;
-  --r: 14px; --r-sm: 8px;
+  --sans: "Mona Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --display: var(--sans);
+  --mono: var(--sans);
+  --r: 24px; --r-sm: 12px;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     color-scheme: dark;
     --bg: #090b0f; --surface: #11151c; --raised: #181d26; --fg: #e8ecf2; --muted: #8b94a3; --line: #222936;
-    --accent: #e0a83c; --accent-ink: #1d1602; --accent-soft: color-mix(in srgb, var(--accent) 16%, transparent);
+    --card: #141a23;
+    --accent: #5cc0ff; --accent-ink: #04121c; --accent-soft: #0f2533;
     --good: #4cc98b; --bad: #f0776f; --gold: #e0b45c; --silver: #a3adbb;
   }
 }
 :root[data-theme="dark"] {
   color-scheme: dark;
   --bg: #090b0f; --surface: #11151c; --raised: #181d26; --fg: #e8ecf2; --muted: #8b94a3; --line: #222936;
-  --accent: #e0a83c; --accent-ink: #1d1602; --accent-soft: color-mix(in srgb, var(--accent) 16%, transparent);
+  --card: #141a23;
+  --accent: #5cc0ff; --accent-ink: #04121c; --accent-soft: #0f2533;
   --good: #4cc98b; --bad: #f0776f; --gold: #e0b45c; --silver: #a3adbb;
 }
 
@@ -32,7 +36,8 @@ body {
   padding-left: max(16px, env(safe-area-inset-left, 0px));
   padding-right: max(16px, env(safe-area-inset-right, 0px));
   background: var(--bg); color: var(--fg);
-  font: 15px/1.5 var(--sans);
+  font: 16px/1.5 var(--sans);
+  font-variant-numeric: tabular-nums;
   -webkit-font-smoothing: antialiased;
   display: grid; gap: 20px; align-content: start;
 }
@@ -259,3 +264,52 @@ td.delta-down::before { content: "▼ "; font-size: .7em; }
 .head.has-banner .label, .head.has-banner .titles .sub { color: rgba(255, 255, 255, .8); }
 .banner-pick { display: flex; flex-wrap: wrap; align-items: end; gap: 12px; }
 .banner-pick .foot { color: var(--muted); font-size: 12.5px; }
+
+/* Site look: the same shapes as deeparam.com's cards, tables, buttons and fields. Labels read as normal text
+   instead of small spaced capitals, cards are filled with no border or colour edge, controls are pills. */
+.label, th, .tile .sub, .badge .b-prog, .wb-n, .tiny { font-family: var(--sans); letter-spacing: 0; text-transform: none; }
+.label { font-size: 0.875rem; font-weight: 600; }
+th { font-size: 0.875rem; font-weight: 600; }
+h1 { letter-spacing: -0.02em; }
+.card-h h3 { font-size: 1.125rem; font-weight: 700; }
+.foot { font-size: 0.875rem; }
+.card, .card:hover { background: var(--card); border-color: transparent; box-shadow: none; transform: none; }
+.card::before { display: none; }
+.card { padding: 20px; }
+.tbl-wrap { margin: 0 -20px -20px; }
+th { background: var(--card); }
+th:first-child, td:first-child { padding-left: 20px; }
+th:last-child, td:last-child { padding-right: 20px; }
+.btn, .field, .seg { border-radius: 999px; }
+.btn.primary:hover { background: var(--accent); filter: brightness(1.08); }
+.tiny { border-radius: 999px; text-align: center; }
+.empty { border: 0; background: var(--card); }
+.sync-live { border: 0; background: var(--card); border-radius: var(--r); padding: 16px 20px; }
+.badge, .record { border-color: transparent; background: var(--surface); border-radius: var(--r-sm); }
+.badge.done { border-color: transparent; }
+.tile .value, .record .r-v, .wb-v, .km-key b { font-family: var(--display); }
+.tile .value { font-size: 1.6rem; font-weight: 700; }
+.tooltip { border-radius: var(--r-sm); }
+
+/* Teammates: names open how that player did in your games together */
+.mates-hint { margin: -6px 0 12px; font-size: 0.875rem; }
+.name-btn { border: 0; padding: 0; background: none; color: var(--accent); font: inherit; font-weight: 600; cursor: pointer; text-align: left; }
+.name-btn:hover { text-decoration: underline; }
+.name-btn[aria-expanded="true"] { color: var(--fg); }
+.mate-panel { margin: 20px -20px -20px; padding: 20px; border-top: 1px solid var(--line); display: grid; gap: 14px; animation: sl-in .3s ease-out; }
+.mate-h { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.mate-h h4 { font: 700 1.25rem/1.2 var(--display); letter-spacing: -0.01em; }
+.mate-tiles { display: flex; flex-wrap: wrap; gap: 12px 32px; }
+.mate-tiles div { display: grid; }
+.mate-tiles b { font: 700 1.5rem/1.2 var(--display); }
+.mate-tiles b.wr-high { color: var(--good); }
+.mate-tiles b.wr-low { color: var(--bad); }
+.mate-tiles span { font-size: 0.875rem; color: var(--muted); }
+.mate-panel h5 { font-size: 0.875rem; font-weight: 600; color: var(--muted); }
+.mate-champs { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; }
+.mate-champs li { display: grid; grid-template-columns: 40px 1fr; grid-template-rows: auto auto; column-gap: 10px; align-items: center;
+  padding: 8px 10px; border-radius: var(--r-sm); background: var(--surface); }
+.mate-champs img { grid-row: span 2; width: 40px; height: 40px; border-radius: 10px; }
+.mate-champs span { font-weight: 600; }
+.mate-champs small { color: var(--muted); font-size: 0.8125rem; }
+.mate-panel .tbl-wrap { margin: 0 -20px -20px; max-height: 360px; }

@@ -163,6 +163,11 @@ function normalize(g, owner) {
   const p = me.participant;
   const s = p.stats || p;
   const allies = (info.participants || []).filter((o) => o !== p && o.teamId === p.teamId && o.championId > 0).map((o) => o.championId);
+  // The players on your team, from your own game: who they were and how they did with you.
+  const mates = players(g).filter((o) => o.participant !== p && o.participant.teamId === p.teamId && o.name && o.name !== "#").map((o) => {
+    const os = o.participant.stats || o.participant;
+    return { key: (o.name || "").toLowerCase(), name: o.name, champ: o.participant.championId, k: os.kills || 0, d: os.deaths || 0, a: os.assists || 0, dmg: os.totalDamageDealtToChampions || 0 };
+  });
   const augs = [1, 2, 3, 4, 5, 6].map((i) => s["playerAugment" + i]).filter((a) => a && a > 0);
   let time = info.gameCreation || Date.parse(info.gameCreationDate || "") || 0;
   // gameDuration is seconds in newer archives, milliseconds in older ones
@@ -193,6 +198,7 @@ function normalize(g, owner) {
     taken: s.totalDamageTaken || 0,
     items: [0, 1, 2, 3, 4, 5, 6].map((i) => s["item" + i]).filter((x) => x > 0),
     allies,
+    mates,
   };
 }
 
@@ -265,7 +271,7 @@ function setupFilters() {
   $("account").textContent = (name ? name + " · " : "") + t("{n} games, {from} to {to}", { n: state.games.length.toLocaleString(), from: fmtDate(first), to: fmtDate(last) });
   if (filtersReady) return;
   filtersReady = true;
-  for (const id of ["f-patch", "f-queue", "f-from", "f-to", "f-champ", "f-minaug", "f-minpair", "f-minally"]) $(id).addEventListener("input", render);
+  for (const id of ["f-patch", "f-queue", "f-from", "f-to", "f-champ", "f-minaug", "f-minpair", "f-minally", "f-minmate"]) $(id).addEventListener("input", render);
   $("f-reset").addEventListener("click", () => {
     for (const id of ["f-queue", "f-from", "f-to", "f-champ"]) $(id).value = "";
     $("f-patch").value = latestPatch;
@@ -305,6 +311,7 @@ function render() {
   renderCurve(state.games);
   renderPairs(games);
   renderAllies(games);
+  renderMates(games);
   renderGames(games);
   if (state.live.length) renderLive();
 }
@@ -710,6 +717,75 @@ function renderAllies(games) {
     { label: "Win rate", get: (r) => r.w / r.n + r.n / 1e6, fmt: (r) => pct(r.w / r.n), cls: (r) => wrClass(r.w / r.n) },
   ], rows, 2);
 }
+
+// Players you've teamed up with, by Riot ID, from your own games. Clicking a name opens their stats in those
+// games: nothing is looked up, it's all from games you played together.
+let mateOpen = null;
+
+function mateRows(games) {
+  const map = new Map();
+  for (const g of games) for (const m of g.mates || []) {
+    const r = map.get(m.key) || { key: m.key, name: m.name, n: 0, w: 0, k: 0, d: 0, a: 0, dmg: 0, champs: new Map(), games: [] };
+    r.name = r.games.length ? r.name : m.name; // newest name first (games come newest first)
+    r.n++; r.w += g.win ? 1 : 0; r.k += m.k; r.d += m.d; r.a += m.a; r.dmg += m.dmg;
+    const c = r.champs.get(m.champ) || { id: m.champ, n: 0, w: 0 };
+    c.n++; c.w += g.win ? 1 : 0;
+    r.champs.set(m.champ, c);
+    r.games.push({ g, m });
+    map.set(m.key, r);
+  }
+  return map;
+}
+
+function renderMates(games) {
+  const min = +$("f-minmate").value || 1;
+  const map = mateRows(games);
+  const rows = [...map.values()].filter((r) => r.n >= min);
+  $("mates-card").hidden = !map.size;
+  table("t-mates", [
+    { label: "Player", get: (r) => r.name.toLowerCase(), fmt: (r) => `<button type="button" class="name-btn" data-mate="${esc(r.key)}" aria-expanded="${r.key === mateOpen}">${esc(r.name)}</button>` },
+    { label: "Games together", get: (r) => r.n },
+    { label: "Win rate together", get: (r) => r.w / r.n + r.n / 1e6, fmt: (r) => pct(r.w / r.n), cls: (r) => wrClass(r.w / r.n) },
+    { label: "Their KDA", get: (r) => (r.k + r.a) / Math.max(1, r.d), fmt: (r) => kda(r.k, r.d, r.a) },
+  ], rows.slice(0, 100), 1);
+  showMate(mateOpen && map.get(mateOpen));
+}
+
+function showMate(r) {
+  const box = $("mate-panel");
+  if (!r) { box.hidden = true; mateOpen = null; return; }
+  const champs = [...r.champs.values()].sort((x, y) => y.n - x.n).slice(0, 6);
+  const icon = (id) => `<img src="/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/${Number(id)}.png" alt="" loading="lazy">`;
+  box.innerHTML = `
+    <div class="mate-h"><h4>${esc(t("{name} with you", { name: r.name }))}</h4>
+      <button type="button" class="btn" data-mate-close>${esc(t("Close"))}</button></div>
+    <div class="mate-tiles">
+      <div><b>${r.n.toLocaleString()}</b><span>${esc(t("Games together"))}</span></div>
+      <div><b class="${wrClass(r.w / r.n)}">${pct(r.w / r.n)}</b><span>${esc(t("Win rate together"))}</span></div>
+      <div><b>${kda(r.k, r.d, r.a)}</b><span>${esc(t("Their KDA"))}</span></div>
+      <div><b>${Math.round(r.dmg / r.n).toLocaleString()}</b><span>${esc(t("Their damage per game"))}</span></div>
+    </div>
+    <h5>${esc(t("Their champions"))}</h5>
+    <ul class="mate-champs">${champs.map((c) => `<li>${icon(c.id)}<span>${esc(champById(c.id))}</span><small>${esc(t(c.n === 1 ? "1 game" : "{n} games", { n: c.n }))} · ${pct(c.w / c.n)}</small></li>`).join("")}</ul>
+    <h5>${esc(t("Games together"))}</h5>
+    <div class="tbl-wrap"><table class="mate-games"><thead><tr><th>${esc(t("Date"))}</th><th>${esc(t("Their champion"))}</th><th>${esc(t("Your champion"))}</th><th>${esc(t("Result"))}</th><th>${esc(t("Their K / D / A"))}</th></tr></thead><tbody>${
+      r.games.slice(0, 20).map(({ g, m }) => `<tr><td>${fmtDate(new Date(g.time))}</td><td>${esc(champById(m.champ))}</td><td>${esc(champName(g))}</td><td class="${g.win ? "win" : "loss"}">${esc(t(g.win ? "Win" : "Loss"))}</td><td>${m.k} / ${m.d} / ${m.a}</td></tr>`).join("")
+    }</tbody></table></div>`;
+  box.hidden = false;
+}
+
+$("t-mates").addEventListener("click", (e) => {
+  const b = e.target.closest("[data-mate]");
+  if (!b) return;
+  mateOpen = mateOpen === b.dataset.mate ? null : b.dataset.mate;
+  render();
+  if (mateOpen) $("mate-panel").scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "nearest" });
+});
+$("mate-panel").addEventListener("click", (e) => {
+  if (!e.target.closest("[data-mate-close]")) return;
+  mateOpen = null;
+  render();
+});
 
 function renderGames(games) {
   $("n-games").textContent = games.length > 200 ? t("Latest 200 of {n} matches", { n: games.length.toLocaleString() }) : t("{n} matches", { n: games.length.toLocaleString() });
