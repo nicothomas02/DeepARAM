@@ -65,5 +65,15 @@
  "Legendary": "Legendaris",
  "Starter": "Awal",
  "Epic": "Epik",
- "Basic": "Dasar"
+ "Basic": "Dasar",
+ "How it does": "Performanya",
+ "Estimated": "Perkiraan",
+ "win rate": "tingkat menang",
+ "vs its builders' usual win rate": "dibanding tingkat menang biasa pembelinya",
+ "of builds": "dari build",
+ "bought 1st · 2nd · 3rd": "dibeli ke-1 · ke-2 · ke-3",
+ "Some augments also grant this item.": "Beberapa augment juga memberi item ini.",
+ "Win rate": "Tingkat menang",
+ "{wr} win · in {share} of builds": "menang {wr} · di {share} build",
+ "augment item": "item augment"
 }

@@ -177,5 +177,19 @@
  "Mail app (Outlook, Apple Mail and others)": "تطبيق البريد (Outlook وApple Mail وغيرهما)",
  "Open email": "فتح البريد",
  "Copy address": "نسخ العنوان",
- "Champion and augment win rates and duo synergy, patch by patch.": "معدلات فوز الأبطال والمعززات وتآزر الثنائيات، تحديثًا بعد تحديث."
+ "Champion and augment win rates and duo synergy, patch by patch.": "معدلات فوز الأبطال والمعززات وتآزر الثنائيات، تحديثًا بعد تحديث.",
+ "Top 10 at": "أفضل 10 في",
+ "Estimated": "مقدَّر",
+ "Damage": "الضرر",
+ "Tanking": "التحمّل",
+ "Healing": "العلاج",
+ "Crowd control": "التحكم بالحشود",
+ "Teamplay": "اللعب الجماعي",
+ "Multikills": "القتل المتعدد",
+ "Towers": "الأبراج",
+ "A typical game": "مباراة نموذجية",
+ "{n} min": "{n} د",
+ "game length": "مدة المباراة",
+ "blue side wins": "فوز الجانب الأزرق",
+ "red side wins": "فوز الجانب الأحمر"
 }

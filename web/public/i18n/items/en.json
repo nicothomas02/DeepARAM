@@ -65,5 +65,15 @@
  "Legendary": "Legendary",
  "Starter": "Starter",
  "Epic": "Epic",
- "Basic": "Basic"
+ "Basic": "Basic",
+ "How it does": "How it does",
+ "Estimated": "Estimated",
+ "win rate": "win rate",
+ "vs its builders' usual win rate": "vs its builders' usual win rate",
+ "of builds": "of builds",
+ "bought 1st · 2nd · 3rd": "bought 1st · 2nd · 3rd",
+ "Some augments also grant this item.": "Some augments also grant this item.",
+ "Win rate": "Win rate",
+ "{wr} win · in {share} of builds": "{wr} win · in {share} of builds",
+ "augment item": "augment item"
 }

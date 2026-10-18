@@ -177,5 +177,19 @@
  "Mail app (Outlook, Apple Mail and others)": "E-posta uygulaması (Outlook, Apple Mail ve diğerleri)",
  "Open email": "E-postayı aç",
  "Copy address": "Adresi kopyala",
- "Champion and augment win rates and duo synergy, patch by patch.": "Şampiyon ve güçlendirme kazanma oranları ile ikili sinerjisi, yama yama."
+ "Champion and augment win rates and duo synergy, patch by patch.": "Şampiyon ve güçlendirme kazanma oranları ile ikili sinerjisi, yama yama.",
+ "Top 10 at": "İlk 10",
+ "Estimated": "Tahmini",
+ "Damage": "Hasar",
+ "Tanking": "Tanklık",
+ "Healing": "İyileştirme",
+ "Crowd control": "Kitle kontrolü",
+ "Teamplay": "Takım oyunu",
+ "Multikills": "Çoklu öldürmeler",
+ "Towers": "Kuleler",
+ "A typical game": "Tipik bir maç",
+ "{n} min": "{n} dk",
+ "game length": "maç süresi",
+ "blue side wins": "mavi taraf galibiyeti",
+ "red side wins": "kırmızı taraf galibiyeti"
 }

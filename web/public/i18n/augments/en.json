@@ -53,5 +53,12 @@
  "Prismatic": "Prismatic",
  "Offered in {offer} of Silver selections ({rerolls} using every reroll), one of {pool} Silver augments.": "Offered in {offer} of Silver selections ({rerolls} using every reroll), one of {pool} Silver augments.",
  "Offered in {offer} of Gold selections ({rerolls} using every reroll), one of {pool} Gold augments.": "Offered in {offer} of Gold selections ({rerolls} using every reroll), one of {pool} Gold augments.",
- "Offered in {offer} of Prismatic selections ({rerolls} using every reroll), one of {pool} Prismatic augments.": "Offered in {offer} of Prismatic selections ({rerolls} using every reroll), one of {pool} Prismatic augments."
+ "Offered in {offer} of Prismatic selections ({rerolls} using every reroll), one of {pool} Prismatic augments.": "Offered in {offer} of Prismatic selections ({rerolls} using every reroll), one of {pool} Prismatic augments.",
+ "When it's picked": "When it's picked",
+ "Estimated": "Estimated",
+ "Augment {n}": "Augment {n}",
+ "{pct} of picks here are this rarity": "{pct} of picks here are this rarity",
+ "Share of this augment's picks at each augment selection, and how often a pick there is of its rarity.": "Share of this augment's picks at each augment selection, and how often a pick there is of its rarity.",
+ "Items that go with it": "Items that go with it",
+ "Share of the champions who take this augment that build each item.": "Share of the champions who take this augment that build each item."
 }

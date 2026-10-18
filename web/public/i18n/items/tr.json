@@ -65,5 +65,15 @@
  "Legendary": "Efsanevi",
  "Starter": "Başlangıç",
  "Epic": "Destansı",
- "Basic": "Temel"
+ "Basic": "Temel",
+ "How it does": "Nasıl performans gösteriyor",
+ "Estimated": "Tahmini",
+ "win rate": "kazanma oranı",
+ "vs its builders' usual win rate": "alanların olağan kazanma oranına göre",
+ "of builds": "buildlerin",
+ "bought 1st · 2nd · 3rd": "1. · 2. · 3. alınan",
+ "Some augments also grant this item.": "Bazı güçlendirmeler de bu eşyayı verir.",
+ "Win rate": "Kazanma oranı",
+ "{wr} win · in {share} of builds": "{wr} galibiyet · buildlerin {share} kadarında",
+ "augment item": "güçlendirme eşyası"
 }

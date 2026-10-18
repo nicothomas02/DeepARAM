@@ -68,7 +68,6 @@ export function TierSnapshot({ champs }: { champs: Champ[] }) {
 
 // Each offer is one rarity, like the game's; prismatic offers are the rarest.
 
-
 /** One Kitchen build at a time, with a button for another. */
 export function KitchenPick({ builds }: { builds: Build[] }) {
   const [i, setI] = useState(0);
@@ -99,5 +98,43 @@ export function KitchenPick({ builds }: { builds: Build[] }) {
         </button>
       )}
     </div>
+  );
+}
+
+const FUN: [string, string][] = [
+  ["damage", "Damage"],
+  ["tank", "Tanking"],
+  ["healing", "Healing"],
+  ["crowd_control", "Crowd control"],
+  ["teamplay", "Teamplay"],
+  ["multikills", "Multikills"],
+  ["towers", "Towers"],
+];
+
+/** Estimated top 10 champions at one thing a game, picked from a short list. */
+export function FunLists({ lists }: { lists: Record<string, { id: string; name: string }[]> }) {
+  const kinds = FUN.filter(([k]) => lists[k]?.length);
+  const [kind, setKind] = useState(kinds[0]?.[0] ?? "");
+  const t = useT();
+  const names = useNames();
+  return (
+    <>
+      <div className="seg fun-kinds" role="group" aria-label={t("Top 10 at")}>
+        {kinds.map(([k, l]) => (
+          <button key={k} type="button" aria-pressed={kind === k} onClick={() => setKind(k)}>
+            {t(l)}
+          </button>
+        ))}
+      </div>
+      <div className="rank fun-rank">
+        {(lists[kind] ?? []).map((c, i) => (
+          <Link key={c.id} href={`/champions/${c.id}`}>
+            <span className="rank-i">{i + 1}</span>
+            <img className="icon" src={champIcon(c.id)} alt="" width={24} height={24} loading="lazy" />
+            <span className="rank-name">{names("champions", c.id, c.name)}</span>
+          </Link>
+        ))}
+      </div>
+    </>
   );
 }

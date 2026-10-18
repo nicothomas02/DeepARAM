@@ -53,5 +53,12 @@
  "Prismatic": "棱彩",
  "Offered in {offer} of Silver selections ({rerolls} using every reroll), one of {pool} Silver augments.": "在 {offer} 的白银选择中出现（用完所有刷新时为 {rerolls}），是 {pool} 个白银强化符文之一。",
  "Offered in {offer} of Gold selections ({rerolls} using every reroll), one of {pool} Gold augments.": "在 {offer} 的黄金选择中出现（用完所有刷新时为 {rerolls}），是 {pool} 个黄金强化符文之一。",
- "Offered in {offer} of Prismatic selections ({rerolls} using every reroll), one of {pool} Prismatic augments.": "在 {offer} 的棱彩选择中出现（用完所有刷新时为 {rerolls}），是 {pool} 个棱彩强化符文之一。"
+ "Offered in {offer} of Prismatic selections ({rerolls} using every reroll), one of {pool} Prismatic augments.": "在 {offer} 的棱彩选择中出现（用完所有刷新时为 {rerolls}），是 {pool} 个棱彩强化符文之一。",
+ "When it's picked": "何时被选",
+ "Estimated": "估算",
+ "Augment {n}": "第{n}个强化",
+ "{pct} of picks here are this rarity": "此处 {pct} 的选择为该稀有度",
+ "Share of this augment's picks at each augment selection, and how often a pick there is of its rarity.": "该强化在每次强化选择中的占比，以及该处选择为此稀有度的频率。",
+ "Items that go with it": "搭配装备",
+ "Share of the champions who take this augment that build each item.": "选择该强化的英雄中出每件装备的比例。"
 }

@@ -177,5 +177,19 @@
  "Mail app (Outlook, Apple Mail and others)": "Εφαρμογή αλληλογραφίας (Outlook, Apple Mail και άλλες)",
  "Open email": "Άνοιγμα email",
  "Copy address": "Αντιγραφή διεύθυνσης",
- "Champion and augment win rates and duo synergy, patch by patch.": "Ποσοστά νίκης ηρώων και augments και συνέργεια διπλών, patch προς patch."
+ "Champion and augment win rates and duo synergy, patch by patch.": "Ποσοστά νίκης ηρώων και augments και συνέργεια διπλών, patch προς patch.",
+ "Top 10 at": "Top 10 σε",
+ "Estimated": "Εκτίμηση",
+ "Damage": "Ζημιά",
+ "Tanking": "Αντοχή",
+ "Healing": "Θεραπεία",
+ "Crowd control": "Έλεγχος πλήθους",
+ "Teamplay": "Ομαδικό παιχνίδι",
+ "Multikills": "Πολλαπλοί φόνοι",
+ "Towers": "Πύργοι",
+ "A typical game": "Ένα τυπικό παιχνίδι",
+ "{n} min": "{n} λεπ.",
+ "game length": "διάρκεια παιχνιδιού",
+ "blue side wins": "νίκες μπλε πλευράς",
+ "red side wins": "νίκες κόκκινης πλευράς"
 }

@@ -177,5 +177,19 @@
  "Mail app (Outlook, Apple Mail and others)": "메일 앱 (Outlook, Apple Mail 등)",
  "Open email": "이메일 열기",
  "Copy address": "주소 복사",
- "Champion and augment win rates and duo synergy, patch by patch.": "패치별 챔피언·증강 승률과 듀오 시너지."
+ "Champion and augment win rates and duo synergy, patch by patch.": "패치별 챔피언·증강 승률과 듀오 시너지.",
+ "Top 10 at": "톱 10",
+ "Estimated": "추정치",
+ "Damage": "피해량",
+ "Tanking": "탱킹",
+ "Healing": "회복",
+ "Crowd control": "군중 제어",
+ "Teamplay": "팀플레이",
+ "Multikills": "다중 처치",
+ "Towers": "포탑",
+ "A typical game": "일반적인 게임",
+ "{n} min": "{n}분",
+ "game length": "게임 시간",
+ "blue side wins": "블루 진영 승률",
+ "red side wins": "레드 진영 승률"
 }

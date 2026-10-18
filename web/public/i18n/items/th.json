@@ -65,5 +65,15 @@
  "Legendary": "ระดับตำนาน",
  "Starter": "เริ่มต้น",
  "Epic": "ระดับมหากาพย์",
- "Basic": "พื้นฐาน"
+ "Basic": "พื้นฐาน",
+ "How it does": "ผลงาน",
+ "Estimated": "ประมาณการ",
+ "win rate": "อัตราชนะ",
+ "vs its builders' usual win rate": "เทียบกับอัตราชนะปกติของผู้ที่ซื้อ",
+ "of builds": "ของบิลด์",
+ "bought 1st · 2nd · 3rd": "ซื้อเป็นชิ้นที่ 1 · 2 · 3",
+ "Some augments also grant this item.": "ออคเมนต์บางตัวก็ให้ไอเทมนี้ด้วย",
+ "Win rate": "อัตราชนะ",
+ "{wr} win · in {share} of builds": "ชนะ {wr} · อยู่ใน {share} ของบิลด์",
+ "augment item": "ไอเทมจากออคเมนต์"
 }

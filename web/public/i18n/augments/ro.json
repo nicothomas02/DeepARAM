@@ -53,5 +53,12 @@
  "Prismatic": "Prismatică",
  "Offered in {offer} of Silver selections ({rerolls} using every reroll), one of {pool} Silver augments.": "Oferită în {offer} din alegerile argintii ({rerolls} folosind toate reîmprospătările), una din {pool} augmentări argintii.",
  "Offered in {offer} of Gold selections ({rerolls} using every reroll), one of {pool} Gold augments.": "Oferită în {offer} din alegerile aurii ({rerolls} folosind toate reîmprospătările), una din {pool} augmentări aurii.",
- "Offered in {offer} of Prismatic selections ({rerolls} using every reroll), one of {pool} Prismatic augments.": "Oferită în {offer} din alegerile prismatice ({rerolls} folosind toate reîmprospătările), una din {pool} augmentări prismatice."
+ "Offered in {offer} of Prismatic selections ({rerolls} using every reroll), one of {pool} Prismatic augments.": "Oferită în {offer} din alegerile prismatice ({rerolls} folosind toate reîmprospătările), una din {pool} augmentări prismatice.",
+ "When it's picked": "Când este ales",
+ "Estimated": "Estimare",
+ "Augment {n}": "Augmentarea {n}",
+ "{pct} of picks here are this rarity": "{pct} din alegerile de aici au această raritate",
+ "Share of this augment's picks at each augment selection, and how often a pick there is of its rarity.": "Ponderea alegerilor acestei augmentări la fiecare selecție și cât de des o alegere acolo are raritatea ei.",
+ "Items that go with it": "Obiecte potrivite",
+ "Share of the champions who take this augment that build each item.": "Ponderea campionilor cu această augmentare care cumpără fiecare obiect."
 }

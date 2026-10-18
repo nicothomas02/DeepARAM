@@ -177,5 +177,19 @@
  "Mail app (Outlook, Apple Mail and others)": "Levelezőalkalmazás (Outlook, Apple Mail és mások)",
  "Open email": "E-mail megnyitása",
  "Copy address": "Cím másolása",
- "Champion and augment win rates and duo synergy, patch by patch.": "Hősök és augmentek győzelmi aránya és párosok szinergiája, patchről patchre."
+ "Champion and augment win rates and duo synergy, patch by patch.": "Hősök és augmentek győzelmi aránya és párosok szinergiája, patchről patchre.",
+ "Top 10 at": "Top 10",
+ "Estimated": "Becsült",
+ "Damage": "Sebzés",
+ "Tanking": "Tankolás",
+ "Healing": "Gyógyítás",
+ "Crowd control": "Irányítás",
+ "Teamplay": "Csapatjáték",
+ "Multikills": "Többszörös ölések",
+ "Towers": "Tornyok",
+ "A typical game": "Egy átlagos meccs",
+ "{n} min": "{n} perc",
+ "game length": "meccs hossza",
+ "blue side wins": "kék oldal győzelmei",
+ "red side wins": "piros oldal győzelmei"
 }

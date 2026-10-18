@@ -65,5 +65,15 @@
  "Legendary": "傳說",
  "Starter": "起始",
  "Epic": "史詩",
- "Basic": "基礎"
+ "Basic": "基礎",
+ "How it does": "表現",
+ "Estimated": "估算",
+ "win rate": "勝率",
+ "vs its builders' usual win rate": "對比購買者平時的勝率",
+ "of builds": "的出裝",
+ "bought 1st · 2nd · 3rd": "第1 · 2 · 3件購買",
+ "Some augments also grant this item.": "部分強化符文也會給予該裝備。",
+ "Win rate": "勝率",
+ "{wr} win · in {share} of builds": "勝率 {wr} · 出現在 {share} 的出裝中",
+ "augment item": "強化符文裝備"
 }

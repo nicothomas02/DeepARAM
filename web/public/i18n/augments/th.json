@@ -53,5 +53,12 @@
  "Prismatic": "Prismatic",
  "Offered in {offer} of Silver selections ({rerolls} using every reroll), one of {pool} Silver augments.": "ปรากฏใน {offer} ของการเลือก Silver ({rerolls} เมื่อใช้รีโรลทั้งหมด) เป็นหนึ่งใน {pool} Augments ระดับ Silver",
  "Offered in {offer} of Gold selections ({rerolls} using every reroll), one of {pool} Gold augments.": "ปรากฏใน {offer} ของการเลือก Gold ({rerolls} เมื่อใช้รีโรลทั้งหมด) เป็นหนึ่งใน {pool} Augments ระดับ Gold",
- "Offered in {offer} of Prismatic selections ({rerolls} using every reroll), one of {pool} Prismatic augments.": "ปรากฏใน {offer} ของการเลือก Prismatic ({rerolls} เมื่อใช้รีโรลทั้งหมด) เป็นหนึ่งใน {pool} Augments ระดับ Prismatic"
+ "Offered in {offer} of Prismatic selections ({rerolls} using every reroll), one of {pool} Prismatic augments.": "ปรากฏใน {offer} ของการเลือก Prismatic ({rerolls} เมื่อใช้รีโรลทั้งหมด) เป็นหนึ่งใน {pool} Augments ระดับ Prismatic",
+ "When it's picked": "เลือกตอนไหน",
+ "Estimated": "ประมาณการ",
+ "Augment {n}": "ออคเมนต์ที่ {n}",
+ "{pct} of picks here are this rarity": "{pct} ของการเลือกตรงนี้เป็นระดับนี้",
+ "Share of this augment's picks at each augment selection, and how often a pick there is of its rarity.": "สัดส่วนการเลือกออคเมนต์นี้ในการเลือกแต่ละครั้ง และความถี่ที่การเลือกตรงนั้นเป็นระดับเดียวกัน",
+ "Items that go with it": "ไอเทมที่เข้ากัน",
+ "Share of the champions who take this augment that build each item.": "สัดส่วนแชมเปี้ยนที่เลือกออคเมนต์นี้และซื้อไอเทมแต่ละชิ้น"
 }
