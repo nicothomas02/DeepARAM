@@ -31,21 +31,10 @@ that grows to fit it. Keep paths inside the folder relative.
 ```bash
 cd web
 npm install
-cp .env.example .env.local   # then paste your Riot API key
 npm run dev
 ```
 
 Open http://localhost:3000.
-
-## Riot API key
-
-The key lives only in the `RIOT_API_KEY` environment variable and is read on
-the server (`src/lib/riot.ts`). The browser calls this site's own API routes,
-never Riot directly, so the key is never sent to visitors. Riot responses are
-cached for a few minutes to save rate limit (on Vercel; see Known differences
-for Cloudflare).
-
-Example route: `/api/riot/account?gameName=Name&tagLine=NA1&region=americas`.
 
 ## Languages
 
@@ -84,19 +73,17 @@ commits show up on their own. Pull requests get their own preview URL.
 
 The site runs on Cloudflare Workers through the OpenNext adapter
 (`@opennextjs/cloudflare`). Every page is prerendered at build time and served
-as a static asset; only `/api/riot/*` runs as code.
+as a static asset; only the API routes run as code.
 
 1. In the Cloudflare dashboard go to **Workers & Pages → Create → Import a
    repository** and pick this repo.
 2. Set **Root directory** to `web`, **Build command** to
    `npx opennextjs-cloudflare build` and **Deploy command** to
    `npx opennextjs-cloudflare deploy`.
-3. Add `RIOT_API_KEY` as a **Secret** under the Worker's Settings → Variables
-   and Secrets.
-4. Every push to `main` deploys.
+3. Every push to `main` deploys.
 
-To try the Cloudflare build locally, copy `.dev.vars.example` to `.dev.vars`,
-add your key, and run `npm run preview` (http://localhost:8787). `npm run deploy`
+To try the Cloudflare build locally, copy `.dev.vars.example` to `.dev.vars`
+and run `npm run preview` (http://localhost:8787). `npm run deploy`
 deploys from your machine after `npx wrangler login`.
 
 A development key expires every 24 hours, so a site that stays up needs a

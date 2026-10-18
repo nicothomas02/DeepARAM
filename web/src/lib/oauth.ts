@@ -1,8 +1,8 @@
 import "server-only";
 import { serverEnv } from "./env";
 
-// Sign in with another service: Google, Apple, Discord, Twitch, Microsoft, Steam, Facebook, X and GitHub
-// (Riot is lib/rso.ts). Each one switches on when its secrets are set on the Worker; until then its button
+// Sign in with another service: Google, Apple, Discord, Twitch, Microsoft, Steam, Facebook, X and GitHub.
+// Each one switches on when its secrets are set on the Worker; until then its button
 // doesn't show. The redirect URI to register with each is https://deeparam.com/api/account/oauth/<id>/callback.
 // Setup steps for each: /mnt/project-files/docs/sign-in-setup.md (project files, not shipped).
 //

@@ -24,8 +24,8 @@ function ruleFor(req: NextRequest): Rule | null {
   // The owner's own games go to their account 100 at a time, the same way.
   if (path === "/api/history") return req.method === "GET" ? null : SHARE;
   if (path.startsWith("/api/account")) {
-    // Sign in with Riot, Google, Apple and the rest start and finish with GETs (Apple's finish is a POST).
-    if (path.startsWith("/api/account/rso/") || path.startsWith("/api/account/oauth/")) return SIGNIN;
+    // Sign in with Google, Apple and the rest start and finish with GETs (Apple's finish is a POST).
+    if (path.startsWith("/api/account/oauth/")) return SIGNIN;
     if (req.method === "GET") return null;
     // Saving Favorites and settings happens as you click; the rest is signing in and account changes.
     return req.method === "PUT" ? SHARE : SIGNIN;

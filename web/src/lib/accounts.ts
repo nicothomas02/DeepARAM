@@ -4,7 +4,6 @@ import { CHALLENGE_COOKIE, OWNER_FLAG, SESSION_COOKIE, SESSION_DAYS, SIGNED_IN_F
 import { accountsDb, sessionAccount, sha256, type DB, type SessionAccount } from "./account-session";
 import { profileByPuuid, profilePath } from "./profiles";
 import { enabledProviders, PROVIDER_NAMES, type Identity, type Provider } from "./oauth";
-import { rsoEnabled } from "./rso";
 import { DEFAULT_SETTINGS } from "./settings";
 import { serverEnv } from "./env";
 import CHAMPIONS from "@/data/champion-names.json";
@@ -12,7 +11,7 @@ import CHAMPIONS from "@/data/champion-names.json";
 // Site accounts: sign in with an email and password or a passkey, and settings follow
 // you to every browser you sign in on. Passwords are stored as salted PBKDF2 hashes, sessions as the
 // SHA-256 of a random token. One account can be the site owner (the 3D Simulator and the site editor).
-// A Riot account is connected through My Stats (a one-time code the helper confirms with the Riot Client).
+// A Riot account is connected through Mayhem Stats, which confirms it with the Riot Client (lib/riot-pair.ts).
 
 export class AccountError extends Error {
   constructor(message: string, public status = 400) {
@@ -89,7 +88,7 @@ export async function syncOwner(id: string): Promise<boolean> {
 }
 
 /** Starts a session and sets its cookies on the response. */
-export async function startSession(res: NextResponse, account: { id: string }, method: "password" | "passkey" | "riot" | Provider, secure: boolean) {
+export async function startSession(res: NextResponse, account: { id: string }, method: "password" | "passkey" | Provider, secure: boolean) {
   const d = await db();
   const owner = await syncOwner(account.id);
   const token = randomToken();
@@ -192,7 +191,6 @@ export async function accountView(a: SessionAccount) {
     riot: row.riot_name ? { name: row.riot_name, platform: row.riot_platform, page: profile ? profilePath(profile.platform, profile.name, profile.tag) : null } : null,
     // A password can be replaced without the old one right after a passkey sign-in (the "forgot password" route).
     passkeySession: a.method === "passkey" && Date.now() - a.created < 15 * 60_000,
-    rso: rsoEnabled(),
     // Other sign-in services: the ones switched on, and the ones this account signs in with.
     providers: enabledProviders(),
     logins: logins.results.map((l) => ({ provider: l.provider, name: PROVIDER_NAMES[l.provider] ?? l.provider, email: l.email })),
@@ -252,81 +250,37 @@ export async function deleteAccount(id: string) {
 
 // ---- Riot account (through My Stats) ----
 
-/** A short code the account page shows; My Stats sends it with the Riot Client's sign-in to connect the two. */
-export async function newLinkCode(id: string): Promise<string> {
-  const d = await db();
-  const alphabet = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
-  // 32 letters, so the low 5 bits of a random byte pick one evenly.
-  const code = [...crypto.getRandomValues(new Uint8Array(8))].map((b) => alphabet[b & 31]).join("");
-  await d.batch([
-    d.prepare("DELETE FROM link_codes WHERE account = ? OR expires < ?").bind(id, Date.now()),
-    d.prepare("INSERT INTO link_codes (code, account, expires) VALUES (?, ?, ?)").bind(code, id, Date.now() + 15 * 60_000),
-  ]);
-  return code;
-}
-
-export async function linkRiot(code: unknown, riot: { puuid: string; name: string; tag: string }, platform: string) {
-  const c = typeof code === "string" ? code.trim().toUpperCase().replace(/[^A-Z0-9]/g, "") : "";
-  const d = await db();
-  const row = c ? await d.prepare("SELECT account FROM link_codes WHERE code = ? AND expires > ?").bind(c, Date.now()).first<{ account: string }>() : null;
-  if (!row) throw new AccountError("That code has expired or isn't right. Get a new one from your account page.", 400);
-  await setRiot(d, row.account, riot, platform, [d.prepare("DELETE FROM link_codes WHERE code = ?").bind(c)]);
-}
-
-function setRiot(d: DB, id: string, riot: { puuid: string; name: string; tag: string }, platform: string | null, also: ReturnType<DB["prepare"]>[] = []) {
+function setRiot(d: DB, id: string, riot: { puuid: string; name: string; tag: string }, platform: string | null) {
   return d.batch([
     // A Riot account belongs to one site account at a time.
     d.prepare("UPDATE accounts SET riot_puuid = NULL, riot_name = NULL, riot_platform = NULL WHERE riot_puuid = ?").bind(riot.puuid),
     d.prepare("UPDATE accounts SET riot_puuid = ?, riot_name = ?, riot_platform = ? WHERE id = ?").bind(riot.puuid, `${riot.name}#${riot.tag}`, platform, id),
-    ...also,
   ]);
 }
 
-// ---- Sign in with Riot (lib/rso.ts; off until the production key) ----
-
-/** Connects the Riot account that just signed in with Riot to the signed-in site account. */
+/** Connects a Riot account (confirmed by My Stats with the Riot Client) to a site account. */
 export async function connectRiot(id: string, riot: { puuid: string; name: string; tag: string }, platform: string | null) {
   await setRiot(await db(), id, riot, platform);
 }
 
-/** Signs in with Riot: the site account that Riot account is connected to, or a new one for it. */
-export async function riotSignIn(riot: { puuid: string; name: string; tag: string }, platform: string | null): Promise<{ id: string; owner: boolean }> {
-  const d = await db();
-  const row = await d.prepare("SELECT id, owner FROM accounts WHERE riot_puuid = ?").bind(riot.puuid).first<{ id: string; owner: number }>();
-  if (row) {
-    // Keep the Riot ID and server current (they can change).
-    await d.prepare("UPDATE accounts SET riot_name = ?, riot_platform = COALESCE(?, riot_platform) WHERE id = ?").bind(`${riot.name}#${riot.tag}`, platform, row.id).run();
-    return { id: row.id, owner: row.owner === 1 };
-  }
-  const id = crypto.randomUUID();
-  await d
-    .prepare("INSERT INTO accounts (id, riot_puuid, riot_name, riot_platform, created_at) VALUES (?, ?, ?, ?, datetime('now'))")
-    .bind(id, riot.puuid, `${riot.name}#${riot.tag}`, platform)
-    .run();
-  return { id, owner: false };
-}
-
 export async function unlinkRiot(id: string) {
-  // An account made with Sign in with Riot may have no other way in.
-  if ((await waysIn(id, "riot")) === 0) throw new AccountError("Add a passkey first. Your Riot account is the only way into this account.", 409);
   await (await db()).prepare("UPDATE accounts SET riot_puuid = NULL, riot_name = NULL, riot_platform = NULL WHERE id = ?").bind(id).run();
 }
 
 /** How many ways into an account there are, leaving out the one about to be removed. */
-export async function waysIn(id: string, without: "riot" | "passkey" | Provider, passkeyId?: string): Promise<number> {
+export async function waysIn(id: string, without: "passkey" | Provider, passkeyId?: string): Promise<number> {
   const d = await db();
   const row = await d
     .prepare(
-      `SELECT (email IS NOT NULL AND pass IS NOT NULL) AS pw, (riot_puuid IS NOT NULL) AS riot,
+      `SELECT (email IS NOT NULL AND pass IS NOT NULL) AS pw,
         (SELECT COUNT(*) FROM passkeys WHERE account = accounts.id AND id IS NOT ?) AS keys,
         (SELECT COUNT(*) FROM logins WHERE account = accounts.id AND provider IS NOT ?) AS logins
        FROM accounts WHERE id = ?`,
     )
-    .bind(without === "passkey" ? (passkeyId ?? "") : null, without !== "riot" && without !== "passkey" ? without : null, id)
-    .first<{ pw: number; riot: number; keys: number; logins: number }>();
+    .bind(without === "passkey" ? (passkeyId ?? "") : null, without !== "passkey" ? without : null, id)
+    .first<{ pw: number; keys: number; logins: number }>();
   if (!row) return 0;
-  const riot = without !== "riot" && row.riot && rsoEnabled() ? 1 : 0;
-  return row.pw + riot + row.keys + row.logins;
+  return row.pw + row.keys + row.logins;
 }
 
 // ---- Sign in with Google, Apple, Discord and the rest (lib/oauth.ts) ----

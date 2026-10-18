@@ -42,17 +42,17 @@ describe("owner-only files", () => {
   });
 });
 
-describe("challenge tokens and title on the account page", async () => {
-  const { shownOff } = await import("@/lib/riot");
-  it("names the shown tokens at their level and the picked title", () => {
-    const got = shownOff({ challengeIds: [101000, 999999999], title: "10100006" }, [
-      { challengeId: 101000, level: "MASTER", value: 1, percentile: 0.1 },
-    ]);
-    expect(got.title).toBe("ARAM God");
-    expect(got.tokens).toEqual([{ id: 101000, name: "ARAM Authority", description: expect.any(String), level: "MASTER" }]);
+describe("connecting a Riot account through My Stats", async () => {
+  const { isPlatform, tokenOwner } = await import("@/lib/profiles");
+  it("knows the League servers and nothing else", () => {
+    expect(isPlatform("euw1")).toBe(true);
+    expect(isPlatform("na1")).toBe(true);
+    expect(isPlatform("xx1")).toBe(false);
+    expect(isPlatform("toString")).toBe(false);
   });
-  it("shows nothing when the player picked nothing", () => {
-    expect(shownOff(undefined, [])).toEqual({ tokens: [], title: null });
+  it("turns away a malformed client token without asking anyone", async () => {
+    expect(await tokenOwner("short", "na1")).toBeNull();
+    expect(await tokenOwner("has spaces in it and is long enough", "na1")).toBeNull();
   });
 });
 
