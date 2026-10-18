@@ -277,6 +277,37 @@ def test_fill_kill_maps(mi):
     assert mi.fill_kill_maps(lcu, [d], progress=lambda m: None) == 0
 
 
+def test_fill_kill_maps_prefers_the_service_and_falls_back_to_the_client(mi, monkeypatch):
+    a, b, c = (dict(fixture("lcu_game_mayhem.json"), gameId=i, platformId="EUW1") for i in (1, 2, 3))
+    asked = []
+
+    def sgp_timeline(host, token, match_id, timeout=30):
+        asked.append((host, token, match_id))
+        if match_id == "EUW1_1":
+            return fixture("timeline.json")
+        raise mi.HttpError(404 if match_id == "EUW1_2" else 503, match_id)
+    monkeypatch.setattr(mi, "sgp_timeline", sgp_timeline)
+    lcu = FakeLcu(mi, timelines={3: fixture("timeline.json")})
+    assert mi.fill_kill_maps(lcu, [a, b, c], progress=lambda m: None, sgp=("https://sgp.test", "tok")) == 3
+    assert sorted(m for _, _, m in asked) == ["EUW1_1", "EUW1_2", "EUW1_3"]
+    assert {(h, t) for h, t, _ in asked} == {("https://sgp.test", "tok")}
+    assert len(a["killMap"]) == 3 and len(c["killMap"]) == 3  # c came from the client after the service failed
+    assert b["killMap"] is None  # neither has it
+    assert not any(p.endswith("/1") for p in lcu.calls)
+
+
+def test_fetch_parallel_keeps_order_and_returns_errors(mi):
+    def fn(i):
+        if i == 3:
+            raise mi.HttpError(500, "x")
+        return i * 10
+    out = list(mi.fetch_parallel(fn, list(range(6)), workers=3))
+    assert [i for i, _ in out] == list(range(6))
+    assert [r for i, r in out if i != 3] == [0, 10, 20, 40, 50]
+    assert isinstance(out[3][1], mi.HttpError)
+    assert list(mi.fetch_parallel(fn, [], workers=3)) == []
+
+
 def test_fill_kill_maps_respects_limit(mi):
     games = [dict(fixture("lcu_game_mayhem.json"), gameId=i) for i in range(1, 6)]
     lcu = FakeLcu(mi, timelines={i: fixture("timeline.json") for i in range(1, 6)})
@@ -288,6 +319,10 @@ def test_fill_kill_maps_respects_limit(mi):
 
 def setup_import(mi, monkeypatch, lcu, ids_by_tags):
     monkeypatch.setattr(mi, "find_client", lambda lockfile=None: lcu)
+
+    def sgp_timeline(host, token, match_id, timeout=30):  # the service is down: timelines come from the client
+        raise ConnectionError(match_id)
+    monkeypatch.setattr(mi, "sgp_timeline", sgp_timeline)
     sgp = fake_sgp(ids_by_tags)
     monkeypatch.setattr(mi, "sgp_get", sgp)
     return sgp
