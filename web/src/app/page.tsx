@@ -233,7 +233,7 @@ export default function Home() {
         )}
         {schedule && (
           <section className="card span-all home-patch" data-accent="pbe">
-            <PatchCountdown schedule={schedule} />
+            <PatchCountdown schedule={schedule} asOf={new Date().toISOString()} />
             {latest && (
               <Link className="home-recap" href={`/patches/${latest.patch}`}>
                 <b>

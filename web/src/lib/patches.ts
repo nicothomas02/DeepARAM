@@ -4,7 +4,8 @@ import { augmentHref } from "./augments";
 import { champName } from "./highlights";
 import { patchList, patchRows } from "./champions";
 import { readRepoCsv, repoHas, repoPath } from "./repo-data";
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
+import { join } from "node:path";
 import { champStats } from "./tiers";
 
 // A short recap per live patch (/patches/<patch>): what changed for Mayhem augments (added, removed,
@@ -25,7 +26,7 @@ function guideHistory(): History | null {
   return (history = JSON.parse(s.slice(s.indexOf("=") + 1).trim().replace(/;\s*$/, "")) as History);
 }
 
-export type AugRef = { id: string; name: string; tier?: string; href: string | null };
+export type AugRef = { id: string; name: string; tier?: string; href: string | null; icon: boolean };
 export type Recap = {
   patch: string;
   prev: string | null;
@@ -64,7 +65,9 @@ export function recap(patch: string): Recap | null {
     .sort((a, b) => b.change - a.change);
   const h = guideHistory();
   const entry = h?.patches.find((p) => p.patch === patch);
-  const ref = (id: string): AugRef => ({ id, name: h?.augments[id]?.name ?? AUGS[id] ?? `Augment ${id}`, tier: h?.augments[id]?.tier, href: augmentHref(id) });
+  // Removed augments may have no page or icon left.
+  const icon = (id: string) => existsSync(join(process.cwd(), "public", "icons", "augments", `${id}.webp`));
+  const ref = (id: string): AugRef => ({ id, name: h?.augments[id]?.name ?? AUGS[id] ?? `Augment ${id}`, tier: h?.augments[id]?.tier, href: augmentHref(id), icon: icon(id) });
   return {
     patch,
     prev,

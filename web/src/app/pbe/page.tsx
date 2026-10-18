@@ -128,7 +128,7 @@ export default function PbePage() {
         <D>{meta.caveat}</D>
       </Intro>
 
-      {schedule && <PatchCountdown schedule={schedule} note={<P>Test server changes usually reach live with a patch.</P>} />}
+      {schedule && <PatchCountdown schedule={schedule} asOf={new Date().toISOString()} note={<P>Test server changes usually reach live with a patch.</P>} />}
 
       <nav className="toc" aria-label="On this page">
         {toc.map(([id, text]) => (

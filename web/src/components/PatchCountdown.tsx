@@ -4,10 +4,10 @@ import { useEffect, useState } from "react";
 import { longDate, nextPatch, type NextPatch, type PatchSchedule } from "@/lib/patch-schedule";
 import { useLang, useT } from "./I18n";
 
-// Countdown to the next patch on Riot's schedule. The server renders it as of the build; the browser
-// recomputes it on load and every hour so a cached page stays right. Its wording is in /i18n/patch-countdown/.
-export default function PatchCountdown({ schedule, note }: { schedule: PatchSchedule; note?: React.ReactNode }) {
-  const [next, setNext] = useState<NextPatch | null>(() => nextPatch(schedule));
+// Countdown to the next patch on Riot's schedule. The server renders it as of the build (asOf, so the first
+// browser render matches it); the browser recomputes it on load and every hour so a cached page stays right. Its wording is in /i18n/patch-countdown/.
+export default function PatchCountdown({ schedule, asOf, note }: { schedule: PatchSchedule; asOf: string; note?: React.ReactNode }) {
+  const [next, setNext] = useState<NextPatch | null>(() => nextPatch(schedule, new Date(asOf)));
   const t = useT("patch-countdown");
   const lang = useLang();
   useEffect(() => {
