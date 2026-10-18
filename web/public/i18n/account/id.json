@@ -38,7 +38,6 @@
  "Your player page": "Halaman pemainmu",
  "Publish a player page from My Stats and it links here.": "Terbitkan halaman pemain dari Statistik Saya dan tautannya muncul di sini.",
  "Disconnect": "Putuskan",
- "Your code: {code}": "Kodemu: {code}",
  "My Stats": "Statistik Saya",
  "Other ways to sign in": "Cara lain untuk masuk",
  "Sign in to this account with another service you use, instead of a password.": "Masuk ke akun ini dengan layanan lain yang kamu pakai, tanpa kata sandi.",
@@ -96,18 +95,8 @@
  "You already have 10 passkeys. Remove one first.": "Kamu sudah punya 10 kunci sandi. Hapus satu terlebih dahulu.",
  "Your current password is wrong.": "Kata sandi saat ini salah.",
  "Your password is wrong.": "Kata sandimu salah.",
- "Choose Connect account and paste this code.": "Pilih Hubungkan akun lalu tempel kode ini.",
  "Connected": "Terhubung",
  "Copied": "Tersalin",
- "Copy code": "Salin kode",
- "Enter it in My Stats": "Masukkan di Statistik Saya",
- "Get a code": "Dapatkan kode",
- "Get a new code": "Dapatkan kode baru",
- "Get my code": "Dapatkan kodeku",
- "On the computer where you play, open {link} with the Riot Client signed in.": "Di komputer tempat kamu bermain, buka {link} dengan Riot Client dalam keadaan masuk.",
- "Step {n} of 3": "Langkah {n} dari 3",
- "That code expired. Get a new one.": "Kode itu sudah kedaluwarsa. Dapatkan yang baru.",
- "Waiting for My Stats… This page updates by itself. The code works for {n} minutes.": "Menunggu Statistik Saya… Halaman ini diperbarui sendiri. Kode berlaku selama {n} menit.",
  "Welcome, {name}!": "Selamat datang, {name}!",
  "Welcome!": "Selamat datang!",
  "Riot account: {name}": "Akun Riot: {name}",
@@ -126,5 +115,5 @@
  "Delete this message?": "Hapus pesan ini?",
  "Deleted.": "Dihapus.",
  "No messages yet.": "Belum ada pesan.",
- "Connect the Riot account you play on so My Stats can bring your games here. Only you can connect yours: My Stats checks it with the Riot Client on your computer.": "Hubungkan akun Riot yang kamu pakai bermain agar Statistik Saya membawa game-mu ke sini. Hanya kamu yang bisa menghubungkan akunmu: Statistik Saya memeriksanya lewat Riot Client di komputermu."
+ "To connect, open Mayhem Stats on the computer where you play, with League open, and choose Connect to deeparam.com. This page asks you to confirm.": "Untuk menghubungkan, buka Mayhem Stats di komputer tempat kamu bermain dengan League terbuka, lalu pilih Hubungkan ke deeparam.com. Halaman ini akan memintamu mengonfirmasi."
 }

@@ -38,7 +38,6 @@
  "Your player page": "你的玩家主页",
  "Publish a player page from My Stats and it links here.": "在我的数据中发布玩家主页后，链接会显示在这里。",
  "Disconnect": "解除绑定",
- "Your code: {code}": "你的代码：{code}",
  "My Stats": "我的数据",
  "Other ways to sign in": "其他登录方式",
  "Sign in to this account with another service you use, instead of a password.": "使用你的其他服务账号登录此账号，无需密码。",
@@ -96,18 +95,8 @@
  "You already have 10 passkeys. Remove one first.": "你已有 10 个通行密钥，请先移除一个。",
  "Your current password is wrong.": "当前密码错误。",
  "Your password is wrong.": "密码错误。",
- "Choose Connect account and paste this code.": "选择“绑定账号”并粘贴此代码。",
  "Connected": "已绑定",
  "Copied": "已复制",
- "Copy code": "复制代码",
- "Enter it in My Stats": "在我的数据中输入",
- "Get a code": "获取代码",
- "Get a new code": "获取新代码",
- "Get my code": "获取我的代码",
- "On the computer where you play, open {link} with the Riot Client signed in.": "在你玩游戏的电脑上登录 Riot 客户端，然后打开{link}。",
- "Step {n} of 3": "第 {n} 步，共 3 步",
- "That code expired. Get a new one.": "此代码已过期。请获取新代码。",
- "Waiting for My Stats… This page updates by itself. The code works for {n} minutes.": "正在等待我的数据… 此页面会自动更新。代码 {n} 分钟内有效。",
  "Welcome, {name}!": "欢迎，{name}！",
  "Welcome!": "欢迎！",
  "Riot account: {name}": "Riot 账号：{name}",
@@ -126,5 +115,5 @@
  "Delete this message?": "删除这条留言？",
  "Deleted.": "已删除。",
  "No messages yet.": "还没有留言。",
- "Connect the Riot account you play on so My Stats can bring your games here. Only you can connect yours: My Stats checks it with the Riot Client on your computer.": "绑定你玩游戏用的 Riot 账号，我的数据就能把你的对局带到这里。只有你本人能绑定自己的账号：我的数据会通过你电脑上的 Riot 客户端进行核验。"
+ "To connect, open Mayhem Stats on the computer where you play, with League open, and choose Connect to deeparam.com. This page asks you to confirm.": "要绑定，请在你玩游戏的电脑上打开 League，再打开 Mayhem Stats，选择“关联到 deeparam.com”。此页面会请你确认。"
 }

@@ -11,7 +11,7 @@ import CHAMPIONS from "@/data/champion-names.json";
 // Site accounts: sign in with an email and password or a passkey, and settings follow
 // you to every browser you sign in on. Passwords are stored as salted PBKDF2 hashes, sessions as the
 // SHA-256 of a random token. One account can be the site owner (the 3D Simulator and the site editor).
-// A Riot account is connected through My Stats (a one-time code the helper confirms with the Riot Client).
+// A Riot account is connected through Mayhem Stats, which confirms it with the Riot Client (lib/riot-pair.ts).
 
 export class AccountError extends Error {
   constructor(message: string, public status = 400) {
@@ -249,19 +249,6 @@ export async function deleteAccount(id: string) {
 }
 
 // ---- Riot account (through My Stats) ----
-
-/** A short code the account page shows; My Stats sends it with the Riot Client's sign-in to connect the two. */
-export async function newLinkCode(id: string): Promise<string> {
-  const d = await db();
-  const alphabet = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
-  // 32 letters, so the low 5 bits of a random byte pick one evenly.
-  const code = [...crypto.getRandomValues(new Uint8Array(8))].map((b) => alphabet[b & 31]).join("");
-  await d.batch([
-    d.prepare("DELETE FROM link_codes WHERE account = ? OR expires < ?").bind(id, Date.now()),
-    d.prepare("INSERT INTO link_codes (code, account, expires) VALUES (?, ?, ?)").bind(code, id, Date.now() + 15 * 60_000),
-  ]);
-  return code;
-}
 
 export async function linkRiot(code: unknown, riot: { puuid: string; name: string; tag: string }, platform: string) {
   const c = typeof code === "string" ? code.trim().toUpperCase().replace(/[^A-Z0-9]/g, "") : "";

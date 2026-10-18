@@ -38,7 +38,6 @@
  "Your player page": "Tvoje stránka hráče",
  "Publish a player page from My Stats and it links here.": "Zveřejni stránku hráče v Moje statistiky a odkaz se objeví tady.",
  "Disconnect": "Odpojit",
- "Your code: {code}": "Tvůj kód: {code}",
  "My Stats": "Moje statistiky",
  "Other ways to sign in": "Jiné způsoby přihlášení",
  "Sign in to this account with another service you use, instead of a password.": "Přihlašuj se k tomuto účtu přes jinou službu, kterou používáš, místo hesla.",
@@ -96,18 +95,8 @@
  "You already have 10 passkeys. Remove one first.": "Už máš 10 přístupových klíčů. Nejdřív jeden odeber.",
  "Your current password is wrong.": "Tvoje současné heslo je špatně.",
  "Your password is wrong.": "Tvoje heslo je špatně.",
- "Choose Connect account and paste this code.": "Zvol Propojit účet a vlož tento kód.",
  "Connected": "Propojeno",
  "Copied": "Zkopírováno",
- "Copy code": "Kopírovat kód",
- "Enter it in My Stats": "Zadej ho v Moje statistiky",
- "Get a code": "Získej kód",
- "Get a new code": "Získat nový kód",
- "Get my code": "Získat kód",
- "On the computer where you play, open {link} with the Riot Client signed in.": "Na počítači, kde hraješ, otevři {link} s přihlášeným Riot Clientem.",
- "Step {n} of 3": "Krok {n} ze 3",
- "That code expired. Get a new one.": "Platnost kódu vypršela. Získej nový.",
- "Waiting for My Stats… This page updates by itself. The code works for {n} minutes.": "Čekám na Moje statistiky… Stránka se aktualizuje sama. Kód platí {n} minut.",
  "Welcome, {name}!": "Vítej, {name}!",
  "Welcome!": "Vítej!",
  "Riot account: {name}": "Účet Riot: {name}",
@@ -126,5 +115,5 @@
  "Delete this message?": "Smazat tuto zprávu?",
  "Deleted.": "Smazáno.",
  "No messages yet.": "Zatím žádné zprávy.",
- "Connect the Riot account you play on so My Stats can bring your games here. Only you can connect yours: My Stats checks it with the Riot Client on your computer.": "Propoj účet Riot, na kterém hraješ, a Moje statistiky sem přenesou tvoje hry. Svůj účet můžeš propojit jen ty: Moje statistiky ho ověří přes Riot Client na tvém počítači."
+ "To connect, open Mayhem Stats on the computer where you play, with League open, and choose Connect to deeparam.com. This page asks you to confirm.": "Pro propojení otevři Mayhem Stats na počítači, kde hraješ, se spuštěným Leaguem a zvol Propojit s deeparam.com. Tahle stránka tě požádá o potvrzení."
 }

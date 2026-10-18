@@ -38,7 +38,6 @@
  "Your player page": "Η σελίδα παίκτη σου",
  "Publish a player page from My Stats and it links here.": "Δημοσίευσε μια σελίδα παίκτη από τα Στατιστικά μου και θα εμφανιστεί εδώ.",
  "Disconnect": "Αποσύνδεση λογαριασμού",
- "Your code: {code}": "Ο κωδικός σου: {code}",
  "My Stats": "Τα στατιστικά μου",
  "Other ways to sign in": "Άλλοι τρόποι σύνδεσης",
  "Sign in to this account with another service you use, instead of a password.": "Συνδέσου σε αυτόν τον λογαριασμό μέσω άλλης υπηρεσίας που χρησιμοποιείς, αντί για κωδικό.",
@@ -96,18 +95,8 @@
  "You already have 10 passkeys. Remove one first.": "Έχεις ήδη 10 κλειδιά πρόσβασης. Αφαίρεσε πρώτα ένα.",
  "Your current password is wrong.": "Ο τρέχων κωδικός σου είναι λάθος.",
  "Your password is wrong.": "Ο κωδικός σου είναι λάθος.",
- "Choose Connect account and paste this code.": "Επίλεξε «Σύνδεση λογαριασμού» και επικόλλησε αυτόν τον κωδικό.",
  "Connected": "Συνδέθηκε",
  "Copied": "Αντιγράφηκε",
- "Copy code": "Αντιγραφή κωδικού",
- "Enter it in My Stats": "Γράψ' τον στα Στατιστικά μου",
- "Get a code": "Πάρε έναν κωδικό",
- "Get a new code": "Νέος κωδικός",
- "Get my code": "Πάρε τον κωδικό μου",
- "On the computer where you play, open {link} with the Riot Client signed in.": "Στον υπολογιστή όπου παίζεις, άνοιξε {link} με συνδεδεμένο το Riot Client.",
- "Step {n} of 3": "Βήμα {n} από 3",
- "That code expired. Get a new one.": "Ο κωδικός έληξε. Πάρε νέο.",
- "Waiting for My Stats… This page updates by itself. The code works for {n} minutes.": "Αναμονή για τα Στατιστικά μου… Η σελίδα ενημερώνεται μόνη της. Ο κωδικός ισχύει για {n} λεπτά.",
  "Welcome, {name}!": "Καλώς ήρθες, {name}!",
  "Welcome!": "Καλώς ήρθες!",
  "Riot account: {name}": "Λογαριασμός Riot: {name}",
@@ -126,5 +115,5 @@
  "Delete this message?": "Διαγραφή αυτού του μηνύματος;",
  "Deleted.": "Διαγράφηκε.",
  "No messages yet.": "Δεν υπάρχουν μηνύματα ακόμα.",
- "Connect the Riot account you play on so My Stats can bring your games here. Only you can connect yours: My Stats checks it with the Riot Client on your computer.": "Σύνδεσε τον λογαριασμό Riot με τον οποίο παίζεις για να φέρνουν εδώ τα Στατιστικά μου τα παιχνίδια σου. Μόνο εσύ μπορείς να συνδέσεις τον δικό σου: τα Στατιστικά μου τον ελέγχουν μέσω του Riot Client στον υπολογιστή σου."
+ "To connect, open Mayhem Stats on the computer where you play, with League open, and choose Connect to deeparam.com. This page asks you to confirm.": "Για σύνδεση, άνοιξε το Mayhem Stats στον υπολογιστή όπου παίζεις, με ανοιχτό το League, και διάλεξε Σύνδεση με το deeparam.com. Αυτή η σελίδα θα σου ζητήσει επιβεβαίωση."
 }

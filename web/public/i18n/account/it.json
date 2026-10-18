@@ -38,7 +38,6 @@
  "Your player page": "La tua pagina giocatore",
  "Publish a player page from My Stats and it links here.": "Pubblica una pagina giocatore da Le mie statistiche e il link comparirà qui.",
  "Disconnect": "Scollega",
- "Your code: {code}": "Il tuo codice: {code}",
  "My Stats": "Le mie statistiche",
  "Other ways to sign in": "Altri modi per accedere",
  "Sign in to this account with another service you use, instead of a password.": "Accedi a questo account con un altro servizio che usi, invece che con una password.",
@@ -96,18 +95,8 @@
  "You already have 10 passkeys. Remove one first.": "Hai già 10 passkey. Prima rimuovine una.",
  "Your current password is wrong.": "La password attuale è errata.",
  "Your password is wrong.": "La password è errata.",
- "Choose Connect account and paste this code.": "Scegli Collega account e incolla questo codice.",
  "Connected": "Collegato",
  "Copied": "Copiato",
- "Copy code": "Copia codice",
- "Enter it in My Stats": "Inseriscilo in Le mie statistiche",
- "Get a code": "Ottieni un codice",
- "Get a new code": "Ottieni un nuovo codice",
- "Get my code": "Ottieni il mio codice",
- "On the computer where you play, open {link} with the Riot Client signed in.": "Sul computer su cui giochi, apri {link} con l'accesso effettuato al client Riot.",
- "Step {n} of 3": "Passo {n} di 3",
- "That code expired. Get a new one.": "Il codice è scaduto. Ottienine uno nuovo.",
- "Waiting for My Stats… This page updates by itself. The code works for {n} minutes.": "In attesa di Le mie statistiche… Questa pagina si aggiorna da sola. Il codice è valido per {n} minuti.",
  "Welcome, {name}!": "Benvenuto, {name}!",
  "Welcome!": "Benvenuto!",
  "Riot account: {name}": "Account Riot: {name}",
@@ -126,5 +115,5 @@
  "Delete this message?": "Eliminare questo messaggio?",
  "Deleted.": "Eliminato.",
  "No messages yet.": "Ancora nessun messaggio.",
- "Connect the Riot account you play on so My Stats can bring your games here. Only you can connect yours: My Stats checks it with the Riot Client on your computer.": "Collega l'account Riot con cui giochi perché Le mie statistiche porti qui le tue partite. Solo tu puoi collegare il tuo: Le mie statistiche lo verifica con il client Riot sul tuo computer."
+ "To connect, open Mayhem Stats on the computer where you play, with League open, and choose Connect to deeparam.com. This page asks you to confirm.": "Per collegarlo, apri Mayhem Stats sul computer dove giochi, con League aperto, e scegli Collega a deeparam.com. Questa pagina ti chiederà di confermare."
 }

@@ -502,52 +502,11 @@ function EmailCard({ account, refresh }: { account: Account; refresh: () => Prom
   );
 }
 
-const CODE_MINUTES = 15;
-
-/** Connecting the Riot account: a code from here, entered in My Stats, which checks it with the Riot Client. */
+/** The connected Riot account. Connecting starts in Mayhem Stats on the player's computer, which checks it
+ * with the Riot Client and sends them here to confirm (MyStatsSection). */
 function RiotCard({ account, refresh }: { account: Account; refresh: () => Promise<void> }) {
-  const [code, setCode] = useState("");
-  const [expires, setExpires] = useState(0);
-  const [now, setNow] = useState(0);
-  const [copied, setCopied] = useState(false);
   const [msg, setMsg] = useState<Msg>(null);
   const t = useT("account");
-
-  // While a code is out, check every few seconds whether My Stats used it, so there's nothing to click.
-  useEffect(() => {
-    if (!code) return;
-    const tick = setInterval(async () => {
-      setNow(Date.now());
-      if (Date.now() > expires) return;
-      const a = await fetch("/api/account", { cache: "no-store" }).then((r) => r.json()).catch(() => null);
-      if (a?.riot) {
-        setCode("");
-        setMsg({ kind: "ok", text: "Your Riot account is connected." });
-        await refresh();
-      }
-    }, 4000);
-    return () => clearInterval(tick);
-  }, [code, expires, refresh]);
-
-  const getCode = async () => {
-    setMsg(null);
-    setCopied(false);
-    try {
-      setCode((await call("/api/account/riot-code", "POST")).code);
-      setExpires(Date.now() + CODE_MINUTES * 60_000);
-      setNow(Date.now());
-    } catch (err) {
-      setMsg({ kind: "error", text: errText(err) });
-    }
-  };
-
-  const copy = async () => {
-    try {
-      await navigator.clipboard.writeText(code);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    } catch {}
-  };
 
   const disconnect = async () => {
     try {
@@ -558,21 +517,9 @@ function RiotCard({ account, refresh }: { account: Account; refresh: () => Promi
     }
   };
 
-  const expired = Boolean(code) && now > expires;
-  const step = account.riot ? 3 : code ? 2 : 1;
-  const steps = [t("Get a code"), t("Enter it in My Stats"), t("Connected")];
-
   return (
     <section className="card acct-card acct-riot-card" data-accent="tier">
       <h3>{account.riot ? t("Connected") : t("Connect your Riot account")}</h3>
-      <ol className="acct-progress" aria-label={t("Step {n} of 3", { n: step })}>
-        {steps.map((label, i) => (
-          <li key={label} className={i + 1 < step || step === 3 ? "done" : i + 1 === step ? "now" : ""} aria-current={i + 1 === step ? "step" : undefined}>
-            <span className="dot">{i + 1 < step || step === 3 ? "✓" : i + 1}</span>
-            <span className="label">{label}</span>
-          </li>
-        ))}
-      </ol>
       {account.riot ? (
         <>
           <p className="acct-who">{account.riot.name}</p>
@@ -589,41 +536,10 @@ function RiotCard({ account, refresh }: { account: Account; refresh: () => Promi
             {t("Disconnect")}
           </button>
         </>
-      ) : code && !expired ? (
-        <>
-          <div className="acct-code-row">
-            <p className="acct-code" aria-label={t("Your code: {code}", { code: code.split("").join(" ") })}>
-              {code.slice(0, 4)} {code.slice(4)}
-            </p>
-            <button type="button" className="btn ghost" onClick={copy}>
-              {copied ? t("Copied") : t("Copy code")}
-            </button>
-          </div>
-          <ol className="acct-steps">
-            <li>
-              {around(
-                t("On the computer where you play, open {link} with the Riot Client signed in."),
-                "link",
-                <Link className="inline-link" href="/stats">
-                  {t("My Stats")}
-                </Link>,
-              )}
-            </li>
-            <li>{t("Choose Connect account and paste this code.")}</li>
-          </ol>
-          <p className="acct-waiting" role="status">
-            <span className="pulse" aria-hidden="true" />
-            {t("Waiting for My Stats… This page updates by itself. The code works for {n} minutes.", { n: Math.max(1, Math.ceil((expires - now) / 60_000)) })}
-          </p>
-        </>
       ) : (
-        <>
-          {expired && <p className="acct-note error">{t("That code expired. Get a new one.")}</p>}
-          <p className="acct-hint">{t("Connect the Riot account you play on so My Stats can bring your games here. Only you can connect yours: My Stats checks it with the Riot Client on your computer.")}</p>
-          <button type="button" className="btn" onClick={getCode}>
-            {expired ? t("Get a new code") : t("Get my code")}
-          </button>
-        </>
+        <p className="acct-hint">
+          {t("To connect, open Mayhem Stats on the computer where you play, with League open, and choose Connect to deeparam.com. This page asks you to confirm.")}
+        </p>
       )}
       <Note msg={msg} />
     </section>

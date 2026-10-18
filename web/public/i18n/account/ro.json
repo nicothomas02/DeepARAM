@@ -38,7 +38,6 @@
  "Your player page": "Pagina ta de jucător",
  "Publish a player page from My Stats and it links here.": "Publică o pagină de jucător din Statisticile mele și va apărea aici.",
  "Disconnect": "Deconectează",
- "Your code: {code}": "Codul tău: {code}",
  "My Stats": "Statisticile mele",
  "Other ways to sign in": "Alte moduri de conectare",
  "Sign in to this account with another service you use, instead of a password.": "Conectează-te la acest cont cu alt serviciu pe care îl folosești, în loc de parolă.",
@@ -96,18 +95,8 @@
  "You already have 10 passkeys. Remove one first.": "Ai deja 10 chei de acces. Elimină mai întâi una.",
  "Your current password is wrong.": "Parola actuală este greșită.",
  "Your password is wrong.": "Parola este greșită.",
- "Choose Connect account and paste this code.": "Alege Conectează contul și lipește acest cod.",
  "Connected": "Conectat",
  "Copied": "Copiat",
- "Copy code": "Copiază codul",
- "Enter it in My Stats": "Introdu-l în Statisticile mele",
- "Get a code": "Obține un cod",
- "Get a new code": "Obține un cod nou",
- "Get my code": "Obține codul meu",
- "On the computer where you play, open {link} with the Riot Client signed in.": "Pe computerul pe care joci, deschide {link} cu Clientul Riot conectat.",
- "Step {n} of 3": "Pasul {n} din 3",
- "That code expired. Get a new one.": "Codul a expirat. Obține unul nou.",
- "Waiting for My Stats… This page updates by itself. The code works for {n} minutes.": "Se așteaptă Statisticile mele… Pagina se actualizează singură. Codul este valabil {n} minute.",
  "Welcome, {name}!": "Bine ai venit, {name}!",
  "Welcome!": "Bine ai venit!",
  "Riot account: {name}": "Cont Riot: {name}",
@@ -126,5 +115,5 @@
  "Delete this message?": "Ștergi acest mesaj?",
  "Deleted.": "Șters.",
  "No messages yet.": "Încă nu există mesaje.",
- "Connect the Riot account you play on so My Stats can bring your games here. Only you can connect yours: My Stats checks it with the Riot Client on your computer.": "Conectează contul Riot pe care joci ca Statisticile mele să-ți aducă meciurile aici. Doar tu îl poți conecta pe al tău: Statisticile mele îl verifică prin Clientul Riot de pe computerul tău."
+ "To connect, open Mayhem Stats on the computer where you play, with League open, and choose Connect to deeparam.com. This page asks you to confirm.": "Ca să-l conectezi, deschide Mayhem Stats pe computerul pe care joci, cu League pornit, și alege Conectează la deeparam.com. Pagina aceasta îți va cere să confirmi."
 }

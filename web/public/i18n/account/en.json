@@ -38,7 +38,6 @@
  "Your player page": "Your player page",
  "Publish a player page from My Stats and it links here.": "Publish a player page from My Stats and it links here.",
  "Disconnect": "Disconnect",
- "Your code: {code}": "Your code: {code}",
  "My Stats": "My Stats",
  "Other ways to sign in": "Other ways to sign in",
  "Sign in to this account with another service you use, instead of a password.": "Sign in to this account with another service you use, instead of a password.",
@@ -96,18 +95,8 @@
  "You already have 10 passkeys. Remove one first.": "You already have 10 passkeys. Remove one first.",
  "Your current password is wrong.": "Your current password is wrong.",
  "Your password is wrong.": "Your password is wrong.",
- "Choose Connect account and paste this code.": "Choose Connect account and paste this code.",
  "Connected": "Connected",
  "Copied": "Copied",
- "Copy code": "Copy code",
- "Enter it in My Stats": "Enter it in My Stats",
- "Get a code": "Get a code",
- "Get a new code": "Get a new code",
- "Get my code": "Get my code",
- "On the computer where you play, open {link} with the Riot Client signed in.": "On the computer where you play, open {link} with the Riot Client signed in.",
- "Step {n} of 3": "Step {n} of 3",
- "That code expired. Get a new one.": "That code expired. Get a new one.",
- "Waiting for My Stats… This page updates by itself. The code works for {n} minutes.": "Waiting for My Stats… This page updates by itself. The code works for {n} minutes.",
  "Welcome, {name}!": "Welcome, {name}!",
  "Welcome!": "Welcome!",
  "Riot account: {name}": "Riot account: {name}",
@@ -126,5 +115,5 @@
  "Delete this message?": "Delete this message?",
  "Deleted.": "Deleted.",
  "No messages yet.": "No messages yet.",
- "Connect the Riot account you play on so My Stats can bring your games here. Only you can connect yours: My Stats checks it with the Riot Client on your computer.": "Connect the Riot account you play on so My Stats can bring your games here. Only you can connect yours: My Stats checks it with the Riot Client on your computer."
+ "To connect, open Mayhem Stats on the computer where you play, with League open, and choose Connect to deeparam.com. This page asks you to confirm.": "To connect, open Mayhem Stats on the computer where you play, with League open, and choose Connect to deeparam.com. This page asks you to confirm."
 }

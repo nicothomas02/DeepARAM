@@ -38,7 +38,6 @@
  "Your player page": "Oyuncu sayfan",
  "Publish a player page from My Stats and it links here.": "İstatistiklerim'den bir oyuncu sayfası yayımla, buraya bağlansın.",
  "Disconnect": "Bağlantıyı kes",
- "Your code: {code}": "Kodun: {code}",
  "My Stats": "İstatistiklerim",
  "Other ways to sign in": "Diğer giriş yolları",
  "Sign in to this account with another service you use, instead of a password.": "Şifre yerine kullandığın başka bir hizmetle bu hesaba giriş yap.",
@@ -96,18 +95,8 @@
  "You already have 10 passkeys. Remove one first.": "Zaten 10 geçiş anahtarın var. Önce birini kaldır.",
  "Your current password is wrong.": "Mevcut şifren yanlış.",
  "Your password is wrong.": "Şifren yanlış.",
- "Choose Connect account and paste this code.": "Hesap bağla'yı seç ve bu kodu yapıştır.",
  "Connected": "Bağlandı",
  "Copied": "Kopyalandı",
- "Copy code": "Kodu kopyala",
- "Enter it in My Stats": "İstatistiklerim'e gir",
- "Get a code": "Kod al",
- "Get a new code": "Yeni kod al",
- "Get my code": "Kodumu al",
- "On the computer where you play, open {link} with the Riot Client signed in.": "Oynadığın bilgisayarda, Riot İstemcisi'nde oturum açıkken {link} sayfasını aç.",
- "Step {n} of 3": "Adım {n}/3",
- "That code expired. Get a new one.": "Bu kodun süresi doldu. Yeni bir kod al.",
- "Waiting for My Stats… This page updates by itself. The code works for {n} minutes.": "İstatistiklerim bekleniyor… Bu sayfa kendi kendine güncellenir. Kod {n} dakika geçerli.",
  "Welcome, {name}!": "Hoş geldin, {name}!",
  "Welcome!": "Hoş geldin!",
  "Riot account: {name}": "Riot hesabı: {name}",
@@ -126,5 +115,5 @@
  "Delete this message?": "Bu mesaj silinsin mi?",
  "Deleted.": "Silindi.",
  "No messages yet.": "Henüz mesaj yok.",
- "Connect the Riot account you play on so My Stats can bring your games here. Only you can connect yours: My Stats checks it with the Riot Client on your computer.": "İstatistiklerim'in oyunlarını buraya getirmesi için oynadığın Riot hesabını bağla. Hesabını yalnızca sen bağlayabilirsin: İstatistiklerim bunu bilgisayarındaki Riot İstemcisi ile doğrular."
+ "To connect, open Mayhem Stats on the computer where you play, with League open, and choose Connect to deeparam.com. This page asks you to confirm.": "Bağlamak için oynadığın bilgisayarda League açıkken Mayhem Stats'i aç ve deeparam.com'a bağla seçeneğini seç. Bu sayfa onaylamanı isteyecek."
 }

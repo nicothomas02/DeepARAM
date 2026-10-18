@@ -38,7 +38,6 @@
  "Your player page": "صفحة اللاعب الخاصة بك",
  "Publish a player page from My Stats and it links here.": "انشر صفحة لاعب من إحصائياتي وسيظهر رابطها هنا.",
  "Disconnect": "فصل",
- "Your code: {code}": "رمزك: {code}",
  "My Stats": "إحصائياتي",
  "Other ways to sign in": "طرق أخرى لتسجيل الدخول",
  "Sign in to this account with another service you use, instead of a password.": "سجّل الدخول إلى هذا الحساب عبر خدمة أخرى تستخدمها، بدلًا من كلمة المرور.",
@@ -96,18 +95,8 @@
  "You already have 10 passkeys. Remove one first.": "لديك 10 مفاتيح مرور بالفعل. أزل واحدًا أولًا.",
  "Your current password is wrong.": "كلمة المرور الحالية غير صحيحة.",
  "Your password is wrong.": "كلمة المرور غير صحيحة.",
- "Choose Connect account and paste this code.": "اختر «ربط الحساب» والصق هذا الرمز.",
  "Connected": "متصل",
  "Copied": "تم النسخ",
- "Copy code": "نسخ الرمز",
- "Enter it in My Stats": "أدخله في إحصائياتي",
- "Get a code": "احصل على رمز",
- "Get a new code": "احصل على رمز جديد",
- "Get my code": "احصل على رمزي",
- "On the computer where you play, open {link} with the Riot Client signed in.": "على الكمبيوتر الذي تلعب عليه، افتح {link} مع تسجيل الدخول إلى Riot Client.",
- "Step {n} of 3": "الخطوة {n} من 3",
- "That code expired. Get a new one.": "انتهت صلاحية هذا الرمز. احصل على رمز جديد.",
- "Waiting for My Stats… This page updates by itself. The code works for {n} minutes.": "بانتظار إحصائياتي… تتحدث هذه الصفحة تلقائيًا. يبقى الرمز صالحًا لمدة {n} دقيقة.",
  "Welcome, {name}!": "أهلًا، {name}!",
  "Welcome!": "أهلًا بك!",
  "Riot account: {name}": "حساب Riot: {name}",
@@ -126,5 +115,5 @@
  "Delete this message?": "حذف هذه الرسالة؟",
  "Deleted.": "تم الحذف.",
  "No messages yet.": "لا توجد رسائل بعد.",
- "Connect the Riot account you play on so My Stats can bring your games here. Only you can connect yours: My Stats checks it with the Riot Client on your computer.": "اربط حساب Riot الذي تلعب به لتجلب إحصائياتي مبارياتك إلى هنا. لا يمكن لأحد غيرك ربط حسابك: يتحقق منه إحصائياتي عبر Riot Client على الكمبيوتر."
+ "To connect, open Mayhem Stats on the computer where you play, with League open, and choose Connect to deeparam.com. This page asks you to confirm.": "للربط، افتح Mayhem Stats على الكمبيوتر الذي تلعب عليه واللعبة مفتوحة، ثم اختر ربط بـ deeparam.com. ستطلب منك هذه الصفحة التأكيد."
 }

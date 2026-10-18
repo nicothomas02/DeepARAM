@@ -38,7 +38,6 @@
  "Your player page": "A játékosoldalad",
  "Publish a player page from My Stats and it links here.": "Tegyél közzé egy játékosoldalt a Statisztikáimból, és itt megjelenik a linkje.",
  "Disconnect": "Leválasztás",
- "Your code: {code}": "A kódod: {code}",
  "My Stats": "Statisztikáim",
  "Other ways to sign in": "Más bejelentkezési módok",
  "Sign in to this account with another service you use, instead of a password.": "Jelentkezz be ebbe a fiókba egy másik általad használt szolgáltatással, jelszó helyett.",
@@ -96,18 +95,8 @@
  "You already have 10 passkeys. Remove one first.": "Már 10 azonosítókulcsod van. Előbb távolíts el egyet.",
  "Your current password is wrong.": "A jelenlegi jelszavad hibás.",
  "Your password is wrong.": "A jelszavad hibás.",
- "Choose Connect account and paste this code.": "Válaszd a Fiók összekapcsolása lehetőséget, és illeszd be ezt a kódot.",
  "Connected": "Összekapcsolva",
  "Copied": "Másolva",
- "Copy code": "Kód másolása",
- "Enter it in My Stats": "Add meg a Statisztikáimban",
- "Get a code": "Kérj kódot",
- "Get a new code": "Új kód kérése",
- "Get my code": "Kódot kérek",
- "On the computer where you play, open {link} with the Riot Client signed in.": "Azon a gépen, ahol játszol, nyisd meg ezt: {link}, bejelentkezett Riot-klienssel.",
- "Step {n} of 3": "{n}/3. lépés",
- "That code expired. Get a new one.": "A kód lejárt. Kérj újat.",
- "Waiting for My Stats… This page updates by itself. The code works for {n} minutes.": "Várakozás a Statisztikáimra… Az oldal magától frissül. A kód {n} percig érvényes.",
  "Welcome, {name}!": "Üdv, {name}!",
  "Welcome!": "Üdv!",
  "Riot account: {name}": "Riot-fiók: {name}",
@@ -126,5 +115,5 @@
  "Delete this message?": "Törlöd ezt az üzenetet?",
  "Deleted.": "Törölve.",
  "No messages yet.": "Még nincs üzenet.",
- "Connect the Riot account you play on so My Stats can bring your games here. Only you can connect yours: My Stats checks it with the Riot Client on your computer.": "Kapcsold össze a Riot-fiókot, amellyel játszol, hogy a Statisztikáim ide hozza a meccseidet. A sajátodat csak te kapcsolhatod össze: a Statisztikáim a gépeden futó Riot-klienssel ellenőrzi."
+ "To connect, open Mayhem Stats on the computer where you play, with League open, and choose Connect to deeparam.com. This page asks you to confirm.": "Az összekapcsoláshoz nyisd meg a Mayhem Statsot azon a gépen, ahol játszol, futó Leaguegel, és válaszd ezt: Összekapcsolás a deeparam.com-mal. Ez az oldal megerősítést kér."
 }

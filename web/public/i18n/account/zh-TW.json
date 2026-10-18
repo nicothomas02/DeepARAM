@@ -38,7 +38,6 @@
  "Your player page": "你的玩家頁面",
  "Publish a player page from My Stats and it links here.": "在我的數據中發布玩家頁面後，連結會顯示在這裡。",
  "Disconnect": "中斷連結",
- "Your code: {code}": "你的代碼：{code}",
  "My Stats": "我的數據",
  "Other ways to sign in": "其他登入方式",
  "Sign in to this account with another service you use, instead of a password.": "使用你的其他服務帳號登入此帳號，不需要密碼。",
@@ -96,18 +95,8 @@
  "You already have 10 passkeys. Remove one first.": "你已有 10 個密碼金鑰，請先移除一個。",
  "Your current password is wrong.": "目前的密碼錯誤。",
  "Your password is wrong.": "密碼錯誤。",
- "Choose Connect account and paste this code.": "選擇「連結帳號」並貼上此代碼。",
  "Connected": "已連結",
  "Copied": "已複製",
- "Copy code": "複製代碼",
- "Enter it in My Stats": "在我的數據中輸入",
- "Get a code": "取得代碼",
- "Get a new code": "取得新代碼",
- "Get my code": "取得我的代碼",
- "On the computer where you play, open {link} with the Riot Client signed in.": "在你玩遊戲的電腦上登入 Riot 用戶端，然後開啟{link}。",
- "Step {n} of 3": "第 {n} 步，共 3 步",
- "That code expired. Get a new one.": "此代碼已過期。請取得新代碼。",
- "Waiting for My Stats… This page updates by itself. The code works for {n} minutes.": "正在等待我的數據… 此頁面會自動更新。代碼 {n} 分鐘內有效。",
  "Welcome, {name}!": "歡迎，{name}！",
  "Welcome!": "歡迎！",
  "Riot account: {name}": "Riot 帳號：{name}",
@@ -126,5 +115,5 @@
  "Delete this message?": "刪除這則留言？",
  "Deleted.": "已刪除。",
  "No messages yet.": "還沒有留言。",
- "Connect the Riot account you play on so My Stats can bring your games here. Only you can connect yours: My Stats checks it with the Riot Client on your computer.": "連結你用來玩遊戲的 Riot 帳號，我的數據就能把你的對戰帶到這裡。只有你本人能連結自己的帳號：我的數據會透過你電腦上的 Riot 用戶端確認。"
+ "To connect, open Mayhem Stats on the computer where you play, with League open, and choose Connect to deeparam.com. This page asks you to confirm.": "要連結，請在你玩遊戲的電腦上開啟 League，再開啟 Mayhem Stats，選擇「連結到 deeparam.com」。此頁面會請你確認。"
 }

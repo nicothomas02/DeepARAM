@@ -38,7 +38,6 @@
  "Your player page": "プレイヤーページ",
  "Publish a player page from My Stats and it links here.": "マイ戦績からプレイヤーページを公開すると、ここにリンクが表示されます。",
  "Disconnect": "連携を解除",
- "Your code: {code}": "コード: {code}",
  "My Stats": "マイ戦績",
  "Other ways to sign in": "その他のログイン方法",
  "Sign in to this account with another service you use, instead of a password.": "パスワードの代わりに、普段使っている別のサービスでこのアカウントにログインできます。",
@@ -96,18 +95,8 @@
  "You already have 10 passkeys. Remove one first.": "パスキーはすでに10個あります。先に1つ削除してください。",
  "Your current password is wrong.": "現在のパスワードが違います。",
  "Your password is wrong.": "パスワードが違います。",
- "Choose Connect account and paste this code.": "「アカウントを連携」を選んで、このコードを貼り付けてください。",
  "Connected": "連携済み",
  "Copied": "コピーしました",
- "Copy code": "コードをコピー",
- "Enter it in My Stats": "マイ戦績に入力",
- "Get a code": "コードを取得",
- "Get a new code": "新しいコードを取得",
- "Get my code": "コードを取得する",
- "On the computer where you play, open {link} with the Riot Client signed in.": "プレイしているパソコンでRiotクライアントにログインした状態で、{link}を開いてください。",
- "Step {n} of 3": "ステップ {n}/3",
- "That code expired. Get a new one.": "このコードは期限切れです。新しいコードを取得してください。",
- "Waiting for My Stats… This page updates by itself. The code works for {n} minutes.": "マイ戦績を待っています… このページは自動で更新されます。コードの有効期限は{n}分です。",
  "Welcome, {name}!": "ようこそ、{name}さん！",
  "Welcome!": "ようこそ！",
  "Riot account: {name}": "Riotアカウント：{name}",
@@ -126,5 +115,5 @@
  "Delete this message?": "このメッセージを削除しますか？",
  "Deleted.": "削除しました。",
  "No messages yet.": "まだメッセージはありません。",
- "Connect the Riot account you play on so My Stats can bring your games here. Only you can connect yours: My Stats checks it with the Riot Client on your computer.": "プレイしているRiotアカウントを連携すると、マイ戦績があなたの試合をここに表示します。連携できるのは本人だけです。マイ戦績がパソコン上のRiotクライアントで確認します。"
+ "To connect, open Mayhem Stats on the computer where you play, with League open, and choose Connect to deeparam.com. This page asks you to confirm.": "連携するには、プレイしているパソコンでLeagueを起動した状態でMayhem Statsを開き、「deeparam.comと連携」を選んでください。このページで確認を求められます。"
 }

@@ -38,7 +38,6 @@
  "Your player page": "내 플레이어 페이지",
  "Publish a player page from My Stats and it links here.": "내 전적에서 플레이어 페이지를 게시하면 여기에 링크됩니다.",
  "Disconnect": "연결 해제",
- "Your code: {code}": "내 코드: {code}",
  "My Stats": "내 전적",
  "Other ways to sign in": "다른 로그인 방법",
  "Sign in to this account with another service you use, instead of a password.": "비밀번호 대신 사용 중인 다른 서비스로 이 계정에 로그인하세요.",
@@ -96,18 +95,8 @@
  "You already have 10 passkeys. Remove one first.": "이미 패스키가 10개 있습니다. 먼저 하나를 삭제하세요.",
  "Your current password is wrong.": "현재 비밀번호가 올바르지 않습니다.",
  "Your password is wrong.": "비밀번호가 올바르지 않습니다.",
- "Choose Connect account and paste this code.": "계정 연결을 선택하고 이 코드를 붙여 넣으세요.",
  "Connected": "연결됨",
  "Copied": "복사됨",
- "Copy code": "코드 복사",
- "Enter it in My Stats": "내 전적에 입력",
- "Get a code": "코드 받기",
- "Get a new code": "새 코드 받기",
- "Get my code": "내 코드 받기",
- "On the computer where you play, open {link} with the Riot Client signed in.": "게임하는 컴퓨터에서 Riot 클라이언트에 로그인한 상태로 {link} 페이지를 여세요.",
- "Step {n} of 3": "{n}/3단계",
- "That code expired. Get a new one.": "코드가 만료되었습니다. 새 코드를 받으세요.",
- "Waiting for My Stats… This page updates by itself. The code works for {n} minutes.": "내 전적을 기다리는 중… 이 페이지는 자동으로 업데이트됩니다. 코드는 {n}분 동안 유효합니다.",
  "Welcome, {name}!": "환영합니다, {name}님!",
  "Welcome!": "환영합니다!",
  "Riot account: {name}": "Riot 계정: {name}",
@@ -126,5 +115,5 @@
  "Delete this message?": "이 메시지를 삭제할까요?",
  "Deleted.": "삭제했습니다.",
  "No messages yet.": "아직 메시지가 없습니다.",
- "Connect the Riot account you play on so My Stats can bring your games here. Only you can connect yours: My Stats checks it with the Riot Client on your computer.": "플레이하는 Riot 계정을 연결하면 내 전적이 여기로 게임 기록을 가져옵니다. 본인만 자신의 계정을 연결할 수 있습니다. 내 전적이 컴퓨터의 Riot 클라이언트로 확인합니다."
+ "To connect, open Mayhem Stats on the computer where you play, with League open, and choose Connect to deeparam.com. This page asks you to confirm.": "연결하려면 플레이하는 컴퓨터에서 League를 실행한 상태로 Mayhem Stats를 열고 deeparam.com에 연결을(를) 선택하세요. 이 페이지에서 확인을 요청합니다."
 }

@@ -38,7 +38,6 @@
  "Your player page": "Ваша страница игрока",
  "Publish a player page from My Stats and it links here.": "Опубликуйте страницу игрока в «Моей статистике», и ссылка на неё появится здесь.",
  "Disconnect": "Отключить",
- "Your code: {code}": "Ваш код: {code}",
  "My Stats": "Моя статистика",
  "Other ways to sign in": "Другие способы входа",
  "Sign in to this account with another service you use, instead of a password.": "Входите в этот аккаунт через другой сервис, которым пользуетесь, а не по паролю.",
@@ -96,18 +95,8 @@
  "You already have 10 passkeys. Remove one first.": "У вас уже 10 ключей доступа. Сначала удалите один.",
  "Your current password is wrong.": "Текущий пароль неверен.",
  "Your password is wrong.": "Неверный пароль.",
- "Choose Connect account and paste this code.": "Выберите «Подключить аккаунт» и вставьте этот код.",
  "Connected": "Подключено",
  "Copied": "Скопировано",
- "Copy code": "Копировать код",
- "Enter it in My Stats": "Введите его в «Моей статистике»",
- "Get a code": "Получите код",
- "Get a new code": "Получить новый код",
- "Get my code": "Получить мой код",
- "On the computer where you play, open {link} with the Riot Client signed in.": "На компьютере, где вы играете, откройте {link} с выполненным входом в Riot Client.",
- "Step {n} of 3": "Шаг {n} из 3",
- "That code expired. Get a new one.": "Срок действия кода истёк. Получите новый.",
- "Waiting for My Stats… This page updates by itself. The code works for {n} minutes.": "Ждём «Мою статистику»… Страница обновится сама. Код действует {n} мин.",
  "Welcome, {name}!": "Добро пожаловать, {name}!",
  "Welcome!": "Добро пожаловать!",
  "Riot account: {name}": "Аккаунт Riot: {name}",
@@ -126,5 +115,5 @@
  "Delete this message?": "Удалить это сообщение?",
  "Deleted.": "Удалено.",
  "No messages yet.": "Сообщений пока нет.",
- "Connect the Riot account you play on so My Stats can bring your games here. Only you can connect yours: My Stats checks it with the Riot Client on your computer.": "Подключите аккаунт Riot, на котором играете, чтобы «Моя статистика» показывала здесь ваши игры. Подключить свой аккаунт можете только вы: «Моя статистика» проверяет его через Riot Client на вашем компьютере."
+ "To connect, open Mayhem Stats on the computer where you play, with League open, and choose Connect to deeparam.com. This page asks you to confirm.": "Чтобы подключить аккаунт, откройте Mayhem Stats на компьютере, где играете, с запущенной League и выберите «Привязать к deeparam.com». Эта страница попросит подтвердить."
 }

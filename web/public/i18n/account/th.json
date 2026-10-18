@@ -38,7 +38,6 @@
  "Your player page": "หน้าผู้เล่นของคุณ",
  "Publish a player page from My Stats and it links here.": "เผยแพร่หน้าผู้เล่นจากสถิติของฉัน แล้วลิงก์จะมาแสดงที่นี่",
  "Disconnect": "ยกเลิกการเชื่อมต่อ",
- "Your code: {code}": "รหัสของคุณ: {code}",
  "My Stats": "สถิติของฉัน",
  "Other ways to sign in": "วิธีเข้าสู่ระบบอื่นๆ",
  "Sign in to this account with another service you use, instead of a password.": "เข้าสู่ระบบบัญชีนี้ด้วยบริการอื่นที่คุณใช้ แทนการใช้รหัสผ่าน",
@@ -96,18 +95,8 @@
  "You already have 10 passkeys. Remove one first.": "คุณมีพาสคีย์ครบ 10 อันแล้ว ลบออกก่อนหนึ่งอัน",
  "Your current password is wrong.": "รหัสผ่านปัจจุบันไม่ถูกต้อง",
  "Your password is wrong.": "รหัสผ่านไม่ถูกต้อง",
- "Choose Connect account and paste this code.": "เลือก เชื่อมต่อบัญชี แล้ววางรหัสนี้",
  "Connected": "เชื่อมต่อแล้ว",
  "Copied": "คัดลอกแล้ว",
- "Copy code": "คัดลอกรหัส",
- "Enter it in My Stats": "กรอกใน สถิติของฉัน",
- "Get a code": "รับรหัส",
- "Get a new code": "รับรหัสใหม่",
- "Get my code": "รับรหัสของฉัน",
- "On the computer where you play, open {link} with the Riot Client signed in.": "บนคอมพิวเตอร์ที่คุณใช้เล่น ให้เปิด {link} โดยเข้าสู่ระบบ Riot Client ไว้",
- "Step {n} of 3": "ขั้นตอนที่ {n} จาก 3",
- "That code expired. Get a new one.": "รหัสนี้หมดอายุแล้ว รับรหัสใหม่",
- "Waiting for My Stats… This page updates by itself. The code works for {n} minutes.": "กำลังรอ สถิติของฉัน… หน้านี้จะอัปเดตเอง รหัสใช้ได้ {n} นาที",
  "Welcome, {name}!": "ยินดีต้อนรับ {name}!",
  "Welcome!": "ยินดีต้อนรับ!",
  "Riot account: {name}": "บัญชี Riot: {name}",
@@ -126,5 +115,5 @@
  "Delete this message?": "ลบข้อความนี้ไหม?",
  "Deleted.": "ลบแล้ว",
  "No messages yet.": "ยังไม่มีข้อความ",
- "Connect the Riot account you play on so My Stats can bring your games here. Only you can connect yours: My Stats checks it with the Riot Client on your computer.": "เชื่อมต่อบัญชี Riot ที่คุณใช้เล่นเพื่อให้สถิติของฉันนำเกมของคุณมาแสดงที่นี่ มีแค่คุณที่เชื่อมต่อบัญชีของคุณได้: สถิติของฉันจะตรวจสอบกับ Riot Client บนคอมพิวเตอร์ของคุณ"
+ "To connect, open Mayhem Stats on the computer where you play, with League open, and choose Connect to deeparam.com. This page asks you to confirm.": "หากต้องการเชื่อมต่อ ให้เปิด Mayhem Stats บนคอมพิวเตอร์ที่คุณใช้เล่นขณะเปิด League อยู่ แล้วเลือก เชื่อมต่อกับ deeparam.com หน้านี้จะขอให้คุณยืนยัน"
 }
