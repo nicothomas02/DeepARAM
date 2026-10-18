@@ -175,6 +175,7 @@ def main():
         champs.append({
             "id": c["id"], "name": c["name"], "key": int(c["champion_id"]), "title": gd.get("title", ""),
             "role": c.get("role", ""), "combo": combos.get(c["id"], "QWER"),
+            "radius": c["stats"].get("gameplay_radius", 65),
             "passive": gd["passive"]["name"],
             "spells": {s: gd["spells"][i]["name"] for i, s in enumerate(SLOTS)},
             "dash": "".join(s for i, s in enumerate(SLOTS) if DASH.search(gd["spells"][i]["description"].split(". ")[0])),
