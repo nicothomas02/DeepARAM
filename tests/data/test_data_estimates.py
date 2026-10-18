@@ -52,3 +52,13 @@ def test_augment_rows_consistent(est):
 def test_duo_lift(est):
     for d in est["duos"][:50]:
         assert d["lift"] == pytest.approx(d["win_rate"] - d["expected"], abs=1e-3)
+
+
+def test_power_curve():
+    d = load_json("data/estimates/power_curve.json")
+    assert d["simulated"] is True and len(d["champions"]) > 150
+    for c in d["champions"].values():
+        for s in ("early", "mid", "late"):
+            assert 0 < c[s] <= 1
+    late, early = d["late_game"][0], d["early_game"][0]
+    assert d["champions"][str(late)]["scaling"] > 0 > d["champions"][str(early)]["scaling"]
