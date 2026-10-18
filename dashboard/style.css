@@ -217,6 +217,8 @@ td.delta-down::before { content: "▼ "; font-size: .7em; }
 #live-card .foot { margin: 0 0 8px; }
 
 /* Connect account */
+.link-code { margin-top: 12px; }
+.link-code summary { cursor: pointer; color: var(--muted); font-size: 0.9em; }
 .link-form { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0 4px; }
 .link-form input { width: 14ch; min-width: 0; padding: 8px 10px; border: 1px solid var(--line); border-radius: 10px;
   background: var(--surface); color: var(--fg); font: inherit; font-family: var(--mono, monospace); letter-spacing: 0.08em; text-transform: uppercase; }

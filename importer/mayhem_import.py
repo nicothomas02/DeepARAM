@@ -551,15 +551,22 @@ def site_post(lcu, path, payload):
     return reply
 
 
-def site_profile(action, data=None, lockfile=None, code=None):
-    """Publish, remove or check this account's public page on the site, or ("link") connect this Riot
-    account to a deeparam.com account with the code shown on its account page."""
+def site_profile(action, data=None, lockfile=None, code=None, pair=None):
+    """Publish, remove or check this account's public page on the site, or connect this Riot account to a
+    deeparam.com account: "pair" opens the account page in the browser to confirm with one click, and
+    "pair-status" asks whether that happened; "link" uses the code shown on the account page instead."""
     payload = {"action": action, "data": data}
     if action == "link":
         payload = {"action": action, "code": code}
+    elif action in ("pair", "pair-status"):
+        payload = {"action": action, "pair": pair}
     reply = site_post(find_client(lockfile), "/api/profile", payload)
     if reply.get("path"):
         reply["url"] = SITE + reply["path"]
+    if action == "pair" and str(reply.get("connect") or "").startswith("/account?connect="):
+        import webbrowser
+        reply["url"] = SITE + reply["connect"]
+        webbrowser.open(reply["url"])
     return reply
 
 
@@ -1053,12 +1060,15 @@ def serve(out, port, lockfile=None, sgp_host=None, open_browser=True, record_liv
                 try:
                     req = json.loads(self.rfile.read(min(int(self.headers.get("Content-Length") or 0), 64000)) or b"{}")
                     action = req.get("action")
-                    if action not in ("publish", "remove", "status", "link"):
+                    if action not in ("publish", "remove", "status", "link", "pair", "pair-status"):
                         return self.send_json({"error": "bad request"}, 400)
                     code = str(req.get("code") or "").strip().upper()
                     if action == "link" and not re.fullmatch(r"[A-Z0-9]{8}", code):
                         return self.send_json({"error": "Enter the 8-character code from your account page."}, 400)
-                    return self.send_json(site_profile(action, req.get("data"), lockfile, code))
+                    pair = str(req.get("pair") or "")
+                    if action == "pair-status" and not re.fullmatch(r"[A-Za-z0-9_-]{32}", pair):
+                        return self.send_json({"error": "bad request"}, 400)
+                    return self.send_json(site_profile(action, req.get("data"), lockfile, code, pair or None))
                 except ImportFailed as e:
                     return self.send_json({"error": str(e)}, 502)
                 except Exception:

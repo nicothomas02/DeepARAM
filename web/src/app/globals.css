@@ -5575,6 +5575,30 @@ html[dir="rtl"] .rank-v {
 .my-stats .lede {
   margin: 0 0 16px;
 }
+.my-stats-connect {
+  display: grid;
+  gap: 12px;
+  margin: 0 0 20px;
+  padding: 20px;
+}
+.my-stats-connect h3,
+.my-stats-connect p {
+  margin: 0;
+}
+.my-stats-check {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  line-height: 1.5;
+}
+.my-stats-check input {
+  margin-top: 0.3em;
+}
+.my-stats-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
 
 /* Soft look (Nico's pick, 2026-10-17): rounder shapes, 16px text, sentence-case labels, borderless cards,
    less space above each page. Kept as one block at the end so it wins over the older rules above. */
