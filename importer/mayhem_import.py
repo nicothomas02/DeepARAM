@@ -40,6 +40,7 @@ import subprocess
 import sys
 import tempfile
 import time
+from concurrent.futures import ThreadPoolExecutor
 
 CONSTANTS_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "data", "constants")
 
@@ -363,6 +364,7 @@ def fetch_collection(lcu, summoner):
 # list under "killMap": [seconds, x, y, killerId, victimId] per kill, with
 # participant ids as in the game. None means the client had no timeline.
 
+FETCH_WORKERS = 6  # games asked of the League client at once
 TIMELINES_PER_RUN = 200
 
 
@@ -386,22 +388,25 @@ def fill_kill_maps(lcu, games, progress=log, limit=TIMELINES_PER_RUN):
     if not todo:
         return 0
     progress(f"Fetching kill positions for {len(todo)} games.")
-    changed = 0
-    for n, game in enumerate(todo, 1):
+
+    def fetch(game):
         try:
-            timeline = lcu.get(f"/lol-match-history/v1/game-timelines/{game['gameId']}")
-        except HttpError as e:
-            if e.status == 404:
-                game["killMap"] = None
+            return lcu.get(f"/lol-match-history/v1/game-timelines/{game['gameId']}")
+        except (HttpError, ConnectionError) as e:
+            return e
+
+    changed = 0
+    with ThreadPoolExecutor(FETCH_WORKERS) as pool:
+        for n, (game, timeline) in enumerate(zip(todo, pool.map(fetch, todo)), 1):
+            if isinstance(timeline, HttpError):
+                if timeline.status == 404:
+                    game["killMap"] = None
+                    changed += 1
+            elif not isinstance(timeline, ConnectionError):  # a later run retries those
+                game["killMap"] = compact_kills(timeline)
                 changed += 1
-            continue
-        except ConnectionError:
-            continue  # a later run retries it
-        game["killMap"] = compact_kills(timeline)
-        changed += 1
-        if n % 50 == 0 or n == len(todo):
-            progress(f"  [{n}/{len(todo)}] kill positions")
-        time.sleep(0.05)
+            if n % 25 == 0 or n == len(todo):
+                progress(f"  [{n}/{len(todo)}] kill positions")
     return changed
 
 
@@ -447,14 +452,21 @@ def run_import(out, full=False, lockfile=None, sgp_host=None, progress=log, on_g
     if on_game:
         on_game(0, len(pending), 0, None)
 
+    def fetch(game_id):
+        try:
+            return lcu.get(f"/lol-match-history/v1/games/{game_id}")
+        except (HttpError, ConnectionError) as e:
+            return e
+
     added = failed = 0
+    pool = ThreadPoolExecutor(FETCH_WORKERS)
     try:
-        for n, game_id in enumerate(pending, 1):
-            try:
-                game = lcu.get(f"/lol-match-history/v1/games/{game_id}")
-            except (HttpError, ConnectionError) as e:
+        # Several games at once: the client answers each in a fraction of a second, so waiting on them one by
+        # one was most of an import's time. Results still come back in order.
+        for n, (game_id, game) in enumerate(zip(pending, pool.map(fetch, pending)), 1):
+            if isinstance(game, Exception):
                 failed += 1
-                progress(f"  [{n}/{len(pending)}] game {game_id}: {e}; a later run will retry it")
+                progress(f"  [{n}/{len(pending)}] game {game_id}: {game}; a later run will retry it")
                 continue
             pick = None
             if game.get("queueId") in MAYHEM_QUEUE_IDS:
@@ -466,9 +478,10 @@ def run_import(out, full=False, lockfile=None, sgp_host=None, progress=log, on_g
                 on_game(n, len(pending), added, pick)
             if n % 25 == 0 or n == len(pending):
                 progress(f"  [{n}/{len(pending)}] {added} added")
-            time.sleep(0.05)  # be gentle with the client
     except KeyboardInterrupt:
         progress("Stopped. Saving what was fetched so far.")
+    finally:
+        pool.shutdown(wait=False, cancel_futures=True)
 
     mapped = 0
     try:

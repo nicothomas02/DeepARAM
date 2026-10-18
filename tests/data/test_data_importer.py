@@ -624,3 +624,19 @@ def test_my_pick_names_the_players_champion_and_result(mi):
                              {"participantId": 2, "championId": 22, "stats": {"win": True}}]}
     assert mi.my_pick(game, "me") == {"champion": 22, "win": True}
     assert mi.my_pick(game, "nobody") is None
+
+
+def test_kill_positions_are_fetched_several_at_a_time(mi):
+    import time
+
+    class SlowLcu:
+        def get(self, path):
+            time.sleep(0.2)
+            if path.endswith("/3"):
+                raise mi.HttpError(404, "missing")
+            return {"frames": []}
+    games = [{"gameId": i} for i in range(1, 13)]
+    start = time.monotonic()
+    assert mi.fill_kill_maps(SlowLcu(), games, progress=lambda m: None) == 12
+    assert time.monotonic() - start < 12 * 0.2 / 2  # one by one would take 2.4 s
+    assert games[2]["killMap"] is None and games[0]["killMap"] == []
