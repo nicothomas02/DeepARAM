@@ -593,12 +593,14 @@ def test_live_recording_closed_mid_game_is_kept(mi, tmp_path):
     assert r["complete"] and len(r["snapshots"]) == 2
 
 
-def test_link_sends_only_the_code(mi, monkeypatch):
+def test_profile_sends_no_link_code(mi, monkeypatch):
+    # Connecting is one click (pair); the old one-time code from the account page is gone.
     sent = []
     monkeypatch.setattr(mi, "find_client", lambda lockfile=None: None)
-    monkeypatch.setattr(mi, "site_post", lambda lcu, path, payload: sent.append((path, payload)) or {"linked": True, "riotId": "Me#1"})
-    assert mi.site_profile("link", {"games": 5}, code="AB12CD34") == {"linked": True, "riotId": "Me#1"}
-    assert sent == [("/api/profile", {"action": "link", "code": "AB12CD34"})]
+    monkeypatch.setattr(mi, "site_post", lambda lcu, path, payload: sent.append((path, payload)) or {"linked": False})
+    mi.site_profile("pair-status", pair="x" * 32)
+    assert sent == [("/api/profile", {"action": "pair-status", "pair": "x" * 32})]
+    assert "code" not in mi.site_profile.__code__.co_varnames
 
 
 class CollectionLcu(FakeLcu):
