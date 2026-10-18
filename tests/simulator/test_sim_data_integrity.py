@@ -145,17 +145,20 @@ def test_items(patch):
     ids = [v["id"] for v in its.values()]
     assert len(set(ids)) == len(ids)
     for k, v in its.items():
-        assert v["slot"] in ("boots", "legendary"), k
+        assert v["slot"] in ("boots", "legendary", "component", "starter", "reward"), k
         assert v["name"] and v["cost"] >= 0, k
         assert all(is_num(x) and x >= 0 for x in v["stats"].values()), (k, v["stats"])
     assert sum(v["slot"] == "boots" for v in its.values()) >= 3
+    # The whole Howling Abyss shop (consumables aside), so components and starters are there too.
+    for key in ("sheen", "tiamat", "dorans_blade", "gluttonous", "golden_spatula"):
+        assert key in its, key
 
 
 def test_item_effects_match_items():
     its = items("live")
     by_id = {str(v["id"]): k for k, v in its.items()}
     eff = load_json(DATA_DIR / "item_effects.json")
-    entries = {**eff["items"], **eff["boots"]}
+    entries = {k: e for g in ("boots", "items", "components", "starters", "rewards") for k, e in eff[g].items()}
     for item_id, e in entries.items():
         assert by_id.get(item_id) == e["key"], (item_id, e["key"])
     assert set(by_id) == set(entries), "items.json and item_effects.json list different items"

@@ -1158,8 +1158,6 @@ private:
         abilityAmp_ = 1.0 + get(fx_, "ability_amp");
         myHp_ = maxHp_;
         moveSpeed_ = (ch_.moveSpeed + get(fx_, "ms") + get(fx_, "ms_per_ah") * ah_) * (sc_.onFire ? 1.0 + rules_.fireMs : 1.0);
-        for (const auto& id : b.items)
-            if (lib_.items.at(id).slot == "boots") moveSpeed_ += 45;  // every tier-2 boot gives +45 move speed
         moveSpeed_ *= 1.0 + get(fx_, "ms_pct") + sword * get(fx_, "sword_ms");
         updateAs();
         execute_ = get(fx_, "execute");
@@ -3281,7 +3279,9 @@ ItemShortlist shortlistItems(const Library& lib, const ChampionKit& c, const Sce
     for (const auto& [k, e] : lib.items) {
         bool fits = !os.fittingItemsOnly;
         for (const auto& r : e.roles) fits |= std::find(roles.begin(), roles.end(), r) != roles.end();
-        if (fits) (e.slot == "boots" ? boots : legendaries).push_back(k);
+        // Components, starters and augment rewards only go in builds picked by hand.
+        if (fits && e.slot == "boots") boots.push_back(k);
+        else if (fits && e.slot == "legendary") legendaries.push_back(k);
     }
     if (boots.empty() || static_cast<int>(legendaries.size()) < os.legendarySlots)
         throw std::runtime_error("not enough fitting items for " + c.name);
