@@ -8,7 +8,7 @@ import type { PatchSchedule } from "@/lib/patch-schedule";
 import PatchCountdown from "@/components/PatchCountdown";
 import { championSplash } from "@/lib/champions";
 import { FunLists, KitchenPick, TierSnapshot } from "@/components/HomeWidgets";
-import { funLists, powerCurve, typicalGame } from "@/lib/estimates";
+import { funLists, powerCurveLists, typicalGame } from "@/lib/estimates";
 import championIds from "@/data/champion-ids.json";
 import { augmentHref } from "@/lib/augments";
 import { KITCHEN } from "@/lib/tabs";
@@ -43,7 +43,7 @@ export default function Home() {
   const latest = last ? recap(last) : null;
   const game = typicalGame();
   const fun = Object.fromEntries(
-    Object.entries({ ...funLists(), early_game: powerCurve().early, late_game: powerCurve().late }).map(([k, ids]) => [
+    Object.entries({ ...funLists(), early_game: powerCurveLists().early, late_game: powerCurveLists().late }).map(([k, ids]) => [
       k,
       ids.flatMap((id) => (ALIAS[id] ? [{ id: ALIAS[id], name: NAMES[ALIAS[id]] ?? ALIAS[id] }] : [])),
     ]),
