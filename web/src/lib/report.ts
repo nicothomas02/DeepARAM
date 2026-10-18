@@ -2,9 +2,12 @@
 // view, and repeats of the same message are dropped, so one broken loop can't flood the logs.
 const MAX = 5;
 const seen = new Set<string>();
+// Harmless browser messages that say nothing about the site: a resize settling over two frames, a page
+// transition skipped because the tab was hidden or another started, and cross-site errors with no details.
+const NOISE = /^ResizeObserver loop|^Skipping view transition|^Script error\.?$/;
 
 export function reportError(message: string, extra: { source?: string; line?: number; col?: number; stack?: string } = {}) {
-  if (typeof window === "undefined" || seen.size >= MAX || seen.has(message)) return;
+  if (typeof window === "undefined" || NOISE.test(message) || seen.size >= MAX || seen.has(message)) return;
   seen.add(message);
   const body = JSON.stringify({ message, ...extra, page: location.pathname + location.search, ua: navigator.userAgent });
   try {
