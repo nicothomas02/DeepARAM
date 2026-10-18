@@ -84,5 +84,10 @@
  "Spells": "召唤师技能",
  "DeepScore": "DeepScore",
  "More details": "更多详情",
- "Best DeepScore first, with each item's pick rate and win rate.": "DeepScore 最高的排在前面，并显示每件装备的选取率和胜率。"
+ "Best DeepScore first, with each item's pick rate and win rate.": "DeepScore 最高的排在前面，并显示每件装备的选取率和胜率。",
+ "Legendary": "传说",
+ "Epic": "史诗",
+ "Basic": "基础",
+ "Starter": "初始",
+ "Grouped by tier, best DeepScore first in each, with each item's pick rate and win rate.": "按等级分组，每组内按 DeepScore 从高到低，并显示每件装备的选取率和胜率。"
 }

@@ -84,5 +84,10 @@
  "Spells": "Zauber",
  "DeepScore": "DeepScore",
  "More details": "Weitere Details",
- "Best DeepScore first, with each item's pick rate and win rate.": "Bester DeepScore zuerst, mit Wahlrate und Siegrate jedes Gegenstands."
+ "Best DeepScore first, with each item's pick rate and win rate.": "Bester DeepScore zuerst, mit Wahlrate und Siegrate jedes Gegenstands.",
+ "Legendary": "Legendär",
+ "Epic": "Episch",
+ "Basic": "Basis",
+ "Starter": "Start",
+ "Grouped by tier, best DeepScore first in each, with each item's pick rate and win rate.": "Nach Stufe gruppiert, in jeder zuerst der beste DeepScore, mit Pickrate und Siegesrate jedes Gegenstands."
 }

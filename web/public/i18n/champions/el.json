@@ -84,5 +84,10 @@
  "Spells": "Ξόρκια",
  "DeepScore": "DeepScore",
  "More details": "Περισσότερες λεπτομέρειες",
- "Best DeepScore first, with each item's pick rate and win rate.": "Πρώτα το καλύτερο DeepScore, με το ποσοστό επιλογής και νικών κάθε αντικειμένου."
+ "Best DeepScore first, with each item's pick rate and win rate.": "Πρώτα το καλύτερο DeepScore, με το ποσοστό επιλογής και νικών κάθε αντικειμένου.",
+ "Legendary": "Θρυλικό",
+ "Epic": "Επικό",
+ "Basic": "Βασικό",
+ "Starter": "Αρχικό",
+ "Grouped by tier, best DeepScore first in each, with each item's pick rate and win rate.": "Ομαδοποιημένα ανά βαθμίδα, με το καλύτερο DeepScore πρώτο σε κάθε μία, μαζί με ποσοστό επιλογής και νικών κάθε αντικειμένου."
 }

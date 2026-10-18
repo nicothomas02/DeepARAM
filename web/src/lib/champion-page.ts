@@ -4,7 +4,13 @@ import championIds from "@/data/champion-ids.json";
 import augmentNames from "@/data/augment-names.json";
 import { liveWithChange } from "./champions";
 import { grade, lowerBound } from "./deepscore";
-import { items, rewardItems } from "./items";
+import {
+  ITEM_TIERS,
+  itemTier,
+  items,
+  rewardItems,
+  type ItemTier,
+} from "./items";
 import { repoHas, repoPath, readRepoJson } from "./repo-data";
 
 // The ranked tables on a champion page (/champions/<Alias>): skill orders, item paths, augments,
@@ -43,7 +49,11 @@ type Duos = {
 };
 
 export type Rated = { winRate: number; pickRate: number; lift: number };
-export type ItemRow = Rated & { items: number[]; deepScore?: number };
+export type ItemRow = Rated & {
+  items: number[];
+  deepScore?: number;
+  tier?: ItemTier;
+};
 export type SkillRow = Rated & { max: string[]; levels: string[] };
 export type AugmentRow = {
   id: number;
@@ -206,7 +216,11 @@ export function championPage(alias: string): ChampionPage | null {
     boots: rows(b?.items?.boots),
     core: rows(b?.items?.core),
     full: rows(b?.items?.full_builds),
-    items: scoreItems(rows(b?.items?.other)),
+    items: tiered([
+      ...rows(b?.items?.other),
+      ...rows(b?.items?.boots),
+      ...rows(b?.items?.starting),
+    ]),
     augments,
     mates,
     styles,
@@ -230,6 +244,21 @@ export function championPage(alias: string): ChampionPage | null {
 
 const MEDIAN_GAMES = 1000; // pseudo-games for an item of median popularity, as on the Tier List
 const PRIOR = 0.25; // the average's weight, in median items' worth of games
+
+/** Every single item the champion builds, grouped by shop tier (Legendary, Boots, Epic...) and best DeepScore first within each tier. */
+function tiered(list: ItemRow[]): ItemRow[] {
+  const seen = new Set<number>();
+  const one = list.filter(
+    (r) =>
+      r.items.length === 1 && !seen.has(r.items[0]) && seen.add(r.items[0]),
+  );
+  return ITEM_TIERS.flatMap((tier) =>
+    scoreItems(one.filter((r) => itemTier(r.items[0]) === tier)).map((r) => ({
+      ...r,
+      tier,
+    })),
+  );
+}
 
 /** DeepScore for each of a champion's items against the champion's other items (lib/deepscore.ts), best first. */
 function scoreItems(list: ItemRow[]): ItemRow[] {

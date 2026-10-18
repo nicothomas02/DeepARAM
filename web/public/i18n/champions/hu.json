@@ -84,5 +84,10 @@
  "Spells": "Varázslatok",
  "DeepScore": "DeepScore",
  "More details": "További részletek",
- "Best DeepScore first, with each item's pick rate and win rate.": "Elöl a legjobb DeepScore, minden tárgy választási és győzelmi arányával."
+ "Best DeepScore first, with each item's pick rate and win rate.": "Elöl a legjobb DeepScore, minden tárgy választási és győzelmi arányával.",
+ "Legendary": "Legendás",
+ "Epic": "Epikus",
+ "Basic": "Alap",
+ "Starter": "Kezdő",
+ "Grouped by tier, best DeepScore first in each, with each item's pick rate and win rate.": "Szint szerint csoportosítva, mindegyikben a legjobb DeepScore elöl, a tárgyak választási és győzelmi arányával."
 }

@@ -84,5 +84,10 @@
  "Spells": "Sorts",
  "DeepScore": "DeepScore",
  "More details": "Plus de détails",
- "Best DeepScore first, with each item's pick rate and win rate.": "Meilleur DeepScore en premier, avec le taux de sélection et le taux de victoire de chaque objet."
+ "Best DeepScore first, with each item's pick rate and win rate.": "Meilleur DeepScore en premier, avec le taux de sélection et le taux de victoire de chaque objet.",
+ "Legendary": "Légendaire",
+ "Epic": "Épique",
+ "Basic": "Basique",
+ "Starter": "Départ",
+ "Grouped by tier, best DeepScore first in each, with each item's pick rate and win rate.": "Regroupés par niveau, meilleur DeepScore en premier dans chacun, avec le taux de sélection et le taux de victoire de chaque objet."
 }

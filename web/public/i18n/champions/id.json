@@ -84,5 +84,10 @@
  "Spells": "Spell",
  "DeepScore": "DeepScore",
  "More details": "Detail lainnya",
- "Best DeepScore first, with each item's pick rate and win rate.": "DeepScore terbaik lebih dulu, dengan pick rate dan win rate setiap item."
+ "Best DeepScore first, with each item's pick rate and win rate.": "DeepScore terbaik lebih dulu, dengan pick rate dan win rate setiap item.",
+ "Legendary": "Legendaris",
+ "Epic": "Epik",
+ "Basic": "Dasar",
+ "Starter": "Awal",
+ "Grouped by tier, best DeepScore first in each, with each item's pick rate and win rate.": "Dikelompokkan per tingkat, DeepScore terbaik lebih dulu di tiap tingkat, dengan tingkat pilih dan tingkat menang tiap item."
 }

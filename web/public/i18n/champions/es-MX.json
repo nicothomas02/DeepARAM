@@ -84,5 +84,10 @@
  "Spells": "Hechizos",
  "DeepScore": "DeepScore",
  "More details": "Más detalles",
- "Best DeepScore first, with each item's pick rate and win rate.": "Mejor DeepScore primero, con la tasa de elección y la tasa de victoria de cada objeto."
+ "Best DeepScore first, with each item's pick rate and win rate.": "Mejor DeepScore primero, con la tasa de elección y la tasa de victoria de cada objeto.",
+ "Legendary": "Legendario",
+ "Epic": "Épico",
+ "Basic": "Básico",
+ "Starter": "Inicial",
+ "Grouped by tier, best DeepScore first in each, with each item's pick rate and win rate.": "Agrupados por nivel, con el mejor DeepScore primero en cada uno, y la tasa de selección y de victorias de cada objeto."
 }
