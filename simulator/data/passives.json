@@ -3,10 +3,11 @@
  "Aatrox": [
   {
    "trigger": "attack",
-   "cooldown": "PCooldown",
+   "cooldown": 4,
    "calcs": [
     "PDamage"
-   ]
+   ],
+   "why": "Deathbringer Stance: 10s at level 18, cut 2s by every attack or ability hit on a champion (4s on a sweetspot), so it is up about every 4s"
   }
  ],
  "Akali": [
@@ -36,10 +37,12 @@
  "Ambessa": [
   {
    "trigger": "after_ability",
-   "max_charges": 2,
+   "max_charges": 3,
+   "restore": 70,
    "calcs": [
     "Calc_OnHit_Damage_Flat"
-   ]
+   ],
+   "why": "Medarda Maxim: each cast stores an empowered attack (up to 3) that restores 70 energy at level 13+"
   }
  ],
  "Aurora": [
@@ -135,7 +138,13 @@
   {
    "trigger": "attack",
    "cooldown": 5.0,
-   "aoe": true
+   "aoe": true,
+   "ability_cdr": 3,
+   "scaling": {
+    "const": 115,
+    "ap": 0.4,
+    "bonus_mr": 0.6
+   }
   }
  ],
  "Gangplank": [
@@ -292,8 +301,11 @@
  "Nautilus": [
   {
    "trigger": "attack",
-   "cooldown": 8.0,
-   "per_target": true
+   "cooldown": 6.0,
+   "per_target": true,
+   "scaling": {
+    "const": 116
+   }
   }
  ],
  "Nocturne": [
@@ -369,6 +381,12 @@
   }
  ],
  "Senna": [
+  {
+   "trigger": "attack",
+   "calcs": [
+    "BonusOnHitDamage"
+   ]
+  },
   {
    "trigger": "hit",
    "every": 2,

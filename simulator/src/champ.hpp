@@ -70,7 +70,24 @@ struct Ability {
     Geometry geo;
     bool aura = false;  // per-second damage on a toggle or very short cooldown: always on
     bool toggle = false; // switched on while enemies are in reach (Singed Q, Karthus E, Amumu W)
+    double trail = 0;    // > 0: an aura that also lingers this long where you walked (Singed Q's cloud)
+    double linger = 0;   // > 0: an aura's damage keeps ticking this long after a target leaves it (poison)
     int onhitEvery = 0; // > 0: a passive that procs on every Nth attack instead of a cast
+    double ramp = 0;    // on-hit passives: each proc on the same target adds a stack that multiplies the damage,
+                        // lost after this many seconds without a hit (Bel'Veth R)
+    bool noHaste = false;
+    bool appliesOnHit = false;
+    double invuln = 0;
+    double refund = 0;
+    double missingAmp = 0;      // damage x (1 + this x the target's missing share of Health) (Jhin R)          // mana or energy restored when it hits its target (Zed's shadows hitting it too)          // seconds the caster takes no damage from the cast on (Pantheon E's shield)  // its hit on the first target applies on-hit effects (Bel'Veth Q)  // the cooldown isn't reduced by ability haste (a resource or stack build-up time)
+    // Damage scaled by how far it flew: x1 up to rangeFrom, rising to rangeMax at rangeTo (Nidalee Q).
+    double rangeFrom = 0, rangeTo = 0, rangeMax = 1;
+    // Marks the targets hit: for markDuration seconds, markShare of the damage you deal them is
+    // dealt again as physical damage by this ability (Zed R).
+    double markDuration = 0, markShare = 0;
+    // A buff on yourself when cast, for buffDuration seconds: bonus attack speed, attack damage
+    // (flat, and a share of your bonus AD), damage of your attacks (multiplier), omnivamp and healing received.
+    double buffDuration = 0, buffAs = 0, buffAd = 0, buffBonusAdPct = 0, buffAttackMult = 1, buffVamp = 0, buffHealAmp = 0;
     std::vector<Hit> hits;
 };
 
@@ -83,6 +100,8 @@ struct Passive {
     int charges = 1, maxCharges = 1;  // AfterAbility: empowered attacks per cast, and how many can be stored
     bool aoe = false;       // also hits enemies near the target
     double belowHp = 0;     // only against targets below this share of their max Health
+    double abilityCdr = 0;  // seconds off its current cooldown whenever an ability cast hits (Galio)
+    double restore = 0;     // mana or energy it gives back when it procs (Ambessa)
     std::vector<Hit> hits;
 };
 
@@ -108,6 +127,10 @@ struct ChampionKit {
     // reviveFrac of max Health. deathNeedsR: only while the ultimate is ready (it's used up).
     double deathAct = 0, reviveFrac = 0, reviveDelay = 0, deathChance = 1;
     bool deathNeedsR = false;
+    // While acting on after death (Sion's Glory in Death): fixed attack speed, on-hit damage from the
+    // target's max Health, and whether abilities can still be cast.
+    double deathAs = 0, deathOnhitMaxHp = 0;
+    bool deathAbilities = true;
     std::vector<Ability> abilities;
     std::vector<Passive> passives;
     // Mana or energy (resource 1 or 2; 0: casts are free): pool and regeneration per second.

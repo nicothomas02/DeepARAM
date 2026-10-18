@@ -16,9 +16,10 @@
   },
   "effects": {
    "range_ranged_l1": 0,
-   "range_ranged_l18": 75
+   "range_ranged_l18": 75,
+   "crit_damage_mult": 0.8
   },
-  "why": "Absolution: 60 souls assumed by level 18 (0.75 AD each, 10% crit and 25 range per 20)"
+  "why": "Absolution: 60 souls assumed by level 18 (0.75 AD each, 10% crit and 25 range per 20); her crits deal only 80% of the usual crit multiplier (CritDamageMod 0.8)"
  },
  "Thresh": {
   "stats": {
@@ -75,7 +76,13 @@
    "as_l1": 0,
    "as_l18": 0.5
   },
-  "why": "Death in Lavender: 50% attack speed of permanent stacks assumed by level 18"
+  "effects": {
+   "stack_on": 2,
+   "stack_max": 1,
+   "stack_duration": 3,
+   "stack_as": 0.2
+  },
+  "why": "Death in Lavender: 50% attack speed of permanent stacks assumed by level 18; ability hits grant 20% attack speed for 3s"
  },
  "Ezreal": {
   "effects": {
@@ -141,16 +148,80 @@
    "crit_every": 4,
    "whisper_ad_pct_l1": 0.04,
    "whisper_ad_pct_l18": 0.44,
-   "whisper_crit": 0.003,
-   "whisper_as": 0.0025,
-   "as_fixed": 0.625
+   "whisper_crit": 0.0035,
+   "whisper_as": 0.003,
+   "as_fixed": 0.625,
+   "reload_every": 4,
+   "reload_time": 2.5
   },
-  "why": "Whisper: fixed 0.625 attack speed, every fourth shot crits, crits deal 14% less; 4-44% bonus AD by level plus 0.3% per 1% crit and 0.25% per 1% bonus attack speed"
+  "why": "Whisper: fixed 0.625 attack speed, every fourth shot crits, crits deal 14% less; 4-44% bonus AD by level plus 0.35% per 1% crit and 0.3% per 1% bonus attack speed; reloads for 2.5s after the fourth shot"
  },
  "Aatrox": {
   "stats": {
    "omnivamp": 0.2
   },
   "why": "Umbral Dash: Aatrox heals for about 20% of the damage he deals to champions"
+ },
+ "Singed": {
+  "stats": {
+   "ap": 85,
+   "armor": 85,
+   "mr": 85
+  },
+  "effects": {
+   "ms": 85
+  },
+  "why": "Insanity Potion (R, rank 3): +85 AP, armor, magic resist and move speed for 25s, cast at the start of each fight"
+ },
+ "Karma": {
+  "effects": {
+   "r_cdr_on_hit": 4
+  },
+  "why": "Gathering Fire: each damage instance on a champion takes 4s off Mantra's cooldown"
+ },
+ "Rammus": {
+  "effects": {
+   "ad_per_armor": 0.15,
+   "ad_per_mr": 0.15
+  },
+  "why": "Spiked Shell: bonus AD equal to 15% total armor + 15% total magic resist"
+ },
+ "Zac": {
+  "effects": {
+   "w_cdr_on_cast_hit": 1
+  },
+  "why": "Goo: each ability that hits drops a chunk; picking it up takes 1s off Unstable Matter"
+ },
+ "Olaf": {
+  "stats": {
+   "armor": 20,
+   "mr": 20
+  },
+  "effects": {
+   "as_missing": 1.0,
+   "lifesteal_missing": 0.25,
+   "missing_cap": 0.7
+  },
+  "why": "Berserker Rage: up to 100% bonus attack speed and 25% life steal at level 18, growing with missing Health (full at 70% missing); Ragnarok passive: 20 bonus armor and magic resist"
+ },
+ "Zaahen": {
+  "stats": {
+   "armor_pen": 0.3
+  },
+  "effects": {
+   "stack_on": 3,
+   "stack_max": 12,
+   "stack_duration": 5,
+   "stack_ad_l1": 1.8,
+   "stack_ad_l18": 15.0
+  },
+  "why": "Determination: a stack per hit on a champion (5s, up to 12), each 1.5-2.8% AD, doubled at 12 stacks (about 15 AD a stack at 18 counting the doubling evenly); Grim Deliverance passive: 30% armor penetration"
+ },
+ "Hecarim": {
+  "stats": {
+   "ad_l1": 5.4,
+   "ad_l18": 10.8
+  },
+  "why": "Warpath: 12-24% of bonus movement speed as bonus AD; the 45 from boots assumed"
  }
 }

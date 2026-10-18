@@ -222,8 +222,10 @@ class Evaluator:
                 for b in bps:
                     if b.get("mLevel") == lvl:
                         v += float(b.get("mAdditionalBonusAtThisLevel", 0.0))
-                        if "mBonusPerLevelAtAndAfter" in b:
-                            per = float(b["mBonusPerLevelAtAndAfter"])
+                        # A breakpoint always sets the per-level bonus from here on; the
+                        # bin omits it when it is 0 (Senna's passive stops growing at 11).
+                        hashed = [x for k, x in b.items() if k.startswith("{")]
+                        per = float(b.get("mBonusPerLevelAtAndAfter", hashed[0] if hashed else 0.0))
                 v += per
             return Lin({"const": v})
         if t == "ByCharLevelFormulaCalculationPart":
@@ -711,6 +713,8 @@ def parse_passives(bin_data, record, rules, strings, base, attack_range, notes):
         want = rule.get("calcs")
         hits = [dict(h, per_second=False) for h in parsed["hits"]
                 if (want is None and not h["alt"]) or (want and h["calc"].split("~")[0] in want)]
+        if rule.get("scaling"):  # the hit's numbers by hand (e.g. without the attack's own AD it replaces)
+            hits = [dict(h, scaling=dict(rule["scaling"])) for h in hits[:1]]
         mult = float(rule.get("mult", 1.0))
         if mult != 1.0:
             for h in hits:
@@ -728,6 +732,8 @@ def parse_passives(bin_data, record, rules, strings, base, attack_range, notes):
             "max_charges": max(1, int(round(value(rule.get("max_charges"), 1)))),
             "aoe": bool(rule.get("aoe")),
             "below_hp": round(value(rule.get("below_hp"), 0.0), 3),
+            "ability_cdr": round(value(rule.get("ability_cdr"), 0.0), 3),
+            **({"restore": float(rule["restore"])} if rule.get("restore") else {}),
             "hits": hits,
         })
     return out

@@ -162,6 +162,9 @@ ChampionKit loadChampion(const json::Value& c, const Rules& rules) {
     k.reviveDelay = d["revive_delay"].asNumber(0.0);
     k.deathChance = d["chance"].asNumber(1.0);
     k.deathNeedsR = d["needs_r"].asBool(false);
+    k.deathAs = d["as"].asNumber(0.0);
+    k.deathOnhitMaxHp = d["onhit_max_hp"].asNumber(0.0);
+    k.deathAbilities = d["abilities"].asBool(true);
     const json::Value& cn = c["cn"];
     if (cn.isObject()) {
         k.hasCn = true;
@@ -196,6 +199,8 @@ ChampionKit loadChampion(const json::Value& c, const Rules& rules) {
         ps.maxCharges = std::max(1, static_cast<int>(p["max_charges"].asNumber(1)));
         ps.aoe = p["aoe"].asBool(false);
         ps.belowHp = p["below_hp"].asNumber(0);
+        ps.abilityCdr = std::max(0.0, p["ability_cdr"].asNumber(0));
+        ps.restore = p["restore"].asNumber(0);
         for (const auto& h : p["hits"].arr) ps.hits.push_back(hitOf(h));
         if (!ps.hits.empty()) k.passives.push_back(ps);
     }
@@ -227,6 +232,33 @@ ChampionKit loadChampion(const json::Value& c, const Rules& rules) {
         ab.geo = geometryOf(a["geometry"], ab.area, k.attackRange);
         ab.onhitEvery = static_cast<int>(a["onhit_every"].asNumber(0));
         ab.toggle = a["toggle"].asBool(false);
+        ab.trail = std::max(0.0, a["trail"].asNumber(0));
+        ab.linger = std::max(0.0, a["linger"].asNumber(0));
+        ab.ramp = a["ramp"].asNumber(0);
+        ab.noHaste = a["no_haste"].asBool(false);
+        ab.appliesOnHit = a["applies_onhit"].asBool(false);
+        ab.invuln = a["invuln"].asNumber(0);
+        ab.refund = a["refund"].asNumber(0);
+        ab.missingAmp = a["missing_amp"].asNumber(0);
+        if (a["range_scale"].isObject()) {
+            ab.rangeFrom = a["range_scale"]["from"].asNumber(0);
+            ab.rangeTo = a["range_scale"]["to"].asNumber(0);
+            ab.rangeMax = a["range_scale"]["max"].asNumber(1);
+        }
+        if (a["mark"].isObject()) {
+            ab.markDuration = a["mark"]["duration"].asNumber(0);
+            ab.markShare = a["mark"]["share"].asNumber(0);
+        }
+        if (a["buff"].isObject()) {
+            const json::Value& b = a["buff"];
+            ab.buffDuration = b["duration"].asNumber(0);
+            ab.buffAs = b["as"].asNumber(0);
+            ab.buffAd = b["ad"].asNumber(0);
+            ab.buffBonusAdPct = b["bonus_ad_pct"].asNumber(0);
+            ab.buffAttackMult = b["attack_mult"].asNumber(1);
+            ab.buffVamp = b["omnivamp"].asNumber(0);
+            ab.buffHealAmp = b["heal_amp"].asNumber(0);
+        }
 
         // Which tooltip numbers count: the first main number fully, repeats of the
         // same formula fully (e.g. Ahri Q out and back), other numbers at
@@ -260,11 +292,14 @@ ChampionKit loadChampion(const json::Value& c, const Rules& rules) {
             k.adRatios += get(hit.scaling, "bonus_ad") * hit.weight;
         }
         // Shield-only abilities (Lux W, Janna E) are cast on yourself.
-        if (ab.hits.empty() && !ab.shield.empty() && ab.geo.move == Move::None) {
+        if (ab.hits.empty() && (!ab.shield.empty() || ab.buffDuration > 0) && ab.geo.move == Move::None) {
             ab.geo.selfBuff = true;
             ab.geo.range = k.attackRange;
         }
-        if (!ab.hits.empty() || !ab.shield.empty()) k.abilities.push_back(ab);
+        // Crowd control with no damage is cast only when marked (Singed W's slowing glue keeps
+        // a kiting target in his poison).
+        const bool ccOnly = ab.hits.empty() && !ab.cc.empty() && a["cast_for_cc"].asBool(false);
+        if (!ab.hits.empty() || !ab.shield.empty() || ccOnly || ab.buffDuration > 0) k.abilities.push_back(ab);
     }
     // How far its damage reaches, as an enemy: the middle of its basic abilities' reach
     // (capped at 800), or its attack range. Ultimates and dashes don't count: a dash
@@ -733,6 +768,8 @@ struct Enemy {
     bool antiHeal = false;  // its build applies Grievous Wounds (Morellonomicon, Thornmail...)
     double armor = 0, amp = 1;  // its own Armor and damage-taken factor, for armor shred that builds up
     int cleaver = 0;            // Black Cleaver stacks on it (up to 5)
+    double markUntil = -1, markShare = 0;  // your mark on it (Zed R): a share of your damage is dealt again
+    Source markSrc = SrcR;
     std::vector<double> castReady;  // its own abilities: when each is next up
 };
 
@@ -824,6 +861,11 @@ private:
     std::vector<Bound> bound_;
     double attackRange_ = 125;
     bool ranged_ = false, noUlt_ = false, ultOnlyHaste_ = false, hasDash_ = false, hasImmobilize_ = false;
+    bool inMark_ = false;
+    double buffVamp_ = 0, buffHealAmp_ = 0, attackMult_ = 1;
+    // Self-buffs from abilities (Ability::buff*) still running: when each ends.
+    std::vector<std::pair<double, const Ability*>> buffs_;
+    std::map<std::pair<int, const Ability*>, std::pair<int, double>> ramps_;  // on-hit ramp stacks per target
     double tempAs_ = 0, msToAs_ = 0, asCap_ = 5, execute_ = 0, itemAmp_ = 1, itemCrit_ = 0, trueExtra_ = 0;
     double msDiffAmp_ = 0, hsp_ = 1, cdr_ = 0, incomingMult_ = 1, shrink_ = 0, rWindowAmp_ = 0, openAmp_ = 0, openFor_ = 0;
     double rInvulnReady_ = 0, rBuffReady_ = 0, rRefreshReady_ = 0, rAwakenReady_ = 0, rWindowReady_ = 0, rCcReady_ = 0;
@@ -839,6 +881,11 @@ private:
     double costOf(const Ability& a) const { return ch_.resource ? a.cost * (ch_.resource == 1 ? costMult_ : 1.0) : 0.0; }
     bool affordable(const Ability& a, double t) const { return costOf(a) <= manaAt(t) + 1e-9; }
     void spend(double cost, double t) { mana_ = manaAt(t) - cost; manaT_ = t; }
+    void restore(double amount) {  // mana or energy given back (Ambessa's passive, Zed's shadows)
+        if (!ch_.resource || amount <= 0) return;
+        mana_ = std::min(maxMana_, manaAt(t_) + amount);
+        manaT_ = t_;
+    }
     bool converting_ = false, snipeHit_ = false, augReviveUsed_ = false, augRevive_ = false;
     double poroReady_ = 0;
     bool hasMissile_ = false, hasKraken_ = false, hasStorm_ = false, hasEclipse_ = false;
@@ -856,6 +903,7 @@ private:
     double spellbladeArmedAt_ = 0;
     int attacks_ = 0;
     std::vector<double> readyAt_;
+    std::vector<double> refundFloor_;  // attack refunds (Mystic Punch) can't bring a cooldown below this
     std::vector<size_t> order_;
     std::vector<std::pair<double, double>> cc_;
     int myCombo_ = 0; double myComboUntil_ = -1;  // Combo Breaker on you
@@ -883,11 +931,13 @@ private:
     double throughResists_ = 1, burstRaw_ = 0;  // for damage mitigated: see setupDefences and enemyCasts
     double myHp_ = 0, incomingDps_ = 0, engageAt_ = 0, damageClock_ = 0, auraClock_ = 0, auraDps_ = 0;
     std::vector<std::pair<const Ability*, const Hit*>> auraHits_;
+    std::map<const Ability*, std::deque<std::pair<double, Vec>>> auraTrail_;  // where a trail aura's cloud lies
+    std::map<std::pair<const Ability*, size_t>, double> auraLast_;           // when each enemy last stood in it
     std::vector<const Ability*> onhitAbilities_;
     bool dead_ = false;
     // Cheating death (ChampionKit::deathAct / reviveFrac): used once a fight.
     bool deathUsed_ = false;
-    double invulnUntil_ = -1, dieAt_ = -1, reviveAt_ = -1;
+    double invulnUntil_ = -1, dieAt_ = -1, reviveAt_ = -1, deathOnhit_ = 0;
 
     static double levelScale(int level) { return statGrowth(level); }
 
@@ -924,8 +974,13 @@ private:
         else { bonusAd_ += 0.6 * af; ad_ += 0.6 * af; if (gotAd) *gotAd += 0.6 * af; }
     }
 
+    // Share of a missing-Health passive's full strength (Olaf's Berserker Rage: full at missing_cap missing).
+    double missingFrac() const {
+        return maxHp_ > 0 ? std::clamp((1.0 - myHp_ / maxHp_) / get(fx_, "missing_cap", 0.7), 0.0, 1.0) : 0.0;
+    }
     void updateAs() {
-        attackSpeed_ = std::min(asCap_, (ch_.as + ch_.asRatio * (bonusAs_ + tempAs_ + msToAs_ * effMs())) *
+        attackSpeed_ = std::min(asCap_, (ch_.as + ch_.asRatio * (bonusAs_ + tempAs_ + msToAs_ * effMs() +
+                                                                 get(fx_, "as_missing") * missingFrac())) *
                                             (1.0 + get(fx_, "total_as_mult") + ch_.mayhemAs));
     }
 
@@ -1013,6 +1068,8 @@ private:
             crit_ = 1.0;
         }
         critDamage_ = get(stats, "crit_damage") + get(fx_, "crit_damage_per_crit") * crit_;
+        if (get(fx_, "crit_damage_mult") > 0)  // Senna: her whole crit multiplier is scaled (CritDamageMod)
+            critDamage_ = (rules_.critMult + critDamage_) * get(fx_, "crit_damage_mult") - rules_.critMult;
         // Jhin: bonus AD from level, crit chance and bonus attack speed (before the build's % AD).
         bonusAd_ += (get(fx_, "whisper_ad_pct") + get(fx_, "whisper_crit") * crit_ * 100.0 +
                      get(fx_, "whisper_as") * 100.0 * (ch_.asG * g + get(stats, "as"))) * (baseAd_ + bonusAd_);
@@ -1052,6 +1109,9 @@ private:
         armor_ = ch_.armor + ch_.armorG * g + bonusArmor_;
         bonusMr_ = get(stats, "mr") + (hasDash_ ? get(fx_, "dash_mr") : 0.0) + rules_.mayhemResist(ch_.ranged);
         mr_ = ch_.mr + ch_.mrG * g + bonusMr_;
+        // Resists-to-AD passives (Rammus' Spiked Shell: 15% of total armor and magic resist).
+        bonusAd_ += get(fx_, "ad_per_armor") * armor_ + get(fx_, "ad_per_mr") * mr_;
+        ad_ = baseAd_ + bonusAd_;
         ah_ = get(stats, "ah") + ch_.mayhemAh + get(fx_, "ah_per_ap") * ap_ + get(fx_, "ah_per_crit") * crit_ + ahFromAs;
         lethality_ = get(stats, "lethality");
         armorPen_ = get(stats, "armor_pen");
@@ -1093,6 +1153,7 @@ private:
         // Ability order: the champion's recommended combo when it has one (and the
         // combo_order setting is on), otherwise R when it's up, then the rest by damage per cast.
         readyAt_.assign(ch_.abilities.size(), 0.0);
+        refundFloor_.assign(ch_.abilities.size(), 0.0);
         passiveState_.assign(ch_.passives.size(), PassiveState{});
         std::vector<std::pair<double, size_t>> byDamage;
         for (size_t i = 0; i < ch_.abilities.size(); ++i) {
@@ -1700,7 +1761,7 @@ private:
 
     void heal(double amount) {
         if (dead_ || amount <= 0) return;
-        amount *= (1.0 + get(fx_, "healing_received")) * ch_.mayhemHealing;  // Spirit Visage, Mayhem balance
+        amount *= (1.0 + get(fx_, "healing_received")) * ch_.mayhemHealing * (1.0 + buffHealAmp_);  // Spirit Visage, Mayhem balance
         if (sc_.onFire) amount *= 1.0 - rules_.fireHeal;
         // Grievous Wounds: an enemy whose build applies it and who can reach you cuts your healing by 40%.
         for (const auto& e : enemies_)
@@ -1790,12 +1851,14 @@ private:
         return out;
     }
 
-    double deal(Enemy* target, double raw, DamageType type, Source src, bool physicalAttack = false) {
+    // critRolled: the hit already rolled its own crit (Dual Wield, Typhoon and Runaan's bolts),
+    // so Vulnerability's item crit must not multiply it again.
+    double deal(Enemy* target, double raw, DamageType type, Source src, bool physicalAttack = false, bool critRolled = false) {
         if (!target || !target->alive || raw <= 0) return 0.0;
         if (firstHitAt_ < 0) firstHitAt_ = t_;
         if (src == SrcItems) {
             raw *= itemAmp_;  // Forged By The Master
-            if (itemCrit_ > 0) raw *= 1.0 + crit_ * (itemCrit_ - 1.0);  // Vulnerability: expected crits
+            if (itemCrit_ > 0 && !critRolled) raw *= 1.0 + crit_ * (itemCrit_ - 1.0);  // Vulnerability: expected crits
         }
         if (msDiffAmp_ > 0)  // Don't Blink: more damage the faster you are than the target
             raw *= 1.0 + std::min(0.5, msDiffAmp_ * std::max(0.0, effMs() - (target->moveSpeed > 0 ? target->moveSpeed : 345.0)));
@@ -1805,7 +1868,9 @@ private:
                             : type == DamageType::Magic  ? target->magicMult
                                                          : target->trueMult;
         const double dmg = std::min(target->hp, raw * mult);
-        double vamp = omnivamp_ + (physicalAttack ? lifesteal_ : 0.0) + (t_ < rVampUntil_ ? get(fx_, "r_omnivamp") : 0.0);
+        // A mark stores part of the (pre-mitigation, non-true) damage and pops it as physical damage.
+        const double marked = t_ < target->markUntil && type != DamageType::True && !inMark_ ? raw * target->markShare : 0.0;
+        double vamp = omnivamp_ + buffVamp_ + (physicalAttack ? lifesteal_ + get(fx_, "lifesteal_missing") * missingFrac() : 0.0) + (t_ < rVampUntil_ ? get(fx_, "r_omnivamp") : 0.0);
         if (!stacks_.empty()) vamp += fullStackVamp();
         if (get(fx_, "vamp_missing") > 0)  // Ominous Pact: grows with missing Health, full at 30% Health
             vamp += get(fx_, "vamp_missing") * std::clamp((1.0 - myHp_ / maxHp_) / 0.7, 0.0, 1.0);
@@ -1852,6 +1917,11 @@ private:
             const double blast = amountOf(fx_, "exec_blast_", nullptr);
             for (Enemy* o : near(at, 300)) deal(o, blast, DamageType::Magic, SrcItems);
             heal(amountOf(fx_, "exec_heal_", nullptr) * hsp_);
+        }
+        if (marked > 0 && target->alive) {
+            inMark_ = true;
+            deal(target, marked, DamageType::Physical, target->markSrc);
+            inMark_ = false;
         }
         // Glass Cannon: extra true damage on top.
         if (trueExtra_ > 0 && type != DamageType::True && target->alive) deal(target, raw * trueExtra_, DamageType::True, src);
@@ -2062,10 +2132,18 @@ private:
         double dealt = 0;
         snipeHit_ = false;
         bool first = true;
+        startBuff(a);
+        if (a.invuln > 0) invulnUntil_ = std::max(invulnUntil_, t_ + a.invuln);  // Pantheon E: blocks the damage in front
         for (auto& [e, w] : targets) {
             const double from = distTo(*e);
+            // Damage that grows with the distance flown (Nidalee's Javelin Toss).
+            const double byRange = a.rangeTo > a.rangeFrom
+                                       ? 1.0 + (a.rangeMax - 1.0) * std::clamp((from - a.rangeFrom) / (a.rangeTo - a.rangeFrom), 0.0, 1.0)
+                                       : 1.0;
+            // More damage the more Health the target is missing (Jhin R: +3% per 1%).
+            const double byMissing = 1.0 + a.missingAmp * (e->maxHp > 0 ? 1.0 - e->hp / e->maxHp : 0.0);
             for (const auto& h : a.hits) {
-                double raw = hitRaw(h, *e) * amp * w;
+                double raw = hitRaw(h, *e) * amp * w * byRange * byMissing;
                 if (!h.perSecond && a.slot != 'R') raw *= rules_.longRange(from);  // ARAM long-range cut
                 if (h.perSecond) {
                     // Damage over time lasts its duration, but no longer than the ability's
@@ -2079,16 +2157,40 @@ private:
             if (!a.hits.empty()) {
                 snipeHit_ |= from > get(fx_, "snipe_range", 600);
                 if (e->alive) trigger(OnAbility, e);
+                // Karma's Gathering Fire: each damage instance on a champion takes seconds off the ultimate.
+                if (get(fx_, "r_cdr_on_hit") > 0)
+                    for (size_t j = 0; j < readyAt_.size(); ++j)
+                        if (ch_.abilities[j].slot == 'R' && readyAt_[j] > t_ && readyAt_[j] < 1e17)
+                            readyAt_[j] = std::max(t_, readyAt_[j] - get(fx_, "r_cdr_on_hit") * static_cast<double>(a.hits.size()));
+            }
+            if (a.markDuration > 0 && e->alive) {
+                e->markUntil = t_ + a.markDuration;
+                e->markShare = a.markShare;
+                e->markSrc = src;
             }
             if (!a.cc.empty() && e->alive) {
                 applyCc(*e, a);
                 if (immobilizes(a)) trigger(OnImmobilize, e);
             }
             onAbilityDamage(e, first);
+            // Zac's Goo: each cast that hits drops a chunk; picking it up takes seconds off W.
+            if (first && !a.hits.empty() && get(fx_, "w_cdr_on_cast_hit") > 0)
+                for (size_t j = 0; j < readyAt_.size(); ++j)
+                    if (ch_.abilities[j].slot == 'W' && readyAt_[j] > t_ && readyAt_[j] < 1e17)
+                        readyAt_[j] = std::max(t_, readyAt_[j] - get(fx_, "w_cdr_on_cast_hit"));
+            if (first && !a.hits.empty())  // once per cast: passives whose cooldown ability hits shorten
+                for (size_t i = 0; i < ch_.passives.size(); ++i)
+                    if (ch_.passives[i].abilityCdr > 0 && !ch_.passives[i].perTarget)
+                        passiveState_[i].readyAt -= ch_.passives[i].abilityCdr;
+            if (first && a.appliesOnHit && e->alive) {  // Bel'Veth Q: on-hit effects on the first target
+                applyOnHit(e, 1.0);
+                onhitProcs(e, false);
+            }
             if (first && !a.hits.empty() && e->alive) passivesOn(e, false);
             first = false;
         }
         if (!targets.empty() && !a.hits.empty()) stackEvent(OnAbility);
+        if (shot.primaryHit) restore(a.refund);
         if (!targets.empty() && immobilizes(a)) stackEvent(OnImmobilize);
         // Echo Cast: a copy of the ability goes off again.
         if (recast > 0)
@@ -2150,13 +2252,13 @@ private:
     }
 
     // Navori and Mystic Punch: attacks shorten ability cooldowns.
-    void reduceCooldowns(double flat, double pct, bool includeR) {
+    void reduceCooldowns(double flat, double pct, bool includeR, bool floored = false) {
         for (size_t i = 0; i < readyAt_.size(); ++i) {
             if (ch_.abilities[i].slot == 'R' && !includeR) continue;
             if (readyAt_[i] > t_ && readyAt_[i] < 1e17) {
                 double remaining = readyAt_[i] - t_;
                 remaining = std::max(0.0, remaining * (1.0 - pct) - flat);
-                readyAt_[i] = t_ + remaining;
+                readyAt_[i] = floored ? std::min(readyAt_[i], std::max(t_ + remaining, refundFloor_[i])) : t_ + remaining;
             }
         }
     }
@@ -2170,6 +2272,7 @@ private:
         double phys = get(fx_, "onhit_phys") + get(fx_, "onhit_cur_hp") * e->hp + get(fx_, "onhit_own_hp") * maxHp_ +
                       get(fx_, "onhit_phys_ap") * ap_;
         deal(e, scale * phys, DamageType::Physical, SrcItems, true);
+        if (deathOnhit_ > 0) deal(e, scale * deathOnhit_ * e->maxHp, DamageType::Physical, SrcPassive, true);
     }
 
     void die(double at) {
@@ -2207,6 +2310,9 @@ private:
         if (ch_.deathAct > 0) {  // keeps fighting, then dies
             invulnUntil_ = dieAt_ = at + ch_.deathAct;
             myHp_ = 1;
+            if (ch_.deathAs > 0) { asCap_ = ch_.deathAs; tempAs_ += 100; updateAs(); }  // pinned to the cap
+            deathOnhit_ = ch_.deathOnhitMaxHp;
+            if (!ch_.deathAbilities) readyAt_.assign(readyAt_.size(), 1e18);
         } else {  // down (can't act or be hurt), then back with some Health
             reviveFrac_ = ch_.reviveFrac;
             invulnUntil_ = reviveAt_ = at + ch_.reviveDelay;
@@ -2238,7 +2344,7 @@ private:
             ev.t = t_; ev.kind = "attack"; ev.target = e->uid; ev.flag = crit; ev.amount = windup;
             record(ev);
         }
-        const double hit = deal(e, ad_ * (crit ? critMult : 1.0), DamageType::Physical, SrcAttack, true);
+        const double hit = deal(e, ad_ * attackMult_ * (crit ? critMult : 1.0), DamageType::Physical, SrcAttack, true);
         if (crit) heal(hit * get(fx_, "crit_lifesteal"));  // Soul Siphon
         applyOnHit(e, 1.0);
         if (crit && get(fx_, "crit_onhit_extra") > 0) applyOnHit(e, get(fx_, "crit_onhit_extra"));  // Double Tap
@@ -2246,7 +2352,7 @@ private:
         // Typhoon: a missile at a second enemy, for part of the attack plus on-hit.
         if (get(fx_, "typhoon_ad") > 0)
             for (Enemy* o : near(me_, attackReach() + 300, e)) {
-                deal(o, get(fx_, "typhoon_ad") * ad_ * (crit ? critMult : 1.0), DamageType::Physical, SrcItems, true);
+                deal(o, get(fx_, "typhoon_ad") * ad_ * (crit ? critMult : 1.0), DamageType::Physical, SrcItems, true, true);
                 applyOnHit(o, 1.0);
                 break;
             }
@@ -2289,7 +2395,7 @@ private:
         }
         // Dual Wield: a second, weaker bolt with partial on-hit.
         if (get(fx_, "second_bolt") > 0 && e->alive) {
-            deal(e, get(fx_, "second_bolt") * ad_ * (crit ? critMult : 1.0), DamageType::Physical, SrcItems, true);
+            deal(e, get(fx_, "second_bolt") * ad_ * (crit ? critMult : 1.0), DamageType::Physical, SrcItems, true, true);
             applyOnHit(e, get(fx_, "second_bolt_onhit"));
         }
         if (!ranged_ && get(fx_, "cleave_ad") > 0)
@@ -2299,21 +2405,34 @@ private:
             for (Enemy* s : near(me_, attackRange_ + rules_.hitbox, e)) {
                 if (bolts-- <= 0) break;
                 deal(s, get(fx_, "bolts_ad") * ad_ * (rng_.chance(crit_) ? critMult : 1.0), DamageType::Physical,
-                     SrcItems, true);
+                     SrcItems, true, true);
             }
         }
+        onhitProcs(e, true);
+        if (e->alive) passivesOn(e, true);
+        reduceCooldowns(get(fx_, "attack_cdr_flat"), get(fx_, "attack_cdr_pct"), false, get(fx_, "attack_cdr_min") > 0);
+    }
+
+    // Abilities that are on-hit passives: every Nth attack (attack), or every on-hit (an ability
+    // that applies on-hit effects: only the every-hit ones).
+    void onhitProcs(Enemy* e, bool attack) {
         for (const Ability* a : onhitAbilities_) {
-            if (attacks_ % a->onhitEvery != 0 || !e->alive) continue;
+            if ((attack ? attacks_ % a->onhitEvery != 0 : a->onhitEvery != 1) || !e->alive) continue;
             const Source src = a->slot == 'Q' ? SrcQ : a->slot == 'W' ? SrcW : a->slot == 'E' ? SrcE : SrcR;
             if (trace_) {
                 TraceEvent ev;
                 ev.t = t_; ev.kind = "proc"; ev.slot = a->slot; ev.target = e->uid;
                 record(ev);
             }
-            for (const auto& h : a->hits) deal(e, hitRaw(h, *e) * abilityAmp_, h.type, src);
+            double stacks = 1;
+            if (a->ramp > 0) {  // each hit on the same target adds a stack, lost after a pause
+                auto& r = ramps_[{e->uid, a}];
+                r.first = t_ - r.second > a->ramp ? 1 : r.first + 1;
+                r.second = t_;
+                stacks = r.first;
+            }
+            for (const auto& h : a->hits) deal(e, hitRaw(h, *e) * abilityAmp_ * stacks, h.type, src);
         }
-        if (e->alive) passivesOn(e, true);
-        reduceCooldowns(get(fx_, "attack_cdr_flat"), get(fx_, "attack_cdr_pct"), false);
     }
 
     // The champion's passive: an attack (attack = true) or an ability hit landed on e.
@@ -2334,6 +2453,7 @@ private:
             }
             st.count = 0;
             if (p.cooldown > 0) ready = t_ + p.cooldown;
+            restore(p.restore);
             if (trace_) {
                 TraceEvent ev;
                 ev.t = t_; ev.kind = "proc"; ev.slot = 'P'; ev.target = e->uid;
@@ -2375,8 +2495,31 @@ private:
         for (const auto& [a, h] : auraHits_) {
             const Source src = a->slot == 'Q' ? SrcQ : a->slot == 'W' ? SrcW : a->slot == 'E' ? SrcE : SrcR;
             Vec at;
-            if (!auraCenter(*a, at)) continue;
-            for (Enemy* e : near(at, auraRadius(*a))) deal(e, hitRaw(*h, *e) * abilityAmp_ * dt, h->type, src);
+            const bool centered = auraCenter(*a, at);
+            if (a->trail <= 0 && a->linger <= 0) {
+                if (!centered) continue;
+                for (Enemy* e : near(at, auraRadius(*a))) {
+                    deal(e, hitRaw(*h, *e) * abilityAmp_ * dt, h->type, src);
+                    if (e->alive) onAbilityDamage(e, false);  // a damage-over-time ability still lights Liandry's
+                }
+                continue;
+            }
+            // A cloud left along your path, and a poison that keeps ticking after the target leaves it.
+            auto& path = auraTrail_[a];
+            if (a->trail > 0 && (path.empty() || until - path.back().first >= 0.25)) path.push_back({until, me_});
+            while (!path.empty() && until - path.front().first > a->trail) path.pop_front();
+            const double r = auraRadius(*a) + rules_.hitbox;
+            for (size_t i = 0; i < enemies_.size(); ++i) {
+                Enemy& e = enemies_[i];
+                if (!e.alive) continue;
+                bool in = centered && len(e.pos - at) <= r;
+                for (size_t j = 0; !in && j < path.size(); ++j) in = len(e.pos - path[j].second) <= r;
+                auto& last = auraLast_[{a, i}];
+                if (in) last = until;
+                else if (last <= 0 || until - last > a->linger) continue;
+                deal(&e, hitRaw(*h, e) * abilityAmp_ * dt, h->type, src);
+                if (e.alive) onAbilityDamage(&e, false);
+            }
         }
         if (trace_) traceToggles();
     }
@@ -2431,7 +2574,9 @@ private:
         if (ultOnlyHaste_) h = a.slot == 'R' ? 1.5 * h : 0.0;
         return h;
     }
-    double cooldownOf(const Ability& a) const { return a.cooldown * (1.0 - cdr_) * 100.0 / (100.0 + hasteFor(a)); }
+    double cooldownOf(const Ability& a) const {
+        return a.noHaste ? a.cooldown : a.cooldown * (1.0 - cdr_) * 100.0 / (100.0 + hasteFor(a));
+    }
 
     // ---- Augment mechanics -------------------------------------------------------------
     enum TrigOn { OnAttack = 1, OnAbility, OnHit, OnCrit, OnImmobilize, OnDash, OnTimer, OnKill, OnShield, OnBound, OnChannel, OnTaken };
@@ -2526,7 +2671,39 @@ private:
         s.readyAt = ready;
         updateAs();
     }
-    void tickStacks() { for (auto& s : stacks_) expireStack(s); }
+    void tickStacks() {
+        for (auto& s : stacks_) expireStack(s);
+        bool changed = false;
+        for (size_t i = 0; i < buffs_.size();) {
+            if (t_ < buffs_[i].first) { ++i; continue; }
+            buffEffect(*buffs_[i].second, -1);
+            buffs_.erase(buffs_.begin() + static_cast<long>(i));
+            changed = true;
+        }
+        if (changed) updateAs();
+    }
+    // Starts (sign 1) or ends (sign -1) an ability's self-buff.
+    double buffAdOf(const Ability& a) const { return a.buffAd + a.buffBonusAdPct * bonusAd_; }
+    void buffEffect(const Ability& a, int sign) {
+        if (sign > 0) {
+            buffs_.push_back({t_ + a.buffDuration, &a});
+            buffGain_[&a] = buffAdOf(a);
+        }
+        const double ad = sign * buffGain_[&a];
+        ad_ += ad; bonusAd_ += ad;
+        tempAs_ += sign * a.buffAs;
+        buffVamp_ += sign * a.buffVamp;
+        buffHealAmp_ += sign * a.buffHealAmp;
+        attackMult_ *= sign > 0 ? a.buffAttackMult : 1.0 / a.buffAttackMult;
+    }
+    void startBuff(const Ability& a) {
+        if (a.buffDuration <= 0) return;
+        for (auto& b : buffs_)
+            if (b.second == &a) { b.first = t_ + a.buffDuration; return; }  // recast: refreshed
+        buffEffect(a, 1);
+        updateAs();
+    }
+    std::map<const Ability*, double> buffGain_;
     double fullStackVamp() const {  // Conqueror: heals at full stacks
         double v = 0;
         for (const auto& s : stacks_)
@@ -2598,6 +2775,7 @@ private:
     // After a cast's cooldown starts: refunds and costs.
     void afterCast(size_t i) {
         const Ability& a = ch_.abilities[i];
+        if (readyAt_[i] < 1e17) refundFloor_[i] = t_ + (readyAt_[i] - t_) * get(fx_, "attack_cdr_min");  // Mystic Punch: 50% at least
         if (a.slot == 'R' && get(fx_, "r_refresh_cd") > 0 && t_ >= rRefreshReady_) {  // Ultimate Revolution
             rRefreshReady_ = t_ + get(fx_, "r_refresh_cd");
             readyAt_[i] = t_ + 1.0;
@@ -2754,6 +2932,7 @@ Result Fight::run() {
         }
         // An attack winds up before it lands and can't be mixed with a cast; once it fires,
         // the rest of the attack timer is free for casting (or walking).
+        if (get(fx_, "as_missing") > 0) updateAs();  // attack speed that grows as Health drops
         const double start = t_, wu = windupTime();
         busyUntil_ = t_ + wu;
         t_ += wu;
@@ -2761,6 +2940,9 @@ Result Fight::run() {
         nextAttack_ = start + 1.0 / attackSpeed_;
         if (!hasPrimary()) continue;  // the target fell during the wind-up
         basicAttack(wu);
+        // Jhin: after the last round of ammunition, no attack until the reload is done.
+        if (const int every = static_cast<int>(get(fx_, "reload_every")); every > 0 && attacks_ % every == 0)
+            nextAttack_ = std::max(nextAttack_, t_ + get(fx_, "reload_time"));
     }
     if (!dead_) {
         advance(duration_);
