@@ -30,6 +30,7 @@ import ShowMore from "@/components/champion/ShowMore";
 import AugmentTable from "@/components/champion/AugmentTable";
 import SectionRail from "@/components/champion/SectionRail";
 import { BaseStatsTable, MayhemChanges } from "@/components/champion/Details";
+import { fillGames, fillSpells, type SpellRow } from "@/lib/fill";
 import "../champion-page.css";
 
 // One page per champion, so each can be found in search. Laid out like a stat site's champion page: a header
@@ -81,6 +82,16 @@ const SPOTS = [
   { id: "details", label: "Items and details" },
 ];
 
+function Spells({ r }: { r: SpellRow }) {
+  return (
+    <span className="cp-icons">
+      {r.spells.map((s) => (
+        <img key={s.id} className="cp-icon" src={s.icon} alt={s.name} title={s.name} width={36} height={36} loading="lazy" />
+      ))}
+    </span>
+  );
+}
+
 function NotYet({ text }: { text: string }) {
   return (
     <div className="cp-empty">
@@ -116,6 +127,9 @@ export default async function ChampionPage({
   const bestCore = bestRow(p.core);
   const bestStart = bestRow(p.starting);
   const bestSkill = bestRow(p.skills, 0.1);
+  const spells = fillSpells(c.alias, c.winRate ?? 0.5);
+  const bestSpells = bestRow(spells.filter((r) => r.pickRate >= 0.05)) ?? spells[0];
+  const games = fillGames()?.[c.alias];
   const radar = new Map(c.radar.map((a) => [a.key, a]));
   const perf = (
     ["win_rate", "pick_rate", "damage", "tank", "kp", "dead"] as const
@@ -245,6 +259,7 @@ export default async function ChampionPage({
               </div>
             )}
             <Cell value={pct(c.pickRate ?? 0)} label="Pick rate" />
+            {games !== undefined && <Cell value={games.toLocaleString("en-US")} label="Games" />}
             <div className="cp-cell">
               <b>#{c.rank}</b>
               <small>
@@ -278,9 +293,18 @@ export default async function ChampionPage({
             <h4>
               <T ns={NS}>Best summoner spells</T>
             </h4>
-            <p className="cp-empty-line">
-              <T ns={NS}>Not enough games yet.</T>
-            </p>
+            {bestSpells ? (
+              <>
+                <Spells r={bestSpells} />
+                <div className="cp-mini">
+                  <RatedCells r={bestSpells} />
+                </div>
+              </>
+            ) : (
+              <p className="cp-empty-line">
+                <T ns={NS}>Not enough games yet.</T>
+              </p>
+            )}
           </div>
           {bestCore && (
             <div className="cp-best">
@@ -360,8 +384,19 @@ export default async function ChampionPage({
           <h2 className="cp-group" id="playstyle">
             <T ns={NS}>Playstyle</T>
           </h2>
-          <Panel title="Summoner spells">
-            <NotYet text="Spell pairs with win rate, pick rate and win lift appear here once enough games are in." />
+          <Panel title="Summoner spells" count={spells.length || undefined}>
+            {spells.length ? (
+              <>
+                <Head what="Spells" />
+                {spells.map((r, i) => (
+                  <Row key={i} rank={i + 1} cells={<RatedCells r={r} />}>
+                    <Spells r={r} />
+                  </Row>
+                ))}
+              </>
+            ) : (
+              <NotYet text="Spell pairs with win rate, pick rate and win lift appear here once enough games are in." />
+            )}
           </Panel>
           {p.skills.length > 0 && (
             <Panel

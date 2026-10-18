@@ -79,5 +79,7 @@
  "since {patch}": "seit {patch}",
  "Build share": "Build-Anteil",
  "Win rate delta": "Siegraten-Differenz",
- "Win rate delta: how much more the pair wins together than the two do on their own.": "Siegraten-Differenz: wie viel öfter das Paar zusammen gewinnt als die beiden einzeln."
+ "Win rate delta: how much more the pair wins together than the two do on their own.": "Siegraten-Differenz: wie viel öfter das Paar zusammen gewinnt als die beiden einzeln.",
+ "Games": "Spiele",
+ "Spells": "Zauber"
 }

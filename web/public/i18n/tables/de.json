@@ -91,5 +91,7 @@
  "Save": "Speichern",
  "Close": "Schließen",
  "Win rate delta": "Siegquoten-Differenz",
- "Pair win rate minus the average of the two champions' own win rates. Above zero means they win more together.": "Siegquote des Duos minus der Durchschnitt der eigenen Siegquoten beider Champions. Über null heißt, sie gewinnen zusammen öfter."
+ "Pair win rate minus the average of the two champions' own win rates. Above zero means they win more together.": "Siegquote des Duos minus der Durchschnitt der eigenen Siegquoten beider Champions. Über null heißt, sie gewinnen zusammen öfter.",
+ "Games": "Spiele",
+ "Games played on the live patch.": "Gespielte Spiele im aktuellen Patch."
 }

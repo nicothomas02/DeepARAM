@@ -91,5 +91,7 @@
  "Save": "Guardar",
  "Close": "Cerrar",
  "Win rate delta": "Diferencia de victorias",
- "Pair win rate minus the average of the two champions' own win rates. Above zero means they win more together.": "Porcentaje de victorias de la pareja menos el promedio del porcentaje propio de cada campeón. Por encima de cero, ganan más juntos."
+ "Pair win rate minus the average of the two champions' own win rates. Above zero means they win more together.": "Porcentaje de victorias de la pareja menos el promedio del porcentaje propio de cada campeón. Por encima de cero, ganan más juntos.",
+ "Games": "Partidas",
+ "Games played on the live patch.": "Partidas jugadas en el parche actual."
 }

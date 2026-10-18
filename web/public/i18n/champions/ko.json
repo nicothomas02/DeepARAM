@@ -79,5 +79,7 @@
  "since {patch}": "{patch} 이후",
  "Build share": "빌드 비율",
  "Win rate delta": "승률 차이",
- "Win rate delta: how much more the pair wins together than the two do on their own.": "승률 차이: 두 챔피언이 함께할 때 각자일 때보다 얼마나 더 이기는지."
+ "Win rate delta: how much more the pair wins together than the two do on their own.": "승률 차이: 두 챔피언이 함께할 때 각자일 때보다 얼마나 더 이기는지.",
+ "Games": "게임 수",
+ "Spells": "주문"
 }

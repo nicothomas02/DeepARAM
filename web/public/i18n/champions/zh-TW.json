@@ -79,5 +79,7 @@
  "since {patch}": "自 {patch} 起",
  "Build share": "出裝占比",
  "Win rate delta": "勝率差",
- "Win rate delta: how much more the pair wins together than the two do on their own.": "勝率差：兩人同隊時比各自單獨時多贏多少。"
+ "Win rate delta: how much more the pair wins together than the two do on their own.": "勝率差：兩人同隊時比各自單獨時多贏多少。",
+ "Games": "場次",
+ "Spells": "召喚師技能"
 }

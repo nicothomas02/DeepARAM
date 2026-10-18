@@ -24,6 +24,7 @@ import Pending from "@/components/Pending";
 import SubTabs from "@/components/SubTabs";
 import { readRepoCsv, readRepoJson } from "@/lib/repo-data";
 import { allChampionTags, championTagData } from "@/lib/champion-tags";
+import { fillGames } from "@/lib/fill";
 
 export const metadata: Metadata = pageMeta(
   "/tier-list",
@@ -82,6 +83,7 @@ export default function TierListPage() {
           patches={patches.map((p) => p.patch)}
           tags={allChampionTags([...new Set(rows.map((r) => r.name))])}
           tagInfo={championTagData().info}
+          games={fillGames()}
         />
       ),
     },

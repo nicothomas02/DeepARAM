@@ -91,5 +91,7 @@
  "Save": "Mentés",
  "Close": "Bezárás",
  "Win rate delta": "Győzelmi arány eltérés",
- "Pair win rate minus the average of the two champions' own win rates. Above zero means they win more together.": "A páros győzelmi aránya mínusz a két hős saját győzelmi arányának átlaga. Nulla fölött együtt többet nyernek."
+ "Pair win rate minus the average of the two champions' own win rates. Above zero means they win more together.": "A páros győzelmi aránya mínusz a két hős saját győzelmi arányának átlaga. Nulla fölött együtt többet nyernek.",
+ "Games": "Meccsek",
+ "Games played on the live patch.": "Az aktuális patchen játszott meccsek."
 }

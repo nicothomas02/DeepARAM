@@ -79,5 +79,7 @@
  "since {patch}": "ตั้งแต่ {patch}",
  "Build share": "สัดส่วนบิลด์",
  "Win rate delta": "ส่วนต่างอัตราชนะ",
- "Win rate delta: how much more the pair wins together than the two do on their own.": "ส่วนต่างอัตราชนะ: คู่นี้ชนะด้วยกันมากกว่าตอนแยกกันเล่นเท่าไร"
+ "Win rate delta: how much more the pair wins together than the two do on their own.": "ส่วนต่างอัตราชนะ: คู่นี้ชนะด้วยกันมากกว่าตอนแยกกันเล่นเท่าไร",
+ "Games": "จำนวนเกม",
+ "Spells": "สเปล"
 }

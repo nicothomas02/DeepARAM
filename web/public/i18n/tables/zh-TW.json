@@ -91,5 +91,7 @@
  "Save": "儲存",
  "Close": "關閉",
  "Win rate delta": "勝率差",
- "Pair win rate minus the average of the two champions' own win rates. Above zero means they win more together.": "組合勝率減去兩位英雄各自勝率的平均值。高於零表示一起時贏得更多。"
+ "Pair win rate minus the average of the two champions' own win rates. Above zero means they win more together.": "組合勝率減去兩位英雄各自勝率的平均值。高於零表示一起時贏得更多。",
+ "Games": "場次",
+ "Games played on the live patch.": "目前版本的對戰場次。"
 }

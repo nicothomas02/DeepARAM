@@ -91,5 +91,7 @@
  "Save": "保存",
  "Close": "閉じる",
  "Win rate delta": "勝率差",
- "Pair win rate minus the average of the two champions' own win rates. Above zero means they win more together.": "ペアの勝率から、2体のチャンピオンそれぞれの勝率の平均を引いた値。0より上なら一緒の方が勝ちやすいことを示します。"
+ "Pair win rate minus the average of the two champions' own win rates. Above zero means they win more together.": "ペアの勝率から、2体のチャンピオンそれぞれの勝率の平均を引いた値。0より上なら一緒の方が勝ちやすいことを示します。",
+ "Games": "試合数",
+ "Games played on the live patch.": "現在のパッチでの試合数。"
 }

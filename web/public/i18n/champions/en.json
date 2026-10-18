@@ -79,5 +79,7 @@
  "since {patch}": "since {patch}",
  "Build share": "Build share",
  "Win rate delta": "Win rate delta",
- "Win rate delta: how much more the pair wins together than the two do on their own.": "Win rate delta: how much more the pair wins together than the two do on their own."
+ "Win rate delta: how much more the pair wins together than the two do on their own.": "Win rate delta: how much more the pair wins together than the two do on their own.",
+ "Games": "Games",
+ "Spells": "Spells"
 }
