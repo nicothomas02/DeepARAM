@@ -264,19 +264,14 @@
 @media (min-width: 561px) {
   #mates .cp-th,
   #mates .cp-row {
-    grid-template-columns: 2.6rem minmax(0, 10rem) 6.6rem repeat(2, 5.4rem);
+    grid-template-columns: 2.6rem minmax(0, 10rem) 6.6rem 5.4rem;
     justify-content: start;
   }
 }
-/* On phones the pair win rate drops out so names have room; the delta and pick rate stay. */
 @media (max-width: 560px) {
   #mates .cp-th,
   #mates .cp-row {
     grid-template-columns: 2rem minmax(0, 1fr) 5.6rem 3.9rem;
-  }
-  #mates .cp-th > :nth-child(4),
-  #mates .cp-row > :nth-child(4) {
-    display: none;
   }
 }
 .cp-th {

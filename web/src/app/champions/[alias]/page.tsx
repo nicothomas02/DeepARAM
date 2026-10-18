@@ -38,7 +38,12 @@ import ShowMore from "@/components/champion/ShowMore";
 import AugmentTable from "@/components/champion/AugmentTable";
 import SectionRail from "@/components/champion/SectionRail";
 import { BaseStatsTable, MayhemChanges } from "@/components/champion/Details";
-import { fillEstimated, fillGames, fillSpells, type SpellRow } from "@/lib/fill";
+import {
+  fillEstimated,
+  fillGames,
+  fillSpells,
+  type SpellRow,
+} from "@/lib/fill";
 import { ITEM_TIERS, type ItemTier } from "@/lib/items";
 import "../champion-page.css";
 
@@ -593,16 +598,14 @@ export default async function ChampionPage({
               title="Best teammates"
               count={p.mates.length}
               note={
-                <T ns={NS}>
-                  Win rate delta: how much more the pair wins together than the
-                  two do on their own.
+                <T ns="tables">
+                  {
+                    "How much more the pair wins than the two champions' own win rates predict, in percentage points. Above zero means they help each other."
+                  }
                 </T>
               }
             >
-              <Head
-                what="Teammate"
-                cols={["Win rate delta", "Together", "Pick rate"]}
-              />
+              <Head what="Teammate" cols={["Win rate delta", "Pick rate"]} />
               <ShowMore total={p.mates.length}>
                 {p.mates.map((m, i) => (
                   <Row
@@ -615,7 +618,6 @@ export default async function ChampionPage({
                           label="Win rate delta"
                           tone={tone(m.synergy)}
                         />
-                        <Cell value={pct(m.winRate)} label="Together" />
                         <Cell value={pct(m.pickRate)} label="Pick rate" />
                       </>
                     }
