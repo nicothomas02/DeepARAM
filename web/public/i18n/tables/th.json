@@ -91,5 +91,7 @@
  "Save": "บันทึก",
  "Close": "ปิด",
  "Win rate delta": "ส่วนต่างอัตราชนะ",
- "Pair win rate minus the average of the two champions' own win rates. Above zero means they win more together.": "อัตราชนะของคู่ ลบด้วยค่าเฉลี่ยอัตราชนะของแชมเปี้ยนทั้งสองตัวเอง มากกว่าศูนย์หมายความว่าเล่นด้วยกันแล้วชนะมากขึ้น"
+ "Pair win rate minus the average of the two champions' own win rates. Above zero means they win more together.": "อัตราชนะของคู่ ลบด้วยค่าเฉลี่ยอัตราชนะของแชมเปี้ยนทั้งสองตัวเอง มากกว่าศูนย์หมายความว่าเล่นด้วยกันแล้วชนะมากขึ้น",
+ "Games": "จำนวนเกม",
+ "Games played on the live patch.": "จำนวนเกมที่เล่นในแพตช์ปัจจุบัน"
 }

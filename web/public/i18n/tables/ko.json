@@ -91,5 +91,7 @@
  "Save": "저장",
  "Close": "닫기",
  "Win rate delta": "승률 차이",
- "Pair win rate minus the average of the two champions' own win rates. Above zero means they win more together.": "듀오 승률에서 두 챔피언 각자의 승률 평균을 뺀 값입니다. 0보다 크면 함께할 때 더 많이 이깁니다."
+ "Pair win rate minus the average of the two champions' own win rates. Above zero means they win more together.": "듀오 승률에서 두 챔피언 각자의 승률 평균을 뺀 값입니다. 0보다 크면 함께할 때 더 많이 이깁니다.",
+ "Games": "게임 수",
+ "Games played on the live patch.": "현재 패치에서 진행된 게임 수."
 }

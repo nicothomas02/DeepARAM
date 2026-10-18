@@ -79,5 +79,7 @@
  "since {patch}": "desde {patch}",
  "Build share": "Parcela de builds",
  "Win rate delta": "Diferença de vitória",
- "Win rate delta: how much more the pair wins together than the two do on their own.": "Diferença de vitória: quanto a dupla vence a mais junta do que os dois sozinhos."
+ "Win rate delta: how much more the pair wins together than the two do on their own.": "Diferença de vitória: quanto a dupla vence a mais junta do que os dois sozinhos.",
+ "Games": "Partidas",
+ "Spells": "Feitiços"
 }
