@@ -115,5 +115,7 @@
  "Magic": "سحري",
  "True": "حقيقي",
  "Win rates are estimated. Lift is how much each augment adds to this champion's win rate.": "نسب الفوز مقدّرة. الأثر هو مقدار ما يضيفه كل تعزيز إلى نسبة فوز هذا البطل.",
- "Estimated: augments that pair well on this champion, with their win rate together.": "تقدير: تعزيزات تتناسب جيدًا مع هذا البطل، مع نسبة فوزها معًا."
+ "Estimated: augments that pair well on this champion, with their win rate together.": "تقدير: تعزيزات تتناسب جيدًا مع هذا البطل، مع نسبة فوزها معًا.",
+ "Consumables": "المستهلكات",
+ "From augments": "من التعزيزات"
 }

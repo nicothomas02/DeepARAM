@@ -115,5 +115,7 @@
  "Magic": "魔法",
  "True": "真實",
  "Win rates are estimated. Lift is how much each augment adds to this champion's win rate.": "勝率為預估值。增益表示每個強化為該英雄帶來的勝率提升。",
- "Estimated: augments that pair well on this champion, with their win rate together.": "預估：在該英雄上搭配良好的強化組合，以及一起選擇時的勝率。"
+ "Estimated: augments that pair well on this champion, with their win rate together.": "預估：在該英雄上搭配良好的強化組合，以及一起選擇時的勝率。",
+ "Consumables": "消耗品",
+ "From augments": "來自強化"
 }

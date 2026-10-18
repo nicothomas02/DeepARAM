@@ -115,5 +115,7 @@
  "Magic": "Büyü",
  "True": "Gerçek",
  "Win rates are estimated. Lift is how much each augment adds to this champion's win rate.": "Kazanma oranları tahminidir. Etki, her güçlendirmenin bu şampiyonun kazanma oranına ne kadar eklediğidir.",
- "Estimated: augments that pair well on this champion, with their win rate together.": "Tahmini: bu şampiyonda iyi giden güçlendirmeler ve birlikte kazanma oranları."
+ "Estimated: augments that pair well on this champion, with their win rate together.": "Tahmini: bu şampiyonda iyi giden güçlendirmeler ve birlikte kazanma oranları.",
+ "Consumables": "Tüketilebilir",
+ "From augments": "Güçlendirmelerden"
 }

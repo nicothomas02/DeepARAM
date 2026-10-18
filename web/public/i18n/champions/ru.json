@@ -115,5 +115,7 @@
  "Magic": "Магический",
  "True": "Чистый",
  "Win rates are estimated. Lift is how much each augment adds to this champion's win rate.": "Доли побед оценочные. Влияние показывает, сколько каждая аугментация добавляет к доле побед этого чемпиона.",
- "Estimated: augments that pair well on this champion, with their win rate together.": "Оценка: аугментации, которые хорошо сочетаются на этом чемпионе, и их общая доля побед."
+ "Estimated: augments that pair well on this champion, with their win rate together.": "Оценка: аугментации, которые хорошо сочетаются на этом чемпионе, и их общая доля побед.",
+ "Consumables": "Расходуемые",
+ "From augments": "Из аугментаций"
 }

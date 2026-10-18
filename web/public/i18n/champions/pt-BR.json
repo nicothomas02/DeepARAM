@@ -115,5 +115,7 @@
  "Magic": "Mágico",
  "True": "Verdadeiro",
  "Win rates are estimated. Lift is how much each augment adds to this champion's win rate.": "As taxas de vitória são estimadas. O efeito é quanto cada aprimoramento soma à taxa de vitória deste campeão.",
- "Estimated: augments that pair well on this champion, with their win rate together.": "Estimativa: aprimoramentos que combinam bem neste campeão, com a taxa de vitória dos dois juntos."
+ "Estimated: augments that pair well on this champion, with their win rate together.": "Estimativa: aprimoramentos que combinam bem neste campeão, com a taxa de vitória dos dois juntos.",
+ "Consumables": "Consumíveis",
+ "From augments": "De aprimoramentos"
 }

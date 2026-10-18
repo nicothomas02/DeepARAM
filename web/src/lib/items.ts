@@ -41,8 +41,8 @@ export function rewardItems(): Set<number> {
   return rewards;
 }
 
-export type ItemTier = "legendary" | "boots" | "epic" | "basic" | "starter";
-export const ITEM_TIERS: ItemTier[] = ["legendary", "boots", "starter", "epic", "basic"];
+export type ItemTier = "legendary" | "boots" | "epic" | "basic" | "starter" | "consumable" | "reward";
+export const ITEM_TIERS: ItemTier[] = ["legendary", "boots", "starter", "epic", "basic", "consumable", "reward"];
 
 /** An item's shop tier from its recipe: boots, finished (legendary), a component of one (epic or basic), or a cheap standalone starter. */
 type Recipe = { id: number; from: number[]; to: number[]; categories: string[]; priceTotal: number; specialRecipe: number };
@@ -53,8 +53,10 @@ export function itemTier(id: number): ItemTier {
     recipes = new Map((existsSync(file) ? (JSON.parse(readFileSync(file, "utf8")) as Recipe[]) : []).map((r) => [r.id, r]));
   }
   const r = recipes.get(id);
+  if (rewardItems().has(id)) return "reward";
   if (!r) return "legendary";
   if (r.categories?.includes("Boots")) return "boots";
+  if (r.categories?.includes("Consumable")) return "consumable";
   // Transformations (Whispering Circlet into Diadem of Songs) aren't upgrades.
   const upgrades = (r.to ?? []).filter((t) => recipes!.get(t)?.specialRecipe !== id);
   if (upgrades.length) return r.from?.length ? "epic" : "basic";
