@@ -17,7 +17,6 @@
  "Sections": "Sezioni",
  "Champions": "Campioni",
  "Your own Mayhem games: win rate, champions, augments and recent matches.": "Le tue partite di ARAM: Pandemonio: percentuale di vittorie, campioni, potenziamenti e partite recenti.",
- "Champion, augment and duo win rates, patch by patch.": "Percentuali di vittoria di campioni, potenziamenti e duo, patch dopo patch.",
  "Simulated teamfights, simulated builds and fight replays for every champion.": "Scontri a squadre simulati, build simulate e replay degli scontri per ogni campione.",
  "What to build against the enemy team, a build editor with simulated damage, champion comparisons and team synergy.": "Cosa costruire contro la squadra nemica, un editor di build con danni simulati, confronti tra campioni e sinergia di squadra.",
  "Every augment ranked S to D within its rarity, plus draft practice with rerolls.": "Ogni potenziamento classificato da S a D nella sua rarità, più l'allenamento alla scelta con i rilanci.",
@@ -177,5 +176,6 @@
  "Outlook.com (new tab)": "Outlook.com (nuova scheda)",
  "Mail app (Outlook, Apple Mail and others)": "App di posta (Outlook, Apple Mail e altre)",
  "Open email": "Apri email",
- "Copy address": "Copia indirizzo"
+ "Copy address": "Copia indirizzo",
+ "Champion and augment win rates and duo synergy, patch by patch.": "Percentuali di vittoria di campioni e potenziamenti e sinergia dei duo, patch dopo patch."
 }

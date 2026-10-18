@@ -91,10 +91,12 @@
  "Save": "Сохранить",
  "Close": "Закрыть",
  "Win rate delta": "Разница винрейта",
- "Pair win rate minus the average of the two champions' own win rates. Above zero means they win more together.": "Винрейт пары минус среднее собственных винрейтов двух чемпионов. Выше нуля — вместе они побеждают чаще.",
  "Games": "Игры",
  "Games played on the live patch.": "Игры, сыгранные на текущем патче.",
  "DeepScore rates each item from 0 to 100 against this champion's other items of the same tier, where 50 is average. It starts from the item's win rate with this champion and trusts rarely built items less. Tiers: S 70+, A 59+, B 44+, C 32+, D below.": "DeepScore оценивает каждый предмет от 0 до 100 относительно других предметов того же уровня у этого чемпиона, где 50 — среднее. Он исходит из процента побед предмета с этим чемпионом и меньше доверяет редко собираемым предметам. Уровни: S 70+, A 59+, B 44+, C 32+, D ниже.",
+ "How much more the pair wins than the two champions' own win rates predict, in percentage points. Above zero means they help each other.": "Насколько чаще пара побеждает, чем предсказывают собственные винрейты двух чемпионов, в процентных пунктах. Выше нуля — они помогают друг другу.",
+ "How often the first champion has the second as a teammate.": "Как часто у первого чемпиона в команде второй.",
+ "Pair win rate minus the average of the two champions' own win rates. Above zero means they win more together.": "Винрейт пары минус среднее собственных винрейтов двух чемпионов. Выше нуля — вместе они побеждают чаще.",
  "DeepScore rates each build from 0 to 100 against this champion's other builds in the same list, where 50 is average. It starts from the build's win rate with this champion and trusts rarely built ones less. Tiers: S 70+, A 59+, B 44+, C 32+, D below.": "DeepScore оценивает каждую сборку от 0 до 100 относительно других сборок этого чемпиона в том же списке, где 50 — среднее. Он исходит из доли побед сборки с этим чемпионом и меньше доверяет редким сборкам. Уровни: S 70+, A 59+, B 44+, C 32+, D ниже.",
  "DeepScore rates each item from 0 to 100 against the other items of its tier, where 50 is average. It starts from how much the item raises the win rate of the champions who build it and trusts rarely built items less. Tiers: S 70+, A 59+, B 44+, C 32+, D below.": "DeepScore оценивает каждый предмет от 0 до 100 относительно других предметов того же уровня, где 50 — среднее. Он исходит из того, насколько предмет повышает долю побед чемпионов, которые его собирают, и меньше доверяет редким предметам. Уровни: S 70+, A 59+, B 44+, C 32+, D ниже."
 }

@@ -17,7 +17,6 @@
  "Sections": "Seções",
  "Champions": "Campeões",
  "Your own Mayhem games: win rate, champions, augments and recent matches.": "Suas próprias partidas de ARAM: Desordem: taxa de vitórias, campeões, aprimoramentos e partidas recentes.",
- "Champion, augment and duo win rates, patch by patch.": "Taxas de vitória de campeões, aprimoramentos e duplas, patch a patch.",
  "Simulated teamfights, simulated builds and fight replays for every champion.": "Lutas em equipe simuladas, builds simuladas e replays de lutas para cada campeão.",
  "What to build against the enemy team, a build editor with simulated damage, champion comparisons and team synergy.": "O que construir contra o time inimigo, um editor de builds com dano simulado, comparações de campeões e sinergia de equipe.",
  "Every augment ranked S to D within its rarity, plus draft practice with rerolls.": "Cada aprimoramento classificado de S a D dentro da sua raridade, além de treino de escolha com novas rolagens.",
@@ -177,5 +176,6 @@
  "Outlook.com (new tab)": "Outlook.com (nova aba)",
  "Mail app (Outlook, Apple Mail and others)": "App de e-mail (Outlook, Apple Mail e outros)",
  "Open email": "Abrir e-mail",
- "Copy address": "Copiar endereço"
+ "Copy address": "Copiar endereço",
+ "Champion and augment win rates and duo synergy, patch by patch.": "Taxas de vitória de campeões e aumentos e sinergia de duplas, patch a patch."
 }

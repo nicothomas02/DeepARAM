@@ -17,7 +17,6 @@
  "Sections": "Sections",
  "Champions": "Champions",
  "Your own Mayhem games: win rate, champions, augments and recent matches.": "Your own Mayhem games: win rate, champions, augments and recent matches.",
- "Champion, augment and duo win rates, patch by patch.": "Champion, augment and duo win rates, patch by patch.",
  "Simulated teamfights, simulated builds and fight replays for every champion.": "Simulated teamfights, simulated builds and fight replays for every champion.",
  "What to build against the enemy team, a build editor with simulated damage, champion comparisons and team synergy.": "What to build against the enemy team, a build editor with simulated damage, champion comparisons and team synergy.",
  "Every augment ranked S to D within its rarity, plus draft practice with rerolls.": "Every augment ranked S to D within its rarity, plus draft practice with rerolls.",
@@ -177,5 +176,6 @@
  "Outlook.com (new tab)": "Outlook.com (new tab)",
  "Mail app (Outlook, Apple Mail and others)": "Mail app (Outlook, Apple Mail and others)",
  "Open email": "Open email",
- "Copy address": "Copy address"
+ "Copy address": "Copy address",
+ "Champion and augment win rates and duo synergy, patch by patch.": "Champion and augment win rates and duo synergy, patch by patch."
 }

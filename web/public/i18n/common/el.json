@@ -17,7 +17,6 @@
  "Sections": "Ενότητες",
  "Champions": "Ήρωες",
  "Your own Mayhem games: win rate, champions, augments and recent matches.": "Τα δικά σου παιχνίδια ARAM: Χαμός: ποσοστό νικών, ήρωες, βελτιώσεις και πρόσφατοι αγώνες.",
- "Champion, augment and duo win rates, patch by patch.": "Ποσοστά νικών ηρώων, βελτιώσεων και διδύμων, ενημέρωση προς ενημέρωση.",
  "Simulated teamfights, simulated builds and fight replays for every champion.": "Προσομοιωμένες ομαδικές μάχες, προσομοιωμένα builds και επαναλήψεις μαχών για κάθε ήρωα.",
  "What to build against the enemy team, a build editor with simulated damage, champion comparisons and team synergy.": "Τι να φτιάξεις απέναντι στην αντίπαλη ομάδα, επεξεργαστής build με προσομοιωμένη ζημιά, συγκρίσεις ηρώων και συνέργεια ομάδας.",
  "Every augment ranked S to D within its rarity, plus draft practice with rerolls.": "Κάθε βελτίωση κατατάσσεται από S έως D μέσα στη σπανιότητά της, μαζί με εξάσκηση επιλογής με νέες κληρώσεις.",
@@ -177,5 +176,6 @@
  "Outlook.com (new tab)": "Outlook.com (νέα καρτέλα)",
  "Mail app (Outlook, Apple Mail and others)": "Εφαρμογή αλληλογραφίας (Outlook, Apple Mail και άλλες)",
  "Open email": "Άνοιγμα email",
- "Copy address": "Αντιγραφή διεύθυνσης"
+ "Copy address": "Αντιγραφή διεύθυνσης",
+ "Champion and augment win rates and duo synergy, patch by patch.": "Ποσοστά νίκης ηρώων και augments και συνέργεια διπλών, patch προς patch."
 }
