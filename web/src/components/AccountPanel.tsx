@@ -285,12 +285,13 @@ function greetName(account: Account) {
   return account.name ?? account.email?.split("@")[0] ?? account.riot?.name.split("#")[0] ?? null;
 }
 
-// The page's sections in order. My Stats and Kitchen builds come from other components (passed in as
+// The page's sections in order. My Stats, Kitchen builds and Messages come from other components (passed in as
 // children), so their links only show once those sections are on the page.
 const SECTIONS = [
   { id: "riot", label: "Riot account" },
   { id: "my-stats", label: "My Stats" },
   { id: "kitchen", label: "Kitchen builds" },
+  { id: "messages", label: "Messages" },
   { id: "profile", label: "Profile" },
   { id: "security", label: "Sign-in and security" },
   { id: "delete", label: "Delete account" },

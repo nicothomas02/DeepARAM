@@ -150,5 +150,13 @@
  "Kitchen builds": "厨房出装",
  "Sign-in and security": "登录与安全",
  "Name and icon": "昵称和头像",
- "Connect the Riot account you play on to see your mastery and Clash team here. Only you can connect yours: My Stats checks it with the Riot Client on your computer.": "绑定你玩游戏用的 Riot 账号，即可在这里查看你的熟练度和 Clash 战队。只有你本人能绑定自己的账号：我的数据会通过你电脑上的 Riot 客户端进行核验。"
+ "Connect the Riot account you play on to see your mastery and Clash team here. Only you can connect yours: My Stats checks it with the Riot Client on your computer.": "绑定你玩游戏用的 Riot 账号，即可在这里查看你的熟练度和 Clash 战队。只有你本人能绑定自己的账号：我的数据会通过你电脑上的 Riot 客户端进行核验。",
+ "Messages": "留言",
+ "What people wrote in the Contact us box at the bottom of every page.": "大家在每个页面底部「联系我们」框中写下的内容。",
+ "Reply to {email}": "回复 {email}",
+ "No email left for a reply": "未留下回复邮箱",
+ "Delete": "删除",
+ "Delete this message?": "删除这条留言？",
+ "Deleted.": "已删除。",
+ "No messages yet.": "还没有留言。"
 }

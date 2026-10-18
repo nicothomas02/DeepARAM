@@ -150,5 +150,13 @@
  "Kitchen builds": "Build για την Κουζίνα",
  "Sign-in and security": "Σύνδεση και ασφάλεια",
  "Name and icon": "Όνομα και εικονίδιο",
- "Connect the Riot account you play on to see your mastery and Clash team here. Only you can connect yours: My Stats checks it with the Riot Client on your computer.": "Σύνδεσε τον λογαριασμό Riot με τον οποίο παίζεις για να βλέπεις εδώ την εξειδίκευση και την ομάδα Clash σου. Μόνο εσύ μπορείς να συνδέσεις τον δικό σου: τα Στατιστικά μου τον ελέγχουν μέσω του Riot Client στον υπολογιστή σου."
+ "Connect the Riot account you play on to see your mastery and Clash team here. Only you can connect yours: My Stats checks it with the Riot Client on your computer.": "Σύνδεσε τον λογαριασμό Riot με τον οποίο παίζεις για να βλέπεις εδώ την εξειδίκευση και την ομάδα Clash σου. Μόνο εσύ μπορείς να συνδέσεις τον δικό σου: τα Στατιστικά μου τον ελέγχουν μέσω του Riot Client στον υπολογιστή σου.",
+ "Messages": "Μηνύματα",
+ "What people wrote in the Contact us box at the bottom of every page.": "Τι έγραψαν οι χρήστες στο πλαίσιο «Επικοινώνησε μαζί μας» στο κάτω μέρος κάθε σελίδας.",
+ "Reply to {email}": "Απάντηση στο {email}",
+ "No email left for a reply": "Δεν δόθηκε email για απάντηση",
+ "Delete": "Διαγραφή",
+ "Delete this message?": "Διαγραφή αυτού του μηνύματος;",
+ "Deleted.": "Διαγράφηκε.",
+ "No messages yet.": "Δεν υπάρχουν μηνύματα ακόμα."
 }

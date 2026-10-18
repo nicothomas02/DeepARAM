@@ -150,5 +150,13 @@
  "Kitchen builds": "キッチン投稿ビルド",
  "Sign-in and security": "サインインとセキュリティ",
  "Name and icon": "名前とアイコン",
- "Connect the Riot account you play on to see your mastery and Clash team here. Only you can connect yours: My Stats checks it with the Riot Client on your computer.": "プレイしているRiotアカウントを連携すると、マスタリーとClashチームをここで確認できます。連携できるのは本人だけです。マイ戦績がパソコン上のRiotクライアントで確認します。"
+ "Connect the Riot account you play on to see your mastery and Clash team here. Only you can connect yours: My Stats checks it with the Riot Client on your computer.": "プレイしているRiotアカウントを連携すると、マスタリーとClashチームをここで確認できます。連携できるのは本人だけです。マイ戦績がパソコン上のRiotクライアントで確認します。",
+ "Messages": "メッセージ",
+ "What people wrote in the Contact us box at the bottom of every page.": "各ページ下部の「お問い合わせ」ボックスに寄せられた内容です。",
+ "Reply to {email}": "{email} に返信",
+ "No email left for a reply": "返信用のメールアドレスなし",
+ "Delete": "削除",
+ "Delete this message?": "このメッセージを削除しますか？",
+ "Deleted.": "削除しました。",
+ "No messages yet.": "まだメッセージはありません。"
 }

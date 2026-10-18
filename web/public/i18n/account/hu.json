@@ -150,5 +150,13 @@
  "Kitchen builds": "Konyhai buildek",
  "Sign-in and security": "Bejelentkezés és biztonság",
  "Name and icon": "Név és ikon",
- "Connect the Riot account you play on to see your mastery and Clash team here. Only you can connect yours: My Stats checks it with the Riot Client on your computer.": "Kapcsold össze a Riot-fiókot, amellyel játszol, és itt láthatod a mesterszintjeidet és a Clash-csapatodat. A sajátodat csak te kapcsolhatod össze: a Statisztikáim a gépeden futó Riot-klienssel ellenőrzi."
+ "Connect the Riot account you play on to see your mastery and Clash team here. Only you can connect yours: My Stats checks it with the Riot Client on your computer.": "Kapcsold össze a Riot-fiókot, amellyel játszol, és itt láthatod a mesterszintjeidet és a Clash-csapatodat. A sajátodat csak te kapcsolhatod össze: a Statisztikáim a gépeden futó Riot-klienssel ellenőrzi.",
+ "Messages": "Üzenetek",
+ "What people wrote in the Contact us box at the bottom of every page.": "Amit az emberek az Írj nekünk mezőbe írtak minden oldal alján.",
+ "Reply to {email}": "Válasz neki: {email}",
+ "No email left for a reply": "Nem adott meg e-mailt a válaszhoz",
+ "Delete": "Törlés",
+ "Delete this message?": "Törlöd ezt az üzenetet?",
+ "Deleted.": "Törölve.",
+ "No messages yet.": "Még nincs üzenet."
 }

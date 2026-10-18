@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import AccountPanel from "@/components/AccountPanel";
+import ContactMessages from "@/components/ContactMessages";
 import KitchenSubmissions from "@/components/KitchenSubmissions";
 import { T } from "@/components/I18n";
 import Intro from "@/components/Intro";
@@ -21,6 +22,7 @@ export default function AccountPage() {
       <AccountPanel>
         <MyStatsSection />
         <KitchenSubmissions />
+        <ContactMessages />
       </AccountPanel>
     </>
   );

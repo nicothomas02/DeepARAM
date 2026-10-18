@@ -5,7 +5,7 @@ import { ownerFromCookie } from "@/lib/admin-session";
 
 // Per-visitor limits on the routes that cost something: browser error reports (/api/log, so they can't
 // flood the logs), signing in, and the writes (leaderboard submissions, public profiles, shared games,
-// account changes, builds sent to The Kitchen). On Cloudflare the counts come from the Worker's
+// account changes, builds sent to The Kitchen, Contact us messages). On Cloudflare the counts come from the Worker's
 // rate-limit bindings (wrangler.jsonc "ratelimits"), shared by every request in a location; elsewhere,
 // or if a binding is missing, from this instance's memory, which is approximate.
 type Rule = { binding: string; limit: number; message: string };
@@ -102,4 +102,4 @@ export async function middleware(req: NextRequest) {
   );
 }
 
-export const config = { matcher: ["/assets/models/:path*", "/assets/sounds/:path*", "/embed/simulator/full", "/embed/simulator/full.html", "/embed/simulator/replay-data/sounds/:path*", "/api/log", "/api/sim-scores", "/api/profile", "/api/games", "/api/history", "/api/account", "/api/account/:path*", "/api/kitchen/:path*"] };
+export const config = { matcher: ["/assets/models/:path*", "/assets/sounds/:path*", "/embed/simulator/full", "/embed/simulator/full.html", "/embed/simulator/replay-data/sounds/:path*", "/api/log", "/api/sim-scores", "/api/profile", "/api/games", "/api/history", "/api/account", "/api/account/:path*", "/api/kitchen/:path*", "/api/contact"] };

@@ -150,5 +150,13 @@
  "Kitchen builds": "Küchen-Builds",
  "Sign-in and security": "Anmeldung und Sicherheit",
  "Name and icon": "Name und Symbol",
- "Connect the Riot account you play on to see your mastery and Clash team here. Only you can connect yours: My Stats checks it with the Riot Client on your computer.": "Verbinde das Riot-Konto, mit dem du spielst, um hier deine Meisterschaft und dein Clash-Team zu sehen. Nur du kannst deins verbinden: Meine Statistiken prüft es über den Riot Client auf deinem Computer."
+ "Connect the Riot account you play on to see your mastery and Clash team here. Only you can connect yours: My Stats checks it with the Riot Client on your computer.": "Verbinde das Riot-Konto, mit dem du spielst, um hier deine Meisterschaft und dein Clash-Team zu sehen. Nur du kannst deins verbinden: Meine Statistiken prüft es über den Riot Client auf deinem Computer.",
+ "Messages": "Nachrichten",
+ "What people wrote in the Contact us box at the bottom of every page.": "Was Leute in das Feld „Kontakt aufnehmen“ unten auf jeder Seite geschrieben haben.",
+ "Reply to {email}": "Antworten an {email}",
+ "No email left for a reply": "Keine E-Mail für eine Antwort angegeben",
+ "Delete": "Löschen",
+ "Delete this message?": "Diese Nachricht löschen?",
+ "Deleted.": "Gelöscht.",
+ "No messages yet.": "Noch keine Nachrichten."
 }

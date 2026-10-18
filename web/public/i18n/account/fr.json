@@ -150,5 +150,13 @@
  "Kitchen builds": "Builds pour La Cuisine",
  "Sign-in and security": "Connexion et sécurité",
  "Name and icon": "Nom et icône",
- "Connect the Riot account you play on to see your mastery and Clash team here. Only you can connect yours: My Stats checks it with the Riot Client on your computer.": "Associez le compte Riot avec lequel vous jouez pour voir ici vos maîtrises et votre équipe Clash. Vous seul pouvez associer le vôtre : Mes stats le vérifie avec le client Riot sur votre ordinateur."
+ "Connect the Riot account you play on to see your mastery and Clash team here. Only you can connect yours: My Stats checks it with the Riot Client on your computer.": "Associez le compte Riot avec lequel vous jouez pour voir ici vos maîtrises et votre équipe Clash. Vous seul pouvez associer le vôtre : Mes stats le vérifie avec le client Riot sur votre ordinateur.",
+ "Messages": "Messages",
+ "What people wrote in the Contact us box at the bottom of every page.": "Ce que les gens ont écrit dans la zone Nous contacter en bas de chaque page.",
+ "Reply to {email}": "Répondre à {email}",
+ "No email left for a reply": "Aucun e-mail laissé pour répondre",
+ "Delete": "Supprimer",
+ "Delete this message?": "Supprimer ce message ?",
+ "Deleted.": "Supprimé.",
+ "No messages yet.": "Aucun message pour l'instant."
 }

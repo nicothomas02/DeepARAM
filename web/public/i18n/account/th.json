@@ -150,5 +150,13 @@
  "Kitchen builds": "บิลด์ครัว",
  "Sign-in and security": "การลงชื่อเข้าใช้และความปลอดภัย",
  "Name and icon": "ชื่อและไอคอน",
- "Connect the Riot account you play on to see your mastery and Clash team here. Only you can connect yours: My Stats checks it with the Riot Client on your computer.": "เชื่อมต่อบัญชี Riot ที่คุณใช้เล่นเพื่อดูมาสเตอรีและทีม Clash ของคุณที่นี่ มีแค่คุณที่เชื่อมต่อบัญชีของคุณได้: สถิติของฉันจะตรวจสอบกับ Riot Client บนคอมพิวเตอร์ของคุณ"
+ "Connect the Riot account you play on to see your mastery and Clash team here. Only you can connect yours: My Stats checks it with the Riot Client on your computer.": "เชื่อมต่อบัญชี Riot ที่คุณใช้เล่นเพื่อดูมาสเตอรีและทีม Clash ของคุณที่นี่ มีแค่คุณที่เชื่อมต่อบัญชีของคุณได้: สถิติของฉันจะตรวจสอบกับ Riot Client บนคอมพิวเตอร์ของคุณ",
+ "Messages": "ข้อความ",
+ "What people wrote in the Contact us box at the bottom of every page.": "สิ่งที่ผู้คนเขียนในช่องติดต่อเราที่ด้านล่างของทุกหน้า",
+ "Reply to {email}": "ตอบกลับไปที่ {email}",
+ "No email left for a reply": "ไม่ได้ให้อีเมลไว้สำหรับตอบกลับ",
+ "Delete": "ลบ",
+ "Delete this message?": "ลบข้อความนี้ไหม?",
+ "Deleted.": "ลบแล้ว",
+ "No messages yet.": "ยังไม่มีข้อความ"
 }

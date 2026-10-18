@@ -184,3 +184,26 @@ test("share links for a Chef Special and a build give link previews their card",
   await page.goto("/share/builds?champ=Jinx&items=berserkers,infinity_edge&augs=deft&to=sim");
   await expect(page).toHaveURL(/\/simulator\?tab=replays#Jinx&items=berserkers,infinity_edge&augs=deft$/);
 });
+
+// Contact us: the footer box offers a message box and an email link; a message sends and says thanks.
+test("Contact us sends a message or opens email", async ({ page }) => {
+  let sent: Record<string, unknown> | null = null;
+  await page.route("**/api/contact", async (r) => {
+    sent = r.request().postDataJSON();
+    await r.fulfill({ status: 201, contentType: "application/json", body: '{"ok":true}' });
+  });
+  // Home's first-visit tour would cover the footer.
+  await page.addInitScript(() => localStorage.setItem("deeparam-tour", "done"));
+  await page.goto("/");
+  const box = page.locator(".feedback-box");
+  await box.getByRole("button", { name: "Email admin@deeparam.com" }).click();
+  await expect(box.getByRole("radio", { name: "Gmail (new tab)" })).toBeChecked();
+  await expect(box.getByRole("link", { name: "Open email" })).toHaveAttribute("href", /^https:\/\/mail\.google\.com\/mail\/\?view=cm/);
+  await box.getByRole("radio", { name: /Mail app/ }).check();
+  await expect(box.getByRole("link", { name: "Open email" })).toHaveAttribute("href", /^mailto:admin@deeparam\.com/);
+  await box.getByRole("button", { name: "Write to us" }).click();
+  await box.locator("textarea").fill("The Duos tab is great.");
+  await box.getByRole("button", { name: "Send" }).click();
+  await expect(box.getByRole("status")).toContainText("Thanks!");
+  expect(sent).toMatchObject({ message: "The Duos tab is great.", page: "/" });
+});

@@ -150,5 +150,13 @@
  "Kitchen builds": "Kitchen builds",
  "Sign-in and security": "Sign-in and security",
  "Name and icon": "Name and icon",
- "Connect the Riot account you play on to see your mastery and Clash team here. Only you can connect yours: My Stats checks it with the Riot Client on your computer.": "Connect the Riot account you play on to see your mastery and Clash team here. Only you can connect yours: My Stats checks it with the Riot Client on your computer."
+ "Connect the Riot account you play on to see your mastery and Clash team here. Only you can connect yours: My Stats checks it with the Riot Client on your computer.": "Connect the Riot account you play on to see your mastery and Clash team here. Only you can connect yours: My Stats checks it with the Riot Client on your computer.",
+ "Messages": "Messages",
+ "What people wrote in the Contact us box at the bottom of every page.": "What people wrote in the Contact us box at the bottom of every page.",
+ "Reply to {email}": "Reply to {email}",
+ "No email left for a reply": "No email left for a reply",
+ "Delete": "Delete",
+ "Delete this message?": "Delete this message?",
+ "Deleted.": "Deleted.",
+ "No messages yet.": "No messages yet."
 }

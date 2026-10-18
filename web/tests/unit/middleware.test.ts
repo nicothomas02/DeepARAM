@@ -51,7 +51,7 @@ describe("rate limits", () => {
   });
 
   it("guards error reports, sign-in and the write routes", () => {
-    expect(config.matcher).toEqual(expect.arrayContaining(["/api/log", "/api/sim-scores", "/api/profile", "/api/games", "/api/account", "/api/account/:path*", "/api/kitchen/:path*"]));
+    expect(config.matcher).toEqual(expect.arrayContaining(["/api/log", "/api/sim-scores", "/api/profile", "/api/games", "/api/account", "/api/account/:path*", "/api/kitchen/:path*", "/api/contact"]));
   });
 
   it("guards the owner-only files", () => {
