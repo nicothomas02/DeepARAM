@@ -191,5 +191,7 @@
  "{n} min": "{n} min",
  "game length": "délka hry",
  "blue side wins": "výhry modré strany",
- "red side wins": "výhry červené strany"
+ "red side wins": "výhry červené strany",
+ "Early game": "Začátek hry",
+ "Late game": "Pozdní hra"
 }

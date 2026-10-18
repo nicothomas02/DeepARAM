@@ -44,5 +44,8 @@
  "Patch {patch}, with the change since {before}. Pick patches from the list to add or remove them.": "Patch {patch} se změnou od {before}. Vyber patche ze seznamu a přidej je nebo odeber.",
  "Patch {patch}. Pick patches from the list to add or remove them.": "Patch {patch}. Vyber patche ze seznamu a přidej je nebo odeber.",
  "{n} patches combined. Pick patches from the list to add or remove them.": "Spojené patche: {n}. Vyber patche ze seznamu a přidej je nebo odeber.",
- "Items": "Předměty"
+ "Items": "Předměty",
+ "Early game": "Začátek hry",
+ "Late game": "Pozdní hra",
+ "Even": "Vyrovnaně"
 }

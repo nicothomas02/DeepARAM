@@ -191,5 +191,7 @@
  "{n} min": "{n}분",
  "game length": "게임 시간",
  "blue side wins": "블루 진영 승률",
- "red side wins": "레드 진영 승률"
+ "red side wins": "레드 진영 승률",
+ "Early game": "초반",
+ "Late game": "후반"
 }

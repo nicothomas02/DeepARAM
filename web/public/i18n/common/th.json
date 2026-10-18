@@ -191,5 +191,7 @@
  "{n} min": "{n} นาที",
  "game length": "ความยาวเกม",
  "blue side wins": "ฝั่งน้ำเงินชนะ",
- "red side wins": "ฝั่งแดงชนะ"
+ "red side wins": "ฝั่งแดงชนะ",
+ "Early game": "ช่วงต้นเกม",
+ "Late game": "ช่วงท้ายเกม"
 }

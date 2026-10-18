@@ -84,3 +84,16 @@ export function typicalGame() {
 
 /** Short champion top 10s, keyed by what they rank. */
 export const funLists = () => data()?.fun ?? {};
+
+type PowerCurve = { champions?: Record<string, { scaling: number }>; early_game?: number[]; late_game?: number[] };
+let curve: PowerCurve | null | undefined;
+/** How each champion's simulated damage grows from level 8 to 18 (data/estimates/power_curve.json):
+ * scaling above zero gets stronger late, below zero peaks early, plus the 10 most early and late game. */
+export function powerCurve() {
+  if (curve === undefined) curve = readRepoJson<PowerCurve>("data/estimates/power_curve.json");
+  return {
+    scaling: new Map(Object.entries(curve?.champions ?? {}).map(([id, c]) => [Number(id), c.scaling])),
+    early: curve?.early_game ?? [],
+    late: curve?.late_game ?? [],
+  };
+}

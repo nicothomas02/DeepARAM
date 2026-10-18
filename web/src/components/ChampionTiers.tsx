@@ -61,6 +61,15 @@ const ADVANCED: Column[] = [
   { key: "dead", label: "Time dead", format: "sec" },
 ];
 
+// Estimated power curve (lib/estimates.ts powerCurve), sorted by the scaling score behind the label.
+const CURVE: Column = {
+  key: "curve",
+  label: "Strongest",
+  format: "text",
+  sortKey: "scaling",
+  hint: "Estimated from simulated damage at levels 8, 13 and 18: whether the champion peaks early, late or stays even.",
+};
+
 // Live-patch game counts, when the page has them (lib/fill.ts).
 const GAMES: Column = { key: "games", label: "Games", format: "int", hint: "Estimated games on the live patch." };
 
@@ -73,9 +82,10 @@ type Props = {
   tags: Record<string, string[]>;
   tagInfo: TagInfo;
   games?: Record<string, number> | null;
+  scaling?: Record<string, number>;
 };
 
-export default function ChampionTiers({ rows: initial, patches, tags, tagInfo, games }: Props) {
+export default function ChampionTiers({ rows: initial, patches, tags, tagInfo, games, scaling = {} }: Props) {
   const t = useT("tier-list");
   const tt = useT("tags");
   const live = patches[patches.length - 1];
@@ -108,6 +118,7 @@ export default function ChampionTiers({ rows: initial, patches, tags, tagInfo, g
   // Win rate change since the patch before, when one patch is picked.
   const one = picked.size === 1 ? [...picked][0] : null;
   const before = one ? patches[patches.indexOf(one) - 1] : undefined;
+  const curveLabel = (v: number | undefined) => (v === undefined ? "" : v > 0.5 ? t("Late game") : v < -0.5 ? t("Early game") : t("Even"));
   const stats = useMemo(() => {
     if (missing) return [];
     const prev = before && have.has(before) ? new Map(champStats(rows, new Set([before])).map((c) => [c.name, c])) : null;
@@ -120,9 +131,12 @@ export default function ChampionTiers({ rows: initial, patches, tags, tagInfo, g
         tier_was: was?.tier ?? null,
         games: one === live ? (games?.[c.name] ?? null) : null,
         archetype: (tags[c.name] ?? []).filter((t) => tagInfo[t]?.kind !== "play").join(","),
+        scaling: scaling[c.name] ?? null,
+        curve: curveLabel(scaling[c.name]),
       };
     });
-  }, [rows, picked, before, have, missing, tags, tagInfo, games, one, live]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- curveLabel follows t
+  }, [rows, picked, before, have, missing, tags, tagInfo, games, one, live, scaling, t]);
 
   // Archetype filter (?tag=Mage,Poke): a champion shows when it has every picked tag. Tiers and
   // DeepScores stay graded against the whole list, so a filtered view shows where each stands overall.
@@ -267,6 +281,7 @@ export default function ChampionTiers({ rows: initial, patches, tags, tagInfo, g
             ...ADVANCED.slice(3, 6),
             ...(games && one === live ? [GAMES] : []),
             ...ADVANCED.slice(6),
+            ...(Object.keys(scaling).length ? [CURVE] : []),
             ...(showChange ? [CHANGE] : []),
           ]}
           rows={shownRows}

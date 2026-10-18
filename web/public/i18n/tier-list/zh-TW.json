@@ -44,5 +44,8 @@
  "Patch {patch}, with the change since {before}. Pick patches from the list to add or remove them.": "版本 {patch}，含自 {before} 以來的變化。從清單中選擇版本以新增或移除。",
  "Patch {patch}. Pick patches from the list to add or remove them.": "版本 {patch}。從清單中選擇版本以新增或移除。",
  "{n} patches combined. Pick patches from the list to add or remove them.": "合併 {n} 個版本。從清單中選擇版本以新增或移除。",
- "Items": "裝備"
+ "Items": "裝備",
+ "Early game": "前期",
+ "Late game": "後期",
+ "Even": "平穩"
 }

@@ -44,5 +44,8 @@
  "Patch {patch}, with the change since {before}. Pick patches from the list to add or remove them.": "Phiên bản {patch}, kèm thay đổi kể từ {before}. Chọn phiên bản trong danh sách để thêm hoặc bỏ.",
  "Patch {patch}. Pick patches from the list to add or remove them.": "Phiên bản {patch}. Chọn phiên bản trong danh sách để thêm hoặc bỏ.",
  "{n} patches combined. Pick patches from the list to add or remove them.": "Gộp {n} phiên bản. Chọn phiên bản trong danh sách để thêm hoặc bỏ.",
- "Items": "Trang bị"
+ "Items": "Trang bị",
+ "Early game": "Đầu trận",
+ "Late game": "Cuối trận",
+ "Even": "Đều"
 }

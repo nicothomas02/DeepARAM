@@ -44,5 +44,8 @@
  "Patch {patch}, with the change since {before}. Pick patches from the list to add or remove them.": "التحديث {patch}، مع التغيير منذ {before}. اختر التحديثات من القائمة لإضافتها أو إزالتها.",
  "Patch {patch}. Pick patches from the list to add or remove them.": "التحديث {patch}. اختر التحديثات من القائمة لإضافتها أو إزالتها.",
  "{n} patches combined. Pick patches from the list to add or remove them.": "{n} تحديثات مجمّعة. اختر التحديثات من القائمة لإضافتها أو إزالتها.",
- "Items": "العناصر"
+ "Items": "العناصر",
+ "Early game": "بداية المباراة",
+ "Late game": "نهاية المباراة",
+ "Even": "متوازن"
 }

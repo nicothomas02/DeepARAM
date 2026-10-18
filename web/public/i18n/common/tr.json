@@ -191,5 +191,7 @@
  "{n} min": "{n} dk",
  "game length": "maç süresi",
  "blue side wins": "mavi taraf galibiyeti",
- "red side wins": "kırmızı taraf galibiyeti"
+ "red side wins": "kırmızı taraf galibiyeti",
+ "Early game": "Erken oyun",
+ "Late game": "Geç oyun"
 }

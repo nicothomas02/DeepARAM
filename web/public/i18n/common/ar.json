@@ -191,5 +191,7 @@
  "{n} min": "{n} د",
  "game length": "مدة المباراة",
  "blue side wins": "فوز الجانب الأزرق",
- "red side wins": "فوز الجانب الأحمر"
+ "red side wins": "فوز الجانب الأحمر",
+ "Early game": "بداية المباراة",
+ "Late game": "نهاية المباراة"
 }

@@ -44,5 +44,8 @@
  "Patch {patch}, with the change since {before}. Pick patches from the list to add or remove them.": "{patch} frissítés, a {before} óta történt változással. Válassz frissítéseket a listából a hozzáadásukhoz vagy eltávolításukhoz.",
  "Patch {patch}. Pick patches from the list to add or remove them.": "{patch} frissítés. Válassz frissítéseket a listából a hozzáadásukhoz vagy eltávolításukhoz.",
  "{n} patches combined. Pick patches from the list to add or remove them.": "{n} frissítés együtt. Válassz frissítéseket a listából a hozzáadásukhoz vagy eltávolításukhoz.",
- "Items": "Tárgyak"
+ "Items": "Tárgyak",
+ "Early game": "Korai játék",
+ "Late game": "Késői játék",
+ "Even": "Kiegyensúlyozott"
 }
