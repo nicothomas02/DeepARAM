@@ -24,11 +24,13 @@ jobs:
           python-version: "3.12"
       - name: Estimate spells and game counts
         run: python3 data/fill/build_estimates.py
+      - name: Estimate other stats (augments per champion, items, profiles, odds)
+        run: python3 data/estimates/build.py
       - name: Commit changes
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/fill
+          git add data/fill data/estimates
           if git diff --cached --quiet; then
             echo "No new data"
           else
