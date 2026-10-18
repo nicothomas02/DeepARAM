@@ -210,6 +210,15 @@
   {
    "trigger": "attack",
    "aoe": true
+  },
+  {
+   "trigger": "attack",
+   "scaling": {
+    "const": 35,
+    "ap": 0.2,
+    "bonus_ad": 0.1
+   },
+   "why": "Starfire Spellblade passive (KayleE EPassiveTotalDamage at rank 5): every attack"
   }
  ],
  "Khazix": [
@@ -257,7 +266,9 @@
  "Lux": [
   {
    "trigger": "after_ability",
-   "max_charges": 1
+   "max_charges": 1,
+   "needs_hit": true,
+   "why": "Illumination: only abilities that hit an enemy mark it (Prismatic Barrier and missed skillshots mark no one); the next attack detonates the mark"
   }
  ],
  "MasterYi": [
@@ -452,7 +463,9 @@
   {
    "trigger": "after_ability",
    "charges": 2,
-   "max_charges": 2
+   "max_charges": 2,
+   "basic_cdr": 1.1,
+   "why": "Bravado: two empowered attacks per cast, each taking 1 + AH/(AH+100) seconds (about 1.1 with this build's haste) off the remaining cooldowns of Q, W and E"
   }
  ],
  "Twitch": [
@@ -511,6 +524,71 @@
   {
    "trigger": "after_ability",
    "max_charges": 1
+  }
+ ],
+ "Bard": [
+  {
+   "trigger": "attack",
+   "cooldown": 3,
+   "aoe": true,
+   "type": "magic",
+   "scaling": {
+    "const": 78,
+    "ap": 0.4
+   },
+   "why": "Meeps (wiki: 30 + 6 per 5 chimes + 40% AP bonus magic damage on an attack, splashing from 15 chimes): 40 chimes by level 18 assumed, so 78 + 40% AP, 3 meeps stored and one more every 6 s, about one every 3 s over a fight"
+  }
+ ],
+ "Shyvana": [
+  {
+   "trigger": "attack",
+   "hits": [
+    {
+     "type": "magic",
+     "calc": "EmberstrikeOnHit",
+     "scaling": {
+      "const": 0.01,
+      "bonus_ad": 0.00011
+     },
+     "target": "target_max_hp"
+    }
+   ],
+   "why": "Emberstrike passive: every basic attack deals 1% (+1.1% per 100 bonus AD) of the target's max health as bonus magic damage (hand-written hits: Scalemail's tooltip has no damage)"
+  }
+ ],
+ "Thresh": [
+  {
+   "trigger": "attack",
+   "hits": [
+    {
+     "type": "magic",
+     "calc": "FlayPassive",
+     "scaling": {
+      "const": 142,
+      "bonus_ad": 0.25
+     },
+     "target": "flat"
+    }
+   ],
+   "why": "Flay passive: every basic attack deals bonus magic damage, 1.7 per Soul (70 Souls assumed, as in kit_passives) plus an AD ratio that charges to 210% AD over 10s without attacking; attacking about every 1.2s keeps it near 25% AD"
+  }
+ ],
+ "Milio": [
+  {
+   "trigger": "hit",
+   "cooldown": 5,
+   "hits": [
+    {
+     "type": "magic",
+     "calc": "FiredUp",
+     "scaling": {
+      "const": 65,
+      "ap": 0.2
+     },
+     "target": "flat"
+    }
+   ],
+   "why": "Fired Up!: Milio counts as an ally for his own abilities, so self-cast Warm Hugs (2 charges per 13s) and Cozy Campfire enchant him; his next attack or ability hit then deals 15% of his AD (about 15) plus a 50 (+20% AP) burn. About one enchant per 5s"
   }
  ]
 }

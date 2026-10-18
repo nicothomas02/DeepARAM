@@ -59,6 +59,7 @@ struct EnemyProfile {
     // all-champion sim: how hard its build hits at the fight's level compared with the
     // mid-game state real games' damage numbers average over (1 = the same), and its penetration
     double power = 1.0, lethality = 0, armorPen = 0, magicPen = 0, magicPenPct = 0;
+    double attackSpeed = 0, attackRange = 0;  // all-champion sim: its attacks, for thorns (Thornmail)
 };
 
 struct Scenario {

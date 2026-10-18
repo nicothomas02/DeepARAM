@@ -1334,8 +1334,8 @@
     "ah": 10
    },
    "effects": {
-    "aura_flat": 25,
-    "aura_bonus_hp": 0.01
+    "aura_flat": 20,
+    "aura_bonus_hp": 0.015
    },
    "confidence": "approx"
   },
@@ -1404,7 +1404,9 @@
     "armor": 75
    },
    "effects": {
-    "grievous": 1
+    "grievous": 1,
+    "thorns_flat": 20,
+    "thorns_bonus_armor": 0.1
    },
    "confidence": "approx"
   },

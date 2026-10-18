@@ -61,15 +61,21 @@
  "Kayle": {
   "effects": {
    "attack_range_set": 525,
-   "attack_range_level": 6
+   "attack_range_level": 6,
+   "attack_range_set2": 625,
+   "attack_range_level2": 16
   },
-  "why": "Divine Ascent: attacks from 525 range from level 6"
+  "why": "Divine Ascent: attacks from 525 range from level 6; Transcendent: 625 range from level 16 (FinalAttackRange) and permanently Exalted: 5 Zealous stacks of 6% attack speed",
+  "stats": {
+   "as": 0.3
+  }
  },
  "Tryndamere": {
   "stats": {
-   "crit": 0.25
+   "crit": 0.3,
+   "ad": 40
   },
-  "why": "Battle Fury: 0.4% crit per Fury, about 60 Fury on average"
+  "why": "Battle Fury: 0.5% crit per Fury (PassiveCritConversionTooltip), about 60 Fury on average; Bloodlust passive: up to 80 AD by missing Health (MaximumBonusAD rank 5), half on average"
  },
  "Belveth": {
   "stats": {
@@ -223,5 +229,24 @@
    "ad_l18": 10.8
   },
   "why": "Warpath: 12-24% of bonus movement speed as bonus AD; the 45 from boots assumed"
+ },
+ "Amumu": {
+  "effects": {
+   "magic_true_extra": 0.1
+  },
+  "why": "Cursed Touch: enemies cursed by his attacks and Despair (always on in a fight) take 10% of the magic damage they take as true damage (DamageAmp)"
+ },
+ "Annie": {
+  "effects": {
+   "magic_pen_pct_kit": 0.2
+  },
+  "why": "Summon: Tibbers passive: 20% magic penetration at rank 3 (RPercentPenBuff)"
+ },
+ "Azir": {
+  "effects": {
+   "attack_ad_mult": 0,
+   "attack_onhit_mult": 0.5
+  },
+  "why": "Azir's attacks are soldier stabs (W, onhit_every 1): no physical attack damage of their own, on-hit effects at 50% (AzirW OnHitMultiplier)"
  }
 }
