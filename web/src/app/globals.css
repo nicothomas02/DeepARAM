@@ -5130,7 +5130,11 @@ html[data-patch-new] .chip[data-dir="up"]::after {
   }
 }
 
-/* Items (/items, components/ItemIndex.tsx): tags in four colour families. */
+/* Items (/items, components/ItemIndex.tsx): tags in five colour families. */
+[data-group="class"] {
+  --tag: #e0b354;
+  --tag-rgb: 224 179 84;
+}
 [data-group="attack"] {
   --tag: #ef6a4c;
   --tag-rgb: 239 106 76;

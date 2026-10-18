@@ -77,5 +77,12 @@
  "{wr} win · in {share} of builds": "勝率 {wr} · 出現在 {share} 的出裝中",
  "augment item": "強化符文裝備",
  "Consumables": "消耗品",
- "From augments": "來自強化"
+ "From augments": "來自強化",
+ "Fighter": "鬥士",
+ "Marksman": "射手",
+ "Assassin": "刺客",
+ "Mage": "法師",
+ "Tank": "坦克",
+ "Class": "職業",
+ "Support": "輔助"
 }
