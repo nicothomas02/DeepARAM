@@ -8,11 +8,14 @@ import { d1 } from "./env";
 
 const n = (v: unknown, max = 1e9) => (Number.isFinite(Number(v)) ? Math.max(0, Math.min(max, Math.round(Number(v)))) : 0);
 const ids = (v: unknown, len: number) => (Array.isArray(v) ? v.slice(0, len).map((x) => n(x, 1e7)).filter(Boolean) : []);
+// Per-minute totals (gold, experience) from the game's timeline; up to 90 minutes.
+const perMinute = (v: unknown, max: number) => (Array.isArray(v) ? v.slice(0, 90).map((x) => n(x, max)) : []);
 
 export type SharedPlayer = {
   team: number; champ: number; win: boolean; k: number; d: number; a: number;
   dmg: number; taken: number; heal: number; gold: number; cs: number; level: number;
   multi: number[]; spree: number; augs: number[]; items: number[]; spells: number[]; styles: number[]; perks: number[];
+  goldMin?: number[]; xpMin?: number[]; // games shared before these were added have none
 };
 export type SharedTeam = { id: number; win: boolean; towers: number; inhibs: number; firstBlood: boolean; firstTower: boolean };
 export type SharedGame = { patch: string; queue: number; played: string; duration: number; teams: SharedTeam[]; players: SharedPlayer[] };
@@ -33,6 +36,7 @@ export async function cleanGame(raw: unknown): Promise<{ key: string; game: Shar
       k: n(p.k, 200), d: n(p.d, 200), a: n(p.a, 300), dmg: n(p.dmg), taken: n(p.taken), heal: n(p.heal),
       gold: n(p.gold), cs: n(p.cs, 5000), level: n(p.level, 30), multi: ids(p.multi, 4), spree: n(p.spree, 200),
       augs: ids(p.augs, 6), items: ids(p.items, 7), spells: ids(p.spells, 2), styles: ids(p.styles, 2), perks: ids(p.perks, 6),
+      goldMin: perMinute(p.goldMin, 500_000), xpMin: perMinute(p.xpMin, 500_000),
     };
   });
   if (players.length < 2 || players.some((p) => !p.champ)) return null;

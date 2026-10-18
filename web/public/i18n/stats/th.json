@@ -50,7 +50,7 @@
  "Win rate by map": "อัตราชนะตามแผนที่",
  "Recorded games only": "เฉพาะเกมที่บันทึกไว้",
  "Share games anonymously": "แชร์เกมแบบไม่ระบุตัวตน",
- "Off unless you turn it on. When on, each import also sends your games to help build stats across all players, such as matchups, augment combos and team comps. Shared games carry champions, items, augments, runes, spells and results, never names or account ids. Turning it off removes everything you shared.": "ปิดอยู่จนกว่าคุณจะเปิด เมื่อเปิด ทุกครั้งที่นำเข้าจะส่งเกมของคุณไปช่วยสร้างสถิติจากผู้เล่นทั้งหมด เช่น การจับคู่ คอมโบ Augment และการจัดทีม เกมที่แชร์มีแชมเปี้ยน ไอเทม Augments รูน สเปล และผลการแข่งขัน ไม่มีชื่อหรือไอดีบัญชีเด็ดขาด การปิดจะลบทุกอย่างที่คุณเคยแชร์",
+ "Off unless you turn it on. When on, each import also sends your games to help build stats across all players, such as matchups, augment combos and team comps. Shared games carry champions, items, augments, runes, spells, results and each player's gold and experience minute by minute, never names or account ids. Turning it off removes everything you shared.": "ปิดอยู่จนกว่าคุณจะเปิด เมื่อเปิด ทุกครั้งที่นำเข้าจะส่งเกมของคุณไปช่วยสร้างสถิติจากผู้เล่นทั้งหมด เช่น การจับคู่ คอมโบ Augment และการจัดทีม เกมที่แชร์มีแชมเปี้ยน ไอเทม Augments รูน สเปล ผลการแข่งขัน และโกลด์กับค่าประสบการณ์ของผู้เล่นแต่ละคนแบบนาทีต่อนาที ไม่มีชื่อหรือไอดีบัญชีเด็ดขาด การปิดจะลบทุกอย่างที่คุณเคยแชร์",
  "Share my games": "แชร์เกมของฉัน",
  "Connect account": "เชื่อมต่อบัญชี",
  "Connect": "เชื่อมต่อ",

@@ -50,7 +50,7 @@
  "Win rate by map": "Tỉ lệ thắng theo bản đồ",
  "Recorded games only": "Chỉ trận đã ghi",
  "Share games anonymously": "Chia sẻ trận ẩn danh",
- "Off unless you turn it on. When on, each import also sends your games to help build stats across all players, such as matchups, augment combos and team comps. Shared games carry champions, items, augments, runes, spells and results, never names or account ids. Turning it off removes everything you shared.": "Tắt trừ khi bạn bật. Khi bật, mỗi lần nhập cũng gửi trận của bạn để giúp xây dựng thống kê cho mọi người chơi, như đối đầu, tổ hợp Lõi Nâng Cấp và đội hình. Trận chia sẻ gồm tướng, trang bị, Lõi Nâng Cấp, ngọc, phép bổ trợ và kết quả, không bao giờ có tên hay ID tài khoản. Tắt đi sẽ xóa mọi thứ bạn đã chia sẻ.",
+ "Off unless you turn it on. When on, each import also sends your games to help build stats across all players, such as matchups, augment combos and team comps. Shared games carry champions, items, augments, runes, spells, results and each player's gold and experience minute by minute, never names or account ids. Turning it off removes everything you shared.": "Tắt trừ khi bạn bật. Khi bật, mỗi lần nhập cũng gửi trận của bạn để giúp xây dựng thống kê cho mọi người chơi, như đối đầu, tổ hợp Lõi Nâng Cấp và đội hình. Trận chia sẻ gồm tướng, trang bị, Lõi Nâng Cấp, ngọc, phép bổ trợ, kết quả cùng vàng và kinh nghiệm của từng người chơi theo từng phút, không bao giờ có tên hay ID tài khoản. Tắt đi sẽ xóa mọi thứ bạn đã chia sẻ.",
  "Share my games": "Chia sẻ trận của tôi",
  "Connect account": "Kết nối tài khoản",
  "Connect": "Kết nối",

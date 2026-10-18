@@ -363,6 +363,9 @@ def fetch_collection(lcu, summoner):
 # positions, which the dashboard's kill map draws. Each game stores a compact
 # list under "killMap": [seconds, x, y, killerId, victimId] per kill, with
 # participant ids as in the game. None means the client had no timeline.
+# The same timeline gives "curves": each player's total gold and experience at
+# every minute, {participantId: [[gold, xp], ...]}, shared (if the player shares
+# games) so the site can compare early and late game.
 
 FETCH_WORKERS = 6  # games asked of the League client at once
 SGP_WORKERS = 8  # timelines asked of the match-history service at once; it answers many in parallel
@@ -383,6 +386,15 @@ def compact_kills(timeline):
     return kills
 
 
+def compact_curves(timeline):
+    curves = {}
+    for frame in (timeline or {}).get("frames") or []:
+        for pid, pf in (frame.get("participantFrames") or {}).items():
+            if isinstance(pf, dict) and str(pid).isdigit():
+                curves.setdefault(str(pid), []).append([int(pf.get("totalGold") or 0), int(pf.get("xp") or 0)])
+    return curves
+
+
 def sgp_timeline(host, token, match_id, timeout=30):
     """A game's timeline from the match-history service: the same frames the client serves, but the service
     answers many requests at once (about 0.13 s a game with 8 in flight) where the client works through them
@@ -393,9 +405,9 @@ def sgp_timeline(host, token, match_id, timeout=30):
 
 
 def fill_kill_maps(lcu, games, progress=log, limit=TIMELINES_PER_RUN, sgp=None):
-    """Adds "killMap" to games that don't have one yet. Returns how many changed.
+    """Adds "killMap" and "curves" to games that don't have them yet. Returns how many changed.
     With sgp=(host, token) timelines come from the match-history service, falling back to the client."""
-    todo = [g for g in games if "killMap" not in g and g.get("gameId")][:limit]
+    todo = [g for g in games if g.get("gameId") and ("killMap" not in g or ("curves" not in g and g["killMap"] is not None))][:limit]
     if not todo:
         return 0
     progress(f"Fetching kill positions for {len(todo)} games.")
@@ -418,10 +430,11 @@ def fill_kill_maps(lcu, games, progress=log, limit=TIMELINES_PER_RUN, sgp=None):
         for n, (game, timeline) in enumerate(zip(todo, pool.map(fetch, todo)), 1):
             if isinstance(timeline, HttpError):
                 if timeline.status == 404:
-                    game["killMap"] = None
+                    game["killMap"] = game["curves"] = None
                     changed += 1
             elif not isinstance(timeline, ConnectionError):  # a later run retries those
                 game["killMap"] = compact_kills(timeline)
+                game["curves"] = compact_curves(timeline)
                 changed += 1
             if n % 25 == 0 or n == len(todo):
                 progress(f"  [{n}/{len(todo)}] kill positions")
@@ -643,8 +656,10 @@ def anonymise(game):
     if len(version) < 2 or not created or not game.get("gameId"):
         return None
     players = []
+    curves = game.get("curves") or {}
     for p in game.get("participants") or []:
         s = p.get("stats") or {}
+        curve = curves.get(str(p.get("participantId"))) or []
         players.append({
             "team": p.get("teamId"), "champ": p.get("championId"), "win": bool(s.get("win")),
             "k": s.get("kills"), "d": s.get("deaths"), "a": s.get("assists"),
@@ -658,6 +673,7 @@ def anonymise(game):
             "spells": [p.get("spell1Id"), p.get("spell2Id")],
             "styles": [s.get("perkPrimaryStyle"), s.get("perkSubStyle")],
             "perks": [s.get(f"perk{i}") for i in range(6) if s.get(f"perk{i}")],
+            "goldMin": [c[0] for c in curve], "xpMin": [c[1] for c in curve],
         })
     # Players in a fixed order so the uploader can't be picked out by position
     players.sort(key=lambda x: (x["team"] or 0, x["champ"] or 0))

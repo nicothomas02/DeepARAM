@@ -50,7 +50,7 @@
  "Win rate by map": "各地图胜率",
  "Recorded games only": "仅限已记录的对局",
  "Share games anonymously": "匿名分享对局",
- "Off unless you turn it on. When on, each import also sends your games to help build stats across all players, such as matchups, augment combos and team comps. Shared games carry champions, items, augments, runes, spells and results, never names or account ids. Turning it off removes everything you shared.": "默认关闭，除非你手动开启。开启后，每次导入也会发送你的对局，帮助生成全体玩家的数据，例如对位、强化符文搭配和阵容。分享的对局包含英雄、装备、强化符文、符文、召唤师技能和结果，绝不包含名字或账号 ID。关闭后会删除你分享过的所有内容。",
+ "Off unless you turn it on. When on, each import also sends your games to help build stats across all players, such as matchups, augment combos and team comps. Shared games carry champions, items, augments, runes, spells, results and each player's gold and experience minute by minute, never names or account ids. Turning it off removes everything you shared.": "默认关闭，除非你手动开启。开启后，每次导入也会发送你的对局，帮助生成全体玩家的数据，例如对位、强化符文搭配和阵容。分享的对局包含英雄、装备、强化符文、符文、召唤师技能、结果以及每位玩家每分钟的金币和经验，绝不包含名字或账号 ID。关闭后会删除你分享过的所有内容。",
  "Share my games": "分享我的对局",
  "Connect account": "关联账号",
  "Connect": "关联",

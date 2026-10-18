@@ -50,7 +50,7 @@
  "Win rate by map": "Odsetek zwycięstw według mapy",
  "Recorded games only": "Tylko nagrane gry",
  "Share games anonymously": "Udostępniaj gry anonimowo",
- "Off unless you turn it on. When on, each import also sends your games to help build stats across all players, such as matchups, augment combos and team comps. Shared games carry champions, items, augments, runes, spells and results, never names or account ids. Turning it off removes everything you shared.": "Wyłączone, dopóki tego nie włączysz. Po włączeniu każdy import wysyła też twoje gry, aby pomóc tworzyć statystyki wszystkich graczy, takie jak pojedynki, kombinacje wzmocnień i składy drużyn. Udostępnione gry zawierają bohaterów, przedmioty, wzmocnienia, runy, czary i wyniki, nigdy nazwy ani identyfikatory kont. Wyłączenie usuwa wszystko, co udostępniłeś.",
+ "Off unless you turn it on. When on, each import also sends your games to help build stats across all players, such as matchups, augment combos and team comps. Shared games carry champions, items, augments, runes, spells, results and each player's gold and experience minute by minute, never names or account ids. Turning it off removes everything you shared.": "Wyłączone, dopóki tego nie włączysz. Po włączeniu każdy import wysyła też twoje gry, aby pomóc tworzyć statystyki wszystkich graczy, takie jak pojedynki, kombinacje wzmocnień i składy drużyn. Udostępnione gry zawierają bohaterów, przedmioty, wzmocnienia, runy, czary, wyniki oraz złoto i doświadczenie każdego gracza minuta po minucie, nigdy nazwy ani identyfikatory kont. Wyłączenie usuwa wszystko, co udostępniłeś.",
  "Share my games": "Udostępniaj moje gry",
  "Connect account": "Połącz konto",
  "Connect": "Połącz",

@@ -50,7 +50,7 @@
  "Win rate by map": "マップ別勝率",
  "Recorded games only": "記録した試合のみ",
  "Share games anonymously": "試合を匿名で共有",
- "Off unless you turn it on. When on, each import also sends your games to help build stats across all players, such as matchups, augment combos and team comps. Shared games carry champions, items, augments, runes, spells and results, never names or account ids. Turning it off removes everything you shared.": "オンにしない限りオフです。オンにすると、インポートのたびに試合データも送信され、マッチアップ、オーグメントの組み合わせ、チーム構成など全プレイヤーの統計作りに役立てられます。共有される試合に含まれるのはチャンピオン、アイテム、オーグメント、ルーン、スペル、結果のみで、名前やアカウントIDは含まれません。オフにすると共有したデータはすべて削除されます。",
+ "Off unless you turn it on. When on, each import also sends your games to help build stats across all players, such as matchups, augment combos and team comps. Shared games carry champions, items, augments, runes, spells, results and each player's gold and experience minute by minute, never names or account ids. Turning it off removes everything you shared.": "オンにしない限りオフです。オンにすると、インポートのたびに試合データも送信され、マッチアップ、オーグメントの組み合わせ、チーム構成など全プレイヤーの統計作りに役立てられます。共有される試合に含まれるのはチャンピオン、アイテム、オーグメント、ルーン、スペル、結果、各プレイヤーの1分ごとのゴールドと経験値のみで、名前やアカウントIDは含まれません。オフにすると共有したデータはすべて削除されます。",
  "Share my games": "自分の試合を共有",
  "Connect account": "アカウント連携",
  "Connect": "連携",

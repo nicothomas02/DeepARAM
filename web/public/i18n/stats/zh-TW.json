@@ -50,7 +50,7 @@
  "Win rate by map": "各地圖勝率",
  "Recorded games only": "僅限已記錄的對戰",
  "Share games anonymously": "匿名分享對戰",
- "Off unless you turn it on. When on, each import also sends your games to help build stats across all players, such as matchups, augment combos and team comps. Shared games carry champions, items, augments, runes, spells and results, never names or account ids. Turning it off removes everything you shared.": "預設關閉，除非你手動開啟。開啟後，每次匯入也會傳送你的對戰，協助建立全體玩家的數據，例如對線組合、強化搭配和隊伍組成。分享的對戰包含英雄、裝備、強化、符文、召喚師技能和結果，絕不包含名稱或帳號 ID。關閉後會移除你分享過的所有內容。",
+ "Off unless you turn it on. When on, each import also sends your games to help build stats across all players, such as matchups, augment combos and team comps. Shared games carry champions, items, augments, runes, spells, results and each player's gold and experience minute by minute, never names or account ids. Turning it off removes everything you shared.": "預設關閉，除非你手動開啟。開啟後，每次匯入也會傳送你的對戰，協助建立全體玩家的數據，例如對線組合、強化搭配和隊伍組成。分享的對戰包含英雄、裝備、強化、符文、召喚師技能、結果以及每位玩家每分鐘的金幣和經驗，絕不包含名稱或帳號 ID。關閉後會移除你分享過的所有內容。",
  "Share my games": "分享我的對戰",
  "Connect account": "連結帳號",
  "Connect": "連結",
