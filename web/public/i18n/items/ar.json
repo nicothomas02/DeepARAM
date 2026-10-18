@@ -60,5 +60,10 @@
  "Magic Penetration": "الاختراق السحري",
  "Base Health Regen": "تجديد الصحة الأساسي",
  "Critical Strike Damage": "ضرر الضربة الحرجة",
- "Armor Penetration": "اختراق الدروع"
+ "Armor Penetration": "اختراق الدروع",
+ "DeepScore": "DeepScore",
+ "Legendary": "أسطوري",
+ "Starter": "بداية",
+ "Epic": "ملحمي",
+ "Basic": "أساسي"
 }

@@ -60,5 +60,10 @@
  "Magic Penetration": "Xuyên Kháng Phép",
  "Base Health Regen": "Hồi Máu Cơ Bản",
  "Critical Strike Damage": "Sát Thương Chí Mạng",
- "Armor Penetration": "Xuyên Giáp"
+ "Armor Penetration": "Xuyên Giáp",
+ "DeepScore": "DeepScore",
+ "Legendary": "Huyền thoại",
+ "Starter": "Khởi đầu",
+ "Epic": "Sử thi",
+ "Basic": "Cơ bản"
 }

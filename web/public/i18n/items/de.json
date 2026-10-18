@@ -60,5 +60,10 @@
  "Magic Penetration": "Magiedurchdringung",
  "Base Health Regen": "Grund-Lebensregeneration",
  "Critical Strike Damage": "Kritischer Schaden",
- "Armor Penetration": "Rüstungsdurchdringung"
+ "Armor Penetration": "Rüstungsdurchdringung",
+ "DeepScore": "DeepScore",
+ "Legendary": "Legendär",
+ "Starter": "Start",
+ "Epic": "Episch",
+ "Basic": "Basis"
 }

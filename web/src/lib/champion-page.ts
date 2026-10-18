@@ -17,7 +17,7 @@ import { synergy } from "./synergy";
 // The ranked tables on a champion page (/champions/<Alias>): skill orders, item paths, augments,
 // teammates, Mayhem's ability changes and base stats. Every row with a win rate also carries its
 // "win lift", the row's win rate minus the champion's own, so a build that beats the champion's
-// average stands out. Data: data/cn/builds/<id>.json (builds), data/cn/duos.json (pairs) and
+// average stands out. Data: data/cn/builds/<id>.json (builds), data/cn/champions.json (teammates) and
 // champions/data.js (ability changes, base stats, build styles).
 
 const IDS = championIds as Record<string, number>;
@@ -45,8 +45,16 @@ type Builds = {
     { id: number; pick_rate: number; grade?: string }[]
   >;
 };
-type Duos = {
-  duos: { champion_ids: number[]; win_rate: number; pick_rate: number }[];
+type Champs = {
+  champions: {
+    champion_id: number;
+    win_rate: number;
+    best_partners?: {
+      champion_id: number;
+      win_rate: number;
+      pick_rate: number;
+    }[];
+  }[];
 };
 
 export type Rated = { winRate: number; pickRate: number; lift: number };
@@ -62,7 +70,7 @@ export type AugmentRow = {
   rarity: "prismatic" | "gold" | "silver";
   pickRate: number;
 };
-export type Mate = Rated & { id: string; synergy: number };
+export type Mate = { id: string; synergy: number; pickRate: number };
 export type Change = {
   slot: string;
   name: string;
@@ -174,18 +182,23 @@ export function championPage(alias: string): ChampionPage | null {
       pickRate: a.pick_rate,
     }));
 
-  // Synergy: how much more a pair wins than the two champions' own win rates predict (lib/synergy.ts, shared with the Duos tab).
-  const mates = (readRepoJson<Duos>("data/cn/duos.json")?.duos ?? [])
-    .filter((d) => d.champion_ids.includes(id) && d.pick_rate >= MIN_PAIR_PICK)
-    .flatMap((d) => {
-      const other = ALIAS[d.champion_ids.find((c) => c !== id) ?? -1];
-      const theirs = other ? rates.get(other) : undefined;
+  // Synergy: how much more a pair wins than the two champions' own win rates predict (lib/synergy.ts),
+  // over the champion's most played-with teammates, the same pairs and snapshot as the Duos tab.
+  const snapshot =
+    readRepoJson<Champs>("data/cn/champions.json")?.champions ?? [];
+  const solo = new Map(snapshot.map((c) => [c.champion_id, c.win_rate]));
+  const self = snapshot.find((c) => c.champion_id === id);
+  const mates = (self?.best_partners ?? [])
+    .filter((m) => m.pick_rate >= MIN_PAIR_PICK)
+    .flatMap((m) => {
+      const other = ALIAS[m.champion_id];
+      const theirs = solo.get(m.champion_id);
       if (!other || theirs === undefined) return [];
       return [
         {
           id: other,
-          synergy: synergy(d.win_rate, base, theirs),
-          ...rated(d.win_rate, d.pick_rate),
+          synergy: synergy(m.win_rate, self!.win_rate, theirs),
+          pickRate: m.pick_rate,
         },
       ];
     })
@@ -213,10 +226,10 @@ export function championPage(alias: string): ChampionPage | null {
   const page = {
     winRate: base,
     skills,
-    starting: rows(b?.items?.starting),
-    boots: rows(b?.items?.boots),
-    core: rows(b?.items?.core),
-    full: rows(b?.items?.full_builds),
+    starting: scoreItems(rows(b?.items?.starting)),
+    boots: scoreItems(rows(b?.items?.boots)),
+    core: scoreItems(rows(b?.items?.core)),
+    full: scoreItems(rows(b?.items?.full_builds)),
     items: tiered([
       ...rows(b?.items?.other),
       ...rows(b?.items?.boots),

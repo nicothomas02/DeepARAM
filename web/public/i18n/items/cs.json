@@ -60,5 +60,10 @@
  "Magic Penetration": "Magický průraz",
  "Base Health Regen": "Základní regenerace zdraví",
  "Critical Strike Damage": "Poškození kritickým zásahem",
- "Armor Penetration": "Průraz brnění"
+ "Armor Penetration": "Průraz brnění",
+ "DeepScore": "DeepScore",
+ "Legendary": "Legendární",
+ "Starter": "Startovní",
+ "Epic": "Epický",
+ "Basic": "Základní"
 }

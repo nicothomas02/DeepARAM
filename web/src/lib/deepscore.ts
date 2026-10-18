@@ -68,3 +68,11 @@ export const AUGMENT_DEEPSCORE_HELP =
 export const ITEM_DEEPSCORE_HELP =
   "DeepScore rates each item from 0 to 100 against this champion's other items of the same tier, where 50 is average. It starts " +
   `from the item's win rate with this champion and trusts rarely built items less. Tiers: ${CUTS}, D below.`;
+
+export const BUILD_DEEPSCORE_HELP =
+  "DeepScore rates each build from 0 to 100 against this champion's other builds in the same list, where 50 is average. " +
+  `It starts from the build's win rate with this champion and trusts rarely built ones less. Tiers: ${CUTS}, D below.`;
+
+export const ITEM_TIER_DEEPSCORE_HELP =
+  "DeepScore rates each item from 0 to 100 against the other items of its tier, where 50 is average. It starts from how much " +
+  `the item raises the win rate of the champions who build it and trusts rarely built items less. Tiers: ${CUTS}, D below.`;

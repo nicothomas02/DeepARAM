@@ -6,11 +6,16 @@ import SplashAccent from "@/components/SplashAccent";
 import WinRateChart from "@/components/WinRateChart";
 import { augmentTiers } from "@/lib/augment-tiers";
 import DeepScore from "@/components/DeepScore";
-import { ITEM_DEEPSCORE_HELP } from "@/lib/deepscore";
+import { BUILD_DEEPSCORE_HELP, ITEM_DEEPSCORE_HELP } from "@/lib/deepscore";
 import ChampionShowcase from "@/components/ChampionShowcase";
 import { notFound } from "next/navigation";
 import { championAliases, championSummary, champList } from "@/lib/champions";
-import { bestRow, championPage, MIN_PAIR_PICK } from "@/lib/champion-page";
+import {
+  bestRow,
+  championPage,
+  MIN_PAIR_PICK,
+  type ItemRow,
+} from "@/lib/champion-page";
 import { augmentHref } from "@/lib/augments";
 import ArchetypeTags from "@/components/ArchetypeTags";
 import { championTagData, championTags } from "@/lib/champion-tags";
@@ -33,9 +38,32 @@ import ShowMore from "@/components/champion/ShowMore";
 import AugmentTable from "@/components/champion/AugmentTable";
 import SectionRail from "@/components/champion/SectionRail";
 import { BaseStatsTable, MayhemChanges } from "@/components/champion/Details";
-import { fillEstimated, fillGames, fillSpells, type SpellRow } from "@/lib/fill";
+import {
+  fillEstimated,
+  fillGames,
+  fillSpells,
+  type SpellRow,
+} from "@/lib/fill";
 import { ITEM_TIERS, type ItemTier } from "@/lib/items";
 import "../champion-page.css";
+
+// Build lists rank by DeepScore against the champion's other builds in the same list.
+const SCORED_COLS = ["DeepScore", "Pick rate", "Win rate"];
+function ScoredCells({ r }: { r: ItemRow }) {
+  return (
+    <>
+      <div className="cp-cell">
+        {r.deepScore !== undefined ? (
+          <DeepScore value={r.deepScore} help={BUILD_DEEPSCORE_HELP} />
+        ) : (
+          <b>–</b>
+        )}
+      </div>
+      <Cell value={pct(r.pickRate)} label="Pick rate" />
+      <Cell value={pct(r.winRate)} label="Win rate" tone={tone(r.lift)} />
+    </>
+  );
+}
 
 const TIER_LABEL: Record<ItemTier, string> = {
   legendary: "Legendary",
@@ -158,10 +186,10 @@ export default async function ChampionPage({
   const prev = all[(at - 1 + all.length) % all.length];
   const next = all[(at + 1) % all.length];
   const info = p.itemInfo;
-  const bestCore = bestRow(p.core);
+  const bestCore = p.core[0]; // the lists rank by DeepScore, which already trusts rare builds less
   // Augments rank by their DeepScore, the same rating the Tier List uses.
   const scores = new Map(augmentTiers().map((a) => [a.id, a.deepScore]));
-  const bestStart = bestRow(p.starting);
+  const bestStart = p.starting[0];
   const bestSkill = bestRow(p.skills, 0.1);
   const spells = fillSpells(c.alias, c.winRate ?? 0.5);
   const spellsEstimated = spells.some((r) => r.estimated);
@@ -177,7 +205,7 @@ export default async function ChampionPage({
   ).flatMap((k) => (radar.get(k) ? [radar.get(k)!] : []));
   const itemRows = (rows: typeof p.core, sep = false) =>
     rows.map((r, i) => (
-      <Row key={i} rank={i + 1} cells={<RatedCells r={r} />}>
+      <Row key={i} rank={i + 1} cells={<ScoredCells r={r} />}>
         {r.items.map((id, j) => (
           <span key={j} className="cp-chain">
             {sep && j > 0 && (
@@ -192,7 +220,7 @@ export default async function ChampionPage({
     ));
   const singleRows = (rows: typeof p.core) =>
     rows.map((r, i) => (
-      <Row key={i} rank={i + 1} cells={<RatedCells r={r} />}>
+      <Row key={i} rank={i + 1} cells={<ScoredCells r={r} />}>
         <ItemIcon id={r.items[0]} info={info} />
         <ItemName id={r.items[0]} info={info} />
       </Row>
@@ -414,7 +442,7 @@ export default async function ChampionPage({
           </h2>
           {p.core.length > 0 && (
             <Panel title="Core item builds" count={p.core.length}>
-              <Head what="Core items" />
+              <Head what="Core items" cols={SCORED_COLS} />
               <ShowMore total={p.core.length} limit={5}>
                 {itemRows(p.core, true)}
               </ShowMore>
@@ -423,20 +451,20 @@ export default async function ChampionPage({
           <div className="cp-two">
             {p.starting.length > 0 && (
               <Panel title="Starter items" count={p.starting.length}>
-                <Head what="Starter items" />
+                <Head what="Starter items" cols={SCORED_COLS} />
                 <div className="cp-rows">{itemRows(p.starting)}</div>
               </Panel>
             )}
             {p.boots.length > 0 && (
               <Panel title="Boots" count={p.boots.length}>
-                <Head what="Boots" />
+                <Head what="Boots" cols={SCORED_COLS} />
                 <div className="cp-rows">{singleRows(p.boots)}</div>
               </Panel>
             )}
           </div>
           {p.full.length > 0 && (
             <Panel title="Full builds" count={p.full.length} detailed>
-              <Head what="Six items" />
+              <Head what="Six items" cols={SCORED_COLS} />
               <ShowMore total={p.full.length} limit={5}>
                 {itemRows(p.full)}
               </ShowMore>
@@ -570,16 +598,14 @@ export default async function ChampionPage({
               title="Best teammates"
               count={p.mates.length}
               note={
-                <T ns={NS}>
-                  Win rate delta: how much more the pair wins together than the
-                  two do on their own.
+                <T ns="tables">
+                  {
+                    "How much more the pair wins than the two champions' own win rates predict, in percentage points. Above zero means they help each other."
+                  }
                 </T>
               }
             >
-              <Head
-                what="Teammate"
-                cols={["Win rate delta", "Together", "Pick rate"]}
-              />
+              <Head what="Teammate" cols={["Win rate delta", "Pick rate"]} />
               <ShowMore total={p.mates.length}>
                 {p.mates.map((m, i) => (
                   <Row
@@ -592,7 +618,6 @@ export default async function ChampionPage({
                           label="Win rate delta"
                           tone={tone(m.synergy)}
                         />
-                        <Cell value={pct(m.winRate)} label="Together" />
                         <Cell value={pct(m.pickRate)} label="Pick rate" />
                       </>
                     }

@@ -2,7 +2,9 @@ import "server-only";
 import championIds from "@/data/champion-ids.json";
 import { augmentSlug } from "./augments";
 import { champName } from "./highlights";
-import { items, rewardItems } from "./items";
+import { liveWithChange } from "./champions";
+import { grade, lowerBound } from "./deepscore";
+import { ITEM_TIERS, itemTier, items, rewardItems, type ItemTier } from "./items";
 import { tagsFor } from "./item-tags";
 import { readRepoJson } from "./repo-data";
 
@@ -26,7 +28,45 @@ export type ItemPage = {
   /** How widely it's built: its pick rates summed over the champions who build it. */
   popularity: number;
   builders: { id: string; name: string; pickRate: number; winRate: number | null }[];
+  tier: ItemTier;
+  /** 0-100 against the other items of its tier (lib/deepscore.ts); null when no builder has a win rate. */
+  deepScore: number | null;
 };
+
+const MEDIAN_GAMES = 1000; // pseudo-games for an item of median popularity, as on the Tier List
+const PRIOR = 0.25; // the average's weight, in median items' worth of games
+
+// How much an item lifts the win rate of the champions who build it, weighted by how often each one
+// does, so items that strong champions happen to buy don't look better than they are.
+function lifts(builders: ItemPage["builders"]) {
+  const champs = new Map(liveWithChange().live.map((c) => [c.name, c]));
+  let w = 0;
+  let sum = 0;
+  for (const b of builders) {
+    const c = champs.get(b.id);
+    if (!c || b.winRate === null) continue;
+    const weight = c.pick_rate * b.pickRate;
+    w += weight;
+    sum += weight * (b.winRate - c.win_rate);
+  }
+  return w ? { lift: sum / w, weight: w } : null;
+}
+
+function scoreTiers(list: ItemPage[], all: Map<number, ItemPage["builders"]>) {
+  for (const tier of ITEM_TIERS) {
+    const group = list
+      .filter((i) => i.tier === tier)
+      .map((i) => ({ i, l: lifts(all.get(i.id) ?? []) }))
+      .filter((x): x is { i: ItemPage; l: { lift: number; weight: number } } => x.l !== null);
+    if (!group.length) continue;
+    const weights = group.map((x) => x.l.weight).sort((a, b) => a - b);
+    const median = weights[Math.floor(weights.length / 2)] || 1;
+    const total = group.reduce((s, x) => s + x.l.weight, 0);
+    const mean = 0.5 + group.reduce((s, x) => s + x.l.lift * x.l.weight, 0) / total;
+    const grades = grade(group.map((x) => lowerBound(0.5 + x.l.lift, (x.l.weight / median) * MEDIAN_GAMES, mean, PRIOR * MEDIAN_GAMES)));
+    group.forEach((x, k) => (x.i.deepScore = grades[k].deepScore));
+  }
+}
 
 // "<stats>75 Attack Damage<br>25% Critical Strike Chance</stats>" -> ["75 Attack Damage", "25% Critical Strike Chance"]
 function statLines(description: string) {
@@ -73,10 +113,13 @@ export function itemPages(): ItemPage[] {
         stats: statLines(info.get(i.id)?.description ?? ""),
         tags: tagsFor(info.get(i.id)?.categories),
         popularity: builders.get(i.id)!.reduce((s, b) => s + b.pickRate, 0),
-        builders: builders.get(i.id)!.sort((x, y) => y.pickRate - x.pickRate).slice(0, 10),
+        builders: [...builders.get(i.id)!].sort((x, y) => y.pickRate - x.pickRate).slice(0, 10),
+        tier: itemTier(i.id),
+        deepScore: null as number | null,
       };
     })
     .sort((a, b) => a.name.localeCompare(b.name));
+  scoreTiers(cache, builders);
   return cache;
 }
 

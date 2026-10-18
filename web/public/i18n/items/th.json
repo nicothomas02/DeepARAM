@@ -60,5 +60,10 @@
  "Magic Penetration": "เจาะเวท",
  "Base Health Regen": "ฟื้นฟูพลังชีวิตพื้นฐาน",
  "Critical Strike Damage": "ดาเมจคริติคอล",
- "Armor Penetration": "เจาะเกราะ"
+ "Armor Penetration": "เจาะเกราะ",
+ "DeepScore": "DeepScore",
+ "Legendary": "ระดับตำนาน",
+ "Starter": "เริ่มต้น",
+ "Epic": "ระดับมหากาพย์",
+ "Basic": "พื้นฐาน"
 }

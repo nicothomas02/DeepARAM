@@ -60,5 +60,10 @@
  "Magic Penetration": "Магическое пробивание",
  "Base Health Regen": "Базовое восстановление здоровья",
  "Critical Strike Damage": "Критический урон",
- "Armor Penetration": "Пробивание брони"
+ "Armor Penetration": "Пробивание брони",
+ "DeepScore": "DeepScore",
+ "Legendary": "Легендарные",
+ "Starter": "Стартовые",
+ "Epic": "Эпические",
+ "Basic": "Базовые"
 }

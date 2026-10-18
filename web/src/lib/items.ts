@@ -42,7 +42,7 @@ export function rewardItems(): Set<number> {
 }
 
 export type ItemTier = "legendary" | "boots" | "epic" | "basic" | "starter";
-export const ITEM_TIERS: ItemTier[] = ["legendary", "boots", "epic", "basic", "starter"];
+export const ITEM_TIERS: ItemTier[] = ["legendary", "boots", "starter", "epic", "basic"];
 
 /** An item's shop tier from its recipe: boots, finished (legendary), a component of one (epic or basic), or a cheap standalone starter. */
 type Recipe = { id: number; from: number[]; to: number[]; categories: string[]; priceTotal: number; specialRecipe: number };

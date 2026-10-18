@@ -60,5 +60,10 @@
  "Magic Penetration": "Przebicie odporności na magię",
  "Base Health Regen": "Podstawowa regeneracja zdrowia",
  "Critical Strike Damage": "Obrażenia trafienia krytycznego",
- "Armor Penetration": "Przebicie pancerza"
+ "Armor Penetration": "Przebicie pancerza",
+ "DeepScore": "DeepScore",
+ "Legendary": "Legendarny",
+ "Starter": "Startowy",
+ "Epic": "Epicki",
+ "Basic": "Podstawowy"
 }

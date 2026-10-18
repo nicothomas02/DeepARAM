@@ -60,5 +60,10 @@
  "Magic Penetration": "魔法穿透",
  "Base Health Regen": "基礎生命回復",
  "Critical Strike Damage": "暴擊傷害",
- "Armor Penetration": "物理穿透"
+ "Armor Penetration": "物理穿透",
+ "DeepScore": "DeepScore",
+ "Legendary": "傳說",
+ "Starter": "起始",
+ "Epic": "史詩",
+ "Basic": "基礎"
 }

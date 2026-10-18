@@ -95,5 +95,8 @@
  "Games played on the live patch.": "当前版本的对局场次。",
  "DeepScore rates each item from 0 to 100 against this champion's other items of the same tier, where 50 is average. It starts from the item's win rate with this champion and trusts rarely built items less. Tiers: S 70+, A 59+, B 44+, C 32+, D below.": "DeepScore 将每件装备与该英雄同等级的其他装备比较，评分 0 到 100，50 为平均。它以该装备在此英雄上的胜率为基础，对很少出的装备给予较低信任。等级：S 70+，A 59+，B 44+，C 32+，D 以下。",
  "How much more the pair wins than the two champions' own win rates predict, in percentage points. Above zero means they help each other.": "组合胜率比两位英雄各自胜率所预测的高出多少（百分点）。高于零表示他们相互配合。",
- "How often the first champion has the second as a teammate.": "第一位英雄的队友中出现第二位英雄的比例。"
+ "How often the first champion has the second as a teammate.": "第一位英雄的队友中出现第二位英雄的比例。",
+ "Pair win rate minus the average of the two champions' own win rates. Above zero means they win more together.": "组合胜率减去两位英雄各自胜率的平均值。高于零表示一起时赢得更多。",
+ "DeepScore rates each build from 0 to 100 against this champion's other builds in the same list, where 50 is average. It starts from the build's win rate with this champion and trusts rarely built ones less. Tiers: S 70+, A 59+, B 44+, C 32+, D below.": "DeepScore 将每套出装与该英雄同一列表中的其他出装比较，评分 0 到 100，50 为平均。它以该出装在此英雄上的胜率为基础，对很少使用的出装给予较低信任。等级：S 70+，A 59+，B 44+，C 32+，D 以下。",
+ "DeepScore rates each item from 0 to 100 against the other items of its tier, where 50 is average. It starts from how much the item raises the win rate of the champions who build it and trusts rarely built items less. Tiers: S 70+, A 59+, B 44+, C 32+, D below.": "DeepScore 将每件装备与同等级的其他装备比较，评分 0 到 100，50 为平均。它以该装备对出它的英雄胜率的提升为基础，对很少出的装备给予较低信任。等级：S 70+，A 59+，B 44+，C 32+，D 以下。"
 }

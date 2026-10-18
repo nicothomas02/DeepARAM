@@ -60,5 +60,10 @@
  "Magic Penetration": "마법 관통력",
  "Base Health Regen": "기본 체력 재생",
  "Critical Strike Damage": "치명타 피해량",
- "Armor Penetration": "방어구 관통력"
+ "Armor Penetration": "방어구 관통력",
+ "DeepScore": "DeepScore",
+ "Legendary": "전설",
+ "Starter": "시작",
+ "Epic": "서사",
+ "Basic": "기본"
 }

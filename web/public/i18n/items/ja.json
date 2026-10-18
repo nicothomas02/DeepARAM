@@ -60,5 +60,10 @@
  "Magic Penetration": "魔法防御貫通",
  "Base Health Regen": "基本体力自動回復",
  "Critical Strike Damage": "クリティカルダメージ",
- "Armor Penetration": "物理防御貫通"
+ "Armor Penetration": "物理防御貫通",
+ "DeepScore": "DeepScore",
+ "Legendary": "レジェンダリー",
+ "Starter": "スターター",
+ "Epic": "エピック",
+ "Basic": "ベーシック"
 }

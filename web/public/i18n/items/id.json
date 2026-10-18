@@ -60,5 +60,10 @@
  "Magic Penetration": "Magic Penetration",
  "Base Health Regen": "Base Health Regen",
  "Critical Strike Damage": "Critical Strike Damage",
- "Armor Penetration": "Armor Penetration"
+ "Armor Penetration": "Armor Penetration",
+ "DeepScore": "DeepScore",
+ "Legendary": "Legendaris",
+ "Starter": "Awal",
+ "Epic": "Epik",
+ "Basic": "Dasar"
 }
