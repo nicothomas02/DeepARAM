@@ -89,7 +89,24 @@ const PROFILE: [string, string, (v: number) => string][] = [
     "Turret damage",
     (v) => Math.round(v).toLocaleString("en-US"),
   ],
+  ["cs", "CS", (v) => Math.round(v).toLocaleString("en-US")],
+  ["largest_spree", "Largest killing spree", (v) => v.toFixed(1)],
+  // Game length is only a rough estimate, so it shows as a band, never a number.
+  ["game_minutes", "Game length", () => ""],
 ];
+const LENGTH_BAND = {
+  high: "Longer than usual",
+  average: "Usual length",
+  low: "Shorter than usual",
+};
+// Simulated early, mid and late game strength (data/estimates/power_curve.json).
+const STAGE_LABEL = { early: "Early game", mid: "Mid game", late: "Late game" };
+const scalingNote = (s: number) =>
+  s >= 0.5
+    ? "Grows stronger as the game goes on."
+    : s <= -0.5
+      ? "Strongest early, falls off later."
+      : "About as strong all game.";
 const BAND = {
   high: "Above average",
   average: "Average",
@@ -570,6 +587,29 @@ export default async function ChampionPage({
               <ShowMore total={p.core.length} limit={5}>
                 {itemRows(p.core, true)}
               </ShowMore>
+              {est && est.timing.length > 0 && (
+                <div className="cp-timing">
+                  <small>
+                    <T ns={NS}>Usually finished by</T>
+                  </small>
+                  {est.timing.map((t, i) => (
+                    <span key={i} className="cp-chain">
+                      {i > 0 && (
+                        <span className="cp-sep" aria-hidden="true">
+                          ›
+                        </span>
+                      )}
+                      <ItemIcon id={t.id} info={info} />
+                      <T ns={NS} v={{ n: Math.max(1, Math.round(t.minute)) }}>
+                        {"{n} min"}
+                      </T>
+                    </span>
+                  ))}
+                  <em>
+                    <T ns={NS}>Estimated</T>
+                  </em>
+                </div>
+              )}
             </Panel>
           )}
           <div className="cp-two">
@@ -857,17 +897,25 @@ export default async function ChampionPage({
               <div className="cp-profile">
                 {PROFILE.map(([key, label, fmt]) => {
                   const s = est.profile.find((x) => x.key === key);
-                  return s ? (
+                  if (!s) return null;
+                  const rough = key === "game_minutes";
+                  return (
                     <div key={key} data-band={s.band}>
                       <small>
                         <T ns={NS}>{label}</T>
                       </small>
-                      <b>{fmt(s.value)}</b>
+                      <b className={rough ? "cp-words" : undefined}>
+                        {rough ? (
+                          <T ns={NS}>{LENGTH_BAND[s.band]}</T>
+                        ) : (
+                          fmt(s.value)
+                        )}
+                      </b>
                       <span>
-                        <T ns={NS}>{BAND[s.band]}</T>
+                        <T ns={NS}>{rough ? "Rough estimate" : BAND[s.band]}</T>
                       </span>
                     </div>
-                  ) : null;
+                  );
                 })}
               </div>
               {est.split && (
@@ -899,6 +947,58 @@ export default async function ChampionPage({
                   </ul>
                 </div>
               )}
+            </Panel>
+          )}
+          {est?.curve && (
+            <Panel
+              title="Early, mid and late game"
+              note={
+                <T ns={NS}>
+                  {
+                    "Simulated: the champion's best build fighting a dummy at each point, compared with every other champion."
+                  }
+                </T>
+              }
+            >
+              <div className="cp-curve">
+                {est.curve.stages.map((st) => (
+                  <div key={st.key}>
+                    <small>
+                      <T ns={NS}>{STAGE_LABEL[st.key]}</T>
+                    </small>
+                    <span className="cp-curve-bar" aria-hidden="true">
+                      <span
+                        style={{ width: `${Math.max(2, st.rank * 100)}%` }}
+                      />
+                    </span>
+                    <b>
+                      <T ns={NS} v={{ n: Math.round(st.rank * 100) }}>
+                        {"Beats {n}%"}
+                      </T>
+                    </b>
+                    <span>
+                      <T ns={NS} v={{ level: st.level, items: st.items }}>
+                        {"Level {level}, {items} items"}
+                      </T>
+                    </span>
+                  </div>
+                ))}
+              </div>
+              <p className="cp-curve-note">
+                <T ns={NS}>{scalingNote(est.curve.scaling)}</T>
+                {est.curve.topEarly && (
+                  <>
+                    {" "}
+                    <T ns={NS}>One of the 10 strongest early champions.</T>
+                  </>
+                )}
+                {est.curve.topLate && (
+                  <>
+                    {" "}
+                    <T ns={NS}>One of the 10 strongest late champions.</T>
+                  </>
+                )}
+              </p>
             </Panel>
           )}
           <WinRateChart

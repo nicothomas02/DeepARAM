@@ -20,6 +20,14 @@ type Estimates = {
   augment_pairs?: Record<string, { ids: [number, number]; pick_rate: number; win_rate: number }[]>;
   profiles?: Record<string, Record<string, { value: number; band: Band } | Record<string, number>>>;
   vs_average?: Record<string, Record<string, { value: number; average: number; delta: number; percentile: number }>>;
+  item_timing?: Record<string, { items: number[]; minutes: number[] }>;
+};
+type Stage = "early" | "mid" | "late";
+type PowerCurve = {
+  stages: Record<Stage, { level: number; items: number; augments: number }>;
+  champions: Record<string, Record<Stage, number> & { scaling: number }>;
+  early_game: number[];
+  late_game: number[];
 };
 
 export type ProfileStat = { key: string; value: number; band: Band };
@@ -29,6 +37,15 @@ export type ChampionEstimates = {
   profile: ProfileStat[];
   split: { physical: number; magic: number; true: number } | null;
   vsAverage: Map<string, number>;
+  /** Minute each core item is usually finished. */
+  timing: { id: number; minute: number }[];
+  /** Simulated damage at three points of a game, as the share of champions it beats, plus a scaling score. */
+  curve: {
+    stages: { key: Stage; level: number; items: number; rank: number }[];
+    scaling: number;
+    topEarly: boolean;
+    topLate: boolean;
+  } | null;
 };
 
 export function championEstimates(id: number): ChampionEstimates | null {
@@ -46,6 +63,23 @@ export function championEstimates(id: number): ChampionEstimates | null {
     profile: Object.entries(profile).flatMap(([key, v]) => ("band" in v && typeof v.value === "number" ? [{ key, value: v.value, band: v.band as Band }] : [])),
     split: (profile.damage_split as ChampionEstimates["split"]) ?? null,
     vsAverage: new Map(Object.entries(e.vs_average?.[k] ?? {}).map(([key, v]) => [key, v.delta])),
+    timing: (() => {
+      const t = e.item_timing?.[k];
+      return t ? t.items.map((id, i) => ({ id, minute: t.minutes[i] })).filter((x) => typeof x.minute === "number") : [];
+    })(),
+    curve: powerCurve(id),
+  };
+}
+
+function powerCurve(id: number): ChampionEstimates["curve"] {
+  const pc = readRepoJson<PowerCurve>("data/estimates/power_curve.json");
+  const c = pc?.champions[String(id)];
+  if (!pc || !c) return null;
+  return {
+    stages: (["early", "mid", "late"] as const).map((key) => ({ key, level: pc.stages[key].level, items: pc.stages[key].items, rank: c[key] })),
+    scaling: c.scaling,
+    topEarly: pc.early_game.includes(id),
+    topLate: pc.late_game.includes(id),
   };
 }
 
