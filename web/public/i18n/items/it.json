@@ -66,6 +66,16 @@
  "Starter": "Iniziale",
  "Epic": "Epico",
  "Basic": "Base",
+ "How it does": "Come va",
+ "Estimated": "Stima",
+ "win rate": "percentuale di vittoria",
+ "vs its builders' usual win rate": "rispetto alla solita percentuale di chi lo compra",
+ "of builds": "delle build",
+ "bought 1st · 2nd · 3rd": "comprato 1° · 2° · 3°",
+ "Some augments also grant this item.": "Anche alcuni potenziamenti danno questo oggetto.",
+ "Win rate": "Percentuale di vittoria",
+ "{wr} win · in {share} of builds": "{wr} vittorie · nel {share} delle build",
+ "augment item": "oggetto da potenziamento",
  "Consumables": "Consumabili",
  "From augments": "Dai potenziamenti"
 }

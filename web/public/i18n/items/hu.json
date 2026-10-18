@@ -66,6 +66,16 @@
  "Starter": "Kezdő",
  "Epic": "Epikus",
  "Basic": "Alap",
+ "How it does": "Hogyan teljesít",
+ "Estimated": "Becsült",
+ "win rate": "győzelmi arány",
+ "vs its builders' usual win rate": "a vásárlói szokásos győzelmi arányához képest",
+ "of builds": "a buildeknek",
+ "bought 1st · 2nd · 3rd": "1. · 2. · 3. vásárlásként",
+ "Some augments also grant this item.": "Néhány augment is adja ezt a tárgyat.",
+ "Win rate": "Győzelmi arány",
+ "{wr} win · in {share} of builds": "{wr} győzelem · a buildek {share}-ában",
+ "augment item": "augment tárgy",
  "Consumables": "Fogyóeszközök",
  "From augments": "Bővítésekből"
 }

@@ -177,5 +177,19 @@
  "Mail app (Outlook, Apple Mail and others)": "メールアプリ（Outlook、Apple Mail など）",
  "Open email": "メールを開く",
  "Copy address": "アドレスをコピー",
- "Champion and augment win rates and duo synergy, patch by patch.": "チャンピオンとオーグメントの勝率、デュオのシナジーをパッチごとに。"
+ "Champion and augment win rates and duo synergy, patch by patch.": "チャンピオンとオーグメントの勝率、デュオのシナジーをパッチごとに。",
+ "Top 10 at": "トップ10",
+ "Estimated": "推定",
+ "Damage": "ダメージ",
+ "Tanking": "タンク",
+ "Healing": "回復",
+ "Crowd control": "行動妨害",
+ "Teamplay": "チームプレイ",
+ "Multikills": "マルチキル",
+ "Towers": "タワー",
+ "A typical game": "典型的な試合",
+ "{n} min": "{n}分",
+ "game length": "試合時間",
+ "blue side wins": "青側の勝率",
+ "red side wins": "赤側の勝率"
 }

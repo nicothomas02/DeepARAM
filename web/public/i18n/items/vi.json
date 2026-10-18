@@ -66,6 +66,16 @@
  "Starter": "Khởi đầu",
  "Epic": "Sử thi",
  "Basic": "Cơ bản",
+ "How it does": "Hiệu quả",
+ "Estimated": "Ước tính",
+ "win rate": "tỉ lệ thắng",
+ "vs its builders' usual win rate": "so với tỉ lệ thắng thường ngày của người mua",
+ "of builds": "số bản build",
+ "bought 1st · 2nd · 3rd": "mua thứ 1 · 2 · 3",
+ "Some augments also grant this item.": "Một số lõi cũng cho trang bị này.",
+ "Win rate": "Tỉ lệ thắng",
+ "{wr} win · in {share} of builds": "thắng {wr} · có trong {share} bản build",
+ "augment item": "trang bị từ lõi",
  "Consumables": "Tiêu hao",
  "From augments": "Từ Lõi Nâng Cấp"
 }

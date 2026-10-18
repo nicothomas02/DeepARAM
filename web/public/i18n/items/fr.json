@@ -66,6 +66,16 @@
  "Starter": "Départ",
  "Epic": "Épique",
  "Basic": "Basique",
+ "How it does": "Ses résultats",
+ "Estimated": "Estimation",
+ "win rate": "taux de victoire",
+ "vs its builders' usual win rate": "par rapport au taux de victoire habituel de ceux qui l'achètent",
+ "of builds": "des builds",
+ "bought 1st · 2nd · 3rd": "acheté en 1er · 2e · 3e",
+ "Some augments also grant this item.": "Certains augments donnent aussi cet objet.",
+ "Win rate": "Taux de victoire",
+ "{wr} win · in {share} of builds": "{wr} de victoires · dans {share} des builds",
+ "augment item": "objet d'augment",
  "Consumables": "Consommables",
  "From augments": "Via les augments"
 }

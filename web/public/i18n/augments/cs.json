@@ -53,5 +53,12 @@
  "Prismatic": "Prizmatický",
  "Offered in {offer} of Silver selections ({rerolls} using every reroll), one of {pool} Silver augments.": "Nabídnut v {offer} stříbrných výběrů ({rerolls} při využití všech přehození), jeden z {pool} stříbrných augmentů.",
  "Offered in {offer} of Gold selections ({rerolls} using every reroll), one of {pool} Gold augments.": "Nabídnut v {offer} zlatých výběrů ({rerolls} při využití všech přehození), jeden z {pool} zlatých augmentů.",
- "Offered in {offer} of Prismatic selections ({rerolls} using every reroll), one of {pool} Prismatic augments.": "Nabídnut v {offer} prizmatických výběrů ({rerolls} při využití všech přehození), jeden z {pool} prizmatických augmentů."
+ "Offered in {offer} of Prismatic selections ({rerolls} using every reroll), one of {pool} Prismatic augments.": "Nabídnut v {offer} prizmatických výběrů ({rerolls} při využití všech přehození), jeden z {pool} prizmatických augmentů.",
+ "When it's picked": "Kdy se bere",
+ "Estimated": "Odhad",
+ "Augment {n}": "Vylepšení {n}",
+ "{pct} of picks here are this rarity": "{pct} voleb zde má tuto vzácnost",
+ "Share of this augment's picks at each augment selection, and how often a pick there is of its rarity.": "Podíl voleb tohoto vylepšení při každém výběru vylepšení a jak často je volba v tu chvíli jeho vzácnosti.",
+ "Items that go with it": "Předměty, které k němu sedí",
+ "Share of the champions who take this augment that build each item.": "Podíl šampionů s tímto vylepšením, kteří staví daný předmět."
 }

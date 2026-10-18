@@ -53,5 +53,12 @@
  "Prismatic": "منشوري",
  "Offered in {offer} of Silver selections ({rerolls} using every reroll), one of {pool} Silver augments.": "يُعرض في {offer} من الاختيارات الفضية ({rerolls} باستخدام كل عمليات إعادة السحب)، وهو واحد من {pool} تعزيزًا فضيًا.",
  "Offered in {offer} of Gold selections ({rerolls} using every reroll), one of {pool} Gold augments.": "يُعرض في {offer} من الاختيارات الذهبية ({rerolls} باستخدام كل عمليات إعادة السحب)، وهو واحد من {pool} تعزيزًا ذهبيًا.",
- "Offered in {offer} of Prismatic selections ({rerolls} using every reroll), one of {pool} Prismatic augments.": "يُعرض في {offer} من الاختيارات المنشورية ({rerolls} باستخدام كل عمليات إعادة السحب)، وهو واحد من {pool} تعزيزًا منشوريًا."
+ "Offered in {offer} of Prismatic selections ({rerolls} using every reroll), one of {pool} Prismatic augments.": "يُعرض في {offer} من الاختيارات المنشورية ({rerolls} باستخدام كل عمليات إعادة السحب)، وهو واحد من {pool} تعزيزًا منشوريًا.",
+ "When it's picked": "متى يُختار",
+ "Estimated": "مقدَّر",
+ "Augment {n}": "التعزيز {n}",
+ "{pct} of picks here are this rarity": "{pct} من الاختيارات هنا بهذه الندرة",
+ "Share of this augment's picks at each augment selection, and how often a pick there is of its rarity.": "حصة اختيارات هذا التعزيز في كل اختيار تعزيز، وكم مرة يكون الاختيار هناك بندرته.",
+ "Items that go with it": "عناصر تناسبه",
+ "Share of the champions who take this augment that build each item.": "نسبة الأبطال الذين يأخذون هذا التعزيز ويشترون كل عنصر."
 }

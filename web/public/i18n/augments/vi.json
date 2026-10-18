@@ -53,5 +53,12 @@
  "Prismatic": "Lăng Kính",
  "Offered in {offer} of Silver selections ({rerolls} using every reroll), one of {pool} Silver augments.": "Xuất hiện trong {offer} lượt chọn Bạc ({rerolls} khi dùng hết lượt đổi), là một trong {pool} Lõi Nâng Cấp Bạc.",
  "Offered in {offer} of Gold selections ({rerolls} using every reroll), one of {pool} Gold augments.": "Xuất hiện trong {offer} lượt chọn Vàng ({rerolls} khi dùng hết lượt đổi), là một trong {pool} Lõi Nâng Cấp Vàng.",
- "Offered in {offer} of Prismatic selections ({rerolls} using every reroll), one of {pool} Prismatic augments.": "Xuất hiện trong {offer} lượt chọn Lăng Kính ({rerolls} khi dùng hết lượt đổi), là một trong {pool} Lõi Nâng Cấp Lăng Kính."
+ "Offered in {offer} of Prismatic selections ({rerolls} using every reroll), one of {pool} Prismatic augments.": "Xuất hiện trong {offer} lượt chọn Lăng Kính ({rerolls} khi dùng hết lượt đổi), là một trong {pool} Lõi Nâng Cấp Lăng Kính.",
+ "When it's picked": "Được chọn khi nào",
+ "Estimated": "Ước tính",
+ "Augment {n}": "Lõi {n}",
+ "{pct} of picks here are this rarity": "{pct} lượt chọn ở đây thuộc độ hiếm này",
+ "Share of this augment's picks at each augment selection, and how often a pick there is of its rarity.": "Tỉ lệ chọn lõi này ở mỗi lượt chọn lõi, và tần suất lựa chọn ở đó thuộc độ hiếm của nó.",
+ "Items that go with it": "Trang bị phù hợp",
+ "Share of the champions who take this augment that build each item.": "Tỉ lệ tướng chọn lõi này có mua từng trang bị."
 }

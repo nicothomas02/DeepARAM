@@ -53,5 +53,12 @@
  "Prismatic": "Prizmatik",
  "Offered in {offer} of Silver selections ({rerolls} using every reroll), one of {pool} Silver augments.": "Gümüş seçimlerin {offer} kadarında sunulur (tüm yeniden çekmeler kullanılırsa {rerolls}); {pool} Gümüş güçlendirmeden biridir.",
  "Offered in {offer} of Gold selections ({rerolls} using every reroll), one of {pool} Gold augments.": "Altın seçimlerin {offer} kadarında sunulur (tüm yeniden çekmeler kullanılırsa {rerolls}); {pool} Altın güçlendirmeden biridir.",
- "Offered in {offer} of Prismatic selections ({rerolls} using every reroll), one of {pool} Prismatic augments.": "Prizmatik seçimlerin {offer} kadarında sunulur (tüm yeniden çekmeler kullanılırsa {rerolls}); {pool} Prizmatik güçlendirmeden biridir."
+ "Offered in {offer} of Prismatic selections ({rerolls} using every reroll), one of {pool} Prismatic augments.": "Prizmatik seçimlerin {offer} kadarında sunulur (tüm yeniden çekmeler kullanılırsa {rerolls}); {pool} Prizmatik güçlendirmeden biridir.",
+ "When it's picked": "Ne zaman seçiliyor",
+ "Estimated": "Tahmini",
+ "Augment {n}": "{n}. güçlendirme",
+ "{pct} of picks here are this rarity": "Buradaki seçimlerin {pct} kadarı bu nadirlikte",
+ "Share of this augment's picks at each augment selection, and how often a pick there is of its rarity.": "Bu güçlendirmenin her güçlendirme seçimindeki payı ve orada bir seçimin ne sıklıkla bu nadirlikte olduğu.",
+ "Items that go with it": "Uyumlu eşyalar",
+ "Share of the champions who take this augment that build each item.": "Bu güçlendirmeyi alan şampiyonlardan her eşyayı yapanların payı."
 }

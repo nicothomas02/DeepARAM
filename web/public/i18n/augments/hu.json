@@ -53,5 +53,12 @@
  "Prismatic": "Prizmatikus",
  "Offered in {offer} of Silver selections ({rerolls} using every reroll), one of {pool} Silver augments.": "Az ezüst választások {offer} részében kínálja fel a játék ({rerolls} minden újrasorsolás felhasználásával), egy a(z) {pool} ezüst bővítés közül.",
  "Offered in {offer} of Gold selections ({rerolls} using every reroll), one of {pool} Gold augments.": "Az arany választások {offer} részében kínálja fel a játék ({rerolls} minden újrasorsolás felhasználásával), egy a(z) {pool} arany bővítés közül.",
- "Offered in {offer} of Prismatic selections ({rerolls} using every reroll), one of {pool} Prismatic augments.": "A prizmatikus választások {offer} részében kínálja fel a játék ({rerolls} minden újrasorsolás felhasználásával), egy a(z) {pool} prizmatikus bővítés közül."
+ "Offered in {offer} of Prismatic selections ({rerolls} using every reroll), one of {pool} Prismatic augments.": "A prizmatikus választások {offer} részében kínálja fel a játék ({rerolls} minden újrasorsolás felhasználásával), egy a(z) {pool} prizmatikus bővítés közül.",
+ "When it's picked": "Mikor választják",
+ "Estimated": "Becsült",
+ "Augment {n}": "{n}. augment",
+ "{pct} of picks here are this rarity": "Itt a választások {pct}-a ilyen ritkaságú",
+ "Share of this augment's picks at each augment selection, and how often a pick there is of its rarity.": "Az augment választásainak aránya minden augmentválasztáskor, és hogy ott milyen gyakran ilyen ritkaságú a választás.",
+ "Items that go with it": "Hozzá illő tárgyak",
+ "Share of the champions who take this augment that build each item.": "Az augmentet választó hősök aránya, akik az adott tárgyat megveszik."
 }

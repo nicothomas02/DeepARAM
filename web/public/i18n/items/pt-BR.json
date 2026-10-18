@@ -66,6 +66,16 @@
  "Starter": "Inicial",
  "Epic": "Épico",
  "Basic": "Básico",
+ "How it does": "Como se sai",
+ "Estimated": "Estimado",
+ "win rate": "taxa de vitória",
+ "vs its builders' usual win rate": "vs. a taxa de vitória habitual de quem o compra",
+ "of builds": "das builds",
+ "bought 1st · 2nd · 3rd": "comprado em 1º · 2º · 3º",
+ "Some augments also grant this item.": "Alguns aprimoramentos também dão este item.",
+ "Win rate": "Taxa de vitória",
+ "{wr} win · in {share} of builds": "{wr} de vitórias · em {share} das builds",
+ "augment item": "item de aprimoramento",
  "Consumables": "Consumíveis",
  "From augments": "De aprimoramentos"
 }

@@ -53,5 +53,12 @@
  "Prismatic": "프리즘",
  "Offered in {offer} of Silver selections ({rerolls} using every reroll), one of {pool} Silver augments.": "실버 선택의 {offer}에서 제시됨 (새로고침을 모두 쓰면 {rerolls}), 실버 증강 {pool}개 중 하나.",
  "Offered in {offer} of Gold selections ({rerolls} using every reroll), one of {pool} Gold augments.": "골드 선택의 {offer}에서 제시됨 (새로고침을 모두 쓰면 {rerolls}), 골드 증강 {pool}개 중 하나.",
- "Offered in {offer} of Prismatic selections ({rerolls} using every reroll), one of {pool} Prismatic augments.": "프리즘 선택의 {offer}에서 제시됨 (새로고침을 모두 쓰면 {rerolls}), 프리즘 증강 {pool}개 중 하나."
+ "Offered in {offer} of Prismatic selections ({rerolls} using every reroll), one of {pool} Prismatic augments.": "프리즘 선택의 {offer}에서 제시됨 (새로고침을 모두 쓰면 {rerolls}), 프리즘 증강 {pool}개 중 하나.",
+ "When it's picked": "선택되는 시점",
+ "Estimated": "추정치",
+ "Augment {n}": "증강 {n}",
+ "{pct} of picks here are this rarity": "여기서 선택의 {pct}가 이 등급",
+ "Share of this augment's picks at each augment selection, and how often a pick there is of its rarity.": "각 증강 선택 시점별 이 증강의 선택 비율과, 그 시점의 선택이 이 등급일 확률입니다.",
+ "Items that go with it": "어울리는 아이템",
+ "Share of the champions who take this augment that build each item.": "이 증강을 고른 챔피언 중 각 아이템을 만드는 비율입니다."
 }

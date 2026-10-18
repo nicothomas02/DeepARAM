@@ -7,12 +7,15 @@ import { readRepoJson } from "@/lib/repo-data";
 import type { PatchSchedule } from "@/lib/patch-schedule";
 import PatchCountdown from "@/components/PatchCountdown";
 import { championSplash } from "@/lib/champions";
-import { KitchenPick, TierSnapshot } from "@/components/HomeWidgets";
+import { FunLists, KitchenPick, TierSnapshot } from "@/components/HomeWidgets";
+import { funLists, typicalGame } from "@/lib/estimates";
+import championIds from "@/data/champion-ids.json";
 import { augmentHref } from "@/lib/augments";
 import { KITCHEN } from "@/lib/tabs";
 import championNames from "@/data/champion-names.json";
 
 const NAMES = championNames as Record<string, string>;
+const ALIAS = Object.fromEntries(Object.entries(championIds as Record<string, number>).map(([alias, id]) => [id, alias]));
 import RecentPlayed from "@/components/RecentPlayed";
 import { LocalDate, ModeName, Name, T } from "@/components/I18n";
 
@@ -22,8 +25,7 @@ const Icon = ({ src }: { src: string }) => <img className="icon" src={src} alt="
 const pct = (v: number) => `${(v * 100).toFixed(1)}%`;
 
 // The pairs that help each other most on the live patch (synergy, the Duos tab's Win rate delta).
-const topDuos = (n = 5) =>
-  [...duoRows()].sort((a, b) => b.delta - a.delta).slice(0, n);
+const topDuos = (n = 5) => [...duoRows()].sort((a, b) => b.delta - a.delta).slice(0, n);
 const pts = (v: number) => `${v > 0 ? "+" : ""}${(v * 100).toFixed(1)} pts`;
 
 export default function Home() {
@@ -39,6 +41,10 @@ export default function Home() {
   const schedule = readRepoJson<PatchSchedule>("data/patch-schedule.json");
   const last = recapPatches()[0];
   const latest = last ? recap(last) : null;
+  const game = typicalGame();
+  const fun = Object.fromEntries(
+    Object.entries(funLists()).map(([k, ids]) => [k, ids.flatMap((id) => (ALIAS[id] ? [{ id: ALIAS[id], name: NAMES[ALIAS[id]] ?? ALIAS[id] }] : []))]),
+  );
 
   return (
     <>
@@ -99,7 +105,12 @@ export default function Home() {
             </div>
             <div className="rank">
               {augs.map((a, i) => (
-                <Link key={a.id} href={augmentHref(a.id) ?? `/tier-list?tab=augments&q=${encodeURIComponent(a.name)}`} data-tilt="soft" data-rarity={a.tier?.toLowerCase()}>
+                <Link
+                  key={a.id}
+                  href={augmentHref(a.id) ?? `/tier-list?tab=augments&q=${encodeURIComponent(a.name)}`}
+                  data-tilt="soft"
+                  data-rarity={a.tier?.toLowerCase()}
+                >
                   <span className="rank-i">{i + 1}</span>
                   <Icon src={`/icons/augments/${a.id}.webp`} />
                   <span className="rank-name">
@@ -227,6 +238,53 @@ export default function Home() {
                 <T v={{ wr: pct(special.winRate) }}>{"Won {wr} of games with this core."}</T>
               </p>
             )}
+          </section>
+        )}
+        {Object.values(fun).some((l) => l.length) && (
+          <section className="card span-8" data-accent="tier">
+            <div className="card-head">
+              <h2>
+                <T>Top 10 at</T>
+              </h2>
+              <span className="card-note">
+                <T>Estimated</T>
+              </span>
+            </div>
+            <FunLists lists={fun} />
+          </section>
+        )}
+        {game && (
+          <section className="card span-4" data-accent="gold">
+            <div className="card-head">
+              <h2>
+                <T>A typical game</T>
+              </h2>
+              <span className="card-note">
+                <T>Estimated</T>
+              </span>
+            </div>
+            <div className="stat-row">
+              <div>
+                <b>
+                  <T v={{ n: Math.round(game.minutes) }}>{"{n} min"}</T>
+                </b>
+                <span>
+                  <T>game length</T>
+                </span>
+              </div>
+              <div>
+                <b>{pct(game.blue)}</b>
+                <span>
+                  <T>blue side wins</T>
+                </span>
+              </div>
+              <div>
+                <b>{pct(game.red)}</b>
+                <span>
+                  <T>red side wins</T>
+                </span>
+              </div>
+            </div>
           </section>
         )}
         {schedule && (

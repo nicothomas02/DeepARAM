@@ -177,5 +177,19 @@
  "Mail app (Outlook, Apple Mail and others)": "Почтовое приложение (Outlook, Apple Mail и другие)",
  "Open email": "Открыть почту",
  "Copy address": "Копировать адрес",
- "Champion and augment win rates and duo synergy, patch by patch.": "Винрейты чемпионов и аугментов и синергия дуэтов, патч за патчем."
+ "Champion and augment win rates and duo synergy, patch by patch.": "Винрейты чемпионов и аугментов и синергия дуэтов, патч за патчем.",
+ "Top 10 at": "Топ-10 по",
+ "Estimated": "Оценка",
+ "Damage": "Урон",
+ "Tanking": "Танкование",
+ "Healing": "Лечение",
+ "Crowd control": "Контроль",
+ "Teamplay": "Командная игра",
+ "Multikills": "Мультикиллы",
+ "Towers": "Башни",
+ "A typical game": "Типичный матч",
+ "{n} min": "{n} мин",
+ "game length": "длительность матча",
+ "blue side wins": "победы синей стороны",
+ "red side wins": "победы красной стороны"
 }

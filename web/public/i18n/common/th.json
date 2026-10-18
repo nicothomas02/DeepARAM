@@ -177,5 +177,19 @@
  "Mail app (Outlook, Apple Mail and others)": "แอปอีเมล (Outlook, Apple Mail และอื่น ๆ)",
  "Open email": "เปิดอีเมล",
  "Copy address": "คัดลอกที่อยู่",
- "Champion and augment win rates and duo synergy, patch by patch.": "อัตราชนะของแชมเปี้ยนและออคเมนต์ และซินเนอร์จีของคู่ แพตช์ต่อแพตช์"
+ "Champion and augment win rates and duo synergy, patch by patch.": "อัตราชนะของแชมเปี้ยนและออคเมนต์ และซินเนอร์จีของคู่ แพตช์ต่อแพตช์",
+ "Top 10 at": "10 อันดับแรก",
+ "Estimated": "ประมาณการ",
+ "Damage": "ดาเมจ",
+ "Tanking": "แทงก์",
+ "Healing": "ฮีล",
+ "Crowd control": "ควบคุม",
+ "Teamplay": "เล่นเป็นทีม",
+ "Multikills": "มัลติคิล",
+ "Towers": "ป้อม",
+ "A typical game": "เกมโดยทั่วไป",
+ "{n} min": "{n} นาที",
+ "game length": "ความยาวเกม",
+ "blue side wins": "ฝั่งน้ำเงินชนะ",
+ "red side wins": "ฝั่งแดงชนะ"
 }

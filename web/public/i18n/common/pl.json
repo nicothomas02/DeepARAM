@@ -177,5 +177,19 @@
  "Mail app (Outlook, Apple Mail and others)": "Aplikacja pocztowa (Outlook, Apple Mail i inne)",
  "Open email": "Otwórz e-mail",
  "Copy address": "Kopiuj adres",
- "Champion and augment win rates and duo synergy, patch by patch.": "Współczynniki zwycięstw bohaterów i augmentów oraz synergia duetów, patch po patchu."
+ "Champion and augment win rates and duo synergy, patch by patch.": "Współczynniki zwycięstw bohaterów i augmentów oraz synergia duetów, patch po patchu.",
+ "Top 10 at": "Top 10:",
+ "Estimated": "Szacunek",
+ "Damage": "Obrażenia",
+ "Tanking": "Tankowanie",
+ "Healing": "Leczenie",
+ "Crowd control": "Kontrola tłumu",
+ "Teamplay": "Gra zespołowa",
+ "Multikills": "Wielokrotne zabójstwa",
+ "Towers": "Wieże",
+ "A typical game": "Typowa gra",
+ "{n} min": "{n} min",
+ "game length": "długość gry",
+ "blue side wins": "wygrane strony niebieskiej",
+ "red side wins": "wygrane strony czerwonej"
 }

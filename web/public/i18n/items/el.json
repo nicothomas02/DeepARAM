@@ -66,6 +66,16 @@
  "Starter": "Αρχικό",
  "Epic": "Επικό",
  "Basic": "Βασικό",
+ "How it does": "Πώς τα πάει",
+ "Estimated": "Εκτίμηση",
+ "win rate": "ποσοστό νικών",
+ "vs its builders' usual win rate": "έναντι του συνηθισμένου ποσοστού νικών όσων το φτιάχνουν",
+ "of builds": "των build",
+ "bought 1st · 2nd · 3rd": "αγοράζεται 1ο · 2ο · 3ο",
+ "Some augments also grant this item.": "Κάποια augments δίνουν επίσης αυτό το αντικείμενο.",
+ "Win rate": "Ποσοστό νικών",
+ "{wr} win · in {share} of builds": "{wr} νίκες · στο {share} των build",
+ "augment item": "αντικείμενο augment",
  "Consumables": "Αναλώσιμα",
  "From augments": "Από βελτιώσεις"
 }

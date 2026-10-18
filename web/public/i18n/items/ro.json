@@ -66,6 +66,16 @@
  "Starter": "De start",
  "Epic": "Epic",
  "Basic": "De bază",
+ "How it does": "Cum se descurcă",
+ "Estimated": "Estimare",
+ "win rate": "rată de victorie",
+ "vs its builders' usual win rate": "față de rata obișnuită a celor care îl cumpără",
+ "of builds": "din build-uri",
+ "bought 1st · 2nd · 3rd": "cumpărat 1 · 2 · 3",
+ "Some augments also grant this item.": "Unele augmentări oferă și acest obiect.",
+ "Win rate": "Rată de victorie",
+ "{wr} win · in {share} of builds": "{wr} victorii · în {share} din build-uri",
+ "augment item": "obiect de augmentare",
  "Consumables": "Consumabile",
  "From augments": "Din augmentări"
 }
