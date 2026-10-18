@@ -196,6 +196,7 @@ struct Rules {
     // up to keep a fight's total about where real games put it.
     double inRangeBoost = 1.0;
     double focusRamp = 0;     // seconds over which the enemies' damage on you builds up to full
+    double deathBlastLife = 0;  // damage dealt on death counts in full only after a life this long
     bool focusFromContact = false;  // the ramp starts when an enemy first has you in reach
     double comboOrder = 1;  // 1: cast in each champion's recommended combo order; 0: by damage
     // Enemies cast their own abilities: their damage partly arrives as those abilities' hits (on
