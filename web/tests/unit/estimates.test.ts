@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { augmentStages, funLists, itemEstimate, powerCurve, rarityOdds, typicalGame } from "@/lib/estimates";
+import { augmentStages, funLists, itemEstimate, powerCurveLists, rarityOdds, typicalGame } from "@/lib/estimates";
 
 // Estimated stats the site shows (lib/estimates.ts), read from data/estimates/estimates.json.
 describe("estimates", () => {
@@ -31,7 +31,7 @@ describe("estimates", () => {
   });
 
   it("reads the power curve, or nothing when it isn't built yet", () => {
-    const c = powerCurve();
+    const c = powerCurveLists();
     expect(c.early.length).toBeLessThanOrEqual(10);
     expect(c.late.length).toBeLessThanOrEqual(10);
     for (const id of c.early) expect(c.scaling.get(id)!).toBeLessThan(0);

@@ -18,7 +18,7 @@ import type { PatchRow } from "@/lib/tiers";
 import Intro from "@/components/Intro";
 import { T } from "@/components/I18n";
 import ItemIndex from "@/components/ItemIndex";
-import { itemEstimate, powerCurve } from "@/lib/estimates";
+import { itemEstimate, powerCurveLists } from "@/lib/estimates";
 import { itemPages } from "@/lib/item-pages";
 import { text } from "@/lib/content";
 import Pending from "@/components/Pending";
@@ -85,7 +85,7 @@ export default function TierListPage() {
           tags={allChampionTags([...new Set(rows.map((r) => r.name))])}
           tagInfo={championTagData().info}
           games={fillGames()}
-          scaling={Object.fromEntries([...powerCurve().scaling].flatMap(([id, v]) => (ALIAS[id] ? [[ALIAS[id], v]] : [])))}
+          scaling={Object.fromEntries([...powerCurveLists().scaling].flatMap(([id, v]) => (ALIAS[id] ? [[ALIAS[id], v]] : [])))}
         />
       ),
     },
