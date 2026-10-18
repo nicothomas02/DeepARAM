@@ -422,7 +422,8 @@
   function ccPose(kind, age, total) {
     if (kind === "fear") return { role: "run", t: age, loop: true };
     if (kind === "root" || kind === "slow" || kind === "silence") return null;
-    return { role: "stunned", t: age, loop: true, lift: kind === "knockup" ? Math.sin(Math.PI * Math.min(1, age / Math.max(0.2, total))) : 0 };
+    if (kind === "knockup") return { role: "knockup", t: age, loop: false, lift: Math.sin(Math.PI * Math.min(1, age / Math.max(0.2, total))) };
+    return { role: "stunned", t: age, loop: true, lift: 0 };
   }
   // A badge over a head: what holds the champion and a bar for the time left.
   function ccBadge(g, x, y, kind, left, total, u) {
@@ -574,20 +575,35 @@
       const fit = Math.min(len, atk.span);
       if (age < fit) return { role, t: age * (len / fit), loop: false, n: atk.n, free: age > (atk.a || 0.3) + atk.fly + 0.1 };
     }
+    // A kill: a laugh, taunt or joke (in turn) while the next enemy comes; walking cuts it short.
+    let kill = null, kn = 0;
+    for (const k of fight.kills) { if (k.t > time) break; kill = k; kn++; }
+    if (kill && time - kill.t > CHEER_DELAY && time - kill.t < CHEER_DELAY + CHEER_FOR) {
+      const cheer = CHEERS[(kn - 1) % CHEERS.length];
+      return { role: cheer, t: time - kill.t - CHEER_DELAY, loop: false, free: true };
+    }
     return { role: "idle", t: time, loop: true };
   }
   // Enemies attack while you're within their reach (the same test as the red line to you) and
   // alive, about once every ENEMY_ATTACK seconds; otherwise they stand (or run after you).
   const ENEMY_ATTACK = 1.25, DEAD_FOR = 2;
+  // Celebrating a kill (after the target falls) and a new enemy's arrival pose, in seconds.
+  const CHEERS = ["laugh", "taunt", "joke"], CHEER_DELAY = 0.35, CHEER_FOR = 2.2, ARRIVE_FOR = 1.6;
   function enemyAnim(time, en, world) {
     if (en.died !== null) return { role: "death", t: time - en.died, loop: false };
     // Your champion is down: the enemies who are still standing dance.
-    if (fight.death && time >= fight.death.t + 0.4) return { role: "dance", t: time - fight.death.t - 0.4, loop: true };
+    // laughing first, then dancing.
+    if (fight.death && time >= fight.death.t + 0.4) {
+      const k = time - fight.death.t - 0.4;
+      return k < CHEER_FOR ? { role: "laugh", t: k, loop: false } : { role: "dance", t: k - CHEER_FOR, loop: true };
+    }
     const held = enemyCc(en.uid, time);
     const pose = held && ccPose(held.x, time - held.t, held.a - held.t);
     if (pose) return pose;
     const cast = enemyCastAt(en.uid, time);
     if (cast) return { role: cast.s, t: time - cast.t, loop: false, n: cast.n, free: time - cast.t > (cast.a || 0.25) + 0.1 };
+    // A later enemy arrives with its respawn pose (walking in plays the run instead).
+    if (en.born > 0.05 && time - en.born < ARRIVE_FOR) return { role: "respawn", t: time - en.born, loop: false, free: true };
     if (held && held.x === "root") return { role: "idle", t: time, loop: true };
     if (time < fight.engage || (fight.death && time >= fight.death.t)) return { role: "idle", t: time + en.uid * 0.7, loop: true, chase: true };
     if (world) {
@@ -819,7 +835,10 @@
       // (much faster than any walk) keeps the cast's pose.
       const pace = (v) => (v ? Math.hypot(v.x, v.y) : 0);
       const runs = (anim, v) => { const k = pace(v); return k > 60 && (anim.role === "idle" || (anim.free && k < 1000)); };
-      const runPose = (v) => ({ role: "run", t: time, loop: true, rate: Math.min(2, Math.max(0.5, pace(v) / 345)) });
+      // Well above a walk (a speed burst), the haste run where the model has one.
+      const runPose = (v) => pace(v) > 480
+        ? { role: "haste", t: time, loop: true, rate: Math.min(2, Math.max(0.5, pace(v) / 480)) }
+        : { role: "run", t: time, loop: true, rate: Math.min(2, Math.max(0.5, pace(v) / 345)) };
       // After the engage, idle is the plain loop (no idle variations in the middle of a fight).
       const calm = (a) => (a.role === "idle" ? { ...a, rate: 1, base: time >= fight.engage } : a);
       // Models are drawn at their in-game size: px per game unit, as the floor is drawn.
