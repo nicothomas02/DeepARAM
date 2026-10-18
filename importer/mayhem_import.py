@@ -365,7 +365,8 @@ def fetch_collection(lcu, summoner):
 # participant ids as in the game. None means the client had no timeline.
 
 FETCH_WORKERS = 6  # games asked of the League client at once
-TIMELINES_PER_RUN = 200
+SGP_WORKERS = 8  # timelines asked of the match-history service at once; it answers many in parallel
+TIMELINES_PER_RUN = 2000
 
 
 def compact_kills(timeline):
@@ -382,21 +383,38 @@ def compact_kills(timeline):
     return kills
 
 
-def fill_kill_maps(lcu, games, progress=log, limit=TIMELINES_PER_RUN):
-    """Adds "killMap" to games that don't have one yet. Returns how many changed."""
+def sgp_timeline(host, token, match_id, timeout=30):
+    """A game's timeline from the match-history service: the same frames the client serves, but the service
+    answers many requests at once (about 0.13 s a game with 8 in flight) where the client works through them
+    one by one (about 1 s a game)."""
+    body = curl_json(f"{host}/match-history-query/v1/products/lol/{match_id}/DETAILS",
+                     auth_header=f"Bearer {token}", timeout=timeout)
+    return (body or {}).get("json")
+
+
+def fill_kill_maps(lcu, games, progress=log, limit=TIMELINES_PER_RUN, sgp=None):
+    """Adds "killMap" to games that don't have one yet. Returns how many changed.
+    With sgp=(host, token) timelines come from the match-history service, falling back to the client."""
     todo = [g for g in games if "killMap" not in g and g.get("gameId")][:limit]
     if not todo:
         return 0
     progress(f"Fetching kill positions for {len(todo)} games.")
 
     def fetch(game):
+        if sgp:
+            try:
+                found = sgp_timeline(*sgp, f"{game.get('platformId') or 'NA1'}_{game['gameId']}")
+                if found:
+                    return found
+            except (HttpError, ConnectionError):
+                pass  # the client may still have it
         try:
             return lcu.get(f"/lol-match-history/v1/game-timelines/{game['gameId']}")
         except (HttpError, ConnectionError) as e:
             return e
 
     changed = 0
-    with ThreadPoolExecutor(FETCH_WORKERS) as pool:
+    with ThreadPoolExecutor(SGP_WORKERS if sgp else FETCH_WORKERS) as pool:
         for n, (game, timeline) in enumerate(zip(todo, pool.map(fetch, todo)), 1):
             if isinstance(timeline, HttpError):
                 if timeline.status == 404:
@@ -485,7 +503,7 @@ def run_import(out, full=False, lockfile=None, sgp_host=None, progress=log, on_g
 
     mapped = 0
     try:
-        mapped = fill_kill_maps(lcu, games, progress)
+        mapped = fill_kill_maps(lcu, games, progress, sgp=(host, token))
     except KeyboardInterrupt:
         mapped = 1  # some games may have changed; save them
         progress("Stopped. Saving what was fetched so far.")
