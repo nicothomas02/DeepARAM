@@ -69,6 +69,7 @@ struct Ability {
     Area area = Area::Single;
     Geometry geo;
     bool aura = false;  // per-second damage on a toggle or very short cooldown: always on
+    bool toggle = false; // switched on while enemies are in reach (Singed Q, Karthus E, Amumu W)
     int onhitEvery = 0; // > 0: a passive that procs on every Nth attack instead of a cast
     std::vector<Hit> hits;
 };

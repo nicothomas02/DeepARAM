@@ -218,7 +218,8 @@
     "on_self": true,
     "self_buff": false
    },
-   "why": "Defile is a 550-radius aura; parsed as a single/self buff so the aura only reached 350"
+   "toggle": true,
+   "why": "Defile is a 550-radius aura; parsed as a single/self buff so the aura only reached 350; it is a toggle, on whenever enemies are in reach"
   }
  },
  "Sion": {
@@ -284,11 +285,14 @@
    "why": "Frostbite is doubled on chilled targets; Q/R keep the target chilled in her combo"
   },
   "R": {
-   "duration": 2.0,
+   "toggle": true,
+   "geometry": {
+    "radius": 400
+   },
    "hit_mults": {
     "TotalDamagePerSecond": 2.5
    },
-   "why": "Glacial Storm is a sustained toggle that triples damage once fully formed (1.5s); was only up half the time at base damage"
+   "why": "Glacial Storm is a toggle kept on the target while it stays in range; it grows to 400 radius and triples its damage once fully formed (1.5s), counted as x2.5"
   }
  },
  "Zac": {
@@ -1418,6 +1422,10 @@
     "duration": 0.5
    },
    "why": "Fling is a melee targeted toss; root only when landing in Mega Adhesive"
+  },
+  "Q": {
+   "toggle": true,
+   "why": "Poison Trail is a toggle: on whenever enemies are in reach"
   }
  },
  "Smolder": {
@@ -1760,6 +1768,12 @@
     "move": "dash"
    },
    "why": "Jaws of the Beast held down makes Warwick leap with his target"
+  }
+ },
+ "Amumu": {
+  "W": {
+   "toggle": true,
+   "why": "Despair is a toggle: its tooltip numbers are per second, on whenever enemies are in reach"
   }
  }
 }

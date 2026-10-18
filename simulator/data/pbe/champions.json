@@ -1605,7 +1605,10 @@
       }
      ],
      "mode_overrides": [],
-     "notes": []
+     "notes": [
+      "hand override: Despair is a toggle: its tooltip numbers are per second, on whenever enemies are in reach"
+     ],
+     "toggle": true
     },
     {
      "slot": "E",
@@ -1877,7 +1880,7 @@
      "geometry": {
       "shape": "circle",
       "range": 750.0,
-      "radius": 200.0,
+      "radius": 400.0,
       "width": 0.0,
       "angle": 0.0,
       "speed": 0,
@@ -1909,8 +1912,9 @@
      ],
      "mode_overrides": [],
      "notes": [
-      "hand override: Glacial Storm is a sustained toggle that triples damage once fully formed (1.5s); was only up half the time at base damage"
-     ]
+      "hand override: Glacial Storm is a toggle kept on the target while it stays in range; it grows to 400 radius and triples its damage once fully formed (1.5s), counted as x2.5"
+     ],
+     "toggle": true
     }
    ],
    "parse_quality": "good",
@@ -13795,8 +13799,9 @@
      ],
      "mode_overrides": [],
      "notes": [
-      "hand override: Defile is a 550-radius aura; parsed as a single/self buff so the aura only reached 350"
-     ]
+      "hand override: Defile is a 550-radius aura; parsed as a single/self buff so the aura only reached 350; it is a toggle, on whenever enemies are in reach"
+     ],
+     "toggle": true
     },
     {
      "slot": "R",
@@ -28387,7 +28392,10 @@
       }
      ],
      "mode_overrides": [],
-     "notes": []
+     "notes": [
+      "hand override: Poison Trail is a toggle: on whenever enemies are in reach"
+     ],
+     "toggle": true
     },
     {
      "slot": "W",

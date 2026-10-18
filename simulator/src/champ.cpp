@@ -226,6 +226,7 @@ ChampionKit loadChampion(const json::Value& c, const Rules& rules) {
         ab.area = areaOf(a["area"].asString());
         ab.geo = geometryOf(a["geometry"], ab.area, k.attackRange);
         ab.onhitEvery = static_cast<int>(a["onhit_every"].asNumber(0));
+        ab.toggle = a["toggle"].asBool(false);
 
         // Which tooltip numbers count: the first main number fully, repeats of the
         // same formula fully (e.g. Ahri Q out and back), other numbers at
@@ -247,9 +248,12 @@ ChampionKit loadChampion(const json::Value& c, const Rules& rules) {
             seen.insert(hit.calc);
             ab.hits.push_back(hit);
         }
+        // A toggle's numbers are per second, whatever its tooltip's wording.
+        if (ab.toggle)
+            for (auto& hit : ab.hits) hit.perSecond = true;
         bool allPerSecond = !ab.hits.empty();
         for (const auto& hit : ab.hits) allPerSecond &= hit.perSecond;
-        ab.aura = allPerSecond && ab.cooldown < 1.0 && ab.onhitEvery == 0;
+        ab.aura = ab.toggle || (allPerSecond && ab.cooldown < 1.0 && ab.onhitEvery == 0);
         if (!ab.aura && ab.onhitEvery == 0) ab.cooldown = std::max(ab.cooldown, rules.minCooldown);
         for (const auto& hit : ab.hits) {
             k.apRatios += get(hit.scaling, "ap") * hit.weight;
@@ -2363,8 +2367,48 @@ private:
             for (Enemy* e : near(me_, 325)) deal(e, auraDps_ * dt, DamageType::Magic, SrcItems);
         for (const auto& [a, h] : auraHits_) {
             const Source src = a->slot == 'Q' ? SrcQ : a->slot == 'W' ? SrcW : a->slot == 'E' ? SrcE : SrcR;
-            const double radius = a->geo.shape == Shape::Circle && a->geo.onSelf ? a->geo.radius : 350.0;
-            for (Enemy* e : near(me_, radius)) deal(e, hitRaw(*h, *e) * abilityAmp_ * dt, h->type, src);
+            Vec at;
+            if (!auraCenter(*a, at)) continue;
+            for (Enemy* e : near(at, auraRadius(*a))) deal(e, hitRaw(*h, *e) * abilityAmp_ * dt, h->type, src);
+        }
+        if (trace_) traceToggles();
+    }
+    static double auraRadius(const Ability& a) {
+        if (a.toggle && a.geo.shape == Shape::Circle) return a.geo.radius;
+        return a.geo.shape == Shape::Circle && a.geo.onSelf ? a.geo.radius : 350.0;
+    }
+    // Where an aura burns: around you, or for a placed toggle (Anivia R) on your target
+    // while it stands within cast range.
+    bool auraCenter(const Ability& a, Vec& at) {
+        at = me_;
+        if (!a.toggle || a.geo.onSelf || a.geo.shape != Shape::Circle) return true;
+        if (!hasPrimary() || distTo(P()) > a.geo.range + a.geo.radius) return false;
+        at = P().pos;
+        return true;
+    }
+    // The replay shows a toggle switching on (a cast, then its ring stays up) when an enemy comes
+    // into its reach, and off once nobody has been there for a second and a half.
+    std::map<char, double> toggleSeen_;
+    std::set<char> toggleOn_;
+    void traceToggles() {
+        for (const Ability& a : ch_.abilities) {
+            if (!a.toggle) continue;
+            Vec at;
+            if (auraCenter(a, at) && !near(at, auraRadius(a)).empty()) toggleSeen_[a.slot] = t_;
+            const bool on = toggleSeen_.count(a.slot) && t_ - toggleSeen_[a.slot] < 1.5;
+            if (on == static_cast<bool>(toggleOn_.count(a.slot))) continue;
+            if (on) toggleOn_.insert(a.slot); else toggleOn_.erase(a.slot);
+            TraceEvent ev;
+            const bool placed = !a.geo.onSelf && hasPrimary();
+            ev.t = t_; ev.kind = "toggle"; ev.slot = a.slot; ev.flag = on; ev.amount = auraRadius(a);
+            if (placed) ev.target = P().uid;
+            record(ev);
+            if (!on) continue;
+            TraceEvent cast;
+            cast.t = t_; cast.kind = "cast"; cast.slot = a.slot; cast.flag = true; cast.text = placed ? "circle" : "self";
+            cast.x = placed ? P().pos.x : me_.x; cast.y = placed ? P().pos.y : me_.y;
+            if (placed) cast.target = P().uid;
+            record(cast);
         }
     }
 
