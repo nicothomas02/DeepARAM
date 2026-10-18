@@ -235,5 +235,13 @@
  "Connected {riotId}. Mayhem Stats on your computer now saves your games here; go back to it to watch it finish.": "{riotId} collegato. Mayhem Stats sul tuo computer ora salva qui le tue partite; torna lì per vederlo finire.",
  "Connected {riotId}. You can go back to Mayhem Stats.": "{riotId} collegato. Puoi tornare a Mayhem Stats.",
  "Sign in above to connect Mayhem Stats. You'll be asked to confirm right after.": "Accedi qui sopra per collegare Mayhem Stats. Subito dopo ti verrà chiesto di confermare.",
- "This connect link has expired. Choose Connect account in My Stats again.": "Questo link di collegamento è scaduto. Scegli di nuovo Collega account in Le mie statistiche."
+ "This connect link has expired. Choose Connect account in My Stats again.": "Questo link di collegamento è scaduto. Scegli di nuovo Collega account in Le mie statistiche.",
+ "new games": "nuove partite",
+ "new game": "nuova partita",
+ "Finding your games…": "Ricerca delle partite…",
+ "Importing games": "Importazione delle partite",
+ "Mapping kills": "Mappatura delle uccisioni",
+ "Sharing games": "Condivisione delle partite",
+ "Saving to your account": "Salvataggio nel tuo account",
+ "Done": "Fatto"
 }

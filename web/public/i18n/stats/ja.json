@@ -235,5 +235,13 @@
  "Connected {riotId}. Mayhem Stats on your computer now saves your games here; go back to it to watch it finish.": "{riotId}を連携しました。お使いのコンピューターのMayhem Statsが試合をここに保存しています。Mayhem Statsに戻って完了を確認してください。",
  "Connected {riotId}. You can go back to Mayhem Stats.": "{riotId}を連携しました。Mayhem Statsに戻ってかまいません。",
  "Sign in above to connect Mayhem Stats. You'll be asked to confirm right after.": "上でサインインしてMayhem Statsを連携してください。その後すぐに確認を求められます。",
- "This connect link has expired. Choose Connect account in My Stats again.": "この連携リンクは期限切れです。マイ戦績でもう一度「アカウント連携」を選んでください。"
+ "This connect link has expired. Choose Connect account in My Stats again.": "この連携リンクは期限切れです。マイ戦績でもう一度「アカウント連携」を選んでください。",
+ "new games": "件の新しい試合",
+ "new game": "件の新しい試合",
+ "Finding your games…": "試合を検索中…",
+ "Importing games": "試合をインポート中",
+ "Mapping kills": "キル位置を取得中",
+ "Sharing games": "試合を共有中",
+ "Saving to your account": "アカウントに保存中",
+ "Done": "完了"
 }

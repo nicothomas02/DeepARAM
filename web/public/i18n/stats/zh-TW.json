@@ -235,5 +235,13 @@
  "Connected {riotId}. Mayhem Stats on your computer now saves your games here; go back to it to watch it finish.": "已連結 {riotId}。你電腦上的 Mayhem Stats 正在將對戰儲存到這裡；返回 Mayhem Stats 查看完成情況。",
  "Connected {riotId}. You can go back to Mayhem Stats.": "已連結 {riotId}。你可以返回 Mayhem Stats。",
  "Sign in above to connect Mayhem Stats. You'll be asked to confirm right after.": "在上方登入以連結 Mayhem Stats。登入後會立即請你確認。",
- "This connect link has expired. Choose Connect account in My Stats again.": "這個連結用的網址已過期。請在「我的數據」中再次選擇「連結帳號」。"
+ "This connect link has expired. Choose Connect account in My Stats again.": "這個連結用的網址已過期。請在「我的數據」中再次選擇「連結帳號」。",
+ "new games": "場新對戰",
+ "new game": "場新對戰",
+ "Finding your games…": "正在尋找你的對戰…",
+ "Importing games": "正在匯入對戰",
+ "Mapping kills": "正在標記擊殺位置",
+ "Sharing games": "正在分享對戰",
+ "Saving to your account": "正在儲存到你的帳號",
+ "Done": "完成"
 }

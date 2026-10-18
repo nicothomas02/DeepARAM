@@ -235,5 +235,13 @@
  "Connected {riotId}. Mayhem Stats on your computer now saves your games here; go back to it to watch it finish.": "{riotId} terhubung. Mayhem Stats di komputermu sekarang menyimpan game-mu di sini; kembali ke sana untuk melihatnya selesai.",
  "Connected {riotId}. You can go back to Mayhem Stats.": "{riotId} terhubung. Kamu bisa kembali ke Mayhem Stats.",
  "Sign in above to connect Mayhem Stats. You'll be asked to confirm right after.": "Masuk di atas untuk menghubungkan Mayhem Stats. Kamu akan diminta konfirmasi tepat setelahnya.",
- "This connect link has expired. Choose Connect account in My Stats again.": "Tautan penghubung ini sudah kedaluwarsa. Pilih Hubungkan akun di Statistik Saya lagi."
+ "This connect link has expired. Choose Connect account in My Stats again.": "Tautan penghubung ini sudah kedaluwarsa. Pilih Hubungkan akun di Statistik Saya lagi.",
+ "new games": "game baru",
+ "new game": "game baru",
+ "Finding your games…": "Mencari game-mu…",
+ "Importing games": "Mengimpor game",
+ "Mapping kills": "Memetakan kill",
+ "Sharing games": "Membagikan game",
+ "Saving to your account": "Menyimpan ke akunmu",
+ "Done": "Selesai"
 }

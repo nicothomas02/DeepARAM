@@ -235,5 +235,13 @@
  "Connected {riotId}. Mayhem Stats on your computer now saves your games here; go back to it to watch it finish.": "{riotId} a fost conectat. Mayhem Stats de pe computerul tău îți salvează acum meciurile aici; revino la el ca să vezi cum termină.",
  "Connected {riotId}. You can go back to Mayhem Stats.": "{riotId} a fost conectat. Poți reveni la Mayhem Stats.",
  "Sign in above to connect Mayhem Stats. You'll be asked to confirm right after.": "Conectează-te mai sus ca să conectezi Mayhem Stats. Imediat după, ți se va cere să confirmi.",
- "This connect link has expired. Choose Connect account in My Stats again.": "Acest link de conectare a expirat. Alege din nou Conectează contul în Statisticile mele."
+ "This connect link has expired. Choose Connect account in My Stats again.": "Acest link de conectare a expirat. Alege din nou Conectează contul în Statisticile mele.",
+ "new games": "meciuri noi",
+ "new game": "meci nou",
+ "Finding your games…": "Se caută meciurile tale…",
+ "Importing games": "Se importă meciurile",
+ "Mapping kills": "Se cartografiază uciderile",
+ "Sharing games": "Se partajează meciurile",
+ "Saving to your account": "Se salvează în contul tău",
+ "Done": "Gata"
 }

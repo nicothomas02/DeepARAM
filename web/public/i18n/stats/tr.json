@@ -235,5 +235,13 @@
  "Connected {riotId}. Mayhem Stats on your computer now saves your games here; go back to it to watch it finish.": "{riotId} bağlandı. Bilgisayarındaki Mayhem Stats artık maçlarını buraya kaydediyor; bitişini izlemek için ona geri dön.",
  "Connected {riotId}. You can go back to Mayhem Stats.": "{riotId} bağlandı. Mayhem Stats'e geri dönebilirsin.",
  "Sign in above to connect Mayhem Stats. You'll be asked to confirm right after.": "Mayhem Stats'i bağlamak için yukarıdan giriş yap. Hemen ardından onaylaman istenecek.",
- "This connect link has expired. Choose Connect account in My Stats again.": "Bu bağlantı linkinin süresi doldu. İstatistiklerim'de yeniden Hesap bağla'yı seç."
+ "This connect link has expired. Choose Connect account in My Stats again.": "Bu bağlantı linkinin süresi doldu. İstatistiklerim'de yeniden Hesap bağla'yı seç.",
+ "new games": "yeni maç",
+ "new game": "yeni maç",
+ "Finding your games…": "Maçların aranıyor…",
+ "Importing games": "Maçlar içe aktarılıyor",
+ "Mapping kills": "Skorlar haritalanıyor",
+ "Sharing games": "Maçlar paylaşılıyor",
+ "Saving to your account": "Hesabına kaydediliyor",
+ "Done": "Tamamlandı"
 }

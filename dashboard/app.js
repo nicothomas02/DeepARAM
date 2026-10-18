@@ -757,18 +757,121 @@ async function reloadArchive() {
   if (res.ok) await loadText(await res.text());
 }
 
+// ---------- import animation ----------
+// While an import runs: a counter of new games that ticks up, a progress bar, and the champion of each new game
+// popping in (ringed green for a win). Decorative: the status line above says the same for screen readers.
+// With reduced motion, the numbers and icons just update.
+
+const live = { el: $("sync-live"), shown: 0, added: 0, raf: 0, timer: 0 };
+const STILL = matchMedia("(prefers-reduced-motion: reduce)");
+const ICON = (id) => `/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/${id}.png`;
+
+function liveStart() {
+  clearTimeout(live.timer);
+  Object.assign(live, { shown: 0, added: 0 });
+  live.el.className = "sync-live waiting";
+  live.el.hidden = false;
+  $("sl-added").textContent = "0";
+  $("sl-label").textContent = t("new games");
+  $("sl-step").textContent = t("Finding your games…");
+  $("sl-fill").style.width = "0";
+  $("sl-champs").replaceChildren();
+}
+
+function countTo(n) {
+  const el = $("sl-added");
+  cancelAnimationFrame(live.raf);
+  const from = Number(el.textContent.replace(/\D/g, "")) || 0;
+  if (n !== from) { el.classList.remove("bump"); void el.offsetWidth; el.classList.add("bump"); }
+  if (STILL.matches || n <= from) { el.textContent = n.toLocaleString(); return; }
+  const start = performance.now(), span = Math.min(600, 80 * (n - from));
+  const step = (now) => {
+    const k = Math.min(1, (now - start) / span);
+    el.textContent = Math.round(from + (n - from) * k).toLocaleString();
+    if (k < 1) live.raf = requestAnimationFrame(step);
+  };
+  live.raf = requestAnimationFrame(step);
+}
+
+function addChamps(picks) {
+  const row = $("sl-champs");
+  picks.forEach((p, i) => {
+    const img = new Image();
+    img.src = ICON(p.champion);
+    img.alt = "";
+    img.className = p.win ? "win" : "";
+    img.style.animationDelay = `${i * 70}ms`;
+    img.onerror = () => img.remove();
+    row.append(img);
+  });
+  // Keep the row to what fits; the oldest shrink away.
+  const keep = Math.max(4, Math.floor(row.clientWidth / 46) || 12);
+  [...row.children].filter((c) => !c.classList.contains("out")).slice(0, -keep).forEach((c) => {
+    if (STILL.matches) return c.remove();
+    c.classList.add("out");
+    c.addEventListener("animationend", () => c.remove(), { once: true });
+  });
+}
+
+function liveUpdate(s) {
+  const p = s.progress;
+  const last = s.log.at(-1) || "";
+  const nums = last.match(/\[(\d+)\/(\d+)\]|(\d+) of (\d+)/);
+  let done = 0, total = 0, step = t("Finding your games…");
+  if (p && p.total && p.done < p.total) {
+    [done, total, step] = [p.done, p.total, t("Importing games")];
+  } else if (/kill positions/.test(last)) {
+    step = t("Mapping kills");
+  } else if (/^Shared/.test(last)) {
+    step = t("Sharing games");
+  } else if (/^Saved/.test(last)) {
+    step = t("Saving to your account");
+  } else if (p) {
+    step = t("Importing games");
+    if (p.total) [done, total] = [p.done, p.total];
+  }
+  if (!total && nums && !(p && p.total && p.done < p.total)) [done, total] = [Number(nums[1] || nums[3]), Number(nums[2] || nums[4])];
+  live.el.classList.toggle("waiting", !total);
+  $("sl-fill").style.width = total ? `${Math.round((100 * done) / total)}%` : "0";
+  $("sl-step").textContent = total ? `${step} · ${done.toLocaleString()}/${total.toLocaleString()}` : step;
+  if (p && p.added > live.added) {
+    const fresh = Math.min(p.added - live.added, p.recent.length);
+    addChamps(p.recent.slice(-fresh));
+    live.added = p.added;
+    $("sl-label").textContent = t(p.added === 1 ? "new game" : "new games");
+    countTo(p.added);
+  }
+}
+
+function liveEnd(ok) {
+  if (!ok) { live.el.hidden = true; return; }
+  live.el.classList.remove("waiting");
+  live.el.classList.add("done");
+  $("sl-step").textContent = t("Done");
+  live.timer = setTimeout(() => {
+    if (STILL.matches) { live.el.hidden = true; return; }
+    live.el.classList.add("leaving");
+    setTimeout(() => { live.el.hidden = true; }, 500);
+  }, 5000);
+}
+
 async function watchSync() {
   for (const b of syncBtns) { b.dataset.label ||= b.textContent; b.disabled = true; }
+  let ok = false;
+  liveStart();
   try {
     let s = await syncState();
     while (s.running) {
       setSyncStatus(s.log.length ? t(s.log.at(-1)) : t("Importing…"));
-      await sleep(1000);
+      liveUpdate(s);
+      await sleep(500);
       s = await syncState();
     }
     if (s.error) {
       setSyncStatus(t(s.error), true);
     } else if (s.result) {
+      ok = true;
+      liveUpdate(s);
       const { added, total, failed } = s.result;
       await reloadArchive();
       const summary = added
@@ -782,6 +885,7 @@ async function watchSync() {
   } catch (e) {
     setSyncStatus(t("Lost contact with the sync helper. Is it still running?"), true);
   } finally {
+    liveEnd(ok);
     for (const b of syncBtns) b.disabled = false;
   }
 }
