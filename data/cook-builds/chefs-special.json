@@ -1,268 +1,297 @@
 {
-  "id": "tryndamere-bloodlust-doctor",
-  "title": "The Bloodlust Doctor",
-  "champion": "Tryndamere",
-  "champion_name": "Tryndamere",
-  "chef": "2026-10-17",
-  "why": "Tryndamere already crits for free: his Fury raises his crit chance as he fights, and Bloodlust spends it to heal him. Critical Healing lets heals crit for 40% more off that same crit chance, and Circle of Death turns 70% of all his healing and Health Regen into magic damage on the nearest enemy champion, so every Bloodlust is a crit roll that blasts someone. Rite of Ruin adds crit chance on every spell cast and Spirit Visage makes his heals 25% bigger. Bloodlust's heal grows with Ability Power, so the crit carry becomes an AP healer whose heals do the killing.",
-  "play": "Fill your Fury, then Bloodlust next to the enemy you want hit. Undying Rage keeps you alive long enough to cast it again. Tank It Or Leave It is the flex pick.",
+  "id": "janna-speeding-ticket",
+  "title": "Speeding Ticket",
+  "champion": "Janna",
+  "champion_name": "Janna",
+  "chef": "2026-10-18",
+  "why": "Janna's Tailwind has a line nobody reads: a portion of her bonus Move Speed becomes bonus magic damage on hit and on Zephyr, and Zephyr's passive hands her free Move Speed just for existing. Tap Dancer gives her 10 Move Speed per attack, stacking for as long as she keeps hitting, and Don't Blink adds 1% damage for every 10 Move Speed she has over her target, so every attack makes the next one faster, harder on hit, and stronger on top. Zephyr's active slows the target and Ice Cold takes another 75 Move Speed off every slow, which widens the Don't Blink gap from the other side. Phantom Dancer, Lich Bane and Boots of Swiftness pile on raw speed, Dead Man's Plate stores speed while she runs and dumps it into her next attack, and Cosmic Drive gives her more Move Speed every time that on-hit magic damage lands. The enchanter stops shielding anyone and becomes an on-hit carry whose only real stat is Move Speed.",
+  "play": "Zephyr the squishiest target, then keep attacking: the longer the chase, the harder you hit. Get Excited! is the flex pick, since a takedown gives 100% Move Speed for 4 seconds and Don't Blink reads that as free damage.",
   "items": [
-    "Rite of Ruin",
-    "Spirit Visage",
-    "Riftmaker",
-    "Warmog's Armor",
-    "Mercury's Treads",
-    "Rabadon's Deathcap"
+    "Phantom Dancer",
+    "Dead Man's Plate",
+    "Nashor's Tooth",
+    "Lich Bane",
+    "Cosmic Drive",
+    "Boots of Swiftness"
   ],
-  "core": 2,
-  "champion_icon": "/embed/fun/cook-builds/icons/champions/23.png",
+  "core": 3,
+  "champion_icon": "/embed/fun/cook-builds/icons/champions/40.png",
   "augments": [
     {
-      "name": "Critical Healing",
-      "rarity": "Gold",
-      "core": true,
-      "text": "Your healing and Shields can Critically Strike for 40% bonus amount. Gain 25% Crit Chance.",
-      "icon": "/embed/fun/cook-builds/icons/augments/critical-healing.png",
-      "id": 1118
-    },
-    {
-      "name": "Circle of Death",
+      "name": "Tap Dancer",
       "rarity": "Prismatic",
       "core": true,
-      "text": "Your healing and Health Regen deal 70% of the value magic damage to the nearest enemy champion.",
-      "icon": "/embed/fun/cook-builds/icons/augments/circle-of-death.png",
-      "id": 1015
+      "text": "Your Attacks grant you 10 Movement Speed. Gain Attack Speed. The buff stacks and refreshes infinitely but lasts 5 seconds.",
+      "icon": "/embed/fun/cook-builds/icons/augments/tap-dancer.png",
+      "id": 1081
     },
     {
-      "name": "Tank It Or Leave It",
+      "name": "Don't Blink",
       "rarity": "Silver",
+      "core": true,
+      "text": "Gain 1% bonus damage per 10 Movement Speed more you have than the target.",
+      "icon": "/embed/fun/cook-builds/icons/augments/don-t-blink.png",
+      "id": 1026
+    },
+    {
+      "name": "Ice Cold",
+      "rarity": "Silver",
+      "core": true,
+      "text": "Your Slowing effects reduce Movement Speed by an extra 75.",
+      "icon": "/embed/fun/cook-builds/icons/augments/ice-cold.png",
+      "id": 1044
+    },
+    {
+      "name": "Get Excited!",
+      "rarity": "Gold",
       "core": false,
-      "text": "You can Critically Defend using your Crit Chance (max 50% chance), giving you a chance to reduce damage taken by 20%. Gain 25% Crit Chance.",
-      "icon": "/embed/fun/cook-builds/icons/augments/tank-it-or-leave-it.png",
-      "id": 1080
+      "text": "Gain 100% Movement Speed and 15% Attack Speed for 4 seconds on takedown.",
+      "icon": "/embed/fun/cook-builds/icons/augments/get-excited.png",
+      "id": 1322
     }
   ],
   "href": "/kitchen#chefs-special",
   "archive_href": "/kitchen#chef-archive",
-  "share_href": "/kitchen/2026-10-17",
-  "share_image": "/embed/fun/cook-builds/share/tryndamere-bloodlust-doctor.png",
+  "share_href": "/kitchen/2026-10-18",
+  "share_image": "/embed/fun/cook-builds/share/janna-speeding-ticket.png",
   "item_ids": [
-    123430,
-    3065,
-    4633,
-    3083,
-    3111,
-    3089
+    3046,
+    3742,
+    3115,
+    3100,
+    4629,
+    3009
   ],
   "i18n": {
     "ar": {
-      "title": "طبيب شهوة الدم",
-      "why": "تريندامير يضرب ضربات حرجة مجانًا أصلًا: غضبه يرفع فرصة الضربة الحرجة مع القتال، وشهوة الدم تستهلكه لتشفيه. العلاج الحرج يتيح للعلاج أن يكون حرجًا بزيادة 40% من فرصة الضربة الحرجة نفسها، وحلقة الموت تحوّل 70% من كل علاجه وتجدد صحته إلى ضرر سحري على أقرب بطل عدو، فتصبح كل شهوة دم رمية حظ حرجة تفجّر أحدهم. شعيرة الخراب تضيف فرصة ضربة حرجة مع كل إلقاء قدرة، ووجه الروح يكبّر علاجه بنسبة 25%. علاج شهوة الدم يزداد مع قوة القدرات، فيتحول حامل الضربات الحرجة إلى معالج سحري علاجه هو ما يقتل.",
-      "play": "املأ غضبك، ثم استخدم شهوة الدم بجوار العدو الذي تريد إصابته. الغضب الذي لا يموت يبقيك حيًا حتى تستخدمها مجددًا. عليك بالتدرع هو الخيار المرن.",
+      "title": "مخالفة سرعة",
+      "why": "في مهارة جانا السلبية سطر لا يقرأه أحد: جزء من سرعة حركتها الإضافية يتحول إلى ضرر سحري إضافي عند الضرب ومع زفير، وسلبية زفير تمنحها سرعة حركة مجانًا لمجرد وجودها. راقص إيقاعي يمنحها 10 سرعة حركة مع كل هجمة تتراكم ما دامت تضرب، ولا ترمش يضيف 1% ضرر عن كل 10 سرعة حركة تزيد بها على هدفها، فكل هجمة تجعل التالية أسرع وأقسى عند الضرب وأقوى فوق ذلك. تفعيل زفير يبطئ الهدف، وبارد كالثلج يخصم 75 سرعة حركة إضافية مع كل إبطاء، فيوسّع فارق لا ترمش من الجهة الأخرى. الراقص الشبح وعفونة الموتى وحذاء العجلة تكدّس السرعة الخام، ودرع صدر الرجل الميت يخزّن السرعة وهي تركض ثم يفرغها في هجمتها التالية، والحافز الكوني يمنحها مزيدًا من سرعة الحركة كلما أصاب ذلك الضرر السحري عند الضرب. الداعمة تتوقف عن حماية أي أحد وتتحول إلى حاملة ضرر عند الضرب إحصائيتها الحقيقية الوحيدة هي سرعة الحركة.",
+      "play": "ألقِ زفير على أضعف هدف ثم واصل الهجوم: كلما طالت المطاردة، اشتدت ضرباتك. ليشتعل حماسك! هو الخيار المرن، إذ تمنحك المشاركة في القتل 100% سرعة حركة لمدة 4 ثوانٍ، ولا ترمش يقرأ ذلك ضررًا مجانيًا.",
       "augments": [
-        "علاجك ودروعك الواقية يمكن أن تكون حرجة بزيادة 40%. تحصل على 25% فرصة ضربة حرجة.",
-        "علاجك وتجدد صحتك يُلحقان ضررًا سحريًا بنسبة 70% من القيمة بأقرب بطل عدو.",
-        "يمكنك الدفاع الحرج باستخدام فرصة ضربتك الحرجة (بحد أقصى 50%)، ما يمنحك فرصة لتقليل الضرر المتلقى بنسبة 20%. تحصل على 25% فرصة ضربة حرجة."
+        "هجماتك تمنحك 10 سرعة حركة. تكتسب سرعة هجوم. يتراكم التأثير ويتجدد بلا حدود لكنه يدوم 5 ثوانٍ.",
+        "تكتسب 1% ضررًا إضافيًا عن كل 10 سرعة حركة تزيد بها على الهدف.",
+        "تأثيرات الإبطاء لديك تقلل سرعة الحركة بمقدار 75 إضافية.",
+        "عند المشاركة في قتل، تكتسب 100% سرعة حركة و15% سرعة هجوم لمدة 4 ثوانٍ."
       ]
     },
     "cs": {
-      "title": "Doktor Krvežíznivost",
-      "why": "Tryndamere kritikuje zadarmo už tak: jeho zuřivost během boje zvyšuje šanci na kritický zásah a Krvežíznivost ji spotřebuje na léčení. Kritické léčení umožní léčení kriticky zasáhnout o 40 % víc ze stejné šance a Kruh smrti mění 70 % veškerého jeho léčení a regenerace zdraví na magické poškození nejbližšímu nepřátelskému šampionovi, takže každá Krvežíznivost je hod na krit, který někoho odpálí. Obřad zkázy přidává šanci na krit při každém seslání kouzla a Otisk duše zvětší jeho léčení o 25 %. Léčení Krvežíznivosti roste se silou schopností, takže z kritového carry je AP léčitel, jehož léčení zabíjí.",
-      "play": "Naplň zuřivost a pak použij Krvežíznivost u nepřítele, kterého chceš zasáhnout. Nesmrtelný hněv tě udrží naživu dost dlouho na další seslání. Kritická odolnost je flex volba.",
+      "title": "Pokuta za rychlost",
+      "why": "Pasivka Janny má řádek, který nikdo nečte: část její bonusové rychlosti pohybu se mění v bonusové magické poškození při zásahu a při Zefyru, a pasivní část Zefyru jí dává rychlost pohybu zadarmo jen za to, že existuje. Stepař jí dává 10 rychlosti pohybu za útok a stackuje se, dokud dál trefuje, a Nemrkej přidává 1 % poškození za každých 10 rychlosti pohybu navíc oproti cíli, takže každý útok dělá ten další rychlejší, tvrdší při zásahu a navrch silnější. Aktivní část Zefyru cíl zpomalí a Kostimráz ubere při každém zpomalení dalších 75 rychlosti pohybu, což rozdíl pro Nemrkej rozšíří z druhé strany. Tančící přízrak, Zhouba lichů a Spěšné boty vrší čistou rychlost, Kyrys mrtvého muže rychlost při běhu ukládá a vybije ji do dalšího útoku, a Kosmický pohon jí dává další rychlost pohybu pokaždé, když to magické poškození při zásahu dopadne. Enchanterka přestane kohokoli štítovat a stane se on-hit carry, jehož jediná skutečná statistika je rychlost pohybu.",
+      "play": "Zefyr na nejměkčí cíl a pak dál útoč: čím delší honička, tím tvrději biješ. Rozjeď to! je flexibilní volba, protože takedown dá na 4 sekundy 100 % rychlosti pohybu a Nemrkej to bere jako poškození zdarma.",
       "augments": [
-        "Tvé léčení a štíty můžou kriticky zasáhnout za 40 % navíc. Získáš 25 % šance na kritický zásah.",
-        "Tvé léčení a regenerace zdraví udělí nejbližšímu nepřátelskému šampionovi magické poškození ve výši 70 % své hodnoty.",
-        "Díky šanci na kritický zásah se můžeš kriticky bránit (max. 50% šance), což ti dá šanci snížit přijaté poškození o 20 %. Získáš 25 % šance na kritický zásah."
+        "Tvoje útoky ti dávají 10 rychlosti pohybu. Získáš rychlost útoku. Efekt se stackuje a obnovuje donekonečna, ale trvá 5 sekund.",
+        "Získáš 1 % bonusového poškození za každých 10 rychlosti pohybu, které máš navíc oproti cíli.",
+        "Tvoje zpomalení snižují rychlost pohybu o dalších 75.",
+        "Při takedownu získáš na 4 sekundy 100 % rychlosti pohybu a 15 % rychlosti útoku."
       ]
     },
     "de": {
-      "title": "Der Blutdurst-Doktor",
-      "why": "Tryndamere trifft schon gratis kritisch: Seine Wut erhöht im Kampf seine kritische Trefferchance, und Blutdurst verbraucht sie, um ihn zu heilen. Kritische Heilung lässt Heilungen mit derselben kritischen Trefferchance für 40 % mehr kritisch treffen, und Kreis des Todes verwandelt 70 % seiner gesamten Heilung und Lebensregeneration in magischen Schaden am nächsten gegnerischen Champion, also ist jeder Blutdurst ein Krit-Wurf, der jemanden wegsprengt. Ritual des Ruins gibt bei jedem Zauber kritische Trefferchance und Geistessicht macht seine Heilungen 25 % stärker. Die Heilung von Blutdurst wächst mit Fähigkeitsstärke, also wird der Krit-Carry zum AP-Heiler, dessen Heilungen das Töten übernehmen.",
-      "play": "Füll deine Wut, dann nutze Blutdurst neben dem Gegner, den du treffen willst. Unsterbliche Wut hält dich lange genug am Leben, um es erneut einzusetzen. Tank es oder lass es ist die flexible Wahl.",
+      "title": "Strafzettel",
+      "why": "Jannas Rückenwind hat eine Zeile, die niemand liest: Ein Teil ihres zusätzlichen Lauftempos wird zu zusätzlichem magischem Schaden bei Treffern und mit Zephyr, und Zephyrs Passive schenkt ihr Lauftempo einfach fürs Dasein. Stepptänzer gibt ihr 10 Lauftempo pro Angriff, das sich stapelt, solange sie weiter trifft, und Nicht blinzeln legt 1 % Schaden pro 10 Lauftempo drauf, die sie mehr hat als ihr Ziel, also macht jeder Angriff den nächsten schneller, härter beim Treffer und obendrein stärker. Zephyrs Aktive verlangsamt das Ziel und Eiskalt zieht bei jeder Verlangsamung noch 75 Lauftempo ab, was die Lücke für Nicht blinzeln von der anderen Seite vergrößert. Phantomtänzer, Fluch des Lichs und Stiefel der Wendigkeit stapeln rohes Tempo, Panzer des toten Mannes speichert Tempo beim Laufen und entlädt es in ihren nächsten Angriff, und Kosmischer Antrieb gibt ihr jedes Mal mehr Lauftempo, wenn dieser magische Treffer-Schaden landet. Die Verzauberin hört auf, irgendwen zu schilden, und wird zum Treffer-Carry, dessen einziger echter Wert Lauftempo ist.",
+      "play": "Zephyr auf das weichste Ziel, dann weiter angreifen: Je länger die Jagd, desto härter triffst du. Ich werd' verrückt! ist die flexible Wahl, denn ein Takedown gibt 4 Sekunden lang 100 % Lauftempo, und Nicht blinzeln liest das als Gratisschaden.",
       "augments": [
-        "Deine Heilungen und Schilde können für 40 % zusätzlichen Wert kritisch treffen. Erhalte 25 % kritische Trefferchance.",
-        "Deine Heilung und Lebensregeneration fügen dem nächsten gegnerischen Champion 70 % des Werts als magischen Schaden zu.",
-        "Du kannst mit deiner kritischen Trefferchance kritisch verteidigen (max. 50 % Chance), wodurch du eine Chance hast, erlittenen Schaden um 20 % zu verringern. Erhalte 25 % kritische Trefferchance."
+        "Deine Angriffe gewähren dir 10 Lauftempo. Erhalte Angriffstempo. Der Effekt stapelt sich und erneuert sich unbegrenzt, hält aber 5 Sekunden.",
+        "Erhalte 1 % zusätzlichen Schaden pro 10 Lauftempo, die du mehr hast als das Ziel.",
+        "Deine Verlangsamungen verringern das Lauftempo um zusätzliche 75.",
+        "Erhalte bei einem Takedown 4 Sekunden lang 100 % Lauftempo und 15 % Angriffstempo."
       ]
     },
     "el": {
-      "title": "Ο Γιατρός της Δίψας για Αίμα",
-      "why": "Ο Τρίνταμερ ήδη ρίχνει καίρια τζάμπα: η Οργή του ανεβάζει την πιθανότητα καίριου όσο μάχεται, και η Δίψα για Αίμα την ξοδεύει για να τον γιατρέψει. Η Καίρια Θεραπεία αφήνει τις θεραπείες να βγαίνουν καίριες για 40% παραπάνω με την ίδια πιθανότητα καίριου, και ο Κύκλος Θανάτου κάνει το 70% όλης της θεραπείας και της Ανανέωσης Ζωής του μαγική ζημιά στον πλησιέστερο εχθρικό ήρωα, οπότε κάθε Δίψα για Αίμα είναι μια ζαριά καίριου που ισοπεδώνει κάποιον. Η Τελετή της Καταστροφής προσθέτει πιθανότητα καίριου σε κάθε ξόρκι και η Όψη Πνευμάτων κάνει τις θεραπείες του 25% μεγαλύτερες. Η θεραπεία της Δίψας για Αίμα αυξάνεται με τη Δύναμη Ικανοτήτων, οπότε το crit carry γίνεται AP θεραπευτής που σκοτώνει με τις θεραπείες του.",
-      "play": "Γέμισε την Οργή σου και μετά ρίξε Δίψα για Αίμα δίπλα στον εχθρό που θες να χτυπηθεί. Η Αθάνατη Οργή σε κρατάει ζωντανό αρκετά για να τη ρίξεις ξανά. Η Καίρια Υπεράσπιση είναι η flex επιλογή.",
+      "title": "Κλήση για Υπερβολική Ταχύτητα",
+      "why": "Το παθητικό της Τζάνα έχει μια γραμμή που κανείς δεν διαβάζει: ένα μέρος της επιπλέον ταχύτητας κίνησής της γίνεται επιπλέον μαγική ζημιά σε κάθε χτύπημα και με τον Ζέφυρο, και το παθητικό του Ζέφυρου της δίνει ταχύτητα κίνησης τζάμπα, απλώς επειδή υπάρχει. Το Φτερά στα Πόδια της δίνει 10 ταχύτητα κίνησης ανά επίθεση, που στοιβάζεται όσο συνεχίζει να χτυπά, και το Μην Κλείνεις τα Μάτια προσθέτει 1% ζημιά για κάθε 10 ταχύτητα κίνησης που έχει παραπάνω από τον στόχο της, οπότε κάθε επίθεση κάνει την επόμενη πιο γρήγορη, πιο δυνατή στο χτύπημα και ακόμα πιο δυνατή από πάνω. Το ενεργό του Ζέφυρου επιβραδύνει τον στόχο και το Παγωμένος αφαιρεί άλλα 75 ταχύτητα κίνησης σε κάθε επιβράδυνση, ανοίγοντας τη διαφορά του Μην Κλείνεις τα Μάτια από την άλλη πλευρά. Ο Χορευτής Φαντασμάτων, ο Όλεθρος των Απέθαντων και οι Μπότες Γρηγοράδας στοιβάζουν σκέτη ταχύτητα, ο Θώρακας του Νεκρού αποθηκεύει ταχύτητα όσο τρέχει και την αδειάζει στην επόμενη επίθεσή της, και η Κοσμική Ενέργεια της δίνει κι άλλη ταχύτητα κίνησης κάθε φορά που αυτή η μαγική ζημιά στο χτύπημα μπαίνει. Η enchanter σταματά να δίνει ασπίδα σε οποιονδήποτε και γίνεται on-hit carry που το μόνο πραγματικό της στατιστικό είναι η ταχύτητα κίνησης.",
+      "play": "Ζέφυρο στον πιο εύθραυστο στόχο και μετά συνέχισε να χτυπάς: όσο πιο μακρύ το κυνηγητό, τόσο πιο δυνατά χτυπάς. Το Τρελός Ενθουσιασμός! είναι η ευέλικτη επιλογή, αφού μια εξόντωση δίνει 100% ταχύτητα κίνησης για 4 δευτερόλεπτα και το Μην Κλείνεις τα Μάτια το διαβάζει ως δωρεάν ζημιά.",
       "augments": [
-        "Οι θεραπείες και οι Ασπίδες σου μπορούν να είναι Καίριες για 40% επιπλέον ποσό. Κερδίζεις 25% Πιθανότητα Καίριου Χτυπήματος.",
-        "Οι θεραπείες και η Ανανέωση Ζωής σου προκαλούν το 70% της τιμής τους ως μαγική ζημιά στον πλησιέστερο εχθρικό ήρωα.",
-        "Μπορείς να κάνεις Καίρια Άμυνα με την Πιθανότητα Καίριου Χτυπήματος (έως 50%), με πιθανότητα να μειώσεις τη ζημιά που δέχεσαι κατά 20%. Κερδίζεις 25% Πιθανότητα Καίριου Χτυπήματος."
+        "Οι επιθέσεις σου σού δίνουν 10 ταχύτητα κίνησης. Αποκτάς ταχύτητα επίθεσης. Το buff στοιβάζεται και ανανεώνεται επ' άπειρον, αλλά διαρκεί 5 δευτερόλεπτα.",
+        "Αποκτάς 1% επιπλέον ζημιά για κάθε 10 ταχύτητα κίνησης που έχεις παραπάνω από τον στόχο.",
+        "Οι επιβραδύνσεις σου μειώνουν την ταχύτητα κίνησης κατά επιπλέον 75.",
+        "Με κάθε εξόντωση αποκτάς 100% ταχύτητα κίνησης και 15% ταχύτητα επίθεσης για 4 δευτερόλεπτα."
       ]
     },
     "es-MX": {
-      "title": "El doctor Sed de Sangre",
-      "why": "Tryndamere ya hace críticos gratis: su Furia aumenta su probabilidad de crítico mientras pelea, y Sed de Sangre la gasta para curarlo. Curación Crítica permite que las curaciones sean críticas con 40% más gracias a esa misma probabilidad de crítico, y Círculo de la Muerte convierte el 70% de toda su curación y Regeneración de Vida en daño mágico al campeón enemigo más cercano, así que cada Sed de Sangre es una tirada de crítico que revienta a alguien. Rito de Ruina añade probabilidad de crítico con cada hechizo lanzado y la Apariencia Espiritual hace sus curaciones 25% más grandes. La curación de Sed de Sangre crece con el Poder de Habilidad, así que el carry de críticos se vuelve un sanador AP cuyas curaciones son las que matan.",
-      "play": "Llena tu Furia y luego usa Sed de Sangre junto al enemigo al que quieras pegarle. Furia Inmortal te mantiene vivo lo suficiente para lanzarla otra vez. Tanque o ¿Tan Qué? es la opción flex.",
+      "title": "Multa por Exceso de Velocidad",
+      "why": "La pasiva de Janna tiene una línea que nadie lee: parte de su velocidad de movimiento adicional se vuelve daño mágico adicional al golpear y con Céfiro, y la pasiva de Céfiro le regala velocidad de movimiento solo por existir. Bailarín de Tap le da 10 de velocidad de movimiento por ataque, acumulable mientras siga pegando, y No Parpadees suma 1% de daño por cada 10 de velocidad de movimiento que tenga por encima de su objetivo, así que cada ataque hace que el siguiente sea más rápido, pegue más al golpear y encima sea más fuerte. La activa de Céfiro ralentiza al objetivo y Frío como el Hielo quita otros 75 de velocidad de movimiento con cada ralentización, lo que agranda la brecha de No Parpadees desde el otro lado. Bailarín Espectral, Maldición del Liche y Botas de Rapidez apilan velocidad pura, Placa del Hombre Muerto guarda velocidad mientras corre y la descarga en su siguiente ataque, e Impulso Cósmico le da más velocidad de movimiento cada vez que ese daño mágico al golpear entra. La encantadora deja de escudar a nadie y se convierte en un carry de golpes cuya única estadística real es la velocidad de movimiento.",
+      "play": "Céfiro al objetivo más frágil y luego sigue atacando: mientras más larga la persecución, más fuerte pegas. ¡Comienza a Emocionarte! es la elección flexible, ya que una eliminación da 100% de velocidad de movimiento por 4 segundos y No Parpadees lo lee como daño gratis.",
       "augments": [
-        "Tus curaciones y escudos pueden ser críticos y otorgar 40% adicional. Obtienes 25% de Probabilidad de Crítico.",
-        "Tus curaciones y Regeneración de Vida infligen el 70% del valor como daño mágico al campeón enemigo más cercano.",
-        "Puedes hacer una Defensa Crítica usando tu Probabilidad de Crítico (máximo 50%), lo que te da una probabilidad de reducir el daño recibido en 20%. Obtienes 25% de Probabilidad de Crítico."
+        "Tus ataques te otorgan 10 de velocidad de movimiento. Obtienes velocidad de ataque. El efecto se acumula y se renueva infinitamente, pero dura 5 segundos.",
+        "Obtienes 1% de daño adicional por cada 10 de velocidad de movimiento que tengas por encima del objetivo.",
+        "Tus ralentizaciones reducen la velocidad de movimiento en 75 adicionales.",
+        "Obtienes 100% de velocidad de movimiento y 15% de velocidad de ataque por 4 segundos al conseguir una eliminación."
       ]
     },
     "es": {
-      "title": "El doctor Sed de sangre",
-      "why": "Tryndamere ya hace críticos gratis: su Furia aumenta su probabilidad de crítico mientras pelea, y Sed de sangre la gasta para curarse. Curación crítica permite que las curaciones sean críticas por un 40 % más con esa misma probabilidad, y Círculo de muerte convierte el 70 % de toda su curación y regeneración de vida en daño mágico al campeón enemigo más cercano, así que cada Sed de sangre es una tirada de crítico que revienta a alguien. Rito de la ruina añade probabilidad de crítico con cada hechizo y Rostro espiritual hace sus curaciones un 25 % mayores. La curación de Sed de sangre crece con el poder de habilidad, así que el carry de críticos se convierte en un curandero de AP cuyas curaciones son las que matan.",
-      "play": "Llena tu Furia y usa Sed de sangre al lado del enemigo al que quieras dar. Furia imperecedera te mantiene vivo lo suficiente para volver a usarla. Tanques y mazmorras es la elección flex.",
+      "title": "Multa por exceso de velocidad",
+      "why": "La pasiva de Janna tiene una línea que nadie lee: parte de su velocidad de movimiento adicional se convierte en daño mágico adicional al impactar y con Céfiro, y la pasiva de Céfiro le regala velocidad de movimiento solo por existir. Taconeo le da 10 de velocidad de movimiento por ataque, acumulable mientras siga golpeando, y No parpadees añade un 1 % de daño por cada 10 de velocidad de movimiento que tenga por encima de su objetivo, así que cada ataque hace que el siguiente sea más rápido, pegue más al impactar y encima sea más fuerte. La activa de Céfiro ralentiza al objetivo y Algidez quita otros 75 de velocidad de movimiento con cada ralentización, lo que agranda la brecha de No parpadees desde el otro lado. Bailarín espectral, Perdición del liche y Botas de rapidez apilan velocidad pura, Coraza del muerto almacena velocidad mientras corre y la descarga en su siguiente ataque, e Impulso cósmico le da más velocidad de movimiento cada vez que ese daño mágico al impactar aterriza. La encantadora deja de escudar a nadie y se convierte en un carry de impacto cuya única estadística real es la velocidad de movimiento.",
+      "play": "Céfiro al objetivo más blando y luego sigue atacando: cuanto más larga la persecución, más fuerte pegas. ¡A tope! es la elección flexible, ya que una eliminación da un 100 % de velocidad de movimiento durante 4 segundos y No parpadees lo lee como daño gratis.",
       "augments": [
-        "Tus curaciones y escudos pueden ser críticos y otorgar un 40 % adicional. Obtienes un 25 % de probabilidad de crítico.",
-        "Tu curación y regeneración de vida infligen un 70 % de su valor como daño mágico al campeón enemigo más cercano.",
-        "Puedes defenderte críticamente usando tu probabilidad de crítico (máx. 50 % de probabilidad), lo que te da una probabilidad de reducir el daño recibido un 20 %. Obtienes un 25 % de probabilidad de crítico."
+        "Tus ataques te otorgan 10 de velocidad de movimiento. Obtienes velocidad de ataque. El efecto se acumula y se renueva infinitamente, pero dura 5 segundos.",
+        "Obtienes un 1 % de daño adicional por cada 10 de velocidad de movimiento que tengas por encima del objetivo.",
+        "Tus ralentizaciones reducen la velocidad de movimiento en 75 adicionales.",
+        "Obtienes un 100 % de velocidad de movimiento y un 15 % de velocidad de ataque durante 4 segundos al conseguir una eliminación."
       ]
     },
     "fr": {
-      "title": "Le docteur Soif de sang",
-      "why": "Tryndamere fait déjà des critiques gratuitement : sa Fureur augmente ses chances de coup critique pendant qu'il se bat, et Soif de sang la consomme pour le soigner. Soins critiques permet aux soins de faire un critique pour 40 % de plus avec ces mêmes chances, et Soins meurtriers transforme 70 % de tous ses soins et de sa régénération de PV en dégâts magiques sur le champion ennemi le plus proche, donc chaque Soif de sang est un jet de critique qui explose quelqu'un. Rite des ruines ajoute des chances de critique à chaque sort lancé et Visage spirituel augmente ses soins de 25 %. Le soin de Soif de sang augmente avec la puissance, donc le carry à critiques devient un soigneur AP dont les soins font les kills.",
-      "play": "Remplis ta Fureur, puis lance Soif de sang à côté de l'ennemi que tu veux toucher. Rage immortelle te garde en vie assez longtemps pour la relancer. Défenses critiques est le choix flex.",
+      "title": "Excès de vitesse",
+      "why": "Le passif de Janna a une ligne que personne ne lit : une partie de sa vitesse de déplacement bonus devient des dégâts magiques bonus à l'impact et avec Zéphyr, et le passif de Zéphyr lui offre de la vitesse de déplacement juste pour exister. Danse effrénée lui donne 10 de vitesse de déplacement par attaque, cumulable tant qu'elle continue de frapper, et Rapidité létale ajoute 1 % de dégâts par tranche de 10 de vitesse de déplacement qu'elle a de plus que sa cible, donc chaque attaque rend la suivante plus rapide, plus forte à l'impact et encore plus forte par-dessus. L'actif de Zéphyr ralentit la cible et Froid glacial retire 75 de vitesse de déplacement en plus à chaque ralentissement, ce qui creuse l'écart de Rapidité létale depuis l'autre côté. Danseur fantôme, Fléau de liche et Bottes de célérité empilent de la vitesse brute, Plaque du mort stocke de la vitesse pendant qu'elle court et la décharge dans sa prochaine attaque, et Volonté cosmique lui donne encore de la vitesse de déplacement chaque fois que ces dégâts magiques à l'impact touchent. L'enchanteresse arrête de protéger qui que ce soit et devient un carry à l'impact dont la seule vraie stat est la vitesse de déplacement.",
+      "play": "Zéphyr sur la cible la plus fragile, puis continue d'attaquer : plus la chasse dure, plus tu frappes fort. Enthousiasme ! est le choix flexible, puisqu'une mise à mort donne 100 % de vitesse de déplacement pendant 4 secondes et que Rapidité létale lit ça comme des dégâts gratuits.",
       "augments": [
-        "Vos soins et boucliers peuvent être critiques et augmentés de 40 %. Vous gagnez 25 % de chances de coup critique.",
-        "Vos soins et votre régénération de PV infligent 70 % de leur valeur en dégâts magiques au champion ennemi le plus proche.",
-        "Vous pouvez faire une défense critique grâce à vos chances de coup critique (50 % de chances max), ce qui vous donne une chance de réduire les dégâts subis de 20 %. Vous gagnez 25 % de chances de coup critique."
+        "Vos attaques vous confèrent 10 de vitesse de déplacement. Gagnez de la vitesse d'attaque. L'effet se cumule et se rafraîchit à l'infini, mais dure 5 secondes.",
+        "Gagnez 1 % de dégâts bonus par tranche de 10 de vitesse de déplacement que vous avez de plus que la cible.",
+        "Vos ralentissements réduisent la vitesse de déplacement de 75 supplémentaires.",
+        "Gagnez 100 % de vitesse de déplacement et 15 % de vitesse d'attaque pendant 4 secondes lors d'une mise à mort."
       ]
     },
     "hu": {
-      "title": "A Vérszomj doktora",
-      "why": "Tryndamere amúgy is ingyen kritel: a Dühe harc közben növeli a kritikus esélyét, a Vérszomj pedig ezt elhasználva gyógyítja. A Kritikus gyógyítás miatt a gyógyítás is lehet kritikus, 40%-kal többet adva ugyanabból az esélyből, A halál körforgása pedig az összes gyógyulása és életerő-regenerációja 70%-át mágikus sebzéssé alakítja a legközelebbi ellenséges hősön, így minden Vérszomj egy krit-dobás, ami felrobbant valakit. A rombolás rítusa minden varázslatnál kritikus esélyt ad, a Szellemarc pedig 25%-kal növeli a gyógyítását. A Vérszomj gyógyítása képességerővel nő, így a krites carry AP-gyógyítóvá válik, akinek a gyógyítása öl.",
-      "play": "Töltsd fel a Dühöt, aztán használd a Vérszomjat annak az ellenfélnek a közelében, akit meg akarsz sebezni. A Halhatatlan düh elég sokáig életben tart, hogy újra használd. A Tank így is, úgy is a flex választás.",
+      "title": "Gyorshajtási bírság",
+      "why": "Janna passzívjában van egy sor, amit senki sem olvas el: a bónusz mozgási sebessége egy része bónusz varázssebzéssé válik találatkor és a Zefírrel, a Zefír passzív része pedig ingyen mozgási sebességet ad neki pusztán azért, mert létezik. A Sztepptáncos támadásonként 10 mozgási sebességet ad, ami addig halmozódik, amíg üt, a Ne pislants pedig 1% sebzést ad minden 10 mozgási sebességért, amivel többje van a célpontnál, így minden támadás gyorsabbá, találatkor keményebbé és ráadásul erősebbé teszi a következőt. A Zefír aktív része lassítja a célpontot, a Jéghideg pedig minden lassításnál még 75 mozgási sebességet vesz le, ami a másik oldalról tágítja a Ne pislants különbségét. A Fantomtáncos, a Félholt csapás és A fürgeség cipője nyers sebességet halmoz, a Holtak vértje futás közben sebességet tárol és a következő támadásba üríti, a Kozmikus hajtómű pedig minden alkalommal még több mozgási sebességet ad, amikor az a találatkori varázssebzés bejön. Az enchanter abbahagyja mások pajzsolását, és olyan találatra épülő carry lesz, akinek az egyetlen igazi statja a mozgási sebesség.",
+      "play": "Zefír a legpuhább célpontra, aztán támadj tovább: minél hosszabb az üldözés, annál keményebben ütsz. A Micsoda izgalom! a rugalmas választás, mert egy leszedés 4 másodpercre 100% mozgási sebességet ad, és a Ne pislants ezt ingyen sebzésként olvassa.",
       "augments": [
-        "A gyógyításaid és pajzsaid kritikusak lehetnek, 40% bónusz mennyiséggel. 25% kritikus esélyt kapsz.",
-        "A gyógyulásod és életerő-regenerációd az érték 70%-ának megfelelő mágikus sebzést okoz a legközelebbi ellenséges hősnek.",
-        "A kritikus esélyeddel kritikusan védekezhetsz (legfeljebb 50% esély), ami esélyt ad arra, hogy 20%-kal csökkentsd a kapott sebzést. 25% kritikus esélyt kapsz."
+        "A támadásaid 10 mozgási sebességet adnak. Támadási sebességet kapsz. A hatás végtelenül halmozódik és frissül, de 5 másodpercig tart.",
+        "1% bónusz sebzést kapsz minden 10 mozgási sebességért, amivel többed van a célpontnál.",
+        "A lassításaid további 75-tel csökkentik a mozgási sebességet.",
+        "Leszedéskor 4 másodpercre 100% mozgási sebességet és 15% támadási sebességet kapsz."
       ]
     },
     "id": {
-      "title": "Dokter Bloodlust",
-      "why": "Tryndamere sudah dapat crit gratis: Fury-nya menaikkan crit chance selama bertarung, dan Bloodlust memakainya untuk heal. Critical Healing membuat heal bisa crit 40% lebih besar dari crit chance yang sama, dan Circle of Death mengubah 70% semua healing dan Health Regen-nya jadi magic damage ke champion musuh terdekat, jadi tiap Bloodlust adalah roll crit yang menghajar seseorang. Rite of Ruin menambah crit chance tiap cast spell dan Spirit Visage membuat heal-nya 25% lebih besar. Heal Bloodlust bertambah dengan Ability Power, jadi carry crit berubah jadi healer AP yang heal-nya justru membunuh.",
-      "play": "Isi Fury, lalu Bloodlust di dekat musuh yang mau kamu hajar. Undying Rage membuatmu bertahan cukup lama untuk cast lagi. Tank It Or Leave It adalah pilihan flex.",
+      "title": "Tilang Ngebut",
+      "why": "Passive Janna punya satu baris yang nggak pernah dibaca orang: sebagian bonus Move Speed-nya jadi bonus magic damage saat on-hit dan lewat Zephyr, dan passive Zephyr ngasih Move Speed gratis cuma karena dia ada. Tap Dancer ngasih 10 Move Speed per serangan, numpuk selama dia terus mukul, dan Don't Blink nambah 1% damage untuk tiap 10 Move Speed yang dia punya lebih dari targetnya, jadi tiap serangan bikin serangan berikutnya lebih cepat, lebih sakit saat on-hit, dan lebih kuat di atasnya. Active Zephyr nge-slow target dan Ice Cold motong 75 Move Speed lagi di tiap slow, yang melebarkan selisih Don't Blink dari sisi satunya. Phantom Dancer, Lich Bane, dan Boots of Swiftness numpuk kecepatan mentah, Dead Man's Plate nyimpan kecepatan selagi dia lari lalu nuangin semuanya ke serangan berikutnya, dan Cosmic Drive ngasih Move Speed tambahan tiap kali magic damage on-hit itu masuk. Si enchanter berhenti ngasih shield ke siapa pun dan jadi on-hit carry yang satu-satunya stat beneran cuma Move Speed.",
+      "play": "Zephyr ke target paling lembek, lalu terus serang: makin lama ngejarnya, makin sakit pukulannya. Get Excited! itu pilihan fleksibelnya, karena takedown ngasih 100% Move Speed selama 4 detik dan Don't Blink nganggap itu damage gratis.",
       "augments": [
-        "Healing dan Shield-mu bisa Critical Strike dengan bonus 40%. Dapatkan 25% Crit Chance.",
-        "Healing dan Health Regen-mu memberikan 70% nilainya sebagai magic damage ke champion musuh terdekat.",
-        "Kamu bisa Critical Defend memakai Crit Chance-mu (maks. 50% peluang), memberi peluang mengurangi damage yang diterima sebesar 20%. Dapatkan 25% Crit Chance."
+        "Serangan kamu memberi 10 Move Speed. Dapatkan Attack Speed. Buff ini menumpuk dan diperbarui tanpa batas, tapi bertahan 5 detik.",
+        "Dapatkan 1% bonus damage per 10 Move Speed yang kamu punya lebih dari target.",
+        "Efek slow kamu mengurangi Move Speed sebesar 75 tambahan.",
+        "Dapatkan 100% Move Speed dan 15% Attack Speed selama 4 detik saat takedown."
       ]
     },
     "it": {
-      "title": "Il dottor Sete di sangue",
-      "why": "Tryndamere fa già critici gratis: la sua Furia aumenta la sua probabilità di critico mentre combatte, e Sete di sangue la consuma per curarlo. Guarigione critica permette alle cure di essere critiche con il 40% in più usando quella stessa probabilità di critico, e Cerchio della morte trasforma il 70% di tutte le sue cure e della rigenerazione salute in danni magici al campione nemico più vicino, quindi ogni Sete di sangue è un tiro di critico che fa esplodere qualcuno. Rituale della rovina aggiunge probabilità di critico a ogni lancio di abilità e la Corazza spirituale aumenta le sue cure del 25%. La cura di Sete di sangue cresce con il potere magico, quindi il carry da critici diventa un guaritore AP le cui cure fanno le uccisioni.",
-      "play": "Riempi la Furia, poi usa Sete di sangue vicino al nemico che vuoi colpire. Furia immortale ti tiene in vita abbastanza per lanciarla di nuovo. Difendere o lasciare è la scelta flex.",
+      "title": "Multa per eccesso di velocità",
+      "why": "La passiva di Janna ha una riga che nessuno legge: una parte della sua velocità di movimento bonus diventa danno magico bonus al colpo e con Zefiro, e la passiva di Zefiro le regala velocità di movimento solo per esistere. Tip tap le dà 10 di velocità di movimento per attacco, accumulabile finché continua a colpire, e Guarda bene aggiunge l'1% di danni per ogni 10 di velocità di movimento in più rispetto al bersaglio, quindi ogni attacco rende il successivo più veloce, più pesante al colpo e per giunta più forte. L'attiva di Zefiro rallenta il bersaglio e Freddo come il ghiaccio toglie altri 75 di velocità di movimento a ogni rallentamento, allargando il divario di Guarda bene dall'altro lato. Danzatore fantasma, Terrore dei lich e Stivali della rapidità ammassano velocità pura, Corazza dell'uomo morto accumula velocità mentre corre e la scarica nel suo prossimo attacco, e Spirito cosmico le dà altra velocità di movimento ogni volta che quel danno magico al colpo va a segno. L'incantatrice smette di scudare chiunque e diventa un carry da colpo la cui unica vera statistica è la velocità di movimento.",
+      "play": "Zefiro sul bersaglio più fragile, poi continua ad attaccare: più lunga è la caccia, più forte colpisci. Che emozione! è la scelta flessibile, visto che un'uccisione dà il 100% di velocità di movimento per 4 secondi e Guarda bene lo legge come danno gratis.",
       "augments": [
-        "Le tue cure e i tuoi scudi possono essere critici per un 40% bonus. Ottieni il 25% di probabilità di critico.",
-        "Le tue cure e la rigenerazione salute infliggono il 70% del valore in danni magici al campione nemico più vicino.",
-        "Puoi effettuare una Difesa critica usando la tua probabilità di critico (massimo 50%), con la possibilità di ridurre i danni subiti del 20%. Ottieni il 25% di probabilità di critico."
+        "I tuoi attacchi ti conferiscono 10 di velocità di movimento. Ottieni velocità d'attacco. L'effetto si accumula e si rinnova all'infinito, ma dura 5 secondi.",
+        "Ottieni l'1% di danni bonus per ogni 10 di velocità di movimento in più rispetto al bersaglio.",
+        "I tuoi rallentamenti riducono la velocità di movimento di altri 75.",
+        "Ottieni il 100% di velocità di movimento e il 15% di velocità d'attacco per 4 secondi a ogni uccisione."
       ]
     },
     "ja": {
-      "title": "ブラッドラスト・ドクター",
-      "why": "トリンダメアは最初からタダでクリティカルを出せる。戦うほどフューリーでクリティカル率が上がり、ブラッドラストでそれを消費して回復する。クリティカルヒールで同じクリティカル率を使って回復量が40%増しのクリティカルになり、死者の集いが回復と体力自動回復の70%を最寄りの敵チャンピオンへの魔法ダメージに変えるので、ブラッドラストのたびにクリティカル判定で誰かが吹き飛ぶ。破滅の儀式はスキル使用ごとにクリティカル率を追加し、スピリット ビサージュで回復量が25%アップ。ブラッドラストの回復は魔力で伸びるので、クリティカルキャリーが回復で敵を倒すAPヒーラーに変身。",
-      "play": "フューリーを溜めて、当てたい敵の隣でブラッドラスト。アンダイングレイジで次のブラッドラストまで生き延びよう。タンクこそ至高はフレックス枠。",
+      "title": "スピード違反切符",
+      "why": "ジャンナのパッシブには誰も読まない一文がある。増加移動速度の一部が通常攻撃時とゼファーに追加魔法ダメージとして乗り、しかもゼファーのパッシブは存在しているだけで移動速度をくれる。タップダンサーは攻撃ごとに移動速度10を与えて殴り続ける限りスタックし、瞬きより速くは相手より移動速度が10高いごとにダメージ+1%なので、攻撃するたびに次の一撃が速く、オンヒットで重く、さらに強くなる。ゼファーのアクティブで相手をスロウにし、結氷がスロウごとにさらに移動速度75を削るので、瞬きより速くの差が反対側からも広がる。ファントム ダンサー、リッチ ベイン、スイフトネス ブーツで素の速度を積み、デッド マン プレートは走る間に速度を溜めて次の攻撃に叩き込み、コズミック ドライブはそのオンヒット魔法ダメージが入るたびに移動速度を追加する。エンチャンターは誰にもシールドを張らなくなり、唯一のステータスが移動速度というオンヒットキャリーになる。",
+      "play": "いちばん柔らかい相手にゼファーを当て、あとは殴り続けるだけ。追いかけるほど痛くなる。超エキサイティン！が自由枠で、キル関与で4秒間移動速度+100%、瞬きより速くはそれをタダのダメージとして読む。",
       "augments": [
-        "回復とシールドがクリティカルし、効果量が40%増加する。クリティカル率+25%。",
-        "回復と体力自動回復の量の70%を、最寄りの敵チャンピオンに魔法ダメージとして与える。",
-        "クリティカル率を使ってクリティカル防御が発生するようになり(最大50%)、受けるダメージを20%軽減する確率を得る。クリティカル率+25%。"
+        "通常攻撃で移動速度が10増加する。攻撃速度を獲得。この効果は無限にスタックして更新されるが、持続時間は5秒。",
+        "対象より移動速度が10高いごとに、ダメージが1%増加する。",
+        "自身のスロウ効果が移動速度をさらに75低下させる。",
+        "キル関与時に4秒間、移動速度が100%、攻撃速度が15%増加する。"
       ]
     },
     "ko": {
-      "title": "피의 갈망 닥터",
-      "why": "트린다미어는 원래 공짜로 치명타가 터집니다. 싸울수록 분노가 치명타 확률을 올리고, 피의 갈망이 그걸 소모해 회복하죠. 치명적 치유는 같은 치명타 확률로 회복에 40% 추가 치명타를 적용하고, 죽음의 순환은 모든 회복과 체력 재생의 70%를 가장 가까운 적 챔피언에게 마법 피해로 바꾸므로, 피의 갈망 한 번 한 번이 누군가를 날려 버리는 치명타 주사위가 됩니다. 파멸의식 고서는 스킬을 쓸 때마다 치명타 확률을 더하고, 정령의 형상은 회복량을 25% 키웁니다. 피의 갈망 회복량은 주문력으로 늘어나니, 치명타 캐리가 회복으로 적을 잡는 AP 힐러로 변신합니다.",
-      "play": "분노를 채우고 때리고 싶은 적 옆에서 피의 갈망. 불사의 분노로 다시 쓸 때까지 버티세요. 확률적 방어는 유동 픽입니다.",
+      "title": "과속 딱지",
+      "why": "잔나의 패시브에는 아무도 안 읽는 한 줄이 있다. 추가 이동 속도의 일부가 기본 공격 적중 시와 서풍에 추가 마법 피해로 붙고, 서풍의 패시브는 그냥 존재하는 것만으로 이동 속도를 공짜로 준다. 탭 댄서는 공격마다 이동 속도 10을 주고 계속 때리는 한 중첩되며, 속전속결은 대상보다 이동 속도가 10 높을 때마다 피해량 1%를 더하니, 공격할 때마다 다음 공격이 더 빠르고, 적중 시 더 아프고, 그 위에 더 강해진다. 서풍의 액티브는 대상을 둔화시키고 차가운 냉기는 둔화마다 이동 속도 75를 더 깎아서 속전속결의 격차를 반대쪽에서도 벌린다. 유령 무희, 리치베인, 신속의 장화는 순수 속도를 쌓고, 망자의 갑옷은 달리는 동안 속도를 모아 다음 공격에 쏟아붓고, 우주의 추진력은 그 적중 마법 피해가 들어갈 때마다 이동 속도를 더 준다. 유틸 서포터는 아무에게도 보호막을 안 주고, 유일한 진짜 스탯이 이동 속도인 온히트 캐리가 된다.",
+      "play": "가장 물렁한 대상에게 서풍을 쓰고 계속 때려라. 추격이 길어질수록 더 아프게 때린다. 신난다!는 자유 선택으로, 처치 관여 시 4초 동안 이동 속도 100%를 주고 속전속결은 그걸 공짜 피해로 읽는다.",
       "augments": [
-        "회복과 보호막에 치명타가 적용되어 40% 추가 효과를 냅니다. 치명타 확률이 25% 증가합니다.",
-        "회복량과 체력 재생량의 70%만큼 가장 가까운 적 챔피언에게 마법 피해를 입힙니다.",
-        "치명타 확률로 치명적 방어가 가능해져(최대 50% 확률), 받는 피해를 20% 줄일 확률을 얻습니다. 치명타 확률이 25% 증가합니다."
+        "기본 공격 시 이동 속도가 10 증가합니다. 공격 속도를 얻습니다. 이 효과는 무한히 중첩되고 갱신되지만 5초 동안만 지속됩니다.",
+        "대상보다 이동 속도가 10 높을 때마다 피해량이 1% 증가합니다.",
+        "둔화 효과가 이동 속도를 75 추가로 감소시킵니다.",
+        "처치 관여 시 4초 동안 이동 속도 100%와 공격 속도 15%를 얻습니다."
       ]
     },
     "pl": {
-      "title": "Doktor Żądza Krwi",
-      "why": "Tryndamere i tak trafia krytycznie za darmo: jego Furia podnosi szansę na trafienie krytyczne w trakcie walki, a Żądza Krwi zużywa ją na leczenie. Leczenie Krytyczne pozwala leczeniu trafiać krytycznie za 40% więcej przy tej samej szansie, a Krąg Śmierci zamienia 70% całego jego leczenia i regeneracji zdrowia na obrażenia magiczne dla najbliższego wrogiego bohatera, więc każda Żądza Krwi to rzut na krytyka, który kogoś wysadza. Rytuał Ruiny dodaje szansę na krytyka przy każdym użyciu czaru, a Oblicze Ducha zwiększa jego leczenie o 25%. Leczenie Żądzy Krwi rośnie z mocą umiejętności, więc carry od krytyków staje się leczącym AP, którego leczenie zabija.",
-      "play": "Napełnij Furię, a potem użyj Żądzy Krwi obok wroga, którego chcesz trafić. Nieśmiertelna Furia utrzyma cię przy życiu na tyle długo, żeby użyć jej znowu. Obrona albo Nic to wybór flex.",
+      "title": "Mandat za prędkość",
+      "why": "Pasyw Janny ma linijkę, której nikt nie czyta: część jej dodatkowej prędkości ruchu zamienia się w dodatkowe obrażenia magiczne przy trafieniu i przy Zefirze, a pasyw Zefiru daje jej prędkość ruchu za darmo, za samo istnienie. Szalone Tańcowanie daje jej 10 prędkości ruchu za atak, kumulujące się tak długo, jak trafia, a Nie Mrugaj dodaje 1% obrażeń za każde 10 prędkości ruchu, które ma więcej od celu, więc każdy atak sprawia, że następny jest szybszy, mocniejszy przy trafieniu i na dodatek silniejszy. Aktyw Zefiru spowalnia cel, a Zimny jak Lód zabiera przy każdym spowolnieniu kolejne 75 prędkości ruchu, co powiększa przewagę dla Nie Mrugaj z drugiej strony. Widmowy Tancerz, Zmora Licza i Buty Prędkości dokładają czystą prędkość, Pancerz Umrzyka magazynuje prędkość, gdy biegnie, i wyładowuje ją w następnym ataku, a Kosmiczny Impuls daje jej więcej prędkości ruchu za każdym razem, gdy te magiczne obrażenia przy trafieniu wejdą. Wspierająca przestaje kogokolwiek osłaniać i staje się carry na trafienia, którego jedyną prawdziwą statystyką jest prędkość ruchu.",
+      "play": "Zefir na najbardziej miękki cel, potem atakuj dalej: im dłuższy pościg, tym mocniej bijesz. Zabawmy Się! to elastyczny wybór, bo likwidacja daje 100% prędkości ruchu na 4 sekundy, a Nie Mrugaj odczytuje to jako darmowe obrażenia.",
       "augments": [
-        "Twoje leczenie i tarcze mogą trafić krytycznie, dając 40% więcej. Zyskujesz 25% szansy na trafienie krytyczne.",
-        "Twoje leczenie i regeneracja zdrowia zadają najbliższemu wrogiemu bohaterowi obrażenia magiczne równe 70% ich wartości.",
-        "Możesz krytycznie się bronić dzięki szansie na trafienie krytyczne (maks. 50% szansy), co daje szansę na zmniejszenie otrzymywanych obrażeń o 20%. Zyskujesz 25% szansy na trafienie krytyczne."
+        "Twoje ataki zapewniają ci 10 prędkości ruchu. Zyskujesz prędkość ataku. Wzmocnienie kumuluje się i odnawia bez końca, ale trwa 5 sekund.",
+        "Zyskujesz 1% dodatkowych obrażeń za każde 10 prędkości ruchu, które masz więcej od celu.",
+        "Twoje spowolnienia zmniejszają prędkość ruchu o dodatkowe 75.",
+        "Po likwidacji zyskujesz 100% prędkości ruchu i 15% prędkości ataku na 4 sekundy."
       ]
     },
     "pt-BR": {
-      "title": "O doutor Sede de Sangue",
-      "why": "O Tryndamere já crita de graça: a Fúria dele aumenta a chance de crítico enquanto luta, e a Sede de Sangue gasta essa Fúria para curá-lo. Cura Crítica deixa as curas critarem com 40% a mais usando essa mesma chance de crítico, e Círculo da Morte transforma 70% de toda a cura e Regeneração de Vida dele em dano mágico no campeão inimigo mais próximo, então cada Sede de Sangue é uma rolagem de crítico que explode alguém. Ritual da Ruína adiciona chance de crítico a cada feitiço lançado e o Semblante Espiritual deixa as curas 25% maiores. A cura da Sede de Sangue cresce com Poder de Habilidade, então o carry de crítico vira um curandeiro AP cujas curas é que matam.",
-      "play": "Encha sua Fúria e use Sede de Sangue perto do inimigo que você quer acertar. Fúria Imortal te mantém vivo tempo suficiente para usar de novo. Aguenta ou Vaza é a escolha flex.",
+      "title": "Multa por Excesso de Velocidade",
+      "why": "A passiva da Janna tem uma linha que ninguém lê: parte da Velocidade de Movimento adicional dela vira dano mágico adicional ao acertar e com Zéfiro, e a passiva do Zéfiro dá Velocidade de Movimento de graça só por existir. Sapateado dá 10 de Velocidade de Movimento por ataque, acumulando enquanto ela continuar batendo, e Não Pisque soma 1% de dano a cada 10 de Velocidade de Movimento que ela tiver a mais que o alvo, então cada ataque deixa o próximo mais rápido, mais forte no acerto e ainda mais forte por cima. O ativo do Zéfiro reduz a velocidade do alvo e Geladinho tira mais 75 de Velocidade de Movimento em toda lentidão, o que alarga a diferença do Não Pisque pelo outro lado. Dançarina Fantasma, Perdição de Lich e Botas da Rapidez empilham velocidade pura, Couraça do Defunto guarda velocidade enquanto ela corre e descarrega no próximo ataque, e Ímpeto Cósmico dá ainda mais Velocidade de Movimento toda vez que aquele dano mágico ao acertar entra. A encantadora para de escudar qualquer um e vira uma carry de acerto cujo único atributo de verdade é Velocidade de Movimento.",
+      "play": "Zéfiro no alvo mais frágil e depois continue atacando: quanto mais longa a perseguição, mais forte você bate. Anime-se! é a escolha flexível, já que um abate dá 100% de Velocidade de Movimento por 4 segundos e Não Pisque lê isso como dano de graça.",
       "augments": [
-        "Suas curas e escudos podem ser críticos, com 40% de valor adicional. Receba 25% de Chance de Acerto Crítico.",
-        "Suas curas e Regeneração de Vida causam 70% do valor como dano mágico no campeão inimigo mais próximo.",
-        "Você pode fazer uma Defesa Crítica usando sua Chance de Acerto Crítico (máximo de 50%), com chance de reduzir o dano recebido em 20%. Receba 25% de Chance de Acerto Crítico."
+        "Seus ataques concedem 10 de Velocidade de Movimento. Ganhe Velocidade de Ataque. O efeito acumula e se renova infinitamente, mas dura 5 segundos.",
+        "Ganhe 1% de dano adicional a cada 10 de Velocidade de Movimento que você tiver a mais que o alvo.",
+        "Suas lentidões reduzem a Velocidade de Movimento em 75 adicionais.",
+        "Ganhe 100% de Velocidade de Movimento e 15% de Velocidade de Ataque por 4 segundos ao conseguir um abate."
       ]
     },
     "ro": {
-      "title": "Doctorul setei de sânge",
-      "why": "Tryndamere dă deja critice pe gratis: Furia îi crește șansa de critic pe măsură ce luptă, iar Sete de sânge o consumă ca să-l vindece. Vindecare critică permite vindecărilor să dea critic pentru 40% în plus din aceeași șansă de critic, iar Cercul morții transformă 70% din toată vindecarea și regenerarea lui de viață în daune magice asupra celui mai apropiat campion inamic, deci fiecare Sete de sânge e o aruncare de critic care spulberă pe cineva. Ritualul decăderii adaugă șansă de critic la fiecare abilitate folosită, iar Înfățișarea sufletului îi face vindecările cu 25% mai mari. Vindecarea din Sete de sânge crește cu Puterea abilităților, așa că carry-ul pe critice devine un vindecător AP ale cărui vindecări fac killurile.",
-      "play": "Umple-ți Furia, apoi folosește Sete de sânge lângă inamicul pe care vrei să-l lovești. Furie nemuritoare te ține în viață cât să o folosești din nou. Un tanc la țanc e alegerea flex.",
+      "title": "Amendă pentru viteză",
+      "why": "Pasiva Jannei are un rând pe care nu-l citește nimeni: o parte din viteza ei de mișcare bonus devine daune magice bonus la lovitură și cu Zefir, iar pasiva Zefirului îi dă viteză de mișcare gratis doar pentru că există. Dansator de step îi dă 10 viteză de mișcare pe atac, care se acumulează cât timp lovește în continuare, iar Nu clipi adaugă 1% daune pentru fiecare 10 viteză de mișcare pe care o are în plus față de țintă, așa că fiecare atac îl face pe următorul mai rapid, mai dur la lovitură și mai puternic pe deasupra. Activa Zefirului încetinește ținta, iar Rece ca gheața mai ia 75 viteză de mișcare la fiecare încetinire, ceea ce lărgește diferența pentru Nu clipi din cealaltă parte. Dansatorul-fantomă, Urgia de pe lume și Cizmele agilității adună viteză brută, Platoșa ostașului ucis stochează viteză cât aleargă și o descarcă în următorul atac, iar Avânt cosmic îi dă și mai multă viteză de mișcare de fiecare dată când daunele magice la lovitură intră. Enchantera nu mai dă scut nimănui și devine un carry pe lovituri a cărui singură statistică reală este viteza de mișcare.",
+      "play": "Zefir pe ținta cea mai fragilă, apoi atacă în continuare: cu cât urmărirea e mai lungă, cu atât lovești mai tare. Entuziasmează-te! e alegerea flexibilă, fiindcă o eliminare dă 100% viteză de mișcare timp de 4 secunde, iar Nu clipi citește asta ca daune gratis.",
       "augments": [
-        "Vindecările și scuturile tale pot fi critice, cu 40% valoare în plus. Primești 25% șansă de critic.",
-        "Vindecările și regenerarea ta de viață provoacă 70% din valoare ca daune magice celui mai apropiat campion inamic.",
-        "Poți da o apărare critică folosind șansa de critic (maximum 50% șansă), ceea ce îți dă o șansă să reduci daunele primite cu 20%. Primești 25% șansă de critic."
+        "Atacurile tale îți oferă 10 viteză de mișcare. Primești viteză de atac. Efectul se acumulează și se reîmprospătează la infinit, dar durează 5 secunde.",
+        "Primești 1% daune bonus pentru fiecare 10 viteză de mișcare pe care o ai în plus față de țintă.",
+        "Încetinirile tale reduc viteza de mișcare cu încă 75.",
+        "La o eliminare primești 100% viteză de mișcare și 15% viteză de atac timp de 4 secunde."
       ]
     },
     "ru": {
-      "title": "Доктор Жажда крови",
-      "why": "Триндамир и так критует бесплатно: Ярость повышает его шанс крита в бою, а Жажда крови тратит её на лечение. Критическое лечение даёт лечению критовать на 40% больше от того же шанса крита, а Цикл смерти превращает 70% всего его лечения и регенерации здоровья в магический урон по ближайшему вражескому чемпиону, так что каждая Жажда крови — бросок на крит, который кого-то взрывает. Ритуал уничтожения добавляет шанс крита за каждое применение умения, а Облачение духов усиливает лечение на 25%. Лечение Жажды крови растёт от силы умений, так что крит-керри становится АП-хилером, чьё лечение и убивает.",
-      "play": "Накопи Ярость, затем жми Жажду крови рядом с врагом, которого хочешь задеть. Неумирающая ярость продержит тебя в живых, пока не сможешь применить её снова. Непробиваемость — гибкий выбор.",
+      "title": "Штраф за превышение",
+      "why": "У пассивки Жанны есть строчка, которую никто не читает: часть ее дополнительной скорости передвижения превращается в дополнительный магический урон при попадании и от Зефира, а пассивная часть Зефира дает ей скорость передвижения просто за то, что она существует. Чечетка дает ей 10 скорости передвижения за атаку, и это складывается, пока она продолжает бить, а Не моргай добавляет 1% урона за каждые 10 скорости передвижения сверх скорости цели, так что каждая атака делает следующую быстрее, больнее при попадании и еще сильнее сверху. Активная часть Зефира замедляет цель, а Дикий холод снимает при каждом замедлении еще 75 скорости передвижения, расширяя разрыв для Не моргай с другой стороны. Призрачный Танцор, Гроза Личей и Ботинки стремительности накидывают чистую скорость, Броня мертвеца копит скорость на бегу и вкладывает ее в следующую атаку, а Космический ускоритель дает ей еще скорости передвижения каждый раз, когда этот магический урон при попадании проходит. Чародейка перестает кого-либо щитовать и становится керри на попаданиях, у которого единственная настоящая характеристика – скорость передвижения.",
+      "play": "Зефир в самую хлипкую цель, дальше просто бей: чем дольше погоня, тем больнее удары. Бодрячком! – гибкий выбор: участие в убийстве дает 100% скорости передвижения на 4 секунды, а Не моргай считает это бесплатным уроном.",
       "augments": [
-        "Ваше лечение и щиты могут быть критическими и усиливаются на 40%. Вы получаете 25% шанса критического удара.",
-        "Ваше лечение и регенерация здоровья наносят ближайшему вражескому чемпиону магический урон, равный 70% восстановленного.",
-        "Вы можете критически защищаться, используя свой шанс критического удара (не больше 50%): с этим шансом получаемый урон снижается на 20%. Вы получаете 25% шанса критического удара."
+        "Ваши атаки дают вам 10 скорости передвижения. Вы получаете скорость атаки. Эффект складывается и обновляется бесконечно, но длится 5 секунд.",
+        "Вы наносите на 1% больше урона за каждые 10 скорости передвижения сверх скорости цели.",
+        "Ваши замедления снижают скорость передвижения еще на 75.",
+        "При участии в убийстве вы получаете 100% скорости передвижения и 15% скорости атаки на 4 секунды."
       ]
     },
     "th": {
-      "title": "หมอแห่ง Bloodlust",
-      "why": "Tryndamere คริได้ฟรีอยู่แล้ว Fury ของเขาเพิ่มโอกาสคริติคอลระหว่างสู้ และ Bloodlust ใช้มันเพื่อฮีลตัวเอง Critical Healing ทำให้การฮีลคริได้เพิ่ม 40% จากโอกาสคริเดียวกัน และ Circle of Death เปลี่ยน 70% ของการฮีลและการฟื้นฟูพลังชีวิตทั้งหมดเป็นความเสียหายเวทใส่แชมเปี้ยนศัตรูที่ใกล้ที่สุด ทุก Bloodlust เลยเป็นการทอยคริที่ระเบิดใครสักคน Rite of Ruin เพิ่มโอกาสคริทุกครั้งที่ใช้สกิล และ Spirit Visage ทำให้ฮีลแรงขึ้น 25% การฮีลของ Bloodlust สเกลกับพลังเวท แครี่สายคริเลยกลายเป็นฮีลเลอร์ AP ที่ฮีลไปฆ่าคนไป",
-      "play": "เติม Fury ให้เต็ม แล้วกด Bloodlust ข้างศัตรูที่อยากให้โดน Undying Rage ช่วยให้รอดนานพอจะกดอีกรอบ Tank It Or Leave It เป็นตัวเลือกยืดหยุ่น",
+      "title": "ใบสั่งขับเร็ว",
+      "why": "พาสซีฟของ Janna มีบรรทัดหนึ่งที่ไม่มีใครอ่าน: ส่วนหนึ่งของความเร็วเคลื่อนที่โบนัสของเธอจะกลายเป็นความเสียหายเวทโบนัสตอนออนฮิตและตอนใช้ Zephyr แถมพาสซีฟของ Zephyr ยังให้ความเร็วเคลื่อนที่ฟรีแค่เพราะเธอมีตัวตน Tap Dancer ให้ความเร็วเคลื่อนที่ 10 ต่อการโจมตี ซ้อนไปเรื่อย ๆ ตราบที่เธอยังตีโดน และ Don't Blink เพิ่มความเสียหาย 1% ต่อทุก 10 ความเร็วเคลื่อนที่ที่เธอมีมากกว่าเป้าหมาย ดังนั้นทุกการโจมตีทำให้ครั้งถัดไปเร็วขึ้น ออนฮิตแรงขึ้น และแรงขึ้นอีกซ้อนทับ แอ็กทีฟของ Zephyr ทำให้เป้าหมายช้าลง และ Ice Cold หักความเร็วเคลื่อนที่เพิ่มอีก 75 ทุกครั้งที่สโลว์ ซึ่งถ่างช่องว่างของ Don't Blink จากอีกฝั่ง Phantom Dancer, Lich Bane และ Boots of Swiftness กองความเร็วดิบ ๆ Dead Man's Plate เก็บความเร็วตอนเธอวิ่งแล้วเทใส่การโจมตีครั้งถัดไป และ Cosmic Drive ให้ความเร็วเคลื่อนที่เพิ่มทุกครั้งที่ความเสียหายเวทออนฮิตนั้นเข้าเป้า ซัพพอร์ตสายบัฟเลิกให้โล่ใครแล้วกลายเป็นแครี่ออนฮิตที่มีค่าสถานะจริง ๆ อย่างเดียวคือความเร็วเคลื่อนที่",
+      "play": "ใส่ Zephyr ให้เป้าหมายที่บางที่สุด แล้วตีต่อไป: ยิ่งไล่นาน ยิ่งตีแรง Get Excited! คือตัวเลือกอิสระ เพราะการมีส่วนร่วมในการสังหารให้ความเร็วเคลื่อนที่ 100% เป็นเวลา 4 วินาที และ Don't Blink นับมันเป็นความเสียหายฟรี",
       "augments": [
-        "การฮีลและโล่ของคุณคริติคอลได้ เพิ่มปริมาณ 40% ได้รับโอกาสคริติคอล 25%",
-        "การฮีลและการฟื้นฟูพลังชีวิตของคุณสร้างความเสียหายเวท 70% ของค่านั้นใส่แชมเปี้ยนศัตรูที่ใกล้ที่สุด",
-        "คุณป้องกันแบบคริติคอลได้โดยใช้โอกาสคริติคอล (สูงสุด 50%) มีโอกาสลดความเสียหายที่ได้รับ 20% ได้รับโอกาสคริติคอล 25%"
+        "การโจมตีของคุณให้ความเร็วเคลื่อนที่ 10 ได้รับความเร็วโจมตี บัฟนี้ซ้อนและรีเฟรชได้ไม่จำกัด แต่คงอยู่ 5 วินาที",
+        "ได้รับความเสียหายโบนัส 1% ต่อทุก 10 ความเร็วเคลื่อนที่ที่คุณมีมากกว่าเป้าหมาย",
+        "เอฟเฟกต์สโลว์ของคุณลดความเร็วเคลื่อนที่เพิ่มอีก 75",
+        "ได้รับความเร็วเคลื่อนที่ 100% และความเร็วโจมตี 15% เป็นเวลา 4 วินาทีเมื่อมีส่วนร่วมในการสังหาร"
       ]
     },
     "tr": {
-      "title": "Kana Susamış Doktor",
-      "why": "Tryndamere zaten bedavaya kritik vuruyor: Öfke'si dövüştükçe kritik ihtimalini artırır, Kana Susamışlık da bunu harcayıp onu iyileştirir. Kritik İyileştirme aynı kritik ihtimaliyle iyileştirmelerin %40 fazlasına kritik vurmasını sağlar, Ölüm Döngüsü ise tüm iyileştirmesinin ve Can Yenilemesinin %70'ini en yakın rakip şampiyona büyü hasarı olarak çevirir; yani her Kana Susamışlık birini patlatan bir kritik zarıdır. Yıkım Ayini her büyü kullanımında kritik ihtimali ekler, Ruh Gömleği de iyileştirmelerini %25 büyütür. Kana Susamışlık'ın iyileştirmesi Yetenek Gücü ile büyür, böylece kritik taşıyıcı, iyileştirmeleri adam öldüren bir YG şifacısına dönüşür.",
-      "play": "Öfke'ni doldur, sonra vurmak istediğin rakibin dibinde Kana Susamışlık kullan. Ölümsüz Öfke onu tekrar kullanacak kadar seni hayatta tutar. Esnek seçim Ya Tankla Ya Terk Et.",
+      "title": "Hız Cezası",
+      "why": "Janna'nın pasifinde kimsenin okumadığı bir satır var: ek hareket hızının bir kısmı vuruşta ve Zefir'le ek büyü hasarına dönüşür, Zefir'in pasifi de ona sırf var olduğu için bedava hareket hızı verir. Step Dansı saldırı başına 10 hareket hızı verir ve vurmaya devam ettiği sürece birikir, Gözünü Kırpma ise hedefinden fazla olan her 10 hareket hızı için %1 hasar ekler; yani her saldırı bir sonrakini daha hızlı, vuruşta daha sert ve üstüne daha güçlü yapar. Zefir'in aktifi hedefi yavaşlatır, Buz Gibi her yavaşlatmada 75 hareket hızı daha alır ve Gözünü Kırpma'nın farkını öbür taraftan açar. Hayalet Dansçı, Lich Boğan ve Atiklik Çizmeleri ham hız yığar, Ölü Adamın Zırhı koşarken hız biriktirip bir sonraki saldırıya boşaltır, Kozmik Hızlandırıcı ise o vuruş büyü hasarı her oturduğunda daha fazla hareket hızı verir. Büyücü destek kimseye kalkan atmayı bırakır ve tek gerçek istatistiği hareket hızı olan bir vuruş carry'sine dönüşür.",
+      "play": "Zefir'i en kırılgan hedefe at, sonra saldırmaya devam et: kovalamaca ne kadar uzarsa o kadar sert vurursun. Ay Çok Heyecanlı! esnek seçim; bir alaşağı etme 4 saniyeliğine %100 hareket hızı verir ve Gözünü Kırpma bunu bedava hasar olarak okur.",
       "augments": [
-        "İyileştirmelerin ve Kalkanların %40 ek miktarla Kritik Vuruş yapabilir. %25 Kritik Vuruş İhtimali kazanırsın.",
-        "İyileştirmelerin ve Can Yenilemen, değerin %70'i kadar büyü hasarını en yakın rakip şampiyona verir.",
-        "Kritik Vuruş İhtimalini kullanarak Kritik Savunma yapabilirsin (en fazla %50 ihtimal); bu sana aldığın hasarı %20 azaltma şansı verir. %25 Kritik Vuruş İhtimali kazanırsın."
+        "Saldırıların sana 10 hareket hızı verir. Saldırı hızı kazanırsın. Etki sınırsız birikir ve yenilenir ama 5 saniye sürer.",
+        "Hedeften fazla olan her 10 hareket hızı için %1 ek hasar kazanırsın.",
+        "Yavaşlatma etkilerin hareket hızını 75 daha azaltır.",
+        "Alaşağı etmede 4 saniyeliğine %100 hareket hızı ve %15 saldırı hızı kazanırsın."
       ]
     },
     "vi": {
-      "title": "Bác Sĩ Khát Máu",
-      "why": "Tryndamere vốn đã chí mạng miễn phí: Nộ tăng tỉ lệ chí mạng khi hắn đánh nhau, và Khát Máu tiêu nó để hồi máu. Hồi Máu Chí Mạng cho phép hồi máu chí mạng thêm 40% dựa trên chính tỉ lệ chí mạng đó, còn Vòng Tròn Tử Thần biến 70% toàn bộ lượng hồi máu và Hồi Máu của hắn thành sát thương phép lên tướng địch gần nhất, nên mỗi lần Khát Máu là một lần quay chí mạng thổi bay ai đó. Nghi Thức Suy Vong thêm tỉ lệ chí mạng mỗi lần dùng kỹ năng, còn Giáp Tâm Linh tăng hồi máu thêm 25%. Lượng hồi của Khát Máu tăng theo SMPT, nên carry chí mạng thành healer AP mà hồi máu cũng giết người.",
-      "play": "Gom đầy Nộ, rồi Khát Máu cạnh kẻ địch bạn muốn trúng. Cuồng Nộ Bất Tử giữ bạn sống đủ lâu để dùng lại. Chiến Hoặc Chuồn là lựa chọn linh hoạt.",
+      "title": "Vé Phạt Quá Tốc Độ",
+      "why": "Nội tại của Janna có một dòng chẳng ai đọc: một phần tốc độ di chuyển cộng thêm của cô biến thành sát thương phép cộng thêm khi đánh thường và với Gió Tây, còn nội tại của Gió Tây tặng không tốc độ di chuyển chỉ vì cô tồn tại. Vũ Công Thiết Hài cho 10 tốc độ di chuyển mỗi đòn đánh, cộng dồn chừng nào cô còn đánh trúng, và Đừng Chớp Mắt thêm 1% sát thương cho mỗi 10 tốc độ di chuyển cô có hơn mục tiêu, nên mỗi đòn đánh làm đòn tiếp theo nhanh hơn, nặng hơn khi trúng, và mạnh hơn chồng lên. Kích hoạt của Gió Tây làm chậm mục tiêu và Băng Lạnh cắt thêm 75 tốc độ di chuyển ở mỗi lần làm chậm, nới rộng khoảng cách cho Đừng Chớp Mắt từ phía bên kia. Ma Vũ Song Kiếm, Kiếm Tai Ương và Giày Bạc chất tốc độ thuần, Giáp Liệt Sĩ tích tốc độ khi cô chạy rồi dồn hết vào đòn đánh kế tiếp, còn Động Cơ Vũ Trụ cho thêm tốc độ di chuyển mỗi khi sát thương phép khi đánh trúng đó cắm vào. Hỗ trợ buff ngừng tạo khiên cho bất kỳ ai và trở thành carry đánh trúng với chỉ số thật duy nhất là tốc độ di chuyển.",
+      "play": "Gió Tây vào mục tiêu mềm nhất rồi cứ đánh tiếp: rượt càng lâu, đánh càng đau. Hưng Phấn! là lựa chọn linh hoạt, vì một lần hạ gục cho 100% tốc độ di chuyển trong 4 giây và Đừng Chớp Mắt đọc đó là sát thương miễn phí.",
       "augments": [
-        "Lượng hồi máu và Lá Chắn của bạn có thể Chí Mạng, tăng thêm 40%. Nhận 25% Tỉ Lệ Chí Mạng.",
-        "Lượng hồi máu và Hồi Máu của bạn gây sát thương phép bằng 70% giá trị lên tướng địch gần nhất.",
-        "Bạn có thể Phòng Thủ Chí Mạng dựa trên Tỉ Lệ Chí Mạng (tối đa 50%), có cơ hội giảm 20% sát thương nhận vào. Nhận 25% Tỉ Lệ Chí Mạng."
+        "Đòn đánh của bạn cho bạn 10 tốc độ di chuyển. Nhận tốc độ đánh. Hiệu ứng cộng dồn và làm mới vô hạn nhưng kéo dài 5 giây.",
+        "Nhận 1% sát thương cộng thêm cho mỗi 10 tốc độ di chuyển bạn có hơn mục tiêu.",
+        "Hiệu ứng làm chậm của bạn giảm thêm 75 tốc độ di chuyển.",
+        "Nhận 100% tốc độ di chuyển và 15% tốc độ đánh trong 4 giây khi hạ gục."
       ]
     },
     "zh-CN": {
-      "title": "嗜血医生",
-      "why": "蛮族之王本来就白送暴击：怒气会在战斗中提升他的暴击几率，嗜血杀戮消耗怒气来治疗。会心治疗让治疗也能按同一暴击几率暴击并多出40%，死亡之环把他所有治疗和生命回复的70%转化为对最近敌方英雄的魔法伤害，所以每次嗜血杀戮都是一次暴击判定，顺便轰人一下。毁坏仪式每次施法都加暴击几率，振奋盔甲让他的治疗提升25%。嗜血杀戮的治疗量随法术强度提升，于是暴击核心变成了靠治疗杀人的法强奶妈。",
-      "play": "攒满怒气，然后在想打的敌人旁边放嗜血杀戮。无尽怒火让你活到能再放一次。会心防御是灵活选择。",
+      "title": "超速罚单",
+      "why": "迦娜的被动里有一行没人看的字：她一部分额外移动速度会化为普攻命中和西风的额外魔法伤害，而西风的被动光是存在就白送她移动速度。踢踏舞每次普攻给10移动速度，只要她一直打就一直叠，唯快不破则每比目标多10移动速度就多1%伤害，于是每一下普攻都让下一下更快、命中更疼、再额外更强。西风的主动减速目标，冰寒让每次减速再多扣75移动速度，从另一头把唯快不破的差距拉开。幻影之舞、巫妖之祸和轻灵之靴堆纯速度，亡者的板甲边跑边存速度再一口气倒进下一次普攻，星界驱驰则在那份命中魔法伤害每次打中时再给她移动速度。这个辅助再也不给任何人套盾，变成了一个唯一真正属性就是移动速度的命中型核心。",
+      "play": "西风丢给最脆的目标，然后一直普攻：追得越久，打得越疼。罪恶快感是自由位，击杀参与给4秒100%移动速度，唯快不破把它当成白送的伤害。",
       "augments": [
-        "你的治疗和护盾可以暴击，额外提升40%。获得25%暴击几率。",
-        "你的治疗和生命回复会对最近的敌方英雄造成相当于该数值70%的魔法伤害。",
-        "你可以用暴击几率进行暴击防御（最高50%几率），有几率使受到的伤害降低20%。获得25%暴击几率。"
+        "你的普攻为你提供10移动速度。获得攻击速度。该增益可无限叠加并刷新，但持续5秒。",
+        "你的移动速度每比目标多10，就获得1%额外伤害。",
+        "你的减速效果额外降低75移动速度。",
+        "击杀参与时获得100%移动速度和15%攻击速度，持续4秒。"
       ]
     },
     "zh-TW": {
-      "title": "嗜血醫生",
-      "why": "泰達米爾本來就白送暴擊：怒氣會在戰鬥中提升他的暴擊率，嗜血則消耗怒氣來治療。暴擊治療讓治療也能依同樣的暴擊率暴擊並多出40%，死亡循環把他所有治療和生命回復的70%轉換成對最近敵方英雄的魔法傷害，所以每次嗜血都是一次暴擊判定，順便轟人一下。殞落之祭每次施法都加暴擊率，振奮盔甲讓他的治療提升25%。嗜血的治療量隨魔法攻擊提升，於是暴擊核心變成了靠治療殺人的魔攻補師。",
-      "play": "集滿怒氣，然後在想打的敵人旁邊放嗜血。不死憤怒讓你活到能再放一次。毫髮無傷是彈性選擇。",
+      "title": "超速罰單",
+      "why": "珍娜的被動有一行沒人看的字：她一部分額外移動速度會變成普攻命中和西風的額外魔法傷害，而西風的被動光是存在就白送她移動速度。輕舞飛揚每次普攻給10移動速度，只要她一直打就一直疊，別眨眼則每比目標多10移動速度就多1%傷害，所以每一下普攻都讓下一下更快、命中更痛、再額外更強。西風的主動減速目標，雪地踱步讓每次減速再多扣75移動速度，從另一頭把別眨眼的差距拉開。幻影之舞、巫妖之禍和輕靈之靴堆純速度，死者肩甲邊跑邊存速度再一口氣倒進下一次普攻，星河馳騁則在那份命中魔法傷害每次打中時再給她移動速度。這個輔助再也不幫任何人套盾，變成一個唯一真正屬性就是移動速度的命中型主C。",
+      "play": "西風丟給最脆的目標，然後一直普攻：追得越久，打得越痛。狂躁！是自由位，擊殺參與給4秒100%移動速度，別眨眼把它當成白送的傷害。",
       "augments": [
-        "你的治療和護盾可以暴擊，額外提升40%。獲得25%暴擊率。",
-        "你的治療和生命回復會對最近的敵方英雄造成相當於該數值70%的魔法傷害。",
-        "你可以用暴擊率進行暴擊防禦（最高50%機率），有機率使受到的傷害降低20%。獲得25%暴擊率。"
+        "你的普攻為你提供10移動速度。獲得攻擊速度。此增益可無限疊加並刷新，但持續5秒。",
+        "你的移動速度每比目標多10，就獲得1%額外傷害。",
+        "你的減速效果額外降低75移動速度。",
+        "擊殺參與時獲得100%移動速度和15%攻擊速度，持續4秒。"
       ]
     }
   }
