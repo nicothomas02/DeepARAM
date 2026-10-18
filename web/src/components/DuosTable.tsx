@@ -23,7 +23,6 @@ export default function DuosTable() {
       columns={[
         { key: "a", label: "Champion", format: "champion" },
         { key: "b", label: "With", format: "champion" },
-        { key: "win_rate", label: "Win rate", format: "pct" },
         {
           key: "delta",
           label: "Win rate delta",
@@ -35,7 +34,6 @@ export default function DuosTable() {
       advancedColumns={[
         { key: "a", label: "Champion", format: "champion" },
         { key: "b", label: "With", format: "champion" },
-        { key: "win_rate", label: "Win rate", format: "pct" },
         {
           key: "delta",
           label: "Win rate delta",

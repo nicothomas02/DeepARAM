@@ -17,7 +17,6 @@
  "Sections": "Bölümler",
  "Champions": "Şampiyonlar",
  "Your own Mayhem games: win rate, champions, augments and recent matches.": "Kendi ARAM: Şamata maçların: kazanma oranı, şampiyonlar, güçlendirmeler ve son maçlar.",
- "Champion, augment and duo win rates, patch by patch.": "Şampiyon, güçlendirme ve ikili kazanma oranları, yama yama.",
  "Simulated teamfights, simulated builds and fight replays for every champion.": "Her şampiyon için simüle edilmiş takım savaşları, simüle edilmiş dizilimler ve savaş tekrarları.",
  "What to build against the enemy team, a build editor with simulated damage, champion comparisons and team synergy.": "Rakip takıma karşı ne dizileceği, simüle hasarlı bir dizilim düzenleyici, şampiyon karşılaştırmaları ve takım uyumu.",
  "Every augment ranked S to D within its rarity, plus draft practice with rerolls.": "Her güçlendirme kendi nadirliğinde S'den D'ye sıralandı, ayrıca yeniden çekmeli seçim pratiği.",
@@ -177,5 +176,6 @@
  "Outlook.com (new tab)": "Outlook.com (yeni sekme)",
  "Mail app (Outlook, Apple Mail and others)": "E-posta uygulaması (Outlook, Apple Mail ve diğerleri)",
  "Open email": "E-postayı aç",
- "Copy address": "Adresi kopyala"
+ "Copy address": "Adresi kopyala",
+ "Champion and augment win rates and duo synergy, patch by patch.": "Şampiyon ve güçlendirme kazanma oranları ile ikili sinerjisi, yama yama."
 }

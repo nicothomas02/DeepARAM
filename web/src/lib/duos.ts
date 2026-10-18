@@ -8,7 +8,7 @@ import { synergy } from "./synergy";
 // about 7,000 in all. The champion and pair win rates come from the same snapshot, so they compare fairly.
 //
 // delta: the pair's synergy, how much more it wins than the two champions' own win rates predict
-// (lib/synergy.ts). pick_rate: how often the first champion has the second as a teammate.
+// (lib/synergy.ts); the pair's raw win rate isn't shown, it mostly echoes the two champions' own. pick_rate: how often the first champion has the second as a teammate.
 
 type Partner = { champion_id: number; win_rate: number; pick_rate: number };
 type Champs = { champions: { champion_id: number; win_rate: number; pick_rate: number; best_partners?: Partner[] }[] };
@@ -18,7 +18,7 @@ const ALIAS = Object.fromEntries(Object.entries(championIds as Record<string, nu
 
 export const hasDuos = () => Boolean(readRepoJson<Champs>("data/cn/champions.json")?.champions.some((c) => c.best_partners?.length));
 
-export type DuoRow = { a: string; b: string; pair: string; win_rate: number; delta: number; pick_rate: number; roles: string };
+export type DuoRow = { a: string; b: string; pair: string; delta: number; pick_rate: number; roles: string };
 
 let cache: DuoRow[] | null = null;
 export function duoRows(): DuoRow[] {
@@ -42,7 +42,6 @@ export function duoRows(): DuoRow[] {
         a: x,
         b: y,
         pair: `${x} ${y}`,
-        win_rate: p.win_rate,
         delta: synergy(p.win_rate, c.win_rate, other.win_rate),
         pick_rate: p.pick_rate,
         roles: [roles.get(c.champion_id), roles.get(p.champion_id)].filter(Boolean).join(" + "),

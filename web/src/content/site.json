@@ -7,7 +7,7 @@
   "tab./stats.body": "Your own Mayhem games: win rate, champions, augments and recent matches.",
   "page./stats.title": "Your Mayhem games, in one place.",
   "tab./tier-list.label": "Tier List",
-  "tab./tier-list.body": "Champion, augment and duo win rates, patch by patch.",
+  "tab./tier-list.body": "Champion and augment win rates and duo synergy, patch by patch.",
   "page./tier-list.title": "Every Mayhem champion and augment, ranked.",
   "tab./simulator.label": "Simulator",
   "tab./simulator.body": "Simulated teamfights, simulated builds and fight replays for every champion.",

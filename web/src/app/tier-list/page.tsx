@@ -29,7 +29,7 @@ import { fillGames } from "@/lib/fill";
 export const metadata: Metadata = pageMeta(
   "/tier-list",
   `ARAM Mayhem Tier List${livePatch() ? `, Patch ${livePatch()}` : ""}`,
-  "ARAM Mayhem champion tier list for the current patch, with augment and duo win rates.",
+  "ARAM Mayhem champion tier list for the current patch, with augment win rates and duo synergy.",
 );
 
 const num = (v: string | undefined) => (v === undefined || v === "" ? null : Number(v));

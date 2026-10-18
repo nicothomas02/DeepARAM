@@ -17,7 +17,6 @@
  "Sections": "栏目",
  "Champions": "英雄",
  "Your own Mayhem games: win rate, champions, augments and recent matches.": "你自己的海克斯大乱斗对局：胜率、英雄、强化符文和最近比赛。",
- "Champion, augment and duo win rates, patch by patch.": "英雄、强化符文和双人组合的胜率，逐个版本呈现。",
  "Simulated teamfights, simulated builds and fight replays for every champion.": "每位英雄的团战模拟、出装模拟和战斗回放。",
  "What to build against the enemy team, a build editor with simulated damage, champion comparisons and team synergy.": "针对敌方阵容该出什么装、可模拟伤害的出装编辑器、英雄对比和队伍协同。",
  "Every augment ranked S to D within its rarity, plus draft practice with rerolls.": "每个强化符文在其稀有度内按 S 到 D 排名，另有可刷新的选择练习。",
@@ -177,5 +176,6 @@
  "Outlook.com (new tab)": "Outlook.com（新标签页）",
  "Mail app (Outlook, Apple Mail and others)": "邮件应用（Outlook、Apple Mail 等）",
  "Open email": "打开邮件",
- "Copy address": "复制地址"
+ "Copy address": "复制地址",
+ "Champion and augment win rates and duo synergy, patch by patch.": "英雄和强化符文胜率以及双人组合协同，按版本查看。"
 }

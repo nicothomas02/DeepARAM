@@ -17,7 +17,6 @@
  "Sections": "섹션",
  "Champions": "챔피언",
  "Your own Mayhem games: win rate, champions, augments and recent matches.": "내 아수라장 게임: 승률, 챔피언, 증강, 최근 경기.",
- "Champion, augment and duo win rates, patch by patch.": "챔피언, 증강, 듀오 승률을 패치별로.",
  "Simulated teamfights, simulated builds and fight replays for every champion.": "모든 챔피언의 한타 시뮬레이션, 빌드 시뮬레이션, 전투 리플레이.",
  "What to build against the enemy team, a build editor with simulated damage, champion comparisons and team synergy.": "상대 팀을 상대로 무엇을 갈지, 피해량을 시뮬레이션하는 빌드 편집기, 챔피언 비교, 팀 시너지.",
  "Every augment ranked S to D within its rarity, plus draft practice with rerolls.": "모든 증강을 등급 안에서 S부터 D까지 평가하고, 새로고침이 있는 선택 연습도 제공.",
@@ -177,5 +176,6 @@
  "Outlook.com (new tab)": "Outlook.com (새 탭)",
  "Mail app (Outlook, Apple Mail and others)": "메일 앱 (Outlook, Apple Mail 등)",
  "Open email": "이메일 열기",
- "Copy address": "주소 복사"
+ "Copy address": "주소 복사",
+ "Champion and augment win rates and duo synergy, patch by patch.": "패치별 챔피언·증강 승률과 듀오 시너지."
 }

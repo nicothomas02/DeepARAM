@@ -17,7 +17,6 @@
  "Sections": "Bagian",
  "Champions": "Champion",
  "Your own Mayhem games: win rate, champions, augments and recent matches.": "Game ARAM: Mayhem milikmu sendiri: win rate, champion, augment, dan match terbaru.",
- "Champion, augment and duo win rates, patch by patch.": "Win rate champion, augment, dan duo, dari patch ke patch.",
  "Simulated teamfights, simulated builds and fight replays for every champion.": "Simulasi teamfight, simulasi build, dan replay pertarungan untuk setiap champion.",
  "What to build against the enemy team, a build editor with simulated damage, champion comparisons and team synergy.": "Apa yang dibangun melawan tim musuh, editor build dengan simulasi damage, perbandingan champion, dan sinergi tim.",
  "Every augment ranked S to D within its rarity, plus draft practice with rerolls.": "Setiap augment diperingkat S sampai D dalam kelangkaannya, plus latihan memilih dengan reroll.",
@@ -177,5 +176,6 @@
  "Outlook.com (new tab)": "Outlook.com (tab baru)",
  "Mail app (Outlook, Apple Mail and others)": "Aplikasi email (Outlook, Apple Mail, dan lainnya)",
  "Open email": "Buka email",
- "Copy address": "Salin alamat"
+ "Copy address": "Salin alamat",
+ "Champion and augment win rates and duo synergy, patch by patch.": "Win rate champion dan augment serta sinergi duo, patch demi patch."
 }

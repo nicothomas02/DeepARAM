@@ -11,13 +11,12 @@ describe("duo pairs", () => {
     expect(new Set(keys).size).toBe(keys.length);
   });
 
-  it("gives every pair a synergy, pick rate and win rate in range", () => {
+  it("gives every pair a synergy and pick rate in range, and no raw pair win rate", () => {
     for (const r of rows) {
       expect(Math.abs(r.delta)).toBeLessThan(0.2);
       expect(r.pick_rate).toBeGreaterThan(0);
       expect(r.pick_rate).toBeLessThan(1);
-      expect(r.win_rate).toBeGreaterThan(0.3);
-      expect(r.win_rate).toBeLessThan(0.8);
+      expect(r).not.toHaveProperty("win_rate");
     }
   });
 
