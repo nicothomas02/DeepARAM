@@ -699,3 +699,112 @@ html[data-view="simple"] .cp-panel[data-detailed] {
 .cp-itier-h span {
   font-weight: 400;
 }
+
+/* Augment combinations: two augments side by side in one row. */
+.cp-pair {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1rem;
+  min-width: 0;
+}
+.cp-pair-one {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  min-width: 0;
+}
+.cp-pair .cp-name {
+  overflow-wrap: normal;
+}
+@media (max-width: 560px) {
+  .cp-pair {
+    flex-direction: column;
+  }
+  .cp-pair .cp-name {
+    font-size: 0.9rem;
+  }
+}
+
+/* Performance tiles: how far the champion sits from the average. */
+.cp-perf em {
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-style: normal;
+}
+
+/* Typical game: estimated per-game numbers, each with a band. */
+.cp-profile {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(9.5rem, 1fr));
+  gap: var(--cp-gap);
+  padding: 0.9rem 1rem;
+}
+.cp-profile > div {
+  display: grid;
+  gap: 0.15rem;
+  min-width: 0;
+  padding: 0.7rem 0.85rem;
+  border-radius: var(--r-sm);
+  background: var(--raised);
+}
+.cp-profile small {
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+.cp-profile b {
+  font: 700 1.2rem/1.2 var(--mono);
+  font-variant-numeric: tabular-nums;
+}
+.cp-profile span {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+.cp-profile [data-band="high"] span {
+  color: var(--accent);
+}
+.cp-split {
+  display: grid;
+  gap: 0.4rem;
+  padding: 0 1rem 1rem;
+}
+.cp-split small {
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+.cp-split-bar {
+  display: flex;
+  height: 0.6rem;
+  overflow: hidden;
+  border-radius: 999px;
+}
+.cp-split [data-k="physical"] {
+  --c: #f08a4b;
+}
+.cp-split [data-k="magic"] {
+  --c: #4ea8ff;
+}
+.cp-split [data-k="true"] {
+  --c: #9aa0ab;
+}
+.cp-split-bar span {
+  background: var(--c);
+}
+.cp-split ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.85rem;
+}
+.cp-split li::before {
+  content: "";
+  display: inline-block;
+  width: 0.6rem;
+  height: 0.6rem;
+  margin-right: 0.35rem;
+  border-radius: 50%;
+  background: var(--c);
+}
