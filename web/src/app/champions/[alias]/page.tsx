@@ -33,7 +33,7 @@ import ShowMore from "@/components/champion/ShowMore";
 import AugmentTable from "@/components/champion/AugmentTable";
 import SectionRail from "@/components/champion/SectionRail";
 import { BaseStatsTable, MayhemChanges } from "@/components/champion/Details";
-import { fillGames, fillSpells, type SpellRow } from "@/lib/fill";
+import { fillEstimated, fillGames, fillSpells, type SpellRow } from "@/lib/fill";
 import { ITEM_TIERS, type ItemTier } from "@/lib/items";
 import "../champion-page.css";
 
@@ -114,6 +114,18 @@ function Spells({ r }: { r: SpellRow }) {
   );
 }
 
+/** Win rate, pick rate and lift, or just pick rate and games for estimated spells. */
+function SpellCells({ r }: { r: SpellRow }) {
+  return r.estimated ? (
+    <>
+      <Cell value={pct(r.pickRate)} label="Pick rate" />
+      <Cell value={r.games.toLocaleString("en-US")} label="Games" />
+    </>
+  ) : (
+    <RatedCells r={r} />
+  );
+}
+
 function NotYet({ text }: { text: string }) {
   return (
     <div className="cp-empty">
@@ -152,9 +164,13 @@ export default async function ChampionPage({
   const bestStart = bestRow(p.starting);
   const bestSkill = bestRow(p.skills, 0.1);
   const spells = fillSpells(c.alias, c.winRate ?? 0.5);
-  const bestSpells =
-    bestRow(spells.filter((r) => r.pickRate >= 0.05)) ?? spells[0];
+  const spellsEstimated = spells.some((r) => r.estimated);
+  // Estimated spells have no win rate, so the best pick is simply the most common one.
+  const bestSpells = spellsEstimated
+    ? spells[0]
+    : (bestRow(spells.filter((r) => r.pickRate >= 0.05)) ?? spells[0]);
   const games = fillGames()?.[c.alias];
+  const gamesEstimated = fillEstimated();
   const radar = new Map(c.radar.map((a) => [a.key, a]));
   const perf = (
     ["win_rate", "pick_rate", "damage", "tank", "kp", "dead"] as const
@@ -285,7 +301,10 @@ export default async function ChampionPage({
             )}
             <Cell value={pct(c.pickRate ?? 0)} label="Pick rate" />
             {games !== undefined && (
-              <Cell value={games.toLocaleString("en-US")} label="Games" />
+              <Cell
+                value={`${gamesEstimated ? "~" : ""}${games.toLocaleString("en-US")}`}
+                label="Games"
+              />
             )}
             <div className="cp-cell">
               <b>#{c.rank}</b>
@@ -324,7 +343,11 @@ export default async function ChampionPage({
               <>
                 <Spells r={bestSpells} />
                 <div className="cp-mini">
-                  <RatedCells r={bestSpells} />
+                  {bestSpells.estimated ? (
+                    <Cell value={pct(bestSpells.pickRate)} label="Pick rate" />
+                  ) : (
+                    <RatedCells r={bestSpells} />
+                  )}
                 </div>
               </>
             ) : (
@@ -479,12 +502,24 @@ export default async function ChampionPage({
           <h2 className="cp-group" id="playstyle">
             <T ns={NS}>Playstyle</T>
           </h2>
-          <Panel title="Summoner spells" count={spells.length || undefined}>
+          <Panel
+            title="Summoner spells"
+            count={spells.length || undefined}
+            note={spellsEstimated ? <T ns={NS}>Estimated</T> : undefined}
+          >
             {spells.length ? (
               <>
-                <Head what="Spells" />
+                <Head
+                  what="Spells"
+                  cols={spellsEstimated ? ["Pick rate", "Games"] : undefined}
+                />
                 {spells.map((r, i) => (
-                  <Row key={i} rank={i + 1} cells={<RatedCells r={r} />}>
+                  <Row
+                    key={i}
+                    rank={i + 1}
+                    cols={spellsEstimated ? 2 : 3}
+                    cells={<SpellCells r={r} />}
+                  >
                     <Spells r={r} />
                   </Row>
                 ))}

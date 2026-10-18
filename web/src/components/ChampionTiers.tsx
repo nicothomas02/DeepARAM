@@ -62,7 +62,7 @@ const ADVANCED: Column[] = [
 ];
 
 // Live-patch game counts, when the page has them (lib/fill.ts).
-const GAMES: Column = { key: "games", label: "Games", format: "int", hint: "Games played on the live patch." };
+const GAMES: Column = { key: "games", label: "Games", format: "int", hint: "Estimated games on the live patch." };
 
 const MOVERS = { key: "change", desc: true };
 const BEST = { key: "score", desc: true };

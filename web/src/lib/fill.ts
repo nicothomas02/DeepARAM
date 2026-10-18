@@ -5,17 +5,26 @@ import { livePatch } from "./highlights";
 import { readRepoJson } from "./repo-data";
 import type { Rated } from "./champion-page";
 
-// TEMPORARY fill for the two things the main stats feed lacks: summoner spells and game counts
+// Estimated summoner spells and game counts, the two things the main stats feed lacks
 // (data/fill/README.md). Shown only while data/fill/config.json is switched on and the file is for the
-// live patch. To remove: delete data/fill/, this file and its imports.
+// live patch. Estimated spell rows have a pick rate but no win rate.
 
 type FillFile = {
   patch: string;
-  champions: Record<string, { games: number; spells: { ids: number[]; games: number; pick_rate: number; win_rate: number }[] }>;
+  estimated?: boolean;
+  champions: Record<
+    string,
+    { games: number; spells: { ids: number[]; games: number; pick_rate: number; win_rate: number | null }[] }
+  >;
 };
 type ClientSpell = { id: number; name: string; iconPath: string };
 
-export type SpellRow = Rated & { spells: { id: number; name: string; icon: string }[]; games: number };
+export type SpellRow = Rated & {
+  spells: { id: number; name: string; icon: string }[];
+  games: number;
+  /** Estimated pick rate only: winRate and lift are meaningless. */
+  estimated: boolean;
+};
 
 const IDS = championIds as Record<string, number>;
 const CLIENT = "public/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default";
@@ -48,6 +57,11 @@ export function spell(id: number) {
   return spellInfo.get(id);
 }
 
+/** Whether the spells and game counts are estimates. */
+export function fillEstimated(): boolean {
+  return data()?.estimated === true;
+}
+
 /** Live-patch game count per champion alias, or null when the fill is off. */
 export function fillGames(): Record<string, number> | null {
   const d = data();
@@ -64,6 +78,16 @@ export function fillSpells(alias: string, base: number): SpellRow[] {
   return c.spells.flatMap((s) => {
     const spells = s.ids.map((id) => (spell(id) ? { id, ...spell(id)! } : null));
     if (spells.some((x) => !x)) return [];
-    return [{ spells: spells as SpellRow["spells"], games: s.games, winRate: s.win_rate, pickRate: s.pick_rate, lift: s.win_rate - base }];
+    const est = s.win_rate === null;
+    return [
+      {
+        spells: spells as SpellRow["spells"],
+        games: s.games,
+        winRate: s.win_rate ?? base,
+        pickRate: s.pick_rate,
+        lift: est ? 0 : s.win_rate! - base,
+        estimated: est,
+      },
+    ];
   });
 }
