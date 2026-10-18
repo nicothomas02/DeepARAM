@@ -16,7 +16,9 @@ const BUST = "?v=" + (window.REPLAY_VERSION || "0");
 const GAME_UNITS = 100;
 const HEIGHT = 2.6;
 const FALLBACK = { Q: ["attack"], W: ["attack"], E: ["attack"], R: ["attack"], crit: ["attack"],
-  stunned: ["idle"], death: ["idle"], attack: ["idle"], run: ["idle"], dance: ["idle"] };
+  stunned: ["idle"], death: ["idle"], attack: ["idle"], run: ["idle"], dance: ["idle"],
+  respawn: ["idle"], laugh: ["taunt", "joke", "idle"], taunt: ["laugh", "joke", "idle"], joke: ["laugh", "taunt", "idle"],
+  knockup: ["stunned", "idle"], haste: ["run", "idle"] };
 
 // Models built next to the page (replay-data/models/) win; otherwise the website's copies in /assets/models/.
 const SITE = "/assets/models/";
