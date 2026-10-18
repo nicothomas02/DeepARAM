@@ -338,8 +338,13 @@ def flat_is_range(inner, refs, i):
     return i > 0 and bool(re.search(r"\bto\s*$|-\s*$", inner[refs[i - 1].end():refs[i].start()].lower()))
 
 
+def round_coef(v):
+    """4 decimals, but small coefficients (a percent of max Health per AP) keep 3 significant digits."""
+    return round(v, 4) if abs(v) >= 0.01 else float(f"{v:.3g}")
+
+
 def round_lin(lin):
-    return {k: round(v, 4) for k, v in lin.items() if abs(v) > 1e-9}
+    return {k: round_coef(v) for k, v in lin.items() if abs(v) > 1e-9}
 
 
 def parse_spell(slot, spell_obj, strings, base_stats, attack_range=125):
@@ -713,12 +718,16 @@ def parse_passives(bin_data, record, rules, strings, base, attack_range, notes):
         want = rule.get("calcs")
         hits = [dict(h, per_second=False) for h in parsed["hits"]
                 if (want is None and not h["alt"]) or (want and h["calc"].split("~")[0] in want)]
-        if rule.get("scaling"):  # the hit's numbers by hand (e.g. without the attack's own AD it replaces)
-            hits = [dict(h, scaling=dict(rule["scaling"])) for h in hits[:1]]
+        if rule.get("hits"):  # whole hits by hand: an ability's passive on-hit that the passive tooltip lacks
+            hits = [dict(h, per_second=False) for h in rule["hits"]]
+        elif rule.get("scaling"):  # the hit's numbers by hand (e.g. without the attack's own AD it replaces)
+            hits = [dict(h, scaling=dict(rule["scaling"])) for h in hits[:1]] or [
+                {"type": rule.get("type", "magic"), "calc": "Manual", "scaling": dict(rule["scaling"]),
+                 "target": "flat", "per_second": False, "alt": False}]  # a passive scripted without tooltip numbers (Bard's meeps)
         mult = float(rule.get("mult", 1.0))
         if mult != 1.0:
             for h in hits:
-                h["scaling"] = {k: round(c * mult, 4) for k, c in h["scaling"].items()}
+                h["scaling"] = {k: round_coef(c * mult) for k, c in h["scaling"].items()}
         hits = [h for h in hits if h["scaling"]]
         if not hits:
             notes.append(f"P: no damage for {rule.get('calcs') or 'its passive'}")
@@ -734,6 +743,8 @@ def parse_passives(bin_data, record, rules, strings, base, attack_range, notes):
             "below_hp": round(value(rule.get("below_hp"), 0.0), 3),
             "ability_cdr": round(value(rule.get("ability_cdr"), 0.0), 3),
             **({"restore": float(rule["restore"])} if rule.get("restore") else {}),
+            **({"basic_cdr": float(rule["basic_cdr"])} if rule.get("basic_cdr") else {}),
+            **({"needs_hit": True} if rule.get("needs_hit") else {}),
             "hits": hits,
         })
     return out
@@ -897,11 +908,11 @@ def main():
                         elif k == "hit_mults":  # {calc name: multiplier}, e.g. a recast or a hit count
                             for h in a["hits"]:
                                 if h["calc"] in v:
-                                    h["scaling"] = {s: round(c * v[h["calc"]], 4) for s, c in h["scaling"].items()}
+                                    h["scaling"] = {s: round_coef(c * v[h["calc"]]) for s, c in h["scaling"].items()}
                         elif k == "hit_adds":  # {calc name: {stat: amount}}: stacks added to a hit (Nasus Q)
                             for h in a["hits"]:
                                 for stat, amt in v.get(h["calc"], {}).items():
-                                    h["scaling"][stat] = round(h["scaling"].get(stat, 0) + amt, 4)
+                                    h["scaling"][stat] = round_coef(h["scaling"].get(stat, 0) + amt)
                         elif k == "alt_calcs":  # damage numbers that replace the main hit rather than add to it
                             for h in a["hits"]:
                                 if h["calc"] in v:

@@ -107,6 +107,7 @@ BIN_EFFECTS = {
                 "shield_ranged": dv("RangedShieldMult")},
     "heartsteel": {"heartsteel_flat": dv("BaseDamage"), "heartsteel_own_hp": dv("MaxHPRatio"), "heartsteel_cd": dv("PerTargetCooldown")},
     "overlords_bloodmail": {"ad_per_bonus_hp": dv("HPToADPercentage")},
+    "thornmail": {"thorns_flat": dv("BaseDamage"), "thorns_bonus_armor": dv("BonusArmorDamageRatio")},
     "unending_despair": {"drain_bonus_hp": dv("BonusHealthDrainPercentage"), "drain_cd": dv("Cooldown"), "drain_range": dv("DrainRange")},
     "steraks": {"base_ad_pct": dv("ADtoAD"), "lifeline_bonus_hp": dv("BaseShieldRatio"),
                 "lifeline_duration": dv("ShieldDuration"), "lifeline_threshold": dv("LowHealthThreshold"),

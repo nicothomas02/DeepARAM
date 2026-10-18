@@ -209,7 +209,7 @@
   "upgrade_zhonyas": {"id": 1318, "name": "Upgrade Zhonya's", "rarity": "silver", "note": "No effect in the simulator: it depends on gold, items or random augments"},
   "urfs_champion": {"id": 1154, "name": "Urf's Champion", "rarity": "prismatic", "note": "No effect in the simulator: it depends on abilities the simulator can't tell apart"},
   "veil_of_warding": {"id": 1034, "name": "Veil of Warding", "rarity": "silver", "note": "No effect in the simulator: it depends on abilities the simulator can't tell apart"},
-  "vulnerability": {"id": 1092, "name": "Vulnerability", "rarity": "gold", "stats": {"crit": 0.25}, "effects": {"item_crit_damage": 1.45}, "confidence": "verified"},
+  "vulnerability": {"id": 1092, "name": "Vulnerability", "rarity": "gold", "stats": {"crit": 0.25}, "effects": {"item_crit_damage": 1.45, "item_crit_cd": 5}, "confidence": "verified"},
   "warlock_juicebox": {"id": 2132, "name": "Warlock Juicebox", "rarity": "gold", "stats": {"omnivamp": 0.1}, "effects": {"omnivamp_per_ap": 0.00035}, "confidence": "verified"},
   "wee_woo_wee_woo": {"id": 1005, "name": "Wee Woo Wee Woo", "rarity": "gold", "note": "No effect in the simulator: it depends on allies"},
   "windspeakers_blessing": {"id": 1095, "name": "Windspeaker's Blessing", "rarity": "prismatic", "note": "No effect in the simulator: it depends on allies"},

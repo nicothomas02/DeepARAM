@@ -112,7 +112,7 @@ SPEC = {
     1084: {"stats": {"armor_pen": dv("PercentPen"), "magic_pen_pct": dv("PercentPen")}},
     1087: {"effects": {"typhoon_ad": dv("ADRatio")}},
     1088: {"effects": {"r_refresh_cd": dv("Cooldown")}},
-    1092: {"stats": {"crit": dv("CritChance")}, "effects": {"item_crit_damage": dv("CritDamage")}},
+    1092: {"stats": {"crit": dv("CritChance")}, "effects": {"item_crit_damage": dv("CritDamage"), "item_crit_cd": dv("SpellIDCD")}},
     1098: {"effects": {"ms_per_ah": dv("AbilityHasteToMSConversion")}},
     1103: {"effects": {"ah_q": dv("QAbilityHaste")}},
     1112: {"effects": {"r_unstoppable": dv("UnstoppableDuration"), "r_unstoppable_cd": dv("Cooldown")}},

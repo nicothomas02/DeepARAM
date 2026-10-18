@@ -15,7 +15,9 @@
     "range": 600,
     "on_self": false
    },
-   "why": "one card per cast (Gold, matching the stun); the card is a single-target empowered attack"
+   "why": "one card per cast (Gold, matching the stun); the card is a single-target empowered attack; Pick a Card: the cooldown starts after the card is thrown (cdstart post-effect) and the cards cycle 0.5 s each from a random start, so waiting for Gold adds about 0.5 s that haste and refunds don't shorten; the empowered attack has a 0.25 s cast time",
+   "cast_time": 0.25,
+   "ready_delay": 0.5
   }
  },
  "Teemo": {
@@ -29,11 +31,16 @@
  },
  "Veigar": {
   "W": {
-   "cooldown": 8,
+   "cooldown": 4.25,
    "geometry": {
     "speed": 750
    },
-   "why": "Dark Matter cooldown not in spell record; lands after a 1.2s delay, modelled as flight time so it can be dodged"
+   "why": "Dark Matter: 8 s x 0.9 per 50 Phenomenal Evil stacks (8 * 0.9^6 = 4.25 s with the 300 stacks kit_passives assumes); lands after a 1.2s delay, modelled as flight time so it can be dodged"
+  },
+  "R": {
+   "missing_amp": 1.5,
+   "missing_max": 0.6667,
+   "why": "Primordial Burst: +1.5% damage per 1% missing Health, doubled at 33% Health (MaxExecuteMult 2)"
   }
  },
  "TahmKench": {
@@ -57,17 +64,106 @@
   },
   "Q": {
    "attack_reset": true,
-   "alt_calcs": [
-    "Calc_Dragon_Form_Damage"
+   "hits": [
+    {
+     "type": "physical",
+     "calc": "Calc_Damage",
+     "scaling": {
+      "const": 173.0,
+      "bonus_ad": 1.1,
+      "ap": 0.3
+     },
+     "target": "flat",
+     "per_second": false,
+     "alt": false
+    },
+    {
+     "type": "physical",
+     "calc": "Calc_Damage",
+     "scaling": {
+      "const": 173.0,
+      "bonus_ad": 1.1,
+      "ap": 0.3
+     },
+     "target": "flat",
+     "per_second": false,
+     "alt": false
+    },
+    {
+     "type": "true",
+     "calc": "Calc_Dragon_Form_Damage",
+     "scaling": {
+      "const": 259.5,
+      "bonus_ad": 1.65,
+      "ap": 0.45
+     },
+     "target": "flat",
+     "per_second": false,
+     "alt": false
+    }
    ],
-   "why": "resets the basic attack timer; dragon-form damage replaces human-form damage"
+   "hit_mults": {
+    "Calc_Dragon_Form_Damage": 2
+   },
+   "why": "resets the basic attack timer; Dragon's Descent is up at the start of each fight (Fury builds 1/s out of combat) and Mayhem's 2.5 Fury per hit (x3 in Dragon Form) outpaces the 6.67/s drain, so fights are in Dragon Form: Emberstrike is cast three times per cooldown (claw and tail slam Calc_Damage, then the true-damage bite, x2 to offset the 0.5 secondary weight). Its 1% (+1.1% per 100 bonus AD) max-health on-hit is a passive on every attack (passives.json), not part of the cast"
   },
   "E": {
-   "alt_calcs": [
-    "Calc_Dragon_Damage",
-    "Calc_Max_Health_Dragon_Damage"
+   "hits": [
+    {
+     "type": "magic",
+     "calc": "Calc_Dragon_Damage",
+     "scaling": {
+      "const": 137.5,
+      "ap": 1.0
+     },
+     "target": "flat",
+     "per_second": false,
+     "alt": false
+    },
+    {
+     "type": "magic",
+     "calc": "Calc_Max_Health_Dragon_Damage",
+     "scaling": {
+      "const": 0.0625
+     },
+     "target": "target_max_hp",
+     "per_second": false,
+     "alt": false
+    },
+    {
+     "type": "magic",
+     "calc": "Calc_Dragon_Damage",
+     "scaling": {
+      "const": 137.5,
+      "ap": 1.0
+     },
+     "target": "flat",
+     "per_second": false,
+     "alt": false
+    },
+    {
+     "type": "magic",
+     "calc": "Calc_Max_Health_Dragon_Damage",
+     "scaling": {
+      "const": 0.0625
+     },
+     "target": "target_max_hp",
+     "per_second": false,
+     "alt": false
+    },
+    {
+     "type": "magic",
+     "calc": "DamagePerSecond",
+     "scaling": {
+      "const": 25.0,
+      "ap": 0.05
+     },
+     "target": "flat",
+     "per_second": true,
+     "alt": false
+    }
    ],
-   "why": "dragon-form numbers replace the human-form ones"
+   "why": "Dragon Form (see Q): the fireball deals the dragon numbers and then sets an explosion on the champion it struck that applies the same damage again, plus the scorched ground"
   }
  },
  "Cassiopeia": {
@@ -375,6 +471,10 @@
    "act": 5,
    "needs_r": true,
    "why": "Undying Rage: can't die for 5 seconds"
+  },
+  "E": {
+   "crit_refund": 1.5,
+   "why": "Spinning Slash: 1.5 s off its cooldown whenever Tryndamere crits a champion (ChampCDRefund)"
   }
  },
  "Kindred": {
@@ -393,6 +493,12 @@
    "act": 2.5,
    "needs_r": true,
    "why": "Divine Judgment: invulnerable for 2.5 seconds"
+  },
+  "E": {
+   "hit_mults": {
+    "EPassiveTotalDamage": 0
+   },
+   "why": "Starfire Spellblade's 35 + 20% AP + 10% bonus AD is a passive on every attack (passives.json), not part of the 6 s active; the active keeps the missing-Health hit"
   }
  },
  "Taric": {
@@ -400,6 +506,21 @@
    "act": 2.5,
    "needs_r": true,
    "why": "Cosmic Radiance: invulnerable for 2.5 seconds"
+  },
+  "Q": {
+   "cooldown": 3,
+   "why": "each Bravado-empowered attack stocks a Starlight charge, so in a fight Q is recast on its 3s static cooldown (one charge each), not on the 15s natural recharge; kept as a self-cast heal so its casts charge Bravado",
+   "cast_for_heal": true
+  },
+  "W": {
+   "shield": {
+    "scaling": {
+     "const": 256,
+     "bonus_hp": 0.11
+    },
+    "duration": 2.5
+   },
+   "why": "Bastion shields Taric (self-cast) for 11% of max health at rank 5 (256 = 11% of base Health at 18); the parser missed the percent-health shield, so W was never cast and never charged Bravado"
   }
  },
  "Blitzcrank": {
@@ -496,10 +617,52 @@
  "Illaoi": {
   "W": {
    "attack_reset": true,
-   "why": "resets the basic attack timer; Harsh Lesson makes Illaoi lunge at the target",
+   "why": "resets the basic attack timer; Harsh Lesson makes Illaoi lunge at the target; Harsh Lesson also commands the Tentacles in range to slam the target (one slam: the passive keeps a Tentacle on nearby terrain; 180 + 110% AD + 40% AP, +30% from Q rank 5)",
    "geometry": {
     "move": "dash"
-   }
+   },
+   "hits": [
+    {
+     "type": "physical",
+     "calc": "TentacleSlam",
+     "scaling": {
+      "const": 448.5,
+      "bonus_ad": 1.43,
+      "ap": 0.52
+     },
+     "target": "flat",
+     "per_second": false,
+     "alt": false
+    },
+    {
+     "type": "physical",
+     "calc": "HealthPercentTotal",
+     "scaling": {
+      "const": 0.1025,
+      "bonus_ad": 0.0003
+     },
+     "target": "target_max_hp",
+     "per_second": false,
+     "alt": false
+    }
+   ]
+  },
+  "E": {
+   "hits": [
+    {
+     "type": "physical",
+     "calc": "TentacleSlam",
+     "scaling": {
+      "const": 448.5,
+      "bonus_ad": 1.43,
+      "ap": 0.52
+     },
+     "target": "flat",
+     "per_second": false,
+     "alt": false
+    }
+   ],
+   "why": "Test of Spirit deals no damage itself, but Tentacles autonomously slam the Spirit/Vessel every 3.5s for the tether and Vessel duration; counted as one slam per cast"
   }
  },
  "Jax": {
@@ -557,10 +720,23 @@
    "why": "resets the basic attack timer; Siphoning Strike stacks assumed at 350 by level 18"
   },
   "R": {
-   "hit_mults": {
-    "DamageCalc": 10
+   "hits": [
+    {
+     "type": "magic",
+     "calc": "MaxDamageCap",
+     "scaling": {
+      "const": 240.0
+     },
+     "target": "flat",
+     "per_second": true,
+     "alt": false
+    }
+   ],
+   "duration": 10,
+   "geometry": {
+    "radius": 400
    },
-   "why": "Fury of the Sands burns %max HP per second for 15s; parsed as a single tick, ~10 ticks land in a typical duel"
+   "why": "Fury of the Sands burns nearby enemies for 2.5% (+0.5% per 100 AP) max HP per 0.5s tick, but capped at MaxDamageCap 240 per second, which a level-18 Nasus always reaches: 240/s for about 10 of its 15s in a typical duel (the uncapped %HP x10 was over twice that); radius is at least MinAoERadius 400"
   }
  },
  "Nautilus": {
@@ -629,7 +805,8 @@
    "geometry": {
     "radius": 150
    },
-   "why": "resets the basic attack timer; Broken Wings is three casts per cooldown (listed twice, so x1.5); real AoE radius ~150"
+   "why": "resets the basic attack timer; Broken Wings is three casts per cooldown (listed twice, so x1.5); real AoE radius ~150; each of the three casts grants a Runic Blade charge",
+   "casts": 3
   },
   "R": {
    "hit_mults": {
@@ -639,7 +816,12 @@
    "alt_calcs": [
     "MaxDamage"
    ],
-   "why": "bonus AD is a buff not a hit; Wind Slash is one hit (min..max by missing health)"
+   "why": "bonus AD is a buff not a hit; Wind Slash is one hit (min..max by missing health); Blade of the Exile grants 20% of total AD as bonus AD for 15s (23 = 20% of base AD at 18, plus 20% of bonus AD)",
+   "buff": {
+    "duration": 15,
+    "ad": 23,
+    "bonus_ad_pct": 0.2
+   }
   }
  },
  "Sivir": {
@@ -1151,6 +1333,55 @@
     "EUltDamage"
    ],
    "why": "UPGRADE!!! empowers one ability per cast; model the usual empowered W total, not all five variants"
+  },
+  "Q": {
+   "toggle": true,
+   "geometry": {
+    "shape": "circle",
+    "on_self": true,
+    "radius": 550
+   },
+   "hits": [
+    {
+     "type": "magic",
+     "calc": "TurretAttacks",
+     "scaling": {
+      "const": 40.25,
+      "ap": 0.6125
+     },
+     "target": "flat",
+     "per_second": true,
+     "alt": false
+    }
+   ],
+   "why": "H-28G turrets: Heimerdinger fights beside his turrets (3 kits, placed before the fight); modelled as one turret shooting whoever is within its 550 range: 1.75 attacks/s of Damage (23 + 35% AP at rank 5)"
+  },
+  "E": {
+   "hits": [
+    {
+     "type": "magic",
+     "calc": "Damage",
+     "scaling": {
+      "const": 220.0,
+      "ap": 0.6
+     },
+     "target": "flat",
+     "per_second": false,
+     "alt": false
+    },
+    {
+     "type": "magic",
+     "calc": "TurretBeam",
+     "scaling": {
+      "const": 120.0,
+      "ap": 0.55
+     },
+     "target": "flat",
+     "per_second": false,
+     "alt": false
+    }
+   ],
+   "why": "a grenade hitting a champion fully charges nearby turrets, which fire their beam (DamageBeam 120 + 55% AP at rank 5), counted at extra-hit weight"
   }
  },
  "Ivern": {
@@ -1178,7 +1409,8 @@
    "hit_mults": {
     "AdditionalDamage": 6
    },
-   "why": "Rend adds AdditionalDamage per extra spear (several per cycle at her attack speed); 6 at the 0.5 secondary weight is about 3 extra spears, conservative"
+   "why": "Rend adds AdditionalDamage per extra spear (several per cycle at her attack speed); 6 at the 0.5 secondary weight is about 3 extra spears, conservative; Rend needs spears in the target (1 per attack): the counted 1 + ~3 extra spears means 4 attacks on the target since the last Rend",
+   "after_attacks": 4
   }
  },
  "Karma": {
@@ -1267,6 +1499,12 @@
    },
    "cc": null,
    "why": "Mimic copies one spell per cast; model it as RQ (hit + mark pop), not all five mimic numbers"
+  },
+  "Q": {
+   "hit_mults": {
+    "MarkDamage": 2
+   },
+   "why": "Sigil of Malice's mark is popped by her next ability hit within 3.5 s, which her combo always lands: it counts fully, not half"
   }
  },
  "LeeSin": {
@@ -1542,12 +1780,18 @@
     "duration": 1.5,
     "amount": 0.6
    },
-   "why": "Beat Drop cast time is 0.25 s (SeraphineECast)",
-   "cast_time": 0.25
+   "why": "Beat Drop cast time is 0.25 s (SeraphineECast); Stage Presence: every third basic ability echoes (casts again): +1/3 on average",
+   "cast_time": 0.25,
+   "hit_mults": {
+    "FinalDamage": 1.3333
+   }
   },
   "Q": {
    "cast_time": 0.25,
-   "why": "High Note cast time is 0.25 s (SeraphineQCast)"
+   "why": "High Note cast time is 0.25 s (SeraphineQCast); Stage Presence: every third basic ability echoes (casts again): +1/3 on average",
+   "hit_mults": {
+    "ExplosionDamage": 1.3333
+   }
   }
  },
  "Sett": {
@@ -1740,7 +1984,8 @@
     "PassiveDamage",
     "ActiveDamage"
    ],
-   "why": "passive is the on-kill explosion; charge usually detonates at full 4 stacks"
+   "why": "passive is the on-kill explosion; charge usually detonates at full 4 stacks; the charge's full damage needs 4 stacks (attacks/abilities after it is placed): its damage lands about 3 attacks after the cast, and not at all if the target dies first",
+   "after_attacks": 3
   }
  },
  "Twitch": {
@@ -1753,7 +1998,8 @@
    "hit_mults": {
     "MaxMagicDamage": 2
    },
-   "why": "Max numbers are base + 6 stacks; count them once at full weight"
+   "why": "Max numbers are base + 6 stacks; count them once at full weight; Expunge's damage is per Deadly Venom stack (1 per attack, max 6): cast once 6 attacks have hit the target, not at 0 stacks",
+   "after_attacks": 6
   }
  },
  "Udyr": {
@@ -1976,6 +2222,12 @@
   "E": {
    "cc": null,
    "why": "Shadow Step lets Kayn walk through walls; it roots no one"
+  },
+  "Q": {
+   "hit_mults": {
+    "TotalDamage": 2
+   },
+   "why": "Reaping Slash hits twice: the dash and the following sweep each deal the full damage"
   }
  },
  "JarvanIV": {
@@ -2170,6 +2422,35 @@
    "revive_delay": 4,
    "chance": 0.8,
    "why": "Determination: at 12 stacks, lethal damage puts Zaahen in a 4s resurrection restoring 75% of max Health (120s cooldown, so once a fight); at max stacks most of the time"
+  }
+ },
+ "Azir": {
+  "W": {
+   "onhit_every": 1,
+   "hit_mults": {
+    "TotalDamage": 1.25
+   },
+   "why": "Arise! summons a soldier (no damage of its own); Azir's attacks near soldiers become soldier stabs for the W damage instead of his physical attack, applying on-hit at 50% (OnHitMultiplier; kit effects attack_ad_mult 0, attack_onhit_mult 0.5). Two soldiers are usually up (2 charges, 10 s each): the second stab on the same target adds 25% (SubsequentDamageMod)"
+  }
+ },
+ "Annie": {
+  "E": {
+   "geometry": {
+    "shape": "single",
+    "range": 800,
+    "radius": 0,
+    "on_self": false
+   },
+   "why": "Molten Shield is a shield; its damage returns once per shield to an enemy that hits the shielded ally, not an area around a cast"
+  },
+  "R": {
+   "hit_adds": {
+    "TibbersAuraDamage": {
+     "const": 60,
+     "ap": 0.1
+    }
+   },
+   "why": "Tibbers' own attacks (TibbersAADamage 60 + 10% AP at rank 3, about one a second while enraged) added to his per-second burn"
   }
  }
 }

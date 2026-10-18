@@ -73,12 +73,17 @@ struct Ability {
     double trail = 0;    // > 0: an aura that also lingers this long where you walked (Singed Q's cloud)
     double linger = 0;   // > 0: an aura's damage keeps ticking this long after a target leaves it (poison)
     int onhitEvery = 0; // > 0: a passive that procs on every Nth attack instead of a cast
+    int casts = 1;      // casts per cooldown, each granting after-ability passive charges (Riven Q: 3)
+    int afterAttacks = 0; // > 0: cast only once this many attacks have hit the target since its last cast (stacks to build: Twitch E)
     double ramp = 0;    // on-hit passives: each proc on the same target adds a stack that multiplies the damage,
                         // lost after this many seconds without a hit (Bel'Veth R)
     bool noHaste = false;
     bool appliesOnHit = false;
     double invuln = 0;
     double refund = 0;
+    double critRefund = 0;      // seconds off its cooldown whenever an attack crits (Tryndamere E)
+    double readyDelay = 0;      // seconds before its cooldown starts, untouched by haste and refunds (TF W's card cycling)
+    double missingMax = 0;      // > 0: the missing-Health bonus stops growing at this share missing (Veigar R)
     double missingAmp = 0;      // damage x (1 + this x the target's missing share of Health) (Jhin R)          // mana or energy restored when it hits its target (Zed's shadows hitting it too)          // seconds the caster takes no damage from the cast on (Pantheon E's shield)  // its hit on the first target applies on-hit effects (Bel'Veth Q)  // the cooldown isn't reduced by ability haste (a resource or stack build-up time)
     // Damage scaled by how far it flew: x1 up to rangeFrom, rising to rangeMax at rangeTo (Nidalee Q).
     double rangeFrom = 0, rangeTo = 0, rangeMax = 1;
@@ -102,6 +107,8 @@ struct Passive {
     double belowHp = 0;     // only against targets below this share of their max Health
     double abilityCdr = 0;  // seconds off its current cooldown whenever an ability cast hits (Galio)
     double restore = 0;     // mana or energy it gives back when it procs (Ambessa)
+    double basicCdr = 0;    // seconds off the current cooldowns of Q, W and E whenever it procs (Taric)
+    bool needsHit = false;  // AfterAbility: only casts that hit an enemy charge it (Lux marks the enemies she hits)
     std::vector<Hit> hits;
 };
 
@@ -189,6 +196,7 @@ struct Rules {
     // up to keep a fight's total about where real games put it.
     double inRangeBoost = 1.0;
     double focusRamp = 0;     // seconds over which the enemies' damage on you builds up to full
+    bool focusFromContact = false;  // the ramp starts when an enemy first has you in reach
     double comboOrder = 1;  // 1: cast in each champion's recommended combo order; 0: by damage
     // Enemies cast their own abilities: their damage partly arrives as those abilities' hits (on
     // their cooldowns, in their range), and their crowd control is their own (rate kept to real games).

@@ -1609,7 +1609,7 @@
        "calc": "TotalHealthDamage",
        "scaling": {
         "const": 0.02,
-        "ap": 0.0
+        "ap": 5e-05
        },
        "target": "target_max_hp",
        "per_second": false,
@@ -1698,7 +1698,12 @@
     }
    ],
    "parse_quality": "good",
-   "notes": []
+   "notes": [],
+   "kit": {
+    "effects": {
+     "magic_true_extra": 0.1
+    }
+   }
   },
   {
    "id": "Anivia",
@@ -2077,9 +2082,9 @@
      "area": "aoe",
      "duration": 3.0,
      "geometry": {
-      "shape": "circle",
-      "range": 800.0,
-      "radius": 300.0,
+      "shape": "single",
+      "range": 800,
+      "radius": 0,
       "width": 0.0,
       "angle": 0.0,
       "speed": 0,
@@ -2100,7 +2105,8 @@
      ],
      "mode_overrides": [],
      "notes": [
-      "cooldown from the champion's ability list"
+      "cooldown from the champion's ability list",
+      "hand override: Molten Shield is a shield; its damage returns once per shield to an enemy that hits the shielded ally, not an area around a cast"
      ]
     },
     {
@@ -2138,8 +2144,8 @@
        "type": "magic",
        "calc": "TibbersAuraDamage",
        "scaling": {
-        "const": 16.0,
-        "ap": 0.04
+        "const": 76.0,
+        "ap": 0.14
        },
        "target": "flat",
        "per_second": true,
@@ -2147,11 +2153,18 @@
       }
      ],
      "mode_overrides": [],
-     "notes": []
+     "notes": [
+      "hand override: Tibbers' own attacks (TibbersAADamage 60 + 10% AP at rank 3, about one a second while enraged) added to his per-second burn"
+     ]
     }
    ],
    "parse_quality": "good",
-   "notes": []
+   "notes": [],
+   "kit": {
+    "effects": {
+     "magic_pen_pct_kit": 0.2
+    }
+   }
   },
   {
    "id": "Aphelios",
@@ -3102,8 +3115,8 @@
        "type": "magic",
        "calc": "TotalDamage",
        "scaling": {
-        "const": 182.0,
-        "ap": 0.65
+        "const": 227.5,
+        "ap": 0.8125
        },
        "target": "flat",
        "per_second": false,
@@ -3112,8 +3125,10 @@
      ],
      "mode_overrides": [],
      "notes": [
-      "cooldown is the ammo recharge time"
-     ]
+      "cooldown is the ammo recharge time",
+      "hand override: Arise! summons a soldier (no damage of its own); Azir's attacks near soldiers become soldier stabs for the W damage instead of his physical attack, applying on-hit at 50% (OnHitMultiplier; kit effects attack_ad_mult 0, attack_onhit_mult 0.5). Two soldiers are usually up (2 charges, 10 s each): the second stab on the same target adds 25% (SubsequentDamageMod)"
+     ],
+     "onhit_every": 1
     },
     {
      "slot": "E",
@@ -3199,7 +3214,13 @@
     }
    ],
    "parse_quality": "good",
-   "notes": []
+   "notes": [],
+   "kit": {
+    "effects": {
+     "attack_ad_mult": 0,
+     "attack_onhit_mult": 0.5
+    }
+   }
   },
   {
    "id": "Bard",
@@ -3381,7 +3402,33 @@
     }
    ],
    "parse_quality": "partial",
-   "notes": []
+   "notes": [],
+   "passives": [
+    {
+     "trigger": "attack",
+     "every": 1,
+     "cooldown": 3.0,
+     "per_target": false,
+     "charges": 1,
+     "max_charges": 1,
+     "aoe": true,
+     "below_hp": 0.0,
+     "ability_cdr": 0.0,
+     "hits": [
+      {
+       "type": "magic",
+       "calc": "Manual",
+       "scaling": {
+        "const": 78,
+        "ap": 0.4
+       },
+       "target": "flat",
+       "per_second": false,
+       "alt": false
+      }
+     ]
+    }
+   ]
   },
   {
    "id": "Belveth",
@@ -10263,17 +10310,31 @@
      "geometry": {
       "shape": "circle",
       "range": 350.0,
-      "radius": 625.0,
+      "radius": 550,
       "width": 0.0,
       "angle": 0.0,
       "speed": 1450,
-      "on_self": false
+      "on_self": true
      },
-     "hits": [],
+     "hits": [
+      {
+       "type": "magic",
+       "calc": "TurretAttacks",
+       "scaling": {
+        "const": 40.25,
+        "ap": 0.6125
+       },
+       "target": "flat",
+       "per_second": true,
+       "alt": false
+      }
+     ],
      "mode_overrides": [],
      "notes": [
-      "cooldown is the ammo recharge time"
-     ]
+      "cooldown is the ammo recharge time",
+      "hand override: H-28G turrets: Heimerdinger fights beside his turrets (3 kits, placed before the fight); modelled as one turret shooting whoever is within its 550 range: 1.75 attacks/s of Damage (23 + 35% AP at rank 5)"
+     ],
+     "toggle": true
     },
     {
      "slot": "W",
@@ -10357,10 +10418,23 @@
        "target": "flat",
        "per_second": false,
        "alt": false
+      },
+      {
+       "type": "magic",
+       "calc": "TurretBeam",
+       "scaling": {
+        "const": 120.0,
+        "ap": 0.55
+       },
+       "target": "flat",
+       "per_second": false,
+       "alt": false
       }
      ],
      "mode_overrides": [],
-     "notes": []
+     "notes": [
+      "hand override: a grenade hitting a champion fully charges nearby turrets, which fire their beam (DamageBeam 120 + 55% AP at rank 5), counted at extra-hit weight"
+     ]
     },
     {
      "slot": "R",
@@ -10898,6 +10972,18 @@
      "hits": [
       {
        "type": "physical",
+       "calc": "TentacleSlam",
+       "scaling": {
+        "const": 448.5,
+        "bonus_ad": 1.43,
+        "ap": 0.52
+       },
+       "target": "flat",
+       "per_second": false,
+       "alt": false
+      },
+      {
+       "type": "physical",
        "calc": "HealthPercentTotal",
        "scaling": {
         "const": 0.1025,
@@ -10910,7 +10996,8 @@
      ],
      "mode_overrides": [],
      "notes": [
-      "hand override: resets the basic attack timer"
+      "hand override: resets the basic attack timer",
+      "hand override: Harsh Lesson also commands the Tentacles in range to slam the target (one slam: the passive keeps a Tentacle on nearby terrain; 180 + 110% AD + 40% AP, +30% from Q rank 5)"
      ],
      "attack_reset": true
     },
@@ -10938,9 +11025,24 @@
       "speed": 0,
       "on_self": false
      },
-     "hits": [],
+     "hits": [
+      {
+       "type": "physical",
+       "calc": "TentacleSlam",
+       "scaling": {
+        "const": 448.5,
+        "bonus_ad": 1.43,
+        "ap": 0.52
+       },
+       "target": "flat",
+       "per_second": false,
+       "alt": false
+      }
+     ],
      "mode_overrides": [],
-     "notes": []
+     "notes": [
+      "hand override: Test of Spirit deals no damage itself, but Tentacles autonomously slam the Spirit/Vessel every 3.5s for the tether and Vessel duration; counted as one slam per cast"
+     ]
     },
     {
      "slot": "R",
@@ -13458,8 +13560,10 @@
      "mode_overrides": [],
      "notes": [
       "cooldown unknown; assumed 8s",
-      "hand override: Rend adds AdditionalDamage per extra spear (several per cycle at her attack speed); 6 at the 0.5 secondary weight is about 3 extra spears, conservative"
-     ]
+      "hand override: Rend adds AdditionalDamage per extra spear (several per cycle at her attack speed); 6 at the 0.5 secondary weight is about 3 extra spears, conservative",
+      "hand override: Rend needs spears in the target (1 per attack): the counted 1 + ~3 extra spears means 4 attacks on the target since the last Rend"
+     ],
+     "after_attacks": 4
     },
     {
      "slot": "R",
@@ -14560,9 +14664,9 @@
        "type": "magic",
        "calc": "EPassiveTotalDamage",
        "scaling": {
-        "const": 35.0,
-        "ap": 0.2,
-        "bonus_ad": 0.1
+        "const": 0.0,
+        "ap": 0.0,
+        "bonus_ad": 0.0
        },
        "target": "flat",
        "per_second": false,
@@ -14573,7 +14677,7 @@
        "calc": "ActiveTotalExecuteDamage",
        "scaling": {
         "const": 0.1,
-        "ap": 0.0001
+        "ap": 0.00015
        },
        "target": "target_missing_hp",
        "per_second": false,
@@ -14581,7 +14685,9 @@
       }
      ],
      "mode_overrides": [],
-     "notes": []
+     "notes": [
+      "hand override: Starfire Spellblade's 35 + 20% AP + 10% bonus AD is a passive on every attack (passives.json), not part of the 6 s active; the active keeps the missing-Health hit"
+     ]
     },
     {
      "slot": "R",
@@ -14643,6 +14749,31 @@
        "alt": false
       }
      ]
+    },
+    {
+     "trigger": "attack",
+     "every": 1,
+     "cooldown": 0.0,
+     "per_target": false,
+     "charges": 1,
+     "max_charges": 1,
+     "aoe": false,
+     "below_hp": 0.0,
+     "hits": [
+      {
+       "type": "magic",
+       "calc": "PassiveWaveDamage",
+       "scaling": {
+        "const": 35,
+        "ap": 0.2,
+        "bonus_ad": 0.1
+       },
+       "target": "flat",
+       "per_second": false,
+       "alt": false
+      }
+     ],
+     "ability_cdr": 0.0
     }
    ],
    "parse_quality": "good",
@@ -14650,7 +14781,12 @@
    "kit": {
     "effects": {
      "attack_range_set": 525,
-     "attack_range_level": 6
+     "attack_range_level": 6,
+     "attack_range_set2": 625,
+     "attack_range_level2": 16
+    },
+    "stats": {
+     "as": 0.3
     }
    },
    "death": {
@@ -14735,8 +14871,8 @@
        "type": "physical",
        "calc": "TotalDamage",
        "scaling": {
-        "const": 195.0,
-        "bonus_ad": 0.95
+        "const": 390.0,
+        "bonus_ad": 1.9
        },
        "target": "flat",
        "per_second": false,
@@ -14768,7 +14904,9 @@
      "mode_overrides": [
       "ARAM:BonusADRatio"
      ],
-     "notes": []
+     "notes": [
+      "hand override: Reaping Slash hits twice: the dash and the following sweep each deal the full damage"
+     ]
     },
     {
      "slot": "W",
@@ -16111,8 +16249,8 @@
        "type": "magic",
        "calc": "MarkDamage",
        "scaling": {
-        "const": 165.0,
-        "ap": 0.4
+        "const": 330.0,
+        "ap": 0.8
        },
        "target": "flat",
        "per_second": false,
@@ -16120,7 +16258,9 @@
       }
      ],
      "mode_overrides": [],
-     "notes": []
+     "notes": [
+      "hand override: Sigil of Malice's mark is popped by her next ability hit within 3.5 s, which her combo always lands: it counts fully, not half"
+     ]
     },
     {
      "slot": "W",
@@ -18152,7 +18292,8 @@
        "per_second": false,
        "alt": false
       }
-     ]
+     ],
+     "needs_hit": true
     }
    ],
    "parse_quality": "good",
@@ -19503,7 +19644,33 @@
     }
    ],
    "parse_quality": "partial",
-   "notes": []
+   "notes": [],
+   "passives": [
+    {
+     "trigger": "hit",
+     "every": 1,
+     "cooldown": 5,
+     "per_target": false,
+     "charges": 1,
+     "max_charges": 1,
+     "aoe": false,
+     "below_hp": 0.0,
+     "ability_cdr": 0.0,
+     "hits": [
+      {
+       "per_second": false,
+       "alt": false,
+       "type": "magic",
+       "calc": "FiredUp",
+       "scaling": {
+        "const": 65,
+        "ap": 0.2
+       },
+       "target": "flat"
+      }
+     ]
+    }
+   ]
   },
   {
    "id": "MissFortune",
@@ -20950,11 +21117,11 @@
      "cost": 100.0,
      "targeting": "Self",
      "area": "aoe",
-     "duration": 15.0,
+     "duration": 10,
      "geometry": {
       "shape": "circle",
       "range": 0.0,
-      "radius": 210.0,
+      "radius": 400,
       "width": 0.0,
       "angle": 0.0,
       "speed": 0,
@@ -20963,19 +21130,18 @@
      "hits": [
       {
        "type": "magic",
-       "calc": "DamageCalc",
+       "calc": "MaxDamageCap",
        "scaling": {
-        "const": 0.5,
-        "ap": 0.001
+        "const": 240.0
        },
-       "target": "target_max_hp",
-       "per_second": false,
+       "target": "flat",
+       "per_second": true,
        "alt": false
       }
      ],
      "mode_overrides": [],
      "notes": [
-      "hand override: Fury of the Sands burns %max HP per second for 15s; parsed as a single tick, ~10 ticks land in a typical duel"
+      "hand override: Fury of the Sands burns nearby enemies for 2.5% (+0.5% per 100 AP) max HP per 0.5s tick, but capped at MaxDamageCap 240 per second, which a level-18 Nasus always reaches: 240/s for about 10 of its 15s in a typical duel (the uncapped %HP x10 was over twice that); radius is at least MinAoERadius 400"
      ]
     }
    ],
@@ -25908,9 +26074,11 @@
      ],
      "mode_overrides": [],
      "notes": [
-      "hand override: resets the basic attack timer; Broken Wings is three casts per cooldown (listed twice, so x1.5); real AoE radius ~150"
+      "hand override: resets the basic attack timer; Broken Wings is three casts per cooldown (listed twice, so x1.5); real AoE radius ~150",
+      "hand override: each of the three casts grants a Runic Blade charge"
      ],
-     "attack_reset": true
+     "attack_reset": true,
+     "casts": 3
     },
     {
      "slot": "W",
@@ -26036,8 +26204,14 @@
      ],
      "mode_overrides": [],
      "notes": [
-      "hand override: bonus AD is a buff not a hit; Wind Slash is one hit (min..max by missing health)"
-     ]
+      "hand override: bonus AD is a buff not a hit; Wind Slash is one hit (min..max by missing health)",
+      "hand override: Blade of the Exile grants 20% of total AD as bonus AD for 15s (23 = 20% of base AD at 18, plus 20% of bonus AD)"
+     ],
+     "buff": {
+      "duration": 15,
+      "ad": 23,
+      "bonus_ad_pct": 0.2
+     }
     }
    ],
    "passives": [
@@ -27351,8 +27525,8 @@
        "type": "magic",
        "calc": "ExplosionDamage",
        "scaling": {
-        "const": 160.0,
-        "ap": 0.4
+        "const": 213.328,
+        "ap": 0.53332
        },
        "target": "flat",
        "per_second": false,
@@ -27372,7 +27546,8 @@
      ],
      "mode_overrides": [],
      "notes": [
-      "hand override: High Note cast time is 0.25 s (SeraphineQCast)"
+      "hand override: High Note cast time is 0.25 s (SeraphineQCast)",
+      "hand override: Stage Presence: every third basic ability echoes (casts again): +1/3 on average"
      ]
     },
     {
@@ -27434,8 +27609,8 @@
        "type": "magic",
        "calc": "FinalDamage",
        "scaling": {
-        "const": 190.0,
-        "ap": 0.5
+        "const": 253.327,
+        "ap": 0.66665
        },
        "target": "flat",
        "per_second": false,
@@ -27445,7 +27620,8 @@
      "mode_overrides": [],
      "notes": [
       "hand override: Beat Drop only slows a fresh target; root/stun need an existing slow/immobilize",
-      "hand override: Beat Drop cast time is 0.25 s (SeraphineECast)"
+      "hand override: Beat Drop cast time is 0.25 s (SeraphineECast)",
+      "hand override: Stage Presence: every third basic ability echoes (casts again): +1/3 on average"
      ]
     },
     {
@@ -28302,13 +28478,14 @@
      },
      "hits": [
       {
-       "type": "magic",
-       "calc": "Calc_Max_Health_Damage",
+       "type": "physical",
+       "calc": "Calc_Damage",
        "scaling": {
-        "const": 0.01,
-        "bonus_ad": 0.0001
+        "const": 173.0,
+        "bonus_ad": 1.1,
+        "ap": 0.3
        },
-       "target": "target_max_hp",
+       "target": "flat",
        "per_second": false,
        "alt": false
       },
@@ -28328,18 +28505,18 @@
        "type": "true",
        "calc": "Calc_Dragon_Form_Damage",
        "scaling": {
-        "const": 259.5,
-        "bonus_ad": 1.65,
-        "ap": 0.45
+        "const": 519.0,
+        "bonus_ad": 3.3,
+        "ap": 0.9
        },
        "target": "flat",
        "per_second": false,
-       "alt": true
+       "alt": false
       }
      ],
      "mode_overrides": [],
      "notes": [
-      "hand override: resets the basic attack timer; dragon-form damage replaces human-form damage"
+      "hand override: resets the basic attack timer; Dragon's Descent is up at the start of each fight (Fury builds 1/s out of combat) and Mayhem's 2.5 Fury per hit (x3 in Dragon Form) outpaces the 6.67/s drain, so fights are in Dragon Form: Emberstrike is cast three times per cooldown (claw and tail slam Calc_Damage, then the true-damage bite, x2 to offset the 0.5 secondary weight). Its 1% (+1.1% per 100 bonus AD) max-health on-hit is a passive on every attack (passives.json), not part of the cast"
      ],
      "attack_reset": true
     },
@@ -28415,10 +28592,10 @@
      "hits": [
       {
        "type": "magic",
-       "calc": "Damage",
+       "calc": "Calc_Dragon_Damage",
        "scaling": {
-        "const": 110.0,
-        "ap": 0.8
+        "const": 137.5,
+        "ap": 1.0
        },
        "target": "flat",
        "per_second": false,
@@ -28426,9 +28603,9 @@
       },
       {
        "type": "magic",
-       "calc": "Calc_Max_Health_Damage",
+       "calc": "Calc_Max_Health_Dragon_Damage",
        "scaling": {
-        "const": 0.05
+        "const": 0.0625
        },
        "target": "target_max_hp",
        "per_second": false,
@@ -28443,7 +28620,7 @@
        },
        "target": "flat",
        "per_second": false,
-       "alt": true
+       "alt": false
       },
       {
        "type": "magic",
@@ -28453,7 +28630,7 @@
        },
        "target": "target_max_hp",
        "per_second": false,
-       "alt": true
+       "alt": false
       },
       {
        "type": "magic",
@@ -28469,7 +28646,7 @@
      ],
      "mode_overrides": [],
      "notes": [
-      "hand override: dragon-form numbers replace the human-form ones"
+      "hand override: Dragon Form (see Q): the fireball deals the dragon numbers and then sets an explosion on the champion it struck that applies the same damage again, plus the scorched ground"
      ]
     },
     {
@@ -28517,7 +28694,33 @@
     }
    ],
    "parse_quality": "good",
-   "notes": []
+   "notes": [],
+   "passives": [
+    {
+     "trigger": "attack",
+     "every": 1,
+     "cooldown": 0.0,
+     "per_target": false,
+     "charges": 1,
+     "max_charges": 1,
+     "aoe": false,
+     "below_hp": 0.0,
+     "ability_cdr": 0.0,
+     "hits": [
+      {
+       "type": "magic",
+       "calc": "EmberstrikeOnHit",
+       "scaling": {
+        "const": 0.01,
+        "bonus_ad": 0.00011
+       },
+       "target": "target_max_hp",
+       "per_second": false,
+       "alt": false
+      }
+     ]
+    }
+   ]
   },
   {
    "id": "Singed",
@@ -31676,7 +31879,7 @@
      "slot": "Q",
      "name": "TaricQ",
      "rank": 5,
-     "cooldown": 15.0,
+     "cooldown": 3,
      "cast_time": 0.25,
      "heal": {
       "scaling": {
@@ -31701,8 +31904,11 @@
      "hits": [],
      "mode_overrides": [],
      "notes": [
-      "cooldown is the ammo recharge time"
-     ]
+      "cooldown is the ammo recharge time",
+      "hand override: each Bravado-empowered attack stocks a Starlight charge, so in a fight Q is recast on its 3s static cooldown (one charge each), not on the 15s natural recharge",
+      "hand override: kept as a self-cast heal so its casts charge Bravado"
+     ],
+     "cast_for_heal": true
     },
     {
      "slot": "W",
@@ -31725,7 +31931,16 @@
      },
      "hits": [],
      "mode_overrides": [],
-     "notes": []
+     "notes": [
+      "hand override: Bastion shields Taric (self-cast) for 11% of max health at rank 5 (256 = 11% of base Health at 18); the parser missed the percent-health shield, so W was never cast and never charged Bravado"
+     ],
+     "shield": {
+      "scaling": {
+       "const": 256,
+       "bonus_hp": 0.11
+      },
+      "duration": 2.5
+     }
     },
     {
      "slot": "E",
@@ -31813,7 +32028,8 @@
        "per_second": false,
        "alt": false
       }
-     ]
+     ],
+     "basic_cdr": 1.1
     }
    ],
    "parse_quality": "partial",
@@ -32272,7 +32488,33 @@
      "ap_l1": 0,
      "ap_l18": 52
     }
-   }
+   },
+   "passives": [
+    {
+     "trigger": "attack",
+     "every": 1,
+     "cooldown": 0.0,
+     "per_target": false,
+     "charges": 1,
+     "max_charges": 1,
+     "aoe": false,
+     "below_hp": 0.0,
+     "ability_cdr": 0.0,
+     "hits": [
+      {
+       "per_second": false,
+       "alt": false,
+       "type": "magic",
+       "calc": "FlayPassive",
+       "scaling": {
+        "const": 142,
+        "bonus_ad": 0.25
+       },
+       "target": "flat"
+      }
+     ]
+    }
+   ]
   },
   {
    "id": "Tristana",
@@ -32451,8 +32693,10 @@
      "mode_overrides": [],
      "notes": [
       "unsupported stat 9",
-      "hand override: passive is the on-kill explosion; charge usually detonates at full 4 stacks"
-     ]
+      "hand override: passive is the on-kill explosion; charge usually detonates at full 4 stacks",
+      "hand override: the charge's full damage needs 4 stacks (attacks/abilities after it is placed): its damage lands about 3 attacks after the cast, and not at all if the target dies first"
+     ],
+     "after_attacks": 3
     },
     {
      "slot": "R",
@@ -32840,7 +33084,10 @@
       }
      ],
      "mode_overrides": [],
-     "notes": []
+     "notes": [
+      "hand override: Spinning Slash: 1.5 s off its cooldown whenever Tryndamere crits a champion (ChampCDRefund)"
+     ],
+     "crit_refund": 1.5
     },
     {
      "slot": "R",
@@ -32870,7 +33117,8 @@
    "notes": [],
    "kit": {
     "stats": {
-     "crit": 0.25
+     "crit": 0.3,
+     "ad": 40
     }
    },
    "death": {
@@ -32971,7 +33219,7 @@
      "name": "PickACard",
      "rank": 5,
      "cooldown": 6.0,
-     "cast_time": 0.0,
+     "cast_time": 0.25,
      "cc": {
       "type": "stun",
       "duration": 1.0
@@ -33032,8 +33280,10 @@
      ],
      "mode_overrides": [],
      "notes": [
-      "hand override: one card per cast (Gold, matching the stun); the card is a single-target empowered attack"
-     ]
+      "hand override: one card per cast (Gold, matching the stun); the card is a single-target empowered attack",
+      "hand override: Pick a Card: the cooldown starts after the card is thrown (cdstart post-effect) and the cards cycle 0.5 s each from a random start, so waiting for Gold adds about 0.5 s that haste and refunds don't shorten; the empowered attack has a 0.25 s cast time"
+     ],
+     "ready_delay": 0.5
     },
     {
      "slot": "E",
@@ -33280,8 +33530,10 @@
      ],
      "mode_overrides": [],
      "notes": [
-      "hand override: Max numbers are base + 6 stacks; count them once at full weight"
-     ]
+      "hand override: Max numbers are base + 6 stacks; count them once at full weight",
+      "hand override: Expunge's damage is per Deadly Venom stack (1 per attack, max 6): cast once 6 attacks have hit the target, not at 0 stacks"
+     ],
+     "after_attacks": 6
     },
     {
      "slot": "R",
@@ -34414,7 +34666,7 @@
      "slot": "W",
      "name": "VeigarDarkMatter",
      "rank": 5,
-     "cooldown": 8,
+     "cooldown": 4.25,
      "cast_time": 0.25,
      "cost": 80.0,
      "targeting": "Area",
@@ -34445,7 +34697,7 @@
      "mode_overrides": [],
      "notes": [
       "cooldown unknown; assumed 8s",
-      "hand override: Dark Matter cooldown not in spell record; lands after a 1.2s delay, modelled as flight time so it can be dodged"
+      "hand override: Dark Matter: 8 s x 0.9 per 50 Phenomenal Evil stacks (8 * 0.9^6 = 4.25 s with the 300 stacks kit_passives assumes); lands after a 1.2s delay, modelled as flight time so it can be dodged"
      ]
     },
     {
@@ -34510,7 +34762,11 @@
       }
      ],
      "mode_overrides": [],
-     "notes": []
+     "notes": [
+      "hand override: Primordial Burst: +1.5% damage per 1% missing Health, doubled at 33% Health (MaxExecuteMult 2)"
+     ],
+     "missing_amp": 1.5,
+     "missing_max": 0.6667
     }
    ],
    "parse_quality": "good",
