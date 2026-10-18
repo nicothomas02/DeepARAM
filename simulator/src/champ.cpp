@@ -300,15 +300,21 @@ ChampionKit loadChampion(const json::Value& c, const Rules& rules) {
         }
         // A heal-only ability kept when marked, so casting it charges after-ability passives (Taric Q).
         const bool healCast = ab.hits.empty() && !ab.heal.empty() && a["cast_for_heal"].asBool(false);
+        // An ultimate with no modeled effect is still cast (on yourself), so augments that act on
+        // casting R work; a dash with no damage still carries you (and sets off dash augments).
+        const bool bareUlt = ab.hits.empty() && ab.slot == 'R';
+        const bool bareDash = ab.hits.empty() && ab.geo.move != Move::None;
         // Shield-only abilities (Lux W, Janna E) are cast on yourself.
-        if (ab.hits.empty() && (!ab.shield.empty() || ab.buffDuration > 0 || healCast) && ab.geo.move == Move::None) {
+        if (ab.hits.empty() && (!ab.shield.empty() || ab.buffDuration > 0 || healCast || bareUlt) && ab.geo.move == Move::None) {
             ab.geo.selfBuff = true;
             ab.geo.range = k.attackRange;
         }
-        // Crowd control with no damage is cast only when marked (Singed W's slowing glue keeps
-        // a kiting target in his poison).
-        const bool ccOnly = ab.hits.empty() && !ab.cc.empty() && a["cast_for_cc"].asBool(false);
-        if (!ab.hits.empty() || !ab.shield.empty() || ccOnly || healCast || ab.buffDuration > 0) k.abilities.push_back(ab);
+        // Crowd control with no damage is cast when it holds the target in place (Veigar E, Lulu W),
+        // and a slow only when marked (Singed W's slowing glue keeps a kiting target in his poison).
+        const bool hardCc = !ab.cc.empty() && ab.cc != "slow" && ab.cc != "silence";
+        const bool ccOnly = ab.hits.empty() && !ab.cc.empty() && (hardCc || a["cast_for_cc"].asBool(false));
+        if (!ab.hits.empty() || !ab.shield.empty() || ccOnly || healCast || ab.buffDuration > 0 || bareUlt || bareDash)
+            k.abilities.push_back(ab);
     }
     // How far its damage reaches, as an enemy: the middle of its basic abilities' reach
     // (capped at 800), or its attack range. Ultimates and dashes don't count: a dash
@@ -1221,7 +1227,7 @@ private:
                             : kind == "aoe"     ? !a.hits.empty() && (g.shape == Shape::Circle || g.shape == Shape::Cone)
                             : kind == "missile" ? !a.hits.empty() && !g.selfBuff && (g.shape == Shape::Line || g.speed > 0)
                             : kind == "cc"      ? immobilizes(a)
-                            : kind == "buff"    ? g.selfBuff
+                            : kind == "buff"    ? g.selfBuff || a.attackReset  // an empowered next attack counts
                             : kind == "dash"    ? g.move != Move::None
                                                 : false;
             if (!ok) continue;
@@ -1464,6 +1470,11 @@ private:
                 // Your crowd control on it stops only its share of a team's casts.
                 const double acting = now < e.ccUntil ? ccLeft_ : 1.0;
                 if (!abilityRng_.chance(c.land)) continue;
+                // Veil of Warding: a spell shield blocks one enemy ability every so often.
+                if (get(fx_, "spell_shield_cd") > 0 && now >= spellShieldAt_) {
+                    spellShieldAt_ = now + get(fx_, "spell_shield_cd");
+                    continue;
+                }
                 double dmg = incomingDps_ * e.damageWeight * c.burst * acting * (now < e.shrinkUntil ? 1.0 - shrink_ : 1.0) * focus(now);
                 if (c.slot != 'R') dmg *= rules_.longRange(distTo(e));  // ARAM long-range cut
                 burstRaw_ += dmg / throughResists_;
@@ -1870,6 +1881,7 @@ private:
         }
     }
     bool executeHit_ = false;
+    double spellShieldAt_ = 0, abilityCleaveAt_ = 0;  // Veil of Warding, Upgrade Ravenous Hydra: when each is back
     double ccLeft_ = 0;  // share of a stopped enemy's damage that still lands (the champions it stands in for)
 
     void onKill(Enemy* target) {
@@ -1877,6 +1889,11 @@ private:
         target->alive = false;
         target->respawnAt = t_ + sc_.retargetDelay;
         stackEvent(OnKill);
+        // Rite of Ascension: attacking the fallen enemy's Essence resets your basic abilities.
+        if (get(fx_, "kill_reset_basics") > 0)
+            for (size_t i = 0; i < readyAt_.size(); ++i)
+                if (ch_.abilities[i].slot != 'R' && readyAt_[i] < 1e17)
+                    readyAt_[i] = std::min(readyAt_[i], t_ + get(fx_, "kill_reset_basics"));
         // Spiritual Purification: a takedown blasts nearby enemies for a share of their current Health.
         if (get(fx_, "kill_blast_cur_hp") > 0)
             for (Enemy* o : near(target->pos, get(fx_, "kill_blast_radius", 500)))
@@ -2215,6 +2232,11 @@ private:
                 executeHit_ = false;
             }
             if (!a.hits.empty()) {
+                // Upgrade Ravenous Hydra: ability hits Cleave too, once a second.
+                if (get(fx_, "ability_cleave_cd") > 0 && t_ >= abilityCleaveAt_) {
+                    abilityCleaveAt_ = t_ + get(fx_, "ability_cleave_cd");
+                    for (Enemy* o : near(e->pos, 350, e)) deal(o, get(fx_, "cleave_ad") * ad_, DamageType::Physical, SrcItems, false, FxCleave);
+                }
                 snipeHit_ |= from > get(fx_, "snipe_range", 600);
                 if (e->alive) trigger(OnAbility, e);
                 // Karma's Gathering Fire: each damage instance on a champion takes seconds off the ultimate.
@@ -2341,6 +2363,10 @@ private:
     }
 
     void die(double at) {
+        // Dive Bomber: you explode for a share of each nearby enemy's max Health as true damage.
+        if (get(fx_, "death_blast_max_hp") > 0)
+            for (Enemy* o : near(me_, get(fx_, "death_blast_radius", 500)))
+                deal(o, get(fx_, "death_blast_max_hp") * o->maxHp, DamageType::True, SrcItems);
         dead_ = true;
         res_.died = true;
         res_.timeAlive = at;
@@ -2463,7 +2489,10 @@ private:
             const Bag& f = *spellblade_;
             const double dmg = get(f, "spellblade_base_ad") * baseAd_ + get(f, "spellblade_bonus_ad") * bonusAd_ +
                                get(f, "spellblade_ap") * ap_;
-            deal(e, dmg, get(f, "spellblade_magic") > 0 ? DamageType::Magic : DamageType::Physical, SrcItems, false, FxSpellblade);
+            // Upgrade Sheen: a share of the target's max Health on top, and a heal for a share of it.
+            const double maxHpPart = get(fx_, "spellblade_max_hp") * e->maxHp, healPart = get(fx_, "spellblade_heal_max_hp") * e->maxHp;
+            deal(e, dmg + maxHpPart, get(f, "spellblade_magic") > 0 ? DamageType::Magic : DamageType::Physical, SrcItems, false, FxSpellblade);
+            if (healPart > 0) heal(healPart);
             spellbladeArmed_ = false;
             spellbladeReady_ = t_ + get(f, "spellblade_cd");
         }
@@ -2874,6 +2903,9 @@ private:
             if (pick < readyAt_.size())
                 readyAt_[pick] = std::max(t_, readyAt_[pick] - get(fx_, "archmage") * cooldownOf(a));
         }
+        for (const auto& bd : bound_)  // Overloaded: casting another ability resets the chosen one
+            if (get(*bd.fx, "bound_reset_on_cast") > 0 && bd.idx < readyAt_.size() && bd.idx != i && readyAt_[bd.idx] < 1e17)
+                readyAt_[bd.idx] = std::min(readyAt_[bd.idx], t_);
         if (get(fx_, "cast_hp_cost") > 0) {  // Ominous Pact: casts cost current Health
             myHp_ -= get(fx_, "cast_hp_cost") * myHp_;
             recordSelf(t_);
