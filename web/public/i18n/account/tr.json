@@ -75,7 +75,6 @@
  "Enter a valid email address.": "Geçerli bir e-posta adresi gir.",
  "Sign in first.": "Önce giriş yap.",
  "Sign out and back in, then try again.": "Çıkış yapıp tekrar giriş yap, sonra yeniden dene.",
- "That code has expired or isn't right. Get a new one from your account page.": "Bu kodun süresi dolmuş veya kod yanlış. Hesap sayfandan yeni bir tane al.",
  "That email can't be used here.": "Bu e-posta burada kullanılamaz.",
  "That name has characters it can't use.": "Bu adda kullanılamayan karakterler var.",
  "That passkey didn't work. Try again.": "Geçiş anahtarı çalışmadı. Tekrar dene.",

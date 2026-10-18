@@ -75,7 +75,6 @@
  "Enter a valid email address.": "有効なメールアドレスを入力してください。",
  "Sign in first.": "先にログインしてください。",
  "Sign out and back in, then try again.": "一度ログアウトして再度ログインしてから、もう一度お試しください。",
- "That code has expired or isn't right. Get a new one from your account page.": "コードの有効期限が切れているか、正しくありません。アカウントページで新しいコードを取得してください。",
  "That email can't be used here.": "このメールアドレスはここでは使用できません。",
  "That name has characters it can't use.": "この名前には使用できない文字が含まれています。",
  "That passkey didn't work. Try again.": "パスキーが機能しませんでした。もう一度お試しください。",

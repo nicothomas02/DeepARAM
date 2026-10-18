@@ -75,7 +75,6 @@
  "Enter a valid email address.": "กรอกอีเมลที่ถูกต้อง",
  "Sign in first.": "เข้าสู่ระบบก่อน",
  "Sign out and back in, then try again.": "ออกจากระบบแล้วเข้าสู่ระบบใหม่ จากนั้นลองอีกครั้ง",
- "That code has expired or isn't right. Get a new one from your account page.": "รหัสนี้หมดอายุหรือไม่ถูกต้อง ขอรหัสใหม่จากหน้าบัญชีของคุณ",
  "That email can't be used here.": "ใช้อีเมลนี้ที่นี่ไม่ได้",
  "That name has characters it can't use.": "ชื่อนี้มีตัวอักษรที่ใช้ไม่ได้",
  "That passkey didn't work. Try again.": "พาสคีย์ใช้ไม่ได้ ลองอีกครั้ง",

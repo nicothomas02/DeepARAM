@@ -75,7 +75,6 @@
  "Enter a valid email address.": "請輸入有效的電子郵件地址。",
  "Sign in first.": "請先登入。",
  "Sign out and back in, then try again.": "請登出後重新登入，然後再試一次。",
- "That code has expired or isn't right. Get a new one from your account page.": "代碼已過期或不正確。請在你的帳號頁面取得新代碼。",
  "That email can't be used here.": "此電子郵件無法在這裡使用。",
  "That name has characters it can't use.": "名稱包含無法使用的字元。",
  "That passkey didn't work. Try again.": "密碼金鑰驗證失敗，請再試一次。",

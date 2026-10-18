@@ -75,7 +75,6 @@
  "Enter a valid email address.": "请输入有效的邮箱地址。",
  "Sign in first.": "请先登录。",
  "Sign out and back in, then try again.": "请退出后重新登录，然后再试一次。",
- "That code has expired or isn't right. Get a new one from your account page.": "代码已过期或不正确。请在你的账号页面获取新代码。",
  "That email can't be used here.": "此邮箱无法在这里使用。",
  "That name has characters it can't use.": "名称包含不可用的字符。",
  "That passkey didn't work. Try again.": "通行密钥验证失败，请重试。",

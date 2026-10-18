@@ -250,20 +250,11 @@ export async function deleteAccount(id: string) {
 
 // ---- Riot account (through My Stats) ----
 
-export async function linkRiot(code: unknown, riot: { puuid: string; name: string; tag: string }, platform: string) {
-  const c = typeof code === "string" ? code.trim().toUpperCase().replace(/[^A-Z0-9]/g, "") : "";
-  const d = await db();
-  const row = c ? await d.prepare("SELECT account FROM link_codes WHERE code = ? AND expires > ?").bind(c, Date.now()).first<{ account: string }>() : null;
-  if (!row) throw new AccountError("That code has expired or isn't right. Get a new one from your account page.", 400);
-  await setRiot(d, row.account, riot, platform, [d.prepare("DELETE FROM link_codes WHERE code = ?").bind(c)]);
-}
-
-function setRiot(d: DB, id: string, riot: { puuid: string; name: string; tag: string }, platform: string | null, also: ReturnType<DB["prepare"]>[] = []) {
+function setRiot(d: DB, id: string, riot: { puuid: string; name: string; tag: string }, platform: string | null) {
   return d.batch([
     // A Riot account belongs to one site account at a time.
     d.prepare("UPDATE accounts SET riot_puuid = NULL, riot_name = NULL, riot_platform = NULL WHERE riot_puuid = ?").bind(riot.puuid),
     d.prepare("UPDATE accounts SET riot_puuid = ?, riot_name = ?, riot_platform = ? WHERE id = ?").bind(riot.puuid, `${riot.name}#${riot.tag}`, platform, id),
-    ...also,
   ]);
 }
 

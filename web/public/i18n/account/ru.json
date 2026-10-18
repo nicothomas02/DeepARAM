@@ -75,7 +75,6 @@
  "Enter a valid email address.": "Введите корректный адрес эл. почты.",
  "Sign in first.": "Сначала войдите.",
  "Sign out and back in, then try again.": "Выйдите и войдите снова, затем попробуйте ещё раз.",
- "That code has expired or isn't right. Get a new one from your account page.": "Код истёк или неверен. Получите новый на странице аккаунта.",
  "That email can't be used here.": "Эту эл. почту здесь использовать нельзя.",
  "That name has characters it can't use.": "В имени есть недопустимые символы.",
  "That passkey didn't work. Try again.": "Ключ доступа не сработал. Попробуйте ещё раз.",
