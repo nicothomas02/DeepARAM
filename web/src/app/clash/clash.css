@@ -1,0 +1,423 @@
+/* The Clash page (/clash): schedule, team planner, bans and ARAM summoner spells. */
+
+.clash-dates,
+.clash-spells,
+.clash-planner {
+  margin-top: 1rem;
+}
+
+.clash-planner {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  gap: 1rem;
+  align-items: start;
+}
+
+.clash-bans {
+  grid-column: 1 / -1;
+}
+
+@media (max-width: 860px) {
+  .clash-planner {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.clash-hint {
+  color: var(--muted);
+  font-size: 0.9375rem;
+}
+
+.clash-sub {
+  margin-top: 1.25rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.clash-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.clash-reset {
+  padding: 0.35rem 0.8rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  font-size: 0.8125rem;
+  cursor: pointer;
+}
+
+.clash-slots {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 0.6rem;
+  margin: 0.6rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.clash-slot {
+  position: relative;
+}
+
+.clash-slot > button:first-child {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  width: 100%;
+  padding: 0.7rem 0.3rem;
+  border: 1px dashed var(--line);
+  border-radius: 18px;
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+
+.clash-slot[data-on] > button:first-child {
+  border-style: solid;
+  background: var(--raised);
+  color: var(--fg);
+}
+
+.clash-slot[data-active] > button:first-child {
+  border-color: var(--accent);
+  border-style: solid;
+}
+
+.clash-slot img {
+  border-radius: 14px;
+}
+
+.clash-plus {
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  background: var(--raised);
+  font-size: 1.5rem;
+}
+
+.clash-small .clash-plus,
+.clash-small img {
+  width: 44px;
+  height: 44px;
+}
+
+.clash-slot-name {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.clash-clear {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 22px;
+  height: 22px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--surface);
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.clash-picker {
+  margin-top: 0.75rem;
+  padding: 0.75rem;
+  border-radius: 18px;
+  background: var(--raised);
+}
+
+.clash-picker input {
+  width: 100%;
+  padding: 0.6rem 0.9rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--fg);
+  font: inherit;
+}
+
+.clash-picker ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(84px, 1fr));
+  gap: 0.35rem;
+  max-height: 320px;
+  margin: 0.6rem 0 0;
+  padding: 0;
+  overflow-y: auto;
+  list-style: none;
+}
+
+.clash-picker li button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  width: 100%;
+  padding: 0.4rem 0.2rem;
+  border: 0;
+  border-radius: 12px;
+  background: transparent;
+  color: var(--fg);
+  font: inherit;
+  font-size: 0.8125rem;
+  cursor: pointer;
+}
+
+.clash-picker li button:hover:not(:disabled) {
+  background: var(--hover);
+}
+
+.clash-picker li button:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.clash-picker li span {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.clash-picker img {
+  border-radius: 10px;
+}
+
+.clash-count {
+  color: var(--muted);
+  font-size: 0.8125rem;
+}
+
+.clash-split,
+.clash-meter {
+  margin-top: 0.9rem;
+}
+
+.clash-meter-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  font-size: 0.9375rem;
+}
+
+.clash-meter-head b {
+  font-weight: 600;
+}
+
+.clash-meter-track,
+.clash-split-track {
+  display: flex;
+  height: 10px;
+  margin-top: 0.35rem;
+  overflow: hidden;
+  border-radius: 999px;
+  background: var(--raised);
+}
+
+.clash-meter-track i {
+  border-radius: 999px;
+  background: var(--accent);
+}
+
+.clash-split-track .phys {
+  background: #e8873a;
+}
+
+.clash-split-track .mag {
+  flex: 1;
+  background: #5b8def;
+}
+
+.clash-classes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.clash-classes li {
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
+  background: var(--raised);
+  font-size: 0.875rem;
+}
+
+.clash-tips {
+  display: grid;
+  gap: 0.4rem;
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.clash-tips li {
+  padding: 0.6rem 0.8rem;
+  border-radius: 14px;
+  background: var(--raised);
+  font-size: 0.9375rem;
+}
+
+.clash-tips li::before {
+  content: "! ";
+  color: var(--bad);
+  font-weight: 700;
+}
+
+.clash-tips li[data-good]::before {
+  content: "✓ ";
+  color: var(--good);
+}
+
+.clash-swap {
+  margin-top: 0.75rem;
+  padding: 0.6rem 0.8rem;
+  border-radius: 14px;
+  background: var(--accent-soft);
+  font-size: 0.9375rem;
+}
+
+.clash-detail {
+  width: 100%;
+  margin-top: 1rem;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.clash-detail th,
+.clash-detail td {
+  padding: 0.35rem 0.4rem;
+  text-align: right;
+}
+
+.clash-detail th:first-child,
+.clash-detail td:first-child {
+  text-align: left;
+}
+
+.clash-detail th {
+  color: var(--muted);
+  font-weight: 500;
+}
+
+html[data-view="simple"] .clash-detail {
+  display: none;
+}
+
+.clash-servers {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.25rem;
+}
+
+.clash-servers a {
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: 0.8125rem;
+}
+
+.clash-servers a[aria-current] {
+  background: var(--accent-soft);
+  color: var(--fg);
+}
+
+.clash-date-list {
+  display: grid;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.clash-date-list li {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.25rem;
+  padding: 0.7rem 0.9rem;
+  border-radius: 14px;
+  background: var(--raised);
+}
+
+.clash-date-list span {
+  color: var(--muted);
+}
+
+.clash-spells ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.clash-spells li {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.clash-spells img {
+  flex: none;
+  border-radius: 10px;
+}
+
+.clash-spells p {
+  margin-top: 0.2rem;
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+
+.clash-cd {
+  color: var(--muted);
+  font-size: 0.8125rem;
+}
+
+@media (max-width: 560px) {
+  .clash-slots {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 0.35rem;
+  }
+
+  .clash-slot > button:first-child {
+    padding: 0.5rem 0.15rem;
+    font-size: 0.75rem;
+  }
+
+  .clash-slot img,
+  .clash-plus {
+    width: 44px;
+    height: 44px;
+  }
+
+  .clash-small img,
+  .clash-small .clash-plus {
+    width: 36px;
+    height: 36px;
+  }
+
+  .clash-servers {
+    justify-content: flex-start;
+  }
+
+  .clash-dates .card-head {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

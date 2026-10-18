@@ -148,3 +148,20 @@ export async function getPlayerExtras(platform: Platform, puuid: string): Promis
   ]);
   return { mastery, challenges, clash };
 }
+
+export type ClashDate = { id: number; name: string; registration: number; start: number };
+
+/** Upcoming ARAM Clash dates on one server, soonest first. Summoner's Rift Clash is left out; cancelled days too. */
+export async function upcomingAramClash(platform: Platform): Promise<ClashDate[]> {
+  type Tournament = { id: number; nameKey: string; nameKeySecondary: string; schedule: { id: number; registrationTime: number; startTime: number; cancelled: boolean }[] };
+  const all = await riotFetch<Tournament[]>(platform, "/lol/clash/v1/tournaments", 3600);
+  const now = Date.now();
+  return all
+    .filter((t) => /aram/i.test(`${t.nameKey} ${t.nameKeySecondary}`))
+    .flatMap((t) =>
+      t.schedule
+        .filter((s) => !s.cancelled && s.startTime > now)
+        .map((s) => ({ id: s.id, name: t.nameKeySecondary || t.nameKey, registration: s.registrationTime, start: s.startTime })),
+    )
+    .sort((a, b) => a.start - b.start);
+}
