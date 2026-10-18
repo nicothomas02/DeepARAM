@@ -11,7 +11,7 @@ export default function Privacy() {
     <>
       <Intro eyebrow="Privacy" title="What DeepARAM keeps, and what it doesn't." />
       <article className="card prose">
-        <p>Last updated October 17, 2026.</p>
+        <p>Last updated October 18, 2026.</p>
         <h2>No ads, no tracking</h2>
         <p>
           DeepARAM has no ads and no tracking cookies. We count page visits anonymously, without cookies, to see which pages are used. We don&apos;t sell or share
@@ -20,7 +20,7 @@ export default function Privacy() {
         <h2>Accounts (optional)</h2>
         <p>
           You can use the whole site without an account. If you create one, we keep your email address, your password as a salted one-way hash (never the password
-          itself), the public keys of any passkeys you add, and the champions you star and the site settings you pick, so they follow you to every device. Signing in
+          itself), the public keys of any passkeys you add, and the site settings you pick, so they follow you to every device. Signing in
           sets one cookie that keeps you signed in for up to 90 days; signing out ends it. You can delete your account and everything saved with it from the account
           page at any time.
         </p>
@@ -29,7 +29,7 @@ export default function Privacy() {
           password there, and we receive only an account identifier and, if they have confirmed it, your email address. You can stop signing in that way from the account page.
         </p>
         <p>
-          If you connect a Riot account, we keep its Riot ID, server and Riot&apos;s player identifier, and show you its rank, champion mastery, challenge standing,
+          If you connect a Riot account, we keep its Riot ID, server and Riot&apos;s player identifier, and show you its champion mastery, challenge standing,
           the title and challenge tokens you show in the game, and ARAM Clash team from Riot Games. Connecting is confirmed by the Riot Client on your own computer,
           or by signing in with Riot, so nobody can connect yours. Signing in with Riot happens on Riot&apos;s own page: we never see your Riot password, and we
           receive only your Riot ID, server and player identifier. You can disconnect it at any time.
@@ -46,7 +46,19 @@ export default function Privacy() {
           your account as described above. Clearing site data removes the browser copy.
         </p>
         <h2>My Stats</h2>
-        <p>My Stats reads your games through a companion app on your own computer. Those games stay on your computer.</p>
+        <p>
+          My Stats reads your own games through a companion app on your own computer, and your game history stays there unless you choose one of the options
+          below.
+        </p>
+        <p>
+          If you turn on game sharing, the app sends your games to DeepARAM so the site can build stats across everyone&apos;s games. A shared game keeps only
+          the champions, items, augments, runes, summoner spells, results and game stats, with no names, Riot IDs or account identifiers. We keep a salted
+          hash of who shared it, so you can turn sharing off and remove the games you sent.
+        </p>
+        <p>
+          If you publish a public page from My Stats, we keep your Riot ID, server and a summary of your games (games and wins, kills, deaths, assists,
+          damage, champions played and badges) and show it at your page&apos;s address. Only you can publish or remove it, and nothing is shown unless you publish.
+        </p>
         <h2>Server logs and security</h2>
         <p>
           Like any website, our hosting provider keeps short-lived request logs (IP address, page and time) and runs security
