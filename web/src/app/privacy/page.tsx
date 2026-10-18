@@ -62,6 +62,13 @@ export default function Privacy() {
           Like any website, our hosting provider keeps short-lived request logs (IP address, page and time) and runs security
           checks to keep the site running and stop abuse, such as limiting how often sign-ins can be tried.
         </p>
+        <h2>Messages you send us</h2>
+        <p>
+          If you write to us with the Contact us box, we keep your message, the page you sent it from, when you sent it and, only if you give one, your
+          email address for a reply. If you&apos;re signed in, the message is linked to your account. To limit spam, the message also carries a one-way
+          scrambled form of your IP address (or account), used only to count messages per day, never the address itself. Only the site owner reads messages, and
+          they&apos;re deleted once handled. You can also just email us instead.
+        </p>
         <h2>Contact</h2>
         <p>
           Questions or removal requests: <a href={`mailto:${CONTACT}`}>{CONTACT}</a>
