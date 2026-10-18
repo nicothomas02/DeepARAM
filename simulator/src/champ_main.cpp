@@ -118,19 +118,35 @@ std::string num(double v) {
 }
 
 // The fight with the median DPS (or the chosen measure) out of the first 200, so a replay shows a typical fight.
-uint64_t typicalTrial(const Library& lib, const ChampionKit& c, const Build& b, const Scenario& sc, Metric metric) {
+// Among the few fights nearest the median, the first where the ultimate is cast wins, so a replay shows it.
+FightTrace typicalFight(const Library& lib, const ChampionKit& c, const Build& b, const Scenario& sc, Metric metric,
+                        uint64_t& trial) {
     const auto res = runTrials(lib, c, b, sc, 0, 200);
     std::vector<std::pair<double, size_t>> dps;
     for (size_t i = 0; i < res.size(); ++i) dps.push_back({metricOf(res[i], metric), i});
     std::sort(dps.begin(), dps.end());
-    return dps[dps.size() / 2].second;
+    const size_t mid = dps.size() / 2;
+    bool hasR = false;
+    for (const auto& a : c.abilities) hasR = hasR || a.slot == 'R';
+    FightTrace first;
+    for (size_t k = 0; k < (hasR ? 9u : 1u) && k <= 2 * mid; ++k) {
+        const size_t at = k % 2 ? mid + (k + 1) / 2 : mid - k / 2;
+        if (at >= dps.size()) continue;
+        FightTrace tr = traceFight(lib, c, b, sc, dps[at].second);
+        if (k == 0) trial = dps[at].second;
+        bool r = !hasR;
+        for (const auto& e : tr.events) r = r || (e.kind == "cast" && e.slot == 'R');
+        if (r) { trial = dps[at].second; return tr; }
+        if (k == 0) first = std::move(tr);
+    }
+    return first;
 }
 
 // Writes a fight trace for the replay viewer (viewer/). Short keys keep the files small.
 bool writeTrace(const Library& lib, const ChampionKit& c, const Build& b, const Scenario& sc, const Summary& summary,
                 const std::string& path, Metric metric = Metric::Damage) {
-    const uint64_t trial = typicalTrial(lib, c, b, sc, metric);
-    const FightTrace tr = traceFight(lib, c, b, sc, trial);
+    uint64_t trial = 0;
+    const FightTrace tr = typicalFight(lib, c, b, sc, metric, trial);
     std::ostringstream o;
     o << "{\"champion\": " << jsonStr(c.id) << ", \"name\": " << jsonStr(c.name) << ", \"key\": " << c.championId
       << ", \"role\": " << jsonStr(c.role) << ", \"ranged\": " << (c.ranged ? "true" : "false")

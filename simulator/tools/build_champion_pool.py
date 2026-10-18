@@ -956,6 +956,8 @@ def main():
                 "attack_windup_mod": round(float((record.get("basicAttack") or {}).get(
                     "mAttackDelayCastOffsetPercentAttackSpeedRatio", 1.0)), 4),
                 "move_speed": s["movespeed"],
+                # The in-game hitbox: most champions 65, some 55, 70 or 80.
+                "gameplay_radius": float(record.get("overrideGameplayCollisionRadius") or 65.0),
             },
             "mayhem": {
                 "damage_dealt": (bal or {}).get("damage_dealt", 1.0),

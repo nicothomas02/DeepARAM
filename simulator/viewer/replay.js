@@ -10,7 +10,8 @@
   const FULL = document.documentElement.dataset.edition === "full";
   const BUST = "?v=" + (window.REPLAY_VERSION || "0");
   const SLOT_COLORS = { P: "#ffd36b", Q: "#4fc3f7", W: "#7bd88f", E: "#f4b860", R: "#e66ad2" };
-  const TYPE_COLORS = { physical: "#f08a4b", magic: "#7aa2ff", true: "#f4f4f4" };
+  // Damage number colours as the game shows them: physical orange, magic violet, true white.
+  const TYPE_COLORS = { physical: "#ff8a2b", magic: "#9b7dff", true: "#ffffff" }, CRIT_COLOR = "#ff4b1f";
   // What the simulator measures (the Mode picker in sim-panel.js): damage per second, or per fight the damage
   // you take, the damage you mitigate, the Health you restore and the seconds of crowd control you deal.
   const MODES = {
@@ -617,10 +618,14 @@
     return { role: "attack", t: age * rate, loop: false, n: k, chase: true, free: age > 0.4 };
   }
 
+  // The camera looks down at 45 degrees, so a circle on the floor shows this much as tall as it is wide.
+  const FLOOR_TILT = Math.SQRT1_2;
+  // A champion's in-game hitbox radius (game units): 65 for most, 55 to 80 for some.
+  const hitboxOf = (id) => (byId.get(String(id).toLowerCase()) || {}).radius || 65;
   // A soft pool of light in the team's colour under a model, so it stands out from the floor.
   function footShadow(g, x, y, rx, rgb) {
     g.save();
-    g.translate(x, y); g.scale(1, 0.42);
+    g.translate(x, y); g.scale(1, FLOOR_TILT);
     const grd = g.createRadialGradient(0, 0, 0, 0, 0, rx);
     grd.addColorStop(0, `rgba(${rgb},.22)`); grd.addColorStop(1, `rgba(${rgb},0)`);
     g.fillStyle = grd; g.beginPath(); g.arc(0, 0, rx, 0, Math.PI * 2); g.fill();
@@ -937,9 +942,11 @@
       if (head) {
         // Model: a ring at its feet, portrait and HP bar above its head.
         g.globalAlpha = Math.max(0, fade);
-        footShadow(g, p.x, p.y, rr * 1.3, "240,96,90");
-        g.strokeStyle = en.uid === s.focus ? "#f0605a" : "rgba(240,96,90,.55)"; g.lineWidth = 3 * u;
-        g.beginPath(); g.ellipse(p.x, p.y, rr * 1.2, rr * 0.5, 0, 0, Math.PI * 2); g.stroke();
+        // The ring is the champion's hitbox, at its in-game size.
+        const hb = view ? Math.max(6 * u, hitboxOf(en.champ) * view.k) : rr * 1.2;
+        footShadow(g, p.x, p.y, hb * 1.15, "240,96,90");
+        g.strokeStyle = en.uid === s.focus ? "#f0605a" : "rgba(240,96,90,.55)"; g.lineWidth = 2.5 * u;
+        g.beginPath(); g.ellipse(p.x, p.y, hb, hb * FLOOR_TILT, 0, 0, Math.PI * 2); g.stroke();
         g.globalAlpha = 1;
         if (en.died === null) {
           const bw = rr * 2;
@@ -972,9 +979,10 @@
     const myHead = heads.me;
     let labelY = meY + R + 30 * u;
     if (myHead) {
-      footShadow(g, meX, meY, R * 1.3, "143,211,255");
-      g.strokeStyle = s.dead ? "rgba(120,120,120,.6)" : "#8fd3ff"; g.lineWidth = 3 * u;
-      g.beginPath(); g.ellipse(meX, meY, R * 1.2, R * 0.5, 0, 0, Math.PI * 2); g.stroke();
+      const hb = view ? Math.max(6 * u, hitboxOf(trace.champion) * view.k) : R * 1.2;
+      footShadow(g, meX, meY, hb * 1.15, "143,211,255");
+      g.strokeStyle = s.dead ? "rgba(120,120,120,.6)" : "#8fd3ff"; g.lineWidth = 2.5 * u;
+      g.beginPath(); g.ellipse(meX, meY, hb, hb * FLOOR_TILT, 0, 0, Math.PI * 2); g.stroke();
       hpBar(og, myHead.x - R, myHead.y - 4 * u, R * 2, frac, frac < 0.3 ? "#f0605a" : "#5fd38a", (s.shield || 0) / fight.maxHp);
       labelY = meY + R * 0.5 + 26 * u;
     } else {
@@ -1018,10 +1026,15 @@
       const p = posOf(n.u);
       const head = heads["e" + n.u];
       const baseY = (numTop.get(n.u) ?? (head ? head.y - 20 * u : p.y - r - 26 * u)) - (n.fan || 0) * 16 * u;
-      const jitter = ((n.t * 997) % 1 - 0.5) * 50 * u;
-      const size = (n.crit ? 26 : n.a > 400 ? 22 : 16) * u;
-      floatText(overlay, Math.round(n.a).toString() + (n.crit ? "!" : ""), (head ? head.x : p.x) + jitter, baseY - age * 70 * u, 1 - age / 0.9,
-        n.crit ? "#ffd36b" : TYPE_COLORS[n.x] || "#fff", size);
+      // As in the game: the number pops in large, rises fast then slows while drifting to one side,
+      // and fades at the end; crits are bigger and redder.
+      const k = age / 0.9, side = (n.t * 997) % 1 - 0.5;
+      const pop = 1 + (n.crit ? 0.8 : 0.45) * Math.max(0, 1 - age / 0.12);
+      const size = (n.crit ? 27 : n.a > 400 ? 21 : 17) * u * pop;
+      const x = (head ? head.x : p.x) + side * 40 * u + Math.sign(side) * k * 18 * u;
+      const y = baseY - (1 - (1 - k) * (1 - k)) * 64 * u;
+      gameNumber(overlay, Math.round(n.a).toString(), x, y, k < 0.6 ? 1 : 1 - (k - 0.6) / 0.4,
+        n.crit && n.x === "physical" ? CRIT_COLOR : TYPE_COLORS[n.x] || "#fff", size);
     }
 
     $("kills").textContent = s.kills;
@@ -1050,7 +1063,7 @@
       const age = time - h.t;
       if (age < 0 || age > 1 || h.a < 5) continue;
       const top = myHead ? myHead.y - 30 * u : meY - R - 40 * u;
-      floatText(og, "+" + Math.round(h.a), meX + 40 * u, top - age * 50 * u, 1 - age, "#5fd38a", 15 * u);
+      gameNumber(og, "+" + Math.round(h.a), meX + 40 * u, top - age * 50 * u, age < 0.6 ? 1 : (1 - age) / 0.4, "#5fe06a", 16 * u);
     }
 
     // Shields on you: a white number and, outside Low graphics, a ring that fades as it ends.
@@ -1154,6 +1167,15 @@
     g.restore();
   }
 
+  // A damage or heal number in the game's style: heavy type with a thick dark outline.
+  function gameNumber(g, text, x, y, alpha, color, size) {
+    g.globalAlpha = Math.max(0, Math.min(1, alpha));
+    g.font = `800 ${size}px "Geist", system-ui, sans-serif`;
+    g.textAlign = "center"; g.lineJoin = "round";
+    g.lineWidth = Math.max(3, size / 4.5); g.strokeStyle = "rgba(10,6,4,.9)"; g.strokeText(text, x, y);
+    g.fillStyle = color; g.fillText(text, x, y);
+    g.lineJoin = "miter"; g.globalAlpha = 1;
+  }
   function floatText(g, text, x, y, alpha, color, size) {
     g.globalAlpha = Math.max(0, Math.min(1, alpha));
     g.font = `600 ${size}px "Geist Mono", ui-monospace, monospace`;

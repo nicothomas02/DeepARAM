@@ -43,7 +43,8 @@
     "attack_range": 175.0,
     "attack_windup": 0.1974,
     "attack_windup_mod": 1.0,
-    "move_speed": 345.0
+    "move_speed": 345.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 1.05,
@@ -267,7 +268,8 @@
     "attack_range": 550.0,
     "attack_windup": 0.2,
     "attack_windup_mod": 1.0,
-    "move_speed": 330.0
+    "move_speed": 330.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 1.0,
@@ -493,7 +495,8 @@
     "attack_range": 125.0,
     "attack_windup": 0.139,
     "attack_windup_mod": 1.0,
-    "move_speed": 345.0
+    "move_speed": 345.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 1.0,
@@ -755,7 +758,8 @@
     "attack_range": 500.0,
     "attack_windup": 0.1333,
     "attack_windup_mod": 1.0,
-    "move_speed": 330.0
+    "move_speed": 330.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 1.0,
@@ -1007,7 +1011,8 @@
     "attack_range": 125.0,
     "attack_windup": 0.3,
     "attack_windup_mod": 1.0,
-    "move_speed": 335.0
+    "move_speed": 335.0,
+    "gameplay_radius": 80.0
    },
    "mayhem": {
     "damage_dealt": 1.0,
@@ -1215,7 +1220,8 @@
     "attack_range": 125.0,
     "attack_windup": 0.1562,
     "attack_windup_mod": 1.0,
-    "move_speed": 335.0
+    "move_speed": 335.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 1.0,
@@ -1505,7 +1511,8 @@
     "attack_range": 125.0,
     "attack_windup": 0.2338,
     "attack_windup_mod": 1.0,
-    "move_speed": 335.0
+    "move_speed": 335.0,
+    "gameplay_radius": 55.0
    },
    "mayhem": {
     "damage_dealt": 1.0,
@@ -1729,7 +1736,8 @@
     "attack_range": 600.0,
     "attack_windup": 0.2,
     "attack_windup_mod": 1.0,
-    "move_speed": 325.0
+    "move_speed": 325.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 1.05,
@@ -1967,7 +1975,8 @@
     "attack_range": 625.0,
     "attack_windup": 0.1958,
     "attack_windup_mod": 1.0,
-    "move_speed": 335.0
+    "move_speed": 335.0,
+    "gameplay_radius": 55.0
    },
    "mayhem": {
     "damage_dealt": 0.95,
@@ -2190,7 +2199,8 @@
     "attack_range": 550.0,
     "attack_windup": 0.1533,
     "attack_windup_mod": 1.0,
-    "move_speed": 325.0
+    "move_speed": 325.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 1.0,
@@ -2364,7 +2374,8 @@
     "attack_range": 600.0,
     "attack_windup": 0.2193,
     "attack_windup_mod": 1.0,
-    "move_speed": 325.0
+    "move_speed": 325.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 1.0,
@@ -2555,7 +2566,8 @@
     "attack_range": 550.0,
     "attack_windup": 0.1533,
     "attack_windup_mod": 1.0,
-    "move_speed": 340.0
+    "move_speed": 340.0,
+    "gameplay_radius": 80.0
    },
    "mayhem": {
     "damage_dealt": 1.0,
@@ -2792,7 +2804,8 @@
     "attack_range": 550.0,
     "attack_windup": 0.2005,
     "attack_windup_mod": 1.0,
-    "move_speed": 335.0
+    "move_speed": 335.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 1.0,
@@ -3024,7 +3037,8 @@
     "attack_range": 525.0,
     "attack_windup": 0.1562,
     "attack_windup_mod": 1.0,
-    "move_speed": 330.0
+    "move_speed": 330.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 1.0,
@@ -3247,7 +3261,8 @@
     "attack_range": 500.0,
     "attack_windup": 0.1875,
     "attack_windup_mod": 1.0,
-    "move_speed": 335.0
+    "move_speed": 335.0,
+    "gameplay_radius": 80.0
    },
    "mayhem": {
     "damage_dealt": 1.15,
@@ -3454,7 +3469,8 @@
     "attack_range": 150.0,
     "attack_windup": 0.1474,
     "attack_windup_mod": 1.0,
-    "move_speed": 340.0
+    "move_speed": 340.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 1.0,
@@ -3690,7 +3706,8 @@
     "attack_range": 125.0,
     "attack_windup": 0.27,
     "attack_windup_mod": 1.0,
-    "move_speed": 325.0
+    "move_speed": 325.0,
+    "gameplay_radius": 80.0
    },
    "mayhem": {
     "damage_dealt": 1.0,
@@ -3910,7 +3927,8 @@
     "attack_range": 550.0,
     "attack_windup": 0.1875,
     "attack_windup_mod": 1.0,
-    "move_speed": 340.0
+    "move_speed": 340.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 0.95,
@@ -4173,7 +4191,8 @@
     "attack_range": 125.0,
     "attack_windup": 0.23,
     "attack_windup_mod": 1.0,
-    "move_speed": 335.0
+    "move_speed": 335.0,
+    "gameplay_radius": 80.0
    },
    "mayhem": {
     "damage_dealt": 1.0,
@@ -4379,7 +4398,8 @@
     "attack_range": 125.0,
     "attack_windup": 0.1932,
     "attack_windup_mod": 1.0,
-    "move_speed": 340.0
+    "move_speed": 340.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 1.05,
@@ -4656,7 +4676,8 @@
     "attack_range": 650.0,
     "attack_windup": 0.1771,
     "attack_windup_mod": 1.0,
-    "move_speed": 325.0
+    "move_speed": 325.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 1.0,
@@ -4906,7 +4927,8 @@
     "attack_range": 125.0,
     "attack_windup": 0.1933,
     "attack_windup_mod": 1.0,
-    "move_speed": 340.0
+    "move_speed": 340.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 1.05,
@@ -5140,7 +5162,8 @@
     "attack_range": 550.0,
     "attack_windup": 0.192,
     "attack_windup_mod": 1.0,
-    "move_speed": 335.0
+    "move_speed": 335.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 1.0,
@@ -5360,7 +5383,8 @@
     "attack_range": 125.0,
     "attack_windup": 0.219,
     "attack_windup_mod": 1.0,
-    "move_speed": 345.0
+    "move_speed": 345.0,
+    "gameplay_radius": 80.0
    },
    "mayhem": {
     "damage_dealt": 1.0,
@@ -5593,7 +5617,8 @@
     "attack_range": 550.0,
     "attack_windup": 0.1159,
     "attack_windup_mod": 1.0,
-    "move_speed": 325.0
+    "move_speed": 325.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 1.0,
@@ -5830,7 +5855,8 @@
     "attack_range": 175.0,
     "attack_windup": 0.2,
     "attack_windup_mod": 0.5,
-    "move_speed": 340.0
+    "move_speed": 340.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 1.05,
@@ -6076,7 +6102,8 @@
     "attack_range": 150.0,
     "attack_windup": 0.2083,
     "attack_windup_mod": 1.0,
-    "move_speed": 345.0
+    "move_speed": 345.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 1.0,
@@ -6348,7 +6375,8 @@
     "attack_range": 125.0,
     "attack_windup": 0.1603,
     "attack_windup_mod": 1.0,
-    "move_speed": 345.0
+    "move_speed": 345.0,
+    "gameplay_radius": 80.0
    },
    "mayhem": {
     "damage_dealt": 0.9,
@@ -6565,7 +6593,8 @@
     "attack_range": 550.0,
     "attack_windup": 0.1561,
     "attack_windup_mod": 1.0,
-    "move_speed": 330.0
+    "move_speed": 330.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 1.05,
@@ -6759,7 +6788,8 @@
     "attack_range": 125.0,
     "attack_windup": 0.1625,
     "attack_windup_mod": 1.0,
-    "move_speed": 340.0
+    "move_speed": 340.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 1.05,
@@ -7018,7 +7048,8 @@
     "attack_range": 550.0,
     "attack_windup": 0.1875,
     "attack_windup_mod": 1.0,
-    "move_speed": 330.0
+    "move_speed": 330.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 1.05,
@@ -7204,7 +7235,8 @@
     "attack_range": 125.0,
     "attack_windup": 0.1533,
     "attack_windup_mod": 1.0,
-    "move_speed": 335.0
+    "move_speed": 335.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 1.1,
@@ -7462,7 +7494,8 @@
     "attack_range": 550.0,
     "attack_windup": 0.1884,
     "attack_windup_mod": 1.0,
-    "move_speed": 325.0
+    "move_speed": 325.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 1.0,
@@ -7672,7 +7705,8 @@
     "attack_range": 480.0,
     "attack_windup": 0.3,
     "attack_windup_mod": 1.0,
-    "move_speed": 335.0
+    "move_speed": 335.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 1.0,
@@ -7903,7 +7937,8 @@
     "attack_range": 150.0,
     "attack_windup": 0.1379,
     "attack_windup_mod": 1.0,
-    "move_speed": 345.0
+    "move_speed": 345.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 1.0,
@@ -8123,7 +8158,8 @@
     "attack_range": 175.0,
     "attack_windup": 0.203,
     "attack_windup_mod": 1.0,
-    "move_speed": 335.0
+    "move_speed": 335.0,
+    "gameplay_radius": 55.0
    },
    "mayhem": {
     "damage_dealt": 1.0,
@@ -8365,7 +8401,8 @@
     "attack_range": 150.0,
     "attack_windup": 0.2063,
     "attack_windup_mod": 1.0,
-    "move_speed": 340.0
+    "move_speed": 340.0,
+    "gameplay_radius": 80.0
    },
    "mayhem": {
     "damage_dealt": 0.9,
@@ -8649,7 +8686,8 @@
     "attack_range": 125.0,
     "attack_windup": 0.1645,
     "attack_windup_mod": 1.0,
-    "move_speed": 345.0
+    "move_speed": 345.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 1.05,
@@ -8881,7 +8919,8 @@
     "attack_range": 175.0,
     "attack_windup": 0.18,
     "attack_windup_mod": 0.5,
-    "move_speed": 340.0
+    "move_speed": 340.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 1.0,
@@ -9097,7 +9136,8 @@
     "attack_range": 175.0,
     "attack_windup": 0.146,
     "attack_windup_mod": 1.0,
-    "move_speed": 335.0
+    "move_speed": 335.0,
+    "gameplay_radius": 55.0
    },
    "mayhem": {
     "damage_dealt": 1.05,
@@ -9326,7 +9366,8 @@
     "attack_range": 125.0,
     "attack_windup": 0.25,
     "attack_windup_mod": 1.0,
-    "move_speed": 330.0
+    "move_speed": 330.0,
+    "gameplay_radius": 80.0
    },
    "mayhem": {
     "damage_dealt": 1.0,
@@ -9562,7 +9603,8 @@
     "attack_range": 425.0,
     "attack_windup": 0.005,
     "attack_windup_mod": 0.1,
-    "move_speed": 340.0
+    "move_speed": 340.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 1.0,
@@ -9780,7 +9822,8 @@
     "attack_range": 150.0,
     "attack_windup": 0.1967,
     "attack_windup_mod": 1.0,
-    "move_speed": 340.0
+    "move_speed": 340.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 1.0,
@@ -10035,7 +10078,8 @@
     "attack_range": 175.0,
     "attack_windup": 0.25,
     "attack_windup_mod": 1.0,
-    "move_speed": 345.0
+    "move_speed": 345.0,
+    "gameplay_radius": 80.0
    },
    "mayhem": {
     "damage_dealt": 1.05,
@@ -10270,7 +10314,8 @@
     "attack_range": 550.0,
     "attack_windup": 0.2,
     "attack_windup_mod": 1.0,
-    "move_speed": 340.0
+    "move_speed": 340.0,
+    "gameplay_radius": 55.0
    },
    "mayhem": {
     "damage_dealt": 0.9,
@@ -10551,7 +10596,8 @@
     "attack_range": 550.0,
     "attack_windup": 0.1873,
     "attack_windup_mod": 1.0,
-    "move_speed": 330.0
+    "move_speed": 330.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 0.95,
@@ -10886,7 +10932,8 @@
     "attack_range": 125.0,
     "attack_windup": 0.2143,
     "attack_windup_mod": 1.0,
-    "move_speed": 350.0
+    "move_speed": 350.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 0.95,
@@ -11108,7 +11155,8 @@
     "attack_range": 200.0,
     "attack_windup": 0.1967,
     "attack_windup_mod": 1.0,
-    "move_speed": 335.0
+    "move_speed": 335.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 1.05,
@@ -11378,7 +11426,8 @@
     "attack_range": 475.0,
     "attack_windup": 0.2,
     "attack_windup_mod": 1.0,
-    "move_speed": 330.0
+    "move_speed": 330.0,
+    "gameplay_radius": 70.0
    },
    "mayhem": {
     "damage_dealt": 1.0,
@@ -11608,7 +11657,8 @@
     "attack_range": 550.0,
     "attack_windup": 0.2,
     "attack_windup_mod": 1.0,
-    "move_speed": 325.0
+    "move_speed": 325.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 1.0,
@@ -11809,7 +11859,8 @@
     "attack_range": 175.0,
     "attack_windup": 0.1754,
     "attack_windup_mod": 1.0,
-    "move_speed": 340.0
+    "move_speed": 340.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 1.0,
@@ -12033,7 +12084,8 @@
     "attack_range": 125.0,
     "attack_windup": 0.2081,
     "attack_windup_mod": 1.0,
-    "move_speed": 350.0
+    "move_speed": 350.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 1.05,
@@ -12288,7 +12340,8 @@
     "attack_range": 125.0,
     "attack_windup": 0.095,
     "attack_windup_mod": 0.005,
-    "move_speed": 335.0
+    "move_speed": 335.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 1.05,
@@ -12494,7 +12547,8 @@
     "attack_range": 550.0,
     "attack_windup": 0.1562,
     "attack_windup_mod": 1.0,
-    "move_speed": 330.0
+    "move_speed": 330.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 0.95,
@@ -12762,7 +12816,8 @@
     "attack_range": 525.0,
     "attack_windup": 0.1771,
     "attack_windup_mod": 1.0,
-    "move_speed": 325.0
+    "move_speed": 325.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 0.9,
@@ -12951,7 +13006,8 @@
     "attack_range": 150.0,
     "attack_windup": 0.1953,
     "attack_windup_mod": 1.0,
-    "move_speed": 330.0
+    "move_speed": 330.0,
+    "gameplay_radius": 80.0
    },
    "mayhem": {
     "damage_dealt": 1.05,
@@ -13210,7 +13266,8 @@
     "attack_range": 525.0,
     "attack_windup": 0.1611,
     "attack_windup_mod": 1.0,
-    "move_speed": 335.0
+    "move_speed": 335.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 1.0,
@@ -13445,7 +13502,8 @@
     "attack_range": 525.0,
     "attack_windup": 0.36,
     "attack_windup_mod": 0.75,
-    "move_speed": 330.0
+    "move_speed": 330.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 1.05,
@@ -13621,7 +13679,8 @@
     "attack_range": 525.0,
     "attack_windup": 0.1615,
     "attack_windup_mod": 1.0,
-    "move_speed": 335.0
+    "move_speed": 335.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 1.0,
@@ -13852,7 +13911,8 @@
     "attack_range": 450.0,
     "attack_windup": 0.3,
     "attack_windup_mod": 1.0,
-    "move_speed": 335.0
+    "move_speed": 335.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 0.93,
@@ -14064,7 +14124,8 @@
     "attack_range": 150.0,
     "attack_windup": 0.15,
     "attack_windup_mod": 1.0,
-    "move_speed": 335.0
+    "move_speed": 335.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 1.0,
@@ -14304,7 +14365,8 @@
     "attack_range": 125.0,
     "attack_windup": 0.15,
     "attack_windup_mod": 1.0,
-    "move_speed": 335.0
+    "move_speed": 335.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 1.0,
@@ -14543,7 +14605,8 @@
     "attack_range": 175.0,
     "attack_windup": 0.1935,
     "attack_windup_mod": 1.0,
-    "move_speed": 335.0
+    "move_speed": 335.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 0.95,
@@ -14819,7 +14882,8 @@
     "attack_range": 175.0,
     "attack_windup": 0.1873,
     "attack_windup_mod": 1.0,
-    "move_speed": 340.0
+    "move_speed": 340.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 1.0,
@@ -15055,7 +15119,8 @@
     "attack_range": 550.0,
     "attack_windup": 0.2,
     "attack_windup_mod": 1.0,
-    "move_speed": 335.0
+    "move_speed": 335.0,
+    "gameplay_radius": 55.0
    },
    "mayhem": {
     "damage_dealt": 1.0,
@@ -15264,7 +15329,8 @@
     "attack_range": 125.0,
     "attack_windup": 0.2005,
     "attack_windup_mod": 1.0,
-    "move_speed": 345.0
+    "move_speed": 345.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 1.1,
@@ -15490,7 +15556,8 @@
     "attack_range": 500.0,
     "attack_windup": 0.1754,
     "attack_windup_mod": 1.0,
-    "move_speed": 325.0
+    "move_speed": 325.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 1.0,
@@ -15721,7 +15788,8 @@
     "attack_range": 125.0,
     "attack_windup": 0.175,
     "attack_windup_mod": 1.0,
-    "move_speed": 345.0
+    "move_speed": 345.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 1.05,
@@ -15952,7 +16020,8 @@
     "attack_range": 500.0,
     "attack_windup": 0.1662,
     "attack_windup_mod": 1.0,
-    "move_speed": 330.0
+    "move_speed": 330.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 0.9,
@@ -16187,7 +16256,8 @@
     "attack_range": 525.0,
     "attack_windup": 0.1667,
     "attack_windup_mod": 1.0,
-    "move_speed": 340.0
+    "move_speed": 340.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 1.1,
@@ -16459,7 +16529,8 @@
     "attack_range": 125.0,
     "attack_windup": 0.1953,
     "attack_windup_mod": 1.0,
-    "move_speed": 345.0
+    "move_speed": 345.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 1.05,
@@ -16699,7 +16770,8 @@
     "attack_range": 125.0,
     "attack_windup": 0.2292,
     "attack_windup_mod": 1.0,
-    "move_speed": 335.0
+    "move_speed": 335.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 0.95,
@@ -16911,7 +16983,8 @@
     "attack_range": 325.0,
     "attack_windup": 0.1471,
     "attack_windup_mod": 1.0,
-    "move_speed": 330.0
+    "move_speed": 330.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 0.95,
@@ -17166,7 +17239,8 @@
     "attack_range": 550.0,
     "attack_windup": 0.1875,
     "attack_windup_mod": 1.0,
-    "move_speed": 325.0
+    "move_speed": 325.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 0.95,
@@ -17379,7 +17453,8 @@
     "attack_range": 125.0,
     "attack_windup": 0.1562,
     "attack_windup_mod": 1.0,
-    "move_speed": 340.0
+    "move_speed": 340.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 1.05,
@@ -17636,7 +17711,8 @@
     "attack_range": 500.0,
     "attack_windup": 0.15,
     "attack_windup_mod": 1.0,
-    "move_speed": 335.0
+    "move_speed": 335.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 1.0,
@@ -17864,7 +17940,8 @@
     "attack_range": 550.0,
     "attack_windup": 0.1875,
     "attack_windup_mod": 1.0,
-    "move_speed": 330.0
+    "move_speed": 330.0,
+    "gameplay_radius": 55.0
    },
    "mayhem": {
     "damage_dealt": 1.0,
@@ -18094,7 +18171,8 @@
     "attack_range": 550.0,
     "attack_windup": 0.1563,
     "attack_windup_mod": 1.0,
-    "move_speed": 330.0
+    "move_speed": 330.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 0.9,
@@ -18324,7 +18402,8 @@
     "attack_range": 125.0,
     "attack_windup": 0.2497,
     "attack_windup_mod": 1.0,
-    "move_speed": 335.0
+    "move_speed": 335.0,
+    "gameplay_radius": 80.0
    },
    "mayhem": {
     "damage_dealt": 1.0,
@@ -18543,7 +18622,8 @@
     "attack_range": 500.0,
     "attack_windup": 0.19,
     "attack_windup_mod": 1.0,
-    "move_speed": 335.0
+    "move_speed": 335.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 0.9,
@@ -18762,7 +18842,8 @@
     "attack_range": 125.0,
     "attack_windup": 0.3,
     "attack_windup_mod": 1.0,
-    "move_speed": 335.0
+    "move_speed": 335.0,
+    "gameplay_radius": 80.0
    },
    "mayhem": {
     "damage_dealt": 0.95,
@@ -19006,7 +19087,8 @@
     "attack_range": 175.0,
     "attack_windup": 0.244,
     "attack_windup_mod": 1.0,
-    "move_speed": 355.0
+    "move_speed": 355.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 1.0,
@@ -19244,7 +19326,8 @@
     "attack_range": 550.0,
     "attack_windup": 0.156,
     "attack_windup_mod": 1.0,
-    "move_speed": 330.0
+    "move_speed": 330.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 1.0,
@@ -19484,7 +19567,8 @@
     "attack_range": 525.0,
     "attack_windup": 0.1714,
     "attack_windup_mod": 1.0,
-    "move_speed": 330.0
+    "move_speed": 330.0,
+    "gameplay_radius": 55.0
    },
    "mayhem": {
     "damage_dealt": 1.0,
@@ -19697,7 +19781,8 @@
     "attack_range": 550.0,
     "attack_windup": 0.148,
     "attack_windup_mod": 1.0,
-    "move_speed": 325.0
+    "move_speed": 325.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 0.95,
@@ -19970,7 +20055,8 @@
     "attack_range": 175.0,
     "attack_windup": 0.2113,
     "attack_windup_mod": 1.0,
-    "move_speed": 335.0
+    "move_speed": 335.0,
+    "gameplay_radius": 80.0
    },
    "mayhem": {
     "damage_dealt": 1.0,
@@ -20212,7 +20298,8 @@
     "attack_range": 450.0,
     "attack_windup": 0.14,
     "attack_windup_mod": 1.0,
-    "move_speed": 335.0
+    "move_speed": 335.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 0.95,
@@ -20437,7 +20524,8 @@
     "attack_range": 125.0,
     "attack_windup": 0.1724,
     "attack_windup_mod": 1.0,
-    "move_speed": 340.0
+    "move_speed": 340.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 1.1,
@@ -20741,7 +20829,8 @@
     "attack_range": 550.0,
     "attack_windup": 0.18,
     "attack_windup_mod": 1.0,
-    "move_speed": 335.0
+    "move_speed": 335.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 1.0,
@@ -20960,7 +21049,8 @@
     "attack_range": 125.0,
     "attack_windup": 0.2014,
     "attack_windup_mod": 1.0,
-    "move_speed": 350.0
+    "move_speed": 350.0,
+    "gameplay_radius": 80.0
    },
    "mayhem": {
     "damage_dealt": 1.0,
@@ -21173,7 +21263,8 @@
     "attack_range": 175.0,
     "attack_windup": 0.3064,
     "attack_windup_mod": 1.0,
-    "move_speed": 325.0
+    "move_speed": 325.0,
+    "gameplay_radius": 80.0
    },
    "mayhem": {
     "damage_dealt": 1.0,
@@ -21430,7 +21521,8 @@
     "attack_range": 550.0,
     "attack_windup": 0.2,
     "attack_windup_mod": 1.0,
-    "move_speed": 340.0
+    "move_speed": 340.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 1.0,
@@ -21649,7 +21741,8 @@
     "attack_range": 525.0,
     "attack_windup": 0.15,
     "attack_windup_mod": 1.0,
-    "move_speed": 335.0
+    "move_speed": 335.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 1.1,
@@ -21886,7 +21979,8 @@
     "attack_range": 225.0,
     "attack_windup": 0.22,
     "attack_windup_mod": 1.0,
-    "move_speed": 340.0
+    "move_speed": 340.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 1.0,
@@ -22091,7 +22185,8 @@
     "attack_range": 125.0,
     "attack_windup": 0.2005,
     "attack_windup_mod": 1.0,
-    "move_speed": 345.0
+    "move_speed": 345.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 1.1,
@@ -22318,7 +22413,8 @@
     "attack_range": 125.0,
     "attack_windup": 0.1936,
     "attack_windup_mod": 1.0,
-    "move_speed": 345.0
+    "move_speed": 345.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 1.1,
@@ -22574,7 +22670,8 @@
     "attack_range": 125.0,
     "attack_windup": 0.2344,
     "attack_windup_mod": 1.0,
-    "move_speed": 350.0
+    "move_speed": 350.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 1.05,
@@ -22787,7 +22884,8 @@
     "attack_range": 525.0,
     "attack_windup": 0.1754,
     "attack_windup_mod": 1.0,
-    "move_speed": 325.0
+    "move_speed": 325.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 1.0,
@@ -23034,7 +23132,8 @@
     "attack_range": 175.0,
     "attack_windup": 0.2187,
     "attack_windup_mod": 1.0,
-    "move_speed": 335.0
+    "move_speed": 335.0,
+    "gameplay_radius": 80.0
    },
    "mayhem": {
     "damage_dealt": 0.9,
@@ -23270,7 +23369,8 @@
     "attack_range": 175.0,
     "attack_windup": 0.1903,
     "attack_windup_mod": 1.0,
-    "move_speed": 345.0
+    "move_speed": 345.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 1.0,
@@ -23544,7 +23644,8 @@
     "attack_range": 125.0,
     "attack_windup": 0.2344,
     "attack_windup_mod": 1.0,
-    "move_speed": 345.0
+    "move_speed": 345.0,
+    "gameplay_radius": 55.0
    },
    "mayhem": {
     "damage_dealt": 1.0,
@@ -23840,7 +23941,8 @@
     "attack_range": 150.0,
     "attack_windup": 0.2,
     "attack_windup_mod": 1.0,
-    "move_speed": 330.0
+    "move_speed": 330.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 1.1,
@@ -24047,7 +24149,8 @@
     "attack_range": 150.0,
     "attack_windup": 0.1533,
     "attack_windup_mod": 1.0,
-    "move_speed": 335.0
+    "move_speed": 335.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 1.1,
@@ -24303,7 +24406,8 @@
     "attack_range": 525.0,
     "attack_windup": 0.1754,
     "attack_windup_mod": 1.0,
-    "move_speed": 330.0
+    "move_speed": 330.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 1.1,
@@ -24483,7 +24587,8 @@
     "attack_range": 300.0,
     "attack_windup": 0.1714,
     "attack_windup_mod": 1.0,
-    "move_speed": 335.0
+    "move_speed": 335.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 1.0,
@@ -24658,7 +24763,8 @@
     "attack_range": 125.0,
     "attack_windup": 0.2292,
     "attack_windup_mod": 1.0,
-    "move_speed": 335.0
+    "move_speed": 335.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 1.0,
@@ -24866,7 +24972,8 @@
     "attack_range": 175.0,
     "attack_windup": 0.2,
     "attack_windup_mod": 0.6,
-    "move_speed": 340.0
+    "move_speed": 340.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 1.05,
@@ -25077,7 +25184,8 @@
     "attack_range": 175.0,
     "attack_windup": 0.1875,
     "attack_windup_mod": 1.0,
-    "move_speed": 315.0
+    "move_speed": 315.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 0.95,
@@ -25286,7 +25394,8 @@
     "attack_range": 550.0,
     "attack_windup": 0.188,
     "attack_windup_mod": 1.0,
-    "move_speed": 330.0
+    "move_speed": 330.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 1.0,
@@ -25512,7 +25621,8 @@
     "attack_range": 125.0,
     "attack_windup": 0.1773,
     "attack_windup_mod": 1.0,
-    "move_speed": 345.0
+    "move_speed": 345.0,
+    "gameplay_radius": 80.0
    },
    "mayhem": {
     "damage_dealt": 1.0,
@@ -25755,7 +25865,8 @@
     "attack_range": 125.0,
     "attack_windup": 0.2,
     "attack_windup_mod": 1.0,
-    "move_speed": 345.0
+    "move_speed": 345.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 1.05,
@@ -26002,7 +26113,8 @@
     "attack_range": 125.0,
     "attack_windup": 0.1667,
     "attack_windup_mod": 1.0,
-    "move_speed": 340.0
+    "move_speed": 340.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 1.05,
@@ -26267,7 +26379,8 @@
     "attack_range": 125.0,
     "attack_windup": 0.2,
     "attack_windup_mod": 1.0,
-    "move_speed": 345.0
+    "move_speed": 345.0,
+    "gameplay_radius": 80.0
    },
    "mayhem": {
     "damage_dealt": 1.0,
@@ -26505,7 +26618,8 @@
     "attack_range": 550.0,
     "attack_windup": 0.2,
     "attack_windup_mod": 1.0,
-    "move_speed": 340.0
+    "move_speed": 340.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 1.0,
@@ -26701,7 +26815,8 @@
     "attack_range": 500.0,
     "attack_windup": 0.15,
     "attack_windup_mod": 1.0,
-    "move_speed": 335.0
+    "move_speed": 335.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 1.0,
@@ -26939,7 +27054,8 @@
     "attack_range": 150.0,
     "attack_windup": 0.1875,
     "attack_windup_mod": 1.0,
-    "move_speed": 340.0
+    "move_speed": 340.0,
+    "gameplay_radius": 80.0
    },
    "mayhem": {
     "damage_dealt": 1.0,
@@ -27205,7 +27321,8 @@
     "attack_range": 600.0,
     "attack_windup": 0.3438,
     "attack_windup_mod": 0.6,
-    "move_speed": 330.0
+    "move_speed": 330.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 1.0,
@@ -27474,7 +27591,8 @@
     "attack_range": 525.0,
     "attack_windup": 0.187,
     "attack_windup_mod": 1.0,
-    "move_speed": 330.0
+    "move_speed": 330.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 1.0,
@@ -27692,7 +27810,8 @@
     "attack_range": 125.0,
     "attack_windup": 0.2143,
     "attack_windup_mod": 1.0,
-    "move_speed": 340.0
+    "move_speed": 340.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 1.0,
@@ -27953,7 +28072,8 @@
     "attack_range": 125.0,
     "attack_windup": 0.2215,
     "attack_windup_mod": 1.0,
-    "move_speed": 345.0
+    "move_speed": 345.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 1.05,
@@ -28243,7 +28363,8 @@
     "attack_range": 125.0,
     "attack_windup": 0.1736,
     "attack_windup_mod": 1.0,
-    "move_speed": 340.0
+    "move_speed": 340.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 0.95,
@@ -28435,7 +28556,8 @@
     "attack_range": 150.0,
     "attack_windup": 0.1562,
     "attack_windup_mod": 1.0,
-    "move_speed": 350.0
+    "move_speed": 350.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 1.0,
@@ -28747,7 +28869,8 @@
     "attack_range": 125.0,
     "attack_windup": 0.2,
     "attack_windup_mod": 1.0,
-    "move_speed": 345.0
+    "move_speed": 345.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 1.0,
@@ -28956,7 +29079,8 @@
     "attack_range": 175.0,
     "attack_windup": 0.2491,
     "attack_windup_mod": 1.0,
-    "move_speed": 345.0
+    "move_speed": 345.0,
+    "gameplay_radius": 80.0
    },
    "mayhem": {
     "damage_dealt": 0.9,
@@ -29205,7 +29329,8 @@
     "attack_range": 500.0,
     "attack_windup": 0.12,
     "attack_windup_mod": 1.0,
-    "move_speed": 335.0
+    "move_speed": 335.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 0.93,
@@ -29389,7 +29514,8 @@
     "attack_range": 150.0,
     "attack_windup": 0.1875,
     "attack_windup_mod": 1.0,
-    "move_speed": 335.0
+    "move_speed": 335.0,
+    "gameplay_radius": 80.0
    },
    "mayhem": {
     "damage_dealt": 1.05,
@@ -29671,7 +29797,8 @@
     "attack_range": 550.0,
     "attack_windup": 0.1595,
     "attack_windup_mod": 1.0,
-    "move_speed": 330.0
+    "move_speed": 330.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 1.0,
@@ -29932,7 +30059,8 @@
     "attack_range": 550.0,
     "attack_windup": 0.1718,
     "attack_windup_mod": 1.0,
-    "move_speed": 325.0
+    "move_speed": 325.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 1.0,
@@ -30181,7 +30309,8 @@
     "attack_range": 550.0,
     "attack_windup": 0.187,
     "attack_windup_mod": 1.0,
-    "move_speed": 325.0
+    "move_speed": 325.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 1.0,
@@ -30393,7 +30522,8 @@
     "attack_range": 525.0,
     "attack_windup": 0.14,
     "attack_windup_mod": 1.0,
-    "move_speed": 330.0
+    "move_speed": 330.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 1.0,
@@ -30654,7 +30784,8 @@
     "attack_range": 175.0,
     "attack_windup": 0.1677,
     "attack_windup_mod": 1.0,
-    "move_speed": 340.0
+    "move_speed": 340.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 1.05,
@@ -30895,7 +31026,8 @@
     "attack_range": 550.0,
     "attack_windup": 0.1875,
     "attack_windup_mod": 1.0,
-    "move_speed": 330.0
+    "move_speed": 330.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 1.05,
@@ -31130,7 +31262,8 @@
     "attack_range": 175.0,
     "attack_windup": 0.2502,
     "attack_windup_mod": 1.0,
-    "move_speed": 335.0
+    "move_speed": 335.0,
+    "gameplay_radius": 80.0
    },
    "mayhem": {
     "damage_dealt": 1.0,
@@ -31376,7 +31509,8 @@
     "attack_range": 525.0,
     "attack_windup": 0.1615,
     "attack_windup_mod": 1.0,
-    "move_speed": 330.0
+    "move_speed": 330.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 1.0,
@@ -31581,7 +31715,8 @@
     "attack_range": 125.0,
     "attack_windup": 0.1237,
     "attack_windup_mod": 1.0,
-    "move_speed": 335.0
+    "move_speed": 335.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 1.05,
@@ -31848,7 +31983,8 @@
     "attack_range": 150.0,
     "attack_windup": 0.18,
     "attack_windup_mod": 0.25,
-    "move_speed": 340.0
+    "move_speed": 340.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 1.0,
@@ -32064,7 +32200,8 @@
     "attack_range": 500.0,
     "attack_windup": 0.2,
     "attack_windup_mod": 1.0,
-    "move_speed": 330.0
+    "move_speed": 330.0,
+    "gameplay_radius": 55.0
    },
    "mayhem": {
     "damage_dealt": 0.95,
@@ -32278,7 +32415,8 @@
     "attack_range": 450.0,
     "attack_windup": 0.2396,
     "attack_windup_mod": 0.25,
-    "move_speed": 330.0
+    "move_speed": 330.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 1.0,
@@ -32541,7 +32679,8 @@
     "attack_range": 550.0,
     "attack_windup": 0.148,
     "attack_windup_mod": 1.0,
-    "move_speed": 325.0
+    "move_speed": 325.0,
+    "gameplay_radius": 55.0
    },
    "mayhem": {
     "damage_dealt": 1.0,
@@ -32767,7 +32906,8 @@
     "attack_range": 175.0,
     "attack_windup": 0.2083,
     "attack_windup_mod": 1.0,
-    "move_speed": 350.0
+    "move_speed": 350.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 1.0,
@@ -32971,7 +33111,8 @@
     "attack_range": 175.0,
     "attack_windup": 0.19,
     "attack_windup_mod": 1.0,
-    "move_speed": 345.0
+    "move_speed": 345.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 1.1,
@@ -33151,7 +33292,8 @@
     "attack_range": 525.0,
     "attack_windup": 0.2,
     "attack_windup_mod": 1.0,
-    "move_speed": 330.0
+    "move_speed": 330.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 1.0,
@@ -33377,7 +33519,8 @@
     "attack_range": 550.0,
     "attack_windup": 0.2019,
     "attack_windup_mod": 1.0,
-    "move_speed": 330.0
+    "move_speed": 330.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 1.0,
@@ -33612,7 +33755,8 @@
     "attack_range": 125.0,
     "attack_windup": 0.198,
     "attack_windup_mod": 1.0,
-    "move_speed": 350.0
+    "move_speed": 350.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 1.0,
@@ -33861,7 +34005,8 @@
     "attack_range": 350.0,
     "attack_windup": 0.15,
     "attack_windup_mod": 1.0,
-    "move_speed": 330.0
+    "move_speed": 330.0,
+    "gameplay_radius": 80.0
    },
    "mayhem": {
     "damage_dealt": 1.0,
@@ -34121,7 +34266,8 @@
     "attack_range": 575.0,
     "attack_windup": 0.1754,
     "attack_windup_mod": 1.0,
-    "move_speed": 330.0
+    "move_speed": 330.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 1.0,
@@ -34391,7 +34537,8 @@
     "attack_range": 550.0,
     "attack_windup": 0.1754,
     "attack_windup_mod": 1.0,
-    "move_speed": 330.0
+    "move_speed": 330.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 1.0,
@@ -34610,7 +34757,8 @@
     "attack_range": 550.0,
     "attack_windup": 0.1909,
     "attack_windup_mod": 1.0,
-    "move_speed": 340.0
+    "move_speed": 340.0,
+    "gameplay_radius": 55.0
    },
    "mayhem": {
     "damage_dealt": 0.93,
@@ -34813,7 +34961,8 @@
     "attack_range": 525.0,
     "attack_windup": 0.2,
     "attack_windup_mod": 1.0,
-    "move_speed": 340.0
+    "move_speed": 340.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 0.95,
@@ -35062,7 +35211,8 @@
     "attack_range": 550.0,
     "attack_windup": 0.1562,
     "attack_windup_mod": 1.0,
-    "move_speed": 335.0
+    "move_speed": 335.0,
+    "gameplay_radius": 55.0
    },
    "mayhem": {
     "damage_dealt": 0.95,
@@ -35284,7 +35434,8 @@
     "attack_range": 125.0,
     "attack_windup": 0.225,
     "attack_windup_mod": 1.0,
-    "move_speed": 340.0
+    "move_speed": 340.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 1.05,
@@ -35501,7 +35652,8 @@
     "attack_range": 200.0,
     "attack_windup": 0.1645,
     "attack_windup_mod": 1.0,
-    "move_speed": 345.0
+    "move_speed": 345.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 1.05,
@@ -35741,7 +35893,8 @@
     "attack_range": 525.0,
     "attack_windup": 0.18,
     "attack_windup_mod": 1.0,
-    "move_speed": 335.0
+    "move_speed": 335.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 1.0,
@@ -35975,7 +36128,8 @@
     "attack_range": 450.0,
     "attack_windup": 0.1974,
     "attack_windup_mod": 1.0,
-    "move_speed": 330.0
+    "move_speed": 330.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 1.0,
@@ -36218,7 +36372,8 @@
     "attack_range": 150.0,
     "attack_windup": 0.3,
     "attack_windup_mod": 1.0,
-    "move_speed": 340.0
+    "move_speed": 340.0,
+    "gameplay_radius": 80.0
    },
    "mayhem": {
     "damage_dealt": 1.0,
@@ -36497,7 +36652,8 @@
     "attack_range": 125.0,
     "attack_windup": 0.175,
     "attack_windup_mod": 1.0,
-    "move_speed": 335.0
+    "move_speed": 335.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 1.05,
@@ -36720,7 +36876,8 @@
     "attack_range": 175.0,
     "attack_windup": 0.2083,
     "attack_windup_mod": 1.0,
-    "move_speed": 340.0
+    "move_speed": 340.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 1.0,
@@ -36927,7 +37084,8 @@
     "attack_range": 525.0,
     "attack_windup": 0.1769,
     "attack_windup_mod": 1.0,
-    "move_speed": 330.0
+    "move_speed": 330.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 1.0,
@@ -37131,7 +37289,8 @@
     "attack_range": 525.0,
     "attack_windup": 0.2,
     "attack_windup_mod": 1.0,
-    "move_speed": 340.0
+    "move_speed": 340.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 0.93,
@@ -37372,7 +37531,8 @@
     "attack_range": 175.0,
     "attack_windup": 0.1871,
     "attack_windup_mod": 1.0,
-    "move_speed": 345.0
+    "move_speed": 345.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 1.0,
@@ -37640,7 +37800,8 @@
     "attack_range": 175.0,
     "attack_windup": 0.22,
     "attack_windup_mod": 1.0,
-    "move_speed": 345.0
+    "move_speed": 345.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 1.0,
@@ -37853,7 +38014,8 @@
     "attack_range": 175.0,
     "attack_windup": 0.22,
     "attack_windup_mod": 1.0,
-    "move_speed": 345.0
+    "move_speed": 345.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 1.05,
@@ -38108,7 +38270,8 @@
     "attack_range": 175.0,
     "attack_windup": 0.2063,
     "attack_windup_mod": 1.0,
-    "move_speed": 340.0
+    "move_speed": 340.0,
+    "gameplay_radius": 80.0
    },
    "mayhem": {
     "damage_dealt": 1.0,
@@ -38319,7 +38482,8 @@
     "attack_range": 575.0,
     "attack_windup": 0.1625,
     "attack_windup_mod": 1.0,
-    "move_speed": 325.0
+    "move_speed": 325.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 1.0,
@@ -38544,7 +38708,8 @@
     "attack_range": 425.0,
     "attack_windup": 0.1562,
     "attack_windup_mod": 1.0,
-    "move_speed": 330.0
+    "move_speed": 330.0,
+    "gameplay_radius": 55.0
    },
    "mayhem": {
     "damage_dealt": 1.0,
@@ -38782,7 +38947,8 @@
     "attack_range": 175.0,
     "attack_windup": 0.1562,
     "attack_windup_mod": 1.0,
-    "move_speed": 345.0
+    "move_speed": 345.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 1.0,
@@ -39064,7 +39230,8 @@
     "attack_range": 175.0,
     "attack_windup": 0.2315,
     "attack_windup_mod": 1.0,
-    "move_speed": 340.0
+    "move_speed": 340.0,
+    "gameplay_radius": 80.0
    },
    "mayhem": {
     "damage_dealt": 1.0,
@@ -39312,7 +39479,8 @@
     "attack_range": 125.0,
     "attack_windup": 0.1976,
     "attack_windup_mod": 1.0,
-    "move_speed": 345.0
+    "move_speed": 345.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 1.05,
@@ -39549,7 +39717,8 @@
     "attack_range": 550.0,
     "attack_windup": 0.1562,
     "attack_windup_mod": 1.0,
-    "move_speed": 330.0
+    "move_speed": 330.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 1.1,
@@ -39785,7 +39954,8 @@
     "attack_range": 550.0,
     "attack_windup": 0.2,
     "attack_windup_mod": 1.0,
-    "move_speed": 325.0
+    "move_speed": 325.0,
+    "gameplay_radius": 55.0
    },
    "mayhem": {
     "damage_dealt": 0.9,
@@ -40036,7 +40206,8 @@
     "attack_range": 550.0,
     "attack_windup": 0.18,
     "attack_windup_mod": 1.0,
-    "move_speed": 335.0
+    "move_speed": 335.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 1.0,
@@ -40218,7 +40389,8 @@
     "attack_range": 550.0,
     "attack_windup": 0.1615,
     "attack_windup_mod": 1.0,
-    "move_speed": 340.0
+    "move_speed": 340.0,
+    "gameplay_radius": 55.0
    },
    "mayhem": {
     "damage_dealt": 1.1,
@@ -40447,7 +40619,8 @@
     "attack_range": 575.0,
     "attack_windup": 0.1458,
     "attack_windup_mod": 1.0,
-    "move_speed": 340.0
+    "move_speed": 340.0,
+    "gameplay_radius": 65.0
    },
    "mayhem": {
     "damage_dealt": 0.9,
