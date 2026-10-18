@@ -1,9 +1,20 @@
-// Item tags (/items and each item page): plain-language groups of the shop's own categories, in four
-// colour families. An item has a tag when the shop lists any of its categories for it.
+// Item tags (/items and each item page): the in-game shop's class filters, then plain-language groups of
+// the shop's own categories, in five colour families. An item has a tag when the shop lists any of its
+// categories for it; class tags come in as "class:<name>" (lib/items.ts itemClasses).
 
-export type ItemTag = { key: string; label: string; group: "attack" | "magic" | "defense" | "utility"; cats: string[] };
+export type ItemTag = { key: string; label: string; group: "class" | "attack" | "magic" | "defense" | "utility"; cats: string[] };
+
+const CLASS_TAGS: [string, string][] = [
+  ["fighter", "Fighter"],
+  ["marksman", "Marksman"],
+  ["assassin", "Assassin"],
+  ["mage", "Mage"],
+  ["tank", "Tank"],
+  ["support", "Support"],
+];
 
 export const ITEM_TAGS: ItemTag[] = [
+  ...CLASS_TAGS.map(([key, label]): ItemTag => ({ key, label, group: "class", cats: [`class:${key}`] })),
   { key: "ad", label: "Attack damage", group: "attack", cats: ["Damage"] },
   { key: "crit", label: "Crit", group: "attack", cats: ["CriticalStrike"] },
   { key: "as", label: "Attack speed", group: "attack", cats: ["AttackSpeed"] },
@@ -27,6 +38,7 @@ export const ITEM_TAGS: ItemTag[] = [
 ];
 
 export const TAG_GROUPS = [
+  ["class", "Class"],
   ["attack", "Attack"],
   ["magic", "Magic"],
   ["defense", "Defense"],

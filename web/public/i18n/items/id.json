@@ -77,5 +77,12 @@
  "{wr} win · in {share} of builds": "menang {wr} · di {share} build",
  "augment item": "item augment",
  "Consumables": "Habis pakai",
- "From augments": "Dari augment"
+ "From augments": "Dari augment",
+ "Fighter": "Fighter",
+ "Marksman": "Marksman",
+ "Assassin": "Assassin",
+ "Mage": "Mage",
+ "Tank": "Tank",
+ "Class": "Kelas",
+ "Support": "Support"
 }

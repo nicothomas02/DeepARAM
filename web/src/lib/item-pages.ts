@@ -4,7 +4,7 @@ import { augmentSlug } from "./augments";
 import { champName } from "./highlights";
 import { liveWithChange } from "./champions";
 import { grade, lowerBound } from "./deepscore";
-import { ITEM_TIERS, itemTier, items, rewardItems, type ItemTier } from "./items";
+import { ITEM_TIERS, itemClasses, itemTier, items, rewardItems, type ItemTier } from "./items";
 import { tagsFor } from "./item-tags";
 import { ddVersion } from "./dd-swap";
 import { readRepoJson } from "./repo-data";
@@ -134,7 +134,7 @@ export function itemPages(): ItemPage[] {
         icon: i.icon,
         cost: info.get(i.id)?.priceTotal ?? 0,
         stats: statLines(info.get(i.id)?.description ?? ""),
-        tags: tagsFor(info.get(i.id)?.categories),
+        tags: tagsFor([...(info.get(i.id)?.categories ?? []), ...itemClasses(i.id).map((c) => `class:${c}`)]),
         popularity: (builders.get(i.id) ?? []).reduce((s, b) => s + b.pickRate, 0),
         builders: [...(builders.get(i.id) ?? [])].sort((x, y) => y.pickRate - x.pickRate).slice(0, 10),
         tier: itemTier(i.id),
