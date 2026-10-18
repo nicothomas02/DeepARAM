@@ -28,8 +28,12 @@ export async function generateMetadata({ params }: { params: Promise<{ patch: st
 function Aug({ a }: { a: AugRef }) {
   const body = (
     <>
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img className="icon" src={`/icons/augments/${a.id}.webp`} alt="" width={24} height={24} loading="lazy" />
+      {a.icon ? (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img className="icon" src={`/icons/augments/${a.id}.webp`} alt="" width={24} height={24} loading="lazy" />
+      ) : (
+        <span className="icon" aria-hidden="true" />
+      )}
       <span className="rank-name">
         <Name kind="augments" id={a.id}>
           {a.name}

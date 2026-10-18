@@ -64,7 +64,10 @@ export function augmentPages(): AugmentPage[] {
 }
 
 export const augmentBySlug = (slug: string) => augmentPages().find((a) => a.slug === slug) ?? null;
+// Only augments in today's pool have a page; a removed one (an old patch recap) gets no link.
+let withPage: Set<string> | null = null;
 export const augmentHref = (id: number | string) => {
+  withPage ??= new Set(augmentRows<Raw>().flatMap((a) => (NAMES[a.augment_id] && a.tier ? [String(a.augment_id)] : [])));
   const name = NAMES[String(id)];
-  return name ? `/augments/${augmentSlug(name)}` : null;
+  return name && withPage.has(String(id)) ? `/augments/${augmentSlug(name)}` : null;
 };
