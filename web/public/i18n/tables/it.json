@@ -92,5 +92,7 @@
  "Close": "Chiudi",
  "Win rate delta": "Differenza vittorie",
  "Pair win rate minus the average of the two champions' own win rates. Above zero means they win more together.": "Percentuale di vittorie della coppia meno la media delle percentuali dei due campioni da soli. Sopra lo zero vincono di più insieme.",
+ "Games": "Partite",
+ "Games played on the live patch.": "Partite giocate nella patch attuale.",
  "DeepScore rates each item from 0 to 100 against this champion's other items, where 50 is average. It starts from the item's win rate with this champion and trusts rarely built items less. Tiers: S 70+, A 59+, B 44+, C 32+, D below.": "Il DeepScore valuta ogni oggetto da 0 a 100 rispetto agli altri oggetti di questo campione, dove 50 è la media. Parte dal tasso di vittoria dell'oggetto con questo campione e si fida meno degli oggetti costruiti di rado. Livelli: S 70+, A 59+, B 44+, C 32+, D sotto."
 }

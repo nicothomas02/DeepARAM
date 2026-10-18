@@ -61,6 +61,9 @@ const ADVANCED: Column[] = [
   { key: "dead", label: "Time dead", format: "sec" },
 ];
 
+// Live-patch game counts, when the page has them (lib/fill.ts).
+const GAMES: Column = { key: "games", label: "Games", format: "int", hint: "Games played on the live patch." };
+
 const MOVERS = { key: "change", desc: true };
 const BEST = { key: "score", desc: true };
 
@@ -69,9 +72,10 @@ type Props = {
   patches: string[];
   tags: Record<string, string[]>;
   tagInfo: TagInfo;
+  games?: Record<string, number> | null;
 };
 
-export default function ChampionTiers({ rows: initial, patches, tags, tagInfo }: Props) {
+export default function ChampionTiers({ rows: initial, patches, tags, tagInfo, games }: Props) {
   const t = useT("tier-list");
   const tt = useT("tags");
   const live = patches[patches.length - 1];
@@ -114,10 +118,11 @@ export default function ChampionTiers({ rows: initial, patches, tags, tagInfo }:
         ...c,
         change: was === undefined ? null : c.win_rate - was.win_rate,
         tier_was: was?.tier ?? null,
+        games: one === live ? (games?.[c.name] ?? null) : null,
         archetype: (tags[c.name] ?? []).filter((t) => tagInfo[t]?.kind !== "play").join(","),
       };
     });
-  }, [rows, picked, before, have, missing, tags, tagInfo]);
+  }, [rows, picked, before, have, missing, tags, tagInfo, games, one, live]);
 
   // Archetype filter (?tag=Mage,Poke): a champion shows when it has every picked tag. Tiers and
   // DeepScores stay graded against the whole list, so a filtered view shows where each stands overall.
@@ -256,7 +261,14 @@ export default function ChampionTiers({ rows: initial, patches, tags, tagInfo }:
         <DataTable
           key={sort.key}
           columns={[...STANDARD.slice(0, 3), tagCol, ...STANDARD.slice(3), ...(showChange ? [CHANGE] : [])]}
-          advancedColumns={[...ADVANCED.slice(0, 3), tagCol, ...ADVANCED.slice(3), ...(showChange ? [CHANGE] : [])]}
+          advancedColumns={[
+            ...ADVANCED.slice(0, 3),
+            tagCol,
+            ...ADVANCED.slice(3, 6),
+            ...(games && one === live ? [GAMES] : []),
+            ...ADVANCED.slice(6),
+            ...(showChange ? [CHANGE] : []),
+          ]}
           rows={shownRows}
           initialSort={sort}
           searchKey="name"

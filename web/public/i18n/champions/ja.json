@@ -80,6 +80,8 @@
  "Build share": "ビルド割合",
  "Win rate delta": "勝率差",
  "Win rate delta: how much more the pair wins together than the two do on their own.": "勝率差：2体が一緒のときに、それぞれ単体のときよりどれだけ多く勝つか。",
+ "Games": "試合数",
+ "Spells": "スペル",
  "DeepScore": "DeepScore",
  "More details": "詳細",
  "Best DeepScore first, with each item's pick rate and win rate.": "DeepScoreの高い順に、各アイテムのピック率と勝率を表示。"

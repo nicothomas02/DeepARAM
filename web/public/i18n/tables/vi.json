@@ -92,5 +92,7 @@
  "Close": "Đóng",
  "Win rate delta": "Chênh lệch tỉ lệ thắng",
  "Pair win rate minus the average of the two champions' own win rates. Above zero means they win more together.": "Tỉ lệ thắng của cặp trừ trung bình tỉ lệ thắng riêng của hai tướng. Trên 0 nghĩa là họ thắng nhiều hơn khi đi cùng nhau.",
+ "Games": "Số trận",
+ "Games played on the live patch.": "Số trận đã chơi ở phiên bản hiện tại.",
  "DeepScore rates each item from 0 to 100 against this champion's other items, where 50 is average. It starts from the item's win rate with this champion and trusts rarely built items less. Tiers: S 70+, A 59+, B 44+, C 32+, D below.": "DeepScore chấm mỗi trang bị từ 0 đến 100 so với các trang bị khác của tướng này, trong đó 50 là mức trung bình. Điểm dựa trên tỉ lệ thắng của trang bị với tướng này và ít tin hơn vào trang bị hiếm khi được lên. Bậc: S 70+, A 59+, B 44+, C 32+, D thấp hơn."
 }

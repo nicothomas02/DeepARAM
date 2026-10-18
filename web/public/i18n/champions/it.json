@@ -80,6 +80,8 @@
  "Build share": "Quota di build",
  "Win rate delta": "Differenza vittorie",
  "Win rate delta: how much more the pair wins together than the two do on their own.": "Differenza vittorie: quanto la coppia vince di più insieme rispetto ai due da soli.",
+ "Games": "Partite",
+ "Spells": "Incantesimi",
  "DeepScore": "DeepScore",
  "More details": "Altri dettagli",
  "Best DeepScore first, with each item's pick rate and win rate.": "Prima il DeepScore migliore, con tasso di scelta e tasso di vittoria di ogni oggetto."

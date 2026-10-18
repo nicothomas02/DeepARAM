@@ -92,5 +92,7 @@
  "Close": "Zavřít",
  "Win rate delta": "Rozdíl míry výher",
  "Pair win rate minus the average of the two champions' own win rates. Above zero means they win more together.": "Míra výher dvojice minus průměr vlastních měr výher obou šampionů. Nad nulou znamená, že spolu vyhrávají víc.",
+ "Games": "Hry",
+ "Games played on the live patch.": "Hry odehrané v aktuálním patchi.",
  "DeepScore rates each item from 0 to 100 against this champion's other items, where 50 is average. It starts from the item's win rate with this champion and trusts rarely built items less. Tiers: S 70+, A 59+, B 44+, C 32+, D below.": "DeepScore hodnotí každý předmět od 0 do 100 vůči ostatním předmětům tohoto šampiona, přičemž 50 je průměr. Vychází z míry výher předmětu s tímto šampionem a méně věří předmětům, které se stavějí zřídka. Úrovně: S 70+, A 59+, B 44+, C 32+, D níže."
 }
