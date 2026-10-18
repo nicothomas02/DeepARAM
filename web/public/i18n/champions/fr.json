@@ -81,5 +81,8 @@
  "Win rate delta": "Écart de victoire",
  "Win rate delta: how much more the pair wins together than the two do on their own.": "Écart de victoire : combien la paire gagne de plus ensemble que les deux champions séparément.",
  "Games": "Parties",
- "Spells": "Sorts"
+ "Spells": "Sorts",
+ "DeepScore": "DeepScore",
+ "More details": "Plus de détails",
+ "Best DeepScore first, with each item's pick rate and win rate.": "Meilleur DeepScore en premier, avec le taux de sélection et le taux de victoire de chaque objet."
 }

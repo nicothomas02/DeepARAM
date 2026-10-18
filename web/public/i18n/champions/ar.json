@@ -81,5 +81,8 @@
  "Win rate delta": "فرق نسبة الفوز",
  "Win rate delta: how much more the pair wins together than the two do on their own.": "فرق نسبة الفوز: مقدار ما يزيد به فوز الثنائي معًا عن فوز كل منهما وحده.",
  "Games": "مباريات",
- "Spells": "تعويذات"
+ "Spells": "تعويذات",
+ "DeepScore": "DeepScore",
+ "More details": "مزيد من التفاصيل",
+ "Best DeepScore first, with each item's pick rate and win rate.": "الأعلى في DeepScore أولًا، مع نسبة اختيار كل عنصر ونسبة فوزه."
 }

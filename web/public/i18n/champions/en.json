@@ -81,5 +81,8 @@
  "Win rate delta": "Win rate delta",
  "Win rate delta: how much more the pair wins together than the two do on their own.": "Win rate delta: how much more the pair wins together than the two do on their own.",
  "Games": "Games",
- "Spells": "Spells"
+ "Spells": "Spells",
+ "DeepScore": "DeepScore",
+ "More details": "More details",
+ "Best DeepScore first, with each item's pick rate and win rate.": "Best DeepScore first, with each item's pick rate and win rate."
 }

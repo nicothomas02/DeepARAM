@@ -81,5 +81,8 @@
  "Win rate delta": "Selisih win rate",
  "Win rate delta: how much more the pair wins together than the two do on their own.": "Selisih win rate: seberapa jauh pasangan ini lebih sering menang bersama dibanding masing-masing sendiri.",
  "Games": "Game",
- "Spells": "Spell"
+ "Spells": "Spell",
+ "DeepScore": "DeepScore",
+ "More details": "Detail lainnya",
+ "Best DeepScore first, with each item's pick rate and win rate.": "DeepScore terbaik lebih dulu, dengan pick rate dan win rate setiap item."
 }

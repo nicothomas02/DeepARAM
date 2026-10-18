@@ -93,5 +93,6 @@
  "Win rate delta": "فرق نسبة الفوز",
  "Pair win rate minus the average of the two champions' own win rates. Above zero means they win more together.": "نسبة فوز الثنائي ناقص متوسط نسبتي فوز البطلين كلٌّ بمفرده. فوق الصفر يعني أنهما يفوزان أكثر معًا.",
  "Games": "مباريات",
- "Games played on the live patch.": "المباريات التي لُعبت في التحديث الحالي."
+ "Games played on the live patch.": "المباريات التي لُعبت في التحديث الحالي.",
+ "DeepScore rates each item from 0 to 100 against this champion's other items, where 50 is average. It starts from the item's win rate with this champion and trusts rarely built items less. Tiers: S 70+, A 59+, B 44+, C 32+, D below.": "يقيّم DeepScore كل عنصر من 0 إلى 100 مقارنةً بعناصر هذا البطل الأخرى، حيث 50 هو المتوسط. يبدأ من نسبة فوز العنصر مع هذا البطل ويثق أقل بالعناصر التي نادرًا ما تُصنع. المستويات: S 70+، A 59+، B 44+، C 32+، D أقل."
 }

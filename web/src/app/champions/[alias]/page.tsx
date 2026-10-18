@@ -4,6 +4,9 @@ import { Breadcrumbs } from "@/components/JsonLd";
 import Link from "next/link";
 import SplashAccent from "@/components/SplashAccent";
 import WinRateChart from "@/components/WinRateChart";
+import { augmentTiers } from "@/lib/augment-tiers";
+import DeepScore from "@/components/DeepScore";
+import { ITEM_DEEPSCORE_HELP } from "@/lib/deepscore";
 import ChampionShowcase from "@/components/ChampionShowcase";
 import { notFound } from "next/navigation";
 import { championAliases, championSummary, champList } from "@/lib/champions";
@@ -72,14 +75,15 @@ export async function generateMetadata({
 }
 
 // The section links, in page order.
+// What a player checks mid-match comes first; stats and graphs sit at the bottom.
 const SPOTS = [
-  { id: "performance", label: "Performance" },
   { id: "augments", label: "Augments" },
   { id: "combos", label: "Augment combinations" },
-  { id: "playstyle", label: "Playstyle" },
   { id: "builds", label: "Builds" },
+  { id: "playstyle", label: "Playstyle" },
   { id: "teammates", label: "Teammates" },
-  { id: "details", label: "Items and details" },
+  { id: "details", label: "More details" },
+  { id: "performance", label: "Performance" },
 ];
 
 function Spells({ r }: { r: SpellRow }) {
@@ -125,6 +129,8 @@ export default async function ChampionPage({
   const next = all[(at + 1) % all.length];
   const info = p.itemInfo;
   const bestCore = bestRow(p.core);
+  // Augments rank by their DeepScore, the same rating the Tier List uses.
+  const scores = new Map(augmentTiers().map((a) => [a.id, a.deepScore]));
   const bestStart = bestRow(p.starting);
   const bestSkill = bestRow(p.skills, 0.1);
   const spells = fillSpells(c.alias, c.winRate ?? 0.5);
@@ -335,51 +341,97 @@ export default async function ChampionPage({
         </aside>
 
         <div className="cp-main">
-          <h2 className="cp-group" id="performance">
-            <T ns={NS}>Performance</T>
-          </h2>
-          {perf.length > 0 && (
-            <div className="cp-perf">
-              {perf.map((a) => (
-                <div key={a.key}>
-                  <small>
-                    <T ns={NS}>{a.label}</T>
-                  </small>
-                  <b>{a.value.replace(/ dead$/, "")}</b>
-                  <span>
-                    #{a.rank}{" "}
-                    <T ns={NS} v={{ n: a.of }}>
-                      {"of {n}"}
-                    </T>
-                  </span>
-                </div>
-              ))}
-            </div>
-          )}
-          <WinRateChart
-            id={c.alias}
-            name={c.name}
-            history={c.history}
-            patches={c.patches}
-            champions={champList()}
-          />
-
           <h2 className="cp-group" id="augments">
             <T ns={NS}>Augments</T>
           </h2>
           {p.augments.length > 0 && (
             <Panel title="Augments" count={p.augments.length}>
               <AugmentTable
-                rows={p.augments.map((a) => ({
-                  ...a,
-                  href: augmentHref(a.id) ?? undefined,
-                }))}
+                rows={p.augments
+                  .map((a) => ({
+                    ...a,
+                    deepScore: scores.get(a.id),
+                    href: augmentHref(a.id) ?? undefined,
+                  }))
+                  .sort(
+                    (x, y) =>
+                      (y.deepScore ?? -1) - (x.deepScore ?? -1) ||
+                      y.pickRate - x.pickRate,
+                  )}
               />
             </Panel>
           )}
           <Panel id="combos" title="Augment combinations">
             <NotYet text="Augment pairs and their win rates appear here once enough games are in. Each pair needs a minimum number of games before it shows." />
           </Panel>
+
+          <h2 className="cp-group" id="builds">
+            <T ns={NS}>Builds</T>
+          </h2>
+          {p.core.length > 0 && (
+            <Panel title="Core item builds" count={p.core.length}>
+              <Head what="Core items" />
+              <ShowMore total={p.core.length} limit={5}>
+                {itemRows(p.core, true)}
+              </ShowMore>
+            </Panel>
+          )}
+          <div className="cp-two">
+            {p.starting.length > 0 && (
+              <Panel title="Starter items" count={p.starting.length}>
+                <Head what="Starter items" />
+                <div className="cp-rows">{itemRows(p.starting)}</div>
+              </Panel>
+            )}
+            {p.boots.length > 0 && (
+              <Panel title="Boots" count={p.boots.length}>
+                <Head what="Boots" />
+                <div className="cp-rows">{singleRows(p.boots)}</div>
+              </Panel>
+            )}
+          </div>
+          {p.full.length > 0 && (
+            <Panel title="Full builds" count={p.full.length} detailed>
+              <Head what="Six items" />
+              <ShowMore total={p.full.length} limit={5}>
+                {itemRows(p.full)}
+              </ShowMore>
+            </Panel>
+          )}
+          {p.items.length > 0 && (
+            <Panel
+              title="All items"
+              count={p.items.length}
+              note={
+                <T ns={NS}>
+                  {
+                    "Best DeepScore first, with each item's pick rate and win rate."
+                  }
+                </T>
+              }
+            >
+              <div className="cp-strip-x" role="list">
+                {p.items.map((r) => (
+                  <div key={r.items[0]} className="cp-tile" role="listitem">
+                    <ItemIcon id={r.items[0]} info={info} />
+                    <ItemName id={r.items[0]} info={info} />
+                    {r.deepScore !== undefined && (
+                      <DeepScore
+                        value={r.deepScore}
+                        help={ITEM_DEEPSCORE_HELP}
+                      />
+                    )}
+                    <Cell value={pct(r.pickRate)} label="Pick rate" />
+                    <Cell
+                      value={pct(r.winRate)}
+                      label="Win rate"
+                      tone={tone(r.lift)}
+                    />
+                  </div>
+                ))}
+              </div>
+            </Panel>
+          )}
 
           <h2 className="cp-group" id="playstyle">
             <T ns={NS}>Playstyle</T>
@@ -427,40 +479,6 @@ export default async function ChampionPage({
                     )}
                   </Row>
                 ))}
-              </ShowMore>
-            </Panel>
-          )}
-
-          <h2 className="cp-group" id="builds">
-            <T ns={NS}>Builds</T>
-          </h2>
-          {p.core.length > 0 && (
-            <Panel title="Core item builds" count={p.core.length}>
-              <Head what="Core items" />
-              <ShowMore total={p.core.length} limit={5}>
-                {itemRows(p.core, true)}
-              </ShowMore>
-            </Panel>
-          )}
-          <div className="cp-two">
-            {p.starting.length > 0 && (
-              <Panel title="Starter items" count={p.starting.length}>
-                <Head what="Starter items" />
-                <div className="cp-rows">{itemRows(p.starting)}</div>
-              </Panel>
-            )}
-            {p.boots.length > 0 && (
-              <Panel title="Boots" count={p.boots.length}>
-                <Head what="Boots" />
-                <div className="cp-rows">{singleRows(p.boots)}</div>
-              </Panel>
-            )}
-          </div>
-          {p.full.length > 0 && (
-            <Panel title="Full builds" count={p.full.length} detailed>
-              <Head what="Six items" />
-              <ShowMore total={p.full.length} limit={5}>
-                {itemRows(p.full)}
               </ShowMore>
             </Panel>
           )}
@@ -533,34 +551,8 @@ export default async function ChampionPage({
           )}
 
           <h2 className="cp-group" id="details">
-            <T ns={NS}>Items and details</T>
+            <T ns={NS}>More details</T>
           </h2>
-          {p.items.length > 0 && (
-            <Panel
-              title="All items"
-              count={p.items.length}
-              note={
-                <T ns={NS}>Share of games with the item, and its win rate.</T>
-              }
-            >
-              <div className="cp-strip-x" role="list">
-                {[...p.items]
-                  .sort((x, y) => y.pickRate - x.pickRate)
-                  .map((r) => (
-                    <div key={r.items[0]} className="cp-tile" role="listitem">
-                      <ItemIcon id={r.items[0]} info={info} />
-                      <ItemName id={r.items[0]} info={info} />
-                      <Cell value={pct(r.pickRate)} label="Pick rate" />
-                      <Cell
-                        value={pct(r.winRate)}
-                        label="Win rate"
-                        tone={tone(r.lift)}
-                      />
-                    </div>
-                  ))}
-              </div>
-            </Panel>
-          )}
           {p.styles.length > 0 && (
             <Panel title="Builds by style" count={p.styles.length} detailed>
               <Head
@@ -598,6 +590,35 @@ export default async function ChampionPage({
             modifiers={p.modifiers}
           />
           {p.stats && <BaseStatsTable stats={p.stats} />}
+
+          <h2 className="cp-group" id="performance">
+            <T ns={NS}>Performance</T>
+          </h2>
+          {perf.length > 0 && (
+            <div className="cp-perf">
+              {perf.map((a) => (
+                <div key={a.key}>
+                  <small>
+                    <T ns={NS}>{a.label}</T>
+                  </small>
+                  <b>{a.value.replace(/ dead$/, "")}</b>
+                  <span>
+                    #{a.rank}{" "}
+                    <T ns={NS} v={{ n: a.of }}>
+                      {"of {n}"}
+                    </T>
+                  </span>
+                </div>
+              ))}
+            </div>
+          )}
+          <WinRateChart
+            id={c.alias}
+            name={c.name}
+            history={c.history}
+            patches={c.patches}
+            champions={champList()}
+          />
         </div>
 
         <SectionRail spots={SPOTS} />

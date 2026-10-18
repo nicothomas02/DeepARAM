@@ -81,5 +81,8 @@
  "Win rate delta": "Diferență de victorii",
  "Win rate delta: how much more the pair wins together than the two do on their own.": "Diferență de victorii: cu cât câștigă mai mult perechea împreună decât cei doi separat.",
  "Games": "Meciuri",
- "Spells": "Vrăji"
+ "Spells": "Vrăji",
+ "DeepScore": "DeepScore",
+ "More details": "Mai multe detalii",
+ "Best DeepScore first, with each item's pick rate and win rate.": "Cel mai bun DeepScore întâi, cu rata de alegere și rata de victorie a fiecărui obiect."
 }

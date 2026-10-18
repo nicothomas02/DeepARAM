@@ -81,5 +81,8 @@
  "Win rate delta": "Разница побед",
  "Win rate delta: how much more the pair wins together than the two do on their own.": "Разница побед: насколько чаще пара побеждает вместе, чем каждый по отдельности.",
  "Games": "Игры",
- "Spells": "Заклинания"
+ "Spells": "Заклинания",
+ "DeepScore": "DeepScore",
+ "More details": "Подробнее",
+ "Best DeepScore first, with each item's pick rate and win rate.": "Сначала лучший DeepScore, с частотой выбора и процентом побед каждого предмета."
 }

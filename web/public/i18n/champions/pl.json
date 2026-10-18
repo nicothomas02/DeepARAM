@@ -81,5 +81,8 @@
  "Win rate delta": "Różnica zwycięstw",
  "Win rate delta: how much more the pair wins together than the two do on their own.": "Różnica zwycięstw: o ile częściej para wygrywa razem niż każdy z nich osobno.",
  "Games": "Gry",
- "Spells": "Czary"
+ "Spells": "Czary",
+ "DeepScore": "DeepScore",
+ "More details": "Więcej szczegółów",
+ "Best DeepScore first, with each item's pick rate and win rate.": "Najlepszy DeepScore na początku, z odsetkiem wyborów i zwycięstw każdego przedmiotu."
 }

@@ -93,5 +93,6 @@
  "Win rate delta": "Разница винрейта",
  "Pair win rate minus the average of the two champions' own win rates. Above zero means they win more together.": "Винрейт пары минус среднее собственных винрейтов двух чемпионов. Выше нуля — вместе они побеждают чаще.",
  "Games": "Игры",
- "Games played on the live patch.": "Игры, сыгранные на текущем патче."
+ "Games played on the live patch.": "Игры, сыгранные на текущем патче.",
+ "DeepScore rates each item from 0 to 100 against this champion's other items, where 50 is average. It starts from the item's win rate with this champion and trusts rarely built items less. Tiers: S 70+, A 59+, B 44+, C 32+, D below.": "DeepScore оценивает каждый предмет от 0 до 100 относительно других предметов этого чемпиона, где 50 — среднее. Он исходит из процента побед предмета с этим чемпионом и меньше доверяет редко собираемым предметам. Уровни: S 70+, A 59+, B 44+, C 32+, D ниже."
 }

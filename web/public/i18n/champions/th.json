@@ -81,5 +81,8 @@
  "Win rate delta": "ส่วนต่างอัตราชนะ",
  "Win rate delta: how much more the pair wins together than the two do on their own.": "ส่วนต่างอัตราชนะ: คู่นี้ชนะด้วยกันมากกว่าตอนแยกกันเล่นเท่าไร",
  "Games": "จำนวนเกม",
- "Spells": "สเปล"
+ "Spells": "สเปล",
+ "DeepScore": "DeepScore",
+ "More details": "รายละเอียดเพิ่มเติม",
+ "Best DeepScore first, with each item's pick rate and win rate.": "DeepScore สูงสุดก่อน พร้อมอัตราการเลือกและอัตราชนะของแต่ละไอเทม"
 }
