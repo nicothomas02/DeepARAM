@@ -808,3 +808,71 @@ html[data-view="simple"] .cp-panel[data-detailed] {
   border-radius: 50%;
   background: var(--c);
 }
+
+/* Game length shows as words, not a number. */
+.cp-profile b.cp-words {
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+/* Item timing under the core builds: when each core item is usually finished. */
+.cp-timing {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.6rem;
+  padding: 0.7rem 1rem 1rem;
+  font-size: 0.9rem;
+}
+.cp-timing small {
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+.cp-timing em {
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-style: normal;
+}
+
+/* Early, mid and late game: simulated strength at three points, as bars. */
+.cp-curve {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
+  gap: var(--cp-gap);
+  padding: 0.9rem 1rem 0.4rem;
+}
+.cp-curve > div {
+  display: grid;
+  gap: 0.3rem;
+  padding: 0.7rem 0.85rem;
+  border-radius: var(--r-sm);
+  background: var(--raised);
+}
+.cp-curve small,
+.cp-curve > div > span:last-child {
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+.cp-curve b {
+  font: 700 1.1rem/1.2 var(--mono);
+  font-variant-numeric: tabular-nums;
+}
+.cp-curve-bar {
+  display: block;
+  height: 0.5rem;
+  overflow: hidden;
+  border-radius: 999px;
+  background: var(--card);
+}
+.cp-curve-bar span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--accent);
+}
+.cp-curve-note {
+  margin: 0;
+  padding: 0.3rem 1rem 1rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
