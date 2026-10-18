@@ -412,6 +412,7 @@ Library Library::load(const std::string& rulesPath, const Settings& settings, co
     lib.rules.laneHalfWidth = m["lane_half_width"].asNumber(lib.rules.laneHalfWidth);
     lib.rules.inRangeBoost = m["in_range_damage_boost"].asNumber(lib.rules.inRangeBoost);
     lib.rules.focusRamp = m["focus_ramp"].asNumber(lib.rules.focusRamp);
+    lib.rules.deathBlastLife = m["death_blast_life"].asNumber(lib.rules.deathBlastLife);
     lib.rules.focusFromContact = m["focus_from_contact"].asNumber(0) > 0;
     lib.rules.castMin = m["cast_time_min"].asNumber(lib.rules.castMin);
     lib.rules.castMax = m["cast_time_max"].asNumber(lib.rules.castMax);
@@ -2364,9 +2365,12 @@ private:
 
     void die(double at) {
         // Dive Bomber: you explode for a share of each nearby enemy's max Health as true damage.
-        if (get(fx_, "death_blast_max_hp") > 0)
+        // One explosion per life: a build that dies sooner doesn't get more of them per second.
+        if (get(fx_, "death_blast_max_hp") > 0) {
+            const double life = rules_.deathBlastLife > 0 ? std::min(1.0, at / rules_.deathBlastLife) : 1.0;
             for (Enemy* o : near(me_, get(fx_, "death_blast_radius", 500)))
-                deal(o, get(fx_, "death_blast_max_hp") * o->maxHp, DamageType::True, SrcItems);
+                deal(o, life * get(fx_, "death_blast_max_hp") * o->maxHp, DamageType::True, SrcItems);
+        }
         dead_ = true;
         res_.died = true;
         res_.timeAlive = at;
