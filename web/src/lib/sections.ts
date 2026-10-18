@@ -12,7 +12,7 @@ export const sections = [
   {
     href: "/tier-list",
     label: text("tab./tier-list.label", "Tier List"),
-    body: text("tab./tier-list.body", "Champion, augment and duo win rates, patch by patch."),
+    body: text("tab./tier-list.body", "Champion and augment win rates and duo synergy, patch by patch."),
     pr: 5,
   },
   {

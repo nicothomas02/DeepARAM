@@ -17,7 +17,6 @@
  "Sections": "Разделы",
  "Champions": "Чемпионы",
  "Your own Mayhem games: win rate, champions, augments and recent matches.": "Ваши игры в ARAM: Хаос: процент побед, чемпионы, аугментации и последние матчи.",
- "Champion, augment and duo win rates, patch by patch.": "Процент побед чемпионов, аугментаций и дуэтов, патч за патчем.",
  "Simulated teamfights, simulated builds and fight replays for every champion.": "Симуляция командных боёв, симуляция сборок и повторы боёв для каждого чемпиона.",
  "What to build against the enemy team, a build editor with simulated damage, champion comparisons and team synergy.": "Что собирать против вражеской команды, редактор сборок с симуляцией урона, сравнение чемпионов и синергия команды.",
  "Every augment ranked S to D within its rarity, plus draft practice with rerolls.": "Каждая аугментация оценена от S до D внутри своей редкости, а также тренировка выбора с перебросами.",
@@ -177,5 +176,6 @@
  "Outlook.com (new tab)": "Outlook.com (новая вкладка)",
  "Mail app (Outlook, Apple Mail and others)": "Почтовое приложение (Outlook, Apple Mail и другие)",
  "Open email": "Открыть почту",
- "Copy address": "Копировать адрес"
+ "Copy address": "Копировать адрес",
+ "Champion and augment win rates and duo synergy, patch by patch.": "Винрейты чемпионов и аугментов и синергия дуэтов, патч за патчем."
 }

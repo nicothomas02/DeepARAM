@@ -91,8 +91,9 @@
  "Save": "Speichern",
  "Close": "Schließen",
  "Win rate delta": "Siegquoten-Differenz",
- "Pair win rate minus the average of the two champions' own win rates. Above zero means they win more together.": "Siegquote des Duos minus der Durchschnitt der eigenen Siegquoten beider Champions. Über null heißt, sie gewinnen zusammen öfter.",
  "Games": "Spiele",
  "Games played on the live patch.": "Gespielte Spiele im aktuellen Patch.",
- "DeepScore rates each item from 0 to 100 against this champion's other items of the same tier, where 50 is average. It starts from the item's win rate with this champion and trusts rarely built items less. Tiers: S 70+, A 59+, B 44+, C 32+, D below.": "DeepScore bewertet jeden Gegenstand von 0 bis 100 im Vergleich zu den anderen Gegenständen dieses Champions derselben Stufe, 50 ist der Durchschnitt. Er geht von der Siegrate des Gegenstands mit diesem Champion aus und vertraut selten gebauten Gegenständen weniger. Stufen: S 70+, A 59+, B 44+, C 32+, D darunter."
+ "DeepScore rates each item from 0 to 100 against this champion's other items of the same tier, where 50 is average. It starts from the item's win rate with this champion and trusts rarely built items less. Tiers: S 70+, A 59+, B 44+, C 32+, D below.": "DeepScore bewertet jeden Gegenstand von 0 bis 100 im Vergleich zu den anderen Gegenständen dieses Champions derselben Stufe, 50 ist der Durchschnitt. Er geht von der Siegrate des Gegenstands mit diesem Champion aus und vertraut selten gebauten Gegenständen weniger. Stufen: S 70+, A 59+, B 44+, C 32+, D darunter.",
+ "How much more the pair wins than the two champions' own win rates predict, in percentage points. Above zero means they help each other.": "Wie viel öfter das Duo gewinnt, als die eigenen Siegquoten der beiden Champions erwarten lassen, in Prozentpunkten. Über null heißt, sie helfen sich gegenseitig.",
+ "How often the first champion has the second as a teammate.": "Wie oft der erste Champion den zweiten im Team hat."
 }

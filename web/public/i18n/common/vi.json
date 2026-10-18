@@ -17,7 +17,6 @@
  "Sections": "Mục",
  "Champions": "Tướng",
  "Your own Mayhem games: win rate, champions, augments and recent matches.": "Các trận ARAM: Hỗn Loạn của bạn: tỉ lệ thắng, tướng, Lõi Nâng Cấp và trận gần đây.",
- "Champion, augment and duo win rates, patch by patch.": "Tỉ lệ thắng của tướng, Lõi Nâng Cấp và cặp đôi, qua từng phiên bản.",
  "Simulated teamfights, simulated builds and fight replays for every champion.": "Giao tranh tổng mô phỏng, lối lên đồ mô phỏng và xem lại trận đánh cho mọi tướng.",
  "What to build against the enemy team, a build editor with simulated damage, champion comparisons and team synergy.": "Nên lên gì trước đội địch, trình chỉnh lối lên đồ với sát thương mô phỏng, so sánh tướng và độ hợp đội hình.",
  "Every augment ranked S to D within its rarity, plus draft practice with rerolls.": "Mọi Lõi Nâng Cấp được xếp từ S đến D theo độ hiếm, kèm luyện chọn với lượt đổi.",
@@ -177,5 +176,6 @@
  "Outlook.com (new tab)": "Outlook.com (tab mới)",
  "Mail app (Outlook, Apple Mail and others)": "Ứng dụng thư (Outlook, Apple Mail và các ứng dụng khác)",
  "Open email": "Mở email",
- "Copy address": "Sao chép địa chỉ"
+ "Copy address": "Sao chép địa chỉ",
+ "Champion and augment win rates and duo synergy, patch by patch.": "Tỉ lệ thắng của tướng và lõi nâng cấp cùng độ hợp cạ của cặp đôi, theo từng bản."
 }

@@ -91,8 +91,9 @@
  "Save": "儲存",
  "Close": "關閉",
  "Win rate delta": "勝率差",
- "Pair win rate minus the average of the two champions' own win rates. Above zero means they win more together.": "組合勝率減去兩位英雄各自勝率的平均值。高於零表示一起時贏得更多。",
  "Games": "場次",
  "Games played on the live patch.": "目前版本的對戰場次。",
- "DeepScore rates each item from 0 to 100 against this champion's other items of the same tier, where 50 is average. It starts from the item's win rate with this champion and trusts rarely built items less. Tiers: S 70+, A 59+, B 44+, C 32+, D below.": "DeepScore 將每件裝備與該英雄同等級的其他裝備比較，評分 0 到 100，50 為平均。它以該裝備在此英雄上的勝率為基礎，對很少出的裝備給予較低信任。等級：S 70+，A 59+，B 44+，C 32+，D 以下。"
+ "DeepScore rates each item from 0 to 100 against this champion's other items of the same tier, where 50 is average. It starts from the item's win rate with this champion and trusts rarely built items less. Tiers: S 70+, A 59+, B 44+, C 32+, D below.": "DeepScore 將每件裝備與該英雄同等級的其他裝備比較，評分 0 到 100，50 為平均。它以該裝備在此英雄上的勝率為基礎，對很少出的裝備給予較低信任。等級：S 70+，A 59+，B 44+，C 32+，D 以下。",
+ "How much more the pair wins than the two champions' own win rates predict, in percentage points. Above zero means they help each other.": "組合勝率比兩位英雄各自勝率所預測的高出多少（百分點）。高於零表示他們相互配合。",
+ "How often the first champion has the second as a teammate.": "第一位英雄的隊友中出現第二位英雄的比例。"
 }

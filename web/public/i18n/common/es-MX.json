@@ -17,7 +17,6 @@
  "Sections": "Secciones",
  "Champions": "Campeones",
  "Your own Mayhem games: win rate, champions, augments and recent matches.": "Tus propias partidas de ARAM: Caos: tasa de victorias, campeones, aumentos y partidas recientes.",
- "Champion, augment and duo win rates, patch by patch.": "Tasas de victoria de campeones, aumentos y dúos, parche a parche.",
  "Simulated teamfights, simulated builds and fight replays for every champion.": "Peleas de equipo simuladas, builds simuladas y repeticiones de peleas para cada campeón.",
  "What to build against the enemy team, a build editor with simulated damage, champion comparisons and team synergy.": "Qué construir contra el equipo enemigo, un editor de builds con daño simulado, comparaciones de campeones y sinergia de equipo.",
  "Every augment ranked S to D within its rarity, plus draft practice with rerolls.": "Cada aumento clasificado de S a D dentro de su rareza, y práctica de selección con cambios.",
@@ -177,5 +176,6 @@
  "Outlook.com (new tab)": "Outlook.com (pestaña nueva)",
  "Mail app (Outlook, Apple Mail and others)": "App de correo (Outlook, Apple Mail y otras)",
  "Open email": "Abrir correo",
- "Copy address": "Copiar dirección"
+ "Copy address": "Copiar dirección",
+ "Champion and augment win rates and duo synergy, patch by patch.": "Tasas de victoria de campeones y aumentos, y sinergia de dúos, parche por parche."
 }

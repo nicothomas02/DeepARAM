@@ -17,7 +17,6 @@
  "Sections": "區塊",
  "Champions": "英雄",
  "Your own Mayhem games: win rate, champions, augments and recent matches.": "你自己的大混戰對戰：勝率、英雄、強化和近期對戰。",
- "Champion, augment and duo win rates, patch by patch.": "英雄、強化和雙人組合的勝率，逐版本呈現。",
  "Simulated teamfights, simulated builds and fight replays for every champion.": "每位英雄的團戰模擬、出裝模擬和戰鬥重播。",
  "What to build against the enemy team, a build editor with simulated damage, champion comparisons and team synergy.": "面對敵方隊伍該出什麼、可模擬傷害的出裝編輯器、英雄比較和隊伍綜效。",
  "Every augment ranked S to D within its rarity, plus draft practice with rerolls.": "每個強化在其稀有度內依 S 到 D 排名，另有可重骰的選擇練習。",
@@ -177,5 +176,6 @@
  "Outlook.com (new tab)": "Outlook.com（新分頁）",
  "Mail app (Outlook, Apple Mail and others)": "郵件 App（Outlook、Apple Mail 等）",
  "Open email": "開啟郵件",
- "Copy address": "複製地址"
+ "Copy address": "複製地址",
+ "Champion and augment win rates and duo synergy, patch by patch.": "英雄和強化符文勝率以及雙人組合協同，按版本查看。"
 }

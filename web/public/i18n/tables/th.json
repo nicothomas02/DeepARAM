@@ -91,8 +91,9 @@
  "Save": "บันทึก",
  "Close": "ปิด",
  "Win rate delta": "ส่วนต่างอัตราชนะ",
- "Pair win rate minus the average of the two champions' own win rates. Above zero means they win more together.": "อัตราชนะของคู่ ลบด้วยค่าเฉลี่ยอัตราชนะของแชมเปี้ยนทั้งสองตัวเอง มากกว่าศูนย์หมายความว่าเล่นด้วยกันแล้วชนะมากขึ้น",
  "Games": "จำนวนเกม",
  "Games played on the live patch.": "จำนวนเกมที่เล่นในแพตช์ปัจจุบัน",
- "DeepScore rates each item from 0 to 100 against this champion's other items of the same tier, where 50 is average. It starts from the item's win rate with this champion and trusts rarely built items less. Tiers: S 70+, A 59+, B 44+, C 32+, D below.": "DeepScore ให้คะแนนแต่ละไอเทมตั้งแต่ 0 ถึง 100 เทียบกับไอเทมอื่นระดับเดียวกันของแชมเปี้ยนนี้ โดย 50 คือค่าเฉลี่ย เริ่มจากอัตราชนะของไอเทมกับแชมเปี้ยนนี้ และเชื่อถือไอเทมที่ไม่ค่อยมีคนออกน้อยลง ระดับ: S 70+, A 59+, B 44+, C 32+, D ต่ำกว่านั้น"
+ "DeepScore rates each item from 0 to 100 against this champion's other items of the same tier, where 50 is average. It starts from the item's win rate with this champion and trusts rarely built items less. Tiers: S 70+, A 59+, B 44+, C 32+, D below.": "DeepScore ให้คะแนนแต่ละไอเทมตั้งแต่ 0 ถึง 100 เทียบกับไอเทมอื่นระดับเดียวกันของแชมเปี้ยนนี้ โดย 50 คือค่าเฉลี่ย เริ่มจากอัตราชนะของไอเทมกับแชมเปี้ยนนี้ และเชื่อถือไอเทมที่ไม่ค่อยมีคนออกน้อยลง ระดับ: S 70+, A 59+, B 44+, C 32+, D ต่ำกว่านั้น",
+ "How much more the pair wins than the two champions' own win rates predict, in percentage points. Above zero means they help each other.": "คู่นี้ชนะมากกว่าที่อัตราชนะของแชมเปี้ยนแต่ละตัวคาดไว้เท่าไร เป็นจุดเปอร์เซ็นต์ มากกว่าศูนย์หมายความว่าช่วยกันได้ดี",
+ "How often the first champion has the second as a teammate.": "สัดส่วนที่แชมเปี้ยนตัวแรกได้แชมเปี้ยนตัวที่สองเป็นเพื่อนร่วมทีม"
 }

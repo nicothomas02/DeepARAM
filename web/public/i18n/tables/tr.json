@@ -91,8 +91,9 @@
  "Save": "Kaydet",
  "Close": "Kapat",
  "Win rate delta": "Kazanma oranı farkı",
- "Pair win rate minus the average of the two champions' own win rates. Above zero means they win more together.": "İkilinin kazanma oranı eksi iki şampiyonun kendi kazanma oranlarının ortalaması. Sıfırın üstü birlikte daha çok kazandıkları anlamına gelir.",
  "Games": "Maçlar",
  "Games played on the live patch.": "Güncel yamada oynanan maçlar.",
- "DeepScore rates each item from 0 to 100 against this champion's other items of the same tier, where 50 is average. It starts from the item's win rate with this champion and trusts rarely built items less. Tiers: S 70+, A 59+, B 44+, C 32+, D below.": "DeepScore, her eşyayı bu şampiyonun aynı seviyedeki diğer eşyalarına göre 0 ile 100 arasında puanlar; 50 ortalamadır. Eşyanın bu şampiyonla kazanma oranından yola çıkar ve nadiren yapılan eşyalara daha az güvenir. Kademeler: S 70+, A 59+, B 44+, C 32+, D altı."
+ "DeepScore rates each item from 0 to 100 against this champion's other items of the same tier, where 50 is average. It starts from the item's win rate with this champion and trusts rarely built items less. Tiers: S 70+, A 59+, B 44+, C 32+, D below.": "DeepScore, her eşyayı bu şampiyonun aynı seviyedeki diğer eşyalarına göre 0 ile 100 arasında puanlar; 50 ortalamadır. Eşyanın bu şampiyonla kazanma oranından yola çıkar ve nadiren yapılan eşyalara daha az güvenir. Kademeler: S 70+, A 59+, B 44+, C 32+, D altı.",
+ "How much more the pair wins than the two champions' own win rates predict, in percentage points. Above zero means they help each other.": "İkilinin, iki şampiyonun kendi kazanma oranlarının öngördüğünden ne kadar fazla kazandığı, yüzde puan olarak. Sıfırın üstü birbirlerine yardım ettikleri anlamına gelir.",
+ "How often the first champion has the second as a teammate.": "İlk şampiyonun takımında ikinci şampiyonun ne sıklıkla olduğu."
 }

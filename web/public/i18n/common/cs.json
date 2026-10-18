@@ -17,7 +17,6 @@
  "Sections": "Sekce",
  "Champions": "Šampioni",
  "Your own Mayhem games: win rate, champions, augments and recent matches.": "Tvoje vlastní hry v ARAM: Mela: procento výher, šampioni, augmenty a nedávné zápasy.",
- "Champion, augment and duo win rates, patch by patch.": "Procento výher šampionů, augmentů a dvojic, patch po patchi.",
  "Simulated teamfights, simulated builds and fight replays for every champion.": "Simulované týmové souboje, simulované buildy a záznamy soubojů pro každého šampiona.",
  "What to build against the enemy team, a build editor with simulated damage, champion comparisons and team synergy.": "Co stavět proti nepřátelskému týmu, editor buildů se simulovaným poškozením, srovnání šampionů a týmová synergie.",
  "Every augment ranked S to D within its rarity, plus draft practice with rerolls.": "Každý augment seřazený od S do D v rámci své vzácnosti a k tomu trénink výběru s přehozením.",
@@ -177,5 +176,6 @@
  "Outlook.com (new tab)": "Outlook.com (nová karta)",
  "Mail app (Outlook, Apple Mail and others)": "Poštovní aplikace (Outlook, Apple Mail a další)",
  "Open email": "Otevřít e-mail",
- "Copy address": "Kopírovat adresu"
+ "Copy address": "Kopírovat adresu",
+ "Champion and augment win rates and duo synergy, patch by patch.": "Míra výher šampionů a augmentů a souhra dvojic, patch po patchi."
 }

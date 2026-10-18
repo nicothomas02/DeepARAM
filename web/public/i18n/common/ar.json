@@ -17,7 +17,6 @@
  "Sections": "الأقسام",
  "Champions": "الأبطال",
  "Your own Mayhem games: win rate, champions, augments and recent matches.": "مبارياتك في آرام: الفوضى: نسبة الفوز والأبطال والتعزيزات والمباريات الأخيرة.",
- "Champion, augment and duo win rates, patch by patch.": "نسب فوز الأبطال والتعزيزات والثنائيات، تحديثًا بعد تحديث.",
  "Simulated teamfights, simulated builds and fight replays for every champion.": "معارك فرق محاكاة وبنيات محاكاة وإعادات للمعارك لكل بطل.",
  "What to build against the enemy team, a build editor with simulated damage, champion comparisons and team synergy.": "ماذا تبني ضد فريق الخصم، ومحرر بنيات مع ضرر محاكى، ومقارنات بين الأبطال، وتناغم الفريق.",
  "Every augment ranked S to D within its rarity, plus draft practice with rerolls.": "كل تعزيز مصنف من S إلى D ضمن ندرته، مع تدريب على الاختيار وإعادة السحب.",
@@ -177,5 +176,6 @@
  "Outlook.com (new tab)": "Outlook.com (علامة تبويب جديدة)",
  "Mail app (Outlook, Apple Mail and others)": "تطبيق البريد (Outlook وApple Mail وغيرهما)",
  "Open email": "فتح البريد",
- "Copy address": "نسخ العنوان"
+ "Copy address": "نسخ العنوان",
+ "Champion and augment win rates and duo synergy, patch by patch.": "معدلات فوز الأبطال والمعززات وتآزر الثنائيات، تحديثًا بعد تحديث."
 }
