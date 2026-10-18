@@ -2,6 +2,7 @@ import "server-only";
 import championIds from "@/data/champion-ids.json";
 import { liveWithChange } from "./champions";
 import { readRepoJson } from "./repo-data";
+import { synergy } from "./synergy";
 
 type Duos = { duos: { champion_ids?: number[]; names: string[]; roles?: string[]; win_rate: number; pick_rate: number; rank?: number }[] };
 
@@ -9,8 +10,8 @@ export const hasDuos = () => Boolean(readRepoJson<Duos>("data/cn/duos.json")?.du
 
 const ALIAS = Object.fromEntries(Object.entries(championIds as Record<string, number>).map(([a, id]) => [id, a]));
 
-// delta: how much more the pair wins together than the two champions do on average on their own, on
-// the live patch (the champion page's Best teammates uses the same sum).
+// delta: the pair's synergy on the live patch, how much more it wins than the two champions' own win
+// rates predict (lib/synergy.ts; the champion page's Best teammates uses the same formula).
 export const duoRows = () => {
   const rates = new Map(liveWithChange().live.map((c) => [c.name, c.win_rate]));
   return (readRepoJson<Duos>("data/cn/duos.json")?.duos ?? []).map((d) => {
@@ -20,7 +21,7 @@ export const duoRows = () => {
       b: d.names[1],
       pair: d.names.join(" "),
       win_rate: d.win_rate,
-      delta: x === undefined || y === undefined ? null : d.win_rate - (x + y) / 2,
+      delta: x === undefined || y === undefined ? null : synergy(d.win_rate, x, y, d.pick_rate),
       pick_rate: d.pick_rate,
       rank: d.rank ?? null,
       roles: (d.roles ?? []).map((r) => r.replace(/,/g, "/")).join(" + "),

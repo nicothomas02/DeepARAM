@@ -21,12 +21,13 @@ const Icon = ({ src }: { src: string }) => <img className="icon" src={src} alt="
 
 const pct = (v: number) => `${(v * 100).toFixed(1)}%`;
 
-// The best-ranked pairs on the live patch (the Tier List's Duos tab ranks them).
+// The pairs that help each other most on the live patch (synergy, the Duos tab's Win rate delta).
 const topDuos = (n = 5) =>
   duoRows()
-    .filter((d) => d.rank !== null)
-    .sort((a, b) => a.rank! - b.rank!)
+    .filter((d) => d.delta !== null)
+    .sort((a, b) => b.delta! - a.delta!)
     .slice(0, n);
+const pts = (v: number) => `${v > 0 ? "+" : ""}${(v * 100).toFixed(1)} pts`;
 
 export default function Home() {
   const tiers = liveTiers();
@@ -142,7 +143,7 @@ export default function Home() {
                       {NAMES[d.b] ?? d.b}
                     </Name>
                   </span>
-                  <span className="rank-v">{pct(d.win_rate)}</span>
+                  <span className="rank-v">{pts(d.delta!)}</span>
                 </Link>
               ))}
             </div>

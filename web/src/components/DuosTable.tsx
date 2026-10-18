@@ -28,7 +28,7 @@ export default function DuosTable() {
           key: "delta",
           label: "Win rate delta",
           format: "pct",
-          hint: "Pair win rate minus the average of the two champions' own win rates. Above zero means they win more together.",
+          hint: "How much more the pair wins than the two champions' own win rates predict, in percentage points. Above zero means they help each other.",
         },
         { key: "pick_rate", label: "Pick rate", format: "pct" },
       ]}
@@ -40,14 +40,14 @@ export default function DuosTable() {
           key: "delta",
           label: "Win rate delta",
           format: "pct",
-          hint: "Pair win rate minus the average of the two champions' own win rates. Above zero means they win more together.",
+          hint: "How much more the pair wins than the two champions' own win rates predict, in percentage points. Above zero means they help each other.",
         },
         { key: "pick_rate", label: "Pick rate", format: "pct" },
         { key: "rank", label: "Rank", format: "int" },
         { key: "roles", label: "Roles", format: "text", sortable: false },
       ]}
       rows={rows}
-      initialSort={{ key: "win_rate", desc: true }}
+      initialSort={{ key: "delta", desc: true }}
       searchKey="pair"
       searchLabel="Find a champion"
       urlTab="duos"

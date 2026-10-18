@@ -12,6 +12,7 @@ import {
   type ItemTier,
 } from "./items";
 import { repoHas, repoPath, readRepoJson } from "./repo-data";
+import { synergy } from "./synergy";
 
 // The ranked tables on a champion page (/champions/<Alias>): skill orders, item paths, augments,
 // teammates, Mayhem's ability changes and base stats. Every row with a win rate also carries its
@@ -173,7 +174,7 @@ export function championPage(alias: string): ChampionPage | null {
       pickRate: a.pick_rate,
     }));
 
-  // Synergy: how much more a pair wins together than the two champions do on average on their own.
+  // Synergy: how much more a pair wins than the two champions' own win rates predict (lib/synergy.ts, shared with the Duos tab).
   const mates = (readRepoJson<Duos>("data/cn/duos.json")?.duos ?? [])
     .filter((d) => d.champion_ids.includes(id) && d.pick_rate >= MIN_PAIR_PICK)
     .flatMap((d) => {
@@ -183,7 +184,7 @@ export function championPage(alias: string): ChampionPage | null {
       return [
         {
           id: other,
-          synergy: d.win_rate - (base + theirs) / 2,
+          synergy: synergy(d.win_rate, base, theirs, d.pick_rate),
           ...rated(d.win_rate, d.pick_rate),
         },
       ];

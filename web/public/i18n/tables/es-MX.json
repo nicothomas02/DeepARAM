@@ -91,8 +91,8 @@
  "Save": "Guardar",
  "Close": "Cerrar",
  "Win rate delta": "Diferencia de victorias",
- "Pair win rate minus the average of the two champions' own win rates. Above zero means they win more together.": "Porcentaje de victorias de la pareja menos el promedio del porcentaje propio de cada campeón. Por encima de cero, ganan más juntos.",
  "Games": "Partidas",
  "Games played on the live patch.": "Partidas jugadas en el parche actual.",
- "DeepScore rates each item from 0 to 100 against this champion's other items of the same tier, where 50 is average. It starts from the item's win rate with this champion and trusts rarely built items less. Tiers: S 70+, A 59+, B 44+, C 32+, D below.": "El DeepScore califica cada objeto de 0 a 100 frente a los demás objetos de este campeón del mismo nivel, donde 50 es el promedio. Parte de la tasa de victoria del objeto con este campeón y confía menos en los objetos que se construyen poco. Niveles: S 70+, A 59+, B 44+, C 32+, D por debajo."
+ "DeepScore rates each item from 0 to 100 against this champion's other items of the same tier, where 50 is average. It starts from the item's win rate with this champion and trusts rarely built items less. Tiers: S 70+, A 59+, B 44+, C 32+, D below.": "El DeepScore califica cada objeto de 0 a 100 frente a los demás objetos de este campeón del mismo nivel, donde 50 es el promedio. Parte de la tasa de victoria del objeto con este campeón y confía menos en los objetos que se construyen poco. Niveles: S 70+, A 59+, B 44+, C 32+, D por debajo.",
+ "How much more the pair wins than the two champions' own win rates predict, in percentage points. Above zero means they help each other.": "Cuánto más gana la pareja de lo que predicen los porcentajes de victoria de cada campeón, en puntos porcentuales. Por encima de cero, se ayudan entre sí."
 }
