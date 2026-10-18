@@ -53,5 +53,12 @@
  "Prismatic": "プリズム",
  "Offered in {offer} of Silver selections ({rerolls} using every reroll), one of {pool} Silver augments.": "シルバーの選択の{offer}で提示されます（リロールをすべて使うと{rerolls}）。シルバーオーグメント{pool}個のうちの1つです。",
  "Offered in {offer} of Gold selections ({rerolls} using every reroll), one of {pool} Gold augments.": "ゴールドの選択の{offer}で提示されます（リロールをすべて使うと{rerolls}）。ゴールドオーグメント{pool}個のうちの1つです。",
- "Offered in {offer} of Prismatic selections ({rerolls} using every reroll), one of {pool} Prismatic augments.": "プリズムの選択の{offer}で提示されます（リロールをすべて使うと{rerolls}）。プリズムオーグメント{pool}個のうちの1つです。"
+ "Offered in {offer} of Prismatic selections ({rerolls} using every reroll), one of {pool} Prismatic augments.": "プリズムの選択の{offer}で提示されます（リロールをすべて使うと{rerolls}）。プリズムオーグメント{pool}個のうちの1つです。",
+ "When it's picked": "選ばれるタイミング",
+ "Estimated": "推定",
+ "Augment {n}": "オーグメント{n}",
+ "{pct} of picks here are this rarity": "ここでの選択の{pct}がこのレアリティ",
+ "Share of this augment's picks at each augment selection, and how often a pick there is of its rarity.": "各オーグメント選択でのこのオーグメントの選択割合と、そこでの選択がこのレアリティである頻度。",
+ "Items that go with it": "相性の良いアイテム",
+ "Share of the champions who take this augment that build each item.": "このオーグメントを取るチャンピオンのうち各アイテムを作る割合。"
 }

@@ -65,5 +65,15 @@
  "Legendary": "Легендарные",
  "Starter": "Стартовые",
  "Epic": "Эпические",
- "Basic": "Базовые"
+ "Basic": "Базовые",
+ "How it does": "Как оно себя показывает",
+ "Estimated": "Оценка",
+ "win rate": "процент побед",
+ "vs its builders' usual win rate": "по сравнению с обычным процентом побед тех, кто его собирает",
+ "of builds": "сборок",
+ "bought 1st · 2nd · 3rd": "покупается 1-м · 2-м · 3-м",
+ "Some augments also grant this item.": "Этот предмет также дают некоторые аугменты.",
+ "Win rate": "Процент побед",
+ "{wr} win · in {share} of builds": "{wr} побед · в {share} сборок",
+ "augment item": "предмет из аугмента"
 }

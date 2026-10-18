@@ -24,6 +24,10 @@ type Item = {
   popularity: number;
   tier: Tier;
   deepScore: number | null;
+  /** Estimated (lib/estimates.ts): win rate, share of builds, and whether an augment can grant it. */
+  winRate: number | null;
+  buildShare: number | null;
+  granted: boolean;
 };
 // Shop tiers (lib/items.ts itemTier), in the order the DeepScore view groups them.
 type Tier = "legendary" | "boots" | "starter" | "epic" | "basic";
@@ -37,10 +41,12 @@ const TIERS: [Tier, string][] = [
 const SORTS = [
   ["deepscore", "DeepScore"],
   ["popular", "Most built"],
+  ["winrate", "Win rate"],
   ["name", "Name"],
   ["cost", "Cost"],
 ] as const;
 type Sort = (typeof SORTS)[number][0];
+const pct = (v: number) => `${(v * 100).toFixed(1)}%`;
 
 export default function ItemIndex({ items }: { items: Item[] }) {
   const t = useT("items");
@@ -65,6 +71,7 @@ export default function ItemIndex({ items }: { items: Item[] }) {
     const list = items.filter((i) => picked.every((t) => i.tags.includes(t)) && (!q || `${i.name} ${name(i)}`.toLowerCase().includes(q)));
     const byName = (a: Item, b: Item) => name(a).localeCompare(name(b), lang);
     if (sort === "deepscore") return list.sort((a, b) => (b.deepScore ?? -1) - (a.deepScore ?? -1) || b.popularity - a.popularity);
+    if (sort === "winrate") return list.sort((a, b) => (b.winRate ?? -1) - (a.winRate ?? -1) || byName(a, b));
     return list.sort((a, b) => (sort === "name" ? byName(a, b) : sort === "cost" ? b.cost - a.cost || byName(a, b) : b.popularity - a.popularity));
     // eslint-disable-next-line react-hooks/exhaustive-deps -- name follows names
   }, [items, picked, query, sort, names, lang]);
@@ -140,28 +147,33 @@ export default function ItemIndex({ items }: { items: Item[] }) {
               )}
               <ul className="items-grid">
                 {list.map((i) => (
-
-                <li key={i.id}>
-                  <Link href={`/items/${i.slug}`} className="item-card">
-                    {i.icon && <img src={i.icon} alt="" width={48} height={48} loading="lazy" />}
-                    <span className="item-card-body">
-                      <b>{name(i)}</b>
-                      {i.cost > 0 && (
-                        <small>
-                          {t("{cost} gold", {
-                            cost: i.cost.toLocaleString(lang === "en" ? "en-US" : lang),
-                          })}
-                        </small>
-                      )}
-                      {sort === "deepscore" && i.deepScore !== null && <DeepScore value={i.deepScore} help={ITEM_TIER_DEEPSCORE_HELP} static />}
-                      <span className="item-card-tags">
-                        {i.tags.map((k) => (
-                          <span key={k} className="item-dot" data-group={itemTag(k)?.group} title={itemTag(k) && t(itemTag(k)!.label)} />
-                        ))}
+                  <li key={i.id}>
+                    <Link href={`/items/${i.slug}`} className="item-card">
+                      {i.icon && <img src={i.icon} alt="" width={48} height={48} loading="lazy" />}
+                      <span className="item-card-body">
+                        <b>{name(i)}</b>
+                        {i.cost > 0 && (
+                          <small>
+                            {t("{cost} gold", {
+                              cost: i.cost.toLocaleString(lang === "en" ? "en-US" : lang),
+                            })}
+                          </small>
+                        )}
+                        {sort === "deepscore" && i.deepScore !== null && <DeepScore value={i.deepScore} help={ITEM_TIER_DEEPSCORE_HELP} static />}
+                        {i.winRate !== null && i.buildShare !== null && (
+                          <small className="item-card-est" title={t("Estimated")}>
+                            {t("{wr} win · in {share} of builds", { wr: pct(i.winRate), share: pct(i.buildShare) })}
+                            {i.granted && ` · ${t("augment item")}`}
+                          </small>
+                        )}
+                        <span className="item-card-tags">
+                          {i.tags.map((k) => (
+                            <span key={k} className="item-dot" data-group={itemTag(k)?.group} title={itemTag(k) && t(itemTag(k)!.label)} />
+                          ))}
+                        </span>
                       </span>
-                    </span>
-                  </Link>
-                </li>
+                    </Link>
+                  </li>
                 ))}
               </ul>
             </section>

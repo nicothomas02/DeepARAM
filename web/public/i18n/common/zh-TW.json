@@ -177,5 +177,19 @@
  "Mail app (Outlook, Apple Mail and others)": "郵件 App（Outlook、Apple Mail 等）",
  "Open email": "開啟郵件",
  "Copy address": "複製地址",
- "Champion and augment win rates and duo synergy, patch by patch.": "英雄和強化符文勝率以及雙人組合協同，按版本查看。"
+ "Champion and augment win rates and duo synergy, patch by patch.": "英雄和強化符文勝率以及雙人組合協同，按版本查看。",
+ "Top 10 at": "前10名",
+ "Estimated": "估算",
+ "Damage": "傷害",
+ "Tanking": "承傷",
+ "Healing": "治療",
+ "Crowd control": "控制",
+ "Teamplay": "團隊配合",
+ "Multikills": "多殺",
+ "Towers": "防禦塔",
+ "A typical game": "典型的一局",
+ "{n} min": "{n} 分鐘",
+ "game length": "對局時長",
+ "blue side wins": "藍方勝率",
+ "red side wins": "紅方勝率"
 }

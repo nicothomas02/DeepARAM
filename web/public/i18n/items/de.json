@@ -65,5 +65,15 @@
  "Legendary": "Legendär",
  "Starter": "Start",
  "Epic": "Episch",
- "Basic": "Basis"
+ "Basic": "Basis",
+ "How it does": "So schneidet es ab",
+ "Estimated": "Geschätzt",
+ "win rate": "Siegrate",
+ "vs its builders' usual win rate": "ggü. der üblichen Siegrate seiner Käufer",
+ "of builds": "der Builds",
+ "bought 1st · 2nd · 3rd": "als 1. · 2. · 3. gekauft",
+ "Some augments also grant this item.": "Manche Augments gewähren diesen Gegenstand auch.",
+ "Win rate": "Siegrate",
+ "{wr} win · in {share} of builds": "{wr} Siege · in {share} der Builds",
+ "augment item": "Augment-Gegenstand"
 }

@@ -65,5 +65,15 @@
  "Legendary": "Legendarny",
  "Starter": "Startowy",
  "Epic": "Epicki",
- "Basic": "Podstawowy"
+ "Basic": "Podstawowy",
+ "How it does": "Jak sobie radzi",
+ "Estimated": "Szacunek",
+ "win rate": "współczynnik zwycięstw",
+ "vs its builders' usual win rate": "w porównaniu ze zwykłym wynikiem kupujących",
+ "of builds": "buildów",
+ "bought 1st · 2nd · 3rd": "kupowany jako 1. · 2. · 3.",
+ "Some augments also grant this item.": "Niektóre ulepszenia też dają ten przedmiot.",
+ "Win rate": "Współczynnik zwycięstw",
+ "{wr} win · in {share} of builds": "{wr} zwycięstw · w {share} buildów",
+ "augment item": "przedmiot z ulepszenia"
 }

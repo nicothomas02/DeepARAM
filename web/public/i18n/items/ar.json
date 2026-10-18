@@ -65,5 +65,15 @@
  "Legendary": "أسطوري",
  "Starter": "بداية",
  "Epic": "ملحمي",
- "Basic": "أساسي"
+ "Basic": "أساسي",
+ "How it does": "أداؤه",
+ "Estimated": "مقدَّر",
+ "win rate": "نسبة الفوز",
+ "vs its builders' usual win rate": "مقارنةً بنسبة فوز من يشترونه عادةً",
+ "of builds": "من البنايات",
+ "bought 1st · 2nd · 3rd": "يُشترى أولًا · ثانيًا · ثالثًا",
+ "Some augments also grant this item.": "بعض التعزيزات تمنح هذا العنصر أيضًا.",
+ "Win rate": "نسبة الفوز",
+ "{wr} win · in {share} of builds": "فوز {wr} · في {share} من البنايات",
+ "augment item": "عنصر تعزيز"
 }

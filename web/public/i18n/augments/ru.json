@@ -53,5 +53,12 @@
  "Prismatic": "Призматическая",
  "Offered in {offer} of Silver selections ({rerolls} using every reroll), one of {pool} Silver augments.": "Предлагается в {offer} серебряных выборов ({rerolls} при использовании всех перебросов), одна из {pool} серебряных аугментаций.",
  "Offered in {offer} of Gold selections ({rerolls} using every reroll), one of {pool} Gold augments.": "Предлагается в {offer} золотых выборов ({rerolls} при использовании всех перебросов), одна из {pool} золотых аугментаций.",
- "Offered in {offer} of Prismatic selections ({rerolls} using every reroll), one of {pool} Prismatic augments.": "Предлагается в {offer} призматических выборов ({rerolls} при использовании всех перебросов), одна из {pool} призматических аугментаций."
+ "Offered in {offer} of Prismatic selections ({rerolls} using every reroll), one of {pool} Prismatic augments.": "Предлагается в {offer} призматических выборов ({rerolls} при использовании всех перебросов), одна из {pool} призматических аугментаций.",
+ "When it's picked": "Когда его берут",
+ "Estimated": "Оценка",
+ "Augment {n}": "Аугмент {n}",
+ "{pct} of picks here are this rarity": "{pct} выборов здесь этой редкости",
+ "Share of this augment's picks at each augment selection, and how often a pick there is of its rarity.": "Доля выборов этого аугмента на каждом выборе аугментов и как часто выбор там этой редкости.",
+ "Items that go with it": "Подходящие предметы",
+ "Share of the champions who take this augment that build each item.": "Доля чемпионов с этим аугментом, собирающих каждый предмет."
 }

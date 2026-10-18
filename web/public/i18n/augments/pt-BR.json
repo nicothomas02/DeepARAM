@@ -53,5 +53,12 @@
  "Prismatic": "Prismático",
  "Offered in {offer} of Silver selections ({rerolls} using every reroll), one of {pool} Silver augments.": "Oferecido em {offer} das seleções Prata ({rerolls} usando todas as novas rolagens), um dos {pool} aprimoramentos Prata.",
  "Offered in {offer} of Gold selections ({rerolls} using every reroll), one of {pool} Gold augments.": "Oferecido em {offer} das seleções Ouro ({rerolls} usando todas as novas rolagens), um dos {pool} aprimoramentos Ouro.",
- "Offered in {offer} of Prismatic selections ({rerolls} using every reroll), one of {pool} Prismatic augments.": "Oferecido em {offer} das seleções Prismáticas ({rerolls} usando todas as novas rolagens), um dos {pool} aprimoramentos Prismáticos."
+ "Offered in {offer} of Prismatic selections ({rerolls} using every reroll), one of {pool} Prismatic augments.": "Oferecido em {offer} das seleções Prismáticas ({rerolls} usando todas as novas rolagens), um dos {pool} aprimoramentos Prismáticos.",
+ "When it's picked": "Quando é escolhido",
+ "Estimated": "Estimado",
+ "Augment {n}": "Aprimoramento {n}",
+ "{pct} of picks here are this rarity": "{pct} das escolhas aqui são desta raridade",
+ "Share of this augment's picks at each augment selection, and how often a pick there is of its rarity.": "Parcela das escolhas deste aprimoramento em cada seleção, e com que frequência uma escolha ali é da sua raridade.",
+ "Items that go with it": "Itens que combinam",
+ "Share of the champions who take this augment that build each item.": "Parcela dos campeões com este aprimoramento que compram cada item."
 }

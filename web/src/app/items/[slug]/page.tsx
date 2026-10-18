@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { livePatch } from "@/lib/highlights";
 import { itemBySlug, itemPages } from "@/lib/item-pages";
 import { itemSim } from "@/lib/item-sim";
+import { itemEstimate } from "@/lib/estimates";
 import { itemTag } from "@/lib/item-tags";
 import { pageMeta } from "@/lib/meta";
 import { Name, T } from "@/components/I18n";
@@ -33,6 +34,7 @@ export default async function ItemPage({ params }: { params: Promise<{ slug: str
   const i = itemBySlug((await params).slug);
   if (!i) notFound();
   const sim = itemSim(i.id);
+  const est = itemEstimate(i.id);
   return (
     <>
       <Breadcrumbs
@@ -96,6 +98,51 @@ export default async function ItemPage({ params }: { params: Promise<{ slug: str
           })}
         </div>
       </section>
+      {est && (
+        <section className="card" data-accent="gold">
+          <div className="card-head">
+            <h2>
+              <T ns="items">How it does</T>
+            </h2>
+            <span className="card-note">
+              <T ns="items">Estimated</T>
+            </span>
+          </div>
+          <div className="stat-row">
+            <div>
+              <b className={est.winRate >= 0.52 ? "wr-high" : est.winRate <= 0.48 ? "wr-low" : ""}>{pct(est.winRate)}</b>
+              <span>
+                <T ns="items">win rate</T>
+              </span>
+            </div>
+            <div>
+              <b className={est.lift >= 0.005 ? "delta-up" : est.lift <= -0.005 ? "delta-down" : ""}>{signed(est.lift * 100, " pts")}</b>
+              <span>
+                <T ns="items">{"vs its builders' usual win rate"}</T>
+              </span>
+            </div>
+            <div>
+              <b>{pct(est.buildShare)}</b>
+              <span>
+                <T ns="items">of builds</T>
+              </span>
+            </div>
+            {est.slots.some((s) => s > 0) && (
+              <div>
+                <b>{est.slots.map((s) => pct(s)).join(" · ")}</b>
+                <span>
+                  <T ns="items">bought 1st · 2nd · 3rd</T>
+                </span>
+              </div>
+            )}
+          </div>
+          {est.granted && (
+            <p className="table-note">
+              <T ns="items">Some augments also grant this item.</T>
+            </p>
+          )}
+        </section>
+      )}
       {i.builders.length > 0 && (
         <section className="card" data-accent="tier">
           <div className="card-head">

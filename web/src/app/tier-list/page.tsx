@@ -18,6 +18,7 @@ import type { PatchRow } from "@/lib/tiers";
 import Intro from "@/components/Intro";
 import { T } from "@/components/I18n";
 import ItemIndex from "@/components/ItemIndex";
+import { itemEstimate } from "@/lib/estimates";
 import { itemPages } from "@/lib/item-pages";
 import { text } from "@/lib/content";
 import Pending from "@/components/Pending";
@@ -158,7 +159,23 @@ export default function TierListPage() {
     });
   }
   // Formerly the Items page (/items redirects here); each item keeps its own page at /items/<slug>.
-  const items = itemPages().map(({ id, slug, name, icon, cost, tags, popularity, tier, deepScore }) => ({ id, slug, name, icon, cost, tags, popularity, tier, deepScore }));
+  const items = itemPages().map(({ id, slug, name, icon, cost, tags, popularity, tier, deepScore }) => {
+    const est = itemEstimate(id);
+    return {
+      id,
+      slug,
+      name,
+      icon,
+      cost,
+      tags,
+      popularity,
+      tier,
+      deepScore,
+      winRate: est?.winRate ?? null,
+      buildShare: est?.buildShare ?? null,
+      granted: est?.granted ?? false,
+    };
+  });
   if (items.length) {
     tabs.push({
       id: "items",
@@ -168,7 +185,8 @@ export default function TierListPage() {
         <>
           <p className="patch-note subtab-note">
             <T ns="items">
-              Pick tags to narrow the list: every tag you pick has to match. Open an item for its stats, who builds it and how much damage it adds in the Simulator.
+              Pick tags to narrow the list: every tag you pick has to match. Open an item for its stats, who builds it and how much damage it adds in the
+              Simulator.
             </T>
           </p>
           <ItemIndex items={items} />

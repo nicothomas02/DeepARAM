@@ -53,5 +53,12 @@
  "Prismatic": "Prismatic",
  "Offered in {offer} of Silver selections ({rerolls} using every reroll), one of {pool} Silver augments.": "Ditawarkan di {offer} pilihan Silver ({rerolls} jika memakai semua reroll), salah satu dari {pool} augment Silver.",
  "Offered in {offer} of Gold selections ({rerolls} using every reroll), one of {pool} Gold augments.": "Ditawarkan di {offer} pilihan Gold ({rerolls} jika memakai semua reroll), salah satu dari {pool} augment Gold.",
- "Offered in {offer} of Prismatic selections ({rerolls} using every reroll), one of {pool} Prismatic augments.": "Ditawarkan di {offer} pilihan Prismatic ({rerolls} jika memakai semua reroll), salah satu dari {pool} augment Prismatic."
+ "Offered in {offer} of Prismatic selections ({rerolls} using every reroll), one of {pool} Prismatic augments.": "Ditawarkan di {offer} pilihan Prismatic ({rerolls} jika memakai semua reroll), salah satu dari {pool} augment Prismatic.",
+ "When it's picked": "Kapan dipilih",
+ "Estimated": "Perkiraan",
+ "Augment {n}": "Augment {n}",
+ "{pct} of picks here are this rarity": "{pct} pilihan di sini berkelangkaan ini",
+ "Share of this augment's picks at each augment selection, and how often a pick there is of its rarity.": "Porsi pilihan augment ini di tiap pemilihan augment, dan seberapa sering pilihan di sana berkelangkaan sama.",
+ "Items that go with it": "Item yang cocok",
+ "Share of the champions who take this augment that build each item.": "Porsi champion pengambil augment ini yang membeli tiap item."
 }

@@ -6,6 +6,9 @@ import { augmentBySlug, augmentPages } from "@/lib/augments";
 import { livePatch } from "@/lib/highlights";
 import { pageMeta } from "@/lib/meta";
 import { readRepoJson } from "@/lib/repo-data";
+import { augmentItems, augmentStages, rarityOdds } from "@/lib/estimates";
+import { item } from "@/lib/items";
+import { itemPages } from "@/lib/item-pages";
 import ShareButton from "@/components/ShareButton";
 import ShareCard from "@/components/ShareCard";
 import { Name, T } from "@/components/I18n";
@@ -45,9 +48,21 @@ export default async function AugmentPage({ params }: { params: Promise<{ slug: 
   if (!a) notFound();
   const patch = livePatch();
   const offer = odds(a.tier);
+  const stages = augmentStages(a.id);
+  const rarity = rarityOdds(a.tier);
+  const pages = new Map(itemPages().map((i) => [i.id, i.slug]));
+  const fits = augmentItems(a.id).flatMap((f) => {
+    const it = item(f.id);
+    return it ? [{ id: f.id, name: it.name, icon: it.icon, slug: pages.get(f.id), share: f.share }] : [];
+  });
   return (
     <>
-      <Breadcrumbs trail={[["Augments", "/tier-list?tab=augments"], [a.name, `/augments/${a.slug}`]]} />
+      <Breadcrumbs
+        trail={[
+          ["Augments", "/tier-list?tab=augments"],
+          [a.name, `/augments/${a.slug}`],
+        ]}
+      />
       <section className="champ-hero aug-hero">
         <p className="eyebrow">
           <Link href="/tier-list?tab=augments">
@@ -196,6 +211,78 @@ export default async function AugmentPage({ params }: { params: Promise<{ slug: 
                 </Link>
               ))}
             </div>
+          </section>
+        )}
+        {stages && (
+          <section className="card span-6" data-accent="sim">
+            <div className="card-head">
+              <h2>
+                <T ns="augments">When it&apos;s picked</T>
+              </h2>
+              <span className="card-note">
+                <T ns="augments">Estimated</T>
+              </span>
+            </div>
+            <div className="rank plain aug-stages">
+              {stages.stages.map((share, k) => (
+                <div key={k} className={k + 1 === stages.usual ? "is-top" : undefined}>
+                  <span className="rank-name">
+                    <T ns="augments" v={{ n: k + 1 }}>
+                      {"Augment {n}"}
+                    </T>
+                  </span>
+                  <span className="rank-v">{pct(share)}</span>
+                  {rarity && (
+                    <span className="rank-v">
+                      <T ns="augments" v={{ pct: pct(rarity.byStage[k]) }}>
+                        {"{pct} of picks here are this rarity"}
+                      </T>
+                    </span>
+                  )}
+                </div>
+              ))}
+            </div>
+            <p className="table-note">
+              <T ns="augments">Share of this augment&apos;s picks at each augment selection, and how often a pick there is of its rarity.</T>
+            </p>
+          </section>
+        )}
+        {fits.length > 0 && (
+          <section className="card span-6" data-accent="lab">
+            <div className="card-head">
+              <h2>
+                <T ns="augments">Items that go with it</T>
+              </h2>
+              <span className="card-note">
+                <T ns="augments">Estimated</T>
+              </span>
+            </div>
+            <div className="rank plain aug-fits">
+              {fits.map((f) => {
+                const body = (
+                  <>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    {f.icon && <img className="icon" src={f.icon} alt="" width={24} height={24} loading="lazy" />}
+                    <span className="rank-name">
+                      <Name kind="items" id={f.id}>
+                        {f.name}
+                      </Name>
+                    </span>
+                    <span className="rank-v">{pct(f.share)}</span>
+                  </>
+                );
+                return f.slug ? (
+                  <Link key={f.id} href={`/items/${f.slug}`}>
+                    {body}
+                  </Link>
+                ) : (
+                  <div key={f.id}>{body}</div>
+                );
+              })}
+            </div>
+            <p className="table-note">
+              <T ns="augments">Share of the champions who take this augment that build each item.</T>
+            </p>
           </section>
         )}
       </div>

@@ -5898,3 +5898,20 @@ html[data-view="simple"] [data-detailed] {
 .items-tier-h span {
   font-weight: 400;
 }
+
+/* Estimated stats (lib/estimates.ts): augment stages and items, the home page's top 10s. */
+.rank.aug-stages > div,
+.rank.aug-fits > div {
+  display: grid;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem;
+  margin-inline: -0.5rem;
+}
+.rank.aug-stages > div { grid-template-columns: minmax(0, 1fr) 3.5rem auto; }
+.rank.aug-fits > div { grid-template-columns: 24px minmax(0, 1fr) 3.5rem; }
+.rank.aug-stages > .is-top .rank-name { font-weight: 600; color: var(--fg); }
+.fun-kinds { flex-wrap: wrap; margin-bottom: 0.75rem; }
+.fun-kinds button { flex: 1 0 auto; }
+.rank.fun-rank a { grid-template-columns: 1.4rem 24px minmax(0, 1fr); }
+.item-card-est { display: block; }

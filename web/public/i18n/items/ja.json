@@ -65,5 +65,15 @@
  "Legendary": "レジェンダリー",
  "Starter": "スターター",
  "Epic": "エピック",
- "Basic": "ベーシック"
+ "Basic": "ベーシック",
+ "How it does": "成績",
+ "Estimated": "推定",
+ "win rate": "勝率",
+ "vs its builders' usual win rate": "購入者の普段の勝率との差",
+ "of builds": "のビルド",
+ "bought 1st · 2nd · 3rd": "1番目 · 2番目 · 3番目に購入",
+ "Some augments also grant this item.": "一部のオーグメントでもこのアイテムを得られます。",
+ "Win rate": "勝率",
+ "{wr} win · in {share} of builds": "勝率{wr} · ビルドの{share}",
+ "augment item": "オーグメントアイテム"
 }

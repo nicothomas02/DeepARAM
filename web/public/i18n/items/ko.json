@@ -65,5 +65,15 @@
  "Legendary": "전설",
  "Starter": "시작",
  "Epic": "서사",
- "Basic": "기본"
+ "Basic": "기본",
+ "How it does": "성적",
+ "Estimated": "추정치",
+ "win rate": "승률",
+ "vs its builders' usual win rate": "구매자의 평소 승률 대비",
+ "of builds": "빌드 비율",
+ "bought 1st · 2nd · 3rd": "1번째 · 2번째 · 3번째 구매",
+ "Some augments also grant this item.": "일부 증강으로도 이 아이템을 얻을 수 있습니다.",
+ "Win rate": "승률",
+ "{wr} win · in {share} of builds": "승률 {wr} · 빌드의 {share}",
+ "augment item": "증강 아이템"
 }
