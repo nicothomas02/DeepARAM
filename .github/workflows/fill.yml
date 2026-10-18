@@ -1,6 +1,6 @@
-name: Temporary spells and game counts
+name: Estimated spells and game counts
 
-# TEMPORARY (data/fill/README.md). Does nothing while data/fill/config.json is switched off.
+# data/fill/README.md. Does nothing while data/fill/config.json is switched off.
 on:
   schedule:
     - cron: "30 6 * * *"   # once a day, after the main stats refresh
@@ -22,8 +22,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Fetch spells and game counts
-        run: python3 data/fill/fetch_fill.py
+      - name: Estimate spells and game counts
+        run: python3 data/fill/build_estimates.py
       - name: Commit changes
         run: |
           git config user.name "github-actions[bot]"
@@ -32,7 +32,7 @@ jobs:
           if git diff --cached --quiet; then
             echo "No new data"
           else
-            git commit -m "Update spells and game counts ($(date -u +%Y-%m-%d))"
+            git commit -m "Update estimated spells and game counts ($(date -u +%Y-%m-%d))"
             git pull --rebase
             git push
           fi
