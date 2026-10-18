@@ -79,5 +79,8 @@
  "since {patch}": "自 {patch} 起",
  "Build share": "出装占比",
  "Win rate delta": "胜率差",
- "Win rate delta: how much more the pair wins together than the two do on their own.": "胜率差：两人同队时比各自单独时多赢多少。"
+ "Win rate delta: how much more the pair wins together than the two do on their own.": "胜率差：两人同队时比各自单独时多赢多少。",
+ "DeepScore": "DeepScore",
+ "More details": "更多详情",
+ "Best DeepScore first, with each item's pick rate and win rate.": "DeepScore 最高的排在前面，并显示每件装备的选取率和胜率。"
 }

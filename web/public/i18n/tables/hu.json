@@ -91,5 +91,6 @@
  "Save": "Mentés",
  "Close": "Bezárás",
  "Win rate delta": "Győzelmi arány eltérés",
- "Pair win rate minus the average of the two champions' own win rates. Above zero means they win more together.": "A páros győzelmi aránya mínusz a két hős saját győzelmi arányának átlaga. Nulla fölött együtt többet nyernek."
+ "Pair win rate minus the average of the two champions' own win rates. Above zero means they win more together.": "A páros győzelmi aránya mínusz a két hős saját győzelmi arányának átlaga. Nulla fölött együtt többet nyernek.",
+ "DeepScore rates each item from 0 to 100 against this champion's other items, where 50 is average. It starts from the item's win rate with this champion and trusts rarely built items less. Tiers: S 70+, A 59+, B 44+, C 32+, D below.": "A DeepScore 0-tól 100-ig értékel minden tárgyat a hős többi tárgyához képest, ahol az 50 az átlag. A tárgy ezzel a hőssel elért győzelmi arányából indul ki, és kevésbé bízik a ritkán épített tárgyakban. Szintek: S 70+, A 59+, B 44+, C 32+, D alatta."
 }

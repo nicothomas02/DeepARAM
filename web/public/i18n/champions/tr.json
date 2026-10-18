@@ -79,5 +79,8 @@
  "since {patch}": "{patch} sürümünden beri",
  "Build share": "Dizilim payı",
  "Win rate delta": "Kazanma farkı",
- "Win rate delta: how much more the pair wins together than the two do on their own.": "Kazanma farkı: ikilinin birlikte, ayrı ayrı olduklarından ne kadar fazla kazandığı."
+ "Win rate delta: how much more the pair wins together than the two do on their own.": "Kazanma farkı: ikilinin birlikte, ayrı ayrı olduklarından ne kadar fazla kazandığı.",
+ "DeepScore": "DeepScore",
+ "More details": "Daha fazla ayrıntı",
+ "Best DeepScore first, with each item's pick rate and win rate.": "Önce en iyi DeepScore; her eşyanın seçilme ve kazanma oranıyla."
 }

@@ -12,7 +12,12 @@
 const Z = 1;
 
 /** The low end of a win rate's likely range, after pulling it toward `mean` with `prior` pseudo-games. */
-export function lowerBound(winRate: number, games: number, mean: number, prior: number): number {
+export function lowerBound(
+  winRate: number,
+  games: number,
+  mean: number,
+  prior: number,
+): number {
   const n = games + prior;
   const est = (winRate * games + mean * prior) / n;
   return est - Z * Math.sqrt((est * (1 - est)) / n);
@@ -33,7 +38,10 @@ export type Graded = { deepScore: number; tier: string };
 export function grade(values: number[]): Graded[] {
   if (!values.length) return [];
   const mean = values.reduce((a, b) => a + b, 0) / values.length;
-  const sd = Math.sqrt(values.reduce((a, b) => a + (b - mean) ** 2, 0) / values.length) || 1;
+  const sd =
+    Math.sqrt(
+      values.reduce((a, b) => a + (b - mean) ** 2, 0) / values.length,
+    ) || 1;
   return values.map((v) => {
     const z = (v - mean) / sd;
     return {
@@ -56,3 +64,7 @@ export const AUGMENT_DEEPSCORE_HELP =
   "DeepScore rates each augment from 0 to 100 against others of its rarity, where 50 is average. It compares the " +
   "augment's win rate with what the same champions win anyway, so augments that strong champions take don't look " +
   `better than they are, and trusts rarely picked augments less. Tiers: ${CUTS}, D below.`;
+
+export const ITEM_DEEPSCORE_HELP =
+  "DeepScore rates each item from 0 to 100 against this champion's other items, where 50 is average. It starts " +
+  `from the item's win rate with this champion and trusts rarely built items less. Tiers: ${CUTS}, D below.`;

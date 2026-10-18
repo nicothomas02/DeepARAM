@@ -4,9 +4,11 @@
 import Link from "next/link";
 import { useState } from "react";
 import { Name, useT } from "@/components/I18n";
+import DeepScore from "@/components/DeepScore";
 import type { AugmentRow } from "@/lib/champion-page";
+import { AUGMENT_DEEPSCORE_HELP } from "@/lib/deepscore";
 
-// A champion's augments as one ranked table with a rarity filter, the most picked first.
+// A champion's augments as one ranked table with a rarity filter, best DeepScore first.
 
 const RARITIES = ["all", "prismatic", "gold", "silver"] as const;
 const LABEL = {
@@ -20,7 +22,7 @@ const LIMIT = 10;
 export default function AugmentTable({
   rows,
 }: {
-  rows: (AugmentRow & { href?: string })[];
+  rows: (AugmentRow & { href?: string; deepScore?: number })[];
 }) {
   const t = useT("champions");
   const [rarity, setRarity] = useState<(typeof RARITIES)[number]>("all");
@@ -47,7 +49,7 @@ export default function AugmentTable({
       <div className="cp-th" data-cols={2}>
         <span>{t("Rank")}</span>
         <span>{t("Augment")}</span>
-        <span>{t("Grade")}</span>
+        <span>{t("DeepScore")}</span>
         <span>{t("Pick rate")}</span>
       </div>
       <div className="cp-rows">
@@ -83,10 +85,14 @@ export default function AugmentTable({
                 <div className="cp-what">{body}</div>
               )}
               <div className="cp-cell">
-                <b className={`grade-${a.grade.toLowerCase()}`}>
-                  {a.grade || "–"}
-                </b>
-                <small>{t("Grade")}</small>
+                {a.deepScore !== undefined ? (
+                  <DeepScore
+                    value={a.deepScore}
+                    help={AUGMENT_DEEPSCORE_HELP}
+                  />
+                ) : (
+                  <b>–</b>
+                )}
               </div>
               <div className="cp-cell">
                 <b>{(a.pickRate * 100).toFixed(1)}%</b>
