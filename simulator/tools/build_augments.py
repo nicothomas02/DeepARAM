@@ -168,7 +168,7 @@ MAPPING = {
         "effects.missile_max_hp": dv("MaxHealthDamagePerMissile"),
         "effects.missile_cd": dv("Cooldown"),
     },
-    "mystic_punch": {"effects.attack_cdr_flat": dv("CooldownRefund")},  # seconds per attack
+    "mystic_punch": {"effects.attack_cdr_flat": dv("CooldownRefund"), "effects.attack_cdr_min": dv("MinCDR")},  # seconds per attack; no lower than MinCDR of the full cooldown
     "goliath": {"effects.hp_pct": dv("HealthAmp"), "effects.adaptive_amp": dv("AFAmp")},
     "jeweled_gauntlet": {
         "stats.crit": dv("CritChance"),                  # the flat part of CritGranted
@@ -211,7 +211,6 @@ NOTES = {
     "jeweled_gauntlet": "Also grants {CritConverRatio_pct:g}% crit chance per AP (CritGranted), not modeled",
     "infernal_conduit": "Burn per second is 2-20 by level + 1.2% AP + 2.8% bonus AD for {BleedDuration:g} s; "
                         "the level-based part is not modeled",
-    "mystic_punch": "Cooldowns can't be refunded below {MinCDR_pct:g}% (MinCDR), not modeled",
 }
 
 

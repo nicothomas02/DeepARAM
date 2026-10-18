@@ -93,8 +93,8 @@
        "type": "physical",
        "calc": "QDamage",
        "scaling": {
-        "const": 751.875,
-        "bonus_ad": 3.375
+        "const": 1033.8281,
+        "bonus_ad": 4.6406
        },
        "target": "flat",
        "per_second": false,
@@ -114,7 +114,8 @@
      ],
      "mode_overrides": [],
      "notes": [
-      "hand override: The Darkin Blade is three casts per cooldown, dealing 100/125/150%"
+      "hand override: The Darkin Blade is three casts per cooldown, dealing 100/125/150%",
+      "hand override: about half of The Darkin Blade's strikes land on the sweetspot (QEdgeDamage, x1.75); the parser keeps only the inner number"
      ]
     },
     {
@@ -198,14 +199,22 @@
      },
      "hits": [],
      "mode_overrides": [],
-     "notes": []
+     "notes": [
+      "hand override: World Ender: +40% AD (rank 3, about 58 + 40% bonus AD at 18) and +100% self-healing for 10s"
+     ],
+     "buff": {
+      "duration": 10,
+      "ad": 58,
+      "bonus_ad_pct": 0.4,
+      "heal_amp": 1.0
+     }
     }
    ],
    "passives": [
     {
      "trigger": "attack",
      "every": 1,
-     "cooldown": 10.0,
+     "cooldown": 4,
      "per_target": false,
      "charges": 1,
      "max_charges": 1,
@@ -1079,10 +1088,10 @@
      "area": "single",
      "duration": 0.75,
      "geometry": {
-      "shape": "line",
-      "range": 700.0,
+      "shape": "single",
+      "range": 650,
       "radius": 0.0,
-      "width": 40.0,
+      "width": 0,
       "angle": 0.0,
       "speed": 0,
       "on_self": false,
@@ -1143,7 +1152,7 @@
        "type": "magic",
        "calc": "AttackBonusDamage",
        "scaling": {
-        "const": 275.0
+        "const": 550.0
        },
        "target": "flat",
        "per_second": false,
@@ -1376,20 +1385,20 @@
      "duration": 1.0,
      "geometry": {
       "shape": "circle",
-      "range": 325.0,
-      "radius": 100.0,
+      "range": 0,
+      "radius": 325,
       "width": 0.0,
       "angle": 0.0,
       "speed": 0,
-      "on_self": false
+      "on_self": true
      },
      "hits": [
       {
        "type": "physical",
        "calc": "Calc_Damage_Flat",
        "scaling": {
-        "const": 120.0,
-        "bonus_ad": 0.5
+        "const": 240.0,
+        "bonus_ad": 1.0
        },
        "target": "flat",
        "per_second": false,
@@ -1397,7 +1406,9 @@
       }
      ],
      "mode_overrides": [],
-     "notes": []
+     "notes": [
+      "hand override: Lacerate spins around Ambessa (325 radius) and spins again at the end of the Drakehound's Step dash she always follows it with"
+     ]
     },
     {
      "slot": "R",
@@ -1447,7 +1458,7 @@
      "cooldown": 0.0,
      "per_target": false,
      "charges": 1,
-     "max_charges": 2,
+     "max_charges": 3,
      "aoe": false,
      "below_hp": 0.0,
      "hits": [
@@ -1462,7 +1473,8 @@
        "per_second": false,
        "alt": false
       }
-     ]
+     ],
+     "restore": 70
     }
    ],
    "parse_quality": "partial",
@@ -2366,6 +2378,39 @@
     "phys_share": 1.0
    },
    "abilities": [
+    {
+     "slot": "Q",
+     "name": "AsheQ",
+     "rank": 5,
+     "cooldown": 10,
+     "cast_time": 0,
+     "cost": 30.0,
+     "targeting": "",
+     "area": "single",
+     "duration": 6.0,
+     "geometry": {
+      "shape": "single",
+      "range": 600,
+      "radius": 0,
+      "width": 0,
+      "angle": 0,
+      "speed": 0,
+      "on_self": true,
+      "self_buff": true
+     },
+     "hits": [],
+     "mode_overrides": [],
+     "notes": [
+      "hand override: Ranger's Focus: costs 4 Focus (4 attacks, ~4s) and lasts 6s: +60% attack speed and flurries of 5 arrows for 130% AD (rank 5); resets the attack timer"
+     ],
+     "no_haste": true,
+     "attack_reset": true,
+     "buff": {
+      "duration": 6,
+      "as": 0.6,
+      "attack_mult": 1.3
+     }
+    },
     {
      "slot": "W",
      "name": "Volley",
@@ -3389,7 +3434,7 @@
      "slot": "Q",
      "name": "BelvethQ",
      "rank": 5,
-     "cooldown": 1.0,
+     "cooldown": 2.4,
      "cast_time": 0.0,
      "targeting": "LocationClamped",
      "area": "aoe",
@@ -3417,7 +3462,12 @@
       }
      ],
      "mode_overrides": [],
-     "notes": []
+     "notes": [
+      "hand override: Void Surge: four directions with their own 12s cooldowns (reduced only by 0.2 haste per 1% bonus attack speed, ~25 at ~125%), so about one dash per 2.4s; resets the attack timer and applies on-hit to the first target"
+     ],
+     "no_haste": true,
+     "attack_reset": true,
+     "applies_onhit": true
     },
     {
      "slot": "W",
@@ -3534,31 +3584,10 @@
        "type": "true",
        "calc": "FinalOnHitDamage",
        "scaling": {
-        "const": 0.0,
-        "bonus_ad": 0.0
+        "const": 6.0,
+        "bonus_ad": 0.03
        },
        "target": "flat",
-       "per_second": false,
-       "alt": false
-      },
-      {
-       "type": "true",
-       "calc": "TotalExplosionDamage",
-       "scaling": {
-        "const": 250.0,
-        "ap": 1.5
-       },
-       "target": "flat",
-       "per_second": false,
-       "alt": false
-      },
-      {
-       "type": "true",
-       "calc": "MissingHealthDamage",
-       "scaling": {
-        "const": 0.2
-       },
-       "target": "target_missing_hp",
        "per_second": false,
        "alt": false
       }
@@ -3567,8 +3596,11 @@
       "ARAM:CorpseDuration"
      ],
      "notes": [
-      "hand override: Endless Banquet needs Void Coral from a takedown, not usable every second; the on-hit true damage is a form buff, not a cast hit; no self-heal: R's number is not a heal"
-     ]
+      "hand override: Endless Banquet needs Void Coral from a takedown, not usable every second; the on-hit true damage is a form buff, not a cast hit; no self-heal: R's number is not a heal",
+      "hand override: Endless Banquet passive: every on-hit against the marked target deals 6 (+3% bonus AD) true damage times the number of hits on it so far (stacking infinitely, mark lasts 5s); the coral-gated active and its explosion are left out"
+     ],
+     "onhit_every": 1,
+     "ramp": 5
     }
    ],
    "parse_quality": "good",
@@ -3577,6 +3609,12 @@
     "stats": {
      "as_l1": 0,
      "as_l18": 0.5
+    },
+    "effects": {
+     "stack_on": 2,
+     "stack_max": 1,
+     "stack_duration": 3,
+     "stack_as": 0.2
     }
    }
   },
@@ -7754,7 +7792,7 @@
      "name": "FiddleSticksR",
      "rank": 3,
      "cooldown": 80.0,
-     "cast_time": 0.0,
+     "cast_time": 1.5,
      "cost": 100.0,
      "targeting": "Location",
      "area": "aoe",
@@ -7784,9 +7822,10 @@
      ],
      "mode_overrides": [],
      "notes": [
-      "hand override: Crowstorm channels 1.5 seconds before the blink"
+      "hand override: Crowstorm channels 1.5 seconds before the blink",
+      "hand override: Crowstorm channels 1.5 seconds before the blink; the damage starts after the channel, not with it"
      ],
-     "lock": 1.5
+     "lock": 0
     }
    ],
    "parse_quality": "good",
@@ -8388,8 +8427,8 @@
        "type": "magic",
        "calc": "MinTotalDamage",
        "scaling": {
-        "const": 60.0,
-        "ap": 0.3
+        "const": 120.0,
+        "ap": 0.6
        },
        "target": "flat",
        "per_second": false,
@@ -8524,8 +8563,7 @@
        "type": "magic",
        "calc": "TotalDamage",
        "scaling": {
-        "const": 233.5,
-        "bonus_ad": 1.0,
+        "const": 115.0,
         "ap": 0.4,
         "bonus_mr": 0.6
        },
@@ -8533,7 +8571,8 @@
        "per_second": false,
        "alt": false
       }
-     ]
+     ],
+     "ability_cdr": 3.0
     }
    ],
    "parse_quality": "good",
@@ -9325,8 +9364,8 @@
      "name": "GragasW",
      "rank": 5,
      "cooldown": 5.0,
-     "cast_time": 0.0,
-     "lock": 0.75,
+     "cast_time": 0.75,
+     "lock": 0,
      "cost": 30.0,
      "targeting": "Self",
      "area": "aoe",
@@ -9365,7 +9404,9 @@
       }
      ],
      "mode_overrides": [],
-     "notes": []
+     "notes": [
+      "hand override: Drunken Rage: Gragas drinks for 0.75 s first, then his next attack deals the damage"
+     ]
     },
     {
      "slot": "E",
@@ -9978,7 +10019,7 @@
      "slot": "Q",
      "name": "HecarimRapidSlash",
      "rank": 5,
-     "cooldown": 4.0,
+     "cooldown": 1.75,
      "cast_time": 0.0,
      "cost": 20.0,
      "targeting": "SelfAoe",
@@ -9998,8 +10039,8 @@
        "type": "physical",
        "calc": "Damage",
        "scaling": {
-        "const": 180.0,
-        "bonus_ad": 0.9
+        "const": 196.2,
+        "bonus_ad": 1.228
        },
        "target": "flat",
        "per_second": false,
@@ -10007,7 +10048,9 @@
       }
      ],
      "mode_overrides": [],
-     "notes": []
+     "notes": [
+      "hand override: Rampage at its usual 3 stacks (8s, refreshed by every hit): base cooldown 4 - 3 x 0.75 = 1.75s and +9% (+9% per 100 bonus AD) damage, linearised at ~105 bonus AD"
+     ]
     },
     {
      "slot": "W",
@@ -10043,8 +10086,13 @@
      ],
      "mode_overrides": [],
      "notes": [
-      "hand override: Spirit of Dread is instant"
-     ]
+      "hand override: Spirit of Dread is instant",
+      "hand override: Spirit of Dread heals Hecarim for 25% of the post-mitigation damage he deals to enemies in the area for 4s"
+     ],
+     "buff": {
+      "duration": 4,
+      "omnivamp": 0.25
+     }
     },
     {
      "slot": "E",
@@ -10074,8 +10122,8 @@
        "type": "physical",
        "calc": "MinDamage",
        "scaling": {
-        "const": 90.0,
-        "bonus_ad": 0.5
+        "const": 135.0,
+        "bonus_ad": 0.75
        },
        "target": "flat",
        "per_second": false,
@@ -10096,7 +10144,8 @@
      "mode_overrides": [],
      "notes": [
       "ARAM cooldown",
-      "hand override: Devastating Charge deals min to max damage by distance, not both"
+      "hand override: Devastating Charge deals min to max damage by distance, not both",
+      "hand override: Devastating Charge grows from min to 2x over 1200 units travelled; Hecarim charges in from about half that, so 1.5x the minimum"
      ]
     },
     {
@@ -10141,7 +10190,13 @@
     }
    ],
    "parse_quality": "good",
-   "notes": []
+   "notes": [],
+   "kit": {
+    "stats": {
+     "ad_l1": 5.4,
+     "ad_l18": 10.8
+    }
+   }
   },
   {
    "id": "Heimerdinger",
@@ -12511,8 +12566,8 @@
        "type": "physical",
        "calc": "DamageCalc",
        "scaling": {
-        "const": 903.8,
-        "bonus_ad": 1.0
+        "const": 1129.75,
+        "bonus_ad": 1.25
        },
        "target": "flat",
        "per_second": false,
@@ -12532,9 +12587,11 @@
      ],
      "mode_overrides": [],
      "notes": [
-      "hand override: Curtain Call: four shots over about 4 seconds; the maximum is the execute version of one shot; shots travel at 5000, not 828"
+      "hand override: Curtain Call: four shots over about 4 seconds; the maximum is the execute version of one shot; shots travel at 5000, not 828",
+      "hand override: the fourth shot crits for 200% (5 shots' worth in all), and every shot deals +3% per 1% of the target's missing Health (PercentMissingAmp)"
      ],
-     "lock": 4
+     "lock": 4,
+     "missing_amp": 3
     }
    ],
    "passives": [
@@ -12571,9 +12628,11 @@
      "crit_every": 4,
      "whisper_ad_pct_l1": 0.04,
      "whisper_ad_pct_l18": 0.44,
-     "whisper_crit": 0.003,
-     "whisper_as": 0.0025,
-     "as_fixed": 0.625
+     "whisper_crit": 0.0035,
+     "whisper_as": 0.003,
+     "as_fixed": 0.625,
+     "reload_every": 4,
+     "reload_time": 2.5
     }
    }
   },
@@ -13544,7 +13603,30 @@
       "speed": 2200,
       "on_self": false
      },
-     "hits": [],
+     "hits": [
+      {
+       "type": "magic",
+       "calc": "InitialDamage",
+       "scaling": {
+        "const": 140.0,
+        "ap": 0.45
+       },
+       "target": "flat",
+       "per_second": false,
+       "alt": false
+      },
+      {
+       "type": "magic",
+       "calc": "TetherRootDamage",
+       "scaling": {
+        "const": 140.0,
+        "ap": 0.45
+       },
+       "target": "flat",
+       "per_second": false,
+       "alt": false
+      }
+     ],
      "mode_overrides": [],
      "notes": [
       "hand override: Focused Resolve tether roots for 2s at max rank if the tether holds"
@@ -13635,7 +13717,12 @@
     }
    ],
    "parse_quality": "good",
-   "notes": []
+   "notes": [],
+   "kit": {
+    "effects": {
+     "r_cdr_on_hit": 4
+    }
+   }
   },
   {
    "id": "Karthus",
@@ -21018,8 +21105,8 @@
        "type": "magic",
        "calc": "DotDamageCalc",
        "scaling": {
-        "const": 70.0,
-        "ap": 0.4
+        "const": 140.0,
+        "ap": 0.8
        },
        "target": "flat",
        "per_second": false,
@@ -21061,8 +21148,8 @@
        "type": "magic",
        "calc": "DamageCalc",
        "scaling": {
-        "const": 195.0,
-        "ap": 0.5
+        "const": 292.5,
+        "ap": 0.75
        },
        "target": "flat",
        "per_second": false,
@@ -21129,7 +21216,7 @@
     {
      "trigger": "attack",
      "every": 1,
-     "cooldown": 8.0,
+     "cooldown": 6.0,
      "per_target": true,
      "charges": 1,
      "max_charges": 1,
@@ -21138,10 +21225,9 @@
      "hits": [
       {
        "type": "physical",
-       "calc": "TotalDamageTooltip",
+       "calc": "BonusDamage",
        "scaling": {
-        "const": 224.1,
-        "bonus_ad": 1.0
+        "const": 116.0
        },
        "target": "flat",
        "per_second": false,
@@ -21283,7 +21369,10 @@
       }
      ],
      "mode_overrides": [],
-     "notes": []
+     "notes": [
+      "hand override: Shapesplitter's damage is its passive: every 3rd attack deals bonus magic damage; the active is only a clone"
+     ],
+     "onhit_every": 3
     },
     {
      "slot": "E",
@@ -21465,7 +21554,14 @@
       }
      ],
      "mode_overrides": [],
-     "notes": []
+     "notes": [
+      "hand override: Javelin Toss damage grows with distance flown: x1 at 525 to x3.25 at 1300 (RangeThreshold, DamageMulti)"
+     ],
+     "range_scale": {
+      "from": 525,
+      "to": 1300,
+      "max": 3.25
+     }
     },
     {
      "slot": "W",
@@ -21535,24 +21631,65 @@
      "slot": "R",
      "name": "AspectOfTheCougar",
      "rank": 3,
-     "cooldown": 3.0,
-     "cast_time": 0.0,
+     "cooldown": 6,
+     "cast_time": 0.25,
      "targeting": "Self",
      "area": "aoe",
      "duration": 0.0,
      "geometry": {
-      "shape": "single",
-      "range": 525.0,
-      "radius": 0.0,
+      "shape": "circle",
+      "range": 375,
+      "radius": 225,
       "width": 0.0,
       "angle": 0.0,
       "speed": 0,
-      "on_self": true,
-      "self_buff": true
+      "on_self": false,
+      "self_buff": false,
+      "move": "dash"
      },
-     "hits": [],
+     "hits": [
+      {
+       "type": "magic",
+       "calc": "TotalTakedownDamage",
+       "scaling": {
+        "const": 143.0,
+        "bonus_ad": 0.75,
+        "ap": 0.4
+       },
+       "target": "flat",
+       "per_second": false,
+       "alt": false
+      },
+      {
+       "type": "magic",
+       "calc": "TotalPounceDamage",
+       "scaling": {
+        "const": 290.0,
+        "bonus_ad": 1.0,
+        "ap": 0.6
+       },
+       "target": "flat",
+       "per_second": false,
+       "alt": false
+      },
+      {
+       "type": "magic",
+       "calc": "TotalSwipeDamage",
+       "scaling": {
+        "const": 380.0,
+        "bonus_ad": 1.4,
+        "ap": 1.1
+       },
+       "target": "flat",
+       "per_second": false,
+       "alt": false
+      }
+     ],
      "mode_overrides": [],
-     "notes": []
+     "notes": [
+      "hand override: Aspect of the Cougar: one Cougar Form combo per 6s cougar cooldown (Pounce in, Swipe, Takedown); R rank 3 numbers from AspectOfTheCougar: Takedown 55 + 75% AD + 40% AP (its missing-health bonus left out), Pounce 145 + 50% bonus AD + 30% AP, Swipe 190 + 70% bonus AD + 55% AP; second and third numbers x2 so they count fully"
+     ],
+     "lock": 0.5
     }
    ],
    "parse_quality": "good",
@@ -22302,7 +22439,7 @@
      "slot": "Q",
      "name": "OlafAxeThrowCast",
      "rank": 5,
-     "cooldown": 9.0,
+     "cooldown": 5,
      "cast_time": 0.25,
      "cc": {
       "type": "slow",
@@ -22336,7 +22473,9 @@
       }
      ],
      "mode_overrides": [],
-     "notes": []
+     "notes": [
+      "hand override: Undertow: picking the axe up cuts the remaining cooldown to 2.5s minus the time since it landed; in close ARAM fights Olaf usually walks over it, so about 5s between throws"
+     ]
     },
     {
      "slot": "W",
@@ -22366,7 +22505,14 @@
      },
      "hits": [],
      "mode_overrides": [],
-     "notes": []
+     "notes": [
+      "hand override: Tough It Out: +80% attack speed for 5s (rank 5) and resets the attack timer"
+     ],
+     "attack_reset": true,
+     "buff": {
+      "duration": 5,
+      "as": 0.8
+     }
     },
     {
      "slot": "E",
@@ -22409,7 +22555,7 @@
      "name": "OlafRagnarok",
      "rank": 3,
      "cooldown": 80.0,
-     "cast_time": 0.0,
+     "cast_time": 0,
      "cost": 100.0,
      "targeting": "Self",
      "area": "aoe",
@@ -22426,11 +22572,29 @@
      },
      "hits": [],
      "mode_overrides": [],
-     "notes": []
+     "notes": [
+      "hand override: Ragnarok: +30 (+25% AD) attack damage (about 67 + 25% bonus AD at 18) for 3s, extended 2.5s by every attack on a champion, so for the rest of a fight"
+     ],
+     "buff": {
+      "duration": 20,
+      "ad": 67,
+      "bonus_ad_pct": 0.25
+     }
     }
    ],
    "parse_quality": "good",
-   "notes": []
+   "notes": [],
+   "kit": {
+    "stats": {
+     "armor": 20,
+     "mr": 20
+    },
+    "effects": {
+     "as_missing": 1.0,
+     "lifesteal_missing": 0.25,
+     "missing_cap": 0.7
+    }
+   }
   },
   {
    "id": "Orianna",
@@ -22971,9 +23135,9 @@
      "slot": "Q",
      "name": "PantheonQ",
      "rank": 5,
-     "cooldown": 8.0,
-     "cast_time": 0.0,
-     "lock": 0.4,
+     "cooldown": 3.2,
+     "cast_time": 0.25,
+     "lock": 0,
      "cost": 25.0,
      "targeting": "Direction",
      "area": "line",
@@ -22984,7 +23148,7 @@
       "radius": 0.0,
       "width": 70.0,
       "angle": 0.0,
-      "speed": 1200,
+      "speed": 0,
       "on_self": false
      },
      "hits": [
@@ -23036,7 +23200,8 @@
      ],
      "mode_overrides": [],
      "notes": [
-      "hand override: tap or hold, one hit; empowered is the Mortal Will variant"
+      "hand override: tap or hold, one hit; empowered is the Mortal Will variant",
+      "hand override: Comet Spear tapped in melee: a thrust that lands at once and refunds 60% of the 8s cooldown (3.2s between thrusts); the held throw is the poke variant"
      ]
     },
     {
@@ -23124,10 +23289,24 @@
        "target": "flat",
        "per_second": false,
        "alt": false
+      },
+      {
+       "type": "physical",
+       "calc": "SlamDamage",
+       "scaling": {
+        "const": 510.0,
+        "bonus_ad": 3.0
+       },
+       "target": "flat",
+       "per_second": false,
+       "alt": false
       }
      ],
      "mode_overrides": [],
-     "notes": []
+     "notes": [
+      "hand override: Aegis Assault: the channel's strikes (100% AD in total) end in a shield slam for 255 (+150% bonus AD), x2 so it counts fully; Pantheon takes no damage from the front for the 1.5s channel"
+     ],
+     "invuln": 1.5
     },
     {
      "slot": "R",
@@ -24488,7 +24667,13 @@
     }
    ],
    "parse_quality": "good",
-   "notes": []
+   "notes": [],
+   "kit": {
+    "effects": {
+     "ad_per_armor": 0.15,
+     "ad_per_mr": 0.15
+    }
+   }
   },
   {
    "id": "RekSai",
@@ -27042,9 +27227,32 @@
        "type": "physical",
        "calc": "BonusCurentHealthDamage",
        "scaling": {
-        "const": 0.18
+        "const": 0.1
        },
        "target": "target_current_hp",
+       "per_second": false,
+       "alt": false
+      }
+     ]
+    },
+    {
+     "trigger": "attack",
+     "every": 1,
+     "cooldown": 0.0,
+     "per_target": false,
+     "charges": 1,
+     "max_charges": 1,
+     "aoe": false,
+     "below_hp": 0.0,
+     "hits": [
+      {
+       "type": "physical",
+       "calc": "BonusOnHitDamage",
+       "scaling": {
+        "const": 10.0,
+        "bonus_ad": 0.2
+       },
+       "target": "flat",
        "per_second": false,
        "alt": false
       }
@@ -27062,7 +27270,8 @@
     },
     "effects": {
      "range_ranged_l1": 0,
-     "range_ranged_l18": 75
+     "range_ranged_l18": 75,
+     "crit_damage_mult": 0.8
     }
    }
   },
@@ -27123,7 +27332,7 @@
      "name": "SeraphineQ",
      "rank": 5,
      "cooldown": 6.0,
-     "cast_time": 0.0,
+     "cast_time": 0.25,
      "cost": 100.0,
      "targeting": "LocationClamped",
      "area": "aoe",
@@ -27162,7 +27371,9 @@
       }
      ],
      "mode_overrides": [],
-     "notes": []
+     "notes": [
+      "hand override: High Note cast time is 0.25 s (SeraphineQCast)"
+     ]
     },
     {
      "slot": "W",
@@ -27199,7 +27410,7 @@
      "name": "SeraphineE",
      "rank": 5,
      "cooldown": 9.0,
-     "cast_time": 0.0,
+     "cast_time": 0.25,
      "cc": {
       "type": "slow",
       "duration": 1.5,
@@ -27233,7 +27444,8 @@
      ],
      "mode_overrides": [],
      "notes": [
-      "hand override: Beat Drop only slows a fresh target; root/stun need an existing slow/immobilize"
+      "hand override: Beat Drop only slows a fresh target; root/stun need an existing slow/immobilize",
+      "hand override: Beat Drop cast time is 0.25 s (SeraphineECast)"
      ]
     },
     {
@@ -28395,7 +28607,9 @@
      "notes": [
       "hand override: Poison Trail is a toggle: on whenever enemies are in reach"
      ],
-     "toggle": true
+     "toggle": true,
+     "trail": 3.25,
+     "linger": 2.0
     },
     {
      "slot": "W",
@@ -28423,7 +28637,8 @@
      },
      "hits": [],
      "mode_overrides": [],
-     "notes": []
+     "notes": [],
+     "cast_for_cc": true
     },
     {
      "slot": "E",
@@ -28501,7 +28716,17 @@
     }
    ],
    "parse_quality": "good",
-   "notes": []
+   "notes": [],
+   "kit": {
+    "stats": {
+     "ap": 85,
+     "armor": 85,
+     "mr": 85
+    },
+    "effects": {
+     "ms": 85
+    }
+   }
   },
   {
    "id": "Sion",
@@ -28582,10 +28807,10 @@
      "hits": [
       {
        "type": "physical",
-       "calc": "MinDamageTotal",
+       "calc": "HalfChargeDamage",
        "scaling": {
-        "const": 198.8,
-        "bonus_ad": 0.8
+        "const": 437.6,
+        "bonus_ad": 1.6
        },
        "target": "flat",
        "per_second": false,
@@ -28747,7 +28972,10 @@
     }
    },
    "death": {
-    "act": 9
+    "act": 9,
+    "as": 1.75,
+    "onhit_max_hp": 0.1,
+    "abilities": false
    }
   },
   {
@@ -30000,11 +30228,11 @@
      "area": "aoe",
      "duration": 0.0,
      "geometry": {
-      "shape": "line",
-      "range": 750.0,
+      "shape": "cone",
+      "range": 725,
       "radius": 0.0,
-      "width": 50.0,
-      "angle": 0.0,
+      "width": 0,
+      "angle": 32,
       "speed": 0,
       "on_self": false
      },
@@ -30024,8 +30252,8 @@
        "type": "magic",
        "calc": "ExtraBoltDamage",
        "scaling": {
-        "const": 45.0,
-        "ap": 0.1125
+        "const": 180.0,
+        "ap": 0.45
        },
        "target": "flat",
        "per_second": false,
@@ -30175,8 +30403,8 @@
        "type": "magic",
        "calc": "DemonflareDamageTotal",
        "scaling": {
-        "const": 350.0,
-        "ap": 0.4
+        "const": 700.0,
+        "ap": 0.8
        },
        "target": "flat",
        "per_second": false,
@@ -38365,8 +38593,8 @@
        "type": "physical",
        "calc": "SecondHitDamage",
        "scaling": {
-        "const": 150.0,
-        "bonus_ad": 0.4
+        "const": 300.0,
+        "bonus_ad": 0.8
        },
        "target": "flat",
        "per_second": false,
@@ -38374,7 +38602,15 @@
       }
      ],
      "mode_overrides": [],
-     "notes": []
+     "notes": [
+      "hand override: The Darkin Glaive's recast (free, 1.5s after the first) always follows, so its bonus damage counts fully; the double strike heals 9% of max Health (rank 5) when it hits a champion"
+     ],
+     "heal": {
+      "scaling": {
+       "const": 286.0,
+       "bonus_hp": 0.09
+      }
+     }
     },
     {
      "slot": "W",
@@ -38516,11 +38752,36 @@
       }
      ],
      "mode_overrides": [],
-     "notes": []
+     "notes": [
+      "hand override: Grim Deliverance heals 33% of its damage per champion hit"
+     ],
+     "heal": {
+      "scaling": {
+       "const": 181.5,
+       "bonus_ad": 0.66
+      }
+     }
     }
    ],
    "parse_quality": "good",
-   "notes": []
+   "notes": [],
+   "death": {
+    "revive_frac": 0.75,
+    "revive_delay": 4,
+    "chance": 0.8
+   },
+   "kit": {
+    "stats": {
+     "armor_pen": 0.3
+    },
+    "effects": {
+     "stack_on": 3,
+     "stack_max": 12,
+     "stack_duration": 5,
+     "stack_ad_l1": 1.8,
+     "stack_ad_l18": 15.0
+    }
+   }
   },
   {
    "id": "Zac",
@@ -38762,8 +39023,13 @@
    "notes": [],
    "death": {
     "revive_frac": 0.3,
-    "revive_delay": 8,
+    "revive_delay": 4,
     "chance": 0.5
+   },
+   "kit": {
+    "effects": {
+     "w_cdr_on_cast_hit": 1
+    }
    }
   },
   {
@@ -38852,8 +39118,8 @@
        "type": "physical",
        "calc": "PassThroughDamage",
        "scaling": {
-        "const": 144.0,
-        "bonus_ad": 0.6
+        "const": 288.0,
+        "bonus_ad": 1.2
        },
        "target": "flat",
        "per_second": false,
@@ -38862,8 +39128,10 @@
      ],
      "mode_overrides": [],
      "notes": [
-      "hand override: Razor Shuriken missile speed is 1700, not 902"
-     ]
+      "hand override: Razor Shuriken missile speed is 1700, not 902",
+      "hand override: Living Shadow (W, 5.25s, cooldown cut 3s per E hit) and the Death Mark shadow mimic Razor Shuriken: about one shadow shuriken per cast lands on the target for the 60% damage, counted fully; Living Shadow's passive gives back 50 energy (rank 5) when Zed and a shadow hit the same target with it"
+     ],
+     "refund": 50
     },
     {
      "slot": "W",
@@ -38894,7 +39162,7 @@
      "name": "ZedE",
      "rank": 5,
      "cooldown": 3.0,
-     "cast_time": 0.25,
+     "cast_time": 0,
      "cc": {
       "type": "slow",
       "duration": 1.5,
@@ -38906,8 +39174,8 @@
      "duration": 1.5,
      "geometry": {
       "shape": "circle",
-      "range": 290.0,
-      "radius": 290.0,
+      "range": 315,
+      "radius": 315,
       "width": 0.0,
       "angle": 0.0,
       "speed": 0,
@@ -38927,7 +39195,10 @@
       }
      ],
      "mode_overrides": [],
-     "notes": []
+     "notes": [
+      "hand override: Shadow Slash is instant (cast time none) with a 315 radius around Zed; 50 energy back when a shadow's slash hits the target too"
+     ],
+     "refund": 50
     },
     {
      "slot": "R",
@@ -38962,7 +39233,13 @@
       }
      ],
      "mode_overrides": [],
-     "notes": []
+     "notes": [
+      "hand override: Death Mark stores 55% (rank 3 RDamageAmp) of the physical and magic damage Zed deals the target over 3s and pops it as physical damage"
+     ],
+     "mark": {
+      "duration": 3,
+      "share": 0.55
+     }
     }
    ],
    "passives": [
@@ -39971,6 +40248,17 @@
        "target": "flat",
        "per_second": false,
        "alt": false
+      },
+      {
+       "type": "magic",
+       "calc": "PlantAttacks",
+       "scaling": {
+        "const": 480.0,
+        "ap": 1.28
+       },
+       "target": "flat",
+       "per_second": false,
+       "alt": false
       }
      ],
      "mode_overrides": [],
@@ -40030,6 +40318,17 @@
        "scaling": {
         "const": 200.0,
         "ap": 0.6
+       },
+       "target": "flat",
+       "per_second": false,
+       "alt": false
+      },
+      {
+       "type": "magic",
+       "calc": "PlantAttacks",
+       "scaling": {
+        "const": 480.0,
+        "ap": 1.28
        },
        "target": "flat",
        "per_second": false,

@@ -8,7 +8,7 @@
   "its_critical": {"id": 1047, "name": "It's Critical", "rarity": "gold", "stats": {"crit": 0.5}, "confidence": "verified"},
   "tank_engine": {"id": 1353, "name": "Tank Engine", "rarity": "gold", "effects": {"hp_pct": 0.5}, "confidence": "approx", "note": "5% max Health per takedown, 65% of stacks lost on death; 10 late-game takedowns assumed"},
   "magic_missile": {"id": 1133, "name": "Magic Missile", "rarity": "gold", "effects": {"missile_count": 3, "missile_max_hp": 0.00334, "missile_cd": 6}, "confidence": "verified", "note": "Up to 1% max Health true damage in all; the sim assumes full distance traveled"},
-  "mystic_punch": {"id": 1058, "name": "Mystic Punch", "rarity": "prismatic", "effects": {"attack_cdr_flat": 1.25}, "confidence": "verified", "note": "Cooldowns can't be refunded below 50% (MinCDR), not modeled"},
+  "mystic_punch": {"id": 1058, "name": "Mystic Punch", "rarity": "prismatic", "effects": {"attack_cdr_flat": 1.25, "attack_cdr_min": 0.5}, "confidence": "verified"},
   "goliath": {"id": 1041, "name": "Goliath", "rarity": "prismatic", "effects": {"hp_pct": 0.35, "adaptive_amp": 0.15}, "confidence": "verified"},
   "jeweled_gauntlet": {"id": 1048, "name": "Jeweled Gauntlet", "rarity": "prismatic", "stats": {"crit": 0.25}, "effects": {"abilities_crit": 1, "ability_crit_damage": 1.45}, "confidence": "verified", "note": "Also grants 0.045% crit chance per AP (CritGranted), not modeled"},
   "dual_wield": {"id": 1225, "name": "Dual Wield", "rarity": "prismatic", "effects": {"total_as_mult": 0.1, "second_bolt": 0.4, "second_bolt_onhit": 0.4}, "confidence": "verified"},
