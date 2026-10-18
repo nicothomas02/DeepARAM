@@ -44,5 +44,8 @@
  "Patch {patch}, with the change since {before}. Pick patches from the list to add or remove them.": "パッチ{patch}、{before}からの変化つき。リストからパッチを選んで追加・削除できます。",
  "Patch {patch}. Pick patches from the list to add or remove them.": "パッチ{patch}。リストからパッチを選んで追加・削除できます。",
  "{n} patches combined. Pick patches from the list to add or remove them.": "{n}パッチを合算。リストからパッチを選んで追加・削除できます。",
- "Items": "アイテム"
+ "Items": "アイテム",
+ "Early game": "序盤",
+ "Late game": "終盤",
+ "Even": "安定"
 }

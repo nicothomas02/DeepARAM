@@ -191,5 +191,7 @@
  "{n} min": "{n} min",
  "game length": "duração da partida",
  "blue side wins": "vitórias do lado azul",
- "red side wins": "vitórias do lado vermelho"
+ "red side wins": "vitórias do lado vermelho",
+ "Early game": "Início de jogo",
+ "Late game": "Fim de jogo"
 }

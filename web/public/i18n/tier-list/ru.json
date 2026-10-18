@@ -44,5 +44,8 @@
  "Patch {patch}, with the change since {before}. Pick patches from the list to add or remove them.": "Патч {patch} с изменением с {before}. Выбирайте патчи в списке, чтобы добавить или убрать их.",
  "Patch {patch}. Pick patches from the list to add or remove them.": "Патч {patch}. Выбирайте патчи в списке, чтобы добавить или убрать их.",
  "{n} patches combined. Pick patches from the list to add or remove them.": "Объединено патчей: {n}. Выбирайте патчи в списке, чтобы добавить или убрать их.",
- "Items": "Предметы"
+ "Items": "Предметы",
+ "Early game": "Ранняя игра",
+ "Late game": "Поздняя игра",
+ "Even": "Ровно"
 }

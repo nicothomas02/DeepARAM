@@ -44,5 +44,8 @@
  "Patch {patch}, with the change since {before}. Pick patches from the list to add or remove them.": "Patch {patch}, cu schimbarea de la {before}. Alege patchuri din listă ca să le adaugi sau să le elimini.",
  "Patch {patch}. Pick patches from the list to add or remove them.": "Patch {patch}. Alege patchuri din listă ca să le adaugi sau să le elimini.",
  "{n} patches combined. Pick patches from the list to add or remove them.": "{n} patchuri combinate. Alege patchuri din listă ca să le adaugi sau să le elimini.",
- "Items": "Obiecte"
+ "Items": "Obiecte",
+ "Early game": "Început de joc",
+ "Late game": "Final de joc",
+ "Even": "Constant"
 }

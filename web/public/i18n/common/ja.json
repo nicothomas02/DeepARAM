@@ -191,5 +191,7 @@
  "{n} min": "{n}分",
  "game length": "試合時間",
  "blue side wins": "青側の勝率",
- "red side wins": "赤側の勝率"
+ "red side wins": "赤側の勝率",
+ "Early game": "序盤",
+ "Late game": "終盤"
 }

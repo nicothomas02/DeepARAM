@@ -44,5 +44,8 @@
  "Patch {patch}, with the change since {before}. Pick patches from the list to add or remove them.": "{patch} Yaması, {before} sürümünden bu yana değişimle. Eklemek veya kaldırmak için listeden yama seç.",
  "Patch {patch}. Pick patches from the list to add or remove them.": "{patch} Yaması. Eklemek veya kaldırmak için listeden yama seç.",
  "{n} patches combined. Pick patches from the list to add or remove them.": "{n} yama birleşik. Eklemek veya kaldırmak için listeden yama seç.",
- "Items": "Eşyalar"
+ "Items": "Eşyalar",
+ "Early game": "Erken oyun",
+ "Late game": "Geç oyun",
+ "Even": "Dengeli"
 }

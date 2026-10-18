@@ -109,6 +109,8 @@ const FUN: [string, string][] = [
   ["teamplay", "Teamplay"],
   ["multikills", "Multikills"],
   ["towers", "Towers"],
+  ["early_game", "Early game"],
+  ["late_game", "Late game"],
 ];
 
 /** Estimated top 10 champions at one thing a game, picked from a short list. */

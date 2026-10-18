@@ -44,5 +44,8 @@
  "Patch {patch}, with the change since {before}. Pick patches from the list to add or remove them.": "Patch {patch} ze zmianą od {before}. Wybieraj patche z listy, aby je dodać lub usunąć.",
  "Patch {patch}. Pick patches from the list to add or remove them.": "Patch {patch}. Wybieraj patche z listy, aby je dodać lub usunąć.",
  "{n} patches combined. Pick patches from the list to add or remove them.": "Połączone patche: {n}. Wybieraj patche z listy, aby je dodać lub usunąć.",
- "Items": "Przedmioty"
+ "Items": "Przedmioty",
+ "Early game": "Wczesna gra",
+ "Late game": "Późna gra",
+ "Even": "Równo"
 }

@@ -44,5 +44,8 @@
  "Patch {patch}, with the change since {before}. Pick patches from the list to add or remove them.": "Patch {patch}, dengan perubahan sejak {before}. Pilih patch dari daftar untuk menambah atau menghapusnya.",
  "Patch {patch}. Pick patches from the list to add or remove them.": "Patch {patch}. Pilih patch dari daftar untuk menambah atau menghapusnya.",
  "{n} patches combined. Pick patches from the list to add or remove them.": "{n} patch digabung. Pilih patch dari daftar untuk menambah atau menghapusnya.",
- "Items": "Item"
+ "Items": "Item",
+ "Early game": "Awal game",
+ "Late game": "Akhir game",
+ "Even": "Merata"
 }

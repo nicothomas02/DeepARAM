@@ -44,5 +44,8 @@
  "Patch {patch}, with the change since {before}. Pick patches from the list to add or remove them.": "แพตช์ {patch} พร้อมการเปลี่ยนแปลงตั้งแต่ {before} เลือกแพตช์จากรายการเพื่อเพิ่มหรือนำออก",
  "Patch {patch}. Pick patches from the list to add or remove them.": "แพตช์ {patch} เลือกแพตช์จากรายการเพื่อเพิ่มหรือนำออก",
  "{n} patches combined. Pick patches from the list to add or remove them.": "รวม {n} แพตช์ เลือกแพตช์จากรายการเพื่อเพิ่มหรือนำออก",
- "Items": "ไอเทม"
+ "Items": "ไอเทม",
+ "Early game": "ช่วงต้นเกม",
+ "Late game": "ช่วงท้ายเกม",
+ "Even": "สม่ำเสมอ"
 }

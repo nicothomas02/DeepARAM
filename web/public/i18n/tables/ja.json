@@ -98,5 +98,7 @@
  "How often the first champion has the second as a teammate.": "1人目のチャンピオンの味方に2人目がいる割合。",
  "Pair win rate minus the average of the two champions' own win rates. Above zero means they win more together.": "ペアの勝率から、2体のチャンピオンそれぞれの勝率の平均を引いた値。0より上なら一緒の方が勝ちやすいことを示します。",
  "DeepScore rates each build from 0 to 100 against this champion's other builds in the same list, where 50 is average. It starts from the build's win rate with this champion and trusts rarely built ones less. Tiers: S 70+, A 59+, B 44+, C 32+, D below.": "DeepScoreは、同じリスト内のこのチャンピオンの他のビルドと比べて各ビルドを0〜100で評価します（50が平均）。このチャンピオンでのビルドの勝率をもとに、あまり作られないビルドほど控えめに評価します。ティア：S 70以上、A 59以上、B 44以上、C 32以上、Dはそれ未満。",
- "DeepScore rates each item from 0 to 100 against the other items of its tier, where 50 is average. It starts from how much the item raises the win rate of the champions who build it and trusts rarely built items less. Tiers: S 70+, A 59+, B 44+, C 32+, D below.": "DeepScoreは、同じティアの他のアイテムと比べて各アイテムを0〜100で評価します（50が平均）。そのアイテムを作るチャンピオンの勝率をどれだけ上げるかをもとに、あまり作られないアイテムほど控えめに評価します。ティア：S 70以上、A 59以上、B 44以上、C 32以上、Dはそれ未満。"
+ "DeepScore rates each item from 0 to 100 against the other items of its tier, where 50 is average. It starts from how much the item raises the win rate of the champions who build it and trusts rarely built items less. Tiers: S 70+, A 59+, B 44+, C 32+, D below.": "DeepScoreは、同じティアの他のアイテムと比べて各アイテムを0〜100で評価します（50が平均）。そのアイテムを作るチャンピオンの勝率をどれだけ上げるかをもとに、あまり作られないアイテムほど控えめに評価します。ティア：S 70以上、A 59以上、B 44以上、C 32以上、Dはそれ未満。",
+ "Strongest": "強い時間帯",
+ "Estimated from simulated damage at levels 8, 13 and 18: whether the champion peaks early, late or stays even.": "レベル8、13、18でのシミュレーションダメージから推定：序盤型、終盤型、または安定型か。"
 }

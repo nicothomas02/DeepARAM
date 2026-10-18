@@ -191,5 +191,7 @@
  "{n} min": "{n} min",
  "game length": "durata meciului",
  "blue side wins": "victorii partea albastră",
- "red side wins": "victorii partea roșie"
+ "red side wins": "victorii partea roșie",
+ "Early game": "Început de joc",
+ "Late game": "Final de joc"
 }

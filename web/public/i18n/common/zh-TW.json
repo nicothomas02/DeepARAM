@@ -191,5 +191,7 @@
  "{n} min": "{n} 分鐘",
  "game length": "對局時長",
  "blue side wins": "藍方勝率",
- "red side wins": "紅方勝率"
+ "red side wins": "紅方勝率",
+ "Early game": "前期",
+ "Late game": "後期"
 }
