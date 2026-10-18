@@ -49,7 +49,6 @@ export type AugmentRow = {
   id: number;
   name: string;
   rarity: "prismatic" | "gold" | "silver";
-  grade: string;
   pickRate: number;
 };
 export type Mate = Rated & { id: string; synergy: number };
@@ -161,7 +160,6 @@ export function championPage(alias: string): ChampionPage | null {
       id: a.id,
       name: AUGS[a.id],
       rarity: rarity.get(a.id) ?? "silver",
-      grade: a.grade ?? "",
       pickRate: a.pick_rate,
     }));
 
