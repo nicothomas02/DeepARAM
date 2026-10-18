@@ -75,5 +75,7 @@
  "Some augments also grant this item.": "Algunos aumentos también otorgan este objeto.",
  "Win rate": "Tasa de victorias",
  "{wr} win · in {share} of builds": "{wr} victorias · en {share} de las builds",
- "augment item": "objeto de aumento"
+ "augment item": "objeto de aumento",
+ "Consumables": "Consumibles",
+ "From augments": "De aumentos"
 }

@@ -75,5 +75,7 @@
  "Some augments also grant this item.": "بعض التعزيزات تمنح هذا العنصر أيضًا.",
  "Win rate": "نسبة الفوز",
  "{wr} win · in {share} of builds": "فوز {wr} · في {share} من البنايات",
- "augment item": "عنصر تعزيز"
+ "augment item": "عنصر تعزيز",
+ "Consumables": "المستهلكات",
+ "From augments": "من التعزيزات"
 }

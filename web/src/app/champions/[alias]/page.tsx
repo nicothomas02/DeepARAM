@@ -125,6 +125,8 @@ const TIER_LABEL: Record<ItemTier, string> = {
   epic: "Epic",
   basic: "Basic",
   starter: "Starter",
+  consumable: "Consumables",
+  reward: "From augments",
 };
 
 // One page per champion, so each can be found in search. Laid out like a stat site's champion page: a header

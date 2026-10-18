@@ -75,5 +75,7 @@
  "Some augments also grant this item.": "Этот предмет также дают некоторые аугменты.",
  "Win rate": "Процент побед",
  "{wr} win · in {share} of builds": "{wr} побед · в {share} сборок",
- "augment item": "предмет из аугмента"
+ "augment item": "предмет из аугмента",
+ "Consumables": "Расходуемые",
+ "From augments": "Из аугментаций"
 }

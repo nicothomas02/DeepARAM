@@ -75,5 +75,7 @@
  "Some augments also grant this item.": "Niektóre ulepszenia też dają ten przedmiot.",
  "Win rate": "Współczynnik zwycięstw",
  "{wr} win · in {share} of builds": "{wr} zwycięstw · w {share} buildów",
- "augment item": "przedmiot z ulepszenia"
+ "augment item": "przedmiot z ulepszenia",
+ "Consumables": "Przedmioty jednorazowe",
+ "From augments": "Ze wzmocnień"
 }

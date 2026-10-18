@@ -75,5 +75,7 @@
  "Some augments also grant this item.": "ออคเมนต์บางตัวก็ให้ไอเทมนี้ด้วย",
  "Win rate": "อัตราชนะ",
  "{wr} win · in {share} of builds": "ชนะ {wr} · อยู่ใน {share} ของบิลด์",
- "augment item": "ไอเทมจากออคเมนต์"
+ "augment item": "ไอเทมจากออคเมนต์",
+ "Consumables": "ไอเทมใช้แล้วหมด",
+ "From augments": "จากออคเมนต์"
 }

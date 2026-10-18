@@ -75,5 +75,7 @@
  "Some augments also grant this item.": "Bazı güçlendirmeler de bu eşyayı verir.",
  "Win rate": "Kazanma oranı",
  "{wr} win · in {share} of builds": "{wr} galibiyet · buildlerin {share} kadarında",
- "augment item": "güçlendirme eşyası"
+ "augment item": "güçlendirme eşyası",
+ "Consumables": "Tüketilebilir",
+ "From augments": "Güçlendirmelerden"
 }

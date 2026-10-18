@@ -115,5 +115,7 @@
  "Magic": "Magic",
  "True": "True",
  "Win rates are estimated. Lift is how much each augment adds to this champion's win rate.": "Tingkat menang adalah perkiraan. Efek adalah seberapa besar tiap augment menambah tingkat menang champion ini.",
- "Estimated: augments that pair well on this champion, with their win rate together.": "Perkiraan: augment yang cocok dipasangkan pada champion ini, dengan tingkat menang keduanya bersama."
+ "Estimated: augments that pair well on this champion, with their win rate together.": "Perkiraan: augment yang cocok dipasangkan pada champion ini, dengan tingkat menang keduanya bersama.",
+ "Consumables": "Habis pakai",
+ "From augments": "Dari augment"
 }

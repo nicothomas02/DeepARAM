@@ -115,5 +115,7 @@
  "Magic": "마법",
  "True": "고정",
  "Win rates are estimated. Lift is how much each augment adds to this champion's win rate.": "승률은 추정치입니다. 효과는 각 증강이 이 챔피언의 승률을 얼마나 올리는지 보여 줍니다.",
- "Estimated: augments that pair well on this champion, with their win rate together.": "추정: 이 챔피언에게 잘 맞는 증강 조합과 함께 골랐을 때의 승률입니다."
+ "Estimated: augments that pair well on this champion, with their win rate together.": "추정: 이 챔피언에게 잘 맞는 증강 조합과 함께 골랐을 때의 승률입니다.",
+ "Consumables": "소모품",
+ "From augments": "증강 보상"
 }

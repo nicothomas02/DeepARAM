@@ -75,5 +75,7 @@
  "Some augments also grant this item.": "部分强化符文也会给予该装备。",
  "Win rate": "胜率",
  "{wr} win · in {share} of builds": "胜率 {wr} · 出现在 {share} 的出装中",
- "augment item": "强化符文装备"
+ "augment item": "强化符文装备",
+ "Consumables": "消耗品",
+ "From augments": "来自强化符文"
 }

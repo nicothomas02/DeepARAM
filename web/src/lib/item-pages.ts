@@ -6,10 +6,12 @@ import { liveWithChange } from "./champions";
 import { grade, lowerBound } from "./deepscore";
 import { ITEM_TIERS, itemTier, items, rewardItems, type ItemTier } from "./items";
 import { tagsFor } from "./item-tags";
+import { ddVersion } from "./dd-swap";
 import { readRepoJson } from "./repo-data";
 
-// One page per item that Mayhem players build (/items/<slug>): its stats and cost from the client's
-// item list, and the champions who build it most (data/cn/builds/<id>.json).
+// One page per item in the Mayhem shop (/items/<slug>): every item sold on Howling Abyss, the items
+// augments hand out, and anything champions build. Stats and cost come from the client's item list, the
+// champions who build it most from data/cn/builds/<id>.json.
 
 const IDS = championIds as Record<string, number>;
 
@@ -77,11 +79,31 @@ function statLines(description: string) {
     .filter(Boolean);
 }
 
+type DdItem = {
+  maps?: Record<string, boolean>;
+  gold?: { total: number; purchasable: boolean };
+  requiredChampion?: string;
+};
+
+/** Every item the Howling Abyss shop sells: standard ids only (other modes' copies are 100000 and up),
+ *  priced, shown in the shop's item sets and not tied to one champion. */
+function shopItems(info: Map<number, { inStore?: boolean; displayInItemSets?: boolean }>): number[] {
+  const dd = readRepoJson<{ data: Record<string, DdItem> }>(`web/public/assets/dd/${ddVersion}/data/en_US/item.json`)?.data ?? {};
+  return Object.entries(dd).flatMap(([k, v]) => {
+    const id = Number(k);
+    const c = info.get(id);
+    const sold = v.maps?.["12"] && v.gold?.purchasable && v.gold.total > 0 && !v.requiredChampion;
+    return sold && id < 100000 && c?.inStore !== false && c?.displayInItemSets ? [id] : [];
+  });
+}
+
 let cache: ItemPage[] | null = null;
 export function itemPages(): ItemPage[] {
   if (cache) return cache;
   const all = items();
-  const raw = readRepoJson<{ id: number; description?: string; priceTotal?: number; categories?: string[] }[]>(
+  const raw = readRepoJson<
+    { id: number; description?: string; priceTotal?: number; categories?: string[]; inStore?: boolean; displayInItemSets?: boolean }[]
+  >(
     "web/public/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/items.json",
   );
   const info = new Map((raw ?? []).map((i) => [i.id, i]));
@@ -97,7 +119,8 @@ export function itemPages(): ItemPage[] {
     }
   }
   const slugs = new Set<string>();
-  cache = [...builders.keys()]
+  const ids = new Set([...builders.keys(), ...shopItems(info), ...rewardItems()]);
+  cache = [...ids]
     .map((id) => all.get(id))
     .filter((i): i is NonNullable<typeof i> => Boolean(i))
     .map((i) => {
@@ -112,8 +135,8 @@ export function itemPages(): ItemPage[] {
         cost: info.get(i.id)?.priceTotal ?? 0,
         stats: statLines(info.get(i.id)?.description ?? ""),
         tags: tagsFor(info.get(i.id)?.categories),
-        popularity: builders.get(i.id)!.reduce((s, b) => s + b.pickRate, 0),
-        builders: [...builders.get(i.id)!].sort((x, y) => y.pickRate - x.pickRate).slice(0, 10),
+        popularity: (builders.get(i.id) ?? []).reduce((s, b) => s + b.pickRate, 0),
+        builders: [...(builders.get(i.id) ?? [])].sort((x, y) => y.pickRate - x.pickRate).slice(0, 10),
         tier: itemTier(i.id),
         deepScore: null as number | null,
       };

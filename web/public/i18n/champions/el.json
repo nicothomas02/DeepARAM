@@ -115,5 +115,7 @@
  "Magic": "Μαγική",
  "True": "Αληθινή",
  "Win rates are estimated. Lift is how much each augment adds to this champion's win rate.": "Τα ποσοστά νικών είναι εκτιμήσεις. Η επίδραση δείχνει πόσο προσθέτει κάθε βελτίωση στο ποσοστό νικών αυτού του πρωταθλητή.",
- "Estimated: augments that pair well on this champion, with their win rate together.": "Εκτίμηση: βελτιώσεις που ταιριάζουν καλά σε αυτόν τον πρωταθλητή, με το κοινό τους ποσοστό νικών."
+ "Estimated: augments that pair well on this champion, with their win rate together.": "Εκτίμηση: βελτιώσεις που ταιριάζουν καλά σε αυτόν τον πρωταθλητή, με το κοινό τους ποσοστό νικών.",
+ "Consumables": "Αναλώσιμα",
+ "From augments": "Από βελτιώσεις"
 }

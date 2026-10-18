@@ -30,13 +30,15 @@ type Item = {
   granted: boolean;
 };
 // Shop tiers (lib/items.ts itemTier), in the order the DeepScore view groups them.
-type Tier = "legendary" | "boots" | "starter" | "epic" | "basic";
+type Tier = "legendary" | "boots" | "starter" | "epic" | "basic" | "consumable" | "reward";
 const TIERS: [Tier, string][] = [
   ["legendary", "Legendary"],
   ["boots", "Boots"],
   ["starter", "Starter"],
   ["epic", "Epic"],
   ["basic", "Basic"],
+  ["consumable", "Consumables"],
+  ["reward", "From augments"],
 ];
 const SORTS = [
   ["deepscore", "DeepScore"],

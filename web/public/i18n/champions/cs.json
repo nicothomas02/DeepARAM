@@ -115,5 +115,7 @@
  "Magic": "Magické",
  "True": "Pravé",
  "Win rates are estimated. Lift is how much each augment adds to this champion's win rate.": "Míry výher jsou odhadované. Vliv udává, o kolik každé vylepšení zvyšuje míru výher tohoto šampiona.",
- "Estimated: augments that pair well on this champion, with their win rate together.": "Odhad: vylepšení, která se u tohoto šampiona dobře doplňují, s jejich společnou mírou výher."
+ "Estimated: augments that pair well on this champion, with their win rate together.": "Odhad: vylepšení, která se u tohoto šampiona dobře doplňují, s jejich společnou mírou výher.",
+ "Consumables": "Spotřební předměty",
+ "From augments": "Z vylepšení"
 }

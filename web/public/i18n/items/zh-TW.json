@@ -75,5 +75,7 @@
  "Some augments also grant this item.": "部分強化符文也會給予該裝備。",
  "Win rate": "勝率",
  "{wr} win · in {share} of builds": "勝率 {wr} · 出現在 {share} 的出裝中",
- "augment item": "強化符文裝備"
+ "augment item": "強化符文裝備",
+ "Consumables": "消耗品",
+ "From augments": "來自強化"
 }

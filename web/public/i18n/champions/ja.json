@@ -115,5 +115,7 @@
  "Magic": "魔法",
  "True": "確定",
  "Win rates are estimated. Lift is how much each augment adds to this champion's win rate.": "勝率は推定値です。効果は、各オーグメントがこのチャンピオンの勝率をどれだけ上げるかを示します。",
- "Estimated: augments that pair well on this champion, with their win rate together.": "推定：このチャンピオンで相性のよいオーグメントの組み合わせと、一緒に選んだときの勝率。"
+ "Estimated: augments that pair well on this champion, with their win rate together.": "推定：このチャンピオンで相性のよいオーグメントの組み合わせと、一緒に選んだときの勝率。",
+ "Consumables": "消耗品",
+ "From augments": "オーグメント由来"
 }

@@ -75,5 +75,7 @@
  "Some augments also grant this item.": "Κάποια augments δίνουν επίσης αυτό το αντικείμενο.",
  "Win rate": "Ποσοστό νικών",
  "{wr} win · in {share} of builds": "{wr} νίκες · στο {share} των build",
- "augment item": "αντικείμενο augment"
+ "augment item": "αντικείμενο augment",
+ "Consumables": "Αναλώσιμα",
+ "From augments": "Από βελτιώσεις"
 }
