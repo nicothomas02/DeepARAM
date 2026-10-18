@@ -45,7 +45,61 @@ import {
   type SpellRow,
 } from "@/lib/fill";
 import { ITEM_TIERS, type ItemTier } from "@/lib/items";
+import { championEstimates } from "@/lib/estimates";
+import championIds from "@/data/champion-ids.json";
+import augmentNames from "@/data/augment-names.json";
 import "../champion-page.css";
+
+const AUG_NAMES = augmentNames as Record<string, string>;
+
+// A typical game's estimated numbers, in this order, with how each one is written.
+const PROFILE: [string, string, (v: number) => string][] = [
+  ["kills", "Kills", (v) => v.toFixed(1)],
+  ["deaths", "Deaths", (v) => v.toFixed(1)],
+  ["assists", "Assists", (v) => v.toFixed(1)],
+  ["multikills", "Multikills", (v) => v.toFixed(1)],
+  [
+    "damage_per_min",
+    "Damage per minute",
+    (v) => Math.round(v).toLocaleString("en-US"),
+  ],
+  [
+    "taken_per_min",
+    "Damage taken per minute",
+    (v) => Math.round(v).toLocaleString("en-US"),
+  ],
+  [
+    "mitigated_per_min",
+    "Damage mitigated per minute",
+    (v) => Math.round(v).toLocaleString("en-US"),
+  ],
+  [
+    "heal_per_min",
+    "Healing per minute",
+    (v) => Math.round(v).toLocaleString("en-US"),
+  ],
+  [
+    "gold_per_min",
+    "Gold per minute",
+    (v) => Math.round(v).toLocaleString("en-US"),
+  ],
+  ["cc_seconds", "Crowd control seconds", (v) => v.toFixed(1)],
+  [
+    "turret_damage",
+    "Turret damage",
+    (v) => Math.round(v).toLocaleString("en-US"),
+  ],
+];
+const BAND = {
+  high: "Above average",
+  average: "Average",
+  low: "Below average",
+};
+// How far the champion sits from the average on a performance tile: points of share, or seconds dead.
+const vsAvg = (key: string, d: number) =>
+  key === "dead"
+    ? `${d > 0 ? "+" : ""}${Math.round(d)} s`
+    : `${d > 0 ? "+" : ""}${(d * 100).toFixed(1)} pts`;
 
 // Build lists rank by DeepScore against the champion's other builds in the same list.
 const SCORED_COLS = ["DeepScore", "Pick rate", "Win rate"];
@@ -179,6 +233,9 @@ export default async function ChampionPage({
   const alias = (await params).alias;
   const c = championSummary(alias);
   const p = championPage(alias);
+  const est = championEstimates(
+    (championIds as Record<string, number>)[alias] ?? -1,
+  );
   if (!c || !p) notFound();
   // Neighbours by name, for the arrows (and the [ and ] keys, lib/subtab-nav.ts).
   const all = champList();
@@ -417,11 +474,24 @@ export default async function ChampionPage({
             <T ns={NS}>Augments</T>
           </h2>
           {p.augments.length > 0 && (
-            <Panel title="Augments" count={p.augments.length}>
+            <Panel
+              title="Augments"
+              count={p.augments.length}
+              note={
+                est?.augments.size ? (
+                  <T ns={NS}>
+                    {
+                      "Win rates are estimated. Lift is how much each augment adds to this champion's win rate."
+                    }
+                  </T>
+                ) : undefined
+              }
+            >
               <AugmentTable
                 rows={p.augments
                   .map((a) => ({
                     ...a,
+                    ...est?.augments.get(a.id),
                     deepScore: scores.get(a.id),
                     href: augmentHref(a.id) ?? undefined,
                   }))
@@ -433,9 +503,61 @@ export default async function ChampionPage({
               />
             </Panel>
           )}
-          <Panel id="combos" title="Augment combinations">
-            <NotYet text="Augment pairs and their win rates appear here once enough games are in. Each pair needs a minimum number of games before it shows." />
-          </Panel>
+          {est?.pairs.length ? (
+            <Panel
+              id="combos"
+              title="Augment combinations"
+              count={est.pairs.length}
+              note={
+                <T ns={NS}>
+                  {
+                    "Estimated: augments that pair well on this champion, with their win rate together."
+                  }
+                </T>
+              }
+            >
+              <Head what="Augment pair" cols={["Est. win rate", "Pick rate"]} />
+              <ShowMore total={est.pairs.length} limit={5}>
+                {est.pairs.map((r, i) => (
+                  <Row
+                    key={r.ids.join("-")}
+                    rank={i + 1}
+                    cols={2}
+                    cells={
+                      <>
+                        <Cell value={pct(r.winRate)} label="Est. win rate" />
+                        <Cell value={pct(r.pickRate)} label="Pick rate" />
+                      </>
+                    }
+                  >
+                    <span className="cp-pair">
+                      {r.ids.map((id) => (
+                        <span key={id} className="cp-pair-one">
+                          <img
+                            className="cp-icon round"
+                            src={`/icons/augments/${id}.webp`}
+                            alt=""
+                            width={32}
+                            height={32}
+                            loading="lazy"
+                          />
+                          <span className="cp-name">
+                            <Name kind="augments" id={id}>
+                              {AUG_NAMES[id] ?? ""}
+                            </Name>
+                          </span>
+                        </span>
+                      ))}
+                    </span>
+                  </Row>
+                ))}
+              </ShowMore>
+            </Panel>
+          ) : (
+            <Panel id="combos" title="Augment combinations">
+              <NotYet text="Augment pairs and their win rates appear here once enough games are in. Each pair needs a minimum number of games before it shows." />
+            </Panel>
+          )}
 
           <h2 className="cp-group" id="builds">
             <T ns={NS}>Builds</T>
@@ -711,9 +833,71 @@ export default async function ChampionPage({
                       {"of {n}"}
                     </T>
                   </span>
+                  {est?.vsAverage.has(a.key) && (
+                    <em>
+                      <T
+                        ns={NS}
+                        v={{ n: vsAvg(a.key, est.vsAverage.get(a.key)!) }}
+                      >
+                        {"{n} vs average"}
+                      </T>
+                    </em>
+                  )}
                 </div>
               ))}
             </div>
+          )}
+          {est && est.profile.length > 0 && (
+            <Panel
+              title="Typical game"
+              note={<T ns={NS}>Estimated averages per game.</T>}
+            >
+              <div className="cp-profile">
+                {PROFILE.map(([key, label, fmt]) => {
+                  const s = est.profile.find((x) => x.key === key);
+                  return s ? (
+                    <div key={key} data-band={s.band}>
+                      <small>
+                        <T ns={NS}>{label}</T>
+                      </small>
+                      <b>{fmt(s.value)}</b>
+                      <span>
+                        <T ns={NS}>{BAND[s.band]}</T>
+                      </span>
+                    </div>
+                  ) : null;
+                })}
+              </div>
+              {est.split && (
+                <div className="cp-split">
+                  <small>
+                    <T ns={NS}>Damage type</T>
+                  </small>
+                  <div className="cp-split-bar" aria-hidden="true">
+                    {(["physical", "magic", "true"] as const).map((k) => (
+                      <span
+                        key={k}
+                        data-k={k}
+                        style={{ flexGrow: est.split![k] }}
+                      />
+                    ))}
+                  </div>
+                  <ul>
+                    {(
+                      [
+                        ["physical", "Physical"],
+                        ["magic", "Magic"],
+                        ["true", "True"],
+                      ] as const
+                    ).map(([k, l]) => (
+                      <li key={k} data-k={k}>
+                        <T ns={NS}>{l}</T> {pct(est.split![k])}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </Panel>
           )}
           <WinRateChart
             id={c.alias}

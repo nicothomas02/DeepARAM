@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { Name, useT } from "@/components/I18n";
 import DeepScore from "@/components/DeepScore";
+import { signed, tone } from "@/components/champion/Ranked";
 import type { AugmentRow } from "@/lib/champion-page";
 import { AUGMENT_DEEPSCORE_HELP } from "@/lib/deepscore";
 
@@ -22,12 +23,20 @@ const LIMIT = 10;
 export default function AugmentTable({
   rows,
 }: {
-  rows: (AugmentRow & { href?: string; deepScore?: number })[];
+  rows: (AugmentRow & {
+    href?: string;
+    deepScore?: number;
+    winRate?: number;
+    lift?: number;
+  })[];
 }) {
   const t = useT("champions");
   const [rarity, setRarity] = useState<(typeof RARITIES)[number]>("all");
   const [open, setOpen] = useState(false);
   const shown = rows.filter((r) => rarity === "all" || r.rarity === rarity);
+  // Estimated win rates, when there are any: an extra column with each augment's lift below it.
+  const est = rows.some((r) => r.winRate !== undefined);
+  const cols = est ? 3 : 2;
   return (
     <>
       <div className="cp-filters">
@@ -46,10 +55,11 @@ export default function AugmentTable({
           ))}
         </div>
       </div>
-      <div className="cp-th" data-cols={2}>
+      <div className="cp-th" data-cols={cols}>
         <span>{t("Rank")}</span>
         <span>{t("Augment")}</span>
         <span>{t("DeepScore")}</span>
+        {est && <span>{t("Est. win rate")}</span>}
         <span>{t("Pick rate")}</span>
       </div>
       <div className="cp-rows">
@@ -75,7 +85,7 @@ export default function AugmentTable({
             </>
           );
           return (
-            <div key={a.id} className="cp-row" data-cols={2}>
+            <div key={a.id} className="cp-row" data-cols={cols}>
               <span className="cp-rk">#{i + 1}</span>
               {a.href ? (
                 <Link className="cp-what" href={a.href}>
@@ -94,6 +104,22 @@ export default function AugmentTable({
                   <b>–</b>
                 )}
               </div>
+              {est && (
+                <div className="cp-cell">
+                  {a.winRate !== undefined ? (
+                    <>
+                      <b className={tone(a.lift ?? 0)}>
+                        {(a.winRate * 100).toFixed(1)}%
+                      </b>
+                      <small>
+                        {signed(a.lift ?? 0)} {t("lift")}
+                      </small>
+                    </>
+                  ) : (
+                    <b>–</b>
+                  )}
+                </div>
+              )}
               <div className="cp-cell">
                 <b>{(a.pickRate * 100).toFixed(1)}%</b>
                 <small>{t("Pick rate")}</small>

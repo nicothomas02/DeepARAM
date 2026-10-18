@@ -1,13 +1,14 @@
 import "server-only";
 import { readRepoJson } from "./repo-data";
 
-// Estimated stats (data/estimates/estimates.json, built daily by data/estimates/build.py; methods in its
-// README): numbers the live stats don't include, worked out from them. The site labels every one as an
-// estimate.
+// Estimated stats (data/estimates/estimates.json, rebuilt daily; methods in data/estimates/README.md):
+// numbers the live stats don't include, worked out from them. For a champion: each augment's win rate
+// with it, likely augment pairs, a typical game's numbers and how far it sits from the average. Site-wide:
+// items, augment stages and items, rarity odds, game length, side and top 10s. Pages label them as estimates.
 
+type Band = "high" | "average" | "low";
 type Rarity = "Silver" | "Gold" | "Prismatic";
 type Estimates = {
-  patch: string;
   items?: { id: number; win_rate: number; lift: number; build_share: number; slots: number[] | null; granted: boolean }[];
   augment_stages?: Record<string, { stages: number[]; usual: number }>;
   augment_items?: Record<string, { id: number; share: number }[]>;
@@ -15,7 +16,38 @@ type Estimates = {
   game_length?: { minutes: { mean: number; sd: number } };
   side?: { blue: number; red: number };
   fun?: Record<string, number[]>;
+  augments?: Record<string, { id: number; pick_rate: number; win_rate: number; lift: number }[]>;
+  augment_pairs?: Record<string, { ids: [number, number]; pick_rate: number; win_rate: number }[]>;
+  profiles?: Record<string, Record<string, { value: number; band: Band } | Record<string, number>>>;
+  vs_average?: Record<string, Record<string, { value: number; average: number; delta: number; percentile: number }>>;
 };
+
+export type ProfileStat = { key: string; value: number; band: Band };
+export type ChampionEstimates = {
+  augments: Map<number, { winRate: number; lift: number }>;
+  pairs: { ids: [number, number]; pickRate: number; winRate: number }[];
+  profile: ProfileStat[];
+  split: { physical: number; magic: number; true: number } | null;
+  vsAverage: Map<string, number>;
+};
+
+export function championEstimates(id: number): ChampionEstimates | null {
+  const e = readRepoJson<Estimates>("data/estimates/estimates.json");
+  if (!e) return null;
+  const k = String(id);
+  const profile = e.profiles?.[k] ?? {};
+  return {
+    augments: new Map((e.augments?.[k] ?? []).map((a) => [a.id, { winRate: a.win_rate, lift: a.lift }])),
+    pairs: (e.augment_pairs?.[k] ?? []).map((p) => ({
+      ids: p.ids,
+      pickRate: p.pick_rate,
+      winRate: p.win_rate,
+    })),
+    profile: Object.entries(profile).flatMap(([key, v]) => ("band" in v && typeof v.value === "number" ? [{ key, value: v.value, band: v.band as Band }] : [])),
+    split: (profile.damage_split as ChampionEstimates["split"]) ?? null,
+    vsAverage: new Map(Object.entries(e.vs_average?.[k] ?? {}).map(([key, v]) => [key, v.delta])),
+  };
+}
 
 let cache: Estimates | null | undefined;
 const data = () => (cache === undefined ? (cache = readRepoJson<Estimates>("data/estimates/estimates.json")) : cache);
