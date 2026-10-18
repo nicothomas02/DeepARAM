@@ -6,7 +6,7 @@ import Skeleton from "@/components/Skeleton";
 import { LoadError } from "@/components/EmptyState";
 import { useT } from "./I18n";
 
-// The Duos tab: 2,000 pairs, so they load from /data/duos.json when the tab is first opened, not with the page.
+// The Duos tab: about 7,000 pairs (lib/duos.ts), so they load from /data/duos.json when the tab is first opened, not with the page.
 export default function DuosTable() {
   const [rows, setRows] = useState<Row[] | null>(null);
   const [failed, setFailed] = useState(false);
@@ -30,7 +30,7 @@ export default function DuosTable() {
           format: "pct",
           hint: "How much more the pair wins than the two champions' own win rates predict, in percentage points. Above zero means they help each other.",
         },
-        { key: "pick_rate", label: "Pick rate", format: "pct" },
+        { key: "pick_rate", label: "Pick rate", format: "pct", hint: "How often the first champion has the second as a teammate." },
       ]}
       advancedColumns={[
         { key: "a", label: "Champion", format: "champion" },
@@ -42,8 +42,7 @@ export default function DuosTable() {
           format: "pct",
           hint: "How much more the pair wins than the two champions' own win rates predict, in percentage points. Above zero means they help each other.",
         },
-        { key: "pick_rate", label: "Pick rate", format: "pct" },
-        { key: "rank", label: "Rank", format: "int" },
+        { key: "pick_rate", label: "Pick rate", format: "pct", hint: "How often the first champion has the second as a teammate." },
         { key: "roles", label: "Roles", format: "text", sortable: false },
       ]}
       rows={rows}

@@ -10,13 +10,13 @@ describe("duo synergy", () => {
   });
 
   it("ranks a pair that lifts each other above two strong champions who only win alone", () => {
-    const strong = synergy(0.6, 0.55, 0.55, 0.012); // wins 60%, but 59.9% was expected
-    const helping = synergy(0.55, 0.49, 0.5, 0.012); // average champions that win 55% together
+    const strong = synergy(0.6, 0.55, 0.55); // wins 60%, but 59.9% was expected
+    const helping = synergy(0.55, 0.49, 0.5); // below-average champions that win 55% together
     expect(helping).toBeGreaterThan(strong);
     expect(Math.abs(strong)).toBeLessThan(0.001);
   });
 
-  it("pulls rarely picked pairs toward zero", () => {
-    expect(Math.abs(synergy(0.6, 0.5, 0.5, 0.002))).toBeLessThan(Math.abs(synergy(0.6, 0.5, 0.5, 0.02)));
+  it("goes below zero for pairs that get in each other's way", () => {
+    expect(synergy(0.5, 0.53, 0.53)).toBeLessThan(0);
   });
 });

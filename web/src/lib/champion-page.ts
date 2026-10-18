@@ -184,7 +184,7 @@ export function championPage(alias: string): ChampionPage | null {
       return [
         {
           id: other,
-          synergy: synergy(d.win_rate, base, theirs, d.pick_rate),
+          synergy: synergy(d.win_rate, base, theirs),
           ...rated(d.win_rate, d.pick_rate),
         },
       ];

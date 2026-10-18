@@ -94,5 +94,6 @@
  "Games": "Games",
  "Games played on the live patch.": "Games played on the live patch.",
  "DeepScore rates each item from 0 to 100 against this champion's other items of the same tier, where 50 is average. It starts from the item's win rate with this champion and trusts rarely built items less. Tiers: S 70+, A 59+, B 44+, C 32+, D below.": "DeepScore rates each item from 0 to 100 against this champion's other items of the same tier, where 50 is average. It starts from the item's win rate with this champion and trusts rarely built items less. Tiers: S 70+, A 59+, B 44+, C 32+, D below.",
- "How much more the pair wins than the two champions' own win rates predict, in percentage points. Above zero means they help each other.": "How much more the pair wins than the two champions' own win rates predict, in percentage points. Above zero means they help each other."
+ "How much more the pair wins than the two champions' own win rates predict, in percentage points. Above zero means they help each other.": "How much more the pair wins than the two champions' own win rates predict, in percentage points. Above zero means they help each other.",
+ "How often the first champion has the second as a teammate.": "How often the first champion has the second as a teammate."
 }

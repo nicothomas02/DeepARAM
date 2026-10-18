@@ -94,5 +94,6 @@
  "Games": "Meciuri",
  "Games played on the live patch.": "Meciuri jucate pe patch-ul curent.",
  "DeepScore rates each item from 0 to 100 against this champion's other items of the same tier, where 50 is average. It starts from the item's win rate with this champion and trusts rarely built items less. Tiers: S 70+, A 59+, B 44+, C 32+, D below.": "DeepScore notează fiecare obiect de la 0 la 100 față de celelalte obiecte de același nivel ale acestui campion, 50 fiind media. Pornește de la rata de victorie a obiectului cu acest campion și are mai puțină încredere în obiectele construite rar. Niveluri: S 70+, A 59+, B 44+, C 32+, D sub.",
- "How much more the pair wins than the two champions' own win rates predict, in percentage points. Above zero means they help each other.": "Cu cât câștigă perechea mai mult decât prezic ratele de victorie proprii ale celor doi campioni, în puncte procentuale. Peste zero înseamnă că se ajută reciproc."
+ "How much more the pair wins than the two champions' own win rates predict, in percentage points. Above zero means they help each other.": "Cu cât câștigă perechea mai mult decât prezic ratele de victorie proprii ale celor doi campioni, în puncte procentuale. Peste zero înseamnă că se ajută reciproc.",
+ "How often the first champion has the second as a teammate.": "Cât de des primul campion îl are pe al doilea în echipă."
 }

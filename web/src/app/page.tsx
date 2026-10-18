@@ -23,10 +23,7 @@ const pct = (v: number) => `${(v * 100).toFixed(1)}%`;
 
 // The pairs that help each other most on the live patch (synergy, the Duos tab's Win rate delta).
 const topDuos = (n = 5) =>
-  duoRows()
-    .filter((d) => d.delta !== null)
-    .sort((a, b) => b.delta! - a.delta!)
-    .slice(0, n);
+  [...duoRows()].sort((a, b) => b.delta - a.delta).slice(0, n);
 const pts = (v: number) => `${v > 0 ? "+" : ""}${(v * 100).toFixed(1)} pts`;
 
 export default function Home() {
@@ -143,7 +140,7 @@ export default function Home() {
                       {NAMES[d.b] ?? d.b}
                     </Name>
                   </span>
-                  <span className="rank-v">{pts(d.delta!)}</span>
+                  <span className="rank-v">{pts(d.delta)}</span>
                 </Link>
               ))}
             </div>

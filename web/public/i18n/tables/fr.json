@@ -94,5 +94,6 @@
  "Games": "Parties",
  "Games played on the live patch.": "Parties jouées sur le patch actuel.",
  "DeepScore rates each item from 0 to 100 against this champion's other items of the same tier, where 50 is average. It starts from the item's win rate with this champion and trusts rarely built items less. Tiers: S 70+, A 59+, B 44+, C 32+, D below.": "Le DeepScore note chaque objet de 0 à 100 par rapport aux autres objets du même niveau de ce champion, 50 étant la moyenne. Il part du taux de victoire de l'objet avec ce champion et fait moins confiance aux objets rarement construits. Rangs : S 70+, A 59+, B 44+, C 32+, D en dessous.",
- "How much more the pair wins than the two champions' own win rates predict, in percentage points. Above zero means they help each other.": "De combien le duo gagne plus que ne le prédisent les taux de victoire propres aux deux champions, en points de pourcentage. Au-dessus de zéro, ils s'entraident."
+ "How much more the pair wins than the two champions' own win rates predict, in percentage points. Above zero means they help each other.": "De combien le duo gagne plus que ne le prédisent les taux de victoire propres aux deux champions, en points de pourcentage. Au-dessus de zéro, ils s'entraident.",
+ "How often the first champion has the second as a teammate.": "À quelle fréquence le premier champion a le second dans son équipe."
 }

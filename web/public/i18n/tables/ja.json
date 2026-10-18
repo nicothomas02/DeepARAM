@@ -94,5 +94,6 @@
  "Games": "試合数",
  "Games played on the live patch.": "現在のパッチでの試合数。",
  "DeepScore rates each item from 0 to 100 against this champion's other items of the same tier, where 50 is average. It starts from the item's win rate with this champion and trusts rarely built items less. Tiers: S 70+, A 59+, B 44+, C 32+, D below.": "DeepScoreは、このチャンピオンの同じティアの他のアイテムと比べて各アイテムを0〜100で評価します（50が平均）。このチャンピオンでのアイテムの勝率をもとに、あまり作られないアイテムほど控えめに評価します。ティア：S 70以上、A 59以上、B 44以上、C 32以上、Dはそれ未満。",
- "How much more the pair wins than the two champions' own win rates predict, in percentage points. Above zero means they help each other.": "2体のチャンピオンそれぞれの勝率から予想される勝率より、ペアがどれだけ多く勝っているか（パーセントポイント）。0より上なら互いに助け合っています。"
+ "How much more the pair wins than the two champions' own win rates predict, in percentage points. Above zero means they help each other.": "2体のチャンピオンそれぞれの勝率から予想される勝率より、ペアがどれだけ多く勝っているか（パーセントポイント）。0より上なら互いに助け合っています。",
+ "How often the first champion has the second as a teammate.": "1人目のチャンピオンの味方に2人目がいる割合。"
 }

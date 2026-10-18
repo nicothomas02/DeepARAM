@@ -94,5 +94,6 @@
  "Games": "게임 수",
  "Games played on the live patch.": "현재 패치에서 진행된 게임 수.",
  "DeepScore rates each item from 0 to 100 against this champion's other items of the same tier, where 50 is average. It starts from the item's win rate with this champion and trusts rarely built items less. Tiers: S 70+, A 59+, B 44+, C 32+, D below.": "DeepScore는 이 챔피언의 같은 등급 다른 아이템과 비교해 각 아이템을 0~100점으로 평가하며, 50점이 평균입니다. 이 챔피언으로 아이템을 갔을 때의 승률에서 출발하고, 드물게 가는 아이템은 덜 신뢰합니다. 티어: S 70+, A 59+, B 44+, C 32+, D 그 미만.",
- "How much more the pair wins than the two champions' own win rates predict, in percentage points. Above zero means they help each other.": "두 챔피언 각자의 승률로 예상되는 것보다 듀오가 얼마나 더 이기는지(퍼센트포인트). 0보다 크면 서로 도움이 됩니다."
+ "How much more the pair wins than the two champions' own win rates predict, in percentage points. Above zero means they help each other.": "두 챔피언 각자의 승률로 예상되는 것보다 듀오가 얼마나 더 이기는지(퍼센트포인트). 0보다 크면 서로 도움이 됩니다.",
+ "How often the first champion has the second as a teammate.": "첫 번째 챔피언이 두 번째 챔피언과 같은 팀이 되는 비율."
 }

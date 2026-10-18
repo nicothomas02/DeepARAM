@@ -94,5 +94,6 @@
  "Games": "Game",
  "Games played on the live patch.": "Game yang dimainkan di patch saat ini.",
  "DeepScore rates each item from 0 to 100 against this champion's other items of the same tier, where 50 is average. It starts from the item's win rate with this champion and trusts rarely built items less. Tiers: S 70+, A 59+, B 44+, C 32+, D below.": "DeepScore menilai setiap item dari 0 sampai 100 dibandingkan item lain champion ini pada tingkat yang sama, dengan 50 sebagai rata-rata. Nilainya berangkat dari win rate item dengan champion ini dan kurang memercayai item yang jarang dibuat. Tier: S 70+, A 59+, B 44+, C 32+, D di bawahnya.",
- "How much more the pair wins than the two champions' own win rates predict, in percentage points. Above zero means they help each other.": "Seberapa lebih sering pasangan ini menang dibanding perkiraan dari win rate masing-masing champion, dalam poin persentase. Di atas nol berarti mereka saling membantu."
+ "How much more the pair wins than the two champions' own win rates predict, in percentage points. Above zero means they help each other.": "Seberapa lebih sering pasangan ini menang dibanding perkiraan dari win rate masing-masing champion, dalam poin persentase. Di atas nol berarti mereka saling membantu.",
+ "How often the first champion has the second as a teammate.": "Seberapa sering champion pertama satu tim dengan champion kedua."
 }

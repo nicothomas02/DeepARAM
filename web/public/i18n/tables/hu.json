@@ -94,5 +94,6 @@
  "Games": "Meccsek",
  "Games played on the live patch.": "Az aktuális patchen játszott meccsek.",
  "DeepScore rates each item from 0 to 100 against this champion's other items of the same tier, where 50 is average. It starts from the item's win rate with this champion and trusts rarely built items less. Tiers: S 70+, A 59+, B 44+, C 32+, D below.": "A DeepScore 0-tól 100-ig értékel minden tárgyat a hős többi azonos szintű tárgyához képest, ahol az 50 az átlag. A tárgy ezzel a hőssel elért győzelmi arányából indul ki, és kevésbé bízik a ritkán épített tárgyakban. Szintek: S 70+, A 59+, B 44+, C 32+, D alatta.",
- "How much more the pair wins than the two champions' own win rates predict, in percentage points. Above zero means they help each other.": "Mennyivel többet nyer a páros, mint amit a két hős saját győzelmi aránya előre jelez, százalékpontban. Nulla fölött segítik egymást."
+ "How much more the pair wins than the two champions' own win rates predict, in percentage points. Above zero means they help each other.": "Mennyivel többet nyer a páros, mint amit a két hős saját győzelmi aránya előre jelez, százalékpontban. Nulla fölött segítik egymást.",
+ "How often the first champion has the second as a teammate.": "Milyen gyakran van az első hős csapatában a második."
 }
