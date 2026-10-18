@@ -3,7 +3,7 @@ import Intro from "@/components/Intro";
 import { text } from "@/lib/content";
 import { pageMeta } from "@/lib/meta";
 
-export const metadata: Metadata = pageMeta("/terms", "Terms", "The terms for using DeepARAM.");
+export const metadata: Metadata = pageMeta("/terms", "Terms", "The terms for using DeepARAM, a free ARAM Mayhem fan site: personal use, estimates without guarantees, and how to reach us.");
 
 const CONTACT = "admin@deeparam.com";
 
