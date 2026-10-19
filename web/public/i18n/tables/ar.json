@@ -102,6 +102,5 @@
  "Strongest": "الأقوى في",
  "Estimated from simulated damage at levels 8, 13 and 18: whether the champion peaks early, late or stays even.": "تقدير من الضرر المحاكى في المستويات 8 و13 و18: هل يبلغ البطل ذروته مبكرًا أم متأخرًا أم يبقى متوازنًا.",
  "Archetype": "النمط",
- "How many champion pairs the average covers. Fewer pairs make it less certain.": "كم ثنائيًا من الأبطال يشمله المتوسط. كلما قلّت الثنائيات قلّ اليقين.",
- "DeepScore rates each pair from 0 to 100 against the other pairs, where 50 is average. It starts from the pair's win rate delta and trusts rarely played pairs less, so a big delta from few games can't outrank a slightly smaller one from many.": "يقيّم DeepScore كل ثنائي من 0 إلى 100 مقارنةً بالثنائيات الأخرى، و50 هو المتوسط. يبدأ من فارق نسبة فوز الثنائي ويثق أقل بالثنائيات النادرة اللعب، فلا يتفوق فارق كبير من مباريات قليلة على فارق أصغر قليلًا من مباريات كثيرة."
+ "How many champion pairs the average covers. Fewer pairs make it less certain.": "كم ثنائيًا من الأبطال يشمله المتوسط. كلما قلّت الثنائيات قلّ اليقين."
 }

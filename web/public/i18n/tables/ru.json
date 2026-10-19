@@ -102,6 +102,5 @@
  "Strongest": "Сильнее всего",
  "Estimated from simulated damage at levels 8, 13 and 18: whether the champion peaks early, late or stays even.": "Оценка по симулированному урону на 8, 13 и 18 уровнях: силён ли чемпион рано, поздно или ровно.",
  "Archetype": "Архетип",
- "How many champion pairs the average covers. Fewer pairs make it less certain.": "Сколько пар чемпионов охватывает среднее. Чем меньше пар, тем оно менее надёжно.",
- "DeepScore rates each pair from 0 to 100 against the other pairs, where 50 is average. It starts from the pair's win rate delta and trusts rarely played pairs less, so a big delta from few games can't outrank a slightly smaller one from many.": "DeepScore оценивает каждую пару от 0 до 100 относительно остальных, где 50 — среднее. Он исходит из разницы винрейта пары и меньше доверяет редко играемым парам, чтобы большая разница по немногим играм не обгоняла чуть меньшую по многим."
+ "How many champion pairs the average covers. Fewer pairs make it less certain.": "Сколько пар чемпионов охватывает среднее. Чем меньше пар, тем оно менее надёжно."
 }

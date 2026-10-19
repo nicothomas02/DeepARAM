@@ -102,6 +102,5 @@
  "Strongest": "강한 시점",
  "Estimated from simulated damage at levels 8, 13 and 18: whether the champion peaks early, late or stays even.": "레벨 8, 13, 18의 시뮬레이션 피해량으로 추정: 챔피언이 초반, 후반 중 언제 강한지 또는 고른지.",
  "Archetype": "유형",
- "How many champion pairs the average covers. Fewer pairs make it less certain.": "평균에 포함된 챔피언 조합 수입니다. 조합이 적을수록 덜 확실합니다.",
- "DeepScore rates each pair from 0 to 100 against the other pairs, where 50 is average. It starts from the pair's win rate delta and trusts rarely played pairs less, so a big delta from few games can't outrank a slightly smaller one from many.": "DeepScore는 각 조합을 다른 조합과 비교해 0~100으로 평가하며 50이 평균입니다. 조합의 승률 차이에서 시작해 드물게 플레이된 조합은 덜 신뢰하므로, 적은 게임에서 나온 큰 차이가 많은 게임에서 나온 약간 작은 차이를 앞서지 않습니다."
+ "How many champion pairs the average covers. Fewer pairs make it less certain.": "평균에 포함된 챔피언 조합 수입니다. 조합이 적을수록 덜 확실합니다."
 }

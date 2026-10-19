@@ -102,6 +102,5 @@
  "Strongest": "Legerősebb",
  "Estimated from simulated damage at levels 8, 13 and 18: whether the champion peaks early, late or stays even.": "Becslés a 8., 13. és 18. szinten szimulált sebzésből: a hős korán, későn vagy egyenletesen a legerősebb.",
  "Archetype": "Archetípus",
- "How many champion pairs the average covers. Fewer pairs make it less certain.": "Hány hőspárt fed le az átlag. Kevesebb pár kevésbé biztos eredményt ad.",
- "DeepScore rates each pair from 0 to 100 against the other pairs, where 50 is average. It starts from the pair's win rate delta and trusts rarely played pairs less, so a big delta from few games can't outrank a slightly smaller one from many.": "A DeepScore 0-tól 100-ig értékeli a párokat a többi párhoz képest, az 50 az átlag. A pár győzelmi arány-különbségéből indul ki, és kevésbé bízik a ritkán játszott párokban, így a kevés meccsből származó nagy különbség nem előzi meg a sok meccsből származó kicsit kisebbet."
+ "How many champion pairs the average covers. Fewer pairs make it less certain.": "Hány hőspárt fed le az átlag. Kevesebb pár kevésbé biztos eredményt ad."
 }

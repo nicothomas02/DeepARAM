@@ -102,6 +102,5 @@
  "Strongest": "Πιο δυνατός",
  "Estimated from simulated damage at levels 8, 13 and 18: whether the champion peaks early, late or stays even.": "Εκτίμηση από προσομοιωμένη ζημιά στα επίπεδα 8, 13 και 18: αν ο champion κορυφώνεται νωρίς, αργά ή μένει σταθερός.",
  "Archetype": "Αρχέτυπο",
- "How many champion pairs the average covers. Fewer pairs make it less certain.": "Πόσα ζευγάρια champions καλύπτει ο μέσος όρος. Λιγότερα ζευγάρια τον κάνουν λιγότερο βέβαιο.",
- "DeepScore rates each pair from 0 to 100 against the other pairs, where 50 is average. It starts from the pair's win rate delta and trusts rarely played pairs less, so a big delta from few games can't outrank a slightly smaller one from many.": "Το DeepScore βαθμολογεί κάθε ζευγάρι από 0 έως 100 σε σχέση με τα υπόλοιπα, με το 50 να είναι ο μέσος όρος. Ξεκινά από τη διαφορά ποσοστού νικών του ζευγαριού και εμπιστεύεται λιγότερο τα σπάνια ζευγάρια, ώστε μια μεγάλη διαφορά από λίγα παιχνίδια να μην ξεπερνά μια λίγο μικρότερη από πολλά."
+ "How many champion pairs the average covers. Fewer pairs make it less certain.": "Πόσα ζευγάρια champions καλύπτει ο μέσος όρος. Λιγότερα ζευγάρια τον κάνουν λιγότερο βέβαιο."
 }

@@ -102,6 +102,5 @@
  "Strongest": "Terkuat",
  "Estimated from simulated damage at levels 8, 13 and 18: whether the champion peaks early, late or stays even.": "Perkiraan dari damage simulasi di level 8, 13 dan 18: apakah champion terkuat di awal, akhir, atau merata.",
  "Archetype": "Arketipe",
- "How many champion pairs the average covers. Fewer pairs make it less certain.": "Berapa banyak pasangan champion yang dicakup rata-rata ini. Makin sedikit pasangan, makin kurang pasti.",
- "DeepScore rates each pair from 0 to 100 against the other pairs, where 50 is average. It starts from the pair's win rate delta and trusts rarely played pairs less, so a big delta from few games can't outrank a slightly smaller one from many.": "DeepScore menilai setiap pasangan dari 0 sampai 100 dibandingkan pasangan lain, dengan 50 sebagai rata-rata. Nilainya berawal dari selisih win rate pasangan dan kurang memercayai pasangan yang jarang dimainkan, sehingga selisih besar dari sedikit game tidak mengungguli selisih yang sedikit lebih kecil dari banyak game."
+ "How many champion pairs the average covers. Fewer pairs make it less certain.": "Berapa banyak pasangan champion yang dicakup rata-rata ini. Makin sedikit pasangan, makin kurang pasti."
 }

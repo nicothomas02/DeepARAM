@@ -102,6 +102,5 @@
  "Strongest": "强势期",
  "Estimated from simulated damage at levels 8, 13 and 18: whether the champion peaks early, late or stays even.": "根据 8、13、18 级的模拟伤害估算：英雄是前期强、后期强还是平稳。",
  "Archetype": "类型",
- "How many champion pairs the average covers. Fewer pairs make it less certain.": "该平均值涵盖的英雄组合数。组合越少，结果越不确定。",
- "DeepScore rates each pair from 0 to 100 against the other pairs, where 50 is average. It starts from the pair's win rate delta and trusts rarely played pairs less, so a big delta from few games can't outrank a slightly smaller one from many.": "DeepScore 将每个组合与其他组合比较，按 0 到 100 评分，50 为平均。它以组合的胜率差为基础，对较少使用的组合信任度更低，因此少量对局得出的大差值不会超过大量对局得出的稍小差值。"
+ "How many champion pairs the average covers. Fewer pairs make it less certain.": "该平均值涵盖的英雄组合数。组合越少，结果越不确定。"
 }
