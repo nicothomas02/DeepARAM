@@ -110,7 +110,7 @@
  "Last updated": "Actualizado el",
  "Everything ARAM Mayhem.": "Todo sobre ARAM: Caos.",
  "Every Mayhem pick, measured.": "Cada elección de ARAM: Caos, medida.",
- "Win rates for every champion and augment on the current patch, and a fight simulator for every champion.": "Tasas de victoria de cada campeón y aumento en el parche actual, y un simulador de peleas para cada campeón.",
+ "Tier lists, builds, a fight simulator and test-server changes for ARAM Mayhem.": "Tier lists, builds, un simulador de peleas y cambios del servidor de pruebas para ARAM: Caos.",
  "All {n} →": "Los {n} →",
  "Best augments": "Mejores aumentos",
  "All →": "Todos →",
@@ -193,5 +193,14 @@
  "blue side wins": "victorias del lado azul",
  "red side wins": "victorias del lado rojo",
  "Early game": "Inicio de partida",
- "Late game": "Final de partida"
+ "Late game": "Final de partida",
+ "New here? Take a quick tour": "¿Eres nuevo? Haz un recorrido rápido",
+ "{v} damage share": "{v} del daño del equipo",
+ "{v} damage taken": "{v} del daño recibido",
+ "{v} healing/min": "{v} de curación/min",
+ "{v}s crowd control": "{v} s de control de masas",
+ "{v} kill participation": "{v} de participación en asesinatos",
+ "{v} multikills": "{v} asesinatos múltiples",
+ "{v} tower damage": "{v} de daño a torres",
+ "Simulated damage: share of champions beaten at level 8 → level 18.": "Daño simulado: porcentaje de campeones superados en el nivel 8 → nivel 18."
 }

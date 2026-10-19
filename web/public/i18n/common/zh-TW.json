@@ -110,7 +110,7 @@
  "Last updated": "更新於",
  "Everything ARAM Mayhem.": "隨機單中：大混戰的一切。",
  "Every Mayhem pick, measured.": "大混戰的每個選擇，用數據衡量。",
- "Win rates for every champion and augment on the current patch, and a fight simulator for every champion.": "目前版本每位英雄與每個強化的勝率，以及每位英雄的戰鬥模擬器。",
+ "Tier lists, builds, a fight simulator and test-server changes for ARAM Mayhem.": "隨機單中：大混戰的梯隊表、出裝、戰鬥模擬器與測試伺服器改動。",
  "All {n} →": "全部 {n} 位 →",
  "Best augments": "最佳強化",
  "All →": "全部 →",
@@ -193,5 +193,14 @@
  "blue side wins": "藍方勝率",
  "red side wins": "紅方勝率",
  "Early game": "前期",
- "Late game": "後期"
+ "Late game": "後期",
+ "New here? Take a quick tour": "第一次來？快速導覽一下",
+ "{v} damage share": "傷害占比 {v}",
+ "{v} damage taken": "承受傷害 {v}",
+ "{v} healing/min": "每分鐘治療 {v}",
+ "{v}s crowd control": "控場時間 {v} 秒",
+ "{v} kill participation": "參與擊殺率 {v}",
+ "{v} multikills": "多殺 {v}",
+ "{v} tower damage": "砲塔傷害 {v}",
+ "Simulated damage: share of champions beaten at level 8 → level 18.": "模擬傷害：在 8 級 → 18 級時勝過的英雄比例。"
 }

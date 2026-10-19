@@ -110,7 +110,7 @@
  "Last updated": "อัปเดตล่าสุด",
  "Everything ARAM Mayhem.": "ทุกอย่างเกี่ยวกับ ARAM: Mayhem",
  "Every Mayhem pick, measured.": "ทุกการเลือกใน ARAM: Mayhem วัดผลด้วยตัวเลข",
- "Win rates for every champion and augment on the current patch, and a fight simulator for every champion.": "อัตราชนะของทุกแชมเปี้ยนและ Augment บนแพตช์ปัจจุบัน และซิมูเลเตอร์การต่อสู้ของทุกแชมเปี้ยน",
+ "Tier lists, builds, a fight simulator and test-server changes for ARAM Mayhem.": "เทียร์ลิสต์ บิลด์ ตัวจำลองการต่อสู้ และการเปลี่ยนแปลงจากเซิร์ฟเวอร์ทดสอบสำหรับ ARAM Mayhem",
  "All {n} →": "ทั้งหมด {n} →",
  "Best augments": "Augments ที่ดีที่สุด",
  "All →": "ทั้งหมด →",
@@ -193,5 +193,14 @@
  "blue side wins": "ฝั่งน้ำเงินชนะ",
  "red side wins": "ฝั่งแดงชนะ",
  "Early game": "ช่วงต้นเกม",
- "Late game": "ช่วงท้ายเกม"
+ "Late game": "ช่วงท้ายเกม",
+ "New here? Take a quick tour": "มาใหม่ใช่ไหม? ดูทัวร์สั้น ๆ",
+ "{v} damage share": "สัดส่วนดาเมจ {v}",
+ "{v} damage taken": "ดาเมจที่รับ {v}",
+ "{v} healing/min": "ฮีล/นาที {v}",
+ "{v}s crowd control": "ควบคุมฝูงชน {v} วิ",
+ "{v} kill participation": "มีส่วนร่วมในการฆ่า {v}",
+ "{v} multikills": "มัลติคิล {v}",
+ "{v} tower damage": "ดาเมจป้อม {v}",
+ "Simulated damage: share of champions beaten at level 8 → level 18.": "ดาเมจจำลอง: สัดส่วนแชมเปี้ยนที่เอาชนะได้ที่เลเวล 8 → เลเวล 18"
 }

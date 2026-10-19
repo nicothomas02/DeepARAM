@@ -110,7 +110,7 @@
  "Last updated": "更新于",
  "Everything ARAM Mayhem.": "海克斯大乱斗的一切。",
  "Every Mayhem pick, measured.": "海克斯大乱斗的每个选择，用数据衡量。",
- "Win rates for every champion and augment on the current patch, and a fight simulator for every champion.": "当前版本每位英雄和每个强化符文的胜率，以及每位英雄的战斗模拟器。",
+ "Tier lists, builds, a fight simulator and test-server changes for ARAM Mayhem.": "海克斯大乱斗的梯队榜、出装、战斗模拟器和测试服改动。",
  "All {n} →": "全部 {n} 位 →",
  "Best augments": "最佳强化符文",
  "All →": "全部 →",
@@ -193,5 +193,14 @@
  "blue side wins": "蓝方胜率",
  "red side wins": "红方胜率",
  "Early game": "前期",
- "Late game": "后期"
+ "Late game": "后期",
+ "New here? Take a quick tour": "第一次来？快速浏览一下",
+ "{v} damage share": "伤害占比 {v}",
+ "{v} damage taken": "承受伤害 {v}",
+ "{v} healing/min": "每分钟治疗 {v}",
+ "{v}s crowd control": "控制时长 {v} 秒",
+ "{v} kill participation": "参团率 {v}",
+ "{v} multikills": "多杀 {v}",
+ "{v} tower damage": "防御塔伤害 {v}",
+ "Simulated damage: share of champions beaten at level 8 → level 18.": "模拟伤害：在 8 级 → 18 级时胜过的英雄比例。"
 }

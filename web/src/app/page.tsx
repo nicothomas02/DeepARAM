@@ -8,7 +8,8 @@ import type { PatchSchedule } from "@/lib/patch-schedule";
 import PatchCountdown from "@/components/PatchCountdown";
 import { championSplash } from "@/lib/champions";
 import { FunLists, KitchenPick, TierSnapshot } from "@/components/HomeWidgets";
-import { funLists, powerCurveLists, typicalGame } from "@/lib/estimates";
+import { funLists, powerCurveLists, profileValue, typicalGame } from "@/lib/estimates";
+import { liveWithChange } from "@/lib/champions";
 import championIds from "@/data/champion-ids.json";
 import { augmentHref } from "@/lib/augments";
 import { KITCHEN } from "@/lib/tabs";
@@ -17,6 +18,7 @@ import championNames from "@/data/champion-names.json";
 const NAMES = championNames as Record<string, string>;
 const ALIAS = Object.fromEntries(Object.entries(championIds as Record<string, number>).map(([alias, id]) => [id, alias]));
 import RecentPlayed from "@/components/RecentPlayed";
+import { TourChip } from "@/components/FirstVisitTour";
 import { LocalDate, ModeName, Name, T } from "@/components/I18n";
 import { patchName } from "@/lib/patch-name";
 
@@ -29,6 +31,31 @@ const pct = (v: number) => `${(v * 100).toFixed(1)}%`;
 // rarely played pairs less), each showing its Win rate delta.
 const topDuos = (n = 5) => [...duoRows()].sort((a, b) => b.deepScore - a.deepScore || b.delta - a.delta).slice(0, n);
 const pts = (v: number) => `${v > 0 ? "+" : ""}${(v * 100).toFixed(1)} pts`;
+
+// The number each "Top 10 at" list ranks on, written for its row (FunLists adds the unit): live-patch
+// shares, estimated typical-game numbers, and simulated damage at level 8 → 18 for early and late game.
+function funValues(): Record<string, (id: number, alias: string) => string | null> {
+  const live = new Map(liveWithChange().live.map((c) => [c.name, c]));
+  const ranks = powerCurveLists().ranks;
+  const fmt = (v: number | null | undefined, f: (v: number) => string) => (typeof v === "number" ? f(v) : null);
+  const int = (v: number) => Math.round(v).toLocaleString("en-US");
+  const one = (v: number) => v.toFixed(1);
+  const curve = (id: number) => {
+    const r = ranks.get(id);
+    return r ? `${Math.round(r.early * 100)}% → ${Math.round(r.late * 100)}%` : null;
+  };
+  return {
+    damage: (_, a) => fmt(live.get(a)?.damage, pct),
+    tank: (_, a) => fmt(live.get(a)?.tank, pct),
+    teamplay: (_, a) => fmt(live.get(a)?.kp, pct),
+    healing: (id) => fmt(profileValue(id, "heal_per_min"), int),
+    crowd_control: (id) => fmt(profileValue(id, "cc_seconds"), one),
+    multikills: (id) => fmt(profileValue(id, "multikills"), one),
+    towers: (id) => fmt(profileValue(id, "turret_damage"), int),
+    early_game: curve,
+    late_game: curve,
+  };
+}
 
 export default function Home() {
   const tiers = liveTiers();
@@ -44,10 +71,13 @@ export default function Home() {
   const last = recapPatches()[0];
   const latest = last ? recap(last) : null;
   const game = typicalGame();
+  const value = funValues();
   const fun = Object.fromEntries(
     Object.entries({ ...funLists(), early_game: powerCurveLists().early, late_game: powerCurveLists().late }).map(([k, ids]) => [
       k,
-      ids.flatMap((id) => (ALIAS[id] ? [{ id: ALIAS[id], name: NAMES[ALIAS[id]] ?? ALIAS[id] }] : [])),
+      ids.flatMap((id) =>
+        ALIAS[id] ? [{ id: ALIAS[id], name: NAMES[ALIAS[id]] ?? ALIAS[id], value: value[k]?.(id, ALIAS[id]) ?? null }] : [],
+      ),
     ]),
   );
 
@@ -72,9 +102,19 @@ export default function Home() {
         <h1>
           <T>{text("home.title", "Every Mayhem pick, measured.")}</T>
         </h1>
-        <p className="lede">
+        {/* Not .lede: Simple view hides those, and this line says what the site is. */}
+        <p className="hero-tagline">
           <T>{text("home.lede")}</T>
         </p>
+        <div className="hero-actions">
+          <Link className="btn" href="/tier-list">
+            <T>Tier List</T>
+          </Link>
+          <Link className="btn ghost" href="/simulator">
+            <T>Simulator</T>
+          </Link>
+          <TourChip />
+        </div>
       </section>
 
       <div className="bento">
@@ -246,7 +286,7 @@ export default function Home() {
           </section>
         )}
         {Object.values(fun).some((l) => l.length) && (
-          <section className="card span-8" data-accent="tier">
+          <section className="card span-all" data-accent="tier">
             <div className="card-head">
               <h2>
                 <T>Top 10 at</T>
@@ -259,15 +299,14 @@ export default function Home() {
           </section>
         )}
         {game && (
-          <section className="card span-4" data-accent="gold">
-            <div className="card-head">
-              <h2>
-                <T>A typical game</T>
-              </h2>
+          // A slim strip: three numbers don't need a card of their own.
+          <section className="card span-all home-typical" data-accent="gold">
+            <h2>
+              <T>A typical game</T>
               <span className="card-note">
                 <T>Estimated</T>
               </span>
-            </div>
+            </h2>
             <div className="stat-row">
               <div>
                 <b>

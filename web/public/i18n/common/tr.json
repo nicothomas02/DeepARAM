@@ -110,7 +110,7 @@
  "Last updated": "Son güncelleme",
  "Everything ARAM Mayhem.": "ARAM: Şamata'ya dair her şey.",
  "Every Mayhem pick, measured.": "Her ARAM: Şamata seçimi, ölçüldü.",
- "Win rates for every champion and augment on the current patch, and a fight simulator for every champion.": "Güncel yamada her şampiyon ve güçlendirmenin kazanma oranı ve her şampiyon için bir savaş simülatörü.",
+ "Tier lists, builds, a fight simulator and test-server changes for ARAM Mayhem.": "ARAM: Şamata için kademe listeleri, buildler, dövüş simülatörü ve test sunucusu değişiklikleri.",
  "All {n} →": "{n} şampiyonun tamamı →",
  "Best augments": "En iyi güçlendirmeler",
  "All →": "Tümü →",
@@ -193,5 +193,14 @@
  "blue side wins": "mavi taraf galibiyeti",
  "red side wins": "kırmızı taraf galibiyeti",
  "Early game": "Erken oyun",
- "Late game": "Geç oyun"
+ "Late game": "Geç oyun",
+ "New here? Take a quick tour": "Yeni misin? Kısa bir tur at",
+ "{v} damage share": "{v} hasar payı",
+ "{v} damage taken": "{v} alınan hasar",
+ "{v} healing/min": "{v} iyileştirme/dk",
+ "{v}s crowd control": "{v} sn kitle kontrolü",
+ "{v} kill participation": "{v} skora katılım",
+ "{v} multikills": "{v} çoklu öldürme",
+ "{v} tower damage": "{v} kule hasarı",
+ "Simulated damage: share of champions beaten at level 8 → level 18.": "Simüle edilmiş hasar: 8. seviye → 18. seviyede geçilen şampiyonların oranı."
 }

@@ -110,7 +110,7 @@
  "Last updated": "Actualizat pe",
  "Everything ARAM Mayhem.": "Totul despre ARAM: Haos.",
  "Every Mayhem pick, measured.": "Fiecare alegere din ARAM: Haos, măsurată.",
- "Win rates for every champion and augment on the current patch, and a fight simulator for every champion.": "Ratele de victorie ale fiecărui campion și ale fiecărei augmentări pe patchul actual și un simulator de lupte pentru fiecare campion.",
+ "Tier lists, builds, a fight simulator and test-server changes for ARAM Mayhem.": "Tier listuri, builduri, un simulator de lupte și schimbările de pe serverul de test pentru ARAM: Haos.",
  "All {n} →": "Toți cei {n} →",
  "Best augments": "Cele mai bune augmentări",
  "All →": "Toate →",
@@ -193,5 +193,14 @@
  "blue side wins": "victorii partea albastră",
  "red side wins": "victorii partea roșie",
  "Early game": "Început de joc",
- "Late game": "Final de joc"
+ "Late game": "Final de joc",
+ "New here? Take a quick tour": "Ești nou aici? Fă un tur rapid",
+ "{v} damage share": "{v} din daunele echipei",
+ "{v} damage taken": "{v} din daunele primite",
+ "{v} healing/min": "{v} vindecare/min",
+ "{v}s crowd control": "{v} s de control al mulțimii",
+ "{v} kill participation": "{v} participare la ucideri",
+ "{v} multikills": "{v} ucideri multiple",
+ "{v} tower damage": "{v} daune turnurilor",
+ "Simulated damage: share of champions beaten at level 8 → level 18.": "Daune simulate: procentul de campioni depășiți la nivelul 8 → nivelul 18."
 }

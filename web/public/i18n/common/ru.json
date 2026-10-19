@@ -110,7 +110,7 @@
  "Last updated": "Обновлено",
  "Everything ARAM Mayhem.": "Всё об ARAM: Хаос.",
  "Every Mayhem pick, measured.": "Каждый выбор в ARAM: Хаос в цифрах.",
- "Win rates for every champion and augment on the current patch, and a fight simulator for every champion.": "Процент побед каждого чемпиона и аугментации на текущем патче и симулятор боёв для каждого чемпиона.",
+ "Tier lists, builds, a fight simulator and test-server changes for ARAM Mayhem.": "Тир-листы, сборки, симулятор боёв и изменения с тестового сервера для ARAM: Хаос.",
  "All {n} →": "Все {n} →",
  "Best augments": "Лучшие аугментации",
  "All →": "Все →",
@@ -193,5 +193,14 @@
  "blue side wins": "победы синей стороны",
  "red side wins": "победы красной стороны",
  "Early game": "Ранняя игра",
- "Late game": "Поздняя игра"
+ "Late game": "Поздняя игра",
+ "New here? Take a quick tour": "Впервые здесь? Пройдите короткий тур",
+ "{v} damage share": "{v} доли урона",
+ "{v} damage taken": "{v} полученного урона",
+ "{v} healing/min": "{v} лечения/мин",
+ "{v}s crowd control": "{v} с контроля",
+ "{v} kill participation": "{v} участия в убийствах",
+ "{v} multikills": "{v} серийных убийств",
+ "{v} tower damage": "{v} урона по башням",
+ "Simulated damage: share of champions beaten at level 8 → level 18.": "Смоделированный урон: доля чемпионов, которых он превосходит на 8-м → 18-м уровне."
 }

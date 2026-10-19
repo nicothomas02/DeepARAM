@@ -4941,6 +4941,21 @@ th > button[data-tip] {
 .home-recap { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.25rem 0.75rem; color: inherit; text-decoration: none; }
 .home-recap span { color: var(--muted); }
 .home-recap:hover b { text-decoration: underline; }
+/* A typical game: one slim strip with its three numbers inline. */
+.home-typical { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.5rem 1.5rem; padding-block: 0.8rem; }
+.home-typical h2 { display: flex; align-items: baseline; gap: 0.6rem; font-size: 0.875rem; font-weight: 600; }
+.home-typical .stat-row { margin-top: 0; gap: 0.25rem 1.5rem; }
+.home-typical .stat-row div { display: flex; align-items: baseline; gap: 0.4rem; }
+.home-typical .stat-row b { font-size: 1.05rem; }
+/* Hero: what the site is, two ways in, and the tour offer for first-time visitors. Not .lede/.eyebrow, so
+   Simple view keeps it. */
+.hero-tagline { max-width: 60ch; margin-top: 0.5rem; color: var(--muted); }
+.hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 0.6rem; margin-top: 0.9rem; }
+.hero-actions .btn { display: inline-flex; align-items: center; text-decoration: none; }
+.tour-chip { display: inline-flex; align-items: center; height: 38px; padding-inline: 0.85rem 0.35rem; border: 1px dashed var(--line); border-radius: 999px; color: var(--muted); font-size: 0.8125rem; }
+.tour-chip button { padding: 0; border: 0; background: none; color: inherit; font: inherit; cursor: pointer; }
+.tour-chip button:hover { color: var(--accent); }
+.tour-chip .tour-chip-x { width: 28px; height: 28px; margin-inline-start: 0.25rem; border-radius: 999px; font-size: 1rem; line-height: 1; }
 
 /* DeepScore badge (components/DeepScore.tsx): a ring that fills to the score, its colour running from red
    at 0 through green at the average 50 to violet at 100. Its explanation shows on hover, focus or tap. */
@@ -5982,7 +5997,13 @@ html[data-view="simple"] [data-detailed] {
 .rank.aug-stages > .is-top .rank-name { font-weight: 600; color: var(--fg); }
 .fun-kinds { flex-wrap: wrap; margin-bottom: 0.75rem; }
 .fun-kinds button { flex: 1 0 auto; }
-.rank.fun-rank a { grid-template-columns: 1.4rem 24px minmax(0, 1fr); }
+.rank.fun-rank a { grid-template-columns: 1.4rem 24px minmax(0, 1fr) auto; }
+.rank.fun-rank .rank-v { white-space: nowrap; }
+.fun-note { margin: 0 0 0.5rem; color: var(--muted); font-size: 0.8125rem; }
+/* Full width on wide screens: two columns of five. */
+@media (min-width: 901px) {
+  .rank.fun-rank { grid-template-columns: 1fr 1fr; grid-template-rows: repeat(5, auto); grid-auto-flow: column; column-gap: 2.5rem; }
+}
 .item-card-est { display: block; }
 
 /* Tiers/Table and Cards/Table switches (Tier List's Augments and Items tabs). */
