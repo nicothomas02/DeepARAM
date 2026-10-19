@@ -105,5 +105,12 @@
  "How many champion pairs the average covers. Fewer pairs make it less certain.": "Câte perechi de campioni acoperă media. Mai puține perechi o fac mai nesigură.",
  "{n} pts": "{n} pp",
  "Advanced stats": "Statistici avansate",
- "Every stat we have for this list, in its own table.": "Toate statisticile acestei liste, într-un tabel separat."
+ "Every stat we have for this list, in its own table.": "Toate statisticile acestei liste, într-un tabel separat.",
+ "Item": "Obiect",
+ "Type": "Tip",
+ "Est. win rate": "Rată de victorie est.",
+ "In builds": "În builduri",
+ "Cost": "Cost",
+ "Estimated win rate of the champions who build it.": "Rata de victorie estimată a campionilor care îl construiesc.",
+ "Estimated share of builds that include it.": "Procentul estimat de builduri care îl includ."
 }

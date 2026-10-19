@@ -105,5 +105,12 @@
  "How many champion pairs the average covers. Fewer pairs make it less certain.": "Hány hőspárt fed le az átlag. Kevesebb pár kevésbé biztos eredményt ad.",
  "{n} pts": "{n} pont",
  "Advanced stats": "Haladó statisztikák",
- "Every stat we have for this list, in its own table.": "A lista minden statisztikája, külön táblázatban."
+ "Every stat we have for this list, in its own table.": "A lista minden statisztikája, külön táblázatban.",
+ "Item": "Tárgy",
+ "Type": "Típus",
+ "Est. win rate": "Becsült győzelmi arány",
+ "In builds": "Buildekben",
+ "Cost": "Ár",
+ "Estimated win rate of the champions who build it.": "Az azt építő hősök becsült győzelmi aránya.",
+ "Estimated share of builds that include it.": "Az azt tartalmazó buildek becsült aránya."
 }

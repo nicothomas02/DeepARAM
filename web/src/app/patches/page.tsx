@@ -51,12 +51,19 @@ export default function PatchesPage() {
             </span>
             {r.up[0] && (
               <span className="recap-top">
+                <small className="recap-top-label">
+                  <T ns="patches">Rose the most</T>
+                </small>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src={`/icons/champions/${r.up[0].id}.webp`} alt="" width={22} height={22} loading="lazy" />
                 <Name kind="champions" id={r.up[0].id}>
                   {r.up[0].name}
                 </Name>{" "}
-                <span className="delta-up">{pts(r.up[0].change)}</span>
+                <span className="delta-up">
+                  <T ns="patches" v={{ n: pts(r.up[0].change) }}>
+                    {"{n} pts"}
+                  </T>
+                </span>
               </span>
             )}
           </Link>

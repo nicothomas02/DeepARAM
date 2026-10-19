@@ -105,5 +105,12 @@
  "How many champion pairs the average covers. Fewer pairs make it less certain.": "Πόσα ζευγάρια champions καλύπτει ο μέσος όρος. Λιγότερα ζευγάρια τον κάνουν λιγότερο βέβαιο.",
  "{n} pts": "{n} μον.",
  "Advanced stats": "Προχωρημένα στατιστικά",
- "Every stat we have for this list, in its own table.": "Κάθε στατιστικό αυτής της λίστας, σε δικό του πίνακα."
+ "Every stat we have for this list, in its own table.": "Κάθε στατιστικό αυτής της λίστας, σε δικό του πίνακα.",
+ "Item": "Αντικείμενο",
+ "Type": "Τύπος",
+ "Est. win rate": "Εκτ. ποσοστό νικών",
+ "In builds": "Σε builds",
+ "Cost": "Κόστος",
+ "Estimated win rate of the champions who build it.": "Εκτιμώμενο ποσοστό νικών των ηρώων που το φτιάχνουν.",
+ "Estimated share of builds that include it.": "Εκτιμώμενο ποσοστό των builds που το περιλαμβάνουν."
 }

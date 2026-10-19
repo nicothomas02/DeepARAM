@@ -21,7 +21,6 @@
  "{name}: DeepScore {score}, {wr} win, picked in {pr} of games": "{name}: DeepScore {score}, win {wr}, dipilih di {pr} game",
  "Duos": "Duo",
  "Loading duos…": "Memuat duo…",
- "Live patch {patch}. Each augment gets a DeepScore against the others of its rarity: 50 is average, S is 70 and up, A 59, B 44, C 32 and D below. Every number is in the table below.": "Patch saat ini {patch}. Setiap augment mendapat DeepScore dibandingkan augment lain dengan kelangkaan yang sama: 50 adalah rata-rata, S 70 ke atas, A 59, B 44, C 32, dan D di bawahnya. Semua angkanya ada di tabel di bawah.",
  "Tier List · Patch {patch}": "Tier List · Patch {patch}",
  "Tier List": "Tier List",
  "Champions": "Champion",
@@ -48,5 +47,9 @@
  "Late game": "Akhir game",
  "Even": "Merata",
  "Archetypes": "Arketipe",
- "Live patch {patch} by default. Pick any patches, or all time, above the champion table. Advanced stats at the bottom show every stat we have.": "Patch saat ini {patch} secara default. Pilih patch mana saja, atau sepanjang waktu, di atas tabel champion. Statistik lanjutan di bagian bawah menampilkan semua statistik yang kami punya."
+ "Live patch {patch} by default. Pick any patches, or all time, above the champion table. Advanced stats at the bottom show every stat we have.": "Patch saat ini {patch} secara default. Pilih patch mana saja, atau sepanjang waktu, di atas tabel champion. Statistik lanjutan di bagian bawah menampilkan semua statistik yang kami punya.",
+ "Live patch {patch}. Each augment gets a DeepScore against the others of its rarity: 50 is average, S is 70 and up, A 59, B 44, C 32 and D below. Switch to Table for every number.": "Patch saat ini {patch}. Setiap augment mendapat DeepScore dibandingkan augment lain dengan kelangkaan yang sama: 50 adalah rata-rata, S 70 ke atas, A 59, B 44, C 32, dan D di bawahnya. Beralih ke Tabel untuk melihat semua angka.",
+ "Tiers": "Tier",
+ "Table": "Tabel",
+ "View": "Tampilan"
 }

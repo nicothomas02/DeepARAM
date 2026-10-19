@@ -21,7 +21,6 @@
  "{name}: DeepScore {score}, {wr} win, picked in {pr} of games": "{name}: DeepScore {score}, {wr} de vitórias, escolhido em {pr} das partidas",
  "Duos": "Duplas",
  "Loading duos…": "Carregando duplas…",
- "Live patch {patch}. Each augment gets a DeepScore against the others of its rarity: 50 is average, S is 70 and up, A 59, B 44, C 32 and D below. Every number is in the table below.": "Patch atual {patch}. Cada aprimoramento recebe um DeepScore em relação aos outros da mesma raridade: 50 é a média, S é 70 ou mais, A 59, B 44, C 32 e D abaixo disso. Todos os números estão na tabela abaixo.",
  "Tier List · Patch {patch}": "Tier list · Patch {patch}",
  "Tier List": "Tier list",
  "Champions": "Campeões",
@@ -48,5 +47,9 @@
  "Late game": "Fim de jogo",
  "Even": "Equilibrado",
  "Archetypes": "Arquétipos",
- "Live patch {patch} by default. Pick any patches, or all time, above the champion table. Advanced stats at the bottom show every stat we have.": "Patch atual {patch} por padrão. Escolha quaisquer patches, ou todo o período, acima da tabela de campeões. As estatísticas avançadas, no fim da página, mostram todas as que temos."
+ "Live patch {patch} by default. Pick any patches, or all time, above the champion table. Advanced stats at the bottom show every stat we have.": "Patch atual {patch} por padrão. Escolha quaisquer patches, ou todo o período, acima da tabela de campeões. As estatísticas avançadas, no fim da página, mostram todas as que temos.",
+ "Live patch {patch}. Each augment gets a DeepScore against the others of its rarity: 50 is average, S is 70 and up, A 59, B 44, C 32 and D below. Switch to Table for every number.": "Patch atual {patch}. Cada aprimoramento recebe um DeepScore em relação aos outros da mesma raridade: 50 é a média, S é 70 ou mais, A 59, B 44, C 32 e D abaixo disso. Mude para Tabela para ver todos os números.",
+ "Tiers": "Tiers",
+ "Table": "Tabela",
+ "View": "Visualização"
 }

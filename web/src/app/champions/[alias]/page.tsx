@@ -119,7 +119,7 @@ const vsAvg = (key: string, d: number) =>
     : `${d > 0 ? "+" : ""}${(d * 100).toFixed(1)} pts`;
 
 // Build lists rank by DeepScore against the champion's other builds in the same list.
-const SCORED_COLS = ["DeepScore", "Pick rate", "Win rate"];
+const SCORED_COLS = ["DeepScore", "Win rate", "Pick rate"];
 function ScoredCells({ r }: { r: ItemRow }) {
   return (
     <>
@@ -130,8 +130,8 @@ function ScoredCells({ r }: { r: ItemRow }) {
           <b>–</b>
         )}
       </div>
-      <Cell value={pct(r.pickRate)} label="Pick rate" />
       <Cell value={pct(r.winRate)} label="Win rate" tone={tone(r.lift)} />
+      <Cell value={pct(r.pickRate)} label="Pick rate" />
     </>
   );
 }
@@ -676,12 +676,12 @@ export default async function ChampionPage({
                               help={ITEM_DEEPSCORE_HELP}
                             />
                           )}
-                          <Cell value={pct(r.pickRate)} label="Pick rate" />
                           <Cell
                             value={pct(r.winRate)}
                             label="Win rate"
                             tone={tone(r.lift)}
                           />
+                          <Cell value={pct(r.pickRate)} label="Pick rate" />
                         </div>
                       ))}
                     </div>

@@ -105,5 +105,12 @@
  "How many champion pairs the average covers. Fewer pairs make it less certain.": "Сколько пар чемпионов охватывает среднее. Чем меньше пар, тем оно менее надёжно.",
  "{n} pts": "{n} п.п.",
  "Advanced stats": "Расширенная статистика",
- "Every stat we have for this list, in its own table.": "Все показатели этого списка в отдельной таблице."
+ "Every stat we have for this list, in its own table.": "Все показатели этого списка в отдельной таблице.",
+ "Item": "Предмет",
+ "Type": "Тип",
+ "Est. win rate": "Оцен. % побед",
+ "In builds": "В сборках",
+ "Cost": "Цена",
+ "Estimated win rate of the champions who build it.": "Оценочный процент побед чемпионов, которые его собирают.",
+ "Estimated share of builds that include it.": "Оценочная доля сборок, в которых он есть."
 }

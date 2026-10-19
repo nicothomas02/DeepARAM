@@ -21,7 +21,6 @@
  "{name}: DeepScore {score}, {wr} win, picked in {pr} of games": "{name}：DeepScore {score}，勝率 {wr}，選用率 {pr}",
  "Duos": "雙人組合",
  "Loading duos…": "正在載入雙人組合…",
- "Live patch {patch}. Each augment gets a DeepScore against the others of its rarity: 50 is average, S is 70 and up, A 59, B 44, C 32 and D below. Every number is in the table below.": "目前版本 {patch}。每個強化都會在相同稀有度內獲得 DeepScore：50 為平均，S 為 70 以上，A 59，B 44，C 32，D 以下。所有數據都在下方表格中。",
  "Tier List · Patch {patch}": "梯隊榜 · 版本 {patch}",
  "Tier List": "梯隊榜",
  "Champions": "英雄",
@@ -48,5 +47,9 @@
  "Late game": "後期",
  "Even": "平穩",
  "Archetypes": "類型",
- "Live patch {patch} by default. Pick any patches, or all time, above the champion table. Advanced stats at the bottom show every stat we have.": "預設為目前版本 {patch}。可在英雄表格上方選擇任意版本或全部時間。頁面底部的進階數據會顯示我們擁有的所有數據。"
+ "Live patch {patch} by default. Pick any patches, or all time, above the champion table. Advanced stats at the bottom show every stat we have.": "預設為目前版本 {patch}。可在英雄表格上方選擇任意版本或全部時間。頁面底部的進階數據會顯示我們擁有的所有數據。",
+ "Live patch {patch}. Each augment gets a DeepScore against the others of its rarity: 50 is average, S is 70 and up, A 59, B 44, C 32 and D below. Switch to Table for every number.": "目前版本 {patch}。每個強化都會在相同稀有度內獲得 DeepScore：50 為平均，S 為 70 以上，A 59，B 44，C 32，D 以下。切換到「表格」查看所有數據。",
+ "Tiers": "梯隊",
+ "Table": "表格",
+ "View": "檢視"
 }

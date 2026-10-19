@@ -105,5 +105,12 @@
  "How many champion pairs the average covers. Fewer pairs make it less certain.": "Kolik dvojic šampionů průměr zahrnuje. Méně dvojic znamená menší jistotu.",
  "{n} pts": "{n} b.",
  "Advanced stats": "Pokročilé statistiky",
- "Every stat we have for this list, in its own table.": "Všechny statistiky k tomuto seznamu ve vlastní tabulce."
+ "Every stat we have for this list, in its own table.": "Všechny statistiky k tomuto seznamu ve vlastní tabulce.",
+ "Item": "Předmět",
+ "Type": "Typ",
+ "Est. win rate": "Odh. výhernost",
+ "In builds": "V buildech",
+ "Cost": "Cena",
+ "Estimated win rate of the champions who build it.": "Odhadovaná výhernost šampionů, kteří ho staví.",
+ "Estimated share of builds that include it.": "Odhadovaný podíl buildů, které ho obsahují."
 }

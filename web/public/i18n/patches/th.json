@@ -22,5 +22,6 @@
  "Win-rate changes compare each champion with the patch before.": "การเปลี่ยนแปลงอัตราชนะเทียบแต่ละแชมเปี้ยนกับแพตช์ก่อนหน้า",
  "Silver": "Silver",
  "Gold": "Gold",
- "Prismatic": "Prismatic"
+ "Prismatic": "Prismatic",
+ "{n} pts": "{n} จุด"
 }

@@ -22,5 +22,6 @@
  "Win-rate changes compare each champion with the patch before.": "Kazanma oranı değişiklikleri her şampiyonu bir önceki yamayla karşılaştırır.",
  "Silver": "Gümüş",
  "Gold": "Altın",
- "Prismatic": "Prizmatik"
+ "Prismatic": "Prizmatik",
+ "{n} pts": "{n} puan"
 }

@@ -105,5 +105,12 @@
  "How many champion pairs the average covers. Fewer pairs make it less certain.": "Berapa banyak pasangan champion yang dicakup rata-rata ini. Makin sedikit pasangan, makin kurang pasti.",
  "{n} pts": "{n} poin",
  "Advanced stats": "Statistik lanjutan",
- "Every stat we have for this list, in its own table.": "Semua statistik untuk daftar ini, dalam tabelnya sendiri."
+ "Every stat we have for this list, in its own table.": "Semua statistik untuk daftar ini, dalam tabelnya sendiri.",
+ "Item": "Item",
+ "Type": "Jenis",
+ "Est. win rate": "Est. win rate",
+ "In builds": "Di build",
+ "Cost": "Harga",
+ "Estimated win rate of the champions who build it.": "Perkiraan win rate champion yang membelinya.",
+ "Estimated share of builds that include it.": "Perkiraan porsi build yang memuatnya."
 }

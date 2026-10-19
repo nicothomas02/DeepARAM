@@ -106,54 +106,61 @@ export default function TierListPage() {
       label: "Augments",
       content: (
         <>
-          <AugmentTiers rows={augmentTiers()} styles={STYLES} />
-          <p className="patch-note">
-            <T ns="tier-list" v={{ patch: latest.patch }}>
-              {
-                "Live patch {patch}. Each augment gets a DeepScore against the others of its rarity: 50 is average, S is 70 and up, A 59, B 44, C 32 and D below. Every number is in the table below."
-              }
-            </T>
-          </p>
-          <DataTable
-            columns={augCols}
-            advancedColumns={[
-              ...augCols,
-              {
-                key: "lift",
-                label: "Win rate vs its champions",
-                format: "pts" as const,
-                hint: "Win rate minus what the champions who take it win anyway. Above zero means it helps them.",
-              },
-              { key: "win_rank", label: "Win rank", format: "int" },
-              { key: "pick_rank", label: "Pick rank", format: "int" },
-              { key: "pick_change", label: "Pick rank change", format: "int" },
-              { key: "best", label: "Best champions", format: "text", sortable: false },
-            ]}
-            rows={augments
-              .filter((a) => names[String(a.augment_id)] || a.key)
-              .map((a) => ({
-                id: Number(a.augment_id),
-                href: augmentHref(Number(a.augment_id)),
-                name: augName(a),
-                tier: String(a.tier ?? ""),
-                grade: graded.get(Number(a.augment_id))?.tier ?? null,
-                deepScore: graded.get(Number(a.augment_id))?.deepScore ?? null,
-                lift: graded.get(Number(a.augment_id))?.lift ?? null,
-                win_rate: Number(a.win_rate),
-                pick_rate: Number(a.pick_rate),
-                win_rank: num(String(a.win_rank ?? "")),
-                pick_rank: num(String(a.pick_rank ?? "")),
-                pick_change: num(String(a.pick_rank_change ?? "")),
-                best: ((a.best_champions as number[]) ?? [])
-                  .slice(0, 4)
-                  .map((id) => champName(ALIAS[id]))
-                  .filter(Boolean)
-                  .join(", "),
-              }))}
-            initialSort={{ key: "deepScore", desc: true }}
-            searchKey="name"
-            searchLabel="Find an augment"
-            urlTab="augments"
+          <AugmentTiers
+            rows={augmentTiers()}
+            styles={STYLES}
+            note={
+              <p className="patch-note">
+                <T ns="tier-list" v={{ patch: latest.patch }}>
+                  {
+                    "Live patch {patch}. Each augment gets a DeepScore against the others of its rarity: 50 is average, S is 70 and up, A 59, B 44, C 32 and D below. Switch to Table for every number."
+                  }
+                </T>
+              </p>
+            }
+            table={
+              <DataTable
+                columns={augCols}
+                advancedColumns={[
+                  ...augCols,
+                  {
+                    key: "lift",
+                    label: "Win rate vs its champions",
+                    format: "pts" as const,
+                    hint: "Win rate minus what the champions who take it win anyway. Above zero means it helps them.",
+                  },
+                  { key: "win_rank", label: "Win rank", format: "int" },
+                  { key: "pick_rank", label: "Pick rank", format: "int" },
+                  { key: "pick_change", label: "Pick rank change", format: "int" },
+                  { key: "best", label: "Best champions", format: "text", sortable: false },
+                ]}
+                rows={augments
+                  .filter((a) => names[String(a.augment_id)] || a.key)
+                  .map((a) => ({
+                    id: Number(a.augment_id),
+                    href: augmentHref(Number(a.augment_id)),
+                    name: augName(a),
+                    tier: String(a.tier ?? ""),
+                    grade: graded.get(Number(a.augment_id))?.tier ?? null,
+                    deepScore: graded.get(Number(a.augment_id))?.deepScore ?? null,
+                    lift: graded.get(Number(a.augment_id))?.lift ?? null,
+                    win_rate: Number(a.win_rate),
+                    pick_rate: Number(a.pick_rate),
+                    win_rank: num(String(a.win_rank ?? "")),
+                    pick_rank: num(String(a.pick_rank ?? "")),
+                    pick_change: num(String(a.pick_rank_change ?? "")),
+                    best: ((a.best_champions as number[]) ?? [])
+                      .slice(0, 4)
+                      .map((id) => champName(ALIAS[id]))
+                      .filter(Boolean)
+                      .join(", "),
+                  }))}
+                initialSort={{ key: "deepScore", desc: true }}
+                searchKey="name"
+                searchLabel="Find an augment"
+                urlTab="augments"
+              />
+            }
           />
         </>
       ),

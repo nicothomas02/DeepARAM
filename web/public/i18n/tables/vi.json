@@ -105,5 +105,12 @@
  "How many champion pairs the average covers. Fewer pairs make it less certain.": "Số cặp tướng mà mức trung bình này bao gồm. Càng ít cặp thì càng kém chắc chắn.",
  "{n} pts": "{n} điểm",
  "Advanced stats": "Chỉ số nâng cao",
- "Every stat we have for this list, in its own table.": "Mọi chỉ số của danh sách này, trong một bảng riêng."
+ "Every stat we have for this list, in its own table.": "Mọi chỉ số của danh sách này, trong một bảng riêng.",
+ "Item": "Trang bị",
+ "Type": "Loại",
+ "Est. win rate": "Tỉ lệ thắng ước tính",
+ "In builds": "Trong build",
+ "Cost": "Giá",
+ "Estimated win rate of the champions who build it.": "Tỉ lệ thắng ước tính của các tướng lên trang bị này.",
+ "Estimated share of builds that include it.": "Tỉ lệ ước tính các build có trang bị này."
 }

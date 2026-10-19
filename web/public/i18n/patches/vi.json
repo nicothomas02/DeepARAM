@@ -22,5 +22,6 @@
  "Win-rate changes compare each champion with the patch before.": "Thay đổi tỉ lệ thắng so sánh từng tướng với phiên bản trước.",
  "Silver": "Bạc",
  "Gold": "Vàng",
- "Prismatic": "Lăng Kính"
+ "Prismatic": "Lăng Kính",
+ "{n} pts": "{n} điểm"
 }

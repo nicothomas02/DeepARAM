@@ -5976,3 +5976,26 @@ html[data-view="simple"] [data-detailed] {
 .fun-kinds button { flex: 1 0 auto; }
 .rank.fun-rank a { grid-template-columns: 1.4rem 24px minmax(0, 1fr); }
 .item-card-est { display: block; }
+
+/* Tiers/Table and Cards/Table switches (Tier List's Augments and Items tabs). */
+.seg.view-switch {
+  width: fit-content;
+}
+.seg.view-switch button {
+  flex: none;
+  padding: 0 1rem;
+  white-space: nowrap;
+}
+.atiers > .view-switch + .data-table {
+  margin-top: 0.25rem;
+}
+
+/* Patch Recaps list: what the champion beside each patch is. */
+.recap-top-label {
+  color: var(--muted);
+}
+@media (max-width: 640px) {
+  .recap-top-label {
+    display: none;
+  }
+}

@@ -22,5 +22,6 @@
  "Win-rate changes compare each champion with the patch before.": "승률 변화는 각 챔피언을 이전 패치와 비교합니다.",
  "Silver": "실버",
  "Gold": "골드",
- "Prismatic": "프리즘"
+ "Prismatic": "프리즘",
+ "{n} pts": "{n}%p"
 }

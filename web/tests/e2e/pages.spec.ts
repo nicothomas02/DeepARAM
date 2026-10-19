@@ -150,6 +150,21 @@ test("the Tier List keeps advanced stats in their own table at the bottom", asyn
   await expect(main.locator("tbody").first()).not.toContainText("-0.0");
 });
 
+test("the Augments and Items tabs switch between their picture view and a sortable table", async ({ page }) => {
+  await page.goto("/tier-list?tab=augments");
+  await expect(page.locator(".atiers-rows")).toBeVisible();
+  await expect(page.locator(".atiers .data-table")).toHaveCount(0);
+  await page.locator(".atiers .view-switch button").nth(1).click();
+  await expect(page.locator(".atiers .data-table").first()).toBeVisible();
+  await expect(page).toHaveURL(/aview=table/);
+
+  await page.goto("/tier-list?tab=items&iview=table");
+  const table = page.locator(".items-index .data-table").first();
+  await expect(table.locator('a[href^="/items/"]').first()).toBeVisible();
+  await table.locator("thead button", { hasText: "Cost" }).click();
+  await expect(table.locator("th[aria-sort]")).toContainText("Cost");
+});
+
 test("new visitors start in dark mode", async ({ page }) => {
   await page.goto("/");
   await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");

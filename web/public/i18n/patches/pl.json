@@ -22,5 +22,6 @@
  "Win-rate changes compare each champion with the patch before.": "Zmiany odsetka zwycięstw porównują każdego bohatera z poprzednim patchem.",
  "Silver": "Srebrne",
  "Gold": "Złote",
- "Prismatic": "Pryzmatyczne"
+ "Prismatic": "Pryzmatyczne",
+ "{n} pts": "{n} pkt"
 }

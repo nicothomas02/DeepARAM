@@ -105,5 +105,12 @@
  "How many champion pairs the average covers. Fewer pairs make it less certain.": "How many champion pairs the average covers. Fewer pairs make it less certain.",
  "{n} pts": "{n} pts",
  "Advanced stats": "Advanced stats",
- "Every stat we have for this list, in its own table.": "Every stat we have for this list, in its own table."
+ "Every stat we have for this list, in its own table.": "Every stat we have for this list, in its own table.",
+ "Item": "Item",
+ "Type": "Type",
+ "Est. win rate": "Est. win rate",
+ "In builds": "In builds",
+ "Cost": "Cost",
+ "Estimated win rate of the champions who build it.": "Estimated win rate of the champions who build it.",
+ "Estimated share of builds that include it.": "Estimated share of builds that include it."
 }
