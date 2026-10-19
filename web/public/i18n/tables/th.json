@@ -102,5 +102,8 @@
  "Strongest": "แข็งแกร่งสุด",
  "Estimated from simulated damage at levels 8, 13 and 18: whether the champion peaks early, late or stays even.": "ประมาณจากดาเมจจำลองที่เลเวล 8, 13 และ 18: แชมเปี้ยนแข็งแกร่งช่วงต้น ช่วงท้าย หรือสม่ำเสมอ",
  "Archetype": "ต้นแบบ",
- "How many champion pairs the average covers. Fewer pairs make it less certain.": "จำนวนคู่แชมเปี้ยนที่ค่าเฉลี่ยนี้ครอบคลุม ยิ่งคู่น้อยยิ่งแน่นอนน้อยลง"
+ "How many champion pairs the average covers. Fewer pairs make it less certain.": "จำนวนคู่แชมเปี้ยนที่ค่าเฉลี่ยนี้ครอบคลุม ยิ่งคู่น้อยยิ่งแน่นอนน้อยลง",
+ "{n} pts": "{n} จุด",
+ "Advanced stats": "สถิติขั้นสูง",
+ "Every stat we have for this list, in its own table.": "ทุกสถิติของรายการนี้ในตารางแยก"
 }

@@ -23,7 +23,6 @@
  "Loading duos…": "Loading duos…",
  "Live patch {patch}. Each augment gets a DeepScore against the others of its rarity: 50 is average, S is 70 and up, A 59, B 44, C 32 and D below. Every number is in the table below.": "Live patch {patch}. Each augment gets a DeepScore against the others of its rarity: 50 is average, S is 70 and up, A 59, B 44, C 32 and D below. Every number is in the table below.",
  "Tier List · Patch {patch}": "Tier List · Patch {patch}",
- "Live patch {patch} by default. Pick any patches, or all time, above the champion table. Advanced shows every stat we have.": "Live patch {patch} by default. Pick any patches, or all time, above the champion table. Advanced shows every stat we have.",
  "Tier List": "Tier List",
  "Champions": "Champions",
  "Augments": "Augments",
@@ -48,5 +47,6 @@
  "Early game": "Early game",
  "Late game": "Late game",
  "Even": "Even",
- "Archetypes": "Archetypes"
+ "Archetypes": "Archetypes",
+ "Live patch {patch} by default. Pick any patches, or all time, above the champion table. Advanced stats at the bottom show every stat we have.": "Live patch {patch} by default. Pick any patches, or all time, above the champion table. Advanced stats at the bottom show every stat we have."
 }

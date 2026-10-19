@@ -23,7 +23,6 @@
  "Loading duos…": "Se încarcă duourile…",
  "Live patch {patch}. Each augment gets a DeepScore against the others of its rarity: 50 is average, S is 70 and up, A 59, B 44, C 32 and D below. Every number is in the table below.": "Patchul actual {patch}. Fiecare augmentare primește un DeepScore față de celelalte de aceeași raritate: 50 e media, S e 70 și peste, A 59, B 44, C 32, iar D sub. Toate cifrele sunt în tabelul de mai jos.",
  "Tier List · Patch {patch}": "Clasament · Patch {patch}",
- "Live patch {patch} by default. Pick any patches, or all time, above the champion table. Advanced shows every stat we have.": "Implicit patchul actual {patch}. Alege orice patchuri, sau dintotdeauna, deasupra tabelului cu campioni. Avansat arată toate statisticile pe care le avem.",
  "Tier List": "Clasament",
  "Champions": "Campioni",
  "Augments": "Augmentări",
@@ -48,5 +47,6 @@
  "Early game": "Început de joc",
  "Late game": "Final de joc",
  "Even": "Constant",
- "Archetypes": "Arhetipuri"
+ "Archetypes": "Arhetipuri",
+ "Live patch {patch} by default. Pick any patches, or all time, above the champion table. Advanced stats at the bottom show every stat we have.": "Implicit patchul actual {patch}. Alege orice patchuri, sau dintotdeauna, deasupra tabelului cu campioni. Statisticile avansate de jos arată toate datele pe care le avem."
 }

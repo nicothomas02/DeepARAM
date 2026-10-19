@@ -102,5 +102,8 @@
  "Strongest": "Am stärksten",
  "Estimated from simulated damage at levels 8, 13 and 18: whether the champion peaks early, late or stays even.": "Geschätzt aus simuliertem Schaden auf Stufe 8, 13 und 18: ob der Champion früh, spät oder gleichmäßig am stärksten ist.",
  "Archetype": "Archetyp",
- "How many champion pairs the average covers. Fewer pairs make it less certain.": "Wie viele Champion-Paare der Durchschnitt umfasst. Weniger Paare machen ihn unsicherer."
+ "How many champion pairs the average covers. Fewer pairs make it less certain.": "Wie viele Champion-Paare der Durchschnitt umfasst. Weniger Paare machen ihn unsicherer.",
+ "{n} pts": "{n} Pkt.",
+ "Advanced stats": "Erweiterte Werte",
+ "Every stat we have for this list, in its own table.": "Alle Werte zu dieser Liste in einer eigenen Tabelle."
 }

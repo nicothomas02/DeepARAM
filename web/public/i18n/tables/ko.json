@@ -102,5 +102,8 @@
  "Strongest": "강한 시점",
  "Estimated from simulated damage at levels 8, 13 and 18: whether the champion peaks early, late or stays even.": "레벨 8, 13, 18의 시뮬레이션 피해량으로 추정: 챔피언이 초반, 후반 중 언제 강한지 또는 고른지.",
  "Archetype": "유형",
- "How many champion pairs the average covers. Fewer pairs make it less certain.": "평균에 포함된 챔피언 조합 수입니다. 조합이 적을수록 덜 확실합니다."
+ "How many champion pairs the average covers. Fewer pairs make it less certain.": "평균에 포함된 챔피언 조합 수입니다. 조합이 적을수록 덜 확실합니다.",
+ "{n} pts": "{n}%p",
+ "Advanced stats": "고급 통계",
+ "Every stat we have for this list, in its own table.": "이 목록의 모든 통계를 별도의 표로 보여줍니다."
 }

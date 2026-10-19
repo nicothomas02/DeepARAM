@@ -102,5 +102,8 @@
  "Strongest": "Terkuat",
  "Estimated from simulated damage at levels 8, 13 and 18: whether the champion peaks early, late or stays even.": "Perkiraan dari damage simulasi di level 8, 13 dan 18: apakah champion terkuat di awal, akhir, atau merata.",
  "Archetype": "Arketipe",
- "How many champion pairs the average covers. Fewer pairs make it less certain.": "Berapa banyak pasangan champion yang dicakup rata-rata ini. Makin sedikit pasangan, makin kurang pasti."
+ "How many champion pairs the average covers. Fewer pairs make it less certain.": "Berapa banyak pasangan champion yang dicakup rata-rata ini. Makin sedikit pasangan, makin kurang pasti.",
+ "{n} pts": "{n} poin",
+ "Advanced stats": "Statistik lanjutan",
+ "Every stat we have for this list, in its own table.": "Semua statistik untuk daftar ini, dalam tabelnya sendiri."
 }

@@ -23,7 +23,6 @@
  "Loading duos…": "กำลังโหลดดูโอ…",
  "Live patch {patch}. Each augment gets a DeepScore against the others of its rarity: 50 is average, S is 70 and up, A 59, B 44, C 32 and D below. Every number is in the table below.": "แพตช์ปัจจุบัน {patch} แต่ละ Augment ได้ DeepScore เทียบกับ Augment อื่นที่มีความหายากเดียวกัน: 50 คือค่าเฉลี่ย S คือ 70 ขึ้นไป A 59, B 44, C 32 และ D ต่ำกว่านั้น ตัวเลขทั้งหมดอยู่ในตารางด้านล่าง",
  "Tier List · Patch {patch}": "เทียร์ลิสต์ · แพตช์ {patch}",
- "Live patch {patch} by default. Pick any patches, or all time, above the champion table. Advanced shows every stat we have.": "ค่าเริ่มต้นคือแพตช์ปัจจุบัน {patch} เลือกแพตช์ใดก็ได้หรือทั้งหมดที่ด้านบนตารางแชมเปี้ยน มุมมองขั้นสูงจะแสดงทุกสถิติที่เรามี",
  "Tier List": "เทียร์ลิสต์",
  "Champions": "แชมเปี้ยน",
  "Augments": "Augments",
@@ -48,5 +47,6 @@
  "Early game": "ช่วงต้นเกม",
  "Late game": "ช่วงท้ายเกม",
  "Even": "สม่ำเสมอ",
- "Archetypes": "ต้นแบบ"
+ "Archetypes": "ต้นแบบ",
+ "Live patch {patch} by default. Pick any patches, or all time, above the champion table. Advanced stats at the bottom show every stat we have.": "ค่าเริ่มต้นคือแพตช์ปัจจุบัน {patch} เลือกแพตช์ใดก็ได้หรือทั้งหมดที่ด้านบนตารางแชมเปี้ยน สถิติขั้นสูงด้านล่างจะแสดงทุกสถิติที่เรามี"
 }

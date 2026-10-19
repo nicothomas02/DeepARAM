@@ -23,7 +23,6 @@
  "Loading duos…": "Загрузка дуэтов…",
  "Live patch {patch}. Each augment gets a DeepScore against the others of its rarity: 50 is average, S is 70 and up, A 59, B 44, C 32 and D below. Every number is in the table below.": "Текущий патч {patch}. Каждая аугментация получает DeepScore среди других той же редкости: 50 — среднее, S — от 70, A — 59, B — 44, C — 32, D — ниже. Все цифры — в таблице ниже.",
  "Tier List · Patch {patch}": "Тир-лист · Патч {patch}",
- "Live patch {patch} by default. Pick any patches, or all time, above the champion table. Advanced shows every stat we have.": "По умолчанию текущий патч {patch}. Выберите любые патчи или всё время над таблицей чемпионов. В расширенном виде показаны все наши показатели.",
  "Tier List": "Тир-лист",
  "Champions": "Чемпионы",
  "Augments": "Аугментации",
@@ -48,5 +47,6 @@
  "Early game": "Ранняя игра",
  "Late game": "Поздняя игра",
  "Even": "Ровно",
- "Archetypes": "Архетипы"
+ "Archetypes": "Архетипы",
+ "Live patch {patch} by default. Pick any patches, or all time, above the champion table. Advanced stats at the bottom show every stat we have.": "По умолчанию текущий патч {patch}. Выберите любые патчи или всё время над таблицей чемпионов. Расширенная статистика внизу показывает все наши показатели."
 }

@@ -102,5 +102,8 @@
  "Strongest": "Сильнее всего",
  "Estimated from simulated damage at levels 8, 13 and 18: whether the champion peaks early, late or stays even.": "Оценка по симулированному урону на 8, 13 и 18 уровнях: силён ли чемпион рано, поздно или ровно.",
  "Archetype": "Архетип",
- "How many champion pairs the average covers. Fewer pairs make it less certain.": "Сколько пар чемпионов охватывает среднее. Чем меньше пар, тем оно менее надёжно."
+ "How many champion pairs the average covers. Fewer pairs make it less certain.": "Сколько пар чемпионов охватывает среднее. Чем меньше пар, тем оно менее надёжно.",
+ "{n} pts": "{n} п.п.",
+ "Advanced stats": "Расширенная статистика",
+ "Every stat we have for this list, in its own table.": "Все показатели этого списка в отдельной таблице."
 }

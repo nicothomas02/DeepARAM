@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
 import championNames from "@/data/champion-names.json";
 import { setParams } from "@/lib/url-state";
-import { useAdvanced } from "./Advanced";
+import { useAdvancedState } from "./Advanced";
 import championIds from "@/data/champion-ids.json";
 import { hintFor } from "@/lib/glossary";
 import { useNames, useT } from "./I18n";
@@ -16,7 +16,7 @@ import type { TagInfo } from "@/lib/tag-info";
 export type Column = {
   key: string;
   label: string;
-  format?: "pct" | "num" | "int" | "sec" | "text" | "champion" | "augment" | "tier" | "deepscore" | "tags";
+  format?: "pct" | "pts" | "num" | "int" | "sec" | "text" | "champion" | "augment" | "tier" | "deepscore" | "tags";
   sortable?: boolean;
   /** For "augment" columns: the row key holding the augment id, for its icon. */
   iconKey?: string;
@@ -45,14 +45,22 @@ function searchText(v: Row[string], local: (id: string, en: string) => string) {
 }
 
 const PAGE = 50;
+// Tables longer than this keep their column names in view while the page scrolls (useStickyHead).
+const STICKY_ROWS = 12;
 
-function show(v: Row[string], format: Column["format"]) {
+// A rate rounded for display; -0.0 shows as 0.0.
+const tenths = (n: number) => (Math.round(n * 1000) / 10 || 0).toFixed(1);
+
+function show(v: Row[string], format: Column["format"], pts: (n: string) => string) {
   // undefined: a column the row doesn't carry (an older cached copy of a table's data).
   if (v == null || v === "") return "–";
   const n = Number(v);
   switch (format) {
     case "pct":
-      return `${(n * 100).toFixed(1)}%`;
+      return `${tenths(n)}%`;
+    case "pts":
+      // Percentage points; the cell's ▲ or ▼ (cellClass) carries the sign.
+      return pts(tenths(Math.abs(n)));
     case "num":
       return n.toFixed(1);
     case "int":
@@ -90,8 +98,45 @@ function cellClass(c: Column, v: Row[string]) {
   const n = Number(v);
   if (v === null || v === "" || Number.isNaN(n)) return "num";
   if (c.format === "pct" && /win/.test(c.key)) return n >= 0.52 ? "num wr-high" : n <= 0.48 ? "num wr-low" : "num";
-  if (/change|delta/.test(c.key)) return n > 0 ? "num delta-up" : n < 0 ? "num delta-down" : "num";
+  // A change that rounds to zero gets no arrow or colour.
+  const shown = c.format === "pts" ? Math.round(n * 1000) : n;
+  if (c.format === "pts" || /change|delta/.test(c.key)) return shown > 0 ? "num delta-up" : shown < 0 ? "num delta-down" : "num";
   return "num";
+}
+
+// Long tables keep their header row in view: it slides down under the site header while the table
+// scrolls past (a transform, since the sideways-scrolling wrapper stops position: sticky working).
+function useStickyHead(on: boolean) {
+  const ref = useRef<HTMLTableElement>(null);
+  useEffect(() => {
+    const table = ref.current;
+    if (!on || !table) return;
+    let raf = 0;
+    const update = () => {
+      raf = 0;
+      const head = table.tHead;
+      if (!head) return;
+      const top = Math.max(0, document.querySelector(".site-header")?.getBoundingClientRect().bottom ?? 0);
+      const box = table.getBoundingClientRect();
+      const off = Math.round(Math.min(Math.max(0, top - box.top), box.height - head.offsetHeight * 2));
+      table.style.setProperty("--head-off", `${Math.max(0, off)}px`);
+      table.toggleAttribute("data-stuck", off > 0);
+    };
+    const onScroll = () => {
+      if (!raf) raf = requestAnimationFrame(update);
+    };
+    update();
+    addEventListener("scroll", onScroll, { passive: true });
+    addEventListener("resize", onScroll);
+    return () => {
+      cancelAnimationFrame(raf);
+      removeEventListener("scroll", onScroll);
+      removeEventListener("resize", onScroll);
+      table.style.removeProperty("--head-off");
+      table.removeAttribute("data-stuck");
+    };
+  }, [on]);
+  return ref;
 }
 
 // Champion and augment icons come from the League client (web/scripts/fetch_icons.py).
@@ -142,9 +187,13 @@ export default function DataTable({
   // ("" = the default tab), and keep them there as they change so the address can be shared.
   urlTab?: string;
 }) {
-  const columns = useAdvanced() && advancedColumns ? advancedColumns : standardColumns;
+  // Advanced columns get their own table at the bottom, apart from the standard view (AdvancedStats).
+  const columns = standardColumns;
+  // The first champion or augment column stays pinned on phones while the table scrolls sideways.
+  const pin = columns.find((c) => c.format === "champion" || c.format === "augment")?.key;
   // Column labels, hints and the table's own wording live in the "tables" namespace.
   const t = useT("tables");
+  const pts = (n: string) => t("{n} pts", { n });
   const names = useNames();
   const hint = (c: Column) => {
     const h = hintFor(c.label, c.hint);
@@ -192,6 +241,9 @@ export default function DataTable({
     share({ sort: `${next.key}.${next.desc ? "desc" : "asc"}` });
   };
 
+  const tableRef = useStickyHead(Math.min(sorted.length, shown) > STICKY_ROWS);
+  const cls = (c: Column, base: string) => (c.key === pin ? `${base} pin`.trim() : base);
+
   return (
     <div className="data-table">
       {searchKey && (
@@ -209,14 +261,14 @@ export default function DataTable({
         />
       )}
       <div className="table-scroll">
-        <table>
+        <table ref={tableRef}>
           <thead>
             <tr>
-              <th className="num">#</th>
+              <th className="num rank-col">#</th>
               {columns.map((c) => (
                 <th
                   key={c.key}
-                  className={c.format && !["text", "champion", "augment", "tier", "tags"].includes(c.format) ? "num" : ""}
+                  className={cls(c, c.format && !["text", "champion", "augment", "tier", "tags"].includes(c.format) ? "num" : "")}
                   aria-sort={c.sortable !== false && sort.key === (c.sortKey ?? c.key) ? (sort.desc ? "descending" : "ascending") : undefined}
                 >
                   {c.sortable === false ? (
@@ -239,9 +291,9 @@ export default function DataTable({
           <tbody>
             {sorted.slice(0, shown).map((r, i) => (
               <tr key={i}>
-                <td className="num muted-cell">{i + 1}</td>
+                <td className="num muted-cell rank-col">{i + 1}</td>
                 {columns.map((c) => (
-                  <td key={c.key} className={cellClass(c, r[c.key])}>
+                  <td key={c.key} className={cls(c, cellClass(c, r[c.key]))}>
                     {c.format === "champion" ? (
                       <Champion id={String(r[c.key])} />
                     ) : c.format === "augment" ? (
@@ -260,7 +312,7 @@ export default function DataTable({
                       )
                     ) : c.hrefKey && r[c.hrefKey] ? (
                       <a className="cell-link" href={String(r[c.hrefKey])}>
-                        {show(r[c.key], c.format)}
+                        {show(r[c.key], c.format, pts)}
                       </a>
                     ) : c.format === "deepscore" && typeof r[c.key] === "number" ? (
                       <DeepScore value={r[c.key] as number} help={c.hint} />
@@ -269,7 +321,7 @@ export default function DataTable({
                     ) : c.format === "tier" && r[c.key] ? (
                       <TierChip tier={String(r[c.key])} was={r[`${c.key}_was`]} />
                     ) : (
-                      show(r[c.key], c.format)
+                      show(r[c.key], c.format, pts)
                     )}
                   </td>
                 ))}
@@ -324,6 +376,25 @@ export default function DataTable({
           {t("Show more ({n} left)", { n: sorted.length - shown })}
         </button>
       )}
+      {advancedColumns && advancedColumns.length > columns.length && (
+        <AdvancedStats columns={advancedColumns} rows={rows} initialSort={initialSort} searchKey={searchKey} searchLabel={searchLabel} />
+      )}
     </div>
+  );
+}
+
+// Every stat for the same rows, in a table of its own at the bottom so the standard view above stays short.
+// Closed until opened (or Settings > Page detail is "Detailed"); the choice is remembered (Advanced.tsx).
+function AdvancedStats(props: { columns: Column[]; rows: Row[]; initialSort: { key: string; desc: boolean }; searchKey?: string; searchLabel?: string }) {
+  const { advanced, setAdvanced } = useAdvancedState();
+  const t = useT("tables");
+  return (
+    <details className="advanced-stats" open={advanced} onToggle={(e) => e.currentTarget.open !== advanced && setAdvanced(e.currentTarget.open)}>
+      <summary>
+        {t("Advanced stats")}
+        <small>{t("Every stat we have for this list, in its own table.")}</small>
+      </summary>
+      {advanced && <DataTable {...props} />}
+    </details>
   );
 }

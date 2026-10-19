@@ -16,7 +16,7 @@ import type { TagInfo } from "@/lib/tag-info";
 const DELTA: Column = {
   key: "delta",
   label: "Win rate delta",
-  format: "pct",
+  format: "pts",
   hint: "How much more the pair wins than the two champions' own win rates predict, in percentage points. Above zero means they help each other.",
 };
 const PICK: Column = { key: "pick_rate", label: "Pick rate", format: "pct", hint: "How often the first champion has the second as a teammate." };
