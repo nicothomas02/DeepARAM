@@ -6,7 +6,7 @@ import { AdvancedProvider, AdvancedToggle } from "@/components/Advanced";
 import ChampionTiers from "@/components/ChampionTiers";
 import DataTable from "@/components/DataTable";
 import DuosTable from "@/components/DuosTable";
-import { archetypeRows, hasDuos } from "@/lib/duos";
+import { archetypeRows, duoVersion, hasDuos } from "@/lib/duos";
 import { augmentHref } from "@/lib/augments";
 import { augmentTiers, STYLES } from "@/lib/augment-tiers";
 import AugmentTiers from "@/components/AugmentTiers";
@@ -195,7 +195,13 @@ export default function TierListPage() {
       ),
     });
   }
-  if (duos) tabs.push({ id: "duos", label: "Duos", content: <DuosTable archetypes={archetypeRows()} tagInfo={championTagData().info} />, lazy: true });
+  if (duos)
+    tabs.push({
+      id: "duos",
+      label: "Duos",
+      content: <DuosTable archetypes={archetypeRows()} tagInfo={championTagData().info} version={duoVersion()} />,
+      lazy: true,
+    });
 
   return (
     <AdvancedProvider>

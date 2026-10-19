@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { archetypeRows, duoRows } from "@/lib/duos";
+import { archetypeRows, duoRows, duoVersion } from "@/lib/duos";
 import { readRepoJson } from "@/lib/repo-data";
 
 // The Duos tab's pairs (lib/duos.ts), built from each champion's listed teammates.
@@ -59,5 +59,12 @@ describe("duo DeepScore and archetypes", () => {
     const enchanters = arch.find((r) => r.a === "Enchanter" && r.b === "Enchanter");
     expect(enchanters?.duos).toBeGreaterThanOrEqual(5);
     for (const r of arch) expect(Math.abs(r.delta)).toBeLessThan(0.1);
+  });
+});
+
+describe("duo data version", () => {
+  it("is a short stable tag for the Duos data URL", () => {
+    expect(duoVersion()).toMatch(/^[0-9a-z]{1,7}$/);
+    expect(duoVersion()).toBe(duoVersion());
   });
 });
