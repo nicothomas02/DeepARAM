@@ -49,6 +49,29 @@
       "why": "Janna's Tailwind has a line nobody reads: a portion of her bonus Move Speed becomes bonus magic damage on hit and on Zephyr, and Zephyr's passive hands her free Move Speed just for existing. Tap Dancer gives her 10 Move Speed per attack, stacking for as long as she keeps hitting, and Don't Blink adds 1% damage for every 10 Move Speed she has over her target, so every attack makes the next one faster, harder on hit, and stronger on top. Zephyr's active slows the target and Ice Cold takes another 75 Move Speed off every slow, which widens the Don't Blink gap from the other side. Phantom Dancer, Lich Bane and Boots of Swiftness pile on raw speed, Dead Man's Plate stores speed while she runs and dumps it into her next attack, and Cosmic Drive gives her more Move Speed every time that on-hit magic damage lands. The enchanter stops shielding anyone and becomes an on-hit carry whose only real stat is Move Speed.",
       "play": "Zephyr the squishiest target, then keep attacking: the longer the chase, the harder you hit. Get Excited! is the flex pick, since a takedown gives 100% Move Speed for 4 seconds and Don't Blink reads that as free damage.",
       "chef": "2026-10-18"
+    },
+    {
+      "id": "singed-toxic-assets",
+      "champion": "Singed",
+      "title": "Toxic Assets",
+      "augments": [
+        "Infernal Conduit",
+        "Vulnerability",
+        "Combusting Interest",
+        "It's Critical"
+      ],
+      "core": 3,
+      "items": [
+        "Liandry's Torment",
+        "Demonic Embrace",
+        "Atma's Reckoning",
+        "Rite of Ruin",
+        "Hollow Radiance",
+        "Mercury's Treads"
+      ],
+      "why": "Singed's Poison Trail is a damage-over-time cloud he leaves behind just by running around. Infernal Conduit makes his Abilities stack a Burn on top, Vulnerability lets damage-over-time and item damage Critically Strike for 145% extra, and Combusting Interest turns every Burn and damage-over-time tick on a champion into gold, so the trail now crits and pays him for it. Infernal Conduit's Burns also cut his basic Ability cooldowns, which means more Flings into Mega Adhesive and more Burns. Liandry's Torment, Demonic Embrace and Hollow Radiance add item burns that can crit too, while Atma's Reckoning and Rite of Ruin hand a tank Critical Strike Chance. The proxy farmer becomes a crit carry who never has to attack, cashing a dividend on every step.",
+      "play": "Run circles through the enemy team with Poison Trail on and let the ticks crit and pay out. Fling people into Mega Adhesive whenever it comes back, which is often.",
+      "chef": "2026-10-19"
     }
   ]
 }
