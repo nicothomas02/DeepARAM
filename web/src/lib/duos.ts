@@ -2,6 +2,8 @@ import "server-only";
 import championIds from "@/data/champion-ids.json";
 import { readRepoJson } from "./repo-data";
 import { synergy } from "./synergy";
+import { grade, lowerBound } from "./deepscore";
+import { championTagData, championTags } from "./champion-tags";
 
 // The Duos tab: every pair of teammates the live stats list. Each champion lists its 50 most played-with
 // teammates (data/cn/champions.json best_partners), so the pairs cover strong and weak champions alike,
@@ -10,6 +12,15 @@ import { synergy } from "./synergy";
 // delta: the pair's synergy, how much more it wins than the two champions' own win rates predict
 // (lib/synergy.ts); the pair's raw win rate isn't shown, it mostly echoes the two champions' own. pick_rate: how often the first champion has the second as a teammate.
 // The champion with the bigger share of its team's damage is listed first.
+//
+// deepScore: the synergy graded like the tier lists (lib/deepscore.ts). A pair's games are its pick rate
+// times the first champion's, scaled so a pair of median popularity counts 1,000 pseudo-games; the delta
+// is pulled toward zero by a prior worth a quarter of that, so a big delta from a rarely played pair can't
+// outrank a slightly smaller one from a common pair.
+//
+// archetypeRows: the same pairs pooled by Riot subclass (Enchanter + Enchanter, Marksman + Enchanter),
+// each pair weighted by its games; a champion with two subclasses splits its weight between them.
+// Pairs are limited to each champion's 50 most played-with teammates, the only ones the live stats list.
 
 type Partner = { champion_id: number; win_rate: number; pick_rate: number };
 type Champs = { champions: { champion_id: number; win_rate: number; pick_rate: number; avg_damage_ratio?: number; best_partners?: Partner[] }[] };
@@ -19,10 +30,19 @@ const ALIAS = Object.fromEntries(Object.entries(championIds as Record<string, nu
 
 export const hasDuos = () => Boolean(readRepoJson<Champs>("data/cn/champions.json")?.champions.some((c) => c.best_partners?.length));
 
-export type DuoRow = { a: string; b: string; pair: string; delta: number; pick_rate: number; roles: string };
+export type DuoRow = { a: string; b: string; pair: string; delta: number; deepScore: number; pick_rate: number; roles: string };
+export type ArchetypeRow = { a: string; b: string; delta: number; deepScore: number; duos: number };
 
-let cache: DuoRow[] | null = null;
-export function duoRows(): DuoRow[] {
+const MEDIAN_GAMES = 1000; // pseudo-games for a pair of median popularity, as on the Tier List
+const PRIOR = 0.25;
+
+// Graded on the pair's win rate measured from even (0.5 + delta), with an even prior.
+const score = (delta: number, games: number) => lowerBound(0.5 + delta, games, 0.5, PRIOR * MEDIAN_GAMES);
+
+let cache: { rows: DuoRow[]; games: number[] } | null = null;
+export const duoRows = (): DuoRow[] => build().rows;
+
+function build() {
   if (cache) return cache;
   const champs = readRepoJson<Champs>("data/cn/champions.json")?.champions ?? [];
   const solo = new Map(champs.map((c) => [c.champion_id, c]));
@@ -37,7 +57,8 @@ export function duoRows(): DuoRow[] {
     listed.get(`${a}-${b}`) ?? (listed.get(`${b}-${a}`) ?? 0) * ((solo.get(b)?.pick_rate ?? 0) / (solo.get(a)?.pick_rate || 1));
   const damage = (id: number) => solo.get(id)?.avg_damage_ratio ?? 0;
   const seen = new Set<string>();
-  const out: DuoRow[] = [];
+  const out: Omit<DuoRow, "deepScore">[] = [];
+  const weight: number[] = [];
   for (const c of champs) {
     for (const p of c.best_partners ?? []) {
       const other = solo.get(p.champion_id);
@@ -54,8 +75,47 @@ export function duoRows(): DuoRow[] {
         pick_rate: withMate(first, second),
         roles: [roles.get(first), roles.get(second)].filter(Boolean).join(" + "),
       });
+      weight.push((solo.get(first)?.pick_rate ?? 0) * withMate(first, second));
     }
   }
-  cache = out;
-  return out;
+  const median = [...weight].sort((m, n) => m - n)[Math.floor(weight.length / 2)] || 1;
+  const games = weight.map((w) => (w / median) * MEDIAN_GAMES);
+  const grades = grade(out.map((r, i) => score(r.delta, games[i])));
+  cache = { rows: out.map((r, i) => ({ ...r, deepScore: grades[i].deepScore })), games };
+  return cache;
+}
+
+// A champion's subclasses (Enchanter, Burst), else its class for champions too new for one.
+function archetypes(alias: string) {
+  const { info } = championTagData();
+  const tags = championTags(alias);
+  const sub = tags.filter((t) => info[t]?.kind === "sub");
+  return sub.length ? sub : tags.filter((t) => info[t]?.kind === "class");
+}
+
+// Fewer pairs than this (mostly champions too new for a subclass) is too few to speak for an archetype.
+const MIN_DUOS = 5;
+
+let archCache: ArchetypeRow[] | null = null;
+export function archetypeRows(): ArchetypeRow[] {
+  if (archCache) return archCache;
+  const { rows, games } = build();
+  const sums = new Map<string, { a: string; b: string; w: number; d: number; duos: number }>();
+  rows.forEach((r, i) => {
+    const [as, bs] = [archetypes(r.a), archetypes(r.b)];
+    const share = games[i] / (as.length * bs.length || 1);
+    for (const x of as)
+      for (const y of bs) {
+        const [a, b] = [x, y].sort();
+        const s = sums.get(`${a}+${b}`) ?? { a, b, w: 0, d: 0, duos: 0 };
+        s.w += share;
+        s.d += share * r.delta;
+        s.duos += 1;
+        sums.set(`${a}+${b}`, s);
+      }
+  });
+  const pooled = [...sums.values()].filter((s) => s.duos >= MIN_DUOS);
+  const grades = grade(pooled.map((s) => score(s.d / (s.w || 1), s.w)));
+  archCache = pooled.map((s, i) => ({ a: s.a, b: s.b, delta: s.d / (s.w || 1), deepScore: grades[i].deepScore, duos: s.duos }));
+  return archCache;
 }

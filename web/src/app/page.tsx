@@ -24,8 +24,9 @@ const Icon = ({ src }: { src: string }) => <img className="icon" src={src} alt="
 
 const pct = (v: number) => `${(v * 100).toFixed(1)}%`;
 
-// The pairs that help each other most on the live patch (synergy, the Duos tab's Win rate delta).
-const topDuos = (n = 5) => [...duoRows()].sort((a, b) => b.delta - a.delta).slice(0, n);
+// The pairs that help each other most on the live patch: the Duos tab's DeepScore order (synergy, trusting
+// rarely played pairs less), each showing its Win rate delta.
+const topDuos = (n = 5) => [...duoRows()].sort((a, b) => b.deepScore - a.deepScore || b.delta - a.delta).slice(0, n);
 const pts = (v: number) => `${v > 0 ? "+" : ""}${(v * 100).toFixed(1)} pts`;
 
 export default function Home() {

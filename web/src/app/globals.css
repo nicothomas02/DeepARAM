@@ -5200,7 +5200,8 @@ html[data-patch-new] .chip[data-dir="up"]::after {
 .item-tag:hover {
   border-color: var(--tag);
 }
-.items-bar {
+.items-bar,
+.duos-bar {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -5280,7 +5281,8 @@ html[data-patch-new] .chip[data-dir="up"]::after {
   opacity: 0.35;
   cursor: default;
 }
-.items-bar .seg button {
+.items-bar .seg button,
+.duos-bar .seg button {
   white-space: nowrap;
 }
 /* Phones: each tag family is one sideways strip. */
