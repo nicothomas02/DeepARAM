@@ -114,5 +114,15 @@
  "Delete this message?": "Xóa tin nhắn này?",
  "Deleted.": "Đã xóa.",
  "No messages yet.": "Chưa có tin nhắn nào.",
- "To connect, open Mayhem Stats on the computer where you play, with League open, and choose Connect to deeparam.com. This page asks you to confirm.": "Để liên kết, mở Mayhem Stats trên máy tính bạn dùng để chơi khi đang mở League, rồi chọn Kết nối với deeparam.com. Trang này sẽ yêu cầu bạn xác nhận."
+ "To connect, open Mayhem Stats on the computer where you play, with League open, and choose Connect to deeparam.com. This page asks you to confirm.": "Để liên kết, mở Mayhem Stats trên máy tính bạn dùng để chơi khi đang mở League, rồi chọn Kết nối với deeparam.com. Trang này sẽ yêu cầu bạn xác nhận.",
+ "What an account gets you": "Tài khoản mang lại gì cho bạn",
+ "Your own Mayhem stats": "Thống kê Mayhem của riêng bạn",
+ "Connect Mayhem Stats on the computer where you play to see your win rate, champions, augments and recent games here.": "Liên kết Mayhem Stats trên máy tính bạn dùng để chơi để xem tỉ lệ thắng, tướng, lõi nâng cấp và các trận gần đây của bạn tại đây.",
+ "Builds in The Kitchen": "Build trong Nhà Bếp",
+ "Send builds from the Simulator. Approved ones show in The Kitchen with your display name.": "Gửi build từ Mô phỏng. Build được duyệt sẽ hiện trong Nhà Bếp kèm tên hiển thị của bạn.",
+ "Settings on every device": "Cài đặt trên mọi thiết bị",
+ "Your settings, like motion, sound and page detail, follow you to every browser you sign in on.": "Cài đặt của bạn, như chuyển động, âm thanh và mức chi tiết trang, đi theo bạn đến mọi trình duyệt bạn đăng nhập.",
+ "Your name and icon": "Tên và biểu tượng của bạn",
+ "Pick a display name and a champion icon for your account.": "Chọn tên hiển thị và biểu tượng tướng cho tài khoản của bạn.",
+ "Free, and you never need your Riot password.": "Miễn phí, và bạn không bao giờ cần mật khẩu Riot."
 }

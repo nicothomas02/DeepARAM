@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import AccountPanel from "@/components/AccountPanel";
+import AccountPanel, { SignedInOnly } from "@/components/AccountPanel";
 import ContactMessages from "@/components/ContactMessages";
 import KitchenSubmissions from "@/components/KitchenSubmissions";
 import { T } from "@/components/I18n";
@@ -21,8 +21,12 @@ export default function AccountPage() {
       {/* Sections from other parts of the site sit inside the signed-in page, after the Riot account. */}
       <AccountPanel>
         <MyStatsSection />
-        <KitchenSubmissions />
-        <ContactMessages />
+        <SignedInOnly>
+          <KitchenSubmissions />
+        </SignedInOnly>
+        <SignedInOnly owner>
+          <ContactMessages />
+        </SignedInOnly>
       </AccountPanel>
     </>
   );

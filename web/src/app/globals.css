@@ -4677,6 +4677,14 @@ th > button[data-tip] {
   gap: 0.85rem;
   max-width: 420px;
 }
+/* Signed out: the sign-in form with what an account gets you beside it (below it on phones). */
+.acct-start { display: grid; gap: 1.5rem; align-items: start; }
+@media (min-width: 820px) { .acct-start { grid-template-columns: minmax(0, 420px) minmax(0, 1fr); gap: 2.5rem; } }
+.acct-perks h2 { margin: 0 0 0.75rem; font-size: 1.25rem; }
+.acct-perks ul { display: grid; gap: 0.75rem; margin: 0 0 0.75rem; padding: 0; list-style: none; }
+.acct-perks li { display: grid; gap: 0.2rem; padding: 0.75rem 1rem; border-radius: var(--r-sm); background: var(--card, var(--surface)); }
+.acct-perks li b { color: var(--a); color: var(--a-ink); }
+.acct-perks li span { color: var(--muted); font-size: 0.9rem; line-height: 1.5; }
 .acct-tabs {
   display: grid;
   grid-template-columns: 1fr 1fr;

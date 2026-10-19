@@ -114,5 +114,15 @@
  "Delete this message?": "ลบข้อความนี้ไหม?",
  "Deleted.": "ลบแล้ว",
  "No messages yet.": "ยังไม่มีข้อความ",
- "To connect, open Mayhem Stats on the computer where you play, with League open, and choose Connect to deeparam.com. This page asks you to confirm.": "หากต้องการเชื่อมต่อ ให้เปิด Mayhem Stats บนคอมพิวเตอร์ที่คุณใช้เล่นขณะเปิด League อยู่ แล้วเลือก เชื่อมต่อกับ deeparam.com หน้านี้จะขอให้คุณยืนยัน"
+ "To connect, open Mayhem Stats on the computer where you play, with League open, and choose Connect to deeparam.com. This page asks you to confirm.": "หากต้องการเชื่อมต่อ ให้เปิด Mayhem Stats บนคอมพิวเตอร์ที่คุณใช้เล่นขณะเปิด League อยู่ แล้วเลือก เชื่อมต่อกับ deeparam.com หน้านี้จะขอให้คุณยืนยัน",
+ "What an account gets you": "บัญชีให้อะไรคุณบ้าง",
+ "Your own Mayhem stats": "สถิติ Mayhem ของคุณเอง",
+ "Connect Mayhem Stats on the computer where you play to see your win rate, champions, augments and recent games here.": "เชื่อมต่อ Mayhem Stats บนคอมพิวเตอร์ที่คุณใช้เล่น เพื่อดูอัตราชนะ แชมเปียน ออกเมนต์ และเกมล่าสุดของคุณที่นี่",
+ "Builds in The Kitchen": "บิลด์ในครัว",
+ "Send builds from the Simulator. Approved ones show in The Kitchen with your display name.": "ส่งบิลด์จากซิมูเลเตอร์ บิลด์ที่ได้รับอนุมัติจะแสดงในครัวพร้อมชื่อที่แสดงของคุณ",
+ "Settings on every device": "การตั้งค่าในทุกอุปกรณ์",
+ "Your settings, like motion, sound and page detail, follow you to every browser you sign in on.": "การตั้งค่าของคุณ เช่น การเคลื่อนไหว เสียง และรายละเอียดหน้า จะตามคุณไปทุกเบราว์เซอร์ที่ลงชื่อเข้าใช้",
+ "Your name and icon": "ชื่อและไอคอนของคุณ",
+ "Pick a display name and a champion icon for your account.": "เลือกชื่อที่แสดงและไอคอนแชมเปียนสำหรับบัญชีของคุณ",
+ "Free, and you never need your Riot password.": "ฟรี และไม่ต้องใช้รหัสผ่าน Riot เลย"
 }

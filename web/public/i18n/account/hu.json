@@ -114,5 +114,15 @@
  "Delete this message?": "Törlöd ezt az üzenetet?",
  "Deleted.": "Törölve.",
  "No messages yet.": "Még nincs üzenet.",
- "To connect, open Mayhem Stats on the computer where you play, with League open, and choose Connect to deeparam.com. This page asks you to confirm.": "Az összekapcsoláshoz nyisd meg a Mayhem Statsot azon a gépen, ahol játszol, futó Leaguegel, és válaszd ezt: Összekapcsolás a deeparam.com-mal. Ez az oldal megerősítést kér."
+ "To connect, open Mayhem Stats on the computer where you play, with League open, and choose Connect to deeparam.com. This page asks you to confirm.": "Az összekapcsoláshoz nyisd meg a Mayhem Statsot azon a gépen, ahol játszol, futó Leaguegel, és válaszd ezt: Összekapcsolás a deeparam.com-mal. Ez az oldal megerősítést kér.",
+ "What an account gets you": "Mit ad egy fiók",
+ "Your own Mayhem stats": "A saját Mayhem-statisztikáid",
+ "Connect Mayhem Stats on the computer where you play to see your win rate, champions, augments and recent games here.": "Kapcsold össze a Mayhem Statsot azon a gépen, ahol játszol, és itt láthatod a győzelmi arányodat, hőseidet, augmentjeidet és legutóbbi meccseidet.",
+ "Builds in The Kitchen": "Buildek a Konyhában",
+ "Send builds from the Simulator. Approved ones show in The Kitchen with your display name.": "Küldj buildeket a Szimulátorból. Az elfogadottak a megjelenített neveddel jelennek meg a Konyhában.",
+ "Settings on every device": "Beállítások minden eszközön",
+ "Your settings, like motion, sound and page detail, follow you to every browser you sign in on.": "A beállításaid, például a mozgás, a hang és az oldal részletessége, minden böngészőben veled vannak, ahol bejelentkezel.",
+ "Your name and icon": "A neved és ikonod",
+ "Pick a display name and a champion icon for your account.": "Válassz megjelenített nevet és hősikont a fiókodhoz.",
+ "Free, and you never need your Riot password.": "Ingyenes, és soha nem kell a Riot-jelszavad."
 }
