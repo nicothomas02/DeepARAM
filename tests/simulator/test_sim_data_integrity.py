@@ -150,8 +150,10 @@ def test_items(patch):
         assert all(is_num(x) and x >= 0 for x in v["stats"].values()), (k, v["stats"])
     assert sum(v["slot"] == "boots" for v in its.values()) >= 3
     # The whole Howling Abyss shop (consumables aside), so components and starters are there too.
-    for key in ("sheen", "tiamat", "dorans_blade", "gluttonous", "golden_spatula"):
+    for key in ("sheen", "tiamat", "guardians_blade", "gluttonous", "golden_spatula"):
         assert key in its, key
+    # Mayhem's shop doesn't sell the Doran's items.
+    assert not [k for k in its if k.startswith("dorans_")]
 
 
 def test_item_effects_match_items():

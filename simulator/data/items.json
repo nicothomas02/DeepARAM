@@ -105,12 +105,13 @@
     "bruiser"
    ],
    "stats": {
-    "omnivamp": 0.04
+    "omnivamp": 0.1
    },
    "effects": {
     "ms": 45
    },
-   "confidence": "verified"
+   "confidence": "verified",
+   "note": "Slay counted at its full 10 takedown stacks (+6% omnivamp)"
   },
   "swiftness": {
    "id": 3009,
@@ -2871,73 +2872,6 @@
    "roles": [],
    "stats": {
     "hp": 150
-   },
-   "effects": {},
-   "confidence": "verified"
-  },
-  "dorans_helm": {
-   "id": 1120,
-   "name": "Doran's Helm",
-   "slot": "starter",
-   "cost": 450,
-   "roles": [],
-   "stats": {
-    "hp": 150,
-    "armor": 8,
-    "mr": 8
-   },
-   "effects": {},
-   "confidence": "verified"
-  },
-  "dorans_blade": {
-   "id": 1055,
-   "name": "Doran's Blade",
-   "slot": "starter",
-   "cost": 450,
-   "roles": [],
-   "stats": {
-    "ad": 10,
-    "hp": 80,
-    "omnivamp": 0.025
-   },
-   "effects": {},
-   "confidence": "verified"
-  },
-  "dorans_shield": {
-   "id": 1054,
-   "name": "Doran's Shield",
-   "slot": "starter",
-   "cost": 450,
-   "roles": [],
-   "stats": {
-    "hp": 110
-   },
-   "effects": {},
-   "confidence": "verified"
-  },
-  "dorans_bow": {
-   "id": 1086,
-   "name": "Doran's Bow",
-   "slot": "starter",
-   "cost": 400,
-   "roles": [],
-   "stats": {
-    "ad": 8,
-    "as": 0.15,
-    "omnivamp": 0.015
-   },
-   "effects": {},
-   "confidence": "verified"
-  },
-  "dorans_ring": {
-   "id": 1056,
-   "name": "Doran's Ring",
-   "slot": "starter",
-   "cost": 400,
-   "roles": [],
-   "stats": {
-    "ap": 18,
-    "hp": 90
    },
    "effects": {},
    "confidence": "verified"
