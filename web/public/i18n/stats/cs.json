@@ -255,5 +255,10 @@
  "Your champion": "Tvůj šampion",
  "Their K / D / A": "Jeho Z / S / A",
  "1 game": "1 hra",
- "{n} games": "Hry: {n}"
+ "{n} games": "Hry: {n}",
+ "Share my games anonymously to help build stats for everyone": "Sdílet moje hry anonymně a pomoct tvořit statistiky pro všechny",
+ "Off unless you tick it. Shared games carry champions, items, augments, runes, spells, results and each player's gold and experience minute by minute, never names or account ids. Turning it off in Mayhem Stats removes everything you shared.": "Vypnuto, dokud to nezaškrtneš. Sdílené hry obsahují šampiony, předměty, augmenty, runy, kouzla, výsledky a zlato a zkušenosti každého hráče minutu po minutě, nikdy jména ani ID účtů. Vypnutím v Mayhem Stats se odstraní vše, co jsi sdílel.",
+ "Mayhem Stats starts sharing your games anonymously. You can turn it off there at any time.": "Mayhem Stats začne anonymně sdílet tvoje hry. Kdykoli to tam můžeš vypnout.",
+ "Sharing your games anonymously from Mayhem Stats builds stats the site can't get any other way: runes, matchups, augment pairs and real game counts for every champion. It's off unless you turn it on, and never includes names or account ids.": "Anonymní sdílení tvých her z Mayhem Stats vytváří statistiky, které web jinak získat nemůže: runy, matchupy, dvojice augmentů a skutečné počty her pro každého šampiona. Je vypnuté, dokud ho nezapneš, a nikdy neobsahuje jména ani ID účtů.",
+ "Shared games build stats the site can't get any other way: runes, matchups, augment pairs and real game counts for every champion.": "Sdílené hry vytvářejí statistiky, které web jinak získat nemůže: runy, matchupy, dvojice augmentů a skutečné počty her pro každého šampiona."
 }

@@ -41,6 +41,7 @@ function ConnectCard({ pair, onDone }: { pair: string; onDone: () => void }) {
   const t = useT("stats");
   const [info, setInfo] = useState<PairInfo | null>(null);
   const [save, setSave] = useState(true);
+  const [share, setShare] = useState(false);
   const [busy, setBusy] = useState(false);
   const [msg, setMsg] = useState<{ ok: boolean; text: string } | null>(null);
 
@@ -68,18 +69,16 @@ function ConnectCard({ pair, onDone }: { pair: string; onDone: () => void }) {
       const r = await fetch("/api/account/connect", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ pair, save: !!info?.owner && save }),
+        body: JSON.stringify({ pair, save: !!info?.owner && save, share }),
       });
       const j = await r.json().catch(() => ({}));
       if (!r.ok) throw new Error(t(j.error || "Something went wrong. Try again."));
       dropPair();
       setInfo(null);
-      setMsg({
-        ok: true,
-        text: info?.owner && save
-          ? t("Connected {riotId}. Mayhem Stats on your computer now saves your games here; go back to it to watch it finish.", { riotId: j.riotId })
-          : t("Connected {riotId}. You can go back to Mayhem Stats.", { riotId: j.riotId }),
-      });
+      const done = info?.owner && save
+        ? t("Connected {riotId}. Mayhem Stats on your computer now saves your games here; go back to it to watch it finish.", { riotId: j.riotId })
+        : t("Connected {riotId}. You can go back to Mayhem Stats.", { riotId: j.riotId });
+      setMsg({ ok: true, text: share ? `${done} ${t("Mayhem Stats starts sharing your games anonymously. You can turn it off there at any time.")}` : done });
     } catch (err) {
       setMsg({ ok: false, text: (err as Error).message });
     } finally {
@@ -104,6 +103,13 @@ function ConnectCard({ pair, onDone }: { pair: string; onDone: () => void }) {
               {t("Also save my Mayhem games to this account, so My Stats shows them on any device. Only you can see them.")}
             </label>
           )}
+          <label className="my-stats-check">
+            <input type="checkbox" checked={share} onChange={(e) => setShare(e.target.checked)} />
+            {t("Share my games anonymously to help build stats for everyone")}
+          </label>
+          <p className="acct-hint">
+            {t("Off unless you tick it. Shared games carry champions, items, augments, runes, spells, results and each player's gold and experience minute by minute, never names or account ids. Turning it off in Mayhem Stats removes everything you shared.")}
+          </p>
           <div className="my-stats-actions">
             <button type="button" className="btn" disabled={busy} onClick={connect}>
               {t("Connect")}
@@ -154,6 +160,7 @@ export default function MyStatsSection() {
           <p className="lede">
             {t("Import your games with the button below. You need to be connected to the Riot Client: open it on this computer and sign in first. Your games stay on your computer.")}
           </p>
+          <p className="acct-hint">{t("Sharing your games anonymously from Mayhem Stats builds stats the site can't get any other way: runes, matchups, augment pairs and real game counts for every champion. It's off unless you turn it on, and never includes names or account ids.")}</p>
           <Embed src="/embed/dashboard/index.html" title={t("My Stats")} minHeight={420} />
         </>
       ) : (

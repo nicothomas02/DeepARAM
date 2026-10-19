@@ -255,5 +255,10 @@
  "Your champion": "แชมเปี้ยนของคุณ",
  "Their K / D / A": "K / D / A ของเขา",
  "1 game": "1 เกม",
- "{n} games": "{n} เกม"
+ "{n} games": "{n} เกม",
+ "Share my games anonymously to help build stats for everyone": "แชร์เกมของฉันแบบไม่ระบุตัวตนเพื่อช่วยสร้างสถิติให้ทุกคน",
+ "Off unless you tick it. Shared games carry champions, items, augments, runes, spells, results and each player's gold and experience minute by minute, never names or account ids. Turning it off in Mayhem Stats removes everything you shared.": "ปิดอยู่จนกว่าคุณจะติ๊กเลือก เกมที่แชร์มีแชมเปี้ยน ไอเทม Augments รูน สเปล ผลการแข่งขัน และโกลด์กับค่าประสบการณ์ของผู้เล่นแต่ละคนแบบนาทีต่อนาที ไม่มีชื่อหรือไอดีบัญชีเด็ดขาด การปิดใน Mayhem Stats จะลบทุกอย่างที่คุณเคยแชร์",
+ "Mayhem Stats starts sharing your games anonymously. You can turn it off there at any time.": "Mayhem Stats จะเริ่มแชร์เกมของคุณแบบไม่ระบุตัวตน คุณปิดได้ที่นั่นทุกเมื่อ",
+ "Sharing your games anonymously from Mayhem Stats builds stats the site can't get any other way: runes, matchups, augment pairs and real game counts for every champion. It's off unless you turn it on, and never includes names or account ids.": "การแชร์เกมของคุณแบบไม่ระบุตัวตนจาก Mayhem Stats ช่วยสร้างสถิติที่เว็บไซต์ไม่สามารถได้มาด้วยวิธีอื่น: รูน การจับคู่ คู่ Augment และจำนวนเกมจริงของแชมเปี้ยนทุกตัว ฟีเจอร์นี้ปิดอยู่จนกว่าคุณจะเปิด และไม่มีชื่อหรือไอดีบัญชีเด็ดขาด",
+ "Shared games build stats the site can't get any other way: runes, matchups, augment pairs and real game counts for every champion.": "เกมที่แชร์ช่วยสร้างสถิติที่เว็บไซต์ไม่สามารถได้มาด้วยวิธีอื่น: รูน การจับคู่ คู่ Augment และจำนวนเกมจริงของแชมเปี้ยนทุกตัว"
 }
