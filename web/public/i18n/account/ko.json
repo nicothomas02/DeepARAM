@@ -114,5 +114,15 @@
  "Delete this message?": "이 메시지를 삭제할까요?",
  "Deleted.": "삭제했습니다.",
  "No messages yet.": "아직 메시지가 없습니다.",
- "To connect, open Mayhem Stats on the computer where you play, with League open, and choose Connect to deeparam.com. This page asks you to confirm.": "연결하려면 플레이하는 컴퓨터에서 League를 실행한 상태로 Mayhem Stats를 열고 deeparam.com에 연결을(를) 선택하세요. 이 페이지에서 확인을 요청합니다."
+ "To connect, open Mayhem Stats on the computer where you play, with League open, and choose Connect to deeparam.com. This page asks you to confirm.": "연결하려면 플레이하는 컴퓨터에서 League를 실행한 상태로 Mayhem Stats를 열고 deeparam.com에 연결을(를) 선택하세요. 이 페이지에서 확인을 요청합니다.",
+ "What an account gets you": "계정으로 할 수 있는 것",
+ "Your own Mayhem stats": "내 Mayhem 전적",
+ "Connect Mayhem Stats on the computer where you play to see your win rate, champions, augments and recent games here.": "플레이하는 컴퓨터에서 Mayhem Stats를 연결하면 승률, 챔피언, 증강, 최근 게임을 여기서 볼 수 있습니다.",
+ "Builds in The Kitchen": "주방에 빌드 올리기",
+ "Send builds from the Simulator. Approved ones show in The Kitchen with your display name.": "시뮬레이터에서 빌드를 보내세요. 승인된 빌드는 표시 이름과 함께 주방에 올라갑니다.",
+ "Settings on every device": "모든 기기에서 같은 설정",
+ "Your settings, like motion, sound and page detail, follow you to every browser you sign in on.": "움직임, 소리, 페이지 상세도 같은 설정이 로그인한 모든 브라우저로 따라옵니다.",
+ "Your name and icon": "내 이름과 아이콘",
+ "Pick a display name and a champion icon for your account.": "계정에 쓸 표시 이름과 챔피언 아이콘을 고르세요.",
+ "Free, and you never need your Riot password.": "무료이며, Riot 비밀번호는 전혀 필요 없습니다."
 }

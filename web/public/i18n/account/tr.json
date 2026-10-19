@@ -114,5 +114,15 @@
  "Delete this message?": "Bu mesaj silinsin mi?",
  "Deleted.": "Silindi.",
  "No messages yet.": "Henüz mesaj yok.",
- "To connect, open Mayhem Stats on the computer where you play, with League open, and choose Connect to deeparam.com. This page asks you to confirm.": "Bağlamak için oynadığın bilgisayarda League açıkken Mayhem Stats'i aç ve deeparam.com'a bağla seçeneğini seç. Bu sayfa onaylamanı isteyecek."
+ "To connect, open Mayhem Stats on the computer where you play, with League open, and choose Connect to deeparam.com. This page asks you to confirm.": "Bağlamak için oynadığın bilgisayarda League açıkken Mayhem Stats'i aç ve deeparam.com'a bağla seçeneğini seç. Bu sayfa onaylamanı isteyecek.",
+ "What an account gets you": "Hesap sana ne kazandırır",
+ "Your own Mayhem stats": "Kendi Mayhem istatistiklerin",
+ "Connect Mayhem Stats on the computer where you play to see your win rate, champions, augments and recent games here.": "Kazanma oranını, şampiyonlarını, güçlendirmelerini ve son oyunlarını burada görmek için oynadığın bilgisayarda Mayhem Stats'i bağla.",
+ "Builds in The Kitchen": "Mutfak'ta buildler",
+ "Send builds from the Simulator. Approved ones show in The Kitchen with your display name.": "Simülatör'den build gönder. Onaylananlar Mutfak'ta görünen adınla yer alır.",
+ "Settings on every device": "Her cihazda ayarların",
+ "Your settings, like motion, sound and page detail, follow you to every browser you sign in on.": "Hareket, ses ve sayfa ayrıntısı gibi ayarların giriş yaptığın her tarayıcıda seninle olur.",
+ "Your name and icon": "Adın ve simgen",
+ "Pick a display name and a champion icon for your account.": "Hesabın için bir görünen ad ve şampiyon simgesi seç.",
+ "Free, and you never need your Riot password.": "Ücretsiz ve Riot şifrene asla gerek yok."
 }

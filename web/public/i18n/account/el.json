@@ -114,5 +114,15 @@
  "Delete this message?": "Διαγραφή αυτού του μηνύματος;",
  "Deleted.": "Διαγράφηκε.",
  "No messages yet.": "Δεν υπάρχουν μηνύματα ακόμα.",
- "To connect, open Mayhem Stats on the computer where you play, with League open, and choose Connect to deeparam.com. This page asks you to confirm.": "Για σύνδεση, άνοιξε το Mayhem Stats στον υπολογιστή όπου παίζεις, με ανοιχτό το League, και διάλεξε Σύνδεση με το deeparam.com. Αυτή η σελίδα θα σου ζητήσει επιβεβαίωση."
+ "To connect, open Mayhem Stats on the computer where you play, with League open, and choose Connect to deeparam.com. This page asks you to confirm.": "Για σύνδεση, άνοιξε το Mayhem Stats στον υπολογιστή όπου παίζεις, με ανοιχτό το League, και διάλεξε Σύνδεση με το deeparam.com. Αυτή η σελίδα θα σου ζητήσει επιβεβαίωση.",
+ "What an account gets you": "Τι σου δίνει ένας λογαριασμός",
+ "Your own Mayhem stats": "Τα δικά σου στατιστικά Mayhem",
+ "Connect Mayhem Stats on the computer where you play to see your win rate, champions, augments and recent games here.": "Σύνδεσε το Mayhem Stats στον υπολογιστή όπου παίζεις για να βλέπεις εδώ το ποσοστό νικών, τους champions, τα augments και τα πρόσφατα παιχνίδια σου.",
+ "Builds in The Kitchen": "Build στην Κουζίνα",
+ "Send builds from the Simulator. Approved ones show in The Kitchen with your display name.": "Στείλε build από τον Προσομοιωτή. Όσα εγκριθούν εμφανίζονται στην Κουζίνα με το όνομά σου.",
+ "Settings on every device": "Ρυθμίσεις σε κάθε συσκευή",
+ "Your settings, like motion, sound and page detail, follow you to every browser you sign in on.": "Οι ρυθμίσεις σου, όπως κίνηση, ήχος και λεπτομέρεια σελίδας, σε ακολουθούν σε κάθε πρόγραμμα περιήγησης όπου συνδέεσαι.",
+ "Your name and icon": "Το όνομα και το εικονίδιό σου",
+ "Pick a display name and a champion icon for your account.": "Διάλεξε όνομα εμφάνισης και εικονίδιο champion για τον λογαριασμό σου.",
+ "Free, and you never need your Riot password.": "Δωρεάν, και δεν χρειάζεσαι ποτέ τον κωδικό σου στη Riot."
 }

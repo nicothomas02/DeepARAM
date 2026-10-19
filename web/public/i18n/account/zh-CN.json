@@ -114,5 +114,15 @@
  "Delete this message?": "删除这条留言？",
  "Deleted.": "已删除。",
  "No messages yet.": "还没有留言。",
- "To connect, open Mayhem Stats on the computer where you play, with League open, and choose Connect to deeparam.com. This page asks you to confirm.": "要绑定，请在你玩游戏的电脑上打开 League，再打开 Mayhem Stats，选择“关联到 deeparam.com”。此页面会请你确认。"
+ "To connect, open Mayhem Stats on the computer where you play, with League open, and choose Connect to deeparam.com. This page asks you to confirm.": "要绑定，请在你玩游戏的电脑上打开 League，再打开 Mayhem Stats，选择“关联到 deeparam.com”。此页面会请你确认。",
+ "What an account gets you": "账号能给你什么",
+ "Your own Mayhem stats": "你自己的 Mayhem 数据",
+ "Connect Mayhem Stats on the computer where you play to see your win rate, champions, augments and recent games here.": "在你玩游戏的电脑上连接 Mayhem Stats，就能在这里看到你的胜率、英雄、强化和最近对局。",
+ "Builds in The Kitchen": "在厨房分享出装",
+ "Send builds from the Simulator. Approved ones show in The Kitchen with your display name.": "从模拟器提交出装。通过审核的出装会以你的昵称显示在厨房里。",
+ "Settings on every device": "每台设备都用同样的设置",
+ "Your settings, like motion, sound and page detail, follow you to every browser you sign in on.": "你的设置（如动画、声音和页面详细程度）会同步到你登录的每个浏览器。",
+ "Your name and icon": "你的昵称和头像",
+ "Pick a display name and a champion icon for your account.": "为你的账号选择一个昵称和英雄头像。",
+ "Free, and you never need your Riot password.": "免费，而且永远不需要你的 Riot 密码。"
 }

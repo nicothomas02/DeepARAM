@@ -114,5 +114,15 @@
  "Delete this message?": "Supprimer ce message ?",
  "Deleted.": "Supprimé.",
  "No messages yet.": "Aucun message pour l'instant.",
- "To connect, open Mayhem Stats on the computer where you play, with League open, and choose Connect to deeparam.com. This page asks you to confirm.": "Pour l'associer, ouvrez Mayhem Stats sur l'ordinateur où vous jouez, avec League ouvert, et choisissez Associer à deeparam.com. Cette page vous demandera de confirmer."
+ "To connect, open Mayhem Stats on the computer where you play, with League open, and choose Connect to deeparam.com. This page asks you to confirm.": "Pour l'associer, ouvrez Mayhem Stats sur l'ordinateur où vous jouez, avec League ouvert, et choisissez Associer à deeparam.com. Cette page vous demandera de confirmer.",
+ "What an account gets you": "Ce qu'un compte vous apporte",
+ "Your own Mayhem stats": "Vos propres stats Mayhem",
+ "Connect Mayhem Stats on the computer where you play to see your win rate, champions, augments and recent games here.": "Associez Mayhem Stats sur l'ordinateur où vous jouez pour voir ici votre taux de victoire, vos champions, vos augments et vos dernières parties.",
+ "Builds in The Kitchen": "Des builds dans La Cuisine",
+ "Send builds from the Simulator. Approved ones show in The Kitchen with your display name.": "Envoyez des builds depuis le Simulateur. Ceux qui sont acceptés apparaissent dans La Cuisine avec votre nom affiché.",
+ "Settings on every device": "Vos réglages sur tous vos appareils",
+ "Your settings, like motion, sound and page detail, follow you to every browser you sign in on.": "Vos réglages, comme les animations, le son et le détail des pages, vous suivent sur chaque navigateur où vous êtes connecté.",
+ "Your name and icon": "Votre nom et votre icône",
+ "Pick a display name and a champion icon for your account.": "Choisissez un nom affiché et une icône de champion pour votre compte.",
+ "Free, and you never need your Riot password.": "Gratuit, et vous n'avez jamais besoin de votre mot de passe Riot."
 }

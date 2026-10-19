@@ -114,5 +114,15 @@
  "Delete this message?": "このメッセージを削除しますか？",
  "Deleted.": "削除しました。",
  "No messages yet.": "まだメッセージはありません。",
- "To connect, open Mayhem Stats on the computer where you play, with League open, and choose Connect to deeparam.com. This page asks you to confirm.": "連携するには、プレイしているパソコンでLeagueを起動した状態でMayhem Statsを開き、「deeparam.comと連携」を選んでください。このページで確認を求められます。"
+ "To connect, open Mayhem Stats on the computer where you play, with League open, and choose Connect to deeparam.com. This page asks you to confirm.": "連携するには、プレイしているパソコンでLeagueを起動した状態でMayhem Statsを開き、「deeparam.comと連携」を選んでください。このページで確認を求められます。",
+ "What an account gets you": "アカウントでできること",
+ "Your own Mayhem stats": "あなた自身のMayhem戦績",
+ "Connect Mayhem Stats on the computer where you play to see your win rate, champions, augments and recent games here.": "プレイしているパソコンでMayhem Statsを連携すると、勝率、チャンピオン、オーグメント、最近の試合をここで確認できます。",
+ "Builds in The Kitchen": "キッチンにビルドを投稿",
+ "Send builds from the Simulator. Approved ones show in The Kitchen with your display name.": "シミュレーターからビルドを送れます。承認されたビルドは表示名付きでキッチンに載ります。",
+ "Settings on every device": "どのデバイスでも同じ設定",
+ "Your settings, like motion, sound and page detail, follow you to every browser you sign in on.": "動き、サウンド、ページの詳細度などの設定が、サインインしたすべてのブラウザに引き継がれます。",
+ "Your name and icon": "名前とアイコン",
+ "Pick a display name and a champion icon for your account.": "アカウントの表示名とチャンピオンアイコンを選べます。",
+ "Free, and you never need your Riot password.": "無料で、Riotのパスワードは一切不要です。"
 }

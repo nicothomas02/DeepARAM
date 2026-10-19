@@ -114,5 +114,15 @@
  "Delete this message?": "Diese Nachricht löschen?",
  "Deleted.": "Gelöscht.",
  "No messages yet.": "Noch keine Nachrichten.",
- "To connect, open Mayhem Stats on the computer where you play, with League open, and choose Connect to deeparam.com. This page asks you to confirm.": "Zum Verbinden öffne Mayhem Stats auf dem Computer, auf dem du spielst, mit geöffnetem League und wähle Mit deeparam.com verbinden. Diese Seite bittet dich dann um Bestätigung."
+ "To connect, open Mayhem Stats on the computer where you play, with League open, and choose Connect to deeparam.com. This page asks you to confirm.": "Zum Verbinden öffne Mayhem Stats auf dem Computer, auf dem du spielst, mit geöffnetem League und wähle Mit deeparam.com verbinden. Diese Seite bittet dich dann um Bestätigung.",
+ "What an account gets you": "Was dir ein Konto bringt",
+ "Your own Mayhem stats": "Deine eigenen Mayhem-Statistiken",
+ "Connect Mayhem Stats on the computer where you play to see your win rate, champions, augments and recent games here.": "Verbinde Mayhem Stats auf dem Computer, auf dem du spielst, und sieh hier deine Siegrate, Champions, Augments und letzten Spiele.",
+ "Builds in The Kitchen": "Builds in der Küche",
+ "Send builds from the Simulator. Approved ones show in The Kitchen with your display name.": "Schick Builds aus dem Simulator. Angenommene erscheinen in der Küche mit deinem Anzeigenamen.",
+ "Settings on every device": "Einstellungen auf jedem Gerät",
+ "Your settings, like motion, sound and page detail, follow you to every browser you sign in on.": "Deine Einstellungen wie Bewegung, Ton und Seitendetails folgen dir in jeden Browser, in dem du angemeldet bist.",
+ "Your name and icon": "Dein Name und Symbol",
+ "Pick a display name and a champion icon for your account.": "Wähle einen Anzeigenamen und ein Champion-Symbol für dein Konto.",
+ "Free, and you never need your Riot password.": "Kostenlos, und dein Riot-Passwort brauchst du nie."
 }

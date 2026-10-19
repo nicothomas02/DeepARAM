@@ -114,5 +114,15 @@
  "Delete this message?": "Удалить это сообщение?",
  "Deleted.": "Удалено.",
  "No messages yet.": "Сообщений пока нет.",
- "To connect, open Mayhem Stats on the computer where you play, with League open, and choose Connect to deeparam.com. This page asks you to confirm.": "Чтобы подключить аккаунт, откройте Mayhem Stats на компьютере, где играете, с запущенной League и выберите «Привязать к deeparam.com». Эта страница попросит подтвердить."
+ "To connect, open Mayhem Stats on the computer where you play, with League open, and choose Connect to deeparam.com. This page asks you to confirm.": "Чтобы подключить аккаунт, откройте Mayhem Stats на компьютере, где играете, с запущенной League и выберите «Привязать к deeparam.com». Эта страница попросит подтвердить.",
+ "What an account gets you": "Что даёт аккаунт",
+ "Your own Mayhem stats": "Ваша собственная статистика Mayhem",
+ "Connect Mayhem Stats on the computer where you play to see your win rate, champions, augments and recent games here.": "Подключите Mayhem Stats на компьютере, где играете, чтобы видеть здесь свой процент побед, чемпионов, аугменты и последние игры.",
+ "Builds in The Kitchen": "Сборки на Кухне",
+ "Send builds from the Simulator. Approved ones show in The Kitchen with your display name.": "Отправляйте сборки из Симулятора. Одобренные появятся на Кухне с вашим отображаемым именем.",
+ "Settings on every device": "Настройки на любом устройстве",
+ "Your settings, like motion, sound and page detail, follow you to every browser you sign in on.": "Ваши настройки, например анимация, звук и детализация страниц, переносятся во все браузеры, где вы вошли.",
+ "Your name and icon": "Ваше имя и значок",
+ "Pick a display name and a champion icon for your account.": "Выберите отображаемое имя и значок чемпиона для аккаунта.",
+ "Free, and you never need your Riot password.": "Бесплатно, и пароль от Riot никогда не нужен."
 }

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useCallback, useEffect, useState } from "react";
+import { createContext, useCallback, useContext, useEffect, useState } from "react";
 import { browserSupportsWebAuthn, startAuthentication, startRegistration } from "@simplewebauthn/browser";
 import { ACCOUNT_EVENT, forgetAccount, syncAccount } from "@/lib/account-sync";
 import { useBotCheck } from "@/lib/bot-check-client";
@@ -110,6 +110,15 @@ function deviceLabel() {
   return /iPhone|iPad|Mac/.test(ua) ? "Apple device" : /Android/.test(ua) ? "Android phone" : /Windows/.test(ua) ? "Windows PC" : "Passkey";
 }
 
+// Who is looking at the page, for sections passed in as children (see SignedInOnly).
+const Viewer = createContext<{ signedIn: boolean; owner: boolean }>({ signedIn: false, owner: false });
+
+/** Shows its children only to a signed-in player (or only the owner), so their requests aren't sent for anyone else. */
+export function SignedInOnly({ owner = false, children }: { owner?: boolean; children: React.ReactNode }) {
+  const v = useContext(Viewer);
+  return v.signedIn && (!owner || v.owner) ? children : null;
+}
+
 export default function AccountPanel({ children }: { children?: React.ReactNode }) {
   const t = useT("account");
   const [account, setAccount] = useState<Account | null | undefined>(undefined);
@@ -142,7 +151,7 @@ export default function AccountPanel({ children }: { children?: React.ReactNode 
 
   if (account === undefined) return <p className="acct-loading">{t("Loading your account…")}</p>;
   return (
-    <>
+    <Viewer.Provider value={{ signedIn: Boolean(account), owner: Boolean(account?.owner) }}>
       <Note msg={riotMsg} />
       {account ? (
         <Manage account={account} refresh={refresh}>
@@ -150,11 +159,39 @@ export default function AccountPanel({ children }: { children?: React.ReactNode 
         </Manage>
       ) : (
         <>
-          <SignIn onDone={signedIn} providers={providers} />
+          <div className="acct-start">
+            <SignIn onDone={signedIn} providers={providers} />
+            <Perks />
+          </div>
           {children}
         </>
       )}
-    </>
+    </Viewer.Provider>
+  );
+}
+
+/** Beside the sign-in form: what an account adds, only what the site does today. */
+function Perks() {
+  const t = useT("account");
+  const perks: [string, string, string][] = [
+    ["tier", t("Your own Mayhem stats"), t("Connect Mayhem Stats on the computer where you play to see your win rate, champions, augments and recent games here.")],
+    ["lab", t("Builds in The Kitchen"), t("Send builds from the Simulator. Approved ones show in The Kitchen with your display name.")],
+    ["info", t("Settings on every device"), t("Your settings, like motion, sound and page detail, follow you to every browser you sign in on.")],
+    ["gold", t("Your name and icon"), t("Pick a display name and a champion icon for your account.")],
+  ];
+  return (
+    <section className="acct-perks" aria-labelledby="acct-perks-title">
+      <h2 id="acct-perks-title">{t("What an account gets you")}</h2>
+      <ul>
+        {perks.map(([accent, title, text]) => (
+          <li key={title} data-accent={accent}>
+            <b>{title}</b>
+            <span>{text}</span>
+          </li>
+        ))}
+      </ul>
+      <p className="acct-hint">{t("Free, and you never need your Riot password.")}</p>
+    </section>
   );
 }
 
