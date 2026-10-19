@@ -102,6 +102,5 @@
  "Strongest": "Najsilniejszy",
  "Estimated from simulated damage at levels 8, 13 and 18: whether the champion peaks early, late or stays even.": "Szacunek z symulowanych obrażeń na poziomach 8, 13 i 18: czy bohater jest najsilniejszy wcześnie, późno, czy równo.",
  "Archetype": "Archetyp",
- "How many champion pairs the average covers. Fewer pairs make it less certain.": "Ile par bohaterów obejmuje średnia. Mniej par oznacza mniejszą pewność.",
- "DeepScore rates each pair from 0 to 100 against the other pairs, where 50 is average. It starts from the pair's win rate delta and trusts rarely played pairs less, so a big delta from few games can't outrank a slightly smaller one from many.": "DeepScore ocenia każdą parę od 0 do 100 na tle innych par, gdzie 50 to średnia. Wychodzi od różnicy współczynnika zwycięstw pary i mniej ufa rzadko granym parom, więc duża różnica z niewielu gier nie wyprzedzi nieco mniejszej z wielu."
+ "How many champion pairs the average covers. Fewer pairs make it less certain.": "Ile par bohaterów obejmuje średnia. Mniej par oznacza mniejszą pewność."
 }

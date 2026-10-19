@@ -102,6 +102,5 @@
  "Strongest": "Cel mai puternic",
  "Estimated from simulated damage at levels 8, 13 and 18: whether the champion peaks early, late or stays even.": "Estimare din daunele simulate la nivelurile 8, 13 și 18: dacă campionul e cel mai puternic devreme, târziu sau constant.",
  "Archetype": "Arhetip",
- "How many champion pairs the average covers. Fewer pairs make it less certain.": "Câte perechi de campioni acoperă media. Mai puține perechi o fac mai nesigură.",
- "DeepScore rates each pair from 0 to 100 against the other pairs, where 50 is average. It starts from the pair's win rate delta and trusts rarely played pairs less, so a big delta from few games can't outrank a slightly smaller one from many.": "DeepScore notează fiecare pereche de la 0 la 100 față de celelalte, 50 fiind media. Pornește de la diferența ratei de victorie a perechii și are mai puțină încredere în perechile jucate rar, astfel încât o diferență mare din puține meciuri să nu o depășească pe una puțin mai mică din multe."
+ "How many champion pairs the average covers. Fewer pairs make it less certain.": "Câte perechi de campioni acoperă media. Mai puține perechi o fac mai nesigură."
 }

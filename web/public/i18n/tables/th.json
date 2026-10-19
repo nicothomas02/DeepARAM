@@ -102,6 +102,5 @@
  "Strongest": "แข็งแกร่งสุด",
  "Estimated from simulated damage at levels 8, 13 and 18: whether the champion peaks early, late or stays even.": "ประมาณจากดาเมจจำลองที่เลเวล 8, 13 และ 18: แชมเปี้ยนแข็งแกร่งช่วงต้น ช่วงท้าย หรือสม่ำเสมอ",
  "Archetype": "ต้นแบบ",
- "How many champion pairs the average covers. Fewer pairs make it less certain.": "จำนวนคู่แชมเปี้ยนที่ค่าเฉลี่ยนี้ครอบคลุม ยิ่งคู่น้อยยิ่งแน่นอนน้อยลง",
- "DeepScore rates each pair from 0 to 100 against the other pairs, where 50 is average. It starts from the pair's win rate delta and trusts rarely played pairs less, so a big delta from few games can't outrank a slightly smaller one from many.": "DeepScore ให้คะแนนแต่ละคู่จาก 0 ถึง 100 เทียบกับคู่อื่น โดย 50 คือค่าเฉลี่ย เริ่มจากส่วนต่างอัตราชนะของคู่ และเชื่อถือคู่ที่เล่นน้อยน้อยลง เพื่อไม่ให้ส่วนต่างมากจากไม่กี่เกมแซงส่วนต่างที่น้อยกว่าเล็กน้อยจากหลายเกม"
+ "How many champion pairs the average covers. Fewer pairs make it less certain.": "จำนวนคู่แชมเปี้ยนที่ค่าเฉลี่ยนี้ครอบคลุม ยิ่งคู่น้อยยิ่งแน่นอนน้อยลง"
 }

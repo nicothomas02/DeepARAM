@@ -102,6 +102,5 @@
  "Strongest": "Mạnh nhất",
  "Estimated from simulated damage at levels 8, 13 and 18: whether the champion peaks early, late or stays even.": "Ước tính từ sát thương mô phỏng ở cấp 8, 13 và 18: tướng mạnh đầu trận, cuối trận hay đều.",
  "Archetype": "Lối chơi",
- "How many champion pairs the average covers. Fewer pairs make it less certain.": "Số cặp tướng mà mức trung bình này bao gồm. Càng ít cặp thì càng kém chắc chắn.",
- "DeepScore rates each pair from 0 to 100 against the other pairs, where 50 is average. It starts from the pair's win rate delta and trusts rarely played pairs less, so a big delta from few games can't outrank a slightly smaller one from many.": "DeepScore chấm mỗi cặp từ 0 đến 100 so với các cặp khác, trong đó 50 là trung bình. Điểm dựa trên chênh lệch tỉ lệ thắng của cặp và ít tin các cặp hiếm khi được chơi hơn, để chênh lệch lớn từ ít trận không vượt qua chênh lệch nhỏ hơn một chút từ nhiều trận."
+ "How many champion pairs the average covers. Fewer pairs make it less certain.": "Số cặp tướng mà mức trung bình này bao gồm. Càng ít cặp thì càng kém chắc chắn."
 }

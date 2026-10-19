@@ -102,6 +102,5 @@
  "Strongest": "Mais forte",
  "Estimated from simulated damage at levels 8, 13 and 18: whether the champion peaks early, late or stays even.": "Estimado a partir do dano simulado nos níveis 8, 13 e 18: se o campeão é mais forte no início, no fim ou se mantém equilibrado.",
  "Archetype": "Arquétipo",
- "How many champion pairs the average covers. Fewer pairs make it less certain.": "Quantas duplas de campeões a média abrange. Menos duplas a tornam menos certa.",
- "DeepScore rates each pair from 0 to 100 against the other pairs, where 50 is average. It starts from the pair's win rate delta and trusts rarely played pairs less, so a big delta from few games can't outrank a slightly smaller one from many.": "O DeepScore avalia cada dupla de 0 a 100 em relação às outras, sendo 50 a média. Ele parte da diferença de taxa de vitória da dupla e confia menos em duplas pouco jogadas, para que uma grande diferença em poucas partidas não supere uma um pouco menor em muitas."
+ "How many champion pairs the average covers. Fewer pairs make it less certain.": "Quantas duplas de campeões a média abrange. Menos duplas a tornam menos certa."
 }

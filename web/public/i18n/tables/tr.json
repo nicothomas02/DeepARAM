@@ -102,6 +102,5 @@
  "Strongest": "En güçlü",
  "Estimated from simulated damage at levels 8, 13 and 18: whether the champion peaks early, late or stays even.": "8, 13 ve 18. seviyelerde simüle edilen hasardan tahmin: şampiyon erken mi, geç mi güçlü, yoksa dengeli mi.",
  "Archetype": "Arketip",
- "How many champion pairs the average covers. Fewer pairs make it less certain.": "Ortalamanın kapsadığı şampiyon ikilisi sayısı. Daha az ikili, daha az kesinlik demektir.",
- "DeepScore rates each pair from 0 to 100 against the other pairs, where 50 is average. It starts from the pair's win rate delta and trusts rarely played pairs less, so a big delta from few games can't outrank a slightly smaller one from many.": "DeepScore her ikiliyi diğer ikililere göre 0 ile 100 arasında puanlar; 50 ortalamadır. İkilinin kazanma oranı farkından yola çıkar ve az oynanan ikililere daha az güvenir; böylece az maçtan gelen büyük bir fark, çok maçtan gelen biraz daha küçük bir farkı geçemez."
+ "How many champion pairs the average covers. Fewer pairs make it less certain.": "Ortalamanın kapsadığı şampiyon ikilisi sayısı. Daha az ikili, daha az kesinlik demektir."
 }

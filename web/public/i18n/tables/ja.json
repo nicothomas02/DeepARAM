@@ -102,6 +102,5 @@
  "Strongest": "強い時間帯",
  "Estimated from simulated damage at levels 8, 13 and 18: whether the champion peaks early, late or stays even.": "レベル8、13、18でのシミュレーションダメージから推定：序盤型、終盤型、または安定型か。",
  "Archetype": "アーキタイプ",
- "How many champion pairs the average covers. Fewer pairs make it less certain.": "この平均に含まれるチャンピオンのペア数。ペアが少ないほど確実性は下がります。",
- "DeepScore rates each pair from 0 to 100 against the other pairs, where 50 is average. It starts from the pair's win rate delta and trusts rarely played pairs less, so a big delta from few games can't outrank a slightly smaller one from many.": "DeepScoreは各ペアを他のペアと比べて0〜100で評価し、50が平均です。ペアの勝率差をもとに、あまりプレイされないペアは信頼度を下げるため、少ない試合での大きな差が、多くの試合でのやや小さい差を上回ることはありません。"
+ "How many champion pairs the average covers. Fewer pairs make it less certain.": "この平均に含まれるチャンピオンのペア数。ペアが少ないほど確実性は下がります。"
 }
