@@ -52,17 +52,20 @@ export const metadata: Metadata = {
 };
 
 // Tells search engines the site's name and logo, so results show "DeepARAM" with the Augment Hex icon.
-const STRUCTURED_DATA = JSON.stringify([
-  { "@context": "https://schema.org", "@type": "WebSite", name: "DeepARAM", alternateName: ["Deep ARAM", "deeparam.com"], url: "https://deeparam.com/" },
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    name: "DeepARAM",
-    url: "https://deeparam.com/",
-    logo: "https://deeparam.com/icons/app/icon-512.png",
-    email: "admin@deeparam.com",
-  },
-]);
+// One object with an @graph, not a bare array: some Safari extensions read "@context" off the top level and throw on an array.
+const STRUCTURED_DATA = JSON.stringify({
+  "@context": "https://schema.org",
+  "@graph": [
+    { "@type": "WebSite", name: "DeepARAM", alternateName: ["Deep ARAM", "deeparam.com"], url: "https://deeparam.com/" },
+    {
+      "@type": "Organization",
+      name: "DeepARAM",
+      url: "https://deeparam.com/",
+      logo: "https://deeparam.com/icons/app/icon-512.png",
+      email: "admin@deeparam.com",
+    },
+  ],
+});
 
 export const viewport: Viewport = {
   viewportFit: "cover",
