@@ -21,7 +21,6 @@
  "{name}: DeepScore {score}, {wr} win, picked in {pr} of games": "{name}: DeepScore {score}, {wr} νίκες, επιλέχθηκε στο {pr} των παιχνιδιών",
  "Duos": "Δυάδες",
  "Loading duos…": "Φόρτωση δυάδων…",
- "Live patch {patch}. Each augment gets a DeepScore against the others of its rarity: 50 is average, S is 70 and up, A 59, B 44, C 32 and D below. Every number is in the table below.": "Τρέχουσα ενημέρωση {patch}. Κάθε βελτίωση παίρνει DeepScore έναντι των άλλων της ίδιας σπανιότητας: 50 είναι ο μέσος όρος, S είναι 70 και πάνω, A 59, B 44, C 32 και D από κάτω. Όλοι οι αριθμοί είναι στον παρακάτω πίνακα.",
  "Tier List · Patch {patch}": "Κατάταξη · Ενημέρωση {patch}",
  "Tier List": "Κατάταξη",
  "Champions": "Ήρωες",
@@ -48,5 +47,9 @@
  "Late game": "Τέλος παιχνιδιού",
  "Even": "Σταθερά",
  "Archetypes": "Αρχέτυπα",
- "Live patch {patch} by default. Pick any patches, or all time, above the champion table. Advanced stats at the bottom show every stat we have.": "Από προεπιλογή η τρέχουσα ενημέρωση {patch}. Διάλεξε όποιες ενημερώσεις θέλεις, ή όλων των εποχών, πάνω από τον πίνακα ηρώων. Τα προχωρημένα στατιστικά στο κάτω μέρος δείχνουν κάθε στατιστικό που έχουμε."
+ "Live patch {patch} by default. Pick any patches, or all time, above the champion table. Advanced stats at the bottom show every stat we have.": "Από προεπιλογή η τρέχουσα ενημέρωση {patch}. Διάλεξε όποιες ενημερώσεις θέλεις, ή όλων των εποχών, πάνω από τον πίνακα ηρώων. Τα προχωρημένα στατιστικά στο κάτω μέρος δείχνουν κάθε στατιστικό που έχουμε.",
+ "Live patch {patch}. Each augment gets a DeepScore against the others of its rarity: 50 is average, S is 70 and up, A 59, B 44, C 32 and D below. Switch to Table for every number.": "Τρέχουσα ενημέρωση {patch}. Κάθε βελτίωση παίρνει DeepScore έναντι των άλλων της ίδιας σπανιότητας: 50 είναι ο μέσος όρος, S είναι 70 και πάνω, A 59, B 44, C 32 και D από κάτω. Για όλους τους αριθμούς, πήγαινε στον Πίνακα.",
+ "Tiers": "Βαθμίδες",
+ "Table": "Πίνακας",
+ "View": "Προβολή"
 }

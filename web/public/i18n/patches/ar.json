@@ -22,5 +22,6 @@
  "Win-rate changes compare each champion with the patch before.": "تقارن تغييرات نسبة الفوز كل بطل بالتحديث السابق.",
  "Silver": "فضي",
  "Gold": "ذهبي",
- "Prismatic": "منشوري"
+ "Prismatic": "منشوري",
+ "{n} pts": "{n} نقطة"
 }

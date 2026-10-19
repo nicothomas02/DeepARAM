@@ -105,5 +105,12 @@
  "How many champion pairs the average covers. Fewer pairs make it less certain.": "Combien de duos de champions la moyenne couvre. Moins de duos la rendent moins sûre.",
  "{n} pts": "{n} pts",
  "Advanced stats": "Stats avancées",
- "Every stat we have for this list, in its own table.": "Toutes nos stats pour cette liste, dans un tableau à part."
+ "Every stat we have for this list, in its own table.": "Toutes nos stats pour cette liste, dans un tableau à part.",
+ "Item": "Objet",
+ "Type": "Type",
+ "Est. win rate": "Taux de victoire est.",
+ "In builds": "Dans les builds",
+ "Cost": "Coût",
+ "Estimated win rate of the champions who build it.": "Taux de victoire estimé des champions qui l'achètent.",
+ "Estimated share of builds that include it.": "Part estimée des builds qui l'incluent."
 }

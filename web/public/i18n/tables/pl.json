@@ -105,5 +105,12 @@
  "How many champion pairs the average covers. Fewer pairs make it less certain.": "Ile par bohaterów obejmuje średnia. Mniej par oznacza mniejszą pewność.",
  "{n} pts": "{n} pkt",
  "Advanced stats": "Zaawansowane statystyki",
- "Every stat we have for this list, in its own table.": "Wszystkie statystyki tej listy w osobnej tabeli."
+ "Every stat we have for this list, in its own table.": "Wszystkie statystyki tej listy w osobnej tabeli.",
+ "Item": "Przedmiot",
+ "Type": "Typ",
+ "Est. win rate": "Szac. % wygranych",
+ "In builds": "W buildach",
+ "Cost": "Koszt",
+ "Estimated win rate of the champions who build it.": "Szacowany odsetek wygranych bohaterów, którzy go kupują.",
+ "Estimated share of builds that include it.": "Szacowany odsetek buildów, które go zawierają."
 }

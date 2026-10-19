@@ -21,7 +21,6 @@
  "{name}: DeepScore {score}, {wr} win, picked in {pr} of games": "{name}: DeepScore {score}, {wr} kazanma, maçların {pr} kadarında seçildi",
  "Duos": "İkililer",
  "Loading duos…": "İkililer yükleniyor…",
- "Live patch {patch}. Each augment gets a DeepScore against the others of its rarity: 50 is average, S is 70 and up, A 59, B 44, C 32 and D below. Every number is in the table below.": "Güncel yama {patch}. Her güçlendirme, aynı nadirlikteki diğerlerine göre bir DeepScore alır: 50 ortalamadır, S 70 ve üstü, A 59, B 44, C 32, D ise altı. Tüm sayılar aşağıdaki tabloda.",
  "Tier List · Patch {patch}": "Seviye Listesi · {patch} Yaması",
  "Tier List": "Seviye Listesi",
  "Champions": "Şampiyonlar",
@@ -48,5 +47,9 @@
  "Late game": "Geç oyun",
  "Even": "Dengeli",
  "Archetypes": "Arketipler",
- "Live patch {patch} by default. Pick any patches, or all time, above the champion table. Advanced stats at the bottom show every stat we have.": "Varsayılan olarak güncel yama {patch}. Şampiyon tablosunun üstünden istediğin yamaları veya tüm zamanları seç. Alttaki gelişmiş istatistikler elimizdeki her istatistiği gösterir."
+ "Live patch {patch} by default. Pick any patches, or all time, above the champion table. Advanced stats at the bottom show every stat we have.": "Varsayılan olarak güncel yama {patch}. Şampiyon tablosunun üstünden istediğin yamaları veya tüm zamanları seç. Alttaki gelişmiş istatistikler elimizdeki her istatistiği gösterir.",
+ "Live patch {patch}. Each augment gets a DeepScore against the others of its rarity: 50 is average, S is 70 and up, A 59, B 44, C 32 and D below. Switch to Table for every number.": "Güncel yama {patch}. Her güçlendirme, aynı nadirlikteki diğerlerine göre bir DeepScore alır: 50 ortalamadır, S 70 ve üstü, A 59, B 44, C 32, D ise altı. Tüm sayılar için Tablo görünümüne geç.",
+ "Tiers": "Kademeler",
+ "Table": "Tablo",
+ "View": "Görünüm"
 }

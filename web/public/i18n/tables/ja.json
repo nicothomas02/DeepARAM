@@ -105,5 +105,12 @@
  "How many champion pairs the average covers. Fewer pairs make it less certain.": "この平均に含まれるチャンピオンのペア数。ペアが少ないほど確実性は下がります。",
  "{n} pts": "{n}pt",
  "Advanced stats": "詳細スタッツ",
- "Every stat we have for this list, in its own table.": "このリストのすべてのスタッツを別の表で表示します。"
+ "Every stat we have for this list, in its own table.": "このリストのすべてのスタッツを別の表で表示します。",
+ "Item": "アイテム",
+ "Type": "種類",
+ "Est. win rate": "推定勝率",
+ "In builds": "ビルド採用率",
+ "Cost": "価格",
+ "Estimated win rate of the champions who build it.": "購入したチャンピオンの推定勝率。",
+ "Estimated share of builds that include it.": "このアイテムを含むビルドの推定割合。"
 }

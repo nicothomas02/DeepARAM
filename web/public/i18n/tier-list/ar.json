@@ -21,7 +21,6 @@
  "{name}: DeepScore {score}, {wr} win, picked in {pr} of games": "{name}: DeepScore {score}، فوز {wr}، اختير في {pr} من المباريات",
  "Duos": "الثنائيات",
  "Loading duos…": "جارٍ تحميل الثنائيات…",
- "Live patch {patch}. Each augment gets a DeepScore against the others of its rarity: 50 is average, S is 70 and up, A 59, B 44, C 32 and D below. Every number is in the table below.": "التحديث الحالي {patch}. يحصل كل تعزيز على DeepScore مقارنةً بغيره من الندرة نفسها: 50 هو المتوسط، وS من 70 فما فوق، وA 59، وB 44، وC 32، وD أقل من ذلك. كل الأرقام في الجدول أدناه.",
  "Tier List · Patch {patch}": "قائمة المستويات · التحديث {patch}",
  "Tier List": "قائمة المستويات",
  "Champions": "الأبطال",
@@ -48,5 +47,9 @@
  "Late game": "نهاية المباراة",
  "Even": "متوازن",
  "Archetypes": "الأنماط",
- "Live patch {patch} by default. Pick any patches, or all time, above the champion table. Advanced stats at the bottom show every stat we have.": "التحديث الحالي {patch} افتراضيًا. اختر أي تحديثات، أو كل الأوقات، فوق جدول الأبطال. تعرض الإحصائيات المتقدمة أسفل الصفحة كل ما لدينا من إحصائيات."
+ "Live patch {patch} by default. Pick any patches, or all time, above the champion table. Advanced stats at the bottom show every stat we have.": "التحديث الحالي {patch} افتراضيًا. اختر أي تحديثات، أو كل الأوقات، فوق جدول الأبطال. تعرض الإحصائيات المتقدمة أسفل الصفحة كل ما لدينا من إحصائيات.",
+ "Live patch {patch}. Each augment gets a DeepScore against the others of its rarity: 50 is average, S is 70 and up, A 59, B 44, C 32 and D below. Switch to Table for every number.": "التحديث الحالي {patch}. يحصل كل تعزيز على DeepScore مقارنةً بغيره من الندرة نفسها: 50 هو المتوسط، وS من 70 فما فوق، وA 59، وB 44، وC 32، وD أقل من ذلك. انتقل إلى «جدول» لرؤية كل الأرقام.",
+ "Tiers": "المستويات",
+ "Table": "جدول",
+ "View": "العرض"
 }

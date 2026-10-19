@@ -22,5 +22,6 @@
  "Win-rate changes compare each champion with the patch before.": "Změny procenta výher porovnávají každého šampiona s předchozím patchem.",
  "Silver": "Stříbrný",
  "Gold": "Zlatý",
- "Prismatic": "Prizmatický"
+ "Prismatic": "Prizmatický",
+ "{n} pts": "{n} b."
 }

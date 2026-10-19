@@ -9,7 +9,8 @@ import { signed, tone } from "@/components/champion/Ranked";
 import type { AugmentRow } from "@/lib/champion-page";
 import { AUGMENT_DEEPSCORE_HELP } from "@/lib/deepscore";
 
-// A champion's augments as one ranked table with a rarity filter, best DeepScore first.
+// A champion's augments as one ranked table with a rarity filter, best DeepScore first. The number
+// columns' headers re-sort it (highest first; a second click flips it).
 
 const RARITIES = ["all", "prismatic", "gold", "silver"] as const;
 const LABEL = {
@@ -19,6 +20,7 @@ const LABEL = {
   silver: "Silver",
 };
 const LIMIT = 10;
+type SortKey = "deepScore" | "winRate" | "pickRate";
 
 export default function AugmentTable({
   rows,
@@ -33,7 +35,32 @@ export default function AugmentTable({
   const t = useT("champions");
   const [rarity, setRarity] = useState<(typeof RARITIES)[number]>("all");
   const [open, setOpen] = useState(false);
-  const shown = rows.filter((r) => rarity === "all" || r.rarity === rarity);
+  const [sort, setSort] = useState<{ key: SortKey; desc: boolean }>({ key: "deepScore", desc: true });
+  const shown = rows
+    .filter((r) => rarity === "all" || r.rarity === rarity)
+    .sort((a, b) => {
+      const x = a[sort.key];
+      const y = b[sort.key];
+      // Rows without the number stay last either way.
+      if (x === undefined) return y === undefined ? 0 : 1;
+      if (y === undefined) return -1;
+      return (x - y) * (sort.desc ? -1 : 1);
+    });
+  const head = (key: SortKey, label: string) => (
+    <span>
+      <button
+        type="button"
+        className="cp-sort"
+        aria-pressed={sort.key === key}
+        onClick={() => setSort(sort.key === key ? { key, desc: !sort.desc } : { key, desc: true })}
+      >
+        {t(label)}
+        <span className="sort-mark" aria-hidden="true">
+          {sort.key === key ? (sort.desc ? "↓" : "↑") : ""}
+        </span>
+      </button>
+    </span>
+  );
   // Estimated win rates, when there are any: an extra column with each augment's lift below it.
   const est = rows.some((r) => r.winRate !== undefined);
   const cols = est ? 3 : 2;
@@ -58,9 +85,9 @@ export default function AugmentTable({
       <div className="cp-th" data-cols={cols}>
         <span>{t("Rank")}</span>
         <span>{t("Augment")}</span>
-        <span>{t("DeepScore")}</span>
-        {est && <span>{t("Est. win rate")}</span>}
-        <span>{t("Pick rate")}</span>
+        {head("deepScore", "DeepScore")}
+        {est && head("winRate", "Est. win rate")}
+        {head("pickRate", "Pick rate")}
       </div>
       <div className="cp-rows">
         {(open ? shown : shown.slice(0, LIMIT)).map((a, i) => {

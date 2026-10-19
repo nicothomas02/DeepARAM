@@ -105,5 +105,12 @@
  "How many champion pairs the average covers. Fewer pairs make it less certain.": "該平均值涵蓋的英雄組合數。組合越少，結果越不確定。",
  "{n} pts": "{n} 個百分點",
  "Advanced stats": "進階數據",
- "Every stat we have for this list, in its own table.": "此列表的全部數據，單獨列成一張表。"
+ "Every stat we have for this list, in its own table.": "此列表的全部數據，單獨列成一張表。",
+ "Item": "裝備",
+ "Type": "類型",
+ "Est. win rate": "預估勝率",
+ "In builds": "出裝占比",
+ "Cost": "價格",
+ "Estimated win rate of the champions who build it.": "購買此裝備的英雄的預估勝率。",
+ "Estimated share of builds that include it.": "包含此裝備的出裝的預估占比。"
 }

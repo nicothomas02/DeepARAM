@@ -22,5 +22,6 @@
  "Win-rate changes compare each champion with the patch before.": "胜率变化为每位英雄与上一版本的对比。",
  "Silver": "白银",
  "Gold": "黄金",
- "Prismatic": "棱彩"
+ "Prismatic": "棱彩",
+ "{n} pts": "{n} 个百分点"
 }

@@ -105,5 +105,12 @@
  "How many champion pairs the average covers. Fewer pairs make it less certain.": "Ortalamanın kapsadığı şampiyon ikilisi sayısı. Daha az ikili, daha az kesinlik demektir.",
  "{n} pts": "{n} puan",
  "Advanced stats": "Gelişmiş istatistikler",
- "Every stat we have for this list, in its own table.": "Bu listenin tüm istatistikleri, ayrı bir tabloda."
+ "Every stat we have for this list, in its own table.": "Bu listenin tüm istatistikleri, ayrı bir tabloda.",
+ "Item": "Eşya",
+ "Type": "Tür",
+ "Est. win rate": "Tahmini kazanma oranı",
+ "In builds": "Dizilimlerde",
+ "Cost": "Fiyat",
+ "Estimated win rate of the champions who build it.": "Bu eşyayı alan şampiyonların tahmini kazanma oranı.",
+ "Estimated share of builds that include it.": "Bu eşyayı içeren dizilimlerin tahmini payı."
 }

@@ -16,9 +16,9 @@ import type { TagInfo } from "@/lib/tag-info";
 export type Column = {
   key: string;
   label: string;
-  format?: "pct" | "pts" | "num" | "int" | "sec" | "text" | "champion" | "augment" | "tier" | "deepscore" | "tags";
+  format?: "pct" | "pts" | "num" | "int" | "sec" | "text" | "champion" | "augment" | "item" | "tier" | "deepscore" | "tags";
   sortable?: boolean;
-  /** For "augment" columns: the row key holding the augment id, for its icon. */
+  /** For "augment" columns: the row key holding the augment id, for its icon; for "item" columns, the icon's address. */
   iconKey?: string;
   /** The row key holding a page to open from this cell (an augment's own page, a build's replay). */
   hrefKey?: string;
@@ -94,7 +94,7 @@ function TierChip({ tier, was }: { tier: string; was: Row[string] | undefined })
 
 // Numbers get a colour where it means something: win rates above or below an even 50%, and changes up or down.
 function cellClass(c: Column, v: Row[string]) {
-  if (!c.format || ["text", "champion", "augment", "tier", "tags"].includes(c.format)) return "";
+  if (!c.format || ["text", "champion", "augment", "item", "tier", "tags"].includes(c.format)) return "";
   const n = Number(v);
   if (v === null || v === "" || Number.isNaN(n)) return "num";
   if (c.format === "pct" && /win/.test(c.key)) return n >= 0.52 ? "num wr-high" : n <= 0.48 ? "num wr-low" : "num";
@@ -190,7 +190,7 @@ export default function DataTable({
   // Advanced columns get their own table at the bottom, apart from the standard view (AdvancedStats).
   const columns = standardColumns;
   // The first champion or augment column stays pinned on phones while the table scrolls sideways.
-  const pin = columns.find((c) => c.format === "champion" || c.format === "augment")?.key;
+  const pin = columns.find((c) => c.format === "champion" || c.format === "augment" || c.format === "item")?.key;
   // Column labels, hints and the table's own wording live in the "tables" namespace.
   const t = useT("tables");
   const pts = (n: string) => t("{n} pts", { n });
@@ -268,7 +268,7 @@ export default function DataTable({
               {columns.map((c) => (
                 <th
                   key={c.key}
-                  className={cls(c, c.format && !["text", "champion", "augment", "tier", "tags"].includes(c.format) ? "num" : "")}
+                  className={cls(c, c.format && !["text", "champion", "augment", "item", "tier", "tags"].includes(c.format) ? "num" : "")}
                   aria-sort={c.sortable !== false && sort.key === (c.sortKey ?? c.key) ? (sort.desc ? "descending" : "ascending") : undefined}
                 >
                   {c.sortable === false ? (
@@ -296,6 +296,11 @@ export default function DataTable({
                   <td key={c.key} className={cls(c, cellClass(c, r[c.key]))}>
                     {c.format === "champion" ? (
                       <Champion id={String(r[c.key])} />
+                    ) : c.format === "item" ? (
+                      // The row carries the item's name in the page's language already.
+                      <Link className="cell-link" href={String(r[c.hrefKey ?? "href"])}>
+                        <Named src={String(r[c.iconKey ?? "icon"] ?? "")} name={String(r[c.key] ?? "")} />
+                      </Link>
                     ) : c.format === "augment" ? (
                       c.hrefKey && r[c.hrefKey] ? (
                         <Link className="cell-link" href={String(r[c.hrefKey])}>

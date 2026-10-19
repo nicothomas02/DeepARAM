@@ -10,7 +10,8 @@ import { AUGMENT_DEEPSCORE_HELP } from "@/lib/deepscore";
 import { useNames, useT } from "./I18n";
 
 // Augment tier list (/tier-list?tab=augments&rarity=gold&style=ap): one row per tier, filtered by rarity and build style.
-// Tiers and styles come from the server (lib/augment-tiers.ts).
+// Tiers and styles come from the server (lib/augment-tiers.ts). "Table" (?aview=table) swaps the tiers for the
+// sortable table of every augment, passed in by the page, instead of stacking both.
 
 export type TierRow = {
   id: number;
@@ -33,17 +34,30 @@ const RARITIES: [string, string][] = [
 const TIER_ORDER = ["S", "A", "B", "C", "D"];
 const pct = (v: number) => `${(v * 100).toFixed(1)}%`;
 
-export default function AugmentTiers({ rows, styles }: { rows: TierRow[]; styles: Record<string, string> }) {
+export default function AugmentTiers({
+  rows,
+  styles,
+  note,
+  table,
+}: {
+  rows: TierRow[];
+  styles: Record<string, string>;
+  /** Shown under the tiers. */
+  note?: React.ReactNode;
+  table?: React.ReactNode;
+}) {
   const t = useT("tier-list");
   const names = useNames();
   const [rarity, setRarity] = useState("");
   const [style, setStyle] = useState("");
+  const [asTable, setAsTable] = useState(false);
 
   useEffect(() => {
     const r = getParam("rarity") ?? "";
     const s = getParam("style") ?? "";
     if (RARITIES.some(([k]) => k === r)) setRarity(r);
     if (s in styles) setStyle(s);
+    setAsTable(getParam("aview") === "table");
   }, [styles]);
 
   const pick = (key: "rarity" | "style", v: string) => {
@@ -54,8 +68,34 @@ export default function AugmentTiers({ rows, styles }: { rows: TierRow[]; styles
 
   const shown = rows.filter((a) => (!rarity || a.rarity === rarity) && (!style || a.styles.includes(style)));
 
+  const views = table && (
+    <div className="seg view-switch" role="group" aria-label={t("View")}>
+      {([false, true] as const).map((v) => (
+        <button
+          key={String(v)}
+          type="button"
+          aria-pressed={asTable === v}
+          onClick={() => {
+            setAsTable(v);
+            setParams({ aview: v ? "table" : null, sort: null });
+          }}
+        >
+          {v ? t("Table") : t("Tiers")}
+        </button>
+      ))}
+    </div>
+  );
+  if (asTable && table)
+    return (
+      <div className="atiers">
+        {views}
+        {table}
+      </div>
+    );
+
   return (
     <div className="atiers">
+      {views}
       <div className="atiers-filters">
         <div className="helper-threats" role="group" aria-label={t("Rarity")}>
           {RARITIES.map(([k, l]) => (
@@ -133,6 +173,7 @@ export default function AugmentTiers({ rows, styles }: { rows: TierRow[]; styles
           })}
         </div>
       )}
+      {note}
     </div>
   );
 }

@@ -3,6 +3,7 @@
 
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
+import DataTable, { type Column, type Row } from "@/components/DataTable";
 import DeepScore from "@/components/DeepScore";
 import { EmptyState } from "@/components/EmptyState";
 import { ITEM_TAGS, TAG_GROUPS, itemTag } from "@/lib/item-tags";
@@ -12,7 +13,8 @@ import { useLang, useNames, useT } from "./I18n";
 
 // Items index (the Tier List's Items tab, ?tab=items&itag=crit,as&isort=cost; the params are prefixed so
 // they don't clash with the champion table's): colour-coded tag filters (every picked tag must match),
-// a name search and a sort. Tags come from the shop's categories (lib/item-tags.ts).
+// a name search and a sort. Tags come from the shop's categories (lib/item-tags.ts). "Table" (?iview=table) lists the
+// same items as a table sorted by its column headers, for comparing numbers side by side.
 
 type Item = {
   id: number;
@@ -50,6 +52,17 @@ const SORTS = [
 type Sort = (typeof SORTS)[number][0];
 const pct = (v: number) => `${(v * 100).toFixed(1)}%`;
 
+// Table columns. DeepScore compares an item with others of its type, so its column sorts by type first (the
+// cards' grouped order), then score.
+const COLUMNS: Column[] = [
+  { key: "name", label: "Item", format: "item", iconKey: "icon", hrefKey: "href" },
+  { key: "type", label: "Type", format: "text", sortKey: "typeOrder" },
+  { key: "deepScore", label: "DeepScore", format: "deepscore", sortKey: "rank", hint: ITEM_TIER_DEEPSCORE_HELP },
+  { key: "winRate", label: "Est. win rate", format: "pct", hint: "Estimated win rate of the champions who build it." },
+  { key: "buildShare", label: "In builds", format: "pct", hint: "Estimated share of builds that include it." },
+  { key: "cost", label: "Cost", format: "int" },
+];
+
 export default function ItemIndex({ items }: { items: Item[] }) {
   const t = useT("items");
   const tr = t; // for maps whose item is named t
@@ -59,12 +72,14 @@ export default function ItemIndex({ items }: { items: Item[] }) {
   const [picked, setPicked] = useState<string[]>([]);
   const [query, setQuery] = useState("");
   const [sort, setSort] = useState<Sort>("deepscore");
+  const [asTable, setAsTable] = useState(false);
 
   useEffect(() => {
     setPicked((getParam("itag") ?? "").split(",").filter((t) => itemTag(t)));
     const s = getParam("isort");
     if (SORTS.some(([k]) => k === s)) setSort(s as Sort);
     setQuery(getParam("iq") ?? "");
+    setAsTable(getParam("iview") === "table");
   }, []);
 
   // Only tags some item has; counts follow the tags already picked.
@@ -84,6 +99,24 @@ export default function ItemIndex({ items }: { items: Item[] }) {
     setPicked(next);
     setParams({ itag: next.join(",") || null });
   };
+
+  const tableRows = (): Row[] =>
+    shown.map((i) => {
+      const at = TIERS.findIndex(([k]) => k === i.tier);
+      return {
+        id: i.id,
+        name: name(i),
+        icon: i.icon ?? "",
+        href: `/items/${i.slug}`,
+        type: tr(TIERS[at]?.[1] ?? ""),
+        typeOrder: TIERS.length - at,
+        deepScore: i.deepScore,
+        rank: (TIERS.length - at) * 1000 + (i.deepScore ?? -1),
+        winRate: i.winRate,
+        buildShare: i.buildShare,
+        cost: i.cost || null,
+      };
+    });
 
   return (
     <div className="items-index">
@@ -120,24 +153,43 @@ export default function ItemIndex({ items }: { items: Item[] }) {
             setParams({ iq: e.target.value.trim() || null });
           }}
         />
-        <div className="seg" role="group" aria-label={t("Sort")}>
-          {SORTS.map(([k, l]) => (
+        <div className="seg view-switch" role="group" aria-label={t("View")}>
+          {([false, true] as const).map((v) => (
             <button
-              key={k}
+              key={String(v)}
               type="button"
-              aria-pressed={sort === k}
+              aria-pressed={asTable === v}
               onClick={() => {
-                setSort(k);
-                setParams({ isort: k === "deepscore" ? null : k });
+                setAsTable(v);
+                setParams({ iview: v ? "table" : null });
               }}
             >
-              {t(l)}
+              {v ? t("Table") : t("Cards")}
             </button>
           ))}
         </div>
+        {!asTable && (
+          <div className="seg" role="group" aria-label={t("Sort")}>
+            {SORTS.map(([k, l]) => (
+              <button
+                key={k}
+                type="button"
+                aria-pressed={sort === k}
+                onClick={() => {
+                  setSort(k);
+                  setParams({ isort: k === "deepscore" ? null : k });
+                }}
+              >
+                {t(l)}
+              </button>
+            ))}
+          </div>
+        )}
         <span className="items-count">{t("{n} of {total}", { n: shown.length, total: items.length })}</span>
       </div>
-      {shown.length ? (
+      {shown.length && asTable ? (
+        <DataTable columns={COLUMNS} rows={tableRows()} initialSort={{ key: "rank", desc: true }} />
+      ) : shown.length ? (
         (sort === "deepscore" ? TIERS.map(([k, l]) => [l, shown.filter((i) => i.tier === k)] as const) : [[null, shown] as const])
           .filter(([, list]) => list.length)
           .map(([label, list]) => (

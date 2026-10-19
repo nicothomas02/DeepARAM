@@ -105,5 +105,12 @@
  "How many champion pairs the average covers. Fewer pairs make it less certain.": "จำนวนคู่แชมเปี้ยนที่ค่าเฉลี่ยนี้ครอบคลุม ยิ่งคู่น้อยยิ่งแน่นอนน้อยลง",
  "{n} pts": "{n} จุด",
  "Advanced stats": "สถิติขั้นสูง",
- "Every stat we have for this list, in its own table.": "ทุกสถิติของรายการนี้ในตารางแยก"
+ "Every stat we have for this list, in its own table.": "ทุกสถิติของรายการนี้ในตารางแยก",
+ "Item": "ไอเทม",
+ "Type": "ประเภท",
+ "Est. win rate": "อัตราชนะโดยประมาณ",
+ "In builds": "ในบิลด์",
+ "Cost": "ราคา",
+ "Estimated win rate of the champions who build it.": "อัตราชนะโดยประมาณของแชมเปี้ยนที่ซื้อไอเทมนี้",
+ "Estimated share of builds that include it.": "สัดส่วนโดยประมาณของบิลด์ที่มีไอเทมนี้"
 }

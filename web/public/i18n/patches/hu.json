@@ -22,5 +22,6 @@
  "Win-rate changes compare each champion with the patch before.": "A győzelmi arány változásai minden hőst az előző frissítéshez hasonlítanak.",
  "Silver": "Ezüst",
  "Gold": "Arany",
- "Prismatic": "Prizmatikus"
+ "Prismatic": "Prizmatikus",
+ "{n} pts": "{n} pont"
 }

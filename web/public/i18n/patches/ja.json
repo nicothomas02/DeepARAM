@@ -22,5 +22,6 @@
  "Win-rate changes compare each champion with the patch before.": "勝率の変化は各チャンピオンを前のパッチと比較しています。",
  "Silver": "シルバー",
  "Gold": "ゴールド",
- "Prismatic": "プリズム"
+ "Prismatic": "プリズム",
+ "{n} pts": "{n}pt"
 }

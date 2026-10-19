@@ -22,5 +22,6 @@
  "Win-rate changes compare each champion with the patch before.": "Οι αλλαγές στο ποσοστό νικών συγκρίνουν κάθε ήρωα με την προηγούμενη ενημέρωση.",
  "Silver": "Ασημένια",
  "Gold": "Χρυσή",
- "Prismatic": "Πρισματική"
+ "Prismatic": "Πρισματική",
+ "{n} pts": "{n} μον."
 }

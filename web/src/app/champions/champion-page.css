@@ -876,3 +876,23 @@ html[data-view="simple"] .cp-panel[data-detailed] {
   color: var(--muted);
   font-size: 0.9rem;
 }
+/* Sortable headers on the augment table. */
+.cp-sort {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+.cp-sort:hover,
+.cp-sort[aria-pressed="true"] {
+  color: var(--fg);
+}
+.cp-th .cp-sort .sort-mark {
+  margin-left: 0.15rem;
+  color: inherit;
+}
+.cp-sort {
+  white-space: nowrap;
+}

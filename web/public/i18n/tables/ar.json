@@ -105,5 +105,12 @@
  "How many champion pairs the average covers. Fewer pairs make it less certain.": "كم ثنائيًا من الأبطال يشمله المتوسط. كلما قلّت الثنائيات قلّ اليقين.",
  "{n} pts": "{n} نقطة",
  "Advanced stats": "إحصائيات متقدمة",
- "Every stat we have for this list, in its own table.": "كل إحصائيات هذه القائمة في جدول خاص بها."
+ "Every stat we have for this list, in its own table.": "كل إحصائيات هذه القائمة في جدول خاص بها.",
+ "Item": "العنصر",
+ "Type": "النوع",
+ "Est. win rate": "نسبة الفوز التقديرية",
+ "In builds": "في البناءات",
+ "Cost": "السعر",
+ "Estimated win rate of the champions who build it.": "نسبة الفوز التقديرية للأبطال الذين يشترونه.",
+ "Estimated share of builds that include it.": "الحصة التقديرية من البناءات التي تتضمنه."
 }
