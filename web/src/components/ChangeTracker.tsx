@@ -86,7 +86,7 @@ export default function ChangeTracker({ entries }: { entries: TrackerEntry[] }) 
         ))}
       </div>
       {shown.length ? (
-        <ul className="tracker-list">
+        <ul className={`tracker-list${cut ? " is-cut" : ""}`}>
           {(cut ? shown.slice(0, FIRST) : shown).map((e) => (
             <li key={`${e.kind}-${e.name}`} className={`tracker-row is-${e.tag}`}>
               <div className="tracker-head">

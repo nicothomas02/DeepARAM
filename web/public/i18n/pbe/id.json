@@ -1,7 +1,9 @@
 {
  "Added ({n})": "Ditambahkan ({n})",
  "All": "Semua",
+ "At a glance": "Sekilas",
  "Augment": "Augment",
+ "Augment pool": "Kumpulan augment",
  "Augments": "Augment",
  "Champion": "Champion",
  "Champion changes": "Perubahan champion",
@@ -35,12 +37,15 @@
  "Removed ({n})": "Dihapus ({n})",
  "Search changes": "Cari perubahan",
  "Show": "Tampilkan",
+ "Show all ({n})": "Tampilkan semua ({n})",
  "Show all {n} changes": "Tampilkan semua {n} perubahan",
+ "Show less": "Tampilkan lebih sedikit",
  "Silver augment": "Augment Silver",
  "Starts unlocked": "Terbuka sejak awal",
  "Test server changes usually reach live with a patch.": "Perubahan di server uji biasanya masuk ke server live lewat sebuah patch.",
  "Unclear": "Belum jelas",
  "Unnamed": "Tanpa nama",
  "What's changing from live patch {live} to test server build {pbe} (updated {date}). The augment pool goes from {from} to {to}.": "Apa yang berubah dari patch live {live} ke build server uji {pbe} (diperbarui {date}). Jumlah augment berubah dari {from} menjadi {to}.",
+ "{added} new · {changed} changed · {removed} removed": "{added} baru · {changed} diubah · {removed} dihapus",
  "{n} Fame": "{n} Fame"
 }

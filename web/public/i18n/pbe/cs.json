@@ -1,7 +1,9 @@
 {
  "Added ({n})": "Přidáno ({n})",
  "All": "Vše",
+ "At a glance": "Ve zkratce",
  "Augment": "Augment",
+ "Augment pool": "Nabídka augmentů",
  "Augments": "Augmenty",
  "Champion": "Šampion",
  "Champion changes": "Změny šampionů",
@@ -35,12 +37,15 @@
  "Removed ({n})": "Odebráno ({n})",
  "Search changes": "Hledat změny",
  "Show": "Zobrazit",
+ "Show all ({n})": "Zobrazit vše ({n})",
  "Show all {n} changes": "Zobrazit všech {n} změn",
+ "Show less": "Zobrazit méně",
  "Silver augment": "Stříbrný augment",
  "Starts unlocked": "Odemčeno od začátku",
  "Test server changes usually reach live with a patch.": "Změny z testovacího serveru se na ostré servery obvykle dostanou s patchem.",
  "Unclear": "Nejasné",
  "Unnamed": "Bez názvu",
  "What's changing from live patch {live} to test server build {pbe} (updated {date}). The augment pool goes from {from} to {to}.": "Co se mění mezi aktuálním patchem {live} a buildem {pbe} testovacího serveru (aktualizováno {date}). Počet augmentů se mění z {from} na {to}.",
+ "{added} new · {changed} changed · {removed} removed": "{added} nových · {changed} změněných · {removed} odebraných",
  "{n} Fame": "{n} slávy"
 }

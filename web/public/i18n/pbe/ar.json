@@ -1,7 +1,9 @@
 {
  "Added ({n})": "مضافة ({n})",
  "All": "الكل",
+ "At a glance": "نظرة سريعة",
  "Augment": "تعزيز",
+ "Augment pool": "مجموعة التعزيزات",
  "Augments": "التعزيزات",
  "Champion": "بطل",
  "Champion changes": "تغييرات الأبطال",
@@ -35,12 +37,15 @@
  "Removed ({n})": "محذوفة ({n})",
  "Search changes": "ابحث في التغييرات",
  "Show": "عرض",
+ "Show all ({n})": "عرض الكل ({n})",
  "Show all {n} changes": "عرض كل التغييرات الـ {n}",
+ "Show less": "عرض أقل",
  "Silver augment": "تعزيز فضي",
  "Starts unlocked": "مفتوح منذ البداية",
  "Test server changes usually reach live with a patch.": "تصل تغييرات خادم الاختبار عادةً إلى الخوادم الرسمية مع أحد التحديثات.",
  "Unclear": "غير واضح",
  "Unnamed": "بلا اسم",
  "What's changing from live patch {live} to test server build {pbe} (updated {date}). The augment pool goes from {from} to {to}.": "ما الذي يتغير من التحديث الحالي {live} إلى إصدار خادم الاختبار {pbe} (آخر تحديث {date}). يتغير عدد التعزيزات من {from} إلى {to}.",
+ "{added} new · {changed} changed · {removed} removed": "{added} جديدة · {changed} معدّلة · {removed} محذوفة",
  "{n} Fame": "{n} شهرة"
 }

@@ -1,7 +1,9 @@
 {
  "Added ({n})": "추가됨 ({n})",
  "All": "전체",
+ "At a glance": "한눈에 보기",
  "Augment": "증강",
+ "Augment pool": "증강 풀",
  "Augments": "증강",
  "Champion": "챔피언",
  "Champion changes": "챔피언 변경 사항",
@@ -35,12 +37,15 @@
  "Removed ({n})": "삭제됨 ({n})",
  "Search changes": "변경 사항 검색",
  "Show": "보기",
+ "Show all ({n})": "모두 보기 ({n})",
  "Show all {n} changes": "변경 사항 {n}개 모두 보기",
+ "Show less": "간단히 보기",
  "Silver augment": "실버 증강",
  "Starts unlocked": "처음부터 해금됨",
  "Test server changes usually reach live with a patch.": "테스트 서버 변경 사항은 보통 패치를 통해 라이브 서버에 적용됩니다.",
  "Unclear": "불분명",
  "Unnamed": "이름 없음",
  "What's changing from live patch {live} to test server build {pbe} (updated {date}). The augment pool goes from {from} to {to}.": "라이브 {live} 패치에서 테스트 서버 {pbe} 빌드로 바뀌는 내용입니다({date} 업데이트). 증강 풀은 {from}개에서 {to}개로 바뀝니다.",
+ "{added} new · {changed} changed · {removed} removed": "신규 {added} · 변경 {changed} · 삭제 {removed}",
  "{n} Fame": "명성 {n}"
 }

@@ -1,7 +1,9 @@
 {
  "Added ({n})": "Added ({n})",
  "All": "All",
+ "At a glance": "At a glance",
  "Augment": "Augment",
+ "Augment pool": "Augment pool",
  "Augments": "Augments",
  "Champion": "Champion",
  "Champion changes": "Champion changes",
@@ -35,12 +37,15 @@
  "Removed ({n})": "Removed ({n})",
  "Search changes": "Search changes",
  "Show": "Show",
+ "Show all ({n})": "Show all ({n})",
  "Show all {n} changes": "Show all {n} changes",
+ "Show less": "Show less",
  "Silver augment": "Silver augment",
  "Starts unlocked": "Starts unlocked",
  "Test server changes usually reach live with a patch.": "Test server changes usually reach live with a patch.",
  "Unclear": "Unclear",
  "Unnamed": "Unnamed",
  "What's changing from live patch {live} to test server build {pbe} (updated {date}). The augment pool goes from {from} to {to}.": "What's changing from live patch {live} to test server build {pbe} (updated {date}). The augment pool goes from {from} to {to}.",
+ "{added} new · {changed} changed · {removed} removed": "{added} new · {changed} changed · {removed} removed",
  "{n} Fame": "{n} Fame"
 }

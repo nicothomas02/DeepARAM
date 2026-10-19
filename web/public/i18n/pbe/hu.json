@@ -1,7 +1,9 @@
 {
  "Added ({n})": "Hozzáadva ({n})",
  "All": "Összes",
+ "At a glance": "Röviden",
  "Augment": "Bővítés",
+ "Augment pool": "Bővítéskészlet",
  "Augments": "Bővítések",
  "Champion": "Hős",
  "Champion changes": "Hősváltozások",
@@ -35,12 +37,15 @@
  "Removed ({n})": "Eltávolítva ({n})",
  "Search changes": "Keresés a változások között",
  "Show": "Mutasd",
+ "Show all ({n})": "Összes mutatása ({n})",
  "Show all {n} changes": "Mind a(z) {n} változás mutatása",
+ "Show less": "Kevesebb mutatása",
  "Silver augment": "Ezüst bővítés",
  "Starts unlocked": "Alapból feloldva",
  "Test server changes usually reach live with a patch.": "A tesztszerver változásai általában egy frissítéssel kerülnek az éles szerverekre.",
  "Unclear": "Bizonytalan",
  "Unnamed": "Névtelen",
  "What's changing from live patch {live} to test server build {pbe} (updated {date}). The augment pool goes from {from} to {to}.": "Ez változik az éles {live} frissítéshez képest a tesztszerver {pbe} buildjében (frissítve: {date}). A bővítéskészlet mérete {from} helyett {to} lesz.",
+ "{added} new · {changed} changed · {removed} removed": "{added} új · {changed} módosított · {removed} eltávolított",
  "{n} Fame": "{n} hírnév"
 }

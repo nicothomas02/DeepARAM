@@ -1,7 +1,9 @@
 {
  "Added ({n})": "Προστέθηκαν ({n})",
  "All": "Όλα",
+ "At a glance": "Με μια ματιά",
  "Augment": "Βελτίωση",
+ "Augment pool": "Δεξαμενή βελτιώσεων",
  "Augments": "Βελτιώσεις",
  "Champion": "Ήρωας",
  "Champion changes": "Αλλαγές ηρώων",
@@ -35,12 +37,15 @@
  "Removed ({n})": "Αφαιρέθηκαν ({n})",
  "Search changes": "Αναζήτηση αλλαγών",
  "Show": "Εμφάνιση",
+ "Show all ({n})": "Εμφάνιση όλων ({n})",
  "Show all {n} changes": "Εμφάνιση και των {n} αλλαγών",
+ "Show less": "Εμφάνιση λιγότερων",
  "Silver augment": "Ασημένια βελτίωση",
  "Starts unlocked": "Ξεκλείδωτο από την αρχή",
  "Test server changes usually reach live with a patch.": "Οι αλλαγές του δοκιμαστικού διακομιστή συνήθως φτάνουν στους κανονικούς διακομιστές με μια ενημέρωση.",
  "Unclear": "Ασαφές",
  "Unnamed": "Χωρίς όνομα",
  "What's changing from live patch {live} to test server build {pbe} (updated {date}). The augment pool goes from {from} to {to}.": "Τι αλλάζει από την τρέχουσα ενημέρωση {live} στην έκδοση {pbe} του δοκιμαστικού διακομιστή (ενημερώθηκε {date}). Οι διαθέσιμες βελτιώσεις αλλάζουν από {from} σε {to}.",
+ "{added} new · {changed} changed · {removed} removed": "{added} νέες · {changed} άλλαξαν · {removed} αφαιρέθηκαν",
  "{n} Fame": "{n} Φήμη"
 }

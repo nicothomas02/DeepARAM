@@ -1,7 +1,9 @@
 {
  "Added ({n})": "เพิ่มใหม่ ({n})",
  "All": "ทั้งหมด",
+ "At a glance": "สรุปย่อ",
  "Augment": "Augment",
+ "Augment pool": "กลุ่ม Augment",
  "Augments": "Augments",
  "Champion": "แชมเปี้ยน",
  "Champion changes": "การเปลี่ยนแปลงแชมเปี้ยน",
@@ -35,12 +37,15 @@
  "Removed ({n})": "ถูกลบ ({n})",
  "Search changes": "ค้นหาการเปลี่ยนแปลง",
  "Show": "แสดง",
+ "Show all ({n})": "แสดงทั้งหมด ({n})",
  "Show all {n} changes": "แสดงการเปลี่ยนแปลงทั้งหมด {n} รายการ",
+ "Show less": "แสดงน้อยลง",
  "Silver augment": "Augment ระดับ Silver",
  "Starts unlocked": "ปลดล็อกตั้งแต่เริ่ม",
  "Test server changes usually reach live with a patch.": "การเปลี่ยนแปลงบนเซิร์ฟเวอร์ทดสอบมักจะลงเซิร์ฟเวอร์จริงพร้อมแพตช์",
  "Unclear": "ไม่ชัดเจน",
  "Unnamed": "ไม่มีชื่อ",
  "What's changing from live patch {live} to test server build {pbe} (updated {date}). The augment pool goes from {from} to {to}.": "สิ่งที่เปลี่ยนจากแพตช์ปัจจุบัน {live} ไปเป็นบิลด์เซิร์ฟเวอร์ทดสอบ {pbe} (อัปเดต {date}) จำนวน Augment ในพูลเปลี่ยนจาก {from} เป็น {to}",
+ "{added} new · {changed} changed · {removed} removed": "ใหม่ {added} · เปลี่ยนแปลง {changed} · ถูกลบ {removed}",
  "{n} Fame": "{n} ชื่อเสียง"
 }

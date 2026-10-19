@@ -1,7 +1,9 @@
 {
  "Added ({n})": "Dodane ({n})",
  "All": "Wszystkie",
+ "At a glance": "W skrócie",
  "Augment": "Wzmocnienie",
+ "Augment pool": "Pula wzmocnień",
  "Augments": "Wzmocnienia",
  "Champion": "Bohater",
  "Champion changes": "Zmiany bohaterów",
@@ -35,12 +37,15 @@
  "Removed ({n})": "Usunięte ({n})",
  "Search changes": "Szukaj zmian",
  "Show": "Pokaż",
+ "Show all ({n})": "Pokaż wszystko ({n})",
  "Show all {n} changes": "Pokaż wszystkie zmiany ({n})",
+ "Show less": "Pokaż mniej",
  "Silver augment": "Srebrne wzmocnienie",
  "Starts unlocked": "Odblokowane od początku",
  "Test server changes usually reach live with a patch.": "Zmiany z serwera testowego zwykle trafiają na serwery główne razem z patchem.",
  "Unclear": "Niejasne",
  "Unnamed": "Bez nazwy",
  "What's changing from live patch {live} to test server build {pbe} (updated {date}). The augment pool goes from {from} to {to}.": "Co się zmienia między obecnym patchem {live} a wersją {pbe} z serwera testowego (aktualizacja: {date}). Pula wzmocnień zmienia się z {from} na {to}.",
+ "{added} new · {changed} changed · {removed} removed": "{added} nowych · {changed} zmienionych · {removed} usuniętych",
  "{n} Fame": "{n} Sławy"
 }

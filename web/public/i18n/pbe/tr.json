@@ -1,7 +1,9 @@
 {
  "Added ({n})": "Eklenen ({n})",
  "All": "Tümü",
+ "At a glance": "Bir bakışta",
  "Augment": "Güçlendirme",
+ "Augment pool": "Güçlendirme havuzu",
  "Augments": "Güçlendirmeler",
  "Champion": "Şampiyon",
  "Champion changes": "Şampiyon değişiklikleri",
@@ -35,12 +37,15 @@
  "Removed ({n})": "Kaldırılan ({n})",
  "Search changes": "Değişikliklerde ara",
  "Show": "Göster",
+ "Show all ({n})": "Tümünü göster ({n})",
  "Show all {n} changes": "{n} değişikliğin tümünü göster",
+ "Show less": "Daha az göster",
  "Silver augment": "Gümüş güçlendirme",
  "Starts unlocked": "Başlangıçta açık",
  "Test server changes usually reach live with a patch.": "Test sunucusu değişiklikleri genellikle bir yamayla canlı sunuculara gelir.",
  "Unclear": "Belirsiz",
  "Unnamed": "Adsız",
  "What's changing from live patch {live} to test server build {pbe} (updated {date}). The augment pool goes from {from} to {to}.": "Canlı sunucu yaması {live} ile test sunucusu sürümü {pbe} arasındaki değişiklikler (güncelleme: {date}). Güçlendirme havuzu {from} seçenekten {to} seçeneğe değişiyor.",
+ "{added} new · {changed} changed · {removed} removed": "{added} yeni · {changed} değişen · {removed} kaldırılan",
  "{n} Fame": "{n} Şöhret"
 }
