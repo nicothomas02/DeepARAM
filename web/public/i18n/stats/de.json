@@ -255,5 +255,10 @@
  "Your champion": "Dein Champion",
  "Their K / D / A": "Seine K / T / A",
  "1 game": "1 Spiel",
- "{n} games": "{n} Spiele"
+ "{n} games": "{n} Spiele",
+ "Share my games anonymously to help build stats for everyone": "Meine Spiele anonym teilen, um Statistiken für alle zu erstellen",
+ "Off unless you tick it. Shared games carry champions, items, augments, runes, spells, results and each player's gold and experience minute by minute, never names or account ids. Turning it off in Mayhem Stats removes everything you shared.": "Aus, solange du es nicht ankreuzt. Geteilte Spiele enthalten Champions, Gegenstände, Augments, Runen, Beschwörerzauber, Ergebnisse sowie Gold und Erfahrung jedes Spielers Minute für Minute, niemals Namen oder Konto-IDs. Wenn du es in Mayhem Stats ausschaltest, wird alles entfernt, was du geteilt hast.",
+ "Mayhem Stats starts sharing your games anonymously. You can turn it off there at any time.": "Mayhem Stats beginnt, deine Spiele anonym zu teilen. Du kannst es dort jederzeit ausschalten.",
+ "Sharing your games anonymously from Mayhem Stats builds stats the site can't get any other way: runes, matchups, augment pairs and real game counts for every champion. It's off unless you turn it on, and never includes names or account ids.": "Wenn du deine Spiele anonym aus Mayhem Stats teilst, entstehen Statistiken, die die Seite auf keinem anderen Weg bekommt: Runen, Matchups, Augment-Paare und echte Spielzahlen für jeden Champion. Es ist aus, solange du es nicht einschaltest, und enthält niemals Namen oder Konto-IDs.",
+ "Shared games build stats the site can't get any other way: runes, matchups, augment pairs and real game counts for every champion.": "Geteilte Spiele liefern Statistiken, die die Seite auf keinem anderen Weg bekommt: Runen, Matchups, Augment-Paare und echte Spielzahlen für jeden Champion."
 }

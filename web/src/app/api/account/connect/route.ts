@@ -4,7 +4,8 @@ import { confirmPair, isPairId, pairInfo } from "@/lib/riot-pair";
 
 // One-click connect from My Stats (lib/riot-pair.ts), confirmed by the signed-in player on /account.
 // GET  /api/account/connect?pair=<id> → {riotId, done, owner}: whose Riot account it is, before confirming
-// POST /api/account/connect {pair, save} → connects it; save asks My Stats to save games to the account (owner only)
+// POST /api/account/connect {pair, save, share} → connects it; save asks My Stats to save games to the account (owner
+// only), share asks it to start sharing games anonymously (anyone; both off unless ticked)
 export const dynamic = "force-dynamic";
 
 export const GET = handle(async (req) => {
@@ -19,5 +20,5 @@ export const POST = handle(async (req) => {
   const a = await requireAccount();
   const b = await body(req);
   if (!isPairId(b.pair)) throw new AccountError("Bad request");
-  return json({ connected: true, ...(await confirmPair(b.pair, a, b.save === true)) });
+  return json({ connected: true, ...(await confirmPair(b.pair, a, b.save === true, b.share === true)) });
 });

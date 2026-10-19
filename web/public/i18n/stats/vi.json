@@ -255,5 +255,10 @@
  "Your champion": "Tướng của bạn",
  "Their K / D / A": "H / C / HT của họ",
  "1 game": "1 trận",
- "{n} games": "{n} trận"
+ "{n} games": "{n} trận",
+ "Share my games anonymously to help build stats for everyone": "Chia sẻ trận của tôi ẩn danh để giúp xây dựng thống kê cho mọi người",
+ "Off unless you tick it. Shared games carry champions, items, augments, runes, spells, results and each player's gold and experience minute by minute, never names or account ids. Turning it off in Mayhem Stats removes everything you shared.": "Tắt trừ khi bạn đánh dấu. Trận chia sẻ gồm tướng, trang bị, Lõi Nâng Cấp, ngọc, phép bổ trợ, kết quả cùng vàng và kinh nghiệm của từng người chơi theo từng phút, không bao giờ có tên hay ID tài khoản. Tắt đi trong Mayhem Stats sẽ xóa mọi thứ bạn đã chia sẻ.",
+ "Mayhem Stats starts sharing your games anonymously. You can turn it off there at any time.": "Mayhem Stats bắt đầu chia sẻ trận của bạn ẩn danh. Bạn có thể tắt nó ở đó bất cứ lúc nào.",
+ "Sharing your games anonymously from Mayhem Stats builds stats the site can't get any other way: runes, matchups, augment pairs and real game counts for every champion. It's off unless you turn it on, and never includes names or account ids.": "Chia sẻ trận ẩn danh từ Mayhem Stats giúp xây dựng thống kê mà trang web không thể có bằng cách nào khác: ngọc, đối đầu, cặp Lõi Nâng Cấp và số trận thực tế của mọi tướng. Tính năng này tắt trừ khi bạn bật, và không bao giờ có tên hay ID tài khoản.",
+ "Shared games build stats the site can't get any other way: runes, matchups, augment pairs and real game counts for every champion.": "Trận chia sẻ giúp xây dựng thống kê mà trang web không thể có bằng cách nào khác: ngọc, đối đầu, cặp Lõi Nâng Cấp và số trận thực tế của mọi tướng."
 }

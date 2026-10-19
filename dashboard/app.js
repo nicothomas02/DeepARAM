@@ -1115,6 +1115,15 @@ async function checkPair() {
     if (!j.linked) return;
     stopPair();
     linked(j);
+    if (j.share) {
+      // Ticked on the account page: turn sharing on here, as the box in the sharing card would.
+      const note = $("share-status");
+      try {
+        showShare(await shareCall({ enabled: true }));
+        note.hidden = false;
+        note.textContent = t("Sharing is on. New games are shared after each import.");
+      } catch (e) { note.hidden = false; note.textContent = e.message; }
+    }
     if (j.save) {
       // Ticked on the account page: save the games here to the account, then import any new ones.
       showHistory({ enabled: true, available: true, saved: 0 });
