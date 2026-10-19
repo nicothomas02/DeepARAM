@@ -4,6 +4,7 @@ import Intro from "@/components/Intro";
 import { pageMeta } from "@/lib/meta";
 import { recap, recapPatches } from "@/lib/patches";
 import { Name, T } from "@/components/I18n";
+import { patchName } from "@/lib/patch-name";
 
 export const metadata: Metadata = pageMeta(
   "/patches",
@@ -24,9 +25,9 @@ export default function PatchesPage() {
       </Intro>
       <div className="recap-index">
         {recaps.map((r, i) => (
-          <Link key={r.patch} className="card recap-row" href={`/patches/${r.patch}`} data-accent={i === 0 ? "tier" : undefined}>
+          <Link key={r.patch} className="card recap-row" href={`/patches/${patchName(r.patch)}`} data-accent={i === 0 ? "tier" : undefined}>
             <b className="recap-patch">
-              {r.patch}
+              {patchName(r.patch)}
               {i === 0 && (
                 <span className="chip">
                   <T ns="patches">Live</T>

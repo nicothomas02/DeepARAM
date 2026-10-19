@@ -8,6 +8,7 @@ import { champStats, TIER_HELP, type PatchRow } from "@/lib/tiers";
 import Skeleton from "@/components/Skeleton";
 import { tagsByKind, tagStyle, type TagInfo } from "@/lib/tag-info";
 import { useT } from "./I18n";
+import { patchName } from "@/lib/patch-name";
 
 // Champion tier list over a chosen patch range: the live patch (default), any set of patches, or all time.
 // The page carries only the live and previous patch; older patches load from /data/tier-history.json when picked.
@@ -202,7 +203,7 @@ export default function ChampionTiers({ rows: initial, patches, tags, tagInfo, g
   }, []);
 
   const presets: [string, string[]][] = [
-    [t("Live patch ({patch})", { patch: live }), [live]],
+    [t("Live patch ({patch})", { patch: patchName(live) }), [live]],
     [t("Last 3 patches"), patches.slice(-3)],
     [t("All time"), patches],
   ];
@@ -225,12 +226,12 @@ export default function ChampionTiers({ rows: initial, patches, tags, tagInfo, g
         )}
       </div>
       <details className="patch-pick" ref={pickRef}>
-        <summary>{one ? t("Patch {patch}", { patch: one }) : t("{n} patches", { n: picked.size })}</summary>
+        <summary>{one ? t("Patch {patch}", { patch: patchName(one) }) : t("{n} patches", { n: picked.size })}</summary>
         <div className="patch-pick-list" role="group" aria-label={t("Patches")}>
           {[...patches].reverse().map((p) => (
             <label key={p}>
               <input type="checkbox" checked={picked.has(p)} onChange={() => toggle(p)} />
-              {p}
+              {patchName(p)}
             </label>
           ))}
         </div>
@@ -265,8 +266,8 @@ export default function ChampionTiers({ rows: initial, patches, tags, tagInfo, g
       <p className="patch-note">
         {picked.size === 1
           ? showChange
-            ? t("Patch {patch}, with the change since {before}. Pick patches from the list to add or remove them.", { patch: [...picked][0], before: before! })
-            : t("Patch {patch}. Pick patches from the list to add or remove them.", { patch: [...picked][0] })
+            ? t("Patch {patch}, with the change since {before}. Pick patches from the list to add or remove them.", { patch: patchName([...picked][0]), before: patchName(before) })
+            : t("Patch {patch}. Pick patches from the list to add or remove them.", { patch: patchName([...picked][0]) })
           : t("{n} patches combined. Pick patches from the list to add or remove them.", { n: picked.size })}
       </p>
       {missing ? (

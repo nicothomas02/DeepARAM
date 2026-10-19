@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useNames, useT } from "./I18n";
+import { patchName } from "@/lib/patch-name";
 
 // A champion's win rate (or pick rate) patch by patch. Hover or touch to scrub patches, drag across
 // the chart to zoom into a range, and pick a second champion to overlay. The other champions' history
@@ -180,7 +181,7 @@ export default function WinRateChart({
                 y={H - 8}
                 textAnchor={i === shown.length - 1 && shown.length > 1 ? "end" : i === 0 && shown.length > 1 ? "start" : "middle"}
               >
-                {p}
+                {patchName(p)}
               </text>
             ) : null,
           )}
@@ -197,7 +198,7 @@ export default function WinRateChart({
         </svg>
         {h && (
           <div className="wr-tip" style={{ left: Math.min(Math.max(x(hover!), 70), w - 70) }}>
-            <b>{t("Patch {patch}", { patch: h })}</b>
+            <b>{t("Patch {patch}", { patch: patchName(h) })}</b>
             <span>
               {name}: {mine.get(h) ? pct(mine.get(h)![metric]) : "–"}
             </span>

@@ -8,6 +8,7 @@ import { championAliases, champList } from "@/lib/champions";
 import { livePatch, liveTiers } from "@/lib/highlights";
 import { pageMeta } from "@/lib/meta";
 import "./champions.css";
+import { patchName } from "@/lib/patch-name";
 
 export const metadata: Metadata = pageMeta(
   "/champions",
@@ -24,7 +25,7 @@ export default function Page() {
       <Breadcrumbs trail={[["Champions", "/champions"]]} />
       <ChampionRedirect aliases={championAliases()} />
       <Intro eyebrow={<T>Champions</T>} title={<T ns="champions">Every Mayhem champion, A to Z.</T>}>
-        <T ns="champions" v={{ patch: livePatch() ?? "" }}>
+        <T ns="champions" v={{ patch: patchName(livePatch()) }}>
           {"Tiers are for patch {patch}. Open a champion for their build, augments and best teammates."}
         </T>
       </Intro>

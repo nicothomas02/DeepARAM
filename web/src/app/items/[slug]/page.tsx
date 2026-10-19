@@ -9,6 +9,7 @@ import { itemEstimate } from "@/lib/estimates";
 import { itemTag } from "@/lib/item-tags";
 import { pageMeta } from "@/lib/meta";
 import { Name, T } from "@/components/I18n";
+import { patchName } from "@/lib/patch-name";
 
 // One page per item Mayhem players build (lib/item-pages.ts).
 
@@ -49,7 +50,7 @@ export default async function ItemPage({ params }: { params: Promise<{ slug: str
             <T ns="items">Items</T>
           </Link>{" "}
           ·{" "}
-          <T ns="items" v={{ patch: livePatch() ?? "" }}>
+          <T ns="items" v={{ patch: patchName(livePatch()) }}>
             {"Patch {patch}"}
           </T>
         </p>
@@ -228,7 +229,7 @@ export default async function ItemPage({ params }: { params: Promise<{ slug: str
             ))}
           </div>
           <p className="table-note">
-            <T ns="items" v={{ patch: sim.patch }}>
+            <T ns="items" v={{ patch: patchName(sim.patch) }}>
               {
                 "Simulated on patch {patch}: each champion's best simulated build with and without this item, in the same fights. The top line is the middle result across these champions."
               }

@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { longDate, nextPatch, type NextPatch, type PatchSchedule } from "@/lib/patch-schedule";
+import { patchName } from "@/lib/patch-name";
 import { useLang, useT } from "./I18n";
 
 // Countdown to the next patch on Riot's schedule. The server renders it as of the build (asOf, so the first
@@ -18,7 +19,7 @@ export default function PatchCountdown({ schedule, asOf, note }: { schedule: Pat
   }, [schedule]);
   if (!next) return null;
 
-  const v = { patch: next.patch, n: next.days };
+  const v = { patch: patchName(next.patch), n: next.days };
   return (
     <div className="patch-countdown" role="status">
       <span className="patch-countdown-days">

@@ -18,6 +18,7 @@ const NAMES = championNames as Record<string, string>;
 const ALIAS = Object.fromEntries(Object.entries(championIds as Record<string, number>).map(([alias, id]) => [id, alias]));
 import RecentPlayed from "@/components/RecentPlayed";
 import { LocalDate, ModeName, Name, T } from "@/components/I18n";
+import { patchName } from "@/lib/patch-name";
 
 // eslint-disable-next-line @next/next/no-img-element
 const Icon = ({ src }: { src: string }) => <img className="icon" src={src} alt="" width={24} height={24} loading="lazy" />;
@@ -32,7 +33,7 @@ const pts = (v: number) => `${v > 0 ? "+" : ""}${(v * 100).toFixed(1)} pts`;
 export default function Home() {
   const tiers = liveTiers();
   const augs = topAugments();
-  const patch = livePatch();
+  const patch = livePatch() && patchName(livePatch());
   const special = chefsSpecial();
   const builds = special ? [] : kitchenBuilds();
   const n = counts();
@@ -295,9 +296,9 @@ export default function Home() {
           <section className="card span-all home-patch" data-accent="pbe">
             <PatchCountdown schedule={schedule} asOf={new Date().toISOString()} />
             {latest && (
-              <Link className="home-recap" href={`/patches/${latest.patch}`}>
+              <Link className="home-recap" href={`/patches/${patchName(latest.patch)}`}>
                 <b>
-                  <T v={{ patch: latest.patch }}>{"Patch {patch} recap"}</T>
+                  <T v={{ patch: patchName(latest.patch) }}>{"Patch {patch} recap"}</T>
                 </b>
                 <span>
                   {latest.hasAugmentHistory ? (

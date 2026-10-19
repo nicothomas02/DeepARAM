@@ -49,6 +49,7 @@ import { championEstimates } from "@/lib/estimates";
 import championIds from "@/data/champion-ids.json";
 import augmentNames from "@/data/augment-names.json";
 import "../champion-page.css";
+import { patchName } from "@/lib/patch-name";
 
 const AUG_NAMES = augmentNames as Record<string, string>;
 
@@ -166,7 +167,7 @@ export async function generateMetadata({
   if (!c) return {};
   const stats =
     c.winRate !== undefined
-      ? ` ${c.tier} tier, ${pct(c.winRate)} win rate on patch ${c.patch}.`
+      ? ` ${c.tier} tier, ${pct(c.winRate)} win rate on patch ${patchName(c.patch)}.`
       : "";
   const augs = c.augments.length
     ? ` Best augments: ${c.augments.map((a) => a.name).join(", ")}.`
@@ -332,7 +333,7 @@ export default async function ChampionPage({
               <T>Tier List</T>
             </Link>{" "}
             ·{" "}
-            <T ns={NS} v={{ v: c.patch ?? "" }}>
+            <T ns={NS} v={{ v: patchName(c.patch) }}>
               {"Patch {v}"}
             </T>
           </span>
@@ -397,7 +398,7 @@ export default async function ChampionPage({
               <div className="cp-cell">
                 <b className={tone(c.change)}>{pts(c.change)}</b>
                 <small>
-                  <T ns={NS} v={{ patch: c.prev ?? "" }}>
+                  <T ns={NS} v={{ patch: patchName(c.prev) }}>
                     {"since {patch}"}
                   </T>
                 </small>

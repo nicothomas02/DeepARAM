@@ -9,6 +9,7 @@ import Pending from "@/components/Pending";
 import { items } from "@/lib/items";
 import type { PatchSchedule } from "@/lib/patch-schedule";
 import { readRepoJson } from "@/lib/repo-data";
+import { patchName } from "@/lib/patch-name";
 import championNames from "@/data/champion-names.json";
 import augmentNames from "@/data/augment-names.json";
 
@@ -122,7 +123,7 @@ export default function PbePage() {
   return (
     <>
       <Intro eyebrow={<>PBE · {label}</>} title={<D>{`Mayhem ${meta.label} on the test server.`}</D>}>
-        <P v={{ live: meta.builds.live, pbe: meta.builds.pbe, date: meta.dataAsOf, from: meta.augmentPool.live, to: meta.augmentPool.pbe }}>
+        <P v={{ live: patchName(meta.builds.live.split(".").slice(0, 2).join(".")), pbe: patchName(meta.builds.pbe.split(".").slice(0, 2).join(".")), date: meta.dataAsOf, from: meta.augmentPool.live, to: meta.augmentPool.pbe }}>
           {"What's changing from live patch {live} to test server build {pbe} (updated {date}). The augment pool goes from {from} to {to}."}
         </P>{" "}
         <D>{meta.caveat}</D>
