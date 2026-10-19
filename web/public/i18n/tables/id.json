@@ -118,5 +118,6 @@
  "Win rate boost is how much more a pick wins than the rate it's compared with, such as the champion's own, in percentage points (pts): +2 pts turns 50% into 52%.": "Tambahan win rate adalah seberapa banyak sebuah pilihan menang dibanding angka pembandingnya, misalnya win rate champion itu sendiri, dalam poin persentase (poin): +2 poin mengubah 50% menjadi 52%.",
  "Numbers marked estimated are worked out from the stats we have, not counted game by game.": "Angka yang ditandai perkiraan dihitung dari statistik yang kami punya, bukan dihitung game per game.",
  "Game counts are approximate.": "Jumlah game adalah perkiraan.",
- "Win rate boost": "Tambahan win rate"
+ "Win rate boost": "Tambahan win rate",
+ "Sort": "Urutkan"
 }

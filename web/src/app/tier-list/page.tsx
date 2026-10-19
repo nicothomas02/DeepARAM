@@ -99,9 +99,9 @@ export default function TierListPage() {
       { key: "grade", label: "Tier", format: "tier" as const, sortKey: "deepScore", hint: AUGMENT_DEEPSCORE_HELP },
       { key: "name", label: "Augment", format: "augment" as const, iconKey: "id", hrefKey: "href" },
       { key: "deepScore", label: "DeepScore", format: "deepscore" as const, hint: AUGMENT_DEEPSCORE_HELP },
-      { key: "tier", label: "Rarity", format: "tier" as const },
+      { key: "tier", label: "Rarity", format: "tier" as const, phone: "hide" as const },
       { key: "win_rate", label: "Win rate", format: "pct" as const },
-      { key: "pick_rate", label: "Pick rate", format: "pct" as const },
+      { key: "pick_rate", label: "Pick rate", format: "pct" as const, phone: "hide" as const },
     ];
     tabs.push({
       id: "augments",

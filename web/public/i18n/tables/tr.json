@@ -118,5 +118,6 @@
  "Win rate boost is how much more a pick wins than the rate it's compared with, such as the champion's own, in percentage points (pts): +2 pts turns 50% into 52%.": "Kazanma oranı artışı, bir seçimin karşılaştırıldığı orandan (örneğin şampiyonun kendi oranından) ne kadar fazla kazandığıdır, yüzde puan (puan) olarak: +2 puan %50'yi %52 yapar.",
  "Numbers marked estimated are worked out from the stats we have, not counted game by game.": "Tahmini olarak işaretlenen sayılar elimizdeki istatistiklerden hesaplanır, oyun oyun sayılmaz.",
  "Game counts are approximate.": "Oyun sayıları yaklaşıktır.",
- "Win rate boost": "Kazanma oranı artışı"
+ "Win rate boost": "Kazanma oranı artışı",
+ "Sort": "Sırala"
 }

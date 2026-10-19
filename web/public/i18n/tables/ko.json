@@ -118,5 +118,6 @@
  "Win rate boost is how much more a pick wins than the rate it's compared with, such as the champion's own, in percentage points (pts): +2 pts turns 50% into 52%.": "승률 상승은 비교 대상 승률(예: 챔피언 자신의 승률)보다 얼마나 더 이기는지를 퍼센트포인트(%p)로 나타냅니다. +2%p면 50%가 52%가 됩니다.",
  "Numbers marked estimated are worked out from the stats we have, not counted game by game.": "추정으로 표시된 수치는 보유한 통계로 계산한 값이며, 한 판씩 센 값이 아닙니다.",
  "Game counts are approximate.": "판수는 대략적인 값입니다.",
- "Win rate boost": "승률 상승"
+ "Win rate boost": "승률 상승",
+ "Sort": "정렬"
 }

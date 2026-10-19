@@ -1553,6 +1553,133 @@ html[data-device="mobile"] .data-table th {
   }
 }
 
+/* The sort menu shows only on phones, for tables that trim columns there (DataTable Column.phone). */
+.table-sort {
+  display: none;
+}
+
+/* Tier List range buttons and patch dropdown: stacked on wider screens, one line on phones (ChampionTiers). */
+.patch-bar {
+  display: contents;
+}
+
+@media (max-width: 640px) {
+  .patch-bar {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .patch-bar .patch-presets {
+    flex: 0 1 auto;
+    flex-wrap: nowrap;
+    min-width: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .patch-bar .patch-presets::-webkit-scrollbar {
+    display: none;
+  }
+
+  .patch-bar .patch-presets button {
+    flex: none;
+    white-space: nowrap;
+  }
+
+  .patch-bar .patch-pick {
+    flex: none;
+    margin-left: auto;
+  }
+
+  .patch-bar .patch-pick summary {
+    white-space: nowrap;
+  }
+
+  /* The dropdown sits at the right edge here, so its list opens leftwards. */
+  .patch-bar .patch-pick-list {
+    right: 0;
+    left: auto;
+  }
+
+  /* Search and the sort menu share a line. */
+  .data-table.fit > .table-tools {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .data-table.fit > .table-tools .table-search {
+    flex: 1 1 0;
+    min-width: 0;
+    max-width: none;
+    margin: 0;
+  }
+
+  .data-table.fit > .table-tools .table-sort {
+    display: block;
+    flex: 0 1 auto;
+    max-width: 45%;
+    height: 42px;
+    margin-left: auto;
+    padding: 0 0.8rem;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: var(--surface);
+    color: var(--fg);
+    font: inherit;
+    font-size: 0.875rem;
+  }
+
+  /* A trimmed table fits the screen: no pinned column, the row number back, names and headings wrap. */
+  .data-table.fit > .table-scroll .ph-hide {
+    display: none;
+  }
+
+  .data-table.fit > .table-scroll .pin {
+    position: static;
+    box-shadow: none;
+  }
+
+  .data-table.fit > .table-scroll .rank-col {
+    display: table-cell;
+    padding-right: 0;
+  }
+
+  .data-table.fit > .table-scroll th,
+  .data-table.fit > .table-scroll td {
+    padding-inline: 0.3rem;
+  }
+
+  .data-table.fit > .table-scroll th {
+    font-size: 0.75rem;
+    line-height: 1.2;
+    white-space: normal;
+  }
+
+  .data-table.fit > .table-scroll td.pin,
+  .data-table.fit > .table-scroll .champ {
+    white-space: normal;
+  }
+
+  .data-table.fit > .table-scroll .champ {
+    gap: 0.45rem;
+  }
+}
+
+/* The narrowest phones also drop the row number (the tier letter still shows the order), and a long
+   augment name may break inside a word rather than push win rate off the screen. */
+@media (max-width: 359px) {
+  .data-table.fit > .table-scroll .ph-wide,
+  .data-table.fit > .table-scroll .rank-col {
+    display: none;
+  }
+
+  .data-table.fit > .table-scroll .aug-col .champ {
+    overflow-wrap: anywhere;
+  }
+}
+
 html[data-device="mobile"] .show-more {
   width: 100%;
   padding: 0.75rem;
@@ -4675,6 +4802,8 @@ th > button[data-tip] {
 /* Augment tier list (/augments) */
 .atiers {
   display: grid;
+  /* One column no wider than the page, so the table view scrolls inside it instead of spilling off a phone. */
+  grid-template-columns: minmax(0, 1fr);
   gap: 1.25rem;
 }
 .atiers-filters {
@@ -5773,7 +5902,10 @@ html[dir="rtl"] .rank-v {
   .data-table th button,
   .snap-tiers button,
   .seg button,
-  .arch-filter .arch-tag {
+  .arch-filter .arch-tag,
+  .patch-presets button,
+  .patch-pick summary,
+  .data-table.fit > .table-tools > * {
     min-height: 44px;
   }
 }

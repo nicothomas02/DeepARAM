@@ -118,5 +118,6 @@
  "Win rate boost is how much more a pick wins than the rate it's compared with, such as the champion's own, in percentage points (pts): +2 pts turns 50% into 52%.": "Mức tăng tỉ lệ thắng là lựa chọn đó thắng nhiều hơn bao nhiêu so với tỉ lệ dùng để so sánh, như tỉ lệ thắng của chính tướng, tính bằng điểm phần trăm (điểm): +2 điểm biến 50% thành 52%.",
  "Numbers marked estimated are worked out from the stats we have, not counted game by game.": "Các con số được đánh dấu ước tính được tính từ số liệu chúng tôi có, không đếm từng trận.",
  "Game counts are approximate.": "Số trận là con số gần đúng.",
- "Win rate boost": "Mức tăng tỉ lệ thắng"
+ "Win rate boost": "Mức tăng tỉ lệ thắng",
+ "Sort": "Sắp xếp"
 }

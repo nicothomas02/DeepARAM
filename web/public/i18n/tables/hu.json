@@ -118,5 +118,6 @@
  "Win rate boost is how much more a pick wins than the rate it's compared with, such as the champion's own, in percentage points (pts): +2 pts turns 50% into 52%.": "A győzelmi többlet azt mutatja, mennyivel nyer többet egy választás annál az aránynál, amihez viszonyítjuk, például a bajnok saját arányánál, százalékpontban (pont): +2 pont 50%-ból 52%-ot csinál.",
  "Numbers marked estimated are worked out from the stats we have, not counted game by game.": "A becsültként jelölt számokat a meglévő statisztikáinkból számoljuk, nem meccsenként számoljuk össze.",
  "Game counts are approximate.": "A meccsszámok hozzávetőlegesek.",
- "Win rate boost": "Győzelmi többlet"
+ "Win rate boost": "Győzelmi többlet",
+ "Sort": "Rendezés"
 }

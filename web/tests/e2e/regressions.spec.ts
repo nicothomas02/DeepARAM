@@ -71,3 +71,25 @@ test("champion page: Simple view folds, section links open them, Detailed shows 
   await expect(stats).toBeVisible();
   await expect(page.locator(".cp-fold-btn").first()).toBeHidden();
 });
+
+// The Tier List on a phone: the champion table fits the screen (win rate in view without scrolling sideways),
+// sorts from its menu, and a tap anywhere on a row opens the champion.
+test("tier list table fits a phone", async ({ page }, info) => {
+  test.skip(info.project.name !== "phone");
+  await page.goto("/tier-list");
+  const scroll = page.locator("#panel-champions .table-scroll").first();
+  await expect(scroll.locator("tbody tr").first()).toBeVisible();
+  const [sw, cw] = await scroll.evaluate((e) => [e.scrollWidth, e.clientWidth]);
+  expect(sw).toBeLessThanOrEqual(cw);
+  await expect(scroll.locator("thead th", { hasText: "Win rate" })).toBeInViewport();
+
+  await page.locator("#panel-champions .table-sort").selectOption("win_rate.desc");
+  await expect(page).toHaveURL(/sort=win_rate\.desc/);
+  const rates = await scroll.locator("tbody tr").evaluateAll((rows) =>
+    rows.slice(0, 5).map((r) => parseFloat([...r.querySelectorAll("td")].find((td) => /wr-/.test(td.className))?.textContent ?? "0")),
+  );
+  expect(rates).toEqual([...rates].sort((a, b) => b - a));
+
+  await scroll.locator("tbody tr").first().locator("td.rank-col").click();
+  await expect(page).toHaveURL(/\/champions\//);
+});

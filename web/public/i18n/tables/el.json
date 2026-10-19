@@ -118,5 +118,6 @@
  "Win rate boost is how much more a pick wins than the rate it's compared with, such as the champion's own, in percentage points (pts): +2 pts turns 50% into 52%.": "Η ενίσχυση ποσοστού νικών δείχνει πόσο περισσότερο κερδίζει μια επιλογή από το ποσοστό με το οποίο συγκρίνεται, π.χ. του ίδιου του champion, σε ποσοστιαίες μονάδες (μον.): +2 μον. κάνουν το 50% 52%.",
  "Numbers marked estimated are worked out from the stats we have, not counted game by game.": "Οι αριθμοί που σημειώνονται ως εκτίμηση υπολογίζονται από τα στατιστικά που έχουμε, όχι παιχνίδι προς παιχνίδι.",
  "Game counts are approximate.": "Ο αριθμός παιχνιδιών είναι κατά προσέγγιση.",
- "Win rate boost": "Ενίσχυση ποσοστού νικών"
+ "Win rate boost": "Ενίσχυση ποσοστού νικών",
+ "Sort": "Ταξινόμηση"
 }

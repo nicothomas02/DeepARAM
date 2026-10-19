@@ -118,5 +118,6 @@
  "Win rate boost is how much more a pick wins than the rate it's compared with, such as the champion's own, in percentage points (pts): +2 pts turns 50% into 52%.": "La mejora de victorias es cuánto más gana una elección que la tasa con la que se compara, como la del propio campeón, en puntos porcentuales (pts): +2 pts convierten un 50 % en un 52 %.",
  "Numbers marked estimated are worked out from the stats we have, not counted game by game.": "Los números marcados como estimados se calculan con las estadísticas que tenemos, no se cuentan partida por partida.",
  "Game counts are approximate.": "Las cifras de partidas son aproximadas.",
- "Win rate boost": "Mejora de victorias"
+ "Win rate boost": "Mejora de victorias",
+ "Sort": "Ordenar"
 }

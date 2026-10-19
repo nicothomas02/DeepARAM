@@ -118,5 +118,6 @@
  "Win rate boost is how much more a pick wins than the rate it's compared with, such as the champion's own, in percentage points (pts): +2 pts turns 50% into 52%.": "อัตราชนะที่เพิ่มขึ้นคือตัวเลือกนั้นชนะมากกว่าอัตราที่ใช้เปรียบเทียบเท่าไร เช่น อัตราชนะของแชมเปี้ยนเอง เป็นจุดเปอร์เซ็นต์ (จุด): +2 จุดทำให้ 50% เป็น 52%",
  "Numbers marked estimated are worked out from the stats we have, not counted game by game.": "ตัวเลขที่ระบุว่าเป็นค่าประมาณคำนวณจากสถิติที่เรามี ไม่ได้นับทีละเกม",
  "Game counts are approximate.": "จำนวนเกมเป็นค่าโดยประมาณ",
- "Win rate boost": "อัตราชนะที่เพิ่มขึ้น"
+ "Win rate boost": "อัตราชนะที่เพิ่มขึ้น",
+ "Sort": "เรียงลำดับ"
 }

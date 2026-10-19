@@ -29,6 +29,9 @@ export type Column = {
   hint?: string;
   /** For "tags" columns: the colour and meaning of each tag (the cell holds them comma-separated). */
   tags?: TagInfo;
+  /** Phones (globals.css): "hide" drops the column below 640px, "wide" only below 360px, so the main numbers fit
+   *  without sideways scrolling. A table with any of these gets a sort menu there instead. */
+  phone?: "hide" | "wide";
 };
 
 export type Row = Record<string, string | number | null>;
@@ -246,23 +249,71 @@ export default function DataTable({
   };
 
   const tableRef = useStickyHead(Math.min(sorted.length, shown) > STICKY_ROWS);
-  const cls = (c: Column, base: string) => (c.key === pin ? `${base} pin`.trim() : base);
+  const cls = (c: Column, base: string) => [base, c.key === pin && "pin", c.phone && `ph-${c.phone}`, c.format === "augment" && "aug-col"].filter(Boolean).join(" ");
+
+  // Phones: a table that trims columns (Column.phone) fits the screen, so it sorts from a menu (any column,
+  // hidden ones too) and a tap anywhere on a row opens the row's page when the row has just one.
+  const fit = columns.some((c) => c.phone);
+  // One entry per sort key; a tier letter gives way to the score column it sorts by.
+  const sortBy = new Map<string, Column>();
+  for (const c of columns) {
+    const k = c.sortKey ?? c.key;
+    if (c.sortable !== false && (!sortBy.has(k) || sortBy.get(k)!.format === "tier")) sortBy.set(k, c);
+  }
+  const sortValue = `${sort.key}.${sort.desc ? "desc" : "asc"}`;
+  const rowLink = fit && columns.filter((c) => c.format === "champion" || c.format === "augment" || c.format === "item").length === 1;
+  const openRow = (e: React.MouseEvent<HTMLTableSectionElement>) => {
+    const target = e.target as Element;
+    if (!rowLink || target.closest("a, button") || !matchMedia("(max-width: 640px)").matches) return;
+    target.closest("tr")?.querySelector<HTMLAnchorElement>("td.pin a")?.click();
+  };
+  const search = searchKey && (
+    <input
+      className="table-search"
+      type="search"
+      placeholder={t(searchLabel)}
+      aria-label={t(searchLabel)}
+      value={query}
+      onChange={(e) => {
+        setQuery(e.target.value);
+        setShown(PAGE);
+        share({ q: e.target.value.trim() || null });
+      }}
+    />
+  );
 
   return (
-    <div className="data-table">
-      {searchKey && (
-        <input
-          className="table-search"
-          type="search"
-          placeholder={t(searchLabel)}
-          aria-label={t(searchLabel)}
-          value={query}
-          onChange={(e) => {
-            setQuery(e.target.value);
-            setShown(PAGE);
-            share({ q: e.target.value.trim() || null });
-          }}
-        />
+    <div className={fit ? "data-table fit" : "data-table"}>
+      {fit ? (
+        <div className="table-tools">
+          {search}
+          <select
+            className="table-sort"
+            aria-label={t("Sort")}
+            value={sortValue}
+            onChange={(e) => {
+              const [key, dir] = e.target.value.split(".");
+              setSort({ key, desc: dir === "desc" });
+              share({ sort: e.target.value });
+            }}
+          >
+            {/* The opening order of a table whose own ranking isn't a column (Duos). */}
+            {!sortBy.has(sort.key) && (
+              <option value={sortValue} hidden>
+                {t("Sort")}
+              </option>
+            )}
+            {[...sortBy].flatMap(([k, c]) =>
+              [true, false].map((desc) => (
+                <option key={`${k}.${desc}`} value={`${k}.${desc ? "desc" : "asc"}`}>
+                  {`${t(c.label)} ${desc ? "↓" : "↑"}`}
+                </option>
+              )),
+            )}
+          </select>
+        </div>
+      ) : (
+        search
       )}
       <div className="table-scroll">
         <table ref={tableRef}>
@@ -292,7 +343,7 @@ export default function DataTable({
               ))}
             </tr>
           </thead>
-          <tbody>
+          <tbody onClick={openRow}>
             {sorted.slice(0, shown).map((r, i) => (
               <tr key={i}>
                 <td className="num muted-cell rank-col">{i + 1}</td>
@@ -408,7 +459,8 @@ function AdvancedStats(props: { columns: Column[]; rows: Row[]; initialSort: { k
         {t("Advanced stats")}
         <small>{t("Every stat we have for this list, in its own table.")}</small>
       </summary>
-      {advanced && <DataTable {...props} />}
+      {/* Every column stays here on phones too; this table scrolls sideways. */}
+      {advanced && <DataTable {...props} columns={props.columns.map((c) => ({ ...c, phone: undefined }))} />}
     </details>
   );
 }

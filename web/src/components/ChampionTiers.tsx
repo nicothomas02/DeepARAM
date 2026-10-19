@@ -36,7 +36,14 @@ const CHANGE: Column = {
   hint: "Win rate change since the previous patch, in percentage points.",
 };
 
-const STANDARD: Column[] = [TIER, NAME, DEEP, { key: "win_rate", label: "Win rate", format: "pct" }, { key: "pick_rate", label: "Pick rate", format: "pct" }];
+// Phones keep tier, name, DeepScore and win rate in view; pick rate shows from 360px wide (DataTable Column.phone).
+const STANDARD: Column[] = [
+  TIER,
+  NAME,
+  DEEP,
+  { key: "win_rate", label: "Win rate", format: "pct" },
+  { key: "pick_rate", label: "Pick rate", format: "pct", phone: "wide" },
+];
 
 const ADVANCED: Column[] = [
   TIER,
@@ -213,29 +220,32 @@ export default function ChampionTiers({ rows: initial, patches, tags, tagInfo, g
 
   return (
     <div className="patch-range">
-      <div className="patch-presets" role="group" aria-label={t("Patch range")}>
-        {presets.map(([label, list]) => (
-          <button key={label} type="button" aria-pressed={same(list) && !moversOn} onClick={() => preset(list)}>
-            {label}
-          </button>
-        ))}
-        {patches.length > 1 && (
-          <button type="button" aria-pressed={moversOn} onClick={movers}>
-            {t("Biggest movers")}
-          </button>
-        )}
-      </div>
-      <details className="patch-pick" ref={pickRef}>
-        <summary>{one ? t("Patch {patch}", { patch: patchName(one) }) : t("{n} patches", { n: picked.size })}</summary>
-        <div className="patch-pick-list" role="group" aria-label={t("Patches")}>
-          {[...patches].reverse().map((p) => (
-            <label key={p}>
-              <input type="checkbox" checked={picked.has(p)} onChange={() => toggle(p)} />
-              {patchName(p)}
-            </label>
+      {/* Phones put the range buttons and the patch dropdown on one line, the buttons scrolling sideways. */}
+      <div className="patch-bar">
+        <div className="patch-presets" role="group" aria-label={t("Patch range")}>
+          {presets.map(([label, list]) => (
+            <button key={label} type="button" aria-pressed={same(list) && !moversOn} onClick={() => preset(list)}>
+              {label}
+            </button>
           ))}
+          {patches.length > 1 && (
+            <button type="button" aria-pressed={moversOn} onClick={movers}>
+              {t("Biggest movers")}
+            </button>
+          )}
         </div>
-      </details>
+        <details className="patch-pick" ref={pickRef}>
+          <summary>{one ? t("Patch {patch}", { patch: patchName(one) }) : t("{n} patches", { n: picked.size })}</summary>
+          <div className="patch-pick-list" role="group" aria-label={t("Patches")}>
+            {[...patches].reverse().map((p) => (
+              <label key={p}>
+                <input type="checkbox" checked={picked.has(p)} onChange={() => toggle(p)} />
+                {patchName(p)}
+              </label>
+            ))}
+          </div>
+        </details>
+      </div>
       {Object.keys(tagInfo).length > 0 && (
         <div className="arch-filter" role="group" aria-label={t("Filter by archetype")}>
           {[...kinds.class, ...kinds.play].map((t) => {
@@ -276,7 +286,7 @@ export default function ChampionTiers({ rows: initial, patches, tags, tagInfo, g
         // Numbers sit next to the name, as on other stat tables; the class tags come last.
         <DataTable
           key={sort.key}
-          columns={[...STANDARD, ...(showChange ? [CHANGE] : []), tagCol]}
+          columns={[...STANDARD, ...(showChange ? [{ ...CHANGE, phone: "hide" as const }] : []), { ...tagCol, phone: "hide" }]}
           advancedColumns={[
             ...ADVANCED.slice(0, 5),
             ...(showChange ? [CHANGE] : []),

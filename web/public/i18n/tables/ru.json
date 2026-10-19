@@ -118,5 +118,6 @@
  "Win rate boost is how much more a pick wins than the rate it's compared with, such as the champion's own, in percentage points (pts): +2 pts turns 50% into 52%.": "Прирост винрейта — насколько чаще выбор побеждает, чем значение, с которым его сравнивают, например собственный винрейт чемпиона, в процентных пунктах (п.п.): +2 п.п. превращают 50% в 52%.",
  "Numbers marked estimated are worked out from the stats we have, not counted game by game.": "Числа с пометкой «оценка» рассчитаны по имеющейся у нас статистике, а не подсчитаны по каждой игре.",
  "Game counts are approximate.": "Число игр приблизительное.",
- "Win rate boost": "Прирост винрейта"
+ "Win rate boost": "Прирост винрейта",
+ "Sort": "Сортировка"
 }

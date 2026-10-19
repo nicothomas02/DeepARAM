@@ -19,8 +19,20 @@ const DELTA: Column = {
   format: "pts",
   hint: "How much more the pair wins than the two champions' own win rates predict, in percentage points. Above zero means they help each other.",
 };
-const PICK: Column = { key: "pick_rate", label: "Pick rate", format: "pct", hint: "How often the first champion has the second as a teammate." };
-const PAIRS: Column = { key: "duos", label: "Duos", format: "int", hint: "How many champion pairs the average covers. Fewer pairs make it less certain." };
+const PICK: Column = {
+  key: "pick_rate",
+  label: "Pick rate",
+  format: "pct",
+  hint: "How often the first champion has the second as a teammate.",
+  phone: "wide",
+};
+const PAIRS: Column = {
+  key: "duos",
+  label: "Duos",
+  format: "int",
+  hint: "How many champion pairs the average covers. Fewer pairs make it less certain.",
+  phone: "wide",
+};
 
 export default function DuosTable({ archetypes, tagInfo, version }: { archetypes: Row[]; tagInfo: TagInfo; version: string }) {
   const [rows, setRows] = useState<Row[] | null>(null);
