@@ -6,7 +6,7 @@
   "3158": {"key": "ionian", "roles": ["ap", "ad", "tank"], "stats": {"ah": 10}},
   "3047": {"key": "plated", "roles": ["tank", "ad"]},
   "3111": {"key": "mercurys", "roles": ["tank", "ad", "ap"], "confidence": "likely"},
-  "3008": {"key": "gluttonous", "roles": ["ad", "ap", "tank", "bruiser"]},
+  "3008": {"key": "gluttonous", "roles": ["ad", "ap", "tank", "bruiser"], "stats_add": {"omnivamp": 0.06}, "note": "Slay counted at its full 10 takedown stacks (+6% omnivamp)"},
   "3009": {"key": "swiftness", "roles": ["ad", "ap", "tank"]}
  },
  "items": {
@@ -183,12 +183,7 @@
   "3184": {"key": "guardians_hammer", "roles": []},
   "3177": {"key": "guardians_blade", "roles": []},
   "3112": {"key": "guardians_orb", "roles": []},
-  "2051": {"key": "guardians_horn", "roles": []},
-  "1120": {"key": "dorans_helm", "roles": []},
-  "1055": {"key": "dorans_blade", "roles": []},
-  "1054": {"key": "dorans_shield", "roles": []},
-  "1086": {"key": "dorans_bow", "roles": []},
-  "1056": {"key": "dorans_ring", "roles": []}
+  "2051": {"key": "guardians_horn", "roles": []}
  },
  "rewards": {
   "994403": {"key": "golden_spatula", "roles": [], "note": "being On Fire isn't counted"},
