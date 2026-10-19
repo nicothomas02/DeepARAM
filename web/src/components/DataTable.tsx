@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import RowLink from "./RowLink";
 import { useEffect, useMemo, useRef, useState } from "react";
 import championNames from "@/data/champion-names.json";
 import { setParams } from "@/lib/url-state";
@@ -159,9 +159,9 @@ function Champion({ id }: { id: string }) {
   const name = useNames()("champions", id, NAMES[id] ?? id.replace(/([a-z])([A-Z])/g, "$1 $2"));
   const named = <Named src={`/icons/champions/${id}.webp`} name={name} />;
   return id in championIds ? (
-    <Link className="cell-link" href={`/champions/${id}`}>
+    <RowLink className="cell-link" href={`/champions/${id}`}>
       {named}
-    </Link>
+    </RowLink>
   ) : (
     named
   );
@@ -302,17 +302,17 @@ export default function DataTable({
                       <Champion id={String(r[c.key])} />
                     ) : c.format === "item" ? (
                       // The row carries the item's name in the page's language already.
-                      <Link className="cell-link" href={String(r[c.hrefKey ?? "href"])}>
+                      <RowLink className="cell-link" href={String(r[c.hrefKey ?? "href"])}>
                         <Named src={String(r[c.iconKey ?? "icon"] ?? "")} name={String(r[c.key] ?? "")} />
-                      </Link>
+                      </RowLink>
                     ) : c.format === "augment" ? (
                       c.hrefKey && r[c.hrefKey] ? (
-                        <Link className="cell-link" href={String(r[c.hrefKey])}>
+                        <RowLink className="cell-link" href={String(r[c.hrefKey])}>
                           <Named
                             src={`/icons/augments/${r[c.iconKey ?? "id"]}.webp`}
                             name={names("augments", String(r[c.iconKey ?? "id"]), String(r[c.key] ?? ""))}
                           />
-                        </Link>
+                        </RowLink>
                       ) : (
                         <Named
                           src={`/icons/augments/${r[c.iconKey ?? "id"]}.webp`}

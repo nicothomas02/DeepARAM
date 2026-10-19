@@ -1,7 +1,7 @@
 "use client";
 /* eslint-disable @next/next/no-img-element -- small local icons */
 
-import Link from "next/link";
+import RowLink from "./RowLink";
 import { useEffect, useMemo, useState } from "react";
 import DataTable, { type Column, type Row } from "@/components/DataTable";
 import DeepScore from "@/components/DeepScore";
@@ -202,7 +202,7 @@ export default function ItemIndex({ items }: { items: Item[] }) {
               <ul className="items-grid">
                 {list.map((i) => (
                   <li key={i.id}>
-                    <Link href={`/items/${i.slug}`} className="item-card">
+                    <RowLink href={`/items/${i.slug}`} className="item-card">
                       {i.icon && <img src={i.icon} alt="" width={48} height={48} loading="lazy" />}
                       <span className="item-card-body">
                         <b>{name(i)}</b>
@@ -227,7 +227,7 @@ export default function ItemIndex({ items }: { items: Item[] }) {
                           ))}
                         </span>
                       </span>
-                    </Link>
+                    </RowLink>
                   </li>
                 ))}
               </ul>

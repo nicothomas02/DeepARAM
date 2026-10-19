@@ -1,7 +1,9 @@
 {
  "Added ({n})": "Hinzugefügt ({n})",
  "All": "Alle",
+ "At a glance": "Auf einen Blick",
  "Augment": "Augment",
+ "Augment pool": "Augment-Pool",
  "Augments": "Augments",
  "Champion": "Champion",
  "Champion changes": "Champion-Änderungen",
@@ -35,12 +37,15 @@
  "Removed ({n})": "Entfernt ({n})",
  "Search changes": "Änderungen durchsuchen",
  "Show": "Anzeigen",
+ "Show all ({n})": "Alle anzeigen ({n})",
  "Show all {n} changes": "Alle {n} Änderungen anzeigen",
+ "Show less": "Weniger anzeigen",
  "Silver augment": "Silber-Augment",
  "Starts unlocked": "Von Anfang an freigeschaltet",
  "Test server changes usually reach live with a patch.": "Änderungen vom Testserver kommen normalerweise mit einem Patch auf die Live-Server.",
  "Unclear": "Unklar",
  "Unnamed": "Unbenannt",
  "What's changing from live patch {live} to test server build {pbe} (updated {date}). The augment pool goes from {from} to {to}.": "Was sich von Live-Patch {live} zu Testserver-Build {pbe} ändert (aktualisiert am {date}). Der Augment-Pool ändert sich von {from} auf {to}.",
+ "{added} new · {changed} changed · {removed} removed": "{added} neu · {changed} geändert · {removed} entfernt",
  "{n} Fame": "{n} Ruhm"
 }

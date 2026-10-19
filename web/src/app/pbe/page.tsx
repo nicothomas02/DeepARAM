@@ -6,6 +6,7 @@ import { Name, T } from "@/components/I18n";
 import Intro from "@/components/Intro";
 import PatchCountdown from "@/components/PatchCountdown";
 import Pending from "@/components/Pending";
+import PhoneMore from "@/components/PhoneMore";
 import { items } from "@/lib/items";
 import type { PatchSchedule } from "@/lib/patch-schedule";
 import { readRepoJson } from "@/lib/repo-data";
@@ -80,6 +81,39 @@ function ItemName({ name }: { name: string }) {
 // Points from the live value to the new one, flipped for right-to-left languages.
 const Arrow = () => <span className="dir-arrow">→</span>;
 
+// Phones only (CSS: .pbe-glance): the headline numbers, each a link to its section.
+function Glance({ d, tracker }: { d: Pbe; tracker: TrackerEntry[] }) {
+  const { augments: a, meta } = d;
+  const tags = (tag: string) => tracker.filter((e) => e.tag === tag).length;
+  const rows: [string, React.ReactNode, React.ReactNode][] = [
+    ["augments", <P key="l">Augments</P>, <P key="v" v={{ added: a.added.length, changed: a.changed.length, removed: a.removed.length }}>{"{added} new · {changed} changed · {removed} removed"}</P>],
+    ["augments", <P key="l">Augment pool</P>, <>{meta.augmentPool.live} <Arrow /> {meta.augmentPool.pbe}</>],
+    ["tracker", <P key="l">Likely buff</P>, tags("buff")],
+    ["tracker", <P key="l">Likely nerf</P>, tags("nerf")],
+    ["headliners", <P key="l">Headliners</P>, d.headliners.list.length],
+    ["champions", <P key="l">Champion changes</P>, d.championChanges.list.length],
+    ["items", <P key="l">Item changes</P>, d.itemChanges.list.length],
+    ["mode", <P key="l">Mode changes</P>, d.modeChanges.length],
+  ];
+  return (
+    <section className="pbe-glance" aria-labelledby="glance-h">
+      <h2 id="glance-h">
+        <P>At a glance</P>
+      </h2>
+      <ul>
+        {rows.map(([id, label, value], i) => (
+          <li key={i}>
+            <a href={`#${id}`}>
+              <span>{label}</span>
+              <b>{value}</b>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+  );
+}
+
 const DIRECTION: Record<string, string> = { buff: "Likely buff", nerf: "Likely nerf", mixed: "Mixed", none: "No power change", unclear: "Unclear" };
 
 function Section({ id, title, count, children }: { id: string; title: string; count?: number; children: React.ReactNode }) {
@@ -129,6 +163,8 @@ export default function PbePage() {
         <D>{meta.caveat}</D>
       </Intro>
 
+      <Glance d={d} tracker={tracker} />
+
       {schedule && <PatchCountdown schedule={schedule} asOf={new Date().toISOString()} note={<P>Test server changes usually reach live with a patch.</P>} />}
 
       <nav className="toc" aria-label="On this page">
@@ -155,16 +191,18 @@ export default function PbePage() {
         <p className="lede">
           <D>{d.headliners.summary}</D>
         </p>
-        <dl className="defs">
-          {d.headliners.list.map((h) => (
-            <div key={h.name}>
-              <dt>{h.name}</dt>
-              <dd>
-                <D>{h.effect}</D>
-              </dd>
-            </div>
-          ))}
-        </dl>
+        <PhoneMore count={d.headliners.list.length}>
+          <dl className="defs">
+            {d.headliners.list.map((h) => (
+              <div key={h.name}>
+                <dt>{h.name}</dt>
+                <dd>
+                  <D>{h.effect}</D>
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </PhoneMore>
       </Section>
 
       <Section id="fame" title="Fame" count={d.fame.bands.length}>
@@ -204,44 +242,50 @@ export default function PbePage() {
         <h3>
           <P v={{ n: augments.added.length }}>{"Added ({n})"}</P>
         </h3>
-        <div className="aug-grid">
-          {TIERS.flatMap((tier) =>
-            augments.added
-              .filter((a) => a.tier === tier)
-              .map((a, i) => (
-                <AugmentCard key={`${a.name}-${i}`} name={a.name ? <Aug name={a.name} /> : <P>Unnamed</P>} tier={tier} icon={a.icon} set={a.set}>
-                  {a.description ? <D>{a.description}</D> : <P>Details not revealed yet.</P>}
-                </AugmentCard>
-              )),
-          )}
-        </div>
+        <PhoneMore count={augments.added.length}>
+          <div className="aug-grid">
+            {TIERS.flatMap((tier) =>
+              augments.added
+                .filter((a) => a.tier === tier)
+                .map((a, i) => (
+                  <AugmentCard key={`${a.name}-${i}`} name={a.name ? <Aug name={a.name} /> : <P>Unnamed</P>} tier={tier} icon={a.icon} set={a.set}>
+                    {a.description ? <D>{a.description}</D> : <P>Details not revealed yet.</P>}
+                  </AugmentCard>
+                )),
+            )}
+          </div>
+        </PhoneMore>
         <h3>
           <P v={{ n: augments.changed.length }}>{"Changed ({n})"}</P>
         </h3>
-        <div className="aug-grid">
-          {augments.changed.map((a) => (
-            <AugmentCard key={a.name} name={<Aug name={a.name} />} tier={a.tier} icon={a.icon}>
-              {a.direction && (
-                <span className={`tag tag-${a.direction}`}>
-                  <P>{DIRECTION[a.direction] ?? "Unclear"}</P>
-                </span>
-              )}
-              {a.changes.map((c) => (
-                <span key={c.stat} className="change">
-                  <D>{c.stat}</D>: <s><D>{c.live}</D></s> <Arrow /> <b><D>{c.pbe}</D></b>
-                </span>
-              ))}
-            </AugmentCard>
-          ))}
-        </div>
+        <PhoneMore count={augments.changed.length}>
+          <div className="aug-grid">
+            {augments.changed.map((a) => (
+              <AugmentCard key={a.name} name={<Aug name={a.name} />} tier={a.tier} icon={a.icon}>
+                {a.direction && (
+                  <span className={`tag tag-${a.direction}`}>
+                    <P>{DIRECTION[a.direction] ?? "Unclear"}</P>
+                  </span>
+                )}
+                {a.changes.map((c) => (
+                  <span key={c.stat} className="change">
+                    <D>{c.stat}</D>: <s><D>{c.live}</D></s> <Arrow /> <b><D>{c.pbe}</D></b>
+                  </span>
+                ))}
+              </AugmentCard>
+            ))}
+          </div>
+        </PhoneMore>
         <h3>
           <P v={{ n: augments.removed.length }}>{"Removed ({n})"}</P>
         </h3>
-        <div className="aug-grid aug-mini">
-          {augments.removed.map((a) => (
-            <AugmentCard key={a.name} name={<Aug name={a.name} />} tier={a.tier} icon={a.icon} removed compact />
-          ))}
-        </div>
+        <PhoneMore count={augments.removed.length}>
+          <div className="aug-grid aug-mini">
+            {augments.removed.map((a) => (
+              <AugmentCard key={a.name} name={<Aug name={a.name} />} tier={a.tier} icon={a.icon} removed compact />
+            ))}
+          </div>
+        </PhoneMore>
       </Section>
 
       <Section id="overrides" title="Mayhem overrides" count={d.championOverrides.length}>
@@ -270,22 +314,24 @@ export default function PbePage() {
         <p className="lede">
           <D>{d.championChanges.summary}</D>
         </p>
-        <dl className="defs">
-          {d.championChanges.list.map((c) => (
-            <div key={c.champion}>
-              <dt>
-                <Champ name={c.champion} />
-              </dt>
-              <dd>
-                {c.changes.map((x) => (
-                  <span key={x} className="change">
-                    <D>{x}</D>
-                  </span>
-                ))}
-              </dd>
-            </div>
-          ))}
-        </dl>
+        <PhoneMore count={d.championChanges.list.length}>
+          <dl className="defs">
+            {d.championChanges.list.map((c) => (
+              <div key={c.champion}>
+                <dt>
+                  <Champ name={c.champion} />
+                </dt>
+                <dd>
+                  {c.changes.map((x) => (
+                    <span key={x} className="change">
+                      <D>{x}</D>
+                    </span>
+                  ))}
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </PhoneMore>
       </Section>
 
       <Section id="items" title="Item changes" count={d.itemChanges.list.length}>

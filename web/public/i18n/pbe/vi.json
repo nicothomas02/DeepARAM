@@ -1,7 +1,9 @@
 {
  "Added ({n})": "Đã thêm ({n})",
  "All": "Tất cả",
+ "At a glance": "Tóm tắt nhanh",
  "Augment": "Lõi Nâng Cấp",
+ "Augment pool": "Kho Lõi Nâng Cấp",
  "Augments": "Lõi Nâng Cấp",
  "Champion": "Tướng",
  "Champion changes": "Thay đổi tướng",
@@ -35,12 +37,15 @@
  "Removed ({n})": "Đã xóa ({n})",
  "Search changes": "Tìm thay đổi",
  "Show": "Hiện",
+ "Show all ({n})": "Hiện tất cả ({n})",
  "Show all {n} changes": "Hiện tất cả {n} thay đổi",
+ "Show less": "Thu gọn",
  "Silver augment": "Lõi Nâng Cấp Bạc",
  "Starts unlocked": "Mở khóa sẵn",
  "Test server changes usually reach live with a patch.": "Thay đổi trên máy chủ thử nghiệm thường được đưa lên máy chủ chính thức cùng một phiên bản.",
  "Unclear": "Chưa rõ",
  "Unnamed": "Chưa đặt tên",
  "What's changing from live patch {live} to test server build {pbe} (updated {date}). The augment pool goes from {from} to {to}.": "Những gì thay đổi từ phiên bản chính thức {live} đến bản dựng máy chủ thử nghiệm {pbe} (cập nhật {date}). Số Lõi Nâng Cấp thay đổi từ {from} thành {to}.",
+ "{added} new · {changed} changed · {removed} removed": "{added} mới · {changed} thay đổi · {removed} đã xóa",
  "{n} Fame": "{n} Danh Tiếng"
 }

@@ -1,7 +1,7 @@
 "use client";
 /* eslint-disable @next/next/no-img-element -- small local icons */
 
-import Link from "next/link";
+import RowLink from "./RowLink";
 import { useEffect, useState } from "react";
 import { getParam, setParams } from "@/lib/url-state";
 import { EmptyState } from "@/components/EmptyState";
@@ -149,7 +149,7 @@ export default function AugmentTiers({
                 <span className={`chip tier-${tier.toLowerCase()} atiers-tier`}>{tier}</span>
                 <div className="atiers-grid">
                   {list.map((a) => (
-                    <Link
+                    <RowLink
                       key={a.id}
                       href={a.href}
                       className="atiers-aug"
@@ -165,7 +165,7 @@ export default function AugmentTiers({
                       <span className="atiers-name">{names("augments", a.id, a.name)}</span>
                       <DeepScore value={a.deepScore} static />
                       <span className={`atiers-wr ${a.winRate >= 0.52 ? "wr-high" : a.winRate <= 0.48 ? "wr-low" : ""}`}>{pct(a.winRate)}</span>
-                    </Link>
+                    </RowLink>
                   ))}
                 </div>
               </section>
