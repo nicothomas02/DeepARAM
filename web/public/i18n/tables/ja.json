@@ -118,5 +118,6 @@
  "Win rate boost is how much more a pick wins than the rate it's compared with, such as the champion's own, in percentage points (pts): +2 pts turns 50% into 52%.": "勝率上昇は、比較対象の勝率(チャンピオン自身の勝率など)より何ポイント多く勝つかをパーセントポイント(pt)で表したものです。+2ptなら50%が52%になります。",
  "Numbers marked estimated are worked out from the stats we have, not counted game by game.": "推定と表示された数値は、手元の統計から算出したもので、1試合ずつ数えたものではありません。",
  "Game counts are approximate.": "試合数はおおよその値です。",
- "Win rate boost": "勝率上昇"
+ "Win rate boost": "勝率上昇",
+ "Sort": "並べ替え"
 }

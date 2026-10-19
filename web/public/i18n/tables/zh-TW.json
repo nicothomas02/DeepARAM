@@ -118,5 +118,6 @@
  "Win rate boost is how much more a pick wins than the rate it's compared with, such as the champion's own, in percentage points (pts): +2 pts turns 50% into 52%.": "勝率提升指某個選擇比對照基準（例如英雄自身的勝率）多贏多少，單位為百分點：+2 個百分點即 50% 變為 52%。",
  "Numbers marked estimated are worked out from the stats we have, not counted game by game.": "標示為估算的數字由我們現有的數據推算，並非逐場統計。",
  "Game counts are approximate.": "場次為近似值。",
- "Win rate boost": "勝率提升"
+ "Win rate boost": "勝率提升",
+ "Sort": "排序"
 }

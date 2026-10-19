@@ -56,11 +56,11 @@ const pct = (v: number) => `${(v * 100).toFixed(1)}%`;
 // cards' grouped order), then score.
 const COLUMNS: Column[] = [
   { key: "name", label: "Item", format: "item", iconKey: "icon", hrefKey: "href" },
-  { key: "type", label: "Type", format: "text", sortKey: "typeOrder" },
+  { key: "type", label: "Type", format: "text", sortKey: "typeOrder", phone: "hide" },
   { key: "deepScore", label: "DeepScore", format: "deepscore", sortKey: "rank", hint: ITEM_TIER_DEEPSCORE_HELP },
   { key: "winRate", label: "Est. win rate", format: "pct", hint: "Estimated win rate of the champions who build it." },
-  { key: "buildShare", label: "In builds", format: "pct", hint: "Estimated share of builds that include it." },
-  { key: "cost", label: "Cost", format: "int" },
+  { key: "buildShare", label: "In builds", format: "pct", hint: "Estimated share of builds that include it.", phone: "wide" },
+  { key: "cost", label: "Cost", format: "int", phone: "hide" },
 ];
 
 export default function ItemIndex({ items }: { items: Item[] }) {

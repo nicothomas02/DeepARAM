@@ -118,5 +118,6 @@
  "Win rate boost is how much more a pick wins than the rate it's compared with, such as the champion's own, in percentage points (pts): +2 pts turns 50% into 52%.": "Siegraten-Plus ist, wie viel öfter ein Pick gewinnt als der Wert, mit dem er verglichen wird, etwa die eigene Siegrate des Champions, in Prozentpunkten (Pkt.): +2 Pkt. macht aus 50 % 52 %.",
  "Numbers marked estimated are worked out from the stats we have, not counted game by game.": "Als geschätzt markierte Zahlen sind aus unseren Statistiken berechnet, nicht Spiel für Spiel gezählt.",
  "Game counts are approximate.": "Spielzahlen sind ungefähr.",
- "Win rate boost": "Siegraten-Plus"
+ "Win rate boost": "Siegraten-Plus",
+ "Sort": "Sortieren"
 }

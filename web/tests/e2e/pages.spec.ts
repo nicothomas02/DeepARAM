@@ -161,7 +161,9 @@ test("the Augments and Items tabs switch between their picture view and a sortab
   await page.goto("/tier-list?tab=items&iview=table");
   const table = page.locator(".items-index .data-table").first();
   await expect(table.locator('a[href^="/items/"]').first()).toBeVisible();
-  await table.locator("thead button", { hasText: "Cost" }).click();
+  // Phones hide the Cost column and sort from the menu instead (DataTable Column.phone).
+  if (test.info().project.name === "phone") await table.locator(".table-sort").selectOption("cost.desc");
+  else await table.locator("thead button", { hasText: "Cost" }).click();
   await expect(table.locator("th[aria-sort]")).toContainText("Cost");
 });
 
