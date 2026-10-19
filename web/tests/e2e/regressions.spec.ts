@@ -52,3 +52,22 @@ test("pages fill wide screens", async ({ page }, info) => {
   const width = await page.locator("main").first().evaluate((m) => m.getBoundingClientRect().width);
   expect(width).toBeGreaterThan(1800);
 });
+
+// Champion pages were very long: Simple view cuts lists at 5 rows and folds the bulky panels, which a
+// section link still opens; Detailed view shows everything with no "Show more" buttons.
+test("champion page: Simple view folds, section links open them, Detailed shows all", async ({ page }) => {
+  await page.goto("/champions/Swain");
+  const stats = page.locator("#stats");
+  await expect(stats).toBeHidden();
+  await expect(page.locator(".cp-side .cp-best").first()).toBeVisible();
+  const rows = page.locator("#builds ~ .cp-panel").first().locator(".cp-row");
+  await expect(rows.nth(4)).toBeVisible();
+  await expect(rows.nth(5)).toBeHidden();
+  await page.locator('.cp-rail a[href="#details"]').click();
+  await expect(stats).toBeVisible();
+
+  await page.addInitScript(() => localStorage.setItem("deeparam-settings", JSON.stringify({ view: "detailed" })));
+  await page.goto("/champions/Swain");
+  await expect(stats).toBeVisible();
+  await expect(page.locator(".cp-fold-btn").first()).toBeHidden();
+});
