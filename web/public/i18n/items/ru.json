@@ -69,7 +69,6 @@
  "How it does": "Как оно себя показывает",
  "Estimated": "Оценка",
  "win rate": "процент побед",
- "vs its builders' usual win rate": "по сравнению с обычным процентом побед тех, кто его собирает",
  "of builds": "сборок",
  "bought 1st · 2nd · 3rd": "покупается 1-м · 2-м · 3-м",
  "Some augments also grant this item.": "Этот предмет также дают некоторые аугменты.",
@@ -89,5 +88,6 @@
  "Rarely bought in ARAM Mayhem, so it has no win rate yet.": "В ARAM Mayhem покупают редко, поэтому процента побед пока нет.",
  "Cards": "Карточки",
  "Table": "Таблица",
- "View": "Вид"
+ "View": "Вид",
+ "win rate boost": "прирост винрейта"
 }

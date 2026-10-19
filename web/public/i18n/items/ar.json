@@ -69,7 +69,6 @@
  "How it does": "أداؤه",
  "Estimated": "مقدَّر",
  "win rate": "نسبة الفوز",
- "vs its builders' usual win rate": "مقارنةً بنسبة فوز من يشترونه عادةً",
  "of builds": "من البنايات",
  "bought 1st · 2nd · 3rd": "يُشترى أولًا · ثانيًا · ثالثًا",
  "Some augments also grant this item.": "بعض التعزيزات تمنح هذا العنصر أيضًا.",
@@ -89,5 +88,6 @@
  "Rarely bought in ARAM Mayhem, so it has no win rate yet.": "نادرًا ما يُشترى في ARAM Mayhem، لذا لا توجد له نسبة فوز بعد.",
  "Cards": "بطاقات",
  "Table": "جدول",
- "View": "العرض"
+ "View": "العرض",
+ "win rate boost": "زيادة نسبة الفوز"
 }

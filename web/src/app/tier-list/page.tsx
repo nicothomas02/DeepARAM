@@ -17,6 +17,7 @@ import championNames from "@/data/champion-names.json";
 import type { PatchRow } from "@/lib/tiers";
 import Intro from "@/components/Intro";
 import { T } from "@/components/I18n";
+import HowRankings from "@/components/HowRankings";
 import ItemIndex from "@/components/ItemIndex";
 import { itemEstimate, powerCurveLists } from "@/lib/estimates";
 import { itemPages } from "@/lib/item-pages";
@@ -126,7 +127,7 @@ export default function TierListPage() {
                   ...augCols,
                   {
                     key: "lift",
-                    label: "Win rate vs its champions",
+                    label: "Win rate boost",
                     format: "pts" as const,
                     hint: "Win rate minus what the champions who take it win anyway. Above zero means it helps them.",
                   },
@@ -225,6 +226,7 @@ export default function TierListPage() {
           {"Live patch {patch} by default. Pick any patches, or all time, above the champion table. Advanced stats at the bottom show every stat we have."}
         </T>
       </Intro>
+      <HowRankings />
       <SubTabs tabs={tabs} ns="tier-list" />
     </AdvancedProvider>
   );

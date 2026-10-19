@@ -45,7 +45,6 @@
  "Augment": "Lõi Nâng Cấp",
  "Rarity": "Độ hiếm",
  "Augments": "Lõi Nâng Cấp",
- "Win rate vs its champions": "Tỉ lệ thắng so với các tướng chọn nó",
  "Win rank": "Hạng thắng",
  "Pick rank": "Hạng chọn",
  "Pick rank change": "Thay đổi hạng chọn",
@@ -90,7 +89,6 @@
  "Copy image": "Sao chép ảnh",
  "Save": "Lưu",
  "Close": "Đóng",
- "Win rate delta": "Chênh lệch tỉ lệ thắng",
  "Games": "Số trận",
  "Games played on the live patch.": "Số trận đã chơi ở phiên bản hiện tại.",
  "DeepScore rates each item from 0 to 100 against this champion's other items of the same tier, where 50 is average. It starts from the item's win rate with this champion and trusts rarely built items less. Tiers: S 70+, A 59+, B 44+, C 32+, D below.": "DeepScore chấm mỗi trang bị từ 0 đến 100 so với các trang bị khác cùng cấp của tướng này, trong đó 50 là mức trung bình. Điểm dựa trên tỉ lệ thắng của trang bị với tướng này và ít tin hơn vào trang bị hiếm khi được lên. Bậc: S 70+, A 59+, B 44+, C 32+, D thấp hơn.",
@@ -112,5 +110,13 @@
  "In builds": "Trong build",
  "Cost": "Giá",
  "Estimated win rate of the champions who build it.": "Tỉ lệ thắng ước tính của các tướng lên trang bị này.",
- "Estimated share of builds that include it.": "Tỉ lệ ước tính các build có trang bị này."
+ "Estimated share of builds that include it.": "Tỉ lệ ước tính các build có trang bị này.",
+ "How rankings work": "Cách xếp hạng hoạt động",
+ "DeepScore rates each champion, augment, item or build from 0 to 100. 50 is average.": "DeepScore chấm mỗi tướng, lõi, trang bị hoặc lối lên đồ từ 0 đến 100. 50 là mức trung bình.",
+ "Tiers come from DeepScore: S is {s} and up, A {a} and up, B {b} and up, C {c} and up, D below.": "Bậc dựa theo DeepScore: S từ {s} trở lên, A từ {a}, B từ {b}, C từ {c}, thấp hơn là D.",
+ "It starts from win rate and trusts picks with few games less, so a rare pick needs a bigger edge to rank high.": "Điểm bắt đầu từ tỉ lệ thắng và ít tin hơn vào lựa chọn có ít trận, nên lựa chọn hiếm cần cách biệt lớn hơn để xếp cao.",
+ "Win rate boost is how much more a pick wins than the rate it's compared with, such as the champion's own, in percentage points (pts): +2 pts turns 50% into 52%.": "Mức tăng tỉ lệ thắng là lựa chọn đó thắng nhiều hơn bao nhiêu so với tỉ lệ dùng để so sánh, như tỉ lệ thắng của chính tướng, tính bằng điểm phần trăm (điểm): +2 điểm biến 50% thành 52%.",
+ "Numbers marked estimated are worked out from the stats we have, not counted game by game.": "Các con số được đánh dấu ước tính được tính từ số liệu chúng tôi có, không đếm từng trận.",
+ "Game counts are approximate.": "Số trận là con số gần đúng.",
+ "Win rate boost": "Mức tăng tỉ lệ thắng"
 }

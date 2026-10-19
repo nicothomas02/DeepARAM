@@ -10,12 +10,12 @@ import type { TagInfo } from "@/lib/tag-info";
 
 // The Duos tab: about 7,000 pairs (lib/duos.ts), so they load from /data/duos.json when the tab is first opened, not with the page.
 // Both lists start in DeepScore order (lib/duos.ts: the delta, trusting rarely played pairs less) without
-// showing the score; the Win rate delta column sorts by the raw delta.
+// showing the score; the Win rate boost column sorts by the raw delta.
 // "Archetypes" pools the same pairs by subclass (Enchanter + Enchanter); those few rows ship with the page (?dview=arch).
 
 const DELTA: Column = {
   key: "delta",
-  label: "Win rate delta",
+  label: "Win rate boost",
   format: "pts",
   hint: "How much more the pair wins than the two champions' own win rates predict, in percentage points. Above zero means they help each other.",
 };

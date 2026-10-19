@@ -11,6 +11,7 @@ import { useNames, useT } from "./I18n";
 import { EmptyState } from "@/components/EmptyState";
 import DeepScore from "./DeepScore";
 import ArchetypeTags from "./ArchetypeTags";
+import { openRankings, RANKINGS_ID } from "./HowRankings";
 import type { TagInfo } from "@/lib/tag-info";
 
 export type Column = {
@@ -202,6 +203,9 @@ export default function DataTable({
   const [sort, setSort] = useState(initialSort);
   const [query, setQuery] = useState("");
   const [shown, setShown] = useState(PAGE);
+  // The column hints link to the "How rankings work" panel when the page has one (HowRankings.tsx).
+  const [hasRankings, setHasRankings] = useState(false);
+  useEffect(() => setHasRankings(!!document.getElementById(RANKINGS_ID)), []);
 
   // Read once on load; the columns' keys say which ?sort= values are real.
   const allColumns = useRef([...standardColumns, ...(advancedColumns ?? [])]);
@@ -373,6 +377,11 @@ export default function DataTable({
                 </div>
               ))}
             </dl>
+            {hasRankings && (
+              <a className="rankings-link" href={`#${RANKINGS_ID}`} onClick={openRankings}>
+                {t("How rankings work")} →
+              </a>
+            )}
           </details>
         ) : null;
       })()}

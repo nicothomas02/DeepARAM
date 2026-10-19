@@ -45,7 +45,6 @@
  "Augment": "Augment",
  "Rarity": "Rareté",
  "Augments": "Augments",
- "Win rate vs its champions": "Taux de victoire vs ses champions",
  "Win rank": "Rang victoire",
  "Pick rank": "Rang sélection",
  "Pick rank change": "Évol. rang sélection",
@@ -90,7 +89,6 @@
  "Copy image": "Copier l'image",
  "Save": "Enregistrer",
  "Close": "Fermer",
- "Win rate delta": "Écart de victoires",
  "Games": "Parties",
  "Games played on the live patch.": "Parties jouées sur le patch actuel.",
  "DeepScore rates each item from 0 to 100 against this champion's other items of the same tier, where 50 is average. It starts from the item's win rate with this champion and trusts rarely built items less. Tiers: S 70+, A 59+, B 44+, C 32+, D below.": "Le DeepScore note chaque objet de 0 à 100 par rapport aux autres objets du même niveau de ce champion, 50 étant la moyenne. Il part du taux de victoire de l'objet avec ce champion et fait moins confiance aux objets rarement construits. Rangs : S 70+, A 59+, B 44+, C 32+, D en dessous.",
@@ -112,5 +110,13 @@
  "In builds": "Dans les builds",
  "Cost": "Coût",
  "Estimated win rate of the champions who build it.": "Taux de victoire estimé des champions qui l'achètent.",
- "Estimated share of builds that include it.": "Part estimée des builds qui l'incluent."
+ "Estimated share of builds that include it.": "Part estimée des builds qui l'incluent.",
+ "How rankings work": "Comment marchent les classements",
+ "DeepScore rates each champion, augment, item or build from 0 to 100. 50 is average.": "Le DeepScore note chaque champion, augment, objet ou build de 0 à 100. 50 correspond à la moyenne.",
+ "Tiers come from DeepScore: S is {s} and up, A {a} and up, B {b} and up, C {c} and up, D below.": "Les tiers viennent du DeepScore : S à partir de {s}, A à partir de {a}, B à partir de {b}, C à partir de {c}, D en dessous.",
+ "It starts from win rate and trusts picks with few games less, so a rare pick needs a bigger edge to rank high.": "Il part du taux de victoire et se fie moins aux choix avec peu de parties : un choix rare doit avoir une plus grande avance pour bien se classer.",
+ "Win rate boost is how much more a pick wins than the rate it's compared with, such as the champion's own, in percentage points (pts): +2 pts turns 50% into 52%.": "Le gain de victoires indique combien un choix gagne de plus que le taux auquel on le compare, comme celui du champion lui-même, en points de pourcentage (pts) : +2 pts font passer 50 % à 52 %.",
+ "Numbers marked estimated are worked out from the stats we have, not counted game by game.": "Les chiffres marqués comme estimés sont calculés à partir de nos statistiques, pas comptés partie par partie.",
+ "Game counts are approximate.": "Les nombres de parties sont approximatifs.",
+ "Win rate boost": "Gain de victoires"
 }

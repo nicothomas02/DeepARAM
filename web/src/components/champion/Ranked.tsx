@@ -40,7 +40,7 @@ export function Panel({
 
 export function Head({
   what,
-  cols = ["Win rate", "Pick rate", "Win lift"],
+  cols = ["Win rate", "Pick rate", "Win rate boost"],
 }: {
   what: string;
   cols?: string[];
@@ -103,13 +103,20 @@ export function Cell({
 
 export const tone = (v: number) =>
   v > 0.0005 ? "up" : v < -0.0005 ? "down" : undefined;
-export const signed = (v: number) =>
-  `${v > 0 ? "+" : ""}${(v * 100).toFixed(1)}%`;
+/** A win-rate difference as signed percentage points, "+4.2". */
+export const signedPts = (v: number) =>
+  `${v > 0 ? "+" : ""}${(v * 100).toFixed(1)}`;
+/** A win-rate difference, "+4.2 pts": written one way across the site (HowRankings.tsx explains it). */
+export const signed = (v: number) => (
+  <T ns="tables" v={{ n: signedPts(v) }}>
+    {"{n} pts"}
+  </T>
+);
 
-/** Win rate, pick rate and win lift for one row. */
+/** Win rate, pick rate and win rate boost for one row. */
 export function RatedCells({
   r,
-  lift = "Win lift",
+  lift = "Win rate boost",
   value,
 }: {
   r: Rated;

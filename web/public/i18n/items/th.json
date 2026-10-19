@@ -69,7 +69,6 @@
  "How it does": "ผลงาน",
  "Estimated": "ประมาณการ",
  "win rate": "อัตราชนะ",
- "vs its builders' usual win rate": "เทียบกับอัตราชนะปกติของผู้ที่ซื้อ",
  "of builds": "ของบิลด์",
  "bought 1st · 2nd · 3rd": "ซื้อเป็นชิ้นที่ 1 · 2 · 3",
  "Some augments also grant this item.": "ออคเมนต์บางตัวก็ให้ไอเทมนี้ด้วย",
@@ -89,5 +88,6 @@
  "Rarely bought in ARAM Mayhem, so it has no win rate yet.": "ไม่ค่อยมีคนซื้อใน ARAM Mayhem จึงยังไม่มีอัตราชนะ",
  "Cards": "การ์ด",
  "Table": "ตาราง",
- "View": "มุมมอง"
+ "View": "มุมมอง",
+ "win rate boost": "อัตราชนะที่เพิ่มขึ้น"
 }

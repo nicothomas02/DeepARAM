@@ -45,7 +45,6 @@
  "Augment": "Augment",
  "Rarity": "Vzácnost",
  "Augments": "Augmenty",
- "Win rate vs its champions": "Procento výher vs. jeho šampioni",
  "Win rank": "Pořadí výher",
  "Pick rank": "Pořadí výběru",
  "Pick rank change": "Změna pořadí výběru",
@@ -90,7 +89,6 @@
  "Copy image": "Kopírovat obrázek",
  "Save": "Uložit",
  "Close": "Zavřít",
- "Win rate delta": "Rozdíl míry výher",
  "Games": "Hry",
  "Games played on the live patch.": "Hry odehrané v aktuálním patchi.",
  "DeepScore rates each item from 0 to 100 against this champion's other items of the same tier, where 50 is average. It starts from the item's win rate with this champion and trusts rarely built items less. Tiers: S 70+, A 59+, B 44+, C 32+, D below.": "DeepScore hodnotí každý předmět od 0 do 100 vůči ostatním předmětům tohoto šampiona stejné úrovně, přičemž 50 je průměr. Vychází z míry výher předmětu s tímto šampionem a méně věří předmětům, které se stavějí zřídka. Úrovně: S 70+, A 59+, B 44+, C 32+, D níže.",
@@ -112,5 +110,13 @@
  "In builds": "V buildech",
  "Cost": "Cena",
  "Estimated win rate of the champions who build it.": "Odhadovaná výhernost šampionů, kteří ho staví.",
- "Estimated share of builds that include it.": "Odhadovaný podíl buildů, které ho obsahují."
+ "Estimated share of builds that include it.": "Odhadovaný podíl buildů, které ho obsahují.",
+ "How rankings work": "Jak funguje hodnocení",
+ "DeepScore rates each champion, augment, item or build from 0 to 100. 50 is average.": "DeepScore hodnotí každého šampiona, augment, předmět nebo build od 0 do 100. 50 je průměr.",
+ "Tiers come from DeepScore: S is {s} and up, A {a} and up, B {b} and up, C {c} and up, D below.": "Tiery vycházejí z DeepScore: S od {s}, A od {a}, B od {b}, C od {c}, D níže.",
+ "It starts from win rate and trusts picks with few games less, so a rare pick needs a bigger edge to rank high.": "Vychází z procenta výher a méně věří volbám s malým počtem her, takže vzácná volba potřebuje větší náskok.",
+ "Win rate boost is how much more a pick wins than the rate it's compared with, such as the champion's own, in percentage points (pts): +2 pts turns 50% into 52%.": "Přírůstek výher říká, o kolik víc volba vyhrává než hodnota, se kterou ji srovnáváme, třeba vlastní procento výher šampiona, v procentních bodech (b.): +2 b. udělá z 50 % 52 %.",
+ "Numbers marked estimated are worked out from the stats we have, not counted game by game.": "Čísla označená jako odhad jsou spočtená ze statistik, které máme, ne sečtená hru po hře.",
+ "Game counts are approximate.": "Počty her jsou přibližné.",
+ "Win rate boost": "Přírůstek výher"
 }

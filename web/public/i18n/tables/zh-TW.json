@@ -45,7 +45,6 @@
  "Augment": "強化",
  "Rarity": "稀有度",
  "Augments": "強化",
- "Win rate vs its champions": "相對其英雄的勝率",
  "Win rank": "勝率排名",
  "Pick rank": "選用率排名",
  "Pick rank change": "選用率排名變化",
@@ -90,7 +89,6 @@
  "Copy image": "複製圖片",
  "Save": "儲存",
  "Close": "關閉",
- "Win rate delta": "勝率差",
  "Games": "場次",
  "Games played on the live patch.": "目前版本的對戰場次。",
  "DeepScore rates each item from 0 to 100 against this champion's other items of the same tier, where 50 is average. It starts from the item's win rate with this champion and trusts rarely built items less. Tiers: S 70+, A 59+, B 44+, C 32+, D below.": "DeepScore 將每件裝備與該英雄同等級的其他裝備比較，評分 0 到 100，50 為平均。它以該裝備在此英雄上的勝率為基礎，對很少出的裝備給予較低信任。等級：S 70+，A 59+，B 44+，C 32+，D 以下。",
@@ -112,5 +110,13 @@
  "In builds": "出裝占比",
  "Cost": "價格",
  "Estimated win rate of the champions who build it.": "購買此裝備的英雄的預估勝率。",
- "Estimated share of builds that include it.": "包含此裝備的出裝的預估占比。"
+ "Estimated share of builds that include it.": "包含此裝備的出裝的預估占比。",
+ "How rankings work": "排名是怎麼算的",
+ "DeepScore rates each champion, augment, item or build from 0 to 100. 50 is average.": "DeepScore 為每個英雄、強化、裝備或出裝打 0 到 100 分，50 為平均。",
+ "Tiers come from DeepScore: S is {s} and up, A {a} and up, B {b} and up, C {c} and up, D below.": "階級由 DeepScore 決定：S 為 {s} 以上，A 為 {a} 以上，B 為 {b} 以上，C 為 {c} 以上，更低為 D。",
+ "It starts from win rate and trusts picks with few games less, so a rare pick needs a bigger edge to rank high.": "它以勝率為基礎，對場次少的選擇信任度較低，所以冷門選擇需要更大的優勢才能排在前面。",
+ "Win rate boost is how much more a pick wins than the rate it's compared with, such as the champion's own, in percentage points (pts): +2 pts turns 50% into 52%.": "勝率提升指某個選擇比對照基準（例如英雄自身的勝率）多贏多少，單位為百分點：+2 個百分點即 50% 變為 52%。",
+ "Numbers marked estimated are worked out from the stats we have, not counted game by game.": "標示為估算的數字由我們現有的數據推算，並非逐場統計。",
+ "Game counts are approximate.": "場次為近似值。",
+ "Win rate boost": "勝率提升"
 }

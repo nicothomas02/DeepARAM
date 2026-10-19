@@ -69,7 +69,6 @@
  "How it does": "Performanya",
  "Estimated": "Perkiraan",
  "win rate": "tingkat menang",
- "vs its builders' usual win rate": "dibanding tingkat menang biasa pembelinya",
  "of builds": "dari build",
  "bought 1st · 2nd · 3rd": "dibeli ke-1 · ke-2 · ke-3",
  "Some augments also grant this item.": "Beberapa augment juga memberi item ini.",
@@ -89,5 +88,6 @@
  "Rarely bought in ARAM Mayhem, so it has no win rate yet.": "Jarang dibeli di ARAM Mayhem, jadi belum ada win rate.",
  "Cards": "Kartu",
  "Table": "Tabel",
- "View": "Tampilan"
+ "View": "Tampilan",
+ "win rate boost": "tambahan win rate"
 }

@@ -10,6 +10,7 @@ import { itemTag } from "@/lib/item-tags";
 import { pageMeta } from "@/lib/meta";
 import { Name, T } from "@/components/I18n";
 import { patchName } from "@/lib/patch-name";
+import { signedPts } from "@/components/champion/Ranked";
 
 // One page per item Mayhem players build (lib/item-pages.ts).
 
@@ -117,9 +118,9 @@ export default async function ItemPage({ params }: { params: Promise<{ slug: str
               </span>
             </div>
             <div>
-              <b className={est.lift >= 0.005 ? "delta-up" : est.lift <= -0.005 ? "delta-down" : ""}>{signed(est.lift * 100, " pts")}</b>
+              <b className={est.lift >= 0.005 ? "delta-up" : est.lift <= -0.005 ? "delta-down" : ""}><T ns="tables" v={{ n: signedPts(est.lift) }}>{"{n} pts"}</T></b>
               <span>
-                <T ns="items">{"vs its builders' usual win rate"}</T>
+                <T ns="items">win rate boost</T>
               </span>
             </div>
             <div>

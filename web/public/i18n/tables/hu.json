@@ -45,7 +45,6 @@
  "Augment": "Bővítés",
  "Rarity": "Ritkaság",
  "Augments": "Bővítések",
- "Win rate vs its champions": "Győzelmi arány a hőseihez képest",
  "Win rank": "Győzelmi helyezés",
  "Pick rank": "Választási helyezés",
  "Pick rank change": "Választási helyezés változása",
@@ -90,7 +89,6 @@
  "Copy image": "Kép másolása",
  "Save": "Mentés",
  "Close": "Bezárás",
- "Win rate delta": "Győzelmi arány eltérés",
  "Games": "Meccsek",
  "Games played on the live patch.": "Az aktuális patchen játszott meccsek.",
  "DeepScore rates each item from 0 to 100 against this champion's other items of the same tier, where 50 is average. It starts from the item's win rate with this champion and trusts rarely built items less. Tiers: S 70+, A 59+, B 44+, C 32+, D below.": "A DeepScore 0-tól 100-ig értékel minden tárgyat a hős többi azonos szintű tárgyához képest, ahol az 50 az átlag. A tárgy ezzel a hőssel elért győzelmi arányából indul ki, és kevésbé bízik a ritkán épített tárgyakban. Szintek: S 70+, A 59+, B 44+, C 32+, D alatta.",
@@ -112,5 +110,13 @@
  "In builds": "Buildekben",
  "Cost": "Ár",
  "Estimated win rate of the champions who build it.": "Az azt építő hősök becsült győzelmi aránya.",
- "Estimated share of builds that include it.": "Az azt tartalmazó buildek becsült aránya."
+ "Estimated share of builds that include it.": "Az azt tartalmazó buildek becsült aránya.",
+ "How rankings work": "Így működik a rangsor",
+ "DeepScore rates each champion, augment, item or build from 0 to 100. 50 is average.": "A DeepScore 0 és 100 között értékel minden bajnokot, kiegészítést, tárgyat és buildet. Az 50 az átlag.",
+ "Tiers come from DeepScore: S is {s} and up, A {a} and up, B {b} and up, C {c} and up, D below.": "A szintek a DeepScore-ból jönnek: S {s}-tól, A {a}-tól, B {b}-tól, C {c}-tól, alatta D.",
+ "It starts from win rate and trusts picks with few games less, so a rare pick needs a bigger edge to rank high.": "A győzelmi arányból indul, és kevésbé bízik a kevés meccsel rendelkező választásokban, így egy ritka választásnak nagyobb előny kell.",
+ "Win rate boost is how much more a pick wins than the rate it's compared with, such as the champion's own, in percentage points (pts): +2 pts turns 50% into 52%.": "A győzelmi többlet azt mutatja, mennyivel nyer többet egy választás annál az aránynál, amihez viszonyítjuk, például a bajnok saját arányánál, százalékpontban (pont): +2 pont 50%-ból 52%-ot csinál.",
+ "Numbers marked estimated are worked out from the stats we have, not counted game by game.": "A becsültként jelölt számokat a meglévő statisztikáinkból számoljuk, nem meccsenként számoljuk össze.",
+ "Game counts are approximate.": "A meccsszámok hozzávetőlegesek.",
+ "Win rate boost": "Győzelmi többlet"
 }

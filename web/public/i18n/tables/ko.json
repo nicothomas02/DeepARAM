@@ -45,7 +45,6 @@
  "Augment": "증강",
  "Rarity": "등급",
  "Augments": "증강",
- "Win rate vs its champions": "챔피언 대비 승률",
  "Win rank": "승률 순위",
  "Pick rank": "선택 순위",
  "Pick rank change": "선택 순위 변화",
@@ -90,7 +89,6 @@
  "Copy image": "이미지 복사",
  "Save": "저장",
  "Close": "닫기",
- "Win rate delta": "승률 차이",
  "Games": "게임 수",
  "Games played on the live patch.": "현재 패치에서 진행된 게임 수.",
  "DeepScore rates each item from 0 to 100 against this champion's other items of the same tier, where 50 is average. It starts from the item's win rate with this champion and trusts rarely built items less. Tiers: S 70+, A 59+, B 44+, C 32+, D below.": "DeepScore는 이 챔피언의 같은 등급 다른 아이템과 비교해 각 아이템을 0~100점으로 평가하며, 50점이 평균입니다. 이 챔피언으로 아이템을 갔을 때의 승률에서 출발하고, 드물게 가는 아이템은 덜 신뢰합니다. 티어: S 70+, A 59+, B 44+, C 32+, D 그 미만.",
@@ -112,5 +110,13 @@
  "In builds": "빌드 비율",
  "Cost": "가격",
  "Estimated win rate of the champions who build it.": "이 아이템을 산 챔피언의 예상 승률입니다.",
- "Estimated share of builds that include it.": "이 아이템이 들어간 빌드의 예상 비율입니다."
+ "Estimated share of builds that include it.": "이 아이템이 들어간 빌드의 예상 비율입니다.",
+ "How rankings work": "랭킹 산정 방식",
+ "DeepScore rates each champion, augment, item or build from 0 to 100. 50 is average.": "DeepScore는 각 챔피언, 증강, 아이템, 빌드를 0~100으로 평가합니다. 50이 평균입니다.",
+ "Tiers come from DeepScore: S is {s} and up, A {a} and up, B {b} and up, C {c} and up, D below.": "티어는 DeepScore로 정해집니다: S는 {s} 이상, A는 {a} 이상, B는 {b} 이상, C는 {c} 이상, 그 아래는 D.",
+ "It starts from win rate and trusts picks with few games less, so a rare pick needs a bigger edge to rank high.": "승률에서 출발하되 판수가 적은 선택은 덜 신뢰하므로, 드문 선택이 상위에 오르려면 더 큰 차이가 필요합니다.",
+ "Win rate boost is how much more a pick wins than the rate it's compared with, such as the champion's own, in percentage points (pts): +2 pts turns 50% into 52%.": "승률 상승은 비교 대상 승률(예: 챔피언 자신의 승률)보다 얼마나 더 이기는지를 퍼센트포인트(%p)로 나타냅니다. +2%p면 50%가 52%가 됩니다.",
+ "Numbers marked estimated are worked out from the stats we have, not counted game by game.": "추정으로 표시된 수치는 보유한 통계로 계산한 값이며, 한 판씩 센 값이 아닙니다.",
+ "Game counts are approximate.": "판수는 대략적인 값입니다.",
+ "Win rate boost": "승률 상승"
 }
