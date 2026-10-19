@@ -22,18 +22,18 @@ const SCORE: Column = { key: "deepScore", label: "DeepScore", format: "deepscore
 const PICK: Column = { key: "pick_rate", label: "Pick rate", format: "pct", hint: "How often the first champion has the second as a teammate." };
 const PAIRS: Column = { key: "duos", label: "Duos", format: "int", hint: "How many champion pairs the average covers. Fewer pairs make it less certain." };
 
-export default function DuosTable({ archetypes, tagInfo }: { archetypes: Row[]; tagInfo: TagInfo }) {
+export default function DuosTable({ archetypes, tagInfo, version }: { archetypes: Row[]; tagInfo: TagInfo; version: string }) {
   const [rows, setRows] = useState<Row[] | null>(null);
   const [failed, setFailed] = useState(false);
   const [arch, setArch] = useState(false);
   const t = useT("tier-list");
   useEffect(() => setArch(getParam("dview") === "arch"), []);
   useEffect(() => {
-    fetch("/data/duos.json")
+    fetch(`/data/duos.json?v=${version}`)
       .then((r) => (r.ok ? r.json() : Promise.reject(r.status)))
       .then(setRows)
       .catch(() => setFailed(true));
-  }, []);
+  }, [version]);
   const view = (
     <div className="duos-bar">
       <div className="seg" role="group" aria-label={t("Duos")}>

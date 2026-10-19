@@ -13,10 +13,13 @@ import { championTagData, championTags } from "./champion-tags";
 // (lib/synergy.ts); the pair's raw win rate isn't shown, it mostly echoes the two champions' own. pick_rate: how often the first champion has the second as a teammate.
 // The champion with the bigger share of its team's damage is listed first.
 //
-// deepScore: the synergy graded like the tier lists (lib/deepscore.ts). A pair's games are its pick rate
-// times the first champion's, scaled so a pair of median popularity counts 1,000 pseudo-games; the delta
-// is pulled toward zero by a prior worth a quarter of that, so a big delta from a rarely played pair can't
-// outrank a slightly smaller one from a common pair.
+// deepScore: the champion DeepScore (lib/tiers.ts) applied to a pair. Where a champion is graded on its win
+// rate, a pair is graded on the win rate it adds over its two champions (0.5 + delta), so two strong
+// champions don't score well just for being strong. Same steps: a pair's games are its pick rate times the
+// first champion's, scaled so a pair of median popularity counts 1,000 pseudo-games; the rate is pulled
+// toward the games-weighted average of all pairs by a prior worth a quarter of that and the low end of its
+// likely range kept, so a big delta from a rarely played pair can't outrank a slightly smaller one from a
+// common pair; then scores are spread against the rest of the list.
 //
 // archetypeRows: the same pairs pooled by Riot subclass (Enchanter + Enchanter, Marksman + Enchanter),
 // each pair weighted by its games; a champion with two subclasses splits its weight between them.
@@ -36,11 +39,22 @@ export type ArchetypeRow = { a: string; b: string; delta: number; deepScore: num
 const MEDIAN_GAMES = 1000; // pseudo-games for a pair of median popularity, as on the Tier List
 const PRIOR = 0.25;
 
-// Graded on the pair's win rate measured from even (0.5 + delta), with an even prior.
-const score = (delta: number, games: number) => lowerBound(0.5 + delta, games, 0.5, PRIOR * MEDIAN_GAMES);
+// Each pair's DeepScore, from its delta and pseudo-games, against the list's games-weighted average delta.
+function deepScores(deltas: number[], games: number[]) {
+  const total = games.reduce((a, b) => a + b, 0) || 1;
+  const mean = 0.5 + deltas.reduce((a, d, i) => a + d * games[i], 0) / total;
+  return grade(deltas.map((d, i) => lowerBound(0.5 + d, games[i], mean, PRIOR * MEDIAN_GAMES))).map((g) => g.deepScore);
+}
 
 let cache: { rows: DuoRow[]; games: number[] } | null = null;
 export const duoRows = (): DuoRow[] => build().rows;
+
+/** Changes whenever the Duos data does, so browsers never pair a new page with an old cached copy. */
+export function duoVersion() {
+  let h = 0;
+  for (const ch of JSON.stringify(duoRows())) h = (Math.imul(h, 31) + ch.charCodeAt(0)) | 0;
+  return (h >>> 0).toString(36);
+}
 
 function build() {
   if (cache) return cache;
@@ -80,8 +94,11 @@ function build() {
   }
   const median = [...weight].sort((m, n) => m - n)[Math.floor(weight.length / 2)] || 1;
   const games = weight.map((w) => (w / median) * MEDIAN_GAMES);
-  const grades = grade(out.map((r, i) => score(r.delta, games[i])));
-  cache = { rows: out.map((r, i) => ({ ...r, deepScore: grades[i].deepScore })), games };
+  const scores = deepScores(
+    out.map((r) => r.delta),
+    games,
+  );
+  cache = { rows: out.map((r, i) => ({ ...r, deepScore: scores[i] })), games };
   return cache;
 }
 
@@ -115,7 +132,11 @@ export function archetypeRows(): ArchetypeRow[] {
       }
   });
   const pooled = [...sums.values()].filter((s) => s.duos >= MIN_DUOS);
-  const grades = grade(pooled.map((s) => score(s.d / (s.w || 1), s.w)));
-  archCache = pooled.map((s, i) => ({ a: s.a, b: s.b, delta: s.d / (s.w || 1), deepScore: grades[i].deepScore, duos: s.duos }));
+  const deltas = pooled.map((s) => s.d / (s.w || 1));
+  const scores = deepScores(
+    deltas,
+    pooled.map((s) => s.w),
+  );
+  archCache = pooled.map((s, i) => ({ a: s.a, b: s.b, delta: deltas[i], deepScore: scores[i], duos: s.duos }));
   return archCache;
 }

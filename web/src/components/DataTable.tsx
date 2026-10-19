@@ -47,7 +47,8 @@ function searchText(v: Row[string], local: (id: string, en: string) => string) {
 const PAGE = 50;
 
 function show(v: Row[string], format: Column["format"]) {
-  if (v === null || v === "") return "–";
+  // undefined: a column the row doesn't carry (an older cached copy of a table's data).
+  if (v == null || v === "") return "–";
   const n = Number(v);
   switch (format) {
     case "pct":
