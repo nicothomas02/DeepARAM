@@ -84,5 +84,7 @@
  "Mage": "Mago",
  "Tank": "Tanque",
  "Class": "Classe",
- "Support": "Suporte"
+ "Support": "Suporte",
+ "Rarely bought": "Raramente comprado",
+ "Rarely bought in ARAM Mayhem, so it has no win rate yet.": "Raramente comprado no ARAM Mayhem, então ainda não tem taxa de vitória."
 }

@@ -162,6 +162,7 @@ export default function ItemIndex({ items }: { items: Item[] }) {
                           </small>
                         )}
                         {sort === "deepscore" && i.deepScore !== null && <DeepScore value={i.deepScore} help={ITEM_TIER_DEEPSCORE_HELP} static />}
+                        {i.popularity === 0 && i.tier !== "reward" && <small className="item-card-est">{t("Rarely bought")}</small>}
                         {i.winRate !== null && i.buildShare !== null && (
                           <small className="item-card-est" title={t("Estimated")}>
                             {t("{wr} win · in {share} of builds", { wr: pct(i.winRate), share: pct(i.buildShare) })}

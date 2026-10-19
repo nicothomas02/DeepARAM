@@ -179,6 +179,11 @@ export default async function ItemPage({ params }: { params: Promise<{ slug: str
           </div>
         </section>
       )}
+      {i.builders.length === 0 && i.tier !== "reward" && (
+        <p className="table-note">
+          <T ns="items">Rarely bought in ARAM Mayhem, so it has no win rate yet.</T>
+        </p>
+      )}
       {sim && (
         <section className="card item-sim" data-accent="sim">
           <div className="card-head">

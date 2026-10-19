@@ -46,10 +46,14 @@ export type ItemTier = "legendary" | "boots" | "epic" | "basic" | "starter" | "c
 export const ITEM_TIERS: ItemTier[] = ["legendary", "boots", "starter", "epic", "basic", "consumable", "reward"];
 
 // The game's own grouping of each item (scripts/fetch_item_groups.py): e = epicness (the shop's rarity),
-// g = named item groups, c = the shop's class filters.
-type Groups = { e?: number; g?: string[]; c?: string[] };
+// g = named item groups, c = the shop's class filters, m = sold in ARAM Mayhem's shop.
+type Groups = { e?: number; g?: string[]; c?: string[]; m?: 1 };
 const GROUPS = itemGroups as Record<string, Groups>;
 const EPICNESS: Record<number, ItemTier> = { 1: "starter", 4: "epic", 5: "legendary", 7: "consumable", 0: "consumable" };
+
+/** Whether ARAM Mayhem's shop sells the item (Doran's items, for one, aren't sold there). Items the
+ *  game data doesn't cover count as sold; the "Stat Bonus" placeholder (epicness 8) doesn't. */
+export const inMayhem = (id: number): boolean => !GROUPS[id] || (GROUPS[id].m === 1 && GROUPS[id].e !== 8);
 
 /** The in-game shop's class filters for an item (fighter, marksman, assassin, mage, tank, support). */
 export const itemClasses = (id: number): string[] => GROUPS[id]?.c ?? [];

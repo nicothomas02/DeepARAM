@@ -4,7 +4,7 @@ import { augmentSlug } from "./augments";
 import { champName } from "./highlights";
 import { liveWithChange } from "./champions";
 import { grade, lowerBound } from "./deepscore";
-import { ITEM_TIERS, itemClasses, itemTier, items, rewardItems, type ItemTier } from "./items";
+import { ITEM_TIERS, inMayhem, itemClasses, itemTier, items, rewardItems, type ItemTier } from "./items";
 import { tagsFor } from "./item-tags";
 import { ddVersion } from "./dd-swap";
 import { readRepoJson } from "./repo-data";
@@ -85,15 +85,14 @@ type DdItem = {
   requiredChampion?: string;
 };
 
-/** Every item the Howling Abyss shop sells: standard ids only (other modes' copies are 100000 and up),
- *  priced, shown in the shop's item sets and not tied to one champion. */
-function shopItems(info: Map<number, { inStore?: boolean; displayInItemSets?: boolean }>): number[] {
+/** Every item ARAM Mayhem's shop sells (lib/items.ts inMayhem): priced, purchasable and not tied to one
+ *  champion. */
+function shopItems(info: Map<number, { inStore?: boolean }>): number[] {
   const dd = readRepoJson<{ data: Record<string, DdItem> }>(`web/public/assets/dd/${ddVersion}/data/en_US/item.json`)?.data ?? {};
   return Object.entries(dd).flatMap(([k, v]) => {
     const id = Number(k);
-    const c = info.get(id);
-    const sold = v.maps?.["12"] && v.gold?.purchasable && v.gold.total > 0 && !v.requiredChampion;
-    return sold && id < 100000 && c?.inStore !== false && c?.displayInItemSets ? [id] : [];
+    const sold = v.maps?.["12"] && v.gold?.purchasable && v.gold.total > 0 && !v.requiredChampion && info.get(id)?.inStore !== false;
+    return sold && inMayhem(id) ? [id] : [];
   });
 }
 
@@ -107,19 +106,37 @@ export function itemPages(): ItemPage[] {
     "web/public/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/items.json",
   );
   const info = new Map((raw ?? []).map((i) => [i.id, i]));
-  // Single-item entries are how often a champion builds that item at all.
+  // How often each champion buys each item. Within the starting, boots and other lists, the entries an
+  // item appears in are summed (single items and combinations alike), with their win rates weighted by
+  // pick rate; the list where it's most common counts. Combinations matter for items rarely bought on
+  // their own (Gluttonous Greaves, most components).
   const builders = new Map<number, ItemPage["builders"]>();
   for (const [alias, cid] of Object.entries(IDS)) {
     const b = readRepoJson<Builds>(`data/cn/builds/${cid}.json`)?.items ?? {};
-    for (const e of [...(b.other ?? []), ...(b.boots ?? []), ...(b.starting ?? [])]) {
-      if (e.items.length !== 1) continue;
-      const id = e.items[0];
-      if (rewardItems().has(id)) continue;
-      builders.set(id, [...(builders.get(id) ?? []), { id: alias, name: champName(alias), pickRate: e.pick_rate, winRate: e.win_rate ?? null }]);
+    const best = new Map<number, { pick: number; wins: number; rated: number }>();
+    for (const list of [b.other ?? [], b.boots ?? [], b.starting ?? []]) {
+      const sums = new Map<number, { pick: number; wins: number; rated: number }>();
+      for (const e of list) {
+        for (const id of new Set(e.items)) {
+          if (rewardItems().has(id) || !inMayhem(id)) continue;
+          const m = sums.get(id) ?? { pick: 0, wins: 0, rated: 0 };
+          m.pick += e.pick_rate;
+          if (e.win_rate !== undefined) {
+            m.wins += e.win_rate * e.pick_rate;
+            m.rated += e.pick_rate;
+          }
+          sums.set(id, m);
+        }
+      }
+      for (const [id, m] of sums) if (m.pick > (best.get(id)?.pick ?? 0)) best.set(id, m);
+    }
+    for (const [id, m] of best) {
+      const row = { id: alias, name: champName(alias), pickRate: Math.min(1, m.pick), winRate: m.rated ? m.wins / m.rated : null };
+      builders.set(id, [...(builders.get(id) ?? []), row]);
     }
   }
   const slugs = new Set<string>();
-  const ids = new Set([...builders.keys(), ...shopItems(info), ...rewardItems()]);
+  const ids = new Set([...builders.keys(), ...shopItems(info), ...rewardItems()].filter((id) => inMayhem(id) || rewardItems().has(id)));
   cache = [...ids]
     .map((id) => all.get(id))
     .filter((i): i is NonNullable<typeof i> => Boolean(i))

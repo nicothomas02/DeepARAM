@@ -84,5 +84,7 @@
  "Mage": "ساحر",
  "Tank": "مدرّع",
  "Class": "الفئة",
- "Support": "داعم"
+ "Support": "داعم",
+ "Rarely bought": "نادرًا ما يُشترى",
+ "Rarely bought in ARAM Mayhem, so it has no win rate yet.": "نادرًا ما يُشترى في ARAM Mayhem، لذا لا توجد له نسبة فوز بعد."
 }

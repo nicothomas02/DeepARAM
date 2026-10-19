@@ -84,5 +84,7 @@
  "Mage": "เมจ",
  "Tank": "แทงค์",
  "Class": "คลาส",
- "Support": "ซัพพอร์ต"
+ "Support": "ซัพพอร์ต",
+ "Rarely bought": "ไม่ค่อยมีคนซื้อ",
+ "Rarely bought in ARAM Mayhem, so it has no win rate yet.": "ไม่ค่อยมีคนซื้อใน ARAM Mayhem จึงยังไม่มีอัตราชนะ"
 }

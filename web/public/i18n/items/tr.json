@@ -84,5 +84,7 @@
  "Mage": "Büyücü",
  "Tank": "Tank",
  "Class": "Sınıf",
- "Support": "Destek"
+ "Support": "Destek",
+ "Rarely bought": "Nadiren alınır",
+ "Rarely bought in ARAM Mayhem, so it has no win rate yet.": "ARAM Mayhem'de nadiren alındığı için henüz kazanma oranı yok."
 }
