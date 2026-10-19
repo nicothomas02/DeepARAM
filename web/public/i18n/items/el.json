@@ -84,5 +84,7 @@
  "Mage": "Μάγος",
  "Tank": "Τανκ",
  "Class": "Κατηγορία",
- "Support": "Υποστηρικτής"
+ "Support": "Υποστηρικτής",
+ "Rarely bought": "Αγοράζεται σπάνια",
+ "Rarely bought in ARAM Mayhem, so it has no win rate yet.": "Αγοράζεται σπάνια στο ARAM Mayhem, οπότε δεν έχει ακόμα ποσοστό νικών."
 }

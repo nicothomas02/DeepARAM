@@ -84,5 +84,7 @@
  "Mage": "法師",
  "Tank": "坦克",
  "Class": "職業",
- "Support": "輔助"
+ "Support": "輔助",
+ "Rarely bought": "很少購買",
+ "Rarely bought in ARAM Mayhem, so it has no win rate yet.": "在 ARAM Mayhem 中很少購買，因此暫無勝率。"
 }

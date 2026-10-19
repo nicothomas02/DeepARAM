@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { itemClasses, itemTier } from "@/lib/items";
+import { inMayhem, itemClasses, itemTier } from "@/lib/items";
 import { itemPages } from "@/lib/item-pages";
 
 describe("item groups", () => {
@@ -21,5 +21,18 @@ describe("item groups", () => {
     const ie = itemPages().find((i) => i.id === 3031);
     expect(ie?.tags).toContain("marksman");
     expect(ie?.tags).toContain("crit");
+  });
+
+  it("lists only what ARAM Mayhem's shop sells", () => {
+    expect(inMayhem(1055)).toBe(false); // Doran's Blade
+    expect(inMayhem(6032)).toBe(false); // Stat Bonus placeholder
+    const ids = new Set(itemPages().map((i) => i.id));
+    expect(ids.has(1055)).toBe(false);
+    expect(ids.has(3008)).toBe(true);
+  });
+
+  it("counts items bought in combinations, so rarely-single items still have data", () => {
+    const gg = itemPages().find((i) => i.id === 3008); // Gluttonous Greaves
+    expect(gg?.builders.length).toBeGreaterThan(0);
   });
 });
