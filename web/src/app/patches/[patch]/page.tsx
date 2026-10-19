@@ -5,23 +5,24 @@ import { notFound } from "next/navigation";
 import { pageMeta } from "@/lib/meta";
 import { recap, recapPatches, type AugRef } from "@/lib/patches";
 import { LocalDate, Name, T } from "@/components/I18n";
+import { patchName, patchVersion } from "@/lib/patch-name";
 
 // One recap per patch: augment changes and the champions that rose and fell most (lib/patches.ts).
 
 export const dynamicParams = false;
-export const generateStaticParams = () => recapPatches().map((patch) => ({ patch }));
+export const generateStaticParams = () => recapPatches().map((patch) => ({ patch: patchName(patch) }));
 
 const pct = (v: number) => `${(v * 100).toFixed(1)}%`;
 const pts = (v: number) => (Math.abs(v) * 100).toFixed(1);
 
 export async function generateMetadata({ params }: { params: Promise<{ patch: string }> }): Promise<Metadata> {
-  const r = recap((await params).patch);
+  const r = recap(patchVersion((await params).patch));
   if (!r) return {};
   const top = r.up[0] ? ` ${r.up[0].name} rose the most.` : "";
   return pageMeta(
-    `/patches/${r.patch}`,
-    `ARAM Mayhem Patch ${r.patch} Recap`,
-    `What changed in ARAM Mayhem on patch ${r.patch}: ${r.added.length} augments added, ${r.removed.length} removed, ${r.changed.length} changed.${top}`,
+    `/patches/${patchName(r.patch)}`,
+    `ARAM Mayhem Patch ${patchName(r.patch)} Recap`,
+    `What changed in ARAM Mayhem on patch ${patchName(r.patch)}: ${r.added.length} augments added, ${r.removed.length} removed, ${r.changed.length} changed.${top}`,
   );
 }
 
@@ -56,7 +57,7 @@ function Aug({ a }: { a: AugRef }) {
 }
 
 export default async function PatchPage({ params }: { params: Promise<{ patch: string }> }) {
-  const r = recap((await params).patch);
+  const r = recap(patchVersion((await params).patch));
   if (!r) notFound();
   const all = recapPatches();
   const i = all.indexOf(r.patch);
@@ -68,7 +69,7 @@ export default async function PatchPage({ params }: { params: Promise<{ patch: s
       <Breadcrumbs
         trail={[
           ["Patch Recaps", "/patches"],
-          [`Patch ${r.patch}`, `/patches/${r.patch}`],
+          [`Patch ${patchName(r.patch)}`, `/patches/${patchName(r.patch)}`],
         ]}
       />
       <section className="champ-hero">
@@ -92,7 +93,7 @@ export default async function PatchPage({ params }: { params: Promise<{ patch: s
           )}
         </p>
         <h1>
-          <T ns="patches" v={{ patch: r.patch }}>
+          <T ns="patches" v={{ patch: patchName(r.patch) }}>
             {"Patch {patch}"}
           </T>{" "}
           <span className="champ-hero-sub">
@@ -134,7 +135,7 @@ export default async function PatchPage({ params }: { params: Promise<{ patch: s
                 <T ns="patches">Rose the most</T>
               </h2>
               <span className="card-note">
-                <T ns="patches" v={{ patch: r.prev ?? "" }}>
+                <T ns="patches" v={{ patch: patchName(r.prev) }}>
                   {"win rate vs {patch}"}
                 </T>
               </span>
@@ -163,7 +164,7 @@ export default async function PatchPage({ params }: { params: Promise<{ patch: s
                 <T ns="patches">Fell the most</T>
               </h2>
               <span className="card-note">
-                <T ns="patches" v={{ patch: r.prev ?? "" }}>
+                <T ns="patches" v={{ patch: patchName(r.prev) }}>
                   {"win rate vs {patch}"}
                 </T>
               </span>
@@ -248,24 +249,24 @@ export default async function PatchPage({ params }: { params: Promise<{ patch: s
           ""
         )}
         {r.prev ? (
-          <T ns="patches" v={{ patch: r.prev }}>
+          <T ns="patches" v={{ patch: patchName(r.prev) }}>
             {"Win-rate changes compare each champion with patch {patch}."}
           </T>
         ) : (
           <T ns="patches">Win-rate changes compare each champion with the patch before.</T>
         )}{" "}
         {older && (
-          <Link className="inline-link" href={`/patches/${older}`}>
+          <Link className="inline-link" href={`/patches/${patchName(older)}`}>
             ←{" "}
-            <T ns="patches" v={{ patch: older }}>
+            <T ns="patches" v={{ patch: patchName(older) }}>
               {"Patch {patch}"}
             </T>
           </Link>
         )}
         {older && newer && " · "}
         {newer && (
-          <Link className="inline-link" href={`/patches/${newer}`}>
-            <T ns="patches" v={{ patch: newer }}>
+          <Link className="inline-link" href={`/patches/${patchName(newer)}`}>
+            <T ns="patches" v={{ patch: patchName(newer) }}>
               {"Patch {patch}"}
             </T>{" "}
             →

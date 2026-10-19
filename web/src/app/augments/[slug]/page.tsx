@@ -12,6 +12,7 @@ import { itemPages } from "@/lib/item-pages";
 import ShareButton from "@/components/ShareButton";
 import ShareCard from "@/components/ShareCard";
 import { Name, T } from "@/components/I18n";
+import { patchName } from "@/lib/patch-name";
 
 // One page per augment, so each can be found in search (lib/augments.ts).
 
@@ -39,14 +40,14 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return pageMeta(
     `/augments/${a.slug}`,
     `${a.name} ARAM Mayhem Augment`,
-    `${a.name} is a ${RARITY[a.tier] ?? a.tier} ARAM Mayhem augment with a ${pct(a.winRate)} win rate on patch ${livePatch()}.${best}`,
+    `${a.name} is a ${RARITY[a.tier] ?? a.tier} ARAM Mayhem augment with a ${pct(a.winRate)} win rate on patch ${patchName(livePatch())}.${best}`,
   );
 }
 
 export default async function AugmentPage({ params }: { params: Promise<{ slug: string }> }) {
   const a = augmentBySlug((await params).slug);
   if (!a) notFound();
-  const patch = livePatch();
+  const patch = livePatch() && patchName(livePatch());
   const offer = odds(a.tier);
   const stages = augmentStages(a.id);
   const rarity = rarityOdds(a.tier);

@@ -26,10 +26,11 @@ import SubTabs from "@/components/SubTabs";
 import { readRepoCsv, readRepoJson } from "@/lib/repo-data";
 import { allChampionTags, championTagData } from "@/lib/champion-tags";
 import { fillGames } from "@/lib/fill";
+import { patchName } from "@/lib/patch-name";
 
 export const metadata: Metadata = pageMeta(
   "/tier-list",
-  `ARAM Mayhem Tier List${livePatch() ? `, Patch ${livePatch()}` : ""}`,
+  `ARAM Mayhem Tier List${livePatch() ? `, Patch ${patchName(livePatch())}` : ""}`,
   "ARAM Mayhem champion tier list for the current patch, with augment win rates and duo synergy.",
 );
 
@@ -111,7 +112,7 @@ export default function TierListPage() {
             styles={STYLES}
             note={
               <p className="patch-note">
-                <T ns="tier-list" v={{ patch: latest.patch }}>
+                <T ns="tier-list" v={{ patch: patchName(latest.patch) }}>
                   {
                     "Live patch {patch}. Each augment gets a DeepScore against the others of its rarity: 50 is average, S is 70 and up, A 59, B 44, C 32 and D below. Switch to Table for every number."
                   }
@@ -214,13 +215,13 @@ export default function TierListPage() {
     <AdvancedProvider>
       <Intro
         eyebrow={
-          <T ns="tier-list" v={{ patch: latest.patch }}>
+          <T ns="tier-list" v={{ patch: patchName(latest.patch) }}>
             {"Tier List · Patch {patch}"}
           </T>
         }
         title={<T ns="tier-list">{text("page./tier-list.title", "Every Mayhem champion and augment, ranked.")}</T>}
       >
-        <T ns="tier-list" v={{ patch: latest.patch }}>
+        <T ns="tier-list" v={{ patch: patchName(latest.patch) }}>
           {"Live patch {patch} by default. Pick any patches, or all time, above the champion table. Advanced stats at the bottom show every stat we have."}
         </T>
       </Intro>
