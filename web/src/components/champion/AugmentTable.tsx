@@ -6,6 +6,7 @@ import { useState } from "react";
 import { Name, useT } from "@/components/I18n";
 import DeepScore from "@/components/DeepScore";
 import { signed, tone } from "@/components/champion/Ranked";
+import { SIMPLE_LIMIT } from "@/components/champion/ShowMore";
 import type { AugmentRow } from "@/lib/champion-page";
 import { AUGMENT_DEEPSCORE_HELP } from "@/lib/deepscore";
 
@@ -89,7 +90,13 @@ export default function AugmentTable({
         {est && head("winRate", "Est. win rate")}
         {head("pickRate", "Pick rate")}
       </div>
-      <div className="cp-rows">
+      <div
+        className={
+          !open && shown.length > SIMPLE_LIMIT
+            ? "cp-rows cp-cut-simple"
+            : "cp-rows"
+        }
+      >
         {(open ? shown : shown.slice(0, LIMIT)).map((a, i) => {
           const body = (
             <>
@@ -155,10 +162,13 @@ export default function AugmentTable({
           );
         })}
       </div>
-      {shown.length > LIMIT && (
+      {shown.length > SIMPLE_LIMIT && (
         <button
           type="button"
-          className="cp-more"
+          // Simple view cuts the table at 5 rows, Detailed view at 10.
+          className={
+            shown.length > LIMIT ? "cp-more" : "cp-more cp-more-simple"
+          }
           aria-expanded={open}
           onClick={() => setOpen(!open)}
         >

@@ -37,6 +37,7 @@ import {
 import ShowMore from "@/components/champion/ShowMore";
 import AugmentTable from "@/components/champion/AugmentTable";
 import SectionRail from "@/components/champion/SectionRail";
+import Fold from "@/components/champion/Fold";
 import { BaseStatsTable, MayhemChanges } from "@/components/champion/Details";
 import {
   fillEstimated,
@@ -266,6 +267,17 @@ export default async function ChampionPage({
   const bestCore = p.core[0]; // the lists rank by DeepScore, which already trusts rare builds less
   // Augments rank by their DeepScore, the same rating the Tier List uses.
   const scores = new Map(augmentTiers().map((a) => [a.id, a.deepScore]));
+  const augRows = p.augments
+    .map((a) => ({
+      ...a,
+      ...est?.augments.get(a.id),
+      deepScore: scores.get(a.id),
+      href: augmentHref(a.id) ?? undefined,
+    }))
+    .sort(
+      (x, y) =>
+        (y.deepScore ?? -1) - (x.deepScore ?? -1) || y.pickRate - x.pickRate,
+    );
   const bestStart = p.starting[0];
   const bestSkill = bestRow(p.skills, 0.1);
   const spells = fillSpells(c.alias, c.winRate ?? 0.5);
@@ -425,6 +437,26 @@ export default async function ChampionPage({
 
       <div className="cp">
         <aside className="cp-side" aria-label="Best picks">
+          {augRows.length > 0 && (
+            <div className="cp-best">
+              <h4>
+                <T>Best augments</T>
+              </h4>
+              <div className="cp-icons">
+                {augRows.slice(0, 5).map((a) => (
+                  <Link key={a.id} href={a.href ?? "#augments"} title={a.name}>
+                    <img
+                      className="cp-icon round"
+                      src={`/icons/augments/${a.id}.webp`}
+                      alt={a.name}
+                      width={36}
+                      height={36}
+                    />
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )}
           {bestStart && (
             <div className="cp-best">
               <h4>
@@ -507,20 +539,7 @@ export default async function ChampionPage({
                 ) : undefined
               }
             >
-              <AugmentTable
-                rows={p.augments
-                  .map((a) => ({
-                    ...a,
-                    ...est?.augments.get(a.id),
-                    deepScore: scores.get(a.id),
-                    href: augmentHref(a.id) ?? undefined,
-                  }))
-                  .sort(
-                    (x, y) =>
-                      (y.deepScore ?? -1) - (x.deepScore ?? -1) ||
-                      y.pickRate - x.pickRate,
-                  )}
-              />
+              <AugmentTable rows={augRows} />
             </Panel>
           )}
           {est?.pairs.length ? (
@@ -617,13 +636,17 @@ export default async function ChampionPage({
             {p.starting.length > 0 && (
               <Panel title="Starter items" count={p.starting.length}>
                 <Head what="Starter items" cols={SCORED_COLS} />
-                <div className="cp-rows">{itemRows(p.starting)}</div>
+                <ShowMore total={p.starting.length} limit={null}>
+                  {itemRows(p.starting)}
+                </ShowMore>
               </Panel>
             )}
             {p.boots.length > 0 && (
               <Panel title="Boots" count={p.boots.length}>
                 <Head what="Boots" cols={SCORED_COLS} />
-                <div className="cp-rows">{singleRows(p.boots)}</div>
+                <ShowMore total={p.boots.length} limit={null}>
+                  {singleRows(p.boots)}
+                </ShowMore>
               </Panel>
             )}
           </div>
@@ -636,60 +659,62 @@ export default async function ChampionPage({
             </Panel>
           )}
           {p.items.length > 0 && (
-            <Panel
-              title="All items"
-              count={p.items.length}
-              note={
-                <T ns={NS}>
-                  {
-                    "Grouped by tier, best DeepScore first in each, with each item's pick rate and win rate."
-                  }
-                </T>
-              }
-            >
-              {ITEM_TIERS.map((tier) => {
-                const list = p.items.filter(
-                  (r) => (r.tier ?? "legendary") === tier,
-                );
-                if (!list.length) return null;
-                return (
-                  <section
-                    key={tier}
-                    className="cp-itier"
-                    aria-label={TIER_LABEL[tier]}
-                  >
-                    <h4 className="cp-itier-h">
-                      <T ns={NS}>{TIER_LABEL[tier]}</T>{" "}
-                      <span>{list.length}</span>
-                    </h4>
-                    <div className="cp-strip-x" role="list">
-                      {list.map((r) => (
-                        <div
-                          key={r.items[0]}
-                          className="cp-tile"
-                          role="listitem"
-                        >
-                          <ItemIcon id={r.items[0]} info={info} />
-                          <ItemName id={r.items[0]} info={info} />
-                          {r.deepScore !== undefined && (
-                            <DeepScore
-                              value={r.deepScore}
-                              help={ITEM_DEEPSCORE_HELP}
+            <Fold titles={["All items"]}>
+              <Panel
+                title="All items"
+                count={p.items.length}
+                note={
+                  <T ns={NS}>
+                    {
+                      "Grouped by tier, best DeepScore first in each, with each item's pick rate and win rate."
+                    }
+                  </T>
+                }
+              >
+                {ITEM_TIERS.map((tier) => {
+                  const list = p.items.filter(
+                    (r) => (r.tier ?? "legendary") === tier,
+                  );
+                  if (!list.length) return null;
+                  return (
+                    <section
+                      key={tier}
+                      className="cp-itier"
+                      aria-label={TIER_LABEL[tier]}
+                    >
+                      <h4 className="cp-itier-h">
+                        <T ns={NS}>{TIER_LABEL[tier]}</T>{" "}
+                        <span>{list.length}</span>
+                      </h4>
+                      <div className="cp-strip-x" role="list">
+                        {list.map((r) => (
+                          <div
+                            key={r.items[0]}
+                            className="cp-tile"
+                            role="listitem"
+                          >
+                            <ItemIcon id={r.items[0]} info={info} />
+                            <ItemName id={r.items[0]} info={info} />
+                            {r.deepScore !== undefined && (
+                              <DeepScore
+                                value={r.deepScore}
+                                help={ITEM_DEEPSCORE_HELP}
+                              />
+                            )}
+                            <Cell
+                              value={pct(r.winRate)}
+                              label="Win rate"
+                              tone={tone(r.lift)}
                             />
-                          )}
-                          <Cell
-                            value={pct(r.winRate)}
-                            label="Win rate"
-                            tone={tone(r.lift)}
-                          />
-                          <Cell value={pct(r.pickRate)} label="Pick rate" />
-                        </div>
-                      ))}
-                    </div>
-                  </section>
-                );
-              })}
-            </Panel>
+                            <Cell value={pct(r.pickRate)} label="Pick rate" />
+                          </div>
+                        ))}
+                      </div>
+                    </section>
+                  );
+                })}
+              </Panel>
+            </Fold>
           )}
 
           <h2 className="cp-group" id="playstyle">
@@ -706,16 +731,18 @@ export default async function ChampionPage({
                   what="Spells"
                   cols={spellsEstimated ? ["Pick rate", "Games"] : undefined}
                 />
-                {spells.map((r, i) => (
-                  <Row
-                    key={i}
-                    rank={i + 1}
-                    cols={spellsEstimated ? 2 : 3}
-                    cells={<SpellCells r={r} />}
-                  >
-                    <Spells r={r} />
-                  </Row>
-                ))}
+                <ShowMore total={spells.length} limit={null}>
+                  {spells.map((r, i) => (
+                    <Row
+                      key={i}
+                      rank={i + 1}
+                      cols={spellsEstimated ? 2 : 3}
+                      cells={<SpellCells r={r} />}
+                    >
+                      <Spells r={r} />
+                    </Row>
+                  ))}
+                </ShowMore>
               </>
             ) : (
               <NotYet text="Spell pairs with win rate, pick rate and win lift appear here once enough games are in." />
@@ -857,7 +884,11 @@ export default async function ChampionPage({
             changes={p.changes}
             modifiers={p.modifiers}
           />
-          {p.stats && <BaseStatsTable stats={p.stats} />}
+          {p.stats && (
+            <Fold section="details" titles={["Base stats"]}>
+              <BaseStatsTable stats={p.stats} />
+            </Fold>
+          )}
 
           <h2 className="cp-group" id="performance">
             <T ns={NS}>Performance</T>
@@ -890,117 +921,129 @@ export default async function ChampionPage({
               ))}
             </div>
           )}
-          {est && est.profile.length > 0 && (
-            <Panel
-              title="Typical game"
-              note={<T ns={NS}>Estimated averages per game.</T>}
+          {est && (est.profile.length > 0 || est.curve) && (
+            <Fold
+              section="performance"
+              titles={[
+                ...(est.profile.length > 0 ? ["Typical game"] : []),
+                ...(est.curve ? ["Early, mid and late game"] : []),
+              ]}
             >
-              <div className="cp-profile">
-                {PROFILE.map(([key, label, fmt]) => {
-                  const s = est.profile.find((x) => x.key === key);
-                  if (!s) return null;
-                  const rough = key === "game_minutes";
-                  return (
-                    <div key={key} data-band={s.band}>
+              {est.profile.length > 0 && (
+                <Panel
+                  title="Typical game"
+                  note={<T ns={NS}>Estimated averages per game.</T>}
+                >
+                  <div className="cp-profile">
+                    {PROFILE.map(([key, label, fmt]) => {
+                      const s = est.profile.find((x) => x.key === key);
+                      if (!s) return null;
+                      const rough = key === "game_minutes";
+                      return (
+                        <div key={key} data-band={s.band}>
+                          <small>
+                            <T ns={NS}>{label}</T>
+                          </small>
+                          <b className={rough ? "cp-words" : undefined}>
+                            {rough ? (
+                              <T ns={NS}>{LENGTH_BAND[s.band]}</T>
+                            ) : (
+                              fmt(s.value)
+                            )}
+                          </b>
+                          <span>
+                            <T ns={NS}>
+                              {rough ? "Rough estimate" : BAND[s.band]}
+                            </T>
+                          </span>
+                        </div>
+                      );
+                    })}
+                  </div>
+                  {est.split && (
+                    <div className="cp-split">
                       <small>
-                        <T ns={NS}>{label}</T>
+                        <T ns={NS}>Damage type</T>
                       </small>
-                      <b className={rough ? "cp-words" : undefined}>
-                        {rough ? (
-                          <T ns={NS}>{LENGTH_BAND[s.band]}</T>
-                        ) : (
-                          fmt(s.value)
-                        )}
-                      </b>
-                      <span>
-                        <T ns={NS}>{rough ? "Rough estimate" : BAND[s.band]}</T>
-                      </span>
+                      <div className="cp-split-bar" aria-hidden="true">
+                        {(["physical", "magic", "true"] as const).map((k) => (
+                          <span
+                            key={k}
+                            data-k={k}
+                            style={{ flexGrow: est.split![k] }}
+                          />
+                        ))}
+                      </div>
+                      <ul>
+                        {(
+                          [
+                            ["physical", "Physical"],
+                            ["magic", "Magic"],
+                            ["true", "True"],
+                          ] as const
+                        ).map(([k, l]) => (
+                          <li key={k} data-k={k}>
+                            <T ns={NS}>{l}</T> {pct(est.split![k])}
+                          </li>
+                        ))}
+                      </ul>
                     </div>
-                  );
-                })}
-              </div>
-              {est.split && (
-                <div className="cp-split">
-                  <small>
-                    <T ns={NS}>Damage type</T>
-                  </small>
-                  <div className="cp-split-bar" aria-hidden="true">
-                    {(["physical", "magic", "true"] as const).map((k) => (
-                      <span
-                        key={k}
-                        data-k={k}
-                        style={{ flexGrow: est.split![k] }}
-                      />
-                    ))}
-                  </div>
-                  <ul>
-                    {(
-                      [
-                        ["physical", "Physical"],
-                        ["magic", "Magic"],
-                        ["true", "True"],
-                      ] as const
-                    ).map(([k, l]) => (
-                      <li key={k} data-k={k}>
-                        <T ns={NS}>{l}</T> {pct(est.split![k])}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                  )}
+                </Panel>
               )}
-            </Panel>
-          )}
-          {est?.curve && (
-            <Panel
-              title="Early, mid and late game"
-              note={
-                <T ns={NS}>
-                  {
-                    "Simulated: the champion's best build fighting a dummy at each point, compared with every other champion."
+              {est.curve && (
+                <Panel
+                  title="Early, mid and late game"
+                  note={
+                    <T ns={NS}>
+                      {
+                        "Simulated: the champion's best build fighting a dummy at each point, compared with every other champion."
+                      }
+                    </T>
                   }
-                </T>
-              }
-            >
-              <div className="cp-curve">
-                {est.curve.stages.map((st) => (
-                  <div key={st.key}>
-                    <small>
-                      <T ns={NS}>{STAGE_LABEL[st.key]}</T>
-                    </small>
-                    <span className="cp-curve-bar" aria-hidden="true">
-                      <span
-                        style={{ width: `${Math.max(2, st.rank * 100)}%` }}
-                      />
-                    </span>
-                    <b>
-                      <T ns={NS} v={{ n: Math.round(st.rank * 100) }}>
-                        {"Beats {n}%"}
-                      </T>
-                    </b>
-                    <span>
-                      <T ns={NS} v={{ level: st.level, items: st.items }}>
-                        {"Level {level}, {items} items"}
-                      </T>
-                    </span>
+                >
+                  <div className="cp-curve">
+                    {est.curve.stages.map((st) => (
+                      <div key={st.key}>
+                        <small>
+                          <T ns={NS}>{STAGE_LABEL[st.key]}</T>
+                        </small>
+                        <span className="cp-curve-bar" aria-hidden="true">
+                          <span
+                            style={{ width: `${Math.max(2, st.rank * 100)}%` }}
+                          />
+                        </span>
+                        <b>
+                          <T ns={NS} v={{ n: Math.round(st.rank * 100) }}>
+                            {"Beats {n}%"}
+                          </T>
+                        </b>
+                        <span>
+                          <T ns={NS} v={{ level: st.level, items: st.items }}>
+                            {"Level {level}, {items} items"}
+                          </T>
+                        </span>
+                      </div>
+                    ))}
                   </div>
-                ))}
-              </div>
-              <p className="cp-curve-note">
-                <T ns={NS}>{scalingNote(est.curve.scaling)}</T>
-                {est.curve.topEarly && (
-                  <>
-                    {" "}
-                    <T ns={NS}>One of the 10 strongest early champions.</T>
-                  </>
-                )}
-                {est.curve.topLate && (
-                  <>
-                    {" "}
-                    <T ns={NS}>One of the 10 strongest late champions.</T>
-                  </>
-                )}
-              </p>
-            </Panel>
+                  <p className="cp-curve-note">
+                    <T ns={NS}>{scalingNote(est.curve.scaling)}</T>
+                    {est.curve.topEarly && (
+                      <>
+                        {" "}
+                        <T ns={NS}>One of the 10 strongest early champions.</T>
+                      </>
+                    )}
+                    {est.curve.topLate && (
+                      <>
+                        {" "}
+                        <T ns={NS}>One of the 10 strongest late champions.</T>
+                      </>
+                    )}
+                  </p>
+                </Panel>
+              )}
+            </Fold>
           )}
           <WinRateChart
             id={c.alias}

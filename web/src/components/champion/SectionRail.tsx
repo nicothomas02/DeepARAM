@@ -2,9 +2,11 @@
 
 import { useEffect, useState } from "react";
 import { useT } from "@/components/I18n";
+import { FOLD_EVENT } from "./Fold";
 
 // The champion page's section links: a column beside the tables on wide screens, a sticky strip on
-// narrow ones. The section you're reading is highlighted.
+// narrow ones. The section you're reading is highlighted, and a link opens its section's folded panels
+// (Fold.tsx) before the browser jumps there.
 
 export default function SectionRail({
   spots,
@@ -39,6 +41,9 @@ export default function SectionRail({
         <a
           key={s.id}
           href={`#${s.id}`}
+          onClick={() =>
+            window.dispatchEvent(new CustomEvent(FOLD_EVENT, { detail: s.id }))
+          }
           aria-current={active === s.id ? "true" : undefined}
         >
           {t(s.label)}

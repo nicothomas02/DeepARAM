@@ -246,7 +246,6 @@
 .cp-seg button[aria-pressed="true"] {
   background: var(--surface);
   color: var(--fg);
-  box-shadow: var(--depth-tile);
 }
 .cp-th,
 .cp-row {
@@ -574,6 +573,39 @@ a.cp-what:hover .cp-name,
 /* The extra tables (full builds, build styles) follow the Simple / Detailed switch in Settings. */
 html[data-view="simple"] .cp-panel[data-detailed] {
   display: none;
+}
+/* Simple view also keeps the page short: every ranked list stops at 5 rows (ShowMore.tsx) and the bulky
+   secondary panels wait behind a "Show more" button (Fold.tsx). Detailed view never shows those buttons. */
+html[data-view="simple"] .cp-cut-simple > .cp-row:nth-child(n + 6) {
+  display: none;
+}
+html:not([data-view="simple"]) .cp-more-simple {
+  display: none;
+}
+.cp-fold,
+.cp-fold-body {
+  display: grid;
+  gap: var(--cp-gap);
+  min-width: 0;
+}
+html[data-view="simple"] .cp-fold:not([data-open]) > .cp-fold-body {
+  display: none;
+}
+.cp-fold-btn {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.25rem 0.6rem;
+  width: 100%;
+  margin: 0;
+  padding: 0.7rem 1rem;
+  border-radius: var(--r);
+  background: var(--card, var(--surface));
+}
+.cp-fold-btn small {
+  color: var(--muted);
+  font-weight: 500;
 }
 
 @media (min-width: 1500px) {
