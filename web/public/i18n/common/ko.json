@@ -110,7 +110,7 @@
  "Last updated": "마지막 업데이트:",
  "Everything ARAM Mayhem.": "무작위 총력전: 아수라장의 모든 것.",
  "Every Mayhem pick, measured.": "아수라장의 모든 선택을 숫자로.",
- "Win rates for every champion and augment on the current patch, and a fight simulator for every champion.": "현재 패치의 모든 챔피언과 증강 승률, 그리고 모든 챔피언의 전투 시뮬레이터.",
+ "Tier lists, builds, a fight simulator and test-server changes for ARAM Mayhem.": "무작위 총력전: 아수라장 티어 리스트, 빌드, 전투 시뮬레이터, 테스트 서버 변경 사항.",
  "All {n} →": "전체 {n} →",
  "Best augments": "최고의 증강",
  "All →": "전체 →",
@@ -193,5 +193,14 @@
  "blue side wins": "블루 진영 승률",
  "red side wins": "레드 진영 승률",
  "Early game": "초반",
- "Late game": "후반"
+ "Late game": "후반",
+ "New here? Take a quick tour": "처음 오셨나요? 빠른 둘러보기",
+ "{v} damage share": "피해량 비중 {v}",
+ "{v} damage taken": "받은 피해 {v}",
+ "{v} healing/min": "분당 회복 {v}",
+ "{v}s crowd control": "군중 제어 {v}초",
+ "{v} kill participation": "킬 관여율 {v}",
+ "{v} multikills": "멀티킬 {v}",
+ "{v} tower damage": "포탑 피해량 {v}",
+ "Simulated damage: share of champions beaten at level 8 → level 18.": "시뮬레이션 피해량: 레벨 8 → 레벨 18에서 앞서는 챔피언 비율."
 }

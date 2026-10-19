@@ -110,7 +110,7 @@
  "Last updated": "Cập nhật",
  "Everything ARAM Mayhem.": "Mọi thứ về ARAM: Hỗn Loạn.",
  "Every Mayhem pick, measured.": "Mọi lựa chọn ARAM: Hỗn Loạn, được đo lường.",
- "Win rates for every champion and augment on the current patch, and a fight simulator for every champion.": "Tỉ lệ thắng của mọi tướng và Lõi Nâng Cấp trên phiên bản hiện tại, cùng trình mô phỏng giao tranh cho mọi tướng.",
+ "Tier lists, builds, a fight simulator and test-server changes for ARAM Mayhem.": "Bảng xếp hạng, lối lên đồ, trình mô phỏng giao tranh và thay đổi từ máy chủ thử nghiệm cho ARAM: Hỗn Loạn.",
  "All {n} →": "Cả {n} →",
  "Best augments": "Lõi Nâng Cấp tốt nhất",
  "All →": "Tất cả →",
@@ -193,5 +193,14 @@
  "blue side wins": "bên xanh thắng",
  "red side wins": "bên đỏ thắng",
  "Early game": "Đầu trận",
- "Late game": "Cuối trận"
+ "Late game": "Cuối trận",
+ "New here? Take a quick tour": "Mới đến? Xem hướng dẫn nhanh",
+ "{v} damage share": "{v} tỉ lệ sát thương",
+ "{v} damage taken": "{v} sát thương gánh chịu",
+ "{v} healing/min": "{v} hồi máu/phút",
+ "{v}s crowd control": "{v} giây khống chế",
+ "{v} kill participation": "{v} tham gia hạ gục",
+ "{v} multikills": "{v} hạ gục liên tiếp",
+ "{v} tower damage": "{v} sát thương trụ",
+ "Simulated damage: share of champions beaten at level 8 → level 18.": "Sát thương mô phỏng: tỉ lệ tướng bị vượt qua ở cấp 8 → cấp 18."
 }

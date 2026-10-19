@@ -110,7 +110,7 @@
  "Last updated": "Aktualizováno",
  "Everything ARAM Mayhem.": "Vše o ARAM: Mela.",
  "Every Mayhem pick, measured.": "Každá volba v ARAM: Mela, změřená.",
- "Win rates for every champion and augment on the current patch, and a fight simulator for every champion.": "Procento výher každého šampiona a augmentu v aktuálním patchi a simulátor soubojů pro každého šampiona.",
+ "Tier lists, builds, a fight simulator and test-server changes for ARAM Mayhem.": "Tier listy, buildy, simulátor soubojů a změny z testovacího serveru pro ARAM: Mela.",
  "All {n} →": "Všech {n} →",
  "Best augments": "Nejlepší augmenty",
  "All →": "Vše →",
@@ -193,5 +193,14 @@
  "blue side wins": "výhry modré strany",
  "red side wins": "výhry červené strany",
  "Early game": "Začátek hry",
- "Late game": "Pozdní hra"
+ "Late game": "Pozdní hra",
+ "New here? Take a quick tour": "Jste tu poprvé? Projděte si rychlou prohlídku",
+ "{v} damage share": "{v} podíl poškození",
+ "{v} damage taken": "{v} přijatého poškození",
+ "{v} healing/min": "{v} léčení/min",
+ "{v}s crowd control": "{v} s omezení pohybu",
+ "{v} kill participation": "{v} účast na zabitích",
+ "{v} multikills": "{v} vícenásobných zabití",
+ "{v} tower damage": "{v} poškození věží",
+ "Simulated damage: share of champions beaten at level 8 → level 18.": "Simulované poškození: podíl překonaných šampionů na úrovni 8 → úrovni 18."
 }

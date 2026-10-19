@@ -4,8 +4,10 @@ import { usePathname, useRouter } from "next/navigation";
 import { useCallback, useEffect, useLayoutEffect, useState } from "react";
 import { useT } from "./I18n";
 
-// A short guided tour for first-time visitors on Home: a spotlight moves over a few key places with a
-// line about each. Shown once per browser (localStorage); Settings' "Take the tour" or /?tour replays it.
+// A short guided tour of Home: a spotlight moves over a few key places with a line about each. It never
+// opens by itself: first-time visitors get a small "Take a quick tour" chip under the headline (TourChip),
+// which starts it or can be dismissed; either ends the offer for this browser (localStorage). Settings'
+// "Take the tour" or /?tour replays it.
 
 const KEY = "deeparam-tour";
 /** Fired by Settings' "Take the tour" link. */
@@ -37,19 +39,14 @@ export default function FirstVisitTour() {
 
   useEffect(() => {
     if (pathname !== "/") return;
-    const replay = asked > 0 || new URLSearchParams(location.search).has("tour");
-    let seen = true;
-    try {
-      seen = localStorage.getItem(KEY) === "done";
-    } catch {}
-    if (seen && !replay) return;
+    if (!asked && !new URLSearchParams(location.search).has("tour")) return;
     const t = setTimeout(() => {
       const ok = STEPS.filter((s) => find(s.sel));
       if (ok.length) {
         setI(0);
         setSteps(ok);
       }
-    }, replay ? 400 : 1500);
+    }, 400);
     return () => clearTimeout(t);
   }, [pathname, asked]);
 
@@ -122,5 +119,33 @@ export default function FirstVisitTour() {
         </div>
       </div>
     </div>
+  );
+}
+
+/** Home's offer of the tour for first-time visitors: starts it, or × hides the offer for good. */
+export function TourChip() {
+  const [show, setShow] = useState(false);
+  const t = useT();
+  useEffect(() => {
+    try {
+      setShow(localStorage.getItem(KEY) !== "done");
+    } catch {}
+  }, []);
+  if (!show) return null;
+  const close = () => {
+    try {
+      localStorage.setItem(KEY, "done");
+    } catch {}
+    setShow(false);
+  };
+  return (
+    <span className="tour-chip">
+      <button type="button" onClick={() => (close(), dispatchEvent(new Event(TOUR_EVENT)))}>
+        {t("New here? Take a quick tour")}
+      </button>
+      <button type="button" className="tour-chip-x" aria-label={t("Dismiss")} onClick={close}>
+        ×
+      </button>
+    </span>
   );
 }

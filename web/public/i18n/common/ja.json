@@ -110,7 +110,7 @@
  "Last updated": "最終更新:",
  "Everything ARAM Mayhem.": "メイヘムのすべてを。",
  "Every Mayhem pick, measured.": "メイヘムのすべての選択を数値で。",
- "Win rates for every champion and augment on the current patch, and a fight simulator for every champion.": "現在のパッチでの全チャンピオンと全オーグメントの勝率、そして全チャンピオンの戦闘シミュレーター。",
+ "Tier lists, builds, a fight simulator and test-server changes for ARAM Mayhem.": "ランダムミッド: メイヘムのティアリスト、ビルド、戦闘シミュレーター、テストサーバーの変更点。",
  "All {n} →": "全{n}体 →",
  "Best augments": "おすすめオーグメント",
  "All →": "すべて →",
@@ -193,5 +193,14 @@
  "blue side wins": "青側の勝率",
  "red side wins": "赤側の勝率",
  "Early game": "序盤",
- "Late game": "終盤"
+ "Late game": "終盤",
+ "New here? Take a quick tour": "はじめての方は簡単なツアーをどうぞ",
+ "{v} damage share": "ダメージシェア {v}",
+ "{v} damage taken": "被ダメージ {v}",
+ "{v} healing/min": "回復/分 {v}",
+ "{v}s crowd control": "行動妨害 {v}秒",
+ "{v} kill participation": "キル関与率 {v}",
+ "{v} multikills": "マルチキル {v}",
+ "{v} tower damage": "タワーダメージ {v}",
+ "Simulated damage: share of champions beaten at level 8 → level 18.": "シミュレーションのダメージ: レベル8 → レベル18で上回るチャンピオンの割合。"
 }

@@ -101,24 +101,27 @@ export function KitchenPick({ builds }: { builds: Build[] }) {
   );
 }
 
-const FUN: [string, string][] = [
-  ["damage", "Damage"],
-  ["tank", "Tanking"],
-  ["healing", "Healing"],
-  ["crowd_control", "Crowd control"],
-  ["teamplay", "Teamplay"],
-  ["multikills", "Multikills"],
-  ["towers", "Towers"],
-  ["early_game", "Early game"],
-  ["late_game", "Late game"],
+// Each list's tab and how its number reads ({v} is already formatted by the page).
+const FUN: [string, string, string][] = [
+  ["damage", "Damage", "{v} damage share"],
+  ["tank", "Tanking", "{v} damage taken"],
+  ["healing", "Healing", "{v} healing/min"],
+  ["crowd_control", "Crowd control", "{v}s crowd control"],
+  ["teamplay", "Teamplay", "{v} kill participation"],
+  ["multikills", "Multikills", "{v} multikills"],
+  ["towers", "Towers", "{v} tower damage"],
+  ["early_game", "Early game", "{v}"],
+  ["late_game", "Late game", "{v}"],
 ];
+const CURVE_NOTE = "Simulated damage: share of champions beaten at level 8 → level 18.";
 
-/** Estimated top 10 champions at one thing a game, picked from a short list. */
-export function FunLists({ lists }: { lists: Record<string, { id: string; name: string }[]> }) {
+/** Estimated top 10 champions at one thing a game, picked from a short list, each with its number. */
+export function FunLists({ lists }: { lists: Record<string, { id: string; name: string; value: string | null }[]> }) {
   const kinds = FUN.filter(([k]) => lists[k]?.length);
   const [kind, setKind] = useState(kinds[0]?.[0] ?? "");
   const t = useT();
   const names = useNames();
+  const unit = FUN.find(([k]) => k === kind)?.[2] ?? "{v}";
   return (
     <>
       <div className="seg fun-kinds" role="group" aria-label={t("Top 10 at")}>
@@ -128,12 +131,14 @@ export function FunLists({ lists }: { lists: Record<string, { id: string; name: 
           </button>
         ))}
       </div>
+      {(kind === "early_game" || kind === "late_game") && <p className="fun-note">{t(CURVE_NOTE)}</p>}
       <div className="rank fun-rank">
         {(lists[kind] ?? []).map((c, i) => (
           <Link key={c.id} href={`/champions/${c.id}`}>
             <span className="rank-i">{i + 1}</span>
             <img className="icon" src={champIcon(c.id)} alt="" width={24} height={24} loading="lazy" />
             <span className="rank-name">{names("champions", c.id, c.name)}</span>
+            {c.value !== null && <span className="rank-v">{unit === "{v}" ? c.value : t(unit, { v: c.value })}</span>}
           </Link>
         ))}
       </div>

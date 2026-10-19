@@ -110,7 +110,7 @@
  "Last updated": "Terakhir diperbarui",
  "Everything ARAM Mayhem.": "Semua tentang ARAM: Mayhem.",
  "Every Mayhem pick, measured.": "Setiap pilihan ARAM: Mayhem, terukur.",
- "Win rates for every champion and augment on the current patch, and a fight simulator for every champion.": "Win rate setiap champion dan augment di patch saat ini, dan simulator pertarungan untuk setiap champion.",
+ "Tier lists, builds, a fight simulator and test-server changes for ARAM Mayhem.": "Tier list, build, simulator pertarungan, dan perubahan server uji untuk ARAM Mayhem.",
  "All {n} →": "Semua {n} →",
  "Best augments": "Augment terbaik",
  "All →": "Semua →",
@@ -193,5 +193,14 @@
  "blue side wins": "kemenangan sisi biru",
  "red side wins": "kemenangan sisi merah",
  "Early game": "Awal game",
- "Late game": "Akhir game"
+ "Late game": "Akhir game",
+ "New here? Take a quick tour": "Baru di sini? Ikuti tur singkat",
+ "{v} damage share": "{v} porsi damage",
+ "{v} damage taken": "{v} damage diterima",
+ "{v} healing/min": "{v} heal/menit",
+ "{v}s crowd control": "{v} dtk crowd control",
+ "{v} kill participation": "{v} partisipasi kill",
+ "{v} multikills": "{v} multikill",
+ "{v} tower damage": "{v} damage tower",
+ "Simulated damage: share of champions beaten at level 8 → level 18.": "Damage simulasi: persentase champion yang dikalahkan di level 8 → level 18."
 }

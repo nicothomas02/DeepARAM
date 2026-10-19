@@ -110,7 +110,7 @@
  "Last updated": "Frissítve:",
  "Everything ARAM Mayhem.": "Minden az ARAM: Káoszról.",
  "Every Mayhem pick, measured.": "Minden ARAM: Káosz-választás, lemérve.",
- "Win rates for every champion and augment on the current patch, and a fight simulator for every champion.": "Minden hős és bővítés győzelmi aránya az aktuális frissítésen, és harcszimulátor minden hőshöz.",
+ "Tier lists, builds, a fight simulator and test-server changes for ARAM Mayhem.": "Tier listák, buildek, harcszimulátor és a tesztszerver változásai az ARAM: Káosz módhoz.",
  "All {n} →": "Mind a {n} →",
  "Best augments": "Legjobb bővítések",
  "All →": "Mind →",
@@ -193,5 +193,14 @@
  "blue side wins": "kék oldal győzelmei",
  "red side wins": "piros oldal győzelmei",
  "Early game": "Korai játék",
- "Late game": "Késői játék"
+ "Late game": "Késői játék",
+ "New here? Take a quick tour": "Új vagy itt? Nézd meg a rövid bemutatót",
+ "{v} damage share": "{v} sebzésrészesedés",
+ "{v} damage taken": "{v} elszenvedett sebzés",
+ "{v} healing/min": "{v} gyógyítás/perc",
+ "{v}s crowd control": "{v} mp tömegirányítás",
+ "{v} kill participation": "{v} részvétel az ölésekben",
+ "{v} multikills": "{v} többszörös ölés",
+ "{v} tower damage": "{v} toronysebzés",
+ "Simulated damage: share of champions beaten at level 8 → level 18.": "Szimulált sebzés: a legyőzött hősök aránya 8. szinten → 18. szinten."
 }

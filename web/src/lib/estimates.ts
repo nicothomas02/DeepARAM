@@ -119,7 +119,17 @@ export function typicalGame() {
 /** Short champion top 10s, keyed by what they rank. */
 export const funLists = () => data()?.fun ?? {};
 
-type CurveLists = { champions?: Record<string, { scaling: number }>; early_game?: number[]; late_game?: number[] };
+/** A champion's estimated typical-game number for one profile stat (heal_per_min, cc_seconds, ...). */
+export function profileValue(id: number, key: string) {
+  const v = data()?.profiles?.[String(id)]?.[key];
+  return v && "value" in v && typeof v.value === "number" ? v.value : null;
+}
+
+type CurveLists = {
+  champions?: Record<string, Record<Stage, number> & { scaling: number }>;
+  early_game?: number[];
+  late_game?: number[];
+};
 let curveLists: CurveLists | null | undefined;
 /** How each champion's simulated damage grows from level 8 to 18 (data/estimates/power_curve.json):
  * scaling above zero gets stronger late, below zero peaks early, plus the 10 most early and late game. */
@@ -127,6 +137,8 @@ export function powerCurveLists() {
   if (curveLists === undefined) curveLists = readRepoJson<CurveLists>("data/estimates/power_curve.json");
   return {
     scaling: new Map(Object.entries(curveLists?.champions ?? {}).map(([id, c]) => [Number(id), c.scaling])),
+    /** Share of champions each one out-damages at level 8 and at level 18. */
+    ranks: new Map(Object.entries(curveLists?.champions ?? {}).map(([id, c]) => [Number(id), { early: c.early, late: c.late }])),
     early: curveLists?.early_game ?? [],
     late: curveLists?.late_game ?? [],
   };

@@ -110,7 +110,7 @@
  "Last updated": "Τελευταία ενημέρωση",
  "Everything ARAM Mayhem.": "Όλα για το ARAM: Χαμός.",
  "Every Mayhem pick, measured.": "Κάθε επιλογή στο ARAM: Χαμός, μετρημένη.",
- "Win rates for every champion and augment on the current patch, and a fight simulator for every champion.": "Ποσοστά νικών για κάθε ήρωα και βελτίωση στην τρέχουσα ενημέρωση, και προσομοιωτής μάχης για κάθε ήρωα.",
+ "Tier lists, builds, a fight simulator and test-server changes for ARAM Mayhem.": "Λίστες κατάταξης, builds, προσομοιωτής μαχών και αλλαγές του δοκιμαστικού διακομιστή για το ARAM: Χαμός.",
  "All {n} →": "Όλοι οι {n} →",
  "Best augments": "Καλύτερες βελτιώσεις",
  "All →": "Όλες →",
@@ -193,5 +193,14 @@
  "blue side wins": "νίκες μπλε πλευράς",
  "red side wins": "νίκες κόκκινης πλευράς",
  "Early game": "Αρχή παιχνιδιού",
- "Late game": "Τέλος παιχνιδιού"
+ "Late game": "Τέλος παιχνιδιού",
+ "New here? Take a quick tour": "Νέος εδώ; Κάνε μια γρήγορη περιήγηση",
+ "{v} damage share": "{v} μερίδιο ζημιάς",
+ "{v} damage taken": "{v} ζημιά που δέχτηκε",
+ "{v} healing/min": "{v} θεραπεία/λεπτό",
+ "{v}s crowd control": "{v} δ έλεγχος πλήθους",
+ "{v} kill participation": "{v} συμμετοχή σε φόνους",
+ "{v} multikills": "{v} πολλαπλοί φόνοι",
+ "{v} tower damage": "{v} ζημιά σε πύργους",
+ "Simulated damage: share of champions beaten at level 8 → level 18.": "Προσομοιωμένη ζημιά: ποσοστό ηρώων που ξεπερνά στο επίπεδο 8 → επίπεδο 18."
 }

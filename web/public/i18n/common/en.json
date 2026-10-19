@@ -110,7 +110,7 @@
  "Last updated": "Last updated",
  "Everything ARAM Mayhem.": "Everything ARAM Mayhem.",
  "Every Mayhem pick, measured.": "Every Mayhem pick, measured.",
- "Win rates for every champion and augment on the current patch, and a fight simulator for every champion.": "Win rates for every champion and augment on the current patch, and a fight simulator for every champion.",
+ "Tier lists, builds, a fight simulator and test-server changes for ARAM Mayhem.": "Tier lists, builds, a fight simulator and test-server changes for ARAM Mayhem.",
  "All {n} →": "All {n} →",
  "Best augments": "Best augments",
  "All →": "All →",
@@ -193,5 +193,14 @@
  "blue side wins": "blue side wins",
  "red side wins": "red side wins",
  "Early game": "Early game",
- "Late game": "Late game"
+ "Late game": "Late game",
+ "New here? Take a quick tour": "New here? Take a quick tour",
+ "{v} damage share": "{v} damage share",
+ "{v} damage taken": "{v} damage taken",
+ "{v} healing/min": "{v} healing/min",
+ "{v}s crowd control": "{v}s crowd control",
+ "{v} kill participation": "{v} kill participation",
+ "{v} multikills": "{v} multikills",
+ "{v} tower damage": "{v} tower damage",
+ "Simulated damage: share of champions beaten at level 8 → level 18.": "Simulated damage: share of champions beaten at level 8 → level 18."
 }

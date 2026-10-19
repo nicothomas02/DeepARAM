@@ -110,7 +110,7 @@
  "Last updated": "Aggiornato il",
  "Everything ARAM Mayhem.": "Tutto su ARAM: Pandemonio.",
  "Every Mayhem pick, measured.": "Ogni scelta di ARAM: Pandemonio, misurata.",
- "Win rates for every champion and augment on the current patch, and a fight simulator for every champion.": "Percentuali di vittoria di ogni campione e potenziamento sulla patch attuale, e un simulatore di scontri per ogni campione.",
+ "Tier lists, builds, a fight simulator and test-server changes for ARAM Mayhem.": "Tier list, build, un simulatore di combattimento e le modifiche del server di prova per ARAM: Pandemonio.",
  "All {n} →": "Tutti i {n} →",
  "Best augments": "Potenziamenti migliori",
  "All →": "Tutti →",
@@ -193,5 +193,14 @@
  "blue side wins": "vittorie lato blu",
  "red side wins": "vittorie lato rosso",
  "Early game": "Inizio partita",
- "Late game": "Fine partita"
+ "Late game": "Fine partita",
+ "New here? Take a quick tour": "Sei nuovo? Fai un tour veloce",
+ "{v} damage share": "{v} dei danni della squadra",
+ "{v} damage taken": "{v} dei danni subiti",
+ "{v} healing/min": "{v} di cure/min",
+ "{v}s crowd control": "{v} s di controllo",
+ "{v} kill participation": "{v} di partecipazione alle uccisioni",
+ "{v} multikills": "{v} uccisioni multiple",
+ "{v} tower damage": "{v} danni alle torri",
+ "Simulated damage: share of champions beaten at level 8 → level 18.": "Danni simulati: quota di campioni superati al livello 8 → livello 18."
 }

@@ -110,7 +110,7 @@
  "Last updated": "آخر تحديث",
  "Everything ARAM Mayhem.": "كل شيء عن آرام: الفوضى.",
  "Every Mayhem pick, measured.": "كل اختيار في آرام: الفوضى، مقاسًا.",
- "Win rates for every champion and augment on the current patch, and a fight simulator for every champion.": "نسب فوز كل بطل وتعزيز على التحديث الحالي، ومحاكي معارك لكل بطل.",
+ "Tier lists, builds, a fight simulator and test-server changes for ARAM Mayhem.": "قوائم تصنيف وبنيات ومحاكي معارك وتغييرات خادم الاختبار لـ آرام: الفوضى.",
  "All {n} →": "كل الـ {n} ←",
  "Best augments": "أفضل التعزيزات",
  "All →": "الكل ←",
@@ -193,5 +193,14 @@
  "blue side wins": "فوز الجانب الأزرق",
  "red side wins": "فوز الجانب الأحمر",
  "Early game": "بداية المباراة",
- "Late game": "نهاية المباراة"
+ "Late game": "نهاية المباراة",
+ "New here? Take a quick tour": "جديد هنا؟ خذ جولة سريعة",
+ "{v} damage share": "{v} حصة الضرر",
+ "{v} damage taken": "{v} ضرر متلقى",
+ "{v} healing/min": "{v} علاج/دقيقة",
+ "{v}s crowd control": "{v} ث تحكم بالحشود",
+ "{v} kill participation": "{v} مشاركة في القتل",
+ "{v} multikills": "{v} قتل متعدد",
+ "{v} tower damage": "{v} ضرر للأبراج",
+ "Simulated damage: share of champions beaten at level 8 → level 18.": "ضرر محاكى: نسبة الأبطال المتفوَّق عليهم في المستوى 8 ← المستوى 18."
 }
