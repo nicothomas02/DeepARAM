@@ -23,7 +23,6 @@
  "Loading duos…": "듀오 불러오는 중…",
  "Live patch {patch}. Each augment gets a DeepScore against the others of its rarity: 50 is average, S is 70 and up, A 59, B 44, C 32 and D below. Every number is in the table below.": "현재 패치 {patch}. 각 증강은 같은 등급의 다른 증강과 비교한 DeepScore를 받습니다: 50이 평균, S는 70 이상, A 59, B 44, C 32, D는 그 미만. 모든 수치는 아래 표에 있습니다.",
  "Tier List · Patch {patch}": "티어 리스트 · {patch} 패치",
- "Live patch {patch} by default. Pick any patches, or all time, above the champion table. Advanced shows every stat we have.": "기본값은 현재 패치 {patch}입니다. 챔피언 표 위에서 원하는 패치나 전체 기간을 선택하세요. 고급 보기에서는 모든 통계를 보여줍니다.",
  "Tier List": "티어 리스트",
  "Champions": "챔피언",
  "Augments": "증강",
@@ -48,5 +47,6 @@
  "Early game": "초반",
  "Late game": "후반",
  "Even": "고른 편",
- "Archetypes": "유형"
+ "Archetypes": "유형",
+ "Live patch {patch} by default. Pick any patches, or all time, above the champion table. Advanced stats at the bottom show every stat we have.": "기본값은 현재 패치 {patch}입니다. 챔피언 표 위에서 원하는 패치나 전체 기간을 선택하세요. 아래쪽 고급 통계에서 모든 통계를 볼 수 있습니다."
 }

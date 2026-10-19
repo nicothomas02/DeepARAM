@@ -23,7 +23,6 @@
  "Loading duos…": "Chargement des duos…",
  "Live patch {patch}. Each augment gets a DeepScore against the others of its rarity: 50 is average, S is 70 and up, A 59, B 44, C 32 and D below. Every number is in the table below.": "Patch actuel {patch}. Chaque augment reçoit un DeepScore face aux autres de sa rareté : 50 est la moyenne, S à partir de 70, A 59, B 44, C 32 et D en dessous. Tous les chiffres sont dans le tableau ci-dessous.",
  "Tier List · Patch {patch}": "Tier list · Patch {patch}",
- "Live patch {patch} by default. Pick any patches, or all time, above the champion table. Advanced shows every stat we have.": "Patch actuel {patch} par défaut. Choisissez n'importe quels patchs, ou « Depuis toujours », au-dessus du tableau des champions. La vue avancée affiche toutes nos stats.",
  "Tier List": "Tier list",
  "Champions": "Champions",
  "Augments": "Augments",
@@ -48,5 +47,6 @@
  "Early game": "Début de partie",
  "Late game": "Fin de partie",
  "Even": "Constant",
- "Archetypes": "Archétypes"
+ "Archetypes": "Archétypes",
+ "Live patch {patch} by default. Pick any patches, or all time, above the champion table. Advanced stats at the bottom show every stat we have.": "Patch actuel {patch} par défaut. Choisissez n'importe quels patchs, ou « Depuis toujours », au-dessus du tableau des champions. Les stats avancées, en bas de page, affichent toutes nos stats."
 }

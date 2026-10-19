@@ -102,5 +102,8 @@
  "Strongest": "強勢期",
  "Estimated from simulated damage at levels 8, 13 and 18: whether the champion peaks early, late or stays even.": "根據 8、13、18 級的模擬傷害估算：英雄是前期強、後期強還是平穩。",
  "Archetype": "類型",
- "How many champion pairs the average covers. Fewer pairs make it less certain.": "該平均值涵蓋的英雄組合數。組合越少，結果越不確定。"
+ "How many champion pairs the average covers. Fewer pairs make it less certain.": "該平均值涵蓋的英雄組合數。組合越少，結果越不確定。",
+ "{n} pts": "{n} 個百分點",
+ "Advanced stats": "進階數據",
+ "Every stat we have for this list, in its own table.": "此列表的全部數據，單獨列成一張表。"
 }

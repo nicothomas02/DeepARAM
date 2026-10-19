@@ -102,5 +102,8 @@
  "Strongest": "Point fort",
  "Estimated from simulated damage at levels 8, 13 and 18: whether the champion peaks early, late or stays even.": "Estimation à partir des dégâts simulés aux niveaux 8, 13 et 18 : le champion est-il fort en début, en fin de partie ou constant.",
  "Archetype": "Archétype",
- "How many champion pairs the average covers. Fewer pairs make it less certain.": "Combien de duos de champions la moyenne couvre. Moins de duos la rendent moins sûre."
+ "How many champion pairs the average covers. Fewer pairs make it less certain.": "Combien de duos de champions la moyenne couvre. Moins de duos la rendent moins sûre.",
+ "{n} pts": "{n} pts",
+ "Advanced stats": "Stats avancées",
+ "Every stat we have for this list, in its own table.": "Toutes nos stats pour cette liste, dans un tableau à part."
 }

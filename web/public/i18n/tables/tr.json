@@ -102,5 +102,8 @@
  "Strongest": "En güçlü",
  "Estimated from simulated damage at levels 8, 13 and 18: whether the champion peaks early, late or stays even.": "8, 13 ve 18. seviyelerde simüle edilen hasardan tahmin: şampiyon erken mi, geç mi güçlü, yoksa dengeli mi.",
  "Archetype": "Arketip",
- "How many champion pairs the average covers. Fewer pairs make it less certain.": "Ortalamanın kapsadığı şampiyon ikilisi sayısı. Daha az ikili, daha az kesinlik demektir."
+ "How many champion pairs the average covers. Fewer pairs make it less certain.": "Ortalamanın kapsadığı şampiyon ikilisi sayısı. Daha az ikili, daha az kesinlik demektir.",
+ "{n} pts": "{n} puan",
+ "Advanced stats": "Gelişmiş istatistikler",
+ "Every stat we have for this list, in its own table.": "Bu listenin tüm istatistikleri, ayrı bir tabloda."
 }

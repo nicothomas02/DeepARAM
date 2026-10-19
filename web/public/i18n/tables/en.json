@@ -102,5 +102,8 @@
  "Strongest": "Strongest",
  "Estimated from simulated damage at levels 8, 13 and 18: whether the champion peaks early, late or stays even.": "Estimated from simulated damage at levels 8, 13 and 18: whether the champion peaks early, late or stays even.",
  "Archetype": "Archetype",
- "How many champion pairs the average covers. Fewer pairs make it less certain.": "How many champion pairs the average covers. Fewer pairs make it less certain."
+ "How many champion pairs the average covers. Fewer pairs make it less certain.": "How many champion pairs the average covers. Fewer pairs make it less certain.",
+ "{n} pts": "{n} pts",
+ "Advanced stats": "Advanced stats",
+ "Every stat we have for this list, in its own table.": "Every stat we have for this list, in its own table."
 }

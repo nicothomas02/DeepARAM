@@ -102,5 +102,8 @@
  "Strongest": "Cel mai puternic",
  "Estimated from simulated damage at levels 8, 13 and 18: whether the champion peaks early, late or stays even.": "Estimare din daunele simulate la nivelurile 8, 13 și 18: dacă campionul e cel mai puternic devreme, târziu sau constant.",
  "Archetype": "Arhetip",
- "How many champion pairs the average covers. Fewer pairs make it less certain.": "Câte perechi de campioni acoperă media. Mai puține perechi o fac mai nesigură."
+ "How many champion pairs the average covers. Fewer pairs make it less certain.": "Câte perechi de campioni acoperă media. Mai puține perechi o fac mai nesigură.",
+ "{n} pts": "{n} pp",
+ "Advanced stats": "Statistici avansate",
+ "Every stat we have for this list, in its own table.": "Toate statisticile acestei liste, într-un tabel separat."
 }

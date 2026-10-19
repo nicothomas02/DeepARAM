@@ -102,5 +102,8 @@
  "Strongest": "Mạnh nhất",
  "Estimated from simulated damage at levels 8, 13 and 18: whether the champion peaks early, late or stays even.": "Ước tính từ sát thương mô phỏng ở cấp 8, 13 và 18: tướng mạnh đầu trận, cuối trận hay đều.",
  "Archetype": "Lối chơi",
- "How many champion pairs the average covers. Fewer pairs make it less certain.": "Số cặp tướng mà mức trung bình này bao gồm. Càng ít cặp thì càng kém chắc chắn."
+ "How many champion pairs the average covers. Fewer pairs make it less certain.": "Số cặp tướng mà mức trung bình này bao gồm. Càng ít cặp thì càng kém chắc chắn.",
+ "{n} pts": "{n} điểm",
+ "Advanced stats": "Chỉ số nâng cao",
+ "Every stat we have for this list, in its own table.": "Mọi chỉ số của danh sách này, trong một bảng riêng."
 }

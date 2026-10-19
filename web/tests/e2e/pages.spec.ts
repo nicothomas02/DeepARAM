@@ -138,6 +138,18 @@ test("clicking a champion on the Tier List opens its page, with no favorites or 
   await expect(page.locator(".fav-star, .cmp-toggle")).toHaveCount(0);
 });
 
+test("the Tier List keeps advanced stats in their own table at the bottom", async ({ page }) => {
+  await page.goto("/tier-list");
+  const main = page.locator(".data-table").first();
+  await expect(main.locator("thead")).not.toContainText("Damage share");
+  const more = page.locator(".advanced-stats").first();
+  await expect(more).not.toHaveAttribute("open");
+  await more.locator("summary").click();
+  await expect(more.locator("thead")).toContainText("Damage share");
+  // Changes read in percentage points, never as a negative zero.
+  await expect(main.locator("tbody").first()).not.toContainText("-0.0");
+});
+
 test("new visitors start in dark mode", async ({ page }) => {
   await page.goto("/");
   await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");

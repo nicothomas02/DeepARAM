@@ -1034,6 +1034,56 @@ h1 {
   outline-offset: -1px;
 }
 
+/* Advanced stats: every column for the same rows, in its own table at the bottom of the tab. */
+.advanced-stats {
+  margin-top: 2rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--line);
+}
+
+.advanced-stats > summary {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.25rem 0.75rem;
+  width: fit-content;
+  margin-bottom: 0.75rem;
+  font: 600 1.05rem var(--display);
+  list-style: none;
+  cursor: pointer;
+}
+
+.advanced-stats > summary::before {
+  content: "+";
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.advanced-stats[open] > summary::before {
+  content: "−";
+}
+
+.advanced-stats > summary::-webkit-details-marker {
+  display: none;
+}
+
+.advanced-stats > summary small {
+  color: var(--muted);
+  font: 400 0.8125rem var(--font-sans), system-ui, sans-serif;
+}
+
+/* The header row of a long table slides down with the page (DataTable useStickyHead). */
+.data-table thead th {
+  position: relative;
+  z-index: 2;
+  background: var(--surface);
+  transform: translateY(var(--head-off, 0px));
+}
+
+.data-table table[data-stuck] thead th {
+  box-shadow: 0 1px 0 var(--line);
+}
+
 .table-scroll {
   overflow-x: auto;
   border: 1px solid var(--line);
@@ -1465,16 +1515,42 @@ html[data-device="mobile"] .table-search {
 
 html[data-device="mobile"] .data-table th,
 html[data-device="mobile"] .data-table td {
-  padding: 0.7rem 0.6rem;
+  padding: 0.7rem 0.5rem;
 }
 
-html[data-device="mobile"] .data-table th:first-child,
-html[data-device="mobile"] .data-table td:first-child {
-  position: sticky;
-  left: 0;
-  z-index: 1;
-  background: var(--surface);
-  box-shadow: 1px 0 0 var(--line);
+/* The header buttons already make a 44px tap target. */
+html[data-device="mobile"] .data-table th {
+  padding-block: 0.1rem;
+}
+
+/* Phones: the champion or augment column stays put while the numbers scroll sideways under it, and the
+   row number, the "?" marks and spare padding step aside so the first numbers fit beside the name. */
+@media (max-width: 640px) {
+  .data-table .pin {
+    position: sticky;
+    left: 0;
+    z-index: 1;
+    background: var(--surface);
+    box-shadow: 1px 0 0 var(--line);
+  }
+
+  .data-table th.pin {
+    z-index: 3;
+  }
+
+  .data-table .rank-col,
+  .data-table th .col-hint {
+    display: none;
+  }
+
+  .data-table th,
+  .data-table td {
+    padding-inline: 0.5rem;
+  }
+
+  .data-table th {
+    padding-block: 0.1rem;
+  }
 }
 
 html[data-device="mobile"] .show-more {
@@ -2130,20 +2206,6 @@ html[data-device="mobile"] .site-header-inner {
   vertical-align: 1px;
 }
 
-.tier-view {
-  display: flex;
-  justify-content: flex-end;
-  margin-bottom: -2.6rem;
-  position: relative;
-  z-index: 1;
-  /* It overlaps the tab row; only its toggle takes clicks, so the tabs underneath stay clickable. */
-  pointer-events: none;
-}
-
-.tier-view > * {
-  pointer-events: auto;
-}
-
 .view-toggle,
 .patch-presets {
   display: flex;
@@ -2253,13 +2315,6 @@ html[data-device="mobile"] .site-header-inner {
   color: var(--muted);
   font-size: 0.8125rem;
   margin-bottom: 0.4rem;
-}
-
-@media (max-width: 640px) {
-  .tier-view {
-    justify-content: flex-start;
-    margin-bottom: 0.75rem;
-  }
 }
 
 /* Long list cells (top augments, partners) stay on one line; the table scrolls sideways instead. */

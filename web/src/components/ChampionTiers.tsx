@@ -31,7 +31,7 @@ const NAME: Column = { key: "name", label: "Champion", format: "champion" };
 const CHANGE: Column = {
   key: "change",
   label: "Change",
-  format: "pct",
+  format: "pts",
   hint: "Win rate change since the previous patch, in percentage points.",
 };
 
@@ -272,17 +272,18 @@ export default function ChampionTiers({ rows: initial, patches, tags, tagInfo, g
       {missing ? (
         <Skeleton rows={12} label={t("Loading older patches…")} />
       ) : (
+        // Numbers sit next to the name, as on other stat tables; the class tags come last.
         <DataTable
           key={sort.key}
-          columns={[...STANDARD.slice(0, 3), tagCol, ...STANDARD.slice(3), ...(showChange ? [CHANGE] : [])]}
+          columns={[...STANDARD, ...(showChange ? [CHANGE] : []), tagCol]}
           advancedColumns={[
-            ...ADVANCED.slice(0, 3),
-            tagCol,
-            ...ADVANCED.slice(3, 6),
+            ...ADVANCED.slice(0, 5),
+            ...(showChange ? [CHANGE] : []),
+            ...ADVANCED.slice(5, 6),
             ...(games && one === live ? [GAMES] : []),
             ...ADVANCED.slice(6),
             ...(Object.keys(scaling).length ? [CURVE] : []),
-            ...(showChange ? [CHANGE] : []),
+            tagCol,
           ]}
           rows={shownRows}
           initialSort={sort}

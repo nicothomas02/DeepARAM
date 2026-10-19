@@ -23,7 +23,6 @@
  "Loading duos…": "Načítám dua…",
  "Live patch {patch}. Each augment gets a DeepScore against the others of its rarity: 50 is average, S is 70 and up, A 59, B 44, C 32 and D below. Every number is in the table below.": "Aktuální patch {patch}. Každý augment dostane DeepScore vůči ostatním stejné vzácnosti: 50 je průměr, S je 70 a víc, A 59, B 44, C 32 a D níž. Všechna čísla jsou v tabulce níže.",
  "Tier List · Patch {patch}": "Tier list · Patch {patch}",
- "Live patch {patch} by default. Pick any patches, or all time, above the champion table. Advanced shows every stat we have.": "Ve výchozím stavu aktuální patch {patch}. Nad tabulkou šampionů si vyber libovolné patche nebo celkové výsledky. Pokročilé zobrazení ukazuje všechny statistiky, které máme.",
  "Tier List": "Tier list",
  "Champions": "Šampioni",
  "Augments": "Augmenty",
@@ -48,5 +47,6 @@
  "Early game": "Začátek hry",
  "Late game": "Pozdní hra",
  "Even": "Vyrovnaně",
- "Archetypes": "Archetypy"
+ "Archetypes": "Archetypy",
+ "Live patch {patch} by default. Pick any patches, or all time, above the champion table. Advanced stats at the bottom show every stat we have.": "Ve výchozím stavu aktuální patch {patch}. Nad tabulkou šampionů si vyber libovolné patche nebo celkové výsledky. Pokročilé statistiky dole ukazují všechny statistiky, které máme."
 }

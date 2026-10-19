@@ -102,5 +102,8 @@
  "Strongest": "Più forte",
  "Estimated from simulated damage at levels 8, 13 and 18: whether the champion peaks early, late or stays even.": "Stima dai danni simulati ai livelli 8, 13 e 18: se il campione rende al meglio presto, tardi o in modo costante.",
  "Archetype": "Archetipo",
- "How many champion pairs the average covers. Fewer pairs make it less certain.": "Quante coppie di campioni copre la media. Meno coppie la rendono meno sicura."
+ "How many champion pairs the average covers. Fewer pairs make it less certain.": "Quante coppie di campioni copre la media. Meno coppie la rendono meno sicura.",
+ "{n} pts": "{n} pt",
+ "Advanced stats": "Statistiche avanzate",
+ "Every stat we have for this list, in its own table.": "Tutte le statistiche di questo elenco, in una tabella a parte."
 }

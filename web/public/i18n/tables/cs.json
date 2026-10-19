@@ -102,5 +102,8 @@
  "Strongest": "Nejsilnější",
  "Estimated from simulated damage at levels 8, 13 and 18: whether the champion peaks early, late or stays even.": "Odhad ze simulovaného poškození na úrovních 8, 13 a 18: zda je šampion nejsilnější brzy, pozdě, nebo vyrovnaně.",
  "Archetype": "Archetyp",
- "How many champion pairs the average covers. Fewer pairs make it less certain.": "Kolik dvojic šampionů průměr zahrnuje. Méně dvojic znamená menší jistotu."
+ "How many champion pairs the average covers. Fewer pairs make it less certain.": "Kolik dvojic šampionů průměr zahrnuje. Méně dvojic znamená menší jistotu.",
+ "{n} pts": "{n} b.",
+ "Advanced stats": "Pokročilé statistiky",
+ "Every stat we have for this list, in its own table.": "Všechny statistiky k tomuto seznamu ve vlastní tabulce."
 }

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { pageMeta } from "@/lib/meta";
 import { livePatch } from "@/lib/highlights";
 import augmentNames from "@/data/augment-names.json";
-import { AdvancedProvider, AdvancedToggle } from "@/components/Advanced";
+import { AdvancedProvider } from "@/components/Advanced";
 import ChampionTiers from "@/components/ChampionTiers";
 import DataTable from "@/components/DataTable";
 import DuosTable from "@/components/DuosTable";
@@ -121,7 +121,7 @@ export default function TierListPage() {
               {
                 key: "lift",
                 label: "Win rate vs its champions",
-                format: "pct" as const,
+                format: "pts" as const,
                 hint: "Win rate minus what the champions who take it win anyway. Above zero means it helps them.",
               },
               { key: "win_rank", label: "Win rank", format: "int" },
@@ -214,12 +214,9 @@ export default function TierListPage() {
         title={<T ns="tier-list">{text("page./tier-list.title", "Every Mayhem champion and augment, ranked.")}</T>}
       >
         <T ns="tier-list" v={{ patch: latest.patch }}>
-          {"Live patch {patch} by default. Pick any patches, or all time, above the champion table. Advanced shows every stat we have."}
+          {"Live patch {patch} by default. Pick any patches, or all time, above the champion table. Advanced stats at the bottom show every stat we have."}
         </T>
       </Intro>
-      <div className="tier-view">
-        <AdvancedToggle />
-      </div>
       <SubTabs tabs={tabs} ns="tier-list" />
     </AdvancedProvider>
   );
