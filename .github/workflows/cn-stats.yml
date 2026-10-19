@@ -30,11 +30,19 @@ jobs:
         # a game-data download hiccup shouldn't hold back the stats themselves
         continue-on-error: true
         run: python3 champions/build_data.py
+      - name: Translate the champion pages' new items and augments
+        continue-on-error: true
+        run: python3 champions/build_i18n.py
+      - name: Host icons for augments and items the new builds use
+        continue-on-error: true
+        run: |
+          python3 web/scripts/fetch_assets.py
+          git checkout -- web/public/assets/manifest.json
       - name: Commit changes
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/cn champions/data.js
+          git add data/cn champions/data.js champions/i18n web/public/assets
           if git diff --cached --quiet; then
             echo "No new data"
           else
