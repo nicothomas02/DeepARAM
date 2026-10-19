@@ -100,5 +100,8 @@
  "DeepScore rates each build from 0 to 100 against this champion's other builds in the same list, where 50 is average. It starts from the build's win rate with this champion and trusts rarely built ones less. Tiers: S 70+, A 59+, B 44+, C 32+, D below.": "DeepScore는 같은 목록에 있는 이 챔피언의 다른 빌드와 비교해 각 빌드를 0~100점으로 평가하며, 50점이 평균입니다. 이 챔피언으로 그 빌드를 갔을 때의 승률에서 출발하고, 드물게 가는 빌드는 덜 신뢰합니다. 등급: S 70+, A 59+, B 44+, C 32+, D는 그 미만.",
  "DeepScore rates each item from 0 to 100 against the other items of its tier, where 50 is average. It starts from how much the item raises the win rate of the champions who build it and trusts rarely built items less. Tiers: S 70+, A 59+, B 44+, C 32+, D below.": "DeepScore는 같은 등급의 다른 아이템과 비교해 각 아이템을 0~100점으로 평가하며, 50점이 평균입니다. 그 아이템을 사는 챔피언의 승률을 얼마나 올리는지에서 출발하고, 드물게 사는 아이템은 덜 신뢰합니다. 등급: S 70+, A 59+, B 44+, C 32+, D는 그 미만.",
  "Strongest": "강한 시점",
- "Estimated from simulated damage at levels 8, 13 and 18: whether the champion peaks early, late or stays even.": "레벨 8, 13, 18의 시뮬레이션 피해량으로 추정: 챔피언이 초반, 후반 중 언제 강한지 또는 고른지."
+ "Estimated from simulated damage at levels 8, 13 and 18: whether the champion peaks early, late or stays even.": "레벨 8, 13, 18의 시뮬레이션 피해량으로 추정: 챔피언이 초반, 후반 중 언제 강한지 또는 고른지.",
+ "Archetype": "유형",
+ "How many champion pairs the average covers. Fewer pairs make it less certain.": "평균에 포함된 챔피언 조합 수입니다. 조합이 적을수록 덜 확실합니다.",
+ "DeepScore rates each pair from 0 to 100 against the other pairs, where 50 is average. It starts from the pair's win rate delta and trusts rarely played pairs less, so a big delta from few games can't outrank a slightly smaller one from many.": "DeepScore는 각 조합을 다른 조합과 비교해 0~100으로 평가하며 50이 평균입니다. 조합의 승률 차이에서 시작해 드물게 플레이된 조합은 덜 신뢰하므로, 적은 게임에서 나온 큰 차이가 많은 게임에서 나온 약간 작은 차이를 앞서지 않습니다."
 }

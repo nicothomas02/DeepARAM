@@ -76,3 +76,7 @@ export const BUILD_DEEPSCORE_HELP =
 export const ITEM_TIER_DEEPSCORE_HELP =
   "DeepScore rates each item from 0 to 100 against the other items of its tier, where 50 is average. It starts from how much " +
   `the item raises the win rate of the champions who build it and trusts rarely built items less. Tiers: ${CUTS}, D below.`;
+
+export const DUO_DEEPSCORE_HELP =
+  "DeepScore rates each pair from 0 to 100 against the other pairs, where 50 is average. It starts from the pair's win rate " +
+  "delta and trusts rarely played pairs less, so a big delta from few games can't outrank a slightly smaller one from many.";
