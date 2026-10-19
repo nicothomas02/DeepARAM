@@ -45,7 +45,6 @@
  "Augment": "Güçlendirme",
  "Rarity": "Nadirlik",
  "Augments": "Güçlendirmeler",
- "Win rate vs its champions": "Şampiyonlarına göre kazanma oranı",
  "Win rank": "Kazanma sırası",
  "Pick rank": "Seçilme sırası",
  "Pick rank change": "Seçilme sırası değişimi",
@@ -90,7 +89,6 @@
  "Copy image": "Görseli kopyala",
  "Save": "Kaydet",
  "Close": "Kapat",
- "Win rate delta": "Kazanma oranı farkı",
  "Games": "Maçlar",
  "Games played on the live patch.": "Güncel yamada oynanan maçlar.",
  "DeepScore rates each item from 0 to 100 against this champion's other items of the same tier, where 50 is average. It starts from the item's win rate with this champion and trusts rarely built items less. Tiers: S 70+, A 59+, B 44+, C 32+, D below.": "DeepScore, her eşyayı bu şampiyonun aynı seviyedeki diğer eşyalarına göre 0 ile 100 arasında puanlar; 50 ortalamadır. Eşyanın bu şampiyonla kazanma oranından yola çıkar ve nadiren yapılan eşyalara daha az güvenir. Kademeler: S 70+, A 59+, B 44+, C 32+, D altı.",
@@ -112,5 +110,13 @@
  "In builds": "Dizilimlerde",
  "Cost": "Fiyat",
  "Estimated win rate of the champions who build it.": "Bu eşyayı alan şampiyonların tahmini kazanma oranı.",
- "Estimated share of builds that include it.": "Bu eşyayı içeren dizilimlerin tahmini payı."
+ "Estimated share of builds that include it.": "Bu eşyayı içeren dizilimlerin tahmini payı.",
+ "How rankings work": "Sıralamalar nasıl çalışır",
+ "DeepScore rates each champion, augment, item or build from 0 to 100. 50 is average.": "DeepScore her şampiyonu, güçlendirmeyi, eşyayı ya da dizilimi 0 ile 100 arasında puanlar. 50 ortalamadır.",
+ "Tiers come from DeepScore: S is {s} and up, A {a} and up, B {b} and up, C {c} and up, D below.": "Kademeler DeepScore'dan gelir: S {s} ve üstü, A {a} ve üstü, B {b} ve üstü, C {c} ve üstü, altı D.",
+ "It starts from win rate and trusts picks with few games less, so a rare pick needs a bigger edge to rank high.": "Kazanma oranından yola çıkar ve az oyunu olan seçimlere daha az güvenir; bu yüzden nadir bir seçimin yükselmek için daha büyük bir farka ihtiyacı vardır.",
+ "Win rate boost is how much more a pick wins than the rate it's compared with, such as the champion's own, in percentage points (pts): +2 pts turns 50% into 52%.": "Kazanma oranı artışı, bir seçimin karşılaştırıldığı orandan (örneğin şampiyonun kendi oranından) ne kadar fazla kazandığıdır, yüzde puan (puan) olarak: +2 puan %50'yi %52 yapar.",
+ "Numbers marked estimated are worked out from the stats we have, not counted game by game.": "Tahmini olarak işaretlenen sayılar elimizdeki istatistiklerden hesaplanır, oyun oyun sayılmaz.",
+ "Game counts are approximate.": "Oyun sayıları yaklaşıktır.",
+ "Win rate boost": "Kazanma oranı artışı"
 }

@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { Name, useT } from "@/components/I18n";
 import DeepScore from "@/components/DeepScore";
-import { signed, tone } from "@/components/champion/Ranked";
+import { signedPts, tone } from "@/components/champion/Ranked";
 import { SIMPLE_LIMIT } from "@/components/champion/ShowMore";
 import type { AugmentRow } from "@/lib/champion-page";
 import { AUGMENT_DEEPSCORE_HELP } from "@/lib/deepscore";
@@ -34,6 +34,7 @@ export default function AugmentTable({
   })[];
 }) {
   const t = useT("champions");
+  const tt = useT("tables");
   const [rarity, setRarity] = useState<(typeof RARITIES)[number]>("all");
   const [open, setOpen] = useState(false);
   const [sort, setSort] = useState<{ key: SortKey; desc: boolean }>({ key: "deepScore", desc: true });
@@ -62,7 +63,7 @@ export default function AugmentTable({
       </button>
     </span>
   );
-  // Estimated win rates, when there are any: an extra column with each augment's lift below it.
+  // Estimated win rates, when there are any: an extra column with each augment's win rate boost below it.
   const est = rows.some((r) => r.winRate !== undefined);
   const cols = est ? 3 : 2;
   return (
@@ -146,7 +147,7 @@ export default function AugmentTable({
                         {(a.winRate * 100).toFixed(1)}%
                       </b>
                       <small>
-                        {signed(a.lift ?? 0)} {t("lift")}
+                        {t("{n} boost", { n: tt("{n} pts", { n: signedPts(a.lift ?? 0) }) })}
                       </small>
                     </>
                   ) : (

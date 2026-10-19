@@ -69,7 +69,6 @@
  "How it does": "表现",
  "Estimated": "估算",
  "win rate": "胜率",
- "vs its builders' usual win rate": "对比购买者平时的胜率",
  "of builds": "的出装",
  "bought 1st · 2nd · 3rd": "第1 · 2 · 3件购买",
  "Some augments also grant this item.": "部分强化符文也会给予该装备。",
@@ -89,5 +88,6 @@
  "Rarely bought in ARAM Mayhem, so it has no win rate yet.": "在 ARAM Mayhem 中很少购买，因此暂无胜率。",
  "Cards": "卡片",
  "Table": "表格",
- "View": "视图"
+ "View": "视图",
+ "win rate boost": "胜率提升"
 }

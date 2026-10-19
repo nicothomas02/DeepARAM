@@ -69,7 +69,6 @@
  "How it does": "Jak si vede",
  "Estimated": "Odhad",
  "win rate": "míra výher",
- "vs its builders' usual win rate": "oproti běžné míře výher těch, kdo ho staví",
  "of builds": "sestav",
  "bought 1st · 2nd · 3rd": "koupen 1. · 2. · 3.",
  "Some augments also grant this item.": "Tento předmět dávají i některá vylepšení.",
@@ -89,5 +88,6 @@
  "Rarely bought in ARAM Mayhem, so it has no win rate yet.": "V ARAM Mayhem se kupuje zřídka, takže zatím nemá míru výher.",
  "Cards": "Karty",
  "Table": "Tabulka",
- "View": "Zobrazení"
+ "View": "Zobrazení",
+ "win rate boost": "přírůstek výher"
 }

@@ -4451,6 +4451,39 @@ th > button[data-tip] {
   color: var(--fg);
   font-weight: 600;
 }
+.table-glossary .rankings-link {
+  display: inline-block;
+  margin-top: 0.6rem;
+  color: var(--accent);
+}
+
+/* "How rankings work" (HowRankings.tsx): one closed line until opened. */
+.how-rankings {
+  margin: 0 0 1.25rem;
+  padding: 0.55rem 0.9rem;
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  background: var(--card);
+  color: var(--muted);
+  font-size: 0.875rem;
+  scroll-margin-top: 5rem;
+}
+.how-rankings:not([open]) {
+  width: fit-content;
+}
+.how-rankings > summary {
+  width: fit-content;
+  color: var(--accent);
+  font-weight: 600;
+  cursor: pointer;
+}
+.how-rankings ul {
+  display: grid;
+  gap: 0.3rem;
+  margin: 0.6rem 0 0.15rem;
+  padding-left: 1.1rem;
+  line-height: 1.45;
+}
 
 /* Empty and error states */
 .empty-state {

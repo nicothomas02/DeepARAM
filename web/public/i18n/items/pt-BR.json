@@ -69,7 +69,6 @@
  "How it does": "Como se sai",
  "Estimated": "Estimado",
  "win rate": "taxa de vitória",
- "vs its builders' usual win rate": "vs. a taxa de vitória habitual de quem o compra",
  "of builds": "das builds",
  "bought 1st · 2nd · 3rd": "comprado em 1º · 2º · 3º",
  "Some augments also grant this item.": "Alguns aprimoramentos também dão este item.",
@@ -89,5 +88,6 @@
  "Rarely bought in ARAM Mayhem, so it has no win rate yet.": "Raramente comprado no ARAM Mayhem, então ainda não tem taxa de vitória.",
  "Cards": "Cartões",
  "Table": "Tabela",
- "View": "Visualização"
+ "View": "Visualização",
+ "win rate boost": "ganho de vitórias"
 }

@@ -45,7 +45,6 @@
  "Augment": "Augment",
  "Rarity": "ความหายาก",
  "Augments": "Augments",
- "Win rate vs its champions": "อัตราชนะเทียบกับแชมเปี้ยนที่ใช้",
  "Win rank": "อันดับอัตราชนะ",
  "Pick rank": "อันดับการเลือก",
  "Pick rank change": "การเปลี่ยนอันดับการเลือก",
@@ -90,7 +89,6 @@
  "Copy image": "คัดลอกรูปภาพ",
  "Save": "บันทึก",
  "Close": "ปิด",
- "Win rate delta": "ส่วนต่างอัตราชนะ",
  "Games": "จำนวนเกม",
  "Games played on the live patch.": "จำนวนเกมที่เล่นในแพตช์ปัจจุบัน",
  "DeepScore rates each item from 0 to 100 against this champion's other items of the same tier, where 50 is average. It starts from the item's win rate with this champion and trusts rarely built items less. Tiers: S 70+, A 59+, B 44+, C 32+, D below.": "DeepScore ให้คะแนนแต่ละไอเทมตั้งแต่ 0 ถึง 100 เทียบกับไอเทมอื่นระดับเดียวกันของแชมเปี้ยนนี้ โดย 50 คือค่าเฉลี่ย เริ่มจากอัตราชนะของไอเทมกับแชมเปี้ยนนี้ และเชื่อถือไอเทมที่ไม่ค่อยมีคนออกน้อยลง ระดับ: S 70+, A 59+, B 44+, C 32+, D ต่ำกว่านั้น",
@@ -112,5 +110,13 @@
  "In builds": "ในบิลด์",
  "Cost": "ราคา",
  "Estimated win rate of the champions who build it.": "อัตราชนะโดยประมาณของแชมเปี้ยนที่ซื้อไอเทมนี้",
- "Estimated share of builds that include it.": "สัดส่วนโดยประมาณของบิลด์ที่มีไอเทมนี้"
+ "Estimated share of builds that include it.": "สัดส่วนโดยประมาณของบิลด์ที่มีไอเทมนี้",
+ "How rankings work": "การจัดอันดับทำงานอย่างไร",
+ "DeepScore rates each champion, augment, item or build from 0 to 100. 50 is average.": "DeepScore ให้คะแนนแชมเปี้ยน ออกเมนต์ ไอเท็ม หรือบิลด์แต่ละอย่างตั้งแต่ 0 ถึง 100 โดย 50 คือค่าเฉลี่ย",
+ "Tiers come from DeepScore: S is {s} and up, A {a} and up, B {b} and up, C {c} and up, D below.": "เทียร์มาจาก DeepScore: S ตั้งแต่ {s} ขึ้นไป, A ตั้งแต่ {a}, B ตั้งแต่ {b}, C ตั้งแต่ {c} และต่ำกว่านั้นคือ D",
+ "It starts from win rate and trusts picks with few games less, so a rare pick needs a bigger edge to rank high.": "เริ่มจากอัตราชนะ และเชื่อตัวเลือกที่มีจำนวนเกมน้อยน้อยลง ตัวเลือกที่หายากจึงต้องนำมากกว่าจึงจะขึ้นอันดับสูง",
+ "Win rate boost is how much more a pick wins than the rate it's compared with, such as the champion's own, in percentage points (pts): +2 pts turns 50% into 52%.": "อัตราชนะที่เพิ่มขึ้นคือตัวเลือกนั้นชนะมากกว่าอัตราที่ใช้เปรียบเทียบเท่าไร เช่น อัตราชนะของแชมเปี้ยนเอง เป็นจุดเปอร์เซ็นต์ (จุด): +2 จุดทำให้ 50% เป็น 52%",
+ "Numbers marked estimated are worked out from the stats we have, not counted game by game.": "ตัวเลขที่ระบุว่าเป็นค่าประมาณคำนวณจากสถิติที่เรามี ไม่ได้นับทีละเกม",
+ "Game counts are approximate.": "จำนวนเกมเป็นค่าโดยประมาณ",
+ "Win rate boost": "อัตราชนะที่เพิ่มขึ้น"
 }

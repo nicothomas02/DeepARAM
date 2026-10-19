@@ -45,7 +45,6 @@
  "Augment": "Augmentare",
  "Rarity": "Raritate",
  "Augments": "Augmentări",
- "Win rate vs its champions": "Rată de victorie față de campionii săi",
  "Win rank": "Loc la victorii",
  "Pick rank": "Loc la alegeri",
  "Pick rank change": "Schimbare loc la alegeri",
@@ -90,7 +89,6 @@
  "Copy image": "Copiază imaginea",
  "Save": "Salvează",
  "Close": "Închide",
- "Win rate delta": "Diferență rată de victorie",
  "Games": "Meciuri",
  "Games played on the live patch.": "Meciuri jucate pe patch-ul curent.",
  "DeepScore rates each item from 0 to 100 against this champion's other items of the same tier, where 50 is average. It starts from the item's win rate with this champion and trusts rarely built items less. Tiers: S 70+, A 59+, B 44+, C 32+, D below.": "DeepScore notează fiecare obiect de la 0 la 100 față de celelalte obiecte de același nivel ale acestui campion, 50 fiind media. Pornește de la rata de victorie a obiectului cu acest campion și are mai puțină încredere în obiectele construite rar. Niveluri: S 70+, A 59+, B 44+, C 32+, D sub.",
@@ -112,5 +110,13 @@
  "In builds": "În builduri",
  "Cost": "Cost",
  "Estimated win rate of the champions who build it.": "Rata de victorie estimată a campionilor care îl construiesc.",
- "Estimated share of builds that include it.": "Procentul estimat de builduri care îl includ."
+ "Estimated share of builds that include it.": "Procentul estimat de builduri care îl includ.",
+ "How rankings work": "Cum funcționează clasamentele",
+ "DeepScore rates each champion, augment, item or build from 0 to 100. 50 is average.": "DeepScore notează fiecare campion, augment, obiect sau build de la 0 la 100. 50 e media.",
+ "Tiers come from DeepScore: S is {s} and up, A {a} and up, B {b} and up, C {c} and up, D below.": "Nivelurile vin din DeepScore: S de la {s} în sus, A de la {a}, B de la {b}, C de la {c}, D sub.",
+ "It starts from win rate and trusts picks with few games less, so a rare pick needs a bigger edge to rank high.": "Pornește de la rata de victorie și are mai puțină încredere în alegerile cu puține meciuri, așa că o alegere rară are nevoie de un avantaj mai mare.",
+ "Win rate boost is how much more a pick wins than the rate it's compared with, such as the champion's own, in percentage points (pts): +2 pts turns 50% into 52%.": "Sporul de victorie arată cu cât câștigă mai des o alegere decât rata cu care e comparată, de exemplu cea a campionului, în puncte procentuale (pp): +2 pp transformă 50% în 52%.",
+ "Numbers marked estimated are worked out from the stats we have, not counted game by game.": "Numerele marcate ca estimate sunt calculate din statisticile pe care le avem, nu numărate meci cu meci.",
+ "Game counts are approximate.": "Numărul de meciuri este aproximativ.",
+ "Win rate boost": "Spor de victorie"
 }

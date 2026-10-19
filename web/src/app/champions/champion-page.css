@@ -135,6 +135,10 @@
   padding-left: 0;
   border-left: 0;
 }
+/* Narrow columns: a longer label ("Win rate boost") wraps instead of cutting off. */
+.cp-mini .cp-cell small {
+  white-space: normal;
+}
 
 /* Section links */
 .cp-rail {

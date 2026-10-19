@@ -21,6 +21,7 @@ import RecentPlayed from "@/components/RecentPlayed";
 import { TourChip } from "@/components/FirstVisitTour";
 import { LocalDate, ModeName, Name, T } from "@/components/I18n";
 import { patchName } from "@/lib/patch-name";
+import { signedPts } from "@/components/champion/Ranked";
 
 // eslint-disable-next-line @next/next/no-img-element
 const Icon = ({ src }: { src: string }) => <img className="icon" src={src} alt="" width={24} height={24} loading="lazy" />;
@@ -28,9 +29,8 @@ const Icon = ({ src }: { src: string }) => <img className="icon" src={src} alt="
 const pct = (v: number) => `${(v * 100).toFixed(1)}%`;
 
 // The pairs that help each other most on the live patch: the Duos tab's DeepScore order (synergy, trusting
-// rarely played pairs less), each showing its Win rate delta.
+// rarely played pairs less), each showing its win rate boost in pts.
 const topDuos = (n = 5) => [...duoRows()].sort((a, b) => b.deepScore - a.deepScore || b.delta - a.delta).slice(0, n);
-const pts = (v: number) => `${v > 0 ? "+" : ""}${(v * 100).toFixed(1)} pts`;
 
 // The number each "Top 10 at" list ranks on, written for its row (FunLists adds the unit): live-patch
 // shares, estimated typical-game numbers, and simulated damage at level 8 → 18 for early and late game.
@@ -196,7 +196,11 @@ export default function Home() {
                       {NAMES[d.b] ?? d.b}
                     </Name>
                   </span>
-                  <span className="rank-v">{pts(d.delta)}</span>
+                  <span className="rank-v">
+                    <T ns="tables" v={{ n: signedPts(d.delta) }}>
+                      {"{n} pts"}
+                    </T>
+                  </span>
                 </Link>
               ))}
             </div>

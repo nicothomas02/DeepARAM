@@ -69,7 +69,6 @@
  "How it does": "So schneidet es ab",
  "Estimated": "Geschätzt",
  "win rate": "Siegrate",
- "vs its builders' usual win rate": "ggü. der üblichen Siegrate seiner Käufer",
  "of builds": "der Builds",
  "bought 1st · 2nd · 3rd": "als 1. · 2. · 3. gekauft",
  "Some augments also grant this item.": "Manche Augments gewähren diesen Gegenstand auch.",
@@ -89,5 +88,6 @@
  "Rarely bought in ARAM Mayhem, so it has no win rate yet.": "In ARAM Mayhem selten gekauft, daher gibt es noch keine Siegesrate.",
  "Cards": "Karten",
  "Table": "Tabelle",
- "View": "Ansicht"
+ "View": "Ansicht",
+ "win rate boost": "Siegraten-Plus"
 }

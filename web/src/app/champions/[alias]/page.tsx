@@ -38,6 +38,7 @@ import ShowMore from "@/components/champion/ShowMore";
 import AugmentTable from "@/components/champion/AugmentTable";
 import SectionRail from "@/components/champion/SectionRail";
 import Fold from "@/components/champion/Fold";
+import HowRankings from "@/components/HowRankings";
 import { BaseStatsTable, MayhemChanges } from "@/components/champion/Details";
 import {
   fillEstimated,
@@ -157,7 +158,6 @@ export const generateStaticParams = () =>
   championAliases().map((alias) => ({ alias }));
 
 const NS = "champions";
-const pts = (v: number) => `${v > 0 ? "+" : ""}${(v * 100).toFixed(1)} pts`;
 
 export async function generateMetadata({
   params,
@@ -217,7 +217,7 @@ function Spells({ r }: { r: SpellRow }) {
   );
 }
 
-/** Win rate, pick rate and lift, or just pick rate and games for estimated spells. */
+/** Win rate, pick rate and win rate boost, or just pick rate and games for estimated spells. */
 function SpellCells({ r }: { r: SpellRow }) {
   return r.estimated ? (
     <>
@@ -408,7 +408,7 @@ export default async function ChampionPage({
             />
             {c.change !== null && (
               <div className="cp-cell">
-                <b className={tone(c.change)}>{pts(c.change)}</b>
+                <b className={tone(c.change)}>{signed(c.change)}</b>
                 <small>
                   <T ns={NS} v={{ patch: patchName(c.prev) }}>
                     {"since {patch}"}
@@ -427,7 +427,7 @@ export default async function ChampionPage({
               <b>#{c.rank}</b>
               <small>
                 <T ns={NS} v={{ n: c.of }}>
-                  {"of {n}"}
+                  {"of {n} by DeepScore"}
                 </T>
               </small>
             </div>
@@ -522,6 +522,7 @@ export default async function ChampionPage({
         </aside>
 
         <div className="cp-main">
+          <HowRankings />
           <h2 className="cp-group" id="augments">
             <T ns={NS}>Augments</T>
           </h2>
@@ -533,7 +534,7 @@ export default async function ChampionPage({
                 est?.augments.size ? (
                   <T ns={NS}>
                     {
-                      "Win rates are estimated. Lift is how much each augment adds to this champion's win rate."
+                      "Win rates are estimated. The boost below each is how much the augment adds to this champion's win rate."
                     }
                   </T>
                 ) : undefined
@@ -745,7 +746,7 @@ export default async function ChampionPage({
                 </ShowMore>
               </>
             ) : (
-              <NotYet text="Spell pairs with win rate, pick rate and win lift appear here once enough games are in." />
+              <NotYet text="Spell pairs with win rate, pick rate and win rate boost appear here once enough games are in." />
             )}
           </Panel>
           {p.skills.length > 0 && (
@@ -797,7 +798,7 @@ export default async function ChampionPage({
                 </T>
               }
             >
-              <Head what="Teammate" cols={["Win rate delta", "Pick rate"]} />
+              <Head what="Teammate" cols={["Win rate boost", "Pick rate"]} />
               <ShowMore total={p.mates.length}>
                 {p.mates.map((m, i) => (
                   <Row
@@ -807,7 +808,7 @@ export default async function ChampionPage({
                       <>
                         <Cell
                           value={signed(m.synergy)}
-                          label="Win rate delta"
+                          label="Win rate boost"
                           tone={tone(m.synergy)}
                         />
                         <Cell value={pct(m.pickRate)} label="Pick rate" />
@@ -852,7 +853,7 @@ export default async function ChampionPage({
             <Panel title="Builds by style" count={p.styles.length} detailed>
               <Head
                 what="Style"
-                cols={["Win rate", "Build share", "Win lift"]}
+                cols={["Win rate", "Build share", "Win rate boost"]}
               />
               <div className="cp-rows">
                 {p.styles.map((s, i) => (
@@ -865,7 +866,7 @@ export default async function ChampionPage({
                         <Cell value={pct(s.share)} label="Build share" />
                         <Cell
                           value={signed(s.lift)}
-                          label="Win lift"
+                          label="Win rate boost"
                           tone={tone(s.lift)}
                         />
                       </>

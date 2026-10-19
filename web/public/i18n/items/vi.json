@@ -69,7 +69,6 @@
  "How it does": "Hiệu quả",
  "Estimated": "Ước tính",
  "win rate": "tỉ lệ thắng",
- "vs its builders' usual win rate": "so với tỉ lệ thắng thường ngày của người mua",
  "of builds": "số bản build",
  "bought 1st · 2nd · 3rd": "mua thứ 1 · 2 · 3",
  "Some augments also grant this item.": "Một số lõi cũng cho trang bị này.",
@@ -89,5 +88,6 @@
  "Rarely bought in ARAM Mayhem, so it has no win rate yet.": "Hiếm khi được mua trong ARAM Mayhem nên chưa có tỉ lệ thắng.",
  "Cards": "Thẻ",
  "Table": "Bảng",
- "View": "Chế độ xem"
+ "View": "Chế độ xem",
+ "win rate boost": "mức tăng tỉ lệ thắng"
 }
