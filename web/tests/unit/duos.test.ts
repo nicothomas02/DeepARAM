@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { duoRows } from "@/lib/duos";
+import { readRepoJson } from "@/lib/repo-data";
 
 // The Duos tab's pairs (lib/duos.ts), built from each champion's listed teammates.
 describe("duo pairs", () => {
@@ -23,5 +24,11 @@ describe("duo pairs", () => {
   it("finds pairs that beat what their own win rates predict, and pairs that fall short", () => {
     expect(rows.some((r) => r.delta > 0.02)).toBe(true);
     expect(rows.some((r) => r.delta < -0.02)).toBe(true);
+  });
+
+  it("lists the champion with the bigger damage share first", () => {
+    const champs = readRepoJson<{ champions: { name: string; avg_damage_ratio: number }[] }>("data/cn/champions.json")!.champions;
+    const damage = new Map(champs.map((c) => [c.name, c.avg_damage_ratio]));
+    for (const r of rows) if (damage.has(r.a) && damage.has(r.b)) expect(damage.get(r.a)!).toBeGreaterThanOrEqual(damage.get(r.b)!);
   });
 });
