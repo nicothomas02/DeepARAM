@@ -18,8 +18,8 @@
       "Some tooltips still have blanks, so a few descriptions leave out numbers.",
       "No champion-specific ARAM damage or healing changes so far.",
       "Ability values are listed for ranks 1-5 (basic abilities) or 1-3 (ultimates).",
-      "Update 2026-10-16 (build 16.21.8284168): Caitlyn's passive crit nerf was reverted, the Qiyana Q nerf now covers unenchanted Q too, and Fruitify now steps up at levels 7, 11 and 15.",
-      "Update 2026-10-16 (build 16.21.8289811): Caitlyn's passive crit nerf is back (crit damage 100% → 80%)."
+      "Update 2026-10-16 (patch 26.21): Caitlyn's passive crit nerf was reverted, the Qiyana Q nerf now covers unenchanted Q too, and Fruitify now steps up at levels 7, 11 and 15.",
+      "Update 2026-10-16 (patch 26.21): Caitlyn's passive crit nerf is back (crit damage 100% → 80%)."
     ],
     "builds": {
       "pbe": "16.21.8289811",
