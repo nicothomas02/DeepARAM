@@ -358,6 +358,10 @@
    },
    "toggle": true,
    "why": "Defile is a 550-radius aura; parsed as a single/self buff so the aura only reached 350; it is a toggle, on whenever enemies are in reach"
+  },
+  "Q": {
+   "solo_mult": 2,
+   "why": "Lay Waste deals double damage when it hits only one enemy (QSingleTargetDamage is twice QDamage)"
   }
  },
  "Sion": {
@@ -1566,6 +1570,13 @@
   "E": {
    "cc": null,
    "why": "Black Shield is a spell shield on an ally; it roots no one"
+  },
+  "W": {
+   "missing_amp": 1.0,
+   "alt_calcs": [
+    "TotalMaxDamage"
+   ],
+   "why": "Tormented Shadow deals up to 100% more damage the more Health the target is missing (MissingHealthAmpPercent 1.0); the tooltip's maximum is that bonus, not an extra hit"
   }
  },
  "Naafiri": {
@@ -1756,7 +1767,10 @@
  "Ryze": {
   "Q": {
    "cooldown": 2.5,
-   "why": "Ryze's passive refunds Overload's cooldown whenever he casts W or E"
+   "why": "Ryze's passive refunds Overload's cooldown whenever he casts W or E; Overload deals 50% more to enemies with Flux (RyzeE DamageAmp at rank 5), which in his E-Q-W-Q rotation is nearly every Q",
+   "hit_mults": {
+    "QDamageCalc": 1.5
+   }
   }
  },
  "Sejuani": {

@@ -243,6 +243,7 @@ ChampionKit loadChampion(const json::Value& c, const Rules& rules) {
         ab.appliesOnHit = a["applies_onhit"].asBool(false);
         ab.invuln = a["invuln"].asNumber(0);
         ab.refund = a["refund"].asNumber(0);
+        ab.soloMult = a["solo_mult"].asNumber(1);
         ab.missingAmp = a["missing_amp"].asNumber(0);
         ab.missingMax = a["missing_max"].asNumber(0);
         ab.critRefund = std::max(0.0, a["crit_refund"].asNumber(0));
@@ -868,7 +869,7 @@ private:
     Bag fx_;  // summed effects
     Bag itemFx_;  // the items' effects alone (Vulnerability crits item effects, not augments)
     double ad_ = 0, bonusAd_ = 0, baseAd_ = 0, ap_ = 0, bonusAs_ = 0, crit_ = 0, critDamage_ = 0;
-    double maxHp_ = 0, bonusHp_ = 0, armor_ = 0, bonusArmor_ = 0, mr_ = 0, bonusMr_ = 0, ah_ = 0;
+    double maxHp_ = 0, bonusHp_ = 0, armor_ = 0, bonusArmor_ = 0, mr_ = 0, bonusMr_ = 0, ah_ = 0, bonusMana_ = 0;
     double lethality_ = 0, armorPen_ = 0, magicPen_ = 0, magicPenPct_ = 0, lifesteal_ = 0, omnivamp_ = 0;
     double damageAmp_ = 1, abilityAmp_ = 1;
     double attackSpeed_ = 0;
@@ -1143,6 +1144,7 @@ private:
                 maxMana_ -= get(stats, "mana");
             }
             manaRegen_ = (ch_.manaRegen + ch_.manaRegenG * g) * (1.0 + get(stats, "mana_regen"));
+            bonusMana_ = std::max(0.0, maxMana_ - (ch_.mana + ch_.manaG * g));
         } else if (ch_.resource == 2) {
             maxMana_ = ch_.mana;
             manaRegen_ = ch_.manaRegen;
@@ -1276,6 +1278,7 @@ private:
             else if (k == "bonus_hp") v += c * bonusHp_;
             else if (k == "bonus_armor") v += c * bonusArmor_;
             else if (k == "bonus_mr") v += c * bonusMr_;
+            else if (k == "bonus_mana") v += c * bonusMana_;
             else if (k == "as") v += c * bonusAs_;
             else if (k == "crit") v += c * crit_;
             else if (k == "lethality") v += c * lethality_;
@@ -2302,8 +2305,9 @@ private:
             // More damage the more Health the target is missing (Jhin R: +3% per 1%).
             const double missing = e->maxHp > 0 ? 1.0 - e->hp / e->maxHp : 0.0;
             const double byMissing = 1.0 + a.missingAmp * (a.missingMax > 0 ? std::min(missing, a.missingMax) : missing);
+            const double solo = targets.size() == 1 ? a.soloMult : 1.0;
             for (const auto& h : a.hits) {
-                double raw = hitRaw(h, *e) * amp * w * byRange * byMissing;
+                double raw = hitRaw(h, *e) * amp * w * byRange * byMissing * solo;
                 if (!h.perSecond && a.slot != 'R') raw *= rules_.longRange(from);  // ARAM long-range cut
                 if (h.perSecond) {
                     // Damage over time lasts its duration, but no longer than the ability's

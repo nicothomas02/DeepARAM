@@ -145,7 +145,7 @@ class Evaluator:
     def __init__(self, spell, rank, base_stats, notes):
         self.spell = spell
         self.rank = rank
-        self.base = base_stats  # level-18 base values: ad, hp, armor, mr
+        self.base = base_stats  # level-18 base values: ad, hp, armor, mr (and mana)
         self.notes = notes
         self.values = {}
         self.mode_overrides = []
@@ -258,8 +258,11 @@ class Evaluator:
         if t == "CooldownMultiplierCalculationPart":
             return Lin({"const": 1.0})
         if t == "AbilityResourceByCoefficientCalculationPart":
-            self.notes.add("mana scaling ignored")
-            return Lin()
+            # Max mana: bonus mana (items) as bonus_mana; the base pool at level 18 as a constant.
+            coef = float(p.get("mCoefficient", 0.0))
+            if p.get("mStatFormula", 0) == 2:
+                return Lin({"bonus_mana": coef})
+            return Lin({"const": coef * self.base.get("mana", 0.0), "bonus_mana": coef})
         if t:
             self.notes.add(f"unsupported part {t}")
         return Lin()
@@ -876,6 +879,9 @@ def main():
             "armor": level_stat(s["armor"], s["armorperlevel"]),
             "mr": level_stat(s["spellblock"], s["spellblockperlevel"]),
         }
+        res = resource(record)
+        if res["kind"] == "mana":
+            base["mana"] = level_stat(res["pool"], res["pool_per_level"])
         spell_paths = record.get("spells") or []
         abilities, notes = [], []
         for slot, path in zip("QWER", spell_paths):
@@ -1002,7 +1008,7 @@ def main():
             "notes": [
                 "Ability damage is parsed from Riot's game data (CommunityDragon) and tooltips: every number tagged as "
                 "magic, physical or true damage, evaluated at level 18 with max ranks. scaling keys: const, ap, bonus_ad, "
-                "bonus_hp, bonus_armor, bonus_mr, as (bonus attack speed), crit, lethality.",
+                "bonus_hp, bonus_armor, bonus_mr, bonus_mana, as (bonus attack speed), crit, lethality.",
                 "target is flat or a fraction of the target's max/current/missing health. alt marks numbers that look like "
                 "alternatives (empowered, maximum, recast) rather than extra hits.",
                 "mayhem holds the server-side ARAM Mayhem modifiers (damage dealt/taken, healing, shielding, tenacity, "

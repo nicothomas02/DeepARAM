@@ -182,7 +182,7 @@ Boots, five legendaries and four augments. Items are searched greedily to pick a
 
 - Passives, stacking and HP-scaling kits are mostly missing, so fighters and juggernauts (Sett, Sion, Mundo, Mordekaiser, Gwen, Diana) are underrated.
 - Supports are compared on damage builds, and tanks build glassy because only damage is optimized.
-- Across all champions, simulated DPS correlates only weakly with real CN damage share (Spearman 0.26). Use it to compare builds for one champion, not to rank champions.
+- Across all champions, simulated DPS ranks champions only roughly like their real CN damage share (Spearman 0.51 on 26.20, `tools/accuracy.py`), and most of that comes from roles: within a role the order is close to random for marksmen and assassins (0.05 and -0.15) and weak for mages and fighters (0.16, 0.20; supports 0.82, tanks 0.59). Simulated DPS plus role predicts the real share at 0.59. Fighting the whole team (`--set team_size=5`), time alive and damage taken don't improve it. Use the simulator to compare builds for one champion, not to rank champions.
 - Mystic Punch is picked very often; its value may be too generous.
 - For Yunara, `yunara_sim` is the better model.
 
