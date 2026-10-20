@@ -5,5 +5,5 @@
  "Today": "Сегодня",
  "day": "день",
  "days": "дн.",
- "{date} (Pacific Time)": "{date} (тихоокеанское время)"
+ "Patch {patch} comes out in under 24 hours": "Патч {patch} выйдет менее чем через 24 часа"
 }

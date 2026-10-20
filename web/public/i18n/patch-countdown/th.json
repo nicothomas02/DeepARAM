@@ -5,5 +5,5 @@
  "Today": "วันนี้",
  "day": "วัน",
  "days": "วัน",
- "{date} (Pacific Time)": "{date} (เวลาแปซิฟิก)"
+ "Patch {patch} comes out in under 24 hours": "แพตช์ {patch} จะออกภายในไม่ถึง 24 ชั่วโมง"
 }

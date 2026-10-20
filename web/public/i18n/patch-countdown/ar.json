@@ -5,5 +5,5 @@
  "Today": "اليوم",
  "day": "يوم",
  "days": "أيام",
- "{date} (Pacific Time)": "{date} (بتوقيت المحيط الهادئ)"
+ "Patch {patch} comes out in under 24 hours": "سيصدر التحديث {patch} خلال أقل من 24 ساعة"
 }
