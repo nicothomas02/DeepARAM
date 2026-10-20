@@ -45,10 +45,19 @@ Spatula). The list comes from `guide/augment_rules.json`, so run `guide/build_da
 - **classes / subclasses:** Riot's classes and subclasses (Enchanter, Catcher, Juggernaut, Diver, Burst,
   Battlemage, Artillery, Marksman, Assassin, Skirmisher, Vanguard, Warden, Specialist). These are hand-kept in
   `classes.py` because no game file has them. New champions start without one until they're added there.
-- **playstyles:** Poke, Engage, Sustain, Shields/Heals and Crowd control, read from ability text and range plus the
-  subclass.
+- **playstyles:** Riot's own two tags per champion (Initiator, Crowd Control, Burst, Mobile, AoE, Duelist, Auto-attack,
+  Ally Protection, Hypercarry, Durable, Dive, Self Healing, Sustained Damage, Stealth, Long Range, Summon,
+  Battlecaster, Damage-over-Time, Shapeshift), from `championMetadata` in `game/global/champions/champions.bin.json`
+  (`{90d227c0}` and `{434fc710}`, string table `champion_tag_*`). A few reworked champions have none yet.
+- **ratings:** Riot's playstyle ratings, 1 to 3, for damage, toughness, control, mobility and utility (same block;
+  toughness is `{28f8756b}` and control `{c6585a26}`, worked out from Leona and Malphite). A rating the file leaves
+  out is 1; champions with no ratings at all (Ezreal) have no `ratings`. Not used: `{638cead9}` (1 to 10, meaning
+  unclear) and `{8ecb12a5}` / `{104f49cd}`.
+- **cc / hardCC:** see Crowd control above.
 
-`colors` gives one colour per tag, and `meanings` gives a one-line description of each.
+`colors` gives one colour per tag, and `meanings` gives a one-line description of each. `data/official/champion-tag-names.json` has
+the official tag names in the other languages (`python3 champions/build_i18n.py --tags`; only names that differ
+from English).
 
 ## Champion regions
 

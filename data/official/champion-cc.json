@@ -1,0 +1,1064 @@
+{
+ "Aatrox": {
+  "slots": {
+   "Q": "knock_up",
+   "W": null,
+   "E": "slow",
+   "R": null
+  },
+  "hard": true
+ },
+ "Ahri": {
+  "slots": {
+   "Q": null,
+   "W": null,
+   "E": null,
+   "R": null
+  },
+  "hard": false
+ },
+ "Akali": {
+  "slots": {
+   "Q": null,
+   "W": "slow",
+   "E": null,
+   "R": null
+  },
+  "hard": false
+ },
+ "Alistar": {
+  "slots": {
+   "Q": "stun",
+   "W": "knock_back",
+   "E": null,
+   "R": null
+  },
+  "hard": true
+ },
+ "Ambessa": {
+  "slots": {
+   "Q": null,
+   "W": "slow",
+   "E": null,
+   "R": "slow"
+  },
+  "hard": false
+ },
+ "Amumu": {
+  "slots": {
+   "Q": "stun",
+   "W": null,
+   "E": null,
+   "R": null
+  },
+  "hard": true
+ },
+ "Anivia": {
+  "slots": {
+   "Q": "slow",
+   "W": null,
+   "E": null,
+   "R": "slow"
+  },
+  "hard": false
+ },
+ "Ashe": {
+  "slots": {
+   "Q": "slow",
+   "W": "slow",
+   "E": null,
+   "R": "stun"
+  },
+  "hard": true
+ },
+ "Aurora": {
+  "slots": {
+   "Q": null,
+   "W": null,
+   "E": null,
+   "R": null
+  },
+  "hard": false
+ },
+ "Belveth": {
+  "slots": {
+   "Q": null,
+   "W": null,
+   "E": null,
+   "R": "slow"
+  },
+  "hard": false
+ },
+ "Blitzcrank": {
+  "slots": {
+   "Q": "pull",
+   "W": null,
+   "E": "knock_up",
+   "R": "silence"
+  },
+  "hard": true
+ },
+ "Brand": {
+  "slots": {
+   "Q": "stun",
+   "W": null,
+   "E": null,
+   "R": null
+  },
+  "hard": true
+ },
+ "Briar": {
+  "slots": {
+   "Q": null,
+   "W": null,
+   "E": null,
+   "R": "suppression"
+  },
+  "hard": true
+ },
+ "Caitlyn": {
+  "slots": {
+   "Q": null,
+   "W": null,
+   "E": "slow",
+   "R": null
+  },
+  "hard": false
+ },
+ "Cassiopeia": {
+  "slots": {
+   "Q": null,
+   "W": "slow",
+   "E": null,
+   "R": "stun"
+  },
+  "hard": true
+ },
+ "Chogath": {
+  "slots": {
+   "Q": "knock_up",
+   "W": "silence",
+   "E": null,
+   "R": null
+  },
+  "hard": true
+ },
+ "Darius": {
+  "slots": {
+   "Q": null,
+   "W": "slow",
+   "E": "pull",
+   "R": null
+  },
+  "hard": true
+ },
+ "Diana": {
+  "slots": {
+   "Q": null,
+   "W": null,
+   "E": "pull",
+   "R": null
+  },
+  "hard": true
+ },
+ "DrMundo": {
+  "slots": {
+   "Q": "slow",
+   "W": null,
+   "E": null,
+   "R": null
+  },
+  "hard": false
+ },
+ "Draven": {
+  "slots": {
+   "Q": null,
+   "W": null,
+   "E": "knock_back",
+   "R": null
+  },
+  "hard": true
+ },
+ "Elise": {
+  "slots": {
+   "Q": null,
+   "W": null,
+   "E": "stun",
+   "R": null
+  },
+  "hard": true
+ },
+ "Evelynn": {
+  "slots": {
+   "Q": null,
+   "W": null,
+   "E": null,
+   "R": "slow"
+  },
+  "hard": false
+ },
+ "FiddleSticks": {
+  "slots": {
+   "Q": "fear",
+   "W": null,
+   "E": "silence",
+   "R": null
+  },
+  "hard": true
+ },
+ "Fizz": {
+  "slots": {
+   "Q": null,
+   "W": null,
+   "E": "slow",
+   "R": "knock_up"
+  },
+  "hard": true
+ },
+ "Galio": {
+  "slots": {
+   "Q": "slow",
+   "W": null,
+   "E": null,
+   "R": "taunt"
+  },
+  "hard": true
+ },
+ "Garen": {
+  "slots": {
+   "Q": "silence",
+   "W": null,
+   "E": null,
+   "R": null
+  },
+  "hard": true
+ },
+ "Gragas": {
+  "slots": {
+   "Q": null,
+   "W": null,
+   "E": "slow",
+   "R": "knock_back"
+  },
+  "hard": true
+ },
+ "Graves": {
+  "slots": {
+   "Q": null,
+   "W": "slow",
+   "E": null,
+   "R": null
+  },
+  "hard": false
+ },
+ "Gwen": {
+  "slots": {
+   "Q": null,
+   "W": null,
+   "E": null,
+   "R": "stun"
+  },
+  "hard": true
+ },
+ "Hecarim": {
+  "slots": {
+   "Q": null,
+   "W": null,
+   "E": "knock_back",
+   "R": "fear"
+  },
+  "hard": true
+ },
+ "Hwei": {
+  "slots": {
+   "Q": null,
+   "W": "slow",
+   "E": null,
+   "R": null
+  },
+  "hard": false
+ },
+ "Irelia": {
+  "slots": {
+   "Q": null,
+   "W": null,
+   "E": "stun",
+   "R": null
+  },
+  "hard": true
+ },
+ "Janna": {
+  "slots": {
+   "Q": "knock_up",
+   "W": "slow",
+   "E": null,
+   "R": "knock_back"
+  },
+  "hard": true
+ },
+ "JarvanIV": {
+  "slots": {
+   "Q": "knock_up",
+   "W": "slow",
+   "E": null,
+   "R": null
+  },
+  "hard": true
+ },
+ "Jax": {
+  "slots": {
+   "Q": null,
+   "W": null,
+   "E": "stun",
+   "R": null
+  },
+  "hard": true
+ },
+ "Jayce": {
+  "slots": {
+   "Q": "slow",
+   "W": null,
+   "E": "knock_back",
+   "R": null
+  },
+  "hard": true
+ },
+ "Jinx": {
+  "slots": {
+   "Q": null,
+   "W": "slow",
+   "E": "root",
+   "R": null
+  },
+  "hard": true
+ },
+ "KSante": {
+  "slots": {
+   "Q": null,
+   "W": null,
+   "E": "slow",
+   "R": "knock_back"
+  },
+  "hard": true
+ },
+ "Karma": {
+  "slots": {
+   "Q": "slow",
+   "W": "root",
+   "E": null,
+   "R": null
+  },
+  "hard": true
+ },
+ "Karthus": {
+  "slots": {
+   "Q": null,
+   "W": "slow",
+   "E": null,
+   "R": null
+  },
+  "hard": false
+ },
+ "Kassadin": {
+  "slots": {
+   "Q": "silence",
+   "W": null,
+   "E": "slow",
+   "R": null
+  },
+  "hard": true
+ },
+ "Kayle": {
+  "slots": {
+   "Q": "slow",
+   "W": null,
+   "E": null,
+   "R": null
+  },
+  "hard": false
+ },
+ "Kayn": {
+  "slots": {
+   "Q": null,
+   "W": "slow",
+   "E": null,
+   "R": null
+  },
+  "hard": false
+ },
+ "Khazix": {
+  "slots": {
+   "Q": null,
+   "W": "slow",
+   "E": null,
+   "R": null
+  },
+  "hard": false
+ },
+ "KogMaw": {
+  "slots": {
+   "Q": null,
+   "W": null,
+   "E": "slow",
+   "R": null
+  },
+  "hard": false
+ },
+ "LeeSin": {
+  "slots": {
+   "Q": null,
+   "W": null,
+   "E": "slow",
+   "R": "knock_back"
+  },
+  "hard": true
+ },
+ "Leona": {
+  "slots": {
+   "Q": "stun",
+   "W": null,
+   "E": "root",
+   "R": "slow"
+  },
+  "hard": true
+ },
+ "Lillia": {
+  "slots": {
+   "Q": null,
+   "W": null,
+   "E": null,
+   "R": "slow"
+  },
+  "hard": false
+ },
+ "Lissandra": {
+  "slots": {
+   "Q": "slow",
+   "W": "root",
+   "E": null,
+   "R": "stun"
+  },
+  "hard": true
+ },
+ "Locke": {
+  "slots": {
+   "Q": "knock_up",
+   "W": "slow",
+   "E": null,
+   "R": null
+  },
+  "hard": true
+ },
+ "Lulu": {
+  "slots": {
+   "Q": "slow",
+   "W": "polymorph",
+   "E": null,
+   "R": "knock_up"
+  },
+  "hard": true
+ },
+ "Lux": {
+  "slots": {
+   "Q": "root",
+   "W": null,
+   "E": "slow",
+   "R": null
+  },
+  "hard": true
+ },
+ "Malphite": {
+  "slots": {
+   "Q": "slow",
+   "W": null,
+   "E": null,
+   "R": "knock_up"
+  },
+  "hard": true
+ },
+ "Malzahar": {
+  "slots": {
+   "Q": "silence",
+   "W": null,
+   "E": null,
+   "R": "suppression"
+  },
+  "hard": true
+ },
+ "Maokai": {
+  "slots": {
+   "Q": "slow",
+   "W": "root",
+   "E": null,
+   "R": null
+  },
+  "hard": true
+ },
+ "Mel": {
+  "slots": {
+   "Q": "root",
+   "W": null,
+   "E": "slow",
+   "R": null
+  },
+  "hard": true
+ },
+ "Milio": {
+  "slots": {
+   "Q": "knock_up",
+   "W": "slow",
+   "E": null,
+   "R": "knock_back"
+  },
+  "hard": true
+ },
+ "MissFortune": {
+  "slots": {
+   "Q": null,
+   "W": null,
+   "E": "slow",
+   "R": null
+  },
+  "hard": false
+ },
+ "MonkeyKing": {
+  "slots": {
+   "Q": null,
+   "W": null,
+   "E": null,
+   "R": "knock_up"
+  },
+  "hard": true
+ },
+ "Morgana": {
+  "slots": {
+   "Q": "root",
+   "W": null,
+   "E": null,
+   "R": "stun"
+  },
+  "hard": true
+ },
+ "Naafiri": {
+  "slots": {
+   "Q": null,
+   "W": null,
+   "E": null,
+   "R": "suppression"
+  },
+  "hard": true
+ },
+ "Nami": {
+  "slots": {
+   "Q": "stun",
+   "W": null,
+   "E": null,
+   "R": "knock_up"
+  },
+  "hard": true
+ },
+ "Nasus": {
+  "slots": {
+   "Q": null,
+   "W": "slow",
+   "E": null,
+   "R": null
+  },
+  "hard": false
+ },
+ "Nautilus": {
+  "slots": {
+   "Q": "stun",
+   "W": null,
+   "E": "slow",
+   "R": "knock_up"
+  },
+  "hard": true
+ },
+ "Nocturne": {
+  "slots": {
+   "Q": null,
+   "W": null,
+   "E": "fear",
+   "R": null
+  },
+  "hard": true
+ },
+ "Nunu": {
+  "slots": {
+   "Q": null,
+   "W": null,
+   "E": "slow",
+   "R": "slow"
+  },
+  "hard": false
+ },
+ "Olaf": {
+  "slots": {
+   "Q": "slow",
+   "W": null,
+   "E": null,
+   "R": null
+  },
+  "hard": false
+ },
+ "Orianna": {
+  "slots": {
+   "Q": null,
+   "W": "slow",
+   "E": null,
+   "R": "pull"
+  },
+  "hard": true
+ },
+ "Ornn": {
+  "slots": {
+   "Q": null,
+   "W": "slow",
+   "E": "pull",
+   "R": null
+  },
+  "hard": true
+ },
+ "Pantheon": {
+  "slots": {
+   "Q": null,
+   "W": "stun",
+   "E": null,
+   "R": "slow"
+  },
+  "hard": true
+ },
+ "Poppy": {
+  "slots": {
+   "Q": null,
+   "W": null,
+   "E": "stun",
+   "R": null
+  },
+  "hard": true
+ },
+ "Pyke": {
+  "slots": {
+   "Q": null,
+   "W": "slow",
+   "E": "silence",
+   "R": null
+  },
+  "hard": true
+ },
+ "Quinn": {
+  "slots": {
+   "Q": "blind",
+   "W": null,
+   "E": "knock_back",
+   "R": null
+  },
+  "hard": true
+ },
+ "Rakan": {
+  "slots": {
+   "Q": "knock_up",
+   "W": "slow",
+   "E": null,
+   "R": "knock_back"
+  },
+  "hard": true
+ },
+ "Rammus": {
+  "slots": {
+   "Q": "knock_back",
+   "W": null,
+   "E": "taunt",
+   "R": null
+  },
+  "hard": true
+ },
+ "Renata": {
+  "slots": {
+   "Q": "slow",
+   "W": "root",
+   "E": null,
+   "R": null
+  },
+  "hard": true
+ },
+ "Renekton": {
+  "slots": {
+   "Q": null,
+   "W": "stun",
+   "E": null,
+   "R": null
+  },
+  "hard": true
+ },
+ "Riven": {
+  "slots": {
+   "Q": null,
+   "W": "stun",
+   "E": null,
+   "R": null
+  },
+  "hard": true
+ },
+ "Rumble": {
+  "slots": {
+   "Q": null,
+   "W": null,
+   "E": "slow",
+   "R": "slow"
+  },
+  "hard": false
+ },
+ "Ryze": {
+  "slots": {
+   "Q": null,
+   "W": "root",
+   "E": null,
+   "R": null
+  },
+  "hard": true
+ },
+ "Sejuani": {
+  "slots": {
+   "Q": "knock_up",
+   "W": null,
+   "E": "slow",
+   "R": "stun"
+  },
+  "hard": true
+ },
+ "Shaco": {
+  "slots": {
+   "Q": null,
+   "W": "fear",
+   "E": "slow",
+   "R": null
+  },
+  "hard": true
+ },
+ "Shen": {
+  "slots": {
+   "Q": null,
+   "W": "slow",
+   "E": "taunt",
+   "R": null
+  },
+  "hard": true
+ },
+ "Shyvana": {
+  "slots": {
+   "Q": null,
+   "W": null,
+   "E": null,
+   "R": "knock_back"
+  },
+  "hard": true
+ },
+ "Singed": {
+  "slots": {
+   "Q": null,
+   "W": "slow",
+   "E": "pull",
+   "R": null
+  },
+  "hard": true
+ },
+ "Sion": {
+  "slots": {
+   "Q": null,
+   "W": "slow",
+   "E": "pull",
+   "R": null
+  },
+  "hard": true
+ },
+ "Smolder": {
+  "slots": {
+   "Q": null,
+   "W": null,
+   "E": "slow",
+   "R": null
+  },
+  "hard": false
+ },
+ "Sona": {
+  "slots": {
+   "Q": null,
+   "W": null,
+   "E": "slow",
+   "R": "stun"
+  },
+  "hard": true
+ },
+ "Soraka": {
+  "slots": {
+   "Q": null,
+   "W": null,
+   "E": "silence",
+   "R": null
+  },
+  "hard": true
+ },
+ "Swain": {
+  "slots": {
+   "Q": "slow",
+   "W": "root",
+   "E": null,
+   "R": null
+  },
+  "hard": true
+ },
+ "Sylas": {
+  "slots": {
+   "Q": null,
+   "W": null,
+   "E": null,
+   "R": null
+  },
+  "hard": false
+ },
+ "Syndra": {
+  "slots": {
+   "Q": null,
+   "W": "slow",
+   "E": "stun",
+   "R": null
+  },
+  "hard": true
+ },
+ "Talon": {
+  "slots": {
+   "Q": null,
+   "W": "slow",
+   "E": "silence",
+   "R": null
+  },
+  "hard": true
+ },
+ "Taric": {
+  "slots": {
+   "Q": null,
+   "W": null,
+   "E": "stun",
+   "R": null
+  },
+  "hard": true
+ },
+ "Teemo": {
+  "slots": {
+   "Q": "blind",
+   "W": null,
+   "E": null,
+   "R": "slow"
+  },
+  "hard": false
+ },
+ "Thresh": {
+  "slots": {
+   "Q": "stun",
+   "W": null,
+   "E": "pull",
+   "R": "slow"
+  },
+  "hard": true
+ },
+ "Tristana": {
+  "slots": {
+   "Q": null,
+   "W": "slow",
+   "E": null,
+   "R": "knock_back"
+  },
+  "hard": true
+ },
+ "Trundle": {
+  "slots": {
+   "Q": "slow",
+   "W": null,
+   "E": "knock_back",
+   "R": null
+  },
+  "hard": true
+ },
+ "Tryndamere": {
+  "slots": {
+   "Q": null,
+   "W": "slow",
+   "E": null,
+   "R": null
+  },
+  "hard": false
+ },
+ "TwistedFate": {
+  "slots": {
+   "Q": null,
+   "W": "stun",
+   "E": null,
+   "R": null
+  },
+  "hard": true
+ },
+ "Urgot": {
+  "slots": {
+   "Q": null,
+   "W": null,
+   "E": null,
+   "R": "pull"
+  },
+  "hard": true
+ },
+ "Varus": {
+  "slots": {
+   "Q": null,
+   "W": null,
+   "E": "slow",
+   "R": "root"
+  },
+  "hard": true
+ },
+ "Vayne": {
+  "slots": {
+   "Q": null,
+   "W": null,
+   "E": "stun",
+   "R": null
+  },
+  "hard": true
+ },
+ "Veigar": {
+  "slots": {
+   "Q": null,
+   "W": null,
+   "E": "stun",
+   "R": null
+  },
+  "hard": true
+ },
+ "Vi": {
+  "slots": {
+   "Q": null,
+   "W": null,
+   "E": null,
+   "R": "knock_up"
+  },
+  "hard": true
+ },
+ "Viego": {
+  "slots": {
+   "Q": "knock_up",
+   "W": "slow",
+   "E": null,
+   "R": null
+  },
+  "hard": true
+ },
+ "Viktor": {
+  "slots": {
+   "Q": null,
+   "W": "slow",
+   "E": null,
+   "R": null
+  },
+  "hard": false
+ },
+ "Vladimir": {
+  "slots": {
+   "Q": null,
+   "W": "slow",
+   "E": null,
+   "R": null
+  },
+  "hard": false
+ },
+ "Volibear": {
+  "slots": {
+   "Q": "pull",
+   "W": null,
+   "E": null,
+   "R": null
+  },
+  "hard": true
+ },
+ "Warwick": {
+  "slots": {
+   "Q": null,
+   "W": null,
+   "E": null,
+   "R": "suppression"
+  },
+  "hard": true
+ },
+ "Xayah": {
+  "slots": {
+   "Q": "blind",
+   "W": null,
+   "E": "knock_back",
+   "R": null
+  },
+  "hard": true
+ },
+ "XinZhao": {
+  "slots": {
+   "Q": "knock_up",
+   "W": null,
+   "E": null,
+   "R": "knock_back"
+  },
+  "hard": true
+ },
+ "Yorick": {
+  "slots": {
+   "Q": null,
+   "W": "slow",
+   "E": null,
+   "R": null
+  },
+  "hard": false
+ },
+ "Zac": {
+  "slots": {
+   "Q": "slow",
+   "W": null,
+   "E": "knock_up",
+   "R": "knock_up"
+  },
+  "hard": true
+ },
+ "Zed": {
+  "slots": {
+   "Q": null,
+   "W": "slow",
+   "E": null,
+   "R": "slow"
+  },
+  "hard": false
+ },
+ "Ziggs": {
+  "slots": {
+   "Q": null,
+   "W": "knock_back",
+   "E": "slow",
+   "R": null
+  },
+  "hard": true
+ },
+ "Zilean": {
+  "slots": {
+   "Q": null,
+   "W": null,
+   "E": "slow",
+   "R": null
+  },
+  "hard": false
+ },
+ "Zyra": {
+  "slots": {
+   "Q": null,
+   "W": null,
+   "E": "root",
+   "R": "knock_up"
+  },
+  "hard": true
+ }
+}
