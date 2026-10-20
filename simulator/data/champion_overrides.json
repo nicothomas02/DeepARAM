@@ -1097,7 +1097,7 @@
     "self_buff": false,
     "stops": true
    },
-   "why": "Q is three spells on one cooldown. The base is QQ Devastating Fire; in a fight each cast picks whichever of QQ, QW Severing Bolt (up to 3.5x against an immobilized target, by missing Health) and QE Molten Fissure (lava damage over time) is worth most on the target",
+   "why": "Q is three spells on one cooldown. The base is QQ Devastating Fire; in a fight each cast picks whichever of QQ, QW Severing Bolt (up to 3.5x by missing Health when it hits a lone or immobilized enemy) and QE Molten Fissure (lava damage over time) is worth most on the target",
    "variants": [
     {
      "name": "Devastating Fire",
@@ -1113,7 +1113,6 @@
       "Tooltip_QWDamage"
      ],
      "missing_amp": 2.5,
-     "missing_needs_cc": true,
      "cast_time": 0.5,
      "geometry": {
       "shape": "circle",
@@ -1125,7 +1124,8 @@
       "self_buff": false,
       "stops": false
      },
-     "cc": null
+     "cc": null,
+     "missing_isolated": true
     },
     {
      "name": "Molten Fissure",
@@ -1552,7 +1552,7 @@
    "hits": [],
    "pet": {
     "duration": 45,
-    "attack_speed": 1.0,
+    "attack_speed": 1.2,
     "hits": [
      {
       "calc": "TotalDaisyAD",
@@ -1569,7 +1569,7 @@
      }
     ]
    },
-   "why": "Daisy fights for 45 s: attacks for her AD (130 + 15% AP at rank 3, about one a second), and every 3rd attack on a champion (3 s cooldown) slams for the shockwave and a 1 s knock-up",
+   "why": "Daisy fights for 45 s: attacks for 130 (+15% AP) at 1.2 attacks a second (rank 3), and after 2 attacks on one champion her next one (3 s cooldown) slams for the shockwave and a 1 s knock-up",
    "cc": null
   }
  },
@@ -1968,7 +1968,11 @@
    "hit_mults": {
     "TotalDamage": 0.5
    },
-   "why": "Handshake damages the hooked target once; the throw only damages other enemies it lands on"
+   "why": "Handshake roots the first enemy hit for 1 s and damages it once; the throw only damages and stuns other enemies it lands on",
+   "cc": {
+    "type": "root",
+    "duration": 1.0
+   }
   },
   "R": {
    "cc": {

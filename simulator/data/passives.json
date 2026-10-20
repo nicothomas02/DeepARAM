@@ -362,13 +362,11 @@
  "Renata": [
   {
    "trigger": "attack",
-   "cooldown": "PassiveDuration",
-   "per_target": true,
    "calcs": [
     "PercentAmpCalcSelf",
     "PercentAmpCalc"
    ],
-   "why": "Leverage: her attack on an unmarked enemy deals 2% (+0.02% per AP) max Health and marks it; in a team fight an ally's hit soon consumes the mark for the same again (Renata's damage), so both count, once per mark (6 s per target)"
+   "why": "Leverage: an attack on an unmarked enemy deals 1-2% (+2% per 100 AP) max Health and marks it; an ally's next hit consumes the mark for the same again (her damage), leaving it unmarked for her next attack. In a team fight allies hit between her attacks, so both count on every attack"
   }
  ],
  "Riven": [

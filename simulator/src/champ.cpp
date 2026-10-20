@@ -250,7 +250,7 @@ ChampionKit loadChampion(const json::Value& c, const Rules& rules) {
         ab.soloMult = a["solo_mult"].asNumber(1);
         ab.missingAmp = a["missing_amp"].asNumber(0);
         ab.missingMax = a["missing_max"].asNumber(0);
-        ab.missingNeedsCc = a["missing_needs_cc"].asBool(false);
+        ab.missingIsolated = a["missing_isolated"].asBool(false);
         ab.placeholder = a["placeholder"].asBool(false);
         if (const json::Value& pet = a["pet"]; pet.isObject()) {
             ab.petDuration = pet["duration"].asNumber(0);
@@ -2337,7 +2337,8 @@ private:
                                        : 1.0;
             // More damage the more Health the target is missing (Jhin R: +3% per 1%).
             const double missing = e->maxHp > 0 ? 1.0 - e->hp / e->maxHp : 0.0;
-            const double byMissing = 1.0 + (a.missingNeedsCc && !heldDown(*e) ? 0.0 : a.missingAmp) * (a.missingMax > 0 ? std::min(missing, a.missingMax) : missing);
+            const bool isolated = !a.missingIsolated || targets.size() == 1 || heldDown(*e);
+            const double byMissing = 1.0 + (isolated ? a.missingAmp : 0.0) * (a.missingMax > 0 ? std::min(missing, a.missingMax) : missing);
             const double solo = targets.size() == 1 ? a.soloMult : 1.0;
             for (const auto& h : a.hits) {
                 double raw = hitRaw(h, *e) * amp * w * byRange * byMissing * solo;
@@ -3116,7 +3117,7 @@ private:
     bool heldDown(const Enemy& e) const { return t_ < std::max(e.ccUntil, e.rootUntil); }
     // What a version of an ability is worth on a cast: its damage on the target, a shield when you
     // are below half Health, and (to break ties) how long it holds the target down.
-    double variantValue(const Ability& a, const Enemy& e) const {
+    double variantValue(const Ability& a, const Enemy& e) {
         double v = 0;
         for (const auto& h : a.hits) {
             double raw = hitRaw(h, e);
@@ -3124,7 +3125,7 @@ private:
             v += raw;
         }
         const double missing = e.maxHp > 0 ? 1.0 - e.hp / e.maxHp : 0.0;
-        if (a.missingAmp > 0 && (!a.missingNeedsCc || heldDown(e)))
+        if (a.missingAmp > 0 && (!a.missingIsolated || heldDown(e) || near(e.pos, std::max(a.geo.radius, 1.0), &e).empty()))
             v *= 1.0 + a.missingAmp * (a.missingMax > 0 ? std::min(missing, a.missingMax) : missing);
         if (!a.shield.empty() && myHp_ < 0.5 * maxHp_) v += scaled(a.shield) * hsp_;
         if (immobilizes(a)) v += 1e-3 * a.ccDuration;
@@ -3146,6 +3147,8 @@ private:
         weaponQueue_.push_back(hand);
         hand = weaponQueue_.front();
         weaponQueue_.pop_front();
+        // The next weapon assembles: its ability starts on a 1.5 s cooldown.
+        weaponReady_[static_cast<size_t>(hand)] = std::max(weaponReady_[static_cast<size_t>(hand)], t_ + 1.5);
     }
     void kitOnAttack() {
         if (weapons_) useAmmo(mainHand_, 1);
@@ -3169,7 +3172,10 @@ private:
         }
         for (size_t i = 0; i < ch_.abilities.size(); ++i) {
             const Ability& mine = ownAbilities_[i];
-            if (mine.slot == 'R') continue;
+            if (mine.slot == 'R') {  // a free Heartbreaker, up 1.5 s into the possession
+                if (ownReady_[i] < 1e17) readyAt_[i] = t_ + 1.5;
+                continue;
+            }
             const Ability* theirs = nullptr;
             for (const auto& a : k->abilities)
                 if (a.slot == mine.slot && borrowable(a)) theirs = &a;
@@ -3184,20 +3190,25 @@ private:
         possessUntil_ = t_ + get(ch_.kitEffects, "possess");
         // Possessing restores a share of the fallen champion's max Health, more with bonus AD and AP.
         heal((get(ch_.kitEffects, "possess_heal") + get(ch_.kitEffects, "possess_heal_bonus_ad") * bonusAd_ +
-              get(ch_.kitEffects, "possess_heal_ap") * ap_) * possessHp_ * hsp_);
+              get(ch_.kitEffects, "possess_heal_ap") * ap_ + get(ch_.kitEffects, "possess_heal_bonus_hp") * bonusHp_ +
+              get(ch_.kitEffects, "possess_heal_as") * bonusAs_) * possessHp_ * hsp_);
     }
+    // Discarding the soul (by time, or by casting the free Heartbreaker): his own abilities come
+    // back, and Heartbreaker is on at least a 1.5 s cooldown.
     void endPossession() {
         possessUntil_ = -1;
         for (size_t i = 0; i < ch_.abilities.size(); ++i) {
-            if (ch_.abilities[i].slot == 'R') continue;
+            if (ch_.abilities[i].slot == 'R') {
+                if (ownReady_[i] < 1e17) readyAt_[i] = std::max(ownReady_[i], t_ + 1.5);
+                continue;
+            }
             setAbility(i, ownAbilities_[i]);
             readyAt_[i] = ownReady_[i];
         }
     }
 
-    // Sylas: Hijack takes the target's ultimate, which R then holds for one cast with his own stats
-    // (bonus AD ratios turn into AP at 0.6 each); each enemy can be hijacked again only after twice
-    // its ultimate's cooldown, 40 seconds at least.
+    // Sylas: Hijack takes the target's ultimate, which R then holds for one cast with his own stats;
+    // each enemy can be hijacked again only after twice its ultimate's base cooldown, 40 s at least.
     const Ability* ultOf(const EnemyProfile* p) const {
         const ChampionKit* k = p ? lib_.find(p->id) : nullptr;
         if (!k) return nullptr;
@@ -3214,18 +3225,20 @@ private:
         setAbility(i, *r);
         Ability& a = own_->abilities[i];
         a.cost = 0;
+        // Ratios of an ultimate without AP scaling turn into AP: 0.4 per bonus AD (total-AD ratios
+        // keep their base-AD part as a flat number here).
         auto convert = [](Bag& b) {
-            if (const double ad = get(b, "bonus_ad"); ad > 0) {
-                b["ap"] = get(b, "ap") + 0.6 * ad;
-                b.erase("bonus_ad");
-            }
+            const double ad = get(b, "bonus_ad");
+            if (ad <= 0 || get(b, "ap") > 0) return;
+            b["ap"] = 0.4 * ad;
+            b.erase("bonus_ad");
         };
         for (auto& h : a.hits) convert(h.scaling);
         convert(a.shield);
         convert(a.heal);
         readyAt_[i] = t_;
         stolen_ = true;
-        hijackedUntil_[p] = t_ + std::max(get(ch_.kitEffects, "hijack_lockout_min", 40), 2.0 * cooldownOf(a));
+        hijackedUntil_[p] = t_ + std::max(get(ch_.kitEffects, "hijack_lockout_min", 40), 2.0 * r->cooldown);
     }
 
     bool kitCanCast(size_t i) const {

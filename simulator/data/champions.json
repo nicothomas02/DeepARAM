@@ -10973,7 +10973,7 @@
      ],
      "mode_overrides": [],
      "notes": [
-      "hand override: Q is three spells on one cooldown. The base is QQ Devastating Fire; in a fight each cast picks whichever of QQ, QW Severing Bolt (up to 3.5x against an immobilized target, by missing Health) and QE Molten Fissure (lava damage over time) is worth most on the target"
+      "hand override: Q is three spells on one cooldown. The base is QQ Devastating Fire; in a fight each cast picks whichever of QQ, QW Severing Bolt (up to 3.5x by missing Health when it hits a lone or immobilized enemy) and QE Molten Fissure (lava damage over time) is worth most on the target"
      ],
      "variants": [
       {
@@ -11060,7 +11060,7 @@
        ],
        "notes": [],
        "missing_amp": 2.5,
-       "missing_needs_cc": true
+       "missing_isolated": true
       },
       {
        "slot": "Q",
@@ -12150,11 +12150,11 @@
      "hits": [],
      "mode_overrides": [],
      "notes": [
-      "hand override: Daisy fights for 45 s: attacks for her AD (130 + 15% AP at rank 3, about one a second), and every 3rd attack on a champion (3 s cooldown) slams for the shockwave and a 1 s knock-up"
+      "hand override: Daisy fights for 45 s: attacks for 130 (+15% AP) at 1.2 attacks a second (rank 3), and after 2 attacks on one champion her next one (3 s cooldown) slams for the shockwave and a 1 s knock-up"
      ],
      "pet": {
       "duration": 45,
-      "attack_speed": 1.0,
+      "attack_speed": 1.2,
       "hits": [
        {
         "calc": "TotalDaisyAD",
@@ -26059,8 +26059,8 @@
      "cooldown": 16.0,
      "cast_time": 0.25,
      "cc": {
-      "type": "stun",
-      "duration": 0.5
+      "type": "root",
+      "duration": 1.0
      },
      "cost": 80.0,
      "targeting": "Direction",
@@ -26101,7 +26101,7 @@
      ],
      "mode_overrides": [],
      "notes": [
-      "hand override: Handshake damages the hooked target once; the throw only damages other enemies it lands on"
+      "hand override: Handshake roots the first enemy hit for 1 s and damages it once; the throw only damages and stuns other enemies it lands on"
      ]
     },
     {
@@ -26208,8 +26208,8 @@
     {
      "trigger": "attack",
      "every": 1,
-     "cooldown": 6.0,
-     "per_target": true,
+     "cooldown": 0.0,
+     "per_target": false,
      "charges": 1,
      "max_charges": 1,
      "aoe": false,
@@ -36553,7 +36553,9 @@
      "possess": 10,
      "possess_heal": 0.02,
      "possess_heal_bonus_ad": 0.00025,
-     "possess_heal_ap": 0.0002
+     "possess_heal_ap": 0.0002,
+     "possess_heal_bonus_hp": 4e-05,
+     "possess_heal_as": 0.05
     }
    }
   },

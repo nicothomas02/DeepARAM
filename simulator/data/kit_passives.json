@@ -270,16 +270,18 @@
    "possess": 10,
    "possess_heal": 0.02,
    "possess_heal_bonus_ad": 0.00025,
-   "possess_heal_ap": 0.0002
+   "possess_heal_ap": 0.0002,
+   "possess_heal_bonus_hp": 4e-05,
+   "possess_heal_as": 0.05
   },
-  "why": "Sovereign's Domination: a champion he kills is possessed for 10 s (its basic abilities, fresh), healing 2% (+2.5% per 100 bonus AD, +2% per 100 AP) of its max Health"
+  "why": "Sovereign's Domination: a champion he kills is possessed for 10 s (its basic abilities, cooldowns fresh; his own keep running) with a free Heartbreaker after 1.5 s, healing 2% (+2.5% per 100 bonus AD, +2% per 100 AP, +0.4% per 100 bonus Health, +5% per 100% bonus attack speed) of its max Health"
  },
  "Sylas": {
   "effects": {
    "hijack": 1,
    "hijack_lockout_min": 40
   },
-  "why": "Hijack: R takes the target's ultimate; each enemy can be hijacked again after 200% of its ultimate's cooldown, 40 s at least"
+  "why": "Hijack: R takes the target's ultimate, cast once with his stats (bonus AD ratios of an ultimate without AP scaling become 0.4 AP); each enemy can be hijacked again after 200% of its ultimate's base cooldown, 40 s at least (client data)"
  },
  "Aphelios": {
   "stats": {
