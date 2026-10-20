@@ -3093,6 +3093,7 @@ html[data-motion="reduce"] .btn:hover {
   gap: 1rem;
 }
 
+/* The icon sits on the game's own augment-card swirl for its rarity (/assets/art/augment-back-*.webp). */
 .aug-hero-icon {
   flex: none;
   padding: 6px;
@@ -3101,13 +3102,19 @@ html[data-motion="reduce"] .btn:hover {
   background: #11151c;
 }
 
+.aug-hero-icon[data-tier="silver"] {
+  background: url(/assets/art/augment-back-silver.webp) center / 100% no-repeat, #11151c;
+}
+
 .aug-hero-icon[data-tier="gold"] {
   border-color: var(--gold);
+  background: url(/assets/art/augment-back-gold.webp) center / 100% no-repeat, #11151c;
 }
 
 .aug-hero-icon[data-tier="prismatic"] {
   border-color: transparent;
   background:
+    url(/assets/art/augment-back-prismatic.webp) center / 100% no-repeat padding-box,
     linear-gradient(#11151c, #11151c) padding-box,
     var(--prismatic) border-box;
 }
