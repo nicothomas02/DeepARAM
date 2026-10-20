@@ -124,6 +124,35 @@ I18N.ready.then(() => {
   if (M.fastTravel?.length) rules.push(["Getting back to the fight", [
     ...M.fastTravel.map((f) => `${t(f.map)}, ${t(f.name)}: ${t(f.text)}`),
     M.portalSpeed ? t("Koeshin's Crossing portals also give {v} bonus Move Speed that fades over {seconds} seconds.", { v: pct(M.portalSpeed.bonus), seconds: fmt(M.portalSpeed.seconds) }) : ""]]);
+  const E = R.economy;
+  if (E) {
+    const G = E.passiveGold, X = E.passiveXp, split = E.minionXpSplit || [];
+    rules.push(["Gold and XP", [
+      E.startingGold ? t("You start with {gold} gold.", { gold: fmt(E.startingGold) }) : "",
+      G?.perMinute ? (G.aramPerMinute && G.aramPerMinute !== G.perMinute
+        ? t("You earn {amount} gold every {every} seconds, {perMinute} a minute ({aram} in regular ARAM).", { amount: fmt(G.amount), every: fmt(G.every), perMinute: fmt(G.perMinute), aram: fmt(G.aramPerMinute) })
+        : t("You earn {amount} gold every {every} seconds, {perMinute} a minute.", { amount: fmt(G.amount), every: fmt(G.every), perMinute: fmt(G.perMinute) })) : "",
+      X?.perMinute ? (X.every === 1
+        ? t("You earn {amount} XP every second, {perMinute} a minute.", { amount: fmt(X.amount), perMinute: fmt(X.perMinute) })
+        : t("You earn {amount} XP every {every} seconds, {perMinute} a minute.", { amount: fmt(X.amount), every: fmt(X.every), perMinute: fmt(X.perMinute) })) : "",
+      E.killGold ? t("A champion kill is worth {gold} gold, and First Blood {bonus} more.", { gold: fmt(E.killGold), bonus: fmt(E.firstBlood || 0) }) : "",
+      E.assistSeconds ? t("Damaging a champion counts toward an assist for {seconds} seconds.", { seconds: fmt(E.assistSeconds) }) : "",
+      split.length > 1 ? t("Minion XP is shared: with 1 to {n} champions nearby, each gets {shares}.", { n: split.length, shares: split.map(pct).join(" / ") }) : "",
+      E.levelGapXp ? t("Kill XP changes by {v} for each level between you and the champion you kill.", { v: pct(E.levelGapXp) }) : "",
+    ]]);
+    if (E.levels?.length) {
+      $("xp-rows").innerHTML = E.levels.map((l) => `<tr><td>${l.level}</td><td class="num">${fmt(l.xp)}</td><td class="num">${fmt(l.killXp)}</td></tr>`).join("");
+      $("xp-card").hidden = false;
+    }
+  }
+  const S = R.surrender;
+  if (S) rules.push(["Surrender and remake", [
+    S.voteSeconds ? t("A surrender vote lasts {seconds} seconds.", { seconds: fmt(S.voteSeconds) }) : "",
+    S.opens ? (S.opensWithAfk && S.opensWithAfk !== S.opens
+      ? t("You can start one from {time}, or from {afk} when a teammate is AFK.", { time: mins(S.opens), afk: mins(S.opensWithAfk) })
+      : t("You can start one from {time}.", { time: mins(S.opens) })) : "",
+    S.remakeFrom && S.remakeUntil ? t("A remake vote is possible from {from} to {to} when a teammate is AFK.", { from: mins(S.remakeFrom), to: mins(S.remakeUntil) }) : "",
+  ]]);
   if (R.aura?.length) rules.push([R.auraName || "Mayhemic Magic", [t("Everyone has this Mayhem buff all game:"), ...R.aura.map((l) => `• ${l}`)]]);
   $("rule-list").innerHTML = rules
     .map(([title, lines]) => `<article class="card"><div class="title">${esc(t(title))}</div>${lines.filter(Boolean).map((l) => `<p class="muted small" style="margin-top:0.4rem">${esc(l)}</p>`).join("")}</article>`)
@@ -193,6 +222,16 @@ I18N.ready.then(() => {
       .join("");
   }
 
+  // When a rarity runs out of augments to offer, the game fills the selection from a fixed list
+  if (D.fallbackAugments?.length) {
+    $("fallback-intro").textContent = t("Each selection shows {cards} augments. When too few augments of that rarity are left to offer, the game fills the selection from this list, so these show up more often than their pick rate suggests.", { cards: R.cards });
+    $("fallback-list").innerHTML = D.fallbackAugments
+      .map((f) => `<div class="eyebrow" style="margin:0.75rem 0 0.5rem">${esc(t(f.tier))}</div>
+        <div class="grid tight">${f.augments.map((a) => `<div class="row">${img(a.icon)}<div class="title">${esc(a.name)}</div></div>`).join("")}</div>`)
+      .join("");
+    $("fallback-card").hidden = false;
+  }
+
   // ---- Items
   const exact = (n) => I18N.num(n, 4);
   $("items-intro").textContent = t("{n} items have their own values in Mayhem. Each row is one value that changes.", { n: D.itemChanges.length });
@@ -213,6 +252,15 @@ I18N.ready.then(() => {
         ${q.notes.map((x) => `<p class="note">${esc(x)}</p>`).join("")}
       </article>`)
     .join("");
+
+  if (D.rivalQuests?.length) {
+    $("rival-list").innerHTML = D.rivalQuests
+      .map((q) => `<article class="card"><div class="title">${esc(q.name)}</div>
+        ${q.champions.map((c) => `<div class="row" style="margin-top:0.5rem;align-items:flex-start">${img(c.icon, "icon round")}<div><div class="title">${esc(c.name)}</div><div class="muted small">${esc(c.text)}</div></div></div>`).join("")}
+      </article>`)
+      .join("");
+    $("rival-card").hidden = false;
+  }
 
   // ---- Challenges
   const counted = D.challenges.filter((c) => c.mayhem).length;
