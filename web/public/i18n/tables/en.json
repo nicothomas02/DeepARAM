@@ -120,5 +120,9 @@
  "Game counts are approximate.": "Game counts are approximate.",
  "Win rate boost": "Win rate boost",
  "Sort": "Sort",
- "How much more the pair wins than the two champions' own win rates predict, in percentage points. Above zero means they help each other. Rarely played pairs count for less, so a lucky streak can't top the list.": "How much more the pair wins than the two champions' own win rates predict, in percentage points. Above zero means they help each other. Rarely played pairs count for less, so a lucky streak can't top the list."
+ "How much more the pair wins than the two champions' own win rates predict, in percentage points. Above zero means they help each other. Rarely played pairs count for less, so a lucky streak can't top the list.": "How much more the pair wins than the two champions' own win rates predict, in percentage points. Above zero means they help each other. Rarely played pairs count for less, so a lucky streak can't top the list.",
+ "Damage mitigated": "Damage mitigated",
+ "Healing done": "Healing done",
+ "Crowd control": "Crowd control",
+ "Shielding": "Shielding"
 }

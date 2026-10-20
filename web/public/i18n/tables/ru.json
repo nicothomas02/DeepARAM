@@ -120,5 +120,9 @@
  "Game counts are approximate.": "Число игр приблизительное.",
  "Win rate boost": "Прирост винрейта",
  "Sort": "Сортировка",
- "How much more the pair wins than the two champions' own win rates predict, in percentage points. Above zero means they help each other. Rarely played pairs count for less, so a lucky streak can't top the list.": "Насколько чаще пара побеждает, чем предсказывают собственные винрейты двух чемпионов, в процентных пунктах. Выше нуля — они помогают друг другу. Редкие пары учитываются слабее, чтобы удачная серия не выводила их наверх."
+ "How much more the pair wins than the two champions' own win rates predict, in percentage points. Above zero means they help each other. Rarely played pairs count for less, so a lucky streak can't top the list.": "Насколько чаще пара побеждает, чем предсказывают собственные винрейты двух чемпионов, в процентных пунктах. Выше нуля — они помогают друг другу. Редкие пары учитываются слабее, чтобы удачная серия не выводила их наверх.",
+ "Damage mitigated": "Поглощённый урон",
+ "Healing done": "Исцеление",
+ "Crowd control": "Контроль",
+ "Shielding": "Щиты"
 }

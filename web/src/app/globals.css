@@ -1034,44 +1034,6 @@ h1 {
   outline-offset: -1px;
 }
 
-/* Advanced stats: every column for the same rows, in its own table at the bottom of the tab. */
-.advanced-stats {
-  margin-top: 2rem;
-  padding-top: 1.25rem;
-  border-top: 1px solid var(--line);
-}
-
-.advanced-stats > summary {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 0.25rem 0.75rem;
-  width: fit-content;
-  margin-bottom: 0.75rem;
-  font: 600 1.05rem var(--display);
-  list-style: none;
-  cursor: pointer;
-}
-
-.advanced-stats > summary::before {
-  content: "+";
-  color: var(--accent);
-  font-weight: 700;
-}
-
-.advanced-stats[open] > summary::before {
-  content: "−";
-}
-
-.advanced-stats > summary::-webkit-details-marker {
-  display: none;
-}
-
-.advanced-stats > summary small {
-  color: var(--muted);
-  font: 400 0.8125rem var(--font-sans), system-ui, sans-serif;
-}
-
 /* The header row of a long table slides down with the page (DataTable useStickyHead). */
 .data-table thead th {
   position: relative;

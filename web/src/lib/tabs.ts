@@ -26,7 +26,7 @@ const ROUTES: Record<string, string> = {
 };
 export const toolHref = (slug: string) => ROUTES[slug] ?? `/tools/${slug}`;
 // Tab names the site sets regardless of the folder's own label.
-const LABELS: Record<string, string> = { guide: "Info", fun: "The Kitchen" };
+const LABELS: Record<string, string> = { guide: "About", fun: "The Kitchen" };
 
 export function discoverToolTabs(): ToolTab[] {
   const root = repoPath("");
@@ -39,7 +39,9 @@ export function discoverToolTabs(): ToolTab[] {
       if (existsSync(manifest) && !HIDDEN.has(d.name)) {
         try {
           const m = JSON.parse(readFileSync(manifest, "utf8"));
-          const slug = String(m.slug ?? d.name).toLowerCase().replace(/[^a-z0-9-]+/g, "-");
+          const slug = String(m.slug ?? d.name)
+            .toLowerCase()
+            .replace(/[^a-z0-9-]+/g, "-");
           found.push({
             slug,
             href: toolHref(slug),
@@ -69,8 +71,8 @@ const pick = (href: string): NavItem[] => {
 };
 
 /** The header's tabs, grouped by what a player is trying to do:
- *  Tier List (champions, augments, duos, augments by icon, draft practice) · Simulator ·
- *  Patches (live recaps and the PBE) · More (Items, Info, The Kitchen, newer tool folders).
+ *  Tier List (champions, augments, items, duos, augments by icon, draft practice) · Simulator · The Kitchen ·
+ *  More (PBE, Patches, About, newer tool folders), the same order as the phone tab bar.
  *  Builds for a champion are on its page.
  *  My Stats sits behind the account button; champion, augment and item pages open from the tier lists and search. */
 export function navItems(): NavItem[] {
@@ -79,8 +81,8 @@ export function navItems(): NavItem[] {
   return [
     ...pick("/tier-list"),
     ...pick("/simulator"),
-    ...menu("#patches", "Patches", [...pick("/pbe"), ...pick("/patches")]),
-    ...menu("#more", "More", [...pick("/info"), ...pick("/kitchen"), ...tools.flatMap((t) => pick(t.href))]),
+    ...pick("/kitchen"),
+    ...menu("#more", "More", [...pick("/pbe"), ...pick("/patches"), ...pick("/info"), ...tools.flatMap((t) => pick(t.href))]),
   ];
 }
 

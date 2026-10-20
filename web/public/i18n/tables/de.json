@@ -120,5 +120,9 @@
  "Game counts are approximate.": "Spielzahlen sind ungefähr.",
  "Win rate boost": "Siegraten-Plus",
  "Sort": "Sortieren",
- "How much more the pair wins than the two champions' own win rates predict, in percentage points. Above zero means they help each other. Rarely played pairs count for less, so a lucky streak can't top the list.": "Wie viel öfter das Duo gewinnt, als die eigenen Siegquoten der beiden Champions erwarten lassen, in Prozentpunkten. Über null heißt, sie helfen sich gegenseitig. Selten gespielte Paare zählen weniger, damit eine Glückssträhne nicht an die Spitze kommt."
+ "How much more the pair wins than the two champions' own win rates predict, in percentage points. Above zero means they help each other. Rarely played pairs count for less, so a lucky streak can't top the list.": "Wie viel öfter das Duo gewinnt, als die eigenen Siegquoten der beiden Champions erwarten lassen, in Prozentpunkten. Über null heißt, sie helfen sich gegenseitig. Selten gespielte Paare zählen weniger, damit eine Glückssträhne nicht an die Spitze kommt.",
+ "Damage mitigated": "Abgewehrter Schaden",
+ "Healing done": "Verursachte Heilung",
+ "Crowd control": "Massenkontrolle",
+ "Shielding": "Schilde"
 }

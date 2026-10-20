@@ -47,9 +47,9 @@
  "Late game": "Późna gra",
  "Even": "Równo",
  "Archetypes": "Archetypy",
- "Live patch {patch} by default. Pick any patches, or all time, above the champion table. Advanced stats at the bottom show every stat we have.": "Domyślnie obecny patch {patch}. Wybierz dowolne patche albo cały czas nad tabelą bohaterów. Zaawansowane statystyki na dole pokazują wszystkie dane, jakie mamy.",
- "Live patch {patch}. Each augment gets a DeepScore against the others of its rarity: 50 is average, S is 70 and up, A 59, B 44, C 32 and D below. Switch to Table for every number.": "Obecny patch {patch}. Każde wzmocnienie dostaje DeepScore na tle innych o tej samej rzadkości: 50 to średnia, S to 70 i więcej, A 59, B 44, C 32, a D poniżej. Wszystkie liczby znajdziesz w widoku Tabela.",
  "Tiers": "Tiery",
  "Table": "Tabela",
- "View": "Widok"
+ "View": "Widok",
+ "Live patch {patch} by default. Pick any patches, or all time, above the champion table.": "Domyślnie obecny patch {patch}. Wybierz dowolne patche albo cały czas nad tabelą bohaterów.",
+ "Live patch {patch}. Each augment gets a DeepScore against the others of its rarity: 50 is average, S is 70 and up, A 59, B 44, C 32 and D below.": "Obecny patch {patch}. Każde wzmocnienie dostaje DeepScore na tle innych o tej samej rzadkości: 50 to średnia, S to 70 i więcej, A 59, B 44, C 32, a D poniżej."
 }

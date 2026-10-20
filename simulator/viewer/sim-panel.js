@@ -571,16 +571,14 @@
     fillFromTrace();
   }
   // ---------- leaderboard ----------
-  let submission = null;
-  function offerSubmit(build, plain) {
-    submission = build && plain ? build : null;
+  // Every build simulated on the live patch goes to the Leaderboard on its own: only the build is sent, it's
+  // simulated again on our side against the Survival enemy with the default settings, and each champion's
+  // best is listed. Each build is sent once per visit.
+  const sent = new Set();
+  function offerSubmit(build, live) {
     $("submitBox").hidden = !build;
-    $("submitScore").hidden = !submission;
-    $("submitScore").disabled = false;
-    $("submitNote").textContent = !build ? "" : submission
-      ? T("Put this build on the Leaderboard. There every build fights {enemy} with the default settings until your champion falls, simulated again on our side before it's listed.",
-        { enemy: NAME("champions", survivalEnemy(build.champion), survivalEnemy(build.champion)) })
-      : T("Only live-patch builds can go on the Leaderboard.");
+    $("submitNote").textContent = build && !live ? T("Only live-patch builds go on the Leaderboard.") : "";
+    if (build && live) autoSubmit(build);
   }
   // The site's bot check, when it's switched on: usually invisible, sometimes a box to tick under the button.
   let checkWidget = null;
@@ -606,25 +604,25 @@
       });
     });
   }
-  $("submitScore").addEventListener("click", async () => {
-    if (!submission) return;
-    $("submitScore").disabled = true;
-    $("submitNote").textContent = T("Submitting…");
+  async function autoSubmit(build) {
+    const key = [build.champion, [...build.items].sort(), [...build.augments].sort()].join("|");
+    if (sent.has(key)) return;
+    sent.add(key);
+    const dps = (v) => Math.round(v).toLocaleString();
     try {
       const check = await botCheck();
-      const r = await fetch("/api/sim-scores", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(check ? { ...submission, check } : submission) });
+      const r = await fetch("/api/sim-scores", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(check ? { ...build, check } : build) });
       const b = await r.json().catch(() => ({}));
       if (!r.ok) throw new Error(b.error ? await kitchenText(b.error) : "");
-      $("submitNote").textContent = b.status === "verified"
-        ? T("This build is already on the Leaderboard at {dps} DPS.", { dps: Math.round(b.verified_dps).toLocaleString() })
-        : b.status === "rejected" ? T("This build was already checked and can't go on the Leaderboard.")
-        : T("Submitted. It shows on the Leaderboard once our simulator has re-run it.");
-      $("submitScore").hidden = true;
+      $("submitNote").textContent = b.status === "verified" ? T("This build is its champion's best on the Leaderboard, at {dps} DPS.", { dps: dps(b.verified_dps) })
+        : b.status === "checked" ? T("This build was simulated for the Leaderboard at {dps} DPS; its champion has a better one listed.", { dps: dps(b.verified_dps) })
+        : b.status === "rejected" ? T("This build can't go on the Leaderboard.")
+        : T("Entered on the Leaderboard. Our simulator runs it again, and it's listed if it beats its champion's best build.");
     } catch (e) {
-      $("submitScore").disabled = false;
+      sent.delete(key);
       $("submitNote").textContent = e.message || T("The Leaderboard couldn't be reached. Try again in a moment.");
     }
-  });
+  }
 
   // ---------- The Kitchen ----------
   // A simulated build can be sent to The Kitchen with a title and a few words, by a signed-in visitor.

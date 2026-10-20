@@ -8,7 +8,7 @@ import { patchName } from "@/lib/patch-name";
 
 export const metadata: Metadata = pageMeta(
   "/patches",
-  "ARAM Mayhem Patch Recaps",
+  "ARAM Mayhem Patches",
   "Every ARAM Mayhem patch at a glance: augments added, removed and changed, and the champions that rose and fell most.",
 );
 
@@ -20,7 +20,7 @@ export default function PatchesPage() {
     .filter(Boolean);
   return (
     <>
-      <Intro eyebrow={<T ns="patches">Patch Recaps</T>} title={<T ns="patches">What every patch changed.</T>}>
+      <Intro eyebrow={<T ns="patches">Patches</T>} title={<T ns="patches">What every patch changed.</T>}>
         <T ns="patches">Augment changes and the biggest champion risers and fallers, patch by patch.</T>
       </Intro>
       <div className="recap-index">
