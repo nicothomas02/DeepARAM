@@ -10,8 +10,22 @@
   const FULL = document.documentElement.dataset.edition === "full";
   const BUST = "?v=" + (window.REPLAY_VERSION || "0");
   const SLOT_COLORS = { P: "#ffd36b", Q: "#4fc3f7", W: "#7bd88f", E: "#f4b860", R: "#e66ad2" };
-  // Damage number colours as the game shows them: physical orange, magic violet, true white.
-  const TYPE_COLORS = { physical: "#ff8a2b", magic: "#9b7dff", true: "#ffffff" }, CRIT_COLOR = "#ff4b1f";
+  // Floating combat text as the game draws it. Colours: [fill, outline] per kind. Motion, in px of a 1080p screen:
+  // sideways speed (alternating right and left), upward speed, pull (sideways, down), start offset and random jitter;
+  // it pops in larger and settles over `shrink` s, stays for `hold` s, then fades over `fade` s.
+  const FLOAT_COLORS = { physical: ["#ff8c34", "#190d05"], magic: ["#00b0f0", "#001219"], true: ["#ffffff", "#191919"], heal: ["#4cf854", "#232323"] };
+  const FLOAT = {
+    hit: { vx: [50, 65], vy: [150, 180], pull: [0, 500], at: [0, 0], jitter: 0, shrink: 0.15, pop: 0.5, scale: 1, hold: 0.4, fade: 0.45 },
+    crit: { vx: [90, 105], vy: [190, 210], pull: [-40, 625], at: [25, 10], jitter: 20, shrink: 0.1, pop: 0.35, scale: 1.75, hold: 0.4, fade: 0.45 },
+    heal: { vx: [0, 0], vy: [110, 110], pull: [0, 0], at: [0, 40], jitter: 0, shrink: 0.15, pop: 0.5, scale: 0.9, hold: 0.3, fade: 0.45 },
+  };
+  const FLOAT_SIZE = 27;  // px at 1080p
+  const CRIT_ICONS = {};
+  for (const [kind, file] of [["physical", "criticon"], ["magic", "criticonmagic"], ["true", "criticontrue"]]) {
+    const im = new Image();
+    im.src = "/assets/ux/floatingtext/" + file + ".png";
+    CRIT_ICONS[kind] = im;
+  }
   // What the simulator measures (the Mode picker in sim-panel.js): damage per second, or per fight the damage
   // you take, the damage you mitigate, the Health you restore and the seconds of crowd control you deal.
   const MODES = {
@@ -203,11 +217,13 @@
       const want = Math.min(a.t + d / 1500, next ? next.t - 0.01 : Infinity);
       if (want > b.t) b.t = want;
     }
-    // Numbers landing on one target close together stack upward instead of on top of each other.
+    // Numbers landing on one target close together stack upward instead of on top of each other,
+    // and, as in the game, each one flies off to the other side from the last.
     const recent = new Map();
     for (const n of f.numbers) {
       const prev = recent.get(n.u);
       n.fan = prev && n.t - prev.t < 0.25 ? (prev.fan + 1) % 4 : 0;
+      n.side = prev ? -prev.side : 1;
       recent.set(n.u, n);
     }
     // When each slot is next cast, for the cooldown sweep.
@@ -1056,15 +1072,10 @@
       const p = posOf(n.u);
       const head = heads["e" + n.u];
       const baseY = (numTop.get(n.u) ?? (head ? head.y - 20 * u : p.y - r - 26 * u)) - (n.fan || 0) * 16 * u;
-      // As in the game: the number pops in large, rises fast then slows while drifting to one side,
-      // and fades at the end; crits are bigger and redder.
-      const k = age / 0.9, side = (n.t * 997) % 1 - 0.5;
-      const pop = 1 + (n.crit ? 0.8 : 0.45) * Math.max(0, 1 - age / 0.12);
-      const size = (n.crit ? 27 : n.a > 400 ? 21 : 17) * u * pop;
-      const x = (head ? head.x : p.x) + side * 40 * u + Math.sign(side) * k * 18 * u;
-      const y = baseY - (1 - (1 - k) * (1 - k)) * 64 * u;
-      gameNumber(overlay, Math.round(n.a).toString(), x, y, k < 0.6 ? 1 : 1 - (k - 0.6) / 0.4,
-        n.crit && n.x === "physical" ? CRIT_COLOR : TYPE_COLORS[n.x] || "#fff", size);
+      const fl = floating(n.crit ? FLOAT.crit : FLOAT.hit, age, n.side || 1, n.t * 997 + n.u, u);
+      if (!fl) continue;
+      gameNumber(overlay, Math.round(n.a).toString(), (head ? head.x : p.x) + fl.dx, baseY - fl.dy, fl.alpha,
+        FLOAT_COLORS[n.x] || FLOAT_COLORS.true, fl.size, n.crit ? CRIT_ICONS[n.x] : null);
     }
 
     $("kills").textContent = s.kills;
@@ -1093,7 +1104,8 @@
       const age = time - h.t;
       if (age < 0 || age > 1 || h.a < 5) continue;
       const top = myHead ? myHead.y - 30 * u : meY - R - 40 * u;
-      gameNumber(og, "+" + Math.round(h.a), meX + 40 * u, top - age * 50 * u, age < 0.6 ? 1 : (1 - age) / 0.4, "#5fe06a", 16 * u);
+      const fl = floating(FLOAT.heal, age, 1, h.t * 997, u);
+      if (fl) gameNumber(og, "+" + Math.round(h.a), meX + 40 * u + fl.dx, top + 40 * 0.7 * u - fl.dy, fl.alpha, FLOAT_COLORS.heal, fl.size * 0.8);
     }
 
     // Shields on you: a white number and, outside Low graphics, a ring that fades as it ends.
@@ -1277,12 +1289,32 @@
   }
 
   // A damage or heal number in the game's style: heavy type with a thick dark outline.
-  function gameNumber(g, text, x, y, alpha, color, size) {
+  // Where a floating number is `age` s after it appears: offset from its start (px, up is positive), size and alpha;
+  // null once it has faded. side: 1 flies right, -1 left. u: the arena's px per layout unit.
+  function floating(spec, age, side, seed, u) {
+    if (age < 0 || age > spec.hold + spec.fade) return null;
+    const rnd = (i) => { const v = Math.sin(seed * 12.9898 + i * 78.233) * 43758.5453; return v - Math.floor(v); };
+    const k = 0.7 * u;  // 1080p px -> arena px
+    const vx = (spec.vx[0] + (spec.vx[1] - spec.vx[0]) * rnd(1)) * side, vy = spec.vy[0] + (spec.vy[1] - spec.vy[0]) * rnd(2);
+    const ox = spec.at[0] * side + spec.jitter * (rnd(3) * 2 - 1), oy = spec.at[1] + spec.jitter * (rnd(4) * 2 - 1);
+    const dx = ox + vx * age + 0.5 * spec.pull[0] * side * age * age, dy = oy + vy * age - 0.5 * spec.pull[1] * age * age;
+    const scale = spec.scale * (1 + spec.pop * Math.max(0, 1 - age / spec.shrink));
+    const alpha = age < spec.hold ? 1 : 1 - (age - spec.hold) / spec.fade;
+    return { dx: dx * k, dy: dy * k, size: FLOAT_SIZE * scale * k, alpha };
+  }
+  // A game-style number: bold, outlined, with a drop shadow; a crit icon before it when given.
+  function gameNumber(g, text, x, y, alpha, [fill, outline], size, icon = null) {
     g.globalAlpha = Math.max(0, Math.min(1, alpha));
     g.font = `800 ${size}px "Geist", system-ui, sans-serif`;
     g.textAlign = "center"; g.lineJoin = "round";
-    g.lineWidth = Math.max(3, size / 4.5); g.strokeStyle = "rgba(10,6,4,.9)"; g.strokeText(text, x, y);
-    g.fillStyle = color; g.fillText(text, x, y);
+    const sh = Math.max(1, size / 14);
+    g.fillStyle = "rgba(0,0,0,.75)"; g.fillText(text, x + sh, y + sh);
+    g.lineWidth = Math.max(2, size / 7); g.strokeStyle = outline; g.strokeText(text, x, y);
+    g.fillStyle = fill; g.fillText(text, x, y);
+    if (icon && icon.complete && icon.naturalWidth) {
+      const w = g.measureText(text).width, s = size * 1.1;
+      g.drawImage(icon, x - w / 2 - s * 0.9, y - s * 0.8, s, s);
+    }
     g.lineJoin = "miter"; g.globalAlpha = 1;
   }
   function floatText(g, text, x, y, alpha, color, size) {
