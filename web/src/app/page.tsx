@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { text } from "@/lib/content";
-import { chefsSpecial, statsDate, counts, kitchenBuilds, livePatch, liveTiers, topAugments, topDps } from "@/lib/highlights";
+import { chefsSpecial, statsDate, counts, kitchenBuilds, livePatch, liveTiers, topAugments, topDps, topItems } from "@/lib/highlights";
 import { duoRows } from "@/lib/duos";
 import { recap, recapPatches } from "@/lib/patches";
 import { readRepoJson } from "@/lib/repo-data";
@@ -11,7 +11,6 @@ import { FunLists, KitchenPick, TierSnapshot } from "@/components/HomeWidgets";
 import { funLists, powerCurveLists, profileValue, typicalGame } from "@/lib/estimates";
 import { liveWithChange } from "@/lib/champions";
 import championIds from "@/data/champion-ids.json";
-import { augmentHref } from "@/lib/augments";
 import { KITCHEN } from "@/lib/tabs";
 import championNames from "@/data/champion-names.json";
 
@@ -60,6 +59,7 @@ function funValues(): Record<string, (id: number, alias: string) => string | nul
 export default function Home() {
   const tiers = liveTiers();
   const augs = topAugments();
+  const gear = topItems();
   const patch = livePatch() && patchName(livePatch());
   const special = chefsSpecial();
   const builds = special ? [] : kitchenBuilds();
@@ -152,9 +152,9 @@ export default function Home() {
               {augs.map((a, i) => (
                 <Link
                   key={a.id}
-                  href={augmentHref(a.id) ?? `/tier-list?tab=augments&q=${encodeURIComponent(a.name)}`}
+                  href={a.href}
                   data-tilt="soft"
-                  data-rarity={a.tier?.toLowerCase()}
+                  data-rarity={a.rarity}
                 >
                   <span className="rank-i">{i + 1}</span>
                   <Icon src={`/icons/augments/${a.id}.webp`} />
@@ -164,7 +164,33 @@ export default function Home() {
                     </Name>
                   </span>
                   <span className={`chip tier-${a.tier?.toLowerCase()}`}>{a.tier && <T>{a.tier}</T>}</span>
-                  <span className="rank-v">{pct(a.winRate)}</span>
+                  <span className="rank-v">{Math.round(a.deepScore)}</span>
+                </Link>
+              ))}
+            </div>
+          </section>
+        )}
+        {gear.length > 0 && (
+          <section className="card span-all" data-accent="gold">
+            <div className="card-head">
+              <h2>
+                <T>Best items</T>
+              </h2>
+              <Link href="/tier-list?tab=items">
+                <T>All →</T>
+              </Link>
+            </div>
+            <div className="rank">
+              {gear.map((i, n) => (
+                <Link key={i.id} href={`/items/${i.slug}`} data-tilt="soft">
+                  <span className="rank-i">{n + 1}</span>
+                  {i.icon ? <Icon src={i.icon} /> : null}
+                  <span className="rank-name">
+                    <Name kind="items" id={String(i.id)}>
+                      {i.name}
+                    </Name>
+                  </span>
+                  <span className="rank-v">{Math.round(i.deepScore ?? 0)}</span>
                 </Link>
               ))}
             </div>

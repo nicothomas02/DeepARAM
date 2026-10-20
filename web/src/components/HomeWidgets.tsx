@@ -8,7 +8,7 @@ import { useNames, useT } from "./I18n";
 // The home page's interactive pieces: the live tier snapshot,
 // an augment offer to roll, and a Kitchen build to reroll.
 
-type Champ = { id: string; name: string; tier: string; winRate: number; pickRate: number; splash?: string };
+type Champ = { id: string; name: string; tier: string; winRate: number; pickRate: number; deepScore: number; splash?: string };
 type Build = { champion: string; title: string; augments: string[]; why: string };
 
 const pct = (v: number) => `${(v * 100).toFixed(1)}%`;
@@ -20,7 +20,7 @@ export function TierSnapshot({ champs }: { champs: Champ[] }) {
   const t = useT();
   const names = useNames();
   const [hover, setHover] = useState<Champ | null>(null);
-  const list = champs.filter((c) => c.tier === tier).sort((a, b) => b.winRate - a.winRate);
+  const list = champs.filter((c) => c.tier === tier).sort((a, b) => b.deepScore - a.deepScore);
   const shown = hover && hover.tier === tier ? hover : list[0];
   return (
     <div className="snap">
@@ -63,7 +63,7 @@ export function TierSnapshot({ champs }: { champs: Champ[] }) {
           <img src={champIcon(shown.id)} alt="" width={44} height={44} />
           <div>
             <b>{names("champions", shown.id, shown.name)}</b>
-            <span>{t("{wr} win · {pr} pick", { wr: pct(shown.winRate), pr: pct(shown.pickRate) })}</span>
+            <span>{t("{ds} DeepScore · {wr} win · {pr} pick", { ds: Math.round(shown.deepScore), wr: pct(shown.winRate), pr: pct(shown.pickRate) })}</span>
           </div>
           <span className={`chip tier-${shown.tier.toLowerCase()}`}>{shown.tier}</span>
         </Link>
