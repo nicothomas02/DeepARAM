@@ -8,10 +8,10 @@
 import * as THREE from "three";
 
 const BUST = "?v=" + (window.REPLAY_VERSION || "0");
-// Files built next to the page (replay-data/vfx/) win; otherwise the website's copies in /assets/vfx/.
-let base = "replay-data/vfx/", index = null;
+// The website's copies in /assets/vfx/; a viewer run on its own reads files built next to it (replay-data/vfx/).
+let base = "/assets/vfx/", index = null;
 const readIndex = (dir) => fetch(dir + "index.json" + BUST).then((r) => (r.ok ? r.json() : null)).catch(() => null);
-const ready = readIndex(base).then((m) => m || (base = "/assets/vfx/", readIndex(base))).then((m) => { index = (m && m.champions) || {}; });
+const ready = readIndex(base).then((m) => m || (base = "replay-data/vfx/", readIndex(base))).then((m) => { index = (m && m.champions) || {}; });
 
 const MAX_V = 24000, MAX_I = 36000;  // vertices and indices per texture and blend, per frame
 const loader = new THREE.TextureLoader();
