@@ -119,5 +119,6 @@
  "Numbers marked estimated are worked out from the stats we have, not counted game by game.": "Các con số được đánh dấu ước tính được tính từ số liệu chúng tôi có, không đếm từng trận.",
  "Game counts are approximate.": "Số trận là con số gần đúng.",
  "Win rate boost": "Mức tăng tỉ lệ thắng",
- "Sort": "Sắp xếp"
+ "Sort": "Sắp xếp",
+ "How much more the pair wins than the two champions' own win rates predict, in percentage points. Above zero means they help each other. Rarely played pairs count for less, so a lucky streak can't top the list.": "Cặp này thắng nhiều hơn bao nhiêu so với dự đoán từ tỉ lệ thắng riêng của hai tướng, tính bằng điểm phần trăm. Trên 0 nghĩa là họ hỗ trợ nhau. Các cặp ít được chơi được tính ít hơn, nên chuỗi may mắn không thể đứng đầu danh sách."
 }

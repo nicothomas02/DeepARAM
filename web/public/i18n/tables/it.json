@@ -119,5 +119,6 @@
  "Numbers marked estimated are worked out from the stats we have, not counted game by game.": "I numeri segnati come stimati sono calcolati dalle statistiche che abbiamo, non contati partita per partita.",
  "Game counts are approximate.": "Il numero di partite è approssimativo.",
  "Win rate boost": "Aumento vittorie",
- "Sort": "Ordina"
+ "Sort": "Ordina",
+ "How much more the pair wins than the two champions' own win rates predict, in percentage points. Above zero means they help each other. Rarely played pairs count for less, so a lucky streak can't top the list.": "Quanto più vince la coppia rispetto a quanto prevedono le percentuali di vittoria dei due campioni, in punti percentuali. Sopra lo zero si aiutano a vicenda. Le coppie giocate di rado contano meno, così una serie fortunata non arriva in cima."
 }

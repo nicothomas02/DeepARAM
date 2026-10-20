@@ -1,6 +1,8 @@
 import { describe, expect, it } from "vitest";
 import { archetypeRows, duoRows, duoVersion } from "@/lib/duos";
 import { readRepoJson } from "@/lib/repo-data";
+import { synergy } from "@/lib/synergy";
+import championIds from "@/data/champion-ids.json";
 
 // The Duos tab's pairs (lib/duos.ts), built from each champion's listed teammates.
 describe("duo pairs", () => {
@@ -33,22 +35,35 @@ describe("duo pairs", () => {
   });
 });
 
-// DeepScore for duos and the archetype pairs pooled from them.
-describe("duo DeepScore and archetypes", () => {
+// The win rate boost, adjusted for how often a pair is played, and the archetype pairs pooled from it.
+describe("duo win rate boost and archetypes", () => {
   const rows = duoRows();
+  const champs = readRepoJson<{ champions: { champion_id: number; win_rate: number; best_partners?: { champion_id: number; win_rate: number }[] }[] }>(
+    "data/cn/champions.json",
+  )!.champions;
+  const ids = (alias: string) => (championIds as Record<string, number>)[alias];
+  const measured = (r: { a: string; b: string }) => {
+    const [x, y] = [champs.find((c) => c.champion_id === ids(r.a))!, champs.find((c) => c.champion_id === ids(r.b))!];
+    const p = x.best_partners?.find((m) => m.champion_id === y.champion_id) ?? y.best_partners!.find((m) => m.champion_id === x.champion_id)!;
+    return synergy(p.win_rate, x.win_rate, y.win_rate);
+  };
 
-  it("grades every pair from 0 to 100, higher for a bigger synergy", () => {
-    for (const r of rows) expect(r.deepScore >= 0 && r.deepScore <= 100).toBe(true);
-    const top = [...rows].sort((a, b) => b.deepScore - a.deepScore).slice(0, 50);
-    const bottom = [...rows].sort((a, b) => a.deepScore - b.deepScore).slice(0, 50);
-    expect(Math.min(...top.map((r) => r.delta))).toBeGreaterThan(0);
-    expect(Math.max(...bottom.map((r) => r.delta))).toBeLessThan(0);
+  it("pulls each pair's measured synergy toward the average, never past it", () => {
+    const mean = rows.reduce((a, r) => a + r.delta, 0) / rows.length;
+    let shrunk = 0;
+    for (const r of rows.slice(0, 500)) {
+      const m = measured(r);
+      expect(Math.abs(r.delta - mean)).toBeLessThanOrEqual(Math.abs(m - mean) + 0.002);
+      if (Math.abs(r.delta) < Math.abs(m) - 0.001) shrunk++;
+    }
+    expect(shrunk).toBeGreaterThan(50);
   });
 
-  it("trusts a rarely played pair's delta less than a common pair's", () => {
-    const byDelta = [...rows].sort((a, b) => b.delta - a.delta);
-    const byScore = [...rows].sort((a, b) => b.deepScore - a.deepScore);
-    expect(byScore.slice(0, 10).map((r) => r.pair)).not.toEqual(byDelta.slice(0, 10).map((r) => r.pair));
+  it("keeps big boosts from rarely played pairs off the top", () => {
+    const byMeasured = [...rows].sort((a, b) => measured(b) - measured(a));
+    const byBoost = [...rows].sort((a, b) => b.delta - a.delta);
+    expect(byBoost.slice(0, 10).map((r) => r.pair)).not.toEqual(byMeasured.slice(0, 10).map((r) => r.pair));
+    expect(byBoost[0].delta).toBeGreaterThan(0.02);
   });
 
   it("pools pairs by subclass, including double Enchanter", () => {

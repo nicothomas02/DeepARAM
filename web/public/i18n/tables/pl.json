@@ -119,5 +119,6 @@
  "Numbers marked estimated are worked out from the stats we have, not counted game by game.": "Liczby oznaczone jako szacunkowe są wyliczone ze statystyk, które mamy, a nie liczone gra po grze.",
  "Game counts are approximate.": "Liczby gier są przybliżone.",
  "Win rate boost": "Przyrost zwycięstw",
- "Sort": "Sortuj"
+ "Sort": "Sortuj",
+ "How much more the pair wins than the two champions' own win rates predict, in percentage points. Above zero means they help each other. Rarely played pairs count for less, so a lucky streak can't top the list.": "O ile częściej para wygrywa, niż przewidują własne współczynniki zwycięstw obu bohaterów, w punktach procentowych. Powyżej zera oznacza, że sobie pomagają. Rzadko grane pary liczą się mniej, więc szczęśliwa passa nie wywinduje ich na szczyt."
 }

@@ -9,15 +9,16 @@ import { getParam, setParams } from "@/lib/url-state";
 import type { TagInfo } from "@/lib/tag-info";
 
 // The Duos tab: about 7,000 pairs (lib/duos.ts), so they load from /data/duos.json when the tab is first opened, not with the page.
-// Both lists start in DeepScore order (lib/duos.ts: the delta, trusting rarely played pairs less) without
-// showing the score; the Win rate boost column sorts by the raw delta.
+// Both lists start sorted by Win rate boost, the synergy adjusted for how often a pair is played (lib/duos.ts).
 // "Archetypes" pools the same pairs by subclass (Enchanter + Enchanter); those few rows ship with the page (?dview=arch).
 
+const BOOST_HINT =
+  "How much more the pair wins than the two champions' own win rates predict, in percentage points. Above zero means they help each other. Rarely played pairs count for less, so a lucky streak can't top the list.";
 const DELTA: Column = {
   key: "delta",
   label: "Win rate boost",
   format: "pts",
-  hint: "How much more the pair wins than the two champions' own win rates predict, in percentage points. Above zero means they help each other.",
+  hint: BOOST_HINT,
 };
 const PICK: Column = {
   key: "pick_rate",
@@ -74,7 +75,7 @@ export default function DuosTable({ archetypes, tagInfo, version }: { archetypes
           key="arch"
           columns={[archetype("a", "Archetype"), archetype("b", "With"), DELTA, PAIRS]}
           rows={archetypes}
-          initialSort={{ key: "deepScore", desc: true }}
+          initialSort={{ key: "delta", desc: true }}
           urlTab="duos"
         />
       </>
@@ -90,7 +91,7 @@ export default function DuosTable({ archetypes, tagInfo, version }: { archetypes
         columns={[champion("a", "Champion"), champion("b", "With"), DELTA, PICK]}
         advancedColumns={[champion("a", "Champion"), champion("b", "With"), DELTA, PICK, { key: "roles", label: "Roles", format: "text", sortable: false }]}
         rows={rows}
-        initialSort={{ key: "deepScore", desc: true }}
+        initialSort={{ key: "delta", desc: true }}
         searchKey="pair"
         searchLabel="Find a champion"
         urlTab="duos"

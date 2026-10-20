@@ -119,5 +119,6 @@
  "Numbers marked estimated are worked out from the stats we have, not counted game by game.": "الأرقام المعلَّمة بأنها تقديرية محسوبة من الإحصاءات المتوفرة لدينا، لا معدودة مباراة بمباراة.",
  "Game counts are approximate.": "أعداد المباريات تقريبية.",
  "Win rate boost": "زيادة نسبة الفوز",
- "Sort": "ترتيب"
+ "Sort": "ترتيب",
+ "How much more the pair wins than the two champions' own win rates predict, in percentage points. Above zero means they help each other. Rarely played pairs count for less, so a lucky streak can't top the list.": "مقدار ما يفوز به الثنائي أكثر مما تتوقعه نسبتا فوز البطلين كلٌّ بمفرده، بالنقاط المئوية. فوق الصفر يعني أنهما يساعدان بعضهما. الثنائيات النادرة اللعب تُحتسب بوزن أقل، فلا تتصدر سلسلة حظ القائمة."
 }
