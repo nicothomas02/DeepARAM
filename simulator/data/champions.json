@@ -12,7 +12,7 @@
    "R": 3
   },
   "notes": [
-   "Ability damage is parsed from Riot's game data (CommunityDragon) and tooltips: every number tagged as magic, physical or true damage, evaluated at level 18 with max ranks. scaling keys: const, ap, bonus_ad, bonus_hp, bonus_armor, bonus_mr, as (bonus attack speed), crit, lethality.",
+   "Ability damage is parsed from Riot's game data (CommunityDragon) and tooltips: every number tagged as magic, physical or true damage, evaluated at level 18 with max ranks. scaling keys: const, ap, bonus_ad, bonus_hp, bonus_armor, bonus_mr, bonus_mana, as (bonus attack speed), crit, lethality.",
    "target is flat or a fraction of the target's max/current/missing health. alt marks numbers that look like alternatives (empowered, maximum, recast) rather than extra hits.",
    "mayhem holds the server-side ARAM Mayhem modifiers (damage dealt/taken, healing, shielding, tenacity, ability haste, attack speed) from the official League wiki; ability values and cooldowns use Riot's own ARAM/Kiwi overrides from each bin.",
    "cn holds 101.qq.com China-server Mayhem stats: damage_share is the average share of the team's damage."
@@ -3894,7 +3894,6 @@
      ],
      "mode_overrides": [],
      "notes": [
-      "mana scaling ignored",
       "hand override: The cast deals the active pulse; the passive zap is only on attacks while R is off cooldown"
      ]
     }
@@ -13984,8 +13983,10 @@
      ],
      "mode_overrides": [],
      "notes": [
-      "cooldown is the ammo recharge time"
-     ]
+      "cooldown is the ammo recharge time",
+      "hand override: Lay Waste deals double damage when it hits only one enemy (QSingleTargetDamage is twice QDamage)"
+     ],
+     "solo_mult": 2
     },
     {
      "slot": "W",
@@ -14312,8 +14313,9 @@
        "type": "magic",
        "calc": "BaseDamage",
        "scaling": {
-        "const": 110.0,
-        "ap": 0.5
+        "const": 147.58,
+        "ap": 0.5,
+        "bonus_mana": 0.02
        },
        "target": "flat",
        "per_second": false,
@@ -14323,8 +14325,9 @@
        "type": "magic",
        "calc": "BonusDamage",
        "scaling": {
-        "const": 55.0,
-        "ap": 0.07
+        "const": 73.79,
+        "ap": 0.07,
+        "bonus_mana": 0.01
        },
        "target": "flat",
        "per_second": false,
@@ -14332,9 +14335,7 @@
       }
      ],
      "mode_overrides": [],
-     "notes": [
-      "mana scaling ignored"
-     ]
+     "notes": []
     }
    ],
    "parse_quality": "partial",
@@ -20411,7 +20412,10 @@
       }
      ],
      "mode_overrides": [],
-     "notes": []
+     "notes": [
+      "hand override: Tormented Shadow deals up to 100% more damage the more Health the target is missing (MissingHealthAmpPercent 1.0); the tooltip's maximum is that bonus, not an extra hit"
+     ],
+     "missing_amp": 1.0
     },
     {
      "slot": "E",
@@ -26670,8 +26674,9 @@
        "type": "magic",
        "calc": "QDamageCalc",
        "scaling": {
-        "const": 155.0,
-        "ap": 0.55
+        "const": 232.5,
+        "ap": 0.825,
+        "bonus_mana": 0.03
        },
        "target": "flat",
        "per_second": false,
@@ -26680,8 +26685,7 @@
      ],
      "mode_overrides": [],
      "notes": [
-      "mana scaling ignored",
-      "hand override: Ryze's passive refunds Overload's cooldown whenever he casts W or E"
+      "hand override: Ryze's passive refunds Overload's cooldown whenever he casts W or E; Overload deals 50% more to enemies with Flux (RyzeE DamageAmp at rank 5), which in his E-Q-W-Q rotation is nearly every Q"
      ]
     },
     {
@@ -26713,7 +26717,8 @@
        "calc": "WDamageCalc",
        "scaling": {
         "const": 180.0,
-        "ap": 0.6
+        "ap": 0.6,
+        "bonus_mana": 0.03
        },
        "target": "flat",
        "per_second": false,
@@ -26721,9 +26726,7 @@
       }
      ],
      "mode_overrides": [],
-     "notes": [
-      "mana scaling ignored"
-     ]
+     "notes": []
     },
     {
      "slot": "E",
@@ -26750,7 +26753,8 @@
        "calc": "EDamageCalc",
        "scaling": {
         "const": 180.0,
-        "ap": 0.5
+        "ap": 0.5,
+        "bonus_mana": 0.02
        },
        "target": "flat",
        "per_second": false,
@@ -26758,9 +26762,7 @@
       }
      ],
      "mode_overrides": [],
-     "notes": [
-      "mana scaling ignored"
-     ]
+     "notes": []
     },
     {
      "slot": "R",
