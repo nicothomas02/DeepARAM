@@ -10,7 +10,7 @@ CLIENT_ROOT holds Game/ (on macOS ".../League of Legends.app/Contents/LoL"); the
 --list prints what would be copied without writing. Requires: pip install cdtb zstandard xxhash, then
 `cdtb fetch-hashes`. Base map and base skins only: no champion skin files are read.
 """
-import argparse, glob, json, os, re, sys
+import argparse, glob, hashlib, json, os, re, sys
 
 sys.path.insert(0, os.path.dirname(__file__))
 from dump_vfx_bins import client_root  # noqa: E402
@@ -42,6 +42,17 @@ WANTED = [
 SKIN = re.compile(r"/skins/skin\d+", re.I)  # other skins' folders are never copied
 
 
+def safe_path(name):
+    """The path a file is saved at: parts too long for the disk (255 bytes on macOS) become a short hash."""
+    parts = []
+    for part in name.split("/"):
+        if len(part.encode()) > 120:
+            stem, ext = os.path.splitext(part)
+            part = hashlib.sha1(part.encode()).hexdigest()[:16] + ext[:12]
+        parts.append(part)
+    return "/".join(parts)
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     ap.add_argument("out")
@@ -52,7 +63,7 @@ def main():
         sys.exit("No League client found; pass --root")
     final = os.path.join(args.root, "Game", "DATA", "FINAL")
     total = count = 0
-    seen = set()
+    seen, renamed, failed = set(), {}, []
     for pattern, paths in WANTED:
         rx = [re.compile(p, re.I) for p in paths]
         for wad_path in sorted(glob.glob(os.path.join(final, pattern))):
@@ -70,15 +81,23 @@ def main():
                     if args.list:
                         print(f"{len(data):>10}  {os.path.relpath(wad_path, final)}  {name}")
                         continue
-                    dest = os.path.join(args.out, name)
-                    os.makedirs(os.path.dirname(dest), exist_ok=True)
-                    with open(dest, "wb") as out:
-                        out.write(data)
+                    saved = safe_path(name)
+                    if saved != name:
+                        renamed[saved] = name
+                    dest = os.path.join(args.out, saved)
+                    try:
+                        os.makedirs(os.path.dirname(dest), exist_ok=True)
+                        with open(dest, "wb") as out:
+                            out.write(data)
+                    except OSError as e:
+                        failed.append(f"{name}: {e}")
     if not args.list:
         with open(os.path.join(args.root, "Game", "content-metadata.json")) as f:
             version = json.load(f).get("version")
         with open(os.path.join(args.out, "_source.json"), "w") as f:
-            json.dump({"version": version, "files": count}, f)
+            json.dump({"version": version, "files": count, "renamed": renamed, "failed": failed}, f)
+        if failed:
+            print(f"{len(failed)} files could not be saved (listed in _source.json)")
     print(f"{count} files, {total / 1e6:.1f} MB")
 
 
