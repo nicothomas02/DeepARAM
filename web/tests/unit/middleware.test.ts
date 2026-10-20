@@ -54,9 +54,8 @@ describe("rate limits", () => {
     expect(config.matcher).toEqual(expect.arrayContaining(["/api/log", "/api/sim-scores", "/api/profile", "/api/games", "/api/account", "/api/account/:path*", "/api/kitchen/:path*", "/api/contact"]));
   });
 
-  it("guards the owner-only files", () => {
-    expect(config.matcher).toEqual(
-      expect.arrayContaining(["/assets/models/:path*", "/assets/sounds/:path*", "/embed/simulator/full.html", "/embed/simulator/replay-data/sounds/:path*"]),
-    );
+  it("leaves the 3D Simulator's models, sounds and page public", () => {
+    for (const path of ["/assets/models/:path*", "/assets/sounds/:path*", "/embed/simulator/full.html", "/embed/simulator/replay-data/sounds/:path*"])
+      expect(config.matcher).not.toContain(path);
   });
 });

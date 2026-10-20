@@ -8,7 +8,7 @@ import { text } from "@/lib/content";
 import Pending from "@/components/Pending";
 import SimBuildsTable, { type SimBuild } from "@/components/SimBuildsTable";
 import SimLeaderboard from "@/components/SimLeaderboard";
-import SimReplayEmbed, { SimViewSwitch } from "@/components/SimReplayEmbed";
+import SimReplayEmbed from "@/components/SimReplayEmbed";
 import SubTabs from "@/components/SubTabs";
 import { readRepoJson, repoHas } from "@/lib/repo-data";
 
@@ -47,7 +47,7 @@ export default function SimulatorPage() {
   if (hasReplays) {
     tabs.push({
       id: "replays",
-      label: "Fight replays",
+      label: "1v1",
       content: <SimReplayEmbed />,
     });
   }
@@ -91,7 +91,6 @@ export default function SimulatorPage() {
         Mayhem pick rates, with a build search for every champion. Use it to compare builds for one champion, not to
         rank champions.
       </Intro>
-      <SimViewSwitch />
       {tabs.length ? (
         <SubTabs tabs={tabs} />
       ) : (

@@ -5,8 +5,8 @@
 (() => {
   "use strict";
   const DATA = "replay-data/";
-  // The public page (index.html) plays the fight in 2D with champion icons and sounds of our own;
-  // full.html, for admins, adds the 3D models, the game's ability sounds and the preview clips.
+  // full.html draws the fight with 3D models; index.html ("Show fewer animations") draws it in 2D with
+  // champion icons. Everything else (fights, panel, sounds, controls) is the same in both.
   const FULL = document.documentElement.dataset.edition === "full";
   const BUST = "?v=" + (window.REPLAY_VERSION || "0");
   const SLOT_COLORS = { P: "#ffd36b", Q: "#4fc3f7", W: "#7bd88f", E: "#f4b860", R: "#e66ad2" };
@@ -1273,9 +1273,9 @@
   }
   // Ability button or key: the model's animation, or the clip without a model.
   function showAbility(slot) {
-    if (!FULL) { showCaption(slot); playSound(champ, slot, 1); return; }
-    if (modelMode) { showCaption(slot); window.Models3D.previewRole(slot); playSound(champ, slot, 1); }
-    else playClip(slot);
+    showCaption(slot);
+    if (modelMode) window.Models3D.previewRole(slot);
+    playSound(champ, slot, 1);
   }
 
   // ---------- ability and death sounds ----------
@@ -1302,7 +1302,7 @@
   // The site serves files whole (no byte ranges), so a player can't jump into the middle of one and every
   // clip would start at 0:00, which is Aatrox's first sound. A copy held in memory can be jumped into.
   let soundUrl = null;
-  if (FULL) loadSounds(DATA + "sounds/").then((ok) => ok || loadSounds("/assets/sounds/")).then((ok) => {
+  loadSounds(DATA + "sounds/").then((ok) => ok || loadSounds("/assets/sounds/")).then((ok) => {
     if (!ok) return;
     fetch(soundBase + soundFiles.file + BUST).then((r) => (r.ok ? r.blob() : null)).then((b) => {
       if (b) soundUrl = URL.createObjectURL(b);
@@ -1332,7 +1332,7 @@
     const p = pickVoice.play();
     if (p && p.catch) p.catch(() => {});
   }
-  // Public page: a short synthesized tone per ability (lower for the ultimate, falling for a death).
+  // A short synthesized tone per ability (lower for the ultimate, falling for a death).
   let audio = null;
   const TONES = { Q: [660, 0.12], W: [520, 0.12], E: [440, 0.14], R: [220, 0.35], P: [780, 0.08], D: [300, 0.45] };
   function synth(slot, volume) {
@@ -1351,10 +1351,10 @@
     } catch (e) { /* no Web Audio */ }
   }
   function playSound(c, slot, volume) {
-    if (!FULL) { if (soundOn && gestured && c && masterVolume > 0) synth(slot, volume); return; }
-    if (!soundOn || !gestured || !voices.length || !c || !soundUrl) return;
-    const packed = soundFiles.clips && soundFiles.clips[c.id] && soundFiles.clips[c.id][slot];
-    if (!packed) return;
+    if (!soundOn || !gestured || !c || masterVolume === 0) return;
+    // Until the game's sounds have loaded (or if they can't), a tone of our own.
+    const packed = soundUrl && voices.length && soundFiles.clips && soundFiles.clips[c.id] && soundFiles.clips[c.id][slot];
+    if (!packed) { if (!soundUrl) synth(slot, volume); return; }
     const a = voices[nextVoice++ % voices.length];
     a.pause();
     clearTimeout(a.stopTimer);
@@ -1377,7 +1377,6 @@
   // The champion's pick quote, when you choose a champion.
   let pickVoice = null;
   function playPickQuote(c) {
-    if (!FULL) return;
     if (!pickVoice || !soundOn || masterVolume === 0 || !c) return;
     const path = `plugins/rcp-be-lol-game-data/global/default/v1/champion-choose-vo/${c.key}.ogg`;
     const urls = [CDRAGON + path, `${DATA}pick/${c.key}.ogg`];
@@ -1581,18 +1580,16 @@
         let latest = null;
         for (const c of fight.casts) if (c.t > before && c.t <= t) latest = !latest || c.s === "R" ? c : latest;
         if (latest) maybeClip(latest.s);
-        if (modelMode || !FULL) {
-          for (const c of fight.casts) if (c.t > before && c.t <= t) playSound(champ, c.s, 1);
-          for (const [uid, list] of fight.enemyCasts)
-            for (const c of list) if (c.t > before && c.t <= t) {
-              const sp = fight.spawns.get(uid);
-              playSound(sp && byId.get(String(sp.x).toLowerCase()), c.s, 0.45);
-            }
-          if (fight.death && fight.death.t > before && fight.death.t <= t) playSound(champ, "D", 1);
-          for (const k of fight.kills) if (k.t > before && k.t <= t) {
-            const sp = fight.spawns.get(k.u);
-            playSound(sp && byId.get(String(sp.x).toLowerCase()), "D", 0.6);
+        for (const c of fight.casts) if (c.t > before && c.t <= t) playSound(champ, c.s, 1);
+        for (const [uid, list] of fight.enemyCasts)
+          for (const c of list) if (c.t > before && c.t <= t) {
+            const sp = fight.spawns.get(uid);
+            playSound(sp && byId.get(String(sp.x).toLowerCase()), c.s, 0.45);
           }
+        if (fight.death && fight.death.t > before && fight.death.t <= t) playSound(champ, "D", 1);
+        for (const k of fight.kills) if (k.t > before && k.t <= t) {
+          const sp = fight.spawns.get(k.u);
+          playSound(sp && byId.get(String(sp.x).toLowerCase()), "D", 0.6);
         }
       }
       const s = drawArena(t, reduceMotion ? 0 : dt);

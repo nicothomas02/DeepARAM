@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""Write viewer/full.html, the admin edition of the fight replay, from viewer/index.html.
+"""Write viewer/full.html, the 3D edition of the fight replay, from viewer/index.html.
 
-The public page (index.html) plays fights in 2D with champion icons and synthesized sounds. The full
-edition adds the 3D models, the game's ability sounds and the preview clips; the website serves it,
-and the model and clip files, to signed-in admins only. Run this after editing index.html:
+index.html draws fights in 2D with champion icons; full.html is the same page with the 3D models added.
+The website shows full.html by default and index.html when a visitor picks "Show fewer animations".
+Run this after editing index.html:
 
     python3 tools/make_full_viewer.py
 """
@@ -23,7 +23,7 @@ def full_html(public: str) -> str:
         f'<script type="module" src="models3d.js?v={version}"></script>',
         1,
     )
-    out = out.replace("The champion icons belong to Riot Games.",
+    out = out.replace("The champion sounds and icons belong to Riot Games.",
                       "The champion models, animations, sounds and icons belong to Riot Games.", 1)
     return out
 

@@ -10,7 +10,7 @@ import { LocalDate, useNames, useT } from "./I18n";
 
 // The account page (/account): sign in or create an account, then manage it. Settings
 // sync on their own (lib/account-sync.ts); this page covers passkeys, the password, the connected Riot
-// account, the profile, the email and deleting the account. The owner opens the 3D Simulator from the Simulator page.
+// account, the profile, the email and deleting the account.
 
 type Account = {
   signedIn: true;

@@ -10,7 +10,7 @@ import CHAMPIONS from "@/data/champion-names.json";
 
 // Site accounts: sign in with an email and password or a passkey, and settings follow
 // you to every browser you sign in on. Passwords are stored as salted PBKDF2 hashes, sessions as the
-// SHA-256 of a random token. One account can be the site owner (the 3D Simulator and the site editor).
+// SHA-256 of a random token. One account can be the site owner (the site editor).
 // A Riot account is connected through Mayhem Stats, which confirms it with the Riot Client (lib/riot-pair.ts).
 
 export class AccountError extends Error {
@@ -72,7 +72,7 @@ const randomToken = () => b64(crypto.getRandomValues(new Uint8Array(32))).replac
 const ownerEmail = () => serverEnv("OWNER_EMAIL")?.trim().toLowerCase() || null;
 
 /**
- * The site owner (3D Simulator, site editor) is the account whose email is the OWNER_EMAIL secret. The email
+ * The site owner (site editor) is the account whose email is the OWNER_EMAIL secret. The email
  * lives only in that secret, never in the code. Brings the stored flag in line and says whether this account is it.
  */
 export async function syncOwner(id: string): Promise<boolean> {

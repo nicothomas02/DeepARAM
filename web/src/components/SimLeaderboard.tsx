@@ -47,7 +47,7 @@ export default function SimLeaderboard({
       <p className="table-note">
         {board}: the highest simulated damage per second visitors have found for each champion. Every champion faces
         the same enemy: Ashe with her most popular build (Ashe herself faces Teemo), with the default settings, until
-        the champion falls. Simulate a build in Fight replays and press Submit to {board}. Every build is simulated
+        the champion falls. Simulate a build in the 1v1 tab and press Submit to {board}. Every build is simulated
         again on our side before it is listed, and the damage shown is from that run.
       </p>
       {failed ? (
