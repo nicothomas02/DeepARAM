@@ -114,6 +114,7 @@
  "Kills / min": "Élim. / min",
  "Latest time enemies start hitting you, seconds": "Moment le plus tard où les ennemis commencent à vous frapper, en secondes",
  "Length spread (s)": "Écart de durée (s)",
+ "Like the game's practice dummy, they stand still, never die and never hit back or crowd control you, and each fight lasts {s} s.": "Comme le mannequin d'entraînement du jeu, ils restent immobiles, ne meurent jamais, ne ripostent pas et ne vous appliquent aucun contrôle ; chaque combat dure {s} s.",
  "Likely enemies": "Ennemis probables",
  "Live": "Actuel",
  "Live patch again.": "De retour sur le patch actuel.",

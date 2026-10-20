@@ -730,6 +730,12 @@ Scenario Library::scenarioFor(const ChampionKit& c) const {
         set("target_hp", sc.targetHp);
         set("target_armor", sc.targetArmor);
         set("target_mr", sc.targetMr);
+        // Like the game's practice dummy: it never attacks or crowd controls you, so each fight lasts
+        // a set time (the usual fight length, fight_mean) instead of running until you fall.
+        sc.untilDeath = false;
+        sc.damageTakenFactor = 0;
+        sc.ccRatePerPoint = sc.ccRateMin = sc.ccRateMax = 0;
+        if (fight.find("fight_sd") == fight.end()) sc.fightSd = 0;
     }
     // Enemies only hurt you while you're within their reach, but the simulation has no
     // teammates for them to hit instead, so how much damage you take overall still
@@ -2022,7 +2028,8 @@ private:
         const double mult = type == DamageType::Physical ? target->physMult
                             : type == DamageType::Magic  ? target->magicMult
                                                          : target->trueMult;
-        const double dmg = std::min(target->hp, raw * mult);
+        // Damage past the last of a target's Health is lost, except on the training dummy, which refills.
+        const double dmg = sc_.fixedTarget ? raw * mult : std::min(target->hp, raw * mult);
         // A mark stores part of the (pre-mitigation, non-true) damage and pops it as physical damage.
         const double marked = t_ < target->markUntil && type != DamageType::True && !inMark_ ? raw * target->markShare : 0.0;
         double vamp = omnivamp_ + buffVamp_ + (physicalAttack ? lifesteal_ + get(fx_, "lifesteal_missing") * missingFrac() : 0.0) + (t_ < rVampUntil_ ? get(fx_, "r_omnivamp") : 0.0);
@@ -2044,7 +2051,7 @@ private:
         if (isPrimary) res_.primaryDamage += dmg;
         const double execute = execute_;
         double executed = 0;
-        if (execute > 0 && target->hp > 0 && target->hp < execute * target->maxHp) {
+        if (execute > 0 && !sc_.fixedTarget && target->hp > 0 && target->hp < execute * target->maxHp) {
             executed = target->hp;
             res_.bySource[src] += target->hp;
             res_.totalDamage += target->hp;
@@ -2053,6 +2060,8 @@ private:
             if (isPrimary) res_.primaryDamage += target->hp;
             target->hp = 0;
         }
+        // The training dummy never dies: like the game's practice dummy, its Health refills instead.
+        if (sc_.fixedTarget && target->hp <= 0) target->hp = target->maxHp;
         if (trace_) {
             TraceEvent ev;
             ev.t = t_; ev.kind = "damage"; ev.target = target->uid; ev.source = src;

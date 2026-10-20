@@ -114,6 +114,7 @@
  "Kills / min": "القتل / دقيقة",
  "Latest time enemies start hitting you, seconds": "أقصى وقت يبدأ فيه الأعداء بضربك، بالثواني",
  "Length spread (s)": "تفاوت المدة (ث)",
+ "Like the game's practice dummy, they stand still, never die and never hit back or crowd control you, and each fight lasts {s} s.": "مثل دمية التدريب في اللعبة، تبقى ثابتة ولا تموت أبدًا ولا تردّ الضربات ولا تفرض عليك أي تحكم، وتستمر كل معركة {s} ث.",
  "Likely enemies": "الأعداء المحتملون",
  "Live": "الحالي",
  "Live patch again.": "عدنا إلى التحديث الحالي.",

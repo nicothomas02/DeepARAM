@@ -114,6 +114,7 @@
  "Kills / min": "Ölés / perc",
  "Latest time enemies start hitting you, seconds": "Legkésőbbi időpont, amikor az ellenfelek elkezdenek ütni, másodperc",
  "Length spread (s)": "Hossz szórása (mp)",
+ "Like the game's practice dummy, they stand still, never die and never hit back or crowd control you, and each fight lasts {s} s.": "A játék gyakorlóbábujához hasonlóan egy helyben állnak, soha nem halnak meg, nem ütnek vissza és nem irányítanak téged, és minden harc {s} mp-ig tart.",
  "Likely enemies": "Valószínű ellenfelek",
  "Live": "Aktuális",
  "Live patch again.": "Újra az aktuális frissítés.",

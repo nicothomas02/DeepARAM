@@ -114,6 +114,7 @@
  "Kills / min": "擊殺 / 分鐘",
  "Latest time enemies start hitting you, seconds": "敵人最晚開始攻擊你的時間（秒）",
  "Length spread (s)": "時長浮動 (秒)",
+ "Like the game's practice dummy, they stand still, never die and never hit back or crowd control you, and each fight lasts {s} s.": "和遊戲中的練習假人一樣，它們站著不動、永遠不會死亡，也不會反擊或控制你，每場戰鬥持續 {s} 秒。",
  "Likely enemies": "可能遇到的敵人",
  "Live": "目前版本",
  "Live patch again.": "已切回目前版本。",

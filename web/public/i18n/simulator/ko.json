@@ -114,6 +114,7 @@
  "Kills / min": "처치 / 분",
  "Latest time enemies start hitting you, seconds": "적이 공격을 시작하는 가장 늦은 시간(초)",
  "Length spread (s)": "시간 편차(초)",
+ "Like the game's practice dummy, they stand still, never die and never hit back or crowd control you, and each fight lasts {s} s.": "게임의 연습용 허수아비처럼 제자리에 서 있고, 죽지 않으며, 반격하거나 군중 제어를 걸지 않습니다. 각 전투는 {s}초 동안 진행됩니다.",
  "Likely enemies": "예상 적",
  "Live": "라이브",
  "Live patch again.": "다시 현재 패치입니다.",

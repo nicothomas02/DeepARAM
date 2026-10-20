@@ -114,6 +114,7 @@
  "Kills / min": "Asesinatos / min",
  "Latest time enemies start hitting you, seconds": "Momento más tardío en que los enemigos empiezan a golpearte, en segundos",
  "Length spread (s)": "Variación de duración (s)",
+ "Like the game's practice dummy, they stand still, never die and never hit back or crowd control you, and each fight lasts {s} s.": "Como el muñeco de práctica del juego, se quedan quietos, nunca mueren, no devuelven golpes ni te aplican control de masas, y cada pelea dura {s} s.",
  "Likely enemies": "Enemigos probables",
  "Live": "Actual",
  "Live patch again.": "De nuevo en el parche actual.",

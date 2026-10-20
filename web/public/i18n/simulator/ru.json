@@ -114,6 +114,7 @@
  "Kills / min": "Убийства / мин",
  "Latest time enemies start hitting you, seconds": "Самое позднее время, когда враги начинают вас бить, секунды",
  "Length spread (s)": "Разброс длительности (с)",
+ "Like the game's practice dummy, they stand still, never die and never hit back or crowd control you, and each fight lasts {s} s.": "Как тренировочный манекен в игре, они стоят на месте, никогда не умирают, не бьют в ответ и не накладывают на вас контроль, а каждый бой длится {s} с.",
  "Likely enemies": "Вероятные враги",
  "Live": "Текущий",
  "Live patch again.": "Снова текущий патч.",

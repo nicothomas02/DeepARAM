@@ -114,6 +114,7 @@
  "Kills / min": "สังหาร / นาที",
  "Latest time enemies start hitting you, seconds": "เวลาช้าที่สุดที่ศัตรูเริ่มตีคุณ (วินาที)",
  "Length spread (s)": "ความแปรผันของเวลา (วิ)",
+ "Like the game's practice dummy, they stand still, never die and never hit back or crowd control you, and each fight lasts {s} s.": "เหมือนหุ่นฝึกซ้อมในเกม หุ่นจะยืนนิ่ง ไม่ตาย ไม่โจมตีกลับ และไม่ควบคุมคุณ โดยแต่ละการต่อสู้ใช้เวลา {s} วินาที",
  "Likely enemies": "ศัตรูที่น่าจะเจอ",
  "Live": "ปัจจุบัน",
  "Live patch again.": "กลับมาใช้แพตช์ปัจจุบันแล้ว",

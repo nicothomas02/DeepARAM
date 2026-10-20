@@ -277,7 +277,7 @@
     p.textContent = (n === 1
       ? (changed ? T("One dummy with {hp} HP, {armor} armor and {mr} magic resist.", v) : T("One dummy with {hp} HP, {armor} armor and {mr} magic resist, the average enemy's.", v))
       : (changed ? T("{n} dummies with {hp} HP, {armor} armor and {mr} magic resist.", v) : T("{n} dummies with {hp} HP, {armor} armor and {mr} magic resist, the average enemy's.", v))) +
-      " " + T("They stand still and don't hit back.") + " ";
+      " " + T("Like the game's practice dummy, they stand still, never die and never hit back or crowd control you, and each fight lasts {s} s.", { s: val("fight_mean") }) + " ";
     const b = document.createElement("button"); b.type = "button"; b.className = "linkish"; b.textContent = T("Change dummy stats");
     b.addEventListener("click", () => {
       openAdvanced();

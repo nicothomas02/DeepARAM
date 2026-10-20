@@ -60,7 +60,8 @@ select, button { font: 500 14px var(--body); color: var(--frost); background: tr
 button { cursor: pointer; }
 button:hover, select:hover { background: var(--accent-soft); border-color: var(--accent-line); }
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 6px; }
-.stage { display: grid; grid-template-columns: minmax(0, 1fr); gap: 16px; align-items: start; }
+/* The arena stays a moderate size on wide screens, centred, so the panels below stay in view. */
+.stage { display: grid; grid-template-columns: minmax(0, 1fr); gap: 16px; align-items: start; width: 100%; max-width: 880px; margin: 0 auto; }
 @media (max-width: 860px) { .stage { grid-template-columns: minmax(0, 1fr); } }
 .arena { background: var(--screen); border: 1px solid var(--line); border-radius: 14px; color-scheme: dark; overflow: hidden; position: relative; min-width: 0; }
 .arena canvas { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; max-width: 100%; }
@@ -84,8 +85,8 @@ button:hover, select:hover { background: var(--accent-soft); border-color: var(-
 .ab canvas { width: 100%; height: 100%; display: block; }
 .ab .key { position: absolute; left: 3px; bottom: 2px; font: 600 10px var(--mono); text-shadow: 0 1px 2px #000; }
 .ab .cd { position: absolute; inset: 0; pointer-events: none; }
-/* The ability row sits on the arena's bottom edge, like the game's own bar, so the arena keeps the space. */
-.ab-row { position: absolute; left: 50%; bottom: 6px; transform: translateX(-50%); z-index: 2; display: grid;
+/* The ability row sits in the arena's bottom-left corner, so the arena keeps the space. */
+.ab-row { position: absolute; left: 8px; bottom: 8px; z-index: 2; display: grid;
   grid-template-columns: repeat(5, 30px); gap: 4px; padding: 4px 6px 2px; border-radius: 10px; background: rgba(5, 8, 12, .6); }
 .ab-row .ab { border-radius: 6px; border-width: 1.5px; }
 .ab-wrap { display: flex; flex-direction: column; gap: 4px; min-width: 0; }

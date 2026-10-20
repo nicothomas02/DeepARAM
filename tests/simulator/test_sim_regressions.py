@@ -389,3 +389,14 @@ def test_shielding_is_reported_and_ranked(run_json, run_sim, tmp_path):
     assert abs(absorbed[-1] - tr["fight"]["shielding"]) <= 1
     proc = run_sim("mayhem_sim", ["--champ", "Riven", "--metric", "shielding", "--trials", "20", "--seed", "1", "--json"])
     assert proc.returncode == 0, proc.stderr
+
+
+# ---------------------------------------------------------------- Training dummy like the game's (2026-10-20)
+
+def test_training_dummy_is_like_the_practice_dummy(run_json):
+    """The dummy never dies (its Health refills), never hits back or crowd controls you, and every
+    fight lasts the usual fight length (fight_mean), so the result is the champion's pure DPS."""
+    s = summary(run_json("mayhem_sim", ["--champ", "Jinx", *JINX_BUILD, "--set", "fixed_target=1,target_hp=500",
+                                        "--trials", "50", "--seed", "1", "--json"]))
+    assert s["kills_per_minute"] == 0 and s["damage_taken"] == 0 and s["survival_rate"] == 1
+    assert s["time_alive"] == 18.0 and s["mean_dps"] > 1000
