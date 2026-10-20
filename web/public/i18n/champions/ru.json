@@ -145,5 +145,15 @@
  "Team quest": "Командное задание",
  "When {name} is on the other team": "Когда {name} в команде противника",
  "When {name} is on your team": "Когда {name} в вашей команде",
- "No hard CC": "Нет жёсткого контроля"
+ "No hard CC": "Нет жёсткого контроля",
+ "Damage": "Урон",
+ "Toughness": "Выносливость",
+ "Crowd Control": "Контроль",
+ "Mobility": "Подвижность",
+ "Utility": "Поддержка",
+ "The champion's ability to deal damage to enemy champions": "Способность чемпиона наносить урон вражеским чемпионам.",
+ "The champion's ability to absorb damage from enemy champions": "Способность чемпиона поглощать урон от вражеских чемпионов.",
+ "The champion's ability to apply harmful effects like slows and stuns to enemy champions": "Способность чемпиона применять ослабляющие эффекты вроде замедления и оглушения к вражеским чемпионам.",
+ "The champion's ability to move quickly around the map using blinks or dashes": "Способность чемпиона быстро перемещаться по карте при помощи различного рода рывков.",
+ "The champion's ability to grant beneficial effects like shields, healing, or movement speed to allied champions": "Способность чемпиона применять усиливающие эффекты вроде щитов, увеличения скорости передвижения и восстановления здоровья к союзникам."
 }

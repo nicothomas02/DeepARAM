@@ -18,7 +18,8 @@ import {
 } from "@/lib/champion-page";
 import { augmentHref } from "@/lib/augments";
 import ArchetypeTags from "@/components/ArchetypeTags";
-import { championTagData, championTags } from "@/lib/champion-tags";
+import { championRatings, championTagData, championTags } from "@/lib/champion-tags";
+import PlaystyleBars from "@/components/champion/PlaystyleBars";
 import { pageMeta } from "@/lib/meta";
 import { Name, T } from "@/components/I18n";
 import {
@@ -384,6 +385,7 @@ export default async function ChampionPage({
               info={championTagData().info}
               link
             />
+            {championRatings(c.alias) && <PlaystyleBars ratings={championRatings(c.alias)!} />}
           </div>
           {c.tier && (
             <span

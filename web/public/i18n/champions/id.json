@@ -145,5 +145,15 @@
  "Team quest": "Quest tim",
  "When {name} is on the other team": "Saat {name} ada di tim lawan",
  "When {name} is on your team": "Saat {name} ada di timmu",
- "No hard CC": "Tanpa hard CC"
+ "No hard CC": "Tanpa hard CC",
+ "Damage": "Damage",
+ "Toughness": "Toughness",
+ "Crowd Control": "Crowd Control",
+ "Mobility": "Mobility",
+ "Utility": "Utility",
+ "The champion's ability to deal damage to enemy champions": "Kemampuan champion untuk menghasilkan damage pada champion musuh",
+ "The champion's ability to absorb damage from enemy champions": "Kemampuan champion untuk menyerap damage dari champion musuh",
+ "The champion's ability to apply harmful effects like slows and stuns to enemy champions": "Kemampuan champion untuk menerapkan efek berbahaya seperti slow dan stun pada champion musuh",
+ "The champion's ability to move quickly around the map using blinks or dashes": "Kemampuan champion untuk bergerak cepat di peta menggunakan blink atau dash",
+ "The champion's ability to grant beneficial effects like shields, healing, or movement speed to allied champions": "Kemampuan champion untuk memberikan efek menguntungkan seperti shield, heal, atau movement speed pada champion sekutu"
 }

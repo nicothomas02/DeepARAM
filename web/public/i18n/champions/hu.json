@@ -145,5 +145,15 @@
  "Team quest": "Csapatküldetés",
  "When {name} is on the other team": "Ha {name} az ellenfél csapatában van",
  "When {name} is on your team": "Ha {name} a csapatodban van",
- "No hard CC": "Nincs kemény CC"
+ "No hard CC": "Nincs kemény CC",
+ "Damage": "Sebzés",
+ "Toughness": "Szívósság",
+ "Crowd Control": "Tömegirányítás",
+ "Mobility": "Mozgékonyság",
+ "Utility": "Védelmezés",
+ "The champion's ability to deal damage to enemy champions": "A hős azon képessége, hogy sebzést okozzon az ellenfeleinek.",
+ "The champion's ability to absorb damage from enemy champions": "A hős azon képessége, hogy elviselje az ellenfeleitől elszenvedett sebzést.",
+ "The champion's ability to apply harmful effects like slows and stuns to enemy champions": "A hős azon képessége, amellyel ártó hatásokat alkalmaz ellenfeleire (például lassítás és kábítás).",
+ "The champion's ability to move quickly around the map using blinks or dashes": "A hős azon képessége, hogy gyorsan mozogjon a térképen teleportálással vagy rohamozással.",
+ "The champion's ability to grant beneficial effects like shields, healing, or movement speed to allied champions": "A hős azon képessége, hogy jótékony hatásokkal segítse csapattársait (gyógyítás, pajzs vagy megnövelt mozgási sebesség)."
 }
