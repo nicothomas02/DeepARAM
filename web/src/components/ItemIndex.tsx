@@ -31,16 +31,17 @@ type Item = {
   buildShare: number | null;
   granted: boolean;
 };
-// Shop tiers (lib/items.ts itemTier), in the order the DeepScore view groups them.
+// Shop tiers (lib/items.ts itemTier), in the order the DeepScore view groups them; each group folds
+// away from its header.
 type Tier = "legendary" | "boots" | "starter" | "epic" | "basic" | "consumable" | "reward";
 const TIERS: [Tier, string][] = [
   ["legendary", "Legendary"],
+  ["reward", "From augments"],
   ["boots", "Boots"],
   ["starter", "Starter"],
   ["epic", "Epic"],
   ["basic", "Basic"],
   ["consumable", "Consumables"],
-  ["reward", "From augments"],
 ];
 const SORTS = [
   ["deepscore", "DeepScore"],
@@ -192,13 +193,8 @@ export default function ItemIndex({ items }: { items: Item[] }) {
       ) : shown.length ? (
         (sort === "deepscore" ? TIERS.map(([k, l]) => [l, shown.filter((i) => i.tier === k)] as const) : [[null, shown] as const])
           .filter(([, list]) => list.length)
-          .map(([label, list]) => (
-            <section key={label ?? "all"} className="items-tier" aria-label={label ? t(label) : undefined}>
-              {label && (
-                <h3 className="items-tier-h">
-                  {t(label)} <span>{list.length}</span>
-                </h3>
-              )}
+          .map(([label, list]) => {
+            const grid = (
               <ul className="items-grid">
                 {list.map((i) => (
                   <li key={i.id}>
@@ -231,8 +227,20 @@ export default function ItemIndex({ items }: { items: Item[] }) {
                   </li>
                 ))}
               </ul>
-            </section>
-          ))
+            );
+            return label ? (
+              <details key={label} className="items-tier" open>
+                <summary className="items-tier-h">
+                  {t(label)} <span>{list.length}</span>
+                </summary>
+                {grid}
+              </details>
+            ) : (
+              <section key="all" className="items-tier">
+                {grid}
+              </section>
+            );
+          })
       ) : (
         <EmptyState
           title={t("No item has all of those")}
