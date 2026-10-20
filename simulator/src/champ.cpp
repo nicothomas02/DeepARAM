@@ -1734,7 +1734,7 @@ private:
         t_ = now;
         e = spawnEnemy(next);
         t_ = saved;
-        e.damageWeight = damageWeightOf(next, enemies_.size());
+        // A returning enemy keeps the default damage weight the fights were tuned with.
         if (trace_ && next && std::find(trace_->team.begin(), trace_->team.end(), next->id) == trace_->team.end())
             trace_->team.push_back(next->id);
         // The next enemy steps in from just beyond its reach (the rest of its team is already
