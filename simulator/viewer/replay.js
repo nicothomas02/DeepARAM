@@ -10,8 +10,22 @@
   const FULL = document.documentElement.dataset.edition === "full";
   const BUST = "?v=" + (window.REPLAY_VERSION || "0");
   const SLOT_COLORS = { P: "#ffd36b", Q: "#4fc3f7", W: "#7bd88f", E: "#f4b860", R: "#e66ad2" };
-  // Damage number colours as the game shows them: physical orange, magic violet, true white.
-  const TYPE_COLORS = { physical: "#ff8a2b", magic: "#9b7dff", true: "#ffffff" }, CRIT_COLOR = "#ff4b1f";
+  // Floating combat text as the game draws it. Colours: [fill, outline] per kind. Motion, in px of a 1080p screen:
+  // sideways speed (alternating right and left), upward speed, pull (sideways, down), start offset and random jitter;
+  // it pops in larger and settles over `shrink` s, stays for `hold` s, then fades over `fade` s.
+  const FLOAT_COLORS = { physical: ["#ff8c34", "#190d05"], magic: ["#00b0f0", "#001219"], true: ["#ffffff", "#191919"], heal: ["#4cf854", "#232323"] };
+  const FLOAT = {
+    hit: { vx: [50, 65], vy: [150, 180], pull: [0, 500], at: [0, 0], jitter: 0, shrink: 0.15, pop: 0.5, scale: 1, hold: 0.4, fade: 0.45 },
+    crit: { vx: [90, 105], vy: [190, 210], pull: [-40, 625], at: [25, 10], jitter: 20, shrink: 0.1, pop: 0.35, scale: 1.75, hold: 0.4, fade: 0.45 },
+    heal: { vx: [0, 0], vy: [110, 110], pull: [0, 0], at: [0, 40], jitter: 0, shrink: 0.15, pop: 0.5, scale: 0.9, hold: 0.3, fade: 0.45 },
+  };
+  const FLOAT_SIZE = 27;  // px at 1080p
+  const CRIT_ICONS = {};
+  for (const [kind, file] of [["physical", "criticon"], ["magic", "criticonmagic"], ["true", "criticontrue"]]) {
+    const im = new Image();
+    im.src = "/assets/ux/floatingtext/" + file + ".png";
+    CRIT_ICONS[kind] = im;
+  }
   // What the simulator measures (the Mode picker in sim-panel.js): damage per second, or per fight the damage
   // you take, the damage you mitigate, the Health you restore and the seconds of crowd control you deal.
   const MODES = {
@@ -203,11 +217,13 @@
       const want = Math.min(a.t + d / 1500, next ? next.t - 0.01 : Infinity);
       if (want > b.t) b.t = want;
     }
-    // Numbers landing on one target close together stack upward instead of on top of each other.
+    // Numbers landing on one target close together stack upward instead of on top of each other,
+    // and, as in the game, each one flies off to the other side from the last.
     const recent = new Map();
     for (const n of f.numbers) {
       const prev = recent.get(n.u);
       n.fan = prev && n.t - prev.t < 0.25 ? (prev.fan + 1) % 4 : 0;
+      n.side = prev ? -prev.side : 1;
       recent.set(n.u, n);
     }
     // When each slot is next cast, for the cooldown sweep.
@@ -691,11 +707,27 @@
         if (age < 0.15) lunge = Math.max(lunge, 1 - Math.abs(age) / 0.15);
       }
 
+    // With the 3D models, abilities (and attacks, passives, toggles, Poros) the champion has effects for are
+    // drawn with them (effects3d.js) instead of these shapes; fx collects this frame's for M.frame.
+    const FX = world && M && M.effects, fx = [];
     // Poro Charge (Poro Stampede): each wave is a row of Poros running down the lane.
+    // With the 3D models and the stampede's own effects, each Poro is the game's (effects3d.js).
+    const poroFx = FX && FX.has("mayhem", "PoroCharge");
     for (const w of fight.poros) {
       if (!w.from || !world) continue;
       const dx = w.ax - w.from.x, dy = w.ay - w.from.y, len = Math.hypot(dx, dy) || 1;
       const since = time - w.t, travel = len / PORO_SPEED;
+      if (poroFx) {
+        if (since < 0 || since > travel + 2) continue;
+        const ux = dx / len, uy = dy / len, n = 5, dir = { x: view.sx({ x: w.from.x + ux }) - view.sx(w.from), y: view.sy({ y: w.from.y + uy }) - view.sy(w.from) };
+        for (let i = 0; i < n; i++) {
+          const off = (i + 0.5 - n / 2) * (PORO_WIDTH / n);
+          const a = { x: w.from.x - uy * off, y: w.from.y + ux * off }, b = { x: a.x + ux * len, y: a.y + uy * len };
+          fx.push({ champ: "mayhem", slot: "PoroCharge", role: "missile", t: since - i * 0.04, from: scr(a), to: scr(b), dur: travel, dir, h: 0 });
+        }
+        fx.push({ champ: "mayhem", slot: "PoroCharge", role: "cast", t: since, at: scr(w.from), dir, dur: 0.6, h: 0 });
+        continue;
+      }
       if (since < 0 || since > travel + 0.3) continue;
       const ux = dx / len, uy = dy / len, d = Math.min(len, since * PORO_SPEED);
       g.globalAlpha = since > travel ? 1 - (since - travel) / 0.3 : 1;
@@ -721,6 +753,9 @@
     if (!s.dead) for (const e of fight.toggles) { if (e.t > time) break; if (e.f) toggleOn.set(e.s, e); else toggleOn.delete(e.s); }
     for (const [slot, e] of toggleOn) {
       const at = e.u !== undefined ? posOf(e.u) : st.me;
+      const roles = FX && FX.has(champ.id, slot) && FX.roles(champ.id, slot);
+      const part = roles && ["buff", "area", "cast"].find((k) => roles[k]);
+      if (part) { fx.push({ champ: champ.id, slot, role: part, t: time - e.t, at, dur: time - e.t + 1, h: 0 }); continue; }
       const rad = world ? Math.max(20 * u, (e.a || 300) * view.k) : (e.u !== undefined ? 50 : 70) * u;
       const col = SLOT_COLORS[slot] || "#fff";
       g.save();
@@ -731,8 +766,10 @@
       g.restore();
     }
 
-    // Ability casts.
+    // Ability casts (the wind-up and channel rings stay with effects).
     for (const c of fight.casts) {
+      const fxOn = !!(FX && c.from && FX.has(champ.id, c.s));
+      if (fxOn) castEffects(fx, FX, c, time, scr, posOf, view.k);
       const age = time - c.land - (world ? c.fl || 0 : 0);  // since it landed
       const life = c.life || 0.6;
       if (time < c.t || (age > life && !(c.l && time < c.land + c.l))) continue;
@@ -753,7 +790,9 @@
       }
       if (age > life) continue;
       const fly = 0.2;
-      if (world && c.from && ["line", "circle", "cone", "self"].includes(c.x)) {
+      if (fxOn) {
+        // drawn in 3D
+      } else if (world && c.from && ["line", "circle", "cone", "self"].includes(c.x)) {
         drawShape(g, c, time, col, scr, view.k, u);
       } else if (c.x === "aoe") {
         if (age > -0.1) {
@@ -876,7 +915,8 @@
           ...(run ? runPose(v) : calm(anim)) });
       }
       for (const f of fighters) if (f.lift) f.y -= f.lift * 55 * u;  // knocked up into the air
-      heads = M.frame(fighters, W, H, lowQuality() ? 0.75 : 1);
+      if (FX) moreEffects(fx, FX, time, s, posOf, { x: meX, y: meY }, view.k, alive);
+      heads = M.frame(fighters, W, H, lowQuality() ? 0.75 : 1, fx, unit);
       // Keep the bars and badges above heads clear of the HUD along the top.
       for (const k in heads) heads[k].y = Math.max(heads[k].y, 56 * dpr);
     }
@@ -895,7 +935,8 @@
 
     // Your ranged attacks: the missile leaves after the wind-up and lands as the hit does, at
     // about half the models' height (chest to chest).
-    if (trace.ranged && !s.dead) {
+    const atkFx = FX && FX.has(champ.id, "attack") ? FX.roles(champ.id, "attack") : null;
+    if (trace.ranged && !s.dead && !(atkFx && atkFx.missile)) {
       const mid = (x, y, head) => (head ? y + (head.y - y) * 0.45 : y);
       for (const a of fight.attacks) {
         const age = time - a.t;
@@ -1015,7 +1056,8 @@
     else if (time < fight.engage) floatText(og, T("ENEMIES ENGAGE IN {n} s", { n: (fight.engage - time).toFixed(1) }), meX, labelY + (s.cc ? 18 * u : 0), 0.8, "#8295a8", 13 * u);
 
     // On-hit passives.
-    for (const pr of fight.procs) {
+    const procFx = FX && FX.has(champ.id, "P") ? FX.roles(champ.id, "P") : null;
+    if (!(procFx && (procFx.hit || procFx.buff))) for (const pr of fight.procs) {
       const age = time - pr.t;
       if (age < 0 || age > 0.4) continue;
       const p = posOf(pr.u);
@@ -1030,15 +1072,10 @@
       const p = posOf(n.u);
       const head = heads["e" + n.u];
       const baseY = (numTop.get(n.u) ?? (head ? head.y - 20 * u : p.y - r - 26 * u)) - (n.fan || 0) * 16 * u;
-      // As in the game: the number pops in large, rises fast then slows while drifting to one side,
-      // and fades at the end; crits are bigger and redder.
-      const k = age / 0.9, side = (n.t * 997) % 1 - 0.5;
-      const pop = 1 + (n.crit ? 0.8 : 0.45) * Math.max(0, 1 - age / 0.12);
-      const size = (n.crit ? 27 : n.a > 400 ? 21 : 17) * u * pop;
-      const x = (head ? head.x : p.x) + side * 40 * u + Math.sign(side) * k * 18 * u;
-      const y = baseY - (1 - (1 - k) * (1 - k)) * 64 * u;
-      gameNumber(overlay, Math.round(n.a).toString(), x, y, k < 0.6 ? 1 : 1 - (k - 0.6) / 0.4,
-        n.crit && n.x === "physical" ? CRIT_COLOR : TYPE_COLORS[n.x] || "#fff", size);
+      const fl = floating(n.crit ? FLOAT.crit : FLOAT.hit, age, n.side || 1, n.t * 997 + n.u, u);
+      if (!fl) continue;
+      gameNumber(overlay, Math.round(n.a).toString(), (head ? head.x : p.x) + fl.dx, baseY - fl.dy, fl.alpha,
+        FLOAT_COLORS[n.x] || FLOAT_COLORS.true, fl.size, n.crit ? CRIT_ICONS[n.x] : null);
     }
 
     $("kills").textContent = s.kills;
@@ -1048,7 +1085,7 @@
     $("modeHud").hidden = !showMode;
     if (showMode) { $("modeName").textContent = MODES[mode].label; $("modeVal").textContent = modeValue(mode, MODES[mode].now(s)); }
     // Crits: a flash where the attack lands.
-    if (!lowQuality())
+    if (!lowQuality() && !(atkFx && atkFx.crit))
       for (const a of fight.attacks) {
         const age = time - a.t;
         if (!a.f || age < 0 || age > 0.25) continue;
@@ -1067,7 +1104,8 @@
       const age = time - h.t;
       if (age < 0 || age > 1 || h.a < 5) continue;
       const top = myHead ? myHead.y - 30 * u : meY - R - 40 * u;
-      gameNumber(og, "+" + Math.round(h.a), meX + 40 * u, top - age * 50 * u, age < 0.6 ? 1 : (1 - age) / 0.4, "#5fe06a", 16 * u);
+      const fl = floating(FLOAT.heal, age, 1, h.t * 997, u);
+      if (fl) gameNumber(og, "+" + Math.round(h.a), meX + 40 * u + fl.dx, top + 40 * 0.7 * u - fl.dy, fl.alpha, FLOAT_COLORS.heal, fl.size * 0.8);
     }
 
     // Shields on you: a white number and, outside Low graphics, a ring that fades as it ends.
@@ -1114,6 +1152,85 @@
     const held = s.cc ? (CC_LOOK[(s.ccOn && s.ccOn.x) || "stun"] || CC_LOOK.stun)[0] : "";
     $("state").textContent = s.dead ? T("Slain") : held ? (window.I18N.lang === "en" ? held[0] + held.slice(1).toLowerCase() : held) : "";
     return s;
+  }
+
+  // One of your casts as the game draws it (3D edition): its effect's parts for effects3d.js, in
+  // device px. cast: at you as it starts; missile: out along its path at its speed (a line to its
+  // range, else to the target or the spot aimed at); hit: on the target when it lands; area: on the
+  // spot aimed at; buff: on the target for as long as your crowd control holds it.
+  function castEffects(out, FX, c, time, scr, posOf, k) {
+    const since = time - c.t;
+    if (since < 0 || since > 10) return;
+    const roles = FX.roles(champ.id, c.s);
+    if (!roles) return;
+    const geo = fight.geo[c.s] || {}, id = champ.id, s = c.s;
+    const from = scr(c.from), target = c.u >= 0 ? posOf(c.u) : null;
+    const aim = c.ax !== undefined ? scr({ x: c.ax, y: c.ay }) : target || from;
+    const dir = { x: aim.x - from.x, y: aim.y - from.y }, dl = Math.hypot(dir.x, dir.y) || 1;
+    const fl = c.fl || 0;
+    if (roles.cast) out.push({ champ: id, slot: s, role: "cast", t: since, at: from, dir, dur: (c.a || 0) + (c.l || 0) + 0.3, h: 0 });
+    // When the missile reaches the target: a line at its speed, otherwise the flight the trace gives.
+    let hitAt = c.land + fl;
+    if (roles.missile) {
+      let to = target || aim, dur = fl || 0.25;
+      if (c.x === "line" && geo.speed > 0) {
+        const range = (geo.range || dl / k) * k;
+        to = { x: from.x + (dir.x / dl) * range, y: from.y + (dir.y / dl) * range };
+        dur = range / k / geo.speed;
+        if (target) hitAt = c.land + Math.hypot(target.x - from.x, target.y - from.y) / k / geo.speed;
+      }
+      out.push({ champ: id, slot: s, role: "missile", t: time - c.land, from, to, dur, dir, h: 100 });
+    }
+    if (roles.area) out.push({ champ: id, slot: s, role: "area", t: time - c.land - fl, at: aim, dir, dur: c.l || 1, h: 0 });
+    if (c.f && target) {
+      if (roles.hit) out.push({ champ: id, slot: s, role: "hit", t: time - hitAt, at: target, dir, dur: 0.5, h: 0 });
+      if (roles.buff) {
+        const held = fight.ecc.find((e) => e.u === c.u && Math.abs(e.t - hitAt) < 0.4);
+        out.push({ champ: id, slot: s, role: "buff", t: time - hitAt, at: target, dir, dur: held ? held.a - held.t : 1.5, h: 0 });
+      }
+    }
+  }
+
+  // The rest of the fight as the game draws it (3D edition), where the champions have effects: your
+  // attacks (missile, hit, crit), your on-hit passive, and each enemy's abilities (cast, a missile to
+  // you, the hit, and the crowd control it holds you in).
+  function moreEffects(out, FX, time, s, posOf, me, k, alive) {
+    const id = champ.id, atk = FX.has(id, "attack") && FX.roles(id, "attack");
+    if (atk && !s.dead) for (const a of fight.attacks) {
+      if (a.t - a.fly > time) break;
+      if (time - a.t > 1.5) continue;
+      const to = posOf(a.u), dir = { x: to.x - me.x, y: to.y - me.y };
+      if (atk.missile && a.fly > 0) out.push({ champ: id, slot: "attack", role: "missile", t: time - (a.t - a.fly), from: me, to, dur: a.fly, dir, h: 100 });
+      const hit = a.f && atk.crit ? "crit" : "hit";
+      if (atk[hit]) out.push({ champ: id, slot: "attack", role: hit, t: time - a.t, at: to, dir, dur: 0.4, h: 0 });
+    }
+    const pas = FX.has(id, "P") && FX.roles(id, "P");
+    if (pas) for (const pr of fight.procs) {
+      if (pr.t > time) break;
+      if (time - pr.t > 1.5) continue;
+      const role = pas.hit ? "hit" : "buff";
+      out.push({ champ: id, slot: "P", role, t: time - pr.t, at: posOf(pr.u), dur: 0.6, h: 0 });
+    }
+    for (const en of alive) {
+      if (!FX.has(en.champ, "Q") && !FX.has(en.champ, "R")) continue;
+      const from = posOf(en.uid), dir = { x: me.x - from.x, y: me.y - from.y };
+      const dist = Math.hypot(dir.x, dir.y) / k;
+      for (const c of fight.enemyCasts.get(en.uid) || []) {
+        if (c.t > time) break;
+        if (time - c.t > 4 || (en.died !== null && c.t > en.died)) continue;
+        const roles = FX.has(en.champ, c.s) && FX.roles(en.champ, c.s);
+        if (!roles) continue;
+        const launch = c.t + 0.25, fly = Math.min(0.8, dist / 1400);
+        if (roles.cast) out.push({ champ: en.champ, slot: c.s, role: "cast", t: time - c.t, at: from, dir, dur: 0.6, h: 0 });
+        if (roles.missile) out.push({ champ: en.champ, slot: c.s, role: "missile", t: time - launch, from, to: me, dur: fly, dir, h: 100 });
+        if (roles.area && !roles.missile) out.push({ champ: en.champ, slot: c.s, role: "area", t: time - launch, at: me, dir, dur: 1, h: 0 });
+        if (roles.hit) out.push({ champ: en.champ, slot: c.s, role: "hit", t: time - launch - fly, at: me, dir, dur: 0.5, h: 0 });
+        if (roles.buff && c.cc) {
+          const held = fight.cc.find((x) => Math.abs(x.t - c.t - 0.3) < 0.5);
+          out.push({ champ: en.champ, slot: c.s, role: "buff", t: time - launch - fly, at: me, dir, dur: held ? held.a - held.t : 1.2, h: 0 });
+        }
+      }
+    }
   }
 
   // One of your abilities drawn to scale where it was aimed: a line's path and missile,
@@ -1172,12 +1289,32 @@
   }
 
   // A damage or heal number in the game's style: heavy type with a thick dark outline.
-  function gameNumber(g, text, x, y, alpha, color, size) {
+  // Where a floating number is `age` s after it appears: offset from its start (px, up is positive), size and alpha;
+  // null once it has faded. side: 1 flies right, -1 left. u: the arena's px per layout unit.
+  function floating(spec, age, side, seed, u) {
+    if (age < 0 || age > spec.hold + spec.fade) return null;
+    const rnd = (i) => { const v = Math.sin(seed * 12.9898 + i * 78.233) * 43758.5453; return v - Math.floor(v); };
+    const k = 0.7 * u;  // 1080p px -> arena px
+    const vx = (spec.vx[0] + (spec.vx[1] - spec.vx[0]) * rnd(1)) * side, vy = spec.vy[0] + (spec.vy[1] - spec.vy[0]) * rnd(2);
+    const ox = spec.at[0] * side + spec.jitter * (rnd(3) * 2 - 1), oy = spec.at[1] + spec.jitter * (rnd(4) * 2 - 1);
+    const dx = ox + vx * age + 0.5 * spec.pull[0] * side * age * age, dy = oy + vy * age - 0.5 * spec.pull[1] * age * age;
+    const scale = spec.scale * (1 + spec.pop * Math.max(0, 1 - age / spec.shrink));
+    const alpha = age < spec.hold ? 1 : 1 - (age - spec.hold) / spec.fade;
+    return { dx: dx * k, dy: dy * k, size: FLOAT_SIZE * scale * k, alpha };
+  }
+  // A game-style number: bold, outlined, with a drop shadow; a crit icon before it when given.
+  function gameNumber(g, text, x, y, alpha, [fill, outline], size, icon = null) {
     g.globalAlpha = Math.max(0, Math.min(1, alpha));
     g.font = `800 ${size}px "Geist", system-ui, sans-serif`;
     g.textAlign = "center"; g.lineJoin = "round";
-    g.lineWidth = Math.max(3, size / 4.5); g.strokeStyle = "rgba(10,6,4,.9)"; g.strokeText(text, x, y);
-    g.fillStyle = color; g.fillText(text, x, y);
+    const sh = Math.max(1, size / 14);
+    g.fillStyle = "rgba(0,0,0,.75)"; g.fillText(text, x + sh, y + sh);
+    g.lineWidth = Math.max(2, size / 7); g.strokeStyle = outline; g.strokeText(text, x, y);
+    g.fillStyle = fill; g.fillText(text, x, y);
+    if (icon && icon.complete && icon.naturalWidth) {
+      const w = g.measureText(text).width, s = size * 1.1;
+      g.drawImage(icon, x - w / 2 - s * 0.9, y - s * 0.8, s, s);
+    }
     g.lineJoin = "miter"; g.globalAlpha = 1;
   }
   function floatText(g, text, x, y, alpha, color, size) {

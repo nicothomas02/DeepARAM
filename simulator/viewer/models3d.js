@@ -36,6 +36,9 @@ const animsReady = fetch("replay-data/anims.json" + BUST).then((r) => (r.ok ? r.
 const FADE = 0.15;               // seconds to blend from one clip into the next
 const LOOPS = /loop|channel|_idle$|hold/i;
 const loader = new GLTFLoader().setMeshoptDecoder(MeshoptDecoder);
+// Ability effects (effects3d.js), loaded with this page's version so a new release isn't cached.
+let effects = null;
+import("./effects3d.js" + BUST).then((m) => { effects = m.default; api.effects = effects; }).catch(() => {});
 
 const gltfs = new Map();         // champion id (lower case) -> Promise<gltf | null>
 
@@ -332,10 +335,14 @@ const api = {
     return { x: (p.x + 1) / 2 * W, y: (1 - p.y) / 2 * H };
   },
 
+  // Ability effects (effects3d.js), once loaded: the page asks which casts have them and passes this frame's to frame().
+  effects: null,
+
   // fighters: [{key, champ, x, y, face: 1 | -1, dir?: {x, y}, role, t, loop, visible}] in device px.
   // Returns {key: {x, y}}, the point above each loaded model's head, so the 2D overlay can place HP bars.
   // scale < 1 renders the models smaller and lets the page stretch them (cheaper on slow devices).
-  frame(fighters, W, H, scale = 1) {
+  // fx: this frame's ability effects (effects3d.js draw), unit: px per game unit.
+  frame(fighters, W, H, scale = 1, fx = null, unit = null) {
     const out = {};
     if (!this.ok) return out;
     const { renderer, scene, camera } = this.arena;
@@ -388,6 +395,10 @@ const api = {
       out[f.key] = head;
     }
     for (const [key, entry] of this.actors) if (!seen.has(key)) { scene.remove(entry.actor.group); this.actors.delete(key); }
+    if (effects) {
+      effects.scene = scene;
+      effects.draw(fx, scene, camera, (x, y, w, h, out) => this.toWorld(x, y, w, h, out), W, H, unit ? (unit * 16) / W : HEIGHT / 200);
+    }
     renderer.render(scene, camera);
 
     return out;
