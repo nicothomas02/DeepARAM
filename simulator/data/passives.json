@@ -363,10 +363,18 @@
   {
    "trigger": "attack",
    "calcs": [
-    "PercentAmpCalcSelf",
+    "PercentAmpCalcSelf"
+   ],
+   "mult": 0.5,
+   "why": "Leverage: an attack on an unmarked enemy champion deals 1-2% (+2% per 100 AP) max Health and marks it for 6s; it only hits again once an ally consumes the mark"
+  },
+  {
+   "trigger": "attack",
+   "calcs": [
     "PercentAmpCalc"
    ],
-   "why": "Leverage: an attack on an unmarked enemy deals 1-2% (+2% per 100 AP) max Health and marks it; an ally's next hit consumes the mark for the same again (her damage), leaving it unmarked for her next attack. In a team fight allies hit between her attacks, so both count on every attack"
+   "mult": 0.5,
+   "why": "An ally's hit consumes the mark for the same damage again (credited to her). The simulated fight has no allies, so both halves count on about half her attacks, as in a team fight where allies don't always hit between them"
   }
  ],
  "Riven": [

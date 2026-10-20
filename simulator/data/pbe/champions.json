@@ -26332,19 +26332,32 @@
        "type": "magic",
        "calc": "PercentAmpCalcSelf",
        "scaling": {
-        "const": 0.02,
-        "ap": 0.0002
+        "const": 0.01,
+        "ap": 0.0001
        },
        "target": "target_max_hp",
        "per_second": false,
        "alt": false
-      },
+      }
+     ]
+    },
+    {
+     "trigger": "attack",
+     "every": 1,
+     "cooldown": 0.0,
+     "per_target": false,
+     "charges": 1,
+     "max_charges": 1,
+     "aoe": false,
+     "below_hp": 0.0,
+     "ability_cdr": 0.0,
+     "hits": [
       {
        "type": "magic",
        "calc": "PercentAmpCalc",
        "scaling": {
-        "const": 0.02,
-        "ap": 0.0002
+        "const": 0.01,
+        "ap": 0.0001
        },
        "target": "target_max_hp",
        "per_second": false,
