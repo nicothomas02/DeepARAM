@@ -119,5 +119,6 @@
  "Numbers marked estimated are worked out from the stats we have, not counted game by game.": "추정으로 표시된 수치는 보유한 통계로 계산한 값이며, 한 판씩 센 값이 아닙니다.",
  "Game counts are approximate.": "판수는 대략적인 값입니다.",
  "Win rate boost": "승률 상승",
- "Sort": "정렬"
+ "Sort": "정렬",
+ "How much more the pair wins than the two champions' own win rates predict, in percentage points. Above zero means they help each other. Rarely played pairs count for less, so a lucky streak can't top the list.": "두 챔피언 각자의 승률로 예상되는 것보다 듀오가 얼마나 더 이기는지(퍼센트포인트). 0보다 크면 서로 도움이 됩니다. 드물게 플레이된 조합은 덜 반영되므로 운 좋은 연승으로 1위에 오를 수 없습니다."
 }

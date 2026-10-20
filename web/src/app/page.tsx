@@ -28,9 +28,9 @@ const Icon = ({ src }: { src: string }) => <img className="icon" src={src} alt="
 
 const pct = (v: number) => `${(v * 100).toFixed(1)}%`;
 
-// The pairs that help each other most on the live patch: the Duos tab's DeepScore order (synergy, trusting
-// rarely played pairs less), each showing its win rate boost in pts.
-const topDuos = (n = 5) => [...duoRows()].sort((a, b) => b.deepScore - a.deepScore || b.delta - a.delta).slice(0, n);
+// The pairs that help each other most on the live patch: the Duos tab's order, by win rate boost (synergy
+// adjusted for how often a pair is played, lib/duos.ts).
+const topDuos = (n = 5) => [...duoRows()].sort((a, b) => b.delta - a.delta).slice(0, n);
 
 // The number each "Top 10 at" list ranks on, written for its row (FunLists adds the unit): live-patch
 // shares, estimated typical-game numbers, and simulated damage at level 8 → 18 for early and late game.

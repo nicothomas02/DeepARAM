@@ -119,5 +119,6 @@
  "Numbers marked estimated are worked out from the stats we have, not counted game by game.": "标为估算的数字由我们已有的数据推算，并非逐场统计。",
  "Game counts are approximate.": "场次为近似值。",
  "Win rate boost": "胜率提升",
- "Sort": "排序"
+ "Sort": "排序",
+ "How much more the pair wins than the two champions' own win rates predict, in percentage points. Above zero means they help each other. Rarely played pairs count for less, so a lucky streak can't top the list.": "组合胜率比两位英雄各自胜率所预测的高出多少（百分点）。高于零表示他们相互配合。较少使用的组合权重更低，偶然的好运无法让它登顶。"
 }

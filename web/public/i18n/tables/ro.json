@@ -119,5 +119,6 @@
  "Numbers marked estimated are worked out from the stats we have, not counted game by game.": "Numerele marcate ca estimate sunt calculate din statisticile pe care le avem, nu numărate meci cu meci.",
  "Game counts are approximate.": "Numărul de meciuri este aproximativ.",
  "Win rate boost": "Spor de victorie",
- "Sort": "Sortează"
+ "Sort": "Sortează",
+ "How much more the pair wins than the two champions' own win rates predict, in percentage points. Above zero means they help each other. Rarely played pairs count for less, so a lucky streak can't top the list.": "Cu cât câștigă perechea mai mult decât prezic ratele de victorie proprii ale celor doi campioni, în puncte procentuale. Peste zero înseamnă că se ajută reciproc. Perechile jucate rar contează mai puțin, astfel încât o serie norocoasă nu ajunge în frunte."
 }

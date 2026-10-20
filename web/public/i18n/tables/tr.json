@@ -119,5 +119,6 @@
  "Numbers marked estimated are worked out from the stats we have, not counted game by game.": "Tahmini olarak işaretlenen sayılar elimizdeki istatistiklerden hesaplanır, oyun oyun sayılmaz.",
  "Game counts are approximate.": "Oyun sayıları yaklaşıktır.",
  "Win rate boost": "Kazanma oranı artışı",
- "Sort": "Sırala"
+ "Sort": "Sırala",
+ "How much more the pair wins than the two champions' own win rates predict, in percentage points. Above zero means they help each other. Rarely played pairs count for less, so a lucky streak can't top the list.": "İkilinin, iki şampiyonun kendi kazanma oranlarının öngördüğünden ne kadar fazla kazandığı, yüzde puan olarak. Sıfırın üstü birbirlerine yardım ettikleri anlamına gelir. Az oynanan ikililer daha az sayılır, böylece şanslı bir seri listenin başına çıkamaz."
 }

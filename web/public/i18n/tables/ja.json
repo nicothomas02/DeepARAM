@@ -119,5 +119,6 @@
  "Numbers marked estimated are worked out from the stats we have, not counted game by game.": "推定と表示された数値は、手元の統計から算出したもので、1試合ずつ数えたものではありません。",
  "Game counts are approximate.": "試合数はおおよその値です。",
  "Win rate boost": "勝率上昇",
- "Sort": "並べ替え"
+ "Sort": "並べ替え",
+ "How much more the pair wins than the two champions' own win rates predict, in percentage points. Above zero means they help each other. Rarely played pairs count for less, so a lucky streak can't top the list.": "2体のチャンピオンそれぞれの勝率から予想される勝率より、ペアがどれだけ多く勝っているか（パーセントポイント）。0より上なら互いに助け合っています。あまりプレイされないペアは重みを下げるため、偶然の好成績で上位になることはありません。"
 }

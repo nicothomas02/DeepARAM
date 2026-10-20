@@ -119,5 +119,6 @@
  "Numbers marked estimated are worked out from the stats we have, not counted game by game.": "Angka yang ditandai perkiraan dihitung dari statistik yang kami punya, bukan dihitung game per game.",
  "Game counts are approximate.": "Jumlah game adalah perkiraan.",
  "Win rate boost": "Tambahan win rate",
- "Sort": "Urutkan"
+ "Sort": "Urutkan",
+ "How much more the pair wins than the two champions' own win rates predict, in percentage points. Above zero means they help each other. Rarely played pairs count for less, so a lucky streak can't top the list.": "Seberapa lebih sering pasangan ini menang dibanding perkiraan dari win rate masing-masing champion, dalam poin persentase. Di atas nol berarti mereka saling membantu. Pasangan yang jarang dimainkan dihitung lebih kecil, jadi keberuntungan sesaat tak bisa memuncaki daftar."
 }
