@@ -78,23 +78,37 @@ def dump_champion(args):
         if skin is None:
             return alias, "no skin0.bin"
         entries, linked = read_bin(skin)
-        resolver = next((v for v in entries.values() if isinstance(v, dict) and "resourceMap" in v), {})
-        names = resolver.get("resourceMap", {})
-        wanted = {str(v).lower() for v in names.values()}
-        systems = {}
         # The base skin's effects live in skin0.bin and the shared bins it links (which also
         # hold other skins' effects: only the systems skin0 names are kept).
-        for path in [None] + linked:
-            if path is None:
-                found = entries
-            else:
-                data = read(path)
-                if data is None:
-                    continue
-                try:
-                    found, _ = read_bin(data)
-                except Exception:
-                    continue
+        bins = [entries]
+        for path in linked:
+            data = read(path)
+            if data is None:
+                continue
+            try:
+                bins.append(read_bin(data)[0])
+            except Exception:
+                continue
+        # The effect name map: in skin0.bin, or for some champions in a linked bin (the one named for skin 0).
+        def resolvers(found):
+            return [(k, v) for k, v in found.items() if isinstance(v, dict) and "resourceMap" in v]
+        resolver = next((v for _, v in resolvers(entries)), None)
+        if resolver is None:
+            linked_ones = [kv for found in bins[1:] for kv in resolvers(found)]
+            resolver = next((v for k, v in linked_ones if "skin0" in k.lower() or "/skin0" in k.lower()), None) \
+                or next((v for _, v in linked_ones), {})
+        names = resolver.get("resourceMap", {})
+        if not names:
+            # No readable name map: every base skin effect system, named after itself.
+            for found in bins:
+                for key, value in found.items():
+                    low = key.lower().replace("\\", "/")
+                    if isinstance(value, dict) and value.get("__type") == "VfxSystemDefinitionData" \
+                            and ("/skins/skin0/" in low or "/skins/base/" in low or "_base_" in low):
+                        names[key.rsplit("/", 1)[-1]] = key
+        wanted = {str(v).lower() for v in names.values()}
+        systems = {}
+        for found in bins:
             for key, value in found.items():
                 if key.lower() in wanted:
                     systems[key] = value
