@@ -15,7 +15,7 @@ let out = [], err = [];
 // needed, fresh, so a daily refresh of replay-data/pbe/ shows up without rebuilding the engine.
 let pbe = null;
 function loadPbe(sim) {
-  if (!pbe) pbe = Promise.all(["champions", "items", "augments"].map((n) =>
+  if (!pbe) pbe = Promise.all(["champions", "items", "augments", "augment_pools"].map((n) =>
     fetch("replay-data/pbe/" + n + ".json", { cache: "no-cache" }).then((r) => {
       if (!r.ok) throw new Error("PBE data not found");
       return r.text();

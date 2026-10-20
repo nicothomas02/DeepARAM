@@ -41,6 +41,9 @@
   // Live patch by default; PBE runs the same model on the test server's numbers (data/pbe).
   let patch = "live";
   const patchArgs = () => (patch === "pbe" ? ["--game-data", "data/pbe"] : []);
+  // The PBE patch's best builds (replay-data/pbe/best-builds.json), by champion id in lower case:
+  // what the build slots start from on the PBE patch until you simulate something yourself.
+  let pbeBest = null, custom = false;
   let picks = null; // five enemies [{id, stats:{hp, armor, mr, damage_share}, items:[], augs:[]}]; the first team_size fight
   const combos = {};  // champion id -> combo the user typed
   const enemyById = new Map();
@@ -73,7 +76,14 @@
   // Champions, items, augments and settings for the chosen patch.
   function loadMeta() {
     for (const b of ["runBuild", "findBest", "resetAll", "patchSel", "modeSel"]) $(b).disabled = true;
-    return call(["--list", "--json", ...patchArgs()]).then((r) => {
+    const best = patch === "pbe" && !pbeBest
+      ? fetch("replay-data/pbe/best-builds.json?v=" + (window.REPLAY_VERSION || "0")).then((r) => (r.ok ? r.json() : null))
+        .then((d) => {
+          pbeBest = {};
+          for (const c of (d && d.champions) || []) pbeBest[c.champion.toLowerCase()] = c.build;
+        }).catch(() => {})
+      : Promise.resolve();
+    return Promise.all([call(["--list", "--json", ...patchArgs()]), best]).then(([r]) => {
       if (!r.ok) { status(T("The simulator couldn't load its data:") + " " + r.stderr, "err"); return false; }
       meta = JSON.parse(r.stdout);
       // Official names in the page's language.
@@ -85,7 +95,7 @@
       for (const e of meta.enemies) enemyById.set(e.id.toLowerCase(), e);
       buildFightForm();
       for (const b of ["runBuild", "findBest", "resetAll", "patchSel", "modeSel"]) $(b).disabled = false;
-      if (champ) fillFromTrace();
+      if (champ) { setTitle(); fillFromTrace(); }
       runLinked();
       return true;
     });
@@ -112,11 +122,20 @@
   window.onReplayLoad = (c, tr, isCustom) => {
     const changedChamp = !champ || champ.id !== c.id;
     if (changedChamp) { offerSubmit(null); offerKitchen(null); }
-    $("buildTitle").textContent = isCustom ? (tr.patch === "pbe" ? T("Your simulated setup (PBE patch)") : T("Your simulated setup")) : T("Simulated best build");
-    champ = c; trace = tr;
+    champ = c; trace = tr; custom = isCustom;
+    setTitle();
     if (meta && (changedChamp || !isCustom)) fillFromTrace();
     runLinked();
   };
+  function setTitle() {
+    $("buildTitle").textContent = custom
+      ? (trace.patch === "pbe" ? T("Your simulated setup (PBE patch)") : T("Your simulated setup"))
+      : (pbeBuild() ? T("Simulated best build (PBE patch)") : T("Simulated best build"));
+  }
+  // The PBE best build for this champion when the PBE patch is chosen and nothing custom is shown.
+  function pbeBuild() {
+    return patch === "pbe" && !custom && pbeBest && pbeBest[champ.id.toLowerCase()];
+  }
   // The Survival leaderboard's enemy, the same for every champion: Ashe (the most picked enemy) with her
   // most popular build, and Teemo for Ashe herself. Keep in step with tools/verify_leaderboard.py.
   const SURVIVAL = { enemy: "Ashe", fallback: "Teemo" };
@@ -128,6 +147,7 @@
     if (!l || !meta || !champ || champ.id.toLowerCase() !== l.champion) return;
     window.linkedBuild = null;
     trace = { build: { items: l.items.map((key) => ({ key })), augments: l.augs.map((key) => ({ key })) }, fight: trace.fight };
+    custom = true;
     fillFromTrace();
     const foe = survivalEnemy(champ.id);
     picks = [withBuild({ id: foe, stats: {} }), ...picks.filter((p) => p.id !== foe)].slice(0, 5);
@@ -160,7 +180,9 @@
     box.querySelectorAll(".slot-row, .sub").forEach((n) => n.remove());
     const boots = meta.items.filter((i) => i.slot === "boots").sort((a, b) => a.name.localeCompare(b.name));
     const legs = meta.items.filter((i) => i.slot !== "boots").sort((a, b) => a.name.localeCompare(b.name));
-    const items = trace.build.items.map((i) => i.key);
+    const pbe = pbeBuild();
+    const build = pbe ? { items: pbe.items.map((key) => ({ key })), augments: pbe.augments.map((key) => ({ key })) } : trace.build;
+    const items = build.items.map((i) => i.key);
     const bootKey = items.find((k) => boots.some((b) => b.key === k)) || "";
     const legKeys = items.filter((k) => k !== bootKey);
     const row = (label, el) => {
@@ -171,7 +193,7 @@
     row("B", select(boots, bootKey, T("Boots")));
     for (let i = 0; i < 5; i++) row(String(i + 1), select(legs, legKeys[i], T("Item {n}", { n: i + 1 })));
     const sub = document.createElement("div"); sub.className = "sub"; sub.textContent = T("Augments"); box.append(sub);
-    const augKeys = trace.build.augments.map((a) => a.key);
+    const augKeys = build.augments.map((a) => a.key);
     const augs = augmentsFor(champ.id, augKeys);
     for (let i = 0; i < 4; i++) row(String(i + 1), select(augs, augKeys[i], T("Augment {n}", { n: i + 1 })));
     renderCombo();
