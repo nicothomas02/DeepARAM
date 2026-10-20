@@ -28,6 +28,7 @@ PROFILE_STATS = {
     "deaths": (["deaths"], "game"),
     "assists": (["assists"], "game"),
     "multikills": (["doubleKills", "tripleKills", "quadraKills", "pentaKills"], "game"),
+    "pentakills": (["pentaKills"], "game"),
     "damage_per_min": (["totalDamageDealtToChampions"], "min"),
     "physical_share": (["physicalDamageDealtToChampions"], "share"),
     "magic_share": (["magicDamageDealtToChampions"], "share"),

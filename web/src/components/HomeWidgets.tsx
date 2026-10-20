@@ -111,10 +111,13 @@ export function KitchenPick({ builds }: { builds: Build[] }) {
 const FUN: [string, string, string][] = [
   ["damage", "Damage", "{v} damage share"],
   ["tank", "Tanking", "{v} damage taken"],
+  ["mitigated", "Damage mitigated", "{v} mitigated/min"],
+  ["teamplay", "Kill participation", "{v} kill participation"],
+  ["dead", "Time dead", "{v}"],
+  ["cs", "CS", "{v} CS"],
   ["healing", "Healing", "{v} healing/min"],
   ["crowd_control", "Crowd control", "{v}s crowd control"],
-  ["teamplay", "Teamplay", "{v} kill participation"],
-  ["multikills", "Multikills", "{v} multikills"],
+  ["pentakills", "Pentakills", "{v} pentakills/game"],
   ["towers", "Towers", "{v} tower damage"],
   ["early_game", "Early game", "{v}"],
   ["late_game", "Late game", "{v}"],
@@ -125,6 +128,7 @@ const FULL: Record<string, string> = {
   damage: "/tier-list?sort=damage.desc",
   tank: "/tier-list?sort=tank.desc",
   teamplay: "/tier-list?sort=kp.desc",
+  dead: "/tier-list?sort=dead.asc",
 };
 const CURVE_NOTE = "Simulated damage: share of champions beaten at level 8 → level 18.";
 

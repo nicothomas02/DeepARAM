@@ -49,7 +49,10 @@ function funValues(): Record<string, (id: number, alias: string) => string | nul
     teamplay: (_, a) => fmt(live.get(a)?.kp, pct),
     healing: (id) => fmt(profileValue(id, "heal_per_min"), int),
     crowd_control: (id) => fmt(profileValue(id, "cc_seconds"), one),
-    multikills: (id) => fmt(profileValue(id, "multikills"), one),
+    mitigated: (id) => fmt(profileValue(id, "mitigated_per_min"), int),
+    cs: (id) => fmt(profileValue(id, "cs"), one),
+    pentakills: (id) => fmt(profileValue(id, "pentakills"), (v) => v.toFixed(3)),
+    dead: (_, a) => fmt(live.get(a)?.dead, (v) => `${Math.floor(v / 60)}m ${String(Math.round(v % 60)).padStart(2, "0")}s`),
     towers: (id) => fmt(profileValue(id, "turret_damage"), int),
     early_game: curve,
     late_game: curve,
@@ -72,8 +75,25 @@ export default function Home() {
   const latest = last ? recap(last) : null;
   const game = typicalGame();
   const value = funValues();
+  // Lists the daily estimates don't carry are ranked here, from the same numbers (least time dead first).
+  const live = new Map(liveWithChange().live.map((c) => [c.name, c]));
+  const topBy = (key: (id: number) => number | null | undefined, low = false) =>
+    Object.values(championIds as Record<string, number>)
+      .flatMap((id) => {
+        const v = key(id);
+        return typeof v === "number" ? [{ id, v }] : [];
+      })
+      .sort((a, b) => (low ? a.v - b.v : b.v - a.v))
+      .slice(0, 10)
+      .map((x) => x.id);
+  const extra = {
+    mitigated: topBy((id) => profileValue(id, "mitigated_per_min")),
+    cs: topBy((id) => profileValue(id, "cs")),
+    pentakills: topBy((id) => profileValue(id, "pentakills")),
+    dead: topBy((id) => live.get(ALIAS[id])?.dead, true),
+  };
   const fun = Object.fromEntries(
-    Object.entries({ ...funLists(), early_game: powerCurveLists().early, late_game: powerCurveLists().late }).map(([k, ids]) => [
+    Object.entries({ ...funLists(), ...extra, early_game: powerCurveLists().early, late_game: powerCurveLists().late }).map(([k, ids]) => [
       k,
       ids.flatMap((id) =>
         ALIAS[id] ? [{ id: ALIAS[id], name: NAMES[ALIAS[id]] ?? ALIAS[id], value: value[k]?.(id, ALIAS[id]) ?? null }] : [],
