@@ -3,6 +3,15 @@
 # share. Prints the rank correlation, role averages and the champions that drift most (simulated
 # DPS rank far from their real damage-share rank), which are the ones to look at after a patch.
 #
+# Spearman is a rank correlation: 1 means the simulated order of champions matches the real one
+# exactly, 0 no relation. Most of the overall score comes from roles (tanks and supports deal less
+# than carries), so it also prints the score within each role, and a role-adjusted fit: real share
+# from simulated DPS and role, scored leave-one-out so the fit can't flatter itself. The champions
+# furthest from that fit are the likeliest kit bugs.
+#
+# Fights are one enemy at a time by default, as on the site. XARGS="--set team_size=5" fights the
+# whole team, so area damage counts (on the live patch this lowers the score: 0.50 to 0.37).
+#
 #   python3 tools/accuracy.py ./mayhem_sim out.json [trials]
 # SIMDIR picks the folder the simulator runs in; XARGS adds simulator options.
 import json, subprocess, sys, os, concurrent.futures as cf, statistics as st
@@ -66,3 +75,30 @@ ra, rb = rank([r["dps"] for r in x]), rank([r["cn"] for r in x])
 drift = sorted(((ra[i] - rb[i], x[i]["champ"]) for i in range(len(x))), key=lambda d: -abs(d[0]))
 print("drift (sim rank minus real rank; + overrated, - underrated):")
 for d, c in drift[:15]: print(f"  {c:14s} {d:+d}")
+for role in sorted(set(r["role"] for r in x)):
+    rr = [r for r in x if r["role"] == role]
+    if len(rr) > 5: print(f"within {role}: spearman {sp([r['dps'] for r in rr], [r['cn'] for r in rr]):.2f} (n {len(rr)})")
+# Role-adjusted fit: log(real share) = a + b log(DPS) + one term per role, least squares.
+import math
+roles = sorted(set(r["role"] for r in x))
+def feats(r): return [1.0, math.log(max(r["dps"], 1.0))] + [1.0 if r["role"] == ro else 0.0 for ro in roles[1:]]
+def fit(rows):
+    k = len(feats(rows[0])); A = [[0.0] * k for _ in range(k)]; v = [0.0] * k
+    for r in rows:
+        f, t = feats(r), math.log(r["cn"])
+        for i in range(k):
+            v[i] += f[i] * t
+            for j in range(k): A[i][j] += f[i] * f[j]
+    for i in range(k): A[i][i] += 1e-6
+    for i in range(k):  # Gaussian elimination
+        p = max(range(i, k), key=lambda q: abs(A[q][i])); A[i], A[p] = A[p], A[i]; v[i], v[p] = v[p], v[i]
+        for q in range(k):
+            if q != i and A[i][i]:
+                m = A[q][i] / A[i][i]; v[q] -= m * v[i]
+                for j in range(k): A[q][j] -= m * A[i][j]
+    return [v[i] / A[i][i] for i in range(k)]
+pred = [sum(a * b for a, b in zip(fit(x[:i] + x[i + 1:]), feats(r))) for i, r in enumerate(x)]
+print("role-adjusted fit, leave-one-out: spearman", round(sp(pred, [r["cn"] for r in x]), 3))
+res = sorted(((math.log(r["cn"]) - p, r["champ"], r["role"]) for p, r in zip(pred, x)), key=lambda d: -abs(d[0]))
+print("furthest from the fit (+ the sim underrates them, - overrates; log real share minus predicted):")
+for d, c, ro in res[:20]: print(f"  {c:14s} {ro:9s} {d:+.2f}")
