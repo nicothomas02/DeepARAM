@@ -140,5 +140,9 @@
  "{n} boost": "прирост {n}",
  "of {n} by DeepScore": "из {n} по DeepScore",
  "Win rates are estimated. The boost below each is how much the augment adds to this champion's win rate.": "Проценты побед — оценка. Прирост под каждым показывает, сколько аугмент добавляет к винрейту этого чемпиона.",
- "Spell pairs with win rate, pick rate and win rate boost appear here once enough games are in.": "Пары заклинаний с процентом побед, частотой выбора и приростом винрейта появятся здесь, когда наберётся достаточно игр."
+ "Spell pairs with win rate, pick rate and win rate boost appear here once enough games are in.": "Пары заклинаний с процентом побед, частотой выбора и приростом винрейта появятся здесь, когда наберётся достаточно игр.",
+ "Rival quest": "Задание соперников",
+ "Team quest": "Командное задание",
+ "When {name} is on the other team": "Когда {name} в команде противника",
+ "When {name} is on your team": "Когда {name} в вашей команде"
 }

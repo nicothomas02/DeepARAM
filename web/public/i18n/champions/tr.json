@@ -140,5 +140,9 @@
  "{n} boost": "{n} artış",
  "of {n} by DeepScore": "{n} içinde, DeepScore'a göre",
  "Win rates are estimated. The boost below each is how much the augment adds to this champion's win rate.": "Kazanma oranları tahminidir. Her birinin altındaki artış, güçlendirmenin bu şampiyonun kazanma oranına ne kadar eklediğidir.",
- "Spell pairs with win rate, pick rate and win rate boost appear here once enough games are in.": "Kazanma oranı, seçilme oranı ve kazanma oranı artışıyla büyü çiftleri yeterli oyun olunca burada görünür."
+ "Spell pairs with win rate, pick rate and win rate boost appear here once enough games are in.": "Kazanma oranı, seçilme oranı ve kazanma oranı artışıyla büyü çiftleri yeterli oyun olunca burada görünür.",
+ "Rival quest": "Rakip görevi",
+ "Team quest": "Takım görevi",
+ "When {name} is on the other team": "{name} rakip takımdayken",
+ "When {name} is on your team": "{name} senin takımındayken"
 }

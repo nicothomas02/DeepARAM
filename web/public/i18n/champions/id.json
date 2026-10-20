@@ -140,5 +140,9 @@
  "{n} boost": "tambahan {n}",
  "of {n} by DeepScore": "dari {n} menurut DeepScore",
  "Win rates are estimated. The boost below each is how much the augment adds to this champion's win rate.": "Win rate ini perkiraan. Tambahan di bawahnya adalah seberapa banyak augment menambah win rate champion ini.",
- "Spell pairs with win rate, pick rate and win rate boost appear here once enough games are in.": "Pasangan spell dengan win rate, pick rate, dan tambahan win rate muncul di sini setelah game-nya cukup."
+ "Spell pairs with win rate, pick rate and win rate boost appear here once enough games are in.": "Pasangan spell dengan win rate, pick rate, dan tambahan win rate muncul di sini setelah game-nya cukup.",
+ "Rival quest": "Quest rival",
+ "Team quest": "Quest tim",
+ "When {name} is on the other team": "Saat {name} ada di tim lawan",
+ "When {name} is on your team": "Saat {name} ada di timmu"
 }

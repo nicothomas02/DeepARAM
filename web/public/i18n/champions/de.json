@@ -140,5 +140,9 @@
  "{n} boost": "{n} Plus",
  "of {n} by DeepScore": "von {n} nach DeepScore",
  "Win rates are estimated. The boost below each is how much the augment adds to this champion's win rate.": "Siegraten sind geschätzt. Das Plus darunter ist, wie viel das Augment zur Siegrate dieses Champions beiträgt.",
- "Spell pairs with win rate, pick rate and win rate boost appear here once enough games are in.": "Zauberpaare mit Siegrate, Pickrate und Siegraten-Plus erscheinen hier, sobald genug Spiele vorliegen."
+ "Spell pairs with win rate, pick rate and win rate boost appear here once enough games are in.": "Zauberpaare mit Siegrate, Pickrate und Siegraten-Plus erscheinen hier, sobald genug Spiele vorliegen.",
+ "Rival quest": "Rivalen-Quest",
+ "Team quest": "Team-Quest",
+ "When {name} is on the other team": "Wenn {name} im gegnerischen Team ist",
+ "When {name} is on your team": "Wenn {name} in deinem Team ist"
 }

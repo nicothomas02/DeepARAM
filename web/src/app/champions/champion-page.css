@@ -932,3 +932,29 @@ html[data-view="simple"] .cp-fold:not([data-open]) > .cp-fold-body {
 .cp-sort {
   white-space: nowrap;
 }
+
+/* Rival and team quests (components/champion/Quests.tsx). */
+.cp-quest {
+  display: grid;
+  gap: 0.4rem;
+}
+.cp-quest + .cp-quest {
+  margin-top: 0.9rem;
+}
+.cp-quest .cp-name {
+  display: grid;
+}
+.cp-quest .cp-name small {
+  color: var(--muted);
+  font-weight: 500;
+  font-size: 0.875rem;
+}
+.cp-quest p {
+  margin: 0;
+}
+.cp-quest-reward {
+  color: var(--muted);
+}
+.cp-quest-reward strong {
+  color: var(--fg);
+}

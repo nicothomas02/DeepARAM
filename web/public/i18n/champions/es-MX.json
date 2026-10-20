@@ -140,5 +140,9 @@
  "{n} boost": "mejora de {n}",
  "of {n} by DeepScore": "de {n} por DeepScore",
  "Win rates are estimated. The boost below each is how much the augment adds to this champion's win rate.": "Las tasas de victorias son estimadas. La mejora debajo de cada una es cuánto suma el aumento a la tasa de victorias de este campeón.",
- "Spell pairs with win rate, pick rate and win rate boost appear here once enough games are in.": "Las parejas de hechizos con tasa de victorias, tasa de selección y mejora de victorias aparecerán aquí cuando haya suficientes partidas."
+ "Spell pairs with win rate, pick rate and win rate boost appear here once enough games are in.": "Las parejas de hechizos con tasa de victorias, tasa de selección y mejora de victorias aparecerán aquí cuando haya suficientes partidas.",
+ "Rival quest": "Misión de rivales",
+ "Team quest": "Misión de equipo",
+ "When {name} is on the other team": "Cuando {name} está en el otro equipo",
+ "When {name} is on your team": "Cuando {name} está en tu equipo"
 }

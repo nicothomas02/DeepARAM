@@ -53,5 +53,6 @@
  "Live patch {patch} by default. Pick any patches, or all time, above the champion table.": "Patch atual {patch} por padrão. Escolha quaisquer patches, ou todo o período, acima da tabela de campeões.",
  "Live patch {patch}. Each augment gets a DeepScore against the others of its rarity: 50 is average, S is 70 and up, A 59, B 44, C 32 and D below.": "Patch atual {patch}. Cada aprimoramento recebe um DeepScore em relação aos outros da mesma raridade: 50 é a média, S é 70 ou mais, A 59, B 44, C 32 e D abaixo disso.",
  "Filter by tags": "Filtrar por tags",
- "Pairs": "Pares"
+ "Pairs": "Pares",
+ "Team quest: {a} and {b} on the same team start {quest}.": "Missão de equipe: {a} e {b} no mesmo time iniciam {quest}."
 }

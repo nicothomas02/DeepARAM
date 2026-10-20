@@ -140,5 +140,9 @@
  "{n} boost": "{n}上昇",
  "of {n} by DeepScore": "/{n}(DeepScore順)",
  "Win rates are estimated. The boost below each is how much the augment adds to this champion's win rate.": "勝率は推定値です。その下の上昇値は、このオーグメントがこのチャンピオンの勝率をどれだけ上げるかを示します。",
- "Spell pairs with win rate, pick rate and win rate boost appear here once enough games are in.": "サモナースペルの組み合わせと勝率、ピック率、勝率上昇は、十分な試合数が集まるとここに表示されます。"
+ "Spell pairs with win rate, pick rate and win rate boost appear here once enough games are in.": "サモナースペルの組み合わせと勝率、ピック率、勝率上昇は、十分な試合数が集まるとここに表示されます。",
+ "Rival quest": "ライバルクエスト",
+ "Team quest": "チームクエスト",
+ "When {name} is on the other team": "{name}が相手チームにいるとき",
+ "When {name} is on your team": "{name}が味方チームにいるとき"
 }

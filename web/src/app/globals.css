@@ -5453,6 +5453,13 @@ html[data-patch-new] .chip[data-dir="up"]::after {
   border-color: var(--tag);
 }
 .items-bar,
+.duo-quest {
+  margin: 0.75rem 0 0;
+  color: var(--muted);
+}
+.duo-quest a {
+  color: inherit;
+}
 .duos-bar {
   display: flex;
   flex-wrap: wrap;

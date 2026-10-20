@@ -140,5 +140,9 @@
  "{n} boost": "{n} többlet",
  "of {n} by DeepScore": "/ {n}, DeepScore szerint",
  "Win rates are estimated. The boost below each is how much the augment adds to this champion's win rate.": "A győzelmi arányok becsültek. Az alattuk lévő többlet azt mutatja, mennyit ad hozzá a kiegészítés a bajnok győzelmi arányához.",
- "Spell pairs with win rate, pick rate and win rate boost appear here once enough games are in.": "A varázslatpárok győzelmi aránnyal, választási aránnyal és győzelmi többlettel itt jelennek meg, amint elég meccs van."
+ "Spell pairs with win rate, pick rate and win rate boost appear here once enough games are in.": "A varázslatpárok győzelmi aránnyal, választási aránnyal és győzelmi többlettel itt jelennek meg, amint elég meccs van.",
+ "Rival quest": "Riválisküldetés",
+ "Team quest": "Csapatküldetés",
+ "When {name} is on the other team": "Ha {name} az ellenfél csapatában van",
+ "When {name} is on your team": "Ha {name} a csapatodban van"
 }

@@ -53,5 +53,6 @@
  "Live patch {patch} by default. Pick any patches, or all time, above the champion table.": "預設為目前版本 {patch}。可在英雄表格上方選擇任意版本或全部時間。",
  "Live patch {patch}. Each augment gets a DeepScore against the others of its rarity: 50 is average, S is 70 and up, A 59, B 44, C 32 and D below.": "目前版本 {patch}。每個強化都會在相同稀有度內獲得 DeepScore：50 為平均，S 為 70 以上，A 59，B 44，C 32，D 以下。",
  "Filter by tags": "依標籤篩選",
- "Pairs": "組合"
+ "Pairs": "組合",
+ "Team quest: {a} and {b} on the same team start {quest}.": "團隊任務：{a}和{b}在同一隊伍時會開啟「{quest}」。"
 }

@@ -140,5 +140,9 @@
  "{n} boost": "{n} boost",
  "of {n} by DeepScore": "of {n} by DeepScore",
  "Win rates are estimated. The boost below each is how much the augment adds to this champion's win rate.": "Win rates are estimated. The boost below each is how much the augment adds to this champion's win rate.",
- "Spell pairs with win rate, pick rate and win rate boost appear here once enough games are in.": "Spell pairs with win rate, pick rate and win rate boost appear here once enough games are in."
+ "Spell pairs with win rate, pick rate and win rate boost appear here once enough games are in.": "Spell pairs with win rate, pick rate and win rate boost appear here once enough games are in.",
+ "Rival quest": "Rival quest",
+ "Team quest": "Team quest",
+ "When {name} is on the other team": "When {name} is on the other team",
+ "When {name} is on your team": "When {name} is on your team"
 }

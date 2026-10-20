@@ -140,5 +140,9 @@
  "{n} boost": "提升 {n}",
  "of {n} by DeepScore": "共 {n}，依 DeepScore",
  "Win rates are estimated. The boost below each is how much the augment adds to this champion's win rate.": "勝率為估算值。下方的提升值表示該強化讓這位英雄的勝率提高了多少。",
- "Spell pairs with win rate, pick rate and win rate boost appear here once enough games are in.": "場次足夠後，這裡會顯示召喚師技能組合及其勝率、選用率和勝率提升。"
+ "Spell pairs with win rate, pick rate and win rate boost appear here once enough games are in.": "場次足夠後，這裡會顯示召喚師技能組合及其勝率、選用率和勝率提升。",
+ "Rival quest": "宿敵任務",
+ "Team quest": "團隊任務",
+ "When {name} is on the other team": "當{name}在敵方隊伍時",
+ "When {name} is on your team": "當{name}在你的隊伍時"
 }

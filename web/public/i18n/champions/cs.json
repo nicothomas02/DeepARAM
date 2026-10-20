@@ -140,5 +140,9 @@
  "{n} boost": "přírůstek {n}",
  "of {n} by DeepScore": "z {n} podle DeepScore",
  "Win rates are estimated. The boost below each is how much the augment adds to this champion's win rate.": "Procenta výher jsou odhadnutá. Přírůstek pod každým říká, kolik augment přidá k procentu výher tohoto šampiona.",
- "Spell pairs with win rate, pick rate and win rate boost appear here once enough games are in.": "Dvojice kouzel s procentem výher, mírou výběru a přírůstkem výher se tu objeví, jakmile bude dost her."
+ "Spell pairs with win rate, pick rate and win rate boost appear here once enough games are in.": "Dvojice kouzel s procentem výher, mírou výběru a přírůstkem výher se tu objeví, jakmile bude dost her.",
+ "Rival quest": "Úkol rivalů",
+ "Team quest": "Týmový úkol",
+ "When {name} is on the other team": "Když je {name} v nepřátelském týmu",
+ "When {name} is on your team": "Když je {name} ve tvém týmu"
 }

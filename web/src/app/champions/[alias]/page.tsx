@@ -35,6 +35,7 @@ import {
   tone,
 } from "@/components/champion/Ranked";
 import ShowMore from "@/components/champion/ShowMore";
+import Quests from "@/components/champion/Quests";
 import AugmentTable from "@/components/champion/AugmentTable";
 import SectionRail from "@/components/champion/SectionRail";
 import Fold from "@/components/champion/Fold";
@@ -845,6 +846,7 @@ export default async function ChampionPage({
               </p>
             </Panel>
           )}
+          <Quests alias={alias} names={Object.fromEntries(all.map((x) => [x.id, x.name]))} />
 
           <h2 className="cp-group" id="details">
             <T ns={NS}>More details</T>

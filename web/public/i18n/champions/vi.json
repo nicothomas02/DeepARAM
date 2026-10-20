@@ -140,5 +140,9 @@
  "{n} boost": "tăng {n}",
  "of {n} by DeepScore": "trên {n} theo DeepScore",
  "Win rates are estimated. The boost below each is how much the augment adds to this champion's win rate.": "Tỉ lệ thắng là ước tính. Mức tăng bên dưới mỗi dòng là lõi này cộng thêm bao nhiêu vào tỉ lệ thắng của tướng.",
- "Spell pairs with win rate, pick rate and win rate boost appear here once enough games are in.": "Các cặp phép bổ trợ cùng tỉ lệ thắng, tỉ lệ chọn và mức tăng tỉ lệ thắng sẽ hiện ở đây khi có đủ trận."
+ "Spell pairs with win rate, pick rate and win rate boost appear here once enough games are in.": "Các cặp phép bổ trợ cùng tỉ lệ thắng, tỉ lệ chọn và mức tăng tỉ lệ thắng sẽ hiện ở đây khi có đủ trận.",
+ "Rival quest": "Nhiệm vụ đối thủ",
+ "Team quest": "Nhiệm vụ đồng đội",
+ "When {name} is on the other team": "Khi {name} ở đội đối phương",
+ "When {name} is on your team": "Khi {name} ở cùng đội với bạn"
 }
