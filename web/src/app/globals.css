@@ -6272,3 +6272,10 @@ summary.items-tier-h::before {
     display: none;
   }
 }
+
+.see-all {
+  display: inline-block;
+  margin-top: 12px;
+  color: var(--accent);
+  font-size: 0.8125rem;
+}

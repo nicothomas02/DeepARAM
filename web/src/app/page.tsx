@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { text } from "@/lib/content";
-import { chefsSpecial, statsDate, counts, kitchenBuilds, livePatch, liveTiers, topAugments, topDps } from "@/lib/highlights";
+import { chefsSpecial, statsDate, counts, kitchenBuilds, livePatch, liveTiers, topAugments, topDps, topItems } from "@/lib/highlights";
 import { duoRows } from "@/lib/duos";
 import { recap, recapPatches } from "@/lib/patches";
 import { readRepoJson } from "@/lib/repo-data";
@@ -11,7 +11,6 @@ import { FunLists, KitchenPick, TierSnapshot } from "@/components/HomeWidgets";
 import { funLists, powerCurveLists, profileValue, typicalGame } from "@/lib/estimates";
 import { liveWithChange } from "@/lib/champions";
 import championIds from "@/data/champion-ids.json";
-import { augmentHref } from "@/lib/augments";
 import { KITCHEN } from "@/lib/tabs";
 import championNames from "@/data/champion-names.json";
 
@@ -50,7 +49,10 @@ function funValues(): Record<string, (id: number, alias: string) => string | nul
     teamplay: (_, a) => fmt(live.get(a)?.kp, pct),
     healing: (id) => fmt(profileValue(id, "heal_per_min"), int),
     crowd_control: (id) => fmt(profileValue(id, "cc_seconds"), one),
-    multikills: (id) => fmt(profileValue(id, "multikills"), one),
+    mitigated: (id) => fmt(profileValue(id, "mitigated_per_min"), int),
+    cs: (id) => fmt(profileValue(id, "cs"), one),
+    pentakills: (id) => fmt(profileValue(id, "pentakills"), (v) => v.toFixed(3)),
+    dead: (_, a) => fmt(live.get(a)?.dead, (v) => `${Math.floor(v / 60)}m ${String(Math.round(v % 60)).padStart(2, "0")}s`),
     towers: (id) => fmt(profileValue(id, "turret_damage"), int),
     early_game: curve,
     late_game: curve,
@@ -60,6 +62,7 @@ function funValues(): Record<string, (id: number, alias: string) => string | nul
 export default function Home() {
   const tiers = liveTiers();
   const augs = topAugments();
+  const gear = topItems();
   const patch = livePatch() && patchName(livePatch());
   const special = chefsSpecial();
   const builds = special ? [] : kitchenBuilds();
@@ -72,8 +75,25 @@ export default function Home() {
   const latest = last ? recap(last) : null;
   const game = typicalGame();
   const value = funValues();
+  // Lists the daily estimates don't carry are ranked here, from the same numbers (least time dead first).
+  const live = new Map(liveWithChange().live.map((c) => [c.name, c]));
+  const topBy = (key: (id: number) => number | null | undefined, low = false) =>
+    Object.values(championIds as Record<string, number>)
+      .flatMap((id) => {
+        const v = key(id);
+        return typeof v === "number" ? [{ id, v }] : [];
+      })
+      .sort((a, b) => (low ? a.v - b.v : b.v - a.v))
+      .slice(0, 10)
+      .map((x) => x.id);
+  const extra = {
+    mitigated: topBy((id) => profileValue(id, "mitigated_per_min")),
+    cs: topBy((id) => profileValue(id, "cs")),
+    pentakills: topBy((id) => profileValue(id, "pentakills")),
+    dead: topBy((id) => live.get(ALIAS[id])?.dead, true),
+  };
   const fun = Object.fromEntries(
-    Object.entries({ ...funLists(), early_game: powerCurveLists().early, late_game: powerCurveLists().late }).map(([k, ids]) => [
+    Object.entries({ ...funLists(), ...extra, early_game: powerCurveLists().early, late_game: powerCurveLists().late }).map(([k, ids]) => [
       k,
       ids.flatMap((id) =>
         ALIAS[id] ? [{ id: ALIAS[id], name: NAMES[ALIAS[id]] ?? ALIAS[id], value: value[k]?.(id, ALIAS[id]) ?? null }] : [],
@@ -152,9 +172,9 @@ export default function Home() {
               {augs.map((a, i) => (
                 <Link
                   key={a.id}
-                  href={augmentHref(a.id) ?? `/tier-list?tab=augments&q=${encodeURIComponent(a.name)}`}
+                  href={a.href}
                   data-tilt="soft"
-                  data-rarity={a.tier?.toLowerCase()}
+                  data-rarity={a.rarity}
                 >
                   <span className="rank-i">{i + 1}</span>
                   <Icon src={`/icons/augments/${a.id}.webp`} />
@@ -164,7 +184,33 @@ export default function Home() {
                     </Name>
                   </span>
                   <span className={`chip tier-${a.tier?.toLowerCase()}`}>{a.tier && <T>{a.tier}</T>}</span>
-                  <span className="rank-v">{pct(a.winRate)}</span>
+                  <span className="rank-v">{Math.round(a.deepScore)}</span>
+                </Link>
+              ))}
+            </div>
+          </section>
+        )}
+        {gear.length > 0 && (
+          <section className="card span-all" data-accent="gold">
+            <div className="card-head">
+              <h2>
+                <T>Best items</T>
+              </h2>
+              <Link href="/tier-list?tab=items">
+                <T>All →</T>
+              </Link>
+            </div>
+            <div className="rank">
+              {gear.map((i, n) => (
+                <Link key={i.id} href={`/items/${i.slug}`} data-tilt="soft">
+                  <span className="rank-i">{n + 1}</span>
+                  {i.icon ? <Icon src={i.icon} /> : null}
+                  <span className="rank-name">
+                    <Name kind="items" id={String(i.id)}>
+                      {i.name}
+                    </Name>
+                  </span>
+                  <span className="rank-v">{Math.round(i.deepScore ?? 0)}</span>
                 </Link>
               ))}
             </div>

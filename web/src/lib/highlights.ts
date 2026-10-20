@@ -3,7 +3,7 @@ import augmentNames from "@/data/augment-names.json";
 import championNames from "@/data/champion-names.json";
 import type { SearchItem } from "@/components/SearchPalette";
 import { augmentHref } from "./augments";
-import { augmentRows } from "./augment-winrate";
+import { augmentTiers } from "./augment-tiers";
 import { itemPages } from "./item-pages";
 import { readRepoCsv, readRepoJson } from "./repo-data";
 import { navPages } from "./tabs";
@@ -29,11 +29,16 @@ export function topChampions(n = 6): Ranked[] {
     .slice(0, n);
 }
 
-export function topAugments(n = 6): Ranked[] {
-  return augmentRows()
-    .filter((r) => r.tier && AUGS[r.augment_id])
-    .map((r) => ({ id: String(r.augment_id), name: AUGS[r.augment_id], tier: r.tier, winRate: r.win_rate, pickRate: r.pick_rate }))
-    .sort((a, b) => b.winRate - a.winRate)
+/** The best augments by DeepScore, the same score and order as the Tier List's Augments tab. */
+export function topAugments(n = 6) {
+  return [...augmentTiers()].sort((a, b) => b.deepScore - a.deepScore).slice(0, n);
+}
+
+/** The best legendary items by DeepScore (item scores compare within a tier, so legendaries are ranked together). */
+export function topItems(n = 6) {
+  return itemPages()
+    .filter((i) => i.tier === "legendary" && i.deepScore !== null)
+    .sort((a, b) => (b.deepScore ?? 0) - (a.deepScore ?? 0))
     .slice(0, n);
 }
 
@@ -100,7 +105,7 @@ export function searchItems(): SearchItem[] {
   ];
 }
 
-export type HomeChamp = { id: string; name: string; tier: string; winRate: number; pickRate: number };
+export type HomeChamp = { id: string; name: string; tier: string; winRate: number; pickRate: number; deepScore: number };
 
 /** Live-patch tiers for every champion (same DeepScore tiers as the Tier List's default view). */
 export function liveTiers(): HomeChamp[] {
@@ -121,7 +126,7 @@ export function liveTiers(): HomeChamp[] {
       augs: r.augment_ids ?? "",
     }));
   if (!patch || !rows.length) return [];
-  return champStats(rows, new Set([patch])).map((c) => ({ id: c.name, name: champName(c.name), tier: c.tier, winRate: c.win_rate, pickRate: c.pick_rate }));
+  return champStats(rows, new Set([patch])).map((c) => ({ id: c.name, name: champName(c.name), tier: c.tier, winRate: c.win_rate, pickRate: c.pick_rate, deepScore: c.deepScore }));
 }
 
 export const kitchenBuilds = () => readRepoJson<Builds>("data/cook-builds/builds.json")?.builds ?? [];

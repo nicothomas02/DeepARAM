@@ -8,19 +8,19 @@ import { useNames, useT } from "./I18n";
 // The home page's interactive pieces: the live tier snapshot,
 // an augment offer to roll, and a Kitchen build to reroll.
 
-type Champ = { id: string; name: string; tier: string; winRate: number; pickRate: number; splash?: string };
+type Champ = { id: string; name: string; tier: string; winRate: number; pickRate: number; deepScore: number; splash?: string };
 type Build = { champion: string; title: string; augments: string[]; why: string };
 
 const pct = (v: number) => `${(v * 100).toFixed(1)}%`;
 const champIcon = (id: string) => `/icons/champions/${id}.webp`;
 
-/** The live patch's S and A tier champions as icons; hover or focus one for its numbers. */
+/** The live patch's S and A tier champions as icons; hover or focus one for its numbers; tapping one shows them, tapping it again opens its page. */
 export function TierSnapshot({ champs }: { champs: Champ[] }) {
   const [tier, setTier] = useState("S");
   const t = useT();
   const names = useNames();
   const [hover, setHover] = useState<Champ | null>(null);
-  const list = champs.filter((c) => c.tier === tier).sort((a, b) => b.winRate - a.winRate);
+  const list = champs.filter((c) => c.tier === tier).sort((a, b) => b.deepScore - a.deepScore);
   const shown = hover && hover.tier === tier ? hover : list[0];
   return (
     <div className="snap">
@@ -37,8 +37,14 @@ export function TierSnapshot({ champs }: { champs: Champ[] }) {
             key={c.id}
             href={`/champions/${c.id}`}
             className={shown?.id === c.id ? "on" : undefined}
-            onMouseEnter={() => setHover(c)}
-            onFocus={() => setHover(c)}
+            onPointerEnter={(e) => e.pointerType === "mouse" && setHover(c)}
+            onFocus={(e) => e.currentTarget.matches(":focus-visible") && setHover(c)}
+            onClick={(e) => {
+              // A champion that isn't in the card yet is only selected; the next click opens its page.
+              if (shown?.id === c.id) return;
+              e.preventDefault();
+              setHover(c);
+            }}
             aria-label={t("{name}: {wr} win rate", { name: names("champions", c.id, c.name), wr: pct(c.winRate) })}
           >
             <img src={champIcon(c.id)} alt="" width={40} height={40} loading="lazy" />
@@ -57,7 +63,7 @@ export function TierSnapshot({ champs }: { champs: Champ[] }) {
           <img src={champIcon(shown.id)} alt="" width={44} height={44} />
           <div>
             <b>{names("champions", shown.id, shown.name)}</b>
-            <span>{t("{wr} win · {pr} pick", { wr: pct(shown.winRate), pr: pct(shown.pickRate) })}</span>
+            <span>{t("{ds} DeepScore · {wr} win · {pr} pick", { ds: Math.round(shown.deepScore), wr: pct(shown.winRate), pr: pct(shown.pickRate) })}</span>
           </div>
           <span className={`chip tier-${shown.tier.toLowerCase()}`}>{shown.tier}</span>
         </Link>
@@ -105,14 +111,25 @@ export function KitchenPick({ builds }: { builds: Build[] }) {
 const FUN: [string, string, string][] = [
   ["damage", "Damage", "{v} damage share"],
   ["tank", "Tanking", "{v} damage taken"],
+  ["mitigated", "Damage mitigated", "{v} mitigated/min"],
+  ["teamplay", "Kill participation", "{v} kill participation"],
+  ["dead", "Time dead", "{v}"],
+  ["cs", "CS", "{v} CS"],
   ["healing", "Healing", "{v} healing/min"],
   ["crowd_control", "Crowd control", "{v}s crowd control"],
-  ["teamplay", "Teamplay", "{v} kill participation"],
-  ["multikills", "Multikills", "{v} multikills"],
+  ["pentakills", "Pentakills", "{v} pentakills/game"],
   ["towers", "Towers", "{v} tower damage"],
   ["early_game", "Early game", "{v}"],
   ["late_game", "Late game", "{v}"],
 ];
+// Where each list's "See all champions" link goes: the Tier List sorted by that stat when it has the
+// column, otherwise the full champion list.
+const FULL: Record<string, string> = {
+  damage: "/tier-list?sort=damage.desc",
+  tank: "/tier-list?sort=tank.desc",
+  teamplay: "/tier-list?sort=kp.desc",
+  dead: "/tier-list?sort=dead.asc",
+};
 const CURVE_NOTE = "Simulated damage: share of champions beaten at level 8 → level 18.";
 
 /** Estimated top 10 champions at one thing a game, picked from a short list, each with its number. */
@@ -142,6 +159,9 @@ export function FunLists({ lists }: { lists: Record<string, { id: string; name: 
           </Link>
         ))}
       </div>
+      <Link className="see-all" href={FULL[kind] ?? "/champions"}>
+        {t("See all champions →")}
+      </Link>
     </>
   );
 }
