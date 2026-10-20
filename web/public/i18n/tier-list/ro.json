@@ -53,5 +53,6 @@
  "Live patch {patch} by default. Pick any patches, or all time, above the champion table.": "Implicit patchul actual {patch}. Alege orice patchuri, sau dintotdeauna, deasupra tabelului cu campioni.",
  "Live patch {patch}. Each augment gets a DeepScore against the others of its rarity: 50 is average, S is 70 and up, A 59, B 44, C 32 and D below.": "Patchul actual {patch}. Fiecare augmentare primește un DeepScore față de celelalte de aceeași raritate: 50 e media, S e 70 și peste, A 59, B 44, C 32, iar D sub.",
  "Filter by tags": "Filtrează după etichete",
- "Pairs": "Perechi"
+ "Pairs": "Perechi",
+ "Team quest: {a} and {b} on the same team start {quest}.": "Misiune de echipă: {a} și {b} în aceeași echipă pornesc {quest}."
 }

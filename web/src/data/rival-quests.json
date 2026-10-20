@@ -1,0 +1,86 @@
+[
+ {
+  "champion": "Jayce",
+  "partner": "Viktor",
+  "side": "enemy",
+  "name": "Our Shared Dream",
+  "goal": "Jayce must take down Viktor 5 times.",
+  "reward": "Hope for the Future",
+  "rewardText": "Jayce and his allies' Ultimate Abilities cast an additional Static Field around themselves."
+ },
+ {
+  "champion": "Viktor",
+  "partner": "Jayce",
+  "side": "enemy",
+  "name": "Our Shared Dream",
+  "goal": "Viktor must take down Jayce 5 times.",
+  "reward": "Hope for the Future",
+  "rewardText": "Viktor and his allies' Ultimate Abilities cast an additional lightning bolt onto the nearest two enemy champions."
+ },
+ {
+  "champion": "Warwick",
+  "partner": "Vi",
+  "side": "enemy",
+  "name": "The Beast and the Brawler",
+  "goal": "Score an Ace.",
+  "reward": "The Claws of Zaun",
+  "rewardText": "Warwick and his allies gain an altered Denting Blows passive. Every third Attack or Ability on the same target deals an additional 5% max Health physical damage and shreds 5% Armor and 5% Magic Resist for 3 seconds. This effect has a 5 second Cooldown per target."
+ },
+ {
+  "champion": "Vi",
+  "partner": "Warwick",
+  "side": "enemy",
+  "name": "The Beast and the Brawler",
+  "goal": "Score an Ace.",
+  "reward": "A New Hunt",
+  "rewardText": "Vi's team gains an altered Blood Hunt passive, gaining 20% Bonus Move Speed toward enemies champions below 40% Health. Deal up to 10% more damage to enemies based on their missing Health."
+ },
+ {
+  "champion": "Jinx",
+  "partner": "Caitlyn",
+  "side": "enemy",
+  "name": "Caught in the Crossfire",
+  "goal": "Catch Caitlyn in one of Jinx's Flame Chompers! and slay her within 5 seconds.",
+  "reward": "Piltover's Most Wanted",
+  "rewardText": "Slain enemies drop a monkey bomb that detonates after a short delay, dealing 20% max Health magic damage."
+ },
+ {
+  "champion": "Caitlyn",
+  "partner": "Jinx",
+  "side": "enemy",
+  "name": "Caught in the Crossfire",
+  "goal": "Catch Jinx in Caitlyn's Yordle Snap Trap and slay her within 5 seconds.",
+  "reward": "And End to the Madness...?",
+  "rewardText": "Slain enemies drop a Yordle Snap Trap."
+ },
+ {
+  "champion": "Singed",
+  "partner": "Heimerdinger",
+  "side": "enemy",
+  "name": "For Science's Sake",
+  "goal": "Collect 10 Health Relics.",
+  "reward": "Unconstrained Chemistry",
+  "rewardText": "Roll a random elixir every three minutes."
+ },
+ {
+  "champion": "Heimerdinger",
+  "partner": "Singed",
+  "side": "enemy",
+  "name": "For Science's Sake",
+  "goal": "Collect 10 Health Relics.",
+  "reward": "Relentless Research",
+  "rewardText": "Slowly generate a Shield of up to 15% max Health when near a turret or one of Heimerdinger's H-28 G Evolution Turrets."
+ },
+ {
+  "champion": "Jinx",
+  "partner": "Ekko",
+  "side": "ally",
+  "name": "Echoes of Innocence"
+ },
+ {
+  "champion": "Ekko",
+  "partner": "Jinx",
+  "side": "ally",
+  "name": "Echoes of Innocence"
+ }
+]

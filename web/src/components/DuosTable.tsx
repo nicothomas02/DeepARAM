@@ -4,7 +4,8 @@ import { useEffect, useState } from "react";
 import DataTable, { type Column, type Row } from "./DataTable";
 import Skeleton from "@/components/Skeleton";
 import { LoadError } from "@/components/EmptyState";
-import { useT } from "./I18n";
+import Link from "next/link";
+import { useNames, useT } from "./I18n";
 import { getParam, setParams } from "@/lib/url-state";
 import type { TagInfo } from "@/lib/tag-info";
 
@@ -35,11 +36,24 @@ const PAIRS: Column = {
   phone: "wide",
 };
 
-export default function DuosTable({ archetypes, tagInfo, version }: { archetypes: Row[]; tagInfo: TagInfo; version: string }) {
+export default function DuosTable({
+  archetypes,
+  tagInfo,
+  version,
+  quests = [],
+}: {
+  archetypes: Row[];
+  tagInfo: TagInfo;
+  version: string;
+  /** Pairs that start a team quest together (components/champion/Quests.tsx): [first, second, quest name]. */
+  quests?: [string, string, string][];
+}) {
   const [rows, setRows] = useState<Row[] | null>(null);
   const [failed, setFailed] = useState(false);
   const [arch, setArch] = useState(false);
   const t = useT("tier-list");
+  const tq = useT("quests");
+  const names = useNames();
   useEffect(() => setArch(getParam("dview") === "arch"), []);
   useEffect(() => {
     fetch(`/data/duos.json?v=${version}`)
@@ -96,6 +110,17 @@ export default function DuosTable({ archetypes, tagInfo, version }: { archetypes
         searchLabel="Find a champion"
         urlTab="duos"
       />
+      {quests.map(([a, b, quest]) => (
+        <p key={`${a}-${b}`} className="duo-quest">
+          <Link href={`/champions/${a}#quests`}>
+            {t("Team quest: {a} and {b} on the same team start {quest}.", {
+              a: names("champions", a, a),
+              b: names("champions", b, b),
+              quest: tq(quest),
+            })}
+          </Link>
+        </p>
+      ))}
     </>
   );
 }

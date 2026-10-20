@@ -53,5 +53,6 @@
  "Live patch {patch} by default. Pick any patches, or all time, above the champion table.": "التحديث الحالي {patch} افتراضيًا. اختر أي تحديثات، أو كل الأوقات، فوق جدول الأبطال.",
  "Live patch {patch}. Each augment gets a DeepScore against the others of its rarity: 50 is average, S is 70 and up, A 59, B 44, C 32 and D below.": "التحديث الحالي {patch}. يحصل كل تعزيز على DeepScore مقارنةً بغيره من الندرة نفسها: 50 هو المتوسط، وS من 70 فما فوق، وA 59، وB 44، وC 32، وD أقل من ذلك.",
  "Filter by tags": "التصفية حسب الوسوم",
- "Pairs": "الثنائيات"
+ "Pairs": "الثنائيات",
+ "Team quest: {a} and {b} on the same team start {quest}.": "مهمة الفريق: يبدأ {a} و{b} في الفريق نفسه مهمة {quest}."
 }

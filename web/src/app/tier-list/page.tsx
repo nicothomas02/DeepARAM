@@ -6,6 +6,7 @@ import { AdvancedProvider } from "@/components/Advanced";
 import ChampionTiers from "@/components/ChampionTiers";
 import ChampionsPanel from "@/components/ChampionsPanel";
 import DuosTable from "@/components/DuosTable";
+import { questPairs } from "@/components/champion/Quests";
 import { archetypeRows, duoVersion, hasDuos } from "@/lib/duos";
 import { augmentHref } from "@/lib/augments";
 import { augmentTiers, STYLES } from "@/lib/augment-tiers";
@@ -39,6 +40,10 @@ const num = (v: string | undefined) => (v === undefined || v === "" ? null : Num
 const ALIAS = Object.fromEntries(Object.entries(championIds as Record<string, number>).map(([alias, id]) => [id, alias]));
 const NAMES = championNames as Record<string, string>;
 const names = augmentNames as Record<string, string>;
+
+// Each team quest pair once (Jinx and Ekko), for a note under the Duos list.
+const teamQuests = (): [string, string, string][] =>
+  questPairs("ally").flatMap((q) => (q.champion < q.partner ? [[q.champion, q.partner, q.name] as [string, string, string]] : []));
 
 export default function TierListPage() {
   const byPatch = readRepoCsv("data/cn/history/by_patch.csv");
@@ -92,7 +97,7 @@ export default function TierListPage() {
               scaling={Object.fromEntries([...powerCurveLists().scaling].flatMap(([id, v]) => (ALIAS[id] ? [[ALIAS[id], v]] : [])))}
             />
           }
-          duos={duos ? <DuosTable archetypes={archetypeRows()} tagInfo={championTagData().info} version={duoVersion()} /> : undefined}
+          duos={duos ? <DuosTable archetypes={archetypeRows()} tagInfo={championTagData().info} version={duoVersion()} quests={teamQuests()} /> : undefined}
         />
       ),
     },

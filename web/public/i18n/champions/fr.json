@@ -140,5 +140,9 @@
  "{n} boost": "gain de {n}",
  "of {n} by DeepScore": "sur {n} au DeepScore",
  "Win rates are estimated. The boost below each is how much the augment adds to this champion's win rate.": "Les taux de victoire sont estimés. Le gain affiché sous chacun indique ce que l'augment ajoute au taux de victoire de ce champion.",
- "Spell pairs with win rate, pick rate and win rate boost appear here once enough games are in.": "Les paires de sorts avec taux de victoire, taux de sélection et gain de victoires apparaîtront ici dès qu'il y aura assez de parties."
+ "Spell pairs with win rate, pick rate and win rate boost appear here once enough games are in.": "Les paires de sorts avec taux de victoire, taux de sélection et gain de victoires apparaîtront ici dès qu'il y aura assez de parties.",
+ "Rival quest": "Quête de rivalité",
+ "Team quest": "Quête d'équipe",
+ "When {name} is on the other team": "Quand {name} est dans l'équipe adverse",
+ "When {name} is on your team": "Quand {name} est dans votre équipe"
 }

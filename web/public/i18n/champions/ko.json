@@ -140,5 +140,9 @@
  "{n} boost": "{n} 상승",
  "of {n} by DeepScore": "/ {n} (DeepScore 순)",
  "Win rates are estimated. The boost below each is how much the augment adds to this champion's win rate.": "승률은 추정치입니다. 아래의 상승 값은 이 증강이 이 챔피언의 승률을 얼마나 올리는지 보여 줍니다.",
- "Spell pairs with win rate, pick rate and win rate boost appear here once enough games are in.": "판수가 충분해지면 승률, 픽률, 승률 상승과 함께 소환사 주문 조합이 여기에 표시됩니다."
+ "Spell pairs with win rate, pick rate and win rate boost appear here once enough games are in.": "판수가 충분해지면 승률, 픽률, 승률 상승과 함께 소환사 주문 조합이 여기에 표시됩니다.",
+ "Rival quest": "라이벌 퀘스트",
+ "Team quest": "팀 퀘스트",
+ "When {name} is on the other team": "{name}이(가) 상대 팀에 있을 때",
+ "When {name} is on your team": "{name}이(가) 아군 팀에 있을 때"
 }

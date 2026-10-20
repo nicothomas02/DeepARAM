@@ -199,6 +199,18 @@ test("Champions: tags behind a Filter button, Duos as a view, and Show more open
   await expect(champs.locator(".data-table th", { hasText: "Win rate boost" }).first()).toBeVisible();
 });
 
+test("champion quests show on both champions' pages and under Duos", async ({ page }) => {
+  await page.goto("/champions/Viktor");
+  const quest = page.locator("#quests");
+  await expect(quest).toContainText("Our Shared Dream");
+  await expect(quest).toContainText("Viktor must take down Jayce 5 times.");
+  await expect(quest.locator('a[href="/champions/Jayce"]')).toBeVisible();
+  await page.goto("/champions/Ekko");
+  await expect(page.locator("#quests")).toContainText("Echoes of Innocence");
+  await page.goto("/tier-list?cview=duos");
+  await expect(page.locator(".duo-quest").first()).toContainText("Echoes of Innocence");
+});
+
 test("new visitors start in dark mode", async ({ page }) => {
   await page.goto("/");
   await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
