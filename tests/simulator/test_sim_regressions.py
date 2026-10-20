@@ -314,3 +314,33 @@ def test_short_and_long_fight_dps_are_reported(run_json):
 def test_5v5_rejects_duplicate_allies(run_sim):
     proc = run_sim("mayhem_sim", ["--champ", "Jinx", "--allies", "Lulu,Lulu,Leona,Ahri", "--trials", "20", "--seed", "1"])
     assert proc.returncode > 0
+
+
+# ---------------------------------------------------------------- a new enemy after each kill
+
+SHYVANA = ["--champ", "Shyvana", "--items", "sorcerers,gunblade,rabadons,shadowflame,stormsurge,void_staff",
+           "--augs", "overloaded,eureka,ominous_pact,back_to_basics", "--seed", "3"]
+
+
+def _traced(run_sim, tmp_path, extra=()):
+    path = tmp_path / "trace.json"
+    proc = run_sim("mayhem_sim", [*SHYVANA, *extra, "--json", "--trace", path])
+    assert proc.returncode == 0, proc.stderr
+    return load_json(path)
+
+
+def test_fallen_enemy_is_replaced_by_a_new_random_champion(run_sim, tmp_path):
+    fight = _traced(run_sim, tmp_path)["fight"]
+    assert fight["kills"] >= 2
+    assert len(fight["team"]) == len(set(fight["team"])) and len(fight["team"]) >= 3
+
+
+def test_same_enemy_comes_back_when_asked(run_sim, tmp_path):
+    assert len(_traced(run_sim, tmp_path, ["--set", "random_respawn=0"])["fight"]["team"]) == 1
+    fight = _traced(run_sim, tmp_path, ["--team", "Ashe"])["fight"]
+    assert fight["kills"] >= 1 and fight["team"] == ["Ashe"]
+
+
+def test_trace_has_cooldowns_with_the_builds_haste(run_sim, tmp_path):
+    for a in _traced(run_sim, tmp_path)["abilities"]:
+        assert 0 < a["build_cooldown"] <= a["cooldown"], a

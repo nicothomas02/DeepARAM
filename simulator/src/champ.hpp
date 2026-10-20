@@ -315,7 +315,8 @@ struct TraceEvent {
 struct FightTrace {
     Result result;
     double engageAt = 0, maxHp = 0;
-    std::vector<std::string> team;  // enemy champion ids in this fight
+    std::vector<std::string> team;  // enemy champion ids in this fight (and the ones that step in later)
+    std::vector<double> cooldowns;  // each ability's cooldown with the build's ability haste
     std::vector<TraceEvent> events;
 };
 

@@ -344,6 +344,7 @@ const std::vector<std::pair<std::string, std::string>>& Library::settingKeys() {
         {"fight_max", "longest fight, seconds"},
         {"until_death", "1: each fight runs until your champion dies; 0: fights last the drawn length"},
         {"on_fire", "1: your champion is On Fire! (faster attacks and movement, less healing, more damage taken)"},
+        {"random_respawn", "1: each enemy that dies is replaced by a new random champion; 0: the same champion comes back"},
         {"fight_cap", "longest a fight can run when it lasts until you die, seconds"},
         {"team_size", "how many enemies are in the fight (1-5)"},
         {"engage_min", "earliest time enemies start hitting you, seconds"},
@@ -698,6 +699,7 @@ Scenario Library::scenarioFor(const ChampionKit& c) const {
     set("fight_max", sc.fightMax);
     if (auto it = fight.find("until_death"); it != fight.end()) sc.untilDeath = it->second > 0;
     if (auto it = fight.find("on_fire"); it != fight.end()) sc.onFire = it->second > 0;
+    if (auto it = fight.find("random_respawn"); it != fight.end()) sc.randomRespawn = it->second > 0;
     set("fight_cap", sc.fightCap);
     sc.fightCap = std::clamp(sc.fightCap, 5.0, 600.0);
     sc.fightMax = std::max(sc.fightMax, sc.fightMin + 0.5);
@@ -1326,6 +1328,25 @@ private:
     }
     double incomingRoll_ = 0;
     uint64_t targetSeed_ = 0;
+    double teamShare_ = 0, mitigation_ = 0;  // the starting team's damage shares and resists, for later arrivals
+    double kitCcChance_ = -1;                // the chance each enemy ability's crowd control lands (-1: as cast)
+    Rng respawnRng_{1, 4};
+
+    // An enemy's damage after your Armor and MR (less its penetration), scaled by how hard its build hits.
+    double throughOf(const EnemyProfile* p) const {
+        if (!p) {
+            const double ps = sc_.enemyPhysShare;
+            return ps * 100.0 / (100.0 + armor_) + (1.0 - ps) * 100.0 / (100.0 + mr_);
+        }
+        const double armor = std::max(0.0, armor_ * (1.0 - p->armorPen) - p->lethality);
+        const double mr = std::max(0.0, mr_ * (1.0 - p->magicPenPct) - p->magicPen);
+        return (p->physShare * 100.0 / (100.0 + armor) + (1.0 - p->physShare) * 100.0 / (100.0 + mr)) * p->power;
+    }
+    // Its share of the enemies' damage on you.
+    double damageWeightOf(const EnemyProfile* p, size_t n) const {
+        const double w = p && teamShare_ > 0 ? p->damageShare / teamShare_ : 1.0 / static_cast<double>(n);
+        return p && mitigation_ > 0 ? w * throughOf(p) / mitigation_ : w;
+    }
 
     // Tenacity from items (Mercury's Treads) and the champion's Mayhem balance stacks multiplicatively.
     double tenacity() const {
@@ -1352,6 +1373,7 @@ private:
         targetRng_ = Rng(targetSeed_, 1);
         moveRng_ = Rng(targetSeed_, 2);
         abilityRng_ = Rng(targetSeed_, 3);
+        respawnRng_ = Rng(targetSeed_, 4);
         double teamDamage = 1.0, share = 0;
         if (sc_.teamDrivenDamage && !team_.empty()) {
             for (const auto* e : team_) share += e->damageShare;
@@ -1359,15 +1381,7 @@ private:
         }
         // Each enemy's damage after your Armor and MR (less its penetration), scaled by how hard
         // its build hits at this level.
-        auto through = [&](const EnemyProfile* p) {
-            if (!p) {
-                const double ps = sc_.enemyPhysShare;
-                return ps * 100.0 / (100.0 + armor_) + (1.0 - ps) * 100.0 / (100.0 + mr_);
-            }
-            const double armor = std::max(0.0, armor_ * (1.0 - p->armorPen) - p->lethality);
-            const double mr = std::max(0.0, mr_ * (1.0 - p->magicPenPct) - p->magicPen);
-            return (p->physShare * 100.0 / (100.0 + armor) + (1.0 - p->physShare) * 100.0 / (100.0 + mr)) * p->power;
-        };
+        auto through = [&](const EnemyProfile* p) { return throughOf(p); };
         double mitigation = 0;
         if (sc_.teamDrivenDamage && !team_.empty() && share > 0)
             for (const auto* e : team_) mitigation += e->damageShare / share * through(e);
@@ -1375,6 +1389,7 @@ private:
             for (const auto* e : team_) mitigation += through(e) / static_cast<double>(team_.size());
         else
             mitigation = through(nullptr);
+        teamShare_ = share; mitigation_ = mitigation;
         incomingDps_ = incomingRoll_ * sc_.damageTakenFactor * teamDamage * mitigation * rules_.inRangeBoost * incomingMult_;
         // The share of enemy damage your Armor and Magic Resist let through, for damage mitigated.
         double unresisted = 0;
@@ -1410,8 +1425,7 @@ private:
             e.home = {sc_.startDistance + 0.5 * (std::min(reach, 650.0) - 400.0) + moveRng_.normal(0, 0.6 * sc_.enemySpread),
                       std::clamp(moveRng_.normal(0, sc_.enemySpread), -rules_.laneHalfWidth, rules_.laneHalfWidth)};
             e.pos = e.home;
-            const double w = p && share > 0 ? p->damageShare / share : 1.0 / static_cast<double>(n);
-            e.damageWeight = p && mitigation > 0 ? w * through(p) / mitigation : w;
+            e.damageWeight = damageWeightOf(p, n);
         }
         primary_ = nearestAlive(me_);
     }
@@ -1422,9 +1436,24 @@ private:
     void setupEnemyKits() {
         if (rules_.enemyAbilities <= 0) return;
         double kitCcRate = 0;
-        for (const auto* p : team_) {
+        for (const auto* p : team_) kitCcRate += addEnemyKit(p);
+        // Crowd control keeps real games' rate: each of their own lands with the chance that keeps it,
+        // and teammates' (the random crowd control drawn for the fight) fill whatever is left.
+        if (kitCcRate > 0 && ccRate_ > 0) {
+            kitCcChance_ = std::min(1.0, ccRate_ / kitCcRate);
+            for (auto& [p, kit] : enemyKits_)
+                for (auto& c : kit.casts) c.ccChance = c.cc.empty() ? 0.0 : kitCcChance_;
+            const double keep = std::max(0.0, 1.0 - kitCcRate / ccRate_);
+            cc_.erase(std::remove_if(cc_.begin(), cc_.end(), [&](const auto&) { return !abilityRng_.chance(keep); }),
+                      cc_.end());
+        }
+    }
+    // One enemy's kit (once per champion); returns how often its hard crowd control lands.
+    double addEnemyKit(const EnemyProfile* p) {
+        double kitCcRate = 0;
+        {
             const ChampionKit* k = lib_.find(p->id);
-            if (!k || enemyKits_.count(p)) continue;
+            if (!k || enemyKits_.count(p)) return 0;
             EnemyKit kit;
             kit.abilityShare = k->role == "marksman" ? rules_.enemyAbilityShareMarksman : rules_.enemyAbilityShare;
             const double haste = k->mayhemAh + rules_.enemyAbilityHaste;
@@ -1450,18 +1479,12 @@ private:
             for (auto& c : kit.casts)
                 if (c.burst > 0) c.burst = kit.abilityShare * c.burst / weights / c.land;
             if (weights <= 0) kit.abilityShare = 0;
+            // An enemy arriving mid-fight lands its crowd control as often as the starting team's.
+            if (kitCcChance_ >= 0)
+                for (auto& c : kit.casts) c.ccChance = c.cc.empty() ? 0.0 : kitCcChance_;
             enemyKits_[p] = std::move(kit);
         }
-        // Crowd control keeps real games' rate: each of their own lands with the chance that keeps it,
-        // and teammates' (the random crowd control drawn for the fight) fill whatever is left.
-        if (kitCcRate > 0 && ccRate_ > 0) {
-            const double chance = std::min(1.0, ccRate_ / kitCcRate);
-            for (auto& [p, kit] : enemyKits_)
-                for (auto& c : kit.casts) c.ccChance = c.cc.empty() ? 0.0 : chance;
-            const double keep = std::max(0.0, 1.0 - kitCcRate / ccRate_);
-            cc_.erase(std::remove_if(cc_.begin(), cc_.end(), [&](const auto&) { return !abilityRng_.chance(keep); }),
-                      cc_.end());
-        }
+        return kitCcRate;
     }
 
     // How much of the enemies' attention is on you: in a team fight their first spells and attacks
@@ -1705,10 +1728,15 @@ private:
     }
 
     void respawn(Enemy& e, double now) {
+        const EnemyProfile* next = nextEnemy(e.profile);
+        if (next != e.profile && rules_.enemyAbilities > 0) addEnemyKit(next);
         const double saved = t_;
         t_ = now;
-        e = spawnEnemy(e.profile);
+        e = spawnEnemy(next);
         t_ = saved;
+        // A returning enemy keeps the default damage weight the fights were tuned with.
+        if (trace_ && next && std::find(trace_->team.begin(), trace_->team.end(), next->id) == trace_->team.end())
+            trace_->team.push_back(next->id);
         // The next enemy steps in from just beyond its reach (the rest of its team is already
         // in the fight, not back at the start line).
         e.home = {me_.x + std::min(sc_.startDistance, std::max(e.reach, 550.0) + 250.0), std::clamp(moveRng_.normal(0, sc_.enemySpread), -rules_.laneHalfWidth,
@@ -1718,6 +1746,30 @@ private:
             primary_ = nearestAlive(me_);
             recordFocus();
         }
+    }
+
+    // Who steps in when an enemy falls: in fights drawn from the enemy pool, a new random champion
+    // (by how often each is played, never one already in the fight); chosen enemies and training
+    // dummies come back as themselves.
+    const EnemyProfile* nextEnemy(const EnemyProfile* fallen) {
+        if (!fallen || sc_.fixedTarget || !sc_.randomRespawn || !lib_.enemyTeam.empty()) return fallen;
+        const auto& pool = sc_.enemies;
+        auto fighting = [&](const EnemyProfile& p) {
+            for (const auto& o : enemies_)
+                if (o.alive && o.profile == &p) return true;
+            return false;
+        };
+        double total = 0;
+        for (const auto& p : pool)
+            if (!fighting(p)) total += p.weight;
+        if (total <= 0) return fallen;
+        double r = respawnRng_.uniform() * total;
+        for (const auto& p : pool) {
+            if (fighting(p)) continue;
+            if (r < p.weight) return &p;
+            r -= p.weight;
+        }
+        return fallen;
     }
 
     void clampLane(Vec& p) const { p.y = std::clamp(p.y, -rules_.laneHalfWidth, rules_.laneHalfWidth); }
@@ -2960,6 +3012,7 @@ Result Fight::run() {
         trace_->engageAt = engageAt_;
         trace_->maxHp = maxHp_;
         for (const auto* e : team_) trace_->team.push_back(e->id);
+        for (const auto& a : ch_.abilities) trace_->cooldowns.push_back(cooldownOf(a));
         // Each crowd control on you is one enemy's ability: name which, for the replay.
         std::vector<std::pair<std::string, std::pair<char, std::string>>> sources;
         for (const auto* p : team_)
