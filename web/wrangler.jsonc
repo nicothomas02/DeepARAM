@@ -8,15 +8,7 @@
   "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
   "assets": {
     "directory": ".open-next/assets",
-    "binding": "ASSETS",
-    // Admin-only files: the Worker checks the admin sign-in before serving them (src/middleware.ts).
-    "run_worker_first": [
-      "/assets/models/*",
-      "/assets/sounds/*",
-      "/embed/simulator/full",
-      "/embed/simulator/full.html",
-      "/embed/simulator/replay-data/sounds/*"
-    ]
+    "binding": "ASSETS"
   },
   "observability": { "enabled": true },
   // Per-visitor limits used by src/middleware.ts (per minute, per Cloudflare location). The ids only

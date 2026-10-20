@@ -4733,7 +4733,8 @@ th > button[data-tip] {
   font-size: 0.8125rem;
   cursor: pointer;
 }
-.chip-toggle[aria-pressed="true"] {
+.chip-toggle[aria-pressed="true"],
+.chip-toggle[aria-checked="true"] {
   border-color: var(--accent);
   background: var(--accent-soft);
   color: var(--accent);
@@ -5916,24 +5917,11 @@ html[dir="rtl"] .rank-v {
 .kitchen-sub p { margin: 0; }
 .kitchen-sub-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; }
 
-/* The site owner's 3D Simulator switch, at the top of the Simulator page. */
+/* "Show fewer animations" above the Simulator's 1v1 replay: on, the 2D replay; off, the 3D one. */
 .sim-view-switch {
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 8px 14px;
-  margin: 0 0 16px;
-  padding: 10px 14px;
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  background: var(--surface);
-}
-.sim-view-switch .seg button {
-  min-width: 56px;
-}
-.sim-view-switch span {
-  color: var(--muted);
-  font-size: 13px;
+  justify-content: flex-end;
+  margin: 0;
 }
 
 /* My Stats on the account page */

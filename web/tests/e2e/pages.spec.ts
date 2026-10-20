@@ -173,12 +173,12 @@ test("new visitors start in dark mode", async ({ page }) => {
   await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
 });
 
-test("owner-only files stay private without the owner's sign-in", async ({ request }) => {
+test("the 3D Simulator's page, models and sounds are public", async ({ request }) => {
   for (const path of ["/assets/models/aphelios/523000/model.glb", "/assets/sounds/sounds.m4a", "/embed/simulator/full.html"]) {
     const res = await request.get(path, { maxRedirects: 0 });
-    expect(res.status(), path).toBe(404);
+    expect(res.status(), path).toBe(200);
   }
-  // The old owner page now sends everyone to /simulator, where only the owner gets the 3D switch.
+  // The old owner page sends everyone to /simulator.
   const res = await request.get("/account/simulator", { maxRedirects: 0 });
   expect([307, 308]).toContain(res.status());
   expect(res.headers().location).toMatch(/\/simulator$/);
