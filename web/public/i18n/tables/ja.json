@@ -120,5 +120,9 @@
  "Game counts are approximate.": "試合数はおおよその値です。",
  "Win rate boost": "勝率上昇",
  "Sort": "並べ替え",
- "How much more the pair wins than the two champions' own win rates predict, in percentage points. Above zero means they help each other. Rarely played pairs count for less, so a lucky streak can't top the list.": "2体のチャンピオンそれぞれの勝率から予想される勝率より、ペアがどれだけ多く勝っているか（パーセントポイント）。0より上なら互いに助け合っています。あまりプレイされないペアは重みを下げるため、偶然の好成績で上位になることはありません。"
+ "How much more the pair wins than the two champions' own win rates predict, in percentage points. Above zero means they help each other. Rarely played pairs count for less, so a lucky streak can't top the list.": "2体のチャンピオンそれぞれの勝率から予想される勝率より、ペアがどれだけ多く勝っているか（パーセントポイント）。0より上なら互いに助け合っています。あまりプレイされないペアは重みを下げるため、偶然の好成績で上位になることはありません。",
+ "Damage mitigated": "軽減ダメージ",
+ "Healing done": "回復量",
+ "Crowd control": "行動妨害",
+ "Shielding": "シールド量"
 }

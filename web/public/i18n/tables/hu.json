@@ -120,5 +120,9 @@
  "Game counts are approximate.": "A meccsszámok hozzávetőlegesek.",
  "Win rate boost": "Győzelmi többlet",
  "Sort": "Rendezés",
- "How much more the pair wins than the two champions' own win rates predict, in percentage points. Above zero means they help each other. Rarely played pairs count for less, so a lucky streak can't top the list.": "Mennyivel többet nyer a páros, mint amit a két hős saját győzelmi aránya előre jelez, százalékpontban. Nulla fölött segítik egymást. A ritkán játszott párok kevesebbet számítanak, így egy szerencsés sorozat nem kerülhet az élre."
+ "How much more the pair wins than the two champions' own win rates predict, in percentage points. Above zero means they help each other. Rarely played pairs count for less, so a lucky streak can't top the list.": "Mennyivel többet nyer a páros, mint amit a két hős saját győzelmi aránya előre jelez, százalékpontban. Nulla fölött segítik egymást. A ritkán játszott párok kevesebbet számítanak, így egy szerencsés sorozat nem kerülhet az élre.",
+ "Damage mitigated": "Kivédett sebzés",
+ "Healing done": "Gyógyítás",
+ "Crowd control": "Tömegirányítás",
+ "Shielding": "Pajzsok"
 }

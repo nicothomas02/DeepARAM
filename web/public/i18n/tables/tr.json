@@ -120,5 +120,9 @@
  "Game counts are approximate.": "Oyun sayıları yaklaşıktır.",
  "Win rate boost": "Kazanma oranı artışı",
  "Sort": "Sırala",
- "How much more the pair wins than the two champions' own win rates predict, in percentage points. Above zero means they help each other. Rarely played pairs count for less, so a lucky streak can't top the list.": "İkilinin, iki şampiyonun kendi kazanma oranlarının öngördüğünden ne kadar fazla kazandığı, yüzde puan olarak. Sıfırın üstü birbirlerine yardım ettikleri anlamına gelir. Az oynanan ikililer daha az sayılır, böylece şanslı bir seri listenin başına çıkamaz."
+ "How much more the pair wins than the two champions' own win rates predict, in percentage points. Above zero means they help each other. Rarely played pairs count for less, so a lucky streak can't top the list.": "İkilinin, iki şampiyonun kendi kazanma oranlarının öngördüğünden ne kadar fazla kazandığı, yüzde puan olarak. Sıfırın üstü birbirlerine yardım ettikleri anlamına gelir. Az oynanan ikililer daha az sayılır, böylece şanslı bir seri listenin başına çıkamaz.",
+ "Damage mitigated": "Azaltılan hasar",
+ "Healing done": "Yapılan iyileştirme",
+ "Crowd control": "Kitle kontrolü",
+ "Shielding": "Kalkanlar"
 }
