@@ -44,8 +44,18 @@ function adjust(deltas: number[], games: number[]) {
   return deltas.map((d, i) => (d * games[i] + mean * prior) / (games[i] + prior));
 }
 
-let cache: { rows: DuoRow[]; games: number[]; measured: number[] } | null = null;
+export type Mate = { id: string; synergy: number; pickRate: number };
+
+let cache: { rows: DuoRow[]; games: number[]; measured: number[]; rates: Map<string, number> } | null = null;
 export const duoRows = (): DuoRow[] => build().rows;
+
+/** A champion's teammates from the Duos list, best Win rate boost first, with how often it has each as a teammate (champion pages). */
+export function matesOf(alias: string): Mate[] {
+  const { rows, rates } = build();
+  return rows
+    .flatMap((r) => (r.a === alias ? [r.b] : r.b === alias ? [r.a] : []).map((id) => ({ id, synergy: r.delta, pickRate: rates.get(`${alias} ${id}`) ?? 0 })))
+    .sort((x, y) => y.synergy - x.synergy);
+}
 
 /** Changes whenever the Duos data does, so browsers never pair a new page with an old cached copy. */
 export function duoVersion() {
@@ -71,6 +81,7 @@ function build() {
   const seen = new Set<string>();
   const out: DuoRow[] = [];
   const weight: number[] = [];
+  const rates = new Map<string, number>();
   for (const c of champs) {
     for (const p of c.best_partners ?? []) {
       const other = solo.get(p.champion_id);
@@ -88,13 +99,14 @@ function build() {
         roles: [roles.get(first), roles.get(second)].filter(Boolean).join(" + "),
       });
       weight.push((solo.get(first)?.pick_rate ?? 0) * withMate(first, second));
+      rates.set(`${x} ${y}`, withMate(first, second)).set(`${y} ${x}`, withMate(second, first));
     }
   }
   const median = [...weight].sort((m, n) => m - n)[Math.floor(weight.length / 2)] || 1;
   const games = weight.map((w) => (w / median) * MEDIAN_GAMES);
   const measured = out.map((r) => r.delta);
   const boost = adjust(measured, games);
-  cache = { rows: out.map((r, i) => ({ ...r, delta: boost[i] })), games, measured };
+  cache = { rows: out.map((r, i) => ({ ...r, delta: boost[i] })), games, measured, rates };
   return cache;
 }
 

@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { archetypeRows, duoRows, duoVersion } from "@/lib/duos";
+import { archetypeRows, duoRows, duoVersion, matesOf } from "@/lib/duos";
 import { readRepoJson } from "@/lib/repo-data";
 import { synergy } from "@/lib/synergy";
 import championIds from "@/data/champion-ids.json";
@@ -81,5 +81,13 @@ describe("duo data version", () => {
   it("is a short stable tag for the Duos data URL", () => {
     expect(duoVersion()).toMatch(/^[0-9a-z]{1,7}$/);
     expect(duoVersion()).toBe(duoVersion());
+  });
+
+  it("gives champion pages the same Win rate boost as the Duos list, best first", () => {
+    const top = duoRows().reduce((a, b) => (b.delta > a.delta ? b : a));
+    const mates = matesOf(top.a);
+    expect(mates[0]).toMatchObject({ id: top.b, synergy: top.delta });
+    expect(mates.map((m) => m.synergy)).toEqual([...mates.map((m) => m.synergy)].sort((x, y) => y - x));
+    for (const m of mates) expect(m.pickRate).toBeGreaterThan(0);
   });
 });
