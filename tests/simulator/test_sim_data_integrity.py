@@ -66,7 +66,7 @@ def test_file_parses_without_nan(path):
 
 
 # Negative numbers are legitimate only for these keys (penalties and reductions).
-NEGATIVE_OK = re.compile(r"\.(ability_haste|crit_damage|damage_amp|hp_mult)$")
+NEGATIVE_OK = re.compile(r"\.(ability_haste|crit_damage|damage_amp|hp_mult|ms_pct)$")
 
 
 # Inputs only (outputs such as replay positions and fight-length edges are legitimately negative);
