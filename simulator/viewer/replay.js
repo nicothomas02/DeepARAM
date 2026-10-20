@@ -731,8 +731,12 @@
       g.restore();
     }
 
-    // Ability casts.
+    // Ability casts. With the 3D models, an ability the champion has effects for is drawn with
+    // them (effects3d.js) instead of its shape; the wind-up and channel rings stay.
+    const FX = world && M && M.effects, fx = [];
     for (const c of fight.casts) {
+      const fxOn = !!(FX && c.from && FX.has(champ.id, c.s));
+      if (fxOn) castEffects(fx, FX, c, time, scr, posOf, view.k);
       const age = time - c.land - (world ? c.fl || 0 : 0);  // since it landed
       const life = c.life || 0.6;
       if (time < c.t || (age > life && !(c.l && time < c.land + c.l))) continue;
@@ -753,7 +757,9 @@
       }
       if (age > life) continue;
       const fly = 0.2;
-      if (world && c.from && ["line", "circle", "cone", "self"].includes(c.x)) {
+      if (fxOn) {
+        // drawn in 3D
+      } else if (world && c.from && ["line", "circle", "cone", "self"].includes(c.x)) {
         drawShape(g, c, time, col, scr, view.k, u);
       } else if (c.x === "aoe") {
         if (age > -0.1) {
@@ -876,7 +882,7 @@
           ...(run ? runPose(v) : calm(anim)) });
       }
       for (const f of fighters) if (f.lift) f.y -= f.lift * 55 * u;  // knocked up into the air
-      heads = M.frame(fighters, W, H, lowQuality() ? 0.75 : 1);
+      heads = M.frame(fighters, W, H, lowQuality() ? 0.75 : 1, fx, unit);
       // Keep the bars and badges above heads clear of the HUD along the top.
       for (const k in heads) heads[k].y = Math.max(heads[k].y, 56 * dpr);
     }
@@ -1114,6 +1120,43 @@
     const held = s.cc ? (CC_LOOK[(s.ccOn && s.ccOn.x) || "stun"] || CC_LOOK.stun)[0] : "";
     $("state").textContent = s.dead ? T("Slain") : held ? (window.I18N.lang === "en" ? held[0] + held.slice(1).toLowerCase() : held) : "";
     return s;
+  }
+
+  // One of your casts as the game draws it (3D edition): its effect's parts for effects3d.js, in
+  // device px. cast: at you as it starts; missile: out along its path at its speed (a line to its
+  // range, else to the target or the spot aimed at); hit: on the target when it lands; area: on the
+  // spot aimed at; buff: on the target for as long as your crowd control holds it.
+  function castEffects(out, FX, c, time, scr, posOf, k) {
+    const since = time - c.t;
+    if (since < 0 || since > 10) return;
+    const roles = FX.roles(champ.id, c.s);
+    if (!roles) return;
+    const geo = fight.geo[c.s] || {}, id = champ.id, s = c.s;
+    const from = scr(c.from), target = c.u >= 0 ? posOf(c.u) : null;
+    const aim = c.ax !== undefined ? scr({ x: c.ax, y: c.ay }) : target || from;
+    const dir = { x: aim.x - from.x, y: aim.y - from.y }, dl = Math.hypot(dir.x, dir.y) || 1;
+    const fl = c.fl || 0;
+    if (roles.cast) out.push({ champ: id, slot: s, role: "cast", t: since, at: from, dir, dur: (c.a || 0) + (c.l || 0) + 0.3, h: 0 });
+    // When the missile reaches the target: a line at its speed, otherwise the flight the trace gives.
+    let hitAt = c.land + fl;
+    if (roles.missile) {
+      let to = target || aim, dur = fl || 0.25;
+      if (c.x === "line" && geo.speed > 0) {
+        const range = (geo.range || dl / k) * k;
+        to = { x: from.x + (dir.x / dl) * range, y: from.y + (dir.y / dl) * range };
+        dur = range / k / geo.speed;
+        if (target) hitAt = c.land + Math.hypot(target.x - from.x, target.y - from.y) / k / geo.speed;
+      }
+      out.push({ champ: id, slot: s, role: "missile", t: time - c.land, from, to, dur, dir, h: 100 });
+    }
+    if (roles.area) out.push({ champ: id, slot: s, role: "area", t: time - c.land - fl, at: aim, dir, dur: c.l || 1, h: 0 });
+    if (c.f && target) {
+      if (roles.hit) out.push({ champ: id, slot: s, role: "hit", t: time - hitAt, at: target, dir, dur: 0.5, h: 0 });
+      if (roles.buff) {
+        const held = fight.ecc.find((e) => e.u === c.u && Math.abs(e.t - hitAt) < 0.4);
+        out.push({ champ: id, slot: s, role: "buff", t: time - hitAt, at: target, dir, dur: held ? held.a - held.t : 1.5, h: 0 });
+      }
+    }
   }
 
   // One of your abilities drawn to scale where it was aimed: a line's path and missile,
