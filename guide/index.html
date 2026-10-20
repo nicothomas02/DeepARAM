@@ -48,6 +48,13 @@
         <p class="muted" style="margin-top:0.5rem" data-t>Mode-wide settings. Some of these values may be per level rather than flat.</p>
       </div>
       <div class="grid" id="rule-list"></div>
+      <div class="card" id="xp-card" hidden>
+        <div class="card-head"><h2 data-t>XP by level</h2><span class="muted small" data-t>Total XP to reach each level</span></div>
+        <div class="table-wrap"><table>
+          <thead><tr><th data-t>Level</th><th class="num" data-t>Total XP</th><th class="num" data-t>XP for killing a champion this level</th></tr></thead>
+          <tbody id="xp-rows"></tbody>
+        </table></div>
+      </div>
       <div class="card">
         <div class="card-head"><h2 data-t>Champion select</h2></div>
         <p class="muted" id="champ-select-intro"></p>
@@ -85,6 +92,11 @@
         <div class="card-head"><h2 data-t>Changing your selections</h2><span class="muted small" data-t>More augments, rerolls or rarity</span></div>
         <div class="grid" id="selection-list"></div>
       </div>
+      <div class="card" id="fallback-card" hidden>
+        <div class="card-head"><h2 data-t>When a rarity runs out</h2><span class="muted small" data-t>Fallback augments</span></div>
+        <p class="muted" id="fallback-intro"></p>
+        <div id="fallback-list"></div>
+      </div>
     </section>
 
     <section class="panel" id="panel-items" hidden>
@@ -111,6 +123,11 @@
         <p class="muted" style="margin-top:0.5rem" data-t>These augments track a goal during the game. Each step lists what you need and what you get. A few amounts, like damage, are filled in during the game, so they aren't shown here.</p>
       </div>
       <div class="grid" id="quest-list"></div>
+      <div class="card" id="rival-card" hidden>
+        <div class="card-head"><h2 data-t>Champion rivalries</h2><span class="muted small" data-t>Extra goals for some champions</span></div>
+        <p class="muted" data-t>Some champions get an extra goal in Mayhem, usually when their rival is in the same game. What finishing it gives isn't known yet, so it isn't listed here.</p>
+        <div class="grid" id="rival-list" style="margin-top:0.75rem"></div>
+      </div>
     </section>
 
     <section class="panel" id="panel-challenges" hidden>

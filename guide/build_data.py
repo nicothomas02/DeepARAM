@@ -247,6 +247,38 @@ def build(ch, lo="en_us"):
     }
 
     rules["mechanics"] = mechanics(m12, modes, spells, dv)
+    rules["economy"] = economy(m12, modes, kiwi_consts, aram_consts)
+    rules["surrender"] = surrender(m12.get(modes.get("KIWI", {}).get("mSurrenderSettings"), {}))
+    configs = [c for c in (m12.get(k) for k in modes.get("KIWI", {}).get("Configs", [])) if isinstance(c, dict)]
+
+    # ---- Champion quests that run in Mayhem: two champions in the same game each get a goal. The reward is a hidden
+    # spell, so only the goals are shown. Quests that share a name (one per champion) are listed together.
+    champs = {c["alias"].lower(): c for c in client("v1/champion-summary.json") if c.get("id", 0) > 0}
+    rival_quests = []
+    for q in next((c for c in configs if c.get("__type") == "CharacterQuestListConfig"), {}).get("CharacterQuestList", []):
+        rows = []
+        for side in (q.get("GeneralCondition") or {}).values():
+            for x in side if isinstance(side, list) else []:
+                c = champs.get(x.get("OwnerChampion", "").split("/")[-1].lower())
+                if c:
+                    rows.append({"id": c["id"], "name": c["name"], "icon": asset(c["squarePortraitPath"]), "text": clean(s(x.get("Tooltip")))})
+        name = clean(s(q.get("QuestName")))
+        same = next((r for r in rival_quests if r["name"] == name), None)
+        if same:
+            same["champions"] += rows
+        elif name and rows:
+            rival_quests.append({"key": q["QuestName"], "name": name, "champions": rows})
+
+    # ---- When a rarity runs out of augments to offer, the game fills the selection from a fixed list. A list leaves
+    # out its rarity when it's the default (Gold), so the Silver and Prismatic lists name theirs.
+    fallback = next((c for c in configs if isinstance(c.get("{857c9848}"), list)), {})
+    fallback_augments = []
+    for f in fallback.get("{857c9848}", []):
+        listed = [augments[p] for p in f.get("AugmentPool", []) if p in augments]
+        fallback_augments.append({"tier": TIERS[f.get("rarity", 1)], "augments": [
+            {"id": a.get("AugmentPlatformId"), "name": s(a["NameTra"], a["AugmentNameId"]), "tier": TIERS[a.get("rarity", 0)],
+             "icon": asset(a["AugmentSmallIconPath"])} for a in listed]})
+    fallback_augments.sort(key=lambda f: TIERS.index(f["tier"]))
 
     # ---- Summoner spells allowed in Mayhem, and augments that add one
     summoner_spells = client("v1/summoner-spells.json")
@@ -407,13 +439,16 @@ def build(ch, lo="en_us"):
         "spellAugments": spell_augments, "itemChanges": item_changes, "augmentSets": sets,
         "augmentRules": {k: v for k, v in augment_rules.items() if k != "tiers"},
         "champSelect": champ_select,
+        "rivalQuests": rival_quests,
+        "fallbackAugments": fallback_augments,
         "track": track,
         "story": STORY,
     }
     # mode-wide numbers the simulator and site pages use
     mode_rules = {"patch": version, "attackSpeedCap": rules["attackSpeedCap"], "aramAttackSpeedCap": rules["aramAttackSpeedCap"],
                   "critOverflow": rules["critOverflow"], "runes": rules["runes"], "aura": rules["aura"],
-                  "keystoneAugments": {str(a["id"]): a["runes"] for a in keystones}, **rules["mechanics"]}
+                  "keystoneAugments": {str(a["id"]): a["runes"] for a in keystones}, **rules["mechanics"],
+                  "economy": rules["economy"]}
     return {"out": out, "mode_rules": mode_rules, "augment_rules": augment_rules, "details": details,
             # names in the build's language, by id, for the translations (localize())
             "runes": {p["id"]: p["name"] for p in client("v1/perks.json")},
@@ -608,6 +643,52 @@ def mechanics(m12, modes, spells, dv):
         "fastTravel": W["fastTravel"],
         "portalSpeed": {"bonus": round(gate["BonusMS"], 4), "seconds": gate.get("Duration")} if gate.get("BonusMS") else None,
     }
+
+
+MAX_LEVEL = 18
+
+
+def economy(m12, modes, kiwi, aram):
+    """Gold and XP numbers from the mode's settings (plain ARAM's passive gold alongside, to compare)."""
+    mode = modes.get("KIWI", {})
+    bounty = next((c for c in (m12.get(k) for k in mode.get("Configs", [])) if isinstance(c, dict) and "BaseGold" in c), {})
+    curve = m12.get(mode.get("mExperienceCurveData"), {}) or {}
+    split = (m12.get(mode.get("mExperienceModData"), {}) or {}).get("mPlayerMinionSplitXp") or []
+    # total XP to reach level L is need[L - 2]; XP for killing a level L champion is kill[L - 1]
+    need, kill = curve.get("mExperienceRequiredPerLevel") or [], curve.get("mExperienceGrantedForKillPerLevel") or []
+
+    def per_minute(c, kind):
+        every = c.get(f"ai_Ambient{kind}Interval")
+        return round(c[f"ai_Ambient{kind}Amount"] * 60 / every, 1) if every and c.get(f"ai_Ambient{kind}Amount") else None
+    gap = (curve.get("LevelDifferenceExperienceMultiplierPerLevel") or [0])[0]
+    return {
+        "startingGold": kiwi.get("ai_StartingGold"),
+        "passiveGold": {"amount": kiwi.get("ai_AmbientGoldAmount"), "every": kiwi.get("ai_AmbientGoldInterval"),
+                        "perMinute": per_minute(kiwi, "Gold"), "aramPerMinute": per_minute(aram, "Gold")},
+        "passiveXp": {"amount": kiwi.get("ai_AmbientXPAmount"), "every": kiwi.get("ai_AmbientXPInterval"),
+                      "perMinute": per_minute(kiwi, "XP")},
+        "killGold": (bounty.get("BaseGold") or [None])[0], "firstBlood": bounty.get("FirstBloodBonus"),
+        "assistSeconds": bounty.get("AssistDurationOverride"),
+        "levels": [{"level": lvl, "xp": need[lvl - 2], "killXp": kill[lvl - 1]}
+                   for lvl in range(WIKI_MECHANICS["startLevel"] + 1, MAX_LEVEL + 1) if lvl - 2 < len(need) and lvl - 1 < len(kill)],
+        "minionXpSplit": [round(x, 4) for x in split],
+        "levelGapXp": round(gap, 4) or None,
+    }
+
+
+def surrender(sd):
+    """Surrender and remake timing. Type 0 is the remake vote; the vote shares of the other types aren't shown until
+    they're checked in a game."""
+    types = sd.get("mTypeData") or {}
+    remake = types.get("0") or types.get(0) or {}
+    others = [t for k, t in types.items() if str(k) != "0" and isinstance(t, dict)]
+    if not others:
+        return None
+    return {"voteSeconds": remake.get("VoteTimeout") or others[0].get("VoteTimeout"),
+            "opens": min(t["startTime"] for t in others if t.get("startTime")),
+            "opensWithAfk": min(t["StartTimeWithAfk"] for t in others if t.get("StartTimeWithAfk")),
+            "remakeFrom": remake.get("startTime"),
+            "remakeUntil": remake["startTime"] + remake["windowLength"] if remake.get("startTime") and remake.get("windowLength") else None}
 
 
 # What Riot's support article on ARAM: Mayhem adds to the client's track data (read 2026-10-17). It applies only while

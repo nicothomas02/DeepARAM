@@ -1507,6 +1507,115 @@ window.GUIDE_DATA = {
     "bonus": 0.5,
     "seconds": 1.5
    }
+  },
+  "economy": {
+   "startingGold": 1400.0,
+   "passiveGold": {
+    "amount": 42.5,
+    "every": 5.0,
+    "perMinute": 510.0,
+    "aramPerMinute": 360.0
+   },
+   "passiveXp": {
+    "amount": 5.0,
+    "every": 1.0,
+    "perMinute": 300.0
+   },
+   "killGold": 200.0,
+   "firstBlood": 90.0,
+   "assistSeconds": 20.0,
+   "levels": [
+    {
+     "level": 4,
+     "xp": 1140.0,
+     "killXp": 215.0
+    },
+    {
+     "level": 5,
+     "xp": 1650.0,
+     "killXp": 275.0
+    },
+    {
+     "level": 6,
+     "xp": 2400.0,
+     "killXp": 335.0
+    },
+    {
+     "level": 7,
+     "xp": 3180.0,
+     "killXp": 395.0
+    },
+    {
+     "level": 8,
+     "xp": 4060.0,
+     "killXp": 455.0
+    },
+    {
+     "level": 9,
+     "xp": 5040.0,
+     "killXp": 515.0
+    },
+    {
+     "level": 10,
+     "xp": 6120.0,
+     "killXp": 590.0
+    },
+    {
+     "level": 11,
+     "xp": 7300.0,
+     "killXp": 640.0
+    },
+    {
+     "level": 12,
+     "xp": 8580.0,
+     "killXp": 690.0
+    },
+    {
+     "level": 13,
+     "xp": 9960.0,
+     "killXp": 740.0
+    },
+    {
+     "level": 14,
+     "xp": 11440.0,
+     "killXp": 790.0
+    },
+    {
+     "level": 15,
+     "xp": 13020.0,
+     "killXp": 840.0
+    },
+    {
+     "level": 16,
+     "xp": 14700.0,
+     "killXp": 890.0
+    },
+    {
+     "level": 17,
+     "xp": 16480.0,
+     "killXp": 940.0
+    },
+    {
+     "level": 18,
+     "xp": 18360.0,
+     "killXp": 990.0
+    }
+   ],
+   "minionXpSplit": [
+    0.92,
+    0.6,
+    0.4,
+    0.3,
+    0.24
+   ],
+   "levelGapXp": 0.16
+  },
+  "surrender": {
+   "voteSeconds": 25.0,
+   "opens": 480.0,
+   "opensWithAfk": 210.0,
+   "remakeFrom": 90.0,
+   "remakeUntil": 180.0
   }
  },
  "spells": [
@@ -2262,6 +2371,307 @@ window.GUIDE_DATA = {
    "Exhaust"
   ]
  },
+ "rivalQuests": [
+  {
+   "key": "Quests_ViktorVsJayce_Name",
+   "name": "Our Shared Dream",
+   "champions": [
+    {
+     "id": 112,
+     "name": "Viktor",
+     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/112.png",
+     "text": "Viktor must take down Jayce 5 times."
+    },
+    {
+     "id": 126,
+     "name": "Jayce",
+     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/126.png",
+     "text": "Jayce must take down Viktor 5 times."
+    }
+   ]
+  },
+  {
+   "key": "Quests_WarwickVsVi_Name",
+   "name": "The Beast and the Brawler",
+   "champions": [
+    {
+     "id": 19,
+     "name": "Warwick",
+     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/19.png",
+     "text": "Score an Ace."
+    },
+    {
+     "id": 254,
+     "name": "Vi",
+     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/254.png",
+     "text": "Score an Ace."
+    }
+   ]
+  },
+  {
+   "key": "Quests_JinxVsCaitlyn_Name",
+   "name": "Caught in the Crossfire",
+   "champions": [
+    {
+     "id": 222,
+     "name": "Jinx",
+     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/222.png",
+     "text": "Catch Caitlyn in one of Jinx's Flame Chompers! and slay her within 5 seconds."
+    },
+    {
+     "id": 51,
+     "name": "Caitlyn",
+     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/51.png",
+     "text": "Catch Jinx in Caitlyn's Yordle Snap Trap and slay her within 5 seconds."
+    }
+   ]
+  },
+  {
+   "key": "Quests_SingedVsHeimerdinger_Name",
+   "name": "For Science's Sake",
+   "champions": [
+    {
+     "id": 27,
+     "name": "Singed",
+     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/27.png",
+     "text": "Collect 10 Health Relics."
+    },
+    {
+     "id": 74,
+     "name": "Heimerdinger",
+     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/74.png",
+     "text": "Collect 10 Health Relics."
+    }
+   ]
+  },
+  {
+   "key": "Quests_JinxTeam_Name",
+   "name": "Echoes of Innocence",
+   "champions": [
+    {
+     "id": 222,
+     "name": "Jinx",
+     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/222.png",
+     "text": "Feed Poros 5 times."
+    },
+    {
+     "id": 245,
+     "name": "Ekko",
+     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/245.png",
+     "text": "Ekko's team must emote 5 times."
+    }
+   ]
+  }
+ ],
+ "fallbackAugments": [
+  {
+   "tier": "Silver",
+   "augments": [
+    {
+     "id": 2127,
+     "name": "Forged By The Master",
+     "tier": "Silver",
+     "icon": "/assets/cd/latest/game/assets/ux/kiwi/augments/icons/forgedbythemaster_small.png"
+    },
+    {
+     "id": 1046,
+     "name": "Infernal Soul",
+     "tier": "Silver",
+     "icon": "/assets/cd/latest/game/assets/ux/cherry/augments/icons/infernalsoul_small.png"
+    },
+    {
+     "id": 1057,
+     "name": "Mountain Soul",
+     "tier": "Silver",
+     "icon": "/assets/cd/latest/game/assets/ux/cherry/augments/icons/mountainsoul_small.png"
+    },
+    {
+     "id": 1060,
+     "name": "Ocean Soul",
+     "tier": "Silver",
+     "icon": "/assets/cd/latest/game/assets/ux/cherry/augments/icons/oceansoul_small.png"
+    },
+    {
+     "id": 1386,
+     "name": "Spin Me Right Round",
+     "tier": "Silver",
+     "icon": "/assets/cd/latest/game/assets/ux/kiwi/augments/icons/youspinmerightround_small.png"
+    },
+    {
+     "id": 1404,
+     "name": "Stats!",
+     "tier": "Silver",
+     "icon": "/assets/cd/latest/game/assets/ux/cherry/augments/icons/stats_small.png"
+    },
+    {
+     "id": 1237,
+     "name": "Transmute: Gold",
+     "tier": "Silver",
+     "icon": "/assets/cd/latest/game/assets/ux/cherry/augments/icons/transmutegold_small.png"
+    },
+    {
+     "id": 2088,
+     "name": "Snowday",
+     "tier": "Silver",
+     "icon": "/assets/cd/latest/game/assets/ux/kiwi/augments/icons/snowday_small.png"
+    }
+   ]
+  },
+  {
+   "tier": "Gold",
+   "augments": [
+    {
+     "id": 1002,
+     "name": "Apex Inventor",
+     "tier": "Gold",
+     "icon": "/assets/cd/latest/game/assets/ux/cherry/augments/icons/apexinventor_small.png"
+    },
+    {
+     "id": 2042,
+     "name": "Hide on Bush",
+     "tier": "Gold",
+     "icon": "/assets/cd/latest/game/assets/ux/kiwi/augments/icons/brushpower_small.png"
+    },
+    {
+     "id": 1403,
+     "name": "Stats on Stats!",
+     "tier": "Gold",
+     "icon": "/assets/cd/latest/game/assets/ux/cherry/augments/icons/statsonstats_small.png"
+    },
+    {
+     "id": 1238,
+     "name": "Transmute: Prismatic",
+     "tier": "Gold",
+     "icon": "/assets/cd/latest/game/assets/ux/cherry/augments/icons/transmuteprismatic_small.png"
+    },
+    {
+     "id": 1384,
+     "name": "Donation",
+     "tier": "Gold",
+     "icon": "/assets/cd/latest/game/assets/ux/kiwi/augments/icons/donation_small.png"
+    },
+    {
+     "id": 2089,
+     "name": "Yowch, My Coins!",
+     "tier": "Gold",
+     "icon": "/assets/cd/latest/game/assets/ux/kiwi/augments/icons/youchmycoins_small.png"
+    },
+    {
+     "id": 1358,
+     "name": "Pinball",
+     "tier": "Gold",
+     "icon": "/assets/cd/latest/game/assets/ux/kiwi/augments/icons/pinballsnowball_small.png"
+    }
+   ]
+  },
+  {
+   "tier": "Prismatic",
+   "augments": [
+    {
+     "id": 1004,
+     "name": "Back To Basics",
+     "tier": "Prismatic",
+     "icon": "/assets/cd/latest/game/assets/ux/cherry/augments/icons/backtobasics_small.png"
+    },
+    {
+     "id": 2007,
+     "name": "Devil on Your Shoulder",
+     "tier": "Prismatic",
+     "icon": "/assets/cd/latest/game/assets/ux/kiwi/augments/icons/littledevil_small.png"
+    },
+    {
+     "id": 2063,
+     "name": "Dimension Shift",
+     "tier": "Prismatic",
+     "icon": "/assets/cd/latest/game/assets/ux/kiwi/augments/icons/whenthedarknesscomes_small.png"
+    },
+    {
+     "id": 1195,
+     "name": "Giant Slayer",
+     "tier": "Prismatic",
+     "icon": "/assets/cd/latest/game/assets/ux/cherry/augments/icons/giantslayer_small.png"
+    },
+    {
+     "id": 1389,
+     "name": "Hand of Baron",
+     "tier": "Prismatic",
+     "icon": "/assets/cd/latest/game/assets/ux/kiwi/augments/icons/handofbaron_small.png"
+    },
+    {
+     "id": 1337,
+     "name": "King Me",
+     "tier": "Prismatic",
+     "icon": "/assets/cd/latest/game/assets/ux/kiwi/augments/icons/kingme_small.png"
+    },
+    {
+     "id": 1053,
+     "name": "Mad Scientist",
+     "tier": "Prismatic",
+     "icon": "/assets/cd/latest/game/assets/ux/cherry/augments/icons/madscientist_small.png"
+    },
+    {
+     "id": 1062,
+     "name": "Omni Soul",
+     "tier": "Prismatic",
+     "icon": "/assets/cd/latest/game/assets/ux/cherry/augments/icons/omnisoul_small.png"
+    },
+    {
+     "id": 12317,
+     "name": "Pandora's Box",
+     "tier": "Prismatic",
+     "icon": "/assets/cd/latest/game/assets/ux/cherry/augments/icons/pandoras_box_small.png"
+    },
+    {
+     "id": 2046,
+     "name": "Poro Stampede",
+     "tier": "Prismatic",
+     "icon": "/assets/cd/latest/game/assets/ux/kiwi/augments/icons/questporocharge_small.png"
+    },
+    {
+     "id": 1343,
+     "name": "Sneakerhead",
+     "tier": "Prismatic",
+     "icon": "/assets/cd/latest/game/assets/ux/kiwi/augments/icons/sneakerhead_small.png"
+    },
+    {
+     "id": 1154,
+     "name": "Urf's Champion",
+     "tier": "Prismatic",
+     "icon": "/assets/cd/latest/game/assets/ux/kiwi/augments/icons/quest_urfschampion_small.png"
+    },
+    {
+     "id": 1402,
+     "name": "Stats on Stats on Stats!",
+     "tier": "Prismatic",
+     "icon": "/assets/cd/latest/game/assets/ux/cherry/augments/icons/statsonstatsonstats_small.png"
+    },
+    {
+     "id": 1243,
+     "name": "Transmute: Chaos",
+     "tier": "Prismatic",
+     "icon": "/assets/cd/latest/game/assets/ux/cherry/augments/icons/transmutechaos_small.png"
+    },
+    {
+     "id": 1335,
+     "name": "Goldrend",
+     "tier": "Prismatic",
+     "icon": "/assets/cd/latest/game/assets/ux/kiwi/augments/icons/goldrend_small.png"
+    },
+    {
+     "id": 2095,
+     "name": "High Roller",
+     "tier": "Prismatic",
+     "icon": "/assets/cd/latest/game/assets/ux/kiwi/augments/icons/highroller_small.png"
+    },
+    {
+     "id": 1329,
+     "name": "Biggest Snowball Ever",
+     "tier": "Prismatic",
+     "icon": "/assets/cd/latest/game/assets/ux/kiwi/augments/icons/biggestsnowballever_small.png"
+    }
+   ]
+  }
+ ],
  "track": {
   "name": "Mayhem Set 2",
   "start": "2026-06-10",
