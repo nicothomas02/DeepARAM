@@ -2,14 +2,19 @@ import { NextRequest } from "next/server";
 import { d1 } from "@/lib/env";
 import { passesBotCheck } from "@/lib/bot-check";
 
-// The Simulator leaderboard (SIM database, table submissions).
-// POST /api/sim-scores {champion, items, augments, dps}: a build a visitor simulated with the default settings.
-//   It is stored as "pending" and never shown as sent: the simulator re-runs every pending build on our side
-//   (simulator/tools/verify_leaderboard.py) and only that result counts. One row per build; repeats are ignored.
-//   The page also sends {check}, the bot-check token (lib/bot-check.ts), once that check is switched on.
-// GET /api/sim-scores: the best checked build for each champion. ?champion=Jinx: that champion's top 10.
+// The Simulator leaderboard (SIM database, table submissions): the top 10 builds visitors have simulated.
+// POST /api/sim-scores {champion, items, augments, dps}: the replay page sends every build it simulates on the
+//   live patch, on its own. Only the build is stored, never who sent it (ip_hash is a per-day hash used for the
+//   daily limit). It is stored as "pending" and the sent damage is never shown: the simulator re-runs every
+//   pending build on our side (simulator/tools/verify_leaderboard.py) and only that result counts. Rows then
+//   are "verified" (in the top 10), "checked" (simulated, outside the top 10) or "rejected". The same job
+//   re-runs the top 10 every few hours and removes a build that no longer works (an item or augment gone).
+//   One row per build; repeats are ignored. The page also sends {check}, the bot-check token
+//   (lib/bot-check.ts), once that check is switched on.
+// GET /api/sim-scores: the top 10 builds, best first.
 const MAX_BODY = 5_000; // the bot-check token can be 2,048 characters
-const PER_IP_PER_DAY = 30;
+const PER_IP_PER_DAY = 50;
+const TOP = 10;
 const MAX_PENDING = 3_000;
 const CHAMP = /^[A-Za-z0-9]{2,24}$/;
 const KEY = /^[a-z0-9_]{2,48}$/;
@@ -89,30 +94,17 @@ const shape = (r: Row) => ({
   patch: r.patch,
 });
 
-export async function GET(req: NextRequest) {
+export async function GET() {
   const db = d1("SIM");
   if (!db) return json({ builds: [] }, 200);
-  const cols = "champion, items, augments, verified_dps, survival, time_alive, patch";
-  const champion = req.nextUrl.searchParams.get("champion");
-  let rows: Row[];
-  if (champion) {
-    if (!CHAMP.test(champion)) return json({ error: "Bad request" }, 400);
-    rows = (
-      await db
-        .prepare(`SELECT ${cols} FROM submissions WHERE status = 'verified' AND champion = ? COLLATE NOCASE ORDER BY verified_dps DESC LIMIT 10`)
-        .bind(champion)
-        .all<Row>()
-    ).results;
-  } else {
-    rows = (
-      await db
-        .prepare(
-          `SELECT ${cols} FROM (SELECT *, ROW_NUMBER() OVER (PARTITION BY champion ORDER BY verified_dps DESC) AS n ` +
-            "FROM submissions WHERE status = 'verified') WHERE n = 1 ORDER BY verified_dps DESC",
-        )
-        .bind()
-        .all<Row>()
-    ).results;
-  }
+  const rows = (
+    await db
+      .prepare(
+        "SELECT champion, items, augments, verified_dps, survival, time_alive, patch FROM submissions " +
+          "WHERE status = 'verified' ORDER BY verified_dps DESC LIMIT ?",
+      )
+      .bind(TOP)
+      .all<Row>()
+  ).results;
   return json({ builds: rows.map(shape) }, 200, "public, max-age=60, s-maxage=300");
 }
