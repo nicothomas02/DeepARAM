@@ -1,297 +1,297 @@
 {
-  "id": "janna-speeding-ticket",
-  "title": "Speeding Ticket",
-  "champion": "Janna",
-  "champion_name": "Janna",
-  "chef": "2026-10-18",
-  "why": "Janna's Tailwind has a line nobody reads: a portion of her bonus Move Speed becomes bonus magic damage on hit and on Zephyr, and Zephyr's passive hands her free Move Speed just for existing. Tap Dancer gives her 10 Move Speed per attack, stacking for as long as she keeps hitting, and Don't Blink adds 1% damage for every 10 Move Speed she has over her target, so every attack makes the next one faster, harder on hit, and stronger on top. Zephyr's active slows the target and Ice Cold takes another 75 Move Speed off every slow, which widens the Don't Blink gap from the other side. Phantom Dancer, Lich Bane and Boots of Swiftness pile on raw speed, Dead Man's Plate stores speed while she runs and dumps it into her next attack, and Cosmic Drive gives her more Move Speed every time that on-hit magic damage lands. The enchanter stops shielding anyone and becomes an on-hit carry whose only real stat is Move Speed.",
-  "play": "Zephyr the squishiest target, then keep attacking: the longer the chase, the harder you hit. Get Excited! is the flex pick, since a takedown gives 100% Move Speed for 4 seconds and Don't Blink reads that as free damage.",
+  "id": "singed-toxic-assets",
+  "title": "Toxic Assets",
+  "champion": "Singed",
+  "champion_name": "Singed",
+  "chef": "2026-10-19",
+  "why": "Singed's Poison Trail is a damage-over-time cloud he leaves behind just by running around. Infernal Conduit makes his Abilities stack a Burn on top, Vulnerability lets damage-over-time and item damage Critically Strike for 145% extra, and Combusting Interest turns every Burn and damage-over-time tick on a champion into gold, so the trail now crits and pays him for it. Infernal Conduit's Burns also cut his basic Ability cooldowns, which means more Flings into Mega Adhesive and more Burns. Liandry's Torment, Demonic Embrace and Hollow Radiance add item burns that can crit too, while Atma's Reckoning and Rite of Ruin hand a tank Critical Strike Chance. The proxy farmer becomes a crit carry who never has to attack, cashing a dividend on every step.",
+  "play": "Run circles through the enemy team with Poison Trail on and let the ticks crit and pay out. Fling people into Mega Adhesive whenever it comes back, which is often.",
   "items": [
-    "Phantom Dancer",
-    "Dead Man's Plate",
-    "Nashor's Tooth",
-    "Lich Bane",
-    "Cosmic Drive",
-    "Boots of Swiftness"
+    "Liandry's Torment",
+    "Demonic Embrace",
+    "Atma's Reckoning",
+    "Rite of Ruin",
+    "Hollow Radiance",
+    "Mercury's Treads"
   ],
   "core": 3,
-  "champion_icon": "/embed/fun/cook-builds/icons/champions/40.png",
+  "champion_icon": "/embed/fun/cook-builds/icons/champions/27.png",
   "augments": [
     {
-      "name": "Tap Dancer",
+      "name": "Infernal Conduit",
       "rarity": "Prismatic",
       "core": true,
-      "text": "Your Attacks grant you 10 Movement Speed. Gain Attack Speed. The buff stacks and refreshes infinitely but lasts 5 seconds.",
-      "icon": "/embed/fun/cook-builds/icons/augments/tap-dancer.png",
-      "id": 1081
+      "text": "Your Abilities apply stacking Burn that deals damage over time. Your Burn effects reduce your basic Ability Cooldowns.",
+      "icon": "/embed/fun/cook-builds/icons/augments/infernal-conduit.png",
+      "id": 1045
     },
     {
-      "name": "Don't Blink",
-      "rarity": "Silver",
+      "name": "Vulnerability",
+      "rarity": "Gold",
       "core": true,
-      "text": "Gain 1% bonus damage per 10 Movement Speed more you have than the target.",
-      "icon": "/embed/fun/cook-builds/icons/augments/don-t-blink.png",
-      "id": 1026
+      "text": "Your Item and damage over time effects can Critically Strike for 145% extra damage. Gain 25% Crit chance.",
+      "icon": "/embed/fun/cook-builds/icons/augments/vulnerability.png",
+      "id": 1092
     },
     {
-      "name": "Ice Cold",
-      "rarity": "Silver",
+      "name": "Combusting Interest",
+      "rarity": "Gold",
       "core": true,
-      "text": "Your Slowing effects reduce Movement Speed by an extra 75.",
-      "icon": "/embed/fun/cook-builds/icons/augments/ice-cold.png",
-      "id": 1044
+      "text": "Burn and damage-over-time on champions generate gold.",
+      "icon": "/embed/fun/cook-builds/icons/augments/combusting-interest.png",
+      "id": 2128
     },
     {
-      "name": "Get Excited!",
+      "name": "It's Critical",
       "rarity": "Gold",
       "core": false,
-      "text": "Gain 100% Movement Speed and 15% Attack Speed for 4 seconds on takedown.",
-      "icon": "/embed/fun/cook-builds/icons/augments/get-excited.png",
-      "id": 1322
+      "text": "Gain 50% Crit chance.",
+      "icon": "/embed/fun/cook-builds/icons/augments/it-s-critical.png",
+      "id": 1047
     }
   ],
   "href": "/kitchen#chefs-special",
   "archive_href": "/kitchen#chef-archive",
-  "share_href": "/kitchen/2026-10-18",
-  "share_image": "/embed/fun/cook-builds/share/janna-speeding-ticket.png",
+  "share_href": "/kitchen/2026-10-19",
+  "share_image": "/embed/fun/cook-builds/share/singed-toxic-assets.png",
   "item_ids": [
-    3046,
-    3742,
-    3115,
-    3100,
-    4629,
-    3009
+    6653,
+    4637,
+    3039,
+    123430,
+    6664,
+    3111
   ],
   "i18n": {
     "ar": {
-      "title": "مخالفة سرعة",
-      "why": "في مهارة جانا السلبية سطر لا يقرأه أحد: جزء من سرعة حركتها الإضافية يتحول إلى ضرر سحري إضافي عند الضرب ومع زفير، وسلبية زفير تمنحها سرعة حركة مجانًا لمجرد وجودها. راقص إيقاعي يمنحها 10 سرعة حركة مع كل هجمة تتراكم ما دامت تضرب، ولا ترمش يضيف 1% ضرر عن كل 10 سرعة حركة تزيد بها على هدفها، فكل هجمة تجعل التالية أسرع وأقسى عند الضرب وأقوى فوق ذلك. تفعيل زفير يبطئ الهدف، وبارد كالثلج يخصم 75 سرعة حركة إضافية مع كل إبطاء، فيوسّع فارق لا ترمش من الجهة الأخرى. الراقص الشبح وعفونة الموتى وحذاء العجلة تكدّس السرعة الخام، ودرع صدر الرجل الميت يخزّن السرعة وهي تركض ثم يفرغها في هجمتها التالية، والحافز الكوني يمنحها مزيدًا من سرعة الحركة كلما أصاب ذلك الضرر السحري عند الضرب. الداعمة تتوقف عن حماية أي أحد وتتحول إلى حاملة ضرر عند الضرب إحصائيتها الحقيقية الوحيدة هي سرعة الحركة.",
-      "play": "ألقِ زفير على أضعف هدف ثم واصل الهجوم: كلما طالت المطاردة، اشتدت ضرباتك. ليشتعل حماسك! هو الخيار المرن، إذ تمنحك المشاركة في القتل 100% سرعة حركة لمدة 4 ثوانٍ، ولا ترمش يقرأ ذلك ضررًا مجانيًا.",
+      "title": "أصول سامة",
+      "why": "مسار السم لدى سينجد هو سحابة ضرر مستمر يتركها خلفه بمجرد الركض. يجعل المجرى المشتعل قدراته تضيف حرقًا متراكمًا فوق ذلك، ويسمح الهشاشة للضرر المستمر وضرر العناصر بتوجيه ضربات حرجة بضرر إضافي 145%، ويحوّل الفائدة المشتعلة كل نبضة حرق أو سم على بطل إلى ذهب، فيصبح المسار يوجّه ضربات حرجة ويدفع له أيضًا. كما يقلل حرق المجرى المشتعل فترات تهدئة قدراته الأساسية، أي المزيد من القذف داخل اللاصق الخارق والمزيد من الحرق. تضيف عذاب لياندري والعناق الشيطاني والتألق الأجوف حرقًا من العناصر يمكنه توجيه ضربات حرجة أيضًا، بينما يمنح حساب أتما وشعيرة الخراب الدبابة فرصة ضربة حرجة. يتحول مزارع البروكسي إلى حامل ضربات حرجة لا يحتاج إلى الهجوم أبدًا ويقبض أرباحًا مع كل خطوة.",
+      "play": "اركض في دوائر وسط الفريق المعادي مع تفعيل مسار السم ودع النبضات توجّه ضربات حرجة وتدر الذهب. اقذف الأعداء داخل اللاصق الخارق كلما عادت القذف، وهذا يحدث كثيرًا.",
       "augments": [
-        "هجماتك تمنحك 10 سرعة حركة. تكتسب سرعة هجوم. يتراكم التأثير ويتجدد بلا حدود لكنه يدوم 5 ثوانٍ.",
-        "تكتسب 1% ضررًا إضافيًا عن كل 10 سرعة حركة تزيد بها على الهدف.",
-        "تأثيرات الإبطاء لديك تقلل سرعة الحركة بمقدار 75 إضافية.",
-        "عند المشاركة في قتل، تكتسب 100% سرعة حركة و15% سرعة هجوم لمدة 4 ثوانٍ."
+        "تطبق قدراتك حرقًا متراكمًا يسبب ضررًا مستمرًا. تقلل تأثيرات الحرق لديك فترات تهدئة قدراتك الأساسية.",
+        "يمكن لتأثيرات العناصر والضرر المستمر لديك توجيه ضربات حرجة بضرر إضافي 145%. تحصل على 25% فرصة ضربة حرجة.",
+        "يولّد الحرق والضرر المستمر على الأبطال الذهب.",
+        "تحصل على 50% فرصة ضربة حرجة."
       ]
     },
     "cs": {
-      "title": "Pokuta za rychlost",
-      "why": "Pasivka Janny má řádek, který nikdo nečte: část její bonusové rychlosti pohybu se mění v bonusové magické poškození při zásahu a při Zefyru, a pasivní část Zefyru jí dává rychlost pohybu zadarmo jen za to, že existuje. Stepař jí dává 10 rychlosti pohybu za útok a stackuje se, dokud dál trefuje, a Nemrkej přidává 1 % poškození za každých 10 rychlosti pohybu navíc oproti cíli, takže každý útok dělá ten další rychlejší, tvrdší při zásahu a navrch silnější. Aktivní část Zefyru cíl zpomalí a Kostimráz ubere při každém zpomalení dalších 75 rychlosti pohybu, což rozdíl pro Nemrkej rozšíří z druhé strany. Tančící přízrak, Zhouba lichů a Spěšné boty vrší čistou rychlost, Kyrys mrtvého muže rychlost při běhu ukládá a vybije ji do dalšího útoku, a Kosmický pohon jí dává další rychlost pohybu pokaždé, když to magické poškození při zásahu dopadne. Enchanterka přestane kohokoli štítovat a stane se on-hit carry, jehož jediná skutečná statistika je rychlost pohybu.",
-      "play": "Zefyr na nejměkčí cíl a pak dál útoč: čím delší honička, tím tvrději biješ. Rozjeď to! je flexibilní volba, protože takedown dá na 4 sekundy 100 % rychlosti pohybu a Nemrkej to bere jako poškození zdarma.",
+      "title": "Toxická aktiva",
+      "why": "Jedovatá stopa Singeda je oblak poškození v čase, který za sebou nechává jen tím, že běhá. Pekelné spojení způsobí, že jeho schopnosti navíc přidávají sčítající se popálení, Zranitelnost dovolí poškození v čase a poškození z předmětů kriticky zasáhnout za 145 % poškození navíc a Spalující úrok promění každý tik popálení nebo jedu na šampionovi ve zlato, takže stopa teď krití a ještě mu za to platí. Popálení z Pekelné spojení také zkracují přebíjení jeho základních schopností, což znamená víc Odhození do Megalepidlo a ještě víc popálení. Liandryho utrpení, Démonská náruč a Dutá záře přidávají popálení z předmětů, která můžou taky kritit, a Atmovo zúčtování s Obřad zkázy dávají tankovi šanci na kritický zásah. Z proxy farmera se stane kritový carry, který nikdy nemusí útočit a s každým krokem inkasuje dividendu.",
+      "play": "Běhej s aktivní Jedovatá stopa dokola nepřátelským týmem a nech tiky kritit a vydělávat. Hoď nepřítele do Megalepidlo pokaždé, když se Odhození nabije, a to je často.",
       "augments": [
-        "Tvoje útoky ti dávají 10 rychlosti pohybu. Získáš rychlost útoku. Efekt se stackuje a obnovuje donekonečna, ale trvá 5 sekund.",
-        "Získáš 1 % bonusového poškození za každých 10 rychlosti pohybu, které máš navíc oproti cíli.",
-        "Tvoje zpomalení snižují rychlost pohybu o dalších 75.",
-        "Při takedownu získáš na 4 sekundy 100 % rychlosti pohybu a 15 % rychlosti útoku."
+        "Tvé schopnosti přidávají sčítající se popálení, které způsobuje poškození v čase. Tvé efekty popálení zkracují přebíjení tvých základních schopností.",
+        "Tvé efekty předmětů a poškození v čase mohou kriticky zasáhnout a způsobit o 145 % poškození navíc. Získáváš 25% šanci na kritický zásah.",
+        "Popálení a poškození v čase na šampionech vytváří zlato.",
+        "Získáváš 50% šanci na kritický zásah."
       ]
     },
     "de": {
-      "title": "Strafzettel",
-      "why": "Jannas Rückenwind hat eine Zeile, die niemand liest: Ein Teil ihres zusätzlichen Lauftempos wird zu zusätzlichem magischem Schaden bei Treffern und mit Zephyr, und Zephyrs Passive schenkt ihr Lauftempo einfach fürs Dasein. Stepptänzer gibt ihr 10 Lauftempo pro Angriff, das sich stapelt, solange sie weiter trifft, und Nicht blinzeln legt 1 % Schaden pro 10 Lauftempo drauf, die sie mehr hat als ihr Ziel, also macht jeder Angriff den nächsten schneller, härter beim Treffer und obendrein stärker. Zephyrs Aktive verlangsamt das Ziel und Eiskalt zieht bei jeder Verlangsamung noch 75 Lauftempo ab, was die Lücke für Nicht blinzeln von der anderen Seite vergrößert. Phantomtänzer, Fluch des Lichs und Stiefel der Wendigkeit stapeln rohes Tempo, Panzer des toten Mannes speichert Tempo beim Laufen und entlädt es in ihren nächsten Angriff, und Kosmischer Antrieb gibt ihr jedes Mal mehr Lauftempo, wenn dieser magische Treffer-Schaden landet. Die Verzauberin hört auf, irgendwen zu schilden, und wird zum Treffer-Carry, dessen einziger echter Wert Lauftempo ist.",
-      "play": "Zephyr auf das weichste Ziel, dann weiter angreifen: Je länger die Jagd, desto härter triffst du. Ich werd' verrückt! ist die flexible Wahl, denn ein Takedown gibt 4 Sekunden lang 100 % Lauftempo, und Nicht blinzeln liest das als Gratisschaden.",
+      "title": "Toxische Wertpapiere",
+      "why": "Singeds Giftspur ist eine Wolke aus Schaden über Zeit, die er einfach beim Herumlaufen hinterlässt. Infernalische Verbindung lässt seine Fähigkeiten zusätzlich einen stapelbaren Brand verursachen, Verwundbarkeit lässt Schaden über Zeit und Gegenstandsschaden kritisch treffen, für 145 % zusätzlichen Schaden, und Brennende Zinsen macht aus jedem Brand- und Gifttick auf einem Champion Gold. Die Spur crittet also und bezahlt ihn auch noch dafür. Die Brände von Infernalische Verbindung senken außerdem die Abklingzeiten seiner Grundfähigkeiten, also mehr Schleudern in den Mega-Kleber und noch mehr Brände. Liandrys Qual, Dämonische Umarmung und Hohler Glanz legen Gegenstandsbrände drauf, die ebenfalls critten können, während Atmas Abrechnung und Ritual des Ruins einem Tank kritische Trefferchance geben. Der Proxy-Farmer wird zum Crit-Carry, der nie angreifen muss und bei jedem Schritt eine Dividende kassiert.",
+      "play": "Lauf mit aktiver Giftspur im Kreis durchs gegnerische Team und lass die Ticks critten und Gold abwerfen. Wirf Leute in den Mega-Kleber, sobald Schleudern wieder bereit ist, und das ist oft.",
       "augments": [
-        "Deine Angriffe gewähren dir 10 Lauftempo. Erhalte Angriffstempo. Der Effekt stapelt sich und erneuert sich unbegrenzt, hält aber 5 Sekunden.",
-        "Erhalte 1 % zusätzlichen Schaden pro 10 Lauftempo, die du mehr hast als das Ziel.",
-        "Deine Verlangsamungen verringern das Lauftempo um zusätzliche 75.",
-        "Erhalte bei einem Takedown 4 Sekunden lang 100 % Lauftempo und 15 % Angriffstempo."
+        "Deine Fähigkeiten verursachen einen stapelbaren Brand, der Schaden über Zeit verursacht. Deine Brandeffekte verringern die Abklingzeiten deiner Grundfähigkeiten.",
+        "Deine Gegenstands- und Schaden-über-Zeit-Effekte können kritisch treffen und 145 % zusätzlichen Schaden verursachen. Erhalte 25 % kritische Trefferchance.",
+        "Brand und Schaden über Zeit an Champions erzeugen Gold.",
+        "Erhalte 50 % kritische Trefferchance."
       ]
     },
     "el": {
-      "title": "Κλήση για Υπερβολική Ταχύτητα",
-      "why": "Το παθητικό της Τζάνα έχει μια γραμμή που κανείς δεν διαβάζει: ένα μέρος της επιπλέον ταχύτητας κίνησής της γίνεται επιπλέον μαγική ζημιά σε κάθε χτύπημα και με τον Ζέφυρο, και το παθητικό του Ζέφυρου της δίνει ταχύτητα κίνησης τζάμπα, απλώς επειδή υπάρχει. Το Φτερά στα Πόδια της δίνει 10 ταχύτητα κίνησης ανά επίθεση, που στοιβάζεται όσο συνεχίζει να χτυπά, και το Μην Κλείνεις τα Μάτια προσθέτει 1% ζημιά για κάθε 10 ταχύτητα κίνησης που έχει παραπάνω από τον στόχο της, οπότε κάθε επίθεση κάνει την επόμενη πιο γρήγορη, πιο δυνατή στο χτύπημα και ακόμα πιο δυνατή από πάνω. Το ενεργό του Ζέφυρου επιβραδύνει τον στόχο και το Παγωμένος αφαιρεί άλλα 75 ταχύτητα κίνησης σε κάθε επιβράδυνση, ανοίγοντας τη διαφορά του Μην Κλείνεις τα Μάτια από την άλλη πλευρά. Ο Χορευτής Φαντασμάτων, ο Όλεθρος των Απέθαντων και οι Μπότες Γρηγοράδας στοιβάζουν σκέτη ταχύτητα, ο Θώρακας του Νεκρού αποθηκεύει ταχύτητα όσο τρέχει και την αδειάζει στην επόμενη επίθεσή της, και η Κοσμική Ενέργεια της δίνει κι άλλη ταχύτητα κίνησης κάθε φορά που αυτή η μαγική ζημιά στο χτύπημα μπαίνει. Η enchanter σταματά να δίνει ασπίδα σε οποιονδήποτε και γίνεται on-hit carry που το μόνο πραγματικό της στατιστικό είναι η ταχύτητα κίνησης.",
-      "play": "Ζέφυρο στον πιο εύθραυστο στόχο και μετά συνέχισε να χτυπάς: όσο πιο μακρύ το κυνηγητό, τόσο πιο δυνατά χτυπάς. Το Τρελός Ενθουσιασμός! είναι η ευέλικτη επιλογή, αφού μια εξόντωση δίνει 100% ταχύτητα κίνησης για 4 δευτερόλεπτα και το Μην Κλείνεις τα Μάτια το διαβάζει ως δωρεάν ζημιά.",
+      "title": "Τοξικά Ομόλογα",
+      "why": "Το Δηλητηριώδες Ίχνος του Σιντζντ είναι ένα σύννεφο ζημιάς με την πάροδο του χρόνου που αφήνει πίσω του απλώς τρέχοντας. Το Καταχθόνιος Αγωγός κάνει τις ικανότητές του να βάζουν επιπλέον ένα Κάψιμο που στοιβάζεται, το Τρωτό Σημείο επιτρέπει στη ζημιά με την πάροδο του χρόνου και στη ζημιά αντικειμένων να κάνουν Καίριο Χτύπημα για 145% επιπλέον ζημιά, και το Αναφλεγόμενος Τόκος μετατρέπει κάθε τικ Καψίματος ή δηλητηρίου σε Ήρωα σε χρυσό, οπότε το ίχνος πλέον κάνει καίρια και τον πληρώνει κιόλας. Τα Καψίματα του Καταχθόνιος Αγωγός μειώνουν επίσης τους χρόνους επαναφόρτισης των βασικών του ικανοτήτων, άρα περισσότερες Εκτίναξη μέσα στη Μέγα Κόλλα και ακόμα περισσότερα Καψίματα. Τα Το Μαρτύριο της Λιάντρι, Δαιμονικός Εναγκαλισμός και Κενή Λαμπρότητα προσθέτουν Καψίματα αντικειμένων που κι αυτά κάνουν καίρια, ενώ τα Θεϊκή Κρίση του Άτμα και Τελετή της Καταστροφής δίνουν πιθανότητα Καίριου Χτυπήματος σε ένα τανκ. Ο proxy farmer γίνεται carry με καίρια που δεν χρειάζεται ποτέ να επιτεθεί και εισπράττει μέρισμα σε κάθε βήμα.",
+      "play": "Τρέξε σε κύκλους μέσα στην εχθρική ομάδα με το Δηλητηριώδες Ίχνος ενεργό και άσε τα τικ να κάνουν καίρια και να πληρώνουν. Ρίξε αντιπάλους μέσα στη Μέγα Κόλλα κάθε φορά που η Εκτίναξη είναι έτοιμη, δηλαδή συχνά.",
       "augments": [
-        "Οι επιθέσεις σου σού δίνουν 10 ταχύτητα κίνησης. Αποκτάς ταχύτητα επίθεσης. Το buff στοιβάζεται και ανανεώνεται επ' άπειρον, αλλά διαρκεί 5 δευτερόλεπτα.",
-        "Αποκτάς 1% επιπλέον ζημιά για κάθε 10 ταχύτητα κίνησης που έχεις παραπάνω από τον στόχο.",
-        "Οι επιβραδύνσεις σου μειώνουν την ταχύτητα κίνησης κατά επιπλέον 75.",
-        "Με κάθε εξόντωση αποκτάς 100% ταχύτητα κίνησης και 15% ταχύτητα επίθεσης για 4 δευτερόλεπτα."
+        "Οι ικανότητές σου εφαρμόζουν Κάψιμο που στοιβάζεται και προκαλεί ζημιά με την πάροδο του χρόνου. Τα εφέ Καψίματός σου μειώνουν τους χρόνους επαναφόρτισης των βασικών σου ικανοτήτων.",
+        "Τα εφέ αντικειμένων και ζημιάς με την πάροδο του χρόνου μπορούν να κάνουν Καίριο Χτύπημα για 145% επιπλέον ζημιά. Κερδίζεις 25% πιθανότητα Καίριου Χτυπήματος.",
+        "Το Κάψιμο και η ζημιά με την πάροδο του χρόνου σε Ήρωες παράγουν χρυσό.",
+        "Κερδίζεις 50% πιθανότητα Καίριου Χτυπήματος."
       ]
     },
     "es-MX": {
-      "title": "Multa por Exceso de Velocidad",
-      "why": "La pasiva de Janna tiene una línea que nadie lee: parte de su velocidad de movimiento adicional se vuelve daño mágico adicional al golpear y con Céfiro, y la pasiva de Céfiro le regala velocidad de movimiento solo por existir. Bailarín de Tap le da 10 de velocidad de movimiento por ataque, acumulable mientras siga pegando, y No Parpadees suma 1% de daño por cada 10 de velocidad de movimiento que tenga por encima de su objetivo, así que cada ataque hace que el siguiente sea más rápido, pegue más al golpear y encima sea más fuerte. La activa de Céfiro ralentiza al objetivo y Frío como el Hielo quita otros 75 de velocidad de movimiento con cada ralentización, lo que agranda la brecha de No Parpadees desde el otro lado. Bailarín Espectral, Maldición del Liche y Botas de Rapidez apilan velocidad pura, Placa del Hombre Muerto guarda velocidad mientras corre y la descarga en su siguiente ataque, e Impulso Cósmico le da más velocidad de movimiento cada vez que ese daño mágico al golpear entra. La encantadora deja de escudar a nadie y se convierte en un carry de golpes cuya única estadística real es la velocidad de movimiento.",
-      "play": "Céfiro al objetivo más frágil y luego sigue atacando: mientras más larga la persecución, más fuerte pegas. ¡Comienza a Emocionarte! es la elección flexible, ya que una eliminación da 100% de velocidad de movimiento por 4 segundos y No Parpadees lo lee como daño gratis.",
+      "title": "Activos Tóxicos",
+      "why": "El Rastro Venenoso de Singed es una nube de daño con el tiempo que deja nomás por andar corriendo. Conducto Infernal hace que sus habilidades apliquen además una quemadura acumulable, Vulnerabilidad deja que el daño con el tiempo y el daño de objetos sean críticos con un 145% de daño extra, y Interés en Llamas convierte cada tick de quemadura o veneno sobre un campeón en oro, así que el rastro ahora pega críticos y además le paga. Las quemaduras de Conducto Infernal también reducen los enfriamientos de sus habilidades básicas, o sea más Lanzamiento hacia el Megaadhesivo y más quemaduras. El Tormento de Liandry, Abrazo Demoniaco y Resplandor Vacío suman quemaduras de objetos que también pueden ser críticas, mientras que Juicio de Atma y Rito de Ruina le dan probabilidad de crítico a un tanque. El proxy farmer se vuelve un carry de críticos que nunca tiene que atacar y cobra dividendos con cada paso.",
+      "play": "Dale vueltas al equipo enemigo con el Rastro Venenoso prendido y deja que los ticks peguen crítico y paguen. Usa Lanzamiento hacia el Megaadhesivo cada vez que se recargue, que es seguido.",
       "augments": [
-        "Tus ataques te otorgan 10 de velocidad de movimiento. Obtienes velocidad de ataque. El efecto se acumula y se renueva infinitamente, pero dura 5 segundos.",
-        "Obtienes 1% de daño adicional por cada 10 de velocidad de movimiento que tengas por encima del objetivo.",
-        "Tus ralentizaciones reducen la velocidad de movimiento en 75 adicionales.",
-        "Obtienes 100% de velocidad de movimiento y 15% de velocidad de ataque por 4 segundos al conseguir una eliminación."
+        "Tus habilidades aplican una quemadura acumulable que inflige daño con el tiempo. Tus efectos de quemadura reducen los enfriamientos de tus habilidades básicas.",
+        "Tus efectos de objetos y de daño con el tiempo pueden ser críticos e infligir un 145% de daño adicional. Obtienes un 25% de probabilidad de crítico.",
+        "Las quemaduras y el daño con el tiempo sobre campeones generan oro.",
+        "Obtienes un 50% de probabilidad de crítico."
       ]
     },
     "es": {
-      "title": "Multa por exceso de velocidad",
-      "why": "La pasiva de Janna tiene una línea que nadie lee: parte de su velocidad de movimiento adicional se convierte en daño mágico adicional al impactar y con Céfiro, y la pasiva de Céfiro le regala velocidad de movimiento solo por existir. Taconeo le da 10 de velocidad de movimiento por ataque, acumulable mientras siga golpeando, y No parpadees añade un 1 % de daño por cada 10 de velocidad de movimiento que tenga por encima de su objetivo, así que cada ataque hace que el siguiente sea más rápido, pegue más al impactar y encima sea más fuerte. La activa de Céfiro ralentiza al objetivo y Algidez quita otros 75 de velocidad de movimiento con cada ralentización, lo que agranda la brecha de No parpadees desde el otro lado. Bailarín espectral, Perdición del liche y Botas de rapidez apilan velocidad pura, Coraza del muerto almacena velocidad mientras corre y la descarga en su siguiente ataque, e Impulso cósmico le da más velocidad de movimiento cada vez que ese daño mágico al impactar aterriza. La encantadora deja de escudar a nadie y se convierte en un carry de impacto cuya única estadística real es la velocidad de movimiento.",
-      "play": "Céfiro al objetivo más blando y luego sigue atacando: cuanto más larga la persecución, más fuerte pegas. ¡A tope! es la elección flexible, ya que una eliminación da un 100 % de velocidad de movimiento durante 4 segundos y No parpadees lo lee como daño gratis.",
+      "title": "Activos tóxicos",
+      "why": "El Rastro venenoso de Singed es una nube de daño en el tiempo que deja atrás solo por correr. Conducto infernal hace que sus habilidades apliquen además una quemadura acumulable, Vulnerabilidad permite que el daño en el tiempo y el daño de objetos sean críticos con un 145% de daño extra, y Interés explosivo convierte cada tick de quemadura o veneno sobre un campeón en oro, así que el rastro ahora hace críticos y encima le paga. Las quemaduras de Conducto infernal también reducen los enfriamientos de sus habilidades básicas, lo que significa más Lanzamiento hacia el Megaadhesivo y más quemaduras. Tormento de Liandry, Abrazo demoníaco y Fulgor vano añaden quemaduras de objetos que también pueden ser críticas, mientras que Juicio de Atma y Rito de la ruina le dan probabilidad de crítico a un tanque. El proxy farmer se convierte en un carry de críticos que nunca tiene que atacar y cobra dividendos con cada paso.",
+      "play": "Da vueltas por el equipo enemigo con el Rastro venenoso activado y deja que los ticks hagan crítico y paguen. Usa Lanzamiento hacia el Megaadhesivo cada vez que vuelva, que es a menudo.",
       "augments": [
-        "Tus ataques te otorgan 10 de velocidad de movimiento. Obtienes velocidad de ataque. El efecto se acumula y se renueva infinitamente, pero dura 5 segundos.",
-        "Obtienes un 1 % de daño adicional por cada 10 de velocidad de movimiento que tengas por encima del objetivo.",
-        "Tus ralentizaciones reducen la velocidad de movimiento en 75 adicionales.",
-        "Obtienes un 100 % de velocidad de movimiento y un 15 % de velocidad de ataque durante 4 segundos al conseguir una eliminación."
+        "Tus habilidades aplican una quemadura acumulable que inflige daño en el tiempo. Tus efectos de quemadura reducen los enfriamientos de tus habilidades básicas.",
+        "Tus efectos de objetos y de daño en el tiempo pueden ser críticos e infligir un 145% de daño adicional. Obtienes un 25% de probabilidad de crítico.",
+        "Las quemaduras y el daño en el tiempo sobre campeones generan oro.",
+        "Obtienes un 50% de probabilidad de crítico."
       ]
     },
     "fr": {
-      "title": "Excès de vitesse",
-      "why": "Le passif de Janna a une ligne que personne ne lit : une partie de sa vitesse de déplacement bonus devient des dégâts magiques bonus à l'impact et avec Zéphyr, et le passif de Zéphyr lui offre de la vitesse de déplacement juste pour exister. Danse effrénée lui donne 10 de vitesse de déplacement par attaque, cumulable tant qu'elle continue de frapper, et Rapidité létale ajoute 1 % de dégâts par tranche de 10 de vitesse de déplacement qu'elle a de plus que sa cible, donc chaque attaque rend la suivante plus rapide, plus forte à l'impact et encore plus forte par-dessus. L'actif de Zéphyr ralentit la cible et Froid glacial retire 75 de vitesse de déplacement en plus à chaque ralentissement, ce qui creuse l'écart de Rapidité létale depuis l'autre côté. Danseur fantôme, Fléau de liche et Bottes de célérité empilent de la vitesse brute, Plaque du mort stocke de la vitesse pendant qu'elle court et la décharge dans sa prochaine attaque, et Volonté cosmique lui donne encore de la vitesse de déplacement chaque fois que ces dégâts magiques à l'impact touchent. L'enchanteresse arrête de protéger qui que ce soit et devient un carry à l'impact dont la seule vraie stat est la vitesse de déplacement.",
-      "play": "Zéphyr sur la cible la plus fragile, puis continue d'attaquer : plus la chasse dure, plus tu frappes fort. Enthousiasme ! est le choix flexible, puisqu'une mise à mort donne 100 % de vitesse de déplacement pendant 4 secondes et que Rapidité létale lit ça comme des dégâts gratuits.",
+      "title": "Actifs toxiques",
+      "why": "La Traînée toxique de Singed est un nuage de dégâts sur la durée qu'il laisse derrière lui rien qu'en courant. Conduit infernal fait que ses compétences ajoutent une brûlure cumulable, Vulnérabilité permet aux dégâts sur la durée et aux dégâts d'objets de faire des coups critiques pour 145% de dégâts en plus, et Intérêt brûlant transforme chaque tick de brûlure ou de poison sur un champion en or : la traînée crit maintenant et le paie pour ça. Les brûlures de Conduit infernal réduisent aussi les délais de récupération de ses compétences de base, donc plus de Projection dans la Colle surpuissante et encore plus de brûlures. Tourment de Liandry, Étreinte démoniaque et Rayonnement du vide ajoutent des brûlures d'objets qui peuvent aussi crit, tandis que Jugement d'Atma et Rite des ruines donnent des chances de coup critique à un tank. Le proxy farmer devient un carry crit qui n'a jamais besoin d'attaquer et touche un dividende à chaque pas.",
+      "play": "Tournez en rond dans l'équipe ennemie avec la Traînée toxique activée et laissez les ticks crit et rapporter. Lancez la Projection dans la Colle surpuissante dès qu'elle revient, c'est-à-dire souvent.",
       "augments": [
-        "Vos attaques vous confèrent 10 de vitesse de déplacement. Gagnez de la vitesse d'attaque. L'effet se cumule et se rafraîchit à l'infini, mais dure 5 secondes.",
-        "Gagnez 1 % de dégâts bonus par tranche de 10 de vitesse de déplacement que vous avez de plus que la cible.",
-        "Vos ralentissements réduisent la vitesse de déplacement de 75 supplémentaires.",
-        "Gagnez 100 % de vitesse de déplacement et 15 % de vitesse d'attaque pendant 4 secondes lors d'une mise à mort."
+        "Vos compétences appliquent une brûlure cumulable qui inflige des dégâts sur la durée. Vos effets de brûlure réduisent les délais de récupération de vos compétences de base.",
+        "Vos effets d'objets et de dégâts sur la durée peuvent faire des coups critiques pour 145% de dégâts en plus. Vous gagnez 25% de chances de coup critique.",
+        "Les brûlures et les dégâts sur la durée infligés aux champions génèrent de l'or.",
+        "Vous gagnez 50% de chances de coup critique."
       ]
     },
     "hu": {
-      "title": "Gyorshajtási bírság",
-      "why": "Janna passzívjában van egy sor, amit senki sem olvas el: a bónusz mozgási sebessége egy része bónusz varázssebzéssé válik találatkor és a Zefírrel, a Zefír passzív része pedig ingyen mozgási sebességet ad neki pusztán azért, mert létezik. A Sztepptáncos támadásonként 10 mozgási sebességet ad, ami addig halmozódik, amíg üt, a Ne pislants pedig 1% sebzést ad minden 10 mozgási sebességért, amivel többje van a célpontnál, így minden támadás gyorsabbá, találatkor keményebbé és ráadásul erősebbé teszi a következőt. A Zefír aktív része lassítja a célpontot, a Jéghideg pedig minden lassításnál még 75 mozgási sebességet vesz le, ami a másik oldalról tágítja a Ne pislants különbségét. A Fantomtáncos, a Félholt csapás és A fürgeség cipője nyers sebességet halmoz, a Holtak vértje futás közben sebességet tárol és a következő támadásba üríti, a Kozmikus hajtómű pedig minden alkalommal még több mozgási sebességet ad, amikor az a találatkori varázssebzés bejön. Az enchanter abbahagyja mások pajzsolását, és olyan találatra épülő carry lesz, akinek az egyetlen igazi statja a mozgási sebesség.",
-      "play": "Zefír a legpuhább célpontra, aztán támadj tovább: minél hosszabb az üldözés, annál keményebben ütsz. A Micsoda izgalom! a rugalmas választás, mert egy leszedés 4 másodpercre 100% mozgási sebességet ad, és a Ne pislants ezt ingyen sebzésként olvassa.",
+      "title": "Toxikus eszközök",
+      "why": "Singed Mérgező nyomvonal képessége egy időben sebző felhő, amit pusztán futkosással hagy maga után. Az Pokoli csatorna miatt a képességei még egy halmozódó égetést is felraknak, a Sebezhetőség lehetővé teszi, hogy az időben sebzés és a tárgyak sebzése kritikusat üssön 145% extra sebzéssel, a Lángoló kamat pedig minden égetés- és méregtikket egy hősön arannyá alakít, vagyis a nyomvonal most kritel, és még fizet is érte. Az Pokoli csatorna égetései az alapképességei töltési idejét is csökkentik, így több Hajítás megy a Szuperragasztó képességbe, és még több égetés jön. A Liandry gyötrelme, a Démoni ölelés és a Tompa ragyogás tárgyégetéseket adnak, amik szintén kritelhetnek, az Atma bosszúja és a A rombolás rítusa pedig kritikus találati esélyt ad egy tanknak. A proxyfarmolóból kritikus carry lesz, akinek soha nem kell támadnia, és minden lépésnél osztalékot zsebel be.",
+      "play": "Rohangálj körbe az ellenfél csapatában bekapcsolt Mérgező nyomvonal képességgel, és hagyd, hogy a tikkek kriteljenek és fizessenek. Hajítsd az ellenfeleket a Szuperragasztó képességbe, amikor a Hajítás újra kész, ami gyakran megesik.",
       "augments": [
-        "A támadásaid 10 mozgási sebességet adnak. Támadási sebességet kapsz. A hatás végtelenül halmozódik és frissül, de 5 másodpercig tart.",
-        "1% bónusz sebzést kapsz minden 10 mozgási sebességért, amivel többed van a célpontnál.",
-        "A lassításaid további 75-tel csökkentik a mozgási sebességet.",
-        "Leszedéskor 4 másodpercre 100% mozgási sebességet és 15% támadási sebességet kapsz."
+        "A képességeid halmozódó égetést raknak fel, ami időben sebez. Az égetőhatásaid csökkentik az alapképességeid töltési idejét.",
+        "A tárgyhatásaid és időben sebző hatásaid kritikusat üthetnek 145% extra sebzéssel. 25% kritikus találati esélyt kapsz.",
+        "A hősökre kifejtett égetés és időben sebzés aranyat termel.",
+        "50% kritikus találati esélyt kapsz."
       ]
     },
     "id": {
-      "title": "Tilang Ngebut",
-      "why": "Passive Janna punya satu baris yang nggak pernah dibaca orang: sebagian bonus Move Speed-nya jadi bonus magic damage saat on-hit dan lewat Zephyr, dan passive Zephyr ngasih Move Speed gratis cuma karena dia ada. Tap Dancer ngasih 10 Move Speed per serangan, numpuk selama dia terus mukul, dan Don't Blink nambah 1% damage untuk tiap 10 Move Speed yang dia punya lebih dari targetnya, jadi tiap serangan bikin serangan berikutnya lebih cepat, lebih sakit saat on-hit, dan lebih kuat di atasnya. Active Zephyr nge-slow target dan Ice Cold motong 75 Move Speed lagi di tiap slow, yang melebarkan selisih Don't Blink dari sisi satunya. Phantom Dancer, Lich Bane, dan Boots of Swiftness numpuk kecepatan mentah, Dead Man's Plate nyimpan kecepatan selagi dia lari lalu nuangin semuanya ke serangan berikutnya, dan Cosmic Drive ngasih Move Speed tambahan tiap kali magic damage on-hit itu masuk. Si enchanter berhenti ngasih shield ke siapa pun dan jadi on-hit carry yang satu-satunya stat beneran cuma Move Speed.",
-      "play": "Zephyr ke target paling lembek, lalu terus serang: makin lama ngejarnya, makin sakit pukulannya. Get Excited! itu pilihan fleksibelnya, karena takedown ngasih 100% Move Speed selama 4 detik dan Don't Blink nganggap itu damage gratis.",
+      "title": "Aset Beracun",
+      "why": "Poison Trail milik Singed adalah awan damage over time yang dia tinggalkan cuma dengan lari-lari. Infernal Conduit membuat skill-nya menambahkan Burn yang bisa menumpuk, Vulnerability membuat damage over time dan damage item bisa Critical Strike dengan 145% damage tambahan, dan Combusting Interest mengubah setiap tick Burn atau racun pada champion menjadi gold, jadi jejak racunnya sekarang bisa crit dan malah membayar dia. Burn dari Infernal Conduit juga mengurangi cooldown basic skill-nya, artinya lebih banyak Fling ke Mega Adhesive dan lebih banyak Burn. Liandry's Torment, Demonic Embrace dan Hollow Radiance menambah burn dari item yang juga bisa crit, sementara Atma's Reckoning dan Rite of Ruin memberi Critical Strike Chance ke seorang tank. Si proxy farmer berubah jadi carry crit yang tidak pernah perlu menyerang dan menerima dividen di setiap langkah.",
+      "play": "Lari berputar-putar di tengah tim musuh dengan Poison Trail menyala dan biarkan tick-nya crit dan menghasilkan uang. Lempar musuh ke Mega Adhesive setiap kali Fling siap lagi, dan itu sering.",
       "augments": [
-        "Serangan kamu memberi 10 Move Speed. Dapatkan Attack Speed. Buff ini menumpuk dan diperbarui tanpa batas, tapi bertahan 5 detik.",
-        "Dapatkan 1% bonus damage per 10 Move Speed yang kamu punya lebih dari target.",
-        "Efek slow kamu mengurangi Move Speed sebesar 75 tambahan.",
-        "Dapatkan 100% Move Speed dan 15% Attack Speed selama 4 detik saat takedown."
+        "Skill-mu memberikan Burn yang menumpuk dan memberikan damage over time. Efek Burn-mu mengurangi cooldown basic skill-mu.",
+        "Efek item dan damage over time-mu bisa Critical Strike dengan 145% damage tambahan. Dapatkan 25% Crit Chance.",
+        "Burn dan damage over time pada champion menghasilkan gold.",
+        "Dapatkan 50% Crit Chance."
       ]
     },
     "it": {
-      "title": "Multa per eccesso di velocità",
-      "why": "La passiva di Janna ha una riga che nessuno legge: una parte della sua velocità di movimento bonus diventa danno magico bonus al colpo e con Zefiro, e la passiva di Zefiro le regala velocità di movimento solo per esistere. Tip tap le dà 10 di velocità di movimento per attacco, accumulabile finché continua a colpire, e Guarda bene aggiunge l'1% di danni per ogni 10 di velocità di movimento in più rispetto al bersaglio, quindi ogni attacco rende il successivo più veloce, più pesante al colpo e per giunta più forte. L'attiva di Zefiro rallenta il bersaglio e Freddo come il ghiaccio toglie altri 75 di velocità di movimento a ogni rallentamento, allargando il divario di Guarda bene dall'altro lato. Danzatore fantasma, Terrore dei lich e Stivali della rapidità ammassano velocità pura, Corazza dell'uomo morto accumula velocità mentre corre e la scarica nel suo prossimo attacco, e Spirito cosmico le dà altra velocità di movimento ogni volta che quel danno magico al colpo va a segno. L'incantatrice smette di scudare chiunque e diventa un carry da colpo la cui unica vera statistica è la velocità di movimento.",
-      "play": "Zefiro sul bersaglio più fragile, poi continua ad attaccare: più lunga è la caccia, più forte colpisci. Che emozione! è la scelta flessibile, visto che un'uccisione dà il 100% di velocità di movimento per 4 secondi e Guarda bene lo legge come danno gratis.",
+      "title": "Titoli tossici",
+      "why": "La Scia velenosa di Singed è una nube di danni nel tempo che lascia dietro di sé solo correndo. Tramite infernale fa sì che le sue abilità applichino in più una bruciatura cumulabile, Vulnerabilità permette ai danni nel tempo e ai danni degli oggetti di essere critici per il 145% di danni in più, e Interesse combustibile trasforma ogni tick di bruciatura o veleno su un campione in oro, quindi la scia ora critta e lo paga pure. Le bruciature di Tramite infernale riducono anche le ricariche delle sue abilità base, cioè più Scaraventare dentro il Mega adesivo e ancora più bruciature. Tormento di Liandry, Abbraccio demoniaco e Luce vana aggiungono bruciature degli oggetti che possono crittare anche loro, mentre Giudizio di Atma e Rituale della rovina danno probabilità di colpo critico a un tank. Il proxy farmer diventa un carry critico che non deve mai attaccare e incassa un dividendo a ogni passo.",
+      "play": "Gira in tondo nella squadra nemica con la Scia velenosa attiva e lascia che i tick crittino e paghino. Usa Scaraventare dentro il Mega adesivo ogni volta che torna disponibile, cioè spesso.",
       "augments": [
-        "I tuoi attacchi ti conferiscono 10 di velocità di movimento. Ottieni velocità d'attacco. L'effetto si accumula e si rinnova all'infinito, ma dura 5 secondi.",
-        "Ottieni l'1% di danni bonus per ogni 10 di velocità di movimento in più rispetto al bersaglio.",
-        "I tuoi rallentamenti riducono la velocità di movimento di altri 75.",
-        "Ottieni il 100% di velocità di movimento e il 15% di velocità d'attacco per 4 secondi a ogni uccisione."
+        "Le tue abilità applicano una bruciatura cumulabile che infligge danni nel tempo. I tuoi effetti di bruciatura riducono le ricariche delle tue abilità base.",
+        "I tuoi effetti degli oggetti e dei danni nel tempo possono essere critici e infliggere il 145% di danni aggiuntivi. Ottieni il 25% di probabilità di colpo critico.",
+        "Le bruciature e i danni nel tempo sui campioni generano oro.",
+        "Ottieni il 50% di probabilità di colpo critico."
       ]
     },
     "ja": {
-      "title": "スピード違反切符",
-      "why": "ジャンナのパッシブには誰も読まない一文がある。増加移動速度の一部が通常攻撃時とゼファーに追加魔法ダメージとして乗り、しかもゼファーのパッシブは存在しているだけで移動速度をくれる。タップダンサーは攻撃ごとに移動速度10を与えて殴り続ける限りスタックし、瞬きより速くは相手より移動速度が10高いごとにダメージ+1%なので、攻撃するたびに次の一撃が速く、オンヒットで重く、さらに強くなる。ゼファーのアクティブで相手をスロウにし、結氷がスロウごとにさらに移動速度75を削るので、瞬きより速くの差が反対側からも広がる。ファントム ダンサー、リッチ ベイン、スイフトネス ブーツで素の速度を積み、デッド マン プレートは走る間に速度を溜めて次の攻撃に叩き込み、コズミック ドライブはそのオンヒット魔法ダメージが入るたびに移動速度を追加する。エンチャンターは誰にもシールドを張らなくなり、唯一のステータスが移動速度というオンヒットキャリーになる。",
-      "play": "いちばん柔らかい相手にゼファーを当て、あとは殴り続けるだけ。追いかけるほど痛くなる。超エキサイティン！が自由枠で、キル関与で4秒間移動速度+100%、瞬きより速くはそれをタダのダメージとして読む。",
+      "title": "毒性資産",
+      "why": "シンジドのポイズントレイルは、走り回るだけで後ろに残していく持続ダメージの雲だ。獄炎路で彼のスキルがスタックする炎上を追加で付与し、搦め手で持続ダメージとアイテムのダメージが145%増しでクリティカルするようになり、燃える利回りでチャンピオンへの炎上や毒のティックがすべてゴールドに変わる。つまりトレイルがクリティカルして、しかもお金まで稼いでくれる。獄炎路の炎上は通常スキルのクールダウンも短縮するので、メガアドヒーシブへのフリングが増えて、炎上もさらに増える。ライアンドリーの仮面、悪魔の抱擁、ホロウ レディアンスはクリティカルするアイテムの炎上を上乗せし、アトマの報いと破滅の儀式はタンクにクリティカル率を与える。プロキシファーマーが、通常攻撃を一切しないのに一歩ごとに配当を受け取るクリティカルキャリーに変身する。",
+      "play": "ポイズントレイルをオンにして敵チームの中をぐるぐる走り回り、ティックにクリティカルさせて稼がせよう。フリングが戻ってきたらすぐ敵をメガアドヒーシブに投げ込もう。かなり頻繁に戻ってくる。",
       "augments": [
-        "通常攻撃で移動速度が10増加する。攻撃速度を獲得。この効果は無限にスタックして更新されるが、持続時間は5秒。",
-        "対象より移動速度が10高いごとに、ダメージが1%増加する。",
-        "自身のスロウ効果が移動速度をさらに75低下させる。",
-        "キル関与時に4秒間、移動速度が100%、攻撃速度が15%増加する。"
+        "スキルがスタックする炎上を付与し、持続ダメージを与える。炎上効果が通常スキルのクールダウンを短縮する。",
+        "アイテム効果と持続ダメージ効果がクリティカルするようになり、145%の追加ダメージを与える。クリティカル率が25%増加する。",
+        "チャンピオンへの炎上と持続ダメージがゴールドを生み出す。",
+        "クリティカル率が50%増加する。"
       ]
     },
     "ko": {
-      "title": "과속 딱지",
-      "why": "잔나의 패시브에는 아무도 안 읽는 한 줄이 있다. 추가 이동 속도의 일부가 기본 공격 적중 시와 서풍에 추가 마법 피해로 붙고, 서풍의 패시브는 그냥 존재하는 것만으로 이동 속도를 공짜로 준다. 탭 댄서는 공격마다 이동 속도 10을 주고 계속 때리는 한 중첩되며, 속전속결은 대상보다 이동 속도가 10 높을 때마다 피해량 1%를 더하니, 공격할 때마다 다음 공격이 더 빠르고, 적중 시 더 아프고, 그 위에 더 강해진다. 서풍의 액티브는 대상을 둔화시키고 차가운 냉기는 둔화마다 이동 속도 75를 더 깎아서 속전속결의 격차를 반대쪽에서도 벌린다. 유령 무희, 리치베인, 신속의 장화는 순수 속도를 쌓고, 망자의 갑옷은 달리는 동안 속도를 모아 다음 공격에 쏟아붓고, 우주의 추진력은 그 적중 마법 피해가 들어갈 때마다 이동 속도를 더 준다. 유틸 서포터는 아무에게도 보호막을 안 주고, 유일한 진짜 스탯이 이동 속도인 온히트 캐리가 된다.",
-      "play": "가장 물렁한 대상에게 서풍을 쓰고 계속 때려라. 추격이 길어질수록 더 아프게 때린다. 신난다!는 자유 선택으로, 처치 관여 시 4초 동안 이동 속도 100%를 주고 속전속결은 그걸 공짜 피해로 읽는다.",
+      "title": "독성 자산",
+      "why": "신지드의 독가스는 그냥 뛰어다니기만 해도 뒤에 남는 지속 피해 구름입니다. 지옥의 전도체는 그의 스킬이 중첩되는 화상을 추가로 입히게 하고, 취약는 지속 피해와 아이템 피해가 145% 추가 피해로 치명타를 터뜨릴 수 있게 하며, 타오르는 이자는 챔피언에게 들어가는 화상과 독 틱 하나하나를 골드로 바꿉니다. 즉, 독가스가 이제 치명타도 터지고 돈까지 벌어다 줍니다. 지옥의 전도체의 화상은 기본 스킬 재사용 대기시간도 줄여 주니, 강력 접착제로 내던지기를 더 자주 쓰고 화상도 더 쌓입니다. 리안드리의 고통, 악마의 포옹, 공허한 광휘는 역시 치명타가 터질 수 있는 아이템 화상을 더하고, 아트마의 심판와 파멸의식 고서는 탱커에게 치명타 확률을 줍니다. 프록시 파밍꾼이 평타 한 번 안 치고도 걸음마다 배당금을 챙기는 치명타 캐리로 변신합니다.",
+      "play": "독가스를 켜고 적 팀 사이를 빙글빙글 돌면서 틱이 치명타를 터뜨리고 돈을 벌게 하세요. 내던지기가 돌아올 때마다 적을 강력 접착제 위로 던지세요. 생각보다 자주 돌아옵니다.",
       "augments": [
-        "기본 공격 시 이동 속도가 10 증가합니다. 공격 속도를 얻습니다. 이 효과는 무한히 중첩되고 갱신되지만 5초 동안만 지속됩니다.",
-        "대상보다 이동 속도가 10 높을 때마다 피해량이 1% 증가합니다.",
-        "둔화 효과가 이동 속도를 75 추가로 감소시킵니다.",
-        "처치 관여 시 4초 동안 이동 속도 100%와 공격 속도 15%를 얻습니다."
+        "스킬이 지속 피해를 입히는 중첩 화상을 적용합니다. 화상 효과가 기본 스킬의 재사용 대기시간을 감소시킵니다.",
+        "아이템 및 지속 피해 효과가 치명타로 적중해 145%의 추가 피해를 입힐 수 있습니다. 치명타 확률이 25% 증가합니다.",
+        "챔피언에게 입힌 화상과 지속 피해가 골드를 생성합니다.",
+        "치명타 확률이 50% 증가합니다."
       ]
     },
     "pl": {
-      "title": "Mandat za prędkość",
-      "why": "Pasyw Janny ma linijkę, której nikt nie czyta: część jej dodatkowej prędkości ruchu zamienia się w dodatkowe obrażenia magiczne przy trafieniu i przy Zefirze, a pasyw Zefiru daje jej prędkość ruchu za darmo, za samo istnienie. Szalone Tańcowanie daje jej 10 prędkości ruchu za atak, kumulujące się tak długo, jak trafia, a Nie Mrugaj dodaje 1% obrażeń za każde 10 prędkości ruchu, które ma więcej od celu, więc każdy atak sprawia, że następny jest szybszy, mocniejszy przy trafieniu i na dodatek silniejszy. Aktyw Zefiru spowalnia cel, a Zimny jak Lód zabiera przy każdym spowolnieniu kolejne 75 prędkości ruchu, co powiększa przewagę dla Nie Mrugaj z drugiej strony. Widmowy Tancerz, Zmora Licza i Buty Prędkości dokładają czystą prędkość, Pancerz Umrzyka magazynuje prędkość, gdy biegnie, i wyładowuje ją w następnym ataku, a Kosmiczny Impuls daje jej więcej prędkości ruchu za każdym razem, gdy te magiczne obrażenia przy trafieniu wejdą. Wspierająca przestaje kogokolwiek osłaniać i staje się carry na trafienia, którego jedyną prawdziwą statystyką jest prędkość ruchu.",
-      "play": "Zefir na najbardziej miękki cel, potem atakuj dalej: im dłuższy pościg, tym mocniej bijesz. Zabawmy Się! to elastyczny wybór, bo likwidacja daje 100% prędkości ruchu na 4 sekundy, a Nie Mrugaj odczytuje to jako darmowe obrażenia.",
+      "title": "Toksyczne aktywa",
+      "why": "Trujący Ślad Singeda to chmura obrażeń rozłożonych w czasie, którą zostawia za sobą po prostu biegając. Piekielny Przewodnik sprawia, że jego umiejętności nakładają dodatkowo kumulujące się podpalenie, Wrażliwość pozwala obrażeniom w czasie i obrażeniom z przedmiotów trafiać krytycznie za 145% dodatkowych obrażeń, a Płonny Interes zamienia każdy tik podpalenia lub trucizny na bohaterze w złoto, więc ślad teraz kryci i jeszcze mu za to płaci. Podpalenia z Piekielny Przewodnik skracają też czas odnowienia jego podstawowych umiejętności, czyli więcej Przerzut w Megaklej i jeszcze więcej podpaleń. Udręka Liandry'ego, Demoniczny Uścisk i Głucha Poświata dokładają podpalenia z przedmiotów, które też mogą kryć, a Osąd Atmy i Rytuał Ruiny dają tankowi szansę na trafienie krytyczne. Proxy farmer staje się krytycznym carry, który nigdy nie musi atakować i zgarnia dywidendę z każdego kroku.",
+      "play": "Biegaj w kółko po drużynie wroga z włączonym Trujący Ślad i pozwól tikom kryć i płacić. Rzucaj ludzi w Megaklej za każdym razem, gdy Przerzut wróci, czyli często.",
       "augments": [
-        "Twoje ataki zapewniają ci 10 prędkości ruchu. Zyskujesz prędkość ataku. Wzmocnienie kumuluje się i odnawia bez końca, ale trwa 5 sekund.",
-        "Zyskujesz 1% dodatkowych obrażeń za każde 10 prędkości ruchu, które masz więcej od celu.",
-        "Twoje spowolnienia zmniejszają prędkość ruchu o dodatkowe 75.",
-        "Po likwidacji zyskujesz 100% prędkości ruchu i 15% prędkości ataku na 4 sekundy."
+        "Twoje umiejętności nakładają kumulujące się podpalenie, które zadaje obrażenia w czasie. Twoje efekty podpalenia skracają czas odnowienia twoich podstawowych umiejętności.",
+        "Twoje efekty przedmiotów i obrażeń w czasie mogą trafiać krytycznie, zadając 145% dodatkowych obrażeń. Zyskujesz 25% szansy na trafienie krytyczne.",
+        "Podpalenia i obrażenia w czasie zadawane bohaterom generują złoto.",
+        "Zyskujesz 50% szansy na trafienie krytyczne."
       ]
     },
     "pt-BR": {
-      "title": "Multa por Excesso de Velocidade",
-      "why": "A passiva da Janna tem uma linha que ninguém lê: parte da Velocidade de Movimento adicional dela vira dano mágico adicional ao acertar e com Zéfiro, e a passiva do Zéfiro dá Velocidade de Movimento de graça só por existir. Sapateado dá 10 de Velocidade de Movimento por ataque, acumulando enquanto ela continuar batendo, e Não Pisque soma 1% de dano a cada 10 de Velocidade de Movimento que ela tiver a mais que o alvo, então cada ataque deixa o próximo mais rápido, mais forte no acerto e ainda mais forte por cima. O ativo do Zéfiro reduz a velocidade do alvo e Geladinho tira mais 75 de Velocidade de Movimento em toda lentidão, o que alarga a diferença do Não Pisque pelo outro lado. Dançarina Fantasma, Perdição de Lich e Botas da Rapidez empilham velocidade pura, Couraça do Defunto guarda velocidade enquanto ela corre e descarrega no próximo ataque, e Ímpeto Cósmico dá ainda mais Velocidade de Movimento toda vez que aquele dano mágico ao acertar entra. A encantadora para de escudar qualquer um e vira uma carry de acerto cujo único atributo de verdade é Velocidade de Movimento.",
-      "play": "Zéfiro no alvo mais frágil e depois continue atacando: quanto mais longa a perseguição, mais forte você bate. Anime-se! é a escolha flexível, já que um abate dá 100% de Velocidade de Movimento por 4 segundos e Não Pisque lê isso como dano de graça.",
+      "title": "Ativos Tóxicos",
+      "why": "O Rastro Venenoso de Singed é uma nuvem de dano ao longo do tempo que ele deixa para trás só de correr. Condutor Infernal faz suas habilidades aplicarem uma queimadura acumulável por cima, Vulnerabilidade deixa o dano ao longo do tempo e o dano de itens darem acerto crítico com 145% de dano extra, e Juros Combustivos transforma cada tick de queimadura ou veneno em um campeão em ouro, então o rastro agora crita e ainda paga ele. As queimaduras de Condutor Infernal também reduzem as recargas das habilidades básicas dele, o que significa mais Arremessar no Megadesivo e mais queimaduras. Tormento de Liandry, Abraço Demoníaco e Resplendor Vazio somam queimaduras de itens que também podem critar, enquanto Acerto de Contas de Atma e Ritual da Ruína dão chance de acerto crítico para um tanque. O proxy farmer vira um carry de crítico que nunca precisa atacar e recebe dividendos a cada passo.",
+      "play": "Fique correndo em círculos pelo time inimigo com o Rastro Venenoso ligado e deixe os ticks critarem e pagarem. Use Arremessar no Megadesivo sempre que voltar, o que é frequente.",
       "augments": [
-        "Seus ataques concedem 10 de Velocidade de Movimento. Ganhe Velocidade de Ataque. O efeito acumula e se renova infinitamente, mas dura 5 segundos.",
-        "Ganhe 1% de dano adicional a cada 10 de Velocidade de Movimento que você tiver a mais que o alvo.",
-        "Suas lentidões reduzem a Velocidade de Movimento em 75 adicionais.",
-        "Ganhe 100% de Velocidade de Movimento e 15% de Velocidade de Ataque por 4 segundos ao conseguir um abate."
+        "Suas habilidades aplicam uma queimadura acumulável que causa dano ao longo do tempo. Seus efeitos de queimadura reduzem as recargas das suas habilidades básicas.",
+        "Seus efeitos de itens e de dano ao longo do tempo podem dar acerto crítico, causando 145% de dano adicional. Receba 25% de chance de acerto crítico.",
+        "Queimaduras e dano ao longo do tempo em campeões geram ouro.",
+        "Receba 50% de chance de acerto crítico."
       ]
     },
     "ro": {
-      "title": "Amendă pentru viteză",
-      "why": "Pasiva Jannei are un rând pe care nu-l citește nimeni: o parte din viteza ei de mișcare bonus devine daune magice bonus la lovitură și cu Zefir, iar pasiva Zefirului îi dă viteză de mișcare gratis doar pentru că există. Dansator de step îi dă 10 viteză de mișcare pe atac, care se acumulează cât timp lovește în continuare, iar Nu clipi adaugă 1% daune pentru fiecare 10 viteză de mișcare pe care o are în plus față de țintă, așa că fiecare atac îl face pe următorul mai rapid, mai dur la lovitură și mai puternic pe deasupra. Activa Zefirului încetinește ținta, iar Rece ca gheața mai ia 75 viteză de mișcare la fiecare încetinire, ceea ce lărgește diferența pentru Nu clipi din cealaltă parte. Dansatorul-fantomă, Urgia de pe lume și Cizmele agilității adună viteză brută, Platoșa ostașului ucis stochează viteză cât aleargă și o descarcă în următorul atac, iar Avânt cosmic îi dă și mai multă viteză de mișcare de fiecare dată când daunele magice la lovitură intră. Enchantera nu mai dă scut nimănui și devine un carry pe lovituri a cărui singură statistică reală este viteza de mișcare.",
-      "play": "Zefir pe ținta cea mai fragilă, apoi atacă în continuare: cu cât urmărirea e mai lungă, cu atât lovești mai tare. Entuziasmează-te! e alegerea flexibilă, fiindcă o eliminare dă 100% viteză de mișcare timp de 4 secunde, iar Nu clipi citește asta ca daune gratis.",
+      "title": "Active toxice",
+      "why": "Dâră otrăvitoare lui Singed e un nor de daune în timp pe care îl lasă în urmă doar alergând. Conduită infernală face ca abilitățile lui să aplice în plus o arsură cumulativă, Vulnerabilitate permite daunelor în timp și daunelor de la obiecte să dea lovituri critice pentru 145% daune în plus, iar Dobândă combustibilă transformă fiecare tic de arsură sau otravă pe un campion în aur, așa că dâra acum dă critice și îl mai și plătește. Arsurile de la Conduită infernală reduc și timpii de reîncărcare ai abilităților de bază, adică mai multe Aruncare în Megaadeziv și mai multe arsuri. Agonia Liandrei, Îmbrățișare demonică și Energie radiantă superficială adaugă arsuri de la obiecte care pot da critic și ele, iar Răzbunarea lui Atma și Ritualul decăderii îi dau unui tank șansă de lovitură critică. Proxy farmerul devine un carry pe critice care nu trebuie să atace niciodată și încasează dividende la fiecare pas.",
+      "play": "Aleargă în cercuri prin echipa inamică cu Dâră otrăvitoare activă și lasă ticurile să dea critic și să plătească. Folosește Aruncare în Megaadeziv de fiecare dată când revine, adică des.",
       "augments": [
-        "Atacurile tale îți oferă 10 viteză de mișcare. Primești viteză de atac. Efectul se acumulează și se reîmprospătează la infinit, dar durează 5 secunde.",
-        "Primești 1% daune bonus pentru fiecare 10 viteză de mișcare pe care o ai în plus față de țintă.",
-        "Încetinirile tale reduc viteza de mișcare cu încă 75.",
-        "La o eliminare primești 100% viteză de mișcare și 15% viteză de atac timp de 4 secunde."
+        "Abilitățile tale aplică o arsură cumulativă care provoacă daune în timp. Efectele tale de arsură reduc timpii de reîncărcare ai abilităților de bază.",
+        "Efectele obiectelor tale și daunele în timp pot da lovituri critice pentru 145% daune suplimentare. Primești 25% șansă de lovitură critică.",
+        "Arsurile și daunele în timp asupra campionilor generează aur.",
+        "Primești 50% șansă de lovitură critică."
       ]
     },
     "ru": {
-      "title": "Штраф за превышение",
-      "why": "У пассивки Жанны есть строчка, которую никто не читает: часть ее дополнительной скорости передвижения превращается в дополнительный магический урон при попадании и от Зефира, а пассивная часть Зефира дает ей скорость передвижения просто за то, что она существует. Чечетка дает ей 10 скорости передвижения за атаку, и это складывается, пока она продолжает бить, а Не моргай добавляет 1% урона за каждые 10 скорости передвижения сверх скорости цели, так что каждая атака делает следующую быстрее, больнее при попадании и еще сильнее сверху. Активная часть Зефира замедляет цель, а Дикий холод снимает при каждом замедлении еще 75 скорости передвижения, расширяя разрыв для Не моргай с другой стороны. Призрачный Танцор, Гроза Личей и Ботинки стремительности накидывают чистую скорость, Броня мертвеца копит скорость на бегу и вкладывает ее в следующую атаку, а Космический ускоритель дает ей еще скорости передвижения каждый раз, когда этот магический урон при попадании проходит. Чародейка перестает кого-либо щитовать и становится керри на попаданиях, у которого единственная настоящая характеристика – скорость передвижения.",
-      "play": "Зефир в самую хлипкую цель, дальше просто бей: чем дольше погоня, тем больнее удары. Бодрячком! – гибкий выбор: участие в убийстве дает 100% скорости передвижения на 4 секунды, а Не моргай считает это бесплатным уроном.",
+      "title": "Токсичные активы",
+      "why": "Ядовитый след Синджеда – это облако периодического урона, которое он оставляет за собой, просто бегая. Огнепровод заставляет его умения дополнительно накладывать суммирующийся поджог, Уязвимость позволяет периодическому урону и урону от предметов наносить критический удар с 145% дополнительного урона, а Взрывная прибыль превращает каждый тик поджога или яда по чемпиону в золото, так что след теперь критует и ещё платит ему за это. Поджоги от Огнепровод также сокращают перезарядку его базовых умений, а значит больше Бросок в Суперклей и ещё больше поджогов. Мучения Лиандри, Объятия демона и Сияние пустоты добавляют поджоги от предметов, которые тоже могут критовать, а Расплата Атмы и Ритуал уничтожения дают танку шанс критического удара. Прокси-фармер превращается в крит-керри, которому вообще не нужно атаковать и который получает дивиденды с каждого шага.",
+      "play": "Бегайте кругами по вражеской команде с включённым Ядовитый след и пусть тики критуют и приносят золото. Бросайте врагов в Суперклей, как только Бросок снова готов, а это часто.",
       "augments": [
-        "Ваши атаки дают вам 10 скорости передвижения. Вы получаете скорость атаки. Эффект складывается и обновляется бесконечно, но длится 5 секунд.",
-        "Вы наносите на 1% больше урона за каждые 10 скорости передвижения сверх скорости цели.",
-        "Ваши замедления снижают скорость передвижения еще на 75.",
-        "При участии в убийстве вы получаете 100% скорости передвижения и 15% скорости атаки на 4 секунды."
+        "Ваши умения накладывают суммирующийся поджог, наносящий периодический урон. Ваши эффекты поджога сокращают перезарядку ваших базовых умений.",
+        "Эффекты предметов и периодический урон могут наносить критический удар с 145% дополнительного урона. Вы получаете 25% шанса критического удара.",
+        "Поджоги и периодический урон по чемпионам приносят золото.",
+        "Вы получаете 50% шанса критического удара."
       ]
     },
     "th": {
-      "title": "ใบสั่งขับเร็ว",
-      "why": "พาสซีฟของ Janna มีบรรทัดหนึ่งที่ไม่มีใครอ่าน: ส่วนหนึ่งของความเร็วเคลื่อนที่โบนัสของเธอจะกลายเป็นความเสียหายเวทโบนัสตอนออนฮิตและตอนใช้ Zephyr แถมพาสซีฟของ Zephyr ยังให้ความเร็วเคลื่อนที่ฟรีแค่เพราะเธอมีตัวตน Tap Dancer ให้ความเร็วเคลื่อนที่ 10 ต่อการโจมตี ซ้อนไปเรื่อย ๆ ตราบที่เธอยังตีโดน และ Don't Blink เพิ่มความเสียหาย 1% ต่อทุก 10 ความเร็วเคลื่อนที่ที่เธอมีมากกว่าเป้าหมาย ดังนั้นทุกการโจมตีทำให้ครั้งถัดไปเร็วขึ้น ออนฮิตแรงขึ้น และแรงขึ้นอีกซ้อนทับ แอ็กทีฟของ Zephyr ทำให้เป้าหมายช้าลง และ Ice Cold หักความเร็วเคลื่อนที่เพิ่มอีก 75 ทุกครั้งที่สโลว์ ซึ่งถ่างช่องว่างของ Don't Blink จากอีกฝั่ง Phantom Dancer, Lich Bane และ Boots of Swiftness กองความเร็วดิบ ๆ Dead Man's Plate เก็บความเร็วตอนเธอวิ่งแล้วเทใส่การโจมตีครั้งถัดไป และ Cosmic Drive ให้ความเร็วเคลื่อนที่เพิ่มทุกครั้งที่ความเสียหายเวทออนฮิตนั้นเข้าเป้า ซัพพอร์ตสายบัฟเลิกให้โล่ใครแล้วกลายเป็นแครี่ออนฮิตที่มีค่าสถานะจริง ๆ อย่างเดียวคือความเร็วเคลื่อนที่",
-      "play": "ใส่ Zephyr ให้เป้าหมายที่บางที่สุด แล้วตีต่อไป: ยิ่งไล่นาน ยิ่งตีแรง Get Excited! คือตัวเลือกอิสระ เพราะการมีส่วนร่วมในการสังหารให้ความเร็วเคลื่อนที่ 100% เป็นเวลา 4 วินาที และ Don't Blink นับมันเป็นความเสียหายฟรี",
+      "title": "สินทรัพย์พิษ",
+      "why": "Poison Trail ของ Singed คือกลุ่มควันดาเมจต่อเนื่องที่เขาทิ้งไว้ข้างหลังแค่วิ่งไปมา Infernal Conduit ทำให้สกิลของเขาติดเบิร์นที่สะสมได้เพิ่มเข้าไป Vulnerability ทำให้ดาเมจต่อเนื่องและดาเมจจากไอเทมติดคริติคอลได้ โดยแรงขึ้น 145% และ Combusting Interest เปลี่ยนทุกติ๊กของเบิร์นหรือพิษบนแชมเปี้ยนให้เป็นทอง เท่ากับว่าตอนนี้ควันพิษทั้งติดคริและยังจ่ายเงินให้เขาด้วย เบิร์นจาก Infernal Conduit ยังลดคูลดาวน์สกิลพื้นฐานของเขา แปลว่าได้ใช้ Fling ใส่ Mega Adhesive บ่อยขึ้นและเบิร์นมากขึ้น Liandry's Torment, Demonic Embrace และ Hollow Radiance เพิ่มเบิร์นจากไอเทมที่ติดคริได้เหมือนกัน ส่วน Atma's Reckoning และ Rite of Ruin มอบโอกาสคริติคอลให้แทงค์ จากสายพร็อกซีฟาร์มกลายเป็นแครี่สายคริที่ไม่ต้องตีธรรมดาเลย และรับเงินปันผลทุกก้าวที่เดิน",
+      "play": "เปิด Poison Trail แล้ววิ่งวนไปรอบทีมศัตรู ปล่อยให้ติ๊กดาเมจติดคริและทำเงิน ใช้ Fling โยนศัตรูใส่ Mega Adhesive ทุกครั้งที่สกิลกลับมา ซึ่งมาบ่อยมาก",
       "augments": [
-        "การโจมตีของคุณให้ความเร็วเคลื่อนที่ 10 ได้รับความเร็วโจมตี บัฟนี้ซ้อนและรีเฟรชได้ไม่จำกัด แต่คงอยู่ 5 วินาที",
-        "ได้รับความเสียหายโบนัส 1% ต่อทุก 10 ความเร็วเคลื่อนที่ที่คุณมีมากกว่าเป้าหมาย",
-        "เอฟเฟกต์สโลว์ของคุณลดความเร็วเคลื่อนที่เพิ่มอีก 75",
-        "ได้รับความเร็วเคลื่อนที่ 100% และความเร็วโจมตี 15% เป็นเวลา 4 วินาทีเมื่อมีส่วนร่วมในการสังหาร"
+        "สกิลของคุณติดเบิร์นที่สะสมได้และสร้างดาเมจต่อเนื่อง เอฟเฟกต์เบิร์นของคุณลดคูลดาวน์สกิลพื้นฐาน",
+        "เอฟเฟกต์ไอเทมและดาเมจต่อเนื่องของคุณติดคริติคอลได้ สร้างดาเมจเพิ่ม 145% ได้รับโอกาสคริติคอล 25%",
+        "เบิร์นและดาเมจต่อเนื่องบนแชมเปี้ยนสร้างทอง",
+        "ได้รับโอกาสคริติคอล 50%"
       ]
     },
     "tr": {
-      "title": "Hız Cezası",
-      "why": "Janna'nın pasifinde kimsenin okumadığı bir satır var: ek hareket hızının bir kısmı vuruşta ve Zefir'le ek büyü hasarına dönüşür, Zefir'in pasifi de ona sırf var olduğu için bedava hareket hızı verir. Step Dansı saldırı başına 10 hareket hızı verir ve vurmaya devam ettiği sürece birikir, Gözünü Kırpma ise hedefinden fazla olan her 10 hareket hızı için %1 hasar ekler; yani her saldırı bir sonrakini daha hızlı, vuruşta daha sert ve üstüne daha güçlü yapar. Zefir'in aktifi hedefi yavaşlatır, Buz Gibi her yavaşlatmada 75 hareket hızı daha alır ve Gözünü Kırpma'nın farkını öbür taraftan açar. Hayalet Dansçı, Lich Boğan ve Atiklik Çizmeleri ham hız yığar, Ölü Adamın Zırhı koşarken hız biriktirip bir sonraki saldırıya boşaltır, Kozmik Hızlandırıcı ise o vuruş büyü hasarı her oturduğunda daha fazla hareket hızı verir. Büyücü destek kimseye kalkan atmayı bırakır ve tek gerçek istatistiği hareket hızı olan bir vuruş carry'sine dönüşür.",
-      "play": "Zefir'i en kırılgan hedefe at, sonra saldırmaya devam et: kovalamaca ne kadar uzarsa o kadar sert vurursun. Ay Çok Heyecanlı! esnek seçim; bir alaşağı etme 4 saniyeliğine %100 hareket hızı verir ve Gözünü Kırpma bunu bedava hasar olarak okur.",
+      "title": "Toksik Varlıklar",
+      "why": "Singed'in Zehir İzi yeteneği, sadece koşarak arkasında bıraktığı zamana yayılan hasar bulutudur. Alev Geçidi yeteneklerinin üstüne bir de birikebilen Yanık uygulamasını sağlar, Zafiyet zamana yayılan hasarın ve eşya hasarının %145 ek hasarla Kritik Vuruş yapabilmesini sağlar, Yanıcı Faiz ise bir şampiyon üzerindeki her Yanık ve zehir tikini altına çevirir; yani iz artık kritik vuruyor ve üstüne para da kazandırıyor. Alev Geçidi Yanıkları temel yeteneklerinin bekleme sürelerini de kısaltır, bu da Mega Yapışkan içine daha fazla Fırlatma ve daha fazla Yanık demek. Liandry'nin Eziyeti, Uğursuz Koruma ve Donuk Işıltı de kritik vurabilen eşya yanıkları ekler, Atma'nın Hesaplaşması ve Yıkım Ayini ise bir tanka Kritik Vuruş Şansı verir. Proxy farmcı, hiç saldırmasına gerek olmayan ve her adımda temettü toplayan bir kritik carry'ye dönüşür.",
+      "play": "Zehir İzi açıkken rakip takımın içinde daireler çiz, tikler kritik vurup para kazandırsın. Fırlatma her hazır olduğunda rakipleri Mega Yapışkan içine fırlat, ki bu da sık olur.",
       "augments": [
-        "Saldırıların sana 10 hareket hızı verir. Saldırı hızı kazanırsın. Etki sınırsız birikir ve yenilenir ama 5 saniye sürer.",
-        "Hedeften fazla olan her 10 hareket hızı için %1 ek hasar kazanırsın.",
-        "Yavaşlatma etkilerin hareket hızını 75 daha azaltır.",
-        "Alaşağı etmede 4 saniyeliğine %100 hareket hızı ve %15 saldırı hızı kazanırsın."
+        "Yeteneklerin zamana yayılan hasar veren, birikebilen bir Yanık uygular. Yanık etkilerin temel yeteneklerinin bekleme sürelerini azaltır.",
+        "Eşya ve zamana yayılan hasar etkilerin %145 ek hasarla Kritik Vuruş yapabilir. %25 Kritik Vuruş Şansı kazanırsın.",
+        "Şampiyonlar üzerindeki Yanık ve zamana yayılan hasar altın üretir.",
+        "%50 Kritik Vuruş Şansı kazanırsın."
       ]
     },
     "vi": {
-      "title": "Vé Phạt Quá Tốc Độ",
-      "why": "Nội tại của Janna có một dòng chẳng ai đọc: một phần tốc độ di chuyển cộng thêm của cô biến thành sát thương phép cộng thêm khi đánh thường và với Gió Tây, còn nội tại của Gió Tây tặng không tốc độ di chuyển chỉ vì cô tồn tại. Vũ Công Thiết Hài cho 10 tốc độ di chuyển mỗi đòn đánh, cộng dồn chừng nào cô còn đánh trúng, và Đừng Chớp Mắt thêm 1% sát thương cho mỗi 10 tốc độ di chuyển cô có hơn mục tiêu, nên mỗi đòn đánh làm đòn tiếp theo nhanh hơn, nặng hơn khi trúng, và mạnh hơn chồng lên. Kích hoạt của Gió Tây làm chậm mục tiêu và Băng Lạnh cắt thêm 75 tốc độ di chuyển ở mỗi lần làm chậm, nới rộng khoảng cách cho Đừng Chớp Mắt từ phía bên kia. Ma Vũ Song Kiếm, Kiếm Tai Ương và Giày Bạc chất tốc độ thuần, Giáp Liệt Sĩ tích tốc độ khi cô chạy rồi dồn hết vào đòn đánh kế tiếp, còn Động Cơ Vũ Trụ cho thêm tốc độ di chuyển mỗi khi sát thương phép khi đánh trúng đó cắm vào. Hỗ trợ buff ngừng tạo khiên cho bất kỳ ai và trở thành carry đánh trúng với chỉ số thật duy nhất là tốc độ di chuyển.",
-      "play": "Gió Tây vào mục tiêu mềm nhất rồi cứ đánh tiếp: rượt càng lâu, đánh càng đau. Hưng Phấn! là lựa chọn linh hoạt, vì một lần hạ gục cho 100% tốc độ di chuyển trong 4 giây và Đừng Chớp Mắt đọc đó là sát thương miễn phí.",
+      "title": "Tài Sản Độc Hại",
+      "why": "Khí Độc của Singed là một đám mây sát thương theo thời gian mà hắn để lại chỉ bằng cách chạy vòng vòng. Hỏa Ngục Dẫn Truyền khiến các kỹ năng của hắn gây thêm hiệu ứng thiêu đốt cộng dồn, Yếu Điểm cho phép sát thương theo thời gian và sát thương từ trang bị chí mạng với 145% sát thương cộng thêm, còn Lãi Suất Bốc Cháy biến mỗi nhịp thiêu đốt hay độc lên tướng địch thành vàng, nên giờ vệt độc vừa chí mạng vừa trả tiền cho hắn. Thiêu đốt từ Hỏa Ngục Dẫn Truyền còn giảm thời gian hồi chiêu các kỹ năng cơ bản, tức là thêm nhiều lần Hất Tung vào Keo Siêu Dính và thêm nhiều thiêu đốt. Mặt Nạ Đọa Đày Liandry, Mũ Trụ Nguyền Rủa và Áo Choàng Hắc Quang cộng thêm thiêu đốt từ trang bị cũng có thể chí mạng, trong khi Trường Thương Atma và Nghi Thức Suy Vong cho một tên đỡ đòn tỉ lệ chí mạng. Gã proxy farm biến thành xạ thủ chí mạng không bao giờ cần đánh thường và nhận cổ tức sau mỗi bước chạy.",
+      "play": "Bật Khí Độc rồi chạy vòng vòng giữa đội địch, để các nhịp sát thương chí mạng và kiếm tiền. Ném địch vào Keo Siêu Dính mỗi khi Hất Tung hồi xong, mà nó hồi rất thường xuyên.",
       "augments": [
-        "Đòn đánh của bạn cho bạn 10 tốc độ di chuyển. Nhận tốc độ đánh. Hiệu ứng cộng dồn và làm mới vô hạn nhưng kéo dài 5 giây.",
-        "Nhận 1% sát thương cộng thêm cho mỗi 10 tốc độ di chuyển bạn có hơn mục tiêu.",
-        "Hiệu ứng làm chậm của bạn giảm thêm 75 tốc độ di chuyển.",
-        "Nhận 100% tốc độ di chuyển và 15% tốc độ đánh trong 4 giây khi hạ gục."
+        "Kỹ năng của bạn gây hiệu ứng thiêu đốt cộng dồn, gây sát thương theo thời gian. Hiệu ứng thiêu đốt của bạn giảm thời gian hồi chiêu các kỹ năng cơ bản.",
+        "Hiệu ứng trang bị và sát thương theo thời gian của bạn có thể chí mạng, gây thêm 145% sát thương. Nhận 25% tỉ lệ chí mạng.",
+        "Thiêu đốt và sát thương theo thời gian lên tướng địch tạo ra vàng.",
+        "Nhận 50% tỉ lệ chí mạng."
       ]
     },
     "zh-CN": {
-      "title": "超速罚单",
-      "why": "迦娜的被动里有一行没人看的字：她一部分额外移动速度会化为普攻命中和西风的额外魔法伤害，而西风的被动光是存在就白送她移动速度。踢踏舞每次普攻给10移动速度，只要她一直打就一直叠，唯快不破则每比目标多10移动速度就多1%伤害，于是每一下普攻都让下一下更快、命中更疼、再额外更强。西风的主动减速目标，冰寒让每次减速再多扣75移动速度，从另一头把唯快不破的差距拉开。幻影之舞、巫妖之祸和轻灵之靴堆纯速度，亡者的板甲边跑边存速度再一口气倒进下一次普攻，星界驱驰则在那份命中魔法伤害每次打中时再给她移动速度。这个辅助再也不给任何人套盾，变成了一个唯一真正属性就是移动速度的命中型核心。",
-      "play": "西风丢给最脆的目标，然后一直普攻：追得越久，打得越疼。罪恶快感是自由位，击杀参与给4秒100%移动速度，唯快不破把它当成白送的伤害。",
+      "title": "有毒资产",
+      "why": "炼金术士的毒性气体是他光靠跑动就会留在身后的持续伤害毒云。炼狱导管让他的技能额外施加可叠加的灼烧，易损让持续伤害和装备伤害可以暴击，造成145%额外伤害，而炽燃利息把对英雄造成的每一跳灼烧和毒伤都变成金币，于是毒雾现在既会暴击又给他发钱。炼狱导管的灼烧还会缩短他基础技能的冷却时间，意味着更多的过肩摔甩进强力粘胶，以及更多的灼烧。兰德里的折磨、恶魔之拥和璀璨回响加上同样能暴击的装备灼烧，而阿塔玛的清算和毁坏仪式则给一个坦克提供暴击几率。偷塔刷兵的炼金变成了一个从不需要平A、每走一步都在领分红的暴击核心。",
+      "play": "开着毒性气体在敌方队伍里绕圈跑，让每一跳伤害暴击并给你赚钱。过肩摔一转好就把人甩进强力粘胶，而它转得很快。",
       "augments": [
-        "你的普攻为你提供10移动速度。获得攻击速度。该增益可无限叠加并刷新，但持续5秒。",
-        "你的移动速度每比目标多10，就获得1%额外伤害。",
-        "你的减速效果额外降低75移动速度。",
-        "击杀参与时获得100%移动速度和15%攻击速度，持续4秒。"
+        "你的技能施加可叠加的灼烧，造成持续伤害。你的灼烧效果会缩短你基础技能的冷却时间。",
+        "你的装备效果和持续伤害效果可以暴击，造成145%额外伤害。获得25%暴击几率。",
+        "对英雄造成的灼烧和持续伤害会产生金币。",
+        "获得50%暴击几率。"
       ]
     },
     "zh-TW": {
-      "title": "超速罰單",
-      "why": "珍娜的被動有一行沒人看的字：她一部分額外移動速度會變成普攻命中和西風的額外魔法傷害，而西風的被動光是存在就白送她移動速度。輕舞飛揚每次普攻給10移動速度，只要她一直打就一直疊，別眨眼則每比目標多10移動速度就多1%傷害，所以每一下普攻都讓下一下更快、命中更痛、再額外更強。西風的主動減速目標，雪地踱步讓每次減速再多扣75移動速度，從另一頭把別眨眼的差距拉開。幻影之舞、巫妖之禍和輕靈之靴堆純速度，死者肩甲邊跑邊存速度再一口氣倒進下一次普攻，星河馳騁則在那份命中魔法傷害每次打中時再給她移動速度。這個輔助再也不幫任何人套盾，變成一個唯一真正屬性就是移動速度的命中型主C。",
-      "play": "西風丟給最脆的目標，然後一直普攻：追得越久，打得越痛。狂躁！是自由位，擊殺參與給4秒100%移動速度，別眨眼把它當成白送的傷害。",
+      "title": "有毒資產",
+      "why": "辛吉德的毒氣散佈是他只要跑來跑去就會留在身後的持續傷害毒雲。煉獄使者讓他的技能額外施加可疊加的燃燒，見縫插針讓持續傷害和裝備傷害可以爆擊，造成145%額外傷害，而燃燒利息把對英雄造成的每一跳燃燒和毒傷都變成金錢，所以毒氣現在不但會爆擊，還會付錢給他。煉獄使者的燃燒也會縮短他基本技能的冷卻時間，代表更多過肩摔甩進強力黏膠，以及更多燃燒。黎安卓的折磨、惡魔之擁和虛偽光彩加上同樣能爆擊的裝備燃燒，而終末戰戟和殞落之祭則讓一個坦克擁有爆擊機率。偷兵的瘋狂鍊金師變成一個從來不用普攻、每走一步都在領股息的爆擊核心。",
+      "play": "開著毒氣散佈在敵方隊伍裡繞圈跑，讓每一跳傷害爆擊並幫你賺錢。過肩摔一好就把人甩進強力黏膠，而它很快就會好。",
       "augments": [
-        "你的普攻為你提供10移動速度。獲得攻擊速度。此增益可無限疊加並刷新，但持續5秒。",
-        "你的移動速度每比目標多10，就獲得1%額外傷害。",
-        "你的減速效果額外降低75移動速度。",
-        "擊殺參與時獲得100%移動速度和15%攻擊速度，持續4秒。"
+        "你的技能會施加可疊加的燃燒，造成持續傷害。你的燃燒效果會縮短基本技能的冷卻時間。",
+        "你的裝備效果和持續傷害效果可以爆擊，造成145%額外傷害。獲得25%爆擊機率。",
+        "對英雄造成的燃燒和持續傷害會產生金錢。",
+        "獲得50%爆擊機率。"
       ]
     }
   }

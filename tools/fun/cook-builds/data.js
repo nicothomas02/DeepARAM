@@ -1,10 +1,10 @@
 window.COOK_DATA = {
  "meta": {
-  "cn_augment_date": "20261017",
-  "cn_champion_date": "20261017",
+  "cn_augment_date": "20261018",
+  "cn_champion_date": "20261018",
   "champion_count": 173,
   "augment_count": 211,
-  "generated": "2026-10-18"
+  "generated": "2026-10-19"
  },
  "builds": [
   {
@@ -19,9 +19,9 @@ window.COOK_DATA = {
      "text": "Your healing and Shields can Critically Strike for 40% bonus amount. Gain 25% Crit Chance.",
      "core": true,
      "icon": "icons/augments/critical-healing.png",
-     "win_rate": 0.4984,
-     "pick_rate": 0.0365,
-     "win_rank": 150,
+     "win_rate": 0.4995,
+     "pick_rate": 0.0364,
+     "win_rank": 147,
      "best_champions": [
       "Senna",
       "Sona",
@@ -39,9 +39,9 @@ window.COOK_DATA = {
      "text": "Your healing and Health Regen deal 70% of the value magic damage to the nearest enemy champion.",
      "core": true,
      "icon": "icons/augments/circle-of-death.png",
-     "win_rate": 0.5289,
-     "pick_rate": 0.0861,
-     "win_rank": 82,
+     "win_rate": 0.5281,
+     "pick_rate": 0.0867,
+     "win_rank": 83,
      "best_champions": [
       "Swain",
       "DrMundo",
@@ -59,9 +59,9 @@ window.COOK_DATA = {
      "text": "You can Critically Defend using your Crit Chance (max 50% chance), giving you a chance to reduce damage taken by 20%. Gain 25% Crit Chance.",
      "core": false,
      "icon": "icons/augments/tank-it-or-leave-it.png",
-     "win_rate": 0.5529,
-     "pick_rate": 0.1919,
-     "win_rank": 45,
+     "win_rate": 0.5516,
+     "pick_rate": 0.1917,
+     "win_rank": 47,
      "best_champions": [
       "Graves",
       "Yone",
@@ -95,32 +95,32 @@ window.COOK_DATA = {
     3089
    ],
    "champion_icon": "icons/champions/23.png",
-   "champion_win_rate": 0.4952,
-   "champion_pick_rate": 0.074,
+   "champion_win_rate": 0.4951,
+   "champion_pick_rate": 0.0741,
    "champion_win_rank": 74,
-   "core_win_rate": 0.5137,
+   "core_win_rate": 0.5138,
    "tier": "Pure troll",
    "core_usual": 0,
-   "core_pick_rate": 0.0613,
+   "core_pick_rate": 0.0616,
    "sim": {
     "dps": 248,
     "survival": 0.013,
-    "best_dps": 1323,
-    "best_survival": 0.474,
-    "pct_of_best": 0.187,
+    "best_dps": 1383,
+    "best_survival": 0.464,
+    "pct_of_best": 0.179,
     "best_items": [
      "Berserker's Greaves",
      "Blade of The Ruined King",
-     "The Collector",
-     "Serylda's Grudge",
-     "Trinity Force",
-     "Umbral Glaive"
+     "Essence Reaver",
+     "Kraken Slayer",
+     "Navori Flickerblade",
+     "Serylda's Grudge"
     ],
     "best_augments": [
      "Dual Wield",
-     "It's Critical",
+     "Double Tap",
      "Symphony of War",
-     "Tap Dancer"
+     "Giant Slayer"
     ],
     "items_not_modeled": [
      "Rite of Ruin"
@@ -140,16 +140,16 @@ window.COOK_DATA = {
      "text": "Your Attacks grant you 10 Movement Speed. Gain Attack Speed. The buff stacks and refreshes infinitely but lasts 5 seconds.",
      "core": true,
      "icon": "icons/augments/tap-dancer.png",
-     "win_rate": 0.5215,
-     "pick_rate": 0.131,
-     "win_rank": 102,
+     "win_rate": 0.5217,
+     "pick_rate": 0.1305,
+     "win_rank": 100,
      "best_champions": [
       "Jinx",
       "Caitlyn",
       "Jhin",
       "Senna",
       "Ashe",
-      "Yunara"
+      "Vayne"
      ],
      "champion_is_best": false
     },
@@ -160,9 +160,9 @@ window.COOK_DATA = {
      "text": "Gain 1% bonus damage per 10 Movement Speed more you have than the target.",
      "core": true,
      "icon": "icons/augments/don-t-blink.png",
-     "win_rate": 0.5242,
-     "pick_rate": 0.0705,
-     "win_rank": 96,
+     "win_rate": 0.5256,
+     "pick_rate": 0.0704,
+     "win_rank": 93,
      "best_champions": [
       "Lillia",
       "Jhin",
@@ -180,9 +180,9 @@ window.COOK_DATA = {
      "text": "Your Slowing effects reduce Movement Speed by an extra 75.",
      "core": true,
      "icon": "icons/augments/ice-cold.png",
-     "win_rate": 0.5306,
-     "pick_rate": 0.2741,
-     "win_rank": 79,
+     "win_rate": 0.5297,
+     "pick_rate": 0.274,
+     "win_rank": 80,
      "best_champions": [
       "AurelionSol",
       "Brand",
@@ -200,12 +200,12 @@ window.COOK_DATA = {
      "text": "Gain 100% Movement Speed and 15% Attack Speed for 4 seconds on takedown.",
      "core": false,
      "icon": "icons/augments/get-excited.png",
-     "win_rate": 0.526,
-     "pick_rate": 0.2247,
+     "win_rate": 0.5258,
+     "pick_rate": 0.2246,
      "win_rank": 91,
      "best_champions": [
-      "Jinx",
       "Jhin",
+      "Jinx",
       "Vayne",
       "Caitlyn",
       "Hecarim",
@@ -236,19 +236,19 @@ window.COOK_DATA = {
     3009
    ],
    "champion_icon": "icons/champions/40.png",
-   "champion_win_rate": 0.5229,
+   "champion_win_rate": 0.5228,
    "champion_pick_rate": 0.023,
    "champion_win_rank": 26,
-   "core_win_rate": 0.5254,
+   "core_win_rate": 0.5257,
    "tier": "Holds up",
    "core_usual": 0,
-   "core_pick_rate": 0.1585,
+   "core_pick_rate": 0.1583,
    "sim": {
-    "dps": 222,
-    "survival": 0.018,
-    "best_dps": 971,
+    "dps": 258,
+    "survival": 0.019,
+    "best_dps": 957,
     "best_survival": 0.015,
-    "pct_of_best": 0.229,
+    "pct_of_best": 0.27,
     "best_items": [
      "Sorcerer's Shoes",
      "Lich Bane",
@@ -260,11 +260,151 @@ window.COOK_DATA = {
     "best_augments": [
      "Skilled Sniper",
      "Glass Cannon",
-     "Marksmage",
+     "Back To Basics",
+     "Marksmage"
+    ],
+    "items_not_modeled": [],
+    "whole_build": true
+   }
+  },
+  {
+   "id": "singed-toxic-assets",
+   "champion": "Singed",
+   "title": "Toxic Assets",
+   "augments": [
+    {
+     "name": "Infernal Conduit",
+     "id": 1045,
+     "rarity": "Prismatic",
+     "text": "Your Abilities apply stacking Burn that deals damage over time. Your Burn effects reduce your basic Ability Cooldowns.",
+     "core": true,
+     "icon": "icons/augments/infernal-conduit.png",
+     "win_rate": 0.5709,
+     "pick_rate": 0.2309,
+     "win_rank": 25,
+     "best_champions": [
+      "Brand",
+      "AurelionSol",
+      "Morgana",
+      "Lillia",
+      "Malzahar",
+      "Teemo"
+     ],
+     "champion_is_best": false
+    },
+    {
+     "name": "Vulnerability",
+     "id": 1092,
+     "rarity": "Gold",
+     "text": "Your Item and damage over time effects can Critically Strike for 145% extra damage. Gain 25% Crit chance.",
+     "core": true,
+     "icon": "icons/augments/vulnerability.png",
+     "win_rate": 0.5779,
+     "pick_rate": 0.3767,
+     "win_rank": 19,
+     "best_champions": [
+      "Lucian",
+      "Smolder",
+      "MissFortune",
+      "Caitlyn",
+      "Jhin",
+      "Jinx"
+     ],
+     "champion_is_best": false
+    },
+    {
+     "name": "Combusting Interest",
+     "id": 2128,
+     "rarity": "Gold",
+     "text": "Burn and damage-over-time on champions generate gold.",
+     "core": true,
+     "icon": "icons/augments/combusting-interest.png",
+     "win_rate": 0.6031,
+     "pick_rate": 0.3753,
+     "win_rank": 5,
+     "best_champions": [
+      "Brand",
+      "AurelionSol",
+      "Teemo",
+      "Lillia",
+      "Morgana",
+      "Karthus"
+     ],
+     "champion_is_best": false
+    },
+    {
+     "name": "It's Critical",
+     "id": 1047,
+     "rarity": "Gold",
+     "text": "Gain 50% Crit chance.",
+     "core": false,
+     "icon": "icons/augments/it-s-critical.png",
+     "win_rate": 0.5224,
+     "pick_rate": 0.1601,
+     "win_rank": 98,
+     "best_champions": [
+      "Jhin",
+      "Yasuo",
+      "Graves",
+      "Caitlyn",
+      "Yone",
+      "Vayne"
+     ],
+     "champion_is_best": false
+    }
+   ],
+   "core": 3,
+   "items": [
+    "Liandry's Torment",
+    "Demonic Embrace",
+    "Atma's Reckoning",
+    "Rite of Ruin",
+    "Hollow Radiance",
+    "Mercury's Treads"
+   ],
+   "why": "Singed's Poison Trail is a damage-over-time cloud he leaves behind just by running around. Infernal Conduit makes his Abilities stack a Burn on top, Vulnerability lets damage-over-time and item damage Critically Strike for 145% extra, and Combusting Interest turns every Burn and damage-over-time tick on a champion into gold, so the trail now crits and pays him for it. Infernal Conduit's Burns also cut his basic Ability cooldowns, which means more Flings into Mega Adhesive and more Burns. Liandry's Torment, Demonic Embrace and Hollow Radiance add item burns that can crit too, while Atma's Reckoning and Rite of Ruin hand a tank Critical Strike Chance. The proxy farmer becomes a crit carry who never has to attack, cashing a dividend on every step.",
+   "play": "Run circles through the enemy team with Poison Trail on and let the ticks crit and pay out. Fling people into Mega Adhesive whenever it comes back, which is often.",
+   "chef": "2026-10-19",
+   "champion_name": "Singed",
+   "item_ids": [
+    6653,
+    4637,
+    3039,
+    123430,
+    6664,
+    3111
+   ],
+   "champion_icon": "icons/champions/27.png",
+   "champion_win_rate": 0.5193,
+   "champion_pick_rate": 0.0798,
+   "champion_win_rank": 32,
+   "core_win_rate": 0.584,
+   "tier": "Secretly strong",
+   "core_usual": 0,
+   "core_pick_rate": 0.3276,
+   "sim": {
+    "dps": 202,
+    "survival": 0.013,
+    "best_dps": 882,
+    "best_survival": 0.015,
+    "pct_of_best": 0.229,
+    "best_items": [
+     "Boots of Swiftness",
+     "Blackfire Torch",
+     "Liandry's Torment",
+     "Shadowflame",
+     "Stormsurge",
+     "Void Staff"
+    ],
+    "best_augments": [
+     "FireFox",
+     "Dive Bomber",
+     "Forged By The Master",
      "Giant Slayer"
     ],
     "items_not_modeled": [
-     "Boots of Swiftness"
+     "Demonic Embrace",
+     "Rite of Ruin"
     ],
     "whole_build": true
    }

@@ -190,5 +190,12 @@
  "Your Attacks grant you 10 Movement Speed. Gain Attack Speed. The buff stacks and refreshes infinitely but lasts 5 seconds.": "기본 공격 시 이동 속도가 10 증가합니다. 공격 속도를 얻습니다. 이 효과는 무한히 중첩되고 갱신되지만 5초 동안만 지속됩니다.",
  "Gain 1% bonus damage per 10 Movement Speed more you have than the target.": "대상보다 이동 속도가 10 높을 때마다 피해량이 1% 증가합니다.",
  "Your Slowing effects reduce Movement Speed by an extra 75.": "둔화 효과가 이동 속도를 75 추가로 감소시킵니다.",
- "Gain 100% Movement Speed and 15% Attack Speed for 4 seconds on takedown.": "처치 관여 시 4초 동안 이동 속도 100%와 공격 속도 15%를 얻습니다."
+ "Gain 100% Movement Speed and 15% Attack Speed for 4 seconds on takedown.": "처치 관여 시 4초 동안 이동 속도 100%와 공격 속도 15%를 얻습니다.",
+ "Toxic Assets": "독성 자산",
+ "Singed's Poison Trail is a damage-over-time cloud he leaves behind just by running around. Infernal Conduit makes his Abilities stack a Burn on top, Vulnerability lets damage-over-time and item damage Critically Strike for 145% extra, and Combusting Interest turns every Burn and damage-over-time tick on a champion into gold, so the trail now crits and pays him for it. Infernal Conduit's Burns also cut his basic Ability cooldowns, which means more Flings into Mega Adhesive and more Burns. Liandry's Torment, Demonic Embrace and Hollow Radiance add item burns that can crit too, while Atma's Reckoning and Rite of Ruin hand a tank Critical Strike Chance. The proxy farmer becomes a crit carry who never has to attack, cashing a dividend on every step.": "신지드의 독가스는 그냥 뛰어다니기만 해도 뒤에 남는 지속 피해 구름입니다. 지옥의 전도체는 그의 스킬이 중첩되는 화상을 추가로 입히게 하고, 취약는 지속 피해와 아이템 피해가 145% 추가 피해로 치명타를 터뜨릴 수 있게 하며, 타오르는 이자는 챔피언에게 들어가는 화상과 독 틱 하나하나를 골드로 바꿉니다. 즉, 독가스가 이제 치명타도 터지고 돈까지 벌어다 줍니다. 지옥의 전도체의 화상은 기본 스킬 재사용 대기시간도 줄여 주니, 강력 접착제로 내던지기를 더 자주 쓰고 화상도 더 쌓입니다. 리안드리의 고통, 악마의 포옹, 공허한 광휘는 역시 치명타가 터질 수 있는 아이템 화상을 더하고, 아트마의 심판와 파멸의식 고서는 탱커에게 치명타 확률을 줍니다. 프록시 파밍꾼이 평타 한 번 안 치고도 걸음마다 배당금을 챙기는 치명타 캐리로 변신합니다.",
+ "Run circles through the enemy team with Poison Trail on and let the ticks crit and pay out. Fling people into Mega Adhesive whenever it comes back, which is often.": "독가스를 켜고 적 팀 사이를 빙글빙글 돌면서 틱이 치명타를 터뜨리고 돈을 벌게 하세요. 내던지기가 돌아올 때마다 적을 강력 접착제 위로 던지세요. 생각보다 자주 돌아옵니다.",
+ "Your Abilities apply stacking Burn that deals damage over time. Your Burn effects reduce your basic Ability Cooldowns.": "스킬이 지속 피해를 입히는 중첩 화상을 적용합니다. 화상 효과가 기본 스킬의 재사용 대기시간을 감소시킵니다.",
+ "Your Item and damage over time effects can Critically Strike for 145% extra damage. Gain 25% Crit chance.": "아이템 및 지속 피해 효과가 치명타로 적중해 145%의 추가 피해를 입힐 수 있습니다. 치명타 확률이 25% 증가합니다.",
+ "Burn and damage-over-time on champions generate gold.": "챔피언에게 입힌 화상과 지속 피해가 골드를 생성합니다.",
+ "Gain 50% Crit chance.": "치명타 확률이 50% 증가합니다."
 }

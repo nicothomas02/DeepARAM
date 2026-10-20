@@ -190,5 +190,12 @@
  "Your Attacks grant you 10 Movement Speed. Gain Attack Speed. The buff stacks and refreshes infinitely but lasts 5 seconds.": "通常攻撃で移動速度が10増加する。攻撃速度を獲得。この効果は無限にスタックして更新されるが、持続時間は5秒。",
  "Gain 1% bonus damage per 10 Movement Speed more you have than the target.": "対象より移動速度が10高いごとに、ダメージが1%増加する。",
  "Your Slowing effects reduce Movement Speed by an extra 75.": "自身のスロウ効果が移動速度をさらに75低下させる。",
- "Gain 100% Movement Speed and 15% Attack Speed for 4 seconds on takedown.": "キル関与時に4秒間、移動速度が100%、攻撃速度が15%増加する。"
+ "Gain 100% Movement Speed and 15% Attack Speed for 4 seconds on takedown.": "キル関与時に4秒間、移動速度が100%、攻撃速度が15%増加する。",
+ "Toxic Assets": "毒性資産",
+ "Singed's Poison Trail is a damage-over-time cloud he leaves behind just by running around. Infernal Conduit makes his Abilities stack a Burn on top, Vulnerability lets damage-over-time and item damage Critically Strike for 145% extra, and Combusting Interest turns every Burn and damage-over-time tick on a champion into gold, so the trail now crits and pays him for it. Infernal Conduit's Burns also cut his basic Ability cooldowns, which means more Flings into Mega Adhesive and more Burns. Liandry's Torment, Demonic Embrace and Hollow Radiance add item burns that can crit too, while Atma's Reckoning and Rite of Ruin hand a tank Critical Strike Chance. The proxy farmer becomes a crit carry who never has to attack, cashing a dividend on every step.": "シンジドのポイズントレイルは、走り回るだけで後ろに残していく持続ダメージの雲だ。獄炎路で彼のスキルがスタックする炎上を追加で付与し、搦め手で持続ダメージとアイテムのダメージが145%増しでクリティカルするようになり、燃える利回りでチャンピオンへの炎上や毒のティックがすべてゴールドに変わる。つまりトレイルがクリティカルして、しかもお金まで稼いでくれる。獄炎路の炎上は通常スキルのクールダウンも短縮するので、メガアドヒーシブへのフリングが増えて、炎上もさらに増える。ライアンドリーの仮面、悪魔の抱擁、ホロウ レディアンスはクリティカルするアイテムの炎上を上乗せし、アトマの報いと破滅の儀式はタンクにクリティカル率を与える。プロキシファーマーが、通常攻撃を一切しないのに一歩ごとに配当を受け取るクリティカルキャリーに変身する。",
+ "Run circles through the enemy team with Poison Trail on and let the ticks crit and pay out. Fling people into Mega Adhesive whenever it comes back, which is often.": "ポイズントレイルをオンにして敵チームの中をぐるぐる走り回り、ティックにクリティカルさせて稼がせよう。フリングが戻ってきたらすぐ敵をメガアドヒーシブに投げ込もう。かなり頻繁に戻ってくる。",
+ "Your Abilities apply stacking Burn that deals damage over time. Your Burn effects reduce your basic Ability Cooldowns.": "スキルがスタックする炎上を付与し、持続ダメージを与える。炎上効果が通常スキルのクールダウンを短縮する。",
+ "Your Item and damage over time effects can Critically Strike for 145% extra damage. Gain 25% Crit chance.": "アイテム効果と持続ダメージ効果がクリティカルするようになり、145%の追加ダメージを与える。クリティカル率が25%増加する。",
+ "Burn and damage-over-time on champions generate gold.": "チャンピオンへの炎上と持続ダメージがゴールドを生み出す。",
+ "Gain 50% Crit chance.": "クリティカル率が50%増加する。"
 }
