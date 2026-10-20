@@ -207,11 +207,11 @@ def pack_mesh(mesh):
     # Welded back where corners match, so shared edges don't double the size.
     seen, P, U, I = {}, [], [], []
     for p, u in zip(pos, uvs):
-        key = (round(p[0], 2), round(p[1], 2), round(p[2], 2), round(u[0], 4), round(u[1], 4))
+        key = (round(p[0], 1), round(p[1], 1), round(p[2], 1), round(u[0], 3), round(u[1], 3))
         if key not in seen:
             seen[key] = len(P)
-            P.append([round(c, 2) for c in p])
-            U.append([round(u[0], 4), round(u[1], 4)])
+            P.append(list(key[:3]))
+            U.append(list(key[3:]))
         I.append(seen[key])
     return {"p": [c for v in P for c in v], "uv": [c for v in U for c in v], "i": I}
 
@@ -219,6 +219,7 @@ def pack_mesh(mesh):
 # ---------- emitters ----------
 
 SKIP_TEX = re.compile(r"distort|normal|_nm\b|refract|heat", re.I)
+SKIP_EMITTER = re.compile(r"indicator|(^|_)range(_|$)|team_?(red|blue)|(^|_)(red|blue)(_|$)", re.I)
 
 
 def convert_emitter(e, ctx):
@@ -228,7 +229,9 @@ def convert_emitter(e, ctx):
     prim = e.get("primitive") or {}
     ptype = prim.get("__type") if isinstance(prim, dict) else None
     tex = e.get("texture")
-    if ptype in ("VfxPrimitiveNonRenderable", "VfxPrimitiveAttachedMesh", "VfxPrimitiveBeam") or "distortionDefinition" in e:
+    # Rays (light shafts and shimmer streaks) can't be drawn faithfully without their stretch rules.
+    if ptype in ("VfxPrimitiveNonRenderable", "VfxPrimitiveAttachedMesh", "VfxPrimitiveBeam", "VfxPrimitiveRay") \
+            or "distortionDefinition" in e or SKIP_EMITTER.search(str(e.get("emitterName") or "")):
         return None
     if not tex or SKIP_TEX.search(tex):
         return None
@@ -240,8 +243,6 @@ def convert_emitter(e, ctx):
         kind = "g"
     elif ptype in ("VfxPrimitiveArbitraryTrail", "VfxPrimitiveCameraTrail"):
         kind = "t"
-    elif ptype == "VfxPrimitiveRay":
-        kind = "r"
     elif ptype == "VfxPrimitiveMesh":
         name = ((prim.get("mMesh") or {}).get("mSimpleMeshName") or "")
         mesh = ctx.mesh(name) if name else None
@@ -416,6 +417,7 @@ class Champion:
         self.textures = []                  # [(path, div)]
         self.tex_index = {}
         self.meshes = []
+        self.mesh_body = {}
         self.mesh_index = {}
         self.systems = []
         self.sys_index = {}
@@ -442,8 +444,12 @@ class Champion:
                         data = f.read()
             m = read_mesh(data) if data else None
             if m and len(m[2]) <= 3000:
-                self.mesh_index[key] = len(self.meshes)
-                self.meshes.append(pack_mesh(m))
+                packed = pack_mesh(m)
+                # Different paths often hold the same mesh: stored once.
+                same = self.mesh_body.setdefault(json.dumps(packed), len(self.meshes))
+                if same == len(self.meshes):
+                    self.meshes.append(packed)
+                self.mesh_index[key] = same
             else:
                 self.mesh_index[key] = None
         return self.mesh_index[key]
@@ -534,30 +540,32 @@ def classify(key):
         return None
     for role, rx in ROLE_WORDS:
         if rx.search(rest) or rx.search("_" + rest):
-            return slot, role
-    return slot, "cast" if not rest else None
+            return slot, role, True
+    # Any other part of the ability (a ring, a spin, a heal) plays on the caster, after the named ones.
+    return slot, "cast", not rest
 
 
 def build_champion(dump, meshes_dir):
     names = dump.get("resourceMap") or {}
     ch = Champion(dump.get("systems") or {}, names, meshes_dir)
     slots = {}
+    found = []
     for key, path in sorted(names.items()):
         if not isinstance(path, str) or path.startswith("{"):
             continue
         cls = classify(key)
-        if not cls or cls[1] is None:
-            continue
-        slot, role = cls
+        if cls:
+            found.append((not cls[2], key, path, cls[0], cls[1]))
+    for _, key, path, slot, role in sorted(found):
         if slot == "crit":
             slot, role = "attack", "crit" if role in ("hit",) else role
-        si = ch.system(path)
-        if si is None:
+        lst = slots.get(slot, {}).get(role, [])
+        if len(lst) >= 3:
             continue
-        roles = slots.setdefault(slot, {})
-        lst = roles.setdefault(role, [])
-        if si not in lst and len(lst) < 3:
-            lst.append(si)
+        si = ch.system(path)
+        if si is None or si in lst:
+            continue
+        slots.setdefault(slot, {}).setdefault(role, []).append(si)
     if not slots:
         return None
     return ch, slots
@@ -619,7 +627,7 @@ def main():
     # Champions by the replay's id (lower case), which is the client's alias.
     index_path = os.path.join(args.out, "index.json")
     index = json.load(open(index_path)) if os.path.exists(index_path) and args.only else {"v": 1, "champions": {}}
-    files = sorted(f for f in os.listdir(args.dump) if f.endswith(".json") and not f.startswith("_"))
+    files = sorted(f for f in os.listdir(args.dump) if f.endswith(".json") and not f.startswith(("_", ".")))
     todo = [f[:-5] for f in files if not args.only or f[:-5] in args.only]
 
     def one(alias):

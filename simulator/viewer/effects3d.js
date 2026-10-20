@@ -152,6 +152,7 @@ const effects = {
     const AW = data.size[0], AH = data.size[1];
     const cols = (e.div && e.div[0]) || 1, rows = (e.div && e.div[1]) || 1, frames = e.n || cols * rows;
     const mesh = e.k === "m" ? data.meshes[e.mesh] : null;
+    if (e.k === "t") return this.trail(L, e, q, from, to, g, fx / AW, (fx + fw) / AW, 1 - (fy + fh) / AH, 1 - fy / AH);
     for (let k = first; k <= last; k++) {
       const birth = step ? k * step : 0, age = t - birth;
       if (age < 0 || age >= life) continue;
@@ -243,6 +244,34 @@ const effects = {
       L.idx[L.ni++] = nv; L.idx[L.ni++] = nv + 1; L.idx[L.ni++] = nv + 2; L.idx[L.ni++] = nv; L.idx[L.ni++] = nv + 2; L.idx[L.ni++] = nv + 3;
       L.nv += 4;
     }
+  },
+
+  // A trail: one ribbon behind a missile, from where it was a lifetime ago to where it is now.
+  trail(L, e, q, from, to, g, u0, u1, v0, v1) {
+    if (!to || q.role !== "missile" || !(q.dur > 0) || L.nv + 4 > MAX_V || L.ni + 6 > MAX_I) return;
+    const t = q.t - (e.delay || 0), life = Math.max(0.05, e.life < 0 ? 0.5 : e.life);
+    const head = Math.min(1, t / q.dur), tail = Math.max(0, Math.min(1, (t - life) / q.dur));
+    if (head - tail < 0.005) return;
+    const lift = Math.max(0, (e.off ? e.off[1] : 0) + (q.h || 0)) * g;
+    V.a.lerpVectors(from, to, head); V.a.y += lift;
+    V.b.lerpVectors(from, to, tail); V.b.y += lift;
+    // Across the ribbon: square to its direction on screen.
+    V.v.subVectors(V.a, V.b);
+    const sx = V.v.dot(V.cr), sy = V.v.dot(V.cu), n = Math.hypot(sx, sy) || 1;
+    const w = Math.abs(e.size[0]) * g / 4;
+    V.p.copy(V.cr).multiplyScalar(-sy / n * w).addScaledVector(V.cu, sx / n * w);
+    const fade = q.alpha === undefined ? 1 : q.alpha;
+    const ch = sample(e.col, 0, C4) || [1, 1, 1, 1], cHead = [lin(ch[0]), lin(ch[1]), lin(ch[2]), Math.min(1, ch[3] * fade)];
+    const ct = sample(e.col, 1, C4) || [1, 1, 1, 1], cTail = [lin(ct[0]), lin(ct[1]), lin(ct[2]), Math.min(1, ct[3] * fade)];
+    const nv = L.nv, P = L.pos, U = L.uv, C = L.col;
+    const pts = [[V.a, 1, u0, v0, cHead], [V.a, -1, u0, v1, cHead], [V.b, -1, u1, v1, cTail], [V.b, 1, u1, v0, cTail]];
+    pts.forEach(([p, side, u, v, c], i) => {
+      P[(nv + i) * 3] = p.x + V.p.x * side; P[(nv + i) * 3 + 1] = p.y + V.p.y * side; P[(nv + i) * 3 + 2] = p.z + V.p.z * side;
+      U[(nv + i) * 2] = u; U[(nv + i) * 2 + 1] = v;
+      for (let j = 0; j < 4; j++) C[(nv + i) * 4 + j] = c[j];
+    });
+    L.idx[L.ni++] = nv; L.idx[L.ni++] = nv + 1; L.idx[L.ni++] = nv + 2; L.idx[L.ni++] = nv; L.idx[L.ni++] = nv + 2; L.idx[L.ni++] = nv + 3;
+    L.nv += 4;
   },
 };
 
