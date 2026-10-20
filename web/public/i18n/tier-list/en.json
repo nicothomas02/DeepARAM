@@ -51,5 +51,7 @@
  "Table": "Table",
  "View": "View",
  "Live patch {patch} by default. Pick any patches, or all time, above the champion table.": "Live patch {patch} by default. Pick any patches, or all time, above the champion table.",
- "Live patch {patch}. Each augment gets a DeepScore against the others of its rarity: 50 is average, S is 70 and up, A 59, B 44, C 32 and D below.": "Live patch {patch}. Each augment gets a DeepScore against the others of its rarity: 50 is average, S is 70 and up, A 59, B 44, C 32 and D below."
+ "Live patch {patch}. Each augment gets a DeepScore against the others of its rarity: 50 is average, S is 70 and up, A 59, B 44, C 32 and D below.": "Live patch {patch}. Each augment gets a DeepScore against the others of its rarity: 50 is average, S is 70 and up, A 59, B 44, C 32 and D below.",
+ "Filter by tags": "Filter by tags",
+ "Pairs": "Pairs"
 }

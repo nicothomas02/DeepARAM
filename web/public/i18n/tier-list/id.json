@@ -51,5 +51,7 @@
  "Table": "Tabel",
  "View": "Tampilan",
  "Live patch {patch} by default. Pick any patches, or all time, above the champion table.": "Patch saat ini {patch} secara default. Pilih patch mana saja, atau sepanjang waktu, di atas tabel champion.",
- "Live patch {patch}. Each augment gets a DeepScore against the others of its rarity: 50 is average, S is 70 and up, A 59, B 44, C 32 and D below.": "Patch saat ini {patch}. Setiap augment mendapat DeepScore dibandingkan augment lain dengan kelangkaan yang sama: 50 adalah rata-rata, S 70 ke atas, A 59, B 44, C 32, dan D di bawahnya."
+ "Live patch {patch}. Each augment gets a DeepScore against the others of its rarity: 50 is average, S is 70 and up, A 59, B 44, C 32 and D below.": "Patch saat ini {patch}. Setiap augment mendapat DeepScore dibandingkan augment lain dengan kelangkaan yang sama: 50 adalah rata-rata, S 70 ke atas, A 59, B 44, C 32, dan D di bawahnya.",
+ "Filter by tags": "Filter menurut tag",
+ "Pairs": "Pasangan"
 }

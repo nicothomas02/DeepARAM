@@ -222,7 +222,7 @@ export default function Home() {
               <h2>
                 <T>Best duos</T>
               </h2>
-              <Link href="/tier-list?tab=duos">
+              <Link href="/tier-list?cview=duos">
                 <T>All →</T>
               </Link>
             </div>

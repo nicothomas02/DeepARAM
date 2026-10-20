@@ -8,7 +8,7 @@ import { useT } from "./I18n";
 import { getParam, setParams } from "@/lib/url-state";
 import type { TagInfo } from "@/lib/tag-info";
 
-// The Duos tab: about 7,000 pairs (lib/duos.ts), so they load from /data/duos.json when the tab is first opened, not with the page.
+// Duos, under the Tier List's Champions tab (ChampionsPanel, ?cview=duos): about 7,000 pairs (lib/duos.ts), so they load from /data/duos.json when first opened, not with the page.
 // Both lists start sorted by Win rate boost, the synergy adjusted for how often a pair is played (lib/duos.ts).
 // "Archetypes" pools the same pairs by subclass (Enchanter + Enchanter); those few rows ship with the page (?dview=arch).
 
@@ -50,7 +50,7 @@ export default function DuosTable({ archetypes, tagInfo, version }: { archetypes
   const view = (
     <div className="duos-bar">
       <div className="seg" role="group" aria-label={t("Duos")}>
-        {(["Champions", "Archetypes"] as const).map((l, i) => (
+        {(["Pairs", "Archetypes"] as const).map((l, i) => (
           <button
             key={l}
             type="button"

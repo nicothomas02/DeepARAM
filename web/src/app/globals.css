@@ -1515,11 +1515,6 @@ html[data-device="mobile"] .data-table th {
   }
 }
 
-/* The sort menu shows only on phones, for tables that trim columns there (DataTable Column.phone). */
-.table-sort {
-  display: none;
-}
-
 /* Tier List range buttons and patch dropdown: stacked on wider screens, one line on phones (ChampionTiers). */
 .patch-bar {
   display: contents;
@@ -1578,20 +1573,6 @@ html[data-device="mobile"] .data-table th {
     margin: 0;
   }
 
-  .data-table.fit > .table-tools .table-sort {
-    display: block;
-    flex: 0 1 auto;
-    max-width: 45%;
-    height: 42px;
-    margin-left: auto;
-    padding: 0 0.8rem;
-    border: 1px solid var(--line);
-    border-radius: 999px;
-    background: var(--surface);
-    color: var(--fg);
-    font: inherit;
-    font-size: 0.875rem;
-  }
 
   /* A trimmed table fits the screen: no pinned column, the row number back, names and headings wrap. */
   .data-table.fit > .table-scroll .ph-hide {
@@ -6144,7 +6125,6 @@ html[data-view="simple"] .hero .lede,
 html[data-view="simple"] .patch-timeline,
 html[data-view="simple"] .patch-chips,
 html[data-view="simple"] .patch-note,
-html[data-view="simple"] .arch-filter,
 html[data-view="simple"] .table-glossary,
 html[data-view="simple"] .deepscore-legend,
 html[data-view="simple"] .quickref-levels,

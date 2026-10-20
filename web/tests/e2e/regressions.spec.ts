@@ -73,7 +73,7 @@ test("champion page: Simple view folds, section links open them, Detailed shows 
 });
 
 // The Tier List on a phone: the champion table fits the screen (win rate in view without scrolling sideways),
-// sorts from its menu, and a tap anywhere on a row opens the champion.
+// sorts from its column headers, and a tap anywhere on a row opens the champion.
 test("tier list table fits a phone", async ({ page }, info) => {
   test.skip(info.project.name !== "phone");
   await page.goto("/tier-list");
@@ -84,12 +84,15 @@ test("tier list table fits a phone", async ({ page }, info) => {
   // Every stat is one table now; the extra columns drop out on phones, the measured win rate stays.
   await expect(scroll.locator("thead th", { hasText: "Raw win rate" })).toBeInViewport();
 
-  await page.locator("#panel-champions .table-sort").selectOption("win_rate.desc");
-  await expect(page).toHaveURL(/sort=win_rate\.desc/);
+  // No separate sort menu: the column headers sort, both ways.
+  await expect(page.locator("#panel-champions .table-sort")).toHaveCount(0);
+  await scroll.locator("thead th", { hasText: "Raw win rate" }).click();
+  await expect(page).toHaveURL(/sort=win_rate\.(desc|asc)/);
+  const desc = /sort=win_rate\.desc/.test(page.url());
   const rates = await scroll.locator("tbody tr").evaluateAll((rows) =>
     rows.slice(0, 5).map((r) => parseFloat([...r.querySelectorAll("td")].find((td) => /wr-/.test(td.className))?.textContent ?? "0")),
   );
-  expect(rates).toEqual([...rates].sort((a, b) => b - a));
+  expect(rates).toEqual([...rates].sort((a, b) => (desc ? b - a : a - b)));
 
   await scroll.locator("tbody tr").first().locator("td.rank-col").click();
   await expect(page).toHaveURL(/\/champions\//);

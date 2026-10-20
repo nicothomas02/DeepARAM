@@ -51,5 +51,7 @@
  "Table": "表格",
  "View": "视图",
  "Live patch {patch} by default. Pick any patches, or all time, above the champion table.": "默认显示当前版本 {patch}。可在英雄表格上方选择任意版本或全部时间。",
- "Live patch {patch}. Each augment gets a DeepScore against the others of its rarity: 50 is average, S is 70 and up, A 59, B 44, C 32 and D below.": "当前版本 {patch}。每个强化符文都会在同一稀有度内获得 DeepScore：50 为平均，S 为 70 及以上，A 59，B 44，C 32，D 以下。"
+ "Live patch {patch}. Each augment gets a DeepScore against the others of its rarity: 50 is average, S is 70 and up, A 59, B 44, C 32 and D below.": "当前版本 {patch}。每个强化符文都会在同一稀有度内获得 DeepScore：50 为平均，S 为 70 及以上，A 59，B 44，C 32，D 以下。",
+ "Filter by tags": "按标签筛选",
+ "Pairs": "组合"
 }

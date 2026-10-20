@@ -51,5 +51,7 @@
  "Table": "Tabulka",
  "View": "Zobrazení",
  "Live patch {patch} by default. Pick any patches, or all time, above the champion table.": "Ve výchozím stavu aktuální patch {patch}. Nad tabulkou šampionů si vyber libovolné patche nebo celkové výsledky.",
- "Live patch {patch}. Each augment gets a DeepScore against the others of its rarity: 50 is average, S is 70 and up, A 59, B 44, C 32 and D below.": "Aktuální patch {patch}. Každý augment dostane DeepScore vůči ostatním stejné vzácnosti: 50 je průměr, S je 70 a víc, A 59, B 44, C 32 a D níž."
+ "Live patch {patch}. Each augment gets a DeepScore against the others of its rarity: 50 is average, S is 70 and up, A 59, B 44, C 32 and D below.": "Aktuální patch {patch}. Každý augment dostane DeepScore vůči ostatním stejné vzácnosti: 50 je průměr, S je 70 a víc, A 59, B 44, C 32 a D níž.",
+ "Filter by tags": "Filtrovat podle štítků",
+ "Pairs": "Dvojice"
 }
