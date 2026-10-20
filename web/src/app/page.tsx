@@ -51,7 +51,7 @@ function funValues(): Record<string, (id: number, alias: string) => string | nul
     crowd_control: (id) => fmt(profileValue(id, "cc_seconds"), one),
     mitigated: (id) => fmt(profileValue(id, "mitigated_per_min"), int),
     cs: (id) => fmt(profileValue(id, "cs"), one),
-    pentakills: (id) => fmt(profileValue(id, "pentakills"), (v) => v.toFixed(3)),
+    pentakills: (id) => fmt(profileValue(id, "pentakills"), (v) => (v > 0 ? Math.round(1 / v).toLocaleString("en-US") : "—")),
     dead: (_, a) => fmt(live.get(a)?.dead, (v) => `${Math.floor(v / 60)}m ${String(Math.round(v % 60)).padStart(2, "0")}s`),
     towers: (id) => fmt(profileValue(id, "turret_damage"), int),
     early_game: curve,

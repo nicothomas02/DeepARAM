@@ -117,7 +117,7 @@ const FUN: [string, string, string][] = [
   ["cs", "CS", "{v} CS"],
   ["healing", "Healing", "{v} healing/min"],
   ["crowd_control", "Crowd control", "{v}s crowd control"],
-  ["pentakills", "Pentakills", "{v} pentakills/game"],
+  ["pentakills", "Pentakills", "Pentakill every {v} games"],
   ["towers", "Towers", "{v} tower damage"],
   ["early_game", "Early game", "{v}"],
   ["late_game", "Late game", "{v}"],

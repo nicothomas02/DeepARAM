@@ -196,5 +196,13 @@
  "{v} tower damage": "タワーダメージ {v}",
  "Simulated damage: share of champions beaten at level 8 → level 18.": "シミュレーションのダメージ: レベル8 → レベル18で上回るチャンピオンの割合。",
  "Or shoot us an email at": "メールでのご連絡はこちら:",
- "About": "概要"
+ "About": "概要",
+ "Pentakill every {v} games": "{v}試合に1回ペンタキル",
+ "Pentakills": "ペンタキル",
+ "Damage mitigated": "軽減ダメージ",
+ "Kill participation": "キル関与率",
+ "Time dead": "デス時間",
+ "CS": "CS",
+ "{v} mitigated/min": "{v} 軽減/分",
+ "{v} CS": "{v} CS"
 }

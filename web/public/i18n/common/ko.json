@@ -196,5 +196,13 @@
  "{v} tower damage": "포탑 피해량 {v}",
  "Simulated damage: share of champions beaten at level 8 → level 18.": "시뮬레이션 피해량: 레벨 8 → 레벨 18에서 앞서는 챔피언 비율.",
  "Or shoot us an email at": "또는 이메일로 보내주세요:",
- "About": "소개"
+ "About": "소개",
+ "Pentakill every {v} games": "{v}게임마다 펜타킬 1회",
+ "Pentakills": "펜타킬",
+ "Damage mitigated": "경감한 피해량",
+ "Kill participation": "킬 관여율",
+ "Time dead": "사망 시간",
+ "CS": "CS",
+ "{v} mitigated/min": "{v} 경감/분",
+ "{v} CS": "{v} CS"
 }
