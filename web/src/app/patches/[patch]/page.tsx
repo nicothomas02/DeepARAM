@@ -68,14 +68,14 @@ export default async function PatchPage({ params }: { params: Promise<{ patch: s
     <>
       <Breadcrumbs
         trail={[
-          ["Patch Recaps", "/patches"],
+          ["Patches", "/patches"],
           [`Patch ${patchName(r.patch)}`, `/patches/${patchName(r.patch)}`],
         ]}
       />
       <section className="champ-hero">
         <p className="eyebrow">
           <Link href="/patches">
-            <T ns="patches">Patch Recaps</T>
+            <T ns="patches">Patches</T>
           </Link>
           {r.released && (
             <>

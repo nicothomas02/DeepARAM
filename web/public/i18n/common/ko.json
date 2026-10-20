@@ -202,5 +202,6 @@
  "{v} kill participation": "킬 관여율 {v}",
  "{v} multikills": "멀티킬 {v}",
  "{v} tower damage": "포탑 피해량 {v}",
- "Simulated damage: share of champions beaten at level 8 → level 18.": "시뮬레이션 피해량: 레벨 8 → 레벨 18에서 앞서는 챔피언 비율."
+ "Simulated damage: share of champions beaten at level 8 → level 18.": "시뮬레이션 피해량: 레벨 8 → 레벨 18에서 앞서는 챔피언 비율.",
+ "About": "소개"
 }

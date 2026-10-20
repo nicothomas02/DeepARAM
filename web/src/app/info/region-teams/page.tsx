@@ -3,7 +3,7 @@ import FunToolPage, { funToolMetadata, type FunTool } from "@/components/FunTool
 const TOOL: FunTool = {
   path: "/info/region-teams",
   folder: "region-teams",
-  eyebrow: "Info",
+  eyebrow: "About",
   title: "Region Teams",
   description: "The strongest ARAM Mayhem team from each region of Runeterra.",
 };

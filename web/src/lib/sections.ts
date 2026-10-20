@@ -23,7 +23,7 @@ export const sections = [
   },
   {
     href: "/patches",
-    label: text("tab./patches.label", "Patch Recaps"),
+    label: text("tab./patches.label", "Patches"),
     body: text("tab./patches.body", "What every patch changed: augments added, removed and tuned, and the champions that moved most."),
     pr: 0,
   },

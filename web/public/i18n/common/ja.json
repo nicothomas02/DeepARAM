@@ -202,5 +202,6 @@
  "{v} kill participation": "キル関与率 {v}",
  "{v} multikills": "マルチキル {v}",
  "{v} tower damage": "タワーダメージ {v}",
- "Simulated damage: share of champions beaten at level 8 → level 18.": "シミュレーションのダメージ: レベル8 → レベル18で上回るチャンピオンの割合。"
+ "Simulated damage: share of champions beaten at level 8 → level 18.": "シミュレーションのダメージ: レベル8 → レベル18で上回るチャンピオンの割合。",
+ "About": "概要"
 }

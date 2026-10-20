@@ -65,9 +65,14 @@ describe("page addresses", () => {
 });
 
 describe("header", () => {
-  it("shows Tier List, Simulator, Patches and More, with every page in one of them", () => {
+  it("shows Tier List, Simulator, The Kitchen and More (PBE, Patches, About), with every page in one of them", () => {
     const top = navItems().map((n) => n.label);
-    expect(top).toEqual(["Tier List", "Simulator", "Patches", "More"]);
+    expect(top).toEqual(["Tier List", "Simulator", "The Kitchen", "More"]);
+    expect(
+      navItems()[3]
+        .children?.slice(0, 3)
+        .map((n) => n.label),
+    ).toEqual(["PBE", "Patches", "About"]);
     for (const n of navItems()) if (n.children) expect(n.children.length, n.label).toBeGreaterThan(1);
     const hrefs = navPages().map((n) => n.href);
     expect(hrefs).toEqual(expect.arrayContaining(["/tier-list", "/simulator", "/pbe", "/patches", "/info", "/kitchen"]));

@@ -47,9 +47,9 @@
  "Late game": "Késői játék",
  "Even": "Kiegyensúlyozott",
  "Archetypes": "Archetípusok",
- "Live patch {patch} by default. Pick any patches, or all time, above the champion table. Advanced stats at the bottom show every stat we have.": "Alapból az aktuális {patch} frissítés. A hőstáblázat fölött bármelyik frissítést kiválaszthatod, vagy a mindenkori adatokat. Az oldal alján a Haladó statisztikák minden adatot mutatnak, ami nálunk van.",
  "Live patch {patch}. Each augment gets a DeepScore against the others of its rarity: 50 is average, S is 70 and up, A 59, B 44, C 32 and D below. Switch to Table for every number.": "Aktuális frissítés: {patch}. Minden bővítés DeepScore-t kap az azonos ritkaságúakhoz képest: 50 az átlag, S 70-től felfelé, A 59, B 44, C 32, D ez alatt. Minden számot a Táblázat nézet mutat.",
  "Tiers": "Szintek",
  "Table": "Táblázat",
- "View": "Nézet"
+ "View": "Nézet",
+ "Live patch {patch} by default. Pick any patches, or all time, above the champion table.": "Alapból az aktuális {patch} frissítés. A hőstáblázat fölött bármelyik frissítést kiválaszthatod, vagy a mindenkori adatokat."
 }

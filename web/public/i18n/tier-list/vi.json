@@ -47,9 +47,9 @@
  "Late game": "Cuối trận",
  "Even": "Đều",
  "Archetypes": "Lối chơi",
- "Live patch {patch} by default. Pick any patches, or all time, above the champion table. Advanced stats at the bottom show every stat we have.": "Mặc định là phiên bản hiện tại {patch}. Chọn bất kỳ phiên bản nào, hoặc mọi thời điểm, ở phía trên bảng tướng. Phần Chỉ số nâng cao ở cuối trang hiện mọi chỉ số chúng tôi có.",
  "Live patch {patch}. Each augment gets a DeepScore against the others of its rarity: 50 is average, S is 70 and up, A 59, B 44, C 32 and D below. Switch to Table for every number.": "Phiên bản hiện tại {patch}. Mỗi Lõi Nâng Cấp nhận một DeepScore so với các lõi khác cùng độ hiếm: 50 là trung bình, S từ 70 trở lên, A 59, B 44, C 32 và D thấp hơn. Chuyển sang Bảng để xem mọi con số.",
  "Tiers": "Bậc",
  "Table": "Bảng",
- "View": "Chế độ xem"
+ "View": "Chế độ xem",
+ "Live patch {patch} by default. Pick any patches, or all time, above the champion table.": "Mặc định là phiên bản hiện tại {patch}. Chọn bất kỳ phiên bản nào, hoặc mọi thời điểm, ở phía trên bảng tướng."
 }

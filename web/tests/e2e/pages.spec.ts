@@ -139,14 +139,11 @@ test("clicking a champion on the Tier List opens its page, with no favorites or 
   await expect(page.locator(".fav-star, .cmp-toggle")).toHaveCount(0);
 });
 
-test("the Tier List keeps advanced stats in their own table at the bottom", async ({ page }) => {
+test("the Tier List shows every stat in one table, with no separate advanced section", async ({ page }) => {
   await page.goto("/tier-list");
   const main = page.locator(".data-table").first();
-  await expect(main.locator("thead")).not.toContainText("Damage share");
-  const more = page.locator(".advanced-stats").first();
-  await expect(more).not.toHaveAttribute("open");
-  await more.locator("summary").click();
-  await expect(more.locator("thead")).toContainText("Damage share");
+  await expect(main.locator("thead")).toContainText("Damage share");
+  await expect(page.locator(".advanced-stats")).toHaveCount(0);
   // Changes read in percentage points, never as a negative zero.
   await expect(main.locator("tbody").first()).not.toContainText("-0.0");
 });

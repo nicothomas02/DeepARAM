@@ -4,12 +4,12 @@ import RowLink from "./RowLink";
 import { useEffect, useMemo, useRef, useState } from "react";
 import championNames from "@/data/champion-names.json";
 import { setParams } from "@/lib/url-state";
-import { useAdvancedState } from "./Advanced";
 import championIds from "@/data/champion-ids.json";
 import { hintFor } from "@/lib/glossary";
 import { useNames, useT } from "./I18n";
 import { EmptyState } from "@/components/EmptyState";
 import DeepScore from "./DeepScore";
+import { useAdvanced } from "./Advanced";
 import ArchetypeTags from "./ArchetypeTags";
 import { openRankings, RANKINGS_ID } from "./HowRankings";
 import type { TagInfo } from "@/lib/tag-info";
@@ -191,8 +191,19 @@ export default function DataTable({
   // ("" = the default tab), and keep them there as they change so the address can be shared.
   urlTab?: string;
 }) {
-  // Advanced columns get their own table at the bottom, apart from the standard view (AdvancedStats).
-  const columns = standardColumns;
+  // Every stat in one table: the advanced columns, when given, are the table's columns (Nico 2026-10-20).
+  // On phones the extra ones drop out so the main numbers fit, unless Settings > Page detail is "Detailed".
+  const detailed = useAdvanced();
+  const columns = useMemo(() => {
+    if (!advancedColumns) return standardColumns;
+    // A column in the standard set keeps its phone setting from there.
+    const standard = new Map(standardColumns.map((c) => [c.key, c]));
+    return advancedColumns.map((c) => {
+      const std = standard.get(c.key);
+      if (std) return { ...c, phone: std.phone ?? c.phone };
+      return detailed ? c : { ...c, phone: c.phone ?? ("hide" as const) };
+    });
+  }, [advancedColumns, standardColumns, detailed]);
   // The first champion or augment column stays pinned on phones while the table scrolls sideways.
   const pin = columns.find((c) => c.format === "champion" || c.format === "augment" || c.format === "item")?.key;
   // Column labels, hints and the table's own wording live in the "tables" namespace.
@@ -249,7 +260,8 @@ export default function DataTable({
   };
 
   const tableRef = useStickyHead(Math.min(sorted.length, shown) > STICKY_ROWS);
-  const cls = (c: Column, base: string) => [base, c.key === pin && "pin", c.phone && `ph-${c.phone}`, c.format === "augment" && "aug-col"].filter(Boolean).join(" ");
+  const cls = (c: Column, base: string) =>
+    [base, c.key === pin && "pin", c.phone && `ph-${c.phone}`, c.format === "augment" && "aug-col"].filter(Boolean).join(" ");
 
   // Phones: a table that trims columns (Column.phone) fits the screen, so it sorts from a menu (any column,
   // hidden ones too) and a tap anywhere on a row opens the row's page when the row has just one.
@@ -441,26 +453,6 @@ export default function DataTable({
           {t("Show more ({n} left)", { n: sorted.length - shown })}
         </button>
       )}
-      {advancedColumns && advancedColumns.length > columns.length && (
-        <AdvancedStats columns={advancedColumns} rows={rows} initialSort={initialSort} searchKey={searchKey} searchLabel={searchLabel} />
-      )}
     </div>
-  );
-}
-
-// Every stat for the same rows, in a table of its own at the bottom so the standard view above stays short.
-// Closed until opened (or Settings > Page detail is "Detailed"); the choice is remembered (Advanced.tsx).
-function AdvancedStats(props: { columns: Column[]; rows: Row[]; initialSort: { key: string; desc: boolean }; searchKey?: string; searchLabel?: string }) {
-  const { advanced, setAdvanced } = useAdvancedState();
-  const t = useT("tables");
-  return (
-    <details className="advanced-stats" open={advanced} onToggle={(e) => e.currentTarget.open !== advanced && setAdvanced(e.currentTarget.open)}>
-      <summary>
-        {t("Advanced stats")}
-        <small>{t("Every stat we have for this list, in its own table.")}</small>
-      </summary>
-      {/* Every column stays here on phones too; this table scrolls sideways. */}
-      {advanced && <DataTable {...props} columns={props.columns.map((c) => ({ ...c, phone: undefined }))} />}
-    </details>
   );
 }

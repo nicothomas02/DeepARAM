@@ -23,5 +23,6 @@
  "Silver": "白银",
  "Gold": "黄金",
  "Prismatic": "棱彩",
- "{n} pts": "{n} 个百分点"
+ "{n} pts": "{n} 个百分点",
+ "Patches": "版本"
 }

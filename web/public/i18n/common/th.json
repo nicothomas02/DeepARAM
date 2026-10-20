@@ -202,5 +202,6 @@
  "{v} kill participation": "มีส่วนร่วมในการฆ่า {v}",
  "{v} multikills": "มัลติคิล {v}",
  "{v} tower damage": "ดาเมจป้อม {v}",
- "Simulated damage: share of champions beaten at level 8 → level 18.": "ดาเมจจำลอง: สัดส่วนแชมเปี้ยนที่เอาชนะได้ที่เลเวล 8 → เลเวล 18"
+ "Simulated damage: share of champions beaten at level 8 → level 18.": "ดาเมจจำลอง: สัดส่วนแชมเปี้ยนที่เอาชนะได้ที่เลเวล 8 → เลเวล 18",
+ "About": "เกี่ยวกับ"
 }

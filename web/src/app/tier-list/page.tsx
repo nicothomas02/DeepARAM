@@ -223,7 +223,7 @@ export default function TierListPage() {
         title={<T ns="tier-list">{text("page./tier-list.title", "Every Mayhem champion and augment, ranked.")}</T>}
       >
         <T ns="tier-list" v={{ patch: patchName(latest.patch) }}>
-          {"Live patch {patch} by default. Pick any patches, or all time, above the champion table. Advanced stats at the bottom show every stat we have."}
+          {"Live patch {patch} by default. Pick any patches, or all time, above the champion table."}
         </T>
       </Intro>
       <HowRankings />

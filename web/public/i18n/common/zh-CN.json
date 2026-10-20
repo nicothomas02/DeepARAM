@@ -202,5 +202,6 @@
  "{v} kill participation": "参团率 {v}",
  "{v} multikills": "多杀 {v}",
  "{v} tower damage": "防御塔伤害 {v}",
- "Simulated damage: share of champions beaten at level 8 → level 18.": "模拟伤害：在 8 级 → 18 级时胜过的英雄比例。"
+ "Simulated damage: share of champions beaten at level 8 → level 18.": "模拟伤害：在 8 级 → 18 级时胜过的英雄比例。",
+ "About": "关于"
 }
