@@ -120,5 +120,9 @@
  "Game counts are approximate.": "จำนวนเกมเป็นค่าโดยประมาณ",
  "Win rate boost": "อัตราชนะที่เพิ่มขึ้น",
  "Sort": "เรียงลำดับ",
- "How much more the pair wins than the two champions' own win rates predict, in percentage points. Above zero means they help each other. Rarely played pairs count for less, so a lucky streak can't top the list.": "คู่นี้ชนะมากกว่าที่อัตราชนะของแชมเปี้ยนแต่ละตัวคาดไว้เท่าไร เป็นจุดเปอร์เซ็นต์ มากกว่าศูนย์หมายความว่าช่วยกันได้ดีคู่ที่เล่นน้อยมีน้ำหนักน้อยลง จึงไม่ขึ้นอันดับต้นเพราะดวงดีชั่วคราว"
+ "How much more the pair wins than the two champions' own win rates predict, in percentage points. Above zero means they help each other. Rarely played pairs count for less, so a lucky streak can't top the list.": "คู่นี้ชนะมากกว่าที่อัตราชนะของแชมเปี้ยนแต่ละตัวคาดไว้เท่าไร เป็นจุดเปอร์เซ็นต์ มากกว่าศูนย์หมายความว่าช่วยกันได้ดีคู่ที่เล่นน้อยมีน้ำหนักน้อยลง จึงไม่ขึ้นอันดับต้นเพราะดวงดีชั่วคราว",
+ "Damage mitigated": "ดาเมจที่ลดได้",
+ "Healing done": "การฟื้นฟูที่ทำได้",
+ "Crowd control": "การควบคุม (CC)",
+ "Shielding": "โล่"
 }

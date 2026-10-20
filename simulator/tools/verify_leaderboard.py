@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Keep the Simulator leaderboard's top 10, re-running every build with the native simulator.
+"""Keep the Simulator leaderboard (each champion's best build), re-running every build with the native simulator.
 
 The replay page sends every build a visitor simulates on the live patch (web/src/app/api/sim-scores); the
 damage it sends is never trusted. This takes rows from the deeparam-sim D1 database (table submissions),
@@ -10,11 +10,12 @@ enemy (the same for every champion), and prints SQL that writes the result and k
     python3 tools/verify_leaderboard.py rows.json > updates.sql
 
 rows.json is that query's result: a JSON list of {id, champion, items, augments, status} with items and
-augments as comma-separated keys (or {"results": [...]}). It holds the pending builds and the current
-top 10, so every run checks the top 10 still work: one that no longer does (an item or augment gone, the
-simulator refuses it) is deleted, the others get this run's numbers. A pending build that fails is marked
-rejected. Then the best 10 builds of this patch are "verified" (listed) and the rest "checked" (kept so a
-repeat isn't simulated again); checked and rejected rows from an older patch are deleted.
+augments as comma-separated keys (or {"results": [...]}). It holds the pending builds and the listed
+ones, so every run checks the listed builds still work: one that no longer does (an item or augment gone,
+the simulator refuses it) is deleted, the others get this run's numbers. A pending build that fails is
+marked rejected. Then each champion's best build of this patch (by damage per second) is "verified"
+(listed) and the rest "checked" (kept so a repeat isn't simulated again); checked and rejected rows from
+an older patch are deleted. Besides damage, each row keeps the fight's other numbers in `stats` (JSON).
 """
 import json
 import subprocess
@@ -27,7 +28,9 @@ SIM = ROOT / "mayhem_sim"
 # fight). Ashe is the most picked enemy; Ashe herself fights Teemo. Keep in step with SURVIVAL in
 # viewer/sim-panel.js and the Survival tab's text (web/src/components/SimLeaderboard.tsx).
 SURVIVAL_ENEMY, SURVIVAL_FALLBACK = "Ashe", "Teemo"
-TOP = 10
+# The other numbers the simulator's modes rank by, kept with each build (summary key -> stats key).
+STATS = {"damage_taken": "taken", "damage_mitigated": "mitigated", "healing": "healing", "shielding": "shielding",
+         "cc_seconds": "cc"}
 QUERY = ("SELECT id, champion, items, augments, status FROM submissions WHERE status IN ('pending', 'verified') "
          "ORDER BY status = 'verified' DESC, id LIMIT 500")
 
@@ -67,9 +70,10 @@ def check(row, meta):
 
 
 def board(patch):
-    """SQL that lists the best TOP builds of this patch and keeps the rest as checked."""
+    """SQL that lists each champion's best build of this patch and keeps the rest as checked."""
     p = sql(patch)
-    best = f"SELECT id FROM submissions WHERE status IN ('verified', 'checked') AND patch = {p} ORDER BY verified_dps DESC LIMIT {TOP}"
+    best = ("SELECT id FROM (SELECT id, ROW_NUMBER() OVER (PARTITION BY champion ORDER BY verified_dps DESC) AS n "
+            f"FROM submissions WHERE status IN ('verified', 'checked') AND patch = {p}) WHERE n = 1")
     return [
         f"DELETE FROM submissions WHERE status IN ('checked', 'rejected') AND patch != {p};",
         f"UPDATE submissions SET status = 'checked' WHERE status = 'verified' AND id NOT IN ({best});",
@@ -116,9 +120,11 @@ def main():
             fail(row, err[:80].replace("\n", " "))
             continue
         s = json.loads(out)["builds"][0]["summary"]
-        # Checked for now; board() then lists the best TOP of them.
+        stats = {k: round(float(s[key]), 2) for key, k in STATS.items() if key in s}
+        # Checked for now; board() then lists each champion's best.
         print(
             f"UPDATE submissions SET status = 'checked', champion = {sql(champ)}, verified_dps = {sql(s['mean_dps'])}, "
+            f"stats = {sql(json.dumps(stats, separators=(',', ':')))}, "
             f"survival = {sql(s['survival_rate'])}, time_alive = {sql(s['time_alive'])}, patch = {sql(patch)}, "
             f"verified_at = datetime('now') WHERE id = {int(row['id'])};"
         )

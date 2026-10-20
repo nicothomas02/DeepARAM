@@ -120,5 +120,9 @@
  "Game counts are approximate.": "Ο αριθμός παιχνιδιών είναι κατά προσέγγιση.",
  "Win rate boost": "Ενίσχυση ποσοστού νικών",
  "Sort": "Ταξινόμηση",
- "How much more the pair wins than the two champions' own win rates predict, in percentage points. Above zero means they help each other. Rarely played pairs count for less, so a lucky streak can't top the list.": "Πόσο περισσότερο κερδίζει το ζευγάρι από ό,τι προβλέπουν τα ποσοστά νικών των δύο champions, σε ποσοστιαίες μονάδες. Πάνω από το μηδέν σημαίνει ότι βοηθούν ο ένας τον άλλον. Τα σπάνια ζευγάρια μετράνε λιγότερο, ώστε ένα τυχερό σερί να μην φτάνει στην κορυφή."
+ "How much more the pair wins than the two champions' own win rates predict, in percentage points. Above zero means they help each other. Rarely played pairs count for less, so a lucky streak can't top the list.": "Πόσο περισσότερο κερδίζει το ζευγάρι από ό,τι προβλέπουν τα ποσοστά νικών των δύο champions, σε ποσοστιαίες μονάδες. Πάνω από το μηδέν σημαίνει ότι βοηθούν ο ένας τον άλλον. Τα σπάνια ζευγάρια μετράνε λιγότερο, ώστε ένα τυχερό σερί να μην φτάνει στην κορυφή.",
+ "Damage mitigated": "Ζημιά που μετριάστηκε",
+ "Healing done": "Θεραπεία που έγινε",
+ "Crowd control": "Έλεγχος πλήθους",
+ "Shielding": "Ασπίδες"
 }

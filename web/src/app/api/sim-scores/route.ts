@@ -2,19 +2,19 @@ import { NextRequest } from "next/server";
 import { d1 } from "@/lib/env";
 import { passesBotCheck } from "@/lib/bot-check";
 
-// The Simulator leaderboard (SIM database, table submissions): the top 10 builds visitors have simulated.
+// The Simulator leaderboard (SIM database, table submissions): each champion's best build visitors have simulated.
 // POST /api/sim-scores {champion, items, augments, dps}: the replay page sends every build it simulates on the
 //   live patch, on its own. Only the build is stored, never who sent it (ip_hash is a per-day hash used for the
 //   daily limit). It is stored as "pending" and the sent damage is never shown: the simulator re-runs every
 //   pending build on our side (simulator/tools/verify_leaderboard.py) and only that result counts. Rows then
-//   are "verified" (in the top 10), "checked" (simulated, outside the top 10) or "rejected". The same job
-//   re-runs the top 10 every few hours and removes a build that no longer works (an item or augment gone).
+//   are "verified" (the champion's best by damage per second, listed), "checked" (simulated, not the best) or
+//   "rejected". The same job re-runs the listed builds every few hours and removes a build that no longer works
+//   (an item or augment gone). `stats` holds that run's other numbers (damage taken, healing, …) as JSON.
 //   One row per build; repeats are ignored. The page also sends {check}, the bot-check token
 //   (lib/bot-check.ts), once that check is switched on.
-// GET /api/sim-scores: the top 10 builds, best first.
+// GET /api/sim-scores: each champion's best build, highest damage per second first.
 const MAX_BODY = 5_000; // the bot-check token can be 2,048 characters
 const PER_IP_PER_DAY = 50;
-const TOP = 10;
 const MAX_PENDING = 3_000;
 const CHAMP = /^[A-Za-z0-9]{2,24}$/;
 const KEY = /^[a-z0-9_]{2,48}$/;
@@ -83,7 +83,17 @@ export async function POST(req: NextRequest) {
   return json({ status: "pending" }, 202);
 }
 
-type Row = { champion: string; items: string; augments: string; verified_dps: number; survival: number; time_alive: number; patch: string };
+type Row = { champion: string; items: string; augments: string; verified_dps: number; survival: number; time_alive: number; patch: string; stats: string | null };
+const STATS = ["taken", "mitigated", "healing", "shielding", "cc"] as const;
+
+function stats(raw: string | null): Partial<Record<(typeof STATS)[number], number>> {
+  try {
+    const o = JSON.parse(raw ?? "{}") as Record<string, unknown>;
+    return Object.fromEntries(STATS.filter((k) => typeof o[k] === "number").map((k) => [k, o[k] as number]));
+  } catch {
+    return {};
+  }
+}
 const shape = (r: Row) => ({
   champion: r.champion,
   items: r.items.split(",").filter(Boolean),
@@ -92,6 +102,7 @@ const shape = (r: Row) => ({
   survival: r.survival,
   time_alive: r.time_alive,
   patch: r.patch,
+  ...stats(r.stats),
 });
 
 export async function GET() {
@@ -100,10 +111,10 @@ export async function GET() {
   const rows = (
     await db
       .prepare(
-        "SELECT champion, items, augments, verified_dps, survival, time_alive, patch FROM submissions " +
-          "WHERE status = 'verified' ORDER BY verified_dps DESC LIMIT ?",
+        "SELECT champion, items, augments, verified_dps, survival, time_alive, patch, stats FROM submissions " +
+          "WHERE status = 'verified' ORDER BY verified_dps DESC",
       )
-      .bind(TOP)
+      .bind()
       .all<Row>()
   ).results;
   return json({ builds: rows.map(shape) }, 200, "public, max-age=60, s-maxage=300");

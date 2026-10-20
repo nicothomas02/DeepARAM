@@ -120,5 +120,9 @@
  "Game counts are approximate.": "أعداد المباريات تقريبية.",
  "Win rate boost": "زيادة نسبة الفوز",
  "Sort": "ترتيب",
- "How much more the pair wins than the two champions' own win rates predict, in percentage points. Above zero means they help each other. Rarely played pairs count for less, so a lucky streak can't top the list.": "مقدار ما يفوز به الثنائي أكثر مما تتوقعه نسبتا فوز البطلين كلٌّ بمفرده، بالنقاط المئوية. فوق الصفر يعني أنهما يساعدان بعضهما. الثنائيات النادرة اللعب تُحتسب بوزن أقل، فلا تتصدر سلسلة حظ القائمة."
+ "How much more the pair wins than the two champions' own win rates predict, in percentage points. Above zero means they help each other. Rarely played pairs count for less, so a lucky streak can't top the list.": "مقدار ما يفوز به الثنائي أكثر مما تتوقعه نسبتا فوز البطلين كلٌّ بمفرده، بالنقاط المئوية. فوق الصفر يعني أنهما يساعدان بعضهما. الثنائيات النادرة اللعب تُحتسب بوزن أقل، فلا تتصدر سلسلة حظ القائمة.",
+ "Damage mitigated": "الضرر المُخفَّف",
+ "Healing done": "العلاج المُقدَّم",
+ "Crowd control": "التحكم بالحشود",
+ "Shielding": "الدروع"
 }

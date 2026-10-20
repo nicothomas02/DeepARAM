@@ -120,5 +120,9 @@
  "Game counts are approximate.": "As contagens de partidas são aproximadas.",
  "Win rate boost": "Ganho de vitórias",
  "Sort": "Ordenar",
- "How much more the pair wins than the two champions' own win rates predict, in percentage points. Above zero means they help each other. Rarely played pairs count for less, so a lucky streak can't top the list.": "Quanto a dupla vence a mais do que as taxas de vitória de cada campeão preveem, em pontos percentuais. Acima de zero, eles se ajudam. Duplas pouco jogadas contam menos, então uma maré de sorte não chega ao topo."
+ "How much more the pair wins than the two champions' own win rates predict, in percentage points. Above zero means they help each other. Rarely played pairs count for less, so a lucky streak can't top the list.": "Quanto a dupla vence a mais do que as taxas de vitória de cada campeão preveem, em pontos percentuais. Acima de zero, eles se ajudam. Duplas pouco jogadas contam menos, então uma maré de sorte não chega ao topo.",
+ "Damage mitigated": "Dano mitigado",
+ "Healing done": "Cura realizada",
+ "Crowd control": "Controle de grupo",
+ "Shielding": "Escudos"
 }

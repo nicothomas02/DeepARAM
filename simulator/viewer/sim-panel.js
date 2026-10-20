@@ -570,8 +570,8 @@
   }
   // ---------- leaderboard ----------
   // Every build simulated on the live patch goes to the Leaderboard on its own: only the build is sent, it's
-  // simulated again on our side against the Survival enemy with the default settings, and the best 10 are
-  // listed. Each build is sent once per visit.
+  // simulated again on our side against the Survival enemy with the default settings, and each champion's
+  // best is listed. Each build is sent once per visit.
   const sent = new Set();
   function offerSubmit(build, live) {
     $("submitBox").hidden = !build;
@@ -612,10 +612,10 @@
       const r = await fetch("/api/sim-scores", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(check ? { ...build, check } : build) });
       const b = await r.json().catch(() => ({}));
       if (!r.ok) throw new Error(b.error ? await kitchenText(b.error) : "");
-      $("submitNote").textContent = b.status === "verified" ? T("This build is in the Leaderboard's top 10 at {dps} DPS.", { dps: dps(b.verified_dps) })
-        : b.status === "checked" ? T("This build was simulated for the Leaderboard at {dps} DPS, outside the top 10.", { dps: dps(b.verified_dps) })
+      $("submitNote").textContent = b.status === "verified" ? T("This build is its champion's best on the Leaderboard, at {dps} DPS.", { dps: dps(b.verified_dps) })
+        : b.status === "checked" ? T("This build was simulated for the Leaderboard at {dps} DPS; its champion has a better one listed.", { dps: dps(b.verified_dps) })
         : b.status === "rejected" ? T("This build can't go on the Leaderboard.")
-        : T("Entered on the Leaderboard. Our simulator runs it again, and it's listed if it makes the top 10.");
+        : T("Entered on the Leaderboard. Our simulator runs it again, and it's listed if it beats its champion's best build.");
     } catch (e) {
       sent.delete(key);
       $("submitNote").textContent = e.message || T("The Leaderboard couldn't be reached. Try again in a moment.");

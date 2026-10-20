@@ -120,5 +120,9 @@
  "Game counts are approximate.": "場次為近似值。",
  "Win rate boost": "勝率提升",
  "Sort": "排序",
- "How much more the pair wins than the two champions' own win rates predict, in percentage points. Above zero means they help each other. Rarely played pairs count for less, so a lucky streak can't top the list.": "組合勝率比兩位英雄各自勝率所預測的高出多少（百分點）。高於零表示他們相互配合。較少使用的組合權重更低，偶然的好運無法讓它登頂。"
+ "How much more the pair wins than the two champions' own win rates predict, in percentage points. Above zero means they help each other. Rarely played pairs count for less, so a lucky streak can't top the list.": "組合勝率比兩位英雄各自勝率所預測的高出多少（百分點）。高於零表示他們相互配合。較少使用的組合權重更低，偶然的好運無法讓它登頂。",
+ "Damage mitigated": "減免傷害",
+ "Healing done": "治療量",
+ "Crowd control": "控場",
+ "Shielding": "護盾量"
 }
