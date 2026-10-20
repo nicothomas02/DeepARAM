@@ -470,9 +470,12 @@ Library Library::load(const std::string& rulesPath, const Settings& settings, co
     lib.augments = loadEffects(json::parse(readFile(game + "/augments.json"))["augments"], "augment");
     const std::string pool = root["scenario"]["enemy_pool"].asString();
     if (!pool.empty()) lib.enemyPool = json::parse(readFile(dir + "/" + pool));
-    std::ifstream poolFile(dir + "/augment_pools.json");
+    // A game-data dir (the PBE patch) carries its own pools; otherwise use the live ones.
+    std::string poolPath = game + "/augment_pools.json";
+    if (!std::ifstream(poolPath)) poolPath = dir + "/augment_pools.json";
+    std::ifstream poolFile(poolPath);
     if (poolFile) {
-        const json::Value pools = json::parse(readFile(dir + "/augment_pools.json"));
+        const json::Value pools = json::parse(readFile(poolPath));
         for (const auto& [id, list] : pools["pools"].obj) {
             auto& out = lib.augmentPools[std::stoi(id)];
             for (const auto& a : list.arr)
@@ -1092,6 +1095,7 @@ private:
         if (ap_ >= bonusAd_) ap_ *= 1.0 + adaptive;
         else bonusAd_ *= 1.0 + adaptive;
         ap_ *= 1.0 + get(fx_, "ap_amp");
+        bonusAd_ *= 1.0 + get(fx_, "bonus_ad_pct");  // "% bonus Attack Damage" (Big Shot, Heavy Is The Crown)
         crit_ = get(stats, "crit") + get(fx_, "crit_per_ap") * ap_;
         crit_ *= 1.0 + get(fx_, "crit_chance_mult");  // Yasuo, Yone: double crit chance
         if (crit_ > 1.0) {  // Mayhem: crit chance above 100% becomes Adaptive Force (AP or 0.6 AD each)
@@ -1109,6 +1113,18 @@ private:
         ad_ = baseAd_ + bonusAd_;
         bonusAs_ = ch_.asG * g + get(stats, "as") + get(fx_, "as_per_ap") * ap_ + sword * get(fx_, "sword_as") +
                    (sc_.onFire ? rules_.fireAs : 0.0);
+        // Tickle Monster: bonus AD becomes attack speed (ad_to_as per point of AD).
+        if (get(fx_, "ad_to_as") > 0) {
+            bonusAs_ += get(fx_, "ad_to_as") * bonusAd_;
+            bonusAd_ = 0;
+            ad_ = baseAd_;
+        }
+        // Big Shot: a share of bonus attack speed becomes crit damage (as_crit_rate per 1.0 attack speed).
+        if (get(fx_, "as_to_crit") > 0) {
+            const double moved = get(fx_, "as_to_crit") * bonusAs_;
+            bonusAs_ -= moved;
+            critDamage_ += moved * get(fx_, "as_crit_rate");
+        }
         double ahFromAs = 0;
         if (get(fx_, "as_to_ah") > 0) {  // Purist - Caster: all bonus attack speed becomes ability haste
             ahFromAs = get(fx_, "as_to_ah") * 100.0 * bonusAs_;
@@ -1120,6 +1136,10 @@ private:
         // Mana (energy pools don't grow). Mind to Matter turns some of it into Health.
         if (ch_.resource == 1) {
             maxMana_ = ch_.mana + ch_.manaG * g + get(stats, "mana");
+            if (get(fx_, "mana_to_ap") > 0) {  // No Mana, No Problem: items' mana becomes AP
+                ap_ += get(fx_, "mana_to_ap") * get(stats, "mana") * (1.0 + get(fx_, "ap_amp"));
+                maxMana_ -= get(stats, "mana");
+            }
             manaRegen_ = (ch_.manaRegen + ch_.manaRegenG * g) * (1.0 + get(stats, "mana_regen"));
         } else if (ch_.resource == 2) {
             maxMana_ = ch_.mana;
@@ -1133,6 +1153,13 @@ private:
         const double baseHp = ch_.hp + ch_.hpG * g + rules_.mayhemHp(sc_.level, ch_.ranged);  // Mayhem bonus base health
         maxHp_ = (baseHp + bonusHp_) * (1.0 + get(fx_, "hp_pct") + sword * get(fx_, "sword_hp")) * (1.0 + get(fx_, "hp_mult"));
         bonusHp_ = maxHp_ - baseHp;
+        ap_ += get(fx_, "ap_per_bonus_hp") * bonusHp_ * (1.0 + get(fx_, "ap_amp"));  // Lich Brain
+        double hpLethality = 0;
+        if (get(fx_, "hp_to_lethality") > 0) {  // Gift of the Drowned: bonus Health becomes Lethality
+            hpLethality = get(fx_, "hp_to_lethality") * bonusHp_;
+            maxHp_ = baseHp;
+            bonusHp_ = 0;
+        }
         // Health-to-AD items (Overlord's Bloodmail) and base-AD bonuses (Sterak's Gage).
         bonusAd_ += get(fx_, "ad_per_bonus_hp") * bonusHp_ + get(fx_, "base_ad_pct") * baseAd_;
         ad_ = baseAd_ + bonusAd_;
@@ -1144,7 +1171,7 @@ private:
         bonusAd_ += get(fx_, "ad_per_armor") * armor_ + get(fx_, "ad_per_mr") * mr_;
         ad_ = baseAd_ + bonusAd_;
         ah_ = get(stats, "ah") + ch_.mayhemAh + get(fx_, "ah_per_ap") * ap_ + get(fx_, "ah_per_crit") * crit_ + ahFromAs;
-        lethality_ = get(stats, "lethality");
+        lethality_ = get(stats, "lethality") + hpLethality;
         armorPen_ = get(stats, "armor_pen");
         magicPen_ = get(stats, "magic_pen");
         // A kit's own percent penetration (Annie R's passive) multiplies with items', as in League.
@@ -2166,11 +2193,15 @@ private:
         dashFor(a.geo);
         const Shot shot = shoot(a);
         // Augments on this ability (spell_bind): more damage, more targets, a second cast, healing, fear.
-        double spellAmp = 1, extraTargets = 0, extraAmp = 0, recast = 0, spellVamp = 0, fear = 0, fearRadius = 0;
+        // Pentakill (HEAVY, POWER, THRASH, DOOM): more damage on one ability slot.
+        const char slotKey[] = {'a', 'm', 'p', '_', static_cast<char>(a.slot - 'A' + 'a'), 0};
+        double spellAmp = 1 + get(fx_, slotKey), extraTargets = 0, extraAmp = 0, recast = 0, spellVamp = 0, fear = 0, fearRadius = 0;
+        double spellCrit = 0;
         for (const auto& bd : bound_) {
             if (bd.idx != idx) continue;
             const Bag& f = *bd.fx;
             spellAmp += get(f, "spell_amp");
+            spellCrit = std::max(spellCrit, get(f, "spell_crit"));
             extraTargets += get(f, "spell_extra_targets");
             extraAmp = std::max(extraAmp, get(f, "spell_extra_amp"));
             recast += get(f, "spell_recast");
@@ -2178,7 +2209,8 @@ private:
             fear = std::max(fear, std::min(get(f, "spell_fear"), a.cooldown / 20.0));
             fearRadius = std::max(fearRadius, get(f, "spell_fear_radius"));
         }
-        const double amp = abilityAmp_ * abilityCritFactor() * spellAmp;
+        // Jeweled Bracelet: the bound ability can crit, for spell_crit more damage.
+        const double amp = abilityAmp_ * abilityCritFactor() * spellAmp * (1.0 + crit_ * spellCrit);
         if (trace_) {
             TraceEvent ev;
             ev.t = t_ - castTime; ev.kind = "cast"; ev.slot = a.slot; ev.amount = castTime; ev.flag = shot.primaryHit;
@@ -2284,9 +2316,11 @@ private:
         Enemy* hitOne = shot.primaryHit && hasPrimary() ? &P() : nullptr;
         if (a.geo.move != Move::None) trigger(OnDash, hitOne);
         for (const auto& bd : bound_)
-            if (bd.idx == idx)
+            if (bd.idx == idx) {
                 for (auto& tr : trigs_)
                     if (tr.fx == bd.fx && static_cast<int>(get(*tr.fx, "trig_on")) == OnBound) fireTrig(tr, hitOne, 1.0);
+                stackEvent(OnBound, bd.fx);  // Flow of Spirit: a buff on casting the bound ability
+            }
         if (a.lock > 0)  // Don't Change the Channel: a shield for every second of channeling
             for (auto& tr : trigs_)
                 if (static_cast<int>(get(*tr.fx, "trig_on")) == OnChannel) fireTrig(tr, nullptr, a.lock, a.lock + 0.5);
@@ -2698,7 +2732,8 @@ private:
     double amountOf(const Bag& f, const std::string& p, const Enemy* e) const {
         double v = get(f, p + "flat") + get(f, p + "ap") * ap_ + get(f, p + "ad") * ad_ + get(f, p + "bonus_ad") * bonusAd_ +
                    get(f, p + "own_hp") * maxHp_ + get(f, p + "bonus_hp") * bonusHp_ +
-                   get(f, p + "bonus_armor") * bonusArmor_ + get(f, p + "bonus_mr") * bonusMr_;
+                   get(f, p + "bonus_armor") * bonusArmor_ + get(f, p + "bonus_mr") * bonusMr_ +
+                   get(f, p + "max_mana") * maxMana_;
         if (e) v += get(f, p + "max_hp") * e->maxHp + get(f, p + "cur_hp") * e->hp + get(f, p + "missing_hp") * (e->maxHp - e->hp);
         return v;
     }
@@ -2723,11 +2758,12 @@ private:
         double& ready = perTarget ? tr.perTarget[e->uid] : tr.readyAt;
         if (t_ < ready) return false;
         if (get(f, "trig_below") > 0 && (!e || e->hp > get(f, "trig_below") * e->maxHp)) return false;
+        if (get(f, "trig_self_below") > 0 && myHp_ > get(f, "trig_self_below") * maxHp_) return false;
         if (get(f, "trig_min_range") > 0 && (!e || distTo(*e) < get(f, "trig_min_range"))) return false;
         if (++tr.counter < static_cast<int>(get(f, "trig_every", 1))) return false;
         tr.counter = 0;
         ready = t_ + get(f, "trig_cd");
-        scale *= get(f, "trig_scale", 1.0) * get(f, "trig_chance", 1.0);
+        scale *= get(f, "trig_scale", 1.0) * get(f, "trig_chance", 1.0) * (ranged_ ? get(f, "trig_ranged", 1.0) : 1.0);
         std::vector<Enemy*> hit;
         if (get(f, "trig_around_me") > 0) {
             hit = near(me_, get(f, "trig_around_me"));
@@ -2754,8 +2790,10 @@ private:
         return true;
     }
 
-    void stackEvent(int kind) {
+    // only: just the stacks of that augment (an ability's bound augment, on casting it).
+    void stackEvent(int kind, const Bag* only = nullptr) {
         for (auto& s : stacks_) {
+            if (only && s.fx != only) continue;
             const Bag& f = *s.fx;
             const int on = static_cast<int>(get(f, s.p + "on"));
             if (on != kind && !(on == OnHit && (kind == OnAttack || kind == OnAbility))) continue;
@@ -3467,6 +3505,7 @@ std::vector<Ranked> optimize(const Library& lib, const ChampionKit& c, const Sce
     const std::vector<std::string>& boots = sl.allBoots;
     const std::vector<std::string>& pool = sl.pool;
     const int screen = os.screenTrials * 3;
+    const double kClash = -std::numeric_limits<double>::infinity();
     // 2. Every combination of the candidates, with the greedy boots.
     std::vector<std::vector<int>> combos;
     std::vector<int> cur;
@@ -3476,12 +3515,14 @@ std::vector<Ranked> optimize(const Library& lib, const ChampionKit& c, const Sce
     parallelFor(static_cast<int>(combos.size()), threads, [&](int i) {
         Build b{{bestBoots}, {}};
         for (int j : combos[i]) {
-            if (clashes(lib, b.items, pool[j])) { results[i] = {-1, i}; return; }
+            if (clashes(lib, b.items, pool[j])) { results[i] = {kClash, i}; return; }
             b.items.push_back(pool[j]);
         }
         results[i] = {score(lib, c, b, sc, os.screenTrials, metric), i};
     });
     std::sort(results.rbegin(), results.rend());
+    // Item sets that break a unique group (two Hydras) never make the final cut.
+    while (results.size() > 1 && results.back().first == kClash) results.pop_back();
 
     // 3. Augments, greedily, on the best item build.
     Build best{{bestBoots}, {}};

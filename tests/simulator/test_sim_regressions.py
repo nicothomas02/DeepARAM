@@ -174,9 +174,10 @@ def test_pbe_data_is_the_pbe_patch():
 
 def test_viewer_pbe_copy_matches_data_pbe(tmp_path):
     """tools/refresh_pbe.sh ships data/pbe/ (notes stripped) to viewer/replay-data/pbe/, which the browser loads."""
-    files = [str(PBE_DIR / f"{n}.json") for n in ("champions", "items", "augments")]
+    names = ("champions", "items", "augments", "augment_pools")
+    files = [str(PBE_DIR / f"{n}.json") for n in names]
     subprocess.run([sys.executable, str(SIM_DIR / "tools/strip_notes.py"), str(tmp_path), *files], check=True, timeout=120)
-    for n in ("champions", "items", "augments"):
+    for n in names:
         assert load_json(tmp_path / f"{n}.json") == load_json(VIEWER_DIR / f"replay-data/pbe/{n}.json"), \
             f"viewer/replay-data/pbe/{n}.json is out of date; run sh simulator/tools/refresh_pbe.sh"
 
@@ -204,6 +205,58 @@ def test_game_data_dir_is_what_gets_loaded(run_json, tmp_path):
     assert {a["key"] for a in live["augments"]} == set(live_augs)
 
 
+
+
+# ---------------------------------------------------------------- PBE augment pools (PBE best builds)
+
+def _norm(name):
+    return re.sub(r"[^a-z0-9]", "", name.lower())
+
+
+def _datamine_augments():
+    return load_json(SIM_DIR.parent / "data/pbe/kiwi-s3.json")["augments"]
+
+
+def test_pbe_augments_follow_the_datamine():
+    """The PBE patch's augments: live, less the removed and disabled ones, plus the added ones."""
+    dm = _datamine_augments()
+    live = {_norm(a["name"]) for a in load_json(DATA_DIR / "augments.json")["augments"].values()}
+    pbe = {_norm(a["name"]) for a in load_json(PBE_DIR / "augments.json")["augments"].values()}
+    added = {_norm(a["name"]) for a in dm["added"]} - {_norm("Pentakill (choose any ability)")}
+    gone = {_norm(a["name"]) for a in dm["removed"]} | {
+        _norm(c["name"]) for c in dm["changed"]
+        if any("disabled" in str(x.get("pbe", "")).lower() for x in c["changes"])}
+    assert pbe == (live - gone) | added
+
+
+def test_pbe_pools_offer_only_pbe_augments_and_every_new_one():
+    pbe = load_json(PBE_DIR / "augments.json")["augments"]
+    live = set(load_json(DATA_DIR / "augments.json")["augments"])
+    new = set(pbe) - live
+    pools = load_json(PBE_DIR / "augment_pools.json")["pools"]
+    assert pools.keys() == load_json(DATA_DIR / "augment_pools.json")["pools"].keys()
+    for cid, pool in pools.items():
+        assert set(pool) <= set(pbe), cid
+        assert new <= set(pool), cid
+
+
+def test_pbe_switch_uses_pbe_pools(run_json):
+    live = run_json("mayhem_sim", ["--list", "--json"])
+    pbe = run_json("mayhem_sim", ["--list", "--json", "--game-data", "data/pbe"])
+    jinx = {c["id"]: set(c["augments"]) for c in pbe["champions"]}["Jinx"]
+    assert "big_shot" in jinx and "big_shot" not in {a["key"] for a in live["augments"]}
+    gone = {a["key"] for a in live["augments"]} - {a["key"] for a in pbe["augments"]}
+    assert gone and not gone & jinx
+
+
+def test_most_new_pbe_augments_are_modeled():
+    """New PBE augments get effects from the PBE client's numbers; the rest say why they have none."""
+    pbe = load_json(PBE_DIR / "augments.json")["augments"]
+    new = [a for k, a in pbe.items() if k not in load_json(DATA_DIR / "augments.json")["augments"]]
+    modeled = [a for a in new if a.get("stats") or a.get("effects")]
+    assert len(modeled) >= 29, sorted(a["name"] for a in new if a not in modeled)
+    for a in new:
+        assert a in modeled or a.get("note", "").startswith("No effect in the simulator"), a["name"]
 
 
 def test_pbe_list_json_loads(run_sim):
