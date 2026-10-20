@@ -5433,6 +5433,38 @@ html[data-patch-new] .chip[data-dir="up"]::after {
   gap: 0.5rem;
   margin-bottom: 1rem;
 }
+.items-filter-menu > summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-bottom: 0.75rem;
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  background: var(--card);
+  font-weight: 600;
+  cursor: pointer;
+  list-style: none;
+}
+.items-filter-menu > summary::-webkit-details-marker {
+  display: none;
+}
+.items-filter-menu > summary::after {
+  content: "▾";
+  color: var(--muted);
+  transition: transform 0.15s;
+}
+.items-filter-menu[open] > summary::after {
+  transform: rotate(180deg);
+}
+.items-filter-n {
+  min-width: 1.4em;
+  padding: 0 0.35em;
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--bg);
+  font-size: 0.75rem;
+  text-align: center;
+}
 .items-group {
   display: flex;
   flex-wrap: wrap;
