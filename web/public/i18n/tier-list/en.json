@@ -47,9 +47,9 @@
  "Late game": "Late game",
  "Even": "Even",
  "Archetypes": "Archetypes",
- "Live patch {patch}. Each augment gets a DeepScore against the others of its rarity: 50 is average, S is 70 and up, A 59, B 44, C 32 and D below. Switch to Table for every number.": "Live patch {patch}. Each augment gets a DeepScore against the others of its rarity: 50 is average, S is 70 and up, A 59, B 44, C 32 and D below. Switch to Table for every number.",
  "Tiers": "Tiers",
  "Table": "Table",
  "View": "View",
- "Live patch {patch} by default. Pick any patches, or all time, above the champion table.": "Live patch {patch} by default. Pick any patches, or all time, above the champion table."
+ "Live patch {patch} by default. Pick any patches, or all time, above the champion table.": "Live patch {patch} by default. Pick any patches, or all time, above the champion table.",
+ "Live patch {patch}. Each augment gets a DeepScore against the others of its rarity: 50 is average, S is 70 and up, A 59, B 44, C 32 and D below.": "Live patch {patch}. Each augment gets a DeepScore against the others of its rarity: 50 is average, S is 70 and up, A 59, B 44, C 32 and D below."
 }

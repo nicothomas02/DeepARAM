@@ -47,9 +47,9 @@
  "Late game": "終盤",
  "Even": "安定",
  "Archetypes": "アーキタイプ",
- "Live patch {patch}. Each augment gets a DeepScore against the others of its rarity: 50 is average, S is 70 and up, A 59, B 44, C 32 and D below. Switch to Table for every number.": "現在のパッチ{patch}。各オーグメントには同じレアリティの他のオーグメントと比べたDeepScoreがつきます: 50が平均、Sは70以上、Aは59、Bは44、Cは32、Dはそれ未満。すべての数値は「表」で確認できます。",
  "Tiers": "ティア",
  "Table": "表",
  "View": "表示",
- "Live patch {patch} by default. Pick any patches, or all time, above the champion table.": "初期表示は現在のパッチ{patch}。チャンピオン表の上で、好きなパッチや全期間を選べます。"
+ "Live patch {patch} by default. Pick any patches, or all time, above the champion table.": "初期表示は現在のパッチ{patch}。チャンピオン表の上で、好きなパッチや全期間を選べます。",
+ "Live patch {patch}. Each augment gets a DeepScore against the others of its rarity: 50 is average, S is 70 and up, A 59, B 44, C 32 and D below.": "現在のパッチ{patch}。各オーグメントには同じレアリティの他のオーグメントと比べたDeepScoreがつきます: 50が平均、Sは70以上、Aは59、Bは44、Cは32、Dはそれ未満。"
 }
