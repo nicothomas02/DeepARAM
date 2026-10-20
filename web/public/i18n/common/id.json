@@ -81,7 +81,6 @@
  "Send it our way. Ideas from players shape what we build next.": "Kirimkan ke kami. Ide dari pemain menentukan apa yang kami buat selanjutnya.",
  "Contact us": "Hubungi kami",
  "Copy the email address": "Salin alamat email",
- "Copied!": "Tersalin!",
  "Privacy": "Privasi",
  "Terms": "Ketentuan",
  "Status": "Status",
@@ -158,7 +157,6 @@
  "Patch {patch} recap": "Rekap Patch {patch}",
  "The Kitchen →": "Dapur →",
  "Write to us": "Tulis ke kami",
- "Email {email}": "Email ke {email}",
  "Your message": "Pesanmu",
  "Your email, if you'd like a reply (optional)": "Emailmu, kalau ingin dibalas (opsional)",
  "Send": "Kirim",
@@ -171,12 +169,6 @@
  "That's 5 messages today. Try again tomorrow, or email us.": "Sudah 5 pesan hari ini. Coba lagi besok, atau kirim email ke kami.",
  "The bot check didn't pass. Try again.": "Pemeriksaan bot gagal. Coba lagi.",
  "Too many submissions.": "Terlalu banyak kiriman.",
- "Where should we open your email?": "Di mana email kamu dibuka?",
- "Gmail (new tab)": "Gmail (tab baru)",
- "Outlook.com (new tab)": "Outlook.com (tab baru)",
- "Mail app (Outlook, Apple Mail and others)": "Aplikasi email (Outlook, Apple Mail, dan lainnya)",
- "Open email": "Buka email",
- "Copy address": "Salin alamat",
  "Champion and augment win rates and duo synergy, patch by patch.": "Win rate champion dan augment serta sinergi duo, patch demi patch.",
  "Top 10 at": "Top 10 dalam",
  "Estimated": "Perkiraan",
@@ -202,5 +194,6 @@
  "{v} kill participation": "{v} partisipasi kill",
  "{v} multikills": "{v} multikill",
  "{v} tower damage": "{v} damage tower",
- "Simulated damage: share of champions beaten at level 8 → level 18.": "Damage simulasi: persentase champion yang dikalahkan di level 8 → level 18."
+ "Simulated damage: share of champions beaten at level 8 → level 18.": "Damage simulasi: persentase champion yang dikalahkan di level 8 → level 18.",
+ "Or shoot us an email at": "Atau kirim email ke kami di"
 }
