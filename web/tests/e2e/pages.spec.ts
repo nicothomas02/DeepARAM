@@ -15,6 +15,7 @@ const PAGES = [
   "/champions/Yunara",
   "/patches",
   "/tier-list?tab=items",
+  "/tier-list?tab=draft",
   "/tier-list?tab=items&itag=crit,as",
   "/tier-list?tag=Mage,Poke",
   "/account",
@@ -88,9 +89,9 @@ test("old addresses redirect to the current tabs", async ({ page }) => {
   for (const [from, path, tab, keep] of [
     ["/augments?tab=duos&q=Jinx", "/tier-list", "champions", "cview"],
     ["/tier-list?tab=duos", "/tier-list", "champions", "cview"],
-    // Augments by icon and Draft practice were removed: their old addresses open the augment tier list.
-    ["/draft", "/tier-list", "augments", null],
-    ["/augments?tab=draft&champ=Jinx", "/tier-list", "augments", null],
+    // Draft practice is a Tier List tab again; Augments by icon was removed and opens the augment tier list.
+    ["/draft", "/tier-list", "draft", null],
+    ["/augments?tab=draft", "/tier-list", "draft", null],
     ["/augments?tab=groups", "/tier-list", "augments", null],
     ["/tier-list?tab=groups", "/tier-list", "augments", null],
     ["/items", "/tier-list", "items", null],
@@ -285,4 +286,24 @@ test("the Simulator opens in 3D even with the old owner switch's saved 2D pick",
   await expect(page.locator("iframe").first()).toHaveAttribute("src", /^\/embed\/simulator\/full\.html/);
   await toggle.click();
   await expect(page.locator("iframe").first()).toHaveAttribute("src", /^\/embed\/simulator\/index\.html/);
+});
+
+test("Draft practice deals champion cards, rerolls onto the bench and locks in", async ({ page }) => {
+  await page.goto("/tier-list?tab=draft");
+  const draft = page.locator(".cs-draft");
+  const cards = draft.locator(".cs-cards button.cs-card");
+  await expect(cards.first()).toBeVisible();
+  expect(await cards.count()).toBeGreaterThanOrEqual(2);
+  const lock = draft.getByRole("button", { name: "Lock In" });
+  await expect(lock).toBeDisabled();
+  // Rerolling sends the old cards to the shared bench.
+  await expect(async () => {
+    await draft.getByRole("button", { name: "Reroll" }).click();
+    await expect(draft.locator(".cs-bench-row button").first()).toBeVisible({ timeout: 1000 });
+  }).toPass();
+  await draft.locator(".cs-bench-row button").first().click();
+  await expect(lock).toBeEnabled();
+  await lock.click();
+  await expect(draft.locator(".cs-result")).toContainText("average live win rate");
+  await expect(draft.getByRole("button", { name: "Play again" })).toBeVisible();
 });
