@@ -140,5 +140,20 @@
  "{n} boost": "ενίσχυση {n}",
  "of {n} by DeepScore": "από {n} κατά DeepScore",
  "Win rates are estimated. The boost below each is how much the augment adds to this champion's win rate.": "Τα ποσοστά νικών είναι εκτιμήσεις. Η ενίσχυση κάτω από το καθένα δείχνει πόσο προσθέτει το augment στο ποσοστό νικών αυτού του champion.",
- "Spell pairs with win rate, pick rate and win rate boost appear here once enough games are in.": "Τα ζεύγη ξορκιών με ποσοστό νικών, ποσοστό επιλογής και ενίσχυση ποσοστού νικών εμφανίζονται εδώ μόλις υπάρξουν αρκετά παιχνίδια."
+ "Spell pairs with win rate, pick rate and win rate boost appear here once enough games are in.": "Τα ζεύγη ξορκιών με ποσοστό νικών, ποσοστό επιλογής και ενίσχυση ποσοστού νικών εμφανίζονται εδώ μόλις υπάρξουν αρκετά παιχνίδια.",
+ "Rival quest": "Αποστολή αντιπάλων",
+ "Team quest": "Ομαδική αποστολή",
+ "When {name} is on the other team": "Όταν ο/η {name} είναι στην αντίπαλη ομάδα",
+ "When {name} is on your team": "Όταν ο/η {name} είναι στην ομάδα σου",
+ "No hard CC": "Χωρίς σκληρό CC",
+ "Damage": "Ζημιά",
+ "Toughness": "Αντοχή",
+ "Crowd Control": "Καταστολή Πλήθους",
+ "Mobility": "Κινητικότητα",
+ "Utility": "Υποστήριξη",
+ "The champion's ability to deal damage to enemy champions": "Η ικανότητα που έχει αυτός ο Ήρωας να προκαλεί ζημιά σε αντίπαλους Ήρωες",
+ "The champion's ability to absorb damage from enemy champions": "Η ικανότητα του Ήρωα να απορροφά ζημιά από αντίπαλους Ήρωες",
+ "The champion's ability to apply harmful effects like slows and stuns to enemy champions": "Η ικανότητα του ήρωα να επηρεάζει αντίπαλους ήρωες με βλαβερές επιδράσεις, όπως επιβραδύνσεις και ακινητοποιήσεις",
+ "The champion's ability to move quickly around the map using blinks or dashes": "Η ικανότητα ενός ήρωα να κινείται γρήγορα στον χάρτη με τηλεμεταφορές ή εφορμήσεις",
+ "The champion's ability to grant beneficial effects like shields, healing, or movement speed to allied champions": "Η ικανότητα του ήρωα να δίνει στους σύμμαχους θετικές επιδράσεις, όπως ασπίδες, θεραπεία ή Ταχύτητα Κίνησης"
 }

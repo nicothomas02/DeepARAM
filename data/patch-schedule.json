@@ -1,6 +1,7 @@
 {
- "_note": "Riot's published patch schedule. Dates are Pacific Time; times of day aren't published. Add next year's list when Riot posts it.",
+ "_note": "Riot's published patch schedule. Dates are Pacific Time. \"time\" is the usual hour patches go live (Pacific, 24h), applied to every date; a patch can override it with its own \"time\". Add next year's list when Riot posts it.",
  "timeZone": "America/Los_Angeles",
+ "time": "11:00",
  "patches": [
   {
    "patch": "26.01",

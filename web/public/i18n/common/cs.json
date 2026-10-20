@@ -196,5 +196,13 @@
  "{v} tower damage": "{v} poškození věží",
  "Simulated damage: share of champions beaten at level 8 → level 18.": "Simulované poškození: podíl překonaných šampionů na úrovni 8 → úrovni 18.",
  "Or shoot us an email at": "Nebo nám napište e-mail na",
- "About": "O webu"
+ "About": "O webu",
+ "Pentakill every {v} games": "Pentakill každých {v} her",
+ "Pentakills": "Pentakilly",
+ "Damage mitigated": "Zmírněné poškození",
+ "Kill participation": "Účast na zabitích",
+ "Time dead": "Čas mrtvý",
+ "CS": "CS",
+ "{v} mitigated/min": "{v} zmírněno/min",
+ "{v} CS": "{v} CS"
 }

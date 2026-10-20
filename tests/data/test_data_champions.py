@@ -12,6 +12,7 @@ SLOTS = ["P", "Q", "W", "E", "R"]
 ROLES = {"assassin", "fighter", "mage", "marksman", "support", "tank"}
 BUILD_KEYS = ("start", "boots", "first", "core", "full")
 STYLES = {"crit", "onhit", "ap", "lethality", "fighter", "tank", "enchanter"}
+CC = {"stun", "root", "slow", "knockup", "knockback", "pull", "silence", "fear", "taunt", "suppression", "polymorph", "blind"}
 STORMRAZOR_TENCENT, STORMRAZOR = 3097, 3095
 
 
@@ -72,6 +73,7 @@ def test_abilities(data):
                 n = 3 if a["slot"] == "R" else 5
                 assert len(a["cooldown"]) <= n, (c["alias"], a["slot"])
                 assert all(x >= 0 for x in a["cooldown"]), (c["alias"], a["slot"])
+            assert a.get("cc") is None or a["cc"] in CC, (c["alias"], a["slot"])
 
 
 def test_base_stats(data):
@@ -323,3 +325,65 @@ def test_official_profile():
         assert 1 <= c["difficulty"] <= len(o["difficulty"]), alias
     profile = load_js_data("champions/profile.js", "CHAMPS_PROFILE")
     assert set(profile) == set(tags) and all(p["difficulty"] in o["difficulty"] for p in profile.values())
+
+
+def test_augment_styles_from_build_tags(builder):
+    """Augments fit a build style through their own build tags; untagged augments fit none."""
+    kiwi = {"a": {"__type": "AugmentData", "AugmentPlatformId": 1, "mBuildTags": 512 | 64},
+            "b": {"__type": "AugmentData", "AugmentPlatformId": 2, "mBuildTags": 256 | 8 | 1024},
+            "c": {"__type": "AugmentData", "AugmentPlatformId": 3},
+            "d": {"__type": "AugmentData", "AugmentPlatformId": 4, "mBuildTags": 4}}
+    assert builder.augment_styles(kiwi) == {1: {"crit", "onhit"}, 2: {"tank", "enchanter"}}
+    assert set(builder.BUILD_TAGS.values()) == STYLES
+
+
+def test_ability_cc(builder):
+    assert builder.ability_cc({"mAbilitySlotCC": [16, 0, 15, 14]}) == {"Q": "stun", "E": "root", "R": "slow"}
+    assert builder.ability_cc({"mAbilitySlotCC": [0, 1, 0, 0]}) == {}  # unnamed codes are left out
+    assert builder.ability_cc({}) is None
+    assert set(builder.CC_CODES.values()) == CC
+
+
+def test_tags_crowd_control_and_augments(data):
+    T = load_json("champions/tags.json")
+    with_cc = [v for v in T["champions"].values() if "cc" in v]
+    assert len(with_cc) > 100
+    for v in with_cc:
+        assert set(v["cc"]) <= {"Q", "W", "E", "R"} and set(v["cc"].values()) <= CC
+        assert v["hardCC"] == bool(set(v["cc"].values()) - {"slow", "blind"})
+    assert T["champions"]["Leona"]["cc"]["Q"] == "stun"
+    assert len(T["augments"]) > 50
+    assert all(st and set(st) <= STYLES for st in T["augments"].values())
+
+
+def test_official_playstyle_tags_and_ratings(builder):
+    T = load_json("champions/tags.json")
+    ch = T["champions"]
+    official = set(builder.PLAYSTYLES)
+    assert len(official) == 19 and official <= set(T["colors"]) and official <= set(T["meanings"])
+    assert sum(1 for v in ch.values() if v["playstyles"]) > len(ch) - 10
+    for alias, v in ch.items():
+        assert len(v["playstyles"]) <= 2 and set(v["playstyles"]) <= official, alias
+        if "ratings" in v:
+            assert list(v["ratings"]) == T["ratings"] and all(1 <= x <= 3 for x in v["ratings"].values()), alias
+    assert ch["Leona"]["playstyles"] == ["Initiator", "Crowd Control"]
+    assert ch["Leona"]["ratings"]["toughness"] == 3 and ch["Leona"]["ratings"]["control"] == 3
+    names = load_json("data/official/champion-tag-names.json")
+    assert len(names) == 21 and all(set(v) <= official for v in names.values())
+
+
+def test_tag_key(builder):
+    assert builder.tag_key("Crowd Control") == "champion_tag_crowd_control"
+    assert builder.tag_key("Damage-over-Time") == "champion_tag_damage_over_time"
+    assert builder.tag_key("AoE") == "champion_tag_aoe"
+
+
+def test_official_site_files(builder):
+    T = load_json("champions/tags.json")
+    tags = load_json("data/official/augment-build-tags.json")
+    assert set(tags) == set(T["augments"]) and all(set(v) <= set(builder.SITE_STYLE.values()) for v in tags.values())
+    cc = load_json("data/official/champion-cc.json")
+    assert set(cc) == {a for a, v in T["champions"].items() if "cc" in v}
+    assert all(set(v["slots"]) == set("QWER") and isinstance(v["hard"], bool) for v in cc.values())
+    meta = load_json("data/official/champion-metadata.json")
+    assert meta["Leona"]["tags"] == ["Initiator", "Crowd Control"] and meta["Leona"]["playstyle"]["control"] == 3

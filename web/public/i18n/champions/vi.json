@@ -140,5 +140,20 @@
  "{n} boost": "tăng {n}",
  "of {n} by DeepScore": "trên {n} theo DeepScore",
  "Win rates are estimated. The boost below each is how much the augment adds to this champion's win rate.": "Tỉ lệ thắng là ước tính. Mức tăng bên dưới mỗi dòng là lõi này cộng thêm bao nhiêu vào tỉ lệ thắng của tướng.",
- "Spell pairs with win rate, pick rate and win rate boost appear here once enough games are in.": "Các cặp phép bổ trợ cùng tỉ lệ thắng, tỉ lệ chọn và mức tăng tỉ lệ thắng sẽ hiện ở đây khi có đủ trận."
+ "Spell pairs with win rate, pick rate and win rate boost appear here once enough games are in.": "Các cặp phép bổ trợ cùng tỉ lệ thắng, tỉ lệ chọn và mức tăng tỉ lệ thắng sẽ hiện ở đây khi có đủ trận.",
+ "Rival quest": "Nhiệm vụ đối thủ",
+ "Team quest": "Nhiệm vụ đồng đội",
+ "When {name} is on the other team": "Khi {name} ở đội đối phương",
+ "When {name} is on your team": "Khi {name} ở cùng đội với bạn",
+ "No hard CC": "Không có khống chế cứng",
+ "Damage": "Sát thương",
+ "Toughness": "Chống chịu",
+ "Crowd Control": "Khống chế",
+ "Mobility": "Cơ động",
+ "Utility": "Đa dụng",
+ "The champion's ability to deal damage to enemy champions": "Tướng có khả năng gây sát thương lên tướng địch",
+ "The champion's ability to absorb damage from enemy champions": "Tướng có khả năng chịu sát thương từ tướng địch",
+ "The champion's ability to apply harmful effects like slows and stuns to enemy champions": "Tướng có khả năng gây hiệu ứng bất lợi như làm chậm và làm choáng tướng địch",
+ "The champion's ability to move quickly around the map using blinks or dashes": "Tướng có khả năng di chuyển nhanh chóng quanh bản đồ bằng tốc biến hoặc lướt tới",
+ "The champion's ability to grant beneficial effects like shields, healing, or movement speed to allied champions": "Tướng có khả năng tạo hiệu ứng có lợi như lá chắn, hồi máu hoặc tăng tốc cho đồng minh"
 }

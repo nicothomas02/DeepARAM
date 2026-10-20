@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import { pageMeta } from "@/lib/meta";
-import { livePatch } from "@/lib/highlights";
+import { livePatch, liveTiers } from "@/lib/highlights";
 import augmentNames from "@/data/augment-names.json";
 import { AdvancedProvider } from "@/components/Advanced";
 import ChampionTiers from "@/components/ChampionTiers";
+import ChampionsPanel from "@/components/ChampionsPanel";
 import DuosTable from "@/components/DuosTable";
+import { questPairs } from "@/components/champion/Quests";
 import { archetypeRows, duoVersion, hasDuos } from "@/lib/duos";
 import { augmentHref } from "@/lib/augments";
 import { augmentTiers, STYLES } from "@/lib/augment-tiers";
@@ -27,6 +29,8 @@ import { readRepoCsv, readRepoJson } from "@/lib/repo-data";
 import { allChampionTags, championTagData } from "@/lib/champion-tags";
 import { fillGames } from "@/lib/fill";
 import { patchName } from "@/lib/patch-name";
+import ChampSelectDraft, { type DraftChamp } from "@/components/ChampSelectDraft";
+import { hasHardCC } from "@/lib/cc";
 
 export const metadata: Metadata = pageMeta(
   "/tier-list",
@@ -38,6 +42,25 @@ const num = (v: string | undefined) => (v === undefined || v === "" ? null : Num
 const ALIAS = Object.fromEntries(Object.entries(championIds as Record<string, number>).map(([alias, id]) => [id, alias]));
 const NAMES = championNames as Record<string, string>;
 const names = augmentNames as Record<string, string>;
+
+// Each team quest pair once (Jinx and Ekko), for a note under the Duos list.
+// Draft practice: every live-patch champion with its tier, and whether it's a frontliner or has hard CC.
+const FRONT = new Set(["Tank", "Vanguard", "Warden", "Juggernaut"]);
+const draftChamps = (): DraftChamp[] => {
+  const { tags } = championTagData();
+  return liveTiers().map((c) => ({
+    id: c.id,
+    name: c.name,
+    tier: c.tier,
+    winRate: c.winRate,
+    deepScore: c.deepScore,
+    front: (tags[c.id] ?? []).some((t) => FRONT.has(t)),
+    hardCC: hasHardCC(c.id),
+  }));
+};
+
+const teamQuests = (): [string, string, string][] =>
+  questPairs("ally").flatMap((q) => (q.champion < q.partner ? [[q.champion, q.partner, q.name] as [string, string, string]] : []));
 
 export default function TierListPage() {
   const byPatch = readRepoCsv("data/cn/history/by_patch.csv");
@@ -80,13 +103,18 @@ export default function TierListPage() {
       id: "champions",
       label: "Champions",
       content: (
-        <ChampionTiers
-          rows={rows}
-          patches={patches.map((p) => p.patch)}
-          tags={allChampionTags([...new Set(rows.map((r) => r.name))])}
-          tagInfo={championTagData().info}
-          games={fillGames()}
-          scaling={Object.fromEntries([...powerCurveLists().scaling].flatMap(([id, v]) => (ALIAS[id] ? [[ALIAS[id], v]] : [])))}
+        <ChampionsPanel
+          solo={
+            <ChampionTiers
+              rows={rows}
+              patches={patches.map((p) => p.patch)}
+              tags={allChampionTags([...new Set(rows.map((r) => r.name))])}
+              tagInfo={championTagData().info}
+              games={fillGames()}
+              scaling={Object.fromEntries([...powerCurveLists().scaling].flatMap(([id, v]) => (ALIAS[id] ? [[ALIAS[id], v]] : [])))}
+            />
+          }
+          duos={duos ? <DuosTable archetypes={archetypeRows()} tagInfo={championTagData().info} version={duoVersion()} quests={teamQuests()} /> : undefined}
         />
       ),
     },
@@ -110,18 +138,22 @@ export default function TierListPage() {
           <AugmentTiers
             styles={STYLES}
             columns={augCols}
+            // Most useful on the left: rank, win rate and its boost, pick rate, then the finer numbers.
             advancedColumns={[
-              ...augCols,
+              ...augCols.slice(0, 3),
+              augCols[4],
               {
                 key: "lift",
                 label: "Win rate boost",
                 format: "pts" as const,
                 hint: "Win rate minus what the champions who take it win anyway. Above zero means it helps them.",
               },
+              augCols[5],
+              { key: "best", label: "Best champions", format: "text", sortable: false },
+              augCols[3],
               { key: "win_rank", label: "Win rank", format: "int" },
               { key: "pick_rank", label: "Pick rank", format: "int" },
               { key: "pick_change", label: "Pick rank change", format: "int" },
-              { key: "best", label: "Best champions", format: "text", sortable: false },
             ]}
             rows={augments
               .filter((a) => names[String(a.augment_id)] || a.key)
@@ -195,17 +227,31 @@ export default function TierListPage() {
       ),
     });
   }
-  if (duos)
-    tabs.push({
-      id: "duos",
-      label: "Duos",
-      content: <DuosTable archetypes={archetypeRows()} tagInfo={championTagData().info} version={duoVersion()} />,
-      lazy: true,
-    });
 
+  const draft = draftChamps();
+  if (draft.length >= 20) {
+    tabs.push({
+      id: "draft",
+      label: "Draft practice",
+      lazy: true,
+      content: (
+        <>
+          <p className="patch-note subtab-note">
+            <T ns="tier-list">
+              {
+                "Champ select the way ARAM runs it: two champion cards, sometimes a third from a Blessing. Reroll for new cards and your old ones go to the shared bench, where anyone on your team can grab them. Lock in to see how your pick and team rank on the live patch."
+              }
+            </T>
+          </p>
+          <ChampSelectDraft champs={draft} />
+        </>
+      ),
+    });
+  }
   return (
     <AdvancedProvider>
       <Intro
+        art="arambilgewater"
         eyebrow={
           <T ns="tier-list" v={{ patch: patchName(latest.patch) }}>
             {"Tier List · Patch {patch}"}

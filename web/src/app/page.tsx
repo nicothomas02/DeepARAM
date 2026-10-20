@@ -51,7 +51,7 @@ function funValues(): Record<string, (id: number, alias: string) => string | nul
     crowd_control: (id) => fmt(profileValue(id, "cc_seconds"), one),
     mitigated: (id) => fmt(profileValue(id, "mitigated_per_min"), int),
     cs: (id) => fmt(profileValue(id, "cs"), one),
-    pentakills: (id) => fmt(profileValue(id, "pentakills"), (v) => v.toFixed(3)),
+    pentakills: (id) => fmt(profileValue(id, "pentakills"), (v) => (v > 0 ? Math.round(1 / v).toLocaleString("en-US") : "—")),
     dead: (_, a) => fmt(live.get(a)?.dead, (v) => `${Math.floor(v / 60)}m ${String(Math.round(v % 60)).padStart(2, "0")}s`),
     towers: (id) => fmt(profileValue(id, "turret_damage"), int),
     early_game: curve,
@@ -103,7 +103,7 @@ export default function Home() {
 
   return (
     <>
-      <section className="hero">
+      <section className="hero has-art" style={{ "--art": "url(/assets/art/arambloom.webp)" } as React.CSSProperties}>
         <p className="eyebrow">
           <ModeName />
           {patch && (
@@ -138,6 +138,28 @@ export default function Home() {
       </section>
 
       <div className="bento">
+        {schedule && (
+          <section className="card span-all home-patch" data-accent="pbe">
+            <PatchCountdown schedule={schedule} asOf={new Date().toISOString()} />
+            {latest && (
+              <Link className="home-recap" href={`/patches/${patchName(latest.patch)}`}>
+                <b>
+                  <T v={{ patch: patchName(latest.patch) }}>{"Patch {patch} recap"}</T>
+                </b>
+                <span>
+                  {latest.hasAugmentHistory ? (
+                    <T ns="patches" v={{ added: latest.added.length, removed: latest.removed.length, changed: latest.changed.length }}>
+                      {"{added} added · {removed} removed · {changed} changed"}
+                    </T>
+                  ) : (
+                    <T ns="patches">Win rates only</T>
+                  )}
+                </span>
+                <span aria-hidden="true">→</span>
+              </Link>
+            )}
+          </section>
+        )}
         <RecentPlayed />
         {tiers.length > 0 && (
           <section className="card span-7" data-accent="tier">
@@ -222,7 +244,7 @@ export default function Home() {
               <h2>
                 <T>Best duos</T>
               </h2>
-              <Link href="/tier-list?tab=duos">
+              <Link href="/tier-list?cview=duos">
                 <T>All →</T>
               </Link>
             </div>
@@ -379,28 +401,6 @@ export default function Home() {
                 </span>
               </div>
             </div>
-          </section>
-        )}
-        {schedule && (
-          <section className="card span-all home-patch" data-accent="pbe">
-            <PatchCountdown schedule={schedule} asOf={new Date().toISOString()} />
-            {latest && (
-              <Link className="home-recap" href={`/patches/${patchName(latest.patch)}`}>
-                <b>
-                  <T v={{ patch: patchName(latest.patch) }}>{"Patch {patch} recap"}</T>
-                </b>
-                <span>
-                  {latest.hasAugmentHistory ? (
-                    <T ns="patches" v={{ added: latest.added.length, removed: latest.removed.length, changed: latest.changed.length }}>
-                      {"{added} added · {removed} removed · {changed} changed"}
-                    </T>
-                  ) : (
-                    <T ns="patches">Win rates only</T>
-                  )}
-                </span>
-                <span aria-hidden="true">→</span>
-              </Link>
-            )}
           </section>
         )}
         {builds.length > 0 && (

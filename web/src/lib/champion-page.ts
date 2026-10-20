@@ -12,18 +12,16 @@ import {
   type ItemTier,
 } from "./items";
 import { repoHas, repoPath, readRepoJson } from "./repo-data";
-import { synergy } from "./synergy";
+import { matesOf, type Mate } from "./duos";
+import { officialStyleLabels } from "./build-tags";
 
 // The ranked tables on a champion page (/champions/<Alias>): skill orders, item paths, augments,
 // teammates, Mayhem's ability changes and base stats. Every row with a win rate also carries its
 // "win lift", the row's win rate minus the champion's own, so a build that beats the champion's
-// average stands out. Data: data/cn/builds/<id>.json (builds), data/cn/champions.json (teammates) and
+// average stands out. Data: data/cn/builds/<id>.json (builds), the Duos list (teammates, lib/duos.ts) and
 // champions/data.js (ability changes, base stats, build styles).
 
 const IDS = championIds as Record<string, number>;
-const ALIAS = Object.fromEntries(
-  Object.entries(IDS).map(([alias, id]) => [id, alias]),
-);
 const AUGS = augmentNames as Record<string, string>;
 
 /** A pair only counts as a teammate once it shows up in at least this share of games. */
@@ -45,18 +43,6 @@ type Builds = {
     { id: number; pick_rate: number; grade?: string }[]
   >;
 };
-type Champs = {
-  champions: {
-    champion_id: number;
-    win_rate: number;
-    best_partners?: {
-      champion_id: number;
-      win_rate: number;
-      pick_rate: number;
-    }[];
-  }[];
-};
-
 export type Rated = { winRate: number; pickRate: number; lift: number };
 export type ItemRow = Rated & {
   items: number[];
@@ -69,8 +55,10 @@ export type AugmentRow = {
   name: string;
   rarity: "prismatic" | "gold" | "silver";
   pickRate: number;
+  /** The game's own build tags, as style names (lib/build-tags.ts). */
+  tags: string[];
 };
-export type Mate = { id: string; synergy: number; pickRate: number };
+export type { Mate };
 export type Change = {
   slot: string;
   name: string;
@@ -178,31 +166,14 @@ export function championPage(alias: string): ChampionPage | null {
     .map((a) => ({
       id: a.id,
       name: AUGS[a.id],
+      tags: officialStyleLabels(a.id),
       rarity: rarity.get(a.id) ?? "silver",
       pickRate: a.pick_rate,
     }));
 
-  // Synergy: how much more a pair wins than the two champions' own win rates predict (lib/synergy.ts),
-  // over the champion's most played-with teammates, the same pairs and snapshot as the Duos tab.
-  const snapshot =
-    readRepoJson<Champs>("data/cn/champions.json")?.champions ?? [];
-  const solo = new Map(snapshot.map((c) => [c.champion_id, c.win_rate]));
-  const self = snapshot.find((c) => c.champion_id === id);
-  const mates = (self?.best_partners ?? [])
-    .filter((m) => m.pick_rate >= MIN_PAIR_PICK)
-    .flatMap((m) => {
-      const other = ALIAS[m.champion_id];
-      const theirs = solo.get(m.champion_id);
-      if (!other || theirs === undefined) return [];
-      return [
-        {
-          id: other,
-          synergy: synergy(m.win_rate, self!.win_rate, theirs),
-          pickRate: m.pick_rate,
-        },
-      ];
-    })
-    .sort((x, y) => y.synergy - x.synergy);
+  // Win rate boost: the Duos list's numbers (lib/duos.ts), the synergy adjusted for how often a pair is played,
+  // over the teammates the champion has in at least MIN_PAIR_PICK of its games.
+  const mates = matesOf(alias).filter((m) => m.pickRate >= MIN_PAIR_PICK);
 
   const client = windowJson<{ champions: ClientChamp[] }>(
     "champions/data.js",

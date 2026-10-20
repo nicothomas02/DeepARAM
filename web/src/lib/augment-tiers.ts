@@ -4,6 +4,7 @@ import { augmentPages } from "./augments";
 import { repoHas, repoPath, readRepoJson } from "./repo-data";
 import championIds from "@/data/champion-ids.json";
 import { grade, lowerBound } from "./deepscore";
+import { officialStyles } from "./build-tags";
 
 // Augment tier list (/augments): every live augment ranked S to D against the others of its rarity
 // (a selection only ever offers one rarity), plus the build styles it fits, for the style filter.
@@ -15,7 +16,8 @@ import { grade, lowerBound } from "./deepscore";
 // the rarity's average, more strongly the less often the augment is picked, and scored at its low end.
 //
 // Styles: an augment fits a style when champions who play that style list it among that style's
-// augments (champions/data.js "Builds by style"), or when its internal name names the style.
+// augments (champions/data.js "Builds by style"), or when its internal name names the style. The game's own
+// build tags (lib/build-tags.ts) replace both for the augments that have them.
 
 export const STYLES = {
   crit: "Crit",
@@ -120,7 +122,9 @@ export function augmentTiers(): TierAug[] {
       const key = (raw.get(a.id)?.key ?? "").replace(/^ARAM_/, "").toLowerCase();
       const v = votes.get(a.id) ?? {};
       const seen = Object.values(v).reduce((s, n) => s + n, 0);
-      const styles = (Object.keys(STYLES) as Style[]).filter((s) => (v[s] ?? 0) >= Math.max(2, seen * 0.25) || NAME_STYLE[s].test(key));
+      // The game's own build tags win (lib/build-tags.ts); otherwise champions' style lists and the name.
+      const styles =
+        officialStyles(a.id) ?? (Object.keys(STYLES) as Style[]).filter((s) => (v[s] ?? 0) >= Math.max(2, seen * 0.25) || NAME_STYLE[s].test(key));
       out.push({
         id: a.id,
         name: a.name,

@@ -15,6 +15,7 @@ const PAGES = [
   "/champions/Yunara",
   "/patches",
   "/tier-list?tab=items",
+  "/tier-list?tab=draft",
   "/tier-list?tab=items&itag=crit,as",
   "/tier-list?tag=Mage,Poke",
   "/account",
@@ -86,10 +87,11 @@ test("old addresses redirect to the current tabs", async ({ page }) => {
   }
   // Pages merged into the Tier List: the tab is picked and the old query kept.
   for (const [from, path, tab, keep] of [
-    ["/augments?tab=duos&q=Jinx", "/tier-list", "duos", "q"],
-    // Augments by icon and Draft practice were removed: their old addresses open the augment tier list.
-    ["/draft", "/tier-list", "augments", null],
-    ["/augments?tab=draft&champ=Jinx", "/tier-list", "augments", null],
+    ["/augments?tab=duos&q=Jinx", "/tier-list", "champions", "cview"],
+    ["/tier-list?tab=duos", "/tier-list", "champions", "cview"],
+    // Draft practice is a Tier List tab again; Augments by icon was removed and opens the augment tier list.
+    ["/draft", "/tier-list", "draft", null],
+    ["/augments?tab=draft", "/tier-list", "draft", null],
     ["/augments?tab=groups", "/tier-list", "augments", null],
     ["/tier-list?tab=groups", "/tier-list", "augments", null],
     ["/items", "/tier-list", "items", null],
@@ -148,22 +150,66 @@ test("the Tier List shows every stat in one table, with no separate advanced sec
   await expect(main.locator("tbody").first()).not.toContainText("-0.0");
 });
 
-test("the Augments and Items tabs follow the Champions layout: filters above one sortable table", async ({ page }) => {
+test("the Augments and Items tabs follow the Champions layout: filters folded above one sortable table", async ({ page }) => {
   await page.goto("/tier-list?tab=augments");
   const augs = page.locator(".atiers .data-table").first();
   await expect(augs.locator("tbody tr").first()).toBeVisible();
   await expect(page.locator(".atiers-rows, .view-switch")).toHaveCount(0);
-  await page.locator(".atiers .chip-toggle", { hasText: "Prismatic" }).click();
+  // The filter chips sit under a closed "Filter by tags" button.
+  const prismatic = page.locator(".atiers .chip-toggle", { hasText: "Prismatic" });
+  await expect(prismatic).toBeHidden();
+  await expect(async () => {
+    if (!(await prismatic.isVisible())) await page.locator("#panel-augments .items-filter-menu > summary").click();
+    await expect(prismatic).toBeVisible({ timeout: 1000 });
+  }).toPass();
+  await prismatic.click();
   await expect(page).toHaveURL(/rarity=prismatic/);
+  await expect(page.locator("#panel-augments .items-filter-n")).toHaveText("1");
 
   await page.goto("/tier-list?tab=items");
   const table = page.locator(".items-index .data-table").first();
   await expect(table.locator('a[href^="/items/"]').first()).toBeVisible();
   await expect(page.locator(".item-card")).toHaveCount(0);
-  // Phones hide the Cost column and sort from the menu instead (DataTable Column.phone).
-  if (test.info().project.name === "phone") await table.locator(".table-sort").selectOption("cost.desc");
-  else await table.locator("thead button", { hasText: "Cost" }).click();
-  await expect(table.locator("th[aria-sort]")).toContainText("Cost");
+  // No sort menu on any screen: the column headers sort (phones hide Cost, so they sort by win rate).
+  await expect(page.locator(".table-sort")).toHaveCount(0);
+  const col = test.info().project.name === "phone" ? "Est. win rate" : "Cost";
+  await table.locator("thead button", { hasText: col }).click();
+  await expect(table.locator("th[aria-sort]")).toContainText(col);
+});
+
+test("Champions: tags behind a Filter button, Duos as a view, and Show more opens every row", async ({ page }) => {
+  await page.goto("/tier-list");
+  const champs = page.locator("#panel-champions");
+  await expect(champs.locator(".arch-tag").first()).toBeHidden();
+  // A click before the page finishes loading can be undone by it, so retry until the fold stays open.
+  await expect(async () => {
+    if (!(await champs.locator(".arch-tag").first().isVisible())) await champs.locator(".items-filter-menu > summary").first().click();
+    await expect(champs.locator(".arch-tag").first()).toBeVisible({ timeout: 1000 });
+  }).toPass();
+
+  const more = champs.locator(".show-more").first();
+  if (await more.count()) {
+    await more.click();
+    await expect(champs.locator(".show-more")).toHaveCount(0);
+  }
+
+  // Duos are a view of the Champions tab, not a tab of their own.
+  await expect(page.locator("#tab-duos")).toHaveCount(0);
+  await champs.locator(".champ-view button", { hasText: "Duos" }).click();
+  await expect(page).toHaveURL(/cview=duos/);
+  await expect(champs.locator(".data-table th", { hasText: "Win rate boost" }).first()).toBeVisible();
+});
+
+test("champion quests show on both champions' pages and under Duos", async ({ page }) => {
+  await page.goto("/champions/Viktor");
+  const quest = page.locator("#quests");
+  await expect(quest).toContainText("Our Shared Dream");
+  await expect(quest).toContainText("Viktor must take down Jayce 5 times.");
+  await expect(quest.locator('a[href="/champions/Jayce"]')).toBeVisible();
+  await page.goto("/champions/Ekko");
+  await expect(page.locator("#quests")).toContainText("Echoes of Innocence");
+  await page.goto("/tier-list?cview=duos");
+  await expect(page.locator(".duo-quest").first()).toContainText("Echoes of Innocence");
 });
 
 test("new visitors start in dark mode", async ({ page }) => {
@@ -240,4 +286,24 @@ test("the Simulator opens in 3D even with the old owner switch's saved 2D pick",
   await expect(page.locator("iframe").first()).toHaveAttribute("src", /^\/embed\/simulator\/full\.html/);
   await toggle.click();
   await expect(page.locator("iframe").first()).toHaveAttribute("src", /^\/embed\/simulator\/index\.html/);
+});
+
+test("Draft practice deals champion cards, rerolls onto the bench and locks in", async ({ page }) => {
+  await page.goto("/tier-list?tab=draft");
+  const draft = page.locator(".cs-draft");
+  const cards = draft.locator(".cs-cards button.cs-card");
+  await expect(cards.first()).toBeVisible();
+  expect(await cards.count()).toBeGreaterThanOrEqual(2);
+  const lock = draft.getByRole("button", { name: "Lock In" });
+  await expect(lock).toBeDisabled();
+  // Rerolling sends the old cards to the shared bench.
+  await expect(async () => {
+    await draft.getByRole("button", { name: "Reroll" }).click();
+    await expect(draft.locator(".cs-bench-row button").first()).toBeVisible({ timeout: 1000 });
+  }).toPass();
+  await draft.locator(".cs-bench-row button").first().click();
+  await expect(lock).toBeEnabled();
+  await lock.click();
+  await expect(draft.locator(".cs-result")).toContainText("average live win rate");
+  await expect(draft.getByRole("button", { name: "Play again" })).toBeVisible();
 });

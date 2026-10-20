@@ -140,5 +140,20 @@
  "{n} boost": "{n} artış",
  "of {n} by DeepScore": "{n} içinde, DeepScore'a göre",
  "Win rates are estimated. The boost below each is how much the augment adds to this champion's win rate.": "Kazanma oranları tahminidir. Her birinin altındaki artış, güçlendirmenin bu şampiyonun kazanma oranına ne kadar eklediğidir.",
- "Spell pairs with win rate, pick rate and win rate boost appear here once enough games are in.": "Kazanma oranı, seçilme oranı ve kazanma oranı artışıyla büyü çiftleri yeterli oyun olunca burada görünür."
+ "Spell pairs with win rate, pick rate and win rate boost appear here once enough games are in.": "Kazanma oranı, seçilme oranı ve kazanma oranı artışıyla büyü çiftleri yeterli oyun olunca burada görünür.",
+ "Rival quest": "Rakip görevi",
+ "Team quest": "Takım görevi",
+ "When {name} is on the other team": "{name} rakip takımdayken",
+ "When {name} is on your team": "{name} senin takımındayken",
+ "No hard CC": "Sert kitle kontrolü yok",
+ "Damage": "Hasar",
+ "Toughness": "Sağlamlık",
+ "Crowd Control": "Kitle Kontrolü",
+ "Mobility": "Hareketlilik",
+ "Utility": "İşlevsellik",
+ "The champion's ability to deal damage to enemy champions": "Şampiyonun, rakip şampiyonlara hasar verme becerisi",
+ "The champion's ability to absorb damage from enemy champions": "Şampiyonun, rakip şampiyonlardan gelen hasarı soğurma becerisi",
+ "The champion's ability to apply harmful effects like slows and stuns to enemy champions": "Şampiyonun, rakip şampiyonlara yavaşlatma veya sersemletme gibi zararlı etkiler uygulama becerisi",
+ "The champion's ability to move quickly around the map using blinks or dashes": "Şampiyonun haritada fırlama veya atılma kullanarak hızla hareket edebilme becerisi",
+ "The champion's ability to grant beneficial effects like shields, healing, or movement speed to allied champions": "Şampiyonun, takım arkadaşlarına kalkan, iyileştirme veya hareket hızı gibi faydalı etkiler sağlama becerisi"
 }

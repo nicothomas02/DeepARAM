@@ -72,6 +72,13 @@ const nextConfig: NextConfig = {
           destination: "/tier-list?tab=augments",
           permanent: true,
         })),
+        // Duos sit under the Tier List's Champions tab now (?cview=duos); tab=champions overrides the old tab=duos.
+        ...["/augments", "/tier-list"].map((source) => ({
+          source,
+          has: [{ type: "query" as const, key: "tab", value: "duos" }],
+          destination: "/tier-list?tab=champions&cview=duos",
+          permanent: true,
+        })),
         // Other Augments page tabs carry over to the Tier List.
         { source: "/augments", has: [{ type: "query" as const, key: "tab", value: "(?<tab>.+)" }], destination: "/tier-list?tab=:tab", permanent: true },
         { source: "/augments", destination: "/tier-list?tab=augments", permanent: true },
@@ -83,9 +90,9 @@ const nextConfig: NextConfig = {
         // Infinite Ryze is a tab in The Kitchen now (it was a Simulator tab before).
         { source: "/simulator/infinite-ryze", destination: "/kitchen?tab=infinite-ryze", permanent: true },
         { source: "/simulator", has: [{ type: "query" as const, key: "tab", value: "infinite-ryze" }], destination: "/kitchen?tab=infinite-ryze", permanent: true },
-        // Augments by icon and Draft practice were removed; their tabs open the augment tier list.
-        { source: "/tier-list", has: [{ type: "query" as const, key: "tab", value: "groups|draft" }], destination: "/tier-list?tab=augments", permanent: true },
-        { source: "/draft", destination: "/tier-list?tab=augments", permanent: true },
+        // Augments by icon was removed; its tab opens the augment tier list. Draft practice is back as a Tier List tab.
+        { source: "/tier-list", has: [{ type: "query" as const, key: "tab", value: "groups" }], destination: "/tier-list?tab=augments", permanent: true },
+        { source: "/draft", destination: "/tier-list?tab=draft", permanent: false },
         // Pages that once existed for another mode's stand-ins of a champion.
         { source: "/champions/Jade_:alias", destination: "/champions/:alias", permanent: true },
         // Patch pages moved from client version numbers (16.20) to Riot's patch numbers (26.20).

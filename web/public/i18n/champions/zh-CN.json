@@ -140,5 +140,20 @@
  "{n} boost": "提升 {n}",
  "of {n} by DeepScore": "共 {n}，按 DeepScore",
  "Win rates are estimated. The boost below each is how much the augment adds to this champion's win rate.": "胜率为估算值。下方的提升值表示该强化符文让这个英雄的胜率提高了多少。",
- "Spell pairs with win rate, pick rate and win rate boost appear here once enough games are in.": "场次足够后，这里会显示召唤师技能组合及其胜率、选取率和胜率提升。"
+ "Spell pairs with win rate, pick rate and win rate boost appear here once enough games are in.": "场次足够后，这里会显示召唤师技能组合及其胜率、选取率和胜率提升。",
+ "Rival quest": "宿敌任务",
+ "Team quest": "团队任务",
+ "When {name} is on the other team": "当{name}在敌方队伍时",
+ "When {name} is on your team": "当{name}在你的队伍时",
+ "No hard CC": "无硬控",
+ "Damage": "伤害",
+ "Toughness": "强韧",
+ "Crowd Control": "控制",
+ "Mobility": "机动",
+ "Utility": "功能",
+ "The champion's ability to deal damage to enemy champions": "用来对敌方英雄造成伤害的英雄技能",
+ "The champion's ability to absorb damage from enemy champions": "用来吸收来自敌方英雄伤害的英雄技能",
+ "The champion's ability to apply harmful effects like slows and stuns to enemy champions": "用来对敌方英雄施加诸如减速和晕眩的有害效果的英雄技能",
+ "The champion's ability to move quickly around the map using blinks or dashes": "通过使用闪现或位移来快速在地图四处移动的英雄技能",
+ "The champion's ability to grant beneficial effects like shields, healing, or movement speed to allied champions": "用来对友军提供护盾、治疗或移动速度等有益效果的英雄技能"
 }

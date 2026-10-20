@@ -5,10 +5,23 @@ The site's **Info** tab (formerly Guide) (`/tools/guide`): how ARAM Mayhem works
 - **What is Mayhem**: the mode's tutorial art, augment pool size by tier, and the Mayhem queue IDs.
 - **Quests**: all 12 quest augments with every milestone and its reward (`ModesQuestData` in kiwi.bin).
 - **Challenges**: the permanent ARAM challenges with every tier threshold, marked by whether they count Mayhem
-  games (queue 2400 in `queueIds`). A Riot ID lookup appears once the site has a `/api/riot/challenges` route
-  that returns Riot's `lol/challenges/v1/player-data/{puuid}` (`challenges: [{challengeId, level, value, percentile}]`).
+  games (queue 2400 in `queueIds`). The page doesn't look up players (Nico, 2026-10-17).
 - **Rules**: Mayhem's mode-wide settings from map12.bin (`Kiwi_Balance`, `Kiwi_OnFireBuff`, `Kiwi_ComboBreaker`,
-  `ARAM_Augment_Manager`) and augments that add a summoner spell.
+  `ARAM_Augment_Manager`) and augments that add a summoner spell. Gold and XP (`economy()`: the KIWI mode's
+  `mGameModeConstants` ambient gold and XP, its bounty config, `mExperienceCurveData` and `mExperienceModData`; also
+  in `mode_rules.json` for the Simulator) and surrender timing (`surrender()`, `mSurrenderSettings`; type 0 is the
+  remake vote; vote shares aren't shown until they're checked in a game). Minion wave timing isn't shown: map12.bin
+  has ten barracks configs and nothing in it says which one Mayhem uses.
+- **Turrets** (`turrets()`, also in `mode_rules.json`): the Howling Abyss outer, inhibitor and Nexus turrets from
+  `game/data/characters/turret/turret.bin.json` (`CharacterRecords/HA_*`): health, damage, armor/MR, range, attack
+  speed, and the gold and XP each player on the team gets (`globalGoldGivenOnDeath`, `globalExpGivenOnDeath`). A
+  per-mode override (`{6854087e}`, KIWI) replaces the base health: Mayhem's Nexus turrets have 1,200 instead of 1,800.
+  The outer turret's 1,300 looks low for ARAM, so it may gain health in game; that needs checking in a game.
+- **Augment stages**: also the fallback augments (the KIWI config with the `{857c9848}` lists): what a selection
+  offers when its rarity runs out. A list leaves out `rarity` when it's Gold (the default).
+- **Quests**: also champion rivalries (`CharacterQuestListConfig` in the KIWI configs, names and goals from
+  `quests_*` strings). Rewards are hidden spells, so they aren't described. The newer `CharacterQuestDefinitionsList`
+  in the same config isn't shown until it's confirmed to run in Mayhem.
 - **Items**: items whose `DataValuesModeOverride` (Kiwi, else ARAM) differs from Summoner's Rift, from items.cdtb.bin.
 - **Extras**: Mayhem-only items and Mayhem-only units.
 

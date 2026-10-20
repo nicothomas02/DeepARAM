@@ -140,5 +140,20 @@
  "{n} boost": "{n} Plus",
  "of {n} by DeepScore": "von {n} nach DeepScore",
  "Win rates are estimated. The boost below each is how much the augment adds to this champion's win rate.": "Siegraten sind geschätzt. Das Plus darunter ist, wie viel das Augment zur Siegrate dieses Champions beiträgt.",
- "Spell pairs with win rate, pick rate and win rate boost appear here once enough games are in.": "Zauberpaare mit Siegrate, Pickrate und Siegraten-Plus erscheinen hier, sobald genug Spiele vorliegen."
+ "Spell pairs with win rate, pick rate and win rate boost appear here once enough games are in.": "Zauberpaare mit Siegrate, Pickrate und Siegraten-Plus erscheinen hier, sobald genug Spiele vorliegen.",
+ "Rival quest": "Rivalen-Quest",
+ "Team quest": "Team-Quest",
+ "When {name} is on the other team": "Wenn {name} im gegnerischen Team ist",
+ "When {name} is on your team": "Wenn {name} in deinem Team ist",
+ "No hard CC": "Kein harter CC",
+ "Damage": "Schaden",
+ "Toughness": "Konstitution",
+ "Crowd Control": "Massenkontrolle",
+ "Mobility": "Beweglichkeit",
+ "Utility": "Supporter",
+ "The champion's ability to deal damage to enemy champions": "Gibt an, wie viel Schaden der Champion dem Gegner zufügen kann.",
+ "The champion's ability to absorb damage from enemy champions": "Gibt an, wie viel Schaden vom Gegner der Champion aushält.",
+ "The champion's ability to apply harmful effects like slows and stuns to enemy champions": "Gibt an, wie gut der Champion nachteilige Effekte wie Verlangsamung und Betäubung auf den Gegner wirken kann.",
+ "The champion's ability to move quickly around the map using blinks or dashes": "Gibt an, wie schnell der Champion sich mit Sprüngen oder Teleport über die Karte bewegen kann.",
+ "The champion's ability to grant beneficial effects like shields, healing, or movement speed to allied champions": "Gibt an, wie gut der Champion nützliche Effekte wie Schilde, Heilung oder Lauftempoerhöhungen auf verbündete Champions wirken kann."
 }

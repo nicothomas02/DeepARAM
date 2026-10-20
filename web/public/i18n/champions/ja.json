@@ -140,5 +140,20 @@
  "{n} boost": "{n}上昇",
  "of {n} by DeepScore": "/{n}(DeepScore順)",
  "Win rates are estimated. The boost below each is how much the augment adds to this champion's win rate.": "勝率は推定値です。その下の上昇値は、このオーグメントがこのチャンピオンの勝率をどれだけ上げるかを示します。",
- "Spell pairs with win rate, pick rate and win rate boost appear here once enough games are in.": "サモナースペルの組み合わせと勝率、ピック率、勝率上昇は、十分な試合数が集まるとここに表示されます。"
+ "Spell pairs with win rate, pick rate and win rate boost appear here once enough games are in.": "サモナースペルの組み合わせと勝率、ピック率、勝率上昇は、十分な試合数が集まるとここに表示されます。",
+ "Rival quest": "ライバルクエスト",
+ "Team quest": "チームクエスト",
+ "When {name} is on the other team": "{name}が相手チームにいるとき",
+ "When {name} is on your team": "{name}が味方チームにいるとき",
+ "No hard CC": "ハードCCなし",
+ "Damage": "ダメージ",
+ "Toughness": "耐久性",
+ "Crowd Control": "行動妨害",
+ "Mobility": "機動性",
+ "Utility": "補助性能",
+ "The champion's ability to deal damage to enemy champions": "敵チャンピオンにダメージを与える能力",
+ "The champion's ability to absorb damage from enemy champions": "敵チャンピオンからのダメージに耐える能力",
+ "The champion's ability to apply harmful effects like slows and stuns to enemy champions": "スロウやスタンといった負の効果を敵チャンピオンに付与する能力",
+ "The champion's ability to move quickly around the map using blinks or dashes": "ブリンクやダッシュを使ってマップ内を素早く移動する能力",
+ "The champion's ability to grant beneficial effects like shields, healing, or movement speed to allied champions": "味方チャンピオンにシールド、回復、増加移動速度などの有利な効果を付与する能力"
 }

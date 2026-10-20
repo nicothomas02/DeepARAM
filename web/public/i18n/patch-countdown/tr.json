@@ -5,5 +5,5 @@
  "Today": "Bugün",
  "day": "gün",
  "days": "gün",
- "{date} (Pacific Time)": "{date} (Pasifik Saati)"
+ "Patch {patch} comes out in under 24 hours": "{patch} yaması 24 saatten kısa sürede çıkıyor"
 }

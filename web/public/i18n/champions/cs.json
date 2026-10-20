@@ -140,5 +140,20 @@
  "{n} boost": "přírůstek {n}",
  "of {n} by DeepScore": "z {n} podle DeepScore",
  "Win rates are estimated. The boost below each is how much the augment adds to this champion's win rate.": "Procenta výher jsou odhadnutá. Přírůstek pod každým říká, kolik augment přidá k procentu výher tohoto šampiona.",
- "Spell pairs with win rate, pick rate and win rate boost appear here once enough games are in.": "Dvojice kouzel s procentem výher, mírou výběru a přírůstkem výher se tu objeví, jakmile bude dost her."
+ "Spell pairs with win rate, pick rate and win rate boost appear here once enough games are in.": "Dvojice kouzel s procentem výher, mírou výběru a přírůstkem výher se tu objeví, jakmile bude dost her.",
+ "Rival quest": "Úkol rivalů",
+ "Team quest": "Týmový úkol",
+ "When {name} is on the other team": "Když je {name} v nepřátelském týmu",
+ "When {name} is on your team": "Když je {name} ve tvém týmu",
+ "No hard CC": "Bez tvrdého CC",
+ "Damage": "Poškození",
+ "Toughness": "Odolnost",
+ "Crowd Control": "Omezující efekty",
+ "Mobility": "Pohyblivost",
+ "Utility": "Funkčnost",
+ "The champion's ability to deal damage to enemy champions": "Schopnost šampiona způsobovat poškození nepřátelským šampionům",
+ "The champion's ability to absorb damage from enemy champions": "Schopnost šampiona vstřebávat poškození způsobené nepřátelskými šampiony",
+ "The champion's ability to apply harmful effects like slows and stuns to enemy champions": "Schopnost šampiona sesílat na nepřátelské šampiony omezující efekty jako například zpomalení či omráčení",
+ "The champion's ability to move quickly around the map using blinks or dashes": "Schopnost šampiona rychle se pohybovat po mapě pomocí skoků či proběhnutí",
+ "The champion's ability to grant beneficial effects like shields, healing, or movement speed to allied champions": "Schopnost šampiona sesílat prospěšné efekty jako například štíty, léčení či zrychlení pohybu na spojenecké šampiony"
 }

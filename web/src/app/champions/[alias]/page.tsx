@@ -18,7 +18,8 @@ import {
 } from "@/lib/champion-page";
 import { augmentHref } from "@/lib/augments";
 import ArchetypeTags from "@/components/ArchetypeTags";
-import { championTagData, championTags } from "@/lib/champion-tags";
+import { championRatings, championTagData, championTags } from "@/lib/champion-tags";
+import PlaystyleBars from "@/components/champion/PlaystyleBars";
 import { pageMeta } from "@/lib/meta";
 import { Name, T } from "@/components/I18n";
 import {
@@ -35,6 +36,7 @@ import {
   tone,
 } from "@/components/champion/Ranked";
 import ShowMore from "@/components/champion/ShowMore";
+import Quests from "@/components/champion/Quests";
 import AugmentTable from "@/components/champion/AugmentTable";
 import SectionRail from "@/components/champion/SectionRail";
 import Fold from "@/components/champion/Fold";
@@ -383,6 +385,7 @@ export default async function ChampionPage({
               info={championTagData().info}
               link
             />
+            {championRatings(c.alias) && <PlaystyleBars ratings={championRatings(c.alias)!} />}
           </div>
           {c.tier && (
             <span
@@ -793,7 +796,7 @@ export default async function ChampionPage({
               note={
                 <T ns="tables">
                   {
-                    "How much more the pair wins than the two champions' own win rates predict, in percentage points. Above zero means they help each other."
+                    "How much more the pair wins than the two champions' own win rates predict, in percentage points. Above zero means they help each other. Rarely played pairs count for less, so a lucky streak can't top the list."
                   }
                 </T>
               }
@@ -829,6 +832,12 @@ export default async function ChampionPage({
                           {all.find((x) => x.id === m.id)?.name ?? m.id}
                         </Name>
                       </span>
+                      {/* Neither champion has hard crowd control (lib/cc.ts). */}
+                      {m.noCC && (
+                        <span className="cp-pill cp-tag">
+                          <T ns={NS}>No hard CC</T>
+                        </span>
+                      )}
                     </Link>
                   </Row>
                 ))}
@@ -845,6 +854,7 @@ export default async function ChampionPage({
               </p>
             </Panel>
           )}
+          <Quests alias={alias} names={Object.fromEntries(all.map((x) => [x.id, x.name]))} />
 
           <h2 className="cp-group" id="details">
             <T ns={NS}>More details</T>

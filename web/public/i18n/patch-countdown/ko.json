@@ -5,5 +5,5 @@
  "Today": "오늘",
  "day": "일",
  "days": "일",
- "{date} (Pacific Time)": "{date} (태평양 시간)"
+ "Patch {patch} comes out in under 24 hours": "패치 {patch}이(가) 24시간 이내에 출시됩니다"
 }

@@ -196,5 +196,13 @@
  "{v} tower damage": "{v} daune turnurilor",
  "Simulated damage: share of champions beaten at level 8 → level 18.": "Daune simulate: procentul de campioni depășiți la nivelul 8 → nivelul 18.",
  "Or shoot us an email at": "Sau trimite-ne un e-mail la",
- "About": "Despre"
+ "About": "Despre",
+ "Pentakill every {v} games": "Pentakill la fiecare {v} jocuri",
+ "Pentakills": "Pentakill-uri",
+ "Damage mitigated": "Daune atenuate",
+ "Kill participation": "Participare la eliminări",
+ "Time dead": "Timp mort",
+ "CS": "CS",
+ "{v} mitigated/min": "{v} atenuate/min",
+ "{v} CS": "{v} CS"
 }

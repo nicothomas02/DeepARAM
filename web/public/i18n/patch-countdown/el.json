@@ -5,5 +5,5 @@
  "Today": "Σήμερα",
  "day": "ημέρα",
  "days": "ημέρες",
- "{date} (Pacific Time)": "{date} (ώρα Ειρηνικού)"
+ "Patch {patch} comes out in under 24 hours": "Το patch {patch} κυκλοφορεί σε λιγότερο από 24 ώρες"
 }

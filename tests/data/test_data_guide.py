@@ -382,3 +382,52 @@ def test_game_constants():
     c = load_json("guide/game_constants.json")
     assert c["mayhemQueue"] in c["mayhemQueues"] and {m["id"] for m in c["maps"]} >= {12}
     assert all(q["id"] and q["name"] for q in c["queues"])
+
+
+def test_economy(guide):
+    """Gold & XP card: the mode's passive income, kill gold and XP curve (Simulator reads the same block)."""
+    e = guide["rules"]["economy"]
+    assert e == load_json("guide/mode_rules.json")["economy"]
+    assert e["startingGold"] > 0 and e["killGold"] > 0 and e["firstBlood"] > 0 and e["assistSeconds"] > 0
+    g = e["passiveGold"]
+    assert g["perMinute"] == round(g["amount"] * 60 / g["every"], 1) and g["aramPerMinute"] > 0
+    levels = [l["level"] for l in e["levels"]]
+    assert levels == list(range(levels[0], 19)) and levels[0] > 1
+    xp = [l["xp"] for l in e["levels"]]
+    assert xp == sorted(xp) and all(l["killXp"] > 0 for l in e["levels"])
+    assert len(e["minionXpSplit"]) == 5 and e["minionXpSplit"] == sorted(e["minionXpSplit"], reverse=True)
+
+
+def test_surrender(guide):
+    s = guide["rules"]["surrender"]
+    assert s["voteSeconds"] > 0 and 0 < s["opensWithAfk"] <= s["opens"]
+    assert 0 < s["remakeFrom"] < s["remakeUntil"] <= s["opens"]
+
+
+def test_rival_quests(guide):
+    """Champion quests that run in Mayhem: each has a name and, per champion, a goal; ids are real champions."""
+    qs = guide["rivalQuests"]
+    assert len(qs) >= 3 and len({q["name"] for q in qs}) == len(qs)
+    champs = {c["id"] for c in load_js_data("champions/data.js", "CHAMPS_DATA")["champions"]}
+    for q in qs:
+        assert q["name"] and q["champions"]
+        for c in q["champions"]:
+            assert c["id"] in champs and c["name"] and c["text"] and "<" not in c["text"] and "@" not in c["text"]
+
+
+def test_fallback_augments(guide, rules):
+    """When a rarity runs out, the game offers from a fixed list per rarity; each augment there has that rarity."""
+    fb = guide["fallbackAugments"]
+    assert [f["tier"] for f in fb] == ["Silver", "Gold", "Prismatic"]
+    for f in fb:
+        assert f["augments"] and all(a["tier"] == f["tier"] and a["name"] and a["id"] for a in f["augments"])
+
+
+def test_turrets(guide):
+    """Turrets card: the three Howling Abyss turrets, with Mayhem's own health where it overrides the base."""
+    t = guide["rules"]["turrets"]
+    assert t == load_json("guide/mode_rules.json")["turrets"]
+    assert [x["key"] for x in t] == ["outer", "inhibitor", "nexus"]
+    for x in t:
+        assert x["hp"] > 0 and x["damage"] > 0 and x["armor"] > 0 and x["range"] > 0 and 0 < x["attackSpeed"] < 2
+        assert x["baseHp"] is None or x["baseHp"] != x["hp"]

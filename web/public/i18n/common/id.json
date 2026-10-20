@@ -196,5 +196,13 @@
  "{v} tower damage": "{v} damage tower",
  "Simulated damage: share of champions beaten at level 8 → level 18.": "Damage simulasi: persentase champion yang dikalahkan di level 8 → level 18.",
  "Or shoot us an email at": "Atau kirim email ke kami di",
- "About": "Tentang"
+ "About": "Tentang",
+ "Pentakill every {v} games": "Pentakill setiap {v} game",
+ "Pentakills": "Pentakill",
+ "Damage mitigated": "Damage yang dimitigasi",
+ "Kill participation": "Partisipasi kill",
+ "Time dead": "Waktu mati",
+ "CS": "CS",
+ "{v} mitigated/min": "{v} dimitigasi/mnt",
+ "{v} CS": "{v} CS"
 }

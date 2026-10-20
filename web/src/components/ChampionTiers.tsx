@@ -45,28 +45,29 @@ const STANDARD: Column[] = [
   { key: "pick_rate", label: "Pick rate", format: "pct", phone: "wide" },
 ];
 
+// Every stat in one table, the most useful on the left: rank, win and pick rates first, the finer numbers to the right.
 const ADVANCED: Column[] = [
   TIER,
   NAME,
   DEEP,
+  { key: "win_rate", label: "Raw win rate", format: "pct" },
+  { key: "pick_rate", label: "Pick rate", format: "pct" },
   {
     key: "score",
     label: "Confident win rate",
     format: "pct",
     hint: "The low end of the win rate's likely range, after allowing for how many games there are. DeepScore ranks on this.",
   },
-  { key: "win_rate", label: "Raw win rate", format: "pct" },
-  { key: "pick_rate", label: "Pick rate", format: "pct" },
+  { key: "damage", label: "Damage share", format: "pct" },
+  { key: "tank", label: "Damage taken", format: "pct" },
+  { key: "kp", label: "Kill part.", format: "pct" },
+  { key: "dead", label: "Time dead", format: "sec" },
   {
     key: "share",
     label: "Game share",
     format: "pct",
     hint: "Estimated share of all games in the chosen patches, from pick rate and days.",
   },
-  { key: "damage", label: "Damage share", format: "pct" },
-  { key: "tank", label: "Damage taken", format: "pct" },
-  { key: "kp", label: "Kill part.", format: "pct" },
-  { key: "dead", label: "Time dead", format: "sec" },
 ];
 
 // Estimated power curve (lib/estimates.ts powerCurve), sorted by the scaling score behind the label.
@@ -148,8 +149,14 @@ export default function ChampionTiers({ rows: initial, patches, tags, tagInfo, g
 
   // Archetype filter (?tag=Mage,Poke): a champion shows when it has every picked tag. Tiers and
   // DeepScores stay graded against the whole list, so a filtered view shows where each stands overall.
+  // The tags sit under a closed "Filter by tags" fold, open when a shared link already picks some.
   const [want, setWant] = useState<string[]>([]);
-  useEffect(() => setWant((getParam("tag") ?? "").split(",").filter((t) => tagInfo[t])), [tagInfo]);
+  const [filtersOpen, setFiltersOpen] = useState(false);
+  useEffect(() => {
+    const picked = (getParam("tag") ?? "").split(",").filter((t) => tagInfo[t]);
+    setWant(picked);
+    if (picked.length) setFiltersOpen(true);
+  }, [tagInfo]);
   const pickTag = (t: string) => {
     const next = want.includes(t) ? want.filter((x) => x !== t) : [...want, t];
     setWant(next);
@@ -247,36 +254,45 @@ export default function ChampionTiers({ rows: initial, patches, tags, tagInfo, g
         </details>
       </div>
       {Object.keys(tagInfo).length > 0 && (
-        <div className="arch-filter" role="group" aria-label={t("Filter by archetype")}>
-          {[...kinds.class, ...kinds.play].map((t) => {
-            const n = count(t);
-            return (
-              <button
-                key={t}
-                type="button"
-                className="arch-tag"
-                data-kind={tagInfo[t].kind}
-                data-tip={tt(tagInfo[t].meaning)}
-                aria-pressed={want.includes(t)}
-                disabled={!n && !want.includes(t)}
-                style={tagStyle(tagInfo[t].color)}
-                onClick={() => pickTag(t)}
-              >
-                {tt(t)} <span className="arch-count">{n}</span>
+        <details className="items-filter-menu" open={filtersOpen} onToggle={(e) => setFiltersOpen(e.currentTarget.open)}>
+          <summary>
+            {t("Filter by tags")}
+            {want.length > 0 && <span className="items-filter-n">{want.length}</span>}
+          </summary>
+          <div className="arch-filter" role="group" aria-label={t("Filter by archetype")}>
+            {[...kinds.class, ...kinds.play].map((t) => {
+              const n = count(t);
+              return (
+                <button
+                  key={t}
+                  type="button"
+                  className="arch-tag"
+                  data-kind={tagInfo[t].kind}
+                  data-tip={tt(tagInfo[t].meaning)}
+                  aria-pressed={want.includes(t)}
+                  disabled={!n && !want.includes(t)}
+                  style={tagStyle(tagInfo[t].color)}
+                  onClick={() => pickTag(t)}
+                >
+                  {tt(t)} <span className="arch-count">{n}</span>
+                </button>
+              );
+            })}
+            {want.length > 0 && (
+              <button type="button" className="btn ghost arch-clear" onClick={() => (setWant([]), setParams({ tag: null }))}>
+                {t("Clear")}
               </button>
-            );
-          })}
-          {want.length > 0 && (
-            <button type="button" className="btn ghost arch-clear" onClick={() => (setWant([]), setParams({ tag: null }))}>
-              {t("Clear")}
-            </button>
-          )}
-        </div>
+            )}
+          </div>
+        </details>
       )}
       <p className="patch-note">
         {picked.size === 1
           ? showChange
-            ? t("Patch {patch}, with the change since {before}. Pick patches from the list to add or remove them.", { patch: patchName([...picked][0]), before: patchName(before) })
+            ? t("Patch {patch}, with the change since {before}. Pick patches from the list to add or remove them.", {
+                patch: patchName([...picked][0]),
+                before: patchName(before),
+              })
             : t("Patch {patch}. Pick patches from the list to add or remove them.", { patch: patchName([...picked][0]) })
           : t("{n} patches combined. Pick patches from the list to add or remove them.", { n: picked.size })}
       </p>
@@ -290,10 +306,9 @@ export default function ChampionTiers({ rows: initial, patches, tags, tagInfo, g
           advancedColumns={[
             ...ADVANCED.slice(0, 5),
             ...(showChange ? [CHANGE] : []),
-            ...ADVANCED.slice(5, 6),
             ...(games && one === live ? [GAMES] : []),
-            ...ADVANCED.slice(6),
             ...(Object.keys(scaling).length ? [CURVE] : []),
+            ...ADVANCED.slice(5),
             tagCol,
           ]}
           rows={shownRows}

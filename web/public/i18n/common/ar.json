@@ -196,5 +196,13 @@
  "{v} tower damage": "{v} ضرر للأبراج",
  "Simulated damage: share of champions beaten at level 8 → level 18.": "ضرر محاكى: نسبة الأبطال المتفوَّق عليهم في المستوى 8 ← المستوى 18.",
  "Or shoot us an email at": "أو راسلنا عبر البريد الإلكتروني على",
- "About": "حول"
+ "About": "حول",
+ "Pentakill every {v} games": "بنتاكيل كل {v} مباراة",
+ "Pentakills": "بنتاكيل",
+ "Damage mitigated": "الضرر المخفف",
+ "Kill participation": "المشاركة في القتل",
+ "Time dead": "وقت الموت",
+ "CS": "القتل بالجنود",
+ "{v} mitigated/min": "{v} مخفف/د",
+ "{v} CS": "{v} CS"
 }

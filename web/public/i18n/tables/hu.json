@@ -124,5 +124,6 @@
  "Damage mitigated": "Kivédett sebzés",
  "Healing done": "Gyógyítás",
  "Crowd control": "Tömegirányítás",
- "Shielding": "Pajzsok"
+ "Shielding": "Pajzsok",
+ "Marked when neither champion has a stun, root, knock-up, taunt, fear, charm, sleep or suppression, so the pair struggles to lock anyone down.": "Akkor jelöljük, ha egyik hősnek sincs kábítása, gyökereztetése, feldobása, provokálása, rémisztése, elbűvölése, altatása vagy elfojtása, így a páros nehezen köt le bárkit."
 }

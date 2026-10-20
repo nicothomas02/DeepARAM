@@ -140,5 +140,20 @@
  "{n} boost": "spor de {n}",
  "of {n} by DeepScore": "din {n} după DeepScore",
  "Win rates are estimated. The boost below each is how much the augment adds to this champion's win rate.": "Ratele de victorie sunt estimate. Sporul de sub fiecare arată cât adaugă augmentul la rata de victorie a acestui campion.",
- "Spell pairs with win rate, pick rate and win rate boost appear here once enough games are in.": "Perechile de vrăji cu rată de victorie, rată de alegere și spor de victorie apar aici când sunt destule meciuri."
+ "Spell pairs with win rate, pick rate and win rate boost appear here once enough games are in.": "Perechile de vrăji cu rată de victorie, rată de alegere și spor de victorie apar aici când sunt destule meciuri.",
+ "Rival quest": "Misiune de rivalitate",
+ "Team quest": "Misiune de echipă",
+ "When {name} is on the other team": "Când {name} este în echipa adversă",
+ "When {name} is on your team": "Când {name} este în echipa ta",
+ "No hard CC": "Fără control dur",
+ "Damage": "Daune",
+ "Toughness": "Rezistență",
+ "Crowd Control": "Controlul maselor",
+ "Mobility": "Mobilitate",
+ "Utility": "Utilitate",
+ "The champion's ability to deal damage to enemy champions": "Capacitatea campionului de a le provoca daune adversarilor",
+ "The champion's ability to absorb damage from enemy champions": "Capacitatea campionului de a absorbi daunele venite din partea adversarilor",
+ "The champion's ability to apply harmful effects like slows and stuns to enemy champions": "Capacitatea campionului de a le aplica efecte negative adversarilor (de exemplu: încetiniri sau amețiri)",
+ "The champion's ability to move quickly around the map using blinks or dashes": "Capacitatea campionului de a se mișca rapid pe hartă cu ajutorul salturilor",
+ "The champion's ability to grant beneficial effects like shields, healing, or movement speed to allied champions": "Capacitatea campionului de a le oferi aliaților efecte benefice (de exemplu: scuturi, vindecare sau viteză de mișcare)"
 }

@@ -402,6 +402,17 @@ a.cp-what:hover .cp-name,
 .cp-pill.silver {
   color: var(--silver);
 }
+/* Build tags: quieter than the rarity, and dropped on phones where the row is tight. */
+.cp-pill.cp-tag {
+  border-color: var(--line);
+  color: var(--muted);
+  font-weight: 600;
+}
+@media (max-width: 640px) {
+  .cp-pill.cp-tag {
+    display: none;
+  }
+}
 .cp-cell .grade-s {
   color: var(--good);
 }
@@ -931,4 +942,62 @@ html[data-view="simple"] .cp-fold:not([data-open]) > .cp-fold-body {
 }
 .cp-sort {
   white-space: nowrap;
+}
+
+/* Rival and team quests (components/champion/Quests.tsx). */
+.cp-quest {
+  display: grid;
+  gap: 0.4rem;
+}
+.cp-quest + .cp-quest {
+  margin-top: 0.9rem;
+}
+.cp-quest .cp-name {
+  display: grid;
+}
+.cp-quest .cp-name small {
+  color: var(--muted);
+  font-weight: 500;
+  font-size: 0.875rem;
+}
+.cp-quest p {
+  margin: 0;
+}
+.cp-quest-reward {
+  color: var(--muted);
+}
+.cp-quest-reward strong {
+  color: var(--fg);
+}
+
+/* Riot's five playstyle ratings under the champion's tags (PlaystyleBars). */
+.cp-playstyle {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 18px;
+  margin: 10px 0 0;
+}
+.cp-playstyle > div {
+  display: grid;
+  gap: 4px;
+}
+.cp-playstyle dt {
+  font-size: 0.75rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.cp-playstyle dd {
+  display: flex;
+  gap: 3px;
+  margin: 0;
+}
+.cp-playstyle dd span {
+  width: 18px;
+  height: 6px;
+  border-radius: 3px;
+  background: var(--line);
+}
+.cp-playstyle dd span[data-on] {
+  background: var(--accent);
 }

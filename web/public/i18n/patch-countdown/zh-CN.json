@@ -5,5 +5,5 @@
  "Today": "今天",
  "day": "天",
  "days": "天",
- "{date} (Pacific Time)": "{date}（太平洋时间）"
+ "Patch {patch} comes out in under 24 hours": "补丁 {patch} 将在 24 小时内发布"
 }
