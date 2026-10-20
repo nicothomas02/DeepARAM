@@ -1,10 +1,10 @@
 window.COOK_DATA = {
  "meta": {
-  "cn_augment_date": "20261018",
-  "cn_champion_date": "20261018",
+  "cn_augment_date": "20261019",
+  "cn_champion_date": "20261019",
   "champion_count": 173,
   "augment_count": 211,
-  "generated": "2026-10-19"
+  "generated": "2026-10-20"
  },
  "builds": [
   {
@@ -19,16 +19,16 @@ window.COOK_DATA = {
      "text": "Your healing and Shields can Critically Strike for 40% bonus amount. Gain 25% Crit Chance.",
      "core": true,
      "icon": "icons/augments/critical-healing.png",
-     "win_rate": 0.4995,
-     "pick_rate": 0.0364,
-     "win_rank": 147,
+     "win_rate": 0.4987,
+     "pick_rate": 0.0359,
+     "win_rank": 149,
      "best_champions": [
       "Senna",
       "Sona",
-      "Soraka",
       "Yuumi",
+      "Soraka",
       "Karma",
-      "Janna"
+      "Milio"
      ],
      "champion_is_best": false
     },
@@ -39,16 +39,16 @@ window.COOK_DATA = {
      "text": "Your healing and Health Regen deal 70% of the value magic damage to the nearest enemy champion.",
      "core": true,
      "icon": "icons/augments/circle-of-death.png",
-     "win_rate": 0.5281,
-     "pick_rate": 0.0867,
-     "win_rank": 83,
+     "win_rate": 0.5275,
+     "pick_rate": 0.0887,
+     "win_rank": 86,
      "best_champions": [
       "Swain",
       "DrMundo",
       "Vladimir",
       "Trundle",
-      "Soraka",
-      "Yuumi"
+      "Yuumi",
+      "Soraka"
      ],
      "champion_is_best": false
     },
@@ -59,8 +59,8 @@ window.COOK_DATA = {
      "text": "You can Critically Defend using your Crit Chance (max 50% chance), giving you a chance to reduce damage taken by 20%. Gain 25% Crit Chance.",
      "core": false,
      "icon": "icons/augments/tank-it-or-leave-it.png",
-     "win_rate": 0.5516,
-     "pick_rate": 0.1917,
+     "win_rate": 0.5514,
+     "pick_rate": 0.1896,
      "win_rank": 47,
      "best_champions": [
       "Graves",
@@ -95,13 +95,13 @@ window.COOK_DATA = {
     3089
    ],
    "champion_icon": "icons/champions/23.png",
-   "champion_win_rate": 0.4951,
-   "champion_pick_rate": 0.0741,
+   "champion_win_rate": 0.4952,
+   "champion_pick_rate": 0.0743,
    "champion_win_rank": 74,
-   "core_win_rate": 0.5138,
+   "core_win_rate": 0.5131,
    "tier": "Pure troll",
    "core_usual": 0,
-   "core_pick_rate": 0.0616,
+   "core_pick_rate": 0.0623,
    "sim": {
     "dps": 248,
     "survival": 0.013,
@@ -140,9 +140,9 @@ window.COOK_DATA = {
      "text": "Your Attacks grant you 10 Movement Speed. Gain Attack Speed. The buff stacks and refreshes infinitely but lasts 5 seconds.",
      "core": true,
      "icon": "icons/augments/tap-dancer.png",
-     "win_rate": 0.5217,
-     "pick_rate": 0.1305,
-     "win_rank": 100,
+     "win_rate": 0.5234,
+     "pick_rate": 0.132,
+     "win_rank": 97,
      "best_champions": [
       "Jinx",
       "Caitlyn",
@@ -160,16 +160,16 @@ window.COOK_DATA = {
      "text": "Gain 1% bonus damage per 10 Movement Speed more you have than the target.",
      "core": true,
      "icon": "icons/augments/don-t-blink.png",
-     "win_rate": 0.5256,
-     "pick_rate": 0.0704,
-     "win_rank": 93,
+     "win_rate": 0.5243,
+     "pick_rate": 0.0698,
+     "win_rank": 96,
      "best_champions": [
       "Lillia",
       "Jhin",
       "MissFortune",
       "Singed",
       "Hecarim",
-      "Ashe"
+      "MasterYi"
      ],
      "champion_is_best": false
     },
@@ -180,9 +180,9 @@ window.COOK_DATA = {
      "text": "Your Slowing effects reduce Movement Speed by an extra 75.",
      "core": true,
      "icon": "icons/augments/ice-cold.png",
-     "win_rate": 0.5297,
-     "pick_rate": 0.274,
-     "win_rank": 80,
+     "win_rate": 0.5293,
+     "pick_rate": 0.2745,
+     "win_rank": 79,
      "best_champions": [
       "AurelionSol",
       "Brand",
@@ -200,15 +200,15 @@ window.COOK_DATA = {
      "text": "Gain 100% Movement Speed and 15% Attack Speed for 4 seconds on takedown.",
      "core": false,
      "icon": "icons/augments/get-excited.png",
-     "win_rate": 0.5258,
-     "pick_rate": 0.2246,
-     "win_rank": 91,
+     "win_rate": 0.5268,
+     "pick_rate": 0.2241,
+     "win_rank": 89,
      "best_champions": [
       "Jhin",
       "Jinx",
       "Vayne",
-      "Caitlyn",
       "Hecarim",
+      "Caitlyn",
       "MasterYi"
      ],
      "champion_is_best": false
@@ -236,13 +236,13 @@ window.COOK_DATA = {
     3009
    ],
    "champion_icon": "icons/champions/40.png",
-   "champion_win_rate": 0.5228,
+   "champion_win_rate": 0.5227,
    "champion_pick_rate": 0.023,
    "champion_win_rank": 26,
    "core_win_rate": 0.5257,
    "tier": "Holds up",
    "core_usual": 0,
-   "core_pick_rate": 0.1583,
+   "core_pick_rate": 0.1588,
    "sim": {
     "dps": 258,
     "survival": 0.019,
@@ -268,144 +268,141 @@ window.COOK_DATA = {
    }
   },
   {
-   "id": "singed-toxic-assets",
-   "champion": "Singed",
-   "title": "Toxic Assets",
+   "id": "ivern-hedge-fund",
+   "champion": "Ivern",
+   "title": "Hedge Fund",
    "augments": [
     {
-     "name": "Infernal Conduit",
-     "id": 1045,
-     "rarity": "Prismatic",
-     "text": "Your Abilities apply stacking Burn that deals damage over time. Your Burn effects reduce your basic Ability Cooldowns.",
-     "core": true,
-     "icon": "icons/augments/infernal-conduit.png",
-     "win_rate": 0.5709,
-     "pick_rate": 0.2309,
-     "win_rank": 25,
-     "best_champions": [
-      "Brand",
-      "AurelionSol",
-      "Morgana",
-      "Lillia",
-      "Malzahar",
-      "Teemo"
-     ],
-     "champion_is_best": false
-    },
-    {
-     "name": "Vulnerability",
-     "id": 1092,
+     "name": "Hide on Bush",
+     "id": 2042,
      "rarity": "Gold",
-     "text": "Your Item and damage over time effects can Critically Strike for 145% extra damage. Gain 25% Crit chance.",
+     "text": "Entering Brush grants Brush Power for 2 seconds. While Brush Power is active, you deal 20% more damage. Damage done: Staying in Brush refreshes Brush Power.",
      "core": true,
-     "icon": "icons/augments/vulnerability.png",
-     "win_rate": 0.5779,
-     "pick_rate": 0.3767,
-     "win_rank": 19,
+     "icon": "icons/augments/hide-on-bush.png",
+     "win_rate": 0.4722,
+     "pick_rate": 0.0179,
+     "win_rank": 196,
      "best_champions": [
-      "Lucian",
-      "Smolder",
-      "MissFortune",
-      "Caitlyn",
-      "Jhin",
-      "Jinx"
-     ],
-     "champion_is_best": false
-    },
-    {
-     "name": "Combusting Interest",
-     "id": 2128,
-     "rarity": "Gold",
-     "text": "Burn and damage-over-time on champions generate gold.",
-     "core": true,
-     "icon": "icons/augments/combusting-interest.png",
-     "win_rate": 0.6031,
-     "pick_rate": 0.3753,
-     "win_rank": 5,
-     "best_champions": [
-      "Brand",
-      "AurelionSol",
+      "Rengar",
+      "Shaco",
+      "FiddleSticks",
       "Teemo",
-      "Lillia",
-      "Morgana",
-      "Karthus"
+      "Khazix",
+      "Malphite"
      ],
      "champion_is_best": false
     },
     {
-     "name": "It's Critical",
-     "id": 1047,
+     "name": "Nature is Healing",
+     "id": 2043,
      "rarity": "Gold",
-     "text": "Gain 50% Crit chance.",
-     "core": false,
-     "icon": "icons/augments/it-s-critical.png",
-     "win_rate": 0.5224,
-     "pick_rate": 0.1601,
-     "win_rank": 98,
+     "text": "Entering Brush regenerates a large amount of Health.",
+     "core": true,
+     "icon": "icons/augments/nature-is-healing.png",
+     "win_rate": 0.4837,
+     "pick_rate": 0.0719,
+     "win_rank": 179,
      "best_champions": [
-      "Jhin",
+      "DrMundo",
+      "TahmKench",
+      "Singed",
+      "Chogath",
+      "Sion",
+      "Sett"
+     ],
+     "champion_is_best": false
+    },
+    {
+     "name": "Mercy's Strike",
+     "id": 2133,
+     "rarity": "Gold",
+     "text": "After healing or shielding your ally with the chosen ability, your next basic attack gains attack range, attack speed and deals bonus max Health magic damage.",
+     "core": true,
+     "icon": "icons/augments/mercy-s-strike.png",
+     "win_rate": 0.4871,
+     "pick_rate": 0.0204,
+     "win_rank": 174,
+     "best_champions": [
+      "Senna",
+      "Sona",
+      "Karma",
+      "Soraka",
+      "Janna",
+      "Renata"
+     ],
+     "champion_is_best": false
+    },
+    {
+     "name": "Shadow Runner",
+     "id": 1073,
+     "rarity": "Silver",
+     "text": "After using a Dash, Blink, or Teleport Ability or exiting Stealth, gain 300 Movement Speed for 2 seconds.",
+     "core": false,
+     "icon": "icons/augments/shadow-runner.png",
+     "win_rate": 0.5515,
+     "pick_rate": 0.2463,
+     "win_rank": 46,
+     "best_champions": [
+      "Shaco",
+      "Vayne",
+      "Fizz",
+      "Ekko",
       "Yasuo",
-      "Graves",
-      "Caitlyn",
-      "Yone",
-      "Vayne"
+      "Pyke"
      ],
      "champion_is_best": false
     }
    ],
    "core": 3,
    "items": [
-    "Liandry's Torment",
-    "Demonic Embrace",
-    "Atma's Reckoning",
-    "Rite of Ruin",
-    "Hollow Radiance",
-    "Mercury's Treads"
+    "Nashor's Tooth",
+    "Guinsoo's Rageblade",
+    "Lich Bane",
+    "Rabadon's Deathcap",
+    "Cosmic Drive",
+    "Berserker's Greaves"
    ],
-   "why": "Singed's Poison Trail is a damage-over-time cloud he leaves behind just by running around. Infernal Conduit makes his Abilities stack a Burn on top, Vulnerability lets damage-over-time and item damage Critically Strike for 145% extra, and Combusting Interest turns every Burn and damage-over-time tick on a champion into gold, so the trail now crits and pays him for it. Infernal Conduit's Burns also cut his basic Ability cooldowns, which means more Flings into Mega Adhesive and more Burns. Liandry's Torment, Demonic Embrace and Hollow Radiance add item burns that can crit too, while Atma's Reckoning and Rite of Ruin hand a tank Critical Strike Chance. The proxy farmer becomes a crit carry who never has to attack, cashing a dividend on every step.",
-   "play": "Run circles through the enemy team with Poison Trail on and let the ticks crit and pay out. Fling people into Mega Adhesive whenever it comes back, which is often.",
+   "why": "Ivern's Brushmaker has a passive almost nobody builds around: while he stands in brush, and for a moment after leaving it, his attacks deal bonus magic damage, and its active grows a fresh patch of brush anywhere he likes. Hide on Bush makes him deal 20% more damage for as long as he stays in brush, and Nature is Healing regenerates a large amount of Health every time he enters one, so every Brushmaker cast is a new entrance: a heal, a damage buff and a round of empowered attacks, on demand. Mercy's Strike turns his Triggerseed shield into a next attack with extra range, Attack Speed and max Health magic damage, which lands on top of the brush bonus. Nashor's Tooth and Guinsoo's Rageblade stack more on-hit magic damage onto every one of those attacks, Rabadon's Deathcap grows all of it, and Cosmic Drive gives him the Move Speed to hop from one hedge to the next. The forest's gentlest support turns into an on-hit carry who plants his own ambush wherever he stands.",
+   "play": "Grow a brush on top of the fight, shield whoever is closest, and attack from inside it; when the fight moves, grow another one and step in for the heal. Shadow Runner is the flex pick: recasting Rootcaller dashes onto the rooted target, and that dash gives 300 Move Speed to reach the next brush.",
    "chef": "2026-10-19",
-   "champion_name": "Singed",
+   "champion_name": "Ivern",
    "item_ids": [
-    6653,
-    4637,
-    3039,
-    123430,
-    6664,
-    3111
+    3115,
+    3124,
+    3100,
+    3089,
+    4629,
+    3006
    ],
-   "champion_icon": "icons/champions/27.png",
-   "champion_win_rate": 0.5193,
-   "champion_pick_rate": 0.0798,
-   "champion_win_rank": 32,
-   "core_win_rate": 0.584,
-   "tier": "Secretly strong",
+   "champion_icon": "icons/champions/427.png",
+   "champion_win_rate": 0.4994,
+   "champion_pick_rate": 0.0074,
+   "champion_win_rank": 67,
+   "core_win_rate": 0.481,
+   "tier": "Pure troll",
    "core_usual": 0,
-   "core_pick_rate": 0.3276,
+   "core_pick_rate": 0.0367,
    "sim": {
-    "dps": 202,
-    "survival": 0.013,
-    "best_dps": 882,
-    "best_survival": 0.015,
-    "pct_of_best": 0.229,
+    "dps": 322,
+    "survival": 0.022,
+    "best_dps": 875,
+    "best_survival": 0.025,
+    "pct_of_best": 0.367,
     "best_items": [
-     "Boots of Swiftness",
-     "Blackfire Torch",
-     "Liandry's Torment",
-     "Shadowflame",
+     "Sorcerer's Shoes",
+     "Lich Bane",
+     "Nashor's Tooth",
+     "Rabadon's Deathcap",
      "Stormsurge",
      "Void Staff"
     ],
     "best_augments": [
-     "FireFox",
-     "Dive Bomber",
+     "Glass Cannon",
+     "Marksmage",
      "Forged By The Master",
      "Giant Slayer"
     ],
-    "items_not_modeled": [
-     "Demonic Embrace",
-     "Rite of Ruin"
-    ],
+    "items_not_modeled": [],
     "whole_build": true
    }
   }

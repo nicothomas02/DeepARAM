@@ -51,26 +51,26 @@
       "chef": "2026-10-18"
     },
     {
-      "id": "singed-toxic-assets",
-      "champion": "Singed",
-      "title": "Toxic Assets",
+      "id": "ivern-hedge-fund",
+      "champion": "Ivern",
+      "title": "Hedge Fund",
       "augments": [
-        "Infernal Conduit",
-        "Vulnerability",
-        "Combusting Interest",
-        "It's Critical"
+        "Hide on Bush",
+        "Nature is Healing",
+        "Mercy's Strike",
+        "Shadow Runner"
       ],
       "core": 3,
       "items": [
-        "Liandry's Torment",
-        "Demonic Embrace",
-        "Atma's Reckoning",
-        "Rite of Ruin",
-        "Hollow Radiance",
-        "Mercury's Treads"
+        "Nashor's Tooth",
+        "Guinsoo's Rageblade",
+        "Lich Bane",
+        "Rabadon's Deathcap",
+        "Cosmic Drive",
+        "Berserker's Greaves"
       ],
-      "why": "Singed's Poison Trail is a damage-over-time cloud he leaves behind just by running around. Infernal Conduit makes his Abilities stack a Burn on top, Vulnerability lets damage-over-time and item damage Critically Strike for 145% extra, and Combusting Interest turns every Burn and damage-over-time tick on a champion into gold, so the trail now crits and pays him for it. Infernal Conduit's Burns also cut his basic Ability cooldowns, which means more Flings into Mega Adhesive and more Burns. Liandry's Torment, Demonic Embrace and Hollow Radiance add item burns that can crit too, while Atma's Reckoning and Rite of Ruin hand a tank Critical Strike Chance. The proxy farmer becomes a crit carry who never has to attack, cashing a dividend on every step.",
-      "play": "Run circles through the enemy team with Poison Trail on and let the ticks crit and pay out. Fling people into Mega Adhesive whenever it comes back, which is often.",
+      "why": "Ivern's Brushmaker has a passive almost nobody builds around: while he stands in brush, and for a moment after leaving it, his attacks deal bonus magic damage, and its active grows a fresh patch of brush anywhere he likes. Hide on Bush makes him deal 20% more damage for as long as he stays in brush, and Nature is Healing regenerates a large amount of Health every time he enters one, so every Brushmaker cast is a new entrance: a heal, a damage buff and a round of empowered attacks, on demand. Mercy's Strike turns his Triggerseed shield into a next attack with extra range, Attack Speed and max Health magic damage, which lands on top of the brush bonus. Nashor's Tooth and Guinsoo's Rageblade stack more on-hit magic damage onto every one of those attacks, Rabadon's Deathcap grows all of it, and Cosmic Drive gives him the Move Speed to hop from one hedge to the next. The forest's gentlest support turns into an on-hit carry who plants his own ambush wherever he stands.",
+      "play": "Grow a brush on top of the fight, shield whoever is closest, and attack from inside it; when the fight moves, grow another one and step in for the heal. Shadow Runner is the flex pick: recasting Rootcaller dashes onto the rooted target, and that dash gives 300 Move Speed to reach the next brush.",
       "chef": "2026-10-19"
     }
   ]
