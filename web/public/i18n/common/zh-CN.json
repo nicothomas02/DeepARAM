@@ -196,5 +196,13 @@
  "{v} tower damage": "防御塔伤害 {v}",
  "Simulated damage: share of champions beaten at level 8 → level 18.": "模拟伤害：在 8 级 → 18 级时胜过的英雄比例。",
  "Or shoot us an email at": "或者给我们发邮件:",
- "About": "关于"
+ "About": "关于",
+ "Pentakill every {v} games": "每 {v} 局一次五杀",
+ "Pentakills": "五杀",
+ "Damage mitigated": "减免伤害",
+ "Kill participation": "参团率",
+ "Time dead": "死亡时间",
+ "CS": "补刀",
+ "{v} mitigated/min": "{v} 减免/分钟",
+ "{v} CS": "{v} 补刀"
 }

@@ -196,5 +196,13 @@
  "{v} tower damage": "{v} Turmschaden",
  "Simulated damage: share of champions beaten at level 8 → level 18.": "Simulierter Schaden: Anteil der übertroffenen Champions auf Stufe 8 → Stufe 18.",
  "Or shoot us an email at": "Oder schick uns eine E-Mail an",
- "About": "Über"
+ "About": "Über",
+ "Pentakill every {v} games": "Pentakill alle {v} Spiele",
+ "Pentakills": "Pentakills",
+ "Damage mitigated": "Gemilderter Schaden",
+ "Kill participation": "Kill-Beteiligung",
+ "Time dead": "Zeit tot",
+ "CS": "CS",
+ "{v} mitigated/min": "{v} gemildert/Min.",
+ "{v} CS": "{v} CS"
 }

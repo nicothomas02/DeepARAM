@@ -196,5 +196,13 @@
  "{v} tower damage": "{v} toronysebzés",
  "Simulated damage: share of champions beaten at level 8 → level 18.": "Szimulált sebzés: a legyőzött hősök aránya 8. szinten → 18. szinten.",
  "Or shoot us an email at": "Vagy írj nekünk e-mailt a következő címre:",
- "About": "Rólunk"
+ "About": "Rólunk",
+ "Pentakill every {v} games": "Pentakill {v} játékonként",
+ "Pentakills": "Pentakillek",
+ "Damage mitigated": "Mérsékelt sebzés",
+ "Kill participation": "Ölésrészesedés",
+ "Time dead": "Halott idő",
+ "CS": "CS",
+ "{v} mitigated/min": "{v} mérsékelt/perc",
+ "{v} CS": "{v} CS"
 }

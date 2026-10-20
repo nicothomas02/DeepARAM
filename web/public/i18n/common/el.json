@@ -196,5 +196,13 @@
  "{v} tower damage": "{v} ζημιά σε πύργους",
  "Simulated damage: share of champions beaten at level 8 → level 18.": "Προσομοιωμένη ζημιά: ποσοστό ηρώων που ξεπερνά στο επίπεδο 8 → επίπεδο 18.",
  "Or shoot us an email at": "Ή στείλτε μας email στο",
- "About": "Σχετικά"
+ "About": "Σχετικά",
+ "Pentakill every {v} games": "Pentakill κάθε {v} παιχνίδια",
+ "Pentakills": "Pentakills",
+ "Damage mitigated": "Μετριασμένη ζημιά",
+ "Kill participation": "Συμμετοχή σε φόνους",
+ "Time dead": "Χρόνος νεκρού",
+ "CS": "CS",
+ "{v} mitigated/min": "{v} μετριάστηκε/λεπτό",
+ "{v} CS": "{v} CS"
 }
