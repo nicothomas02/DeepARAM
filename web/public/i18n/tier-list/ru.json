@@ -51,5 +51,7 @@
  "Table": "Таблица",
  "View": "Вид",
  "Live patch {patch} by default. Pick any patches, or all time, above the champion table.": "По умолчанию текущий патч {patch}. Выберите любые патчи или всё время над таблицей чемпионов.",
- "Live patch {patch}. Each augment gets a DeepScore against the others of its rarity: 50 is average, S is 70 and up, A 59, B 44, C 32 and D below.": "Текущий патч {patch}. Каждая аугментация получает DeepScore среди других той же редкости: 50 — среднее, S — от 70, A — 59, B — 44, C — 32, D — ниже."
+ "Live patch {patch}. Each augment gets a DeepScore against the others of its rarity: 50 is average, S is 70 and up, A 59, B 44, C 32 and D below.": "Текущий патч {patch}. Каждая аугментация получает DeepScore среди других той же редкости: 50 — среднее, S — от 70, A — 59, B — 44, C — 32, D — ниже.",
+ "Filter by tags": "Фильтр по тегам",
+ "Pairs": "Пары"
 }

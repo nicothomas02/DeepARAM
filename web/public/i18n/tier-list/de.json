@@ -51,5 +51,7 @@
  "Table": "Tabelle",
  "View": "Ansicht",
  "Live patch {patch} by default. Pick any patches, or all time, above the champion table.": "Standardmäßig der aktuelle Patch {patch}. Wähle über der Champion-Tabelle beliebige Patches oder „Gesamt“.",
- "Live patch {patch}. Each augment gets a DeepScore against the others of its rarity: 50 is average, S is 70 and up, A 59, B 44, C 32 and D below.": "Aktueller Patch {patch}. Jedes Augment erhält einen DeepScore im Vergleich zu anderen seiner Seltenheit: 50 ist der Durchschnitt, S ist 70 und mehr, A 59, B 44, C 32 und D darunter."
+ "Live patch {patch}. Each augment gets a DeepScore against the others of its rarity: 50 is average, S is 70 and up, A 59, B 44, C 32 and D below.": "Aktueller Patch {patch}. Jedes Augment erhält einen DeepScore im Vergleich zu anderen seiner Seltenheit: 50 ist der Durchschnitt, S ist 70 und mehr, A 59, B 44, C 32 und D darunter.",
+ "Filter by tags": "Nach Tags filtern",
+ "Pairs": "Paare"
 }

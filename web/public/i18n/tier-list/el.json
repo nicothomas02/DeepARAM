@@ -51,5 +51,7 @@
  "Table": "Πίνακας",
  "View": "Προβολή",
  "Live patch {patch} by default. Pick any patches, or all time, above the champion table.": "Από προεπιλογή η τρέχουσα ενημέρωση {patch}. Διάλεξε όποιες ενημερώσεις θέλεις, ή όλων των εποχών, πάνω από τον πίνακα ηρώων.",
- "Live patch {patch}. Each augment gets a DeepScore against the others of its rarity: 50 is average, S is 70 and up, A 59, B 44, C 32 and D below.": "Τρέχουσα ενημέρωση {patch}. Κάθε βελτίωση παίρνει DeepScore έναντι των άλλων της ίδιας σπανιότητας: 50 είναι ο μέσος όρος, S είναι 70 και πάνω, A 59, B 44, C 32 και D από κάτω."
+ "Live patch {patch}. Each augment gets a DeepScore against the others of its rarity: 50 is average, S is 70 and up, A 59, B 44, C 32 and D below.": "Τρέχουσα ενημέρωση {patch}. Κάθε βελτίωση παίρνει DeepScore έναντι των άλλων της ίδιας σπανιότητας: 50 είναι ο μέσος όρος, S είναι 70 και πάνω, A 59, B 44, C 32 και D από κάτω.",
+ "Filter by tags": "Φιλτράρισμα κατά ετικέτες",
+ "Pairs": "Ζευγάρια"
 }

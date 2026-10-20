@@ -4,6 +4,7 @@ import { livePatch } from "@/lib/highlights";
 import augmentNames from "@/data/augment-names.json";
 import { AdvancedProvider } from "@/components/Advanced";
 import ChampionTiers from "@/components/ChampionTiers";
+import ChampionsPanel from "@/components/ChampionsPanel";
 import DuosTable from "@/components/DuosTable";
 import { archetypeRows, duoVersion, hasDuos } from "@/lib/duos";
 import { augmentHref } from "@/lib/augments";
@@ -80,13 +81,18 @@ export default function TierListPage() {
       id: "champions",
       label: "Champions",
       content: (
-        <ChampionTiers
-          rows={rows}
-          patches={patches.map((p) => p.patch)}
-          tags={allChampionTags([...new Set(rows.map((r) => r.name))])}
-          tagInfo={championTagData().info}
-          games={fillGames()}
-          scaling={Object.fromEntries([...powerCurveLists().scaling].flatMap(([id, v]) => (ALIAS[id] ? [[ALIAS[id], v]] : [])))}
+        <ChampionsPanel
+          solo={
+            <ChampionTiers
+              rows={rows}
+              patches={patches.map((p) => p.patch)}
+              tags={allChampionTags([...new Set(rows.map((r) => r.name))])}
+              tagInfo={championTagData().info}
+              games={fillGames()}
+              scaling={Object.fromEntries([...powerCurveLists().scaling].flatMap(([id, v]) => (ALIAS[id] ? [[ALIAS[id], v]] : [])))}
+            />
+          }
+          duos={duos ? <DuosTable archetypes={archetypeRows()} tagInfo={championTagData().info} version={duoVersion()} /> : undefined}
         />
       ),
     },
@@ -110,18 +116,22 @@ export default function TierListPage() {
           <AugmentTiers
             styles={STYLES}
             columns={augCols}
+            // Most useful on the left: rank, win rate and its boost, pick rate, then the finer numbers.
             advancedColumns={[
-              ...augCols,
+              ...augCols.slice(0, 3),
+              augCols[4],
               {
                 key: "lift",
                 label: "Win rate boost",
                 format: "pts" as const,
                 hint: "Win rate minus what the champions who take it win anyway. Above zero means it helps them.",
               },
+              augCols[5],
+              { key: "best", label: "Best champions", format: "text", sortable: false },
+              augCols[3],
               { key: "win_rank", label: "Win rank", format: "int" },
               { key: "pick_rank", label: "Pick rank", format: "int" },
               { key: "pick_change", label: "Pick rank change", format: "int" },
-              { key: "best", label: "Best champions", format: "text", sortable: false },
             ]}
             rows={augments
               .filter((a) => names[String(a.augment_id)] || a.key)
@@ -195,13 +205,6 @@ export default function TierListPage() {
       ),
     });
   }
-  if (duos)
-    tabs.push({
-      id: "duos",
-      label: "Duos",
-      content: <DuosTable archetypes={archetypeRows()} tagInfo={championTagData().info} version={duoVersion()} />,
-      lazy: true,
-    });
 
   return (
     <AdvancedProvider>

@@ -226,7 +226,9 @@ export default function DataTable({
   useEffect(() => {
     if (urlTab === undefined) return;
     const p = new URLSearchParams(location.search);
-    if ((p.get("tab") ?? "") !== urlTab) return;
+    // Duos sit inside the Champions tab (?cview=duos), which is also the page's first tab.
+    const tab = p.get("cview") === "duos" ? "duos" : p.get("tab") === "champions" ? "" : (p.get("tab") ?? "");
+    if (tab !== urlTab) return;
     const q = p.get("q");
     if (q) setQuery(q);
     const s = p.get("sort")?.match(/^(\w+)\.(asc|desc)$/);
@@ -263,16 +265,9 @@ export default function DataTable({
   const cls = (c: Column, base: string) =>
     [base, c.key === pin && "pin", c.phone && `ph-${c.phone}`, c.format === "augment" && "aug-col"].filter(Boolean).join(" ");
 
-  // Phones: a table that trims columns (Column.phone) fits the screen, so it sorts from a menu (any column,
-  // hidden ones too) and a tap anywhere on a row opens the row's page when the row has just one.
+  // Phones: a table that trims columns (Column.phone) fits the screen, and a tap anywhere on a row opens the
+  // row's page when the row has just one. Column headers sort, both ways, on every screen.
   const fit = columns.some((c) => c.phone);
-  // One entry per sort key; a tier letter gives way to the score column it sorts by.
-  const sortBy = new Map<string, Column>();
-  for (const c of columns) {
-    const k = c.sortKey ?? c.key;
-    if (c.sortable !== false && (!sortBy.has(k) || sortBy.get(k)!.format === "tier")) sortBy.set(k, c);
-  }
-  const sortValue = `${sort.key}.${sort.desc ? "desc" : "asc"}`;
   const rowLink = fit && columns.filter((c) => c.format === "champion" || c.format === "augment" || c.format === "item").length === 1;
   const openRow = (e: React.MouseEvent<HTMLTableSectionElement>) => {
     const target = e.target as Element;
@@ -296,37 +291,7 @@ export default function DataTable({
 
   return (
     <div className={fit ? "data-table fit" : "data-table"}>
-      {fit ? (
-        <div className="table-tools">
-          {search}
-          <select
-            className="table-sort"
-            aria-label={t("Sort")}
-            value={sortValue}
-            onChange={(e) => {
-              const [key, dir] = e.target.value.split(".");
-              setSort({ key, desc: dir === "desc" });
-              share({ sort: e.target.value });
-            }}
-          >
-            {/* The opening order of a table whose own ranking isn't a column (Duos). */}
-            {!sortBy.has(sort.key) && (
-              <option value={sortValue} hidden>
-                {t("Sort")}
-              </option>
-            )}
-            {[...sortBy].flatMap(([k, c]) =>
-              [true, false].map((desc) => (
-                <option key={`${k}.${desc}`} value={`${k}.${desc ? "desc" : "asc"}`}>
-                  {`${t(c.label)} ${desc ? "↓" : "↑"}`}
-                </option>
-              )),
-            )}
-          </select>
-        </div>
-      ) : (
-        search
-      )}
+      {fit ? <div className="table-tools">{search}</div> : search}
       <div className="table-scroll">
         <table ref={tableRef}>
           <thead>
@@ -449,7 +414,7 @@ export default function DataTable({
         ) : null;
       })()}
       {sorted.length > shown && (
-        <button type="button" className="show-more" onClick={() => setShown((n) => n + PAGE * 2)}>
+        <button type="button" className="show-more" onClick={() => setShown(sorted.length)}>
           {t("Show more ({n} left)", { n: sorted.length - shown })}
         </button>
       )}

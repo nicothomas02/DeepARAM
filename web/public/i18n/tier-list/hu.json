@@ -51,5 +51,7 @@
  "Table": "Táblázat",
  "View": "Nézet",
  "Live patch {patch} by default. Pick any patches, or all time, above the champion table.": "Alapból az aktuális {patch} frissítés. A hőstáblázat fölött bármelyik frissítést kiválaszthatod, vagy a mindenkori adatokat.",
- "Live patch {patch}. Each augment gets a DeepScore against the others of its rarity: 50 is average, S is 70 and up, A 59, B 44, C 32 and D below.": "Aktuális frissítés: {patch}. Minden bővítés DeepScore-t kap az azonos ritkaságúakhoz képest: 50 az átlag, S 70-től felfelé, A 59, B 44, C 32, D ez alatt."
+ "Live patch {patch}. Each augment gets a DeepScore against the others of its rarity: 50 is average, S is 70 and up, A 59, B 44, C 32 and D below.": "Aktuális frissítés: {patch}. Minden bővítés DeepScore-t kap az azonos ritkaságúakhoz képest: 50 az átlag, S 70-től felfelé, A 59, B 44, C 32, D ez alatt.",
+ "Filter by tags": "Szűrés címkék szerint",
+ "Pairs": "Párok"
 }

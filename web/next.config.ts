@@ -72,6 +72,13 @@ const nextConfig: NextConfig = {
           destination: "/tier-list?tab=augments",
           permanent: true,
         })),
+        // Duos sit under the Tier List's Champions tab now (?cview=duos); tab=champions overrides the old tab=duos.
+        ...["/augments", "/tier-list"].map((source) => ({
+          source,
+          has: [{ type: "query" as const, key: "tab", value: "duos" }],
+          destination: "/tier-list?tab=champions&cview=duos",
+          permanent: true,
+        })),
         // Other Augments page tabs carry over to the Tier List.
         { source: "/augments", has: [{ type: "query" as const, key: "tab", value: "(?<tab>.+)" }], destination: "/tier-list?tab=:tab", permanent: true },
         { source: "/augments", destination: "/tier-list?tab=augments", permanent: true },
