@@ -354,3 +354,25 @@ def test_tags_crowd_control_and_augments(data):
     assert T["champions"]["Leona"]["cc"]["Q"] == "stun"
     assert len(T["augments"]) > 50
     assert all(st and set(st) <= STYLES for st in T["augments"].values())
+
+
+def test_official_playstyle_tags_and_ratings(builder):
+    T = load_json("champions/tags.json")
+    ch = T["champions"]
+    official = set(builder.PLAYSTYLES)
+    assert len(official) == 19 and official <= set(T["colors"]) and official <= set(T["meanings"])
+    assert sum(1 for v in ch.values() if v["playstyles"]) > len(ch) - 10
+    for alias, v in ch.items():
+        assert len(v["playstyles"]) <= 2 and set(v["playstyles"]) <= official, alias
+        if "ratings" in v:
+            assert list(v["ratings"]) == T["ratings"] and all(1 <= x <= 3 for x in v["ratings"].values()), alias
+    assert ch["Leona"]["playstyles"] == ["Initiator", "Crowd Control"]
+    assert ch["Leona"]["ratings"]["toughness"] == 3 and ch["Leona"]["ratings"]["control"] == 3
+    names = load_json("champions/i18n/tag_names.json")
+    assert len(names) == 21 and all(set(v) <= official for v in names.values())
+
+
+def test_tag_key(builder):
+    assert builder.tag_key("Crowd Control") == "champion_tag_crowd_control"
+    assert builder.tag_key("Damage-over-Time") == "champion_tag_damage_over_time"
+    assert builder.tag_key("AoE") == "champion_tag_aoe"

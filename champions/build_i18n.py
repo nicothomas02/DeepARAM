@@ -7,6 +7,9 @@ What it reads, for each language in web/src/i18n/languages.json:
   Data Dragon data/<locale>/championFull.json        names, titles, passive and ability names and text
   CommunityDragon <locale>/v1/items.json,            item and augment names
                   <locale>/v1/cherry-augments.json
+With --tags it instead writes i18n/tag_names.json: the official champion tag names (tags.json playstyles) in each
+language, from each locale's string table (champion_tag_*). Those rarely change, and each table is ~30 MB, so it isn't
+part of the daily run.
 Only text that differs from English is written. Page text that isn't game text is in i18n/<code>.json (i18n_keys.py).
 """
 import json, os, re, sys, time, urllib.error, urllib.request
@@ -107,5 +110,25 @@ def main():
             print(f"{code}: {len(champs)} champions, {len(out['items'])} items, {len(out['augments'])} augments")
 
 
+def tag_names():
+    sys.path.insert(0, HERE)
+    from build_data import PLAYSTYLES, tag_key
+    with open(os.path.join(REPO, "web", "src", "i18n", "languages.json"), encoding="utf-8") as f:
+        langs = [(l["code"], l["riot"].lower()) for l in json.load(f) if l["code"] != "en"]
+    base = CD.split("/plugins/")[0]
+
+    def one(lang):
+        code, lo = lang
+        entries = get(f"{base}/game/{lo}/data/menu/en_us/lol.stringtable.json")["entries"]
+        return code, {n: clean(entries[tag_key(n)]) for n in PLAYSTYLES if entries.get(tag_key(n)) and clean(entries[tag_key(n)]) != n}
+
+    with ThreadPoolExecutor(4) as pool:
+        out = dict(sorted(pool.map(one, langs)))
+    with open(os.path.join(HERE, "i18n", "tag_names.json"), "w", encoding="utf-8") as f:
+        json.dump(out, f, ensure_ascii=False, indent=1, sort_keys=True)
+        f.write("\n")
+    print(f"tag names: {sum(len(v) for v in out.values())} in {len(out)} languages")
+
+
 if __name__ == "__main__":
-    sys.exit(main())
+    sys.exit(tag_names() if "--tags" in sys.argv else main())
