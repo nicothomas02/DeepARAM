@@ -144,5 +144,6 @@
  "Rival quest": "Riválisküldetés",
  "Team quest": "Csapatküldetés",
  "When {name} is on the other team": "Ha {name} az ellenfél csapatában van",
- "When {name} is on your team": "Ha {name} a csapatodban van"
+ "When {name} is on your team": "Ha {name} a csapatodban van",
+ "No hard CC": "Nincs kemény CC"
 }

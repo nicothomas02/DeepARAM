@@ -54,5 +54,6 @@
  "Live patch {patch}. Each augment gets a DeepScore against the others of its rarity: 50 is average, S is 70 and up, A 59, B 44, C 32 and D below.": "현재 패치 {patch}. 각 증강은 같은 등급의 다른 증강과 비교한 DeepScore를 받습니다: 50이 평균, S는 70 이상, A 59, B 44, C 32, D는 그 미만.",
  "Filter by tags": "태그로 필터",
  "Pairs": "조합",
- "Team quest: {a} and {b} on the same team start {quest}.": "팀 퀘스트: {a}와(과) {b}이(가) 같은 팀이면 '{quest}'이(가) 시작됩니다."
+ "Team quest: {a} and {b} on the same team start {quest}.": "팀 퀘스트: {a}와(과) {b}이(가) 같은 팀이면 '{quest}'이(가) 시작됩니다.",
+ "No hard CC": "하드 CC 없음"
 }

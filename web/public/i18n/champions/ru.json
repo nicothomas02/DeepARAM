@@ -144,5 +144,6 @@
  "Rival quest": "Задание соперников",
  "Team quest": "Командное задание",
  "When {name} is on the other team": "Когда {name} в команде противника",
- "When {name} is on your team": "Когда {name} в вашей команде"
+ "When {name} is on your team": "Когда {name} в вашей команде",
+ "No hard CC": "Нет жёсткого контроля"
 }

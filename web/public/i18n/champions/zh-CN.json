@@ -144,5 +144,6 @@
  "Rival quest": "宿敌任务",
  "Team quest": "团队任务",
  "When {name} is on the other team": "当{name}在敌方队伍时",
- "When {name} is on your team": "当{name}在你的队伍时"
+ "When {name} is on your team": "当{name}在你的队伍时",
+ "No hard CC": "无硬控"
 }

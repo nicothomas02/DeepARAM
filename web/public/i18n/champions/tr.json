@@ -144,5 +144,6 @@
  "Rival quest": "Rakip görevi",
  "Team quest": "Takım görevi",
  "When {name} is on the other team": "{name} rakip takımdayken",
- "When {name} is on your team": "{name} senin takımındayken"
+ "When {name} is on your team": "{name} senin takımındayken",
+ "No hard CC": "Sert kitle kontrolü yok"
 }

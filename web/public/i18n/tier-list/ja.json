@@ -54,5 +54,6 @@
  "Live patch {patch}. Each augment gets a DeepScore against the others of its rarity: 50 is average, S is 70 and up, A 59, B 44, C 32 and D below.": "現在のパッチ{patch}。各オーグメントには同じレアリティの他のオーグメントと比べたDeepScoreがつきます: 50が平均、Sは70以上、Aは59、Bは44、Cは32、Dはそれ未満。",
  "Filter by tags": "タグで絞り込む",
  "Pairs": "ペア",
- "Team quest: {a} and {b} on the same team start {quest}.": "チームクエスト：{a}と{b}が同じチームにいると「{quest}」が始まります。"
+ "Team quest: {a} and {b} on the same team start {quest}.": "チームクエスト：{a}と{b}が同じチームにいると「{quest}」が始まります。",
+ "No hard CC": "ハードCCなし"
 }

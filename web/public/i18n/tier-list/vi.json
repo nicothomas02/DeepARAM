@@ -54,5 +54,6 @@
  "Live patch {patch}. Each augment gets a DeepScore against the others of its rarity: 50 is average, S is 70 and up, A 59, B 44, C 32 and D below.": "Phiên bản hiện tại {patch}. Mỗi Lõi Nâng Cấp nhận một DeepScore so với các lõi khác cùng độ hiếm: 50 là trung bình, S từ 70 trở lên, A 59, B 44, C 32 và D thấp hơn.",
  "Filter by tags": "Lọc theo thẻ",
  "Pairs": "Cặp",
- "Team quest: {a} and {b} on the same team start {quest}.": "Nhiệm vụ đồng đội: {a} và {b} cùng đội sẽ bắt đầu {quest}."
+ "Team quest: {a} and {b} on the same team start {quest}.": "Nhiệm vụ đồng đội: {a} và {b} cùng đội sẽ bắt đầu {quest}.",
+ "No hard CC": "Không có khống chế cứng"
 }

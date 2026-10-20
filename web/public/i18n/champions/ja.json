@@ -144,5 +144,6 @@
  "Rival quest": "ライバルクエスト",
  "Team quest": "チームクエスト",
  "When {name} is on the other team": "{name}が相手チームにいるとき",
- "When {name} is on your team": "{name}が味方チームにいるとき"
+ "When {name} is on your team": "{name}が味方チームにいるとき",
+ "No hard CC": "ハードCCなし"
 }

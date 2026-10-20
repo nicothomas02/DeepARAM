@@ -124,5 +124,6 @@
  "Damage mitigated": "Azaltılan hasar",
  "Healing done": "Yapılan iyileştirme",
  "Crowd control": "Kitle kontrolü",
- "Shielding": "Kalkanlar"
+ "Shielding": "Kalkanlar",
+ "Marked when neither champion has a stun, root, knock-up, taunt, fear, charm, sleep or suppression, so the pair struggles to lock anyone down.": "İki şampiyonda da sersemletme, kök salma, havaya kaldırma, kışkırtma, korku, büyüleme, uyku veya bastırma yoksa işaretlenir; ikili rakipleri zor durdurur."
 }
