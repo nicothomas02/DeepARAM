@@ -103,7 +103,7 @@ export default function Home() {
 
   return (
     <>
-      <section className="hero">
+      <section className="hero has-art" style={{ "--art": "url(/assets/art/arambloom.webp)" } as React.CSSProperties}>
         <p className="eyebrow">
           <ModeName />
           {patch && (

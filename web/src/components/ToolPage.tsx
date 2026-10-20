@@ -26,7 +26,9 @@ export default function ToolPage({ href }: { href: string }) {
   return (
     <>
       {/* The tab's name as the headline; its longer description sits under it. */}
-      <Intro title={<T ns="tool-pages">{tab.label}</T>}>{tab.body && <T ns="tool-pages">{tab.body}</T>}</Intro>
+      <Intro title={<T ns="tool-pages">{tab.label}</T>} art={href === "/info" ? "habackground" : undefined}>
+        {tab.body && <T ns="tool-pages">{tab.body}</T>}
+      </Intro>
       <NeedsScript />
       <Embed src={`/embed/${tab.slug}/${tab.entry}`} title={tab.label} ownTitle />
     </>

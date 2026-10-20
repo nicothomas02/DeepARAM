@@ -412,6 +412,35 @@ h1 {
   animation: rise 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
+/* Page headers over a Howling Abyss painting (Intro art, the Home hero): the art sits on the right and fades
+   into the page colour on the left, behind the text. */
+.has-art {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: clamp(1.25rem, 4vw, 2.5rem) clamp(1rem, 3vw, 2rem);
+  border-radius: var(--r, 24px);
+}
+.has-art::before,
+.has-art::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+.has-art::before {
+  background: var(--art) right center / cover no-repeat;
+}
+.has-art::after {
+  background: linear-gradient(90deg, var(--bg) 0%, var(--bg) 30%, transparent 85%), linear-gradient(0deg, var(--bg) 0%, transparent 45%);
+  opacity: 0.92;
+}
+@media (max-width: 640px) {
+  .has-art::after {
+    background: linear-gradient(0deg, var(--bg) 10%, transparent 100%), linear-gradient(90deg, var(--bg) 0%, transparent 100%);
+  }
+}
+
 .intro.compact h1 {
   font-size: clamp(1.75rem, 3.6vw, 2.25rem);
 }
@@ -3064,6 +3093,7 @@ html[data-motion="reduce"] .btn:hover {
   gap: 1rem;
 }
 
+/* The icon sits on the game's own augment-card swirl for its rarity (augment-back images in public/assets/art). */
 .aug-hero-icon {
   flex: none;
   padding: 6px;
@@ -3072,13 +3102,19 @@ html[data-motion="reduce"] .btn:hover {
   background: #11151c;
 }
 
+.aug-hero-icon[data-tier="silver"] {
+  background: url(/assets/art/augment-back-silver.webp) center / 100% no-repeat, #11151c;
+}
+
 .aug-hero-icon[data-tier="gold"] {
   border-color: var(--gold);
+  background: url(/assets/art/augment-back-gold.webp) center / 100% no-repeat, #11151c;
 }
 
 .aug-hero-icon[data-tier="prismatic"] {
   border-color: transparent;
   background:
+    url(/assets/art/augment-back-prismatic.webp) center / 100% no-repeat padding-box,
     linear-gradient(#11151c, #11151c) padding-box,
     var(--prismatic) border-box;
 }
