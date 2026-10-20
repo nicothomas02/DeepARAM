@@ -12,7 +12,7 @@
     // #chef-archive open that special, #community the community builds, and the calculators that moved to other tabs open there.
     (function () {
       var go = location.hash.slice(1).replace(/[^a-z0-9-]/g, "");
-      var moved = { "ryze-calculator": "/simulator/infinite-ryze", "region-teams": "/info/region-teams" }[go];
+      var moved = { "ryze-calculator": "/kitchen?tab=infinite-ryze", "region-teams": "/info/region-teams" }[go];
       if (moved) {
         try { if (window.top !== window) return void window.top.location.replace(moved); } catch (e) { /* not same origin */ }
         return location.replace(go + "/index.html");

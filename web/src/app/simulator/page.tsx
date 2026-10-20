@@ -83,15 +83,6 @@ export default function SimulatorPage() {
     });
   }
 
-  // Infinite Ryze (The Kitchen's calculator) lives with the other simulations.
-  if (repoHas("tools/fun/ryze-calculator/index.html")) {
-    tabs.push({
-      id: "infinite-ryze",
-      label: "Infinite Ryze",
-      lazy: true,
-      content: <Embed src="/embed/fun/ryze-calculator/index.html" title="Infinite Ryze" minHeight={900} />,
-    });
-  }
 
   return (
     <>
