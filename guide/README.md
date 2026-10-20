@@ -12,6 +12,11 @@ The site's **Info** tab (formerly Guide) (`/tools/guide`): how ARAM Mayhem works
   in `mode_rules.json` for the Simulator) and surrender timing (`surrender()`, `mSurrenderSettings`; type 0 is the
   remake vote; vote shares aren't shown until they're checked in a game). Minion wave timing isn't shown: map12.bin
   has ten barracks configs and nothing in it says which one Mayhem uses.
+- **Turrets** (`turrets()`, also in `mode_rules.json`): the Howling Abyss outer, inhibitor and Nexus turrets from
+  `game/data/characters/turret/turret.bin.json` (`CharacterRecords/HA_*`): health, damage, armor/MR, range, attack
+  speed, and the gold and XP each player on the team gets (`globalGoldGivenOnDeath`, `globalExpGivenOnDeath`). A
+  per-mode override (`{6854087e}`, KIWI) replaces the base health: Mayhem's Nexus turrets have 1,200 instead of 1,800.
+  The outer turret's 1,300 looks low for ARAM, so it may gain health in game; that needs checking in a game.
 - **Augment stages**: also the fallback augments (the KIWI config with the `{857c9848}` lists): what a selection
   offers when its rarity runs out. A list leaves out `rarity` when it's Gold (the default).
 - **Quests**: also champion rivalries (`CharacterQuestListConfig` in the KIWI configs, names and goals from

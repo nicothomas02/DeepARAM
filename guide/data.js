@@ -1616,7 +1616,45 @@ window.GUIDE_DATA = {
    "opensWithAfk": 210.0,
    "remakeFrom": 90.0,
    "remakeUntil": 180.0
-  }
+  },
+  "turrets": [
+   {
+    "key": "outer",
+    "hp": 1300.0,
+    "baseHp": null,
+    "damage": 185.0,
+    "armor": 60.0,
+    "mr": 60.0,
+    "range": 750.0,
+    "attackSpeed": 0.833,
+    "gold": 150.0,
+    "xp": 30.0
+   },
+   {
+    "key": "inhibitor",
+    "hp": 3900.0,
+    "baseHp": null,
+    "damage": 205.0,
+    "armor": 63.0,
+    "mr": 63.0,
+    "range": 750.0,
+    "attackSpeed": 0.833,
+    "gold": 150.0,
+    "xp": 70.0
+   },
+   {
+    "key": "nexus",
+    "hp": 1200.0,
+    "baseHp": 1800.0,
+    "damage": 195.0,
+    "armor": 60.0,
+    "mr": 60.0,
+    "range": 750.0,
+    "attackSpeed": 0.833,
+    "gold": 150.0,
+    "xp": 120.0
+   }
+  ]
  },
  "spells": [
   {

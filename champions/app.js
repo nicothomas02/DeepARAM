@@ -1,6 +1,9 @@
 // The list is the default view; #Alias opens one champion's page.
 I18N.ready.then(() => {
   const D = window.CHAMPS_DATA;
+  // crowd control labels for the abilities
+  const CC = { stun: "Stun", root: "Root", slow: "Slow", knockup: "Knock-up", knockback: "Knockback", pull: "Pull",
+    silence: "Silence", fear: "Fear", taunt: "Taunt", suppression: "Suppression", polymorph: "Polymorph", blind: "Blind" };
   const { t } = I18N;
   localize(D, I18N.data);
   const $ = (id) => document.getElementById(id);
@@ -220,6 +223,7 @@ I18N.ready.then(() => {
       <div class="card">
         <div class="card-head"><h2>${esc(t("Abilities"))}</h2></div>
         <div class="grid">${c.abilities.map((a) => `<div class="ability">${img(a.icon)}<div><div class="title"><span class="slot">${a.slot}</span> ${esc(a.name)}
+          ${a.cc ? `<span class="chip">${esc(t(CC[a.cc] || a.cc))}</span>` : ""}
           ${a.cooldown && a.cooldown.some((x) => x) ? `<span class="muted small">${esc(t("{n}s", { n: values("Cooldown", a.cooldown) }))}</span>` : ""}</div>
           <div class="muted small" style="white-space:pre-line;margin-top:0.2rem">${esc(a.text)}</div></div></div>`).join("")}</div>
       </div>

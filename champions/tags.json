@@ -90,7 +90,12 @@
    ],
    "playstyles": [
     "Sustain"
-   ]
+   ],
+   "cc": {
+    "Q": "knockup",
+    "E": "slow"
+   },
+   "hardCC": true
   },
   "Ahri": {
    "id": 103,
@@ -108,7 +113,9 @@
    "playstyles": [
     "Sustain",
     "Crowd control"
-   ]
+   ],
+   "cc": {},
+   "hardCC": false
   },
   "Akali": {
    "id": 84,
@@ -122,7 +129,11 @@
    "subclasses": [
     "Assassin"
    ],
-   "playstyles": []
+   "playstyles": [],
+   "cc": {
+    "W": "slow"
+   },
+   "hardCC": false
   },
   "Akshan": {
    "id": 166,
@@ -160,7 +171,12 @@
     "Engage",
     "Sustain",
     "Crowd control"
-   ]
+   ],
+   "cc": {
+    "Q": "stun",
+    "W": "knockback"
+   },
+   "hardCC": true
   },
   "Ambessa": {
    "id": 799,
@@ -177,7 +193,12 @@
    ],
    "playstyles": [
     "Engage"
-   ]
+   ],
+   "cc": {
+    "W": "slow",
+    "R": "slow"
+   },
+   "hardCC": false
   },
   "Amumu": {
    "id": 32,
@@ -195,7 +216,11 @@
    "playstyles": [
     "Engage",
     "Crowd control"
-   ]
+   ],
+   "cc": {
+    "Q": "stun"
+   },
+   "hardCC": true
   },
   "Anivia": {
    "id": 34,
@@ -211,7 +236,12 @@
    ],
    "playstyles": [
     "Poke"
-   ]
+   ],
+   "cc": {
+    "Q": "slow",
+    "R": "slow"
+   },
+   "hardCC": false
   },
   "Annie": {
    "id": 1,
@@ -262,7 +292,13 @@
    "playstyles": [
     "Poke",
     "Engage"
-   ]
+   ],
+   "cc": {
+    "Q": "slow",
+    "W": "slow",
+    "R": "stun"
+   },
+   "hardCC": true
   },
   "AurelionSol": {
    "id": 136,
@@ -296,7 +332,9 @@
    ],
    "playstyles": [
     "Sustain"
-   ]
+   ],
+   "cc": {},
+   "hardCC": false
   },
   "Azir": {
    "id": 268,
@@ -348,7 +386,11 @@
    "playstyles": [
     "Engage",
     "Crowd control"
-   ]
+   ],
+   "cc": {
+    "R": "slow"
+   },
+   "hardCC": false
   },
   "Blitzcrank": {
    "id": 53,
@@ -365,7 +407,13 @@
    ],
    "playstyles": [
     "Engage"
-   ]
+   ],
+   "cc": {
+    "Q": "pull",
+    "E": "knockup",
+    "R": "silence"
+   },
+   "hardCC": true
   },
   "Brand": {
    "id": 63,
@@ -382,7 +430,11 @@
    ],
    "playstyles": [
     "Poke"
-   ]
+   ],
+   "cc": {
+    "Q": "stun"
+   },
+   "hardCC": true
   },
   "Braum": {
    "id": 201,
@@ -419,7 +471,11 @@
     "Engage",
     "Sustain",
     "Crowd control"
-   ]
+   ],
+   "cc": {
+    "R": "suppression"
+   },
+   "hardCC": true
   },
   "Caitlyn": {
    "id": 51,
@@ -435,7 +491,11 @@
    ],
    "playstyles": [
     "Poke"
-   ]
+   ],
+   "cc": {
+    "E": "slow"
+   },
+   "hardCC": false
   },
   "Camille": {
    "id": 164,
@@ -470,7 +530,12 @@
    "playstyles": [
     "Sustain",
     "Crowd control"
-   ]
+   ],
+   "cc": {
+    "W": "slow",
+    "R": "stun"
+   },
+   "hardCC": true
   },
   "Chogath": {
    "id": 31,
@@ -485,7 +550,12 @@
    "subclasses": [
     "Specialist"
    ],
-   "playstyles": []
+   "playstyles": [],
+   "cc": {
+    "Q": "knockup",
+    "W": "silence"
+   },
+   "hardCC": true
   },
   "Corki": {
    "id": 42,
@@ -521,7 +591,12 @@
    ],
    "playstyles": [
     "Sustain"
-   ]
+   ],
+   "cc": {
+    "W": "slow",
+    "E": "pull"
+   },
+   "hardCC": true
   },
   "Diana": {
    "id": 131,
@@ -540,7 +615,11 @@
    ],
    "playstyles": [
     "Engage"
-   ]
+   ],
+   "cc": {
+    "E": "pull"
+   },
+   "hardCC": true
   },
   "DrMundo": {
    "id": 36,
@@ -557,7 +636,11 @@
    ],
    "playstyles": [
     "Sustain"
-   ]
+   ],
+   "cc": {
+    "Q": "slow"
+   },
+   "hardCC": false
   },
   "Draven": {
    "id": 119,
@@ -573,7 +656,11 @@
    ],
    "playstyles": [
     "Poke"
-   ]
+   ],
+   "cc": {
+    "E": "knockback"
+   },
+   "hardCC": true
   },
   "Ekko": {
    "id": 245,
@@ -609,7 +696,11 @@
    "playstyles": [
     "Poke",
     "Sustain"
-   ]
+   ],
+   "cc": {
+    "E": "stun"
+   },
+   "hardCC": true
   },
   "Evelynn": {
    "id": 28,
@@ -626,7 +717,11 @@
    ],
    "playstyles": [
     "Sustain"
-   ]
+   ],
+   "cc": {
+    "R": "slow"
+   },
+   "hardCC": false
   },
   "Ezreal": {
    "id": 81,
@@ -660,7 +755,12 @@
    "subclasses": [
     "Specialist"
    ],
-   "playstyles": []
+   "playstyles": [],
+   "cc": {
+    "Q": "fear",
+    "E": "silence"
+   },
+   "hardCC": true
   },
   "Fiora": {
    "id": 114,
@@ -693,7 +793,12 @@
    "subclasses": [
     "Assassin"
    ],
-   "playstyles": []
+   "playstyles": [],
+   "cc": {
+    "E": "slow",
+    "R": "knockup"
+   },
+   "hardCC": true
   },
   "Galio": {
    "id": 3,
@@ -712,7 +817,12 @@
     "Engage",
     "Shields/Heals",
     "Crowd control"
-   ]
+   ],
+   "cc": {
+    "Q": "slow",
+    "R": "taunt"
+   },
+   "hardCC": true
   },
   "Gangplank": {
    "id": 41,
@@ -745,7 +855,11 @@
    ],
    "playstyles": [
     "Sustain"
-   ]
+   ],
+   "cc": {
+    "Q": "silence"
+   },
+   "hardCC": true
   },
   "Gnar": {
    "id": 150,
@@ -782,7 +896,12 @@
     "Engage",
     "Sustain",
     "Crowd control"
-   ]
+   ],
+   "cc": {
+    "E": "slow",
+    "R": "knockback"
+   },
+   "hardCC": true
   },
   "Graves": {
    "id": 104,
@@ -798,7 +917,11 @@
    ],
    "playstyles": [
     "Poke"
-   ]
+   ],
+   "cc": {
+    "W": "slow"
+   },
+   "hardCC": false
   },
   "Gwen": {
    "id": 887,
@@ -814,7 +937,11 @@
    ],
    "playstyles": [
     "Sustain"
-   ]
+   ],
+   "cc": {
+    "R": "stun"
+   },
+   "hardCC": true
   },
   "Hecarim": {
    "id": 120,
@@ -831,7 +958,12 @@
    ],
    "playstyles": [
     "Engage"
-   ]
+   ],
+   "cc": {
+    "E": "knockback",
+    "R": "fear"
+   },
+   "hardCC": true
   },
   "Heimerdinger": {
    "id": 74,
@@ -864,7 +996,11 @@
    ],
    "playstyles": [
     "Poke"
-   ]
+   ],
+   "cc": {
+    "W": "slow"
+   },
+   "hardCC": false
   },
   "Illaoi": {
    "id": 420,
@@ -899,7 +1035,11 @@
    "playstyles": [
     "Engage",
     "Sustain"
-   ]
+   ],
+   "cc": {
+    "E": "stun"
+   },
+   "hardCC": true
   },
   "Ivern": {
    "id": 427,
@@ -936,7 +1076,13 @@
    "playstyles": [
     "Poke",
     "Shields/Heals"
-   ]
+   ],
+   "cc": {
+    "Q": "knockup",
+    "W": "slow",
+    "R": "knockback"
+   },
+   "hardCC": true
   },
   "JarvanIV": {
    "id": 59,
@@ -953,7 +1099,12 @@
    ],
    "playstyles": [
     "Engage"
-   ]
+   ],
+   "cc": {
+    "Q": "knockup",
+    "W": "slow"
+   },
+   "hardCC": true
   },
   "Jax": {
    "id": 24,
@@ -967,7 +1118,11 @@
    "subclasses": [
     "Skirmisher"
    ],
-   "playstyles": []
+   "playstyles": [],
+   "cc": {
+    "E": "stun"
+   },
+   "hardCC": true
   },
   "Jayce": {
    "id": 126,
@@ -984,7 +1139,12 @@
    ],
    "playstyles": [
     "Poke"
-   ]
+   ],
+   "cc": {
+    "Q": "slow",
+    "E": "knockback"
+   },
+   "hardCC": true
   },
   "Jhin": {
    "id": 202,
@@ -1020,7 +1180,12 @@
    ],
    "playstyles": [
     "Poke"
-   ]
+   ],
+   "cc": {
+    "W": "slow",
+    "E": "root"
+   },
+   "hardCC": true
   },
   "KSante": {
    "id": 897,
@@ -1040,7 +1205,12 @@
     "Sustain",
     "Shields/Heals",
     "Crowd control"
-   ]
+   ],
+   "cc": {
+    "E": "slow",
+    "R": "knockback"
+   },
+   "hardCC": true
   },
   "Kaisa": {
    "id": 145,
@@ -1089,7 +1259,12 @@
    "playstyles": [
     "Sustain",
     "Shields/Heals"
-   ]
+   ],
+   "cc": {
+    "Q": "slow",
+    "W": "root"
+   },
+   "hardCC": true
   },
   "Karthus": {
    "id": 30,
@@ -1103,7 +1278,11 @@
    "subclasses": [
     "Battlemage"
    ],
-   "playstyles": []
+   "playstyles": [],
+   "cc": {
+    "W": "slow"
+   },
+   "hardCC": false
   },
   "Kassadin": {
    "id": 38,
@@ -1118,7 +1297,12 @@
    "subclasses": [
     "Assassin"
    ],
-   "playstyles": []
+   "playstyles": [],
+   "cc": {
+    "Q": "silence",
+    "E": "slow"
+   },
+   "hardCC": true
   },
   "Katarina": {
    "id": 55,
@@ -1150,7 +1334,11 @@
    ],
    "playstyles": [
     "Shields/Heals"
-   ]
+   ],
+   "cc": {
+    "Q": "slow"
+   },
+   "hardCC": false
   },
   "Kayn": {
    "id": 141,
@@ -1168,7 +1356,11 @@
    ],
    "playstyles": [
     "Sustain"
-   ]
+   ],
+   "cc": {
+    "W": "slow"
+   },
+   "hardCC": false
   },
   "Kennen": {
    "id": 85,
@@ -1198,7 +1390,11 @@
    ],
    "playstyles": [
     "Sustain"
-   ]
+   ],
+   "cc": {
+    "W": "slow"
+   },
+   "hardCC": false
   },
   "Kindred": {
    "id": 203,
@@ -1247,7 +1443,11 @@
    ],
    "playstyles": [
     "Poke"
-   ]
+   ],
+   "cc": {
+    "E": "slow"
+   },
+   "hardCC": false
   },
   "Leblanc": {
    "id": 7,
@@ -1280,7 +1480,12 @@
    "playstyles": [
     "Engage",
     "Shields/Heals"
-   ]
+   ],
+   "cc": {
+    "E": "slow",
+    "R": "knockback"
+   },
+   "hardCC": true
   },
   "Leona": {
    "id": 89,
@@ -1298,7 +1503,13 @@
    "playstyles": [
     "Engage",
     "Crowd control"
-   ]
+   ],
+   "cc": {
+    "Q": "stun",
+    "E": "root",
+    "R": "slow"
+   },
+   "hardCC": true
   },
   "Lillia": {
    "id": 876,
@@ -1315,7 +1526,11 @@
    ],
    "playstyles": [
     "Poke"
-   ]
+   ],
+   "cc": {
+    "R": "slow"
+   },
+   "hardCC": false
   },
   "Lissandra": {
    "id": 127,
@@ -1333,7 +1548,13 @@
     "Poke",
     "Sustain",
     "Crowd control"
-   ]
+   ],
+   "cc": {
+    "Q": "slow",
+    "W": "root",
+    "R": "stun"
+   },
+   "hardCC": true
   },
   "Locke": {
    "id": 805,
@@ -1347,7 +1568,12 @@
    "playstyles": [
     "Poke",
     "Sustain"
-   ]
+   ],
+   "cc": {
+    "Q": "knockup",
+    "W": "slow"
+   },
+   "hardCC": true
   },
   "Lucian": {
    "id": 236,
@@ -1381,7 +1607,13 @@
    ],
    "playstyles": [
     "Shields/Heals"
-   ]
+   ],
+   "cc": {
+    "Q": "slow",
+    "W": "polymorph",
+    "R": "knockup"
+   },
+   "hardCC": true
   },
   "Lux": {
    "id": 99,
@@ -1398,7 +1630,12 @@
    ],
    "playstyles": [
     "Poke"
-   ]
+   ],
+   "cc": {
+    "Q": "root",
+    "E": "slow"
+   },
+   "hardCC": true
   },
   "Malphite": {
    "id": 54,
@@ -1415,7 +1652,12 @@
    ],
    "playstyles": [
     "Engage"
-   ]
+   ],
+   "cc": {
+    "Q": "slow",
+    "R": "knockup"
+   },
+   "hardCC": true
   },
   "Malzahar": {
    "id": 90,
@@ -1429,7 +1671,12 @@
    "subclasses": [
     "Battlemage"
    ],
-   "playstyles": []
+   "playstyles": [],
+   "cc": {
+    "Q": "silence",
+    "R": "suppression"
+   },
+   "hardCC": true
   },
   "Maokai": {
    "id": 57,
@@ -1448,7 +1695,12 @@
     "Engage",
     "Sustain",
     "Crowd control"
-   ]
+   ],
+   "cc": {
+    "Q": "slow",
+    "W": "root"
+   },
+   "hardCC": true
   },
   "MasterYi": {
    "id": 11,
@@ -1478,7 +1730,12 @@
    "subclasses": [],
    "playstyles": [
     "Poke"
-   ]
+   ],
+   "cc": {
+    "Q": "root",
+    "E": "slow"
+   },
+   "hardCC": true
   },
   "Milio": {
    "id": 902,
@@ -1495,7 +1752,13 @@
    ],
    "playstyles": [
     "Shields/Heals"
-   ]
+   ],
+   "cc": {
+    "Q": "knockup",
+    "W": "slow",
+    "R": "knockback"
+   },
+   "hardCC": true
   },
   "MissFortune": {
    "id": 21,
@@ -1512,7 +1775,11 @@
    ],
    "playstyles": [
     "Poke"
-   ]
+   ],
+   "cc": {
+    "E": "slow"
+   },
+   "hardCC": false
   },
   "MonkeyKing": {
    "id": 62,
@@ -1529,7 +1796,11 @@
    ],
    "playstyles": [
     "Engage"
-   ]
+   ],
+   "cc": {
+    "R": "knockup"
+   },
+   "hardCC": true
   },
   "Mordekaiser": {
    "id": 82,
@@ -1565,7 +1836,12 @@
     "Poke",
     "Engage",
     "Sustain"
-   ]
+   ],
+   "cc": {
+    "Q": "root",
+    "R": "stun"
+   },
+   "hardCC": true
   },
   "Naafiri": {
    "id": 950,
@@ -1582,7 +1858,11 @@
    ],
    "playstyles": [
     "Sustain"
-   ]
+   ],
+   "cc": {
+    "R": "suppression"
+   },
+   "hardCC": true
   },
   "Nami": {
    "id": 267,
@@ -1601,7 +1881,12 @@
     "Poke",
     "Shields/Heals",
     "Crowd control"
-   ]
+   ],
+   "cc": {
+    "Q": "stun",
+    "R": "knockup"
+   },
+   "hardCC": true
   },
   "Nasus": {
    "id": 75,
@@ -1618,7 +1903,11 @@
    ],
    "playstyles": [
     "Sustain"
-   ]
+   ],
+   "cc": {
+    "W": "slow"
+   },
+   "hardCC": false
   },
   "Nautilus": {
    "id": 111,
@@ -1636,7 +1925,13 @@
    "playstyles": [
     "Engage",
     "Crowd control"
-   ]
+   ],
+   "cc": {
+    "Q": "stun",
+    "E": "slow",
+    "R": "knockup"
+   },
+   "hardCC": true
   },
   "Neeko": {
    "id": 518,
@@ -1707,7 +2002,11 @@
    ],
    "playstyles": [
     "Sustain"
-   ]
+   ],
+   "cc": {
+    "E": "fear"
+   },
+   "hardCC": true
   },
   "Nunu": {
    "id": 20,
@@ -1726,7 +2025,12 @@
     "Engage",
     "Sustain",
     "Crowd control"
-   ]
+   ],
+   "cc": {
+    "E": "slow",
+    "R": "slow"
+   },
+   "hardCC": false
   },
   "Olaf": {
    "id": 2,
@@ -1744,7 +2048,11 @@
    "playstyles": [
     "Engage",
     "Sustain"
-   ]
+   ],
+   "cc": {
+    "Q": "slow"
+   },
+   "hardCC": false
   },
   "Orianna": {
    "id": 61,
@@ -1761,7 +2069,12 @@
    ],
    "playstyles": [
     "Poke"
-   ]
+   ],
+   "cc": {
+    "W": "slow",
+    "R": "pull"
+   },
+   "hardCC": true
   },
   "Ornn": {
    "id": 516,
@@ -1777,7 +2090,12 @@
    ],
    "playstyles": [
     "Engage"
-   ]
+   ],
+   "cc": {
+    "W": "slow",
+    "E": "pull"
+   },
+   "hardCC": true
   },
   "Pantheon": {
    "id": 80,
@@ -1794,7 +2112,12 @@
    ],
    "playstyles": [
     "Engage"
-   ]
+   ],
+   "cc": {
+    "W": "stun",
+    "R": "slow"
+   },
+   "hardCC": true
   },
   "Poppy": {
    "id": 78,
@@ -1812,7 +2135,11 @@
    "playstyles": [
     "Engage",
     "Crowd control"
-   ]
+   ],
+   "cc": {
+    "E": "stun"
+   },
+   "hardCC": true
   },
   "Pyke": {
    "id": 555,
@@ -1832,7 +2159,12 @@
    "playstyles": [
     "Engage",
     "Crowd control"
-   ]
+   ],
+   "cc": {
+    "W": "slow",
+    "E": "silence"
+   },
+   "hardCC": true
   },
   "Qiyana": {
    "id": 246,
@@ -1861,7 +2193,12 @@
    "subclasses": [
     "Specialist"
    ],
-   "playstyles": []
+   "playstyles": [],
+   "cc": {
+    "Q": "blind",
+    "E": "knockback"
+   },
+   "hardCC": true
   },
   "Rakan": {
    "id": 497,
@@ -1879,7 +2216,13 @@
     "Engage",
     "Shields/Heals",
     "Crowd control"
-   ]
+   ],
+   "cc": {
+    "Q": "knockup",
+    "W": "slow",
+    "R": "knockback"
+   },
+   "hardCC": true
   },
   "Rammus": {
    "id": 33,
@@ -1896,7 +2239,12 @@
    "playstyles": [
     "Engage",
     "Crowd control"
-   ]
+   ],
+   "cc": {
+    "Q": "knockback",
+    "E": "taunt"
+   },
+   "hardCC": true
   },
   "RekSai": {
    "id": 421,
@@ -1949,7 +2297,12 @@
    ],
    "playstyles": [
     "Shields/Heals"
-   ]
+   ],
+   "cc": {
+    "Q": "slow",
+    "W": "root"
+   },
+   "hardCC": true
   },
   "Renekton": {
    "id": 58,
@@ -1967,7 +2320,11 @@
    "playstyles": [
     "Engage",
     "Sustain"
-   ]
+   ],
+   "cc": {
+    "W": "stun"
+   },
+   "hardCC": true
   },
   "Rengar": {
    "id": 107,
@@ -2001,7 +2358,11 @@
    ],
    "playstyles": [
     "Crowd control"
-   ]
+   ],
+   "cc": {
+    "W": "stun"
+   },
+   "hardCC": true
   },
   "Rumble": {
    "id": 68,
@@ -2018,7 +2379,12 @@
    ],
    "playstyles": [
     "Poke"
-   ]
+   ],
+   "cc": {
+    "E": "slow",
+    "R": "slow"
+   },
+   "hardCC": false
   },
   "Ryze": {
    "id": 13,
@@ -2034,7 +2400,11 @@
    ],
    "playstyles": [
     "Poke"
-   ]
+   ],
+   "cc": {
+    "W": "root"
+   },
+   "hardCC": true
   },
   "Samira": {
    "id": 360,
@@ -2066,7 +2436,13 @@
    "playstyles": [
     "Engage",
     "Crowd control"
-   ]
+   ],
+   "cc": {
+    "Q": "knockup",
+    "E": "slow",
+    "R": "stun"
+   },
+   "hardCC": true
   },
   "Senna": {
    "id": 235,
@@ -2134,7 +2510,12 @@
    "subclasses": [
     "Assassin"
    ],
-   "playstyles": []
+   "playstyles": [],
+   "cc": {
+    "W": "fear",
+    "E": "slow"
+   },
+   "hardCC": true
   },
   "Shen": {
    "id": 98,
@@ -2150,7 +2531,12 @@
    ],
    "playstyles": [
     "Engage"
-   ]
+   ],
+   "cc": {
+    "W": "slow",
+    "E": "taunt"
+   },
+   "hardCC": true
   },
   "Shyvana": {
    "id": 102,
@@ -2168,7 +2554,11 @@
    "playstyles": [
     "Engage",
     "Sustain"
-   ]
+   ],
+   "cc": {
+    "R": "knockback"
+   },
+   "hardCC": true
   },
   "Singed": {
    "id": 27,
@@ -2183,7 +2573,12 @@
    "subclasses": [
     "Specialist"
    ],
-   "playstyles": []
+   "playstyles": [],
+   "cc": {
+    "W": "slow",
+    "E": "pull"
+   },
+   "hardCC": true
   },
   "Sion": {
    "id": 14,
@@ -2201,7 +2596,12 @@
    "playstyles": [
     "Engage",
     "Sustain"
-   ]
+   ],
+   "cc": {
+    "W": "slow",
+    "E": "pull"
+   },
+   "hardCC": true
   },
   "Sivir": {
    "id": 15,
@@ -2252,7 +2652,11 @@
    ],
    "playstyles": [
     "Poke"
-   ]
+   ],
+   "cc": {
+    "E": "slow"
+   },
+   "hardCC": false
   },
   "Sona": {
    "id": 37,
@@ -2269,7 +2673,12 @@
    ],
    "playstyles": [
     "Shields/Heals"
-   ]
+   ],
+   "cc": {
+    "E": "slow",
+    "R": "stun"
+   },
+   "hardCC": true
   },
   "Soraka": {
    "id": 16,
@@ -2287,7 +2696,11 @@
    "playstyles": [
     "Sustain",
     "Shields/Heals"
-   ]
+   ],
+   "cc": {
+    "E": "silence"
+   },
+   "hardCC": true
   },
   "Swain": {
    "id": 50,
@@ -2304,7 +2717,12 @@
    ],
    "playstyles": [
     "Sustain"
-   ]
+   ],
+   "cc": {
+    "Q": "slow",
+    "W": "root"
+   },
+   "hardCC": true
   },
   "Sylas": {
    "id": 517,
@@ -2322,7 +2740,9 @@
    "playstyles": [
     "Engage",
     "Sustain"
-   ]
+   ],
+   "cc": {},
+   "hardCC": false
   },
   "Syndra": {
    "id": 134,
@@ -2336,7 +2756,12 @@
    "subclasses": [
     "Burst"
    ],
-   "playstyles": []
+   "playstyles": [],
+   "cc": {
+    "W": "slow",
+    "E": "stun"
+   },
+   "hardCC": true
   },
   "TahmKench": {
    "id": 223,
@@ -2386,7 +2811,12 @@
    "subclasses": [
     "Assassin"
    ],
-   "playstyles": []
+   "playstyles": [],
+   "cc": {
+    "W": "slow",
+    "E": "silence"
+   },
+   "hardCC": true
   },
   "Taric": {
    "id": 44,
@@ -2404,7 +2834,11 @@
    "playstyles": [
     "Sustain",
     "Shields/Heals"
-   ]
+   ],
+   "cc": {
+    "E": "stun"
+   },
+   "hardCC": true
   },
   "Teemo": {
    "id": 17,
@@ -2419,7 +2853,12 @@
    "subclasses": [
     "Specialist"
    ],
-   "playstyles": []
+   "playstyles": [],
+   "cc": {
+    "Q": "blind",
+    "R": "slow"
+   },
+   "hardCC": false
   },
   "Thresh": {
    "id": 412,
@@ -2437,7 +2876,13 @@
    "playstyles": [
     "Engage",
     "Shields/Heals"
-   ]
+   ],
+   "cc": {
+    "Q": "stun",
+    "E": "pull",
+    "R": "slow"
+   },
+   "hardCC": true
   },
   "Tristana": {
    "id": 18,
@@ -2452,7 +2897,12 @@
    "subclasses": [
     "Marksman"
    ],
-   "playstyles": []
+   "playstyles": [],
+   "cc": {
+    "W": "slow",
+    "R": "knockback"
+   },
+   "hardCC": true
   },
   "Trundle": {
    "id": 48,
@@ -2469,7 +2919,12 @@
    ],
    "playstyles": [
     "Sustain"
-   ]
+   ],
+   "cc": {
+    "Q": "slow",
+    "E": "knockback"
+   },
+   "hardCC": true
   },
   "Tryndamere": {
    "id": 23,
@@ -2486,7 +2941,11 @@
    ],
    "playstyles": [
     "Sustain"
-   ]
+   ],
+   "cc": {
+    "W": "slow"
+   },
+   "hardCC": false
   },
   "TwistedFate": {
    "id": 4,
@@ -2501,7 +2960,11 @@
    "subclasses": [
     "Burst"
    ],
-   "playstyles": []
+   "playstyles": [],
+   "cc": {
+    "W": "stun"
+   },
+   "hardCC": true
   },
   "Twitch": {
    "id": 29,
@@ -2548,7 +3011,11 @@
    "subclasses": [
     "Juggernaut"
    ],
-   "playstyles": []
+   "playstyles": [],
+   "cc": {
+    "R": "pull"
+   },
+   "hardCC": true
   },
   "Varus": {
    "id": 110,
@@ -2568,7 +3035,12 @@
    "playstyles": [
     "Poke",
     "Sustain"
-   ]
+   ],
+   "cc": {
+    "E": "slow",
+    "R": "root"
+   },
+   "hardCC": true
   },
   "Vayne": {
    "id": 67,
@@ -2583,7 +3055,11 @@
    "subclasses": [
     "Marksman"
    ],
-   "playstyles": []
+   "playstyles": [],
+   "cc": {
+    "E": "stun"
+   },
+   "hardCC": true
   },
   "Veigar": {
    "id": 45,
@@ -2599,7 +3075,11 @@
    ],
    "playstyles": [
     "Poke"
-   ]
+   ],
+   "cc": {
+    "E": "stun"
+   },
+   "hardCC": true
   },
   "Velkoz": {
    "id": 161,
@@ -2649,7 +3129,11 @@
    ],
    "playstyles": [
     "Engage"
-   ]
+   ],
+   "cc": {
+    "R": "knockup"
+   },
+   "hardCC": true
   },
   "Viego": {
    "id": 234,
@@ -2668,7 +3152,12 @@
     "Engage",
     "Sustain",
     "Crowd control"
-   ]
+   ],
+   "cc": {
+    "Q": "knockup",
+    "W": "slow"
+   },
+   "hardCC": true
   },
   "Viktor": {
    "id": 112,
@@ -2682,7 +3171,11 @@
    "subclasses": [
     "Battlemage"
    ],
-   "playstyles": []
+   "playstyles": [],
+   "cc": {
+    "W": "slow"
+   },
+   "hardCC": false
   },
   "Vladimir": {
    "id": 8,
@@ -2699,7 +3192,11 @@
    ],
    "playstyles": [
     "Sustain"
-   ]
+   ],
+   "cc": {
+    "W": "slow"
+   },
+   "hardCC": false
   },
   "Volibear": {
    "id": 106,
@@ -2716,7 +3213,11 @@
    ],
    "playstyles": [
     "Sustain"
-   ]
+   ],
+   "cc": {
+    "Q": "pull"
+   },
+   "hardCC": true
   },
   "Warwick": {
    "id": 19,
@@ -2735,7 +3236,11 @@
     "Engage",
     "Sustain",
     "Crowd control"
-   ]
+   ],
+   "cc": {
+    "R": "suppression"
+   },
+   "hardCC": true
   },
   "Xayah": {
    "id": 498,
@@ -2751,7 +3256,12 @@
    ],
    "playstyles": [
     "Poke"
-   ]
+   ],
+   "cc": {
+    "Q": "blind",
+    "E": "knockback"
+   },
+   "hardCC": true
   },
   "Xerath": {
    "id": 101,
@@ -2786,7 +3296,12 @@
    "playstyles": [
     "Engage",
     "Sustain"
-   ]
+   ],
+   "cc": {
+    "Q": "knockup",
+    "R": "knockback"
+   },
+   "hardCC": true
   },
   "Yasuo": {
    "id": 157,
@@ -2839,7 +3354,11 @@
    ],
    "playstyles": [
     "Sustain"
-   ]
+   ],
+   "cc": {
+    "W": "slow"
+   },
+   "hardCC": false
   },
   "Yunara": {
    "id": 804,
@@ -2900,7 +3419,13 @@
    "playstyles": [
     "Engage",
     "Sustain"
-   ]
+   ],
+   "cc": {
+    "Q": "slow",
+    "E": "knockup",
+    "R": "knockup"
+   },
+   "hardCC": true
   },
   "Zed": {
    "id": 238,
@@ -2914,7 +3439,12 @@
    "subclasses": [
     "Assassin"
    ],
-   "playstyles": []
+   "playstyles": [],
+   "cc": {
+    "W": "slow",
+    "R": "slow"
+   },
+   "hardCC": false
   },
   "Zeri": {
    "id": 221,
@@ -2946,7 +3476,12 @@
    ],
    "playstyles": [
     "Poke"
-   ]
+   ],
+   "cc": {
+    "W": "knockback",
+    "E": "slow"
+   },
+   "hardCC": true
   },
   "Zilean": {
    "id": 26,
@@ -2961,7 +3496,11 @@
    "subclasses": [
     "Specialist"
    ],
-   "playstyles": []
+   "playstyles": [],
+   "cc": {
+    "E": "slow"
+   },
+   "hardCC": false
   },
   "Zoe": {
    "id": 142,
@@ -2994,7 +3533,414 @@
     "Poke",
     "Engage",
     "Crowd control"
-   ]
+   ],
+   "cc": {
+    "E": "root",
+    "R": "knockup"
+   },
+   "hardCC": true
   }
+ },
+ "augments": {
+  "1006": [
+   "lethality",
+   "fighter"
+  ],
+  "1013": [
+   "tank",
+   "enchanter"
+  ],
+  "1015": [
+   "ap",
+   "enchanter"
+  ],
+  "1018": [
+   "tank"
+  ],
+  "1019": [
+   "lethality"
+  ],
+  "1022": [
+   "onhit"
+  ],
+  "1027": [
+   "lethality"
+  ],
+  "1028": [
+   "tank"
+  ],
+  "1030": [
+   "ap"
+  ],
+  "1036": [
+   "onhit"
+  ],
+  "1037": [
+   "enchanter"
+  ],
+  "1038": [
+   "ap"
+  ],
+  "1041": [
+   "fighter",
+   "tank"
+  ],
+  "1044": [
+   "ap",
+   "enchanter"
+  ],
+  "1045": [
+   "ap"
+  ],
+  "1046": [
+   "fighter"
+  ],
+  "1047": [
+   "crit"
+  ],
+  "1048": [
+   "crit",
+   "ap",
+   "lethality",
+   "fighter"
+  ],
+  "1051": [
+   "onhit"
+  ],
+  "1054": [
+   "onhit",
+   "ap",
+   "fighter"
+  ],
+  "1056": [
+   "ap"
+  ],
+  "1057": [
+   "tank"
+  ],
+  "1058": [
+   "onhit",
+   "fighter"
+  ],
+  "1063": [
+   "lethality"
+  ],
+  "1064": [
+   "tank",
+   "enchanter"
+  ],
+  "1067": [
+   "ap",
+   "fighter",
+   "tank",
+   "enchanter"
+  ],
+  "1071": [
+   "onhit"
+  ],
+  "1073": [
+   "lethality"
+  ],
+  "1074": [
+   "onhit"
+  ],
+  "1076": [
+   "tank",
+   "enchanter"
+  ],
+  "1077": [
+   "crit"
+  ],
+  "1079": [
+   "onhit",
+   "fighter"
+  ],
+  "1080": [
+   "crit"
+  ],
+  "1081": [
+   "onhit"
+  ],
+  "1084": [
+   "onhit",
+   "ap",
+   "lethality",
+   "fighter"
+  ],
+  "1087": [
+   "onhit"
+  ],
+  "1092": [
+   "crit"
+  ],
+  "1095": [
+   "tank",
+   "enchanter"
+  ],
+  "1097": [
+   "ap"
+  ],
+  "1115": [
+   "onhit"
+  ],
+  "1118": [
+   "crit",
+   "tank",
+   "enchanter"
+  ],
+  "1129": [
+   "ap"
+  ],
+  "1133": [
+   "ap"
+  ],
+  "1134": [
+   "onhit"
+  ],
+  "1136": [
+   "fighter",
+   "tank",
+   "enchanter"
+  ],
+  "1138": [
+   "onhit",
+   "lethality",
+   "fighter"
+  ],
+  "1141": [
+   "enchanter"
+  ],
+  "1149": [
+   "tank",
+   "enchanter"
+  ],
+  "1152": [
+   "tank"
+  ],
+  "1156": [
+   "ap"
+  ],
+  "1170": [
+   "onhit"
+  ],
+  "1180": [
+   "ap"
+  ],
+  "1181": [
+   "tank"
+  ],
+  "1187": [
+   "lethality",
+   "fighter"
+  ],
+  "1195": [
+   "onhit",
+   "ap",
+   "lethality"
+  ],
+  "1205": [
+   "ap",
+   "lethality"
+  ],
+  "1206": [
+   "onhit",
+   "lethality",
+   "fighter"
+  ],
+  "1211": [
+   "ap",
+   "lethality"
+  ],
+  "1220": [
+   "onhit"
+  ],
+  "1225": [
+   "onhit"
+  ],
+  "1308": [
+   "ap"
+  ],
+  "1310": [
+   "lethality"
+  ],
+  "1311": [
+   "ap",
+   "fighter"
+  ],
+  "1314": [
+   "lethality",
+   "tank"
+  ],
+  "1315": [
+   "lethality"
+  ],
+  "1318": [
+   "ap"
+  ],
+  "1319": [
+   "tank"
+  ],
+  "1320": [
+   "crit",
+   "onhit",
+   "lethality"
+  ],
+  "1322": [
+   "onhit",
+   "lethality",
+   "fighter"
+  ],
+  "1323": [
+   "ap",
+   "tank",
+   "enchanter"
+  ],
+  "1324": [
+   "tank",
+   "enchanter"
+  ],
+  "1325": [
+   "crit",
+   "onhit",
+   "ap",
+   "lethality",
+   "fighter"
+  ],
+  "1326": [
+   "lethality"
+  ],
+  "1327": [
+   "ap",
+   "tank",
+   "enchanter"
+  ],
+  "1328": [
+   "crit",
+   "onhit"
+  ],
+  "1331": [
+   "enchanter"
+  ],
+  "1332": [
+   "ap",
+   "enchanter"
+  ],
+  "1336": [
+   "crit"
+  ],
+  "1337": [
+   "lethality",
+   "fighter",
+   "tank"
+  ],
+  "1344": [
+   "ap",
+   "lethality",
+   "tank"
+  ],
+  "1345": [
+   "onhit",
+   "ap",
+   "lethality",
+   "fighter"
+  ],
+  "1346": [
+   "onhit",
+   "ap",
+   "lethality",
+   "fighter"
+  ],
+  "1353": [
+   "tank"
+  ],
+  "1356": [
+   "crit",
+   "onhit"
+  ],
+  "1361": [
+   "tank"
+  ],
+  "1375": [
+   "tank"
+  ],
+  "1390": [
+   "ap"
+  ],
+  "1415": [
+   "crit"
+  ],
+  "1420": [
+   "tank",
+   "enchanter"
+  ],
+  "1421": [
+   "lethality",
+   "tank"
+  ],
+  "1996": [
+   "onhit"
+  ],
+  "2004": [
+   "enchanter"
+  ],
+  "2005": [
+   "fighter"
+  ],
+  "2006": [
+   "tank"
+  ],
+  "2009": [
+   "crit",
+   "onhit"
+  ],
+  "2010": [
+   "crit"
+  ],
+  "2016": [
+   "crit"
+  ],
+  "2024": [
+   "crit"
+  ],
+  "2026": [
+   "lethality"
+  ],
+  "2064": [
+   "lethality",
+   "tank"
+  ],
+  "2065": [
+   "lethality",
+   "tank"
+  ],
+  "2073": [
+   "lethality",
+   "tank"
+  ],
+  "2077": [
+   "ap",
+   "tank",
+   "enchanter"
+  ],
+  "2099": [
+   "lethality"
+  ],
+  "2100": [
+   "enchanter"
+  ],
+  "2102": [
+   "fighter"
+  ],
+  "2108": [
+   "enchanter"
+  ],
+  "2116": [
+   "enchanter"
+  ],
+  "2144": [
+   "ap",
+   "tank",
+   "enchanter"
+  ]
  }
 }

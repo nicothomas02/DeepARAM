@@ -421,3 +421,13 @@ def test_fallback_augments(guide, rules):
     assert [f["tier"] for f in fb] == ["Silver", "Gold", "Prismatic"]
     for f in fb:
         assert f["augments"] and all(a["tier"] == f["tier"] and a["name"] and a["id"] for a in f["augments"])
+
+
+def test_turrets(guide):
+    """Turrets card: the three Howling Abyss turrets, with Mayhem's own health where it overrides the base."""
+    t = guide["rules"]["turrets"]
+    assert t == load_json("guide/mode_rules.json")["turrets"]
+    assert [x["key"] for x in t] == ["outer", "inhibitor", "nexus"]
+    for x in t:
+        assert x["hp"] > 0 and x["damage"] > 0 and x["armor"] > 0 and x["range"] > 0 and 0 < x["attackSpeed"] < 2
+        assert x["baseHp"] is None or x["baseHp"] != x["hp"]
