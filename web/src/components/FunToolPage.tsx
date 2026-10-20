@@ -6,7 +6,7 @@ import { pageMeta } from "@/lib/meta";
 import { T } from "./I18n";
 
 // One of The Kitchen folder's tools on a page of its own (tools/fun/<folder>/index.html), under the tab
-// it belongs to: Infinite Ryze under Simulator, Region Teams under Info.
+// it belongs to: Region Teams under Info.
 
 export type FunTool = {
   path: string;

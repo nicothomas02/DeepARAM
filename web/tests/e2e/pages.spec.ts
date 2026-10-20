@@ -78,7 +78,8 @@ test("old addresses redirect to the current tabs", async ({ page }) => {
     ["/lab", "/kitchen"],
     ["/stats", "/account"],
     ["/status", "/"],
-    ["/simulator/infinite-ryze", "/simulator?tab=infinite-ryze"],
+    ["/simulator/infinite-ryze", "/kitchen?tab=infinite-ryze"],
+    ["/simulator?tab=infinite-ryze", "/kitchen?tab=infinite-ryze"],
   ]) {
     await page.goto(from);
     expect(new URL(page.url()).pathname + new URL(page.url()).search, from).toBe(to);

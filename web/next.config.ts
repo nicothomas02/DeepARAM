@@ -80,8 +80,9 @@ const nextConfig: NextConfig = {
         { source: "/items", destination: "/tier-list?tab=items", permanent: true },
         // The build tools (Build Editor, Team Builder) were removed; their addresses open the Tier List.
         ...["/builds", "/builder", "/synergy"].map((source) => ({ source, destination: "/tier-list", permanent: true })),
-        // Infinite Ryze is a tab on the Simulator page now.
-        { source: "/simulator/infinite-ryze", destination: "/simulator?tab=infinite-ryze", permanent: true },
+        // Infinite Ryze is a tab in The Kitchen now (it was a Simulator tab before).
+        { source: "/simulator/infinite-ryze", destination: "/kitchen?tab=infinite-ryze", permanent: true },
+        { source: "/simulator", has: [{ type: "query" as const, key: "tab", value: "infinite-ryze" }], destination: "/kitchen?tab=infinite-ryze", permanent: true },
         // Augments by icon and Draft practice were removed; their tabs open the augment tier list.
         { source: "/tier-list", has: [{ type: "query" as const, key: "tab", value: "groups|draft" }], destination: "/tier-list?tab=augments", permanent: true },
         { source: "/draft", destination: "/tier-list?tab=augments", permanent: true },
