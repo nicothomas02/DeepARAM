@@ -691,11 +691,27 @@
         if (age < 0.15) lunge = Math.max(lunge, 1 - Math.abs(age) / 0.15);
       }
 
+    // With the 3D models, abilities (and attacks, passives, toggles, Poros) the champion has effects for are
+    // drawn with them (effects3d.js) instead of these shapes; fx collects this frame's for M.frame.
+    const FX = world && M && M.effects, fx = [];
     // Poro Charge (Poro Stampede): each wave is a row of Poros running down the lane.
+    // With the 3D models and the stampede's own effects, each Poro is the game's (effects3d.js).
+    const poroFx = FX && FX.has("mayhem", "PoroCharge");
     for (const w of fight.poros) {
       if (!w.from || !world) continue;
       const dx = w.ax - w.from.x, dy = w.ay - w.from.y, len = Math.hypot(dx, dy) || 1;
       const since = time - w.t, travel = len / PORO_SPEED;
+      if (poroFx) {
+        if (since < 0 || since > travel + 2) continue;
+        const ux = dx / len, uy = dy / len, n = 5, dir = { x: view.sx({ x: w.from.x + ux }) - view.sx(w.from), y: view.sy({ y: w.from.y + uy }) - view.sy(w.from) };
+        for (let i = 0; i < n; i++) {
+          const off = (i + 0.5 - n / 2) * (PORO_WIDTH / n);
+          const a = { x: w.from.x - uy * off, y: w.from.y + ux * off }, b = { x: a.x + ux * len, y: a.y + uy * len };
+          fx.push({ champ: "mayhem", slot: "PoroCharge", role: "missile", t: since - i * 0.04, from: scr(a), to: scr(b), dur: travel, dir, h: 0 });
+        }
+        fx.push({ champ: "mayhem", slot: "PoroCharge", role: "cast", t: since, at: scr(w.from), dir, dur: 0.6, h: 0 });
+        continue;
+      }
       if (since < 0 || since > travel + 0.3) continue;
       const ux = dx / len, uy = dy / len, d = Math.min(len, since * PORO_SPEED);
       g.globalAlpha = since > travel ? 1 - (since - travel) / 0.3 : 1;
@@ -721,6 +737,9 @@
     if (!s.dead) for (const e of fight.toggles) { if (e.t > time) break; if (e.f) toggleOn.set(e.s, e); else toggleOn.delete(e.s); }
     for (const [slot, e] of toggleOn) {
       const at = e.u !== undefined ? posOf(e.u) : st.me;
+      const roles = FX && FX.has(champ.id, slot) && FX.roles(champ.id, slot);
+      const part = roles && ["buff", "area", "cast"].find((k) => roles[k]);
+      if (part) { fx.push({ champ: champ.id, slot, role: part, t: time - e.t, at, dur: time - e.t + 1, h: 0 }); continue; }
       const rad = world ? Math.max(20 * u, (e.a || 300) * view.k) : (e.u !== undefined ? 50 : 70) * u;
       const col = SLOT_COLORS[slot] || "#fff";
       g.save();
@@ -731,9 +750,7 @@
       g.restore();
     }
 
-    // Ability casts. With the 3D models, an ability the champion has effects for is drawn with
-    // them (effects3d.js) instead of its shape; the wind-up and channel rings stay.
-    const FX = world && M && M.effects, fx = [];
+    // Ability casts (the wind-up and channel rings stay with effects).
     for (const c of fight.casts) {
       const fxOn = !!(FX && c.from && FX.has(champ.id, c.s));
       if (fxOn) castEffects(fx, FX, c, time, scr, posOf, view.k);
@@ -882,6 +899,7 @@
           ...(run ? runPose(v) : calm(anim)) });
       }
       for (const f of fighters) if (f.lift) f.y -= f.lift * 55 * u;  // knocked up into the air
+      if (FX) moreEffects(fx, FX, time, s, posOf, { x: meX, y: meY }, view.k, alive);
       heads = M.frame(fighters, W, H, lowQuality() ? 0.75 : 1, fx, unit);
       // Keep the bars and badges above heads clear of the HUD along the top.
       for (const k in heads) heads[k].y = Math.max(heads[k].y, 56 * dpr);
@@ -901,7 +919,8 @@
 
     // Your ranged attacks: the missile leaves after the wind-up and lands as the hit does, at
     // about half the models' height (chest to chest).
-    if (trace.ranged && !s.dead) {
+    const atkFx = FX && FX.has(champ.id, "attack") ? FX.roles(champ.id, "attack") : null;
+    if (trace.ranged && !s.dead && !(atkFx && atkFx.missile)) {
       const mid = (x, y, head) => (head ? y + (head.y - y) * 0.45 : y);
       for (const a of fight.attacks) {
         const age = time - a.t;
@@ -1021,7 +1040,8 @@
     else if (time < fight.engage) floatText(og, T("ENEMIES ENGAGE IN {n} s", { n: (fight.engage - time).toFixed(1) }), meX, labelY + (s.cc ? 18 * u : 0), 0.8, "#8295a8", 13 * u);
 
     // On-hit passives.
-    for (const pr of fight.procs) {
+    const procFx = FX && FX.has(champ.id, "P") ? FX.roles(champ.id, "P") : null;
+    if (!(procFx && (procFx.hit || procFx.buff))) for (const pr of fight.procs) {
       const age = time - pr.t;
       if (age < 0 || age > 0.4) continue;
       const p = posOf(pr.u);
@@ -1054,7 +1074,7 @@
     $("modeHud").hidden = !showMode;
     if (showMode) { $("modeName").textContent = MODES[mode].label; $("modeVal").textContent = modeValue(mode, MODES[mode].now(s)); }
     // Crits: a flash where the attack lands.
-    if (!lowQuality())
+    if (!lowQuality() && !(atkFx && atkFx.crit))
       for (const a of fight.attacks) {
         const age = time - a.t;
         if (!a.f || age < 0 || age > 0.25) continue;
@@ -1155,6 +1175,48 @@
       if (roles.buff) {
         const held = fight.ecc.find((e) => e.u === c.u && Math.abs(e.t - hitAt) < 0.4);
         out.push({ champ: id, slot: s, role: "buff", t: time - hitAt, at: target, dir, dur: held ? held.a - held.t : 1.5, h: 0 });
+      }
+    }
+  }
+
+  // The rest of the fight as the game draws it (3D edition), where the champions have effects: your
+  // attacks (missile, hit, crit), your on-hit passive, and each enemy's abilities (cast, a missile to
+  // you, the hit, and the crowd control it holds you in).
+  function moreEffects(out, FX, time, s, posOf, me, k, alive) {
+    const id = champ.id, atk = FX.has(id, "attack") && FX.roles(id, "attack");
+    if (atk && !s.dead) for (const a of fight.attacks) {
+      if (a.t - a.fly > time) break;
+      if (time - a.t > 1.5) continue;
+      const to = posOf(a.u), dir = { x: to.x - me.x, y: to.y - me.y };
+      if (atk.missile && a.fly > 0) out.push({ champ: id, slot: "attack", role: "missile", t: time - (a.t - a.fly), from: me, to, dur: a.fly, dir, h: 100 });
+      const hit = a.f && atk.crit ? "crit" : "hit";
+      if (atk[hit]) out.push({ champ: id, slot: "attack", role: hit, t: time - a.t, at: to, dir, dur: 0.4, h: 0 });
+    }
+    const pas = FX.has(id, "P") && FX.roles(id, "P");
+    if (pas) for (const pr of fight.procs) {
+      if (pr.t > time) break;
+      if (time - pr.t > 1.5) continue;
+      const role = pas.hit ? "hit" : "buff";
+      out.push({ champ: id, slot: "P", role, t: time - pr.t, at: posOf(pr.u), dur: 0.6, h: 0 });
+    }
+    for (const en of alive) {
+      if (!FX.has(en.champ, "Q") && !FX.has(en.champ, "R")) continue;
+      const from = posOf(en.uid), dir = { x: me.x - from.x, y: me.y - from.y };
+      const dist = Math.hypot(dir.x, dir.y) / k;
+      for (const c of fight.enemyCasts.get(en.uid) || []) {
+        if (c.t > time) break;
+        if (time - c.t > 4 || (en.died !== null && c.t > en.died)) continue;
+        const roles = FX.has(en.champ, c.s) && FX.roles(en.champ, c.s);
+        if (!roles) continue;
+        const launch = c.t + 0.25, fly = Math.min(0.8, dist / 1400);
+        if (roles.cast) out.push({ champ: en.champ, slot: c.s, role: "cast", t: time - c.t, at: from, dir, dur: 0.6, h: 0 });
+        if (roles.missile) out.push({ champ: en.champ, slot: c.s, role: "missile", t: time - launch, from, to: me, dur: fly, dir, h: 100 });
+        if (roles.area && !roles.missile) out.push({ champ: en.champ, slot: c.s, role: "area", t: time - launch, at: me, dir, dur: 1, h: 0 });
+        if (roles.hit) out.push({ champ: en.champ, slot: c.s, role: "hit", t: time - launch - fly, at: me, dir, dur: 0.5, h: 0 });
+        if (roles.buff && c.cc) {
+          const held = fight.cc.find((x) => Math.abs(x.t - c.t - 0.3) < 0.5);
+          out.push({ champ: en.champ, slot: c.s, role: "buff", t: time - launch - fly, at: me, dir, dur: held ? held.a - held.t : 1.2, h: 0 });
+        }
       }
     }
   }
