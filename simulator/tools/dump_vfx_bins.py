@@ -113,6 +113,33 @@ def dump_champion(args):
     return alias, f"{len(systems)}/{len(names)} systems"
 
 
+def dump_global(final, dest):
+    """Effects shared by every champion (summoner spells like Flash, crowd control on a target, items):
+    every effect system, effect name map and spell in Global.wad.client's shared, globals and items bins."""
+    wad_path = os.path.join(final, "Global.wad.client")
+    if not os.path.exists(wad_path):
+        return "no Global.wad.client"
+    from cdtb.hashes import default_hashfile
+    names = default_hashfile(wad_path).load()  # path hash -> name (from `cdtb fetch-hashes`)
+    keep = ("VfxSystemDefinitionData", "ResourceResolver", "SpellObject")
+    out = {}
+    with open(wad_path, "rb") as fh:
+        for f in Wad(wad_path).files:
+            name = names.get(f.path_hash, "")
+            if not name.endswith(".bin") or not name.startswith(("data/shared", "data/globals", "data/items", "data/spells")):
+                continue
+            try:
+                found, _ = read_bin(f.read_data(fh))
+            except Exception:
+                continue
+            for key, value in found.items():
+                if isinstance(value, dict) and value.get("__type") in keep:
+                    out[key] = value
+    with open(dest, "w", encoding="utf-8") as f:
+        json.dump(out, f, separators=(",", ":"))
+    return f"{len(out)} entries"
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     ap.add_argument("out")
@@ -130,6 +157,7 @@ def main():
     with ProcessPoolExecutor() as ex:
         for alias, note in ex.map(dump_champion, jobs):
             print(f"{alias}: {note}")
+    print("global:", dump_global(os.path.dirname(final), os.path.join(args.out, "_global.json")))
     with open(os.path.join(args.root, "Game", "content-metadata.json")) as f:
         version = json.load(f).get("version")
     with open(os.path.join(args.out, "_source.json"), "w") as f:
