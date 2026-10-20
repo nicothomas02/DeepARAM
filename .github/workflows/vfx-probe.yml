@@ -1,0 +1,13 @@
+name: VFX probe
+on:
+  push:
+    branches: [claude/project-thread-u8fuuk]
+    paths: [.github/workflows/vfx-probe.yml]
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          curl -gsS "https://sieve.services.riotcdn.net/api/v1/products/lol/version-sets/NA1?q[platform]=windows&q[published]=true" | head -c 400; echo
+          curl -sS -o m.bin -w "%{http_code} %{size_download}\n" https://lol.dyn.riotcdn.net/channels/public/releases/ECB664EAD9A8FE20.manifest
+          head -c 4 m.bin; echo
