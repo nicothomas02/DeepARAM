@@ -5,10 +5,12 @@
 #include <cctype>
 #include <deque>
 #include <fstream>
+#include <memory>
 #include <numeric>
 #include <set>
 #include <sstream>
 #include <stdexcept>
+#include <utility>
 #ifndef __EMSCRIPTEN__
 #include <thread>
 #include <type_traits>
@@ -206,7 +208,9 @@ ChampionKit loadChampion(const json::Value& c, const Rules& rules) {
         for (const auto& h : p["hits"].arr) ps.hits.push_back(hitOf(h));
         if (!ps.hits.empty()) k.passives.push_back(ps);
     }
-    for (const auto& a : c["abilities"].arr) {
+    // One ability from its JSON; keep says whether it does anything the fight models. A variant
+    // (one of several versions of a slot) leaves the champion's crowd control and ratios alone.
+    auto abilityOf = [&](const json::Value& a, bool variant, bool& keep) {
         Ability ab;
         const std::string slot = a["slot"].asString("Q");
         ab.slot = slot.empty() ? 'Q' : slot[0];
@@ -221,7 +225,7 @@ ChampionKit loadChampion(const json::Value& c, const Rules& rules) {
             ab.cc = cc["type"].asString();
             ab.ccDuration = cc["duration"].asNumber(1.0);
             ab.ccSlow = cc["amount"].asNumber(0.3);
-            if (ab.cc != "slow" && ab.cc != "silence" && ab.cc != "root") k.hardCc.push_back({ab.slot, ab.cc});
+            if (!variant && ab.cc != "slow" && ab.cc != "silence" && ab.cc != "root") k.hardCc.push_back({ab.slot, ab.cc});
         }
         if (a["heal"].isObject()) ab.heal = bagOf(a["heal"]["scaling"]);
         ab.cost = a["cost"].asNumber(0);
@@ -246,6 +250,17 @@ ChampionKit loadChampion(const json::Value& c, const Rules& rules) {
         ab.soloMult = a["solo_mult"].asNumber(1);
         ab.missingAmp = a["missing_amp"].asNumber(0);
         ab.missingMax = a["missing_max"].asNumber(0);
+        ab.missingNeedsCc = a["missing_needs_cc"].asBool(false);
+        ab.placeholder = a["placeholder"].asBool(false);
+        if (const json::Value& pet = a["pet"]; pet.isObject()) {
+            ab.petDuration = pet["duration"].asNumber(0);
+            ab.petAs = std::max(0.1, pet["attack_speed"].asNumber(1));
+            ab.petSlamEvery = static_cast<int>(pet["slam_every"].asNumber(0));
+            ab.petSlamCd = pet["slam_cooldown"].asNumber(0);
+            ab.petSlamCc = pet["slam_cc"].asNumber(0);
+            for (const auto& h : pet["hits"].arr) ab.petHits.push_back(hitOf(h));
+            for (const auto& h : pet["slam"].arr) ab.petSlam.push_back(hitOf(h));
+        }
         ab.critRefund = std::max(0.0, a["crit_refund"].asNumber(0));
         ab.readyDelay = std::max(0.0, a["ready_delay"].asNumber(0));
         if (a["range_scale"].isObject()) {
@@ -295,10 +310,11 @@ ChampionKit loadChampion(const json::Value& c, const Rules& rules) {
         for (const auto& hit : ab.hits) allPerSecond &= hit.perSecond;
         ab.aura = ab.toggle || (allPerSecond && ab.cooldown < 1.0 && ab.onhitEvery == 0);
         if (!ab.aura && ab.onhitEvery == 0) ab.cooldown = std::max(ab.cooldown, rules.minCooldown);
-        for (const auto& hit : ab.hits) {
-            k.apRatios += get(hit.scaling, "ap") * hit.weight;
-            k.adRatios += get(hit.scaling, "bonus_ad") * hit.weight;
-        }
+        if (!variant)
+            for (const auto& hit : ab.hits) {
+                k.apRatios += get(hit.scaling, "ap") * hit.weight;
+                k.adRatios += get(hit.scaling, "bonus_ad") * hit.weight;
+            }
         // A heal-only ability kept when marked, so casting it charges after-ability passives (Taric Q).
         const bool healCast = ab.hits.empty() && !ab.heal.empty() && a["cast_for_heal"].asBool(false);
         // An ultimate with no modeled effect is still cast (on yourself), so augments that act on
@@ -314,8 +330,15 @@ ChampionKit loadChampion(const json::Value& c, const Rules& rules) {
         // and a slow only when marked (Singed W's slowing glue keeps a kiting target in his poison).
         const bool hardCc = !ab.cc.empty() && ab.cc != "slow" && ab.cc != "silence";
         const bool ccOnly = ab.hits.empty() && !ab.cc.empty() && (hardCc || a["cast_for_cc"].asBool(false));
-        if (!ab.hits.empty() || !ab.shield.empty() || ccOnly || healCast || ab.buffDuration > 0 || bareUlt || bareDash)
-            k.abilities.push_back(ab);
+        keep = !ab.hits.empty() || !ab.shield.empty() || ccOnly || healCast || ab.buffDuration > 0 || bareUlt || bareDash ||
+               ab.placeholder || ab.petDuration > 0;
+        return ab;
+    };
+    for (const auto& a : c["abilities"].arr) {
+        bool keep = false, kept = false;
+        Ability ab = abilityOf(a, false, keep);
+        for (const auto& v : a["variants"].arr) ab.variants.push_back(abilityOf(v, true, kept));
+        if (keep) k.abilities.push_back(std::move(ab));
     }
     // How far its damage reaches, as an enemy: the middle of its basic abilities' reach
     // (capped at 800), or its attack range. Ultimates and dashes don't count: a dash
@@ -828,7 +851,8 @@ class Fight {
 public:
     Fight(const Library& lib, const ChampionKit& ch, const Build& build, const Scenario& sc, uint64_t trial,
           FightTrace* trace = nullptr)
-        : lib_(lib), ch_(ch), sc_(sc), rules_(lib.rules), rng_(sc.seed, trial), trace_(trace) {
+        : lib_(lib), base_(ch), own_(swapsAbilities(ch) ? std::make_unique<ChampionKit>(ch) : nullptr), ch_(own_ ? *own_ : ch),
+          sc_(sc), rules_(lib.rules), rng_(sc.seed, trial), trace_(trace) {
         setupScenario();  // draw the fight first so every build sees the same fights
         setupBuild(build);
         setupDefences();
@@ -838,7 +862,9 @@ public:
 
 private:
     const Library& lib_;
-    const ChampionKit& ch_;
+    const ChampionKit& base_;           // the champion as loaded
+    std::unique_ptr<ChampionKit> own_;  // this fight's copy, for kits that swap abilities mid-fight
+    const ChampionKit& ch_;             // the kit in play: own_ when there is one
     const Scenario& sc_;
     const Rules& rules_;
     Rng rng_;
@@ -916,6 +942,7 @@ private:
         mana_ = std::min(maxMana_, manaAt(t_) + amount);
         manaT_ = t_;
     }
+    bool attached_ = false;
     bool converting_ = false, snipeHit_ = false, augReviveUsed_ = false, augRevive_ = false;
     double poroReady_ = 0;
     bool hasMissile_ = false, hasKraken_ = false, hasStorm_ = false, hasEclipse_ = false;
@@ -1204,6 +1231,9 @@ private:
         cdr_ = get(fx_, "cdr");
         incomingMult_ = 1.0 - get(fx_, "crit_defend") * std::min(crit_, get(fx_, "crit_defend_cap", 1.0));
         if (sc_.onFire) incomingMult_ *= ranged_ ? rules_.fireTakenRanged : rules_.fireTakenMelee;
+        // Yuumi rides an ally: no attacks of her own. She is untargetable while attached, but the fight
+        // still lasts as long as her ally's (she is knocked off when it dies), so her damage taken stays.
+        attached_ = get(ch_.kitEffects, "attached") > 0;
         shrink_ = get(fx_, "shrink");
         rWindowAmp_ = get(fx_, "r_window_amp");
         openAmp_ = get(fx_, "open_amp");
@@ -1232,6 +1262,7 @@ private:
             double raw = 0;
             for (const auto& h : a.hits) raw += h.weight * scaled(h.scaling) * (h.target == HitTarget::Flat ? 1 : 3000);
             byDamage.push_back({(a.slot == 'R' ? 1e12 : 0) + raw, i});
+            if (a.placeholder) readyAt_[i] = 1e18;
             if (a.slot == 'R' && (!rUp_ || noUlt_)) readyAt_[i] = 1e18;
         }
         for (auto& bd : bound_) bd.idx = bindAbility(bd.kind);
@@ -1242,6 +1273,7 @@ private:
             }
         std::sort(byDamage.rbegin(), byDamage.rend());
         for (const auto& [d, i] : byDamage) order_.push_back(i);
+        setupKitSwaps();
     }
 
     // The ability an augment on "one of your abilities" goes on: the strongest basic ability of the
@@ -1251,7 +1283,7 @@ private:
         double bestV = -1;
         for (size_t i = 0; i < ch_.abilities.size(); ++i) {
             const Ability& a = ch_.abilities[i];
-            if (a.slot == 'R' || a.aura || a.onhitEvery > 0) continue;
+            if (a.slot == 'R' || a.aura || a.onhitEvery > 0 || a.placeholder) continue;
             const Geometry& g = a.geo;
             const bool ok = kind == "any"       ? !a.hits.empty()
                             : kind == "aoe"     ? !a.hits.empty() && (g.shape == Shape::Circle || g.shape == Shape::Cone)
@@ -1970,6 +2002,7 @@ private:
         target->alive = false;
         target->respawnAt = t_ + sc_.retargetDelay;
         stackEvent(OnKill);
+        kitOnKill(*target);
         // Rite of Ascension: attacking the fallen enemy's Essence resets your basic abilities.
         if (get(fx_, "kill_reset_basics") > 0)
             for (size_t i = 0; i < readyAt_.size(); ++i)
@@ -2304,7 +2337,7 @@ private:
                                        : 1.0;
             // More damage the more Health the target is missing (Jhin R: +3% per 1%).
             const double missing = e->maxHp > 0 ? 1.0 - e->hp / e->maxHp : 0.0;
-            const double byMissing = 1.0 + a.missingAmp * (a.missingMax > 0 ? std::min(missing, a.missingMax) : missing);
+            const double byMissing = 1.0 + (a.missingNeedsCc && !heldDown(*e) ? 0.0 : a.missingAmp) * (a.missingMax > 0 ? std::min(missing, a.missingMax) : missing);
             const double solo = targets.size() == 1 ? a.soloMult : 1.0;
             for (const auto& h : a.hits) {
                 double raw = hitRaw(h, *e) * amp * w * byRange * byMissing * solo;
@@ -2519,6 +2552,7 @@ private:
         tickStacks();
         Enemy* e = &P();
         ++attacks_;
+        kitOnAttack();
         if (e->uid != stackUid_) { stackUid_ = e->uid; stackCount_ = 0; }
         ++stackCount_;
         const int every = static_cast<int>(get(fx_, "crit_every"));  // Jhin's fourth shot always crits
@@ -2686,6 +2720,7 @@ private:
         if (get(fx_, "drain_cd") > 0)
             for (Enemy* e : near(me_, get(fx_, "drain_range")))
                 deal(e, get(fx_, "drain_bonus_hp") * bonusHp_ / get(fx_, "drain_cd") * dt, DamageType::Magic, SrcItems, false, FxDrain);
+        tickPet(until);
         if (auraDps_ <= 0 && auraHits_.empty()) return;
         // Auras burn whoever stands close: item auras (Sunfire) reach 325, ability
         // auras their own radius.
@@ -2980,6 +3015,290 @@ private:
     }
 
     // After a cast's cooldown starts: refunds and costs.
+    // ---- Kits that change their own abilities mid-fight -------------------------------------
+    // Viego possesses the champions he kills, Sylas steals ultimates, Aphelios cycles five weapons
+    // and Hwei picks one of three spells per slot. Swaps happen between actions (kitTick), never
+    // while an ability or attack is still resolving.
+    static bool swapsAbilities(const ChampionKit& k) {
+        if (get(k.kitEffects, "possess") > 0 || get(k.kitEffects, "hijack") > 0) return true;
+        for (const auto& a : k.abilities)
+            if (!a.variants.empty() || a.placeholder) return true;
+        return false;
+    }
+    // Abilities another kit's slot can take: ones cast and resolved like any other.
+    static bool borrowable(const Ability& a) {
+        return !a.aura && !a.toggle && a.onhitEvery == 0 && !a.placeholder && a.petDuration <= 0 && a.afterAttacks == 0;
+    }
+    void setAbility(size_t i, const Ability& src) {
+        Ability& a = own_->abilities[i];
+        const char slot = a.slot;
+        a = src;
+        a.slot = slot;
+        a.variants.clear();
+    }
+    std::vector<int> variantOf_;  // the variant each slot holds (-1: its own ability)
+    // Viego: the kit he wears and until when, and his own while he wears it.
+    const EnemyProfile* possessPending_ = nullptr;
+    double possessHp_ = 0, possessUntil_ = -1;
+    std::vector<Ability> ownAbilities_;
+    std::vector<double> ownReady_;
+    // Sylas: the enemy whose ultimate he is taking, whether R holds it now, when Hijack is back,
+    // and when each enemy can be hijacked again.
+    const EnemyProfile* stealPending_ = nullptr;
+    bool stolen_ = false, unsteal_ = false;
+    double hijackReady_ = 0;
+    std::map<const EnemyProfile*, double> hijackedUntil_;
+    // Aphelios: Q holds the main-hand weapon's ability and W the off-hand one's (W swaps hands as it
+    // casts). Each weapon has its own ammo and cooldown; an empty one goes to the back of the queue.
+    bool weapons_ = false;
+    size_t weaponQ_ = 0, weaponW_ = 0;
+    int mainHand_ = 0, offHand_ = 1;
+    std::vector<double> ammo_, weaponReady_;
+    std::deque<int> weaponQueue_;
+
+    void setupKitSwaps() {
+        if (!own_) return;
+        variantOf_.assign(ch_.abilities.size(), -1);
+        const int weapons = static_cast<int>(get(ch_.kitEffects, "weapons"));
+        if (weapons <= 0) return;
+        for (size_t i = 0; i < ch_.abilities.size(); ++i) {
+            if (ch_.abilities[i].slot == 'Q') weaponQ_ = i;
+            if (ch_.abilities[i].slot == 'W') weaponW_ = i;
+        }
+        const size_t n = base_.abilities[weaponQ_].variants.size();
+        if (n < 2 || weaponQ_ == weaponW_ || !ch_.abilities[weaponW_].placeholder) return;
+        weapons_ = true;
+        ammo_.assign(n, get(ch_.kitEffects, "weapon_ammo", 50));
+        weaponReady_.assign(n, 0.0);
+        for (int w = 2; w < static_cast<int>(n); ++w) weaponQueue_.push_back(w);
+    }
+
+    void kitTick() {
+        if (!own_) return;
+        if (possessUntil_ >= 0 && t_ >= possessUntil_) endPossession();
+        if (possessPending_) possess(std::exchange(possessPending_, nullptr));
+        if (stealPending_) steal(std::exchange(stealPending_, nullptr));
+        if (unsteal_) {
+            unsteal_ = stolen_ = false;
+            for (size_t i = 0; i < ch_.abilities.size(); ++i)
+                if (ch_.abilities[i].slot == 'R') {
+                    setAbility(i, base_.abilities[i]);
+                    readyAt_[i] = hijackReady_;
+                }
+        }
+        if (weapons_) {
+            holdWeapon(weaponQ_, mainHand_);
+            holdWeapon(weaponW_, offHand_);
+            return;
+        }
+        pickVariants();
+    }
+
+    // Hwei: each slot casts whichever of its three spells is worth most against the target right now.
+    void pickVariants() {
+        if (!hasPrimary()) return;
+        const Enemy& e = P();
+        for (size_t i = 0; i < ch_.abilities.size(); ++i) {
+            const auto& vs = base_.abilities[i].variants;
+            if (vs.empty() || readyAt_[i] > t_) continue;
+            int best = -1;
+            double bestV = -1;
+            for (size_t j = 0; j < vs.size(); ++j) {
+                const double v = variantValue(vs[j], e);
+                if (v > bestV + 1e-9) { bestV = v; best = static_cast<int>(j); }
+            }
+            if (best >= 0 && best != variantOf_[i]) {
+                setAbility(i, vs[static_cast<size_t>(best)]);
+                variantOf_[i] = best;
+            }
+        }
+    }
+    bool heldDown(const Enemy& e) const { return t_ < std::max(e.ccUntil, e.rootUntil); }
+    // What a version of an ability is worth on a cast: its damage on the target, a shield when you
+    // are below half Health, and (to break ties) how long it holds the target down.
+    double variantValue(const Ability& a, const Enemy& e) const {
+        double v = 0;
+        for (const auto& h : a.hits) {
+            double raw = hitRaw(h, e);
+            if (h.perSecond) raw *= std::min(a.duration > 0 ? a.duration : rules_.dotDuration, cooldownOf(a));
+            v += raw;
+        }
+        const double missing = e.maxHp > 0 ? 1.0 - e.hp / e.maxHp : 0.0;
+        if (a.missingAmp > 0 && (!a.missingNeedsCc || heldDown(e)))
+            v *= 1.0 + a.missingAmp * (a.missingMax > 0 ? std::min(missing, a.missingMax) : missing);
+        if (!a.shield.empty() && myHp_ < 0.5 * maxHp_) v += scaled(a.shield) * hsp_;
+        if (immobilizes(a)) v += 1e-3 * a.ccDuration;
+        return v;
+    }
+
+    // Aphelios: a slot shows the weapon in that hand, with that weapon's own cooldown.
+    void holdWeapon(size_t i, int w) {
+        if (variantOf_[i] == w) return;
+        setAbility(i, base_.abilities[weaponQ_].variants[static_cast<size_t>(w)]);
+        variantOf_[i] = w;
+        readyAt_[i] = std::max(t_, weaponReady_[static_cast<size_t>(w)]);
+    }
+    void useAmmo(int& hand, double n) {
+        auto& left = ammo_[static_cast<size_t>(hand)];
+        left -= n;
+        if (left > 0) return;
+        left = get(ch_.kitEffects, "weapon_ammo", 50);
+        weaponQueue_.push_back(hand);
+        hand = weaponQueue_.front();
+        weaponQueue_.pop_front();
+    }
+    void kitOnAttack() {
+        if (weapons_) useAmmo(mainHand_, 1);
+    }
+
+    // Viego: a champion he kills leaves its soul; he takes its basic abilities for a while
+    // (and their cooldowns start fresh), keeping his own ultimate. His own cooldowns keep running.
+    void kitOnKill(const Enemy& e) {
+        if (!own_ || !e.profile) return;
+        if (get(ch_.kitEffects, "possess") > 0) {
+            possessPending_ = e.profile;
+            possessHp_ = e.maxHp;
+        }
+    }
+    void possess(const EnemyProfile* p) {
+        const ChampionKit* k = lib_.find(p->id);
+        if (!k) return;
+        if (possessUntil_ < 0) {
+            ownAbilities_ = ch_.abilities;
+            ownReady_ = readyAt_;
+        }
+        for (size_t i = 0; i < ch_.abilities.size(); ++i) {
+            const Ability& mine = ownAbilities_[i];
+            if (mine.slot == 'R') continue;
+            const Ability* theirs = nullptr;
+            for (const auto& a : k->abilities)
+                if (a.slot == mine.slot && borrowable(a)) theirs = &a;
+            if (theirs) {
+                setAbility(i, *theirs);
+                own_->abilities[i].cost = 0;
+                readyAt_[i] = t_;
+            } else {
+                readyAt_[i] = 1e18;  // a slot their kit doesn't fight with: nothing to cast there
+            }
+        }
+        possessUntil_ = t_ + get(ch_.kitEffects, "possess");
+        // Possessing restores a share of the fallen champion's max Health, more with bonus AD and AP.
+        heal((get(ch_.kitEffects, "possess_heal") + get(ch_.kitEffects, "possess_heal_bonus_ad") * bonusAd_ +
+              get(ch_.kitEffects, "possess_heal_ap") * ap_) * possessHp_ * hsp_);
+    }
+    void endPossession() {
+        possessUntil_ = -1;
+        for (size_t i = 0; i < ch_.abilities.size(); ++i) {
+            if (ch_.abilities[i].slot == 'R') continue;
+            setAbility(i, ownAbilities_[i]);
+            readyAt_[i] = ownReady_[i];
+        }
+    }
+
+    // Sylas: Hijack takes the target's ultimate, which R then holds for one cast with his own stats
+    // (bonus AD ratios turn into AP at 0.6 each); each enemy can be hijacked again only after twice
+    // its ultimate's cooldown, 40 seconds at least.
+    const Ability* ultOf(const EnemyProfile* p) const {
+        const ChampionKit* k = p ? lib_.find(p->id) : nullptr;
+        if (!k) return nullptr;
+        for (const auto& a : k->abilities)
+            if (a.slot == 'R' && borrowable(a) && (!a.hits.empty() || immobilizes(a))) return &a;
+        return nullptr;
+    }
+    void steal(const EnemyProfile* p) {
+        const Ability* r = ultOf(p);
+        if (!r) return;
+        size_t i = 0;
+        while (i < ch_.abilities.size() && ch_.abilities[i].slot != 'R') ++i;
+        if (i == ch_.abilities.size()) return;
+        setAbility(i, *r);
+        Ability& a = own_->abilities[i];
+        a.cost = 0;
+        auto convert = [](Bag& b) {
+            if (const double ad = get(b, "bonus_ad"); ad > 0) {
+                b["ap"] = get(b, "ap") + 0.6 * ad;
+                b.erase("bonus_ad");
+            }
+        };
+        for (auto& h : a.hits) convert(h.scaling);
+        convert(a.shield);
+        convert(a.heal);
+        readyAt_[i] = t_;
+        stolen_ = true;
+        hijackedUntil_[p] = t_ + std::max(get(ch_.kitEffects, "hijack_lockout_min", 40), 2.0 * cooldownOf(a));
+    }
+
+    bool kitCanCast(size_t i) const {
+        if (!own_) return true;
+        const Ability& a = ch_.abilities[i];
+        if (a.slot != 'R') return true;
+        // Viego keeps a possession going: his ultimate (which ends it) waits for its last seconds.
+        if (possessUntil_ >= 0 && possessUntil_ - t_ > 2.0) return false;
+        if (get(ch_.kitEffects, "hijack") > 0 && !stolen_) {
+            if (!hasPrimary() || !ultOf(P().profile)) return false;
+            const auto it = hijackedUntil_.find(P().profile);
+            return it == hijackedUntil_.end() || it->second <= t_;
+        }
+        return true;
+    }
+    // After a cast: what it changes for the kit's next swap (applied at the next kitTick).
+    void kitAfterCast(size_t i) {
+        if (ch_.abilities[i].petDuration > 0) startPet(ch_.abilities[i]);
+        if (!own_) return;
+        const Ability& a = ch_.abilities[i];
+        if (weapons_ && (i == weaponQ_ || i == weaponW_)) {
+            const double q = get(ch_.kitEffects, "weapon_q_ammo", 10);
+            weaponReady_[static_cast<size_t>(variantOf_[i])] = readyAt_[i];
+            if (i == weaponW_) std::swap(mainHand_, offHand_);  // the off-hand weapon is now in the main hand
+            useAmmo(mainHand_, q);
+            return;
+        }
+        if (a.slot != 'R') return;
+        if (possessUntil_ >= 0) possessUntil_ = t_;  // Heartbreaker discards the soul he wears
+        if (get(ch_.kitEffects, "hijack") > 0) {
+            if (stolen_) unsteal_ = true;  // the stolen ultimate is spent: R is Hijack again, on its own cooldown
+            else if (hasPrimary()) {
+                hijackReady_ = readyAt_[i];
+                stealPending_ = P().profile;
+            }
+        }
+    }
+
+    // A summon fighting beside you (Ivern's Daisy): it attacks your target on its own clock.
+    const Ability* pet_ = nullptr;
+    double petUntil_ = -1, petNext_ = 0, petSlamAt_ = 0;
+    int petStreak_ = 0, petTarget_ = -1;
+    void startPet(const Ability& a) {
+        pet_ = &a;
+        petUntil_ = t_ + a.petDuration;
+        petNext_ = t_ + 0.5;  // it leaps in
+        petStreak_ = 0;
+    }
+    void tickPet(double until) {
+        if (!pet_ || petUntil_ < 0) return;
+        const Ability& a = *pet_;
+        const Source src = a.slot == 'Q' ? SrcQ : a.slot == 'W' ? SrcW : a.slot == 'E' ? SrcE : SrcR;
+        while (petNext_ <= until && petNext_ < petUntil_) {
+            const double at = petNext_;
+            petNext_ += 1.0 / a.petAs;
+            if (!hasPrimary()) { petStreak_ = 0; continue; }
+            Enemy& e = P();
+            if (!e.alive) continue;
+            if (e.uid != petTarget_) { petTarget_ = e.uid; petStreak_ = 0; }
+            for (const auto& h : a.petHits) deal(&e, hitRaw(h, e) * abilityAmp_, h.type, src);
+            if (a.petSlamEvery > 0 && ++petStreak_ >= a.petSlamEvery && at >= petSlamAt_) {
+                petStreak_ = 0;
+                petSlamAt_ = at + a.petSlamCd;
+                std::vector<Enemy*> hit = near(e.pos, 300);
+                for (Enemy* o : hit) {
+                    for (const auto& h : a.petSlam) deal(o, hitRaw(h, *o) * abilityAmp_, h.type, src);
+                    if (a.petSlamCc > 0) ccEnemy(*o, a.petSlamCc, "knockup");
+                }
+            }
+        }
+        if (petNext_ >= petUntil_) petUntil_ = -1;
+    }
+
     void afterCast(size_t i) {
         const Ability& a = ch_.abilities[i];
         if (readyAt_[i] < 1e17) refundFloor_[i] = t_ + (readyAt_[i] - t_) * get(fx_, "attack_cdr_min");  // Mystic Punch: 50% at least
@@ -3046,6 +3365,7 @@ Result Fight::run() {
         if (advance(free)) break;
         t_ = std::max(t_, free);
         if (advance(t_) || t_ >= duration_) break;
+        kitTick();
 
         // Switch to a much closer enemy when the target is out of reach (it ran or kited).
         if (hasPrimary() && distTo(P()) > attackReach() + 100) {
@@ -3071,7 +3391,7 @@ Result Fight::run() {
         wantRange_ = attackReach();
         bool cast = false, waiting = false, holding = false;
         for (size_t i : order_) {
-            if (readyAt_[i] > t_) continue;
+            if (readyAt_[i] > t_ || !kitCanCast(i)) continue;
             const Ability& a = ch_.abilities[i];
             if (!affordable(a, t_)) continue;  // out of mana or energy: wait for it to come back
             if (a.afterAttacks > 0 && stacksFor(i) < a.afterAttacks) continue;  // its stacks aren't built yet
@@ -3097,6 +3417,7 @@ Result Fight::run() {
             castStack_[i] = {stackUid_, stackCount_};  // the stacks it used up
             readyAt_[i] = t_ + cooldownOf(a);
             afterCast(i);
+            kitAfterCast(i);
             if (a.lock > 0) {
                 busyUntil_ = t_ + a.lock;
                 t_ = std::min(t_ + a.lock, duration_);
@@ -3131,8 +3452,9 @@ Result Fight::run() {
         if (!hasPrimary()) continue;
 
         const bool inRange = distTo(P()) <= attackReach();
-        if (nextAttack_ > t_ || !inRange) {
-            double nt = inRange ? nextAttack_ : t_ + kStep;
+        if (nextAttack_ > t_ || !inRange || attached_) {
+            // Attached (Yuumi on an ally): no attacks of her own, only her abilities.
+            double nt = attached_ ? duration_ : inRange ? nextAttack_ : t_ + kStep;
             if (waiting) nt = std::min(nt, t_ + kStep);
             for (size_t i : order_) {
                 const Ability& a = ch_.abilities[i];

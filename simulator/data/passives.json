@@ -365,8 +365,10 @@
    "cooldown": "PassiveDuration",
    "per_target": true,
    "calcs": [
-    "PercentAmpCalcSelf"
-   ]
+    "PercentAmpCalcSelf",
+    "PercentAmpCalc"
+   ],
+   "why": "Leverage: her attack on an unmarked enemy deals 2% (+0.02% per AP) max Health and marks it; in a team fight an ally's hit soon consumes the mark for the same again (Renata's damage), so both count, once per mark (6 s per target)"
   }
  ],
  "Riven": [
@@ -646,6 +648,41 @@
     }
    ],
    "why": "Seastone Trident active: for 5s after the empowered attack, every attack deals 40 (+30% AP) bonus magic damage; with the 5s cooldown that is always up in a fight"
+  }
+ ],
+ "Viego": [
+  {
+   "trigger": "attack",
+   "hits": [
+    {
+     "type": "physical",
+     "calc": "TotalPercentHealthOnHit",
+     "scaling": {
+      "const": 0.06
+     },
+     "target": "target_current_hp",
+     "alt": false
+    }
+   ],
+   "why": "Blade of the Ruined King passive: attacks deal 6% of the target's current Health as bonus physical damage (rank 5); kept while possessing"
+  }
+ ],
+ "Ivern": [
+  {
+   "trigger": "attack",
+   "hits": [
+    {
+     "type": "magic",
+     "calc": "TotalDamage",
+     "scaling": {
+      "const": 25.0,
+      "ap": 0.1
+     },
+     "target": "flat",
+     "alt": false
+    }
+   ],
+   "why": "Brushmaker: attacks in his brush (and 3 s after) deal 50 (+20% AP) bonus magic damage; he keeps a brush up about half the fight, so half of it per attack"
   }
  ]
 }
