@@ -6,11 +6,11 @@
   const DUMMY_KEYS = ["fixed_target", "target_hp", "target_armor", "target_mr"];
   // The Fight box shows the four settings most people change; the rest sit under "Advanced settings", by topic.
   const BASIC_KEYS = ["level", "enemy_level", "until_death", "enemy_damage_scale"];
-  const WHOLE_KEYS = ["level", "enemy_level", "until_death", "on_fire", "team_size", "fixed_target", "combo_order"];  // integer steps
+  const WHOLE_KEYS = ["level", "enemy_level", "until_death", "on_fire", "random_respawn", "team_size", "fixed_target", "combo_order"];  // integer steps
   const ADVANCED = [
     ["Fight length", ["fight_cap", "fight_mean", "fight_sd", "fight_min", "fight_max", "engage_min", "engage_max"]],
     ["Crowd control on you", ["cc_scale", "cc_min", "cc_max"]],
-    ["Skillshots and movement", ["dodge_chance", "reaction_time", "aim_lead", "start_distance", "enemy_spread", "retarget_delay"]],
+    ["Skillshots and movement", ["dodge_chance", "reaction_time", "aim_lead", "start_distance", "enemy_spread", "retarget_delay", "random_respawn"]],
     ["Your champion", ["r_ready_chance", "combo_order", "on_fire"]],
     ["Training dummy", ["target_hp", "target_armor", "target_mr"]],
   ];
@@ -24,12 +24,14 @@
     start_distance: "Enemy start distance", enemy_spread: "Enemy spread", retarget_delay: "Time to next target (s)",
     r_ready_chance: "Ultimate ready at start", combo_order: "Cast order", target_hp: "Dummy HP",
     target_armor: "Dummy armor", target_mr: "Dummy magic resist", on_fire: "On Fire!",
+    random_respawn: "Next enemy",
   };
   // Settings that are a choice rather than a number.
   const CHOICES = {
     until_death: [[1, "Until you fall"], [0, "A usual fight length"]],
     combo_order: [[1, "Recommended combo"], [0, "Strongest first"]],
     on_fire: [[0, "Off"], [1, "On"]],
+    random_respawn: [[1, "A new random champion"], [0, "The same champion"]],
   };
   const ENEMY_STATS = [
     ["hp", "HP", 1], ["armor", "Armor", 1], ["mr", "MR", 1], ["damage_share", "Dmg share", 0.01],

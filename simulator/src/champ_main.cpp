@@ -163,7 +163,9 @@ bool writeTrace(const Library& lib, const ChampionKit& c, const Build& b, const 
     for (size_t i = 0; i < c.abilities.size(); ++i) {
         const Ability& a = c.abilities[i];
         o << (i ? ", " : "") << "{\"slot\": \"" << a.slot << "\", \"name\": " << jsonStr(a.name)
-          << ", \"cooldown\": " << num(a.cooldown) << ", \"passive\": " << (a.aura || a.onhitEvery > 0 ? "true" : "false")
+          << ", \"cooldown\": " << num(a.cooldown);
+        if (i < tr.cooldowns.size()) o << ", \"build_cooldown\": " << num(tr.cooldowns[i]);
+        o << ", \"passive\": " << (a.aura || a.onhitEvery > 0 ? "true" : "false")
           << ", \"range\": " << num(a.geo.range) << ", \"radius\": " << num(a.geo.radius)
           << ", \"width\": " << num(a.geo.width) << ", \"angle\": " << num(a.geo.angle)
           << ", \"speed\": " << num(a.geo.speed) << "}";
@@ -416,7 +418,8 @@ int main(int argc, char** argv) {
         const std::map<std::string, double> defaults = {
             {"level", sc.level}, {"enemy_level", sc.enemyLevel}, {"fight_mean", sc.fightMean}, {"fight_sd", sc.fightSd}, {"fight_min", sc.fightMin},
             {"fight_max", sc.fightMax}, {"engage_min", sc.engageMin}, {"engage_max", sc.engageMax},
-            {"until_death", sc.untilDeath ? 1.0 : 0.0}, {"on_fire", sc.onFire ? 1.0 : 0.0}, {"fight_cap", sc.fightCap},
+            {"until_death", sc.untilDeath ? 1.0 : 0.0}, {"on_fire", sc.onFire ? 1.0 : 0.0},
+            {"random_respawn", sc.randomRespawn ? 1.0 : 0.0}, {"fight_cap", sc.fightCap},
             {"team_size", sc.teamSizeRule > 0 ? sc.teamSizeRule : 5},
             {"enemy_damage_scale", 1}, {"cc_scale", 1}, {"cc_min", sc.ccMin}, {"cc_max", sc.ccMax},
             {"start_distance", sc.startDistance}, {"enemy_spread", sc.enemySpread}, {"r_ready_chance", sc.rReadyChance},

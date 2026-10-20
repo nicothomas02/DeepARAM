@@ -829,6 +829,13 @@
         if (time - c.land > 0.3 || moveOf(champ.id, c.s) !== "blink") continue;
         blinks.push({ k: time - c.land, a: scr(worldAt(fight, c.t).me), b: scr(c.from), once: true });
       }
+    // An enemy's dash or blink carries it toward you and back (the fight's positions don't move it).
+    const dashedTo = (en, p) => {
+      const ec = en.died === null ? enemyCastAt(en.uid, time) : null;
+      const em = ec && moveOf(en.champ, ec.s);
+      const et = em ? travel(em, time - ec.t) : 0;
+      return et > 0 ? { x: p.x + (st.me.x - p.x) * et, y: p.y + (st.me.y - p.y) * et, blink: em === "blink", k: time - ec.t } : null;
+    };
     let heads = {};
     if (M) {
       const look = (a, b) => ({ x: b.x - a.x, y: b.y - a.y });
@@ -855,12 +862,9 @@
         ...(myRun ? runPose(myV) : calm(mine)) }];
       for (const en of alive) {
         let p = posOf(en.uid);
-        const ec = en.died === null ? enemyCastAt(en.uid, time) : null;
-        const em = ec && !world && moveOf(en.champ, ec.s);
-        const et = em ? travel(em, time - ec.t) : 0;
-        if (et > 0) {
-          const q = { x: p.x + (st.me.x - p.x) * et, y: p.y + (st.me.y - p.y) * et };
-          if (em === "blink") blinks.push({ k: time - ec.t, a: p, b: q });
+        const q = dashedTo(en, p);
+        if (q) {
+          if (q.blink) blinks.push({ k: q.k, a: p, b: q });
           p = q;
         }
         const anim = enemyAnim(time, en, world), v = world && en.died === null && velocity(before.m.get(en.uid), after.m.get(en.uid));
@@ -908,7 +912,7 @@
     // Enemies. numTop: where damage numbers start over each enemy, above its badge and cast icon.
     const numTop = new Map();
     for (const en of alive) {
-      const p = posOf(en.uid);
+      const p = dashedTo(en, posOf(en.uid)) || posOf(en.uid);
       const born = ease((time - en.born) / 0.3);
       const fade = en.died !== null ? 1 - (time - en.died) / 0.8 : 1;
       const rr = r * (en.uid === s.focus ? 1.15 : 0.9);
@@ -1464,22 +1468,47 @@
       b.append(c, cd, k);
       abButtons.push({ slot, cd, g: cd.getContext("2d") });
       b.addEventListener("click", () => showAbility(slot));
-      box.append(b);
+      // The ability's cooldown with this build's ability haste, under its icon.
+      const w = document.createElement("div"); w.className = "ab-wrap";
+      const t = document.createElement("span"); t.className = "ab-cd"; t.dataset.slot = slot;
+      w.append(b, t);
+      box.append(w);
+    }
+    showCooldownTimes();
+  }
+  // Each ability's cooldown in this fight's build (older replays only have the base cooldown).
+  function cooldownOf(slot) {
+    const a = fight && fight.geo[slot];
+    return a ? (a.build_cooldown !== undefined ? a.build_cooldown : a.cooldown) : null;
+  }
+  function showCooldownTimes() {
+    for (const el of document.querySelectorAll("#abilities .ab-cd")) {
+      const cd = cooldownOf(el.dataset.slot);
+      el.textContent = cd ? T("{n} s", { n: cd < 10 ? cd.toFixed(1) : Math.round(cd) }) : "";
     }
   }
   function drawCooldowns(time) {
     for (const { slot, cd, g } of abButtons) {
       let last = null, never = true;
       for (const c of fight.casts) { if (c.s !== slot) continue; never = false; if (c.t > time) break; last = c; }
-      const p = never ? -1 : !last || time >= last.next ? 2 : (time - last.t) / Math.max(0.01, last.next - last.t);
-      const key = fight === cd.fight ? Math.round(p * 200) : NaN;  // skip a redraw that wouldn't change it
+      // Ready again after its cooldown, or sooner when the next cast came first (a reset).
+      const len = cooldownOf(slot);
+      const ready = last ? Math.min(last.next, len ? last.land + len : last.next) : 0;
+      const p = never ? -1 : !last || time >= ready ? 2 : (time - last.t) / Math.max(0.01, ready - last.t);
+      const left = p >= 0 && p <= 1 ? ready - time : 0;
+      const key = fight === cd.fight ? Math.round(p * 200) * 1000 + Math.ceil(left * 10) : NaN;  // skip a redraw that wouldn't change it
       if (key === cd.drawn) continue;
-      cd.drawn = Math.round(p * 200); cd.fight = fight;
+      cd.drawn = key; cd.fight = fight;
       g.clearRect(0, 0, 128, 128);
       if (never) { g.fillStyle = "rgba(10,16,23,.7)"; g.fillRect(0, 0, 128, 128); continue; }
       if (p > 1) continue;
       g.fillStyle = "rgba(10,16,23,.65)";
       g.beginPath(); g.moveTo(64, 64); g.arc(64, 64, 100, -Math.PI / 2 + p * Math.PI * 2, Math.PI * 1.5); g.closePath(); g.fill();
+      // Seconds until it's back, as in the game.
+      g.font = "700 46px system-ui, sans-serif"; g.textAlign = "center"; g.textBaseline = "middle";
+      g.lineWidth = 6; g.strokeStyle = "rgba(0,0,0,.8)"; g.fillStyle = "#fff";
+      const txt = left < 1 ? left.toFixed(1) : String(Math.ceil(left));
+      g.strokeText(txt, 64, 66); g.fillText(txt, 64, 66);
     }
   }
 
