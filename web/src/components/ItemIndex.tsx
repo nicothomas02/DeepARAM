@@ -9,8 +9,8 @@ import { getParam, setParams } from "@/lib/url-state";
 import { useNames, useT } from "./I18n";
 
 // Items index (the Tier List's Items tab, ?tab=items&itag=crit,as&iq=…; the params are prefixed so they don't
-// clash with the champion table's), laid out like the Champions tab: colour-coded tag filters (every picked tag
-// must match) and a name search above one table sorted by its column headers. Tags come from the shop's
+// clash with the champion table's), laid out like the Champions tab: colour-coded tag filters under a "Filter by
+// tags" fold (every picked tag must match) and a name search above one table sorted by its column headers. Tags come from the shop's
 // categories (lib/item-tags.ts).
 
 type Item = {
@@ -59,9 +59,12 @@ export default function ItemIndex({ items }: { items: Item[] }) {
   const name = (i: Item) => names("items", i.id, i.name);
   const [picked, setPicked] = useState<string[]>([]);
   const [query, setQuery] = useState("");
+  const [filtersOpen, setFiltersOpen] = useState(false);
 
   useEffect(() => {
-    setPicked((getParam("itag") ?? "").split(",").filter((t) => itemTag(t)));
+    const tags = (getParam("itag") ?? "").split(",").filter((t) => itemTag(t));
+    setPicked(tags);
+    if (tags.length) setFiltersOpen(true);
     setQuery(getParam("iq") ?? "");
   }, []);
 
@@ -99,27 +102,33 @@ export default function ItemIndex({ items }: { items: Item[] }) {
 
   return (
     <div className="items-index">
-      <div className="items-filters">
-        {TAG_GROUPS.map(([group, label]) => (
-          <div key={group} className="items-group" data-group={group} role="group" aria-label={t(label)}>
-            <span className="items-group-label">{t(label)}</span>
-            {ITEM_TAGS.filter((t) => t.group === group && items.some((i) => i.tags.includes(t.key))).map((t) => (
-              <button
-                key={t.key}
-                type="button"
-                className="item-tag"
-                data-group={group}
-                aria-pressed={picked.includes(t.key)}
-                disabled={!picked.includes(t.key) && count(t.key) === 0}
-                onClick={() => toggle(t.key)}
-              >
-                {tr(t.label)}
-                <small>{picked.includes(t.key) ? "" : count(t.key)}</small>
-              </button>
-            ))}
-          </div>
-        ))}
-      </div>
+      <details className="items-filter-menu" open={filtersOpen} onToggle={(e) => setFiltersOpen(e.currentTarget.open)}>
+        <summary>
+          {t("Filter by tags")}
+          {picked.length > 0 && <span className="items-filter-n">{picked.length}</span>}
+        </summary>
+        <div className="items-filters">
+          {TAG_GROUPS.map(([group, label]) => (
+            <div key={group} className="items-group" data-group={group} role="group" aria-label={t(label)}>
+              <span className="items-group-label">{t(label)}</span>
+              {ITEM_TAGS.filter((t) => t.group === group && items.some((i) => i.tags.includes(t.key))).map((t) => (
+                <button
+                  key={t.key}
+                  type="button"
+                  className="item-tag"
+                  data-group={group}
+                  aria-pressed={picked.includes(t.key)}
+                  disabled={!picked.includes(t.key) && count(t.key) === 0}
+                  onClick={() => toggle(t.key)}
+                >
+                  {tr(t.label)}
+                  <small>{picked.includes(t.key) ? "" : count(t.key)}</small>
+                </button>
+              ))}
+            </div>
+          ))}
+        </div>
+      </details>
       <div className="items-bar">
         <input
           type="search"
