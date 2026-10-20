@@ -3779,11 +3779,7 @@
      "rank": 5,
      "cooldown": 15.0,
      "cast_time": 0.0,
-     "cc": {
-      "type": "slow",
-      "duration": 1.5,
-      "amount": 0.3
-     },
+     "cc": null,
      "cost": 75.0,
      "targeting": "Self",
      "area": "aoe",
@@ -3800,7 +3796,13 @@
      },
      "hits": [],
      "mode_overrides": [],
-     "notes": []
+     "notes": [
+      "hand override: Overdrive: +70% attack speed for 5s (rank 5); its slow is on Blitzcrank afterwards, not on the enemy"
+     ],
+     "buff": {
+      "duration": 5,
+      "as": 0.7
+     }
     },
     {
      "slot": "E",
@@ -3874,7 +3876,8 @@
        "calc": "PassiveDamage",
        "scaling": {
         "const": 0.0,
-        "ap": 0.0
+        "ap": 0.0,
+        "bonus_mana": 0.0
        },
        "target": "flat",
        "per_second": false,
@@ -3898,8 +3901,10 @@
      ]
     }
    ],
-   "parse_quality": "partial",
-   "notes": []
+   "parse_quality": "good",
+   "notes": [
+    "no Mayhem damage dealt/taken modifiers listed"
+   ]
   },
   {
    "id": "Brand",
@@ -4017,8 +4022,8 @@
        "type": "magic",
        "calc": "TotalDamage",
        "scaling": {
-        "const": 255.0,
-        "ap": 0.7
+        "const": 318.75,
+        "ap": 0.875
        },
        "target": "flat",
        "per_second": false,
@@ -4037,7 +4042,9 @@
       }
      ],
      "mode_overrides": [],
-     "notes": []
+     "notes": [
+      "hand override: Pillar of Flame almost always lands on an Ablaze target in a fight (every ability sets Ablaze for 4s), so it deals the empowered 125%"
+     ]
     },
     {
      "slot": "E",
@@ -4103,8 +4110,8 @@
        "type": "magic",
        "calc": "TotalDamage",
        "scaling": {
-        "const": 250.0,
-        "ap": 0.3
+        "const": 750.0,
+        "ap": 0.9
        },
        "target": "flat",
        "per_second": false,
@@ -4112,7 +4119,9 @@
       }
      ],
      "mode_overrides": [],
-     "notes": []
+     "notes": [
+      "hand override: Pyroclasm bounces up to 5 times between Brand and enemies; against one enemy it bounces back and forth, hitting them 3 times"
+     ]
     }
    ],
    "passives": [
@@ -4125,6 +4134,7 @@
      "max_charges": 1,
      "aoe": false,
      "below_hp": 0.0,
+     "ability_cdr": 0.0,
      "hits": [
       {
        "type": "magic",
@@ -4147,6 +4157,7 @@
      "max_charges": 1,
      "aoe": true,
      "below_hp": 0.0,
+     "ability_cdr": 0.0,
      "hits": [
       {
        "type": "magic",
@@ -5756,7 +5767,7 @@
      "slot": "R",
      "name": "MissileBarrage",
      "rank": 3,
-     "cooldown": 20.0,
+     "cooldown": 4,
      "cast_time": 0.25,
      "cost": 35.0,
      "targeting": "Location",
@@ -5776,8 +5787,8 @@
        "type": "physical",
        "calc": "RSmallMissileDamage",
        "scaling": {
-        "const": 250.0,
-        "bonus_ad": 0.85
+        "const": 333.325,
+        "bonus_ad": 1.1333
        },
        "target": "flat",
        "per_second": false,
@@ -5797,7 +5808,8 @@
      ],
      "mode_overrides": [],
      "notes": [
-      "cooldown is the ammo recharge time"
+      "cooldown is the ammo recharge time",
+      "hand override: Missile Barrage: every third missile is the big one (double damage), so 4/3 of the small one on average; 4 charges, 20s recharge cut by 2s per attack on a champion and 2s between shots, about one missile every 4s over a fight"
      ]
     }
    ],
@@ -5811,6 +5823,7 @@
      "max_charges": 1,
      "aoe": false,
      "below_hp": 0.0,
+     "ability_cdr": 0.0,
      "hits": [
       {
        "type": "true",
@@ -6467,15 +6480,15 @@
         "const": 80.0
        },
        "target": "flat",
-       "per_second": false,
+       "per_second": true,
        "alt": false
       },
       {
        "type": "magic",
        "calc": "TotalDamage",
        "scaling": {
-        "const": 80.0,
-        "bonus_hp": 0.07
+        "const": 160.0,
+        "bonus_hp": 0.14
        },
        "target": "flat",
        "per_second": false,
@@ -6483,7 +6496,9 @@
       }
      ],
      "mode_overrides": [],
-     "notes": []
+     "notes": [
+      "hand override: Heart Zapper: 80 magic damage per second for its 3s (the tooltip number is per second), then the recast blast (doubled here because a second number counts at half weight)"
+     ]
     },
     {
      "slot": "E",
@@ -6507,28 +6522,6 @@
      "hits": [
       {
        "type": "physical",
-       "calc": "PassiveBonusAD",
-       "scaling": {
-        "const": 76.512,
-        "bonus_hp": 0.032
-       },
-       "target": "flat",
-       "per_second": false,
-       "alt": false
-      },
-      {
-       "type": "physical",
-       "calc": "AdditionalDamage",
-       "scaling": {
-        "const": 45.0,
-        "bonus_hp": 0.05
-       },
-       "target": "flat",
-       "per_second": false,
-       "alt": false
-      },
-      {
-       "type": "physical",
        "calc": "AdditionalDamage",
        "scaling": {
         "const": 45.0,
@@ -6540,7 +6533,9 @@
       }
      ],
      "mode_overrides": [],
-     "notes": []
+     "notes": [
+      "hand override: Blunt Force Trauma: the empowered attack deals its bonus once; PassiveBonusAD is attack damage (kit_passives.json), and the second AdditionalDamage only hits units a killed enemy is knocked into"
+     ]
     },
     {
      "slot": "R",
@@ -6566,7 +6561,16 @@
     }
    ],
    "parse_quality": "good",
-   "notes": []
+   "notes": [],
+   "kit": {
+    "stats": {
+     "ad_l1": 20.5,
+     "ad_l18": 76.5
+    },
+    "effects": {
+     "ad_per_bonus_hp": 0.032
+    }
+   }
   },
   {
    "id": "Draven",
@@ -7669,7 +7673,9 @@
     }
    ],
    "parse_quality": "good",
-   "notes": [],
+   "notes": [
+    "no Mayhem damage dealt/taken modifiers listed"
+   ],
    "kit": {
     "effects": {
      "stack_on": 2,
@@ -8254,17 +8260,6 @@
      "hits": [
       {
        "type": "magic",
-       "calc": "DoTDamage",
-       "scaling": {
-        "const": 90.0,
-        "ap": 0.25
-       },
-       "target": "flat",
-       "per_second": false,
-       "alt": false
-      },
-      {
-       "type": "magic",
        "calc": "ActiveDamage",
        "scaling": {
         "const": 150.0,
@@ -8273,22 +8268,11 @@
        "target": "flat",
        "per_second": false,
        "alt": false
-      },
-      {
-       "type": "magic",
-       "calc": "OnHitBuffDamage",
-       "scaling": {
-        "const": 40.0,
-        "ap": 0.3
-       },
-       "target": "flat",
-       "per_second": false,
-       "alt": false
       }
      ],
      "mode_overrides": [],
      "notes": [
-      "hand override: Seastone Trident cooldown is 7/6.5/6/5.5/5, not 3"
+      "hand override: Seastone Trident cooldown is 7/6.5/6/5.5/5, not 3; Seastone Trident's cast deals the active hit; its bleed and the 5s on-hit buff are attack passives (passives.json)"
      ]
     },
     {
@@ -8370,6 +8354,56 @@
      ],
      "mode_overrides": [],
      "notes": []
+    }
+   ],
+   "passives": [
+    {
+     "trigger": "attack",
+     "every": 1,
+     "cooldown": 3.0,
+     "per_target": false,
+     "charges": 1,
+     "max_charges": 1,
+     "aoe": false,
+     "below_hp": 0.0,
+     "ability_cdr": 0.0,
+     "hits": [
+      {
+       "type": "magic",
+       "calc": "DoTDamage",
+       "scaling": {
+        "const": 90.0,
+        "ap": 0.25
+       },
+       "target": "flat",
+       "alt": false,
+       "per_second": false
+      }
+     ]
+    },
+    {
+     "trigger": "attack",
+     "every": 1,
+     "cooldown": 0.0,
+     "per_target": false,
+     "charges": 1,
+     "max_charges": 1,
+     "aoe": false,
+     "below_hp": 0.0,
+     "ability_cdr": 0.0,
+     "hits": [
+      {
+       "type": "magic",
+       "calc": "OnHitBuffDamage",
+       "scaling": {
+        "const": 40.0,
+        "ap": 0.3
+       },
+       "target": "flat",
+       "alt": false,
+       "per_second": false
+      }
+     ]
     }
    ],
    "parse_quality": "good",
@@ -9043,8 +9077,8 @@
        "type": "physical",
        "calc": "TotalDamage",
        "scaling": {
-        "const": 641.62,
-        "bonus_ad": 3.64
+        "const": 802.025,
+        "bonus_ad": 4.55
        },
        "target": "flat",
        "per_second": false,
@@ -9053,7 +9087,8 @@
      ],
      "mode_overrides": [],
      "notes": [
-      "multi-hit x7"
+      "multi-hit x7",
+      "hand override: Judgment deals 25% more to the nearest enemy, which in a 1v1 is every spin"
      ]
     },
     {
@@ -15205,18 +15240,6 @@
      "hits": [
       {
        "type": "magic",
-       "calc": "TotalDamagePassive",
-       "scaling": {
-        "const": 75.0,
-        "ap": 0.35,
-        "bonus_ad": 1.2
-       },
-       "target": "flat",
-       "per_second": false,
-       "alt": false
-      },
-      {
-       "type": "magic",
        "calc": "TotalDamageActive",
        "scaling": {
         "const": 170.0,
@@ -15228,7 +15251,9 @@
       }
      ],
      "mode_overrides": [],
-     "notes": []
+     "notes": [
+      "hand override: Electrical Surge's cast deals only the active blast; the every-5th-attack bonus is its passive (passives.json), not part of the cast"
+     ]
     },
     {
      "slot": "E",
@@ -15264,7 +15289,13 @@
       }
      ],
      "mode_overrides": [],
-     "notes": []
+     "notes": [
+      "hand override: Lightning Rush: +90% attack speed for 4s after the ball (rank 5)"
+     ],
+     "buff": {
+      "duration": 4,
+      "as": 0.9
+     }
     },
     {
      "slot": "R",
@@ -15289,8 +15320,8 @@
        "type": "magic",
        "calc": "PerTickDamageCalculated",
        "scaling": {
-        "const": 120.0,
-        "ap": 0.25
+        "const": 900.0,
+        "ap": 1.875
        },
        "target": "flat",
        "per_second": false,
@@ -15299,7 +15330,34 @@
      ],
      "mode_overrides": [],
      "notes": [
-      "hand override: Slicing Maelstrom storm radius is 550, not 210"
+      "hand override: Slicing Maelstrom storm radius is 550, not 210; Slicing Maelstrom hits every 0.5s for 3s (6 hits), each 10% stronger than the last: 1+1.1+...+1.5 = 7.5 times the per-hit number"
+     ]
+    }
+   ],
+   "passives": [
+    {
+     "trigger": "attack",
+     "every": 5,
+     "cooldown": 0.0,
+     "per_target": false,
+     "charges": 1,
+     "max_charges": 1,
+     "aoe": false,
+     "below_hp": 0.0,
+     "ability_cdr": 0.0,
+     "hits": [
+      {
+       "type": "magic",
+       "calc": "TotalDamagePassive",
+       "scaling": {
+        "const": 75.0,
+        "bonus_ad": 1.2,
+        "ap": 0.35
+       },
+       "target": "flat",
+       "alt": false,
+       "per_second": false
+      }
      ]
     }
    ],
@@ -18359,6 +18417,8 @@
      "max_charges": 1,
      "aoe": false,
      "below_hp": 0.0,
+     "ability_cdr": 0.0,
+     "needs_hit": true,
      "hits": [
       {
        "type": "magic",
@@ -18371,8 +18431,7 @@
        "per_second": false,
        "alt": false
       }
-     ],
-     "needs_hit": true
+     ]
     }
    ],
    "parse_quality": "good",
@@ -19883,7 +19942,13 @@
      },
      "hits": [],
      "mode_overrides": [],
-     "notes": []
+     "notes": [
+      "hand override: Strut active: +100% attack speed for 4s (rank 5)"
+     ],
+     "buff": {
+      "duration": 4,
+      "as": 1.0
+     }
     },
     {
      "slot": "E",
@@ -20013,6 +20078,7 @@
      "max_charges": 1,
      "aoe": false,
      "below_hp": 0.0,
+     "ability_cdr": 0.0,
      "hits": [
       {
        "type": "physical",
@@ -22261,8 +22327,12 @@
      ],
      "mode_overrides": [],
      "notes": [
-      "hand override: BonusTrailAD is Nocturne's bonus AD while on the Dusk Trail, not damage"
-     ]
+      "hand override: BonusTrailAD is Nocturne's bonus AD while on the Dusk Trail, not damage; Dusk Trail: +55 attack damage while on the trail (rank 5), which in a 1v1 lasts its 5s"
+     ],
+     "buff": {
+      "duration": 5,
+      "ad": 55
+     }
     },
     {
      "slot": "W",
@@ -22374,6 +22444,7 @@
      "max_charges": 1,
      "aoe": true,
      "below_hp": 0.0,
+     "ability_cdr": 0.0,
      "hits": [
       {
        "type": "physical",
@@ -22390,7 +22461,12 @@
     }
    ],
    "parse_quality": "good",
-   "notes": []
+   "notes": [],
+   "kit": {
+    "stats": {
+     "as": 0.5
+    }
+   }
   },
   {
    "id": "Nunu",
@@ -35125,7 +35201,7 @@
      "rank": 3,
      "cooldown": 80.0,
      "cast_time": 0.125,
-     "lock": 1.3,
+     "lock": 2.6,
      "cc": {
       "type": "slow",
       "duration": 1.5,
@@ -35158,7 +35234,9 @@
       }
      ],
      "mode_overrides": [],
-     "notes": []
+     "notes": [
+      "hand override: Life Form Disintegration Ray is held for its full 2.6s channel; the charge-channel flag halved it"
+     ]
     }
    ],
    "passives": [
@@ -35171,6 +35249,7 @@
      "max_charges": 1,
      "aoe": false,
      "below_hp": 0.0,
+     "ability_cdr": 0.0,
      "hits": [
       {
        "type": "true",
@@ -37695,7 +37774,13 @@
       }
      ],
      "mode_overrides": [],
-     "notes": []
+     "notes": [
+      "hand override: Audacious Charge: +70% attack speed for 5s (rank 5)"
+     ],
+     "buff": {
+      "duration": 5,
+      "as": 0.7
+     }
     },
     {
      "slot": "R",
@@ -37758,6 +37843,7 @@
      "max_charges": 1,
      "aoe": false,
      "below_hp": 0.0,
+     "ability_cdr": 0.0,
      "hits": [
       {
        "type": "physical",
@@ -40165,6 +40251,7 @@
      "max_charges": 1,
      "aoe": false,
      "below_hp": 0.0,
+     "ability_cdr": 6.0,
      "hits": [
       {
        "type": "magic",

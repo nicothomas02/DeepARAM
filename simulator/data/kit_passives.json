@@ -248,5 +248,21 @@
    "attack_onhit_mult": 0.5
   },
   "why": "Azir's attacks are soldier stabs (W, onhit_every 1): no physical attack damage of their own, on-hit effects at 50% (AzirW OnHitMultiplier)"
+ },
+ "Nocturne": {
+  "stats": {
+   "as": 0.5
+  },
+  "why": "Shroud of Darkness passive: +50% attack speed (rank 5)"
+ },
+ "DrMundo": {
+  "stats": {
+   "ad_l1": 20.5,
+   "ad_l18": 76.5
+  },
+  "effects": {
+   "ad_per_bonus_hp": 0.032
+  },
+  "why": "Blunt Force Trauma passive: attack damage equal to 3.2% of max Health (rank 5): 3.2% of base Health by level plus 3.2% of bonus Health"
  }
 }

@@ -538,6 +538,14 @@
     "ActiveDamage": 2
    },
    "why": "The cast deals the active pulse; the passive zap is only on attacks while R is off cooldown"
+  },
+  "W": {
+   "buff": {
+    "duration": 5,
+    "as": 0.7
+   },
+   "cc": null,
+   "why": "Overdrive: +70% attack speed for 5s (rank 5); its slow is on Blitzcrank afterwards, not on the enemy"
   }
  },
  "Camille": {
@@ -591,13 +599,32 @@
  "Fizz": {
   "W": {
    "cooldown": 5,
-   "why": "Seastone Trident cooldown is 7/6.5/6/5.5/5, not 3"
+   "why": "Seastone Trident cooldown is 7/6.5/6/5.5/5, not 3; Seastone Trident's cast deals the active hit; its bleed and the 5s on-hit buff are attack passives (passives.json)",
+   "hits": [
+    {
+     "type": "magic",
+     "calc": "ActiveDamage",
+     "scaling": {
+      "const": 150.0,
+      "ap": 0.45
+     },
+     "target": "flat",
+     "per_second": false,
+     "alt": false
+    }
+   ]
   }
  },
  "Garen": {
   "Q": {
    "attack_reset": true,
    "why": "resets the basic attack timer"
+  },
+  "E": {
+   "hit_mults": {
+    "TotalDamage": 1.25
+   },
+   "why": "Judgment deals 25% more to the nearest enemy, which in a 1v1 is every spin"
   }
  },
  "Graves": {
@@ -918,6 +945,13 @@
     "TotalDamage"
    ],
    "why": "TotalDamage is the per-second damage times the 2s duration, counted on top of it"
+  },
+  "W": {
+   "buff": {
+    "duration": 4,
+    "as": 1.0
+   },
+   "why": "Strut active: +100% attack speed for 4s (rank 5)"
   }
  },
  "Katarina": {
@@ -1473,7 +1507,33 @@
    "geometry": {
     "radius": 550
    },
-   "why": "Slicing Maelstrom storm radius is 550, not 210"
+   "why": "Slicing Maelstrom storm radius is 550, not 210; Slicing Maelstrom hits every 0.5s for 3s (6 hits), each 10% stronger than the last: 1+1.1+...+1.5 = 7.5 times the per-hit number",
+   "hit_mults": {
+    "PerTickDamageCalculated": 7.5
+   }
+  },
+  "W": {
+   "hits": [
+    {
+     "type": "magic",
+     "calc": "TotalDamageActive",
+     "scaling": {
+      "const": 170.0,
+      "ap": 0.8
+     },
+     "target": "flat",
+     "per_second": false,
+     "alt": false
+    }
+   ],
+   "why": "Electrical Surge's cast deals only the active blast; the every-5th-attack bonus is its passive (passives.json), not part of the cast"
+  },
+  "E": {
+   "buff": {
+    "duration": 4,
+    "as": 0.9
+   },
+   "why": "Lightning Rush: +90% attack speed for 4s after the ball (rank 5)"
   }
  },
  "Kled": {
@@ -1627,7 +1687,11 @@
    "hit_mults": {
     "BonusTrailAD": 0
    },
-   "why": "BonusTrailAD is Nocturne's bonus AD while on the Dusk Trail, not damage"
+   "why": "BonusTrailAD is Nocturne's bonus AD while on the Dusk Trail, not damage; Dusk Trail: +55 attack damage while on the trail (rank 5), which in a 1v1 lasts its 5s",
+   "buff": {
+    "duration": 5,
+    "ad": 55
+   }
   }
  },
  "Olaf": {
@@ -2052,6 +2116,10 @@
     "SecondaryDamage": 2
    },
    "why": "Void Rift always deals both the initial tear and the detonation; second hit was at half weight"
+  },
+  "R": {
+   "lock": 2.6,
+   "why": "Life Form Disintegration Ray is held for its full 2.6s channel; the charge-channel flag halved it"
   }
  },
  "Vex": {
@@ -2117,6 +2185,13 @@
     "ThrustDamage": 2
    },
    "why": "Wind Becomes Lightning: slash and thrust both hit a target in front; thrust was at half weight"
+  },
+  "E": {
+   "buff": {
+    "duration": 5,
+    "as": 0.7
+   },
+   "why": "Audacious Charge: +70% attack speed for 5s (rank 5)"
   }
  },
  "Yone": {
@@ -2465,6 +2540,73 @@
     }
    },
    "why": "Tibbers' own attacks (TibbersAADamage 60 + 10% AP at rank 3, about one a second while enraged) added to his per-second burn"
+  }
+ },
+ "Brand": {
+  "W": {
+   "hit_mults": {
+    "TotalDamage": 1.25
+   },
+   "why": "Pillar of Flame almost always lands on an Ablaze target in a fight (every ability sets Ablaze for 4s), so it deals the empowered 125%"
+  },
+  "R": {
+   "hit_mults": {
+    "TotalDamage": 3
+   },
+   "why": "Pyroclasm bounces up to 5 times between Brand and enemies; against one enemy it bounces back and forth, hitting them 3 times"
+  }
+ },
+ "DrMundo": {
+  "W": {
+   "hits": [
+    {
+     "type": "magic",
+     "calc": "DamagePerTick",
+     "scaling": {
+      "const": 80.0
+     },
+     "target": "flat",
+     "per_second": true,
+     "alt": false
+    },
+    {
+     "type": "magic",
+     "calc": "TotalDamage",
+     "scaling": {
+      "const": 160.0,
+      "bonus_hp": 0.14
+     },
+     "target": "flat",
+     "per_second": false,
+     "alt": false
+    }
+   ],
+   "why": "Heart Zapper: 80 magic damage per second for its 3s (the tooltip number is per second), then the recast blast (doubled here because a second number counts at half weight)"
+  },
+  "E": {
+   "hits": [
+    {
+     "type": "physical",
+     "calc": "AdditionalDamage",
+     "scaling": {
+      "const": 45.0,
+      "bonus_hp": 0.05
+     },
+     "target": "flat",
+     "per_second": false,
+     "alt": false
+    }
+   ],
+   "why": "Blunt Force Trauma: the empowered attack deals its bonus once; PassiveBonusAD is attack damage (kit_passives.json), and the second AdditionalDamage only hits units a killed enemy is knocked into"
+  }
+ },
+ "Corki": {
+  "R": {
+   "hit_mults": {
+    "RSmallMissileDamage": 1.3333
+   },
+   "cooldown": 4,
+   "why": "Missile Barrage: every third missile is the big one (double damage), so 4/3 of the small one on average; 4 charges, 20s recharge cut by 2s per attack on a champion and 2s between shots, about one missile every 4s over a fight"
   }
  }
 }

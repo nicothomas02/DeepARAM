@@ -337,6 +337,23 @@ int main(int argc, char** argv) {
     }
 
     {
+        // Kit fixes from the client's spell data: an ability's on-attack passive, a cast's
+        // attack-speed buff, and a tooltip number that is per second.
+        const ChampionKit* kennen = lib.find("Kennen");
+        CHECK(kennen && !kennen->passives.empty(), "Kennen's Electrical Surge procs on his attacks");
+        if (kennen) {
+            ChampionKit noRush = *kennen;
+            for (auto& a : noRush.abilities) a.buffAs = 0;
+            const Scenario ksc = lib.scenarioFor(*kennen);
+            CHECK(meanDps(lib, *kennen, cap, ksc, 600) > meanDps(lib, noRush, cap, ksc, 600),
+                  "Lightning Rush's attack speed adds damage");
+        }
+        const ChampionKit* mundo = lib.find("DrMundo");
+        CHECK(mundo && !mundo->abilities[1].hits.empty() && mundo->abilities[1].hits[0].perSecond,
+              "Heart Zapper deals its damage every second");
+    }
+
+    {
         // Mana and energy: casts cost them, so a free-casting copy does more damage.
         CHECK(lux->resource == 1 && lux->mana > 0 && lux->abilities[0].cost > 0, "Lux has mana and her abilities cost it");
         const ChampionKit* zed = lib.find("Zed");

@@ -517,7 +517,9 @@
  "Ziggs": [
   {
    "trigger": "attack",
-   "cooldown": 6.0
+   "cooldown": 6.0,
+   "ability_cdr": "SpellCdr",
+   "why": "Short Fuse: each ability cuts its cooldown by 6s at level 18 (SpellCdr)"
   }
  ],
  "Zoe": [
@@ -589,6 +591,61 @@
     }
    ],
    "why": "Fired Up!: Milio counts as an ally for his own abilities, so self-cast Warm Hugs (2 charges per 13s) and Cozy Campfire enchant him; his next attack or ability hit then deals 15% of his AD (about 15) plus a 50 (+20% AP) burn. About one enchant per 5s"
+  }
+ ],
+ "Kennen": [
+  {
+   "trigger": "attack",
+   "every": 5,
+   "hits": [
+    {
+     "type": "magic",
+     "calc": "TotalDamagePassive",
+     "scaling": {
+      "const": 75.0,
+      "bonus_ad": 1.2,
+      "ap": 0.35
+     },
+     "target": "flat",
+     "alt": false
+    }
+   ],
+   "why": "Electrical Surge passive: every 5th attack deals 75 (+120% bonus AD) (+35% AP) bonus magic damage on-hit (rank 5)"
+  }
+ ],
+ "Fizz": [
+  {
+   "trigger": "attack",
+   "cooldown": 3,
+   "hits": [
+    {
+     "type": "magic",
+     "calc": "DoTDamage",
+     "scaling": {
+      "const": 90.0,
+      "ap": 0.25
+     },
+     "target": "flat",
+     "alt": false
+    }
+   ],
+   "why": "Seastone Trident passive: attacks make the target bleed for 90 (+25% AP) over 3s; the bleed refreshes rather than stacks"
+  },
+  {
+   "trigger": "attack",
+   "hits": [
+    {
+     "type": "magic",
+     "calc": "OnHitBuffDamage",
+     "scaling": {
+      "const": 40.0,
+      "ap": 0.3
+     },
+     "target": "flat",
+     "alt": false
+    }
+   ],
+   "why": "Seastone Trident active: for 5s after the empowered attack, every attack deals 40 (+30% AP) bonus magic damage; with the 5s cooldown that is always up in a fight"
   }
  ]
 }
