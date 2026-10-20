@@ -8,7 +8,7 @@ SRC=/tmp/deeparam-main OUT=/tmp/map-assets VENV=/tmp/vfxvenv UP=/tmp/map-upload
 
 echo "== Fresh copy of the scripts"
 rm -rf "$SRC"
-git clone -q --depth 1 "$REPO" "$SRC"
+git clone -q --depth 1 --branch "${BRANCH:-main}" "$REPO" "$SRC"
 
 echo "== Python tools"
 if [ ! -x "$VENV/bin/cdtb" ]; then
