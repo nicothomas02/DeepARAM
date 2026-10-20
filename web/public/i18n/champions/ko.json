@@ -145,5 +145,15 @@
  "Team quest": "팀 퀘스트",
  "When {name} is on the other team": "{name}이(가) 상대 팀에 있을 때",
  "When {name} is on your team": "{name}이(가) 아군 팀에 있을 때",
- "No hard CC": "하드 CC 없음"
+ "No hard CC": "하드 CC 없음",
+ "Damage": "피해",
+ "Toughness": "방어",
+ "Crowd Control": "군중 제어",
+ "Mobility": "이동",
+ "Utility": "보조",
+ "The champion's ability to deal damage to enemy champions": "적에게 피해를 입히는 능력",
+ "The champion's ability to absorb damage from enemy champions": "적이 주는 피해를 버틸 수 있는 능력",
+ "The champion's ability to apply harmful effects like slows and stuns to enemy champions": "적에게 둔화나 기절 등 해로운 효과를 주는 능력",
+ "The champion's ability to move quickly around the map using blinks or dashes": "순간적인 이동이나 돌진 등 맵에서 빠르게 이동하는 능력",
+ "The champion's ability to grant beneficial effects like shields, healing, or movement speed to allied champions": "아군에게 보호막, 회복, 이동 속도 증가 등 이로운 효과를 주는 능력"
 }

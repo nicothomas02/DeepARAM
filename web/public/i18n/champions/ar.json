@@ -145,5 +145,15 @@
  "Team quest": "مهمة الفريق",
  "When {name} is on the other team": "عندما يكون {name} في الفريق الآخر",
  "When {name} is on your team": "عندما يكون {name} في فريقك",
- "No hard CC": "لا تحكم صلب"
+ "No hard CC": "لا تحكم صلب",
+ "Damage": "الضرر",
+ "Toughness": "الصلابة",
+ "Crowd Control": "إعاقة التحكم",
+ "Mobility": "الحركة",
+ "Utility": "المؤازرة",
+ "The champion's ability to deal damage to enemy champions": "قدرة البطل على إلحاق الضرر بأبطال العدو",
+ "The champion's ability to absorb damage from enemy champions": "قدرة البطل على امتصاص الضرر المتلقى من أبطال العدو",
+ "The champion's ability to apply harmful effects like slows and stuns to enemy champions": "قدرة البطل على تطبيق تأثيرات مؤذية على أبطال العدو كالإبطاء والصعق",
+ "The champion's ability to move quickly around the map using blinks or dashes": "قدرة البطل على التحرك بسرعة في أرجاء الخريطة باستخدام الومضة أو الاندفاع",
+ "The champion's ability to grant beneficial effects like shields, healing, or movement speed to allied champions": "قدرة البطل على منح الأبطال الحلفاء تأثيرات نافعة كالدروع أو العلاج أو سرعة الحركة"
 }

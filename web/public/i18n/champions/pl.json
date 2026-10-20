@@ -145,5 +145,15 @@
  "Team quest": "Zadanie drużynowe",
  "When {name} is on the other team": "Gdy {name} jest w drużynie przeciwnej",
  "When {name} is on your team": "Gdy {name} jest w twojej drużynie",
- "No hard CC": "Brak twardego CC"
+ "No hard CC": "Brak twardego CC",
+ "Damage": "Obrażenia",
+ "Toughness": "Wytrzymałość",
+ "Crowd Control": "Kontrola tłumu",
+ "Mobility": "Mobilność",
+ "Utility": "Użyteczność",
+ "The champion's ability to deal damage to enemy champions": "Zdolność bohatera do zadawania obrażeń wrogim bohaterom.",
+ "The champion's ability to absorb damage from enemy champions": "Zdolność bohatera do absorbowania obrażeń zadawanych przez wrogich bohaterów.",
+ "The champion's ability to apply harmful effects like slows and stuns to enemy champions": "Zdolność bohatera do nakładania na wrogich bohaterów szkodliwych efektów, takich jak spowolnienia czy ogłuszenia.",
+ "The champion's ability to move quickly around the map using blinks or dashes": "Zdolność bohatera do szybkiego poruszania się po mapie za pomocą błysków lub doskoków.",
+ "The champion's ability to grant beneficial effects like shields, healing, or movement speed to allied champions": "Zdolność bohatera do zapewniania sojuszniczym bohaterom przydatnych efektów, takich jak tarcze, leczenie albo dodatkowa prędkość ruchu."
 }

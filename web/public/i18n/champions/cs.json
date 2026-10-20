@@ -145,5 +145,15 @@
  "Team quest": "Týmový úkol",
  "When {name} is on the other team": "Když je {name} v nepřátelském týmu",
  "When {name} is on your team": "Když je {name} ve tvém týmu",
- "No hard CC": "Bez tvrdého CC"
+ "No hard CC": "Bez tvrdého CC",
+ "Damage": "Poškození",
+ "Toughness": "Odolnost",
+ "Crowd Control": "Omezující efekty",
+ "Mobility": "Pohyblivost",
+ "Utility": "Funkčnost",
+ "The champion's ability to deal damage to enemy champions": "Schopnost šampiona způsobovat poškození nepřátelským šampionům",
+ "The champion's ability to absorb damage from enemy champions": "Schopnost šampiona vstřebávat poškození způsobené nepřátelskými šampiony",
+ "The champion's ability to apply harmful effects like slows and stuns to enemy champions": "Schopnost šampiona sesílat na nepřátelské šampiony omezující efekty jako například zpomalení či omráčení",
+ "The champion's ability to move quickly around the map using blinks or dashes": "Schopnost šampiona rychle se pohybovat po mapě pomocí skoků či proběhnutí",
+ "The champion's ability to grant beneficial effects like shields, healing, or movement speed to allied champions": "Schopnost šampiona sesílat prospěšné efekty jako například štíty, léčení či zrychlení pohybu na spojenecké šampiony"
 }
