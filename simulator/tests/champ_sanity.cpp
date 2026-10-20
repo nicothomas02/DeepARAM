@@ -337,6 +337,46 @@ int main(int argc, char** argv) {
     }
 
     {
+        // Kit fixes from the client's spell data: an ability's on-attack passive, a cast's
+        // attack-speed buff, and a tooltip number that is per second.
+        const ChampionKit* kennen = lib.find("Kennen");
+        CHECK(kennen && !kennen->passives.empty(), "Kennen's Electrical Surge procs on his attacks");
+        if (kennen) {
+            ChampionKit noRush = *kennen;
+            for (auto& a : noRush.abilities) a.buffAs = 0;
+            const Scenario ksc = lib.scenarioFor(*kennen);
+            CHECK(meanDps(lib, *kennen, cap, ksc, 600) > meanDps(lib, noRush, cap, ksc, 600),
+                  "Lightning Rush's attack speed adds damage");
+        }
+        const ChampionKit* mundo = lib.find("DrMundo");
+        CHECK(mundo && !mundo->abilities[1].hits.empty() && mundo->abilities[1].hits[0].perSecond,
+              "Heart Zapper deals its damage every second");
+
+        // Kits that change their abilities mid-fight. Viego's own E, and Sylas' and Ivern's R, deal
+        // no damage, so damage from those slots comes from a possessed kit, a stolen ultimate or Daisy.
+        auto shareOf = [&](const ChampionKit& c, const Build& b, Source s) {
+            const Scenario csc = lib.scenarioFor(c);
+            return summarize(runTrials(lib, c, b, csc, 0, 300)).shareBySource[s];
+        };
+        const Build blade{{"botrk"}, {}};
+        const ChampionKit* viego = lib.find("Viego");
+        CHECK(viego && shareOf(*viego, blade, SrcE) > 0, "Viego casts the E of the champion he possesses");
+        const ChampionKit* sylas = lib.find("Sylas");
+        CHECK(sylas && shareOf(*sylas, cap, SrcR) > 0, "Sylas casts the ultimate he hijacks");
+        const ChampionKit* aphelios = lib.find("Aphelios");
+        CHECK(aphelios && shareOf(*aphelios, blade, SrcQ) > 0 && shareOf(*aphelios, blade, SrcW) > 0,
+              "Aphelios casts his main-hand (Q) and off-hand (W) weapons' abilities");
+        const ChampionKit* ivern = lib.find("Ivern");
+        CHECK(ivern && shareOf(*ivern, cap, SrcR) > 0, "Daisy fights for Ivern");
+        const ChampionKit* yuumi = lib.find("Yuumi");
+        CHECK(yuumi && shareOf(*yuumi, cap, SrcAttack) == 0, "attached Yuumi doesn't attack");
+        const ChampionKit* hwei = lib.find("Hwei");
+        bool nine = hwei && hwei->abilities.size() >= 3;
+        for (size_t i = 0; nine && i < 3; ++i) nine &= hwei->abilities[i].variants.size() >= 2;
+        CHECK(nine, "Hwei's Q, W and E each hold their spells to pick from");
+    }
+
+    {
         // Mana and energy: casts cost them, so a free-casting copy does more damage.
         CHECK(lux->resource == 1 && lux->mana > 0 && lux->abilities[0].cost > 0, "Lux has mana and her abilities cost it");
         const ChampionKit* zed = lib.find("Zed");

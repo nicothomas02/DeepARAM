@@ -248,5 +248,61 @@
    "attack_onhit_mult": 0.5
   },
   "why": "Azir's attacks are soldier stabs (W, onhit_every 1): no physical attack damage of their own, on-hit effects at 50% (AzirW OnHitMultiplier)"
+ },
+ "Nocturne": {
+  "stats": {
+   "as": 0.5
+  },
+  "why": "Shroud of Darkness passive: +50% attack speed (rank 5)"
+ },
+ "DrMundo": {
+  "stats": {
+   "ad_l1": 20.5,
+   "ad_l18": 76.5
+  },
+  "effects": {
+   "ad_per_bonus_hp": 0.032
+  },
+  "why": "Blunt Force Trauma passive: attack damage equal to 3.2% of max Health (rank 5): 3.2% of base Health by level plus 3.2% of bonus Health"
+ },
+ "Viego": {
+  "effects": {
+   "possess": 10,
+   "possess_heal": 0.02,
+   "possess_heal_bonus_ad": 0.00025,
+   "possess_heal_ap": 0.0002,
+   "possess_heal_bonus_hp": 4e-05,
+   "possess_heal_as": 0.05
+  },
+  "why": "Sovereign's Domination: a champion he kills is possessed for 10 s (its basic abilities, cooldowns fresh; his own keep running) with a free Heartbreaker after 1.5 s, healing 2% (+2.5% per 100 bonus AD, +2% per 100 AP, +0.4% per 100 bonus Health, +5% per 100% bonus attack speed) of its max Health"
+ },
+ "Sylas": {
+  "effects": {
+   "hijack": 1,
+   "hijack_lockout_min": 40
+  },
+  "why": "Hijack: R takes the target's ultimate, cast once with his stats (bonus AD ratios of an ultimate without AP scaling become 0.4 AP); each enemy can be hijacked again after 200% of its ultimate's base cooldown, 40 s at least (client data)"
+ },
+ "Aphelios": {
+  "stats": {
+   "ad_l1": 0,
+   "ad_l18": 20,
+   "as_l1": 0,
+   "as_l18": 0.45,
+   "lethality_l1": 0,
+   "lethality_l18": 22.5
+  },
+  "effects": {
+   "weapons": 1,
+   "weapon_ammo": 50,
+   "weapon_q_ammo": 10
+  },
+  "why": "The Hitman and the Seer: no ability ranks, his level-ups buy 4 AD, 9% attack speed and 4.5 lethality each, 5 of each by level 18. Weapons: 50 ammo each, an attack uses 1 and a weapon ability 10"
+ },
+ "Yuumi": {
+  "effects": {
+   "attached": 1
+  },
+  "why": "You and Me!: attached to an ally she doesn't attack; the fight lasts as long as her ally's, so her damage taken stays as it is"
  }
 }

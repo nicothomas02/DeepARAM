@@ -95,7 +95,17 @@ struct Ability {
     // A buff on yourself when cast, for buffDuration seconds: bonus attack speed, attack damage
     // (flat, and a share of your bonus AD), damage of your attacks (multiplier), omnivamp and healing received.
     double buffDuration = 0, buffAs = 0, buffAd = 0, buffBonusAdPct = 0, buffAttackMult = 1, buffVamp = 0, buffHealAmp = 0;
+    bool missingIsolated = false;  // the missing-Health bonus only on an immobilized target or a lone hit (Hwei's Severing Bolt)
+    bool placeholder = false;     // a slot kept empty until the kit fills it mid-fight (Viego's possessions, Aphelios' off-hand)
+    // A summon that fights on its own for petDuration seconds: an attack every 1/petAs seconds on your
+    // target, and every petSlamEvery-th attack (at most every petSlamCd seconds) a slam around it that
+    // knocks up for petSlamCc seconds (Ivern's Daisy).
+    double petDuration = 0, petAs = 1, petSlamCd = 0, petSlamCc = 0;
+    int petSlamEvery = 0;
+    std::vector<Hit> petHits, petSlam;
     std::vector<Hit> hits;
+    // Versions of this ability the kit swaps in mid-fight: Hwei's three spells per slot, Aphelios' weapons.
+    std::vector<Ability> variants;
 };
 
 // A champion passive's damage and when it lands (data/passives.json via data/champions.json).

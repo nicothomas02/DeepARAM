@@ -753,6 +753,72 @@ def parse_passives(bin_data, record, rules, strings, base, attack_range, notes):
     return out
 
 
+def eval_hits(specs, spell_obj, slot, base):
+    """Hits named by calc and evaluated from a spell's own formulas: {"calc", "type", "target", "mult"}."""
+    out = []
+    for h in specs:
+        if "scaling" in h:
+            out.append({"alt": False, "per_second": False, "target": "flat", **h})
+            continue
+        notes = set()
+        ev = Evaluator((spell_obj or {}).get("mSpell") or {}, RANKS.get(slot, 1), base, notes)
+        lin, _ = ev.calc(h["calc"])
+        mult = h.get("mult", 1.0)
+        out.append({"calc": h["calc"], "type": h.get("type", "magic"),
+                    "scaling": {k: round_coef(v * mult) for k, v in (lin or {}).items() if abs(v) > 1e-9},
+                    "target": h.get("target", "flat"), "per_second": h.get("per_second", False), "alt": False})
+    return out
+
+
+def apply_fix(a, fix, spell_obj, base):
+    """A hand fix (champion_overrides.json) on one parsed ability."""
+    for k, v in fix.items():
+        if k == "geometry":
+            a["geometry"].update(v)
+        elif k == "hit_mults":  # {calc name: multiplier}, e.g. a recast or a hit count
+            for h in a["hits"]:
+                if h["calc"] in v:
+                    h["scaling"] = {s: round_coef(c * v[h["calc"]]) for s, c in h["scaling"].items()}
+        elif k == "hit_adds":  # {calc name: {stat: amount}}: stacks added to a hit (Nasus Q)
+            for h in a["hits"]:
+                for stat, amt in v.get(h["calc"], {}).items():
+                    h["scaling"][stat] = round_coef(h["scaling"].get(stat, 0) + amt)
+        elif k == "alt_calcs":  # damage numbers that replace the main hit rather than add to it
+            for h in a["hits"]:
+                if h["calc"] in v:
+                    h["alt"] = True
+        elif k == "calcs":  # only these of the parsed numbers count (one of several spells in a slot)
+            a["hits"] = [dict(h, alt=False) for h in a["hits"] if h["calc"] in v]
+        elif k == "hits":  # hits given outright, or named by calc and evaluated from the spell
+            a["hits"] = eval_hits(v, spell_obj, a["slot"], base)
+        elif k == "cooldown_calc":  # a cooldown kept in one of the spell's formulas
+            notes = set()
+            lin, _ = Evaluator((spell_obj or {}).get("mSpell") or {}, RANKS.get(a["slot"], 1), base, notes).calc(v)
+            if lin:
+                a["cooldown"] = round(lin.const(), 3)
+        elif k == "pet" and isinstance(v, dict):
+            a["pet"] = {pk: (eval_hits(pv, spell_obj, a["slot"], base) if pk in ("hits", "slam") else pv) for pk, pv in v.items()}
+        elif k not in ("why", "variants"):
+            a[k] = v
+
+
+def make_variant(base_ability, spec, bin_data, slot_spell, strings, base, attack_range):
+    """One version of an ability slot: a copy of the parsed ability, or another spell of the champion
+    ("spell"), with its own hand fixes."""
+    import copy
+    slot = base_ability["slot"]
+    spell_obj = find_spell(bin_data, spec["spell"]) if spec.get("spell") else slot_spell
+    if spec.get("spell") and spell_obj:
+        v = parse_spell(slot, spell_obj, strings, base, attack_range)
+        v["cost"] = base_ability.get("cost", 0.0)
+    else:
+        v = copy.deepcopy({k: x for k, x in base_ability.items() if k != "variants"})
+    apply_fix(v, {k: x for k, x in spec.items() if k != "spell"}, spell_obj, base)
+    v["notes"] = []
+    v.pop("mode_overrides", None)
+    return v
+
+
 def find_spell(bin_data, path):
     if path in bin_data:
         return bin_data[path]
@@ -883,9 +949,10 @@ def main():
         if res["kind"] == "mana":
             base["mana"] = level_stat(res["pool"], res["pool_per_level"])
         spell_paths = record.get("spells") or []
-        abilities, notes = [], []
+        abilities, notes, spell_objs = [], [], {}
         for slot, path in zip("QWER", spell_paths):
             obj = find_spell(bin_data, path)
+            spell_objs[slot] = obj
             if obj is None:
                 notes.append(f"{slot}: spell data not found")
                 continue
@@ -908,23 +975,10 @@ def main():
                 continue
             for a in abilities:
                 if a["slot"] == slot:
-                    for k, v in fix.items():
-                        if k == "geometry":
-                            a["geometry"].update(v)
-                        elif k == "hit_mults":  # {calc name: multiplier}, e.g. a recast or a hit count
-                            for h in a["hits"]:
-                                if h["calc"] in v:
-                                    h["scaling"] = {s: round_coef(c * v[h["calc"]]) for s, c in h["scaling"].items()}
-                        elif k == "hit_adds":  # {calc name: {stat: amount}}: stacks added to a hit (Nasus Q)
-                            for h in a["hits"]:
-                                for stat, amt in v.get(h["calc"], {}).items():
-                                    h["scaling"][stat] = round_coef(h["scaling"].get(stat, 0) + amt)
-                        elif k == "alt_calcs":  # damage numbers that replace the main hit rather than add to it
-                            for h in a["hits"]:
-                                if h["calc"] in v:
-                                    h["alt"] = True
-                        elif k != "why":
-                            a[k] = v
+                    apply_fix(a, fix, spell_objs.get(slot), base)
+                    if "variants" in fix:  # versions of the slot the kit swaps in mid-fight (Hwei, Aphelios)
+                        a["variants"] = [make_variant(a, v, bin_data, spell_objs.get(slot), strings, base, s["attackrange"])
+                                         for v in fix["variants"]]
                     a["notes"].append("hand override: " + fix.get("why", ""))
         abilities = [a for a in abilities if not a.get("skip")]
         for a in abilities:
