@@ -1,297 +1,297 @@
 {
-  "id": "singed-toxic-assets",
-  "title": "Toxic Assets",
-  "champion": "Singed",
-  "champion_name": "Singed",
+  "id": "ivern-hedge-fund",
+  "title": "Hedge Fund",
+  "champion": "Ivern",
+  "champion_name": "Ivern",
   "chef": "2026-10-19",
-  "why": "Singed's Poison Trail is a damage-over-time cloud he leaves behind just by running around. Infernal Conduit makes his Abilities stack a Burn on top, Vulnerability lets damage-over-time and item damage Critically Strike for 145% extra, and Combusting Interest turns every Burn and damage-over-time tick on a champion into gold, so the trail now crits and pays him for it. Infernal Conduit's Burns also cut his basic Ability cooldowns, which means more Flings into Mega Adhesive and more Burns. Liandry's Torment, Demonic Embrace and Hollow Radiance add item burns that can crit too, while Atma's Reckoning and Rite of Ruin hand a tank Critical Strike Chance. The proxy farmer becomes a crit carry who never has to attack, cashing a dividend on every step.",
-  "play": "Run circles through the enemy team with Poison Trail on and let the ticks crit and pay out. Fling people into Mega Adhesive whenever it comes back, which is often.",
+  "why": "Ivern's Brushmaker has a passive almost nobody builds around: while he stands in brush, and for a moment after leaving it, his attacks deal bonus magic damage, and its active grows a fresh patch of brush anywhere he likes. Hide on Bush makes him deal 20% more damage for as long as he stays in brush, and Nature is Healing regenerates a large amount of Health every time he enters one, so every Brushmaker cast is a new entrance: a heal, a damage buff and a round of empowered attacks, on demand. Triggerseed feeds the other half: Mercy's Strike turns its shield into a next attack with extra range, Attack Speed and max Health magic damage, and Lil' Extra Help adds Attack Range and Attack Speed for as long as that shield lasts, so one shield from inside the brush is a short burst of long-range, fast, empowered attacks. Nashor's Tooth and Guinsoo's Rageblade stack more on-hit magic damage onto every one of those attacks, Rabadon's Deathcap grows all of it, and Cosmic Drive gives him the Move Speed to hop from one hedge to the next. The forest's gentlest support turns into an on-hit carry who plants his own ambush wherever he stands.",
+  "play": "Grow a brush on top of the fight, shield whoever is closest, and attack from inside it while the shield lasts; when the fight moves, grow another one and step in for the heal.",
   "items": [
-    "Liandry's Torment",
-    "Demonic Embrace",
-    "Atma's Reckoning",
-    "Rite of Ruin",
-    "Hollow Radiance",
-    "Mercury's Treads"
+    "Nashor's Tooth",
+    "Guinsoo's Rageblade",
+    "Lich Bane",
+    "Rabadon's Deathcap",
+    "Cosmic Drive",
+    "Berserker's Greaves"
   ],
-  "core": 3,
-  "champion_icon": "/embed/fun/cook-builds/icons/champions/27.png",
+  "core": 4,
+  "champion_icon": "/embed/fun/cook-builds/icons/champions/427.png",
   "augments": [
     {
-      "name": "Infernal Conduit",
-      "rarity": "Prismatic",
-      "core": true,
-      "text": "Your Abilities apply stacking Burn that deals damage over time. Your Burn effects reduce your basic Ability Cooldowns.",
-      "icon": "/embed/fun/cook-builds/icons/augments/infernal-conduit.png",
-      "id": 1045
-    },
-    {
-      "name": "Vulnerability",
+      "name": "Hide on Bush",
       "rarity": "Gold",
       "core": true,
-      "text": "Your Item and damage over time effects can Critically Strike for 145% extra damage. Gain 25% Crit chance.",
-      "icon": "/embed/fun/cook-builds/icons/augments/vulnerability.png",
-      "id": 1092
+      "text": "Entering Brush grants Brush Power for 2 seconds. While Brush Power is active, you deal 20% more damage. Damage done: Staying in Brush refreshes Brush Power.",
+      "icon": "/embed/fun/cook-builds/icons/augments/hide-on-bush.png",
+      "id": 2042
     },
     {
-      "name": "Combusting Interest",
+      "name": "Nature is Healing",
       "rarity": "Gold",
       "core": true,
-      "text": "Burn and damage-over-time on champions generate gold.",
-      "icon": "/embed/fun/cook-builds/icons/augments/combusting-interest.png",
-      "id": 2128
+      "text": "Entering Brush regenerates a large amount of Health.",
+      "icon": "/embed/fun/cook-builds/icons/augments/nature-is-healing.png",
+      "id": 2043
     },
     {
-      "name": "It's Critical",
+      "name": "Mercy's Strike",
       "rarity": "Gold",
-      "core": false,
-      "text": "Gain 50% Crit chance.",
-      "icon": "/embed/fun/cook-builds/icons/augments/it-s-critical.png",
-      "id": 1047
+      "core": true,
+      "text": "After healing or shielding your ally with the chosen ability, your next basic attack gains attack range, attack speed and deals bonus max Health magic damage.",
+      "icon": "/embed/fun/cook-builds/icons/augments/mercy-s-strike.png",
+      "id": 2133
+    },
+    {
+      "name": "Lil' Extra Help",
+      "rarity": "Gold",
+      "core": true,
+      "text": "Gain Attack Range and Attack Speed during Your chosen ability duration.",
+      "icon": "/embed/fun/cook-builds/icons/augments/lil-extra-help.png",
+      "id": 2096
     }
   ],
   "href": "/kitchen#chefs-special",
   "archive_href": "/kitchen#chef-archive",
   "share_href": "/kitchen/2026-10-19",
-  "share_image": "/embed/fun/cook-builds/share/singed-toxic-assets.png",
+  "share_image": "/embed/fun/cook-builds/share/ivern-hedge-fund.png",
   "item_ids": [
-    6653,
-    4637,
-    3039,
-    123430,
-    6664,
-    3111
+    3115,
+    3124,
+    3100,
+    3089,
+    4629,
+    3006
   ],
   "i18n": {
     "ar": {
-      "title": "أصول سامة",
-      "why": "مسار السم لدى سينجد هو سحابة ضرر مستمر يتركها خلفه بمجرد الركض. يجعل المجرى المشتعل قدراته تضيف حرقًا متراكمًا فوق ذلك، ويسمح الهشاشة للضرر المستمر وضرر العناصر بتوجيه ضربات حرجة بضرر إضافي 145%، ويحوّل الفائدة المشتعلة كل نبضة حرق أو سم على بطل إلى ذهب، فيصبح المسار يوجّه ضربات حرجة ويدفع له أيضًا. كما يقلل حرق المجرى المشتعل فترات تهدئة قدراته الأساسية، أي المزيد من القذف داخل اللاصق الخارق والمزيد من الحرق. تضيف عذاب لياندري والعناق الشيطاني والتألق الأجوف حرقًا من العناصر يمكنه توجيه ضربات حرجة أيضًا، بينما يمنح حساب أتما وشعيرة الخراب الدبابة فرصة ضربة حرجة. يتحول مزارع البروكسي إلى حامل ضربات حرجة لا يحتاج إلى الهجوم أبدًا ويقبض أرباحًا مع كل خطوة.",
-      "play": "اركض في دوائر وسط الفريق المعادي مع تفعيل مسار السم ودع النبضات توجّه ضربات حرجة وتدر الذهب. اقذف الأعداء داخل اللاصق الخارق كلما عادت القذف، وهذا يحدث كثيرًا.",
+      "title": "صندوق التحوّط",
+      "why": "لقدرة W لدى آيفرن تأثير سلبي لا يبني عليه أحد تقريبًا: طالما يقف في الأدغال، ولبرهة بعد الخروج منها، توجّه هجماته ضررًا سحريًا إضافيًا، أما تأثيرها الفعّال فينبت أدغالًا جديدة حيثما يشاء. يجعله الاختباء بين الأعشاب يوجّه ضررًا أكبر بنسبة 20% طالما بقي في الأدغال، ويستعيد الطبيعة سر العلاج كمية كبيرة من الصحة في كل مرة يدخل فيها إلى أدغال، فيصبح كل استخدام لـ W دخولًا جديدًا: شفاء وزيادة ضرر وجولة من الهجمات المعزّزة عند الطلب. أما قدرة E فتغذّي النصف الآخر: يحوّل الرحمة القاتلة درعها إلى هجمة تالية بمدى إضافي وسرعة هجوم وضرر سحري بحسب الصحة القصوى، ويضيف مساعدة إضافية بسيطة مدى هجوم وسرعة هجوم طوال مدة ذلك الدرع، فيصبح درع واحد من داخل الأدغال وابلًا قصيرًا من الهجمات البعيدة السريعة المعزّزة. يكدّس سن ناشور ونصل غضب غينسو مزيدًا من الضرر السحري عند الإصابة على كل هجمة من هذه الهجمات، ويضخّم قبعة موت رابادون كل ذلك، ويمنحه الحافز الكوني سرعة الحركة للقفز من سياج إلى آخر. يتحوّل ألطف داعم في الغابة إلى حامل ضرر عند الإصابة يزرع كمينه الخاص أينما وقف.",
+      "play": "أنبت أدغالًا فوق المعركة مباشرة، وامنح الدرع لأقرب حليف وهاجم من الداخل طوال مدة الدرع؛ وعندما تنتقل المعركة، أنبت أدغالًا أخرى وادخل إليها للشفاء.",
       "augments": [
-        "تطبق قدراتك حرقًا متراكمًا يسبب ضررًا مستمرًا. تقلل تأثيرات الحرق لديك فترات تهدئة قدراتك الأساسية.",
-        "يمكن لتأثيرات العناصر والضرر المستمر لديك توجيه ضربات حرجة بضرر إضافي 145%. تحصل على 25% فرصة ضربة حرجة.",
-        "يولّد الحرق والضرر المستمر على الأبطال الذهب.",
-        "تحصل على 50% فرصة ضربة حرجة."
+        "يمنحك دخول الأدغال قوة الأدغال لمدة ثانيتين. طالما كانت قوة الأدغال فعّالة، توجّه ضررًا أكبر بنسبة 20%. البقاء في الأدغال يجدّد قوة الأدغال.",
+        "يستعيد دخول الأدغال كمية كبيرة من الصحة.",
+        "بعد شفاء حليفك أو منحه درعًا بالقدرة المختارة، تكتسب هجمتك الأساسية التالية مدى هجوم وسرعة هجوم وتوجّه ضررًا سحريًا إضافيًا بحسب الصحة القصوى.",
+        "تحصل على مدى هجوم وسرعة هجوم طوال مدة القدرة المختارة."
       ]
     },
     "cs": {
-      "title": "Toxická aktiva",
-      "why": "Jedovatá stopa Singeda je oblak poškození v čase, který za sebou nechává jen tím, že běhá. Pekelné spojení způsobí, že jeho schopnosti navíc přidávají sčítající se popálení, Zranitelnost dovolí poškození v čase a poškození z předmětů kriticky zasáhnout za 145 % poškození navíc a Spalující úrok promění každý tik popálení nebo jedu na šampionovi ve zlato, takže stopa teď krití a ještě mu za to platí. Popálení z Pekelné spojení také zkracují přebíjení jeho základních schopností, což znamená víc Odhození do Megalepidlo a ještě víc popálení. Liandryho utrpení, Démonská náruč a Dutá záře přidávají popálení z předmětů, která můžou taky kritit, a Atmovo zúčtování s Obřad zkázy dávají tankovi šanci na kritický zásah. Z proxy farmera se stane kritový carry, který nikdy nemusí útočit a s každým krokem inkasuje dividendu.",
-      "play": "Běhej s aktivní Jedovatá stopa dokola nepřátelským týmem a nech tiky kritit a vydělávat. Hoď nepřítele do Megalepidlo pokaždé, když se Odhození nabije, a to je často.",
+      "title": "Hedgeový fond",
+      "why": "W Iverna má pasivní efekt, na kterém skoro nikdo nestaví: dokud stojí v křoví, a ještě chvíli po odchodu z něj, jeho útoky způsobují bonusové magické poškození, a aktivní část nechá vyrůst nové křoví, kdekoli chce. Hide on bush mu dává o 20 % vyšší poškození, dokud v křoví zůstává, a Příroda uzdravuje obnoví velké množství zdraví pokaždé, když do nějakého vstoupí, takže každé W je nový vstup: léčení, bonus k poškození a dávka posílených útoků, kdykoli chce. E pohání druhou polovinu: Úder z milosti promění jeho štít v další útok s větším dosahem, rychlostí útoku a magickým poškozením podle maximálního zdraví, a Troška pomoci navíc přidává dosah a rychlost útoku, dokud ten štít drží, takže jeden štít z křoví se stane krátkou dávkou dlouhých, rychlých, posílených útoků. Nashorův tesák a Guinsoova zuřivá čepel přidávají ke každému z těchto útoků další magické poškození při zásahu, Rabadonův smrtící klobouk to všechno zvětší a Kosmický pohon mu dává rychlost pohybu, aby přeskakoval z jednoho živého plotu na druhý. Nejmírnější support lesa se promění v carryho na zásah, který si sází vlastní léčku, ať stojí kdekoli.",
+      "play": "Nech vyrůst křoví přímo v bitvě, dej štít nejbližšímu spojenci a útoč zevnitř, dokud štít drží; když se boj posune, nech vyrůst další a vstup do něj pro léčení.",
       "augments": [
-        "Tvé schopnosti přidávají sčítající se popálení, které způsobuje poškození v čase. Tvé efekty popálení zkracují přebíjení tvých základních schopností.",
-        "Tvé efekty předmětů a poškození v čase mohou kriticky zasáhnout a způsobit o 145 % poškození navíc. Získáváš 25% šanci na kritický zásah.",
-        "Popálení a poškození v čase na šampionech vytváří zlato.",
-        "Získáváš 50% šanci na kritický zásah."
+        "Vstup do křoví ti dá Sílu křoví na 2 sekundy. Dokud je Síla křoví aktivní, způsobuješ o 20 % vyšší poškození. Setrvání v křoví Sílu křoví obnovuje.",
+        "Vstup do křoví obnoví velké množství zdraví.",
+        "Po vyléčení nebo oštítování spojence zvolenou schopností tvůj další základní útok získá dosah útoku a rychlost útoku a způsobí bonusové magické poškození podle maximálního zdraví.",
+        "Po dobu trvání zvolené schopnosti získáváš dosah útoku a rychlost útoku."
       ]
     },
     "de": {
-      "title": "Toxische Wertpapiere",
-      "why": "Singeds Giftspur ist eine Wolke aus Schaden über Zeit, die er einfach beim Herumlaufen hinterlässt. Infernalische Verbindung lässt seine Fähigkeiten zusätzlich einen stapelbaren Brand verursachen, Verwundbarkeit lässt Schaden über Zeit und Gegenstandsschaden kritisch treffen, für 145 % zusätzlichen Schaden, und Brennende Zinsen macht aus jedem Brand- und Gifttick auf einem Champion Gold. Die Spur crittet also und bezahlt ihn auch noch dafür. Die Brände von Infernalische Verbindung senken außerdem die Abklingzeiten seiner Grundfähigkeiten, also mehr Schleudern in den Mega-Kleber und noch mehr Brände. Liandrys Qual, Dämonische Umarmung und Hohler Glanz legen Gegenstandsbrände drauf, die ebenfalls critten können, während Atmas Abrechnung und Ritual des Ruins einem Tank kritische Trefferchance geben. Der Proxy-Farmer wird zum Crit-Carry, der nie angreifen muss und bei jedem Schritt eine Dividende kassiert.",
-      "play": "Lauf mit aktiver Giftspur im Kreis durchs gegnerische Team und lass die Ticks critten und Gold abwerfen. Wirf Leute in den Mega-Kleber, sobald Schleudern wieder bereit ist, und das ist oft.",
+      "title": "Hedgefonds",
+      "why": "Iverns W hat eine passive Wirkung, um die fast niemand baut: Solange er im Busch steht, und kurz nachdem er ihn verlassen hat, verursachen seine Angriffe zusätzlichen magischen Schaden, und die aktive Wirkung lässt überall einen neuen Busch wachsen. Mit Hide on Bush verursacht er 20 % mehr Schaden, solange er im Busch bleibt, und Die Natur heilt regeneriert bei jedem Betreten eines Buschs eine große Menge Leben, also ist jedes W ein neuer Eintritt: Heilung, Schadensbonus und eine Runde verstärkter Angriffe, auf Abruf. Das E liefert die andere Hälfte: Gnadenschlag macht aus seinem Schild einen nächsten Angriff mit zusätzlicher Reichweite, Angriffstempo und magischem Schaden nach maximalem Leben, und Etwas zusätzliche Hilfe gibt Angriffsreichweite und Angriffstempo, solange dieser Schild hält, also wird ein einziger Schild aus dem Busch heraus zu einer kurzen Salve langer, schneller, verstärkter Angriffe. Nashors Zahn und Guinsoos Wutklinge stapeln noch mehr magischen Treffer-Schaden auf jeden dieser Angriffe, Rabadons Todeshaube lässt das alles wachsen und Kosmischer Antrieb gibt ihm das Lauftempo, um von einer Hecke zur nächsten zu hüpfen. Der sanfteste Supporter des Waldes wird zum Treffer-Carry, der seinen eigenen Hinterhalt pflanzt, wo immer er steht.",
+      "play": "Lass mitten im Kampf einen Busch wachsen, schilde den nächsten Verbündeten und greife von drinnen an, solange der Schild hält; zieht der Kampf weiter, lass den nächsten wachsen und tritt für die Heilung hinein.",
       "augments": [
-        "Deine Fähigkeiten verursachen einen stapelbaren Brand, der Schaden über Zeit verursacht. Deine Brandeffekte verringern die Abklingzeiten deiner Grundfähigkeiten.",
-        "Deine Gegenstands- und Schaden-über-Zeit-Effekte können kritisch treffen und 145 % zusätzlichen Schaden verursachen. Erhalte 25 % kritische Trefferchance.",
-        "Brand und Schaden über Zeit an Champions erzeugen Gold.",
-        "Erhalte 50 % kritische Trefferchance."
+        "Das Betreten eines Buschs gewährt 2 Sekunden lang Buschkraft. Solange Buschkraft aktiv ist, verursachst du 20 % mehr Schaden. Im Busch zu bleiben erneuert Buschkraft.",
+        "Das Betreten eines Buschs regeneriert eine große Menge Leben.",
+        "Nachdem du einen Verbündeten mit der gewählten Fähigkeit geheilt oder geschildet hast, erhält dein nächster normaler Angriff Angriffsreichweite und Angriffstempo und verursacht zusätzlichen magischen Schaden basierend auf maximalem Leben.",
+        "Erhalte Angriffsreichweite und Angriffstempo für die Dauer der gewählten Fähigkeit."
       ]
     },
     "el": {
-      "title": "Τοξικά Ομόλογα",
-      "why": "Το Δηλητηριώδες Ίχνος του Σιντζντ είναι ένα σύννεφο ζημιάς με την πάροδο του χρόνου που αφήνει πίσω του απλώς τρέχοντας. Το Καταχθόνιος Αγωγός κάνει τις ικανότητές του να βάζουν επιπλέον ένα Κάψιμο που στοιβάζεται, το Τρωτό Σημείο επιτρέπει στη ζημιά με την πάροδο του χρόνου και στη ζημιά αντικειμένων να κάνουν Καίριο Χτύπημα για 145% επιπλέον ζημιά, και το Αναφλεγόμενος Τόκος μετατρέπει κάθε τικ Καψίματος ή δηλητηρίου σε Ήρωα σε χρυσό, οπότε το ίχνος πλέον κάνει καίρια και τον πληρώνει κιόλας. Τα Καψίματα του Καταχθόνιος Αγωγός μειώνουν επίσης τους χρόνους επαναφόρτισης των βασικών του ικανοτήτων, άρα περισσότερες Εκτίναξη μέσα στη Μέγα Κόλλα και ακόμα περισσότερα Καψίματα. Τα Το Μαρτύριο της Λιάντρι, Δαιμονικός Εναγκαλισμός και Κενή Λαμπρότητα προσθέτουν Καψίματα αντικειμένων που κι αυτά κάνουν καίρια, ενώ τα Θεϊκή Κρίση του Άτμα και Τελετή της Καταστροφής δίνουν πιθανότητα Καίριου Χτυπήματος σε ένα τανκ. Ο proxy farmer γίνεται carry με καίρια που δεν χρειάζεται ποτέ να επιτεθεί και εισπράττει μέρισμα σε κάθε βήμα.",
-      "play": "Τρέξε σε κύκλους μέσα στην εχθρική ομάδα με το Δηλητηριώδες Ίχνος ενεργό και άσε τα τικ να κάνουν καίρια και να πληρώνουν. Ρίξε αντιπάλους μέσα στη Μέγα Κόλλα κάθε φορά που η Εκτίναξη είναι έτοιμη, δηλαδή συχνά.",
+      "title": "Hedge Fund",
+      "why": "Το W του Άιβερν έχει μια παθητική που σχεδόν κανείς δεν χτίζει γύρω της: όσο στέκεται σε θάμνο, και για λίγο αφού βγει, οι επιθέσεις του προκαλούν επιπλέον μαγική ζημιά, και η ενεργή του φυτρώνει έναν νέο θάμνο όπου θέλει. Το Ο θάνατος που παραμονεύει στη ζούγκλα τον κάνει να προκαλεί 20% περισσότερη ζημιά όσο μένει σε θάμνο, και το Η Φύση Ανακάμπτει αναγεννά μεγάλη ποσότητα ζωής κάθε φορά που μπαίνει σε έναν, οπότε κάθε W είναι μια νέα είσοδος: θεραπεία, μπόνους ζημιάς και μια σειρά ενισχυμένων επιθέσεων, κατά παραγγελία. Το E τροφοδοτεί το άλλο μισό: το Χτύπημα του Ελέους μετατρέπει την ασπίδα του σε επόμενη επίθεση με επιπλέον εμβέλεια, ταχύτητα επίθεσης και μαγική ζημιά βάσει μέγιστης ζωής, και το Ένα Χεράκι Παραπάνω προσθέτει εμβέλεια και ταχύτητα επίθεσης όσο κρατάει αυτή η ασπίδα, οπότε μία ασπίδα μέσα από τον θάμνο γίνεται μια σύντομη ριπή μακρινών, γρήγορων, ενισχυμένων επιθέσεων. Το Δόντι του Νάσορ και το Οργισμένο Σπαθί του Γκουίνσου στοιβάζουν κι άλλη μαγική ζημιά σε κάθε χτύπημα, το Καπέλο του Ράμπαντον μεγαλώνει όλα αυτά, και το Κοσμική Ενέργεια του δίνει την ταχύτητα κίνησης για να πηδάει από τον έναν φράχτη στον άλλον. Ο πιο ήπιος support του δάσους γίνεται carry on-hit που φυτεύει τη δική του ενέδρα όπου κι αν σταθεί.",
+      "play": "Φύτρωσε έναν θάμνο πάνω στη μάχη, δώσε ασπίδα στον πιο κοντινό σύμμαχο και επιτέθου από μέσα όσο κρατάει η ασπίδα· όταν η μάχη μετακινηθεί, φύτρωσε άλλον και μπες μέσα για τη θεραπεία.",
       "augments": [
-        "Οι ικανότητές σου εφαρμόζουν Κάψιμο που στοιβάζεται και προκαλεί ζημιά με την πάροδο του χρόνου. Τα εφέ Καψίματός σου μειώνουν τους χρόνους επαναφόρτισης των βασικών σου ικανοτήτων.",
-        "Τα εφέ αντικειμένων και ζημιάς με την πάροδο του χρόνου μπορούν να κάνουν Καίριο Χτύπημα για 145% επιπλέον ζημιά. Κερδίζεις 25% πιθανότητα Καίριου Χτυπήματος.",
-        "Το Κάψιμο και η ζημιά με την πάροδο του χρόνου σε Ήρωες παράγουν χρυσό.",
-        "Κερδίζεις 50% πιθανότητα Καίριου Χτυπήματος."
+        "Η είσοδος σε θάμνο δίνει Δύναμη Θάμνου για 2 δευτερόλεπτα. Όσο η Δύναμη Θάμνου είναι ενεργή, προκαλείς 20% περισσότερη ζημιά. Η παραμονή στον θάμνο ανανεώνει τη Δύναμη Θάμνου.",
+        "Η είσοδος σε θάμνο αναγεννά μεγάλη ποσότητα ζωής.",
+        "Αφού θεραπεύσεις ή δώσεις ασπίδα στον σύμμαχό σου με την επιλεγμένη ικανότητα, η επόμενη βασική σου επίθεση αποκτά εμβέλεια επίθεσης και ταχύτητα επίθεσης και προκαλεί επιπλέον μαγική ζημιά βάσει μέγιστης ζωής.",
+        "Κερδίζεις εμβέλεια επίθεσης και ταχύτητα επίθεσης για τη διάρκεια της επιλεγμένης ικανότητας."
       ]
     },
     "es-MX": {
-      "title": "Activos Tóxicos",
-      "why": "El Rastro Venenoso de Singed es una nube de daño con el tiempo que deja nomás por andar corriendo. Conducto Infernal hace que sus habilidades apliquen además una quemadura acumulable, Vulnerabilidad deja que el daño con el tiempo y el daño de objetos sean críticos con un 145% de daño extra, y Interés en Llamas convierte cada tick de quemadura o veneno sobre un campeón en oro, así que el rastro ahora pega críticos y además le paga. Las quemaduras de Conducto Infernal también reducen los enfriamientos de sus habilidades básicas, o sea más Lanzamiento hacia el Megaadhesivo y más quemaduras. El Tormento de Liandry, Abrazo Demoniaco y Resplandor Vacío suman quemaduras de objetos que también pueden ser críticas, mientras que Juicio de Atma y Rito de Ruina le dan probabilidad de crítico a un tanque. El proxy farmer se vuelve un carry de críticos que nunca tiene que atacar y cobra dividendos con cada paso.",
-      "play": "Dale vueltas al equipo enemigo con el Rastro Venenoso prendido y deja que los ticks peguen crítico y paguen. Usa Lanzamiento hacia el Megaadhesivo cada vez que se recargue, que es seguido.",
+      "title": "Fondo de Cobertura",
+      "why": "La W de Ivern tiene una pasiva que casi nadie aprovecha: mientras está dentro de un arbusto, y un momento después de salir, sus ataques infligen daño mágico adicional, y su activa hace crecer un arbusto nuevo donde él quiera. Hide on Bush le hace infligir 20% más de daño mientras siga en un arbusto, y La Naturaleza está Sanando regenera una gran cantidad de vida cada vez que entra a uno, así que cada W es una entrada nueva: una curación, un bono de daño y una ronda de ataques potenciados, cuando quiera. La E alimenta la otra mitad: Golpe Piadoso convierte su escudo en un siguiente ataque con más alcance, velocidad de ataque y daño mágico según la vida máxima, y Un Poco de Ayuda suma alcance y velocidad de ataque mientras dure ese escudo, así que un solo escudo desde adentro del arbusto se vuelve una ráfaga corta de ataques largos, rápidos y potenciados. Diente de Nashor y Espadafuria de Guinsoo acumulan todavía más daño mágico al golpear en cada uno de esos ataques, Sombrero Mortífero de Rabadon hace crecer todo eso y Impulso Cósmico le da la velocidad de movimiento para brincar de un seto al siguiente. El support más tierno del bosque se vuelve un carry de daño al golpear que planta su propia emboscada donde sea que pise.",
+      "play": "Haz crecer un arbusto encima de la pelea, escuda al aliado más cercano y ataca desde adentro mientras dure el escudo; cuando la pelea se mueva, haz crecer otro y métete para curarte.",
       "augments": [
-        "Tus habilidades aplican una quemadura acumulable que inflige daño con el tiempo. Tus efectos de quemadura reducen los enfriamientos de tus habilidades básicas.",
-        "Tus efectos de objetos y de daño con el tiempo pueden ser críticos e infligir un 145% de daño adicional. Obtienes un 25% de probabilidad de crítico.",
-        "Las quemaduras y el daño con el tiempo sobre campeones generan oro.",
-        "Obtienes un 50% de probabilidad de crítico."
+        "Entrar a un arbusto otorga Poder de Arbusto durante 2 segundos. Mientras Poder de Arbusto está activo, infliges 20% más de daño. Quedarte en el arbusto renueva Poder de Arbusto.",
+        "Entrar a un arbusto regenera una gran cantidad de vida.",
+        "Después de curar o escudar a tu aliado con la habilidad elegida, tu siguiente ataque básico gana alcance de ataque y velocidad de ataque e inflige daño mágico adicional según la vida máxima.",
+        "Obtienes alcance de ataque y velocidad de ataque durante la duración de la habilidad elegida."
       ]
     },
     "es": {
-      "title": "Activos tóxicos",
-      "why": "El Rastro venenoso de Singed es una nube de daño en el tiempo que deja atrás solo por correr. Conducto infernal hace que sus habilidades apliquen además una quemadura acumulable, Vulnerabilidad permite que el daño en el tiempo y el daño de objetos sean críticos con un 145% de daño extra, y Interés explosivo convierte cada tick de quemadura o veneno sobre un campeón en oro, así que el rastro ahora hace críticos y encima le paga. Las quemaduras de Conducto infernal también reducen los enfriamientos de sus habilidades básicas, lo que significa más Lanzamiento hacia el Megaadhesivo y más quemaduras. Tormento de Liandry, Abrazo demoníaco y Fulgor vano añaden quemaduras de objetos que también pueden ser críticas, mientras que Juicio de Atma y Rito de la ruina le dan probabilidad de crítico a un tanque. El proxy farmer se convierte en un carry de críticos que nunca tiene que atacar y cobra dividendos con cada paso.",
-      "play": "Da vueltas por el equipo enemigo con el Rastro venenoso activado y deja que los ticks hagan crítico y paguen. Usa Lanzamiento hacia el Megaadhesivo cada vez que vuelva, que es a menudo.",
+      "title": "Fondo de cobertura",
+      "why": "La W de Ivern tiene una pasiva que casi nadie aprovecha: mientras está dentro de un arbusto, y un instante después de salir, sus ataques infligen daño mágico adicional, y su activa hace crecer un arbusto nuevo donde él quiera. Escondite entre la maleza le hace infligir un 20% más de daño mientras siga en un arbusto, y Naturaleza sanadora regenera una gran cantidad de vida cada vez que entra en uno, así que cada W es una entrada nueva: una curación, un bonus de daño y una tanda de ataques potenciados, a demanda. La E alimenta la otra mitad: Impacto mercurial convierte su escudo en un siguiente ataque con más alcance, velocidad de ataque y daño mágico según la vida máxima, y Una ayudita añade alcance y velocidad de ataque mientras dure ese escudo, así que un solo escudo desde dentro del arbusto se convierte en una ráfaga corta de ataques largos, rápidos y potenciados. Diente de Nashor y Hoja de furia de Guinsoo apilan aún más daño mágico al impactar en cada uno de esos ataques, Sombrero mortal de Rabadon lo hace crecer todo y Impulso cósmico le da la velocidad de movimiento para saltar de un seto al siguiente. El support más tierno del bosque se convierte en un carry de daño al impactar que planta su propia emboscada allá donde pise.",
+      "play": "Haz crecer un arbusto encima de la pelea, escuda al aliado más cercano y ataca desde dentro mientras dure el escudo; cuando la pelea se mueva, haz crecer otro y entra para curarte.",
       "augments": [
-        "Tus habilidades aplican una quemadura acumulable que inflige daño en el tiempo. Tus efectos de quemadura reducen los enfriamientos de tus habilidades básicas.",
-        "Tus efectos de objetos y de daño en el tiempo pueden ser críticos e infligir un 145% de daño adicional. Obtienes un 25% de probabilidad de crítico.",
-        "Las quemaduras y el daño en el tiempo sobre campeones generan oro.",
-        "Obtienes un 50% de probabilidad de crítico."
+        "Entrar en un arbusto otorga Poder de arbusto durante 2 segundos. Mientras Poder de arbusto está activo, infliges un 20% más de daño. Permanecer en el arbusto renueva Poder de arbusto.",
+        "Entrar en un arbusto regenera una gran cantidad de vida.",
+        "Tras curar o escudar a tu aliado con la habilidad elegida, tu siguiente ataque básico gana alcance de ataque y velocidad de ataque e inflige daño mágico adicional según la vida máxima.",
+        "Obtienes alcance de ataque y velocidad de ataque durante la duración de la habilidad elegida."
       ]
     },
     "fr": {
-      "title": "Actifs toxiques",
-      "why": "La Traînée toxique de Singed est un nuage de dégâts sur la durée qu'il laisse derrière lui rien qu'en courant. Conduit infernal fait que ses compétences ajoutent une brûlure cumulable, Vulnérabilité permet aux dégâts sur la durée et aux dégâts d'objets de faire des coups critiques pour 145% de dégâts en plus, et Intérêt brûlant transforme chaque tick de brûlure ou de poison sur un champion en or : la traînée crit maintenant et le paie pour ça. Les brûlures de Conduit infernal réduisent aussi les délais de récupération de ses compétences de base, donc plus de Projection dans la Colle surpuissante et encore plus de brûlures. Tourment de Liandry, Étreinte démoniaque et Rayonnement du vide ajoutent des brûlures d'objets qui peuvent aussi crit, tandis que Jugement d'Atma et Rite des ruines donnent des chances de coup critique à un tank. Le proxy farmer devient un carry crit qui n'a jamais besoin d'attaquer et touche un dividende à chaque pas.",
-      "play": "Tournez en rond dans l'équipe ennemie avec la Traînée toxique activée et laissez les ticks crit et rapporter. Lancez la Projection dans la Colle surpuissante dès qu'elle revient, c'est-à-dire souvent.",
+      "title": "Hedge Fund",
+      "why": "Le W de Ivern a un passif que presque personne n'exploite : tant qu'il est dans un buisson, et un court instant après en être sorti, ses attaques infligent des dégâts magiques bonus, et son actif fait pousser un nouveau buisson où il veut. Hide on bush lui fait infliger 20 % de dégâts en plus tant qu'il reste dans un buisson, et L'appel de la nature lui rend une grande quantité de PV à chaque fois qu'il en entre dans un, donc chaque W est une nouvelle entrée : un soin, un bonus de dégâts et une salve d'attaques renforcées, à la demande. Le E alimente l'autre moitié : Attaques améliorées transforme son bouclier en une prochaine attaque avec de la portée, de la vitesse d'attaque et des dégâts magiques bonus selon les PV max, et Petit coup de pouce ajoute de la portée et de la vitesse d'attaque tant que ce bouclier tient, donc un seul bouclier depuis le buisson devient une courte rafale d'attaques longues, rapides et renforcées. Dent de Nashor et Lame enragée de Guinsoo empilent encore plus de dégâts magiques à l'impact sur chacune de ces attaques, Coiffe de Rabadon fait grossir tout ça, et Volonté cosmique lui donne la vitesse de déplacement pour sauter d'une haie à l'autre. Le support le plus doux de la forêt devient un carry à l'impact qui plante sa propre embuscade où qu'il se trouve.",
+      "play": "Faites pousser un buisson en plein combat, protégez l'allié le plus proche et attaquez depuis l'intérieur tant que le bouclier tient ; quand le combat bouge, faites-en pousser un autre et entrez-y pour le soin.",
       "augments": [
-        "Vos compétences appliquent une brûlure cumulable qui inflige des dégâts sur la durée. Vos effets de brûlure réduisent les délais de récupération de vos compétences de base.",
-        "Vos effets d'objets et de dégâts sur la durée peuvent faire des coups critiques pour 145% de dégâts en plus. Vous gagnez 25% de chances de coup critique.",
-        "Les brûlures et les dégâts sur la durée infligés aux champions génèrent de l'or.",
-        "Vous gagnez 50% de chances de coup critique."
+        "Entrer dans un buisson vous confère Pouvoir du buisson pendant 2 secondes. Tant que Pouvoir du buisson est actif, vous infligez 20 % de dégâts en plus. Rester dans le buisson rafraîchit Pouvoir du buisson.",
+        "Entrer dans un buisson vous régénère une grande quantité de PV.",
+        "Après avoir soigné ou protégé votre allié avec la compétence choisie, votre prochaine attaque de base gagne de la portée d'attaque, de la vitesse d'attaque et inflige des dégâts magiques bonus selon les PV max.",
+        "Gagnez de la portée d'attaque et de la vitesse d'attaque pendant la durée de la compétence choisie."
       ]
     },
     "hu": {
-      "title": "Toxikus eszközök",
-      "why": "Singed Mérgező nyomvonal képessége egy időben sebző felhő, amit pusztán futkosással hagy maga után. Az Pokoli csatorna miatt a képességei még egy halmozódó égetést is felraknak, a Sebezhetőség lehetővé teszi, hogy az időben sebzés és a tárgyak sebzése kritikusat üssön 145% extra sebzéssel, a Lángoló kamat pedig minden égetés- és méregtikket egy hősön arannyá alakít, vagyis a nyomvonal most kritel, és még fizet is érte. Az Pokoli csatorna égetései az alapképességei töltési idejét is csökkentik, így több Hajítás megy a Szuperragasztó képességbe, és még több égetés jön. A Liandry gyötrelme, a Démoni ölelés és a Tompa ragyogás tárgyégetéseket adnak, amik szintén kritelhetnek, az Atma bosszúja és a A rombolás rítusa pedig kritikus találati esélyt ad egy tanknak. A proxyfarmolóból kritikus carry lesz, akinek soha nem kell támadnia, és minden lépésnél osztalékot zsebel be.",
-      "play": "Rohangálj körbe az ellenfél csapatában bekapcsolt Mérgező nyomvonal képességgel, és hagyd, hogy a tikkek kriteljenek és fizessenek. Hajítsd az ellenfeleket a Szuperragasztó képességbe, amikor a Hajítás újra kész, ami gyakran megesik.",
+      "title": "Fedezeti alap",
+      "why": "Ivern W képességének van egy passzív része, amire szinte senki nem épít: amíg bokorban áll, és még egy pillanatig a kilépés után, a támadásai bónusz varázserő-sebzést okoznak, az aktív része pedig új bokrot növeszt, ahová csak akarja. A Hide on bush miatt 20%-kal több sebzést okoz, amíg a bokorban marad, a Gyógyuló természet pedig nagy mennyiségű életerőt tölt vissza, valahányszor belép egybe, így minden W egy új belépés: gyógyítás, sebzésbónusz és egy adag megerősített támadás, igény szerint. Az E adja a másik felét: a Kegyelemdöfés a pajzsát egy következő támadássá alakítja extra hatótávval, támadási sebességgel és maximális életerő alapú varázserő-sebzéssel, a Egy kis extra segítség pedig támadási hatótávot és sebességet ad, amíg az a pajzs tart, így egyetlen pajzs a bokorból egy rövid sorozat hosszú, gyors, megerősített támadás lesz. A Nashor foga és a Guinsoo dühpengéje még több találatkori varázserő-sebzést halmoz minden ilyen támadásra, a Rabadon halálsüvege az egészet megnöveli, a Kozmikus hajtómű pedig megadja a mozgási sebességet, hogy egyik sövényből a másikba ugráljon. Az erdő legszelídebb supportja találatkori carryvé válik, aki ott ülteti el a saját lesét, ahol éppen áll.",
+      "play": "Növessz bokrot a harc közepére, pajzsold a legközelebbi szövetségest, és támadj belülről, amíg a pajzs tart; ha a harc odébb megy, növessz egy másikat, és lépj be a gyógyulásért.",
       "augments": [
-        "A képességeid halmozódó égetést raknak fel, ami időben sebez. Az égetőhatásaid csökkentik az alapképességeid töltési idejét.",
-        "A tárgyhatásaid és időben sebző hatásaid kritikusat üthetnek 145% extra sebzéssel. 25% kritikus találati esélyt kapsz.",
-        "A hősökre kifejtett égetés és időben sebzés aranyat termel.",
-        "50% kritikus találati esélyt kapsz."
+        "A bokorba belépve 2 másodpercre Bokorerőt kapsz. Amíg a Bokorerő aktív, 20%-kal több sebzést okozol. A bokorban maradás frissíti a Bokorerőt.",
+        "A bokorba belépve nagy mennyiségű életerőt töltesz vissza.",
+        "Miután a kiválasztott képességgel meggyógyítottad vagy pajzsoltad a szövetségesedet, a következő alaptámadásod támadási hatótávot és támadási sebességet kap, és maximális életerő alapú bónusz varázserő-sebzést okoz.",
+        "A kiválasztott képesség időtartama alatt támadási hatótávot és támadási sebességet kapsz."
       ]
     },
     "id": {
-      "title": "Aset Beracun",
-      "why": "Poison Trail milik Singed adalah awan damage over time yang dia tinggalkan cuma dengan lari-lari. Infernal Conduit membuat skill-nya menambahkan Burn yang bisa menumpuk, Vulnerability membuat damage over time dan damage item bisa Critical Strike dengan 145% damage tambahan, dan Combusting Interest mengubah setiap tick Burn atau racun pada champion menjadi gold, jadi jejak racunnya sekarang bisa crit dan malah membayar dia. Burn dari Infernal Conduit juga mengurangi cooldown basic skill-nya, artinya lebih banyak Fling ke Mega Adhesive dan lebih banyak Burn. Liandry's Torment, Demonic Embrace dan Hollow Radiance menambah burn dari item yang juga bisa crit, sementara Atma's Reckoning dan Rite of Ruin memberi Critical Strike Chance ke seorang tank. Si proxy farmer berubah jadi carry crit yang tidak pernah perlu menyerang dan menerima dividen di setiap langkah.",
-      "play": "Lari berputar-putar di tengah tim musuh dengan Poison Trail menyala dan biarkan tick-nya crit dan menghasilkan uang. Lempar musuh ke Mega Adhesive setiap kali Fling siap lagi, dan itu sering.",
+      "title": "Hedge Fund",
+      "why": "W milik Ivern punya pasif yang hampir tidak ada yang memanfaatkan: selama dia berdiri di semak, dan sesaat setelah keluar, serangannya memberikan damage magic tambahan, dan aktifnya menumbuhkan semak baru di mana pun dia mau. Hide on Bush membuatnya memberikan 20% damage lebih selama dia tetap di semak, dan Nature is Healing memulihkan Health dalam jumlah besar setiap kali dia masuk ke semak, jadi setiap W adalah masuk yang baru: heal, bonus damage, dan satu ronde serangan yang diperkuat, kapan pun dia mau. E mengisi separuh lainnya: Mercy's Strike mengubah shield-nya menjadi serangan berikutnya dengan tambahan range, Attack Speed, dan damage magic berdasarkan max Health, dan Lil' Extra Help menambah Attack Range dan Attack Speed selama shield itu bertahan, jadi satu shield dari dalam semak menjadi rentetan pendek serangan jarak jauh, cepat, dan diperkuat. Nashor's Tooth dan Guinsoo's Rageblade menumpuk lebih banyak damage magic on-hit ke setiap serangan itu, Rabadon's Deathcap membesarkan semuanya, dan Cosmic Drive memberinya Move Speed untuk melompat dari satu pagar ke pagar berikutnya. Support paling lembut di hutan berubah jadi carry on-hit yang menanam sergapannya sendiri di mana pun dia berdiri.",
+      "play": "Tumbuhkan semak tepat di atas pertarungan, shield sekutu terdekat, dan serang dari dalamnya selama shield bertahan; kalau pertarungan bergeser, tumbuhkan lagi dan masuk untuk heal.",
       "augments": [
-        "Skill-mu memberikan Burn yang menumpuk dan memberikan damage over time. Efek Burn-mu mengurangi cooldown basic skill-mu.",
-        "Efek item dan damage over time-mu bisa Critical Strike dengan 145% damage tambahan. Dapatkan 25% Crit Chance.",
-        "Burn dan damage over time pada champion menghasilkan gold.",
-        "Dapatkan 50% Crit Chance."
+        "Memasuki semak memberikan Brush Power selama 2 detik. Selama Brush Power aktif, kamu memberikan 20% damage lebih banyak. Tetap di dalam semak memperbarui Brush Power.",
+        "Memasuki semak memulihkan Health dalam jumlah besar.",
+        "Setelah meng-heal atau memberi shield ke sekutumu dengan skill yang dipilih, basic attack berikutnya mendapat attack range, attack speed, dan memberikan damage magic tambahan berdasarkan max Health.",
+        "Dapatkan Attack Range dan Attack Speed selama durasi skill yang dipilih."
       ]
     },
     "it": {
-      "title": "Titoli tossici",
-      "why": "La Scia velenosa di Singed è una nube di danni nel tempo che lascia dietro di sé solo correndo. Tramite infernale fa sì che le sue abilità applichino in più una bruciatura cumulabile, Vulnerabilità permette ai danni nel tempo e ai danni degli oggetti di essere critici per il 145% di danni in più, e Interesse combustibile trasforma ogni tick di bruciatura o veleno su un campione in oro, quindi la scia ora critta e lo paga pure. Le bruciature di Tramite infernale riducono anche le ricariche delle sue abilità base, cioè più Scaraventare dentro il Mega adesivo e ancora più bruciature. Tormento di Liandry, Abbraccio demoniaco e Luce vana aggiungono bruciature degli oggetti che possono crittare anche loro, mentre Giudizio di Atma e Rituale della rovina danno probabilità di colpo critico a un tank. Il proxy farmer diventa un carry critico che non deve mai attaccare e incassa un dividendo a ogni passo.",
-      "play": "Gira in tondo nella squadra nemica con la Scia velenosa attiva e lascia che i tick crittino e paghino. Usa Scaraventare dentro il Mega adesivo ogni volta che torna disponibile, cioè spesso.",
+      "title": "Hedge fund",
+      "why": "La W di Ivern ha una passiva che quasi nessuno sfrutta: finché sta in un cespuglio, e per un attimo dopo esserne uscito, i suoi attacchi infliggono danni magici bonus, e la sua attiva fa crescere un cespuglio nuovo dove vuole. Hide on bush gli fa infliggere il 20% di danni in più finché resta in un cespuglio, e La natura si rigenera rigenera una grande quantità di salute ogni volta che ne entra in uno, quindi ogni W è un nuovo ingresso: una cura, un bonus ai danni e una raffica di attacchi potenziati, a comando. La E alimenta l'altra metà: Colpo pietoso trasforma il suo scudo in un prossimo attacco con più gittata, velocità d'attacco e danni magici in base alla salute massima, e Un piccolo aiuto in più aggiunge gittata e velocità d'attacco finché dura quello scudo, quindi un solo scudo dal cespuglio diventa una breve raffica di attacchi lunghi, veloci e potenziati. Dente di Nashor e Furia di Guinsoo accumulano ancora più danni magici a colpo su ognuno di quegli attacchi, Copricapo di Rabadon fa crescere tutto quanto e Spirito cosmico gli dà la velocità di movimento per saltare da una siepe all'altra. Il support più gentile della foresta diventa un carry a colpo che pianta la propria imboscata ovunque si trovi.",
+      "play": "Fai crescere un cespuglio in mezzo al combattimento, scuda l'alleato più vicino e attacca da dentro finché dura lo scudo; quando lo scontro si sposta, fanne crescere un altro ed entraci per la cura.",
       "augments": [
-        "Le tue abilità applicano una bruciatura cumulabile che infligge danni nel tempo. I tuoi effetti di bruciatura riducono le ricariche delle tue abilità base.",
-        "I tuoi effetti degli oggetti e dei danni nel tempo possono essere critici e infliggere il 145% di danni aggiuntivi. Ottieni il 25% di probabilità di colpo critico.",
-        "Le bruciature e i danni nel tempo sui campioni generano oro.",
-        "Ottieni il 50% di probabilità di colpo critico."
+        "Entrare in un cespuglio concede Potere del cespuglio per 2 secondi. Finché Potere del cespuglio è attivo, infliggi il 20% di danni in più. Restare nel cespuglio rinnova Potere del cespuglio.",
+        "Entrare in un cespuglio rigenera una grande quantità di salute.",
+        "Dopo aver curato o scudato il tuo alleato con l'abilità scelta, il tuo prossimo attacco base ottiene gittata d'attacco e velocità d'attacco e infligge danni magici bonus in base alla salute massima.",
+        "Ottieni gittata d'attacco e velocità d'attacco per la durata dell'abilità scelta."
       ]
     },
     "ja": {
-      "title": "毒性資産",
-      "why": "シンジドのポイズントレイルは、走り回るだけで後ろに残していく持続ダメージの雲だ。獄炎路で彼のスキルがスタックする炎上を追加で付与し、搦め手で持続ダメージとアイテムのダメージが145%増しでクリティカルするようになり、燃える利回りでチャンピオンへの炎上や毒のティックがすべてゴールドに変わる。つまりトレイルがクリティカルして、しかもお金まで稼いでくれる。獄炎路の炎上は通常スキルのクールダウンも短縮するので、メガアドヒーシブへのフリングが増えて、炎上もさらに増える。ライアンドリーの仮面、悪魔の抱擁、ホロウ レディアンスはクリティカルするアイテムの炎上を上乗せし、アトマの報いと破滅の儀式はタンクにクリティカル率を与える。プロキシファーマーが、通常攻撃を一切しないのに一歩ごとに配当を受け取るクリティカルキャリーに変身する。",
-      "play": "ポイズントレイルをオンにして敵チームの中をぐるぐる走り回り、ティックにクリティカルさせて稼がせよう。フリングが戻ってきたらすぐ敵をメガアドヒーシブに投げ込もう。かなり頻繁に戻ってくる。",
+      "title": "ヘッジファンド",
+      "why": "アイバーンのWには、ほとんど誰も軸にしない自動効果がある。茂みの中にいる間、そして出た直後の少しの間、通常攻撃に追加魔法ダメージが乗り、発動効果で好きな場所に新しい茂みを生やせる。Hide on Bushで茂みにいる限り与えるダメージが20%増え、大自然が回復しているで茂みに入るたびに体力が大きく回復するので、Wを撃つたびに新しい「入場」が起きる。回復とダメージ強化と強化された通常攻撃が、いつでも好きなときに。もう半分はEが担う。慈悲の一撃はそのシールドを、射程と攻撃速度と最大体力比例の魔法ダメージが付いた次の通常攻撃に変え、ちょこっとヘルプはシールドが続く間ずっと攻撃射程と攻撃速度を上げるので、茂みの中からのシールド一回が、長射程で速くて強化された通常攻撃の短い連打になる。ナッシャー トゥースとグインソー レイジブレードはその一発一発にさらに攻撃時魔法ダメージを積み、ラバドン デスキャップがすべてを底上げし、コズミック ドライブが次の生け垣へ飛び移るための移動速度をくれる。森で一番優しいサポートが、立った場所に自分で待ち伏せを植える攻撃時効果キャリーに変わる。",
+      "play": "戦闘の真上に茂みを生やし、一番近い味方にシールドを張って、シールドが続く間その中から攻撃しよう。戦場が動いたらもう一つ生やして、回復のために入り直す。",
       "augments": [
-        "スキルがスタックする炎上を付与し、持続ダメージを与える。炎上効果が通常スキルのクールダウンを短縮する。",
-        "アイテム効果と持続ダメージ効果がクリティカルするようになり、145%の追加ダメージを与える。クリティカル率が25%増加する。",
-        "チャンピオンへの炎上と持続ダメージがゴールドを生み出す。",
-        "クリティカル率が50%増加する。"
+        "茂みに入ると2秒間「茂みパワー」を得る。茂みパワーの間、与えるダメージが20%増加する。茂みに留まると茂みパワーが更新される。",
+        "茂みに入ると体力が大きく回復する。",
+        "選択したスキルで味方を回復またはシールドした後、次の通常攻撃の射程と攻撃速度が増加し、最大体力に応じた追加魔法ダメージを与える。",
+        "選択したスキルの効果時間中、攻撃射程と攻撃速度が増加する。"
       ]
     },
     "ko": {
-      "title": "독성 자산",
-      "why": "신지드의 독가스는 그냥 뛰어다니기만 해도 뒤에 남는 지속 피해 구름입니다. 지옥의 전도체는 그의 스킬이 중첩되는 화상을 추가로 입히게 하고, 취약는 지속 피해와 아이템 피해가 145% 추가 피해로 치명타를 터뜨릴 수 있게 하며, 타오르는 이자는 챔피언에게 들어가는 화상과 독 틱 하나하나를 골드로 바꿉니다. 즉, 독가스가 이제 치명타도 터지고 돈까지 벌어다 줍니다. 지옥의 전도체의 화상은 기본 스킬 재사용 대기시간도 줄여 주니, 강력 접착제로 내던지기를 더 자주 쓰고 화상도 더 쌓입니다. 리안드리의 고통, 악마의 포옹, 공허한 광휘는 역시 치명타가 터질 수 있는 아이템 화상을 더하고, 아트마의 심판와 파멸의식 고서는 탱커에게 치명타 확률을 줍니다. 프록시 파밍꾼이 평타 한 번 안 치고도 걸음마다 배당금을 챙기는 치명타 캐리로 변신합니다.",
-      "play": "독가스를 켜고 적 팀 사이를 빙글빙글 돌면서 틱이 치명타를 터뜨리고 돈을 벌게 하세요. 내던지기가 돌아올 때마다 적을 강력 접착제 위로 던지세요. 생각보다 자주 돌아옵니다.",
+      "title": "헤지 펀드",
+      "why": "아이번의 W에는 거의 아무도 신경 쓰지 않는 지속 효과가 있습니다. 수풀 안에 있는 동안, 그리고 나온 직후 잠깐 동안 기본 공격에 추가 마법 피해가 붙고, 사용 효과로는 원하는 곳 어디에나 새 수풀을 자라게 합니다. Hide on bush는 수풀에 머무는 동안 피해량을 20% 올려 주고, 자연의 회복는 수풀에 들어갈 때마다 체력을 크게 회복시키니, W를 쓸 때마다 새로 입장하는 셈입니다. 회복, 피해 보너스, 강화된 기본 공격 한 세트를 원할 때마다 얻습니다. 나머지 절반은 E가 채웁니다. 자비의 일격는 그 보호막을 사거리와 공격 속도, 최대 체력 비례 마법 피해가 붙은 다음 기본 공격으로 바꿔 주고, 작은 도움는 보호막이 유지되는 동안 공격 사거리와 공격 속도를 올려 주니, 수풀 안에서 보호막 한 번이 길고 빠르고 강화된 기본 공격의 짧은 연타가 됩니다. 내셔의 이빨와 구인수의 격노검는 그 공격 하나하나에 적중 시 마법 피해를 더 쌓고, 라바돈의 죽음모자가 전부 키워 주며, 우주의 추진력는 울타리에서 울타리로 뛰어다닐 이동 속도를 줍니다. 숲에서 가장 온순한 서포터가 서 있는 자리마다 직접 매복을 심는 적중 효과 캐리로 변신합니다.",
+      "play": "싸움 한가운데에 수풀을 키우고, 가장 가까운 아군에게 보호막을 준 뒤 보호막이 유지되는 동안 그 안에서 공격하세요. 전장이 옮겨지면 하나 더 키우고 회복을 위해 들어가세요.",
       "augments": [
-        "스킬이 지속 피해를 입히는 중첩 화상을 적용합니다. 화상 효과가 기본 스킬의 재사용 대기시간을 감소시킵니다.",
-        "아이템 및 지속 피해 효과가 치명타로 적중해 145%의 추가 피해를 입힐 수 있습니다. 치명타 확률이 25% 증가합니다.",
-        "챔피언에게 입힌 화상과 지속 피해가 골드를 생성합니다.",
-        "치명타 확률이 50% 증가합니다."
+        "수풀에 들어가면 2초 동안 수풀의 힘을 얻습니다. 수풀의 힘이 활성화된 동안 피해량이 20% 증가합니다. 수풀에 머무르면 수풀의 힘이 갱신됩니다.",
+        "수풀에 들어가면 체력을 대량으로 회복합니다.",
+        "선택한 스킬로 아군을 회복하거나 보호막을 씌운 뒤, 다음 기본 공격의 사거리와 공격 속도가 증가하고 최대 체력에 비례하는 추가 마법 피해를 입힙니다.",
+        "선택한 스킬의 지속시간 동안 공격 사거리와 공격 속도를 얻습니다."
       ]
     },
     "pl": {
-      "title": "Toksyczne aktywa",
-      "why": "Trujący Ślad Singeda to chmura obrażeń rozłożonych w czasie, którą zostawia za sobą po prostu biegając. Piekielny Przewodnik sprawia, że jego umiejętności nakładają dodatkowo kumulujące się podpalenie, Wrażliwość pozwala obrażeniom w czasie i obrażeniom z przedmiotów trafiać krytycznie za 145% dodatkowych obrażeń, a Płonny Interes zamienia każdy tik podpalenia lub trucizny na bohaterze w złoto, więc ślad teraz kryci i jeszcze mu za to płaci. Podpalenia z Piekielny Przewodnik skracają też czas odnowienia jego podstawowych umiejętności, czyli więcej Przerzut w Megaklej i jeszcze więcej podpaleń. Udręka Liandry'ego, Demoniczny Uścisk i Głucha Poświata dokładają podpalenia z przedmiotów, które też mogą kryć, a Osąd Atmy i Rytuał Ruiny dają tankowi szansę na trafienie krytyczne. Proxy farmer staje się krytycznym carry, który nigdy nie musi atakować i zgarnia dywidendę z każdego kroku.",
-      "play": "Biegaj w kółko po drużynie wroga z włączonym Trujący Ślad i pozwól tikom kryć i płacić. Rzucaj ludzi w Megaklej za każdym razem, gdy Przerzut wróci, czyli często.",
+      "title": "Fundusz hedgingowy",
+      "why": "W Iverna ma bierny efekt, pod który prawie nikt nie buduje: dopóki stoi w zaroślach, i przez chwilę po wyjściu, jego ataki zadają dodatkowe obrażenia magiczne, a efekt aktywny wyhodowuje nowe zarośla, gdzie tylko chce. Krycie się w Zaroślach sprawia, że zadaje 20% więcej obrażeń, dopóki siedzi w zaroślach, a Natura się leczy regeneruje dużą ilość zdrowia za każdym razem, gdy do nich wchodzi, więc każde W to nowe wejście: leczenie, bonus do obrażeń i seria wzmocnionych ataków, na żądanie. E napędza drugą połowę: Cios Litości zamienia jego tarczę w następny atak z dodatkowym zasięgiem, prędkością ataku i obrażeniami magicznymi od maksymalnego zdrowia, a Drobna Pomoc dodaje zasięg i prędkość ataku, dopóki ta tarcza trwa, więc jedna tarcza z wnętrza zarośli staje się krótką serią dalekich, szybkich, wzmocnionych ataków. Ząb Nashora i Ostrze Gniewu Guinsoo dorzucają jeszcze więcej magicznych obrażeń przy trafieniu do każdego z tych ataków, Zabójczy Kapelusz Rabadona powiększa to wszystko, a Kosmiczny Impuls daje mu prędkość ruchu, żeby skakać z jednego żywopłotu na drugi. Najłagodniejszy support lasu zmienia się w carry na trafienie, który sadzi własną zasadzkę, gdziekolwiek stanie.",
+      "play": "Wyhoduj zarośla na środku walki, osłoń najbliższego sojusznika i atakuj z ich wnętrza, dopóki trwa tarcza; gdy walka się przeniesie, wyhoduj kolejne i wejdź po leczenie.",
       "augments": [
-        "Twoje umiejętności nakładają kumulujące się podpalenie, które zadaje obrażenia w czasie. Twoje efekty podpalenia skracają czas odnowienia twoich podstawowych umiejętności.",
-        "Twoje efekty przedmiotów i obrażeń w czasie mogą trafiać krytycznie, zadając 145% dodatkowych obrażeń. Zyskujesz 25% szansy na trafienie krytyczne.",
-        "Podpalenia i obrażenia w czasie zadawane bohaterom generują złoto.",
-        "Zyskujesz 50% szansy na trafienie krytyczne."
+        "Wejście do zarośli daje Moc Zarośli na 2 sekundy. Dopóki Moc Zarośli jest aktywna, zadajesz 20% więcej obrażeń. Pozostawanie w zaroślach odświeża Moc Zarośli.",
+        "Wejście do zarośli regeneruje dużą ilość zdrowia.",
+        "Po uleczeniu lub osłonięciu sojusznika wybraną umiejętnością twój następny atak podstawowy zyskuje zasięg ataku i prędkość ataku oraz zadaje dodatkowe obrażenia magiczne od maksymalnego zdrowia.",
+        "Zyskujesz zasięg ataku i prędkość ataku na czas trwania wybranej umiejętności."
       ]
     },
     "pt-BR": {
-      "title": "Ativos Tóxicos",
-      "why": "O Rastro Venenoso de Singed é uma nuvem de dano ao longo do tempo que ele deixa para trás só de correr. Condutor Infernal faz suas habilidades aplicarem uma queimadura acumulável por cima, Vulnerabilidade deixa o dano ao longo do tempo e o dano de itens darem acerto crítico com 145% de dano extra, e Juros Combustivos transforma cada tick de queimadura ou veneno em um campeão em ouro, então o rastro agora crita e ainda paga ele. As queimaduras de Condutor Infernal também reduzem as recargas das habilidades básicas dele, o que significa mais Arremessar no Megadesivo e mais queimaduras. Tormento de Liandry, Abraço Demoníaco e Resplendor Vazio somam queimaduras de itens que também podem critar, enquanto Acerto de Contas de Atma e Ritual da Ruína dão chance de acerto crítico para um tanque. O proxy farmer vira um carry de crítico que nunca precisa atacar e recebe dividendos a cada passo.",
-      "play": "Fique correndo em círculos pelo time inimigo com o Rastro Venenoso ligado e deixe os ticks critarem e pagarem. Use Arremessar no Megadesivo sempre que voltar, o que é frequente.",
+      "title": "Fundo de Hedge",
+      "why": "O W de Ivern tem um passivo que quase ninguém usa: enquanto ele está dentro de uma moita, e por um instante depois de sair, seus ataques causam dano mágico adicional, e o ativo faz crescer uma moita nova onde ele quiser. Esconderijo no Arbusto faz ele causar 20% a mais de dano enquanto ficar na moita, e Natureza Restauradora regenera uma grande quantidade de vida toda vez que ele entra em uma, então cada W é uma entrada nova: uma cura, um bônus de dano e uma rodada de ataques fortalecidos, sob demanda. O E alimenta a outra metade: Ataque de Misericórdia transforma o escudo dele em um próximo ataque com mais alcance, velocidade de ataque e dano mágico baseado na vida máxima, e Ajudinha Extra soma alcance e velocidade de ataque enquanto esse escudo durar, então um único escudo de dentro da moita vira uma rajada curta de ataques longos, rápidos e fortalecidos. Dente de Na'Shor e Lâmina da Fúria de Guinsoo empilham ainda mais dano mágico no acerto em cada um desses ataques, Capuz da Morte de Rabadon faz tudo isso crescer e Ímpeto Cósmico dá a velocidade de movimento para pular de uma cerca viva para a outra. O suporte mais gentil da floresta vira um carry de acerto que planta a própria emboscada onde quer que esteja.",
+      "play": "Faça uma moita crescer em cima da luta, dê escudo em quem estiver mais perto e ataque de dentro dela enquanto o escudo durar; quando a luta se mover, faça outra crescer e entre para a cura.",
       "augments": [
-        "Suas habilidades aplicam uma queimadura acumulável que causa dano ao longo do tempo. Seus efeitos de queimadura reduzem as recargas das suas habilidades básicas.",
-        "Seus efeitos de itens e de dano ao longo do tempo podem dar acerto crítico, causando 145% de dano adicional. Receba 25% de chance de acerto crítico.",
-        "Queimaduras e dano ao longo do tempo em campeões geram ouro.",
-        "Receba 50% de chance de acerto crítico."
+        "Entrar em uma moita concede Poder da Moita por 2 segundos. Enquanto Poder da Moita estiver ativo, você causa 20% a mais de dano. Permanecer na moita renova Poder da Moita.",
+        "Entrar em uma moita regenera uma grande quantidade de vida.",
+        "Após curar ou dar escudo a um aliado com a habilidade escolhida, seu próximo ataque básico ganha alcance de ataque e velocidade de ataque e causa dano mágico adicional baseado na vida máxima.",
+        "Receba alcance de ataque e velocidade de ataque durante a duração da habilidade escolhida."
       ]
     },
     "ro": {
-      "title": "Active toxice",
-      "why": "Dâră otrăvitoare lui Singed e un nor de daune în timp pe care îl lasă în urmă doar alergând. Conduită infernală face ca abilitățile lui să aplice în plus o arsură cumulativă, Vulnerabilitate permite daunelor în timp și daunelor de la obiecte să dea lovituri critice pentru 145% daune în plus, iar Dobândă combustibilă transformă fiecare tic de arsură sau otravă pe un campion în aur, așa că dâra acum dă critice și îl mai și plătește. Arsurile de la Conduită infernală reduc și timpii de reîncărcare ai abilităților de bază, adică mai multe Aruncare în Megaadeziv și mai multe arsuri. Agonia Liandrei, Îmbrățișare demonică și Energie radiantă superficială adaugă arsuri de la obiecte care pot da critic și ele, iar Răzbunarea lui Atma și Ritualul decăderii îi dau unui tank șansă de lovitură critică. Proxy farmerul devine un carry pe critice care nu trebuie să atace niciodată și încasează dividende la fiecare pas.",
-      "play": "Aleargă în cercuri prin echipa inamică cu Dâră otrăvitoare activă și lasă ticurile să dea critic și să plătească. Folosește Aruncare în Megaadeziv de fiecare dată când revine, adică des.",
+      "title": "Fond de hedging",
+      "why": "W-ul lui Ivern are o pasivă pe care aproape nimeni nu o exploatează: cât timp stă într-un tufiș, și o clipă după ce iese, atacurile lui provoacă daune magice bonus, iar activa face să crească un tufiș nou oriunde vrea el. Ascunde-te în tufiș îl face să provoace cu 20% mai multe daune cât timp rămâne în tufiș, iar Natura se vindecă regenerează o cantitate mare de viață de fiecare dată când intră într-unul, deci fiecare W e o intrare nouă: o vindecare, un bonus de daune și o rundă de atacuri întărite, la comandă. E-ul alimentează cealaltă jumătate: Lovitură din compasiune transformă scutul lui în următorul atac cu rază, viteză de atac și daune magice bonus în funcție de viața maximă, iar Un pic de ajutor în plus adaugă rază și viteză de atac cât timp ține scutul, așa că un singur scut din tufiș devine o rafală scurtă de atacuri lungi, rapide și întărite. Dintele lui Nashor și Spada furiei lui Guinsoo adaugă și mai multe daune magice la lovire pe fiecare dintre acele atacuri, Pălăria malefică a lui Rabadon le mărește pe toate, iar Avânt cosmic îi dă viteza de mișcare ca să sară de la un gard viu la altul. Cel mai blând suport al pădurii devine un carry pe lovire care își plantează propria ambuscadă oriunde stă.",
+      "play": "Crește un tufiș peste luptă, pune scut pe cel mai apropiat aliat și atacă din interior cât timp ține scutul; când lupta se mută, crește altul și intră în el pentru vindecare.",
       "augments": [
-        "Abilitățile tale aplică o arsură cumulativă care provoacă daune în timp. Efectele tale de arsură reduc timpii de reîncărcare ai abilităților de bază.",
-        "Efectele obiectelor tale și daunele în timp pot da lovituri critice pentru 145% daune suplimentare. Primești 25% șansă de lovitură critică.",
-        "Arsurile și daunele în timp asupra campionilor generează aur.",
-        "Primești 50% șansă de lovitură critică."
+        "Intrarea într-un tufiș îți oferă Putere de tufiș pentru 2 secunde. Cât timp Putere de tufiș e activă, provoci cu 20% mai multe daune. Rămânerea în tufiș reîmprospătează Putere de tufiș.",
+        "Intrarea într-un tufiș regenerează o cantitate mare de viață.",
+        "După ce vindeci sau pui scut pe aliat cu abilitatea aleasă, următorul tău atac de bază primește rază de atac și viteză de atac și provoacă daune magice bonus în funcție de viața maximă.",
+        "Primești rază de atac și viteză de atac pe durata abilității alese."
       ]
     },
     "ru": {
-      "title": "Токсичные активы",
-      "why": "Ядовитый след Синджеда – это облако периодического урона, которое он оставляет за собой, просто бегая. Огнепровод заставляет его умения дополнительно накладывать суммирующийся поджог, Уязвимость позволяет периодическому урону и урону от предметов наносить критический удар с 145% дополнительного урона, а Взрывная прибыль превращает каждый тик поджога или яда по чемпиону в золото, так что след теперь критует и ещё платит ему за это. Поджоги от Огнепровод также сокращают перезарядку его базовых умений, а значит больше Бросок в Суперклей и ещё больше поджогов. Мучения Лиандри, Объятия демона и Сияние пустоты добавляют поджоги от предметов, которые тоже могут критовать, а Расплата Атмы и Ритуал уничтожения дают танку шанс критического удара. Прокси-фармер превращается в крит-керри, которому вообще не нужно атаковать и который получает дивиденды с каждого шага.",
-      "play": "Бегайте кругами по вражеской команде с включённым Ядовитый след и пусть тики критуют и приносят золото. Бросайте врагов в Суперклей, как только Бросок снова готов, а это часто.",
+      "title": "Хедж-фонд",
+      "why": "У W Иверна есть пассивный эффект, вокруг которого почти никто не собирается: пока он стоит в кустах и ещё мгновение после выхода, его атаки наносят дополнительный магический урон, а активная часть выращивает новые кусты там, где он захочет. Прятки в кустах заставляет его наносить на 20% больше урона, пока он остаётся в кустах, а Природа исцеляется восстанавливает много здоровья при каждом входе в них, так что каждое W – это новый вход: лечение, бонус к урону и серия усиленных атак по требованию. E питает вторую половину: Милосердный удар превращает его щит в следующую атаку с дополнительной дальностью, скоростью атаки и магическим уроном от максимального здоровья, а Своевременная помощь добавляет дальность и скорость атаки, пока держится этот щит, так что один щит из кустов превращается в короткую очередь дальних, быстрых, усиленных атак. Зуб Нашора и Клинок ярости Гинсу добавляют ещё магического урона при попадании к каждой из этих атак, Смертельная шляпа Рабадона увеличивает всё это, а Космический ускоритель даёт скорость передвижения, чтобы перепрыгивать от одной живой изгороди к другой. Самый добрый саппорт леса превращается в керри на попадание, который сажает собственную засаду там, где стоит.",
+      "play": "Вырастите кусты прямо посреди боя, дайте щит ближайшему союзнику и атакуйте изнутри, пока держится щит; когда бой сместится, вырастите новые и зайдите в них ради лечения.",
       "augments": [
-        "Ваши умения накладывают суммирующийся поджог, наносящий периодический урон. Ваши эффекты поджога сокращают перезарядку ваших базовых умений.",
-        "Эффекты предметов и периодический урон могут наносить критический удар с 145% дополнительного урона. Вы получаете 25% шанса критического удара.",
-        "Поджоги и периодический урон по чемпионам приносят золото.",
-        "Вы получаете 50% шанса критического удара."
+        "Вход в кусты даёт Силу кустов на 2 секунды. Пока Сила кустов активна, вы наносите на 20% больше урона. Пребывание в кустах обновляет Силу кустов.",
+        "Вход в кусты восстанавливает много здоровья.",
+        "После лечения или наложения щита на союзника выбранным умением ваша следующая автоатака получает дальность атаки и скорость атаки и наносит дополнительный магический урон от максимального здоровья.",
+        "Вы получаете дальность атаки и скорость атаки на время действия выбранного умения."
       ]
     },
     "th": {
-      "title": "สินทรัพย์พิษ",
-      "why": "Poison Trail ของ Singed คือกลุ่มควันดาเมจต่อเนื่องที่เขาทิ้งไว้ข้างหลังแค่วิ่งไปมา Infernal Conduit ทำให้สกิลของเขาติดเบิร์นที่สะสมได้เพิ่มเข้าไป Vulnerability ทำให้ดาเมจต่อเนื่องและดาเมจจากไอเทมติดคริติคอลได้ โดยแรงขึ้น 145% และ Combusting Interest เปลี่ยนทุกติ๊กของเบิร์นหรือพิษบนแชมเปี้ยนให้เป็นทอง เท่ากับว่าตอนนี้ควันพิษทั้งติดคริและยังจ่ายเงินให้เขาด้วย เบิร์นจาก Infernal Conduit ยังลดคูลดาวน์สกิลพื้นฐานของเขา แปลว่าได้ใช้ Fling ใส่ Mega Adhesive บ่อยขึ้นและเบิร์นมากขึ้น Liandry's Torment, Demonic Embrace และ Hollow Radiance เพิ่มเบิร์นจากไอเทมที่ติดคริได้เหมือนกัน ส่วน Atma's Reckoning และ Rite of Ruin มอบโอกาสคริติคอลให้แทงค์ จากสายพร็อกซีฟาร์มกลายเป็นแครี่สายคริที่ไม่ต้องตีธรรมดาเลย และรับเงินปันผลทุกก้าวที่เดิน",
-      "play": "เปิด Poison Trail แล้ววิ่งวนไปรอบทีมศัตรู ปล่อยให้ติ๊กดาเมจติดคริและทำเงิน ใช้ Fling โยนศัตรูใส่ Mega Adhesive ทุกครั้งที่สกิลกลับมา ซึ่งมาบ่อยมาก",
+      "title": "กองทุนเฮดจ์",
+      "why": "W ของ Ivern มีพาสซีฟที่แทบไม่มีใครสร้างบิลด์รอบมัน: ตราบใดที่ยืนอยู่ในพุ่มหญ้า และอีกครู่หนึ่งหลังออกมา การโจมตีของเขาจะสร้างดาเมจเวทเพิ่ม ส่วนแอคทีฟจะปลูกพุ่มหญ้าใหม่ตรงไหนก็ได้ที่เขาต้องการ Hide on Bush ทำให้เขาสร้างดาเมจเพิ่ม 20% ตราบใดที่ยังอยู่ในพุ่มหญ้า และ Nature is Healing ฟื้นฟูพลังชีวิตจำนวนมากทุกครั้งที่เข้าไป ดังนั้น W แต่ละครั้งคือการเข้าพุ่มครั้งใหม่: ฮีลหนึ่งครั้ง โบนัสดาเมจหนึ่งชุด และการโจมตีที่เสริมพลังอีกหนึ่งรอบ ได้ทุกเมื่อที่ต้องการ อีกครึ่งหนึ่งมาจาก E: Mercy's Strike เปลี่ยนโล่ของมันให้เป็นการโจมตีครั้งถัดไปที่มีระยะเพิ่ม ความเร็วโจมตีเพิ่ม และดาเมจเวทตามพลังชีวิตสูงสุด ส่วน Lil' Extra Help เพิ่มระยะโจมตีและความเร็วโจมตีตลอดเวลาที่โล่นั้นยังอยู่ ดังนั้นโล่หนึ่งครั้งจากในพุ่มหญ้าจึงกลายเป็นชุดโจมตีสั้นๆ ที่ทั้งไกล เร็ว และเสริมพลัง Nashor's Tooth และ Guinsoo's Rageblade ซ้อนดาเมจเวทเมื่อโจมตีเพิ่มเข้าไปในทุกการโจมตีเหล่านั้น Rabadon's Deathcap ขยายทุกอย่าง และ Cosmic Drive ให้ความเร็วเคลื่อนที่เพื่อกระโดดจากพุ่มหนึ่งไปอีกพุ่ม ซัพพอร์ตที่อ่อนโยนที่สุดในป่ากลายเป็นแครี่สายออนฮิตที่ปลูกจุดซุ่มโจมตีของตัวเองได้ทุกที่ที่ยืน",
+      "play": "ปลูกพุ่มหญ้าตรงกลางไฟต์ ใส่โล่ให้เพื่อนที่อยู่ใกล้ที่สุด แล้วโจมตีจากข้างในตลอดเวลาที่โล่ยังอยู่ พอไฟต์ขยับก็ปลูกอีกพุ่มแล้วเดินเข้าไปรับฮีล",
       "augments": [
-        "สกิลของคุณติดเบิร์นที่สะสมได้และสร้างดาเมจต่อเนื่อง เอฟเฟกต์เบิร์นของคุณลดคูลดาวน์สกิลพื้นฐาน",
-        "เอฟเฟกต์ไอเทมและดาเมจต่อเนื่องของคุณติดคริติคอลได้ สร้างดาเมจเพิ่ม 145% ได้รับโอกาสคริติคอล 25%",
-        "เบิร์นและดาเมจต่อเนื่องบนแชมเปี้ยนสร้างทอง",
-        "ได้รับโอกาสคริติคอล 50%"
+        "เมื่อเข้าพุ่มหญ้า ได้รับพลังพุ่มหญ้า 2 วินาที ระหว่างที่พลังพุ่มหญ้าทำงาน คุณสร้างดาเมจเพิ่ม 20% การอยู่ในพุ่มหญ้าต่อจะรีเฟรชพลังพุ่มหญ้า",
+        "เมื่อเข้าพุ่มหญ้า ฟื้นฟูพลังชีวิตจำนวนมาก",
+        "หลังจากฮีลหรือใส่โล่ให้เพื่อนด้วยสกิลที่เลือก การโจมตีพื้นฐานครั้งถัดไปของคุณจะได้รับระยะโจมตี ความเร็วโจมตี และสร้างดาเมจเวทเพิ่มตามพลังชีวิตสูงสุด",
+        "ได้รับระยะโจมตีและความเร็วโจมตีตลอดระยะเวลาของสกิลที่เลือก"
       ]
     },
     "tr": {
-      "title": "Toksik Varlıklar",
-      "why": "Singed'in Zehir İzi yeteneği, sadece koşarak arkasında bıraktığı zamana yayılan hasar bulutudur. Alev Geçidi yeteneklerinin üstüne bir de birikebilen Yanık uygulamasını sağlar, Zafiyet zamana yayılan hasarın ve eşya hasarının %145 ek hasarla Kritik Vuruş yapabilmesini sağlar, Yanıcı Faiz ise bir şampiyon üzerindeki her Yanık ve zehir tikini altına çevirir; yani iz artık kritik vuruyor ve üstüne para da kazandırıyor. Alev Geçidi Yanıkları temel yeteneklerinin bekleme sürelerini de kısaltır, bu da Mega Yapışkan içine daha fazla Fırlatma ve daha fazla Yanık demek. Liandry'nin Eziyeti, Uğursuz Koruma ve Donuk Işıltı de kritik vurabilen eşya yanıkları ekler, Atma'nın Hesaplaşması ve Yıkım Ayini ise bir tanka Kritik Vuruş Şansı verir. Proxy farmcı, hiç saldırmasına gerek olmayan ve her adımda temettü toplayan bir kritik carry'ye dönüşür.",
-      "play": "Zehir İzi açıkken rakip takımın içinde daireler çiz, tikler kritik vurup para kazandırsın. Fırlatma her hazır olduğunda rakipleri Mega Yapışkan içine fırlat, ki bu da sık olur.",
+      "title": "Hedge Fonu",
+      "why": "Ivern'in W yeteneğinin neredeyse kimsenin üzerine kurmadığı bir pasifi var: çalıda durduğu sürece ve çıktıktan kısa bir süre sonra saldırıları ek büyü hasarı verir, aktifi ise istediği yerde yeni bir çalı büyütür. Çalıya Saklan çalıda kaldığı sürece %20 daha fazla hasar vermesini sağlar, Doğa Şifa Verir ise bir çalıya her girişinde büyük miktarda can yeniler; yani her W yeni bir giriştir: istediğin an bir iyileşme, bir hasar bonusu ve bir dizi güçlendirilmiş saldırı. Diğer yarısını E besler: Merhametli Saldırı kalkanını ek menzil, saldırı hızı ve maksimum cana göre büyü hasarı veren bir sonraki saldırıya çevirir, Küçük Bir Yardım ise o kalkan sürdüğü sürece saldırı menzili ve saldırı hızı ekler; böylece çalının içinden atılan tek bir kalkan, uzun menzilli, hızlı ve güçlendirilmiş kısa bir saldırı serisine dönüşür. Nashor'un Dişi ve Guinsoo'nun Hiddeti bu saldırıların her birine daha fazla vuruş başına büyü hasarı yığar, Rabadon'un Şapkası hepsini büyütür, Kozmik Hızlandırıcı ise bir çitten diğerine atlaması için hareket hızı verir. Ormanın en nazik desteği, durduğu her yere kendi pusunu kuran bir vuruş başına carry'ye dönüşür.",
+      "play": "Savaşın tam üstüne bir çalı büyüt, en yakındaki müttefiğe kalkan ver ve kalkan sürdüğü sürece içeriden saldır; savaş yer değiştirince bir tane daha büyüt ve iyileşmek için içine gir.",
       "augments": [
-        "Yeteneklerin zamana yayılan hasar veren, birikebilen bir Yanık uygular. Yanık etkilerin temel yeteneklerinin bekleme sürelerini azaltır.",
-        "Eşya ve zamana yayılan hasar etkilerin %145 ek hasarla Kritik Vuruş yapabilir. %25 Kritik Vuruş Şansı kazanırsın.",
-        "Şampiyonlar üzerindeki Yanık ve zamana yayılan hasar altın üretir.",
-        "%50 Kritik Vuruş Şansı kazanırsın."
+        "Çalıya girmek 2 saniyeliğine Çalı Gücü verir. Çalı Gücü aktifken %20 daha fazla hasar verirsin. Çalıda kalmak Çalı Gücü'nü yeniler.",
+        "Çalıya girmek büyük miktarda can yeniler.",
+        "Seçilen yetenekle müttefiğini iyileştirdikten veya ona kalkan verdikten sonra bir sonraki temel saldırın saldırı menzili ve saldırı hızı kazanır ve maksimum cana göre ek büyü hasarı verir.",
+        "Seçilen yeteneğin süresi boyunca saldırı menzili ve saldırı hızı kazanırsın."
       ]
     },
     "vi": {
-      "title": "Tài Sản Độc Hại",
-      "why": "Khí Độc của Singed là một đám mây sát thương theo thời gian mà hắn để lại chỉ bằng cách chạy vòng vòng. Hỏa Ngục Dẫn Truyền khiến các kỹ năng của hắn gây thêm hiệu ứng thiêu đốt cộng dồn, Yếu Điểm cho phép sát thương theo thời gian và sát thương từ trang bị chí mạng với 145% sát thương cộng thêm, còn Lãi Suất Bốc Cháy biến mỗi nhịp thiêu đốt hay độc lên tướng địch thành vàng, nên giờ vệt độc vừa chí mạng vừa trả tiền cho hắn. Thiêu đốt từ Hỏa Ngục Dẫn Truyền còn giảm thời gian hồi chiêu các kỹ năng cơ bản, tức là thêm nhiều lần Hất Tung vào Keo Siêu Dính và thêm nhiều thiêu đốt. Mặt Nạ Đọa Đày Liandry, Mũ Trụ Nguyền Rủa và Áo Choàng Hắc Quang cộng thêm thiêu đốt từ trang bị cũng có thể chí mạng, trong khi Trường Thương Atma và Nghi Thức Suy Vong cho một tên đỡ đòn tỉ lệ chí mạng. Gã proxy farm biến thành xạ thủ chí mạng không bao giờ cần đánh thường và nhận cổ tức sau mỗi bước chạy.",
-      "play": "Bật Khí Độc rồi chạy vòng vòng giữa đội địch, để các nhịp sát thương chí mạng và kiếm tiền. Ném địch vào Keo Siêu Dính mỗi khi Hất Tung hồi xong, mà nó hồi rất thường xuyên.",
+      "title": "Quỹ Phòng Hộ",
+      "why": "W của Ivern có một nội tại gần như không ai xây dựng quanh nó: khi đứng trong bụi cỏ, và một lúc sau khi rời đi, đòn đánh của hắn gây thêm sát thương phép, còn phần kích hoạt mọc ra một bụi cỏ mới ở bất cứ đâu hắn muốn. Hide on Bush giúp hắn gây thêm 20% sát thương chừng nào còn trong bụi cỏ, còn Thiên Nhiên Êm Dịu hồi một lượng lớn máu mỗi lần hắn bước vào một bụi, nên mỗi lần dùng W là một lần bước vào mới: một lần hồi máu, một lượt cộng sát thương và một loạt đòn đánh tăng cường, khi nào cũng được. E lo nửa còn lại: Đòn Công Nhân Từ biến lá chắn của nó thành đòn đánh kế tiếp có thêm tầm đánh, tốc độ đánh và sát thương phép theo máu tối đa, còn Một Chút Trợ Giúp cộng thêm tầm đánh và tốc độ đánh chừng nào lá chắn còn, nên một lá chắn từ trong bụi cỏ trở thành một loạt ngắn những đòn đánh xa, nhanh và được tăng cường. Nanh Nashor và Cuồng Đao Guinsoo chồng thêm sát thương phép mỗi đòn đánh lên từng đòn, Mũ Phù Thủy Rabadon phóng to tất cả, còn Động Cơ Vũ Trụ cho hắn tốc độ di chuyển để nhảy từ hàng rào này sang hàng rào khác. Hỗ trợ hiền nhất khu rừng biến thành xạ thủ sát thương mỗi đòn đánh, tự trồng ổ phục kích ở bất cứ chỗ nào hắn đứng.",
+      "play": "Mọc một bụi cỏ ngay trên giao tranh, tạo lá chắn cho đồng minh gần nhất rồi đánh từ bên trong chừng nào lá chắn còn; khi giao tranh di chuyển, mọc thêm một bụi nữa và bước vào để hồi máu.",
       "augments": [
-        "Kỹ năng của bạn gây hiệu ứng thiêu đốt cộng dồn, gây sát thương theo thời gian. Hiệu ứng thiêu đốt của bạn giảm thời gian hồi chiêu các kỹ năng cơ bản.",
-        "Hiệu ứng trang bị và sát thương theo thời gian của bạn có thể chí mạng, gây thêm 145% sát thương. Nhận 25% tỉ lệ chí mạng.",
-        "Thiêu đốt và sát thương theo thời gian lên tướng địch tạo ra vàng.",
-        "Nhận 50% tỉ lệ chí mạng."
+        "Bước vào bụi cỏ nhận Sức Mạnh Bụi Cỏ trong 2 giây. Khi Sức Mạnh Bụi Cỏ còn hiệu lực, bạn gây thêm 20% sát thương. Ở lại trong bụi cỏ sẽ làm mới Sức Mạnh Bụi Cỏ.",
+        "Bước vào bụi cỏ hồi một lượng lớn máu.",
+        "Sau khi hồi máu hoặc tạo lá chắn cho đồng minh bằng kỹ năng đã chọn, đòn đánh thường kế tiếp của bạn nhận thêm tầm đánh, tốc độ đánh và gây thêm sát thương phép theo máu tối đa.",
+        "Nhận thêm tầm đánh và tốc độ đánh trong thời gian kỹ năng đã chọn có hiệu lực."
       ]
     },
     "zh-CN": {
-      "title": "有毒资产",
-      "why": "炼金术士的毒性气体是他光靠跑动就会留在身后的持续伤害毒云。炼狱导管让他的技能额外施加可叠加的灼烧，易损让持续伤害和装备伤害可以暴击，造成145%额外伤害，而炽燃利息把对英雄造成的每一跳灼烧和毒伤都变成金币，于是毒雾现在既会暴击又给他发钱。炼狱导管的灼烧还会缩短他基础技能的冷却时间，意味着更多的过肩摔甩进强力粘胶，以及更多的灼烧。兰德里的折磨、恶魔之拥和璀璨回响加上同样能暴击的装备灼烧，而阿塔玛的清算和毁坏仪式则给一个坦克提供暴击几率。偷塔刷兵的炼金变成了一个从不需要平A、每走一步都在领分红的暴击核心。",
-      "play": "开着毒性气体在敌方队伍里绕圈跑，让每一跳伤害暴击并给你赚钱。过肩摔一转好就把人甩进强力粘胶，而它转得很快。",
+      "title": "对冲基金",
+      "why": "翠神的W有一个几乎没人围绕它出装的被动：只要他站在草丛里，以及离开后的一小段时间内，他的普攻会附带额外魔法伤害，而主动效果能在任何他想要的地方种出一片新草丛。藏身草丛让他待在草丛里时造成的伤害提高20%，自然即是治愈让他每次进入草丛都回复大量生命值，所以每一次W都是一次新的进入：一次治疗、一份伤害加成和一轮强化普攻，想要就有。另一半由E来供：仁慈打击把他的护盾变成一次带额外射程、攻速和最大生命值魔法伤害的下次普攻，小小的额外帮助则在护盾持续期间一直提供攻击距离和攻速，于是草丛里的一个护盾就变成一小段远程、快速、强化过的普攻连打。纳什之牙和鬼索的狂暴之刃给每一下普攻再堆上攻击特效魔法伤害，灭世者的死亡之帽把这一切放大，星界驱驰则给他从一片树篱跳到下一片的移动速度。森林里最温柔的辅助变成了一个走到哪里就把埋伏种到哪里的攻击特效核心。",
+      "play": "在团战正上方种一片草丛，给最近的队友套上护盾，护盾持续期间从草丛里面输出；战场一移动就再种一片，走进去领治疗。",
       "augments": [
-        "你的技能施加可叠加的灼烧，造成持续伤害。你的灼烧效果会缩短你基础技能的冷却时间。",
-        "你的装备效果和持续伤害效果可以暴击，造成145%额外伤害。获得25%暴击几率。",
-        "对英雄造成的灼烧和持续伤害会产生金币。",
-        "获得50%暴击几率。"
+        "进入草丛时获得草丛之力，持续2秒。草丛之力生效期间，你造成的伤害提高20%。留在草丛中会刷新草丛之力。",
+        "进入草丛时回复大量生命值。",
+        "用所选技能治疗或护盾友军后，你的下一次普攻获得攻击距离和攻速，并造成基于最大生命值的额外魔法伤害。",
+        "在所选技能持续期间获得攻击距离和攻速。"
       ]
     },
     "zh-TW": {
-      "title": "有毒資產",
-      "why": "辛吉德的毒氣散佈是他只要跑來跑去就會留在身後的持續傷害毒雲。煉獄使者讓他的技能額外施加可疊加的燃燒，見縫插針讓持續傷害和裝備傷害可以爆擊，造成145%額外傷害，而燃燒利息把對英雄造成的每一跳燃燒和毒傷都變成金錢，所以毒氣現在不但會爆擊，還會付錢給他。煉獄使者的燃燒也會縮短他基本技能的冷卻時間，代表更多過肩摔甩進強力黏膠，以及更多燃燒。黎安卓的折磨、惡魔之擁和虛偽光彩加上同樣能爆擊的裝備燃燒，而終末戰戟和殞落之祭則讓一個坦克擁有爆擊機率。偷兵的瘋狂鍊金師變成一個從來不用普攻、每走一步都在領股息的爆擊核心。",
-      "play": "開著毒氣散佈在敵方隊伍裡繞圈跑，讓每一跳傷害爆擊並幫你賺錢。過肩摔一好就把人甩進強力黏膠，而它很快就會好。",
+      "title": "避險基金",
+      "why": "埃爾文的W有一個幾乎沒人拿來出裝的被動：只要他站在草叢裡，以及離開後的一小段時間，他的普攻都會附帶額外魔法傷害，而主動效果能在任何他想要的地方長出一片新草叢。躲草叢讓他待在草叢裡時造成的傷害提高20%，自然治療讓他每次進入草叢都回復大量生命值，所以每一次W都是一次新的進入：一次治療、一份傷害加成和一輪強化普攻，隨叫隨到。另一半由E來供：慈悲之擊把他的護盾變成一次帶額外射程、攻速和最大生命值魔法傷害的下一次普攻，小小助力則在護盾持續期間一直提供攻擊距離和攻速，於是草叢裡的一個護盾就變成一小段遠程、快速、強化過的普攻連打。納什之牙和鬼索的狂暴之刃在每一下普攻再堆上攻擊特效魔法傷害，死亡之帽把這一切放大，星河馳騁則給他從一片樹籬跳到下一片的移動速度。森林裡最溫柔的輔助變成了走到哪裡就把埋伏種到哪裡的攻擊特效核心。",
+      "play": "在團戰正上方長出一片草叢，給最近的隊友套上護盾，護盾持續期間從草叢裡面輸出；戰場一移動就再長一片，走進去領治療。",
       "augments": [
-        "你的技能會施加可疊加的燃燒，造成持續傷害。你的燃燒效果會縮短基本技能的冷卻時間。",
-        "你的裝備效果和持續傷害效果可以爆擊，造成145%額外傷害。獲得25%爆擊機率。",
-        "對英雄造成的燃燒和持續傷害會產生金錢。",
-        "獲得50%爆擊機率。"
+        "進入草叢時獲得草叢之力，持續2秒。草叢之力生效期間，你造成的傷害提高20%。留在草叢中會刷新草叢之力。",
+        "進入草叢時回復大量生命值。",
+        "用所選技能治療或護盾隊友後，你的下一次普攻獲得攻擊距離和攻速，並造成基於最大生命值的額外魔法傷害。",
+        "在所選技能持續期間獲得攻擊距離和攻速。"
       ]
     }
   }
