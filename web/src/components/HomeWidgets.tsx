@@ -119,6 +119,13 @@ const FUN: [string, string, string][] = [
   ["early_game", "Early game", "{v}"],
   ["late_game", "Late game", "{v}"],
 ];
+// Where each list's "See all champions" link goes: the Tier List sorted by that stat when it has the
+// column, otherwise the full champion list.
+const FULL: Record<string, string> = {
+  damage: "/tier-list?sort=damage.desc",
+  tank: "/tier-list?sort=tank.desc",
+  teamplay: "/tier-list?sort=kp.desc",
+};
 const CURVE_NOTE = "Simulated damage: share of champions beaten at level 8 → level 18.";
 
 /** Estimated top 10 champions at one thing a game, picked from a short list, each with its number. */
@@ -148,6 +155,9 @@ export function FunLists({ lists }: { lists: Record<string, { id: string; name: 
           </Link>
         ))}
       </div>
+      <Link className="see-all" href={FULL[kind] ?? "/champions"}>
+        {t("See all champions →")}
+      </Link>
     </>
   );
 }
