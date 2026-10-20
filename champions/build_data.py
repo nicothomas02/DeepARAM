@@ -280,16 +280,15 @@ def site_paths(text):
 # items (ties go to the earlier style in STYLES).
 STYLES = {"crit": "Crit", "onhit": "On-hit", "ap": "AP", "lethality": "Lethality", "fighter": "AD",
           "tank": "Tank", "enchanter": "Enchanter"}
-# An augment fits a style when its internal name or its spell's value names mention it (CamelCase, split into words).
-AUG_STYLE = {
-    "crit": (r"crit|crti", set()),
-    "onhit": (r"onhit|attackspeed|asperstack|dualwield|deft", {"as"}),
-    "ap": (r"abilitypower|magic|witch|warlock|apratio|apflat|apamp", {"ap"}),
-    "lethality": (r"lethality|armorpen|assassin|execute|adratio|bonusad|adamp", {"ad"}),
-    "fighter": (r"omnivamp|lifesteal|vamp|adratio|bonusad", {"ad"}),
-    "tank": (r"health|armor|resist|tank|damagereduction|maxhp|size", {"hp", "mr"}),
-    "enchanter": (r"heal|shield|ally|allies", set()),
-}
+# Each Mayhem augment's own build tags (mBuildTags in kiwi.bin, a bit field) name the builds it fits. Bits not listed
+# here (4, 128, 1024, 2048) don't line up with one style yet, so they're ignored.
+BUILD_TAGS = {512: "crit", 64: "onhit", 32: "ap", 2: "lethality", 16: "fighter", 256: "tank", 8: "enchanter"}
+# Crowd-control codes in each champion's mAbilitySlotCC (Q, W, E, R), worked out from well-known abilities
+# (Leona Q stun, E root; Ashe slows; Janna Q knock-up; Lulu W polymorph...). Codes not listed here (1, 3, 10, 20)
+# aren't named yet. Hard CC stops the target acting; slow and blind don't.
+CC_CODES = {2: "blind", 5: "fear", 7: "knockback", 8: "knockup", 11: "polymorph", 12: "pull", 13: "silence",
+            14: "slow", 15: "root", 16: "stun", 17: "suppression", 18: "taunt"}
+SOFT_CC = {"slow", "blind"}
 
 
 def item_style(it):
@@ -321,19 +320,23 @@ def build_style(ids, items):
 
 
 def augment_styles(kiwi):
-    """{augment id: set of styles it fits}"""
+    """{augment id: set of styles it fits}, from the augment's build tags"""
     out = {}
     for a in kiwi.values():
         if not (isinstance(a, dict) and a.get("__type") == "AugmentData" and a.get("AugmentPlatformId")):
             continue
-        sp = (kiwi.get(a.get("RootSpell")) or {}).get("mSpell") or {}
-        names = [a.get("AugmentNameId") or ""] + [d.get("name", "") for d in sp.get("DataValues") or []]
-        text = " ".join(names).lower()
-        words = {w.lower() for n in names for w in re.findall(r"[A-Z]+(?![a-z])|[A-Z]?[a-z]+", n)}
-        fits = {k for k, (pat, toks) in AUG_STYLE.items() if re.search(pat, text) or words & toks}
-        if 0 < len(fits) <= 3:  # an augment that fits nearly everything says nothing about a style
+        fits = {st for bit, st in BUILD_TAGS.items() if (a.get("mBuildTags") or 0) & bit}
+        if fits:
             out[a["AugmentPlatformId"]] = fits
     return out
+
+
+def ability_cc(record):
+    """{slot: crowd control} for Q, W, E and R, from the champion's record; None when the record doesn't list it."""
+    codes = record.get("mAbilitySlotCC")
+    if not codes:
+        return None
+    return {slot: CC_CODES[c] for slot, c in zip("QWER", codes) if c in CC_CODES}
 
 
 def archetypes(b, items, aug_fits):
@@ -426,6 +429,10 @@ def main():
         for s in info.get("spells") or []:
             abilities.append({"slot": s["spellKey"].upper(), "name": s["name"], "icon": asset(s.get("abilityIconPath")),
                               "text": clean(s.get("description")), "cooldown": ranks([0] + s.get("cooldownCoefficients", []), s["spellKey"].upper())})
+        cc = ability_cc(record) or {}
+        for a in abilities:
+            if a["slot"] in cc:
+                a["cc"] = cc[a["slot"]]
         b = builds.get(c["id"])
         if b:
             b["styles"] = archetypes(b, items, aug_fits)
@@ -464,14 +471,24 @@ def main():
     with open(os.path.join(HERE, "data.js"), "w") as f:
         # no header comment: the file ships to the site, and pages don't say where data comes from
         f.write("window.CHAMPS_DATA = " + site_paths(json.dumps(out, ensure_ascii=False, separators=(",", ":"))) + ";\n")
-    tags = {c["alias"]: {"id": c["id"], "name": info["name"], **champion_tags(c["alias"], info)}
-            for c, (info, _) in zip(summary, loaded) if info}
+    def cc_tags(bin_):
+        record = next((v for k, v in (bin_ or {}).items() if k.endswith("/CharacterRecords/Root")), {})
+        cc = ability_cc(record)
+        if cc is None:
+            return {}
+        kinds = set(cc.values())
+        return {"cc": cc, "hardCC": bool(kinds - SOFT_CC)}
+    tags = {c["alias"]: {"id": c["id"], "name": info["name"], **champion_tags(c["alias"], info), **cc_tags(bin_)}
+            for c, (info, bin_) in zip(summary, loaded) if info}
     from classes import CLASSES
     with open(os.path.join(HERE, "tags.json"), "w") as f:
         json.dump({"patch": version, "colors": TAG_COLORS,
                    "classes": {k: list(v) for k, v in CLASSES.items()},
                    "meanings": {**{s: m for subs in CLASSES.values() for s, m in subs.items()}, **PLAYSTYLES},
-                   "champions": dict(sorted(tags.items()))}, f, indent=1, ensure_ascii=False)
+                   "champions": dict(sorted(tags.items())),
+                   # each augment's build styles from its own tags, for "fits this build" filters
+                   "augments": {str(a): sorted(st, key=list(STYLES).index) for a, st in sorted(aug_fits.items())}},
+                  f, indent=1, ensure_ascii=False)
         f.write("\n")
 
 

@@ -249,6 +249,7 @@ def build(ch, lo="en_us"):
     rules["mechanics"] = mechanics(m12, modes, spells, dv)
     rules["economy"] = economy(m12, modes, kiwi_consts, aram_consts)
     rules["surrender"] = surrender(m12.get(modes.get("KIWI", {}).get("mSurrenderSettings"), {}))
+    rules["turrets"] = turrets(get(f"{BASE}/{ch}/game/data/characters/turret/turret.bin.json"))
     configs = [c for c in (m12.get(k) for k in modes.get("KIWI", {}).get("Configs", [])) if isinstance(c, dict)]
 
     # ---- Champion quests that run in Mayhem: two champions in the same game each get a goal. The reward is a hidden
@@ -448,7 +449,7 @@ def build(ch, lo="en_us"):
     mode_rules = {"patch": version, "attackSpeedCap": rules["attackSpeedCap"], "aramAttackSpeedCap": rules["aramAttackSpeedCap"],
                   "critOverflow": rules["critOverflow"], "runes": rules["runes"], "aura": rules["aura"],
                   "keystoneAugments": {str(a["id"]): a["runes"] for a in keystones}, **rules["mechanics"],
-                  "economy": rules["economy"]}
+                  "economy": rules["economy"], "turrets": rules["turrets"]}
     return {"out": out, "mode_rules": mode_rules, "augment_rules": augment_rules, "details": details,
             # names in the build's language, by id, for the translations (localize())
             "runes": {p["id"]: p["name"] for p in client("v1/perks.json")},
@@ -674,6 +675,31 @@ def economy(m12, modes, kiwi, aram):
         "minionXpSplit": [round(x, 4) for x in split],
         "levelGapXp": round(gap, 4) or None,
     }
+
+
+TURRETS = {"outer": "HA_Outer", "inhibitor": "HA_Inhibitor", "nexus": "HA_Nexus"}
+
+
+def turrets(bin_):
+    """The Howling Abyss turrets' stats. A turret can carry per-mode overrides; Mayhem's (KIWI) health replaces the
+    base value when there is one."""
+    out = []
+    for key, name in TURRETS.items():
+        r = bin_.get(f"Characters/Turret/CharacterRecords/{name}")
+        if not r:
+            continue
+
+        def val(f):
+            v = r.get(f)
+            return round(v.get("baseValue", 0), 3) if isinstance(v, dict) else v
+        mode = next((o.get("{cf19cb5d}") or {} for o in r.get("{6854087e}") or []
+                     if isinstance(o, dict) and str(o.get("{e4f7105d}", "")).endswith("/KIWI")), {})
+        out.append({"key": key, "hp": mode.get("baseHP") or val("baseHPModifiable"),
+                    "baseHp": val("baseHPModifiable") if mode.get("baseHP") else None,
+                    "damage": val("baseDamageModifiable"), "armor": val("baseArmorModifiable"), "mr": val("baseMR"),
+                    "range": val("attackRangeModifiable"), "attackSpeed": val("attackSpeedModifiable"),
+                    "gold": r.get("globalGoldGivenOnDeath"), "xp": r.get("globalExpGivenOnDeath")})
+    return out
 
 
 def surrender(sd):

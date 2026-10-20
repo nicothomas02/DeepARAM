@@ -145,6 +145,14 @@ I18N.ready.then(() => {
       $("xp-card").hidden = false;
     }
   }
+  const TU = R.turrets || [];
+  if (TU.length) {
+    const names = { outer: "Outer turret", inhibitor: "Inhibitor turret", nexus: "Nexus turret" };
+    $("turret-rows").innerHTML = TU.map((x) => `<tr><td>${esc(t(names[x.key] || x.key))}</td><td class="num">${fmt(x.hp)}</td><td class="num">${fmt(x.damage)}</td>
+      <td class="num">${fmt(x.armor)} / ${fmt(x.mr)}</td><td class="num">${fmt(x.range)}</td><td class="num">${fmt(x.attackSpeed)}</td><td class="num">${fmt(x.gold)}</td><td class="num">${fmt(x.xp)}</td></tr>`).join("");
+    $("turret-note").textContent = TU.filter((x) => x.baseHp).map((x) => t("{turret}: {hp} health in Mayhem instead of {base}.", { turret: t(names[x.key] || x.key), hp: fmt(x.hp), base: fmt(x.baseHp) })).join(" ");
+    $("turret-card").hidden = false;
+  }
   const S = R.surrender;
   if (S) rules.push(["Surrender and remake", [
     S.voteSeconds ? t("A surrender vote lasts {seconds} seconds.", { seconds: fmt(S.voteSeconds) }) : "",
