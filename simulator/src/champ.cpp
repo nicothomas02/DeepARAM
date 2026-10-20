@@ -247,6 +247,7 @@ ChampionKit loadChampion(const json::Value& c, const Rules& rules) {
         ab.missingAmp = a["missing_amp"].asNumber(0);
         ab.missingMax = a["missing_max"].asNumber(0);
         ab.critRefund = std::max(0.0, a["crit_refund"].asNumber(0));
+        ab.attackCdr = std::max(0.0, a["attack_cdr"].asNumber(0));
         ab.readyDelay = std::max(0.0, a["ready_delay"].asNumber(0));
         if (a["range_scale"].isObject()) {
             ab.rangeFrom = a["range_scale"]["from"].asNumber(0);
@@ -855,7 +856,7 @@ private:
         lastSelfAt_ = t;
         TraceEvent e;
         e.t = t; e.kind = kind; e.hp = myHp_; e.maxHp = maxHp_; e.shield = shieldLeft(t);
-        e.taken = res_.damageTaken; e.mitigated = res_.mitigated;
+        e.taken = res_.damageTaken; e.mitigated = res_.mitigated; e.shielded = res_.shielded;
         record(e);
     }
     void recordFocus() {
@@ -2546,10 +2547,11 @@ private:
             }
         trigger(OnAttack, e);
         if (crit) trigger(OnCrit, e);
-        if (crit)  // Tryndamere's Spinning Slash: crits take seconds off its cooldown
-            for (size_t j = 0; j < readyAt_.size(); ++j)
-                if (ch_.abilities[j].critRefund > 0 && readyAt_[j] > t_ && readyAt_[j] < 1e17)
-                    readyAt_[j] = std::max(t_, readyAt_[j] - ch_.abilities[j].critRefund);
+        // Seconds off an ability's cooldown per attack (Senna Q), and more on a crit (Tryndamere E).
+        for (size_t j = 0; j < readyAt_.size(); ++j) {
+            const double off = ch_.abilities[j].attackCdr + (crit ? ch_.abilities[j].critRefund : 0.0);
+            if (off > 0 && readyAt_[j] > t_ && readyAt_[j] < 1e17) readyAt_[j] = std::max(t_, readyAt_[j] - off);
+        }
         stackEvent(OnAttack);
         if (crit) stackEvent(OnCrit);
         if (get(fx_, "phantom_every") > 0 && attacks_ % static_cast<int>(get(fx_, "phantom_every")) == 0)
@@ -3230,6 +3232,7 @@ Summary summarize(const std::vector<Result>& results) {
         s.damageMitigated += r.mitigated;
         s.healing += r.healed;
         s.ccSeconds += r.ccDealt;
+        s.shielding += r.shielded;
         total += r.totalDamage;
         for (int i = 0; i < SrcCount; ++i) s.shareBySource[i] += r.bySource[i];
     }
@@ -3252,6 +3255,7 @@ Summary summarize(const std::vector<Result>& results) {
     s.damageTaken /= n;
     s.damageMitigated /= n;
     s.healing /= n;
+    s.shielding /= n;
     s.ccSeconds /= n;
     s.shortDps /= n;
     s.longDps /= n;
@@ -3266,7 +3270,7 @@ Summary summarize(const std::vector<Result>& results) {
 
 bool parseMetric(const std::string& name, Metric& out) {
     static const std::pair<const char*, Metric> names[] = {{"damage", Metric::Damage}, {"taken", Metric::Taken},
-        {"mitigated", Metric::Mitigated}, {"healing", Metric::Healing}, {"cc", Metric::Cc}};
+        {"mitigated", Metric::Mitigated}, {"healing", Metric::Healing}, {"cc", Metric::Cc}, {"shielding", Metric::Shielding}};
     for (const auto& [n, m] : names)
         if (name == n) { out = m; return true; }
     return false;
@@ -3278,6 +3282,7 @@ double metricOf(const Result& r, Metric m) {
         case Metric::Mitigated: return r.mitigated;
         case Metric::Healing: return r.healed;
         case Metric::Cc: return r.ccDealt;
+        case Metric::Shielding: return r.shielded;
         default: return r.totalDamage / r.duration;
     }
 }
@@ -3288,6 +3293,7 @@ double metricOf(const Summary& s, Metric m) {
         case Metric::Mitigated: return s.damageMitigated;
         case Metric::Healing: return s.healing;
         case Metric::Cc: return s.ccSeconds;
+        case Metric::Shielding: return s.shielding;
         default: return s.meanDps;
     }
 }

@@ -162,7 +162,7 @@ data/mayhem_rules.json holds the mode-wide Mayhem and ARAM rules the engine appl
 
 ## 3D and 2D editions
 
-`viewer/full.html` is the fight replay with the fight drawn with 3D models; the website's 1v1 tab shows it by default. `viewer/index.html` is the same page drawn in 2D with champion icons, which the website shows when a visitor picks "Show fewer animations". Both run the same fights, settings panel, modes, leaderboard, sounds and controls; only the arena's drawing differs. full.html is generated from index.html by `python3 tools/make_full_viewer.py` (a test checks it is current). Both editions and the model and sound files are public.
+`viewer/full.html` is the fight replay with the fight drawn with 3D models; the website's 1v1 tab shows it by default. `viewer/index.html` is the same page drawn in 2D with champion icons, which the website shows when a visitor picks "Performance mode". Both run the same fights, settings panel, modes, leaderboard, sounds and controls; only the arena's drawing differs. full.html is generated from index.html by `python3 tools/make_full_viewer.py` (a test checks it is current). Both editions and the model and sound files are public.
 
 ## Modes
 

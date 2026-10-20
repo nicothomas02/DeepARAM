@@ -11,7 +11,7 @@ const LITE = "/embed/simulator/index.html?r=2";
 const LITE_KEY = "deeparam-sim-fewer-animations";
 
 // The 1v1 tab: the 3D replay (champion models) by default, or the 2D one with champion icons when the
-// visitor picks "Show fewer animations". Both run the same fights, panel, sounds and controls; only
+// visitor picks "Performance mode". Both run the same fights, panel, sounds and controls; only
 // the arena's drawing differs. The pick is remembered on this device.
 export default function SimReplayEmbed() {
   const t = useT("simulator");
@@ -38,7 +38,7 @@ export default function SimReplayEmbed() {
     <>
       <div className="sim-view-switch">
         <button type="button" role="switch" aria-checked={lite} className="chip-toggle" onClick={toggle}>
-          {t("Show fewer animations")}
+          {t("Performance mode")}
         </button>
       </div>
       <Embed key={src} src={src} title="Mayhem fight replay" minHeight={900} />

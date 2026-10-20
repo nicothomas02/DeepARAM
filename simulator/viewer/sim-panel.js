@@ -38,7 +38,7 @@
   ];
 
   let meta = null, champ = null, trace = null, busy = false;
-  // What the simulator measures and Find the best build looks for (MODES in replay.js).
+  // What the simulator measures and Optimize looks for (MODES in replay.js).
   let mode = "damage";
   // Live patch by default; PBE runs the same model on the test server's numbers (data/pbe).
   let patch = "live";
@@ -77,7 +77,7 @@
 
   // Champions, items, augments and settings for the chosen patch.
   function loadMeta() {
-    for (const b of ["runBuild", "findBest", "resetAll", "patchSel", "modeSel"]) $(b).disabled = true;
+    for (const b of ["runBuild", "findBest", "patchSel", "modeSel"]) $(b).disabled = true;
     const best = patch === "pbe" && !pbeBest
       ? fetch("replay-data/pbe/best-builds.json?v=" + (window.REPLAY_VERSION || "0")).then((r) => (r.ok ? r.json() : null))
         .then((d) => {
@@ -96,7 +96,7 @@
       enemyById.clear();
       for (const e of meta.enemies) enemyById.set(e.id.toLowerCase(), e);
       buildFightForm();
-      for (const b of ["runBuild", "findBest", "resetAll", "patchSel", "modeSel"]) $(b).disabled = false;
+      for (const b of ["runBuild", "findBest", "patchSel", "modeSel"]) $(b).disabled = false;
       if (champ) { setTitle(); fillFromTrace(); }
       runLinked();
       return true;
@@ -117,8 +117,8 @@
     window.ReplayViewer.setMode(mode);
     const label = window.ReplayViewer.modes[mode].label;
     status(mode === "damage"
-      ? T("Mode: damage. Find the best build looks for the most damage per second.")
-      : T("Mode: {mode}. Simulate shows it per fight, and Find the best build looks for the most per fight.", { mode: label }));
+      ? T("Optimizing for damage: Optimize looks for the build with the most damage per second.")
+      : T("Optimizing for {mode}: Simulate shows it per fight, and Optimize looks for the build with the most per fight.", { mode: label }));
   });
 
   window.onReplayLoad = (c, tr, isCustom) => {
@@ -469,6 +469,8 @@
     if ($("advDialog").open) return;
     advSnap = { fields: { ...fieldValues }, combos: { ...combos }, picks: picks && JSON.parse(JSON.stringify(picks)), emode: enemyMode() };
     $("advDialog").showModal();
+    // Focus the heading, not the first field: a focused champion menu opens by itself on some browsers.
+    $("advTitle").focus();
   }
   function closeAdvanced(apply) {
     const snap = advSnap;
@@ -522,12 +524,12 @@
     let a;
     try { a = args(withBuild); } catch (e) { status(e.message, "err"); return; }
     busy = true;
-    for (const b of ["runBuild", "findBest", "resetAll", "patchSel", "modeSel"]) $(b).disabled = true;
+    for (const b of ["runBuild", "findBest", "patchSel", "modeSel"]) $(b).disabled = true;
     status(withBuild ? T("Simulating 2,000 fights…") : T("Searching item and augment builds. This takes a few seconds…"), "busy");
     const t0 = performance.now();
     const r = await call(a);
     busy = false;
-    for (const b of ["runBuild", "findBest", "resetAll", "patchSel", "modeSel"]) $(b).disabled = false;
+    for (const b of ["runBuild", "findBest", "patchSel", "modeSel"]) $(b).disabled = false;
     if (!r.ok || !r.trace) {
       status((r.stderr || T("The simulation failed.")).replace(/^error:\s*/, ""), "err");
       return;
@@ -736,21 +738,4 @@
 
   $("runBuild").addEventListener("click", () => run(true));
   $("findBest").addEventListener("click", () => run(false));
-  $("resetAll").addEventListener("click", () => {
-    for (const k of Object.keys(fieldValues)) delete fieldValues[k];
-    for (const k of Object.keys(combos)) delete combos[k];
-    $("emodePool").checked = true;
-    mode = $("modeSel").value = "damage";
-    window.ReplayViewer.setMode(mode);
-    picks = null;
-    $("alts").hidden = true;
-    offerSubmit(null);
-    buildFightForm();
-    window.ReplayViewer.resetTrace();
-    status(T("Back to the default build, enemies and fight settings."));
-    if (patch !== "live") {  // and back to the live patch
-      patch = $("patchSel").value = "live";
-      loadMeta();
-    }
-  });
 })();

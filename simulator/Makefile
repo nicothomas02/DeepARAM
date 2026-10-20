@@ -65,6 +65,7 @@ replay: mayhem_sim
 	python3 tools/build_replay_assets.py --traces viewer/replay-data/traces --out viewer/replay-data $(CLIPS)
 	$(MAKE) wasm-mayhem && cp dist/mayhem_sim.js dist/mayhem_sim.wasm viewer/replay-data/
 	$(if $(MODELS),node tools/build_models.mjs --index viewer/replay-data/index.json --out viewer/replay-data/models)
+	python3 tools/build_team_pairs.py
 	python3 tools/build_sounds.py --index viewer/replay-data/index.json
 	$(if $(LOCAL),python3 tools/build_anim_data.py --index viewer/replay-data/index.json --out viewer/replay-data/anims.json)
 	$(if $(SOUNDS),python3 tools/build_game_sounds.py --index viewer/replay-data/index.json --out viewer/replay-data/sounds)
