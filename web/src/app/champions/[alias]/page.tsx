@@ -793,7 +793,7 @@ export default async function ChampionPage({
               note={
                 <T ns="tables">
                   {
-                    "How much more the pair wins than the two champions' own win rates predict, in percentage points. Above zero means they help each other."
+                    "How much more the pair wins than the two champions' own win rates predict, in percentage points. Above zero means they help each other. Rarely played pairs count for less, so a lucky streak can't top the list."
                   }
                 </T>
               }
