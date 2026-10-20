@@ -175,12 +175,24 @@ def items(stats, builds, granted):
         if c not in stats:
             continue
         pr, cwr = stats[c]["pick_rate"], stats[c]["win_rate"]
-        for row in b["items"]["other"] + b["items"]["boots"]:
-            for i in row["items"]:
-                w = pr * row["pick_rate"]
-                acc[i]["w"] += w
-                acc[i]["wins"] += w * row["win_rate"]
-                acc[i]["base"] += w * cwr
+        # Within each list, the rows an item appears in are summed; the list where it's most common
+        # counts, as on the site (web/src/lib/item-pages.ts). Components and starter items only show up
+        # in the starting list.
+        best = {}
+        for name in ("other", "boots", "starting"):
+            sums = defaultdict(lambda: [0.0, 0.0])
+            for row in b["items"].get(name, []):
+                for i in set(row["items"]):
+                    sums[i][0] += row["pick_rate"]
+                    sums[i][1] += row["pick_rate"] * row["win_rate"]
+            for i, m in sums.items():
+                if m[0] > best.get(i, [0.0])[0]:
+                    best[i] = m
+        for i, (pick, wins) in best.items():
+            w = pr * min(1.0, pick)
+            acc[i]["w"] += w
+            acc[i]["wins"] += w * wins / pick
+            acc[i]["base"] += w * cwr
         for row in b["items"]["core"]:
             for pos, i in enumerate(row["items"][:3]):
                 acc[i]["slots"][pos] += pr * row["pick_rate"]

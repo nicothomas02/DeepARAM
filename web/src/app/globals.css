@@ -6204,6 +6204,29 @@ html[data-view="simple"] [data-detailed] {
 .items-tier-h span {
   font-weight: 400;
 }
+summary.items-tier-h {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  width: fit-content;
+  cursor: pointer;
+  list-style: none;
+}
+summary.items-tier-h::-webkit-details-marker {
+  display: none;
+}
+summary.items-tier-h::before {
+  content: "−";
+  width: 1ch;
+  color: var(--accent);
+  font-weight: 700;
+}
+.items-tier:not([open]) > summary.items-tier-h::before {
+  content: "+";
+}
+.items-tier:not([open]) > summary.items-tier-h {
+  margin-bottom: 0;
+}
 
 /* Estimated stats (lib/estimates.ts): augment stages and items, the home page's top 10s. */
 .rank.aug-stages > div,
