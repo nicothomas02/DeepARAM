@@ -233,3 +233,13 @@ test("Contact us sends a message and shows the email line", async ({ page }) => 
   await expect(box.getByRole("status")).toContainText("Thanks!");
   expect(sent).toMatchObject({ message: "The Duos tab is great.", page: "/" });
 });
+
+test("the Simulator opens in 3D even with the old owner switch's saved 2D pick", async ({ page }) => {
+  await page.addInitScript(() => localStorage.setItem("deeparam-sim-view", "2d"));
+  await page.goto("/simulator");
+  const toggle = page.getByRole("switch", { name: "Show fewer animations" });
+  await expect(toggle).toHaveAttribute("aria-checked", "false");
+  await expect(page.locator("iframe").first()).toHaveAttribute("src", /^\/embed\/simulator\/full\.html/);
+  await toggle.click();
+  await expect(page.locator("iframe").first()).toHaveAttribute("src", /^\/embed\/simulator\/index\.html/);
+});
