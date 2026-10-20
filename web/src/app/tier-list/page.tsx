@@ -214,6 +214,7 @@ export default function TierListPage() {
   return (
     <AdvancedProvider>
       <Intro
+        art="arambilgewater"
         eyebrow={
           <T ns="tier-list" v={{ patch: patchName(latest.patch) }}>
             {"Tier List · Patch {patch}"}
