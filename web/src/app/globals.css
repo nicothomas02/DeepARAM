@@ -3093,7 +3093,7 @@ html[data-motion="reduce"] .btn:hover {
   gap: 1rem;
 }
 
-/* The icon sits on the game's own augment-card swirl for its rarity (/assets/art/augment-back-*.webp). */
+/* The icon sits on the game's own augment-card swirl for its rarity (augment-back images in public/assets/art). */
 .aug-hero-icon {
   flex: none;
   padding: 6px;
