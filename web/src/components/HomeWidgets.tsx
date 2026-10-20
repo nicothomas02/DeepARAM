@@ -14,7 +14,7 @@ type Build = { champion: string; title: string; augments: string[]; why: string 
 const pct = (v: number) => `${(v * 100).toFixed(1)}%`;
 const champIcon = (id: string) => `/icons/champions/${id}.webp`;
 
-/** The live patch's S and A tier champions as icons; hover or focus one for its numbers. */
+/** The live patch's S and A tier champions as icons; hover or focus one for its numbers; tapping one shows them, tapping it again opens its page. */
 export function TierSnapshot({ champs }: { champs: Champ[] }) {
   const [tier, setTier] = useState("S");
   const t = useT();
@@ -37,8 +37,14 @@ export function TierSnapshot({ champs }: { champs: Champ[] }) {
             key={c.id}
             href={`/champions/${c.id}`}
             className={shown?.id === c.id ? "on" : undefined}
-            onMouseEnter={() => setHover(c)}
-            onFocus={() => setHover(c)}
+            onPointerEnter={(e) => e.pointerType === "mouse" && setHover(c)}
+            onFocus={(e) => e.currentTarget.matches(":focus-visible") && setHover(c)}
+            onClick={(e) => {
+              // A champion that isn't in the card yet is only selected; the next click opens its page.
+              if (shown?.id === c.id) return;
+              e.preventDefault();
+              setHover(c);
+            }}
             aria-label={t("{name}: {wr} win rate", { name: names("champions", c.id, c.name), wr: pct(c.winRate) })}
           >
             <img src={champIcon(c.id)} alt="" width={40} height={40} loading="lazy" />
