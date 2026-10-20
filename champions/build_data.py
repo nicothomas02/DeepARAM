@@ -510,6 +510,26 @@ def main():
                    "augments": {str(a): sorted(st, key=list(STYLES).index) for a, st in sorted(aug_fits.items())}},
                   f, indent=1, ensure_ascii=False)
         f.write("\n")
+    write_official(tags, aug_fits)
+
+
+# The same data in the files the site reads (data/official/), in the site's own names
+SITE_STYLE = {"crit": "crit", "onhit": "attack_speed", "ap": "ap", "lethality": "pen", "fighter": "fighter",
+              "tank": "tank", "enchanter": "support"}
+SITE_CC = {"knockup": "knock_up", "knockback": "knock_back"}
+
+
+def write_official(tags, aug_fits):
+    def dump(name, obj):
+        with open(os.path.join(REPO, "data", "official", name), "w", encoding="utf-8") as f:
+            json.dump(obj, f, indent=1, ensure_ascii=False)
+            f.write("\n")
+    order = list(STYLES)
+    dump("augment-build-tags.json", {str(a): [SITE_STYLE[x] for x in sorted(st, key=order.index)] for a, st in sorted(aug_fits.items())})
+    dump("champion-cc.json", {alias: {"slots": {s: SITE_CC.get(t["cc"].get(s), t["cc"].get(s)) for s in "QWER"}, "hard": t["hardCC"]}
+                              for alias, t in sorted(tags.items()) if "cc" in t})
+    dump("champion-metadata.json", {alias: {"tags": t["playstyles"], **({"playstyle": t["ratings"]} if "ratings" in t else {})}
+                                    for alias, t in sorted(tags.items()) if t["playstyles"] or "ratings" in t})
 
 
 if __name__ == "__main__":

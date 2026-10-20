@@ -55,7 +55,7 @@ Spatula). The list comes from `guide/augment_rules.json`, so run `guide/build_da
   unclear) and `{8ecb12a5}` / `{104f49cd}`.
 - **cc / hardCC:** see Crowd control above.
 
-`colors` gives one colour per tag, and `meanings` gives a one-line description of each. `i18n/tag_names.json` has
+`colors` gives one colour per tag, and `meanings` gives a one-line description of each. `data/official/champion-tag-names.json` has
 the official tag names in the other languages (`python3 champions/build_i18n.py --tags`; only names that differ
 from English).
 

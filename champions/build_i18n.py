@@ -7,7 +7,7 @@ What it reads, for each language in web/src/i18n/languages.json:
   Data Dragon data/<locale>/championFull.json        names, titles, passive and ability names and text
   CommunityDragon <locale>/v1/items.json,            item and augment names
                   <locale>/v1/cherry-augments.json
-With --tags it instead writes i18n/tag_names.json: the official champion tag names (tags.json playstyles) in each
+With --tags it instead writes data/official/champion-tag-names.json: the official champion tag names (tags.json playstyles) in each
 language, from each locale's string table (champion_tag_*). Those rarely change, and each table is ~30 MB, so it isn't
 part of the daily run.
 Only text that differs from English is written. Page text that isn't game text is in i18n/<code>.json (i18n_keys.py).
@@ -124,7 +124,7 @@ def tag_names():
 
     with ThreadPoolExecutor(4) as pool:
         out = dict(sorted(pool.map(one, langs)))
-    with open(os.path.join(HERE, "i18n", "tag_names.json"), "w", encoding="utf-8") as f:
+    with open(os.path.join(REPO, "data", "official", "champion-tag-names.json"), "w", encoding="utf-8") as f:
         json.dump(out, f, ensure_ascii=False, indent=1, sort_keys=True)
         f.write("\n")
     print(f"tag names: {sum(len(v) for v in out.values())} in {len(out)} languages")

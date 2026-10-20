@@ -368,7 +368,7 @@ def test_official_playstyle_tags_and_ratings(builder):
             assert list(v["ratings"]) == T["ratings"] and all(1 <= x <= 3 for x in v["ratings"].values()), alias
     assert ch["Leona"]["playstyles"] == ["Initiator", "Crowd Control"]
     assert ch["Leona"]["ratings"]["toughness"] == 3 and ch["Leona"]["ratings"]["control"] == 3
-    names = load_json("champions/i18n/tag_names.json")
+    names = load_json("data/official/champion-tag-names.json")
     assert len(names) == 21 and all(set(v) <= official for v in names.values())
 
 
@@ -376,3 +376,14 @@ def test_tag_key(builder):
     assert builder.tag_key("Crowd Control") == "champion_tag_crowd_control"
     assert builder.tag_key("Damage-over-Time") == "champion_tag_damage_over_time"
     assert builder.tag_key("AoE") == "champion_tag_aoe"
+
+
+def test_official_site_files(builder):
+    T = load_json("champions/tags.json")
+    tags = load_json("data/official/augment-build-tags.json")
+    assert set(tags) == set(T["augments"]) and all(set(v) <= set(builder.SITE_STYLE.values()) for v in tags.values())
+    cc = load_json("data/official/champion-cc.json")
+    assert set(cc) == {a for a, v in T["champions"].items() if "cc" in v}
+    assert all(set(v["slots"]) == set("QWER") and isinstance(v["hard"], bool) for v in cc.values())
+    meta = load_json("data/official/champion-metadata.json")
+    assert meta["Leona"]["tags"] == ["Initiator", "Crowd Control"] and meta["Leona"]["playstyle"]["control"] == 3
