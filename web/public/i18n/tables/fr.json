@@ -124,5 +124,6 @@
  "Damage mitigated": "Dégâts atténués",
  "Healing done": "Soins prodigués",
  "Crowd control": "Contrôle de foule",
- "Shielding": "Boucliers"
+ "Shielding": "Boucliers",
+ "Marked when neither champion has a stun, root, knock-up, taunt, fear, charm, sleep or suppression, so the pair struggles to lock anyone down.": "Indiqué quand aucun des deux champions n'a d'étourdissement, d'immobilisation, de projection, de provocation, de peur, de charme, de sommeil ou de suppression : le duo peine à bloquer un adversaire."
 }

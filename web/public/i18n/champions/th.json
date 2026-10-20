@@ -144,5 +144,6 @@
  "Rival quest": "เควสต์คู่ปรับ",
  "Team quest": "เควสต์ทีม",
  "When {name} is on the other team": "เมื่อ {name} อยู่ฝั่งตรงข้าม",
- "When {name} is on your team": "เมื่อ {name} อยู่ทีมเดียวกับคุณ"
+ "When {name} is on your team": "เมื่อ {name} อยู่ทีมเดียวกับคุณ",
+ "No hard CC": "ไม่มี Hard CC"
 }

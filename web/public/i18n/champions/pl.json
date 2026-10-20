@@ -144,5 +144,6 @@
  "Rival quest": "Zadanie rywali",
  "Team quest": "Zadanie drużynowe",
  "When {name} is on the other team": "Gdy {name} jest w drużynie przeciwnej",
- "When {name} is on your team": "Gdy {name} jest w twojej drużynie"
+ "When {name} is on your team": "Gdy {name} jest w twojej drużynie",
+ "No hard CC": "Brak twardego CC"
 }

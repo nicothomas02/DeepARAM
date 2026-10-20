@@ -28,6 +28,14 @@ const PICK: Column = {
   hint: "How often the first champion has the second as a teammate.",
   phone: "wide",
 };
+const CC: Column = {
+  key: "noCC",
+  label: "Crowd control",
+  format: "text",
+  sortable: false,
+  hint: "Marked when neither champion has a stun, root, knock-up, taunt, fear, charm, sleep or suppression, so the pair struggles to lock anyone down.",
+  phone: "hide",
+};
 const PAIRS: Column = {
   key: "duos",
   label: "Duos",
@@ -103,8 +111,15 @@ export default function DuosTable({
       <DataTable
         key="champions"
         columns={[champion("a", "Champion"), champion("b", "With"), DELTA, PICK]}
-        advancedColumns={[champion("a", "Champion"), champion("b", "With"), DELTA, PICK, { key: "roles", label: "Roles", format: "text", sortable: false }]}
-        rows={rows}
+        advancedColumns={[
+          champion("a", "Champion"),
+          champion("b", "With"),
+          DELTA,
+          PICK,
+          ...(rows.some((r) => r.noCC) ? [CC] : []),
+          { key: "roles", label: "Roles", format: "text", sortable: false },
+        ]}
+        rows={rows.some((r) => r.noCC) ? rows.map((r) => (r.noCC ? { ...r, noCC: t(String(r.noCC)) } : r)) : rows}
         initialSort={{ key: "delta", desc: true }}
         searchKey="pair"
         searchLabel="Find a champion"

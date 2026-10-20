@@ -54,5 +54,6 @@
  "Live patch {patch}. Each augment gets a DeepScore against the others of its rarity: 50 is average, S is 70 and up, A 59, B 44, C 32 and D below.": "Aktuální patch {patch}. Každý augment dostane DeepScore vůči ostatním stejné vzácnosti: 50 je průměr, S je 70 a víc, A 59, B 44, C 32 a D níž.",
  "Filter by tags": "Filtrovat podle štítků",
  "Pairs": "Dvojice",
- "Team quest: {a} and {b} on the same team start {quest}.": "Týmový úkol: {a} a {b} ve stejném týmu spustí {quest}."
+ "Team quest: {a} and {b} on the same team start {quest}.": "Týmový úkol: {a} a {b} ve stejném týmu spustí {quest}.",
+ "No hard CC": "Bez tvrdého CC"
 }

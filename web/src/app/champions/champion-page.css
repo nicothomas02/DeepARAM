@@ -402,6 +402,17 @@ a.cp-what:hover .cp-name,
 .cp-pill.silver {
   color: var(--silver);
 }
+/* Build tags: quieter than the rarity, and dropped on phones where the row is tight. */
+.cp-pill.cp-tag {
+  border-color: var(--line);
+  color: var(--muted);
+  font-weight: 600;
+}
+@media (max-width: 640px) {
+  .cp-pill.cp-tag {
+    display: none;
+  }
+}
 .cp-cell .grade-s {
   color: var(--good);
 }

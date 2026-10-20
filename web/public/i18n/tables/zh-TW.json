@@ -124,5 +124,6 @@
  "Damage mitigated": "減免傷害",
  "Healing done": "治療量",
  "Crowd control": "控場",
- "Shielding": "護盾量"
+ "Shielding": "護盾量",
+ "Marked when neither champion has a stun, root, knock-up, taunt, fear, charm, sleep or suppression, so the pair struggles to lock anyone down.": "兩位英雄都沒有暈眩、定身、擊飛、嘲諷、恐懼、魅惑、睡眠或壓制時會標出，這對組合很難控住敵人。"
 }

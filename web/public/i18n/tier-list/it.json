@@ -54,5 +54,6 @@
  "Live patch {patch}. Each augment gets a DeepScore against the others of its rarity: 50 is average, S is 70 and up, A 59, B 44, C 32 and D below.": "Patch attuale {patch}. Ogni potenziamento riceve un DeepScore rispetto agli altri della stessa rarità: 50 è la media, S è da 70 in su, A 59, B 44, C 32 e D sotto.",
  "Filter by tags": "Filtra per tag",
  "Pairs": "Coppie",
- "Team quest: {a} and {b} on the same team start {quest}.": "Missione di squadra: {a} e {b} nella stessa squadra avviano {quest}."
+ "Team quest: {a} and {b} on the same team start {quest}.": "Missione di squadra: {a} e {b} nella stessa squadra avviano {quest}.",
+ "No hard CC": "Nessun controllo duro"
 }

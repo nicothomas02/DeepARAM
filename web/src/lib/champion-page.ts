@@ -13,6 +13,7 @@ import {
 } from "./items";
 import { repoHas, repoPath, readRepoJson } from "./repo-data";
 import { matesOf, type Mate } from "./duos";
+import { officialStyleLabels } from "./build-tags";
 
 // The ranked tables on a champion page (/champions/<Alias>): skill orders, item paths, augments,
 // teammates, Mayhem's ability changes and base stats. Every row with a win rate also carries its
@@ -54,6 +55,8 @@ export type AugmentRow = {
   name: string;
   rarity: "prismatic" | "gold" | "silver";
   pickRate: number;
+  /** The game's own build tags, as style names (lib/build-tags.ts). */
+  tags: string[];
 };
 export type { Mate };
 export type Change = {
@@ -163,6 +166,7 @@ export function championPage(alias: string): ChampionPage | null {
     .map((a) => ({
       id: a.id,
       name: AUGS[a.id],
+      tags: officialStyleLabels(a.id),
       rarity: rarity.get(a.id) ?? "silver",
       pickRate: a.pick_rate,
     }));

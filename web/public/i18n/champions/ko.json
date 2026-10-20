@@ -144,5 +144,6 @@
  "Rival quest": "라이벌 퀘스트",
  "Team quest": "팀 퀘스트",
  "When {name} is on the other team": "{name}이(가) 상대 팀에 있을 때",
- "When {name} is on your team": "{name}이(가) 아군 팀에 있을 때"
+ "When {name} is on your team": "{name}이(가) 아군 팀에 있을 때",
+ "No hard CC": "하드 CC 없음"
 }

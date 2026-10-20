@@ -124,5 +124,6 @@
  "Damage mitigated": "Daño mitigado",
  "Healing done": "Curación realizada",
  "Crowd control": "Control de masas",
- "Shielding": "Escudos"
+ "Shielding": "Escudos",
+ "Marked when neither champion has a stun, root, knock-up, taunt, fear, charm, sleep or suppression, so the pair struggles to lock anyone down.": "Aparece cuando ninguno de los dos tiene aturdimiento, inmovilización, derribo, provocación, miedo, encanto, sueño o supresión, así que a la pareja le cuesta inmovilizar a alguien."
 }

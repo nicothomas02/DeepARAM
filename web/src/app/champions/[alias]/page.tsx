@@ -830,6 +830,12 @@ export default async function ChampionPage({
                           {all.find((x) => x.id === m.id)?.name ?? m.id}
                         </Name>
                       </span>
+                      {/* Neither champion has hard crowd control (lib/cc.ts). */}
+                      {m.noCC && (
+                        <span className="cp-pill cp-tag">
+                          <T ns={NS}>No hard CC</T>
+                        </span>
+                      )}
                     </Link>
                   </Row>
                 ))}

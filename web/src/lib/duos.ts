@@ -2,6 +2,7 @@ import "server-only";
 import championIds from "@/data/champion-ids.json";
 import { readRepoJson } from "./repo-data";
 import { synergy } from "./synergy";
+import { pairLacksHardCC } from "./cc";
 import { championTagData, championTags } from "./champion-tags";
 
 // The Duos tab: every pair of teammates the live stats list. Each champion lists its 50 most played-with
@@ -30,7 +31,7 @@ const ALIAS = Object.fromEntries(Object.entries(championIds as Record<string, nu
 
 export const hasDuos = () => Boolean(readRepoJson<Champs>("data/cn/champions.json")?.champions.some((c) => c.best_partners?.length));
 
-export type DuoRow = { a: string; b: string; pair: string; delta: number; pick_rate: number; roles: string };
+export type DuoRow = { a: string; b: string; pair: string; delta: number; pick_rate: number; roles: string; noCC: string };
 export type ArchetypeRow = { a: string; b: string; delta: number; duos: number };
 
 const MEDIAN_GAMES = 1000; // pseudo-games for a pair of median popularity, as on the Tier List
@@ -44,7 +45,7 @@ function adjust(deltas: number[], games: number[]) {
   return deltas.map((d, i) => (d * games[i] + mean * prior) / (games[i] + prior));
 }
 
-export type Mate = { id: string; synergy: number; pickRate: number };
+export type Mate = { id: string; synergy: number; pickRate: number; noCC: boolean };
 
 let cache: { rows: DuoRow[]; games: number[]; measured: number[]; rates: Map<string, number> } | null = null;
 export const duoRows = (): DuoRow[] => build().rows;
@@ -53,7 +54,14 @@ export const duoRows = (): DuoRow[] => build().rows;
 export function matesOf(alias: string): Mate[] {
   const { rows, rates } = build();
   return rows
-    .flatMap((r) => (r.a === alias ? [r.b] : r.b === alias ? [r.a] : []).map((id) => ({ id, synergy: r.delta, pickRate: rates.get(`${alias} ${id}`) ?? 0 })))
+    .flatMap((r) =>
+      (r.a === alias ? [r.b] : r.b === alias ? [r.a] : []).map((id) => ({
+        id,
+        synergy: r.delta,
+        pickRate: rates.get(`${alias} ${id}`) ?? 0,
+        noCC: r.noCC !== "",
+      })),
+    )
     .sort((x, y) => y.synergy - x.synergy);
 }
 
@@ -97,6 +105,8 @@ function build() {
         delta: synergy(p.win_rate, c.win_rate, other.win_rate),
         pick_rate: withMate(first, second),
         roles: [roles.get(first), roles.get(second)].filter(Boolean).join(" + "),
+        // Marked when neither champion can lock an enemy down (lib/cc.ts).
+        noCC: pairLacksHardCC(x, y) ? "No hard CC" : "",
       });
       weight.push((solo.get(first)?.pick_rate ?? 0) * withMate(first, second));
       rates.set(`${x} ${y}`, withMate(first, second)).set(`${y} ${x}`, withMate(second, first));
