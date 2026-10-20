@@ -138,6 +138,28 @@ export default function Home() {
       </section>
 
       <div className="bento">
+        {schedule && (
+          <section className="card span-all home-patch" data-accent="pbe">
+            <PatchCountdown schedule={schedule} asOf={new Date().toISOString()} />
+            {latest && (
+              <Link className="home-recap" href={`/patches/${patchName(latest.patch)}`}>
+                <b>
+                  <T v={{ patch: patchName(latest.patch) }}>{"Patch {patch} recap"}</T>
+                </b>
+                <span>
+                  {latest.hasAugmentHistory ? (
+                    <T ns="patches" v={{ added: latest.added.length, removed: latest.removed.length, changed: latest.changed.length }}>
+                      {"{added} added · {removed} removed · {changed} changed"}
+                    </T>
+                  ) : (
+                    <T ns="patches">Win rates only</T>
+                  )}
+                </span>
+                <span aria-hidden="true">→</span>
+              </Link>
+            )}
+          </section>
+        )}
         <RecentPlayed />
         {tiers.length > 0 && (
           <section className="card span-7" data-accent="tier">
@@ -379,28 +401,6 @@ export default function Home() {
                 </span>
               </div>
             </div>
-          </section>
-        )}
-        {schedule && (
-          <section className="card span-all home-patch" data-accent="pbe">
-            <PatchCountdown schedule={schedule} asOf={new Date().toISOString()} />
-            {latest && (
-              <Link className="home-recap" href={`/patches/${patchName(latest.patch)}`}>
-                <b>
-                  <T v={{ patch: patchName(latest.patch) }}>{"Patch {patch} recap"}</T>
-                </b>
-                <span>
-                  {latest.hasAugmentHistory ? (
-                    <T ns="patches" v={{ added: latest.added.length, removed: latest.removed.length, changed: latest.changed.length }}>
-                      {"{added} added · {removed} removed · {changed} changed"}
-                    </T>
-                  ) : (
-                    <T ns="patches">Win rates only</T>
-                  )}
-                </span>
-                <span aria-hidden="true">→</span>
-              </Link>
-            )}
           </section>
         )}
         {builds.length > 0 && (
