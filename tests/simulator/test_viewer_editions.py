@@ -1,5 +1,5 @@
 """The fight replay ships in two editions: full.html (3D models, the website's default) and index.html
-(2D, "Show fewer animations"), generated from one another by simulator/tools/make_full_viewer.py. Both
+(2D, "Performance mode"), generated from one another by simulator/tools/make_full_viewer.py. Both
 must work the same apart from how the arena is drawn."""
 import importlib.util
 import re

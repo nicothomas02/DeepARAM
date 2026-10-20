@@ -2,7 +2,7 @@
 """Write viewer/full.html, the 3D edition of the fight replay, from viewer/index.html.
 
 index.html draws fights in 2D with champion icons; full.html is the same page with the 3D models added.
-The website shows full.html by default and index.html when a visitor picks "Show fewer animations".
+The website shows full.html by default and index.html when a visitor picks "Performance mode".
 Run this after editing index.html:
 
     python3 tools/make_full_viewer.py

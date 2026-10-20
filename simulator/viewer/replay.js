@@ -5,7 +5,7 @@
 (() => {
   "use strict";
   const DATA = "replay-data/";
-  // full.html draws the fight with 3D models; index.html ("Show fewer animations") draws it in 2D with
+  // full.html draws the fight with 3D models; index.html ("Performance mode") draws it in 2D with
   // champion icons. Everything else (fights, panel, sounds, controls) is the same in both.
   const FULL = document.documentElement.dataset.edition === "full";
   const BUST = "?v=" + (window.REPLAY_VERSION || "0");
@@ -33,6 +33,7 @@
     taken: { get label() { return T("Damage taken"); }, key: "damage_taken", fight: "damage_taken", now: (s) => s.taken },
     mitigated: { get label() { return T("Damage mitigated"); }, key: "damage_mitigated", fight: "damage_mitigated", now: (s) => s.mitigated },
     healing: { get label() { return T("Healing done"); }, key: "healing", fight: "healing", now: (s) => s.healing },
+    shielding: { get label() { return T("Shielding"); }, key: "shielding", fight: "shielding", now: (s) => s.shielded },
     cc: { get label() { return T("Crowd control"); }, key: "cc_seconds", fight: "cc_seconds", now: (s) => s.ccDealt, seconds: true },
   };
   const modeValue = (m, v) => (MODES[m].seconds ? T("{n} s", { n: (v || 0).toFixed(1) }) : Math.round(v || 0).toLocaleString());
@@ -389,7 +390,7 @@
     }
     acc.time = time;
     const s = { enemies: acc.enemies, focus: acc.focus, kills: acc.kills, damage: acc.damage, bySource: acc.bySource, selfHp: fight.maxHp,
-      cc: false, dead: false, taken: 0, mitigated: 0, healing: acc.healing, ccDealt: acc.ccDealt };
+      cc: false, dead: false, taken: 0, mitigated: 0, shielded: 0, healing: acc.healing, ccDealt: acc.ccDealt };
     // Own HP falls steadily between samples.
     const S = fight.self;
     let lo = 0, hi = S.length;  // first sample after time
@@ -400,12 +401,14 @@
       s.shield = prev.sh || 0;
       s.taken = prev.tk || 0;
       s.mitigated = prev.mt || 0;
+      s.shielded = prev.ab || 0;
       if (next && next.t > prev.t) {
         const k = (time - prev.t) / (next.t - prev.t);
         s.selfHp = prev.hp + (next.hp - prev.hp) * k;
         s.shield = (prev.sh || 0) + ((next.sh || 0) - (prev.sh || 0)) * k;
         if (next.tk !== undefined) s.taken += (next.tk - s.taken) * k;
         if (next.mt !== undefined) s.mitigated += (next.mt - s.mitigated) * k;
+        s.shielded += ((next.ab || 0) - s.shielded) * k;
       }
       // Shields end on their own between samples.
       if (s.shield > 0 && !fight.shields.some((sh) => sh.t <= time && time < sh.t + (sh.l || 0))) s.shield = 0;

@@ -5914,7 +5914,7 @@ html[dir="rtl"] .rank-v {
 .kitchen-sub p { margin: 0; }
 .kitchen-sub-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; }
 
-/* "Show fewer animations" above the Simulator's 1v1 replay: on, the 2D replay; off, the 3D one. */
+/* "Performance mode" above the Simulator's 1v1 replay: on, the 2D replay; off, the 3D one. */
 .sim-view-switch {
   display: flex;
   justify-content: flex-end;

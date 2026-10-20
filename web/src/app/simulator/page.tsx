@@ -52,11 +52,18 @@ export default function SimulatorPage() {
     });
   }
   if (repoHas(`${VIEWER}/team.html`)) {
+    // The same teamfight page with both teams fixed at two.
+    tabs.push({
+      id: "2v2",
+      label: "2v2",
+      lazy: true,
+      content: <Embed src="/embed/simulator/team.html?size=2" title="Mayhem 2v2" minHeight={900} />,
+    });
     tabs.push({
       id: "teamfight",
-      label: "5v5 teamfight",
+      label: "Teamfight",
       lazy: true,
-      content: <Embed src="/embed/simulator/team.html" title="Mayhem 5v5 teamfight" minHeight={1100} />,
+      content: <Embed src="/embed/simulator/team.html" title="Mayhem teamfight" minHeight={1100} />,
     });
   }
   if (best) {
