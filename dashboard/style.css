@@ -159,6 +159,8 @@ td.wr-low { color: var(--bad); }
 .tile.wr-low .value { color: var(--bad); }
 .win { color: var(--good); }
 .loss { color: var(--bad); }
+/* Victory / Defeat art: the image is mostly empty around the word, so it is cropped to it. */
+.result-banner { display: block; width: 96px; height: 22px; object-fit: cover; }
 td.augs { text-align: left; white-space: normal; color: var(--muted); font-size: 13px; min-width: 240px; }
 
 .tier {
