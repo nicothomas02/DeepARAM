@@ -333,27 +333,27 @@ window.COOK_DATA = {
      "champion_is_best": false
     },
     {
-     "name": "Shadow Runner",
-     "id": 1073,
-     "rarity": "Silver",
-     "text": "After using a Dash, Blink, or Teleport Ability or exiting Stealth, gain 300 Movement Speed for 2 seconds.",
-     "core": false,
-     "icon": "icons/augments/shadow-runner.png",
-     "win_rate": 0.5515,
-     "pick_rate": 0.2463,
-     "win_rank": 46,
+     "name": "Lil' Extra Help",
+     "id": 2096,
+     "rarity": "Gold",
+     "text": "Gain Attack Range and Attack Speed during Your chosen ability duration.",
+     "core": true,
+     "icon": "icons/augments/lil-extra-help.png",
+     "win_rate": 0.5162,
+     "pick_rate": 0.1493,
+     "win_rank": 111,
      "best_champions": [
-      "Shaco",
+      "Tristana",
       "Vayne",
-      "Fizz",
-      "Ekko",
-      "Yasuo",
-      "Pyke"
+      "MasterYi",
+      "Twitch",
+      "Ashe",
+      "KogMaw"
      ],
      "champion_is_best": false
     }
    ],
-   "core": 3,
+   "core": 4,
    "items": [
     "Nashor's Tooth",
     "Guinsoo's Rageblade",
@@ -362,8 +362,8 @@ window.COOK_DATA = {
     "Cosmic Drive",
     "Berserker's Greaves"
    ],
-   "why": "Ivern's Brushmaker has a passive almost nobody builds around: while he stands in brush, and for a moment after leaving it, his attacks deal bonus magic damage, and its active grows a fresh patch of brush anywhere he likes. Hide on Bush makes him deal 20% more damage for as long as he stays in brush, and Nature is Healing regenerates a large amount of Health every time he enters one, so every Brushmaker cast is a new entrance: a heal, a damage buff and a round of empowered attacks, on demand. Mercy's Strike turns his Triggerseed shield into a next attack with extra range, Attack Speed and max Health magic damage, which lands on top of the brush bonus. Nashor's Tooth and Guinsoo's Rageblade stack more on-hit magic damage onto every one of those attacks, Rabadon's Deathcap grows all of it, and Cosmic Drive gives him the Move Speed to hop from one hedge to the next. The forest's gentlest support turns into an on-hit carry who plants his own ambush wherever he stands.",
-   "play": "Grow a brush on top of the fight, shield whoever is closest, and attack from inside it; when the fight moves, grow another one and step in for the heal. Shadow Runner is the flex pick: recasting Rootcaller dashes onto the rooted target, and that dash gives 300 Move Speed to reach the next brush.",
+   "why": "Ivern's Brushmaker has a passive almost nobody builds around: while he stands in brush, and for a moment after leaving it, his attacks deal bonus magic damage, and its active grows a fresh patch of brush anywhere he likes. Hide on Bush makes him deal 20% more damage for as long as he stays in brush, and Nature is Healing regenerates a large amount of Health every time he enters one, so every Brushmaker cast is a new entrance: a heal, a damage buff and a round of empowered attacks, on demand. Triggerseed feeds the other half: Mercy's Strike turns its shield into a next attack with extra range, Attack Speed and max Health magic damage, and Lil' Extra Help adds Attack Range and Attack Speed for as long as that shield lasts, so one shield from inside the brush is a short burst of long-range, fast, empowered attacks. Nashor's Tooth and Guinsoo's Rageblade stack more on-hit magic damage onto every one of those attacks, Rabadon's Deathcap grows all of it, and Cosmic Drive gives him the Move Speed to hop from one hedge to the next. The forest's gentlest support turns into an on-hit carry who plants his own ambush wherever he stands.",
+   "play": "Grow a brush on top of the fight, shield whoever is closest, and attack from inside it while the shield lasts; when the fight moves, grow another one and step in for the heal.",
    "chef": "2026-10-19",
    "champion_name": "Ivern",
    "item_ids": [
@@ -378,10 +378,10 @@ window.COOK_DATA = {
    "champion_win_rate": 0.4994,
    "champion_pick_rate": 0.0074,
    "champion_win_rank": 67,
-   "core_win_rate": 0.481,
+   "core_win_rate": 0.4898,
    "tier": "Pure troll",
    "core_usual": 0,
-   "core_pick_rate": 0.0367,
+   "core_pick_rate": 0.0649,
    "sim": {
     "dps": 322,
     "survival": 0.022,
