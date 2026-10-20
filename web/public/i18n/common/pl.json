@@ -81,7 +81,6 @@
  "Send it our way. Ideas from players shape what we build next.": "Napisz do nas. Pomysły graczy decydują o tym, co budujemy.",
  "Contact us": "Napisz do nas",
  "Copy the email address": "Kopiuj adres e-mail",
- "Copied!": "Skopiowano!",
  "Privacy": "Prywatność",
  "Terms": "Warunki",
  "Status": "Status",
@@ -158,7 +157,6 @@
  "Patch {patch} recap": "Podsumowanie patcha {patch}",
  "The Kitchen →": "Kuchnia →",
  "Write to us": "Napisz wiadomość",
- "Email {email}": "Napisz na {email}",
  "Your message": "Twoja wiadomość",
  "Your email, if you'd like a reply (optional)": "Twój e-mail, jeśli chcesz odpowiedź (opcjonalnie)",
  "Send": "Wyślij",
@@ -171,12 +169,6 @@
  "That's 5 messages today. Try again tomorrow, or email us.": "To już 5 wiadomości dzisiaj. Spróbuj jutro albo napisz do nas e-mail.",
  "The bot check didn't pass. Try again.": "Weryfikacja antybotowa nie powiodła się. Spróbuj ponownie.",
  "Too many submissions.": "Zbyt wiele zgłoszeń.",
- "Where should we open your email?": "Gdzie otworzyć Twój e-mail?",
- "Gmail (new tab)": "Gmail (nowa karta)",
- "Outlook.com (new tab)": "Outlook.com (nowa karta)",
- "Mail app (Outlook, Apple Mail and others)": "Aplikacja pocztowa (Outlook, Apple Mail i inne)",
- "Open email": "Otwórz e-mail",
- "Copy address": "Kopiuj adres",
  "Champion and augment win rates and duo synergy, patch by patch.": "Współczynniki zwycięstw bohaterów i augmentów oraz synergia duetów, patch po patchu.",
  "Top 10 at": "Top 10:",
  "Estimated": "Szacunek",
@@ -202,5 +194,6 @@
  "{v} kill participation": "{v} udziału w zabójstwach",
  "{v} multikills": "{v} wielokrotnych zabójstw",
  "{v} tower damage": "{v} obrażeń wieżom",
- "Simulated damage: share of champions beaten at level 8 → level 18.": "Symulowane obrażenia: odsetek pokonanych bohaterów na poziomie 8 → poziomie 18."
+ "Simulated damage: share of champions beaten at level 8 → level 18.": "Symulowane obrażenia: odsetek pokonanych bohaterów na poziomie 8 → poziomie 18.",
+ "Or shoot us an email at": "Albo napisz do nas e-mail na adres"
 }

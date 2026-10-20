@@ -81,7 +81,6 @@
  "Send it our way. Ideas from players shape what we build next.": "Send it our way. Ideas from players shape what we build next.",
  "Contact us": "Contact us",
  "Copy the email address": "Copy the email address",
- "Copied!": "Copied!",
  "Privacy": "Privacy",
  "Terms": "Terms",
  "Status": "Status",
@@ -158,7 +157,6 @@
  "Patch {patch} recap": "Patch {patch} recap",
  "The Kitchen →": "The Kitchen →",
  "Write to us": "Write to us",
- "Email {email}": "Email {email}",
  "Your message": "Your message",
  "Your email, if you'd like a reply (optional)": "Your email, if you'd like a reply (optional)",
  "Send": "Send",
@@ -171,12 +169,6 @@
  "That's 5 messages today. Try again tomorrow, or email us.": "That's 5 messages today. Try again tomorrow, or email us.",
  "The bot check didn't pass. Try again.": "The bot check didn't pass. Try again.",
  "Too many submissions.": "Too many submissions.",
- "Where should we open your email?": "Where should we open your email?",
- "Gmail (new tab)": "Gmail (new tab)",
- "Outlook.com (new tab)": "Outlook.com (new tab)",
- "Mail app (Outlook, Apple Mail and others)": "Mail app (Outlook, Apple Mail and others)",
- "Open email": "Open email",
- "Copy address": "Copy address",
  "Champion and augment win rates and duo synergy, patch by patch.": "Champion and augment win rates and duo synergy, patch by patch.",
  "Top 10 at": "Top 10 at",
  "Estimated": "Estimated",
@@ -202,5 +194,6 @@
  "{v} kill participation": "{v} kill participation",
  "{v} multikills": "{v} multikills",
  "{v} tower damage": "{v} tower damage",
- "Simulated damage: share of champions beaten at level 8 → level 18.": "Simulated damage: share of champions beaten at level 8 → level 18."
+ "Simulated damage: share of champions beaten at level 8 → level 18.": "Simulated damage: share of champions beaten at level 8 → level 18.",
+ "Or shoot us an email at": "Or shoot us an email at"
 }

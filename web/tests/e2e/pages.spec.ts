@@ -215,8 +215,8 @@ test("share links for a Chef Special and a build give link previews their card",
   await expect(page).toHaveURL(/\/simulator\?tab=replays#Jinx&items=berserkers,infinity_edge&augs=deft$/);
 });
 
-// Contact us: the footer box offers a message box and an email link; a message sends and says thanks.
-test("Contact us sends a message or opens email", async ({ page }) => {
+// Contact us: the footer box offers a message box and a mailto line; a message sends and says thanks.
+test("Contact us sends a message and shows the email line", async ({ page }) => {
   let sent: Record<string, unknown> | null = null;
   await page.route("**/api/contact", async (r) => {
     sent = r.request().postDataJSON();
@@ -226,11 +226,7 @@ test("Contact us sends a message or opens email", async ({ page }) => {
   await page.addInitScript(() => localStorage.setItem("deeparam-tour", "done"));
   await page.goto("/");
   const box = page.locator(".feedback-box");
-  await box.getByRole("button", { name: "Email admin@deeparam.com" }).click();
-  await expect(box.getByRole("radio", { name: "Gmail (new tab)" })).toBeChecked();
-  await expect(box.getByRole("link", { name: "Open email" })).toHaveAttribute("href", /^https:\/\/mail\.google\.com\/mail\/\?view=cm/);
-  await box.getByRole("radio", { name: /Mail app/ }).check();
-  await expect(box.getByRole("link", { name: "Open email" })).toHaveAttribute("href", /^mailto:admin@deeparam\.com/);
+  await expect(box.getByRole("link", { name: "admin@deeparam.com" })).toHaveAttribute("href", "mailto:admin@deeparam.com");
   await box.getByRole("button", { name: "Write to us" }).click();
   await box.locator("textarea").fill("The Duos tab is great.");
   await box.getByRole("button", { name: "Send" }).click();

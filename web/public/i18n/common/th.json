@@ -81,7 +81,6 @@
  "Send it our way. Ideas from players shape what we build next.": "ส่งมาให้เราได้เลย ไอเดียจากผู้เล่นคือสิ่งที่กำหนดว่าเราจะสร้างอะไรต่อ",
  "Contact us": "ติดต่อเรา",
  "Copy the email address": "คัดลอกอีเมล",
- "Copied!": "คัดลอกแล้ว!",
  "Privacy": "ความเป็นส่วนตัว",
  "Terms": "ข้อกำหนด",
  "Status": "สถานะ",
@@ -158,7 +157,6 @@
  "Patch {patch} recap": "สรุปแพตช์ {patch}",
  "The Kitchen →": "ครัว →",
  "Write to us": "เขียนถึงเรา",
- "Email {email}": "อีเมลถึง {email}",
  "Your message": "ข้อความของคุณ",
  "Your email, if you'd like a reply (optional)": "อีเมลของคุณ หากต้องการคำตอบ (ไม่บังคับ)",
  "Send": "ส่ง",
@@ -171,12 +169,6 @@
  "That's 5 messages today. Try again tomorrow, or email us.": "วันนี้ส่งครบ 5 ข้อความแล้ว ลองใหม่พรุ่งนี้ หรือส่งอีเมลหาเรา",
  "The bot check didn't pass. Try again.": "การตรวจสอบบอตไม่ผ่าน ลองอีกครั้ง",
  "Too many submissions.": "ส่งบ่อยเกินไป",
- "Where should we open your email?": "จะเปิดอีเมลของคุณที่ไหน?",
- "Gmail (new tab)": "Gmail (แท็บใหม่)",
- "Outlook.com (new tab)": "Outlook.com (แท็บใหม่)",
- "Mail app (Outlook, Apple Mail and others)": "แอปอีเมล (Outlook, Apple Mail และอื่น ๆ)",
- "Open email": "เปิดอีเมล",
- "Copy address": "คัดลอกที่อยู่",
  "Champion and augment win rates and duo synergy, patch by patch.": "อัตราชนะของแชมเปี้ยนและออคเมนต์ และซินเนอร์จีของคู่ แพตช์ต่อแพตช์",
  "Top 10 at": "10 อันดับแรก",
  "Estimated": "ประมาณการ",
@@ -202,5 +194,6 @@
  "{v} kill participation": "มีส่วนร่วมในการฆ่า {v}",
  "{v} multikills": "มัลติคิล {v}",
  "{v} tower damage": "ดาเมจป้อม {v}",
- "Simulated damage: share of champions beaten at level 8 → level 18.": "ดาเมจจำลอง: สัดส่วนแชมเปี้ยนที่เอาชนะได้ที่เลเวล 8 → เลเวล 18"
+ "Simulated damage: share of champions beaten at level 8 → level 18.": "ดาเมจจำลอง: สัดส่วนแชมเปี้ยนที่เอาชนะได้ที่เลเวล 8 → เลเวล 18",
+ "Or shoot us an email at": "หรือส่งอีเมลถึงเราได้ที่"
 }
