@@ -124,5 +124,6 @@
  "Damage mitigated": "Zablokowane obrażenia",
  "Healing done": "Zadane leczenie",
  "Crowd control": "Kontrola tłumu",
- "Shielding": "Tarcze"
+ "Shielding": "Tarcze",
+ "Marked when neither champion has a stun, root, knock-up, taunt, fear, charm, sleep or suppression, so the pair struggles to lock anyone down.": "Oznaczone, gdy żaden z bohaterów nie ma ogłuszenia, unieruchomienia, podrzucenia, prowokacji, strachu, zauroczenia, uśpienia ani przygwożdżenia, więc para z trudem kogokolwiek zatrzyma."
 }

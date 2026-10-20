@@ -196,5 +196,13 @@
  "{v} tower damage": "{v} урона по башням",
  "Simulated damage: share of champions beaten at level 8 → level 18.": "Смоделированный урон: доля чемпионов, которых он превосходит на 8-м → 18-м уровне.",
  "Or shoot us an email at": "Или напишите нам на почту",
- "About": "О сайте"
+ "About": "О сайте",
+ "Pentakill every {v} games": "Пентакилл раз в {v} игр",
+ "Pentakills": "Пентакиллы",
+ "Damage mitigated": "Смягчённый урон",
+ "Kill participation": "Участие в убийствах",
+ "Time dead": "Время в смерти",
+ "CS": "CS",
+ "{v} mitigated/min": "{v} смягчено/мин",
+ "{v} CS": "{v} CS"
 }

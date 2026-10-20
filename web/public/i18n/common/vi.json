@@ -196,5 +196,13 @@
  "{v} tower damage": "{v} sát thương trụ",
  "Simulated damage: share of champions beaten at level 8 → level 18.": "Sát thương mô phỏng: tỉ lệ tướng bị vượt qua ở cấp 8 → cấp 18.",
  "Or shoot us an email at": "Hoặc gửi email cho chúng tôi tại",
- "About": "Giới thiệu"
+ "About": "Giới thiệu",
+ "Pentakill every {v} games": "Pentakill mỗi {v} trận",
+ "Pentakills": "Pentakill",
+ "Damage mitigated": "Sát thương giảm nhẹ",
+ "Kill participation": "Tham gia hạ gục",
+ "Time dead": "Thời gian chết",
+ "CS": "CS",
+ "{v} mitigated/min": "{v} giảm nhẹ/phút",
+ "{v} CS": "{v} CS"
 }

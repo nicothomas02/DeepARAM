@@ -82,6 +82,7 @@ struct Ability {
     double invuln = 0;
     double refund = 0;
     double critRefund = 0;      // seconds off its cooldown whenever an attack crits (Tryndamere E)
+    double attackCdr = 0;       // seconds off its cooldown whenever an attack lands (Senna Q, Kai'Sa E)
     double readyDelay = 0;      // seconds before its cooldown starts, untouched by haste and refunds (TF W's card cycling)
     double missingMax = 0;      // > 0: the missing-Health bonus stops growing at this share missing (Veigar R)
     double soloMult = 1;        // damage x this when the cast hits only one enemy (Karthus Q on a lone target)
@@ -319,8 +320,8 @@ struct TraceEvent {
     double flight = 0;        // casts: seconds the missile flies
     std::vector<double> pos;  // pos: uid, x, y for everyone standing (uid -1 is the champion)
     // Running fight totals: self/death carry damage taken and mitigated so far, heal the Health
-    // restored so far, ecc the seconds of crowd control dealt so far.
-    double taken = 0, mitigated = 0, total = 0;
+    // restored so far, shielded the damage your shields absorbed so far, ecc the seconds of crowd control dealt so far.
+    double taken = 0, mitigated = 0, shielded = 0, total = 0;
 };
 
 struct FightTrace {
@@ -344,7 +345,7 @@ struct Summary {
     double singleTargetDps = 0, killsPerMinute = 0, survivalRate = 0, meanTimeAlive = 0;
     double damageTakenPerSec = 0;  // damage you take per second alive, after your resists
     // Per fight, on average: Health lost, damage mitigated, Health restored, seconds of crowd control dealt.
-    double damageTaken = 0, damageMitigated = 0, healing = 0, ccSeconds = 0;
+    double damageTaken = 0, damageMitigated = 0, healing = 0, ccSeconds = 0, shielding = 0;
     // Short against long fights: damage per second over the first kShortFight and the first
     // kLongFight seconds from your first hit (going down early counts against both).
     double shortDps = 0, longDps = 0;
@@ -353,8 +354,9 @@ struct Summary {
 Summary summarize(const std::vector<Result>& results);
 
 // What a build search ranks builds by: damage per second (the default), or per fight the damage you
-// take, the damage you mitigate, the Health you restore, or the seconds of crowd control you deal.
-enum class Metric { Damage, Taken, Mitigated, Healing, Cc };
+// take, the damage you mitigate, the Health you restore, the damage your shields absorb, or the seconds
+// of crowd control you deal.
+enum class Metric { Damage, Taken, Mitigated, Healing, Cc, Shielding };
 bool parseMetric(const std::string& name, Metric& out);
 double metricOf(const Result& r, Metric m);
 double metricOf(const Summary& s, Metric m);

@@ -140,5 +140,20 @@
  "{n} boost": "{n} boost",
  "of {n} by DeepScore": "of {n} by DeepScore",
  "Win rates are estimated. The boost below each is how much the augment adds to this champion's win rate.": "Win rates are estimated. The boost below each is how much the augment adds to this champion's win rate.",
- "Spell pairs with win rate, pick rate and win rate boost appear here once enough games are in.": "Spell pairs with win rate, pick rate and win rate boost appear here once enough games are in."
+ "Spell pairs with win rate, pick rate and win rate boost appear here once enough games are in.": "Spell pairs with win rate, pick rate and win rate boost appear here once enough games are in.",
+ "Rival quest": "Rival quest",
+ "Team quest": "Team quest",
+ "When {name} is on the other team": "When {name} is on the other team",
+ "When {name} is on your team": "When {name} is on your team",
+ "No hard CC": "No hard CC",
+ "Damage": "Damage",
+ "Toughness": "Toughness",
+ "Crowd Control": "Crowd Control",
+ "Mobility": "Mobility",
+ "Utility": "Utility",
+ "The champion's ability to deal damage to enemy champions": "The champion's ability to deal damage to enemy champions",
+ "The champion's ability to absorb damage from enemy champions": "The champion's ability to absorb damage from enemy champions",
+ "The champion's ability to apply harmful effects like slows and stuns to enemy champions": "The champion's ability to apply harmful effects like slows and stuns to enemy champions",
+ "The champion's ability to move quickly around the map using blinks or dashes": "The champion's ability to move quickly around the map using blinks or dashes",
+ "The champion's ability to grant beneficial effects like shields, healing, or movement speed to allied champions": "The champion's ability to grant beneficial effects like shields, healing, or movement speed to allied champions"
 }

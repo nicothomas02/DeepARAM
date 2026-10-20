@@ -124,5 +124,6 @@
  "Damage mitigated": "الضرر المُخفَّف",
  "Healing done": "العلاج المُقدَّم",
  "Crowd control": "التحكم بالحشود",
- "Shielding": "الدروع"
+ "Shielding": "الدروع",
+ "Marked when neither champion has a stun, root, knock-up, taunt, fear, charm, sleep or suppression, so the pair struggles to lock anyone down.": "يظهر عندما لا يملك أي من البطلين صعقًا أو تثبيتًا أو قذفًا أو استفزازًا أو إخافة أو سحرًا أو تنويمًا أو إخضاعًا، فيصعب على الثنائي تقييد أي خصم."
 }

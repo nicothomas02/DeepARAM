@@ -20,11 +20,24 @@
   "Warden": "#6aa6e6",
   "Specialist": "#9bb53b",
   "Support": "#57c7b2",
-  "Poke": "#3fa7f5",
-  "Engage": "#f05a3c",
-  "Sustain": "#4cbf6b",
-  "Shields/Heals": "#f2c14e",
-  "Crowd control": "#a77bd9"
+  "Initiator": "#f05a3c",
+  "Crowd Control": "#a77bd9",
+  "Mobile": "#3fd0e0",
+  "AoE": "#f08a3c",
+  "Duelist": "#e05a7a",
+  "Auto-attack": "#e0b23c",
+  "Ally Protection": "#f2c14e",
+  "Hypercarry": "#ff7a59",
+  "Durable": "#5f9ee8",
+  "Dive": "#d9534f",
+  "Self Healing": "#4cbf6b",
+  "Sustained Damage": "#c98a4a",
+  "Stealth": "#8a8fa8",
+  "Long Range": "#3fa7f5",
+  "Summon": "#b07cd9",
+  "Battlecaster": "#8f7cf6",
+  "Damage-over-Time": "#7fbf3f",
+  "Shapeshift": "#c76bd0"
  },
  "classes": {
   "Controller": [
@@ -56,11 +69,29 @@
   ]
  },
  "meanings": {
+  "Initiator": "Starts fights by jumping in.",
+  "Crowd Control": "Stuns, roots, slows or otherwise locks enemies down.",
+  "Burst": "Deletes one target with a quick combo.",
+  "Mobile": "Has dashes, blinks or speed to move around the fight.",
+  "AoE": "Hits several enemies at once.",
+  "Duelist": "Strong in one-on-one fights.",
+  "Auto-attack": "Deals most of its damage with basic attacks.",
+  "Ally Protection": "Heals, shields or saves teammates.",
+  "Hypercarry": "Grows into a damage threat that carries late fights.",
+  "Durable": "Hard to kill.",
+  "Dive": "Jumps onto targets in the enemy backline.",
+  "Self Healing": "Heals itself during fights.",
+  "Sustained Damage": "Keeps dealing damage over a long fight.",
+  "Stealth": "Can turn invisible or camouflaged.",
+  "Long Range": "Fights from far away.",
+  "Summon": "Fights alongside pets, clones or other units.",
+  "Battlecaster": "A mage who fights up close with a steady stream of spells.",
+  "Damage-over-Time": "Damages through burns, poisons and other effects over time.",
+  "Shapeshift": "Changes form to swap between sets of abilities.",
   "Enchanter": "Strengthens allies with heals, shields and buffs.",
   "Catcher": "Locks down enemies who walk into their traps and hooks.",
   "Juggernaut": "Slow, hard to kill and hits hard up close.",
   "Diver": "Jumps onto a target and stays on them.",
-  "Burst": "Deletes one target with a quick combo.",
   "Battlemage": "Stays in the fight and deals damage over time.",
   "Artillery": "Hits from very long range.",
   "Marksman": "Steady damage from range with basic attacks.",
@@ -68,13 +99,15 @@
   "Skirmisher": "Wins long close-range fights with strong duelling.",
   "Vanguard": "Starts fights by diving in with crowd control.",
   "Warden": "Protects allies and peels for them.",
-  "Specialist": "Plays unlike any other class.",
-  "Poke": "Damages from long range (1,000 or more) before a fight starts.",
-  "Engage": "Starts fights by jumping in with crowd control.",
-  "Sustain": "Heals themselves during fights.",
-  "Shields/Heals": "Heals or shields allies.",
-  "Crowd control": "Has two or more abilities that stun, root, knock up, charm, taunt, pull or the like."
+  "Specialist": "Plays unlike any other class."
  },
+ "ratings": [
+  "damage",
+  "toughness",
+  "control",
+  "mobility",
+  "utility"
+ ],
  "champions": {
   "Aatrox": {
    "id": 266,
@@ -89,8 +122,21 @@
     "Juggernaut"
    ],
    "playstyles": [
-    "Sustain"
-   ]
+    "Sustained Damage",
+    "Self Healing"
+   ],
+   "ratings": {
+    "damage": 3,
+    "toughness": 3,
+    "control": 2,
+    "mobility": 2,
+    "utility": 2
+   },
+   "cc": {
+    "Q": "knockup",
+    "E": "slow"
+   },
+   "hardCC": true
   },
   "Ahri": {
    "id": 103,
@@ -106,9 +152,18 @@
     "Burst"
    ],
    "playstyles": [
-    "Sustain",
-    "Crowd control"
-   ]
+    "Mobile",
+    "Burst"
+   ],
+   "ratings": {
+    "damage": 3,
+    "toughness": 1,
+    "control": 2,
+    "mobility": 3,
+    "utility": 1
+   },
+   "cc": {},
+   "hardCC": false
   },
   "Akali": {
    "id": 84,
@@ -122,7 +177,21 @@
    "subclasses": [
     "Assassin"
    ],
-   "playstyles": []
+   "playstyles": [
+    "Mobile",
+    "Burst"
+   ],
+   "ratings": {
+    "damage": 3,
+    "toughness": 1,
+    "control": 1,
+    "mobility": 3,
+    "utility": 1
+   },
+   "cc": {
+    "W": "slow"
+   },
+   "hardCC": false
   },
   "Akshan": {
    "id": 166,
@@ -140,8 +209,16 @@
     "Assassin"
    ],
    "playstyles": [
-    "Poke"
-   ]
+    "Mobile",
+    "Stealth"
+   ],
+   "ratings": {
+    "damage": 3,
+    "toughness": 1,
+    "control": 1,
+    "mobility": 3,
+    "utility": 2
+   }
   },
   "Alistar": {
    "id": 12,
@@ -157,10 +234,21 @@
     "Vanguard"
    ],
    "playstyles": [
-    "Engage",
-    "Sustain",
-    "Crowd control"
-   ]
+    "Crowd Control",
+    "Initiator"
+   ],
+   "ratings": {
+    "damage": 1,
+    "toughness": 3,
+    "control": 3,
+    "mobility": 1,
+    "utility": 2
+   },
+   "cc": {
+    "Q": "stun",
+    "W": "knockback"
+   },
+   "hardCC": true
   },
   "Ambessa": {
    "id": 799,
@@ -176,8 +264,21 @@
     "Diver"
    ],
    "playstyles": [
-    "Engage"
-   ]
+    "Mobile",
+    "Dive"
+   ],
+   "ratings": {
+    "damage": 3,
+    "toughness": 2,
+    "control": 1,
+    "mobility": 3,
+    "utility": 1
+   },
+   "cc": {
+    "W": "slow",
+    "R": "slow"
+   },
+   "hardCC": false
   },
   "Amumu": {
    "id": 32,
@@ -193,9 +294,20 @@
     "Vanguard"
    ],
    "playstyles": [
-    "Engage",
-    "Crowd control"
-   ]
+    "Crowd Control",
+    "Initiator"
+   ],
+   "ratings": {
+    "damage": 2,
+    "toughness": 3,
+    "control": 3,
+    "mobility": 1,
+    "utility": 1
+   },
+   "cc": {
+    "Q": "stun"
+   },
+   "hardCC": true
   },
   "Anivia": {
    "id": 34,
@@ -210,8 +322,21 @@
     "Battlemage"
    ],
    "playstyles": [
-    "Poke"
-   ]
+    "AoE",
+    "Crowd Control"
+   ],
+   "ratings": {
+    "damage": 3,
+    "toughness": 1,
+    "control": 3,
+    "mobility": 1,
+    "utility": 2
+   },
+   "cc": {
+    "Q": "slow",
+    "R": "slow"
+   },
+   "hardCC": false
   },
   "Annie": {
    "id": 1,
@@ -227,8 +352,16 @@
     "Burst"
    ],
    "playstyles": [
-    "Shields/Heals"
-   ]
+    "Summon",
+    "Burst"
+   ],
+   "ratings": {
+    "damage": 3,
+    "toughness": 1,
+    "control": 3,
+    "mobility": 1,
+    "utility": 2
+   }
   },
   "Aphelios": {
    "id": 523,
@@ -242,7 +375,17 @@
    "subclasses": [
     "Marksman"
    ],
-   "playstyles": []
+   "playstyles": [
+    "Hypercarry",
+    "Auto-attack"
+   ],
+   "ratings": {
+    "damage": 3,
+    "toughness": 1,
+    "control": 2,
+    "mobility": 1,
+    "utility": 1
+   }
   },
   "Ashe": {
    "id": 22,
@@ -260,9 +403,22 @@
     "Catcher"
    ],
    "playstyles": [
-    "Poke",
-    "Engage"
-   ]
+    "Auto-attack",
+    "Crowd Control"
+   ],
+   "ratings": {
+    "damage": 2,
+    "toughness": 1,
+    "control": 3,
+    "mobility": 1,
+    "utility": 2
+   },
+   "cc": {
+    "Q": "slow",
+    "W": "slow",
+    "R": "stun"
+   },
+   "hardCC": true
   },
   "AurelionSol": {
    "id": 136,
@@ -277,9 +433,16 @@
     "Battlemage"
    ],
    "playstyles": [
-    "Poke",
-    "Crowd control"
-   ]
+    "Hypercarry",
+    "AoE"
+   ],
+   "ratings": {
+    "damage": 3,
+    "toughness": 1,
+    "control": 2,
+    "mobility": 2,
+    "utility": 1
+   }
   },
   "Aurora": {
    "id": 893,
@@ -295,8 +458,18 @@
     "Burst"
    ],
    "playstyles": [
-    "Sustain"
-   ]
+    "Burst",
+    "Stealth"
+   ],
+   "ratings": {
+    "damage": 3,
+    "toughness": 1,
+    "control": 2,
+    "mobility": 3,
+    "utility": 1
+   },
+   "cc": {},
+   "hardCC": false
   },
   "Azir": {
    "id": 268,
@@ -312,8 +485,16 @@
     "Specialist"
    ],
    "playstyles": [
-    "Engage"
-   ]
+    "Hypercarry",
+    "Auto-attack"
+   ],
+   "ratings": {
+    "damage": 3,
+    "toughness": 1,
+    "control": 2,
+    "mobility": 2,
+    "utility": 1
+   }
   },
   "Bard": {
    "id": 432,
@@ -329,9 +510,16 @@
     "Catcher"
    ],
    "playstyles": [
-    "Engage",
-    "Shields/Heals"
-   ]
+    "Crowd Control",
+    "Mobile"
+   ],
+   "ratings": {
+    "damage": 1,
+    "toughness": 1,
+    "control": 3,
+    "mobility": 2,
+    "utility": 3
+   }
   },
   "Belveth": {
    "id": 200,
@@ -346,9 +534,20 @@
     "Skirmisher"
    ],
    "playstyles": [
-    "Engage",
-    "Crowd control"
-   ]
+    "Auto-attack",
+    "Mobile"
+   ],
+   "ratings": {
+    "damage": 3,
+    "toughness": 1,
+    "control": 2,
+    "mobility": 3,
+    "utility": 1
+   },
+   "cc": {
+    "R": "slow"
+   },
+   "hardCC": false
   },
   "Blitzcrank": {
    "id": 53,
@@ -364,8 +563,22 @@
     "Catcher"
    ],
    "playstyles": [
-    "Engage"
-   ]
+    "Initiator",
+    "Crowd Control"
+   ],
+   "ratings": {
+    "damage": 1,
+    "toughness": 2,
+    "control": 3,
+    "mobility": 1,
+    "utility": 1
+   },
+   "cc": {
+    "Q": "pull",
+    "E": "knockup",
+    "R": "silence"
+   },
+   "hardCC": true
   },
   "Brand": {
    "id": 63,
@@ -381,8 +594,20 @@
     "Burst"
    ],
    "playstyles": [
-    "Poke"
-   ]
+    "Damage-over-Time",
+    "AoE"
+   ],
+   "ratings": {
+    "damage": 3,
+    "toughness": 1,
+    "control": 2,
+    "mobility": 1,
+    "utility": 1
+   },
+   "cc": {
+    "Q": "stun"
+   },
+   "hardCC": true
   },
   "Braum": {
    "id": 201,
@@ -398,9 +623,16 @@
     "Warden"
    ],
    "playstyles": [
-    "Engage",
-    "Crowd control"
-   ]
+    "Durable",
+    "Crowd Control"
+   ],
+   "ratings": {
+    "damage": 1,
+    "toughness": 2,
+    "control": 3,
+    "mobility": 1,
+    "utility": 2
+   }
   },
   "Briar": {
    "id": 233,
@@ -416,10 +648,20 @@
     "Diver"
    ],
    "playstyles": [
-    "Engage",
-    "Sustain",
-    "Crowd control"
-   ]
+    "Self Healing",
+    "Dive"
+   ],
+   "ratings": {
+    "damage": 2,
+    "toughness": 2,
+    "control": 3,
+    "mobility": 3,
+    "utility": 1
+   },
+   "cc": {
+    "R": "suppression"
+   },
+   "hardCC": true
   },
   "Caitlyn": {
    "id": 51,
@@ -434,8 +676,20 @@
     "Marksman"
    ],
    "playstyles": [
-    "Poke"
-   ]
+    "Auto-attack",
+    "Burst"
+   ],
+   "ratings": {
+    "damage": 3,
+    "toughness": 1,
+    "control": 2,
+    "mobility": 2,
+    "utility": 1
+   },
+   "cc": {
+    "E": "slow"
+   },
+   "hardCC": false
   },
   "Camille": {
    "id": 164,
@@ -451,9 +705,16 @@
     "Diver"
    ],
    "playstyles": [
-    "Engage",
-    "Sustain"
-   ]
+    "Dive",
+    "Duelist"
+   ],
+   "ratings": {
+    "damage": 3,
+    "toughness": 2,
+    "control": 2,
+    "mobility": 3,
+    "utility": 1
+   }
   },
   "Cassiopeia": {
    "id": 69,
@@ -468,9 +729,21 @@
     "Battlemage"
    ],
    "playstyles": [
-    "Sustain",
-    "Crowd control"
-   ]
+    "Crowd Control",
+    "Sustained Damage"
+   ],
+   "ratings": {
+    "damage": 3,
+    "toughness": 1,
+    "control": 3,
+    "mobility": 1,
+    "utility": 1
+   },
+   "cc": {
+    "W": "slow",
+    "R": "stun"
+   },
+   "hardCC": true
   },
   "Chogath": {
    "id": 31,
@@ -485,7 +758,22 @@
    "subclasses": [
     "Specialist"
    ],
-   "playstyles": []
+   "playstyles": [
+    "Durable",
+    "Crowd Control"
+   ],
+   "ratings": {
+    "damage": 2,
+    "toughness": 3,
+    "control": 2,
+    "mobility": 1,
+    "utility": 1
+   },
+   "cc": {
+    "Q": "knockup",
+    "W": "silence"
+   },
+   "hardCC": true
   },
   "Corki": {
    "id": 42,
@@ -503,8 +791,16 @@
     "Artillery"
    ],
    "playstyles": [
-    "Poke"
-   ]
+    "Auto-attack",
+    "AoE"
+   ],
+   "ratings": {
+    "damage": 3,
+    "toughness": 1,
+    "control": 1,
+    "mobility": 2,
+    "utility": 1
+   }
   },
   "Darius": {
    "id": 122,
@@ -520,8 +816,21 @@
     "Juggernaut"
    ],
    "playstyles": [
-    "Sustain"
-   ]
+    "Duelist",
+    "Self Healing"
+   ],
+   "ratings": {
+    "damage": 3,
+    "toughness": 2,
+    "control": 2,
+    "mobility": 1,
+    "utility": 1
+   },
+   "cc": {
+    "W": "slow",
+    "E": "pull"
+   },
+   "hardCC": true
   },
   "Diana": {
    "id": 131,
@@ -539,8 +848,20 @@
     "Burst"
    ],
    "playstyles": [
-    "Engage"
-   ]
+    "Burst",
+    "Dive"
+   ],
+   "ratings": {
+    "damage": 3,
+    "toughness": 2,
+    "control": 2,
+    "mobility": 2,
+    "utility": 1
+   },
+   "cc": {
+    "E": "pull"
+   },
+   "hardCC": true
   },
   "DrMundo": {
    "id": 36,
@@ -556,8 +877,20 @@
     "Juggernaut"
    ],
    "playstyles": [
-    "Sustain"
-   ]
+    "Durable",
+    "Self Healing"
+   ],
+   "ratings": {
+    "damage": 2,
+    "toughness": 3,
+    "control": 1,
+    "mobility": 1,
+    "utility": 1
+   },
+   "cc": {
+    "Q": "slow"
+   },
+   "hardCC": false
   },
   "Draven": {
    "id": 119,
@@ -572,8 +905,20 @@
     "Marksman"
    ],
    "playstyles": [
-    "Poke"
-   ]
+    "Auto-attack",
+    "Burst"
+   ],
+   "ratings": {
+    "damage": 3,
+    "toughness": 1,
+    "control": 1,
+    "mobility": 2,
+    "utility": 1
+   },
+   "cc": {
+    "E": "knockback"
+   },
+   "hardCC": true
   },
   "Ekko": {
    "id": 245,
@@ -589,9 +934,16 @@
     "Assassin"
    ],
    "playstyles": [
-    "Poke",
-    "Sustain"
-   ]
+    "Burst",
+    "Mobile"
+   ],
+   "ratings": {
+    "damage": 3,
+    "toughness": 2,
+    "control": 2,
+    "mobility": 3,
+    "utility": 1
+   }
   },
   "Elise": {
    "id": 60,
@@ -607,9 +959,20 @@
     "Burst"
    ],
    "playstyles": [
-    "Poke",
-    "Sustain"
-   ]
+    "Shapeshift",
+    "Burst"
+   ],
+   "ratings": {
+    "damage": 2,
+    "toughness": 2,
+    "control": 2,
+    "mobility": 2,
+    "utility": 1
+   },
+   "cc": {
+    "E": "stun"
+   },
+   "hardCC": true
   },
   "Evelynn": {
    "id": 28,
@@ -625,8 +988,20 @@
     "Assassin"
    ],
    "playstyles": [
-    "Sustain"
-   ]
+    "Stealth",
+    "Burst"
+   ],
+   "ratings": {
+    "damage": 2,
+    "toughness": 2,
+    "control": 1,
+    "mobility": 2,
+    "utility": 2
+   },
+   "cc": {
+    "R": "slow"
+   },
+   "hardCC": false
   },
   "Ezreal": {
    "id": 81,
@@ -644,7 +1019,8 @@
     "Artillery"
    ],
    "playstyles": [
-    "Poke"
+    "Long Range",
+    "Mobile"
    ]
   },
   "FiddleSticks": {
@@ -660,7 +1036,22 @@
    "subclasses": [
     "Specialist"
    ],
-   "playstyles": []
+   "playstyles": [
+    "Self Healing",
+    "AoE"
+   ],
+   "ratings": {
+    "damage": 3,
+    "toughness": 1,
+    "control": 3,
+    "mobility": 1,
+    "utility": 1
+   },
+   "cc": {
+    "Q": "fear",
+    "E": "silence"
+   },
+   "hardCC": true
   },
   "Fiora": {
    "id": 114,
@@ -676,9 +1067,16 @@
     "Skirmisher"
    ],
    "playstyles": [
-    "Sustain",
-    "Shields/Heals"
-   ]
+    "Duelist",
+    "Mobile"
+   ],
+   "ratings": {
+    "damage": 3,
+    "toughness": 2,
+    "control": 2,
+    "mobility": 2,
+    "utility": 2
+   }
   },
   "Fizz": {
    "id": 105,
@@ -693,7 +1091,22 @@
    "subclasses": [
     "Assassin"
    ],
-   "playstyles": []
+   "playstyles": [
+    "Burst",
+    "Mobile"
+   ],
+   "ratings": {
+    "damage": 3,
+    "toughness": 1,
+    "control": 2,
+    "mobility": 3,
+    "utility": 1
+   },
+   "cc": {
+    "E": "slow",
+    "R": "knockup"
+   },
+   "hardCC": true
   },
   "Galio": {
    "id": 3,
@@ -709,10 +1122,21 @@
     "Warden"
    ],
    "playstyles": [
-    "Engage",
-    "Shields/Heals",
-    "Crowd control"
-   ]
+    "Battlecaster",
+    "Crowd Control"
+   ],
+   "ratings": {
+    "damage": 2,
+    "toughness": 3,
+    "control": 3,
+    "mobility": 2,
+    "utility": 1
+   },
+   "cc": {
+    "Q": "slow",
+    "R": "taunt"
+   },
+   "hardCC": true
   },
   "Gangplank": {
    "id": 41,
@@ -727,8 +1151,16 @@
     "Specialist"
    ],
    "playstyles": [
-    "Sustain"
-   ]
+    "AoE",
+    "Burst"
+   ],
+   "ratings": {
+    "damage": 3,
+    "toughness": 1,
+    "control": 1,
+    "mobility": 1,
+    "utility": 2
+   }
   },
   "Garen": {
    "id": 86,
@@ -744,8 +1176,20 @@
     "Juggernaut"
    ],
    "playstyles": [
-    "Sustain"
-   ]
+    "Durable",
+    "Sustained Damage"
+   ],
+   "ratings": {
+    "damage": 2,
+    "toughness": 3,
+    "control": 1,
+    "mobility": 1,
+    "utility": 1
+   },
+   "cc": {
+    "Q": "silence"
+   },
+   "hardCC": true
   },
   "Gnar": {
    "id": 150,
@@ -761,8 +1205,16 @@
     "Specialist"
    ],
    "playstyles": [
-    "Crowd control"
-   ]
+    "Shapeshift",
+    "Crowd Control"
+   ],
+   "ratings": {
+    "damage": 2,
+    "toughness": 3,
+    "control": 2,
+    "mobility": 2,
+    "utility": 1
+   }
   },
   "Gragas": {
    "id": 79,
@@ -778,11 +1230,21 @@
     "Vanguard"
    ],
    "playstyles": [
-    "Poke",
-    "Engage",
-    "Sustain",
-    "Crowd control"
-   ]
+    "Burst",
+    "Crowd Control"
+   ],
+   "ratings": {
+    "damage": 2,
+    "toughness": 3,
+    "control": 3,
+    "mobility": 2,
+    "utility": 1
+   },
+   "cc": {
+    "E": "slow",
+    "R": "knockback"
+   },
+   "hardCC": true
   },
   "Graves": {
    "id": 104,
@@ -797,8 +1259,20 @@
     "Specialist"
    ],
    "playstyles": [
-    "Poke"
-   ]
+    "Burst",
+    "Auto-attack"
+   ],
+   "ratings": {
+    "damage": 3,
+    "toughness": 2,
+    "control": 1,
+    "mobility": 2,
+    "utility": 2
+   },
+   "cc": {
+    "W": "slow"
+   },
+   "hardCC": false
   },
   "Gwen": {
    "id": 887,
@@ -813,8 +1287,20 @@
     "Skirmisher"
    ],
    "playstyles": [
-    "Sustain"
-   ]
+    "Sustained Damage",
+    "Duelist"
+   ],
+   "ratings": {
+    "damage": 3,
+    "toughness": 2,
+    "control": 1,
+    "mobility": 3,
+    "utility": 1
+   },
+   "cc": {
+    "R": "stun"
+   },
+   "hardCC": true
   },
   "Hecarim": {
    "id": 120,
@@ -830,8 +1316,21 @@
     "Diver"
    ],
    "playstyles": [
-    "Engage"
-   ]
+    "Mobile",
+    "Dive"
+   ],
+   "ratings": {
+    "damage": 2,
+    "toughness": 2,
+    "control": 2,
+    "mobility": 2,
+    "utility": 1
+   },
+   "cc": {
+    "E": "knockback",
+    "R": "fear"
+   },
+   "hardCC": true
   },
   "Heimerdinger": {
    "id": 74,
@@ -846,7 +1345,17 @@
    "subclasses": [
     "Specialist"
    ],
-   "playstyles": []
+   "playstyles": [
+    "Summon",
+    "Sustained Damage"
+   ],
+   "ratings": {
+    "damage": 3,
+    "toughness": 1,
+    "control": 2,
+    "mobility": 1,
+    "utility": 2
+   }
   },
   "Hwei": {
    "id": 910,
@@ -863,8 +1372,20 @@
     "Burst"
    ],
    "playstyles": [
-    "Poke"
-   ]
+    "AoE",
+    "Long Range"
+   ],
+   "ratings": {
+    "damage": 3,
+    "toughness": 1,
+    "control": 3,
+    "mobility": 1,
+    "utility": 2
+   },
+   "cc": {
+    "W": "slow"
+   },
+   "hardCC": false
   },
   "Illaoi": {
    "id": 420,
@@ -880,8 +1401,16 @@
     "Juggernaut"
    ],
    "playstyles": [
-    "Sustain"
-   ]
+    "Self Healing",
+    "Duelist"
+   ],
+   "ratings": {
+    "damage": 3,
+    "toughness": 2,
+    "control": 1,
+    "mobility": 1,
+    "utility": 1
+   }
   },
   "Irelia": {
    "id": 39,
@@ -897,9 +1426,20 @@
     "Diver"
    ],
    "playstyles": [
-    "Engage",
-    "Sustain"
-   ]
+    "Mobile",
+    "Duelist"
+   ],
+   "ratings": {
+    "damage": 2,
+    "toughness": 2,
+    "control": 2,
+    "mobility": 3,
+    "utility": 2
+   },
+   "cc": {
+    "E": "stun"
+   },
+   "hardCC": true
   },
   "Ivern": {
    "id": 427,
@@ -915,10 +1455,16 @@
     "Enchanter"
    ],
    "playstyles": [
-    "Poke",
-    "Engage",
-    "Shields/Heals"
-   ]
+    "Summon",
+    "Ally Protection"
+   ],
+   "ratings": {
+    "damage": 1,
+    "toughness": 1,
+    "control": 3,
+    "mobility": 2,
+    "utility": 3
+   }
   },
   "Janna": {
    "id": 40,
@@ -934,9 +1480,22 @@
     "Enchanter"
    ],
    "playstyles": [
-    "Poke",
-    "Shields/Heals"
-   ]
+    "Crowd Control",
+    "Ally Protection"
+   ],
+   "ratings": {
+    "damage": 1,
+    "toughness": 1,
+    "control": 3,
+    "mobility": 1,
+    "utility": 3
+   },
+   "cc": {
+    "Q": "knockup",
+    "W": "slow",
+    "R": "knockback"
+   },
+   "hardCC": true
   },
   "JarvanIV": {
    "id": 59,
@@ -952,8 +1511,21 @@
     "Diver"
    ],
    "playstyles": [
-    "Engage"
-   ]
+    "Dive",
+    "Crowd Control"
+   ],
+   "ratings": {
+    "damage": 2,
+    "toughness": 2,
+    "control": 2,
+    "mobility": 2,
+    "utility": 2
+   },
+   "cc": {
+    "Q": "knockup",
+    "W": "slow"
+   },
+   "hardCC": true
   },
   "Jax": {
    "id": 24,
@@ -967,7 +1539,21 @@
    "subclasses": [
     "Skirmisher"
    ],
-   "playstyles": []
+   "playstyles": [
+    "Duelist",
+    "Auto-attack"
+   ],
+   "ratings": {
+    "damage": 3,
+    "toughness": 2,
+    "control": 2,
+    "mobility": 2,
+    "utility": 1
+   },
+   "cc": {
+    "E": "stun"
+   },
+   "hardCC": true
   },
   "Jayce": {
    "id": 126,
@@ -983,8 +1569,21 @@
     "Artillery"
    ],
    "playstyles": [
-    "Poke"
-   ]
+    "Shapeshift",
+    "Long Range"
+   ],
+   "ratings": {
+    "damage": 3,
+    "toughness": 1,
+    "control": 1,
+    "mobility": 2,
+    "utility": 2
+   },
+   "cc": {
+    "Q": "slow",
+    "E": "knockback"
+   },
+   "hardCC": true
   },
   "Jhin": {
    "id": 202,
@@ -1002,9 +1601,16 @@
     "Catcher"
    ],
    "playstyles": [
-    "Poke",
-    "Engage"
-   ]
+    "Long Range",
+    "Burst"
+   ],
+   "ratings": {
+    "damage": 3,
+    "toughness": 1,
+    "control": 2,
+    "mobility": 1,
+    "utility": 1
+   }
   },
   "Jinx": {
    "id": 222,
@@ -1019,8 +1625,21 @@
     "Marksman"
    ],
    "playstyles": [
-    "Poke"
-   ]
+    "Auto-attack",
+    "Hypercarry"
+   ],
+   "ratings": {
+    "damage": 3,
+    "toughness": 1,
+    "control": 2,
+    "mobility": 1,
+    "utility": 1
+   },
+   "cc": {
+    "W": "slow",
+    "E": "root"
+   },
+   "hardCC": true
   },
   "KSante": {
    "id": 897,
@@ -1036,11 +1655,21 @@
     "Warden"
    ],
    "playstyles": [
-    "Engage",
-    "Sustain",
-    "Shields/Heals",
-    "Crowd control"
-   ]
+    "Durable",
+    "Duelist"
+   ],
+   "ratings": {
+    "damage": 2,
+    "toughness": 3,
+    "control": 3,
+    "mobility": 2,
+    "utility": 2
+   },
+   "cc": {
+    "E": "slow",
+    "R": "knockback"
+   },
+   "hardCC": true
   },
   "Kaisa": {
    "id": 145,
@@ -1055,7 +1684,17 @@
    "subclasses": [
     "Marksman"
    ],
-   "playstyles": []
+   "playstyles": [
+    "Dive",
+    "Auto-attack"
+   ],
+   "ratings": {
+    "damage": 3,
+    "toughness": 1,
+    "control": 1,
+    "mobility": 3,
+    "utility": 1
+   }
   },
   "Kalista": {
    "id": 429,
@@ -1070,8 +1709,16 @@
     "Marksman"
    ],
    "playstyles": [
-    "Poke"
-   ]
+    "Mobile",
+    "Auto-attack"
+   ],
+   "ratings": {
+    "damage": 3,
+    "toughness": 1,
+    "control": 1,
+    "mobility": 3,
+    "utility": 2
+   }
   },
   "Karma": {
    "id": 43,
@@ -1087,9 +1734,21 @@
     "Enchanter"
    ],
    "playstyles": [
-    "Sustain",
-    "Shields/Heals"
-   ]
+    "Ally Protection",
+    "AoE"
+   ],
+   "ratings": {
+    "damage": 2,
+    "toughness": 1,
+    "control": 2,
+    "mobility": 1,
+    "utility": 2
+   },
+   "cc": {
+    "Q": "slow",
+    "W": "root"
+   },
+   "hardCC": true
   },
   "Karthus": {
    "id": 30,
@@ -1103,7 +1762,21 @@
    "subclasses": [
     "Battlemage"
    ],
-   "playstyles": []
+   "playstyles": [
+    "AoE",
+    "Sustained Damage"
+   ],
+   "ratings": {
+    "damage": 3,
+    "toughness": 1,
+    "control": 1,
+    "mobility": 1,
+    "utility": 2
+   },
+   "cc": {
+    "W": "slow"
+   },
+   "hardCC": false
   },
   "Kassadin": {
    "id": 38,
@@ -1118,7 +1791,22 @@
    "subclasses": [
     "Assassin"
    ],
-   "playstyles": []
+   "playstyles": [
+    "Hypercarry",
+    "Mobile"
+   ],
+   "ratings": {
+    "damage": 3,
+    "toughness": 2,
+    "control": 1,
+    "mobility": 3,
+    "utility": 1
+   },
+   "cc": {
+    "Q": "silence",
+    "E": "slow"
+   },
+   "hardCC": true
   },
   "Katarina": {
    "id": 55,
@@ -1133,7 +1821,17 @@
    "subclasses": [
     "Assassin"
    ],
-   "playstyles": []
+   "playstyles": [
+    "Mobile",
+    "Burst"
+   ],
+   "ratings": {
+    "damage": 3,
+    "toughness": 1,
+    "control": 1,
+    "mobility": 3,
+    "utility": 1
+   }
   },
   "Kayle": {
    "id": 10,
@@ -1149,8 +1847,20 @@
     "Specialist"
    ],
    "playstyles": [
-    "Shields/Heals"
-   ]
+    "Hypercarry",
+    "Auto-attack"
+   ],
+   "ratings": {
+    "damage": 3,
+    "toughness": 1,
+    "control": 1,
+    "mobility": 1,
+    "utility": 3
+   },
+   "cc": {
+    "Q": "slow"
+   },
+   "hardCC": false
   },
   "Kayn": {
    "id": 141,
@@ -1167,8 +1877,20 @@
     "Assassin"
    ],
    "playstyles": [
-    "Sustain"
-   ]
+    "Mobile",
+    "Dive"
+   ],
+   "ratings": {
+    "damage": 3,
+    "toughness": 1,
+    "control": 1,
+    "mobility": 3,
+    "utility": 1
+   },
+   "cc": {
+    "W": "slow"
+   },
+   "hardCC": false
   },
   "Kennen": {
    "id": 85,
@@ -1182,7 +1904,17 @@
    "subclasses": [
     "Specialist"
    ],
-   "playstyles": []
+   "playstyles": [
+    "Burst",
+    "AoE"
+   ],
+   "ratings": {
+    "damage": 3,
+    "toughness": 1,
+    "control": 3,
+    "mobility": 1,
+    "utility": 1
+   }
   },
   "Khazix": {
    "id": 121,
@@ -1197,8 +1929,20 @@
     "Assassin"
    ],
    "playstyles": [
-    "Sustain"
-   ]
+    "Burst",
+    "Stealth"
+   ],
+   "ratings": {
+    "damage": 3,
+    "toughness": 1,
+    "control": 1,
+    "mobility": 2,
+    "utility": 1
+   },
+   "cc": {
+    "W": "slow"
+   },
+   "hardCC": false
   },
   "Kindred": {
    "id": 203,
@@ -1213,8 +1957,16 @@
     "Marksman"
    ],
    "playstyles": [
-    "Sustain"
-   ]
+    "Auto-attack",
+    "Mobile"
+   ],
+   "ratings": {
+    "damage": 3,
+    "toughness": 1,
+    "control": 2,
+    "mobility": 3,
+    "utility": 2
+   }
   },
   "Kled": {
    "id": 240,
@@ -1229,8 +1981,16 @@
     "Diver"
    ],
    "playstyles": [
-    "Engage"
-   ]
+    "Dive",
+    "Duelist"
+   ],
+   "ratings": {
+    "damage": 3,
+    "toughness": 2,
+    "control": 1,
+    "mobility": 3,
+    "utility": 1
+   }
   },
   "KogMaw": {
    "id": 96,
@@ -1246,8 +2006,20 @@
     "Marksman"
    ],
    "playstyles": [
-    "Poke"
-   ]
+    "Hypercarry",
+    "Auto-attack"
+   ],
+   "ratings": {
+    "damage": 3,
+    "toughness": 1,
+    "control": 1,
+    "mobility": 1,
+    "utility": 1
+   },
+   "cc": {
+    "E": "slow"
+   },
+   "hardCC": false
   },
   "Leblanc": {
    "id": 7,
@@ -1262,7 +2034,17 @@
    "subclasses": [
     "Burst"
    ],
-   "playstyles": []
+   "playstyles": [
+    "Burst",
+    "Mobile"
+   ],
+   "ratings": {
+    "damage": 3,
+    "toughness": 1,
+    "control": 2,
+    "mobility": 3,
+    "utility": 1
+   }
   },
   "LeeSin": {
    "id": 64,
@@ -1278,9 +2060,21 @@
     "Diver"
    ],
    "playstyles": [
-    "Engage",
-    "Shields/Heals"
-   ]
+    "Mobile",
+    "Duelist"
+   ],
+   "ratings": {
+    "damage": 3,
+    "toughness": 2,
+    "control": 2,
+    "mobility": 3,
+    "utility": 1
+   },
+   "cc": {
+    "E": "slow",
+    "R": "knockback"
+   },
+   "hardCC": true
   },
   "Leona": {
    "id": 89,
@@ -1296,9 +2090,22 @@
     "Vanguard"
    ],
    "playstyles": [
-    "Engage",
-    "Crowd control"
-   ]
+    "Initiator",
+    "Crowd Control"
+   ],
+   "ratings": {
+    "damage": 1,
+    "toughness": 3,
+    "control": 3,
+    "mobility": 1,
+    "utility": 1
+   },
+   "cc": {
+    "Q": "stun",
+    "E": "root",
+    "R": "slow"
+   },
+   "hardCC": true
   },
   "Lillia": {
    "id": 876,
@@ -1314,8 +2121,20 @@
     "Specialist"
    ],
    "playstyles": [
-    "Poke"
-   ]
+    "Mobile",
+    "Damage-over-Time"
+   ],
+   "ratings": {
+    "damage": 3,
+    "toughness": 1,
+    "control": 2,
+    "mobility": 2,
+    "utility": 2
+   },
+   "cc": {
+    "R": "slow"
+   },
+   "hardCC": false
   },
   "Lissandra": {
    "id": 127,
@@ -1330,10 +2149,22 @@
     "Burst"
    ],
    "playstyles": [
-    "Poke",
-    "Sustain",
-    "Crowd control"
-   ]
+    "Crowd Control",
+    "Burst"
+   ],
+   "ratings": {
+    "damage": 3,
+    "toughness": 1,
+    "control": 3,
+    "mobility": 2,
+    "utility": 1
+   },
+   "cc": {
+    "Q": "slow",
+    "W": "root",
+    "R": "stun"
+   },
+   "hardCC": true
   },
   "Locke": {
    "id": 805,
@@ -1345,9 +2176,21 @@
    "classes": [],
    "subclasses": [],
    "playstyles": [
-    "Poke",
-    "Sustain"
-   ]
+    "Burst",
+    "Mobile"
+   ],
+   "ratings": {
+    "damage": 3,
+    "toughness": 2,
+    "control": 1,
+    "mobility": 3,
+    "utility": 1
+   },
+   "cc": {
+    "Q": "knockup",
+    "W": "slow"
+   },
+   "hardCC": true
   },
   "Lucian": {
    "id": 236,
@@ -1363,8 +2206,16 @@
     "Marksman"
    ],
    "playstyles": [
-    "Sustain"
-   ]
+    "Mobile",
+    "Burst"
+   ],
+   "ratings": {
+    "damage": 3,
+    "toughness": 1,
+    "control": 1,
+    "mobility": 3,
+    "utility": 1
+   }
   },
   "Lulu": {
    "id": 117,
@@ -1380,8 +2231,22 @@
     "Enchanter"
    ],
    "playstyles": [
-    "Shields/Heals"
-   ]
+    "Ally Protection",
+    "Crowd Control"
+   ],
+   "ratings": {
+    "damage": 2,
+    "toughness": 1,
+    "control": 2,
+    "mobility": 1,
+    "utility": 3
+   },
+   "cc": {
+    "Q": "slow",
+    "W": "polymorph",
+    "R": "knockup"
+   },
+   "hardCC": true
   },
   "Lux": {
    "id": 99,
@@ -1397,8 +2262,21 @@
     "Burst"
    ],
    "playstyles": [
-    "Poke"
-   ]
+    "Burst",
+    "Long Range"
+   ],
+   "ratings": {
+    "damage": 3,
+    "toughness": 1,
+    "control": 2,
+    "mobility": 1,
+    "utility": 2
+   },
+   "cc": {
+    "Q": "root",
+    "E": "slow"
+   },
+   "hardCC": true
   },
   "Malphite": {
    "id": 54,
@@ -1414,8 +2292,21 @@
     "Vanguard"
    ],
    "playstyles": [
-    "Engage"
-   ]
+    "Initiator",
+    "Crowd Control"
+   ],
+   "ratings": {
+    "damage": 1,
+    "toughness": 3,
+    "control": 3,
+    "mobility": 1,
+    "utility": 1
+   },
+   "cc": {
+    "Q": "slow",
+    "R": "knockup"
+   },
+   "hardCC": true
   },
   "Malzahar": {
    "id": 90,
@@ -1429,7 +2320,22 @@
    "subclasses": [
     "Battlemage"
    ],
-   "playstyles": []
+   "playstyles": [
+    "Damage-over-Time",
+    "Summon"
+   ],
+   "ratings": {
+    "damage": 3,
+    "toughness": 1,
+    "control": 3,
+    "mobility": 1,
+    "utility": 2
+   },
+   "cc": {
+    "Q": "silence",
+    "R": "suppression"
+   },
+   "hardCC": true
   },
   "Maokai": {
    "id": 57,
@@ -1445,10 +2351,21 @@
     "Vanguard"
    ],
    "playstyles": [
-    "Engage",
-    "Sustain",
-    "Crowd control"
-   ]
+    "Initiator",
+    "Crowd Control"
+   ],
+   "ratings": {
+    "damage": 1,
+    "toughness": 3,
+    "control": 3,
+    "mobility": 1,
+    "utility": 2
+   },
+   "cc": {
+    "Q": "slow",
+    "W": "root"
+   },
+   "hardCC": true
   },
   "MasterYi": {
    "id": 11,
@@ -1464,8 +2381,16 @@
     "Skirmisher"
    ],
    "playstyles": [
-    "Sustain"
-   ]
+    "Auto-attack",
+    "Hypercarry"
+   ],
+   "ratings": {
+    "damage": 3,
+    "toughness": 1,
+    "control": 1,
+    "mobility": 2,
+    "utility": 1
+   }
   },
   "Mel": {
    "id": 800,
@@ -1477,8 +2402,21 @@
    "classes": [],
    "subclasses": [],
    "playstyles": [
-    "Poke"
-   ]
+    "Long Range",
+    "AoE"
+   ],
+   "ratings": {
+    "damage": 3,
+    "toughness": 1,
+    "control": 2,
+    "mobility": 1,
+    "utility": 1
+   },
+   "cc": {
+    "Q": "root",
+    "E": "slow"
+   },
+   "hardCC": true
   },
   "Milio": {
    "id": 902,
@@ -1494,8 +2432,22 @@
     "Enchanter"
    ],
    "playstyles": [
-    "Shields/Heals"
-   ]
+    "Ally Protection",
+    "AoE"
+   ],
+   "ratings": {
+    "damage": 1,
+    "toughness": 1,
+    "control": 2,
+    "mobility": 1,
+    "utility": 3
+   },
+   "cc": {
+    "Q": "knockup",
+    "W": "slow",
+    "R": "knockback"
+   },
+   "hardCC": true
   },
   "MissFortune": {
    "id": 21,
@@ -1511,8 +2463,20 @@
     "Marksman"
    ],
    "playstyles": [
-    "Poke"
-   ]
+    "AoE",
+    "Burst"
+   ],
+   "ratings": {
+    "damage": 3,
+    "toughness": 1,
+    "control": 1,
+    "mobility": 1,
+    "utility": 1
+   },
+   "cc": {
+    "E": "slow"
+   },
+   "hardCC": false
   },
   "MonkeyKing": {
    "id": 62,
@@ -1528,8 +2492,20 @@
     "Diver"
    ],
    "playstyles": [
-    "Engage"
-   ]
+    "Dive",
+    "AoE"
+   ],
+   "ratings": {
+    "damage": 2,
+    "toughness": 2,
+    "control": 2,
+    "mobility": 2,
+    "utility": 1
+   },
+   "cc": {
+    "R": "knockup"
+   },
+   "hardCC": true
   },
   "Mordekaiser": {
    "id": 82,
@@ -1545,8 +2521,16 @@
     "Juggernaut"
    ],
    "playstyles": [
-    "Sustain"
-   ]
+    "Duelist",
+    "Sustained Damage"
+   ],
+   "ratings": {
+    "damage": 3,
+    "toughness": 2,
+    "control": 1,
+    "mobility": 1,
+    "utility": 2
+   }
   },
   "Morgana": {
    "id": 25,
@@ -1562,10 +2546,21 @@
     "Catcher"
    ],
    "playstyles": [
-    "Poke",
-    "Engage",
-    "Sustain"
-   ]
+    "Crowd Control",
+    "Ally Protection"
+   ],
+   "ratings": {
+    "damage": 2,
+    "toughness": 1,
+    "control": 3,
+    "mobility": 1,
+    "utility": 2
+   },
+   "cc": {
+    "Q": "root",
+    "R": "stun"
+   },
+   "hardCC": true
   },
   "Naafiri": {
    "id": 950,
@@ -1581,8 +2576,20 @@
     "Assassin"
    ],
    "playstyles": [
-    "Sustain"
-   ]
+    "Summon",
+    "Mobile"
+   ],
+   "ratings": {
+    "damage": 3,
+    "toughness": 1,
+    "control": 1,
+    "mobility": 3,
+    "utility": 1
+   },
+   "cc": {
+    "R": "suppression"
+   },
+   "hardCC": true
   },
   "Nami": {
    "id": 267,
@@ -1598,10 +2605,21 @@
     "Enchanter"
    ],
    "playstyles": [
-    "Poke",
-    "Shields/Heals",
-    "Crowd control"
-   ]
+    "Ally Protection",
+    "Crowd Control"
+   ],
+   "ratings": {
+    "damage": 1,
+    "toughness": 1,
+    "control": 3,
+    "mobility": 1,
+    "utility": 2
+   },
+   "cc": {
+    "Q": "stun",
+    "R": "knockup"
+   },
+   "hardCC": true
   },
   "Nasus": {
    "id": 75,
@@ -1617,8 +2635,20 @@
     "Juggernaut"
    ],
    "playstyles": [
-    "Sustain"
-   ]
+    "Durable",
+    "Hypercarry"
+   ],
+   "ratings": {
+    "damage": 2,
+    "toughness": 3,
+    "control": 2,
+    "mobility": 1,
+    "utility": 1
+   },
+   "cc": {
+    "W": "slow"
+   },
+   "hardCC": false
   },
   "Nautilus": {
    "id": 111,
@@ -1634,9 +2664,22 @@
     "Vanguard"
    ],
    "playstyles": [
-    "Engage",
-    "Crowd control"
-   ]
+    "Initiator",
+    "Crowd Control"
+   ],
+   "ratings": {
+    "damage": 1,
+    "toughness": 3,
+    "control": 3,
+    "mobility": 1,
+    "utility": 1
+   },
+   "cc": {
+    "Q": "stun",
+    "E": "slow",
+    "R": "knockup"
+   },
+   "hardCC": true
   },
   "Neeko": {
    "id": 518,
@@ -1652,10 +2695,16 @@
     "Burst"
    ],
    "playstyles": [
-    "Poke",
-    "Engage",
-    "Crowd control"
-   ]
+    "AoE",
+    "Burst"
+   ],
+   "ratings": {
+    "damage": 3,
+    "toughness": 1,
+    "control": 3,
+    "mobility": 1,
+    "utility": 1
+   }
   },
   "Nidalee": {
    "id": 76,
@@ -1671,9 +2720,16 @@
     "Specialist"
    ],
    "playstyles": [
-    "Poke",
-    "Shields/Heals"
-   ]
+    "Shapeshift",
+    "Mobile"
+   ],
+   "ratings": {
+    "damage": 3,
+    "toughness": 1,
+    "control": 1,
+    "mobility": 3,
+    "utility": 2
+   }
   },
   "Nilah": {
    "id": 895,
@@ -1689,8 +2745,16 @@
     "Skirmisher"
    ],
    "playstyles": [
-    "Shields/Heals"
-   ]
+    "Auto-attack",
+    "AoE"
+   ],
+   "ratings": {
+    "damage": 3,
+    "toughness": 1,
+    "control": 1,
+    "mobility": 3,
+    "utility": 2
+   }
   },
   "Nocturne": {
    "id": 56,
@@ -1706,8 +2770,20 @@
     "Assassin"
    ],
    "playstyles": [
-    "Sustain"
-   ]
+    "Dive",
+    "Duelist"
+   ],
+   "ratings": {
+    "damage": 3,
+    "toughness": 1,
+    "control": 2,
+    "mobility": 2,
+    "utility": 2
+   },
+   "cc": {
+    "E": "fear"
+   },
+   "hardCC": true
   },
   "Nunu": {
    "id": 20,
@@ -1723,10 +2799,21 @@
     "Vanguard"
    ],
    "playstyles": [
-    "Engage",
-    "Sustain",
-    "Crowd control"
-   ]
+    "Initiator",
+    "Battlecaster"
+   ],
+   "ratings": {
+    "damage": 1,
+    "toughness": 3,
+    "control": 2,
+    "mobility": 1,
+    "utility": 2
+   },
+   "cc": {
+    "E": "slow",
+    "R": "slow"
+   },
+   "hardCC": false
   },
   "Olaf": {
    "id": 2,
@@ -1742,9 +2829,20 @@
     "Diver"
    ],
    "playstyles": [
-    "Engage",
-    "Sustain"
-   ]
+    "Duelist",
+    "Self Healing"
+   ],
+   "ratings": {
+    "damage": 2,
+    "toughness": 2,
+    "control": 2,
+    "mobility": 1,
+    "utility": 1
+   },
+   "cc": {
+    "Q": "slow"
+   },
+   "hardCC": false
   },
   "Orianna": {
    "id": 61,
@@ -1760,8 +2858,21 @@
     "Burst"
    ],
    "playstyles": [
-    "Poke"
-   ]
+    "AoE",
+    "Long Range"
+   ],
+   "ratings": {
+    "damage": 2,
+    "toughness": 1,
+    "control": 2,
+    "mobility": 1,
+    "utility": 2
+   },
+   "cc": {
+    "W": "slow",
+    "R": "pull"
+   },
+   "hardCC": true
   },
   "Ornn": {
    "id": 516,
@@ -1776,8 +2887,21 @@
     "Vanguard"
    ],
    "playstyles": [
-    "Engage"
-   ]
+    "Initiator",
+    "Crowd Control"
+   ],
+   "ratings": {
+    "damage": 1,
+    "toughness": 3,
+    "control": 3,
+    "mobility": 1,
+    "utility": 2
+   },
+   "cc": {
+    "W": "slow",
+    "E": "pull"
+   },
+   "hardCC": true
   },
   "Pantheon": {
    "id": 80,
@@ -1793,8 +2917,21 @@
     "Diver"
    ],
    "playstyles": [
-    "Engage"
-   ]
+    "Dive",
+    "Duelist"
+   ],
+   "ratings": {
+    "damage": 3,
+    "toughness": 2,
+    "control": 2,
+    "mobility": 2,
+    "utility": 1
+   },
+   "cc": {
+    "W": "stun",
+    "R": "slow"
+   },
+   "hardCC": true
   },
   "Poppy": {
    "id": 78,
@@ -1810,9 +2947,20 @@
     "Warden"
    ],
    "playstyles": [
-    "Engage",
-    "Crowd control"
-   ]
+    "Durable",
+    "Dive"
+   ],
+   "ratings": {
+    "damage": 2,
+    "toughness": 3,
+    "control": 3,
+    "mobility": 2,
+    "utility": 1
+   },
+   "cc": {
+    "E": "stun"
+   },
+   "hardCC": true
   },
   "Pyke": {
    "id": 555,
@@ -1830,9 +2978,21 @@
     "Assassin"
    ],
    "playstyles": [
-    "Engage",
-    "Crowd control"
-   ]
+    "Mobile",
+    "Stealth"
+   ],
+   "ratings": {
+    "damage": 2,
+    "toughness": 1,
+    "control": 3,
+    "mobility": 3,
+    "utility": 1
+   },
+   "cc": {
+    "W": "slow",
+    "E": "silence"
+   },
+   "hardCC": true
   },
   "Qiyana": {
    "id": 246,
@@ -1846,7 +3006,17 @@
    "subclasses": [
     "Assassin"
    ],
-   "playstyles": []
+   "playstyles": [
+    "Burst",
+    "Mobile"
+   ],
+   "ratings": {
+    "damage": 3,
+    "toughness": 1,
+    "control": 2,
+    "mobility": 2,
+    "utility": 1
+   }
   },
   "Quinn": {
    "id": 133,
@@ -1861,7 +3031,22 @@
    "subclasses": [
     "Specialist"
    ],
-   "playstyles": []
+   "playstyles": [
+    "Mobile",
+    "Duelist"
+   ],
+   "ratings": {
+    "damage": 3,
+    "toughness": 1,
+    "control": 2,
+    "mobility": 3,
+    "utility": 1
+   },
+   "cc": {
+    "Q": "blind",
+    "E": "knockback"
+   },
+   "hardCC": true
   },
   "Rakan": {
    "id": 497,
@@ -1876,10 +3061,22 @@
     "Catcher"
    ],
    "playstyles": [
-    "Engage",
-    "Shields/Heals",
-    "Crowd control"
-   ]
+    "Mobile",
+    "Crowd Control"
+   ],
+   "ratings": {
+    "damage": 1,
+    "toughness": 2,
+    "control": 3,
+    "mobility": 3,
+    "utility": 3
+   },
+   "cc": {
+    "Q": "knockup",
+    "W": "slow",
+    "R": "knockback"
+   },
+   "hardCC": true
   },
   "Rammus": {
    "id": 33,
@@ -1894,9 +3091,21 @@
     "Vanguard"
    ],
    "playstyles": [
-    "Engage",
-    "Crowd control"
-   ]
+    "Mobile",
+    "Crowd Control"
+   ],
+   "ratings": {
+    "damage": 2,
+    "toughness": 3,
+    "control": 3,
+    "mobility": 2,
+    "utility": 1
+   },
+   "cc": {
+    "Q": "knockback",
+    "E": "taunt"
+   },
+   "hardCC": true
   },
   "RekSai": {
    "id": 421,
@@ -1912,9 +3121,16 @@
     "Diver"
    ],
    "playstyles": [
-    "Engage",
-    "Sustain"
-   ]
+    "Mobile",
+    "Dive"
+   ],
+   "ratings": {
+    "damage": 2,
+    "toughness": 2,
+    "control": 2,
+    "mobility": 2,
+    "utility": 2
+   }
   },
   "Rell": {
    "id": 526,
@@ -1930,9 +3146,16 @@
     "Vanguard"
    ],
    "playstyles": [
-    "Engage",
-    "Crowd control"
-   ]
+    "Crowd Control",
+    "Initiator"
+   ],
+   "ratings": {
+    "damage": 1,
+    "toughness": 3,
+    "control": 3,
+    "mobility": 2,
+    "utility": 2
+   }
   },
   "Renata": {
    "id": 888,
@@ -1948,8 +3171,21 @@
     "Enchanter"
    ],
    "playstyles": [
-    "Shields/Heals"
-   ]
+    "Crowd Control",
+    "Ally Protection"
+   ],
+   "ratings": {
+    "damage": 2,
+    "toughness": 1,
+    "control": 3,
+    "mobility": 1,
+    "utility": 2
+   },
+   "cc": {
+    "Q": "slow",
+    "W": "root"
+   },
+   "hardCC": true
   },
   "Renekton": {
    "id": 58,
@@ -1965,9 +3201,20 @@
     "Diver"
    ],
    "playstyles": [
-    "Engage",
-    "Sustain"
-   ]
+    "Duelist",
+    "Durable"
+   ],
+   "ratings": {
+    "damage": 2,
+    "toughness": 2,
+    "control": 2,
+    "mobility": 2,
+    "utility": 1
+   },
+   "cc": {
+    "W": "stun"
+   },
+   "hardCC": true
   },
   "Rengar": {
    "id": 107,
@@ -1983,8 +3230,16 @@
     "Assassin"
    ],
    "playstyles": [
-    "Sustain"
-   ]
+    "Stealth",
+    "Burst"
+   ],
+   "ratings": {
+    "damage": 3,
+    "toughness": 1,
+    "control": 2,
+    "mobility": 2,
+    "utility": 1
+   }
   },
   "Riven": {
    "id": 92,
@@ -2000,8 +3255,20 @@
     "Skirmisher"
    ],
    "playstyles": [
-    "Crowd control"
-   ]
+    "Mobile",
+    "Duelist"
+   ],
+   "ratings": {
+    "damage": 3,
+    "toughness": 2,
+    "control": 2,
+    "mobility": 3,
+    "utility": 1
+   },
+   "cc": {
+    "W": "stun"
+   },
+   "hardCC": true
   },
   "Rumble": {
    "id": 68,
@@ -2017,8 +3284,21 @@
     "Battlemage"
    ],
    "playstyles": [
-    "Poke"
-   ]
+    "Damage-over-Time",
+    "Battlecaster"
+   ],
+   "ratings": {
+    "damage": 3,
+    "toughness": 2,
+    "control": 2,
+    "mobility": 1,
+    "utility": 1
+   },
+   "cc": {
+    "E": "slow",
+    "R": "slow"
+   },
+   "hardCC": false
   },
   "Ryze": {
    "id": 13,
@@ -2033,8 +3313,20 @@
     "Battlemage"
    ],
    "playstyles": [
-    "Poke"
-   ]
+    "Battlecaster",
+    "Sustained Damage"
+   ],
+   "ratings": {
+    "damage": 3,
+    "toughness": 1,
+    "control": 2,
+    "mobility": 2,
+    "utility": 2
+   },
+   "cc": {
+    "W": "root"
+   },
+   "hardCC": true
   },
   "Samira": {
    "id": 360,
@@ -2049,7 +3341,17 @@
    "subclasses": [
     "Marksman"
    ],
-   "playstyles": []
+   "playstyles": [
+    "AoE",
+    "Dive"
+   ],
+   "ratings": {
+    "damage": 3,
+    "toughness": 2,
+    "control": 1,
+    "mobility": 3,
+    "utility": 1
+   }
   },
   "Sejuani": {
    "id": 113,
@@ -2064,9 +3366,22 @@
     "Vanguard"
    ],
    "playstyles": [
-    "Engage",
-    "Crowd control"
-   ]
+    "Crowd Control",
+    "Initiator"
+   ],
+   "ratings": {
+    "damage": 2,
+    "toughness": 2,
+    "control": 3,
+    "mobility": 2,
+    "utility": 1
+   },
+   "cc": {
+    "Q": "knockup",
+    "E": "slow",
+    "R": "stun"
+   },
+   "hardCC": true
   },
   "Senna": {
    "id": 235,
@@ -2084,8 +3399,16 @@
     "Enchanter"
    ],
    "playstyles": [
-    "Shields/Heals"
-   ]
+    "Auto-attack",
+    "Ally Protection"
+   ],
+   "ratings": {
+    "damage": 2,
+    "toughness": 1,
+    "control": 2,
+    "mobility": 1,
+    "utility": 3
+   }
   },
   "Seraphine": {
    "id": 147,
@@ -2101,9 +3424,16 @@
     "Enchanter"
    ],
    "playstyles": [
-    "Poke",
-    "Shields/Heals"
-   ]
+    "AoE",
+    "Ally Protection"
+   ],
+   "ratings": {
+    "damage": 3,
+    "toughness": 1,
+    "control": 3,
+    "mobility": 1,
+    "utility": 2
+   }
   },
   "Sett": {
    "id": 875,
@@ -2119,8 +3449,16 @@
     "Juggernaut"
    ],
    "playstyles": [
-    "Sustain"
-   ]
+    "Duelist",
+    "Durable"
+   ],
+   "ratings": {
+    "damage": 2,
+    "toughness": 2,
+    "control": 2,
+    "mobility": 2,
+    "utility": 1
+   }
   },
   "Shaco": {
    "id": 35,
@@ -2134,7 +3472,22 @@
    "subclasses": [
     "Assassin"
    ],
-   "playstyles": []
+   "playstyles": [
+    "Stealth",
+    "Summon"
+   ],
+   "ratings": {
+    "damage": 3,
+    "toughness": 1,
+    "control": 2,
+    "mobility": 2,
+    "utility": 2
+   },
+   "cc": {
+    "W": "fear",
+    "E": "slow"
+   },
+   "hardCC": true
   },
   "Shen": {
    "id": 98,
@@ -2149,8 +3502,21 @@
     "Warden"
    ],
    "playstyles": [
-    "Engage"
-   ]
+    "Ally Protection",
+    "Duelist"
+   ],
+   "ratings": {
+    "damage": 2,
+    "toughness": 3,
+    "control": 2,
+    "mobility": 2,
+    "utility": 3
+   },
+   "cc": {
+    "W": "slow",
+    "E": "taunt"
+   },
+   "hardCC": true
   },
   "Shyvana": {
    "id": 102,
@@ -2165,10 +3531,18 @@
    "subclasses": [
     "Juggernaut"
    ],
-   "playstyles": [
-    "Engage",
-    "Sustain"
-   ]
+   "playstyles": [],
+   "ratings": {
+    "damage": 2,
+    "toughness": 2,
+    "control": 1,
+    "mobility": 2,
+    "utility": 1
+   },
+   "cc": {
+    "R": "knockback"
+   },
+   "hardCC": true
   },
   "Singed": {
    "id": 27,
@@ -2183,7 +3557,22 @@
    "subclasses": [
     "Specialist"
    ],
-   "playstyles": []
+   "playstyles": [
+    "Battlecaster",
+    "Damage-over-Time"
+   ],
+   "ratings": {
+    "damage": 2,
+    "toughness": 3,
+    "control": 2,
+    "mobility": 2,
+    "utility": 1
+   },
+   "cc": {
+    "W": "slow",
+    "E": "pull"
+   },
+   "hardCC": true
   },
   "Sion": {
    "id": 14,
@@ -2199,9 +3588,21 @@
     "Vanguard"
    ],
    "playstyles": [
-    "Engage",
-    "Sustain"
-   ]
+    "Durable",
+    "Crowd Control"
+   ],
+   "ratings": {
+    "damage": 2,
+    "toughness": 3,
+    "control": 3,
+    "mobility": 1,
+    "utility": 1
+   },
+   "cc": {
+    "W": "slow",
+    "E": "pull"
+   },
+   "hardCC": true
   },
   "Sivir": {
    "id": 15,
@@ -2216,8 +3617,16 @@
     "Marksman"
    ],
    "playstyles": [
-    "Poke"
-   ]
+    "AoE",
+    "Auto-attack"
+   ],
+   "ratings": {
+    "damage": 3,
+    "toughness": 1,
+    "control": 1,
+    "mobility": 1,
+    "utility": 2
+   }
   },
   "Skarner": {
    "id": 72,
@@ -2233,9 +3642,16 @@
     "Vanguard"
    ],
    "playstyles": [
-    "Engage",
-    "Crowd control"
-   ]
+    "Crowd Control",
+    "Initiator"
+   ],
+   "ratings": {
+    "damage": 2,
+    "toughness": 3,
+    "control": 3,
+    "mobility": 2,
+    "utility": 1
+   }
   },
   "Smolder": {
    "id": 901,
@@ -2251,8 +3667,20 @@
     "Marksman"
    ],
    "playstyles": [
-    "Poke"
-   ]
+    "Hypercarry",
+    "AoE"
+   ],
+   "ratings": {
+    "damage": 3,
+    "toughness": 1,
+    "control": 1,
+    "mobility": 1,
+    "utility": 1
+   },
+   "cc": {
+    "E": "slow"
+   },
+   "hardCC": false
   },
   "Sona": {
    "id": 37,
@@ -2268,8 +3696,21 @@
     "Enchanter"
    ],
    "playstyles": [
-    "Shields/Heals"
-   ]
+    "Ally Protection",
+    "Crowd Control"
+   ],
+   "ratings": {
+    "damage": 2,
+    "toughness": 1,
+    "control": 2,
+    "mobility": 1,
+    "utility": 2
+   },
+   "cc": {
+    "E": "slow",
+    "R": "stun"
+   },
+   "hardCC": true
   },
   "Soraka": {
    "id": 16,
@@ -2285,9 +3726,20 @@
     "Enchanter"
    ],
    "playstyles": [
-    "Sustain",
-    "Shields/Heals"
-   ]
+    "Ally Protection",
+    "Crowd Control"
+   ],
+   "ratings": {
+    "damage": 1,
+    "toughness": 1,
+    "control": 2,
+    "mobility": 1,
+    "utility": 3
+   },
+   "cc": {
+    "E": "silence"
+   },
+   "hardCC": true
   },
   "Swain": {
    "id": 50,
@@ -2303,8 +3755,21 @@
     "Battlemage"
    ],
    "playstyles": [
-    "Sustain"
-   ]
+    "Battlecaster",
+    "Self Healing"
+   ],
+   "ratings": {
+    "damage": 2,
+    "toughness": 2,
+    "control": 2,
+    "mobility": 1,
+    "utility": 1
+   },
+   "cc": {
+    "Q": "slow",
+    "W": "root"
+   },
+   "hardCC": true
   },
   "Sylas": {
    "id": 517,
@@ -2320,9 +3785,18 @@
     "Skirmisher"
    ],
    "playstyles": [
-    "Engage",
-    "Sustain"
-   ]
+    "Duelist",
+    "Battlecaster"
+   ],
+   "ratings": {
+    "damage": 2,
+    "toughness": 2,
+    "control": 1,
+    "mobility": 3,
+    "utility": 1
+   },
+   "cc": {},
+   "hardCC": false
   },
   "Syndra": {
    "id": 134,
@@ -2336,7 +3810,22 @@
    "subclasses": [
     "Burst"
    ],
-   "playstyles": []
+   "playstyles": [
+    "Burst",
+    "Long Range"
+   ],
+   "ratings": {
+    "damage": 3,
+    "toughness": 1,
+    "control": 2,
+    "mobility": 1,
+    "utility": 1
+   },
+   "cc": {
+    "W": "slow",
+    "E": "stun"
+   },
+   "hardCC": true
   },
   "TahmKench": {
    "id": 223,
@@ -2352,10 +3841,16 @@
     "Warden"
    ],
    "playstyles": [
-    "Sustain",
-    "Shields/Heals",
-    "Crowd control"
-   ]
+    "Crowd Control",
+    "Ally Protection"
+   ],
+   "ratings": {
+    "damage": 2,
+    "toughness": 3,
+    "control": 2,
+    "mobility": 1,
+    "utility": 3
+   }
   },
   "Taliyah": {
    "id": 163,
@@ -2371,8 +3866,16 @@
     "Battlemage"
    ],
    "playstyles": [
-    "Engage"
-   ]
+    "Crowd Control",
+    "AoE"
+   ],
+   "ratings": {
+    "damage": 3,
+    "toughness": 1,
+    "control": 2,
+    "mobility": 1,
+    "utility": 3
+   }
   },
   "Talon": {
    "id": 91,
@@ -2386,7 +3889,22 @@
    "subclasses": [
     "Assassin"
    ],
-   "playstyles": []
+   "playstyles": [
+    "Mobile",
+    "Burst"
+   ],
+   "ratings": {
+    "damage": 3,
+    "toughness": 1,
+    "control": 1,
+    "mobility": 2,
+    "utility": 1
+   },
+   "cc": {
+    "W": "slow",
+    "E": "silence"
+   },
+   "hardCC": true
   },
   "Taric": {
    "id": 44,
@@ -2402,9 +3920,20 @@
     "Warden"
    ],
    "playstyles": [
-    "Sustain",
-    "Shields/Heals"
-   ]
+    "Durable",
+    "Ally Protection"
+   ],
+   "ratings": {
+    "damage": 1,
+    "toughness": 2,
+    "control": 2,
+    "mobility": 1,
+    "utility": 3
+   },
+   "cc": {
+    "E": "stun"
+   },
+   "hardCC": true
   },
   "Teemo": {
    "id": 17,
@@ -2419,7 +3948,22 @@
    "subclasses": [
     "Specialist"
    ],
-   "playstyles": []
+   "playstyles": [
+    "Damage-over-Time",
+    "Stealth"
+   ],
+   "ratings": {
+    "damage": 3,
+    "toughness": 1,
+    "control": 2,
+    "mobility": 1,
+    "utility": 2
+   },
+   "cc": {
+    "Q": "blind",
+    "R": "slow"
+   },
+   "hardCC": false
   },
   "Thresh": {
    "id": 412,
@@ -2435,9 +3979,22 @@
     "Catcher"
    ],
    "playstyles": [
-    "Engage",
-    "Shields/Heals"
-   ]
+    "Initiator",
+    "Ally Protection"
+   ],
+   "ratings": {
+    "damage": 1,
+    "toughness": 2,
+    "control": 3,
+    "mobility": 1,
+    "utility": 3
+   },
+   "cc": {
+    "Q": "stun",
+    "E": "pull",
+    "R": "slow"
+   },
+   "hardCC": true
   },
   "Tristana": {
    "id": 18,
@@ -2452,7 +4009,22 @@
    "subclasses": [
     "Marksman"
    ],
-   "playstyles": []
+   "playstyles": [
+    "Mobile",
+    "Auto-attack"
+   ],
+   "ratings": {
+    "damage": 3,
+    "toughness": 1,
+    "control": 2,
+    "mobility": 2,
+    "utility": 1
+   },
+   "cc": {
+    "W": "slow",
+    "R": "knockback"
+   },
+   "hardCC": true
   },
   "Trundle": {
    "id": 48,
@@ -2468,8 +4040,21 @@
     "Juggernaut"
    ],
    "playstyles": [
-    "Sustain"
-   ]
+    "Duelist",
+    "Self Healing"
+   ],
+   "ratings": {
+    "damage": 2,
+    "toughness": 3,
+    "control": 1,
+    "mobility": 1,
+    "utility": 2
+   },
+   "cc": {
+    "Q": "slow",
+    "E": "knockback"
+   },
+   "hardCC": true
   },
   "Tryndamere": {
    "id": 23,
@@ -2485,8 +4070,20 @@
     "Skirmisher"
    ],
    "playstyles": [
-    "Sustain"
-   ]
+    "Duelist",
+    "Auto-attack"
+   ],
+   "ratings": {
+    "damage": 3,
+    "toughness": 2,
+    "control": 1,
+    "mobility": 2,
+    "utility": 1
+   },
+   "cc": {
+    "W": "slow"
+   },
+   "hardCC": false
   },
   "TwistedFate": {
    "id": 4,
@@ -2501,7 +4098,21 @@
    "subclasses": [
     "Burst"
    ],
-   "playstyles": []
+   "playstyles": [
+    "Burst",
+    "Auto-attack"
+   ],
+   "ratings": {
+    "damage": 3,
+    "toughness": 1,
+    "control": 2,
+    "mobility": 2,
+    "utility": 2
+   },
+   "cc": {
+    "W": "stun"
+   },
+   "hardCC": true
   },
   "Twitch": {
    "id": 29,
@@ -2516,7 +4127,17 @@
    "subclasses": [
     "Marksman"
    ],
-   "playstyles": []
+   "playstyles": [
+    "Hypercarry",
+    "Stealth"
+   ],
+   "ratings": {
+    "damage": 3,
+    "toughness": 1,
+    "control": 1,
+    "mobility": 2,
+    "utility": 1
+   }
   },
   "Udyr": {
    "id": 77,
@@ -2532,8 +4153,16 @@
     "Juggernaut"
    ],
    "playstyles": [
-    "Sustain"
-   ]
+    "Auto-attack",
+    "Durable"
+   ],
+   "ratings": {
+    "damage": 2,
+    "toughness": 3,
+    "control": 2,
+    "mobility": 2,
+    "utility": 1
+   }
   },
   "Urgot": {
    "id": 6,
@@ -2548,7 +4177,21 @@
    "subclasses": [
     "Juggernaut"
    ],
-   "playstyles": []
+   "playstyles": [
+    "Duelist",
+    "Sustained Damage"
+   ],
+   "ratings": {
+    "damage": 2,
+    "toughness": 2,
+    "control": 2,
+    "mobility": 1,
+    "utility": 1
+   },
+   "cc": {
+    "R": "pull"
+   },
+   "hardCC": true
   },
   "Varus": {
    "id": 110,
@@ -2566,9 +4209,21 @@
     "Artillery"
    ],
    "playstyles": [
-    "Poke",
-    "Sustain"
-   ]
+    "Long Range",
+    "Auto-attack"
+   ],
+   "ratings": {
+    "damage": 3,
+    "toughness": 1,
+    "control": 2,
+    "mobility": 1,
+    "utility": 1
+   },
+   "cc": {
+    "E": "slow",
+    "R": "root"
+   },
+   "hardCC": true
   },
   "Vayne": {
    "id": 67,
@@ -2583,7 +4238,21 @@
    "subclasses": [
     "Marksman"
    ],
-   "playstyles": []
+   "playstyles": [
+    "Hypercarry",
+    "Stealth"
+   ],
+   "ratings": {
+    "damage": 3,
+    "toughness": 1,
+    "control": 2,
+    "mobility": 2,
+    "utility": 1
+   },
+   "cc": {
+    "E": "stun"
+   },
+   "hardCC": true
   },
   "Veigar": {
    "id": 45,
@@ -2598,8 +4267,20 @@
     "Burst"
    ],
    "playstyles": [
-    "Poke"
-   ]
+    "Hypercarry",
+    "Burst"
+   ],
+   "ratings": {
+    "damage": 3,
+    "toughness": 1,
+    "control": 3,
+    "mobility": 1,
+    "utility": 1
+   },
+   "cc": {
+    "E": "stun"
+   },
+   "hardCC": true
   },
   "Velkoz": {
    "id": 161,
@@ -2615,8 +4296,16 @@
     "Artillery"
    ],
    "playstyles": [
-    "Poke"
-   ]
+    "Long Range",
+    "AoE"
+   ],
+   "ratings": {
+    "damage": 3,
+    "toughness": 1,
+    "control": 2,
+    "mobility": 1,
+    "utility": 1
+   }
   },
   "Vex": {
    "id": 711,
@@ -2631,8 +4320,16 @@
     "Burst"
    ],
    "playstyles": [
-    "Poke"
-   ]
+    "Burst",
+    "Crowd Control"
+   ],
+   "ratings": {
+    "damage": 3,
+    "toughness": 2,
+    "control": 2,
+    "mobility": 2,
+    "utility": 1
+   }
   },
   "Vi": {
    "id": 254,
@@ -2648,8 +4345,20 @@
     "Diver"
    ],
    "playstyles": [
-    "Engage"
-   ]
+    "Dive",
+    "Auto-attack"
+   ],
+   "ratings": {
+    "damage": 2,
+    "toughness": 2,
+    "control": 3,
+    "mobility": 2,
+    "utility": 1
+   },
+   "cc": {
+    "R": "knockup"
+   },
+   "hardCC": true
   },
   "Viego": {
    "id": 234,
@@ -2665,10 +4374,21 @@
     "Skirmisher"
    ],
    "playstyles": [
-    "Engage",
-    "Sustain",
-    "Crowd control"
-   ]
+    "Shapeshift",
+    "Duelist"
+   ],
+   "ratings": {
+    "damage": 3,
+    "toughness": 1,
+    "control": 2,
+    "mobility": 2,
+    "utility": 1
+   },
+   "cc": {
+    "Q": "knockup",
+    "W": "slow"
+   },
+   "hardCC": true
   },
   "Viktor": {
    "id": 112,
@@ -2682,7 +4402,21 @@
    "subclasses": [
     "Battlemage"
    ],
-   "playstyles": []
+   "playstyles": [
+    "Sustained Damage",
+    "AoE"
+   ],
+   "ratings": {
+    "damage": 3,
+    "toughness": 1,
+    "control": 2,
+    "mobility": 1,
+    "utility": 1
+   },
+   "cc": {
+    "W": "slow"
+   },
+   "hardCC": false
   },
   "Vladimir": {
    "id": 8,
@@ -2698,8 +4432,20 @@
     "Battlemage"
    ],
    "playstyles": [
-    "Sustain"
-   ]
+    "Self Healing",
+    "Battlecaster"
+   ],
+   "ratings": {
+    "damage": 3,
+    "toughness": 2,
+    "control": 1,
+    "mobility": 1,
+    "utility": 1
+   },
+   "cc": {
+    "W": "slow"
+   },
+   "hardCC": false
   },
   "Volibear": {
    "id": 106,
@@ -2715,8 +4461,20 @@
     "Juggernaut"
    ],
    "playstyles": [
-    "Sustain"
-   ]
+    "Duelist",
+    "Durable"
+   ],
+   "ratings": {
+    "damage": 2,
+    "toughness": 3,
+    "control": 2,
+    "mobility": 2,
+    "utility": 1
+   },
+   "cc": {
+    "Q": "pull"
+   },
+   "hardCC": true
   },
   "Warwick": {
    "id": 19,
@@ -2732,10 +4490,20 @@
     "Diver"
    ],
    "playstyles": [
-    "Engage",
-    "Sustain",
-    "Crowd control"
-   ]
+    "Self Healing",
+    "Duelist"
+   ],
+   "ratings": {
+    "damage": 2,
+    "toughness": 2,
+    "control": 2,
+    "mobility": 1,
+    "utility": 1
+   },
+   "cc": {
+    "R": "suppression"
+   },
+   "hardCC": true
   },
   "Xayah": {
    "id": 498,
@@ -2750,8 +4518,21 @@
     "Marksman"
    ],
    "playstyles": [
-    "Poke"
-   ]
+    "AoE",
+    "Auto-attack"
+   ],
+   "ratings": {
+    "damage": 3,
+    "toughness": 2,
+    "control": 3,
+    "mobility": 1,
+    "utility": 1
+   },
+   "cc": {
+    "Q": "blind",
+    "E": "knockback"
+   },
+   "hardCC": true
   },
   "Xerath": {
    "id": 101,
@@ -2767,8 +4548,16 @@
     "Artillery"
    ],
    "playstyles": [
-    "Poke"
-   ]
+    "Long Range",
+    "AoE"
+   ],
+   "ratings": {
+    "damage": 3,
+    "toughness": 1,
+    "control": 2,
+    "mobility": 1,
+    "utility": 1
+   }
   },
   "XinZhao": {
    "id": 5,
@@ -2783,10 +4572,19 @@
    "subclasses": [
     "Diver"
    ],
-   "playstyles": [
-    "Engage",
-    "Sustain"
-   ]
+   "playstyles": [],
+   "ratings": {
+    "damage": 2,
+    "toughness": 2,
+    "control": 2,
+    "mobility": 2,
+    "utility": 1
+   },
+   "cc": {
+    "Q": "knockup",
+    "R": "knockback"
+   },
+   "hardCC": true
   },
   "Yasuo": {
    "id": 157,
@@ -2802,9 +4600,16 @@
     "Skirmisher"
    ],
    "playstyles": [
-    "Engage",
-    "Crowd control"
-   ]
+    "Duelist",
+    "Mobile"
+   ],
+   "ratings": {
+    "damage": 3,
+    "toughness": 1,
+    "control": 2,
+    "mobility": 3,
+    "utility": 2
+   }
   },
   "Yone": {
    "id": 777,
@@ -2820,9 +4625,16 @@
     "Skirmisher"
    ],
    "playstyles": [
-    "Engage",
-    "Crowd control"
-   ]
+    "Mobile",
+    "Duelist"
+   ],
+   "ratings": {
+    "damage": 3,
+    "toughness": 1,
+    "control": 2,
+    "mobility": 3,
+    "utility": 1
+   }
   },
   "Yorick": {
    "id": 83,
@@ -2838,8 +4650,20 @@
     "Juggernaut"
    ],
    "playstyles": [
-    "Sustain"
-   ]
+    "Summon",
+    "Duelist"
+   ],
+   "ratings": {
+    "damage": 2,
+    "toughness": 2,
+    "control": 2,
+    "mobility": 1,
+    "utility": 2
+   },
+   "cc": {
+    "W": "slow"
+   },
+   "hardCC": false
   },
   "Yunara": {
    "id": 804,
@@ -2850,8 +4674,16 @@
    "classes": [],
    "subclasses": [],
    "playstyles": [
-    "Poke"
-   ]
+    "Auto-attack",
+    "Sustained Damage"
+   ],
+   "ratings": {
+    "damage": 3,
+    "toughness": 1,
+    "control": 1,
+    "mobility": 2,
+    "utility": 1
+   }
   },
   "Yuumi": {
    "id": 350,
@@ -2867,9 +4699,16 @@
     "Enchanter"
    ],
    "playstyles": [
-    "Poke",
-    "Shields/Heals"
-   ]
+    "Ally Protection",
+    "AoE"
+   ],
+   "ratings": {
+    "damage": 1,
+    "toughness": 1,
+    "control": 1,
+    "mobility": 3,
+    "utility": 3
+   }
   },
   "Zaahen": {
    "id": 904,
@@ -2879,10 +4718,14 @@
    ],
    "classes": [],
    "subclasses": [],
-   "playstyles": [
-    "Sustain",
-    "Crowd control"
-   ]
+   "playstyles": [],
+   "ratings": {
+    "damage": 2,
+    "toughness": 2,
+    "control": 2,
+    "mobility": 2,
+    "utility": 1
+   }
   },
   "Zac": {
    "id": 154,
@@ -2898,9 +4741,22 @@
     "Vanguard"
    ],
    "playstyles": [
-    "Engage",
-    "Sustain"
-   ]
+    "Initiator",
+    "Self Healing"
+   ],
+   "ratings": {
+    "damage": 2,
+    "toughness": 3,
+    "control": 3,
+    "mobility": 2,
+    "utility": 1
+   },
+   "cc": {
+    "Q": "slow",
+    "E": "knockup",
+    "R": "knockup"
+   },
+   "hardCC": true
   },
   "Zed": {
    "id": 238,
@@ -2914,7 +4770,22 @@
    "subclasses": [
     "Assassin"
    ],
-   "playstyles": []
+   "playstyles": [
+    "Burst",
+    "Mobile"
+   ],
+   "ratings": {
+    "damage": 3,
+    "toughness": 1,
+    "control": 1,
+    "mobility": 3,
+    "utility": 1
+   },
+   "cc": {
+    "W": "slow",
+    "R": "slow"
+   },
+   "hardCC": false
   },
   "Zeri": {
    "id": 221,
@@ -2929,8 +4800,16 @@
     "Marksman"
    ],
    "playstyles": [
-    "Poke"
-   ]
+    "Mobile",
+    "Burst"
+   ],
+   "ratings": {
+    "damage": 2,
+    "toughness": 1,
+    "control": 2,
+    "mobility": 3,
+    "utility": 1
+   }
   },
   "Ziggs": {
    "id": 115,
@@ -2945,8 +4824,21 @@
     "Artillery"
    ],
    "playstyles": [
-    "Poke"
-   ]
+    "Long Range",
+    "AoE"
+   ],
+   "ratings": {
+    "damage": 3,
+    "toughness": 1,
+    "control": 2,
+    "mobility": 2,
+    "utility": 1
+   },
+   "cc": {
+    "W": "knockback",
+    "E": "slow"
+   },
+   "hardCC": true
   },
   "Zilean": {
    "id": 26,
@@ -2961,7 +4853,21 @@
    "subclasses": [
     "Specialist"
    ],
-   "playstyles": []
+   "playstyles": [
+    "Crowd Control",
+    "Ally Protection"
+   ],
+   "ratings": {
+    "damage": 2,
+    "toughness": 1,
+    "control": 2,
+    "mobility": 2,
+    "utility": 3
+   },
+   "cc": {
+    "E": "slow"
+   },
+   "hardCC": false
   },
   "Zoe": {
    "id": 142,
@@ -2975,7 +4881,17 @@
    "subclasses": [
     "Burst"
    ],
-   "playstyles": []
+   "playstyles": [
+    "Burst",
+    "Long Range"
+   ],
+   "ratings": {
+    "damage": 3,
+    "toughness": 1,
+    "control": 2,
+    "mobility": 2,
+    "utility": 1
+   }
   },
   "Zyra": {
    "id": 143,
@@ -2991,10 +4907,423 @@
     "Catcher"
    ],
    "playstyles": [
-    "Poke",
-    "Engage",
-    "Crowd control"
-   ]
+    "Summon",
+    "Crowd Control"
+   ],
+   "ratings": {
+    "damage": 3,
+    "toughness": 1,
+    "control": 3,
+    "mobility": 1,
+    "utility": 1
+   },
+   "cc": {
+    "E": "root",
+    "R": "knockup"
+   },
+   "hardCC": true
   }
+ },
+ "augments": {
+  "1006": [
+   "lethality",
+   "fighter"
+  ],
+  "1013": [
+   "tank",
+   "enchanter"
+  ],
+  "1015": [
+   "ap",
+   "enchanter"
+  ],
+  "1018": [
+   "tank"
+  ],
+  "1019": [
+   "lethality"
+  ],
+  "1022": [
+   "onhit"
+  ],
+  "1027": [
+   "lethality"
+  ],
+  "1028": [
+   "tank"
+  ],
+  "1030": [
+   "ap"
+  ],
+  "1036": [
+   "onhit"
+  ],
+  "1037": [
+   "enchanter"
+  ],
+  "1038": [
+   "ap"
+  ],
+  "1041": [
+   "fighter",
+   "tank"
+  ],
+  "1044": [
+   "ap",
+   "enchanter"
+  ],
+  "1045": [
+   "ap"
+  ],
+  "1046": [
+   "fighter"
+  ],
+  "1047": [
+   "crit"
+  ],
+  "1048": [
+   "crit",
+   "ap",
+   "lethality",
+   "fighter"
+  ],
+  "1051": [
+   "onhit"
+  ],
+  "1054": [
+   "onhit",
+   "ap",
+   "fighter"
+  ],
+  "1056": [
+   "ap"
+  ],
+  "1057": [
+   "tank"
+  ],
+  "1058": [
+   "onhit",
+   "fighter"
+  ],
+  "1063": [
+   "lethality"
+  ],
+  "1064": [
+   "tank",
+   "enchanter"
+  ],
+  "1067": [
+   "ap",
+   "fighter",
+   "tank",
+   "enchanter"
+  ],
+  "1071": [
+   "onhit"
+  ],
+  "1073": [
+   "lethality"
+  ],
+  "1074": [
+   "onhit"
+  ],
+  "1076": [
+   "tank",
+   "enchanter"
+  ],
+  "1077": [
+   "crit"
+  ],
+  "1079": [
+   "onhit",
+   "fighter"
+  ],
+  "1080": [
+   "crit"
+  ],
+  "1081": [
+   "onhit"
+  ],
+  "1084": [
+   "onhit",
+   "ap",
+   "lethality",
+   "fighter"
+  ],
+  "1087": [
+   "onhit"
+  ],
+  "1092": [
+   "crit"
+  ],
+  "1095": [
+   "tank",
+   "enchanter"
+  ],
+  "1097": [
+   "ap"
+  ],
+  "1115": [
+   "onhit"
+  ],
+  "1118": [
+   "crit",
+   "tank",
+   "enchanter"
+  ],
+  "1129": [
+   "ap"
+  ],
+  "1133": [
+   "ap"
+  ],
+  "1134": [
+   "onhit"
+  ],
+  "1136": [
+   "fighter",
+   "tank",
+   "enchanter"
+  ],
+  "1138": [
+   "onhit",
+   "lethality",
+   "fighter"
+  ],
+  "1141": [
+   "enchanter"
+  ],
+  "1149": [
+   "tank",
+   "enchanter"
+  ],
+  "1152": [
+   "tank"
+  ],
+  "1156": [
+   "ap"
+  ],
+  "1170": [
+   "onhit"
+  ],
+  "1180": [
+   "ap"
+  ],
+  "1181": [
+   "tank"
+  ],
+  "1187": [
+   "lethality",
+   "fighter"
+  ],
+  "1195": [
+   "onhit",
+   "ap",
+   "lethality"
+  ],
+  "1205": [
+   "ap",
+   "lethality"
+  ],
+  "1206": [
+   "onhit",
+   "lethality",
+   "fighter"
+  ],
+  "1211": [
+   "ap",
+   "lethality"
+  ],
+  "1220": [
+   "onhit"
+  ],
+  "1225": [
+   "onhit"
+  ],
+  "1308": [
+   "ap"
+  ],
+  "1310": [
+   "lethality"
+  ],
+  "1311": [
+   "ap",
+   "fighter"
+  ],
+  "1314": [
+   "lethality",
+   "tank"
+  ],
+  "1315": [
+   "lethality"
+  ],
+  "1318": [
+   "ap"
+  ],
+  "1319": [
+   "tank"
+  ],
+  "1320": [
+   "crit",
+   "onhit",
+   "lethality"
+  ],
+  "1322": [
+   "onhit",
+   "lethality",
+   "fighter"
+  ],
+  "1323": [
+   "ap",
+   "tank",
+   "enchanter"
+  ],
+  "1324": [
+   "tank",
+   "enchanter"
+  ],
+  "1325": [
+   "crit",
+   "onhit",
+   "ap",
+   "lethality",
+   "fighter"
+  ],
+  "1326": [
+   "lethality"
+  ],
+  "1327": [
+   "ap",
+   "tank",
+   "enchanter"
+  ],
+  "1328": [
+   "crit",
+   "onhit"
+  ],
+  "1331": [
+   "enchanter"
+  ],
+  "1332": [
+   "ap",
+   "enchanter"
+  ],
+  "1336": [
+   "crit"
+  ],
+  "1337": [
+   "lethality",
+   "fighter",
+   "tank"
+  ],
+  "1344": [
+   "ap",
+   "lethality",
+   "tank"
+  ],
+  "1345": [
+   "onhit",
+   "ap",
+   "lethality",
+   "fighter"
+  ],
+  "1346": [
+   "onhit",
+   "ap",
+   "lethality",
+   "fighter"
+  ],
+  "1353": [
+   "tank"
+  ],
+  "1356": [
+   "crit",
+   "onhit"
+  ],
+  "1361": [
+   "tank"
+  ],
+  "1375": [
+   "tank"
+  ],
+  "1390": [
+   "ap"
+  ],
+  "1415": [
+   "crit"
+  ],
+  "1420": [
+   "tank",
+   "enchanter"
+  ],
+  "1421": [
+   "lethality",
+   "tank"
+  ],
+  "1996": [
+   "onhit"
+  ],
+  "2004": [
+   "enchanter"
+  ],
+  "2005": [
+   "fighter"
+  ],
+  "2006": [
+   "tank"
+  ],
+  "2009": [
+   "crit",
+   "onhit"
+  ],
+  "2010": [
+   "crit"
+  ],
+  "2016": [
+   "crit"
+  ],
+  "2024": [
+   "crit"
+  ],
+  "2026": [
+   "lethality"
+  ],
+  "2064": [
+   "lethality",
+   "tank"
+  ],
+  "2065": [
+   "lethality",
+   "tank"
+  ],
+  "2073": [
+   "lethality",
+   "tank"
+  ],
+  "2077": [
+   "ap",
+   "tank",
+   "enchanter"
+  ],
+  "2099": [
+   "lethality"
+  ],
+  "2100": [
+   "enchanter"
+  ],
+  "2102": [
+   "fighter"
+  ],
+  "2108": [
+   "enchanter"
+  ],
+  "2116": [
+   "enchanter"
+  ],
+  "2144": [
+   "ap",
+   "tank",
+   "enchanter"
+  ]
  }
 }

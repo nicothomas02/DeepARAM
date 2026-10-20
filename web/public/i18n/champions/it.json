@@ -140,5 +140,20 @@
  "{n} boost": "aumento di {n}",
  "of {n} by DeepScore": "su {n} per DeepScore",
  "Win rates are estimated. The boost below each is how much the augment adds to this champion's win rate.": "Le percentuali di vittorie sono stimate. L'aumento sotto ognuna indica quanto il potenziamento aggiunge alla percentuale di vittorie di questo campione.",
- "Spell pairs with win rate, pick rate and win rate boost appear here once enough games are in.": "Le coppie di incantesimi con percentuale di vittorie, di scelta e aumento vittorie compariranno qui quando ci saranno abbastanza partite."
+ "Spell pairs with win rate, pick rate and win rate boost appear here once enough games are in.": "Le coppie di incantesimi con percentuale di vittorie, di scelta e aumento vittorie compariranno qui quando ci saranno abbastanza partite.",
+ "Rival quest": "Missione rivale",
+ "Team quest": "Missione di squadra",
+ "When {name} is on the other team": "Quando {name} è nella squadra avversaria",
+ "When {name} is on your team": "Quando {name} è nella tua squadra",
+ "No hard CC": "Nessun controllo duro",
+ "Damage": "Danni",
+ "Toughness": "Robustezza",
+ "Crowd Control": "Effetti di controllo",
+ "Mobility": "Mobilità",
+ "Utility": "Utilità",
+ "The champion's ability to deal damage to enemy champions": "L'abilità del campione di infliggere danni ai campioni nemici",
+ "The champion's ability to absorb damage from enemy champions": "L'abilità del campione di assorbire danni dai campioni nemici",
+ "The champion's ability to apply harmful effects like slows and stuns to enemy champions": "L'abilità del campione di applicare effetti dannosi come rallentamenti e stordimenti ai campioni nemici",
+ "The champion's ability to move quickly around the map using blinks or dashes": "L'abilità del campione di spostarsi rapidamente sulla mappa usando teletrasporti o scatti",
+ "The champion's ability to grant beneficial effects like shields, healing, or movement speed to allied champions": "L'abilità del campione di conferire effetti benefici come scudi, cure e velocità di movimento ai campioni alleati"
 }

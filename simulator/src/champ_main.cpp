@@ -54,14 +54,15 @@ Usage: mayhem_sim [options]
                       Name:hp=5000:armor=250 (hp, armor, mr, damage_share, phys_share,
                       cc, damage_taken); add items and augments with
                       Name:items=warmogs+thornmail:augs=goliath (their HP, armor, MR)
-  --allies a,b,c,d    with --champ: a 5v5 with these four allies (each with its most
-                      popular build, or Name:items=a+b:augs=c+d); --items/--augs set
-                      yours (default: your most popular build); --team names the five
+  --allies a,b,c,d    with --champ: a teamfight with these allies, 0 to 4 ("" for none; each
+                      with its most popular build, or Name:items=a+b:augs=c+d); --items/--augs
+                      set yours (default: your most popular build); --team names 1 to 5
                       enemies the same way (default: the five most likely enemies)
   --combo EQRW        with --champ: cast order when several abilities are ready
                       (default: the champion's recommended combo, data/combos.json)
   --metric M          what the build search ranks by: damage (per second, the default), or per
-                      fight taken (damage taken), mitigated, healing, or cc (seconds dealt)
+                      fight taken (damage taken), mitigated, healing, shielding (damage your
+                      shields absorbed) or cc (seconds dealt)
   --list --json       champions, items, augments, settings and the enemy pool as JSON
   --help              show this help
 )";
@@ -176,6 +177,7 @@ bool writeTrace(const Library& lib, const ChampionKit& c, const Build& b, const 
       << ", \"died\": " << (tr.result.died ? "true" : "false") << ", \"time_alive\": " << num(tr.result.timeAlive)
       << ", \"total_damage\": " << num(tr.result.totalDamage) << ", \"damage_taken\": " << num(tr.result.damageTaken)
       << ", \"damage_mitigated\": " << num(tr.result.mitigated) << ", \"healing\": " << num(tr.result.healed)
+      << ", \"shielding\": " << num(tr.result.shielded)
       << ", \"cc_seconds\": " << num(tr.result.ccDealt) << ", \"kills\": " << tr.result.kills << ", \"team\": [";
     for (size_t i = 0; i < tr.team.size(); ++i) o << (i ? ", " : "") << jsonStr(tr.team[i]);
     o << "]},\n \"sources\": [";
@@ -195,6 +197,7 @@ bool writeTrace(const Library& lib, const ChampionKit& c, const Build& b, const 
             o << ", \"hp\": " << num(e.hp) << ", \"max\": " << num(e.maxHp);
         if (e.shield > 0) o << ", \"sh\": " << num(e.shield);
         if (e.kind == "self" || e.kind == "death") o << ", \"tk\": " << std::lround(e.taken) << ", \"mt\": " << std::lround(e.mitigated);
+        if ((e.kind == "self" || e.kind == "death") && e.shielded >= 0.5) o << ", \"ab\": " << std::lround(e.shielded);
         if (e.total > 0) o << ", \"tot\": " << num(e.total);
         if (e.flag) o << ", \"f\": 1";
         if (e.kind == "cast" || e.kind == "poro") o << ", \"ax\": " << std::lround(e.x) << ", \"ay\": " << std::lround(e.y) << ", \"fl\": " << num(e.flight);
@@ -220,10 +223,10 @@ std::string summaryJson(const Summary& s) {
                   "{\"mean_dps\": %.1f, \"ci95\": %.1f, \"p5\": %.1f, \"median\": %.1f, \"p95\": %.1f, "
                   "\"single_target_dps\": %.1f, \"kills_per_minute\": %.3f, \"survival_rate\": %.4f, "
                   "\"time_alive\": %.2f, \"damage_taken_per_s\": %.1f, \"dps_short_fight\": %.1f, \"dps_long_fight\": %.1f, "
-                  "\"damage_taken\": %.0f, \"damage_mitigated\": %.0f, \"healing\": %.0f, \"cc_seconds\": %.2f, \"share_by_source\": {",
+                  "\"damage_taken\": %.0f, \"damage_mitigated\": %.0f, \"healing\": %.0f, \"shielding\": %.0f, \"cc_seconds\": %.2f, \"share_by_source\": {",
                   s.meanDps, s.ci95, s.p5, s.median, s.p95, s.singleTargetDps, s.killsPerMinute, s.survivalRate,
                   s.meanTimeAlive, s.damageTakenPerSec, s.shortDps, s.longDps, s.damageTaken, s.damageMitigated, s.healing,
-                  s.ccSeconds);
+                  s.shielding, s.ccSeconds);
     std::string out = buf;
     for (int i = 0; i < SrcCount; ++i) {
         std::snprintf(buf, sizeof buf, "%s\"%s\": %.4f", i ? ", " : "", kSourceNames[i], s.shareBySource[i]);
@@ -301,7 +304,7 @@ double spearman(std::vector<double> a, std::vector<double> b) {
 int main(int argc, char** argv) {
     std::string rulesPath = MAYHEM_DEFAULT_RULES, gameDir, champName, kitName;
     std::vector<std::string> items, augs;
-    bool all = false, asJson = false, list = false, customBuild = false, anyItems = false, smartSearch = false;
+    bool all = false, asJson = false, list = false, customBuild = false, anyItems = false, smartSearch = false, teamMode = false;
     std::string tracePath, traceDir, combo;
     Metric metric = Metric::Damage;
     Library::Settings settings;
@@ -338,11 +341,11 @@ int main(int argc, char** argv) {
         else if (a == "--trace") tracePath = next();
         else if (a == "--trace-dir") traceDir = next();
         else if (a == "--team") team = splitList(next());
-        else if (a == "--allies") allies = splitList(next());
+        else if (a == "--allies") { allies = splitList(next()); teamMode = true; }
         else if (a == "--combo") combo = next();
         else if (a == "--metric") {
             const std::string m = next();
-            if (!parseMetric(m, metric)) { std::cerr << "--metric must be damage, taken, mitigated, healing or cc, got " << m << "\n"; return 2; }
+            if (!parseMetric(m, metric)) { std::cerr << "--metric must be damage, taken, mitigated, healing, shielding or cc, got " << m << "\n"; return 2; }
         }
         else if (a == "--set") {
             for (const auto& kv : splitList(next())) {
@@ -477,7 +480,7 @@ int main(int argc, char** argv) {
         if (!champName.empty()) {
             const ChampionKit* c = lib.find(champName);
             if (!c) { std::cerr << "unknown champion " << champName << "\n"; return 2; }
-            if (!allies.empty()) {
+            if (teamMode) {
                 // "Lulu" or "Lulu:items=a+b:augs=c+d", each with its most popular build unless given.
                 auto pickOf = [&](const std::string& entry) {
                     std::vector<std::string> parts;
@@ -519,8 +522,8 @@ int main(int argc, char** argv) {
                     !writeTrace(lib, *c, tr.members.front().build, tr.members.front().scenario, tr.members.front().summary, tracePath))
                     return 1;
                 if (asJson) {
-                    std::printf("{\"mode\": \"team\", \"win_rate\": %.4f, \"fight_length\": %.2f, \"team_dps\": %.1f, \"enemy_dps\": %.1f",
-                                tr.winRate, tr.fightLength, tr.teamDps, tr.enemyDps);
+                    std::printf("{\"mode\": \"team\", \"trials\": %d, \"win_rate\": %.4f, \"fight_length\": %.2f, \"team_dps\": %.1f, "
+                                "\"enemy_dps\": %.1f", n, tr.winRate, tr.fightLength, tr.teamDps, tr.enemyDps);
                     for (int s = 0; s < 2; ++s) {
                         const auto& list = s ? tr.foes : tr.members;
                         std::printf(", \"%s\": [", s ? "enemies" : "members");
@@ -543,7 +546,7 @@ int main(int argc, char** argv) {
                     }
                     std::printf("]}\n");
                 } else {
-                    std::printf("5v5: your team wins %.0f%% of fights; a fight lasts %.1f s (median).\n", tr.winRate * 100,
+                    std::printf("%zuv%zu: your team wins %.0f%% of fights; a fight lasts %.1f s (median).\n", mine.size(), theirs.size(), tr.winRate * 100,
                                 tr.fightLength);
                     std::printf("Your team deals %.0f damage per second, the enemy team %.0f.\n", tr.teamDps, tr.enemyDps);
                     for (int s = 0; s < 2; ++s) {

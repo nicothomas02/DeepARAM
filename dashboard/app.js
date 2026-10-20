@@ -59,6 +59,14 @@ function pickLang() {
 
 const LANG = pickLang();
 let DICT = {}, NAMES = {};
+// The game's own end-of-game Victory / Defeat art, in the page's language (web/src/i18n/languages.json).
+const RIOT_LOCALE = { en: "en_us", ar: "ar_ae", cs: "cs_cz", de: "de_de", el: "el_gr", es: "es_es", "es-MX": "es_mx", fr: "fr_fr", hu: "hu_hu",
+  id: "id_id", it: "it_it", ja: "ja_jp", ko: "ko_kr", pl: "pl_pl", "pt-BR": "pt_br", ro: "ro_ro", ru: "ru_ru", th: "th_th", tr: "tr_tr",
+  vi: "vi_vn", "zh-CN": "zh_cn", "zh-TW": "zh_tw" };
+function resultBanner(win) {
+  const loc = RIOT_LOCALE[LANG] || "en_us";
+  return `<img class="result-banner" src="/assets/cd/latest/game/${loc}/assets/ux/endofgame/en_us/${win ? "victory" : "defeat"}.png" width="96" height="22" alt="${esc(t(win ? "Win" : "Loss"))}" loading="lazy">`;
+}
 /** Text in the page's language: t("English text", { placeholder: value }). */
 const t = (s, v) => {
   const r = DICT[s] || s;
@@ -769,7 +777,7 @@ function showMate(r) {
     <ul class="mate-champs">${champs.map((c) => `<li>${icon(c.id)}<span>${esc(champById(c.id))}</span><small>${esc(t(c.n === 1 ? "1 game" : "{n} games", { n: c.n }))} · ${pct(c.w / c.n)}</small></li>`).join("")}</ul>
     <h5>${esc(t("Games together"))}</h5>
     <div class="tbl-wrap"><table class="mate-games"><thead><tr><th>${esc(t("Date"))}</th><th>${esc(t("Their champion"))}</th><th>${esc(t("Your champion"))}</th><th>${esc(t("Result"))}</th><th>${esc(t("Their K / D / A"))}</th></tr></thead><tbody>${
-      r.games.slice(0, 20).map(({ g, m }) => `<tr><td>${fmtDate(new Date(g.time))}</td><td>${esc(champById(m.champ))}</td><td>${esc(champName(g))}</td><td class="${g.win ? "win" : "loss"}">${esc(t(g.win ? "Win" : "Loss"))}</td><td>${m.k} / ${m.d} / ${m.a}</td></tr>`).join("")
+      r.games.slice(0, 20).map(({ g, m }) => `<tr><td>${fmtDate(new Date(g.time))}</td><td>${esc(champById(m.champ))}</td><td>${esc(champName(g))}</td><td class="${g.win ? "win" : "loss"}">${resultBanner(g.win)}</td><td>${m.k} / ${m.d} / ${m.a}</td></tr>`).join("")
     }</tbody></table></div>`;
   box.hidden = false;
 }
@@ -792,7 +800,7 @@ function renderGames(games) {
   table("t-games", [
     { label: "Date", get: (r) => r.time, fmt: (r) => fmtDate(new Date(r.time)) },
     { label: "Champion", get: (r) => champName(r), fmt: (r) => esc(champName(r)) },
-    { label: "Result", get: (r) => +r.win, fmt: (r) => esc(t(r.win ? "Win" : "Loss")), cls: (r) => (r.win ? "win" : "loss") },
+    { label: "Result", get: (r) => +r.win, fmt: (r) => resultBanner(r.win), cls: (r) => (r.win ? "win" : "loss") },
     { label: "K / D / A", get: (r) => (r.kills + r.assists) / Math.max(1, r.deaths), fmt: (r) => `${r.kills} / ${r.deaths} / ${r.assists}` },
     { label: "Damage", get: (r) => r.damage, fmt: (r) => r.damage.toLocaleString() },
     { label: "Length", get: (r) => r.duration, fmt: (r) => `${Math.floor(r.duration / 60)}:${String(r.duration % 60).padStart(2, "0")}` },
@@ -1374,7 +1382,7 @@ function renderLive() {
     { label: "Date", get: (x) => x.r.startedAt, fmt: (x) => fmtDate(new Date(x.r.startedAt)) },
     { label: "Champion", get: (x) => x.r.player.champion || "", fmt: (x) => esc(x.r.player.champion || "") },
     { label: "Map", get: (x) => terrainName(x.r), fmt: (x) => esc(terrainName(x.r)) },
-    { label: "Result", get: (x) => (x.g ? +x.g.win : -1), fmt: (x) => esc(t(x.g ? (x.g.win ? "Win" : "Loss") : "Not synced")), cls: (x) => (x.g ? (x.g.win ? "win" : "loss") : "") },
+    { label: "Result", get: (x) => (x.g ? +x.g.win : -1), fmt: (x) => (x.g ? resultBanner(x.g.win) : esc(t("Not synced"))), cls: (x) => (x.g ? (x.g.win ? "win" : "loss") : "") },
     { label: "Length", get: (x) => x.r.gameTime, fmt: (x) => mmss(x.r.gameTime) },
     { label: "Level", get: (x) => x.last.level || 0 },
     { label: "AD", get: (x) => st(x, "attackDamage") },

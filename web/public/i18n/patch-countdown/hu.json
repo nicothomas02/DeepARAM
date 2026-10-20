@@ -5,5 +5,5 @@
  "Today": "Ma",
  "day": "nap",
  "days": "nap",
- "{date} (Pacific Time)": "{date} (csendes-óceáni idő)"
+ "Patch {patch} comes out in under 24 hours": "A(z) {patch} patch kevesebb mint 24 óra múlva megjelenik"
 }

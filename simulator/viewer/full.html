@@ -46,20 +46,22 @@
 * { box-sizing: border-box; }
 html, body { background: var(--abyss); color: var(--frost); }
 body { margin: 0; font: 14px/1.5 var(--body); }
-.wrap { margin: 0 auto; padding-block: 40px 48px;
+.wrap { margin: 0 auto; padding-block: 20px 48px;
   padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
   display: grid; gap: 16px; }
 header { display: flex; flex-wrap: wrap; align-items: end; gap: 12px 24px; justify-content: space-between; }
 h1 { font: 700 clamp(26px, 3.2vw, 32px)/1.1 var(--display); letter-spacing: -.025em; margin: 0; text-wrap: balance; }
 .eyebrow { font: 500 11.5px/1 var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
 .picker { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.picker label[for="modeSel"], .picker label[for="patchSel"] { margin-left: 12px; }
 label.lbl { font: 500 11px/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
 select, button { font: 500 14px var(--body); color: var(--frost); background: transparent; border: 1px solid var(--line);
   border-radius: 10px; padding: 7px 12px; background: var(--surface); }
 button { cursor: pointer; }
 button:hover, select:hover { background: var(--accent-soft); border-color: var(--accent-line); }
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 6px; }
-.stage { display: grid; grid-template-columns: minmax(0, 1fr); gap: 16px; align-items: start; }
+/* The arena stays a moderate size on wide screens, centred, so the panels below stay in view. */
+.stage { display: grid; grid-template-columns: minmax(0, 1fr); gap: 16px; align-items: start; width: 100%; max-width: 880px; margin: 0 auto; }
 @media (max-width: 860px) { .stage { grid-template-columns: minmax(0, 1fr); } }
 .arena { background: var(--screen); border: 1px solid var(--line); border-radius: 14px; color-scheme: dark; overflow: hidden; position: relative; min-width: 0; }
 .arena canvas { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; max-width: 100%; }
@@ -81,11 +83,14 @@ button:hover, select:hover { background: var(--accent-soft); border-color: var(-
 .abilities { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; padding: 12px; align-content: start; }
 .ab { position: relative; padding: 0; border-radius: 8px; overflow: hidden; aspect-ratio: 1; border: 2px solid var(--line); background: var(--panel-2); }
 .ab canvas { width: 100%; height: 100%; display: block; }
-.ab .key { position: absolute; left: 4px; bottom: 3px; font: 600 12px var(--mono); text-shadow: 0 1px 2px #000; }
+.ab .key { position: absolute; left: 3px; bottom: 2px; font: 600 10px var(--mono); text-shadow: 0 1px 2px #000; }
 .ab .cd { position: absolute; inset: 0; pointer-events: none; }
-.ab-row { grid-template-columns: repeat(5, 48px); justify-content: center; padding: 0; gap: 8px; }
+/* The ability row sits in the arena's bottom-left corner, so the arena keeps the space. */
+.ab-row { position: absolute; left: 8px; bottom: 8px; z-index: 2; display: grid;
+  grid-template-columns: repeat(5, 30px); gap: 4px; padding: 4px 6px 2px; border-radius: 10px; background: rgba(5, 8, 12, .6); }
+.ab-row .ab { border-radius: 6px; border-width: 1.5px; }
 .ab-wrap { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
-.ab-cd { text-align: center; font: 600 11px var(--mono); color: var(--muted); min-height: 1.2em; }
+.ab-cd { text-align: center; font: 600 9.5px var(--mono); color: #c9d1d9; min-height: 1.15em; }
 .ab:disabled { cursor: default; opacity: 1; }
 .ab.lit { border-color: var(--accent); }
 .clip-note { padding: 0 12px 12px; color: var(--muted); font-size: 12px; }
@@ -98,8 +103,15 @@ button:hover, select:hover { background: var(--accent-soft); border-color: var(-
 .track canvas { width: 100%; height: 100%; display: block; }
 .legend { display: flex; flex-wrap: wrap; gap: 6px 16px; color: var(--muted); font-size: 12px; }
 .legend i { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 6px; vertical-align: -1px; }
-.lower { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 16px; }
-@media (max-width: 860px) { .lower { grid-template-columns: minmax(0, 1fr); } }
+/* Results: the build and its numbers on the left, damage by source on the right, in one compact card. */
+.results { padding: 14px 18px; }
+.results-grid { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 12px 24px; }
+@media (max-width: 860px) { .results-grid { grid-template-columns: minmax(0, 1fr); } }
+.results h3 { margin: 0 0 8px; font: 600 13px var(--body); color: var(--muted); }
+.results .stats { grid-template-columns: repeat(auto-fit, minmax(92px, 1fr)); gap: 8px; margin-top: 10px; }
+.results .stats b { font-size: 17px; }
+.results .bars { gap: 5px; }
+.results .bar { grid-template-columns: 100px minmax(0, 1fr) 60px; font-size: 12.5px; }
 .card { background: var(--panel); border: 1px solid var(--line); border-top: 2px solid var(--accent); border-radius: 14px; padding: 18px 20px; min-width: 0; }
 .card h2 { font: 500 11.5px/1 var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--accent-text); margin: 0 0 12px; }
 .build { display: flex; flex-wrap: wrap; gap: 6px; }
@@ -176,6 +188,7 @@ fieldset.wide { grid-column: 1 / -1; }
   color: var(--fg); background: var(--bg); border: 1px solid var(--line); border-radius: 14px; }
 .adv-dialog::backdrop { background: rgba(0, 0, 0, .55); }
 .adv-dialog h2 { margin: 0 0 4px; }
+.adv-dialog h2:focus { outline: none; }
 .adv-actions { position: sticky; bottom: -18px; display: flex; justify-content: flex-end; gap: 8px; margin: 14px -20px -18px; padding: 12px 20px;
   background: var(--bg); border-top: 1px solid var(--line); }
 #advCount { color: var(--e); text-transform: none; letter-spacing: 0; }
@@ -200,6 +213,12 @@ fieldset.wide { grid-column: 1 / -1; }
       <label class="lbl" for="champ">Champion</label>
       <select id="champ" aria-label="Champion"></select>
       <button id="rand" type="button" title="Pick a random champion">Random</button>
+      <label class="lbl" for="modeSel" title="What the simulator measures, and what Optimize looks for">Optimize for</label>
+      <select id="modeSel" disabled><option value="damage">Damage</option><option value="taken">Damage taken</option>
+        <option value="mitigated">Damage mitigated</option><option value="healing">Healing done</option>
+        <option value="shielding">Shielding</option><option value="cc">Crowd control (seconds)</option></select>
+      <label class="lbl" for="patchSel" title="The test server's upcoming patch">Patch</label>
+      <select id="patchSel" disabled><option value="live">Live</option><option value="pbe">PBE (test server)</option></select>
     </div>
   </header>
 
@@ -208,9 +227,9 @@ fieldset.wide { grid-column: 1 / -1; }
       <canvas id="arena" width="1280" height="720" aria-label="Animated fight"></canvas>
       <canvas id="arena3d" class="layer" aria-hidden="true"></canvas>
       <canvas id="arenaOverlay" class="layer" width="1280" height="720" aria-hidden="true"></canvas>
+      <div class="abilities ab-row" id="abilities"></div>
       <div class="hud"><span>Kills <b id="kills">0</b></span><span>Damage <b id="dmg">0</b></span><span id="modeHud" hidden><span id="modeName"></span> <b id="modeVal">0</b></span><span id="state"></span></div>
     </div>
-    <div class="abilities ab-row" id="abilities"></div>
     <div class="clip" hidden>
       <div class="clip-cap"><span class="chip" id="clipChip" style="background:var(--q)">Q</span><span class="nm" id="clipName">Ability</span></div>
       <div class="clip-video" id="clipVideo">
@@ -243,18 +262,26 @@ fieldset.wide { grid-column: 1 / -1; }
     </div>
   </section>
 
+  <section class="card results" aria-labelledby="resultsTitle">
+    <h2 id="resultsTitle">Results</h2>
+    <div class="results-grid">
+      <div>
+        <h3 id="buildTitle">Simulated best build</h3>
+        <div class="build" id="build"></div>
+        <div class="stats" id="stats"></div>
+      </div>
+      <div>
+        <h3>Damage so far</h3>
+        <div class="bars" id="bars"></div>
+      </div>
+    </div>
+  </section>
+
   <section class="card sim" id="sim">
     <div class="sim-head">
       <h2>Change the simulation</h2>
-      <label class="patch" title="What the simulator measures, and what Find the best build looks for">Mode
-        <select id="modeSel" disabled><option value="damage">Damage</option><option value="taken">Damage taken</option>
-          <option value="mitigated">Damage mitigated</option><option value="healing">Healing done</option>
-          <option value="cc">Crowd control (seconds)</option></select></label>
-      <label class="patch" title="The test server's upcoming patch">Patch
-        <select id="patchSel" disabled><option value="live">Live</option><option value="pbe">PBE (test server)</option></select></label>
-      <button id="runBuild" class="primary" type="button" disabled>Simulate this build</button>
-      <button id="findBest" type="button" disabled>Find the best build</button>
-      <button id="resetAll" type="button" disabled>Reset to defaults</button>
+      <button id="findBest" type="button" disabled>Optimize</button>
+      <button id="runBuild" class="primary" type="button" disabled>Simulate</button>
     </div>
     <div class="sim-status" id="simStatus">Loading the simulator…</div>
     <div class="sim-submit" id="submitBox" hidden>
@@ -282,7 +309,7 @@ fieldset.wide { grid-column: 1 / -1; }
     </div>
     <div class="adv"><button type="button" id="advBtn" aria-haspopup="dialog">Advanced settings <span id="advCount"></span></button></div>
     <dialog class="adv-dialog" id="advDialog" aria-labelledby="advTitle">
-      <h2 id="advTitle">Advanced settings</h2>
+      <h2 id="advTitle" tabindex="-1" autofocus>Advanced settings</h2>
       <p class="note">Changes here take effect when you press Apply.</p>
       <div class="sim-grid" id="advGrid"></div>
       <div class="adv-actions"><button type="button" id="advCancel">Cancel</button> <button type="button" class="primary" id="advApply">Apply</button></div>
@@ -290,28 +317,17 @@ fieldset.wide { grid-column: 1 / -1; }
     <div class="alts" id="alts" hidden></div>
   </section>
 
-  <section class="lower">
-    <div class="card">
-      <h2 id="buildTitle">Simulated best build</h2>
-      <div class="build" id="build"></div>
-      <div class="stats" id="stats"></div>
-    </div>
-    <div class="card">
-      <h2>Damage so far</h2>
-      <div class="bars" id="bars"></div>
-    </div>
-  </section>
 
   <p class="note">The simulator is in beta: an experiment whose results can shift as the model changes. This is one typical fight (the median of 200) from the simulator, using the build it found best. Some champions' numbers are approximate, and passives that depend on allies, deaths or summons aren't counted.
   The champion models, animations, sounds and icons belong to Riot Games. This project isn't endorsed by Riot Games and doesn't reflect the views or opinions of Riot Games or anyone officially involved in producing or managing League of Legends.</p>
 </div>
-<script>window.REPLAY_VERSION = "70";</script>
-<script src="i18n.js?v=69"></script>
-<script src="replay.js?v=69"></script>
+<script>window.REPLAY_VERSION = "72";</script>
+<script src="i18n.js?v=72"></script>
+<script src="replay.js?v=72"></script>
 <script type="importmap">{"imports": {"three": "/assets/lib/three-0.160.0/build/three.module.js",
   "three/addons/": "/assets/lib/three-0.160.0/examples/jsm/"}}</script>
-<script type="module" src="models3d.js?v=70"></script>
-<script src="sim-panel.js?v=69"></script>
+<script type="module" src="models3d.js?v=72"></script>
+<script src="sim-panel.js?v=72"></script>
 <!-- replay-page-end -->
 </body>
 </html>

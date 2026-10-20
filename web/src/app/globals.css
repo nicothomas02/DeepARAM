@@ -412,6 +412,35 @@ h1 {
   animation: rise 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
+/* Page headers over a Howling Abyss painting (Intro art, the Home hero): the art sits on the right and fades
+   into the page colour on the left, behind the text. */
+.has-art {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: clamp(1.25rem, 4vw, 2.5rem) clamp(1rem, 3vw, 2rem);
+  border-radius: var(--r, 24px);
+}
+.has-art::before,
+.has-art::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+.has-art::before {
+  background: var(--art) right center / cover no-repeat;
+}
+.has-art::after {
+  background: linear-gradient(90deg, var(--bg) 0%, var(--bg) 30%, transparent 85%), linear-gradient(0deg, var(--bg) 0%, transparent 45%);
+  opacity: 0.92;
+}
+@media (max-width: 640px) {
+  .has-art::after {
+    background: linear-gradient(0deg, var(--bg) 10%, transparent 100%), linear-gradient(90deg, var(--bg) 0%, transparent 100%);
+  }
+}
+
 .intro.compact h1 {
   font-size: clamp(1.75rem, 3.6vw, 2.25rem);
 }
@@ -3064,6 +3093,7 @@ html[data-motion="reduce"] .btn:hover {
   gap: 1rem;
 }
 
+/* The icon sits on the game's own augment-card swirl for its rarity (augment-back images in public/assets/art). */
 .aug-hero-icon {
   flex: none;
   padding: 6px;
@@ -3072,13 +3102,19 @@ html[data-motion="reduce"] .btn:hover {
   background: #11151c;
 }
 
+.aug-hero-icon[data-tier="silver"] {
+  background: url(/assets/art/augment-back-silver.webp) center / 100% no-repeat, #11151c;
+}
+
 .aug-hero-icon[data-tier="gold"] {
   border-color: var(--gold);
+  background: url(/assets/art/augment-back-gold.webp) center / 100% no-repeat, #11151c;
 }
 
 .aug-hero-icon[data-tier="prismatic"] {
   border-color: transparent;
   background:
+    url(/assets/art/augment-back-prismatic.webp) center / 100% no-repeat padding-box,
     linear-gradient(#11151c, #11151c) padding-box,
     var(--prismatic) border-box;
 }
@@ -5453,6 +5489,13 @@ html[data-patch-new] .chip[data-dir="up"]::after {
   border-color: var(--tag);
 }
 .items-bar,
+.duo-quest {
+  margin: 0.75rem 0 0;
+  color: var(--muted);
+}
+.duo-quest a {
+  color: inherit;
+}
 .duos-bar {
   display: flex;
   flex-wrap: wrap;
@@ -5871,7 +5914,7 @@ html[dir="rtl"] .rank-v {
 .kitchen-sub p { margin: 0; }
 .kitchen-sub-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; }
 
-/* "Show fewer animations" above the Simulator's 1v1 replay: on, the 2D replay; off, the 3D one. */
+/* "Performance mode" above the Simulator's 1v1 replay: on, the 2D replay; off, the 3D one. */
 .sim-view-switch {
   display: flex;
   justify-content: flex-end;
@@ -6220,4 +6263,135 @@ summary.items-tier-h::before {
   margin-top: 12px;
   color: var(--accent);
   font-size: 0.8125rem;
+}
+
+/* Draft practice: ARAM champ select with cards, rerolls and the shared bench (ChampSelectDraft). */
+.cs-draft {
+  display: grid;
+  gap: 18px;
+  max-width: 760px;
+}
+.cs-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+}
+.cs-head h3 {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 1rem;
+}
+.cs-rerolls {
+  color: var(--muted);
+}
+.cs-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.cs-card {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+  width: 150px;
+  padding: 20px 12px 16px;
+  border: 2px solid transparent;
+  border-radius: var(--r, 16px);
+  background: var(--card);
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+.cs-card img {
+  border-radius: 50%;
+}
+.cs-card[data-picked] {
+  border-color: var(--accent);
+}
+.cs-card[data-blessed] {
+  box-shadow: 0 0 0 1px #d8b65a inset, 0 0 18px rgba(216, 182, 90, 0.35);
+}
+.cs-card:disabled {
+  cursor: default;
+}
+.cs-blessing {
+  position: absolute;
+  top: 6px;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #d8b65a;
+}
+.cs-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.cs-bench h4,
+.cs-team h4 {
+  margin: 0 0 8px;
+}
+.cs-bench-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.cs-bench-row button {
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  border-radius: 50%;
+}
+.cs-bench-row button:disabled {
+  cursor: default;
+  opacity: 0.6;
+}
+.cs-bench-row img {
+  display: block;
+  border-radius: 50%;
+}
+.cs-team ol {
+  display: grid;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.cs-team li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 10px;
+  border-radius: 12px;
+  background: var(--card);
+}
+.cs-team li[data-you] {
+  outline: 1px solid var(--accent);
+}
+.cs-team li img,
+.cs-empty {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--line);
+}
+.cs-team li .num {
+  margin-left: auto;
+}
+.cs-result {
+  display: grid;
+  gap: 8px;
+}
+.cs-result p {
+  margin: 0;
+}
+.cs-warn {
+  margin: 0;
+  padding-left: 18px;
+  color: var(--bad);
 }

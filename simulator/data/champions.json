@@ -5991,7 +5991,7 @@
      "slot": "R",
      "name": "MissileBarrage",
      "rank": 3,
-     "cooldown": 4,
+     "cooldown": 20,
      "cast_time": 0.25,
      "cost": 35.0,
      "targeting": "Location",
@@ -6033,8 +6033,9 @@
      "mode_overrides": [],
      "notes": [
       "cooldown is the ammo recharge time",
-      "hand override: Missile Barrage: every third missile is the big one (double damage), so 4/3 of the small one on average; 4 charges, 20s recharge cut by 2s per attack on a champion and 2s between shots, about one missile every 4s over a fight"
-     ]
+      "hand override: Missile Barrage: every third missile is the big one (double damage), so 4/3 of the small one on average; a charge recharges in 20s, cut by 2s per attack on a champion, so missiles come as fast as Corki attacks"
+     ],
+     "attack_cdr": 2
     }
    ],
    "passives": [
@@ -6698,25 +6699,25 @@
      },
      "hits": [
       {
+       "alt": false,
+       "per_second": true,
+       "target": "flat",
        "type": "magic",
        "calc": "DamagePerTick",
        "scaling": {
         "const": 80.0
-       },
-       "target": "flat",
-       "per_second": true,
-       "alt": false
+       }
       },
       {
+       "alt": false,
+       "per_second": false,
+       "target": "flat",
        "type": "magic",
        "calc": "TotalDamage",
        "scaling": {
         "const": 160.0,
         "bonus_hp": 0.14
-       },
-       "target": "flat",
-       "per_second": false,
-       "alt": false
+       }
       }
      ],
      "mode_overrides": [],
@@ -6745,15 +6746,15 @@
      },
      "hits": [
       {
+       "alt": false,
+       "per_second": false,
+       "target": "flat",
        "type": "physical",
        "calc": "AdditionalDamage",
        "scaling": {
         "const": 45.0,
         "bonus_hp": 0.05
-       },
-       "target": "flat",
-       "per_second": false,
-       "alt": false
+       }
       }
      ],
      "mode_overrides": [],
@@ -8483,15 +8484,15 @@
      },
      "hits": [
       {
+       "alt": false,
+       "per_second": false,
+       "target": "flat",
        "type": "magic",
        "calc": "ActiveDamage",
        "scaling": {
         "const": 150.0,
         "ap": 0.45
-       },
-       "target": "flat",
-       "per_second": false,
-       "alt": false
+       }
       }
      ],
      "mode_overrides": [],
@@ -10000,9 +10001,10 @@
      "hits": [],
      "mode_overrides": [],
      "notes": [
-      "hand override: resets the basic attack timer"
+      "hand override: resets the basic attack timer; each pellet hit takes 0.5 s off its cooldown (CooldownPerHit); about 2 pellets hit per attack"
      ],
-     "attack_reset": true
+     "attack_reset": true,
+     "attack_cdr": 1.0
     },
     {
      "slot": "R",
@@ -13976,7 +13978,10 @@
      },
      "hits": [],
      "mode_overrides": [],
-     "notes": []
+     "notes": [
+      "hand override: each attack takes 0.5 s off its cooldown"
+     ],
+     "attack_cdr": 0.5
     },
     {
      "slot": "R",
@@ -14664,8 +14669,8 @@
        "type": "magic",
        "calc": "TotalDamage",
        "scaling": {
-        "const": 500.0,
-        "ap": 0.7
+        "const": 2000.0,
+        "ap": 2.8
        },
        "target": "flat",
        "per_second": false,
@@ -14674,7 +14679,7 @@
      ],
      "mode_overrides": [],
      "notes": [
-      "hand override: Requiem channels for 3 seconds"
+      "hand override: Requiem channels for 3 seconds; Requiem hits every living enemy champion regardless of distance; about 4 of 5 are alive when it lands"
      ],
      "lock": 3
     }
@@ -15789,15 +15794,15 @@
      },
      "hits": [
       {
+       "alt": false,
+       "per_second": false,
+       "target": "flat",
        "type": "magic",
        "calc": "TotalDamageActive",
        "scaling": {
         "const": 170.0,
         "ap": 0.8
-       },
-       "target": "flat",
-       "per_second": false,
-       "alt": false
+       }
       }
      ],
      "mode_overrides": [],
@@ -28037,8 +28042,9 @@
      ],
      "mode_overrides": [],
      "notes": [
-      "hand override: Piercing Darkness fires off the attack wind-up; no channel; no self-heal: Q heals allies, not Senna"
-     ]
+      "hand override: Piercing Darkness fires off the attack wind-up; no channel; no self-heal: Q heals allies, not Senna; each attack takes 1 s off its cooldown (CDReductionOnHit)"
+     ],
+     "attack_cdr": 1.0
     },
     {
      "slot": "W",
@@ -28311,8 +28317,11 @@
      "mode_overrides": [],
      "notes": [
       "hand override: High Note cast time is 0.25 s (SeraphineQCast)",
-      "hand override: Stage Presence: every third basic ability echoes (casts again): +1/3 on average"
-     ]
+      "hand override: Stage Presence: every third basic ability echoes (casts again): +1/3 on average",
+      "hand override: High Note: +1% damage per 1% of a champion's missing Health, up to +75% below 25% Health (DamageAmp 75, ExecuteThreshold 0.25)"
+     ],
+     "missing_amp": 1.0,
+     "missing_max": 0.75
     },
     {
      "slot": "W",
@@ -29284,9 +29293,10 @@
      ],
      "mode_overrides": [],
      "notes": [
-      "hand override: resets the basic attack timer; Dragon's Descent is up at the start of each fight (Fury builds 1/s out of combat) and Mayhem's 2.5 Fury per hit (x3 in Dragon Form) outpaces the 6.67/s drain, so fights are in Dragon Form: Emberstrike is cast three times per cooldown (claw and tail slam Calc_Damage, then the true-damage bite, x2 to offset the 0.5 secondary weight). Its 1% (+1.1% per 100 bonus AD) max-health on-hit is a passive on every attack (passives.json), not part of the cast"
+      "hand override: resets the basic attack timer; Dragon's Descent is up at the start of each fight (Fury builds 1/s out of combat) and Mayhem's 2.5 Fury per hit (x3 in Dragon Form) outpaces the 6.67/s drain, so fights are in Dragon Form: Emberstrike is cast three times per cooldown (claw and tail slam Calc_Damage, then the true-damage bite, x2 to offset the 0.5 secondary weight). Its 1% (+1.1% per 100 bonus AD) max-health on-hit is a passive on every attack (passives.json), not part of the cast; each attack takes 0.5 s off its cooldown (Cooldown_Reduction)"
      ],
-     "attack_reset": true
+     "attack_reset": true,
+     "attack_cdr": 0.5
     },
     {
      "slot": "W",
@@ -31097,7 +31107,7 @@
       },
       {
        "type": "magic",
-       "calc": "TotalDamage",
+       "calc": "RootDamage",
        "scaling": {
         "const": 170.0,
         "ap": 0.4
@@ -31108,7 +31118,9 @@
       }
      ],
      "mode_overrides": [],
-     "notes": []
+     "notes": [
+      "hand override: Equinox deals its damage on cast and again on the root when the zone ends; enemies are only silenced and often walk out first, so the second hit counts at extra-hit weight"
+     ]
     },
     {
      "slot": "R",
@@ -40539,8 +40551,10 @@
      "mode_overrides": [],
      "notes": [
       "ARAM cooldown",
-      "unsupported stat 9"
-     ]
+      "unsupported stat 9",
+      "hand override: each attack hit takes 0.5 s off its cooldown (CDReductionPerHit)"
+     ],
+     "attack_cdr": 0.5
     },
     {
      "slot": "R",

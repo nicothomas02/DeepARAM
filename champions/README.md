@@ -10,8 +10,15 @@ Tier List, search and the Home champion search. `site-tab.json` still makes sync
 - **Builds by style**: each core path and full build is sorted into a style (Crit, On-hit, AP, Lethality, AD, Tank,
   Enchanter) from its items' shop categories (`item_style`). Each style shows its share of the core paths, pick-weighted
   win rate, core paths, full builds, other finished items of that style the champion builds, and the champion's
-  most-picked augments that fit the style (matched on the augment's internal name and its spell's value names in
-  `kiwi.bin`, `AUG_STYLE`; augments matching more than three styles are left out as generic).
+  most-picked augments that fit the style. An augment's styles come from its own build tags in `kiwi.bin`
+  (`mBuildTags`, a bit field; `BUILD_TAGS`): 512 crit, 64 on-hit, 32 AP, 2 lethality, 16 AD, 256 tank, 8 enchanter.
+  Bits 4, 128, 1024 and 2048 don't line up with one style yet and are ignored. Untagged augments fit no style.
+  `tags.json` also lists every tagged augment's styles under `augments`, for "fits this build" filters.
+- **Crowd control**: each ability's CC (Q, W, E, R) from the champion record's `mAbilitySlotCC`, shown as a chip on the
+  ability. The code-to-CC names (`CC_CODES`) were worked out from well-known abilities: 2 blind, 5 fear, 7 knockback,
+  8 knock-up, 11 polymorph, 12 pull, 13 silence, 14 slow, 15 root, 16 stun, 17 suppression, 18 taunt. Codes 1, 3, 10
+  and 20 aren't named yet. About 55 champions (Annie, Yasuo, Braum...) have no codes in their record, so `tags.json`
+  gives `cc` and `hardCC` only for champions that have them; don't treat a missing `cc` as "no crowd control".
 - **Mayhem changes**: every ability number Mayhem changes, from each champion's bin
   (`game/data/characters/{alias}/{alias}.bin.json`): `DataValuesModeOverride` (ARAM, then Kiwi on top) and the
   per-mode cooldown override `{f9c2333e}`, compared with the Summoner's Rift values.
@@ -38,10 +45,19 @@ Spatula). The list comes from `guide/augment_rules.json`, so run `guide/build_da
 - **classes / subclasses:** Riot's classes and subclasses (Enchanter, Catcher, Juggernaut, Diver, Burst,
   Battlemage, Artillery, Marksman, Assassin, Skirmisher, Vanguard, Warden, Specialist). These are hand-kept in
   `classes.py` because no game file has them. New champions start without one until they're added there.
-- **playstyles:** Poke, Engage, Sustain, Shields/Heals and Crowd control, read from ability text and range plus the
-  subclass.
+- **playstyles:** Riot's own two tags per champion (Initiator, Crowd Control, Burst, Mobile, AoE, Duelist, Auto-attack,
+  Ally Protection, Hypercarry, Durable, Dive, Self Healing, Sustained Damage, Stealth, Long Range, Summon,
+  Battlecaster, Damage-over-Time, Shapeshift), from `championMetadata` in `game/global/champions/champions.bin.json`
+  (`{90d227c0}` and `{434fc710}`, string table `champion_tag_*`). A few reworked champions have none yet.
+- **ratings:** Riot's playstyle ratings, 1 to 3, for damage, toughness, control, mobility and utility (same block;
+  toughness is `{28f8756b}` and control `{c6585a26}`, worked out from Leona and Malphite). A rating the file leaves
+  out is 1; champions with no ratings at all (Ezreal) have no `ratings`. Not used: `{638cead9}` (1 to 10, meaning
+  unclear) and `{8ecb12a5}` / `{104f49cd}`.
+- **cc / hardCC:** see Crowd control above.
 
-`colors` gives one colour per tag, and `meanings` gives a one-line description of each.
+`colors` gives one colour per tag, and `meanings` gives a one-line description of each. `data/official/champion-tag-names.json` has
+the official tag names in the other languages (`python3 champions/build_i18n.py --tags`; only names that differ
+from English).
 
 ## Champion regions
 

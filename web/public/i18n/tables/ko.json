@@ -124,5 +124,6 @@
  "Damage mitigated": "경감한 피해량",
  "Healing done": "회복량",
  "Crowd control": "군중 제어",
- "Shielding": "보호막"
+ "Shielding": "보호막",
+ "Marked when neither champion has a stun, root, knock-up, taunt, fear, charm, sleep or suppression, so the pair struggles to lock anyone down.": "두 챔피언 모두 기절, 속박, 에어본, 도발, 공포, 매혹, 수면, 제압이 없을 때 표시됩니다. 이 조합은 적을 묶어 두기 어렵습니다."
 }

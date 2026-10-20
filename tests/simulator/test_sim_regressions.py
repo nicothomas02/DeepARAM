@@ -344,3 +344,59 @@ def test_same_enemy_comes_back_when_asked(run_sim, tmp_path):
 def test_trace_has_cooldowns_with_the_builds_haste(run_sim, tmp_path):
     for a in _traced(run_sim, tmp_path)["abilities"]:
         assert 0 < a["build_cooldown"] <= a["cooldown"], a
+
+
+# ---------------------------------------------------------------- Kit fixes for the furthest-off champions (2026-10-20)
+
+def test_attacks_take_time_off_senna_q(run_sim, tmp_path):
+    """Senna's attacks take 1 s off Piercing Darkness's cooldown (attack_cdr), so with no ability haste
+    Q comes back sooner than its 15 s cooldown."""
+    path = tmp_path / "senna.json"
+    proc = run_sim("mayhem_sim", ["--champ", "Senna", "--items", "infinity_edge,berserkers", "--augs", "",
+                                  "--seed", "3", "--json", "--trace", path,
+                                  "--set", DUMMIES + ",fight_min=40,fight_max=40,target_hp=1000000"])
+    assert proc.returncode == 0, proc.stderr
+    casts = [e["t"] for e in load_json(path)["events"] if e["k"] == "cast" and e.get("s") == "Q"]
+    assert len(casts) >= 3
+    assert max(b - a for a, b in zip(casts, casts[1:])) < 14
+
+
+@pytest.mark.parametrize("path", [DATA_DIR / "champions.json", PBE_DIR / "champions.json"], ids=["live", "pbe"])
+def test_kit_fixes_in_data(path):
+    """Requiem hits every enemy champion, Equinox's root hit counts at extra-hit weight, and Tormented
+    Shadow and High Note grow with the target's missing Health."""
+    champs = {c["id"]: {a["slot"]: a for a in c["abilities"]} for c in load_json(path)["champions"]}
+    assert champs["Karthus"]["R"]["hits"][0]["scaling"]["const"] >= 4 * 200
+    assert [h["calc"] for h in champs["Soraka"]["E"]["hits"]] == ["TotalDamage", "RootDamage"]
+    assert champs["Morgana"]["W"]["missing_amp"] == 1.0
+    assert champs["Seraphine"]["Q"]["missing_amp"] == 1.0 and champs["Seraphine"]["Q"]["missing_max"] == 0.75
+    for champ, slot in (("Senna", "Q"), ("Kaisa", "E"), ("Shyvana", "Q"), ("Zeri", "E"), ("Graves", "E")):
+        assert champs[champ][slot]["attack_cdr"] > 0, (champ, slot)
+
+
+# ---------------------------------------------------------------- Optimize for shielding (2026-10-20)
+
+def test_shielding_is_reported_and_ranked(run_json, run_sim, tmp_path):
+    """The summary reports the damage your shields absorbed per fight, the trace carries it as a running
+    total ("ab"), and --metric shielding is accepted."""
+    args = ["--champ", "Riven", "--trials", "100", "--seed", "2", "--json"]  # Valor (E) shields herself
+    assert summary(run_json("mayhem_sim", args))["shielding"] > 0
+    assert summary(run_json("mayhem_sim", ["--champ", "Jinx", *JINX_BUILD, "--trials", "100", "--seed", "2", "--json"]))["shielding"] == 0
+    run_json("mayhem_sim", [*args, "--trace", tmp_path / "t.json"])
+    tr = load_json(tmp_path / "t.json")
+    absorbed = [e["ab"] for e in tr["events"] if e["k"] in ("self", "death") and "ab" in e]
+    assert absorbed and absorbed == sorted(absorbed)
+    assert abs(absorbed[-1] - tr["fight"]["shielding"]) <= 1
+    proc = run_sim("mayhem_sim", ["--champ", "Riven", "--metric", "shielding", "--trials", "20", "--seed", "1", "--json"])
+    assert proc.returncode == 0, proc.stderr
+
+
+# ---------------------------------------------------------------- Training dummy like the game's (2026-10-20)
+
+def test_training_dummy_is_like_the_practice_dummy(run_json):
+    """The dummy never dies (its Health refills), never hits back or crowd controls you, and every
+    fight lasts the usual fight length (fight_mean), so the result is the champion's pure DPS."""
+    s = summary(run_json("mayhem_sim", ["--champ", "Jinx", *JINX_BUILD, "--set", "fixed_target=1,target_hp=500",
+                                        "--trials", "50", "--seed", "1", "--json"]))
+    assert s["kills_per_minute"] == 0 and s["damage_taken"] == 0 and s["survival_rate"] == 1
+    assert s["time_alive"] == 18.0 and s["mean_dps"] > 1000

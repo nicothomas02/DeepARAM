@@ -5,5 +5,5 @@
  "Today": "Dzisiaj",
  "day": "dzień",
  "days": "dni",
- "{date} (Pacific Time)": "{date} (czas pacyficzny)"
+ "Patch {patch} comes out in under 24 hours": "Patch {patch} pojawi się za mniej niż 24 godziny"
 }

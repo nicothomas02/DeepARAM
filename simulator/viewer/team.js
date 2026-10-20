@@ -1,15 +1,24 @@
-// 5v5 teamfight page: pick both teams (and their builds), run the simulator's team mode in the
-// Web Worker (sim-worker.js) and show who wins, how long it takes and who goes down when.
+// Teamfight page: pick both teams (1 to 5 champions each, and their builds), run the simulator's team
+// mode in the Web Worker (sim-worker.js) and show who wins, how long it takes and who goes down when.
+// team.html?size=2 is the 2v2 page: both teams fixed at two.
 (() => {
   "use strict";
   const $ = (id) => document.getElementById(id);
   const ICON = "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/";
   const TRIALS = 300;
 
+  const FIXED = Math.min(5, Math.max(0, Number(new URLSearchParams(location.search).get("size")) || 0));
   let meta = null, patch = "live", busy = false;
   const popular = new Map();  // champion id (lower case) -> {items, augments}
-  // Each side's five slots: {id, items, augs, custom}
+  // Each side's slots: {id, items, augs, custom}
   const teams = { allies: [], foes: [] };
+  const sizes = { allies: FIXED || 5, foes: FIXED || 5 };
+  // How often two champions play on the same team (replay-data/team-pairs.json): "key|key" -> share of games.
+  const together = new Map();
+  const pairsReady = fetch("replay-data/team-pairs.json?v=" + (window.REPLAY_VERSION || "0"))
+    .then((r) => (r.ok ? r.json() : { pairs: [] }))
+    .then((d) => { for (const [a, b, w] of d.pairs) together.set(a + "|" + b, w); })
+    .catch(() => {});
 
   // ---------- worker ----------
   let worker = null, nextId = 1;
@@ -37,10 +46,57 @@
     return { items: p ? p.items.slice() : [], augs: p ? p.augments.slice() : [] };
   }
   function slotFor(id) { const b = buildOf(id); return { id, items: b.items, augs: b.augs, custom: false }; }
-  // The most likely enemies (by how often they're picked) that aren't already in a team.
-  function likelyFoes(taken) {
-    return meta.enemies.slice().sort((a, b) => b.weight - a.weight)
-      .filter((e) => champ(e.id) && !taken.has(e.id.toLowerCase())).slice(0, 5).map((e) => slotFor(champ(e.id).id));
+  const pairShare = (a, b) => {
+    const x = Number(a.key), y = Number(b.key);
+    return together.get(Math.min(x, y) + "|" + Math.max(x, y)) || 0;
+  };
+  // Grows a team to n champions the way real lineups look: starting from the given ones (else the pair
+  // seen together most often), it adds whoever plays most often alongside those already in. Champions
+  // in `taken` are left out; without pair data it falls back to the most picked champions.
+  function popularTeam(n, start, taken) {
+    const team = start.map(champ).filter(Boolean).slice(0, n);
+    const free = () => meta.champions.filter((c) => !taken.has(c.id.toLowerCase()) && !team.includes(c));
+    const pick = meta.enemies.slice().sort((a, b) => b.weight - a.weight);
+    if (!team.length && together.size) {
+      let best = null, top = 0;
+      for (const a of free()) for (const b of free()) if (a.key < b.key && pairShare(a, b) > top) { top = pairShare(a, b); best = [a, b]; }
+      if (best) team.push(...best.slice(0, n));
+    }
+    while (team.length < n) {
+      let best = null, top = 0;
+      for (const c of free()) {
+        const w = team.reduce((sum, t) => sum + pairShare(c, t), 0);
+        if (w > top) { top = w; best = c; }
+      }
+      if (!best) best = pick.map((e) => champ(e.id)).find((c) => c && free().includes(c)) || free()[0];
+      if (!best) break;
+      team.push(best);
+    }
+    return team.map((c) => slotFor(c.id));
+  }
+  const ids = (list) => new Set(list.map((s) => s.id.toLowerCase()));
+  // Both teams as the most commonly seen lineups; the champion named in the link joins yours.
+  function popularTeams() {
+    const want = new URLSearchParams(location.search).get("champ");
+    teams.allies = popularTeam(sizes.allies, want && champ(want) ? [champ(want).id] : [], new Set());
+    teams.foes = popularTeam(sizes.foes, [], ids(teams.allies));
+  }
+  // A side of random champions, none of them on the other team.
+  function randomTeam(side) {
+    const other = ids(teams[side === "allies" ? "foes" : "allies"]);
+    const pool = meta.champions.filter((c) => !other.has(c.id.toLowerCase()));
+    for (let i = pool.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [pool[i], pool[j]] = [pool[j], pool[i]]; }
+    teams[side] = pool.slice(0, sizes[side]).map((c) => slotFor(c.id));
+  }
+  // A new team size: drop champions from the end, or add whoever plays most often with the rest.
+  function resize(side, n) {
+    sizes[side] = n;
+    const other = side === "allies" ? "foes" : "allies";
+    if (teams[side].length > n) teams[side] = teams[side].slice(0, n);
+    else {
+      const add = popularTeam(n, teams[side].map((s) => s.id), ids(teams[other]));
+      teams[side] = teams[side].concat(add.slice(teams[side].length));
+    }
   }
 
   function loadMeta() {
@@ -56,16 +112,8 @@
       meta.champions.sort((a, b) => a.name.localeCompare(b.name));
       popular.clear();
       for (const e of meta.enemies) popular.set(e.id.toLowerCase(), { items: e.items, augments: e.augments });
-      if (!teams.allies.length) {
-        const want = new URLSearchParams(location.search).get("champ");
-        // The champion named in the link, else a random one each visit.
-        const you = (want && champ(want)) || meta.champions[Math.floor(Math.random() * meta.champions.length)];
-        const picks = [you.id, ...["Lulu", "Leona", "Ahri", "Darius", "Jinx"].filter((n) => n.toLowerCase() !== you.id.toLowerCase()).slice(0, 4)]
-          .map((n) => champ(n) || meta.champions[0]);
-        const seen = new Set();
-        teams.allies = picks.filter((c) => !seen.has(c.id) && seen.add(c.id)).map((c) => slotFor(c.id));
-        teams.foes = likelyFoes(new Set(teams.allies.map((s) => s.id.toLowerCase())));
-      } else {
+      if (!teams.allies.length) popularTeams();
+      else {
         // A new patch: keep the champions, refresh builds nobody changed.
         for (const side of ["allies", "foes"])
           teams[side] = teams[side].filter((s) => champ(s.id)).map((s) => (s.custom ? s : slotFor(s.id)));
@@ -97,6 +145,8 @@
       const box = $(side);
       box.textContent = "";
       teams[side].forEach((slot, i) => box.append(slotRow(side, i, slot)));
+      const sz = $(side === "allies" ? "allySize" : "foeSize");
+      if (sz) sz.value = String(sizes[side]);
     }
   }
   // "Your build · change" or "Most popular build · change" on a champion's build toggle.
@@ -179,7 +229,7 @@
   }
   function setBusy(on) {
     busy = on;
-    for (const b of ["runTeam", "randomFoes", "patchSel"]) $(b).disabled = on;
+    for (const b of ["runTeam", "popularTeams", "randomAllies", "randomFoes", "allySize", "foeSize", "patchSel"]) if ($(b)) $(b).disabled = on;
   }
   function run() {
     if (busy || !meta) return;
@@ -209,6 +259,7 @@
     if (res.win_rate > 0.5 && window.parent !== window) {
       try { window.parent.postMessage({ type: "deeparam-haptic", kind: "win" }, location.origin); } catch {}
     }
+    $("trials").textContent = (res.trials || TRIALS).toLocaleString();
     $("fightLen").textContent = T("{n} s", { n: res.fight_length.toFixed(1) });
     $("teamDps").textContent = Math.round(res.team_dps).toLocaleString();
     $("enemyDps").textContent = Math.round(res.enemy_dps).toLocaleString();
@@ -270,11 +321,19 @@
 
   // ---------- wiring ----------
   $("runTeam").addEventListener("click", run);
-  $("randomFoes").addEventListener("click", () => {
-    if (!meta) return;
-    teams.foes = likelyFoes(new Set(teams.allies.map((s) => s.id.toLowerCase())));
-    render();
-  });
+  $("popularTeams").addEventListener("click", () => { if (meta) { popularTeams(); render(); } });
+  $("randomAllies").addEventListener("click", () => { if (meta) { randomTeam("allies"); render(); } });
+  $("randomFoes").addEventListener("click", () => { if (meta) { randomTeam("foes"); render(); } });
+  for (const [id, side] of [["allySize", "allies"], ["foeSize", "foes"]]) {
+    const sel = $(id);
+    if (!sel) continue;
+    if (FIXED) { sel.closest("label").hidden = true; continue; }
+    sel.addEventListener("change", () => { if (meta) { resize(side, Number(sel.value)); render(); } });
+  }
+  if (FIXED) {
+    document.title = document.title.replace(/Teamfight/, FIXED + "v" + FIXED);
+    $("pageTitle").textContent = FIXED + "v" + FIXED;
+  }
   $("patchSel").addEventListener("change", (e) => {
     patch = e.target.value;
     loadMeta().then((ok) => {
@@ -285,7 +344,7 @@
     worker = new Worker("sim-worker.js?v=" + (window.REPLAY_VERSION || "0"));
     worker.onmessage = (e) => { const r = pending.get(e.data.id); pending.delete(e.data.id); if (r) r(e.data); };
     worker.onerror = () => status(T("The simulator couldn't start in this browser."), "err");
-    window.I18N.ready.then(loadMeta).then((ok) => { if (ok) status(T("Pick the teams, then simulate.")); });
+    Promise.all([window.I18N.ready, pairsReady]).then(loadMeta).then((ok) => { if (ok) status(T("Pick the teams, then simulate.")); });
   } catch (e) {
     status(T("The simulator needs Web Workers, which this browser blocks."), "err");
   }

@@ -4,7 +4,8 @@ import { useEffect, useState } from "react";
 import DataTable, { type Column, type Row } from "./DataTable";
 import Skeleton from "@/components/Skeleton";
 import { LoadError } from "@/components/EmptyState";
-import { useT } from "./I18n";
+import Link from "next/link";
+import { useNames, useT } from "./I18n";
 import { getParam, setParams } from "@/lib/url-state";
 import type { TagInfo } from "@/lib/tag-info";
 
@@ -27,6 +28,14 @@ const PICK: Column = {
   hint: "How often the first champion has the second as a teammate.",
   phone: "wide",
 };
+const CC: Column = {
+  key: "noCC",
+  label: "Crowd control",
+  format: "text",
+  sortable: false,
+  hint: "Marked when neither champion has a stun, root, knock-up, taunt, fear, charm, sleep or suppression, so the pair struggles to lock anyone down.",
+  phone: "hide",
+};
 const PAIRS: Column = {
   key: "duos",
   label: "Duos",
@@ -35,11 +44,24 @@ const PAIRS: Column = {
   phone: "wide",
 };
 
-export default function DuosTable({ archetypes, tagInfo, version }: { archetypes: Row[]; tagInfo: TagInfo; version: string }) {
+export default function DuosTable({
+  archetypes,
+  tagInfo,
+  version,
+  quests = [],
+}: {
+  archetypes: Row[];
+  tagInfo: TagInfo;
+  version: string;
+  /** Pairs that start a team quest together (components/champion/Quests.tsx): [first, second, quest name]. */
+  quests?: [string, string, string][];
+}) {
   const [rows, setRows] = useState<Row[] | null>(null);
   const [failed, setFailed] = useState(false);
   const [arch, setArch] = useState(false);
   const t = useT("tier-list");
+  const tq = useT("quests");
+  const names = useNames();
   useEffect(() => setArch(getParam("dview") === "arch"), []);
   useEffect(() => {
     fetch(`/data/duos.json?v=${version}`)
@@ -89,13 +111,31 @@ export default function DuosTable({ archetypes, tagInfo, version }: { archetypes
       <DataTable
         key="champions"
         columns={[champion("a", "Champion"), champion("b", "With"), DELTA, PICK]}
-        advancedColumns={[champion("a", "Champion"), champion("b", "With"), DELTA, PICK, { key: "roles", label: "Roles", format: "text", sortable: false }]}
-        rows={rows}
+        advancedColumns={[
+          champion("a", "Champion"),
+          champion("b", "With"),
+          DELTA,
+          PICK,
+          ...(rows.some((r) => r.noCC) ? [CC] : []),
+          { key: "roles", label: "Roles", format: "text", sortable: false },
+        ]}
+        rows={rows.some((r) => r.noCC) ? rows.map((r) => (r.noCC ? { ...r, noCC: t(String(r.noCC)) } : r)) : rows}
         initialSort={{ key: "delta", desc: true }}
         searchKey="pair"
         searchLabel="Find a champion"
         urlTab="duos"
       />
+      {quests.map(([a, b, quest]) => (
+        <p key={`${a}-${b}`} className="duo-quest">
+          <Link href={`/champions/${a}#quests`}>
+            {t("Team quest: {a} and {b} on the same team start {quest}.", {
+              a: names("champions", a, a),
+              b: names("champions", b, b),
+              quest: tq(quest),
+            })}
+          </Link>
+        </p>
+      ))}
     </>
   );
 }

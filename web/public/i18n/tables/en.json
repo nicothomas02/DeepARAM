@@ -124,5 +124,6 @@
  "Damage mitigated": "Damage mitigated",
  "Healing done": "Healing done",
  "Crowd control": "Crowd control",
- "Shielding": "Shielding"
+ "Shielding": "Shielding",
+ "Marked when neither champion has a stun, root, knock-up, taunt, fear, charm, sleep or suppression, so the pair struggles to lock anyone down.": "Marked when neither champion has a stun, root, knock-up, taunt, fear, charm, sleep or suppression, so the pair struggles to lock anyone down."
 }

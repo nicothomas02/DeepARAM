@@ -1,6 +1,6 @@
 {
  "meta": {
-  "built_at": "2026-10-17T07:26:45+00:00",
+  "built_at": "2026-10-20T18:26:04+00:00",
   "game_version": "16.21",
   "cdragon": "pbe",
   "mayhem_balance_patch": "wiki read 2026-10-17",
@@ -94,7 +94,7 @@
        "type": "physical",
        "calc": "QDamage",
        "scaling": {
-        "const": 1033.8281,
+        "const": 1033.8181,
         "bonus_ad": 4.6406
        },
        "target": "flat",
@@ -115,8 +115,7 @@
      ],
      "mode_overrides": [],
      "notes": [
-      "hand override: The Darkin Blade is three casts per cooldown, dealing 100/125/150%",
-      "hand override: about half of The Darkin Blade's strikes land on the sweetspot (QEdgeDamage, x1.75); the parser keeps only the inner number"
+      "hand override: The Darkin Blade is three casts per cooldown, dealing 100/125/150%; about half of The Darkin Blade's strikes land on the sweetspot (QEdgeDamage, x1.75); the parser keeps only the inner number"
      ]
     },
     {
@@ -186,6 +185,7 @@
      "rank": 3,
      "cooldown": 80.0,
      "cast_time": 0.25,
+     "cc": null,
      "targeting": "SelfAoe",
      "area": "aoe",
      "duration": 10.0,
@@ -201,7 +201,7 @@
      "hits": [],
      "mode_overrides": [],
      "notes": [
-      "hand override: World Ender: +40% AD (rank 3, about 58 + 40% bonus AD at 18) and +100% self-healing for 10s"
+      "hand override: World Ender fears only minions; no crowd control on champions; World Ender: +40% AD (rank 3, about 58 + 40% bonus AD at 18) and +100% self-healing for 10s"
      ],
      "buff": {
       "duration": 10,
@@ -215,12 +215,13 @@
     {
      "trigger": "attack",
      "every": 1,
-     "cooldown": 4,
+     "cooldown": 4.0,
      "per_target": false,
      "charges": 1,
      "max_charges": 1,
      "aoe": false,
      "below_hp": 0.0,
+     "ability_cdr": 0.0,
      "hits": [
       {
        "type": "magic",
@@ -714,6 +715,7 @@
      "max_charges": 1,
      "aoe": false,
      "below_hp": 0.0,
+     "ability_cdr": 0.0,
      "hits": [
       {
        "type": "magic",
@@ -945,6 +947,7 @@
      "max_charges": 1,
      "aoe": false,
      "below_hp": 0.0,
+     "ability_cdr": 0.0,
      "hits": [
       {
        "type": "physical",
@@ -968,6 +971,7 @@
      "max_charges": 1,
      "aoe": false,
      "below_hp": 0.0,
+     "ability_cdr": 0.0,
      "hits": [
       {
        "type": "magic",
@@ -1116,7 +1120,9 @@
       }
      ],
      "mode_overrides": [],
-     "notes": []
+     "notes": [
+      "hand override: Headbutt is unit-targeted (650 range), not a dodgeable line"
+     ]
     },
     {
      "slot": "E",
@@ -1165,7 +1171,9 @@
       }
      ],
      "mode_overrides": [],
-     "notes": []
+     "notes": [
+      "hand override: Trample's stun attack (20+15/level) always lands after 5 pulses in a melee duel: full weight, not the 0.5 extra-hit weight"
+     ]
     },
     {
      "slot": "R",
@@ -1467,6 +1475,8 @@
      "max_charges": 3,
      "aoe": false,
      "below_hp": 0.0,
+     "ability_cdr": 0.0,
+     "restore": 70.0,
      "hits": [
       {
        "type": "physical",
@@ -1479,8 +1489,7 @@
        "per_second": false,
        "alt": false
       }
-     ],
-     "restore": 70
+     ]
     }
    ],
    "parse_quality": "partial",
@@ -1705,7 +1714,9 @@
     }
    ],
    "parse_quality": "good",
-   "notes": [],
+   "notes": [
+    "no Mayhem damage dealt/taken modifiers listed"
+   ],
    "kit": {
     "effects": {
      "magic_true_extra": 0.1
@@ -1901,11 +1912,11 @@
      "cost": 60.0,
      "targeting": "Area",
      "area": "aoe",
-     "duration": 2.0,
+     "duration": 1.0,
      "geometry": {
       "shape": "circle",
       "range": 750.0,
-      "radius": 400.0,
+      "radius": 400,
       "width": 0.0,
       "angle": 0.0,
       "speed": 0,
@@ -2633,23 +2644,36 @@
      "cooldown": 10,
      "cast_time": 0,
      "cost": 30.0,
-     "targeting": "",
-     "area": "single",
-     "duration": 6.0,
+     "targeting": "Self",
+     "area": "aoe",
+     "duration": 4.0,
      "geometry": {
       "shape": "single",
-      "range": 600,
-      "radius": 0,
-      "width": 0,
-      "angle": 0,
+      "range": 600.0,
+      "radius": 0.0,
+      "width": 0.0,
+      "angle": 0.0,
       "speed": 0,
       "on_self": true,
       "self_buff": true
      },
-     "hits": [],
+     "hits": [
+      {
+       "type": "physical",
+       "calc": "EmpoweredDamage",
+       "scaling": {
+        "const": 0.0,
+        "bonus_ad": 0.0
+       },
+       "target": "flat",
+       "per_second": false,
+       "alt": true
+      }
+     ],
      "mode_overrides": [],
      "notes": [
-      "hand override: Ranger's Focus: costs 4 Focus (4 attacks, ~4s) and lasts 6s: +60% attack speed and flurries of 5 arrows for 130% AD (rank 5); resets the attack timer"
+      "cooldown unknown; assumed 8s",
+      "hand override: Ranger's Focus: costs 4 Focus (4 attacks, ~4s) and lasts 6s: +60% attack speed and flurries of 5 arrows for 130% AD (rank 5), a buff rather than a hit; resets the attack timer"
      ],
      "no_haste": true,
      "attack_reset": true,
@@ -3001,7 +3025,9 @@
     }
    ],
    "parse_quality": "partial",
-   "notes": []
+   "notes": [
+    "no Mayhem damage dealt/taken modifiers listed"
+   ]
   },
   {
    "id": "Aurora",
@@ -3218,13 +3244,14 @@
      "max_charges": 1,
      "aoe": false,
      "below_hp": 0.0,
+     "ability_cdr": 0.0,
      "hits": [
       {
        "type": "magic",
        "calc": "ProcDamage",
        "scaling": {
         "const": 0.01,
-        "ap": 0.0003
+        "ap": 0.00027
        },
        "target": "target_max_hp",
        "per_second": false,
@@ -3640,8 +3667,6 @@
      "notes": []
     }
    ],
-   "parse_quality": "partial",
-   "notes": [],
    "passives": [
     {
      "trigger": "attack",
@@ -3656,7 +3681,7 @@
      "hits": [
       {
        "type": "magic",
-       "calc": "Manual",
+       "calc": "MeepDamageNoChime",
        "scaling": {
         "const": 78,
         "ap": 0.4
@@ -3667,7 +3692,9 @@
       }
      ]
     }
-   ]
+   ],
+   "parse_quality": "partial",
+   "notes": []
   },
   {
    "id": "Belveth",
@@ -3883,15 +3910,16 @@
       "ARAM:CorpseDuration"
      ],
      "notes": [
-      "hand override: Endless Banquet needs Void Coral from a takedown, not usable every second; the on-hit true damage is a form buff, not a cast hit; no self-heal: R's number is not a heal",
-      "hand override: Endless Banquet passive: every on-hit against the marked target deals 6 (+3% bonus AD) true damage times the number of hits on it so far (stacking infinitely, mark lasts 5s); the coral-gated active and its explosion are left out"
+      "hand override: Endless Banquet passive: every on-hit against the marked target deals 6 (+3% bonus AD) true damage (rank 3) times the number of hits on it so far (stacking infinitely, the mark lasts 5s); the Void Coral active (needs a takedown) and its explosion are left out; no self-heal"
      ],
      "onhit_every": 1,
      "ramp": 5
     }
    ],
    "parse_quality": "good",
-   "notes": [],
+   "notes": [
+    "no Mayhem damage dealt/taken modifiers listed"
+   ],
    "kit": {
     "stats": {
      "as_l1": 0,
@@ -4590,6 +4618,7 @@
      "max_charges": 1,
      "aoe": false,
      "below_hp": 0.0,
+     "ability_cdr": 0.0,
      "hits": [
       {
        "type": "magic",
@@ -4605,7 +4634,9 @@
     }
    ],
    "parse_quality": "good",
-   "notes": []
+   "notes": [
+    "no Mayhem damage dealt/taken modifiers listed"
+   ]
   },
   {
    "id": "Briar",
@@ -4743,7 +4774,7 @@
        "calc": "TotalAttackPercentMissingHealth",
        "scaling": {
         "const": 0.09,
-        "bonus_ad": 0.0003
+        "bonus_ad": 0.00025
        },
        "target": "target_missing_hp",
        "per_second": false,
@@ -4868,6 +4899,7 @@
      "max_charges": 1,
      "aoe": false,
      "below_hp": 0.0,
+     "ability_cdr": 0.0,
      "hits": [
       {
        "type": "physical",
@@ -5118,6 +5150,7 @@
      "max_charges": 1,
      "aoe": false,
      "below_hp": 0.0,
+     "ability_cdr": 0.0,
      "hits": [
       {
        "type": "physical",
@@ -5134,7 +5167,9 @@
     }
    ],
    "parse_quality": "partial",
-   "notes": []
+   "notes": [
+    "no Mayhem damage dealt/taken modifiers listed"
+   ]
   },
   {
    "id": "Camille",
@@ -5279,7 +5314,7 @@
        "calc": "OuterEdgeTooltip",
        "scaling": {
         "const": 0.09,
-        "bonus_ad": 0.0003
+        "bonus_ad": 0.00025
        },
        "target": "target_max_hp",
        "per_second": false,
@@ -5590,7 +5625,9 @@
     }
    ],
    "parse_quality": "good",
-   "notes": []
+   "notes": [
+    "no Mayhem damage dealt/taken modifiers listed"
+   ]
   },
   {
    "id": "Chogath",
@@ -5991,7 +6028,7 @@
      "slot": "R",
      "name": "MissileBarrage",
      "rank": 3,
-     "cooldown": 4,
+     "cooldown": 20,
      "cast_time": 0.25,
      "cost": 35.0,
      "targeting": "Location",
@@ -6033,8 +6070,9 @@
      "mode_overrides": [],
      "notes": [
       "cooldown is the ammo recharge time",
-      "hand override: Missile Barrage: every third missile is the big one (double damage), so 4/3 of the small one on average; 4 charges, 20s recharge cut by 2s per attack on a champion and 2s between shots, about one missile every 4s over a fight"
-     ]
+      "hand override: Missile Barrage: every third missile is the big one (double damage), so 4/3 of the small one on average; a charge recharges in 20s, cut by 2s per attack on a champion, so missiles come as fast as Corki attacks"
+     ],
+     "attack_cdr": 2
     }
    ],
    "passives": [
@@ -6295,6 +6333,7 @@
      "max_charges": 1,
      "aoe": false,
      "below_hp": 0.0,
+     "ability_cdr": 0.0,
      "hits": [
       {
        "type": "physical",
@@ -6568,6 +6607,7 @@
      "max_charges": 1,
      "aoe": true,
      "below_hp": 0.0,
+     "ability_cdr": 0.0,
      "hits": [
       {
        "type": "magic",
@@ -6584,7 +6624,9 @@
     }
    ],
    "parse_quality": "good",
-   "notes": []
+   "notes": [
+    "no Mayhem damage dealt/taken modifiers listed"
+   ]
   },
   {
    "id": "DrMundo",
@@ -6698,25 +6740,25 @@
      },
      "hits": [
       {
+       "alt": false,
+       "per_second": true,
+       "target": "flat",
        "type": "magic",
        "calc": "DamagePerTick",
        "scaling": {
         "const": 80.0
-       },
-       "target": "flat",
-       "per_second": true,
-       "alt": false
+       }
       },
       {
+       "alt": false,
+       "per_second": false,
+       "target": "flat",
        "type": "magic",
        "calc": "TotalDamage",
        "scaling": {
         "const": 160.0,
         "bonus_hp": 0.14
-       },
-       "target": "flat",
-       "per_second": false,
-       "alt": false
+       }
       }
      ],
      "mode_overrides": [],
@@ -6745,15 +6787,15 @@
      },
      "hits": [
       {
+       "alt": false,
+       "per_second": false,
+       "target": "flat",
        "type": "physical",
        "calc": "AdditionalDamage",
        "scaling": {
         "const": 45.0,
         "bonus_hp": 0.05
-       },
-       "target": "flat",
-       "per_second": false,
-       "alt": false
+       }
       }
      ],
      "mode_overrides": [],
@@ -6946,7 +6988,9 @@
       }
      ],
      "mode_overrides": [],
-     "notes": []
+     "notes": [
+      "hand override: Stand Aside knocks aside briefly; the 2 s was its slow"
+     ]
     },
     {
      "slot": "R",
@@ -7232,6 +7276,7 @@
      "max_charges": 1,
      "aoe": false,
      "below_hp": 0.0,
+     "ability_cdr": 0.0,
      "hits": [
       {
        "type": "magic",
@@ -7609,7 +7654,7 @@
        "calc": "PercentHealthBaseTOOLTIP",
        "scaling": {
         "const": 0.03,
-        "ap": 0.0001
+        "ap": 0.00015
        },
        "target": "target_max_hp",
        "per_second": false,
@@ -7630,7 +7675,7 @@
        "calc": "PercentHealthEmpoweredTOOLTIP",
        "scaling": {
         "const": 0.04,
-        "ap": 0.0002
+        "ap": 0.00025
        },
        "target": "target_max_hp",
        "per_second": false,
@@ -8132,7 +8177,6 @@
      ],
      "mode_overrides": [],
      "notes": [
-      "hand override: Crowstorm channels 1.5 seconds before the blink",
       "hand override: Crowstorm channels 1.5 seconds before the blink; the damage starts after the channel, not with it"
      ],
      "lock": 0
@@ -8344,6 +8388,7 @@
      "max_charges": 1,
      "aoe": false,
      "below_hp": 0.0,
+     "ability_cdr": 0.0,
      "hits": [
       {
        "type": "true",
@@ -8483,15 +8528,15 @@
      },
      "hits": [
       {
+       "alt": false,
+       "per_second": false,
+       "target": "flat",
        "type": "magic",
        "calc": "ActiveDamage",
        "scaling": {
         "const": 150.0,
         "ap": 0.45
-       },
-       "target": "flat",
-       "per_second": false,
-       "alt": false
+       }
       }
      ],
      "mode_overrides": [],
@@ -8789,7 +8834,7 @@
      ],
      "mode_overrides": [],
      "notes": [
-      "hand override: Shield of Durand deals min to max damage by charge time, not both"
+      "hand override: Shield of Durand deals min to max damage by charge time, not both; recast after about half the charge: mid of min (x1) and max (x3) damage"
      ]
     },
     {
@@ -8899,12 +8944,13 @@
      "max_charges": 1,
      "aoe": true,
      "below_hp": 0.0,
+     "ability_cdr": 3.0,
      "hits": [
       {
        "type": "magic",
        "calc": "TotalDamage",
        "scaling": {
-        "const": 115.0,
+        "const": 115,
         "ap": 0.4,
         "bonus_mr": 0.6
        },
@@ -8912,8 +8958,7 @@
        "per_second": false,
        "alt": false
       }
-     ],
-     "ability_cdr": 3.0
+     ]
     }
    ],
    "parse_quality": "good",
@@ -9133,6 +9178,7 @@
      "max_charges": 1,
      "aoe": false,
      "below_hp": 0.0,
+     "ability_cdr": 0.0,
      "hits": [
       {
        "type": "true",
@@ -10000,9 +10046,10 @@
      "hits": [],
      "mode_overrides": [],
      "notes": [
-      "hand override: resets the basic attack timer"
+      "hand override: resets the basic attack timer; each pellet hit takes 0.5 s off its cooldown (CooldownPerHit); about 2 pellets hit per attack"
      ],
-     "attack_reset": true
+     "attack_reset": true,
+     "attack_cdr": 1.0
     },
     {
      "slot": "R",
@@ -10054,7 +10101,9 @@
     }
    ],
    "parse_quality": "good",
-   "notes": []
+   "notes": [
+    "no Mayhem damage dealt/taken modifiers listed"
+   ]
   },
   {
    "id": "Gwen",
@@ -10293,13 +10342,14 @@
      "max_charges": 1,
      "aoe": false,
      "below_hp": 0.0,
+     "ability_cdr": 0.0,
      "hits": [
       {
        "type": "magic",
        "calc": "PercentHealth1000Cuts",
        "scaling": {
         "const": 0.01,
-        "ap": 0.0001
+        "ap": 6e-05
        },
        "target": "target_max_hp",
        "per_second": false,
@@ -10435,8 +10485,7 @@
      ],
      "mode_overrides": [],
      "notes": [
-      "hand override: Spirit of Dread is instant",
-      "hand override: Spirit of Dread heals Hecarim for 25% of the post-mitigation damage he deals to enemies in the area for 4s"
+      "hand override: Spirit of Dread is instant; Spirit of Dread heals Hecarim for 25% of the post-mitigation damage he deals to enemies in the area for 4s"
      ],
      "buff": {
       "duration": 4,
@@ -10493,8 +10542,7 @@
      "mode_overrides": [],
      "notes": [
       "ARAM cooldown",
-      "hand override: Devastating Charge deals min to max damage by distance, not both",
-      "hand override: Devastating Charge grows from min to 2x over 1200 units travelled; Hecarim charges in from about half that, so 1.5x the minimum"
+      "hand override: Devastating Charge deals min to max damage by distance, not both; Devastating Charge grows from min to 2x over 1200 units travelled; Hecarim charges in from about half that, so 1.5x the minimum"
      ]
     },
     {
@@ -11630,8 +11678,7 @@
      ],
      "mode_overrides": [],
      "notes": [
-      "hand override: resets the basic attack timer",
-      "hand override: Harsh Lesson also commands the Tentacles in range to slam the target (one slam: the passive keeps a Tentacle on nearby terrain; 180 + 110% AD + 40% AP, +30% from Q rank 5)"
+      "hand override: resets the basic attack timer; Harsh Lesson makes Illaoi lunge at the target; Harsh Lesson also commands the Tentacles in range to slam the target (one slam: the passive keeps a Tentacle on nearby terrain; 180 + 110% AD + 40% AP, +30% from Q rank 5)"
      ],
      "attack_reset": true
     },
@@ -11962,6 +12009,7 @@
      "max_charges": 1,
      "aoe": false,
      "below_hp": 0.0,
+     "ability_cdr": 0.0,
      "hits": [
       {
        "type": "magic",
@@ -12412,7 +12460,9 @@
      },
      "hits": [],
      "mode_overrides": [],
-     "notes": []
+     "notes": [
+      "hand override: Monsoon knocks enemies back briefly; the 3 s is its channel"
+     ]
     }
    ],
    "parse_quality": "good",
@@ -12614,7 +12664,9 @@
       }
      ],
      "mode_overrides": [],
-     "notes": []
+     "notes": [
+      "hand override: Cataclysm leaps Jarvan onto the target"
+     ]
     }
    ],
    "passives": [
@@ -12627,6 +12679,7 @@
      "max_charges": 1,
      "aoe": false,
      "below_hp": 0.0,
+     "ability_cdr": 0.0,
      "hits": [
       {
        "type": "physical",
@@ -12642,7 +12695,9 @@
     }
    ],
    "parse_quality": "good",
-   "notes": []
+   "notes": [
+    "no Mayhem damage dealt/taken modifiers listed"
+   ]
   },
   {
    "id": "Jax",
@@ -13327,8 +13382,7 @@
      ],
      "mode_overrides": [],
      "notes": [
-      "hand override: Curtain Call: four shots over about 4 seconds; the maximum is the execute version of one shot; shots travel at 5000, not 828",
-      "hand override: the fourth shot crits for 200% (5 shots' worth in all), and every shot deals +3% per 1% of the target's missing Health (PercentMissingAmp)"
+      "hand override: Curtain Call: four shots over about 4 seconds; the maximum is the execute version of one shot; shots travel at 5000, not 828; the fourth shot crits for 200% (5 shots' worth in all), and every shot deals +3% per 1% of the target's missing Health (PercentMissingAmp)"
      ],
      "lock": 4,
      "missing_amp": 3
@@ -13344,6 +13398,7 @@
      "max_charges": 1,
      "aoe": false,
      "below_hp": 0.0,
+     "ability_cdr": 0.0,
      "hits": [
       {
        "type": "physical",
@@ -13808,6 +13863,7 @@
      "max_charges": 1,
      "aoe": false,
      "below_hp": 0.0,
+     "ability_cdr": 0.0,
      "hits": [
       {
        "type": "physical",
@@ -13976,7 +14032,10 @@
      },
      "hits": [],
      "mode_overrides": [],
-     "notes": []
+     "notes": [
+      "hand override: each attack takes 0.5 s off its cooldown"
+     ],
+     "attack_cdr": 0.5
     },
     {
      "slot": "R",
@@ -14021,6 +14080,7 @@
      "max_charges": 1,
      "aoe": false,
      "below_hp": 0.0,
+     "ability_cdr": 0.0,
      "hits": [
       {
        "type": "magic",
@@ -14044,6 +14104,7 @@
      "max_charges": 1,
      "aoe": false,
      "below_hp": 0.0,
+     "ability_cdr": 0.0,
      "hits": [
       {
        "type": "magic",
@@ -14202,8 +14263,7 @@
      "mode_overrides": [],
      "notes": [
       "cooldown unknown; assumed 8s",
-      "hand override: Rend adds AdditionalDamage per extra spear (several per cycle at her attack speed); 6 at the 0.5 secondary weight is about 3 extra spears, conservative",
-      "hand override: Rend needs spears in the target (1 per attack): the counted 1 + ~3 extra spears means 4 attacks on the target since the last Rend"
+      "hand override: Rend adds AdditionalDamage per extra spear (several per cycle at her attack speed); 6 at the 0.5 secondary weight is about 3 extra spears, conservative; Rend needs spears in the target (1 per attack): the counted 1 + ~3 extra spears means 4 attacks on the target since the last Rend"
      ],
      "after_attacks": 4
     },
@@ -14376,7 +14436,7 @@
      ],
      "mode_overrides": [],
      "notes": [
-      "hand override: Focused Resolve tether roots for 2s at max rank if the tether holds"
+      "hand override: Focused Resolve tether roots for 2s at max rank if the tether holds; Focused Resolve deals 140 (+45% AP) on cast and again on the root if the tether holds (second at extra-hit weight); the parser found no damage"
      ],
      "cc": {
       "type": "root",
@@ -14464,7 +14524,9 @@
     }
    ],
    "parse_quality": "good",
-   "notes": [],
+   "notes": [
+    "no Mayhem damage dealt/taken modifiers listed"
+   ],
    "kit": {
     "effects": {
      "r_cdr_on_hit": 4
@@ -14664,8 +14726,8 @@
        "type": "magic",
        "calc": "TotalDamage",
        "scaling": {
-        "const": 500.0,
-        "ap": 0.7
+        "const": 2000.0,
+        "ap": 2.8
        },
        "target": "flat",
        "per_second": false,
@@ -14674,7 +14736,7 @@
      ],
      "mode_overrides": [],
      "notes": [
-      "hand override: Requiem channels for 3 seconds"
+      "hand override: Requiem channels for 3 seconds; Requiem hits every living enemy champion regardless of distance; about 4 of 5 are alive when it lands"
      ],
      "lock": 3
     }
@@ -14923,7 +14985,7 @@
      "notes": []
     }
    ],
-   "parse_quality": "partial",
+   "parse_quality": "good",
    "notes": []
   },
   {
@@ -15147,6 +15209,7 @@
      "max_charges": 1,
      "aoe": true,
      "below_hp": 0.0,
+     "ability_cdr": 0.0,
      "hits": [
       {
        "type": "magic",
@@ -15384,6 +15447,7 @@
      "max_charges": 1,
      "aoe": true,
      "below_hp": 0.0,
+     "ability_cdr": 0.0,
      "hits": [
       {
        "type": "magic",
@@ -15408,6 +15472,7 @@
      "max_charges": 1,
      "aoe": false,
      "below_hp": 0.0,
+     "ability_cdr": 0.0,
      "hits": [
       {
        "type": "magic",
@@ -15421,8 +15486,7 @@
        "per_second": false,
        "alt": false
       }
-     ],
-     "ability_cdr": 0.0
+     ]
     }
    ],
    "parse_quality": "good",
@@ -15544,7 +15608,7 @@
        "calc": "DarkinPercentDamage",
        "scaling": {
         "const": 0.06,
-        "bonus_ad": 0.0003
+        "bonus_ad": 0.00035
        },
        "target": "target_max_hp",
        "per_second": false,
@@ -15603,6 +15667,7 @@
      "rank": 5,
      "cooldown": 13.0,
      "cast_time": 0.0,
+     "cc": null,
      "heal": {
       "scaling": {
        "const": 130.0,
@@ -15628,7 +15693,9 @@
      "mode_overrides": [
       "ARAM:AssassinCDReduction"
      ],
-     "notes": []
+     "notes": [
+      "hand override: Shadow Step lets Kayn walk through walls; it roots no one"
+     ]
     },
     {
      "slot": "R",
@@ -15789,15 +15856,15 @@
      },
      "hits": [
       {
+       "alt": false,
+       "per_second": false,
+       "target": "flat",
        "type": "magic",
        "calc": "TotalDamageActive",
        "scaling": {
         "const": 170.0,
         "ap": 0.8
-       },
-       "target": "flat",
-       "per_second": false,
-       "alt": false
+       }
       }
      ],
      "mode_overrides": [],
@@ -16095,6 +16162,7 @@
      "rank": 3,
      "cooldown": 70.0,
      "cast_time": 0.0,
+     "cc": null,
      "cost": 100.0,
      "targeting": "Self",
      "area": "aoe",
@@ -16110,7 +16178,9 @@
      },
      "hits": [],
      "mode_overrides": [],
-     "notes": []
+     "notes": [
+      "hand override: Void Assault turns Kha'Zix invisible; it slows no one"
+     ]
     }
    ],
    "passives": [
@@ -16123,6 +16193,7 @@
      "max_charges": 1,
      "aoe": false,
      "below_hp": 0.0,
+     "ability_cdr": 0.0,
      "hits": [
       {
        "type": "magic",
@@ -16509,7 +16580,7 @@
        "scaling": {
         "const": 0.065,
         "bonus_ad": 0.0002,
-        "bonus_hp": 0.0
+        "bonus_hp": 4e-05
        },
        "target": "target_max_hp",
        "per_second": false,
@@ -16720,7 +16791,7 @@
        "calc": "TotalHealthDamage",
        "scaling": {
         "const": 0.0225,
-        "ap": 0.0001
+        "ap": 7.5e-05
        },
        "target": "target_max_hp",
        "per_second": false,
@@ -16811,7 +16882,7 @@
        "type": "magic",
        "calc": "TooltipMissingHealthDamageAmp",
        "scaling": {
-        "const": 0.0083
+        "const": 0.00833
        },
        "target": "target_missing_hp",
        "per_second": false,
@@ -17806,13 +17877,14 @@
      "max_charges": 1,
      "aoe": false,
      "below_hp": 0.0,
+     "ability_cdr": 0.0,
      "hits": [
       {
        "type": "magic",
        "calc": "DotPercentTooltip",
        "scaling": {
         "const": 0.05,
-        "ap": 0.0001
+        "ap": 0.000125
        },
        "target": "target_max_hp",
        "per_second": false,
@@ -18278,6 +18350,7 @@
      "max_charges": 1,
      "aoe": false,
      "below_hp": 0.0,
+     "ability_cdr": 0.0,
      "hits": [
       {
        "type": "magic",
@@ -18506,6 +18579,7 @@
      "max_charges": 1,
      "aoe": false,
      "below_hp": 0.0,
+     "ability_cdr": 0.0,
      "hits": [
       {
        "type": "physical",
@@ -18737,6 +18811,7 @@
      "max_charges": 1,
      "aoe": false,
      "below_hp": 0.0,
+     "ability_cdr": 0.0,
      "hits": [
       {
        "type": "magic",
@@ -18753,7 +18828,9 @@
     }
    ],
    "parse_quality": "good",
-   "notes": []
+   "notes": [
+    "no Mayhem damage dealt/taken modifiers listed"
+   ]
   },
   {
    "id": "Lux",
@@ -19206,7 +19283,9 @@
     }
    ],
    "parse_quality": "good",
-   "notes": []
+   "notes": [
+    "no Mayhem damage dealt/taken modifiers listed"
+   ]
   },
   {
    "id": "Malzahar",
@@ -19410,7 +19489,7 @@
        "calc": "ZoneDamageTooltip",
        "scaling": {
         "const": 0.2,
-        "ap": 0.0002
+        "ap": 0.00025
        },
        "target": "target_max_hp",
        "per_second": false,
@@ -19893,6 +19972,7 @@
      "max_charges": 1,
      "aoe": false,
      "below_hp": 0.0,
+     "ability_cdr": 0.0,
      "hits": [
       {
        "type": "physical",
@@ -19909,7 +19989,9 @@
     }
    ],
    "parse_quality": "good",
-   "notes": []
+   "notes": [
+    "no Mayhem damage dealt/taken modifiers listed"
+   ]
   },
   {
    "id": "Mel",
@@ -20313,6 +20395,7 @@
      "rank": 3,
      "cooldown": 130.0,
      "cast_time": 0.713,
+     "cc": null,
      "heal": {
       "scaling": {
        "const": 350.0,
@@ -20334,16 +20417,16 @@
      },
      "hits": [],
      "mode_overrides": [],
-     "notes": []
+     "notes": [
+      "hand override: Breath of Life cleanses allies; no crowd control on enemies"
+     ]
     }
    ],
-   "parse_quality": "partial",
-   "notes": [],
    "passives": [
     {
      "trigger": "hit",
      "every": 1,
-     "cooldown": 5,
+     "cooldown": 5.0,
      "per_target": false,
      "charges": 1,
      "max_charges": 1,
@@ -20352,19 +20435,20 @@
      "ability_cdr": 0.0,
      "hits": [
       {
-       "per_second": false,
-       "alt": false,
        "type": "magic",
        "calc": "FiredUp",
        "scaling": {
         "const": 65,
         "ap": 0.2
        },
-       "target": "flat"
+       "target": "flat",
+       "per_second": false
       }
      ]
     }
-   ]
+   ],
+   "parse_quality": "partial",
+   "notes": []
   },
   {
    "id": "MissFortune",
@@ -20840,6 +20924,7 @@
      "max_charges": 1,
      "aoe": false,
      "below_hp": 0.0,
+     "ability_cdr": 0.0,
      "hits": [
       {
        "type": "magic",
@@ -20862,6 +20947,7 @@
      "max_charges": 1,
      "aoe": false,
      "below_hp": 0.0,
+     "ability_cdr": 0.0,
      "hits": [
       {
        "type": "magic",
@@ -20888,7 +20974,9 @@
     }
    ],
    "parse_quality": "good",
-   "notes": []
+   "notes": [
+    "no Mayhem damage dealt/taken modifiers listed"
+   ]
   },
   {
    "id": "Morgana",
@@ -21039,6 +21127,7 @@
      "rank": 5,
      "cooldown": 16.0,
      "cast_time": 0.515,
+     "cc": null,
      "shield": {
       "scaling": {
        "const": 320.0,
@@ -21061,7 +21150,9 @@
      },
      "hits": [],
      "mode_overrides": [],
-     "notes": []
+     "notes": [
+      "hand override: Black Shield is a spell shield on an ally; it roots no one"
+     ]
     },
     {
      "slot": "R",
@@ -21406,6 +21497,7 @@
      "max_charges": 1,
      "aoe": false,
      "below_hp": 0.0,
+     "ability_cdr": 0.0,
      "hits": [
       {
        "type": "physical",
@@ -21992,7 +22084,7 @@
      ],
      "mode_overrides": [],
      "notes": [
-      "hand override: resets the basic attack timer"
+      "hand override: resets the basic attack timer; Pain of Wrath applies on every attack while the shield holds (about 2 attacks), not once per cast"
      ],
      "attack_reset": true
     },
@@ -22034,7 +22126,9 @@
       }
      ],
      "mode_overrides": [],
-     "notes": []
+     "notes": [
+      "hand override: Riptide: a target in melee range is hit by waves 1 and 2 (second at 50%)"
+     ]
     },
     {
      "slot": "R",
@@ -22099,12 +22193,13 @@
      "max_charges": 1,
      "aoe": false,
      "below_hp": 0.0,
+     "ability_cdr": 0.0,
      "hits": [
       {
        "type": "physical",
-       "calc": "BonusDamage",
+       "calc": "TotalDamageTooltip",
        "scaling": {
-        "const": 116.0
+        "const": 116
        },
        "target": "flat",
        "per_second": false,
@@ -22334,7 +22429,9 @@
     }
    ],
    "parse_quality": "good",
-   "notes": []
+   "notes": [
+    "no Mayhem damage dealt/taken modifiers listed"
+   ]
   },
   {
    "id": "Nidalee",
@@ -22778,7 +22875,9 @@
     }
    ],
    "parse_quality": "partial",
-   "notes": []
+   "notes": [
+    "no Mayhem damage dealt/taken modifiers listed"
+   ]
   },
   {
    "id": "Nocturne",
@@ -23449,6 +23548,7 @@
      "rank": 3,
      "cooldown": 80.0,
      "cast_time": 0,
+     "cc": null,
      "cost": 100.0,
      "targeting": "Self",
      "area": "aoe",
@@ -23466,7 +23566,7 @@
      "hits": [],
      "mode_overrides": [],
      "notes": [
-      "hand override: Ragnarok: +30 (+25% AD) attack damage (about 67 + 25% bonus AD at 18) for 3s, extended 2.5s by every attack on a champion, so for the rest of a fight"
+      "hand override: Ragnarok makes Olaf immune to crowd control; it puts none on enemies; Ragnarok: +30 (+25% AD) attack damage (about 67 + 25% bonus AD at 18) for 3s, extended 2.5s by every attack on a champion, so for the rest of a fight"
      ],
      "buff": {
       "duration": 20,
@@ -23709,6 +23809,7 @@
      "max_charges": 1,
      "aoe": false,
      "below_hp": 0.0,
+     "ability_cdr": 0.0,
      "hits": [
       {
        "type": "magic",
@@ -23736,7 +23837,9 @@
     }
    ],
    "parse_quality": "good",
-   "notes": []
+   "notes": [
+    "no Mayhem damage dealt/taken modifiers listed"
+   ]
   },
   {
    "id": "Ornn",
@@ -24096,8 +24199,7 @@
      ],
      "mode_overrides": [],
      "notes": [
-      "hand override: tap or hold, one hit; empowered is the Mortal Will variant",
-      "hand override: Comet Spear tapped in melee: a thrust that lands at once and refunds 60% of the 8s cooldown (3.2s between thrusts); the held throw is the poke variant"
+      "hand override: tap or hold, one hit; empowered is the Mortal Will variant; Comet Spear tapped in melee: a thrust that lands at once and refunds 60% of the 8s cooldown (3.2s between thrusts); the held throw is the poke variant"
      ]
     },
     {
@@ -24130,8 +24232,8 @@
        "calc": "MaxHealthDamageCalc",
        "scaling": {
         "const": 0.08,
-        "bonus_hp": 0.0,
-        "ap": 0.0002
+        "bonus_hp": 4e-05,
+        "ap": 0.00015
        },
        "target": "target_max_hp",
        "per_second": false,
@@ -24247,7 +24349,9 @@
     }
    ],
    "parse_quality": "good",
-   "notes": []
+   "notes": [
+    "no Mayhem damage dealt/taken modifiers listed"
+   ]
   },
   {
    "id": "Poppy",
@@ -24529,6 +24633,7 @@
      "max_charges": 1,
      "aoe": false,
      "below_hp": 0.0,
+     "ability_cdr": 0.0,
      "hits": [
       {
        "type": "magic",
@@ -24544,7 +24649,9 @@
     }
    ],
    "parse_quality": "good",
-   "notes": []
+   "notes": [
+    "no Mayhem damage dealt/taken modifiers listed"
+   ]
   },
   {
    "id": "Pyke",
@@ -24992,6 +25099,7 @@
      "max_charges": 1,
      "aoe": false,
      "below_hp": 0.0,
+     "ability_cdr": 0.0,
      "hits": [
       {
        "type": "physical",
@@ -25175,6 +25283,7 @@
      "max_charges": 1,
      "aoe": false,
      "below_hp": 0.0,
+     "ability_cdr": 0.0,
      "hits": [
       {
        "type": "physical",
@@ -25569,7 +25678,9 @@
     }
    ],
    "parse_quality": "good",
-   "notes": [],
+   "notes": [
+    "no Mayhem damage dealt/taken modifiers listed"
+   ],
    "kit": {
     "effects": {
      "ad_per_armor": 0.15,
@@ -25980,6 +26091,7 @@
      "max_charges": 1,
      "aoe": false,
      "below_hp": 0.0,
+     "ability_cdr": 0.0,
      "hits": [
       {
        "type": "magic",
@@ -26834,8 +26946,7 @@
      ],
      "mode_overrides": [],
      "notes": [
-      "hand override: resets the basic attack timer; Broken Wings is three casts per cooldown (listed twice, so x1.5); real AoE radius ~150",
-      "hand override: each of the three casts grants a Runic Blade charge"
+      "hand override: resets the basic attack timer; Broken Wings is three casts per cooldown (listed twice, so x1.5); real AoE radius ~150; each of the three casts grants a Runic Blade charge"
      ],
      "attack_reset": true,
      "casts": 3
@@ -26964,8 +27075,7 @@
      ],
      "mode_overrides": [],
      "notes": [
-      "hand override: bonus AD is a buff not a hit; Wind Slash is one hit (min..max by missing health)",
-      "hand override: Blade of the Exile grants 20% of total AD as bonus AD for 15s (23 = 20% of base AD at 18, plus 20% of bonus AD)"
+      "hand override: bonus AD is a buff not a hit; Wind Slash is one hit (min..max by missing health); Blade of the Exile grants 20% of total AD as bonus AD for 15s (23 = 20% of base AD at 18, plus 20% of bonus AD)"
      ],
      "buff": {
       "duration": 15,
@@ -26984,6 +27094,7 @@
      "max_charges": 3,
      "aoe": false,
      "below_hp": 0.0,
+     "ability_cdr": 0.0,
      "hits": [
       {
        "type": "physical",
@@ -27240,7 +27351,9 @@
     }
    ],
    "parse_quality": "good",
-   "notes": []
+   "notes": [
+    "no Mayhem damage dealt/taken modifiers listed"
+   ]
   },
   {
    "id": "Ryze",
@@ -27433,7 +27546,7 @@
      "notes": []
     }
    ],
-   "parse_quality": "partial",
+   "parse_quality": "good",
    "notes": []
   },
   {
@@ -27658,6 +27771,7 @@
      "max_charges": 1,
      "aoe": false,
      "below_hp": 0.0,
+     "ability_cdr": 0.0,
      "hits": [
       {
        "type": "magic",
@@ -27674,7 +27788,9 @@
     }
    ],
    "parse_quality": "good",
-   "notes": []
+   "notes": [
+    "no Mayhem damage dealt/taken modifiers listed"
+   ]
   },
   {
    "id": "Sejuani",
@@ -27925,6 +28041,7 @@
      "max_charges": 1,
      "aoe": false,
      "below_hp": 0.0,
+     "ability_cdr": 0.0,
      "hits": [
       {
        "type": "magic",
@@ -27940,7 +28057,9 @@
     }
    ],
    "parse_quality": "good",
-   "notes": []
+   "notes": [
+    "no Mayhem damage dealt/taken modifiers listed"
+   ]
   },
   {
    "id": "Senna",
@@ -28037,8 +28156,9 @@
      ],
      "mode_overrides": [],
      "notes": [
-      "hand override: Piercing Darkness fires off the attack wind-up; no channel; no self-heal: Q heals allies, not Senna"
-     ]
+      "hand override: Piercing Darkness fires off the attack wind-up; no channel; no self-heal: Q heals allies, not Senna; each attack takes 1 s off its cooldown (CDReductionOnHit)"
+     ],
+     "attack_cdr": 1.0
     },
     {
      "slot": "W",
@@ -28151,28 +28271,6 @@
    ],
    "passives": [
     {
-     "trigger": "hit",
-     "every": 2,
-     "cooldown": 8.0,
-     "per_target": true,
-     "charges": 1,
-     "max_charges": 1,
-     "aoe": false,
-     "below_hp": 0.0,
-     "hits": [
-      {
-       "type": "physical",
-       "calc": "BonusCurentHealthDamage",
-       "scaling": {
-        "const": 0.1
-       },
-       "target": "target_current_hp",
-       "per_second": false,
-       "alt": false
-      }
-     ]
-    },
-    {
      "trigger": "attack",
      "every": 1,
      "cooldown": 0.0,
@@ -28181,6 +28279,7 @@
      "max_charges": 1,
      "aoe": false,
      "below_hp": 0.0,
+     "ability_cdr": 0.0,
      "hits": [
       {
        "type": "physical",
@@ -28190,6 +28289,29 @@
         "bonus_ad": 0.2
        },
        "target": "flat",
+       "per_second": false,
+       "alt": false
+      }
+     ]
+    },
+    {
+     "trigger": "hit",
+     "every": 2,
+     "cooldown": 8.0,
+     "per_target": true,
+     "charges": 1,
+     "max_charges": 1,
+     "aoe": false,
+     "below_hp": 0.0,
+     "ability_cdr": 0.0,
+     "hits": [
+      {
+       "type": "physical",
+       "calc": "BonusCurentHealthDamage",
+       "scaling": {
+        "const": 0.1
+       },
+       "target": "target_current_hp",
        "per_second": false,
        "alt": false
       }
@@ -28290,7 +28412,7 @@
        "calc": "ExplosionDamage",
        "scaling": {
         "const": 213.328,
-        "ap": 0.53332
+        "ap": 0.5333
        },
        "target": "flat",
        "per_second": false,
@@ -28310,9 +28432,10 @@
      ],
      "mode_overrides": [],
      "notes": [
-      "hand override: High Note cast time is 0.25 s (SeraphineQCast)",
-      "hand override: Stage Presence: every third basic ability echoes (casts again): +1/3 on average"
-     ]
+      "hand override: High Note cast time is 0.25 s (SeraphineQCast); Stage Presence: every third basic ability echoes (casts again): +1/3 on average; High Note: +1% damage per 1% of a champion's missing Health, up to +75% below 25% Health (DamageAmp 75, ExecuteThreshold 0.25)"
+     ],
+     "missing_amp": 1.0,
+     "missing_max": 0.75
     },
     {
      "slot": "W",
@@ -28374,7 +28497,7 @@
        "calc": "FinalDamage",
        "scaling": {
         "const": 253.327,
-        "ap": 0.66665
+        "ap": 0.6666
        },
        "target": "flat",
        "per_second": false,
@@ -28383,9 +28506,7 @@
      ],
      "mode_overrides": [],
      "notes": [
-      "hand override: Beat Drop only slows a fresh target; root/stun need an existing slow/immobilize",
-      "hand override: Beat Drop cast time is 0.25 s (SeraphineECast)",
-      "hand override: Stage Presence: every third basic ability echoes (casts again): +1/3 on average"
+      "hand override: Beat Drop cast time is 0.25 s (SeraphineECast); Stage Presence: every third basic ability echoes (casts again): +1/3 on average"
      ]
     },
     {
@@ -28676,6 +28797,7 @@
      "max_charges": 1,
      "aoe": false,
      "below_hp": 0.0,
+     "ability_cdr": 0.0,
      "hits": [
       {
        "type": "physical",
@@ -28967,6 +29089,7 @@
      "max_charges": 1,
      "aoe": false,
      "below_hp": 0.0,
+     "ability_cdr": 0.0,
      "hits": [
       {
        "type": "physical",
@@ -29077,7 +29200,7 @@
        "calc": "BasePercentHealth",
        "scaling": {
         "const": 0.12,
-        "ap": 0.0003
+        "ap": 0.00045
        },
        "target": "target_max_hp",
        "per_second": false,
@@ -29284,9 +29407,10 @@
      ],
      "mode_overrides": [],
      "notes": [
-      "hand override: resets the basic attack timer; Dragon's Descent is up at the start of each fight (Fury builds 1/s out of combat) and Mayhem's 2.5 Fury per hit (x3 in Dragon Form) outpaces the 6.67/s drain, so fights are in Dragon Form: Emberstrike is cast three times per cooldown (claw and tail slam Calc_Damage, then the true-damage bite, x2 to offset the 0.5 secondary weight). Its 1% (+1.1% per 100 bonus AD) max-health on-hit is a passive on every attack (passives.json), not part of the cast"
+      "hand override: resets the basic attack timer; Dragon's Descent is up at the start of each fight (Fury builds 1/s out of combat) and Mayhem's 2.5 Fury per hit (x3 in Dragon Form) outpaces the 6.67/s drain, so fights are in Dragon Form: Emberstrike is cast three times per cooldown (claw and tail slam Calc_Damage, then the true-damage bite, x2 to offset the 0.5 secondary weight). Its 1% (+1.1% per 100 bonus AD) max-health on-hit is a passive on every attack (passives.json), not part of the cast; each attack takes 0.5 s off its cooldown (Cooldown_Reduction)"
      ],
-     "attack_reset": true
+     "attack_reset": true,
+     "attack_cdr": 0.5
     },
     {
      "slot": "W",
@@ -29461,8 +29585,6 @@
      ]
     }
    ],
-   "parse_quality": "good",
-   "notes": [],
    "passives": [
     {
      "trigger": "attack",
@@ -29483,12 +29605,13 @@
         "bonus_ad": 0.00011
        },
        "target": "target_max_hp",
-       "per_second": false,
-       "alt": false
+       "per_second": false
       }
      ]
     }
-   ]
+   ],
+   "parse_quality": "good",
+   "notes": []
   },
   {
    "id": "Singed",
@@ -29577,7 +29700,7 @@
      ],
      "mode_overrides": [],
      "notes": [
-      "hand override: Poison Trail is a toggle: on whenever enemies are in reach"
+      "hand override: Poison Trail is a toggle: on whenever enemies are in reach; Poison Trail's cloud lingers 3.25s where Singed walked and the poison keeps ticking 2s after leaving it (CloudDuration/PoisonDuration)"
      ],
      "toggle": true,
      "trail": 3.25,
@@ -29609,7 +29732,9 @@
      },
      "hits": [],
      "mode_overrides": [],
-     "notes": [],
+     "notes": [
+      "hand override: Mega Adhesive deals no damage but its 70% slow/ground keeps a kiting target in the poison"
+     ],
      "cast_for_cc": true
     },
     {
@@ -29791,7 +29916,9 @@
       }
      ],
      "mode_overrides": [],
-     "notes": []
+     "notes": [
+      "hand override: Decimating Smash is charged ~1s (the stun needs it): halfway between 90 (+80% AD) and 350 (+240% AD); const includes base AD 136 at level 18"
+     ]
     },
     {
      "slot": "W",
@@ -29801,7 +29928,7 @@
      "cast_time": 0.0,
      "shield": {
       "scaling": {
-       "const": 333.4,
+       "const": 347.0,
        "ap": 0.4,
        "bonus_hp": 0.1
       },
@@ -29923,7 +30050,7 @@
        "calc": "MinDamageTotal",
        "scaling": {
         "const": 450.0,
-        "bonus_ad": 0.6
+        "bonus_ad": 0.4
        },
        "target": "flat",
        "per_second": false,
@@ -30401,6 +30528,7 @@
      "max_charges": 1,
      "aoe": false,
      "below_hp": 0.0,
+     "ability_cdr": 0.0,
      "hits": [
       {
        "type": "magic",
@@ -30507,7 +30635,7 @@
        "type": "true",
        "calc": "Tier3_Burn",
        "scaling": {
-        "bonus_ad": 0.0003
+        "bonus_ad": 0.00025
        },
        "target": "target_max_hp",
        "per_second": false,
@@ -30912,6 +31040,7 @@
      "max_charges": 1,
      "aoe": false,
      "below_hp": 0.0,
+     "ability_cdr": 0.0,
      "hits": [
       {
        "type": "magic",
@@ -30928,7 +31057,9 @@
     }
    ],
    "parse_quality": "good",
-   "notes": []
+   "notes": [
+    "no Mayhem damage dealt/taken modifiers listed"
+   ]
   },
   {
    "id": "Soraka",
@@ -31097,7 +31228,7 @@
       },
       {
        "type": "magic",
-       "calc": "TotalDamage",
+       "calc": "RootDamage",
        "scaling": {
         "const": 170.0,
         "ap": 0.4
@@ -31108,7 +31239,9 @@
       }
      ],
      "mode_overrides": [],
-     "notes": []
+     "notes": [
+      "hand override: Equinox deals its damage on cast and again on the root when the zone ends; enemies are only silenced and often walk out first, so the second hit counts at extra-hit weight"
+     ]
     },
     {
      "slot": "R",
@@ -31252,7 +31385,7 @@
      ],
      "mode_overrides": [],
      "notes": [
-      "hand override: MaxDamage is the all-bolts total, not an extra hit"
+      "hand override: MaxDamage is the all-bolts total, not an extra hit; Death's Hand is a 32-degree 725 cone, not a thin line; at close range about 3 of the 5 bolts hit (2 extra bolts at +25%)"
      ]
     },
     {
@@ -31392,7 +31525,7 @@
      ],
      "mode_overrides": [],
      "notes": [
-      "hand override: Demonic Ascension drains every second; parsed as one tick (~6s in a duel)"
+      "hand override: Demonic Ascension drains every second; parsed as one tick (~6s in a duel); Demonflare is always cast once (manually after 2s or automatically at the end): full weight"
      ]
     }
    ],
@@ -32121,12 +32254,13 @@
      "max_charges": 1,
      "aoe": false,
      "below_hp": 0.0,
+     "ability_cdr": 0.0,
      "hits": [
       {
        "type": "magic",
        "calc": "TotalDamage",
        "scaling": {
-        "const": 95.0,
+        "const": 60.0,
         "bonus_hp": 0.04
        },
        "target": "flat",
@@ -32344,7 +32478,9 @@
     }
    ],
    "parse_quality": "good",
-   "notes": []
+   "notes": [
+    "no Mayhem damage dealt/taken modifiers listed"
+   ]
   },
   {
    "id": "Talon",
@@ -32452,7 +32588,7 @@
      ],
      "notes": [
       "unsupported stat 9",
-      "hand override: melee crit version replaces the leap damage"
+      "hand override: melee crit version replaces the leap damage; Noxian Diplomacy leaps Talon to his target when out of melee range"
      ]
     },
     {
@@ -32595,6 +32731,7 @@
      "max_charges": 1,
      "aoe": false,
      "below_hp": 0.0,
+     "ability_cdr": 0.0,
      "hits": [
       {
        "type": "physical",
@@ -32696,8 +32833,7 @@
      "mode_overrides": [],
      "notes": [
       "cooldown is the ammo recharge time",
-      "hand override: each Bravado-empowered attack stocks a Starlight charge, so in a fight Q is recast on its 3s static cooldown (one charge each), not on the 15s natural recharge",
-      "hand override: kept as a self-cast heal so its casts charge Bravado"
+      "hand override: each Bravado-empowered attack stocks a Starlight charge, so in a fight Q is recast on its 3s static cooldown (one charge each), not on the 15s natural recharge; kept as a self-cast heal so its casts charge Bravado"
      ],
      "cast_for_heal": true
     },
@@ -32807,6 +32943,8 @@
      "max_charges": 2,
      "aoe": false,
      "below_hp": 0.0,
+     "ability_cdr": 0.0,
+     "basic_cdr": 1.1,
      "hits": [
       {
        "type": "magic",
@@ -32819,8 +32957,7 @@
        "per_second": false,
        "alt": false
       }
-     ],
-     "basic_cdr": 1.1
+     ]
     }
    ],
    "parse_quality": "partial",
@@ -33272,16 +33409,6 @@
      "notes": []
     }
    ],
-   "parse_quality": "partial",
-   "notes": [],
-   "kit": {
-    "stats": {
-     "armor_l1": 0,
-     "armor_l18": 70,
-     "ap_l1": 0,
-     "ap_l18": 52
-    }
-   },
    "passives": [
     {
      "trigger": "attack",
@@ -33295,19 +33422,28 @@
      "ability_cdr": 0.0,
      "hits": [
       {
-       "per_second": false,
-       "alt": false,
        "type": "magic",
        "calc": "FlayPassive",
        "scaling": {
         "const": 142,
         "bonus_ad": 0.25
        },
-       "target": "flat"
+       "target": "flat",
+       "per_second": false
       }
      ]
     }
-   ]
+   ],
+   "parse_quality": "partial",
+   "notes": [],
+   "kit": {
+    "stats": {
+     "armor_l1": 0,
+     "armor_l18": 70,
+     "ap_l1": 0,
+     "ap_l18": 52
+    }
+   }
   },
   {
    "id": "Tristana",
@@ -33487,8 +33623,7 @@
      "mode_overrides": [],
      "notes": [
       "unsupported stat 9",
-      "hand override: passive is the on-kill explosion; charge usually detonates at full 4 stacks",
-      "hand override: the charge's full damage needs 4 stacks (attacks/abilities after it is placed): its damage lands about 3 attacks after the cast, and not at all if the target dies first"
+      "hand override: passive is the on-kill explosion; charge usually detonates at full 4 stacks; the charge's full damage needs 4 stacks (attacks/abilities after it is placed): its damage lands about 3 attacks after the cast, and not at all if the target dies first"
      ],
      "after_attacks": 3
     },
@@ -33648,7 +33783,7 @@
      ],
      "mode_overrides": [],
      "notes": [
-      "hand override: resets the basic attack timer; BonusAD/SappedAD are AD steal values, not damage"
+      "hand override: resets the basic attack timer; BonusAD/SappedAD are AD steal values, not damage; Chomp's slow is a brief 75%; the 5 s is its attack damage drain"
      ],
      "attack_reset": true
     },
@@ -34077,8 +34212,7 @@
      ],
      "mode_overrides": [],
      "notes": [
-      "hand override: one card per cast (Gold, matching the stun); the card is a single-target empowered attack",
-      "hand override: Pick a Card: the cooldown starts after the card is thrown (cdstart post-effect) and the cards cycle 0.5 s each from a random start, so waiting for Gold adds about 0.5 s that haste and refunds don't shorten; the empowered attack has a 0.25 s cast time"
+      "hand override: one card per cast (Gold, matching the stun); the card is a single-target empowered attack; Pick a Card: the cooldown starts after the card is thrown (cdstart post-effect) and the cards cycle 0.5 s each from a random start, so waiting for Gold adds about 0.5 s that haste and refunds don't shorten; the empowered attack has a 0.25 s cast time"
      ],
      "ready_delay": 0.5
     },
@@ -34147,7 +34281,9 @@
     }
    ],
    "parse_quality": "good",
-   "notes": []
+   "notes": [
+    "no Mayhem damage dealt/taken modifiers listed"
+   ]
   },
   {
    "id": "Twitch",
@@ -34328,8 +34464,7 @@
      ],
      "mode_overrides": [],
      "notes": [
-      "hand override: Max numbers are base + 6 stacks; count them once at full weight",
-      "hand override: Expunge's damage is per Deadly Venom stack (1 per attack, max 6): cast once 6 attacks have hit the target, not at 0 stacks"
+      "hand override: Max numbers are base + 6 stacks; count them once at full weight; Expunge's damage is per Deadly Venom stack (1 per attack, max 6): cast once 6 attacks have hit the target, not at 0 stacks"
      ],
      "after_attacks": 6
     },
@@ -34367,6 +34502,7 @@
      "max_charges": 1,
      "aoe": false,
      "below_hp": 0.0,
+     "ability_cdr": 0.0,
      "hits": [
       {
        "type": "true",
@@ -34476,7 +34612,7 @@
        "calc": "MaxHPOnHit1",
        "scaling": {
         "const": 0.14,
-        "bonus_ad": 0.0006
+        "bonus_ad": 0.0007
        },
        "target": "target_max_hp",
        "per_second": false,
@@ -34486,7 +34622,7 @@
        "type": "magic",
        "calc": "EmpoweredLightningBonusMax",
        "scaling": {
-        "ap": 0.0002
+        "ap": 0.00018
        },
        "target": "target_max_hp",
        "per_second": false,
@@ -34619,7 +34755,7 @@
        "calc": "PercentHPBlast",
        "scaling": {
         "const": 0.07,
-        "ap": 0.0001
+        "ap": 0.000175
        },
        "target": "target_max_hp",
        "per_second": false,
@@ -34633,7 +34769,9 @@
     }
    ],
    "parse_quality": "partial",
-   "notes": []
+   "notes": [
+    "no Mayhem damage dealt/taken modifiers listed"
+   ]
   },
   {
    "id": "Urgot",
@@ -34868,6 +35006,7 @@
      "max_charges": 1,
      "aoe": false,
      "below_hp": 0.0,
+     "ability_cdr": 0.0,
      "hits": [
       {
        "type": "physical",
@@ -35042,7 +35181,7 @@
        "calc": "MaxPercentHPPerStack",
        "scaling": {
         "const": 0.135,
-        "ap": 0.0004
+        "ap": 0.00042
        },
        "target": "target_max_hp",
        "per_second": false,
@@ -35155,7 +35294,9 @@
     }
    ],
    "parse_quality": "good",
-   "notes": []
+   "notes": [
+    "no Mayhem damage dealt/taken modifiers listed"
+   ]
   },
   {
    "id": "Vayne",
@@ -36175,7 +36316,7 @@
        "calc": "TotalDamageTooltip",
        "scaling": {
         "const": 0.08,
-        "bonus_ad": 0.0003
+        "bonus_ad": 0.00035
        },
        "target": "target_max_hp",
        "per_second": false,
@@ -36781,7 +36922,9 @@
     }
    ],
    "parse_quality": "good",
-   "notes": []
+   "notes": [
+    "no Mayhem damage dealt/taken modifiers listed"
+   ]
   },
   {
    "id": "Vladimir",
@@ -37025,7 +37168,9 @@
     }
    ],
    "parse_quality": "good",
-   "notes": []
+   "notes": [
+    "no Mayhem damage dealt/taken modifiers listed"
+   ]
   },
   {
    "id": "Volibear",
@@ -37275,7 +37420,9 @@
       }
      ],
      "mode_overrides": [],
-     "notes": []
+     "notes": [
+      "hand override: Stormbringer leaps Volibear to the target area"
+     ]
     }
    ],
    "passives": [
@@ -37288,6 +37435,7 @@
      "max_charges": 1,
      "aoe": false,
      "below_hp": 0.0,
+     "ability_cdr": 0.0,
      "hits": [
       {
        "type": "magic",
@@ -37305,7 +37453,9 @@
     }
    ],
    "parse_quality": "good",
-   "notes": []
+   "notes": [
+    "no Mayhem damage dealt/taken modifiers listed"
+   ]
   },
   {
    "id": "Warwick",
@@ -37407,7 +37557,8 @@
      ],
      "mode_overrides": [],
      "notes": [
-      "ARAM cooldown"
+      "ARAM cooldown",
+      "hand override: Jaws of the Beast held down makes Warwick leap with his target"
      ]
     },
     {
@@ -37512,6 +37663,7 @@
      "max_charges": 1,
      "aoe": false,
      "below_hp": 0.0,
+     "ability_cdr": 0.0,
      "hits": [
       {
        "type": "magic",
@@ -37738,7 +37890,9 @@
     }
    ],
    "parse_quality": "good",
-   "notes": []
+   "notes": [
+    "no Mayhem damage dealt/taken modifiers listed"
+   ]
   },
   {
    "id": "Xayah",
@@ -38868,7 +39022,9 @@
      },
      "hits": [],
      "mode_overrides": [],
-     "notes": []
+     "notes": [
+      "hand override: Soul Unbound dashes Yone's spirit forward"
+     ]
     },
     {
      "slot": "R",
@@ -39143,7 +39299,9 @@
     }
    ],
    "parse_quality": "good",
-   "notes": []
+   "notes": [
+    "no Mayhem damage dealt/taken modifiers listed"
+   ]
   },
   {
    "id": "Yunara",
@@ -39368,7 +39526,9 @@
     }
    ],
    "parse_quality": "good",
-   "notes": []
+   "notes": [
+    "no Mayhem damage dealt/taken modifiers listed"
+   ]
   },
   {
    "id": "Yuumi",
@@ -39840,11 +40000,6 @@
    ],
    "parse_quality": "good",
    "notes": [],
-   "death": {
-    "revive_frac": 0.75,
-    "revive_delay": 4,
-    "chance": 0.8
-   },
    "kit": {
     "stats": {
      "armor_pen": 0.3
@@ -39856,6 +40011,11 @@
      "stack_ad_l1": 1.8,
      "stack_ad_l18": 15.0
     }
+   },
+   "death": {
+    "revive_frac": 0.75,
+    "revive_delay": 4,
+    "chance": 0.8
    }
   },
   {
@@ -40097,15 +40257,15 @@
    ],
    "parse_quality": "good",
    "notes": [],
-   "death": {
-    "revive_frac": 0.3,
-    "revive_delay": 4,
-    "chance": 0.5
-   },
    "kit": {
     "effects": {
      "w_cdr_on_cast_hit": 1
     }
+   },
+   "death": {
+    "revive_frac": 0.3,
+    "revive_delay": 4,
+    "chance": 0.5
    }
   },
   {
@@ -40205,8 +40365,7 @@
      ],
      "mode_overrides": [],
      "notes": [
-      "hand override: Razor Shuriken missile speed is 1700, not 902",
-      "hand override: Living Shadow (W, 5.25s, cooldown cut 3s per E hit) and the Death Mark shadow mimic Razor Shuriken: about one shadow shuriken per cast lands on the target for the 60% damage, counted fully; Living Shadow's passive gives back 50 energy (rank 5) when Zed and a shadow hit the same target with it"
+      "hand override: Razor Shuriken missile speed is 1700, not 902; Living Shadow (W, 5.25s, cooldown cut 3s per E hit) and the Death Mark shadow mimic Razor Shuriken: about one shadow shuriken per cast lands on the target for the 60% damage, counted fully; Living Shadow's passive gives back 50 energy (rank 5) when Zed and a shadow hit the same target with it"
      ],
      "refund": 50
     },
@@ -40232,7 +40391,9 @@
      },
      "hits": [],
      "mode_overrides": [],
-     "notes": []
+     "notes": [
+      "hand override: Living Shadow's recast swaps Zed to his shadow"
+     ]
     },
     {
      "slot": "E",
@@ -40329,6 +40490,7 @@
      "max_charges": 1,
      "aoe": false,
      "below_hp": 0.5,
+     "ability_cdr": 0.0,
      "hits": [
       {
        "type": "magic",
@@ -40529,8 +40691,10 @@
      "mode_overrides": [],
      "notes": [
       "ARAM cooldown",
-      "unsupported stat 9"
-     ]
+      "unsupported stat 9",
+      "hand override: each attack hit takes 0.5 s off its cooldown (CDReductionPerHit)"
+     ],
+     "attack_cdr": 0.5
     },
     {
      "slot": "R",
@@ -41230,6 +41394,7 @@
      "max_charges": 1,
      "aoe": false,
      "below_hp": 0.0,
+     "ability_cdr": 0.0,
      "hits": [
       {
        "type": "magic",
@@ -41345,7 +41510,9 @@
       }
      ],
      "mode_overrides": [],
-     "notes": []
+     "notes": [
+      "hand override: Q on a seed grows a Thorn Spitter: 0.8 attacks/s for 8s of PlantDamage (75 + 20% AP at 18), counted at extra-hit weight"
+     ]
     },
     {
      "slot": "W",
@@ -41419,7 +41586,9 @@
       }
      ],
      "mode_overrides": [],
-     "notes": []
+     "notes": [
+      "hand override: E on a seed grows a Vine Lasher: 0.8 attacks/s for 8s of PlantDamage, counted at extra-hit weight"
+     ]
     },
     {
      "slot": "R",

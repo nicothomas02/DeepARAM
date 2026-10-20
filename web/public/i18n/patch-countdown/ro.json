@@ -5,5 +5,5 @@
  "Today": "Astăzi",
  "day": "zi",
  "days": "zile",
- "{date} (Pacific Time)": "{date} (ora Pacificului)"
+ "Patch {patch} comes out in under 24 hours": "Patch-ul {patch} apare în mai puțin de 24 de ore"
 }

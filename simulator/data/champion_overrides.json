@@ -105,7 +105,8 @@
    "hit_mults": {
     "Calc_Dragon_Form_Damage": 2
    },
-   "why": "resets the basic attack timer; Dragon's Descent is up at the start of each fight (Fury builds 1/s out of combat) and Mayhem's 2.5 Fury per hit (x3 in Dragon Form) outpaces the 6.67/s drain, so fights are in Dragon Form: Emberstrike is cast three times per cooldown (claw and tail slam Calc_Damage, then the true-damage bite, x2 to offset the 0.5 secondary weight). Its 1% (+1.1% per 100 bonus AD) max-health on-hit is a passive on every attack (passives.json), not part of the cast"
+   "why": "resets the basic attack timer; Dragon's Descent is up at the start of each fight (Fury builds 1/s out of combat) and Mayhem's 2.5 Fury per hit (x3 in Dragon Form) outpaces the 6.67/s drain, so fights are in Dragon Form: Emberstrike is cast three times per cooldown (claw and tail slam Calc_Damage, then the true-damage bite, x2 to offset the 0.5 secondary weight). Its 1% (+1.1% per 100 bonus AD) max-health on-hit is a passive on every attack (passives.json), not part of the cast; each attack takes 0.5 s off its cooldown (Cooldown_Reduction)",
+   "attack_cdr": 0.5
   },
   "E": {
    "hits": [
@@ -228,6 +229,10 @@
     "WallDamage"
    ],
    "why": "Ultrashock Laser through-wall damage is an alternative path, not an extra hit"
+  },
+  "E": {
+   "attack_cdr": 0.5,
+   "why": "each attack hit takes 0.5 s off its cooldown (CDReductionPerHit)"
   }
  },
  "Yasuo": {
@@ -346,7 +351,10 @@
   },
   "R": {
    "lock": 3,
-   "why": "Requiem channels for 3 seconds"
+   "why": "Requiem channels for 3 seconds; Requiem hits every living enemy champion regardless of distance; about 4 of 5 are alive when it lands",
+   "hit_mults": {
+    "TotalDamage": 4
+   }
   },
   "E": {
    "geometry": {
@@ -630,7 +638,8 @@
  "Graves": {
   "E": {
    "attack_reset": true,
-   "why": "resets the basic attack timer"
+   "why": "resets the basic attack timer; each pellet hit takes 0.5 s off its cooldown (CooldownPerHit); about 2 pellets hit per attack",
+   "attack_cdr": 1.0
   },
   "Q": {
    "hit_mults": {
@@ -1060,8 +1069,9 @@
  "Senna": {
   "Q": {
    "lock": 0,
-   "why": "Piercing Darkness fires off the attack wind-up; no channel; no self-heal: Q heals allies, not Senna",
-   "heal": null
+   "why": "Piercing Darkness fires off the attack wind-up; no channel; no self-heal: Q heals allies, not Senna; each attack takes 1 s off its cooldown (CDReductionOnHit)",
+   "heal": null,
+   "attack_cdr": 1.0
   }
  },
  "Akshan": {
@@ -1579,6 +1589,10 @@
     "TotalIndividualMissileDamage": 2.25
    },
    "why": "Icathian Rain fires 6 missiles at a lone target; missiles after the first deal 25%, so single-target total is 2.25x one missile"
+  },
+  "E": {
+   "attack_cdr": 0.5,
+   "why": "each attack takes 0.5 s off its cooldown"
   }
  },
  "Kalista": {
@@ -2020,10 +2034,12 @@
   },
   "Q": {
    "cast_time": 0.25,
-   "why": "High Note cast time is 0.25 s (SeraphineQCast); Stage Presence: every third basic ability echoes (casts again): +1/3 on average",
+   "why": "High Note cast time is 0.25 s (SeraphineQCast); Stage Presence: every third basic ability echoes (casts again): +1/3 on average; High Note: +1% damage per 1% of a champion's missing Health, up to +75% below 25% Health (DamageAmp 75, ExecuteThreshold 0.25)",
    "hit_mults": {
     "ExplosionDamage": 1.3333
-   }
+   },
+   "missing_amp": 1.0,
+   "missing_max": 0.75
   }
  },
  "Sett": {
@@ -2472,6 +2488,33 @@
   "W": {
    "heal": null,
    "why": "no self-heal: W heals allies only"
+  },
+  "E": {
+   "hits": [
+    {
+     "type": "magic",
+     "calc": "TotalDamage",
+     "scaling": {
+      "const": 170.0,
+      "ap": 0.4
+     },
+     "target": "flat",
+     "per_second": false,
+     "alt": false
+    },
+    {
+     "type": "magic",
+     "calc": "RootDamage",
+     "scaling": {
+      "const": 170.0,
+      "ap": 0.4
+     },
+     "target": "flat",
+     "per_second": false,
+     "alt": false
+    }
+   ],
+   "why": "Equinox deals its damage on cast and again on the root when the zone ends; enemies are only silenced and often walk out first, so the second hit counts at extra-hit weight"
   }
  },
  "Milio": {
@@ -2793,8 +2836,9 @@
    "hit_mults": {
     "RSmallMissileDamage": 1.3333
    },
-   "cooldown": 4,
-   "why": "Missile Barrage: every third missile is the big one (double damage), so 4/3 of the small one on average; 4 charges, 20s recharge cut by 2s per attack on a champion and 2s between shots, about one missile every 4s over a fight"
+   "cooldown": 20,
+   "attack_cdr": 2,
+   "why": "Missile Barrage: every third missile is the big one (double damage), so 4/3 of the small one on average; a charge recharges in 20s, cut by 2s per attack on a champion, so missiles come as fast as Corki attacks"
   }
  },
  "Aphelios": {

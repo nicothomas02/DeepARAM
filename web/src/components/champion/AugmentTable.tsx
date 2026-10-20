@@ -10,7 +10,7 @@ import { SIMPLE_LIMIT } from "@/components/champion/ShowMore";
 import type { AugmentRow } from "@/lib/champion-page";
 import { AUGMENT_DEEPSCORE_HELP } from "@/lib/deepscore";
 
-// A champion's augments as one ranked table with a rarity filter, best DeepScore first. The number
+// A champion's augments as one ranked table with a rarity filter, best DeepScore first, each with the game's build tags. The number
 // columns' headers re-sort it (highest first; a second click flips it).
 
 const RARITIES = ["all", "prismatic", "gold", "silver"] as const;
@@ -35,6 +35,7 @@ export default function AugmentTable({
 }) {
   const t = useT("champions");
   const tt = useT("tables");
+  const ts = useT("tier-list");
   const [rarity, setRarity] = useState<(typeof RARITIES)[number]>("all");
   const [open, setOpen] = useState(false);
   const [sort, setSort] = useState<{ key: SortKey; desc: boolean }>({ key: "deepScore", desc: true });
@@ -117,6 +118,12 @@ export default function AugmentTable({
               <span className={`cp-pill ${a.rarity}`}>
                 {t(LABEL[a.rarity])}
               </span>
+              {/* The game's own build tags for the augment (lib/build-tags.ts). */}
+              {(a.tags ?? []).map((tag) => (
+                <span key={tag} className="cp-pill cp-tag">
+                  {ts(tag)}
+                </span>
+              ))}
             </>
           );
           return (

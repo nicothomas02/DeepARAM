@@ -140,5 +140,20 @@
  "{n} boost": "เพิ่มขึ้น {n}",
  "of {n} by DeepScore": "จาก {n} ตาม DeepScore",
  "Win rates are estimated. The boost below each is how much the augment adds to this champion's win rate.": "อัตราชนะเป็นค่าประมาณ ค่าที่เพิ่มขึ้นด้านล่างคือออกเมนต์ช่วยเพิ่มอัตราชนะของแชมเปี้ยนนี้เท่าไร",
- "Spell pairs with win rate, pick rate and win rate boost appear here once enough games are in.": "คู่สเปลล์พร้อมอัตราชนะ อัตราการเลือก และอัตราชนะที่เพิ่มขึ้นจะแสดงที่นี่เมื่อมีจำนวนเกมเพียงพอ"
+ "Spell pairs with win rate, pick rate and win rate boost appear here once enough games are in.": "คู่สเปลล์พร้อมอัตราชนะ อัตราการเลือก และอัตราชนะที่เพิ่มขึ้นจะแสดงที่นี่เมื่อมีจำนวนเกมเพียงพอ",
+ "Rival quest": "เควสต์คู่ปรับ",
+ "Team quest": "เควสต์ทีม",
+ "When {name} is on the other team": "เมื่อ {name} อยู่ฝั่งตรงข้าม",
+ "When {name} is on your team": "เมื่อ {name} อยู่ทีมเดียวกับคุณ",
+ "No hard CC": "ไม่มี Hard CC",
+ "Damage": "ความเสียหาย",
+ "Toughness": "ความทนทาน",
+ "Crowd Control": "การควบคุมการเคลื่อนไหว",
+ "Mobility": "การเคลื่อนไหว",
+ "Utility": "อรรถประโยชน์",
+ "The champion's ability to deal damage to enemy champions": "ความสามารถของแชมเปี้ยนในการสร้างความเสียหายให้แก่แชมเปี้ยนศัตรู",
+ "The champion's ability to absorb damage from enemy champions": "ความสามารถของแชมเปี้ยนในการดูดซับความเสียหายจากแชมเปี้ยนศัตรู",
+ "The champion's ability to apply harmful effects like slows and stuns to enemy champions": "ความสามารถของแชมเปี้ยนจะส่งผลกระทบข้างเคียงที่ไม่ดีให้แก่แชมเปี้ยนศัตรู อย่างเช่น สโลว์และสตัน",
+ "The champion's ability to move quickly around the map using blinks or dashes": "ความสามารถของแชมเปี้ยนที่หมายถึงความเร็วในการเคลื่อนที่ไปรอบแผนที่โดยการพุ่งตัวหรือวาร์ป",
+ "The champion's ability to grant beneficial effects like shields, healing, or movement speed to allied champions": "ความสามารถของแชมเปี้ยนในการให้ผลประโยชน์ต่าง ๆ ให้แก่แชมเปี้ยนเพื่อนร่วมทีม อย่างเช่น สร้างโล่ป้องกัน ฟื้นฟูพลังชีวิต หรือเพิ่มความเร็ว"
 }

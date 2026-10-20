@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Mayhem 5v5 Teamfight</title>
+<title>Mayhem Teamfight</title>
 <link rel="stylesheet" href="/assets/fonts/fonts.css">
 <style>
 /* Same look as the fight replay page (index.html). */
@@ -59,6 +59,9 @@ button:disabled { opacity: .5; cursor: progress; }
 .card h2 { font: 500 11.5px/1 var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--accent-text); margin: 0 0 12px; }
 .card.foe { border-top-color: var(--hp-low); }
 .card.foe h2 { color: var(--foe-text); }
+.team-head { display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: center; margin: 0 0 12px; }
+.team-head h2 { margin: 0 auto 0 0; }
+.team-head label { display: inline-flex; gap: 6px; align-items: center; color: var(--muted); font-size: 13px; }
 .teams { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
 @media (max-width: 860px) { .teams { grid-template-columns: minmax(0, 1fr); } }
 .slot { display: grid; grid-template-columns: 40px minmax(0, 1fr); gap: 4px 10px; align-items: center; padding: 8px 0; border-top: 1px solid var(--line); }
@@ -117,26 +120,38 @@ td.who { font-family: var(--body); }
   <header>
     <div>
       <div class="eyebrow">Simulator</div>
-      <h1>5v5 teamfight</h1>
+      <h1 id="pageTitle">Teamfight</h1>
     </div>
     <div class="row">
       <label class="patch">Patch <select id="patchSel" aria-label="Patch"><option value="live">Live</option><option value="pbe">PBE</option></select></label>
-      <button id="randomFoes" type="button">Likely enemies</button>
+      <button id="popularTeams" type="button" title="Both teams as the lineups seen most often in real games">Most popular teams</button>
       <button id="runTeam" class="primary" type="button" disabled>Simulate the fight</button>
     </div>
   </header>
-  <p class="note">Pick your champion, four allies and five enemies. Each champion starts with its most popular build; open a
-    champion's build to change it. Every champion fights the other team on its own, then the two teams trade that damage
-    at once, with front-liners soaking their usual share. Each matchup runs 300 times.</p>
+  <p class="note">Pick both teams. They start as the lineups seen most often in real games, built from the champions most
+    often played together; Randomize fills a team with random champions. Each champion starts with its most popular build;
+    open a champion's build to change it. Every champion fights the other team on its own, then the two teams trade that
+    damage at once, with front-liners soaking their usual share. Each matchup runs 300 times.</p>
   <div class="status" id="status" role="status">Loading the simulator…</div>
   <div class="teams">
-    <section class="card" aria-labelledby="allyTitle"><h2 id="allyTitle">Your team</h2><div id="allies"></div></section>
-    <section class="card foe" aria-labelledby="foeTitle"><h2 id="foeTitle">Enemy team</h2><div id="foes"></div></section>
+    <section class="card" aria-labelledby="allyTitle">
+      <div class="team-head"><h2 id="allyTitle">Your team</h2>
+        <label>Champions <select id="allySize"><option>1</option><option>2</option><option>3</option><option>4</option><option selected>5</option></select></label>
+        <button id="randomAllies" type="button">Randomize</button></div>
+      <div id="allies"></div>
+    </section>
+    <section class="card foe" aria-labelledby="foeTitle">
+      <div class="team-head"><h2 id="foeTitle">Enemy team</h2>
+        <label>Champions <select id="foeSize"><option>1</option><option>2</option><option>3</option><option>4</option><option selected>5</option></select></label>
+        <button id="randomFoes" type="button">Randomize</button></div>
+      <div id="foes"></div>
+    </section>
   </div>
   <section class="card" id="result" hidden aria-labelledby="resTitle">
     <h2 id="resTitle">Result</h2>
     <div class="stats">
       <div><small>Your team wins</small><b id="winRate">–</b></div>
+      <div><small>Teamfights simulated</small><b id="trials">–</b></div>
       <div><small>Fight length</small><b id="fightLen">–</b></div>
       <div><small>Your team's DPS</small><b id="teamDps">–</b></div>
       <div><small>Enemy team's DPS</small><b id="enemyDps">–</b></div>
@@ -150,8 +165,8 @@ td.who { font-family: var(--body); }
     </div>
   </section>
 </main>
-<script>window.REPLAY_VERSION = "70";</script>
-<script src="i18n.js?v=69"></script>
-<script src="team.js?v=69"></script>
+<script>window.REPLAY_VERSION = "72";</script>
+<script src="i18n.js?v=72"></script>
+<script src="team.js?v=72"></script>
 </body>
 </html>

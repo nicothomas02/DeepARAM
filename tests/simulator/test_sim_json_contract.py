@@ -160,12 +160,12 @@ def test_trace_json(run_sim, tmp_path):
     assert times == sorted(times)
 
 
-# ---------------------------------------------------------------- 5v5 (team.js)
+# ---------------------------------------------------------------- Teamfight and 2v2 (team.js)
 
 def test_team_json(run_json):
     out = run_json("mayhem_sim", ["--champ", "Jinx", "--allies", "Lulu,Leona,Ahri,Darius", "--trials", "100",
                                   "--seed", "1", "--json"])
-    assert out["mode"] == "team"
+    assert out["mode"] == "team" and out["trials"] == 100
     assert 0 <= out["win_rate"] <= 1
     for k in ("fight_length", "team_dps", "enemy_dps"):
         assert finite_number(out[k]) and out[k] > 0, k
@@ -180,6 +180,15 @@ def test_team_json(run_json):
             assert len(m["build"]["items"]) > 0
             check_summary(m["summary"])
     assert out["timeline"] and all(e["side"] in ("ally", "enemy") and finite_number(e["t"]) for e in out["timeline"])
+
+
+@pytest.mark.parametrize("allies,foes", [("", "Ahri"), ("", "Ahri,Garen,Lux"), ("Lulu", "Ahri,Garen"), ("Lulu,Leona,Darius,Lux", "Ahri")])
+def test_team_json_any_sizes(run_json, allies, foes):
+    """The Teamfight tab lets each side have 1 to 5 champions ("" = no allies, just you)."""
+    out = run_json("mayhem_sim", ["--champ", "Jinx", "--allies", allies, "--team", foes, "--trials", "40", "--seed", "1", "--json"])
+    assert out["mode"] == "team" and out["trials"] == 40
+    assert len(out["members"]) == 1 + len([a for a in allies.split(",") if a]) and len(out["enemies"]) == len(foes.split(","))
+    assert 0 <= out["win_rate"] <= 1 and out["fight_length"] > 0
 
 
 # ---------------------------------------------------------------- yunara_sim --json

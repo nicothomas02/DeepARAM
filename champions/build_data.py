@@ -215,21 +215,42 @@ def base_stats(record):
     return out
 
 
-# Playstyle tags read from ability text (and range); each needs this many abilities that match
-CC = r"\bstun|\broot|knock(s|ing)? (up|back|aside|away)|airborne|\bcharm|\btaunt|\bfear|\bflee|suppress|\bsleep|polymorph|\bpull|ground(s|ed)\b"
-MOVE = r"\bdash|\bleap|\bcharge|\blunge|\bjump|\bblink|\bteleport|\bslam|\bvault|\bpounce"
-DAMAGE = r"damage"
-HEAL = r"\bheal(s|ed|ing)?\b|restor\w* health|regenerat\w* .{0,40}health|life steal|omnivamp"
-ALLY = r"(?<!by an )\ball(y|ies)\b"
-SHIELD = r"\bshield"
 ROLE_NAMES = {"assassin": "Assassin", "fighter": "Fighter", "mage": "Mage", "marksman": "Marksman", "support": "Support", "tank": "Tank"}
+# Riot's own champion tags (two per champion, championMetadata in game/global/champions/champions.bin.json; the names
+# are the string table's champion_tag_*) and what each means, in a line.
 PLAYSTYLES = {
-    "Poke": "Damages from long range (1,000 or more) before a fight starts.",
-    "Engage": "Starts fights by jumping in with crowd control.",
-    "Sustain": "Heals themselves during fights.",
-    "Shields/Heals": "Heals or shields allies.",
-    "Crowd control": "Has two or more abilities that stun, root, knock up, charm, taunt, pull or the like.",
+    "Initiator": "Starts fights by jumping in.",
+    "Crowd Control": "Stuns, roots, slows or otherwise locks enemies down.",
+    "Burst": "Deals a lot of damage in a short combo.",
+    "Mobile": "Has dashes, blinks or speed to move around the fight.",
+    "AoE": "Hits several enemies at once.",
+    "Duelist": "Strong in one-on-one fights.",
+    "Auto-attack": "Deals most of its damage with basic attacks.",
+    "Ally Protection": "Heals, shields or saves teammates.",
+    "Hypercarry": "Grows into a damage threat that carries late fights.",
+    "Durable": "Hard to kill.",
+    "Dive": "Jumps onto targets in the enemy backline.",
+    "Self Healing": "Heals itself during fights.",
+    "Sustained Damage": "Keeps dealing damage over a long fight.",
+    "Stealth": "Can turn invisible or camouflaged.",
+    "Long Range": "Fights from far away.",
+    "Summon": "Fights alongside pets, clones or other units.",
+    "Battlecaster": "A mage who fights up close with a steady stream of spells.",
+    "Damage-over-Time": "Damages through burns, poisons and other effects over time.",
+    "Shapeshift": "Changes form to swap between sets of abilities.",
 }
+TAG_NAMES = {"Damage-over-Time": "damage_over_time", "Auto-attack": "auto_attack", "AoE": "aoe"}
+# Playstyle ratings (1 to 3) in championMetadata; two of the five have hashed names (worked out from Leona and
+# Malphite, who are 3 on both). A rating left out of the file is 1.
+RATINGS = {"damage": "playStyleDamage", "toughness": "{28f8756b}", "control": "{c6585a26}",
+           "mobility": "playStyleMobility", "utility": "playStyleUtility"}
+
+
+def tag_key(name):
+    """The string table key for an official tag name ("Crowd Control" -> champion_tag_crowd_control)."""
+    return "champion_tag_" + TAG_NAMES.get(name, name.lower().replace(" ", "_").replace("-", "_"))
+
+
 # One colour per tag: classes share a hue family, playstyles have their own
 TAG_COLORS = {
     "Controller": "#3fb6a8", "Enchanter": "#57c7b2", "Catcher": "#2f9e8f",
@@ -240,35 +261,30 @@ TAG_COLORS = {
     "Tank": "#4f8fd6", "Vanguard": "#3f7fc8", "Warden": "#6aa6e6",
     "Specialist": "#9bb53b",
     "Support": "#57c7b2",
-    "Poke": "#3fa7f5", "Engage": "#f05a3c", "Sustain": "#4cbf6b", "Shields/Heals": "#f2c14e", "Crowd control": "#a77bd9",
+    "Initiator": "#f05a3c", "Crowd Control": "#a77bd9", "Mobile": "#3fd0e0", "AoE": "#f08a3c", "Duelist": "#e05a7a",
+    "Auto-attack": "#e0b23c", "Ally Protection": "#f2c14e", "Hypercarry": "#ff7a59", "Durable": "#5f9ee8",
+    "Dive": "#d9534f", "Self Healing": "#4cbf6b", "Sustained Damage": "#c98a4a", "Stealth": "#8a8fa8",
+    "Long Range": "#3fa7f5", "Summon": "#b07cd9", "Battlecaster": "#8f7cf6", "Damage-over-Time": "#7fbf3f",
+    "Shapeshift": "#c76bd0",
 }
 
 
-def champion_tags(alias, info):
-    """Official roles (game files), Riot's subclasses (classes.py) and playstyle tags from the ability text."""
+def champion_tags(alias, info, meta):
+    """Official roles (game files), Riot's subclasses (classes.py), and Riot's own playstyle tags and ratings
+    (championMetadata)."""
     from classes import CLASS_OF, SUBCLASS
     subs = SUBCLASS.get(alias)
     subs = [subs] if isinstance(subs, str) else list(subs or [])
     classes = list(dict.fromkeys(CLASS_OF[s] for s in subs))
-    spells = [s for s in info.get("spells") or []]
-    texts = [clean(s.get("description")) for s in spells] + [clean((info.get("passive") or {}).get("description"))]
-    has = lambda pat, txt: re.search(pat, txt, re.I) is not None  # noqa: E731
-    play = []
-    ranged_dmg = any(has(DAMAGE, clean(s.get("description"))) and 1000 <= max(s.get("range") or [0]) < 5000 for s in spells)
-    if "Artillery" in subs or (ranged_dmg and set(info.get("roles") or []) & {"mage", "marksman"}):
-        play.append("Poke")
-    if set(subs) & {"Vanguard", "Diver", "Catcher"} or any(has(MOVE, t) and has(CC, t) for t in texts[:4]):
-        play.append("Engage")
-    if any(has(HEAL, t) and not has(ALLY, t) and not has(r"reduc\w* (their )?heal(ing)?\b|grievous", t) for t in texts):
-        play.append("Sustain")
-    if "Enchanter" in subs or any((has(HEAL, t) or has(SHIELD, t)) and has(ALLY, t) for t in texts):
-        play.append("Shields/Heals")
-    if sum(has(CC, t) for t in texts) >= 2:
-        play.append("Crowd control")
-    return {
+    keys = {tag_key(n): n for n in PLAYSTYLES}
+    play = [keys[t] for t in (meta.get("{90d227c0}"), meta.get("{434fc710}")) if t in keys]
+    out = {
         "roles": [ROLE_NAMES.get(r, r.title()) for r in info.get("roles") or []],
         "classes": classes, "subclasses": subs, "playstyles": play,
     }
+    if any(meta.get(f) for f in RATINGS.values()):
+        out["ratings"] = {k: max(1, min(3, int(meta.get(f) or 1))) for k, f in RATINGS.items()}
+    return out
 
 
 def site_paths(text):
@@ -280,16 +296,15 @@ def site_paths(text):
 # items (ties go to the earlier style in STYLES).
 STYLES = {"crit": "Crit", "onhit": "On-hit", "ap": "AP", "lethality": "Lethality", "fighter": "AD",
           "tank": "Tank", "enchanter": "Enchanter"}
-# An augment fits a style when its internal name or its spell's value names mention it (CamelCase, split into words).
-AUG_STYLE = {
-    "crit": (r"crit|crti", set()),
-    "onhit": (r"onhit|attackspeed|asperstack|dualwield|deft", {"as"}),
-    "ap": (r"abilitypower|magic|witch|warlock|apratio|apflat|apamp", {"ap"}),
-    "lethality": (r"lethality|armorpen|assassin|execute|adratio|bonusad|adamp", {"ad"}),
-    "fighter": (r"omnivamp|lifesteal|vamp|adratio|bonusad", {"ad"}),
-    "tank": (r"health|armor|resist|tank|damagereduction|maxhp|size", {"hp", "mr"}),
-    "enchanter": (r"heal|shield|ally|allies", set()),
-}
+# Each Mayhem augment's own build tags (mBuildTags in kiwi.bin, a bit field) name the builds it fits. Bits not listed
+# here (4, 128, 1024, 2048) don't line up with one style yet, so they're ignored.
+BUILD_TAGS = {512: "crit", 64: "onhit", 32: "ap", 2: "lethality", 16: "fighter", 256: "tank", 8: "enchanter"}
+# Crowd-control codes in each champion's mAbilitySlotCC (Q, W, E, R), worked out from well-known abilities
+# (Leona Q stun, E root; Ashe slows; Janna Q knock-up; Lulu W polymorph...). Codes not listed here (1, 3, 10, 20)
+# aren't named yet. Hard CC stops the target acting; slow and blind don't.
+CC_CODES = {2: "blind", 5: "fear", 7: "knockback", 8: "knockup", 11: "polymorph", 12: "pull", 13: "silence",
+            14: "slow", 15: "root", 16: "stun", 17: "suppression", 18: "taunt"}
+SOFT_CC = {"slow", "blind"}
 
 
 def item_style(it):
@@ -321,19 +336,23 @@ def build_style(ids, items):
 
 
 def augment_styles(kiwi):
-    """{augment id: set of styles it fits}"""
+    """{augment id: set of styles it fits}, from the augment's build tags"""
     out = {}
     for a in kiwi.values():
         if not (isinstance(a, dict) and a.get("__type") == "AugmentData" and a.get("AugmentPlatformId")):
             continue
-        sp = (kiwi.get(a.get("RootSpell")) or {}).get("mSpell") or {}
-        names = [a.get("AugmentNameId") or ""] + [d.get("name", "") for d in sp.get("DataValues") or []]
-        text = " ".join(names).lower()
-        words = {w.lower() for n in names for w in re.findall(r"[A-Z]+(?![a-z])|[A-Z]?[a-z]+", n)}
-        fits = {k for k, (pat, toks) in AUG_STYLE.items() if re.search(pat, text) or words & toks}
-        if 0 < len(fits) <= 3:  # an augment that fits nearly everything says nothing about a style
+        fits = {st for bit, st in BUILD_TAGS.items() if (a.get("mBuildTags") or 0) & bit}
+        if fits:
             out[a["AugmentPlatformId"]] = fits
     return out
+
+
+def ability_cc(record):
+    """{slot: crowd control} for Q, W, E and R, from the champion's record; None when the record doesn't list it."""
+    codes = record.get("mAbilitySlotCC")
+    if not codes:
+        return None
+    return {slot: CC_CODES[c] for slot, c in zip("QWER", codes) if c in CC_CODES}
 
 
 def archetypes(b, items, aug_fits):
@@ -426,6 +445,10 @@ def main():
         for s in info.get("spells") or []:
             abilities.append({"slot": s["spellKey"].upper(), "name": s["name"], "icon": asset(s.get("abilityIconPath")),
                               "text": clean(s.get("description")), "cooldown": ranks([0] + s.get("cooldownCoefficients", []), s["spellKey"].upper())})
+        cc = ability_cc(record) or {}
+        for a in abilities:
+            if a["slot"] in cc:
+                a["cc"] = cc[a["slot"]]
         b = builds.get(c["id"])
         if b:
             b["styles"] = archetypes(b, items, aug_fits)
@@ -464,15 +487,49 @@ def main():
     with open(os.path.join(HERE, "data.js"), "w") as f:
         # no header comment: the file ships to the site, and pages don't say where data comes from
         f.write("window.CHAMPS_DATA = " + site_paths(json.dumps(out, ensure_ascii=False, separators=(",", ":"))) + ";\n")
-    tags = {c["alias"]: {"id": c["id"], "name": info["name"], **champion_tags(c["alias"], info)}
-            for c, (info, _) in zip(summary, loaded) if info}
+    def cc_tags(bin_):
+        record = next((v for k, v in (bin_ or {}).items() if k.endswith("/CharacterRecords/Root")), {})
+        cc = ability_cc(record)
+        if cc is None:
+            return {}
+        kinds = set(cc.values())
+        return {"cc": cc, "hardCC": bool(kinds - SOFT_CC)}
+    metas = get(f"{BASE}/{ch}/game/global/champions/champions.bin.json", os.path.join(cache, "champions.bin.json"))
+    meta_of = {k.split("/")[-1].lower(): (v.get("championMetadata") or {}) for k, v in metas.items() if isinstance(v, dict)}
+    tags = {c["alias"]: {"id": c["id"], "name": info["name"], **champion_tags(c["alias"], info, meta_of.get(c["alias"].lower(), {})),
+                         **cc_tags(bin_)}
+            for c, (info, bin_) in zip(summary, loaded) if info}
     from classes import CLASSES
     with open(os.path.join(HERE, "tags.json"), "w") as f:
         json.dump({"patch": version, "colors": TAG_COLORS,
                    "classes": {k: list(v) for k, v in CLASSES.items()},
-                   "meanings": {**{s: m for subs in CLASSES.values() for s, m in subs.items()}, **PLAYSTYLES},
-                   "champions": dict(sorted(tags.items()))}, f, indent=1, ensure_ascii=False)
+                   "meanings": {**PLAYSTYLES, **{s: m for subs in CLASSES.values() for s, m in subs.items()}},
+                   "ratings": list(RATINGS),
+                   "champions": dict(sorted(tags.items())),
+                   # each augment's build styles from its own tags, for "fits this build" filters
+                   "augments": {str(a): sorted(st, key=list(STYLES).index) for a, st in sorted(aug_fits.items())}},
+                  f, indent=1, ensure_ascii=False)
         f.write("\n")
+    write_official(tags, aug_fits)
+
+
+# The same data in the files the site reads (data/official/), in the site's own names
+SITE_STYLE = {"crit": "crit", "onhit": "attack_speed", "ap": "ap", "lethality": "pen", "fighter": "fighter",
+              "tank": "tank", "enchanter": "support"}
+SITE_CC = {"knockup": "knock_up", "knockback": "knock_back"}
+
+
+def write_official(tags, aug_fits):
+    def dump(name, obj):
+        with open(os.path.join(REPO, "data", "official", name), "w", encoding="utf-8") as f:
+            json.dump(obj, f, indent=1, ensure_ascii=False)
+            f.write("\n")
+    order = list(STYLES)
+    dump("augment-build-tags.json", {str(a): [SITE_STYLE[x] for x in sorted(st, key=order.index)] for a, st in sorted(aug_fits.items())})
+    dump("champion-cc.json", {alias: {"slots": {s: SITE_CC.get(t["cc"].get(s), t["cc"].get(s)) for s in "QWER"}, "hard": t["hardCC"]}
+                              for alias, t in sorted(tags.items()) if "cc" in t})
+    dump("champion-metadata.json", {alias: {"tags": t["playstyles"], **({"playstyle": t["ratings"]} if "ratings" in t else {})}
+                                    for alias, t in sorted(tags.items()) if t["playstyles"] or "ratings" in t})
 
 
 if __name__ == "__main__":
