@@ -111,7 +111,7 @@
     t = 0; playing = true; shown.clear(); clipState.slot = null;
     $("play").textContent = T("Pause");
     // Titles ("the Loose Cannon") are English only, so other languages show the name alone.
-    $("title").textContent = champ.name + (champ.title && window.I18N.lang === "en" ? ", " + champ.title : "");
+    $("title").textContent = champ.name;
     $("total").textContent = fight.duration.toFixed(1);
     try { history.replaceState(null, "", "#" + champ.id); } catch (e) { /* sandboxed */ }
     renderBuild();
@@ -1456,17 +1456,23 @@
   let abButtons = [];  // the ability buttons' cooldown canvases, so a frame doesn't query the page
   function renderAbilities() {
     const box = $("abilities"); box.textContent = ""; abButtons = [];
-    for (const slot of "QWER") {
+    // The passive first, then Q, W, E and R with their cooldowns.
+    for (const slot of "PQWER") {
       const b = document.createElement("button");
       b.type = "button"; b.className = "ab"; b.dataset.slot = slot;
-      b.title = T("{slot}: {name}. Click to see it.", { slot, name: (champ.spells || {})[slot] || "" });
+      const name = (champ.spells || {})[slot] || (slot === "P" ? T("Passive") : "");
+      b.title = slot === "P" ? name : T("{slot}: {name}. Click to see it.", { slot, name });
       const c = document.createElement("canvas"); c.width = c.height = 128;
       paintIcon(c, champ.row, SLOT_COL[slot], 128);
-      const cd = document.createElement("canvas"); cd.width = cd.height = 128; cd.className = "cd";
       const k = document.createElement("span"); k.className = "key"; k.textContent = slot; k.style.color = SLOT_COLORS[slot];
-      b.append(c, cd, k);
-      abButtons.push({ slot, cd, g: cd.getContext("2d") });
-      b.addEventListener("click", () => showAbility(slot));
+      b.append(c);
+      if (slot !== "P") {
+        const cd = document.createElement("canvas"); cd.width = cd.height = 128; cd.className = "cd";
+        b.append(cd);
+        abButtons.push({ slot, cd, g: cd.getContext("2d") });
+        b.addEventListener("click", () => showAbility(slot));
+      } else b.disabled = true;
+      b.append(k);
       // The ability's cooldown with this build's ability haste, under its icon.
       const w = document.createElement("div"); w.className = "ab-wrap";
       const t = document.createElement("span"); t.className = "ab-cd"; t.dataset.slot = slot;
