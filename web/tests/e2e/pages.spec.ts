@@ -139,29 +139,27 @@ test("clicking a champion on the Tier List opens its page, with no favorites or 
   await expect(page.locator(".fav-star, .cmp-toggle")).toHaveCount(0);
 });
 
-test("the Tier List keeps advanced stats in their own table at the bottom", async ({ page }) => {
+test("the Tier List shows every stat in one table, with no separate advanced section", async ({ page }) => {
   await page.goto("/tier-list");
   const main = page.locator(".data-table").first();
-  await expect(main.locator("thead")).not.toContainText("Damage share");
-  const more = page.locator(".advanced-stats").first();
-  await expect(more).not.toHaveAttribute("open");
-  await more.locator("summary").click();
-  await expect(more.locator("thead")).toContainText("Damage share");
+  await expect(main.locator("thead")).toContainText("Damage share");
+  await expect(page.locator(".advanced-stats")).toHaveCount(0);
   // Changes read in percentage points, never as a negative zero.
   await expect(main.locator("tbody").first()).not.toContainText("-0.0");
 });
 
-test("the Augments and Items tabs switch between their picture view and a sortable table", async ({ page }) => {
+test("the Augments and Items tabs follow the Champions layout: filters above one sortable table", async ({ page }) => {
   await page.goto("/tier-list?tab=augments");
-  await expect(page.locator(".atiers-rows")).toBeVisible();
-  await expect(page.locator(".atiers .data-table")).toHaveCount(0);
-  await page.locator(".atiers .view-switch button").nth(1).click();
-  await expect(page.locator(".atiers .data-table").first()).toBeVisible();
-  await expect(page).toHaveURL(/aview=table/);
+  const augs = page.locator(".atiers .data-table").first();
+  await expect(augs.locator("tbody tr").first()).toBeVisible();
+  await expect(page.locator(".atiers-rows, .view-switch")).toHaveCount(0);
+  await page.locator(".atiers .chip-toggle", { hasText: "Prismatic" }).click();
+  await expect(page).toHaveURL(/rarity=prismatic/);
 
-  await page.goto("/tier-list?tab=items&iview=table");
+  await page.goto("/tier-list?tab=items");
   const table = page.locator(".items-index .data-table").first();
   await expect(table.locator('a[href^="/items/"]').first()).toBeVisible();
+  await expect(page.locator(".item-card")).toHaveCount(0);
   // Phones hide the Cost column and sort from the menu instead (DataTable Column.phone).
   if (test.info().project.name === "phone") await table.locator(".table-sort").selectOption("cost.desc");
   else await table.locator("thead button", { hasText: "Cost" }).click();

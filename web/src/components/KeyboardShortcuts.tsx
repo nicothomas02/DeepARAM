@@ -11,9 +11,10 @@ const GO: [string, string, string][] = [
   ["h", "/", "Home"],
   ["t", "/tier-list", "Tier List"],
   ["s", "/simulator", "Simulator"],
+  ["k", "/kitchen", "The Kitchen"],
   ["p", "/pbe", "PBE"],
-  ["r", "/patches", "Patch Recaps"],
-  ["i", "/info", "Info"],
+  ["r", "/patches", "Patches"],
+  ["i", "/info", "About"],
 ];
 
 const SHEET: { group: string; keys: [string[], string][] }[] = [

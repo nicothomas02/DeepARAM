@@ -9,15 +9,17 @@ type Tab = { href: string; label: string; group?: string };
 
 // Bottom tab bar for phones and tablets. It is only shown when the inline script in the
 // layout marks the page as running on iOS or Android (html[data-device="mobile"]).
-const PRIMARY = ["/tier-list", "/simulator", "/pbe"];
+const PRIMARY = ["/tier-list", "/simulator", "/kitchen"];
 // Each tab tints in its section's colour when active, like iOS tab bars.
-const ACCENT: Record<string, string> = { "/tier-list": "tier", "/simulator": "sim", "/pbe": "pbe", more: "info" };
+const ACCENT: Record<string, string> = { "/tier-list": "tier", "/simulator": "sim", "/kitchen": "lab", more: "info" };
 
 const ICONS: Record<string, React.ReactNode> = {
   "/": <path d="M4 11.5 12 5l8 6.5V19a1 1 0 0 1-1 1h-4.5v-5h-5v5H5a1 1 0 0 1-1-1z" />,
   "/tier-list": <path d="M5 19V11M10 19V6M15 19v-9M20 19V4" />,
   "/info": <path d="M5 4.5A1.5 1.5 0 0 1 6.5 3H19v15H6.5A1.5 1.5 0 0 0 5 19.5zM5 19.5A1.5 1.5 0 0 0 6.5 21H19M9 7h6" />,
   "/simulator": <path d="M13 3 5 13h6l-1 8 8-10h-6z" />,
+  // A cooking pot.
+  "/kitchen": <path d="M4 10h16M5 10v7a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3v-7M2.5 10H4M20 10h1.5M9 6.5c0-1 .8-1.5.8-2.5M12.5 6.5c0-1 .8-1.5.8-2.5" />,
   "/pbe": <path d="M9 4h6M10 4v5l-5 9a1.5 1.5 0 0 0 1.3 2h11.4A1.5 1.5 0 0 0 19 18l-5-9V4" />,
   more: (
     <>
@@ -30,7 +32,17 @@ const ICONS: Record<string, React.ReactNode> = {
 
 function Icon({ name }: { name: string }) {
   return (
-    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <svg
+      viewBox="0 0 24 24"
+      width="24"
+      height="24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
       {ICONS[name] ?? ICONS.more}
     </svg>
   );

@@ -47,9 +47,9 @@
  "Late game": "Final de partida",
  "Even": "Parejo",
  "Archetypes": "Arquetipos",
- "Live patch {patch} by default. Pick any patches, or all time, above the champion table. Advanced stats at the bottom show every stat we have.": "Parche actual {patch} por defecto. Elige los parches que quieras, o el histórico, encima de la tabla de campeones. Las estadísticas avanzadas, al final, muestran todas las que tenemos.",
- "Live patch {patch}. Each augment gets a DeepScore against the others of its rarity: 50 is average, S is 70 and up, A 59, B 44, C 32 and D below. Switch to Table for every number.": "Parche actual {patch}. Cada aumento recibe un DeepScore frente a los demás de su rareza: 50 es la media, S es 70 o más, A 59, B 44, C 32 y D por debajo. Cambia a Tabla para ver todos los números.",
  "Tiers": "Tiers",
  "Table": "Tabla",
- "View": "Vista"
+ "View": "Vista",
+ "Live patch {patch} by default. Pick any patches, or all time, above the champion table.": "Parche actual {patch} por defecto. Elige los parches que quieras, o el histórico, encima de la tabla de campeones.",
+ "Live patch {patch}. Each augment gets a DeepScore against the others of its rarity: 50 is average, S is 70 and up, A 59, B 44, C 32 and D below.": "Parche actual {patch}. Cada aumento recibe un DeepScore frente a los demás de su rareza: 50 es la media, S es 70 o más, A 59, B 44, C 32 y D por debajo."
 }

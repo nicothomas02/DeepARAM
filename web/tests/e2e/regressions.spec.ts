@@ -81,7 +81,8 @@ test("tier list table fits a phone", async ({ page }, info) => {
   await expect(scroll.locator("tbody tr").first()).toBeVisible();
   const [sw, cw] = await scroll.evaluate((e) => [e.scrollWidth, e.clientWidth]);
   expect(sw).toBeLessThanOrEqual(cw);
-  await expect(scroll.locator("thead th", { hasText: "Win rate" })).toBeInViewport();
+  // Every stat is one table now; the extra columns drop out on phones, the measured win rate stays.
+  await expect(scroll.locator("thead th", { hasText: "Raw win rate" })).toBeInViewport();
 
   await page.locator("#panel-champions .table-sort").selectOption("win_rate.desc");
   await expect(page).toHaveURL(/sort=win_rate\.desc/);
