@@ -3,5 +3,8 @@
  "Patch {patch} comes out tomorrow": "パッチ{patch}は明日配信",
  "day": "日",
  "days": "日",
- "Patch {patch} comes out in under 24 hours": "パッチ{patch}は24時間以内に配信"
+ "Patch {patch} comes out in under 24 hours": "パッチ{patch}は24時間以内に配信",
+ "{set} (Patch {patch}) is live!": "{set}（パッチ{patch}）が配信されました！",
+ "Patch {patch} is live!": "パッチ{patch}が配信されました！",
+ "New patch data takes a couple of days to collect.": "新しいパッチのデータが集まるまで数日かかります。"
 }

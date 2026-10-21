@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { readFileSync } from "node:fs";
-import { longDate, nextPatch, type PatchSchedule } from "@/lib/patch-schedule";
+import { awaitingData, longDate, nextPatch, type PatchSchedule } from "@/lib/patch-schedule";
 
 const schedule = JSON.parse(readFileSync("../data/patch-schedule.json", "utf8")) as PatchSchedule;
 
@@ -26,6 +26,15 @@ describe("patch countdown", () => {
     // 26.22 is Nov 4 at 6:30 PST (14:30 UTC): 14 days and 1 hour after 13:30 UTC on Oct 21
     expect(nextPatch(schedule, new Date("2026-10-21T13:30:00Z"))).toMatchObject({ patch: "26.22", days: 14, hours: 1 });
     expect(nextPatch(schedule, new Date("2026-10-21T20:00:00Z"))?.patch).toBe("26.22");
+  });
+
+  it("calls a patch live until the stats reach it", () => {
+    const after = new Date("2026-10-21T20:00:00Z");
+    expect(awaitingData(schedule, "16.20", after)?.patch).toBe("26.21");
+    expect(awaitingData(schedule, "16.21", after)).toBeNull();
+    // before 26.21's update time, 26.20 is the newest patch out and the stats already cover it
+    expect(awaitingData(schedule, "16.20", new Date("2026-10-21T13:29:00Z"))).toBeNull();
+    expect(awaitingData(schedule, null, after)).toBeNull();
   });
 
   it("shows nothing once the published list runs out", () => {

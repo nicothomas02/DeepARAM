@@ -40,6 +40,18 @@ export function nextPatch(s: PatchSchedule, now = new Date()): NextPatch | null 
   return { patch: next.patch, date: next.date, days: Math.floor(left / DAY), hours: Math.floor((left % DAY) / HOUR), at: new Date(next.at).toISOString() };
 }
 
+/** The newest patch that is already out (its update time has passed) but newer than `dataPatch`, the newest patch the
+ * stats cover (client version, "16.20"). Null once the stats have caught up, and then the countdown shows the next patch. */
+export function awaitingData(s: PatchSchedule, dataPatch: string | null | undefined, now = new Date()) {
+  const key = (p: string) => {
+    const [a, b] = p.split(".").map(Number);
+    return (a >= 20 ? a - 10 : a) * 100 + b;
+  };
+  const out = s.patches.filter((p) => zonedInstant(p.date, p.time ?? s.time ?? "00:00", s.timeZone) <= now.getTime());
+  const latest = out.sort((a, b) => b.date.localeCompare(a.date))[0];
+  return latest && dataPatch && key(latest.patch) > key(dataPatch) ? latest : null;
+}
+
 /** "Wednesday, October 21" for a schedule date, written the way `lang` writes dates. */
 export function longDate(date: string, lang = "en") {
   return new Date(`${date}T12:00:00Z`).toLocaleDateString(lang === "en" ? "en-US" : lang, { timeZone: "UTC", weekday: "long", month: "long", day: "numeric" });

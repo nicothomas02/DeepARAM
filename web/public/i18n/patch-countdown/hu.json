@@ -3,5 +3,8 @@
  "Patch {patch} comes out tomorrow": "A(z) {patch} frissítés holnap jelenik meg",
  "day": "nap",
  "days": "nap",
- "Patch {patch} comes out in under 24 hours": "A(z) {patch} patch kevesebb mint 24 óra múlva megjelenik"
+ "Patch {patch} comes out in under 24 hours": "A(z) {patch} patch kevesebb mint 24 óra múlva megjelenik",
+ "{set} (Patch {patch}) is live!": "Megjelent a {set} ({patch}. javítás)!",
+ "Patch {patch} is live!": "Megjelent a {patch}. javítás!",
+ "New patch data takes a couple of days to collect.": "Az új javítás adatainak összegyűjtése pár napig tart."
 }

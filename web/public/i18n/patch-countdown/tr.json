@@ -3,5 +3,8 @@
  "Patch {patch} comes out tomorrow": "{patch} yaması yarın çıkıyor",
  "day": "gün",
  "days": "gün",
- "Patch {patch} comes out in under 24 hours": "{patch} yaması 24 saatten kısa sürede çıkıyor"
+ "Patch {patch} comes out in under 24 hours": "{patch} yaması 24 saatten kısa sürede çıkıyor",
+ "{set} (Patch {patch}) is live!": "{set} (Yama {patch}) yayında!",
+ "Patch {patch} is live!": "Yama {patch} yayında!",
+ "New patch data takes a couple of days to collect.": "Yeni yamanın verilerinin toplanması birkaç gün sürer."
 }
