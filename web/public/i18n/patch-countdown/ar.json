@@ -1,9 +1,10 @@
 {
  "Patch {patch} comes out in {n} days": "يصدر التحديث {patch} بعد {n} أيام",
  "Patch {patch} comes out tomorrow": "يصدر التحديث {patch} غدًا",
- "Patch {patch} is out today": "يصدر التحديث {patch} اليوم",
- "Today": "اليوم",
  "day": "يوم",
  "days": "أيام",
- "Patch {patch} comes out in under 24 hours": "سيصدر التحديث {patch} خلال أقل من 24 ساعة"
+ "Patch {patch} comes out in under 24 hours": "سيصدر التحديث {patch} خلال أقل من 24 ساعة",
+ "{set} (Patch {patch}) is live!": "{set} (التحديث {patch}) متاح الآن!",
+ "Patch {patch} is live!": "التحديث {patch} متاح الآن!",
+ "New patch data takes a couple of days to collect.": "تحتاج بيانات التحديث الجديد إلى يومين تقريبًا لتجميعها."
 }

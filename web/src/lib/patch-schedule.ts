@@ -3,7 +3,7 @@
 // countdown runs in the browser so a static page doesn't show the day it was built.
 
 export type PatchSchedule = { timeZone: string; time?: string; patches: { patch: string; date: string; time?: string }[] };
-export type NextPatch = { patch: string; date: string; days: number; hours: number; at: string; out: boolean };
+export type NextPatch = { patch: string; date: string; days: number; hours: number; at: string };
 
 const DAY = 86_400_000;
 const HOUR = 3_600_000;
@@ -27,14 +27,29 @@ export function dayIn(timeZone: string, now: Date) {
   return new Intl.DateTimeFormat("en-CA", { timeZone, year: "numeric", month: "2-digit", day: "2-digit" }).format(now);
 }
 
-/** The first patch on or after today, with the days and hours to its release time; `out` once that time has passed on patch day. Null once the list runs out. */
+/** The next patch whose update time hasn't come yet, with the days and hours to it. Once a patch's time passes it
+ * moves on to the one after, so the countdown rolls over by itself. Null once the list runs out. */
 export function nextPatch(s: PatchSchedule, now = new Date()): NextPatch | null {
-  const today = dayIn(s.timeZone, now);
-  const next = [...s.patches].sort((a, b) => a.date.localeCompare(b.date)).find((p) => p.date >= today);
+  const t = now.getTime();
+  const next = [...s.patches]
+    .sort((a, b) => a.date.localeCompare(b.date))
+    .map((p) => ({ ...p, at: zonedInstant(p.date, p.time ?? s.time ?? "00:00", s.timeZone) }))
+    .find((p) => p.at > t);
   if (!next) return null;
-  const at = zonedInstant(next.date, next.time ?? s.time ?? "00:00", s.timeZone);
-  const left = Math.max(0, at - now.getTime());
-  return { patch: next.patch, date: next.date, days: Math.floor(left / DAY), hours: Math.floor((left % DAY) / HOUR), at: new Date(at).toISOString(), out: at <= now.getTime() };
+  const left = next.at - t;
+  return { patch: next.patch, date: next.date, days: Math.floor(left / DAY), hours: Math.floor((left % DAY) / HOUR), at: new Date(next.at).toISOString() };
+}
+
+/** The newest patch that is already out (its update time has passed) but newer than `dataPatch`, the newest patch the
+ * stats cover (client version, "16.20"). Null once the stats have caught up, and then the countdown shows the next patch. */
+export function awaitingData(s: PatchSchedule, dataPatch: string | null | undefined, now = new Date()) {
+  const key = (p: string) => {
+    const [a, b] = p.split(".").map(Number);
+    return (a >= 20 ? a - 10 : a) * 100 + b;
+  };
+  const out = s.patches.filter((p) => zonedInstant(p.date, p.time ?? s.time ?? "00:00", s.timeZone) <= now.getTime());
+  const latest = out.sort((a, b) => b.date.localeCompare(a.date))[0];
+  return latest && dataPatch && key(latest.patch) > key(dataPatch) ? latest : null;
 }
 
 /** "Wednesday, October 21" for a schedule date, written the way `lang` writes dates. */
