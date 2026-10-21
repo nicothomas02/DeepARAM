@@ -128,7 +128,7 @@ const FULL: Record<string, string> = {
   damage: "/tier-list?sort=damage.desc",
   tank: "/tier-list?sort=tank.desc",
   teamplay: "/tier-list?sort=kp.desc",
-  dead: "/tier-list?sort=dead.asc",
+  dead: "/tier-list?sort=dead.desc",
 };
 const CURVE_NOTE = "Simulated damage: share of champions beaten at level 8 → level 18.";
 

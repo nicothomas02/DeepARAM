@@ -75,7 +75,7 @@ export default function Home() {
   const latest = last ? recap(last) : null;
   const game = typicalGame();
   const value = funValues();
-  // Lists the daily estimates don't carry are ranked here, from the same numbers (least time dead first).
+  // Lists the daily estimates don't carry are ranked here, from the same numbers (most time dead first).
   const live = new Map(liveWithChange().live.map((c) => [c.name, c]));
   const topBy = (key: (id: number) => number | null | undefined, low = false) =>
     Object.values(championIds as Record<string, number>)
@@ -90,7 +90,7 @@ export default function Home() {
     mitigated: topBy((id) => profileValue(id, "mitigated_per_min")),
     cs: topBy((id) => profileValue(id, "cs")),
     pentakills: topBy((id) => profileValue(id, "pentakills")),
-    dead: topBy((id) => live.get(ALIAS[id])?.dead, true),
+    dead: topBy((id) => live.get(ALIAS[id])?.dead),
   };
   const fun = Object.fromEntries(
     Object.entries({ ...funLists(), ...extra, early_game: powerCurveLists().early, late_game: powerCurveLists().late }).map(([k, ids]) => [
