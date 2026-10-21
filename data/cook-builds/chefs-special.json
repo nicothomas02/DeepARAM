@@ -1,297 +1,268 @@
 {
-  "id": "ivern-hedge-fund",
-  "title": "Hedge Fund",
-  "champion": "Ivern",
-  "champion_name": "Ivern",
-  "chef": "2026-10-19",
-  "why": "Ivern's Brushmaker has a passive almost nobody builds around: while he stands in brush, and for a moment after leaving it, his attacks deal bonus magic damage, and its active grows a fresh patch of brush anywhere he likes. Hide on Bush makes him deal 20% more damage for as long as he stays in brush, and Nature is Healing regenerates a large amount of Health every time he enters one, so every Brushmaker cast is a new entrance: a heal, a damage buff and a round of empowered attacks, on demand. Triggerseed feeds the other half: Mercy's Strike turns its shield into a next attack with extra range, Attack Speed and max Health magic damage, and Lil' Extra Help adds Attack Range and Attack Speed for as long as that shield lasts, so one shield from inside the brush is a short burst of long-range, fast, empowered attacks. Nashor's Tooth and Guinsoo's Rageblade stack more on-hit magic damage onto every one of those attacks, Rabadon's Deathcap grows all of it, and Cosmic Drive gives him the Move Speed to hop from one hedge to the next. The forest's gentlest support turns into an on-hit carry who plants his own ambush wherever he stands.",
-  "play": "Grow a brush on top of the fight, shield whoever is closest, and attack from inside it while the shield lasts; when the fight moves, grow another one and step in for the heal.",
+  "id": "taric-friendly-fireworks",
+  "title": "Friendly Fireworks",
+  "champion": "Taric",
+  "champion_name": "Taric",
+  "chef": "2026-10-20",
+  "why": "Taric's Bravado is the part of his kit everyone forgets: after every spell his next two attacks come out in quick succession and shave time off his spell cooldowns, so a Taric who keeps casting keeps swinging. Sword of Blossoming Dawn turns each of those swings into a heal on the lowest health ally nearby, and Upgrade Sword of Blossoming Dawn adds 100% Attack Speed and makes that heal far bigger whenever he is hitting champions. Sonic Boom makes every heal or shield on an ally explode, damaging and slowing the enemies around that ally, and Empowered By The Faithful blesses everyone he heals, so their damage fills him with devotion until a shockwave goes off that executes low health enemies. Bastion casts his Starlight's Touch from his linked ally too, Moonstone Renewer chains each heal to a second ally for another boom, Ardent Censer hands both of them extra Attack Speed, and Echoes of Helia adds even more healing. The gem knight stops being the team's bodyguard and becomes its bomb: his allies are the grenades and every autoattack pulls a pin.",
+  "play": "Link the carry with Bastion, cast anything, then keep attacking the closest champion so every swing heals a teammate and blows up whoever is standing next to them.",
   "items": [
-    "Nashor's Tooth",
-    "Guinsoo's Rageblade",
-    "Lich Bane",
-    "Rabadon's Deathcap",
-    "Cosmic Drive",
+    "Sword of Blossoming Dawn",
+    "Ardent Censer",
+    "Moonstone Renewer",
+    "Echoes of Helia",
+    "Staff of Flowing Water",
     "Berserker's Greaves"
   ],
-  "core": 4,
-  "champion_icon": "/embed/fun/cook-builds/icons/champions/427.png",
+  "core": 3,
+  "champion_icon": "/embed/fun/cook-builds/icons/champions/44.png",
   "augments": [
     {
-      "name": "Hide on Bush",
-      "rarity": "Gold",
+      "name": "Upgrade Sword of Blossoming Dawn",
+      "rarity": "Prismatic",
       "core": true,
-      "text": "Entering Brush grants Brush Power for 2 seconds. While Brush Power is active, you deal 20% more damage. Damage done: Staying in Brush refreshes Brush Power.",
-      "icon": "/embed/fun/cook-builds/icons/augments/hide-on-bush.png",
-      "id": 2042
+      "text": "Gain 100% Attack Speed. Increase Sword of Blossoming Dawn's healing to 250% when you attack enemy champions.",
+      "icon": "/embed/fun/cook-builds/icons/augments/upgrade-sword-of-blossoming-dawn.png",
+      "id": 1379
     },
     {
-      "name": "Nature is Healing",
-      "rarity": "Gold",
+      "name": "Sonic Boom",
+      "rarity": "Silver",
       "core": true,
-      "text": "Entering Brush regenerates a large amount of Health.",
-      "icon": "/embed/fun/cook-builds/icons/augments/nature-is-healing.png",
-      "id": 2043
+      "text": "Buffing, Healing, or Shielding your ally deals damage and Slows enemies surrounding them.",
+      "icon": "/embed/fun/cook-builds/icons/augments/sonic-boom.png",
+      "id": 1076
     },
     {
-      "name": "Mercy's Strike",
-      "rarity": "Gold",
+      "name": "Empowered By The Faithful",
+      "rarity": "Prismatic",
       "core": true,
-      "text": "After healing or shielding your ally with the chosen ability, your next basic attack gains attack range, attack speed and deals bonus max Health magic damage.",
-      "icon": "/embed/fun/cook-builds/icons/augments/mercy-s-strike.png",
-      "id": 2133
-    },
-    {
-      "name": "Lil' Extra Help",
-      "rarity": "Gold",
-      "core": true,
-      "text": "Gain Attack Range and Attack Speed during Your chosen ability duration.",
-      "icon": "/embed/fun/cook-builds/icons/augments/lil-extra-help.png",
-      "id": 2096
+      "text": "Healing or Shielding allies blesses them, causing their damage to fill you with devotion. When you have enough devotion, unleash a shockwave dealing magic damage and executes low health enemies.",
+      "icon": "/embed/fun/cook-builds/icons/augments/empowered-by-the-faithful.png",
+      "id": 2004
     }
   ],
   "href": "/kitchen#chefs-special",
   "archive_href": "/kitchen#chef-archive",
-  "share_href": "/kitchen/2026-10-19",
-  "share_image": "/embed/fun/cook-builds/share/ivern-hedge-fund.png",
+  "share_href": "/kitchen/2026-10-20",
+  "share_image": "/embed/fun/cook-builds/share/taric-friendly-fireworks.png",
   "item_ids": [
-    3115,
-    3124,
-    3100,
-    3089,
-    4629,
+    124011,
+    3504,
+    6617,
+    6620,
+    6616,
     3006
   ],
   "i18n": {
     "ar": {
-      "title": "صندوق التحوّط",
-      "why": "لقدرة W لدى آيفرن تأثير سلبي لا يبني عليه أحد تقريبًا: طالما يقف في الأدغال، ولبرهة بعد الخروج منها، توجّه هجماته ضررًا سحريًا إضافيًا، أما تأثيرها الفعّال فينبت أدغالًا جديدة حيثما يشاء. يجعله الاختباء بين الأعشاب يوجّه ضررًا أكبر بنسبة 20% طالما بقي في الأدغال، ويستعيد الطبيعة سر العلاج كمية كبيرة من الصحة في كل مرة يدخل فيها إلى أدغال، فيصبح كل استخدام لـ W دخولًا جديدًا: شفاء وزيادة ضرر وجولة من الهجمات المعزّزة عند الطلب. أما قدرة E فتغذّي النصف الآخر: يحوّل الرحمة القاتلة درعها إلى هجمة تالية بمدى إضافي وسرعة هجوم وضرر سحري بحسب الصحة القصوى، ويضيف مساعدة إضافية بسيطة مدى هجوم وسرعة هجوم طوال مدة ذلك الدرع، فيصبح درع واحد من داخل الأدغال وابلًا قصيرًا من الهجمات البعيدة السريعة المعزّزة. يكدّس سن ناشور ونصل غضب غينسو مزيدًا من الضرر السحري عند الإصابة على كل هجمة من هذه الهجمات، ويضخّم قبعة موت رابادون كل ذلك، ويمنحه الحافز الكوني سرعة الحركة للقفز من سياج إلى آخر. يتحوّل ألطف داعم في الغابة إلى حامل ضرر عند الإصابة يزرع كمينه الخاص أينما وقف.",
-      "play": "أنبت أدغالًا فوق المعركة مباشرة، وامنح الدرع لأقرب حليف وهاجم من الداخل طوال مدة الدرع؛ وعندما تنتقل المعركة، أنبت أدغالًا أخرى وادخل إليها للشفاء.",
+      "title": "ألعاب نارية صديقة",
+      "why": "المهارة السلبية لتاريك هي الجزء الذي ينساه الجميع من مجموعته: بعد كل تعويذة تخرج هجمتاه التاليتان بسرعة متتالية وتقلّصان فترات تهدئة تعويذاته، لذا فإن تاريك الذي لا يتوقف عن الإلقاء لا يتوقف عن الضرب. يحوّل سيف الفجر المزدهر كل ضربة من تلك الضربات إلى علاج لأقل حليف قريب صحةً، وتضيف ترقية سيف الفجر المزدهر 100% سرعة هجوم وتجعل ذلك العلاج أكبر بكثير ما دام يضرب الأبطال. يجعل الانفجار الصوتي كل علاج أو درع على حليف ينفجر، فيُلحق الضرر بالأعداء من حوله ويبطئهم، وتبارك بركة الأوفياء كل من يعالجه، فيملأ ضررهم تاريك بالتفاني حتى تنطلق موجة صدمة تُجهز على الأعداء منخفضي الصحة. تجعل مهارته W مهارة Q تُلقى من الحليف المرتبط أيضًا، وينقل حجر القمر المنعش كل علاج إلى حليف ثانٍ لانفجار آخر، ويمنح المجس الوهاج كليهما سرعة هجوم إضافية، وتضيف أصداء هيليا علاجًا أكثر. يتوقف فارس الجواهر عن كونه حارس الفريق الشخصي ويصبح قنبلته: حلفاؤه هم القنابل اليدوية وكل هجمة عادية تنزع صمامًا.",
+      "play": "اربط نفسك بالحامل عبر W، وألقِ أي مهارة، ثم واصل مهاجمة أقرب بطل حتى تعالج كل ضربة زميلًا وتفجّر كل من يقف بجانبه.",
       "augments": [
-        "يمنحك دخول الأدغال قوة الأدغال لمدة ثانيتين. طالما كانت قوة الأدغال فعّالة، توجّه ضررًا أكبر بنسبة 20%. البقاء في الأدغال يجدّد قوة الأدغال.",
-        "يستعيد دخول الأدغال كمية كبيرة من الصحة.",
-        "بعد شفاء حليفك أو منحه درعًا بالقدرة المختارة، تكتسب هجمتك الأساسية التالية مدى هجوم وسرعة هجوم وتوجّه ضررًا سحريًا إضافيًا بحسب الصحة القصوى.",
-        "تحصل على مدى هجوم وسرعة هجوم طوال مدة القدرة المختارة."
+        "احصل على 100% سرعة هجوم. يرتفع علاج سيف الفجر المزدهر إلى 250% عندما تهاجم أبطال العدو.",
+        "تعزيز حليفك أو علاجه أو منحه درعًا يُلحق الضرر بالأعداء المحيطين به ويبطئهم.",
+        "علاج الحلفاء أو منحهم دروعًا يباركهم، فيملؤك ضررهم بالتفاني. عندما يكفي تفانيك، تطلق موجة صدمة تُلحق ضررًا سحريًا وتُجهز على الأعداء منخفضي الصحة."
       ]
     },
     "cs": {
-      "title": "Hedgeový fond",
-      "why": "W Iverna má pasivní efekt, na kterém skoro nikdo nestaví: dokud stojí v křoví, a ještě chvíli po odchodu z něj, jeho útoky způsobují bonusové magické poškození, a aktivní část nechá vyrůst nové křoví, kdekoli chce. Hide on bush mu dává o 20 % vyšší poškození, dokud v křoví zůstává, a Příroda uzdravuje obnoví velké množství zdraví pokaždé, když do nějakého vstoupí, takže každé W je nový vstup: léčení, bonus k poškození a dávka posílených útoků, kdykoli chce. E pohání druhou polovinu: Úder z milosti promění jeho štít v další útok s větším dosahem, rychlostí útoku a magickým poškozením podle maximálního zdraví, a Troška pomoci navíc přidává dosah a rychlost útoku, dokud ten štít drží, takže jeden štít z křoví se stane krátkou dávkou dlouhých, rychlých, posílených útoků. Nashorův tesák a Guinsoova zuřivá čepel přidávají ke každému z těchto útoků další magické poškození při zásahu, Rabadonův smrtící klobouk to všechno zvětší a Kosmický pohon mu dává rychlost pohybu, aby přeskakoval z jednoho živého plotu na druhý. Nejmírnější support lesa se promění v carryho na zásah, který si sází vlastní léčku, ať stojí kdekoli.",
-      "play": "Nech vyrůst křoví přímo v bitvě, dej štít nejbližšímu spojenci a útoč zevnitř, dokud štít drží; když se boj posune, nech vyrůst další a vstup do něj pro léčení.",
+      "title": "Přátelský ohňostroj",
+      "why": "Taricova pasivka je část jeho sady, na kterou všichni zapomínají: po každém kouzlu jdou jeho další dva útoky rychle za sebou a zkracují přebíjení jeho kouzel, takže Taric, který pořád kouzlí, pořád bije. Meč rozpuku úsvitu mění každý z těch úderů v léčení nejzraněnějšího spojence poblíž a Vylepšený Meč rozpuku úsvitu přidává 100 % rychlosti útoků a dělá to léčení mnohem větší, když bije šampiony. Sonický třesk nechá každé léčení nebo štít na spojenci vybuchnout, takže zraní a zpomalí nepřátele kolem něj, a Posílení věrnými žehná každému, koho léčí, takže jejich poškození ho plní oddaností, dokud nevyrazí rázová vlna, která popraví nepřátele s nízkým zdravím. Jeho W sesílá jeho Q i z propojeného spojence, Měsíční obnovovač přenese každé léčení na druhého spojence pro další výbuch, Žhnoucí kadidelnice dá oběma rychlost útoků navíc a Ozvěny Helie přidají ještě víc léčení. Drahokamový rytíř přestává být bodyguardem týmu a stává se jeho bombou: spojenci jsou granáty a každý základní útok vytáhne pojistku.",
+      "play": "Propoj se pomocí W se svým carry, sešli cokoliv a pak dál útoč na nejbližšího šampiona, aby každý úder vyléčil spojence a vyhodil do vzduchu každého, kdo stojí vedle něj.",
       "augments": [
-        "Vstup do křoví ti dá Sílu křoví na 2 sekundy. Dokud je Síla křoví aktivní, způsobuješ o 20 % vyšší poškození. Setrvání v křoví Sílu křoví obnovuje.",
-        "Vstup do křoví obnoví velké množství zdraví.",
-        "Po vyléčení nebo oštítování spojence zvolenou schopností tvůj další základní útok získá dosah útoku a rychlost útoku a způsobí bonusové magické poškození podle maximálního zdraví.",
-        "Po dobu trvání zvolené schopnosti získáváš dosah útoku a rychlost útoku."
+        "Získáš 100 % rychlosti útoků. Léčení Meče rozpuku úsvitu se zvýší na 250 %, když útočíš na nepřátelské šampiony.",
+        "Posílení, léčení nebo štít na spojence způsobí poškození a zpomalí nepřátele kolem něj.",
+        "Léčení nebo štíty na spojence jim požehnají a jejich poškození tě plní oddaností. Když máš dost oddanosti, vypustíš rázovou vlnu, která způsobí magické poškození a popraví nepřátele s nízkým zdravím."
       ]
     },
     "de": {
-      "title": "Hedgefonds",
-      "why": "Iverns W hat eine passive Wirkung, um die fast niemand baut: Solange er im Busch steht, und kurz nachdem er ihn verlassen hat, verursachen seine Angriffe zusätzlichen magischen Schaden, und die aktive Wirkung lässt überall einen neuen Busch wachsen. Mit Hide on Bush verursacht er 20 % mehr Schaden, solange er im Busch bleibt, und Die Natur heilt regeneriert bei jedem Betreten eines Buschs eine große Menge Leben, also ist jedes W ein neuer Eintritt: Heilung, Schadensbonus und eine Runde verstärkter Angriffe, auf Abruf. Das E liefert die andere Hälfte: Gnadenschlag macht aus seinem Schild einen nächsten Angriff mit zusätzlicher Reichweite, Angriffstempo und magischem Schaden nach maximalem Leben, und Etwas zusätzliche Hilfe gibt Angriffsreichweite und Angriffstempo, solange dieser Schild hält, also wird ein einziger Schild aus dem Busch heraus zu einer kurzen Salve langer, schneller, verstärkter Angriffe. Nashors Zahn und Guinsoos Wutklinge stapeln noch mehr magischen Treffer-Schaden auf jeden dieser Angriffe, Rabadons Todeshaube lässt das alles wachsen und Kosmischer Antrieb gibt ihm das Lauftempo, um von einer Hecke zur nächsten zu hüpfen. Der sanfteste Supporter des Waldes wird zum Treffer-Carry, der seinen eigenen Hinterhalt pflanzt, wo immer er steht.",
-      "play": "Lass mitten im Kampf einen Busch wachsen, schilde den nächsten Verbündeten und greife von drinnen an, solange der Schild hält; zieht der Kampf weiter, lass den nächsten wachsen und tritt für die Heilung hinein.",
+      "title": "Freundliches Feuerwerk",
+      "why": "Tarics Passive ist der Teil seines Kits, den alle vergessen: Nach jeder Fähigkeit kommen seine nächsten zwei Angriffe kurz hintereinander und verkürzen seine Abklingzeiten, also schlägt ein Taric, der ständig zaubert, auch ständig zu. Schwert des aufblühenden Morgens macht aus jedem dieser Schläge eine Heilung für den Verbündeten in der Nähe mit dem wenigsten Leben, und Aufwertung von „Schwert des aufblühenden Morgens“ gibt 100 % Angriffstempo und macht diese Heilung viel größer, sobald er Champions schlägt. Schallexplosion lässt jede Heilung und jeden Schild auf einem Verbündeten explodieren und fügt den Gegnern um ihn herum Schaden zu und verlangsamt sie, und Verstärkt durch die Gläubigen segnet jeden, den er heilt, sodass ihr Schaden ihn mit Hingabe füllt, bis eine Schockwelle losgeht, die Gegner mit wenig Leben exekutiert. Sein W wirkt sein Q auch vom verbundenen Verbündeten aus, Mondstein-Erneuerer leitet jede Heilung an einen zweiten Verbündeten weiter, für noch einen Knall, Thymiaterion gibt beiden extra Angriffstempo und Echos von Helia legt noch mehr Heilung drauf. Der Edelsteinritter ist nicht mehr der Bodyguard des Teams, sondern seine Bombe: Seine Verbündeten sind die Granaten und jeder normale Angriff zieht einen Stift.",
+      "play": "Verbinde dich per W mit deinem Carry, wirk irgendwas und greif dann einfach weiter den nächsten Champion an, damit jeder Schlag einen Mitspieler heilt und jeden in die Luft jagt, der neben ihm steht.",
       "augments": [
-        "Das Betreten eines Buschs gewährt 2 Sekunden lang Buschkraft. Solange Buschkraft aktiv ist, verursachst du 20 % mehr Schaden. Im Busch zu bleiben erneuert Buschkraft.",
-        "Das Betreten eines Buschs regeneriert eine große Menge Leben.",
-        "Nachdem du einen Verbündeten mit der gewählten Fähigkeit geheilt oder geschildet hast, erhält dein nächster normaler Angriff Angriffsreichweite und Angriffstempo und verursacht zusätzlichen magischen Schaden basierend auf maximalem Leben.",
-        "Erhalte Angriffsreichweite und Angriffstempo für die Dauer der gewählten Fähigkeit."
+        "Erhalte 100 % Angriffstempo. Die Heilung von „Schwert des aufblühenden Morgens“ steigt auf 250 %, wenn du gegnerische Champions angreifst.",
+        "Verbündete zu verstärken, zu heilen oder abzuschirmen fügt Gegnern um sie herum Schaden zu und verlangsamt sie.",
+        "Verbündete zu heilen oder abzuschirmen segnet sie, wodurch ihr Schaden dich mit Hingabe füllt. Hast du genug Hingabe, entfesselst du eine Schockwelle, die magischen Schaden verursacht und Gegner mit wenig Leben exekutiert."
       ]
     },
     "el": {
-      "title": "Hedge Fund",
-      "why": "Το W του Άιβερν έχει μια παθητική που σχεδόν κανείς δεν χτίζει γύρω της: όσο στέκεται σε θάμνο, και για λίγο αφού βγει, οι επιθέσεις του προκαλούν επιπλέον μαγική ζημιά, και η ενεργή του φυτρώνει έναν νέο θάμνο όπου θέλει. Το Ο θάνατος που παραμονεύει στη ζούγκλα τον κάνει να προκαλεί 20% περισσότερη ζημιά όσο μένει σε θάμνο, και το Η Φύση Ανακάμπτει αναγεννά μεγάλη ποσότητα ζωής κάθε φορά που μπαίνει σε έναν, οπότε κάθε W είναι μια νέα είσοδος: θεραπεία, μπόνους ζημιάς και μια σειρά ενισχυμένων επιθέσεων, κατά παραγγελία. Το E τροφοδοτεί το άλλο μισό: το Χτύπημα του Ελέους μετατρέπει την ασπίδα του σε επόμενη επίθεση με επιπλέον εμβέλεια, ταχύτητα επίθεσης και μαγική ζημιά βάσει μέγιστης ζωής, και το Ένα Χεράκι Παραπάνω προσθέτει εμβέλεια και ταχύτητα επίθεσης όσο κρατάει αυτή η ασπίδα, οπότε μία ασπίδα μέσα από τον θάμνο γίνεται μια σύντομη ριπή μακρινών, γρήγορων, ενισχυμένων επιθέσεων. Το Δόντι του Νάσορ και το Οργισμένο Σπαθί του Γκουίνσου στοιβάζουν κι άλλη μαγική ζημιά σε κάθε χτύπημα, το Καπέλο του Ράμπαντον μεγαλώνει όλα αυτά, και το Κοσμική Ενέργεια του δίνει την ταχύτητα κίνησης για να πηδάει από τον έναν φράχτη στον άλλον. Ο πιο ήπιος support του δάσους γίνεται carry on-hit που φυτεύει τη δική του ενέδρα όπου κι αν σταθεί.",
-      "play": "Φύτρωσε έναν θάμνο πάνω στη μάχη, δώσε ασπίδα στον πιο κοντινό σύμμαχο και επιτέθου από μέσα όσο κρατάει η ασπίδα· όταν η μάχη μετακινηθεί, φύτρωσε άλλον και μπες μέσα για τη θεραπεία.",
+      "title": "Φιλικά πυροτεχνήματα",
+      "why": "Η παθητική του Τάρικ είναι το κομμάτι του kit που όλοι ξεχνούν: μετά από κάθε ξόρκι, οι δύο επόμενες επιθέσεις του βγαίνουν η μία μετά την άλλη και μειώνουν τους χρόνους επαναφόρτισης των ξορκιών του, οπότε ένας Τάρικ που ρίχνει συνέχεια ξόρκια χτυπάει συνέχεια. Το Ξίφος της Ανθισμένης Αυγής κάνει κάθε τέτοιο χτύπημα θεραπεία στον κοντινό σύμμαχο με τη λιγότερη Ζωή, και η Αναβάθμιση Ξίφους της Ανθισμένης Αυγής δίνει 100% Ταχύτητα Επίθεσης και κάνει αυτή τη θεραπεία πολύ μεγαλύτερη όταν χτυπάει Ήρωες. Η Ηχητική Έκρηξη κάνει κάθε θεραπεία ή ασπίδα σε σύμμαχο να εκρήγνυται, προκαλώντας ζημιά και επιβράδυνση στους εχθρούς γύρω του, και το Αντλώντας Δύναμη από τους Πιστούς ευλογεί όποιον θεραπεύει, έτσι η ζημιά τους τον γεμίζει αφοσίωση μέχρι να φύγει ένα ωστικό κύμα που εκτελεί εχθρούς με χαμηλή Ζωή. Το W του ρίχνει το Q του και από τον συνδεδεμένο σύμμαχο, ο Ανανεωτής Φεγγαρόπετρας μεταφέρει κάθε θεραπεία σε δεύτερο σύμμαχο για άλλη μια έκρηξη, το Λαμπρό Θυμιατό δίνει και στους δύο έξτρα Ταχύτητα Επίθεσης και οι Απόηχοι της Έλια προσθέτουν ακόμα περισσότερη θεραπεία. Ο ιππότης των πολύτιμων λίθων παύει να είναι ο σωματοφύλακας της ομάδας και γίνεται η βόμβα της: οι σύμμαχοί του είναι οι χειροβομβίδες και κάθε βασική επίθεση τραβάει μια περόνη.",
+      "play": "Δέσου με τον carry με το W, ρίξε οτιδήποτε και συνέχισε να επιτίθεσαι στον πιο κοντινό Ήρωα, ώστε κάθε χτύπημα να θεραπεύει έναν συμπαίκτη και να ανατινάζει όποιον στέκεται δίπλα του.",
       "augments": [
-        "Η είσοδος σε θάμνο δίνει Δύναμη Θάμνου για 2 δευτερόλεπτα. Όσο η Δύναμη Θάμνου είναι ενεργή, προκαλείς 20% περισσότερη ζημιά. Η παραμονή στον θάμνο ανανεώνει τη Δύναμη Θάμνου.",
-        "Η είσοδος σε θάμνο αναγεννά μεγάλη ποσότητα ζωής.",
-        "Αφού θεραπεύσεις ή δώσεις ασπίδα στον σύμμαχό σου με την επιλεγμένη ικανότητα, η επόμενη βασική σου επίθεση αποκτά εμβέλεια επίθεσης και ταχύτητα επίθεσης και προκαλεί επιπλέον μαγική ζημιά βάσει μέγιστης ζωής.",
-        "Κερδίζεις εμβέλεια επίθεσης και ταχύτητα επίθεσης για τη διάρκεια της επιλεγμένης ικανότητας."
+        "Κερδίζεις 100% Ταχύτητα Επίθεσης. Η θεραπεία του Ξίφους της Ανθισμένης Αυγής αυξάνεται στο 250% όταν επιτίθεσαι σε εχθρικούς Ήρωες.",
+        "Η ενίσχυση, η θεραπεία ή η ασπίδα στον σύμμαχό σου προκαλεί ζημιά και επιβραδύνει τους εχθρούς γύρω του.",
+        "Η θεραπεία ή η ασπίδα σε συμμάχους τους ευλογεί, και η ζημιά τους σε γεμίζει αφοσίωση. Όταν έχεις αρκετή αφοσίωση, απελευθερώνεις ένα ωστικό κύμα που προκαλεί μαγική ζημιά και εκτελεί εχθρούς με χαμηλή Ζωή."
       ]
     },
     "es-MX": {
-      "title": "Fondo de Cobertura",
-      "why": "La W de Ivern tiene una pasiva que casi nadie aprovecha: mientras está dentro de un arbusto, y un momento después de salir, sus ataques infligen daño mágico adicional, y su activa hace crecer un arbusto nuevo donde él quiera. Hide on Bush le hace infligir 20% más de daño mientras siga en un arbusto, y La Naturaleza está Sanando regenera una gran cantidad de vida cada vez que entra a uno, así que cada W es una entrada nueva: una curación, un bono de daño y una ronda de ataques potenciados, cuando quiera. La E alimenta la otra mitad: Golpe Piadoso convierte su escudo en un siguiente ataque con más alcance, velocidad de ataque y daño mágico según la vida máxima, y Un Poco de Ayuda suma alcance y velocidad de ataque mientras dure ese escudo, así que un solo escudo desde adentro del arbusto se vuelve una ráfaga corta de ataques largos, rápidos y potenciados. Diente de Nashor y Espadafuria de Guinsoo acumulan todavía más daño mágico al golpear en cada uno de esos ataques, Sombrero Mortífero de Rabadon hace crecer todo eso y Impulso Cósmico le da la velocidad de movimiento para brincar de un seto al siguiente. El support más tierno del bosque se vuelve un carry de daño al golpear que planta su propia emboscada donde sea que pise.",
-      "play": "Haz crecer un arbusto encima de la pelea, escuda al aliado más cercano y ataca desde adentro mientras dure el escudo; cuando la pelea se mueva, haz crecer otro y métete para curarte.",
+      "title": "Fuegos artificiales amigos",
+      "why": "La pasiva de Taric es la parte de su kit que todos olvidan: después de cada hechizo, sus siguientes dos ataques salen uno tras otro y reducen el enfriamiento de sus hechizos, así que un Taric que no deja de lanzar hechizos no deja de pegar. Espada del Amanecer Floreciente convierte cada uno de esos golpes en una curación para el aliado con menos vida cercano, y Mejora: Espada del Amanecer Floreciente agrega 100% de velocidad de ataque y hace esa curación mucho más grande cuando golpea campeones. Explosión Sónica hace que cada curación o escudo sobre un aliado explote, dañando y ralentizando a los enemigos a su alrededor, y Poder de los Seguidores bendice a todos los que cura, así que su daño lo llena de devoción hasta que suelta una onda expansiva que ejecuta a los enemigos con poca vida. Su W también lanza su Q desde el aliado vinculado, Renovador de Piedra Lunar encadena cada curación a un segundo aliado para otra explosión, Pebetero Ardiente les da a ambos velocidad de ataque extra y Ecos de Helia agrega todavía más curación. El caballero de las gemas deja de ser el guardaespaldas del equipo y se vuelve su bomba: sus aliados son las granadas y cada ataque básico les quita el seguro.",
+      "play": "Vincula a tu carry con la W, lanza lo que sea y sigue atacando al campeón más cercano para que cada golpe cure a un compañero y haga volar a quien esté junto a él.",
       "augments": [
-        "Entrar a un arbusto otorga Poder de Arbusto durante 2 segundos. Mientras Poder de Arbusto está activo, infliges 20% más de daño. Quedarte en el arbusto renueva Poder de Arbusto.",
-        "Entrar a un arbusto regenera una gran cantidad de vida.",
-        "Después de curar o escudar a tu aliado con la habilidad elegida, tu siguiente ataque básico gana alcance de ataque y velocidad de ataque e inflige daño mágico adicional según la vida máxima.",
-        "Obtienes alcance de ataque y velocidad de ataque durante la duración de la habilidad elegida."
+        "Obtienes 100% de velocidad de ataque. La curación de Espada del Amanecer Floreciente aumenta a 250% cuando atacas a campeones enemigos.",
+        "Potenciar, curar o dar escudo a tu aliado inflige daño y ralentiza a los enemigos a su alrededor.",
+        "Curar o dar escudo a tus aliados los bendice, y su daño te llena de devoción. Cuando tienes suficiente devoción, liberas una onda expansiva que inflige daño mágico y ejecuta a los enemigos con poca vida."
       ]
     },
     "es": {
-      "title": "Fondo de cobertura",
-      "why": "La W de Ivern tiene una pasiva que casi nadie aprovecha: mientras está dentro de un arbusto, y un instante después de salir, sus ataques infligen daño mágico adicional, y su activa hace crecer un arbusto nuevo donde él quiera. Escondite entre la maleza le hace infligir un 20% más de daño mientras siga en un arbusto, y Naturaleza sanadora regenera una gran cantidad de vida cada vez que entra en uno, así que cada W es una entrada nueva: una curación, un bonus de daño y una tanda de ataques potenciados, a demanda. La E alimenta la otra mitad: Impacto mercurial convierte su escudo en un siguiente ataque con más alcance, velocidad de ataque y daño mágico según la vida máxima, y Una ayudita añade alcance y velocidad de ataque mientras dure ese escudo, así que un solo escudo desde dentro del arbusto se convierte en una ráfaga corta de ataques largos, rápidos y potenciados. Diente de Nashor y Hoja de furia de Guinsoo apilan aún más daño mágico al impactar en cada uno de esos ataques, Sombrero mortal de Rabadon lo hace crecer todo y Impulso cósmico le da la velocidad de movimiento para saltar de un seto al siguiente. El support más tierno del bosque se convierte en un carry de daño al impactar que planta su propia emboscada allá donde pise.",
-      "play": "Haz crecer un arbusto encima de la pelea, escuda al aliado más cercano y ataca desde dentro mientras dure el escudo; cuando la pelea se mueva, haz crecer otro y entra para curarte.",
+      "title": "Fuegos artificiales amigos",
+      "why": "La pasiva de Taric es la parte de su kit que todo el mundo olvida: tras cada hechizo, sus dos siguientes ataques salen seguidos y reducen el enfriamiento de sus hechizos, así que un Taric que no para de lanzar hechizos no para de golpear. Espada del amanecer floreciente convierte cada uno de esos golpes en una curación al aliado con menos vida cercano, y Mejora de Espada del amanecer floreciente añade un 100 % de velocidad de ataque y hace esa curación mucho mayor cuando golpea a campeones. Explosión sónica hace que cada curación o escudo sobre un aliado estalle, dañando y ralentizando a los enemigos que lo rodean, y El poder de la fe bendice a todos los que cura, así que su daño lo llena de devoción hasta que suelta una onda expansiva que ejecuta a los enemigos con poca vida. Su W lanza también su Q desde el aliado vinculado, Renovación de piedra lunar encadena cada curación a un segundo aliado para otra explosión, Incensario ardiente da a ambos velocidad de ataque extra y Ecos de Helia añade todavía más curación. El caballero de las gemas deja de ser el guardaespaldas del equipo y pasa a ser su bomba: sus aliados son las granadas y cada ataque básico les quita la anilla.",
+      "play": "Vincula a tu carry con la W, lanza cualquier cosa y sigue atacando al campeón más cercano para que cada golpe cure a un compañero y haga volar a quien esté a su lado.",
       "augments": [
-        "Entrar en un arbusto otorga Poder de arbusto durante 2 segundos. Mientras Poder de arbusto está activo, infliges un 20% más de daño. Permanecer en el arbusto renueva Poder de arbusto.",
-        "Entrar en un arbusto regenera una gran cantidad de vida.",
-        "Tras curar o escudar a tu aliado con la habilidad elegida, tu siguiente ataque básico gana alcance de ataque y velocidad de ataque e inflige daño mágico adicional según la vida máxima.",
-        "Obtienes alcance de ataque y velocidad de ataque durante la duración de la habilidad elegida."
+        "Obtienes un 100 % de velocidad de ataque. La curación de Espada del amanecer floreciente sube al 250 % cuando atacas a campeones enemigos.",
+        "Potenciar, curar o proteger con escudo a tu aliado inflige daño y ralentiza a los enemigos que lo rodean.",
+        "Curar o proteger con escudo a tus aliados los bendice, y su daño te llena de devoción. Cuando tienes suficiente devoción, liberas una onda expansiva que inflige daño mágico y ejecuta a los enemigos con poca vida."
       ]
     },
     "fr": {
-      "title": "Hedge Fund",
-      "why": "Le W de Ivern a un passif que presque personne n'exploite : tant qu'il est dans un buisson, et un court instant après en être sorti, ses attaques infligent des dégâts magiques bonus, et son actif fait pousser un nouveau buisson où il veut. Hide on bush lui fait infliger 20 % de dégâts en plus tant qu'il reste dans un buisson, et L'appel de la nature lui rend une grande quantité de PV à chaque fois qu'il en entre dans un, donc chaque W est une nouvelle entrée : un soin, un bonus de dégâts et une salve d'attaques renforcées, à la demande. Le E alimente l'autre moitié : Attaques améliorées transforme son bouclier en une prochaine attaque avec de la portée, de la vitesse d'attaque et des dégâts magiques bonus selon les PV max, et Petit coup de pouce ajoute de la portée et de la vitesse d'attaque tant que ce bouclier tient, donc un seul bouclier depuis le buisson devient une courte rafale d'attaques longues, rapides et renforcées. Dent de Nashor et Lame enragée de Guinsoo empilent encore plus de dégâts magiques à l'impact sur chacune de ces attaques, Coiffe de Rabadon fait grossir tout ça, et Volonté cosmique lui donne la vitesse de déplacement pour sauter d'une haie à l'autre. Le support le plus doux de la forêt devient un carry à l'impact qui plante sa propre embuscade où qu'il se trouve.",
-      "play": "Faites pousser un buisson en plein combat, protégez l'allié le plus proche et attaquez depuis l'intérieur tant que le bouclier tient ; quand le combat bouge, faites-en pousser un autre et entrez-y pour le soin.",
+      "title": "Feu d'artifice allié",
+      "why": "Le passif de Taric est la partie de son kit que tout le monde oublie : après chaque sort, ses deux attaques suivantes partent coup sur coup et réduisent les délais de récupération de ses sorts, donc un Taric qui lance des sorts sans arrêt frappe sans arrêt. Épée de l'aube transforme chacun de ces coups en soin sur l'allié le plus blessé à proximité, et Épée de l'aube améliorée ajoute 100 % de vitesse d'attaque et rend ce soin bien plus gros quand il frappe des champions. Protections létales fait exploser chaque soin ou bouclier sur un allié, ce qui blesse et ralentit les ennemis autour de lui, et Dévotion bénit tous ceux qu'il soigne : leurs dégâts le remplissent de dévotion jusqu'à une onde de choc qui exécute les ennemis à faibles PV. Son W lance aussi son Q depuis l'allié lié, Régénérateur de pierre de lune propage chaque soin à un deuxième allié pour une explosion de plus, Encensoir ardent leur donne à tous les deux de la vitesse d'attaque en plus, et Échos d'Helia ajoute encore plus de soins. Le chevalier des gemmes n'est plus le garde du corps de l'équipe, il en devient la bombe : ses alliés sont les grenades et chaque attaque de base en dégoupille une.",
+      "play": "Liez votre carry avec le W, lancez n'importe quel sort, puis continuez d'attaquer le champion le plus proche : chaque coup soigne un coéquipier et fait sauter quiconque se trouve à côté de lui.",
       "augments": [
-        "Entrer dans un buisson vous confère Pouvoir du buisson pendant 2 secondes. Tant que Pouvoir du buisson est actif, vous infligez 20 % de dégâts en plus. Rester dans le buisson rafraîchit Pouvoir du buisson.",
-        "Entrer dans un buisson vous régénère une grande quantité de PV.",
-        "Après avoir soigné ou protégé votre allié avec la compétence choisie, votre prochaine attaque de base gagne de la portée d'attaque, de la vitesse d'attaque et inflige des dégâts magiques bonus selon les PV max.",
-        "Gagnez de la portée d'attaque et de la vitesse d'attaque pendant la durée de la compétence choisie."
+        "Gagnez 100 % de vitesse d'attaque. Les soins d'Épée de l'aube passent à 250 % quand vous attaquez des champions ennemis.",
+        "Renforcer, soigner ou protéger votre allié inflige des dégâts aux ennemis qui l'entourent et les ralentit.",
+        "Soigner ou protéger des alliés les bénit : leurs dégâts vous remplissent de dévotion. Quand vous avez assez de dévotion, vous libérez une onde de choc qui inflige des dégâts magiques et exécute les ennemis à faibles PV."
       ]
     },
     "hu": {
-      "title": "Fedezeti alap",
-      "why": "Ivern W képességének van egy passzív része, amire szinte senki nem épít: amíg bokorban áll, és még egy pillanatig a kilépés után, a támadásai bónusz varázserő-sebzést okoznak, az aktív része pedig új bokrot növeszt, ahová csak akarja. A Hide on bush miatt 20%-kal több sebzést okoz, amíg a bokorban marad, a Gyógyuló természet pedig nagy mennyiségű életerőt tölt vissza, valahányszor belép egybe, így minden W egy új belépés: gyógyítás, sebzésbónusz és egy adag megerősített támadás, igény szerint. Az E adja a másik felét: a Kegyelemdöfés a pajzsát egy következő támadássá alakítja extra hatótávval, támadási sebességgel és maximális életerő alapú varázserő-sebzéssel, a Egy kis extra segítség pedig támadási hatótávot és sebességet ad, amíg az a pajzs tart, így egyetlen pajzs a bokorból egy rövid sorozat hosszú, gyors, megerősített támadás lesz. A Nashor foga és a Guinsoo dühpengéje még több találatkori varázserő-sebzést halmoz minden ilyen támadásra, a Rabadon halálsüvege az egészet megnöveli, a Kozmikus hajtómű pedig megadja a mozgási sebességet, hogy egyik sövényből a másikba ugráljon. Az erdő legszelídebb supportja találatkori carryvé válik, aki ott ülteti el a saját lesét, ahol éppen áll.",
-      "play": "Növessz bokrot a harc közepére, pajzsold a legközelebbi szövetségest, és támadj belülről, amíg a pajzs tart; ha a harc odébb megy, növessz egy másikat, és lépj be a gyógyulásért.",
+      "title": "Baráti tűzijáték",
+      "why": "Taric passzívja az a része a készletének, amiről mindenki elfeledkezik: minden varázslat után a következő két támadása gyorsan egymás után jön, és csökkenti a varázslatai töltési idejét, így az a Taric, aki folyton varázsol, folyton üt is. A virágzó hajnal kardja minden ilyen ütést a közelben lévő legkevesebb életerejű szövetséges gyógyítására vált, a Fejlesztett Virágzó hajnal kardja pedig 100% támadási sebességet ad, és sokkal nagyobbá teszi ezt a gyógyítást, amikor bajnokokat üt. A Hangrobbanás minden szövetségesre adott gyógyítást vagy pajzsot felrobbant, megsebezve és lelassítva a körülötte álló ellenfeleket, a Felemelő hit pedig megáldja mindenkit, akit gyógyít, így az ő sebzésük odaadással tölti fel, amíg el nem indul egy lökéshullám, ami kivégzi az alacsony életerejű ellenfeleket. A W-je a Q-ját az összekötött szövetségesből is elsüti, a Holdkőmegújító minden gyógyítást továbbad egy második szövetségesnek egy újabb robbanásért, a Hívők tömjénje mindkettejüknek extra támadási sebességet ad, a Helia visszhangja pedig még több gyógyítást hoz. A drágakőlovag már nem a csapat testőre, hanem a bombája: a szövetségesei a gránátok, és minden alaptámadás kihúz egy biztosítószeget.",
+      "play": "Kösd magad a W-vel a carryhoz, süss el bármit, aztán csak támadd tovább a legközelebbi bajnokot, hogy minden ütés meggyógyítson egy csapattársat, és felrobbantsa azt, aki mellette áll.",
       "augments": [
-        "A bokorba belépve 2 másodpercre Bokorerőt kapsz. Amíg a Bokorerő aktív, 20%-kal több sebzést okozol. A bokorban maradás frissíti a Bokorerőt.",
-        "A bokorba belépve nagy mennyiségű életerőt töltesz vissza.",
-        "Miután a kiválasztott képességgel meggyógyítottad vagy pajzsoltad a szövetségesedet, a következő alaptámadásod támadási hatótávot és támadási sebességet kap, és maximális életerő alapú bónusz varázserő-sebzést okoz.",
-        "A kiválasztott képesség időtartama alatt támadási hatótávot és támadási sebességet kapsz."
+        "100% támadási sebességet kapsz. A virágzó hajnal kardja gyógyítása 250%-ra nő, amikor ellenséges bajnokokat támadsz.",
+        "Ha erősíted, gyógyítod vagy pajzzsal véded a szövetségesedet, az sebzi és lelassítja a körülötte lévő ellenfeleket.",
+        "A szövetségesek gyógyítása vagy pajzzsal védése megáldja őket, így sebzésük odaadással tölt fel. Ha elég odaadást gyűjtöttél, lökéshullámot szabadítasz fel, ami mágikus sebzést okoz, és kivégzi az alacsony életerejű ellenfeleket."
       ]
     },
     "id": {
-      "title": "Hedge Fund",
-      "why": "W milik Ivern punya pasif yang hampir tidak ada yang memanfaatkan: selama dia berdiri di semak, dan sesaat setelah keluar, serangannya memberikan damage magic tambahan, dan aktifnya menumbuhkan semak baru di mana pun dia mau. Hide on Bush membuatnya memberikan 20% damage lebih selama dia tetap di semak, dan Nature is Healing memulihkan Health dalam jumlah besar setiap kali dia masuk ke semak, jadi setiap W adalah masuk yang baru: heal, bonus damage, dan satu ronde serangan yang diperkuat, kapan pun dia mau. E mengisi separuh lainnya: Mercy's Strike mengubah shield-nya menjadi serangan berikutnya dengan tambahan range, Attack Speed, dan damage magic berdasarkan max Health, dan Lil' Extra Help menambah Attack Range dan Attack Speed selama shield itu bertahan, jadi satu shield dari dalam semak menjadi rentetan pendek serangan jarak jauh, cepat, dan diperkuat. Nashor's Tooth dan Guinsoo's Rageblade menumpuk lebih banyak damage magic on-hit ke setiap serangan itu, Rabadon's Deathcap membesarkan semuanya, dan Cosmic Drive memberinya Move Speed untuk melompat dari satu pagar ke pagar berikutnya. Support paling lembut di hutan berubah jadi carry on-hit yang menanam sergapannya sendiri di mana pun dia berdiri.",
-      "play": "Tumbuhkan semak tepat di atas pertarungan, shield sekutu terdekat, dan serang dari dalamnya selama shield bertahan; kalau pertarungan bergeser, tumbuhkan lagi dan masuk untuk heal.",
+      "title": "Kembang Api Sekutu",
+      "why": "Pasif Taric adalah bagian kit yang selalu dilupakan orang: setelah setiap spell, dua serangan berikutnya keluar beruntun dengan cepat dan memotong cooldown spell-nya, jadi Taric yang terus nge-cast juga terus memukul. Sword of Blossoming Dawn mengubah setiap pukulan itu jadi heal untuk ally terdekat dengan Health paling rendah, dan Upgrade Sword of Blossoming Dawn menambah 100% Attack Speed serta membuat heal itu jauh lebih besar saat dia memukul champion. Sonic Boom membuat setiap heal atau shield ke ally meledak, memberi damage dan Slow ke musuh di sekitar ally itu, dan Empowered By The Faithful memberkati semua yang dia heal, jadi damage mereka mengisi devosinya sampai keluar gelombang kejut yang mengeksekusi musuh dengan Health rendah. W-nya membuat Q juga di-cast dari ally yang terhubung, Moonstone Renewer meneruskan setiap heal ke ally kedua untuk satu ledakan lagi, Ardent Censer memberi keduanya Attack Speed tambahan, dan Echoes of Helia menambah heal lebih banyak lagi. Ksatria permata ini berhenti jadi bodyguard tim dan berubah jadi bomnya: ally-nya adalah granat dan setiap basic attack mencabut satu pin.",
+      "play": "Hubungkan dirimu ke carry dengan W, cast apa saja, lalu terus serang champion terdekat supaya setiap pukulan meng-heal rekan tim dan meledakkan siapa pun yang berdiri di sebelahnya.",
       "augments": [
-        "Memasuki semak memberikan Brush Power selama 2 detik. Selama Brush Power aktif, kamu memberikan 20% damage lebih banyak. Tetap di dalam semak memperbarui Brush Power.",
-        "Memasuki semak memulihkan Health dalam jumlah besar.",
-        "Setelah meng-heal atau memberi shield ke sekutumu dengan skill yang dipilih, basic attack berikutnya mendapat attack range, attack speed, dan memberikan damage magic tambahan berdasarkan max Health.",
-        "Dapatkan Attack Range dan Attack Speed selama durasi skill yang dipilih."
+        "Dapatkan 100% Attack Speed. Heal dari Sword of Blossoming Dawn naik menjadi 250% saat kamu menyerang champion musuh.",
+        "Memberi buff, heal, atau shield ke ally akan memberi damage dan Slow ke musuh di sekitarnya.",
+        "Heal atau shield ke ally akan memberkati mereka, dan damage mereka mengisi devosimu. Saat devosi cukup, lepaskan gelombang kejut yang memberi magic damage dan mengeksekusi musuh dengan Health rendah."
       ]
     },
     "it": {
-      "title": "Hedge fund",
-      "why": "La W di Ivern ha una passiva che quasi nessuno sfrutta: finché sta in un cespuglio, e per un attimo dopo esserne uscito, i suoi attacchi infliggono danni magici bonus, e la sua attiva fa crescere un cespuglio nuovo dove vuole. Hide on bush gli fa infliggere il 20% di danni in più finché resta in un cespuglio, e La natura si rigenera rigenera una grande quantità di salute ogni volta che ne entra in uno, quindi ogni W è un nuovo ingresso: una cura, un bonus ai danni e una raffica di attacchi potenziati, a comando. La E alimenta l'altra metà: Colpo pietoso trasforma il suo scudo in un prossimo attacco con più gittata, velocità d'attacco e danni magici in base alla salute massima, e Un piccolo aiuto in più aggiunge gittata e velocità d'attacco finché dura quello scudo, quindi un solo scudo dal cespuglio diventa una breve raffica di attacchi lunghi, veloci e potenziati. Dente di Nashor e Furia di Guinsoo accumulano ancora più danni magici a colpo su ognuno di quegli attacchi, Copricapo di Rabadon fa crescere tutto quanto e Spirito cosmico gli dà la velocità di movimento per saltare da una siepe all'altra. Il support più gentile della foresta diventa un carry a colpo che pianta la propria imboscata ovunque si trovi.",
-      "play": "Fai crescere un cespuglio in mezzo al combattimento, scuda l'alleato più vicino e attacca da dentro finché dura lo scudo; quando lo scontro si sposta, fanne crescere un altro ed entraci per la cura.",
+      "title": "Fuochi d'artificio amici",
+      "why": "La passiva di Taric è la parte del suo kit che tutti dimenticano: dopo ogni abilità i suoi due attacchi successivi partono uno dopo l'altro e riducono le ricariche delle sue abilità, quindi un Taric che lancia sempre colpisce sempre. Spada dell'Alba fiorente trasforma ognuno di quei colpi in una cura sull'alleato vicino con meno salute, e Potenzia Spada dell'Alba fiorente aggiunge il 100% di velocità d'attacco e rende quella cura molto più grande quando colpisce i campioni. Boom sonico fa esplodere ogni cura o scudo su un alleato, danneggiando e rallentando i nemici intorno a lui, e Con la forza dei fedeli benedice chiunque curi, così i loro danni lo riempiono di devozione finché non parte un'onda d'urto che giustizia i nemici con poca salute. La sua W lancia la sua Q anche dall'alleato legato, Pietra di luna rinnovata passa ogni cura a un secondo alleato per un'altra esplosione, Incensiere ardente dà a entrambi velocità d'attacco extra ed Echi di Helia aggiunge ancora più cure. Il cavaliere delle gemme smette di essere la guardia del corpo della squadra e diventa la sua bomba: i suoi alleati sono le granate e ogni attacco base toglie una sicura.",
+      "play": "Lega il tuo carry con la W, lancia qualsiasi cosa e continua ad attaccare il campione più vicino, così ogni colpo cura un compagno e fa saltare in aria chiunque gli stia accanto.",
       "augments": [
-        "Entrare in un cespuglio concede Potere del cespuglio per 2 secondi. Finché Potere del cespuglio è attivo, infliggi il 20% di danni in più. Restare nel cespuglio rinnova Potere del cespuglio.",
-        "Entrare in un cespuglio rigenera una grande quantità di salute.",
-        "Dopo aver curato o scudato il tuo alleato con l'abilità scelta, il tuo prossimo attacco base ottiene gittata d'attacco e velocità d'attacco e infligge danni magici bonus in base alla salute massima.",
-        "Ottieni gittata d'attacco e velocità d'attacco per la durata dell'abilità scelta."
+        "Ottieni il 100% di velocità d'attacco. La cura di Spada dell'Alba fiorente sale al 250% quando attacchi i campioni nemici.",
+        "Potenziare, curare o proteggere con uno scudo il tuo alleato infligge danni e rallenta i nemici intorno a lui.",
+        "Curare o proteggere con uno scudo gli alleati li benedice, e i loro danni ti riempiono di devozione. Quando hai abbastanza devozione, scateni un'onda d'urto che infligge danni magici e giustizia i nemici con poca salute."
       ]
     },
     "ja": {
-      "title": "ヘッジファンド",
-      "why": "アイバーンのWには、ほとんど誰も軸にしない自動効果がある。茂みの中にいる間、そして出た直後の少しの間、通常攻撃に追加魔法ダメージが乗り、発動効果で好きな場所に新しい茂みを生やせる。Hide on Bushで茂みにいる限り与えるダメージが20%増え、大自然が回復しているで茂みに入るたびに体力が大きく回復するので、Wを撃つたびに新しい「入場」が起きる。回復とダメージ強化と強化された通常攻撃が、いつでも好きなときに。もう半分はEが担う。慈悲の一撃はそのシールドを、射程と攻撃速度と最大体力比例の魔法ダメージが付いた次の通常攻撃に変え、ちょこっとヘルプはシールドが続く間ずっと攻撃射程と攻撃速度を上げるので、茂みの中からのシールド一回が、長射程で速くて強化された通常攻撃の短い連打になる。ナッシャー トゥースとグインソー レイジブレードはその一発一発にさらに攻撃時魔法ダメージを積み、ラバドン デスキャップがすべてを底上げし、コズミック ドライブが次の生け垣へ飛び移るための移動速度をくれる。森で一番優しいサポートが、立った場所に自分で待ち伏せを植える攻撃時効果キャリーに変わる。",
-      "play": "戦闘の真上に茂みを生やし、一番近い味方にシールドを張って、シールドが続く間その中から攻撃しよう。戦場が動いたらもう一つ生やして、回復のために入り直す。",
+      "title": "フレンドリーファイアワークス",
+      "why": "タリックのパッシブは、誰もが忘れがちなキットの一部だ。スキルを使うたびに次の2回の通常攻撃が素早く連続で出て、スキルのクールダウンも短くなる。つまりスキルを撃ち続けるタリックは殴り続けることになる。花咲く夜明けの剣はその一発一発を近くで一番体力の低い味方への回復に変え、花咲く夜明けの剣 アップグレードは攻撃速度+100%を与え、チャンピオンを殴っている間その回復を大幅に強化する。ソニックブームは味方への回復やシールドのたびに爆発を起こし、その味方の周りの敵にダメージとスローを与え、信ずる者の加護は回復した味方を祝福し、彼らのダメージでタリックに信仰が溜まり、溜まりきると体力の低い敵をキルする衝撃波が放たれる。Wで繋いだ味方からもQが発動し、ムーンストーンの再生は回復を2人目の味方に連鎖させてもう一度爆発させ、アーデント センサーは2人に追加の攻撃速度を与え、ヘリアの残響はさらに回復を上乗せする。宝石の騎士はチームのボディーガードをやめてチームの爆弾になる。味方は手榴弾で、通常攻撃のたびにピンが抜ける。",
+      "play": "Wでキャリーと繋ぎ、何かスキルを撃ったら一番近いチャンピオンを殴り続けよう。一発ごとに味方が回復し、その隣にいる敵が吹き飛ぶ。",
       "augments": [
-        "茂みに入ると2秒間「茂みパワー」を得る。茂みパワーの間、与えるダメージが20%増加する。茂みに留まると茂みパワーが更新される。",
-        "茂みに入ると体力が大きく回復する。",
-        "選択したスキルで味方を回復またはシールドした後、次の通常攻撃の射程と攻撃速度が増加し、最大体力に応じた追加魔法ダメージを与える。",
-        "選択したスキルの効果時間中、攻撃射程と攻撃速度が増加する。"
+        "攻撃速度+100%を獲得する。敵チャンピオンを攻撃すると、花咲く夜明けの剣の回復量が250%に増加する。",
+        "味方を強化、回復、またはシールドで守ると、その味方の周囲の敵にダメージとスローを与える。",
+        "味方を回復またはシールドで守ると祝福を与え、その味方が与えたダメージで自身に信仰が溜まる。信仰が十分に溜まると衝撃波を放って魔法ダメージを与え、体力の低い敵をキルする。"
       ]
     },
     "ko": {
-      "title": "헤지 펀드",
-      "why": "아이번의 W에는 거의 아무도 신경 쓰지 않는 지속 효과가 있습니다. 수풀 안에 있는 동안, 그리고 나온 직후 잠깐 동안 기본 공격에 추가 마법 피해가 붙고, 사용 효과로는 원하는 곳 어디에나 새 수풀을 자라게 합니다. Hide on bush는 수풀에 머무는 동안 피해량을 20% 올려 주고, 자연의 회복는 수풀에 들어갈 때마다 체력을 크게 회복시키니, W를 쓸 때마다 새로 입장하는 셈입니다. 회복, 피해 보너스, 강화된 기본 공격 한 세트를 원할 때마다 얻습니다. 나머지 절반은 E가 채웁니다. 자비의 일격는 그 보호막을 사거리와 공격 속도, 최대 체력 비례 마법 피해가 붙은 다음 기본 공격으로 바꿔 주고, 작은 도움는 보호막이 유지되는 동안 공격 사거리와 공격 속도를 올려 주니, 수풀 안에서 보호막 한 번이 길고 빠르고 강화된 기본 공격의 짧은 연타가 됩니다. 내셔의 이빨와 구인수의 격노검는 그 공격 하나하나에 적중 시 마법 피해를 더 쌓고, 라바돈의 죽음모자가 전부 키워 주며, 우주의 추진력는 울타리에서 울타리로 뛰어다닐 이동 속도를 줍니다. 숲에서 가장 온순한 서포터가 서 있는 자리마다 직접 매복을 심는 적중 효과 캐리로 변신합니다.",
-      "play": "싸움 한가운데에 수풀을 키우고, 가장 가까운 아군에게 보호막을 준 뒤 보호막이 유지되는 동안 그 안에서 공격하세요. 전장이 옮겨지면 하나 더 키우고 회복을 위해 들어가세요.",
+      "title": "아군 불꽃놀이",
+      "why": "타릭의 패시브는 다들 잊어버리는 스킬이다. 스킬을 쓸 때마다 다음 기본 공격 2회가 빠르게 연달아 나가고 스킬 재사용 대기시간을 줄여 주니, 스킬을 계속 쓰는 타릭은 계속 때리게 된다. 꽃피는 새벽의 검은 그 한 대 한 대를 근처에서 체력이 가장 낮은 아군의 회복으로 바꾸고, 꽃피는 새벽의 검 업그레이드는 공격 속도 100%를 주고 챔피언을 때리는 동안 그 회복량을 크게 늘린다. 음속 폭발은 아군에게 주는 회복과 보호막마다 폭발을 일으켜 그 아군 주변 적에게 피해를 주고 둔화시키며, 신념을 통한 강화는 회복한 아군을 축복해 그들이 입힌 피해로 신앙심이 차오르고, 다 차면 체력이 낮은 적을 처형하는 충격파가 터진다. W로 연결한 아군에게서도 Q가 시전되고, 월석 재생기는 회복을 두 번째 아군에게 이어 한 번 더 터뜨리며, 불타는 향로는 두 사람 모두에게 추가 공격 속도를 주고, 헬리아의 메아리는 회복을 더 얹어 준다. 보석 기사는 팀의 경호원을 그만두고 팀의 폭탄이 된다. 아군은 수류탄이고 기본 공격 한 번마다 안전핀이 뽑힌다.",
+      "play": "W로 캐리와 연결하고 아무 스킬이나 쓴 다음 가장 가까운 챔피언을 계속 때리자. 한 대마다 아군이 회복되고 그 옆에 선 적이 날아간다.",
       "augments": [
-        "수풀에 들어가면 2초 동안 수풀의 힘을 얻습니다. 수풀의 힘이 활성화된 동안 피해량이 20% 증가합니다. 수풀에 머무르면 수풀의 힘이 갱신됩니다.",
-        "수풀에 들어가면 체력을 대량으로 회복합니다.",
-        "선택한 스킬로 아군을 회복하거나 보호막을 씌운 뒤, 다음 기본 공격의 사거리와 공격 속도가 증가하고 최대 체력에 비례하는 추가 마법 피해를 입힙니다.",
-        "선택한 스킬의 지속시간 동안 공격 사거리와 공격 속도를 얻습니다."
+        "공격 속도가 100% 증가합니다. 적 챔피언을 공격하면 꽃피는 새벽의 검의 회복량이 250%로 증가합니다.",
+        "아군을 강화하거나 회복시키거나 보호막을 씌우면 그 아군 주변의 적에게 피해를 입히고 둔화시킵니다.",
+        "아군을 회복시키거나 보호막을 씌우면 축복을 내려, 그 아군이 입힌 피해로 신앙심이 쌓입니다. 신앙심이 충분히 쌓이면 충격파를 방출해 마법 피해를 입히고 체력이 낮은 적을 처형합니다."
       ]
     },
     "pl": {
-      "title": "Fundusz hedgingowy",
-      "why": "W Iverna ma bierny efekt, pod który prawie nikt nie buduje: dopóki stoi w zaroślach, i przez chwilę po wyjściu, jego ataki zadają dodatkowe obrażenia magiczne, a efekt aktywny wyhodowuje nowe zarośla, gdzie tylko chce. Krycie się w Zaroślach sprawia, że zadaje 20% więcej obrażeń, dopóki siedzi w zaroślach, a Natura się leczy regeneruje dużą ilość zdrowia za każdym razem, gdy do nich wchodzi, więc każde W to nowe wejście: leczenie, bonus do obrażeń i seria wzmocnionych ataków, na żądanie. E napędza drugą połowę: Cios Litości zamienia jego tarczę w następny atak z dodatkowym zasięgiem, prędkością ataku i obrażeniami magicznymi od maksymalnego zdrowia, a Drobna Pomoc dodaje zasięg i prędkość ataku, dopóki ta tarcza trwa, więc jedna tarcza z wnętrza zarośli staje się krótką serią dalekich, szybkich, wzmocnionych ataków. Ząb Nashora i Ostrze Gniewu Guinsoo dorzucają jeszcze więcej magicznych obrażeń przy trafieniu do każdego z tych ataków, Zabójczy Kapelusz Rabadona powiększa to wszystko, a Kosmiczny Impuls daje mu prędkość ruchu, żeby skakać z jednego żywopłotu na drugi. Najłagodniejszy support lasu zmienia się w carry na trafienie, który sadzi własną zasadzkę, gdziekolwiek stanie.",
-      "play": "Wyhoduj zarośla na środku walki, osłoń najbliższego sojusznika i atakuj z ich wnętrza, dopóki trwa tarcza; gdy walka się przeniesie, wyhoduj kolejne i wejdź po leczenie.",
+      "title": "Przyjacielskie fajerwerki",
+      "why": "Bierna umiejętność Tarica to część zestawu, o której wszyscy zapominają: po każdym czarze jego dwa następne ataki lecą jeden po drugim i skracają czasy odnowienia jego czarów, więc Taric, który ciągle rzuca czary, ciągle bije. Miecz Kwitnącego Świtu zamienia każde z tych uderzeń w leczenie sojusznika w pobliżu z najmniejszą ilością zdrowia, a Ulepszenie Miecza Kwitnącego Świtu daje 100% prędkości ataku i sprawia, że to leczenie jest dużo większe, gdy bije bohaterów. Grom Dźwiękowy sprawia, że każde leczenie lub tarcza na sojuszniku wybucha, raniąc i spowalniając wrogów wokół niego, a Wzmocnienie Wiarą Wiernych błogosławi każdego, kogo leczy, więc ich obrażenia napełniają go oddaniem, aż wybuchnie fala uderzeniowa, która dobija wrogów z niskim zdrowiem. Jego W rzuca jego Q także z połączonego sojusznika, Odnowienie Kamienia Księżycowego przenosi każde leczenie na drugiego sojusznika na kolejny wybuch, Ognisty Trybularz daje obu dodatkową prędkość ataku, a Echa Helii dokładają jeszcze więcej leczenia. Klejnotowy rycerz przestaje być ochroniarzem drużyny i staje się jej bombą: sojusznicy to granaty, a każdy podstawowy atak wyciąga zawleczkę.",
+      "play": "Połącz się z carry za pomocą W, rzuć cokolwiek i atakuj dalej najbliższego bohatera, aby każde uderzenie leczyło sojusznika i wysadzało każdego, kto stoi obok niego.",
       "augments": [
-        "Wejście do zarośli daje Moc Zarośli na 2 sekundy. Dopóki Moc Zarośli jest aktywna, zadajesz 20% więcej obrażeń. Pozostawanie w zaroślach odświeża Moc Zarośli.",
-        "Wejście do zarośli regeneruje dużą ilość zdrowia.",
-        "Po uleczeniu lub osłonięciu sojusznika wybraną umiejętnością twój następny atak podstawowy zyskuje zasięg ataku i prędkość ataku oraz zadaje dodatkowe obrażenia magiczne od maksymalnego zdrowia.",
-        "Zyskujesz zasięg ataku i prędkość ataku na czas trwania wybranej umiejętności."
+        "Zyskujesz 100% prędkości ataku. Leczenie Miecza Kwitnącego Świtu rośnie do 250%, gdy atakujesz wrogich bohaterów.",
+        "Wzmacnianie, leczenie lub osłanianie tarczą sojusznika zadaje obrażenia i spowalnia otaczających go wrogów.",
+        "Leczenie lub osłanianie tarczą sojuszników błogosławi ich, a ich obrażenia napełniają cię oddaniem. Gdy masz dość oddania, uwalniasz falę uderzeniową, która zadaje obrażenia magiczne i dobija wrogów z niskim zdrowiem."
       ]
     },
     "pt-BR": {
-      "title": "Fundo de Hedge",
-      "why": "O W de Ivern tem um passivo que quase ninguém usa: enquanto ele está dentro de uma moita, e por um instante depois de sair, seus ataques causam dano mágico adicional, e o ativo faz crescer uma moita nova onde ele quiser. Esconderijo no Arbusto faz ele causar 20% a mais de dano enquanto ficar na moita, e Natureza Restauradora regenera uma grande quantidade de vida toda vez que ele entra em uma, então cada W é uma entrada nova: uma cura, um bônus de dano e uma rodada de ataques fortalecidos, sob demanda. O E alimenta a outra metade: Ataque de Misericórdia transforma o escudo dele em um próximo ataque com mais alcance, velocidade de ataque e dano mágico baseado na vida máxima, e Ajudinha Extra soma alcance e velocidade de ataque enquanto esse escudo durar, então um único escudo de dentro da moita vira uma rajada curta de ataques longos, rápidos e fortalecidos. Dente de Na'Shor e Lâmina da Fúria de Guinsoo empilham ainda mais dano mágico no acerto em cada um desses ataques, Capuz da Morte de Rabadon faz tudo isso crescer e Ímpeto Cósmico dá a velocidade de movimento para pular de uma cerca viva para a outra. O suporte mais gentil da floresta vira um carry de acerto que planta a própria emboscada onde quer que esteja.",
-      "play": "Faça uma moita crescer em cima da luta, dê escudo em quem estiver mais perto e ataque de dentro dela enquanto o escudo durar; quando a luta se mover, faça outra crescer e entre para a cura.",
+      "title": "Fogos de artifício amigos",
+      "why": "A passiva do Taric é a parte do kit que todo mundo esquece: depois de cada habilidade, os dois próximos ataques saem em sequência e reduzem as recargas das habilidades dele, então um Taric que não para de usar habilidades não para de bater. Espada da Alvorada Florescente transforma cada um desses golpes em cura no aliado próximo com menos Vida, e Aprimorar Espada da Alvorada Florescente dá 100% de Velocidade de Ataque e deixa essa cura muito maior quando ele bate em campeões. Explosão Sônica faz cada cura ou escudo num aliado explodir, causando dano e lentidão nos inimigos em volta dele, e Poder da Devoção abençoa todo mundo que ele cura, então o dano deles enche o Taric de devoção até sair uma onda de choque que executa inimigos com pouca Vida. O W dele também lança o Q a partir do aliado vinculado, Regenerador de Pedra Lunar repassa cada cura para um segundo aliado para mais uma explosão, Turíbulo Ardente dá Velocidade de Ataque extra para os dois e Ecos de Helia adiciona ainda mais cura. O cavaleiro das gemas deixa de ser o guarda-costas do time e vira a bomba: os aliados são as granadas e cada ataque básico puxa um pino.",
+      "play": "Vincule seu carry com o W, use qualquer habilidade e continue atacando o campeão mais próximo para que cada golpe cure um aliado e exploda quem estiver do lado dele.",
       "augments": [
-        "Entrar em uma moita concede Poder da Moita por 2 segundos. Enquanto Poder da Moita estiver ativo, você causa 20% a mais de dano. Permanecer na moita renova Poder da Moita.",
-        "Entrar em uma moita regenera uma grande quantidade de vida.",
-        "Após curar ou dar escudo a um aliado com a habilidade escolhida, seu próximo ataque básico ganha alcance de ataque e velocidade de ataque e causa dano mágico adicional baseado na vida máxima.",
-        "Receba alcance de ataque e velocidade de ataque durante a duração da habilidade escolhida."
+        "Ganhe 100% de Velocidade de Ataque. A cura da Espada da Alvorada Florescente aumenta para 250% quando você ataca campeões inimigos.",
+        "Fortalecer, curar ou dar escudo ao seu aliado causa dano e aplica lentidão nos inimigos ao redor dele.",
+        "Curar ou dar escudo a aliados os abençoa, e o dano deles enche você de devoção. Quando você tem devoção suficiente, libera uma onda de choque que causa dano mágico e executa inimigos com pouca Vida."
       ]
     },
     "ro": {
-      "title": "Fond de hedging",
-      "why": "W-ul lui Ivern are o pasivă pe care aproape nimeni nu o exploatează: cât timp stă într-un tufiș, și o clipă după ce iese, atacurile lui provoacă daune magice bonus, iar activa face să crească un tufiș nou oriunde vrea el. Ascunde-te în tufiș îl face să provoace cu 20% mai multe daune cât timp rămâne în tufiș, iar Natura se vindecă regenerează o cantitate mare de viață de fiecare dată când intră într-unul, deci fiecare W e o intrare nouă: o vindecare, un bonus de daune și o rundă de atacuri întărite, la comandă. E-ul alimentează cealaltă jumătate: Lovitură din compasiune transformă scutul lui în următorul atac cu rază, viteză de atac și daune magice bonus în funcție de viața maximă, iar Un pic de ajutor în plus adaugă rază și viteză de atac cât timp ține scutul, așa că un singur scut din tufiș devine o rafală scurtă de atacuri lungi, rapide și întărite. Dintele lui Nashor și Spada furiei lui Guinsoo adaugă și mai multe daune magice la lovire pe fiecare dintre acele atacuri, Pălăria malefică a lui Rabadon le mărește pe toate, iar Avânt cosmic îi dă viteza de mișcare ca să sară de la un gard viu la altul. Cel mai blând suport al pădurii devine un carry pe lovire care își plantează propria ambuscadă oriunde stă.",
-      "play": "Crește un tufiș peste luptă, pune scut pe cel mai apropiat aliat și atacă din interior cât timp ține scutul; când lupta se mută, crește altul și intră în el pentru vindecare.",
+      "title": "Artificii prietenoase",
+      "why": "Pasiva lui Taric este partea din kit pe care toată lumea o uită: după fiecare abilitate, următoarele lui două atacuri vin unul după altul și îi scurtează timpii de reîncărcare, așa că un Taric care tot aruncă abilități tot lovește. Sabia răsăritului transformă fiecare dintre aceste lovituri într-o vindecare pe aliatul din apropiere cu cea mai puțină viață, iar Îmbunătățire: Sabia răsăritului adaugă 100% viteză de atac și face vindecarea mult mai mare când lovește campioni. Explozie sonică face ca fiecare vindecare sau scut pe un aliat să explodeze, rănind și încetinind inamicii din jurul lui, iar Puterea credincioșilor îi binecuvântează pe toți cei pe care îi vindecă, așa că daunele lor îl umplu de devotament până pornește o undă de șoc care execută inamicii cu viață puțină. W-ul lui aruncă Q-ul și din aliatul legat, Reînnoirea pietrei lunii trimite fiecare vindecare mai departe la un al doilea aliat pentru încă o explozie, Cădelnița aprinsă le dă amândurora viteză de atac în plus, iar Ecourile Heliei adaugă și mai multă vindecare. Cavalerul pietrelor prețioase nu mai e bodyguardul echipei, ci bomba ei: aliații sunt grenadele și fiecare atac de bază scoate un cui.",
+      "play": "Leagă-te cu W de carry, aruncă orice abilitate și continuă să ataci cel mai apropiat campion, ca fiecare lovitură să vindece un coechipier și să arunce în aer pe oricine stă lângă el.",
       "augments": [
-        "Intrarea într-un tufiș îți oferă Putere de tufiș pentru 2 secunde. Cât timp Putere de tufiș e activă, provoci cu 20% mai multe daune. Rămânerea în tufiș reîmprospătează Putere de tufiș.",
-        "Intrarea într-un tufiș regenerează o cantitate mare de viață.",
-        "După ce vindeci sau pui scut pe aliat cu abilitatea aleasă, următorul tău atac de bază primește rază de atac și viteză de atac și provoacă daune magice bonus în funcție de viața maximă.",
-        "Primești rază de atac și viteză de atac pe durata abilității alese."
+        "Primești 100% viteză de atac. Vindecarea Săbiei răsăritului crește la 250% când ataci campioni inamici.",
+        "Când îți întărești, vindeci sau protejezi cu scut aliatul, inamicii din jurul lui suferă daune și sunt încetiniți.",
+        "Vindecarea sau protejarea aliaților cu scuturi îi binecuvântează, iar daunele lor te umplu de devotament. Când ai destul devotament, eliberezi o undă de șoc care provoacă daune magice și execută inamicii cu viață puțină."
       ]
     },
     "ru": {
-      "title": "Хедж-фонд",
-      "why": "У W Иверна есть пассивный эффект, вокруг которого почти никто не собирается: пока он стоит в кустах и ещё мгновение после выхода, его атаки наносят дополнительный магический урон, а активная часть выращивает новые кусты там, где он захочет. Прятки в кустах заставляет его наносить на 20% больше урона, пока он остаётся в кустах, а Природа исцеляется восстанавливает много здоровья при каждом входе в них, так что каждое W – это новый вход: лечение, бонус к урону и серия усиленных атак по требованию. E питает вторую половину: Милосердный удар превращает его щит в следующую атаку с дополнительной дальностью, скоростью атаки и магическим уроном от максимального здоровья, а Своевременная помощь добавляет дальность и скорость атаки, пока держится этот щит, так что один щит из кустов превращается в короткую очередь дальних, быстрых, усиленных атак. Зуб Нашора и Клинок ярости Гинсу добавляют ещё магического урона при попадании к каждой из этих атак, Смертельная шляпа Рабадона увеличивает всё это, а Космический ускоритель даёт скорость передвижения, чтобы перепрыгивать от одной живой изгороди к другой. Самый добрый саппорт леса превращается в керри на попадание, который сажает собственную засаду там, где стоит.",
-      "play": "Вырастите кусты прямо посреди боя, дайте щит ближайшему союзнику и атакуйте изнутри, пока держится щит; когда бой сместится, вырастите новые и зайдите в них ради лечения.",
+      "title": "Дружеский фейерверк",
+      "why": "Пассивное умение Тарика – часть набора, о которой все забывают: после каждого умения две его следующие автоатаки идут одна за другой и сокращают перезарядку его умений, так что Тарик, который постоянно колдует, постоянно бьет. Меч сияющего рассвета превращает каждый такой удар в лечение самого раненого союзника рядом, а Улучшенный Меч сияющего рассвета дает 100% скорости атаки и делает это лечение намного сильнее, когда он бьет чемпионов. Звуковой удар заставляет каждое лечение или щит на союзнике взрываться, нанося урон и замедляя врагов вокруг него, а Сила верных благословляет всех, кого он лечит, и их урон наполняет его преданностью, пока не вырвется ударная волна, добивающая врагов с низким здоровьем. Его W применяет его Q и от связанного союзника, Исцеляющий лунный камень передает каждое лечение второму союзнику ради еще одного взрыва, Пылающая кадильница дает обоим дополнительную скорость атаки, а Эхо Гелии добавляет еще больше лечения. Самоцветный рыцарь перестает быть телохранителем команды и становится ее бомбой: союзники – это гранаты, а каждая автоатака выдергивает чеку.",
+      "play": "Свяжитесь с керри через W, примените что угодно и продолжайте атаковать ближайшего чемпиона, чтобы каждый удар лечил союзника и взрывал всех, кто стоит рядом с ним.",
       "augments": [
-        "Вход в кусты даёт Силу кустов на 2 секунды. Пока Сила кустов активна, вы наносите на 20% больше урона. Пребывание в кустах обновляет Силу кустов.",
-        "Вход в кусты восстанавливает много здоровья.",
-        "После лечения или наложения щита на союзника выбранным умением ваша следующая автоатака получает дальность атаки и скорость атаки и наносит дополнительный магический урон от максимального здоровья.",
-        "Вы получаете дальность атаки и скорость атаки на время действия выбранного умения."
+        "Вы получаете 100% скорости атаки. Лечение Меча сияющего рассвета увеличивается до 250%, когда вы атакуете вражеских чемпионов.",
+        "Усиление, лечение или щит на союзника наносит урон и замедляет врагов вокруг него.",
+        "Лечение или щиты на союзников благословляют их, и их урон наполняет вас преданностью. Когда преданности достаточно, вы высвобождаете ударную волну, которая наносит магический урон и добивает врагов с низким здоровьем."
       ]
     },
     "th": {
-      "title": "กองทุนเฮดจ์",
-      "why": "W ของ Ivern มีพาสซีฟที่แทบไม่มีใครสร้างบิลด์รอบมัน: ตราบใดที่ยืนอยู่ในพุ่มหญ้า และอีกครู่หนึ่งหลังออกมา การโจมตีของเขาจะสร้างดาเมจเวทเพิ่ม ส่วนแอคทีฟจะปลูกพุ่มหญ้าใหม่ตรงไหนก็ได้ที่เขาต้องการ Hide on Bush ทำให้เขาสร้างดาเมจเพิ่ม 20% ตราบใดที่ยังอยู่ในพุ่มหญ้า และ Nature is Healing ฟื้นฟูพลังชีวิตจำนวนมากทุกครั้งที่เข้าไป ดังนั้น W แต่ละครั้งคือการเข้าพุ่มครั้งใหม่: ฮีลหนึ่งครั้ง โบนัสดาเมจหนึ่งชุด และการโจมตีที่เสริมพลังอีกหนึ่งรอบ ได้ทุกเมื่อที่ต้องการ อีกครึ่งหนึ่งมาจาก E: Mercy's Strike เปลี่ยนโล่ของมันให้เป็นการโจมตีครั้งถัดไปที่มีระยะเพิ่ม ความเร็วโจมตีเพิ่ม และดาเมจเวทตามพลังชีวิตสูงสุด ส่วน Lil' Extra Help เพิ่มระยะโจมตีและความเร็วโจมตีตลอดเวลาที่โล่นั้นยังอยู่ ดังนั้นโล่หนึ่งครั้งจากในพุ่มหญ้าจึงกลายเป็นชุดโจมตีสั้นๆ ที่ทั้งไกล เร็ว และเสริมพลัง Nashor's Tooth และ Guinsoo's Rageblade ซ้อนดาเมจเวทเมื่อโจมตีเพิ่มเข้าไปในทุกการโจมตีเหล่านั้น Rabadon's Deathcap ขยายทุกอย่าง และ Cosmic Drive ให้ความเร็วเคลื่อนที่เพื่อกระโดดจากพุ่มหนึ่งไปอีกพุ่ม ซัพพอร์ตที่อ่อนโยนที่สุดในป่ากลายเป็นแครี่สายออนฮิตที่ปลูกจุดซุ่มโจมตีของตัวเองได้ทุกที่ที่ยืน",
-      "play": "ปลูกพุ่มหญ้าตรงกลางไฟต์ ใส่โล่ให้เพื่อนที่อยู่ใกล้ที่สุด แล้วโจมตีจากข้างในตลอดเวลาที่โล่ยังอยู่ พอไฟต์ขยับก็ปลูกอีกพุ่มแล้วเดินเข้าไปรับฮีล",
+      "title": "ดอกไม้ไฟฝ่ายเดียวกัน",
+      "why": "พาสซีฟของ Taric คือส่วนของชุดสกิลที่ทุกคนลืม: หลังใช้สกิลทุกครั้ง การโจมตีสองครั้งถัดไปจะออกติดกันอย่างรวดเร็วและลดคูลดาวน์สกิลของเขา ดังนั้น Taric ที่ใช้สกิลไม่หยุดก็จะตีไม่หยุดด้วย Sword of Blossoming Dawn เปลี่ยนการตีแต่ละครั้งให้เป็นการฮีลเพื่อนร่วมทีมที่เลือดน้อยที่สุดใกล้ ๆ และ Upgrade Sword of Blossoming Dawn เพิ่ม Attack Speed 100% และทำให้ฮีลนั้นแรงขึ้นมากเมื่อเขาตีแชมเปี้ยน Sonic Boom ทำให้ทุกการฮีลหรือโล่ให้เพื่อนร่วมทีมระเบิด สร้างดาเมจและสโลว์ศัตรูรอบตัวคนนั้น ส่วน Empowered By The Faithful อวยพรทุกคนที่เขาฮีล ดาเมจของพวกเขาจะเติมศรัทธาให้เขาจนปล่อยคลื่นกระแทกที่ประหารศัตรูเลือดน้อย สกิล W ทำให้ Q ร่ายจากเพื่อนที่เชื่อมไว้ด้วย Moonstone Renewer ส่งต่อทุกการฮีลไปยังเพื่อนคนที่สองเพื่อระเบิดอีกรอบ Ardent Censer ให้ Attack Speed เพิ่มกับทั้งสองคน และ Echoes of Helia เติมฮีลเข้าไปอีก อัศวินอัญมณีเลิกเป็นบอดี้การ์ดของทีมแล้วกลายเป็นระเบิดของทีม: เพื่อนร่วมทีมคือลูกระเบิด และการโจมตีปกติทุกครั้งคือการดึงสลัก",
+      "play": "เชื่อมกับแครี่ด้วย W ใช้สกิลอะไรก็ได้ แล้วตีแชมเปี้ยนที่ใกล้ที่สุดไปเรื่อย ๆ ให้ทุกการตีฮีลเพื่อนร่วมทีมและระเบิดใครก็ตามที่ยืนข้างเขา",
       "augments": [
-        "เมื่อเข้าพุ่มหญ้า ได้รับพลังพุ่มหญ้า 2 วินาที ระหว่างที่พลังพุ่มหญ้าทำงาน คุณสร้างดาเมจเพิ่ม 20% การอยู่ในพุ่มหญ้าต่อจะรีเฟรชพลังพุ่มหญ้า",
-        "เมื่อเข้าพุ่มหญ้า ฟื้นฟูพลังชีวิตจำนวนมาก",
-        "หลังจากฮีลหรือใส่โล่ให้เพื่อนด้วยสกิลที่เลือก การโจมตีพื้นฐานครั้งถัดไปของคุณจะได้รับระยะโจมตี ความเร็วโจมตี และสร้างดาเมจเวทเพิ่มตามพลังชีวิตสูงสุด",
-        "ได้รับระยะโจมตีและความเร็วโจมตีตลอดระยะเวลาของสกิลที่เลือก"
+        "ได้รับ Attack Speed 100% การฮีลของ Sword of Blossoming Dawn เพิ่มเป็น 250% เมื่อคุณโจมตีแชมเปี้ยนศัตรู",
+        "การบัฟ ฮีล หรือให้โล่แก่เพื่อนร่วมทีมจะสร้างดาเมจและสโลว์ศัตรูที่อยู่รอบตัวพวกเขา",
+        "การฮีลหรือให้โล่แก่เพื่อนร่วมทีมจะอวยพรพวกเขา และดาเมจของพวกเขาจะเติมศรัทธาให้คุณ เมื่อมีศรัทธาพอ จะปล่อยคลื่นกระแทกที่สร้างดาเมจเวทและประหารศัตรูที่เลือดน้อย"
       ]
     },
     "tr": {
-      "title": "Hedge Fonu",
-      "why": "Ivern'in W yeteneğinin neredeyse kimsenin üzerine kurmadığı bir pasifi var: çalıda durduğu sürece ve çıktıktan kısa bir süre sonra saldırıları ek büyü hasarı verir, aktifi ise istediği yerde yeni bir çalı büyütür. Çalıya Saklan çalıda kaldığı sürece %20 daha fazla hasar vermesini sağlar, Doğa Şifa Verir ise bir çalıya her girişinde büyük miktarda can yeniler; yani her W yeni bir giriştir: istediğin an bir iyileşme, bir hasar bonusu ve bir dizi güçlendirilmiş saldırı. Diğer yarısını E besler: Merhametli Saldırı kalkanını ek menzil, saldırı hızı ve maksimum cana göre büyü hasarı veren bir sonraki saldırıya çevirir, Küçük Bir Yardım ise o kalkan sürdüğü sürece saldırı menzili ve saldırı hızı ekler; böylece çalının içinden atılan tek bir kalkan, uzun menzilli, hızlı ve güçlendirilmiş kısa bir saldırı serisine dönüşür. Nashor'un Dişi ve Guinsoo'nun Hiddeti bu saldırıların her birine daha fazla vuruş başına büyü hasarı yığar, Rabadon'un Şapkası hepsini büyütür, Kozmik Hızlandırıcı ise bir çitten diğerine atlaması için hareket hızı verir. Ormanın en nazik desteği, durduğu her yere kendi pusunu kuran bir vuruş başına carry'ye dönüşür.",
-      "play": "Savaşın tam üstüne bir çalı büyüt, en yakındaki müttefiğe kalkan ver ve kalkan sürdüğü sürece içeriden saldır; savaş yer değiştirince bir tane daha büyüt ve iyileşmek için içine gir.",
+      "title": "Dost Ateşi Şenliği",
+      "why": "Taric'in pasifi, kitinde herkesin unuttuğu kısım: her yetenekten sonra sıradaki iki saldırısı art arda gelir ve yeteneklerinin bekleme sürelerini kısaltır, yani sürekli yetenek kullanan bir Taric sürekli vurur. Seher Kılıcı bu vuruşların her birini yakındaki en düşük canlı müttefike iyileştirmeye çevirir, Geliştirme: Seher Kılıcı ise %100 Saldırı Hızı ekler ve şampiyonlara vurduğu sürece bu iyileştirmeyi çok daha büyük yapar. Ses Patlaması bir müttefike yapılan her iyileştirmeyi veya kalkanı patlatır, etrafındaki düşmanlara hasar verip onları yavaşlatır; Kudret ise iyileştirdiği herkesi kutsar, böylece onların hasarı onu bağlılıkla doldurur ve sonunda düşük canlı düşmanları infaz eden bir şok dalgası patlar. W'si Q'sunu bağlı müttefikten de kullanır, Dinçleştirici Aytaşı her iyileştirmeyi bir patlama daha için ikinci bir müttefike aktarır, Kızgın Buhurdanlık ikisine de ekstra Saldırı Hızı verir ve Helia'nın Yankıları daha da fazla iyileştirme ekler. Mücevher şövalyesi takımın koruması olmayı bırakıp bombası olur: müttefikleri el bombası, her temel saldırı da bir pim çeker.",
+      "play": "W ile carry'ne bağlan, herhangi bir yetenek kullan ve en yakın şampiyona saldırmaya devam et; böylece her vuruş bir takım arkadaşını iyileştirir ve yanında duran herkesi havaya uçurur.",
       "augments": [
-        "Çalıya girmek 2 saniyeliğine Çalı Gücü verir. Çalı Gücü aktifken %20 daha fazla hasar verirsin. Çalıda kalmak Çalı Gücü'nü yeniler.",
-        "Çalıya girmek büyük miktarda can yeniler.",
-        "Seçilen yetenekle müttefiğini iyileştirdikten veya ona kalkan verdikten sonra bir sonraki temel saldırın saldırı menzili ve saldırı hızı kazanır ve maksimum cana göre ek büyü hasarı verir.",
-        "Seçilen yeteneğin süresi boyunca saldırı menzili ve saldırı hızı kazanırsın."
+        "%100 Saldırı Hızı kazan. Düşman şampiyonlara saldırdığında Seher Kılıcı'nın iyileştirmesi %250'ye çıkar.",
+        "Müttefikini güçlendirmek, iyileştirmek veya kalkanla korumak etrafındaki düşmanlara hasar verir ve onları yavaşlatır.",
+        "Müttefikleri iyileştirmek veya kalkanla korumak onları kutsar ve onların hasarı seni bağlılıkla doldurur. Yeterli bağlılığa ulaştığında büyü hasarı veren ve düşük canlı düşmanları infaz eden bir şok dalgası salarsın."
       ]
     },
     "vi": {
-      "title": "Quỹ Phòng Hộ",
-      "why": "W của Ivern có một nội tại gần như không ai xây dựng quanh nó: khi đứng trong bụi cỏ, và một lúc sau khi rời đi, đòn đánh của hắn gây thêm sát thương phép, còn phần kích hoạt mọc ra một bụi cỏ mới ở bất cứ đâu hắn muốn. Hide on Bush giúp hắn gây thêm 20% sát thương chừng nào còn trong bụi cỏ, còn Thiên Nhiên Êm Dịu hồi một lượng lớn máu mỗi lần hắn bước vào một bụi, nên mỗi lần dùng W là một lần bước vào mới: một lần hồi máu, một lượt cộng sát thương và một loạt đòn đánh tăng cường, khi nào cũng được. E lo nửa còn lại: Đòn Công Nhân Từ biến lá chắn của nó thành đòn đánh kế tiếp có thêm tầm đánh, tốc độ đánh và sát thương phép theo máu tối đa, còn Một Chút Trợ Giúp cộng thêm tầm đánh và tốc độ đánh chừng nào lá chắn còn, nên một lá chắn từ trong bụi cỏ trở thành một loạt ngắn những đòn đánh xa, nhanh và được tăng cường. Nanh Nashor và Cuồng Đao Guinsoo chồng thêm sát thương phép mỗi đòn đánh lên từng đòn, Mũ Phù Thủy Rabadon phóng to tất cả, còn Động Cơ Vũ Trụ cho hắn tốc độ di chuyển để nhảy từ hàng rào này sang hàng rào khác. Hỗ trợ hiền nhất khu rừng biến thành xạ thủ sát thương mỗi đòn đánh, tự trồng ổ phục kích ở bất cứ chỗ nào hắn đứng.",
-      "play": "Mọc một bụi cỏ ngay trên giao tranh, tạo lá chắn cho đồng minh gần nhất rồi đánh từ bên trong chừng nào lá chắn còn; khi giao tranh di chuyển, mọc thêm một bụi nữa và bước vào để hồi máu.",
+      "title": "Pháo Hoa Đồng Đội",
+      "why": "Nội tại của Taric là phần bộ kỹ năng mà ai cũng quên: sau mỗi chiêu, hai đòn đánh tiếp theo của anh ra liên tiếp thật nhanh và giảm thời gian hồi chiêu của anh, nên một Taric dùng chiêu liên tục cũng đánh liên tục. Kiếm Bình Minh Nở Rộ biến mỗi đòn đó thành một lần hồi máu cho đồng minh ít máu nhất ở gần, còn Nâng Cấp Kiếm Bình Minh Nở Rộ cho thêm 100% Tốc độ Đánh và làm lượng hồi máu đó lớn hơn nhiều khi anh đánh tướng. Vụ Nổ Siêu Thanh khiến mỗi lần hồi máu hay tạo lá chắn cho đồng minh đều phát nổ, gây sát thương và làm chậm kẻ địch quanh người đó, còn Đức Tin Tiếp Sức ban phước cho mọi người anh hồi máu, để sát thương của họ tích đầy lòng sùng kính cho anh cho tới khi một làn sóng xung kích bùng ra và kết liễu kẻ địch thấp máu. Chiêu W giúp anh tung cả Q từ đồng minh được liên kết, Bùa Nguyệt Thạch truyền mỗi lần hồi máu sang đồng minh thứ hai để nổ thêm lần nữa, Lư Hương Sôi Sục cho cả hai thêm Tốc độ Đánh và Vọng Âm Helia thêm càng nhiều hồi máu. Hiệp sĩ đá quý thôi làm vệ sĩ của đội và trở thành quả bom của đội: đồng đội là lựu đạn và mỗi đòn đánh thường là một lần rút chốt.",
+      "play": "Liên kết với xạ thủ bằng W, dùng chiêu bất kỳ rồi cứ đánh tướng gần nhất, để mỗi đòn đều hồi máu cho đồng đội và thổi bay bất kỳ ai đứng cạnh họ.",
       "augments": [
-        "Bước vào bụi cỏ nhận Sức Mạnh Bụi Cỏ trong 2 giây. Khi Sức Mạnh Bụi Cỏ còn hiệu lực, bạn gây thêm 20% sát thương. Ở lại trong bụi cỏ sẽ làm mới Sức Mạnh Bụi Cỏ.",
-        "Bước vào bụi cỏ hồi một lượng lớn máu.",
-        "Sau khi hồi máu hoặc tạo lá chắn cho đồng minh bằng kỹ năng đã chọn, đòn đánh thường kế tiếp của bạn nhận thêm tầm đánh, tốc độ đánh và gây thêm sát thương phép theo máu tối đa.",
-        "Nhận thêm tầm đánh và tốc độ đánh trong thời gian kỹ năng đã chọn có hiệu lực."
+        "Nhận 100% Tốc độ Đánh. Lượng hồi máu của Kiếm Bình Minh Nở Rộ tăng lên 250% khi bạn tấn công tướng địch.",
+        "Cường hóa, hồi máu hoặc tạo lá chắn cho đồng minh sẽ gây sát thương và làm chậm kẻ địch xung quanh họ.",
+        "Hồi máu hoặc tạo lá chắn cho đồng minh sẽ ban phước cho họ, và sát thương họ gây ra tích lòng sùng kính cho bạn. Khi đủ lòng sùng kính, bạn giải phóng một làn sóng xung kích gây sát thương phép và kết liễu kẻ địch thấp máu."
       ]
     },
     "zh-CN": {
-      "title": "对冲基金",
-      "why": "翠神的W有一个几乎没人围绕它出装的被动：只要他站在草丛里，以及离开后的一小段时间内，他的普攻会附带额外魔法伤害，而主动效果能在任何他想要的地方种出一片新草丛。藏身草丛让他待在草丛里时造成的伤害提高20%，自然即是治愈让他每次进入草丛都回复大量生命值，所以每一次W都是一次新的进入：一次治疗、一份伤害加成和一轮强化普攻，想要就有。另一半由E来供：仁慈打击把他的护盾变成一次带额外射程、攻速和最大生命值魔法伤害的下次普攻，小小的额外帮助则在护盾持续期间一直提供攻击距离和攻速，于是草丛里的一个护盾就变成一小段远程、快速、强化过的普攻连打。纳什之牙和鬼索的狂暴之刃给每一下普攻再堆上攻击特效魔法伤害，灭世者的死亡之帽把这一切放大，星界驱驰则给他从一片树篱跳到下一片的移动速度。森林里最温柔的辅助变成了一个走到哪里就把埋伏种到哪里的攻击特效核心。",
-      "play": "在团战正上方种一片草丛，给最近的队友套上护盾，护盾持续期间从草丛里面输出；战场一移动就再种一片，走进去领治疗。",
+      "title": "友军烟花秀",
+      "why": "瓦洛兰之盾的被动是他技能组里最容易被忘掉的部分：每次施放技能后，他接下来的两次普攻会快速连出，并缩短他的技能冷却，所以一个不停放技能的瓦洛兰之盾也会不停地砍人。花晓之剑把每一下普攻都变成对附近生命值最低的友军的治疗，升级：花晓之剑再给他100%攻击速度，并在他攻击英雄时让这份治疗大幅变强。天音爆让每一次对友军的治疗或护盾都炸开，伤害并减速该友军周围的敌人；信念者的强化会祝福他治疗过的每个人，他们造成的伤害为他积攒信仰，攒满后放出一道冲击波，处决低血量的敌人。他的W让Q也会从连结的友军身上施放，月石再生器把每次治疗传给第二名友军再炸一次，炽热香炉给两人额外攻击速度，海力亚的回响再叠上更多治疗。宝石骑士不再是团队的保镖，而是团队的炸弹：队友就是手雷，每一下普攻都拔掉一个保险栓。",
+      "play": "用W连上你的C位，随便放个技能，然后一直平A最近的英雄，让每一下都治疗队友，同时把站在他旁边的人炸飞。",
       "augments": [
-        "进入草丛时获得草丛之力，持续2秒。草丛之力生效期间，你造成的伤害提高20%。留在草丛中会刷新草丛之力。",
-        "进入草丛时回复大量生命值。",
-        "用所选技能治疗或护盾友军后，你的下一次普攻获得攻击距离和攻速，并造成基于最大生命值的额外魔法伤害。",
-        "在所选技能持续期间获得攻击距离和攻速。"
+        "获得100%攻击速度。攻击敌方英雄时，花晓之剑的治疗效果提升至250%。",
+        "强化、治疗友军或为其提供护盾时，会对其周围的敌人造成伤害并减速。",
+        "治疗友军或为其提供护盾会祝福他们，他们造成的伤害会为你积攒信仰。信仰足够时，释放一道冲击波，造成魔法伤害并处决低生命值敌人。"
       ]
     },
     "zh-TW": {
-      "title": "避險基金",
-      "why": "埃爾文的W有一個幾乎沒人拿來出裝的被動：只要他站在草叢裡，以及離開後的一小段時間，他的普攻都會附帶額外魔法傷害，而主動效果能在任何他想要的地方長出一片新草叢。躲草叢讓他待在草叢裡時造成的傷害提高20%，自然治療讓他每次進入草叢都回復大量生命值，所以每一次W都是一次新的進入：一次治療、一份傷害加成和一輪強化普攻，隨叫隨到。另一半由E來供：慈悲之擊把他的護盾變成一次帶額外射程、攻速和最大生命值魔法傷害的下一次普攻，小小助力則在護盾持續期間一直提供攻擊距離和攻速，於是草叢裡的一個護盾就變成一小段遠程、快速、強化過的普攻連打。納什之牙和鬼索的狂暴之刃在每一下普攻再堆上攻擊特效魔法傷害，死亡之帽把這一切放大，星河馳騁則給他從一片樹籬跳到下一片的移動速度。森林裡最溫柔的輔助變成了走到哪裡就把埋伏種到哪裡的攻擊特效核心。",
-      "play": "在團戰正上方長出一片草叢，給最近的隊友套上護盾，護盾持續期間從草叢裡面輸出；戰場一移動就再長一片，走進去領治療。",
+      "title": "友軍煙火秀",
+      "why": "塔里克的被動是他技能組裡最常被遺忘的部分：每次施放技能後，他接下來的兩次普攻會快速連出，並縮短他的技能冷卻，所以一個不停放技能的塔里克也會不停地揮砍。破曉綻放之劍把每一下普攻都變成對附近生命最低的友軍的治療，升級破曉綻放之劍再給他100%攻擊速度，並在他攻擊英雄時讓這份治療大幅變強。餘音震盪讓每一次對友軍的治療或護盾都爆開，傷害並緩速該友軍周圍的敵人；因信得力會祝福他治療過的每個人，他們造成的傷害為他累積信仰，累積滿後釋放一道衝擊波，處決低生命的敵人。他的W讓Q也會從連結的友軍身上施放，月之石再生裝置把每次治療傳給第二名友軍再炸一次，熾灼魔器給兩人額外攻擊速度，希利亞的迴響再疊上更多治療。寶石騎士不再是團隊的保鑣，而是團隊的炸彈：隊友就是手榴彈，每一下普攻都拔掉一根插銷。",
+      "play": "用W連上你的主C，隨便放個技能，然後一直普攻最近的英雄，讓每一下都治療隊友，同時把站在他旁邊的人炸飛。",
       "augments": [
-        "進入草叢時獲得草叢之力，持續2秒。草叢之力生效期間，你造成的傷害提高20%。留在草叢中會刷新草叢之力。",
-        "進入草叢時回復大量生命值。",
-        "用所選技能治療或護盾隊友後，你的下一次普攻獲得攻擊距離和攻速，並造成基於最大生命值的額外魔法傷害。",
-        "在所選技能持續期間獲得攻擊距離和攻速。"
+        "獲得100%攻擊速度。攻擊敵方英雄時，破曉綻放之劍的治療效果提升至250%。",
+        "強化、治療友軍或為其提供護盾時，會對其周圍的敵人造成傷害並緩速。",
+        "治療友軍或為其提供護盾會祝福他們，他們造成的傷害會為你累積信仰。信仰足夠時，釋放一道衝擊波，造成魔法傷害並處決低生命敵人。"
       ]
     }
   }

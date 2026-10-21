@@ -4,7 +4,7 @@ window.COOK_DATA = {
   "cn_champion_date": "20261019",
   "champion_count": 173,
   "augment_count": 211,
-  "generated": "2026-10-20"
+  "generated": "2026-10-21"
  },
  "builds": [
   {
@@ -103,24 +103,24 @@ window.COOK_DATA = {
    "core_usual": 0,
    "core_pick_rate": 0.0623,
    "sim": {
-    "dps": 248,
+    "dps": 247,
     "survival": 0.013,
-    "best_dps": 1383,
-    "best_survival": 0.464,
-    "pct_of_best": 0.179,
+    "best_dps": 1463,
+    "best_survival": 0.112,
+    "pct_of_best": 0.169,
     "best_items": [
      "Berserker's Greaves",
      "Blade of The Ruined King",
+     "The Collector",
      "Essence Reaver",
      "Kraken Slayer",
-     "Navori Flickerblade",
      "Serylda's Grudge"
     ],
     "best_augments": [
      "Dual Wield",
-     "Double Tap",
-     "Symphony of War",
-     "Giant Slayer"
+     "Giant Slayer",
+     "Ultimate Awakening",
+     "Jeweled Gauntlet"
     ],
     "items_not_modeled": [
      "Rite of Ruin"
@@ -244,11 +244,11 @@ window.COOK_DATA = {
    "core_usual": 0,
    "core_pick_rate": 0.1588,
    "sim": {
-    "dps": 258,
+    "dps": 256,
     "survival": 0.019,
-    "best_dps": 957,
-    "best_survival": 0.015,
-    "pct_of_best": 0.27,
+    "best_dps": 965,
+    "best_survival": 0.097,
+    "pct_of_best": 0.266,
     "best_items": [
      "Sorcerer's Shoes",
      "Lich Bane",
@@ -258,10 +258,10 @@ window.COOK_DATA = {
      "Void Staff"
     ],
     "best_augments": [
-     "Skilled Sniper",
+     "Marksmage",
      "Glass Cannon",
-     "Back To Basics",
-     "Marksmage"
+     "Forged By The Master",
+     "En Passant"
     ],
     "items_not_modeled": [],
     "whole_build": true
@@ -383,26 +383,147 @@ window.COOK_DATA = {
    "core_usual": 0,
    "core_pick_rate": 0.0649,
    "sim": {
-    "dps": 322,
-    "survival": 0.022,
-    "best_dps": 875,
-    "best_survival": 0.025,
-    "pct_of_best": 0.367,
+    "dps": 390,
+    "survival": 0.032,
+    "best_dps": 1053,
+    "best_survival": 0.575,
+    "pct_of_best": 0.37,
     "best_items": [
      "Sorcerer's Shoes",
      "Lich Bane",
      "Nashor's Tooth",
      "Rabadon's Deathcap",
+     "Shadowflame",
+     "Void Staff"
+    ],
+    "best_augments": [
+     "Marksmage",
+     "Ominous Pact",
+     "Master of Duality",
+     "Zealot"
+    ],
+    "items_not_modeled": [],
+    "whole_build": true
+   }
+  },
+  {
+   "id": "taric-friendly-fireworks",
+   "champion": "Taric",
+   "title": "Friendly Fireworks",
+   "augments": [
+    {
+     "name": "Upgrade Sword of Blossoming Dawn",
+     "id": 1379,
+     "rarity": "Prismatic",
+     "text": "Gain 100% Attack Speed. Increase Sword of Blossoming Dawn's healing to 250% when you attack enemy champions.",
+     "core": true,
+     "icon": "icons/augments/upgrade-sword-of-blossoming-dawn.png",
+     "win_rate": 0.4913,
+     "pick_rate": 0.0115,
+     "win_rank": 162,
+     "best_champions": [
+      "Senna",
+      "Soraka",
+      "Sona",
+      "Lulu",
+      "Janna",
+      "Milio"
+     ],
+     "champion_is_best": false
+    },
+    {
+     "name": "Sonic Boom",
+     "id": 1076,
+     "rarity": "Silver",
+     "text": "Buffing, Healing, or Shielding your ally deals damage and Slows enemies surrounding them.",
+     "core": true,
+     "icon": "icons/augments/sonic-boom.png",
+     "win_rate": 0.5115,
+     "pick_rate": 0.0479,
+     "win_rank": 121,
+     "best_champions": [
+      "Soraka",
+      "Sona",
+      "Yuumi",
+      "Karma",
+      "Milio",
+      "Seraphine"
+     ],
+     "champion_is_best": false
+    },
+    {
+     "name": "Empowered By The Faithful",
+     "id": 2004,
+     "rarity": "Prismatic",
+     "text": "Healing or Shielding allies blesses them, causing their damage to fill you with devotion. When you have enough devotion, unleash a shockwave dealing magic damage and executes low health enemies.",
+     "core": true,
+     "icon": "icons/augments/empowered-by-the-faithful.png",
+     "win_rate": 0.4888,
+     "pick_rate": 0.0277,
+     "win_rank": 169,
+     "best_champions": [
+      "Soraka",
+      "Sona",
+      "Yuumi",
+      "Janna",
+      "Milio",
+      "Seraphine"
+     ],
+     "champion_is_best": false
+    }
+   ],
+   "core": 3,
+   "items": [
+    "Sword of Blossoming Dawn",
+    "Ardent Censer",
+    "Moonstone Renewer",
+    "Echoes of Helia",
+    "Staff of Flowing Water",
+    "Berserker's Greaves"
+   ],
+   "why": "Taric's Bravado is the part of his kit everyone forgets: after every spell his next two attacks come out in quick succession and shave time off his spell cooldowns, so a Taric who keeps casting keeps swinging. Sword of Blossoming Dawn turns each of those swings into a heal on the lowest health ally nearby, and Upgrade Sword of Blossoming Dawn adds 100% Attack Speed and makes that heal far bigger whenever he is hitting champions. Sonic Boom makes every heal or shield on an ally explode, damaging and slowing the enemies around that ally, and Empowered By The Faithful blesses everyone he heals, so their damage fills him with devotion until a shockwave goes off that executes low health enemies. Bastion casts his Starlight's Touch from his linked ally too, Moonstone Renewer chains each heal to a second ally for another boom, Ardent Censer hands both of them extra Attack Speed, and Echoes of Helia adds even more healing. The gem knight stops being the team's bodyguard and becomes its bomb: his allies are the grenades and every autoattack pulls a pin.",
+   "play": "Link the carry with Bastion, cast anything, then keep attacking the closest champion so every swing heals a teammate and blows up whoever is standing next to them.",
+   "chef": "2026-10-20",
+   "champion_name": "Taric",
+   "item_ids": [
+    124011,
+    3504,
+    6617,
+    6620,
+    6616,
+    3006
+   ],
+   "champion_icon": "icons/champions/44.png",
+   "champion_win_rate": 0.494,
+   "champion_pick_rate": 0.0128,
+   "champion_win_rank": 79,
+   "core_win_rate": 0.4972,
+   "tier": "Pure troll",
+   "core_usual": 0,
+   "core_pick_rate": 0.029,
+   "sim": {
+    "dps": 62,
+    "survival": 0.011,
+    "best_dps": 679,
+    "best_survival": 0.035,
+    "pct_of_best": 0.092,
+    "best_items": [
+     "Sorcerer's Shoes",
+     "Hextech Gunblade",
+     "Lich Bane",
+     "Shadowflame",
      "Stormsurge",
      "Void Staff"
     ],
     "best_augments": [
-     "Glass Cannon",
-     "Marksmage",
+     "FireFox",
      "Forged By The Master",
+     "En Passant",
      "Giant Slayer"
     ],
-    "items_not_modeled": [],
+    "items_not_modeled": [
+     "Sword of Blossoming Dawn"
+    ],
     "whole_build": true
    }
   }
