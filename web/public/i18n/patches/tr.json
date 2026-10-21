@@ -24,5 +24,11 @@
  "Gold": "Altın",
  "Prismatic": "Prizmatik",
  "{n} pts": "{n} puan",
- "Patches": "Yamalar"
+ "Patches": "Yamalar",
+ "Launch": "Çıkış",
+ "Set 1": "Set 1",
+ "Set 2": "Set 2",
+ "New set": "Yeni set",
+ "{n} augments changed": "{n} güçlendirme değişti",
+ "augments changed": "güçlendirme değişti"
 }

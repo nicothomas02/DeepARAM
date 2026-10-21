@@ -6,6 +6,7 @@ import { pageMeta } from "@/lib/meta";
 import { recap, recapPatches, type AugRef } from "@/lib/patches";
 import { LocalDate, Name, T } from "@/components/I18n";
 import { patchName, patchVersion } from "@/lib/patch-name";
+import { setOf } from "@/lib/sets";
 
 // One recap per patch: augment changes and the champions that rose and fell most (lib/patches.ts).
 
@@ -22,7 +23,7 @@ export async function generateMetadata({ params }: { params: Promise<{ patch: st
   return pageMeta(
     `/patches/${patchName(r.patch)}`,
     `ARAM Mayhem Patch ${patchName(r.patch)} Recap`,
-    `What changed in ARAM Mayhem on patch ${patchName(r.patch)}: ${r.added.length} augments added, ${r.removed.length} removed, ${r.changed.length} changed.${top}`,
+    `What changed in ARAM Mayhem on patch ${patchName(r.patch)}: ${r.changed.length} augments changed.${top}`,
   );
 }
 
@@ -63,7 +64,7 @@ export default async function PatchPage({ params }: { params: Promise<{ patch: s
   const i = all.indexOf(r.patch);
   const newer = i > 0 ? all[i - 1] : null;
   const older = all[i + 1] ?? null;
-  const quiet = r.hasAugmentHistory && !r.added.length && !r.removed.length && !r.changed.length;
+  const quiet = r.hasAugmentHistory && !r.changed.length;
   return (
     <>
       <Breadcrumbs
@@ -77,6 +78,14 @@ export default async function PatchPage({ params }: { params: Promise<{ patch: s
           <Link href="/patches">
             <T ns="patches">Patches</T>
           </Link>
+          {" · "}
+          <T ns="patches">{setOf(r.patch).name}</T>
+          {setOf(r.patch).first === r.patch && (
+            <>
+              {" · "}
+              <T ns="patches">New set</T>
+            </>
+          )}
           {r.released && (
             <>
               {" · "}
@@ -102,21 +111,9 @@ export default async function PatchPage({ params }: { params: Promise<{ patch: s
         </h1>
         <div className="stat-row">
           <div>
-            <b>{r.added.length}</b>
-            <span>
-              <T ns="patches">augments added</T>
-            </span>
-          </div>
-          <div>
-            <b>{r.removed.length}</b>
-            <span>
-              <T ns="patches">removed</T>
-            </span>
-          </div>
-          <div>
             <b>{r.changed.length}</b>
             <span>
-              <T ns="patches">changed</T>
+              <T ns="patches">augments changed</T>
             </span>
           </div>
           <div>
@@ -209,34 +206,6 @@ export default async function PatchPage({ params }: { params: Promise<{ patch: s
                 </li>
               ))}
             </ul>
-          </section>
-        )}
-        {r.added.length > 0 && (
-          <section className="card span-6" data-accent="gold">
-            <div className="card-head">
-              <h2>
-                <T ns="patches">Augments added</T>
-              </h2>
-            </div>
-            <div className="rank plain recap-list">
-              {r.added.map((a) => (
-                <Aug key={a.id} a={a} />
-              ))}
-            </div>
-          </section>
-        )}
-        {r.removed.length > 0 && (
-          <section className="card span-6" data-accent="lab">
-            <div className="card-head">
-              <h2>
-                <T ns="patches">Augments removed</T>
-              </h2>
-            </div>
-            <div className="rank plain recap-list">
-              {r.removed.map((a) => (
-                <Aug key={a.id} a={a} />
-              ))}
-            </div>
           </section>
         )}
       </div>

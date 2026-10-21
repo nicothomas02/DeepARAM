@@ -77,5 +77,9 @@
  "The strongest champion you could have locked in was {name}.": "你本可以锁定的最强英雄是 {name}。",
  "You locked in the strongest champion you could reach.": "你锁定了能拿到的最强英雄。",
  "Your team's average live win rate is {wr}.": "你的队伍在当前版本的平均胜率是 {wr}。",
- "Champ select the way ARAM runs it: two champion cards, sometimes a third from a Blessing. Reroll for new cards and your old ones go to the shared bench, where anyone on your team can grab them. Lock in to see how your pick and team rank on the live patch.": "按大乱斗的方式选英雄：两张英雄卡，有时会因祝福多出第三张。重随会发新卡，旧卡进入共享备选席，队友都能拿走。锁定后可以看到你的选择和队伍在当前版本的强度。"
+ "Champ select the way ARAM runs it: two champion cards, sometimes a third from a Blessing. Reroll for new cards and your old ones go to the shared bench, where anyone on your team can grab them. Lock in to see how your pick and team rank on the live patch.": "按大乱斗的方式选英雄：两张英雄卡，有时会因祝福多出第三张。重随会发新卡，旧卡进入共享备选席，队友都能拿走。锁定后可以看到你的选择和队伍在当前版本的强度。",
+ "Launch": "上线",
+ "Set 1": "赛季 1",
+ "Set 2": "赛季 2",
+ "This set ({set})": "本赛季（{set}）"
 }

@@ -105,7 +105,7 @@ export default function SettingsMenu() {
               if (v === "off") forgetViews();
             }}
           />
-          <Choice label="Tier List starts on" value={s.tierRange} options={[["live", "Live patch"], ["last3", "Last 3"], ["all", "All time"]]} onChange={(tierRange) => set({ tierRange })} />
+          <Choice label="Tier List starts on" value={s.tierRange === "last3" ? "set" : s.tierRange} options={[["live", "Live patch"], ["set", "This set"], ["all", "All time"]]} onChange={(tierRange) => set({ tierRange })} />
           <p className="account-note">
             {t("Saved in this browser.")}{" "}
             <Link

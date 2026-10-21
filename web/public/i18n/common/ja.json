@@ -204,5 +204,7 @@
  "Time dead": "デス時間",
  "CS": "CS",
  "{v} mitigated/min": "{v} 軽減/分",
- "{v} CS": "{v} CS"
+ "{v} CS": "{v} CS",
+ "This set": "今のセット",
+ "What every patch changed, grouped by set: augment tuning and the champions that moved most.": "各パッチの変更をセットごとに：オーグメントの調整と、最も変動したチャンピオン。"
 }

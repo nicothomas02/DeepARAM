@@ -24,5 +24,11 @@
  "Gold": "Arany",
  "Prismatic": "Prizmatikus",
  "{n} pts": "{n} pont",
- "Patches": "Frissítések"
+ "Patches": "Frissítések",
+ "Launch": "Indulás",
+ "Set 1": "Szett 1",
+ "Set 2": "Szett 2",
+ "New set": "Új szett",
+ "{n} augments changed": "{n} fejlesztés változott",
+ "augments changed": "fejlesztés változott"
 }

@@ -24,5 +24,11 @@
  "Gold": "Gold",
  "Prismatic": "Prismatic",
  "{n} pts": "{n} จุด",
- "Patches": "แพตช์"
+ "Patches": "แพตช์",
+ "Launch": "เปิดตัว",
+ "Set 1": "เซ็ต 1",
+ "Set 2": "เซ็ต 2",
+ "New set": "เซ็ตใหม่",
+ "{n} augments changed": "ออคเมนต์เปลี่ยน {n} รายการ",
+ "augments changed": "ออคเมนต์ที่เปลี่ยน"
 }

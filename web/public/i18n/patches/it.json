@@ -24,5 +24,11 @@
  "Gold": "Oro",
  "Prismatic": "Prismatico",
  "{n} pts": "{n} pt",
- "Patches": "Patch"
+ "Patches": "Patch",
+ "Launch": "Lancio",
+ "Set 1": "Set 1",
+ "Set 2": "Set 2",
+ "New set": "Nuovo set",
+ "{n} augments changed": "{n} potenziamenti modificati",
+ "augments changed": "potenziamenti modificati"
 }

@@ -24,5 +24,11 @@
  "Gold": "Золотая",
  "Prismatic": "Призматическая",
  "{n} pts": "{n} п.п.",
- "Patches": "Патчи"
+ "Patches": "Патчи",
+ "Launch": "Запуск",
+ "Set 1": "Сет 1",
+ "Set 2": "Сет 2",
+ "New set": "Новый сет",
+ "{n} augments changed": "Изменено аугментов: {n}",
+ "augments changed": "аугментов изменено"
 }

@@ -24,5 +24,11 @@
  "Gold": "Aurie",
  "Prismatic": "Prismatică",
  "{n} pts": "{n} pp",
- "Patches": "Patchuri"
+ "Patches": "Patchuri",
+ "Launch": "Lansare",
+ "Set 1": "Set 1",
+ "Set 2": "Set 2",
+ "New set": "Set nou",
+ "{n} augments changed": "{n} augmentări modificate",
+ "augments changed": "augmentări modificate"
 }

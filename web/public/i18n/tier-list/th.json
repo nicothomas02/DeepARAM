@@ -77,5 +77,9 @@
  "The strongest champion you could have locked in was {name}.": "แชมเปี้ยนที่แข็งแกร่งที่สุดที่คุณล็อกได้คือ {name}",
  "You locked in the strongest champion you could reach.": "คุณล็อกแชมเปี้ยนที่แข็งแกร่งที่สุดที่เลือกได้แล้ว",
  "Your team's average live win rate is {wr}.": "อัตราชนะเฉลี่ยของทีมคุณในแพตช์ปัจจุบันคือ {wr}",
- "Champ select the way ARAM runs it: two champion cards, sometimes a third from a Blessing. Reroll for new cards and your old ones go to the shared bench, where anyone on your team can grab them. Lock in to see how your pick and team rank on the live patch.": "การเลือกแชมเปี้ยนแบบ ARAM: การ์ดแชมเปี้ยนสองใบ บางครั้งได้ใบที่สามจากพร สุ่มใหม่เพื่อรับการ์ดใหม่ แล้วการ์ดเก่าจะไปอยู่บนม้านั่งที่ใช้ร่วมกัน ซึ่งใครในทีมก็หยิบได้ ล็อกเพื่อดูว่าตัวที่เลือกและทีมของคุณอยู่อันดับไหนในแพตช์ปัจจุบัน"
+ "Champ select the way ARAM runs it: two champion cards, sometimes a third from a Blessing. Reroll for new cards and your old ones go to the shared bench, where anyone on your team can grab them. Lock in to see how your pick and team rank on the live patch.": "การเลือกแชมเปี้ยนแบบ ARAM: การ์ดแชมเปี้ยนสองใบ บางครั้งได้ใบที่สามจากพร สุ่มใหม่เพื่อรับการ์ดใหม่ แล้วการ์ดเก่าจะไปอยู่บนม้านั่งที่ใช้ร่วมกัน ซึ่งใครในทีมก็หยิบได้ ล็อกเพื่อดูว่าตัวที่เลือกและทีมของคุณอยู่อันดับไหนในแพตช์ปัจจุบัน",
+ "Launch": "เปิดตัว",
+ "Set 1": "เซ็ต 1",
+ "Set 2": "เซ็ต 2",
+ "This set ({set})": "เซ็ตนี้ ({set})"
 }

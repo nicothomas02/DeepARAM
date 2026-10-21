@@ -77,5 +77,9 @@
  "The strongest champion you could have locked in was {name}.": "Il campione più forte che potevi confermare era {name}.",
  "You locked in the strongest champion you could reach.": "Hai confermato il campione più forte a tua disposizione.",
  "Your team's average live win rate is {wr}.": "La percentuale di vittoria media della tua squadra nella patch attuale è {wr}.",
- "Champ select the way ARAM runs it: two champion cards, sometimes a third from a Blessing. Reroll for new cards and your old ones go to the shared bench, where anyone on your team can grab them. Lock in to see how your pick and team rank on the live patch.": "La selezione dei campioni come in ARAM: due carte campione, a volte una terza da una Benedizione. Ritira per avere nuove carte: quelle vecchie finiscono nella panchina condivisa, dove chiunque della squadra può prenderle. Conferma per vedere come si classificano la tua scelta e la tua squadra nella patch attuale."
+ "Champ select the way ARAM runs it: two champion cards, sometimes a third from a Blessing. Reroll for new cards and your old ones go to the shared bench, where anyone on your team can grab them. Lock in to see how your pick and team rank on the live patch.": "La selezione dei campioni come in ARAM: due carte campione, a volte una terza da una Benedizione. Ritira per avere nuove carte: quelle vecchie finiscono nella panchina condivisa, dove chiunque della squadra può prenderle. Conferma per vedere come si classificano la tua scelta e la tua squadra nella patch attuale.",
+ "Launch": "Lancio",
+ "Set 1": "Set 1",
+ "Set 2": "Set 2",
+ "This set ({set})": "Questo set ({set})"
 }

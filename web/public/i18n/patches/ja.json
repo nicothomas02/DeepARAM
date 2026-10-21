@@ -24,5 +24,11 @@
  "Gold": "ゴールド",
  "Prismatic": "プリズム",
  "{n} pts": "{n}pt",
- "Patches": "パッチ"
+ "Patches": "パッチ",
+ "Launch": "リリース時",
+ "Set 1": "セット1",
+ "Set 2": "セット2",
+ "New set": "新セット",
+ "{n} augments changed": "オーグメント{n}個に変更",
+ "augments changed": "オーグメントに変更"
 }

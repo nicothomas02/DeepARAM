@@ -77,5 +77,9 @@
  "The strongest champion you could have locked in was {name}.": "Kilitleyebileceğin en güçlü şampiyon {name} idi.",
  "You locked in the strongest champion you could reach.": "Ulaşabildiğin en güçlü şampiyonu kilitledin.",
  "Your team's average live win rate is {wr}.": "Takımının güncel yamadaki ortalama kazanma oranı {wr}.",
- "Champ select the way ARAM runs it: two champion cards, sometimes a third from a Blessing. Reroll for new cards and your old ones go to the shared bench, where anyone on your team can grab them. Lock in to see how your pick and team rank on the live patch.": "ARAM'daki gibi şampiyon seçimi: iki şampiyon kartı, bazen bir Lütuf'tan üçüncüsü. Yeni kartlar için zar at; eskiler ortak yedek kulübesine gider ve takımdan herkes alabilir. Seçimini kilitle, şampiyonunun ve takımının güncel yamada nerede durduğunu gör."
+ "Champ select the way ARAM runs it: two champion cards, sometimes a third from a Blessing. Reroll for new cards and your old ones go to the shared bench, where anyone on your team can grab them. Lock in to see how your pick and team rank on the live patch.": "ARAM'daki gibi şampiyon seçimi: iki şampiyon kartı, bazen bir Lütuf'tan üçüncüsü. Yeni kartlar için zar at; eskiler ortak yedek kulübesine gider ve takımdan herkes alabilir. Seçimini kilitle, şampiyonunun ve takımının güncel yamada nerede durduğunu gör.",
+ "Launch": "Çıkış",
+ "Set 1": "Set 1",
+ "Set 2": "Set 2",
+ "This set ({set})": "Bu set ({set})"
 }

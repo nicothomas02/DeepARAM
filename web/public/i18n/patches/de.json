@@ -24,5 +24,11 @@
  "Gold": "Gold",
  "Prismatic": "Prismatisch",
  "{n} pts": "{n} Pkt.",
- "Patches": "Patches"
+ "Patches": "Patches",
+ "Launch": "Start",
+ "Set 1": "Set 1",
+ "Set 2": "Set 2",
+ "New set": "Neues Set",
+ "{n} augments changed": "{n} Augments geändert",
+ "augments changed": "Augments geändert"
 }

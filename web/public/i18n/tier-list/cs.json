@@ -77,5 +77,9 @@
  "The strongest champion you could have locked in was {name}.": "Nejsilnější šampion, kterého jsi mohl potvrdit, byl {name}.",
  "You locked in the strongest champion you could reach.": "Potvrdil jsi nejsilnějšího dostupného šampiona.",
  "Your team's average live win rate is {wr}.": "Průměrná míra výher tvého týmu v aktuálním patchi je {wr}.",
- "Champ select the way ARAM runs it: two champion cards, sometimes a third from a Blessing. Reroll for new cards and your old ones go to the shared bench, where anyone on your team can grab them. Lock in to see how your pick and team rank on the live patch.": "Výběr šampionů jako v ARAM: dvě karty šampionů, někdy třetí z Požehnání. Přehoď pro nové karty a staré půjdou na sdílenou lavičku, odkud si je může vzít kdokoli z týmu. Potvrď výběr a uvidíš, jak si tvůj šampion a tým stojí v aktuálním patchi."
+ "Champ select the way ARAM runs it: two champion cards, sometimes a third from a Blessing. Reroll for new cards and your old ones go to the shared bench, where anyone on your team can grab them. Lock in to see how your pick and team rank on the live patch.": "Výběr šampionů jako v ARAM: dvě karty šampionů, někdy třetí z Požehnání. Přehoď pro nové karty a staré půjdou na sdílenou lavičku, odkud si je může vzít kdokoli z týmu. Potvrď výběr a uvidíš, jak si tvůj šampion a tým stojí v aktuálním patchi.",
+ "Launch": "Spuštění",
+ "Set 1": "Sada 1",
+ "Set 2": "Sada 2",
+ "This set ({set})": "Tato sada ({set})"
 }

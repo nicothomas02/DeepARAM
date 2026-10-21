@@ -24,5 +24,11 @@
  "Gold": "黃金",
  "Prismatic": "稜彩",
  "{n} pts": "{n} 個百分點",
- "Patches": "版本"
+ "Patches": "版本",
+ "Launch": "上線",
+ "Set 1": "賽季 1",
+ "Set 2": "賽季 2",
+ "New set": "新賽季",
+ "{n} augments changed": "{n} 個強化有改動",
+ "augments changed": "個強化有改動"
 }

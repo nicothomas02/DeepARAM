@@ -95,9 +95,7 @@ export default function Home() {
   const fun = Object.fromEntries(
     Object.entries({ ...funLists(), ...extra, early_game: powerCurveLists().early, late_game: powerCurveLists().late }).map(([k, ids]) => [
       k,
-      ids.flatMap((id) =>
-        ALIAS[id] ? [{ id: ALIAS[id], name: NAMES[ALIAS[id]] ?? ALIAS[id], value: value[k]?.(id, ALIAS[id]) ?? null }] : [],
-      ),
+      ids.flatMap((id) => (ALIAS[id] ? [{ id: ALIAS[id], name: NAMES[ALIAS[id]] ?? ALIAS[id], value: value[k]?.(id, ALIAS[id]) ?? null }] : [])),
     ]),
   );
 
@@ -148,8 +146,8 @@ export default function Home() {
                 </b>
                 <span>
                   {latest.hasAugmentHistory ? (
-                    <T ns="patches" v={{ added: latest.added.length, removed: latest.removed.length, changed: latest.changed.length }}>
-                      {"{added} added · {removed} removed · {changed} changed"}
+                    <T ns="patches" v={{ n: latest.changed.length }}>
+                      {"{n} augments changed"}
                     </T>
                   ) : (
                     <T ns="patches">Win rates only</T>
@@ -192,12 +190,7 @@ export default function Home() {
             </div>
             <div className="rank">
               {augs.map((a, i) => (
-                <Link
-                  key={a.id}
-                  href={a.href}
-                  data-tilt="soft"
-                  data-rarity={a.rarity}
-                >
+                <Link key={a.id} href={a.href} data-tilt="soft" data-rarity={a.rarity}>
                   <span className="rank-i">{i + 1}</span>
                   <Icon src={`/icons/augments/${a.id}.webp`} />
                   <span className="rank-name">

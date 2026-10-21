@@ -77,5 +77,9 @@
  "The strongest champion you could have locked in was {name}.": "Tướng mạnh nhất bạn có thể khóa là {name}.",
  "You locked in the strongest champion you could reach.": "Bạn đã khóa tướng mạnh nhất có thể chọn.",
  "Your team's average live win rate is {wr}.": "Tỷ lệ thắng trung bình của đội bạn ở phiên bản hiện tại là {wr}.",
- "Champ select the way ARAM runs it: two champion cards, sometimes a third from a Blessing. Reroll for new cards and your old ones go to the shared bench, where anyone on your team can grab them. Lock in to see how your pick and team rank on the live patch.": "Chọn tướng đúng như ARAM: hai thẻ tướng, đôi khi có thẻ thứ ba từ Phước Lành. Đổi để nhận thẻ mới, thẻ cũ sẽ vào hàng chờ chung để bất kỳ ai trong đội cũng lấy được. Khóa lựa chọn để xem tướng và đội của bạn xếp hạng ra sao ở phiên bản hiện tại."
+ "Champ select the way ARAM runs it: two champion cards, sometimes a third from a Blessing. Reroll for new cards and your old ones go to the shared bench, where anyone on your team can grab them. Lock in to see how your pick and team rank on the live patch.": "Chọn tướng đúng như ARAM: hai thẻ tướng, đôi khi có thẻ thứ ba từ Phước Lành. Đổi để nhận thẻ mới, thẻ cũ sẽ vào hàng chờ chung để bất kỳ ai trong đội cũng lấy được. Khóa lựa chọn để xem tướng và đội của bạn xếp hạng ra sao ở phiên bản hiện tại.",
+ "Launch": "Ra mắt",
+ "Set 1": "Bộ 1",
+ "Set 2": "Bộ 2",
+ "This set ({set})": "Bộ này ({set})"
 }

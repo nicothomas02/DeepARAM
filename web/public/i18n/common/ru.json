@@ -204,5 +204,7 @@
  "Time dead": "Время в смерти",
  "CS": "CS",
  "{v} mitigated/min": "{v} смягчено/мин",
- "{v} CS": "{v} CS"
+ "{v} CS": "{v} CS",
+ "This set": "Этот сет",
+ "What every patch changed, grouped by set: augment tuning and the champions that moved most.": "Что изменил каждый патч, по сетам: правки аугментов и чемпионы, которые сдвинулись сильнее всего."
 }

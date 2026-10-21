@@ -204,5 +204,7 @@
  "Time dead": "Waktu mati",
  "CS": "CS",
  "{v} mitigated/min": "{v} dimitigasi/mnt",
- "{v} CS": "{v} CS"
+ "{v} CS": "{v} CS",
+ "This set": "Set ini",
+ "What every patch changed, grouped by set: augment tuning and the champions that moved most.": "Apa yang diubah tiap patch, dikelompokkan per set: penyesuaian augment dan champion yang paling bergerak."
 }

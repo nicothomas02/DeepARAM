@@ -24,5 +24,11 @@
  "Gold": "Vàng",
  "Prismatic": "Lăng Kính",
  "{n} pts": "{n} điểm",
- "Patches": "Phiên bản"
+ "Patches": "Phiên bản",
+ "Launch": "Ra mắt",
+ "Set 1": "Bộ 1",
+ "Set 2": "Bộ 2",
+ "New set": "Bộ mới",
+ "{n} augments changed": "{n} lõi nâng cấp thay đổi",
+ "augments changed": "lõi nâng cấp thay đổi"
 }

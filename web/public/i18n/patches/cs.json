@@ -24,5 +24,11 @@
  "Gold": "Zlatý",
  "Prismatic": "Prizmatický",
  "{n} pts": "{n} b.",
- "Patches": "Patche"
+ "Patches": "Patche",
+ "Launch": "Spuštění",
+ "Set 1": "Sada 1",
+ "Set 2": "Sada 2",
+ "New set": "Nová sada",
+ "{n} augments changed": "Změněná vylepšení: {n}",
+ "augments changed": "změněná vylepšení"
 }
