@@ -1,7 +1,7 @@
 {
  "meta": {
-  "built_at": "2026-10-20T18:26:04+00:00",
-  "game_version": "16.21",
+  "built_at": "2026-10-20T23:58:44+00:00",
+  "game_version": "16.22",
   "cdragon": "pbe",
   "mayhem_balance_patch": "wiki read 2026-10-17",
   "level": 18,
@@ -3895,15 +3895,15 @@
      },
      "hits": [
       {
+       "alt": false,
+       "per_second": false,
+       "target": "flat",
        "type": "true",
        "calc": "FinalOnHitDamage",
        "scaling": {
         "const": 6.0,
         "bonus_ad": 0.03
-       },
-       "target": "flat",
-       "per_second": false,
-       "alt": false
+       }
       }
      ],
      "mode_overrides": [
@@ -10669,15 +10669,15 @@
      },
      "hits": [
       {
+       "alt": false,
+       "per_second": true,
+       "target": "flat",
        "type": "magic",
        "calc": "TurretAttacks",
        "scaling": {
         "const": 40.25,
         "ap": 0.6125
-       },
-       "target": "flat",
-       "per_second": true,
-       "alt": false
+       }
       }
      ],
      "mode_overrides": [],
@@ -10760,26 +10760,26 @@
      },
      "hits": [
       {
+       "alt": false,
+       "per_second": false,
+       "target": "flat",
        "type": "magic",
        "calc": "Damage",
        "scaling": {
         "const": 220.0,
         "ap": 0.6
-       },
-       "target": "flat",
-       "per_second": false,
-       "alt": false
+       }
       },
       {
+       "alt": false,
+       "per_second": false,
+       "target": "flat",
        "type": "magic",
        "calc": "TurretBeam",
        "scaling": {
         "const": 120.0,
         "ap": 0.55
-       },
-       "target": "flat",
-       "per_second": false,
-       "alt": false
+       }
       }
      ],
      "mode_overrides": [],
@@ -11653,27 +11653,27 @@
      },
      "hits": [
       {
+       "alt": false,
+       "per_second": false,
+       "target": "flat",
        "type": "physical",
        "calc": "TentacleSlam",
        "scaling": {
         "const": 448.5,
         "bonus_ad": 1.43,
         "ap": 0.52
-       },
-       "target": "flat",
-       "per_second": false,
-       "alt": false
+       }
       },
       {
+       "alt": false,
+       "per_second": false,
+       "target": "target_max_hp",
        "type": "physical",
        "calc": "HealthPercentTotal",
        "scaling": {
         "const": 0.1025,
         "bonus_ad": 0.0003
-       },
-       "target": "target_max_hp",
-       "per_second": false,
-       "alt": false
+       }
       }
      ],
      "mode_overrides": [],
@@ -11708,16 +11708,16 @@
      },
      "hits": [
       {
+       "alt": false,
+       "per_second": false,
+       "target": "flat",
        "type": "physical",
        "calc": "TentacleSlam",
        "scaling": {
         "const": 448.5,
         "bonus_ad": 1.43,
         "ap": 0.52
-       },
-       "target": "flat",
-       "per_second": false,
-       "alt": false
+       }
       }
      ],
      "mode_overrides": [],
@@ -14412,26 +14412,26 @@
      },
      "hits": [
       {
+       "alt": false,
+       "per_second": false,
+       "target": "flat",
        "type": "magic",
        "calc": "InitialDamage",
        "scaling": {
         "const": 140.0,
         "ap": 0.45
-       },
-       "target": "flat",
-       "per_second": false,
-       "alt": false
+       }
       },
       {
+       "alt": false,
+       "per_second": false,
+       "target": "flat",
        "type": "magic",
        "calc": "TetherRootDamage",
        "scaling": {
         "const": 140.0,
         "ap": 0.45
-       },
-       "target": "flat",
-       "per_second": false,
-       "alt": false
+       }
       }
      ],
      "mode_overrides": [],
@@ -20004,16 +20004,16 @@
    "role": "mage",
    "ranged": true,
    "stats": {
-    "hp": 630.0,
-    "hp_per_level": 99.0,
+    "hp": 590.0,
+    "hp_per_level": 107.0,
     "armor": 21.0,
-    "armor_per_level": 5.2,
+    "armor_per_level": 5.4,
     "mr": 30.0,
     "mr_per_level": 1.3,
-    "ad": 54.0,
+    "ad": 52.0,
     "ad_per_level": 3.3,
     "attack_speed": 0.625,
-    "attack_speed_per_level": 0.025,
+    "attack_speed_per_level": 0.0275,
     "attack_speed_ratio": 0.625,
     "attack_range": 550.0,
     "attack_windup": 0.156,
@@ -20032,8 +20032,8 @@
    },
    "resource": {
     "kind": "mana",
-    "pool": 480.0,
-    "pool_per_level": 28.0,
+    "pool": 455.0,
+    "pool_per_level": 38.0,
     "regen": 1.8,
     "regen_per_level": 0.18
    },
@@ -20053,13 +20053,13 @@
      "cooldown": 6.0,
      "cast_time": 0.35,
      "cost": 90.0,
-     "targeting": "Area",
+     "targeting": "LocationClamped",
      "area": "aoe",
-     "duration": 0.5,
+     "duration": 0.0,
      "geometry": {
       "shape": "circle",
-      "range": 900.0,
-      "radius": 225.0,
+      "range": 950.0,
+      "radius": 200.0,
       "width": 0.0,
       "angle": 0.0,
       "speed": 0,
@@ -20068,10 +20068,9 @@
      "hits": [
       {
        "type": "magic",
-       "calc": "InitialExplosionDamage",
+       "calc": "InitialDamage",
        "scaling": {
-        "const": 160.0,
-        "ap": 0.55
+        "ap": 0.25
        },
        "target": "flat",
        "per_second": false,
@@ -20079,19 +20078,10 @@
       },
       {
        "type": "magic",
-       "calc": "TotalExplosionDamage",
+       "calc": "TotalDamage",
        "scaling": {
-        "const": 13.0,
-        "ap": 0.05
+        "ap": 0.25
        },
-       "target": "flat",
-       "per_second": false,
-       "alt": false
-      },
-      {
-       "type": "magic",
-       "calc": "AllDamageHit",
-       "scaling": {},
        "target": "flat",
        "per_second": false,
        "alt": true
@@ -20099,7 +20089,9 @@
      ],
      "mode_overrides": [],
      "notes": [
-      "unsupported part {f3cbe7b2}"
+      "missing value {709efe92}",
+      "missing value {9f5ea20c}",
+      "missing value {d29d0667}"
      ]
     },
     {
@@ -20110,10 +20102,10 @@
      "cast_time": 0.0,
      "shield": {
       "scaling": {
-       "const": 200.0,
-       "ap": 0.7
+       "const": 170.0,
+       "ap": 0.5
       },
-      "duration": 0.75
+      "duration": 2.0
      },
      "targeting": "Self",
      "area": "aoe",
@@ -20121,16 +20113,28 @@
      "geometry": {
       "shape": "circle",
       "range": 0.0,
-      "radius": 250.0,
+      "radius": 460.0,
       "width": 0.0,
       "angle": 0.0,
       "speed": 0,
       "on_self": true
      },
-     "hits": [],
+     "hits": [
+      {
+       "type": "magic",
+       "calc": "InitialDamage",
+       "scaling": {
+        "ap": 0.1
+       },
+       "target": "flat",
+       "per_second": false,
+       "alt": false
+      }
+     ],
      "mode_overrides": [],
      "notes": [
-      "ARAM cooldown"
+      "ARAM cooldown",
+      "missing value {d29d0667}"
      ]
     },
     {
@@ -20141,12 +20145,12 @@
      "cast_time": 0.25,
      "cc": {
       "type": "root",
-      "duration": 1.5
+      "duration": 1.0
      },
      "cost": 90.0,
      "targeting": "Direction",
      "area": "line",
-     "duration": 1.5,
+     "duration": 1.0,
      "geometry": {
       "shape": "line",
       "range": 1000.0,
@@ -20231,7 +20235,7 @@
      "notes": []
     }
    ],
-   "parse_quality": "partial",
+   "parse_quality": "good",
    "notes": []
   },
   {
@@ -21931,14 +21935,14 @@
      },
      "hits": [
       {
+       "alt": false,
+       "per_second": true,
+       "target": "flat",
        "type": "magic",
        "calc": "MaxDamageCap",
        "scaling": {
         "const": 240.0
-       },
-       "target": "flat",
-       "per_second": true,
-       "alt": false
+       }
       }
      ],
      "mode_overrides": [],
@@ -22625,40 +22629,40 @@
      },
      "hits": [
       {
+       "alt": false,
+       "per_second": false,
+       "target": "flat",
        "type": "magic",
        "calc": "TotalTakedownDamage",
        "scaling": {
         "const": 143.0,
         "bonus_ad": 0.75,
         "ap": 0.4
-       },
-       "target": "flat",
-       "per_second": false,
-       "alt": false
+       }
       },
       {
+       "alt": false,
+       "per_second": false,
+       "target": "flat",
        "type": "magic",
        "calc": "TotalPounceDamage",
        "scaling": {
         "const": 290.0,
         "bonus_ad": 1.0,
         "ap": 0.6
-       },
-       "target": "flat",
-       "per_second": false,
-       "alt": false
+       }
       },
       {
+       "alt": false,
+       "per_second": false,
+       "target": "flat",
        "type": "magic",
        "calc": "TotalSwipeDamage",
        "scaling": {
         "const": 380.0,
         "bonus_ad": 1.4,
         "ap": 1.1
-       },
-       "target": "flat",
-       "per_second": false,
-       "alt": false
+       }
       }
      ],
      "mode_overrides": [],
@@ -23664,7 +23668,7 @@
      "hits": [
       {
        "type": "magic",
-       "calc": "TotalDamageTooltip",
+       "calc": "TotalDamage",
        "scaling": {
         "const": 180.0,
         "ap": 0.6
@@ -23672,10 +23676,20 @@
        "target": "flat",
        "per_second": false,
        "alt": false
+      },
+      {
+       "type": "magic",
+       "calc": "ReducedDamage",
+       "scaling": {},
+       "target": "flat",
+       "per_second": false,
+       "alt": false
       }
      ],
      "mode_overrides": [],
-     "notes": []
+     "notes": [
+      "missing value {744f889d}"
+     ]
     },
     {
      "slot": "W",
@@ -24278,26 +24292,26 @@
      },
      "hits": [
       {
+       "alt": false,
+       "per_second": false,
+       "target": "flat",
        "type": "physical",
        "calc": "DamageCalc",
        "scaling": {
         "const": 120.1,
         "bonus_ad": 1.0
-       },
-       "target": "flat",
-       "per_second": false,
-       "alt": false
+       }
       },
       {
+       "alt": false,
+       "per_second": false,
+       "target": "flat",
        "type": "physical",
        "calc": "SlamDamage",
        "scaling": {
         "const": 510.0,
         "bonus_ad": 3.0
-       },
-       "target": "flat",
-       "per_second": false,
-       "alt": false
+       }
       }
      ],
      "mode_overrides": [],
@@ -29382,40 +29396,40 @@
      },
      "hits": [
       {
+       "alt": false,
+       "per_second": false,
+       "target": "flat",
        "type": "physical",
        "calc": "Calc_Damage",
        "scaling": {
         "const": 173.0,
         "bonus_ad": 1.1,
         "ap": 0.3
-       },
-       "target": "flat",
-       "per_second": false,
-       "alt": false
+       }
       },
       {
+       "alt": false,
+       "per_second": false,
+       "target": "flat",
        "type": "physical",
        "calc": "Calc_Damage",
        "scaling": {
         "const": 173.0,
         "bonus_ad": 1.1,
         "ap": 0.3
-       },
-       "target": "flat",
-       "per_second": false,
-       "alt": false
+       }
       },
       {
+       "alt": false,
+       "per_second": false,
+       "target": "flat",
        "type": "true",
        "calc": "Calc_Dragon_Form_Damage",
        "scaling": {
         "const": 519.0,
         "bonus_ad": 3.3,
         "ap": 0.9
-       },
-       "target": "flat",
-       "per_second": false,
-       "alt": false
+       }
       }
      ],
      "mode_overrides": [],
@@ -29496,57 +29510,57 @@
      },
      "hits": [
       {
+       "alt": false,
+       "per_second": false,
+       "target": "flat",
        "type": "magic",
        "calc": "Calc_Dragon_Damage",
        "scaling": {
         "const": 137.5,
         "ap": 1.0
-       },
-       "target": "flat",
-       "per_second": false,
-       "alt": false
+       }
       },
       {
+       "alt": false,
+       "per_second": false,
+       "target": "target_max_hp",
        "type": "magic",
        "calc": "Calc_Max_Health_Dragon_Damage",
        "scaling": {
         "const": 0.0625
-       },
-       "target": "target_max_hp",
-       "per_second": false,
-       "alt": false
+       }
       },
       {
+       "alt": false,
+       "per_second": false,
+       "target": "flat",
        "type": "magic",
        "calc": "Calc_Dragon_Damage",
        "scaling": {
         "const": 137.5,
         "ap": 1.0
-       },
-       "target": "flat",
-       "per_second": false,
-       "alt": false
+       }
       },
       {
+       "alt": false,
+       "per_second": false,
+       "target": "target_max_hp",
        "type": "magic",
        "calc": "Calc_Max_Health_Dragon_Damage",
        "scaling": {
         "const": 0.0625
-       },
-       "target": "target_max_hp",
-       "per_second": false,
-       "alt": false
+       }
       },
       {
+       "alt": false,
+       "per_second": true,
+       "target": "flat",
        "type": "magic",
        "calc": "DamagePerSecond",
        "scaling": {
         "const": 25.0,
         "ap": 0.05
-       },
-       "target": "flat",
-       "per_second": true,
-       "alt": false
+       }
       }
      ],
      "mode_overrides": [],
@@ -29917,15 +29931,15 @@
      },
      "hits": [
       {
+       "alt": false,
+       "per_second": false,
+       "target": "flat",
        "type": "physical",
        "calc": "HalfChargeDamage",
        "scaling": {
         "const": 437.6,
         "bonus_ad": 1.6
-       },
-       "target": "flat",
-       "per_second": false,
-       "alt": false
+       }
       }
      ],
      "mode_overrides": [],
@@ -31229,26 +31243,26 @@
      },
      "hits": [
       {
+       "alt": false,
+       "per_second": false,
+       "target": "flat",
        "type": "magic",
        "calc": "TotalDamage",
        "scaling": {
         "const": 170.0,
         "ap": 0.4
-       },
-       "target": "flat",
-       "per_second": false,
-       "alt": false
+       }
       },
       {
+       "alt": false,
+       "per_second": false,
+       "target": "flat",
        "type": "magic",
        "calc": "RootDamage",
        "scaling": {
         "const": 170.0,
         "ap": 0.4
-       },
-       "target": "flat",
-       "per_second": false,
-       "alt": false
+       }
       }
      ],
      "mode_overrides": [],
@@ -41500,26 +41514,26 @@
      },
      "hits": [
       {
+       "alt": false,
+       "per_second": false,
+       "target": "flat",
        "type": "magic",
        "calc": "InitialDamage",
        "scaling": {
         "const": 220.0,
         "ap": 0.65
-       },
-       "target": "flat",
-       "per_second": false,
-       "alt": false
+       }
       },
       {
+       "alt": false,
+       "per_second": false,
+       "target": "flat",
        "type": "magic",
        "calc": "PlantAttacks",
        "scaling": {
         "const": 480.0,
         "ap": 1.28
-       },
-       "target": "flat",
-       "per_second": false,
-       "alt": false
+       }
       }
      ],
      "mode_overrides": [],
@@ -41576,26 +41590,26 @@
      },
      "hits": [
       {
+       "alt": false,
+       "per_second": false,
+       "target": "flat",
        "type": "magic",
        "calc": "TotalDamage",
        "scaling": {
         "const": 200.0,
         "ap": 0.6
-       },
-       "target": "flat",
-       "per_second": false,
-       "alt": false
+       }
       },
       {
+       "alt": false,
+       "per_second": false,
+       "target": "flat",
        "type": "magic",
        "calc": "PlantAttacks",
        "scaling": {
         "const": 480.0,
         "ap": 1.28
-       },
-       "target": "flat",
-       "per_second": false,
-       "alt": false
+       }
       }
      ],
      "mode_overrides": [],
