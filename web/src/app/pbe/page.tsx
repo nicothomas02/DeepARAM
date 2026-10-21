@@ -95,13 +95,15 @@ function Glance({ d, tracker }: { d: Pbe; tracker: TrackerEntry[] }) {
     ["items", <P key="l">Item changes</P>, d.itemChanges.list.length],
     ["mode", <P key="l">Mode changes</P>, d.modeChanges.length],
   ];
+  // Skip empty sections, which aren't on the page.
+  const shown = rows.filter(([id, , v]) => v !== 0 || id === "tracker" || id === "mode");
   return (
     <section className="pbe-glance" aria-labelledby="glance-h">
       <h2 id="glance-h">
         <P>At a glance</P>
       </h2>
       <ul>
-        {rows.map(([id, label, value], i) => (
+        {shown.map(([id, label, value], i) => (
           <li key={i}>
             <a href={`#${id}`}>
               <span>{label}</span>
@@ -116,7 +118,9 @@ function Glance({ d, tracker }: { d: Pbe; tracker: TrackerEntry[] }) {
 
 const DIRECTION: Record<string, string> = { buff: "Likely buff", nerf: "Likely nerf", mixed: "Mixed", none: "No power change", unclear: "Unclear" };
 
-function Section({ id, title, count, children }: { id: string; title: string; count?: number; children: React.ReactNode }) {
+// A section with nothing in it this patch is left out (pass keep to show it anyway).
+function Section({ id, title, count, keep, children }: { id: string; title: string; count?: number; keep?: boolean; children: React.ReactNode }) {
+  if (count === 0 && !keep) return null;
   return (
     <section className="doc-section" id={id}>
       <h2>
@@ -142,16 +146,19 @@ export default function PbePage() {
   const { meta, augments } = d;
   const tracker = trackerEntries();
   const schedule = readRepoJson<PatchSchedule>("data/patch-schedule.json");
-  const toc = [
-    ["tracker", "Change tracker"],
-    ["headliners", "Headliners"],
-    ["fame", "Fame"],
-    ["augments", "Augments"],
-    ["overrides", "Mayhem overrides"],
-    ["champions", "Champions"],
-    ["items", "Items"],
-    ["mode", "Mode"],
-  ];
+  const augCount = augments.added.length + augments.removed.length + augments.changed.length;
+  const toc = (
+    [
+      ["tracker", "Change tracker", tracker.length],
+      ["headliners", "Headliners", d.headliners.list.length],
+      ["fame", "Fame", d.fame.bands.length],
+      ["augments", "Augments", augCount],
+      ["overrides", "Mayhem overrides", d.championOverrides.length],
+      ["champions", "Champions", d.championChanges.list.length],
+      ["items", "Items", d.itemChanges.list.length],
+      ["mode", "Mode", 1],
+    ] as const
+  ).filter(([, , n]) => n > 0);
   const label = <D>{meta.label}</D>;
 
   return (
@@ -238,7 +245,7 @@ export default function PbePage() {
         </dl>
       </Section>
 
-      <Section id="augments" title="Augments" count={augments.added.length + augments.removed.length + augments.changed.length}>
+      <Section id="augments" title="Augments" count={augCount}>
         <h3>
           <P v={{ n: augments.added.length }}>{"Added ({n})"}</P>
         </h3>
@@ -367,7 +374,7 @@ export default function PbePage() {
         ) : null}
       </Section>
 
-      <Section id="mode" title="Mode changes" count={d.modeChanges.length}>
+      <Section id="mode" title="Mode changes" count={d.modeChanges.length} keep>
         <ul className="bullets">
           {d.modeChanges.map((m) => (
             <li key={m}>
