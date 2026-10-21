@@ -100,7 +100,7 @@
     const sel = $("champ");
     const list = index.champions.filter((c) => traces[c.id]).sort((a, b) => a.name.localeCompare(b.name));
     for (const c of list) sel.add(new Option(c.name, c.id));
-    // #Jinx, or #Jinx&items=a,b&augs=c,d for a build from the leaderboard (simulated by sim-panel.js).
+    // #Jinx, or #Jinx&items=a,b&augs=c,d for a shared build (simulated by sim-panel.js).
     const hashParts = decodeURIComponent(location.hash.slice(1)).split("&");
     const fromHash = hashParts[0].toLowerCase();
     const linked = new URLSearchParams(hashParts.slice(1).join("&"));

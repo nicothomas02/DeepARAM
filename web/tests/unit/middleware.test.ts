@@ -17,9 +17,9 @@ describe("rate limits", () => {
     expect((await middleware(req("2.2.2.2"))).status).toBe(200);
   });
 
-  it("allows 10 leaderboard or profile sends a minute, counted apart from error reports", async () => {
-    for (let i = 0; i < 10; i++) expect((await middleware(req("3.3.3.3", "/api/sim-scores", "POST"))).status).toBe(200);
-    expect((await middleware(req("3.3.3.3", "/api/profile", "POST"))).status).toBe(429);
+  it("allows 10 profile or Contact sends a minute, counted apart from error reports", async () => {
+    for (let i = 0; i < 10; i++) expect((await middleware(req("3.3.3.3", "/api/profile", "POST"))).status).toBe(200);
+    expect((await middleware(req("3.3.3.3", "/api/contact", "POST"))).status).toBe(429);
     expect((await middleware(req("3.3.3.3"))).status).toBe(200);
   });
 
@@ -31,8 +31,8 @@ describe("rate limits", () => {
     expect((await middleware(req("6.6.6.6", "/api/account", "PUT"))).status).toBe(200);
   });
 
-  it("never limits reading the leaderboard", async () => {
-    for (let i = 0; i < 50; i++) expect((await middleware(req("4.4.4.4", "/api/sim-scores", "GET"))).status).toBe(200);
+  it("never limits reading public profiles", async () => {
+    for (let i = 0; i < 50; i++) expect((await middleware(req("4.4.4.4", "/api/profile", "GET"))).status).toBe(200);
   });
 
   it("lets My Stats share a 1,000-game archive in one go", async () => {
@@ -51,7 +51,8 @@ describe("rate limits", () => {
   });
 
   it("guards error reports, sign-in and the write routes", () => {
-    expect(config.matcher).toEqual(expect.arrayContaining(["/api/log", "/api/sim-scores", "/api/profile", "/api/games", "/api/account", "/api/account/:path*", "/api/kitchen/:path*", "/api/contact"]));
+    expect(config.matcher).toEqual(expect.arrayContaining(["/api/log", "/api/profile", "/api/games", "/api/account", "/api/account/:path*", "/api/kitchen/:path*", "/api/contact"]));
+    expect(config.matcher).not.toContain("/api/sim-scores"); // the Simulator leaderboard was removed
   });
 
   it("leaves the 3D Simulator's models, sounds and page public", () => {

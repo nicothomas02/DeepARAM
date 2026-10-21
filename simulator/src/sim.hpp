@@ -86,6 +86,10 @@ struct Scenario {
     // How much damage Yunara takes relative to the average player (from real games).
     double damageTakenFactor = 1.0;
     double targetHp = 3800, targetArmor = 120, targetMr = 80;
+    // Below 1, the training dummy's Health is held at this share of its max (0.5 = half), so
+    // effects that read the target's missing or current Health see that value all fight. At 1 it
+    // starts full and refills when emptied.
+    double dummyHp = 1;
     // Damage aimed at Yunara (before her armor and MR), and when it starts.
     double enemyDpsMean = 500, enemyDpsSd = 200, enemyPhysShare = 0.55;
     double engageMin = 2, engageMax = 6;

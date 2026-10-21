@@ -3,7 +3,7 @@
 (() => {
   "use strict";
   const $ = (id) => document.getElementById(id);
-  const DUMMY_KEYS = ["fixed_target", "target_hp", "target_armor", "target_mr"];
+  const DUMMY_KEYS = ["fixed_target", "target_hp", "target_armor", "target_mr", "dummy_hp"];
   // The Fight box shows the four settings most people change; the rest sit under "Advanced settings", by topic.
   const BASIC_KEYS = ["level", "enemy_level", "until_death", "enemy_damage_scale"];
   const WHOLE_KEYS = ["level", "enemy_level", "until_death", "on_fire", "random_respawn", "team_size", "fixed_target", "combo_order"];  // integer steps
@@ -12,7 +12,7 @@
     ["Crowd control on you", ["cc_scale", "cc_min", "cc_max"]],
     ["Skillshots and movement", ["dodge_chance", "reaction_time", "aim_lead", "start_distance", "enemy_spread", "retarget_delay", "random_respawn"]],
     ["Your champion", ["r_ready_chance", "combo_order", "on_fire"]],
-    ["Training dummy", ["target_hp", "target_armor", "target_mr"]],
+    ["Training dummy", ["target_hp", "target_armor", "target_mr", "dummy_hp"]],
   ];
   // Short names for the settings; the engine's own description shows under each in small print.
   const LABELS = {
@@ -23,7 +23,7 @@
     dodge_chance: "Enemy dodge chance", reaction_time: "Dodge reaction (s)", aim_lead: "Aim ahead (0-1)",
     start_distance: "Enemy start distance", enemy_spread: "Enemy spread", retarget_delay: "Time to next target (s)",
     r_ready_chance: "Ultimate ready at start", combo_order: "Cast order", target_hp: "Dummy HP",
-    target_armor: "Dummy armor", target_mr: "Dummy magic resist", on_fire: "On Fire!",
+    target_armor: "Dummy armor", target_mr: "Dummy magic resist", dummy_hp: "Dummy Health share (0-1)", on_fire: "On Fire!",
     random_respawn: "Next enemy",
   };
   // Settings that are a choice rather than a number.
@@ -123,7 +123,7 @@
 
   window.onReplayLoad = (c, tr, isCustom) => {
     const changedChamp = !champ || champ.id !== c.id;
-    if (changedChamp) { offerSubmit(null); offerKitchen(null); }
+    if (changedChamp) offerKitchen(null);
     champ = c; trace = tr; custom = isCustom;
     setTitle();
     if (meta && (changedChamp || !isCustom)) fillFromTrace();
@@ -138,12 +138,12 @@
   function pbeBuild() {
     return patch === "pbe" && !custom && pbeBest && pbeBest[champ.id.toLowerCase()];
   }
-  // The Survival leaderboard's enemy, the same for every champion: Ashe (the most picked enemy) with her
-  // most popular build, and Teemo for Ashe herself. Keep in step with tools/verify_leaderboard.py.
+  // The enemy a shared build is simulated against, the same for every champion so a link always gives the
+  // same fight: Ashe (the most picked enemy) with her most popular build, and Teemo for Ashe herself.
   const SURVIVAL = { enemy: "Ashe", fallback: "Teemo" };
   const survivalEnemy = (id) => (id.toLowerCase() === SURVIVAL.enemy.toLowerCase() ? SURVIVAL.fallback : SURVIVAL.enemy);
-  // A leaderboard link (#Jinx&items=…&augs=…) loads that build into the slots and simulates it, once,
-  // against the Survival enemy, as the leaderboard did.
+  // A shared build link (#Jinx&items=…&augs=…) loads that build into the slots and simulates it, once,
+  // against that enemy.
   function runLinked() {
     const l = window.linkedBuild;
     if (!l || !meta || !champ || champ.id.toLowerCase() !== l.champion) return;
@@ -560,9 +560,6 @@
       d.textContent = ` ${change > 0 ? "▲" : "▼"} ` + T("{pct}% {what} vs default", { pct: Math.abs(change * 100).toFixed(1), what: mode === "damage" ? "DPS" : M.label });
       $("simStatus").append(d);
     }
-    // Any live-patch build can go on the leaderboard: it's simulated again on our side against the Survival
-    // enemy with the default settings, so every entry is comparable whatever this run used.
-    offerSubmit({ champion: champ.id, items: res.builds[0].build.items, augments: res.builds[0].build.augments, dps: best.mean_dps }, patch === "live");
     offerKitchen({ champion: champ.id, items: res.builds[0].build.items, augments: res.builds[0].build.augments,
       sim: { mode, mean_dps: best.mean_dps, survival_rate: best.survival_rate, time_alive: best.time_alive } }, patch === "live");
     showAlternatives(withBuild ? [] : res.builds);
@@ -570,15 +567,18 @@
     trace = tr;
     fillFromTrace();
   }
-  // ---------- leaderboard ----------
-  // Every build simulated on the live patch goes to the Leaderboard on its own: only the build is sent, it's
-  // simulated again on our side against the Survival enemy with the default settings, and each champion's
-  // best is listed. Each build is sent once per visit.
-  const sent = new Set();
-  function offerSubmit(build, live) {
+  // ---------- The Kitchen ----------
+  // A simulated build can be sent to The Kitchen with a title and a few words, by a signed-in visitor.
+  // It goes into The Kitchen's review queue (POST /api/kitchen/submissions) and shows there once accepted.
+  let kitchen = null;
+  const entry = (list, key) => (meta && meta[list].find((e) => e.key === key)) || null;
+  function offerKitchen(build, live) {
     $("submitBox").hidden = !build;
-    $("submitNote").textContent = build && !live ? T("Only live-patch builds go on the Leaderboard.") : "";
-    if (build && live) autoSubmit(build);
+    kitchen = build && live ? build : null;
+    $("kitchenBtn").hidden = !kitchen;
+    $("kitchenBtn").disabled = false;
+    $("kitchenForm").hidden = true;
+    $("kitchenNote").textContent = build && !live ? T("Only live-patch builds can go to The Kitchen.") : "";
   }
   // The site's bot check, when it's switched on: usually invisible, sometimes a box to tick under the button.
   let checkWidget = null;
@@ -603,38 +603,6 @@
         "error-callback": () => fail(new Error(T("The bot check didn't pass. Try again."))),
       });
     });
-  }
-  async function autoSubmit(build) {
-    const key = [build.champion, [...build.items].sort(), [...build.augments].sort()].join("|");
-    if (sent.has(key)) return;
-    sent.add(key);
-    const dps = (v) => Math.round(v).toLocaleString();
-    try {
-      const check = await botCheck();
-      const r = await fetch("/api/sim-scores", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(check ? { ...build, check } : build) });
-      const b = await r.json().catch(() => ({}));
-      if (!r.ok) throw new Error(b.error ? await kitchenText(b.error) : "");
-      $("submitNote").textContent = b.status === "verified" ? T("This build is its champion's best on the Leaderboard, at {dps} DPS.", { dps: dps(b.verified_dps) })
-        : b.status === "checked" ? T("This build was simulated for the Leaderboard at {dps} DPS; its champion has a better one listed.", { dps: dps(b.verified_dps) })
-        : b.status === "rejected" ? T("This build can't go on the Leaderboard.")
-        : T("Entered on the Leaderboard. Our simulator runs it again, and it's listed if it beats its champion's best build.");
-    } catch (e) {
-      sent.delete(key);
-      $("submitNote").textContent = e.message || T("The Leaderboard couldn't be reached. Try again in a moment.");
-    }
-  }
-
-  // ---------- The Kitchen ----------
-  // A simulated build can be sent to The Kitchen with a title and a few words, by a signed-in visitor.
-  // It goes into The Kitchen's review queue (POST /api/kitchen/submissions) and shows there once accepted.
-  let kitchen = null;
-  const entry = (list, key) => (meta && meta[list].find((e) => e.key === key)) || null;
-  function offerKitchen(build, live) {
-    kitchen = build && live ? build : null;
-    $("kitchenBtn").hidden = !kitchen;
-    $("kitchenBtn").disabled = false;
-    $("kitchenForm").hidden = true;
-    $("kitchenNote").textContent = build && !live ? T("Only live-patch builds can go to The Kitchen.") : "";
   }
   // The Kitchen's own messages come in English and are translated from its dictionary (/i18n/kitchen/).
   let kitchenDict = null;

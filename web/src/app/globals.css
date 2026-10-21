@@ -3162,6 +3162,10 @@ html[data-motion="reduce"] .btn:hover {
   font-size: 0.75rem;
 }
 
+.home-dps-note {
+  margin-top: 0.5rem;
+}
+
 /* The Chef Special's date stays on one line beside its title. */
 .chef-special .card-note {
   white-space: nowrap;

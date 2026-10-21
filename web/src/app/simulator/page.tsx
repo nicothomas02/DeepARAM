@@ -7,7 +7,6 @@ import Intro from "@/components/Intro";
 import { text } from "@/lib/content";
 import Pending from "@/components/Pending";
 import SimBuildsTable, { type SimBuild } from "@/components/SimBuildsTable";
-import SimLeaderboard from "@/components/SimLeaderboard";
 import SimReplayEmbed from "@/components/SimReplayEmbed";
 import SubTabs from "@/components/SubTabs";
 import { readRepoJson, repoHas } from "@/lib/repo-data";
@@ -76,17 +75,6 @@ export default function SimulatorPage() {
       id: "builds",
       label: "Simulated builds",
       content: <SimBuildsTable builds={builds} />,
-    });
-  }
-
-  if (hasReplays) {
-    const names = (m: Named) => Object.fromEntries(Object.entries(m).map(([k, v]) => [k, { name: v.name, id: v.id }]));
-    // Leaderboards, one tab each; more boards can be added here with their own name.
-    tabs.push({
-      id: "leaderboard",
-      label: "Leaderboard",
-      lazy: true,
-      content: <SimLeaderboard board="Leaderboard" items={names(items)} augments={names(augments)} />,
     });
   }
 

@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { getCloudflareContext } from "@opennextjs/cloudflare";
 
 // Per-visitor limits on the routes that cost something: browser error reports (/api/log, so they can't
-// flood the logs), signing in, and the writes (leaderboard submissions, public profiles, shared games,
+// flood the logs), signing in, and the writes (public profiles, shared games,
 // account changes, builds sent to The Kitchen, Contact us messages). On Cloudflare the counts come from the Worker's
 // rate-limit bindings (wrangler.jsonc "ratelimits"), shared by every request in a location; elsewhere,
 // or if a binding is missing, from this instance's memory, which is approximate.
@@ -30,7 +30,6 @@ function ruleFor(req: NextRequest): Rule | null {
   }
   // The Kitchen's community list and your own submissions are free to read; sending or removing one counts.
   if (path.startsWith("/api/kitchen")) return req.method === "GET" ? null : WRITE;
-  // GET /api/sim-scores is the public leaderboard, cached for a minute; only sending counts.
   if (req.method === "POST") return WRITE;
   return null;
 }
@@ -74,4 +73,4 @@ export async function middleware(req: NextRequest) {
   );
 }
 
-export const config = { matcher: ["/api/log", "/api/sim-scores", "/api/profile", "/api/games", "/api/history", "/api/account", "/api/account/:path*", "/api/kitchen/:path*", "/api/contact"] };
+export const config = { matcher: ["/api/log", "/api/profile", "/api/games", "/api/history", "/api/account", "/api/account/:path*", "/api/kitchen/:path*", "/api/contact"] };
