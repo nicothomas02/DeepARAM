@@ -1,12 +1,11 @@
 {
  "builds": {
-  "pbe": "16.22.8301522",
+  "pbe": "16.22.8306571",
   "live": "16.21.8298620"
  },
  "dataAsOf": "2026-10-21",
  "counts": {
-  "nerf": 1,
-  "mixed": 1,
+  "mixed": 2,
   "new": 2
  },
  "entries": [
@@ -17,9 +16,13 @@
     {
      "text": "W cooldown 7s → 8s",
      "tag": "nerf"
+    },
+    {
+     "text": "Mayhem only, W: 80 shield at every rank → 80/140/200/260/320 shield",
+     "tag": "buff"
     }
    ],
-   "tag": "nerf"
+   "tag": "mixed"
   },
   {
    "kind": "champion",
