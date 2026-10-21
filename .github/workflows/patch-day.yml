@@ -25,6 +25,9 @@ jobs:
   refresh:
     runs-on: ubuntu-latest
     timeout-minutes: 90
+    outputs:
+      status: ${{ steps.check.outputs.status }}
+      version: ${{ steps.check.outputs.version }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -67,3 +70,12 @@ jobs:
             git pull --rebase
             git push
           fi
+
+  # Once a new patch has shipped, export the databases to an encrypted GitHub pre-release (backup.yml).
+  backup:
+    needs: refresh
+    if: needs.refresh.outputs.status == 'ready'
+    uses: ./.github/workflows/backup.yml
+    with:
+      patch: ${{ needs.refresh.outputs.version }}
+    secrets: inherit

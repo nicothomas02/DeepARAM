@@ -78,12 +78,12 @@
    "win_rate": 0.5575,
    "build": {
     "items": [
+     "endless_hunger",
      "spirit_visage",
      "mercurys",
      "shojin",
      "deaths_dance",
-     "manamune",
-     "eclipse"
+     "manamune"
     ],
     "augments": [
      "ethereal_weapon",
@@ -251,10 +251,10 @@
      "collector"
     ],
     "augments": [
-     "critical_missile",
      "upgrade_infinity_edge",
      "vulnerability",
-     "soul_siphon"
+     "soul_siphon",
+     "scopier_weapons"
     ]
    }
   },
@@ -287,7 +287,7 @@
      "tank_engine",
      "ethereal_weapon",
      "goliath",
-     "dropkick"
+     "heavy_hitter"
     ]
    }
   },
@@ -386,7 +386,7 @@
      "infernal_conduit",
      "warlock_juicebox",
      "shrink_engine",
-     "recursion"
+     "phenomenal_evil"
     ]
    }
   },
@@ -446,7 +446,7 @@
      "yuntal",
      "botrk",
      "deaths_dance",
-     "wits_end"
+     "shieldbow"
     ],
     "augments": [
      "soul_siphon",
@@ -485,7 +485,7 @@
      "upgrade_infinity_edge",
      "soul_siphon",
      "draw_your_sword",
-     "critical_missile"
+     "vulnerability"
     ]
    }
   },
@@ -516,9 +516,9 @@
     ],
     "augments": [
      "bonk",
-     "critical_missile",
      "dual_wield",
-     "scopier_weapons"
+     "scopier_weapons",
+     "upgrade_infinity_edge"
     ]
    }
   },
@@ -540,18 +540,18 @@
    "win_rate": 0.5221,
    "build": {
     "items": [
-     "sorcerers",
+     "overlords_bloodmail",
+     "manamune",
      "rabadons",
-     "void_staff",
-     "shadowflame",
-     "ludens",
-     "rod_of_ages"
+     "riftmaker",
+     "rod_of_ages",
+     "sorcerers"
     ],
     "augments": [
+     "overflow",
      "warlock_juicebox",
      "adapt",
-     "back_to_basics",
-     "phenomenal_evil"
+     "mind_to_matter"
     ]
    }
   },
@@ -616,7 +616,7 @@
     "augments": [
      "tank_engine",
      "heavy_hitter",
-     "dropkick",
+     "steel_your_heart",
      "blunt_force"
     ]
    }
@@ -639,18 +639,18 @@
    "win_rate": 0.531,
    "build": {
     "items": [
+     "dusk_and_dawn",
      "spirit_visage",
      "statikk",
      "mercurys",
      "botrk",
-     "deaths_dance",
-     "heartsteel"
+     "deaths_dance"
     ],
     "augments": [
      "ethereal_weapon",
      "upgrade_sheen",
-     "tank_engine",
-     "warlock_juicebox"
+     "warlock_juicebox",
+     "tank_engine"
     ]
    }
   },
@@ -672,12 +672,12 @@
    "win_rate": 0.5407,
    "build": {
     "items": [
+     "endless_hunger",
      "lord_dominiks",
      "mercurys",
      "deaths_dance",
      "axiom_arc",
-     "collector",
-     "eclipse"
+     "collector"
     ],
     "augments": [
      "recursion",
@@ -714,9 +714,9 @@
     ],
     "augments": [
      "vulnerability",
-     "critical_missile",
      "jeweled_gauntlet",
-     "upgrade_infinity_edge"
+     "upgrade_infinity_edge",
+     "siphon"
     ]
    }
   },
@@ -747,9 +747,9 @@
     ],
     "augments": [
      "vulnerability",
-     "critical_missile",
      "upgrade_infinity_edge",
-     "jeweled_gauntlet"
+     "jeweled_gauntlet",
+     "soul_siphon"
     ]
    }
   },
@@ -812,10 +812,10 @@
      "collector"
     ],
     "augments": [
-     "critical_missile",
      "upgrade_infinity_edge",
      "vulnerability",
-     "dual_wield"
+     "dual_wield",
+     "scopier_weapons"
     ]
    }
   },
@@ -837,12 +837,12 @@
    "win_rate": 0.5335,
    "build": {
     "items": [
+     "dusk_and_dawn",
      "sorcerers",
      "rabadons",
      "void_staff",
      "zhonyas",
-     "shadowflame",
-     "stormsurge"
+     "shadowflame"
     ],
     "augments": [
      "ethereal_weapon",
@@ -903,18 +903,18 @@
    "win_rate": 0.5194,
    "build": {
     "items": [
+     "swiftness",
      "rylais",
      "dead_mans",
      "force_of_nature",
      "liandrys",
-     "rod_of_ages",
-     "mercurys"
+     "rod_of_ages"
     ],
     "augments": [
      "ethereal_weapon",
-     "dropkick",
      "tank_engine",
-     "infernal_conduit"
+     "infernal_conduit",
+     "warlock_juicebox"
     ]
    }
   },
@@ -937,17 +937,17 @@
    "build": {
     "items": [
      "blackfire",
-     "horizon_focus",
+     "rabadons",
+     "ionian",
+     "imperial_mandate",
      "shadowflame",
-     "liandrys",
-     "bloodletters",
-     "mercurys"
+     "liandrys"
     ],
     "augments": [
      "ravenous_bind",
      "bonk",
      "tank_engine",
-     "dropkick"
+     "recursion"
     ]
    }
   },
@@ -978,8 +978,8 @@
     ],
     "augments": [
      "tank_engine",
-     "dropkick",
      "warlock_juicebox",
+     "steel_your_heart",
      "ethereal_weapon"
     ]
    }
@@ -1010,10 +1010,10 @@
      "axiom_arc"
     ],
     "augments": [
-     "upgrade_infinity_edge",
      "vulnerability",
+     "upgrade_infinity_edge",
      "back_to_basics",
-     "critical_missile"
+     "shrink_engine"
     ]
    }
   },
@@ -1035,16 +1035,16 @@
    "win_rate": 0.507,
    "build": {
     "items": [
-     "overlords_bloodmail",
      "unending_despair",
+     "thornmail",
      "warmogs",
      "heartsteel",
      "mercurys",
-     "titanic"
+     "hollow_radiance"
     ],
     "augments": [
      "tank_engine",
-     "dropkick",
+     "steel_your_heart",
      "celestial_body",
      "heavy_hitter"
     ]
@@ -1111,7 +1111,7 @@
     "augments": [
      "tank_engine",
      "heavy_hitter",
-     "dropkick",
+     "steel_your_heart",
      "celestial_body"
     ]
    }
@@ -1134,12 +1134,12 @@
    "win_rate": 0.5407,
    "build": {
     "items": [
+     "endless_hunger",
      "ravenous",
      "trinity",
      "mercurys",
      "shojin",
-     "deaths_dance",
-     "sundered_sky"
+     "deaths_dance"
     ],
     "augments": [
      "mystic_punch",
@@ -1200,18 +1200,18 @@
    "win_rate": 0.4885,
    "build": {
     "items": [
+     "swiftness",
      "infinity_edge",
      "lord_dominiks",
      "bloodthirster",
      "rapid_firecannon",
-     "collector",
-     "berserkers"
+     "collector"
     ],
     "augments": [
      "upgrade_infinity_edge",
-     "critical_missile",
      "vulnerability",
-     "soul_siphon"
+     "soul_siphon",
+     "blunt_force"
     ]
    }
   },
@@ -1244,7 +1244,7 @@
      "recursion",
      "eureka",
      "purist_caster",
-     "ult_bot"
+     "shrink_engine"
     ]
    }
   },
@@ -1310,7 +1310,7 @@
      "warlock_juicebox",
      "eureka",
      "shrink_engine",
-     "jeweled_gauntlet"
+     "recursion"
     ]
    }
   },
@@ -1373,10 +1373,10 @@
      "collector"
     ],
     "augments": [
-     "critical_missile",
      "vulnerability",
      "upgrade_infinity_edge",
-     "draw_your_sword"
+     "draw_your_sword",
+     "soul_siphon"
     ]
    }
   },
@@ -1407,7 +1407,7 @@
     ],
     "augments": [
      "tank_engine",
-     "dropkick",
+     "steel_your_heart",
      "celestial_body",
      "stay_resolute"
     ]
@@ -1506,7 +1506,7 @@
     ],
     "augments": [
      "tank_engine",
-     "dropkick",
+     "steel_your_heart",
      "recursion",
      "heavy_hitter"
     ]
@@ -1538,10 +1538,10 @@
      "collector"
     ],
     "augments": [
-     "critical_missile",
      "upgrade_infinity_edge",
      "dual_wield",
-     "vulnerability"
+     "vulnerability",
+     "soul_siphon"
     ]
    }
   },
@@ -1572,7 +1572,7 @@
     ],
     "augments": [
      "tank_engine",
-     "dropkick",
+     "steel_your_heart",
      "celestial_body",
      "heavy_hitter"
     ]
@@ -1638,9 +1638,9 @@
     ],
     "augments": [
      "tank_engine",
+     "steel_your_heart",
      "heavy_hitter",
-     "celestial_body",
-     "dropkick"
+     "celestial_body"
     ]
    }
   },
@@ -1662,12 +1662,12 @@
    "win_rate": 0.5612,
    "build": {
     "items": [
+     "dusk_and_dawn",
      "sorcerers",
      "rabadons",
      "nashors",
      "riftmaker",
-     "shadowflame",
-     "spirit_visage"
+     "shadowflame"
     ],
     "augments": [
      "warlock_juicebox",
@@ -1703,8 +1703,8 @@
      "liandrys"
     ],
     "augments": [
-     "eureka",
      "shrink_engine",
+     "eureka",
      "skilled_sniper",
      "magic_missile"
     ]
@@ -1893,12 +1893,12 @@
    "win_rate": 0.5263,
    "build": {
     "items": [
+     "endless_hunger",
      "mercurys",
      "shojin",
      "deaths_dance",
      "eclipse",
-     "axiom_arc",
-     "sundered_sky"
+     "axiom_arc"
     ],
     "augments": [
      "outlaws_grit",
@@ -1967,10 +1967,10 @@
      "collector"
     ],
     "augments": [
-     "critical_missile",
      "vulnerability",
      "upgrade_infinity_edge",
-     "dual_wield"
+     "dual_wield",
+     "deft"
     ]
    }
   },
@@ -2002,7 +2002,7 @@
     "augments": [
      "tank_engine",
      "heavy_hitter",
-     "dropkick",
+     "steel_your_heart",
      "celestial_body"
     ]
    }
@@ -2033,10 +2033,10 @@
      "collector"
     ],
     "augments": [
-     "critical_missile",
      "vulnerability",
      "upgrade_infinity_edge",
-     "scopier_weapons"
+     "scopier_weapons",
+     "dual_wield"
     ]
    }
   },
@@ -2062,14 +2062,14 @@
      "lord_dominiks",
      "mercurys",
      "deaths_dance",
-     "collector",
-     "botrk"
+     "shieldbow",
+     "collector"
     ],
     "augments": [
      "upgrade_infinity_edge",
      "soul_siphon",
      "vulnerability",
-     "tooth_fairy"
+     "jeweled_gauntlet"
     ]
    }
   },
@@ -2099,10 +2099,10 @@
      "collector"
     ],
     "augments": [
-     "critical_missile",
      "upgrade_infinity_edge",
      "soul_siphon",
-     "vulnerability"
+     "vulnerability",
+     "scopier_weapons"
     ]
    }
   },
@@ -2135,7 +2135,7 @@
      "warlock_juicebox",
      "infernal_conduit",
      "recursion",
-     "jeweled_gauntlet"
+     "phenomenal_evil"
     ]
    }
   },
@@ -2166,8 +2166,8 @@
     ],
     "augments": [
      "tank_engine",
-     "dropkick",
      "heavy_hitter",
+     "steel_your_heart",
      "celestial_body"
     ]
    }
@@ -2200,8 +2200,8 @@
     "augments": [
      "upgrade_infinity_edge",
      "soul_siphon",
-     "critical_missile",
-     "vulnerability"
+     "vulnerability",
+     "draw_your_sword"
     ]
    }
   },
@@ -2234,7 +2234,7 @@
      "upgrade_sheen",
      "jeweled_gauntlet",
      "shrink_engine",
-     "critical_missile"
+     "recursion"
     ]
    }
   },
@@ -2256,18 +2256,18 @@
    "win_rate": 0.5163,
    "build": {
     "items": [
+     "dusk_and_dawn",
      "rabadons",
      "void_staff",
      "riftmaker",
      "shadowflame",
-     "liandrys",
-     "mercurys"
+     "liandrys"
     ],
     "augments": [
      "tank_engine",
-     "dropkick",
      "warlock_juicebox",
-     "bonk"
+     "bonk",
+     "steel_your_heart"
     ]
    }
   },
@@ -2290,11 +2290,11 @@
    "build": {
     "items": [
      "ionian",
-     "ludens",
-     "lich_bane",
-     "shadowflame",
-     "archangels",
-     "rabadons"
+     "ardent_censer",
+     "flowing_water",
+     "moonstone",
+     "dawncore",
+     "whispering_circlet"
     ],
     "augments": [
      "first_aid_kit",
@@ -2322,12 +2322,12 @@
    "win_rate": 0.5264,
    "build": {
     "items": [
+     "endless_hunger",
      "infinity_edge",
      "lord_dominiks",
      "deaths_dance",
      "collector",
-     "mercurys",
-     "sundered_sky"
+     "mercurys"
     ],
     "augments": [
      "bonk",
@@ -2398,8 +2398,8 @@
     "augments": [
      "bonk",
      "tank_engine",
-     "dropkick",
-     "recursion"
+     "recursion",
+     "scopier_weapons"
     ]
    }
   },
@@ -2464,8 +2464,8 @@
     "augments": [
      "recursion",
      "tank_engine",
-     "dropkick",
-     "ultimate_revolution"
+     "dive_bomber",
+     "steel_your_heart"
     ]
    }
   },
@@ -2561,10 +2561,10 @@
      "ludens"
     ],
     "augments": [
-     "critical_missile",
      "marksmage",
      "skilled_sniper",
-     "zealot"
+     "zealot",
+     "shrink_engine"
     ]
    }
   },
@@ -2620,15 +2620,15 @@
    "build": {
     "items": [
      "unending_despair",
-     "kaenic",
      "thornmail",
      "warmogs",
      "heartsteel",
-     "mercurys"
+     "mercurys",
+     "jaksho"
     ],
     "augments": [
      "tank_engine",
-     "dropkick",
+     "steel_your_heart",
      "heavy_hitter",
      "goliath"
     ]
@@ -2652,16 +2652,16 @@
    "win_rate": 0.5235,
    "build": {
     "items": [
+     "endless_hunger",
      "spirit_visage",
      "mercurys",
      "shojin",
      "deaths_dance",
-     "sundered_sky",
-     "heartsteel"
+     "sundered_sky"
     ],
     "augments": [
-     "scopier_weapons",
      "endless_decimation",
+     "scopier_weapons",
      "blunt_force",
      "recursion"
     ]
@@ -2721,15 +2721,15 @@
      "malignance",
      "cryptbloom",
      "ionian",
+     "imperial_mandate",
      "horizon_focus",
-     "axiom_arc",
-     "botrk"
+     "axiom_arc"
     ],
     "augments": [
      "shrink_engine",
      "recursion",
-     "critical_missile",
-     "vulnerability"
+     "vulnerability",
+     "archmage"
     ]
    }
   },
@@ -2793,8 +2793,8 @@
     ],
     "augments": [
      "tank_engine",
-     "dropkick",
      "endless_decimation",
+     "steel_your_heart",
      "bonk"
     ]
    }
@@ -2850,18 +2850,18 @@
    "win_rate": 0.5233,
    "build": {
     "items": [
+     "redemption",
      "ionian",
-     "ludens",
-     "horizon_focus",
-     "shadowflame",
-     "liandrys",
-     "rabadons"
+     "ardent_censer",
+     "imperial_mandate",
+     "moonstone",
+     "whispering_circlet"
     ],
     "augments": [
      "shrink_engine",
      "recursion",
      "first_aid_kit",
-     "bolstered"
+     "ravenous_bind"
     ]
    }
   },
@@ -2893,7 +2893,7 @@
     "augments": [
      "tank_engine",
      "blunt_force",
-     "dropkick",
+     "steel_your_heart",
      "clown_college"
     ]
    }
@@ -2991,8 +2991,8 @@
     ],
     "augments": [
      "tank_engine",
+     "steel_your_heart",
      "celestial_body",
-     "dropkick",
      "heavy_hitter"
     ]
    }
@@ -3024,7 +3024,7 @@
     ],
     "augments": [
      "tank_engine",
-     "dropkick",
+     "steel_your_heart",
      "stay_resolute",
      "celestial_body"
     ]
@@ -3048,12 +3048,12 @@
    "win_rate": 0.5134,
    "build": {
     "items": [
-     "ionian",
-     "ludens",
-     "rabadons",
-     "shadowflame",
-     "warmogs",
-     "morellonomicon"
+     "redemption",
+     "mikaels",
+     "ardent_censer",
+     "moonstone",
+     "dawncore",
+     "ionian"
     ],
     "augments": [
      "first_aid_kit",
@@ -3090,9 +3090,9 @@
     ],
     "augments": [
      "tank_engine",
-     "dropkick",
-     "heavy_hitter",
-     "celestial_body"
+     "steel_your_heart",
+     "celestial_body",
+     "heavy_hitter"
     ]
    }
   },
@@ -3156,8 +3156,8 @@
     ],
     "augments": [
      "tank_engine",
-     "dropkick",
      "heavy_hitter",
+     "steel_your_heart",
      "celestial_body"
     ]
    }
@@ -3191,7 +3191,7 @@
      "tank_engine",
      "warlock_juicebox",
      "ethereal_weapon",
-     "dropkick"
+     "steel_your_heart"
     ]
    }
   },
@@ -3255,7 +3255,7 @@
     ],
     "augments": [
      "tank_engine",
-     "dropkick",
+     "steel_your_heart",
      "heavy_hitter",
      "celestial_body"
     ]
@@ -3287,10 +3287,10 @@
      "collector"
     ],
     "augments": [
-     "critical_missile",
      "upgrade_infinity_edge",
      "vulnerability",
-     "soul_siphon"
+     "soul_siphon",
+     "dual_wield"
     ]
    }
   },
@@ -3320,10 +3320,10 @@
      "collector"
     ],
     "augments": [
-     "critical_missile",
      "skilled_sniper",
      "jeweled_gauntlet",
-     "dual_wield"
+     "dual_wield",
+     "scopier_weapons"
     ]
    }
   },
@@ -3354,8 +3354,8 @@
     ],
     "augments": [
      "warlock_juicebox",
-     "recursion",
      "tank_engine",
+     "recursion",
      "eureka"
     ]
    }
@@ -3411,12 +3411,12 @@
    "win_rate": 0.4879,
    "build": {
     "items": [
-     "infinity_edge",
-     "lord_dominiks",
-     "deaths_dance",
-     "collector",
+     "black_cleaver",
+     "trinity",
      "mercurys",
-     "heartsteel"
+     "deaths_dance",
+     "sundered_sky",
+     "eclipse"
     ],
     "augments": [
      "bonk",
@@ -3452,9 +3452,9 @@
      "terminus"
     ],
     "augments": [
-     "critical_missile",
      "scopier_weapons",
      "ethereal_weapon",
+     "marksmage",
      "dual_wield"
     ]
    }
@@ -3477,12 +3477,12 @@
    "win_rate": 0.495,
    "build": {
     "items": [
-     "ionian",
-     "warmogs",
-     "rod_of_ages",
      "spirit_visage",
-     "heartsteel",
-     "liandrys"
+     "warmogs",
+     "redemption",
+     "ionian",
+     "moonstone",
+     "whispering_circlet"
     ],
     "augments": [
      "first_aid_kit",
@@ -3520,8 +3520,8 @@
     "augments": [
      "tooth_fairy",
      "blunt_force",
-     "recursion",
-     "thread_the_needle"
+     "thread_the_needle",
+     "recursion"
     ]
    }
   },
@@ -3543,18 +3543,18 @@
    "win_rate": 0.5012,
    "build": {
     "items": [
+     "sorcerers",
      "rabadons",
      "lich_bane",
      "malignance",
-     "void_staff",
      "shadowflame",
      "rod_of_ages"
     ],
     "augments": [
      "warlock_juicebox",
-     "adapt",
+     "mind_to_matter",
      "marksmage",
-     "recursion"
+     "adapt"
     ]
    }
   },
@@ -3586,7 +3586,7 @@
     "augments": [
      "tank_engine",
      "heavy_hitter",
-     "dropkick",
+     "steel_your_heart",
      "celestial_body"
     ]
    }
@@ -3619,8 +3619,8 @@
     "augments": [
      "tank_engine",
      "recursion",
-     "dropkick",
-     "pursuit_of_haste"
+     "pursuit_of_haste",
+     "steel_your_heart"
     ]
    }
   },
@@ -3653,7 +3653,7 @@
      "skilled_sniper",
      "shrink_engine",
      "spell_split",
-     "jeweled_gauntlet"
+     "recursion"
     ]
    }
   },
@@ -3679,8 +3679,8 @@
      "lord_dominiks",
      "bloodthirster",
      "deaths_dance",
-     "collector",
-     "mercurys"
+     "shieldbow",
+     "collector"
     ],
     "augments": [
      "soul_siphon",
@@ -3745,14 +3745,14 @@
      "infinity_edge",
      "lord_dominiks",
      "phantom_dancer",
-     "stridebreaker",
-     "collector"
+     "deaths_dance",
+     "stridebreaker"
     ],
     "augments": [
      "vulnerability",
      "upgrade_infinity_edge",
      "bonk",
-     "dropkick"
+     "tank_engine"
     ]
    }
   },
@@ -3782,10 +3782,10 @@
      "collector"
     ],
     "augments": [
-     "critical_missile",
-     "upgrade_infinity_edge",
      "vulnerability",
-     "dual_wield"
+     "upgrade_infinity_edge",
+     "dual_wield",
+     "soul_siphon"
     ]
    }
   },
@@ -3849,9 +3849,9 @@
     ],
     "augments": [
      "scopier_weapons",
-     "critical_missile",
      "dual_wield",
-     "critical_rhythm"
+     "critical_rhythm",
+     "tap_dancer"
     ]
    }
   },
@@ -3873,12 +3873,12 @@
    "win_rate": 0.5102,
    "build": {
     "items": [
-     "sorcerers",
-     "rabadons",
-     "void_staff",
-     "shadowflame",
-     "stormsurge",
-     "ludens"
+     "ionian",
+     "ardent_censer",
+     "flowing_water",
+     "moonstone",
+     "dawncore",
+     "whispering_circlet"
     ],
     "augments": [
      "shrink_engine",
@@ -3906,18 +3906,18 @@
    "win_rate": 0.5055,
    "build": {
     "items": [
-     "ionian",
+     "shurelyas",
+     "redemption",
      "malignance",
-     "liandrys",
-     "archangels",
-     "morellonomicon",
-     "rabadons"
+     "ionian",
+     "imperial_mandate",
+     "whispering_circlet"
     ],
     "augments": [
      "shrink_engine",
      "recursion",
      "purist_caster",
-     "divine_intervention"
+     "ultimate_revolution"
     ]
    }
   },
@@ -3948,7 +3948,7 @@
     ],
     "augments": [
      "tank_engine",
-     "dropkick",
+     "steel_your_heart",
      "heavy_hitter",
      "bonk"
     ]
@@ -3983,7 +3983,7 @@
      "tank_engine",
      "heavy_hitter",
      "celestial_body",
-     "dropkick"
+     "steel_your_heart"
     ]
    }
   },
@@ -4082,7 +4082,7 @@
      "blunt_force",
      "tooth_fairy",
      "jeweled_gauntlet",
-     "dropkick"
+     "recursion"
     ]
    }
   },
@@ -4107,8 +4107,8 @@
      "sorcerers",
      "rabadons",
      "void_staff",
-     "zhonyas",
      "shadowflame",
+     "stormsurge",
      "ludens"
     ],
     "augments": [
@@ -4137,18 +4137,18 @@
    "win_rate": 0.4586,
    "build": {
     "items": [
+     "endless_hunger",
      "spirit_visage",
      "mercurys",
      "deaths_dance",
      "sundered_sky",
-     "eclipse",
-     "collector"
+     "eclipse"
     ],
     "augments": [
      "ravenous_bind",
      "tank_engine",
      "blunt_force",
-     "dropkick"
+     "goredrink"
     ]
    }
   },
@@ -4213,8 +4213,8 @@
     "augments": [
      "soul_siphon",
      "upgrade_infinity_edge",
-     "critical_missile",
-     "vulnerability"
+     "vulnerability",
+     "critical_rhythm"
     ]
    }
   },
@@ -4247,7 +4247,7 @@
      "recursion",
      "eureka",
      "warlock_juicebox",
-     "phenomenal_evil"
+     "shrink_engine"
     ]
    }
   },
@@ -4270,15 +4270,15 @@
    "build": {
     "items": [
      "ionian",
-     "malignance",
-     "ludens",
-     "rabadons",
-     "morellonomicon",
-     "shadowflame"
+     "ardent_censer",
+     "imperial_mandate",
+     "moonstone",
+     "dawncore",
+     "whispering_circlet"
     ],
     "augments": [
-     "first_aid_kit",
      "shrink_engine",
+     "first_aid_kit",
      "recursion",
      "critical_healing"
     ]
@@ -4303,11 +4303,11 @@
    "build": {
     "items": [
      "ionian",
-     "malignance",
-     "rylais",
-     "liandrys",
-     "heartsteel",
-     "rabadons"
+     "ardent_censer",
+     "flowing_water",
+     "moonstone",
+     "dawncore",
+     "whispering_circlet"
     ],
     "augments": [
      "shrink_engine",
@@ -4343,10 +4343,10 @@
      "collector"
     ],
     "augments": [
-     "critical_missile",
      "upgrade_infinity_edge",
      "scopier_weapons",
-     "vulnerability"
+     "vulnerability",
+     "dual_wield"
     ]
    }
   },
@@ -4401,16 +4401,16 @@
    "win_rate": 0.4964,
    "build": {
     "items": [
+     "overlords_bloodmail",
      "unending_despair",
      "spirit_visage",
-     "thornmail",
+     "warmogs",
      "heartsteel",
-     "mercurys",
      "titanic"
     ],
     "augments": [
      "tank_engine",
-     "dropkick",
+     "steel_your_heart",
      "heavy_hitter",
      "celestial_body"
     ]
@@ -4476,9 +4476,9 @@
     ],
     "augments": [
      "tank_engine",
+     "steel_your_heart",
      "heavy_hitter",
-     "celestial_body",
-     "dropkick"
+     "celestial_body"
     ]
    }
   },
@@ -4500,12 +4500,12 @@
    "win_rate": 0.489,
    "build": {
     "items": [
+     "shurelyas",
+     "redemption",
      "ionian",
-     "ludens",
-     "warmogs",
-     "rabadons",
-     "morellonomicon",
-     "botrk"
+     "ardent_censer",
+     "moonstone",
+     "whispering_circlet"
     ],
     "augments": [
      "shrink_engine",
@@ -4543,7 +4543,7 @@
     "augments": [
      "tank_engine",
      "heavy_hitter",
-     "dropkick",
+     "steel_your_heart",
      "celestial_body"
     ]
    }
@@ -4576,7 +4576,7 @@
     "augments": [
      "tank_engine",
      "heavy_hitter",
-     "dropkick",
+     "steel_your_heart",
      "celestial_body"
     ]
    }
@@ -4607,10 +4607,10 @@
      "collector"
     ],
     "augments": [
-     "critical_missile",
      "upgrade_infinity_edge",
      "vulnerability",
-     "soul_siphon"
+     "soul_siphon",
+     "dual_wield"
     ]
    }
   },
@@ -4676,7 +4676,7 @@
      "back_to_basics",
      "warlock_juicebox",
      "magic_missile",
-     "recursion"
+     "jeweled_gauntlet"
     ]
    }
   },
@@ -4706,10 +4706,10 @@
      "profane_hydra"
     ],
     "augments": [
+     "overloaded",
      "tooth_fairy",
      "recursion",
-     "blunt_force",
-     "thread_the_needle"
+     "blunt_force"
     ]
    }
   },
@@ -4735,14 +4735,14 @@
      "infinity_edge",
      "yuntal",
      "lord_dominiks",
-     "bloodthirster",
-     "runaans"
+     "runaans",
+     "botrk"
     ],
     "augments": [
-     "critical_missile",
      "vulnerability",
      "upgrade_infinity_edge",
-     "soul_siphon"
+     "soul_siphon",
+     "scopier_weapons"
     ]
    }
   },
@@ -4765,7 +4765,7 @@
    "build": {
     "items": [
      "unending_despair",
-     "spirit_visage",
+     "kaenic",
      "thornmail",
      "warmogs",
      "heartsteel",
@@ -4774,7 +4774,7 @@
     "augments": [
      "tank_engine",
      "celestial_body",
-     "dropkick",
+     "steel_your_heart",
      "heavy_hitter"
     ]
    }
@@ -4805,10 +4805,10 @@
      "collector"
     ],
     "augments": [
-     "critical_missile",
      "vulnerability",
      "upgrade_infinity_edge",
-     "dual_wield"
+     "dual_wield",
+     "soul_siphon"
     ]
    }
   },
@@ -4841,7 +4841,7 @@
      "jeweled_gauntlet",
      "eureka",
      "recursion",
-     "tooth_fairy"
+     "warlock_juicebox"
     ]
    }
   },
@@ -4863,12 +4863,12 @@
    "win_rate": 0.4638,
    "build": {
     "items": [
+     "endless_hunger",
+     "black_cleaver",
      "mercurys",
      "shojin",
      "deaths_dance",
-     "sundered_sky",
-     "eclipse",
-     "collector"
+     "sundered_sky"
     ],
     "augments": [
      "recursion",
@@ -4897,16 +4897,16 @@
    "build": {
     "items": [
      "overlords_bloodmail",
+     "warmogs",
      "heartsteel",
      "mercurys",
      "titanic",
-     "deaths_dance",
-     "sundered_sky"
+     "deaths_dance"
     ],
     "augments": [
      "tank_engine",
      "heavy_hitter",
-     "dropkick",
+     "steel_your_heart",
      "endless_decimation"
     ]
    }
@@ -4931,16 +4931,16 @@
     "items": [
      "spirit_visage",
      "thornmail",
+     "heartsteel",
      "mercurys",
      "botrk",
-     "deaths_dance",
-     "sundered_sky"
+     "deaths_dance"
     ],
     "augments": [
      "tank_engine",
      "siphon",
-     "goredrink",
-     "dropkick"
+     "steel_your_heart",
+     "goredrink"
     ]
    }
   },
@@ -4962,18 +4962,18 @@
    "win_rate": 0.4562,
    "build": {
     "items": [
+     "endless_hunger",
      "infinity_edge",
      "lord_dominiks",
      "deaths_dance",
      "collector",
-     "mercurys",
-     "eclipse"
+     "mercurys"
     ],
     "augments": [
      "blunt_force",
      "soul_siphon",
-     "dropkick",
-     "upgrade_infinity_edge"
+     "upgrade_infinity_edge",
+     "tooth_fairy"
     ]
    }
   },
@@ -5005,8 +5005,8 @@
     "augments": [
      "tank_engine",
      "ravenous_bind",
-     "dropkick",
-     "dont_change_the_channel"
+     "dive_bomber",
+     "recursion"
     ]
    }
   },
@@ -5203,8 +5203,8 @@
     "augments": [
      "recursion",
      "warlock_juicebox",
-     "phenomenal_evil",
-     "eureka"
+     "eureka",
+     "phenomenal_evil"
     ]
    }
   },
@@ -5367,8 +5367,8 @@
     ],
     "augments": [
      "tank_engine",
+     "steel_your_heart",
      "celestial_body",
-     "dropkick",
      "goliath"
     ]
    }
@@ -5429,13 +5429,13 @@
      "warmogs",
      "heartsteel",
      "mercurys",
-     "kaenic"
+     "winters_approach"
     ],
     "augments": [
      "tank_engine",
      "celestial_body",
-     "ravenous_bind",
-     "dropkick"
+     "steel_your_heart",
+     "ravenous_bind"
     ]
    }
   },
@@ -5490,7 +5490,7 @@
    "win_rate": 0.4485,
    "build": {
     "items": [
-     "black_cleaver",
+     "steraks",
      "mercurys",
      "shojin",
      "deaths_dance",
@@ -5500,8 +5500,8 @@
     "augments": [
      "tank_engine",
      "endless_decimation",
-     "dropkick",
-     "recursion"
+     "recursion",
+     "stay_resolute"
     ]
    }
   },
@@ -5565,9 +5565,9 @@
     ],
     "augments": [
      "upgrade_sheen",
+     "upgrade_ravenous_hydra",
      "siphon",
-     "endless_decimation",
-     "blunt_force"
+     "endless_decimation"
     ]
    }
   },
@@ -5599,8 +5599,8 @@
     "augments": [
      "tank_engine",
      "celestial_body",
-     "heavy_hitter",
-     "dropkick"
+     "steel_your_heart",
+     "heavy_hitter"
     ]
    }
   },
@@ -5631,7 +5631,7 @@
     ],
     "augments": [
      "tank_engine",
-     "dropkick",
+     "steel_your_heart",
      "celestial_body",
      "heavy_hitter"
     ]
@@ -5689,7 +5689,7 @@
    "build": {
     "items": [
      "unending_despair",
-     "warmogs",
+     "thornmail",
      "heartsteel",
      "mercurys",
      "iceborn",
@@ -5697,7 +5697,7 @@
     ],
     "augments": [
      "tank_engine",
-     "dropkick",
+     "steel_your_heart",
      "heavy_hitter",
      "celestial_body"
     ]
@@ -5730,8 +5730,8 @@
     ],
     "augments": [
      "tank_engine",
-     "dropkick",
      "heavy_hitter",
+     "steel_your_heart",
      "ethereal_weapon"
     ]
    }

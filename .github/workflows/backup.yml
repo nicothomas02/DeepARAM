@@ -1,0 +1,64 @@
+name: Backup
+
+# Exports the four D1 databases, encrypts them and attaches them to a "backup-<date>" pre-release, so a copy
+# lives outside Cloudflare. Runs after each patch-day push (called from patch-day.yml) and from the Actions
+# tab. The fuller backup (repo, project folder and databases) goes to Nico's Mac; see tools/backup/RESTORE.md.
+# Needs the repo secrets CLOUDFLARE_API_TOKEN (with Account > D1 > Edit) and BACKUP_PASSPHRASE; without
+# them the job skips.
+on:
+  workflow_call:
+    inputs:
+      patch:
+        type: string
+        required: false
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: backup
+  cancel-in-progress: false
+
+jobs:
+  d1:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: 5d91be637d1a1dde747c985811fbeb88
+      BACKUP_PASSPHRASE: ${{ secrets.BACKUP_PASSPHRASE }}
+    steps:
+      - name: Are the secrets set?
+        id: ready
+        run: |
+          if [ -n "$CLOUDFLARE_API_TOKEN" ] && [ -n "$BACKUP_PASSPHRASE" ]; then echo "ok=yes" >> "$GITHUB_OUTPUT"
+          else echo "::notice::CLOUDFLARE_API_TOKEN or BACKUP_PASSPHRASE isn't set, so no database backup on GitHub."; fi
+      - uses: actions/checkout@v4
+        if: steps.ready.outputs.ok == 'yes'
+      - uses: actions/setup-node@v4
+        if: steps.ready.outputs.ok == 'yes'
+        with:
+          node-version: 22
+      - name: Export the databases
+        if: steps.ready.outputs.ok == 'yes'
+        working-directory: web
+        run: |
+          mkdir -p ../d1-backup
+          for db in deeparam-profiles deeparam-games deeparam-sim deeparam-errors; do
+            npx --yes wrangler@4.151.1 d1 export "$db" --remote --output "../d1-backup/$db.sql"
+          done
+          ls -l ../d1-backup
+      - name: Encrypt and attach to a pre-release
+        if: steps.ready.outputs.ok == 'yes'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PATCH: ${{ inputs.patch }}
+        run: |
+          tar -czf d1-backup.tar.gz d1-backup
+          openssl enc -aes-256-cbc -pbkdf2 -iter 200000 -salt -pass env:BACKUP_PASSPHRASE \
+            -in d1-backup.tar.gz -out d1-backup.tar.gz.enc
+          tag="backup-$(date -u +%Y-%m-%d-%H%M)"
+          gh release create "$tag" d1-backup.tar.gz.enc --prerelease --target "$GITHUB_SHA" \
+            --title "Backup $(date -u +%Y-%m-%d)${PATCH:+ (patch $PATCH)}" \
+            --notes "Encrypted database export. See tools/backup/RESTORE.md to decrypt and restore."

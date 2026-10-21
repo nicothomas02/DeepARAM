@@ -10,6 +10,7 @@ import PhoneMore from "@/components/PhoneMore";
 import { items } from "@/lib/items";
 import type { PatchSchedule } from "@/lib/patch-schedule";
 import { readRepoJson } from "@/lib/repo-data";
+import { livePatch } from "@/lib/highlights";
 import { patchName } from "@/lib/patch-name";
 import championNames from "@/data/champion-names.json";
 import augmentNames from "@/data/augment-names.json";
@@ -172,7 +173,7 @@ export default function PbePage() {
 
       <Glance d={d} tracker={tracker} />
 
-      {schedule && <PatchCountdown schedule={schedule} asOf={new Date().toISOString()} note={<P>Test server changes usually reach live with a patch.</P>} />}
+      {schedule && <PatchCountdown schedule={schedule} asOf={new Date().toISOString()} dataPatch={livePatch()} note={<P>Test server changes usually reach live with a patch.</P>} />}
 
       <nav className="toc" aria-label="On this page">
         {toc.map(([id, text]) => (

@@ -43,7 +43,7 @@ CASES = {
     # Yunara in the all-champion sim, a classic crit build.
     "mayhem_yunara_crit": ("mayhem_sim", [
         "--champ", "Yunara", "--items", "berserkers,yuntal,infinity_edge,phantom_dancer,lord_dominiks,runaans",
-        "--augs", "dual_wield,critical_missile,upgrade_infinity_edge,deft", "--trials", "1000", "--seed", SEED, "--json"]),
+        "--augs", "dual_wield,its_critical,upgrade_infinity_edge,deft", "--trials", "1000", "--seed", SEED, "--json"]),
     # Veigar: Phenomenal Evil kit stacks (kit_passives.json) and an AP build.
     "mayhem_veigar_ap": ("mayhem_sim", [
         "--champ", "Veigar", "--items", "sorcerers,lich_bane,nashors,rabadons,stormsurge,void_staff",

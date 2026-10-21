@@ -138,7 +138,7 @@ export default function Home() {
       <div className="bento">
         {schedule && (
           <section className="card span-all home-patch" data-accent="pbe">
-            <PatchCountdown schedule={schedule} asOf={new Date().toISOString()} />
+            <PatchCountdown schedule={schedule} asOf={new Date().toISOString()} dataPatch={livePatch()} />
             {latest && (
               <Link className="home-recap" href={`/patches/${patchName(latest.patch)}`}>
                 <b>

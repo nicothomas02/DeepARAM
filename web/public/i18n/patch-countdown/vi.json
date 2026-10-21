@@ -1,9 +1,10 @@
 {
  "Patch {patch} comes out in {n} days": "Phiên bản {patch} ra mắt sau {n} ngày",
  "Patch {patch} comes out tomorrow": "Phiên bản {patch} ra mắt vào ngày mai",
- "Patch {patch} is out today": "Phiên bản {patch} ra mắt hôm nay",
- "Today": "Hôm nay",
  "day": "ngày",
  "days": "ngày",
- "Patch {patch} comes out in under 24 hours": "Bản cập nhật {patch} ra mắt trong chưa đầy 24 giờ"
+ "Patch {patch} comes out in under 24 hours": "Bản cập nhật {patch} ra mắt trong chưa đầy 24 giờ",
+ "{set} (Patch {patch}) is live!": "{set} (Phiên bản {patch}) đã ra mắt!",
+ "Patch {patch} is live!": "Phiên bản {patch} đã ra mắt!",
+ "New patch data takes a couple of days to collect.": "Dữ liệu phiên bản mới cần vài ngày để thu thập."
 }

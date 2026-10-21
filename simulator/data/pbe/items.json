@@ -1,6 +1,6 @@
 {
  "meta": {
-  "game_version": "16.22",
+  "game_version": "16.21",
   "notes": [
    "stats: the game's item bin on this patch (verified). effects: data/item_effects.json (passives; approx unless confidence says otherwise), with values the item bin holds (Mayhem over ARAM over base) read from it."
   ]

@@ -1,9 +1,10 @@
 {
  "Patch {patch} comes out in {n} days": "Do vydání patche {patch} zbývá dní: {n}",
  "Patch {patch} comes out tomorrow": "Patch {patch} vyjde zítra",
- "Patch {patch} is out today": "Patch {patch} vychází dnes",
- "Today": "Dnes",
  "day": "den",
  "days": "dní",
- "Patch {patch} comes out in under 24 hours": "Patch {patch} vyjde za méně než 24 hodin"
+ "Patch {patch} comes out in under 24 hours": "Patch {patch} vyjde za méně než 24 hodin",
+ "{set} (Patch {patch}) is live!": "{set} (patch {patch}) je venku!",
+ "Patch {patch} is live!": "Patch {patch} je venku!",
+ "New patch data takes a couple of days to collect.": "Sběr dat z nového patche trvá pár dní."
 }

@@ -1,9 +1,10 @@
 {
  "Patch {patch} comes out in {n} days": "Patch {patch} comes out in {n} days",
  "Patch {patch} comes out tomorrow": "Patch {patch} comes out tomorrow",
- "Patch {patch} is out today": "Patch {patch} is out today",
- "Today": "Today",
  "day": "day",
  "days": "days",
- "Patch {patch} comes out in under 24 hours": "Patch {patch} comes out in under 24 hours"
+ "Patch {patch} comes out in under 24 hours": "Patch {patch} comes out in under 24 hours",
+ "{set} (Patch {patch}) is live!": "{set} (Patch {patch}) is live!",
+ "Patch {patch} is live!": "Patch {patch} is live!",
+ "New patch data takes a couple of days to collect.": "New patch data takes a couple of days to collect."
 }
