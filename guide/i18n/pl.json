@@ -234,8 +234,6 @@
  "Damage Reduction Per": "Zmniejszenie obrażeń za",
  "Fortification Timer": "Czas fortyfikacji",
  "Damage To Max Health Ratio": "Stosunek obrażeń do maks. zdrowia",
- "AD Per Statue": "AD za posąg",
- "Base AD Bonus": "Premia do podstawowego AD",
  "Buff Duration": "Czas działania wzmocnienia",
  "Ranged Damage Multiplier": "Mnożnik obrażeń (dystansowi)",
  "Burn Percent Health Damage": "Obrażenia od podpalenia w % zdrowia",
@@ -254,5 +252,7 @@
  "Melee Item Calc Value B": "Wartość przedmiotu B (walka wręcz)",
  "Ranged Item Calc Value B": "Wartość przedmiotu B (dystansowi)",
  "Base OOCMS": "Podstawowa prędkość ruchu poza walką",
- "Crit Per Stack Melee": "Kryt. za ładunek (walka wręcz)"
+ "Crit Per Stack Melee": "Kryt. za ładunek (walka wręcz)",
+ "AD Per Statue Melee": "AD za posąg (walka wręcz)",
+ "AD Per Statue Ranged Mult": "Mnożnik AD za posąg (dystansowy)"
 }

@@ -234,8 +234,6 @@
  "Damage Reduction Per": "Réduction des dégâts par cumul",
  "Fortification Timer": "Durée de fortification",
  "Damage To Max Health Ratio": "Ratio de dégâts selon les PV max",
- "AD Per Statue": "AD par statue",
- "Base AD Bonus": "AD bonus de base",
  "Buff Duration": "Durée de l'effet",
  "Ranged Damage Multiplier": "Multiplicateur de dégâts (distance)",
  "Burn Percent Health Damage": "Dégâts de brûlure en % des PV",
@@ -254,5 +252,7 @@
  "Melee Item Calc Value B": "Valeur de calcul B de l'objet (mêlée)",
  "Ranged Item Calc Value B": "Valeur de calcul B de l'objet (distance)",
  "Base OOCMS": "VD hors combat de base",
- "Crit Per Stack Melee": "Critique par cumul (mêlée)"
+ "Crit Per Stack Melee": "Critique par cumul (mêlée)",
+ "AD Per Statue Melee": "AD par statue (mêlée)",
+ "AD Per Statue Ranged Mult": "Multiplicateur d'AD par statue (distance)"
 }

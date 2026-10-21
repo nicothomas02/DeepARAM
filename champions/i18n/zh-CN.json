@@ -173,7 +173,6 @@
  "Mushroom Duration": "蘑菇持续时间",
  "Slow Amount": "减速量",
  "Souls To Gain On Pick Up": "拾取获得的灵魂",
- "t AD Ratio Max": "总攻击力系数（最大）",
  "New AS Cap": "新攻击速度上限",
  "d Takedown Stacks": "参与击杀层数",
  "Initial Burst AP Ratio": "首次爆发法强系数",
@@ -214,5 +213,6 @@
  "Shurima": "恕瑞玛",
  "Targon": "巨神峰",
  "Void": "虚空",
- "Zaun": "祖安"
+ "Zaun": "祖安",
+ "t AD Ratio Min": "总攻击力系数（最小）"
 }

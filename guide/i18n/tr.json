@@ -234,8 +234,6 @@
  "Damage Reduction Per": "Birim başına hasar azaltma",
  "Fortification Timer": "Tahkimat süresi",
  "Damage To Max Health Ratio": "Azami cana göre hasar oranı",
- "AD Per Statue": "Heykel başına SG",
- "Base AD Bonus": "Taban SG bonusu",
  "Buff Duration": "Etki süresi",
  "Ranged Damage Multiplier": "Menzilli hasar çarpanı",
  "Burn Percent Health Damage": "Yanma hasarı (% can)",
@@ -254,5 +252,7 @@
  "Melee Item Calc Value B": "B değeri (yakın dövüş)",
  "Ranged Item Calc Value B": "B değeri (menzilli)",
  "Base OOCMS": "Taban savaş dışı Hareket Hızı",
- "Crit Per Stack Melee": "Yük başına kritik (yakın dövüş)"
+ "Crit Per Stack Melee": "Yük başına kritik (yakın dövüş)",
+ "AD Per Statue Melee": "Heykel başına SG (yakın dövüş)",
+ "AD Per Statue Ranged Mult": "Heykel başına SG çarpanı (menzilli)"
 }

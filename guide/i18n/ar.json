@@ -234,8 +234,6 @@
  "Damage Reduction Per": "تقليص الضرر لكل",
  "Fortification Timer": "مؤقت التحصين",
  "Damage To Max Health Ratio": "نسبة الضرر إلى الصحة القصوى",
- "AD Per Statue": "ضرر الهجوم لكل تمثال",
- "Base AD Bonus": "ضرر هجوم إضافي أساسي",
  "Buff Duration": "مدة التأثير",
  "Ranged Damage Multiplier": "مضاعف ضرر المدى البعيد",
  "Burn Percent Health Damage": "ضرر الحرق بنسبة من الصحة",
@@ -254,5 +252,7 @@
  "Melee Item Calc Value B": "قيمة حساب العنصر (مدى قريب) B",
  "Ranged Item Calc Value B": "قيمة حساب العنصر (مدى بعيد) B",
  "Base OOCMS": "سرعة الحركة الأساسية خارج القتال",
- "Crit Per Stack Melee": "الضربة الحرجة لكل تكديس (مدى قريب)"
+ "Crit Per Stack Melee": "الضربة الحرجة لكل تكديس (مدى قريب)",
+ "AD Per Statue Melee": "ضرر الهجوم لكل تمثال (قريب المدى)",
+ "AD Per Statue Ranged Mult": "مضاعف ضرر الهجوم لكل تمثال (بعيد المدى)"
 }

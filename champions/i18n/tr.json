@@ -173,7 +173,6 @@
  "Mushroom Duration": "Mantar süresi",
  "Slow Amount": "Yavaşlatma miktarı",
  "Souls To Gain On Pick Up": "Toplama başına ruh",
- "t AD Ratio Max": "Azami SG oranı",
  "New AS Cap": "Yeni Saldırı Hızı sınırı",
  "d Takedown Stacks": "Katılım başına yük",
  "Initial Burst AP Ratio": "İlk patlama YG oranı",
@@ -214,5 +213,6 @@
  "Shurima": "Shurima",
  "Targon": "Targon",
  "Void": "Hiçlik",
- "Zaun": "Zaun"
+ "Zaun": "Zaun",
+ "t AD Ratio Min": "Asgari SG oranı"
 }

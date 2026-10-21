@@ -234,8 +234,6 @@
  "Damage Reduction Per": "Уменьшение урона за ед.",
  "Fortification Timer": "Таймер укрепления",
  "Damage To Max Health Ratio": "Коэф. урона от макс. здоровья",
- "AD Per Statue": "Сила атаки за статую",
- "Base AD Bonus": "Базовый бонус силы атаки",
  "Buff Duration": "Длительность усиления",
  "Ranged Damage Multiplier": "Множитель урона (дальн. бой)",
  "Burn Percent Health Damage": "Урон от горения (% здоровья)",
@@ -254,5 +252,7 @@
  "Melee Item Calc Value B": "Значение B (ближ. бой)",
  "Ranged Item Calc Value B": "Значение B (дальн. бой)",
  "Base OOCMS": "Базовая скорость вне боя",
- "Crit Per Stack Melee": "Крит за заряд (ближ. бой)"
+ "Crit Per Stack Melee": "Крит за заряд (ближ. бой)",
+ "AD Per Statue Melee": "Сила атаки за статую (ближний бой)",
+ "AD Per Statue Ranged Mult": "Множитель силы атаки за статую (дальний бой)"
 }

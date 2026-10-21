@@ -208,9 +208,6 @@
   "ap",
   "pen"
  ],
- "1220": [
-  "attack_speed"
- ],
  "1225": [
   "attack_speed"
  ],
@@ -295,12 +292,6 @@
   "pen",
   "tank"
  ],
- "1345": [
-  "attack_speed",
-  "ap",
-  "pen",
-  "fighter"
- ],
  "1346": [
   "attack_speed",
   "ap",
@@ -309,10 +300,6 @@
  ],
  "1353": [
   "tank"
- ],
- "1356": [
-  "crit",
-  "attack_speed"
  ],
  "1361": [
   "tank"
@@ -343,9 +330,6 @@
  "2005": [
   "fighter"
  ],
- "2006": [
-  "tank"
- ],
  "2009": [
   "crit",
   "attack_speed"
@@ -354,9 +338,6 @@
   "crit"
  ],
  "2016": [
-  "crit"
- ],
- "2024": [
   "crit"
  ],
  "2026": [

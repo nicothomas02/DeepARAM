@@ -1,13 +1,15 @@
 name: Patch day
 
-# Moves the site to a new live patch on the day Riot's schedule (data/patch-schedule.json) says it ships.
-# Every 20 minutes from Tuesday to Friday (plus once a day as a fallback), web/scripts/patch_day.py checks
-# whether a scheduled patch is due and already out. Riot doesn't publish the time of day, so it keeps
-# polling until it is. Then this run refreshes the art, names, Guide and champion data for it, checks the
+# Moves the site to a new live patch on the day Riot's schedule (data/patch-schedule.json) says it ships,
+# from its "time" (6:30 AM Pacific). Runs at 13:30 and 14:30 UTC (6:30 AM Pacific in summer and in winter;
+# patch_day.py ignores the one that is still before 6:30 there), then every 20 minutes from Tuesday to
+# Friday and once a day as fallbacks, since GitHub can delay or skip scheduled runs. web/scripts/patch_day.py
+# checks whether a scheduled patch is due and already out, and keeps waiting until it is. Then this run refreshes the art, names, Guide and champion data for it, checks the
 # site still builds and passes its tests, and pushes to main, which deploys. Days with nothing due stop
 # after the first step.
 on:
   schedule:
+    - cron: "30 13,14 * * 2-5"
     - cron: "*/20 * * * 2-5"
     - cron: "37 15 * * *"
   workflow_dispatch:

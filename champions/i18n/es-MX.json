@@ -173,7 +173,6 @@
  "Mushroom Duration": "Duración de los hongos",
  "Slow Amount": "Cantidad de ralentización",
  "Souls To Gain On Pick Up": "Almas al recoger",
- "t AD Ratio Max": "Escalado de AD total máx.",
  "New AS Cap": "Nuevo límite de vel. de ataque",
  "d Takedown Stacks": "Acumulaciones por derribo",
  "Initial Burst AP Ratio": "Escalado de AP de la ráfaga inicial",
@@ -214,5 +213,6 @@
  "Shurima": "Shurima",
  "Targon": "Targon",
  "Void": "El Vacío",
- "Zaun": "Zaun"
+ "Zaun": "Zaun",
+ "t AD Ratio Min": "Escalado de AD total mín."
 }

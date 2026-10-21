@@ -173,7 +173,6 @@
  "Mushroom Duration": "Duração dos cogumelos",
  "Slow Amount": "Valor da Lentidão",
  "Souls To Gain On Pick Up": "Almas ganhas ao coletar",
- "t AD Ratio Max": "Proporção de AD total máx.",
  "New AS Cap": "Novo limite de Velocidade de Ataque",
  "d Takedown Stacks": "Acúmulos por abate",
  "Initial Burst AP Ratio": "Proporção de AP da explosão inicial",
@@ -214,5 +213,6 @@
  "Shurima": "Shurima",
  "Targon": "Targon",
  "Void": "Vazio",
- "Zaun": "Zaun"
+ "Zaun": "Zaun",
+ "t AD Ratio Min": "Proporção de AD total mín."
 }

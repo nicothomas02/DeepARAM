@@ -372,8 +372,8 @@ def test_mode_mechanics():
 
 
 def test_official_track_and_story(guide):
-    t = guide["track"]
-    if t.get("totalXp"):
+    t = guide["track"]  # None between tracks, when the event hub has no live Mayhem track
+    if t and t.get("totalXp"):
         assert sum(r["xp"] for r in t["levels"]) == t["totalXp"] and all(o["xp"] > 0 for o in t["objectives"])
         assert "A title" not in [r["name"] for r in t["levels"]]
     assert guide["story"] and all(e["date"] and e["text"] for e in guide["story"])

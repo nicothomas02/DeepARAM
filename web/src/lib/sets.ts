@@ -2,7 +2,7 @@ import sets from "@/data/mayhem-sets.json";
 
 // ARAM Mayhem's sets: the augment pool only changes when a new set starts, so patches group by set. Each set runs from
 // its first patch (client version) until the next set's first patch. Launch had no set; 16.3 (26.3) started Set 1 with its
-// pass, 16.12 (26.12) Set 2. A new set is one line in src/data/mayhem-sets.json.
+// pass, 16.12 (26.12) Set 2, 16.21 (26.21) Set 3. A new set is one line in src/data/mayhem-sets.json.
 
 export type MayhemSet = { name: string; first: string };
 export const SETS = sets as MayhemSet[];

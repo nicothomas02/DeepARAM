@@ -234,8 +234,6 @@
  "Damage Reduction Per": "Sebzéscsökkentés egységenként",
  "Fortification Timer": "Erődítés időzítője",
  "Damage To Max Health Ratio": "Sebzés és maximális életerő aránya",
- "AD Per Statue": "AD szobronként",
- "Base AD Bonus": "Alap AD-bónusz",
  "Buff Duration": "Erősítés időtartama",
  "Ranged Damage Multiplier": "Sebzésszorzó (távolsági)",
  "Burn Percent Health Damage": "Égési sebzés az életerő %-ában",
@@ -254,5 +252,7 @@
  "Melee Item Calc Value B": "Tárgyérték B (közelharci)",
  "Ranged Item Calc Value B": "Tárgyérték B (távolsági)",
  "Base OOCMS": "Alap mozgási sebesség harcon kívül",
- "Crit Per Stack Melee": "Krit halmonként (közelharci)"
+ "Crit Per Stack Melee": "Krit halmonként (közelharci)",
+ "AD Per Statue Melee": "AD szobronként (közelharci)",
+ "AD Per Statue Ranged Mult": "AD-szorzó szobronként (távolsági)"
 }

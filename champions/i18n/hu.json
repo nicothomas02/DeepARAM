@@ -173,7 +173,6 @@
  "Mushroom Duration": "Gomba időtartama",
  "Slow Amount": "Lassítás mértéke",
  "Souls To Gain On Pick Up": "Felvételenként kapott lelkek",
- "t AD Ratio Max": "Teljes AD-skálázás (max.)",
  "New AS Cap": "Új támadásisebesség-korlát",
  "d Takedown Stacks": "Halmok leütésenként",
  "Initial Burst AP Ratio": "Első kitörés AP-skálázása",
@@ -214,5 +213,6 @@
  "Shurima": "Shurima",
  "Targon": "Targon",
  "Void": "Üresség",
- "Zaun": "Zaun"
+ "Zaun": "Zaun",
+ "t AD Ratio Min": "Teljes AD-skálázás (min.)"
 }

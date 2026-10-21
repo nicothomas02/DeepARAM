@@ -234,8 +234,6 @@
  "Damage Reduction Per": "당 피해 감소",
  "Fortification Timer": "강화 타이머",
  "Damage To Max Health Ratio": "피해량 대비 최대 체력 비율",
- "AD Per Statue": "석상당 공격력",
- "Base AD Bonus": "기본 공격력 보너스",
  "Buff Duration": "버프 지속시간",
  "Ranged Damage Multiplier": "원거리 피해 배율",
  "Burn Percent Health Damage": "화상 체력 비례 피해",
@@ -254,5 +252,7 @@
  "Melee Item Calc Value B": "근접 아이템 계산 값 B",
  "Ranged Item Calc Value B": "원거리 아이템 계산 값 B",
  "Base OOCMS": "비전투 기본 이동 속도",
- "Crit Per Stack Melee": "중첩당 치명타 확률(근접)"
+ "Crit Per Stack Melee": "중첩당 치명타 확률(근접)",
+ "AD Per Statue Melee": "석상당 공격력(근접)",
+ "AD Per Statue Ranged Mult": "석상당 공격력 배율(원거리)"
 }

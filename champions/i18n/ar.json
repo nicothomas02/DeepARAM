@@ -173,7 +173,6 @@
  "Mushroom Duration": "مدة الفطر",
  "Slow Amount": "مقدار الإبطاء",
  "Souls To Gain On Pick Up": "الأرواح المكتسبة عند الالتقاط",
- "t AD Ratio Max": "أقصى نسبة لضرر الهجوم الإجمالي",
  "New AS Cap": "الحد الجديد لسرعة الهجوم",
  "d Takedown Stacks": "التكديسات عند المشاركة في القتل",
  "Initial Burst AP Ratio": "نسبة قوة القدرة للانفجار الأول",
@@ -214,5 +213,6 @@
  "Shurima": "شوريما",
  "Targon": "تارغون",
  "Void": "الفويد",
- "Zaun": "زاون"
+ "Zaun": "زاون",
+ "t AD Ratio Min": "أدنى نسبة لضرر الهجوم الإجمالي"
 }

@@ -234,8 +234,6 @@
  "Damage Reduction Per": "Pengurangan Damage per",
  "Fortification Timer": "Timer Fortifikasi",
  "Damage To Max Health Ratio": "Rasio Damage ke Health Maksimum",
- "AD Per Statue": "AD per Patung",
- "Base AD Bonus": "Bonus AD Dasar",
  "Buff Duration": "Durasi Buff",
  "Ranged Damage Multiplier": "Pengali Damage Ranged",
  "Burn Percent Health Damage": "Damage Burn % Health",
@@ -254,5 +252,7 @@
  "Melee Item Calc Value B": "Nilai Hitung Item Melee B",
  "Ranged Item Calc Value B": "Nilai Hitung Item Ranged B",
  "Base OOCMS": "Move Speed Dasar di Luar Pertarungan",
- "Crit Per Stack Melee": "Crit per Stack (Melee)"
+ "Crit Per Stack Melee": "Crit per Stack (Melee)",
+ "AD Per Statue Melee": "AD per Patung (Melee)",
+ "AD Per Statue Ranged Mult": "Pengali AD per Patung (Ranged)"
 }

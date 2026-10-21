@@ -1,5 +1,5 @@
 window.GUIDE_DATA = {
- "patch": "16.20.8248524",
+ "patch": "16.21.8298620",
  "hero": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/assets/leagueclient/gamemodeassets/kiwi/kiwi-tutorial-set2.png",
  "queues": [
   {
@@ -40,9 +40,9 @@ window.GUIDE_DATA = {
   }
  ],
  "augmentCounts": {
-  "Silver": 61,
-  "Gold": 82,
-  "Prismatic": 73
+  "Silver": 60,
+  "Gold": 75,
+  "Prismatic": 65
  },
  "maps": [
   {
@@ -80,48 +80,6 @@ window.GUIDE_DATA = {
   }
  ],
  "items": [
-  {
-   "id": 550001,
-   "name": "Healthbar Splash: Blue",
-   "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/assets/items/icons2d/kiwi/kiwi_550001.png",
-   "text": ""
-  },
-  {
-   "id": 550002,
-   "name": "Healthbar Splash: Orange",
-   "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/assets/items/icons2d/kiwi/kiwi_550002.png",
-   "text": ""
-  },
-  {
-   "id": 550003,
-   "name": "Healthbar Splash: Green",
-   "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/assets/items/icons2d/kiwi/kiwi_550003.png",
-   "text": ""
-  },
-  {
-   "id": 550004,
-   "name": "Healthbar Splash: Pink",
-   "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/assets/items/icons2d/kiwi/kiwi_550004.png",
-   "text": ""
-  },
-  {
-   "id": 550006,
-   "name": "Healthbar Splash: Rainbow",
-   "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/assets/items/icons2d/kiwi/kiwi_550006.png",
-   "text": ""
-  },
-  {
-   "id": 550005,
-   "name": "Healthbar Cleanup: Reset Color",
-   "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/assets/items/icons2d/kiwi/kiwi_550005.png",
-   "text": ""
-  },
-  {
-   "id": 550007,
-   "name": "Party Favor",
-   "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/assets/items/icons2d/kiwi/kiwi_550007.png",
-   "text": ""
-  },
   {
    "id": 226668,
    "name": "Ultra Hydra",
@@ -307,11 +265,85 @@ window.GUIDE_DATA = {
    "notes": []
   },
   {
-   "key": "PoroChargeQuest",
-   "name": "Poro Stampede",
-   "augmentId": 2046,
+   "key": "UltraHydraQuest",
+   "name": "Ultra Hydra",
+   "augmentId": 2141,
    "tier": "Prismatic",
    "inPool": true,
+   "icon": "/assets/cd/latest/game/assets/ux/kiwi/augments/icons/ultrahydra_large.png",
+   "milestones": [
+    {
+     "need": 3,
+     "quest": "Possess Titanic Hydra, Ravenous Hydra and Profane Hydra.",
+     "reward": "Get Ultra Hydra."
+    }
+   ],
+   "notes": []
+  },
+  {
+   "key": "UrfsChampionQuest",
+   "name": "Urf's Champion",
+   "augmentId": 1154,
+   "tier": "Prismatic",
+   "inPool": true,
+   "icon": "/assets/cd/latest/game/assets/ux/kiwi/augments/icons/quest_urfschampion_large.png",
+   "milestones": [
+    {
+     "need": 18,
+     "quest": "Score 18 takedowns.",
+     "reward": "Gain The Golden Spatula."
+    }
+   ],
+   "notes": []
+  },
+  {
+   "key": "WoogletsWitchcapQuest",
+   "name": "Wooglet's Witchcap",
+   "augmentId": 1156,
+   "tier": "Prismatic",
+   "inPool": true,
+   "icon": "/assets/cd/latest/game/assets/ux/cherry/augments/icons/quest_woogletswitchcap_large.png",
+   "milestones": [
+    {
+     "need": 2,
+     "quest": "Possess Rabadon's Deathcap and Zhonya's Hourglass.",
+     "reward": "Get Wooglet's Witchcap."
+    }
+   ],
+   "notes": []
+  },
+  {
+   "key": "BouncingBeesQuest",
+   "name": "Bouncing Bees",
+   "augmentId": 3048,
+   "tier": "Prismatic",
+   "inPool": false,
+   "icon": "/assets/cd/latest/game/assets/ux/kiwi/augments/icons/kingme_large.png",
+   "milestones": [
+    {
+     "need": 10,
+     "quest": "Bounce Attacks onto enemy Champions 10 times",
+     "reward": "Gain %i:scaleAD% 30 Attack Damage and an extra bounce per Quest Level"
+    },
+    {
+     "need": 40,
+     "quest": "Bounce Attacks onto enemy Champions 40 times",
+     "reward": "Gain +%i:scaleAD% 30 Attack Damage and an extra bounce per Quest Level"
+    },
+    {
+     "need": 163,
+     "quest": "Bounce Attacks onto enemy Champions 163 times",
+     "reward": "Gain +%i:scaleAD% 30 Attack Damage and an extra bounce per Quest Level"
+    }
+   ],
+   "notes": []
+  },
+  {
+   "key": "PoroChargeQuest",
+   "name": "Poro Stampede",
+   "augmentId": null,
+   "tier": null,
+   "inPool": false,
    "icon": "/assets/cd/latest/game/assets/ux/kiwi/augments/icons/poroking_large.png",
    "milestones": [
     {
@@ -368,54 +400,6 @@ window.GUIDE_DATA = {
    "notes": [
     "\"Oho! Look how charming they are!\" — Poro Herder"
    ]
-  },
-  {
-   "key": "UltraHydraQuest",
-   "name": "Ultra Hydra",
-   "augmentId": 2141,
-   "tier": "Prismatic",
-   "inPool": true,
-   "icon": "/assets/cd/latest/game/assets/ux/kiwi/augments/icons/ultrahydra_large.png",
-   "milestones": [
-    {
-     "need": 3,
-     "quest": "Possess Titanic Hydra, Ravenous Hydra and Profane Hydra.",
-     "reward": "Get Ultra Hydra."
-    }
-   ],
-   "notes": []
-  },
-  {
-   "key": "UrfsChampionQuest",
-   "name": "Urf's Champion",
-   "augmentId": 1154,
-   "tier": "Prismatic",
-   "inPool": true,
-   "icon": "/assets/cd/latest/game/assets/ux/kiwi/augments/icons/quest_urfschampion_large.png",
-   "milestones": [
-    {
-     "need": 18,
-     "quest": "Score 18 takedowns.",
-     "reward": "Gain The Golden Spatula."
-    }
-   ],
-   "notes": []
-  },
-  {
-   "key": "WoogletsWitchcapQuest",
-   "name": "Wooglet's Witchcap",
-   "augmentId": 1156,
-   "tier": "Prismatic",
-   "inPool": true,
-   "icon": "/assets/cd/latest/game/assets/ux/cherry/augments/icons/quest_woogletswitchcap_large.png",
-   "milestones": [
-    {
-     "need": 2,
-     "quest": "Possess Rabadon's Deathcap and Zhonya's Hourglass.",
-     "reward": "Get Wooglet's Witchcap."
-    }
-   ],
-   "notes": []
   }
  ],
  "challenges": [
@@ -1708,20 +1692,6 @@ window.GUIDE_DATA = {
  ],
  "spellAugments": [
   {
-   "name": "Poro Stampede",
-   "id": 2046,
-   "tier": "Prismatic",
-   "icon": "/assets/cd/latest/game/assets/ux/kiwi/augments/icons/questporocharge_small.png",
-   "text": "QUEST: Gather Poro Snax and feed Poros.\n\nREWARD: Gain the Poro Charge Summoner Spell, which launches waves of Poros at the enemy team. Additional waves unlock per Quest Level."
-  },
-  {
-   "name": "Dimension Shift",
-   "id": 2063,
-   "tier": "Prismatic",
-   "icon": "/assets/cd/latest/game/assets/ux/kiwi/augments/icons/whenthedarknesscomes_small.png",
-   "text": "Gain the When the Darkness Comes Summoner Spell. Create a zone that transports everyone inside of it to another dimension."
-  },
-  {
    "name": "Flash 2",
    "id": 1348,
    "tier": "Silver",
@@ -1825,19 +1795,19 @@ window.GUIDE_DATA = {
    "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/assets/items/icons2d/6697_hubris.png",
    "changes": [
     {
-     "name": "ADPerStatue",
-     "rift": 3.0,
-     "mayhem": 1.0
-    },
-    {
-     "name": "BaseADBonus",
-     "rift": 12.0,
-     "mayhem": 10.0
-    },
-    {
      "name": "BuffDuration",
      "rift": 90.0,
      "mayhem": 45.0
+    },
+    {
+     "name": "ADPerStatueMelee",
+     "rift": 3.0,
+     "mayhem": 2.0
+    },
+    {
+     "name": "ADPerStatueRangedMult",
+     "rift": 0.6669999957084656,
+     "mayhem": 0.5
     }
    ]
   },
@@ -2180,7 +2150,7 @@ window.GUIDE_DATA = {
   }
  ],
  "augmentRules": {
-  "patch": "16.20.8248524",
+  "patch": "16.21.8298620",
   "levels": [
    3,
    7,
@@ -2191,19 +2161,19 @@ window.GUIDE_DATA = {
   "rerollsPerSlot": 1,
   "odds": {
    "Silver": {
-    "pool": 61,
-    "offer": 0.0492,
-    "withRerolls": 0.0984
+    "pool": 60,
+    "offer": 0.05,
+    "withRerolls": 0.1
    },
    "Gold": {
-    "pool": 82,
-    "offer": 0.0366,
-    "withRerolls": 0.0732
+    "pool": 75,
+    "offer": 0.04,
+    "withRerolls": 0.08
    },
    "Prismatic": {
-    "pool": 73,
-    "offer": 0.0411,
-    "withRerolls": 0.0822
+    "pool": 65,
+    "offer": 0.0462,
+    "withRerolls": 0.0923
    }
   },
   "grantedItems": [
@@ -2214,15 +2184,6 @@ window.GUIDE_DATA = {
     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/assets/items/icons2d/4403_goldenspatula.png",
     "augmentId": 1154,
     "augment": "Urf's Champion",
-    "augmentTier": "Prismatic"
-   },
-   {
-    "id": 1111,
-    "name": "Jarvan I's",
-    "how": "reward",
-    "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/assets/items/icons2d/1111_jarvanis.png",
-    "augmentId": 1343,
-    "augment": "Sneakerhead",
     "augmentTier": "Prismatic"
    },
    {
@@ -2349,24 +2310,7 @@ window.GUIDE_DATA = {
    "text": "Reroll into an augment one tier higher.",
    "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/assets/rewards/kiwi/goldenreroll.png"
   },
-  "unlocks": {
-   "2031": 24,
-   "2032": 6,
-   "2034": 10,
-   "2043": 14,
-   "2046": 30,
-   "2063": 32,
-   "2080": 26,
-   "2083": 18,
-   "2091": 22,
-   "2104": 12,
-   "2107": 8,
-   "2115": 20,
-   "2118": 28,
-   "2127": 4,
-   "2134": 16,
-   "2137": 2
-  }
+  "unlocks": {}
  },
  "champSelect": {
   "runes": false,
@@ -2552,6 +2496,18 @@ window.GUIDE_DATA = {
      "name": "Snowday",
      "tier": "Silver",
      "icon": "/assets/cd/latest/game/assets/ux/kiwi/augments/icons/snowday_small.png"
+    },
+    {
+     "id": 1308,
+     "name": "FireFox",
+     "tier": "Silver",
+     "icon": "/assets/cd/latest/game/assets/ux/cherry/augments/icons/firfox_small.png"
+    },
+    {
+     "id": 1416,
+     "name": "Hextech Soul",
+     "tier": "Silver",
+     "icon": "/assets/cd/latest/game/assets/ux/cherry/augments/icons/infernalsoul_small.png"
     }
    ]
   },
@@ -2563,12 +2519,6 @@ window.GUIDE_DATA = {
      "name": "Apex Inventor",
      "tier": "Gold",
      "icon": "/assets/cd/latest/game/assets/ux/cherry/augments/icons/apexinventor_small.png"
-    },
-    {
-     "id": 2042,
-     "name": "Hide on Bush",
-     "tier": "Gold",
-     "icon": "/assets/cd/latest/game/assets/ux/kiwi/augments/icons/brushpower_small.png"
     },
     {
      "id": 1403,
@@ -2589,16 +2539,40 @@ window.GUIDE_DATA = {
      "icon": "/assets/cd/latest/game/assets/ux/kiwi/augments/icons/donation_small.png"
     },
     {
-     "id": 2089,
-     "name": "Yowch, My Coins!",
-     "tier": "Gold",
-     "icon": "/assets/cd/latest/game/assets/ux/kiwi/augments/icons/youchmycoins_small.png"
-    },
-    {
      "id": 1358,
      "name": "Pinball",
      "tier": "Gold",
      "icon": "/assets/cd/latest/game/assets/ux/kiwi/augments/icons/pinballsnowball_small.png"
+    },
+    {
+     "id": 1068,
+     "name": "Recursion",
+     "tier": "Gold",
+     "icon": "/assets/cd/latest/game/assets/ux/cherry/augments/icons/recursion_small.png"
+    },
+    {
+     "id": 1150,
+     "name": "Bread And Jam",
+     "tier": "Gold",
+     "icon": "/assets/cd/latest/game/assets/ux/kiwi/augments/icons/genericabilityaugmenticon_gold.png"
+    },
+    {
+     "id": 1103,
+     "name": "Bread And Butter",
+     "tier": "Gold",
+     "icon": "/assets/cd/latest/game/assets/ux/kiwi/augments/icons/genericabilityaugmenticon_gold.png"
+    },
+    {
+     "id": 1151,
+     "name": "Bread and Cheese",
+     "tier": "Gold",
+     "icon": "/assets/cd/latest/game/assets/ux/kiwi/augments/icons/genericabilityaugmenticon_gold.png"
+    },
+    {
+     "id": 2043,
+     "name": "Nature is Healing",
+     "tier": "Gold",
+     "icon": "/assets/cd/latest/game/assets/ux/kiwi/augments/icons/natureishealing_small.png"
     }
    ]
   },
@@ -2616,12 +2590,6 @@ window.GUIDE_DATA = {
      "name": "Devil on Your Shoulder",
      "tier": "Prismatic",
      "icon": "/assets/cd/latest/game/assets/ux/kiwi/augments/icons/littledevil_small.png"
-    },
-    {
-     "id": 2063,
-     "name": "Dimension Shift",
-     "tier": "Prismatic",
-     "icon": "/assets/cd/latest/game/assets/ux/kiwi/augments/icons/whenthedarknesscomes_small.png"
     },
     {
      "id": 1195,
@@ -2660,12 +2628,6 @@ window.GUIDE_DATA = {
      "icon": "/assets/cd/latest/game/assets/ux/cherry/augments/icons/pandoras_box_small.png"
     },
     {
-     "id": 2046,
-     "name": "Poro Stampede",
-     "tier": "Prismatic",
-     "icon": "/assets/cd/latest/game/assets/ux/kiwi/augments/icons/questporocharge_small.png"
-    },
-    {
      "id": 1343,
      "name": "Sneakerhead",
      "tier": "Prismatic",
@@ -2696,12 +2658,6 @@ window.GUIDE_DATA = {
      "icon": "/assets/cd/latest/game/assets/ux/kiwi/augments/icons/goldrend_small.png"
     },
     {
-     "id": 2095,
-     "name": "High Roller",
-     "tier": "Prismatic",
-     "icon": "/assets/cd/latest/game/assets/ux/kiwi/augments/icons/highroller_small.png"
-    },
-    {
      "id": 1329,
      "name": "Biggest Snowball Ever",
      "tier": "Prismatic",
@@ -2710,299 +2666,7 @@ window.GUIDE_DATA = {
    ]
   }
  ],
- "track": {
-  "name": "Mayhem Set 2",
-  "start": "2026-06-10",
-  "end": "2026-10-20",
-  "size": 32,
-  "levels": [
-   {
-    "level": 1,
-    "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/assets/rewards/kiwi/goldenreroll.png",
-    "kind": "Reward",
-    "name": "Golden Reroll",
-    "xp": 150,
-    "note": "Rerolls have a better chance to land on a higher-tier augment."
-   },
-   {
-    "level": 2,
-    "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/assets/rewards/kiwi/1612/augment_patontheback.png",
-    "kind": "Augment",
-    "name": "Pat On The Back",
-    "augmentId": 2137,
-    "tier": "Gold",
-    "xp": 150
-   },
-   {
-    "level": 3,
-    "icon": null,
-    "kind": "Emote",
-    "name": "Impeccable",
-    "xp": 150
-   },
-   {
-    "level": 4,
-    "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/assets/rewards/kiwi/1612/augment_forgedbythemaster.png",
-    "kind": "Augment",
-    "name": "Forged By The Master",
-    "augmentId": 2127,
-    "tier": "Silver",
-    "xp": 150
-   },
-   {
-    "level": 5,
-    "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/assets/rewards/kiwi/blessedcard.png",
-    "kind": "Reward",
-    "name": "Blessed Card+",
-    "xp": 150,
-    "note": "A better chance of the ARAM Blessing in champion select."
-   },
-   {
-    "level": 6,
-    "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/assets/rewards/kiwi/1612/augment_fishbait.png",
-    "kind": "Augment",
-    "name": "Shark Bait",
-    "augmentId": 2032,
-    "tier": "Gold",
-    "xp": 150
-   },
-   {
-    "level": 7,
-    "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/assets/ux/summonericons/7142.jpg",
-    "kind": "Icon",
-    "name": "Poro Blaster Icon",
-    "xp": 200
-   },
-   {
-    "level": 8,
-    "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/assets/rewards/kiwi/1612/augment_hellbent.png",
-    "kind": "Augment",
-    "name": "Hellbent",
-    "augmentId": 2107,
-    "tier": "Prismatic",
-    "xp": 200
-   },
-   {
-    "level": 9,
-    "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/assets/rewards/kiwi/abilityaugments.png",
-    "kind": "Reward",
-    "name": "Ability Augment+",
-    "xp": 200,
-    "note": "A better chance of an Ability Augment at the start of the game."
-   },
-   {
-    "level": 10,
-    "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/assets/rewards/kiwi/1612/augment_sharktempest.png",
-    "kind": "Augment",
-    "name": "Shark Tempest",
-    "augmentId": 2034,
-    "tier": "Gold",
-    "xp": 200
-   },
-   {
-    "level": 11,
-    "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/assets/ux/summonericons/7143.jpg",
-    "kind": "Icon",
-    "name": "Dead By Ping Icon",
-    "xp": 200
-   },
-   {
-    "level": 12,
-    "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/assets/rewards/kiwi/1612/augment_spiritbomb.png",
-    "kind": "Augment",
-    "name": "Spirit Bomb",
-    "augmentId": 2104,
-    "tier": "Prismatic",
-    "xp": 200
-   },
-   {
-    "level": 13,
-    "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/assets/rewards/kiwi/rainbowcrystalcandy.png",
-    "kind": "Reward",
-    "name": "Rainbow Crystal Candy",
-    "xp": 250,
-    "note": "A new kind of Poro Snax."
-   },
-   {
-    "level": 14,
-    "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/assets/rewards/kiwi/1612/augment_natureishealing.png",
-    "kind": "Augment",
-    "name": "Nature is Healing",
-    "augmentId": 2043,
-    "tier": "Gold",
-    "xp": 250
-   },
-   {
-    "level": 15,
-    "icon": null,
-    "kind": "Emote",
-    "name": "Shark Snack",
-    "xp": 250
-   },
-   {
-    "level": 16,
-    "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/assets/rewards/kiwi/1612/augment_surgefield.png",
-    "kind": "Augment",
-    "name": "Surge Field",
-    "augmentId": 2134,
-    "tier": "Prismatic",
-    "xp": 250
-   },
-   {
-    "level": 17,
-    "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/assets/ux/summonericons/7145.jpg",
-    "kind": "Icon",
-    "name": "On Fire Icon",
-    "xp": 250
-   },
-   {
-    "level": 18,
-    "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/assets/rewards/kiwi/1612/augment_questburstingteeth.png",
-    "kind": "Augment",
-    "name": "Tooth Fairy",
-    "augmentId": 2083,
-    "tier": "Gold",
-    "xp": 250
-   },
-   {
-    "level": 19,
-    "icon": null,
-    "kind": "Emote",
-    "name": "Queen Of The Dead",
-    "xp": 350
-   },
-   {
-    "level": 20,
-    "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/assets/rewards/kiwi/1612/augment_squishyslappygrab.png",
-    "kind": "Augment",
-    "name": "Squishy Slappy Grab",
-    "augmentId": 2115,
-    "tier": "Prismatic",
-    "xp": 350
-   },
-   {
-    "level": 21,
-    "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/assets/rewards/kiwi/demaciacrown.png",
-    "kind": "Reward",
-    "name": "Demacia Crown",
-    "xp": 350,
-    "note": "A new hat."
-   },
-   {
-    "level": 22,
-    "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/assets/rewards/kiwi/1612/augment_endlessdecimation.png",
-    "kind": "Augment",
-    "name": "Endless Decimation",
-    "augmentId": 2091,
-    "tier": "Gold",
-    "xp": 350
-   },
-   {
-    "level": 23,
-    "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/assets/ux/summonericons/7146.jpg",
-    "kind": "Icon",
-    "name": "Celebration Selfie Icon",
-    "xp": 350
-   },
-   {
-    "level": 24,
-    "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/assets/rewards/kiwi/1612/augment_dropbear.png",
-    "kind": "Augment",
-    "name": "DropBear",
-    "augmentId": 2031,
-    "tier": "Prismatic",
-    "xp": 350
-   },
-   {
-    "level": 25,
-    "icon": null,
-    "kind": "Emote",
-    "name": "Loading...",
-    "xp": 400
-   },
-   {
-    "level": 26,
-    "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/assets/rewards/kiwi/1612/augment_snowbomb.png",
-    "kind": "Augment",
-    "name": "Snowblast",
-    "augmentId": 2080,
-    "tier": "Gold",
-    "xp": 400
-   },
-   {
-    "level": 27,
-    "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/assets/ux/summonericons/7144.jpg",
-    "kind": "Icon",
-    "name": "Droppybara Icon",
-    "xp": 400
-   },
-   {
-    "level": 28,
-    "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/assets/rewards/kiwi/1612/augment_skipthebasics.png",
-    "kind": "Augment",
-    "name": "Ult Bot",
-    "augmentId": 2118,
-    "tier": "Prismatic",
-    "xp": 400
-   },
-   {
-    "level": 29,
-    "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/assets/seasons/images/generic/achievement_title_212x212.png",
-    "kind": "Title",
-    "name": "Agent of Chaos",
-    "xp": 400
-   },
-   {
-    "level": 30,
-    "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/assets/rewards/kiwi/1612/augment_questporocharge.png",
-    "kind": "Augment",
-    "name": "Poro Stampede",
-    "augmentId": 2046,
-    "tier": "Prismatic",
-    "xp": 400
-   },
-   {
-    "level": 31,
-    "icon": null,
-    "kind": "Emote",
-    "name": "It's Okay, I'm Okay",
-    "xp": 450
-   },
-   {
-    "level": 32,
-    "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/assets/rewards/kiwi/1612/augment_whenthedarknesscomes.png",
-    "kind": "Augment",
-    "name": "Dimension Shift",
-    "augmentId": 2063,
-    "tier": "Prismatic",
-    "xp": 450
-   }
-  ],
-  "totalXp": 9000,
-  "objectives": [
-   {
-    "text": "Play Mayhem",
-    "xp": 1,
-    "per": "minute"
-   },
-   {
-    "text": "Play a game as a Marksman or Tank",
-    "xp": 60,
-    "per": "day"
-   },
-   {
-    "text": "Play 6 games",
-    "xp": 300,
-    "per": "week"
-   },
-   {
-    "text": "Reroll augments 20 times",
-    "xp": 450,
-    "per": "once"
-   }
-  ],
-  "guaranteed": "A newly unlocked Gold or Prismatic augment is sure to be offered in your next game if it fits the draft."
- },
+ "track": null,
  "story": [
   {
    "date": "2025-10",

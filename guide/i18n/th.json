@@ -234,8 +234,6 @@
  "Damage Reduction Per": "ลดความเสียหายต่อ",
  "Fortification Timer": "ตัวจับเวลาเสริมป้อม",
  "Damage To Max Health Ratio": "อัตราส่วนความเสียหายต่อพลังชีวิตสูงสุด",
- "AD Per Statue": "AD ต่อรูปปั้น",
- "Base AD Bonus": "โบนัส AD พื้นฐาน",
  "Buff Duration": "ระยะเวลาบัฟ",
  "Ranged Damage Multiplier": "ตัวคูณความเสียหายระยะไกล",
  "Burn Percent Health Damage": "ความเสียหายเผาไหม้ตาม % พลังชีวิต",
@@ -254,5 +252,7 @@
  "Melee Item Calc Value B": "ค่าคำนวณไอเทมระยะประชิด B",
  "Ranged Item Calc Value B": "ค่าคำนวณไอเทมระยะไกล B",
  "Base OOCMS": "ความเร็วเคลื่อนที่พื้นฐานนอกการต่อสู้",
- "Crit Per Stack Melee": "คริติคอลต่อสแต็ก (ระยะประชิด)"
+ "Crit Per Stack Melee": "คริติคอลต่อสแต็ก (ระยะประชิด)",
+ "AD Per Statue Melee": "AD ต่อรูปปั้น (ระยะประชิด)",
+ "AD Per Statue Ranged Mult": "ตัวคูณ AD ต่อรูปปั้น (ระยะไกล)"
 }

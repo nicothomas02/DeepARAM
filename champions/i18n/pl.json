@@ -173,7 +173,6 @@
  "Mushroom Duration": "Czas trwania grzyba",
  "Slow Amount": "Siła spowolnienia",
  "Souls To Gain On Pick Up": "Dusze za zebranie",
- "t AD Ratio Max": "Przelicznik całkowitego AD (maks.)",
  "New AS Cap": "Nowy limit prędkości ataku",
  "d Takedown Stacks": "Ładunki za udział w zabójstwie",
  "Initial Burst AP Ratio": "Przelicznik AP pierwszego wybuchu",
@@ -214,5 +213,6 @@
  "Shurima": "Shurima",
  "Targon": "Targon",
  "Void": "Pustka",
- "Zaun": "Zaun"
+ "Zaun": "Zaun",
+ "t AD Ratio Min": "Przelicznik całkowitego AD (min.)"
 }

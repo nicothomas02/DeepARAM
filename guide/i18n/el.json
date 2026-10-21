@@ -234,8 +234,6 @@
  "Damage Reduction Per": "Μείωση ζημιάς ανά μονάδα",
  "Fortification Timer": "Χρόνος οχύρωσης",
  "Damage To Max Health Ratio": "Αναλογία ζημιάς προς μέγιστη ζωή",
- "AD Per Statue": "Ζημιά Επίθεσης ανά άγαλμα",
- "Base AD Bonus": "Βασικό μπόνους Ζημιάς Επίθεσης",
  "Buff Duration": "Διάρκεια ενίσχυσης",
  "Ranged Damage Multiplier": "Πολλαπλασιαστής ζημιάς (εξ αποστάσεως)",
  "Burn Percent Health Damage": "Ζημιά καψίματος (% ζωής)",
@@ -254,5 +252,7 @@
  "Melee Item Calc Value B": "Τιμή Β (σώμα με σώμα)",
  "Ranged Item Calc Value B": "Τιμή Β (εξ αποστάσεως)",
  "Base OOCMS": "Βασική Ταχύτητα Κίνησης εκτός μάχης",
- "Crit Per Stack Melee": "Καίριο ανά στοίβα (σώμα με σώμα)"
+ "Crit Per Stack Melee": "Καίριο ανά στοίβα (σώμα με σώμα)",
+ "AD Per Statue Melee": "Ζημιά Επίθεσης ανά άγαλμα (κοντινής εμβέλειας)",
+ "AD Per Statue Ranged Mult": "Πολλαπλασιαστής Ζημιάς Επίθεσης ανά άγαλμα (μακρινής εμβέλειας)"
 }

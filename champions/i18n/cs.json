@@ -173,7 +173,6 @@
  "Mushroom Duration": "Trvání houby",
  "Slow Amount": "Síla zpomalení",
  "Souls To Gain On Pick Up": "Duše za sebrání",
- "t AD Ratio Max": "Škálování celkového AD (max.)",
  "New AS Cap": "Nový limit rychlosti útoků",
  "d Takedown Stacks": "Stupně efektu za účast na zabití",
  "Initial Burst AP Ratio": "Škálování AP prvního výbuchu",
@@ -214,5 +213,6 @@
  "Shurima": "Shurima",
  "Targon": "Targon",
  "Void": "Prázdnota",
- "Zaun": "Zaun"
+ "Zaun": "Zaun",
+ "t AD Ratio Min": "Škálování celkového AD (min.)"
 }

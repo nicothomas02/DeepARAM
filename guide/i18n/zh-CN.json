@@ -234,8 +234,6 @@
  "Damage Reduction Per": "每次伤害减免",
  "Fortification Timer": "强化计时",
  "Damage To Max Health Ratio": "伤害转最大生命值比例",
- "AD Per Statue": "每座雕像攻击力",
- "Base AD Bonus": "基础攻击力加成",
  "Buff Duration": "增益持续时间",
  "Ranged Damage Multiplier": "远程伤害倍率",
  "Burn Percent Health Damage": "灼烧百分比生命值伤害",
@@ -254,5 +252,7 @@
  "Melee Item Calc Value B": "近战装备计算值 B",
  "Ranged Item Calc Value B": "远程装备计算值 B",
  "Base OOCMS": "脱战基础移动速度",
- "Crit Per Stack Melee": "每层暴击几率（近战）"
+ "Crit Per Stack Melee": "每层暴击几率（近战）",
+ "AD Per Statue Melee": "每座雕像攻击力（近战）",
+ "AD Per Statue Ranged Mult": "每座雕像攻击力倍率（远程）"
 }

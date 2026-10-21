@@ -173,7 +173,6 @@
  "Mushroom Duration": "Длительность грибов",
  "Slow Amount": "Сила замедления",
  "Souls To Gain On Pick Up": "Душ за подбор",
- "t AD Ratio Max": "Макс. коэф. силы атаки",
  "New AS Cap": "Новый предел скорости атаки",
  "d Takedown Stacks": "Заряды за участие в убийстве",
  "Initial Burst AP Ratio": "Коэф. силы умений первого взрыва",
@@ -214,5 +213,6 @@
  "Shurima": "Шурима",
  "Targon": "Таргон",
  "Void": "Бездна",
- "Zaun": "Заун"
+ "Zaun": "Заун",
+ "t AD Ratio Min": "Мин. коэф. силы атаки"
 }

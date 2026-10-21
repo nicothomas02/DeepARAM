@@ -173,7 +173,6 @@
  "Mushroom Duration": "蘑菇持續時間",
  "Slow Amount": "緩速量",
  "Souls To Gain On Pick Up": "拾取獲得的靈魂",
- "t AD Ratio Max": "總物攻係數（最大）",
  "New AS Cap": "新攻速上限",
  "d Takedown Stacks": "參與擊殺層數",
  "Initial Burst AP Ratio": "首次爆發魔攻係數",
@@ -214,5 +213,6 @@
  "Shurima": "蘇瑞瑪",
  "Targon": "巨神峰",
  "Void": "虛空",
- "Zaun": "佐恩"
+ "Zaun": "佐恩",
+ "t AD Ratio Min": "總物攻係數（最小）"
 }
