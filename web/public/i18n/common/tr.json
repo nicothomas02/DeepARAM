@@ -204,5 +204,7 @@
  "Time dead": "Ölü kalma süresi",
  "CS": "CS",
  "{v} mitigated/min": "{v} hafifletilen/dk",
- "{v} CS": "{v} CS"
+ "{v} CS": "{v} CS",
+ "This set": "Bu set",
+ "What every patch changed, grouped by set: augment tuning and the champions that moved most.": "Her yamanın değiştirdikleri, sete göre: güçlendirme ayarları ve en çok hareket eden şampiyonlar."
 }

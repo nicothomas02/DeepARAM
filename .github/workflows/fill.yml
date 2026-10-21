@@ -30,6 +30,16 @@ jobs:
         run: |
           make -C simulator mayhem_sim
           python3 data/estimates/power_curve.py
+      - name: Keep this patch's item numbers (Tier List set ranges combine them)
+        run: |
+          python3 - <<'PY'
+          import json, os
+          d = json.load(open("data/estimates/estimates.json"))
+          os.makedirs("data/estimates/history", exist_ok=True)
+          with open(f"data/estimates/history/{d['patch']}.json", "w") as f:
+              json.dump({"patch": d["patch"], "items": d["items"]}, f, separators=(",", ":"))
+              f.write("\n")
+          PY
       - name: Commit changes
         run: |
           git config user.name "github-actions[bot]"

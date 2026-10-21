@@ -24,5 +24,11 @@
  "Gold": "Gold",
  "Prismatic": "Prismatic",
  "{n} pts": "{n} poin",
- "Patches": "Patch"
+ "Patches": "Patch",
+ "Launch": "Peluncuran",
+ "Set 1": "Set 1",
+ "Set 2": "Set 2",
+ "New set": "Set baru",
+ "{n} augments changed": "{n} augment berubah",
+ "augments changed": "augment berubah"
 }

@@ -204,5 +204,7 @@
  "Time dead": "Χρόνος νεκρού",
  "CS": "CS",
  "{v} mitigated/min": "{v} μετριάστηκε/λεπτό",
- "{v} CS": "{v} CS"
+ "{v} CS": "{v} CS",
+ "This set": "Αυτό το σετ",
+ "What every patch changed, grouped by set: augment tuning and the champions that moved most.": "Τι άλλαξε κάθε patch, ανά σετ: ρυθμίσεις ενισχύσεων και οι ήρωες που κινήθηκαν περισσότερο."
 }

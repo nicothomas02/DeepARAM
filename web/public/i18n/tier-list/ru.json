@@ -77,5 +77,9 @@
  "The strongest champion you could have locked in was {name}.": "Самым сильным чемпионом, которого можно было взять, был {name}.",
  "You locked in the strongest champion you could reach.": "Ты взял самого сильного доступного чемпиона.",
  "Your team's average live win rate is {wr}.": "Средний процент побед твоей команды в текущем патче — {wr}.",
- "Champ select the way ARAM runs it: two champion cards, sometimes a third from a Blessing. Reroll for new cards and your old ones go to the shared bench, where anyone on your team can grab them. Lock in to see how your pick and team rank on the live patch.": "Выбор чемпионов как в ARAM: две карты чемпионов, иногда третья от Благословения. Перевыбери, чтобы получить новые карты, а старые уйдут на общую скамейку, откуда их может забрать любой союзник. Подтверди выбор и узнай, как твой чемпион и команда выглядят в текущем патче."
+ "Champ select the way ARAM runs it: two champion cards, sometimes a third from a Blessing. Reroll for new cards and your old ones go to the shared bench, where anyone on your team can grab them. Lock in to see how your pick and team rank on the live patch.": "Выбор чемпионов как в ARAM: две карты чемпионов, иногда третья от Благословения. Перевыбери, чтобы получить новые карты, а старые уйдут на общую скамейку, откуда их может забрать любой союзник. Подтверди выбор и узнай, как твой чемпион и команда выглядят в текущем патче.",
+ "Launch": "Запуск",
+ "Set 1": "Сет 1",
+ "Set 2": "Сет 2",
+ "This set ({set})": "Этот сет ({set})"
 }

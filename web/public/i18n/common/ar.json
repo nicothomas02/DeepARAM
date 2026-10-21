@@ -204,5 +204,7 @@
  "Time dead": "وقت الموت",
  "CS": "القتل بالجنود",
  "{v} mitigated/min": "{v} مخفف/د",
- "{v} CS": "{v} CS"
+ "{v} CS": "{v} CS",
+ "This set": "هذه المجموعة",
+ "What every patch changed, grouped by set: augment tuning and the champions that moved most.": "ما غيّره كل إصدار، مجمّعًا حسب المجموعة: ضبط التعزيزات والأبطال الأكثر تحركًا."
 }

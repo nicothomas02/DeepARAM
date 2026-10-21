@@ -26,7 +26,7 @@ export type Settings = {
   /** Reopen the Tier List the way it was left. */
   remember: boolean;
   /** The Tier List's starting patch range. */
-  tierRange: "live" | "last3" | "all";
+  tierRange: "live" | "set" | "last3" | "all";
   /** "simple" hides fine print and expert controls site-wide (html[data-view]); "detailed" shows everything. */
   view: "simple" | "detailed";
 };

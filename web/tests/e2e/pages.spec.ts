@@ -307,3 +307,22 @@ test("Draft practice deals champion cards, rerolls onto the bench and locks in",
   await expect(draft.locator(".cs-result")).toContainText("average live win rate");
   await expect(draft.getByRole("button", { name: "Play again" })).toBeVisible();
 });
+
+test("patch history groups by set, recaps skip the augment pool, and the champion list offers the set", async ({ page }) => {
+  await page.goto("/patches");
+  await expect(page.locator(".recap-set-head").first()).toContainText("Set 2");
+  await expect(page.locator(".recap-set-head", { hasText: "Launch" })).toHaveCount(1);
+  await expect(page.locator("body")).not.toContainText("added ·");
+  await page.locator(".recap-row").first().click();
+  await expect(page.locator(".champ-hero .eyebrow")).toContainText("Set 2");
+  await expect(page.locator("main")).not.toContainText("Augments added");
+
+  await page.goto("/tier-list");
+  const set = page.getByRole("button", { name: /This set/ });
+  await expect(async () => {
+    await set.click();
+    await expect(page).toHaveURL(/patches=16\.12(,|%2C)/, { timeout: 1000 });
+  }).toPass();
+  await page.locator(".patch-pick > summary").click();
+  await expect(page.locator(".patch-pick-set-head").first()).toContainText("Set 2");
+});

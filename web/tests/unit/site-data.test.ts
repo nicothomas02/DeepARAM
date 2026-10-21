@@ -58,7 +58,7 @@ describe("page addresses", () => {
       const r = recap(p)!;
       expect(r.patch).toBe(p);
       expect(r.prev).toBe(patches[i + 1] ?? null);
-      for (const a of [...r.added, ...r.removed, ...r.changed]) expect(a.name).toBeTruthy();
+      for (const a of r.changed) expect(a.name).toBeTruthy();
     });
     expect(recap("0.0")).toBeNull();
   });

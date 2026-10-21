@@ -204,5 +204,7 @@
  "Time dead": "死亡時間",
  "CS": "補刀",
  "{v} mitigated/min": "{v} 減免/分鐘",
- "{v} CS": "{v} 補刀"
+ "{v} CS": "{v} 補刀",
+ "This set": "本賽季",
+ "What every patch changed, grouped by set: augment tuning and the champions that moved most.": "依賽季分組的每個版本改動：強化調整，以及變化最大的英雄。"
 }

@@ -77,5 +77,9 @@
  "The strongest champion you could have locked in was {name}.": "확정할 수 있었던 가장 강한 챔피언은 {name}였습니다.",
  "You locked in the strongest champion you could reach.": "고를 수 있는 가장 강한 챔피언을 확정했습니다.",
  "Your team's average live win rate is {wr}.": "현재 패치에서 우리 팀의 평균 승률은 {wr}입니다.",
- "Champ select the way ARAM runs it: two champion cards, sometimes a third from a Blessing. Reroll for new cards and your old ones go to the shared bench, where anyone on your team can grab them. Lock in to see how your pick and team rank on the live patch.": "칼바람 나락의 챔피언 선택 그대로: 챔피언 카드 두 장, 가끔 축복으로 세 번째 카드가 나옵니다. 다시 뽑으면 새 카드를 받고 기존 카드는 공유 대기석으로 가며, 팀원 누구나 가져갈 수 있습니다. 확정하면 현재 패치에서 내 픽과 팀의 순위를 볼 수 있습니다."
+ "Champ select the way ARAM runs it: two champion cards, sometimes a third from a Blessing. Reroll for new cards and your old ones go to the shared bench, where anyone on your team can grab them. Lock in to see how your pick and team rank on the live patch.": "칼바람 나락의 챔피언 선택 그대로: 챔피언 카드 두 장, 가끔 축복으로 세 번째 카드가 나옵니다. 다시 뽑으면 새 카드를 받고 기존 카드는 공유 대기석으로 가며, 팀원 누구나 가져갈 수 있습니다. 확정하면 현재 패치에서 내 픽과 팀의 순위를 볼 수 있습니다.",
+ "Launch": "출시",
+ "Set 1": "세트 1",
+ "Set 2": "세트 2",
+ "This set ({set})": "이번 세트 ({set})"
 }

@@ -8,6 +8,7 @@ import { champStats, TIER_HELP, type PatchRow } from "@/lib/tiers";
 import Skeleton from "@/components/Skeleton";
 import { tagsByKind, tagStyle, type TagInfo } from "@/lib/tag-info";
 import { useT } from "./I18n";
+import { bySet } from "@/lib/sets";
 import { patchName } from "@/lib/patch-name";
 
 // Champion tier list over a chosen patch range: the live patch (default), any set of patches, or all time.
@@ -109,7 +110,7 @@ export default function ChampionTiers({ rows: initial, patches, tags, tagInfo, g
     const listed = fromUrl === "all" ? patches : (fromUrl?.split(",").filter((p) => patches.includes(p)) ?? []);
     if (listed.length) return setPicked(new Set(listed));
     const r = loadSettings().tierRange;
-    if (r === "last3") setPicked(new Set(patches.slice(-3)));
+    if (r === "set" || r === "last3") setPicked(new Set(bySet(patches).at(-1)!.patches));
     else if (r === "all") setPicked(new Set(patches));
   }, [patches]);
 
@@ -216,11 +217,22 @@ export default function ChampionTiers({ rows: initial, patches, tags, tagInfo, g
     return () => document.removeEventListener("pointerdown", close);
   }, []);
 
+  // Patches by Mayhem set, newest set first; the augment pool only changes between sets.
+  const groups = bySet(patches).reverse();
   const presets: [string, string[]][] = [
     [t("Live patch ({patch})", { patch: patchName(live) }), [live]],
-    [t("Last 3 patches"), patches.slice(-3)],
+    ...(groups[0].patches.length > 1 ? [[t("This set ({set})", { set: t(groups[0].set.name) }), groups[0].patches] as [string, string[]]] : []),
     [t("All time"), patches],
   ];
+  const toggleSet = (list: string[]) => {
+    const all = list.every((p) => picked.has(p));
+    const next = new Set(picked);
+    for (const p of list) {
+      if (all) next.delete(p);
+      else next.add(p);
+    }
+    choose(next.size ? next : new Set([live]));
+  };
   const showMulti = picked.size > 1;
   const showChange = !showMulti && Boolean(before);
   const moversOn = sort === MOVERS && same([live]);
@@ -244,11 +256,26 @@ export default function ChampionTiers({ rows: initial, patches, tags, tagInfo, g
         <details className="patch-pick" ref={pickRef}>
           <summary>{one ? t("Patch {patch}", { patch: patchName(one) }) : t("{n} patches", { n: picked.size })}</summary>
           <div className="patch-pick-list" role="group" aria-label={t("Patches")}>
-            {[...patches].reverse().map((p) => (
-              <label key={p}>
-                <input type="checkbox" checked={picked.has(p)} onChange={() => toggle(p)} />
-                {patchName(p)}
-              </label>
+            {groups.map(({ set, patches: list }) => (
+              <div key={set.name} className="patch-pick-set" role="group" aria-label={t(set.name)}>
+                <label className="patch-pick-set-head">
+                  <input
+                    type="checkbox"
+                    checked={list.every((p) => picked.has(p))}
+                    ref={(el) => {
+                      if (el) el.indeterminate = !list.every((p) => picked.has(p)) && list.some((p) => picked.has(p));
+                    }}
+                    onChange={() => toggleSet(list)}
+                  />
+                  {t(set.name)}
+                </label>
+                {[...list].reverse().map((p) => (
+                  <label key={p}>
+                    <input type="checkbox" checked={picked.has(p)} onChange={() => toggle(p)} />
+                    {patchName(p)}
+                  </label>
+                ))}
+              </div>
             ))}
           </div>
         </details>

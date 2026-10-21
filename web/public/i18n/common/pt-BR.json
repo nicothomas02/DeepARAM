@@ -204,5 +204,7 @@
  "Time dead": "Tempo morto",
  "CS": "CS",
  "{v} mitigated/min": "{v} mitigado/min",
- "{v} CS": "{v} CS"
+ "{v} CS": "{v} CS",
+ "This set": "Este conjunto",
+ "What every patch changed, grouped by set: augment tuning and the champions that moved most.": "O que cada patch mudou, agrupado por conjunto: ajustes de aprimoramentos e os campeões que mais variaram."
 }
