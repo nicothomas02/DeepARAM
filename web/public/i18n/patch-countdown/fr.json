@@ -1,8 +1,6 @@
 {
  "Patch {patch} comes out in {n} days": "Le patch {patch} sort dans {n} jours",
  "Patch {patch} comes out tomorrow": "Le patch {patch} sort demain",
- "Patch {patch} is out today": "Le patch {patch} sort aujourd'hui",
- "Today": "Aujourd'hui",
  "day": "jour",
  "days": "jours",
  "Patch {patch} comes out in under 24 hours": "Le patch {patch} sort dans moins de 24 heures"

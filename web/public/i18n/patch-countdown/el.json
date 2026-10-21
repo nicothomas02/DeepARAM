@@ -1,8 +1,6 @@
 {
  "Patch {patch} comes out in {n} days": "Η ενημέρωση {patch} κυκλοφορεί σε {n} ημέρες",
  "Patch {patch} comes out tomorrow": "Η ενημέρωση {patch} κυκλοφορεί αύριο",
- "Patch {patch} is out today": "Η ενημέρωση {patch} κυκλοφορεί σήμερα",
- "Today": "Σήμερα",
  "day": "ημέρα",
  "days": "ημέρες",
  "Patch {patch} comes out in under 24 hours": "Το patch {patch} κυκλοφορεί σε λιγότερο από 24 ώρες"

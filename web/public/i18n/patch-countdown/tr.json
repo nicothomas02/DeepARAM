@@ -1,8 +1,6 @@
 {
  "Patch {patch} comes out in {n} days": "{patch} yaması {n} gün sonra çıkıyor",
  "Patch {patch} comes out tomorrow": "{patch} yaması yarın çıkıyor",
- "Patch {patch} is out today": "{patch} yaması bugün çıktı",
- "Today": "Bugün",
  "day": "gün",
  "days": "gün",
  "Patch {patch} comes out in under 24 hours": "{patch} yaması 24 saatten kısa sürede çıkıyor"

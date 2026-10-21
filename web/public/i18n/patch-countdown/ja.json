@@ -1,8 +1,6 @@
 {
  "Patch {patch} comes out in {n} days": "パッチ{patch}はあと{n}日で配信",
  "Patch {patch} comes out tomorrow": "パッチ{patch}は明日配信",
- "Patch {patch} is out today": "パッチ{patch}は本日配信",
- "Today": "今日",
  "day": "日",
  "days": "日",
  "Patch {patch} comes out in under 24 hours": "パッチ{patch}は24時間以内に配信"

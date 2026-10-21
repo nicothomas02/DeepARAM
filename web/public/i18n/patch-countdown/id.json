@@ -1,8 +1,6 @@
 {
  "Patch {patch} comes out in {n} days": "Patch {patch} rilis dalam {n} hari",
  "Patch {patch} comes out tomorrow": "Patch {patch} rilis besok",
- "Patch {patch} is out today": "Patch {patch} rilis hari ini",
- "Today": "Hari ini",
  "day": "hari",
  "days": "hari",
  "Patch {patch} comes out in under 24 hours": "Patch {patch} rilis dalam kurang dari 24 jam"

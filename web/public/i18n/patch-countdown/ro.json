@@ -1,8 +1,6 @@
 {
  "Patch {patch} comes out in {n} days": "Patchul {patch} apare peste {n} zile",
  "Patch {patch} comes out tomorrow": "Patchul {patch} apare mâine",
- "Patch {patch} is out today": "Patchul {patch} apare astăzi",
- "Today": "Astăzi",
  "day": "zi",
  "days": "zile",
  "Patch {patch} comes out in under 24 hours": "Patch-ul {patch} apare în mai puțin de 24 de ore"

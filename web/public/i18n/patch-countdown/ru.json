@@ -1,8 +1,6 @@
 {
  "Patch {patch} comes out in {n} days": "Патч {patch} выйдет через {n} дн.",
  "Patch {patch} comes out tomorrow": "Патч {patch} выйдет завтра",
- "Patch {patch} is out today": "Патч {patch} выходит сегодня",
- "Today": "Сегодня",
  "day": "день",
  "days": "дн.",
  "Patch {patch} comes out in under 24 hours": "Патч {patch} выйдет менее чем через 24 часа"

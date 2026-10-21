@@ -6,7 +6,7 @@ import { patchName } from "@/lib/patch-name";
 import { useLang, useT } from "./I18n";
 
 // Countdown to the next patch on Riot's schedule. The server renders it as of the build (asOf, so the first
-// browser render matches it); the browser recomputes it on load and every minute so a cached page stays right. Its wording is in /i18n/patch-countdown/.
+// browser render matches it); the browser recomputes it on load and every minute so a cached page stays right, and moves on to the next patch once one comes out. Its wording is in /i18n/patch-countdown/.
 export default function PatchCountdown({ schedule, asOf, note }: { schedule: PatchSchedule; asOf: string; note?: React.ReactNode }) {
   const [next, setNext] = useState<NextPatch | null>(() => nextPatch(schedule, new Date(asOf)));
   const t = useT("patch-countdown");
@@ -30,9 +30,7 @@ export default function PatchCountdown({ schedule, asOf, note }: { schedule: Pat
   return (
     <div className="patch-countdown" role="status">
       <span className="patch-countdown-days">
-        {next.out ? (
-          <b>{t("Today")}</b>
-        ) : next.days === 0 ? (
+        {next.days === 0 ? (
           <b>{hours}</b>
         ) : (
           <>
@@ -43,7 +41,7 @@ export default function PatchCountdown({ schedule, asOf, note }: { schedule: Pat
       </span>
       <span className="patch-countdown-text">
         <b>
-          {t(next.out ? "Patch {patch} is out today" : next.days === 0 ? "Patch {patch} comes out in under 24 hours" : next.days === 1 ? "Patch {patch} comes out tomorrow" : "Patch {patch} comes out in {n} days", v)}
+          {t(next.days === 0 ? "Patch {patch} comes out in under 24 hours" : next.days === 1 ? "Patch {patch} comes out tomorrow" : "Patch {patch} comes out in {n} days", v)}
         </b>
         <span className="sub">{when}</span>
         {note && <span className="sub">{note}</span>}
