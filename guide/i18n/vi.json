@@ -234,8 +234,6 @@
  "Damage Reduction Per": "Giảm sát thương mỗi",
  "Fortification Timer": "Thời gian củng cố",
  "Damage To Max Health Ratio": "Tỉ lệ sát thương theo Máu tối đa",
- "AD Per Statue": "SMCK mỗi bức tượng",
- "Base AD Bonus": "SMCK cộng thêm cơ bản",
  "Buff Duration": "Thời gian hiệu ứng",
  "Ranged Damage Multiplier": "Hệ số sát thương đánh xa",
  "Burn Percent Health Damage": "Sát thương thiêu đốt theo % Máu",
@@ -254,5 +252,7 @@
  "Melee Item Calc Value B": "Giá trị tính trang bị cận chiến B",
  "Ranged Item Calc Value B": "Giá trị tính trang bị đánh xa B",
  "Base OOCMS": "Tốc Độ Di Chuyển cơ bản ngoài giao tranh",
- "Crit Per Stack Melee": "Chí mạng mỗi điểm cộng dồn (cận chiến)"
+ "Crit Per Stack Melee": "Chí mạng mỗi điểm cộng dồn (cận chiến)",
+ "AD Per Statue Melee": "SMCK mỗi bức tượng (cận chiến)",
+ "AD Per Statue Ranged Mult": "Hệ số SMCK mỗi bức tượng (đánh xa)"
 }

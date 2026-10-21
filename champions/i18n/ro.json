@@ -173,7 +173,6 @@
  "Mushroom Duration": "Durata ciupercilor",
  "Slow Amount": "Valoarea încetinirii",
  "Souls To Gain On Pick Up": "Suflete câștigate la colectare",
- "t AD Ratio Max": "Coeficient AD total max.",
  "New AS Cap": "Nouă limită viteză de atac",
  "d Takedown Stacks": "Cumuluri per eliminare",
  "Initial Burst AP Ratio": "Coeficient AP explozie inițială",
@@ -214,5 +213,6 @@
  "Shurima": "Shurima",
  "Targon": "Targon",
  "Void": "Creaturi din Vid",
- "Zaun": "Zaun"
+ "Zaun": "Zaun",
+ "t AD Ratio Min": "Coeficient AD total min."
 }

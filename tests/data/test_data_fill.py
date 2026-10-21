@@ -61,4 +61,5 @@ def test_estimates_file_shape():
         for s in c["spells"]:
             assert m.FLASH in s["ids"] and len(s["ids"]) == 2 and m.EXHAUST not in s["ids"]
             assert s["win_rate"] is None
-        assert sum(s["pick_rate"] for s in c["spells"]) <= 1.0001
+        # each pick rate is rounded to 4 decimals, so the sum can overshoot by half a unit per spell
+        assert sum(s["pick_rate"] for s in c["spells"]) <= 1 + 0.00005 * len(c["spells"])

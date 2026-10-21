@@ -173,7 +173,6 @@
  "Mushroom Duration": "キノコの持続時間",
  "Slow Amount": "スロウ量",
  "Souls To Gain On Pick Up": "拾ったときに得る魂",
- "t AD Ratio Max": "合計攻撃力反映率（最大）",
  "New AS Cap": "新しい攻撃速度上限",
  "d Takedown Stacks": "キル/アシストのスタック",
  "Initial Burst AP Ratio": "初撃バーストの魔力反映率",
@@ -214,5 +213,6 @@
  "Shurima": "シュリーマ",
  "Targon": "ターゴン",
  "Void": "ヴォイド",
- "Zaun": "ゾウン"
+ "Zaun": "ゾウン",
+ "t AD Ratio Min": "合計攻撃力反映率（最小）"
 }

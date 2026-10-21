@@ -173,7 +173,6 @@
  "Mushroom Duration": "버섯 지속시간",
  "Slow Amount": "둔화량",
  "Souls To Gain On Pick Up": "획득 시 얻는 영혼",
- "t AD Ratio Max": "총 공격력 계수(최대)",
  "New AS Cap": "새 공격 속도 상한",
  "d Takedown Stacks": "처치 관여 중첩",
  "Initial Burst AP Ratio": "첫 폭발 주문력 계수",
@@ -214,5 +213,6 @@
  "Shurima": "슈리마",
  "Targon": "타곤",
  "Void": "공허",
- "Zaun": "자운"
+ "Zaun": "자운",
+ "t AD Ratio Min": "총 공격력 계수(최소)"
 }

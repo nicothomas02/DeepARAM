@@ -9,6 +9,7 @@ describe("Mayhem sets", () => {
     expect(setOf("16.11").name).toBe("Set 1");
     expect(setOf("16.12").name).toBe("Set 2");
     expect(setOf("16.20").name).toBe("Set 2");
+    expect(setOf("16.21").name).toBe("Set 3");
   });
   it("groups patches by set in the order given", () => {
     expect(bySet(["16.1", "16.2", "16.3", "16.12", "16.13"]).map((g) => [g.set.name, g.patches])).toEqual([

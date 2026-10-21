@@ -173,7 +173,6 @@
  "Mushroom Duration": "ระยะเวลาเห็ด",
  "Slow Amount": "ปริมาณสโลว์",
  "Souls To Gain On Pick Up": "วิญญาณที่ได้เมื่อเก็บ",
- "t AD Ratio Max": "อัตราส่วน AD รวมสูงสุด",
  "New AS Cap": "ขีดจำกัดความเร็วโจมตีใหม่",
  "d Takedown Stacks": "สแต็กเมื่อมีส่วนร่วมสังหาร",
  "Initial Burst AP Ratio": "อัตราส่วน AP ระเบิดครั้งแรก",
@@ -214,5 +213,6 @@
  "Shurima": "Shurima",
  "Targon": "Targon",
  "Void": "Void",
- "Zaun": "Zaun"
+ "Zaun": "Zaun",
+ "t AD Ratio Min": "อัตราส่วน AD รวมต่ำสุด"
 }

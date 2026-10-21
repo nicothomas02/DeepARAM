@@ -173,7 +173,6 @@
  "Mushroom Duration": "Thời gian tồn tại nấm",
  "Slow Amount": "Mức làm chậm",
  "Souls To Gain On Pick Up": "Linh hồn nhận được khi nhặt",
- "t AD Ratio Max": "Tỉ lệ tổng SMCK tối đa",
  "New AS Cap": "Giới hạn Tốc Độ Đánh mới",
  "d Takedown Stacks": "Điểm cộng dồn khi hạ gục",
  "Initial Burst AP Ratio": "Tỉ lệ SMPT đợt nổ đầu",
@@ -214,5 +213,6 @@
  "Shurima": "Shurima",
  "Targon": "Targon",
  "Void": "Hư Không",
- "Zaun": "Zaun"
+ "Zaun": "Zaun",
+ "t AD Ratio Min": "Tỉ lệ tổng SMCK tối thiểu"
 }

@@ -173,7 +173,6 @@
  "Mushroom Duration": "Durée des champignons",
  "Slow Amount": "Puissance du ralentissement",
  "Souls To Gain On Pick Up": "Âmes gagnées en ramassant",
- "t AD Ratio Max": "Ratio AD total max",
  "New AS Cap": "Nouveau plafond de VA",
  "d Takedown Stacks": "Cumuls par participation",
  "Initial Burst AP Ratio": "Ratio AP de la salve initiale",
@@ -214,5 +213,6 @@
  "Shurima": "Shurima",
  "Targon": "Targon",
  "Void": "Néant",
- "Zaun": "Zaun"
+ "Zaun": "Zaun",
+ "t AD Ratio Min": "Ratio AD total min"
 }

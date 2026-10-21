@@ -1,4 +1,6 @@
 import { expect, test, type Page } from "@playwright/test";
+import { readFileSync } from "node:fs";
+import { setOf } from "../../src/lib/sets";
 
 // Every main page: loads, shows the header and the legal notice, throws no script errors,
 // loads every image and script it asks for from the site, and never scrolls sideways on a phone.
@@ -289,20 +291,25 @@ test("the Simulator opens in 3D even with the old owner switch's saved 2D pick",
 });
 
 test("patch history groups by set, recaps skip the augment pool, and the champion list offers the set", async ({ page }) => {
+  // The live patch's set, from the same patch list the pages read
+  const patches = readFileSync("../data/cn/history/patches.csv", "utf8").trim().split("\n").slice(1).map((l) => l.split(",")[0]);
+  const live = setOf(patches[patches.length - 1]);
+  const inSet = patches.filter((p) => setOf(p).name === live.name);
   await page.goto("/patches");
-  await expect(page.locator(".recap-set-head").first()).toContainText("Set 2");
+  await expect(page.locator(".recap-set-head").first()).toContainText(live.name);
   await expect(page.locator(".recap-set-head", { hasText: "Launch" })).toHaveCount(1);
   await expect(page.locator("body")).not.toContainText("added ·");
   await page.locator(".recap-row").first().click();
-  await expect(page.locator(".champ-hero .eyebrow")).toContainText("Set 2");
+  await expect(page.locator(".champ-hero .eyebrow")).toContainText(live.name);
   await expect(page.locator("main")).not.toContainText("Augments added");
 
   await page.goto("/tier-list");
   const set = page.getByRole("button", { name: /This set/ });
-  await expect(async () => {
-    await set.click();
-    await expect(page).toHaveURL(/patches=16\.12(,|%2C)/, { timeout: 1000 });
-  }).toPass();
+  if (inSet.length > 1)
+    await expect(async () => {
+      await set.click();
+      await expect(page).toHaveURL(new RegExp(`patches=${inSet[0].replace(".", "\\.")}(,|%2C)`), { timeout: 1000 });
+    }).toPass();
   await page.locator(".patch-pick > summary").click();
-  await expect(page.locator(".patch-pick-set-head").first()).toContainText("Set 2");
+  await expect(page.locator(".patch-pick-set-head").first()).toContainText(live.name);
 });

@@ -173,7 +173,6 @@
  "Mushroom Duration": "Pilzdauer",
  "Slow Amount": "Verlangsamungsstärke",
  "Souls To Gain On Pick Up": "Seelen pro Aufsammeln",
- "t AD Ratio Max": "AD-Skalierung (gesamt, max.)",
  "New AS Cap": "Neue Angriffstempo-Obergrenze",
  "d Takedown Stacks": "Steigerungen pro Beteiligung",
  "Initial Burst AP Ratio": "AP-Skalierung des ersten Ausbruchs",
@@ -214,5 +213,6 @@
  "Shurima": "Shurima",
  "Targon": "Targon",
  "Void": "Leere",
- "Zaun": "Zhaun"
+ "Zaun": "Zhaun",
+ "t AD Ratio Min": "AD-Skalierung (gesamt, min.)"
 }

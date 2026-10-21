@@ -234,8 +234,6 @@
  "Damage Reduction Per": "Reducción de daño por acumulación",
  "Fortification Timer": "Duración de la fortificación",
  "Damage To Max Health Ratio": "Proporción de daño según la vida máxima",
- "AD Per Statue": "AD por estatua",
- "Base AD Bonus": "AD adicional básico",
  "Buff Duration": "Duración de la mejora",
  "Ranged Damage Multiplier": "Multiplicador de daño (a distancia)",
  "Burn Percent Health Damage": "Daño de quemadura en % de vida",
@@ -254,5 +252,7 @@
  "Melee Item Calc Value B": "Valor de cálculo B del objeto (cuerpo a cuerpo)",
  "Ranged Item Calc Value B": "Valor de cálculo B del objeto (a distancia)",
  "Base OOCMS": "Velocidad de movimiento básica fuera de combate",
- "Crit Per Stack Melee": "Crítico por acumulación (cuerpo a cuerpo)"
+ "Crit Per Stack Melee": "Crítico por acumulación (cuerpo a cuerpo)",
+ "AD Per Statue Melee": "AD por estatua (cuerpo a cuerpo)",
+ "AD Per Statue Ranged Mult": "Multiplicador de AD por estatua (a distancia)"
 }

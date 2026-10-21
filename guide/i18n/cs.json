@@ -234,8 +234,6 @@
  "Damage Reduction Per": "Snížení poškození za",
  "Fortification Timer": "Doba opevnění",
  "Damage To Max Health Ratio": "Poměr poškození k maximálnímu zdraví",
- "AD Per Statue": "AD za sochu",
- "Base AD Bonus": "Bonus k základnímu AD",
  "Buff Duration": "Trvání buffu",
  "Ranged Damage Multiplier": "Násobič poškození (na dálku)",
  "Burn Percent Health Damage": "Poškození hořením v % zdraví",
@@ -254,5 +252,7 @@
  "Melee Item Calc Value B": "Hodnota předmětu B (na blízko)",
  "Ranged Item Calc Value B": "Hodnota předmětu B (na dálku)",
  "Base OOCMS": "Základní rychlost pohybu mimo boj",
- "Crit Per Stack Melee": "Krit. zásah za stupeň (na blízko)"
+ "Crit Per Stack Melee": "Krit. zásah za stupeň (na blízko)",
+ "AD Per Statue Melee": "AD za sochu (na blízko)",
+ "AD Per Statue Ranged Mult": "Násobitel AD za sochu (na dálku)"
 }

@@ -173,7 +173,6 @@
  "Mushroom Duration": "Durasi Jamur",
  "Slow Amount": "Jumlah Slow",
  "Souls To Gain On Pick Up": "Soul yang Didapat saat Diambil",
- "t AD Ratio Max": "Rasio AD Total Maks",
  "New AS Cap": "Batas Attack Speed Baru",
  "d Takedown Stacks": "Stack Takedown",
  "Initial Burst AP Ratio": "Rasio AP Ledakan Awal",
@@ -214,5 +213,6 @@
  "Shurima": "Shurima",
  "Targon": "Targon",
  "Void": "Void",
- "Zaun": "Zaun"
+ "Zaun": "Zaun",
+ "t AD Ratio Min": "Rasio AD Total Min"
 }

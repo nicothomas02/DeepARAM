@@ -234,8 +234,6 @@
  "Damage Reduction Per": "ごとのダメージ軽減",
  "Fortification Timer": "要塞化タイマー",
  "Damage To Max Health Ratio": "ダメージの最大体力換算率",
- "AD Per Statue": "像ごとの攻撃力",
- "Base AD Bonus": "基本攻撃力ボーナス",
  "Buff Duration": "バフ効果時間",
  "Ranged Damage Multiplier": "遠距離ダメージ倍率",
  "Burn Percent Health Damage": "炎上の体力割合ダメージ",
@@ -254,5 +252,7 @@
  "Melee Item Calc Value B": "近接アイテム計算値B",
  "Ranged Item Calc Value B": "遠距離アイテム計算値B",
  "Base OOCMS": "非戦闘時の基本移動速度",
- "Crit Per Stack Melee": "スタックごとのクリティカル率（近接）"
+ "Crit Per Stack Melee": "スタックごとのクリティカル率（近接）",
+ "AD Per Statue Melee": "像ごとの攻撃力（近接）",
+ "AD Per Statue Ranged Mult": "像ごとの攻撃力倍率（遠隔）"
 }
