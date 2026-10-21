@@ -1,7 +1,7 @@
 {
  "meta": {
-  "built_at": "2026-10-20T23:58:44+00:00",
-  "game_version": "16.22",
+  "built_at": "2026-10-21T18:04:25+00:00",
+  "game_version": "16.21",
   "cdragon": "pbe",
   "mayhem_balance_patch": "wiki read 2026-10-17",
   "level": 18,
@@ -20004,16 +20004,16 @@
    "role": "mage",
    "ranged": true,
    "stats": {
-    "hp": 590.0,
-    "hp_per_level": 107.0,
+    "hp": 630.0,
+    "hp_per_level": 99.0,
     "armor": 21.0,
-    "armor_per_level": 5.4,
+    "armor_per_level": 5.2,
     "mr": 30.0,
     "mr_per_level": 1.3,
-    "ad": 52.0,
+    "ad": 54.0,
     "ad_per_level": 3.3,
     "attack_speed": 0.625,
-    "attack_speed_per_level": 0.0275,
+    "attack_speed_per_level": 0.025,
     "attack_speed_ratio": 0.625,
     "attack_range": 550.0,
     "attack_windup": 0.156,
@@ -20032,8 +20032,8 @@
    },
    "resource": {
     "kind": "mana",
-    "pool": 455.0,
-    "pool_per_level": 38.0,
+    "pool": 480.0,
+    "pool_per_level": 28.0,
     "regen": 1.8,
     "regen_per_level": 0.18
    },
@@ -20053,13 +20053,13 @@
      "cooldown": 6.0,
      "cast_time": 0.35,
      "cost": 90.0,
-     "targeting": "LocationClamped",
+     "targeting": "Area",
      "area": "aoe",
-     "duration": 0.0,
+     "duration": 0.5,
      "geometry": {
       "shape": "circle",
-      "range": 950.0,
-      "radius": 200.0,
+      "range": 900.0,
+      "radius": 225.0,
       "width": 0.0,
       "angle": 0.0,
       "speed": 0,
@@ -20068,9 +20068,10 @@
      "hits": [
       {
        "type": "magic",
-       "calc": "InitialDamage",
+       "calc": "InitialExplosionDamage",
        "scaling": {
-        "ap": 0.25
+        "const": 160.0,
+        "ap": 0.55
        },
        "target": "flat",
        "per_second": false,
@@ -20078,10 +20079,19 @@
       },
       {
        "type": "magic",
-       "calc": "TotalDamage",
+       "calc": "TotalExplosionDamage",
        "scaling": {
-        "ap": 0.25
+        "const": 13.0,
+        "ap": 0.05
        },
+       "target": "flat",
+       "per_second": false,
+       "alt": false
+      },
+      {
+       "type": "magic",
+       "calc": "AllDamageHit",
+       "scaling": {},
        "target": "flat",
        "per_second": false,
        "alt": true
@@ -20089,9 +20099,7 @@
      ],
      "mode_overrides": [],
      "notes": [
-      "missing value {709efe92}",
-      "missing value {9f5ea20c}",
-      "missing value {d29d0667}"
+      "unsupported part {f3cbe7b2}"
      ]
     },
     {
@@ -20102,10 +20110,10 @@
      "cast_time": 0.0,
      "shield": {
       "scaling": {
-       "const": 170.0,
-       "ap": 0.5
+       "const": 200.0,
+       "ap": 0.7
       },
-      "duration": 2.0
+      "duration": 0.75
      },
      "targeting": "Self",
      "area": "aoe",
@@ -20113,28 +20121,16 @@
      "geometry": {
       "shape": "circle",
       "range": 0.0,
-      "radius": 460.0,
+      "radius": 250.0,
       "width": 0.0,
       "angle": 0.0,
       "speed": 0,
       "on_self": true
      },
-     "hits": [
-      {
-       "type": "magic",
-       "calc": "InitialDamage",
-       "scaling": {
-        "ap": 0.1
-       },
-       "target": "flat",
-       "per_second": false,
-       "alt": false
-      }
-     ],
+     "hits": [],
      "mode_overrides": [],
      "notes": [
-      "ARAM cooldown",
-      "missing value {d29d0667}"
+      "ARAM cooldown"
      ]
     },
     {
@@ -20145,12 +20141,12 @@
      "cast_time": 0.25,
      "cc": {
       "type": "root",
-      "duration": 1.0
+      "duration": 1.5
      },
      "cost": 90.0,
      "targeting": "Direction",
      "area": "line",
-     "duration": 1.0,
+     "duration": 1.5,
      "geometry": {
       "shape": "line",
       "range": 1000.0,
@@ -20235,7 +20231,7 @@
      "notes": []
     }
    ],
-   "parse_quality": "good",
+   "parse_quality": "partial",
    "notes": []
   },
   {
@@ -23668,7 +23664,7 @@
      "hits": [
       {
        "type": "magic",
-       "calc": "TotalDamage",
+       "calc": "TotalDamageTooltip",
        "scaling": {
         "const": 180.0,
         "ap": 0.6
@@ -23676,20 +23672,10 @@
        "target": "flat",
        "per_second": false,
        "alt": false
-      },
-      {
-       "type": "magic",
-       "calc": "ReducedDamage",
-       "scaling": {},
-       "target": "flat",
-       "per_second": false,
-       "alt": false
       }
      ],
      "mode_overrides": [],
-     "notes": [
-      "missing value {744f889d}"
-     ]
+     "notes": []
     },
     {
      "slot": "W",

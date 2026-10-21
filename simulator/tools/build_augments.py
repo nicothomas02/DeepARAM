@@ -405,12 +405,10 @@ def main():
         if key not in MAPPING:  # rebuilt below from augment_effects.py
             continue
         entry = by_id.get(aug["id"])
-        if not entry and PBE:  # taken out on the PBE patch
-            print(f"{key}: augment id {aug['id']} is not on the PBE patch, left out")
+        if not entry:  # taken out of Mayhem on this patch (a new set's pool, or the PBE)
+            print(f"{key}: augment id {aug['id']} is not on the {'PBE' if PBE else 'live'} patch, left out")
             del doc["augments"][key]
             continue
-        if not entry:
-            raise SystemExit(f"{key}: augment id {aug['id']} is not in the live kiwi.bin")
         spell = Spell(kiwi, entry["RootSpell"])
 
         def setv(field, new):
