@@ -18,14 +18,13 @@ const TIER: Column = {
   key: "tier",
   label: "Tier",
   format: "tier",
-  sortKey: "score",
+  sortKey: "deepScore",
   hint: TIER_HELP,
 };
 const DEEP: Column = {
   key: "deepScore",
   label: "DeepScore",
   format: "deepscore",
-  sortKey: "score",
   hint: TIER_HELP,
 };
 const NAME: Column = { key: "name", label: "Champion", format: "champion" };
@@ -84,7 +83,7 @@ const CURVE: Column = {
 const GAMES: Column = { key: "games", label: "Games", format: "int", hint: "Estimated games on the live patch." };
 
 const MOVERS = { key: "change", desc: true };
-const BEST = { key: "score", desc: true };
+const BEST = { key: "deepScore", desc: true };
 
 type Props = {
   rows: PatchRow[];

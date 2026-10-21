@@ -41,12 +41,11 @@ const TIERS: [Tier, string][] = [
   ["consumable", "Consumables"],
 ];
 
-// Table columns. DeepScore compares an item with others of its type, so its column sorts by type first (the
-// cards' grouped order), then score.
+// Table columns. The list opens on DeepScore, best first, across every type; sort by Type to group them.
 const COLUMNS: Column[] = [
   { key: "name", label: "Item", format: "item", iconKey: "icon", hrefKey: "href" },
   { key: "type", label: "Type", format: "text", sortKey: "typeOrder", phone: "hide" },
-  { key: "deepScore", label: "DeepScore", format: "deepscore", sortKey: "rank", hint: ITEM_TIER_DEEPSCORE_HELP },
+  { key: "deepScore", label: "DeepScore", format: "deepscore", hint: ITEM_TIER_DEEPSCORE_HELP },
   { key: "winRate", label: "Est. win rate", format: "pct", hint: "Estimated win rate of the champions who build it." },
   { key: "buildShare", label: "In builds", format: "pct", hint: "Estimated share of builds that include it.", phone: "wide" },
   { key: "cost", label: "Cost", format: "int", phone: "hide" },
@@ -93,7 +92,6 @@ export default function ItemIndex({ items }: { items: Item[] }) {
         type: tr(TIERS[at]?.[1] ?? ""),
         typeOrder: TIERS.length - at,
         deepScore: i.deepScore,
-        rank: (TIERS.length - at) * 1000 + (i.deepScore ?? -1),
         winRate: i.winRate,
         buildShare: i.buildShare,
         cost: i.cost || null,
@@ -144,7 +142,7 @@ export default function ItemIndex({ items }: { items: Item[] }) {
         <span className="items-count">{t("{n} of {total}", { n: shown.length, total: items.length })}</span>
       </div>
       {shown.length ? (
-        <DataTable columns={COLUMNS} rows={tableRows()} initialSort={{ key: "rank", desc: true }} />
+        <DataTable columns={COLUMNS} rows={tableRows()} initialSort={{ key: "deepScore", desc: true }} />
       ) : (
         <EmptyState
           title={t("No item has all of those")}
