@@ -1,5 +1,5 @@
 """Client wording the site reuses, in every site language, from the client's own interface strings:
-Draft practice's champ-select text (i18n ns "tier-list") and the champion details screen's playstyle ratings ("champions").
+the champion details screen's playstyle ratings (i18n ns "champions").
 Merges them into web/public/i18n/<ns>/<code>.json (the English text is the key).
 
 Usage (from the repo root):
@@ -15,20 +15,6 @@ LANGS = os.path.join(WEB, "src", "i18n", "languages.json")
 CD = "https://raw.communitydragon.org/latest/plugins"
 UA = {"User-Agent": "deeparam-client-strings"}
 
-# English site text -> client string key. Draft practice gives at most two rerolls, so {n} uses the "few" form where a
-# language has one (Czech, Polish, Russian), else "other".
-CHAMP_SELECT = {
-    "PICK YOUR CHAMPION": ["subset-champions-grid-header"],
-    "Blessing": ["subset-champions-blessing-card-header"],
-    "You pulled an extra champion!": ["subset-champions-blessing-card-body"],
-    "Available Champions": ["champion_bench_label"],
-    "Re-rolled champions show up here. Click one to switch your selection.": ["champion_bench_label_tooltip"],
-    "Click to switch your selection to {name}.": ["champion_bench_item_tooltip"],
-    "Lock In": ["lock_in"],
-    "You have no champion rerolls available.": ["reroll_tooltip[zero]"],
-    "You have 1 champion reroll available.": ["reroll_tooltip[one]"],
-    "You have {n} champion rerolls available.": ["reroll_tooltip[few]", "reroll_tooltip[other]"],
-}
 PLAYSTYLE = {
     "Damage": ["cdp_playstyle_damage_tooltip_title"],
     "Toughness": ["cdp_playstyle_toughness_tooltip_title"],
@@ -42,8 +28,7 @@ PLAYSTYLE = {
     "The champion's ability to grant beneficial effects like shields, healing, or movement speed to allied champions": ["cdp_playstyle_utility_tooltip"],
 }
 # (client plugin, site namespace, strings)
-SOURCES = [("rcp-fe-lol-champ-select", "tier-list", CHAMP_SELECT), ("rcp-fe-lol-champion-details", "champions", PLAYSTYLE)]
-VARS = {"{{championName}}": "{name}", "{{rerolls}}": "{n}"}
+SOURCES = [("rcp-fe-lol-champion-details", "champions", PLAYSTYLE)]
 
 
 def table(plugin, riot):
@@ -58,11 +43,7 @@ def strings(t, keys_by_en):
         v = next((t[k] for k in keys if t.get(k)), None)
         if not v:
             continue
-        for a, b in VARS.items():
-            v = v.replace(a, b)
-        # The one-reroll form names the number in the client; the site's key says "1".
-        v = v.strip()
-        out[en] = v.replace("{n}", "1") if en.startswith("You have 1 ") else v
+        out[en] = v.strip()
     return out
 
 
