@@ -3,5 +3,8 @@
  "Patch {patch} comes out tomorrow": "แพตช์ {patch} จะออกพรุ่งนี้",
  "day": "วัน",
  "days": "วัน",
- "Patch {patch} comes out in under 24 hours": "แพตช์ {patch} จะออกภายในไม่ถึง 24 ชั่วโมง"
+ "Patch {patch} comes out in under 24 hours": "แพตช์ {patch} จะออกภายในไม่ถึง 24 ชั่วโมง",
+ "{set} (Patch {patch}) is live!": "{set} (แพตช์ {patch}) มาแล้ว!",
+ "Patch {patch} is live!": "แพตช์ {patch} มาแล้ว!",
+ "New patch data takes a couple of days to collect.": "ข้อมูลของแพตช์ใหม่ต้องใช้เวลารวบรวมสองสามวัน"
 }

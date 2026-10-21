@@ -3,5 +3,8 @@
  "Patch {patch} comes out tomorrow": "{patch} 版本将于明天上线",
  "day": "天",
  "days": "天",
- "Patch {patch} comes out in under 24 hours": "补丁 {patch} 将在 24 小时内发布"
+ "Patch {patch} comes out in under 24 hours": "补丁 {patch} 将在 24 小时内发布",
+ "{set} (Patch {patch}) is live!": "{set}（版本 {patch}）已上线！",
+ "Patch {patch} is live!": "版本 {patch} 已上线！",
+ "New patch data takes a couple of days to collect.": "新版本的数据需要几天时间收集。"
 }

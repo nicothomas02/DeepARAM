@@ -3,5 +3,8 @@
  "Patch {patch} comes out tomorrow": "{patch} 패치가 내일 적용됩니다",
  "day": "일",
  "days": "일",
- "Patch {patch} comes out in under 24 hours": "패치 {patch}이(가) 24시간 이내에 출시됩니다"
+ "Patch {patch} comes out in under 24 hours": "패치 {patch}이(가) 24시간 이내에 출시됩니다",
+ "{set} (Patch {patch}) is live!": "{set}(패치 {patch})가 적용되었습니다!",
+ "Patch {patch} is live!": "패치 {patch}가 적용되었습니다!",
+ "New patch data takes a couple of days to collect.": "새 패치 데이터가 모이기까지 며칠 걸립니다."
 }
