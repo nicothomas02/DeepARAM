@@ -244,9 +244,12 @@ def test_pbe_switch_uses_pbe_pools(run_json):
     live = run_json("mayhem_sim", ["--list", "--json"])
     pbe = run_json("mayhem_sim", ["--list", "--json", "--game-data", "data/pbe"])
     jinx = {c["id"]: set(c["augments"]) for c in pbe["champions"]}["Jinx"]
-    assert "big_shot" in jinx and "big_shot" not in {a["key"] for a in live["augments"]}
-    gone = {a["key"] for a in live["augments"]} - {a["key"] for a in pbe["augments"]}
-    assert gone and not gone & jinx
+    live_keys, pbe_keys = {a["key"] for a in live["augments"]}, {a["key"] for a in pbe["augments"]}
+    # Augments new on the PBE patch (26.22: One Hit Wonder, RISE) are offered there and not on live.
+    new = pbe_keys - live_keys
+    assert new and new <= jinx, new - jinx
+    assert not new & {a for c in live["champions"] for a in c["augments"]}
+    assert not (live_keys - pbe_keys) & jinx
 
 
 def test_most_new_pbe_augments_are_modeled():
@@ -254,7 +257,7 @@ def test_most_new_pbe_augments_are_modeled():
     pbe = load_json(PBE_DIR / "augments.json")["augments"]
     new = [a for k, a in pbe.items() if k not in load_json(DATA_DIR / "augments.json")["augments"]]
     modeled = [a for a in new if a.get("stats") or a.get("effects")]
-    assert len(modeled) >= 29, sorted(a["name"] for a in new if a not in modeled)
+    assert new, "the PBE patch should add augments over live"
     for a in new:
         assert a in modeled or a.get("note", "").startswith("No effect in the simulator"), a["name"]
 
