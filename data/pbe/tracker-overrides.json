@@ -1,4 +1,6 @@
 {
  "_note": "Tag fixes for the change tracker (tools/datamine/tracker.py). Key: an exact change line, or kind:name for a whole entry. Value: buff, nerf, mixed, neutral, unclear, new or removed.",
- "champion:Varus": "nerf"
+ "champion:Varus": "nerf",
+ "Base Mana 480 → 455, resource stat 28 → 38": "mixed",
+ "E root 1.5s → 0.8–1s, up to 1.6–2.2s": "mixed"
 }
