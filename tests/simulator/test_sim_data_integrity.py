@@ -248,6 +248,18 @@ def test_best_builds_reference_real_ids():
         assert set(b["build"]["augments"]) <= pool, (b["champion"], set(b["build"]["augments"]) - pool)
 
 
+def test_dummy_dps_covers_every_best_build():
+    """viewer/replay-data/dummy-dps.json ranks the home page's "Most simulated damage": every champion
+    with a best build, highest first, on the half-Health dummy (tools/build_dummy_dps.py)."""
+    dummy = load_json(VIEWER_DIR / "replay-data/dummy-dps.json")
+    best = load_json(VIEWER_DIR / "replay-data/best-builds.json")["champions"]
+    rows = dummy["champions"]
+    assert dummy["dummy_hp"] == 0.5
+    assert {r["champion"] for r in rows} == {b["champion"] for b in best}
+    assert all(r["dps"] > 0 for r in rows)
+    assert [r["dps"] for r in rows] == sorted((r["dps"] for r in rows), reverse=True)
+
+
 def test_replay_traces_and_fight_length_name_real_champions():
     ids = {c["id"] for c in champions("live")}
     traces = load_json(VIEWER_DIR / "replay-data/traces.json")

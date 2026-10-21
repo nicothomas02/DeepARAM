@@ -23,7 +23,7 @@ OUT_DIR = os.path.join(SIM, "..", "web", "public", "i18n", "simulator")
 PAGES = ["index.html", "full.html", "team.html"]
 SCRIPTS = ["replay.js", "sim-panel.js", "team.js"]
 # The site's own Simulator components that use this dictionary (useT("simulator")).
-SITE = [os.path.join(SIM, "..", "web", "src", "components", n) for n in ("SimReplayEmbed.tsx", "SimLeaderboard.tsx")]
+SITE = [os.path.join(SIM, "..", "web", "src", "components", n) for n in ("SimReplayEmbed.tsx",)]
 # Site code that adds text inside the Simulator page (the Pop out button), which i18n.js translates there.
 INJECTED = [os.path.join(SIM, "..", "web", "src", "lib", "replay-pip.ts")]
 ATTRS = {"title", "aria-label", "placeholder"}

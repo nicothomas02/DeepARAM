@@ -400,3 +400,16 @@ def test_training_dummy_is_like_the_practice_dummy(run_json):
                                         "--trials", "50", "--seed", "1", "--json"]))
     assert s["kills_per_minute"] == 0 and s["damage_taken"] == 0 and s["survival_rate"] == 1
     assert s["time_alive"] == 18.0 and s["mean_dps"] > 1000
+
+
+def test_dummy_held_at_half_health_counts_missing_health_damage(run_json):
+    """dummy_hp=0.5 holds the dummy at half Health, so missing-Health damage (Jinx's R, Kraken Slayer)
+    grows, and the dummy still never dies. The home page ranks champions on this dummy."""
+    def run(extra):
+        return summary(run_json("mayhem_sim", ["--champ", "Jinx", "--items", "kraken,infinity_edge",
+                                               "--set", "fixed_target=1" + extra, "--trials", "200", "--seed", "5", "--json"]))
+    full, half = run(",dummy_hp=1"), run(",dummy_hp=0.5")
+    assert run("")["mean_dps"] == full["mean_dps"], "dummy_hp=1 should be the default dummy"
+    assert half["share_by_source"]["R"] > 1.5 * full["share_by_source"]["R"]
+    assert half["mean_dps"] > full["mean_dps"]
+    assert half["kills_per_minute"] == 0 and half["survival_rate"] == 1

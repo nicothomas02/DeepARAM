@@ -1,6 +1,6 @@
 import { BOT_CHECK_SCRIPT, botCheckSiteKey } from "@/lib/bot-check";
 
-// GET /api/bot-check: what the Simulator's leaderboard button needs to run the bot check
+// GET /api/bot-check: what the site's forms need to run the bot check
 // ({siteKey: null} while it's off). The script address is sent from here so it isn't in the page.
 export const dynamic = "force-dynamic";
 

@@ -206,5 +206,6 @@
  "{v} mitigated/min": "{v} ลดทอน/นาที",
  "{v} CS": "{v} CS",
  "This set": "เซ็ตนี้",
- "What every patch changed, grouped by set: augment tuning and the champions that moved most.": "สิ่งที่แต่ละแพตช์เปลี่ยน แยกตามเซ็ต: การปรับออคเมนต์และแชมเปี้ยนที่ขยับมากที่สุด"
+ "What every patch changed, grouped by set: augment tuning and the champions that moved most.": "สิ่งที่แต่ละแพตช์เปลี่ยน แยกตามเซ็ต: การปรับออคเมนต์และแชมเปี้ยนที่ขยับมากที่สุด",
+ "Training dummy at 50% Health": "หุ่นฝึกซ้อมที่พลังชีวิต 50%"
 }

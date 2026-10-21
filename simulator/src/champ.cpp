@@ -386,6 +386,7 @@ const std::vector<std::pair<std::string, std::string>>& Library::settingKeys() {
         {"target_hp", "dummy HP (default: the average enemy's)"},
         {"target_armor", "dummy armor"},
         {"target_mr", "dummy magic resist"},
+        {"dummy_hp", "below 1, the dummy's Health stays at this share of its max (0.5 = half) for effects that scale with missing Health; at 1 it starts full and refills when emptied"},
         // model rules
         {"dodge_chance", "chance an enemy sees a skillshot coming and sidesteps"},
         {"reaction_time", "seconds before a dodging enemy starts moving"},
@@ -753,6 +754,8 @@ Scenario Library::scenarioFor(const ChampionKit& c) const {
         set("target_hp", sc.targetHp);
         set("target_armor", sc.targetArmor);
         set("target_mr", sc.targetMr);
+        set("dummy_hp", sc.dummyHp);
+        sc.dummyHp = std::clamp(sc.dummyHp, 0.01, 1.0);
         // Like the game's practice dummy: it never attacks or crowd controls you, so each fight lasts
         // a set time (the usual fight length, fight_mean) instead of running until you fall.
         sc.untilDeath = false;
@@ -1610,6 +1613,7 @@ private:
         e.uid = nextUid_++;
         e.maxHp = p.hpSd > 0 ? std::max(0.5 * p.hp, targetRng_.normal(p.hp, p.hp * p.hpSd)) : p.hp;
         e.hp = e.maxHp;
+        if (!prof && sc_.fixedTarget && sc_.dummyHp < 1) e.hp = sc_.dummyHp * e.maxHp;
         const double mr = std::max(0.0, p.mr * (1.0 - get(fx_, "mr_shred")) * (1.0 - magicPenPct_) - magicPen_);
         const double amp = damageAmp_ * p.damageTaken;
         e.armor = p.armor; e.amp = amp;
@@ -2094,7 +2098,8 @@ private:
             target->hp = 0;
         }
         // The training dummy never dies: like the game's practice dummy, its Health refills instead.
-        if (sc_.fixedTarget && target->hp <= 0) target->hp = target->maxHp;
+        if (sc_.fixedTarget && sc_.dummyHp < 1) target->hp = sc_.dummyHp * target->maxHp;  // held at a set share
+        else if (sc_.fixedTarget && target->hp <= 0) target->hp = target->maxHp;
         if (trace_) {
             TraceEvent ev;
             ev.t = t_; ev.kind = "damage"; ev.target = target->uid; ev.source = src;

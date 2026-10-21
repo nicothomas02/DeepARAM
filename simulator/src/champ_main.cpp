@@ -427,7 +427,7 @@ int main(int argc, char** argv) {
             {"enemy_damage_scale", 1}, {"cc_scale", 1}, {"cc_min", sc.ccMin}, {"cc_max", sc.ccMax},
             {"start_distance", sc.startDistance}, {"enemy_spread", sc.enemySpread}, {"r_ready_chance", sc.rReadyChance},
             {"retarget_delay", sc.retargetDelay}, {"fixed_target", 0}, {"target_hp", dummy[0]},
-            {"target_armor", dummy[1]}, {"target_mr", dummy[2]}, {"dodge_chance", r.dodgeChance},
+            {"target_armor", dummy[1]}, {"target_mr", dummy[2]}, {"dummy_hp", 1.0}, {"dodge_chance", r.dodgeChance},
             {"reaction_time", r.reactionTime}, {"aim_lead", r.aimLead}, {"combo_order", r.comboOrder}};
         std::printf("],\n \"settings\": [");
         bool first = true;

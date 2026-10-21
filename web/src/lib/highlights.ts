@@ -54,11 +54,13 @@ export const livePatch = () => readRepoCsv("data/cn/history/patches.csv")?.at(-1
 type Builds = { builds: { champion: string; title: string; augments: string[]; why: string }[] };
 export const kitchenBuild = () => readRepoJson<Builds>("data/cook-builds/builds.json")?.builds[0] ?? null;
 
-type Best = { champions: { champion: string; summary: { mean_dps: number } }[] };
+type DummyDps = { champions: { champion: string; dps: number }[] };
+/** Damage per second of each champion's simulated best build on a training dummy with the average enemy's
+ *  max Health and resists, held at 50% Health (so missing-Health damage counts the same for everyone). */
 export function topDps(n = 5) {
-  const best = readRepoJson<Best>("simulator/viewer/replay-data/best-builds.json");
-  return (best?.champions ?? [])
-    .map((c) => ({ id: c.champion, name: champName(c.champion), dps: c.summary.mean_dps }))
+  const dummy = readRepoJson<DummyDps>("simulator/viewer/replay-data/dummy-dps.json");
+  return (dummy?.champions ?? [])
+    .map((c) => ({ id: c.champion, name: champName(c.champion), dps: c.dps }))
     .sort((a, b) => b.dps - a.dps)
     .slice(0, n);
 }

@@ -293,6 +293,9 @@ export default function Home() {
                 </Link>
               ))}
             </div>
+            <p className="card-note home-dps-note">
+              <T>Training dummy at 50% Health</T>
+            </p>
           </section>
         )}
         {special && (

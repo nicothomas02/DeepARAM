@@ -206,5 +206,6 @@
  "{v} mitigated/min": "{v} mérsékelt/perc",
  "{v} CS": "{v} CS",
  "This set": "Ez a szett",
- "What every patch changed, grouped by set: augment tuning and the champions that moved most.": "Mit változtatott minden frissítés, szettenként: fejlesztés-hangolások és a legtöbbet mozdult bajnokok."
+ "What every patch changed, grouped by set: augment tuning and the champions that moved most.": "Mit változtatott minden frissítés, szettenként: fejlesztés-hangolások és a legtöbbet mozdult bajnokok.",
+ "Training dummy at 50% Health": "Gyakorlóbábu 50% Életerőn"
 }
