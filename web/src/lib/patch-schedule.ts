@@ -8,7 +8,7 @@ export type NextPatch = { patch: string; date: string; days: number; hours: numb
 const DAY = 86_400_000;
 const HOUR = 3_600_000;
 
-/** The UTC instant at which `date` + `time` ("2026-10-21", "11:00") is on the clock in `timeZone`. */
+/** The UTC instant at which `date` + `time` ("2026-10-21", "06:30") is on the clock in `timeZone`. */
 export function zonedInstant(date: string, time: string, timeZone: string) {
   const want = Date.parse(`${date}T${time}:00Z`);
   let guess = want;

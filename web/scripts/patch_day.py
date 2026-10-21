@@ -29,9 +29,10 @@ def key(version):
 
 
 def due_patch(schedule, now):
-    """The newest scheduled patch whose date (in the schedule's time zone) has come."""
-    today = now.astimezone(ZoneInfo(schedule["timeZone"])).date().isoformat()
-    due = [p for p in schedule["patches"] if p["date"] <= today]
+    """The newest scheduled patch whose date and time (in the schedule's time zone, so daylight saving is
+    handled) have come. "time" is the schedule's update time, 06:30; a patch can override it."""
+    local = now.astimezone(ZoneInfo(schedule["timeZone"])).strftime("%Y-%m-%d %H:%M")
+    due = [p for p in schedule["patches"] if f"{p['date']} {p.get('time') or schedule.get('time', '00:00')}" <= local]
     return max(due, key=lambda p: p["date"]) if due else None
 
 
