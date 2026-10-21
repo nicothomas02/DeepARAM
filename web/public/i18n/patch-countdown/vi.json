@@ -1,8 +1,6 @@
 {
  "Patch {patch} comes out in {n} days": "Phiên bản {patch} ra mắt sau {n} ngày",
  "Patch {patch} comes out tomorrow": "Phiên bản {patch} ra mắt vào ngày mai",
- "Patch {patch} is out today": "Phiên bản {patch} ra mắt hôm nay",
- "Today": "Hôm nay",
  "day": "ngày",
  "days": "ngày",
  "Patch {patch} comes out in under 24 hours": "Bản cập nhật {patch} ra mắt trong chưa đầy 24 giờ"

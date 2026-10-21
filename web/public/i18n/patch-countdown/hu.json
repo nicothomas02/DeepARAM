@@ -1,8 +1,6 @@
 {
  "Patch {patch} comes out in {n} days": "A(z) {patch} frissítés {n} nap múlva jelenik meg",
  "Patch {patch} comes out tomorrow": "A(z) {patch} frissítés holnap jelenik meg",
- "Patch {patch} is out today": "A(z) {patch} frissítés ma jelent meg",
- "Today": "Ma",
  "day": "nap",
  "days": "nap",
  "Patch {patch} comes out in under 24 hours": "A(z) {patch} patch kevesebb mint 24 óra múlva megjelenik"

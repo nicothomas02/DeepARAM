@@ -1,8 +1,6 @@
 {
  "Patch {patch} comes out in {n} days": "แพตช์ {patch} จะออกในอีก {n} วัน",
  "Patch {patch} comes out tomorrow": "แพตช์ {patch} จะออกพรุ่งนี้",
- "Patch {patch} is out today": "แพตช์ {patch} ออกวันนี้",
- "Today": "วันนี้",
  "day": "วัน",
  "days": "วัน",
  "Patch {patch} comes out in under 24 hours": "แพตช์ {patch} จะออกภายในไม่ถึง 24 ชั่วโมง"

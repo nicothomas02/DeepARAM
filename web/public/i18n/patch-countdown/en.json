@@ -1,8 +1,6 @@
 {
  "Patch {patch} comes out in {n} days": "Patch {patch} comes out in {n} days",
  "Patch {patch} comes out tomorrow": "Patch {patch} comes out tomorrow",
- "Patch {patch} is out today": "Patch {patch} is out today",
- "Today": "Today",
  "day": "day",
  "days": "days",
  "Patch {patch} comes out in under 24 hours": "Patch {patch} comes out in under 24 hours"

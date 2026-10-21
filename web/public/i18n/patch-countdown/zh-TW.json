@@ -1,8 +1,6 @@
 {
  "Patch {patch} comes out in {n} days": "{patch} 版本將在 {n} 天後上線",
  "Patch {patch} comes out tomorrow": "{patch} 版本將於明天上線",
- "Patch {patch} is out today": "{patch} 版本今天上線",
- "Today": "今天",
  "day": "天",
  "days": "天",
  "Patch {patch} comes out in under 24 hours": "更新 {patch} 將在 24 小時內發布"
