@@ -163,7 +163,6 @@
  "Options for each item slot after the best core build, best DeepScore first. Each slot assumes you bought the top pick before it.": "Lehetőségek minden tárgyhelyre a legjobb alap build után, a legjobb DeepScore elöl. Minden hely feltételezi, hogy az előtte lévő legjobb választást megvetted.",
  "{n} win rate": "{n} győzelmi arány",
  "Augment pick": "Fejlesztésválasztás",
- "Any pick": "Bármely választás",
  "1st augment": "1. fejlesztés",
  "2nd augment": "2. fejlesztés",
  "3rd augment": "3. fejlesztés",
@@ -172,5 +171,6 @@
  "Augment pages": "Fejlesztésoldalak",
  "Previous page": "Előző oldal",
  "Next page": "Következő oldal",
- "No augments match these filters.": "Egy fejlesztés sem felel meg ezeknek a szűrőknek."
+ "No augments match these filters.": "Egy fejlesztés sem felel meg ezeknek a szűrőknek.",
+ "All picks": "Minden választás"
 }

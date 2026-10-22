@@ -163,7 +163,6 @@
  "Options for each item slot after the best core build, best DeepScore first. Each slot assumes you bought the top pick before it.": "최고의 코어 빌드 이후 각 아이템 슬롯의 선택지입니다. DeepScore가 높은 순. 각 슬롯은 이전 슬롯의 1순위를 구매했다고 가정합니다.",
  "{n} win rate": "승률 {n}",
  "Augment pick": "증강 선택",
- "Any pick": "모든 선택",
  "1st augment": "1번째 증강",
  "2nd augment": "2번째 증강",
  "3rd augment": "3번째 증강",
@@ -172,5 +171,6 @@
  "Augment pages": "증강 페이지",
  "Previous page": "이전 페이지",
  "Next page": "다음 페이지",
- "No augments match these filters.": "이 필터에 맞는 증강이 없습니다."
+ "No augments match these filters.": "이 필터에 맞는 증강이 없습니다.",
+ "All picks": "모든 선택"
 }

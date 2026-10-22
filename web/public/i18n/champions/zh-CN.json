@@ -163,7 +163,6 @@
  "Options for each item slot after the best core build, best DeepScore first. Each slot assumes you bought the top pick before it.": "最佳核心出装之后每个装备位的选择,DeepScore 最高的排在前面。每个装备位都假定你已买下前一位的首选。",
  "{n} win rate": "胜率 {n}",
  "Augment pick": "强化符文选择",
- "Any pick": "任意选择",
  "1st augment": "第1个强化符文",
  "2nd augment": "第2个强化符文",
  "3rd augment": "第3个强化符文",
@@ -172,5 +171,6 @@
  "Augment pages": "强化符文页",
  "Previous page": "上一页",
  "Next page": "下一页",
- "No augments match these filters.": "没有符合这些筛选条件的强化符文。"
+ "No augments match these filters.": "没有符合这些筛选条件的强化符文。",
+ "All picks": "所有选择"
 }

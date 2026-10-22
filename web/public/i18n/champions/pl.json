@@ -163,7 +163,6 @@
  "Options for each item slot after the best core build, best DeepScore first. Each slot assumes you bought the top pick before it.": "Opcje dla każdego miejsca na przedmiot po najlepszym rdzeniu buildu, najlepszy DeepScore na początku. Każde miejsce zakłada, że kupiłeś najlepszy wybór przed nim.",
  "{n} win rate": "{n} zwycięstw",
  "Augment pick": "Wybór ulepszenia",
- "Any pick": "Dowolny wybór",
  "1st augment": "1. ulepszenie",
  "2nd augment": "2. ulepszenie",
  "3rd augment": "3. ulepszenie",
@@ -172,5 +171,6 @@
  "Augment pages": "Strony ulepszeń",
  "Previous page": "Poprzednia strona",
  "Next page": "Następna strona",
- "No augments match these filters.": "Żadne ulepszenie nie pasuje do tych filtrów."
+ "No augments match these filters.": "Żadne ulepszenie nie pasuje do tych filtrów.",
+ "All picks": "Wszystkie wybory"
 }

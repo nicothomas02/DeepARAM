@@ -163,7 +163,6 @@
  "Options for each item slot after the best core build, best DeepScore first. Each slot assumes you bought the top pick before it.": "Варианты для каждого слота предмета после лучшей основной сборки, лучший DeepScore первым. Каждый слот предполагает, что вы купили лучший вариант перед ним.",
  "{n} win rate": "{n} побед",
  "Augment pick": "Выбор аугмента",
- "Any pick": "Любой выбор",
  "1st augment": "1-й аугмент",
  "2nd augment": "2-й аугмент",
  "3rd augment": "3-й аугмент",
@@ -172,5 +171,6 @@
  "Augment pages": "Страницы аугментов",
  "Previous page": "Предыдущая страница",
  "Next page": "Следующая страница",
- "No augments match these filters.": "Нет аугментов под эти фильтры."
+ "No augments match these filters.": "Нет аугментов под эти фильтры.",
+ "All picks": "Все выборы"
 }

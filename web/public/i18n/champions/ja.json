@@ -163,7 +163,6 @@
  "Options for each item slot after the best core build, best DeepScore first. Each slot assumes you bought the top pick before it.": "最適なコアビルドの後の各アイテム枠の候補です。DeepScoreの高い順。各枠は、その前の枠の一番の候補を購入済みと想定しています。",
  "{n} win rate": "勝率 {n}",
  "Augment pick": "オーグメントの選択",
- "Any pick": "すべての選択",
  "1st augment": "1つ目のオーグメント",
  "2nd augment": "2つ目のオーグメント",
  "3rd augment": "3つ目のオーグメント",
@@ -172,5 +171,6 @@
  "Augment pages": "オーグメントのページ",
  "Previous page": "前のページ",
  "Next page": "次のページ",
- "No augments match these filters.": "この条件に合うオーグメントはありません。"
+ "No augments match these filters.": "この条件に合うオーグメントはありません。",
+ "All picks": "すべての選択"
 }

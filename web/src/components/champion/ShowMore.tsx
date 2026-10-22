@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useRef } from "react";
 import { useT } from "@/components/I18n";
+import { KEPT, useKept } from "@/lib/kept";
 
 // A ranked list that shows its first `limit` rows (all of them when `limit` is null) and hides the rest
 // behind a "Show all" button. Simple view (Settings > Page detail) cuts every list at 5 rows.
@@ -17,7 +18,8 @@ export default function ShowMore({
   limit?: 5 | 8 | 10 | null;
   children: React.ReactNode;
 }) {
-  const [open, setOpen] = useState(false);
+  const box = useRef<HTMLDivElement>(null);
+  const [open, setOpen] = useKept(false, box);
   const t = useT("champions");
   const max = limit ?? Infinity;
   const cls = ["cp-rows"];
@@ -25,7 +27,9 @@ export default function ShowMore({
   if (!open && total > SIMPLE_LIMIT) cls.push("cp-cut-simple");
   return (
     <>
-      <div className={cls.join(" ")}>{children}</div>
+      <div className={cls.join(" ")} ref={box} {...KEPT}>
+        {children}
+      </div>
       {total > SIMPLE_LIMIT && (
         <button
           type="button"

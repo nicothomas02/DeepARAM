@@ -2,6 +2,7 @@
 
 import RowLink from "./RowLink";
 import { useEffect, useMemo, useRef, useState } from "react";
+import { KEPT, useKept } from "@/lib/kept";
 import championNames from "@/data/champion-names.json";
 import { setParams } from "@/lib/url-state";
 import championIds from "@/data/champion-ids.json";
@@ -216,7 +217,8 @@ export default function DataTable({
   };
   const [sort, setSort] = useState(initialSort);
   const [query, setQuery] = useState("");
-  const [shown, setShown] = useState(PAGE);
+  const box = useRef<HTMLDivElement>(null);
+  const [shown, setShown] = useKept(PAGE, box);
   // The column hints link to the "How rankings work" panel when the page has one (HowRankings.tsx).
   const [hasRankings, setHasRankings] = useState(false);
   useEffect(() => setHasRankings(!!document.getElementById(RANKINGS_ID)), []);
@@ -290,7 +292,7 @@ export default function DataTable({
   );
 
   return (
-    <div className={fit ? "data-table fit" : "data-table"}>
+    <div className={fit ? "data-table fit" : "data-table"} ref={box} {...KEPT}>
       {fit ? <div className="table-tools">{search}</div> : search}
       <div className="table-scroll">
         <table ref={tableRef}>

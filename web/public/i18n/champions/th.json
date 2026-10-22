@@ -163,7 +163,6 @@
  "Options for each item slot after the best core build, best DeepScore first. Each slot assumes you bought the top pick before it.": "ตัวเลือกสำหรับแต่ละช่องไอเทมหลังบิลด์หลักที่ดีที่สุด DeepScore สูงสุดก่อน แต่ละช่องถือว่าคุณซื้อตัวเลือกอันดับหนึ่งก่อนหน้าแล้ว",
  "{n} win rate": "อัตราชนะ {n}",
  "Augment pick": "การเลือก Augment",
- "Any pick": "ทุกการเลือก",
  "1st augment": "Augment ที่ 1",
  "2nd augment": "Augment ที่ 2",
  "3rd augment": "Augment ที่ 3",
@@ -172,5 +171,6 @@
  "Augment pages": "หน้า Augment",
  "Previous page": "หน้าก่อนหน้า",
  "Next page": "หน้าถัดไป",
- "No augments match these filters.": "ไม่มี Augment ที่ตรงกับตัวกรองนี้"
+ "No augments match these filters.": "ไม่มี Augment ที่ตรงกับตัวกรองนี้",
+ "All picks": "ทุกการเลือก"
 }

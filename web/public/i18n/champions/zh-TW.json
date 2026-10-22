@@ -163,7 +163,6 @@
  "Options for each item slot after the best core build, best DeepScore first. Each slot assumes you bought the top pick before it.": "最佳核心出裝之後每個裝備欄的選擇,DeepScore 最高的排在前面。每個裝備欄都假定你已買下前一欄的首選。",
  "{n} win rate": "勝率 {n}",
  "Augment pick": "強化選擇",
- "Any pick": "任意選擇",
  "1st augment": "第1個強化",
  "2nd augment": "第2個強化",
  "3rd augment": "第3個強化",
@@ -172,5 +171,6 @@
  "Augment pages": "強化頁面",
  "Previous page": "上一頁",
  "Next page": "下一頁",
- "No augments match these filters.": "沒有符合這些篩選條件的強化。"
+ "No augments match these filters.": "沒有符合這些篩選條件的強化。",
+ "All picks": "所有選擇"
 }

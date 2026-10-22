@@ -163,7 +163,6 @@
  "Options for each item slot after the best core build, best DeepScore first. Each slot assumes you bought the top pick before it.": "Opzioni per ogni slot oggetto dopo la migliore build principale, miglior DeepScore per primo. Ogni slot presume che tu abbia comprato la scelta migliore precedente.",
  "{n} win rate": "{n} di vittorie",
  "Augment pick": "Scelta del potenziamento",
- "Any pick": "Qualsiasi scelta",
  "1st augment": "1º potenziamento",
  "2nd augment": "2º potenziamento",
  "3rd augment": "3º potenziamento",
@@ -172,5 +171,6 @@
  "Augment pages": "Pagine dei potenziamenti",
  "Previous page": "Pagina precedente",
  "Next page": "Pagina successiva",
- "No augments match these filters.": "Nessun potenziamento corrisponde a questi filtri."
+ "No augments match these filters.": "Nessun potenziamento corrisponde a questi filtri.",
+ "All picks": "Tutte le scelte"
 }

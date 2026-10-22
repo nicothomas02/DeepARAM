@@ -2,7 +2,8 @@
 /* eslint-disable @next/next/no-img-element -- small local icons */
 
 import Link from "next/link";
-import { useRef, useState } from "react";
+import { useRef } from "react";
+import { KEPT, useKept } from "@/lib/kept";
 import { Name, useT } from "@/components/I18n";
 import DeepScore from "@/components/DeepScore";
 import { signedPts, tone } from "@/components/champion/Ranked";
@@ -42,9 +43,14 @@ export default function AugmentTable({
   const t = useT("champions");
   const tt = useT("tables");
   const ts = useT("tier-list");
-  const [rarity, setRarity] = useState<(typeof RARITIES)[number]>("all");
-  const [pick, setPick] = useState<(typeof PICKS)[number]>("any");
-  const [page, setPage] = useState(0);
+  const box = useRef<HTMLDivElement>(null);
+  const [rarity, setRarity] = useKept<(typeof RARITIES)[number]>(
+    "all",
+    box,
+    "rarity",
+  );
+  const [pick, setPick] = useKept<(typeof PICKS)[number]>("any", box, "pick");
+  const [page, setPage] = useKept(0, box, "page");
   const top = useRef<HTMLDivElement>(null);
   // Turning the page from the buttons under the table brings the new page's first row back into view.
   const turn = (p: number) => {
@@ -52,10 +58,14 @@ export default function AugmentTable({
     const y = top.current?.getBoundingClientRect().top ?? 0;
     if (y < 0) top.current?.scrollIntoView({ block: "start" });
   };
-  const [sort, setSort] = useState<{ key: SortKey; desc: boolean }>({
-    key: "deepScore",
-    desc: true,
-  });
+  const [sort, setSort] = useKept<{ key: SortKey; desc: boolean }>(
+    {
+      key: "deepScore",
+      desc: true,
+    },
+    box,
+    "sort",
+  );
   const shown = rows
     .filter((r) => rarity === "all" || r.rarity === rarity)
     .filter((r) => pick === "any" || (r.stages?.[pick] ?? 0) >= FAIR_SHARE)
@@ -95,7 +105,7 @@ export default function AugmentTable({
   const hasPicks = rows.some((r) => r.stages);
   return (
     <>
-      <div className="cp-filters">
+      <div className="cp-filters" ref={box} {...KEPT}>
         <div className="cp-seg" role="group" aria-label={t("Rarity")}>
           {RARITIES.filter(
             (r) => r === "all" || rows.some((x) => x.rarity === r),
@@ -125,7 +135,7 @@ export default function AugmentTable({
                   setPage(0);
                 }}
               >
-                {p === "any" ? t("Any pick") : t(PICK_LABEL[p])}
+                {p === "any" ? t("All picks") : t(PICK_LABEL[p])}
               </button>
             ))}
           </div>

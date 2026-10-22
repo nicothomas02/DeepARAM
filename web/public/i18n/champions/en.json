@@ -163,7 +163,6 @@
  "Options for each item slot after the best core build, best DeepScore first. Each slot assumes you bought the top pick before it.": "Options for each item slot after the best core build, best DeepScore first. Each slot assumes you bought the top pick before it.",
  "{n} win rate": "{n} win rate",
  "Augment pick": "Augment pick",
- "Any pick": "Any pick",
  "1st augment": "1st augment",
  "2nd augment": "2nd augment",
  "3rd augment": "3rd augment",
@@ -172,5 +171,6 @@
  "Augment pages": "Augment pages",
  "Previous page": "Previous page",
  "Next page": "Next page",
- "No augments match these filters.": "No augments match these filters."
+ "No augments match these filters.": "No augments match these filters.",
+ "All picks": "All picks"
 }

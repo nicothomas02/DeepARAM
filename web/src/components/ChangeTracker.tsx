@@ -1,6 +1,7 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
+import { KEPT, useKept } from "@/lib/kept";
 import { useNames, useT, type NameKind } from "./I18n";
 
 // The PBE tab's change tracker: every champion, item and augment change on the test server, each tagged
@@ -44,7 +45,8 @@ export default function ChangeTracker({ entries }: { entries: TrackerEntry[] }) 
   const [kind, setKind] = useState<(typeof KINDS)[number][0]>("all");
   const [tag, setTag] = useState<Tag | null>(null);
   const [q, setQ] = useState("");
-  const [all, setAll] = useState(false);
+  const box = useRef<HTMLDivElement>(null);
+  const [all, setAll] = useKept(false, box);
   const t = useT("pbe");
   const td = useT("pbe-data");
   const names = useNames();
@@ -67,7 +69,7 @@ export default function ChangeTracker({ entries }: { entries: TrackerEntry[] }) 
   const cut = !all && !tag && !q.trim() && shown.length > FIRST + 3;
 
   return (
-    <div className="tracker">
+    <div className="tracker" ref={box} {...KEPT}>
       <div className="tracker-bar">
         <div className="seg" role="group" aria-label={t("Show")}>
           {KINDS.map(([k, label]) => (

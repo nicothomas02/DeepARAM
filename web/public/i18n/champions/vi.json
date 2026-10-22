@@ -163,7 +163,6 @@
  "Options for each item slot after the best core build, best DeepScore first. Each slot assumes you bought the top pick before it.": "Lựa chọn cho từng ô trang bị sau bộ lõi tốt nhất, DeepScore cao nhất trước. Mỗi ô giả định bạn đã mua lựa chọn hàng đầu trước nó.",
  "{n} win rate": "Tỉ lệ thắng {n}",
  "Augment pick": "Lượt chọn Lõi Nâng Cấp",
- "Any pick": "Mọi lượt chọn",
  "1st augment": "Lõi Nâng Cấp thứ 1",
  "2nd augment": "Lõi Nâng Cấp thứ 2",
  "3rd augment": "Lõi Nâng Cấp thứ 3",
@@ -172,5 +171,6 @@
  "Augment pages": "Các trang Lõi Nâng Cấp",
  "Previous page": "Trang trước",
  "Next page": "Trang sau",
- "No augments match these filters.": "Không có Lõi Nâng Cấp nào khớp với các bộ lọc này."
+ "No augments match these filters.": "Không có Lõi Nâng Cấp nào khớp với các bộ lọc này.",
+ "All picks": "Mọi lượt chọn"
 }

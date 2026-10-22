@@ -163,7 +163,6 @@
  "Options for each item slot after the best core build, best DeepScore first. Each slot assumes you bought the top pick before it.": "خيارات كل خانة عنصر بعد أفضل بناء أساسي، الأعلى في DeepScore أولًا. كل خانة تفترض أنك اشتريت الخيار الأول قبلها.",
  "{n} win rate": "{n} نسبة الفوز",
  "Augment pick": "اختيار التعزيز",
- "Any pick": "أي اختيار",
  "1st augment": "التعزيز الأول",
  "2nd augment": "التعزيز الثاني",
  "3rd augment": "التعزيز الثالث",
@@ -172,5 +171,6 @@
  "Augment pages": "صفحات التعزيزات",
  "Previous page": "الصفحة السابقة",
  "Next page": "الصفحة التالية",
- "No augments match these filters.": "لا توجد تعزيزات تطابق هذه الفلاتر."
+ "No augments match these filters.": "لا توجد تعزيزات تطابق هذه الفلاتر.",
+ "All picks": "كل الاختيارات"
 }
