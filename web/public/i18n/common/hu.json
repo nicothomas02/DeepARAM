@@ -207,5 +207,9 @@
  "{v} CS": "{v} CS",
  "This set": "Ez a szett",
  "What every patch changed, grouped by set: augment tuning and the champions that moved most.": "Mit változtatott minden frissítés, szettenként: fejlesztés-hangolások és a legtöbbet mozdult bajnokok.",
- "Training dummy at 50% Health": "Gyakorlóbábu 50% Életerőn"
+ "Training dummy at 50% Health": "Gyakorlóbábu 50% Életerőn",
+ "Best items": "Legjobb tárgyak",
+ "Cook builds from The Kitchen": "Főzz buildeket a The Kitchenben",
+ "See all champions →": "Az összes bajnok →",
+ "{ds} DeepScore · {wr} win · {pr} pick": "{ds} DeepScore · {wr} győzelem · {pr} választás"
 }

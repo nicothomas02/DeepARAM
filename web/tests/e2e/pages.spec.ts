@@ -1,6 +1,8 @@
 import { expect, test, type Page } from "@playwright/test";
 import { readFileSync } from "node:fs";
 import { setOf } from "../../src/lib/sets";
+import { awaitingData, type PatchSchedule } from "../../src/lib/patch-schedule";
+import { patchName, patchVersion } from "../../src/lib/patch-name";
 
 // Every main page: loads, shows the header and the legal notice, throws no script errors,
 // loads every image and script it asks for from the site, and never scrolls sideways on a phone.
@@ -295,11 +297,19 @@ test("patch history groups by set, recaps skip the augment pool, and the champio
   const patches = readFileSync("../data/cn/history/patches.csv", "utf8").trim().split("\n").slice(1).map((l) => l.split(",")[0]);
   const live = setOf(patches[patches.length - 1]);
   const inSet = patches.filter((p) => setOf(p).name === live.name);
+  // A patch that is out but has no stats yet heads the list as Live, in its own set, with no recap link yet
+  const schedule = JSON.parse(readFileSync("../data/patch-schedule.json", "utf8")) as PatchSchedule;
+  const waiting = awaitingData(schedule, patches[patches.length - 1]);
   await page.goto("/patches");
-  await expect(page.locator(".recap-set-head").first()).toContainText(live.name);
+  await expect(page.locator(".recap-set-head").first()).toContainText(waiting ? setOf(patchVersion(waiting.patch)).name : live.name);
+  if (waiting) {
+    await expect(page.locator(".recap-row").first()).toContainText(patchName(waiting.patch));
+    await expect(page.locator(".recap-row").first()).toContainText("Live");
+  }
+  await expect(page.locator(".recap-set-head", { hasText: live.name })).toHaveCount(1);
   await expect(page.locator(".recap-set-head", { hasText: "Launch" })).toHaveCount(1);
   await expect(page.locator("body")).not.toContainText("added ·");
-  await page.locator(".recap-row").first().click();
+  await page.locator("a.recap-row").first().click();
   await expect(page.locator(".champ-hero .eyebrow")).toContainText(live.name);
   await expect(page.locator("main")).not.toContainText("Augments added");
 

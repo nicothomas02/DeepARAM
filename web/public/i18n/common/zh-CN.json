@@ -207,5 +207,9 @@
  "{v} CS": "{v} 补刀",
  "This set": "本赛季",
  "What every patch changed, grouped by set: augment tuning and the champions that moved most.": "按赛季分组的每个版本改动：强化符文调整，以及变化最大的英雄。",
- "Training dummy at 50% Health": "生命值50%的训练假人"
+ "Training dummy at 50% Health": "生命值50%的训练假人",
+ "Best items": "最佳装备",
+ "Cook builds from The Kitchen": "在 The Kitchen 烹制出装",
+ "See all champions →": "查看全部英雄 →",
+ "{ds} DeepScore · {wr} win · {pr} pick": "{ds} DeepScore · 胜率 {wr} · 选取率 {pr}"
 }

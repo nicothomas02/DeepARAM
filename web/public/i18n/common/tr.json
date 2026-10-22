@@ -207,5 +207,9 @@
  "{v} CS": "{v} CS",
  "This set": "Bu set",
  "What every patch changed, grouped by set: augment tuning and the champions that moved most.": "Her yamanın değiştirdikleri, sete göre: güçlendirme ayarları ve en çok hareket eden şampiyonlar.",
- "Training dummy at 50% Health": "%50 Can'daki antrenman mankeni"
+ "Training dummy at 50% Health": "%50 Can'daki antrenman mankeni",
+ "Best items": "En iyi eşyalar",
+ "Cook builds from The Kitchen": "The Kitchen'da build pişir",
+ "See all champions →": "Tüm şampiyonları gör →",
+ "{ds} DeepScore · {wr} win · {pr} pick": "{ds} DeepScore · {wr} galibiyet · {pr} seçilme"
 }

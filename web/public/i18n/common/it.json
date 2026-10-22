@@ -207,5 +207,9 @@
  "{v} CS": "{v} CS",
  "This set": "Questo set",
  "What every patch changed, grouped by set: augment tuning and the champions that moved most.": "Cosa ha cambiato ogni patch, raggruppato per set: ritocchi ai potenziamenti e i campioni che si sono mossi di più.",
- "Training dummy at 50% Health": "Manichino d'allenamento al 50% di salute"
+ "Training dummy at 50% Health": "Manichino d'allenamento al 50% di salute",
+ "Best items": "Oggetti migliori",
+ "Cook builds from The Kitchen": "Cucina build in The Kitchen",
+ "See all champions →": "Vedi tutti i campioni →",
+ "{ds} DeepScore · {wr} win · {pr} pick": "{ds} DeepScore · {wr} vittorie · {pr} scelte"
 }

@@ -1145,6 +1145,8 @@
         const age = time - c.land;
         if (age < -0.05 || age > 0.35 || moveOf(champ.id, c.s) !== "dash" || !c.from) continue;
         const a = scr(worldAt(fight, c.t).me), b = scr(c.from);
+        // A dash with no known start (or a hidden, zero-size canvas) has no finite ends, which would throw and stop the replay.
+        if (![a.x, a.y, b.x, b.y].every(Number.isFinite)) continue;
         const grad = og.createLinearGradient(a.x, a.y, b.x, b.y);
         grad.addColorStop(0, "rgba(233,243,255,0)"); grad.addColorStop(1, "rgba(233,243,255,.7)");
         og.globalAlpha = Math.max(0, 1 - age / 0.35); og.strokeStyle = grad; og.lineWidth = 10 * u; og.lineCap = "round";

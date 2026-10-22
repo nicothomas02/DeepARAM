@@ -55,11 +55,25 @@ def names(riot, version):
     }
 
 
+def add_english_augments(augs):
+    """Adds the English name of every augment new this patch to src/data/augment-names.json, which the pages read.
+    Existing names stay as they are, so ids the client has since dropped keep theirs for older patches."""
+    path = os.path.join(WEB, "src", "data", "augment-names.json")
+    known = json.load(open(path, encoding="utf-8"))
+    new = {k: v for k, v in augs.items() if v and k not in known}
+    if new:
+        known.update(new)
+        with open(path, "w", encoding="utf-8") as f:
+            json.dump(dict(sorted(known.items())), f, ensure_ascii=False, indent=0)
+    print(f"en: {len(new)} new augment names")
+
+
 def main():
     langs = json.load(open(LANGS, encoding="utf-8"))
     version = get(f"{DD}/api/versions.json")[0]
     en = names("en_US", version)
     os.makedirs(OUT, exist_ok=True)
+    add_english_augments(en["augments"])
 
     def one(lang):
         local = names(lang["riot"], version)
