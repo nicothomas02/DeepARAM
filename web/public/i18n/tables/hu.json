@@ -125,5 +125,10 @@
  "Healing done": "Gyógyítás",
  "Crowd control": "Tömegirányítás",
  "Shielding": "Pajzsok",
- "Marked when neither champion has a stun, root, knock-up, taunt, fear, charm, sleep or suppression, so the pair struggles to lock anyone down.": "Akkor jelöljük, ha egyik hősnek sincs kábítása, gyökereztetése, feldobása, provokálása, rémisztése, elbűvölése, altatása vagy elfojtása, így a páros nehezen köt le bárkit."
+ "Marked when neither champion has a stun, root, knock-up, taunt, fear, charm, sleep or suppression, so the pair struggles to lock anyone down.": "Akkor jelöljük, ha egyik hősnek sincs kábítása, gyökereztetése, feldobása, provokálása, rémisztése, elbűvölése, altatása vagy elfojtása, így a páros nehezen köt le bárkit.",
+ "Varies by champion": "Hősönként eltér",
+ "Augment reliance": "Bővítésfüggés",
+ "Estimated. How far its win rate boost swings from one champion to another. High means great on some champions and weak on others.": "Becslés. Mennyire ingadozik a győzelmi többlete hősről hősre. A magas érték azt jelenti, hogy egyes hősökön kiváló, másokon gyenge.",
+ "Estimated. How far the champion's win rate swings with the augments it gets. High means its augment picks matter a lot.": "Becslés. Mennyire ingadozik a hős győzelmi aránya a kapott bővítések szerint. A magas érték azt jelenti, hogy nagyon számít, milyen bővítéseket választ.",
+ "Varies by champion and Augment reliance are typical swings in pts: how much an augment's boost changes between champions, and how much a champion's win rate changes between augments.": "A Hősönként eltér és a Bővítésfüggés jellemző ingadozás pontban: mennyit változik egy bővítés többlete hősök között, és mennyit változik egy hős győzelmi aránya bővítések között."
 }

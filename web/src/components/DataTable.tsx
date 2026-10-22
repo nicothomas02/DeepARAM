@@ -17,7 +17,7 @@ import type { TagInfo } from "@/lib/tag-info";
 export type Column = {
   key: string;
   label: string;
-  format?: "pct" | "pts" | "num" | "int" | "sec" | "text" | "champion" | "augment" | "item" | "tier" | "deepscore" | "tags";
+  format?: "pct" | "pts" | "spread" | "num" | "int" | "sec" | "text" | "champion" | "augment" | "item" | "tier" | "deepscore" | "tags";
   sortable?: boolean;
   /** For "augment" columns: the row key holding the augment id, for its icon; for "item" columns, the icon's address. */
   iconKey?: string;
@@ -65,6 +65,9 @@ function show(v: Row[string], format: Column["format"], pts: (n: string) => stri
     case "pts":
       // Percentage points; the cell's ▲ or ▼ (cellClass) carries the sign.
       return pts(tenths(Math.abs(n)));
+    case "spread":
+      // A spread in percentage points: always positive, so no arrow or colour.
+      return pts(tenths(n));
     case "num":
       return n.toFixed(1);
     case "int":

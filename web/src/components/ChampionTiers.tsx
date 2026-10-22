@@ -79,6 +79,14 @@ const CURVE: Column = {
   hint: "Estimated from simulated damage at levels 8, 13 and 18: whether the champion peaks early, late or stays even.",
 };
 
+// Estimated spread of the champion's win rate over the augments it takes (lib/estimates.ts).
+const RELIANCE: Column = {
+  key: "reliance",
+  label: "Augment reliance",
+  format: "spread",
+  hint: "Estimated. How far the champion's win rate swings with the augments it gets. High means its augment picks matter a lot.",
+};
+
 // Live-patch game counts, when the page has them (lib/fill.ts).
 const GAMES: Column = { key: "games", label: "Games", format: "int", hint: "Estimated games on the live patch." };
 
@@ -92,9 +100,10 @@ type Props = {
   tagInfo: TagInfo;
   games?: Record<string, number> | null;
   scaling?: Record<string, number>;
+  reliance?: Record<string, number>;
 };
 
-export default function ChampionTiers({ rows: initial, patches, tags, tagInfo, games, scaling = {} }: Props) {
+export default function ChampionTiers({ rows: initial, patches, tags, tagInfo, games, scaling = {}, reliance = {} }: Props) {
   const t = useT("tier-list");
   const tt = useT("tags");
   const live = patches[patches.length - 1];
@@ -142,10 +151,11 @@ export default function ChampionTiers({ rows: initial, patches, tags, tagInfo, g
         archetype: (tags[c.name] ?? []).filter((t) => tagInfo[t]?.kind !== "play").join(","),
         scaling: scaling[c.name] ?? null,
         curve: curveLabel(scaling[c.name]),
+        reliance: reliance[c.name] ?? null,
       };
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps -- curveLabel follows t
-  }, [rows, picked, before, have, missing, tags, tagInfo, games, one, live, scaling, t]);
+  }, [rows, picked, before, have, missing, tags, tagInfo, games, one, live, scaling, reliance, t]);
 
   // Archetype filter (?tag=Mage,Poke): a champion shows when it has every picked tag. Tiers and
   // DeepScores stay graded against the whole list, so a filtered view shows where each stands overall.
@@ -334,6 +344,7 @@ export default function ChampionTiers({ rows: initial, patches, tags, tagInfo, g
             ...(showChange ? [CHANGE] : []),
             ...(games && one === live ? [GAMES] : []),
             ...(Object.keys(scaling).length ? [CURVE] : []),
+            ...(Object.keys(reliance).length ? [RELIANCE] : []),
             ...ADVANCED.slice(5),
             tagCol,
           ]}
