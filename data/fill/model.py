@@ -6,7 +6,7 @@ The total comes from win-rate noise in the cumulative daily feed (estimate_daily
 Spells: Flash is in ~99% of Mayhem loadouts, so the model predicts the second spell from the
 Mayhem pool (no Exhaust) with a softmax over: Data Dragon class tags, melee/ranged and move speed,
 the champion's Mayhem stats (damage share, tank share, kill participation, time dead), and its
-Summoner's Rift spell shares with Exhaust's share moved half to Ignite and half to Ghost.
+Summoner's Rift spell shares with Exhaust's share moved to Heal.
 fit_spells.py fits the coefficients into spell_model.json.
 """
 
@@ -28,7 +28,7 @@ FLASH, EXHAUST, SMITE, TELEPORT = 4, 3, 11, 12
 # Mark, Ghost, Barrier, Heal, Ignite, Clarity, Cleanse: the non-Flash Mayhem pool
 SPELLS = [32, 6, 21, 7, 14, 13, 1]
 NO_RIFT = {32, 13}  # Mark and Clarity don't exist on Summoner's Rift
-EXHAUST_TO = {14: 0.5, 6: 0.5}
+EXHAUST_TO = {7: 1.0}
 TAGS = ["Assassin", "Fighter", "Mage", "Marksman", "Support", "Tank"]
 LANES = ("TOP", "JUNGLE", "MIDDLE", "BOTTOM", "SUPPORT")
 

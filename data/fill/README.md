@@ -27,8 +27,8 @@ Flash is in ~99% of Mayhem loadouts, so the model predicts the second spell from
 pool (Mark, Ghost, Barrier, Heal, Ignite, Clarity, Cleanse; no Exhaust) with a softmax over:
 Data Dragon class tags, melee/ranged, move speed, the champion's Mayhem stats (damage share,
 tank share, kill participation, time dead) and its Summoner's Rift spell shares
-(`lol_101strategy_skill`, lanes averaged), with Exhaust's share moved half to Ignite and half
-to Ghost. Every loadout is shown as Flash + that spell.
+(`lol_101strategy_skill`, lanes averaged), with Exhaust's share moved to Heal
+(the owner's call). Every loadout is shown as Flash + that spell.
 
 Fitted on 994 Mayhem games from the owner's own client archive (9,940 players; the archive
 stays on the owner's computer, only coefficients are stored). 5-fold check by game: log
