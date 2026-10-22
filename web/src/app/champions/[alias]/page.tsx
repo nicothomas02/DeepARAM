@@ -211,15 +211,15 @@ export async function generateMetadata({
 }
 
 // The section links, in page order.
-// What a player checks mid-match comes first; stats and graphs sit at the bottom.
+// What a player checks mid-match comes first; stats and graphs follow, and More details sits last.
 const SPOTS = [
   { id: "augments", label: "Augments" },
   { id: "combos", label: "Augment combinations" },
   { id: "builds", label: "Builds" },
   { id: "playstyle", label: "Playstyle" },
   { id: "teammates", label: "Teammates" },
-  { id: "details", label: "More details" },
   { id: "performance", label: "Performance" },
+  { id: "details", label: "More details" },
 ];
 
 function Spells({ r }: { r: SpellRow }) {
@@ -949,51 +949,6 @@ export default async function ChampionPage({
             names={Object.fromEntries(all.map((x) => [x.id, x.name]))}
           />
 
-          <h2 className="cp-group" id="details">
-            <T ns={NS}>More details</T>
-          </h2>
-          {p.styles.length > 0 && (
-            <Panel title="Builds by style" count={p.styles.length} detailed>
-              <Head
-                what="Style"
-                cols={["Win rate", "Build share", "Win rate boost"]}
-              />
-              <div className="cp-rows">
-                {p.styles.map((s, i) => (
-                  <Row
-                    key={s.label}
-                    rank={i + 1}
-                    cells={
-                      <>
-                        <Cell value={pct(s.winRate)} label="Win rate" />
-                        <Cell value={pct(s.share)} label="Build share" />
-                        <Cell
-                          value={signed(s.lift)}
-                          label="Win rate boost"
-                          tone={tone(s.lift)}
-                        />
-                      </>
-                    }
-                  >
-                    <span className="cp-name">
-                      <T ns={NS}>{s.label}</T>
-                    </span>
-                  </Row>
-                ))}
-              </div>
-            </Panel>
-          )}
-          <MayhemChanges
-            name={c.name}
-            changes={p.changes}
-            modifiers={p.modifiers}
-          />
-          {p.stats && (
-            <Fold section="details" titles={["Base stats"]}>
-              <BaseStatsTable stats={p.stats} />
-            </Fold>
-          )}
-
           <h2 className="cp-group" id="performance">
             <T ns={NS}>Performance</T>
           </h2>
@@ -1156,6 +1111,51 @@ export default async function ChampionPage({
             patches={c.patches}
             champions={champList()}
           />
+
+          <h2 className="cp-group" id="details">
+            <T ns={NS}>More details</T>
+          </h2>
+          {p.styles.length > 0 && (
+            <Panel title="Builds by style" count={p.styles.length} detailed>
+              <Head
+                what="Style"
+                cols={["Win rate", "Build share", "Win rate boost"]}
+              />
+              <div className="cp-rows">
+                {p.styles.map((s, i) => (
+                  <Row
+                    key={s.label}
+                    rank={i + 1}
+                    cells={
+                      <>
+                        <Cell value={pct(s.winRate)} label="Win rate" />
+                        <Cell value={pct(s.share)} label="Build share" />
+                        <Cell
+                          value={signed(s.lift)}
+                          label="Win rate boost"
+                          tone={tone(s.lift)}
+                        />
+                      </>
+                    }
+                  >
+                    <span className="cp-name">
+                      <T ns={NS}>{s.label}</T>
+                    </span>
+                  </Row>
+                ))}
+              </div>
+            </Panel>
+          )}
+          <MayhemChanges
+            name={c.name}
+            changes={p.changes}
+            modifiers={p.modifiers}
+          />
+          {p.stats && (
+            <Fold section="details" titles={["Base stats"]}>
+              <BaseStatsTable stats={p.stats} />
+            </Fold>
+          )}
         </div>
 
         <SectionRail spots={SPOTS} />
