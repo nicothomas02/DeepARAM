@@ -167,10 +167,10 @@
  "2nd augment": "Augment ที่ 2",
  "3rd augment": "Augment ที่ 3",
  "4th augment": "Augment ที่ 4",
- "Estimated: augments players often take at this pick, across all champions.": "ประมาณการ: Augment ที่ผู้เล่นมักเลือกในรอบนี้ จากแชมเปี้ยนทั้งหมด",
  "Augment pages": "หน้า Augment",
  "Previous page": "หน้าก่อนหน้า",
  "Next page": "หน้าถัดไป",
  "No augments match these filters.": "ไม่มี Augment ที่ตรงกับตัวกรองนี้",
- "All picks": "ทุกการเลือก"
+ "All picks": "ทุกการเลือก",
+ "Estimated: augments often taken at this pick on this champion.": "ประมาณการ: Augment ที่มักเลือกในรอบนี้กับแชมเปี้ยนตัวนี้"
 }

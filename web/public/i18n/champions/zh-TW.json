@@ -167,10 +167,10 @@
  "2nd augment": "第2個強化",
  "3rd augment": "第3個強化",
  "4th augment": "第4個強化",
- "Estimated: augments players often take at this pick, across all champions.": "估算:所有英雄中,玩家常在這次選擇時拿的強化。",
  "Augment pages": "強化頁面",
  "Previous page": "上一頁",
  "Next page": "下一頁",
  "No augments match these filters.": "沒有符合這些篩選條件的強化。",
- "All picks": "所有選擇"
+ "All picks": "所有選擇",
+ "Estimated: augments often taken at this pick on this champion.": "估算:該英雄在這次選擇時常拿的強化。"
 }

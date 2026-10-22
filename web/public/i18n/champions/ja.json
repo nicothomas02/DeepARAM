@@ -167,10 +167,10 @@
  "2nd augment": "2つ目のオーグメント",
  "3rd augment": "3つ目のオーグメント",
  "4th augment": "4つ目のオーグメント",
- "Estimated: augments players often take at this pick, across all champions.": "推定:全チャンピオンで、この選択でよく取られるオーグメントです。",
  "Augment pages": "オーグメントのページ",
  "Previous page": "前のページ",
  "Next page": "次のページ",
  "No augments match these filters.": "この条件に合うオーグメントはありません。",
- "All picks": "すべての選択"
+ "All picks": "すべての選択",
+ "Estimated: augments often taken at this pick on this champion.": "推定:このチャンピオンでこの選択によく取られるオーグメントです。"
 }

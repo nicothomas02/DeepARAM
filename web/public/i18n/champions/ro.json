@@ -167,10 +167,10 @@
  "2nd augment": "Al 2-lea augment",
  "3rd augment": "Al 3-lea augment",
  "4th augment": "Al 4-lea augment",
- "Estimated: augments players often take at this pick, across all champions.": "Estimat: augmente pe care jucătorii le iau des la această alegere, pentru toți campionii.",
  "Augment pages": "Pagini de augmente",
  "Previous page": "Pagina anterioară",
  "Next page": "Pagina următoare",
  "No augments match these filters.": "Niciun augment nu se potrivește acestor filtre.",
- "All picks": "Toate alegerile"
+ "All picks": "Toate alegerile",
+ "Estimated: augments often taken at this pick on this champion.": "Estimat: augmente luate des la această alegere pe acest campion."
 }

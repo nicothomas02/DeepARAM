@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { championPage } from "@/lib/champion-page";
 import { itemTier } from "@/lib/items";
+import { championAugmentStages } from "@/lib/estimates";
 
 // Champion page builds: the core shows its boots, then the 4th, 5th and 6th item options.
 describe("champion page core build", () => {
@@ -28,5 +29,19 @@ describe("champion page core build", () => {
       expect([...scores].sort((a, b) => b - a)).toEqual(scores);
       taken.add(s.options[0].items[0]);
     }
+  });
+});
+
+describe("champion augment pick order estimate", () => {
+  it("gives each augment shares that sum to 1 and spreads the champion's picks over all four picks", () => {
+    const p = championPage("Annie")!;
+    const m = championAugmentStages(p.augments);
+    expect(m.size).toBe(p.augments.length);
+    for (const s of m.values()) {
+      expect(s).toHaveLength(4);
+      expect(s.reduce((a, b) => a + b, 0)).toBeCloseTo(1, 3);
+    }
+    const perPick = [0, 1, 2, 3].map((i) => p.augments.reduce((t, a) => t + a.pickRate * m.get(a.id)![i], 0));
+    for (const v of perPick) expect(Math.abs(v - perPick[0])).toBeLessThan(0.05);
   });
 });

@@ -167,10 +167,10 @@
  "2nd augment": "第2个强化符文",
  "3rd augment": "第3个强化符文",
  "4th augment": "第4个强化符文",
- "Estimated: augments players often take at this pick, across all champions.": "估算:所有英雄中,玩家常在这次选择时拿的强化符文。",
  "Augment pages": "强化符文页",
  "Previous page": "上一页",
  "Next page": "下一页",
  "No augments match these filters.": "没有符合这些筛选条件的强化符文。",
- "All picks": "所有选择"
+ "All picks": "所有选择",
+ "Estimated: augments often taken at this pick on this champion.": "估算:该英雄在这次选择时常拿的强化符文。"
 }

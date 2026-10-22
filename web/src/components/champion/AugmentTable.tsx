@@ -143,7 +143,7 @@ export default function AugmentTable({
         {pick !== "any" && (
           <p className="cp-filter-note">
             {t(
-              "Estimated: augments players often take at this pick, across all champions.",
+              "Estimated: augments often taken at this pick on this champion.",
             )}
           </p>
         )}
