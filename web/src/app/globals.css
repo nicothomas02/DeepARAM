@@ -1075,6 +1075,19 @@ h1 {
   box-shadow: 0 1px 0 var(--line);
 }
 
+/* When the table fits its width, the header sticks natively instead (smooth on phones); clip, unlike hidden or
+   auto, keeps the rounded corners without making the wrapper a scroll container. */
+.data-table .table-scroll[data-sticky] {
+  overflow: clip;
+}
+
+.data-table .table-scroll[data-sticky] thead th,
+.data-table.fit > .table-scroll[data-sticky] thead th.pin {
+  position: sticky;
+  top: var(--sticky-top, 0px);
+  transform: none;
+}
+
 .table-scroll {
   overflow-x: auto;
   border: 1px solid var(--line);
@@ -1156,6 +1169,13 @@ h1 {
 
 .champ img {
   flex: none;
+  border-radius: 7px;
+  background: var(--raised);
+}
+
+/* An icon-only champion cell (the augment list's Best champ). */
+.champ-icon {
+  display: block;
   border-radius: 7px;
   background: var(--raised);
 }
@@ -1629,21 +1649,38 @@ html[data-device="mobile"] .data-table th {
     white-space: normal;
   }
 
-  .data-table.fit > .table-scroll td.pin,
-  .data-table.fit > .table-scroll .champ {
-    white-space: normal;
+  /* Names stay on one line: the name column takes the room the numbers leave, and a name longer than that ends in "…". */
+  .data-table.fit > .table-scroll td.pin {
+    width: 100%;
+    max-width: 0;
   }
 
-  /* A long one-word name (Heimerdinger) breaks only when the row would otherwise push win rate off the screen. */
+  .data-table.fit > .table-scroll td.pin .cell-link,
+  .data-table.fit > .table-scroll td.pin .champ {
+    display: flex;
+    min-width: 0;
+  }
+
   .data-table.fit > .table-scroll .champ {
     gap: 0.45rem;
-    overflow-wrap: anywhere;
+  }
+
+  .data-table.fit > .table-scroll .champ .nm {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }
 
 /* The narrowest phones also drop the row number (the tier letter still shows the order). */
 @media (max-width: 359px) {
-  .data-table.fit > .table-scroll .ph-wide,
+  .data-table.fit > .table-scroll .ph-wide {
+    display: none;
+  }
+}
+
+/* Below the common 390px phones the row number goes too (the tier letter still shows the order), leaving names room. */
+@media (max-width: 379px) {
   .data-table.fit > .table-scroll .rank-col {
     display: none;
   }
@@ -3106,6 +3143,20 @@ html[data-motion="reduce"] .btn:hover {
   display: flex;
   align-items: center;
   gap: 1rem;
+}
+
+/* The augment's or item's official description, right under its name. */
+.official-desc {
+  display: grid;
+  gap: 0.35rem;
+  max-width: 68ch;
+  margin-top: 0.75rem;
+  color: var(--text);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+.official-desc p {
+  margin: 0;
 }
 
 /* The icon sits on the game's own augment-card swirl for its rarity (augment-back images in public/assets/art). */

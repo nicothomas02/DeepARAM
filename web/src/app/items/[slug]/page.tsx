@@ -8,7 +8,8 @@ import { itemSim } from "@/lib/item-sim";
 import { itemEstimate } from "@/lib/estimates";
 import { itemTag } from "@/lib/item-tags";
 import { pageMeta } from "@/lib/meta";
-import { Name, T } from "@/components/I18n";
+import { Description, Name, T } from "@/components/I18n";
+import descriptions from "@/data/descriptions.json";
 import { patchName } from "@/lib/patch-name";
 import { signedPts } from "@/components/champion/Ranked";
 
@@ -17,6 +18,7 @@ import { signedPts } from "@/components/champion/Ranked";
 export const dynamicParams = false;
 export const generateStaticParams = () => itemPages().map((i) => ({ slug: i.slug }));
 
+const DESC = descriptions as { augments: Record<string, string>; items: Record<string, string> };
 const pct = (v: number) => `${(v * 100).toFixed(1)}%`;
 const signed = (v: number, unit = "") => `${v >= 0 ? "+" : "−"}${Math.abs(v).toFixed(unit ? 1 : 0)}${unit}`;
 
@@ -71,6 +73,11 @@ export default async function ItemPage({ params }: { params: Promise<{ slug: str
             </span>
           </h1>
         </div>
+        {DESC.items[String(i.id)] && (
+          <Description kind="items" id={i.id}>
+            {DESC.items[String(i.id)]}
+          </Description>
+        )}
         {i.tags.length > 0 && (
           <p className="item-tags-row">
             {i.tags.map((t) => (

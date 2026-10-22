@@ -31,5 +31,7 @@
  "Set 3": "Set 3",
  "New set": "Neues Set",
  "{n} augments changed": "{n} Augments geändert",
- "augments changed": "Augments geändert"
+ "augments changed": "Augments geändert",
+ "{n} added": "{n} hinzugefügt",
+ "{n} removed": "{n} entfernt"
 }

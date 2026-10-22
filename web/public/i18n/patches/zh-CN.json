@@ -31,5 +31,7 @@
  "Set 3": "赛季 3",
  "New set": "新赛季",
  "{n} augments changed": "{n} 个强化符文有改动",
- "augments changed": "个强化符文有改动"
+ "augments changed": "个强化符文有改动",
+ "{n} added": "新增 {n}",
+ "{n} removed": "移除 {n}"
 }

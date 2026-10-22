@@ -130,5 +130,7 @@
  "Augment reliance": "オーグメント依存度",
  "Estimated. How far its win rate boost swings from one champion to another. High means great on some champions and weak on others.": "推定。勝率上昇がチャンピオンごとにどれだけ変わるか。高いほど、一部のチャンピオンでは強く、他では弱いことを示します。",
  "Estimated. How far the champion's win rate swings with the augments it gets. High means its augment picks matter a lot.": "推定。取ったオーグメントによってチャンピオンの勝率がどれだけ変わるか。高いほど、オーグメント選びが重要です。",
- "Varies by champion and Augment reliance are typical swings in pts: how much an augment's boost changes between champions, and how much a champion's win rate changes between augments.": "「チャンピオン差」と「オーグメント依存度」は、ptで表した典型的な振れ幅です。オーグメントの上昇幅がチャンピオン間でどれだけ変わるか、チャンピオンの勝率がオーグメント間でどれだけ変わるかを示します。"
+ "Varies by champion and Augment reliance are typical swings in pts: how much an augment's boost changes between champions, and how much a champion's win rate changes between augments.": "「チャンピオン差」と「オーグメント依存度」は、ptで表した典型的な振れ幅です。オーグメントの上昇幅がチャンピオン間でどれだけ変わるか、チャンピオンの勝率がオーグメント間でどれだけ変わるかを示します。",
+ "Best champ": "ベストチャンピオン",
+ "The champion with the highest estimated win rate boost from this augment.": "このオーグメントで推定勝率上昇が最も大きいチャンピオン。"
 }

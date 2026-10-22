@@ -130,5 +130,7 @@
  "Augment reliance": "Dependență de augmentări",
  "Estimated. How far its win rate boost swings from one champion to another. High means great on some champions and weak on others.": "Estimat. Cât de mult se schimbă sporul de victorie de la un campion la altul. Mare înseamnă excelent pe unii campioni și slab pe alții.",
  "Estimated. How far the champion's win rate swings with the augments it gets. High means its augment picks matter a lot.": "Estimat. Cât de mult se schimbă rata de victorie a campionului în funcție de augmentările primite. Mare înseamnă că alegerea augmentărilor contează mult.",
- "Varies by champion and Augment reliance are typical swings in pts: how much an augment's boost changes between champions, and how much a champion's win rate changes between augments.": "Variază după campion și Dependență de augmentări sunt variații tipice în pp: cât se schimbă sporul unei augmentări între campioni și cât se schimbă rata de victorie a unui campion între augmentări."
+ "Varies by champion and Augment reliance are typical swings in pts: how much an augment's boost changes between champions, and how much a champion's win rate changes between augments.": "Variază după campion și Dependență de augmentări sunt variații tipice în pp: cât se schimbă sporul unei augmentări între campioni și cât se schimbă rata de victorie a unui campion între augmentări.",
+ "Best champ": "Cel mai bun campion",
+ "The champion with the highest estimated win rate boost from this augment.": "Campionul cu cea mai mare creștere estimată a ratei de victorie datorită acestei augmentări."
 }

@@ -8,7 +8,7 @@ import ChampionsPanel from "@/components/ChampionsPanel";
 import DuosTable from "@/components/DuosTable";
 import { questPairs } from "@/components/champion/Quests";
 import { archetypeRows, duoVersion, hasDuos } from "@/lib/duos";
-import { augmentHref } from "@/lib/augments";
+import { augmentHref, augmentPages } from "@/lib/augments";
 import { augmentTiers, STYLES } from "@/lib/augment-tiers";
 import AugmentTiers from "@/components/AugmentTiers";
 import { augmentRows, type RawAugment } from "@/lib/augment-winrate";
@@ -106,6 +106,7 @@ export default function TierListPage() {
   if (augments.length) {
     const graded = new Map(augmentTiers().map((a) => [a.id, a]));
     const augName = (a: Record<string, unknown>) => names[String(a.augment_id)] ?? String(a.key).replace(/^ARAM_/, "");
+    const bestById = new Map(augmentPages().map((p) => [p.id, p.best]));
     const augCols = [
       { key: "grade", label: "Tier", format: "tier" as const, sortKey: "deepScore", hint: AUGMENT_DEEPSCORE_HELP },
       { key: "name", label: "Augment", format: "augment" as const, iconKey: "id", hrefKey: "href" },
@@ -139,11 +140,8 @@ export default function TierListPage() {
                 hint: "Estimated. How far its win rate boost swings from one champion to another. High means great on some champions and weak on others.",
               },
               augCols[5],
-              { key: "best", label: "Best champions", format: "text", sortable: false },
+              { key: "best", label: "Best champ", format: "champion-icon", sortable: false, hint: "The champion with the highest estimated win rate boost from this augment." },
               augCols[3],
-              { key: "win_rank", label: "Win rank", format: "int" },
-              { key: "pick_rank", label: "Pick rank", format: "int" },
-              { key: "pick_change", label: "Pick rank change", format: "int" },
             ]}
             rows={augments
               .filter((a) => names[String(a.augment_id)] || a.key)
@@ -159,14 +157,7 @@ export default function TierListPage() {
                 spread: augmentSpread(Number(a.augment_id)),
                 win_rate: Number(a.win_rate),
                 pick_rate: Number(a.pick_rate),
-                win_rank: num(String(a.win_rank ?? "")),
-                pick_rank: num(String(a.pick_rank ?? "")),
-                pick_change: num(String(a.pick_rank_change ?? "")),
-                best: ((a.best_champions as number[]) ?? [])
-                  .slice(0, 4)
-                  .map((id) => champName(ALIAS[id]))
-                  .filter(Boolean)
-                  .join(", "),
+                best: bestById.get(Number(a.augment_id))?.[0]?.id ?? null,
               }))}
             note={
               <p className="patch-note">

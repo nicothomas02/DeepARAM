@@ -130,5 +130,7 @@
  "Augment reliance": "Dependência de aprimoramentos",
  "Estimated. How far its win rate boost swings from one champion to another. High means great on some champions and weak on others.": "Estimado. Quanto o ganho de vitórias muda de um campeão para outro. Alto significa ótimo em alguns campeões e fraco em outros.",
  "Estimated. How far the champion's win rate swings with the augments it gets. High means its augment picks matter a lot.": "Estimado. Quanto a taxa de vitórias do campeão muda conforme os aprimoramentos que ele pega. Alto significa que a escolha de aprimoramentos importa muito.",
- "Varies by champion and Augment reliance are typical swings in pts: how much an augment's boost changes between champions, and how much a champion's win rate changes between augments.": "Varia por campeão e Dependência de aprimoramentos são variações típicas em p.p.: quanto o ganho de um aprimoramento muda entre campeões e quanto a taxa de vitórias de um campeão muda entre aprimoramentos."
+ "Varies by champion and Augment reliance are typical swings in pts: how much an augment's boost changes between champions, and how much a champion's win rate changes between augments.": "Varia por campeão e Dependência de aprimoramentos são variações típicas em p.p.: quanto o ganho de um aprimoramento muda entre campeões e quanto a taxa de vitórias de um campeão muda entre aprimoramentos.",
+ "Best champ": "Melhor campeão",
+ "The champion with the highest estimated win rate boost from this augment.": "O campeão com o maior aumento estimado de taxa de vitória com este aprimoramento."
 }

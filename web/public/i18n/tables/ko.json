@@ -130,5 +130,7 @@
  "Augment reliance": "증강 의존도",
  "Estimated. How far its win rate boost swings from one champion to another. High means great on some champions and weak on others.": "추정치. 승률 상승이 챔피언마다 얼마나 달라지는지 나타냅니다. 높을수록 일부 챔피언에게는 뛰어나고 다른 챔피언에게는 약합니다.",
  "Estimated. How far the champion's win rate swings with the augments it gets. High means its augment picks matter a lot.": "추정치. 얻는 증강에 따라 챔피언의 승률이 얼마나 달라지는지 나타냅니다. 높을수록 증강 선택이 중요합니다.",
- "Varies by champion and Augment reliance are typical swings in pts: how much an augment's boost changes between champions, and how much a champion's win rate changes between augments.": "챔피언별 편차와 증강 의존도는 %p 단위의 일반적인 변동 폭입니다. 증강의 상승 폭이 챔피언마다 얼마나 달라지는지, 챔피언의 승률이 증강마다 얼마나 달라지는지를 나타냅니다."
+ "Varies by champion and Augment reliance are typical swings in pts: how much an augment's boost changes between champions, and how much a champion's win rate changes between augments.": "챔피언별 편차와 증강 의존도는 %p 단위의 일반적인 변동 폭입니다. 증강의 상승 폭이 챔피언마다 얼마나 달라지는지, 챔피언의 승률이 증강마다 얼마나 달라지는지를 나타냅니다.",
+ "Best champ": "최고 챔피언",
+ "The champion with the highest estimated win rate boost from this augment.": "이 증강으로 예상 승률 상승이 가장 큰 챔피언입니다."
 }

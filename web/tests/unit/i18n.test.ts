@@ -49,7 +49,8 @@ describe("before-paint script", () => {
 });
 
 describe("dictionaries", () => {
-  const namespaces = readdirSync(I18N).filter((d) => d !== "names");
+  // Official names and descriptions only list what differs from English (fetch_names.py, fetch_descriptions.py).
+  const namespaces = readdirSync(I18N).filter((d) => d !== "names" && d !== "descriptions");
   const others = LANGS.filter((l) => l.code !== "en");
 
   it.each(namespaces)("%s: every language has every English key, with the same placeholders", (ns) => {
@@ -67,5 +68,17 @@ describe("dictionaries", () => {
       const d = JSON.parse(readFileSync(join(I18N, "names", `${l.code}.json`), "utf8"));
       expect(Object.keys(d)).toEqual(expect.arrayContaining(["champions", "items", "augments", "mode"]));
     }
+  });
+});
+
+describe("official descriptions", () => {
+  const en = JSON.parse(readFileSync(join(I18N, "..", "..", "src", "data", "descriptions.json"), "utf8")) as Record<"augments" | "items", Record<string, string>>;
+  it("has English text for augments and items", () => {
+    expect(Object.keys(en.augments).length).toBeGreaterThan(100);
+    expect(en.items["3157"]).toContain("§Time Stop§");
+  });
+  it.each(LANGS.filter((l) => l.code !== "en").map((l) => [l.code]))("%s only translates descriptions English has", (code) => {
+    const d = JSON.parse(readFileSync(join(I18N, "descriptions", `${code}.json`), "utf8")) as typeof en;
+    for (const kind of ["augments", "items"] as const) for (const id of Object.keys(d[kind])) expect(en[kind][id], `${kind} ${id}`).toBeDefined();
   });
 });

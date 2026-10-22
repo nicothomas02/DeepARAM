@@ -31,5 +31,7 @@
  "Set 3": "المجموعة 3",
  "New set": "مجموعة جديدة",
  "{n} augments changed": "تغيّر {n} من التعزيزات",
- "augments changed": "تعزيزات تغيّرت"
+ "augments changed": "تعزيزات تغيّرت",
+ "{n} added": "أُضيف {n}",
+ "{n} removed": "أُزيل {n}"
 }

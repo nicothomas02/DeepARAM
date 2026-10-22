@@ -11,7 +11,8 @@ import { item } from "@/lib/items";
 import { itemPages } from "@/lib/item-pages";
 import ShareButton from "@/components/ShareButton";
 import ShareCard from "@/components/ShareCard";
-import { Name, T } from "@/components/I18n";
+import { Description, Name, T } from "@/components/I18n";
+import descriptions from "@/data/descriptions.json";
 import { patchName } from "@/lib/patch-name";
 
 // One page per augment, so each can be found in search (lib/augments.ts).
@@ -19,6 +20,7 @@ import { patchName } from "@/lib/patch-name";
 export const dynamicParams = false;
 export const generateStaticParams = () => augmentPages().map((a) => ({ slug: a.slug }));
 
+const DESC = descriptions as { augments: Record<string, string>; items: Record<string, string> };
 const pct = (v: number) => `${(v * 100).toFixed(1)}%`;
 const RARITY: Record<string, string> = {
   silver: "Silver",
@@ -88,6 +90,11 @@ export default async function AugmentPage({ params }: { params: Promise<{ slug: 
             </span>
           </h1>
         </div>
+        {DESC.augments[String(a.id)] && (
+          <Description kind="augments" id={a.id}>
+            {DESC.augments[String(a.id)]}
+          </Description>
+        )}
         <div className="stat-row">
           <div>
             <b className="has-chip">
@@ -175,6 +182,9 @@ export default async function AugmentPage({ params }: { params: Promise<{ slug: 
               <h2>
                 <T ns="augments">Best champions for it</T>
               </h2>
+              <span className="card-note">
+                <T ns="tables">Win rate boost</T> · <T ns="augments">Estimated</T>
+              </span>
             </div>
             <div className="rank plain">
               {a.best.map((c) => (
@@ -186,6 +196,13 @@ export default async function AugmentPage({ params }: { params: Promise<{ slug: 
                       {c.name}
                     </Name>
                   </span>
+                  {c.boost !== null && (
+                    <span className={`rank-v ${c.boost >= 0 ? "delta-up" : "delta-down"}`}>
+                      <T ns="tables" v={{ n: `${c.boost >= 0 ? "+" : "−"}${Math.abs(c.boost * 100).toFixed(1)}` }}>
+                        {"{n} pts"}
+                      </T>
+                    </span>
+                  )}
                 </Link>
               ))}
             </div>

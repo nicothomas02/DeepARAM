@@ -31,5 +31,7 @@
  "Set 3": "Set 3",
  "New set": "Nuevo set",
  "{n} augments changed": "{n} aumentos cambiados",
- "augments changed": "aumentos cambiados"
+ "augments changed": "aumentos cambiados",
+ "{n} added": "{n} agregados",
+ "{n} removed": "{n} eliminados"
 }

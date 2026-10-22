@@ -13,7 +13,7 @@ import { awaitingData, type PatchSchedule } from "@/lib/patch-schedule";
 export const metadata: Metadata = pageMeta(
   "/patches",
   "ARAM Mayhem Patches",
-  "Every ARAM Mayhem patch at a glance, grouped by set: augment changes and the champions that rose and fell most.",
+  "Every ARAM Mayhem patch at a glance, grouped by set: augments added, removed and changed, and the champions that rose and fell most.",
 );
 
 const pts = (v: number) => `${v > 0 ? "+" : ""}${(v * 100).toFixed(1)}`;
@@ -68,9 +68,27 @@ export default function PatchesPage() {
                     </b>
                     <span className="recap-meta">
                       {r.hasAugmentHistory ? (
-                        <T ns="patches" v={{ n: r.changed.length }}>
-                          {"{n} augments changed"}
-                        </T>
+                        <>
+                          {r.added.length > 0 && (
+                            <>
+                              <T ns="patches" v={{ n: r.added.length }}>
+                                {"{n} added"}
+                              </T>
+                              {" · "}
+                            </>
+                          )}
+                          {r.removed.length > 0 && (
+                            <>
+                              <T ns="patches" v={{ n: r.removed.length }}>
+                                {"{n} removed"}
+                              </T>
+                              {" · "}
+                            </>
+                          )}
+                          <T ns="patches" v={{ n: r.changed.length }}>
+                            {"{n} augments changed"}
+                          </T>
+                        </>
                       ) : (
                         <T ns="patches">Win rates only</T>
                       )}

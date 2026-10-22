@@ -130,5 +130,7 @@
  "Augment reliance": "Dipendenza dai potenziamenti",
  "Estimated. How far its win rate boost swings from one champion to another. High means great on some champions and weak on others.": "Stimato. Quanto cambia il suo aumento vittorie da un campione all'altro. Alto significa ottimo su alcuni campioni e debole su altri.",
  "Estimated. How far the champion's win rate swings with the augments it gets. High means its augment picks matter a lot.": "Stimato. Quanto cambia la percentuale di vittorie del campione in base ai potenziamenti che ottiene. Alto significa che la scelta dei potenziamenti conta molto.",
- "Varies by champion and Augment reliance are typical swings in pts: how much an augment's boost changes between champions, and how much a champion's win rate changes between augments.": "Varia per campione e Dipendenza dai potenziamenti sono oscillazioni tipiche in pt: quanto cambia l'aumento di un potenziamento tra i campioni e quanto cambia la percentuale di vittorie di un campione tra i potenziamenti."
+ "Varies by champion and Augment reliance are typical swings in pts: how much an augment's boost changes between champions, and how much a champion's win rate changes between augments.": "Varia per campione e Dipendenza dai potenziamenti sono oscillazioni tipiche in pt: quanto cambia l'aumento di un potenziamento tra i campioni e quanto cambia la percentuale di vittorie di un campione tra i potenziamenti.",
+ "Best champ": "Miglior campione",
+ "The champion with the highest estimated win rate boost from this augment.": "Il campione con il maggiore aumento stimato della percentuale di vittorie grazie a questo potenziamento."
 }

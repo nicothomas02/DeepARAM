@@ -102,6 +102,22 @@ export function Name({ kind, id, children }: { kind: NameKind; id: string | numb
   return useNames()(kind, id, children);
 }
 
+/** An augment's or item's official description in the page's language (scripts/fetch_descriptions.py): one
+ *  paragraph per line, with a passive's or active's name, written §Name§, in bold. `children` is the English text. */
+export function Description({ kind, id, children }: { kind: "items" | "augments"; id: string | number; children: string }) {
+  const lang = useLang();
+  const d = (lang === DEFAULT_LANG ? null : dict(`/i18n/descriptions/${lang}.json`)) as Partial<Record<string, Dict>> | null;
+  const text = d?.[kind]?.[String(id)] || children;
+  return (
+    <div className="official-desc">
+      {text.split("\n").map((line, i) => {
+        const m = line.match(/^§([^§]+)§\s*(.*)$/);
+        return <p key={i}>{m ? <><b>{m[1]}</b> {m[2]}</> : line}</p>;
+      })}
+    </div>
+  );
+}
+
 /** The mode's official name in the page's language ("ARAM Mayhem" in English). */
 export function ModeName({ children = "ARAM Mayhem" }: { children?: string }) {
   return useNames()("mode", "", children);

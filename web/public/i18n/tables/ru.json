@@ -130,5 +130,7 @@
  "Augment reliance": "Зависимость от аугментов",
  "Estimated. How far its win rate boost swings from one champion to another. High means great on some champions and weak on others.": "Оценка. Насколько прирост винрейта меняется от чемпиона к чемпиону. Высокое значение: отлично на одних чемпионах и слабо на других.",
  "Estimated. How far the champion's win rate swings with the augments it gets. High means its augment picks matter a lot.": "Оценка. Насколько процент побед чемпиона меняется в зависимости от полученных аугментов. Высокое значение: выбор аугментов для него очень важен.",
- "Varies by champion and Augment reliance are typical swings in pts: how much an augment's boost changes between champions, and how much a champion's win rate changes between augments.": "«Зависит от чемпиона» и «Зависимость от аугментов» показывают типичный разброс в п.п.: насколько прирост аугмента меняется между чемпионами и насколько процент побед чемпиона меняется между аугментами."
+ "Varies by champion and Augment reliance are typical swings in pts: how much an augment's boost changes between champions, and how much a champion's win rate changes between augments.": "«Зависит от чемпиона» и «Зависимость от аугментов» показывают типичный разброс в п.п.: насколько прирост аугмента меняется между чемпионами и насколько процент побед чемпиона меняется между аугментами.",
+ "Best champ": "Лучший чемпион",
+ "The champion with the highest estimated win rate boost from this augment.": "Чемпион с наибольшим расчётным приростом доли побед от этого усиления."
 }

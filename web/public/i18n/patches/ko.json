@@ -31,5 +31,7 @@
  "Set 3": "세트 3",
  "New set": "새 세트",
  "{n} augments changed": "증강 {n}개 변경",
- "augments changed": "증강 변경"
+ "augments changed": "증강 변경",
+ "{n} added": "{n}개 추가",
+ "{n} removed": "{n}개 삭제"
 }

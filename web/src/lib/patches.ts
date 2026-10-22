@@ -9,7 +9,7 @@ import { join } from "node:path";
 import { champStats } from "./tiers";
 
 // A short recap per live patch (/patches/<patch>): what changed for Mayhem augments (changed numbers,
-// from guide/history.js; the pool itself only changes with a new set) and which champions rose and fell most that patch.
+// from guide/history.js), the augments it added to or removed from the pool, and which champions rose and fell most that patch.
 
 const AUGS = augmentNames as Record<string, string>;
 
@@ -37,6 +37,8 @@ export type Recap = {
   prev: string | null;
   days: number;
   released: string | null;
+  added: AugRef[];
+  removed: AugRef[];
   changed: (AugRef & { changes: { name: string; old: string; new: string }[] })[];
   up: { id: string; name: string; winRate: number; change: number }[];
   down: { id: string; name: string; winRate: number; change: number }[];
@@ -87,6 +89,8 @@ export function recap(patch: string): Recap | null {
     prev,
     days: Number(rows.find((r) => r.patch === patch)?.days ?? 0),
     released: (readRepoCsv("data/cn/history/patches.csv") ?? []).find((r) => r.patch === patch)?.released ?? null,
+    added: (entry?.added ?? []).map(ref),
+    removed: (entry?.removed ?? []).map(ref),
     changed: (entry?.changed ?? []).map((c) => ({
       ...ref(c.id),
       changes: c.changes.map((x) => ({ name: label(x.name), old: value(x.old), new: value(x.new) })),
