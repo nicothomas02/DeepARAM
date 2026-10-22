@@ -66,15 +66,15 @@ describe("duo win rate boost and archetypes", () => {
     expect(byBoost[0].delta).toBeGreaterThan(0.02);
   });
 
-  // Which double-subclass pairs reach five duos changes with each day's numbers (double Enchanter dropped out on
-  // 2026-10-22), so this checks that some do rather than naming one.
+  // Which same-subclass pairs reach five duos depends on the patch's sample (a new patch's first days have
+  // few double Enchanter pairs), so the test checks that same-subclass pairs are pooled and every pool has five.
   it("pools pairs by subclass, including same-subclass pairs", () => {
     const arch = archetypeRows();
     expect(arch.length).toBeGreaterThan(50);
     const keys = arch.map((r) => `${r.a}+${r.b}`);
     expect(new Set(keys).size).toBe(keys.length);
-    for (const r of arch) expect(r.duos).toBeGreaterThanOrEqual(5);
     expect(arch.some((r) => r.a === r.b)).toBe(true);
+    for (const r of arch) expect(r.duos).toBeGreaterThanOrEqual(5);
     for (const r of arch) expect(Math.abs(r.delta)).toBeLessThan(0.1);
   });
 });
