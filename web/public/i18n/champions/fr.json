@@ -167,10 +167,10 @@
  "2nd augment": "2e augment",
  "3rd augment": "3e augment",
  "4th augment": "4e augment",
- "Estimated: augments players often take at this pick, across all champions.": "Estimé : augments souvent pris à ce choix, tous champions confondus.",
  "Augment pages": "Pages d'augments",
  "Previous page": "Page précédente",
  "Next page": "Page suivante",
  "No augments match these filters.": "Aucun augment ne correspond à ces filtres.",
- "All picks": "Tous les choix"
+ "All picks": "Tous les choix",
+ "Estimated: augments often taken at this pick on this champion.": "Estimé : augments souvent pris à ce choix sur ce champion."
 }

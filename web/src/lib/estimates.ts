@@ -101,6 +101,45 @@ export function itemEstimate(id: number): ItemEstimate | null {
 /** Share of an augment's picks at each of the four augment stages. */
 export const augmentStages = (id: number) => data()?.augment_stages?.[String(id)] ?? null;
 
+/**
+ * Each of a champion's augments' share of picks at each of the four augment picks, estimated for that champion.
+ * Starts from the augment's timing across all champions, then adjusts it (iterative proportional fitting) until the
+ * champion's picks add up: each rarity's picks spread over the stages as the game offers that rarity, and each
+ * augment's shares summing to 1. Augments without their own timing start from their rarity's.
+ */
+export function championAugmentStages(augs: { id: number; rarity: string; pickRate: number }[]): Map<number, number[]> {
+  const d = data();
+  const out = new Map<number, number[]>();
+  const odds = d?.rarity_odds?.by_stage;
+  const timing = d?.augment_stages;
+  if (!odds || !timing) return out;
+  const n = odds.length;
+  const rarityOf = (r: string) => (r[0].toUpperCase() + r.slice(1).toLowerCase()) as Rarity;
+  for (const rarity of ["Silver", "Gold", "Prismatic"] as Rarity[]) {
+    const group = augs.filter((a) => rarityOf(a.rarity) === rarity && a.pickRate > 0);
+    if (!group.length) continue;
+    const total = group.reduce((s, a) => s + a.pickRate, 0);
+    const offered = odds.map((o) => o[rarity]);
+    const sum = offered.reduce((s, v) => s + v, 0) || 1;
+    const target = offered.map((v) => (total * v) / sum);
+    let m = group.map((a) => {
+      const own = timing[String(a.id)]?.stages;
+      const prior = own && own.length === n ? own : offered.map((v) => v / sum);
+      return prior.map((v) => a.pickRate * Math.max(v, 1e-6));
+    });
+    for (let it = 0; it < 100; it++) {
+      const col = Array.from({ length: n }, (_, s) => m.reduce((t, row) => t + row[s], 0));
+      m = m.map((row) => row.map((v, s) => (col[s] ? (v * target[s]) / col[s] : v)));
+      m = m.map((row, i) => {
+        const r = row.reduce((t, v) => t + v, 0);
+        return row.map((v) => (r ? (v * group[i].pickRate) / r : v));
+      });
+    }
+    group.forEach((a, i) => out.set(a.id, m[i].map((v) => v / a.pickRate)));
+  }
+  return out;
+}
+
 /** Items most built by the champions who take an augment, with the share of them who build it. */
 export const augmentItems = (id: number) => data()?.augment_items?.[String(id)] ?? [];
 

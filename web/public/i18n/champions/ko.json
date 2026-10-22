@@ -167,10 +167,10 @@
  "2nd augment": "2번째 증강",
  "3rd augment": "3번째 증강",
  "4th augment": "4번째 증강",
- "Estimated: augments players often take at this pick, across all champions.": "추정: 모든 챔피언 기준, 이 선택에서 자주 고르는 증강입니다.",
  "Augment pages": "증강 페이지",
  "Previous page": "이전 페이지",
  "Next page": "다음 페이지",
  "No augments match these filters.": "이 필터에 맞는 증강이 없습니다.",
- "All picks": "모든 선택"
+ "All picks": "모든 선택",
+ "Estimated: augments often taken at this pick on this champion.": "추정: 이 챔피언으로 이 선택에서 자주 고르는 증강입니다."
 }

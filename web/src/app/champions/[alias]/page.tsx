@@ -53,7 +53,7 @@ import {
   type SpellRow,
 } from "@/lib/fill";
 import { ITEM_TIERS, type ItemTier } from "@/lib/items";
-import { augmentStages, championEstimates } from "@/lib/estimates";
+import { championAugmentStages, championEstimates } from "@/lib/estimates";
 import championIds from "@/data/champion-ids.json";
 import augmentNames from "@/data/augment-names.json";
 import "../champion-page.css";
@@ -291,11 +291,13 @@ export default async function ChampionPage({
   const bestCore = p.core[0]; // the lists rank by DeepScore, which already trusts rare builds less
   // Augments rank by their DeepScore, the same rating the Tier List uses.
   const scores = new Map(augmentTiers().map((a) => [a.id, a.deepScore]));
+  // Each augment's share of this champion's picks at the 1st to 4th augment pick (estimated).
+  const pickStages = championAugmentStages(p.augments);
   const augRows = p.augments
     .map((a) => ({
       ...a,
       ...est?.augments.get(a.id),
-      stages: augmentStages(a.id)?.stages,
+      stages: pickStages.get(a.id),
       deepScore: scores.get(a.id),
       href: augmentHref(a.id) ?? undefined,
     }))
