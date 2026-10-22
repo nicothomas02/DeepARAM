@@ -1444,7 +1444,8 @@
   // The site serves files whole (no byte ranges), so a player can't jump into the middle of one and every
   // clip would start at 0:00, which is Aatrox's first sound. A copy held in memory can be jumped into.
   let soundUrl = null;
-  loadSounds(DATA + "sounds/").then((ok) => ok || loadSounds("/assets/sounds/")).then((ok) => {
+  // On the website (/embed/...) replay-data/sounds/ is never there, so only local copies try it first.
+  (location.pathname.startsWith("/embed/") ? Promise.resolve(false) : loadSounds(DATA + "sounds/")).then((ok) => ok || loadSounds("/assets/sounds/")).then((ok) => {
     if (!ok) return;
     fetch(soundBase + soundFiles.file + BUST).then((r) => (r.ok ? r.blob() : null)).then((b) => {
       if (b) soundUrl = URL.createObjectURL(b);
