@@ -1649,21 +1649,38 @@ html[data-device="mobile"] .data-table th {
     white-space: normal;
   }
 
-  .data-table.fit > .table-scroll td.pin,
-  .data-table.fit > .table-scroll .champ {
-    white-space: normal;
+  /* Names stay on one line: the name column takes the room the numbers leave, and a name longer than that ends in "…". */
+  .data-table.fit > .table-scroll td.pin {
+    width: 100%;
+    max-width: 0;
   }
 
-  /* A long one-word name (Heimerdinger) breaks only when the row would otherwise push win rate off the screen. */
+  .data-table.fit > .table-scroll td.pin .cell-link,
+  .data-table.fit > .table-scroll td.pin .champ {
+    display: flex;
+    min-width: 0;
+  }
+
   .data-table.fit > .table-scroll .champ {
     gap: 0.45rem;
-    overflow-wrap: anywhere;
+  }
+
+  .data-table.fit > .table-scroll .champ .nm {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }
 
 /* The narrowest phones also drop the row number (the tier letter still shows the order). */
 @media (max-width: 359px) {
-  .data-table.fit > .table-scroll .ph-wide,
+  .data-table.fit > .table-scroll .ph-wide {
+    display: none;
+  }
+}
+
+/* Below the common 390px phones the row number goes too (the tier letter still shows the order), leaving names room. */
+@media (max-width: 379px) {
   .data-table.fit > .table-scroll .rank-col {
     display: none;
   }

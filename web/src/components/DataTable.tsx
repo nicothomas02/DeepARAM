@@ -177,7 +177,9 @@ function Named({ src, name }: { src: string; name: string }) {
         // eslint-disable-next-line @next/next/no-img-element
         <img src={src} alt="" width={24} height={24} loading="lazy" onError={() => setBroken(true)} />
       )}
-      {name}
+      <span className="nm" title={name}>
+        {name}
+      </span>
     </span>
   );
 }
