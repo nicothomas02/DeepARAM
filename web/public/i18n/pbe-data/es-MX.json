@@ -2,6 +2,8 @@
  "10 → 12 team multi-kills": "10 → 12 asesinatos múltiples del equipo",
  "15k crit damage": "15k de daño crítico",
  "250 bonus MS": "250 de Velocidad de Movimiento adicional",
+ "80 shield at every rank": "Escudo de 80 en todos los rangos",
+ "80/140/200/260/320 shield": "Escudo de 80/140/200/260/320",
  "Ability values are listed for ranks 1-5 (basic abilities) or 1-3 (ultimates).": "Los valores de las habilidades corresponden a los rangos 1-5 (habilidades básicas) o 1-3 (definitivas).",
  "Armor per level 5.2 → 5.4": "Armadura por nivel 5.2 → 5.4",
  "Base AD 54 → 52, Attack Speed per level 2.5% → 2.75%": "Daño de Ataque base 54 → 52, Velocidad de Ataque por nivel 2.5% → 2.75%",
@@ -14,6 +16,8 @@
  "Everyone's level cap rises to 21 and everyone gains extra XP. Reaching level 21 gives an extra augment.": "El nivel máximo de todos sube a 21 y todos ganan experiencia extra. Llegar al nivel 21 da un aumento extra.",
  "Live is now patch 26.21, so this page lists only what's new in 26.22.": "El juego en vivo ya está en la versión 26.21, así que esta página solo muestra lo nuevo de la 26.22.",
  "Mayhem Patch 26.22 on the test server.": "Mayhem versión 26.22 en el servidor de pruebas.",
+ "Mayhem only, W: 80 shield at every rank → 80/140/200/260/320 shield": "Solo Mayhem, W: Escudo de 80 en todos los rangos → Escudo de 80/140/200/260/320",
+ "Mayhem only. Regular games are unchanged.": "Solo Mayhem. Las partidas normales no cambian.",
  "Minion XP shared by 5 nearby allies drops from 24% to 20% each (regular ARAM too).": "La experiencia de súbditos compartida entre 5 aliados cercanos baja del 24% al 20% para cada uno (también en ARAM normal).",
  "New on the test server. Each Mayhem match has one Headliner that adds game-wide bonuses.": "Nuevo en el servidor de pruebas. Cada partida de Mayhem tiene un Headliner que da bonificaciones a toda la partida.",
  "PBE content can change before release.": "El contenido del PBE puede cambiar antes de su lanzamiento.",
@@ -25,12 +29,8 @@
  "Q reworked: first hit 60 + 25% AP, then 5/10/15/20/25 + 8% AP per extra bolt (was 60/85/110/135/160 + 55% AP, then 5/7/9/11/13 + 5% AP per bolt)": "Q renovada: primer impacto 60 + 25% del Poder de Habilidad, luego 5/10/15/20/25 + 8% del Poder de Habilidad por proyectil extra (antes 60/85/110/135/160 + 55% del Poder de Habilidad, luego 5/7/9/11/13 + 5% del Poder de Habilidad por proyectil)",
  "R cooldown 120/100/80s → 120/90/60s": "R: enfriamiento 120/100/80s → 120/90/60s",
  "The Worlds band unlocks with this patch. Earn Fame to reach it.": "La banda Worlds se desbloquea con esta versión. Gana Fame para llegar a ella.",
+ "Update 2026-10-21: Lee Sin's Mayhem W shield now grows with rank.": "Actualización 2026-10-21: el escudo de la W de Lee Sin en Mayhem ahora aumenta con el rango.",
  "W cooldown 38/35/33/29/26s → 30/28.5/27/25.5/24s, mana cost 80/60/40/20/0 → 100/75/50/25/0": "W: enfriamiento 38/35/33/29/26s → 30/28.5/27/25.5/24s, costo de maná 80/60/40/20/0 → 100/75/50/25/0",
  "W cooldown 7s → 8s": "W: enfriamiento 7s → 8s",
- "W reworked: shield 80/110/140/170/200 + 70% AP → 50/80/110/140/170 + 50% AP for 2s, with 10–30% Move Speed and damage to nearby enemies; it no longer reflects projectiles": "W renovada: escudo 80/110/140/170/200 + 70% del Poder de Habilidad → 50/80/110/140/170 + 50% del Poder de Habilidad durante 2s, con 10–30% de Velocidad de Movimiento y daño a enemigos cercanos; ya no refleja proyectiles",
- "80 shield at every rank": "Escudo de 80 en todos los rangos",
- "80/140/200/260/320 shield": "Escudo de 80/140/200/260/320",
- "Mayhem only, W: 80 shield at every rank → 80/140/200/260/320 shield": "Solo Mayhem, W: Escudo de 80 en todos los rangos → Escudo de 80/140/200/260/320",
- "Mayhem only. Regular games are unchanged.": "Solo Mayhem. Las partidas normales no cambian.",
- "Update 2026-10-21: Lee Sin's Mayhem W shield now grows with rank.": "Actualización 2026-10-21: el escudo de la W de Lee Sin en Mayhem ahora aumenta con el rango."
+ "W reworked: shield 80/110/140/170/200 + 70% AP → 50/80/110/140/170 + 50% AP for 2s, with 10–30% Move Speed and damage to nearby enemies; it no longer reflects projectiles": "W renovada: escudo 80/110/140/170/200 + 70% del Poder de Habilidad → 50/80/110/140/170 + 50% del Poder de Habilidad durante 2s, con 10–30% de Velocidad de Movimiento y daño a enemigos cercanos; ya no refleja proyectiles"
 }
