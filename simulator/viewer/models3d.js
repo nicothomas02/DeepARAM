@@ -24,7 +24,9 @@ const FALLBACK = { Q: ["attack"], W: ["attack"], E: ["attack"], R: ["attack"], c
 const SITE = "/assets/models/";
 let manifest = null, modelBase = DATA;
 const readManifest = (dir) => fetch(dir + "models.json" + BUST).then((r) => (r.ok ? r.json() : null)).catch(() => null);
-const manifestReady = readManifest(DATA).then((m) => m || (modelBase = SITE, readManifest(SITE))).then((m) => {
+// On the website (/embed/...) nothing is built next to the page, so go straight to /assets/models/.
+const ON_SITE = location.pathname.startsWith("/embed/");
+const manifestReady = (ON_SITE ? Promise.resolve(null) : readManifest(DATA)).then((m) => m || (modelBase = SITE, readManifest(SITE))).then((m) => {
   manifest = {};
   for (const [k, v] of Object.entries(m || {})) manifest[k.toLowerCase()] = v;
 });
@@ -344,7 +346,8 @@ const api = {
   // fx: this frame's ability effects (effects3d.js draw), unit: px per game unit.
   frame(fighters, W, H, scale = 1, fx = null, unit = null) {
     const out = {};
-    if (!this.ok) return out;
+    // A hidden page (another Simulator tab is open) has no size: every position would divide by 0.
+    if (!this.ok || !(W > 0 && H > 0)) return out;
     const { renderer, scene, camera } = this.arena;
     const cw = renderer.domElement.width, ch = renderer.domElement.height;
     const rw = Math.round(W * scale), rh = Math.round(H * scale);
