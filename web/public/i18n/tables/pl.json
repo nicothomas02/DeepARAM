@@ -130,5 +130,14 @@
  "Augment reliance": "Zależność od wzmocnień",
  "Estimated. How far its win rate boost swings from one champion to another. High means great on some champions and weak on others.": "Szacunek. Jak bardzo jego przyrost zwycięstw zmienia się między bohaterami. Wysoka wartość oznacza, że u niektórych bohaterów jest świetne, a u innych słabe.",
  "Estimated. How far the champion's win rate swings with the augments it gets. High means its augment picks matter a lot.": "Szacunek. Jak bardzo odsetek zwycięstw bohatera zmienia się w zależności od zdobytych wzmocnień. Wysoka wartość oznacza, że wybór wzmocnień bardzo się liczy.",
- "Varies by champion and Augment reliance are typical swings in pts: how much an augment's boost changes between champions, and how much a champion's win rate changes between augments.": "Zależy od bohatera i Zależność od wzmocnień to typowe wahania w pkt: jak bardzo przyrost wzmocnienia zmienia się między bohaterami i jak bardzo odsetek zwycięstw bohatera zmienia się między wzmocnieniami."
+ "Varies by champion and Augment reliance are typical swings in pts: how much an augment's boost changes between champions, and how much a champion's win rate changes between augments.": "Zależy od bohatera i Zależność od wzmocnień to typowe wahania w pkt: jak bardzo przyrost wzmocnienia zmienia się między bohaterami i jak bardzo odsetek zwycięstw bohatera zmienia się między wzmocnieniami.",
+ "Start pick": "Wybór startowy",
+ "Level 18 pick": "Wybór na 18 poziomie",
+ "Damage gain": "Wzrost obrażeń",
+ "The basic ability to Empower at the start.": "Podstawowa umiejętność do wzmocnienia na początku.",
+ "The ability to Empower at level 18, on top of the start pick.": "Umiejętność do wzmocnienia na 18 poziomie, oprócz wyboru startowego.",
+ "Simulated extra damage from both Empowers at level 18.": "Symulowane dodatkowe obrażenia z obu wzmocnień na 18 poziomie.",
+ "Simulated extra damage from Empowering Q at the start (level 8 and 18 averaged).": "Symulowane dodatkowe obrażenia po wzmocnieniu Q na początku (średnia z poziomów 8 i 18).",
+ "Simulated extra damage from Empowering W at the start (level 8 and 18 averaged).": "Symulowane dodatkowe obrażenia po wzmocnieniu W na początku (średnia z poziomów 8 i 18).",
+ "Simulated extra damage from Empowering E at the start (level 8 and 18 averaged).": "Symulowane dodatkowe obrażenia po wzmocnieniu E na początku (średnia z poziomów 8 i 18)."
 }

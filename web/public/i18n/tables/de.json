@@ -130,5 +130,14 @@
  "Augment reliance": "Augment-Abhängigkeit",
  "Estimated. How far its win rate boost swings from one champion to another. High means great on some champions and weak on others.": "Geschätzt. Wie stark sein Siegraten-Plus von Champion zu Champion schwankt. Hoch heißt: stark bei manchen Champions, schwach bei anderen.",
  "Estimated. How far the champion's win rate swings with the augments it gets. High means its augment picks matter a lot.": "Geschätzt. Wie stark die Siegrate des Champions mit seinen Augments schwankt. Hoch heißt: Die Augment-Wahl ist für ihn sehr wichtig.",
- "Varies by champion and Augment reliance are typical swings in pts: how much an augment's boost changes between champions, and how much a champion's win rate changes between augments.": "Schwankt je Champion und Augment-Abhängigkeit sind typische Schwankungen in Pkt.: wie stark sich das Plus eines Augments zwischen Champions ändert und wie stark sich die Siegrate eines Champions zwischen Augments ändert."
+ "Varies by champion and Augment reliance are typical swings in pts: how much an augment's boost changes between champions, and how much a champion's win rate changes between augments.": "Schwankt je Champion und Augment-Abhängigkeit sind typische Schwankungen in Pkt.: wie stark sich das Plus eines Augments zwischen Champions ändert und wie stark sich die Siegrate eines Champions zwischen Augments ändert.",
+ "Start pick": "Startwahl",
+ "Level 18 pick": "Wahl auf Stufe 18",
+ "Damage gain": "Schadenszuwachs",
+ "The basic ability to Empower at the start.": "Die Grundfähigkeit, die du zu Beginn verstärkst.",
+ "The ability to Empower at level 18, on top of the start pick.": "Die Fähigkeit, die du auf Stufe 18 zusätzlich zur Startwahl verstärkst.",
+ "Simulated extra damage from both Empowers at level 18.": "Simulierter Zusatzschaden beider Verstärkungen auf Stufe 18.",
+ "Simulated extra damage from Empowering Q at the start (level 8 and 18 averaged).": "Simulierter Zusatzschaden, wenn Q zu Beginn verstärkt wird (Mittel aus Stufe 8 und 18).",
+ "Simulated extra damage from Empowering W at the start (level 8 and 18 averaged).": "Simulierter Zusatzschaden, wenn W zu Beginn verstärkt wird (Mittel aus Stufe 8 und 18).",
+ "Simulated extra damage from Empowering E at the start (level 8 and 18 averaged).": "Simulierter Zusatzschaden, wenn E zu Beginn verstärkt wird (Mittel aus Stufe 8 und 18)."
 }

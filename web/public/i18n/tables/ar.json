@@ -130,5 +130,14 @@
  "Augment reliance": "الاعتماد على التعزيزات",
  "Estimated. How far its win rate boost swings from one champion to another. High means great on some champions and weak on others.": "تقديري. مدى تغيّر زيادة نسبة الفوز من بطل لآخر. القيمة العالية تعني أنه رائع مع بعض الأبطال وضعيف مع غيرهم.",
  "Estimated. How far the champion's win rate swings with the augments it gets. High means its augment picks matter a lot.": "تقديري. مدى تغيّر نسبة فوز البطل حسب التعزيزات التي يحصل عليها. القيمة العالية تعني أن اختيار التعزيزات يهمه كثيرًا.",
- "Varies by champion and Augment reliance are typical swings in pts: how much an augment's boost changes between champions, and how much a champion's win rate changes between augments.": "«يتفاوت حسب البطل» و«الاعتماد على التعزيزات» تغيّرات معتادة بالنقاط: مقدار تغيّر زيادة التعزيز بين الأبطال، ومقدار تغيّر نسبة فوز البطل بين التعزيزات."
+ "Varies by champion and Augment reliance are typical swings in pts: how much an augment's boost changes between champions, and how much a champion's win rate changes between augments.": "«يتفاوت حسب البطل» و«الاعتماد على التعزيزات» تغيّرات معتادة بالنقاط: مقدار تغيّر زيادة التعزيز بين الأبطال، ومقدار تغيّر نسبة فوز البطل بين التعزيزات.",
+ "Start pick": "اختيار البداية",
+ "Level 18 pick": "اختيار المستوى 18",
+ "Damage gain": "زيادة الضرر",
+ "The basic ability to Empower at the start.": "القدرة الأساسية التي تعزّزها في البداية.",
+ "The ability to Empower at level 18, on top of the start pick.": "القدرة التي تعزّزها عند المستوى 18، إضافة إلى اختيار البداية.",
+ "Simulated extra damage from both Empowers at level 18.": "الضرر الإضافي المحاكى من التعزيزين عند المستوى 18.",
+ "Simulated extra damage from Empowering Q at the start (level 8 and 18 averaged).": "الضرر الإضافي المحاكى عند تعزيز Q في البداية (متوسط المستويين 8 و18).",
+ "Simulated extra damage from Empowering W at the start (level 8 and 18 averaged).": "الضرر الإضافي المحاكى عند تعزيز W في البداية (متوسط المستويين 8 و18).",
+ "Simulated extra damage from Empowering E at the start (level 8 and 18 averaged).": "الضرر الإضافي المحاكى عند تعزيز E في البداية (متوسط المستويين 8 و18)."
 }

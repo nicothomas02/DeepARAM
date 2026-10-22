@@ -29,6 +29,8 @@ import { readRepoCsv, readRepoJson } from "@/lib/repo-data";
 import { allChampionTags, championTagData } from "@/lib/champion-tags";
 import { fillGames } from "@/lib/fill";
 import { patchName } from "@/lib/patch-name";
+import HeadlinersPanel from "@/components/HeadlinersPanel";
+import { headlinersData } from "@/lib/headliners";
 
 export const metadata: Metadata = pageMeta(
   "/tier-list",
@@ -217,6 +219,12 @@ export default function TierListPage() {
         </>
       ),
     });
+  }
+
+  // Set 3: what each game's Headliner means for champion picks, and the band missions.
+  const headliners = headlinersData();
+  if (headliners) {
+    tabs.push({ id: "headliners", label: "Headliners", lazy: true, content: <HeadlinersPanel data={headliners} /> });
   }
 
   return (

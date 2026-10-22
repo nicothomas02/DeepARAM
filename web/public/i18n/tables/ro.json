@@ -130,5 +130,14 @@
  "Augment reliance": "Dependență de augmentări",
  "Estimated. How far its win rate boost swings from one champion to another. High means great on some champions and weak on others.": "Estimat. Cât de mult se schimbă sporul de victorie de la un campion la altul. Mare înseamnă excelent pe unii campioni și slab pe alții.",
  "Estimated. How far the champion's win rate swings with the augments it gets. High means its augment picks matter a lot.": "Estimat. Cât de mult se schimbă rata de victorie a campionului în funcție de augmentările primite. Mare înseamnă că alegerea augmentărilor contează mult.",
- "Varies by champion and Augment reliance are typical swings in pts: how much an augment's boost changes between champions, and how much a champion's win rate changes between augments.": "Variază după campion și Dependență de augmentări sunt variații tipice în pp: cât se schimbă sporul unei augmentări între campioni și cât se schimbă rata de victorie a unui campion între augmentări."
+ "Varies by champion and Augment reliance are typical swings in pts: how much an augment's boost changes between champions, and how much a champion's win rate changes between augments.": "Variază după campion și Dependență de augmentări sunt variații tipice în pp: cât se schimbă sporul unei augmentări între campioni și cât se schimbă rata de victorie a unui campion între augmentări.",
+ "Start pick": "Alegere de start",
+ "Level 18 pick": "Alegere la nivelul 18",
+ "Damage gain": "Daune în plus",
+ "The basic ability to Empower at the start.": "Abilitatea de bază pe care o întărești la început.",
+ "The ability to Empower at level 18, on top of the start pick.": "Abilitatea pe care o întărești la nivelul 18, pe lângă alegerea de start.",
+ "Simulated extra damage from both Empowers at level 18.": "Daune în plus simulate din ambele întăriri la nivelul 18.",
+ "Simulated extra damage from Empowering Q at the start (level 8 and 18 averaged).": "Daune în plus simulate dacă întărești Q la început (media nivelurilor 8 și 18).",
+ "Simulated extra damage from Empowering W at the start (level 8 and 18 averaged).": "Daune în plus simulate dacă întărești W la început (media nivelurilor 8 și 18).",
+ "Simulated extra damage from Empowering E at the start (level 8 and 18 averaged).": "Daune în plus simulate dacă întărești E la început (media nivelurilor 8 și 18)."
 }

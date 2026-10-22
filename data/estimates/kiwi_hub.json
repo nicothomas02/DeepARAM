@@ -1,0 +1,141 @@
+{
+ "_note": "Band missions from the live client's Mayhem hub (kiwi-hub.json, Kiwi_S3). metric names the per-game estimate headliners.py ranks champions by; tip is for missions any champion can do. Worlds is left out until 26.22 is live.",
+ "bands": [
+  {
+   "band": "Pentakill",
+   "fame": 0,
+   "missions": [
+    {
+     "title": "Dance in the middle of the map",
+     "description": "Type /dance, /d, or use your Dance hotkey (set in settings)",
+     "steps": [],
+     "tip": "Walk to the middle of the bridge and type /dance. Any champion works."
+    },
+    {
+     "title": "Score 45 champion takedowns in a game",
+     "description": "Takedowns include both kills and assists",
+     "steps": [],
+     "metric": "takedowns"
+    },
+    {
+     "title": "Land Skillshots 45 times in a game",
+     "description": "Skillshots are aiming abilities (line, cone, or area)",
+     "steps": [
+      "Land Skillshots 65 times in a game"
+     ],
+     "metric": "skillshots"
+    },
+    {
+     "title": "Hit enemy champions with Snowballs 8 times in a game",
+     "description": "Hit enemy champions with the Summoner Spell, Snowball (Mark)",
+     "steps": [
+      "Hit enemy champions with Snowballs 12 times in a game"
+     ],
+     "tip": "Throw Snowball every time it's up, at close or slowed targets. Any champion works."
+    }
+   ]
+  },
+  {
+   "band": "HEARTSTEEL",
+   "fame": 1000,
+   "missions": [
+    {
+     "title": "Snipe enemy champions 50 times in a game",
+     "description": "Use spells to hit enemy champions from 600+ range",
+     "steps": [],
+     "metric": "snipe"
+    },
+    {
+     "title": "Score 15 champion takedowns, each within 3 seconds of dashing",
+     "description": "Multiple Takedowns after one dash will be scored additively",
+     "steps": [],
+     "metric": "dash_takedowns"
+    },
+    {
+     "title": "Heal or Omnivamp 3,000 of your own health in a game",
+     "description": "Self-heal or Omnivamp via items, augments, anvils, and spells",
+     "steps": [
+      "Heal or Omnivamp 6,000 of your own health in a game"
+     ],
+     "metric": "self_heal"
+    },
+    {
+     "title": "Deal a total of 5,000 damage to champions with Augments",
+     "description": "Deal bonus damage with augments like \"Get Jinxed\" in one game",
+     "steps": [
+      "Deal a total of 7,000 damage to champions with Augments"
+     ],
+     "tip": "Pick damage augments such as Get Jinxed. Any champion works, and damage-heavy ones finish it faster."
+    }
+   ]
+  },
+  {
+   "band": "True Damage",
+   "fame": 3200,
+   "missions": [
+    {
+     "title": "Reroll augments 6 times",
+     "description": "This needs to be done in one game",
+     "steps": [],
+     "tip": "Use every reroll you get in your augment picks. Any champion works."
+    },
+    {
+     "title": "Gain 5,000 bonus Health in a game",
+     "description": "Gain bonus Health via items, augments, spells, and anvils",
+     "steps": [],
+     "metric": "bonus_health"
+    },
+    {
+     "title": "Immobilize or Slow enemy champions 75 times in a game",
+     "description": "Immobilize (Stun, Root, etc.) counts for double",
+     "steps": [
+      "Immobilize or Slow enemy champions 100 times in a game"
+     ],
+     "metric": "cc"
+    },
+    {
+     "title": "Achieve a total of 300 bonus AD or AP in a game",
+     "description": "Gain bonus AD/AP via items, augments, anvils, and spells",
+     "steps": [
+      "Achieve a total of 400 bonus AD or AP in a game"
+     ],
+     "metric": "bonus_ad_ap"
+    }
+   ]
+  },
+  {
+   "band": "K/DA",
+   "fame": 5800,
+   "missions": [
+    {
+     "title": "Emote while dashing with Snowball",
+     "description": "Steps: Snowball (Mark) > Emote (using Emote wheel) > Recast Snowball (Dash)",
+     "steps": [],
+     "tip": "Hit a Snowball, open the emote wheel, then recast Snowball while the emote plays. Any champion works."
+    },
+    {
+     "title": "Achieve 200% bonus Attack Speed",
+     "description": "Gain bonus AS via leveling up, items, augments, anvils, and spells",
+     "steps": [],
+     "metric": "bonus_as"
+    },
+    {
+     "title": "Deal a total of 4,000 damage to champions with Ultimate",
+     "description": "This needs to be done in one game",
+     "steps": [
+      "Deal a total of 6,000 damage to champions with Ultimate"
+     ],
+     "metric": "ult_damage"
+    },
+    {
+     "title": "Hit multiple champions with an ability 25 times in a game",
+     "description": "Any abilities in your champion kit count",
+     "steps": [
+      "Hit multiple champions with an ability 45 times in a game"
+     ],
+     "metric": "multi_hit"
+    }
+   ]
+  }
+ ]
+}

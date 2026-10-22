@@ -6271,6 +6271,17 @@ summary.items-tier-h::before {
 }
 .item-card-est { display: block; }
 
+/* Tier List Headliners tab: one card per Headliner or band. */
+.headliner-card { margin-top: 1rem; }
+.headliner-card h3 { margin: 0 0 0.35rem; }
+.headliner-card > p { margin: 0 0 0.6rem; }
+.headliner-fame, .headliner-aug { color: var(--muted); font-weight: 400; }
+.headliner-mission + .headliner-mission { margin-top: 1rem; }
+.headliner-mission h4 { margin: 0 0 0.2rem; font-size: 1rem; }
+@media (min-width: 901px) {
+  .rank.fun-rank.short { grid-template-rows: repeat(3, auto); }
+}
+
 /* Tiers/Table and Cards/Table switches (Tier List's Augments and Items tabs). */
 .seg.view-switch {
   width: fit-content;

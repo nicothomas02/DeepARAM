@@ -130,5 +130,14 @@
  "Augment reliance": "強化依賴度",
  "Estimated. How far its win rate boost swings from one champion to another. High means great on some champions and weak on others.": "估算。它的勝率提升在不同英雄之間相差多少。數值高表示對部分英雄很強，對其他英雄較弱。",
  "Estimated. How far the champion's win rate swings with the augments it gets. High means its augment picks matter a lot.": "估算。英雄的勝率隨拿到的強化相差多少。數值高表示強化選擇對它影響很大。",
- "Varies by champion and Augment reliance are typical swings in pts: how much an augment's boost changes between champions, and how much a champion's win rate changes between augments.": "「英雄差異」和「強化依賴度」是以百分點計的典型波動：一個強化的提升在不同英雄之間變化多少，以及一個英雄的勝率在不同強化之間變化多少。"
+ "Varies by champion and Augment reliance are typical swings in pts: how much an augment's boost changes between champions, and how much a champion's win rate changes between augments.": "「英雄差異」和「強化依賴度」是以百分點計的典型波動：一個強化的提升在不同英雄之間變化多少，以及一個英雄的勝率在不同強化之間變化多少。",
+ "Start pick": "開局選擇",
+ "Level 18 pick": "18 級選擇",
+ "Damage gain": "傷害提升",
+ "The basic ability to Empower at the start.": "開局時強化的基礎技能。",
+ "The ability to Empower at level 18, on top of the start pick.": "在開局選擇之外，18 級時強化的技能。",
+ "Simulated extra damage from both Empowers at level 18.": "18 級時兩次強化帶來的模擬額外傷害。",
+ "Simulated extra damage from Empowering Q at the start (level 8 and 18 averaged).": "開局強化 Q 的模擬額外傷害（8 級和 18 級平均）。",
+ "Simulated extra damage from Empowering W at the start (level 8 and 18 averaged).": "開局強化 W 的模擬額外傷害（8 級和 18 級平均）。",
+ "Simulated extra damage from Empowering E at the start (level 8 and 18 averaged).": "開局強化 E 的模擬額外傷害（8 級和 18 級平均）。"
 }

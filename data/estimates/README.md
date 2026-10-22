@@ -36,6 +36,18 @@ by game length beyond noise (effect under ~1 point per 4.6 minutes). This curve 
 champions' damage share grows in longer games (r 0.17). Show it as simulated. Full notes:
 research note `early-vs-late-game.md` in the project files.
 
+## Headliners (`headliners.json`, Set 3)
+
+`headliners.py` writes the Tier List's Headliners tab. Pentakill is simulated: each champion's most popular
+build runs with HEAVY / POWER / THRASH / DOOM (20 haste, 10% damage, healing and shielding on one ability)
+at level 8 (2 items, dummy) and level 18 (full build, real enemies); the start pick is the basic ability with
+the best average gain, and the level 18 pick is tried on top of it. The other Headliners rank champions from
+`estimates.json` (augment lifts and spread, Prismatic vs Silver gap, multi-kills and tower damage, third item
+timing, damage taken vs healing, dashes). `kiwi_hub.json` holds the live band missions from the client's Mayhem
+hub, each with the estimate its champions are ranked by. Rerun after a patch (about 10 minutes on 4 cores):
+
+    make -C simulator mayhem_sim && python3 data/estimates/headliners.py
+
 ## Tried and dropped
 
 - **Counters and worst duos from class matchups**: a class synergy/counter model on the archive did

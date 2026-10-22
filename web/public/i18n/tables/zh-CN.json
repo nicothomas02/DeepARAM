@@ -130,5 +130,14 @@
  "Augment reliance": "强化符文依赖度",
  "Estimated. How far its win rate boost swings from one champion to another. High means great on some champions and weak on others.": "估算。它的胜率提升在不同英雄之间相差多少。数值高表示对部分英雄很强，对其他英雄较弱。",
  "Estimated. How far the champion's win rate swings with the augments it gets. High means its augment picks matter a lot.": "估算。英雄的胜率随拿到的强化符文相差多少。数值高表示强化符文选择对它影响很大。",
- "Varies by champion and Augment reliance are typical swings in pts: how much an augment's boost changes between champions, and how much a champion's win rate changes between augments.": "“英雄差异”和“强化符文依赖度”是以百分点计的典型波动：一个强化符文的提升在不同英雄之间变化多少，以及一个英雄的胜率在不同强化符文之间变化多少。"
+ "Varies by champion and Augment reliance are typical swings in pts: how much an augment's boost changes between champions, and how much a champion's win rate changes between augments.": "“英雄差异”和“强化符文依赖度”是以百分点计的典型波动：一个强化符文的提升在不同英雄之间变化多少，以及一个英雄的胜率在不同强化符文之间变化多少。",
+ "Start pick": "开局选择",
+ "Level 18 pick": "18 级选择",
+ "Damage gain": "伤害提升",
+ "The basic ability to Empower at the start.": "开局时强化的基础技能。",
+ "The ability to Empower at level 18, on top of the start pick.": "在开局选择之外，18 级时强化的技能。",
+ "Simulated extra damage from both Empowers at level 18.": "18 级时两次强化带来的模拟额外伤害。",
+ "Simulated extra damage from Empowering Q at the start (level 8 and 18 averaged).": "开局强化 Q 的模拟额外伤害（8 级和 18 级平均）。",
+ "Simulated extra damage from Empowering W at the start (level 8 and 18 averaged).": "开局强化 W 的模拟额外伤害（8 级和 18 级平均）。",
+ "Simulated extra damage from Empowering E at the start (level 8 and 18 averaged).": "开局强化 E 的模拟额外伤害（8 级和 18 级平均）。"
 }

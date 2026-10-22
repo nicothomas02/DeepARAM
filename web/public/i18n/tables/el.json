@@ -130,5 +130,14 @@
  "Augment reliance": "Εξάρτηση από βελτιώσεις",
  "Estimated. How far its win rate boost swings from one champion to another. High means great on some champions and weak on others.": "Εκτίμηση. Πόσο αλλάζει η ενίσχυση ποσοστού νικών του από ήρωα σε ήρωα. Υψηλή τιμή σημαίνει εξαιρετικό σε κάποιους ήρωες και αδύναμο σε άλλους.",
  "Estimated. How far the champion's win rate swings with the augments it gets. High means its augment picks matter a lot.": "Εκτίμηση. Πόσο αλλάζει το ποσοστό νικών του ήρωα ανάλογα με τις βελτιώσεις που παίρνει. Υψηλή τιμή σημαίνει ότι οι επιλογές βελτιώσεων μετράνε πολύ.",
- "Varies by champion and Augment reliance are typical swings in pts: how much an augment's boost changes between champions, and how much a champion's win rate changes between augments.": "Το «Διαφέρει ανά ήρωα» και η «Εξάρτηση από βελτιώσεις» είναι τυπικές διακυμάνσεις σε μον.: πόσο αλλάζει η ενίσχυση μιας βελτίωσης μεταξύ ηρώων και πόσο αλλάζει το ποσοστό νικών ενός ήρωα μεταξύ βελτιώσεων."
+ "Varies by champion and Augment reliance are typical swings in pts: how much an augment's boost changes between champions, and how much a champion's win rate changes between augments.": "Το «Διαφέρει ανά ήρωα» και η «Εξάρτηση από βελτιώσεις» είναι τυπικές διακυμάνσεις σε μον.: πόσο αλλάζει η ενίσχυση μιας βελτίωσης μεταξύ ηρώων και πόσο αλλάζει το ποσοστό νικών ενός ήρωα μεταξύ βελτιώσεων.",
+ "Start pick": "Αρχική επιλογή",
+ "Level 18 pick": "Επιλογή στο επίπεδο 18",
+ "Damage gain": "Αύξηση ζημιάς",
+ "The basic ability to Empower at the start.": "Η βασική ικανότητα που ενισχύεις στην αρχή.",
+ "The ability to Empower at level 18, on top of the start pick.": "Η ικανότητα που ενισχύεις στο επίπεδο 18, επιπλέον της αρχικής επιλογής.",
+ "Simulated extra damage from both Empowers at level 18.": "Προσομοιωμένη επιπλέον ζημιά και από τις δύο ενισχύσεις στο επίπεδο 18.",
+ "Simulated extra damage from Empowering Q at the start (level 8 and 18 averaged).": "Προσομοιωμένη επιπλέον ζημιά αν ενισχύσεις το Q στην αρχή (μέσος όρος επιπέδων 8 και 18).",
+ "Simulated extra damage from Empowering W at the start (level 8 and 18 averaged).": "Προσομοιωμένη επιπλέον ζημιά αν ενισχύσεις το W στην αρχή (μέσος όρος επιπέδων 8 και 18).",
+ "Simulated extra damage from Empowering E at the start (level 8 and 18 averaged).": "Προσομοιωμένη επιπλέον ζημιά αν ενισχύσεις το E στην αρχή (μέσος όρος επιπέδων 8 και 18)."
 }

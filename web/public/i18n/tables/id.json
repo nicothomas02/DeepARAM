@@ -130,5 +130,14 @@
  "Augment reliance": "Ketergantungan augment",
  "Estimated. How far its win rate boost swings from one champion to another. High means great on some champions and weak on others.": "Perkiraan. Seberapa jauh tambahan win rate-nya berubah dari satu champion ke champion lain. Tinggi berarti hebat di beberapa champion dan lemah di yang lain.",
  "Estimated. How far the champion's win rate swings with the augments it gets. High means its augment picks matter a lot.": "Perkiraan. Seberapa jauh win rate champion berubah sesuai augment yang didapat. Tinggi berarti pilihan augment sangat berpengaruh baginya.",
- "Varies by champion and Augment reliance are typical swings in pts: how much an augment's boost changes between champions, and how much a champion's win rate changes between augments.": "Beda tiap champion dan Ketergantungan augment adalah perubahan umum dalam poin: seberapa besar tambahan sebuah augment berubah antar champion, dan seberapa besar win rate champion berubah antar augment."
+ "Varies by champion and Augment reliance are typical swings in pts: how much an augment's boost changes between champions, and how much a champion's win rate changes between augments.": "Beda tiap champion dan Ketergantungan augment adalah perubahan umum dalam poin: seberapa besar tambahan sebuah augment berubah antar champion, dan seberapa besar win rate champion berubah antar augment.",
+ "Start pick": "Pilihan awal",
+ "Level 18 pick": "Pilihan level 18",
+ "Damage gain": "Tambahan damage",
+ "The basic ability to Empower at the start.": "Basic ability yang diperkuat di awal.",
+ "The ability to Empower at level 18, on top of the start pick.": "Ability yang diperkuat di level 18, di atas pilihan awal.",
+ "Simulated extra damage from both Empowers at level 18.": "Damage tambahan hasil simulasi dari kedua penguatan di level 18.",
+ "Simulated extra damage from Empowering Q at the start (level 8 and 18 averaged).": "Damage tambahan hasil simulasi jika Q diperkuat di awal (rata-rata level 8 dan 18).",
+ "Simulated extra damage from Empowering W at the start (level 8 and 18 averaged).": "Damage tambahan hasil simulasi jika W diperkuat di awal (rata-rata level 8 dan 18).",
+ "Simulated extra damage from Empowering E at the start (level 8 and 18 averaged).": "Damage tambahan hasil simulasi jika E diperkuat di awal (rata-rata level 8 dan 18)."
 }

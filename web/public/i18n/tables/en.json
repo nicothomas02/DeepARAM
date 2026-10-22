@@ -130,5 +130,14 @@
  "Augment reliance": "Augment reliance",
  "Estimated. How far its win rate boost swings from one champion to another. High means great on some champions and weak on others.": "Estimated. How far its win rate boost swings from one champion to another. High means great on some champions and weak on others.",
  "Estimated. How far the champion's win rate swings with the augments it gets. High means its augment picks matter a lot.": "Estimated. How far the champion's win rate swings with the augments it gets. High means its augment picks matter a lot.",
- "Varies by champion and Augment reliance are typical swings in pts: how much an augment's boost changes between champions, and how much a champion's win rate changes between augments.": "Varies by champion and Augment reliance are typical swings in pts: how much an augment's boost changes between champions, and how much a champion's win rate changes between augments."
+ "Varies by champion and Augment reliance are typical swings in pts: how much an augment's boost changes between champions, and how much a champion's win rate changes between augments.": "Varies by champion and Augment reliance are typical swings in pts: how much an augment's boost changes between champions, and how much a champion's win rate changes between augments.",
+ "Start pick": "Start pick",
+ "Level 18 pick": "Level 18 pick",
+ "Damage gain": "Damage gain",
+ "The basic ability to Empower at the start.": "The basic ability to Empower at the start.",
+ "The ability to Empower at level 18, on top of the start pick.": "The ability to Empower at level 18, on top of the start pick.",
+ "Simulated extra damage from both Empowers at level 18.": "Simulated extra damage from both Empowers at level 18.",
+ "Simulated extra damage from Empowering Q at the start (level 8 and 18 averaged).": "Simulated extra damage from Empowering Q at the start (level 8 and 18 averaged).",
+ "Simulated extra damage from Empowering W at the start (level 8 and 18 averaged).": "Simulated extra damage from Empowering W at the start (level 8 and 18 averaged).",
+ "Simulated extra damage from Empowering E at the start (level 8 and 18 averaged).": "Simulated extra damage from Empowering E at the start (level 8 and 18 averaged)."
 }

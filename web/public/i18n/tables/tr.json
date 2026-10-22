@@ -130,5 +130,14 @@
  "Augment reliance": "Güçlendirme bağımlılığı",
  "Estimated. How far its win rate boost swings from one champion to another. High means great on some champions and weak on others.": "Tahmini. Kazanma oranı artışının şampiyondan şampiyona ne kadar değiştiği. Yüksekse bazı şampiyonlarda harika, bazılarında zayıftır.",
  "Estimated. How far the champion's win rate swings with the augments it gets. High means its augment picks matter a lot.": "Tahmini. Şampiyonun kazanma oranının aldığı güçlendirmelere göre ne kadar değiştiği. Yüksekse güçlendirme seçimi çok önemlidir.",
- "Varies by champion and Augment reliance are typical swings in pts: how much an augment's boost changes between champions, and how much a champion's win rate changes between augments.": "Şampiyona göre değişir ve Güçlendirme bağımlılığı puan cinsinden tipik dalgalanmalardır: bir güçlendirmenin artışı şampiyonlar arasında ne kadar değişir, bir şampiyonun kazanma oranı güçlendirmeler arasında ne kadar değişir."
+ "Varies by champion and Augment reliance are typical swings in pts: how much an augment's boost changes between champions, and how much a champion's win rate changes between augments.": "Şampiyona göre değişir ve Güçlendirme bağımlılığı puan cinsinden tipik dalgalanmalardır: bir güçlendirmenin artışı şampiyonlar arasında ne kadar değişir, bir şampiyonun kazanma oranı güçlendirmeler arasında ne kadar değişir.",
+ "Start pick": "Başlangıç seçimi",
+ "Level 18 pick": "18. seviye seçimi",
+ "Damage gain": "Hasar artışı",
+ "The basic ability to Empower at the start.": "Başta güçlendirilecek temel yetenek.",
+ "The ability to Empower at level 18, on top of the start pick.": "18. seviyede, başlangıç seçimine ek olarak güçlendirilecek yetenek.",
+ "Simulated extra damage from both Empowers at level 18.": "18. seviyede iki güçlendirmeden gelen simüle edilmiş ek hasar.",
+ "Simulated extra damage from Empowering Q at the start (level 8 and 18 averaged).": "Başta Q güçlendirilince simüle edilmiş ek hasar (8. ve 18. seviye ortalaması).",
+ "Simulated extra damage from Empowering W at the start (level 8 and 18 averaged).": "Başta W güçlendirilince simüle edilmiş ek hasar (8. ve 18. seviye ortalaması).",
+ "Simulated extra damage from Empowering E at the start (level 8 and 18 averaged).": "Başta E güçlendirilince simüle edilmiş ek hasar (8. ve 18. seviye ortalaması)."
 }

@@ -130,5 +130,14 @@
  "Augment reliance": "Dependencia de aumentos",
  "Estimated. How far its win rate boost swings from one champion to another. High means great on some champions and weak on others.": "Estimado. Cuánto cambia su mejora de victorias de un campeón a otro. Alto significa que es genial en algunos campeones y flojo en otros.",
  "Estimated. How far the champion's win rate swings with the augments it gets. High means its augment picks matter a lot.": "Estimado. Cuánto cambia la tasa de victorias del campeón según los aumentos que obtiene. Alto significa que elegir bien los aumentos le importa mucho.",
- "Varies by champion and Augment reliance are typical swings in pts: how much an augment's boost changes between champions, and how much a champion's win rate changes between augments.": "Varía según campeón y Dependencia de aumentos son variaciones típicas en pts: cuánto cambia la mejora de un aumento entre campeones y cuánto cambia la tasa de victorias de un campeón entre aumentos."
+ "Varies by champion and Augment reliance are typical swings in pts: how much an augment's boost changes between champions, and how much a champion's win rate changes between augments.": "Varía según campeón y Dependencia de aumentos son variaciones típicas en pts: cuánto cambia la mejora de un aumento entre campeones y cuánto cambia la tasa de victorias de un campeón entre aumentos.",
+ "Start pick": "Elección inicial",
+ "Level 18 pick": "Elección en el nivel 18",
+ "Damage gain": "Daño extra",
+ "The basic ability to Empower at the start.": "La habilidad básica que potencias al empezar.",
+ "The ability to Empower at level 18, on top of the start pick.": "La habilidad que potencias en el nivel 18, además de la elección inicial.",
+ "Simulated extra damage from both Empowers at level 18.": "Daño extra simulado de ambas potenciaciones en el nivel 18.",
+ "Simulated extra damage from Empowering Q at the start (level 8 and 18 averaged).": "Daño extra simulado al potenciar la Q al empezar (media de los niveles 8 y 18).",
+ "Simulated extra damage from Empowering W at the start (level 8 and 18 averaged).": "Daño extra simulado al potenciar la W al empezar (media de los niveles 8 y 18).",
+ "Simulated extra damage from Empowering E at the start (level 8 and 18 averaged).": "Daño extra simulado al potenciar la E al empezar (media de los niveles 8 y 18)."
 }

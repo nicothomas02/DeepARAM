@@ -130,5 +130,14 @@
  "Augment reliance": "Závislost na augmentech",
  "Estimated. How far its win rate boost swings from one champion to another. High means great on some champions and weak on others.": "Odhad. Jak moc se jeho přírůstek výher mění od šampiona k šampionovi. Vysoká hodnota znamená, že na některých šampionech je skvělý a na jiných slabý.",
  "Estimated. How far the champion's win rate swings with the augments it gets. High means its augment picks matter a lot.": "Odhad. Jak moc se procento výher šampiona mění podle augmentů, které dostane. Vysoká hodnota znamená, že na výběru augmentů hodně záleží.",
- "Varies by champion and Augment reliance are typical swings in pts: how much an augment's boost changes between champions, and how much a champion's win rate changes between augments.": "Liší se podle šampiona a Závislost na augmentech jsou typické výkyvy v b.: jak moc se přírůstek augmentu mění mezi šampiony a jak moc se procento výher šampiona mění mezi augmenty."
+ "Varies by champion and Augment reliance are typical swings in pts: how much an augment's boost changes between champions, and how much a champion's win rate changes between augments.": "Liší se podle šampiona a Závislost na augmentech jsou typické výkyvy v b.: jak moc se přírůstek augmentu mění mezi šampiony a jak moc se procento výher šampiona mění mezi augmenty.",
+ "Start pick": "Volba na začátku",
+ "Level 18 pick": "Volba na úrovni 18",
+ "Damage gain": "Poškození navíc",
+ "The basic ability to Empower at the start.": "Základní schopnost, kterou posílíš na začátku.",
+ "The ability to Empower at level 18, on top of the start pick.": "Schopnost, kterou posílíš na úrovni 18, kromě volby na začátku.",
+ "Simulated extra damage from both Empowers at level 18.": "Simulované poškození navíc z obou posílení na úrovni 18.",
+ "Simulated extra damage from Empowering Q at the start (level 8 and 18 averaged).": "Simulované poškození navíc při posílení Q na začátku (průměr úrovní 8 a 18).",
+ "Simulated extra damage from Empowering W at the start (level 8 and 18 averaged).": "Simulované poškození navíc při posílení W na začátku (průměr úrovní 8 a 18).",
+ "Simulated extra damage from Empowering E at the start (level 8 and 18 averaged).": "Simulované poškození navíc při posílení E na začátku (průměr úrovní 8 a 18)."
 }

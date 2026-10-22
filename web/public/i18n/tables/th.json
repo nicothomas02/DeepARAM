@@ -130,5 +130,14 @@
  "Augment reliance": "การพึ่งพา Augment",
  "Estimated. How far its win rate boost swings from one champion to another. High means great on some champions and weak on others.": "ค่าประมาณ อัตราชนะที่เพิ่มขึ้นเปลี่ยนไปมากแค่ไหนในแต่ละแชมเปี้ยน ค่าสูงหมายถึงเก่งมากกับบางแชมเปี้ยนแต่อ่อนกับแชมเปี้ยนอื่น",
  "Estimated. How far the champion's win rate swings with the augments it gets. High means its augment picks matter a lot.": "ค่าประมาณ อัตราชนะของแชมเปี้ยนเปลี่ยนไปมากแค่ไหนตาม Augment ที่ได้ ค่าสูงหมายถึงการเลือก Augment สำคัญมาก",
- "Varies by champion and Augment reliance are typical swings in pts: how much an augment's boost changes between champions, and how much a champion's win rate changes between augments.": "ต่างกันตามแชมเปี้ยนและการพึ่งพา Augment คือช่วงแกว่งโดยทั่วไปเป็นจุด: อัตราที่เพิ่มขึ้นของ Augment เปลี่ยนไปเท่าไรระหว่างแชมเปี้ยน และอัตราชนะของแชมเปี้ยนเปลี่ยนไปเท่าไรระหว่าง Augment"
+ "Varies by champion and Augment reliance are typical swings in pts: how much an augment's boost changes between champions, and how much a champion's win rate changes between augments.": "ต่างกันตามแชมเปี้ยนและการพึ่งพา Augment คือช่วงแกว่งโดยทั่วไปเป็นจุด: อัตราที่เพิ่มขึ้นของ Augment เปลี่ยนไปเท่าไรระหว่างแชมเปี้ยน และอัตราชนะของแชมเปี้ยนเปลี่ยนไปเท่าไรระหว่าง Augment",
+ "Start pick": "ตัวเลือกตอนเริ่ม",
+ "Level 18 pick": "ตัวเลือกเลเวล 18",
+ "Damage gain": "ดาเมจที่เพิ่มขึ้น",
+ "The basic ability to Empower at the start.": "สกิลพื้นฐานที่เสริมพลังตอนเริ่ม",
+ "The ability to Empower at level 18, on top of the start pick.": "สกิลที่เสริมพลังที่เลเวล 18 เพิ่มจากตัวเลือกตอนเริ่ม",
+ "Simulated extra damage from both Empowers at level 18.": "ดาเมจที่เพิ่มขึ้นจากการจำลองของการเสริมพลังทั้งสองที่เลเวล 18",
+ "Simulated extra damage from Empowering Q at the start (level 8 and 18 averaged).": "ดาเมจที่เพิ่มขึ้นจากการจำลองเมื่อเสริมพลัง Q ตอนเริ่ม (เฉลี่ยเลเวล 8 และ 18)",
+ "Simulated extra damage from Empowering W at the start (level 8 and 18 averaged).": "ดาเมจที่เพิ่มขึ้นจากการจำลองเมื่อเสริมพลัง W ตอนเริ่ม (เฉลี่ยเลเวล 8 และ 18)",
+ "Simulated extra damage from Empowering E at the start (level 8 and 18 averaged).": "ดาเมจที่เพิ่มขึ้นจากการจำลองเมื่อเสริมพลัง E ตอนเริ่ม (เฉลี่ยเลเวล 8 และ 18)"
 }
