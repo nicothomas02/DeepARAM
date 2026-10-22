@@ -125,5 +125,10 @@
  "Healing done": "Zadane leczenie",
  "Crowd control": "Kontrola tłumu",
  "Shielding": "Tarcze",
- "Marked when neither champion has a stun, root, knock-up, taunt, fear, charm, sleep or suppression, so the pair struggles to lock anyone down.": "Oznaczone, gdy żaden z bohaterów nie ma ogłuszenia, unieruchomienia, podrzucenia, prowokacji, strachu, zauroczenia, uśpienia ani przygwożdżenia, więc para z trudem kogokolwiek zatrzyma."
+ "Marked when neither champion has a stun, root, knock-up, taunt, fear, charm, sleep or suppression, so the pair struggles to lock anyone down.": "Oznaczone, gdy żaden z bohaterów nie ma ogłuszenia, unieruchomienia, podrzucenia, prowokacji, strachu, zauroczenia, uśpienia ani przygwożdżenia, więc para z trudem kogokolwiek zatrzyma.",
+ "Varies by champion": "Zależy od bohatera",
+ "Augment reliance": "Zależność od wzmocnień",
+ "Estimated. How far its win rate boost swings from one champion to another. High means great on some champions and weak on others.": "Szacunek. Jak bardzo jego przyrost zwycięstw zmienia się między bohaterami. Wysoka wartość oznacza, że u niektórych bohaterów jest świetne, a u innych słabe.",
+ "Estimated. How far the champion's win rate swings with the augments it gets. High means its augment picks matter a lot.": "Szacunek. Jak bardzo odsetek zwycięstw bohatera zmienia się w zależności od zdobytych wzmocnień. Wysoka wartość oznacza, że wybór wzmocnień bardzo się liczy.",
+ "Varies by champion and Augment reliance are typical swings in pts: how much an augment's boost changes between champions, and how much a champion's win rate changes between augments.": "Zależy od bohatera i Zależność od wzmocnień to typowe wahania w pkt: jak bardzo przyrost wzmocnienia zmienia się między bohaterami i jak bardzo odsetek zwycięstw bohatera zmienia się między wzmocnieniami."
 }

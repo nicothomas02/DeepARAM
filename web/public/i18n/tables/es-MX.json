@@ -125,5 +125,10 @@
  "Healing done": "Curación realizada",
  "Crowd control": "Control de masas",
  "Shielding": "Escudos",
- "Marked when neither champion has a stun, root, knock-up, taunt, fear, charm, sleep or suppression, so the pair struggles to lock anyone down.": "Aparece cuando ninguno de los dos tiene aturdimiento, inmovilización, derribo, provocación, miedo, encanto, sueño o supresión, así que a la pareja le cuesta inmovilizar a alguien."
+ "Marked when neither champion has a stun, root, knock-up, taunt, fear, charm, sleep or suppression, so the pair struggles to lock anyone down.": "Aparece cuando ninguno de los dos tiene aturdimiento, inmovilización, derribo, provocación, miedo, encanto, sueño o supresión, así que a la pareja le cuesta inmovilizar a alguien.",
+ "Varies by champion": "Varía según campeón",
+ "Augment reliance": "Dependencia de aumentos",
+ "Estimated. How far its win rate boost swings from one champion to another. High means great on some champions and weak on others.": "Estimado. Cuánto cambia su mejora de victorias de un campeón a otro. Alto significa que es genial en algunos campeones y flojo en otros.",
+ "Estimated. How far the champion's win rate swings with the augments it gets. High means its augment picks matter a lot.": "Estimado. Cuánto cambia la tasa de victorias del campeón según los aumentos que obtiene. Alto significa que elegir bien los aumentos le importa mucho.",
+ "Varies by champion and Augment reliance are typical swings in pts: how much an augment's boost changes between champions, and how much a champion's win rate changes between augments.": "Varía según campeón y Dependencia de aumentos son variaciones típicas en pts: cuánto cambia la mejora de un aumento entre campeones y cuánto cambia la tasa de victorias de un campeón entre aumentos."
 }

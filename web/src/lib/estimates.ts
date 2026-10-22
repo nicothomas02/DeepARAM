@@ -1,5 +1,5 @@
 import "server-only";
-import { readRepoJson } from "./repo-data";
+import { readRepoCsv, readRepoJson } from "./repo-data";
 
 // Estimated stats (data/estimates/estimates.json, rebuilt daily; methods in data/estimates/README.md):
 // numbers the live stats don't include, worked out from them. For a champion: each augment's win rate
@@ -9,6 +9,7 @@ import { readRepoJson } from "./repo-data";
 type Band = "high" | "average" | "low";
 type Rarity = "Silver" | "Gold" | "Prismatic";
 type Estimates = {
+  patch?: string;
   items?: { id: number; win_rate: number; lift: number; build_share: number; slots: number[] | null; granted: boolean }[];
   augment_stages?: Record<string, { stages: number[]; usual: number }>;
   augment_items?: Record<string, { id: number; share: number }[]>;
@@ -143,3 +144,48 @@ export function powerCurveLists() {
     late: curveLists?.late_game ?? [],
   };
 }
+
+// Win rate boosts of an augment across champions, or of a champion across augments, read as one spread:
+// the pick-weighted standard deviation. A spread resting on few picks is pulled toward the typical one.
+const PULL = 10;
+function spreads<K>(groups: Map<K, [number, number][]>) {
+  const raw = [...groups].flatMap(([k, xs]) => {
+    const w = xs.reduce((s, [x]) => s + x, 0);
+    if (xs.length < 3 || w <= 0) return [];
+    const mean = xs.reduce((s, [x, v]) => s + x * v, 0) / w;
+    const variance = xs.reduce((s, [x, v]) => s + x * (v - mean) ** 2, 0) / w;
+    return [{ k, variance, n: w ** 2 / xs.reduce((s, [x]) => s + x * x, 0) }];
+  });
+  const sorted = raw.map((r) => r.variance).sort((a, b) => a - b);
+  const typical = sorted[Math.floor(sorted.length / 2)] ?? 0;
+  return new Map(raw.map(({ k, variance, n }) => [k, Math.round(Math.sqrt((n * variance + PULL * typical) / (n + PULL)) * 1e4) / 1e4]));
+}
+
+let spreadCache: { augments: Map<number, number>; champions: Map<number, number> } | undefined;
+function augmentSpreads() {
+  if (spreadCache) return spreadCache;
+  const e = data();
+  const pick = new Map(
+    (readRepoCsv("data/cn/history/by_patch.csv") ?? []).filter((r) => r.patch === e?.patch).map((r) => [r.champion_id, Number(r.pick_rate)]),
+  );
+  const byAugment = new Map<number, [number, number][]>();
+  const byChampion = new Map<number, [number, number][]>();
+  for (const [c, list] of Object.entries(e?.augments ?? {})) {
+    const p = pick.get(c);
+    if (!p) continue;
+    byChampion.set(Number(c), list.map((a) => [a.pick_rate, a.lift]));
+    for (const a of list) {
+      if (!byAugment.has(a.id)) byAugment.set(a.id, []);
+      byAugment.get(a.id)!.push([p * a.pick_rate, a.lift]);
+    }
+  }
+  return (spreadCache = { augments: spreads(byAugment), champions: spreads(byChampion) });
+}
+
+/** How much an augment's estimated win rate boost changes from one champion that takes it to the next
+ * (a typical gap, as a share: 0.02 is 2 pts). High: great on some champions, poor on others. */
+export const augmentSpread = (id: number) => augmentSpreads().augments.get(id) ?? null;
+
+/** How much a champion's estimated win rate changes with the augments it takes (a typical gap, as a share).
+ * High: the champion leans on getting the right augments. */
+export const championAugmentReliance = () => augmentSpreads().champions;

@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { augmentStages, funLists, itemEstimate, powerCurveLists, rarityOdds, typicalGame } from "@/lib/estimates";
+import { augmentSpread, augmentStages, championAugmentReliance, funLists, itemEstimate, powerCurveLists, rarityOdds, typicalGame } from "@/lib/estimates";
 
 // Estimated stats the site shows (lib/estimates.ts), read from data/estimates/estimates.json.
 describe("estimates", () => {
@@ -36,5 +36,17 @@ describe("estimates", () => {
     expect(c.late.length).toBeLessThanOrEqual(10);
     for (const id of c.early) expect(c.scaling.get(id)!).toBeLessThan(0);
     for (const id of c.late) expect(c.scaling.get(id)!).toBeGreaterThan(0);
+  });
+
+  it("gives augments a spread across champions and champions a reliance on augments, in a sane range", () => {
+    const reliance = championAugmentReliance();
+    expect(reliance.size).toBeGreaterThan(100);
+    for (const v of reliance.values()) {
+      expect(v).toBeGreaterThan(0);
+      expect(v).toBeLessThan(0.15);
+    }
+    // Mad Scientist (1053) is taken by every champion; an unknown id has none.
+    expect(augmentSpread(1053)).toBeGreaterThan(0);
+    expect(augmentSpread(-1)).toBeNull();
   });
 });

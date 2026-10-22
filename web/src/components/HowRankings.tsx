@@ -55,6 +55,11 @@ export default function HowRankings() {
             "Win rate boost is how much more a pick wins than the rate it's compared with, such as the champion's own, in percentage points (pts): +2 pts turns 50% into 52%.",
           )}
         </li>
+        <li>
+          {t(
+            "Varies by champion and Augment reliance are typical swings in pts: how much an augment's boost changes between champions, and how much a champion's win rate changes between augments.",
+          )}
+        </li>
         <li>{t("Numbers marked estimated are worked out from the stats we have, not counted game by game.")}</li>
         <li>{t("Game counts are approximate.")}</li>
       </ul>

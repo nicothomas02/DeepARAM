@@ -125,5 +125,10 @@
  "Healing done": "Yapılan iyileştirme",
  "Crowd control": "Kitle kontrolü",
  "Shielding": "Kalkanlar",
- "Marked when neither champion has a stun, root, knock-up, taunt, fear, charm, sleep or suppression, so the pair struggles to lock anyone down.": "İki şampiyonda da sersemletme, kök salma, havaya kaldırma, kışkırtma, korku, büyüleme, uyku veya bastırma yoksa işaretlenir; ikili rakipleri zor durdurur."
+ "Marked when neither champion has a stun, root, knock-up, taunt, fear, charm, sleep or suppression, so the pair struggles to lock anyone down.": "İki şampiyonda da sersemletme, kök salma, havaya kaldırma, kışkırtma, korku, büyüleme, uyku veya bastırma yoksa işaretlenir; ikili rakipleri zor durdurur.",
+ "Varies by champion": "Şampiyona göre değişir",
+ "Augment reliance": "Güçlendirme bağımlılığı",
+ "Estimated. How far its win rate boost swings from one champion to another. High means great on some champions and weak on others.": "Tahmini. Kazanma oranı artışının şampiyondan şampiyona ne kadar değiştiği. Yüksekse bazı şampiyonlarda harika, bazılarında zayıftır.",
+ "Estimated. How far the champion's win rate swings with the augments it gets. High means its augment picks matter a lot.": "Tahmini. Şampiyonun kazanma oranının aldığı güçlendirmelere göre ne kadar değiştiği. Yüksekse güçlendirme seçimi çok önemlidir.",
+ "Varies by champion and Augment reliance are typical swings in pts: how much an augment's boost changes between champions, and how much a champion's win rate changes between augments.": "Şampiyona göre değişir ve Güçlendirme bağımlılığı puan cinsinden tipik dalgalanmalardır: bir güçlendirmenin artışı şampiyonlar arasında ne kadar değişir, bir şampiyonun kazanma oranı güçlendirmeler arasında ne kadar değişir."
 }
