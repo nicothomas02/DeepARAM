@@ -1634,21 +1634,18 @@ html[data-device="mobile"] .data-table th {
     white-space: normal;
   }
 
+  /* A long one-word name (Heimerdinger) breaks only when the row would otherwise push win rate off the screen. */
   .data-table.fit > .table-scroll .champ {
     gap: 0.45rem;
+    overflow-wrap: anywhere;
   }
 }
 
-/* The narrowest phones also drop the row number (the tier letter still shows the order), and a long
-   augment name may break inside a word rather than push win rate off the screen. */
+/* The narrowest phones also drop the row number (the tier letter still shows the order). */
 @media (max-width: 359px) {
   .data-table.fit > .table-scroll .ph-wide,
   .data-table.fit > .table-scroll .rank-col {
     display: none;
-  }
-
-  .data-table.fit > .table-scroll .aug-col .champ {
-    overflow-wrap: anywhere;
   }
 }
 
