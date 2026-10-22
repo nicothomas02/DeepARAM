@@ -64,12 +64,15 @@ self.addEventListener("fetch", (e) => {
     return;
   }
 
-  // Build files never change under the same name; icons, images and data are refreshed in the background.
+  // Build files never change under the same name and come from the cache. Pictures and fonts come from the
+  // cache and are refreshed in the background. Scripts, styles and data (an embed's data.js, the day's Chef
+  // Special) change under the same name, so they come from the network and the cache only serves offline.
   // Video and sound (range requests) and big files like 3D models are left to the browser.
   if (req.headers.has("range")) return;
   const immutable = url.pathname.startsWith("/_next/static/");
   const small = /^\/(icons|data)\//.test(url.pathname) || (/^\/(assets|embed)\//.test(url.pathname) && /\.(js|css|json|html|webp|png|jpe?g|svg|woff2)$/i.test(url.pathname));
   if (!immutable && !small) return;
+  const fresh = !immutable && /\.(js|css|json|html)$/i.test(url.pathname);
   e.respondWith(
     caches.match(req, { cacheName: STATIC }).then((hit) => {
       const net = fetch(req)
@@ -78,6 +81,7 @@ self.addEventListener("fetch", (e) => {
           return res;
         })
         .catch(() => hit || Response.error());
+      if (fresh) return net;
       return immutable && hit ? hit : hit ? (e.waitUntil(net), hit) : net;
     }),
   );
