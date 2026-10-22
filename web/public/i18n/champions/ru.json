@@ -155,5 +155,22 @@
  "The champion's ability to absorb damage from enemy champions": "Способность чемпиона поглощать урон от вражеских чемпионов.",
  "The champion's ability to apply harmful effects like slows and stuns to enemy champions": "Способность чемпиона применять ослабляющие эффекты вроде замедления и оглушения к вражеским чемпионам.",
  "The champion's ability to move quickly around the map using blinks or dashes": "Способность чемпиона быстро перемещаться по карте при помощи различного рода рывков.",
- "The champion's ability to grant beneficial effects like shields, healing, or movement speed to allied champions": "Способность чемпиона применять усиливающие эффекты вроде щитов, увеличения скорости передвижения и восстановления здоровья к союзникам."
+ "The champion's ability to grant beneficial effects like shields, healing, or movement speed to allied champions": "Способность чемпиона применять усиливающие эффекты вроде щитов, увеличения скорости передвижения и восстановления здоровья к союзникам.",
+ "After the core": "После основы",
+ "4th item": "4-й предмет",
+ "5th item": "5-й предмет",
+ "6th item": "6-й предмет",
+ "Options for each item slot after the best core build, best DeepScore first. Each slot assumes you bought the top pick before it.": "Варианты для каждого слота предмета после лучшей основной сборки, лучший DeepScore первым. Каждый слот предполагает, что вы купили лучший вариант перед ним.",
+ "{n} win rate": "{n} побед",
+ "Augment pick": "Выбор аугмента",
+ "1st augment": "1-й аугмент",
+ "2nd augment": "2-й аугмент",
+ "3rd augment": "3-й аугмент",
+ "4th augment": "4-й аугмент",
+ "Estimated: augments players often take at this pick, across all champions.": "Оценка: аугменты, которые игроки часто берут на этом выборе, по всем чемпионам.",
+ "Augment pages": "Страницы аугментов",
+ "Previous page": "Предыдущая страница",
+ "Next page": "Следующая страница",
+ "No augments match these filters.": "Нет аугментов под эти фильтры.",
+ "All picks": "Все выборы"
 }

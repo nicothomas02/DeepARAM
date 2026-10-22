@@ -155,5 +155,22 @@
  "The champion's ability to absorb damage from enemy champions": "적이 주는 피해를 버틸 수 있는 능력",
  "The champion's ability to apply harmful effects like slows and stuns to enemy champions": "적에게 둔화나 기절 등 해로운 효과를 주는 능력",
  "The champion's ability to move quickly around the map using blinks or dashes": "순간적인 이동이나 돌진 등 맵에서 빠르게 이동하는 능력",
- "The champion's ability to grant beneficial effects like shields, healing, or movement speed to allied champions": "아군에게 보호막, 회복, 이동 속도 증가 등 이로운 효과를 주는 능력"
+ "The champion's ability to grant beneficial effects like shields, healing, or movement speed to allied champions": "아군에게 보호막, 회복, 이동 속도 증가 등 이로운 효과를 주는 능력",
+ "After the core": "코어 이후",
+ "4th item": "4번째 아이템",
+ "5th item": "5번째 아이템",
+ "6th item": "6번째 아이템",
+ "Options for each item slot after the best core build, best DeepScore first. Each slot assumes you bought the top pick before it.": "최고의 코어 빌드 이후 각 아이템 슬롯의 선택지입니다. DeepScore가 높은 순. 각 슬롯은 이전 슬롯의 1순위를 구매했다고 가정합니다.",
+ "{n} win rate": "승률 {n}",
+ "Augment pick": "증강 선택",
+ "1st augment": "1번째 증강",
+ "2nd augment": "2번째 증강",
+ "3rd augment": "3번째 증강",
+ "4th augment": "4번째 증강",
+ "Estimated: augments players often take at this pick, across all champions.": "추정: 모든 챔피언 기준, 이 선택에서 자주 고르는 증강입니다.",
+ "Augment pages": "증강 페이지",
+ "Previous page": "이전 페이지",
+ "Next page": "다음 페이지",
+ "No augments match these filters.": "이 필터에 맞는 증강이 없습니다.",
+ "All picks": "모든 선택"
 }

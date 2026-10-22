@@ -155,5 +155,22 @@
  "The champion's ability to absorb damage from enemy champions": "Capacitatea campionului de a absorbi daunele venite din partea adversarilor",
  "The champion's ability to apply harmful effects like slows and stuns to enemy champions": "Capacitatea campionului de a le aplica efecte negative adversarilor (de exemplu: încetiniri sau amețiri)",
  "The champion's ability to move quickly around the map using blinks or dashes": "Capacitatea campionului de a se mișca rapid pe hartă cu ajutorul salturilor",
- "The champion's ability to grant beneficial effects like shields, healing, or movement speed to allied champions": "Capacitatea campionului de a le oferi aliaților efecte benefice (de exemplu: scuturi, vindecare sau viteză de mișcare)"
+ "The champion's ability to grant beneficial effects like shields, healing, or movement speed to allied champions": "Capacitatea campionului de a le oferi aliaților efecte benefice (de exemplu: scuturi, vindecare sau viteză de mișcare)",
+ "After the core": "După nucleu",
+ "4th item": "Al 4-lea obiect",
+ "5th item": "Al 5-lea obiect",
+ "6th item": "Al 6-lea obiect",
+ "Options for each item slot after the best core build, best DeepScore first. Each slot assumes you bought the top pick before it.": "Opțiuni pentru fiecare loc de obiect după cel mai bun build de bază, cel mai bun DeepScore primul. Fiecare loc presupune că ai cumpărat alegerea de top dinaintea lui.",
+ "{n} win rate": "{n} rată de victorie",
+ "Augment pick": "Alegerea augmentului",
+ "1st augment": "Primul augment",
+ "2nd augment": "Al 2-lea augment",
+ "3rd augment": "Al 3-lea augment",
+ "4th augment": "Al 4-lea augment",
+ "Estimated: augments players often take at this pick, across all champions.": "Estimat: augmente pe care jucătorii le iau des la această alegere, pentru toți campionii.",
+ "Augment pages": "Pagini de augmente",
+ "Previous page": "Pagina anterioară",
+ "Next page": "Pagina următoare",
+ "No augments match these filters.": "Niciun augment nu se potrivește acestor filtre.",
+ "All picks": "Toate alegerile"
 }

@@ -155,5 +155,22 @@
  "The champion's ability to absorb damage from enemy champions": "Şampiyonun, rakip şampiyonlardan gelen hasarı soğurma becerisi",
  "The champion's ability to apply harmful effects like slows and stuns to enemy champions": "Şampiyonun, rakip şampiyonlara yavaşlatma veya sersemletme gibi zararlı etkiler uygulama becerisi",
  "The champion's ability to move quickly around the map using blinks or dashes": "Şampiyonun haritada fırlama veya atılma kullanarak hızla hareket edebilme becerisi",
- "The champion's ability to grant beneficial effects like shields, healing, or movement speed to allied champions": "Şampiyonun, takım arkadaşlarına kalkan, iyileştirme veya hareket hızı gibi faydalı etkiler sağlama becerisi"
+ "The champion's ability to grant beneficial effects like shields, healing, or movement speed to allied champions": "Şampiyonun, takım arkadaşlarına kalkan, iyileştirme veya hareket hızı gibi faydalı etkiler sağlama becerisi",
+ "After the core": "Çekirdekten sonra",
+ "4th item": "4. eşya",
+ "5th item": "5. eşya",
+ "6th item": "6. eşya",
+ "Options for each item slot after the best core build, best DeepScore first. Each slot assumes you bought the top pick before it.": "En iyi çekirdek dizilimden sonra her eşya yuvası için seçenekler, en iyi DeepScore önce. Her yuva, ondan önceki en iyi seçimi aldığını varsayar.",
+ "{n} win rate": "{n} kazanma oranı",
+ "Augment pick": "Güçlendirme seçimi",
+ "1st augment": "1. güçlendirme",
+ "2nd augment": "2. güçlendirme",
+ "3rd augment": "3. güçlendirme",
+ "4th augment": "4. güçlendirme",
+ "Estimated: augments players often take at this pick, across all champions.": "Tahmini: oyuncuların bu seçimde sık aldığı güçlendirmeler, tüm şampiyonlarda.",
+ "Augment pages": "Güçlendirme sayfaları",
+ "Previous page": "Önceki sayfa",
+ "Next page": "Sonraki sayfa",
+ "No augments match these filters.": "Bu filtrelere uyan güçlendirme yok.",
+ "All picks": "Tüm seçimler"
 }

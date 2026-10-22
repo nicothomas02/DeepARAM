@@ -48,7 +48,11 @@ export type ItemRow = Rated & {
   items: number[];
   deepScore?: number;
   tier?: ItemTier;
+  /** Core builds: the boots that go with the core, shown first. */
+  boots?: number;
 };
+/** The options for one item slot after the core (4th, 5th, 6th), best DeepScore first. */
+export type LateSlot = { slot: number; options: ItemRow[] };
 export type SkillRow = Rated & { max: string[]; levels: string[] };
 export type AugmentRow = {
   id: number;
@@ -93,6 +97,8 @@ export type ChampionPage = {
   core: ItemRow[];
   full: ItemRow[];
   items: ItemRow[];
+  /** What to buy after the best core: the 4th, 5th and 6th item. */
+  late: LateSlot[];
   augments: AugmentRow[];
   mates: Mate[];
   styles: Style[];
@@ -194,18 +200,23 @@ export function championPage(alias: string): ChampionPage | null {
       "champions/modifiers.js",
     )?.[alias] ?? {};
 
+  const boots = scoreItems(rows(b?.items?.boots));
+  const full = scoreItems(rows(b?.items?.full_builds));
+  const single = tiered([
+    ...rows(b?.items?.other),
+    ...rows(b?.items?.boots),
+    ...rows(b?.items?.starting),
+  ]);
+  const core = withBoots(scoreItems(rows(b?.items?.core)), full, boots[0]);
   const page = {
     winRate: base,
     skills,
     starting: scoreItems(rows(b?.items?.starting)),
-    boots: scoreItems(rows(b?.items?.boots)),
-    core: scoreItems(rows(b?.items?.core)),
-    full: scoreItems(rows(b?.items?.full_builds)),
-    items: tiered([
-      ...rows(b?.items?.other),
-      ...rows(b?.items?.boots),
-      ...rows(b?.items?.starting),
-    ]),
+    boots,
+    core,
+    full,
+    items: single,
+    late: lateSlots(core[0], single),
     augments,
     mates,
     styles,
@@ -216,7 +227,7 @@ export function championPage(alias: string): ChampionPage | null {
   const used = new Set(
     [page.starting, page.boots, page.core, page.full, page.items]
       .flat()
-      .flatMap((r) => r.items),
+      .flatMap((r) => (r.boots ? [r.boots, ...r.items] : r.items)),
   );
   const itemInfo = Object.fromEntries(
     [...used].map((i) => [
@@ -243,6 +254,53 @@ function tiered(list: ItemRow[]): ItemRow[] {
       tier,
     })),
   );
+}
+
+/** Each core build with the boots most often bought alongside it in six-item builds, or the best boots overall. */
+function withBoots(
+  core: ItemRow[],
+  full: ItemRow[],
+  best: ItemRow | undefined,
+): ItemRow[] {
+  return core.map((r) => {
+    const share = new Map<number, number>();
+    for (const f of full) {
+      if (!r.items.every((i) => f.items.includes(i))) continue;
+      for (const i of f.items)
+        if (itemTier(i) === "boots")
+          share.set(i, (share.get(i) ?? 0) + f.pickRate);
+    }
+    const paired = [...share].sort((x, y) => y[1] - x[1])[0]?.[0];
+    const boots = paired ?? best?.items[0];
+    return boots === undefined ? r : { ...r, boots };
+  });
+}
+
+const LATE_SLOTS = [4, 5, 6];
+const LATE_OPTIONS = 4;
+
+/**
+ * The 4th, 5th and 6th item after the best core: the champion's other legendary items, by DeepScore among
+ * themselves. Each slot
+ * assumes the best pick of the slots before it was bought, so it drops out of the later slots' options.
+ */
+function lateSlots(core: ItemRow | undefined, single: ItemRow[]): LateSlot[] {
+  if (!core) return [];
+  const taken = new Set(core.items);
+  // Scored against each other: the core items would otherwise crowd every option to the bottom of the scale.
+  const pool = scoreItems(
+    single.filter((r) => r.tier === "legendary" && !taken.has(r.items[0])),
+  );
+  const slots: LateSlot[] = [];
+  for (const slot of LATE_SLOTS) {
+    const options = pool
+      .filter((r) => !taken.has(r.items[0]))
+      .slice(0, LATE_OPTIONS);
+    if (!options.length) break;
+    slots.push({ slot, options });
+    taken.add(options[0].items[0]);
+  }
+  return slots;
 }
 
 /** DeepScore for each of a champion's items against the champion's other items (lib/deepscore.ts), best first. */

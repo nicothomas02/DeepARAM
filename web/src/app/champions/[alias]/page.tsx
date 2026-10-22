@@ -18,7 +18,11 @@ import {
 } from "@/lib/champion-page";
 import { augmentHref } from "@/lib/augments";
 import ArchetypeTags from "@/components/ArchetypeTags";
-import { championRatings, championTagData, championTags } from "@/lib/champion-tags";
+import {
+  championRatings,
+  championTagData,
+  championTags,
+} from "@/lib/champion-tags";
 import PlaystyleBars from "@/components/champion/PlaystyleBars";
 import { pageMeta } from "@/lib/meta";
 import { Name, T } from "@/components/I18n";
@@ -49,7 +53,7 @@ import {
   type SpellRow,
 } from "@/lib/fill";
 import { ITEM_TIERS, type ItemTier } from "@/lib/items";
-import { championEstimates } from "@/lib/estimates";
+import { augmentStages, championEstimates } from "@/lib/estimates";
 import championIds from "@/data/champion-ids.json";
 import augmentNames from "@/data/augment-names.json";
 import "../champion-page.css";
@@ -138,6 +142,24 @@ function ScoredCells({ r }: { r: ItemRow }) {
       <Cell value={pct(r.winRate)} label="Win rate" tone={tone(r.lift)} />
       <Cell value={pct(r.pickRate)} label="Pick rate" />
     </>
+  );
+}
+
+const SLOT_LABEL: Record<number, string> = {
+  4: "4th item",
+  5: "5th item",
+  6: "6th item",
+};
+// The slots after the core are narrow: win rate sits under the item's name, DeepScore on the right.
+function LateScore({ r }: { r: ItemRow }) {
+  return (
+    <div className="cp-cell">
+      {r.deepScore !== undefined ? (
+        <DeepScore value={r.deepScore} help={ITEM_DEEPSCORE_HELP} />
+      ) : (
+        <b>–</b>
+      )}
+    </div>
   );
 }
 
@@ -273,6 +295,7 @@ export default async function ChampionPage({
     .map((a) => ({
       ...a,
       ...est?.augments.get(a.id),
+      stages: augmentStages(a.id)?.stages,
       deepScore: scores.get(a.id),
       href: augmentHref(a.id) ?? undefined,
     }))
@@ -297,7 +320,7 @@ export default async function ChampionPage({
   const itemRows = (rows: typeof p.core, sep = false) =>
     rows.map((r, i) => (
       <Row key={i} rank={i + 1} cells={<ScoredCells r={r} />}>
-        {r.items.map((id, j) => (
+        {(r.boots ? [r.boots, ...r.items] : r.items).map((id, j) => (
           <span key={j} className="cp-chain">
             {sep && j > 0 && (
               <span className="cp-sep" aria-hidden="true">
@@ -385,7 +408,9 @@ export default async function ChampionPage({
               info={championTagData().info}
               link
             />
-            {championRatings(c.alias) && <PlaystyleBars ratings={championRatings(c.alias)!} />}
+            {championRatings(c.alias) && (
+              <PlaystyleBars ratings={championRatings(c.alias)!} />
+            )}
           </div>
           {c.tier && (
             <span
@@ -502,13 +527,36 @@ export default async function ChampionPage({
                 <T ns={NS}>Best core build</T>
               </h4>
               <div className="cp-icons">
-                {bestCore.items.map((id) => (
+                {(bestCore.boots
+                  ? [bestCore.boots, ...bestCore.items]
+                  : bestCore.items
+                ).map((id) => (
                   <ItemIcon key={id} id={id} info={info} />
                 ))}
               </div>
               <div className="cp-mini">
                 <RatedCells r={bestCore} />
               </div>
+              {p.late.length > 0 && (
+                <div className="cp-late-mini">
+                  {p.late.map((s) => (
+                    <div key={s.slot}>
+                      <small>
+                        <T ns={NS}>{SLOT_LABEL[s.slot]}</T>
+                      </small>
+                      <span className="cp-icons">
+                        {s.options.slice(0, 2).map((r) => (
+                          <ItemIcon
+                            key={r.items[0]}
+                            id={r.items[0]}
+                            info={info}
+                          />
+                        ))}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
           )}
           {bestSkill && (
@@ -634,6 +682,46 @@ export default async function ChampionPage({
                   </em>
                 </div>
               )}
+            </Panel>
+          )}
+          {p.late.length > 0 && (
+            <Panel
+              title="After the core"
+              note={
+                <T ns={NS}>
+                  {
+                    "Options for each item slot after the best core build, best DeepScore first. Each slot assumes you bought the top pick before it."
+                  }
+                </T>
+              }
+            >
+              <div className="cp-late">
+                {p.late.map((s) => (
+                  <div key={s.slot}>
+                    <h4>
+                      <T ns={NS}>{SLOT_LABEL[s.slot]}</T>
+                    </h4>
+                    {s.options.map((r, i) => (
+                      <Row
+                        key={i}
+                        rank={i + 1}
+                        cols={1}
+                        cells={<LateScore r={r} />}
+                      >
+                        <ItemIcon id={r.items[0]} info={info} />
+                        <span className="cp-late-what">
+                          <ItemName id={r.items[0]} info={info} />
+                          <small className={tone(r.lift)}>
+                            <T ns={NS} v={{ n: pct(r.winRate) }}>
+                              {"{n} win rate"}
+                            </T>
+                          </small>
+                        </span>
+                      </Row>
+                    ))}
+                  </div>
+                ))}
+              </div>
             </Panel>
           )}
           <div className="cp-two">
@@ -854,7 +942,10 @@ export default async function ChampionPage({
               </p>
             </Panel>
           )}
-          <Quests alias={alias} names={Object.fromEntries(all.map((x) => [x.id, x.name]))} />
+          <Quests
+            alias={alias}
+            names={Object.fromEntries(all.map((x) => [x.id, x.name]))}
+          />
 
           <h2 className="cp-group" id="details">
             <T ns={NS}>More details</T>

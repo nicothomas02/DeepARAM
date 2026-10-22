@@ -155,5 +155,22 @@
  "The champion's ability to absorb damage from enemy champions": "Schopnost šampiona vstřebávat poškození způsobené nepřátelskými šampiony",
  "The champion's ability to apply harmful effects like slows and stuns to enemy champions": "Schopnost šampiona sesílat na nepřátelské šampiony omezující efekty jako například zpomalení či omráčení",
  "The champion's ability to move quickly around the map using blinks or dashes": "Schopnost šampiona rychle se pohybovat po mapě pomocí skoků či proběhnutí",
- "The champion's ability to grant beneficial effects like shields, healing, or movement speed to allied champions": "Schopnost šampiona sesílat prospěšné efekty jako například štíty, léčení či zrychlení pohybu na spojenecké šampiony"
+ "The champion's ability to grant beneficial effects like shields, healing, or movement speed to allied champions": "Schopnost šampiona sesílat prospěšné efekty jako například štíty, léčení či zrychlení pohybu na spojenecké šampiony",
+ "After the core": "Po jádru",
+ "4th item": "4. předmět",
+ "5th item": "5. předmět",
+ "6th item": "6. předmět",
+ "Options for each item slot after the best core build, best DeepScore first. Each slot assumes you bought the top pick before it.": "Možnosti pro každý slot předmětu po nejlepším jádru buildu, nejlepší DeepScore první. Každý slot předpokládá, že jsi koupil nejlepší volbu před ním.",
+ "{n} win rate": "{n} výher",
+ "Augment pick": "Volba vylepšení",
+ "1st augment": "1. vylepšení",
+ "2nd augment": "2. vylepšení",
+ "3rd augment": "3. vylepšení",
+ "4th augment": "4. vylepšení",
+ "Estimated: augments players often take at this pick, across all champions.": "Odhad: vylepšení, která hráči v této volbě často berou, napříč všemi šampiony.",
+ "Augment pages": "Stránky vylepšení",
+ "Previous page": "Předchozí stránka",
+ "Next page": "Další stránka",
+ "No augments match these filters.": "Těmto filtrům neodpovídá žádné vylepšení.",
+ "All picks": "Všechny volby"
 }
