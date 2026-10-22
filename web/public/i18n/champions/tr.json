@@ -161,5 +161,16 @@
  "5th item": "5. eşya",
  "6th item": "6. eşya",
  "Options for each item slot after the best core build, best DeepScore first. Each slot assumes you bought the top pick before it.": "En iyi çekirdek dizilimden sonra her eşya yuvası için seçenekler, en iyi DeepScore önce. Her yuva, ondan önceki en iyi seçimi aldığını varsayar.",
- "{n} win rate": "{n} kazanma oranı"
+ "{n} win rate": "{n} kazanma oranı",
+ "Augment pick": "Güçlendirme seçimi",
+ "Any pick": "Her seçim",
+ "1st augment": "1. güçlendirme",
+ "2nd augment": "2. güçlendirme",
+ "3rd augment": "3. güçlendirme",
+ "4th augment": "4. güçlendirme",
+ "Estimated: augments players often take at this pick, across all champions.": "Tahmini: oyuncuların bu seçimde sık aldığı güçlendirmeler, tüm şampiyonlarda.",
+ "Augment pages": "Güçlendirme sayfaları",
+ "Previous page": "Önceki sayfa",
+ "Next page": "Sonraki sayfa",
+ "No augments match these filters.": "Bu filtrelere uyan güçlendirme yok."
 }

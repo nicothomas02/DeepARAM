@@ -161,5 +161,16 @@
  "5th item": "5ο αντικείμενο",
  "6th item": "6ο αντικείμενο",
  "Options for each item slot after the best core build, best DeepScore first. Each slot assumes you bought the top pick before it.": "Επιλογές για κάθε θέση αντικειμένου μετά το καλύτερο βασικό build, με το καλύτερο DeepScore πρώτο. Κάθε θέση υποθέτει ότι αγόρασες την κορυφαία επιλογή πριν από αυτήν.",
- "{n} win rate": "{n} ποσοστό νικών"
+ "{n} win rate": "{n} ποσοστό νικών",
+ "Augment pick": "Επιλογή ενίσχυσης",
+ "Any pick": "Οποιαδήποτε επιλογή",
+ "1st augment": "1η ενίσχυση",
+ "2nd augment": "2η ενίσχυση",
+ "3rd augment": "3η ενίσχυση",
+ "4th augment": "4η ενίσχυση",
+ "Estimated: augments players often take at this pick, across all champions.": "Εκτίμηση: ενισχύσεις που οι παίκτες παίρνουν συχνά σε αυτή την επιλογή, σε όλους τους πρωταθλητές.",
+ "Augment pages": "Σελίδες ενισχύσεων",
+ "Previous page": "Προηγούμενη σελίδα",
+ "Next page": "Επόμενη σελίδα",
+ "No augments match these filters.": "Καμία ενίσχυση δεν ταιριάζει με αυτά τα φίλτρα."
 }

@@ -161,5 +161,16 @@
  "5th item": "Item ke-5",
  "6th item": "Item ke-6",
  "Options for each item slot after the best core build, best DeepScore first. Each slot assumes you bought the top pick before it.": "Pilihan untuk setiap slot item setelah build inti terbaik, DeepScore terbaik lebih dulu. Setiap slot menganggap kamu sudah membeli pilihan teratas sebelumnya.",
- "{n} win rate": "{n} tingkat menang"
+ "{n} win rate": "{n} tingkat menang",
+ "Augment pick": "Pilihan augment",
+ "Any pick": "Pilihan apa pun",
+ "1st augment": "Augment ke-1",
+ "2nd augment": "Augment ke-2",
+ "3rd augment": "Augment ke-3",
+ "4th augment": "Augment ke-4",
+ "Estimated: augments players often take at this pick, across all champions.": "Perkiraan: augment yang sering diambil pemain pada pilihan ini, di semua champion.",
+ "Augment pages": "Halaman augment",
+ "Previous page": "Halaman sebelumnya",
+ "Next page": "Halaman berikutnya",
+ "No augments match these filters.": "Tidak ada augment yang cocok dengan filter ini."
 }

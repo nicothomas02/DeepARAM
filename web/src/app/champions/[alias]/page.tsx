@@ -53,7 +53,7 @@ import {
   type SpellRow,
 } from "@/lib/fill";
 import { ITEM_TIERS, type ItemTier } from "@/lib/items";
-import { championEstimates } from "@/lib/estimates";
+import { augmentStages, championEstimates } from "@/lib/estimates";
 import championIds from "@/data/champion-ids.json";
 import augmentNames from "@/data/augment-names.json";
 import "../champion-page.css";
@@ -295,6 +295,7 @@ export default async function ChampionPage({
     .map((a) => ({
       ...a,
       ...est?.augments.get(a.id),
+      stages: augmentStages(a.id)?.stages,
       deepScore: scores.get(a.id),
       href: augmentHref(a.id) ?? undefined,
     }))

@@ -161,5 +161,16 @@
  "5th item": "5. předmět",
  "6th item": "6. předmět",
  "Options for each item slot after the best core build, best DeepScore first. Each slot assumes you bought the top pick before it.": "Možnosti pro každý slot předmětu po nejlepším jádru buildu, nejlepší DeepScore první. Každý slot předpokládá, že jsi koupil nejlepší volbu před ním.",
- "{n} win rate": "{n} výher"
+ "{n} win rate": "{n} výher",
+ "Augment pick": "Volba vylepšení",
+ "Any pick": "Jakákoli volba",
+ "1st augment": "1. vylepšení",
+ "2nd augment": "2. vylepšení",
+ "3rd augment": "3. vylepšení",
+ "4th augment": "4. vylepšení",
+ "Estimated: augments players often take at this pick, across all champions.": "Odhad: vylepšení, která hráči v této volbě často berou, napříč všemi šampiony.",
+ "Augment pages": "Stránky vylepšení",
+ "Previous page": "Předchozí stránka",
+ "Next page": "Další stránka",
+ "No augments match these filters.": "Těmto filtrům neodpovídá žádné vylepšení."
 }

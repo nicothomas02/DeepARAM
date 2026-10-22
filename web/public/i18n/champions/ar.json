@@ -161,5 +161,16 @@
  "5th item": "العنصر الخامس",
  "6th item": "العنصر السادس",
  "Options for each item slot after the best core build, best DeepScore first. Each slot assumes you bought the top pick before it.": "خيارات كل خانة عنصر بعد أفضل بناء أساسي، الأعلى في DeepScore أولًا. كل خانة تفترض أنك اشتريت الخيار الأول قبلها.",
- "{n} win rate": "{n} نسبة الفوز"
+ "{n} win rate": "{n} نسبة الفوز",
+ "Augment pick": "اختيار التعزيز",
+ "Any pick": "أي اختيار",
+ "1st augment": "التعزيز الأول",
+ "2nd augment": "التعزيز الثاني",
+ "3rd augment": "التعزيز الثالث",
+ "4th augment": "التعزيز الرابع",
+ "Estimated: augments players often take at this pick, across all champions.": "تقديري: تعزيزات يأخذها اللاعبون كثيرًا في هذا الاختيار، عبر كل الأبطال.",
+ "Augment pages": "صفحات التعزيزات",
+ "Previous page": "الصفحة السابقة",
+ "Next page": "الصفحة التالية",
+ "No augments match these filters.": "لا توجد تعزيزات تطابق هذه الفلاتر."
 }
