@@ -43,6 +43,23 @@ def save(url, path, force):
     return True
 
 
+# Some new augments' large icons sit at unresolved (hashed) paths in the extracted files, so only the plain white
+# small glyph can be downloaded. Tint it with its rarity's colour (silver, gold, prismatic) so it still reads as one.
+RARITY_TINT = {0: (190, 205, 215), 1: (232, 196, 120), 2: (205, 170, 235)}
+
+
+def save_tinted(url, path, rarity, force):
+    if os.path.exists(path) and not force:
+        return False
+    img = Image.open(io.BytesIO(fetch(url))).convert("RGBA").resize((SIZE, SIZE), Image.LANCZOS)
+    r, g, b = RARITY_TINT.get(rarity, RARITY_TINT[0])
+    lum = img.convert("L")
+    tinted = Image.merge("RGBA", (lum.point(lambda v: v * r // 255), lum.point(lambda v: v * g // 255), lum.point(lambda v: v * b // 255), img.getchannel("A")))
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    tinted.save(path, "WEBP", quality=88, method=6)
+    return True
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--force", action="store_true", help="download icons that already exist again")
@@ -63,9 +80,14 @@ def main():
     augs = [e for e in kiwi.values() if isinstance(e, dict) and e.get("AugmentPlatformId") and e.get("AugmentLargeIconPath")]
     n = 0
     for e in augs:
-        url = CD + "/game/" + re.sub(r"\.(tex|dds)$", ".png", e["AugmentLargeIconPath"].lower())
+        path = os.path.join(OUT, "augments", f"{e['AugmentPlatformId']}.webp")
         try:
-            n += save(url, os.path.join(OUT, "augments", f"{e['AugmentPlatformId']}.webp"), force)
+            if e["AugmentLargeIconPath"].startswith("{") and e.get("AugmentSmallIconPath"):
+                small = CD + "/game/" + re.sub(r"\.(tex|dds)$", ".png", e["AugmentSmallIconPath"].lower())
+                n += save_tinted(small, path, e.get("rarity", 0), force)
+            else:
+                url = CD + "/game/" + re.sub(r"\.(tex|dds)$", ".png", e["AugmentLargeIconPath"].lower())
+                n += save(url, path, force)
         except OSError as err:
             print("skipped augment", e["AugmentPlatformId"], err)
     print(f"augments: {n} new of {len(augs)}")

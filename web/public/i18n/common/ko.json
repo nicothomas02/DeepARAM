@@ -207,5 +207,9 @@
  "{v} CS": "{v} CS",
  "This set": "이번 세트",
  "What every patch changed, grouped by set: augment tuning and the champions that moved most.": "패치별 변경 사항을 세트별로: 증강 조정과 가장 크게 움직인 챔피언.",
- "Training dummy at 50% Health": "체력 50% 훈련용 허수아비"
+ "Training dummy at 50% Health": "체력 50% 훈련용 허수아비",
+ "Best items": "최고의 아이템",
+ "Cook builds from The Kitchen": "The Kitchen에서 빌드 요리하기",
+ "See all champions →": "모든 챔피언 보기 →",
+ "{ds} DeepScore · {wr} win · {pr} pick": "{ds} DeepScore · 승률 {wr} · 픽률 {pr}"
 }

@@ -207,5 +207,9 @@
  "{v} CS": "{v} CS",
  "This set": "เซ็ตนี้",
  "What every patch changed, grouped by set: augment tuning and the champions that moved most.": "สิ่งที่แต่ละแพตช์เปลี่ยน แยกตามเซ็ต: การปรับออคเมนต์และแชมเปี้ยนที่ขยับมากที่สุด",
- "Training dummy at 50% Health": "หุ่นฝึกซ้อมที่พลังชีวิต 50%"
+ "Training dummy at 50% Health": "หุ่นฝึกซ้อมที่พลังชีวิต 50%",
+ "Best items": "ไอเทมที่ดีที่สุด",
+ "Cook builds from The Kitchen": "ปรุงบิลด์ใน The Kitchen",
+ "See all champions →": "ดูแชมเปี้ยนทั้งหมด →",
+ "{ds} DeepScore · {wr} win · {pr} pick": "{ds} DeepScore · ชนะ {wr} · เลือก {pr}"
 }

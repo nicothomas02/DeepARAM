@@ -207,5 +207,9 @@
  "{v} CS": "{v} CS",
  "This set": "Setul acesta",
  "What every patch changed, grouped by set: augment tuning and the champions that moved most.": "Ce a schimbat fiecare patch, grupat pe seturi: ajustări de augmentări și campionii care s-au mișcat cel mai mult.",
- "Training dummy at 50% Health": "Manechin de antrenament la 50% Viață"
+ "Training dummy at 50% Health": "Manechin de antrenament la 50% Viață",
+ "Best items": "Cele mai bune obiecte",
+ "Cook builds from The Kitchen": "Gătește build-uri în The Kitchen",
+ "See all champions →": "Vezi toți campionii →",
+ "{ds} DeepScore · {wr} win · {pr} pick": "{ds} DeepScore · {wr} victorii · {pr} alegeri"
 }

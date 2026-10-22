@@ -207,5 +207,9 @@
  "{v} CS": "{v} CS",
  "This set": "Αυτό το σετ",
  "What every patch changed, grouped by set: augment tuning and the champions that moved most.": "Τι άλλαξε κάθε patch, ανά σετ: ρυθμίσεις ενισχύσεων και οι ήρωες που κινήθηκαν περισσότερο.",
- "Training dummy at 50% Health": "Ομοίωμα εξάσκησης στο 50% Ζωής"
+ "Training dummy at 50% Health": "Ομοίωμα εξάσκησης στο 50% Ζωής",
+ "Best items": "Καλύτερα αντικείμενα",
+ "Cook builds from The Kitchen": "Μαγείρεψε builds στο The Kitchen",
+ "See all champions →": "Δες όλους τους πρωταθλητές →",
+ "{ds} DeepScore · {wr} win · {pr} pick": "{ds} DeepScore · {wr} νίκες · {pr} επιλογές"
 }

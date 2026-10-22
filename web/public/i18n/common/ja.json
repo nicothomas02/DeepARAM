@@ -207,5 +207,9 @@
  "{v} CS": "{v} CS",
  "This set": "今のセット",
  "What every patch changed, grouped by set: augment tuning and the champions that moved most.": "各パッチの変更をセットごとに：オーグメントの調整と、最も変動したチャンピオン。",
- "Training dummy at 50% Health": "体力50%の練習用ダミー"
+ "Training dummy at 50% Health": "体力50%の練習用ダミー",
+ "Best items": "おすすめアイテム",
+ "Cook builds from The Kitchen": "The Kitchenでビルドを作ろう",
+ "See all champions →": "すべてのチャンピオンを見る →",
+ "{ds} DeepScore · {wr} win · {pr} pick": "{ds} DeepScore · 勝率{wr} · ピック率{pr}"
 }
