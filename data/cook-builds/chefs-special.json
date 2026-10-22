@@ -1,268 +1,268 @@
 {
-  "id": "taric-friendly-fireworks",
-  "title": "Friendly Fireworks",
-  "champion": "Taric",
-  "champion_name": "Taric",
-  "chef": "2026-10-20",
-  "why": "Taric's Bravado is the part of his kit everyone forgets: after every spell his next two attacks come out in quick succession and shave time off his spell cooldowns, so a Taric who keeps casting keeps swinging. Sword of Blossoming Dawn turns each of those swings into a heal on the lowest health ally nearby, and Upgrade Sword of Blossoming Dawn adds 100% Attack Speed and makes that heal far bigger whenever he is hitting champions. Sonic Boom makes every heal or shield on an ally explode, damaging and slowing the enemies around that ally, and Empowered By The Faithful blesses everyone he heals, so their damage fills him with devotion until a shockwave goes off that executes low health enemies. Bastion casts his Starlight's Touch from his linked ally too, Moonstone Renewer chains each heal to a second ally for another boom, Ardent Censer hands both of them extra Attack Speed, and Echoes of Helia adds even more healing. The gem knight stops being the team's bodyguard and becomes its bomb: his allies are the grenades and every autoattack pulls a pin.",
-  "play": "Link the carry with Bastion, cast anything, then keep attacking the closest champion so every swing heals a teammate and blows up whoever is standing next to them.",
+  "id": "braum-group-project",
+  "title": "Group Project",
+  "champion": "Braum",
+  "champion_name": "Braum",
+  "chef": "2026-10-21",
+  "why": "Braum's Concussive Blows has a line most people skim past: once he lands the first stack, his allies' basic attacks stack it too, and the fourth stack stuns. That turns every teammate who can swing a weapon into a stun button, and every one of those stuns counts as Braum's. Cruelty drops a comet of magic damage on each champion he Immobilizes, Slap Around banks 10 Adaptive Force per stun, and Impassable adds an Aftershock burst and Glacial Augment's slowing rays, so a single stun pays out three times and leaves him stronger for the next one. Bandlepipes hands the whole team Attack Speed every time he stuns someone, so the next four stacks land even faster, Imperial Mandate marks each stunned target to take more damage, and with Nashor's Tooth, Riftmaker and Rabadon's Deathcap all that Adaptive Force becomes Ability Power. The bodyguard stops standing in front of his team and becomes its artillery, and his teammates are the ones pulling the trigger.",
+  "play": "Tag one enemy with Winter's Bite, then let your carries hit the same target; every stun calls down a comet, so keep re-tagging whoever they are shooting.",
   "items": [
-    "Sword of Blossoming Dawn",
-    "Ardent Censer",
-    "Moonstone Renewer",
-    "Echoes of Helia",
-    "Staff of Flowing Water",
-    "Berserker's Greaves"
+    "Bandlepipes",
+    "Imperial Mandate",
+    "Nashor's Tooth",
+    "Riftmaker",
+    "Rabadon's Deathcap",
+    "Mercury's Treads"
   ],
   "core": 3,
-  "champion_icon": "/embed/fun/cook-builds/icons/champions/44.png",
+  "champion_icon": "/embed/fun/cook-builds/icons/champions/201.png",
   "augments": [
     {
-      "name": "Upgrade Sword of Blossoming Dawn",
+      "name": "Cruelty",
       "rarity": "Prismatic",
       "core": true,
-      "text": "Gain 100% Attack Speed. Increase Sword of Blossoming Dawn's healing to 250% when you attack enemy champions.",
-      "icon": "/embed/fun/cook-builds/icons/augments/upgrade-sword-of-blossoming-dawn.png",
-      "id": 1379
+      "text": "On Immobilizing or Grounding a champion, summon a comet that lands after a delay, dealing magic damage to nearby enemies.",
+      "icon": "/embed/fun/cook-builds/icons/augments/cruelty.png",
+      "id": 1323
     },
     {
-      "name": "Sonic Boom",
+      "name": "Slap Around",
       "rarity": "Silver",
       "core": true,
-      "text": "Buffing, Healing, or Shielding your ally deals damage and Slows enemies surrounding them.",
-      "icon": "/embed/fun/cook-builds/icons/augments/sonic-boom.png",
-      "id": 1076
+      "text": "Each time you Immobilize or Ground an enemy, gain a stack granting 10 Adaptive Force. Lose 50% stacks on death.",
+      "icon": "/embed/fun/cook-builds/icons/augments/slap-around.png",
+      "id": 1136
     },
     {
-      "name": "Empowered By The Faithful",
-      "rarity": "Prismatic",
+      "name": "Impassable",
+      "rarity": "Gold",
       "core": true,
-      "text": "Healing or Shielding allies blesses them, causing their damage to fill you with devotion. When you have enough devotion, unleash a shockwave dealing magic damage and executes low health enemies.",
-      "icon": "/embed/fun/cook-builds/icons/augments/empowered-by-the-faithful.png",
-      "id": 2004
+      "text": "Gain the Aftershock and Glacial Augment Keystone Runes. Aftershock: After Immobilizing an enemy champion, gain defenses and later deal a burst of magic damage around you. Glacial Augment: Immobilizing an enemy champion will spawn 3 glacial rays that Slow nearby enemies and reduce their damage to your allies.",
+      "icon": "/embed/fun/cook-builds/icons/augments/impassable.png",
+      "id": 1149
     }
   ],
   "href": "/kitchen#chefs-special",
   "archive_href": "/kitchen#chef-archive",
-  "share_href": "/kitchen/2026-10-20",
-  "share_image": "/embed/fun/cook-builds/share/taric-friendly-fireworks.png",
+  "share_href": "/kitchen/2026-10-21",
+  "share_image": "/embed/fun/cook-builds/share/braum-group-project.png",
   "item_ids": [
-    124011,
-    3504,
-    6617,
-    6620,
-    6616,
-    3006
+    2524,
+    4005,
+    3115,
+    4633,
+    3089,
+    3111
   ],
   "i18n": {
     "ar": {
-      "title": "ألعاب نارية صديقة",
-      "why": "المهارة السلبية لتاريك هي الجزء الذي ينساه الجميع من مجموعته: بعد كل تعويذة تخرج هجمتاه التاليتان بسرعة متتالية وتقلّصان فترات تهدئة تعويذاته، لذا فإن تاريك الذي لا يتوقف عن الإلقاء لا يتوقف عن الضرب. يحوّل سيف الفجر المزدهر كل ضربة من تلك الضربات إلى علاج لأقل حليف قريب صحةً، وتضيف ترقية سيف الفجر المزدهر 100% سرعة هجوم وتجعل ذلك العلاج أكبر بكثير ما دام يضرب الأبطال. يجعل الانفجار الصوتي كل علاج أو درع على حليف ينفجر، فيُلحق الضرر بالأعداء من حوله ويبطئهم، وتبارك بركة الأوفياء كل من يعالجه، فيملأ ضررهم تاريك بالتفاني حتى تنطلق موجة صدمة تُجهز على الأعداء منخفضي الصحة. تجعل مهارته W مهارة Q تُلقى من الحليف المرتبط أيضًا، وينقل حجر القمر المنعش كل علاج إلى حليف ثانٍ لانفجار آخر، ويمنح المجس الوهاج كليهما سرعة هجوم إضافية، وتضيف أصداء هيليا علاجًا أكثر. يتوقف فارس الجواهر عن كونه حارس الفريق الشخصي ويصبح قنبلته: حلفاؤه هم القنابل اليدوية وكل هجمة عادية تنزع صمامًا.",
-      "play": "اربط نفسك بالحامل عبر W، وألقِ أي مهارة، ثم واصل مهاجمة أقرب بطل حتى تعالج كل ضربة زميلًا وتفجّر كل من يقف بجانبه.",
+      "title": "مشروع جماعي",
+      "why": "في السلبية الخاصة ببروم سطر يتخطاه الجميع تقريبًا: بمجرد أن يضع الشحنة الأولى، تضيف الهجمات الأساسية لحلفائه شحنات أيضًا، والشحنة الرابعة تصعق الهدف. هذا يحوّل كل زميل يستطيع الضرب إلى زر صعق، وكل صعقة من هذه تُحسب لبروم. القسوة تُسقط مذنّبًا يسبب ضررًا سحريًا على كل بطل يشلّ حركته، واضرب من حولك يمنحه 10 قوة متكيفة لكل صعقة، ولا يمكن العبور يضيف انفجار الهزة الارتدادية وأشعة التعزيز الجليدي المبطئة، فتدفع الصعقة الواحدة ثلاث مرات وتتركه أقوى للصعقة التالية. مزمار قربة باندل يمنح الفريق كله سرعة هجوم كلما صعق أحدًا، فتصل الشحنات الأربع التالية أسرع، والوصاية الإمبراطورية تضع علامة على كل هدف مصعوق ليتلقى ضررًا أكبر، ومع سن ناشور وصانع الصدوع وقبعة موت رابادون تتحول كل تلك القوة المتكيفة إلى قوة قدرات. الحارس الشخصي يتوقف عن الوقوف أمام فريقه ويصبح مدفعيته، ومن يضغط الزناد هم زملاؤه.",
+      "play": "علّم عدوًا واحدًا بالـ Q، ثم دع حاملي الفريق يضربون الهدف نفسه؛ كل صعقة تستدعي مذنّبًا، فاستمر في تعليم من يطلقون النار عليه.",
       "augments": [
-        "احصل على 100% سرعة هجوم. يرتفع علاج سيف الفجر المزدهر إلى 250% عندما تهاجم أبطال العدو.",
-        "تعزيز حليفك أو علاجه أو منحه درعًا يُلحق الضرر بالأعداء المحيطين به ويبطئهم.",
-        "علاج الحلفاء أو منحهم دروعًا يباركهم، فيملؤك ضررهم بالتفاني. عندما يكفي تفانيك، تطلق موجة صدمة تُلحق ضررًا سحريًا وتُجهز على الأعداء منخفضي الصحة."
+        "عند شلّ حركة بطل أو تثبيته أرضًا، تستدعي مذنّبًا يسقط بعد تأخير قصير ويسبب ضررًا سحريًا للأعداء القريبين.",
+        "في كل مرة تشلّ فيها حركة عدو أو تثبّته أرضًا، تحصل على شحنة تمنح 10 قوة متكيفة. تفقد 50% من الشحنات عند الموت.",
+        "تحصل على الرونين الأساسيين الهزة الارتدادية والتعزيز الجليدي. الهزة الارتدادية: بعد شلّ حركة بطل معادٍ، تكتسب دفاعات ثم تُطلق انفجارًا من الضرر السحري حولك. التعزيز الجليدي: شلّ حركة بطل معادٍ يُطلق 3 أشعة جليدية تبطئ الأعداء القريبين وتقلل ضررهم على حلفائك."
       ]
     },
     "cs": {
-      "title": "Přátelský ohňostroj",
-      "why": "Taricova pasivka je část jeho sady, na kterou všichni zapomínají: po každém kouzlu jdou jeho další dva útoky rychle za sebou a zkracují přebíjení jeho kouzel, takže Taric, který pořád kouzlí, pořád bije. Meč rozpuku úsvitu mění každý z těch úderů v léčení nejzraněnějšího spojence poblíž a Vylepšený Meč rozpuku úsvitu přidává 100 % rychlosti útoků a dělá to léčení mnohem větší, když bije šampiony. Sonický třesk nechá každé léčení nebo štít na spojenci vybuchnout, takže zraní a zpomalí nepřátele kolem něj, a Posílení věrnými žehná každému, koho léčí, takže jejich poškození ho plní oddaností, dokud nevyrazí rázová vlna, která popraví nepřátele s nízkým zdravím. Jeho W sesílá jeho Q i z propojeného spojence, Měsíční obnovovač přenese každé léčení na druhého spojence pro další výbuch, Žhnoucí kadidelnice dá oběma rychlost útoků navíc a Ozvěny Helie přidají ještě víc léčení. Drahokamový rytíř přestává být bodyguardem týmu a stává se jeho bombou: spojenci jsou granáty a každý základní útok vytáhne pojistku.",
-      "play": "Propoj se pomocí W se svým carry, sešli cokoliv a pak dál útoč na nejbližšího šampiona, aby každý úder vyléčil spojence a vyhodil do vzduchu každého, kdo stojí vedle něj.",
+      "title": "Skupinový projekt",
+      "why": "Braumova pasivka, Otřesové údery, má řádek, který skoro každý přeskočí: jakmile nasadí první zásek, zásahy základními útoky jeho spojenců ho přidávají taky a čtvrtý zásek omračuje. Z každého spoluhráče, který umí udeřit, se tak stává tlačítko na omráčení a každé z těch omráčení se počítá Braumovi. Krutost shodí kometu s magickým poškozením na každého šampiona, kterého znehybní, Podrážení mu za každé omráčení přidá 10 adaptivní síly a Neprůchodnost přidá výbuch Dozvuku a zpomalující paprsky Ledového zesílení, takže jedno omráčení se vyplatí třikrát a udělá ho silnějším pro další. Bandlovské dudy dají celému týmu rychlost útoků pokaždé, když někoho omráčí, takže další čtyři záseky přijdou ještě rychleji, Říšský rozkaz označí každý omráčený cíl, aby utržil víc poškození, a s Nashorovým tesákem, Tvůrcem Žlebu a Rabadonovým smrtícím kloboukem se veškerá adaptivní síla změní na sílu schopností. Bodyguard přestane stát před týmem a stane se jeho dělostřelectvem a spoušť mačkají jeho spoluhráči.",
+      "play": "Označ nepřítele svým Q a nech carry mlátit stejný cíl; každé omráčení přivolá kometu, tak pořád znovu označuj toho, do koho zrovna střílí.",
       "augments": [
-        "Získáš 100 % rychlosti útoků. Léčení Meče rozpuku úsvitu se zvýší na 250 %, když útočíš na nepřátelské šampiony.",
-        "Posílení, léčení nebo štít na spojence způsobí poškození a zpomalí nepřátele kolem něj.",
-        "Léčení nebo štíty na spojence jim požehnají a jejich poškození tě plní oddaností. Když máš dost oddanosti, vypustíš rázovou vlnu, která způsobí magické poškození a popraví nepřátele s nízkým zdravím."
+        "Znehybnění nebo uzemnění šampiona přivolá kometu, která po chvíli dopadne a způsobí magické poškození okolním nepřátelům.",
+        "Pokaždé když znehybníš nebo uzemníš nepřítele, získáš zásek, který přidává 10 adaptivní síly. Při smrti přijdeš o 50 % záseků.",
+        "Získáš klíčové runy Dozvuk a Ledové zesílení. Dozvuk: po znehybnění nepřátelského šampiona získáš obranu a poté kolem sebe způsobíš výbuch magického poškození. Ledové zesílení: znehybnění nepřátelského šampiona vytvoří 3 ledové paprsky, které zpomalí okolní nepřátele a sníží jejich poškození vůči tvým spojencům."
       ]
     },
     "de": {
-      "title": "Freundliches Feuerwerk",
-      "why": "Tarics Passive ist der Teil seines Kits, den alle vergessen: Nach jeder Fähigkeit kommen seine nächsten zwei Angriffe kurz hintereinander und verkürzen seine Abklingzeiten, also schlägt ein Taric, der ständig zaubert, auch ständig zu. Schwert des aufblühenden Morgens macht aus jedem dieser Schläge eine Heilung für den Verbündeten in der Nähe mit dem wenigsten Leben, und Aufwertung von „Schwert des aufblühenden Morgens“ gibt 100 % Angriffstempo und macht diese Heilung viel größer, sobald er Champions schlägt. Schallexplosion lässt jede Heilung und jeden Schild auf einem Verbündeten explodieren und fügt den Gegnern um ihn herum Schaden zu und verlangsamt sie, und Verstärkt durch die Gläubigen segnet jeden, den er heilt, sodass ihr Schaden ihn mit Hingabe füllt, bis eine Schockwelle losgeht, die Gegner mit wenig Leben exekutiert. Sein W wirkt sein Q auch vom verbundenen Verbündeten aus, Mondstein-Erneuerer leitet jede Heilung an einen zweiten Verbündeten weiter, für noch einen Knall, Thymiaterion gibt beiden extra Angriffstempo und Echos von Helia legt noch mehr Heilung drauf. Der Edelsteinritter ist nicht mehr der Bodyguard des Teams, sondern seine Bombe: Seine Verbündeten sind die Granaten und jeder normale Angriff zieht einen Stift.",
-      "play": "Verbinde dich per W mit deinem Carry, wirk irgendwas und greif dann einfach weiter den nächsten Champion an, damit jeder Schlag einen Mitspieler heilt und jeden in die Luft jagt, der neben ihm steht.",
+      "title": "Gruppenarbeit",
+      "why": "Braums Passiv, Erschütternde Schläge, hat eine Zeile, die fast jeder überliest: Sobald er die erste Steigerung gesetzt hat, stapeln auch die normalen Angriffe seiner Verbündeten sie, und die vierte Steigerung betäubt. Damit wird jeder Mitspieler, der zuschlagen kann, zu einem Betäubungsknopf, und jede dieser Betäubungen zählt als Braums. Grausamkeit lässt auf jeden Champion, den er bewegungsunfähig macht, einen Kometen mit magischem Schaden fallen, Prügelknabe gibt ihm pro Betäubung 10 adaptive Kraft, und Unpassierbar legt den Ausbruch von Nachbeben und die verlangsamenden Strahlen von Gletscherverstärkung obendrauf, also zahlt sich eine einzige Betäubung dreifach aus und macht ihn für die nächste stärker. Bandlesack gibt dem ganzen Team Angriffstempo, sobald er jemanden betäubt, also kommen die nächsten vier Steigerungen noch schneller, Imperiale Verfügung markiert jedes betäubte Ziel, damit es mehr Schaden nimmt, und mit Nashors Zahn, Kluftformer und Rabadons Todeshaube wird die ganze adaptive Kraft zu Fähigkeitsstärke. Der Leibwächter hört auf, vor seinem Team zu stehen, und wird zu dessen Artillerie, und abdrücken tun seine Mitspieler.",
+      "play": "Markiere einen Gegner mit Q und lass deine Carrys dasselbe Ziel schlagen; jede Betäubung ruft einen Kometen herab, also markiere immer wieder den, auf den sie gerade schießen.",
       "augments": [
-        "Erhalte 100 % Angriffstempo. Die Heilung von „Schwert des aufblühenden Morgens“ steigt auf 250 %, wenn du gegnerische Champions angreifst.",
-        "Verbündete zu verstärken, zu heilen oder abzuschirmen fügt Gegnern um sie herum Schaden zu und verlangsamt sie.",
-        "Verbündete zu heilen oder abzuschirmen segnet sie, wodurch ihr Schaden dich mit Hingabe füllt. Hast du genug Hingabe, entfesselst du eine Schockwelle, die magischen Schaden verursacht und Gegner mit wenig Leben exekutiert."
+        "Wenn du einen Champion bewegungsunfähig machst oder festhältst, beschwörst du einen Kometen, der nach kurzer Verzögerung einschlägt und Gegnern in der Nähe magischen Schaden zufügt.",
+        "Jedes Mal, wenn du einen Gegner bewegungsunfähig machst oder festhältst, erhältst du eine Steigerung, die 10 adaptive Kraft gewährt. Beim Tod verlierst du 50 % der Steigerungen.",
+        "Erhalte die Schlüsselrunen Nachbeben und Gletscherverstärkung. Nachbeben: Nachdem du einen gegnerischen Champion bewegungsunfähig gemacht hast, erhältst du Verteidigung und fügst danach in deiner Umgebung einen Ausbruch magischen Schadens zu. Gletscherverstärkung: Wenn du einen gegnerischen Champion bewegungsunfähig machst, entstehen 3 Gletscherstrahlen, die Gegner in der Nähe verlangsamen und ihren Schaden an deinen Verbündeten verringern."
       ]
     },
     "el": {
-      "title": "Φιλικά πυροτεχνήματα",
-      "why": "Η παθητική του Τάρικ είναι το κομμάτι του kit που όλοι ξεχνούν: μετά από κάθε ξόρκι, οι δύο επόμενες επιθέσεις του βγαίνουν η μία μετά την άλλη και μειώνουν τους χρόνους επαναφόρτισης των ξορκιών του, οπότε ένας Τάρικ που ρίχνει συνέχεια ξόρκια χτυπάει συνέχεια. Το Ξίφος της Ανθισμένης Αυγής κάνει κάθε τέτοιο χτύπημα θεραπεία στον κοντινό σύμμαχο με τη λιγότερη Ζωή, και η Αναβάθμιση Ξίφους της Ανθισμένης Αυγής δίνει 100% Ταχύτητα Επίθεσης και κάνει αυτή τη θεραπεία πολύ μεγαλύτερη όταν χτυπάει Ήρωες. Η Ηχητική Έκρηξη κάνει κάθε θεραπεία ή ασπίδα σε σύμμαχο να εκρήγνυται, προκαλώντας ζημιά και επιβράδυνση στους εχθρούς γύρω του, και το Αντλώντας Δύναμη από τους Πιστούς ευλογεί όποιον θεραπεύει, έτσι η ζημιά τους τον γεμίζει αφοσίωση μέχρι να φύγει ένα ωστικό κύμα που εκτελεί εχθρούς με χαμηλή Ζωή. Το W του ρίχνει το Q του και από τον συνδεδεμένο σύμμαχο, ο Ανανεωτής Φεγγαρόπετρας μεταφέρει κάθε θεραπεία σε δεύτερο σύμμαχο για άλλη μια έκρηξη, το Λαμπρό Θυμιατό δίνει και στους δύο έξτρα Ταχύτητα Επίθεσης και οι Απόηχοι της Έλια προσθέτουν ακόμα περισσότερη θεραπεία. Ο ιππότης των πολύτιμων λίθων παύει να είναι ο σωματοφύλακας της ομάδας και γίνεται η βόμβα της: οι σύμμαχοί του είναι οι χειροβομβίδες και κάθε βασική επίθεση τραβάει μια περόνη.",
-      "play": "Δέσου με τον carry με το W, ρίξε οτιδήποτε και συνέχισε να επιτίθεσαι στον πιο κοντινό Ήρωα, ώστε κάθε χτύπημα να θεραπεύει έναν συμπαίκτη και να ανατινάζει όποιον στέκεται δίπλα του.",
+      "title": "Ομαδική Εργασία",
+      "why": "Το παθητικό του Μπράουμ, τα Συγκλονιστικά Χτυπήματα, έχει μια γραμμή που σχεδόν όλοι προσπερνούν: μόλις βάλει την πρώτη στοίβα, οι βασικές επιθέσεις των συμμάχων του προσθέτουν κι αυτές στοίβες, και η τέταρτη στοίβα ζαλίζει. Έτσι κάθε συμπαίκτης που μπορεί να χτυπήσει γίνεται κουμπί ζάλης, και κάθε τέτοια ζάλη μετράει για τον Μπράουμ. Η Σκληρότητα ρίχνει έναν κομήτη μαγικής ζημιάς σε κάθε ήρωα που ακινητοποιεί, οι Ανελέητες Σφαλιάρες του δίνουν 10 Προσαρμοστική Δύναμη ανά ζάλη, και το Αδιαπέραστο Εμπόδιο προσθέτει την έκρηξη του Μετασεισμού και τις ακτίνες επιβράδυνσης της Παγετώδους Ενίσχυσης, οπότε μία ζάλη πληρώνει τρεις φορές και τον αφήνει πιο δυνατό για την επόμενη. Οι Σωλήνες του Μπαντλ δίνουν Ταχύτητα Επίθεσης σε όλη την ομάδα κάθε φορά που ζαλίζει κάποιον, άρα οι επόμενες τέσσερις στοίβες έρχονται ακόμα πιο γρήγορα, η Αυτοκρατορική Διαταγή σημαδεύει κάθε ζαλισμένο στόχο για να δέχεται περισσότερη ζημιά, και με το Δόντι του Νάσορ, τον Διχαστή και το Καπέλο του Ράμπαντον όλη αυτή η Προσαρμοστική Δύναμη γίνεται Δύναμη Ικανοτήτων. Ο σωματοφύλακας σταματά να στέκεται μπροστά από την ομάδα του και γίνεται το πυροβολικό της, και τη σκανδάλη την πατάνε οι συμπαίκτες του.",
+      "play": "Σημάδεψε έναν αντίπαλο με το Q και άφησε τους carry σου να χτυπήσουν τον ίδιο στόχο· κάθε ζάλη φέρνει έναν κομήτη, οπότε συνέχισε να σημαδεύεις όποιον πυροβολούν.",
       "augments": [
-        "Κερδίζεις 100% Ταχύτητα Επίθεσης. Η θεραπεία του Ξίφους της Ανθισμένης Αυγής αυξάνεται στο 250% όταν επιτίθεσαι σε εχθρικούς Ήρωες.",
-        "Η ενίσχυση, η θεραπεία ή η ασπίδα στον σύμμαχό σου προκαλεί ζημιά και επιβραδύνει τους εχθρούς γύρω του.",
-        "Η θεραπεία ή η ασπίδα σε συμμάχους τους ευλογεί, και η ζημιά τους σε γεμίζει αφοσίωση. Όταν έχεις αρκετή αφοσίωση, απελευθερώνεις ένα ωστικό κύμα που προκαλεί μαγική ζημιά και εκτελεί εχθρούς με χαμηλή Ζωή."
+        "Όταν ακινητοποιείς ή καθηλώνεις έναν ήρωα, καλείς έναν κομήτη που πέφτει μετά από μια μικρή καθυστέρηση και προκαλεί μαγική ζημιά στους κοντινούς αντιπάλους.",
+        "Κάθε φορά που ακινητοποιείς ή καθηλώνεις έναν αντίπαλο, κερδίζεις μια στοίβα που δίνει 10 Προσαρμοστική Δύναμη. Χάνεις το 50% των στοιβών όταν πεθαίνεις.",
+        "Κερδίζεις τους Βασικούς Ρούνους Μετασεισμός και Παγετώδης Ενίσχυση. Μετασεισμός: Αφού ακινητοποιήσεις έναν αντίπαλο ήρωα, κερδίζεις άμυνες και μετά προκαλείς μια έκρηξη μαγικής ζημιάς γύρω σου. Παγετώδης Ενίσχυση: Η ακινητοποίηση ενός αντίπαλου ήρωα δημιουργεί 3 παγετώδεις ακτίνες που επιβραδύνουν τους κοντινούς αντιπάλους και μειώνουν τη ζημιά τους στους συμμάχους σου."
       ]
     },
     "es-MX": {
-      "title": "Fuegos artificiales amigos",
-      "why": "La pasiva de Taric es la parte de su kit que todos olvidan: después de cada hechizo, sus siguientes dos ataques salen uno tras otro y reducen el enfriamiento de sus hechizos, así que un Taric que no deja de lanzar hechizos no deja de pegar. Espada del Amanecer Floreciente convierte cada uno de esos golpes en una curación para el aliado con menos vida cercano, y Mejora: Espada del Amanecer Floreciente agrega 100% de velocidad de ataque y hace esa curación mucho más grande cuando golpea campeones. Explosión Sónica hace que cada curación o escudo sobre un aliado explote, dañando y ralentizando a los enemigos a su alrededor, y Poder de los Seguidores bendice a todos los que cura, así que su daño lo llena de devoción hasta que suelta una onda expansiva que ejecuta a los enemigos con poca vida. Su W también lanza su Q desde el aliado vinculado, Renovador de Piedra Lunar encadena cada curación a un segundo aliado para otra explosión, Pebetero Ardiente les da a ambos velocidad de ataque extra y Ecos de Helia agrega todavía más curación. El caballero de las gemas deja de ser el guardaespaldas del equipo y se vuelve su bomba: sus aliados son las granadas y cada ataque básico les quita el seguro.",
-      "play": "Vincula a tu carry con la W, lanza lo que sea y sigue atacando al campeón más cercano para que cada golpe cure a un compañero y haga volar a quien esté junto a él.",
+      "title": "Trabajo en equipo",
+      "why": "La pasiva de Braum, Golpes contundentes, tiene una línea que casi nadie lee: en cuanto pone la primera acumulación, los ataques básicos de sus aliados también acumulan, y la cuarta aturde. Así, cada compañero que sepa pegar se vuelve un botón de aturdir, y todos esos aturdimientos cuentan como de Braum. Crueldad deja caer un cometa de daño mágico sobre cada campeón que inmoviliza, A Bofetadas le da 10 de fuerza adaptable por aturdimiento e Infranqueable suma la explosión de Réplica y los rayos que ralentizan de Aumento glacial, así que un solo aturdimiento paga tres veces y lo deja más fuerte para el siguiente. Flautas de Bandle le da velocidad de ataque a todo el equipo cada vez que aturde a alguien, así que las siguientes cuatro acumulaciones llegan todavía más rápido, Mandato Imperial marca a cada objetivo aturdido para que reciba más daño, y con Diente de Nashor, Agrietador y Sombrero Mortífero de Rabadon toda esa fuerza adaptable se vuelve poder de habilidad. El guardaespaldas deja de pararse frente a su equipo y se vuelve su artillería, y los que jalan el gatillo son sus compañeros.",
+      "play": "Marca a un enemigo con la Q y deja que tus carries le peguen al mismo objetivo; cada aturdimiento hace caer un cometa, así que sigue marcando a quien le estén disparando.",
       "augments": [
-        "Obtienes 100% de velocidad de ataque. La curación de Espada del Amanecer Floreciente aumenta a 250% cuando atacas a campeones enemigos.",
-        "Potenciar, curar o dar escudo a tu aliado inflige daño y ralentiza a los enemigos a su alrededor.",
-        "Curar o dar escudo a tus aliados los bendice, y su daño te llena de devoción. Cuando tienes suficiente devoción, liberas una onda expansiva que inflige daño mágico y ejecuta a los enemigos con poca vida."
+        "Al inmovilizar o dejar en el suelo a un campeón, invocas un cometa que cae tras un breve retraso e inflige daño mágico a los enemigos cercanos.",
+        "Cada vez que inmovilizas o dejas en el suelo a un enemigo, obtienes una acumulación que otorga 10 de fuerza adaptable. Pierdes el 50 % de las acumulaciones al morir.",
+        "Obtienes las runas clave Réplica y Aumento glacial. Réplica: después de inmovilizar a un campeón enemigo, ganas defensas y luego infliges una explosión de daño mágico a tu alrededor. Aumento glacial: inmovilizar a un campeón enemigo genera 3 rayos glaciales que ralentizan a los enemigos cercanos y reducen el daño que les hacen a tus aliados."
       ]
     },
     "es": {
-      "title": "Fuegos artificiales amigos",
-      "why": "La pasiva de Taric es la parte de su kit que todo el mundo olvida: tras cada hechizo, sus dos siguientes ataques salen seguidos y reducen el enfriamiento de sus hechizos, así que un Taric que no para de lanzar hechizos no para de golpear. Espada del amanecer floreciente convierte cada uno de esos golpes en una curación al aliado con menos vida cercano, y Mejora de Espada del amanecer floreciente añade un 100 % de velocidad de ataque y hace esa curación mucho mayor cuando golpea a campeones. Explosión sónica hace que cada curación o escudo sobre un aliado estalle, dañando y ralentizando a los enemigos que lo rodean, y El poder de la fe bendice a todos los que cura, así que su daño lo llena de devoción hasta que suelta una onda expansiva que ejecuta a los enemigos con poca vida. Su W lanza también su Q desde el aliado vinculado, Renovación de piedra lunar encadena cada curación a un segundo aliado para otra explosión, Incensario ardiente da a ambos velocidad de ataque extra y Ecos de Helia añade todavía más curación. El caballero de las gemas deja de ser el guardaespaldas del equipo y pasa a ser su bomba: sus aliados son las granadas y cada ataque básico les quita la anilla.",
-      "play": "Vincula a tu carry con la W, lanza cualquier cosa y sigue atacando al campeón más cercano para que cada golpe cure a un compañero y haga volar a quien esté a su lado.",
+      "title": "Trabajo en grupo",
+      "why": "La pasiva de Braum, Golpes contundentes, tiene una línea que casi nadie lee: en cuanto aplica la primera acumulación, los ataques básicos de sus aliados también acumulan, y la cuarta aturde. Eso convierte a cada compañero que sepa pegar en un botón de aturdir, y todos esos aturdimientos cuentan como de Braum. Crueldad deja caer un cometa de daño mágico sobre cada campeón que inmoviliza, A cachetazo limpio le da 10 de fuerza adaptable por aturdimiento e Intransitable añade la explosión de Réplica y los rayos ralentizadores de Aumento glacial, así que un solo aturdimiento paga tres veces y lo deja más fuerte para el siguiente. Bandlemusa da velocidad de ataque a todo el equipo cada vez que aturde a alguien, así que las cuatro acumulaciones siguientes llegan aún más rápido, Mandato imperial marca a cada objetivo aturdido para que reciba más daño, y con Diente de Nashor, Creagrietas y Sombrero mortal de Rabadon toda esa fuerza adaptable se convierte en poder de habilidad. El guardaespaldas deja de ponerse delante de su equipo y pasa a ser su artillería, y quienes aprietan el gatillo son sus compañeros.",
+      "play": "Marca a un enemigo con la Q y deja que tus carries peguen al mismo objetivo; cada aturdimiento hace caer un cometa, así que sigue marcando a quien estén disparando.",
       "augments": [
-        "Obtienes un 100 % de velocidad de ataque. La curación de Espada del amanecer floreciente sube al 250 % cuando atacas a campeones enemigos.",
-        "Potenciar, curar o proteger con escudo a tu aliado inflige daño y ralentiza a los enemigos que lo rodean.",
-        "Curar o proteger con escudo a tus aliados los bendice, y su daño te llena de devoción. Cuando tienes suficiente devoción, liberas una onda expansiva que inflige daño mágico y ejecuta a los enemigos con poca vida."
+        "Al inmovilizar o inmovilizar en el suelo a un campeón, invocas un cometa que cae tras un breve retraso e inflige daño mágico a los enemigos cercanos.",
+        "Cada vez que inmovilizas o inmovilizas en el suelo a un enemigo, obtienes una acumulación que otorga 10 de fuerza adaptable. Pierdes el 50 % de las acumulaciones al morir.",
+        "Obtienes las runas clave Réplica y Aumento glacial. Réplica: tras inmovilizar a un campeón enemigo, ganas defensas y luego infliges una explosión de daño mágico a tu alrededor. Aumento glacial: inmovilizar a un campeón enemigo genera 3 rayos glaciales que ralentizan a los enemigos cercanos y reducen el daño que hacen a tus aliados."
       ]
     },
     "fr": {
-      "title": "Feu d'artifice allié",
-      "why": "Le passif de Taric est la partie de son kit que tout le monde oublie : après chaque sort, ses deux attaques suivantes partent coup sur coup et réduisent les délais de récupération de ses sorts, donc un Taric qui lance des sorts sans arrêt frappe sans arrêt. Épée de l'aube transforme chacun de ces coups en soin sur l'allié le plus blessé à proximité, et Épée de l'aube améliorée ajoute 100 % de vitesse d'attaque et rend ce soin bien plus gros quand il frappe des champions. Protections létales fait exploser chaque soin ou bouclier sur un allié, ce qui blesse et ralentit les ennemis autour de lui, et Dévotion bénit tous ceux qu'il soigne : leurs dégâts le remplissent de dévotion jusqu'à une onde de choc qui exécute les ennemis à faibles PV. Son W lance aussi son Q depuis l'allié lié, Régénérateur de pierre de lune propage chaque soin à un deuxième allié pour une explosion de plus, Encensoir ardent leur donne à tous les deux de la vitesse d'attaque en plus, et Échos d'Helia ajoute encore plus de soins. Le chevalier des gemmes n'est plus le garde du corps de l'équipe, il en devient la bombe : ses alliés sont les grenades et chaque attaque de base en dégoupille une.",
-      "play": "Liez votre carry avec le W, lancez n'importe quel sort, puis continuez d'attaquer le champion le plus proche : chaque coup soigne un coéquipier et fait sauter quiconque se trouve à côté de lui.",
+      "title": "Projet de groupe",
+      "why": "Le passif de Braum, Coups étourdissants, cache une ligne que presque tout le monde survole : une fois qu'il a posé la première charge, les attaques de base de ses alliés en ajoutent aussi, et la quatrième charge étourdit. Chaque coéquipier qui sait taper devient un bouton d'étourdissement, et chacun de ces étourdissements compte comme celui de Braum. Cruauté fait tomber une comète de dégâts magiques sur chaque champion qu'il immobilise, Immobilisations en puissance lui donne 10 de force adaptative par étourdissement, et Après-glacial ajoute l'explosion de Répercussion et les rayons ralentissants d'Augmentation glaciale : un seul étourdissement paie trois fois et le rend plus fort pour le suivant. Flûtes de Bandle donne de la vitesse d'attaque à toute l'équipe à chaque étourdissement, donc les quatre charges suivantes arrivent encore plus vite, Mandat impérial marque chaque cible étourdie pour qu'elle subisse plus de dégâts, et avec Dent de Nashor, Créateur de failles et Coiffe de Rabadon, toute cette force adaptative devient de la puissance. Le garde du corps arrête de se tenir devant son équipe et devient son artillerie, et ce sont ses coéquipiers qui appuient sur la gâchette.",
+      "play": "Touchez un ennemi avec le Q, puis laissez vos carrys frapper la même cible : chaque étourdissement fait tomber une comète, alors continuez de marquer celui sur qui ils tirent.",
       "augments": [
-        "Gagnez 100 % de vitesse d'attaque. Les soins d'Épée de l'aube passent à 250 % quand vous attaquez des champions ennemis.",
-        "Renforcer, soigner ou protéger votre allié inflige des dégâts aux ennemis qui l'entourent et les ralentit.",
-        "Soigner ou protéger des alliés les bénit : leurs dégâts vous remplissent de dévotion. Quand vous avez assez de dévotion, vous libérez une onde de choc qui inflige des dégâts magiques et exécute les ennemis à faibles PV."
+        "Immobiliser ou clouer au sol un champion invoque une comète qui tombe après un délai et inflige des dégâts magiques aux ennemis proches.",
+        "Chaque fois que vous immobilisez ou clouez au sol un ennemi, gagnez une charge qui octroie 10 de force adaptative. Vous perdez 50 % des charges en mourant.",
+        "Obtenez les runes clés Répercussion et Augmentation glaciale. Répercussion : après avoir immobilisé un champion ennemi, gagnez des défenses puis infligez une explosion de dégâts magiques autour de vous. Augmentation glaciale : immobiliser un champion ennemi crée 3 rayons glaciaux qui ralentissent les ennemis proches et réduisent leurs dégâts contre vos alliés."
       ]
     },
     "hu": {
-      "title": "Baráti tűzijáték",
-      "why": "Taric passzívja az a része a készletének, amiről mindenki elfeledkezik: minden varázslat után a következő két támadása gyorsan egymás után jön, és csökkenti a varázslatai töltési idejét, így az a Taric, aki folyton varázsol, folyton üt is. A virágzó hajnal kardja minden ilyen ütést a közelben lévő legkevesebb életerejű szövetséges gyógyítására vált, a Fejlesztett Virágzó hajnal kardja pedig 100% támadási sebességet ad, és sokkal nagyobbá teszi ezt a gyógyítást, amikor bajnokokat üt. A Hangrobbanás minden szövetségesre adott gyógyítást vagy pajzsot felrobbant, megsebezve és lelassítva a körülötte álló ellenfeleket, a Felemelő hit pedig megáldja mindenkit, akit gyógyít, így az ő sebzésük odaadással tölti fel, amíg el nem indul egy lökéshullám, ami kivégzi az alacsony életerejű ellenfeleket. A W-je a Q-ját az összekötött szövetségesből is elsüti, a Holdkőmegújító minden gyógyítást továbbad egy második szövetségesnek egy újabb robbanásért, a Hívők tömjénje mindkettejüknek extra támadási sebességet ad, a Helia visszhangja pedig még több gyógyítást hoz. A drágakőlovag már nem a csapat testőre, hanem a bombája: a szövetségesei a gránátok, és minden alaptámadás kihúz egy biztosítószeget.",
-      "play": "Kösd magad a W-vel a carryhoz, süss el bármit, aztán csak támadd tovább a legközelebbi bajnokot, hogy minden ütés meggyógyítson egy csapattársat, és felrobbantsa azt, aki mellette áll.",
+      "title": "Csoportmunka",
+      "why": "Braum passzív képességében, a Kábító ütésekben van egy sor, amit szinte mindenki átugrik: miután ő rátette az első töltetet, a szövetségesei alaptámadásai is töltetet raknak, a negyedik pedig elkábít. Így minden csapattárs, aki tud ütni, kábítógombbá válik, és minden ilyen kábítás Braumnak számít. A Kegyetlenség egy mágikus sebzést okozó üstököst ejt minden hősre, akit mozgásképtelenné tesz, a Pofozkodás minden kábításért 10 adaptív erőt ad, az Áthághatatlan pedig hozzáteszi az Utórezgés robbanását és a Jeges felerősítés lassító sugarait, így egyetlen kábítás háromszor fizet, és erősebbé teszi a következőre. A Bandlesíp az egész csapatnak támadási sebességet ad, valahányszor elkábít valakit, így a következő négy töltet még gyorsabban jön, a Birodalmi parancs megjelöl minden elkábított célpontot, hogy több sebzést kapjon, a Nashor fogával, a Szurdokhasítóval és Rabadon halálsüvegével pedig ez az adaptív erő mind képességerővé válik. A testőr nem a csapata előtt áll többé, hanem a tüzérsége lesz, és a ravaszt a csapattársai húzzák meg.",
+      "play": "Jelölj meg egy ellenfelet a Q-val, aztán hagyd, hogy a carryk ugyanazt a célpontot üssék; minden kábítás üstököst hív le, úgyhogy jelöld újra azt, akit éppen lőnek.",
       "augments": [
-        "100% támadási sebességet kapsz. A virágzó hajnal kardja gyógyítása 250%-ra nő, amikor ellenséges bajnokokat támadsz.",
-        "Ha erősíted, gyógyítod vagy pajzzsal véded a szövetségesedet, az sebzi és lelassítja a körülötte lévő ellenfeleket.",
-        "A szövetségesek gyógyítása vagy pajzzsal védése megáldja őket, így sebzésük odaadással tölt fel. Ha elég odaadást gyűjtöttél, lökéshullámot szabadítasz fel, ami mágikus sebzést okoz, és kivégzi az alacsony életerejű ellenfeleket."
+        "Ha mozgásképtelenné teszel vagy földhöz szegezel egy hőst, egy üstököst idézel, amely kis késéssel becsapódik, és mágikus sebzést okoz a közeli ellenfeleknek.",
+        "Valahányszor mozgásképtelenné teszel vagy földhöz szegezel egy ellenfelet, kapsz egy töltetet, amely 10 adaptív erőt ad. Halálkor a töltetek 50%-át elveszíted.",
+        "Megkapod az Utórezgés és a Jeges felerősítés kulcsrúnát. Utórezgés: miután mozgásképtelenné tettél egy ellenséges hőst, védelmet kapsz, majd mágikus sebzést okozó robbanást váltasz ki magad körül. Jeges felerősítés: ha mozgásképtelenné teszel egy ellenséges hőst, 3 jeges sugár jön létre, amelyek lelassítják a közeli ellenfeleket, és csökkentik a szövetségeseidnek okozott sebzésüket."
       ]
     },
     "id": {
-      "title": "Kembang Api Sekutu",
-      "why": "Pasif Taric adalah bagian kit yang selalu dilupakan orang: setelah setiap spell, dua serangan berikutnya keluar beruntun dengan cepat dan memotong cooldown spell-nya, jadi Taric yang terus nge-cast juga terus memukul. Sword of Blossoming Dawn mengubah setiap pukulan itu jadi heal untuk ally terdekat dengan Health paling rendah, dan Upgrade Sword of Blossoming Dawn menambah 100% Attack Speed serta membuat heal itu jauh lebih besar saat dia memukul champion. Sonic Boom membuat setiap heal atau shield ke ally meledak, memberi damage dan Slow ke musuh di sekitar ally itu, dan Empowered By The Faithful memberkati semua yang dia heal, jadi damage mereka mengisi devosinya sampai keluar gelombang kejut yang mengeksekusi musuh dengan Health rendah. W-nya membuat Q juga di-cast dari ally yang terhubung, Moonstone Renewer meneruskan setiap heal ke ally kedua untuk satu ledakan lagi, Ardent Censer memberi keduanya Attack Speed tambahan, dan Echoes of Helia menambah heal lebih banyak lagi. Ksatria permata ini berhenti jadi bodyguard tim dan berubah jadi bomnya: ally-nya adalah granat dan setiap basic attack mencabut satu pin.",
-      "play": "Hubungkan dirimu ke carry dengan W, cast apa saja, lalu terus serang champion terdekat supaya setiap pukulan meng-heal rekan tim dan meledakkan siapa pun yang berdiri di sebelahnya.",
+      "title": "Tugas Kelompok",
+      "why": "Pasif Braum punya satu baris yang hampir semua orang lewati: begitu dia memasang stack pertama, basic attack sekutunya juga ikut menambah stack, dan stack keempat memberi stun. Artinya setiap rekan tim yang bisa memukul jadi tombol stun, dan setiap stun itu dihitung sebagai milik Braum. Cruelty menjatuhkan komet magic damage ke setiap champion yang dia immobilize, Slap Around memberi 10 Adaptive Force per stun, dan Impassable menambah ledakan Aftershock serta sinar slow dari Glacial Augment, jadi satu stun membayar tiga kali dan membuatnya lebih kuat untuk stun berikutnya. Bandlepipes memberi Attack Speed ke seluruh tim setiap kali dia men-stun seseorang, jadi empat stack berikutnya datang lebih cepat, Imperial Mandate menandai setiap target yang ter-stun supaya menerima damage lebih besar, dan dengan Nashor's Tooth, Riftmaker, dan Rabadon's Deathcap semua Adaptive Force itu berubah jadi Ability Power. Sang bodyguard berhenti berdiri di depan timnya dan jadi artilerinya, dan yang menarik pelatuk adalah rekan-rekan setimnya.",
+      "play": "Tandai satu musuh dengan Q, lalu biarkan carry-mu memukul target yang sama; setiap stun memanggil komet, jadi terus tandai siapa pun yang sedang mereka tembak.",
       "augments": [
-        "Dapatkan 100% Attack Speed. Heal dari Sword of Blossoming Dawn naik menjadi 250% saat kamu menyerang champion musuh.",
-        "Memberi buff, heal, atau shield ke ally akan memberi damage dan Slow ke musuh di sekitarnya.",
-        "Heal atau shield ke ally akan memberkati mereka, dan damage mereka mengisi devosimu. Saat devosi cukup, lepaskan gelombang kejut yang memberi magic damage dan mengeksekusi musuh dengan Health rendah."
+        "Saat meng-Immobilize atau meng-Ground champion, panggil komet yang jatuh setelah jeda singkat dan memberi magic damage ke musuh di sekitar.",
+        "Setiap kali kamu meng-Immobilize atau meng-Ground musuh, dapatkan stack yang memberi 10 Adaptive Force. Kehilangan 50% stack saat mati.",
+        "Dapatkan Keystone Rune Aftershock dan Glacial Augment. Aftershock: Setelah meng-Immobilize champion musuh, dapatkan pertahanan lalu beri ledakan magic damage di sekitarmu. Glacial Augment: Meng-Immobilize champion musuh memunculkan 3 sinar es yang memberi Slow ke musuh di sekitar dan mengurangi damage mereka ke sekutumu."
       ]
     },
     "it": {
-      "title": "Fuochi d'artificio amici",
-      "why": "La passiva di Taric è la parte del suo kit che tutti dimenticano: dopo ogni abilità i suoi due attacchi successivi partono uno dopo l'altro e riducono le ricariche delle sue abilità, quindi un Taric che lancia sempre colpisce sempre. Spada dell'Alba fiorente trasforma ognuno di quei colpi in una cura sull'alleato vicino con meno salute, e Potenzia Spada dell'Alba fiorente aggiunge il 100% di velocità d'attacco e rende quella cura molto più grande quando colpisce i campioni. Boom sonico fa esplodere ogni cura o scudo su un alleato, danneggiando e rallentando i nemici intorno a lui, e Con la forza dei fedeli benedice chiunque curi, così i loro danni lo riempiono di devozione finché non parte un'onda d'urto che giustizia i nemici con poca salute. La sua W lancia la sua Q anche dall'alleato legato, Pietra di luna rinnovata passa ogni cura a un secondo alleato per un'altra esplosione, Incensiere ardente dà a entrambi velocità d'attacco extra ed Echi di Helia aggiunge ancora più cure. Il cavaliere delle gemme smette di essere la guardia del corpo della squadra e diventa la sua bomba: i suoi alleati sono le granate e ogni attacco base toglie una sicura.",
-      "play": "Lega il tuo carry con la W, lancia qualsiasi cosa e continua ad attaccare il campione più vicino, così ogni colpo cura un compagno e fa saltare in aria chiunque gli stia accanto.",
+      "title": "Lavoro di gruppo",
+      "why": "La passiva di Braum, Colpi concussivi, ha una riga che quasi tutti saltano: dopo che lui ha applicato la prima carica, anche gli attacchi base dei suoi alleati la accumulano, e la quarta carica stordisce. Così ogni compagno che sa menare diventa un pulsante per stordire, e ognuno di quegli storditi conta come di Braum. Crudeltà fa cadere una cometa di danni magici su ogni campione che immobilizza, Sberle gli dà 10 forza adattiva per ogni stordimento e Invalicabile aggiunge l'esplosione di Scossa di assestamento e i raggi rallentanti di Potenziamento glaciale, quindi un solo stordimento paga tre volte e lo rende più forte per il successivo. Cornafusa dà velocità d'attacco a tutta la squadra ogni volta che stordisce qualcuno, così le quattro cariche successive arrivano ancora più in fretta, Mandato imperiale marchia ogni bersaglio stordito perché subisca più danni, e con Dente di Nashor, Araldo del Vuoto e Copricapo di Rabadon tutta quella forza adattiva diventa potere magico. La guardia del corpo smette di stare davanti alla squadra e ne diventa l'artiglieria, e a premere il grilletto sono i suoi compagni.",
+      "play": "Marchia un nemico con la Q, poi lascia che i tuoi carry colpiscano lo stesso bersaglio; ogni stordimento fa cadere una cometa, quindi continua a marchiare chiunque stiano colpendo.",
       "augments": [
-        "Ottieni il 100% di velocità d'attacco. La cura di Spada dell'Alba fiorente sale al 250% quando attacchi i campioni nemici.",
-        "Potenziare, curare o proteggere con uno scudo il tuo alleato infligge danni e rallenta i nemici intorno a lui.",
-        "Curare o proteggere con uno scudo gli alleati li benedice, e i loro danni ti riempiono di devozione. Quando hai abbastanza devozione, scateni un'onda d'urto che infligge danni magici e giustizia i nemici con poca salute."
+        "Immobilizzare o bloccare a terra un campione evoca una cometa che cade dopo un breve ritardo, infliggendo danni magici ai nemici vicini.",
+        "Ogni volta che immobilizzi o blocchi a terra un nemico, ottieni una carica che conferisce 10 forza adattiva. Perdi il 50% delle cariche alla morte.",
+        "Ottieni le rune chiave Scossa di assestamento e Potenziamento glaciale. Scossa di assestamento: dopo aver immobilizzato un campione nemico, ottieni difese e poi infliggi un'esplosione di danni magici intorno a te. Potenziamento glaciale: immobilizzare un campione nemico genera 3 raggi glaciali che rallentano i nemici vicini e riducono i loro danni ai tuoi alleati."
       ]
     },
     "ja": {
-      "title": "フレンドリーファイアワークス",
-      "why": "タリックのパッシブは、誰もが忘れがちなキットの一部だ。スキルを使うたびに次の2回の通常攻撃が素早く連続で出て、スキルのクールダウンも短くなる。つまりスキルを撃ち続けるタリックは殴り続けることになる。花咲く夜明けの剣はその一発一発を近くで一番体力の低い味方への回復に変え、花咲く夜明けの剣 アップグレードは攻撃速度+100%を与え、チャンピオンを殴っている間その回復を大幅に強化する。ソニックブームは味方への回復やシールドのたびに爆発を起こし、その味方の周りの敵にダメージとスローを与え、信ずる者の加護は回復した味方を祝福し、彼らのダメージでタリックに信仰が溜まり、溜まりきると体力の低い敵をキルする衝撃波が放たれる。Wで繋いだ味方からもQが発動し、ムーンストーンの再生は回復を2人目の味方に連鎖させてもう一度爆発させ、アーデント センサーは2人に追加の攻撃速度を与え、ヘリアの残響はさらに回復を上乗せする。宝石の騎士はチームのボディーガードをやめてチームの爆弾になる。味方は手榴弾で、通常攻撃のたびにピンが抜ける。",
-      "play": "Wでキャリーと繋ぎ、何かスキルを撃ったら一番近いチャンピオンを殴り続けよう。一発ごとに味方が回復し、その隣にいる敵が吹き飛ぶ。",
+      "title": "グループ課題",
+      "why": "ブラウムのパッシブには、ほとんどの人が読み飛ばす一文がある。彼が最初のスタックを付けると、味方の通常攻撃でもスタックが溜まり、4スタックでスタンする。つまり殴れる味方は全員スタンボタンになり、そのスタンはすべてブラウムのものとして扱われる。冷酷な一撃は彼がスタンさせたチャンピオン全員に魔法ダメージの隕石を落とし、叩きまくれはスタンごとに10のアダプティブフォースを与え、通行不可はアフターショックの爆発とグレイシャーオーグメントのスロウ光線を追加する。一回のスタンが三回分の見返りになり、次のスタンに向けて彼をさらに強くする。バンドルパイプは誰かをスタンさせるたびにチーム全体に攻撃速度を配るので、次の4スタックはもっと早く溜まり、帝国の指令はスタンした相手にマークを付けて被ダメージを増やし、ナッシャー トゥース、リフトメーカー、ラバドン デスキャップを積めばそのアダプティブフォースはすべて魔力になる。用心棒はチームの前に立つのをやめてチームの砲台になり、引き金を引くのは味方たちだ。",
+      "play": "Qで敵を一人マークして、キャリーに同じ相手を殴らせよう。スタンのたびに隕石が落ちるので、味方が撃っている相手をマークし続けよう。",
       "augments": [
-        "攻撃速度+100%を獲得する。敵チャンピオンを攻撃すると、花咲く夜明けの剣の回復量が250%に増加する。",
-        "味方を強化、回復、またはシールドで守ると、その味方の周囲の敵にダメージとスローを与える。",
-        "味方を回復またはシールドで守ると祝福を与え、その味方が与えたダメージで自身に信仰が溜まる。信仰が十分に溜まると衝撃波を放って魔法ダメージを与え、体力の低い敵をキルする。"
+        "チャンピオンにスネアまたはグラウンドを与えると隕石を呼び出し、少し遅れて落下して周囲の敵に魔法ダメージを与える。",
+        "敵にスネアまたはグラウンドを与えるたびに、10のアダプティブフォースを得るスタックを獲得する。キルされるとスタックの50%を失う。",
+        "キーストーンルーンのアフターショックとグレイシャーオーグメントを獲得する。アフターショック: 敵チャンピオンを行動不能にした後、防御力を得て、その後周囲に魔法ダメージの爆発を起こす。グレイシャーオーグメント: 敵チャンピオンを行動不能にすると3本の氷の光線が発生し、周囲の敵をスロウにして味方への与ダメージを低下させる。"
       ]
     },
     "ko": {
-      "title": "아군 불꽃놀이",
-      "why": "타릭의 패시브는 다들 잊어버리는 스킬이다. 스킬을 쓸 때마다 다음 기본 공격 2회가 빠르게 연달아 나가고 스킬 재사용 대기시간을 줄여 주니, 스킬을 계속 쓰는 타릭은 계속 때리게 된다. 꽃피는 새벽의 검은 그 한 대 한 대를 근처에서 체력이 가장 낮은 아군의 회복으로 바꾸고, 꽃피는 새벽의 검 업그레이드는 공격 속도 100%를 주고 챔피언을 때리는 동안 그 회복량을 크게 늘린다. 음속 폭발은 아군에게 주는 회복과 보호막마다 폭발을 일으켜 그 아군 주변 적에게 피해를 주고 둔화시키며, 신념을 통한 강화는 회복한 아군을 축복해 그들이 입힌 피해로 신앙심이 차오르고, 다 차면 체력이 낮은 적을 처형하는 충격파가 터진다. W로 연결한 아군에게서도 Q가 시전되고, 월석 재생기는 회복을 두 번째 아군에게 이어 한 번 더 터뜨리며, 불타는 향로는 두 사람 모두에게 추가 공격 속도를 주고, 헬리아의 메아리는 회복을 더 얹어 준다. 보석 기사는 팀의 경호원을 그만두고 팀의 폭탄이 된다. 아군은 수류탄이고 기본 공격 한 번마다 안전핀이 뽑힌다.",
-      "play": "W로 캐리와 연결하고 아무 스킬이나 쓴 다음 가장 가까운 챔피언을 계속 때리자. 한 대마다 아군이 회복되고 그 옆에 선 적이 날아간다.",
+      "title": "조별 과제",
+      "why": "브라움의 패시브에는 다들 대충 넘기는 한 줄이 있다. 그가 첫 중첩을 쌓고 나면 아군의 기본 공격으로도 중첩이 쌓이고, 네 번째 중첩에서 기절한다. 즉 칠 줄 아는 아군은 전부 기절 버튼이 되고, 그 기절은 모두 브라움의 것으로 친다. 잔혹 행위는 그가 이동 불가로 만든 챔피언마다 마법 피해를 주는 혜성을 떨어뜨리고, 우당탕탕은 기절할 때마다 적응형 능력치 10을 쌓아 주며, 넘을 수 없는 벽은 여진의 폭발과 빙결 강화의 둔화 광선을 더한다. 기절 한 번이 세 번 터지고 다음 기절을 위해 그를 더 강하게 만든다. 밴들파이프는 누군가를 기절시킬 때마다 팀 전체에 공격 속도를 주니 다음 네 중첩은 더 빨리 쌓이고, 제국의 명령은 기절한 대상에 표식을 남겨 더 많은 피해를 받게 하며, 내셔의 이빨, 균열 생성기, 라바돈의 죽음모자를 갖추면 그 적응형 능력치는 전부 주문력이 된다. 경호원은 팀 앞에 서는 걸 그만두고 팀의 포병이 되며, 방아쇠는 아군들이 당긴다.",
+      "play": "Q로 적 하나를 맞히고, 원딜들이 같은 대상을 치게 하자. 기절할 때마다 혜성이 떨어지니 아군이 쏘는 대상을 계속 다시 맞히자.",
       "augments": [
-        "공격 속도가 100% 증가합니다. 적 챔피언을 공격하면 꽃피는 새벽의 검의 회복량이 250%로 증가합니다.",
-        "아군을 강화하거나 회복시키거나 보호막을 씌우면 그 아군 주변의 적에게 피해를 입히고 둔화시킵니다.",
-        "아군을 회복시키거나 보호막을 씌우면 축복을 내려, 그 아군이 입힌 피해로 신앙심이 쌓입니다. 신앙심이 충분히 쌓이면 충격파를 방출해 마법 피해를 입히고 체력이 낮은 적을 처형합니다."
+        "챔피언을 이동 불가 또는 속박 상태로 만들면 잠시 후 떨어지는 혜성을 소환해 주변 적에게 마법 피해를 입힙니다.",
+        "적을 이동 불가 또는 속박 상태로 만들 때마다 적응형 능력치 10을 주는 중첩을 얻습니다. 사망 시 중첩의 50%를 잃습니다.",
+        "핵심 룬 여진과 빙결 강화를 얻습니다. 여진: 적 챔피언을 이동 불가 상태로 만든 후 방어력을 얻고, 잠시 후 주변에 마법 피해 폭발을 일으킵니다. 빙결 강화: 적 챔피언을 이동 불가 상태로 만들면 빙결 광선 3개가 생겨 주변 적을 둔화시키고 아군에게 주는 피해를 줄입니다."
       ]
     },
     "pl": {
-      "title": "Przyjacielskie fajerwerki",
-      "why": "Bierna umiejętność Tarica to część zestawu, o której wszyscy zapominają: po każdym czarze jego dwa następne ataki lecą jeden po drugim i skracają czasy odnowienia jego czarów, więc Taric, który ciągle rzuca czary, ciągle bije. Miecz Kwitnącego Świtu zamienia każde z tych uderzeń w leczenie sojusznika w pobliżu z najmniejszą ilością zdrowia, a Ulepszenie Miecza Kwitnącego Świtu daje 100% prędkości ataku i sprawia, że to leczenie jest dużo większe, gdy bije bohaterów. Grom Dźwiękowy sprawia, że każde leczenie lub tarcza na sojuszniku wybucha, raniąc i spowalniając wrogów wokół niego, a Wzmocnienie Wiarą Wiernych błogosławi każdego, kogo leczy, więc ich obrażenia napełniają go oddaniem, aż wybuchnie fala uderzeniowa, która dobija wrogów z niskim zdrowiem. Jego W rzuca jego Q także z połączonego sojusznika, Odnowienie Kamienia Księżycowego przenosi każde leczenie na drugiego sojusznika na kolejny wybuch, Ognisty Trybularz daje obu dodatkową prędkość ataku, a Echa Helii dokładają jeszcze więcej leczenia. Klejnotowy rycerz przestaje być ochroniarzem drużyny i staje się jej bombą: sojusznicy to granaty, a każdy podstawowy atak wyciąga zawleczkę.",
-      "play": "Połącz się z carry za pomocą W, rzuć cokolwiek i atakuj dalej najbliższego bohatera, aby każde uderzenie leczyło sojusznika i wysadzało każdego, kto stoi obok niego.",
+      "title": "Projekt grupowy",
+      "why": "Bierna umiejętność Brauma, Wstrząsające Ciosy, ma linijkę, którą prawie wszyscy przeskakują: gdy tylko nałoży pierwszy ładunek, podstawowe ataki jego sojuszników też go nakładają, a czwarty ładunek ogłusza. Przez to każdy sojusznik, który potrafi uderzyć, staje się przyciskiem do ogłuszania, a każde takie ogłuszenie liczy się jako Brauma. Okrucieństwo zrzuca kometę zadającą obrażenia magiczne na każdego bohatera, którego unieruchomi, Sponiewieranie daje 10 pkt. adaptacyjnej siły za każde ogłuszenie, a Nie do Przeskoczenia dokłada wybuch Wstrząsu i spowalniające promienie Lodowego Wzmocnienia, więc jedno ogłuszenie płaci trzy razy i czyni go silniejszym przed kolejnym. Dudy Bandle dają całej drużynie prędkość ataku za każdym razem, gdy kogoś ogłuszy, więc kolejne cztery ładunki wpadają jeszcze szybciej, Imperialny Mandat oznacza każdy ogłuszony cel, żeby otrzymywał więcej obrażeń, a z Zębem Nashora, Szczelinotwórcą i Zabójczym Kapeluszem Rabadona cała ta adaptacyjna siła zamienia się w moc umiejętności. Ochroniarz przestaje stać przed drużyną i zostaje jej artylerią, a za spust pociągają jego sojusznicy.",
+      "play": "Oznacz wroga swoim Q, a potem pozwól carry bić ten sam cel; każde ogłuszenie zrzuca kometę, więc ciągle oznaczaj tego, w kogo akurat strzelają.",
       "augments": [
-        "Zyskujesz 100% prędkości ataku. Leczenie Miecza Kwitnącego Świtu rośnie do 250%, gdy atakujesz wrogich bohaterów.",
-        "Wzmacnianie, leczenie lub osłanianie tarczą sojusznika zadaje obrażenia i spowalnia otaczających go wrogów.",
-        "Leczenie lub osłanianie tarczą sojuszników błogosławi ich, a ich obrażenia napełniają cię oddaniem. Gdy masz dość oddania, uwalniasz falę uderzeniową, która zadaje obrażenia magiczne i dobija wrogów z niskim zdrowiem."
+        "Unieruchomienie lub uziemienie bohatera przywołuje kometę, która spada po chwili, zadając obrażenia magiczne pobliskim wrogom.",
+        "Za każdym razem, gdy unieruchomisz lub uziemisz wroga, zyskujesz ładunek dający 10 pkt. adaptacyjnej siły. Po śmierci tracisz 50% ładunków.",
+        "Zyskujesz kluczowe runy Wstrząs i Lodowe Wzmocnienie. Wstrząs: po unieruchomieniu wrogiego bohatera zyskujesz odporności, a następnie zadajesz wokół siebie wybuch obrażeń magicznych. Lodowe Wzmocnienie: unieruchomienie wrogiego bohatera tworzy 3 lodowe promienie, które spowalniają pobliskich wrogów i zmniejszają ich obrażenia zadawane twoim sojusznikom."
       ]
     },
     "pt-BR": {
-      "title": "Fogos de artifício amigos",
-      "why": "A passiva do Taric é a parte do kit que todo mundo esquece: depois de cada habilidade, os dois próximos ataques saem em sequência e reduzem as recargas das habilidades dele, então um Taric que não para de usar habilidades não para de bater. Espada da Alvorada Florescente transforma cada um desses golpes em cura no aliado próximo com menos Vida, e Aprimorar Espada da Alvorada Florescente dá 100% de Velocidade de Ataque e deixa essa cura muito maior quando ele bate em campeões. Explosão Sônica faz cada cura ou escudo num aliado explodir, causando dano e lentidão nos inimigos em volta dele, e Poder da Devoção abençoa todo mundo que ele cura, então o dano deles enche o Taric de devoção até sair uma onda de choque que executa inimigos com pouca Vida. O W dele também lança o Q a partir do aliado vinculado, Regenerador de Pedra Lunar repassa cada cura para um segundo aliado para mais uma explosão, Turíbulo Ardente dá Velocidade de Ataque extra para os dois e Ecos de Helia adiciona ainda mais cura. O cavaleiro das gemas deixa de ser o guarda-costas do time e vira a bomba: os aliados são as granadas e cada ataque básico puxa um pino.",
-      "play": "Vincule seu carry com o W, use qualquer habilidade e continue atacando o campeão mais próximo para que cada golpe cure um aliado e exploda quem estiver do lado dele.",
+      "title": "Trabalho em Grupo",
+      "why": "O passivo do Braum, Golpes Concussivos, tem uma linha que quase todo mundo pula: depois que ele aplica o primeiro acúmulo, os ataques básicos dos aliados também acumulam, e o quarto acúmulo atordoa. Isso transforma cada aliado que sabe bater num botão de atordoar, e cada um desses atordoamentos conta como do Braum. Crueldade derruba um cometa de dano mágico em cada campeão que ele imobiliza, Pancada Sucessiva dá 10 de Força Adaptativa por atordoamento e Insuperável adiciona a explosão do Pós-choque e os raios lentificantes do Aprimoramento Glacial, então um único atordoamento paga três vezes e deixa ele mais forte para o próximo. Bandocanos dá Velocidade de Ataque ao time inteiro toda vez que ele atordoa alguém, então os próximos quatro acúmulos chegam ainda mais rápido, Mandato Imperial marca cada alvo atordoado para receber mais dano, e com Dente de Na'Shor, Criafendas e Capuz da Morte de Rabadon toda essa Força Adaptativa vira Poder de Habilidade. O guarda-costas para de ficar na frente do time e vira a artilharia dele, e quem puxa o gatilho são os aliados.",
+      "play": "Marque um inimigo com o Q e deixe seus carries baterem no mesmo alvo; cada atordoamento faz cair um cometa, então continue marcando quem eles estiverem atacando.",
       "augments": [
-        "Ganhe 100% de Velocidade de Ataque. A cura da Espada da Alvorada Florescente aumenta para 250% quando você ataca campeões inimigos.",
-        "Fortalecer, curar ou dar escudo ao seu aliado causa dano e aplica lentidão nos inimigos ao redor dele.",
-        "Curar ou dar escudo a aliados os abençoa, e o dano deles enche você de devoção. Quando você tem devoção suficiente, libera uma onda de choque que causa dano mágico e executa inimigos com pouca Vida."
+        "Ao Imobilizar ou Prender ao chão um campeão, invoca um cometa que cai após um tempo, causando dano mágico aos inimigos próximos.",
+        "Cada vez que você Imobiliza ou Prende ao chão um inimigo, ganha um acúmulo que concede 10 de Força Adaptativa. Perde 50% dos acúmulos ao morrer.",
+        "Ganhe as Runas Principais Pós-choque e Aprimoramento Glacial. Pós-choque: depois de Imobilizar um campeão inimigo, ganhe defesas e depois cause uma explosão de dano mágico ao seu redor. Aprimoramento Glacial: Imobilizar um campeão inimigo cria 3 raios glaciais que Lentificam inimigos próximos e reduzem o dano deles contra seus aliados."
       ]
     },
     "ro": {
-      "title": "Artificii prietenoase",
-      "why": "Pasiva lui Taric este partea din kit pe care toată lumea o uită: după fiecare abilitate, următoarele lui două atacuri vin unul după altul și îi scurtează timpii de reîncărcare, așa că un Taric care tot aruncă abilități tot lovește. Sabia răsăritului transformă fiecare dintre aceste lovituri într-o vindecare pe aliatul din apropiere cu cea mai puțină viață, iar Îmbunătățire: Sabia răsăritului adaugă 100% viteză de atac și face vindecarea mult mai mare când lovește campioni. Explozie sonică face ca fiecare vindecare sau scut pe un aliat să explodeze, rănind și încetinind inamicii din jurul lui, iar Puterea credincioșilor îi binecuvântează pe toți cei pe care îi vindecă, așa că daunele lor îl umplu de devotament până pornește o undă de șoc care execută inamicii cu viață puțină. W-ul lui aruncă Q-ul și din aliatul legat, Reînnoirea pietrei lunii trimite fiecare vindecare mai departe la un al doilea aliat pentru încă o explozie, Cădelnița aprinsă le dă amândurora viteză de atac în plus, iar Ecourile Heliei adaugă și mai multă vindecare. Cavalerul pietrelor prețioase nu mai e bodyguardul echipei, ci bomba ei: aliații sunt grenadele și fiecare atac de bază scoate un cui.",
-      "play": "Leagă-te cu W de carry, aruncă orice abilitate și continuă să ataci cel mai apropiat campion, ca fiecare lovitură să vindece un coechipier și să arunce în aer pe oricine stă lângă el.",
+      "title": "Proiect de grup",
+      "why": "Pasiva lui Braum, Lovituri năucitoare, are un rând pe care aproape toată lumea îl sare: după ce pune primul cumul, atacurile de bază ale aliaților lui adaugă și ele cumuluri, iar al patrulea cumul amețește. Asta face din fiecare coechipier care știe să lovească un buton de amețire, iar fiecare dintre aceste amețiri e a lui Braum. Cruzime aruncă o cometă cu daune magice pe fiecare campion pe care îl imobilizează, Încăierare îi dă 10 forță adaptivă pentru fiecare amețire, iar De netrecut adaugă explozia de la Replica și razele care încetinesc de la Augmentare glaciară, așa că o singură amețire plătește de trei ori și îl face mai puternic pentru următoarea. Cimpoi Bandle dă viteză de atac întregii echipe de fiecare dată când amețește pe cineva, așa că următoarele patru cumuluri vin și mai repede, Decret imperial marchează fiecare țintă amețită ca să primească mai multe daune, iar cu Dintele lui Nashor, Creator de rifturi și Pălăria malefică a lui Rabadon toată forța adaptivă devine putere a abilităților. Bodyguardul nu mai stă în fața echipei, ci devine artileria ei, iar trăgaciul îl apasă coechipierii.",
+      "play": "Marchează un inamic cu Q, apoi lasă-ți carry-ii să lovească aceeași țintă; fiecare amețire cheamă o cometă, așa că tot marchează-l pe cel în care trag.",
       "augments": [
-        "Primești 100% viteză de atac. Vindecarea Săbiei răsăritului crește la 250% când ataci campioni inamici.",
-        "Când îți întărești, vindeci sau protejezi cu scut aliatul, inamicii din jurul lui suferă daune și sunt încetiniți.",
-        "Vindecarea sau protejarea aliaților cu scuturi îi binecuvântează, iar daunele lor te umplu de devotament. Când ai destul devotament, eliberezi o undă de șoc care provoacă daune magice și execută inamicii cu viață puțină."
+        "Când imobilizezi sau țintuiești la sol un campion, chemi o cometă care cade după o scurtă întârziere, provocând daune magice inamicilor din apropiere.",
+        "De fiecare dată când imobilizezi sau țintuiești la sol un inamic, primești un cumul care oferă 10 forță adaptivă. Pierzi 50% din cumuluri la moarte.",
+        "Primești runele-cheie Replica și Augmentare glaciară. Replica: după ce imobilizezi un campion inamic, primești apărare și apoi provoci o explozie de daune magice în jurul tău. Augmentare glaciară: imobilizarea unui campion inamic creează 3 raze glaciare care încetinesc inamicii din apropiere și le reduc daunele împotriva aliaților tăi."
       ]
     },
     "ru": {
-      "title": "Дружеский фейерверк",
-      "why": "Пассивное умение Тарика – часть набора, о которой все забывают: после каждого умения две его следующие автоатаки идут одна за другой и сокращают перезарядку его умений, так что Тарик, который постоянно колдует, постоянно бьет. Меч сияющего рассвета превращает каждый такой удар в лечение самого раненого союзника рядом, а Улучшенный Меч сияющего рассвета дает 100% скорости атаки и делает это лечение намного сильнее, когда он бьет чемпионов. Звуковой удар заставляет каждое лечение или щит на союзнике взрываться, нанося урон и замедляя врагов вокруг него, а Сила верных благословляет всех, кого он лечит, и их урон наполняет его преданностью, пока не вырвется ударная волна, добивающая врагов с низким здоровьем. Его W применяет его Q и от связанного союзника, Исцеляющий лунный камень передает каждое лечение второму союзнику ради еще одного взрыва, Пылающая кадильница дает обоим дополнительную скорость атаки, а Эхо Гелии добавляет еще больше лечения. Самоцветный рыцарь перестает быть телохранителем команды и становится ее бомбой: союзники – это гранаты, а каждая автоатака выдергивает чеку.",
-      "play": "Свяжитесь с керри через W, примените что угодно и продолжайте атаковать ближайшего чемпиона, чтобы каждый удар лечил союзника и взрывал всех, кто стоит рядом с ним.",
+      "title": "Групповой проект",
+      "why": "В пассивке Браума, «Оглушающих ударах», есть строчка, которую почти все пролистывают: как только он наложил первый заряд, автоатаки союзников тоже добавляют заряды, а четвертый заряд оглушает. Так каждый тиммейт, который умеет бить, превращается в кнопку оглушения, и каждое такое оглушение засчитывается Брауму. «Жестокость» обрушивает комету с магическим уроном на каждого чемпиона, которого он обездвижил, «Большая взбучка» дает 10 адаптивной силы за каждое оглушение, а «Сама невозмутимость» добавляет взрыв «Дрожи земли» и замедляющие лучи «Ледяного нароста», так что одно оглушение окупается трижды и делает его сильнее к следующему. «Бандл-трубы» дают всей команде скорость атаки каждый раз, когда он кого-то оглушает, поэтому следующие четыре заряда набираются еще быстрее, «Имперский мандат» помечает каждую оглушенную цель, чтобы она получала больше урона, а с «Зубом Нашора», «Творцом разломов» и «Смертельной шляпой Рабадона» вся эта адаптивная сила превращается в силу умений. Телохранитель перестает стоять перед командой и становится ее артиллерией, а на курок жмут его союзники.",
+      "play": "Пометьте врага через Q, а потом дайте керри бить ту же цель; каждое оглушение призывает комету, так что продолжайте метить того, по кому они стреляют.",
       "augments": [
-        "Вы получаете 100% скорости атаки. Лечение Меча сияющего рассвета увеличивается до 250%, когда вы атакуете вражеских чемпионов.",
-        "Усиление, лечение или щит на союзника наносит урон и замедляет врагов вокруг него.",
-        "Лечение или щиты на союзников благословляют их, и их урон наполняет вас преданностью. Когда преданности достаточно, вы высвобождаете ударную волну, которая наносит магический урон и добивает врагов с низким здоровьем."
+        "Когда вы обездвиживаете или приземляете чемпиона, над ним появляется комета, которая падает после задержки и наносит магический урон врагам поблизости.",
+        "Каждый раз, когда вы обездвиживаете или приземляете врага, вы получаете заряд, дающий 10 адаптивной силы. При смерти теряется 50% зарядов.",
+        "Вы получаете ключевые руны «Дрожь земли» и «Ледяной нарост». «Дрожь земли»: после того как вы обездвижили вражеского чемпиона, вы получаете защиту, а затем наносите вокруг себя всплеск магического урона. «Ледяной нарост»: обездвиживание вражеского чемпиона создает 3 ледяных луча, которые замедляют врагов поблизости и снижают их урон по вашим союзникам."
       ]
     },
     "th": {
-      "title": "ดอกไม้ไฟฝ่ายเดียวกัน",
-      "why": "พาสซีฟของ Taric คือส่วนของชุดสกิลที่ทุกคนลืม: หลังใช้สกิลทุกครั้ง การโจมตีสองครั้งถัดไปจะออกติดกันอย่างรวดเร็วและลดคูลดาวน์สกิลของเขา ดังนั้น Taric ที่ใช้สกิลไม่หยุดก็จะตีไม่หยุดด้วย Sword of Blossoming Dawn เปลี่ยนการตีแต่ละครั้งให้เป็นการฮีลเพื่อนร่วมทีมที่เลือดน้อยที่สุดใกล้ ๆ และ Upgrade Sword of Blossoming Dawn เพิ่ม Attack Speed 100% และทำให้ฮีลนั้นแรงขึ้นมากเมื่อเขาตีแชมเปี้ยน Sonic Boom ทำให้ทุกการฮีลหรือโล่ให้เพื่อนร่วมทีมระเบิด สร้างดาเมจและสโลว์ศัตรูรอบตัวคนนั้น ส่วน Empowered By The Faithful อวยพรทุกคนที่เขาฮีล ดาเมจของพวกเขาจะเติมศรัทธาให้เขาจนปล่อยคลื่นกระแทกที่ประหารศัตรูเลือดน้อย สกิล W ทำให้ Q ร่ายจากเพื่อนที่เชื่อมไว้ด้วย Moonstone Renewer ส่งต่อทุกการฮีลไปยังเพื่อนคนที่สองเพื่อระเบิดอีกรอบ Ardent Censer ให้ Attack Speed เพิ่มกับทั้งสองคน และ Echoes of Helia เติมฮีลเข้าไปอีก อัศวินอัญมณีเลิกเป็นบอดี้การ์ดของทีมแล้วกลายเป็นระเบิดของทีม: เพื่อนร่วมทีมคือลูกระเบิด และการโจมตีปกติทุกครั้งคือการดึงสลัก",
-      "play": "เชื่อมกับแครี่ด้วย W ใช้สกิลอะไรก็ได้ แล้วตีแชมเปี้ยนที่ใกล้ที่สุดไปเรื่อย ๆ ให้ทุกการตีฮีลเพื่อนร่วมทีมและระเบิดใครก็ตามที่ยืนข้างเขา",
+      "title": "งานกลุ่ม",
+      "why": "พาสซีฟของ Braum มีบรรทัดหนึ่งที่แทบทุกคนอ่านข้าม: พอเขาใส่สแตกแรกแล้ว การโจมตีปกติของเพื่อนร่วมทีมก็เพิ่มสแตกได้ด้วย และสแตกที่สี่จะสตัน นั่นทำให้เพื่อนร่วมทีมทุกคนที่ตีได้กลายเป็นปุ่มสตัน และทุกสตันนั้นนับเป็นของ Braum ทั้งหมด Cruelty ทิ้งดาวหางที่สร้างความเสียหายเวทใส่ทุกแชมเปี้ยนที่เขาทำให้ขยับไม่ได้ Slap Around ให้ Adaptive Force 10 ต่อการสตันหนึ่งครั้ง และ Impassable เพิ่มระเบิดของ Aftershock กับลำแสงสโลว์ของ Glacial Augment เข้าไปอีก สตันครั้งเดียวจึงได้ผลตอบแทนสามต่อ และทำให้เขาแรงขึ้นสำหรับครั้งต่อไป Bandlepipes ให้ Attack Speed ทั้งทีมทุกครั้งที่เขาสตันใคร สี่สแตกถัดไปจึงมาเร็วขึ้นอีก Imperial Mandate มาร์กทุกเป้าหมายที่โดนสตันให้รับดาเมจมากขึ้น และเมื่อมี Nashor's Tooth, Riftmaker และ Rabadon's Deathcap Adaptive Force ทั้งหมดก็กลายเป็น Ability Power บอดี้การ์ดเลิกยืนบังหน้าทีม แล้วกลายเป็นปืนใหญ่ของทีม โดยมีเพื่อนร่วมทีมเป็นคนเหนี่ยวไก",
+      "play": "มาร์กศัตรูหนึ่งคนด้วย Q แล้วให้แครี่ตีเป้าหมายเดียวกัน ทุกสตันจะเรียกดาวหางลงมา ดังนั้นคอยมาร์กคนที่พวกเขากำลังยิงอยู่เรื่อย ๆ",
       "augments": [
-        "ได้รับ Attack Speed 100% การฮีลของ Sword of Blossoming Dawn เพิ่มเป็น 250% เมื่อคุณโจมตีแชมเปี้ยนศัตรู",
-        "การบัฟ ฮีล หรือให้โล่แก่เพื่อนร่วมทีมจะสร้างดาเมจและสโลว์ศัตรูที่อยู่รอบตัวพวกเขา",
-        "การฮีลหรือให้โล่แก่เพื่อนร่วมทีมจะอวยพรพวกเขา และดาเมจของพวกเขาจะเติมศรัทธาให้คุณ เมื่อมีศรัทธาพอ จะปล่อยคลื่นกระแทกที่สร้างดาเมจเวทและประหารศัตรูที่เลือดน้อย"
+        "เมื่อทำให้แชมเปี้ยนขยับไม่ได้หรือติดพื้น จะเรียกดาวหางที่ตกลงมาหลังดีเลย์สั้น ๆ สร้างความเสียหายเวทให้ศัตรูรอบ ๆ",
+        "ทุกครั้งที่ทำให้ศัตรูขยับไม่ได้หรือติดพื้น จะได้รับสแตกที่ให้ Adaptive Force 10 เสียสแตก 50% เมื่อตาย",
+        "ได้รับคีย์สโตนรูน Aftershock และ Glacial Augment Aftershock: หลังทำให้แชมเปี้ยนศัตรูขยับไม่ได้ จะได้รับพลังป้องกันแล้วปล่อยระเบิดความเสียหายเวทรอบตัว Glacial Augment: การทำให้แชมเปี้ยนศัตรูขยับไม่ได้จะสร้างลำแสงน้ำแข็ง 3 เส้นที่สโลว์ศัตรูใกล้เคียงและลดความเสียหายที่พวกมันทำต่อพันธมิตรของคุณ"
       ]
     },
     "tr": {
-      "title": "Dost Ateşi Şenliği",
-      "why": "Taric'in pasifi, kitinde herkesin unuttuğu kısım: her yetenekten sonra sıradaki iki saldırısı art arda gelir ve yeteneklerinin bekleme sürelerini kısaltır, yani sürekli yetenek kullanan bir Taric sürekli vurur. Seher Kılıcı bu vuruşların her birini yakındaki en düşük canlı müttefike iyileştirmeye çevirir, Geliştirme: Seher Kılıcı ise %100 Saldırı Hızı ekler ve şampiyonlara vurduğu sürece bu iyileştirmeyi çok daha büyük yapar. Ses Patlaması bir müttefike yapılan her iyileştirmeyi veya kalkanı patlatır, etrafındaki düşmanlara hasar verip onları yavaşlatır; Kudret ise iyileştirdiği herkesi kutsar, böylece onların hasarı onu bağlılıkla doldurur ve sonunda düşük canlı düşmanları infaz eden bir şok dalgası patlar. W'si Q'sunu bağlı müttefikten de kullanır, Dinçleştirici Aytaşı her iyileştirmeyi bir patlama daha için ikinci bir müttefike aktarır, Kızgın Buhurdanlık ikisine de ekstra Saldırı Hızı verir ve Helia'nın Yankıları daha da fazla iyileştirme ekler. Mücevher şövalyesi takımın koruması olmayı bırakıp bombası olur: müttefikleri el bombası, her temel saldırı da bir pim çeker.",
-      "play": "W ile carry'ne bağlan, herhangi bir yetenek kullan ve en yakın şampiyona saldırmaya devam et; böylece her vuruş bir takım arkadaşını iyileştirir ve yanında duran herkesi havaya uçurur.",
+      "title": "Grup Ödevi",
+      "why": "Braum'un pasifi Sarsıcı Darbeler'de neredeyse herkesin göz ardı ettiği bir satır var: ilk yükü o koyduktan sonra müttefiklerinin temel saldırıları da yük ekler, dördüncü yük de sersemletir. Bu da vurabilen her takım arkadaşını bir sersemletme düğmesine çevirir ve bu sersemletmelerin hepsi Braum'a sayılır. Gaddarlık hareketsiz bıraktığı her şampiyonun üstüne büyü hasarı veren bir kuyruklu yıldız düşürür, Eylemsizlik Kanunu her sersemletme için 10 uyarlanabilir kuvvet verir, Geçilmez de Artçı Sarsıntı'nın patlamasını ve Buzul Güçlendirmesi'nin yavaşlatan ışınlarını ekler; yani tek bir sersemletme üç kez ödeme yapar ve onu bir sonrakine daha güçlü bırakır. Bandle Gaydası birini her sersemlettiğinde bütün takıma saldırı hızı verir, böylece sonraki dört yük daha da hızlı gelir, İmparatorun Fermanı sersemletilen her hedefi daha fazla hasar alsın diye işaretler, Nashor'un Dişi, Vadiyaran ve Rabadon'un Şapkası ile de bütün o uyarlanabilir kuvvet yetenek gücüne dönüşür. Koruma, takımının önünde durmayı bırakıp onun topçusu olur, tetiği çekenler de takım arkadaşlarıdır.",
+      "play": "Bir rakibi Q ile işaretle, sonra carry'lerin aynı hedefe vursun; her sersemletme bir kuyruklu yıldız indirir, o yüzden onlar kime ateş ediyorsa onu işaretlemeye devam et.",
       "augments": [
-        "%100 Saldırı Hızı kazan. Düşman şampiyonlara saldırdığında Seher Kılıcı'nın iyileştirmesi %250'ye çıkar.",
-        "Müttefikini güçlendirmek, iyileştirmek veya kalkanla korumak etrafındaki düşmanlara hasar verir ve onları yavaşlatır.",
-        "Müttefikleri iyileştirmek veya kalkanla korumak onları kutsar ve onların hasarı seni bağlılıkla doldurur. Yeterli bağlılığa ulaştığında büyü hasarı veren ve düşük canlı düşmanları infaz eden bir şok dalgası salarsın."
+        "Bir şampiyonu hareketsiz bıraktığında veya yere çaktığında, kısa bir gecikmeden sonra düşüp yakındaki rakiplere büyü hasarı veren bir kuyruklu yıldız çağırırsın.",
+        "Bir rakibi her hareketsiz bıraktığında veya yere çaktığında 10 uyarlanabilir kuvvet veren bir yük kazanırsın. Ölünce yüklerin %50'sini kaybedersin.",
+        "Artçı Sarsıntı ve Buzul Güçlendirmesi ana rünlerini kazanırsın. Artçı Sarsıntı: Bir rakip şampiyonu hareketsiz bıraktıktan sonra savunma kazanır, ardından etrafına büyü hasarı veren bir patlama yaparsın. Buzul Güçlendirmesi: Bir rakip şampiyonu hareketsiz bırakmak, yakındaki rakipleri yavaşlatan ve müttefiklerine verdikleri hasarı azaltan 3 buzul ışını oluşturur."
       ]
     },
     "vi": {
-      "title": "Pháo Hoa Đồng Đội",
-      "why": "Nội tại của Taric là phần bộ kỹ năng mà ai cũng quên: sau mỗi chiêu, hai đòn đánh tiếp theo của anh ra liên tiếp thật nhanh và giảm thời gian hồi chiêu của anh, nên một Taric dùng chiêu liên tục cũng đánh liên tục. Kiếm Bình Minh Nở Rộ biến mỗi đòn đó thành một lần hồi máu cho đồng minh ít máu nhất ở gần, còn Nâng Cấp Kiếm Bình Minh Nở Rộ cho thêm 100% Tốc độ Đánh và làm lượng hồi máu đó lớn hơn nhiều khi anh đánh tướng. Vụ Nổ Siêu Thanh khiến mỗi lần hồi máu hay tạo lá chắn cho đồng minh đều phát nổ, gây sát thương và làm chậm kẻ địch quanh người đó, còn Đức Tin Tiếp Sức ban phước cho mọi người anh hồi máu, để sát thương của họ tích đầy lòng sùng kính cho anh cho tới khi một làn sóng xung kích bùng ra và kết liễu kẻ địch thấp máu. Chiêu W giúp anh tung cả Q từ đồng minh được liên kết, Bùa Nguyệt Thạch truyền mỗi lần hồi máu sang đồng minh thứ hai để nổ thêm lần nữa, Lư Hương Sôi Sục cho cả hai thêm Tốc độ Đánh và Vọng Âm Helia thêm càng nhiều hồi máu. Hiệp sĩ đá quý thôi làm vệ sĩ của đội và trở thành quả bom của đội: đồng đội là lựu đạn và mỗi đòn đánh thường là một lần rút chốt.",
-      "play": "Liên kết với xạ thủ bằng W, dùng chiêu bất kỳ rồi cứ đánh tướng gần nhất, để mỗi đòn đều hồi máu cho đồng đội và thổi bay bất kỳ ai đứng cạnh họ.",
+      "title": "Bài Tập Nhóm",
+      "why": "Nội tại của Braum có một dòng mà gần như ai cũng lướt qua: sau khi anh ta đánh dấu cộng dồn đầu tiên, đòn đánh thường của đồng minh cũng cộng dồn theo, và cộng dồn thứ tư sẽ làm choáng. Thế là mọi đồng đội biết đánh đều thành một nút choáng, và mỗi lần choáng đó đều được tính là của Braum. Chùy Tàn Độc thả một sao chổi gây sát thương phép lên mỗi tướng anh ta khống chế, Quăng Quật cho 10 Sức Mạnh Thích Ứng mỗi lần choáng, còn Không Thể Vượt Qua thêm vụ nổ của Dư Chấn và các tia làm chậm của Nâng Cấp Băng Giá, nên một lần choáng trả thưởng ba lần và khiến anh ta mạnh hơn cho lần sau. Kèn Túi Bandle cho cả đội Tốc Độ Đánh mỗi khi anh ta làm choáng ai đó, nên bốn cộng dồn tiếp theo đến còn nhanh hơn, Trát Lệnh Đế Vương đánh dấu mỗi mục tiêu bị choáng để chịu thêm sát thương, và với Nanh Nashor, Quyền Trượng Ác Thần cùng Mũ Phù Thủy Rabadon, toàn bộ Sức Mạnh Thích Ứng đó biến thành Sức Mạnh Phép Thuật. Vệ sĩ thôi đứng chắn trước đội và trở thành pháo binh của đội, còn người bóp cò là đồng đội.",
+      "play": "Đánh dấu một kẻ địch bằng Q, rồi để các xạ thủ đánh cùng mục tiêu; mỗi lần choáng gọi xuống một sao chổi, nên cứ tiếp tục đánh dấu kẻ mà họ đang bắn.",
       "augments": [
-        "Nhận 100% Tốc độ Đánh. Lượng hồi máu của Kiếm Bình Minh Nở Rộ tăng lên 250% khi bạn tấn công tướng địch.",
-        "Cường hóa, hồi máu hoặc tạo lá chắn cho đồng minh sẽ gây sát thương và làm chậm kẻ địch xung quanh họ.",
-        "Hồi máu hoặc tạo lá chắn cho đồng minh sẽ ban phước cho họ, và sát thương họ gây ra tích lòng sùng kính cho bạn. Khi đủ lòng sùng kính, bạn giải phóng một làn sóng xung kích gây sát thương phép và kết liễu kẻ địch thấp máu."
+        "Khi Bất Động hoặc Trói Chân một tướng, triệu hồi một sao chổi rơi xuống sau một lúc, gây sát thương phép lên kẻ địch xung quanh.",
+        "Mỗi lần Bất Động hoặc Trói Chân một kẻ địch, nhận một cộng dồn cho 10 Sức Mạnh Thích Ứng. Mất 50% cộng dồn khi chết.",
+        "Nhận Ngọc Chủ Chốt Dư Chấn và Nâng Cấp Băng Giá. Dư Chấn: Sau khi Bất Động một tướng địch, nhận thêm phòng thủ rồi gây một vụ nổ sát thương phép quanh bạn. Nâng Cấp Băng Giá: Bất Động một tướng địch tạo ra 3 tia băng làm Chậm kẻ địch xung quanh và giảm sát thương chúng gây lên đồng minh của bạn."
       ]
     },
     "zh-CN": {
-      "title": "友军烟花秀",
-      "why": "瓦洛兰之盾的被动是他技能组里最容易被忘掉的部分：每次施放技能后，他接下来的两次普攻会快速连出，并缩短他的技能冷却，所以一个不停放技能的瓦洛兰之盾也会不停地砍人。花晓之剑把每一下普攻都变成对附近生命值最低的友军的治疗，升级：花晓之剑再给他100%攻击速度，并在他攻击英雄时让这份治疗大幅变强。天音爆让每一次对友军的治疗或护盾都炸开，伤害并减速该友军周围的敌人；信念者的强化会祝福他治疗过的每个人，他们造成的伤害为他积攒信仰，攒满后放出一道冲击波，处决低血量的敌人。他的W让Q也会从连结的友军身上施放，月石再生器把每次治疗传给第二名友军再炸一次，炽热香炉给两人额外攻击速度，海力亚的回响再叠上更多治疗。宝石骑士不再是团队的保镖，而是团队的炸弹：队友就是手雷，每一下普攻都拔掉一个保险栓。",
-      "play": "用W连上你的C位，随便放个技能，然后一直平A最近的英雄，让每一下都治疗队友，同时把站在他旁边的人炸飞。",
+      "title": "小组作业",
+      "why": "弗雷尔卓德之心的被动里有一句几乎没人细看的话：只要他打出第一层，队友的普攻也能叠层，叠满四层就会眩晕。这让每个会平A的队友都变成一个眩晕按钮，而每一次眩晕都算在他头上。残忍会在他定身的每个英雄头上砸下一颗造成魔法伤害的彗星，扇巴掌每次眩晕给他10点自适应之力，不动如山再加上余震的爆发和冰川增幅的减速射线，所以一次眩晕能结算三次，还会让他为下一次变得更强。班德尔音管让他每眩晕一个人就给全队攻速，于是下一轮四层叠得更快，帝国指令会标记每个被眩晕的目标让其承受更多伤害，再配上纳什之牙、裂隙制造者和灭世者的死亡之帽，这些自适应之力全都变成法术强度。这位保镖不再挡在队伍前面，而是成了队伍的炮兵，扣扳机的是他的队友。",
+      "play": "用Q点中一个敌人，然后让你的C位打同一个目标；每次眩晕都会砸下一颗彗星，所以他们打谁你就一直去点谁。",
       "augments": [
-        "获得100%攻击速度。攻击敌方英雄时，花晓之剑的治疗效果提升至250%。",
-        "强化、治疗友军或为其提供护盾时，会对其周围的敌人造成伤害并减速。",
-        "治疗友军或为其提供护盾会祝福他们，他们造成的伤害会为你积攒信仰。信仰足够时，释放一道冲击波，造成魔法伤害并处决低生命值敌人。"
+        "定身或禁锢一名英雄时，召唤一颗彗星，在短暂延迟后落下，对附近敌人造成魔法伤害。",
+        "每次定身或禁锢一名敌人，获得一层提供10点自适应之力的效果。死亡时失去50%层数。",
+        "获得余震和冰川增幅基石符文。余震：定身一名敌方英雄后，获得双抗，随后在你周围造成一次魔法伤害爆发。冰川增幅：定身一名敌方英雄会生成3道冰川射线，减速附近敌人并降低他们对你友军造成的伤害。"
       ]
     },
     "zh-TW": {
-      "title": "友軍煙火秀",
-      "why": "塔里克的被動是他技能組裡最常被遺忘的部分：每次施放技能後，他接下來的兩次普攻會快速連出，並縮短他的技能冷卻，所以一個不停放技能的塔里克也會不停地揮砍。破曉綻放之劍把每一下普攻都變成對附近生命最低的友軍的治療，升級破曉綻放之劍再給他100%攻擊速度，並在他攻擊英雄時讓這份治療大幅變強。餘音震盪讓每一次對友軍的治療或護盾都爆開，傷害並緩速該友軍周圍的敵人；因信得力會祝福他治療過的每個人，他們造成的傷害為他累積信仰，累積滿後釋放一道衝擊波，處決低生命的敵人。他的W讓Q也會從連結的友軍身上施放，月之石再生裝置把每次治療傳給第二名友軍再炸一次，熾灼魔器給兩人額外攻擊速度，希利亞的迴響再疊上更多治療。寶石騎士不再是團隊的保鑣，而是團隊的炸彈：隊友就是手榴彈，每一下普攻都拔掉一根插銷。",
-      "play": "用W連上你的主C，隨便放個技能，然後一直普攻最近的英雄，讓每一下都治療隊友，同時把站在他旁邊的人炸飛。",
+      "title": "分組報告",
+      "why": "布郎姆的被動有一句幾乎沒人細看的話：只要他打出第一層，隊友的普攻也能疊層，疊滿四層就會暈眩。這讓每個會普攻的隊友都變成一顆暈眩按鈕，而每一次暈眩都算布郎姆的。殘忍會在他定身的每個英雄頭上砸下一顆造成魔法傷害的彗星，痛打一頓每次暈眩給他10點適性之力，不可通行再加上餘震的爆發和冰川增幅的緩速射線，所以一次暈眩能結算三次，還會讓他為下一次變得更強。班德爾笛子讓他每暈眩一個人就給全隊攻擊速度，於是下一輪四層疊得更快，帝王命令會標記每個被暈眩的目標讓它承受更多傷害，再配上納什之牙、峽谷製造者和死亡之帽，這些適性之力全都變成魔法攻擊。這位保鏢不再擋在隊伍前面，而是成了隊伍的砲兵，扣扳機的是他的隊友。",
+      "play": "用Q點中一個敵人，然後讓你的輸出打同一個目標；每次暈眩都會砸下一顆彗星，所以他們打誰你就一直去點誰。",
       "augments": [
-        "獲得100%攻擊速度。攻擊敵方英雄時，破曉綻放之劍的治療效果提升至250%。",
-        "強化、治療友軍或為其提供護盾時，會對其周圍的敵人造成傷害並緩速。",
-        "治療友軍或為其提供護盾會祝福他們，他們造成的傷害會為你累積信仰。信仰足夠時，釋放一道衝擊波，造成魔法傷害並處決低生命敵人。"
+        "定身或禁錮一名英雄時，召喚一顆彗星，短暫延遲後落下，對附近敵人造成魔法傷害。",
+        "每次定身或禁錮一名敵人，獲得一層提供10點適性之力的效果。死亡時失去50%層數。",
+        "獲得餘震與冰川增幅基石符文。餘震：定身一名敵方英雄後，獲得雙抗，隨後在你周圍造成一次魔法傷害爆發。冰川增幅：定身一名敵方英雄會產生3道冰川射線，緩速附近敵人並降低他們對你隊友造成的傷害。"
       ]
     }
   }

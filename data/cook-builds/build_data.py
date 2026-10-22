@@ -216,6 +216,14 @@ def main():
     names_by_id = {v: k for k, v in champ_ids.items()}
     n_champs = len(champs)
     augs = mayhem_augments()
+    # An augment that has since left the live pool keeps the text and icon its archived build was published with.
+    prev = {}
+    try:
+        with open(os.path.join(PAGE, "data.js"), encoding="utf-8") as f:
+            old = json.loads(f.read().split("=", 1)[1].strip().rstrip(";"))
+        prev = {r["name"]: r for b in old["builds"] for r in b["augments"]}
+    except (OSError, ValueError, KeyError, IndexError):
+        pass
     sim_list = json.loads(subprocess.run([a.sim, "--list", "--json"], capture_output=True, text=True, check=True, cwd=os.path.dirname(a.sim)).stdout) if a.sim else None
     sim_names = {c["id"]: c["name"] for c in sim_list["champions"]} if sim_list else {}
 
@@ -226,11 +234,11 @@ def main():
         c = champs.get(cid, {})
         rows = []
         for i, name in enumerate(b["augments"]):
-            g = augs[name]
+            g = augs.get(name) or prev[name]
             st = aug_stats.get(g["id"], {})
             rows.append({
                 "name": name, "id": g["id"], "rarity": g["rarity"], "text": text_overrides.get(name, g["text"]), "core": i < b["core"],
-                "icon": save_icon(g["icon_url"], "augments/" + slug(name) + ".png"),
+                "icon": save_icon(g["icon_url"], "augments/" + slug(name) + ".png") if name in augs else g["icon"],
                 "win_rate": st.get("win_rate"), "pick_rate": st.get("pick_rate"), "win_rank": st.get("win_rank"),
                 "best_champions": [names_by_id.get(x, str(x)) for x in st.get("best_champions", [])],
                 "champion_is_best": cid in st.get("best_champions", []),
