@@ -26,7 +26,10 @@ function siteLook(doc: Document) {
   const fixes: string[] = [];
   for (const sheet of Array.from(document.styleSheets)) {
     try {
-      for (const rule of Array.from(sheet.cssRules)) if (rule instanceof CSSFontFaceRule) faces.push(rule.cssText);
+      // Font addresses can be relative to their stylesheet, so they're made absolute before moving into the frame.
+      const base = sheet.href || location.href;
+      const absUrl = (m: string, q: string, u: string) => (u.startsWith("data:") ? m : `url("${new URL(u, base).href}")`);
+      for (const rule of Array.from(sheet.cssRules)) if (rule instanceof CSSFontFaceRule) faces.push(rule.cssText.replace(/url\((["']?)([^"')]+)\1\)/g, absUrl));
     } catch {} // a cross-origin stylesheet can't be read
   }
   const walk = (rules: CSSRuleList) => {
