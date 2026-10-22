@@ -126,6 +126,11 @@
  "Crowd control": "Crowd control",
  "Shielding": "Perisai",
  "Marked when neither champion has a stun, root, knock-up, taunt, fear, charm, sleep or suppression, so the pair struggles to lock anyone down.": "Ditandai jika kedua champion tidak punya stun, root, knock-up, taunt, fear, charm, sleep, atau suppression, sehingga duo ini sulit mengunci lawan.",
+ "Varies by champion": "Beda tiap champion",
+ "Augment reliance": "Ketergantungan augment",
+ "Estimated. How far its win rate boost swings from one champion to another. High means great on some champions and weak on others.": "Perkiraan. Seberapa jauh tambahan win rate-nya berubah dari satu champion ke champion lain. Tinggi berarti hebat di beberapa champion dan lemah di yang lain.",
+ "Estimated. How far the champion's win rate swings with the augments it gets. High means its augment picks matter a lot.": "Perkiraan. Seberapa jauh win rate champion berubah sesuai augment yang didapat. Tinggi berarti pilihan augment sangat berpengaruh baginya.",
+ "Varies by champion and Augment reliance are typical swings in pts: how much an augment's boost changes between champions, and how much a champion's win rate changes between augments.": "Beda tiap champion dan Ketergantungan augment adalah perubahan umum dalam poin: seberapa besar tambahan sebuah augment berubah antar champion, dan seberapa besar win rate champion berubah antar augment.",
  "Best champ": "Champion terbaik",
  "The champion with the highest estimated win rate boost from this augment.": "Champion dengan perkiraan kenaikan win rate tertinggi dari augment ini."
 }

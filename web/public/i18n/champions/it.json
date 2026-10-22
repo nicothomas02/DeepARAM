@@ -155,5 +155,22 @@
  "The champion's ability to absorb damage from enemy champions": "L'abilità del campione di assorbire danni dai campioni nemici",
  "The champion's ability to apply harmful effects like slows and stuns to enemy champions": "L'abilità del campione di applicare effetti dannosi come rallentamenti e stordimenti ai campioni nemici",
  "The champion's ability to move quickly around the map using blinks or dashes": "L'abilità del campione di spostarsi rapidamente sulla mappa usando teletrasporti o scatti",
- "The champion's ability to grant beneficial effects like shields, healing, or movement speed to allied champions": "L'abilità del campione di conferire effetti benefici come scudi, cure e velocità di movimento ai campioni alleati"
+ "The champion's ability to grant beneficial effects like shields, healing, or movement speed to allied champions": "L'abilità del campione di conferire effetti benefici come scudi, cure e velocità di movimento ai campioni alleati",
+ "After the core": "Dopo il nucleo",
+ "4th item": "4º oggetto",
+ "5th item": "5º oggetto",
+ "6th item": "6º oggetto",
+ "Options for each item slot after the best core build, best DeepScore first. Each slot assumes you bought the top pick before it.": "Opzioni per ogni slot oggetto dopo la migliore build principale, miglior DeepScore per primo. Ogni slot presume che tu abbia comprato la scelta migliore precedente.",
+ "{n} win rate": "{n} di vittorie",
+ "Augment pick": "Scelta del potenziamento",
+ "1st augment": "1º potenziamento",
+ "2nd augment": "2º potenziamento",
+ "3rd augment": "3º potenziamento",
+ "4th augment": "4º potenziamento",
+ "Augment pages": "Pagine dei potenziamenti",
+ "Previous page": "Pagina precedente",
+ "Next page": "Pagina successiva",
+ "No augments match these filters.": "Nessun potenziamento corrisponde a questi filtri.",
+ "All picks": "Tutte le scelte",
+ "Estimated: augments often taken at this pick on this champion.": "Stimato: potenziamenti spesso presi a questa scelta con questo campione."
 }

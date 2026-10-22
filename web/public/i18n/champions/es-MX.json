@@ -155,5 +155,22 @@
  "The champion's ability to absorb damage from enemy champions": "La habilidad del campeón de absorber daño de los campeones enemigos",
  "The champion's ability to apply harmful effects like slows and stuns to enemy champions": "La habilidad del campeón de aplicar efectos negativos a los campeones enemigos como ralentizaciones y aturdimientos",
  "The champion's ability to move quickly around the map using blinks or dashes": "La habilidad del campeón de desplazarse por el mapa rápidamente mediante destellos o carreras",
- "The champion's ability to grant beneficial effects like shields, healing, or movement speed to allied champions": "La habilidad del campeón de otorgar efectos beneficiosos a los campeones aliados como escudos, curaciones o velocidad de movimiento"
+ "The champion's ability to grant beneficial effects like shields, healing, or movement speed to allied champions": "La habilidad del campeón de otorgar efectos beneficiosos a los campeones aliados como escudos, curaciones o velocidad de movimiento",
+ "After the core": "Después del núcleo",
+ "4th item": "4.º objeto",
+ "5th item": "5.º objeto",
+ "6th item": "6.º objeto",
+ "Options for each item slot after the best core build, best DeepScore first. Each slot assumes you bought the top pick before it.": "Opciones para cada espacio de objeto después de la mejor build principal, mejor DeepScore primero. Cada espacio supone que compraste la mejor opción anterior.",
+ "{n} win rate": "{n} de victorias",
+ "Augment pick": "Elección de aumento",
+ "1st augment": "1.er aumento",
+ "2nd augment": "2.º aumento",
+ "3rd augment": "3.er aumento",
+ "4th augment": "4.º aumento",
+ "Augment pages": "Páginas de aumentos",
+ "Previous page": "Página anterior",
+ "Next page": "Página siguiente",
+ "No augments match these filters.": "Ningún aumento coincide con estos filtros.",
+ "All picks": "Todas las elecciones",
+ "Estimated: augments often taken at this pick on this champion.": "Estimado: aumentos que se suelen tomar en esta elección con este campeón."
 }

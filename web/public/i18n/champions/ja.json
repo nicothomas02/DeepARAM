@@ -155,5 +155,22 @@
  "The champion's ability to absorb damage from enemy champions": "敵チャンピオンからのダメージに耐える能力",
  "The champion's ability to apply harmful effects like slows and stuns to enemy champions": "スロウやスタンといった負の効果を敵チャンピオンに付与する能力",
  "The champion's ability to move quickly around the map using blinks or dashes": "ブリンクやダッシュを使ってマップ内を素早く移動する能力",
- "The champion's ability to grant beneficial effects like shields, healing, or movement speed to allied champions": "味方チャンピオンにシールド、回復、増加移動速度などの有利な効果を付与する能力"
+ "The champion's ability to grant beneficial effects like shields, healing, or movement speed to allied champions": "味方チャンピオンにシールド、回復、増加移動速度などの有利な効果を付与する能力",
+ "After the core": "コアの後",
+ "4th item": "4番目のアイテム",
+ "5th item": "5番目のアイテム",
+ "6th item": "6番目のアイテム",
+ "Options for each item slot after the best core build, best DeepScore first. Each slot assumes you bought the top pick before it.": "最適なコアビルドの後の各アイテム枠の候補です。DeepScoreの高い順。各枠は、その前の枠の一番の候補を購入済みと想定しています。",
+ "{n} win rate": "勝率 {n}",
+ "Augment pick": "オーグメントの選択",
+ "1st augment": "1つ目のオーグメント",
+ "2nd augment": "2つ目のオーグメント",
+ "3rd augment": "3つ目のオーグメント",
+ "4th augment": "4つ目のオーグメント",
+ "Augment pages": "オーグメントのページ",
+ "Previous page": "前のページ",
+ "Next page": "次のページ",
+ "No augments match these filters.": "この条件に合うオーグメントはありません。",
+ "All picks": "すべての選択",
+ "Estimated: augments often taken at this pick on this champion.": "推定:このチャンピオンでこの選択によく取られるオーグメントです。"
 }

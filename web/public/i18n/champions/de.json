@@ -155,5 +155,22 @@
  "The champion's ability to absorb damage from enemy champions": "Gibt an, wie viel Schaden vom Gegner der Champion aushält.",
  "The champion's ability to apply harmful effects like slows and stuns to enemy champions": "Gibt an, wie gut der Champion nachteilige Effekte wie Verlangsamung und Betäubung auf den Gegner wirken kann.",
  "The champion's ability to move quickly around the map using blinks or dashes": "Gibt an, wie schnell der Champion sich mit Sprüngen oder Teleport über die Karte bewegen kann.",
- "The champion's ability to grant beneficial effects like shields, healing, or movement speed to allied champions": "Gibt an, wie gut der Champion nützliche Effekte wie Schilde, Heilung oder Lauftempoerhöhungen auf verbündete Champions wirken kann."
+ "The champion's ability to grant beneficial effects like shields, healing, or movement speed to allied champions": "Gibt an, wie gut der Champion nützliche Effekte wie Schilde, Heilung oder Lauftempoerhöhungen auf verbündete Champions wirken kann.",
+ "After the core": "Nach dem Kern-Build",
+ "4th item": "4. Gegenstand",
+ "5th item": "5. Gegenstand",
+ "6th item": "6. Gegenstand",
+ "Options for each item slot after the best core build, best DeepScore first. Each slot assumes you bought the top pick before it.": "Optionen für jeden Gegenstandsplatz nach dem besten Kern-Build, bester DeepScore zuerst. Jeder Platz geht davon aus, dass du die Top-Wahl davor gekauft hast.",
+ "{n} win rate": "{n} Siegesrate",
+ "Augment pick": "Augment-Wahl",
+ "1st augment": "1. Augment",
+ "2nd augment": "2. Augment",
+ "3rd augment": "3. Augment",
+ "4th augment": "4. Augment",
+ "Augment pages": "Augment-Seiten",
+ "Previous page": "Vorherige Seite",
+ "Next page": "Nächste Seite",
+ "No augments match these filters.": "Keine Augments passen zu diesen Filtern.",
+ "All picks": "Alle Wahlen",
+ "Estimated: augments often taken at this pick on this champion.": "Geschätzt: Augments, die bei dieser Wahl auf diesem Champion oft genommen werden."
 }

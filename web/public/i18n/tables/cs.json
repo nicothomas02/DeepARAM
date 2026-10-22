@@ -126,6 +126,11 @@
  "Crowd control": "Omezující efekty",
  "Shielding": "Štíty",
  "Marked when neither champion has a stun, root, knock-up, taunt, fear, charm, sleep or suppression, so the pair struggles to lock anyone down.": "Označeno, když žádný z šampionů nemá omráčení, znehybnění, vyhození, provokaci, strach, okouzlení, uspání ani potlačení, takže dvojice těžko někoho zastaví.",
+ "Varies by champion": "Liší se podle šampiona",
+ "Augment reliance": "Závislost na augmentech",
+ "Estimated. How far its win rate boost swings from one champion to another. High means great on some champions and weak on others.": "Odhad. Jak moc se jeho přírůstek výher mění od šampiona k šampionovi. Vysoká hodnota znamená, že na některých šampionech je skvělý a na jiných slabý.",
+ "Estimated. How far the champion's win rate swings with the augments it gets. High means its augment picks matter a lot.": "Odhad. Jak moc se procento výher šampiona mění podle augmentů, které dostane. Vysoká hodnota znamená, že na výběru augmentů hodně záleží.",
+ "Varies by champion and Augment reliance are typical swings in pts: how much an augment's boost changes between champions, and how much a champion's win rate changes between augments.": "Liší se podle šampiona a Závislost na augmentech jsou typické výkyvy v b.: jak moc se přírůstek augmentu mění mezi šampiony a jak moc se procento výher šampiona mění mezi augmenty.",
  "Best champ": "Nejlepší šampion",
  "The champion with the highest estimated win rate boost from this augment.": "Šampion s nejvyšším odhadovaným nárůstem míry výher díky tomuto vylepšení."
 }

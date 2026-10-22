@@ -155,5 +155,22 @@
  "The champion's ability to absorb damage from enemy champions": "這名英雄吸收來自敵方英雄傷害的能力",
  "The champion's ability to apply harmful effects like slows and stuns to enemy champions": "這名英雄給予敵方英雄如緩速和擊暈效果的能力",
  "The champion's ability to move quickly around the map using blinks or dashes": "這名英雄在地圖上使用技能快速移動的能力",
- "The champion's ability to grant beneficial effects like shields, healing, or movement speed to allied champions": "這名英雄給予友方英雄如護盾、治療或跑速加成增益效果的能力"
+ "The champion's ability to grant beneficial effects like shields, healing, or movement speed to allied champions": "這名英雄給予友方英雄如護盾、治療或跑速加成增益效果的能力",
+ "After the core": "核心之後",
+ "4th item": "第4件裝備",
+ "5th item": "第5件裝備",
+ "6th item": "第6件裝備",
+ "Options for each item slot after the best core build, best DeepScore first. Each slot assumes you bought the top pick before it.": "最佳核心出裝之後每個裝備欄的選擇,DeepScore 最高的排在前面。每個裝備欄都假定你已買下前一欄的首選。",
+ "{n} win rate": "勝率 {n}",
+ "Augment pick": "強化選擇",
+ "1st augment": "第1個強化",
+ "2nd augment": "第2個強化",
+ "3rd augment": "第3個強化",
+ "4th augment": "第4個強化",
+ "Augment pages": "強化頁面",
+ "Previous page": "上一頁",
+ "Next page": "下一頁",
+ "No augments match these filters.": "沒有符合這些篩選條件的強化。",
+ "All picks": "所有選擇",
+ "Estimated: augments often taken at this pick on this champion.": "估算:該英雄在這次選擇時常拿的強化。"
 }

@@ -155,5 +155,22 @@
  "The champion's ability to absorb damage from enemy champions": "Kemampuan champion untuk menyerap damage dari champion musuh",
  "The champion's ability to apply harmful effects like slows and stuns to enemy champions": "Kemampuan champion untuk menerapkan efek berbahaya seperti slow dan stun pada champion musuh",
  "The champion's ability to move quickly around the map using blinks or dashes": "Kemampuan champion untuk bergerak cepat di peta menggunakan blink atau dash",
- "The champion's ability to grant beneficial effects like shields, healing, or movement speed to allied champions": "Kemampuan champion untuk memberikan efek menguntungkan seperti shield, heal, atau movement speed pada champion sekutu"
+ "The champion's ability to grant beneficial effects like shields, healing, or movement speed to allied champions": "Kemampuan champion untuk memberikan efek menguntungkan seperti shield, heal, atau movement speed pada champion sekutu",
+ "After the core": "Setelah inti",
+ "4th item": "Item ke-4",
+ "5th item": "Item ke-5",
+ "6th item": "Item ke-6",
+ "Options for each item slot after the best core build, best DeepScore first. Each slot assumes you bought the top pick before it.": "Pilihan untuk setiap slot item setelah build inti terbaik, DeepScore terbaik lebih dulu. Setiap slot menganggap kamu sudah membeli pilihan teratas sebelumnya.",
+ "{n} win rate": "{n} tingkat menang",
+ "Augment pick": "Pilihan augment",
+ "1st augment": "Augment ke-1",
+ "2nd augment": "Augment ke-2",
+ "3rd augment": "Augment ke-3",
+ "4th augment": "Augment ke-4",
+ "Augment pages": "Halaman augment",
+ "Previous page": "Halaman sebelumnya",
+ "Next page": "Halaman berikutnya",
+ "No augments match these filters.": "Tidak ada augment yang cocok dengan filter ini.",
+ "All picks": "Semua pilihan",
+ "Estimated: augments often taken at this pick on this champion.": "Perkiraan: augment yang sering diambil pada pilihan ini dengan champion ini."
 }

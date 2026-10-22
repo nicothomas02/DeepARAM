@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
+import { KEPT, useKept } from "@/lib/kept";
 import { flushSync } from "react-dom";
 import { useT } from "@/components/I18n";
 
@@ -22,8 +23,8 @@ export default function Fold({
   children: React.ReactNode;
 }) {
   const t = useT("champions");
-  const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
+  const [open, setOpen] = useKept(false, ref);
   useEffect(() => {
     const wants = (id: string) =>
       !!id &&
@@ -55,7 +56,7 @@ export default function Fold({
     };
   }, [section]);
   return (
-    <div className="cp-fold" ref={ref} data-open={open || undefined}>
+    <div className="cp-fold" ref={ref} {...KEPT} data-open={open || undefined}>
       <div className="cp-fold-body">{children}</div>
       <button
         type="button"

@@ -155,5 +155,22 @@
  "The champion's ability to absorb damage from enemy champions": "A habilidade do campeão de absorver dano dos campeões inimigos",
  "The champion's ability to apply harmful effects like slows and stuns to enemy champions": "A habilidade do campeão de aplicar efeitos nocivos como lentidões e atordoamentos a campeões inimigos",
  "The champion's ability to move quickly around the map using blinks or dashes": "A habilidade do Campeão de mover-se rapidamente pelo mapa utilizando saltos ou investidas",
- "The champion's ability to grant beneficial effects like shields, healing, or movement speed to allied champions": "A habilidade do campeão de conceder efeitos benéficos como escudos, curas ou Velocidade de Movimento para campeões aliados"
+ "The champion's ability to grant beneficial effects like shields, healing, or movement speed to allied champions": "A habilidade do campeão de conceder efeitos benéficos como escudos, curas ou Velocidade de Movimento para campeões aliados",
+ "After the core": "Depois do núcleo",
+ "4th item": "4º item",
+ "5th item": "5º item",
+ "6th item": "6º item",
+ "Options for each item slot after the best core build, best DeepScore first. Each slot assumes you bought the top pick before it.": "Opções para cada espaço de item depois da melhor build principal, melhor DeepScore primeiro. Cada espaço supõe que você comprou a melhor escolha anterior.",
+ "{n} win rate": "{n} de vitórias",
+ "Augment pick": "Escolha de aprimoramento",
+ "1st augment": "1º aprimoramento",
+ "2nd augment": "2º aprimoramento",
+ "3rd augment": "3º aprimoramento",
+ "4th augment": "4º aprimoramento",
+ "Augment pages": "Páginas de aprimoramentos",
+ "Previous page": "Página anterior",
+ "Next page": "Próxima página",
+ "No augments match these filters.": "Nenhum aprimoramento corresponde a esses filtros.",
+ "All picks": "Todas as escolhas",
+ "Estimated: augments often taken at this pick on this champion.": "Estimado: aprimoramentos frequentemente pegos nesta escolha com este campeão."
 }

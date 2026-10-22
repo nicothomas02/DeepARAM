@@ -126,6 +126,11 @@
  "Crowd control": "Khống chế",
  "Shielding": "Lá chắn",
  "Marked when neither champion has a stun, root, knock-up, taunt, fear, charm, sleep or suppression, so the pair struggles to lock anyone down.": "Được đánh dấu khi cả hai tướng đều không có choáng, trói chân, hất tung, khiêu khích, hoảng sợ, mê hoặc, ngủ hay áp chế, nên cặp đôi khó khóa chặt đối thủ.",
+ "Varies by champion": "Khác theo tướng",
+ "Augment reliance": "Phụ thuộc lõi nâng cấp",
+ "Estimated. How far its win rate boost swings from one champion to another. High means great on some champions and weak on others.": "Ước tính. Mức tăng tỉ lệ thắng thay đổi bao nhiêu giữa các tướng. Cao nghĩa là rất mạnh trên một số tướng và yếu trên số khác.",
+ "Estimated. How far the champion's win rate swings with the augments it gets. High means its augment picks matter a lot.": "Ước tính. Tỉ lệ thắng của tướng thay đổi bao nhiêu theo lõi nâng cấp nhận được. Cao nghĩa là việc chọn lõi nâng cấp rất quan trọng.",
+ "Varies by champion and Augment reliance are typical swings in pts: how much an augment's boost changes between champions, and how much a champion's win rate changes between augments.": "Khác theo tướng và Phụ thuộc lõi nâng cấp là mức dao động thường gặp tính bằng điểm: mức tăng của một lõi nâng cấp thay đổi bao nhiêu giữa các tướng, và tỉ lệ thắng của một tướng thay đổi bao nhiêu giữa các lõi nâng cấp.",
  "Best champ": "Tướng tốt nhất",
  "The champion with the highest estimated win rate boost from this augment.": "Tướng có mức tăng tỉ lệ thắng ước tính cao nhất nhờ lõi nâng cấp này."
 }

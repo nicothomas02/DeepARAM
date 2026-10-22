@@ -155,5 +155,22 @@
  "The champion's ability to absorb damage from enemy champions": "قدرة البطل على امتصاص الضرر المتلقى من أبطال العدو",
  "The champion's ability to apply harmful effects like slows and stuns to enemy champions": "قدرة البطل على تطبيق تأثيرات مؤذية على أبطال العدو كالإبطاء والصعق",
  "The champion's ability to move quickly around the map using blinks or dashes": "قدرة البطل على التحرك بسرعة في أرجاء الخريطة باستخدام الومضة أو الاندفاع",
- "The champion's ability to grant beneficial effects like shields, healing, or movement speed to allied champions": "قدرة البطل على منح الأبطال الحلفاء تأثيرات نافعة كالدروع أو العلاج أو سرعة الحركة"
+ "The champion's ability to grant beneficial effects like shields, healing, or movement speed to allied champions": "قدرة البطل على منح الأبطال الحلفاء تأثيرات نافعة كالدروع أو العلاج أو سرعة الحركة",
+ "After the core": "بعد الأساس",
+ "4th item": "العنصر الرابع",
+ "5th item": "العنصر الخامس",
+ "6th item": "العنصر السادس",
+ "Options for each item slot after the best core build, best DeepScore first. Each slot assumes you bought the top pick before it.": "خيارات كل خانة عنصر بعد أفضل بناء أساسي، الأعلى في DeepScore أولًا. كل خانة تفترض أنك اشتريت الخيار الأول قبلها.",
+ "{n} win rate": "{n} نسبة الفوز",
+ "Augment pick": "اختيار التعزيز",
+ "1st augment": "التعزيز الأول",
+ "2nd augment": "التعزيز الثاني",
+ "3rd augment": "التعزيز الثالث",
+ "4th augment": "التعزيز الرابع",
+ "Augment pages": "صفحات التعزيزات",
+ "Previous page": "الصفحة السابقة",
+ "Next page": "الصفحة التالية",
+ "No augments match these filters.": "لا توجد تعزيزات تطابق هذه الفلاتر.",
+ "All picks": "كل الاختيارات",
+ "Estimated: augments often taken at this pick on this champion.": "تقديري: تعزيزات تُؤخذ كثيرًا في هذا الاختيار مع هذا البطل."
 }

@@ -155,5 +155,22 @@
  "The champion's ability to absorb damage from enemy champions": "A hős azon képessége, hogy elviselje az ellenfeleitől elszenvedett sebzést.",
  "The champion's ability to apply harmful effects like slows and stuns to enemy champions": "A hős azon képessége, amellyel ártó hatásokat alkalmaz ellenfeleire (például lassítás és kábítás).",
  "The champion's ability to move quickly around the map using blinks or dashes": "A hős azon képessége, hogy gyorsan mozogjon a térképen teleportálással vagy rohamozással.",
- "The champion's ability to grant beneficial effects like shields, healing, or movement speed to allied champions": "A hős azon képessége, hogy jótékony hatásokkal segítse csapattársait (gyógyítás, pajzs vagy megnövelt mozgási sebesség)."
+ "The champion's ability to grant beneficial effects like shields, healing, or movement speed to allied champions": "A hős azon képessége, hogy jótékony hatásokkal segítse csapattársait (gyógyítás, pajzs vagy megnövelt mozgási sebesség).",
+ "After the core": "A mag után",
+ "4th item": "4. tárgy",
+ "5th item": "5. tárgy",
+ "6th item": "6. tárgy",
+ "Options for each item slot after the best core build, best DeepScore first. Each slot assumes you bought the top pick before it.": "Lehetőségek minden tárgyhelyre a legjobb alap build után, a legjobb DeepScore elöl. Minden hely feltételezi, hogy az előtte lévő legjobb választást megvetted.",
+ "{n} win rate": "{n} győzelmi arány",
+ "Augment pick": "Fejlesztésválasztás",
+ "1st augment": "1. fejlesztés",
+ "2nd augment": "2. fejlesztés",
+ "3rd augment": "3. fejlesztés",
+ "4th augment": "4. fejlesztés",
+ "Augment pages": "Fejlesztésoldalak",
+ "Previous page": "Előző oldal",
+ "Next page": "Következő oldal",
+ "No augments match these filters.": "Egy fejlesztés sem felel meg ezeknek a szűrőknek.",
+ "All picks": "Minden választás",
+ "Estimated: augments often taken at this pick on this champion.": "Becsült: ennél a bajnoknál ennél a választásnál gyakran választott fejlesztések."
 }

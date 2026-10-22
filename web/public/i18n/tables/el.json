@@ -126,6 +126,11 @@
  "Crowd control": "Έλεγχος πλήθους",
  "Shielding": "Ασπίδες",
  "Marked when neither champion has a stun, root, knock-up, taunt, fear, charm, sleep or suppression, so the pair struggles to lock anyone down.": "Σημειώνεται όταν κανένας από τους δύο δεν έχει ζάλη, ακινητοποίηση, εκτίναξη, πρόκληση, φόβο, γοητεία, ύπνο ή καταστολή, οπότε το δίδυμο δυσκολεύεται να σταματήσει αντιπάλους.",
+ "Varies by champion": "Διαφέρει ανά ήρωα",
+ "Augment reliance": "Εξάρτηση από βελτιώσεις",
+ "Estimated. How far its win rate boost swings from one champion to another. High means great on some champions and weak on others.": "Εκτίμηση. Πόσο αλλάζει η ενίσχυση ποσοστού νικών του από ήρωα σε ήρωα. Υψηλή τιμή σημαίνει εξαιρετικό σε κάποιους ήρωες και αδύναμο σε άλλους.",
+ "Estimated. How far the champion's win rate swings with the augments it gets. High means its augment picks matter a lot.": "Εκτίμηση. Πόσο αλλάζει το ποσοστό νικών του ήρωα ανάλογα με τις βελτιώσεις που παίρνει. Υψηλή τιμή σημαίνει ότι οι επιλογές βελτιώσεων μετράνε πολύ.",
+ "Varies by champion and Augment reliance are typical swings in pts: how much an augment's boost changes between champions, and how much a champion's win rate changes between augments.": "Το «Διαφέρει ανά ήρωα» και η «Εξάρτηση από βελτιώσεις» είναι τυπικές διακυμάνσεις σε μον.: πόσο αλλάζει η ενίσχυση μιας βελτίωσης μεταξύ ηρώων και πόσο αλλάζει το ποσοστό νικών ενός ήρωα μεταξύ βελτιώσεων.",
  "Best champ": "Καλύτερος champion",
  "The champion with the highest estimated win rate boost from this augment.": "Ο champion με τη μεγαλύτερη εκτιμώμενη αύξηση ποσοστού νικών από αυτή την ενίσχυση."
 }

@@ -20,7 +20,7 @@ import Intro from "@/components/Intro";
 import { T } from "@/components/I18n";
 import HowRankings from "@/components/HowRankings";
 import ItemIndex from "@/components/ItemIndex";
-import { itemEstimate, powerCurveLists } from "@/lib/estimates";
+import { augmentSpread, championAugmentReliance, itemEstimate, powerCurveLists } from "@/lib/estimates";
 import { itemPages } from "@/lib/item-pages";
 import { text } from "@/lib/content";
 import Pending from "@/components/Pending";
@@ -95,6 +95,7 @@ export default function TierListPage() {
               tagInfo={championTagData().info}
               games={fillGames()}
               scaling={Object.fromEntries([...powerCurveLists().scaling].flatMap(([id, v]) => (ALIAS[id] ? [[ALIAS[id], v]] : [])))}
+              reliance={Object.fromEntries([...championAugmentReliance()].flatMap(([id, v]) => (ALIAS[id] ? [[ALIAS[id], v]] : [])))}
             />
           }
           duos={duos ? <DuosTable archetypes={archetypeRows()} tagInfo={championTagData().info} version={duoVersion()} quests={teamQuests()} /> : undefined}
@@ -132,6 +133,12 @@ export default function TierListPage() {
                 format: "pts" as const,
                 hint: "Win rate minus what the champions who take it win anyway. Above zero means it helps them.",
               },
+              {
+                key: "spread",
+                label: "Varies by champion",
+                format: "spread" as const,
+                hint: "Estimated. How far its win rate boost swings from one champion to another. High means great on some champions and weak on others.",
+              },
               augCols[5],
               { key: "best", label: "Best champ", format: "champion-icon", sortable: false, hint: "The champion with the highest estimated win rate boost from this augment." },
               augCols[3],
@@ -147,6 +154,7 @@ export default function TierListPage() {
                 grade: graded.get(Number(a.augment_id))?.tier ?? null,
                 deepScore: graded.get(Number(a.augment_id))?.deepScore ?? null,
                 lift: graded.get(Number(a.augment_id))?.lift ?? null,
+                spread: augmentSpread(Number(a.augment_id)),
                 win_rate: Number(a.win_rate),
                 pick_rate: Number(a.pick_rate),
                 best: bestById.get(Number(a.augment_id))?.[0]?.id ?? null,

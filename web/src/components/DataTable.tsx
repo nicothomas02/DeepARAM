@@ -2,6 +2,7 @@
 
 import RowLink from "./RowLink";
 import { useEffect, useMemo, useRef, useState } from "react";
+import { KEPT, useKept } from "@/lib/kept";
 import championNames from "@/data/champion-names.json";
 import { setParams } from "@/lib/url-state";
 import championIds from "@/data/champion-ids.json";
@@ -17,7 +18,7 @@ import type { TagInfo } from "@/lib/tag-info";
 export type Column = {
   key: string;
   label: string;
-  format?: "pct" | "pts" | "num" | "int" | "sec" | "text" | "champion" | "champion-icon" | "augment" | "item" | "tier" | "deepscore" | "tags";
+  format?: "pct" | "pts" | "spread" | "num" | "int" | "sec" | "text" | "champion" | "champion-icon" | "augment" | "item" | "tier" | "deepscore" | "tags";
   sortable?: boolean;
   /** For "augment" columns: the row key holding the augment id, for its icon; for "item" columns, the icon's address. */
   iconKey?: string;
@@ -65,6 +66,9 @@ function show(v: Row[string], format: Column["format"], pts: (n: string) => stri
     case "pts":
       // Percentage points; the cell's ▲ or ▼ (cellClass) carries the sign.
       return pts(tenths(Math.abs(n)));
+    case "spread":
+      // A spread in percentage points: always positive, so no arrow or colour.
+      return pts(tenths(n));
     case "num":
       return n.toFixed(1);
     case "int":
@@ -257,7 +261,8 @@ export default function DataTable({
   };
   const [sort, setSort] = useState(initialSort);
   const [query, setQuery] = useState("");
-  const [shown, setShown] = useState(PAGE);
+  const box = useRef<HTMLDivElement>(null);
+  const [shown, setShown] = useKept(PAGE, box);
   // The column hints link to the "How rankings work" panel when the page has one (HowRankings.tsx).
   const [hasRankings, setHasRankings] = useState(false);
   useEffect(() => setHasRankings(!!document.getElementById(RANKINGS_ID)), []);
@@ -331,7 +336,7 @@ export default function DataTable({
   );
 
   return (
-    <div className={fit ? "data-table fit" : "data-table"}>
+    <div className={fit ? "data-table fit" : "data-table"} ref={box} {...KEPT}>
       {fit ? <div className="table-tools">{search}</div> : search}
       <div className="table-scroll">
         <table ref={tableRef}>

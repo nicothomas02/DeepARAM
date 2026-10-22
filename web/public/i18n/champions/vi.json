@@ -155,5 +155,22 @@
  "The champion's ability to absorb damage from enemy champions": "Tướng có khả năng chịu sát thương từ tướng địch",
  "The champion's ability to apply harmful effects like slows and stuns to enemy champions": "Tướng có khả năng gây hiệu ứng bất lợi như làm chậm và làm choáng tướng địch",
  "The champion's ability to move quickly around the map using blinks or dashes": "Tướng có khả năng di chuyển nhanh chóng quanh bản đồ bằng tốc biến hoặc lướt tới",
- "The champion's ability to grant beneficial effects like shields, healing, or movement speed to allied champions": "Tướng có khả năng tạo hiệu ứng có lợi như lá chắn, hồi máu hoặc tăng tốc cho đồng minh"
+ "The champion's ability to grant beneficial effects like shields, healing, or movement speed to allied champions": "Tướng có khả năng tạo hiệu ứng có lợi như lá chắn, hồi máu hoặc tăng tốc cho đồng minh",
+ "After the core": "Sau lõi",
+ "4th item": "Món thứ 4",
+ "5th item": "Món thứ 5",
+ "6th item": "Món thứ 6",
+ "Options for each item slot after the best core build, best DeepScore first. Each slot assumes you bought the top pick before it.": "Lựa chọn cho từng ô trang bị sau bộ lõi tốt nhất, DeepScore cao nhất trước. Mỗi ô giả định bạn đã mua lựa chọn hàng đầu trước nó.",
+ "{n} win rate": "Tỉ lệ thắng {n}",
+ "Augment pick": "Lượt chọn Lõi Nâng Cấp",
+ "1st augment": "Lõi Nâng Cấp thứ 1",
+ "2nd augment": "Lõi Nâng Cấp thứ 2",
+ "3rd augment": "Lõi Nâng Cấp thứ 3",
+ "4th augment": "Lõi Nâng Cấp thứ 4",
+ "Augment pages": "Các trang Lõi Nâng Cấp",
+ "Previous page": "Trang trước",
+ "Next page": "Trang sau",
+ "No augments match these filters.": "Không có Lõi Nâng Cấp nào khớp với các bộ lọc này.",
+ "All picks": "Mọi lượt chọn",
+ "Estimated: augments often taken at this pick on this champion.": "Ước tính: các Lõi Nâng Cấp thường được chọn ở lượt này với tướng này."
 }
