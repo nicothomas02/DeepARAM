@@ -155,5 +155,11 @@
  "The champion's ability to absorb damage from enemy champions": "Η ικανότητα του Ήρωα να απορροφά ζημιά από αντίπαλους Ήρωες",
  "The champion's ability to apply harmful effects like slows and stuns to enemy champions": "Η ικανότητα του ήρωα να επηρεάζει αντίπαλους ήρωες με βλαβερές επιδράσεις, όπως επιβραδύνσεις και ακινητοποιήσεις",
  "The champion's ability to move quickly around the map using blinks or dashes": "Η ικανότητα ενός ήρωα να κινείται γρήγορα στον χάρτη με τηλεμεταφορές ή εφορμήσεις",
- "The champion's ability to grant beneficial effects like shields, healing, or movement speed to allied champions": "Η ικανότητα του ήρωα να δίνει στους σύμμαχους θετικές επιδράσεις, όπως ασπίδες, θεραπεία ή Ταχύτητα Κίνησης"
+ "The champion's ability to grant beneficial effects like shields, healing, or movement speed to allied champions": "Η ικανότητα του ήρωα να δίνει στους σύμμαχους θετικές επιδράσεις, όπως ασπίδες, θεραπεία ή Ταχύτητα Κίνησης",
+ "After the core": "Μετά τον πυρήνα",
+ "4th item": "4ο αντικείμενο",
+ "5th item": "5ο αντικείμενο",
+ "6th item": "6ο αντικείμενο",
+ "Options for each item slot after the best core build, best DeepScore first. Each slot assumes you bought the top pick before it.": "Επιλογές για κάθε θέση αντικειμένου μετά το καλύτερο βασικό build, με το καλύτερο DeepScore πρώτο. Κάθε θέση υποθέτει ότι αγόρασες την κορυφαία επιλογή πριν από αυτήν.",
+ "{n} win rate": "{n} ποσοστό νικών"
 }

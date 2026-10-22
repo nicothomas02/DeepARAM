@@ -155,5 +155,11 @@
  "The champion's ability to absorb damage from enemy champions": "用来吸收来自敌方英雄伤害的英雄技能",
  "The champion's ability to apply harmful effects like slows and stuns to enemy champions": "用来对敌方英雄施加诸如减速和晕眩的有害效果的英雄技能",
  "The champion's ability to move quickly around the map using blinks or dashes": "通过使用闪现或位移来快速在地图四处移动的英雄技能",
- "The champion's ability to grant beneficial effects like shields, healing, or movement speed to allied champions": "用来对友军提供护盾、治疗或移动速度等有益效果的英雄技能"
+ "The champion's ability to grant beneficial effects like shields, healing, or movement speed to allied champions": "用来对友军提供护盾、治疗或移动速度等有益效果的英雄技能",
+ "After the core": "核心之后",
+ "4th item": "第4件装备",
+ "5th item": "第5件装备",
+ "6th item": "第6件装备",
+ "Options for each item slot after the best core build, best DeepScore first. Each slot assumes you bought the top pick before it.": "最佳核心出装之后每个装备位的选择,DeepScore 最高的排在前面。每个装备位都假定你已买下前一位的首选。",
+ "{n} win rate": "胜率 {n}"
 }

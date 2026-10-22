@@ -155,5 +155,11 @@
  "The champion's ability to absorb damage from enemy champions": "Capacitatea campionului de a absorbi daunele venite din partea adversarilor",
  "The champion's ability to apply harmful effects like slows and stuns to enemy champions": "Capacitatea campionului de a le aplica efecte negative adversarilor (de exemplu: încetiniri sau amețiri)",
  "The champion's ability to move quickly around the map using blinks or dashes": "Capacitatea campionului de a se mișca rapid pe hartă cu ajutorul salturilor",
- "The champion's ability to grant beneficial effects like shields, healing, or movement speed to allied champions": "Capacitatea campionului de a le oferi aliaților efecte benefice (de exemplu: scuturi, vindecare sau viteză de mișcare)"
+ "The champion's ability to grant beneficial effects like shields, healing, or movement speed to allied champions": "Capacitatea campionului de a le oferi aliaților efecte benefice (de exemplu: scuturi, vindecare sau viteză de mișcare)",
+ "After the core": "După nucleu",
+ "4th item": "Al 4-lea obiect",
+ "5th item": "Al 5-lea obiect",
+ "6th item": "Al 6-lea obiect",
+ "Options for each item slot after the best core build, best DeepScore first. Each slot assumes you bought the top pick before it.": "Opțiuni pentru fiecare loc de obiect după cel mai bun build de bază, cel mai bun DeepScore primul. Fiecare loc presupune că ai cumpărat alegerea de top dinaintea lui.",
+ "{n} win rate": "{n} rată de victorie"
 }

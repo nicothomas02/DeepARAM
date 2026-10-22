@@ -155,5 +155,11 @@
  "The champion's ability to absorb damage from enemy champions": "The champion's ability to absorb damage from enemy champions",
  "The champion's ability to apply harmful effects like slows and stuns to enemy champions": "The champion's ability to apply harmful effects like slows and stuns to enemy champions",
  "The champion's ability to move quickly around the map using blinks or dashes": "The champion's ability to move quickly around the map using blinks or dashes",
- "The champion's ability to grant beneficial effects like shields, healing, or movement speed to allied champions": "The champion's ability to grant beneficial effects like shields, healing, or movement speed to allied champions"
+ "The champion's ability to grant beneficial effects like shields, healing, or movement speed to allied champions": "The champion's ability to grant beneficial effects like shields, healing, or movement speed to allied champions",
+ "After the core": "After the core",
+ "4th item": "4th item",
+ "5th item": "5th item",
+ "6th item": "6th item",
+ "Options for each item slot after the best core build, best DeepScore first. Each slot assumes you bought the top pick before it.": "Options for each item slot after the best core build, best DeepScore first. Each slot assumes you bought the top pick before it.",
+ "{n} win rate": "{n} win rate"
 }

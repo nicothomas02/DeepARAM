@@ -155,5 +155,11 @@
  "The champion's ability to absorb damage from enemy champions": "La capacité d'un champion à encaisser les dégâts infligés par des champions ennemis.",
  "The champion's ability to apply harmful effects like slows and stuns to enemy champions": "La capacité d'un champion à appliquer des effets néfastes aux champions ennemis, comme des ralentissements ou des étourdissements.",
  "The champion's ability to move quickly around the map using blinks or dashes": "La capacité d'un champion à se déplacer rapidement à travers la carte en utilisant des compétences de saut ou de « rush ».",
- "The champion's ability to grant beneficial effects like shields, healing, or movement speed to allied champions": "La capacité d'un champion à octroyer des effets bénéfiques comme des boucliers, des soins ou des bonus de vitesse de déplacement à des champions alliés."
+ "The champion's ability to grant beneficial effects like shields, healing, or movement speed to allied champions": "La capacité d'un champion à octroyer des effets bénéfiques comme des boucliers, des soins ou des bonus de vitesse de déplacement à des champions alliés.",
+ "After the core": "Après le build principal",
+ "4th item": "4e objet",
+ "5th item": "5e objet",
+ "6th item": "6e objet",
+ "Options for each item slot after the best core build, best DeepScore first. Each slot assumes you bought the top pick before it.": "Les options pour chaque emplacement d'objet après le meilleur build principal, meilleur DeepScore en premier. Chaque emplacement suppose que vous avez acheté le premier choix avant lui.",
+ "{n} win rate": "{n} de victoires"
 }
