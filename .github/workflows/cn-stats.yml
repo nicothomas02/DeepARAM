@@ -4,6 +4,11 @@ on:
   schedule:
     - cron: "0 6 * * *"   # 14:00 Beijing, after Tencent publishes the previous day
   workflow_dispatch:
+    inputs:
+      today:
+        description: "Include today's numbers so far (show a new patch's first day right away)"
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -21,11 +26,15 @@ jobs:
         with:
           python-version: "3.12"
       - name: Fetch current snapshot
-        run: python3 data/cn/fetch_cn.py
+        run: python3 data/cn/fetch_cn.py ${TODAY:+--date "$(date -u +%Y%m%d)"}
+        env:
+          TODAY: ${{ inputs.today && '1' || '' }}
       - name: Fetch each champion's builds
         run: python3 data/cn/builds.py
       - name: Append new days and rebuild history
-        run: python3 data/cn/history.py
+        run: python3 data/cn/history.py ${TODAY:+--today}
+        env:
+          TODAY: ${{ inputs.today && '1' || '' }}
       - name: Rebuild champion pages with the new builds
         # a game-data download hiccup shouldn't hold back the stats themselves
         continue-on-error: true
