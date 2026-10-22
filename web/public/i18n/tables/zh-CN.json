@@ -125,5 +125,7 @@
  "Healing done": "治疗量",
  "Crowd control": "控制",
  "Shielding": "护盾量",
- "Marked when neither champion has a stun, root, knock-up, taunt, fear, charm, sleep or suppression, so the pair struggles to lock anyone down.": "两位英雄都没有晕眩、禁锢、击飞、嘲讽、恐惧、魅惑、催眠或压制时会标出，这对组合很难控住敌人。"
+ "Marked when neither champion has a stun, root, knock-up, taunt, fear, charm, sleep or suppression, so the pair struggles to lock anyone down.": "两位英雄都没有晕眩、禁锢、击飞、嘲讽、恐惧、魅惑、催眠或压制时会标出，这对组合很难控住敌人。",
+ "Best champ": "最佳英雄",
+ "The champion with the highest estimated win rate boost from this augment.": "使用该强化符文时预计胜率提升最高的英雄。"
 }

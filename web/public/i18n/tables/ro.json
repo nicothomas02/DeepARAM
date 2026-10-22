@@ -125,5 +125,7 @@
  "Healing done": "Vindecare oferită",
  "Crowd control": "Control",
  "Shielding": "Scuturi",
- "Marked when neither champion has a stun, root, knock-up, taunt, fear, charm, sleep or suppression, so the pair struggles to lock anyone down.": "Marcat când niciunul dintre campioni nu are amețire, imobilizare, aruncare în aer, provocare, frică, farmec, somn sau suprimare, așa că perechea blochează greu adversarii."
+ "Marked when neither champion has a stun, root, knock-up, taunt, fear, charm, sleep or suppression, so the pair struggles to lock anyone down.": "Marcat când niciunul dintre campioni nu are amețire, imobilizare, aruncare în aer, provocare, frică, farmec, somn sau suprimare, așa că perechea blochează greu adversarii.",
+ "Best champ": "Cel mai bun campion",
+ "The champion with the highest estimated win rate boost from this augment.": "Campionul cu cea mai mare creștere estimată a ratei de victorie datorită acestei augmentări."
 }

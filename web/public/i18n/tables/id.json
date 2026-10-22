@@ -125,5 +125,7 @@
  "Healing done": "Heal yang diberikan",
  "Crowd control": "Crowd control",
  "Shielding": "Perisai",
- "Marked when neither champion has a stun, root, knock-up, taunt, fear, charm, sleep or suppression, so the pair struggles to lock anyone down.": "Ditandai jika kedua champion tidak punya stun, root, knock-up, taunt, fear, charm, sleep, atau suppression, sehingga duo ini sulit mengunci lawan."
+ "Marked when neither champion has a stun, root, knock-up, taunt, fear, charm, sleep or suppression, so the pair struggles to lock anyone down.": "Ditandai jika kedua champion tidak punya stun, root, knock-up, taunt, fear, charm, sleep, atau suppression, sehingga duo ini sulit mengunci lawan.",
+ "Best champ": "Champion terbaik",
+ "The champion with the highest estimated win rate boost from this augment.": "Champion dengan perkiraan kenaikan win rate tertinggi dari augment ini."
 }

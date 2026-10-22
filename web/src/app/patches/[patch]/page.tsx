@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: { params: Promise<{ patch: st
   return pageMeta(
     `/patches/${patchName(r.patch)}`,
     `ARAM Mayhem Patch ${patchName(r.patch)} Recap`,
-    `What changed in ARAM Mayhem on patch ${patchName(r.patch)}: ${r.changed.length} augments changed.${top}`,
+    `What changed in ARAM Mayhem on patch ${patchName(r.patch)}: ${[r.added.length && `${r.added.length} augments added`, r.removed.length && `${r.removed.length} removed`, `${r.changed.length} augments changed`].filter(Boolean).join(", ")}.${top}`,
   );
 }
 
@@ -64,7 +64,7 @@ export default async function PatchPage({ params }: { params: Promise<{ patch: s
   const i = all.indexOf(r.patch);
   const newer = i > 0 ? all[i - 1] : null;
   const older = all[i + 1] ?? null;
-  const quiet = r.hasAugmentHistory && !r.changed.length;
+  const quiet = r.hasAugmentHistory && !r.added.length && !r.removed.length && !r.changed.length;
   return (
     <>
       <Breadcrumbs
@@ -110,6 +110,22 @@ export default async function PatchPage({ params }: { params: Promise<{ patch: s
           </span>
         </h1>
         <div className="stat-row">
+          {r.added.length > 0 && (
+            <div>
+              <b>{r.added.length}</b>
+              <span>
+                <T ns="patches">augments added</T>
+              </span>
+            </div>
+          )}
+          {r.removed.length > 0 && (
+            <div>
+              <b>{r.removed.length}</b>
+              <span>
+                <T ns="patches">removed</T>
+              </span>
+            </div>
+          )}
           <div>
             <b>{r.changed.length}</b>
             <span>
@@ -206,6 +222,34 @@ export default async function PatchPage({ params }: { params: Promise<{ patch: s
                 </li>
               ))}
             </ul>
+          </section>
+        )}
+        {r.added.length > 0 && (
+          <section className="card span-6" data-accent="gold">
+            <div className="card-head">
+              <h2>
+                <T ns="patches">Augments added</T>
+              </h2>
+            </div>
+            <div className="rank plain recap-list">
+              {r.added.map((a) => (
+                <Aug key={a.id} a={a} />
+              ))}
+            </div>
+          </section>
+        )}
+        {r.removed.length > 0 && (
+          <section className="card span-6" data-accent="lab">
+            <div className="card-head">
+              <h2>
+                <T ns="patches">Augments removed</T>
+              </h2>
+            </div>
+            <div className="rank plain recap-list">
+              {r.removed.map((a) => (
+                <Aug key={a.id} a={a} />
+              ))}
+            </div>
           </section>
         )}
       </div>

@@ -125,5 +125,7 @@
  "Healing done": "Gyógyítás",
  "Crowd control": "Tömegirányítás",
  "Shielding": "Pajzsok",
- "Marked when neither champion has a stun, root, knock-up, taunt, fear, charm, sleep or suppression, so the pair struggles to lock anyone down.": "Akkor jelöljük, ha egyik hősnek sincs kábítása, gyökereztetése, feldobása, provokálása, rémisztése, elbűvölése, altatása vagy elfojtása, így a páros nehezen köt le bárkit."
+ "Marked when neither champion has a stun, root, knock-up, taunt, fear, charm, sleep or suppression, so the pair struggles to lock anyone down.": "Akkor jelöljük, ha egyik hősnek sincs kábítása, gyökereztetése, feldobása, provokálása, rémisztése, elbűvölése, altatása vagy elfojtása, így a páros nehezen köt le bárkit.",
+ "Best champ": "Legjobb bajnok",
+ "The champion with the highest estimated win rate boost from this augment.": "Az a bajnok, akinek ez a fejlesztés a legnagyobb becsült győzelmi arány-növekedést adja."
 }

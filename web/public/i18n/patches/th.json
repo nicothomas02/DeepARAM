@@ -31,5 +31,7 @@
  "Set 3": "เซ็ต 3",
  "New set": "เซ็ตใหม่",
  "{n} augments changed": "ออคเมนต์เปลี่ยน {n} รายการ",
- "augments changed": "ออคเมนต์ที่เปลี่ยน"
+ "augments changed": "ออคเมนต์ที่เปลี่ยน",
+ "{n} added": "เพิ่ม {n}",
+ "{n} removed": "นำออก {n}"
 }

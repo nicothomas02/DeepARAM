@@ -125,5 +125,7 @@
  "Healing done": "Verursachte Heilung",
  "Crowd control": "Massenkontrolle",
  "Shielding": "Schilde",
- "Marked when neither champion has a stun, root, knock-up, taunt, fear, charm, sleep or suppression, so the pair struggles to lock anyone down.": "Markiert, wenn keiner der beiden Champions Betäubung, Festhalten, Hochschleudern, Verspotten, Furcht, Bezaubern, Schlaf oder Unterdrückung hat. Das Duo kann Gegner dann kaum festsetzen."
+ "Marked when neither champion has a stun, root, knock-up, taunt, fear, charm, sleep or suppression, so the pair struggles to lock anyone down.": "Markiert, wenn keiner der beiden Champions Betäubung, Festhalten, Hochschleudern, Verspotten, Furcht, Bezaubern, Schlaf oder Unterdrückung hat. Das Duo kann Gegner dann kaum festsetzen.",
+ "Best champ": "Bester Champ",
+ "The champion with the highest estimated win rate boost from this augment.": "Der Champion mit dem höchsten geschätzten Siegraten-Plus durch diese Verstärkung."
 }

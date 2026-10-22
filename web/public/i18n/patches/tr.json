@@ -31,5 +31,7 @@
  "Set 3": "Set 3",
  "New set": "Yeni set",
  "{n} augments changed": "{n} güçlendirme değişti",
- "augments changed": "güçlendirme değişti"
+ "augments changed": "güçlendirme değişti",
+ "{n} added": "{n} eklendi",
+ "{n} removed": "{n} kaldırıldı"
 }

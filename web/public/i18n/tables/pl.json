@@ -125,5 +125,7 @@
  "Healing done": "Zadane leczenie",
  "Crowd control": "Kontrola tłumu",
  "Shielding": "Tarcze",
- "Marked when neither champion has a stun, root, knock-up, taunt, fear, charm, sleep or suppression, so the pair struggles to lock anyone down.": "Oznaczone, gdy żaden z bohaterów nie ma ogłuszenia, unieruchomienia, podrzucenia, prowokacji, strachu, zauroczenia, uśpienia ani przygwożdżenia, więc para z trudem kogokolwiek zatrzyma."
+ "Marked when neither champion has a stun, root, knock-up, taunt, fear, charm, sleep or suppression, so the pair struggles to lock anyone down.": "Oznaczone, gdy żaden z bohaterów nie ma ogłuszenia, unieruchomienia, podrzucenia, prowokacji, strachu, zauroczenia, uśpienia ani przygwożdżenia, więc para z trudem kogokolwiek zatrzyma.",
+ "Best champ": "Najlepszy bohater",
+ "The champion with the highest estimated win rate boost from this augment.": "Bohater z najwyższym szacowanym wzrostem współczynnika zwycięstw dzięki temu ulepszeniu."
 }

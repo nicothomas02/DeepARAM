@@ -17,7 +17,7 @@ import type { TagInfo } from "@/lib/tag-info";
 export type Column = {
   key: string;
   label: string;
-  format?: "pct" | "pts" | "num" | "int" | "sec" | "text" | "champion" | "augment" | "item" | "tier" | "deepscore" | "tags";
+  format?: "pct" | "pts" | "num" | "int" | "sec" | "text" | "champion" | "champion-icon" | "augment" | "item" | "tier" | "deepscore" | "tags";
   sortable?: boolean;
   /** For "augment" columns: the row key holding the augment id, for its icon; for "item" columns, the icon's address. */
   iconKey?: string;
@@ -98,7 +98,7 @@ function TierChip({ tier, was }: { tier: string; was: Row[string] | undefined })
 
 // Numbers get a colour where it means something: win rates above or below an even 50%, and changes up or down.
 function cellClass(c: Column, v: Row[string]) {
-  if (!c.format || ["text", "champion", "augment", "item", "tier", "tags"].includes(c.format)) return "";
+  if (!c.format || ["text", "champion", "champion-icon", "augment", "item", "tier", "tags"].includes(c.format)) return "";
   const n = Number(v);
   if (v === null || v === "" || Number.isNaN(n)) return "num";
   if (c.format === "pct" && /win/.test(c.key)) return n >= 0.52 ? "num wr-high" : n <= 0.48 ? "num wr-low" : "num";
@@ -114,30 +114,55 @@ function useStickyHead(on: boolean) {
   const ref = useRef<HTMLTableElement>(null);
   useEffect(() => {
     const table = ref.current;
-    if (!on || !table) return;
+    const wrap = table?.parentElement;
+    if (!on || !table || !wrap) return;
+    // A table that fits its width (most on phones) lets the browser stick the header itself, which moves with the
+    // scroll exactly; one that scrolls sideways needs the transform, which follows a frame behind.
+    const canClip = typeof CSS !== "undefined" && CSS.supports("overflow", "clip");
     let raf = 0;
+    const headerBottom = () => Math.max(0, document.querySelector(".site-header")?.getBoundingClientRect().bottom ?? 0);
     const update = () => {
       raf = 0;
       const head = table.tHead;
       if (!head) return;
-      const top = Math.max(0, document.querySelector(".site-header")?.getBoundingClientRect().bottom ?? 0);
+      const top = headerBottom();
       const box = table.getBoundingClientRect();
+      if (wrap.hasAttribute("data-sticky")) {
+        // The site header is shorter once the page scrolls on some screens.
+        const px = `${top}px`;
+        if (wrap.style.getPropertyValue("--sticky-top") !== px) wrap.style.setProperty("--sticky-top", px);
+        table.toggleAttribute("data-stuck", box.top < top && box.bottom > top + head.offsetHeight);
+        return;
+      }
       const off = Math.round(Math.min(Math.max(0, top - box.top), box.height - head.offsetHeight * 2));
       table.style.setProperty("--head-off", `${Math.max(0, off)}px`);
       table.toggleAttribute("data-stuck", off > 0);
     };
+    const fit = () => {
+      wrap.toggleAttribute("data-sticky", false);
+      const sticky = canClip && wrap.scrollWidth <= wrap.clientWidth + 1;
+      wrap.toggleAttribute("data-sticky", sticky);
+      if (sticky) table.style.removeProperty("--head-off");
+      update();
+    };
     const onScroll = () => {
       if (!raf) raf = requestAnimationFrame(update);
     };
-    update();
+    fit();
+    const seen = new ResizeObserver(() => fit());
+    seen.observe(table);
+    seen.observe(wrap);
     addEventListener("scroll", onScroll, { passive: true });
-    addEventListener("resize", onScroll);
+    addEventListener("resize", fit);
     return () => {
       cancelAnimationFrame(raf);
+      seen.disconnect();
       removeEventListener("scroll", onScroll);
-      removeEventListener("resize", onScroll);
+      removeEventListener("resize", fit);
       table.style.removeProperty("--head-off");
       table.removeAttribute("data-stuck");
+      wrap.removeAttribute("data-sticky");
+      wrap.style.removeProperty("--sticky-top");
     };
   }, [on]);
   return ref;
@@ -167,6 +192,20 @@ function Champion({ id }: { id: string }) {
     </RowLink>
   ) : (
     named
+  );
+}
+
+// Just the champion's icon, named for screen readers and on hover; it opens their page too.
+function ChampionIcon({ id }: { id: string }) {
+  const name = useNames()("champions", id, NAMES[id] ?? id.replace(/([a-z])([A-Z])/g, "$1 $2"));
+  // eslint-disable-next-line @next/next/no-img-element
+  const icon = <img className="champ-icon" src={`/icons/champions/${id}.webp`} alt={name} title={name} width={28} height={28} loading="lazy" />;
+  return id in championIds ? (
+    <RowLink className="cell-link" href={`/champions/${id}`}>
+      {icon}
+    </RowLink>
+  ) : (
+    icon
   );
 }
 
@@ -300,7 +339,7 @@ export default function DataTable({
               {columns.map((c) => (
                 <th
                   key={c.key}
-                  className={cls(c, c.format && !["text", "champion", "augment", "item", "tier", "tags"].includes(c.format) ? "num" : "")}
+                  className={cls(c, c.format && !["text", "champion", "champion-icon", "augment", "item", "tier", "tags"].includes(c.format) ? "num" : "")}
                   aria-sort={c.sortable !== false && sort.key === (c.sortKey ?? c.key) ? (sort.desc ? "descending" : "ascending") : undefined}
                 >
                   {c.sortable === false ? (
@@ -328,6 +367,8 @@ export default function DataTable({
                   <td key={c.key} className={cls(c, cellClass(c, r[c.key]))}>
                     {c.format === "champion" ? (
                       <Champion id={String(r[c.key])} />
+                    ) : c.format === "champion-icon" ? (
+                      r[c.key] ? <ChampionIcon id={String(r[c.key])} /> : "–"
                     ) : c.format === "item" ? (
                       // The row carries the item's name in the page's language already.
                       <RowLink className="cell-link" href={String(r[c.hrefKey ?? "href"])}>

@@ -243,6 +243,22 @@ test("the Tier List's Items tab filters items and links to item pages", async ({
   await expect(page).toHaveURL(new RegExp(`${href}$`));
 });
 
+test("augment and item pages show the official description under the name, and best champions their win rate boost and the list the best champ", async ({ page }) => {
+  await page.goto("/items/zhonyas-hourglass");
+  await expect(page.locator(".champ-hero .official-desc")).toContainText("Time Stop");
+  await page.goto("/tier-list?tab=augments");
+  // The augment list shows the best champion's icon and no longer the rank columns.
+  const heads = page.locator("#augments thead th, [role=tabpanel] thead th");
+  await expect(heads.filter({ hasText: "Best champ" })).toHaveCount(1);
+  await expect(heads.filter({ hasText: /Win rank|Pick rank/ })).toHaveCount(0);
+  // On phones the simple view hides the column, so only check the icon is there.
+  await expect(page.locator("td img.champ-icon").first()).toBeAttached();
+  const aug = page.locator('a[href^="/augments/"]').first();
+  await aug.click();
+  await expect(page.locator(".champ-hero .official-desc")).not.toBeEmpty();
+  await expect(page.locator(".card", { hasText: "Best champions for it" }).locator(".card-note")).toContainText("Win rate boost");
+});
+
 test("share links for a Chef Special and a build give link previews their card", async ({ page, request }) => {
   const special = await request.get("/kitchen/2026-10-17");
   expect(special.status()).toBe(200);
@@ -292,7 +308,7 @@ test("the Simulator opens in 3D even with the old owner switch's saved 2D pick",
   await expect(page.locator("iframe").first()).toHaveAttribute("src", /^\/embed\/simulator\/index\.html/);
 });
 
-test("patch history groups by set, recaps skip the augment pool, and the champion list offers the set", async ({ page }) => {
+test("patch history groups by set, recaps list added and removed augments only where a patch has them, and the champion list offers the set", async ({ page }) => {
   // The live patch's set, from the same patch list the pages read
   const patches = readFileSync("../data/cn/history/patches.csv", "utf8").trim().split("\n").slice(1).map((l) => l.split(",")[0]);
   const live = setOf(patches[patches.length - 1]);
@@ -308,10 +324,17 @@ test("patch history groups by set, recaps skip the augment pool, and the champio
   }
   await expect(page.locator(".recap-set-head", { hasText: live.name })).toHaveCount(1);
   await expect(page.locator(".recap-set-head", { hasText: "Launch" })).toHaveCount(1);
-  await expect(page.locator("body")).not.toContainText("added ·");
   await page.locator("a.recap-row").first().click();
   await expect(page.locator(".champ-hero .eyebrow")).toContainText(live.name);
-  await expect(page.locator("main")).not.toContainText("Augments added");
+  // Patch 16.21 (26.21) removed augments and added none; 16.12 did both.
+  await page.goto("/patches/26.21");
+  await expect(page.locator("main h2", { hasText: "Augments removed" })).toHaveCount(1);
+  await expect(page.locator("main h2", { hasText: "Augments added" })).toHaveCount(0);
+  await page.goto("/patches/26.12");
+  await expect(page.locator("main h2", { hasText: "Augments added" })).toHaveCount(1);
+  await expect(page.locator("main h2", { hasText: "Augments removed" })).toHaveCount(1);
+  await page.goto("/patches/26.20");
+  await expect(page.locator("main h2", { hasText: /Augments (added|removed)/ })).toHaveCount(0);
 
   await page.goto("/tier-list");
   const set = page.getByRole("button", { name: /This set/ });

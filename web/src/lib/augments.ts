@@ -20,6 +20,7 @@ export const augmentSlug = (name: string) =>
     .replace(/^-|-$/g, "");
 
 type Raw = { augment_id: number; win_rate: number; pick_rate: number; win_rank?: number; pick_rank?: number; tier?: string; best_champions?: number[] };
+type Estimates = { augments?: Record<string, { id: number; pick_rate: number; lift: number }[]> };
 type Builds = { augments?: { all?: { id: number; pick_rate: number }[] } };
 
 export type AugmentPage = {
@@ -32,7 +33,8 @@ export type AugmentPage = {
   winRank: number | null;
   pickRank: number | null;
   of: number;
-  best: { id: string; name: string }[];
+  /** The champions it does best on, by estimated win rate boost (points of win rate over the champion's own). */
+  best: { id: string; name: string; boost: number | null }[];
   pickers: { id: string; name: string; pickRate: number }[];
 };
 
@@ -47,6 +49,17 @@ export function augmentPages(): AugmentPage[] {
       pickers.set(a.id, [...(pickers.get(a.id) ?? []), { id: alias, name: champName(alias), pickRate: a.pick_rate }]);
     }
   }
+  // Estimated boost per champion and augment (data/estimates/estimates.json); ties go to the more picked.
+  const est = new Map<string, { lift: number; pick: number }>();
+  for (const [cid, list] of Object.entries(readRepoJson<Estimates>("data/estimates/estimates.json")?.augments ?? {}))
+    for (const x of list) est.set(`${cid}:${x.id}`, { lift: x.lift, pick: x.pick_rate });
+  const bestOf = (a: Raw) =>
+    (a.best_champions ?? [])
+      .filter((id) => ALIAS[id])
+      .slice(0, 6)
+      .map((id) => ({ id: ALIAS[id], name: champName(ALIAS[id]), boost: est.get(`${id}:${a.augment_id}`)?.lift ?? null, pick: est.get(`${id}:${a.augment_id}`)?.pick ?? 0 }))
+      .sort((x, y) => (y.boost ?? -1) - (x.boost ?? -1) || y.pick - x.pick)
+      .map((b) => ({ id: b.id, name: b.name, boost: b.boost }));
   cache = raw.map((a) => ({
     id: a.augment_id,
     slug: augmentSlug(NAMES[a.augment_id]),
@@ -57,7 +70,7 @@ export function augmentPages(): AugmentPage[] {
     winRank: a.win_rank ?? null,
     pickRank: a.pick_rank ?? null,
     of: raw.length,
-    best: (a.best_champions ?? []).map((id) => ALIAS[id]).filter(Boolean).slice(0, 6).map((id) => ({ id, name: champName(id) })),
+    best: bestOf(a),
     pickers: (pickers.get(a.augment_id) ?? []).sort((x, y) => y.pickRate - x.pickRate).slice(0, 8),
   }));
   return cache;

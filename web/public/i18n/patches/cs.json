@@ -31,5 +31,7 @@
  "Set 3": "Sada 3",
  "New set": "Nová sada",
  "{n} augments changed": "Změněná vylepšení: {n}",
- "augments changed": "změněná vylepšení"
+ "augments changed": "změněná vylepšení",
+ "{n} added": "{n} přidáno",
+ "{n} removed": "{n} odebráno"
 }

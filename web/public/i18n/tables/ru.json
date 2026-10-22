@@ -125,5 +125,7 @@
  "Healing done": "Исцеление",
  "Crowd control": "Контроль",
  "Shielding": "Щиты",
- "Marked when neither champion has a stun, root, knock-up, taunt, fear, charm, sleep or suppression, so the pair struggles to lock anyone down.": "Отмечается, когда ни у одного из чемпионов нет оглушения, обездвиживания, подбрасывания, провокации, страха, очарования, сна или подавления, поэтому паре трудно кого-то удержать."
+ "Marked when neither champion has a stun, root, knock-up, taunt, fear, charm, sleep or suppression, so the pair struggles to lock anyone down.": "Отмечается, когда ни у одного из чемпионов нет оглушения, обездвиживания, подбрасывания, провокации, страха, очарования, сна или подавления, поэтому паре трудно кого-то удержать.",
+ "Best champ": "Лучший чемпион",
+ "The champion with the highest estimated win rate boost from this augment.": "Чемпион с наибольшим расчётным приростом доли побед от этого усиления."
 }

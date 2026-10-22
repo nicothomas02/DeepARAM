@@ -125,5 +125,7 @@
  "Healing done": "การฟื้นฟูที่ทำได้",
  "Crowd control": "การควบคุม (CC)",
  "Shielding": "โล่",
- "Marked when neither champion has a stun, root, knock-up, taunt, fear, charm, sleep or suppression, so the pair struggles to lock anyone down.": "แสดงเมื่อไม่มีแชมเปี้ยนคนใดมีสตัน รูท น็อกอัป ยั่วยุ ทำให้กลัว ชาร์ม ทำให้หลับ หรือ Suppression ทำให้คู่นี้ล็อกศัตรูได้ยาก"
+ "Marked when neither champion has a stun, root, knock-up, taunt, fear, charm, sleep or suppression, so the pair struggles to lock anyone down.": "แสดงเมื่อไม่มีแชมเปี้ยนคนใดมีสตัน รูท น็อกอัป ยั่วยุ ทำให้กลัว ชาร์ม ทำให้หลับ หรือ Suppression ทำให้คู่นี้ล็อกศัตรูได้ยาก",
+ "Best champ": "แชมเปียนที่ดีที่สุด",
+ "The champion with the highest estimated win rate boost from this augment.": "แชมเปียนที่อัตราชนะเพิ่มขึ้นมากที่สุดโดยประมาณจากออคเมนต์นี้"
 }

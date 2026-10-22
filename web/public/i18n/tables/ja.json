@@ -125,5 +125,7 @@
  "Healing done": "回復量",
  "Crowd control": "行動妨害",
  "Shielding": "シールド量",
- "Marked when neither champion has a stun, root, knock-up, taunt, fear, charm, sleep or suppression, so the pair struggles to lock anyone down.": "どちらのチャンピオンもスタン、スネア、ノックアップ、挑発、フィアー、魅了、睡眠、サプレッションを持たない場合に表示されます。このペアは敵を拘束しにくくなります。"
+ "Marked when neither champion has a stun, root, knock-up, taunt, fear, charm, sleep or suppression, so the pair struggles to lock anyone down.": "どちらのチャンピオンもスタン、スネア、ノックアップ、挑発、フィアー、魅了、睡眠、サプレッションを持たない場合に表示されます。このペアは敵を拘束しにくくなります。",
+ "Best champ": "ベストチャンピオン",
+ "The champion with the highest estimated win rate boost from this augment.": "このオーグメントで推定勝率上昇が最も大きいチャンピオン。"
 }

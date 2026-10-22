@@ -125,5 +125,7 @@
  "Healing done": "Soins prodigués",
  "Crowd control": "Contrôle de foule",
  "Shielding": "Boucliers",
- "Marked when neither champion has a stun, root, knock-up, taunt, fear, charm, sleep or suppression, so the pair struggles to lock anyone down.": "Indiqué quand aucun des deux champions n'a d'étourdissement, d'immobilisation, de projection, de provocation, de peur, de charme, de sommeil ou de suppression : le duo peine à bloquer un adversaire."
+ "Marked when neither champion has a stun, root, knock-up, taunt, fear, charm, sleep or suppression, so the pair struggles to lock anyone down.": "Indiqué quand aucun des deux champions n'a d'étourdissement, d'immobilisation, de projection, de provocation, de peur, de charme, de sommeil ou de suppression : le duo peine à bloquer un adversaire.",
+ "Best champ": "Meilleur champion",
+ "The champion with the highest estimated win rate boost from this augment.": "Le champion qui gagne le plus en taux de victoire estimé avec cet augment."
 }

@@ -125,5 +125,7 @@
  "Healing done": "Curación realizada",
  "Crowd control": "Control de masas",
  "Shielding": "Escudos",
- "Marked when neither champion has a stun, root, knock-up, taunt, fear, charm, sleep or suppression, so the pair struggles to lock anyone down.": "Aparece cuando ninguno de los dos tiene aturdimiento, inmovilización, derribo, provocación, miedo, encanto, sueño o supresión, así que a la pareja le cuesta inmovilizar a alguien."
+ "Marked when neither champion has a stun, root, knock-up, taunt, fear, charm, sleep or suppression, so the pair struggles to lock anyone down.": "Aparece cuando ninguno de los dos tiene aturdimiento, inmovilización, derribo, provocación, miedo, encanto, sueño o supresión, así que a la pareja le cuesta inmovilizar a alguien.",
+ "Best champ": "Mejor campeón",
+ "The champion with the highest estimated win rate boost from this augment.": "El campeón con el mayor aumento estimado de tasa de victorias con este aumento."
 }

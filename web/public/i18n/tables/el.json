@@ -125,5 +125,7 @@
  "Healing done": "Θεραπεία που έγινε",
  "Crowd control": "Έλεγχος πλήθους",
  "Shielding": "Ασπίδες",
- "Marked when neither champion has a stun, root, knock-up, taunt, fear, charm, sleep or suppression, so the pair struggles to lock anyone down.": "Σημειώνεται όταν κανένας από τους δύο δεν έχει ζάλη, ακινητοποίηση, εκτίναξη, πρόκληση, φόβο, γοητεία, ύπνο ή καταστολή, οπότε το δίδυμο δυσκολεύεται να σταματήσει αντιπάλους."
+ "Marked when neither champion has a stun, root, knock-up, taunt, fear, charm, sleep or suppression, so the pair struggles to lock anyone down.": "Σημειώνεται όταν κανένας από τους δύο δεν έχει ζάλη, ακινητοποίηση, εκτίναξη, πρόκληση, φόβο, γοητεία, ύπνο ή καταστολή, οπότε το δίδυμο δυσκολεύεται να σταματήσει αντιπάλους.",
+ "Best champ": "Καλύτερος champion",
+ "The champion with the highest estimated win rate boost from this augment.": "Ο champion με τη μεγαλύτερη εκτιμώμενη αύξηση ποσοστού νικών από αυτή την ενίσχυση."
 }

@@ -31,5 +31,7 @@
  "Set 3": "Set 3",
  "New set": "Set baru",
  "{n} augments changed": "{n} augment berubah",
- "augments changed": "augment berubah"
+ "augments changed": "augment berubah",
+ "{n} added": "{n} ditambahkan",
+ "{n} removed": "{n} dihapus"
 }

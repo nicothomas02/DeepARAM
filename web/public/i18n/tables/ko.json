@@ -125,5 +125,7 @@
  "Healing done": "회복량",
  "Crowd control": "군중 제어",
  "Shielding": "보호막",
- "Marked when neither champion has a stun, root, knock-up, taunt, fear, charm, sleep or suppression, so the pair struggles to lock anyone down.": "두 챔피언 모두 기절, 속박, 에어본, 도발, 공포, 매혹, 수면, 제압이 없을 때 표시됩니다. 이 조합은 적을 묶어 두기 어렵습니다."
+ "Marked when neither champion has a stun, root, knock-up, taunt, fear, charm, sleep or suppression, so the pair struggles to lock anyone down.": "두 챔피언 모두 기절, 속박, 에어본, 도발, 공포, 매혹, 수면, 제압이 없을 때 표시됩니다. 이 조합은 적을 묶어 두기 어렵습니다.",
+ "Best champ": "최고 챔피언",
+ "The champion with the highest estimated win rate boost from this augment.": "이 증강으로 예상 승률 상승이 가장 큰 챔피언입니다."
 }

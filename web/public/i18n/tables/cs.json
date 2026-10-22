@@ -125,5 +125,7 @@
  "Healing done": "Vyléčeno",
  "Crowd control": "Omezující efekty",
  "Shielding": "Štíty",
- "Marked when neither champion has a stun, root, knock-up, taunt, fear, charm, sleep or suppression, so the pair struggles to lock anyone down.": "Označeno, když žádný z šampionů nemá omráčení, znehybnění, vyhození, provokaci, strach, okouzlení, uspání ani potlačení, takže dvojice těžko někoho zastaví."
+ "Marked when neither champion has a stun, root, knock-up, taunt, fear, charm, sleep or suppression, so the pair struggles to lock anyone down.": "Označeno, když žádný z šampionů nemá omráčení, znehybnění, vyhození, provokaci, strach, okouzlení, uspání ani potlačení, takže dvojice těžko někoho zastaví.",
+ "Best champ": "Nejlepší šampion",
+ "The champion with the highest estimated win rate boost from this augment.": "Šampion s nejvyšším odhadovaným nárůstem míry výher díky tomuto vylepšení."
 }

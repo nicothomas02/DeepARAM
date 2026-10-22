@@ -31,5 +31,7 @@
  "Set 3": "Σετ 3",
  "New set": "Νέο σετ",
  "{n} augments changed": "{n} ενισχύσεις άλλαξαν",
- "augments changed": "ενισχύσεις άλλαξαν"
+ "augments changed": "ενισχύσεις άλλαξαν",
+ "{n} added": "{n} προστέθηκαν",
+ "{n} removed": "{n} αφαιρέθηκαν"
 }

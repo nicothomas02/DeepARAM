@@ -31,5 +31,7 @@
  "Set 3": "Сет 3",
  "New set": "Новый сет",
  "{n} augments changed": "Изменено аугментов: {n}",
- "augments changed": "аугментов изменено"
+ "augments changed": "аугментов изменено",
+ "{n} added": "добавлено: {n}",
+ "{n} removed": "удалено: {n}"
 }

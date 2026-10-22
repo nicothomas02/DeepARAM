@@ -31,5 +31,7 @@
  "Set 3": "Bộ 3",
  "New set": "Bộ mới",
  "{n} augments changed": "{n} lõi nâng cấp thay đổi",
- "augments changed": "lõi nâng cấp thay đổi"
+ "augments changed": "lõi nâng cấp thay đổi",
+ "{n} added": "Thêm {n}",
+ "{n} removed": "Gỡ {n}"
 }
