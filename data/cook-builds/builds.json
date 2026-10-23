@@ -116,6 +116,29 @@
       "why": "Braum's Concussive Blows has a line most people skim past: once he lands the first stack, his allies' basic attacks stack it too, and the fourth stack stuns. That turns every teammate who can swing a weapon into a stun button, and every one of those stuns counts as Braum's. Cruelty drops a comet of magic damage on each champion he Immobilizes, Slap Around banks 10 Adaptive Force per stun, and Impassable adds an Aftershock burst and Glacial Augment's slowing rays, so a single stun pays out three times and leaves him stronger for the next one. Bandlepipes hands the whole team Attack Speed every time he stuns someone, so the next four stacks land even faster, Imperial Mandate marks each stunned target to take more damage, and with Nashor's Tooth, Riftmaker and Rabadon's Deathcap all that Adaptive Force becomes Ability Power. The bodyguard stops standing in front of his team and becomes its artillery, and his teammates are the ones pulling the trigger.",
       "play": "Tag one enemy with Winter's Bite, then let your carries hit the same target; every stun calls down a comet, so keep re-tagging whoever they are shooting.",
       "chef": "2026-10-21"
+    },
+    {
+      "id": "quinn-wall-street-bouncer",
+      "champion": "Quinn",
+      "title": "Wall Street Bouncer",
+      "augments": [
+        "Chain Reaction",
+        "Ravenous Bind",
+        "Soul Eater",
+        "Dashing"
+      ],
+      "core": 4,
+      "items": [
+        "Navori Flickerblade",
+        "Spear of Shojin",
+        "Heartsteel",
+        "Overlord's Bloodmail",
+        "Sterak's Gage",
+        "Mercury's Treads"
+      ],
+      "why": "Vault has a side effect nobody plays around: after Quinn dashes in she leaps backwards and slightly Knocks the target Back. Chain Reaction on Vault turns that polite nudge into a Knock Up whenever the shoved enemy hits another champion or a wall, with a longer Knock Up and bonus damage against terrain, and the bridge is one long corridor of walls. Every Vault is now an immobilize, so Ravenous Bind makes it heal her and hit harder, Soul Eater hands her permanent max Health for each one, and Dashing gives the dash 175 Ability Haste so it comes back almost at once. Navori Flickerblade closes the loop: Vault marks its target with Harrier, Heightened Senses gives Attack Speed for hitting Harrier targets, and each of those Attacks cuts the remaining Vault cooldown by 15%, while Spear of Shojin adds Basic Ability Haste on top. Heartsteel and Soul Eater stack Health that Overlord's Bloodmail turns into Attack Damage, so the ranged scout ends up a walking shoulder-check who throws people into walls and tanks off the bounce.",
+      "play": "Stand with your back to open ground and Vault enemies toward a wall or into their own teammate, then hit the Harrier mark so Vault is ready again. Behind Enemy Lines is just a bus to the next wall.",
+      "chef": "2026-10-22"
     }
   ]
 }

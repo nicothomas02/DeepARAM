@@ -1,10 +1,10 @@
 window.COOK_DATA = {
  "meta": {
-  "cn_augment_date": "20261020",
-  "cn_champion_date": "20261020",
+  "cn_augment_date": "20261022",
+  "cn_champion_date": "20261022",
   "champion_count": 173,
-  "augment_count": 211,
-  "generated": "2026-10-22"
+  "augment_count": 220,
+  "generated": "2026-10-23"
  },
  "builds": [
   {
@@ -19,14 +19,14 @@ window.COOK_DATA = {
      "text": "Your healing and Shields can Critically Strike for 40% bonus amount. Gain 25% Crit Chance.",
      "core": true,
      "icon": "icons/augments/critical-healing.png",
-     "win_rate": 0.4982,
-     "pick_rate": 0.0355,
-     "win_rank": 149,
+     "win_rate": 0.4968,
+     "pick_rate": 0.0267,
+     "win_rank": 165,
      "best_champions": [
       "Senna",
+      "Soraka",
       "Sona",
       "Yuumi",
-      "Soraka",
       "Karma",
       "Janna"
      ],
@@ -39,16 +39,16 @@ window.COOK_DATA = {
      "text": "Your healing and Health Regen deal 70% of the value magic damage to the nearest enemy champion.",
      "core": true,
      "icon": "icons/augments/circle-of-death.png",
-     "win_rate": 0.5283,
-     "pick_rate": 0.0887,
-     "win_rank": 84,
+     "win_rate": 0.5317,
+     "pick_rate": 0.0913,
+     "win_rank": 77,
      "best_champions": [
       "Swain",
       "DrMundo",
       "Vladimir",
       "Trundle",
       "Soraka",
-      "Yuumi"
+      "Darius"
      ],
      "champion_is_best": false
     },
@@ -59,9 +59,9 @@ window.COOK_DATA = {
      "text": "You can Critically Defend using your Crit Chance (max 50% chance), giving you a chance to reduce damage taken by 20%. Gain 25% Crit Chance.",
      "core": false,
      "icon": "icons/augments/tank-it-or-leave-it.png",
-     "win_rate": 0.5509,
-     "pick_rate": 0.19,
-     "win_rank": 48,
+     "win_rate": 0.5452,
+     "pick_rate": 0.1785,
+     "win_rank": 50,
      "best_champions": [
       "Graves",
       "Yone",
@@ -95,13 +95,13 @@ window.COOK_DATA = {
     3089
    ],
    "champion_icon": "icons/champions/23.png",
-   "champion_win_rate": 0.4951,
-   "champion_pick_rate": 0.0744,
-   "champion_win_rank": 74,
-   "core_win_rate": 0.5132,
+   "champion_win_rate": 0.5142,
+   "champion_pick_rate": 0.0711,
+   "champion_win_rank": 35,
+   "core_win_rate": 0.5142,
    "tier": "Pure troll",
    "core_usual": 0,
-   "core_pick_rate": 0.0621,
+   "core_pick_rate": 0.059,
    "sim": {
     "dps": 246,
     "survival": 0.013,
@@ -140,15 +140,15 @@ window.COOK_DATA = {
      "text": "Your Attacks grant you 10 Movement Speed. Gain Attack Speed. The buff stacks and refreshes infinitely but lasts 5 seconds.",
      "core": true,
      "icon": "icons/augments/tap-dancer.png",
-     "win_rate": 0.5226,
-     "pick_rate": 0.1317,
-     "win_rank": 97,
+     "win_rate": 0.5101,
+     "pick_rate": 0.1276,
+     "win_rank": 129,
      "best_champions": [
       "Jinx",
       "Caitlyn",
+      "Vayne",
       "Jhin",
       "Senna",
-      "Vayne",
       "Ashe"
      ],
      "champion_is_best": false
@@ -160,15 +160,15 @@ window.COOK_DATA = {
      "text": "Gain 1% bonus damage per 10 Movement Speed more you have than the target.",
      "core": true,
      "icon": "icons/augments/don-t-blink.png",
-     "win_rate": 0.5225,
-     "pick_rate": 0.0696,
-     "win_rank": 98,
+     "win_rate": 0.531,
+     "pick_rate": 0.0646,
+     "win_rank": 79,
      "best_champions": [
       "Lillia",
       "Jhin",
       "MissFortune",
-      "Singed",
       "Hecarim",
+      "Singed",
       "MasterYi"
      ],
      "champion_is_best": false
@@ -180,16 +180,16 @@ window.COOK_DATA = {
      "text": "Your Slowing effects reduce Movement Speed by an extra 75.",
      "core": true,
      "icon": "icons/augments/ice-cold.png",
-     "win_rate": 0.5305,
-     "pick_rate": 0.2743,
-     "win_rank": 77,
+     "win_rate": 0.5174,
+     "pick_rate": 0.2283,
+     "win_rank": 111,
      "best_champions": [
       "AurelionSol",
       "Brand",
       "Morgana",
       "Malzahar",
       "Singed",
-      "Teemo"
+      "Zyra"
      ],
      "champion_is_best": false
     },
@@ -200,16 +200,16 @@ window.COOK_DATA = {
      "text": "Gain 100% Movement Speed and 15% Attack Speed for 4 seconds on takedown.",
      "core": false,
      "icon": "icons/augments/get-excited.png",
-     "win_rate": 0.527,
-     "pick_rate": 0.2239,
-     "win_rank": 88,
+     "win_rate": 0.5209,
+     "pick_rate": 0.1705,
+     "win_rank": 102,
      "best_champions": [
-      "Jhin",
       "Jinx",
-      "Vayne",
-      "Hecarim",
+      "Jhin",
       "Caitlyn",
-      "MasterYi"
+      "Vayne",
+      "MasterYi",
+      "Hecarim"
      ],
      "champion_is_best": false
     }
@@ -236,13 +236,13 @@ window.COOK_DATA = {
     3009
    ],
    "champion_icon": "icons/champions/40.png",
-   "champion_win_rate": 0.5226,
-   "champion_pick_rate": 0.023,
-   "champion_win_rank": 27,
-   "core_win_rate": 0.5252,
+   "champion_win_rate": 0.5188,
+   "champion_pick_rate": 0.0235,
+   "champion_win_rank": 28,
+   "core_win_rate": 0.5195,
    "tier": "Holds up",
    "core_usual": 0,
-   "core_pick_rate": 0.1585,
+   "core_pick_rate": 0.1402,
    "sim": {
     "dps": 257,
     "survival": 0.021,
@@ -279,17 +279,10 @@ window.COOK_DATA = {
      "text": "Entering Brush grants Brush Power for 2 seconds. While Brush Power is active, you deal 20% more damage. Damage done: Staying in Brush refreshes Brush Power.",
      "core": true,
      "icon": "icons/augments/hide-on-bush.png",
-     "win_rate": 0.4768,
-     "pick_rate": 0.0178,
-     "win_rank": 192,
-     "best_champions": [
-      "Rengar",
-      "Shaco",
-      "FiddleSticks",
-      "Khazix",
-      "Teemo",
-      "Malphite"
-     ],
+     "win_rate": null,
+     "pick_rate": null,
+     "win_rank": null,
+     "best_champions": [],
      "champion_is_best": false
     },
     {
@@ -299,16 +292,16 @@ window.COOK_DATA = {
      "text": "Entering Brush regenerates a large amount of Health.",
      "core": true,
      "icon": "icons/augments/nature-is-healing.png",
-     "win_rate": 0.4843,
-     "pick_rate": 0.0717,
-     "win_rank": 176,
+     "win_rate": 0.4826,
+     "pick_rate": 0.0516,
+     "win_rank": 193,
      "best_champions": [
       "DrMundo",
       "TahmKench",
       "Singed",
       "Chogath",
-      "Sion",
-      "Sett"
+      "Maokai",
+      "Blitzcrank"
      ],
      "champion_is_best": false
     },
@@ -319,16 +312,16 @@ window.COOK_DATA = {
      "text": "After healing or shielding your ally with the chosen ability, your next basic attack gains attack range, attack speed and deals bonus max Health magic damage.",
      "core": true,
      "icon": "icons/augments/mercy-s-strike.png",
-     "win_rate": 0.4871,
-     "pick_rate": 0.0205,
-     "win_rank": 173,
+     "win_rate": 0.4863,
+     "pick_rate": 0.0166,
+     "win_rank": 189,
      "best_champions": [
       "Senna",
       "Sona",
       "Karma",
       "Soraka",
       "Janna",
-      "Renata"
+      "Nami"
      ],
      "champion_is_best": false
     },
@@ -339,15 +332,15 @@ window.COOK_DATA = {
      "text": "Gain Attack Range and Attack Speed during Your chosen ability duration.",
      "core": true,
      "icon": "icons/augments/lil-extra-help.png",
-     "win_rate": 0.5174,
-     "pick_rate": 0.1488,
-     "win_rank": 108,
+     "win_rate": 0.5095,
+     "pick_rate": 0.128,
+     "win_rank": 131,
      "best_champions": [
       "Tristana",
-      "Vayne",
-      "MasterYi",
       "Twitch",
+      "Vayne",
       "Ashe",
+      "MasterYi",
       "KogMaw"
      ],
      "champion_is_best": false
@@ -375,13 +368,13 @@ window.COOK_DATA = {
     3006
    ],
    "champion_icon": "icons/champions/427.png",
-   "champion_win_rate": 0.4992,
-   "champion_pick_rate": 0.0074,
-   "champion_win_rank": 68,
-   "core_win_rate": 0.4914,
+   "champion_win_rate": 0.5081,
+   "champion_pick_rate": 0.007,
+   "champion_win_rank": 46,
+   "core_win_rate": 0.4928,
    "tier": "Pure troll",
    "core_usual": 0,
-   "core_pick_rate": 0.0647,
+   "core_pick_rate": 0.0654,
    "sim": {
     "dps": 1056,
     "survival": 0.588,
@@ -418,16 +411,16 @@ window.COOK_DATA = {
      "text": "Gain 100% Attack Speed. Increase Sword of Blossoming Dawn's healing to 250% when you attack enemy champions.",
      "core": true,
      "icon": "icons/augments/upgrade-sword-of-blossoming-dawn.png",
-     "win_rate": 0.4944,
-     "pick_rate": 0.0114,
-     "win_rank": 157,
+     "win_rate": 0.4785,
+     "pick_rate": 0.0115,
+     "win_rank": 204,
      "best_champions": [
       "Senna",
-      "Soraka",
       "Sona",
-      "Lulu",
+      "Soraka",
+      "Milio",
       "Janna",
-      "Milio"
+      "Seraphine"
      ],
      "champion_is_best": false
     },
@@ -438,16 +431,16 @@ window.COOK_DATA = {
      "text": "Buffing, Healing, or Shielding your ally deals damage and Slows enemies surrounding them.",
      "core": true,
      "icon": "icons/augments/sonic-boom.png",
-     "win_rate": 0.5144,
-     "pick_rate": 0.0476,
-     "win_rank": 116,
+     "win_rate": 0.5119,
+     "pick_rate": 0.0359,
+     "win_rank": 125,
      "best_champions": [
       "Soraka",
       "Sona",
       "Yuumi",
+      "Seraphine",
       "Karma",
-      "Milio",
-      "Seraphine"
+      "Milio"
      ],
      "champion_is_best": false
     },
@@ -458,16 +451,16 @@ window.COOK_DATA = {
      "text": "Healing or Shielding allies blesses them, causing their damage to fill you with devotion. When you have enough devotion, unleash a shockwave dealing magic damage and executes low health enemies.",
      "core": true,
      "icon": "icons/augments/empowered-by-the-faithful.png",
-     "win_rate": 0.4901,
-     "pick_rate": 0.0276,
-     "win_rank": 165,
+     "win_rate": 0.48,
+     "pick_rate": 0.0262,
+     "win_rank": 200,
      "best_champions": [
       "Soraka",
       "Sona",
       "Yuumi",
-      "Janna",
-      "Milio",
-      "Seraphine"
+      "Seraphine",
+      "Karma",
+      "Milio"
      ],
      "champion_is_best": false
     }
@@ -494,13 +487,13 @@ window.COOK_DATA = {
     3006
    ],
    "champion_icon": "icons/champions/44.png",
-   "champion_win_rate": 0.4944,
-   "champion_pick_rate": 0.0127,
-   "champion_win_rank": 78,
-   "core_win_rate": 0.4996,
+   "champion_win_rate": 0.5113,
+   "champion_pick_rate": 0.0106,
+   "champion_win_rank": 39,
+   "core_win_rate": 0.4901,
    "tier": "Pure troll",
    "core_usual": 0,
-   "core_pick_rate": 0.0289,
+   "core_pick_rate": 0.0245,
    "sim": {
     "dps": 63,
     "survival": 0.011,
@@ -539,16 +532,16 @@ window.COOK_DATA = {
      "text": "On Immobilizing or Grounding a champion, summon a comet that lands after a delay, dealing magic damage to nearby enemies.",
      "core": true,
      "icon": "icons/augments/cruelty.png",
-     "win_rate": 0.5089,
-     "pick_rate": 0.0856,
-     "win_rank": 127,
+     "win_rate": 0.5036,
+     "pick_rate": 0.0951,
+     "win_rank": 150,
      "best_champions": [
       "Rell",
+      "Leona",
       "Alistar",
       "Maokai",
-      "Galio",
       "Nautilus",
-      "Morgana"
+      "Galio"
      ],
      "champion_is_best": false
     },
@@ -559,16 +552,16 @@ window.COOK_DATA = {
      "text": "Each time you Immobilize or Ground an enemy, gain a stack granting 10 Adaptive Force. Lose 50% stacks on death.",
      "core": true,
      "icon": "icons/augments/slap-around.png",
-     "win_rate": 0.522,
-     "pick_rate": 0.19,
-     "win_rank": 99,
+     "win_rate": 0.5169,
+     "pick_rate": 0.1542,
+     "win_rank": 112,
      "best_champions": [
-      "Maokai",
       "Morgana",
+      "Maokai",
       "Swain",
-      "Rell",
       "Thresh",
-      "Chogath"
+      "Leona",
+      "Rell"
      ],
      "champion_is_best": false
     },
@@ -579,16 +572,16 @@ window.COOK_DATA = {
      "text": "Gain the Aftershock and Glacial Augment Keystone Runes. Aftershock: After Immobilizing an enemy champion, gain defenses and later deal a burst of magic damage around you. Glacial Augment: Immobilizing an enemy champion will spawn 3 glacial rays that Slow nearby enemies and reduce their damage to your allies.",
      "core": true,
      "icon": "icons/augments/impassable.png",
-     "win_rate": 0.4842,
-     "pick_rate": 0.061,
-     "win_rank": 177,
+     "win_rate": 0.4855,
+     "pick_rate": 0.0436,
+     "win_rank": 191,
      "best_champions": [
       "Nautilus",
       "Thresh",
+      "Leona",
       "Rell",
       "Chogath",
-      "Leona",
-      "Blitzcrank"
+      "Maokai"
      ],
      "champion_is_best": false
     }
@@ -615,13 +608,13 @@ window.COOK_DATA = {
     3111
    ],
    "champion_icon": "icons/champions/201.png",
-   "champion_win_rate": 0.4575,
-   "champion_pick_rate": 0.0171,
-   "champion_win_rank": 156,
-   "core_win_rate": 0.505,
+   "champion_win_rate": 0.471,
+   "champion_pick_rate": 0.0193,
+   "champion_win_rank": 134,
+   "core_win_rate": 0.502,
    "tier": "Pure troll",
    "core_usual": 0,
-   "core_pick_rate": 0.1122,
+   "core_pick_rate": 0.0976,
    "sim": {
     "dps": 153,
     "survival": 0.009,
@@ -641,6 +634,145 @@ window.COOK_DATA = {
      "FireFox",
      "En Passant",
      "Giant Slayer"
+    ],
+    "items_not_modeled": [],
+    "whole_build": true
+   }
+  },
+  {
+   "id": "quinn-wall-street-bouncer",
+   "champion": "Quinn",
+   "title": "Wall Street Bouncer",
+   "augments": [
+    {
+     "name": "Chain Reaction",
+     "id": 2078,
+     "rarity": "Gold",
+     "text": "If a target Knocked Back by the chosen ability hits another champion, they are Knocked Up and dealt damage. When colliding with terrain, the Knock Up duration is extended and they are dealt bonus damage.",
+     "core": true,
+     "icon": "icons/augments/chain-reaction.png",
+     "win_rate": 0.4752,
+     "pick_rate": 0.0586,
+     "win_rank": 209,
+     "best_champions": [
+      "Gragas",
+      "LeeSin",
+      "Syndra",
+      "Alistar",
+      "Maokai",
+      "Thresh"
+     ],
+     "champion_is_best": false
+    },
+    {
+     "name": "Ravenous Bind",
+     "id": 2077,
+     "rarity": "Gold",
+     "text": "Immobilizing or Grounding enemy champions with the chosen ability deals extra damage and heals you.",
+     "core": true,
+     "icon": "icons/augments/ravenous-bind.png",
+     "win_rate": 0.5161,
+     "pick_rate": 0.1767,
+     "win_rank": 116,
+     "best_champions": [
+      "Trundle",
+      "Swain",
+      "Aatrox",
+      "Chogath",
+      "Maokai",
+      "TahmKench"
+     ],
+     "champion_is_best": false
+    },
+    {
+     "name": "Soul Eater",
+     "id": 1375,
+     "rarity": "Gold",
+     "text": "Immobilizing an enemy champion grants 20 max Health. If taken as your second Augment, starts with Health.",
+     "core": true,
+     "icon": "icons/augments/soul-eater.png",
+     "win_rate": 0.5036,
+     "pick_rate": 0.0796,
+     "win_rank": 152,
+     "best_champions": [
+      "Nautilus",
+      "Leona",
+      "Swain",
+      "Thresh",
+      "Chogath",
+      "Rell"
+     ],
+     "champion_is_best": false
+    },
+    {
+     "name": "Dashing",
+     "id": 1019,
+     "rarity": "Prismatic",
+     "text": "Your dash, leap, blink, or teleport Abilities gain 175 Ability Haste.",
+     "core": true,
+     "icon": "icons/augments/dashing.png",
+     "win_rate": 0.5148,
+     "pick_rate": 0.1582,
+     "win_rank": 117,
+     "best_champions": [
+      "Fizz",
+      "Kayn",
+      "MasterYi",
+      "Sylas",
+      "Shaco",
+      "Zed"
+     ],
+     "champion_is_best": false
+    }
+   ],
+   "core": 4,
+   "items": [
+    "Navori Flickerblade",
+    "Spear of Shojin",
+    "Heartsteel",
+    "Overlord's Bloodmail",
+    "Sterak's Gage",
+    "Mercury's Treads"
+   ],
+   "why": "Vault has a side effect nobody plays around: after Quinn dashes in she leaps backwards and slightly Knocks the target Back. Chain Reaction on Vault turns that polite nudge into a Knock Up whenever the shoved enemy hits another champion or a wall, with a longer Knock Up and bonus damage against terrain, and the bridge is one long corridor of walls. Every Vault is now an immobilize, so Ravenous Bind makes it heal her and hit harder, Soul Eater hands her permanent max Health for each one, and Dashing gives the dash 175 Ability Haste so it comes back almost at once. Navori Flickerblade closes the loop: Vault marks its target with Harrier, Heightened Senses gives Attack Speed for hitting Harrier targets, and each of those Attacks cuts the remaining Vault cooldown by 15%, while Spear of Shojin adds Basic Ability Haste on top. Heartsteel and Soul Eater stack Health that Overlord's Bloodmail turns into Attack Damage, so the ranged scout ends up a walking shoulder-check who throws people into walls and tanks off the bounce.",
+   "play": "Stand with your back to open ground and Vault enemies toward a wall or into their own teammate, then hit the Harrier mark so Vault is ready again. Behind Enemy Lines is just a bus to the next wall.",
+   "chef": "2026-10-22",
+   "champion_name": "Quinn",
+   "item_ids": [
+    6675,
+    3161,
+    3084,
+    2501,
+    3053,
+    3111
+   ],
+   "champion_icon": "icons/champions/133.png",
+   "champion_win_rate": 0.4597,
+   "champion_pick_rate": 0.0225,
+   "champion_win_rank": 157,
+   "core_win_rate": 0.5024,
+   "tier": "Pure troll",
+   "core_usual": 0,
+   "core_pick_rate": 0.1183,
+   "sim": {
+    "dps": 293,
+    "survival": 0.114,
+    "best_dps": 1398,
+    "best_survival": 0.663,
+    "pct_of_best": 0.21,
+    "best_items": [
+     "Berserker's Greaves",
+     "Blade of The Ruined King",
+     "Infinity Edge",
+     "Lord Dominik's Regards",
+     "Stormrazor",
+     "Yun Tal Wildarrows"
+    ],
+    "best_augments": [
+     "Dual Wield",
+     "Symphony of War",
+     "Giant Slayer",
+     "Tap Dancer"
     ],
     "items_not_modeled": [],
     "whole_build": true

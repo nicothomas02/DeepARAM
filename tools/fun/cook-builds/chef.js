@@ -1,1 +1,1 @@
-window.COOK_CHEF = {"id": "braum-group-project", "title": "Group Project", "champion": "Braum", "champion_name": "Braum", "chef": "2026-10-21", "count": 5};
+window.COOK_CHEF = {"id": "quinn-wall-street-bouncer", "title": "Wall Street Bouncer", "champion": "Quinn", "champion_name": "Quinn", "chef": "2026-10-22", "count": 6};
