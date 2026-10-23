@@ -16,10 +16,12 @@
  "Omnivamp": "Všestranný upír",
  "Move Speed": "Rychlost pohybu",
  "Heal and Shield Power": "Síla léčení a štítů",
+ "DeepScore rates each item from 0 to 100 against the others, where 50 is average. It starts from how much the item raises the win rate of the champions who make it their first Legendary item, and trusts items picked first less often less. Tiers: S 70+, A 59+, B 44+, C 32+, D below.": "DeepScore hodnotí každý předmět od 0 do 100 vůči ostatním, 50 je průměr. Vychází z toho, o kolik předmět zvýší úspěšnost šampionů, kteří ho staví jako první legendární předmět, a méně věří předmětům, které se jako první kupují zřídka. Úrovně: S 70+, A 59+, B 44+, C 32+, D níže.",
  "Tier": "Tier",
- "How often it's upgraded and how rare its stats are, weighed equally, against every other Legendary item: S is far above average, D far below.": "Jak často se vylepšuje a jak vzácné má statistiky, se stejnou vahou, ve srovnání se všemi ostatními legendárními předměty: S je hodně nad průměrem, D hodně pod ním.",
  "Item": "Předmět",
- "Upgraded": "Vylepšováno",
+ "Win rate boost": "Přírůstek výher",
+ "Estimated. Win rate of builds that start with it, minus what the same champions win with their other first items.": "Odhad. Úspěšnost buildů, které jím začínají, minus to, co stejní šampioni vyhrávají s jinými prvními předměty.",
+ "Pick rate": "Míra výběru",
  "Estimated. How often it would be the Weapon of Destiny: the first Legendary item of the champions likely to take the augment.": "Odhad. Jak často by byl Zbraní osudu: první legendární předmět šampionů, kteří si vylepšení pravděpodobně vezmou.",
  "Rare stats": "Vzácné statistiky",
  "How much of each upgrade goes into stats few Legendary items give, such as Critical Strike Damage or Armor Penetration. 100 is the rarest mix.": "Kolik z každého vylepšení jde do statistik, které dává málo legendárních předmětů, třeba kritické poškození nebo průraz brnění. 100 je nejvzácnější mix.",
@@ -29,5 +31,5 @@
  "The champion who would upgrade it most often.": "Šampion, který by ho vylepšoval nejčastěji.",
  "Weapon of Destiny makes your first Legendary item your Weapon of Destiny. Every champion takedown adds {gold} gold worth of that item's own stats, shared equally between them, so an item with fewer stats puts more into each one.": "Zbraň osudu udělá z tvého prvního legendárního předmětu tvou Zbraň osudu. Každé zabití šampiona nebo asistence přidá vlastní statistiky tohoto předmětu v hodnotě {gold} zlaťáků, rozdělené mezi ně rovným dílem, takže předmět s méně statistikami dostane víc do každé z nich.",
  "Find an item": "Najít předmět",
- "Estimated. Ranked by how often each item would be upgraded, from the first Legendary item of the champions who get the most takedowns, and by how rare the stats it grows are.": "Odhad. Seřazeno podle toho, jak často by se každý předmět vylepšoval, podle prvního legendárního předmětu šampionů s nejvíce zabitími a asistencemi, a podle toho, jak vzácné statistiky zvyšuje."
+ "Estimated. Ranked by DeepScore, from each item's win rate and pick rate as the first Legendary item of the champions likely to take the augment, counting those who get the most takedowns most. Items no champion buys first have no score yet.": "Odhad. Seřazeno podle DeepScore, z úspěšnosti a míry výběru každého předmětu jako prvního legendárního předmětu šampionů, kteří si vylepšení pravděpodobně vezmou, s největší váhou pro ty s nejvíce zabitími a asistencemi. Předměty, které žádný šampion nekupuje jako první, zatím skóre nemají."
 }

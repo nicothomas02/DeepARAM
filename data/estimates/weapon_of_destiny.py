@@ -7,12 +7,14 @@ among them. The augment's spell data (game/maps/modespecificdata/kiwi.bin) holds
 BaselineGoldAmp (1,000) gold buys (UpgradeAD 30, UpgradeHealth 375, ...), so one takedown on an item
 with N upgradeable stats adds Upgrade<stat> x GoldValue / BaselineGoldAmp / N of each.
 
-Each item gets two numbers (Nico 2026-10-23: extrapolate from what players upgrade, weighted toward
-hard-to-get stats, rather than simulating):
+Each item gets these numbers (Nico 2026-10-23: extrapolate from what players upgrade rather than
+simulating; the site ranks by a DeepScore from share and lift):
 
 - share: how often it would be the Weapon. The Mayhem feed has no games with the augment yet, so its
   takers are extrapolated as every champion weighted by pick rate times takedowns per game (the augment
   pays per takedown), and each champion's Weapon is its first Legendary item in its core builds' order.
+- lift: the win rate of core builds that start with it minus the same champion's average over its core
+  builds, weighted like share, so items strong champions happen to buy don't look better than they are.
 - rare: how much of the upgrade goes into stats few Legendary items give. Each stat's rarity is
   log2(Legendary items / Legendary items with that stat), so Critical Strike Damage (one item) is worth
   far more than Attack Damage or Health (sixty-odd each); the item's score is its stats' rarities
@@ -79,14 +81,19 @@ def augment_values():
 
 
 def first_legendary(build, legendary):
-    """{item id: share of the champion's core builds whose first Legendary item it is}."""
-    counts = {}
+    """{item id: (share of the champion's core builds whose first Legendary item it is, their win rate minus
+    the champion's average over its core builds)}."""
+    counts, wins = {}, {}
     for e in build.get("items", {}).get("core", []):
         first = next((i for i in e["items"] if i in legendary), None)
         if first:
             counts[first] = counts.get(first, 0) + e["pick_rate"]
+            wins[first] = wins.get(first, 0) + e["pick_rate"] * e["win_rate"]
     total = sum(counts.values())
-    return {i: c / total for i, c in counts.items()} if total else {}
+    if not total:
+        return {}
+    base = sum(wins.values()) / total
+    return {i: (c / total, wins[i] / c - base) for i, c in counts.items()}
 
 
 def main():
@@ -118,11 +125,12 @@ def main():
             weight[cid] = c["pick_rate"] * (p["kills"]["value"] + p["assists"]["value"])
             picks[cid] = firsts
     total = sum(weight.values())
-    share, by = {}, {}
+    share, lift, by = {}, {}, {}
     for cid, firsts in picks.items():
-        for gid, s in firsts.items():
+        for gid, (s, l) in firsts.items():
             part = weight[cid] / total * s
             share[gid] = share.get(gid, 0) + part
+            lift[gid] = lift.get(gid, 0) + part * l
             by.setdefault(gid, []).append((part, champs[cid]["name"]))
 
     ids = common.load(os.path.join(common.REPO, "web", "src", "data", "champion-ids.json"))
@@ -136,6 +144,9 @@ def main():
             str(gid): {
                 "per_takedown": {k: round(full[k] / len(s), 5) for k in s},
                 "share": round(share.get(gid, 0), 5),
+                # Win rate as the first Legendary item minus what the same champions win with their other
+                # first items, weighted like share (null when no champion buys it first).
+                "lift": round(lift[gid] / share[gid], 5) if share.get(gid) else None,
                 "rare": round(rare[gid], 3),
                 "best": [names[n] for _, n in sorted(by.get(gid, []), reverse=True)[:BEST]],
             }

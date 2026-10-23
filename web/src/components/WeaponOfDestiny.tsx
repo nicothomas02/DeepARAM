@@ -3,9 +3,9 @@
 import DataTable, { type Column, type Row } from "@/components/DataTable";
 import { useNames, useT } from "./I18n";
 
-// The Tier List's Weapon of Destiny tab (?tab=weapon-of-destiny): every Legendary item ranked by how often it
-// would be the Weapon and how rare the stats it grows are (lib/weapon-of-destiny.ts). Rows are built here so
-// the item names and stats show in the page's language.
+// The Tier List's Weapon of Destiny tab (?tab=weapon-of-destiny): every Legendary item ranked by DeepScore, from
+// its win rate and pick rate as the Weapon (lib/weapon-of-destiny.ts). Rows are built here so the item names and
+// stats show in the page's language.
 
 type Item = {
   id: number;
@@ -14,9 +14,11 @@ type Item = {
   icon: string;
   perTakedown: Record<string, number>;
   share: number;
+  lift: number | null;
   rare: number;
-  tier: string;
-  value: number;
+  deepScore: number | null;
+  tier: string | null;
+  rank: number | null;
   best: string | null;
 };
 
@@ -53,18 +55,23 @@ export default function WeaponOfDestiny({ items, gold }: { items: Item[]; gold: 
       .map(([k, label, pct]) => `+${amount(pct ? s[k] * 100 : s[k])}${pct ? "%" : ""} ${t(label)}`)
       .join(", ");
 
+  const help = t(
+    "DeepScore rates each item from 0 to 100 against the others, where 50 is average. It starts from how much the item raises the win rate of the champions who make it their first Legendary item, and trusts items picked first less often less. Tiers: S 70+, A 59+, B 44+, C 32+, D below.",
+  );
   const columns: Column[] = [
-    {
-      key: "tier",
-      label: t("Tier"),
-      format: "tier",
-      sortKey: "value",
-      hint: t("How often it's upgraded and how rare its stats are, weighed equally, against every other Legendary item: S is far above average, D far below."),
-    },
+    { key: "tier", label: t("Tier"), format: "tier", sortKey: "rank", hint: help },
     { key: "name", label: t("Item"), format: "item", iconKey: "icon", hrefKey: "href" },
+    { key: "deepScore", label: "DeepScore", format: "deepscore", sortKey: "rank", hint: help },
+    {
+      key: "lift",
+      label: t("Win rate boost"),
+      format: "pts",
+      phone: "hide",
+      hint: t("Estimated. Win rate of builds that start with it, minus what the same champions win with their other first items."),
+    },
     {
       key: "share",
-      label: t("Upgraded"),
+      label: t("Pick rate"),
       format: "pct",
       hint: t("Estimated. How often it would be the Weapon of Destiny: the first Legendary item of the champions likely to take the augment."),
     },
@@ -72,6 +79,7 @@ export default function WeaponOfDestiny({ items, gold }: { items: Item[]; gold: 
       key: "rare",
       label: t("Rare stats"),
       format: "int",
+      phone: "hide",
       hint: t("How much of each upgrade goes into stats few Legendary items give, such as Critical Strike Damage or Armor Penetration. 100 is the rarest mix."),
     },
     { key: "stats", label: t("Each takedown"), format: "text", sortable: false, phone: "hide", hint: t("What one takedown adds to the item: {gold} gold worth of its own stats, shared equally.", { gold }) },
@@ -83,7 +91,9 @@ export default function WeaponOfDestiny({ items, gold }: { items: Item[]; gold: 
     icon: i.icon,
     href: `/items/${i.slug}`,
     tier: i.tier,
-    value: i.value,
+    deepScore: i.deepScore,
+    rank: i.rank,
+    lift: i.lift,
     share: i.share,
     rare: i.rare,
     stats: perTakedown(i.perTakedown),
@@ -98,10 +108,10 @@ export default function WeaponOfDestiny({ items, gold }: { items: Item[]; gold: 
           { gold },
         )}
       </p>
-      <DataTable columns={columns} rows={rows} initialSort={{ key: "value", desc: true }} searchKey="name" searchLabel={t("Find an item")} urlTab="weapon-of-destiny" />
+      <DataTable columns={columns} rows={rows} initialSort={{ key: "rank", desc: true }} searchKey="name" searchLabel={t("Find an item")} urlTab="weapon-of-destiny" />
       <p className="patch-note">
         {t(
-          "Estimated. Ranked by how often each item would be upgraded, from the first Legendary item of the champions who get the most takedowns, and by how rare the stats it grows are.",
+          "Estimated. Ranked by DeepScore, from each item's win rate and pick rate as the first Legendary item of the champions likely to take the augment, counting those who get the most takedowns most. Items no champion buys first have no score yet.",
         )}
       </p>
     </>

@@ -16,10 +16,12 @@
  "Omnivamp": "Omnivampirism",
  "Move Speed": "Viteză de mișcare",
  "Heal and Shield Power": "Putere de vindecare și scuturi",
+ "DeepScore rates each item from 0 to 100 against the others, where 50 is average. It starts from how much the item raises the win rate of the champions who make it their first Legendary item, and trusts items picked first less often less. Tiers: S 70+, A 59+, B 44+, C 32+, D below.": "DeepScore notează fiecare obiect de la 0 la 100 față de celelalte, 50 fiind media. Pornește de la cât crește obiectul rata de victorii a campionilor care îl fac primul lor obiect legendar și are mai puțină încredere în obiectele cumpărate rar primele. Niveluri: S 70+, A 59+, B 44+, C 32+, D sub.",
  "Tier": "Nivel",
- "How often it's upgraded and how rare its stats are, weighed equally, against every other Legendary item: S is far above average, D far below.": "Cât de des e îmbunătățit și cât de rare îi sunt statisticile, cu aceeași pondere, față de toate celelalte obiecte legendare: S e mult peste medie, D mult sub.",
  "Item": "Obiect",
- "Upgraded": "Îmbunătățit",
+ "Win rate boost": "Spor de victorie",
+ "Estimated. Win rate of builds that start with it, minus what the same champions win with their other first items.": "Estimat. Rata de victorii a build-urilor care încep cu el, minus cât câștigă aceiași campioni cu celelalte prime obiecte.",
+ "Pick rate": "Rată de alegere",
  "Estimated. How often it would be the Weapon of Destiny: the first Legendary item of the champions likely to take the augment.": "Estimat. Cât de des ar fi Arma destinului: primul obiect legendar al campionilor care ar alege probabil augmentarea.",
  "Rare stats": "Statistici rare",
  "How much of each upgrade goes into stats few Legendary items give, such as Critical Strike Damage or Armor Penetration. 100 is the rarest mix.": "Cât din fiecare îmbunătățire merge în statistici pe care le dau puține obiecte legendare, cum ar fi daunele critice sau penetrarea armurii. 100 e cel mai rar amestec.",
@@ -29,5 +31,5 @@
  "The champion who would upgrade it most often.": "Campionul care l-ar îmbunătăți cel mai des.",
  "Weapon of Destiny makes your first Legendary item your Weapon of Destiny. Every champion takedown adds {gold} gold worth of that item's own stats, shared equally between them, so an item with fewer stats puts more into each one.": "Arma destinului face din primul tău obiect legendar Arma destinului. Fiecare eliminare a unui campion adaugă statistici proprii ale obiectului în valoare de {gold} aur, împărțite egal între ele, deci un obiect cu mai puține statistici primește mai mult la fiecare.",
  "Find an item": "Caută un obiect",
- "Estimated. Ranked by how often each item would be upgraded, from the first Legendary item of the champions who get the most takedowns, and by how rare the stats it grows are.": "Estimat. Ordonat după cât de des ar fi îmbunătățit fiecare obiect, după primul obiect legendar al campionilor cu cele mai multe eliminări, și după cât de rare sunt statisticile pe care le crește."
+ "Estimated. Ranked by DeepScore, from each item's win rate and pick rate as the first Legendary item of the champions likely to take the augment, counting those who get the most takedowns most. Items no champion buys first have no score yet.": "Estimat. Ordonat după DeepScore, din rata de victorii și rata de alegere a fiecărui obiect ca prim obiect legendar al campionilor care ar alege probabil augmentarea, punând mai mult accent pe cei cu cele mai multe eliminări. Obiectele pe care niciun campion nu le cumpără primele nu au încă scor."
 }

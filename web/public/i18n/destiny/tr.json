@@ -16,10 +16,12 @@
  "Omnivamp": "Her yönlü can çalma",
  "Move Speed": "Hareket Hızı",
  "Heal and Shield Power": "İyileştirme ve Kalkan Gücü",
+ "DeepScore rates each item from 0 to 100 against the others, where 50 is average. It starts from how much the item raises the win rate of the champions who make it their first Legendary item, and trusts items picked first less often less. Tiers: S 70+, A 59+, B 44+, C 32+, D below.": "DeepScore her eşyayı diğerlerine göre 0 ile 100 arasında puanlar, 50 ortalamadır. Eşyanın, onu ilk Efsanevi eşyası yapan şampiyonların kazanma oranını ne kadar artırdığından yola çıkar ve nadiren ilk alınan eşyalara daha az güvenir. Kademeler: S 70+, A 59+, B 44+, C 32+, altı D.",
  "Tier": "Seviye",
- "How often it's upgraded and how rare its stats are, weighed equally, against every other Legendary item: S is far above average, D far below.": "Ne sıklıkla geliştirildiği ve istatistiklerinin ne kadar nadir olduğu, eşit ağırlıkla, diğer tüm Efsanevi eşyalarla karşılaştırıldığında: S ortalamanın çok üstünde, D çok altında.",
  "Item": "Eşya",
- "Upgraded": "Geliştirilme",
+ "Win rate boost": "Kazanma oranı artışı",
+ "Estimated. Win rate of builds that start with it, minus what the same champions win with their other first items.": "Tahmini. Onunla başlayan dizilimlerin kazanma oranı, eksi aynı şampiyonların diğer ilk eşyalarıyla kazandığı oran.",
+ "Pick rate": "Seçilme oranı",
  "Estimated. How often it would be the Weapon of Destiny: the first Legendary item of the champions likely to take the augment.": "Tahmini. Ne sıklıkla Kaderin Silahı olacağı: bu güçlendirmeyi alması muhtemel şampiyonların ilk Efsanevi eşyası.",
  "Rare stats": "Nadir istatistikler",
  "How much of each upgrade goes into stats few Legendary items give, such as Critical Strike Damage or Armor Penetration. 100 is the rarest mix.": "Her geliştirmenin ne kadarının az sayıda Efsanevi eşyanın verdiği istatistiklere gittiği, örneğin Kritik Vuruş Hasarı veya Zırh Delme. 100 en nadir karışımdır.",
@@ -29,5 +31,5 @@
  "The champion who would upgrade it most often.": "Onu en sık geliştirecek şampiyon.",
  "Weapon of Destiny makes your first Legendary item your Weapon of Destiny. Every champion takedown adds {gold} gold worth of that item's own stats, shared equally between them, so an item with fewer stats puts more into each one.": "Kaderin Silahı ilk Efsanevi eşyanı Kaderin Silahı yapar. Her şampiyon öldürme katkısı o eşyanın kendi istatistiklerinden {gold} altın değerinde ekler ve aralarında eşit paylaştırır, yani daha az istatistiği olan bir eşya her birine daha fazla alır.",
  "Find an item": "Eşya bul",
- "Estimated. Ranked by how often each item would be upgraded, from the first Legendary item of the champions who get the most takedowns, and by how rare the stats it grows are.": "Tahmini. Her eşyanın ne sıklıkla geliştirileceğine göre, en çok katkı yapan şampiyonların ilk Efsanevi eşyasından yola çıkarak, ve büyüttüğü istatistiklerin ne kadar nadir olduğuna göre sıralanmıştır."
+ "Estimated. Ranked by DeepScore, from each item's win rate and pick rate as the first Legendary item of the champions likely to take the augment, counting those who get the most takedowns most. Items no champion buys first have no score yet.": "Tahmini. DeepScore'a göre sıralanmıştır; her eşyanın, bu güçlendirmeyi alması muhtemel şampiyonların ilk Efsanevi eşyası olarak kazanma ve seçilme oranından hesaplanır ve en çok katkı yapan şampiyonlar en fazla sayılır. Hiçbir şampiyonun ilk almadığı eşyaların henüz puanı yok."
 }
