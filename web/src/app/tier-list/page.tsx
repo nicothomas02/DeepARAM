@@ -29,6 +29,8 @@ import { readRepoCsv, readRepoJson } from "@/lib/repo-data";
 import { allChampionTags, championTagData } from "@/lib/champion-tags";
 import { fillGames } from "@/lib/fill";
 import { patchName } from "@/lib/patch-name";
+import WeaponOfDestiny from "@/components/WeaponOfDestiny";
+import { weaponOfDestiny } from "@/lib/weapon-of-destiny";
 
 export const metadata: Metadata = pageMeta(
   "/tier-list",
@@ -207,6 +209,17 @@ export default function TierListPage() {
           <ItemIndex items={items} />
         </>
       ),
+    });
+  }
+
+  // Which Legendary item to make the Weapon of Destiny (gold augment): how often it's upgraded and how rare its stats are.
+  const destiny = weaponOfDestiny();
+  if (destiny?.rows.length) {
+    tabs.push({
+      id: "weapon-of-destiny",
+      label: "Weapon of Destiny",
+      lazy: true,
+      content: <WeaponOfDestiny items={destiny.rows} gold={destiny.gold} />,
     });
   }
 
