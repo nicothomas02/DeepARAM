@@ -36,6 +36,17 @@ by game length beyond noise (effect under ~1 point per 4.6 minutes). This curve 
 champions' damage share grows in longer games (r 0.17). Show it as simulated. Full notes:
 research note `early-vs-late-game.md` in the project files.
 
+## Weapon of Destiny items (`weapon_of_destiny.json`, simulated)
+
+`weapon_of_destiny.py` ranks Legendary items for the Weapon of Destiny augment (Tier List tab). Each
+takedown adds 200 gold worth of the item's own upgradeable stats, shared equally among them; the
+amounts per 1,000 gold come from the augment's spell data in `kiwi.bin`, the item's stats from the item
+bin. For each item, the champions who buy it first most often (core build order) run their simulated
+best build once as is and once with half a typical game's takedowns (median kills + assists from
+`profiles`, halved) of upgrades. The site ranks by the median gain in damage dealt per fight (damage per
+second times time alive, since fights last until the champion dies). Not scheduled: rerun after patches
+(needs `make -C simulator mayhem_sim`, about two minutes on 4 cores).
+
 ## Tried and dropped
 
 - **Counters and worst duos from class matchups**: a class synergy/counter model on the archive did

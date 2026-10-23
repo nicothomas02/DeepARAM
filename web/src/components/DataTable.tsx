@@ -18,7 +18,7 @@ import type { TagInfo } from "@/lib/tag-info";
 export type Column = {
   key: string;
   label: string;
-  format?: "pct" | "pts" | "spread" | "num" | "int" | "sec" | "text" | "champion" | "champion-icon" | "augment" | "item" | "tier" | "deepscore" | "tags";
+  format?: "pct" | "gain" | "pts" | "spread" | "num" | "int" | "sec" | "text" | "champion" | "champion-icon" | "augment" | "item" | "tier" | "deepscore" | "tags";
   sortable?: boolean;
   /** For "augment" columns: the row key holding the augment id, for its icon; for "item" columns, the icon's address. */
   iconKey?: string;
@@ -63,6 +63,9 @@ function show(v: Row[string], format: Column["format"], pts: (n: string) => stri
   switch (format) {
     case "pct":
       return `${tenths(n)}%`;
+    case "gain":
+      // A relative change (0.2 = 20% more); the cell's ▲ or ▼ (cellClass) carries the sign.
+      return `${tenths(Math.abs(n))}%`;
     case "pts":
       // Percentage points; the cell's ▲ or ▼ (cellClass) carries the sign.
       return pts(tenths(Math.abs(n)));
@@ -107,8 +110,8 @@ function cellClass(c: Column, v: Row[string]) {
   if (v === null || v === "" || Number.isNaN(n)) return "num";
   if (c.format === "pct" && /win/.test(c.key)) return n >= 0.52 ? "num wr-high" : n <= 0.48 ? "num wr-low" : "num";
   // A change that rounds to zero gets no arrow or colour.
-  const shown = c.format === "pts" ? Math.round(n * 1000) : n;
-  if (c.format === "pts" || /change|delta/.test(c.key)) return shown > 0 ? "num delta-up" : shown < 0 ? "num delta-down" : "num";
+  const shown = c.format === "pts" || c.format === "gain" ? Math.round(n * 1000) : n;
+  if (c.format === "pts" || c.format === "gain" || /change|delta/.test(c.key)) return shown > 0 ? "num delta-up" : shown < 0 ? "num delta-down" : "num";
   return "num";
 }
 
