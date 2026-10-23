@@ -5,7 +5,7 @@ estimated here. The site marks them as estimates: spell rows show pick rate and 
 win rate, and game counts carry a "~".
 
 - `config.json`: `"enabled": false` hides both everywhere (`web/src/lib/fill.ts`).
-- `build_estimates.py`: daily (`.github/workflows/fill.yml`, after the stats refresh). Writes
+- `build_estimates.py`: after each stats refresh (`.github/workflows/fill.yml`, triggered by "Mayhem stats"). Writes
   `spells_games.json` for the live patch. Standard library only.
 - `model.py`: the shared pieces.
 - `fit_spells.py` + `spell_model.json`: the spell model's coefficients (numpy + scipy).
