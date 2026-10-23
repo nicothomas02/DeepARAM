@@ -16,10 +16,12 @@
  "Omnivamp": "Παμβαμπιρισμός",
  "Move Speed": "Ταχύτητα Κίνησης",
  "Heal and Shield Power": "Δύναμη Θεραπείας και Ασπίδας",
+ "DeepScore rates each item from 0 to 100 against the others, where 50 is average. It starts from how much the item raises the win rate of the champions who make it their first Legendary item, and trusts items picked first less often less. Tiers: S 70+, A 59+, B 44+, C 32+, D below.": "Το DeepScore βαθμολογεί κάθε αντικείμενο από 0 έως 100 σε σχέση με τα άλλα, με το 50 ως μέσο όρο. Ξεκινά από το πόσο ανεβάζει το αντικείμενο το ποσοστό νικών των Ηρώων που το κάνουν πρώτο Θρυλικό αντικείμενο και εμπιστεύεται λιγότερο όσα αγοράζονται σπάνια πρώτα. Βαθμίδες: S 70+, A 59+, B 44+, C 32+, D από κάτω.",
  "Tier": "Βαθμίδα",
- "How often it's upgraded and how rare its stats are, weighed equally, against every other Legendary item: S is far above average, D far below.": "Πόσο συχνά αναβαθμίζεται και πόσο σπάνια είναι τα στατιστικά του, με ίσο βάρος, σε σύγκριση με όλα τα άλλα Θρυλικά αντικείμενα: το S είναι πολύ πάνω από τον μέσο όρο, το D πολύ κάτω.",
  "Item": "Αντικείμενο",
- "Upgraded": "Αναβαθμίζεται",
+ "Win rate boost": "Ενίσχυση ποσοστού νικών",
+ "Estimated. Win rate of builds that start with it, minus what the same champions win with their other first items.": "Εκτίμηση. Ποσοστό νικών των builds που ξεκινούν με αυτό, μείον όσα κερδίζουν οι ίδιοι Ήρωες με τα άλλα πρώτα αντικείμενά τους.",
+ "Pick rate": "Ποσοστό επιλογής",
  "Estimated. How often it would be the Weapon of Destiny: the first Legendary item of the champions likely to take the augment.": "Εκτίμηση. Πόσο συχνά θα ήταν το Όπλο του Πεπρωμένου: το πρώτο Θρυλικό αντικείμενο των Ηρώων που πιθανότατα θα πάρουν την ενίσχυση.",
  "Rare stats": "Σπάνια στατιστικά",
  "How much of each upgrade goes into stats few Legendary items give, such as Critical Strike Damage or Armor Penetration. 100 is the rarest mix.": "Πόσο από κάθε αναβάθμιση πηγαίνει σε στατιστικά που δίνουν λίγα Θρυλικά αντικείμενα, όπως Ζημιά Κρίσιμου Χτυπήματος ή Διείσδυση Θωράκισης. Το 100 είναι ο πιο σπάνιος συνδυασμός.",
@@ -29,5 +31,5 @@
  "The champion who would upgrade it most often.": "Ο Ήρωας που θα το αναβάθμιζε πιο συχνά.",
  "Weapon of Destiny makes your first Legendary item your Weapon of Destiny. Every champion takedown adds {gold} gold worth of that item's own stats, shared equally between them, so an item with fewer stats puts more into each one.": "Το Όπλο του Πεπρωμένου κάνει το πρώτο σου Θρυλικό αντικείμενο Όπλο του Πεπρωμένου. Κάθε συμμετοχή σε φόνο Ήρωα προσθέτει δικά του στατιστικά αξίας {gold} χρυσού, μοιρασμένα εξίσου, οπότε ένα αντικείμενο με λιγότερα στατιστικά παίρνει περισσότερα στο καθένα.",
  "Find an item": "Βρες ένα αντικείμενο",
- "Estimated. Ranked by how often each item would be upgraded, from the first Legendary item of the champions who get the most takedowns, and by how rare the stats it grows are.": "Εκτίμηση. Ταξινόμηση με βάση το πόσο συχνά θα αναβαθμιζόταν κάθε αντικείμενο, από το πρώτο Θρυλικό αντικείμενο των Ηρώων με τις περισσότερες συμμετοχές σε φόνους, και το πόσο σπάνια είναι τα στατιστικά που αυξάνει."
+ "Estimated. Ranked by DeepScore, from each item's win rate and pick rate as the first Legendary item of the champions likely to take the augment, counting those who get the most takedowns most. Items no champion buys first have no score yet.": "Εκτίμηση. Ταξινόμηση κατά DeepScore, από το ποσοστό νικών και επιλογής κάθε αντικειμένου ως πρώτου Θρυλικού αντικειμένου των Ηρώων που πιθανότατα θα πάρουν την ενίσχυση, με μεγαλύτερο βάρος σε όσους έχουν τις περισσότερες συμμετοχές σε φόνους. Τα αντικείμενα που κανένας Ήρωας δεν αγοράζει πρώτα δεν έχουν ακόμη βαθμολογία."
 }

@@ -16,10 +16,12 @@
  "Omnivamp": "Omnivamp",
  "Move Speed": "ความเร็วเคลื่อนที่",
  "Heal and Shield Power": "พลังฮีลและโล่",
+ "DeepScore rates each item from 0 to 100 against the others, where 50 is average. It starts from how much the item raises the win rate of the champions who make it their first Legendary item, and trusts items picked first less often less. Tiers: S 70+, A 59+, B 44+, C 32+, D below.": "DeepScore ให้คะแนนแต่ละไอเทมตั้งแต่ 0 ถึง 100 เทียบกับไอเทมอื่น โดย 50 คือค่าเฉลี่ย เริ่มจากว่าไอเทมช่วยเพิ่มอัตราชนะของแชมเปี้ยนที่ใช้มันเป็นไอเทม Legendary ชิ้นแรกได้มากแค่ไหน และเชื่อถือไอเทมที่ไม่ค่อยถูกซื้อเป็นชิ้นแรกน้อยลง ระดับ: S 70+, A 59+, B 44+, C 32+, D ต่ำกว่านั้น",
  "Tier": "เทียร์",
- "How often it's upgraded and how rare its stats are, weighed equally, against every other Legendary item: S is far above average, D far below.": "ความถี่ที่ถูกอัปเกรดและความหายากของค่าสถานะ ถ่วงน้ำหนักเท่ากัน เทียบกับไอเทม Legendary อื่นทั้งหมด: S สูงกว่าค่าเฉลี่ยมาก D ต่ำกว่ามาก",
  "Item": "ไอเทม",
- "Upgraded": "ถูกอัปเกรด",
+ "Win rate boost": "อัตราชนะที่เพิ่มขึ้น",
+ "Estimated. Win rate of builds that start with it, minus what the same champions win with their other first items.": "ค่าประมาณ อัตราชนะของบิลด์ที่เริ่มด้วยไอเทมนี้ ลบด้วยอัตราชนะของแชมเปี้ยนกลุ่มเดียวกันเมื่อเริ่มด้วยไอเทมอื่น",
+ "Pick rate": "อัตราการเลือก",
  "Estimated. How often it would be the Weapon of Destiny: the first Legendary item of the champions likely to take the augment.": "ค่าประมาณ ความถี่ที่ไอเทมนี้จะเป็น Weapon of Destiny: ไอเทม Legendary ชิ้นแรกของแชมเปี้ยนที่มีแนวโน้มเลือกออคเมนต์นี้",
  "Rare stats": "ค่าสถานะหายาก",
  "How much of each upgrade goes into stats few Legendary items give, such as Critical Strike Damage or Armor Penetration. 100 is the rarest mix.": "สัดส่วนของการอัปเกรดแต่ละครั้งที่เข้าไปในค่าสถานะที่ไอเทม Legendary ไม่กี่ชิ้นให้ เช่น Critical Strike Damage หรือ Armor Penetration โดย 100 คือชุดที่หายากที่สุด",
@@ -29,5 +31,5 @@
  "The champion who would upgrade it most often.": "แชมเปี้ยนที่จะอัปเกรดไอเทมนี้บ่อยที่สุด",
  "Weapon of Destiny makes your first Legendary item your Weapon of Destiny. Every champion takedown adds {gold} gold worth of that item's own stats, shared equally between them, so an item with fewer stats puts more into each one.": "Weapon of Destiny ทำให้ไอเทม Legendary ชิ้นแรกของคุณกลายเป็น Weapon of Destiny ทุก Takedown แชมเปี้ยนจะเพิ่มค่าสถานะของไอเทมนั้นมูลค่า {gold} Gold แบ่งเท่า ๆ กัน ไอเทมที่มีค่าสถานะน้อยจึงได้เพิ่มในแต่ละค่ามากกว่า",
  "Find an item": "ค้นหาไอเทม",
- "Estimated. Ranked by how often each item would be upgraded, from the first Legendary item of the champions who get the most takedowns, and by how rare the stats it grows are.": "ค่าประมาณ จัดอันดับตามความถี่ที่แต่ละไอเทมจะถูกอัปเกรด จากไอเทม Legendary ชิ้นแรกของแชมเปี้ยนที่ทำ Takedown มากที่สุด และตามความหายากของค่าสถานะที่ไอเทมเพิ่มให้"
+ "Estimated. Ranked by DeepScore, from each item's win rate and pick rate as the first Legendary item of the champions likely to take the augment, counting those who get the most takedowns most. Items no champion buys first have no score yet.": "ค่าประมาณ จัดอันดับตาม DeepScore จากอัตราชนะและอัตราการเลือกของแต่ละไอเทมในฐานะไอเทม Legendary ชิ้นแรกของแชมเปี้ยนที่มีแนวโน้มเลือกออคเมนต์นี้ โดยให้น้ำหนักแชมเปี้ยนที่ทำ Takedown มากที่สุด ไอเทมที่ยังไม่มีแชมเปี้ยนคนไหนซื้อเป็นชิ้นแรกยังไม่มีคะแนน"
 }

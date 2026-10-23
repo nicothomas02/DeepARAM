@@ -16,10 +16,12 @@
  "Omnivamp": "Omnivampirisme",
  "Move Speed": "Vitesse de déplacement",
  "Heal and Shield Power": "Puissance des soins et boucliers",
+ "DeepScore rates each item from 0 to 100 against the others, where 50 is average. It starts from how much the item raises the win rate of the champions who make it their first Legendary item, and trusts items picked first less often less. Tiers: S 70+, A 59+, B 44+, C 32+, D below.": "Le DeepScore note chaque objet de 0 à 100 par rapport aux autres, 50 étant la moyenne. Il part de combien l'objet augmente le taux de victoire des champions qui en font leur premier objet légendaire, et se fie moins aux objets rarement achetés en premier. Paliers : S 70+, A 59+, B 44+, C 32+, D en dessous.",
  "Tier": "Tier",
- "How often it's upgraded and how rare its stats are, weighed equally, against every other Legendary item: S is far above average, D far below.": "La fréquence à laquelle il est amélioré et la rareté de ses statistiques, à poids égal, comparées à tous les autres objets légendaires : S est bien au-dessus de la moyenne, D bien en dessous.",
  "Item": "Objet",
- "Upgraded": "Amélioré",
+ "Win rate boost": "Gain de victoires",
+ "Estimated. Win rate of builds that start with it, minus what the same champions win with their other first items.": "Estimation. Taux de victoire des builds qui commencent par lui, moins ce que les mêmes champions gagnent avec leurs autres premiers objets.",
+ "Pick rate": "Taux de sélection",
  "Estimated. How often it would be the Weapon of Destiny: the first Legendary item of the champions likely to take the augment.": "Estimation. La fréquence à laquelle il serait l'Arme de la destinée : le premier objet légendaire des champions susceptibles de prendre l'augment.",
  "Rare stats": "Statistiques rares",
  "How much of each upgrade goes into stats few Legendary items give, such as Critical Strike Damage or Armor Penetration. 100 is the rarest mix.": "La part de chaque amélioration qui va dans des statistiques que peu d'objets légendaires donnent, comme les Dégâts critiques ou la Pénétration d'armure. 100 correspond au mélange le plus rare.",
@@ -29,5 +31,5 @@
  "The champion who would upgrade it most often.": "Le champion qui l'améliorerait le plus souvent.",
  "Weapon of Destiny makes your first Legendary item your Weapon of Destiny. Every champion takedown adds {gold} gold worth of that item's own stats, shared equally between them, so an item with fewer stats puts more into each one.": "Arme de la destinée fait de votre premier objet légendaire votre Arme de la destinée. Chaque élimination de champion ajoute l'équivalent de {gold} PO des statistiques de cet objet, réparti à parts égales entre elles : un objet avec moins de statistiques en reçoit davantage pour chacune.",
  "Find an item": "Trouver un objet",
- "Estimated. Ranked by how often each item would be upgraded, from the first Legendary item of the champions who get the most takedowns, and by how rare the stats it grows are.": "Estimation. Classé selon la fréquence à laquelle chaque objet serait amélioré, d'après le premier objet légendaire des champions qui font le plus d'éliminations, et selon la rareté des statistiques qu'il fait grandir."
+ "Estimated. Ranked by DeepScore, from each item's win rate and pick rate as the first Legendary item of the champions likely to take the augment, counting those who get the most takedowns most. Items no champion buys first have no score yet.": "Estimation. Classé par DeepScore, d'après le taux de victoire et le taux de sélection de chaque objet comme premier objet légendaire des champions susceptibles de prendre l'augment, en comptant davantage ceux qui font le plus d'éliminations. Les objets qu'aucun champion n'achète en premier n'ont pas encore de score."
 }

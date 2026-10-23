@@ -16,10 +16,12 @@
  "Omnivamp": "Wszechwampiryzm",
  "Move Speed": "Prędkość ruchu",
  "Heal and Shield Power": "Siła leczenia i tarcz",
+ "DeepScore rates each item from 0 to 100 against the others, where 50 is average. It starts from how much the item raises the win rate of the champions who make it their first Legendary item, and trusts items picked first less often less. Tiers: S 70+, A 59+, B 44+, C 32+, D below.": "DeepScore ocenia każdy przedmiot od 0 do 100 na tle pozostałych, gdzie 50 to średnia. Wychodzi od tego, o ile przedmiot podnosi współczynnik zwycięstw bohaterów, którzy budują go jako pierwszy legendarny przedmiot, i mniej ufa przedmiotom rzadko kupowanym jako pierwsze. Poziomy: S 70+, A 59+, B 44+, C 32+, D poniżej.",
  "Tier": "Tier",
- "How often it's upgraded and how rare its stats are, weighed equally, against every other Legendary item: S is far above average, D far below.": "Jak często jest ulepszany i jak rzadkie ma statystyki, z równą wagą, w porównaniu ze wszystkimi innymi legendarnymi przedmiotami: S jest dużo powyżej średniej, D dużo poniżej.",
  "Item": "Przedmiot",
- "Upgraded": "Ulepszany",
+ "Win rate boost": "Przyrost zwycięstw",
+ "Estimated. Win rate of builds that start with it, minus what the same champions win with their other first items.": "Szacunek. Współczynnik zwycięstw buildów zaczynających się od niego minus to, co ci sami bohaterowie wygrywają z innymi pierwszymi przedmiotami.",
+ "Pick rate": "Odsetek wyborów",
  "Estimated. How often it would be the Weapon of Destiny: the first Legendary item of the champions likely to take the augment.": "Szacunek. Jak często byłby Bronią Przeznaczenia: pierwszy legendarny przedmiot bohaterów, którzy prawdopodobnie wezmą to wzmocnienie.",
  "Rare stats": "Rzadkie statystyki",
  "How much of each upgrade goes into stats few Legendary items give, such as Critical Strike Damage or Armor Penetration. 100 is the rarest mix.": "Jaka część każdego ulepszenia idzie w statystyki, które daje niewiele legendarnych przedmiotów, np. obrażenia krytyczne czy przebicie pancerza. 100 to najrzadsza mieszanka.",
@@ -29,5 +31,5 @@
  "The champion who would upgrade it most often.": "Bohater, który ulepszałby go najczęściej.",
  "Weapon of Destiny makes your first Legendary item your Weapon of Destiny. Every champion takedown adds {gold} gold worth of that item's own stats, shared equally between them, so an item with fewer stats puts more into each one.": "Broń Przeznaczenia zmienia twój pierwszy legendarny przedmiot w Broń Przeznaczenia. Każdy udział w zabójstwie bohatera dodaje własne statystyki tego przedmiotu warte {gold} szt. złota, podzielone między nie po równo, więc przedmiot z mniejszą liczbą statystyk dostaje więcej do każdej.",
  "Find an item": "Znajdź przedmiot",
- "Estimated. Ranked by how often each item would be upgraded, from the first Legendary item of the champions who get the most takedowns, and by how rare the stats it grows are.": "Szacunek. Uszeregowane według tego, jak często każdy przedmiot byłby ulepszany, na podstawie pierwszego legendarnego przedmiotu bohaterów z największą liczbą udziałów w zabójstwach, oraz według tego, jak rzadkie statystyki zwiększa."
+ "Estimated. Ranked by DeepScore, from each item's win rate and pick rate as the first Legendary item of the champions likely to take the augment, counting those who get the most takedowns most. Items no champion buys first have no score yet.": "Szacunek. Uszeregowane według DeepScore, na podstawie współczynnika zwycięstw i wyborów każdego przedmiotu jako pierwszego legendarnego przedmiotu bohaterów, którzy prawdopodobnie wezmą to wzmocnienie, z największą wagą dla tych z największą liczbą udziałów w zabójstwach. Przedmioty, których żaden bohater nie kupuje jako pierwszych, nie mają jeszcze wyniku."
 }

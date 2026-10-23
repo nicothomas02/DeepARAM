@@ -41,13 +41,14 @@ research note `early-vs-late-game.md` in the project files.
 `weapon_of_destiny.py` ranks Legendary items for the Weapon of Destiny augment (Tier List tab). Each
 takedown adds 200 gold worth of the item's own upgradeable stats, shared equally among them; the
 amounts per 1,000 gold come from the augment's spell data in `kiwi.bin`, the item's stats from the item
-bin. Two estimates per item, weighed equally on the site (Nico 2026-10-23, replacing a simulated
-version): `share`, how often it would be the Weapon (the feed has no games with the augment yet, so
-takers are every champion weighted by pick rate x kills + assists from `profiles`, and each one's
-Weapon is the first Legendary item in its core builds), and `rare`, its stats' average rarity among
-Legendary items (log2 of Legendary items / items with the stat; Critical Strike Damage is rarest).
-Not scheduled: rerun after patches. Once the feed lists the augment on champions, weight takers by
-their real pick rates instead.
+bin. The feed has no games with the augment yet (and no augment-item pairs), so its takers are
+extrapolated: every champion weighted by pick rate x kills + assists from `profiles`, and each one's
+Weapon is the first Legendary item in its core builds. Per item: `share` (how often it's the Weapon),
+`lift` (win rate of core builds starting with it minus the champion's average over its core builds,
+weighted like share) and `rare` (its stats' average rarity among Legendary items, shown only). The
+site's DeepScore (Nico 2026-10-23) uses lift and share the way the Items tab does, so it differs from
+the regular item DeepScore (first items only, takedown-weighted champions; rank correlation 0.14).
+Not scheduled: rerun after patches.
 
 ## Tried and dropped
 

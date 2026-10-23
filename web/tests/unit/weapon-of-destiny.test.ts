@@ -1,5 +1,5 @@
 // Weapon of Destiny tab: every ranked item is a Legendary item with a page, its per-takedown stats add up to the
-// augment's 200 gold, and the tiers follow the ranking value.
+// augment's 200 gold, and the tiers follow DeepScore.
 import { describe, expect, it } from "vitest";
 import championIds from "@/data/champion-ids.json";
 import { itemPages } from "@/lib/item-pages";
@@ -25,10 +25,15 @@ describe("Weapon of Destiny ranking", () => {
     }
   });
 
-  it("tiers a higher value at least as high, with shares that add up", () => {
+  it("tiers a higher DeepScore at least as high, with shares that add up", () => {
     const order = ["S", "A", "B", "C", "D"];
-    const sorted = [...data.rows].sort((a, b) => b.value - a.value);
-    for (let k = 1; k < sorted.length; k++) expect(order.indexOf(sorted[k].tier)).toBeGreaterThanOrEqual(order.indexOf(sorted[k - 1].tier));
+    const scored = data.rows.filter((r) => r.rank !== null).sort((a, b) => b.rank! - a.rank!);
+    expect(scored.length).toBeGreaterThan(20);
+    for (let k = 1; k < scored.length; k++) {
+      expect(order.indexOf(scored[k].tier!)).toBeGreaterThanOrEqual(order.indexOf(scored[k - 1].tier!));
+      expect(scored[k].deepScore!).toBeLessThanOrEqual(scored[k - 1].deepScore!);
+    }
+    for (const r of data.rows) if (r.rank === null) expect([r.deepScore, r.tier, r.lift]).toEqual([null, null, null]);
     const total = data.rows.reduce((s, r) => s + r.share, 0);
     expect(total).toBeGreaterThan(0.95);
     expect(total).toBeLessThan(1.01);
@@ -37,8 +42,5 @@ describe("Weapon of Destiny ranking", () => {
       expect(r.rare).toBeLessThanOrEqual(100);
       if (r.best) expect(championIds).toHaveProperty(r.best);
     }
-    // Infinity Edge carries Critical Strike Damage, the rarest stat; Warmog's only Health.
-    const rare = (name: string) => data.rows.find((r) => r.name === name)!.rare;
-    expect(rare("Infinity Edge")).toBeGreaterThan(rare("Warmog's Armor"));
   });
 });

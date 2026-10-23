@@ -16,10 +16,12 @@
  "Omnivamp": "Hút máu toàn phần",
  "Move Speed": "Tốc Độ Di Chuyển",
  "Heal and Shield Power": "Sức Mạnh Hồi Máu và Lá Chắn",
+ "DeepScore rates each item from 0 to 100 against the others, where 50 is average. It starts from how much the item raises the win rate of the champions who make it their first Legendary item, and trusts items picked first less often less. Tiers: S 70+, A 59+, B 44+, C 32+, D below.": "DeepScore chấm mỗi trang bị từ 0 đến 100 so với các trang bị khác, 50 là trung bình. Điểm dựa trên mức trang bị tăng tỉ lệ thắng của các tướng chọn nó làm trang bị Huyền Thoại đầu tiên, và ít tin hơn vào trang bị hiếm khi được mua đầu tiên. Bậc: S 70+, A 59+, B 44+, C 32+, D thấp hơn.",
  "Tier": "Bậc",
- "How often it's upgraded and how rare its stats are, weighed equally, against every other Legendary item: S is far above average, D far below.": "Mức độ thường xuyên được nâng cấp và độ hiếm của chỉ số, với trọng số ngang nhau, so với mọi trang bị Huyền Thoại khác: S cao hơn hẳn trung bình, D thấp hơn hẳn.",
  "Item": "Trang bị",
- "Upgraded": "Được nâng cấp",
+ "Win rate boost": "Mức tăng tỉ lệ thắng",
+ "Estimated. Win rate of builds that start with it, minus what the same champions win with their other first items.": "Ước tính. Tỉ lệ thắng của các lối lên đồ bắt đầu bằng nó, trừ đi tỉ lệ thắng của cùng các tướng đó với trang bị đầu tiên khác.",
+ "Pick rate": "Tỉ lệ chọn",
  "Estimated. How often it would be the Weapon of Destiny: the first Legendary item of the champions likely to take the augment.": "Ước tính. Mức độ thường xuyên nó trở thành Vũ Khí Định Mệnh: trang bị Huyền Thoại đầu tiên của các tướng có khả năng chọn lõi này.",
  "Rare stats": "Chỉ số hiếm",
  "How much of each upgrade goes into stats few Legendary items give, such as Critical Strike Damage or Armor Penetration. 100 is the rarest mix.": "Phần của mỗi lần nâng cấp đi vào các chỉ số mà ít trang bị Huyền Thoại có, như Sát Thương Chí Mạng hay Xuyên Giáp. 100 là tổ hợp hiếm nhất.",
@@ -29,5 +31,5 @@
  "The champion who would upgrade it most often.": "Vị tướng sẽ nâng cấp nó thường xuyên nhất.",
  "Weapon of Destiny makes your first Legendary item your Weapon of Destiny. Every champion takedown adds {gold} gold worth of that item's own stats, shared equally between them, so an item with fewer stats puts more into each one.": "Vũ Khí Định Mệnh biến trang bị Huyền Thoại đầu tiên của bạn thành Vũ Khí Định Mệnh. Mỗi lần tham gia hạ gục tướng địch thêm chỉ số của chính trang bị đó trị giá {gold} vàng, chia đều giữa các chỉ số, nên trang bị càng ít chỉ số thì mỗi chỉ số nhận càng nhiều.",
  "Find an item": "Tìm trang bị",
- "Estimated. Ranked by how often each item would be upgraded, from the first Legendary item of the champions who get the most takedowns, and by how rare the stats it grows are.": "Ước tính. Xếp hạng theo mức độ thường xuyên mỗi trang bị được nâng cấp, dựa trên trang bị Huyền Thoại đầu tiên của các tướng tham gia hạ gục nhiều nhất, và theo độ hiếm của các chỉ số nó tăng."
+ "Estimated. Ranked by DeepScore, from each item's win rate and pick rate as the first Legendary item of the champions likely to take the augment, counting those who get the most takedowns most. Items no champion buys first have no score yet.": "Ước tính. Xếp theo DeepScore, từ tỉ lệ thắng và tỉ lệ chọn của mỗi trang bị khi là trang bị Huyền Thoại đầu tiên của các tướng có khả năng chọn lõi này, tính nặng nhất các tướng tham gia hạ gục nhiều nhất. Trang bị chưa tướng nào mua đầu tiên thì chưa có điểm."
 }

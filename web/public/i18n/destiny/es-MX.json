@@ -16,10 +16,12 @@
  "Omnivamp": "Omnivampirismo",
  "Move Speed": "Velocidad de Movimiento",
  "Heal and Shield Power": "Poder de Curación y Escudo",
+ "DeepScore rates each item from 0 to 100 against the others, where 50 is average. It starts from how much the item raises the win rate of the champions who make it their first Legendary item, and trusts items picked first less often less. Tiers: S 70+, A 59+, B 44+, C 32+, D below.": "DeepScore califica cada objeto de 0 a 100 frente a los demás, donde 50 es el promedio. Parte de cuánto sube el objeto la tasa de victorias de los campeones que lo hacen su primer objeto legendario, y confía menos en los objetos que casi no se compran primero. Niveles: S 70+, A 59+, B 44+, C 32+, D abajo.",
  "Tier": "Tier",
- "How often it's upgraded and how rare its stats are, weighed equally, against every other Legendary item: S is far above average, D far below.": "Qué tan seguido se mejora y qué tan raras son sus estadísticas, con el mismo peso, frente a todos los demás objetos legendarios: S está muy por encima del promedio, D muy por debajo.",
  "Item": "Objeto",
- "Upgraded": "Mejorado",
+ "Win rate boost": "Mejora de victorias",
+ "Estimated. Win rate of builds that start with it, minus what the same champions win with their other first items.": "Estimado. Tasa de victorias de las builds que empiezan con él, menos lo que ganan los mismos campeones con sus otros primeros objetos.",
+ "Pick rate": "Tasa de elección",
  "Estimated. How often it would be the Weapon of Destiny: the first Legendary item of the champions likely to take the augment.": "Estimado. Qué tan seguido sería el Arma del Destino: el primer objeto legendario de los campeones que probablemente elijan el aumento.",
  "Rare stats": "Estadísticas raras",
  "How much of each upgrade goes into stats few Legendary items give, such as Critical Strike Damage or Armor Penetration. 100 is the rarest mix.": "Cuánto de cada mejora va a estadísticas que dan pocos objetos legendarios, como el daño crítico o la penetración de armadura. 100 es la mezcla más rara.",
@@ -29,5 +31,5 @@
  "The champion who would upgrade it most often.": "El campeón que más seguido lo mejoraría.",
  "Weapon of Destiny makes your first Legendary item your Weapon of Destiny. Every champion takedown adds {gold} gold worth of that item's own stats, shared equally between them, so an item with fewer stats puts more into each one.": "Arma del Destino convierte tu primer objeto legendario en tu Arma del Destino. Cada participación en el asesinato de un campeón agrega {gold} de oro en estadísticas de ese objeto, repartido en partes iguales entre ellas, así que un objeto con menos estadísticas recibe más en cada una.",
  "Find an item": "Buscar un objeto",
- "Estimated. Ranked by how often each item would be upgraded, from the first Legendary item of the champions who get the most takedowns, and by how rare the stats it grows are.": "Estimado. Ordenado por qué tan seguido se mejoraría cada objeto, según el primer objeto legendario de los campeones con más participaciones en asesinatos, y por qué tan raras son las estadísticas que aumenta."
+ "Estimated. Ranked by DeepScore, from each item's win rate and pick rate as the first Legendary item of the champions likely to take the augment, counting those who get the most takedowns most. Items no champion buys first have no score yet.": "Estimado. Ordenado por DeepScore, a partir de la tasa de victorias y la tasa de selección de cada objeto como primer objeto legendario de los campeones que probablemente elijan el aumento, contando más a los que tienen más participaciones en asesinatos. Los objetos que ningún campeón compra primero todavía no tienen calificación."
 }
