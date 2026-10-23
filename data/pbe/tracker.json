@@ -1,12 +1,14 @@
 {
  "builds": {
-  "pbe": "16.22.8312239",
+  "pbe": "16.22.8316254",
   "live": "16.21.8298620"
  },
- "dataAsOf": "2026-10-22",
+ "dataAsOf": "2026-10-23",
  "counts": {
   "mixed": 2,
-  "new": 2
+  "buff": 1,
+  "new": 2,
+  "removed": 9
  },
  "entries": [
   {
@@ -80,6 +82,21 @@
    "tag": "mixed"
   },
   {
+   "kind": "champion",
+   "name": "Varus",
+   "lines": [
+    {
+     "text": "Passive Attack Speed after a minion kill 11% → 14%, after a champion kill 33% → 42%",
+     "tag": "buff"
+    },
+    {
+     "text": "Q minimum damage 50/95/140/185/230 → 50/100/150/200/250",
+     "tag": "buff"
+    }
+   ],
+   "tag": "buff"
+  },
+  {
    "kind": "augment",
    "name": "RISE",
    "tier": "prismatic",
@@ -106,6 +123,123 @@
     }
    ],
    "tag": "new"
+  },
+  {
+   "kind": "augment",
+   "name": "Devil on Your Shoulder",
+   "tier": "prismatic",
+   "icon": "/assets/augments/live/littledevil_large.png",
+   "lines": [
+    {
+     "text": "Removed from the augment pool.",
+     "tag": "removed"
+    }
+   ],
+   "tag": "removed"
+  },
+  {
+   "kind": "augment",
+   "name": "Quantum Computing",
+   "tier": "prismatic",
+   "icon": "/assets/augments/live/quantumcomputing_large.png",
+   "lines": [
+    {
+     "text": "Removed from the augment pool.",
+     "tag": "removed"
+    }
+   ],
+   "tag": "removed"
+  },
+  {
+   "kind": "augment",
+   "name": "Perseverance",
+   "tier": "gold",
+   "icon": "/assets/augments/live/perseverance_large.png",
+   "lines": [
+    {
+     "text": "Removed from the augment pool.",
+     "tag": "removed"
+    }
+   ],
+   "tag": "removed"
+  },
+  {
+   "kind": "augment",
+   "name": "Snowball Upgrade",
+   "tier": "gold",
+   "icon": "/assets/augments/live/snowballupgrade_large.png",
+   "lines": [
+    {
+     "text": "Removed from the augment pool.",
+     "tag": "removed"
+    }
+   ],
+   "tag": "removed"
+  },
+  {
+   "kind": "augment",
+   "name": "Vampirism",
+   "tier": "gold",
+   "icon": "/assets/augments/live/vampired_large.png",
+   "lines": [
+    {
+     "text": "Removed from the augment pool.",
+     "tag": "removed"
+    }
+   ],
+   "tag": "removed"
+  },
+  {
+   "kind": "augment",
+   "name": "Void Dash",
+   "tier": "gold",
+   "icon": "/assets/augments/live/genericabilityaugmenticon_gold.png",
+   "lines": [
+    {
+     "text": "Removed from the augment pool.",
+     "tag": "removed"
+    }
+   ],
+   "tag": "removed"
+  },
+  {
+   "kind": "augment",
+   "name": "Adamant",
+   "tier": "silver",
+   "icon": "/assets/augments/live/adamant_large.png",
+   "lines": [
+    {
+     "text": "Removed from the augment pool.",
+     "tag": "removed"
+    }
+   ],
+   "tag": "removed"
+  },
+  {
+   "kind": "augment",
+   "name": "Double Strike",
+   "tier": "silver",
+   "icon": "/assets/augments/live/adamant_large.png",
+   "lines": [
+    {
+     "text": "Removed from the augment pool.",
+     "tag": "removed"
+    }
+   ],
+   "tag": "removed"
+  },
+  {
+   "kind": "augment",
+   "name": "Support Main",
+   "tier": "silver",
+   "icon": "/assets/augments/live/questsupportmain_large.png",
+   "lines": [
+    {
+     "text": "Removed from the augment pool.",
+     "tag": "removed"
+    }
+   ],
+   "tag": "removed"
   }
  ]
 }
