@@ -2,6 +2,8 @@
  "10 → 12 team multi-kills": "团队多杀 10 → 12 次",
  "15k crit damage": "造成 15k 暴击伤害",
  "250 bonus MS": "250 额外移动速度",
+ "80 shield at every rank": "每级护盾均为80",
+ "80/140/200/260/320 shield": "护盾80/140/200/260/320",
  "Ability values are listed for ranks 1-5 (basic abilities) or 1-3 (ultimates).": "技能数值按 1-5 级（基础技能）或 1-3 级（终极技能）列出。",
  "Armor per level 5.2 → 5.4": "每级护甲 5.2 → 5.4",
  "Base AD 54 → 52, Attack Speed per level 2.5% → 2.75%": "基础攻击力 54 → 52，每级攻击速度 2.5% → 2.75%",
@@ -14,6 +16,8 @@
  "Everyone's level cap rises to 21 and everyone gains extra XP. Reaching level 21 gives an extra augment.": "所有人的等级上限提高到 21，所有人获得额外经验。达到 21 级可获得一个额外的强化符文。",
  "Live is now patch 26.21, so this page lists only what's new in 26.22.": "正式服现已更新到 26.21 版本，因此本页只列出 26.22 的新内容。",
  "Mayhem Patch 26.22 on the test server.": "测试服上的 Mayhem 26.22 版本。",
+ "Mayhem only, W: 80 shield at every rank → 80/140/200/260/320 shield": "仅限Mayhem, W: 每级护盾均为80 → 护盾80/140/200/260/320",
+ "Mayhem only. Regular games are unchanged.": "仅限Mayhem。普通对局不变。",
  "Minion XP shared by 5 nearby allies drops from 24% to 20% each (regular ARAM too).": "附近 5 名队友分享的小兵经验从每人 24% 降至 20%（普通极地大乱斗同样适用）。",
  "New on the test server. Each Mayhem match has one Headliner that adds game-wide bonuses.": "测试服新内容。每场 Mayhem 对局都有一个 Headliner，为整局游戏提供加成。",
  "PBE content can change before release.": "PBE 内容在正式上线前可能会变化。",
@@ -25,12 +29,8 @@
  "Q reworked: first hit 60 + 25% AP, then 5/10/15/20/25 + 8% AP per extra bolt (was 60/85/110/135/160 + 55% AP, then 5/7/9/11/13 + 5% AP per bolt)": "Q 重做：首次命中 60 + 25% 法术强度，之后每发额外飞弹 5/10/15/20/25 + 8% 法术强度（原为 60/85/110/135/160 + 55% 法术强度，之后每发飞弹 5/7/9/11/13 + 5% 法术强度）",
  "R cooldown 120/100/80s → 120/90/60s": "R 冷却时间 120/100/80 秒 → 120/90/60 秒",
  "The Worlds band unlocks with this patch. Earn Fame to reach it.": "Worlds 乐队在此版本解锁。赚取 Fame 即可到达。",
+ "Update 2026-10-21: Lee Sin's Mayhem W shield now grows with rank.": "更新 2026-10-21：Mayhem中盲僧W的护盾现在随技能等级提升。",
  "W cooldown 38/35/33/29/26s → 30/28.5/27/25.5/24s, mana cost 80/60/40/20/0 → 100/75/50/25/0": "W 冷却时间 38/35/33/29/26 秒 → 30/28.5/27/25.5/24 秒，法力消耗 80/60/40/20/0 → 100/75/50/25/0",
  "W cooldown 7s → 8s": "W 冷却时间 7 秒 → 8 秒",
- "W reworked: shield 80/110/140/170/200 + 70% AP → 50/80/110/140/170 + 50% AP for 2s, with 10–30% Move Speed and damage to nearby enemies; it no longer reflects projectiles": "W 重做：护盾 80/110/140/170/200 + 70% 法术强度 → 50/80/110/140/170 + 50% 法术强度，持续 2 秒，附带 10–30% 移动速度并对附近敌人造成伤害；不再反射飞行道具",
- "80 shield at every rank": "每级护盾均为80",
- "80/140/200/260/320 shield": "护盾80/140/200/260/320",
- "Mayhem only, W: 80 shield at every rank → 80/140/200/260/320 shield": "仅限Mayhem, W: 每级护盾均为80 → 护盾80/140/200/260/320",
- "Mayhem only. Regular games are unchanged.": "仅限Mayhem。普通对局不变。",
- "Update 2026-10-21: Lee Sin's Mayhem W shield now grows with rank.": "更新 2026-10-21：Mayhem中盲僧W的护盾现在随技能等级提升。"
+ "W reworked: shield 80/110/140/170/200 + 70% AP → 50/80/110/140/170 + 50% AP for 2s, with 10–30% Move Speed and damage to nearby enemies; it no longer reflects projectiles": "W 重做：护盾 80/110/140/170/200 + 70% 法术强度 → 50/80/110/140/170 + 50% 法术强度，持续 2 秒，附带 10–30% 移动速度并对附近敌人造成伤害；不再反射飞行道具"
 }

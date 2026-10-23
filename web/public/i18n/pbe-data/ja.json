@@ -2,6 +2,8 @@
  "10 → 12 team multi-kills": "チームでマルチキル10 → 12回",
  "15k crit damage": "クリティカルダメージ15k",
  "250 bonus MS": "増加移動速度250",
+ "80 shield at every rank": "全ランクでシールド80",
+ "80/140/200/260/320 shield": "シールド80/140/200/260/320",
  "Ability values are listed for ranks 1-5 (basic abilities) or 1-3 (ultimates).": "スキルの数値はランク1-5 (通常スキル) または1-3 (アルティメットスキル) で記載しています。",
  "Armor per level 5.2 → 5.4": "レベルごとの物理防御 5.2 → 5.4",
  "Base AD 54 → 52, Attack Speed per level 2.5% → 2.75%": "基本攻撃力 54 → 52、レベルごとの攻撃速度 2.5% → 2.75%",
@@ -14,6 +16,8 @@
  "Everyone's level cap rises to 21 and everyone gains extra XP. Reaching level 21 gives an extra augment.": "全員のレベル上限が21に上がり、全員が追加の経験値を獲得。レベル21に到達すると追加のオーグメントを獲得。",
  "Live is now patch 26.21, so this page lists only what's new in 26.22.": "ライブはパッチ26.21になったため、このページでは26.22の新要素のみを掲載しています。",
  "Mayhem Patch 26.22 on the test server.": "テストサーバーでのメイヘム パッチ26.22。",
+ "Mayhem only, W: 80 shield at every rank → 80/140/200/260/320 shield": "Mayhemのみ, W: 全ランクでシールド80 → シールド80/140/200/260/320",
+ "Mayhem only. Regular games are unchanged.": "Mayhemのみ。通常の試合は変わりません。",
  "Minion XP shared by 5 nearby allies drops from 24% to 20% each (regular ARAM too).": "付近の味方5人で分け合うミニオンの経験値が1人あたり24% → 20%に (通常のARAMにも適用)。",
  "New on the test server. Each Mayhem match has one Headliner that adds game-wide bonuses.": "テストサーバーの新要素。メイヘムの各試合には、試合全体にボーナスを与えるヘッドライナーが1組登場します。",
  "PBE content can change before release.": "PBEの内容はリリース前に変更される場合があります。",
@@ -25,12 +29,8 @@
  "Q reworked: first hit 60 + 25% AP, then 5/10/15/20/25 + 8% AP per extra bolt (was 60/85/110/135/160 + 55% AP, then 5/7/9/11/13 + 5% AP per bolt)": "Qをリワーク: 初撃 60 + 魔力の25%、追加ボルト1発ごとに 5/10/15/20/25 + 魔力の8% (以前は 60/85/110/135/160 + 魔力の55%、ボルト1発ごとに 5/7/9/11/13 + 魔力の5%)",
  "R cooldown 120/100/80s → 120/90/60s": "Rのクールダウン 120/100/80秒 → 120/90/60秒",
  "The Worlds band unlocks with this patch. Earn Fame to reach it.": "このパッチでバンド「Worlds」が解放されます。Fameを稼いで到達しましょう。",
+ "Update 2026-10-21: Lee Sin's Mayhem W shield now grows with rank.": "更新 2026-10-21：Mayhemでのリー・シンのWのシールドがランクに応じて増えるようになりました。",
  "W cooldown 38/35/33/29/26s → 30/28.5/27/25.5/24s, mana cost 80/60/40/20/0 → 100/75/50/25/0": "Wのクールダウン 38/35/33/29/26秒 → 30/28.5/27/25.5/24秒、マナコスト 80/60/40/20/0 → 100/75/50/25/0",
  "W cooldown 7s → 8s": "Wのクールダウン 7秒 → 8秒",
- "W reworked: shield 80/110/140/170/200 + 70% AP → 50/80/110/140/170 + 50% AP for 2s, with 10–30% Move Speed and damage to nearby enemies; it no longer reflects projectiles": "Wをリワーク: シールド 80/110/140/170/200 + 魔力の70% → 2秒間 50/80/110/140/170 + 魔力の50%、移動速度10–30%と付近の敵へのダメージ付き。投射物を反射しなくなった",
- "80 shield at every rank": "全ランクでシールド80",
- "80/140/200/260/320 shield": "シールド80/140/200/260/320",
- "Mayhem only, W: 80 shield at every rank → 80/140/200/260/320 shield": "Mayhemのみ, W: 全ランクでシールド80 → シールド80/140/200/260/320",
- "Mayhem only. Regular games are unchanged.": "Mayhemのみ。通常の試合は変わりません。",
- "Update 2026-10-21: Lee Sin's Mayhem W shield now grows with rank.": "更新 2026-10-21：Mayhemでのリー・シンのWのシールドがランクに応じて増えるようになりました。"
+ "W reworked: shield 80/110/140/170/200 + 70% AP → 50/80/110/140/170 + 50% AP for 2s, with 10–30% Move Speed and damage to nearby enemies; it no longer reflects projectiles": "Wをリワーク: シールド 80/110/140/170/200 + 魔力の70% → 2秒間 50/80/110/140/170 + 魔力の50%、移動速度10–30%と付近の敵へのダメージ付き。投射物を反射しなくなった"
 }

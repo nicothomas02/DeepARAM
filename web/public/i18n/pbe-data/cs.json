@@ -2,6 +2,8 @@
  "10 → 12 team multi-kills": "10 → 12 týmových vícenásobných zabití",
  "15k crit damage": "15k kritického poškození",
  "250 bonus MS": "250 bonusové rychlosti pohybu",
+ "80 shield at every rank": "Štít 80 na každé úrovni",
+ "80/140/200/260/320 shield": "Štít 80/140/200/260/320",
  "Ability values are listed for ranks 1-5 (basic abilities) or 1-3 (ultimates).": "Hodnoty schopností jsou uvedeny pro úrovně 1-5 (základní schopnosti) nebo 1-3 (superschopnosti).",
  "Armor per level 5.2 → 5.4": "Brnění za úroveň 5.2 → 5.4",
  "Base AD 54 → 52, Attack Speed per level 2.5% → 2.75%": "Základní síla útoku 54 → 52, rychlost útoku za úroveň 2.5% → 2.75%",
@@ -14,6 +16,8 @@
  "Everyone's level cap rises to 21 and everyone gains extra XP. Reaching level 21 gives an extra augment.": "Maximální úroveň všech hráčů se zvyšuje na 21 a všichni získávají zkušenosti navíc. Dosažení úrovně 21 dává augment navíc.",
  "Live is now patch 26.21, so this page lists only what's new in 26.22.": "Živá hra je teď na verzi 26.21, takže tato stránka ukazuje jen novinky z 26.22.",
  "Mayhem Patch 26.22 on the test server.": "Mayhem verze 26.22 na testovacím serveru.",
+ "Mayhem only, W: 80 shield at every rank → 80/140/200/260/320 shield": "Jen Mayhem, W: Štít 80 na každé úrovni → Štít 80/140/200/260/320",
+ "Mayhem only. Regular games are unchanged.": "Jen Mayhem. Běžné hry se nemění.",
  "Minion XP shared by 5 nearby allies drops from 24% to 20% each (regular ARAM too).": "Zkušenosti z poskoků sdílené mezi 5 spojenci poblíž klesají z 24% na 20% pro každého (i v běžném ARAM).",
  "New on the test server. Each Mayhem match has one Headliner that adds game-wide bonuses.": "Novinka na testovacím serveru. Každý zápas Mayhem má jednoho Headlinera, který přidává bonusy celé hře.",
  "PBE content can change before release.": "Obsah PBE se může před vydáním změnit.",
@@ -25,12 +29,8 @@
  "Q reworked: first hit 60 + 25% AP, then 5/10/15/20/25 + 8% AP per extra bolt (was 60/85/110/135/160 + 55% AP, then 5/7/9/11/13 + 5% AP per bolt)": "Q přepracováno: první zásah 60 + 25% síly schopností, pak 5/10/15/20/25 + 8% síly schopností za každou další střelu (dříve 60/85/110/135/160 + 55% síly schopností, pak 5/7/9/11/13 + 5% síly schopností za střelu)",
  "R cooldown 120/100/80s → 120/90/60s": "R: doba přebíjení 120/100/80s → 120/90/60s",
  "The Worlds band unlocks with this patch. Earn Fame to reach it.": "Kapela Worlds se odemyká s touto verzí. Získej Fame, abys ji dosáhl.",
+ "Update 2026-10-21: Lee Sin's Mayhem W shield now grows with rank.": "Aktualizace 2026-10-21: štít z W Lee Sina v Mayhem teď roste s úrovní.",
  "W cooldown 38/35/33/29/26s → 30/28.5/27/25.5/24s, mana cost 80/60/40/20/0 → 100/75/50/25/0": "W: doba přebíjení 38/35/33/29/26s → 30/28.5/27/25.5/24s, cena many 80/60/40/20/0 → 100/75/50/25/0",
  "W cooldown 7s → 8s": "W: přebíjecí doba 7s → 8s",
- "W reworked: shield 80/110/140/170/200 + 70% AP → 50/80/110/140/170 + 50% AP for 2s, with 10–30% Move Speed and damage to nearby enemies; it no longer reflects projectiles": "W přepracováno: štít 80/110/140/170/200 + 70% síly schopností → 50/80/110/140/170 + 50% síly schopností na 2s, s 10–30% rychlosti pohybu a poškozením nepřátel poblíž; už neodráží střely",
- "80 shield at every rank": "Štít 80 na každé úrovni",
- "80/140/200/260/320 shield": "Štít 80/140/200/260/320",
- "Mayhem only, W: 80 shield at every rank → 80/140/200/260/320 shield": "Jen Mayhem, W: Štít 80 na každé úrovni → Štít 80/140/200/260/320",
- "Mayhem only. Regular games are unchanged.": "Jen Mayhem. Běžné hry se nemění.",
- "Update 2026-10-21: Lee Sin's Mayhem W shield now grows with rank.": "Aktualizace 2026-10-21: štít z W Lee Sina v Mayhem teď roste s úrovní."
+ "W reworked: shield 80/110/140/170/200 + 70% AP → 50/80/110/140/170 + 50% AP for 2s, with 10–30% Move Speed and damage to nearby enemies; it no longer reflects projectiles": "W přepracováno: štít 80/110/140/170/200 + 70% síly schopností → 50/80/110/140/170 + 50% síly schopností na 2s, s 10–30% rychlosti pohybu a poškozením nepřátel poblíž; už neodráží střely"
 }

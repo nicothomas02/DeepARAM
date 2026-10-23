@@ -2,6 +2,8 @@
  "10 → 12 team multi-kills": "10 → 12 multi-éliminations d'équipe",
  "15k crit damage": "15k dégâts critiques",
  "250 bonus MS": "250 vitesse de déplacement supplémentaire",
+ "80 shield at every rank": "Bouclier de 80 à tous les rangs",
+ "80/140/200/260/320 shield": "Bouclier de 80/140/200/260/320",
  "Ability values are listed for ranks 1-5 (basic abilities) or 1-3 (ultimates).": "Les valeurs des compétences sont indiquées pour les rangs 1-5 (compétences de base) ou 1-3 (ultimes).",
  "Armor per level 5.2 → 5.4": "Armure par niveau 5.2 → 5.4",
  "Base AD 54 → 52, Attack Speed per level 2.5% → 2.75%": "Dégâts d'attaque de base 54 → 52, vitesse d'attaque par niveau 2.5% → 2.75%",
@@ -14,6 +16,8 @@
  "Everyone's level cap rises to 21 and everyone gains extra XP. Reaching level 21 gives an extra augment.": "Le niveau maximum de tous les joueurs passe à 21 et tout le monde gagne de l'XP en plus. Atteindre le niveau 21 donne un augment supplémentaire.",
  "Live is now patch 26.21, so this page lists only what's new in 26.22.": "Le live est maintenant en version 26.21 : cette page ne liste que les nouveautés de la 26.22.",
  "Mayhem Patch 26.22 on the test server.": "Mayhem version 26.22 sur le serveur de test.",
+ "Mayhem only, W: 80 shield at every rank → 80/140/200/260/320 shield": "Mayhem uniquement, W: Bouclier de 80 à tous les rangs → Bouclier de 80/140/200/260/320",
+ "Mayhem only. Regular games are unchanged.": "Mayhem uniquement. Les parties normales ne changent pas.",
  "Minion XP shared by 5 nearby allies drops from 24% to 20% each (regular ARAM too).": "L'XP des sbires partagée entre 5 alliés proches passe de 24% à 20% chacun (en ARAM classique aussi).",
  "New on the test server. Each Mayhem match has one Headliner that adds game-wide bonuses.": "Nouveau sur le serveur de test. Chaque partie de Mayhem a un Headliner qui ajoute des bonus à toute la partie.",
  "PBE content can change before release.": "Le contenu du PBE peut changer avant sa sortie.",
@@ -25,12 +29,8 @@
  "Q reworked: first hit 60 + 25% AP, then 5/10/15/20/25 + 8% AP per extra bolt (was 60/85/110/135/160 + 55% AP, then 5/7/9/11/13 + 5% AP per bolt)": "Q refondu : premier coup 60 + 25% de la puissance, puis 5/10/15/20/25 + 8% de la puissance par projectile supplémentaire (avant : 60/85/110/135/160 + 55% de la puissance, puis 5/7/9/11/13 + 5% de la puissance par projectile)",
  "R cooldown 120/100/80s → 120/90/60s": "R : délai de récupération 120/100/80s → 120/90/60s",
  "The Worlds band unlocks with this patch. Earn Fame to reach it.": "Le groupe Worlds se débloque avec cette version. Gagnez de la Fame pour l'atteindre.",
+ "Update 2026-10-21: Lee Sin's Mayhem W shield now grows with rank.": "Mise à jour du 2026-10-21 : le bouclier du W de Lee Sin en Mayhem augmente maintenant avec le rang.",
  "W cooldown 38/35/33/29/26s → 30/28.5/27/25.5/24s, mana cost 80/60/40/20/0 → 100/75/50/25/0": "W : délai de récupération 38/35/33/29/26s → 30/28.5/27/25.5/24s, coût en mana 80/60/40/20/0 → 100/75/50/25/0",
  "W cooldown 7s → 8s": "W : délai de récupération 7s → 8s",
- "W reworked: shield 80/110/140/170/200 + 70% AP → 50/80/110/140/170 + 50% AP for 2s, with 10–30% Move Speed and damage to nearby enemies; it no longer reflects projectiles": "W refondu : bouclier 80/110/140/170/200 + 70% de la puissance → 50/80/110/140/170 + 50% de la puissance pendant 2s, avec 10–30% de vitesse de déplacement et des dégâts aux ennemis proches ; il ne renvoie plus les projectiles",
- "80 shield at every rank": "Bouclier de 80 à tous les rangs",
- "80/140/200/260/320 shield": "Bouclier de 80/140/200/260/320",
- "Mayhem only, W: 80 shield at every rank → 80/140/200/260/320 shield": "Mayhem uniquement, W: Bouclier de 80 à tous les rangs → Bouclier de 80/140/200/260/320",
- "Mayhem only. Regular games are unchanged.": "Mayhem uniquement. Les parties normales ne changent pas.",
- "Update 2026-10-21: Lee Sin's Mayhem W shield now grows with rank.": "Mise à jour du 2026-10-21 : le bouclier du W de Lee Sin en Mayhem augmente maintenant avec le rang."
+ "W reworked: shield 80/110/140/170/200 + 70% AP → 50/80/110/140/170 + 50% AP for 2s, with 10–30% Move Speed and damage to nearby enemies; it no longer reflects projectiles": "W refondu : bouclier 80/110/140/170/200 + 70% de la puissance → 50/80/110/140/170 + 50% de la puissance pendant 2s, avec 10–30% de vitesse de déplacement et des dégâts aux ennemis proches ; il ne renvoie plus les projectiles"
 }
