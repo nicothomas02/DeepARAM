@@ -2,7 +2,9 @@ name: Mayhem stats
 
 on:
   schedule:
-    - cron: "0 6 * * *"   # 14:00 Beijing, after Tencent publishes the previous day
+    # Hourly, off the top of the hour (less queueing). The check job asks Tencent whether the previous Beijing day is
+    # out yet and only then runs the refresh, so the site follows each day's stats within about an hour.
+    - cron: "23 * * * *"
   workflow_dispatch:
     inputs:
       today:
@@ -18,8 +20,29 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  refresh:
+  check:
+    if: github.event_name == 'schedule'
     runs-on: ubuntu-latest
+    outputs:
+      new: ${{ steps.newest.outputs.new }}
+      day: ${{ steps.newest.outputs.day }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: data/cn
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - id: newest
+        run: cd data/cn && python3 newest.py >> "$GITHUB_OUTPUT" && cat "$GITHUB_OUTPUT"
+
+  refresh:
+    needs: check
+    # A manual run always refreshes; a scheduled one only when the check found a new day.
+    if: always() && (github.event_name == 'workflow_dispatch' || needs.check.outputs.new == 'true')
+    runs-on: ubuntu-latest
+    env:
+      TZ: Asia/Shanghai  # Tencent's days are Beijing days, so "yesterday" in the scripts means the newest finished one
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -47,6 +70,12 @@ jobs:
         run: |
           python3 web/scripts/fetch_assets.py
           git checkout -- web/public/assets/manifest.json
+      - name: Note when the day first appeared
+        if: needs.check.outputs.new == 'true'
+        run: |
+          f=data/cn/history/published.csv
+          [ -f "$f" ] || echo "stat_date,first_seen_utc" > "$f"
+          echo "${{ needs.check.outputs.day }},$(date -u +%Y-%m-%dT%H:%M:%SZ)" >> "$f"
       - name: Commit changes
         run: |
           git config user.name "github-actions[bot]"

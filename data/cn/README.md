@@ -96,7 +96,9 @@ than whole patches. 15.21 started before the API's first day (2025-11-02), so a 
 that starts in early November 2025 counts from 15.21's release on 2025-10-23. That's why
 November 2025 shows 39 days in `by_month.csv`.
 
-The `Mayhem stats` GitHub Action runs both scripts daily and commits new data.
+The `Mayhem stats` GitHub Action checks every hour (`newest.py`) whether Tencent has published the previous Beijing
+day yet, and runs both scripts and commits the new data as soon as it has (about once a day). Each run notes when
+the day first appeared in `history/published.csv`, which shows when Tencent publishes.
 
 Caveats: the API is undocumented and can change without notice. Rates are fractions
 (0.5575 = 55.75%). The champion `rank` is Tencent's own ordering, not sorted by win
