@@ -260,6 +260,13 @@ def test_dummy_dps_covers_every_best_build():
     assert [r["dps"] for r in rows] == sorted((r["dps"] for r in rows), reverse=True)
 
 
+def test_item_page_simulations_match_the_tuned_patch():
+    """The item pages say which patch their simulations ran on (web/src/data/item-sim.json), so they
+    must be rebuilt with the simulator data (`make replay` runs web/scripts/build_item_sim.py)."""
+    item_sim = load_json(SIM_DIR.parent / "web/src/data/item-sim.json")
+    assert item_sim["patch"] == (DATA_DIR / "tuned_patch.txt").read_text().strip()
+    assert item_sim["items"]
+
 def test_replay_traces_and_fight_length_name_real_champions():
     ids = {c["id"] for c in champions("live")}
     traces = load_json(VIEWER_DIR / "replay-data/traces.json")
