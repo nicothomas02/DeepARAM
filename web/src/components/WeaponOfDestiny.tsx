@@ -3,8 +3,8 @@
 import DataTable, { type Column, type Row } from "@/components/DataTable";
 import { useNames, useT } from "./I18n";
 
-// The Tier List's Weapon of Destiny tab (?tab=weapon-of-destiny): every Legendary item ranked by how much the
-// augment's upgrades add to the champions who buy it first (lib/weapon-of-destiny.ts). Rows are built here so
+// The Tier List's Weapon of Destiny tab (?tab=weapon-of-destiny): every Legendary item ranked by how often it
+// would be the Weapon and how rare the stats it grows are (lib/weapon-of-destiny.ts). Rows are built here so
 // the item names and stats show in the page's language.
 
 type Item = {
@@ -13,11 +13,10 @@ type Item = {
   name: string;
   icon: string;
   perTakedown: Record<string, number>;
-  fight: number | null;
-  dps: number | null;
-  alive: number | null;
-  tier: string | null;
-  score: number | null;
+  share: number;
+  rare: number;
+  tier: string;
+  value: number;
   best: string | null;
 };
 
@@ -46,7 +45,7 @@ const STATS: [string, string, boolean][] = [
 // One decimal at most, none when it's whole.
 const amount = (n: number) => String(Math.round(n * 10) / 10);
 
-export default function WeaponOfDestiny({ items, takedowns, gold }: { items: Item[]; takedowns: number; gold: number }) {
+export default function WeaponOfDestiny({ items, gold }: { items: Item[]; gold: number }) {
   const t = useT("destiny");
   const names = useNames();
   const perTakedown = (s: Item["perTakedown"]) =>
@@ -55,18 +54,28 @@ export default function WeaponOfDestiny({ items, takedowns, gold }: { items: Ite
       .join(", ");
 
   const columns: Column[] = [
-    { key: "tier", label: t("Tier"), format: "tier", sortKey: "fight", hint: t("From the simulated fight damage it adds, against every other Legendary item: S is far above average, D far below.") },
+    {
+      key: "tier",
+      label: t("Tier"),
+      format: "tier",
+      sortKey: "value",
+      hint: t("How often it's upgraded and how rare its stats are, weighed equally, against every other Legendary item: S is far above average, D far below."),
+    },
     { key: "name", label: t("Item"), format: "item", iconKey: "icon", hrefKey: "href" },
     {
-      key: "fight",
-      label: t("Damage per fight"),
-      format: "gain",
-      hint: t("Estimated. How much more damage the champions who buy it first deal over a simulated fight once it has {n} takedowns of upgrades.", { n: takedowns }),
+      key: "share",
+      label: t("Upgraded"),
+      format: "pct",
+      hint: t("Estimated. How often it would be the Weapon of Destiny: the first Legendary item of the champions likely to take the augment."),
     },
-    { key: "dps", label: t("Damage per second"), format: "gain", phone: "hide", hint: t("Estimated. The change in their simulated damage per second.") },
-    { key: "alive", label: t("Time alive"), format: "gain", phone: "hide", hint: t("Estimated. How much longer they stay alive in the simulated fight.") },
+    {
+      key: "rare",
+      label: t("Rare stats"),
+      format: "int",
+      hint: t("How much of each upgrade goes into stats few Legendary items give, such as Critical Strike Damage or Armor Penetration. 100 is the rarest mix."),
+    },
     { key: "stats", label: t("Each takedown"), format: "text", sortable: false, phone: "hide", hint: t("What one takedown adds to the item: {gold} gold worth of its own stats, shared equally.", { gold }) },
-    { key: "best", label: t("Best with"), format: "champion-icon", sortable: false, hint: t("The champion it helps most in the simulator.") },
+    { key: "best", label: t("Best with"), format: "champion-icon", sortable: false, hint: t("The champion who would upgrade it most often.") },
   ];
   const rows: Row[] = items.map((i) => ({
     id: i.id,
@@ -74,10 +83,9 @@ export default function WeaponOfDestiny({ items, takedowns, gold }: { items: Ite
     icon: i.icon,
     href: `/items/${i.slug}`,
     tier: i.tier,
-    score: i.score,
-    fight: i.fight,
-    dps: i.dps,
-    alive: i.alive,
+    value: i.value,
+    share: i.share,
+    rare: i.rare,
     stats: perTakedown(i.perTakedown),
     best: i.best,
   }));
@@ -90,11 +98,10 @@ export default function WeaponOfDestiny({ items, takedowns, gold }: { items: Ite
           { gold },
         )}
       </p>
-      <DataTable columns={columns} rows={rows} initialSort={{ key: "fight", desc: true }} searchKey="name" searchLabel={t("Find an item")} urlTab="weapon-of-destiny" />
+      <DataTable columns={columns} rows={rows} initialSort={{ key: "value", desc: true }} searchKey="name" searchLabel={t("Find an item")} urlTab="weapon-of-destiny" />
       <p className="patch-note">
         {t(
-          "Estimated. Each item is simulated on the champions who buy it first most often, once as it is and once with {n} takedowns of upgrades, about half a typical game's takedowns.",
-          { n: takedowns },
+          "Estimated. Ranked by how often each item would be upgraded, from the first Legendary item of the champions who get the most takedowns, and by how rare the stats it grows are.",
         )}
       </p>
     </>

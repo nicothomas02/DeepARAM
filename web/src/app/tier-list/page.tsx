@@ -212,14 +212,14 @@ export default function TierListPage() {
     });
   }
 
-  // Which Legendary item to make the Weapon of Destiny (gold augment): simulated value of its upgrades.
+  // Which Legendary item to make the Weapon of Destiny (gold augment): how often it's upgraded and how rare its stats are.
   const destiny = weaponOfDestiny();
   if (destiny?.rows.length) {
     tabs.push({
       id: "weapon-of-destiny",
       label: "Weapon of Destiny",
       lazy: true,
-      content: <WeaponOfDestiny items={destiny.rows} takedowns={destiny.takedowns} gold={destiny.gold} />,
+      content: <WeaponOfDestiny items={destiny.rows} gold={destiny.gold} />,
     });
   }
 

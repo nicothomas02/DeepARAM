@@ -7,40 +7,38 @@ among them. The augment's spell data (game/maps/modespecificdata/kiwi.bin) holds
 BaselineGoldAmp (1,000) gold buys (UpgradeAD 30, UpgradeHealth 375, ...), so one takedown on an item
 with N upgradeable stats adds Upgrade<stat> x GoldValue / BaselineGoldAmp / N of each.
 
-For every Legendary item the simulator models, take the champions who buy it first most often (the order
-in data/cn/builds core builds, falling back to how often they build it at all) and their simulated best
-build (simulator/viewer/replay-data/best-builds.json) with the item in it. Simulate that build once as is
-and once with the item carrying TAKEDOWNS takedowns' worth of upgrades. The differences in damage per
-second and time alive are what the upgrades are worth to that champion.
+Each item gets two numbers (Nico 2026-10-23: extrapolate from what players upgrade, weighted toward
+hard-to-get stats, rather than simulating):
 
-Needs the native simulator: `make -C simulator mayhem_sim`. Run from the repo root:
+- share: how often it would be the Weapon. The Mayhem feed has no games with the augment yet, so its
+  takers are extrapolated as every champion weighted by pick rate times takedowns per game (the augment
+  pays per takedown), and each champion's Weapon is its first Legendary item in its core builds' order.
+- rare: how much of the upgrade goes into stats few Legendary items give. Each stat's rarity is
+  log2(Legendary items / Legendary items with that stat), so Critical Strike Damage (one item) is worth
+  far more than Attack Damage or Health (sixty-odd each); the item's score is its stats' rarities
+  averaged, since the 200 gold is shared equally.
+
+Run from the repo root:
     python3 data/estimates/weapon_of_destiny.py
-Writes data/estimates/weapon_of_destiny.json. Takes about two minutes on 4 cores.
+Writes data/estimates/weapon_of_destiny.json.
 """
 
 import json
+import math
 import os
-import statistics
-import subprocess
-import sys
-import tempfile
 import urllib.request
-from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[2]
-SIM_DIR = ROOT / "simulator"
-SIM = SIM_DIR / "mayhem_sim"
-OUT = Path(__file__).resolve().parent / "weapon_of_destiny.json"
+import common
+
+ROOT = Path(common.REPO)
+OUT = Path(common.HERE) / "weapon_of_destiny.json"
 CACHE = Path(os.environ.get("XDG_CACHE_HOME", Path.home() / ".cache")) / "deeparam-sim"
 BASE = "https://raw.communitydragon.org/latest"
 AUGMENT = "{12154b4d}"  # Augment_WeaponOfDestiny's spell object in kiwi.bin
-TOP = 5  # champions per item
-TRIALS = "2000"
-SEED = "7"
+BEST = 3  # champions listed per item
 
-# Upgradeable stat -> (the augment's DataValue, the item bin's stat field). Simulator stat keys; ms_pct and
-# heal_shield_power sit under an item's effects in simulator/data/items.json, the rest under stats.
+# Upgradeable stat -> (the augment's DataValue, the item bin's stat field), keyed like the simulator's stats.
 UPGRADES = {
     "ad": ("UpgradeAD", "mFlatPhysicalDamageMod"),
     "ap": ("UpgradeAP", "mFlatMagicDamageMod"),
@@ -61,12 +59,6 @@ UPGRADES = {
     "ms_pct": ("UpgradeMSPercent", "mPercentMovementSpeedMod"),
     "heal_shield_power": ("UpgradeHSPower", "mPercentHealingAmountMod"),
 }
-EFFECT_STATS = {"ms_pct", "heal_shield_power"}
-PERCENT = {"as", "crit", "crit_damage", "armor_pen", "magic_pen_pct", "lifesteal", "omnivamp", "ms_pct", "heal_shield_power"}
-
-
-def load(path):
-    return json.loads((ROOT / path).read_text())
 
 
 def fetch(path):
@@ -86,123 +78,72 @@ def augment_values():
     return dv, {k: dv[name] * share for k, (name, _) in UPGRADES.items()}
 
 
-def per_takedown(record, full):
-    """{stat: amount one takedown adds} for an item's bin record."""
-    have = [k for k, (_, field) in UPGRADES.items() if record.get(field)]
-    return {k: full[k] / len(have) for k in have}
-
-
-def first_rates(cid):
-    """{item id: share of games it's the first item in a core build, else its build rate / 3}."""
-    f = ROOT / "data" / "cn" / "builds" / f"{cid}.json"
-    if not f.exists():
-        return {}
-    items = json.loads(f.read_text()).get("items", {})
-    first, built = {}, {}
-    for e in items.get("core", []):
-        if e["items"]:
-            first[e["items"][0]] = first.get(e["items"][0], 0) + e["pick_rate"]
-    for e in items.get("other", []):
-        if len(e["items"]) == 1:
-            built[e["items"][0]] = e["pick_rate"]
-    return {i: first.get(i, 0) + built.get(i, 0) / 100 for i in set(first) | set(built)}
+def first_legendary(build, legendary):
+    """{item id: share of the champion's core builds whose first Legendary item it is}."""
+    counts = {}
+    for e in build.get("items", {}).get("core", []):
+        first = next((i for i in e["items"] if i in legendary), None)
+        if first:
+            counts[first] = counts.get(first, 0) + e["pick_rate"]
+    total = sum(counts.values())
+    return {i: c / total for i, c in counts.items()} if total else {}
 
 
 def main():
-    if not SIM.exists():
-        sys.exit("Build the simulator first: make -C simulator mayhem_sim")
     dv, full = augment_values()
     bins = fetch("game/items.cdtb.bin.json")
-    items_file = load("simulator/data/items.json")
-    sim_items = items_file["items"]
-    legendary = {v["id"]: k for k, v in sim_items.items() if v.get("slot") == "legendary"}
-    gains = {gid: per_takedown(bins.get(f"Items/{gid}", {}), full) for gid in legendary}
-    gains = {gid: g for gid, g in gains.items() if g}
+    sim_items = common.load(os.path.join(common.REPO, "simulator", "data", "items.json"))["items"]
+    legendary = {v["id"] for v in sim_items.values() if v.get("slot") == "legendary"}
+    stats = {
+        gid: [k for k, (_, field) in UPGRADES.items() if bins.get(f"Items/{gid}", {}).get(field)] for gid in legendary
+    }
+    stats = {gid: s for gid, s in stats.items() if s}
 
-    # Half a typical game's takedowns: the stacks an item carries on average over a game.
-    profiles = load("data/estimates/estimates.json")["profiles"]
-    takedowns = round(statistics.median(p["kills"]["value"] + p["assists"]["value"] for p in profiles.values()) / 2)
+    # Rarity of each stat among Legendary items, and each item's average over its stats.
+    have = {k: sum(k in s for s in stats.values()) for k in UPGRADES}
+    rarity = {k: math.log2(len(stats) / n) for k, n in have.items() if n}
+    rare = {gid: sum(rarity[k] for k in s) / len(s) for gid, s in stats.items()}
 
-    # Each item's upgraded copy, as an extra item the simulator can be handed by key.
-    upgraded = dict(sim_items)
-    for gid, g in gains.items():
-        slug = legendary[gid]
-        item = json.loads(json.dumps(sim_items[slug]))
-        for k, v in g.items():
-            box = item.setdefault("effects" if k in EFFECT_STATS else "stats", {})
-            box[k] = box.get(k, 0) + v * takedowns
-        upgraded[f"wod_{slug}"] = item
-
-    best = {c["champion"].lower(): c for c in load("simulator/viewer/replay-data/best-builds.json")["champions"]}
-    ids = load("web/src/data/champion-ids.json")
-    builders = {}
-    for alias, cid in ids.items():
-        c = best.get(alias.lower())
-        if not c:
+    # Who would take it: pick rate x takedowns per game (the estimated profile's kills + assists).
+    profiles = common.load(os.path.join(common.HERE, "estimates.json"))["profiles"]
+    champs = common.champion_stats()
+    builds = common.builds()
+    weight, picks = {}, {}
+    for cid, c in champs.items():
+        p, b = profiles.get(cid), builds.get(cid)
+        if not p or not b:
             continue
-        for gid, rate in first_rates(cid).items():
-            if gid in gains:
-                builders.setdefault(gid, []).append((rate, c))
+        firsts = first_legendary(b, legendary)
+        if firsts:
+            weight[cid] = c["pick_rate"] * (p["kills"]["value"] + p["assists"]["value"])
+            picks[cid] = firsts
+    total = sum(weight.values())
+    share, by = {}, {}
+    for cid, firsts in picks.items():
+        for gid, s in firsts.items():
+            part = weight[cid] / total * s
+            share[gid] = share.get(gid, 0) + part
+            by.setdefault(gid, []).append((part, champs[cid]["name"]))
 
-    jobs = []
-    for gid, rows in builders.items():
-        slug = legendary[gid]
-        for rate, c in sorted(rows, key=lambda r: -r[0])[:TOP]:
-            items, augs = c["build"]["items"], c["build"]["augments"]
-            # Builds without the item swap it in for one of their items, last first, skipping swaps the
-            # shop doesn't allow (two Hydras, two Last Whisper items).
-            tries = [items] if slug in items else [items[:k] + [slug] + items[k + 1:] for k in reversed(range(len(items)))
-                                                    if sim_items.get(items[k], {}).get("slot") != "boots"]
-            jobs.append((gid, c["champion"], tries, augs, rate))
-
-    with tempfile.TemporaryDirectory() as tmp:
-        for name in ("champions.json", "augments.json", "augment_pools.json"):
-            os.symlink(SIM_DIR / "data" / name, Path(tmp) / name)
-        (Path(tmp) / "items.json").write_text(json.dumps({**items_file, "items": upgraded}))
-
-        def dps(champ, items, augs):
-            out = subprocess.run(
-                [str(SIM), "--champ", champ, "--items", ",".join(items), "--augs", ",".join(augs), "--game-data", tmp,
-                 "--trials", TRIALS, "--seed", SEED, "--threads", "1", "--json"],
-                capture_output=True, text=True, check=True, cwd=SIM_DIR,
-            ).stdout
-            s = json.loads(out)["builds"][0]["summary"]
-            return s["mean_dps"], s["time_alive"]
-
-        def run(job):
-            gid, champ, tries, augs, rate = job
-            slug = legendary[gid]
-            for items in tries:
-                try:
-                    (b, ba) = dps(champ, items, augs)
-                    (u, ua) = dps(champ, [f"wod_{slug}" if i == slug else i for i in items], augs)
-                    break
-                except (subprocess.CalledProcessError, KeyError, json.JSONDecodeError):
-                    continue
-            else:
-                print(f"skip {champ} {gid}: no build with it runs", file=sys.stderr)
-                return None
-            return gid, {"champ": champ, "first": round(rate, 4), "dps": round(b), "up_dps": round(u),
-                         "alive": round(ba, 1), "up_alive": round(ua, 1)}
-
-        sims = {}
-        with ThreadPoolExecutor() as pool:
-            for r in pool.map(run, jobs):
-                if r:
-                    sims.setdefault(r[0], []).append(r[1])
-
-    patch = (SIM_DIR / "data" / "tuned_patch.txt").read_text().strip()
+    ids = common.load(os.path.join(common.REPO, "web", "src", "data", "champion-ids.json"))
+    alias = {str(v): k for k, v in ids.items()}
+    names = {c["name"]: alias.get(cid, c["name"]) for cid, c in champs.items()}
     out = {
-        "patch": patch,
-        "takedowns": takedowns,
+        "patch": common.live_patch(),
         "gold_per_takedown": dv["GoldValue"],
+        "rarity": {k: round(v, 3) for k, v in sorted(rarity.items(), key=lambda kv: -kv[1])},
         "items": {
-            str(gid): {"per_takedown": {k: round(v, 5) for k, v in g.items()}, "sims": sims.get(gid, [])}
-            for gid, g in sorted(gains.items())
+            str(gid): {
+                "per_takedown": {k: round(full[k] / len(s), 5) for k in s},
+                "share": round(share.get(gid, 0), 5),
+                "rare": round(rare[gid], 3),
+                "best": [names[n] for _, n in sorted(by.get(gid, []), reverse=True)[:BEST]],
+            }
+            for gid, s in sorted(stats.items())
         },
     }
-    OUT.write_text(json.dumps(out, separators=(",", ":")) + "\n")
-    print(f"{len(gains)} items, {sum(map(len, sims.values()))} champion builds, {takedowns} takedowns -> {OUT.relative_to(ROOT)}")
+    OUT.write_text(json.dumps(out, separators=(",", ":"), ensure_ascii=False) + "\n")
+    print(f"{len(stats)} items, {len(weight)} champions -> {OUT.relative_to(ROOT)}")
 
 
 if __name__ == "__main__":

@@ -1,5 +1,5 @@
 // Weapon of Destiny tab: every ranked item is a Legendary item with a page, its per-takedown stats add up to the
-// augment's 200 gold, and the tiers follow the simulated fight damage.
+// augment's 200 gold, and the tiers follow the ranking value.
 import { describe, expect, it } from "vitest";
 import championIds from "@/data/champion-ids.json";
 import { itemPages } from "@/lib/item-pages";
@@ -10,7 +10,6 @@ describe("Weapon of Destiny ranking", () => {
   const pages = new Map(itemPages().map((i) => [i.id, i]));
 
   it("ranks most Legendary items", () => {
-    expect(data.takedowns).toBeGreaterThan(0);
     expect(data.gold).toBe(200);
     expect(data.rows.length).toBeGreaterThan(80);
     for (const r of data.rows) expect(pages.get(r.id)?.tier, r.name).toBe("legendary");
@@ -26,11 +25,20 @@ describe("Weapon of Destiny ranking", () => {
     }
   });
 
-  it("tiers better fight damage at least as high", () => {
+  it("tiers a higher value at least as high, with shares that add up", () => {
     const order = ["S", "A", "B", "C", "D"];
-    const graded = data.rows.filter((r) => r.fight !== null).sort((a, b) => b.fight! - a.fight!);
-    expect(graded.length).toBeGreaterThan(80);
-    for (let k = 1; k < graded.length; k++) expect(order.indexOf(graded[k].tier!)).toBeGreaterThanOrEqual(order.indexOf(graded[k - 1].tier!));
-    for (const r of graded) if (r.best) expect(championIds).toHaveProperty(r.best);
+    const sorted = [...data.rows].sort((a, b) => b.value - a.value);
+    for (let k = 1; k < sorted.length; k++) expect(order.indexOf(sorted[k].tier)).toBeGreaterThanOrEqual(order.indexOf(sorted[k - 1].tier));
+    const total = data.rows.reduce((s, r) => s + r.share, 0);
+    expect(total).toBeGreaterThan(0.95);
+    expect(total).toBeLessThan(1.01);
+    for (const r of data.rows) {
+      expect(r.rare).toBeGreaterThanOrEqual(0);
+      expect(r.rare).toBeLessThanOrEqual(100);
+      if (r.best) expect(championIds).toHaveProperty(r.best);
+    }
+    // Infinity Edge carries Critical Strike Damage, the rarest stat; Warmog's only Health.
+    const rare = (name: string) => data.rows.find((r) => r.name === name)!.rare;
+    expect(rare("Infinity Edge")).toBeGreaterThan(rare("Warmog's Armor"));
   });
 });

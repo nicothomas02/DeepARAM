@@ -36,16 +36,18 @@ by game length beyond noise (effect under ~1 point per 4.6 minutes). This curve 
 champions' damage share grows in longer games (r 0.17). Show it as simulated. Full notes:
 research note `early-vs-late-game.md` in the project files.
 
-## Weapon of Destiny items (`weapon_of_destiny.json`, simulated)
+## Weapon of Destiny items (`weapon_of_destiny.json`)
 
 `weapon_of_destiny.py` ranks Legendary items for the Weapon of Destiny augment (Tier List tab). Each
 takedown adds 200 gold worth of the item's own upgradeable stats, shared equally among them; the
 amounts per 1,000 gold come from the augment's spell data in `kiwi.bin`, the item's stats from the item
-bin. For each item, the champions who buy it first most often (core build order) run their simulated
-best build once as is and once with half a typical game's takedowns (median kills + assists from
-`profiles`, halved) of upgrades. The site ranks by the median gain in damage dealt per fight (damage per
-second times time alive, since fights last until the champion dies). Not scheduled: rerun after patches
-(needs `make -C simulator mayhem_sim`, about two minutes on 4 cores).
+bin. Two estimates per item, weighed equally on the site (Nico 2026-10-23, replacing a simulated
+version): `share`, how often it would be the Weapon (the feed has no games with the augment yet, so
+takers are every champion weighted by pick rate x kills + assists from `profiles`, and each one's
+Weapon is the first Legendary item in its core builds), and `rare`, its stats' average rarity among
+Legendary items (log2 of Legendary items / items with the stat; Critical Strike Damage is rarest).
+Not scheduled: rerun after patches. Once the feed lists the augment on champions, weight takers by
+their real pick rates instead.
 
 ## Tried and dropped
 
