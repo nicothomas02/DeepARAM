@@ -1,9 +1,14 @@
 name: Estimated spells and game counts
 
 # data/fill/README.md. Does nothing while data/fill/config.json is switched off.
+# Runs right after each "Mayhem stats" refresh (cn-stats.yml), so estimates follow 101.qq.com's
+# daily update. That workflow checks hourly, so runs with no new Tencent data are skipped.
 on:
+  workflow_run:
+    workflows: ["Mayhem stats"]
+    types: [completed]
   schedule:
-    - cron: "30 6 * * *"   # once a day, after the main stats refresh
+    - cron: "30 6 * * *"   # daily fallback
   workflow_dispatch:
 
 permissions:
@@ -15,22 +20,40 @@ concurrency:
 
 jobs:
   refresh:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Skip when the Mayhem stats run brought no new data
+        id: fresh
+        run: |
+          cn=$(git log -1 --format=%ct -- data/cn)
+          ours=$(git log -1 --format=%ct -- data/fill data/estimates)
+          if [ "${{ github.event_name }}" = "workflow_run" ] && [ "${cn:-0}" -le "${ours:-0}" ]; then
+            echo "run=false" >> "$GITHUB_OUTPUT"; echo "No new Mayhem stats since the last estimates"
+          else
+            echo "run=true" >> "$GITHUB_OUTPUT"
+          fi
       - uses: actions/setup-python@v5
+        if: steps.fresh.outputs.run == 'true'
         with:
           python-version: "3.12"
       - name: Estimate spells and game counts
+        if: steps.fresh.outputs.run == 'true'
         run: python3 data/fill/build_estimates.py
       - name: Estimate other stats (augments per champion, items, profiles, odds)
+        if: steps.fresh.outputs.run == 'true'
         run: python3 data/estimates/build.py
       - name: Simulated early/mid/late power curve
+        if: steps.fresh.outputs.run == 'true'
         run: |
           make -C simulator mayhem_sim
           python3 data/estimates/power_curve.py
       - name: Keep this patch's item numbers (Tier List set ranges combine them)
+        if: steps.fresh.outputs.run == 'true'
         run: |
           python3 - <<'PY'
           import json, os
@@ -41,6 +64,7 @@ jobs:
               f.write("\n")
           PY
       - name: Commit changes
+        if: steps.fresh.outputs.run == 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
