@@ -1,268 +1,297 @@
 {
-  "id": "braum-group-project",
-  "title": "Group Project",
-  "champion": "Braum",
-  "champion_name": "Braum",
-  "chef": "2026-10-21",
-  "why": "Braum's Concussive Blows has a line most people skim past: once he lands the first stack, his allies' basic attacks stack it too, and the fourth stack stuns. That turns every teammate who can swing a weapon into a stun button, and every one of those stuns counts as Braum's. Cruelty drops a comet of magic damage on each champion he Immobilizes, Slap Around banks 10 Adaptive Force per stun, and Impassable adds an Aftershock burst and Glacial Augment's slowing rays, so a single stun pays out three times and leaves him stronger for the next one. Bandlepipes hands the whole team Attack Speed every time he stuns someone, so the next four stacks land even faster, Imperial Mandate marks each stunned target to take more damage, and with Nashor's Tooth, Riftmaker and Rabadon's Deathcap all that Adaptive Force becomes Ability Power. The bodyguard stops standing in front of his team and becomes its artillery, and his teammates are the ones pulling the trigger.",
-  "play": "Tag one enemy with Winter's Bite, then let your carries hit the same target; every stun calls down a comet, so keep re-tagging whoever they are shooting.",
+  "id": "quinn-wall-street-bouncer",
+  "title": "Wall Street Bouncer",
+  "champion": "Quinn",
+  "champion_name": "Quinn",
+  "chef": "2026-10-22",
+  "why": "Vault has a side effect nobody plays around: after Quinn dashes in she leaps backwards and slightly Knocks the target Back. Chain Reaction on Vault turns that polite nudge into a Knock Up whenever the shoved enemy hits another champion or a wall, with a longer Knock Up and bonus damage against terrain, and the bridge is one long corridor of walls. Every Vault is now an immobilize, so Ravenous Bind makes it heal her and hit harder, Soul Eater hands her permanent max Health for each one, and Dashing gives the dash 175 Ability Haste so it comes back almost at once. Navori Flickerblade closes the loop: Vault marks its target with Harrier, Heightened Senses gives Attack Speed for hitting Harrier targets, and each of those Attacks cuts the remaining Vault cooldown by 15%, while Spear of Shojin adds Basic Ability Haste on top. Heartsteel and Soul Eater stack Health that Overlord's Bloodmail turns into Attack Damage, so the ranged scout ends up a walking shoulder-check who throws people into walls and tanks off the bounce.",
+  "play": "Stand with your back to open ground and Vault enemies toward a wall or into their own teammate, then hit the Harrier mark so Vault is ready again. Behind Enemy Lines is just a bus to the next wall.",
   "items": [
-    "Bandlepipes",
-    "Imperial Mandate",
-    "Nashor's Tooth",
-    "Riftmaker",
-    "Rabadon's Deathcap",
+    "Navori Flickerblade",
+    "Spear of Shojin",
+    "Heartsteel",
+    "Overlord's Bloodmail",
+    "Sterak's Gage",
     "Mercury's Treads"
   ],
-  "core": 3,
-  "champion_icon": "/embed/fun/cook-builds/icons/champions/201.png",
+  "core": 4,
+  "champion_icon": "/embed/fun/cook-builds/icons/champions/133.png",
   "augments": [
     {
-      "name": "Cruelty",
-      "rarity": "Prismatic",
-      "core": true,
-      "text": "On Immobilizing or Grounding a champion, summon a comet that lands after a delay, dealing magic damage to nearby enemies.",
-      "icon": "/embed/fun/cook-builds/icons/augments/cruelty.png",
-      "id": 1323
-    },
-    {
-      "name": "Slap Around",
-      "rarity": "Silver",
-      "core": true,
-      "text": "Each time you Immobilize or Ground an enemy, gain a stack granting 10 Adaptive Force. Lose 50% stacks on death.",
-      "icon": "/embed/fun/cook-builds/icons/augments/slap-around.png",
-      "id": 1136
-    },
-    {
-      "name": "Impassable",
+      "name": "Chain Reaction",
       "rarity": "Gold",
       "core": true,
-      "text": "Gain the Aftershock and Glacial Augment Keystone Runes. Aftershock: After Immobilizing an enemy champion, gain defenses and later deal a burst of magic damage around you. Glacial Augment: Immobilizing an enemy champion will spawn 3 glacial rays that Slow nearby enemies and reduce their damage to your allies.",
-      "icon": "/embed/fun/cook-builds/icons/augments/impassable.png",
-      "id": 1149
+      "text": "If a target Knocked Back by the chosen ability hits another champion, they are Knocked Up and dealt damage. When colliding with terrain, the Knock Up duration is extended and they are dealt bonus damage.",
+      "icon": "/embed/fun/cook-builds/icons/augments/chain-reaction.png",
+      "id": 2078
+    },
+    {
+      "name": "Ravenous Bind",
+      "rarity": "Gold",
+      "core": true,
+      "text": "Immobilizing or Grounding enemy champions with the chosen ability deals extra damage and heals you.",
+      "icon": "/embed/fun/cook-builds/icons/augments/ravenous-bind.png",
+      "id": 2077
+    },
+    {
+      "name": "Soul Eater",
+      "rarity": "Gold",
+      "core": true,
+      "text": "Immobilizing an enemy champion grants 20 max Health. If taken as your second Augment, starts with Health.",
+      "icon": "/embed/fun/cook-builds/icons/augments/soul-eater.png",
+      "id": 1375
+    },
+    {
+      "name": "Dashing",
+      "rarity": "Prismatic",
+      "core": true,
+      "text": "Your dash, leap, blink, or teleport Abilities gain 175 Ability Haste.",
+      "icon": "/embed/fun/cook-builds/icons/augments/dashing.png",
+      "id": 1019
     }
   ],
   "href": "/kitchen#chefs-special",
   "archive_href": "/kitchen#chef-archive",
-  "share_href": "/kitchen/2026-10-21",
-  "share_image": "/embed/fun/cook-builds/share/braum-group-project.png",
+  "share_href": "/kitchen/2026-10-22",
+  "share_image": "/embed/fun/cook-builds/share/quinn-wall-street-bouncer.png",
   "item_ids": [
-    2524,
-    4005,
-    3115,
-    4633,
-    3089,
+    6675,
+    3161,
+    3084,
+    2501,
+    3053,
     3111
   ],
   "i18n": {
     "ar": {
-      "title": "مشروع جماعي",
-      "why": "في السلبية الخاصة ببروم سطر يتخطاه الجميع تقريبًا: بمجرد أن يضع الشحنة الأولى، تضيف الهجمات الأساسية لحلفائه شحنات أيضًا، والشحنة الرابعة تصعق الهدف. هذا يحوّل كل زميل يستطيع الضرب إلى زر صعق، وكل صعقة من هذه تُحسب لبروم. القسوة تُسقط مذنّبًا يسبب ضررًا سحريًا على كل بطل يشلّ حركته، واضرب من حولك يمنحه 10 قوة متكيفة لكل صعقة، ولا يمكن العبور يضيف انفجار الهزة الارتدادية وأشعة التعزيز الجليدي المبطئة، فتدفع الصعقة الواحدة ثلاث مرات وتتركه أقوى للصعقة التالية. مزمار قربة باندل يمنح الفريق كله سرعة هجوم كلما صعق أحدًا، فتصل الشحنات الأربع التالية أسرع، والوصاية الإمبراطورية تضع علامة على كل هدف مصعوق ليتلقى ضررًا أكبر، ومع سن ناشور وصانع الصدوع وقبعة موت رابادون تتحول كل تلك القوة المتكيفة إلى قوة قدرات. الحارس الشخصي يتوقف عن الوقوف أمام فريقه ويصبح مدفعيته، ومن يضغط الزناد هم زملاؤه.",
-      "play": "علّم عدوًا واحدًا بالـ Q، ثم دع حاملي الفريق يضربون الهدف نفسه؛ كل صعقة تستدعي مذنّبًا، فاستمر في تعليم من يطلقون النار عليه.",
+      "title": "حارس ملهى وول ستريت",
+      "why": "لمهارة E عند كوين أثر جانبي لا ينتبه له أحد: بعد أن تندفع نحو الهدف تقفز إلى الخلف وتدفعه دفعة خفيفة. سلسلة التفاعلات على E تحوّل هذه الدفعة المهذبة إلى قذف في الهواء كلما اصطدم العدو المدفوع ببطل آخر أو بجدار، مع قذف أطول وضرر إضافي عند الاصطدام بالتضاريس، والجسر كله ممر طويل من الجدران. كل E صارت شلًّا للحركة، فتشفيها القيود المفترسة وتضرب أقوى، ويمنحها آكل الروح صحة قصوى دائمة مع كل واحدة، ويمنح الاندفاع قفزتها 175 من تسريع القدرات فتعود شبه فورًا. نصال نافوري الخاطفة تُغلق الحلقة: E تَسِم الهدف بعلامة مهارتها السلبية، وW تمنح سرعة هجوم عند ضرب الأهداف الموسومة، وكل هجمة من هذه تُنقص 15% من الوقت المتبقي لتهدئة E، بينما يضيف رمح شوجين تسريعًا للقدرات الأساسية. القلب الفولاذي وآكل الروح يكدّسان صحة يحوّلها درع القائد الأعلى الدموي إلى ضرر هجوم، فتصبح الكشّافة بعيدة المدى حارس ملهى متنقلًا يرمي الناس على الجدران ويتحمّل الارتداد.",
+      "play": "اترك مساحة فارغة خلفك واستخدم E لترمي الأعداء نحو جدار أو على زميلهم، ثم اضرب العلامة لتعود E جاهزة. مهارة R مجرد حافلة إلى الجدار التالي.",
       "augments": [
-        "عند شلّ حركة بطل أو تثبيته أرضًا، تستدعي مذنّبًا يسقط بعد تأخير قصير ويسبب ضررًا سحريًا للأعداء القريبين.",
-        "في كل مرة تشلّ فيها حركة عدو أو تثبّته أرضًا، تحصل على شحنة تمنح 10 قوة متكيفة. تفقد 50% من الشحنات عند الموت.",
-        "تحصل على الرونين الأساسيين الهزة الارتدادية والتعزيز الجليدي. الهزة الارتدادية: بعد شلّ حركة بطل معادٍ، تكتسب دفاعات ثم تُطلق انفجارًا من الضرر السحري حولك. التعزيز الجليدي: شلّ حركة بطل معادٍ يُطلق 3 أشعة جليدية تبطئ الأعداء القريبين وتقلل ضررهم على حلفائك."
+        "إذا اصطدم هدف دفعته القدرة المختارة ببطل آخر، يُقذف في الهواء ويتلقى ضررًا. عند الاصطدام بالتضاريس تطول مدة القذف ويتلقى ضررًا إضافيًا.",
+        "شلّ حركة أبطال الأعداء أو تثبيتهم بالأرض بالقدرة المختارة يُلحق ضررًا إضافيًا ويشفيك.",
+        "شلّ حركة بطل عدو يمنح 20 من الصحة القصوى. إذا اخترته كتعزيزك الثاني، يبدأ ومعه صحة.",
+        "قدرات الاندفاع أو القفز أو الوميض أو الانتقال الآني لديك تكتسب 175 من تسريع القدرات."
       ]
     },
     "cs": {
-      "title": "Skupinový projekt",
-      "why": "Braumova pasivka, Otřesové údery, má řádek, který skoro každý přeskočí: jakmile nasadí první zásek, zásahy základními útoky jeho spojenců ho přidávají taky a čtvrtý zásek omračuje. Z každého spoluhráče, který umí udeřit, se tak stává tlačítko na omráčení a každé z těch omráčení se počítá Braumovi. Krutost shodí kometu s magickým poškozením na každého šampiona, kterého znehybní, Podrážení mu za každé omráčení přidá 10 adaptivní síly a Neprůchodnost přidá výbuch Dozvuku a zpomalující paprsky Ledového zesílení, takže jedno omráčení se vyplatí třikrát a udělá ho silnějším pro další. Bandlovské dudy dají celému týmu rychlost útoků pokaždé, když někoho omráčí, takže další čtyři záseky přijdou ještě rychleji, Říšský rozkaz označí každý omráčený cíl, aby utržil víc poškození, a s Nashorovým tesákem, Tvůrcem Žlebu a Rabadonovým smrtícím kloboukem se veškerá adaptivní síla změní na sílu schopností. Bodyguard přestane stát před týmem a stane se jeho dělostřelectvem a spoušť mačkají jeho spoluhráči.",
-      "play": "Označ nepřítele svým Q a nech carry mlátit stejný cíl; každé omráčení přivolá kometu, tak pořád znovu označuj toho, do koho zrovna střílí.",
+      "title": "Vyhazovač z Wall Street",
+      "why": "Quinnino E má vedlejší efekt, se kterým nikdo nepočítá: po výpadu k cíli odskočí dozadu a lehce ho odhodí. Řetězová reakce na E promění to zdvořilé šťouchnutí ve vyhození do vzduchu, kdykoli odstrčený nepřítel narazí do jiného šampiona nebo do zdi, s delším vyhozením a bonusovým poškozením o terén, a most je jedna dlouhá chodba ze zdí. Každé E je teď znehybnění, takže Hladové pouto ji léčí a bije silněji, Požírač duší jí za každé dá trvalé maximální zdraví a Mrštný sprint dá výpadu 175 zrychlení schopností, takže je skoro hned zpátky. Blikavá čepel Navori smyčku uzavře: E označí cíl pasivkou, W dává rychlost útoků za zásahy označených cílů a každý takový útok zkrátí zbývající přebíjení E o 15 %, zatímco Oštěp Šódžinu přidá zrychlení základních schopností. Srdcová ocel a Požírač duší skládají zdraví, které Vládcovo krvavé brnění mění na útočné poškození, a průzkumnice na dálku skončí jako chodící vyhazovač, co hází lidi o zdi a tankuje odraz.",
+      "play": "Drž za zády volný prostor a posílej nepřátele pomocí E do zdi nebo do jejich vlastního spoluhráče, pak trefuj značku, aby bylo E zase připravené. Tvoje R je jen autobus k další zdi.",
       "augments": [
-        "Znehybnění nebo uzemnění šampiona přivolá kometu, která po chvíli dopadne a způsobí magické poškození okolním nepřátelům.",
-        "Pokaždé když znehybníš nebo uzemníš nepřítele, získáš zásek, který přidává 10 adaptivní síly. Při smrti přijdeš o 50 % záseků.",
-        "Získáš klíčové runy Dozvuk a Ledové zesílení. Dozvuk: po znehybnění nepřátelského šampiona získáš obranu a poté kolem sebe způsobíš výbuch magického poškození. Ledové zesílení: znehybnění nepřátelského šampiona vytvoří 3 ledové paprsky, které zpomalí okolní nepřátele a sníží jejich poškození vůči tvým spojencům."
+        "Pokud cíl odhozený zvolenou schopností narazí do jiného šampiona, je vyhozen do vzduchu a utrpí poškození. Při nárazu do terénu se doba vyhození prodlouží a cíl utrpí bonusové poškození.",
+        "Znehybnění nebo uzemnění nepřátelských šampionů zvolenou schopností způsobí dodatečné poškození a vyléčí tě.",
+        "Znehybnění nepřátelského šampiona poskytne 20 bodů maximálního zdraví. Pokud ho vybereš jako druhé vylepšení, začneš se zdravím navíc.",
+        "Tvé schopnosti výpadu, skoku, přemístění nebo teleportu získají 175 bodů zrychlení schopností."
       ]
     },
     "de": {
-      "title": "Gruppenarbeit",
-      "why": "Braums Passiv, Erschütternde Schläge, hat eine Zeile, die fast jeder überliest: Sobald er die erste Steigerung gesetzt hat, stapeln auch die normalen Angriffe seiner Verbündeten sie, und die vierte Steigerung betäubt. Damit wird jeder Mitspieler, der zuschlagen kann, zu einem Betäubungsknopf, und jede dieser Betäubungen zählt als Braums. Grausamkeit lässt auf jeden Champion, den er bewegungsunfähig macht, einen Kometen mit magischem Schaden fallen, Prügelknabe gibt ihm pro Betäubung 10 adaptive Kraft, und Unpassierbar legt den Ausbruch von Nachbeben und die verlangsamenden Strahlen von Gletscherverstärkung obendrauf, also zahlt sich eine einzige Betäubung dreifach aus und macht ihn für die nächste stärker. Bandlesack gibt dem ganzen Team Angriffstempo, sobald er jemanden betäubt, also kommen die nächsten vier Steigerungen noch schneller, Imperiale Verfügung markiert jedes betäubte Ziel, damit es mehr Schaden nimmt, und mit Nashors Zahn, Kluftformer und Rabadons Todeshaube wird die ganze adaptive Kraft zu Fähigkeitsstärke. Der Leibwächter hört auf, vor seinem Team zu stehen, und wird zu dessen Artillerie, und abdrücken tun seine Mitspieler.",
-      "play": "Markiere einen Gegner mit Q und lass deine Carrys dasselbe Ziel schlagen; jede Betäubung ruft einen Kometen herab, also markiere immer wieder den, auf den sie gerade schießen.",
+      "title": "Wall-Street-Türsteher",
+      "why": "Quinns E hat einen Nebeneffekt, auf den niemand achtet: Nach dem Sprint zum Ziel springt sie zurück und stößt es leicht zurück. Kettenreaktion auf E macht aus diesem höflichen Schubser einen Hochschlag, sobald der geschubste Gegner gegen einen anderen Champion oder eine Wand prallt, mit längerem Hochschlag und Bonusschaden an Terrain, und die Brücke ist ein einziger langer Korridor aus Wänden. Jedes E ist jetzt eine Bewegungsunfähigkeit, also heilt Gefräßige Bindung sie und lässt sie härter zuschlagen, Seelenschlinger gibt ihr jedes Mal dauerhaft maximales Leben, und Ungestüm gibt dem Sprint 175 Fähigkeitstempo, damit er fast sofort wieder bereit ist. Flimmerklinge der Navori schließt den Kreis: E markiert das Ziel mit ihrem Passiv, W gibt Angriffstempo für Treffer auf markierte Ziele, und jeder dieser Angriffe senkt die verbleibende Abklingzeit von E um 15 %, während Speer von Shojin noch Grundfähigkeitstempo draufpackt. Herzstahl und Seelenschlinger stapeln Leben, das Blutpanzer des Gebieters in Angriffsschaden verwandelt, und die Fernkampf-Späherin wird zum wandelnden Rempler, der Leute gegen Wände wirft und den Abpraller einfach tankt.",
+      "play": "Halte freien Raum im Rücken und schick Gegner mit E gegen eine Wand oder in ihren eigenen Mitspieler, dann triff die Markierung, damit E wieder bereit ist. Dein R ist nur der Bus zur nächsten Wand.",
       "augments": [
-        "Wenn du einen Champion bewegungsunfähig machst oder festhältst, beschwörst du einen Kometen, der nach kurzer Verzögerung einschlägt und Gegnern in der Nähe magischen Schaden zufügt.",
-        "Jedes Mal, wenn du einen Gegner bewegungsunfähig machst oder festhältst, erhältst du eine Steigerung, die 10 adaptive Kraft gewährt. Beim Tod verlierst du 50 % der Steigerungen.",
-        "Erhalte die Schlüsselrunen Nachbeben und Gletscherverstärkung. Nachbeben: Nachdem du einen gegnerischen Champion bewegungsunfähig gemacht hast, erhältst du Verteidigung und fügst danach in deiner Umgebung einen Ausbruch magischen Schadens zu. Gletscherverstärkung: Wenn du einen gegnerischen Champion bewegungsunfähig machst, entstehen 3 Gletscherstrahlen, die Gegner in der Nähe verlangsamen und ihren Schaden an deinen Verbündeten verringern."
+        "Wenn ein Ziel, das von der gewählten Fähigkeit zurückgestoßen wurde, mit einem anderen Champion kollidiert, wird es hochgeschleudert und erleidet Schaden. Bei einer Kollision mit Terrain wird die Dauer verlängert und es erleidet Bonusschaden.",
+        "Gegnerische Champions mit der gewählten Fähigkeit bewegungsunfähig zu machen oder zu fesseln, verursacht zusätzlichen Schaden und heilt dich.",
+        "Einen gegnerischen Champion bewegungsunfähig zu machen, gewährt 20 maximales Leben. Wenn du dies als zweite Augmentierung wählst, startest du mit Leben.",
+        "Deine Sprint-, Sprung-, Blinzel- oder Teleportfähigkeiten erhalten 175 Fähigkeitstempo."
       ]
     },
     "el": {
-      "title": "Ομαδική Εργασία",
-      "why": "Το παθητικό του Μπράουμ, τα Συγκλονιστικά Χτυπήματα, έχει μια γραμμή που σχεδόν όλοι προσπερνούν: μόλις βάλει την πρώτη στοίβα, οι βασικές επιθέσεις των συμμάχων του προσθέτουν κι αυτές στοίβες, και η τέταρτη στοίβα ζαλίζει. Έτσι κάθε συμπαίκτης που μπορεί να χτυπήσει γίνεται κουμπί ζάλης, και κάθε τέτοια ζάλη μετράει για τον Μπράουμ. Η Σκληρότητα ρίχνει έναν κομήτη μαγικής ζημιάς σε κάθε ήρωα που ακινητοποιεί, οι Ανελέητες Σφαλιάρες του δίνουν 10 Προσαρμοστική Δύναμη ανά ζάλη, και το Αδιαπέραστο Εμπόδιο προσθέτει την έκρηξη του Μετασεισμού και τις ακτίνες επιβράδυνσης της Παγετώδους Ενίσχυσης, οπότε μία ζάλη πληρώνει τρεις φορές και τον αφήνει πιο δυνατό για την επόμενη. Οι Σωλήνες του Μπαντλ δίνουν Ταχύτητα Επίθεσης σε όλη την ομάδα κάθε φορά που ζαλίζει κάποιον, άρα οι επόμενες τέσσερις στοίβες έρχονται ακόμα πιο γρήγορα, η Αυτοκρατορική Διαταγή σημαδεύει κάθε ζαλισμένο στόχο για να δέχεται περισσότερη ζημιά, και με το Δόντι του Νάσορ, τον Διχαστή και το Καπέλο του Ράμπαντον όλη αυτή η Προσαρμοστική Δύναμη γίνεται Δύναμη Ικανοτήτων. Ο σωματοφύλακας σταματά να στέκεται μπροστά από την ομάδα του και γίνεται το πυροβολικό της, και τη σκανδάλη την πατάνε οι συμπαίκτες του.",
-      "play": "Σημάδεψε έναν αντίπαλο με το Q και άφησε τους carry σου να χτυπήσουν τον ίδιο στόχο· κάθε ζάλη φέρνει έναν κομήτη, οπότε συνέχισε να σημαδεύεις όποιον πυροβολούν.",
+      "title": "Ο μπράβος της Wall Street",
+      "why": "Το E της Κουίν έχει μια παρενέργεια που κανείς δεν προσέχει: αφού ορμήσει στον στόχο, πηδάει προς τα πίσω και τον σπρώχνει ελαφρώς. Η Αλυσιδωτή Αντίδραση στο E κάνει αυτό το ευγενικό σκούντημα εκτίναξη στον αέρα κάθε φορά που ο εχθρός που σπρώχτηκε χτυπά άλλον ήρωα ή τοίχο, με μεγαλύτερη εκτίναξη και επιπλέον ζημιά στο έδαφος, και η γέφυρα είναι ένας μακρύς διάδρομος από τοίχους. Κάθε E είναι πλέον ακινητοποίηση, οπότε ο Αδηφάγος Δεσμός τη θεραπεύει και χτυπάει πιο δυνατά, ο Θεριστής Ψυχών της δίνει μόνιμη μέγιστη Ζωή για καθεμία, και το Εφορμώντας δίνει στην εφόρμηση 175 Επιτάχυνση Ικανοτήτων ώστε να ξαναγυρίζει σχεδόν αμέσως. Η Τρεμολεπίδα των Ναβόρι κλείνει τον κύκλο: το E σημαδεύει τον στόχο με το παθητικό της, το W δίνει Ταχύτητα Επίθεσης όταν χτυπά σημαδεμένους στόχους, και κάθε τέτοια επίθεση μειώνει κατά 15% τον υπόλοιπο χρόνο επαναφόρτισης του E, ενώ το Δόρυ του Σοτζίν προσθέτει Επιτάχυνση Βασικών Ικανοτήτων. Ο Ατσαλόκαρδος και ο Θεριστής Ψυχών μαζεύουν Ζωή που η Ματωμένη Πανοπλία του Άρχοντα κάνει Ζημιά Επίθεσης, και η ανιχνεύτρια από απόσταση καταλήγει ένας μπράβος με πόδια που πετάει κόσμο στους τοίχους και αντέχει την αναπήδηση.",
+      "play": "Κράτα ελεύθερο χώρο πίσω σου και στείλε τους εχθρούς με το E σε τοίχο ή πάνω στον δικό τους σύμμαχο, μετά χτύπα το σημάδι για να είναι ξανά έτοιμο το E. Το R σου είναι απλώς το λεωφορείο για τον επόμενο τοίχο.",
       "augments": [
-        "Όταν ακινητοποιείς ή καθηλώνεις έναν ήρωα, καλείς έναν κομήτη που πέφτει μετά από μια μικρή καθυστέρηση και προκαλεί μαγική ζημιά στους κοντινούς αντιπάλους.",
-        "Κάθε φορά που ακινητοποιείς ή καθηλώνεις έναν αντίπαλο, κερδίζεις μια στοίβα που δίνει 10 Προσαρμοστική Δύναμη. Χάνεις το 50% των στοιβών όταν πεθαίνεις.",
-        "Κερδίζεις τους Βασικούς Ρούνους Μετασεισμός και Παγετώδης Ενίσχυση. Μετασεισμός: Αφού ακινητοποιήσεις έναν αντίπαλο ήρωα, κερδίζεις άμυνες και μετά προκαλείς μια έκρηξη μαγικής ζημιάς γύρω σου. Παγετώδης Ενίσχυση: Η ακινητοποίηση ενός αντίπαλου ήρωα δημιουργεί 3 παγετώδεις ακτίνες που επιβραδύνουν τους κοντινούς αντιπάλους και μειώνουν τη ζημιά τους στους συμμάχους σου."
+        "Αν ένας στόχος που απωθείται από την επιλεγμένη ικανότητα χτυπήσει άλλον ήρωα, εκτινάσσεται στον αέρα και δέχεται ζημιά. Όταν συγκρούεται με το έδαφος, η διάρκεια της εκτίναξης αυξάνεται και δέχεται επιπλέον ζημιά.",
+        "Η ακινητοποίηση ή η καθήλωση εχθρικών ηρώων με την επιλεγμένη ικανότητα προκαλεί επιπλέον ζημιά και σε θεραπεύει.",
+        "Η ακινητοποίηση ενός εχθρικού ήρωα δίνει 20 μέγιστη Ζωή. Αν επιλεγεί ως δεύτερη Ενίσχυση, ξεκινά με Ζωή.",
+        "Οι ικανότητες εφόρμησης, άλματος, αστραπιαίας μετακίνησης ή τηλεμεταφοράς σου κερδίζουν 175 Επιτάχυνση Ικανοτήτων."
       ]
     },
     "es-MX": {
-      "title": "Trabajo en equipo",
-      "why": "La pasiva de Braum, Golpes contundentes, tiene una línea que casi nadie lee: en cuanto pone la primera acumulación, los ataques básicos de sus aliados también acumulan, y la cuarta aturde. Así, cada compañero que sepa pegar se vuelve un botón de aturdir, y todos esos aturdimientos cuentan como de Braum. Crueldad deja caer un cometa de daño mágico sobre cada campeón que inmoviliza, A Bofetadas le da 10 de fuerza adaptable por aturdimiento e Infranqueable suma la explosión de Réplica y los rayos que ralentizan de Aumento glacial, así que un solo aturdimiento paga tres veces y lo deja más fuerte para el siguiente. Flautas de Bandle le da velocidad de ataque a todo el equipo cada vez que aturde a alguien, así que las siguientes cuatro acumulaciones llegan todavía más rápido, Mandato Imperial marca a cada objetivo aturdido para que reciba más daño, y con Diente de Nashor, Agrietador y Sombrero Mortífero de Rabadon toda esa fuerza adaptable se vuelve poder de habilidad. El guardaespaldas deja de pararse frente a su equipo y se vuelve su artillería, y los que jalan el gatillo son sus compañeros.",
-      "play": "Marca a un enemigo con la Q y deja que tus carries le peguen al mismo objetivo; cada aturdimiento hace caer un cometa, así que sigue marcando a quien le estén disparando.",
+      "title": "El cadenero de Wall Street",
+      "why": "La E de Quinn tiene un efecto secundario que nadie toma en cuenta: después de lanzarse al objetivo, salta hacia atrás y lo empuja un poquito. Reacción en Cadena en la E convierte ese empujoncito en un derribo cada vez que el enemigo empujado choca con otro campeón o con una pared, con un derribo más largo y daño adicional contra el terreno, y el puente es un pasillo largo lleno de paredes. Cada E ahora es una inmovilización, así que Vínculo Voraz la cura y pega más fuerte, Devorador de Almas le da vida máxima permanente con cada una, y Destellante le da 175 de aceleración de habilidades al salto para que regrese casi al instante. Cuchilla Rauda de Navori cierra el ciclo: la E marca al objetivo con su pasiva, la W da velocidad de ataque al golpear objetivos marcados, y cada uno de esos ataques reduce 15 % el enfriamiento restante de la E, mientras Lanza de Shojin suma aceleración de habilidades básicas. Corazón de Acero y Devorador de Almas acumulan vida que Cota Sangrienta del Soberano convierte en daño de ataque, y la exploradora a distancia termina como un cadenero andante que avienta gente contra las paredes y aguanta el rebote.",
+      "play": "Deja espacio libre detrás de ti y usa la E para mandar enemigos contra una pared o contra su propio compañero, luego pega a la marca para tener la E lista otra vez. Tu R nomás es el camión a la siguiente pared.",
       "augments": [
-        "Al inmovilizar o dejar en el suelo a un campeón, invocas un cometa que cae tras un breve retraso e inflige daño mágico a los enemigos cercanos.",
-        "Cada vez que inmovilizas o dejas en el suelo a un enemigo, obtienes una acumulación que otorga 10 de fuerza adaptable. Pierdes el 50 % de las acumulaciones al morir.",
-        "Obtienes las runas clave Réplica y Aumento glacial. Réplica: después de inmovilizar a un campeón enemigo, ganas defensas y luego infliges una explosión de daño mágico a tu alrededor. Aumento glacial: inmovilizar a un campeón enemigo genera 3 rayos glaciales que ralentizan a los enemigos cercanos y reducen el daño que les hacen a tus aliados."
+        "Si un objetivo empujado por la habilidad elegida choca con otro campeón, queda derribado y recibe daño. Al chocar con el terreno, el derribo dura más y recibe daño adicional.",
+        "Inmovilizar o dejar sin movilidad a campeones enemigos con la habilidad elegida inflige daño adicional y te cura.",
+        "Inmovilizar a un campeón enemigo otorga 20 de vida máxima. Si lo eliges como segundo aumento, empieza con vida.",
+        "Tus habilidades de embestida, salto, parpadeo o teletransportación obtienen 175 de aceleración de habilidades."
       ]
     },
     "es": {
-      "title": "Trabajo en grupo",
-      "why": "La pasiva de Braum, Golpes contundentes, tiene una línea que casi nadie lee: en cuanto aplica la primera acumulación, los ataques básicos de sus aliados también acumulan, y la cuarta aturde. Eso convierte a cada compañero que sepa pegar en un botón de aturdir, y todos esos aturdimientos cuentan como de Braum. Crueldad deja caer un cometa de daño mágico sobre cada campeón que inmoviliza, A cachetazo limpio le da 10 de fuerza adaptable por aturdimiento e Intransitable añade la explosión de Réplica y los rayos ralentizadores de Aumento glacial, así que un solo aturdimiento paga tres veces y lo deja más fuerte para el siguiente. Bandlemusa da velocidad de ataque a todo el equipo cada vez que aturde a alguien, así que las cuatro acumulaciones siguientes llegan aún más rápido, Mandato imperial marca a cada objetivo aturdido para que reciba más daño, y con Diente de Nashor, Creagrietas y Sombrero mortal de Rabadon toda esa fuerza adaptable se convierte en poder de habilidad. El guardaespaldas deja de ponerse delante de su equipo y pasa a ser su artillería, y quienes aprietan el gatillo son sus compañeros.",
-      "play": "Marca a un enemigo con la Q y deja que tus carries peguen al mismo objetivo; cada aturdimiento hace caer un cometa, así que sigue marcando a quien estén disparando.",
+      "title": "El portero de Wall Street",
+      "why": "La E de Quinn tiene un efecto secundario en el que nadie se fija: después de lanzarse hacia el objetivo, salta hacia atrás y lo empuja un poco. Reacción en cadena en la E convierte ese empujoncito en un derribo cada vez que el enemigo empujado choca contra otro campeón o una pared, con un derribo más largo y daño adicional contra el terreno, y el puente es un pasillo largo lleno de paredes. Cada E es ahora una inmovilización, así que Vínculo voraz la cura y pega más fuerte, Devorador de almas le da vida máxima permanente con cada una, y Deslizamiento le da 175 de celeridad de habilidades al salto para que vuelva casi al instante. Filofugaz de Navori cierra el ciclo: la E marca al objetivo con su pasiva, la W da velocidad de ataque al golpear objetivos marcados, y cada uno de esos ataques reduce un 15 % el enfriamiento restante de la E, mientras Lanza de Shojin suma celeridad de habilidades básicas. Corazón de acero y Devorador de almas acumulan vida que Sangría del soberano convierte en daño de ataque, y la exploradora a distancia acaba siendo un portero con patas que lanza a la gente contra las paredes y aguanta el rebote.",
+      "play": "Deja espacio libre a tu espalda y usa la E para mandar enemigos contra una pared o contra su propio compañero, luego golpea la marca para tener la E lista otra vez. Tu R solo es el autobús a la siguiente pared.",
       "augments": [
-        "Al inmovilizar o inmovilizar en el suelo a un campeón, invocas un cometa que cae tras un breve retraso e inflige daño mágico a los enemigos cercanos.",
-        "Cada vez que inmovilizas o inmovilizas en el suelo a un enemigo, obtienes una acumulación que otorga 10 de fuerza adaptable. Pierdes el 50 % de las acumulaciones al morir.",
-        "Obtienes las runas clave Réplica y Aumento glacial. Réplica: tras inmovilizar a un campeón enemigo, ganas defensas y luego infliges una explosión de daño mágico a tu alrededor. Aumento glacial: inmovilizar a un campeón enemigo genera 3 rayos glaciales que ralentizan a los enemigos cercanos y reducen el daño que hacen a tus aliados."
+        "Si un objetivo empujado por la habilidad elegida choca con otro campeón, queda derribado y recibe daño. Al chocar con el terreno, el derribo dura más y recibe daño adicional.",
+        "Inmovilizar o dejar sin movilidad a campeones enemigos con la habilidad elegida inflige daño adicional y te cura.",
+        "Inmovilizar a un campeón enemigo otorga 20 de vida máxima. Si lo eliges como segundo aumento, empieza con vida.",
+        "Tus habilidades de embestida, salto, parpadeo o teletransporte obtienen 175 de celeridad de habilidades."
       ]
     },
     "fr": {
-      "title": "Projet de groupe",
-      "why": "Le passif de Braum, Coups étourdissants, cache une ligne que presque tout le monde survole : une fois qu'il a posé la première charge, les attaques de base de ses alliés en ajoutent aussi, et la quatrième charge étourdit. Chaque coéquipier qui sait taper devient un bouton d'étourdissement, et chacun de ces étourdissements compte comme celui de Braum. Cruauté fait tomber une comète de dégâts magiques sur chaque champion qu'il immobilise, Immobilisations en puissance lui donne 10 de force adaptative par étourdissement, et Après-glacial ajoute l'explosion de Répercussion et les rayons ralentissants d'Augmentation glaciale : un seul étourdissement paie trois fois et le rend plus fort pour le suivant. Flûtes de Bandle donne de la vitesse d'attaque à toute l'équipe à chaque étourdissement, donc les quatre charges suivantes arrivent encore plus vite, Mandat impérial marque chaque cible étourdie pour qu'elle subisse plus de dégâts, et avec Dent de Nashor, Créateur de failles et Coiffe de Rabadon, toute cette force adaptative devient de la puissance. Le garde du corps arrête de se tenir devant son équipe et devient son artillerie, et ce sont ses coéquipiers qui appuient sur la gâchette.",
-      "play": "Touchez un ennemi avec le Q, puis laissez vos carrys frapper la même cible : chaque étourdissement fait tomber une comète, alors continuez de marquer celui sur qui ils tirent.",
+      "title": "Videur de Wall Street",
+      "why": "Le E de Quinn a un effet secondaire que personne ne surveille : après avoir foncé sur sa cible, elle bondit en arrière et la repousse légèrement. Réaction en chaîne sur le E transforme ce petit coup d'épaule en projection dans les airs dès que l'ennemi repoussé percute un autre champion ou un mur, avec une projection plus longue et des dégâts bonus contre le terrain, et le pont n'est qu'un long couloir de murs. Chaque E devient une immobilisation, donc Entrave vorace la soigne et frappe plus fort, Mangeur d'âmes lui donne des PV max permanents à chaque fois, et Ruée des braves donne 175 d'accélération de compétence au bond pour qu'il revienne presque aussitôt. Tremblelame navori boucle la boucle : le E marque la cible avec son passif, le W donne de la vitesse d'attaque en frappant une cible marquée, et chacune de ces attaques réduit de 15 % le délai de récupération restant du E, pendant que Lance de Shojin ajoute de l'accélération de compétence de base. Cœuracier et Mangeur d'âmes empilent des PV qu'Armure sanguine convertit en dégâts d'attaque, et l'éclaireuse à distance finit en videuse ambulante qui envoie les gens dans les murs et encaisse sur le rebond.",
+      "play": "Gardez du terrain dégagé dans votre dos et faites votre E vers un mur ou vers un coéquipier de l'ennemi, puis tapez la marque pour que le E revienne. Votre R ne sert qu'à prendre le bus jusqu'au prochain mur.",
       "augments": [
-        "Immobiliser ou clouer au sol un champion invoque une comète qui tombe après un délai et inflige des dégâts magiques aux ennemis proches.",
-        "Chaque fois que vous immobilisez ou clouez au sol un ennemi, gagnez une charge qui octroie 10 de force adaptative. Vous perdez 50 % des charges en mourant.",
-        "Obtenez les runes clés Répercussion et Augmentation glaciale. Répercussion : après avoir immobilisé un champion ennemi, gagnez des défenses puis infligez une explosion de dégâts magiques autour de vous. Augmentation glaciale : immobiliser un champion ennemi crée 3 rayons glaciaux qui ralentissent les ennemis proches et réduisent leurs dégâts contre vos alliés."
+        "Si une cible repoussée par la compétence choisie percute un autre champion, elle est projetée dans les airs et subit des dégâts. En cas de collision avec le terrain, la durée de projection est prolongée et elle subit des dégâts bonus.",
+        "Immobiliser ou clouer au sol des champions ennemis avec la compétence choisie inflige des dégâts supplémentaires et vous soigne.",
+        "Immobiliser un champion ennemi octroie 20 PV max. Si cet augment est pris en deuxième, il commence avec des PV.",
+        "Vos compétences de ruée, de bond, de transfert ou de téléportation gagnent 175 d'accélération de compétence."
       ]
     },
     "hu": {
-      "title": "Csoportmunka",
-      "why": "Braum passzív képességében, a Kábító ütésekben van egy sor, amit szinte mindenki átugrik: miután ő rátette az első töltetet, a szövetségesei alaptámadásai is töltetet raknak, a negyedik pedig elkábít. Így minden csapattárs, aki tud ütni, kábítógombbá válik, és minden ilyen kábítás Braumnak számít. A Kegyetlenség egy mágikus sebzést okozó üstököst ejt minden hősre, akit mozgásképtelenné tesz, a Pofozkodás minden kábításért 10 adaptív erőt ad, az Áthághatatlan pedig hozzáteszi az Utórezgés robbanását és a Jeges felerősítés lassító sugarait, így egyetlen kábítás háromszor fizet, és erősebbé teszi a következőre. A Bandlesíp az egész csapatnak támadási sebességet ad, valahányszor elkábít valakit, így a következő négy töltet még gyorsabban jön, a Birodalmi parancs megjelöl minden elkábított célpontot, hogy több sebzést kapjon, a Nashor fogával, a Szurdokhasítóval és Rabadon halálsüvegével pedig ez az adaptív erő mind képességerővé válik. A testőr nem a csapata előtt áll többé, hanem a tüzérsége lesz, és a ravaszt a csapattársai húzzák meg.",
-      "play": "Jelölj meg egy ellenfelet a Q-val, aztán hagyd, hogy a carryk ugyanazt a célpontot üssék; minden kábítás üstököst hív le, úgyhogy jelöld újra azt, akit éppen lőnek.",
+      "title": "Wall Street-i kidobóember",
+      "why": "Quinn E-jének van egy mellékhatása, amire senki sem figyel: miután a célpontra veti magát, hátraugrik és enyhén hátralöki. A Láncreakció az E-n ezt az udvarias lökést felröpítéssé változtatja, valahányszor a meglökött ellenfél egy másik hősnek vagy falnak ütközik, terepnél hosszabb felröpítéssel és bónuszsebzéssel, a híd pedig egyetlen hosszú falfolyosó. Minden E most mozgásképtelenítés, így a Vérszomjas kötelék gyógyítja és erősebben üt, a Lélekfaló mindegyikért tartós maximális életerőt ad, a Rámenős pedig 175 képességgyorsítást ad a rohamnak, hogy szinte azonnal visszajöjjön. A Navori villanópenge zárja a kört: az E megjelöli a célpontot a passzívval, a W támadási sebességet ad a megjelölt célpontok ütéséért, és minden ilyen támadás 15%-kal csökkenti az E hátralévő töltődését, miközben Shojin lándzsája alapképesség-gyorsítást is ad. Az Acélos szív és a Lélekfaló életerőt halmoz, amit a Hadúr vértje támadósebzéssé alakít, így a távolsági felderítőből sétáló kidobóember lesz, aki falhoz vágja az embereket és kitankolja a visszapattanást.",
+      "play": "Hagyj szabad teret a hátad mögött, és az E-vel küldd az ellenfeleket falnak vagy a saját csapattársuknak, aztán üsd a jelet, hogy az E újra kész legyen. Az R csak a busz a következő falig.",
       "augments": [
-        "Ha mozgásképtelenné teszel vagy földhöz szegezel egy hőst, egy üstököst idézel, amely kis késéssel becsapódik, és mágikus sebzést okoz a közeli ellenfeleknek.",
-        "Valahányszor mozgásképtelenné teszel vagy földhöz szegezel egy ellenfelet, kapsz egy töltetet, amely 10 adaptív erőt ad. Halálkor a töltetek 50%-át elveszíted.",
-        "Megkapod az Utórezgés és a Jeges felerősítés kulcsrúnát. Utórezgés: miután mozgásképtelenné tettél egy ellenséges hőst, védelmet kapsz, majd mágikus sebzést okozó robbanást váltasz ki magad körül. Jeges felerősítés: ha mozgásképtelenné teszel egy ellenséges hőst, 3 jeges sugár jön létre, amelyek lelassítják a közeli ellenfeleket, és csökkentik a szövetségeseidnek okozott sebzésüket."
+        "Ha a választott képességgel hátralökött célpont egy másik hősnek ütközik, felröppen és sebzést szenved. Terepnek ütközve a felröpítés tovább tart, és bónuszsebzést szenved.",
+        "Ha a választott képességgel mozgásképtelenné teszel vagy földhöz szegezel ellenséges hősöket, extra sebzést okozol és gyógyulsz.",
+        "Egy ellenséges hős mozgásképtelenné tétele 20 maximális életerőt ad. Ha második kiegészítésként választod, életerővel indul.",
+        "A roham-, ugrás-, villanás- vagy teleportképességeid 175 képességgyorsítást kapnak."
       ]
     },
     "id": {
-      "title": "Tugas Kelompok",
-      "why": "Pasif Braum punya satu baris yang hampir semua orang lewati: begitu dia memasang stack pertama, basic attack sekutunya juga ikut menambah stack, dan stack keempat memberi stun. Artinya setiap rekan tim yang bisa memukul jadi tombol stun, dan setiap stun itu dihitung sebagai milik Braum. Cruelty menjatuhkan komet magic damage ke setiap champion yang dia immobilize, Slap Around memberi 10 Adaptive Force per stun, dan Impassable menambah ledakan Aftershock serta sinar slow dari Glacial Augment, jadi satu stun membayar tiga kali dan membuatnya lebih kuat untuk stun berikutnya. Bandlepipes memberi Attack Speed ke seluruh tim setiap kali dia men-stun seseorang, jadi empat stack berikutnya datang lebih cepat, Imperial Mandate menandai setiap target yang ter-stun supaya menerima damage lebih besar, dan dengan Nashor's Tooth, Riftmaker, dan Rabadon's Deathcap semua Adaptive Force itu berubah jadi Ability Power. Sang bodyguard berhenti berdiri di depan timnya dan jadi artilerinya, dan yang menarik pelatuk adalah rekan-rekan setimnya.",
-      "play": "Tandai satu musuh dengan Q, lalu biarkan carry-mu memukul target yang sama; setiap stun memanggil komet, jadi terus tandai siapa pun yang sedang mereka tembak.",
+      "title": "Bouncer Wall Street",
+      "why": "E milik Quinn punya efek samping yang nggak pernah diperhatikan siapa pun: setelah dash ke target, dia melompat mundur dan sedikit Knock Back target itu. Chain Reaction di E mengubah dorongan sopan itu jadi Knock Up setiap kali musuh yang terdorong menabrak champion lain atau dinding, dengan Knock Up lebih lama dan damage bonus saat kena terrain, dan bridge-nya cuma satu lorong panjang penuh dinding. Setiap E sekarang adalah immobilize, jadi Ravenous Bind menyembuhkannya dan bikin pukulannya lebih keras, Soul Eater kasih max Health permanen tiap kali, dan Dashing kasih 175 Ability Haste ke dash-nya supaya cepat siap lagi. Navori Flickerblade menutup loop-nya: E menandai target dengan mark pasifnya, W kasih Attack Speed saat memukul target bertanda, dan setiap Attack itu memotong 15% sisa cooldown E, sementara Spear of Shojin menambah Basic Ability Haste. Heartsteel dan Soul Eater menumpuk Health yang diubah Overlord's Bloodmail jadi Attack Damage, jadi scout ranged ini berakhir sebagai bouncer berjalan yang melempar orang ke dinding dan nge-tank pantulannya.",
+      "play": "Sisakan ruang kosong di belakangmu dan pakai E untuk mendorong musuh ke dinding atau ke rekan setimnya, lalu pukul mark-nya supaya E siap lagi. R kamu cuma bus ke dinding berikutnya.",
       "augments": [
-        "Saat meng-Immobilize atau meng-Ground champion, panggil komet yang jatuh setelah jeda singkat dan memberi magic damage ke musuh di sekitar.",
-        "Setiap kali kamu meng-Immobilize atau meng-Ground musuh, dapatkan stack yang memberi 10 Adaptive Force. Kehilangan 50% stack saat mati.",
-        "Dapatkan Keystone Rune Aftershock dan Glacial Augment. Aftershock: Setelah meng-Immobilize champion musuh, dapatkan pertahanan lalu beri ledakan magic damage di sekitarmu. Glacial Augment: Meng-Immobilize champion musuh memunculkan 3 sinar es yang memberi Slow ke musuh di sekitar dan mengurangi damage mereka ke sekutumu."
+        "Jika target yang terkena Knock Back oleh ability pilihan menabrak champion lain, mereka terkena Knock Up dan menerima damage. Saat menabrak terrain, durasi Knock Up diperpanjang dan mereka menerima damage bonus.",
+        "Immobilize atau Ground champion musuh dengan ability pilihan memberikan damage tambahan dan menyembuhkanmu.",
+        "Immobilize champion musuh memberikan 20 max Health. Jika diambil sebagai Augment kedua, langsung mulai dengan Health.",
+        "Ability dash, leap, blink, atau teleport milikmu mendapatkan 175 Ability Haste."
       ]
     },
     "it": {
-      "title": "Lavoro di gruppo",
-      "why": "La passiva di Braum, Colpi concussivi, ha una riga che quasi tutti saltano: dopo che lui ha applicato la prima carica, anche gli attacchi base dei suoi alleati la accumulano, e la quarta carica stordisce. Così ogni compagno che sa menare diventa un pulsante per stordire, e ognuno di quegli storditi conta come di Braum. Crudeltà fa cadere una cometa di danni magici su ogni campione che immobilizza, Sberle gli dà 10 forza adattiva per ogni stordimento e Invalicabile aggiunge l'esplosione di Scossa di assestamento e i raggi rallentanti di Potenziamento glaciale, quindi un solo stordimento paga tre volte e lo rende più forte per il successivo. Cornafusa dà velocità d'attacco a tutta la squadra ogni volta che stordisce qualcuno, così le quattro cariche successive arrivano ancora più in fretta, Mandato imperiale marchia ogni bersaglio stordito perché subisca più danni, e con Dente di Nashor, Araldo del Vuoto e Copricapo di Rabadon tutta quella forza adattiva diventa potere magico. La guardia del corpo smette di stare davanti alla squadra e ne diventa l'artiglieria, e a premere il grilletto sono i suoi compagni.",
-      "play": "Marchia un nemico con la Q, poi lascia che i tuoi carry colpiscano lo stesso bersaglio; ogni stordimento fa cadere una cometa, quindi continua a marchiare chiunque stiano colpendo.",
+      "title": "Il buttafuori di Wall Street",
+      "why": "La E di Quinn ha un effetto collaterale che nessuno considera: dopo lo scatto verso il bersaglio, lei salta all'indietro e lo respinge leggermente. Reazione a catena sulla E trasforma quella spintarella in un lancio in aria ogni volta che il nemico spinto urta un altro campione o un muro, con un lancio più lungo e danni bonus contro il terreno, e il ponte è un lungo corridoio di muri. Ogni E ora è un'immobilizzazione, quindi Vincolo famelico la cura e colpisce più forte, Divora anime le dà salute massima permanente per ognuna, e Impetuoso dà allo scatto 175 velocità abilità così torna quasi subito. Lama rotante Navori chiude il cerchio: la E marchia il bersaglio con la passiva, la W dà velocità d'attacco colpendo bersagli marchiati, e ognuno di quegli attacchi riduce del 15 % la ricarica rimanente della E, mentre Lancia di Shojin aggiunge velocità abilità base. Cuore d'acciaio e Divora anime accumulano salute che Cotta di maglia del signore supremo trasforma in attacco fisico, e l'esploratrice a distanza diventa un buttafuori ambulante che lancia la gente contro i muri e regge il rimbalzo.",
+      "play": "Tieni spazio libero alle spalle e usa la E per spingere i nemici contro un muro o contro un loro compagno, poi colpisci il marchio per riavere la E. La tua R è solo l'autobus per il prossimo muro.",
       "augments": [
-        "Immobilizzare o bloccare a terra un campione evoca una cometa che cade dopo un breve ritardo, infliggendo danni magici ai nemici vicini.",
-        "Ogni volta che immobilizzi o blocchi a terra un nemico, ottieni una carica che conferisce 10 forza adattiva. Perdi il 50% delle cariche alla morte.",
-        "Ottieni le rune chiave Scossa di assestamento e Potenziamento glaciale. Scossa di assestamento: dopo aver immobilizzato un campione nemico, ottieni difese e poi infliggi un'esplosione di danni magici intorno a te. Potenziamento glaciale: immobilizzare un campione nemico genera 3 raggi glaciali che rallentano i nemici vicini e riducono i loro danni ai tuoi alleati."
+        "Se un bersaglio respinto dall'abilità scelta urta un altro campione, viene lanciato in aria e subisce danni. Quando urta il terreno, la durata del lancio aumenta e subisce danni bonus.",
+        "Immobilizzare o bloccare a terra i campioni nemici con l'abilità scelta infligge danni extra e ti cura.",
+        "Immobilizzare un campione nemico conferisce 20 salute massima. Se preso come secondo potenziamento, parte con salute.",
+        "Le tue abilità di scatto, balzo, traslazione o teletrasporto ottengono 175 velocità abilità."
       ]
     },
     "ja": {
-      "title": "グループ課題",
-      "why": "ブラウムのパッシブには、ほとんどの人が読み飛ばす一文がある。彼が最初のスタックを付けると、味方の通常攻撃でもスタックが溜まり、4スタックでスタンする。つまり殴れる味方は全員スタンボタンになり、そのスタンはすべてブラウムのものとして扱われる。冷酷な一撃は彼がスタンさせたチャンピオン全員に魔法ダメージの隕石を落とし、叩きまくれはスタンごとに10のアダプティブフォースを与え、通行不可はアフターショックの爆発とグレイシャーオーグメントのスロウ光線を追加する。一回のスタンが三回分の見返りになり、次のスタンに向けて彼をさらに強くする。バンドルパイプは誰かをスタンさせるたびにチーム全体に攻撃速度を配るので、次の4スタックはもっと早く溜まり、帝国の指令はスタンした相手にマークを付けて被ダメージを増やし、ナッシャー トゥース、リフトメーカー、ラバドン デスキャップを積めばそのアダプティブフォースはすべて魔力になる。用心棒はチームの前に立つのをやめてチームの砲台になり、引き金を引くのは味方たちだ。",
-      "play": "Qで敵を一人マークして、キャリーに同じ相手を殴らせよう。スタンのたびに隕石が落ちるので、味方が撃っている相手をマークし続けよう。",
+      "title": "ウォール街の用心棒",
+      "why": "クインのEには誰も気にしない副作用がある。対象に飛びかかった後、後方に跳び退き、対象を少しだけノックバックさせるのだ。Eに連鎖反応を付けると、この控えめなひと押しが、押された敵が別のチャンピオンや壁にぶつかるたびにノックアップへ変わり、地形にぶつかればノックアップが延びて追加ダメージまで入る。そしてブリッジは端から端まで壁の通路だ。Eは毎回行動妨害になるので、貪欲な束縛で回復しつつダメージが上がり、ソウルイーターで1回ごとに最大体力が永続的に増え、疾走で突進に175のスキルヘイストが付いてほぼ即座に戻ってくる。ナヴォリ フリッカーブレードがループを閉じる。Eは対象にパッシブのマークを付け、Wはマーク付きの対象を攻撃すると攻撃速度を得て、その通常攻撃のたびにEの残りクールダウンが15%短縮され、ショウジンの矛が基本スキルヘイストをさらに上乗せする。心の鋼とソウルイーターで積んだ体力を覇王のブラッドメイルが攻撃力に変え、遠距離の偵察兵は人を壁に投げつけて跳ね返りを受け止める歩く用心棒になる。",
+      "play": "背後に空間を空けておき、Eで敵を壁や敵の味方に向けて飛ばし、マークを殴ってEをまた使えるようにしよう。Rは次の壁までのバスでしかない。",
       "augments": [
-        "チャンピオンにスネアまたはグラウンドを与えると隕石を呼び出し、少し遅れて落下して周囲の敵に魔法ダメージを与える。",
-        "敵にスネアまたはグラウンドを与えるたびに、10のアダプティブフォースを得るスタックを獲得する。キルされるとスタックの50%を失う。",
-        "キーストーンルーンのアフターショックとグレイシャーオーグメントを獲得する。アフターショック: 敵チャンピオンを行動不能にした後、防御力を得て、その後周囲に魔法ダメージの爆発を起こす。グレイシャーオーグメント: 敵チャンピオンを行動不能にすると3本の氷の光線が発生し、周囲の敵をスロウにして味方への与ダメージを低下させる。"
+        "選択したスキルでノックバックされた対象が別のチャンピオンに衝突すると、ノックアップされてダメージを受ける。地形に衝突した場合、ノックアップ効果時間が延長され、追加ダメージを受ける。",
+        "選択したスキルで敵チャンピオンに行動妨害またはグラウンドを与えると、追加ダメージを与えて自身の体力を回復する。",
+        "敵チャンピオンに行動妨害を与えると最大体力が20増加する。2番目のオーグメントとして選択した場合、体力を得た状態で開始する。",
+        "突進、跳躍、ブリンク、テレポートのスキルが175のスキルヘイストを獲得する。"
       ]
     },
     "ko": {
-      "title": "조별 과제",
-      "why": "브라움의 패시브에는 다들 대충 넘기는 한 줄이 있다. 그가 첫 중첩을 쌓고 나면 아군의 기본 공격으로도 중첩이 쌓이고, 네 번째 중첩에서 기절한다. 즉 칠 줄 아는 아군은 전부 기절 버튼이 되고, 그 기절은 모두 브라움의 것으로 친다. 잔혹 행위는 그가 이동 불가로 만든 챔피언마다 마법 피해를 주는 혜성을 떨어뜨리고, 우당탕탕은 기절할 때마다 적응형 능력치 10을 쌓아 주며, 넘을 수 없는 벽은 여진의 폭발과 빙결 강화의 둔화 광선을 더한다. 기절 한 번이 세 번 터지고 다음 기절을 위해 그를 더 강하게 만든다. 밴들파이프는 누군가를 기절시킬 때마다 팀 전체에 공격 속도를 주니 다음 네 중첩은 더 빨리 쌓이고, 제국의 명령은 기절한 대상에 표식을 남겨 더 많은 피해를 받게 하며, 내셔의 이빨, 균열 생성기, 라바돈의 죽음모자를 갖추면 그 적응형 능력치는 전부 주문력이 된다. 경호원은 팀 앞에 서는 걸 그만두고 팀의 포병이 되며, 방아쇠는 아군들이 당긴다.",
-      "play": "Q로 적 하나를 맞히고, 원딜들이 같은 대상을 치게 하자. 기절할 때마다 혜성이 떨어지니 아군이 쏘는 대상을 계속 다시 맞히자.",
+      "title": "월스트리트 기도",
+      "why": "퀸의 E에는 아무도 신경 쓰지 않는 부수 효과가 있습니다. 대상에게 돌진한 뒤 뒤로 도약하면서 대상을 살짝 밀어내죠. E에 연쇄 반응을 넣으면 그 점잖은 밀치기가, 밀려난 적이 다른 챔피언이나 벽에 부딪힐 때마다 에어본으로 바뀌고, 지형에 부딪히면 에어본이 길어지고 추가 피해까지 들어갑니다. 게다가 다리는 끝까지 벽으로 된 긴 복도죠. 이제 E는 매번 이동 불가 효과라서 굶주린 속박이 체력을 회복시키고 더 세게 때리게 해 주고, 영혼의 포식자는 매번 영구 최대 체력을 주며, 돌진은 돌진 스킬에 스킬 가속 175를 줘서 거의 바로 다시 돌아옵니다. 나보리 명멸검이 루프를 완성합니다. E는 대상에게 패시브 표식을 남기고, W는 표식이 있는 대상을 공격하면 공격 속도를 주며, 그 기본 공격마다 E의 남은 재사용 대기시간이 15% 줄어들고, 쇼진의 창이 기본 스킬 가속을 더해 줍니다. 강철심장과 영혼의 포식자로 쌓은 체력을 지배자의 피갑옷이 공격력으로 바꿔 주니, 원거리 정찰병이 사람들을 벽에 던지고 튕겨 나온 걸 받아내는 걸어 다니는 기도가 됩니다.",
+      "play": "등 뒤에 빈 공간을 두고 E로 적을 벽이나 적의 아군 쪽으로 날린 다음, 표식을 때려서 E를 다시 준비하세요. R은 다음 벽까지 가는 버스일 뿐입니다.",
       "augments": [
-        "챔피언을 이동 불가 또는 속박 상태로 만들면 잠시 후 떨어지는 혜성을 소환해 주변 적에게 마법 피해를 입힙니다.",
-        "적을 이동 불가 또는 속박 상태로 만들 때마다 적응형 능력치 10을 주는 중첩을 얻습니다. 사망 시 중첩의 50%를 잃습니다.",
-        "핵심 룬 여진과 빙결 강화를 얻습니다. 여진: 적 챔피언을 이동 불가 상태로 만든 후 방어력을 얻고, 잠시 후 주변에 마법 피해 폭발을 일으킵니다. 빙결 강화: 적 챔피언을 이동 불가 상태로 만들면 빙결 광선 3개가 생겨 주변 적을 둔화시키고 아군에게 주는 피해를 줄입니다."
+        "선택한 스킬로 밀려난 대상이 다른 챔피언과 충돌하면 공중으로 띄워지고 피해를 입습니다. 지형과 충돌하면 공중에 뜨는 시간이 늘어나고 추가 피해를 입습니다.",
+        "선택한 스킬로 적 챔피언에게 이동 불가 또는 이동기 사용 불가 효과를 적용하면 추가 피해를 입히고 체력을 회복합니다.",
+        "적 챔피언에게 이동 불가 효과를 적용하면 최대 체력이 20 증가합니다. 두 번째 증강으로 선택하면 체력을 얻은 상태로 시작합니다.",
+        "돌진, 도약, 점멸, 순간이동 스킬이 스킬 가속을 175 얻습니다."
       ]
     },
     "pl": {
-      "title": "Projekt grupowy",
-      "why": "Bierna umiejętność Brauma, Wstrząsające Ciosy, ma linijkę, którą prawie wszyscy przeskakują: gdy tylko nałoży pierwszy ładunek, podstawowe ataki jego sojuszników też go nakładają, a czwarty ładunek ogłusza. Przez to każdy sojusznik, który potrafi uderzyć, staje się przyciskiem do ogłuszania, a każde takie ogłuszenie liczy się jako Brauma. Okrucieństwo zrzuca kometę zadającą obrażenia magiczne na każdego bohatera, którego unieruchomi, Sponiewieranie daje 10 pkt. adaptacyjnej siły za każde ogłuszenie, a Nie do Przeskoczenia dokłada wybuch Wstrząsu i spowalniające promienie Lodowego Wzmocnienia, więc jedno ogłuszenie płaci trzy razy i czyni go silniejszym przed kolejnym. Dudy Bandle dają całej drużynie prędkość ataku za każdym razem, gdy kogoś ogłuszy, więc kolejne cztery ładunki wpadają jeszcze szybciej, Imperialny Mandat oznacza każdy ogłuszony cel, żeby otrzymywał więcej obrażeń, a z Zębem Nashora, Szczelinotwórcą i Zabójczym Kapeluszem Rabadona cała ta adaptacyjna siła zamienia się w moc umiejętności. Ochroniarz przestaje stać przed drużyną i zostaje jej artylerią, a za spust pociągają jego sojusznicy.",
-      "play": "Oznacz wroga swoim Q, a potem pozwól carry bić ten sam cel; każde ogłuszenie zrzuca kometę, więc ciągle oznaczaj tego, w kogo akurat strzelają.",
+      "title": "Bramkarz z Wall Street",
+      "why": "E Quinn ma efekt uboczny, na który nikt nie zwraca uwagi: po doskoku do celu odskakuje do tyłu i lekko go odpycha. Reakcja Łańcuchowa na E zamienia to grzeczne szturchnięcie w podrzucenie za każdym razem, gdy odepchnięty wróg uderzy w innego bohatera albo w ścianę, z dłuższym podrzuceniem i dodatkowymi obrażeniami przy terenie, a most to jeden długi korytarz ścian. Każde E to teraz unieruchomienie, więc Krwiożercze Sidła leczą ją i mocniej biją, Duszożerca daje jej stałe maksymalne zdrowie za każde, a Skoczność daje doskokowi 175 przyspieszenia umiejętności, więc wraca niemal od razu. Migoczące Ostrze Navori zamyka pętlę: E oznacza cel pasywką, W daje prędkość ataku za trafianie oznaczonych celów, a każdy taki atak skraca pozostały czas odnowienia E o 15%, a Włócznia Shojin dorzuca przyspieszenie podstawowych umiejętności. Stalowe Serce i Duszożerca nabijają zdrowie, które Krwawa Kolczuga Władcy zamienia w obrażenia od ataku, i dalekosiężna zwiadowczyni kończy jako chodzący bramkarz, który rzuca ludźmi o ściany i tankuje na odbiciu.",
+      "play": "Miej wolne miejsce za plecami i posyłaj wrogów E na ścianę albo na ich własnego sojusznika, potem uderz w znak, żeby E znowu było gotowe. Twoje R to tylko autobus do następnej ściany.",
       "augments": [
-        "Unieruchomienie lub uziemienie bohatera przywołuje kometę, która spada po chwili, zadając obrażenia magiczne pobliskim wrogom.",
-        "Za każdym razem, gdy unieruchomisz lub uziemisz wroga, zyskujesz ładunek dający 10 pkt. adaptacyjnej siły. Po śmierci tracisz 50% ładunków.",
-        "Zyskujesz kluczowe runy Wstrząs i Lodowe Wzmocnienie. Wstrząs: po unieruchomieniu wrogiego bohatera zyskujesz odporności, a następnie zadajesz wokół siebie wybuch obrażeń magicznych. Lodowe Wzmocnienie: unieruchomienie wrogiego bohatera tworzy 3 lodowe promienie, które spowalniają pobliskich wrogów i zmniejszają ich obrażenia zadawane twoim sojusznikom."
+        "Jeśli cel odepchnięty przez wybraną umiejętność uderzy w innego bohatera, zostaje podrzucony i otrzymuje obrażenia. Przy zderzeniu z terenem podrzucenie trwa dłużej i cel otrzymuje dodatkowe obrażenia.",
+        "Unieruchomienie lub uziemienie wrogich bohaterów wybraną umiejętnością zadaje dodatkowe obrażenia i cię leczy.",
+        "Unieruchomienie wrogiego bohatera zapewnia 20 pkt. maksymalnego zdrowia. Jeśli wybierzesz to jako drugie ulepszenie, zaczynasz z zapasem zdrowia.",
+        "Twoje umiejętności doskoku, skoku, mignięcia lub teleportacji zyskują 175 pkt. przyspieszenia umiejętności."
       ]
     },
     "pt-BR": {
-      "title": "Trabalho em Grupo",
-      "why": "O passivo do Braum, Golpes Concussivos, tem uma linha que quase todo mundo pula: depois que ele aplica o primeiro acúmulo, os ataques básicos dos aliados também acumulam, e o quarto acúmulo atordoa. Isso transforma cada aliado que sabe bater num botão de atordoar, e cada um desses atordoamentos conta como do Braum. Crueldade derruba um cometa de dano mágico em cada campeão que ele imobiliza, Pancada Sucessiva dá 10 de Força Adaptativa por atordoamento e Insuperável adiciona a explosão do Pós-choque e os raios lentificantes do Aprimoramento Glacial, então um único atordoamento paga três vezes e deixa ele mais forte para o próximo. Bandocanos dá Velocidade de Ataque ao time inteiro toda vez que ele atordoa alguém, então os próximos quatro acúmulos chegam ainda mais rápido, Mandato Imperial marca cada alvo atordoado para receber mais dano, e com Dente de Na'Shor, Criafendas e Capuz da Morte de Rabadon toda essa Força Adaptativa vira Poder de Habilidade. O guarda-costas para de ficar na frente do time e vira a artilharia dele, e quem puxa o gatilho são os aliados.",
-      "play": "Marque um inimigo com o Q e deixe seus carries baterem no mesmo alvo; cada atordoamento faz cair um cometa, então continue marcando quem eles estiverem atacando.",
+      "title": "Leão de chácara de Wall Street",
+      "why": "O E da Quinn tem um efeito colateral que ninguém leva em conta: depois de avançar no alvo, ela salta para trás e o empurra de leve. Reação em Cadeia no E transforma esse empurrãozinho em um arremesso ao ar sempre que o inimigo empurrado bate em outro campeão ou numa parede, com arremesso mais longo e dano bônus contra o terreno, e a ponte é um corredor comprido de paredes. Todo E agora é uma imobilização, então Vínculo Voraz cura e bate mais forte, Devorador de Almas dá Vida máxima permanente a cada um, e Avançar dá 175 de Aceleração de Habilidade ao avanço para ele voltar quase na hora. Adaga Oscilante Navori fecha o ciclo: o E marca o alvo com a passiva, o W dá Velocidade de Ataque ao acertar alvos marcados, e cada um desses ataques reduz em 15% a recarga restante do E, enquanto Lança de Shojin soma Aceleração de Habilidades Básicas. Coração de Aço e Devorador de Almas acumulam Vida que a Armadura Sangrenta do Suserano converte em Dano de Ataque, e a batedora à distância vira um leão de chácara ambulante que joga a galera na parede e aguenta o tranco.",
+      "play": "Fique com espaço livre atrás de você e use o E para jogar inimigos numa parede ou no próprio aliado deles, depois acerte a marca para ter o E de volta. Seu R é só o ônibus até a próxima parede.",
       "augments": [
-        "Ao Imobilizar ou Prender ao chão um campeão, invoca um cometa que cai após um tempo, causando dano mágico aos inimigos próximos.",
-        "Cada vez que você Imobiliza ou Prende ao chão um inimigo, ganha um acúmulo que concede 10 de Força Adaptativa. Perde 50% dos acúmulos ao morrer.",
-        "Ganhe as Runas Principais Pós-choque e Aprimoramento Glacial. Pós-choque: depois de Imobilizar um campeão inimigo, ganhe defesas e depois cause uma explosão de dano mágico ao seu redor. Aprimoramento Glacial: Imobilizar um campeão inimigo cria 3 raios glaciais que Lentificam inimigos próximos e reduzem o dano deles contra seus aliados."
+        "Se um alvo empurrado pela habilidade escolhida colidir com outro campeão, ele é arremessado ao ar e sofre dano. Ao colidir com o terreno, a duração do arremesso aumenta e ele sofre dano bônus.",
+        "Imobilizar ou Prender ao Chão campeões inimigos com a habilidade escolhida causa dano extra e cura você.",
+        "Imobilizar um campeão inimigo concede 20 de Vida máxima. Se escolhido como segundo Aprimoramento, começa com Vida.",
+        "Suas habilidades de avanço, salto, teleporte ou deslocamento instantâneo recebem 175 de Aceleração de Habilidade."
       ]
     },
     "ro": {
-      "title": "Proiect de grup",
-      "why": "Pasiva lui Braum, Lovituri năucitoare, are un rând pe care aproape toată lumea îl sare: după ce pune primul cumul, atacurile de bază ale aliaților lui adaugă și ele cumuluri, iar al patrulea cumul amețește. Asta face din fiecare coechipier care știe să lovească un buton de amețire, iar fiecare dintre aceste amețiri e a lui Braum. Cruzime aruncă o cometă cu daune magice pe fiecare campion pe care îl imobilizează, Încăierare îi dă 10 forță adaptivă pentru fiecare amețire, iar De netrecut adaugă explozia de la Replica și razele care încetinesc de la Augmentare glaciară, așa că o singură amețire plătește de trei ori și îl face mai puternic pentru următoarea. Cimpoi Bandle dă viteză de atac întregii echipe de fiecare dată când amețește pe cineva, așa că următoarele patru cumuluri vin și mai repede, Decret imperial marchează fiecare țintă amețită ca să primească mai multe daune, iar cu Dintele lui Nashor, Creator de rifturi și Pălăria malefică a lui Rabadon toată forța adaptivă devine putere a abilităților. Bodyguardul nu mai stă în fața echipei, ci devine artileria ei, iar trăgaciul îl apasă coechipierii.",
-      "play": "Marchează un inamic cu Q, apoi lasă-ți carry-ii să lovească aceeași țintă; fiecare amețire cheamă o cometă, așa că tot marchează-l pe cel în care trag.",
+      "title": "Bodyguardul de pe Wall Street",
+      "why": "E-ul lui Quinn are un efect secundar la care nu se uită nimeni: după ce se repede la țintă, sare înapoi și o împinge ușor. Reacție în lanț pe E transformă împinsătura politicoasă într-o aruncare în aer de fiecare dată când inamicul împins lovește alt campion sau un zid, cu aruncare mai lungă și daune bonus de la teren, iar podul e un coridor lung de ziduri. Fiecare E e acum o imobilizare, deci Legătură lacomă o vindecă și lovește mai tare, Devoratorul de suflete îi dă viață maximă permanentă pentru fiecare, iar Năpustire îi dă saltului 175 accelerare a abilităților ca să revină aproape imediat. Tăișul sclipitor din Navori închide bucla: E marchează ținta cu pasiva, W dă viteză de atac când lovește ținte marcate, iar fiecare atac reduce cu 15% timpul de reîncărcare rămas al lui E, în timp ce Lancea lui Shojin adaugă accelerare a abilităților de bază. Inimă de oțel și Devoratorul de suflete strâng viață pe care Armura însângerată a lordului suprem o transformă în daune de atac, iar cercetașa de la distanță ajunge un bodyguard ambulant care aruncă oamenii în ziduri și tankuiește ricoșeul.",
+      "play": "Ține spațiu liber în spate și trimite inamicii cu E în zid sau în propriul coechipier, apoi lovește marcajul ca E să fie gata din nou. R-ul tău e doar autobuzul până la următorul zid.",
       "augments": [
-        "Când imobilizezi sau țintuiești la sol un campion, chemi o cometă care cade după o scurtă întârziere, provocând daune magice inamicilor din apropiere.",
-        "De fiecare dată când imobilizezi sau țintuiești la sol un inamic, primești un cumul care oferă 10 forță adaptivă. Pierzi 50% din cumuluri la moarte.",
-        "Primești runele-cheie Replica și Augmentare glaciară. Replica: după ce imobilizezi un campion inamic, primești apărare și apoi provoci o explozie de daune magice în jurul tău. Augmentare glaciară: imobilizarea unui campion inamic creează 3 raze glaciare care încetinesc inamicii din apropiere și le reduc daunele împotriva aliaților tăi."
+        "Dacă o țintă împinsă de abilitatea aleasă lovește alt campion, este aruncată în aer și suferă daune. La coliziunea cu terenul, aruncarea durează mai mult și suferă daune bonus.",
+        "Imobilizarea sau țintuirea la sol a campionilor inamici cu abilitatea aleasă provoacă daune suplimentare și te vindecă.",
+        "Imobilizarea unui campion inamic oferă 20 viață maximă. Dacă e ales ca a doua augmentare, începe cu viață.",
+        "Abilitățile tale de năpustire, salt, teleportare scurtă sau teleportare primesc 175 accelerare a abilităților."
       ]
     },
     "ru": {
-      "title": "Групповой проект",
-      "why": "В пассивке Браума, «Оглушающих ударах», есть строчка, которую почти все пролистывают: как только он наложил первый заряд, автоатаки союзников тоже добавляют заряды, а четвертый заряд оглушает. Так каждый тиммейт, который умеет бить, превращается в кнопку оглушения, и каждое такое оглушение засчитывается Брауму. «Жестокость» обрушивает комету с магическим уроном на каждого чемпиона, которого он обездвижил, «Большая взбучка» дает 10 адаптивной силы за каждое оглушение, а «Сама невозмутимость» добавляет взрыв «Дрожи земли» и замедляющие лучи «Ледяного нароста», так что одно оглушение окупается трижды и делает его сильнее к следующему. «Бандл-трубы» дают всей команде скорость атаки каждый раз, когда он кого-то оглушает, поэтому следующие четыре заряда набираются еще быстрее, «Имперский мандат» помечает каждую оглушенную цель, чтобы она получала больше урона, а с «Зубом Нашора», «Творцом разломов» и «Смертельной шляпой Рабадона» вся эта адаптивная сила превращается в силу умений. Телохранитель перестает стоять перед командой и становится ее артиллерией, а на курок жмут его союзники.",
-      "play": "Пометьте врага через Q, а потом дайте керри бить ту же цель; каждое оглушение призывает комету, так что продолжайте метить того, по кому они стреляют.",
+      "title": "Вышибала с Уолл-стрит",
+      "why": "У E Квинн есть побочный эффект, на который никто не обращает внимания: после рывка к цели она отпрыгивает назад и слегка отбрасывает её. «Цепная реакция» на E превращает этот вежливый толчок в подбрасывание всякий раз, когда отброшенный враг врезается в другого чемпиона или в стену, а о рельеф подбрасывание длится дольше и наносит доп. урон, и весь мост — один длинный коридор из стен. Каждое E теперь обездвиживание, поэтому «Алчущие оковы» лечат её и бьют сильнее, «Пожиратель душ» за каждое даёт постоянный максимальный запас здоровья, а «Стремительность» даёт рывку 175 ускорения умений, чтобы он откатывался почти мгновенно. «Летающий нож Навори» замыкает цикл: E помечает цель пассивкой, W даёт скорость атаки за удары по помеченным целям, и каждая такая атака сокращает оставшуюся перезарядку E на 15%, а «Копье Седзина» добавляет ускорение базовых умений. «Сердце стали» и «Пожиратель душ» копят здоровье, которое «Кровавая кольчуга господина» превращает в силу атаки, и дальнобойная разведчица становится ходячим вышибалой, который швыряет людей в стены и танкует отскок.",
+      "play": "Держите за спиной свободное пространство и отправляйте врагов с помощью E в стену или в их же союзника, потом бейте по метке, чтобы E снова было готово. Ваше R — просто автобус до следующей стены.",
       "augments": [
-        "Когда вы обездвиживаете или приземляете чемпиона, над ним появляется комета, которая падает после задержки и наносит магический урон врагам поблизости.",
-        "Каждый раз, когда вы обездвиживаете или приземляете врага, вы получаете заряд, дающий 10 адаптивной силы. При смерти теряется 50% зарядов.",
-        "Вы получаете ключевые руны «Дрожь земли» и «Ледяной нарост». «Дрожь земли»: после того как вы обездвижили вражеского чемпиона, вы получаете защиту, а затем наносите вокруг себя всплеск магического урона. «Ледяной нарост»: обездвиживание вражеского чемпиона создает 3 ледяных луча, которые замедляют врагов поблизости и снижают их урон по вашим союзникам."
+        "Если цель, отброшенная выбранным умением, сталкивается с другим чемпионом, она подбрасывается и получает урон. При столкновении с рельефом подбрасывание длится дольше и цель получает дополнительный урон.",
+        "Обездвиживание или приземление вражеских чемпионов выбранным умением наносит дополнительный урон и лечит вас.",
+        "Обездвиживание вражеского чемпиона дает 20 ед. максимального запаса здоровья. Если выбрать это усиление вторым, вы начинаете с дополнительным здоровьем.",
+        "Ваши умения рывка, прыжка, мгновенного перемещения или телепортации получают 175 ед. ускорения умений."
       ]
     },
     "th": {
-      "title": "งานกลุ่ม",
-      "why": "พาสซีฟของ Braum มีบรรทัดหนึ่งที่แทบทุกคนอ่านข้าม: พอเขาใส่สแตกแรกแล้ว การโจมตีปกติของเพื่อนร่วมทีมก็เพิ่มสแตกได้ด้วย และสแตกที่สี่จะสตัน นั่นทำให้เพื่อนร่วมทีมทุกคนที่ตีได้กลายเป็นปุ่มสตัน และทุกสตันนั้นนับเป็นของ Braum ทั้งหมด Cruelty ทิ้งดาวหางที่สร้างความเสียหายเวทใส่ทุกแชมเปี้ยนที่เขาทำให้ขยับไม่ได้ Slap Around ให้ Adaptive Force 10 ต่อการสตันหนึ่งครั้ง และ Impassable เพิ่มระเบิดของ Aftershock กับลำแสงสโลว์ของ Glacial Augment เข้าไปอีก สตันครั้งเดียวจึงได้ผลตอบแทนสามต่อ และทำให้เขาแรงขึ้นสำหรับครั้งต่อไป Bandlepipes ให้ Attack Speed ทั้งทีมทุกครั้งที่เขาสตันใคร สี่สแตกถัดไปจึงมาเร็วขึ้นอีก Imperial Mandate มาร์กทุกเป้าหมายที่โดนสตันให้รับดาเมจมากขึ้น และเมื่อมี Nashor's Tooth, Riftmaker และ Rabadon's Deathcap Adaptive Force ทั้งหมดก็กลายเป็น Ability Power บอดี้การ์ดเลิกยืนบังหน้าทีม แล้วกลายเป็นปืนใหญ่ของทีม โดยมีเพื่อนร่วมทีมเป็นคนเหนี่ยวไก",
-      "play": "มาร์กศัตรูหนึ่งคนด้วย Q แล้วให้แครี่ตีเป้าหมายเดียวกัน ทุกสตันจะเรียกดาวหางลงมา ดังนั้นคอยมาร์กคนที่พวกเขากำลังยิงอยู่เรื่อย ๆ",
+      "title": "การ์ดหน้าผับวอลล์สตรีท",
+      "why": "สกิล E ของ Quinn มีผลข้างเคียงที่ไม่มีใครสนใจ: หลังพุ่งเข้าหาเป้าหมาย เธอจะกระโดดถอยหลังและผลักเป้าหมายออกไปเล็กน้อย Chain Reaction ที่ใส่ให้ E เปลี่ยนการผลักเบาๆ นั้นเป็น Knock Up ทุกครั้งที่ศัตรูที่ถูกผลักชนแชมเปี้ยนอีกตัวหรือกำแพง และถ้าชนกำแพง Knock Up จะนานขึ้นพร้อมดาเมจโบนัส ซึ่งสะพานก็คือทางเดินยาวที่มีกำแพงทั้งสองข้าง E ทุกครั้งกลายเป็นการ Immobilize ดังนั้น Ravenous Bind จะฮีลเธอและตีแรงขึ้น Soul Eater ให้ Max Health ถาวรทุกครั้ง และ Dashing ให้ Ability Haste 175 กับการพุ่งจนแทบกดได้ทันทีอีกรอบ Navori Flickerblade ปิดลูป: E ติดมาร์กพาสซีฟให้เป้าหมาย W ให้ Attack Speed เมื่อตีเป้าหมายที่ติดมาร์ก และทุกการโจมตีนั้นลดคูลดาวน์ที่เหลือของ E ลง 15% ส่วน Spear of Shojin เพิ่ม Basic Ability Haste ให้อีก Heartsteel กับ Soul Eater สะสม Health ที่ Overlord's Bloodmail แปลงเป็น Attack Damage นักสอดแนมสายยิงไกลเลยกลายเป็นการ์ดเดินได้ที่โยนคนเข้ากำแพงแล้วแทงก์แรงสะท้อนเอง",
+      "play": "เว้นที่โล่งไว้ด้านหลัง แล้วใช้ E ส่งศัตรูไปชนกำแพงหรือชนเพื่อนร่วมทีมของมันเอง จากนั้นตีมาร์กให้ E พร้อมอีกครั้ง R ของคุณเป็นแค่รถบัสไปกำแพงถัดไป",
       "augments": [
-        "เมื่อทำให้แชมเปี้ยนขยับไม่ได้หรือติดพื้น จะเรียกดาวหางที่ตกลงมาหลังดีเลย์สั้น ๆ สร้างความเสียหายเวทให้ศัตรูรอบ ๆ",
-        "ทุกครั้งที่ทำให้ศัตรูขยับไม่ได้หรือติดพื้น จะได้รับสแตกที่ให้ Adaptive Force 10 เสียสแตก 50% เมื่อตาย",
-        "ได้รับคีย์สโตนรูน Aftershock และ Glacial Augment Aftershock: หลังทำให้แชมเปี้ยนศัตรูขยับไม่ได้ จะได้รับพลังป้องกันแล้วปล่อยระเบิดความเสียหายเวทรอบตัว Glacial Augment: การทำให้แชมเปี้ยนศัตรูขยับไม่ได้จะสร้างลำแสงน้ำแข็ง 3 เส้นที่สโลว์ศัตรูใกล้เคียงและลดความเสียหายที่พวกมันทำต่อพันธมิตรของคุณ"
+        "หากเป้าหมายที่ถูก Knock Back จากสกิลที่เลือกชนแชมเปี้ยนอีกตัว จะถูก Knock Up และได้รับดาเมจ เมื่อชนกับภูมิประเทศ ระยะเวลา Knock Up จะนานขึ้นและได้รับดาเมจโบนัส",
+        "การ Immobilize หรือ Ground แชมเปี้ยนศัตรูด้วยสกิลที่เลือกจะสร้างดาเมจเพิ่มและฮีลคุณ",
+        "การ Immobilize แชมเปี้ยนศัตรูให้ Max Health 20 หากเลือกเป็น Augment ที่สอง จะเริ่มต้นพร้อม Health",
+        "สกิลพุ่ง กระโดด แวบ หรือเทเลพอร์ตของคุณได้รับ Ability Haste 175"
       ]
     },
     "tr": {
-      "title": "Grup Ödevi",
-      "why": "Braum'un pasifi Sarsıcı Darbeler'de neredeyse herkesin göz ardı ettiği bir satır var: ilk yükü o koyduktan sonra müttefiklerinin temel saldırıları da yük ekler, dördüncü yük de sersemletir. Bu da vurabilen her takım arkadaşını bir sersemletme düğmesine çevirir ve bu sersemletmelerin hepsi Braum'a sayılır. Gaddarlık hareketsiz bıraktığı her şampiyonun üstüne büyü hasarı veren bir kuyruklu yıldız düşürür, Eylemsizlik Kanunu her sersemletme için 10 uyarlanabilir kuvvet verir, Geçilmez de Artçı Sarsıntı'nın patlamasını ve Buzul Güçlendirmesi'nin yavaşlatan ışınlarını ekler; yani tek bir sersemletme üç kez ödeme yapar ve onu bir sonrakine daha güçlü bırakır. Bandle Gaydası birini her sersemlettiğinde bütün takıma saldırı hızı verir, böylece sonraki dört yük daha da hızlı gelir, İmparatorun Fermanı sersemletilen her hedefi daha fazla hasar alsın diye işaretler, Nashor'un Dişi, Vadiyaran ve Rabadon'un Şapkası ile de bütün o uyarlanabilir kuvvet yetenek gücüne dönüşür. Koruma, takımının önünde durmayı bırakıp onun topçusu olur, tetiği çekenler de takım arkadaşlarıdır.",
-      "play": "Bir rakibi Q ile işaretle, sonra carry'lerin aynı hedefe vursun; her sersemletme bir kuyruklu yıldız indirir, o yüzden onlar kime ateş ediyorsa onu işaretlemeye devam et.",
+      "title": "Wall Street Fedaisi",
+      "why": "Quinn'in E'sinin kimsenin hesaba katmadığı bir yan etkisi var: hedefe atıldıktan sonra geriye sıçrar ve hedefi hafifçe geri iter. E'ye Zincirleme Reaksiyon bu kibar dürtmeyi, itilen rakip başka bir şampiyona ya da duvara çarptığında havaya savurmaya çevirir, araziye çarparsa savurma daha uzun sürer ve ek hasar verir, köprü de baştan sona duvar dolu bir koridor. Her E artık bir etkisiz bırakma, yani Açgözlü Bağ onu iyileştirir ve daha sert vurur, Ruhyiyen her biri için kalıcı azami can verir, Atılgan da atılmaya 175 Yetenek Hızı vererek neredeyse anında geri gelmesini sağlar. Navori Tezbıçağı döngüyü kapatır: E hedefi pasifiyle işaretler, W işaretli hedeflere vurunca Saldırı Hızı verir ve bu saldırıların her biri E'nin kalan bekleme süresini %15 azaltır, Shojin'in Mızrağı da üstüne Temel Yetenek Hızı ekler. Çelikyürek ve Ruhyiyen can biriktirir, Savaş Beyinin Kanzırhı bunu Saldırı Gücüne çevirir ve uzaktan saldıran izci, insanları duvara fırlatıp sekmeyi tanklayan yürüyen bir fedaiye dönüşür.",
+      "play": "Arkanda boş alan bırak ve rakipleri E ile duvara ya da kendi takım arkadaşlarına doğru gönder, sonra işarete vur ki E yine hazır olsun. R'n sadece bir sonraki duvara giden otobüs.",
       "augments": [
-        "Bir şampiyonu hareketsiz bıraktığında veya yere çaktığında, kısa bir gecikmeden sonra düşüp yakındaki rakiplere büyü hasarı veren bir kuyruklu yıldız çağırırsın.",
-        "Bir rakibi her hareketsiz bıraktığında veya yere çaktığında 10 uyarlanabilir kuvvet veren bir yük kazanırsın. Ölünce yüklerin %50'sini kaybedersin.",
-        "Artçı Sarsıntı ve Buzul Güçlendirmesi ana rünlerini kazanırsın. Artçı Sarsıntı: Bir rakip şampiyonu hareketsiz bıraktıktan sonra savunma kazanır, ardından etrafına büyü hasarı veren bir patlama yaparsın. Buzul Güçlendirmesi: Bir rakip şampiyonu hareketsiz bırakmak, yakındaki rakipleri yavaşlatan ve müttefiklerine verdikleri hasarı azaltan 3 buzul ışını oluşturur."
+        "Seçilen yetenekle geri itilen bir hedef başka bir şampiyona çarparsa havaya savrulur ve hasar alır. Araziye çarptığında savrulma süresi uzar ve ek hasar alır.",
+        "Seçilen yetenekle rakip şampiyonları etkisiz bırakmak veya yere çakmak ek hasar verir ve seni iyileştirir.",
+        "Bir rakip şampiyonu etkisiz bırakmak 20 azami can verir. İkinci Güçlendirme olarak alınırsa canla başlar.",
+        "Atılma, sıçrama, ışınlanma veya teleport yeteneklerin 175 Yetenek Hızı kazanır."
       ]
     },
     "vi": {
-      "title": "Bài Tập Nhóm",
-      "why": "Nội tại của Braum có một dòng mà gần như ai cũng lướt qua: sau khi anh ta đánh dấu cộng dồn đầu tiên, đòn đánh thường của đồng minh cũng cộng dồn theo, và cộng dồn thứ tư sẽ làm choáng. Thế là mọi đồng đội biết đánh đều thành một nút choáng, và mỗi lần choáng đó đều được tính là của Braum. Chùy Tàn Độc thả một sao chổi gây sát thương phép lên mỗi tướng anh ta khống chế, Quăng Quật cho 10 Sức Mạnh Thích Ứng mỗi lần choáng, còn Không Thể Vượt Qua thêm vụ nổ của Dư Chấn và các tia làm chậm của Nâng Cấp Băng Giá, nên một lần choáng trả thưởng ba lần và khiến anh ta mạnh hơn cho lần sau. Kèn Túi Bandle cho cả đội Tốc Độ Đánh mỗi khi anh ta làm choáng ai đó, nên bốn cộng dồn tiếp theo đến còn nhanh hơn, Trát Lệnh Đế Vương đánh dấu mỗi mục tiêu bị choáng để chịu thêm sát thương, và với Nanh Nashor, Quyền Trượng Ác Thần cùng Mũ Phù Thủy Rabadon, toàn bộ Sức Mạnh Thích Ứng đó biến thành Sức Mạnh Phép Thuật. Vệ sĩ thôi đứng chắn trước đội và trở thành pháo binh của đội, còn người bóp cò là đồng đội.",
-      "play": "Đánh dấu một kẻ địch bằng Q, rồi để các xạ thủ đánh cùng mục tiêu; mỗi lần choáng gọi xuống một sao chổi, nên cứ tiếp tục đánh dấu kẻ mà họ đang bắn.",
+      "title": "Bảo kê phố Wall",
+      "why": "Chiêu E của Quinn có một hiệu ứng phụ mà chẳng ai để ý: sau khi lướt tới mục tiêu, cô bật ngược ra sau và đẩy lùi mục tiêu một chút. Phản Ứng Dây Chuyền lên E biến cú đẩy nhẹ nhàng đó thành hất tung mỗi khi kẻ địch bị đẩy va vào tướng khác hoặc vào tường, va địa hình thì hất tung lâu hơn và gây thêm sát thương, mà cây cầu thì toàn là tường dọc hai bên. Mỗi lần E giờ là một hiệu ứng bất động, nên Lòng Tham Trói Buộc hồi máu và gây thêm sát thương, Kẻ Nuốt Chửng Linh Hồn cho Máu tối đa vĩnh viễn mỗi lần, còn Thân Thủ Lả Lướt cho cú lướt 175 Điểm Hồi Kỹ Năng để nó hồi gần như ngay lập tức. Đao Chớp Navori khép vòng lặp: E đánh dấu mục tiêu bằng nội tại, W cho Tốc Độ Đánh khi đánh mục tiêu bị đánh dấu, và mỗi đòn đánh đó giảm 15% thời gian hồi chiêu còn lại của E, trong khi Ngọn Giáo Shojin cộng thêm Điểm Hồi Kỹ Năng Cơ Bản. Trái Tim Khổng Thần và Kẻ Nuốt Chửng Linh Hồn cộng dồn Máu mà Huyết Giáp Chúa Tể biến thành Sức Mạnh Công Kích, và nữ trinh sát đánh xa thành một tay bảo kê biết đi chuyên ném người vào tường rồi gánh luôn cú dội lại.",
+      "play": "Giữ khoảng trống phía sau lưng rồi dùng E đẩy kẻ địch vào tường hoặc vào chính đồng đội của chúng, sau đó đánh vào dấu ấn để E sẵn sàng lại. Chiêu R chỉ là chuyến xe buýt tới bức tường tiếp theo.",
       "augments": [
-        "Khi Bất Động hoặc Trói Chân một tướng, triệu hồi một sao chổi rơi xuống sau một lúc, gây sát thương phép lên kẻ địch xung quanh.",
-        "Mỗi lần Bất Động hoặc Trói Chân một kẻ địch, nhận một cộng dồn cho 10 Sức Mạnh Thích Ứng. Mất 50% cộng dồn khi chết.",
-        "Nhận Ngọc Chủ Chốt Dư Chấn và Nâng Cấp Băng Giá. Dư Chấn: Sau khi Bất Động một tướng địch, nhận thêm phòng thủ rồi gây một vụ nổ sát thương phép quanh bạn. Nâng Cấp Băng Giá: Bất Động một tướng địch tạo ra 3 tia băng làm Chậm kẻ địch xung quanh và giảm sát thương chúng gây lên đồng minh của bạn."
+        "Nếu mục tiêu bị đẩy lùi bởi kỹ năng đã chọn va vào tướng khác, chúng bị hất tung và chịu sát thương. Khi va vào địa hình, thời gian hất tung được kéo dài và chúng chịu thêm sát thương.",
+        "Làm bất động hoặc Trói Chân tướng địch bằng kỹ năng đã chọn gây thêm sát thương và hồi máu cho bạn.",
+        "Làm bất động một tướng địch cho 20 Máu tối đa. Nếu chọn làm Lõi Nâng Cấp thứ hai, bắt đầu với sẵn Máu.",
+        "Các kỹ năng lướt, nhảy, dịch chuyển tức thời hoặc dịch chuyển của bạn nhận 175 Điểm Hồi Kỹ Năng."
       ]
     },
     "zh-CN": {
-      "title": "小组作业",
-      "why": "弗雷尔卓德之心的被动里有一句几乎没人细看的话：只要他打出第一层，队友的普攻也能叠层，叠满四层就会眩晕。这让每个会平A的队友都变成一个眩晕按钮，而每一次眩晕都算在他头上。残忍会在他定身的每个英雄头上砸下一颗造成魔法伤害的彗星，扇巴掌每次眩晕给他10点自适应之力，不动如山再加上余震的爆发和冰川增幅的减速射线，所以一次眩晕能结算三次，还会让他为下一次变得更强。班德尔音管让他每眩晕一个人就给全队攻速，于是下一轮四层叠得更快，帝国指令会标记每个被眩晕的目标让其承受更多伤害，再配上纳什之牙、裂隙制造者和灭世者的死亡之帽，这些自适应之力全都变成法术强度。这位保镖不再挡在队伍前面，而是成了队伍的炮兵，扣扳机的是他的队友。",
-      "play": "用Q点中一个敌人，然后让你的C位打同一个目标；每次眩晕都会砸下一颗彗星，所以他们打谁你就一直去点谁。",
+      "title": "华尔街保安",
+      "why": "德玛西亚之翼的E有个没人在意的副作用：她冲向目标后会向后跃开，并把目标轻微击退。给E配上连锁反应后，这一下礼貌的推搡就会在被推的敌人撞到另一名英雄或墙壁时变成击飞，撞到地形时击飞更久还附带额外伤害，而桥上本来就是一条长长的墙壁走廊。现在每次E都是一次定身类控制，所以贪欲束缚让她回血并打得更痛，吞噬灵魂每次都给她永久最大生命值，全凭身法给突进技能175技能急速，让它几乎立刻就能再用。纳沃利烁刃闭合了循环：E会给目标打上被动标记，W在攻击带标记的目标时提供攻击速度，而每一次这样的攻击都会把E的剩余冷却缩短15%，朔极之矛再叠加基础技能急速。心之钢和吞噬灵魂堆起的生命值被霸王血铠转化成攻击力，于是远程侦察兵变成了一个会走路的保安，把人往墙上扔，再硬吃反弹。",
+      "play": "身后留出空地，用E把敌人往墙上或他们自己的队友身上送，然后打一下标记让E再次就绪。你的R只是去下一面墙的公交车。",
       "augments": [
-        "定身或禁锢一名英雄时，召唤一颗彗星，在短暂延迟后落下，对附近敌人造成魔法伤害。",
-        "每次定身或禁锢一名敌人，获得一层提供10点自适应之力的效果。死亡时失去50%层数。",
-        "获得余震和冰川增幅基石符文。余震：定身一名敌方英雄后，获得双抗，随后在你周围造成一次魔法伤害爆发。冰川增幅：定身一名敌方英雄会生成3道冰川射线，减速附近敌人并降低他们对你友军造成的伤害。"
+        "如果被所选技能击退的目标撞到另一名英雄，他们会被击飞并受到伤害。撞到地形时，击飞持续时间会延长，并受到额外伤害。",
+        "使用所选技能对敌方英雄施加定身或禁锢效果，会造成额外伤害并治疗你。",
+        "对敌方英雄施加定身效果会提供20最大生命值。如果作为第二个强化符文选择，则开始时就带有生命值。",
+        "你的冲刺、跳跃、闪烁或传送技能获得175技能急速。"
       ]
     },
     "zh-TW": {
-      "title": "分組報告",
-      "why": "布郎姆的被動有一句幾乎沒人細看的話：只要他打出第一層，隊友的普攻也能疊層，疊滿四層就會暈眩。這讓每個會普攻的隊友都變成一顆暈眩按鈕，而每一次暈眩都算布郎姆的。殘忍會在他定身的每個英雄頭上砸下一顆造成魔法傷害的彗星，痛打一頓每次暈眩給他10點適性之力，不可通行再加上餘震的爆發和冰川增幅的緩速射線，所以一次暈眩能結算三次，還會讓他為下一次變得更強。班德爾笛子讓他每暈眩一個人就給全隊攻擊速度，於是下一輪四層疊得更快，帝王命令會標記每個被暈眩的目標讓它承受更多傷害，再配上納什之牙、峽谷製造者和死亡之帽，這些適性之力全都變成魔法攻擊。這位保鏢不再擋在隊伍前面，而是成了隊伍的砲兵，扣扳機的是他的隊友。",
-      "play": "用Q點中一個敵人，然後讓你的輸出打同一個目標；每次暈眩都會砸下一顆彗星，所以他們打誰你就一直去點誰。",
+      "title": "華爾街保鑣",
+      "why": "葵恩的E有個沒人在意的副作用：她衝向目標後會向後躍開，並把目標稍微擊退。替E配上連鎖反應後，這一下禮貌的推擠就會在被推的敵人撞上另一名英雄或牆壁時變成擊飛，撞上地形時擊飛更久還附帶額外傷害，而橋上本來就是一條長長的牆壁走廊。現在每次E都是一次定身控制，所以貪婪束縛讓她回血並打得更痛，食魂者每次都給她永久最大生命，衝鋒給突進技能175技能加速，讓它幾乎馬上就能再用。那歐閃刃閉合了循環：E會替目標打上被動標記，W在攻擊帶標記的目標時提供攻擊速度，而每一次這樣的攻擊都會把E的剩餘冷卻縮短15%，精進之矛再加上基礎技能加速。雄心之鋼和食魂者堆起的生命被狂霸血甲轉成攻擊力，於是遠程斥候變成一個會走路的保鑣，把人往牆上丟，再硬吃反彈。",
+      "play": "身後留出空地，用E把敵人往牆上或他們自己的隊友身上送，然後打一下標記讓E再次就緒。你的R只是去下一面牆的公車。",
       "augments": [
-        "定身或禁錮一名英雄時，召喚一顆彗星，短暫延遲後落下，對附近敵人造成魔法傷害。",
-        "每次定身或禁錮一名敵人，獲得一層提供10點適性之力的效果。死亡時失去50%層數。",
-        "獲得餘震與冰川增幅基石符文。餘震：定身一名敵方英雄後，獲得雙抗，隨後在你周圍造成一次魔法傷害爆發。冰川增幅：定身一名敵方英雄會產生3道冰川射線，緩速附近敵人並降低他們對你隊友造成的傷害。"
+        "如果被所選技能擊退的目標撞上另一名英雄，他們會被擊飛並受到傷害。撞上地形時，擊飛持續時間會延長，並受到額外傷害。",
+        "使用所選技能對敵方英雄施加定身或禁錮效果，會造成額外傷害並治療你。",
+        "對敵方英雄施加定身效果會提供20最大生命。如果作為第二個強化選擇，則開始時就帶有生命。",
+        "你的衝刺、跳躍、閃現或傳送技能獲得175技能加速。"
       ]
     }
   }
