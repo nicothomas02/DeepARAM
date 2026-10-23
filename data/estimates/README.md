@@ -41,14 +41,18 @@ research note `early-vs-late-game.md` in the project files.
 `weapon_of_destiny.py` ranks Legendary items for the Weapon of Destiny augment (Tier List tab). Each
 takedown adds 200 gold worth of the item's own upgradeable stats, shared equally among them; the
 amounts per 1,000 gold come from the augment's spell data in `kiwi.bin`, the item's stats from the item
-bin. The feed has no games with the augment yet (and no augment-item pairs), so its takers are
-extrapolated: every champion weighted by pick rate x kills + assists from `profiles`, and each one's
-Weapon is the first Legendary item in its core builds. Per item: `share` (how often it's the Weapon),
-`lift` (win rate of core builds starting with it minus the champion's average over its core builds,
-weighted like share) and `rare` (its stats' average rarity among Legendary items, shown only). The
-site's DeepScore (Nico 2026-10-23) uses lift and share the way the Items tab does, so it differs from
-the regular item DeepScore (first items only, takedown-weighted champions; rank correlation 0.14).
-Not scheduled: rerun after patches.
+bin. Each one's Weapon is the first Legendary item in its core builds. Per item: `share` (how often it's
+the Weapon), `lift` (win rate of core builds starting with it minus the champion's average over its core
+builds, weighted like share), `rare` (its stats' average rarity among Legendary items) and `value`
+(each stat's rarity times its worth in `VALUE`: 3 for Critical Strike Damage and % penetration, 2 for
+flat penetration, crit and attack speed, 1.5 for healing, else 1; averaged).
+
+While no champion lists the augment in the feed, the output has `anticipated: true`: takers are
+extrapolated (every champion weighted by pick rate x kills + assists from `profiles`) and the site
+labels the tab Anticipated and ranks by `value` (Nico 2026-10-23). Once champions take it, they're
+weighted by pick rate x how often they take it, and the site ranks by a DeepScore from lift and share
+the way the Items tab does. That differs from the regular item DeepScore (first items only, weighted by
+who takes the augment; rank correlation 0.14 on the extrapolated takers). Not scheduled: rerun after patches.
 
 ## Tried and dropped
 

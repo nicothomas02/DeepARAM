@@ -31,5 +31,9 @@
  "The champion who would upgrade it most often.": "最常强化它的英雄。",
  "Weapon of Destiny makes your first Legendary item your Weapon of Destiny. Every champion takedown adds {gold} gold worth of that item's own stats, shared equally between them, so an item with fewer stats puts more into each one.": "命运之武器会让你的第一件传说装备成为命运之武器。每次参与击杀英雄，都会为该装备自身的属性增加价值 {gold} 金币的数值，在各属性间平均分配，所以属性越少的装备，每项属性增加得越多。",
  "Find an item": "查找装备",
- "Estimated. Ranked by DeepScore, from each item's win rate and pick rate as the first Legendary item of the champions likely to take the augment, counting those who get the most takedowns most. Items no champion buys first have no score yet.": "估计值。按 DeepScore 排名，依据每件装备作为可能选择该强化符文的英雄的第一件传说装备时的胜率和选取率，参与击杀越多的英雄权重越大。没有英雄首先购买的装备暂无评分。"
+ "Anticipated": "预期",
+ "Stat value": "属性价值",
+ "Anticipated: Weapon of Destiny has no games yet, so items are ranked by how valuable their stats are to upgrade. Once it has games, they're ranked by DeepScore from how the Weapon wins.": "预期：命运之武器还没有对局数据，因此装备按升级属性的价值排序。有了对局数据后，将按命运之武器胜率得出的 DeepScore 排序。",
+ "Estimated. Ranked by DeepScore, from each item's win rate and pick rate as the first Legendary item of the champions who take the augment. Items no champion buys first have no score yet.": "估算。按 DeepScore 排序，依据每件装备作为选择该强化的英雄第一件传说装备时的胜率和选取率。没有英雄首先购买的装备暂时没有评分。",
+ "Stat value rates each item from 0 to 100 against the others, where 50 is average. Each of its stats counts by how much it's worth to upgrade, most for stats that multiply all your damage such as Critical Strike Damage or Armor Penetration, and by how few Legendary items give it. Tiers: S 70+, A 59+, B 44+, C 32+, D below.": "属性价值将每件装备与其他装备比较，按 0 到 100 评分，50 为平均。每项属性按其升级价值计分，暴击伤害、护甲穿透这类能放大你全部伤害的属性最受重视，同时提供该属性的传说装备越少，它就越有价值。等级：S 70+、A 59+、B 44+、C 32+，以下为 D。"
 }

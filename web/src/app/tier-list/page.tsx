@@ -219,7 +219,7 @@ export default function TierListPage() {
       id: "weapon-of-destiny",
       label: "Weapon of Destiny",
       lazy: true,
-      content: <WeaponOfDestiny items={destiny.rows} gold={destiny.gold} />,
+      content: <WeaponOfDestiny items={destiny.rows} gold={destiny.gold} anticipated={destiny.anticipated} />,
     });
   }
 
