@@ -29,8 +29,8 @@ jobs:
       status: ${{ steps.check.outputs.status }}
       version: ${{ steps.check.outputs.version }}
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
       - name: Is a new patch out?
@@ -46,7 +46,7 @@ jobs:
           python3 champions/build_data.py
           python3 champions/build_i18n.py
           python3 web/scripts/fetch_descriptions.py
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         if: steps.check.outputs.status == 'ready'
         with:
           node-version: 22
