@@ -31,5 +31,9 @@
  "The champion who would upgrade it most often.": "これを最も多くアップグレードするチャンピオン。",
  "Weapon of Destiny makes your first Legendary item your Weapon of Destiny. Every champion takedown adds {gold} gold worth of that item's own stats, shared equally between them, so an item with fewer stats puts more into each one.": "「運命の武器」は最初のレジェンドアイテムを運命の武器にします。チャンピオンのテイクダウンごとに、そのアイテム自身のステータスが{gold}ゴールド分増え、均等に分配されます。ステータスの種類が少ないアイテムほど、ひとつあたりの増加量が多くなります。",
  "Find an item": "アイテムを探す",
- "Estimated. Ranked by DeepScore, from each item's win rate and pick rate as the first Legendary item of the champions likely to take the augment, counting those who get the most takedowns most. Items no champion buys first have no score yet.": "推定値。このオーグメントを選びそうなチャンピオンの最初のレジェンドアイテムとしての勝率と採用率から算出したDeepScore順で、テイクダウンの多いチャンピオンほど重く数えています。最初に買うチャンピオンがいないアイテムにはまだスコアがありません。"
+ "Anticipated": "予想",
+ "Stat value": "ステータス価値",
+ "Anticipated: Weapon of Destiny has no games yet, so items are ranked by how valuable their stats are to upgrade. Once it has games, they're ranked by DeepScore from how the Weapon wins.": "予想：「運命の武器」にはまだ試合データがないため、強化するステータスの価値でアイテムを並べています。試合データが集まると、運命の武器の勝ち方に基づくDeepScoreで並べます。",
+ "Estimated. Ranked by DeepScore, from each item's win rate and pick rate as the first Legendary item of the champions who take the augment. Items no champion buys first have no score yet.": "推定。このオーグメントを取るチャンピオンが最初のレジェンドアイテムとして選んだときの勝率とピック率から算出したDeepScoreで並べています。どのチャンピオンも最初に買わないアイテムにはまだスコアがありません。",
+ "Stat value rates each item from 0 to 100 against the others, where 50 is average. Each of its stats counts by how much it's worth to upgrade, most for stats that multiply all your damage such as Critical Strike Damage or Armor Penetration, and by how few Legendary items give it. Tiers: S 70+, A 59+, B 44+, C 32+, D below.": "ステータス価値は、各アイテムを他のアイテムと比べて0〜100で評価します（50が平均）。各ステータスは強化する価値で数え、クリティカルダメージや物理防御貫通のように与えるダメージ全体を増やすステータスを最も重視し、さらにそのステータスを持つレジェンドアイテムの少なさも考慮します。ティア：S 70+、A 59+、B 44+、C 32+、それ未満はD。"
 }

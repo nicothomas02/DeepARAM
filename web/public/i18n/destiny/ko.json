@@ -31,5 +31,9 @@
  "The champion who would upgrade it most often.": "이 아이템을 가장 자주 강화할 챔피언.",
  "Weapon of Destiny makes your first Legendary item your Weapon of Destiny. Every champion takedown adds {gold} gold worth of that item's own stats, shared equally between them, so an item with fewer stats puts more into each one.": "운명의 무기는 첫 번째 전설 아이템을 운명의 무기로 만듭니다. 챔피언 처치에 관여할 때마다 그 아이템 자체 능력치가 {gold}골드어치 늘어나며 능력치끼리 균등하게 나뉘므로, 능력치 종류가 적은 아이템일수록 각 능력치가 더 많이 오릅니다.",
  "Find an item": "아이템 찾기",
- "Estimated. Ranked by DeepScore, from each item's win rate and pick rate as the first Legendary item of the champions likely to take the augment, counting those who get the most takedowns most. Items no champion buys first have no score yet.": "추정치. 이 증강을 고를 만한 챔피언의 첫 번째 전설 아이템으로서의 승률과 선택률로 계산한 DeepScore 순이며, 처치 관여가 많은 챔피언일수록 크게 반영합니다. 먼저 사는 챔피언이 없는 아이템은 아직 점수가 없습니다."
+ "Anticipated": "예상",
+ "Stat value": "능력치 가치",
+ "Anticipated: Weapon of Destiny has no games yet, so items are ranked by how valuable their stats are to upgrade. Once it has games, they're ranked by DeepScore from how the Weapon wins.": "예상: 운명의 무기는 아직 게임 데이터가 없어 강화할 능력치의 가치로 아이템 순위를 매겼습니다. 게임 데이터가 생기면 운명의 무기의 승률에 따른 DeepScore로 순위를 매깁니다.",
+ "Estimated. Ranked by DeepScore, from each item's win rate and pick rate as the first Legendary item of the champions who take the augment. Items no champion buys first have no score yet.": "추정치. 이 증강을 고르는 챔피언이 첫 번째 전설 아이템으로 샀을 때의 승률과 선택률로 계산한 DeepScore 순입니다. 어떤 챔피언도 먼저 사지 않는 아이템은 아직 점수가 없습니다.",
+ "Stat value rates each item from 0 to 100 against the others, where 50 is average. Each of its stats counts by how much it's worth to upgrade, most for stats that multiply all your damage such as Critical Strike Damage or Armor Penetration, and by how few Legendary items give it. Tiers: S 70+, A 59+, B 44+, C 32+, D below.": "능력치 가치는 각 아이템을 다른 아이템과 비교해 0~100으로 평가하며, 50이 평균입니다. 각 능력치는 강화할 가치에 따라 반영되며, 치명타 피해량이나 방어구 관통력처럼 모든 피해를 배로 늘리는 능력치가 가장 크게 반영되고, 그 능력치를 주는 전설 아이템이 적을수록 더 높게 반영됩니다. 등급: S 70+, A 59+, B 44+, C 32+, 그 아래 D."
 }

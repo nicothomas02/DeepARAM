@@ -31,5 +31,9 @@
  "The champion who would upgrade it most often.": "最常強化它的英雄。",
  "Weapon of Destiny makes your first Legendary item your Weapon of Destiny. Every champion takedown adds {gold} gold worth of that item's own stats, shared equally between them, so an item with fewer stats puts more into each one.": "命定武器會讓你的第一件傳說裝備成為命定武器。每次參與擊殺英雄，都會為該裝備自身的屬性增加價值 {gold} 金幣的數值，在各屬性間平均分配，所以屬性越少的裝備，每項屬性增加得越多。",
  "Find an item": "尋找裝備",
- "Estimated. Ranked by DeepScore, from each item's win rate and pick rate as the first Legendary item of the champions likely to take the augment, counting those who get the most takedowns most. Items no champion buys first have no score yet.": "估計值。依 DeepScore 排名，根據每件裝備作為可能選擇該強化的英雄的第一件傳說裝備時的勝率與選用率，參與擊殺越多的英雄權重越大。沒有英雄首先購買的裝備暫無評分。"
+ "Anticipated": "預期",
+ "Stat value": "屬性價值",
+ "Anticipated: Weapon of Destiny has no games yet, so items are ranked by how valuable their stats are to upgrade. Once it has games, they're ranked by DeepScore from how the Weapon wins.": "預期：命定武器還沒有對局資料，因此裝備依升級屬性的價值排序。有了對局資料後，將依命定武器勝率得出的 DeepScore 排序。",
+ "Estimated. Ranked by DeepScore, from each item's win rate and pick rate as the first Legendary item of the champions who take the augment. Items no champion buys first have no score yet.": "估算。依 DeepScore 排序，根據每件裝備作為選擇該強化的英雄第一件傳說裝備時的勝率和選取率。沒有英雄首先購買的裝備暫時沒有評分。",
+ "Stat value rates each item from 0 to 100 against the others, where 50 is average. Each of its stats counts by how much it's worth to upgrade, most for stats that multiply all your damage such as Critical Strike Damage or Armor Penetration, and by how few Legendary items give it. Tiers: S 70+, A 59+, B 44+, C 32+, D below.": "屬性價值將每件裝備與其他裝備比較，按 0 到 100 評分，50 為平均。每項屬性依其升級價值計分，暴擊傷害、物理穿透這類能放大你全部傷害的屬性最受重視，同時提供該屬性的傳說裝備越少，它就越有價值。等級：S 70+、A 59+、B 44+、C 32+，以下為 D。"
 }
