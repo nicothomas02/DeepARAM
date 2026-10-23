@@ -5,7 +5,7 @@ CommunityDragon PNG as web/public/assets/augments/<pbe|live>/<file name> and wri
 site path to an "icon" field, so the PBE tab loads it from the site with no internal names
 in the URL. Added and changed augments
 use the PBE icon; removed ones use the live icon. Changed augments also get
-their tier. Run after fetch.py or local.py.
+their tier. Run after fetch.py.
 
 Usage: python3 icons.py DATA_DIR [JSON]
 """
