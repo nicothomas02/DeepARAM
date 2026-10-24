@@ -1,4 +1,5 @@
 import Link from "next/link";
+import RowLink from "@/components/RowLink";
 import { text } from "@/lib/content";
 import { chefsSpecial, statsDate, counts, kitchenBuilds, livePatch, liveTiers, topAugments, topDps, topItems } from "@/lib/highlights";
 import { duoRows } from "@/lib/duos";
@@ -190,7 +191,7 @@ export default function Home() {
             </div>
             <div className="rank">
               {augs.map((a, i) => (
-                <Link key={a.id} href={a.href} data-tilt="soft" data-rarity={a.rarity}>
+                <RowLink key={a.id} href={a.href} data-tilt="soft" data-rarity={a.rarity}>
                   <span className="rank-i">{i + 1}</span>
                   <Icon src={`/icons/augments/${a.id}.webp`} />
                   <span className="rank-name">
@@ -200,7 +201,7 @@ export default function Home() {
                   </span>
                   <span className={`chip tier-${a.tier?.toLowerCase()}`}>{a.tier && <T>{a.tier}</T>}</span>
                   <span className="rank-v">{Math.round(a.deepScore)}</span>
-                </Link>
+                </RowLink>
               ))}
             </div>
           </section>
@@ -217,7 +218,7 @@ export default function Home() {
             </div>
             <div className="rank">
               {gear.map((i, n) => (
-                <Link key={i.id} href={`/items/${i.slug}`} data-tilt="soft">
+                <RowLink key={i.id} href={`/items/${i.slug}`} data-tilt="soft">
                   <span className="rank-i">{n + 1}</span>
                   {i.icon ? <Icon src={i.icon} /> : null}
                   <span className="rank-name">
@@ -226,7 +227,7 @@ export default function Home() {
                     </Name>
                   </span>
                   <span className="rank-v">{Math.round(i.deepScore ?? 0)}</span>
-                </Link>
+                </RowLink>
               ))}
             </div>
           </section>
@@ -243,7 +244,7 @@ export default function Home() {
             </div>
             <div className="rank home-duos">
               {duos.map((d) => (
-                <Link key={d.pair} href={`/champions/${d.a}`}>
+                <RowLink key={d.pair} href={`/champions/${d.a}`}>
                   <span className="home-duo-icons">
                     <Icon src={`/icons/champions/${d.a}.webp`} />
                     <Icon src={`/icons/champions/${d.b}.webp`} />
@@ -262,7 +263,7 @@ export default function Home() {
                       {"{n} pts"}
                     </T>
                   </span>
-                </Link>
+                </RowLink>
               ))}
             </div>
           </section>
@@ -279,7 +280,7 @@ export default function Home() {
             </div>
             <div className="rank home-dps">
               {dps.map((c, i) => (
-                <Link key={c.id} href={`/champions/${c.id}`}>
+                <RowLink key={c.id} href={`/champions/${c.id}`}>
                   <span className="rank-i">{i + 1}</span>
                   <Icon src={`/icons/champions/${c.id}.webp`} />
                   <span className="rank-name">
@@ -290,7 +291,7 @@ export default function Home() {
                   <span className="rank-v">
                     <T v={{ n: Math.round(c.dps).toLocaleString("en-US") }}>{"{n} DPS"}</T>
                   </span>
-                </Link>
+                </RowLink>
               ))}
             </div>
             <p className="card-note home-dps-note">
@@ -324,9 +325,9 @@ export default function Home() {
               <div className="chef-items">
                 {special.items.map((i) =>
                   i.href ? (
-                    <Link key={i.name} href={i.href} title={i.name}>
+                    <RowLink key={i.name} href={i.href} title={i.name}>
                       {i.icon ? <Icon src={i.icon} /> : i.name}
-                    </Link>
+                    </RowLink>
                   ) : (
                     <span key={i.name} className="chip">
                       {i.name}

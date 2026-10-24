@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Breadcrumbs } from "@/components/JsonLd";
 import Link from "next/link";
+import RowLink from "@/components/RowLink";
 import { notFound } from "next/navigation";
 import { augmentBySlug, augmentPages } from "@/lib/augments";
 import { livePatch } from "@/lib/highlights";
@@ -188,7 +189,7 @@ export default async function AugmentPage({ params }: { params: Promise<{ slug: 
             </div>
             <div className="rank plain">
               {a.best.map((c) => (
-                <Link key={c.id} href={`/champions/${c.id}`}>
+                <RowLink key={c.id} href={`/champions/${c.id}`}>
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img className="icon" src={`/icons/champions/${c.id}.webp`} alt="" width={24} height={24} loading="lazy" />
                   <span className="rank-name">
@@ -203,7 +204,7 @@ export default async function AugmentPage({ params }: { params: Promise<{ slug: 
                       </T>
                     </span>
                   )}
-                </Link>
+                </RowLink>
               ))}
             </div>
           </section>
@@ -217,7 +218,7 @@ export default async function AugmentPage({ params }: { params: Promise<{ slug: 
             </div>
             <div className="rank plain">
               {a.pickers.map((c) => (
-                <Link key={c.id} href={`/champions/${c.id}`}>
+                <RowLink key={c.id} href={`/champions/${c.id}`}>
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img className="icon" src={`/icons/champions/${c.id}.webp`} alt="" width={24} height={24} loading="lazy" />
                   <span className="rank-name">
@@ -226,7 +227,7 @@ export default async function AugmentPage({ params }: { params: Promise<{ slug: 
                     </Name>
                   </span>
                   <span className="rank-v">{pct(c.pickRate)}</span>
-                </Link>
+                </RowLink>
               ))}
             </div>
           </section>
@@ -290,9 +291,9 @@ export default async function AugmentPage({ params }: { params: Promise<{ slug: 
                   </>
                 );
                 return f.slug ? (
-                  <Link key={f.id} href={`/items/${f.slug}`}>
+                  <RowLink key={f.id} href={`/items/${f.slug}`}>
                     {body}
-                  </Link>
+                  </RowLink>
                 ) : (
                   <div key={f.id}>{body}</div>
                 );

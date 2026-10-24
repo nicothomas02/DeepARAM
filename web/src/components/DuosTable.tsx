@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import DataTable, { type Column, type Row } from "./DataTable";
 import Skeleton from "@/components/Skeleton";
 import { LoadError } from "@/components/EmptyState";
-import Link from "next/link";
+import RowLink from "@/components/RowLink";
 import { useNames, useT } from "./I18n";
 import { getParam, setParams } from "@/lib/url-state";
 import type { TagInfo } from "@/lib/tag-info";
@@ -127,13 +127,13 @@ export default function DuosTable({
       />
       {quests.map(([a, b, quest]) => (
         <p key={`${a}-${b}`} className="duo-quest">
-          <Link href={`/champions/${a}#quests`}>
+          <RowLink href={`/champions/${a}#quests`}>
             {t("Team quest: {a} and {b} on the same team start {quest}.", {
               a: names("champions", a, a),
               b: names("champions", b, b),
               quest: tq(quest),
             })}
-          </Link>
+          </RowLink>
         </p>
       ))}
     </>

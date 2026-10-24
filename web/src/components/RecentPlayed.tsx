@@ -2,6 +2,7 @@
 /* eslint-disable @next/next/no-img-element -- small local icons */
 
 import Link from "next/link";
+import RowLink from "@/components/RowLink";
 import championNames from "@/data/champion-names.json";
 import { usePlayed } from "@/lib/played";
 import { useNames, useT } from "./I18n";
@@ -32,7 +33,7 @@ export default function RecentPlayed() {
       </div>
       <div className="recent-row">
         {list.map((g) => (
-          <Link key={`${g.at}-${g.champion}`} href={`/champions/${g.champion}`} className="recent-item">
+          <RowLink key={`${g.at}-${g.champion}`} href={`/champions/${g.champion}`} className="recent-item">
             <img src={`/icons/champions/${g.champion}.webp`} alt="" width={36} height={36} loading="lazy" />
             <span>
               <b>{names("champions", g.champion, NAMES[g.champion] ?? g.champion)}</b>
@@ -40,7 +41,7 @@ export default function RecentPlayed() {
                 {g.win ? t("Win") : t("Loss")} · {ago(g.at, t)}
               </small>
             </span>
-          </Link>
+          </RowLink>
         ))}
       </div>
     </section>

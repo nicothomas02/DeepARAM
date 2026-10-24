@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import RowLink from "@/components/RowLink";
 import { useT } from "./I18n";
 import { tagStyle, type TagInfo } from "@/lib/tag-info";
 
@@ -24,9 +24,9 @@ export default function ArchetypeTags({ names, info, link, compact }: { names: s
           style: tagStyle(t.color),
         };
         return link ? (
-          <Link key={n} href={`/tier-list?tag=${encodeURIComponent(n)}`} {...props}>
+          <RowLink key={n} href={`/tier-list?tag=${encodeURIComponent(n)}`} {...props}>
             {tr(n)}
-          </Link>
+          </RowLink>
         ) : (
           <span key={n} tabIndex={0} {...props}>
             {tr(n)}

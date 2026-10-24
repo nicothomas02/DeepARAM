@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import RowLink from "@/components/RowLink";
 import Intro from "@/components/Intro";
 import { pageMeta } from "@/lib/meta";
 import { recap, recapPatches } from "@/lib/patches";
@@ -57,7 +57,7 @@ export default function PatchesPage() {
               {group.map((r) => {
                 const i = recaps.indexOf(r) + (pending ? 1 : 0);
                 return (
-                  <Link key={r.patch} className="card recap-row" href={`/patches/${patchName(r.patch)}`} data-accent={i === 0 ? "tier" : undefined}>
+                  <RowLink key={r.patch} className="card recap-row" href={`/patches/${patchName(r.patch)}`} data-accent={i === 0 ? "tier" : undefined}>
                     <b className="recap-patch">
                       {patchName(r.patch)}
                       {i === 0 && (
@@ -110,7 +110,7 @@ export default function PatchesPage() {
                         </span>
                       </span>
                     )}
-                  </Link>
+                  </RowLink>
                 );
               })}
             </div>
