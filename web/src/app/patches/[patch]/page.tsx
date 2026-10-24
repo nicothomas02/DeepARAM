@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Breadcrumbs } from "@/components/JsonLd";
 import Link from "next/link";
+import RowLink from "@/components/RowLink";
 import { notFound } from "next/navigation";
 import { pageMeta } from "@/lib/meta";
 import { recap, recapPatches, type AugRef } from "@/lib/patches";
@@ -49,9 +50,9 @@ function Aug({ a }: { a: AugRef }) {
     </>
   );
   return a.href ? (
-    <Link href={a.href} data-tilt="soft" data-rarity={a.tier}>
+    <RowLink href={a.href} data-tilt="soft" data-rarity={a.tier}>
       {body}
-    </Link>
+    </RowLink>
   ) : (
     <div>{body}</div>
   );
@@ -155,7 +156,7 @@ export default async function PatchPage({ params }: { params: Promise<{ patch: s
             </div>
             <div className="rank plain recap-movers">
               {r.up.map((c) => (
-                <Link key={c.id} href={`/champions/${c.id}`}>
+                <RowLink key={c.id} href={`/champions/${c.id}`}>
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img className="icon" src={`/icons/champions/${c.id}.webp`} alt="" width={24} height={24} loading="lazy" />
                   <span className="rank-name">
@@ -165,7 +166,7 @@ export default async function PatchPage({ params }: { params: Promise<{ patch: s
                   </span>
                   <span className="rank-v">{pct(c.winRate)}</span>
                   <span className="rank-v delta-up">{pts(c.change)}</span>
-                </Link>
+                </RowLink>
               ))}
             </div>
           </section>
@@ -184,7 +185,7 @@ export default async function PatchPage({ params }: { params: Promise<{ patch: s
             </div>
             <div className="rank plain recap-movers">
               {r.down.map((c) => (
-                <Link key={c.id} href={`/champions/${c.id}`}>
+                <RowLink key={c.id} href={`/champions/${c.id}`}>
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img className="icon" src={`/icons/champions/${c.id}.webp`} alt="" width={24} height={24} loading="lazy" />
                   <span className="rank-name">
@@ -194,7 +195,7 @@ export default async function PatchPage({ params }: { params: Promise<{ patch: s
                   </span>
                   <span className="rank-v">{pct(c.winRate)}</span>
                   <span className="rank-v delta-down">{pts(c.change)}</span>
-                </Link>
+                </RowLink>
               ))}
             </div>
           </section>

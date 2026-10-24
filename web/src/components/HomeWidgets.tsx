@@ -2,6 +2,7 @@
 /* eslint-disable @next/next/no-img-element -- small local icons */
 
 import Link from "next/link";
+import RowLink from "@/components/RowLink";
 import { useState } from "react";
 import { useNames, useT } from "./I18n";
 
@@ -33,7 +34,7 @@ export function TierSnapshot({ champs }: { champs: Champ[] }) {
       </div>
       <div className="snap-grid" onMouseLeave={() => setHover(null)}>
         {list.map((c) => (
-          <Link
+          <RowLink
             key={c.id}
             href={`/champions/${c.id}`}
             className={shown?.id === c.id ? "on" : undefined}
@@ -48,7 +49,7 @@ export function TierSnapshot({ champs }: { champs: Champ[] }) {
             aria-label={t("{name}: {wr} win rate", { name: names("champions", c.id, c.name), wr: pct(c.winRate) })}
           >
             <img src={champIcon(c.id)} alt="" width={40} height={40} loading="lazy" />
-          </Link>
+          </RowLink>
         ))}
       </div>
       {shown && (
@@ -151,12 +152,12 @@ export function FunLists({ lists }: { lists: Record<string, { id: string; name: 
       {(kind === "early_game" || kind === "late_game") && <p className="fun-note">{t(CURVE_NOTE)}</p>}
       <div className="rank fun-rank">
         {(lists[kind] ?? []).map((c, i) => (
-          <Link key={c.id} href={`/champions/${c.id}`}>
+          <RowLink key={c.id} href={`/champions/${c.id}`}>
             <span className="rank-i">{i + 1}</span>
             <img className="icon" src={champIcon(c.id)} alt="" width={24} height={24} loading="lazy" />
             <span className="rank-name">{names("champions", c.id, c.name)}</span>
             {c.value !== null && <span className="rank-v">{unit === "{v}" ? c.value : t(unit, { v: c.value })}</span>}
-          </Link>
+          </RowLink>
         ))}
       </div>
       <Link className="see-all" href={FULL[kind] ?? "/champions"}>

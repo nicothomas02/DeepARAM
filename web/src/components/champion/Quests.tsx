@@ -1,4 +1,4 @@
-import Link from "next/link";
+import RowLink from "@/components/RowLink";
 import rivalQuests from "@/data/rival-quests.json";
 import { T } from "@/components/I18n";
 import QuestWhen from "./QuestWhen";
@@ -20,7 +20,7 @@ export default function Quests({ alias, names }: { alias: string; names: Record<
     <Panel id="quests" title={quests.some((q) => q.side === "enemy") ? "Rival quest" : "Team quest"}>
       {quests.map((q) => (
         <div key={q.partner} className="cp-quest">
-          <Link className="cp-link" href={`/champions/${q.partner}`}>
+          <RowLink className="cp-link" href={`/champions/${q.partner}`}>
             <img className="cp-icon" src={`/icons/champions/${q.partner}.webp`} alt="" width={36} height={36} loading="lazy" />
             <span className="cp-name">
               <strong>
@@ -30,7 +30,7 @@ export default function Quests({ alias, names }: { alias: string; names: Record<
                 <QuestWhen partner={q.partner} name={names[q.partner] ?? q.partner} enemy={q.side === "enemy"} />
               </small>
             </span>
-          </Link>
+          </RowLink>
           {q.goal && (
             <p>
               <T ns="quests">{q.goal}</T>

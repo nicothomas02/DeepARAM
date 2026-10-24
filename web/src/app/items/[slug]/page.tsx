@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Breadcrumbs } from "@/components/JsonLd";
 import Link from "next/link";
+import RowLink from "@/components/RowLink";
 import { notFound } from "next/navigation";
 import { livePatch } from "@/lib/highlights";
 import { itemBySlug, itemPages } from "@/lib/item-pages";
@@ -31,7 +32,16 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
         .map((b) => b.name)
         .join(", ")}.`
     : "";
-  return pageMeta(`/items/${i.slug}`, `${i.name} in ARAM Mayhem`, `${i.name}: ${i.stats.join(", ") || "item"}${i.cost ? `, ${i.cost} gold` : ""}.${who}`);
+  // Search results show about 160 characters: the first few stats, and the item's own text when it has few.
+  const stats = i.stats.slice(0, 5).join(", ") || "item";
+  const desc = `${i.name}: ${stats}${i.cost ? `, ${i.cost} gold` : ""}.${who}`;
+  let full = desc;
+  if (desc.length < 80)
+    for (const s of (DESC.items[String(i.id)] ?? "").replace(/§/g, "").split(/(?<=\.)\s+/)) {
+      if (!s || full.length + s.length > 160) break;
+      full += ` ${s}`;
+    }
+  return pageMeta(`/items/${i.slug}`, `${i.name} in ARAM Mayhem`, full);
 }
 
 export default async function ItemPage({ params }: { params: Promise<{ slug: string }> }) {
@@ -81,9 +91,9 @@ export default async function ItemPage({ params }: { params: Promise<{ slug: str
         {i.tags.length > 0 && (
           <p className="item-tags-row">
             {i.tags.map((t) => (
-              <Link key={t} href={`/tier-list?tab=items&itag=${t}`} className="item-tag" data-group={itemTag(t)?.group}>
+              <RowLink key={t} href={`/tier-list?tab=items&itag=${t}`} className="item-tag" data-group={itemTag(t)?.group}>
                 <T ns="items">{itemTag(t)?.label ?? t}</T>
-              </Link>
+              </RowLink>
             ))}
           </p>
         )}
@@ -161,7 +171,7 @@ export default async function ItemPage({ params }: { params: Promise<{ slug: str
           </div>
           <div className="rank builders">
             {i.builders.map((b) => (
-              <Link key={b.id} href={`/champions/${b.id}`}>
+              <RowLink key={b.id} href={`/champions/${b.id}`}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img className="icon" src={`/icons/champions/${b.id}.webp`} alt="" width={24} height={24} loading="lazy" />
                 <span className="rank-name">
@@ -183,7 +193,7 @@ export default async function ItemPage({ params }: { params: Promise<{ slug: str
                     ""
                   )}
                 </span>
-              </Link>
+              </RowLink>
             ))}
           </div>
         </section>
@@ -219,7 +229,7 @@ export default async function ItemPage({ params }: { params: Promise<{ slug: str
           </div>
           <div className="rank builders">
             {sim.champs.map((c) => (
-              <Link key={c.id} href={`/champions/${c.id}`}>
+              <RowLink key={c.id} href={`/champions/${c.id}`}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img className="icon" src={`/icons/champions/${c.id}.webp`} alt="" width={24} height={24} loading="lazy" />
                 <span className="rank-name">
@@ -233,7 +243,7 @@ export default async function ItemPage({ params }: { params: Promise<{ slug: str
                   </T>
                 </span>
                 <span className="rank-v">{c.dps.toLocaleString("en-US")} DPS</span>
-              </Link>
+              </RowLink>
             ))}
           </div>
           <p className="table-note">

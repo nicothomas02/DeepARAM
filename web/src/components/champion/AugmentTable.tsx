@@ -1,7 +1,7 @@
 "use client";
 /* eslint-disable @next/next/no-img-element -- small local icons */
 
-import Link from "next/link";
+import RowLink from "@/components/RowLink";
 import { useRef } from "react";
 import { KEPT, useKept } from "@/lib/kept";
 import { Name, useT } from "@/components/I18n";
@@ -188,9 +188,9 @@ export default function AugmentTable({
             <div key={a.id} className="cp-row" data-cols={cols}>
               <span className="cp-rk">#{i + 1}</span>
               {a.href ? (
-                <Link className="cp-what" href={a.href}>
+                <RowLink className="cp-what" href={a.href}>
                   {body}
-                </Link>
+                </RowLink>
               ) : (
                 <div className="cp-what">{body}</div>
               )}

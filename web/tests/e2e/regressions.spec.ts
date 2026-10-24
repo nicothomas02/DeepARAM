@@ -102,3 +102,19 @@ test("tier list table fits a phone", async ({ page }, info) => {
   await scroll.locator("tbody tr").first().locator("td.rank-col").click();
   await expect(page).toHaveURL(/\/champions\//);
 });
+
+// Next.js 16 loads every link in view in the background; the home page's champion grid alone fetched 32
+// pages (about 600 kB on a phone). List links only load when pointed at or touched.
+test("pages don't load every listed champion in the background", async ({ page }) => {
+  for (const path of ["/", "/champions"]) {
+    const loaded: string[] = [];
+    page.on("request", (r) => {
+      if (r.url().includes("_rsc=") && new URL(r.url()).pathname.startsWith("/champions/")) loaded.push(r.url());
+    });
+    await page.goto(path);
+    await page.waitForLoadState("load");
+    await page.waitForTimeout(1500);
+    expect(loaded.length, path).toBeLessThanOrEqual(2);
+    page.removeAllListeners("request");
+  }
+});

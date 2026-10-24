@@ -2,6 +2,7 @@
 import type { Metadata } from "next";
 import { Breadcrumbs } from "@/components/JsonLd";
 import Link from "next/link";
+import RowLink from "@/components/RowLink";
 import SplashAccent from "@/components/SplashAccent";
 import WinRateChart from "@/components/WinRateChart";
 import { augmentTiers } from "@/lib/augment-tiers";
@@ -474,7 +475,7 @@ export default async function ChampionPage({
               </h4>
               <div className="cp-icons">
                 {augRows.slice(0, 5).map((a) => (
-                  <Link key={a.id} href={a.href ?? "#augments"} title={a.name}>
+                  <RowLink key={a.id} href={a.href ?? "#augments"} title={a.name}>
                     <img
                       className="cp-icon round"
                       src={`/icons/augments/${a.id}.webp`}
@@ -482,7 +483,7 @@ export default async function ChampionPage({
                       width={36}
                       height={36}
                     />
-                  </Link>
+                  </RowLink>
                 ))}
               </div>
             </div>
@@ -908,7 +909,7 @@ export default async function ChampionPage({
                       </>
                     }
                   >
-                    <Link className="cp-link" href={`/champions/${m.id}`}>
+                    <RowLink className="cp-link" href={`/champions/${m.id}`}>
                       <img
                         className="cp-icon"
                         src={`/icons/champions/${m.id}.webp`}
@@ -928,7 +929,7 @@ export default async function ChampionPage({
                           <T ns={NS}>No hard CC</T>
                         </span>
                       )}
-                    </Link>
+                    </RowLink>
                   </Row>
                 ))}
               </ShowMore>

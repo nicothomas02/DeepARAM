@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import RowLink from "@/components/RowLink";
 import ChampionRedirect from "@/components/ChampionRedirect";
 import { Name, T } from "@/components/I18n";
 import Intro from "@/components/Intro";
@@ -32,7 +32,7 @@ export default function Page() {
       <ul className="champ-index">
         {champList().map((c) => (
           <li key={c.id}>
-            <Link href={`/champions/${c.id}`}>
+            <RowLink href={`/champions/${c.id}`}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src={`/icons/champions/${c.id}.webp`} alt="" width={40} height={40} loading="lazy" />
               <span className="champ-index-name">
@@ -41,7 +41,7 @@ export default function Page() {
                 </Name>
               </span>
               {tiers.has(c.id) && <span className="champ-index-tier" data-tier={tiers.get(c.id)}>{tiers.get(c.id)}</span>}
-            </Link>
+            </RowLink>
           </li>
         ))}
       </ul>
