@@ -172,6 +172,12 @@ function useStickyHead(on: boolean) {
   return ref;
 }
 
+// On phones a one-word label in two parts (DeepScore) may break between them, so its column needs no more room than its cells.
+function breakable(label: string) {
+  const parts = label.replace(/([a-z])([A-Z])/g, "$1\n$2").split("\n");
+  return parts.length < 2 ? label : <span className="th-split">{parts.flatMap((p, i) => (i ? [<wbr key={i} />, p] : [p]))}</span>;
+}
+
 // Champion and augment icons come from the League client (web/scripts/fetch_icons.py).
 function Named({ src, name }: { src: string; name: string }) {
   const [broken, setBroken] = useState(false);
@@ -350,10 +356,10 @@ export default function DataTable({
                   aria-sort={c.sortable !== false && sort.key === (c.sortKey ?? c.key) ? (sort.desc ? "descending" : "ascending") : undefined}
                 >
                   {c.sortable === false ? (
-                    t(c.label)
+                    breakable(t(c.label))
                   ) : (
                     <button type="button" onClick={() => toggle(c.sortKey ?? c.key)} data-tip={hint(c)} aria-description={hint(c)}>
-                      {t(c.label)}
+                      {breakable(t(c.label))}
                       {hint(c) && (
                         <span className="col-hint" aria-hidden="true">
                           ?

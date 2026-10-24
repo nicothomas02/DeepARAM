@@ -81,9 +81,11 @@ test("tier list table fits a phone", async ({ page }, info) => {
   await expect(scroll.locator("tbody tr").first()).toBeVisible();
   const [sw, cw] = await scroll.evaluate((e) => [e.scrollWidth, e.clientWidth]);
   expect(sw).toBeLessThanOrEqual(cw);
-  // Names stay on one line (a long one ends in "…") instead of wrapping.
-  const tall = await scroll.locator("td .champ").evaluateAll((cells) => cells.filter((c) => c.getBoundingClientRect().height > 32).length);
-  expect(tall).toBe(0);
+  // Names show in full: a long one wraps instead of being cut, and the name column gets the room the numbers leave.
+  const cut = await scroll.locator("td .nm").evaluateAll((names) => names.filter((n) => n.scrollWidth > n.clientWidth + 1).length);
+  expect(cut).toBe(0);
+  const nameCol = await scroll.locator("thead th.pin").evaluate((th) => th.getBoundingClientRect().width);
+  expect(nameCol).toBeGreaterThan(130);
   // Every stat is one table now; the extra columns drop out on phones, the measured win rate stays.
   await expect(scroll.locator("thead th", { hasText: "Raw win rate" })).toBeInViewport();
 
