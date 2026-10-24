@@ -1071,6 +1071,13 @@ h1 {
   transform: translateY(var(--head-off, 0px));
 }
 
+/* DeepScore and the like only break in two on phones (DataTable breakable). */
+@media (min-width: 641px) {
+  .data-table .th-split wbr {
+    display: none;
+  }
+}
+
 .data-table table[data-stuck] thead th {
   box-shadow: 0 1px 0 var(--line);
 }
@@ -1649,7 +1656,7 @@ html[data-device="mobile"] .data-table th {
     white-space: normal;
   }
 
-  /* Names stay on one line: the name column takes the room the numbers leave, and a name longer than that ends in "…". */
+  /* The name column takes all the room the numbers leave. */
   .data-table.fit > .table-scroll td.pin {
     width: 100%;
     max-width: 0;
@@ -1665,10 +1672,12 @@ html[data-device="mobile"] .data-table th {
     gap: 0.45rem;
   }
 
+  /* A name too long for the room left wraps onto a second line, breaking inside a word only when it must. */
   .data-table.fit > .table-scroll .champ .nm {
     min-width: 0;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    white-space: normal;
+    overflow-wrap: break-word;
+    line-height: 1.25;
   }
 }
 
