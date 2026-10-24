@@ -32,7 +32,16 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
         .map((b) => b.name)
         .join(", ")}.`
     : "";
-  return pageMeta(`/items/${i.slug}`, `${i.name} in ARAM Mayhem`, `${i.name}: ${i.stats.join(", ") || "item"}${i.cost ? `, ${i.cost} gold` : ""}.${who}`);
+  // Search results show about 160 characters: the first few stats, and the item's own text when it has few.
+  const stats = i.stats.slice(0, 5).join(", ") || "item";
+  const desc = `${i.name}: ${stats}${i.cost ? `, ${i.cost} gold` : ""}.${who}`;
+  let full = desc;
+  if (desc.length < 80)
+    for (const s of (DESC.items[String(i.id)] ?? "").replace(/§/g, "").split(/(?<=\.)\s+/)) {
+      if (!s || full.length + s.length > 160) break;
+      full += ` ${s}`;
+    }
+  return pageMeta(`/items/${i.slug}`, `${i.name} in ARAM Mayhem`, full);
 }
 
 export default async function ItemPage({ params }: { params: Promise<{ slug: string }> }) {
