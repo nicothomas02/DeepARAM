@@ -10,7 +10,7 @@ import { Panel } from "./Ranked";
 type Quest = { champion: string; partner: string; side: string; name: string; goal?: string; reward?: string; rewardText?: string };
 const QUESTS = rivalQuests as Quest[];
 
-export const questsFor = (alias: string) => QUESTS.filter((q) => q.champion === alias);
+const questsFor = (alias: string) => QUESTS.filter((q) => q.champion === alias);
 export const questPairs = (side: "ally" | "enemy") => QUESTS.filter((q) => q.side === side);
 
 export default function Quests({ alias, names }: { alias: string; names: Record<string, string> }) {

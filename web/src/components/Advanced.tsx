@@ -13,7 +13,6 @@ const Ctx = createContext<{
 }>({ advanced: false, setAdvanced: () => {} });
 
 export const useAdvanced = () => useContext(Ctx).advanced;
-export const useAdvancedState = () => useContext(Ctx);
 
 const KEY = "deeparam-view-advanced";
 

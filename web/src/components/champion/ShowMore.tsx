@@ -7,7 +7,7 @@ import { KEPT, useKept } from "@/lib/kept";
 // A ranked list that shows its first `limit` rows (all of them when `limit` is null) and hides the rest
 // behind a "Show all" button. Simple view (Settings > Page detail) cuts every list at 5 rows.
 
-export const SIMPLE_LIMIT = 5;
+const SIMPLE_LIMIT = 5;
 
 export default function ShowMore({
   total,
