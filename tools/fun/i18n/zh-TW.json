@@ -216,5 +216,12 @@
  "If a target Knocked Back by the chosen ability hits another champion, they are Knocked Up and dealt damage. When colliding with terrain, the Knock Up duration is extended and they are dealt bonus damage.": "如果被所選技能擊退的目標撞上另一名英雄，他們會被擊飛並受到傷害。撞上地形時，擊飛持續時間會延長，並受到額外傷害。",
  "Immobilizing or Grounding enemy champions with the chosen ability deals extra damage and heals you.": "使用所選技能對敵方英雄施加定身或禁錮效果，會造成額外傷害並治療你。",
  "Immobilizing an enemy champion grants 20 max Health. If taken as your second Augment, starts with Health.": "對敵方英雄施加定身效果會提供20最大生命。如果作為第二個強化選擇，則開始時就帶有生命。",
- "Your dash, leap, blink, or teleport Abilities gain 175 Ability Haste.": "你的衝刺、跳躍、閃現或傳送技能獲得175技能加速。"
+ "Your dash, leap, blink, or teleport Abilities gain 175 Ability Haste.": "你的衝刺、跳躍、閃現或傳送技能獲得175技能加速。",
+ "Flash Photography": "閃光攝影",
+ "Zoe's Spell Thief hides a second passive line under the one everyone reads: whenever she casts that Ability or any Summoner Spell, she tosses 3 missiles at the target she Attacked most recently. Flashy gives her Flash three charges and Flashbang makes every one of those Flashes explode for damage and a Slow, so a single blink is now an area nuke plus a volley, and Flash 2 hands her a second Flash plus 70 Summoner Haste so the whole bar reloads sooner. Poltergeist bolts on one more Summoner Spell that casts Barrier and Ghost together, so even her panic button is three more missiles. Ionian Boots of Lucidity feed the loop with Summoner Spell Haste, Lich Bane turns the Attack she throws after an Ability into a bonus magic hit while it also marks who the next volley chases, and Rabadon's Deathcap, Shadowflame, Stormsurge and Void Staff make each small magic hit land like a real one. The long-range Paddle Star sniper stops waiting on her star and becomes a machine gun whose trigger is the Summoner bar.": "柔依的W在大家都會讀的那行下面還藏著第二行被動：每當她施放這個技能或任何召喚師技能時，都會朝她最近一次普攻的目標丟出3發飛彈。閃光俠讓她的閃現擁有3層充能，閃光彈讓每一次閃現都炸出造成傷害並緩速的爆炸，所以一次閃現就是範圍轟炸加一輪齊射；二次閃現再給她第二個閃現和70召喚師技能加速，整排技能轉得更快。搗蛋鬼再加上一個同時施放光盾和鬼步的召喚師技能，連她的保命鍵都是多3發飛彈。愛歐尼亞之靴用召喚師技能加速餵養這個循環，巫妖之禍把技能後的普攻變成額外魔法傷害，同時標記下一輪齊射追誰，死亡之帽、黯影之炎、雷霆風暴和虛空之杖讓每一下小魔法傷害都打出真正的分量。Q的遠程狙擊手不再等她的星星，變成一挺以召喚師技能欄為扳機的機關槍。",
+ "Attack whoever you want dead first, because the missiles follow the last target you hit. Then empty the bar on top of them, and Flash sideways, not away.": "先普攻你最想擊殺的人，因為飛彈會追最後命中的目標。接著在他頭上把技能欄清空，閃現往旁邊閃，別往後閃。",
+ "Your Flash has 3 charges. After 120 seconds, regain all charges.": "你的閃現擁有3層充能。120秒後，恢復所有充能。",
+ "Your Flash causes an explosion that damages and Slows (resets on death).": "你的閃現會引發爆炸，造成傷害並緩速（死亡時重置）。",
+ "Gain a second Flash Summoner Spell and 70 Summoner Haste.": "獲得第二個閃現召喚師技能和70召喚師技能加速。",
+ "Gain Poltergeist as a Summoner Spell. Poltergeist casts both Barrier and Ghost.": "獲得召喚師技能搗蛋鬼。搗蛋鬼會同時施放光盾和鬼步。"
 }

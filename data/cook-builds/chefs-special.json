@@ -1,297 +1,297 @@
 {
-  "id": "quinn-wall-street-bouncer",
-  "title": "Wall Street Bouncer",
-  "champion": "Quinn",
-  "champion_name": "Quinn",
-  "chef": "2026-10-22",
-  "why": "Vault has a side effect nobody plays around: after Quinn dashes in she leaps backwards and slightly Knocks the target Back. Chain Reaction on Vault turns that polite nudge into a Knock Up whenever the shoved enemy hits another champion or a wall, with a longer Knock Up and bonus damage against terrain, and the bridge is one long corridor of walls. Every Vault is now an immobilize, so Ravenous Bind makes it heal her and hit harder, Soul Eater hands her permanent max Health for each one, and Dashing gives the dash 175 Ability Haste so it comes back almost at once. Navori Flickerblade closes the loop: Vault marks its target with Harrier, Heightened Senses gives Attack Speed for hitting Harrier targets, and each of those Attacks cuts the remaining Vault cooldown by 15%, while Spear of Shojin adds Basic Ability Haste on top. Heartsteel and Soul Eater stack Health that Overlord's Bloodmail turns into Attack Damage, so the ranged scout ends up a walking shoulder-check who throws people into walls and tanks off the bounce.",
-  "play": "Stand with your back to open ground and Vault enemies toward a wall or into their own teammate, then hit the Harrier mark so Vault is ready again. Behind Enemy Lines is just a bus to the next wall.",
+  "id": "zoe-flash-photography",
+  "title": "Flash Photography",
+  "champion": "Zoe",
+  "champion_name": "Zoe",
+  "chef": "2026-10-23",
+  "why": "Zoe's Spell Thief hides a second passive line under the one everyone reads: whenever she casts that Ability or any Summoner Spell, she tosses 3 missiles at the target she Attacked most recently. Flashy gives her Flash three charges and Flashbang makes every one of those Flashes explode for damage and a Slow, so a single blink is now an area nuke plus a volley, and Flash 2 hands her a second Flash plus 70 Summoner Haste so the whole bar reloads sooner. Poltergeist bolts on one more Summoner Spell that casts Barrier and Ghost together, so even her panic button is three more missiles. Ionian Boots of Lucidity feed the loop with Summoner Spell Haste, Lich Bane turns the Attack she throws after an Ability into a bonus magic hit while it also marks who the next volley chases, and Rabadon's Deathcap, Shadowflame, Stormsurge and Void Staff make each small magic hit land like a real one. The long-range Paddle Star sniper stops waiting on her star and becomes a machine gun whose trigger is the Summoner bar.",
+  "play": "Attack whoever you want dead first, because the missiles follow the last target you hit. Then empty the bar on top of them, and Flash sideways, not away.",
   "items": [
-    "Navori Flickerblade",
-    "Spear of Shojin",
-    "Heartsteel",
-    "Overlord's Bloodmail",
-    "Sterak's Gage",
-    "Mercury's Treads"
+    "Ionian Boots of Lucidity",
+    "Lich Bane",
+    "Rabadon's Deathcap",
+    "Shadowflame",
+    "Stormsurge",
+    "Void Staff"
   ],
   "core": 4,
-  "champion_icon": "/embed/fun/cook-builds/icons/champions/133.png",
+  "champion_icon": "/embed/fun/cook-builds/icons/champions/142.png",
   "augments": [
     {
-      "name": "Chain Reaction",
+      "name": "Flashy",
       "rarity": "Gold",
       "core": true,
-      "text": "If a target Knocked Back by the chosen ability hits another champion, they are Knocked Up and dealt damage. When colliding with terrain, the Knock Up duration is extended and they are dealt bonus damage.",
-      "icon": "/embed/fun/cook-builds/icons/augments/chain-reaction.png",
-      "id": 2078
+      "text": "Your Flash has 3 charges. After 120 seconds, regain all charges.",
+      "icon": "/embed/fun/cook-builds/icons/augments/flashy.png",
+      "id": 1116
     },
     {
-      "name": "Ravenous Bind",
-      "rarity": "Gold",
+      "name": "Flashbang",
+      "rarity": "Silver",
       "core": true,
-      "text": "Immobilizing or Grounding enemy champions with the chosen ability deals extra damage and heals you.",
-      "icon": "/embed/fun/cook-builds/icons/augments/ravenous-bind.png",
-      "id": 2077
+      "text": "Your Flash causes an explosion that damages and Slows (resets on death).",
+      "icon": "/embed/fun/cook-builds/icons/augments/flashbang.png",
+      "id": 1187
     },
     {
-      "name": "Soul Eater",
-      "rarity": "Gold",
+      "name": "Flash 2",
+      "rarity": "Silver",
       "core": true,
-      "text": "Immobilizing an enemy champion grants 20 max Health. If taken as your second Augment, starts with Health.",
-      "icon": "/embed/fun/cook-builds/icons/augments/soul-eater.png",
-      "id": 1375
+      "text": "Gain a second Flash Summoner Spell and 70 Summoner Haste.",
+      "icon": "/embed/fun/cook-builds/icons/augments/flash-2.png",
+      "id": 1348
     },
     {
-      "name": "Dashing",
-      "rarity": "Prismatic",
+      "name": "Poltergeist",
+      "rarity": "Silver",
       "core": true,
-      "text": "Your dash, leap, blink, or teleport Abilities gain 175 Ability Haste.",
-      "icon": "/embed/fun/cook-builds/icons/augments/dashing.png",
-      "id": 1019
+      "text": "Gain Poltergeist as a Summoner Spell. Poltergeist casts both Barrier and Ghost.",
+      "icon": "/embed/fun/cook-builds/icons/augments/poltergeist.png",
+      "id": 1347
     }
   ],
   "href": "/kitchen#chefs-special",
   "archive_href": "/kitchen#chef-archive",
-  "share_href": "/kitchen/2026-10-22",
-  "share_image": "/embed/fun/cook-builds/share/quinn-wall-street-bouncer.png",
+  "share_href": "/kitchen/2026-10-23",
+  "share_image": "/embed/fun/cook-builds/share/zoe-flash-photography.png",
   "item_ids": [
-    6675,
-    3161,
-    3084,
-    2501,
-    3053,
-    3111
+    3158,
+    3100,
+    3089,
+    4645,
+    4646,
+    3135
   ],
   "i18n": {
     "ar": {
-      "title": "حارس ملهى وول ستريت",
-      "why": "لمهارة E عند كوين أثر جانبي لا ينتبه له أحد: بعد أن تندفع نحو الهدف تقفز إلى الخلف وتدفعه دفعة خفيفة. سلسلة التفاعلات على E تحوّل هذه الدفعة المهذبة إلى قذف في الهواء كلما اصطدم العدو المدفوع ببطل آخر أو بجدار، مع قذف أطول وضرر إضافي عند الاصطدام بالتضاريس، والجسر كله ممر طويل من الجدران. كل E صارت شلًّا للحركة، فتشفيها القيود المفترسة وتضرب أقوى، ويمنحها آكل الروح صحة قصوى دائمة مع كل واحدة، ويمنح الاندفاع قفزتها 175 من تسريع القدرات فتعود شبه فورًا. نصال نافوري الخاطفة تُغلق الحلقة: E تَسِم الهدف بعلامة مهارتها السلبية، وW تمنح سرعة هجوم عند ضرب الأهداف الموسومة، وكل هجمة من هذه تُنقص 15% من الوقت المتبقي لتهدئة E، بينما يضيف رمح شوجين تسريعًا للقدرات الأساسية. القلب الفولاذي وآكل الروح يكدّسان صحة يحوّلها درع القائد الأعلى الدموي إلى ضرر هجوم، فتصبح الكشّافة بعيدة المدى حارس ملهى متنقلًا يرمي الناس على الجدران ويتحمّل الارتداد.",
-      "play": "اترك مساحة فارغة خلفك واستخدم E لترمي الأعداء نحو جدار أو على زميلهم، ثم اضرب العلامة لتعود E جاهزة. مهارة R مجرد حافلة إلى الجدار التالي.",
+      "title": "تصوير بالفلاش",
+      "why": "تخفي مهارة W لدى زوي سطرًا ثانيًا من القدرة السلبية تحت السطر الذي يقرؤه الجميع: كلما استخدمت هذه المهارة أو أي تعويذة استدعاء، ترمي 3 قذائف على آخر هدف هاجمته. التألق يمنح الانتقال الخاطف لديها 3 شحنات، وقنبلة ضوئية تجعل كل انتقال خاطف ينفجر ليُلحق الضرر ويُبطئ، فتصبح قفزة واحدة قنبلة على منطقة مع رشقة قذائف، والانتقال الخاطف 2 يمنحها انتقالًا خاطفًا ثانيًا و70 من تسارع تعويذات الاستدعاء لتعود الشريطة كلها أسرع. شبح الضوضاء يضيف تعويذة استدعاء أخرى تُلقي الحاجز والشبح معًا، فحتى زر الذعر لديها يعني 3 قذائف إضافية. حذاء الوعي الأيوني يغذي الحلقة بتسارع تعويذات الاستدعاء، وعفونة الموتى تحوّل الهجمة بعد المهارة إلى ضربة سحرية إضافية تحدد أيضًا من ستطارده الرشقة التالية، بينما قبعة موت رابادون ولهيب الأشباح والمد العاصف وصولجان الفويد تجعل كل ضربة سحرية صغيرة تصيب كأنها ضربة حقيقية. قناصة مهارة Q تتوقف عن انتظار نجمتها وتصبح رشاشًا زناده شريط تعويذات الاستدعاء.",
+      "play": "هاجم أولًا من تريده ميتًا، لأن القذائف تلاحق آخر هدف أصبته. ثم أفرغ الشريط فوقه، واستخدم الانتقال الخاطف إلى الجانب لا إلى الخلف.",
       "augments": [
-        "إذا اصطدم هدف دفعته القدرة المختارة ببطل آخر، يُقذف في الهواء ويتلقى ضررًا. عند الاصطدام بالتضاريس تطول مدة القذف ويتلقى ضررًا إضافيًا.",
-        "شلّ حركة أبطال الأعداء أو تثبيتهم بالأرض بالقدرة المختارة يُلحق ضررًا إضافيًا ويشفيك.",
-        "شلّ حركة بطل عدو يمنح 20 من الصحة القصوى. إذا اخترته كتعزيزك الثاني، يبدأ ومعه صحة.",
-        "قدرات الاندفاع أو القفز أو الوميض أو الانتقال الآني لديك تكتسب 175 من تسريع القدرات."
+        "للانتقال الخاطف لديك 3 شحنات. بعد 120 ثانية، تستعيد جميع الشحنات.",
+        "يُحدث الانتقال الخاطف انفجارًا يُلحق الضرر ويُبطئ (يُعاد تعيينه عند الموت).",
+        "احصل على تعويذة استدعاء ثانية للانتقال الخاطف و70 من تسارع تعويذات الاستدعاء.",
+        "احصل على شبح الضوضاء كتعويذة استدعاء. يُلقي شبح الضوضاء الحاجز والشبح معًا."
       ]
     },
     "cs": {
-      "title": "Vyhazovač z Wall Street",
-      "why": "Quinnino E má vedlejší efekt, se kterým nikdo nepočítá: po výpadu k cíli odskočí dozadu a lehce ho odhodí. Řetězová reakce na E promění to zdvořilé šťouchnutí ve vyhození do vzduchu, kdykoli odstrčený nepřítel narazí do jiného šampiona nebo do zdi, s delším vyhozením a bonusovým poškozením o terén, a most je jedna dlouhá chodba ze zdí. Každé E je teď znehybnění, takže Hladové pouto ji léčí a bije silněji, Požírač duší jí za každé dá trvalé maximální zdraví a Mrštný sprint dá výpadu 175 zrychlení schopností, takže je skoro hned zpátky. Blikavá čepel Navori smyčku uzavře: E označí cíl pasivkou, W dává rychlost útoků za zásahy označených cílů a každý takový útok zkrátí zbývající přebíjení E o 15 %, zatímco Oštěp Šódžinu přidá zrychlení základních schopností. Srdcová ocel a Požírač duší skládají zdraví, které Vládcovo krvavé brnění mění na útočné poškození, a průzkumnice na dálku skončí jako chodící vyhazovač, co hází lidi o zdi a tankuje odraz.",
-      "play": "Drž za zády volný prostor a posílej nepřátele pomocí E do zdi nebo do jejich vlastního spoluhráče, pak trefuj značku, aby bylo E zase připravené. Tvoje R je jen autobus k další zdi.",
+      "title": "Fotka s bleskem",
+      "why": "Zoeino W skrývá pod řádkem, který všichni čtou, druhou pasivku: kdykoli použije tuto schopnost nebo jakékoli vyvolávačovo kouzlo, hodí 3 střely na cíl, na který naposledy zaútočila. Okázalý dává jejímu Skoku 3 náboje a Oslepení nechá každý z těch Skoků vybuchnout, takže zraňuje a zpomaluje, a jediný blink je tak plošná bomba plus salva, a Skok 2 jí dá druhý Skok a 70 zrychlení vyvolávačových kouzel, takže se celá lišta nabíjí rychleji. Poltergeist přidá ještě jedno vyvolávačovo kouzlo, které sešle Bariéru a Ducha naráz, takže i její panické tlačítko jsou další 3 střely. Ionské boty jasnosti krmí smyčku zrychlením vyvolávačových kouzel, Zhouba lichů změní útok po schopnosti v bonusový magický zásah, který zároveň označí, koho další salva pronásleduje, a Rabadonův smrtící klobouk, Stínový plamen, Nával bouře a Hůl Prázdnoty zařídí, že každý malý magický zásah bouchne jako pořádný. Odstřelovačka s Q přestane čekat na svou hvězdu a stane se kulometem, jehož spouští je lišta vyvolávačových kouzel.",
+      "play": "Nejdřív zaútoč na toho, koho chceš mít mrtvého, protože střely letí na poslední zasažený cíl. Pak na něj vysyp celou lištu a Skákej do strany, ne pryč.",
       "augments": [
-        "Pokud cíl odhozený zvolenou schopností narazí do jiného šampiona, je vyhozen do vzduchu a utrpí poškození. Při nárazu do terénu se doba vyhození prodlouží a cíl utrpí bonusové poškození.",
-        "Znehybnění nebo uzemnění nepřátelských šampionů zvolenou schopností způsobí dodatečné poškození a vyléčí tě.",
-        "Znehybnění nepřátelského šampiona poskytne 20 bodů maximálního zdraví. Pokud ho vybereš jako druhé vylepšení, začneš se zdravím navíc.",
-        "Tvé schopnosti výpadu, skoku, přemístění nebo teleportu získají 175 bodů zrychlení schopností."
+        "Tvůj Skok má 3 náboje. Po 120 sekundách získáš zpět všechny náboje.",
+        "Tvůj Skok způsobí výbuch, který zraňuje a zpomaluje (obnoví se po smrti).",
+        "Získáš druhé vyvolávačovo kouzlo Skok a 70 zrychlení vyvolávačových kouzel.",
+        "Získáš Poltergeist jako vyvolávačovo kouzlo. Poltergeist sešle Bariéru i Ducha zároveň."
       ]
     },
     "de": {
-      "title": "Wall-Street-Türsteher",
-      "why": "Quinns E hat einen Nebeneffekt, auf den niemand achtet: Nach dem Sprint zum Ziel springt sie zurück und stößt es leicht zurück. Kettenreaktion auf E macht aus diesem höflichen Schubser einen Hochschlag, sobald der geschubste Gegner gegen einen anderen Champion oder eine Wand prallt, mit längerem Hochschlag und Bonusschaden an Terrain, und die Brücke ist ein einziger langer Korridor aus Wänden. Jedes E ist jetzt eine Bewegungsunfähigkeit, also heilt Gefräßige Bindung sie und lässt sie härter zuschlagen, Seelenschlinger gibt ihr jedes Mal dauerhaft maximales Leben, und Ungestüm gibt dem Sprint 175 Fähigkeitstempo, damit er fast sofort wieder bereit ist. Flimmerklinge der Navori schließt den Kreis: E markiert das Ziel mit ihrem Passiv, W gibt Angriffstempo für Treffer auf markierte Ziele, und jeder dieser Angriffe senkt die verbleibende Abklingzeit von E um 15 %, während Speer von Shojin noch Grundfähigkeitstempo draufpackt. Herzstahl und Seelenschlinger stapeln Leben, das Blutpanzer des Gebieters in Angriffsschaden verwandelt, und die Fernkampf-Späherin wird zum wandelnden Rempler, der Leute gegen Wände wirft und den Abpraller einfach tankt.",
-      "play": "Halte freien Raum im Rücken und schick Gegner mit E gegen eine Wand oder in ihren eigenen Mitspieler, dann triff die Markierung, damit E wieder bereit ist. Dein R ist nur der Bus zur nächsten Wand.",
+      "title": "Blitzlichtgewitter",
+      "why": "Zoes W versteckt eine zweite passive Zeile unter der, die alle lesen: Immer wenn sie diese Fähigkeit oder irgendeinen Beschwörerzauber einsetzt, wirft sie 3 Geschosse auf das Ziel, das sie zuletzt angegriffen hat. Blitzartig gibt ihrem Blitz 3 Ladungen und Potz Blitz lässt jeden dieser Blitze explodieren, was Schaden verursacht und verlangsamt, also wird ein einziger Blink zur Flächenbombe plus Salve, und Blitz 2 gibt ihr einen zweiten Blitz plus 70 Beschwörerzauber-Tempo, damit die ganze Leiste schneller nachlädt. Poltergeist schraubt noch einen Beschwörerzauber dazu, der Barriere und Geist gleichzeitig wirkt, also ist sogar ihr Panikknopf 3 weitere Geschosse. Ionische Stiefel der Deutlichkeit füttern die Schleife mit Beschwörerzauber-Tempo, Fluch des Lichs macht den Angriff nach einer Fähigkeit zu einem magischen Bonustreffer und markiert dabei, wen die nächste Salve jagt, und Rabadons Todeshaube, Schattenflamme, Sturmblitz und Leerenstab lassen jeden kleinen magischen Treffer wie einen echten einschlagen. Die Q-Sniperin hört auf, auf ihren Stern zu warten, und wird zum Maschinengewehr, dessen Abzug die Beschwörerzauber-Leiste ist.",
+      "play": "Greif zuerst den an, den du tot sehen willst, denn die Geschosse folgen dem letzten getroffenen Ziel. Dann leer die Leiste auf ihm aus, und blitz zur Seite, nicht weg.",
       "augments": [
-        "Wenn ein Ziel, das von der gewählten Fähigkeit zurückgestoßen wurde, mit einem anderen Champion kollidiert, wird es hochgeschleudert und erleidet Schaden. Bei einer Kollision mit Terrain wird die Dauer verlängert und es erleidet Bonusschaden.",
-        "Gegnerische Champions mit der gewählten Fähigkeit bewegungsunfähig zu machen oder zu fesseln, verursacht zusätzlichen Schaden und heilt dich.",
-        "Einen gegnerischen Champion bewegungsunfähig zu machen, gewährt 20 maximales Leben. Wenn du dies als zweite Augmentierung wählst, startest du mit Leben.",
-        "Deine Sprint-, Sprung-, Blinzel- oder Teleportfähigkeiten erhalten 175 Fähigkeitstempo."
+        "Dein Blitz hat 3 Ladungen. Nach 120 Sekunden erhältst du alle Ladungen zurück.",
+        "Dein Blitz löst eine Explosion aus, die Schaden verursacht und verlangsamt (wird beim Tod zurückgesetzt).",
+        "Erhalte einen zweiten Blitz-Beschwörerzauber und 70 Beschwörerzauber-Tempo.",
+        "Erhalte Poltergeist als Beschwörerzauber. Poltergeist wirkt sowohl Barriere als auch Geist."
       ]
     },
     "el": {
-      "title": "Ο μπράβος της Wall Street",
-      "why": "Το E της Κουίν έχει μια παρενέργεια που κανείς δεν προσέχει: αφού ορμήσει στον στόχο, πηδάει προς τα πίσω και τον σπρώχνει ελαφρώς. Η Αλυσιδωτή Αντίδραση στο E κάνει αυτό το ευγενικό σκούντημα εκτίναξη στον αέρα κάθε φορά που ο εχθρός που σπρώχτηκε χτυπά άλλον ήρωα ή τοίχο, με μεγαλύτερη εκτίναξη και επιπλέον ζημιά στο έδαφος, και η γέφυρα είναι ένας μακρύς διάδρομος από τοίχους. Κάθε E είναι πλέον ακινητοποίηση, οπότε ο Αδηφάγος Δεσμός τη θεραπεύει και χτυπάει πιο δυνατά, ο Θεριστής Ψυχών της δίνει μόνιμη μέγιστη Ζωή για καθεμία, και το Εφορμώντας δίνει στην εφόρμηση 175 Επιτάχυνση Ικανοτήτων ώστε να ξαναγυρίζει σχεδόν αμέσως. Η Τρεμολεπίδα των Ναβόρι κλείνει τον κύκλο: το E σημαδεύει τον στόχο με το παθητικό της, το W δίνει Ταχύτητα Επίθεσης όταν χτυπά σημαδεμένους στόχους, και κάθε τέτοια επίθεση μειώνει κατά 15% τον υπόλοιπο χρόνο επαναφόρτισης του E, ενώ το Δόρυ του Σοτζίν προσθέτει Επιτάχυνση Βασικών Ικανοτήτων. Ο Ατσαλόκαρδος και ο Θεριστής Ψυχών μαζεύουν Ζωή που η Ματωμένη Πανοπλία του Άρχοντα κάνει Ζημιά Επίθεσης, και η ανιχνεύτρια από απόσταση καταλήγει ένας μπράβος με πόδια που πετάει κόσμο στους τοίχους και αντέχει την αναπήδηση.",
-      "play": "Κράτα ελεύθερο χώρο πίσω σου και στείλε τους εχθρούς με το E σε τοίχο ή πάνω στον δικό τους σύμμαχο, μετά χτύπα το σημάδι για να είναι ξανά έτοιμο το E. Το R σου είναι απλώς το λεωφορείο για τον επόμενο τοίχο.",
+      "title": "Φωτογραφία με φλας",
+      "why": "Το W της Ζόη κρύβει μια δεύτερη γραμμή παθητικής κάτω από αυτή που διαβάζουν όλοι: κάθε φορά που χρησιμοποιεί αυτή την ικανότητα ή οποιοδήποτε ξόρκι επικαλεστή, ρίχνει 3 βλήματα στον στόχο που επιτέθηκε τελευταίο. Το Φλασιά δίνει 3 φορτίσεις στο Φλας της και το Και Κρότος και Λάμψη κάνει κάθε Φλας να εκρήγνυται προκαλώντας ζημιά και Επιβράδυνση, οπότε ένα μόνο blink γίνεται βόμβα περιοχής συν ριπή, ενώ το Φλας 2 της δίνει δεύτερο Φλας και 70 Επιτάχυνση Ξορκιών Επικαλεστή για να ξαναγεμίζει όλη η μπάρα πιο γρήγορα. Το Ενοχλητικό Φάντασμα προσθέτει ακόμα ένα ξόρκι επικαλεστή που ρίχνει Φράγμα και Φάντασμα μαζί, οπότε ακόμα και το κουμπί πανικού της είναι 3 βλήματα παραπάνω. Οι Ιόνιες Μπότες της Διαύγειας τροφοδοτούν τον κύκλο με Επιτάχυνση Ξορκιών Επικαλεστή, ο Όλεθρος των Απέθαντων κάνει την επίθεση μετά από ικανότητα επιπλέον μαγικό χτύπημα που ταυτόχρονα σημαδεύει ποιον κυνηγά η επόμενη ριπή, και το Καπέλο του Ράμπαντον, η Φλόγα της Σκιάς, το Ξέσπασμα Καταιγίδας και η Ράβδος του Κενού κάνουν κάθε μικρό μαγικό χτύπημα να πονάει σαν κανονικό. Η σκοπευτής του Q σταματά να περιμένει το αστέρι της και γίνεται πολυβόλο με σκανδάλη την μπάρα των ξορκιών επικαλεστή.",
+      "play": "Χτύπα πρώτα αυτόν που θες νεκρό, γιατί τα βλήματα ακολουθούν τον τελευταίο στόχο που χτύπησες. Μετά άδειασε την μπάρα πάνω του, και κάνε Φλας στο πλάι, όχι μακριά.",
       "augments": [
-        "Αν ένας στόχος που απωθείται από την επιλεγμένη ικανότητα χτυπήσει άλλον ήρωα, εκτινάσσεται στον αέρα και δέχεται ζημιά. Όταν συγκρούεται με το έδαφος, η διάρκεια της εκτίναξης αυξάνεται και δέχεται επιπλέον ζημιά.",
-        "Η ακινητοποίηση ή η καθήλωση εχθρικών ηρώων με την επιλεγμένη ικανότητα προκαλεί επιπλέον ζημιά και σε θεραπεύει.",
-        "Η ακινητοποίηση ενός εχθρικού ήρωα δίνει 20 μέγιστη Ζωή. Αν επιλεγεί ως δεύτερη Ενίσχυση, ξεκινά με Ζωή.",
-        "Οι ικανότητες εφόρμησης, άλματος, αστραπιαίας μετακίνησης ή τηλεμεταφοράς σου κερδίζουν 175 Επιτάχυνση Ικανοτήτων."
+        "Το Φλας σου έχει 3 φορτίσεις. Μετά από 120 δευτερόλεπτα, ανακτάς όλες τις φορτίσεις.",
+        "Το Φλας σου προκαλεί έκρηξη που προκαλεί ζημιά και Επιβράδυνση (επαναφέρεται με τον θάνατο).",
+        "Αποκτάς δεύτερο ξόρκι επικαλεστή Φλας και 70 Επιτάχυνση Ξορκιών Επικαλεστή.",
+        "Αποκτάς το Ενοχλητικό Φάντασμα ως ξόρκι επικαλεστή. Ρίχνει ταυτόχρονα Φράγμα και Φάντασμα."
       ]
     },
     "es-MX": {
-      "title": "El cadenero de Wall Street",
-      "why": "La E de Quinn tiene un efecto secundario que nadie toma en cuenta: después de lanzarse al objetivo, salta hacia atrás y lo empuja un poquito. Reacción en Cadena en la E convierte ese empujoncito en un derribo cada vez que el enemigo empujado choca con otro campeón o con una pared, con un derribo más largo y daño adicional contra el terreno, y el puente es un pasillo largo lleno de paredes. Cada E ahora es una inmovilización, así que Vínculo Voraz la cura y pega más fuerte, Devorador de Almas le da vida máxima permanente con cada una, y Destellante le da 175 de aceleración de habilidades al salto para que regrese casi al instante. Cuchilla Rauda de Navori cierra el ciclo: la E marca al objetivo con su pasiva, la W da velocidad de ataque al golpear objetivos marcados, y cada uno de esos ataques reduce 15 % el enfriamiento restante de la E, mientras Lanza de Shojin suma aceleración de habilidades básicas. Corazón de Acero y Devorador de Almas acumulan vida que Cota Sangrienta del Soberano convierte en daño de ataque, y la exploradora a distancia termina como un cadenero andante que avienta gente contra las paredes y aguanta el rebote.",
-      "play": "Deja espacio libre detrás de ti y usa la E para mandar enemigos contra una pared o contra su propio compañero, luego pega a la marca para tener la E lista otra vez. Tu R nomás es el camión a la siguiente pared.",
+      "title": "Foto con flash",
+      "why": "La W de Zoe esconde una segunda línea de pasiva debajo de la que todos leen: cada vez que lanza esa habilidad o cualquier hechizo de invocador, arroja 3 proyectiles al último objetivo que atacó. Llamativo le da 3 cargas a su Destello y Quieto hace que cada uno de esos Destellos explote, infligiendo daño y una ralentización, así que un solo blink se vuelve un bombazo de área más una ráfaga, y Destello 2 le da un segundo Destello y 70 de velocidad de hechizos de invocador para que toda la barra recargue más rápido. Poltergeist le agrega otro hechizo de invocador que lanza Barrera y Fantasmal al mismo tiempo, así que hasta su botón de pánico son 3 proyectiles más. Las Botas Jonias de la Lucidez alimentan el ciclo con velocidad de hechizos de invocador, la Maldición del Liche convierte el ataque que lanza después de una habilidad en un golpe mágico extra que además marca a quién persigue la siguiente ráfaga, y el Sombrero Mortífero de Rabadon, Lumbría, Descarga Tormentosa y el Báculo del Vacío hacen que cada golpecito mágico pegue como uno de verdad. La francotiradora de la Q deja de esperar a su estrella y se vuelve una ametralladora cuyo gatillo es la barra de hechizos de invocador.",
+      "play": "Ataca primero al que quieras ver muerto, porque los proyectiles siguen al último objetivo golpeado. Luego vacía la barra encima de él, y usa Destello de lado, no para huir.",
       "augments": [
-        "Si un objetivo empujado por la habilidad elegida choca con otro campeón, queda derribado y recibe daño. Al chocar con el terreno, el derribo dura más y recibe daño adicional.",
-        "Inmovilizar o dejar sin movilidad a campeones enemigos con la habilidad elegida inflige daño adicional y te cura.",
-        "Inmovilizar a un campeón enemigo otorga 20 de vida máxima. Si lo eliges como segundo aumento, empieza con vida.",
-        "Tus habilidades de embestida, salto, parpadeo o teletransportación obtienen 175 de aceleración de habilidades."
+        "Tu Destello tiene 3 cargas. Después de 120 segundos, recuperas todas las cargas.",
+        "Tu Destello causa una explosión que inflige daño y ralentiza (se reinicia al morir).",
+        "Obtienes un segundo hechizo de invocador Destello y 70 de velocidad de hechizos de invocador.",
+        "Obtienes Poltergeist como hechizo de invocador. Poltergeist lanza Barrera y Fantasmal a la vez."
       ]
     },
     "es": {
-      "title": "El portero de Wall Street",
-      "why": "La E de Quinn tiene un efecto secundario en el que nadie se fija: después de lanzarse hacia el objetivo, salta hacia atrás y lo empuja un poco. Reacción en cadena en la E convierte ese empujoncito en un derribo cada vez que el enemigo empujado choca contra otro campeón o una pared, con un derribo más largo y daño adicional contra el terreno, y el puente es un pasillo largo lleno de paredes. Cada E es ahora una inmovilización, así que Vínculo voraz la cura y pega más fuerte, Devorador de almas le da vida máxima permanente con cada una, y Deslizamiento le da 175 de celeridad de habilidades al salto para que vuelva casi al instante. Filofugaz de Navori cierra el ciclo: la E marca al objetivo con su pasiva, la W da velocidad de ataque al golpear objetivos marcados, y cada uno de esos ataques reduce un 15 % el enfriamiento restante de la E, mientras Lanza de Shojin suma celeridad de habilidades básicas. Corazón de acero y Devorador de almas acumulan vida que Sangría del soberano convierte en daño de ataque, y la exploradora a distancia acaba siendo un portero con patas que lanza a la gente contra las paredes y aguanta el rebote.",
-      "play": "Deja espacio libre a tu espalda y usa la E para mandar enemigos contra una pared o contra su propio compañero, luego golpea la marca para tener la E lista otra vez. Tu R solo es el autobús a la siguiente pared.",
+      "title": "Foto con flash",
+      "why": "La W de Zoe esconde una segunda línea de pasiva debajo de la que todo el mundo lee: cada vez que lanza esa habilidad o cualquier hechizo de invocador, arroja 3 proyectiles al último objetivo al que atacó. Llamativo le da 3 cargas a su Destello y Destello explosivo hace que cada uno de esos Destellos explote causando daño y una ralentización, así que un solo blink se convierte en un bombazo en área más una ráfaga, y Destello 2 le da un segundo Destello y 70 de aceleración de hechizos de invocador para que toda la barra recargue antes. Poltergeist le añade otro hechizo de invocador que lanza Barrera y Fantasma a la vez, así que hasta su botón del pánico son 3 proyectiles más. Las Botas jonias de la lucidez alimentan el bucle con aceleración de hechizos de invocador, la Perdición del liche convierte el ataque que lanza tras una habilidad en un golpe mágico extra que además marca a quién persigue la siguiente ráfaga, y el Sombrero mortal de Rabadon, la Llamasombría, la Sobrecarga tormentosa y el Bastón del Vacío hacen que cada golpecito mágico pegue como uno de verdad. La francotiradora de la Q deja de esperar a su estrella y se convierte en una ametralladora cuyo gatillo es la barra de hechizos de invocador.",
+      "play": "Ataca primero al que quieras ver muerto, porque los proyectiles siguen al último objetivo golpeado. Luego vacía la barra encima de él, y haz Destello hacia un lado, no hacia atrás.",
       "augments": [
-        "Si un objetivo empujado por la habilidad elegida choca con otro campeón, queda derribado y recibe daño. Al chocar con el terreno, el derribo dura más y recibe daño adicional.",
-        "Inmovilizar o dejar sin movilidad a campeones enemigos con la habilidad elegida inflige daño adicional y te cura.",
-        "Inmovilizar a un campeón enemigo otorga 20 de vida máxima. Si lo eliges como segundo aumento, empieza con vida.",
-        "Tus habilidades de embestida, salto, parpadeo o teletransporte obtienen 175 de celeridad de habilidades."
+        "Tu Destello tiene 3 cargas. Tras 120 segundos, recuperas todas las cargas.",
+        "Tu Destello provoca una explosión que inflige daño y ralentiza (se reinicia al morir).",
+        "Obtienes un segundo hechizo de invocador Destello y 70 de aceleración de hechizos de invocador.",
+        "Obtienes Poltergeist como hechizo de invocador. Poltergeist lanza Barrera y Fantasma a la vez."
       ]
     },
     "fr": {
-      "title": "Videur de Wall Street",
-      "why": "Le E de Quinn a un effet secondaire que personne ne surveille : après avoir foncé sur sa cible, elle bondit en arrière et la repousse légèrement. Réaction en chaîne sur le E transforme ce petit coup d'épaule en projection dans les airs dès que l'ennemi repoussé percute un autre champion ou un mur, avec une projection plus longue et des dégâts bonus contre le terrain, et le pont n'est qu'un long couloir de murs. Chaque E devient une immobilisation, donc Entrave vorace la soigne et frappe plus fort, Mangeur d'âmes lui donne des PV max permanents à chaque fois, et Ruée des braves donne 175 d'accélération de compétence au bond pour qu'il revienne presque aussitôt. Tremblelame navori boucle la boucle : le E marque la cible avec son passif, le W donne de la vitesse d'attaque en frappant une cible marquée, et chacune de ces attaques réduit de 15 % le délai de récupération restant du E, pendant que Lance de Shojin ajoute de l'accélération de compétence de base. Cœuracier et Mangeur d'âmes empilent des PV qu'Armure sanguine convertit en dégâts d'attaque, et l'éclaireuse à distance finit en videuse ambulante qui envoie les gens dans les murs et encaisse sur le rebond.",
-      "play": "Gardez du terrain dégagé dans votre dos et faites votre E vers un mur ou vers un coéquipier de l'ennemi, puis tapez la marque pour que le E revienne. Votre R ne sert qu'à prendre le bus jusqu'au prochain mur.",
+      "title": "Photo au flash",
+      "why": "Le W de Zoé cache une deuxième ligne de passif sous celle que tout le monde lit : chaque fois qu'elle lance cette compétence ou n'importe quel sort d'invocateur, elle envoie 3 projectiles sur la dernière cible qu'elle a attaquée. Sauts éclair donne 3 charges à son Saut éclair et Grenade éclair fait exploser chacun de ces Sauts éclair en infligeant des dégâts et un ralentissement, donc un seul blink devient une bombe de zone plus une salve, et Saut éclair 2 lui offre un deuxième Saut éclair plus 70 d'accélération de sort d'invocateur pour recharger toute la barre plus vite. Poltergeist ajoute encore un sort d'invocateur qui lance Barrière et Fantôme en même temps, donc même son bouton panique, c'est 3 projectiles de plus. Les Bottes de lucidité nourrissent la boucle avec de l'accélération de sort d'invocateur, le Fléau de liche transforme l'attaque qu'elle place après une compétence en coup magique bonus tout en marquant la cible de la prochaine salve, et la Coiffe de Rabadon, la Flamme-ombre, l'Onde orageuse et le Bâton du vide font frapper chaque petit coup magique comme un vrai. La sniper du Q arrête d'attendre son étoile et devient une mitrailleuse dont la gâchette est la barre des sorts d'invocateur.",
+      "play": "Attaquez d'abord celui que vous voulez voir mort, car les projectiles suivent la dernière cible touchée. Puis videz la barre sur lui, et Saut éclair sur le côté, pas en arrière.",
       "augments": [
-        "Si une cible repoussée par la compétence choisie percute un autre champion, elle est projetée dans les airs et subit des dégâts. En cas de collision avec le terrain, la durée de projection est prolongée et elle subit des dégâts bonus.",
-        "Immobiliser ou clouer au sol des champions ennemis avec la compétence choisie inflige des dégâts supplémentaires et vous soigne.",
-        "Immobiliser un champion ennemi octroie 20 PV max. Si cet augment est pris en deuxième, il commence avec des PV.",
-        "Vos compétences de ruée, de bond, de transfert ou de téléportation gagnent 175 d'accélération de compétence."
+        "Votre Saut éclair a 3 charges. Après 120 secondes, récupérez toutes les charges.",
+        "Votre Saut éclair provoque une explosion qui inflige des dégâts et ralentit (réinitialisé à la mort).",
+        "Obtenez un deuxième sort d'invocateur Saut éclair et 70 d'accélération de sort d'invocateur.",
+        "Obtenez Poltergeist comme sort d'invocateur. Poltergeist lance à la fois Barrière et Fantôme."
       ]
     },
     "hu": {
-      "title": "Wall Street-i kidobóember",
-      "why": "Quinn E-jének van egy mellékhatása, amire senki sem figyel: miután a célpontra veti magát, hátraugrik és enyhén hátralöki. A Láncreakció az E-n ezt az udvarias lökést felröpítéssé változtatja, valahányszor a meglökött ellenfél egy másik hősnek vagy falnak ütközik, terepnél hosszabb felröpítéssel és bónuszsebzéssel, a híd pedig egyetlen hosszú falfolyosó. Minden E most mozgásképtelenítés, így a Vérszomjas kötelék gyógyítja és erősebben üt, a Lélekfaló mindegyikért tartós maximális életerőt ad, a Rámenős pedig 175 képességgyorsítást ad a rohamnak, hogy szinte azonnal visszajöjjön. A Navori villanópenge zárja a kört: az E megjelöli a célpontot a passzívval, a W támadási sebességet ad a megjelölt célpontok ütéséért, és minden ilyen támadás 15%-kal csökkenti az E hátralévő töltődését, miközben Shojin lándzsája alapképesség-gyorsítást is ad. Az Acélos szív és a Lélekfaló életerőt halmoz, amit a Hadúr vértje támadósebzéssé alakít, így a távolsági felderítőből sétáló kidobóember lesz, aki falhoz vágja az embereket és kitankolja a visszapattanást.",
-      "play": "Hagyj szabad teret a hátad mögött, és az E-vel küldd az ellenfeleket falnak vagy a saját csapattársuknak, aztán üsd a jelet, hogy az E újra kész legyen. Az R csak a busz a következő falig.",
+      "title": "Vakus fotó",
+      "why": "Zoe W-je elrejt egy második passzív sort az alatt, amit mindenki elolvas: valahányszor ezt a képességet vagy bármelyik idézővarázslatot használja, 3 lövedéket dob arra a célpontra, amelyet legutóbb megtámadott. A Látványos 3 töltetet ad az Átvillanásának, a Villámgránát pedig minden Átvillanást sebző és lassító robbanássá tesz, így egyetlen blink területi bomba plusz sortűz, a 2. Átvillanás pedig ad egy második Átvillanást és 70 idézővarázslat-gyorsítást, hogy az egész sáv hamarabb töltődjön. A Kopogószellem még egy idézővarázslatot ad, ami egyszerre használja a Védőpajzsot és a Szellemet, így még a pánikgombja is 3 újabb lövedék. Az Ioniai fénycipő idézővarázslat-gyorsítással táplálja a kört, a Félholt csapás a képesség utáni támadást bónusz mágikus találattá alakítja, ami egyben megjelöli, kit üldöz a következő sortűz, a Rabadon halálsüvege, az Árnyékláng, a Viharhullám és Az Üresség botja pedig minden kis mágikus találatot igazinak érzékeltet. A Q-s mesterlövész nem várja tovább a csillagát, hanem géppuska lesz, aminek a ravasza az idézővarázslat-sáv.",
+      "play": "Először azt támadd meg, akit holtan akarsz látni, mert a lövedékek az utoljára eltalált célpontot követik. Aztán ürítsd ki rá a sávot, és oldalra villanj, ne el.",
       "augments": [
-        "Ha a választott képességgel hátralökött célpont egy másik hősnek ütközik, felröppen és sebzést szenved. Terepnek ütközve a felröpítés tovább tart, és bónuszsebzést szenved.",
-        "Ha a választott képességgel mozgásképtelenné teszel vagy földhöz szegezel ellenséges hősöket, extra sebzést okozol és gyógyulsz.",
-        "Egy ellenséges hős mozgásképtelenné tétele 20 maximális életerőt ad. Ha második kiegészítésként választod, életerővel indul.",
-        "A roham-, ugrás-, villanás- vagy teleportképességeid 175 képességgyorsítást kapnak."
+        "Az Átvillanásod 3 töltettel rendelkezik. 120 másodperc után az összes töltet visszatölt.",
+        "Az Átvillanásod robbanást okoz, ami sebez és lassít (halálkor visszaáll).",
+        "Kapsz egy második Átvillanás idézővarázslatot és 70 idézővarázslat-gyorsítást.",
+        "Megkapod a Kopogószellemet idézővarázslatként. A Kopogószellem egyszerre használja a Védőpajzsot és a Szellemet."
       ]
     },
     "id": {
-      "title": "Bouncer Wall Street",
-      "why": "E milik Quinn punya efek samping yang nggak pernah diperhatikan siapa pun: setelah dash ke target, dia melompat mundur dan sedikit Knock Back target itu. Chain Reaction di E mengubah dorongan sopan itu jadi Knock Up setiap kali musuh yang terdorong menabrak champion lain atau dinding, dengan Knock Up lebih lama dan damage bonus saat kena terrain, dan bridge-nya cuma satu lorong panjang penuh dinding. Setiap E sekarang adalah immobilize, jadi Ravenous Bind menyembuhkannya dan bikin pukulannya lebih keras, Soul Eater kasih max Health permanen tiap kali, dan Dashing kasih 175 Ability Haste ke dash-nya supaya cepat siap lagi. Navori Flickerblade menutup loop-nya: E menandai target dengan mark pasifnya, W kasih Attack Speed saat memukul target bertanda, dan setiap Attack itu memotong 15% sisa cooldown E, sementara Spear of Shojin menambah Basic Ability Haste. Heartsteel dan Soul Eater menumpuk Health yang diubah Overlord's Bloodmail jadi Attack Damage, jadi scout ranged ini berakhir sebagai bouncer berjalan yang melempar orang ke dinding dan nge-tank pantulannya.",
-      "play": "Sisakan ruang kosong di belakangmu dan pakai E untuk mendorong musuh ke dinding atau ke rekan setimnya, lalu pukul mark-nya supaya E siap lagi. R kamu cuma bus ke dinding berikutnya.",
+      "title": "Foto Pakai Flash",
+      "why": "W milik Zoe menyembunyikan baris pasif kedua di bawah baris yang dibaca semua orang: setiap kali dia memakai Ability itu atau Summoner Spell apa pun, dia melempar 3 misil ke target yang terakhir dia Attack. Flashy memberi Flash-nya 3 charge dan Flashbang membuat setiap Flash itu meledak, memberi damage dan Slow, jadi satu blink langsung jadi bom area plus satu rentetan, lalu Flash 2 memberinya Flash kedua dan 70 Summoner Haste supaya seluruh bar cepat terisi lagi. Poltergeist menambah satu Summoner Spell lagi yang memakai Barrier dan Ghost sekaligus, jadi tombol paniknya pun berarti 3 misil lagi. Ionian Boots of Lucidity memberi makan loop ini dengan Summoner Spell Haste, Lich Bane mengubah Attack setelah Ability jadi hit magic tambahan sekaligus menandai siapa yang dikejar rentetan berikutnya, dan Rabadon's Deathcap, Shadowflame, Stormsurge, serta Void Staff bikin setiap hit magic kecil terasa seperti hit sungguhan. Sniper Q jarak jauh berhenti menunggu bintangnya dan berubah jadi senapan mesin yang pelatuknya adalah bar Summoner Spell.",
+      "play": "Attack dulu musuh yang ingin kamu habisi, karena misilnya mengikuti target terakhir yang kamu kena. Lalu kosongkan bar di atasnya, dan Flash ke samping, bukan kabur.",
       "augments": [
-        "Jika target yang terkena Knock Back oleh ability pilihan menabrak champion lain, mereka terkena Knock Up dan menerima damage. Saat menabrak terrain, durasi Knock Up diperpanjang dan mereka menerima damage bonus.",
-        "Immobilize atau Ground champion musuh dengan ability pilihan memberikan damage tambahan dan menyembuhkanmu.",
-        "Immobilize champion musuh memberikan 20 max Health. Jika diambil sebagai Augment kedua, langsung mulai dengan Health.",
-        "Ability dash, leap, blink, atau teleport milikmu mendapatkan 175 Ability Haste."
+        "Flash-mu punya 3 charge. Setelah 120 detik, semua charge pulih.",
+        "Flash-mu menimbulkan ledakan yang memberi damage dan Slow (reset saat mati).",
+        "Dapatkan Summoner Spell Flash kedua dan 70 Summoner Haste.",
+        "Dapatkan Poltergeist sebagai Summoner Spell. Poltergeist memakai Barrier dan Ghost sekaligus."
       ]
     },
     "it": {
-      "title": "Il buttafuori di Wall Street",
-      "why": "La E di Quinn ha un effetto collaterale che nessuno considera: dopo lo scatto verso il bersaglio, lei salta all'indietro e lo respinge leggermente. Reazione a catena sulla E trasforma quella spintarella in un lancio in aria ogni volta che il nemico spinto urta un altro campione o un muro, con un lancio più lungo e danni bonus contro il terreno, e il ponte è un lungo corridoio di muri. Ogni E ora è un'immobilizzazione, quindi Vincolo famelico la cura e colpisce più forte, Divora anime le dà salute massima permanente per ognuna, e Impetuoso dà allo scatto 175 velocità abilità così torna quasi subito. Lama rotante Navori chiude il cerchio: la E marchia il bersaglio con la passiva, la W dà velocità d'attacco colpendo bersagli marchiati, e ognuno di quegli attacchi riduce del 15 % la ricarica rimanente della E, mentre Lancia di Shojin aggiunge velocità abilità base. Cuore d'acciaio e Divora anime accumulano salute che Cotta di maglia del signore supremo trasforma in attacco fisico, e l'esploratrice a distanza diventa un buttafuori ambulante che lancia la gente contro i muri e regge il rimbalzo.",
-      "play": "Tieni spazio libero alle spalle e usa la E per spingere i nemici contro un muro o contro un loro compagno, poi colpisci il marchio per riavere la E. La tua R è solo l'autobus per il prossimo muro.",
+      "title": "Foto col flash",
+      "why": "La W di Zoe nasconde una seconda riga di passiva sotto quella che leggono tutti: ogni volta che lancia quell'abilità o qualsiasi incantesimo dell'evocatore, scaglia 3 proiettili sull'ultimo bersaglio che ha attaccato. Sgargiante dà 3 cariche al suo Flash e Granata stordente fa esplodere ognuno di quei Flash infliggendo danni e un rallentamento, quindi un singolo blink diventa una bomba ad area più una raffica, e Flash 2 le dà un secondo Flash più 70 velocità incantesimi dell'evocatore così tutta la barra si ricarica prima. Poltergeist aggiunge un altro incantesimo dell'evocatore che lancia Barriera e Spettralità insieme, quindi anche il suo tasto del panico vale 3 proiettili in più. Gli Stivali dell'acume di Ionia alimentano il ciclo con velocità incantesimi dell'evocatore, Terrore dei lich trasforma l'attacco che tira dopo un'abilità in un colpo magico bonus che segna anche chi inseguirà la prossima raffica, e Copricapo di Rabadon, Ombrofiamma, Apice della tempesta e Bastone del Vuoto fanno colpire ogni piccolo colpo magico come uno vero. La cecchina della Q smette di aspettare la sua stella e diventa una mitragliatrice il cui grilletto è la barra degli incantesimi dell'evocatore.",
+      "play": "Attacca per primo chi vuoi vedere morto, perché i proiettili seguono l'ultimo bersaglio colpito. Poi svuota la barra addosso a lui, e fai Flash di lato, non all'indietro.",
       "augments": [
-        "Se un bersaglio respinto dall'abilità scelta urta un altro campione, viene lanciato in aria e subisce danni. Quando urta il terreno, la durata del lancio aumenta e subisce danni bonus.",
-        "Immobilizzare o bloccare a terra i campioni nemici con l'abilità scelta infligge danni extra e ti cura.",
-        "Immobilizzare un campione nemico conferisce 20 salute massima. Se preso come secondo potenziamento, parte con salute.",
-        "Le tue abilità di scatto, balzo, traslazione o teletrasporto ottengono 175 velocità abilità."
+        "Il tuo Flash ha 3 cariche. Dopo 120 secondi, recuperi tutte le cariche.",
+        "Il tuo Flash provoca un'esplosione che infligge danni e rallenta (si azzera alla morte).",
+        "Ottieni un secondo incantesimo dell'evocatore Flash e 70 velocità incantesimi dell'evocatore.",
+        "Ottieni Poltergeist come incantesimo dell'evocatore. Poltergeist lancia sia Barriera che Spettralità."
       ]
     },
     "ja": {
-      "title": "ウォール街の用心棒",
-      "why": "クインのEには誰も気にしない副作用がある。対象に飛びかかった後、後方に跳び退き、対象を少しだけノックバックさせるのだ。Eに連鎖反応を付けると、この控えめなひと押しが、押された敵が別のチャンピオンや壁にぶつかるたびにノックアップへ変わり、地形にぶつかればノックアップが延びて追加ダメージまで入る。そしてブリッジは端から端まで壁の通路だ。Eは毎回行動妨害になるので、貪欲な束縛で回復しつつダメージが上がり、ソウルイーターで1回ごとに最大体力が永続的に増え、疾走で突進に175のスキルヘイストが付いてほぼ即座に戻ってくる。ナヴォリ フリッカーブレードがループを閉じる。Eは対象にパッシブのマークを付け、Wはマーク付きの対象を攻撃すると攻撃速度を得て、その通常攻撃のたびにEの残りクールダウンが15%短縮され、ショウジンの矛が基本スキルヘイストをさらに上乗せする。心の鋼とソウルイーターで積んだ体力を覇王のブラッドメイルが攻撃力に変え、遠距離の偵察兵は人を壁に投げつけて跳ね返りを受け止める歩く用心棒になる。",
-      "play": "背後に空間を空けておき、Eで敵を壁や敵の味方に向けて飛ばし、マークを殴ってEをまた使えるようにしよう。Rは次の壁までのバスでしかない。",
+      "title": "フラッシュ撮影",
+      "why": "ゾーイのWには、みんなが読む行の下にもう1行パッシブが隠れている。このスキルかサモナースペルを使うたびに、最後に通常攻撃した対象へ3発のミサイルを投げつけるのだ。閃光でフラッシュが3チャージになり、フラッシュバンでそのフラッシュ1回1回がダメージとスローを与える爆発を起こすので、ブリンク1回が範囲爆撃と一斉射撃のセットになる。さらにフラッシュ2で2つ目のフラッシュとサモナースペルヘイスト70が付いて、バー全体の回転が早まる。ポルターガイストはバリアとゴーストを同時に発動するサモナースペルをもう1つ追加するので、逃げボタンですらミサイル3発追加だ。アイオニア ブーツはサモナースペルヘイストでこのループを加速させ、リッチ ベインはスキル後の通常攻撃を追加魔法ダメージに変えつつ次の一斉射撃の狙いもつけてくれる。ラバドン デスキャップ、シャドウフレイム、ストームサージ、ヴォイド スタッフで小さな魔法ダメージ1発1発が本物の威力になる。Qの遠距離スナイパーは星を待つのをやめ、サモナースペルのバーが引き金のマシンガンに変わる。",
+      "play": "倒したい相手を先に殴ろう。ミサイルは最後に当てた対象を追いかける。あとはその上でバーを空にして、フラッシュは逃げずに横へ。",
       "augments": [
-        "選択したスキルでノックバックされた対象が別のチャンピオンに衝突すると、ノックアップされてダメージを受ける。地形に衝突した場合、ノックアップ効果時間が延長され、追加ダメージを受ける。",
-        "選択したスキルで敵チャンピオンに行動妨害またはグラウンドを与えると、追加ダメージを与えて自身の体力を回復する。",
-        "敵チャンピオンに行動妨害を与えると最大体力が20増加する。2番目のオーグメントとして選択した場合、体力を得た状態で開始する。",
-        "突進、跳躍、ブリンク、テレポートのスキルが175のスキルヘイストを獲得する。"
+        "フラッシュのチャージが3つになる。120秒後、すべてのチャージを回復する。",
+        "フラッシュ使用時に爆発が起き、ダメージとスローを与える(死亡時リセット)。",
+        "2つ目のサモナースペル「フラッシュ」とサモナースペルヘイスト70を獲得する。",
+        "サモナースペル「ポルターガイスト」を獲得する。ポルターガイストはバリアとゴーストを同時に発動する。"
       ]
     },
     "ko": {
-      "title": "월스트리트 기도",
-      "why": "퀸의 E에는 아무도 신경 쓰지 않는 부수 효과가 있습니다. 대상에게 돌진한 뒤 뒤로 도약하면서 대상을 살짝 밀어내죠. E에 연쇄 반응을 넣으면 그 점잖은 밀치기가, 밀려난 적이 다른 챔피언이나 벽에 부딪힐 때마다 에어본으로 바뀌고, 지형에 부딪히면 에어본이 길어지고 추가 피해까지 들어갑니다. 게다가 다리는 끝까지 벽으로 된 긴 복도죠. 이제 E는 매번 이동 불가 효과라서 굶주린 속박이 체력을 회복시키고 더 세게 때리게 해 주고, 영혼의 포식자는 매번 영구 최대 체력을 주며, 돌진은 돌진 스킬에 스킬 가속 175를 줘서 거의 바로 다시 돌아옵니다. 나보리 명멸검이 루프를 완성합니다. E는 대상에게 패시브 표식을 남기고, W는 표식이 있는 대상을 공격하면 공격 속도를 주며, 그 기본 공격마다 E의 남은 재사용 대기시간이 15% 줄어들고, 쇼진의 창이 기본 스킬 가속을 더해 줍니다. 강철심장과 영혼의 포식자로 쌓은 체력을 지배자의 피갑옷이 공격력으로 바꿔 주니, 원거리 정찰병이 사람들을 벽에 던지고 튕겨 나온 걸 받아내는 걸어 다니는 기도가 됩니다.",
-      "play": "등 뒤에 빈 공간을 두고 E로 적을 벽이나 적의 아군 쪽으로 날린 다음, 표식을 때려서 E를 다시 준비하세요. R은 다음 벽까지 가는 버스일 뿐입니다.",
+      "title": "플래시 촬영",
+      "why": "조이의 W에는 다들 읽는 줄 밑에 두 번째 패시브가 숨어 있습니다. 이 스킬이나 아무 소환사 주문을 쓸 때마다 마지막으로 공격한 대상에게 투사체 3개를 던지죠. 점멸 난사는 점멸을 3회 충전으로 만들고, 점멸탄은 그 점멸마다 피해를 주고 둔화시키는 폭발을 일으키니 점멸 한 번이 광역 폭탄에 일제 사격까지 됩니다. 점멸 2는 두 번째 점멸과 소환사 주문 가속 70을 줘서 바 전체가 더 빨리 돌아옵니다. 폴터가이스트는 방어막과 유체화를 동시에 쓰는 소환사 주문을 하나 더 붙여 주니, 도망 버튼조차 투사체 3개 추가입니다. 명석함의 아이오니아 장화는 소환사 주문 가속으로 이 순환을 먹여 살리고, 리치베인은 스킬 뒤 기본 공격을 추가 마법 피해로 바꾸면서 다음 일제 사격이 누구를 쫓을지도 찍어 줍니다. 라바돈의 죽음모자, 그림자불꽃, 폭풍 쇄도, 공허의 지팡이가 작은 마법 피해 하나하나를 진짜 한 방처럼 만들어 줍니다. Q 저격수는 별을 기다리지 않고, 소환사 주문 바가 방아쇠인 기관총이 됩니다.",
+      "play": "죽이고 싶은 상대를 먼저 때리세요. 투사체는 마지막으로 맞힌 대상을 따라갑니다. 그다음 그 위에서 바를 전부 비우고, 점멸은 도망 말고 옆으로.",
       "augments": [
-        "선택한 스킬로 밀려난 대상이 다른 챔피언과 충돌하면 공중으로 띄워지고 피해를 입습니다. 지형과 충돌하면 공중에 뜨는 시간이 늘어나고 추가 피해를 입습니다.",
-        "선택한 스킬로 적 챔피언에게 이동 불가 또는 이동기 사용 불가 효과를 적용하면 추가 피해를 입히고 체력을 회복합니다.",
-        "적 챔피언에게 이동 불가 효과를 적용하면 최대 체력이 20 증가합니다. 두 번째 증강으로 선택하면 체력을 얻은 상태로 시작합니다.",
-        "돌진, 도약, 점멸, 순간이동 스킬이 스킬 가속을 175 얻습니다."
+        "점멸이 3회 충전됩니다. 120초 후 모든 충전량을 회복합니다.",
+        "점멸 시 폭발이 일어나 피해를 입히고 둔화시킵니다(사망 시 초기화).",
+        "두 번째 점멸 소환사 주문과 소환사 주문 가속 70을 얻습니다.",
+        "폴터가이스트를 소환사 주문으로 얻습니다. 폴터가이스트는 방어막과 유체화를 모두 사용합니다."
       ]
     },
     "pl": {
-      "title": "Bramkarz z Wall Street",
-      "why": "E Quinn ma efekt uboczny, na który nikt nie zwraca uwagi: po doskoku do celu odskakuje do tyłu i lekko go odpycha. Reakcja Łańcuchowa na E zamienia to grzeczne szturchnięcie w podrzucenie za każdym razem, gdy odepchnięty wróg uderzy w innego bohatera albo w ścianę, z dłuższym podrzuceniem i dodatkowymi obrażeniami przy terenie, a most to jeden długi korytarz ścian. Każde E to teraz unieruchomienie, więc Krwiożercze Sidła leczą ją i mocniej biją, Duszożerca daje jej stałe maksymalne zdrowie za każde, a Skoczność daje doskokowi 175 przyspieszenia umiejętności, więc wraca niemal od razu. Migoczące Ostrze Navori zamyka pętlę: E oznacza cel pasywką, W daje prędkość ataku za trafianie oznaczonych celów, a każdy taki atak skraca pozostały czas odnowienia E o 15%, a Włócznia Shojin dorzuca przyspieszenie podstawowych umiejętności. Stalowe Serce i Duszożerca nabijają zdrowie, które Krwawa Kolczuga Władcy zamienia w obrażenia od ataku, i dalekosiężna zwiadowczyni kończy jako chodzący bramkarz, który rzuca ludźmi o ściany i tankuje na odbiciu.",
-      "play": "Miej wolne miejsce za plecami i posyłaj wrogów E na ścianę albo na ich własnego sojusznika, potem uderz w znak, żeby E znowu było gotowe. Twoje R to tylko autobus do następnej ściany.",
+      "title": "Zdjęcie z fleszem",
+      "why": "W Zoe ukrywa drugą linijkę biernej pod tą, którą wszyscy czytają: za każdym razem, gdy używa tej umiejętności albo dowolnego czaru przywoływacza, rzuca 3 pociski w cel, który ostatnio zaatakowała. Zabłysnąć z Przytupem daje jej Błyskowi 3 ładunki, a Granat Błyskowy sprawia, że każdy z tych Błysków wybucha, zadając obrażenia i spowalniając, więc jeden blink to bomba obszarowa plus salwa, a Błysk 2 daje jej drugi Błysk i 70 przyspieszenia czarów przywoływacza, żeby cały pasek ładował się szybciej. Poltergeist dokłada jeszcze jeden czar przywoływacza, który rzuca naraz Barierę i Ducha, więc nawet jej przycisk paniki to kolejne 3 pociski. Ioniańskie Buty Jasności Umysłu karmią pętlę przyspieszeniem czarów przywoływacza, Zmora Licza zamienia atak po umiejętności w dodatkowe magiczne trafienie, które przy okazji oznacza, kogo goni następna salwa, a Zabójczy Kapelusz Rabadona, Płomień Cienia, Przepływ Burzy i Kostur Pustki sprawiają, że każde małe magiczne trafienie wchodzi jak prawdziwe. Snajperka od Q przestaje czekać na swoją gwiazdę i staje się karabinem maszynowym, którego spustem jest pasek czarów przywoływacza.",
+      "play": "Najpierw zaatakuj tego, kogo chcesz zabić, bo pociski lecą w ostatni trafiony cel. Potem wyładuj na nim cały pasek i Błyskaj w bok, nie do tyłu.",
       "augments": [
-        "Jeśli cel odepchnięty przez wybraną umiejętność uderzy w innego bohatera, zostaje podrzucony i otrzymuje obrażenia. Przy zderzeniu z terenem podrzucenie trwa dłużej i cel otrzymuje dodatkowe obrażenia.",
-        "Unieruchomienie lub uziemienie wrogich bohaterów wybraną umiejętnością zadaje dodatkowe obrażenia i cię leczy.",
-        "Unieruchomienie wrogiego bohatera zapewnia 20 pkt. maksymalnego zdrowia. Jeśli wybierzesz to jako drugie ulepszenie, zaczynasz z zapasem zdrowia.",
-        "Twoje umiejętności doskoku, skoku, mignięcia lub teleportacji zyskują 175 pkt. przyspieszenia umiejętności."
+        "Twój Błysk ma 3 ładunki. Po 120 sekundach odzyskujesz wszystkie ładunki.",
+        "Twój Błysk wywołuje eksplozję, która zadaje obrażenia i spowalnia (resetuje się po śmierci).",
+        "Zyskujesz drugi czar przywoływacza Błysk i 70 przyspieszenia czarów przywoływacza.",
+        "Zyskujesz Poltergeist jako czar przywoływacza. Poltergeist rzuca jednocześnie Barierę i Ducha."
       ]
     },
     "pt-BR": {
-      "title": "Leão de chácara de Wall Street",
-      "why": "O E da Quinn tem um efeito colateral que ninguém leva em conta: depois de avançar no alvo, ela salta para trás e o empurra de leve. Reação em Cadeia no E transforma esse empurrãozinho em um arremesso ao ar sempre que o inimigo empurrado bate em outro campeão ou numa parede, com arremesso mais longo e dano bônus contra o terreno, e a ponte é um corredor comprido de paredes. Todo E agora é uma imobilização, então Vínculo Voraz cura e bate mais forte, Devorador de Almas dá Vida máxima permanente a cada um, e Avançar dá 175 de Aceleração de Habilidade ao avanço para ele voltar quase na hora. Adaga Oscilante Navori fecha o ciclo: o E marca o alvo com a passiva, o W dá Velocidade de Ataque ao acertar alvos marcados, e cada um desses ataques reduz em 15% a recarga restante do E, enquanto Lança de Shojin soma Aceleração de Habilidades Básicas. Coração de Aço e Devorador de Almas acumulam Vida que a Armadura Sangrenta do Suserano converte em Dano de Ataque, e a batedora à distância vira um leão de chácara ambulante que joga a galera na parede e aguenta o tranco.",
-      "play": "Fique com espaço livre atrás de você e use o E para jogar inimigos numa parede ou no próprio aliado deles, depois acerte a marca para ter o E de volta. Seu R é só o ônibus até a próxima parede.",
+      "title": "Foto com Flash",
+      "why": "O W da Zoe esconde uma segunda linha de passiva embaixo da que todo mundo lê: sempre que ela usa essa habilidade ou qualquer feitiço de invocador, ela arremessa 3 projéteis no último alvo que atacou. Brilhante dá 3 cargas ao Flash dela e Explosão de Luz faz cada um desses Flashes explodir causando dano e Lentidão, então um único blink vira uma bomba em área mais uma rajada, e Flash 2 dá um segundo Flash e 70 de Aceleração de Feitiços de Invocador pra barra inteira recarregar mais rápido. Poltergeist adiciona mais um feitiço de invocador que usa Barreira e Fantasma juntos, então até o botão do pânico dela são mais 3 projéteis. As Botas Ionianas da Lucidez alimentam o ciclo com Aceleração de Feitiços de Invocador, a Perdição de Lich transforma o ataque que ela dá depois de uma habilidade num golpe mágico bônus que ainda marca quem a próxima rajada persegue, e o Capuz da Morte de Rabadon, a Chama Sombria, o Ápice da Tempestade e o Cajado do Vazio fazem cada golpezinho mágico bater como um de verdade. A sniper do Q para de esperar a estrela e vira uma metralhadora cujo gatilho é a barra de feitiços de invocador.",
+      "play": "Ataque primeiro quem você quer ver morto, porque os projéteis seguem o último alvo atingido. Depois esvazie a barra em cima dele, e dê Flash pro lado, não pra trás.",
       "augments": [
-        "Se um alvo empurrado pela habilidade escolhida colidir com outro campeão, ele é arremessado ao ar e sofre dano. Ao colidir com o terreno, a duração do arremesso aumenta e ele sofre dano bônus.",
-        "Imobilizar ou Prender ao Chão campeões inimigos com a habilidade escolhida causa dano extra e cura você.",
-        "Imobilizar um campeão inimigo concede 20 de Vida máxima. Se escolhido como segundo Aprimoramento, começa com Vida.",
-        "Suas habilidades de avanço, salto, teleporte ou deslocamento instantâneo recebem 175 de Aceleração de Habilidade."
+        "Seu Flash tem 3 cargas. Após 120 segundos, recupere todas as cargas.",
+        "Seu Flash causa uma explosão que causa dano e Lentidão (reinicia ao morrer).",
+        "Ganhe um segundo feitiço de invocador Flash e 70 de Aceleração de Feitiços de Invocador.",
+        "Ganhe Poltergeist como feitiço de invocador. Poltergeist usa Barreira e Fantasma ao mesmo tempo."
       ]
     },
     "ro": {
-      "title": "Bodyguardul de pe Wall Street",
-      "why": "E-ul lui Quinn are un efect secundar la care nu se uită nimeni: după ce se repede la țintă, sare înapoi și o împinge ușor. Reacție în lanț pe E transformă împinsătura politicoasă într-o aruncare în aer de fiecare dată când inamicul împins lovește alt campion sau un zid, cu aruncare mai lungă și daune bonus de la teren, iar podul e un coridor lung de ziduri. Fiecare E e acum o imobilizare, deci Legătură lacomă o vindecă și lovește mai tare, Devoratorul de suflete îi dă viață maximă permanentă pentru fiecare, iar Năpustire îi dă saltului 175 accelerare a abilităților ca să revină aproape imediat. Tăișul sclipitor din Navori închide bucla: E marchează ținta cu pasiva, W dă viteză de atac când lovește ținte marcate, iar fiecare atac reduce cu 15% timpul de reîncărcare rămas al lui E, în timp ce Lancea lui Shojin adaugă accelerare a abilităților de bază. Inimă de oțel și Devoratorul de suflete strâng viață pe care Armura însângerată a lordului suprem o transformă în daune de atac, iar cercetașa de la distanță ajunge un bodyguard ambulant care aruncă oamenii în ziduri și tankuiește ricoșeul.",
-      "play": "Ține spațiu liber în spate și trimite inamicii cu E în zid sau în propriul coechipier, apoi lovește marcajul ca E să fie gata din nou. R-ul tău e doar autobuzul până la următorul zid.",
+      "title": "Poză cu bliț",
+      "why": "W-ul lui Zoe ascunde o a doua linie de pasivă sub cea pe care o citește toată lumea: de fiecare dată când folosește această abilitate sau orice vrajă de invocator, aruncă 3 proiectile spre ținta pe care a atacat-o ultima oară. Cupa mondială la sprinturi îi dă Flash-ului 3 încărcături, iar Grenadă orbitoare face ca fiecare Flash să explodeze, provocând daune și încetinind, așa că un singur blink devine o bombă de zonă plus o salvă, iar Flash 2 îi dă un al doilea Flash și 70 de grăbire pentru vrăjile de invocator, ca toată bara să se reîncarce mai repede. Stafie adaugă încă o vrajă de invocator care folosește Barieră și Fantomă deodată, așa că până și butonul ei de panică înseamnă alte 3 proiectile. Cizmele ioniene pentru luciditate hrănesc bucla cu grăbire pentru vrăjile de invocator, Urgia de pe lume transformă atacul de după o abilitate într-o lovitură magică bonus care marchează și ținta următoarei salve, iar Pălăria malefică a lui Rabadon, Flacăra întunericului, Furtună dezlănțuită și Sceptrul Vidului fac ca fiecare mică lovitură magică să lovească precum una adevărată. Lunetista de pe Q nu-și mai așteaptă steaua și devine o mitralieră al cărei trăgaci e bara de vrăji de invocator.",
+      "play": "Atacă mai întâi pe cine vrei mort, pentru că proiectilele urmăresc ultima țintă lovită. Apoi golește bara peste el și dă Flash în lateral, nu înapoi.",
       "augments": [
-        "Dacă o țintă împinsă de abilitatea aleasă lovește alt campion, este aruncată în aer și suferă daune. La coliziunea cu terenul, aruncarea durează mai mult și suferă daune bonus.",
-        "Imobilizarea sau țintuirea la sol a campionilor inamici cu abilitatea aleasă provoacă daune suplimentare și te vindecă.",
-        "Imobilizarea unui campion inamic oferă 20 viață maximă. Dacă e ales ca a doua augmentare, începe cu viață.",
-        "Abilitățile tale de năpustire, salt, teleportare scurtă sau teleportare primesc 175 accelerare a abilităților."
+        "Flash-ul tău are 3 încărcături. După 120 de secunde, recuperezi toate încărcăturile.",
+        "Flash-ul tău provoacă o explozie care provoacă daune și încetinește (se resetează la moarte).",
+        "Primești a doua vrajă de invocator Flash și 70 de grăbire pentru vrăjile de invocator.",
+        "Primești Stafie ca vrajă de invocator. Stafie folosește atât Barieră, cât și Fantomă."
       ]
     },
     "ru": {
-      "title": "Вышибала с Уолл-стрит",
-      "why": "У E Квинн есть побочный эффект, на который никто не обращает внимания: после рывка к цели она отпрыгивает назад и слегка отбрасывает её. «Цепная реакция» на E превращает этот вежливый толчок в подбрасывание всякий раз, когда отброшенный враг врезается в другого чемпиона или в стену, а о рельеф подбрасывание длится дольше и наносит доп. урон, и весь мост — один длинный коридор из стен. Каждое E теперь обездвиживание, поэтому «Алчущие оковы» лечат её и бьют сильнее, «Пожиратель душ» за каждое даёт постоянный максимальный запас здоровья, а «Стремительность» даёт рывку 175 ускорения умений, чтобы он откатывался почти мгновенно. «Летающий нож Навори» замыкает цикл: E помечает цель пассивкой, W даёт скорость атаки за удары по помеченным целям, и каждая такая атака сокращает оставшуюся перезарядку E на 15%, а «Копье Седзина» добавляет ускорение базовых умений. «Сердце стали» и «Пожиратель душ» копят здоровье, которое «Кровавая кольчуга господина» превращает в силу атаки, и дальнобойная разведчица становится ходячим вышибалой, который швыряет людей в стены и танкует отскок.",
-      "play": "Держите за спиной свободное пространство и отправляйте врагов с помощью E в стену или в их же союзника, потом бейте по метке, чтобы E снова было готово. Ваше R — просто автобус до следующей стены.",
+      "title": "Фото со вспышкой",
+      "why": "W Зои прячет вторую строчку пассивки под той, которую все читают: каждый раз, когда она применяет это умение или любое заклинание призывателя, она бросает 3 снаряда в цель, которую атаковала последней. Скакун дает ее Скачку 3 заряда, а Светошумовая граната заставляет каждый такой Скачок взрываться, нанося урон и замедляя, так что один блинк превращается в бомбу по площади плюс залп, а Скачок 2 дает ей второй Скачок и 70 ускорения заклинаний призывателя, чтобы вся панель перезаряжалась быстрее. Полтергейст добавляет еще одно заклинание призывателя, которое применяет Барьер и Призрак одновременно, так что даже ее кнопка паники это еще 3 снаряда. Ионийские сапоги просветления кормят цикл ускорением заклинаний призывателя, Гроза Личей превращает атаку после умения в бонусный магический удар, который заодно помечает, за кем полетит следующий залп, а Смертельная шляпа Рабадона, Сумрачное пламя, Штормовой прилив и Посох Бездны делают так, что каждый маленький магический удар бьет как настоящий. Снайперша с Q перестает ждать свою звезду и становится пулеметом, у которого спусковой крючок это панель заклинаний призывателя.",
+      "play": "Сначала атакуйте того, кого хотите убить, потому что снаряды летят в последнюю пораженную цель. Потом вывалите на него всю панель и прыгайте Скачком вбок, а не назад.",
       "augments": [
-        "Если цель, отброшенная выбранным умением, сталкивается с другим чемпионом, она подбрасывается и получает урон. При столкновении с рельефом подбрасывание длится дольше и цель получает дополнительный урон.",
-        "Обездвиживание или приземление вражеских чемпионов выбранным умением наносит дополнительный урон и лечит вас.",
-        "Обездвиживание вражеского чемпиона дает 20 ед. максимального запаса здоровья. Если выбрать это усиление вторым, вы начинаете с дополнительным здоровьем.",
-        "Ваши умения рывка, прыжка, мгновенного перемещения или телепортации получают 175 ед. ускорения умений."
+        "Ваш Скачок имеет 3 заряда. Через 120 секунд все заряды восстанавливаются.",
+        "Ваш Скачок вызывает взрыв, который наносит урон и замедляет (сбрасывается при смерти).",
+        "Вы получаете второе заклинание призывателя Скачок и 70 ускорения заклинаний призывателя.",
+        "Вы получаете Полтергейст как заклинание призывателя. Полтергейст применяет и Барьер, и Призрак."
       ]
     },
     "th": {
-      "title": "การ์ดหน้าผับวอลล์สตรีท",
-      "why": "สกิล E ของ Quinn มีผลข้างเคียงที่ไม่มีใครสนใจ: หลังพุ่งเข้าหาเป้าหมาย เธอจะกระโดดถอยหลังและผลักเป้าหมายออกไปเล็กน้อย Chain Reaction ที่ใส่ให้ E เปลี่ยนการผลักเบาๆ นั้นเป็น Knock Up ทุกครั้งที่ศัตรูที่ถูกผลักชนแชมเปี้ยนอีกตัวหรือกำแพง และถ้าชนกำแพง Knock Up จะนานขึ้นพร้อมดาเมจโบนัส ซึ่งสะพานก็คือทางเดินยาวที่มีกำแพงทั้งสองข้าง E ทุกครั้งกลายเป็นการ Immobilize ดังนั้น Ravenous Bind จะฮีลเธอและตีแรงขึ้น Soul Eater ให้ Max Health ถาวรทุกครั้ง และ Dashing ให้ Ability Haste 175 กับการพุ่งจนแทบกดได้ทันทีอีกรอบ Navori Flickerblade ปิดลูป: E ติดมาร์กพาสซีฟให้เป้าหมาย W ให้ Attack Speed เมื่อตีเป้าหมายที่ติดมาร์ก และทุกการโจมตีนั้นลดคูลดาวน์ที่เหลือของ E ลง 15% ส่วน Spear of Shojin เพิ่ม Basic Ability Haste ให้อีก Heartsteel กับ Soul Eater สะสม Health ที่ Overlord's Bloodmail แปลงเป็น Attack Damage นักสอดแนมสายยิงไกลเลยกลายเป็นการ์ดเดินได้ที่โยนคนเข้ากำแพงแล้วแทงก์แรงสะท้อนเอง",
-      "play": "เว้นที่โล่งไว้ด้านหลัง แล้วใช้ E ส่งศัตรูไปชนกำแพงหรือชนเพื่อนร่วมทีมของมันเอง จากนั้นตีมาร์กให้ E พร้อมอีกครั้ง R ของคุณเป็นแค่รถบัสไปกำแพงถัดไป",
+      "title": "ถ่ายรูปเปิดแฟลช",
+      "why": "สกิล W ของ Zoe ซ่อนพาสซีฟบรรทัดที่สองไว้ใต้บรรทัดที่ทุกคนอ่าน: ทุกครั้งที่เธอใช้สกิลนี้หรือ Summoner Spell ใดก็ได้ เธอจะขว้างกระสุน 3 ลูกใส่เป้าหมายที่เธอโจมตีล่าสุด Flashy ทำให้ Flash ของเธอมี 3 ชาร์จ และ Flashbang ทำให้ Flash ทุกครั้งระเบิดสร้างความเสียหายและ Slow ดังนั้นการวาร์ปครั้งเดียวกลายเป็นระเบิดวงกว้างพร้อมกระสุนชุดหนึ่ง ส่วน Flash 2 ให้ Flash อันที่สองพร้อม 70 Summoner Haste ให้ทั้งแถบคูลดาวน์เร็วขึ้น Poltergeist เพิ่ม Summoner Spell อีกอันที่ใช้ Barrier และ Ghost พร้อมกัน แม้แต่ปุ่มหนีตายของเธอก็คือกระสุนเพิ่มอีก 3 ลูก Ionian Boots of Lucidity เติมลูปนี้ด้วย Summoner Spell Haste ส่วน Lich Bane เปลี่ยนการโจมตีหลังใช้สกิลให้เป็นดาเมจเวทเพิ่ม พร้อมกับมาร์กว่ากระสุนชุดถัดไปจะไล่ใคร และ Rabadon's Deathcap, Shadowflame, Stormsurge กับ Void Staff ทำให้ดาเมจเวทเล็กๆ ทุกครั้งแรงเหมือนของจริง สไนเปอร์สาย Q เลิกรอดาวของตัวเองแล้วกลายเป็นปืนกลที่ไกปืนคือแถบ Summoner Spell",
+      "play": "ตีคนที่อยากให้ตายก่อน เพราะกระสุนจะตามเป้าหมายล่าสุดที่โดน แล้วเทแถบทั้งหมดใส่หัวเขา และ Flash ออกด้านข้าง ไม่ใช่หนี",
       "augments": [
-        "หากเป้าหมายที่ถูก Knock Back จากสกิลที่เลือกชนแชมเปี้ยนอีกตัว จะถูก Knock Up และได้รับดาเมจ เมื่อชนกับภูมิประเทศ ระยะเวลา Knock Up จะนานขึ้นและได้รับดาเมจโบนัส",
-        "การ Immobilize หรือ Ground แชมเปี้ยนศัตรูด้วยสกิลที่เลือกจะสร้างดาเมจเพิ่มและฮีลคุณ",
-        "การ Immobilize แชมเปี้ยนศัตรูให้ Max Health 20 หากเลือกเป็น Augment ที่สอง จะเริ่มต้นพร้อม Health",
-        "สกิลพุ่ง กระโดด แวบ หรือเทเลพอร์ตของคุณได้รับ Ability Haste 175"
+        "Flash ของคุณมี 3 ชาร์จ หลังจาก 120 วินาที จะได้ชาร์จทั้งหมดคืน",
+        "Flash ของคุณทำให้เกิดระเบิดที่สร้างความเสียหายและ Slow (รีเซ็ตเมื่อตาย)",
+        "ได้รับ Summoner Spell Flash อันที่สองและ 70 Summoner Haste",
+        "ได้รับ Poltergeist เป็น Summoner Spell โดย Poltergeist จะใช้ทั้ง Barrier และ Ghost"
       ]
     },
     "tr": {
-      "title": "Wall Street Fedaisi",
-      "why": "Quinn'in E'sinin kimsenin hesaba katmadığı bir yan etkisi var: hedefe atıldıktan sonra geriye sıçrar ve hedefi hafifçe geri iter. E'ye Zincirleme Reaksiyon bu kibar dürtmeyi, itilen rakip başka bir şampiyona ya da duvara çarptığında havaya savurmaya çevirir, araziye çarparsa savurma daha uzun sürer ve ek hasar verir, köprü de baştan sona duvar dolu bir koridor. Her E artık bir etkisiz bırakma, yani Açgözlü Bağ onu iyileştirir ve daha sert vurur, Ruhyiyen her biri için kalıcı azami can verir, Atılgan da atılmaya 175 Yetenek Hızı vererek neredeyse anında geri gelmesini sağlar. Navori Tezbıçağı döngüyü kapatır: E hedefi pasifiyle işaretler, W işaretli hedeflere vurunca Saldırı Hızı verir ve bu saldırıların her biri E'nin kalan bekleme süresini %15 azaltır, Shojin'in Mızrağı da üstüne Temel Yetenek Hızı ekler. Çelikyürek ve Ruhyiyen can biriktirir, Savaş Beyinin Kanzırhı bunu Saldırı Gücüne çevirir ve uzaktan saldıran izci, insanları duvara fırlatıp sekmeyi tanklayan yürüyen bir fedaiye dönüşür.",
-      "play": "Arkanda boş alan bırak ve rakipleri E ile duvara ya da kendi takım arkadaşlarına doğru gönder, sonra işarete vur ki E yine hazır olsun. R'n sadece bir sonraki duvara giden otobüs.",
+      "title": "Flaşlı Fotoğraf",
+      "why": "Zoe'nin W'su herkesin okuduğu satırın altında ikinci bir pasif saklıyor: bu yeteneği veya herhangi bir sihirdar büyüsünü her kullandığında, en son saldırdığı hedefe 3 mermi fırlatıyor. Çekirge Gibi, Sıçra'sına 3 yük veriyor ve Sıçrayan Bomba her Sıçra'yı hasar veren ve yavaşlatan bir patlamaya çeviriyor; yani tek bir blink alan bombası artı bir yaylım oluyor, 2. Sıçra da ona ikinci bir Sıçra ve 70 sihirdar büyüsü hızı vererek bütün çubuğu daha çabuk dolduruyor. Öcü, Bariyer ve Hayalet'i aynı anda kullanan bir sihirdar büyüsü daha ekliyor; yani panik düğmesi bile 3 mermi daha demek. Ionia Çizmeleri döngüyü sihirdar büyüsü hızıyla besliyor, Lich Boğan yetenekten sonraki saldırıyı bonus büyü hasarlı bir vuruşa çeviriyor ve bir sonraki yaylımın kimi kovalayacağını da işaretliyor; Rabadon'un Şapkası, Gölgealev, Yıldırım Asası ve Hiçlik Değneği de her küçük büyü vuruşunu gerçek bir vuruş gibi indiriyor. Q'nun keskin nişancısı yıldızını beklemeyi bırakıp tetiği sihirdar büyüsü çubuğu olan bir makineli tüfeğe dönüşüyor.",
+      "play": "Önce ölmesini istediğin kişiye saldır, çünkü mermiler en son vurduğun hedefi takip eder. Sonra çubuğu onun üstüne boşalt, ve kaçmak için değil yana Sıçra.",
       "augments": [
-        "Seçilen yetenekle geri itilen bir hedef başka bir şampiyona çarparsa havaya savrulur ve hasar alır. Araziye çarptığında savrulma süresi uzar ve ek hasar alır.",
-        "Seçilen yetenekle rakip şampiyonları etkisiz bırakmak veya yere çakmak ek hasar verir ve seni iyileştirir.",
-        "Bir rakip şampiyonu etkisiz bırakmak 20 azami can verir. İkinci Güçlendirme olarak alınırsa canla başlar.",
-        "Atılma, sıçrama, ışınlanma veya teleport yeteneklerin 175 Yetenek Hızı kazanır."
+        "Sıçra'nın 3 yükü olur. 120 saniye sonra tüm yükleri geri kazanırsın.",
+        "Sıçra'n hasar veren ve yavaşlatan bir patlamaya yol açar (ölünce sıfırlanır).",
+        "İkinci bir Sıçra sihirdar büyüsü ve 70 sihirdar büyüsü hızı kazan.",
+        "Sihirdar büyüsü olarak Öcü kazan. Öcü, hem Bariyer hem Hayalet kullanır."
       ]
     },
     "vi": {
-      "title": "Bảo kê phố Wall",
-      "why": "Chiêu E của Quinn có một hiệu ứng phụ mà chẳng ai để ý: sau khi lướt tới mục tiêu, cô bật ngược ra sau và đẩy lùi mục tiêu một chút. Phản Ứng Dây Chuyền lên E biến cú đẩy nhẹ nhàng đó thành hất tung mỗi khi kẻ địch bị đẩy va vào tướng khác hoặc vào tường, va địa hình thì hất tung lâu hơn và gây thêm sát thương, mà cây cầu thì toàn là tường dọc hai bên. Mỗi lần E giờ là một hiệu ứng bất động, nên Lòng Tham Trói Buộc hồi máu và gây thêm sát thương, Kẻ Nuốt Chửng Linh Hồn cho Máu tối đa vĩnh viễn mỗi lần, còn Thân Thủ Lả Lướt cho cú lướt 175 Điểm Hồi Kỹ Năng để nó hồi gần như ngay lập tức. Đao Chớp Navori khép vòng lặp: E đánh dấu mục tiêu bằng nội tại, W cho Tốc Độ Đánh khi đánh mục tiêu bị đánh dấu, và mỗi đòn đánh đó giảm 15% thời gian hồi chiêu còn lại của E, trong khi Ngọn Giáo Shojin cộng thêm Điểm Hồi Kỹ Năng Cơ Bản. Trái Tim Khổng Thần và Kẻ Nuốt Chửng Linh Hồn cộng dồn Máu mà Huyết Giáp Chúa Tể biến thành Sức Mạnh Công Kích, và nữ trinh sát đánh xa thành một tay bảo kê biết đi chuyên ném người vào tường rồi gánh luôn cú dội lại.",
-      "play": "Giữ khoảng trống phía sau lưng rồi dùng E đẩy kẻ địch vào tường hoặc vào chính đồng đội của chúng, sau đó đánh vào dấu ấn để E sẵn sàng lại. Chiêu R chỉ là chuyến xe buýt tới bức tường tiếp theo.",
+      "title": "Chụp Ảnh Có Flash",
+      "why": "Chiêu W của Zoe giấu một dòng nội tại thứ hai bên dưới dòng mà ai cũng đọc: mỗi khi cô dùng kỹ năng này hoặc bất kỳ phép bổ trợ nào, cô ném 3 quả đạn vào mục tiêu mà cô vừa đánh gần nhất. Tốc Biến Liên Hoàn cho Tốc Biến của cô 3 lượt và Lựu Đạn Mù khiến mỗi lần Tốc Biến phát nổ gây sát thương và Làm Chậm, nên một cú nháy là cả quả bom diện rộng lẫn một loạt đạn, còn Tốc Biến 2 cho cô Tốc Biến thứ hai cùng 70 điểm hồi phép bổ trợ để cả thanh hồi nhanh hơn. Yêu Tinh gắn thêm một phép bổ trợ dùng cùng lúc Lá Chắn và Tốc Hành, nên đến cả nút hoảng loạn của cô cũng là thêm 3 quả đạn. Giày Khai Sáng Ionia nuôi vòng lặp bằng điểm hồi phép bổ trợ, Kiếm Tai Ương biến đòn đánh sau kỹ năng thành một cú sát thương phép cộng thêm đồng thời đánh dấu ai sẽ bị loạt đạn tiếp theo đuổi theo, còn Mũ Phù Thủy Rabadon, Ngọn Lửa Hắc Hóa, Quyền Trượng Bão Tố và Trượng Hư Vô làm mỗi cú phép nhỏ đau như cú thật. Nàng xạ thủ tầm xa của chiêu Q thôi chờ ngôi sao và trở thành khẩu súng máy có cò súng là thanh phép bổ trợ.",
+      "play": "Đánh trước kẻ bạn muốn hạ, vì đạn sẽ đuổi theo mục tiêu trúng đòn cuối cùng. Rồi xả hết thanh phép lên đầu hắn, và Tốc Biến sang ngang chứ đừng chạy.",
       "augments": [
-        "Nếu mục tiêu bị đẩy lùi bởi kỹ năng đã chọn va vào tướng khác, chúng bị hất tung và chịu sát thương. Khi va vào địa hình, thời gian hất tung được kéo dài và chúng chịu thêm sát thương.",
-        "Làm bất động hoặc Trói Chân tướng địch bằng kỹ năng đã chọn gây thêm sát thương và hồi máu cho bạn.",
-        "Làm bất động một tướng địch cho 20 Máu tối đa. Nếu chọn làm Lõi Nâng Cấp thứ hai, bắt đầu với sẵn Máu.",
-        "Các kỹ năng lướt, nhảy, dịch chuyển tức thời hoặc dịch chuyển của bạn nhận 175 Điểm Hồi Kỹ Năng."
+        "Tốc Biến của bạn có 3 lượt. Sau 120 giây, hồi lại toàn bộ lượt.",
+        "Tốc Biến của bạn gây ra một vụ nổ gây sát thương và Làm Chậm (đặt lại khi chết).",
+        "Nhận thêm phép bổ trợ Tốc Biến thứ hai và 70 điểm hồi phép bổ trợ.",
+        "Nhận Yêu Tinh làm phép bổ trợ. Yêu Tinh dùng cả Lá Chắn và Tốc Hành."
       ]
     },
     "zh-CN": {
-      "title": "华尔街保安",
-      "why": "德玛西亚之翼的E有个没人在意的副作用：她冲向目标后会向后跃开，并把目标轻微击退。给E配上连锁反应后，这一下礼貌的推搡就会在被推的敌人撞到另一名英雄或墙壁时变成击飞，撞到地形时击飞更久还附带额外伤害，而桥上本来就是一条长长的墙壁走廊。现在每次E都是一次定身类控制，所以贪欲束缚让她回血并打得更痛，吞噬灵魂每次都给她永久最大生命值，全凭身法给突进技能175技能急速，让它几乎立刻就能再用。纳沃利烁刃闭合了循环：E会给目标打上被动标记，W在攻击带标记的目标时提供攻击速度，而每一次这样的攻击都会把E的剩余冷却缩短15%，朔极之矛再叠加基础技能急速。心之钢和吞噬灵魂堆起的生命值被霸王血铠转化成攻击力，于是远程侦察兵变成了一个会走路的保安，把人往墙上扔，再硬吃反弹。",
-      "play": "身后留出空地，用E把敌人往墙上或他们自己的队友身上送，然后打一下标记让E再次就绪。你的R只是去下一面墙的公交车。",
+      "title": "闪光摄影",
+      "why": "暮光星灵的W在大家都会读的那行下面还藏着第二行被动：每当她施放这个技能或任意召唤师技能时，都会向她最近一次普攻的目标扔出3枚飞弹。闪现向前让她的闪现拥有3层充能，闪光弹让每一次闪现都炸出一个造成伤害并减速的爆炸，所以一次闪现就是范围轰炸加一轮齐射；闪闪现现再给她第二个闪现和70召唤师技能急速，整排技能转得更快。吵闹鬼再塞进一个同时施放屏障和幽灵疾步的召唤师技能，连她的保命键都是额外3枚飞弹。明朗之靴用召唤师技能急速喂养这个循环，巫妖之祸把技能后的普攻变成额外魔法伤害，同时标记下一轮齐射追谁，灭世者的死亡之帽、影焰、风暴狂涌和虚空之杖让每一下小魔法伤害都打出真伤害的分量。Q技能的远程狙击手不再等她的星星，变成一挺以召唤师技能栏为扳机的机关枪。",
+      "play": "先普攻你最想击杀的人，因为飞弹会追最后命中的目标。然后在他头上把技能栏清空，闪现往旁边闪，别往后闪。",
       "augments": [
-        "如果被所选技能击退的目标撞到另一名英雄，他们会被击飞并受到伤害。撞到地形时，击飞持续时间会延长，并受到额外伤害。",
-        "使用所选技能对敌方英雄施加定身或禁锢效果，会造成额外伤害并治疗你。",
-        "对敌方英雄施加定身效果会提供20最大生命值。如果作为第二个强化符文选择，则开始时就带有生命值。",
-        "你的冲刺、跳跃、闪烁或传送技能获得175技能急速。"
+        "你的闪现拥有3层充能。120秒后，恢复所有充能。",
+        "你的闪现会造成一次爆炸，造成伤害并减速（死亡时重置）。",
+        "获得第二个闪现召唤师技能和70召唤师技能急速。",
+        "获得召唤师技能吵闹鬼。吵闹鬼会同时施放屏障和幽灵疾步。"
       ]
     },
     "zh-TW": {
-      "title": "華爾街保鑣",
-      "why": "葵恩的E有個沒人在意的副作用：她衝向目標後會向後躍開，並把目標稍微擊退。替E配上連鎖反應後，這一下禮貌的推擠就會在被推的敵人撞上另一名英雄或牆壁時變成擊飛，撞上地形時擊飛更久還附帶額外傷害，而橋上本來就是一條長長的牆壁走廊。現在每次E都是一次定身控制，所以貪婪束縛讓她回血並打得更痛，食魂者每次都給她永久最大生命，衝鋒給突進技能175技能加速，讓它幾乎馬上就能再用。那歐閃刃閉合了循環：E會替目標打上被動標記，W在攻擊帶標記的目標時提供攻擊速度，而每一次這樣的攻擊都會把E的剩餘冷卻縮短15%，精進之矛再加上基礎技能加速。雄心之鋼和食魂者堆起的生命被狂霸血甲轉成攻擊力，於是遠程斥候變成一個會走路的保鑣，把人往牆上丟，再硬吃反彈。",
-      "play": "身後留出空地，用E把敵人往牆上或他們自己的隊友身上送，然後打一下標記讓E再次就緒。你的R只是去下一面牆的公車。",
+      "title": "閃光攝影",
+      "why": "柔依的W在大家都會讀的那行下面還藏著第二行被動：每當她施放這個技能或任何召喚師技能時，都會朝她最近一次普攻的目標丟出3發飛彈。閃光俠讓她的閃現擁有3層充能，閃光彈讓每一次閃現都炸出造成傷害並緩速的爆炸，所以一次閃現就是範圍轟炸加一輪齊射；二次閃現再給她第二個閃現和70召喚師技能加速，整排技能轉得更快。搗蛋鬼再加上一個同時施放光盾和鬼步的召喚師技能，連她的保命鍵都是多3發飛彈。愛歐尼亞之靴用召喚師技能加速餵養這個循環，巫妖之禍把技能後的普攻變成額外魔法傷害，同時標記下一輪齊射追誰，死亡之帽、黯影之炎、雷霆風暴和虛空之杖讓每一下小魔法傷害都打出真正的分量。Q的遠程狙擊手不再等她的星星，變成一挺以召喚師技能欄為扳機的機關槍。",
+      "play": "先普攻你最想擊殺的人，因為飛彈會追最後命中的目標。接著在他頭上把技能欄清空，閃現往旁邊閃，別往後閃。",
       "augments": [
-        "如果被所選技能擊退的目標撞上另一名英雄，他們會被擊飛並受到傷害。撞上地形時，擊飛持續時間會延長，並受到額外傷害。",
-        "使用所選技能對敵方英雄施加定身或禁錮效果，會造成額外傷害並治療你。",
-        "對敵方英雄施加定身效果會提供20最大生命。如果作為第二個強化選擇，則開始時就帶有生命。",
-        "你的衝刺、跳躍、閃現或傳送技能獲得175技能加速。"
+        "你的閃現擁有3層充能。120秒後，恢復所有充能。",
+        "你的閃現會引發爆炸，造成傷害並緩速（死亡時重置）。",
+        "獲得第二個閃現召喚師技能和70召喚師技能加速。",
+        "獲得召喚師技能搗蛋鬼。搗蛋鬼會同時施放光盾和鬼步。"
       ]
     }
   }
