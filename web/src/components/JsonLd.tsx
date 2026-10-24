@@ -1,7 +1,7 @@
 const SITE = "https://deeparam.com";
 
 // Structured data for search results. "<" is escaped so page text can't close the script tag.
-export default function JsonLd({ data }: { data: object }) {
+function JsonLd({ data }: { data: object }) {
   return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(data).replace(/</g, "\\u003c") }} />;
 }
 

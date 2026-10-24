@@ -8,7 +8,7 @@ import { patchName } from "@/lib/patch-name";
 // the chart to zoom into a range, and pick a second champion to overlay. The other champions' history
 // loads from /data/tier-history.json the first time one is picked.
 
-export type Point = { patch: string; winRate: number; pickRate: number };
+type Point = { patch: string; winRate: number; pickRate: number };
 type Row = { patch: string; name: string; win_rate: number; pick_rate: number };
 
 const H = 240;

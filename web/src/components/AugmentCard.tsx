@@ -4,7 +4,7 @@
 
 import { localAsset } from "@/lib/assets";
 
-export type Tier = "silver" | "gold" | "prismatic";
+type Tier = "silver" | "gold" | "prismatic";
 
 const tierOf = (t?: string): Tier => (t === "silver" || t === "prismatic" ? t : "gold");
 
