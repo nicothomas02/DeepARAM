@@ -1,12 +1,12 @@
 name: iPhone and iPad app
 
-# Builds the iPhone and iPad app and tests the shared Swift package whenever either changes.
+# Builds the iPhone, iPad and Apple Vision Pro app and tests the shared Swift packages whenever they change.
 on:
   pull_request:
-    paths: ["apps/ios/**", "apps/ipados/**", "apps/shared/**", ".github/workflows/ios-app.yml"]
+    paths: ["apps/ios/**", "apps/ipados/**", "apps/visionos/**", "apps/shared/**", ".github/workflows/ios-app.yml"]
   push:
     branches: [main]
-    paths: ["apps/ios/**", "apps/ipados/**", "apps/shared/**", ".github/workflows/ios-app.yml"]
+    paths: ["apps/ios/**", "apps/ipados/**", "apps/visionos/**", "apps/shared/**", ".github/workflows/ios-app.yml"]
 
 concurrency:
   group: ios-app-${{ github.ref }}
@@ -30,3 +30,26 @@ jobs:
             -destination 'generic/platform=iOS Simulator' \
             CODE_SIGNING_ALLOWED=NO | tail -40
           exit ${PIPESTATUS[0]}
+
+  vision-pro:
+    name: Apple Vision Pro build
+    runs-on: macos-15
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - name: Use the newest Xcode
+        run: sudo xcode-select -s "$(ls -d /Applications/Xcode_16*.app | sort -V | tail -1)" && xcodebuild -version
+      - name: Test the Vision Pro package
+        working-directory: apps/visionos
+        run: swift test
+      - name: Make sure the visionOS SDK is installed
+        run: xcodebuild -showsdks | grep -q xrsimulator || sudo xcodebuild -downloadPlatform visionOS
+      - name: Build the app for the Vision Pro simulator
+        working-directory: apps/ios
+        run: |
+          xcodebuild build -project DeepARAM.xcodeproj -scheme DeepARAM \
+            -destination 'generic/platform=visionOS Simulator' \
+            CODE_SIGNING_ALLOWED=NO > build.log 2>&1 && status=0 || status=$?
+          tail -40 build.log
+          grep -E "error:" build.log | sort -u | head -60 || true
+          exit $status

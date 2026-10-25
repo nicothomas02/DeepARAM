@@ -43,10 +43,12 @@ public final class SitePage: NSObject, ObservableObject {
         webView.navigationDelegate = self
         webView.uiDelegate = self
         webView.allowsBackForwardNavigationGestures = true
-        #if os(iOS)
+        #if os(iOS) || os(visionOS)
         webView.isOpaque = false
         webView.backgroundColor = .clear
         webView.scrollView.contentInsetAdjustmentBehavior = .automatic
+        #endif
+        #if os(iOS)
         let refresh = UIRefreshControl()
         refresh.addTarget(self, action: #selector(pulledToRefresh(_:)), for: .valueChanged)
         webView.scrollView.refreshControl = refresh
@@ -81,7 +83,7 @@ public final class SitePage: NSObject, ObservableObject {
 
     /// Tapping the selected tab again: scroll to the top, or go back to the tab's first page.
     public func reselect() {
-        #if os(iOS)
+        #if os(iOS) || os(visionOS)
         let sv = webView.scrollView
         if sv.contentOffset.y > -sv.adjustedContentInset.top + 4 {
             sv.setContentOffset(CGPoint(x: 0, y: -sv.adjustedContentInset.top), animated: true)
@@ -134,7 +136,7 @@ public final class SitePage: NSObject, ObservableObject {
     }
 
     private func openOutside(_ url: URL) {
-        #if os(iOS)
+        #if os(iOS) || os(visionOS)
         UIApplication.shared.open(url)
         #elseif os(macOS)
         NSWorkspace.shared.open(url)
@@ -201,7 +203,7 @@ public struct SiteWebView: View {
     }
 }
 
-#if os(iOS)
+#if os(iOS) || os(visionOS)
 struct WebViewHost: UIViewRepresentable {
     let webView: WKWebView
     func makeUIView(context: Context) -> WKWebView { webView }

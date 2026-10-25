@@ -1,5 +1,9 @@
 import DeepARAMKit
+#if os(visionOS)
+import DeepARAMVision
+#else
 import DeepARAMPad
+#endif
 import SwiftUI
 
 @main
@@ -8,6 +12,21 @@ struct DeepARAMApp: App {
     @Environment(\.scenePhase) private var scenePhase
 
     var body: some Scene {
+        #if os(visionOS)
+        // Apple Vision Pro: the layout from apps/visionos, and any page can open in its own window.
+        WindowGroup {
+            VisionRootView(openNotification: PatchAlerts.openPage) { PatchAlertsSection() }
+                .tint(Theme.accent)
+        }
+        .defaultSize(width: 1280, height: 860)
+        .onChange(of: scenePhase) { _, phase in phaseChanged(phase) }
+
+        WindowGroup("Page", id: VisionPageWindow.id, for: URL.self) { $url in
+            VisionPageWindow(url: url)
+                .tint(Theme.accent)
+        }
+        .defaultSize(width: 1000, height: 800)
+        #else
         WindowGroup {
             Group {
                 // iPads get the sidebar layout from apps/ipados; iPhones the tab bar.
@@ -17,10 +36,7 @@ struct DeepARAMApp: App {
             .tint(Theme.accent)
         }
         .commands { PadCommands() }
-        .onChange(of: scenePhase) { _, phase in
-            if phase == .background { PatchAlerts.shared.scheduleRefresh() }
-            if phase == .active { Task { await PatchAlerts.shared.checkNow() } }
-        }
+        .onChange(of: scenePhase) { _, phase in phaseChanged(phase) }
 
         // iPad: a champion page in a window of its own (Stage Manager, or Split View beside another app).
         WindowGroup("Champion", id: PadChampionWindow.id, for: String.self) { $alias in
@@ -28,6 +44,12 @@ struct DeepARAMApp: App {
                 .preferredColorScheme(.dark)
                 .tint(Theme.accent)
         }
+        #endif
+    }
+
+    private func phaseChanged(_ phase: ScenePhase) {
+        if phase == .background { PatchAlerts.shared.scheduleRefresh() }
+        if phase == .active { Task { await PatchAlerts.shared.checkNow() } }
     }
 }
 
