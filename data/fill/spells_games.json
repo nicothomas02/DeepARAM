@@ -1,0 +1,7749 @@
+{
+ "patch": "16.21",
+ "estimated": true,
+ "built": "2026-10-24T21:02:50Z",
+ "daily_games": 3750000,
+ "daily_games_from": [
+  "16.20",
+  "16.19",
+  "16.17",
+  "16.16",
+  "16.15",
+  "16.14"
+ ],
+ "total_games": 11200000,
+ "champions": {
+  "17": {
+   "games": 1540000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 847000,
+     "pick_rate": 0.5506,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 387000,
+     "pick_rate": 0.2516,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      7
+     ],
+     "games": 81700,
+     "pick_rate": 0.0532,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 70300,
+     "pick_rate": 0.0457,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 63900,
+     "pick_rate": 0.0415,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      1,
+      4
+     ],
+     "games": 53900,
+     "pick_rate": 0.035,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      13
+     ],
+     "games": 34300,
+     "pick_rate": 0.0223,
+     "win_rate": null
+    }
+   ]
+  },
+  "157": {
+   "games": 1280000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 1060000,
+     "pick_rate": 0.8258,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 183000,
+     "pick_rate": 0.143,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 22000,
+     "pick_rate": 0.0172,
+     "win_rate": null
+    }
+   ]
+  },
+  "4": {
+   "games": 1210000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 822000,
+     "pick_rate": 0.6791,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 215000,
+     "pick_rate": 0.1774,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 58200,
+     "pick_rate": 0.0481,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      7
+     ],
+     "games": 40700,
+     "pick_rate": 0.0336,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      1,
+      4
+     ],
+     "games": 32200,
+     "pick_rate": 0.0266,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      13
+     ],
+     "games": 23000,
+     "pick_rate": 0.019,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 19600,
+     "pick_rate": 0.0162,
+     "win_rate": null
+    }
+   ]
+  },
+  "120": {
+   "games": 1230000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 1060000,
+     "pick_rate": 0.8621,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 159000,
+     "pick_rate": 0.1292,
+     "win_rate": null
+    }
+   ]
+  },
+  "223": {
+   "games": 1430000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 1260000,
+     "pick_rate": 0.8845,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 149000,
+     "pick_rate": 0.1042,
+     "win_rate": null
+    }
+   ]
+  },
+  "11": {
+   "games": 1180000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 1000000,
+     "pick_rate": 0.849,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 154000,
+     "pick_rate": 0.1307,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 15500,
+     "pick_rate": 0.0131,
+     "win_rate": null
+    }
+   ]
+  },
+  "777": {
+   "games": 1040000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 953000,
+     "pick_rate": 0.9135,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 56200,
+     "pick_rate": 0.0539,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 16400,
+     "pick_rate": 0.0157,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 11800,
+     "pick_rate": 0.0113,
+     "win_rate": null
+    }
+   ]
+  },
+  "13": {
+   "games": 1380000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 654000,
+     "pick_rate": 0.4739,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 652000,
+     "pick_rate": 0.4727,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 31100,
+     "pick_rate": 0.0225,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      13
+     ],
+     "games": 16300,
+     "pick_rate": 0.0118,
+     "win_rate": null
+    }
+   ]
+  },
+  "25": {
+   "games": 1200000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 483000,
+     "pick_rate": 0.4015,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 461000,
+     "pick_rate": 0.3829,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      13
+     ],
+     "games": 112000,
+     "pick_rate": 0.0929,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      7
+     ],
+     "games": 61000,
+     "pick_rate": 0.0508,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 43000,
+     "pick_rate": 0.0358,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 39400,
+     "pick_rate": 0.0328,
+     "win_rate": null
+    }
+   ]
+  },
+  "5": {
+   "games": 969000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 889000,
+     "pick_rate": 0.9172,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 72400,
+     "pick_rate": 0.0748,
+     "win_rate": null
+    }
+   ]
+  },
+  "876": {
+   "games": 992000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 531000,
+     "pick_rate": 0.5355,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 374000,
+     "pick_rate": 0.3769,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 42400,
+     "pick_rate": 0.0427,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      7
+     ],
+     "games": 17200,
+     "pick_rate": 0.0174,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      13
+     ],
+     "games": 16000,
+     "pick_rate": 0.0161,
+     "win_rate": null
+    }
+   ]
+  },
+  "21": {
+   "games": 1550000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 895000,
+     "pick_rate": 0.5772,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 277000,
+     "pick_rate": 0.1787,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 147000,
+     "pick_rate": 0.0952,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      7
+     ],
+     "games": 94700,
+     "pick_rate": 0.0611,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      1,
+      4
+     ],
+     "games": 66000,
+     "pick_rate": 0.0426,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      13
+     ],
+     "games": 44300,
+     "pick_rate": 0.0286,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 25800,
+     "pick_rate": 0.0167,
+     "win_rate": null
+    }
+   ]
+  },
+  "245": {
+   "games": 977000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 800000,
+     "pick_rate": 0.8196,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 81600,
+     "pick_rate": 0.0836,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 71200,
+     "pick_rate": 0.0729,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 13800,
+     "pick_rate": 0.0141,
+     "win_rate": null
+    }
+   ]
+  },
+  "236": {
+   "games": 1440000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 626000,
+     "pick_rate": 0.4345,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 496000,
+     "pick_rate": 0.3445,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 137000,
+     "pick_rate": 0.0948,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      1,
+      4
+     ],
+     "games": 99600,
+     "pick_rate": 0.0691,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      7
+     ],
+     "games": 48900,
+     "pick_rate": 0.0339,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 30000,
+     "pick_rate": 0.0208,
+     "win_rate": null
+    }
+   ]
+  },
+  "875": {
+   "games": 1190000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 1090000,
+     "pick_rate": 0.9152,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 91700,
+     "pick_rate": 0.0771,
+     "win_rate": null
+    }
+   ]
+  },
+  "104": {
+   "games": 1270000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 563000,
+     "pick_rate": 0.4445,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 409000,
+     "pick_rate": 0.3231,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      1,
+      4
+     ],
+     "games": 185000,
+     "pick_rate": 0.1458,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 64300,
+     "pick_rate": 0.0507,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      7
+     ],
+     "games": 26000,
+     "pick_rate": 0.0205,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 13900,
+     "pick_rate": 0.011,
+     "win_rate": null
+    }
+   ]
+  },
+  "141": {
+   "games": 882000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 809000,
+     "pick_rate": 0.9173,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 50600,
+     "pick_rate": 0.0574,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 10500,
+     "pick_rate": 0.0119,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 9570,
+     "pick_rate": 0.0108,
+     "win_rate": null
+    }
+   ]
+  },
+  "51": {
+   "games": 1450000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 843000,
+     "pick_rate": 0.5823,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 263000,
+     "pick_rate": 0.1814,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 156000,
+     "pick_rate": 0.1079,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      1,
+      4
+     ],
+     "games": 130000,
+     "pick_rate": 0.0899,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      7
+     ],
+     "games": 43400,
+     "pick_rate": 0.03,
+     "win_rate": null
+    }
+   ]
+  },
+  "136": {
+   "games": 1240000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 693000,
+     "pick_rate": 0.5577,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 293000,
+     "pick_rate": 0.2359,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 102000,
+     "pick_rate": 0.082,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      7
+     ],
+     "games": 59600,
+     "pick_rate": 0.0479,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      13
+     ],
+     "games": 48100,
+     "pick_rate": 0.0387,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 32100,
+     "pick_rate": 0.0258,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      1,
+      4
+     ],
+     "games": 14800,
+     "pick_rate": 0.0119,
+     "win_rate": null
+    }
+   ]
+  },
+  "48": {
+   "games": 1020000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 901000,
+     "pick_rate": 0.8835,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 99100,
+     "pick_rate": 0.0973,
+     "win_rate": null
+    }
+   ]
+  },
+  "10": {
+   "games": 751000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 346000,
+     "pick_rate": 0.4614,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 310000,
+     "pick_rate": 0.4125,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 26800,
+     "pick_rate": 0.0357,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 22400,
+     "pick_rate": 0.0298,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      13
+     ],
+     "games": 15800,
+     "pick_rate": 0.021,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      7
+     ],
+     "games": 15500,
+     "pick_rate": 0.0206,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      1,
+      4
+     ],
+     "games": 14200,
+     "pick_rate": 0.019,
+     "win_rate": null
+    }
+   ]
+  },
+  "147": {
+   "games": 819000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 301000,
+     "pick_rate": 0.3676,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 207000,
+     "pick_rate": 0.2523,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      13
+     ],
+     "games": 125000,
+     "pick_rate": 0.1529,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      7
+     ],
+     "games": 86900,
+     "pick_rate": 0.106,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 62100,
+     "pick_rate": 0.0758,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 32800,
+     "pick_rate": 0.04,
+     "win_rate": null
+    }
+   ]
+  },
+  "145": {
+   "games": 1500000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 1010000,
+     "pick_rate": 0.6714,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 241000,
+     "pick_rate": 0.1609,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 93100,
+     "pick_rate": 0.0621,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      1,
+      4
+     ],
+     "games": 61700,
+     "pick_rate": 0.0411,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      7
+     ],
+     "games": 48600,
+     "pick_rate": 0.0324,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      13
+     ],
+     "games": 29200,
+     "pick_rate": 0.0195,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 18700,
+     "pick_rate": 0.0125,
+     "win_rate": null
+    }
+   ]
+  },
+  "105": {
+   "games": 970000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 881000,
+     "pick_rate": 0.9087,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 50200,
+     "pick_rate": 0.0518,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 24700,
+     "pick_rate": 0.0255,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 10400,
+     "pick_rate": 0.0107,
+     "win_rate": null
+    }
+   ]
+  },
+  "24": {
+   "games": 689000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 602000,
+     "pick_rate": 0.8735,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 77100,
+     "pick_rate": 0.1119,
+     "win_rate": null
+    }
+   ]
+  },
+  "23": {
+   "games": 755000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 649000,
+     "pick_rate": 0.8588,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 98000,
+     "pick_rate": 0.1297,
+     "win_rate": null
+    }
+   ]
+  },
+  "114": {
+   "games": 571000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 491000,
+     "pick_rate": 0.8603,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 70600,
+     "pick_rate": 0.1236,
+     "win_rate": null
+    }
+   ]
+  },
+  "67": {
+   "games": 1160000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 647000,
+     "pick_rate": 0.5566,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 348000,
+     "pick_rate": 0.2994,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 68800,
+     "pick_rate": 0.0592,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      1,
+      4
+     ],
+     "games": 48900,
+     "pick_rate": 0.0421,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      7
+     ],
+     "games": 35200,
+     "pick_rate": 0.0303,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 12900,
+     "pick_rate": 0.0111,
+     "win_rate": null
+    }
+   ]
+  },
+  "36": {
+   "games": 988000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 894000,
+     "pick_rate": 0.9047,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 91000,
+     "pick_rate": 0.0921,
+     "win_rate": null
+    }
+   ]
+  },
+  "41": {
+   "games": 913000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 794000,
+     "pick_rate": 0.8699,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 82100,
+     "pick_rate": 0.09,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 14100,
+     "pick_rate": 0.0155,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 13900,
+     "pick_rate": 0.0152,
+     "win_rate": null
+    }
+   ]
+  },
+  "90": {
+   "games": 759000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 352000,
+     "pick_rate": 0.4639,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 270000,
+     "pick_rate": 0.3562,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 34900,
+     "pick_rate": 0.046,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 34700,
+     "pick_rate": 0.0458,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      7
+     ],
+     "games": 32200,
+     "pick_rate": 0.0425,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      13
+     ],
+     "games": 29200,
+     "pick_rate": 0.0385,
+     "win_rate": null
+    }
+   ]
+  },
+  "63": {
+   "games": 1460000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 749000,
+     "pick_rate": 0.5149,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 559000,
+     "pick_rate": 0.3837,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 46200,
+     "pick_rate": 0.0318,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      13
+     ],
+     "games": 44700,
+     "pick_rate": 0.0307,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 28300,
+     "pick_rate": 0.0195,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      7
+     ],
+     "games": 23700,
+     "pick_rate": 0.0163,
+     "win_rate": null
+    }
+   ]
+  },
+  "887": {
+   "games": 499000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 386000,
+     "pick_rate": 0.7743,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 104000,
+     "pick_rate": 0.2081,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 5350,
+     "pick_rate": 0.0107,
+     "win_rate": null
+    }
+   ]
+  },
+  "901": {
+   "games": 1390000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 862000,
+     "pick_rate": 0.6217,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 298000,
+     "pick_rate": 0.2147,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 96800,
+     "pick_rate": 0.0698,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      1,
+      4
+     ],
+     "games": 51300,
+     "pick_rate": 0.037,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      7
+     ],
+     "games": 41400,
+     "pick_rate": 0.0299,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      13
+     ],
+     "games": 22900,
+     "pick_rate": 0.0165,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 14300,
+     "pick_rate": 0.0103,
+     "win_rate": null
+    }
+   ]
+  },
+  "103": {
+   "games": 651000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 379000,
+     "pick_rate": 0.5819,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 125000,
+     "pick_rate": 0.1918,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 79000,
+     "pick_rate": 0.1215,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 34900,
+     "pick_rate": 0.0537,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      7
+     ],
+     "games": 18700,
+     "pick_rate": 0.0288,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      13
+     ],
+     "games": 12900,
+     "pick_rate": 0.0199,
+     "win_rate": null
+    }
+   ]
+  },
+  "910": {
+   "games": 608000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 293000,
+     "pick_rate": 0.4815,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 178000,
+     "pick_rate": 0.292,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      13
+     ],
+     "games": 54100,
+     "pick_rate": 0.089,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 42500,
+     "pick_rate": 0.0699,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      7
+     ],
+     "games": 29300,
+     "pick_rate": 0.0481,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 9210,
+     "pick_rate": 0.0151,
+     "win_rate": null
+    }
+   ]
+  },
+  "200": {
+   "games": 491000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 434000,
+     "pick_rate": 0.8841,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 42100,
+     "pick_rate": 0.0856,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 9260,
+     "pick_rate": 0.0189,
+     "win_rate": null
+    }
+   ]
+  },
+  "42": {
+   "games": 740000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 299000,
+     "pick_rate": 0.4039,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 242000,
+     "pick_rate": 0.3271,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 99100,
+     "pick_rate": 0.1341,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      1,
+      4
+     ],
+     "games": 35100,
+     "pick_rate": 0.0474,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      7
+     ],
+     "games": 32300,
+     "pick_rate": 0.0437,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      13
+     ],
+     "games": 16700,
+     "pick_rate": 0.0226,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 15600,
+     "pick_rate": 0.0211,
+     "win_rate": null
+    }
+   ]
+  },
+  "526": {
+   "games": 571000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 532000,
+     "pick_rate": 0.9324,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 14200,
+     "pick_rate": 0.0249,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      7
+     ],
+     "games": 7630,
+     "pick_rate": 0.0134,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 7060,
+     "pick_rate": 0.0124,
+     "win_rate": null
+    }
+   ]
+  },
+  "893": {
+   "games": 791000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 450000,
+     "pick_rate": 0.5693,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 194000,
+     "pick_rate": 0.2447,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 73500,
+     "pick_rate": 0.0928,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 44000,
+     "pick_rate": 0.0556,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      7
+     ],
+     "games": 14500,
+     "pick_rate": 0.0183,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      13
+     ],
+     "games": 13500,
+     "pick_rate": 0.017,
+     "win_rate": null
+    }
+   ]
+  },
+  "112": {
+   "games": 618000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 339000,
+     "pick_rate": 0.549,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 170000,
+     "pick_rate": 0.2743,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 45500,
+     "pick_rate": 0.0735,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      13
+     ],
+     "games": 27000,
+     "pick_rate": 0.0437,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      7
+     ],
+     "games": 19400,
+     "pick_rate": 0.0314,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 12400,
+     "pick_rate": 0.02,
+     "win_rate": null
+    }
+   ]
+  },
+  "517": {
+   "games": 976000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 888000,
+     "pick_rate": 0.9105,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 42700,
+     "pick_rate": 0.0437,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 32700,
+     "pick_rate": 0.0335,
+     "win_rate": null
+    }
+   ]
+  },
+  "234": {
+   "games": 548000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 500000,
+     "pick_rate": 0.9115,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 33300,
+     "pick_rate": 0.0608,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 7180,
+     "pick_rate": 0.0131,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 6450,
+     "pick_rate": 0.0118,
+     "win_rate": null
+    }
+   ]
+  },
+  "238": {
+   "games": 1000000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 707000,
+     "pick_rate": 0.7065,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 222000,
+     "pick_rate": 0.2216,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 48700,
+     "pick_rate": 0.0487,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 16100,
+     "pick_rate": 0.0161,
+     "win_rate": null
+    }
+   ]
+  },
+  "50": {
+   "games": 1100000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 757000,
+     "pick_rate": 0.6854,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 321000,
+     "pick_rate": 0.2902,
+     "win_rate": null
+    }
+   ]
+  },
+  "202": {
+   "games": 1310000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 779000,
+     "pick_rate": 0.5953,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 269000,
+     "pick_rate": 0.2059,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 94700,
+     "pick_rate": 0.0724,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      7
+     ],
+     "games": 72100,
+     "pick_rate": 0.0551,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      1,
+      4
+     ],
+     "games": 49000,
+     "pick_rate": 0.0374,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      13
+     ],
+     "games": 28700,
+     "pick_rate": 0.022,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 15500,
+     "pick_rate": 0.0118,
+     "win_rate": null
+    }
+   ]
+  },
+  "55": {
+   "games": 844000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 659000,
+     "pick_rate": 0.7813,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 112000,
+     "pick_rate": 0.1325,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 45500,
+     "pick_rate": 0.0539,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 21300,
+     "pick_rate": 0.0252,
+     "win_rate": null
+    }
+   ]
+  },
+  "14": {
+   "games": 741000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 702000,
+     "pick_rate": 0.9484,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 36900,
+     "pick_rate": 0.0499,
+     "win_rate": null
+    }
+   ]
+  },
+  "80": {
+   "games": 673000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 626000,
+     "pick_rate": 0.9299,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 30300,
+     "pick_rate": 0.045,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 11000,
+     "pick_rate": 0.0163,
+     "win_rate": null
+    }
+   ]
+  },
+  "799": {
+   "games": 484000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 444000,
+     "pick_rate": 0.9162,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 24500,
+     "pick_rate": 0.0506,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 7710,
+     "pick_rate": 0.0159,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 6770,
+     "pick_rate": 0.014,
+     "win_rate": null
+    }
+   ]
+  },
+  "62": {
+   "games": 632000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 562000,
+     "pick_rate": 0.889,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 57100,
+     "pick_rate": 0.0903,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 6750,
+     "pick_rate": 0.0107,
+     "win_rate": null
+    }
+   ]
+  },
+  "12": {
+   "games": 642000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 611000,
+     "pick_rate": 0.9524,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 14600,
+     "pick_rate": 0.0228,
+     "win_rate": null
+    }
+   ]
+  },
+  "412": {
+   "games": 750000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 616000,
+     "pick_rate": 0.8214,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 83700,
+     "pick_rate": 0.1116,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      7
+     ],
+     "games": 25500,
+     "pick_rate": 0.034,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 9820,
+     "pick_rate": 0.0131,
+     "win_rate": null
+    }
+   ]
+  },
+  "107": {
+   "games": 754000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 705000,
+     "pick_rate": 0.9345,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 26900,
+     "pick_rate": 0.0356,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 10900,
+     "pick_rate": 0.0144,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 9640,
+     "pick_rate": 0.0128,
+     "win_rate": null
+    }
+   ]
+  },
+  "3": {
+   "games": 640000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 539000,
+     "pick_rate": 0.8424,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 69800,
+     "pick_rate": 0.1092,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 20200,
+     "pick_rate": 0.0316,
+     "win_rate": null
+    }
+   ]
+  },
+  "54": {
+   "games": 1220000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 961000,
+     "pick_rate": 0.7857,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 134000,
+     "pick_rate": 0.1098,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 92000,
+     "pick_rate": 0.0752,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      13
+     ],
+     "games": 15600,
+     "pick_rate": 0.0128,
+     "win_rate": null
+    }
+   ]
+  },
+  "222": {
+   "games": 1050000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 551000,
+     "pick_rate": 0.5242,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 213000,
+     "pick_rate": 0.2027,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      1,
+      4
+     ],
+     "games": 118000,
+     "pick_rate": 0.1121,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 108000,
+     "pick_rate": 0.1032,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      7
+     ],
+     "games": 48700,
+     "pick_rate": 0.0464,
+     "win_rate": null
+    }
+   ]
+  },
+  "57": {
+   "games": 846000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 735000,
+     "pick_rate": 0.8686,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 87300,
+     "pick_rate": 0.1032,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 9670,
+     "pick_rate": 0.0114,
+     "win_rate": null
+    }
+   ]
+  },
+  "30": {
+   "games": 1270000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 839000,
+     "pick_rate": 0.6589,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 274000,
+     "pick_rate": 0.215,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 76100,
+     "pick_rate": 0.0597,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      13
+     ],
+     "games": 32800,
+     "pick_rate": 0.0258,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      7
+     ],
+     "games": 24800,
+     "pick_rate": 0.0195,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 17300,
+     "pick_rate": 0.0136,
+     "win_rate": null
+    }
+   ]
+  },
+  "101": {
+   "games": 881000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 400000,
+     "pick_rate": 0.4534,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 277000,
+     "pick_rate": 0.3143,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      13
+     ],
+     "games": 73200,
+     "pick_rate": 0.0831,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 57500,
+     "pick_rate": 0.0652,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      7
+     ],
+     "games": 46400,
+     "pick_rate": 0.0527,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 21700,
+     "pick_rate": 0.0246,
+     "win_rate": null
+    }
+   ]
+  },
+  "102": {
+   "games": 429000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 369000,
+     "pick_rate": 0.8583,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 53600,
+     "pick_rate": 0.1249,
+     "win_rate": null
+    }
+   ]
+  },
+  "27": {
+   "games": 788000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 659000,
+     "pick_rate": 0.836,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 98800,
+     "pick_rate": 0.1254,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 20300,
+     "pick_rate": 0.0257,
+     "win_rate": null
+    }
+   ]
+  },
+  "45": {
+   "games": 795000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 341000,
+     "pick_rate": 0.4296,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 295000,
+     "pick_rate": 0.3714,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 43100,
+     "pick_rate": 0.0542,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 41700,
+     "pick_rate": 0.0524,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      7
+     ],
+     "games": 36900,
+     "pick_rate": 0.0465,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      13
+     ],
+     "games": 28800,
+     "pick_rate": 0.0362,
+     "win_rate": null
+    }
+   ]
+  },
+  "161": {
+   "games": 672000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 310000,
+     "pick_rate": 0.4617,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 244000,
+     "pick_rate": 0.3628,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 42800,
+     "pick_rate": 0.0637,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      13
+     ],
+     "games": 38000,
+     "pick_rate": 0.0565,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      7
+     ],
+     "games": 21700,
+     "pick_rate": 0.0323,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 12400,
+     "pick_rate": 0.0184,
+     "win_rate": null
+    }
+   ]
+  },
+  "89": {
+   "games": 670000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 620000,
+     "pick_rate": 0.9257,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 38600,
+     "pick_rate": 0.0576,
+     "win_rate": null
+    }
+   ]
+  },
+  "134": {
+   "games": 619000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 275000,
+     "pick_rate": 0.444,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 203000,
+     "pick_rate": 0.3279,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 51900,
+     "pick_rate": 0.0838,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      7
+     ],
+     "games": 31800,
+     "pick_rate": 0.0513,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      13
+     ],
+     "games": 28000,
+     "pick_rate": 0.0452,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 23200,
+     "pick_rate": 0.0374,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      1,
+      4
+     ],
+     "games": 6380,
+     "pick_rate": 0.0103,
+     "win_rate": null
+    }
+   ]
+  },
+  "26": {
+   "games": 492000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 194000,
+     "pick_rate": 0.3932,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 178000,
+     "pick_rate": 0.3613,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      7
+     ],
+     "games": 46200,
+     "pick_rate": 0.0938,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      13
+     ],
+     "games": 39600,
+     "pick_rate": 0.0805,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 19800,
+     "pick_rate": 0.0403,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 12500,
+     "pick_rate": 0.0254,
+     "win_rate": null
+    }
+   ]
+  },
+  "35": {
+   "games": 1130000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 811000,
+     "pick_rate": 0.7178,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 145000,
+     "pick_rate": 0.1281,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 131000,
+     "pick_rate": 0.1163,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 24000,
+     "pick_rate": 0.0212,
+     "win_rate": null
+    }
+   ]
+  },
+  "122": {
+   "games": 788000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 692000,
+     "pick_rate": 0.8782,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 89800,
+     "pick_rate": 0.114,
+     "win_rate": null
+    }
+   ]
+  },
+  "904": {
+   "games": 344000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 299000,
+     "pick_rate": 0.8687,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 40900,
+     "pick_rate": 0.1189,
+     "win_rate": null
+    }
+   ]
+  },
+  "233": {
+   "games": 418000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 397000,
+     "pick_rate": 0.9488,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 12800,
+     "pick_rate": 0.0306,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 4230,
+     "pick_rate": 0.0101,
+     "win_rate": null
+    }
+   ]
+  },
+  "37": {
+   "games": 414000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 143000,
+     "pick_rate": 0.3457,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 97000,
+     "pick_rate": 0.2345,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      7
+     ],
+     "games": 73300,
+     "pick_rate": 0.1772,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      13
+     ],
+     "games": 61900,
+     "pick_rate": 0.1496,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 19700,
+     "pick_rate": 0.0477,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 17300,
+     "pick_rate": 0.0417,
+     "win_rate": null
+    }
+   ]
+  },
+  "78": {
+   "games": 450000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 432000,
+     "pick_rate": 0.9605,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 12900,
+     "pick_rate": 0.0288,
+     "win_rate": null
+    }
+   ]
+  },
+  "81": {
+   "games": 1300000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 729000,
+     "pick_rate": 0.5622,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 280000,
+     "pick_rate": 0.2159,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 137000,
+     "pick_rate": 0.1058,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      7
+     ],
+     "games": 60800,
+     "pick_rate": 0.0469,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      1,
+      4
+     ],
+     "games": 42100,
+     "pick_rate": 0.0324,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      13
+     ],
+     "games": 26800,
+     "pick_rate": 0.0207,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 20800,
+     "pick_rate": 0.0161,
+     "win_rate": null
+    }
+   ]
+  },
+  "38": {
+   "games": 379000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 316000,
+     "pick_rate": 0.8336,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 26200,
+     "pick_rate": 0.0691,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 24700,
+     "pick_rate": 0.0651,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 9080,
+     "pick_rate": 0.024,
+     "win_rate": null
+    }
+   ]
+  },
+  "68": {
+   "games": 701000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 555000,
+     "pick_rate": 0.7918,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 123000,
+     "pick_rate": 0.1747,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 10600,
+     "pick_rate": 0.0151,
+     "win_rate": null
+    }
+   ]
+  },
+  "804": {
+   "games": 714000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 374000,
+     "pick_rate": 0.5239,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 158000,
+     "pick_rate": 0.2212,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 81800,
+     "pick_rate": 0.1147,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      1,
+      4
+     ],
+     "games": 74300,
+     "pick_rate": 0.1041,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      7
+     ],
+     "games": 19900,
+     "pick_rate": 0.0279,
+     "win_rate": null
+    }
+   ]
+  },
+  "106": {
+   "games": 453000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 413000,
+     "pick_rate": 0.9129,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 34600,
+     "pick_rate": 0.0764,
+     "win_rate": null
+    }
+   ]
+  },
+  "119": {
+   "games": 599000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 288000,
+     "pick_rate": 0.4802,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 145000,
+     "pick_rate": 0.2418,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      1,
+      4
+     ],
+     "games": 96500,
+     "pick_rate": 0.1612,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 55400,
+     "pick_rate": 0.0924,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      7
+     ],
+     "games": 11100,
+     "pick_rate": 0.0185,
+     "win_rate": null
+    }
+   ]
+  },
+  "98": {
+   "games": 491000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 427000,
+     "pick_rate": 0.8694,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 51100,
+     "pick_rate": 0.1041,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 6000,
+     "pick_rate": 0.0122,
+     "win_rate": null
+    }
+   ]
+  },
+  "110": {
+   "games": 1020000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 537000,
+     "pick_rate": 0.5269,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 246000,
+     "pick_rate": 0.2414,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 92400,
+     "pick_rate": 0.0907,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      7
+     ],
+     "games": 52100,
+     "pick_rate": 0.0511,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      1,
+      4
+     ],
+     "games": 51700,
+     "pick_rate": 0.0508,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      13
+     ],
+     "games": 22900,
+     "pick_rate": 0.0224,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 16900,
+     "pick_rate": 0.0166,
+     "win_rate": null
+    }
+   ]
+  },
+  "75": {
+   "games": 571000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 484000,
+     "pick_rate": 0.8476,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 80200,
+     "pick_rate": 0.1405,
+     "win_rate": null
+    }
+   ]
+  },
+  "350": {
+   "games": 318000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      7
+     ],
+     "games": 112000,
+     "pick_rate": 0.3518,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      13
+     ],
+     "games": 75800,
+     "pick_rate": 0.2382,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 55300,
+     "pick_rate": 0.1738,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 38100,
+     "pick_rate": 0.1198,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 26200,
+     "pick_rate": 0.0822,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 8820,
+     "pick_rate": 0.0277,
+     "win_rate": null
+    }
+   ]
+  },
+  "59": {
+   "games": 1030000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 971000,
+     "pick_rate": 0.9429,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 28300,
+     "pick_rate": 0.0275,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 14600,
+     "pick_rate": 0.0142,
+     "win_rate": null
+    }
+   ]
+  },
+  "111": {
+   "games": 725000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 660000,
+     "pick_rate": 0.9102,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 41700,
+     "pick_rate": 0.0576,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 8660,
+     "pick_rate": 0.0119,
+     "win_rate": null
+    }
+   ]
+  },
+  "77": {
+   "games": 737000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 635000,
+     "pick_rate": 0.8616,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 85400,
+     "pick_rate": 0.1158,
+     "win_rate": null
+    }
+   ]
+  },
+  "126": {
+   "games": 973000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 686000,
+     "pick_rate": 0.7049,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 185000,
+     "pick_rate": 0.1903,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 39400,
+     "pick_rate": 0.0405,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      1,
+      4
+     ],
+     "games": 23700,
+     "pick_rate": 0.0244,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 21500,
+     "pick_rate": 0.0221,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      7
+     ],
+     "games": 10200,
+     "pick_rate": 0.0105,
+     "win_rate": null
+    }
+   ]
+  },
+  "91": {
+   "games": 556000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 459000,
+     "pick_rate": 0.8251,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 49500,
+     "pick_rate": 0.089,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 22100,
+     "pick_rate": 0.0397,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 21600,
+     "pick_rate": 0.0389,
+     "win_rate": null
+    }
+   ]
+  },
+  "143": {
+   "games": 545000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 281000,
+     "pick_rate": 0.5148,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 143000,
+     "pick_rate": 0.2622,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      13
+     ],
+     "games": 39200,
+     "pick_rate": 0.0719,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 28000,
+     "pick_rate": 0.0514,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      7
+     ],
+     "games": 26900,
+     "pick_rate": 0.0494,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 24100,
+     "pick_rate": 0.0442,
+     "win_rate": null
+    }
+   ]
+  },
+  "29": {
+   "games": 898000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 483000,
+     "pick_rate": 0.5378,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 271000,
+     "pick_rate": 0.3013,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 59700,
+     "pick_rate": 0.0665,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      1,
+      4
+     ],
+     "games": 35600,
+     "pick_rate": 0.0396,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      7
+     ],
+     "games": 27800,
+     "pick_rate": 0.031,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 19500,
+     "pick_rate": 0.0217,
+     "win_rate": null
+    }
+   ]
+  },
+  "121": {
+   "games": 675000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 471000,
+     "pick_rate": 0.6979,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 152000,
+     "pick_rate": 0.2253,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 29500,
+     "pick_rate": 0.0436,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 16900,
+     "pick_rate": 0.025,
+     "win_rate": null
+    }
+   ]
+  },
+  "22": {
+   "games": 1560000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 829000,
+     "pick_rate": 0.5309,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 304000,
+     "pick_rate": 0.1948,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      7
+     ],
+     "games": 198000,
+     "pick_rate": 0.1271,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      1,
+      4
+     ],
+     "games": 101000,
+     "pick_rate": 0.0647,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 95600,
+     "pick_rate": 0.0613,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      13
+     ],
+     "games": 21700,
+     "pick_rate": 0.0139,
+     "win_rate": null
+    }
+   ]
+  },
+  "40": {
+   "games": 272000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      7
+     ],
+     "games": 76900,
+     "pick_rate": 0.2828,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 72500,
+     "pick_rate": 0.2667,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 50100,
+     "pick_rate": 0.1843,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      13
+     ],
+     "games": 40500,
+     "pick_rate": 0.149,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 20200,
+     "pick_rate": 0.0743,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 10400,
+     "pick_rate": 0.0381,
+     "win_rate": null
+    }
+   ]
+  },
+  "8": {
+   "games": 806000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 475000,
+     "pick_rate": 0.59,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 314000,
+     "pick_rate": 0.3901,
+     "win_rate": null
+    }
+   ]
+  },
+  "74": {
+   "games": 405000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 213000,
+     "pick_rate": 0.5268,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 103000,
+     "pick_rate": 0.2553,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 30000,
+     "pick_rate": 0.0741,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      13
+     ],
+     "games": 25000,
+     "pick_rate": 0.0617,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      7
+     ],
+     "games": 19200,
+     "pick_rate": 0.0475,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 12200,
+     "pick_rate": 0.0301,
+     "win_rate": null
+    }
+   ]
+  },
+  "99": {
+   "games": 744000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 237000,
+     "pick_rate": 0.319,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 228000,
+     "pick_rate": 0.3062,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      13
+     ],
+     "games": 98300,
+     "pick_rate": 0.1322,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      7
+     ],
+     "games": 72700,
+     "pick_rate": 0.0977,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 59400,
+     "pick_rate": 0.0799,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 44600,
+     "pick_rate": 0.0599,
+     "win_rate": null
+    }
+   ]
+  },
+  "115": {
+   "games": 658000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 268000,
+     "pick_rate": 0.4079,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 163000,
+     "pick_rate": 0.2473,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 104000,
+     "pick_rate": 0.1579,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      13
+     ],
+     "games": 47000,
+     "pick_rate": 0.0714,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      7
+     ],
+     "games": 42300,
+     "pick_rate": 0.0643,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 28900,
+     "pick_rate": 0.0439,
+     "win_rate": null
+    }
+   ]
+  },
+  "96": {
+   "games": 643000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 380000,
+     "pick_rate": 0.5904,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 155000,
+     "pick_rate": 0.2412,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 39500,
+     "pick_rate": 0.0614,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      1,
+      4
+     ],
+     "games": 26200,
+     "pick_rate": 0.0408,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      7
+     ],
+     "games": 21100,
+     "pick_rate": 0.0328,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      13
+     ],
+     "games": 10800,
+     "pick_rate": 0.0168,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 10600,
+     "pick_rate": 0.0166,
+     "win_rate": null
+    }
+   ]
+  },
+  "79": {
+   "games": 571000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 501000,
+     "pick_rate": 0.8779,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 37500,
+     "pick_rate": 0.0657,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 12300,
+     "pick_rate": 0.0216,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 10100,
+     "pick_rate": 0.0178,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      13
+     ],
+     "games": 6620,
+     "pick_rate": 0.0116,
+     "win_rate": null
+    }
+   ]
+  },
+  "235": {
+   "games": 1060000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 572000,
+     "pick_rate": 0.5418,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 246000,
+     "pick_rate": 0.2332,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      7
+     ],
+     "games": 104000,
+     "pick_rate": 0.0983,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      1,
+      4
+     ],
+     "games": 63800,
+     "pick_rate": 0.0604,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 47500,
+     "pick_rate": 0.045,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      13
+     ],
+     "games": 16600,
+     "pick_rate": 0.0157,
+     "win_rate": null
+    }
+   ]
+  },
+  "18": {
+   "games": 858000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 364000,
+     "pick_rate": 0.4243,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 309000,
+     "pick_rate": 0.3603,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 77700,
+     "pick_rate": 0.0906,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      7
+     ],
+     "games": 46800,
+     "pick_rate": 0.0546,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      1,
+      4
+     ],
+     "games": 37000,
+     "pick_rate": 0.0431,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 21500,
+     "pick_rate": 0.025,
+     "win_rate": null
+    }
+   ]
+  },
+  "523": {
+   "games": 508000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 223000,
+     "pick_rate": 0.4396,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      1,
+      4
+     ],
+     "games": 110000,
+     "pick_rate": 0.2159,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 106000,
+     "pick_rate": 0.2084,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 53400,
+     "pick_rate": 0.1051,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      7
+     ],
+     "games": 12000,
+     "pick_rate": 0.0237,
+     "win_rate": null
+    }
+   ]
+  },
+  "31": {
+   "games": 814000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 704000,
+     "pick_rate": 0.8654,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 86700,
+     "pick_rate": 0.1065,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 14600,
+     "pick_rate": 0.018,
+     "win_rate": null
+    }
+   ]
+  },
+  "800": {
+   "games": 861000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 377000,
+     "pick_rate": 0.4378,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 311000,
+     "pick_rate": 0.3615,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 67700,
+     "pick_rate": 0.0786,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      13
+     ],
+     "games": 51300,
+     "pick_rate": 0.0596,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      7
+     ],
+     "games": 31000,
+     "pick_rate": 0.036,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 20000,
+     "pick_rate": 0.0232,
+     "win_rate": null
+    }
+   ]
+  },
+  "76": {
+   "games": 786000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 344000,
+     "pick_rate": 0.4374,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 231000,
+     "pick_rate": 0.2943,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 98500,
+     "pick_rate": 0.1254,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 53100,
+     "pick_rate": 0.0675,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      7
+     ],
+     "games": 33100,
+     "pick_rate": 0.0421,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      13
+     ],
+     "games": 24100,
+     "pick_rate": 0.0307,
+     "win_rate": null
+    }
+   ]
+  },
+  "16": {
+   "games": 415000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      7
+     ],
+     "games": 123000,
+     "pick_rate": 0.2973,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 112000,
+     "pick_rate": 0.2701,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 83100,
+     "pick_rate": 0.2003,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      13
+     ],
+     "games": 57200,
+     "pick_rate": 0.1379,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 18500,
+     "pick_rate": 0.0447,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 18100,
+     "pick_rate": 0.0437,
+     "win_rate": null
+    }
+   ]
+  },
+  "82": {
+   "games": 844000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 727000,
+     "pick_rate": 0.8617,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 102000,
+     "pick_rate": 0.1208,
+     "win_rate": null
+    }
+   ]
+  },
+  "86": {
+   "games": 819000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 726000,
+     "pick_rate": 0.8858,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 77300,
+     "pick_rate": 0.0943,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 9080,
+     "pick_rate": 0.0111,
+     "win_rate": null
+    }
+   ]
+  },
+  "56": {
+   "games": 429000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 362000,
+     "pick_rate": 0.8433,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 54600,
+     "pick_rate": 0.1273,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 6970,
+     "pick_rate": 0.0162,
+     "win_rate": null
+    }
+   ]
+  },
+  "895": {
+   "games": 98900,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 80000,
+     "pick_rate": 0.8092,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 14300,
+     "pick_rate": 0.1447,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 2810,
+     "pick_rate": 0.0284,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 1130,
+     "pick_rate": 0.0114,
+     "win_rate": null
+    }
+   ]
+  },
+  "44": {
+   "games": 136000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 121000,
+     "pick_rate": 0.8874,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 10600,
+     "pick_rate": 0.0776,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 1750,
+     "pick_rate": 0.0128,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      7
+     ],
+     "games": 1590,
+     "pick_rate": 0.0117,
+     "win_rate": null
+    }
+   ]
+  },
+  "32": {
+   "games": 539000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 502000,
+     "pick_rate": 0.9314,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 26400,
+     "pick_rate": 0.049,
+     "win_rate": null
+    }
+   ]
+  },
+  "53": {
+   "games": 799000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 698000,
+     "pick_rate": 0.8737,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 48800,
+     "pick_rate": 0.0611,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 23900,
+     "pick_rate": 0.0299,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      7
+     ],
+     "games": 11900,
+     "pick_rate": 0.0149,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 9460,
+     "pick_rate": 0.0118,
+     "win_rate": null
+    }
+   ]
+  },
+  "39": {
+   "games": 265000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 249000,
+     "pick_rate": 0.9375,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 10600,
+     "pick_rate": 0.04,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 3150,
+     "pick_rate": 0.0119,
+     "win_rate": null
+    }
+   ]
+  },
+  "360": {
+   "games": 581000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 269000,
+     "pick_rate": 0.4624,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 237000,
+     "pick_rate": 0.4081,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 34200,
+     "pick_rate": 0.0588,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      1,
+      4
+     ],
+     "games": 27600,
+     "pick_rate": 0.0475,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      7
+     ],
+     "games": 7390,
+     "pick_rate": 0.0127,
+     "win_rate": null
+    }
+   ]
+  },
+  "555": {
+   "games": 573000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 464000,
+     "pick_rate": 0.8099,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 42800,
+     "pick_rate": 0.0746,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 39700,
+     "pick_rate": 0.0692,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 12300,
+     "pick_rate": 0.0215,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      7
+     ],
+     "games": 8830,
+     "pick_rate": 0.0154,
+     "win_rate": null
+    }
+   ]
+  },
+  "266": {
+   "games": 664000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 629000,
+     "pick_rate": 0.9471,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 26300,
+     "pick_rate": 0.0396,
+     "win_rate": null
+    }
+   ]
+  },
+  "43": {
+   "games": 444000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 190000,
+     "pick_rate": 0.4289,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 107000,
+     "pick_rate": 0.2407,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      7
+     ],
+     "games": 54000,
+     "pick_rate": 0.1216,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      13
+     ],
+     "games": 45500,
+     "pick_rate": 0.1024,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 29100,
+     "pick_rate": 0.0655,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 16100,
+     "pick_rate": 0.0363,
+     "win_rate": null
+    }
+   ]
+  },
+  "711": {
+   "games": 251000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 131000,
+     "pick_rate": 0.5207,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 51600,
+     "pick_rate": 0.2059,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 20600,
+     "pick_rate": 0.0822,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 19100,
+     "pick_rate": 0.0762,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      13
+     ],
+     "games": 16600,
+     "pick_rate": 0.0663,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      7
+     ],
+     "games": 9340,
+     "pick_rate": 0.0373,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      1,
+      4
+     ],
+     "games": 2870,
+     "pick_rate": 0.0114,
+     "win_rate": null
+    }
+   ]
+  },
+  "498": {
+   "games": 491000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 222000,
+     "pick_rate": 0.452,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 118000,
+     "pick_rate": 0.2413,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      1,
+      4
+     ],
+     "games": 75000,
+     "pick_rate": 0.1527,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 53700,
+     "pick_rate": 0.1094,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      7
+     ],
+     "games": 17500,
+     "pick_rate": 0.0357,
+     "win_rate": null
+    }
+   ]
+  },
+  "427": {
+   "games": 79800,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 24500,
+     "pick_rate": 0.3066,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      7
+     ],
+     "games": 21900,
+     "pick_rate": 0.2749,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 14500,
+     "pick_rate": 0.1815,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      13
+     ],
+     "games": 10200,
+     "pick_rate": 0.1275,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 5910,
+     "pick_rate": 0.0741,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 2480,
+     "pick_rate": 0.0311,
+     "win_rate": null
+    }
+   ]
+  },
+  "240": {
+   "games": 91000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 85200,
+     "pick_rate": 0.9356,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 4810,
+     "pick_rate": 0.0528,
+     "win_rate": null
+    }
+   ]
+  },
+  "888": {
+   "games": 176000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 76400,
+     "pick_rate": 0.4328,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      7
+     ],
+     "games": 51800,
+     "pick_rate": 0.2934,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      13
+     ],
+     "games": 20900,
+     "pick_rate": 0.1183,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 12900,
+     "pick_rate": 0.0731,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 10500,
+     "pick_rate": 0.0596,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 3260,
+     "pick_rate": 0.0184,
+     "win_rate": null
+    }
+   ]
+  },
+  "92": {
+   "games": 335000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 309000,
+     "pick_rate": 0.922,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 12500,
+     "pick_rate": 0.0372,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 9030,
+     "pick_rate": 0.027,
+     "win_rate": null
+    }
+   ]
+  },
+  "19": {
+   "games": 243000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 221000,
+     "pick_rate": 0.9111,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 17400,
+     "pick_rate": 0.0715,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 2870,
+     "pick_rate": 0.0118,
+     "win_rate": null
+    }
+   ]
+  },
+  "9": {
+   "games": 436000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 319000,
+     "pick_rate": 0.7313,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 72500,
+     "pick_rate": 0.1661,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 12200,
+     "pick_rate": 0.0279,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      13
+     ],
+     "games": 11800,
+     "pick_rate": 0.0271,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 10100,
+     "pick_rate": 0.0231,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      7
+     ],
+     "games": 9540,
+     "pick_rate": 0.0219,
+     "win_rate": null
+    }
+   ]
+  },
+  "113": {
+   "games": 430000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 401000,
+     "pick_rate": 0.9326,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 21200,
+     "pick_rate": 0.0492,
+     "win_rate": null
+    }
+   ]
+  },
+  "902": {
+   "games": 273000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      7
+     ],
+     "games": 77900,
+     "pick_rate": 0.2852,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 71400,
+     "pick_rate": 0.2614,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 50000,
+     "pick_rate": 0.1831,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      13
+     ],
+     "games": 48200,
+     "pick_rate": 0.1765,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 15100,
+     "pick_rate": 0.0551,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 9230,
+     "pick_rate": 0.0338,
+     "win_rate": null
+    }
+   ]
+  },
+  "64": {
+   "games": 725000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 660000,
+     "pick_rate": 0.9109,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 40100,
+     "pick_rate": 0.0553,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 14800,
+     "pick_rate": 0.0204,
+     "win_rate": null
+    }
+   ]
+  },
+  "61": {
+   "games": 371000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 149000,
+     "pick_rate": 0.401,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 117000,
+     "pick_rate": 0.3161,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      13
+     ],
+     "games": 38600,
+     "pick_rate": 0.104,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 30100,
+     "pick_rate": 0.0811,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      7
+     ],
+     "games": 24600,
+     "pick_rate": 0.0664,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 9780,
+     "pick_rate": 0.0264,
+     "win_rate": null
+    }
+   ]
+  },
+  "516": {
+   "games": 524000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 477000,
+     "pick_rate": 0.9112,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 34700,
+     "pick_rate": 0.0662,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 5270,
+     "pick_rate": 0.0101,
+     "win_rate": null
+    }
+   ]
+  },
+  "15": {
+   "games": 551000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 242000,
+     "pick_rate": 0.4399,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 134000,
+     "pick_rate": 0.2432,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      1,
+      4
+     ],
+     "games": 94300,
+     "pick_rate": 0.1713,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 47200,
+     "pick_rate": 0.0858,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      7
+     ],
+     "games": 25800,
+     "pick_rate": 0.0469,
+     "win_rate": null
+    }
+   ]
+  },
+  "164": {
+   "games": 272000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 255000,
+     "pick_rate": 0.9366,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 10300,
+     "pick_rate": 0.0377,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 3810,
+     "pick_rate": 0.014,
+     "win_rate": null
+    }
+   ]
+  },
+  "421": {
+   "games": 78700,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 75800,
+     "pick_rate": 0.9636,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 1720,
+     "pick_rate": 0.0219,
+     "win_rate": null
+    }
+   ]
+  },
+  "131": {
+   "games": 419000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 395000,
+     "pick_rate": 0.9431,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 15200,
+     "pick_rate": 0.0361,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 5670,
+     "pick_rate": 0.0135,
+     "win_rate": null
+    }
+   ]
+  },
+  "1": {
+   "games": 241000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 119000,
+     "pick_rate": 0.4967,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 82000,
+     "pick_rate": 0.341,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      13
+     ],
+     "games": 13200,
+     "pick_rate": 0.055,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 9610,
+     "pick_rate": 0.04,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 8360,
+     "pick_rate": 0.0347,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      7
+     ],
+     "games": 6800,
+     "pick_rate": 0.0283,
+     "win_rate": null
+    }
+   ]
+  },
+  "267": {
+   "games": 183000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 56500,
+     "pick_rate": 0.3086,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      7
+     ],
+     "games": 46600,
+     "pick_rate": 0.2543,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 37100,
+     "pick_rate": 0.2024,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      13
+     ],
+     "games": 27500,
+     "pick_rate": 0.15,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 10500,
+     "pick_rate": 0.0574,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 4210,
+     "pick_rate": 0.023,
+     "win_rate": null
+    }
+   ]
+  },
+  "254": {
+   "games": 343000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 320000,
+     "pick_rate": 0.9323,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 13200,
+     "pick_rate": 0.0385,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 6270,
+     "pick_rate": 0.0183,
+     "win_rate": null
+    }
+   ]
+  },
+  "163": {
+   "games": 264000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 118000,
+     "pick_rate": 0.4483,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 93100,
+     "pick_rate": 0.3525,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 22100,
+     "pick_rate": 0.0838,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      13
+     ],
+     "games": 14000,
+     "pick_rate": 0.0528,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      7
+     ],
+     "games": 9190,
+     "pick_rate": 0.0348,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 6070,
+     "pick_rate": 0.023,
+     "win_rate": null
+    }
+   ]
+  },
+  "420": {
+   "games": 427000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 398000,
+     "pick_rate": 0.9315,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 26300,
+     "pick_rate": 0.0616,
+     "win_rate": null
+    }
+   ]
+  },
+  "33": {
+   "games": 435000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 382000,
+     "pick_rate": 0.8791,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 39400,
+     "pick_rate": 0.0906,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 6140,
+     "pick_rate": 0.0141,
+     "win_rate": null
+    }
+   ]
+  },
+  "2": {
+   "games": 191000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 165000,
+     "pick_rate": 0.8632,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 24300,
+     "pick_rate": 0.1274,
+     "win_rate": null
+    }
+   ]
+  },
+  "429": {
+   "games": 251000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 79900,
+     "pick_rate": 0.3186,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 73100,
+     "pick_rate": 0.2915,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      1,
+      4
+     ],
+     "games": 51200,
+     "pick_rate": 0.2043,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 28300,
+     "pick_rate": 0.1128,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      7
+     ],
+     "games": 15100,
+     "pick_rate": 0.0603,
+     "win_rate": null
+    }
+   ]
+  },
+  "246": {
+   "games": 383000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 315000,
+     "pick_rate": 0.8214,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 27200,
+     "pick_rate": 0.071,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 24000,
+     "pick_rate": 0.0625,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 13600,
+     "pick_rate": 0.0355,
+     "win_rate": null
+    }
+   ]
+  },
+  "127": {
+   "games": 371000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 225000,
+     "pick_rate": 0.6078,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 54100,
+     "pick_rate": 0.1457,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 40200,
+     "pick_rate": 0.1085,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 17100,
+     "pick_rate": 0.046,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      13
+     ],
+     "games": 15800,
+     "pick_rate": 0.0427,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      7
+     ],
+     "games": 15500,
+     "pick_rate": 0.0418,
+     "win_rate": null
+    }
+   ]
+  },
+  "268": {
+   "games": 242000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 107000,
+     "pick_rate": 0.4442,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 67600,
+     "pick_rate": 0.2796,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 22600,
+     "pick_rate": 0.0936,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      7
+     ],
+     "games": 16300,
+     "pick_rate": 0.0676,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      1,
+      4
+     ],
+     "games": 13700,
+     "pick_rate": 0.0566,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 8900,
+     "pick_rate": 0.0368,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      13
+     ],
+     "games": 5220,
+     "pick_rate": 0.0216,
+     "win_rate": null
+    }
+   ]
+  },
+  "72": {
+   "games": 226000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 196000,
+     "pick_rate": 0.8688,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 26500,
+     "pick_rate": 0.1175,
+     "win_rate": null
+    }
+   ]
+  },
+  "150": {
+   "games": 337000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 304000,
+     "pick_rate": 0.9027,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 23000,
+     "pick_rate": 0.0681,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 3950,
+     "pick_rate": 0.0117,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 3400,
+     "pick_rate": 0.0101,
+     "win_rate": null
+    }
+   ]
+  },
+  "142": {
+   "games": 266000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 132000,
+     "pick_rate": 0.4942,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 68500,
+     "pick_rate": 0.2572,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 23100,
+     "pick_rate": 0.0867,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      13
+     ],
+     "games": 16600,
+     "pick_rate": 0.0624,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 14700,
+     "pick_rate": 0.0552,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      7
+     ],
+     "games": 7940,
+     "pick_rate": 0.0298,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      1,
+      4
+     ],
+     "games": 3850,
+     "pick_rate": 0.0145,
+     "win_rate": null
+    }
+   ]
+  },
+  "28": {
+   "games": 91000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 63800,
+     "pick_rate": 0.7011,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 12700,
+     "pick_rate": 0.1392,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 10900,
+     "pick_rate": 0.1194,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 2280,
+     "pick_rate": 0.0251,
+     "win_rate": null
+    }
+   ]
+  },
+  "201": {
+   "games": 265000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 245000,
+     "pick_rate": 0.9236,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 11800,
+     "pick_rate": 0.0444,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      7
+     ],
+     "games": 3060,
+     "pick_rate": 0.0115,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 3010,
+     "pick_rate": 0.0114,
+     "win_rate": null
+    }
+   ]
+  },
+  "203": {
+   "games": 370000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 130000,
+     "pick_rate": 0.3507,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 130000,
+     "pick_rate": 0.3504,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 41200,
+     "pick_rate": 0.1113,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      1,
+      4
+     ],
+     "games": 39300,
+     "pick_rate": 0.1062,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      7
+     ],
+     "games": 21900,
+     "pick_rate": 0.0594,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 5580,
+     "pick_rate": 0.0151,
+     "win_rate": null
+    }
+   ]
+  },
+  "6": {
+   "games": 377000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 306000,
+     "pick_rate": 0.8115,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 61200,
+     "pick_rate": 0.1626,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      7
+     ],
+     "games": 4060,
+     "pick_rate": 0.0108,
+     "win_rate": null
+    }
+   ]
+  },
+  "805": {
+   "games": 355000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 288000,
+     "pick_rate": 0.812,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 31400,
+     "pick_rate": 0.0883,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 25200,
+     "pick_rate": 0.0708,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 6860,
+     "pick_rate": 0.0193,
+     "win_rate": null
+    }
+   ]
+  },
+  "117": {
+   "games": 167000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 49000,
+     "pick_rate": 0.2925,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      7
+     ],
+     "games": 48100,
+     "pick_rate": 0.287,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 31800,
+     "pick_rate": 0.1897,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      13
+     ],
+     "games": 20800,
+     "pick_rate": 0.124,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 12000,
+     "pick_rate": 0.0718,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 5130,
+     "pick_rate": 0.0306,
+     "win_rate": null
+    }
+   ]
+  },
+  "221": {
+   "games": 250000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 119000,
+     "pick_rate": 0.4752,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 58800,
+     "pick_rate": 0.2358,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      1,
+      4
+     ],
+     "games": 39900,
+     "pick_rate": 0.16,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 21900,
+     "pick_rate": 0.0877,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      7
+     ],
+     "games": 7840,
+     "pick_rate": 0.0314,
+     "win_rate": null
+    }
+   ]
+  },
+  "60": {
+   "games": 110000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 69500,
+     "pick_rate": 0.6313,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 16700,
+     "pick_rate": 0.1518,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 13900,
+     "pick_rate": 0.126,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 5060,
+     "pick_rate": 0.0459,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      7
+     ],
+     "games": 2820,
+     "pick_rate": 0.0256,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      13
+     ],
+     "games": 1880,
+     "pick_rate": 0.0171,
+     "win_rate": null
+    }
+   ]
+  },
+  "950": {
+   "games": 336000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 299000,
+     "pick_rate": 0.8897,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 20600,
+     "pick_rate": 0.0614,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 10700,
+     "pick_rate": 0.0319,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 3920,
+     "pick_rate": 0.0117,
+     "win_rate": null
+    }
+   ]
+  },
+  "518": {
+   "games": 297000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 180000,
+     "pick_rate": 0.6059,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 57800,
+     "pick_rate": 0.1949,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 17100,
+     "pick_rate": 0.0578,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      13
+     ],
+     "games": 16600,
+     "pick_rate": 0.056,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 12400,
+     "pick_rate": 0.0416,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      7
+     ],
+     "games": 11300,
+     "pick_rate": 0.0381,
+     "win_rate": null
+    }
+   ]
+  },
+  "7": {
+   "games": 371000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 244000,
+     "pick_rate": 0.6566,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 53400,
+     "pick_rate": 0.1439,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 48400,
+     "pick_rate": 0.1304,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 14200,
+     "pick_rate": 0.0384,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      7
+     ],
+     "games": 5150,
+     "pick_rate": 0.0139,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      13
+     ],
+     "games": 5120,
+     "pick_rate": 0.0138,
+     "win_rate": null
+    }
+   ]
+  },
+  "58": {
+   "games": 267000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 248000,
+     "pick_rate": 0.9282,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 16400,
+     "pick_rate": 0.0612,
+     "win_rate": null
+    }
+   ]
+  },
+  "166": {
+   "games": 309000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 137000,
+     "pick_rate": 0.4439,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 91500,
+     "pick_rate": 0.2962,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      7
+     ],
+     "games": 25800,
+     "pick_rate": 0.0834,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 20300,
+     "pick_rate": 0.0658,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 17800,
+     "pick_rate": 0.0575,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      1,
+      4
+     ],
+     "games": 15500,
+     "pick_rate": 0.0503,
+     "win_rate": null
+    }
+   ]
+  },
+  "84": {
+   "games": 317000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 274000,
+     "pick_rate": 0.8649,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 18800,
+     "pick_rate": 0.0593,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 17400,
+     "pick_rate": 0.0548,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 4490,
+     "pick_rate": 0.0142,
+     "win_rate": null
+    }
+   ]
+  },
+  "34": {
+   "games": 276000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 129000,
+     "pick_rate": 0.467,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 77400,
+     "pick_rate": 0.2801,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      7
+     ],
+     "games": 20500,
+     "pick_rate": 0.0741,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 20000,
+     "pick_rate": 0.0724,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 14900,
+     "pick_rate": 0.0537,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      13
+     ],
+     "games": 12600,
+     "pick_rate": 0.0455,
+     "win_rate": null
+    }
+   ]
+  },
+  "20": {
+   "games": 264000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 210000,
+     "pick_rate": 0.7953,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 33400,
+     "pick_rate": 0.1265,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 13800,
+     "pick_rate": 0.0522,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      13
+     ],
+     "games": 3190,
+     "pick_rate": 0.0121,
+     "win_rate": null
+    }
+   ]
+  },
+  "85": {
+   "games": 315000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 182000,
+     "pick_rate": 0.5768,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 65700,
+     "pick_rate": 0.2087,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 23600,
+     "pick_rate": 0.075,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 20500,
+     "pick_rate": 0.0651,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      13
+     ],
+     "games": 10300,
+     "pick_rate": 0.0328,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      7
+     ],
+     "games": 9290,
+     "pick_rate": 0.0295,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      1,
+      4
+     ],
+     "games": 3810,
+     "pick_rate": 0.0121,
+     "win_rate": null
+    }
+   ]
+  },
+  "897": {
+   "games": 292000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 263000,
+     "pick_rate": 0.9011,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 24100,
+     "pick_rate": 0.0823,
+     "win_rate": null
+    }
+   ]
+  },
+  "497": {
+   "games": 114000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 95000,
+     "pick_rate": 0.837,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 9460,
+     "pick_rate": 0.0834,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      7
+     ],
+     "games": 5030,
+     "pick_rate": 0.0443,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      13
+     ],
+     "games": 1230,
+     "pick_rate": 0.0109,
+     "win_rate": null
+    }
+   ]
+  },
+  "69": {
+   "games": 237000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 115000,
+     "pick_rate": 0.4829,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 87500,
+     "pick_rate": 0.369,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 15000,
+     "pick_rate": 0.0634,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      7
+     ],
+     "games": 7320,
+     "pick_rate": 0.0309,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      13
+     ],
+     "games": 5640,
+     "pick_rate": 0.0238,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 5130,
+     "pick_rate": 0.0216,
+     "win_rate": null
+    }
+   ]
+  },
+  "133": {
+   "games": 246000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 106000,
+     "pick_rate": 0.4325,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 86000,
+     "pick_rate": 0.3495,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 14400,
+     "pick_rate": 0.0585,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      7
+     ],
+     "games": 14200,
+     "pick_rate": 0.0576,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      1,
+      4
+     ],
+     "games": 12500,
+     "pick_rate": 0.0507,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 12000,
+     "pick_rate": 0.0486,
+     "win_rate": null
+    }
+   ]
+  },
+  "154": {
+   "games": 262000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 255000,
+     "pick_rate": 0.9751,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 4390,
+     "pick_rate": 0.0168,
+     "win_rate": null
+    }
+   ]
+  },
+  "432": {
+   "games": 120000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 63500,
+     "pick_rate": 0.5284,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 31100,
+     "pick_rate": 0.2583,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      13
+     ],
+     "games": 8270,
+     "pick_rate": 0.0687,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      7
+     ],
+     "games": 6710,
+     "pick_rate": 0.0558,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 5340,
+     "pick_rate": 0.0444,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 4920,
+     "pick_rate": 0.0409,
+     "win_rate": null
+    }
+   ]
+  },
+  "83": {
+   "games": 120000,
+   "spells": [
+    {
+     "ids": [
+      4,
+      32
+     ],
+     "games": 107000,
+     "pick_rate": 0.8889,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      6
+     ],
+     "games": 10800,
+     "pick_rate": 0.0902,
+     "win_rate": null
+    }
+   ]
+  }
+ }
+}

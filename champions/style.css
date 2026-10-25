@@ -62,7 +62,7 @@ h2 { font-size: 0.95rem; font-weight: 600; }
 .segmented button[aria-selected="true"] { background: var(--surface); color: var(--fg); box-shadow: 0 0 0 1px var(--line); }
 .chip { display: inline-block; font: 500 11px/1 var(--mono); padding: 0.3rem 0.55rem; border-radius: 999px; border: 1px solid var(--line); color: var(--muted); }
 .tier-prismatic { background: var(--prismatic); border-color: transparent; color: #1b1630; }
-.tier-gold { color: var(--gold); border-color: color-mix(in srgb, var(--gold) 45%, transparent); }
+.tier-gold { color: var(--gold); border-color: var(--gold-edge); }
 .tier-silver { color: var(--silver); }
 .buff { color: var(--good); } .nerf { color: var(--bad); }
 
@@ -167,7 +167,7 @@ td.num { white-space: nowrap; }
 .aug-row img { width: 30px; height: 30px; border-radius: 7px; background: #14161c; }
 .aug-row .name { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .mono { font: 500 12px var(--mono); }
-.grade-s { color: var(--accent); border-color: color-mix(in srgb, var(--accent) 45%, transparent); }
+.grade-s { color: var(--accent); border-color: var(--accent-edge); }
 .max { display: flex; align-items: center; gap: 0.4rem; font: 600 14px var(--mono); }
 .skill-icon { width: 30px; height: 30px; border-radius: 7px; background: #14161c; }
 .levels { display: grid; grid-template-columns: repeat(15, minmax(0, 1fr)); gap: 3px; margin-top: 0.5rem; }
@@ -190,20 +190,41 @@ td.num { white-space: nowrap; }
 :root {
   --a: #3fa7f5;
   --hue-gold: #e0a83c;
-  --a-ink: color-mix(in srgb, var(--a) 70%, var(--fg));
-  --a-soft: color-mix(in srgb, var(--a) 16%, transparent);
+  /* Colour mixes are precomputed so browsers without colour mixing look the same. Light here, dark below. */
+  --a-ink: #2d6088;
+  --a-soft: rgba(63, 167, 245, 0.16);
+  --a-edge: #90c3eb;
+  --hue-gold-ink: #80601a;
+  --prism-ink: #6a4fd0;
+  --gold-edge: rgba(128, 96, 26, 0.45);
+  --accent-edge: rgba(9, 101, 157, 0.45);
+  --silver-soft: rgba(89, 98, 110, 0.16);
+  --silver-soft-2: rgba(89, 98, 110, 0.14);
+  --silver-edge: rgba(89, 98, 110, 0.5);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --a-ink: #72bcf4; --a-edge: #2f628c; --hue-gold-ink: #e0a83c; --prism-ink: #a98bff; --gold-edge: rgba(224, 180, 92, 0.45);
+    --accent-edge: rgba(92, 192, 255, 0.45); --silver-soft: rgba(163, 173, 187, 0.16);
+    --silver-soft-2: rgba(163, 173, 187, 0.14); --silver-edge: rgba(163, 173, 187, 0.5);
+  }
+}
+:root[data-theme="dark"] {
+    --a-ink: #72bcf4; --a-edge: #2f628c; --hue-gold-ink: #e0a83c; --prism-ink: #a98bff; --gold-edge: rgba(224, 180, 92, 0.45);
+    --accent-edge: rgba(92, 192, 255, 0.45); --silver-soft: rgba(163, 173, 187, 0.16);
+    --silver-soft-2: rgba(163, 173, 187, 0.14); --silver-edge: rgba(163, 173, 187, 0.5);
 }
 a { color: var(--a-ink); }
 a:hover { color: var(--a); }
 input:focus-visible, button:focus-visible, select:focus-visible, a:focus-visible { outline-color: var(--a); }
 .eyebrow.accent, .card > .eyebrow:first-child { color: var(--a-ink); }
 .slot { color: var(--a-ink); }
-.btn { background: linear-gradient(135deg, var(--a), color-mix(in srgb, var(--a) 60%, #9b7bff)); color: #04121c; }
+.btn { background: linear-gradient(135deg, var(--a), #6495f9); color: #04121c; }
 .btn:hover { filter: brightness(1.08) saturate(1.1); }
 
 /* Active tabs and pills */
 .segmented button[aria-selected="true"], .filters button[aria-pressed="true"] {
-  background: var(--a-soft); color: var(--a-ink); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--a) 40%, transparent);
+  background: var(--a-soft); color: var(--a-ink); box-shadow: inset 0 0 0 1px rgba(63, 167, 245, 0.4);
 }
 .segmented button:hover:not([aria-selected="true"]), .filters button:hover:not([aria-pressed="true"]) { color: var(--a-ink); }
 
@@ -211,7 +232,7 @@ input:focus-visible, button:focus-visible, select:focus-visible, a:focus-visible
 .card { position: relative; overflow: hidden; }
 .card::before {
   content: ""; position: absolute; inset: 0 0 auto; height: 3px;
-  background: linear-gradient(90deg, var(--a), color-mix(in srgb, var(--a) 30%, transparent));
+  background: linear-gradient(90deg, var(--a), rgba(63, 167, 245, 0.3));
 }
 
 /* Coloured hover on rows and cards */
@@ -220,7 +241,7 @@ tbody tr:hover, .build-row:hover, .aug-row:hover, .ability:hover { background: v
 .build-row, .aug-row { border-radius: var(--r-sm); transition: background 0.12s; }
 .champ, .style, .card.fact { transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s, background 0.15s; }
 .champ:hover, .style:hover {
-  background: var(--a-soft); border-color: color-mix(in srgb, var(--a) 45%, var(--line));
+  background: var(--a-soft); border-color: var(--a-edge);
   box-shadow: 0 10px 30px -18px var(--a); transform: translateY(-2px);
 }
 .champ:hover .title { color: var(--a-ink); }
@@ -232,20 +253,17 @@ tbody tr:hover, .build-row:hover, .aug-row:hover, .ability:hover { background: v
 .up { color: var(--good); } .down { color: var(--bad); }
 
 /* Rarity chips: filled */
-.chip.tier-gold { color: var(--hue-gold); background: color-mix(in srgb, var(--hue-gold) 18%, transparent); border-color: color-mix(in srgb, var(--hue-gold) 60%, transparent); }
-.chip.tier-silver { background: color-mix(in srgb, var(--silver) 16%, transparent); border-color: color-mix(in srgb, var(--silver) 50%, transparent); }
+.chip.tier-gold { color: var(--hue-gold-ink); background: rgba(224, 168, 60, 0.18); border-color: rgba(224, 168, 60, 0.6); }
+.chip.tier-silver { background: var(--silver-soft); border-color: var(--silver-edge); }
 .chip.tier-prismatic { box-shadow: 0 0 12px -4px #c9b8ff; }
-.grade-s { color: var(--a-ink); background: var(--a-soft); border-color: color-mix(in srgb, var(--a) 45%, transparent); }
-.grade-a { color: var(--hue-gold); background: color-mix(in srgb, var(--hue-gold) 16%, transparent); border-color: color-mix(in srgb, var(--hue-gold) 50%, transparent); }
-.grade-b, .grade-c { background: color-mix(in srgb, var(--silver) 14%, transparent); }
-.tier-label-prismatic { color: #a98bff; }
-.tier-label-gold { color: var(--hue-gold); }
+.grade-s { color: var(--a-ink); background: var(--a-soft); border-color: rgba(63, 167, 245, 0.45); }
+.grade-a { color: var(--hue-gold-ink); background: rgba(224, 168, 60, 0.16); border-color: rgba(224, 168, 60, 0.5); }
+.grade-b, .grade-c { background: var(--silver-soft-2); }
+.tier-label-prismatic { color: var(--prism-ink); }
+.tier-label-gold { color: var(--hue-gold-ink); }
 .style-head h3 { color: var(--a-ink); }
-
-/* Skins: a grid of tiles with names */
-.skins { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 0.75rem; }
-.skin { margin: 0; border-radius: var(--r); overflow: hidden; background: var(--a-soft); transition: transform 0.15s ease; }
-.skin:hover { transform: translateY(-2px); }
-.skin img { display: block; width: 100%; aspect-ratio: 1; object-fit: cover; }
-.skin figcaption { padding: 0.4rem 0.5rem; font-size: 0.8rem; line-height: 1.25; }
 table.stats td:first-child { white-space: nowrap; }
+.chip.mod-up { color: var(--good); border-color: var(--good); } .chip.mod-down { color: var(--bad); border-color: var(--bad); }
+
+/* Phones: form fields at 16px or more, so Safari doesn't zoom in on focus */
+@media (pointer: coarse) { input, select, textarea { font-size: max(16px, 1em); } }

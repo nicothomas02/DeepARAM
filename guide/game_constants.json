@@ -1,0 +1,61 @@
+{
+ "mayhemQueue": 2400,
+ "mayhemQueues": [
+  2400
+ ],
+ "queues": [
+  {
+   "id": 72,
+   "map": "Howling Abyss",
+   "name": "1v1 Snowdown Showdown games"
+  },
+  {
+   "id": 73,
+   "map": "Howling Abyss",
+   "name": "2v2 Snowdown Showdown games"
+  },
+  {
+   "id": 78,
+   "map": "Howling Abyss",
+   "name": "One For All: Mirror Mode games"
+  },
+  {
+   "id": 100,
+   "map": "Butcher's Bridge",
+   "name": "5v5 ARAM games"
+  },
+  {
+   "id": 450,
+   "map": "Howling Abyss",
+   "name": "5v5 ARAM games"
+  },
+  {
+   "id": 720,
+   "map": "Howling Abyss",
+   "name": "ARAM Clash games"
+  },
+  {
+   "id": 920,
+   "map": "Howling Abyss",
+   "name": "Legend of the Poro King games"
+  },
+  {
+   "id": 2400,
+   "map": "Howling Abyss",
+   "name": "ARAM: Mayhem"
+  }
+ ],
+ "maps": [
+  {
+   "id": 12,
+   "name": "Howling Abyss"
+  },
+  {
+   "id": 14,
+   "name": "Butcher's Bridge"
+  }
+ ],
+ "gameModes": [
+  "ARAM"
+ ]
+}

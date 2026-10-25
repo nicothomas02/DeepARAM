@@ -1,6 +1,8 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
+import { KEPT, useKept } from "@/lib/kept";
+import { useNames, useT, type NameKind } from "./I18n";
 
 // The PBE tab's change tracker: every champion, item and augment change on the test server, each tagged
 // as a likely buff or nerf from which way its numbers moved (data/pbe/tracker.json, tools/datamine/tracker.py).
@@ -9,6 +11,8 @@ export type Tag = "buff" | "nerf" | "mixed" | "neutral" | "unclear" | "new" | "r
 export type TrackerEntry = {
   kind: "champion" | "item" | "augment";
   name: string;
+  /** Champion alias, item id or augment id, for the official name in the visitor's language. */
+  id?: string | number;
   tag: Tag;
   icon?: string;
   tier?: string;
@@ -41,7 +45,12 @@ export default function ChangeTracker({ entries }: { entries: TrackerEntry[] }) 
   const [kind, setKind] = useState<(typeof KINDS)[number][0]>("all");
   const [tag, setTag] = useState<Tag | null>(null);
   const [q, setQ] = useState("");
-  const [all, setAll] = useState(false);
+  const box = useRef<HTMLDivElement>(null);
+  const [all, setAll] = useKept(false, box);
+  const t = useT("pbe");
+  const td = useT("pbe-data");
+  const names = useNames();
+  const nameOf = (e: TrackerEntry) => (e.id === undefined ? e.name : names(`${e.kind}s` as NameKind, e.id, e.name));
 
   const ofKind = useMemo(() => entries.filter((e) => kind === "all" || e.kind === kind), [entries, kind]);
   const counts = useMemo(() => {
@@ -53,48 +62,49 @@ export default function ChangeTracker({ entries }: { entries: TrackerEntry[] }) 
     const s = q.trim().toLowerCase();
     return ofKind
       .filter((e) => !tag || e.tag === tag)
-      .filter((e) => !s || e.name.toLowerCase().includes(s) || e.lines.some((l) => l.text.toLowerCase().includes(s)))
-      .sort((a, b) => ORDER[a.tag] - ORDER[b.tag] || a.name.localeCompare(b.name));
-  }, [ofKind, tag, q]);
+      .filter((e) => !s || [e.name, nameOf(e), ...e.lines.flatMap((l) => [l.text, td(l.text)])].some((x) => x.toLowerCase().includes(s)))
+      .sort((a, b) => ORDER[a.tag] - ORDER[b.tag] || nameOf(a).localeCompare(nameOf(b)));
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- nameOf and td change with the language, which names and td already track
+  }, [ofKind, tag, q, names, td]);
   const cut = !all && !tag && !q.trim() && shown.length > FIRST + 3;
 
   return (
-    <div className="tracker">
+    <div className="tracker" ref={box} {...KEPT}>
       <div className="tracker-bar">
-        <div className="seg" role="group" aria-label="Show">
+        <div className="seg" role="group" aria-label={t("Show")}>
           {KINDS.map(([k, label]) => (
             <button key={k} type="button" aria-pressed={kind === k} onClick={() => setKind(k)}>
-              {label}
+              {t(label)}
             </button>
           ))}
         </div>
-        <input className="table-search" type="search" placeholder="Search changes" aria-label="Search changes" value={q} onChange={(e) => setQ(e.target.value)} />
+        <input className="table-search" type="search" placeholder={t("Search changes")} aria-label={t("Search changes")} value={q} onChange={(e) => setQ(e.target.value)} />
       </div>
-      <div className="tracker-tags" role="group" aria-label="Filter by tag">
-        {TAGS.filter((t) => counts[t]).map((t) => (
-          <button key={t} type="button" className={`tag tag-${t}`} aria-pressed={tag === t} onClick={() => setTag(tag === t ? null : t)}>
-            {LABEL[t]} <b>{counts[t]}</b>
+      <div className="tracker-tags" role="group" aria-label={t("Filter by tag")}>
+        {TAGS.filter((x) => counts[x]).map((x) => (
+          <button key={x} type="button" className={`tag tag-${x}`} aria-pressed={tag === x} onClick={() => setTag(tag === x ? null : x)}>
+            {t(LABEL[x])} <b>{counts[x]}</b>
           </button>
         ))}
       </div>
       {shown.length ? (
-        <ul className="tracker-list">
+        <ul className={`tracker-list${cut ? " is-cut" : ""}`}>
           {(cut ? shown.slice(0, FIRST) : shown).map((e) => (
             <li key={`${e.kind}-${e.name}`} className={`tracker-row is-${e.tag}`}>
               <div className="tracker-head">
                 {e.icon ? <img src={e.icon} alt="" width={32} height={32} loading="lazy" /> : <span className="tracker-noicon" aria-hidden />}
                 <span className="tracker-name">
-                  <b>{e.name}</b>
+                  <b>{nameOf(e)}</b>
                   <span className="sub">
-                    {e.kind === "augment" ? `${e.tier ? `${e.tier[0].toUpperCase()}${e.tier.slice(1)} augment` : "Augment"}${e.set ? ` · ${e.set}` : ""}` : e.kind === "item" ? "Item" : "Champion"}
+                    {e.kind === "augment" ? `${t(e.tier ? `${e.tier[0].toUpperCase()}${e.tier.slice(1)} augment` : "Augment")}${e.set ? ` · ${e.set}` : ""}` : t(e.kind === "item" ? "Item" : "Champion")}
                   </span>
                 </span>
-                <span className={`tag tag-${e.tag}`}>{LABEL[e.tag]}</span>
+                <span className={`tag tag-${e.tag}`}>{t(LABEL[e.tag])}</span>
               </div>
               <ul className="tracker-lines">
                 {e.lines.map((l) => (
-                  <li key={l.text} className={`is-${l.tag}`} title={LABEL[l.tag]}>
-                    {l.text}
+                  <li key={l.text} className={`is-${l.tag}`} title={t(LABEL[l.tag])}>
+                    {td(l.text)}
                   </li>
                 ))}
               </ul>
@@ -104,11 +114,11 @@ export default function ChangeTracker({ entries }: { entries: TrackerEntry[] }) 
       ) : null}
       {cut && (
         <button type="button" className="btn ghost tracker-more" onClick={() => setAll(true)}>
-          Show all {shown.length} changes
+          {t("Show all {n} changes", { n: shown.length })}
         </button>
       )}
       {shown.length ? null : (
-        <p className="sub">No changes match.</p>
+        <p className="sub">{t("No changes match.")}</p>
       )}
     </div>
   );

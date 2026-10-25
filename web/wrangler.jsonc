@@ -22,7 +22,7 @@
   // ERRORS: browser errors from /api/log, read by the morning error check.
   // PROFILES: public player pages people publish from My Stats (table profiles).
   // GAMES: games players chose to share, without names or account ids (tables games, sharers, meta).
-  // SIM: builds visitors submit to the Simulator leaderboard (table submissions), re-simulated before they count.
+  // SIM: held the removed Simulator leaderboard (table submissions); no route reads it now. Kept so the data stays.
   "d1_databases": [
     { "binding": "ERRORS", "database_name": "deeparam-errors", "database_id": "a09c155a-a812-4c9a-a5ef-df74082daeaf" },
     { "binding": "PROFILES", "database_name": "deeparam-profiles", "database_id": "20816c13-cbcb-4028-a963-74fefbf2ca81" },

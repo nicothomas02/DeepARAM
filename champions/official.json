@@ -1,0 +1,1177 @@
+{
+ "difficulty": [
+  "Low",
+  "Medium",
+  "High"
+ ],
+ "champions": {
+  "Aatrox": {
+   "roles": [
+    "Fighter"
+   ],
+   "difficulty": 2
+  },
+  "Ahri": {
+   "roles": [
+    "Mage",
+    "Assassin"
+   ],
+   "difficulty": 2
+  },
+  "Akali": {
+   "roles": [
+    "Assassin"
+   ],
+   "difficulty": 2
+  },
+  "Akshan": {
+   "roles": [
+    "Marksman",
+    "Assassin"
+   ],
+   "difficulty": 1
+  },
+  "Alistar": {
+   "roles": [
+    "Tank",
+    "Support"
+   ],
+   "difficulty": 2
+  },
+  "Ambessa": {
+   "roles": [
+    "Fighter",
+    "Assassin"
+   ],
+   "difficulty": 3
+  },
+  "Amumu": {
+   "roles": [
+    "Tank",
+    "Support"
+   ],
+   "difficulty": 1
+  },
+  "Anivia": {
+   "roles": [
+    "Mage"
+   ],
+   "difficulty": 3
+  },
+  "Annie": {
+   "roles": [
+    "Mage",
+    "Support"
+   ],
+   "difficulty": 2
+  },
+  "Aphelios": {
+   "roles": [
+    "Marksman"
+   ],
+   "difficulty": 3
+  },
+  "Ashe": {
+   "roles": [
+    "Marksman",
+    "Support"
+   ],
+   "difficulty": 2
+  },
+  "AurelionSol": {
+   "roles": [
+    "Mage"
+   ],
+   "difficulty": 2
+  },
+  "Aurora": {
+   "roles": [
+    "Mage",
+    "Assassin"
+   ],
+   "difficulty": 2
+  },
+  "Azir": {
+   "roles": [
+    "Mage",
+    "Marksman"
+   ],
+   "difficulty": 3
+  },
+  "Bard": {
+   "roles": [
+    "Support",
+    "Mage"
+   ],
+   "difficulty": 3
+  },
+  "Belveth": {
+   "roles": [
+    "Fighter"
+   ],
+   "difficulty": 3
+  },
+  "Blitzcrank": {
+   "roles": [
+    "Tank",
+    "Support"
+   ],
+   "difficulty": 2
+  },
+  "Brand": {
+   "roles": [
+    "Mage",
+    "Support"
+   ],
+   "difficulty": 2
+  },
+  "Braum": {
+   "roles": [
+    "Tank",
+    "Support"
+   ],
+   "difficulty": 1
+  },
+  "Briar": {
+   "roles": [
+    "Fighter",
+    "Assassin"
+   ],
+   "difficulty": 1
+  },
+  "Caitlyn": {
+   "roles": [
+    "Marksman"
+   ],
+   "difficulty": 2
+  },
+  "Camille": {
+   "roles": [
+    "Fighter",
+    "Assassin"
+   ],
+   "difficulty": 2
+  },
+  "Cassiopeia": {
+   "roles": [
+    "Mage"
+   ],
+   "difficulty": 3
+  },
+  "Chogath": {
+   "roles": [
+    "Tank",
+    "Mage"
+   ],
+   "difficulty": 2
+  },
+  "Corki": {
+   "roles": [
+    "Marksman",
+    "Mage"
+   ],
+   "difficulty": 2
+  },
+  "Darius": {
+   "roles": [
+    "Fighter",
+    "Tank"
+   ],
+   "difficulty": 1
+  },
+  "Diana": {
+   "roles": [
+    "Fighter",
+    "Assassin"
+   ],
+   "difficulty": 2
+  },
+  "DrMundo": {
+   "roles": [
+    "Tank",
+    "Fighter"
+   ],
+   "difficulty": 2
+  },
+  "Draven": {
+   "roles": [
+    "Marksman"
+   ],
+   "difficulty": 3
+  },
+  "Ekko": {
+   "roles": [
+    "Assassin",
+    "Mage"
+   ],
+   "difficulty": 3
+  },
+  "Elise": {
+   "roles": [
+    "Assassin",
+    "Mage"
+   ],
+   "difficulty": 3
+  },
+  "Evelynn": {
+   "roles": [
+    "Assassin",
+    "Mage"
+   ],
+   "difficulty": 3
+  },
+  "Ezreal": {
+   "roles": [
+    "Marksman",
+    "Mage"
+   ],
+   "difficulty": 2
+  },
+  "FiddleSticks": {
+   "roles": [
+    "Mage",
+    "Support"
+   ],
+   "difficulty": 3
+  },
+  "Fiora": {
+   "roles": [
+    "Fighter",
+    "Assassin"
+   ],
+   "difficulty": 1
+  },
+  "Fizz": {
+   "roles": [
+    "Assassin",
+    "Fighter"
+   ],
+   "difficulty": 2
+  },
+  "Galio": {
+   "roles": [
+    "Tank",
+    "Mage"
+   ],
+   "difficulty": 2
+  },
+  "Gangplank": {
+   "roles": [
+    "Fighter"
+   ],
+   "difficulty": 3
+  },
+  "Garen": {
+   "roles": [
+    "Fighter",
+    "Tank"
+   ],
+   "difficulty": 2
+  },
+  "Gnar": {
+   "roles": [
+    "Fighter",
+    "Tank"
+   ],
+   "difficulty": 3
+  },
+  "Gragas": {
+   "roles": [
+    "Fighter",
+    "Mage"
+   ],
+   "difficulty": 2
+  },
+  "Graves": {
+   "roles": [
+    "Marksman"
+   ],
+   "difficulty": 1
+  },
+  "Gwen": {
+   "roles": [
+    "Fighter"
+   ],
+   "difficulty": 2
+  },
+  "Hecarim": {
+   "roles": [
+    "Fighter",
+    "Tank"
+   ],
+   "difficulty": 2
+  },
+  "Heimerdinger": {
+   "roles": [
+    "Mage",
+    "Support"
+   ],
+   "difficulty": 3
+  },
+  "Hwei": {
+   "roles": [
+    "Mage",
+    "Support"
+   ],
+   "difficulty": 3
+  },
+  "Illaoi": {
+   "roles": [
+    "Fighter",
+    "Tank"
+   ],
+   "difficulty": 2
+  },
+  "Irelia": {
+   "roles": [
+    "Fighter",
+    "Assassin"
+   ],
+   "difficulty": 2
+  },
+  "Ivern": {
+   "roles": [
+    "Support",
+    "Mage"
+   ],
+   "difficulty": 2
+  },
+  "Janna": {
+   "roles": [
+    "Support",
+    "Mage"
+   ],
+   "difficulty": 2
+  },
+  "JarvanIV": {
+   "roles": [
+    "Fighter",
+    "Tank"
+   ],
+   "difficulty": 2
+  },
+  "Jax": {
+   "roles": [
+    "Fighter"
+   ],
+   "difficulty": 2
+  },
+  "Jayce": {
+   "roles": [
+    "Fighter",
+    "Marksman"
+   ],
+   "difficulty": 2
+  },
+  "Jhin": {
+   "roles": [
+    "Marksman",
+    "Mage"
+   ],
+   "difficulty": 2
+  },
+  "Jinx": {
+   "roles": [
+    "Marksman"
+   ],
+   "difficulty": 2
+  },
+  "KSante": {
+   "roles": [
+    "Tank",
+    "Fighter"
+   ],
+   "difficulty": 3
+  },
+  "Kaisa": {
+   "roles": [
+    "Marksman",
+    "Mage"
+   ],
+   "difficulty": 2
+  },
+  "Kalista": {
+   "roles": [
+    "Marksman"
+   ],
+   "difficulty": 2
+  },
+  "Karma": {
+   "roles": [
+    "Mage",
+    "Support"
+   ],
+   "difficulty": 2
+  },
+  "Karthus": {
+   "roles": [
+    "Mage"
+   ],
+   "difficulty": 2
+  },
+  "Kassadin": {
+   "roles": [
+    "Assassin",
+    "Mage"
+   ],
+   "difficulty": 3
+  },
+  "Katarina": {
+   "roles": [
+    "Assassin",
+    "Mage"
+   ],
+   "difficulty": 3
+  },
+  "Kayle": {
+   "roles": [
+    "Marksman",
+    "Mage"
+   ],
+   "difficulty": 2
+  },
+  "Kayn": {
+   "roles": [
+    "Fighter",
+    "Assassin"
+   ],
+   "difficulty": 3
+  },
+  "Kennen": {
+   "roles": [
+    "Mage"
+   ],
+   "difficulty": 2
+  },
+  "Khazix": {
+   "roles": [
+    "Assassin"
+   ],
+   "difficulty": 2
+  },
+  "Kindred": {
+   "roles": [
+    "Marksman"
+   ],
+   "difficulty": 2
+  },
+  "Kled": {
+   "roles": [
+    "Fighter"
+   ],
+   "difficulty": 2
+  },
+  "KogMaw": {
+   "roles": [
+    "Marksman",
+    "Mage"
+   ],
+   "difficulty": 2
+  },
+  "Leblanc": {
+   "roles": [
+    "Assassin",
+    "Mage"
+   ],
+   "difficulty": 3
+  },
+  "LeeSin": {
+   "roles": [
+    "Fighter",
+    "Assassin"
+   ],
+   "difficulty": 2
+  },
+  "Leona": {
+   "roles": [
+    "Tank",
+    "Support"
+   ],
+   "difficulty": 2
+  },
+  "Lillia": {
+   "roles": [
+    "Fighter",
+    "Mage"
+   ],
+   "difficulty": 3
+  },
+  "Lissandra": {
+   "roles": [
+    "Mage"
+   ],
+   "difficulty": 2
+  },
+  "Locke": {
+   "roles": [
+    "Assassin",
+    "Mage"
+   ],
+   "difficulty": 2
+  },
+  "Lucian": {
+   "roles": [
+    "Marksman",
+    "Assassin"
+   ],
+   "difficulty": 2
+  },
+  "Lulu": {
+   "roles": [
+    "Support",
+    "Mage"
+   ],
+   "difficulty": 2
+  },
+  "Lux": {
+   "roles": [
+    "Mage",
+    "Support"
+   ],
+   "difficulty": 2
+  },
+  "Malphite": {
+   "roles": [
+    "Tank",
+    "Mage"
+   ],
+   "difficulty": 1
+  },
+  "Malzahar": {
+   "roles": [
+    "Mage"
+   ],
+   "difficulty": 2
+  },
+  "Maokai": {
+   "roles": [
+    "Tank",
+    "Support"
+   ],
+   "difficulty": 1
+  },
+  "MasterYi": {
+   "roles": [
+    "Fighter",
+    "Assassin"
+   ],
+   "difficulty": 2
+  },
+  "Mel": {
+   "roles": [
+    "Mage",
+    "Support"
+   ],
+   "difficulty": 2
+  },
+  "Milio": {
+   "roles": [
+    "Support",
+    "Mage"
+   ],
+   "difficulty": 2
+  },
+  "MissFortune": {
+   "roles": [
+    "Marksman",
+    "Mage"
+   ],
+   "difficulty": 1
+  },
+  "MonkeyKing": {
+   "roles": [
+    "Fighter",
+    "Tank"
+   ],
+   "difficulty": 1
+  },
+  "Mordekaiser": {
+   "roles": [
+    "Fighter",
+    "Mage"
+   ],
+   "difficulty": 2
+  },
+  "Morgana": {
+   "roles": [
+    "Support",
+    "Mage"
+   ],
+   "difficulty": 1
+  },
+  "Naafiri": {
+   "roles": [
+    "Assassin",
+    "Fighter"
+   ],
+   "difficulty": 1
+  },
+  "Nami": {
+   "roles": [
+    "Support",
+    "Mage"
+   ],
+   "difficulty": 2
+  },
+  "Nasus": {
+   "roles": [
+    "Fighter",
+    "Tank"
+   ],
+   "difficulty": 2
+  },
+  "Nautilus": {
+   "roles": [
+    "Tank",
+    "Support"
+   ],
+   "difficulty": 2
+  },
+  "Neeko": {
+   "roles": [
+    "Mage",
+    "Support"
+   ],
+   "difficulty": 2
+  },
+  "Nidalee": {
+   "roles": [
+    "Assassin",
+    "Mage"
+   ],
+   "difficulty": 3
+  },
+  "Nilah": {
+   "roles": [
+    "Fighter",
+    "Assassin"
+   ],
+   "difficulty": 3
+  },
+  "Nocturne": {
+   "roles": [
+    "Fighter",
+    "Assassin"
+   ],
+   "difficulty": 2
+  },
+  "Nunu": {
+   "roles": [
+    "Tank",
+    "Mage"
+   ],
+   "difficulty": 2
+  },
+  "Olaf": {
+   "roles": [
+    "Fighter",
+    "Tank"
+   ],
+   "difficulty": 1
+  },
+  "Orianna": {
+   "roles": [
+    "Mage",
+    "Support"
+   ],
+   "difficulty": 2
+  },
+  "Ornn": {
+   "roles": [
+    "Tank"
+   ],
+   "difficulty": 2
+  },
+  "Pantheon": {
+   "roles": [
+    "Fighter",
+    "Assassin"
+   ],
+   "difficulty": 2
+  },
+  "Poppy": {
+   "roles": [
+    "Tank",
+    "Fighter"
+   ],
+   "difficulty": 2
+  },
+  "Pyke": {
+   "roles": [
+    "Support",
+    "Assassin"
+   ],
+   "difficulty": 2
+  },
+  "Qiyana": {
+   "roles": [
+    "Assassin"
+   ],
+   "difficulty": 3
+  },
+  "Quinn": {
+   "roles": [
+    "Marksman",
+    "Assassin"
+   ],
+   "difficulty": 2
+  },
+  "Rakan": {
+   "roles": [
+    "Support"
+   ],
+   "difficulty": 2
+  },
+  "Rammus": {
+   "roles": [
+    "Tank"
+   ],
+   "difficulty": 2
+  },
+  "RekSai": {
+   "roles": [
+    "Fighter",
+    "Tank"
+   ],
+   "difficulty": 1
+  },
+  "Rell": {
+   "roles": [
+    "Tank",
+    "Support"
+   ],
+   "difficulty": 1
+  },
+  "Renata": {
+   "roles": [
+    "Support",
+    "Mage"
+   ],
+   "difficulty": 3
+  },
+  "Renekton": {
+   "roles": [
+    "Fighter",
+    "Tank"
+   ],
+   "difficulty": 1
+  },
+  "Rengar": {
+   "roles": [
+    "Assassin",
+    "Fighter"
+   ],
+   "difficulty": 3
+  },
+  "Riven": {
+   "roles": [
+    "Fighter",
+    "Assassin"
+   ],
+   "difficulty": 3
+  },
+  "Rumble": {
+   "roles": [
+    "Fighter",
+    "Mage"
+   ],
+   "difficulty": 3
+  },
+  "Ryze": {
+   "roles": [
+    "Mage"
+   ],
+   "difficulty": 2
+  },
+  "Samira": {
+   "roles": [
+    "Marksman",
+    "Assassin"
+   ],
+   "difficulty": 2
+  },
+  "Sejuani": {
+   "roles": [
+    "Tank"
+   ],
+   "difficulty": 2
+  },
+  "Senna": {
+   "roles": [
+    "Support",
+    "Marksman"
+   ],
+   "difficulty": 2
+  },
+  "Seraphine": {
+   "roles": [
+    "Support",
+    "Mage"
+   ],
+   "difficulty": 1
+  },
+  "Sett": {
+   "roles": [
+    "Fighter",
+    "Tank"
+   ],
+   "difficulty": 1
+  },
+  "Shaco": {
+   "roles": [
+    "Assassin"
+   ],
+   "difficulty": 3
+  },
+  "Shen": {
+   "roles": [
+    "Tank"
+   ],
+   "difficulty": 2
+  },
+  "Shyvana": {
+   "roles": [
+    "Fighter",
+    "Tank"
+   ],
+   "difficulty": 2
+  },
+  "Singed": {
+   "roles": [
+    "Tank",
+    "Mage"
+   ],
+   "difficulty": 2
+  },
+  "Sion": {
+   "roles": [
+    "Tank",
+    "Fighter"
+   ],
+   "difficulty": 2
+  },
+  "Sivir": {
+   "roles": [
+    "Marksman"
+   ],
+   "difficulty": 2
+  },
+  "Skarner": {
+   "roles": [
+    "Tank",
+    "Fighter"
+   ],
+   "difficulty": 2
+  },
+  "Smolder": {
+   "roles": [
+    "Marksman",
+    "Mage"
+   ],
+   "difficulty": 2
+  },
+  "Sona": {
+   "roles": [
+    "Support",
+    "Mage"
+   ],
+   "difficulty": 2
+  },
+  "Soraka": {
+   "roles": [
+    "Support",
+    "Mage"
+   ],
+   "difficulty": 1
+  },
+  "Swain": {
+   "roles": [
+    "Mage",
+    "Support"
+   ],
+   "difficulty": 3
+  },
+  "Sylas": {
+   "roles": [
+    "Mage",
+    "Assassin"
+   ],
+   "difficulty": 2
+  },
+  "Syndra": {
+   "roles": [
+    "Mage"
+   ],
+   "difficulty": 3
+  },
+  "TahmKench": {
+   "roles": [
+    "Tank",
+    "Support"
+   ],
+   "difficulty": 2
+  },
+  "Taliyah": {
+   "roles": [
+    "Mage",
+    "Support"
+   ],
+   "difficulty": 2
+  },
+  "Talon": {
+   "roles": [
+    "Assassin"
+   ],
+   "difficulty": 2
+  },
+  "Taric": {
+   "roles": [
+    "Support",
+    "Tank"
+   ],
+   "difficulty": 1
+  },
+  "Teemo": {
+   "roles": [
+    "Marksman",
+    "Mage"
+   ],
+   "difficulty": 2
+  },
+  "Thresh": {
+   "roles": [
+    "Support",
+    "Tank"
+   ],
+   "difficulty": 2
+  },
+  "Tristana": {
+   "roles": [
+    "Marksman",
+    "Assassin"
+   ],
+   "difficulty": 2
+  },
+  "Trundle": {
+   "roles": [
+    "Fighter",
+    "Tank"
+   ],
+   "difficulty": 2
+  },
+  "Tryndamere": {
+   "roles": [
+    "Fighter",
+    "Assassin"
+   ],
+   "difficulty": 2
+  },
+  "TwistedFate": {
+   "roles": [
+    "Mage",
+    "Marksman"
+   ],
+   "difficulty": 3
+  },
+  "Twitch": {
+   "roles": [
+    "Marksman",
+    "Assassin"
+   ],
+   "difficulty": 2
+  },
+  "Udyr": {
+   "roles": [
+    "Fighter",
+    "Tank"
+   ],
+   "difficulty": 2
+  },
+  "Urgot": {
+   "roles": [
+    "Fighter",
+    "Tank"
+   ],
+   "difficulty": 3
+  },
+  "Varus": {
+   "roles": [
+    "Marksman",
+    "Mage"
+   ],
+   "difficulty": 1
+  },
+  "Vayne": {
+   "roles": [
+    "Marksman",
+    "Assassin"
+   ],
+   "difficulty": 3
+  },
+  "Veigar": {
+   "roles": [
+    "Mage"
+   ],
+   "difficulty": 2
+  },
+  "Velkoz": {
+   "roles": [
+    "Mage",
+    "Support"
+   ],
+   "difficulty": 3
+  },
+  "Vex": {
+   "roles": [
+    "Mage"
+   ],
+   "difficulty": 1
+  },
+  "Vi": {
+   "roles": [
+    "Fighter",
+    "Assassin"
+   ],
+   "difficulty": 2
+  },
+  "Viego": {
+   "roles": [
+    "Fighter",
+    "Assassin"
+   ],
+   "difficulty": 2
+  },
+  "Viktor": {
+   "roles": [
+    "Mage"
+   ],
+   "difficulty": 3
+  },
+  "Vladimir": {
+   "roles": [
+    "Mage",
+    "Fighter"
+   ],
+   "difficulty": 2
+  },
+  "Volibear": {
+   "roles": [
+    "Fighter",
+    "Tank"
+   ],
+   "difficulty": 1
+  },
+  "Warwick": {
+   "roles": [
+    "Fighter",
+    "Tank"
+   ],
+   "difficulty": 1
+  },
+  "Xayah": {
+   "roles": [
+    "Marksman"
+   ],
+   "difficulty": 2
+  },
+  "Xerath": {
+   "roles": [
+    "Mage",
+    "Support"
+   ],
+   "difficulty": 3
+  },
+  "XinZhao": {
+   "roles": [
+    "Fighter",
+    "Tank"
+   ],
+   "difficulty": 1
+  },
+  "Yasuo": {
+   "roles": [
+    "Fighter",
+    "Assassin"
+   ],
+   "difficulty": 3
+  },
+  "Yone": {
+   "roles": [
+    "Fighter",
+    "Assassin"
+   ],
+   "difficulty": 3
+  },
+  "Yorick": {
+   "roles": [
+    "Fighter",
+    "Tank"
+   ],
+   "difficulty": 2
+  },
+  "Yunara": {
+   "roles": [
+    "Marksman"
+   ],
+   "difficulty": 2
+  },
+  "Yuumi": {
+   "roles": [
+    "Support",
+    "Mage"
+   ],
+   "difficulty": 1
+  },
+  "Zaahen": {
+   "roles": [
+    "Fighter"
+   ],
+   "difficulty": 1
+  },
+  "Zac": {
+   "roles": [
+    "Tank",
+    "Fighter"
+   ],
+   "difficulty": 3
+  },
+  "Zed": {
+   "roles": [
+    "Assassin"
+   ],
+   "difficulty": 2
+  },
+  "Zeri": {
+   "roles": [
+    "Marksman"
+   ],
+   "difficulty": 2
+  },
+  "Ziggs": {
+   "roles": [
+    "Mage"
+   ],
+   "difficulty": 2
+  },
+  "Zilean": {
+   "roles": [
+    "Support",
+    "Mage"
+   ],
+   "difficulty": 2
+  },
+  "Zoe": {
+   "roles": [
+    "Mage"
+   ],
+   "difficulty": 2
+  },
+  "Zyra": {
+   "roles": [
+    "Mage",
+    "Support"
+   ],
+   "difficulty": 2
+  }
+ }
+}

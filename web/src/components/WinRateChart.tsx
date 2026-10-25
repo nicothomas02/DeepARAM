@@ -1,12 +1,14 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
+import { useNames, useT } from "./I18n";
+import { patchName } from "@/lib/patch-name";
 
 // A champion's win rate (or pick rate) patch by patch. Hover or touch to scrub patches, drag across
 // the chart to zoom into a range, and pick a second champion to overlay. The other champions' history
 // loads from /data/tier-history.json the first time one is picked.
 
-export type Point = { patch: string; winRate: number; pickRate: number };
+type Point = { patch: string; winRate: number; pickRate: number };
 type Row = { patch: string; name: string; win_rate: number; pick_rate: number };
 
 const H = 240;
@@ -14,16 +16,21 @@ const PAD = { l: 44, r: 16, t: 14, b: 28 };
 const pct = (v: number) => `${(v * 100).toFixed(1)}%`;
 
 export default function WinRateChart({
-  name,
+  id,
+  name: en,
   history,
   patches,
   champions,
 }: {
+  id: string;
   name: string;
   history: Point[];
   patches: string[];
   champions: { id: string; name: string }[];
 }) {
+  const t = useT("champion-page");
+  const names = useNames();
+  const name = names("champions", id, en);
   const box = useRef<HTMLDivElement>(null);
   const [w, setW] = useState(720);
   const [metric, setMetric] = useState<"winRate" | "pickRate">("winRate");
@@ -52,7 +59,18 @@ export default function WinRateChart({
   const byPatch = (pts: Point[]) => new Map(pts.map((p) => [p.patch, p]));
   const mine = useMemo(() => byPatch(history), [history]);
   const theirs = useMemo(
-    () => (other && all ? byPatch(all.filter((r) => r.name === other).map((r) => ({ patch: r.patch, winRate: r.win_rate, pickRate: r.pick_rate }))) : null),
+    () =>
+      other && all
+        ? byPatch(
+            all
+              .filter((r) => r.name === other)
+              .map((r) => ({
+                patch: r.patch,
+                winRate: r.win_rate,
+                pickRate: r.pick_rate,
+              })),
+          )
+        : null,
     [other, all],
   );
 
@@ -88,32 +106,33 @@ export default function WinRateChart({
 
   const h = hover !== null ? shown[hover] : null;
   const zoomed = lo > 0 || hi < patches.length - 1;
-  const otherName = champions.find((c) => c.id === other)?.name;
+  const otherEn = champions.find((c) => c.id === other)?.name;
+  const otherName = otherEn && names("champions", other, otherEn);
 
   return (
     <section className="card span-all wr-chart" data-accent="tier">
       <div className="card-head">
-        <h2>{metric === "winRate" ? "Win rate" : "Pick rate"} by patch</h2>
+        <h2>{metric === "winRate" ? t("Win rate by patch") : t("Pick rate by patch")}</h2>
         <div className="wr-tools">
-          <div className="seg" role="group" aria-label="Measure">
+          <div className="seg" role="group" aria-label={t("Measure")}>
             <button type="button" aria-pressed={metric === "winRate"} onClick={() => setMetric("winRate")}>
-              Win
+              {t("Win")}
             </button>
             <button type="button" aria-pressed={metric === "pickRate"} onClick={() => setMetric("pickRate")}>
-              Pick
+              {t("Pick")}
             </button>
           </div>
-          <select value={other} onChange={(e) => setOther(e.target.value)} aria-label="Compare with">
-            <option value="">Compare with…</option>
+          <select value={other} onChange={(e) => setOther(e.target.value)} aria-label={t("Compare with")}>
+            <option value="">{t("Compare with…")}</option>
             {champions.map((c) => (
               <option key={c.id} value={c.id}>
-                {c.name}
+                {names("champions", c.id, c.name)}
               </option>
             ))}
           </select>
           {zoomed && (
             <button type="button" className="wr-reset" onClick={() => setRange([0, patches.length - 1])}>
-              Show all patches
+              {t("Show all patches")}
             </button>
           )}
         </div>
@@ -143,7 +162,7 @@ export default function WinRateChart({
           setDrag(null);
         }}
       >
-        <svg width={w} height={H} role="img" aria-label={`${name} ${metric === "winRate" ? "win" : "pick"} rate by patch`}>
+        <svg width={w} height={H} role="img" aria-label={`${name}: ${metric === "winRate" ? t("Win rate by patch") : t("Pick rate by patch")}`}>
           {ticks.map((t) => (
             <g key={t}>
               <line className="wr-grid" x1={PAD.l} x2={w - PAD.r} y1={y(t)} y2={y(t)} />
@@ -155,8 +174,14 @@ export default function WinRateChart({
           {metric === "winRate" && min < 0.5 && max > 0.5 && <line className="wr-even" x1={PAD.l} x2={w - PAD.r} y1={y(0.5)} y2={y(0.5)} />}
           {shown.map((p, i) =>
             i % every === 0 || i === shown.length - 1 ? (
-              <text key={p} className="wr-axis" x={x(i)} y={H - 8} textAnchor={i === shown.length - 1 && shown.length > 1 ? "end" : i === 0 && shown.length > 1 ? "start" : "middle"}>
-                {p}
+              <text
+                key={p}
+                className="wr-axis"
+                x={x(i)}
+                y={H - 8}
+                textAnchor={i === shown.length - 1 && shown.length > 1 ? "end" : i === 0 && shown.length > 1 ? "start" : "middle"}
+              >
+                {patchName(p)}
               </text>
             ) : null,
           )}
@@ -173,7 +198,7 @@ export default function WinRateChart({
         </svg>
         {h && (
           <div className="wr-tip" style={{ left: Math.min(Math.max(x(hover!), 70), w - 70) }}>
-            <b>Patch {h}</b>
+            <b>{t("Patch {patch}", { patch: patchName(h) })}</b>
             <span>
               {name}: {mine.get(h) ? pct(mine.get(h)![metric]) : "–"}
             </span>
@@ -185,7 +210,7 @@ export default function WinRateChart({
           </div>
         )}
       </div>
-      <p className="table-note">Hover or tap to see each patch. With a mouse, drag across the chart to zoom in.</p>
+      <p className="table-note">{t("Hover or tap to see each patch. With a mouse, drag across the chart to zoom in.")}</p>
     </section>
   );
 }

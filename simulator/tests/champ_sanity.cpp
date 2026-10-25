@@ -87,7 +87,7 @@ int main(int argc, char** argv) {
     quick.optimizer.candidates = 8;
     quick.optimizer.finalists = 4;
     const auto ranked = optimize(quick, *ahri, sc, 2, 3);
-    const Build manual{{"sorcerers", "rabadons", "void_staff", "shadowflame", "cryptbloom", "horizon_focus"}, {}};
+    const Build manual{{"sorcerers", "rabadons", "void_staff", "shadowflame", "stormsurge", "horizon_focus"}, {}};
     const double manualDps = meanDps(quick, *ahri, manual, sc, 400);
     CHECK(!ranked.empty() && ranked.front().build.items.size() == 6 && ranked.front().build.augments.size() == 4,
           "optimizer returns boots, five legendaries and four augments");
@@ -149,7 +149,7 @@ int main(int argc, char** argv) {
         const double hpPct = wm.effects.count("hp_pct") ? wm.effects.at("hp_pct") : 0.0;
         const Scenario gsc = geared.scenarioFor(*ahri);
         CHECK(gsc.enemies.size() == 1 &&
-                  std::abs(gsc.enemies[0].hp - (malph.hp + malph.hpG * g + wm.stats.at("hp")) * (1 + hpPct)) < 1e-6,
+                  std::abs(gsc.enemies[0].hp - (malph.hp + malph.hpG * g + lib.rules.mayhemHp(18, malph.ranged) + wm.stats.at("hp")) * (1 + hpPct)) < 1e-6,
               "an enemy's listed items replace its build");
         geared.enemyTeam = {"Malphite:hp=4000:items=warmogs"};
         CHECK(geared.scenarioFor(*ahri).enemies[0].hp == 4000, "a listed Health replaces what the build gives");
@@ -249,6 +249,16 @@ int main(int argc, char** argv) {
         }
         CHECK(stuns && named, "crowd control is recorded with its kind, on enemies and on you");
 
+        // Toggles stay on while enemies are in reach, and the replay sees them switch on.
+        for (const char* n : {"Singed", "Karthus", "Amumu", "Anivia"}) {
+            const ChampionKit& tk = *calm.find(n);
+            bool always = false;
+            for (const auto& ab : tk.abilities) always |= ab.toggle && ab.aura;
+            bool shown = false;
+            for (const auto& e : traceFight(calm, tk, cap, calm.scenarioFor(tk), 4).events) shown |= e.kind == "toggle" && e.flag;
+            CHECK(always && shown, (std::string(n) + "'s toggle stays on and shows in the replay").c_str());
+        }
+
         // Shields: Lux's W shields her, and Sterak's Gage shields you when you drop low.
         const ChampionKit& lux = *calm.find("Lux");
         const FightTrace xt = traceFight(calm, lux, cap, calm.scenarioFor(lux), 3);
@@ -324,6 +334,46 @@ int main(int argc, char** argv) {
             CHECK(meanDps(lib, *veigar, cap, vsc, 600) > meanDps(lib, plain, cap, vsc, 600),
                   "Veigar's AP stacks add damage");
         }
+    }
+
+    {
+        // Kit fixes from the client's spell data: an ability's on-attack passive, a cast's
+        // attack-speed buff, and a tooltip number that is per second.
+        const ChampionKit* kennen = lib.find("Kennen");
+        CHECK(kennen && !kennen->passives.empty(), "Kennen's Electrical Surge procs on his attacks");
+        if (kennen) {
+            ChampionKit noRush = *kennen;
+            for (auto& a : noRush.abilities) a.buffAs = 0;
+            const Scenario ksc = lib.scenarioFor(*kennen);
+            CHECK(meanDps(lib, *kennen, cap, ksc, 600) > meanDps(lib, noRush, cap, ksc, 600),
+                  "Lightning Rush's attack speed adds damage");
+        }
+        const ChampionKit* mundo = lib.find("DrMundo");
+        CHECK(mundo && !mundo->abilities[1].hits.empty() && mundo->abilities[1].hits[0].perSecond,
+              "Heart Zapper deals its damage every second");
+
+        // Kits that change their abilities mid-fight. Viego's own E, and Sylas' and Ivern's R, deal
+        // no damage, so damage from those slots comes from a possessed kit, a stolen ultimate or Daisy.
+        auto shareOf = [&](const ChampionKit& c, const Build& b, Source s) {
+            const Scenario csc = lib.scenarioFor(c);
+            return summarize(runTrials(lib, c, b, csc, 0, 300)).shareBySource[s];
+        };
+        const Build blade{{"botrk"}, {}};
+        const ChampionKit* viego = lib.find("Viego");
+        CHECK(viego && shareOf(*viego, blade, SrcE) > 0, "Viego casts the E of the champion he possesses");
+        const ChampionKit* sylas = lib.find("Sylas");
+        CHECK(sylas && shareOf(*sylas, cap, SrcR) > 0, "Sylas casts the ultimate he hijacks");
+        const ChampionKit* aphelios = lib.find("Aphelios");
+        CHECK(aphelios && shareOf(*aphelios, blade, SrcQ) > 0 && shareOf(*aphelios, blade, SrcW) > 0,
+              "Aphelios casts his main-hand (Q) and off-hand (W) weapons' abilities");
+        const ChampionKit* ivern = lib.find("Ivern");
+        CHECK(ivern && shareOf(*ivern, cap, SrcR) > 0, "Daisy fights for Ivern");
+        const ChampionKit* yuumi = lib.find("Yuumi");
+        CHECK(yuumi && shareOf(*yuumi, cap, SrcAttack) == 0, "attached Yuumi doesn't attack");
+        const ChampionKit* hwei = lib.find("Hwei");
+        bool nine = hwei && hwei->abilities.size() >= 3;
+        for (size_t i = 0; nine && i < 3; ++i) nine &= hwei->abilities[i].variants.size() >= 2;
+        CHECK(nine, "Hwei's Q, W and E each hold their spells to pick from");
     }
 
     {

@@ -6,6 +6,7 @@ describe("settings", () => {
   beforeEach(() => {
     localStorage.clear();
     delete document.documentElement.dataset.motion;
+    delete document.documentElement.dataset.view;
   });
 
   it("starts from the defaults and survives corrupted storage", () => {
@@ -32,5 +33,15 @@ describe("settings", () => {
     expect(document.documentElement.dataset.motion).toBe("reduce");
     localStorage.setItem(SETTINGS_KEY, "{oops");
     expect(() => new Function(SETTINGS_SCRIPT)()).not.toThrow();
+  });
+
+  it("shows the simple view by default and the detailed view when picked", () => {
+    new Function(SETTINGS_SCRIPT)();
+    expect(document.documentElement.dataset.view).toBe("simple");
+    saveSettings({ view: "detailed" });
+    expect(document.documentElement.dataset.view).toBe("detailed");
+    delete document.documentElement.dataset.view;
+    new Function(SETTINGS_SCRIPT)();
+    expect(document.documentElement.dataset.view).toBe("detailed");
   });
 });

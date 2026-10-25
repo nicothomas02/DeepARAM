@@ -16,9 +16,10 @@
   },
   "effects": {
    "range_ranged_l1": 0,
-   "range_ranged_l18": 75
+   "range_ranged_l18": 75,
+   "crit_damage_mult": 0.8
   },
-  "why": "Absolution: 60 souls assumed by level 18 (0.75 AD each, 10% crit and 25 range per 20)"
+  "why": "Absolution: 60 souls assumed by level 18 (0.75 AD each, 10% crit and 25 range per 20); her crits deal only 80% of the usual crit multiplier (CritDamageMod 0.8)"
  },
  "Thresh": {
   "stats": {
@@ -60,22 +61,34 @@
  "Kayle": {
   "effects": {
    "attack_range_set": 525,
-   "attack_range_level": 6
+   "attack_range_level": 6,
+   "attack_range_set2": 625,
+   "attack_range_level2": 16
   },
-  "why": "Divine Ascent: attacks from 525 range from level 6"
+  "why": "Divine Ascent: attacks from 525 range from level 6; Transcendent: 625 range from level 16 (FinalAttackRange) and permanently Exalted: 5 Zealous stacks of 6% attack speed",
+  "stats": {
+   "as": 0.3
+  }
  },
  "Tryndamere": {
   "stats": {
-   "crit": 0.25
+   "crit": 0.3,
+   "ad": 40
   },
-  "why": "Battle Fury: 0.4% crit per Fury, about 60 Fury on average"
+  "why": "Battle Fury: 0.5% crit per Fury (PassiveCritConversionTooltip), about 60 Fury on average; Bloodlust passive: up to 80 AD by missing Health (MaximumBonusAD rank 5), half on average"
  },
  "Belveth": {
   "stats": {
    "as_l1": 0,
    "as_l18": 0.5
   },
-  "why": "Death in Lavender: 50% attack speed of permanent stacks assumed by level 18"
+  "effects": {
+   "stack_on": 2,
+   "stack_max": 1,
+   "stack_duration": 3,
+   "stack_as": 0.2
+  },
+  "why": "Death in Lavender: 50% attack speed of permanent stacks assumed by level 18; ability hits grant 20% attack speed for 3s"
  },
  "Ezreal": {
   "effects": {
@@ -141,10 +154,155 @@
    "crit_every": 4,
    "whisper_ad_pct_l1": 0.04,
    "whisper_ad_pct_l18": 0.44,
-   "whisper_crit": 0.003,
-   "whisper_as": 0.0025,
-   "as_fixed": 0.625
+   "whisper_crit": 0.0035,
+   "whisper_as": 0.003,
+   "as_fixed": 0.625,
+   "reload_every": 4,
+   "reload_time": 2.5
   },
-  "why": "Whisper: fixed 0.625 attack speed, every fourth shot crits, crits deal 14% less; 4-44% bonus AD by level plus 0.3% per 1% crit and 0.25% per 1% bonus attack speed"
+  "why": "Whisper: fixed 0.625 attack speed, every fourth shot crits, crits deal 14% less; 4-44% bonus AD by level plus 0.35% per 1% crit and 0.3% per 1% bonus attack speed; reloads for 2.5s after the fourth shot"
+ },
+ "Aatrox": {
+  "stats": {
+   "omnivamp": 0.2
+  },
+  "why": "Umbral Dash: Aatrox heals for about 20% of the damage he deals to champions"
+ },
+ "Singed": {
+  "stats": {
+   "ap": 85,
+   "armor": 85,
+   "mr": 85
+  },
+  "effects": {
+   "ms": 85
+  },
+  "why": "Insanity Potion (R, rank 3): +85 AP, armor, magic resist and move speed for 25s, cast at the start of each fight"
+ },
+ "Karma": {
+  "effects": {
+   "r_cdr_on_hit": 4
+  },
+  "why": "Gathering Fire: each damage instance on a champion takes 4s off Mantra's cooldown"
+ },
+ "Rammus": {
+  "effects": {
+   "ad_per_armor": 0.15,
+   "ad_per_mr": 0.15
+  },
+  "why": "Spiked Shell: bonus AD equal to 15% total armor + 15% total magic resist"
+ },
+ "Zac": {
+  "effects": {
+   "w_cdr_on_cast_hit": 1
+  },
+  "why": "Goo: each ability that hits drops a chunk; picking it up takes 1s off Unstable Matter"
+ },
+ "Olaf": {
+  "stats": {
+   "armor": 20,
+   "mr": 20
+  },
+  "effects": {
+   "as_missing": 1.0,
+   "lifesteal_missing": 0.25,
+   "missing_cap": 0.7
+  },
+  "why": "Berserker Rage: up to 100% bonus attack speed and 25% life steal at level 18, growing with missing Health (full at 70% missing); Ragnarok passive: 20 bonus armor and magic resist"
+ },
+ "Zaahen": {
+  "stats": {
+   "armor_pen": 0.3
+  },
+  "effects": {
+   "stack_on": 3,
+   "stack_max": 12,
+   "stack_duration": 5,
+   "stack_ad_l1": 1.8,
+   "stack_ad_l18": 15.0
+  },
+  "why": "Determination: a stack per hit on a champion (5s, up to 12), each 1.5-2.8% AD, doubled at 12 stacks (about 15 AD a stack at 18 counting the doubling evenly); Grim Deliverance passive: 30% armor penetration"
+ },
+ "Hecarim": {
+  "stats": {
+   "ad_l1": 5.4,
+   "ad_l18": 10.8
+  },
+  "why": "Warpath: 12-24% of bonus movement speed as bonus AD; the 45 from boots assumed"
+ },
+ "Amumu": {
+  "effects": {
+   "magic_true_extra": 0.1
+  },
+  "why": "Cursed Touch: enemies cursed by his attacks and Despair (always on in a fight) take 10% of the magic damage they take as true damage (DamageAmp)"
+ },
+ "Annie": {
+  "effects": {
+   "magic_pen_pct_kit": 0.2
+  },
+  "why": "Summon: Tibbers passive: 20% magic penetration at rank 3 (RPercentPenBuff)"
+ },
+ "Azir": {
+  "effects": {
+   "attack_ad_mult": 0,
+   "attack_onhit_mult": 0.5
+  },
+  "why": "Azir's attacks are soldier stabs (W, onhit_every 1): no physical attack damage of their own, on-hit effects at 50% (AzirW OnHitMultiplier)"
+ },
+ "Nocturne": {
+  "stats": {
+   "as": 0.5
+  },
+  "why": "Shroud of Darkness passive: +50% attack speed (rank 5)"
+ },
+ "DrMundo": {
+  "stats": {
+   "ad_l1": 20.5,
+   "ad_l18": 76.5
+  },
+  "effects": {
+   "ad_per_bonus_hp": 0.032
+  },
+  "why": "Blunt Force Trauma passive: attack damage equal to 3.2% of max Health (rank 5): 3.2% of base Health by level plus 3.2% of bonus Health"
+ },
+ "Viego": {
+  "effects": {
+   "possess": 10,
+   "possess_heal": 0.02,
+   "possess_heal_bonus_ad": 0.00025,
+   "possess_heal_ap": 0.0002,
+   "possess_heal_bonus_hp": 4e-05,
+   "possess_heal_as": 0.05
+  },
+  "why": "Sovereign's Domination: a champion he kills is possessed for 10 s (its basic abilities, cooldowns fresh; his own keep running) with a free Heartbreaker after 1.5 s, healing 2% (+2.5% per 100 bonus AD, +2% per 100 AP, +0.4% per 100 bonus Health, +5% per 100% bonus attack speed) of its max Health"
+ },
+ "Sylas": {
+  "effects": {
+   "hijack": 1,
+   "hijack_lockout_min": 40
+  },
+  "why": "Hijack: R takes the target's ultimate, cast once with his stats (bonus AD ratios of an ultimate without AP scaling become 0.4 AP); each enemy can be hijacked again after 200% of its ultimate's base cooldown, 40 s at least (client data)"
+ },
+ "Aphelios": {
+  "stats": {
+   "ad_l1": 0,
+   "ad_l18": 20,
+   "as_l1": 0,
+   "as_l18": 0.45,
+   "lethality_l1": 0,
+   "lethality_l18": 22.5
+  },
+  "effects": {
+   "weapons": 1,
+   "weapon_ammo": 50,
+   "weapon_q_ammo": 10
+  },
+  "why": "The Hitman and the Seer: no ability ranks, his level-ups buy 4 AD, 9% attack speed and 4.5 lethality each, 5 of each by level 18. Weapons: 50 ammo each, an attack uses 1 and a weapon ability 10"
+ },
+ "Yuumi": {
+  "effects": {
+   "attached": 1
+  },
+  "why": "You and Me!: attached to an ally she doesn't attack; the fight lasts as long as her ally's, so her damage taken stays as it is"
  }
 }

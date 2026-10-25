@@ -13,7 +13,7 @@ Writes under data/cn/history/:
   all_time.csv       each champion across all patches, weighted by estimated games
   by_month.csv       each champion per calendar month (see query.py for any range)
 
-Usage: python3 data/cn/history.py [--rebuild]   (--rebuild re-downloads every day)
+Usage: python3 data/cn/history.py [--rebuild] [--today]   (--rebuild re-downloads every day; --today adds today so far)
 Standard library only.
 """
 
@@ -66,10 +66,13 @@ def fetch_day(day):
     return day, rows
 
 
-def update_daily(rebuild):
+def update_daily(rebuild, today=False):
     rows = [] if rebuild else read_daily()
+    # The newest stored day may have been fetched before Tencent finished it (a --today run), so fetch it again.
+    newest = max((r["date"] for r in rows), default=None)
+    rows = [r for r in rows if r["date"] != newest]
     have = {r["date"] for r in rows}
-    last = dt.date.today() - dt.timedelta(days=1)
+    last = dt.date.today() - dt.timedelta(days=0 if today else 1)
     missing = [FIRST_DAY + dt.timedelta(n) for n in range((last - FIRST_DAY).days + 1)]
     missing = [d for d in missing if d.isoformat() not in have]
     with ThreadPoolExecutor(6) as ex:
@@ -124,9 +127,10 @@ def windows(days_by, patches):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--rebuild", action="store_true", help="re-download every day")
+    ap.add_argument("--today", action="store_true", help="include today's numbers so far (a new patch's first day)")
     args = ap.parse_args()
 
-    rows = update_daily(args.rebuild)
+    rows = update_daily(args.rebuild, args.today)
     heroes = {h["heroId"]: h for h in get(HERO_LIST)["hero"]}
     versions = get(VERSIONS, {"zone": "lol", "from": "h5"})["data"]
     patches = sorted(((v["name"], dt.datetime.strptime(v["vkey"], "%Y%m%d").date())

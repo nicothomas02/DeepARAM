@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
-import { champStats, TIERS, type PatchRow } from "@/lib/tiers";
+import { champStats, type PatchRow } from "@/lib/tiers";
+import { grade, lowerBound, TIER_Z } from "@/lib/deepscore";
 
 const row = (name: string, win_rate: number, pick_rate: number, patch = "16.20", days = 14): PatchRow => ({
   patch, days, name, win_rate, pick_rate, damage: null, tank: null, kp: null, dead: null, augs: "",
@@ -11,16 +12,24 @@ describe("champStats", () => {
     expect(champStats([row("Ahri", 0.5, 0.1)], new Set(["16.19"]))).toEqual([]);
   });
 
-  it("gives every champion a tier and cuts tiers by the published shares", () => {
+  it("gives every champion a tier and a DeepScore, cut by spread", () => {
     const rows = Array.from({ length: 100 }, (_, i) => row(`C${i}`, 0.4 + i * 0.002, 0.05));
     const out = champStats(rows, new Set(["16.20"]));
     expect(out).toHaveLength(100);
-    const counts = Object.fromEntries(TIERS.map(([t]) => [t, out.filter((c) => c.tier === t).length]));
-    expect(counts).toEqual({ S: 8, A: 20, B: 32, C: 25, D: 15 });
-    // sorted best first, and the best raw win rate is S
+    const order = TIER_Z.map(([t]) => t);
+    // sorted best first: tiers never get better further down, and DeepScore never rises
+    out.forEach((c, i) => {
+      if (!i) return;
+      expect(order.indexOf(c.tier)).toBeGreaterThanOrEqual(order.indexOf(out[i - 1].tier));
+      expect(c.deepScore).toBeLessThanOrEqual(out[i - 1].deepScore);
+    });
     expect(out[0].name).toBe("C99");
     expect(out[0].tier).toBe("S");
     expect(out.at(-1)!.tier).toBe("D");
+    for (const t of order) expect(out.some((c) => c.tier === t)).toBe(true);
+    const mean = out.reduce((s, c) => s + c.deepScore, 0) / out.length;
+    expect(mean).toBeGreaterThan(48);
+    expect(mean).toBeLessThan(52);
   });
 
   it("does not let a rarely picked champion top the list on a few lucky games", () => {
@@ -36,11 +45,12 @@ describe("champStats", () => {
     expect(lucky.win_rate).toBeCloseTo(0.7);
   });
 
-  it("weights patches by pick rate times days and keeps shares summing to 1", () => {
+  it("weights patches by pick rate times days, older patches at half, and keeps shares summing to 1", () => {
     const rows = [row("A", 0.6, 0.1, "16.19", 7), row("A", 0.4, 0.1, "16.20", 21), row("B", 0.5, 0.1, "16.19", 7), row("B", 0.5, 0.1, "16.20", 21)];
     const out = champStats(rows, new Set(["16.19", "16.20"]));
     const a = out.find((c) => c.name === "A")!;
-    expect(a.win_rate).toBeCloseTo(0.45);
+    // 16.19's 7 days count as 3.5 next to 16.20's 21
+    expect(a.win_rate).toBeCloseTo((0.6 * 3.5 + 0.4 * 21) / 24.5);
     expect(a.patches).toBe(2);
     expect(out.reduce((s, c) => s + c.share, 0)).toBeCloseTo(1);
   });
@@ -55,5 +65,21 @@ describe("champStats", () => {
   it("names the latest patch's augments and skips unknown ids", () => {
     const rows = [{ ...row("A", 0.5, 0.1), augs: "not-an-augment" }];
     expect(champStats(rows, new Set(["16.20"]))[0].top_augments).toBe("");
+  });
+});
+
+describe("DeepScore", () => {
+  it("ranks a sure thing above a slightly better long shot", () => {
+    expect(lowerBound(0.53, 20000, 0.5, 250)).toBeGreaterThan(lowerBound(0.54, 200, 0.5, 250));
+  });
+
+  it("puts the average at 50 and keeps scores within 0 to 100", () => {
+    const g = grade([0.4, 0.5, 0.5, 0.5, 0.6, 0.9]);
+    for (const { deepScore } of g) {
+      expect(deepScore).toBeGreaterThanOrEqual(0);
+      expect(deepScore).toBeLessThanOrEqual(100);
+    }
+    expect(grade([0.5, 0.5])[0]).toEqual({ deepScore: 50, tier: "B" });
+    expect(grade([])).toEqual([]);
   });
 });

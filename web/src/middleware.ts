@@ -1,25 +1,35 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getCloudflareContext } from "@opennextjs/cloudflare";
 
-// Per-visitor limits on the routes that cost something: the Riot lookups (the site's Riot API quota),
-// browser error reports (/api/log, so they can't flood the logs), and the writes (leaderboard
-// submissions, public profiles, shared games). On Cloudflare the counts come from the Worker's
+// Per-visitor limits on the routes that cost something: browser error reports (/api/log, so they can't
+// flood the logs), signing in, and the writes (public profiles, shared games,
+// account changes, builds sent to The Kitchen, Contact us messages). On Cloudflare the counts come from the Worker's
 // rate-limit bindings (wrangler.jsonc "ratelimits"), shared by every request in a location; elsewhere,
 // or if a binding is missing, from this instance's memory, which is approximate.
 type Rule = { binding: string; limit: number; message: string };
-const LOOKUP: Rule = { binding: "RL_LOOKUP", limit: 30, message: "Too many lookups." };
 const LOG: Rule = { binding: "RL_LOG", limit: 30, message: "Too many reports." };
 const WRITE: Rule = { binding: "RL_WRITE", limit: 10, message: "Too many submissions." };
 // My Stats sends a player's shared games 50 at a time, so a first share of 1,000 games is 20 requests.
 const SHARE: Rule = { binding: "RL_SHARE", limit: 60, message: "Too many uploads." };
+// Signing in and creating accounts: few per minute, so passwords can't be guessed quickly.
+const SIGNIN: Rule = { binding: "RL_WRITE", limit: 10, message: "Too many tries." };
 const WINDOW = 60_000; // all limits are per minute, matching the bindings' period
 
 function ruleFor(req: NextRequest): Rule | null {
   const path = req.nextUrl.pathname;
-  if (path.startsWith("/api/riot/")) return LOOKUP;
   if (path === "/api/log") return LOG;
-  if (path === "/api/games") return SHARE;
-  // GET /api/sim-scores is the public leaderboard, cached for a minute; only sending counts.
+  if (path === "/api/games") return req.method === "GET" ? null : SHARE;
+  // The owner's own games go to their account 100 at a time, the same way.
+  if (path === "/api/history") return req.method === "GET" ? null : SHARE;
+  if (path.startsWith("/api/account")) {
+    // Sign in with Google, Apple and the rest start and finish with GETs (Apple's finish is a POST).
+    if (path.startsWith("/api/account/oauth/")) return SIGNIN;
+    if (req.method === "GET") return null;
+    // Saving Favorites and settings happens as you click; the rest is signing in and account changes.
+    return req.method === "PUT" ? SHARE : SIGNIN;
+  }
+  // The Kitchen's community list and your own submissions are free to read; sending or removing one counts.
+  if (path.startsWith("/api/kitchen")) return req.method === "GET" ? null : WRITE;
   if (req.method === "POST") return WRITE;
   return null;
 }
@@ -63,4 +73,4 @@ export async function middleware(req: NextRequest) {
   );
 }
 
-export const config = { matcher: ["/api/riot/:path*", "/api/log", "/api/sim-scores", "/api/profile", "/api/games"] };
+export const config = { matcher: ["/api/log", "/api/profile", "/api/games", "/api/history", "/api/account", "/api/account/:path*", "/api/kitchen/:path*", "/api/contact"] };

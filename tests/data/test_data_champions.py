@@ -1,4 +1,4 @@
-"""Champion pages data: champions/data.js and champions/skins.js (champions/build_data.py), and the builder's
+"""Champion pages data: champions/data.js (champions/build_data.py), and the builder's
 build-row helpers."""
 import math
 import os
@@ -12,17 +12,13 @@ SLOTS = ["P", "Q", "W", "E", "R"]
 ROLES = {"assassin", "fighter", "mage", "marksman", "support", "tank"}
 BUILD_KEYS = ("start", "boots", "first", "core", "full")
 STYLES = {"crit", "onhit", "ap", "lethality", "fighter", "tank", "enchanter"}
+CC = {"stun", "root", "slow", "knockup", "knockback", "pull", "silence", "fear", "taunt", "suppression", "polymorph", "blind"}
 STORMRAZOR_TENCENT, STORMRAZOR = 3097, 3095
 
 
 @pytest.fixture(scope="module")
 def data():
     return load_js_data("champions/data.js", "CHAMPS_DATA")
-
-
-@pytest.fixture(scope="module")
-def skins():
-    return load_js_data("champions/skins.js", "CHAMPS_SKINS")
 
 
 def all_build_rows(b):
@@ -63,7 +59,7 @@ def test_champion_identity(data):
         assert isinstance(c["id"], int) and 0 < c["id"] < 10000, c["alias"]  # 60000+ are another mode's copies
         assert re.match(r"^[A-Za-z]+$", c["alias"]), c["alias"]
         assert c["roles"] and set(c["roles"]) <= ROLES, c["alias"]
-        for k in ("icon", "splash", "tile", "vo"):
+        for k in ("icon", "splash", "tile"):
             assert c[k] and c[k].startswith("/assets/cd/"), (c["alias"], k)
 
 
@@ -77,6 +73,7 @@ def test_abilities(data):
                 n = 3 if a["slot"] == "R" else 5
                 assert len(a["cooldown"]) <= n, (c["alias"], a["slot"])
                 assert all(x >= 0 for x in a["cooldown"]), (c["alias"], a["slot"])
+            assert a.get("cc") is None or a["cc"] in CC, (c["alias"], a["slot"])
 
 
 def test_base_stats(data):
@@ -212,14 +209,11 @@ def test_quest_reward_items_left_out_of_builds(data):
             assert not reward & set(all_build_items(c["builds"])), c["alias"]
 
 
-def test_skins(data, skins):
-    ids = {str(c["id"]) for c in data["champions"]}
-    assert set(skins) == ids
-    for cid, rows in skins.items():
-        assert rows and rows[0]["name"] == "Original", cid
-        assert sum(1 for r in rows if r["name"] == "Original") == 1, cid
-        for r in rows:
-            assert r["name"] and r["tile"].startswith("/assets/cd/"), cid
+def test_no_skins():
+    """The site doesn't show skins (Nico, 2026-10-17): no skin file, section or skin names ship."""
+    assert not os.path.exists(os.path.join(REPO, "champions/skins.js"))
+    assert not os.path.exists(os.path.join(REPO, "champions/i18n/skins"))
+    assert "skin" not in read("champions/app.js").lower()
 
 
 def test_champion_list_matches_site_ids(data):
@@ -284,3 +278,112 @@ def test_build_style(builder):
     assert builder.build_style([1, 2, 3, 4], items) == "ap"
     assert builder.build_style([1, 2], items) == "crit"  # ties go to the earlier style
     assert builder.build_style([4], items) is None
+
+
+def test_regions():
+    r = load_json("champions/regions.json")
+    keys = [x["key"] for x in r["regions"]]
+    assert len(keys) == len(set(keys)) and all(x["name"] for x in r["regions"])
+    tags = load_json("champions/tags.json")["champions"]
+    assert set(r["champions"]) == set(tags)
+    for alias, regions in r["champions"].items():
+        assert regions and set(regions) <= set(keys), alias
+
+
+MOD_STATS = {"damage_dealt", "damage_taken", "healing", "shielding", "tenacity", "ability_haste", "attack_speed",
+             "energy_regen"}
+
+
+def test_mayhem_modifiers():
+    full = load_json("data/wiki/mayhem_modifiers.json")
+    shipped = load_js_data("champions/modifiers.js", "CHAMPS_MODIFIERS")
+    tags = load_json("champions/tags.json")["champions"]
+    assert len(full["champions"]) > 100 and set(full["champions"]) <= set(tags)
+    assert shipped == {a: c["mayhem"] for a, c in full["champions"].items() if c["mayhem"]}
+    for alias, c in full["champions"].items():
+        assert c["source"] in full["pages"].values(), alias
+        for side in ("aram", "mayhem"):
+            assert set(c[side]) <= MOD_STATS, alias
+            assert all(isinstance(v, (int, float)) and abs(v) <= 100 for v in c[side].values()), alias
+
+
+def test_official_patch_notes():
+    notes = load_json("data/official/patch_notes.json")["patches"]
+    patches = [p["patch"] for p in notes]
+    assert len(patches) == len(set(patches)) >= 20
+    for p in notes:
+        assert p["url"].startswith("https://www.leagueoflegends.com/"), p["patch"]
+        for c in p["champions"] + p["augments"]:
+            assert c["name"] and all(isinstance(x, str) and x for x in c["changes"]), (p["patch"], c["name"])
+
+def test_official_profile():
+    o = load_json("champions/official.json")
+    tags = load_json("champions/tags.json")["champions"]
+    assert set(o["champions"]) == set(tags) and len(o["difficulty"]) == 3
+    for alias, c in o["champions"].items():
+        assert c["roles"] and set(c["roles"]) <= {"Assassin", "Fighter", "Mage", "Marksman", "Support", "Tank"}, alias
+        assert 1 <= c["difficulty"] <= len(o["difficulty"]), alias
+    profile = load_js_data("champions/profile.js", "CHAMPS_PROFILE")
+    assert set(profile) == set(tags) and all(p["difficulty"] in o["difficulty"] for p in profile.values())
+
+
+def test_augment_styles_from_build_tags(builder):
+    """Augments fit a build style through their own build tags; untagged augments fit none."""
+    kiwi = {"a": {"__type": "AugmentData", "AugmentPlatformId": 1, "mBuildTags": 512 | 64},
+            "b": {"__type": "AugmentData", "AugmentPlatformId": 2, "mBuildTags": 256 | 8 | 1024},
+            "c": {"__type": "AugmentData", "AugmentPlatformId": 3},
+            "d": {"__type": "AugmentData", "AugmentPlatformId": 4, "mBuildTags": 4}}
+    assert builder.augment_styles(kiwi) == {1: {"crit", "onhit"}, 2: {"tank", "enchanter"}}
+    assert set(builder.BUILD_TAGS.values()) == STYLES
+
+
+def test_ability_cc(builder):
+    assert builder.ability_cc({"mAbilitySlotCC": [16, 0, 15, 14]}) == {"Q": "stun", "E": "root", "R": "slow"}
+    assert builder.ability_cc({"mAbilitySlotCC": [0, 1, 0, 0]}) == {}  # unnamed codes are left out
+    assert builder.ability_cc({}) is None
+    assert set(builder.CC_CODES.values()) == CC
+
+
+def test_tags_crowd_control_and_augments(data):
+    T = load_json("champions/tags.json")
+    with_cc = [v for v in T["champions"].values() if "cc" in v]
+    assert len(with_cc) > 100
+    for v in with_cc:
+        assert set(v["cc"]) <= {"Q", "W", "E", "R"} and set(v["cc"].values()) <= CC
+        assert v["hardCC"] == bool(set(v["cc"].values()) - {"slow", "blind"})
+    assert T["champions"]["Leona"]["cc"]["Q"] == "stun"
+    assert len(T["augments"]) > 50
+    assert all(st and set(st) <= STYLES for st in T["augments"].values())
+
+
+def test_official_playstyle_tags_and_ratings(builder):
+    T = load_json("champions/tags.json")
+    ch = T["champions"]
+    official = set(builder.PLAYSTYLES)
+    assert len(official) == 19 and official <= set(T["colors"]) and official <= set(T["meanings"])
+    assert sum(1 for v in ch.values() if v["playstyles"]) > len(ch) - 10
+    for alias, v in ch.items():
+        assert len(v["playstyles"]) <= 2 and set(v["playstyles"]) <= official, alias
+        if "ratings" in v:
+            assert list(v["ratings"]) == T["ratings"] and all(1 <= x <= 3 for x in v["ratings"].values()), alias
+    assert ch["Leona"]["playstyles"] == ["Initiator", "Crowd Control"]
+    assert ch["Leona"]["ratings"]["toughness"] == 3 and ch["Leona"]["ratings"]["control"] == 3
+    names = load_json("data/official/champion-tag-names.json")
+    assert len(names) == 21 and all(set(v) <= official for v in names.values())
+
+
+def test_tag_key(builder):
+    assert builder.tag_key("Crowd Control") == "champion_tag_crowd_control"
+    assert builder.tag_key("Damage-over-Time") == "champion_tag_damage_over_time"
+    assert builder.tag_key("AoE") == "champion_tag_aoe"
+
+
+def test_official_site_files(builder):
+    T = load_json("champions/tags.json")
+    tags = load_json("data/official/augment-build-tags.json")
+    assert set(tags) == set(T["augments"]) and all(set(v) <= set(builder.SITE_STYLE.values()) for v in tags.values())
+    cc = load_json("data/official/champion-cc.json")
+    assert set(cc) == {a for a, v in T["champions"].items() if "cc" in v}
+    assert all(set(v["slots"]) == set("QWER") and isinstance(v["hard"], bool) for v in cc.values())
+    meta = load_json("data/official/champion-metadata.json")
+    assert meta["Leona"]["tags"] == ["Initiator", "Crowd Control"] and meta["Leona"]["playstyle"]["control"] == 3

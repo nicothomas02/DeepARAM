@@ -52,7 +52,7 @@ for (const { name, from, exclude = [] } of embeds) {
 // Every image, sound, model, font and script the pages use is mirrored in public/assets/ (scripts/fetch_assets.py),
 // so links to the outside copies are pointed at the site's own. Pages that already use /assets/ are left as they are.
 // A rule with a third entry only applies when that file is in public/assets/ (in git, so in the deployed build):
-// until the clips, models or three.js are committed there, pages keep loading them from the outside copy.
+// until the models or three.js are committed there, pages keep loading them from the outside copy.
 const LOCAL = [
   [/https:\/\/raw\.communitydragon\.org\//g, "/assets/cd/"],
   [/https:\/\/ddragon\.leagueoflegends\.com\/cdn\//g, "/assets/dd/"],
@@ -66,12 +66,17 @@ const LOCAL = [
     /\/assets\/(cd\/[^"'`\s]*?\/augments\/icons\/[\w.-]+?)_small\.png/gi,
     (m, path) => (existsSync(join(web, "public", "assets", `${path}_large.png`)) ? `/assets/${path}_large.png` : m),
   ],
-  [/https:\/\/d28xe8vt774jo5\.cloudfront\.net\/champion-abilities/g, "/assets/clips", "clips"],
   [/https:\/\/cdn\.modelviewer\.lol\/lol\/models/g, "/assets/models", "models/models.json"],
   [/https:\/\/cdn\.jsdelivr\.net\/npm\/three@0\.160\.0\//g, "/assets/lib/three-0.160.0/", "lib/three-0.160.0/build/three.module.js"],
   [/<link[^>]+rel="preconnect"[^>]+fonts\.g(?:oogleapis|static)\.com[^>]*>\s*/g, ""],
   [/https:\/\/fonts\.googleapis\.com\/css2\?[^"')\s]+/g, "/assets/fonts/fonts.css"],
 ];
+// Official versions first: client images with a Data Dragon copy point at that copy (fetch_assets.py writes the map).
+const swapFile = join(web, "src", "data", "dd-swap.json");
+const SWAP = existsSync(swapFile) ? JSON.parse(readFileSync(swapFile, "utf8")).paths : {};
+LOCAL.push([/\/assets\/cd\/latest\/[^"'`\s()\\<>]+/g, (m) => SWAP[m] ?? m]);
+// Pick quotes (game voice lines) aren't kept, so data that names one gets none.
+LOCAL.push([/"\/assets\/cd\/latest\/[^"]*\/champion-choose-vo\/\d+\.ogg"/g, "null"]);
 const ACTIVE = LOCAL.filter(([, , needs]) => !needs || existsSync(join(web, "public", "assets", needs)));
 const TEXT = /\.(html|js|mjs|css|json)$/;
 function localize(dir) {
@@ -88,3 +93,32 @@ function localize(dir) {
   return changed;
 }
 if (existsSync(join(web, "public", "assets", "manifest.json"))) console.log(`sync-embeds: pointed ${localize(out)} files at /assets`);
+
+// Names and icons for shared build link previews (src/app/share/builds/image): champion icons, items by simulator key and
+// by game id with a PNG icon (Data Dragon copy where there is one), augments by key and id with their rarity.
+{
+  const GD = join(web, "public", "assets", "cd", "latest", "plugins", "rcp-be-lol-game-data", "global", "default");
+  const read = (p) => (existsSync(p) ? JSON.parse(readFileSync(p, "utf8")) : null);
+  const cdItems = read(join(GD, "v1", "items.json")) ?? [];
+  const simItems = read(join(repo, "simulator", "data", "items.json"))?.items ?? {};
+  const simAugs = read(join(repo, "simulator", "data", "augments.json"))?.augments ?? {};
+  const items = {};
+  for (const i of cdItems) {
+    if (!i.iconPath || !i.name) continue;
+    const cd = "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/" + i.iconPath.replace(/^\/lol-game-data\/assets\//i, "").toLowerCase();
+    const icon = SWAP[cd] ?? cd;
+    if (existsSync(join(web, "public", icon))) items[i.id] = { name: i.name, icon };
+  }
+  for (const [key, v] of Object.entries(simItems)) if (items[v.id]) items[key] = { ...items[v.id], name: v.name };
+  const augments = {};
+  for (const [key, v] of Object.entries(simAugs)) augments[key] = augments[v.id] = { name: v.name, rarity: v.rarity };
+  const champions = {};
+  const version = read(swapFile)?.version;
+  const ddChamps = version && existsSync(join(web, "public", "assets", "dd", version, "img", "champion")) ? readdirSync(join(web, "public", "assets", "dd", version, "img", "champion")) : [];
+  for (const alias of Object.keys(read(join(web, "src", "data", "champion-names.json")) ?? {})) {
+    const file = ddChamps.find((f) => f.toLowerCase() === alias.toLowerCase() + ".png");
+    if (file) champions[alias] = `/assets/dd/${version}/img/champion/${file}`;
+  }
+  writeFileSync(join(web, "src", "data", "share-builds.json"), JSON.stringify({ champions, items, augments }));
+  console.log(`sync-embeds: share-builds.json with ${Object.keys(items).length} item and ${Object.keys(augments).length} augment entries`);
+}

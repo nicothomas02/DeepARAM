@@ -139,6 +139,17 @@ def _large_icon(m):
     return f"/assets/{path}_large.png" if os.path.isfile(os.path.join(ASSETS, *f"{path}_large.png".split("/"))) else m.group(0)
 
 
+_SWAP = None
+
+
+def _swap(m):
+    global _SWAP
+    if _SWAP is None:
+        path = os.path.join(ASSETS, "..", "..", "src", "data", "dd-swap.json")
+        _SWAP = json.load(open(path))["paths"] if os.path.exists(path) else {}
+    return _SWAP.get(m.group(0), m.group(0))
+
+
 def _embed_rules():
     """sync-embeds.mjs's LOCAL list; a rule with a third entry applies only when that file is in public/assets."""
     rules = [
@@ -153,6 +164,9 @@ def _embed_rules():
          "lib/three-0.160.0/build/three.module.js"),
         (r"<link[^>]+rel=\"preconnect\"[^>]+fonts\.g(?:oogleapis|static)\.com[^>]*>\s*", ""),
         (r"https://fonts\.googleapis\.com/css2\?[^\"')\s]+", "/assets/fonts/fonts.css"),
+        # official versions first (web/src/data/dd-swap.json), and no pick quotes
+        (r"/assets/cd/latest/[^\"'`\s()\\<>]+", _swap),
+        (r"\"/assets/cd/latest/[^\"]*/champion-choose-vo/\d+\.ogg\"", "null"),
     ]
     return [(re.compile(r[0]), r[1]) for r in rules
             if len(r) < 3 or os.path.exists(os.path.join(ASSETS, *r[2].split("/")))]

@@ -5,10 +5,12 @@ import SwiftUI
 struct MoreView: View {
     @ObservedObject var pages: PageStore
     @AppStorage(PatchAlerts.enabledKey) private var alertsOn = false
+    @ObservedObject private var haptics = Haptics.shared
+    @State private var path = NavigationPath()
     @State private var alertsDenied = false
 
     var body: some View {
-        NavigationStack {
+        NavigationStack(path: $path) {
             List {
                 Section {
                     ForEach(SiteTab.more) { tab in
@@ -16,8 +18,16 @@ struct MoreView: View {
                     }
                 }
                 Section {
+                    Toggle(isOn: Binding(get: { haptics.enabled }, set: { haptics.setEnabled($0, pages: pages.webViews) })) {
+                        Label("Haptics", systemImage: "hand.tap.fill")
+                    }
+                } footer: {
+                    Text("Light taps when you switch tabs, pull to refresh, star a champion, draft augments and more. Same switch as Vibration in the site's settings.")
+                }
+                Section {
                     Toggle(isOn: $alertsOn) { Label("New patch alerts", systemImage: "bell.badge.fill") }
                         .onChange(of: alertsOn) { _, on in
+                            Haptics.shared.play(.tick)
                             guard on else { return }
                             Task {
                                 let ok = await PatchAlerts.shared.requestPermission()
@@ -41,6 +51,7 @@ struct MoreView: View {
                 }
             }
             .navigationTitle("More")
+            .onChange(of: path.count) { old, new in if new > old { Haptics.shared.play(.tap) } }
             .navigationDestination(for: SiteTab.self) { tab in
                 WebTab(page: pages.page(for: tab))
                     .navigationTitle(tab.title)

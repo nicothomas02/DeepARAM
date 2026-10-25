@@ -1,16 +1,19 @@
 {
- "patch": "16.20",
- "ddragon_version": "16.20.1",
- "updated": "2026-10-17T13:44:34+00:00",
+ "patch": "16.21",
+ "ddragon_version": "16.21.1",
+ "updated": "2026-10-21T17:13:26+00:00",
  "files": {
-  "clips": 682,
+  "ux": 3,
+  "vfx": 347,
+  "sounds": 2,
   "models": 174,
-  "dd": 1038,
-  "fonts": 15,
+  "dd": 2251,
+  "fonts": 19,
   "lib": 5,
-  "augments": 48,
-  "cd": 4573
+  "art": 6,
+  "augments": 49,
+  "cd": 2210
  },
- "bytes": 479999350,
+ "bytes": 433095249,
  "split": {}
 }

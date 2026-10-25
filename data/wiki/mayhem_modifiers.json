@@ -1,0 +1,1434 @@
+{
+ "read": "2026-10-17",
+ "pages": {
+  "aram": "https://wiki.leagueoflegends.com/en-us/ARAM",
+  "mayhem": "https://wiki.leagueoflegends.com/en-us/ARAM:_Mayhem"
+ },
+ "mismatches": [
+  "Annie damage_taken: ARAM page 0.05, Mayhem page says from -0.05",
+  "Ivern shielding: ARAM page -0.1, Mayhem page says from -0.2",
+  "Janna shielding: ARAM page 0, Mayhem page says from -0.05",
+  "Locke damage_dealt: ARAM page 0.15, Mayhem page says from 0.0",
+  "Mordekaiser damage_taken: ARAM page 0, Mayhem page says from 0.02",
+  "Renata Glasc shielding: ARAM page 0, Mayhem page says from -0.2",
+  "Samira damage_taken: ARAM page 0, Mayhem page says from 0.05",
+  "Shyvana damage_taken: ARAM page -0.05, Mayhem page says from 0.05",
+  "Soraka healing: ARAM page 0, Mayhem page says from 0.05",
+  "Teemo ability_haste: ARAM page -15.0, Mayhem page says from -10.0",
+  "Varus damage_taken: ARAM page 0, Mayhem page says from 0.05",
+  "Vayne damage_dealt: ARAM page 0, Mayhem page says from 0.05",
+  "Vladimir damage_dealt: ARAM page 0, Mayhem page says from -0.05",
+  "Vladimir damage_taken: ARAM page 0, Mayhem page says from 0.05",
+  "Vladimir healing: ARAM page 0, Mayhem page says from -0.1",
+  "Ziggs damage_dealt: ARAM page -0.08, Mayhem page says from -0.13"
+ ],
+ "champions": {
+  "Aatrox": {
+   "aram": {
+    "damage_dealt": 0.05
+   },
+   "mayhem": {
+    "damage_dealt": 0.05
+   },
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM"
+  },
+  "Ahri": {
+   "aram": {
+    "healing": -0.1
+   },
+   "mayhem": {},
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM:_Mayhem"
+  },
+  "Akali": {
+   "aram": {
+    "damage_taken": -0.05,
+    "energy_regen": 0.2,
+    "tenacity": 0.2
+   },
+   "mayhem": {
+    "damage_taken": -0.05,
+    "energy_regen": 0.2,
+    "tenacity": 0.2
+   },
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM"
+  },
+  "Akshan": {
+   "aram": {
+    "damage_dealt": 0.05,
+    "damage_taken": -0.05
+   },
+   "mayhem": {},
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM:_Mayhem"
+  },
+  "Alistar": {
+   "aram": {
+    "damage_dealt": -0.05,
+    "damage_taken": 0.05,
+    "healing": -0.2
+   },
+   "mayhem": {
+    "damage_taken": 0.05
+   },
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM:_Mayhem"
+  },
+  "Ambessa": {
+   "aram": {
+    "damage_taken": 0.05
+   },
+   "mayhem": {},
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM:_Mayhem"
+  },
+  "Anivia": {
+   "aram": {
+    "damage_dealt": 0.05
+   },
+   "mayhem": {
+    "damage_dealt": 0.05
+   },
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM"
+  },
+  "Annie": {
+   "aram": {
+    "damage_dealt": -0.05,
+    "damage_taken": 0.05,
+    "shielding": -0.1
+   },
+   "mayhem": {
+    "damage_dealt": -0.05
+   },
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM:_Mayhem"
+  },
+  "Ashe": {
+   "aram": {
+    "damage_dealt": 0.05
+   },
+   "mayhem": {},
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM:_Mayhem"
+  },
+  "Aurora": {
+   "aram": {
+    "ability_haste": 10.0
+   },
+   "mayhem": {
+    "ability_haste": 10.0
+   },
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM"
+  },
+  "Azir": {
+   "aram": {
+    "damage_taken": -0.05,
+    "attack_speed": 0.025,
+    "ability_haste": 20.0
+   },
+   "mayhem": {
+    "damage_taken": -0.05,
+    "attack_speed": 0.025,
+    "ability_haste": 20.0
+   },
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM"
+  },
+  "Bard": {
+   "aram": {
+    "damage_dealt": 0.15,
+    "damage_taken": -0.15,
+    "healing": 0.2
+   },
+   "mayhem": {
+    "damage_dealt": 0.15,
+    "damage_taken": -0.15,
+    "healing": 0.2
+   },
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM"
+  },
+  "Brand": {
+   "aram": {
+    "damage_dealt": -0.05,
+    "damage_taken": 0.1,
+    "ability_haste": -10.0
+   },
+   "mayhem": {
+    "damage_dealt": -0.05,
+    "damage_taken": 0.1,
+    "ability_haste": -10.0
+   },
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM"
+  },
+  "Briar": {
+   "aram": {
+    "damage_dealt": 0.05,
+    "healing": 0.1
+   },
+   "mayhem": {
+    "damage_dealt": 0.05,
+    "healing": 0.1
+   },
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM"
+  },
+  "Camille": {
+   "aram": {
+    "damage_dealt": 0.05,
+    "damage_taken": -0.05,
+    "healing": 0.2,
+    "shielding": 0.1,
+    "ability_haste": 10.0
+   },
+   "mayhem": {
+    "damage_dealt": 0.05,
+    "damage_taken": -0.05,
+    "healing": 0.2,
+    "shielding": 0.1,
+    "ability_haste": 10.0
+   },
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM"
+  },
+  "Chogath": {
+   "aram": {
+    "damage_taken": 0.1
+   },
+   "mayhem": {
+    "damage_taken": -0.05
+   },
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM:_Mayhem"
+  },
+  "Corki": {
+   "aram": {
+    "damage_taken": -0.1,
+    "ability_haste": -20.0
+   },
+   "mayhem": {
+    "damage_taken": -0.05,
+    "ability_haste": -20.0
+   },
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM:_Mayhem"
+  },
+  "Darius": {
+   "aram": {
+    "damage_dealt": 0.05
+   },
+   "mayhem": {
+    "damage_dealt": 0.05
+   },
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM"
+  },
+  "DrMundo": {
+   "aram": {
+    "damage_dealt": -0.1,
+    "damage_taken": 0.05,
+    "healing": -0.1
+   },
+   "mayhem": {
+    "damage_dealt": -0.1,
+    "damage_taken": 0.05,
+    "healing": -0.1
+   },
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM"
+  },
+  "Draven": {
+   "aram": {
+    "damage_dealt": 0.05,
+    "damage_taken": -0.05
+   },
+   "mayhem": {
+    "damage_dealt": 0.05,
+    "damage_taken": -0.05
+   },
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM"
+  },
+  "Ekko": {
+   "aram": {
+    "damage_dealt": 0.1,
+    "tenacity": 0.2
+   },
+   "mayhem": {
+    "damage_dealt": 0.05,
+    "tenacity": 0.2
+   },
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM:_Mayhem"
+  },
+  "Elise": {
+   "aram": {
+    "damage_dealt": 0.05,
+    "damage_taken": -0.1,
+    "tenacity": 0.1
+   },
+   "mayhem": {
+    "damage_dealt": 0.05,
+    "damage_taken": -0.1,
+    "tenacity": 0.1
+   },
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM"
+  },
+  "Evelynn": {
+   "aram": {
+    "damage_dealt": 0.1,
+    "damage_taken": -0.1,
+    "tenacity": 0.2
+   },
+   "mayhem": {
+    "damage_dealt": 0.1,
+    "damage_taken": -0.1,
+    "tenacity": 0.2
+   },
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM"
+  },
+  "FiddleSticks": {
+   "aram": {
+    "damage_dealt": -0.05,
+    "damage_taken": 0.05
+   },
+   "mayhem": {},
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM:_Mayhem"
+  },
+  "Fiora": {
+   "aram": {
+    "damage_taken": -0.05
+   },
+   "mayhem": {
+    "damage_taken": -0.05
+   },
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM"
+  },
+  "Fizz": {
+   "aram": {
+    "damage_dealt": 0.05,
+    "damage_taken": -0.05,
+    "tenacity": 0.1
+   },
+   "mayhem": {},
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM:_Mayhem"
+  },
+  "Galio": {
+   "aram": {
+    "damage_dealt": -0.1,
+    "damage_taken": 0.05
+   },
+   "mayhem": {
+    "damage_dealt": -0.1,
+    "damage_taken": 0.05
+   },
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM"
+  },
+  "Gangplank": {
+   "aram": {
+    "damage_dealt": 0.05
+   },
+   "mayhem": {
+    "damage_dealt": 0.05
+   },
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM"
+  },
+  "Garen": {
+   "aram": {
+    "damage_taken": -0.05
+   },
+   "mayhem": {
+    "damage_taken": -0.05
+   },
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM"
+  },
+  "Gnar": {
+   "aram": {
+    "damage_dealt": 0.05,
+    "damage_taken": -0.05,
+    "attack_speed": 0.025
+   },
+   "mayhem": {
+    "damage_dealt": 0.05,
+    "damage_taken": -0.05,
+    "attack_speed": 0.025
+   },
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM"
+  },
+  "Gragas": {
+   "aram": {
+    "damage_taken": -0.05
+   },
+   "mayhem": {
+    "damage_taken": -0.05
+   },
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM"
+  },
+  "Gwen": {
+   "aram": {
+    "damage_dealt": 0.02
+   },
+   "mayhem": {},
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM:_Mayhem"
+  },
+  "Hecarim": {
+   "aram": {
+    "damage_dealt": 0.05,
+    "damage_taken": -0.1,
+    "healing": 0.2,
+    "ability_haste": 10.0
+   },
+   "mayhem": {
+    "damage_dealt": 0.05,
+    "damage_taken": -0.1,
+    "healing": 0.2,
+    "ability_haste": 10.0
+   },
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM"
+  },
+  "Heimerdinger": {
+   "aram": {
+    "damage_dealt": -0.1,
+    "damage_taken": 0.1
+   },
+   "mayhem": {
+    "damage_dealt": -0.1,
+    "damage_taken": 0.1
+   },
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM"
+  },
+  "Hwei": {
+   "aram": {
+    "damage_dealt": -0.05
+   },
+   "mayhem": {
+    "damage_dealt": -0.05
+   },
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM"
+  },
+  "Illaoi": {
+   "aram": {
+    "damage_dealt": -0.05,
+    "damage_taken": 0.05,
+    "healing": -0.2
+   },
+   "mayhem": {
+    "damage_dealt": -0.05,
+    "healing": -0.1
+   },
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM:_Mayhem"
+  },
+  "Irelia": {
+   "aram": {
+    "damage_dealt": 0.05,
+    "ability_haste": 20.0
+   },
+   "mayhem": {
+    "damage_dealt": 0.05,
+    "ability_haste": 20.0
+   },
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM"
+  },
+  "Ivern": {
+   "aram": {
+    "damage_dealt": -0.05,
+    "shielding": -0.1
+   },
+   "mayhem": {},
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM:_Mayhem"
+  },
+  "Janna": {
+   "aram": {
+    "damage_dealt": -0.05,
+    "damage_taken": 0.05,
+    "healing": -0.1
+   },
+   "mayhem": {},
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM:_Mayhem"
+  },
+  "Jax": {
+   "aram": {
+    "damage_dealt": 0.05,
+    "damage_taken": -0.03
+   },
+   "mayhem": {
+    "damage_dealt": 0.05,
+    "damage_taken": -0.03
+   },
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM"
+  },
+  "Jayce": {
+   "aram": {
+    "damage_dealt": 0.05
+   },
+   "mayhem": {
+    "damage_dealt": 0.05
+   },
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM"
+  },
+  "Jhin": {
+   "aram": {
+    "damage_dealt": -0.05,
+    "damage_taken": 0.05
+   },
+   "mayhem": {
+    "damage_dealt": -0.05
+   },
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM:_Mayhem"
+  },
+  "Jinx": {
+   "aram": {
+    "damage_dealt": -0.1,
+    "damage_taken": 0.05
+   },
+   "mayhem": {
+    "damage_dealt": -0.1,
+    "damage_taken": 0.05
+   },
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM"
+  },
+  "KSante": {
+   "aram": {
+    "damage_dealt": 0.05
+   },
+   "mayhem": {
+    "damage_dealt": 0.05
+   },
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM"
+  },
+  "Kaisa": {
+   "aram": {
+    "damage_taken": -0.1,
+    "attack_speed": 0.025
+   },
+   "mayhem": {
+    "attack_speed": 0.025
+   },
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM:_Mayhem"
+  },
+  "Kalista": {
+   "aram": {
+    "damage_dealt": 0.1,
+    "damage_taken": -0.1
+   },
+   "mayhem": {
+    "damage_dealt": 0.05,
+    "damage_taken": -0.05
+   },
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM:_Mayhem"
+  },
+  "Karthus": {
+   "aram": {
+    "damage_dealt": -0.07,
+    "damage_taken": 0.05
+   },
+   "mayhem": {
+    "damage_dealt": -0.07,
+    "damage_taken": 0.05
+   },
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM"
+  },
+  "Kassadin": {
+   "aram": {
+    "damage_taken": -0.05
+   },
+   "mayhem": {
+    "damage_taken": -0.05
+   },
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM"
+  },
+  "Katarina": {
+   "aram": {
+    "tenacity": 0.2,
+    "ability_haste": 10.0
+   },
+   "mayhem": {
+    "tenacity": 0.2,
+    "ability_haste": 10.0
+   },
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM"
+  },
+  "Kayle": {
+   "aram": {
+    "damage_dealt": -0.05,
+    "damage_taken": 0.1
+   },
+   "mayhem": {
+    "damage_dealt": -0.05,
+    "damage_taken": 0.1
+   },
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM"
+  },
+  "Kayn": {
+   "aram": {
+    "healing": -0.2,
+    "tenacity": 0.2
+   },
+   "mayhem": {
+    "healing": -0.2,
+    "tenacity": 0.2
+   },
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM"
+  },
+  "Kennen": {
+   "aram": {
+    "energy_regen": 0.2
+   },
+   "mayhem": {
+    "energy_regen": 0.2
+   },
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM"
+  },
+  "Khazix": {
+   "aram": {
+    "damage_dealt": 0.1,
+    "damage_taken": -0.1,
+    "healing": 0.2,
+    "tenacity": 0.2
+   },
+   "mayhem": {
+    "damage_dealt": 0.1,
+    "damage_taken": -0.1,
+    "healing": 0.2,
+    "tenacity": 0.2
+   },
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM"
+  },
+  "Kindred": {
+   "aram": {
+    "damage_dealt": 0.1,
+    "damage_taken": -0.1,
+    "attack_speed": 0.025
+   },
+   "mayhem": {
+    "damage_taken": -0.1,
+    "attack_speed": 0.025
+   },
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM:_Mayhem"
+  },
+  "Kled": {
+   "aram": {
+    "damage_dealt": 0.05
+   },
+   "mayhem": {
+    "damage_dealt": 0.05
+   },
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM"
+  },
+  "KogMaw": {
+   "aram": {
+    "damage_dealt": -0.08,
+    "damage_taken": 0.1
+   },
+   "mayhem": {
+    "damage_dealt": -0.1,
+    "damage_taken": 0.1
+   },
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM:_Mayhem"
+  },
+  "Leblanc": {
+   "aram": {
+    "damage_dealt": 0.1,
+    "damage_taken": -0.1,
+    "ability_haste": 20.0
+   },
+   "mayhem": {
+    "damage_dealt": 0.1,
+    "damage_taken": -0.1,
+    "ability_haste": 20.0
+   },
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM"
+  },
+  "LeeSin": {
+   "aram": {
+    "damage_dealt": 0.05,
+    "damage_taken": -0.05,
+    "healing": 0.1,
+    "shielding": 0.2,
+    "energy_regen": 0.2
+   },
+   "mayhem": {
+    "damage_dealt": 0.05,
+    "damage_taken": -0.05,
+    "healing": 0.1,
+    "shielding": 0.2,
+    "energy_regen": 0.2
+   },
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM"
+  },
+  "Leona": {
+   "aram": {
+    "damage_dealt": -0.05,
+    "damage_taken": 0.05
+   },
+   "mayhem": {
+    "damage_dealt": -0.05,
+    "damage_taken": 0.05
+   },
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM"
+  },
+  "Lillia": {
+   "aram": {
+    "damage_dealt": -0.05,
+    "damage_taken": 0.05
+   },
+   "mayhem": {
+    "damage_dealt": -0.05,
+    "damage_taken": 0.05
+   },
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM"
+  },
+  "Lissandra": {
+   "aram": {
+    "damage_dealt": -0.05,
+    "damage_taken": 0.05
+   },
+   "mayhem": {
+    "damage_dealt": -0.05,
+    "damage_taken": 0.05
+   },
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM"
+  },
+  "Locke": {
+   "aram": {
+    "damage_dealt": 0.15
+   },
+   "mayhem": {
+    "damage_dealt": 0.05,
+    "damage_taken": -0.05,
+    "tenacity": 0.2
+   },
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM:_Mayhem"
+  },
+  "Lucian": {
+   "aram": {
+    "damage_dealt": 0.05,
+    "damage_taken": -0.05,
+    "tenacity": 0.2,
+    "ability_haste": 10.0
+   },
+   "mayhem": {
+    "damage_taken": -0.05,
+    "tenacity": 0.2,
+    "ability_haste": 10.0
+   },
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM:_Mayhem"
+  },
+  "Lux": {
+   "aram": {
+    "damage_dealt": -0.1,
+    "damage_taken": 0.1,
+    "shielding": -0.1
+   },
+   "mayhem": {
+    "damage_dealt": -0.1,
+    "damage_taken": 0.1,
+    "shielding": -0.1
+   },
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM"
+  },
+  "Malzahar": {
+   "aram": {
+    "damage_dealt": -0.1,
+    "damage_taken": 0.1
+   },
+   "mayhem": {
+    "damage_dealt": -0.1,
+    "damage_taken": 0.1
+   },
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM"
+  },
+  "Maokai": {
+   "aram": {
+    "damage_dealt": -0.15,
+    "damage_taken": 0.1
+   },
+   "mayhem": {
+    "damage_dealt": -0.05
+   },
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM:_Mayhem"
+  },
+  "Mel": {
+   "aram": {
+    "ability_haste": -10.0
+   },
+   "mayhem": {
+    "ability_haste": -10.0
+   },
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM"
+  },
+  "Milio": {
+   "aram": {
+    "healing": -0.05,
+    "shielding": -0.1,
+    "ability_haste": -10.0
+   },
+   "mayhem": {},
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM:_Mayhem"
+  },
+  "MissFortune": {
+   "aram": {
+    "damage_dealt": -0.05,
+    "damage_taken": 0.05
+   },
+   "mayhem": {
+    "damage_dealt": -0.05
+   },
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM:_Mayhem"
+  },
+  "Morgana": {
+   "aram": {
+    "damage_dealt": -0.05,
+    "damage_taken": 0.1
+   },
+   "mayhem": {
+    "damage_dealt": -0.05
+   },
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM:_Mayhem"
+  },
+  "Naafiri": {
+   "aram": {
+    "damage_dealt": 0.1,
+    "ability_haste": 10.0
+   },
+   "mayhem": {
+    "damage_dealt": 0.1,
+    "ability_haste": 10.0
+   },
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM"
+  },
+  "Nami": {
+   "aram": {
+    "damage_dealt": -0.05,
+    "damage_taken": 0.05
+   },
+   "mayhem": {},
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM:_Mayhem"
+  },
+  "Nasus": {
+   "aram": {
+    "damage_dealt": -0.1,
+    "damage_taken": 0.05
+   },
+   "mayhem": {},
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM:_Mayhem"
+  },
+  "Nautilus": {
+   "aram": {
+    "damage_dealt": -0.05,
+    "damage_taken": 0.1
+   },
+   "mayhem": {},
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM:_Mayhem"
+  },
+  "Nidalee": {
+   "aram": {
+    "damage_dealt": 0.1
+   },
+   "mayhem": {
+    "damage_dealt": 0.1
+   },
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM"
+  },
+  "Nocturne": {
+   "aram": {
+    "damage_dealt": 0.1,
+    "damage_taken": -0.1,
+    "healing": 0.2
+   },
+   "mayhem": {
+    "damage_dealt": 0.1,
+    "damage_taken": -0.1,
+    "healing": 0.2
+   },
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM"
+  },
+  "Nunu": {
+   "aram": {
+    "damage_dealt": 0.1,
+    "damage_taken": -0.1,
+    "healing": 0.1,
+    "shielding": 0.2,
+    "tenacity": 0.2
+   },
+   "mayhem": {
+    "damage_dealt": 0.1,
+    "damage_taken": -0.1,
+    "healing": 0.1,
+    "shielding": 0.2,
+    "tenacity": 0.2
+   },
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM"
+  },
+  "Olaf": {
+   "aram": {
+    "damage_dealt": 0.05
+   },
+   "mayhem": {
+    "damage_dealt": 0.05
+   },
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM"
+  },
+  "Ornn": {
+   "aram": {
+    "damage_dealt": -0.1,
+    "damage_taken": 0.05
+   },
+   "mayhem": {
+    "damage_dealt": -0.1,
+    "damage_taken": 0.05
+   },
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM"
+  },
+  "Pyke": {
+   "aram": {
+    "damage_dealt": 0.1,
+    "damage_taken": -0.1,
+    "tenacity": 0.2
+   },
+   "mayhem": {
+    "damage_dealt": 0.1,
+    "damage_taken": -0.1,
+    "tenacity": 0.2
+   },
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM"
+  },
+  "Qiyana": {
+   "aram": {
+    "damage_dealt": 0.15,
+    "damage_taken": -0.1,
+    "tenacity": 0.2,
+    "ability_haste": 20.0
+   },
+   "mayhem": {
+    "damage_dealt": 0.1,
+    "damage_taken": -0.1,
+    "tenacity": 0.2,
+    "ability_haste": 20.0
+   },
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM:_Mayhem"
+  },
+  "Quinn": {
+   "aram": {
+    "damage_dealt": 0.1,
+    "damage_taken": -0.1,
+    "attack_speed": 0.025,
+    "tenacity": 0.2
+   },
+   "mayhem": {
+    "damage_dealt": 0.1,
+    "damage_taken": -0.1,
+    "attack_speed": 0.025,
+    "tenacity": 0.2
+   },
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM"
+  },
+  "Rakan": {
+   "aram": {
+    "damage_taken": -0.05,
+    "ability_haste": 10.0
+   },
+   "mayhem": {
+    "damage_taken": -0.05,
+    "ability_haste": 10.0
+   },
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM"
+  },
+  "RekSai": {
+   "aram": {
+    "damage_dealt": 0.05,
+    "damage_taken": -0.1
+   },
+   "mayhem": {
+    "damage_dealt": 0.05,
+    "damage_taken": -0.1
+   },
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM"
+  },
+  "Rell": {
+   "aram": {
+    "damage_dealt": -0.05,
+    "shielding": -0.1
+   },
+   "mayhem": {
+    "damage_dealt": -0.05,
+    "shielding": -0.1
+   },
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM"
+  },
+  "Renata": {
+   "aram": {
+    "damage_dealt": -0.05,
+    "damage_taken": 0.05
+   },
+   "mayhem": {
+    "damage_taken": 0.05
+   },
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM:_Mayhem"
+  },
+  "Renekton": {
+   "aram": {
+    "healing": 0.1
+   },
+   "mayhem": {
+    "healing": 0.1
+   },
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM"
+  },
+  "Rengar": {
+   "aram": {
+    "damage_dealt": 0.05,
+    "damage_taken": -0.08,
+    "tenacity": 0.2
+   },
+   "mayhem": {
+    "damage_dealt": 0.05,
+    "damage_taken": -0.08,
+    "tenacity": 0.2
+   },
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM"
+  },
+  "Riven": {
+   "aram": {
+    "damage_dealt": 0.05,
+    "damage_taken": -0.08
+   },
+   "mayhem": {
+    "damage_dealt": 0.05,
+    "damage_taken": -0.08
+   },
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM"
+  },
+  "Ryze": {
+   "aram": {
+    "damage_dealt": 0.05,
+    "damage_taken": -0.05
+   },
+   "mayhem": {},
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM:_Mayhem"
+  },
+  "Senna": {
+   "aram": {
+    "damage_dealt": -0.08,
+    "damage_taken": 0.05
+   },
+   "mayhem": {
+    "damage_taken": 0.05
+   },
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM:_Mayhem"
+  },
+  "Seraphine": {
+   "aram": {
+    "damage_taken": 0.2,
+    "healing": -0.2,
+    "shielding": -0.2,
+    "ability_haste": -20.0
+   },
+   "mayhem": {
+    "damage_taken": 0.2,
+    "healing": -0.2,
+    "shielding": -0.2
+   },
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM:_Mayhem"
+  },
+  "Sett": {
+   "aram": {
+    "damage_taken": 0.1
+   },
+   "mayhem": {},
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM:_Mayhem"
+  },
+  "Shaco": {
+   "aram": {
+    "damage_dealt": 0.05
+   },
+   "mayhem": {
+    "damage_dealt": 0.05
+   },
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM"
+  },
+  "Shen": {
+   "aram": {
+    "damage_dealt": -0.05,
+    "damage_taken": 0.05
+   },
+   "mayhem": {
+    "damage_dealt": -0.05,
+    "damage_taken": 0.05
+   },
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM"
+  },
+  "Shyvana": {
+   "aram": {
+    "damage_taken": -0.05
+   },
+   "mayhem": {},
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM:_Mayhem"
+  },
+  "Singed": {
+   "aram": {
+    "damage_taken": 0.08
+   },
+   "mayhem": {},
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM:_Mayhem"
+  },
+  "Sion": {
+   "aram": {
+    "damage_dealt": -0.1,
+    "damage_taken": 0.1,
+    "ability_haste": -10.0
+   },
+   "mayhem": {
+    "damage_dealt": -0.1,
+    "ability_haste": -10.0
+   },
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM:_Mayhem"
+  },
+  "Sivir": {
+   "aram": {
+    "damage_dealt": -0.07,
+    "damage_taken": 0.05
+   },
+   "mayhem": {
+    "damage_dealt": -0.07,
+    "damage_taken": 0.05
+   },
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM"
+  },
+  "Skarner": {
+   "aram": {},
+   "mayhem": {
+    "damage_dealt": 0.05,
+    "damage_taken": -0.05
+   },
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM:_Mayhem"
+  },
+  "Smolder": {
+   "aram": {
+    "damage_taken": 0.02,
+    "ability_haste": -10.0
+   },
+   "mayhem": {},
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM:_Mayhem"
+  },
+  "Soraka": {
+   "aram": {
+    "ability_haste": 10.0
+   },
+   "mayhem": {
+    "ability_haste": 10.0
+   },
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM:_Mayhem"
+  },
+  "Swain": {
+   "aram": {
+    "damage_dealt": -0.05,
+    "damage_taken": 0.15,
+    "healing": -0.2
+   },
+   "mayhem": {},
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM:_Mayhem"
+  },
+  "Sylas": {
+   "aram": {
+    "damage_dealt": 0.05
+   },
+   "mayhem": {
+    "damage_dealt": 0.05
+   },
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM"
+  },
+  "Syndra": {
+   "aram": {
+    "damage_dealt": 0.05,
+    "ability_haste": 5.0
+   },
+   "mayhem": {
+    "damage_dealt": 0.05,
+    "ability_haste": 5.0
+   },
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM"
+  },
+  "TahmKench": {
+   "aram": {
+    "damage_taken": 0.05
+   },
+   "mayhem": {},
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM:_Mayhem"
+  },
+  "Talon": {
+   "aram": {
+    "damage_dealt": 0.05,
+    "damage_taken": -0.05,
+    "tenacity": 0.2
+   },
+   "mayhem": {
+    "damage_dealt": 0.05,
+    "damage_taken": -0.05,
+    "tenacity": 0.2
+   },
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM"
+  },
+  "Taric": {
+   "aram": {
+    "damage_taken": 0.1
+   },
+   "mayhem": {
+    "damage_taken": 0.1
+   },
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM"
+  },
+  "Teemo": {
+   "aram": {
+    "damage_dealt": -0.05,
+    "damage_taken": 0.1,
+    "ability_haste": -15.0
+   },
+   "mayhem": {
+    "damage_dealt": -0.05,
+    "damage_taken": 0.1
+   },
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM:_Mayhem"
+  },
+  "Thresh": {
+   "aram": {
+    "damage_taken": 0.05
+   },
+   "mayhem": {},
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM:_Mayhem"
+  },
+  "Tristana": {
+   "aram": {
+    "damage_dealt": 0.05,
+    "damage_taken": -0.05
+   },
+   "mayhem": {},
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM:_Mayhem"
+  },
+  "Trundle": {
+   "aram": {
+    "damage_taken": 0.05
+   },
+   "mayhem": {},
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM:_Mayhem"
+  },
+  "Tryndamere": {
+   "aram": {
+    "damage_dealt": 0.1,
+    "damage_taken": -0.1,
+    "healing": 0.2
+   },
+   "mayhem": {
+    "damage_dealt": 0.1,
+    "damage_taken": -0.1,
+    "healing": 0.2
+   },
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM"
+  },
+  "Twitch": {
+   "aram": {
+    "damage_taken": -0.05
+   },
+   "mayhem": {},
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM:_Mayhem"
+  },
+  "Urgot": {
+   "aram": {
+    "damage_taken": 0.05
+   },
+   "mayhem": {},
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM:_Mayhem"
+  },
+  "Vayne": {
+   "aram": {
+    "damage_taken": -0.05
+   },
+   "mayhem": {},
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM:_Mayhem"
+  },
+  "Veigar": {
+   "aram": {
+    "damage_dealt": -0.07,
+    "damage_taken": 0.1
+   },
+   "mayhem": {
+    "damage_dealt": -0.07,
+    "damage_taken": 0.1
+   },
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM"
+  },
+  "Velkoz": {
+   "aram": {
+    "damage_dealt": -0.05,
+    "damage_taken": 0.05
+   },
+   "mayhem": {
+    "damage_dealt": -0.05,
+    "damage_taken": 0.05
+   },
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM"
+  },
+  "Vex": {
+   "aram": {
+    "damage_dealt": -0.05
+   },
+   "mayhem": {
+    "damage_dealt": -0.05
+   },
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM"
+  },
+  "Vi": {
+   "aram": {
+    "damage_dealt": 0.05,
+    "damage_taken": -0.05
+   },
+   "mayhem": {
+    "damage_dealt": 0.05,
+    "damage_taken": -0.05
+   },
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM"
+  },
+  "Viego": {
+   "aram": {
+    "damage_dealt": 0.05
+   },
+   "mayhem": {
+    "damage_dealt": 0.05
+   },
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM"
+  },
+  "Warwick": {
+   "aram": {
+    "damage_dealt": 0.05,
+    "damage_taken": -0.05
+   },
+   "mayhem": {
+    "damage_dealt": 0.05,
+    "damage_taken": -0.05
+   },
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM"
+  },
+  "Xayah": {
+   "aram": {
+    "damage_dealt": 0.05,
+    "attack_speed": 0.03
+   },
+   "mayhem": {},
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM:_Mayhem"
+  },
+  "Xerath": {
+   "aram": {
+    "damage_dealt": -0.07,
+    "damage_taken": 0.05
+   },
+   "mayhem": {
+    "damage_dealt": -0.07,
+    "damage_taken": 0.05
+   },
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM"
+  },
+  "XinZhao": {
+   "aram": {
+    "damage_dealt": -0.05
+   },
+   "mayhem": {},
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM:_Mayhem"
+  },
+  "Yasuo": {
+   "aram": {
+    "attack_speed": 0.025
+   },
+   "mayhem": {
+    "attack_speed": 0.025
+   },
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM"
+  },
+  "Yone": {
+   "aram": {
+    "damage_dealt": 0.05,
+    "damage_taken": -0.03,
+    "attack_speed": 0.025
+   },
+   "mayhem": {
+    "damage_dealt": 0.05,
+    "damage_taken": -0.03,
+    "attack_speed": 0.025
+   },
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM"
+  },
+  "Zaahen": {
+   "aram": {
+    "damage_dealt": -0.05,
+    "damage_taken": 0.05
+   },
+   "mayhem": {},
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM:_Mayhem"
+  },
+  "Zac": {
+   "aram": {
+    "damage_taken": -0.04,
+    "healing": 0.1
+   },
+   "mayhem": {
+    "damage_taken": -0.04,
+    "healing": 0.1
+   },
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM"
+  },
+  "Zed": {
+   "aram": {
+    "damage_dealt": 0.05,
+    "damage_taken": -0.05,
+    "energy_regen": 0.2,
+    "tenacity": 0.2
+   },
+   "mayhem": {
+    "damage_dealt": 0.05,
+    "damage_taken": -0.05,
+    "energy_regen": 0.2,
+    "tenacity": 0.2
+   },
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM"
+  },
+  "Zeri": {
+   "aram": {
+    "damage_dealt": 0.1,
+    "damage_taken": -0.05
+   },
+   "mayhem": {
+    "damage_dealt": 0.1,
+    "damage_taken": -0.05
+   },
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM"
+  },
+  "Ziggs": {
+   "aram": {
+    "damage_dealt": -0.08,
+    "damage_taken": 0.2,
+    "ability_haste": -20.0
+   },
+   "mayhem": {
+    "damage_dealt": -0.1,
+    "damage_taken": 0.2,
+    "ability_haste": -20.0
+   },
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM:_Mayhem"
+  },
+  "Zilean": {
+   "aram": {
+    "damage_dealt": 0.05,
+    "damage_taken": -0.05
+   },
+   "mayhem": {},
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM:_Mayhem"
+  },
+  "Zoe": {
+   "aram": {
+    "damage_dealt": 0.1,
+    "damage_taken": -0.05
+   },
+   "mayhem": {
+    "damage_dealt": 0.1,
+    "damage_taken": -0.05
+   },
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM"
+  },
+  "Zyra": {
+   "aram": {
+    "damage_dealt": -0.1,
+    "damage_taken": 0.05,
+    "ability_haste": -10.0
+   },
+   "mayhem": {
+    "damage_dealt": -0.1,
+    "damage_taken": 0.05,
+    "ability_haste": -10.0
+   },
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM"
+  }
+ }
+}

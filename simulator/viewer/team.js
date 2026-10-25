@@ -1,15 +1,24 @@
-// 5v5 teamfight page: pick both teams (and their builds), run the simulator's team mode in the
-// Web Worker (sim-worker.js) and show who wins, how long it takes and who goes down when.
+// Teamfight page: pick both teams (1 to 5 champions each, and their builds), run the simulator's team
+// mode in the Web Worker (sim-worker.js) and show who wins, how long it takes and who goes down when.
+// team.html?size=2 is the 2v2 page: both teams fixed at two.
 (() => {
   "use strict";
   const $ = (id) => document.getElementById(id);
   const ICON = "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/";
   const TRIALS = 300;
 
+  const FIXED = Math.min(5, Math.max(0, Number(new URLSearchParams(location.search).get("size")) || 0));
   let meta = null, patch = "live", busy = false;
   const popular = new Map();  // champion id (lower case) -> {items, augments}
-  // Each side's five slots: {id, items, augs, custom}
+  // Each side's slots: {id, items, augs, custom}
   const teams = { allies: [], foes: [] };
+  const sizes = { allies: FIXED || 5, foes: FIXED || 5 };
+  // How often two champions play on the same team (replay-data/team-pairs.json): "key|key" -> share of games.
+  const together = new Map();
+  const pairsReady = fetch("replay-data/team-pairs.json?v=" + (window.REPLAY_VERSION || "0"))
+    .then((r) => (r.ok ? r.json() : { pairs: [] }))
+    .then((d) => { for (const [a, b, w] of d.pairs) together.set(a + "|" + b, w); })
+    .catch(() => {});
 
   // ---------- worker ----------
   let worker = null, nextId = 1;
@@ -37,31 +46,74 @@
     return { items: p ? p.items.slice() : [], augs: p ? p.augments.slice() : [] };
   }
   function slotFor(id) { const b = buildOf(id); return { id, items: b.items, augs: b.augs, custom: false }; }
-  // The most likely enemies (by how often they're picked) that aren't already in a team.
-  function likelyFoes(taken) {
-    return meta.enemies.slice().sort((a, b) => b.weight - a.weight)
-      .filter((e) => champ(e.id) && !taken.has(e.id.toLowerCase())).slice(0, 5).map((e) => slotFor(champ(e.id).id));
+  const pairShare = (a, b) => {
+    const x = Number(a.key), y = Number(b.key);
+    return together.get(Math.min(x, y) + "|" + Math.max(x, y)) || 0;
+  };
+  // Grows a team to n champions the way real lineups look: starting from the given ones (else the pair
+  // seen together most often), it adds whoever plays most often alongside those already in. Champions
+  // in `taken` are left out; without pair data it falls back to the most picked champions.
+  function popularTeam(n, start, taken) {
+    const team = start.map(champ).filter(Boolean).slice(0, n);
+    const free = () => meta.champions.filter((c) => !taken.has(c.id.toLowerCase()) && !team.includes(c));
+    const pick = meta.enemies.slice().sort((a, b) => b.weight - a.weight);
+    if (!team.length && together.size) {
+      let best = null, top = 0;
+      for (const a of free()) for (const b of free()) if (a.key < b.key && pairShare(a, b) > top) { top = pairShare(a, b); best = [a, b]; }
+      if (best) team.push(...best.slice(0, n));
+    }
+    while (team.length < n) {
+      let best = null, top = 0;
+      for (const c of free()) {
+        const w = team.reduce((sum, t) => sum + pairShare(c, t), 0);
+        if (w > top) { top = w; best = c; }
+      }
+      if (!best) best = pick.map((e) => champ(e.id)).find((c) => c && free().includes(c)) || free()[0];
+      if (!best) break;
+      team.push(best);
+    }
+    return team.map((c) => slotFor(c.id));
+  }
+  const ids = (list) => new Set(list.map((s) => s.id.toLowerCase()));
+  // Both teams as the most commonly seen lineups; the champion named in the link joins yours.
+  function popularTeams() {
+    const want = new URLSearchParams(location.search).get("champ");
+    teams.allies = popularTeam(sizes.allies, want && champ(want) ? [champ(want).id] : [], new Set());
+    teams.foes = popularTeam(sizes.foes, [], ids(teams.allies));
+  }
+  // A side of random champions, none of them on the other team.
+  function randomTeam(side) {
+    const other = ids(teams[side === "allies" ? "foes" : "allies"]);
+    const pool = meta.champions.filter((c) => !other.has(c.id.toLowerCase()));
+    for (let i = pool.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [pool[i], pool[j]] = [pool[j], pool[i]]; }
+    teams[side] = pool.slice(0, sizes[side]).map((c) => slotFor(c.id));
+  }
+  // A new team size: drop champions from the end, or add whoever plays most often with the rest.
+  function resize(side, n) {
+    sizes[side] = n;
+    const other = side === "allies" ? "foes" : "allies";
+    if (teams[side].length > n) teams[side] = teams[side].slice(0, n);
+    else {
+      const add = popularTeam(n, teams[side].map((s) => s.id), ids(teams[other]));
+      teams[side] = teams[side].concat(add.slice(teams[side].length));
+    }
   }
 
   function loadMeta() {
     setBusy(true);
     return call(["--list", "--json", ...patchArgs()]).then((r) => {
       setBusy(false);
-      if (!r.ok) { status("The simulator couldn't load its data: " + r.stderr, "err"); return false; }
+      if (!r.ok) { status(T("The simulator couldn't load its data:") + " " + r.stderr, "err"); return false; }
       meta = JSON.parse(r.stdout);
+      // Official names in the page's language.
+      for (const i of meta.items) i.name = NAME("items", i.id, i.name);
+      for (const a of meta.augments) a.name = NAME("augments", a.id, a.name);
+      for (const c of meta.champions) c.name = NAME("champions", c.id, c.name);
       meta.champions.sort((a, b) => a.name.localeCompare(b.name));
       popular.clear();
       for (const e of meta.enemies) popular.set(e.id.toLowerCase(), { items: e.items, augments: e.augments });
-      if (!teams.allies.length) {
-        const want = new URLSearchParams(location.search).get("champ");
-        // The champion named in the link, else a random one each visit.
-        const you = (want && champ(want)) || meta.champions[Math.floor(Math.random() * meta.champions.length)];
-        const picks = [you.id, ...["Lulu", "Leona", "Ahri", "Darius", "Jinx"].filter((n) => n.toLowerCase() !== you.id.toLowerCase()).slice(0, 4)]
-          .map((n) => champ(n) || meta.champions[0]);
-        const seen = new Set();
-        teams.allies = picks.filter((c) => !seen.has(c.id) && seen.add(c.id)).map((c) => slotFor(c.id));
-        teams.foes = likelyFoes(new Set(teams.allies.map((s) => s.id.toLowerCase())));
-      } else {
+      if (!teams.allies.length) popularTeams();
+      else {
         // A new patch: keep the champions, refresh builds nobody changed.
         for (const side of ["allies", "foes"])
           teams[side] = teams[side].filter((s) => champ(s.id)).map((s) => (s.custom ? s : slotFor(s.id)));
@@ -93,7 +145,16 @@
       const box = $(side);
       box.textContent = "";
       teams[side].forEach((slot, i) => box.append(slotRow(side, i, slot)));
+      const sz = $(side === "allies" ? "allySize" : "foeSize");
+      if (sz) sz.value = String(sizes[side]);
     }
+  }
+  // "Your build · change" or "Most popular build · change" on a champion's build toggle.
+  function summaryText(sum, custom) {
+    sum.textContent = "";
+    if (custom) { const b = document.createElement("b"); b.textContent = T("Your build"); sum.append(b); }
+    else sum.append(T("Most popular build"));
+    sum.append(" · " + T("change"));
   }
   function slotRow(side, i, slot) {
     const row = document.createElement("div");
@@ -102,18 +163,18 @@
     pick.className = "pick";
     const taken = new Set([...teams.allies, ...teams.foes].filter((s) => s !== slot).map((s) => s.id.toLowerCase()));
     const opts = meta.champions.filter((c) => !taken.has(c.id.toLowerCase())).map((c) => ({ key: c.id, name: c.name }));
-    const sel = select(opts, slot.id, (side === "allies" ? (i ? "Ally " + i : "Your champion") : "Enemy " + (i + 1)), false);
+    const sel = select(opts, slot.id, (side === "allies" ? (i ? T("Ally {n}", { n: i }) : T("Your champion")) : T("Enemy {n}", { n: i + 1 })), false);
     sel.addEventListener("change", () => { teams[side][i] = slotFor(sel.value); render(); });
     pick.append(sel);
     if (side === "allies" && i === 0) {
       const tag = document.createElement("span");
       tag.className = "tag";
-      tag.textContent = "You";
+      tag.textContent = T("You");
       pick.append(tag);
     }
     const det = document.createElement("details");
     const sum = document.createElement("summary");
-    sum.innerHTML = slot.custom ? "<b>Your build</b> · change" : "Most popular build · change";
+    summaryText(sum, slot.custom);
     det.append(sum);
     det.addEventListener("toggle", () => { if (det.open && !det.querySelector(".gear")) det.append(gear(side, i, slot, sum)); });
     row.append(icon(slot.id), pick, det);
@@ -126,32 +187,32 @@
     const c = champ(slot.id), pool = new Set((c && c.augments) || []);
     for (const k of slot.augs) pool.add(k);
     const augs = meta.augments.filter((a) => pool.has(a.key))
-      .map((a) => (a.modeled === false ? { ...a, name: a.name + " (no effect yet)" } : a))
+      .map((a) => (a.modeled === false ? { ...a, name: a.name + " " + T("(no effect yet)") } : a))
       .sort((a, b) => a.name.localeCompare(b.name));
     const changed = () => {
       slot.items = [...box.querySelectorAll("select[data-kind=item]")].map((s) => s.value).filter(Boolean);
       slot.augs = [...box.querySelectorAll("select[data-kind=aug]")].map((s) => s.value).filter(Boolean);
       slot.custom = true;
-      sum.innerHTML = "<b>Your build</b> · change";
+      summaryText(sum, true);
     };
     const head = (t) => { const s = document.createElement("span"); s.textContent = t; box.append(s); };
-    head("Items");
+    head(T("Items"));
     for (let k = 0; k < Math.max(6, slot.items.length); k++) {
-      const s = select(items, slot.items[k], "Item " + (k + 1), true);
+      const s = select(items, slot.items[k], T("Item {n}", { n: k + 1 }), true);
       s.dataset.kind = "item";
       s.addEventListener("change", changed);
       box.append(s);
     }
-    head("Augments");
+    head(T("Augments"));
     for (let k = 0; k < 4; k++) {
-      const s = select(augs, slot.augs[k], "Augment " + (k + 1), true);
+      const s = select(augs, slot.augs[k], T("Augment {n}", { n: k + 1 }), true);
       s.dataset.kind = "aug";
       s.addEventListener("change", changed);
       box.append(s);
     }
     const reset = document.createElement("button");
     reset.type = "button";
-    reset.textContent = "Most popular build";
+    reset.textContent = T("Most popular build");
     reset.style.gridColumn = "1 / -1";
     reset.addEventListener("click", () => { teams[side][i] = slotFor(slot.id); render(); });
     box.append(reset);
@@ -168,7 +229,7 @@
   }
   function setBusy(on) {
     busy = on;
-    for (const b of ["runTeam", "randomFoes", "patchSel"]) $(b).disabled = on;
+    for (const b of ["runTeam", "popularTeams", "randomAllies", "randomFoes", "allySize", "foeSize", "patchSel"]) if ($(b)) $(b).disabled = on;
   }
   function run() {
     if (busy || !meta) return;
@@ -180,12 +241,12 @@
       if (you.augs.length) args.push("--augs", you.augs.join(","));
     }
     setBusy(true);
-    status("Simulating every champion's fight, then the teamfight…", "busy");
+    status(T("Simulating every champion's fight, then the teamfight…"), "busy");
     call(args).then((r) => {
       setBusy(false);
-      if (!r.ok) { status("The simulation failed: " + (r.stderr || "unknown error").replace(/^error:\s*/, ""), "err"); return; }
+      if (!r.ok) { status(T("The simulation failed:") + " " + (r.stderr || T("unknown error")).replace(/^error:\s*/, ""), "err"); return; }
       show(JSON.parse(r.stdout));
-      status(patch === "pbe" ? "Done, on the PBE patch's numbers." : "Done. Change anyone and simulate again.");
+      status(patch === "pbe" ? T("Done, on the PBE patch's numbers.") : T("Done. Change anyone and simulate again."));
     });
   }
   const pct = (x) => Math.round(x * 100) + "%";
@@ -194,11 +255,16 @@
     const w = $("winRate");
     w.textContent = pct(res.win_rate);
     w.className = res.win_rate >= 0.55 ? "good" : res.win_rate <= 0.45 ? "bad" : "";
-    $("fightLen").textContent = res.fight_length.toFixed(1) + " s";
+    // When embedded in the site (same origin), let it buzz and chime when your team is favoured.
+    if (res.win_rate > 0.5 && window.parent !== window) {
+      try { window.parent.postMessage({ type: "deeparam-haptic", kind: "win" }, location.origin); } catch {}
+    }
+    $("trials").textContent = (res.trials || TRIALS).toLocaleString();
+    $("fightLen").textContent = T("{n} s", { n: res.fight_length.toFixed(1) });
     $("teamDps").textContent = Math.round(res.team_dps).toLocaleString();
     $("enemyDps").textContent = Math.round(res.enemy_dps).toLocaleString();
-    table($("allyTable"), "Your team", res.members);
-    table($("foeTable"), "Enemy team", res.enemies);
+    table($("allyTable"), T("Your team"), res.members);
+    table($("foeTable"), T("Enemy team"), res.enemies);
     // Who goes down when, in a median-length fight.
     const track = $("track"), end = Math.max(res.fight_length, ...res.timeline.map((e) => e.t), 1);
     track.querySelectorAll(".tick").forEach((n) => n.remove());
@@ -215,19 +281,19 @@
         t.className = "tick " + e.side;
         t.style.left = Math.max(0, xs[i]) + "%";
         const c = champ(e.champion);
-        t.title = (c ? c.name : e.champion) + " goes down at " + e.t.toFixed(1) + " s";
+        t.title = T("{name} goes down at {t} s", { name: c ? c.name : e.champion, t: e.t.toFixed(1) });
         const lbl = document.createElement("span");
         lbl.textContent = e.t.toFixed(1) + "s";
         t.append(icon(e.champion), lbl);
         track.append(t);
       });
     }
-    $("axisEnd").textContent = end.toFixed(1) + " s";
+    $("axisEnd").textContent = T("{n} s", { n: end.toFixed(1) });
   }
   function table(el, title, list) {
     el.textContent = "";
     const head = el.insertRow();
-    for (const h of [title, "DPS", "Share", "Standing", "Survives"]) {
+    for (const h of [title, "DPS", T("Share"), T("Standing"), T("Survives")]) {
       const th = document.createElement("th");
       th.textContent = h;
       head.append(th);
@@ -237,8 +303,8 @@
       const who = tr.insertCell();
       who.className = "who";
       const nm = document.createElement("span");
-      nm.textContent = m.name;
-      who.title = m.build.items.map((i) => i.name || itemName(i.key || i)).concat(m.build.augments.map((a) => a.name || augName(a.key || a))).join(", ");
+      nm.textContent = NAME("champions", m.champion, m.name);
+      who.title = m.build.items.map((i) => itemName(i.key || i)).concat(m.build.augments.map((a) => augName(a.key || a))).join(", ");
       who.append(icon(m.champion), nm);
       tr.insertCell().textContent = Math.round(m.summary.mean_dps).toLocaleString();
       const share = tr.insertCell();
@@ -248,30 +314,38 @@
       bar.innerHTML = "<i></i>";
       bar.firstChild.style.width = Math.round(m.share * 100) + "%";
       share.append(bar);
-      tr.insertCell().textContent = m.time_alive.toFixed(1) + " s";
+      tr.insertCell().textContent = T("{n} s", { n: m.time_alive.toFixed(1) });
       tr.insertCell().textContent = pct(m.survival);
     }
   }
 
   // ---------- wiring ----------
   $("runTeam").addEventListener("click", run);
-  $("randomFoes").addEventListener("click", () => {
-    if (!meta) return;
-    teams.foes = likelyFoes(new Set(teams.allies.map((s) => s.id.toLowerCase())));
-    render();
-  });
+  $("popularTeams").addEventListener("click", () => { if (meta) { popularTeams(); render(); } });
+  $("randomAllies").addEventListener("click", () => { if (meta) { randomTeam("allies"); render(); } });
+  $("randomFoes").addEventListener("click", () => { if (meta) { randomTeam("foes"); render(); } });
+  for (const [id, side] of [["allySize", "allies"], ["foeSize", "foes"]]) {
+    const sel = $(id);
+    if (!sel) continue;
+    if (FIXED) { sel.closest("label").hidden = true; continue; }
+    sel.addEventListener("change", () => { if (meta) { resize(side, Number(sel.value)); render(); } });
+  }
+  if (FIXED) {
+    document.title = document.title.replace(/Teamfight/, FIXED + "v" + FIXED);
+    $("pageTitle").textContent = FIXED + "v" + FIXED;
+  }
   $("patchSel").addEventListener("change", (e) => {
     patch = e.target.value;
     loadMeta().then((ok) => {
-      if (ok) status(patch === "pbe" ? "PBE patch: the fight now uses the test server's numbers." : "Live patch again.");
+      if (ok) status(patch === "pbe" ? T("PBE patch: the fight now uses the test server's numbers.") : T("Live patch again."));
     });
   });
   try {
     worker = new Worker("sim-worker.js?v=" + (window.REPLAY_VERSION || "0"));
     worker.onmessage = (e) => { const r = pending.get(e.data.id); pending.delete(e.data.id); if (r) r(e.data); };
-    worker.onerror = () => status("The simulator couldn't start in this browser.", "err");
-    loadMeta().then((ok) => { if (ok) status("Pick the teams, then simulate."); });
+    worker.onerror = () => status(T("The simulator couldn't start in this browser."), "err");
+    Promise.all([window.I18N.ready, pairsReady]).then(loadMeta).then((ok) => { if (ok) status(T("Pick the teams, then simulate.")); });
   } catch (e) {
-    status("The simulator needs Web Workers, which this browser blocks.", "err");
+    status(T("The simulator needs Web Workers, which this browser blocks."), "err");
   }
 })();

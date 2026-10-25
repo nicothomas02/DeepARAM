@@ -1,8 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
-import { AdminError, checkPassword, loadContent, saveContent } from "@/lib/admin";
+import { AdminError, loadContent, saveContent } from "@/lib/admin";
+import { isAdmin } from "@/lib/admin-session";
 
-// GET  /api/admin/content  → { content, sha }   (header X-Admin-Password)
+// GET  /api/admin/content  → { content, sha }
 // POST /api/admin/content  { content, sha } → { sha }
+// Both only for the signed-in site owner (lib/accounts.ts).
 export const dynamic = "force-dynamic";
 
 function fail(err: unknown) {
@@ -11,10 +13,14 @@ function fail(err: unknown) {
   return NextResponse.json({ error: message }, { status });
 }
 
-export async function GET(req: NextRequest) {
+async function owner() {
+  if (!(await isAdmin())) throw new AdminError("Sign in with the site owner's account first.", 401);
+}
+
+export async function GET() {
   try {
-    await checkPassword(req.headers.get("x-admin-password"));
-    return NextResponse.json(await loadContent());
+    await owner();
+    return NextResponse.json(await loadContent(), { headers: { "Cache-Control": "no-store" } });
   } catch (err) {
     return fail(err);
   }
@@ -22,7 +28,7 @@ export async function GET(req: NextRequest) {
 
 export async function POST(req: NextRequest) {
   try {
-    await checkPassword(req.headers.get("x-admin-password"));
+    await owner();
     const { content, sha } = (await req.json()) as { content?: unknown; sha?: string | null };
     return NextResponse.json({ sha: await saveContent(content, sha ?? null) });
   } catch (err) {

@@ -13,6 +13,9 @@
     return base + growth * n * (0.7025 + 0.0175 * n);
   }
 
+  // Breakdown labels in the page's language when the translations are loaded (i18n.js), else English.
+  const tr = (s, v) => (root.LabI18n ? root.LabI18n.t(s, v) : s.replace(/\{(\w+)\}/g, (m, k) => v[k]));
+
   function lerpLevel(calc, level) {
     return calc.lvl1 + (calc.lvl18 - calc.lvl1) * (level - 1) / 17;
   }
@@ -48,17 +51,17 @@
       if (it.calcs.BonusHPFromMana) hpPerBonusMana += it.calcs.BonusHPFromMana.manaRatio; // Fimbulwinter
       if (it.id === 6657) {                                        // Rod of Ages stacks
         const s = clamp(opts.rodStacks ?? v.MaxStacks, 0, v.MaxStacks);
-        addAP(`${it.name} stacks`, s * v.APPerStack);
+        addAP(tr("{name} stacks", { name: it.name }), s * v.APPerStack);
         flatMana += s * v.ManaPerStack;
         flatHP += s * v.HealthPerStack;
       }
       if (it.id === 3041) {                                        // Mejai's Glory
         const g = clamp(opts.glory ?? v.MaxGloryStacks, 0, v.MaxGloryStacks);
-        addAP(`${it.name} Glory`, g * v.APPerGlory);
+        addAP(tr("{name} Glory", { name: it.name }), g * v.APPerGlory);
       }
       if (it.id === 2503) {                                        // Blackfire Torch
         const n = clamp(opts.blackfireTargets ?? 3, 0, 7);
-        addAmp(`${it.name} (${n} burning)`, n * v.APPerStack);
+        addAmp(tr("{name} ({n} burning)", { name: it.name, n }), n * v.APPerStack);
       }
     }
 
@@ -70,7 +73,7 @@
         case "ARAM_Goliath": addAmp(a.name, v.AFAmp); hpAmp += v.HealthAmp; break;
         case "HandOfBaron": addAmp(a.name, v.AFAmp); break;
         case "ARAM_MadScientist":
-          if (opts.madLarge !== false) { addAmp(`${a.name} (large)`, v.APAmp); hpAmp += v.HealthAmp; }
+          if (opts.madLarge !== false) { addAmp(tr("{name} (large)", { name: a.name }), v.APAmp); hpAmp += v.HealthAmp; }
           break;
         case "ARAM_ADAPt": addAmp(a.name, v.APAmp); break;
         case "ARAM_PhenomenalEvil": {
@@ -82,13 +85,13 @@
           addAP(a.name, Math.max(0, opts.dualityStacks ?? 5) * lerpLevel(c.APGained, L));
           break;
         case "ARAM_SlapAround": addAP(a.name, Math.max(0, opts.slapStacks ?? 10) * v.AdaptiveForce); break;
-        case "MightyShield": if (opts.shielded !== false) addAP(`${a.name} (shielded)`, lerpLevel(c.AdaptiveAmp, L)); break;
-        case "ARAM_ImTheJuggernaut": if (opts.juggernaut !== false) addAP(`${a.name} (max stacks)`, lerpLevel(c.Calc_AF, L)); break;
+        case "MightyShield": if (opts.shielded !== false) addAP(tr("{name} (shielded)", { name: a.name }), lerpLevel(c.AdaptiveAmp, L)); break;
+        case "ARAM_ImTheJuggernaut": if (opts.juggernaut !== false) addAP(tr("{name} (max stacks)", { name: a.name }), lerpLevel(c.Calc_AF, L)); break;
         case "ARAM_MindtoMatter": hpPerMana += c.ManaToHealthCalc.manaRatio; break;
       }
     }
 
-    addAP("Stat anvils / other", +extra.ap || 0);
+    addAP(tr("Stat anvils / other", {}), +extra.ap || 0);
     flatMana += +extra.mana || 0;
     flatHP += +extra.hp || 0;
 

@@ -1,0 +1,264 @@
+{
+ "patch": "16.21.8298620",
+ "attackSpeedCap": 5.0,
+ "aramAttackSpeedCap": 3.0,
+ "critOverflow": "adaptive",
+ "runes": false,
+ "aura": [
+  "+70 Summoner Spell Haste",
+  "Increased Mana and Energy Regeneration",
+  "Gain Experience Passively",
+  "Healing Effects on Allies are 50% as Effective",
+  "AoE Damage Dealt to Minions is 75% Effective",
+  "Nearby Enemy Minion Deaths Grant 6 Gold",
+  "Excess Critical Strike Chance gets converted to Adaptive Force",
+  "Attack Speed Maximum raised to 5.0",
+  "Melee champions gain Armor and Magic Resistance",
+  "All champions gain additional Health",
+  "All champions gain Presence of Mind"
+ ],
+ "keystoneAugments": {
+  "1038": [
+   "First Strike",
+   "Dark Harvest"
+  ],
+  "1149": [
+   "Aftershock",
+   "Glacial Augment"
+  ],
+  "1079": [
+   "Lethal Tempo",
+   "Conqueror"
+  ]
+ },
+ "startLevel": 3,
+ "respawn": {
+  "byLevel": {
+   "3": 11.0,
+   "4": 13.0,
+   "5": 15.0,
+   "6": 17.0,
+   "7": 19.0,
+   "8": 21.0,
+   "9": 22.0,
+   "10": 24.0,
+   "11": 26.0,
+   "12": 28.0,
+   "13": 30.0,
+   "14": 32.0,
+   "15": 34.0,
+   "16": 36.0,
+   "17": 38.0,
+   "18": 40.0
+  },
+  "scaleFrom": 1440,
+  "scaleStep": 60,
+  "scalePerStep": 0.025,
+  "scaleCap": 1.25
+ },
+ "longRange": {
+  "range": 1000,
+  "reductionMin": 0.15,
+  "reductionMax": 0.3,
+  "excludes": [
+   "damage over time",
+   "ultimate abilities"
+  ]
+ },
+ "critConversion": {
+  "adPerPercent": 0.45,
+  "apPerPercent": 0.75
+ },
+ "structures": {
+  "bonusMax": 0.25,
+  "from": 1080,
+  "to": 1800
+ },
+ "minions": {
+  "aoeMultiplier": 0.75,
+  "blackout": {
+   "units": [
+    "siege",
+    "super"
+   ],
+   "range": 1100,
+   "revealSeconds": 3.0
+  }
+ },
+ "relics": {
+  "pickup": 0.08,
+  "beam": 0.22,
+  "aramBeam": 0.16,
+  "radius": 850.0,
+  "delay": 2.5,
+  "firstOuter": 105,
+  "firstInner": 150,
+  "respawn": 90
+ },
+ "fastTravel": [
+  {
+   "map": "Howling Abyss",
+   "name": "Frost Gates",
+   "text": "Gates behind each Nexus send you from base to just in front of your outer turret, or your inhibitor turret once the outer turret falls. They only go one way, out of base."
+  },
+  {
+   "map": "Koeshin's Crossing",
+   "name": "Portals",
+   "text": "One pair sends you out of base, one way only. A second pair by the side wall goes both ways. Entering takes a short channel that damage interrupts."
+  },
+  {
+   "map": "Butcher's Bridge",
+   "name": "Cannon Launchers",
+   "text": "Launchers next to each base fire you out into the lane."
+  },
+  {
+   "map": "Bridge of Progress",
+   "name": "Hex gates and Acceleration Pads",
+   "text": "Hex gates (manholes on the Zaun side) send you out of base. Acceleration Pads give 25% bonus Move Speed for 1 second."
+  }
+ ],
+ "portalSpeed": {
+  "bonus": 0.5,
+  "seconds": 1.5
+ },
+ "economy": {
+  "startingGold": 1400.0,
+  "passiveGold": {
+   "amount": 42.5,
+   "every": 5.0,
+   "perMinute": 510.0,
+   "aramPerMinute": 360.0
+  },
+  "passiveXp": {
+   "amount": 5.0,
+   "every": 1.0,
+   "perMinute": 300.0
+  },
+  "killGold": 200.0,
+  "firstBlood": 90.0,
+  "assistSeconds": 20.0,
+  "levels": [
+   {
+    "level": 4,
+    "xp": 1140.0,
+    "killXp": 215.0
+   },
+   {
+    "level": 5,
+    "xp": 1650.0,
+    "killXp": 275.0
+   },
+   {
+    "level": 6,
+    "xp": 2400.0,
+    "killXp": 335.0
+   },
+   {
+    "level": 7,
+    "xp": 3180.0,
+    "killXp": 395.0
+   },
+   {
+    "level": 8,
+    "xp": 4060.0,
+    "killXp": 455.0
+   },
+   {
+    "level": 9,
+    "xp": 5040.0,
+    "killXp": 515.0
+   },
+   {
+    "level": 10,
+    "xp": 6120.0,
+    "killXp": 590.0
+   },
+   {
+    "level": 11,
+    "xp": 7300.0,
+    "killXp": 640.0
+   },
+   {
+    "level": 12,
+    "xp": 8580.0,
+    "killXp": 690.0
+   },
+   {
+    "level": 13,
+    "xp": 9960.0,
+    "killXp": 740.0
+   },
+   {
+    "level": 14,
+    "xp": 11440.0,
+    "killXp": 790.0
+   },
+   {
+    "level": 15,
+    "xp": 13020.0,
+    "killXp": 840.0
+   },
+   {
+    "level": 16,
+    "xp": 14700.0,
+    "killXp": 890.0
+   },
+   {
+    "level": 17,
+    "xp": 16480.0,
+    "killXp": 940.0
+   },
+   {
+    "level": 18,
+    "xp": 18360.0,
+    "killXp": 990.0
+   }
+  ],
+  "minionXpSplit": [
+   0.92,
+   0.6,
+   0.4,
+   0.3,
+   0.24
+  ],
+  "levelGapXp": 0.16
+ },
+ "turrets": [
+  {
+   "key": "outer",
+   "hp": 1300.0,
+   "baseHp": null,
+   "damage": 185.0,
+   "armor": 60.0,
+   "mr": 60.0,
+   "range": 750.0,
+   "attackSpeed": 0.833,
+   "gold": 150.0,
+   "xp": 30.0
+  },
+  {
+   "key": "inhibitor",
+   "hp": 3900.0,
+   "baseHp": null,
+   "damage": 205.0,
+   "armor": 63.0,
+   "mr": 63.0,
+   "range": 750.0,
+   "attackSpeed": 0.833,
+   "gold": 150.0,
+   "xp": 70.0
+  },
+  {
+   "key": "nexus",
+   "hp": 1200.0,
+   "baseHp": 1800.0,
+   "damage": 195.0,
+   "armor": 60.0,
+   "mr": 60.0,
+   "range": 750.0,
+   "attackSpeed": 0.833,
+   "gold": 150.0,
+   "xp": 120.0
+  }
+ ]
+}

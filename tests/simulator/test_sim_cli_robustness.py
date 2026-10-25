@@ -23,6 +23,7 @@ def assert_clean_error(proc, needle=None):
 
 MAYHEM_BAD = {
     "unknown-option": (["--bogus"], "unknown option"),
+    "bad-search": ([*JINX, "--search", "fast", *FAST], "--search must be"),
     "unknown-champion": (["--champ", "NotAChamp", *FAST], "unknown champion"),
     "kit-unknown-champion": (["--kit", "NotAChamp"], "unknown champion"),
     "missing-value": (["--champ"], "needs a value"),

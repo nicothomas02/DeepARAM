@@ -1,0 +1,10 @@
+{
+ "Patch {patch} comes out in {n} days": "Patch {patch} rilis dalam {n} hari",
+ "Patch {patch} comes out tomorrow": "Patch {patch} rilis besok",
+ "day": "hari",
+ "days": "hari",
+ "Patch {patch} comes out in under 24 hours": "Patch {patch} rilis dalam kurang dari 24 jam",
+ "{set} (Patch {patch}) is live!": "{set} (Patch {patch}) sudah rilis!",
+ "Patch {patch} is live!": "Patch {patch} sudah rilis!",
+ "New patch data takes a couple of days to collect.": "Data patch baru butuh beberapa hari untuk terkumpul."
+}

@@ -66,7 +66,7 @@ def test_file_parses_without_nan(path):
 
 
 # Negative numbers are legitimate only for these keys (penalties and reductions).
-NEGATIVE_OK = re.compile(r"\.(ability_haste|crit_damage|damage_amp|hp_mult)$")
+NEGATIVE_OK = re.compile(r"\.(ability_haste|crit_damage|damage_amp|hp_mult|ms_pct)$")
 
 
 # Inputs only (outputs such as replay positions and fight-length edges are legitimately negative);
@@ -145,17 +145,22 @@ def test_items(patch):
     ids = [v["id"] for v in its.values()]
     assert len(set(ids)) == len(ids)
     for k, v in its.items():
-        assert v["slot"] in ("boots", "legendary"), k
+        assert v["slot"] in ("boots", "legendary", "component", "starter", "reward"), k
         assert v["name"] and v["cost"] >= 0, k
         assert all(is_num(x) and x >= 0 for x in v["stats"].values()), (k, v["stats"])
     assert sum(v["slot"] == "boots" for v in its.values()) >= 3
+    # The whole Howling Abyss shop (consumables aside), so components and starters are there too.
+    for key in ("sheen", "tiamat", "guardians_blade", "gluttonous", "golden_spatula"):
+        assert key in its, key
+    # Mayhem's shop doesn't sell the Doran's items.
+    assert not [k for k in its if k.startswith("dorans_")]
 
 
 def test_item_effects_match_items():
     its = items("live")
     by_id = {str(v["id"]): k for k, v in its.items()}
     eff = load_json(DATA_DIR / "item_effects.json")
-    entries = {**eff["items"], **eff["boots"]}
+    entries = {k: e for g in ("boots", "items", "components", "starters", "rewards") for k, e in eff[g].items()}
     for item_id, e in entries.items():
         assert by_id.get(item_id) == e["key"], (item_id, e["key"])
     assert set(by_id) == set(entries), "items.json and item_effects.json list different items"
@@ -242,6 +247,25 @@ def test_best_builds_reference_real_ids():
         pool = set(pools[str(champ_by_id[b["champion"]]["champion_id"])])
         assert set(b["build"]["augments"]) <= pool, (b["champion"], set(b["build"]["augments"]) - pool)
 
+
+def test_dummy_dps_covers_every_best_build():
+    """viewer/replay-data/dummy-dps.json ranks the home page's "Most simulated damage": every champion
+    with a best build, highest first, on the half-Health dummy (tools/build_dummy_dps.py)."""
+    dummy = load_json(VIEWER_DIR / "replay-data/dummy-dps.json")
+    best = load_json(VIEWER_DIR / "replay-data/best-builds.json")["champions"]
+    rows = dummy["champions"]
+    assert dummy["dummy_hp"] == 0.5
+    assert {r["champion"] for r in rows} == {b["champion"] for b in best}
+    assert all(r["dps"] > 0 for r in rows)
+    assert [r["dps"] for r in rows] == sorted((r["dps"] for r in rows), reverse=True)
+
+
+def test_item_page_simulations_match_the_tuned_patch():
+    """The item pages say which patch their simulations ran on (web/src/data/item-sim.json), so they
+    must be rebuilt with the simulator data (`make replay` runs web/scripts/build_item_sim.py)."""
+    item_sim = load_json(SIM_DIR.parent / "web/src/data/item-sim.json")
+    assert item_sim["patch"] == (DATA_DIR / "tuned_patch.txt").read_text().strip()
+    assert item_sim["items"]
 
 def test_replay_traces_and_fight_length_name_real_champions():
     ids = {c["id"] for c in champions("live")}

@@ -1,15 +1,14 @@
 "use client";
-/* eslint-disable @next/next/no-img-element -- small local icons */
 
-import Link from "next/link";
 import { useEffect, useState } from "react";
 import { getParam, setParams } from "@/lib/url-state";
 import { EmptyState } from "@/components/EmptyState";
+import DataTable, { type Column, type Row } from "./DataTable";
+import { useT } from "./I18n";
 
-// Augment tier list (/augments?rarity=gold&style=ap): one row per tier, filtered by rarity and build style.
-// Tiers and styles come from the server (lib/augment-tiers.ts).
-
-export type TierRow = { id: number; name: string; href: string; rarity: string; tier: string; winRate: number; pickRate: number; styles: string[] };
+// Augment tier list (/tier-list?tab=augments&rarity=gold&style=ap), laid out like the Champions tab: filter chips
+// for rarity and build style (under a "Filter by tags" fold) above one sortable table of every augment (rows and columns from the page).
+// Each row carries its rarity (`tier`) and its build styles (`styles`, comma-separated) for the filters.
 
 const RARITIES: [string, string][] = [
   ["", "All rarities"],
@@ -17,18 +16,35 @@ const RARITIES: [string, string][] = [
   ["gold", "Gold"],
   ["silver", "Silver"],
 ];
-const TIER_ORDER = ["S", "A", "B", "C", "D"];
-const pct = (v: number) => `${(v * 100).toFixed(1)}%`;
 
-export default function AugmentTiers({ rows, styles }: { rows: TierRow[]; styles: Record<string, string> }) {
+export default function AugmentTiers({
+  rows,
+  columns,
+  advancedColumns,
+  styles,
+  note,
+}: {
+  rows: Row[];
+  columns: Column[];
+  advancedColumns?: Column[];
+  styles: Record<string, string>;
+  /** Shown under the table. */
+  note?: React.ReactNode;
+}) {
+  const t = useT("tier-list");
   const [rarity, setRarity] = useState("");
   const [style, setStyle] = useState("");
+  // Rarity and style sit under a closed "Filter by tags" fold, open when a shared link already picks one.
+  const [filtersOpen, setFiltersOpen] = useState(false);
+  const picked = (rarity ? 1 : 0) + (style ? 1 : 0);
 
   useEffect(() => {
     const r = getParam("rarity") ?? "";
     const s = getParam("style") ?? "";
-    if (RARITIES.some(([k]) => k === r)) setRarity(r);
+    const okR = RARITIES.some(([k]) => k === r);
+    if (okR) setRarity(r);
     if (s in styles) setStyle(s);
+    if ((okR && r) || (s && s in styles)) setFiltersOpen(true);
   }, [styles]);
 
   const pick = (key: "rarity" | "style", v: string) => {
@@ -37,33 +53,45 @@ export default function AugmentTiers({ rows, styles }: { rows: TierRow[]; styles
     setParams({ [key]: v || null });
   };
 
-  const shown = rows.filter((a) => (!rarity || a.rarity === rarity) && (!style || a.styles.includes(style)));
+  const shown = rows.filter(
+    (a) =>
+      (!rarity || String(a.tier).toLowerCase() === rarity) &&
+      (!style ||
+        String(a.styles ?? "")
+          .split(",")
+          .includes(style)),
+  );
 
   return (
     <div className="atiers">
-      <div className="atiers-filters">
-        <div className="helper-threats" role="group" aria-label="Rarity">
-          {RARITIES.map(([k, l]) => (
-            <button key={k || "all"} type="button" className="chip-toggle" aria-pressed={rarity === k} onClick={() => pick("rarity", k)}>
-              {l}
+      <details className="items-filter-menu" open={filtersOpen} onToggle={(e) => setFiltersOpen(e.currentTarget.open)}>
+        <summary>
+          {t("Filter by tags")}
+          {picked > 0 && <span className="items-filter-n">{picked}</span>}
+        </summary>
+        <div className="atiers-filters">
+          <div className="helper-threats" role="group" aria-label={t("Rarity")}>
+            {RARITIES.map(([k, l]) => (
+              <button key={k || "all"} type="button" className="chip-toggle" aria-pressed={rarity === k} onClick={() => pick("rarity", k)}>
+                {t(l)}
+              </button>
+            ))}
+          </div>
+          <div className="helper-threats" role="group" aria-label={t("Build style")}>
+            <button type="button" className="chip-toggle" aria-pressed={style === ""} onClick={() => pick("style", "")}>
+              {t("Any style")}
             </button>
-          ))}
+            {Object.entries(styles).map(([k, l]) => (
+              <button key={k} type="button" className="chip-toggle" aria-pressed={style === k} onClick={() => pick("style", k)}>
+                {t(l)}
+              </button>
+            ))}
+          </div>
         </div>
-        <div className="helper-threats" role="group" aria-label="Build style">
-          <button type="button" className="chip-toggle" aria-pressed={style === ""} onClick={() => pick("style", "")}>
-            Any style
-          </button>
-          {Object.entries(styles).map(([k, l]) => (
-            <button key={k} type="button" className="chip-toggle" aria-pressed={style === k} onClick={() => pick("style", k)}>
-              {l}
-            </button>
-          ))}
-        </div>
-      </div>
-
+      </details>
       {shown.length === 0 ? (
         <EmptyState
-          title="No augments match"
+          title={t("No augments match")}
           action={
             <button
               type="button"
@@ -74,34 +102,24 @@ export default function AugmentTiers({ rows, styles }: { rows: TierRow[]; styles
                 setParams({ rarity: null, style: null });
               }}
             >
-              Show every augment
+              {t("Show every augment")}
             </button>
           }
         >
-          Try another rarity or style.
+          {t("Try another rarity or style.")}
         </EmptyState>
       ) : (
-        <div className="atiers-rows">
-          {TIER_ORDER.map((t) => {
-            const list = shown.filter((a) => a.tier === t).sort((x, y) => y.winRate - x.winRate);
-            if (!list.length) return null;
-            return (
-              <section key={t} className="atiers-row" aria-label={`Tier ${t}`}>
-                <span className={`chip tier-${t.toLowerCase()} atiers-tier`}>{t}</span>
-                <div className="atiers-grid">
-                  {list.map((a) => (
-                    <Link key={a.id} href={a.href} className="atiers-aug" data-rarity={a.rarity} title={`${a.name}: ${pct(a.winRate)} win, picked in ${pct(a.pickRate)} of games`}>
-                      <img src={`/icons/augments/${a.id}.webp`} alt="" width={48} height={48} loading="lazy" />
-                      <span className="atiers-name">{a.name}</span>
-                      <span className={`atiers-wr ${a.winRate >= 0.52 ? "wr-high" : a.winRate <= 0.48 ? "wr-low" : ""}`}>{pct(a.winRate)}</span>
-                    </Link>
-                  ))}
-                </div>
-              </section>
-            );
-          })}
-        </div>
+        <DataTable
+          columns={columns}
+          advancedColumns={advancedColumns}
+          rows={shown}
+          initialSort={{ key: "deepScore", desc: true }}
+          searchKey="name"
+          searchLabel="Find an augment"
+          urlTab="augments"
+        />
       )}
+      {note}
     </div>
   );
 }

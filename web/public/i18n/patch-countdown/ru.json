@@ -1,0 +1,10 @@
+{
+ "Patch {patch} comes out in {n} days": "Патч {patch} выйдет через {n} дн.",
+ "Patch {patch} comes out tomorrow": "Патч {patch} выйдет завтра",
+ "day": "день",
+ "days": "дн.",
+ "Patch {patch} comes out in under 24 hours": "Патч {patch} выйдет менее чем через 24 часа",
+ "{set} (Patch {patch}) is live!": "{set} (патч {patch}) уже вышел!",
+ "Patch {patch} is live!": "Патч {patch} уже вышел!",
+ "New patch data takes a couple of days to collect.": "Сбор данных по новому патчу занимает пару дней."
+}

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useT } from "./I18n";
 
 // Notices when a new version of the site goes live while a tab is open (every 10 minutes, and when the
 // tab comes back into view) and offers a refresh. Dismissing hides it until the next new version.
@@ -15,6 +16,7 @@ const check = () =>
 
 export default function UpdateToast() {
   const [fresh, setFresh] = useState<string | null>(null);
+  const t = useT();
 
   useEffect(() => {
     let first: string | null = null;
@@ -43,14 +45,14 @@ export default function UpdateToast() {
   if (!fresh) return null;
   return (
     <div className="update-toast" role="status">
-      <span>A new version of DeepARAM is out.</span>
+      <span>{t("A new version of DeepARAM is out.")}</span>
       <button type="button" className="btn" onClick={() => location.reload()}>
-        Refresh
+        {t("Refresh")}
       </button>
       <button
         type="button"
         className="update-close"
-        aria-label="Dismiss"
+        aria-label={t("Dismiss")}
         onClick={() => {
           dispatchEvent(new CustomEvent("deeparam-update-dismiss", { detail: fresh }));
           setFresh(null);

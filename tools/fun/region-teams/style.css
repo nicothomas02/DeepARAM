@@ -1,0 +1,23 @@
+/* Region Teams: one card per region, its five champions in a row. */
+.regions { overflow: visible; border-radius: 0; padding: 0; background: none; border: 0; box-shadow: none; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 520px), 1fr)); gap: 14px; }
+.regions::before { display: none; }
+.region { position: relative; display: grid; gap: 10px; padding: 16px 18px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); overflow: hidden; }
+.region::before { content: ""; position: absolute; inset: 0 0 auto; height: 3px; background: linear-gradient(90deg, var(--a), var(--a-20)); }
+.region-head { display: flex; align-items: baseline; gap: 10px; }
+.region-head h2 { margin: 0; flex: 1; font: 700 1.3rem var(--display); }
+.rank { color: var(--a-ink); font-size: 13px; }
+.team-wr { text-align: right; font-size: 1.15rem; font-weight: 600; }
+.team-wr .label { font-size: 10.5px; }
+.team { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px; }
+.team li { display: grid; justify-items: center; gap: 2px; text-align: center; min-width: 0; }
+.team img { width: 56px; height: 56px; border-radius: 12px; border: 1px solid var(--line); }
+.team b { font-size: 13.5px; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.team .small { font-size: 11px; line-height: 1.25; }
+.mono { font-family: var(--mono); font-variant-numeric: tabular-nums; }
+.region p { margin: 0; }
+footer { max-width: 72ch; display: grid; gap: 8px; padding-top: 20px; margin-top: 8px; border-top: 1px solid var(--line); }
+@media (max-width: 480px) {
+  .team img { width: 44px; height: 44px; border-radius: 10px; }
+  .team .small { display: none; }
+}
+.warn { color: var(--bad); }

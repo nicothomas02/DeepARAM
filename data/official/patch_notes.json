@@ -1,0 +1,2923 @@
+{
+ "read": "2026-10-17",
+ "source": "Official League of Legends patch notes (leagueoflegends.com/en-us/news/game-updates/), fetched directly",
+ "notation": "Riot's text kept verbatim; 'old ⇒ new'. 'aram' = plain ARAM section (Howling Abyss etc.), kept separate from Mayhem. Changes marked '(mid-patch update)' come from the patch page's Mid-Patch Updates section.",
+ "patches": [
+  {
+   "patch": "26.20",
+   "gameVersion": "16.20",
+   "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-20-notes/",
+   "date": "2026-10-06",
+   "noMayhemSection": false,
+   "champions": [
+    {
+     "name": "Bard",
+     "changes": [
+      "Meep Ability Power Ratio: 50% ⇒ 67%",
+      "Meep Recharge: 8s ⇒ 5s",
+      "Meep Auto Damage per Chime Breakpoint: 6 per 3 chimes ⇒ 10 per 3 chimes"
+     ]
+    },
+    {
+     "name": "Garen",
+     "changes": [
+      "Passive Regen: 1.5%–1.01% ⇒ 2%–12%",
+      "W Cooldown: 22–12 ⇒ 18–12",
+      "W Shield Strength: 18% Bonus Health ⇒ 20% Bonus Health",
+      "W Passive Stacks: 0.4 per minion kill ⇒ 0.75 per minion kill"
+     ]
+    },
+    {
+     "name": "K'Sante",
+     "changes": [
+      "W Cooldown: 14–10 ⇒ 10",
+      "W Damage Reduction: 30% ⇒ 45%",
+      "E Shield Strength: 13.5% bonus health ⇒ 15% bonus health"
+     ]
+    },
+    {
+     "name": "Lee Sin",
+     "changes": [
+      "Passive Attack Speed: 40% bonus Attack Speed ⇒ 50% bonus Attack Speed",
+      "Passive Energy Restore: 20 / 30 / 40 ⇒ 30 / 40 / 50",
+      "W Shield: 60–240 ⇒ 80–320",
+      "Q2 Damage: 60–180 ⇒ 80–240"
+     ]
+    },
+    {
+     "name": "Swain",
+     "changes": [
+      "Damage Taken: 105% ⇒ 100%",
+      "Healing: 95% ⇒ 100%",
+      "Soul Fragments Restore: 6% flat ⇒ 3%–6% scaling with level"
+     ]
+    },
+    {
+     "name": "Thresh",
+     "changes": [
+      "Passive Soul Drop: 2 ⇒ 3",
+      "W Cooldown: 21 / 20 / 19 / 18 / 17s ⇒ 19 / 18 / 17 / 16 / 15s"
+     ]
+    }
+   ],
+   "augments": [
+    {
+     "name": "Juiced",
+     "changes": [
+      "REMOVED Mana Drain: Removed",
+      "Damage-to-Mana Ratio: 4.5% ⇒ 7%",
+      "NEW Ranged Mod: 80% of the 7%"
+     ]
+    },
+    {
+     "name": "Leg Day",
+     "changes": [
+      "Slow Resist: 40% ⇒ 50%"
+     ]
+    },
+    {
+     "name": "Missile Split",
+     "changes": [
+      "Split Trigger: On first unit hit ⇒ On end or recast"
+     ]
+    },
+    {
+     "name": "Shark Tempest",
+     "changes": [
+      "Slow: 30% for 3s ⇒ 40% for 3s",
+      "Base Area of Effect Damage: 50–100 ⇒ 100–200",
+      "Attached Damage over 3s: 75–225 + 0.6 bonus AD + 0.36 AP ⇒ 90–270 + 0.75 bonus AD + 0.45 AP"
+     ]
+    },
+    {
+     "name": "Squishy Slappy Grab",
+     "changes": [
+      "Cooldown: 35s ⇒ 30s",
+      "Damage: 30–100 + 10% bonus Health ⇒ 50–150 + 15% bonus Health",
+      "Shield per Target: 35–150 + 50% bonus Armor + 50% bonus Magic Resistance ⇒ 50–200 + 50% bonus Armor + 50% bonus Magic Resistance"
+     ]
+    },
+    {
+     "name": "Triggered Inferno",
+     "changes": [
+      "Cooldown: 15s ⇒ 5s"
+     ]
+    }
+   ],
+   "items": [],
+   "systems": [],
+   "bugfixes": [
+    "Fixed a bug where Infernal Soul and Jeweled Gauntlet tracked damage dealt to minions.",
+    "Fixed a bug where King Me persisted in the slot after completing the quest.",
+    "Fixed a bug where King Me transmute to Overloaded causes Overloaded to be non-functional.",
+    "Fixed a bug where Shark Bait displayed an empty buff bar.",
+    "Fixed a bug where Aurora (Q) does not gain ability cooldown from the Skilled Sniper Augment.",
+    "Fixed a bug where Shen's Echo Cast Shadow Dash (E) fails to Dash when Shen flashed or queued another spell.",
+    "Fixed a bug where a move command can change Echo Cast's Clone direction.",
+    "Fixed a bug where Lucian's (W) missile fails to split with Spell Split augment when casting (E) during the spell cast.",
+    "Fixed a bug where Spell Split missiles do not split when casting a Summoner Spell during the ability's cast time.",
+    "Fixed a bug where champions are unable to queue other spells when casting an Ability enhanced by the Spell Split Augment.",
+    "Fixed a bug where Prom Queen's cooldown icon disappears upon death.",
+    "Fixed a bug where Urgot (W) missile would destroy Rite of Ascension's Soul.",
+    "Fixed a bug where Minion Mancer's damage amplification did not work on Shaco (R) Explosion and Ivern R's knockup.",
+    "Fixed a bug where Ultra Hydra's quest and card icon did not match up."
+   ],
+   "aram": {
+    "champions": [
+     {
+      "name": "Bel'Veth",
+      "changes": [
+       "Damage Dealt: 105% ⇒ 100%",
+       "Damage Taken: 95% ⇒ 100%",
+       "Tenacity: 20% ⇒ 0%"
+      ]
+     },
+     {
+      "name": "Locke",
+      "changes": [
+       "Damage Dealt: 105% ⇒ 115%"
+      ]
+     }
+    ]
+   },
+   "intro": "Hello Mayhemers! This patch, we're giving some champions and Augments that need a little love some extra attention. For champions, we're introducing champion-specific buffs that strengthen their core play patterns while also making them more accessible and satisfying to play in Mayhem. For Augments, we're continuing to focus on usability improvements. For example, Missile Split will now split when the missile reaches its end or is recast, rather than on the first target hit. We also lowered the cooldown on Triggered Inferno to show the real Samira fantasy. Let us know how these changes feel, and thank you for playing. See you on the Bridge!"
+  },
+  {
+   "patch": "26.19",
+   "gameVersion": "16.19",
+   "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-19-notes/",
+   "date": "2026-09-22",
+   "noMayhemSection": false,
+   "champions": [],
+   "augments": [
+    {
+     "name": "High Roller",
+     "changes": [
+      "Drop Rate: Further reduced."
+     ]
+    }
+   ],
+   "items": [],
+   "systems": [],
+   "bugfixes": [
+    "Fixed a bug where Clown College used the wrong text color for true damage.",
+    "Fixed a bug where King Me had debug Augment name shoutouts, including Hellbent, Overloaded, Surge Field, and Spirit Bomb.",
+    "Fixed a bug where Mad Scientist granted both +30% Attack Damage and Ability Power instead of 30% Adaptive Force.",
+    "Fixed a bug where Multishot had extra quest step requirements for Nami's and Ezreal's ultimate abilities.",
+    "Fixed a bug where Yuumi could spam Bilgewater Cannon landing effects when she was attached to a unit.",
+    "Fixed a bug where Bursting Teeth did not trigger due to a per-target cooldown.",
+    "Fixed a bug where Bel'Veth's Q did not reset after using her ultimate when she had Ultimate Awakening.",
+    "Fixed a bug where Item Quest Progress broke when re-adding quest Augment offerings.",
+    "Fixed a bug where Vel'Koz's W did not get the correct refund with Skilled Sniper.",
+    "Fixed a bug where removing Upgrade Ravenous resulted in negative Life Steal for all your items."
+   ],
+   "aram": {},
+   "intro": "Hello Mayhemers! In this patch, we're focusing on bugfixes and small quality-of-life improvements. We're continuing to assess Augment offerings so that each Augment you're offered feels like a reasonable and meaningful option for your champion. For balance, High Roller has caught our attention for how powerful it can be when picked up early in the game. We're giving it another nerf to bring down some of that early snowballing potential. See you on the Bridge!"
+  },
+  {
+   "patch": "26.18",
+   "gameVersion": "16.18",
+   "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-18-notes/",
+   "date": "2026-09-09",
+   "noMayhemSection": false,
+   "champions": [],
+   "augments": [
+    {
+     "name": "Clown College",
+     "changes": [
+      "NEW Status: Re-enabled"
+     ]
+    },
+    {
+     "name": "Spin to Win",
+     "changes": [
+      "R Abilities Damage Increase: 30% ⇒ 50%"
+     ]
+    },
+    {
+     "name": "Ultra Hydra",
+     "changes": [
+      "NEW Sale Restriction: You cannot sell Hydra Items when having this augment"
+     ]
+    }
+   ],
+   "items": [],
+   "systems": [],
+   "bugfixes": [
+    "Fixed a bug where item damage triggers the cleave effect when you have Upgrade Ravenous Hydra.",
+    "Fixed a bug where En Passant fail to function when two or more players have it on the same team.",
+    "Fixed a bug where Viego can get multiple Tiamat when possessing others while having Ultra Hydra.",
+    "Fixed a bug where extra gold can be gained by selling and re-purchasing a Hydra item with Ultra Hydra augment equipped.",
+    "Fixed a bug where players can purchase multiple Ravenous Hydra and gain Upgrade Ravenous Hydra lifesteal on all three when paired with Quest: Ultra Hydra.",
+    "Fixed a bug where Clown College's Deceive dealt incorrect damage with critical strike ratio.",
+    "Fixed a bug where Rite of Ascension may seal enhanced abilities."
+   ],
+   "aram": {},
+   "intro": "Hello Mayhemers! In this patch, we're making more behind-the-scenes adjustments to Augment offerings. We've heard your feedback around some Augments showing up on champions that don't make sense on them, such as AP-focused Augments on Vayne. We're taking another pass at these cases and will continue improving the Augment pools to provide more relevant and exciting choices for each champion. For bugfixes, we've also addressed a few unintended interactions with Ultra Hydra and Ravenous Hydra that could be abused for some…questionable results. Thanks for the feedback, and see you on the Bridge!"
+  },
+  {
+   "patch": "26.17",
+   "gameVersion": "16.17",
+   "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-17-notes/",
+   "date": "2026-08-25",
+   "noMayhemSection": false,
+   "champions": [],
+   "augments": [
+    {
+     "name": "Critical Missile",
+     "changes": [
+      "Missile Amount: 1 / 2 / 3 / 4 based on crit chance ⇒ 1 / 2 / 3 based on crit chance"
+     ]
+    },
+    {
+     "name": "Double Tap",
+     "changes": [
+      "Tier: Gold ⇒ Prismatic"
+     ]
+    },
+    {
+     "name": "Tripleshot",
+     "changes": [
+      "Targeting: Now prioritizes enemies nearby the main target"
+     ]
+    },
+    {
+     "name": "Ultra Hydra",
+     "changes": [
+      "NEW Effect: Gain a Tiamat when completing a Hydra Item",
+      "NEW Quest: Gain Ravenous Hydra, Profane Hydra and Titanic Hydra",
+      "NEW Reward: Gain Ultra Hydra"
+     ]
+    },
+    {
+     "name": "Upgrade Death’s Dance",
+     "changes": [
+      "NEW Effect: Gain 250 Gold. 40%/15% of damage taken is dealt to you over 3 seconds. Heal 125% bonus AD instantly when scoring a takedown."
+     ]
+    },
+    {
+     "name": "Upgrade Infinity Edge",
+     "changes": [
+      "REMOVED Critical Strike Chance: Removed"
+     ]
+    },
+    {
+     "name": "Upgrade Ravenous",
+     "changes": [
+      "Effect: Cleave effect also trigger on minions",
+      "Life Steal on Ravenous Hydra: 18% ⇒ 20%"
+     ]
+    }
+   ],
+   "items": [],
+   "systems": [],
+   "bugfixes": [
+    "Fixed a bug where Squishy Slappy Grab triggered immediately after Sion died instead of refreshing after 35 seconds.",
+    "Fixed a bug where Stuck in Here With Me triggers after Mordekaiser’s (R) ended.",
+    "Fixed a bug where Echo Cast clone will cast spells in the wrong direction after reconnecting.",
+    "Fixed a bug where Archmage put ammo spells on cooldown when casting other spells.",
+    "Fixed a bug where teammates' burn and damage over time also grant Gold after Blood Money Burn triggers.",
+    "Fixed a bug where High Roller failed to trigger on certain champions."
+   ],
+   "aram": {},
+   "intro": "Hello Mayhemers, in this patch, we’re continuing to focus on the fighter experience. We’re introducing two more fighter Augments: Ultra Hydra and Upgrade Death’s Dance! Three-by-Three-headed Hydra? (Just kidding.) We hope these new options give fighters even more ways to sustain themselves and make a big impact in the middle of a team fight. For Augment adjustments and nerfs, we’re taking a look at some high-frustration ADC Augments that have been both powerful and visually noisy. We’re tuning them down to give opponents more room to react and make team fights easier to read. Double Tap has been changed to Prismatic given its power level. We’ve also made some adjustments to the Augment pool so champions get a selection of options that better fit their playstyles. Let us know how these changes feel, and see you on the Bridge!"
+  },
+  {
+   "patch": "26.16",
+   "gameVersion": "16.16",
+   "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-16-notes/",
+   "date": "2026-08-11",
+   "noMayhemSection": false,
+   "champions": [
+    {
+     "name": "Locke",
+     "changes": [
+      "Damage Dealt: 100% ⇒ 105%",
+      "Damage Taken: 100% ⇒ 95%",
+      "Tenacity: 0 ⇒ 20"
+     ]
+    }
+   ],
+   "augments": [
+    {
+     "name": "Skilled Sniper and Quest Bang Bang",
+     "changes": [
+      "Snipe Range: 700 ⇒ 600"
+     ]
+    },
+    {
+     "name": "Soul Eater",
+     "changes": [
+      "NEW Second Augment Bonus Health: 300"
+     ]
+    },
+    {
+     "name": "Nightstalking",
+     "changes": [
+      "NEW Move Speed During the Buff: 40%"
+     ]
+    },
+    {
+     "name": "Snowbomb",
+     "changes": [
+      "NEW Radius: 30% larger",
+      "NEW Knockup Duration: Increased"
+     ]
+    },
+    {
+     "name": "Shark Bait",
+     "changes": [
+      "Base Damage: 80-300 ⇒ 120-350",
+      "Missing Health Damage: 20% ⇒ 30%"
+     ]
+    },
+    {
+     "name": "Critical Missile",
+     "changes": [
+      "Per Missile Damage: 15-85 ⇒ 15-65"
+     ]
+    },
+    {
+     "name": "Chain Reaction",
+     "changes": [
+      "Tier: Prismatic ⇒ Gold"
+     ]
+    },
+    {
+     "name": "Nature is Healing",
+     "changes": [
+      "Each bush has an independent cooldown and heals only on entry.",
+      "NEW Heal: 40-300 +15% missing Health",
+      "NEW Cooldown: 20 seconds"
+     ]
+    },
+    {
+     "name": "Upgrade Sundered Sky",
+     "changes": [
+      "NEW Item Cooldown Per Target: 5 seconds",
+      "NEW Missing Health Healing: 9%"
+     ]
+    },
+    {
+     "name": "Upgrade Ravenous Hydra",
+     "changes": [
+      "NEW Cleave Application: Your spell applies the cleave effect with no cooldown",
+      "NEW Life Steal: 18%"
+     ]
+    }
+   ],
+   "items": [],
+   "systems": [],
+   "bugfixes": [
+    "Fixed a bug where Summoner Cleanse and Summoner Clarity were not pickable in ARAM.",
+    "Fixed a bug where Pursuit of Power affected Locke (P) damage after its quest was completed.",
+    "Fixed a bug where Veigar's W in ARAM Mayhem did not trigger Archmage's cooldown refund effect.",
+    "Fixed a bug where Archmage did not refund Azir (W) properly.",
+    "Fixed a bug where Marksmage did not apply its damage to certain empowered attacks in Mayhem, including Blitzcrank (E), Nasus (Q), and Trundle (Q).",
+    "Fixed a bug where Annie's (R) would go on cooldown if the first Tibbers died when having Ultimate Revolution.",
+    "Fixed a bug where champions would lose Hellbent cooldown if they have revive passives.",
+    "Fixed a bug where Augment damages can stack Samira passive (P).",
+    "Fixed a bug where Lissandra passive (P) consumes gold from Yowch My Coins.",
+    "Fixed a bug where Dashing did not apply to Lee Sin Q, Kled Q, and Rek'Sai E.",
+    "Fixed a bug where Skilled Sniper did not trigger on Vel'Koz's split Q.",
+    "Fixed a bug where form-swapping champions had incorrect damage ratio for Glass Cannon.",
+    "Fixed a bug where Scoped Weapon family did not adapt the attack range increase when form-swapping champions swap form.",
+    "Fixed a bug where Typhoon fails to fire a missile when no enemy champions are in range.",
+    "Fixed a bug where Infernal Conduit base damage and scaling is higher than tooltip.",
+    "Fixed a bug where Volibear (R)'s turret-disabling debuff applied by the Echo Cast version visually refreshes while the duration does not.",
+    "Fixed a bug where Neeko regains bonus attack speed after exiting disguising when having Purist Caster.",
+    "Fixed a bug where Bel'Veth (E) fails to trigger Drop Kick's execution.",
+    "Fixed a bug where From Downtown's enemy VFX warning is bigger than intended."
+   ],
+   "aram": {},
+   "intro": "Hello Mayhemers! In this patch, we're focusing on improving the fighter experience. We've added two new Gold Augments that upgrade fighter items: Upgrade Sundered Sky and Upgrade Ravenous Hydra. Our goal is to give fighters more options for sustaining themselves during extended team fights and to better support their frontline playstyle. We're also continuing to improve the quality of Augments. We've noticed that some of them lacked a clear audience or gameplay fantasy, so we've updated Augments like Nature is Healing and Night Stalking to better define their intended use cases and make them more satisfying to pick. On the bug-fixing front, we've resolved an issue where form swapping champions such as Jayce and Nidalee could enjoy the melee stats from Augments like Scopiest Weapon and Glass Cannon when they're in range form. We'll continue improving the quality and clarity of Gold Augments. Thanks for playing, and we'll see you on the Bridge! (or Abyss, or Crossing)"
+  },
+  {
+   "patch": "26.15",
+   "gameVersion": "16.15",
+   "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-15-notes/",
+   "date": "2026-07-28",
+   "noMayhemSection": false,
+   "champions": [
+    {
+     "name": "Ahri",
+     "changes": [
+      "Healing: 90% ⇒ 100%"
+     ]
+    },
+    {
+     "name": "Akshan",
+     "changes": [
+      "Damage Dealt: 105% ⇒ 100%",
+      "Damage Taken: 5% ⇒ 0%"
+     ]
+    },
+    {
+     "name": "Alistar",
+     "changes": [
+      "Healing: 80% ⇒ 100%",
+      "Damage Modifier: 95% ⇒ 100%"
+     ]
+    },
+    {
+     "name": "Ambessa",
+     "changes": [
+      "Damage Taken: -5% ⇒ 0%"
+     ]
+    },
+    {
+     "name": "Annie",
+     "changes": [
+      "Shielding: 90% ⇒ 100%",
+      "Damage Taken: -5% ⇒ 0%"
+     ]
+    },
+    {
+     "name": "Ashe",
+     "changes": [
+      "Damage Dealt: 105% ⇒ 100%"
+     ]
+    },
+    {
+     "name": "Corki",
+     "changes": [
+      "Damage Taken: 10% ⇒ 5%"
+     ]
+    },
+    {
+     "name": "Ekko",
+     "changes": [
+      "Damage Dealt: 110% ⇒ 105%"
+     ]
+    },
+    {
+     "name": "Hwei",
+     "changes": [
+      "Damage Dealt to Minions: 60% ⇒ 100%"
+     ]
+    },
+    {
+     "name": "Jhin",
+     "changes": [
+      "Damage Taken: -5% ⇒ 0%"
+     ]
+    },
+    {
+     "name": "Kai'Sa",
+     "changes": [
+      "Damage Taken: 10% ⇒ 0%"
+     ]
+    },
+    {
+     "name": "Kindred",
+     "changes": [
+      "Damage Dealt: 110% ⇒ 100%"
+     ]
+    },
+    {
+     "name": "Kog'Maw",
+     "changes": [
+      "Damage Dealt: 88% ⇒ 90%"
+     ]
+    },
+    {
+     "name": "Lucian",
+     "changes": [
+      "Damage Dealt: 105% ⇒ 100%"
+     ]
+    },
+    {
+     "name": "Malzahar",
+     "changes": [
+      "Damage Dealt to Minions: 60% ⇒ 100%"
+     ]
+    },
+    {
+     "name": "Miss Fortune",
+     "changes": [
+      "Damage Taken: -5% ⇒ 0%"
+     ]
+    },
+    {
+     "name": "Mordekaiser",
+     "changes": [
+      "Damage Taken: -2% ⇒ 0%"
+     ]
+    },
+    {
+     "name": "Morgana",
+     "changes": [
+      "Damage Taken: -10% ⇒ 0%"
+     ]
+    },
+    {
+     "name": "Nasus",
+     "changes": [
+      "Damage Taken: -5% ⇒ 0%"
+     ]
+    },
+    {
+     "name": "Qiyana",
+     "changes": [
+      "Damage Dealt: 115% ⇒ 110%"
+     ]
+    },
+    {
+     "name": "Ryze",
+     "changes": [
+      "Damage Dealt: 105% ⇒ 100%",
+      "Damage Taken: 5% ⇒ 0%"
+     ]
+    },
+    {
+     "name": "Senna",
+     "changes": [
+      "Damage Dealt: 97% ⇒ 100%"
+     ]
+    },
+    {
+     "name": "Singed",
+     "changes": [
+      "Damage Taken: -8% ⇒ 0%"
+     ]
+    },
+    {
+     "name": "Smolder",
+     "changes": [
+      "Ability Haste: -10 ⇒ 0"
+     ]
+    },
+    {
+     "name": "Soraka",
+     "changes": [
+      "Healing: 105% ⇒ 100%"
+     ]
+    },
+    {
+     "name": "Teemo",
+     "changes": [
+      "Ability Haste: -10 ⇒ 0",
+      "Damage Dealt to Minions: 60% ⇒ 100%"
+     ]
+    },
+    {
+     "name": "Trundle",
+     "changes": [
+      "Damage Taken: -5% ⇒ 0%"
+     ]
+    },
+    {
+     "name": "Xin Zhao",
+     "changes": [
+      "Damage Dealt: 95% ⇒ 100%"
+     ]
+    },
+    {
+     "name": "Zilean",
+     "changes": [
+      "Damage Dealt: 105% ⇒ 100%",
+      "Damage Taken: 5% ⇒ 0%"
+     ]
+    },
+    {
+     "name": "Ziggs",
+     "changes": [
+      "Damage Dealt: 87% ⇒ 90%",
+      "Damage Dealt to Minions: 60% ⇒ 100%"
+     ]
+    }
+   ],
+   "augments": [
+    {
+     "name": "Warding Weapon",
+     "changes": [
+      "Resists per Stack: 5 / 6.25 / 7.5 / 8.75 / 10 ⇒ 7 / 8.25 / 9.5 / 10.75 / 12"
+     ]
+    },
+    {
+     "name": "Squishy Slappy Grab",
+     "changes": [
+      "Cooldown: 45 ⇒ 35"
+     ]
+    },
+    {
+     "name": "Titan's Resolve",
+     "changes": [
+      "Adaptive Force: 25 / 31.25 / 37.5 / 43.75 / 50 ⇒ 25 / 37.5 / 50 / 62.5 / 75",
+      "Armor and Magic Resistance per 10 Stacks: 4 / 5 / 6 / 7 / 8 ⇒ 5 / 6.25 / 7.5 / 8.75 / 10"
+     ]
+    },
+    {
+     "name": "Hellbent",
+     "changes": [
+      "Cooldown: 120 ⇒ 90"
+     ]
+    },
+    {
+     "name": "Earthwake",
+     "changes": [
+      "Base Damage: 70 / 105 / 140 / 175 / 210 ⇒ 90 / 130 / 170 / 210 / 250"
+     ]
+    },
+    {
+     "name": "Endless Decimation",
+     "changes": [
+      "Missing Health Healing: 15% ⇒ 18%"
+     ]
+    },
+    {
+     "name": "Chain Reaction",
+     "changes": [
+      "NEW Ultimate Ability Damage Increase: Damage increased to 250% for ultimate abilities"
+     ]
+    },
+    {
+     "name": "Critical Missile",
+     "changes": [
+      "Damage per Missile: 20 / 40 / 60 / 80 / 100 ⇒ 15 / 32.5 / 50 / 67.5 / 85"
+     ]
+    },
+    {
+     "name": "Drop Bear",
+     "changes": [
+      "Stun Duration: 1.5s ⇒ 0.5s",
+      "Tibbers Bonus Health: 0 / 1125 / 2250 / 3375 / 4500 ⇒ 1000 / 2375 / 3750 / 5125 / 6500"
+     ]
+    },
+    {
+     "name": "Pat on the Back",
+     "changes": [
+      "NEW Stacking Availability: Can now be taken by multiple players on the same team"
+     ]
+    },
+    {
+     "name": "Mercy's Strike",
+     "changes": [
+      "NEW Turret Interaction: Mercy's Strike's buff will be consumed on attacking turrets.",
+      "NEW Turret Damage: Turrets take 2.5% maximum health damage."
+     ]
+    }
+   ],
+   "items": [],
+   "systems": [
+    "Champion damage dealt modifiers now apply to spell, attack, item, and Augment damage (previously only spells and attack damage by champions); many champion-specific modifiers removed as a result"
+   ],
+   "bugfixes": [
+    "Fixed a bug where Vel'Koz's (Q) first hit failed to trigger Skilled Sniper.",
+    "Fixed a bug where Anivia's (Q) failed to trigger Skilled Sniper when passing through units.",
+    "Fixed a bug where Locke's (Q) received a refund in between ammo for Skilled Sniper.",
+    "Fixed a bug where you cannot attack during Rite of Ascension possession time.",
+    "Fixed an issue where Morgana's (R) Echo cast always sends the clone towards the bottom of the screen.",
+    "Fixed a bug where Apex Inventor did not reduce Wooglet's Witchcap's cooldown.",
+    "Fixed a bug where Twitch's (R) bolts disappear upon recasting Spray and Pray (R) before the ability ends.",
+    "Fixed a bug where Ekko's (Q) failed to split with Spell Split on missile end.",
+    "Fixed a bug where Combusting Interest failed to generate gold if you have burn items or Augments.",
+    "Fixed a bug where Diadem of Songs does not appear in the shop and builds into section.",
+    "Fixed a bug where Milio's (W) did not grant Support Main quest progress in Mayhem when healing themself or allies.",
+    "Fixed a bug where Locke's (E) second dash did not grant Pursuit of Power or Pursuit of Haste quest progress in Mayhem.",
+    "Fixed a bug where Master Yi's (Q) and Viego's (R) could retain Dashing's Ability Haste in Mayhem after taking Pandora's Box.",
+    "Fixed a bug where Overloaded could be offered to Katarina's (E) and Shaco's (E).",
+    "Fixed a bug where Little Extra Help removed Scoped, Scopier and Scopiest Weapon's VFX after the effect ends.",
+    "Fixed a bug where Nidalee's human-form Javelin Toss (Q) did not trigger Missile Split in Mayhem if the augment was selected while in cougar form.",
+    "Fixed a bug where Pursuit of Haste and Pursuit of Power is offered to Akshan's (E).",
+    "Fixed a bug where Mercy Strike could be offered to non-support champions in Mayhem like Vladimir.",
+    "Fixed a bug where Warding Weapon could still be offered to Akshan's (E) in Mayhem.",
+    "Fixed a bug where Pursuit of Power is offered to Akshan's (E), Draven's (Q), Illaoi's (E), and Malphite's (W).",
+    "Fixed a bug where Trusty Weapon could still be offered to Akshan's (E) in Mayhem."
+   ],
+   "aram": {},
+   "intro": "Hello Mayhemers! In this patch, we're making a systematic update to champion balance modifiers. For a long time, champion damage modifiers only affected spells and attack damage by champions. This led to some extreme cases where champions could overperform because their item and Augment damage wasn't affected. With this update, damage dealt modifiers now apply to spell, attack, item, and Augment damage. Our goal is for these modifiers to better reflect a champion's overall performance while allowing underperforming champions to benefit more consistently from the rest of the game's systems. As a result, we're able to remove many existing champion specific modifiers. Over time, we hope to continue reducing the number of individual champion mods and make future balance changes more targeted and easier to maintain. For Augments, we're continuing to buff underperforming options to make their payoffs more satisfying in combat. On the other hand, Critical Missile has proven to be a bit too reliable on critical strike ADCs, so we're tuning it down to make it less frustrating to play against. Thanks for playing, and we'll see you on the Bridge!"
+  },
+  {
+   "patch": "26.14",
+   "gameVersion": "16.14",
+   "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-14-notes/",
+   "date": "2026-07-14",
+   "noMayhemSection": false,
+   "champions": [],
+   "augments": [
+    {
+     "name": "Dimension Shift",
+     "changes": [
+      "Cooldown: 108s ⇒ 75s",
+      "Attack Damage: 25–100 ⇒ 35–150",
+      "Ability Power: 25–100 ⇒ 35–150",
+      "Health: 200–1000 ⇒ 300–1500",
+      "NEW Structure Damage: Now deals 1 damage to structures."
+     ]
+    },
+    {
+     "name": "Poro Stampede",
+     "changes": [
+      "Time Between Spawn: 35–20 ⇒ 25–15",
+      "Base Damage: 50–100 ⇒ 100–200"
+     ]
+    },
+    {
+     "name": "Squishy Slappy Grab",
+     "changes": [
+      "Shield Per Slappee: 25–75 ⇒ 35–150"
+     ]
+    },
+    {
+     "name": "Overkill",
+     "changes": [
+      "NEW Execute: Now executes if the accumulated damage would kill."
+     ]
+    },
+    {
+     "name": "Dropkick",
+     "changes": [
+      "Base Value: 5% ⇒ 4%",
+      "Base Attack Damage Scaling: 0.035% ⇒ 0.055%",
+      "Bonus Health Scaling: 0.002% ⇒ 0.0001%"
+     ]
+    },
+    {
+     "name": "Tooth Fairy",
+     "changes": [
+      "Penetration per Tooth: 4 ⇒ 3"
+     ]
+    },
+    {
+     "name": "Infernal Conduit",
+     "changes": [
+      "Cooldown Reduction on Non-Champions: Enabled ⇒ No longer reduces cooldowns when affecting non-champions"
+     ]
+    },
+    {
+     "name": "Stackosaurus Rex",
+     "changes": [
+      "Effect: Will not affect augment or item effects"
+     ]
+    }
+   ],
+   "items": [],
+   "systems": [
+    "Augment RNG system adjusted (it had been offering the same kinds of Augments too often); to be tuned over the next few patches"
+   ],
+   "bugfixes": [
+    "Fixed a bug where Divine Domain could grant infinite Attack Range.",
+    "Fixed a bug where Combusting Interest did not grant gold to champions' damage over time effects like Darius, Teemo, and Twitch.",
+    "Fixed a bug where Smolder could be offered Combusting Interest.",
+    "Fixed a bug where It's Go Time did not correctly grant bonus move speed with Master Yi's E, Ashe's Q, and Twitch's Q.",
+    "Fixed a bug where High Roller sometimes failed to drop an Anvil when a unit died.",
+    "Fixed a bug where Drop Bear could sometimes die immediately after spawning.",
+    "Fixed a bug where you could still get another active summoner after choosing Shark Tempest and SnowBomb.",
+    "Fixed a bug where Pursuit of Haste was offered to Yasuo E."
+   ],
+   "aram": {},
+   "intro": "Hey Mayhemers! We're bringing down some of the high frustration Augments this patch as well as buffing up a number of the struggling ones. Dropkick in particular was getting to the point where it was taking over the game too reliably. We want it to be able to high roll and feel insane, but it was doing that far more often than other comparable Augments. Also, we're adjusting the Augment RNG system a bit this patch, as we've seen that recently it's been offering the same kinds of Augments too often and makes games feel more samey / low variety. We'll be tuning this over the next few patches to get it just right so let us know what you think!"
+  },
+  {
+   "patch": "26.13",
+   "gameVersion": "16.13",
+   "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-13-notes/",
+   "date": "2026-06-23",
+   "noMayhemSection": false,
+   "champions": [],
+   "augments": [
+    {
+     "name": "Archmage",
+     "changes": [
+      "Tier: Gold ⇒ Prismatic"
+     ]
+    },
+    {
+     "name": "Combusting Interest",
+     "changes": [
+      "Percent Gold from Damage: 1% ⇒ 0.75%"
+     ]
+    },
+    {
+     "name": "From Down Town",
+     "changes": [
+      "Added restrictions to the largest Area of Effect size."
+     ]
+    },
+    {
+     "name": "Glass Cannon",
+     "changes": [
+      "True Damage Percent: 15% ⇒ 25% / 15% melee / ranged"
+     ]
+    },
+    {
+     "name": "Pin Cushion",
+     "changes": [
+      "Damage per Nail: 20 - 30 ⇒ 20 - 60"
+     ]
+    },
+    {
+     "name": "Pressure Cooker",
+     "changes": [
+      "Total Burn Damage: 2% max Health ⇒ 1.5% max Health"
+     ]
+    },
+    {
+     "name": "Quickstep",
+     "changes": [
+      "Tier: Prismatic ⇒ Gold"
+     ]
+    },
+    {
+     "name": "Spirit Bomb",
+     "changes": [
+      "Shield Duration: 4s ⇒ 2s"
+     ]
+    },
+    {
+     "name": "Tooth Fairy",
+     "changes": [
+      "Burst Threshold: 20% ⇒ 25%",
+      "Lethality and Magic Penetration: 5 ⇒ 4"
+     ]
+    },
+    {
+     "name": "Twinfire",
+     "changes": [
+      "Critical Chance: 15% ⇒ 25%"
+     ]
+    },
+    {
+     "name": "Void Immolation",
+     "changes": [
+      "Added Passive Desolate: Killing an enemy deals magic damage around them."
+     ]
+    },
+    {
+     "name": "Youch My Coins",
+     "changes": [
+      "Coin Drops: 16 ⇒ 9"
+     ]
+    }
+   ],
+   "items": [],
+   "systems": [],
+   "bugfixes": [
+    "Fixed a bug where The Biggest Snowball Ever was dealing double damage to the target.",
+    "Fixed a bug where missing Health damage was calculated incorrectly.",
+    "Fixed a bug where two players having Pat on the back can result in infinite shields"
+   ],
+   "aram": {},
+   "intro": "Hello ARAMers! In this patch, along with several recent hotfixes, we're continuing our work to create a healthier balance between new and existing Augments. In our recent hotfixes, we have meaningfully improved how Ability Augments are offered to champions. These augments are now offered on spells that champions benefit from. We also fixed issues where certain spells could incorrectly receive augments that didn't work on them. We also fixed an issue that prevented several critical strike-related Augments, such as Jeweled Gauntlet and It's Critical, from appearing as often as intended. Additionally, we resolved a bug that significantly reduced the chance of Ability Augments appearing in the third and fourth Augment slots. Over the past week, we've continued tuning our new Augments. Some overperforming options, such as Tooth Fairy and Archmage, have received adjustments to bring them more in line with other choices. Meanwhile, weaker Augments like Glass Cannon and Pin Cushion have received buffs and usability improvements to help them better deliver on their intended fantasies. We'll continue monitoring Augment performance and player sentiment as we work to keep Mayhem feeling fresh, balanced, and exciting. See you on the Bridge!"
+  },
+  {
+   "patch": "26.12",
+   "gameVersion": "16.12",
+   "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-12-notes/",
+   "date": "2026-06-09",
+   "noMayhemSection": false,
+   "champions": [],
+   "augments": [
+    {
+     "name": "Blade Waltz",
+     "changes": [
+      "Will now attempt to re-target the initial target for the final attack so player will be able to land near the initial target"
+     ]
+    },
+    {
+     "name": "Draw Your Sword",
+     "changes": [
+      "AD: 30% bonus increased up to 30% based on Attack Range (500-650) ⇒ 24% bonus increased up to 100% based on Attack Range (500-650)",
+      "AS: 25% bonus increased up to 30% based on Attack Range (500-650) ⇒ 20% bonus increased up to 100% based on Attack Range (500-650)",
+      "HP: 30% bonus increased up to 30% based on Attack Range (500-650) ⇒ 24% bonus increased up to 100% based on Attack Range (500-650)",
+      "MS: 25% bonus increased up to 30% based on Attack Range (500-650) ⇒ 20% bonus increased up to 100% based on Attack Range (500-650)"
+     ]
+    },
+    {
+     "name": "Spin Me Right Round",
+     "changes": [
+      "Grants 400 minimum attack range for those below it"
+     ]
+    },
+    {
+     "name": "Adaptive Ward",
+     "changes": [
+      "NEW Silver Augment"
+     ]
+    },
+    {
+     "name": "Don't Change the Channel",
+     "changes": [
+      "NEW Silver Augment"
+     ]
+    },
+    {
+     "name": "Double Defense",
+     "changes": [
+      "NEW Silver Augment"
+     ]
+    },
+    {
+     "name": "Forged By The Master",
+     "changes": [
+      "NEW Silver Augment"
+     ]
+    },
+    {
+     "name": "It's Go Time",
+     "changes": [
+      "NEW Silver Augment"
+     ]
+    },
+    {
+     "name": "Pursuit of Power",
+     "changes": [
+      "NEW Silver Augment"
+     ]
+    },
+    {
+     "name": "Quest: Support Main",
+     "changes": [
+      "NEW Silver Augment"
+     ]
+    },
+    {
+     "name": "Siphon",
+     "changes": [
+      "NEW Silver Augment"
+     ]
+    },
+    {
+     "name": "Snowday",
+     "changes": [
+      "NEW Silver Augment",
+      "Converted from Augment Trait/Set: Snowday - silver"
+     ]
+    },
+    {
+     "name": "Stackosaurus Rex",
+     "changes": [
+      "NEW Silver Augment",
+      "Converted from Augment Trait/Set: Stackosaurus Rex - Silver"
+     ]
+    },
+    {
+     "name": "Stay Resolute",
+     "changes": [
+      "NEW Silver Augment"
+     ]
+    },
+    {
+     "name": "Trusty Weapon",
+     "changes": [
+      "NEW Silver Augment"
+     ]
+    },
+    {
+     "name": "Archmage",
+     "changes": [
+      "NEW Gold Augment",
+      "Converted from Augment Trait/Set: Archmage - Gold"
+     ]
+    },
+    {
+     "name": "BONK!",
+     "changes": [
+      "NEW Gold Augment"
+     ]
+    },
+    {
+     "name": "Combusting Interest",
+     "changes": [
+      "NEW Gold Augment"
+     ]
+    },
+    {
+     "name": "Endless Decimation",
+     "changes": [
+      "NEW Gold Augment"
+     ]
+    },
+    {
+     "name": "From Downtown",
+     "changes": [
+      "NEW Gold Augment"
+     ]
+    },
+    {
+     "name": "Hide on Bush",
+     "changes": [
+      "NEW Gold Augment"
+     ]
+    },
+    {
+     "name": "Lil' Extra Help",
+     "changes": [
+      "NEW Gold Augment"
+     ]
+    },
+    {
+     "name": "Mercy's Strike",
+     "changes": [
+      "NEW Gold Augment"
+     ]
+    },
+    {
+     "name": "Nature is Healing",
+     "changes": [
+      "NEW Gold Augment"
+     ]
+    },
+    {
+     "name": "Our Healing",
+     "changes": [
+      "NEW Gold Augment"
+     ]
+    },
+    {
+     "name": "Overextender",
+     "changes": [
+      "NEW Gold Augment"
+     ]
+    },
+    {
+     "name": "Pat On The Back",
+     "changes": [
+      "NEW Gold Augment"
+     ]
+    },
+    {
+     "name": "Porcupine",
+     "changes": [
+      "NEW Gold Augment"
+     ]
+    },
+    {
+     "name": "Pressure Cooker",
+     "changes": [
+      "NEW Gold Augment"
+     ]
+    },
+    {
+     "name": "Pursuit of Haste",
+     "changes": [
+      "NEW Gold Augment"
+     ]
+    },
+    {
+     "name": "Ravenous Bind",
+     "changes": [
+      "NEW Gold Augment"
+     ]
+    },
+    {
+     "name": "Rejuvenation",
+     "changes": [
+      "NEW Gold Augment"
+     ]
+    },
+    {
+     "name": "Shark Bait",
+     "changes": [
+      "NEW Gold Augment"
+     ]
+    },
+    {
+     "name": "Shark Tempest",
+     "changes": [
+      "NEW Gold Augment"
+     ]
+    },
+    {
+     "name": "Snowblast",
+     "changes": [
+      "NEW Gold Augment"
+     ]
+    },
+    {
+     "name": "Terrain'd",
+     "changes": [
+      "NEW Gold Augment"
+     ]
+    },
+    {
+     "name": "Tooth Fairy",
+     "changes": [
+      "NEW Gold Augment"
+     ]
+    },
+    {
+     "name": "Void Dash",
+     "changes": [
+      "NEW Gold Augment"
+     ]
+    },
+    {
+     "name": "Warlock Juicebox",
+     "changes": [
+      "NEW Gold Augment"
+     ]
+    },
+    {
+     "name": "Wee Woo Wee Woo",
+     "changes": [
+      "NEW Gold Augment",
+      "Converted from Augment Trait/Set: Wee Woo Wee Woo - Gold"
+     ]
+    },
+    {
+     "name": "Yowch, My Coins!",
+     "changes": [
+      "NEW Gold Augment",
+      "Converted from Augment Trait/Set: Make it Rain >>> Yowch, My Coins! - Gold"
+     ]
+    },
+    {
+     "name": "Chain Reaction",
+     "changes": [
+      "NEW Prismatic Augment"
+     ]
+    },
+    {
+     "name": "Dimension Shift",
+     "changes": [
+      "NEW Prismatic Augment"
+     ]
+    },
+    {
+     "name": "DropBear",
+     "changes": [
+      "NEW Prismatic Augment"
+     ]
+    },
+    {
+     "name": "Echo Cast",
+     "changes": [
+      "NEW Prismatic Augment"
+     ]
+    },
+    {
+     "name": "En Passant",
+     "changes": [
+      "NEW Prismatic Augment"
+     ]
+    },
+    {
+     "name": "Hellbent",
+     "changes": [
+      "NEW Prismatic Augment"
+     ]
+    },
+    {
+     "name": "High Roller",
+     "changes": [
+      "NEW Prismatic Augment",
+      "Converted from Augment Trait/Set: High Roller - Prismatic"
+     ]
+    },
+    {
+     "name": "Multishot",
+     "changes": [
+      "NEW Prismatic Augment"
+     ]
+    },
+    {
+     "name": "One Trick Pony",
+     "changes": [
+      "NEW Prismatic Augment"
+     ]
+    },
+    {
+     "name": "Overloaded",
+     "changes": [
+      "NEW Prismatic Augment"
+     ]
+    },
+    {
+     "name": "Pin Cushion",
+     "changes": [
+      "NEW Prismatic Augment"
+     ]
+    },
+    {
+     "name": "Poro Stampede",
+     "changes": [
+      "NEW Prismatic Augment"
+     ]
+    },
+    {
+     "name": "Quickstep",
+     "changes": [
+      "NEW Prismatic Augment"
+     ]
+    },
+    {
+     "name": "Rite of Ascension",
+     "changes": [
+      "NEW Prismatic Augment"
+     ]
+    },
+    {
+     "name": "Spellsplit",
+     "changes": [
+      "NEW Prismatic Augment"
+     ]
+    },
+    {
+     "name": "Spirit Bomb",
+     "changes": [
+      "NEW Prismatic Augment"
+     ]
+    },
+    {
+     "name": "Squishy Slappy Grab",
+     "changes": [
+      "NEW Prismatic Augment"
+     ]
+    },
+    {
+     "name": "Surge Field",
+     "changes": [
+      "NEW Prismatic Augment"
+     ]
+    },
+    {
+     "name": "Terror",
+     "changes": [
+      "NEW Prismatic Augment"
+     ]
+    },
+    {
+     "name": "Titan's Resolve",
+     "changes": [
+      "NEW Prismatic Augment"
+     ]
+    },
+    {
+     "name": "Tripleshot",
+     "changes": [
+      "NEW Prismatic Augment"
+     ]
+    },
+    {
+     "name": "???",
+     "changes": [
+      "REMOVED"
+     ]
+    },
+    {
+     "name": "Buff Buddies",
+     "changes": [
+      "REMOVED"
+     ]
+    },
+    {
+     "name": "Cerberus",
+     "changes": [
+      "REMOVED"
+     ]
+    },
+    {
+     "name": "Cheating",
+     "changes": [
+      "REMOVED"
+     ]
+    },
+    {
+     "name": "Crack Open That Egg",
+     "changes": [
+      "REMOVED"
+     ]
+    },
+    {
+     "name": "Demon's Dance",
+     "changes": [
+      "REMOVED"
+     ]
+    },
+    {
+     "name": "Executioner",
+     "changes": [
+      "REMOVED"
+     ]
+    },
+    {
+     "name": "Feel the Burn",
+     "changes": [
+      "REMOVED"
+     ]
+    },
+    {
+     "name": "Frost Wraith",
+     "changes": [
+      "REMOVED"
+     ]
+    },
+    {
+     "name": "Gash",
+     "changes": [
+      "REMOVED"
+     ]
+    },
+    {
+     "name": "Grandma Chili Oil",
+     "changes": [
+      "REMOVED"
+     ]
+    },
+    {
+     "name": "Hat on a Hat",
+     "changes": [
+      "REMOVED"
+     ]
+    },
+    {
+     "name": "Holy Fire",
+     "changes": [
+      "REMOVED"
+     ]
+    },
+    {
+     "name": "im a baby kitty",
+     "changes": [
+      "REMOVED"
+     ]
+    },
+    {
+     "name": "Keystone Conjurer",
+     "changes": [
+      "REMOVED"
+     ]
+    },
+    {
+     "name": "Laser Heal",
+     "changes": [
+      "REMOVED"
+     ]
+    },
+    {
+     "name": "Lightning Strikes",
+     "changes": [
+      "REMOVED"
+     ]
+    },
+    {
+     "name": "Poro Blaster",
+     "changes": [
+      "REMOVED"
+     ]
+    },
+    {
+     "name": "Poro King",
+     "changes": [
+      "REMOVED"
+     ]
+    },
+    {
+     "name": "Rabble Rousing",
+     "changes": [
+      "REMOVED"
+     ]
+    },
+    {
+     "name": "Red Envelopes",
+     "changes": [
+      "REMOVED"
+     ]
+    },
+    {
+     "name": "Repulsor",
+     "changes": [
+      "REMOVED"
+     ]
+    },
+    {
+     "name": "Restless Restoration",
+     "changes": [
+      "REMOVED"
+     ]
+    },
+    {
+     "name": "Self Destruct",
+     "changes": [
+      "REMOVED"
+     ]
+    },
+    {
+     "name": "Slow and Steady",
+     "changes": [
+      "REMOVED"
+     ]
+    },
+    {
+     "name": "Snowball Roulette",
+     "changes": [
+      "REMOVED"
+     ]
+    },
+    {
+     "name": "Speed Demon",
+     "changes": [
+      "REMOVED"
+     ]
+    },
+    {
+     "name": "The Brutalizer",
+     "changes": [
+      "REMOVED"
+     ]
+    },
+    {
+     "name": "Tormentor",
+     "changes": [
+      "REMOVED"
+     ]
+    },
+    {
+     "name": "Trailblazer",
+     "changes": [
+      "REMOVED"
+     ]
+    },
+    {
+     "name": "Trueshot Prodigy",
+     "changes": [
+      "REMOVED"
+     ]
+    },
+    {
+     "name": "Twice Thrice",
+     "changes": [
+      "REMOVED"
+     ]
+    },
+    {
+     "name": "Upgrade Cutlass",
+     "changes": [
+      "REMOVED"
+     ]
+    },
+    {
+     "name": "Upgrade Hubris",
+     "changes": [
+      "REMOVED"
+     ]
+    },
+    {
+     "name": "Upgrade Mikaels",
+     "changes": [
+      "REMOVED"
+     ]
+    },
+    {
+     "name": "Upgrade Thornmail",
+     "changes": [
+      "REMOVED"
+     ]
+    },
+    {
+     "name": "Void Rift",
+     "changes": [
+      "REMOVED"
+     ]
+    },
+    {
+     "name": "Watch Out! Cupcake!",
+     "changes": [
+      "REMOVED"
+     ]
+    },
+    {
+     "name": "Weighted Popoffs",
+     "changes": [
+      "REMOVED"
+     ]
+    },
+    {
+     "name": "Wind beneath blade",
+     "changes": [
+      "REMOVED"
+     ]
+    }
+   ],
+   "items": [],
+   "systems": [
+    "NEW: Ability Augments added (Augments that directly upgrade one of your champion's abilities; only offered if usable for your champion)",
+    "NEW: multi-tier Quest Augments that can evolve multiple times; older Quest Augments like Quest: Steel Your Heart updated with clearer visuals and requirement tracking in the UI",
+    "REMOVED: Augment Trait (Set) System removed for this season; some Trait bonuses converted into standalone Augments: Archmage - Gold; High Roller - Prismatic; Snowday - silver; Make it Rain >>> Yowch, My Coins! - Gold; Wee Woo Wee Woo - Gold; Stackosaurus Rex - Silver"
+   ],
+   "bugfixes": [],
+   "aram": {},
+   "intro": "Hello ARAMers, we're bringing even more chaos to the Bridge this patch. We've detailed these changes in a recent dev blog, which you can check out here for all the details, but TL;DR: we've added Ability Augments, Quest Augments, and removed Augment Traits. Let's dive in! Ability Augments are Augments that directly upgrade one of your champion's abilities. You'll only ever receive Ability Augments that are usable for your champion. Quest Augments are Augments that grow stronger as you complete specific objectives during the game. And yes, an Augment can be both a Quest Augment and an Ability Augment! Want your Blitzcrank Q to fire three hooks after powering it up? Good luck escaping that! We're removing the Trait System for this season. Earlier this year, we explored how Traits affected player choice and build variety. While some Trait effects, like High Roller and Archmage were very popular, the system also reduced variety in Augment decisions. To preserve the fun parts, we've converted some Trait bonuses into standalone Augments so you can still enjoy their fantasies without being locked into a full Trait. This time around, we're giving extra attention to fighters and tanks. We've added more combat-focused Prismatic Augments to help them survive longer and move through fights more aggressively. Having trouble surviving after getting a kill? HellBent lets you revive if you stack it high enough. Looking for a Bel'Veth-style reset fantasy? Rite of Ascension refreshes your cooldowns and heals you on takedowns. We've also removed some older Augments that no longer delivered on their gameplay fantasy. Our goal is to rotate the pool to focus more on champion abilities, and make sure every Augment feels exciting to select. Overall, our goal with each update is to keep Mayhem feeling fresh, experimental, and full of new discoveries. We wish you the utmost Mayhem and see you on the bridge! Will now attempt to re-target the initial target for the final attack so player will be able to land near the initial target For example: Quick Step – Casting your self-targeted AoE ability makes you dash forward (Yes, Garen E and Kennen R are very happy about this!) Previously, Quest Augments only had a single unlock threshold, but in this update we're introducing multi-tier Quest Augments that can evolve multiple times into even stronger versions. Older Quest Augments, like Quest: Steel Your Heart, have also been updated with clearer visuals and requirement tracking in the UI."
+  },
+  {
+   "patch": "26.11",
+   "gameVersion": "16.11",
+   "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-11-notes/",
+   "date": "2026-05-27",
+   "noMayhemSection": false,
+   "champions": [
+    {
+     "name": "Gwen",
+     "changes": [
+      "Damage Dealt: 102% ⇒ 100%"
+     ]
+    },
+    {
+     "name": "Vayne",
+     "changes": [
+      "Damage Dealt: 105% ⇒ 100%",
+      "Damage Taken: 95% ⇒ 100%"
+     ]
+    },
+    {
+     "name": "Xayah",
+     "changes": [
+      "Damage Dealt: 105% ⇒ 100%",
+      "AS Scaling: +3% ⇒ 0%"
+     ]
+    },
+    {
+     "name": "Kalista",
+     "changes": [
+      "Damage Dealt: 110% ⇒ 105%",
+      "Damage Taken: 90% ⇒ 95%"
+     ]
+    },
+    {
+     "name": "Fizz",
+     "changes": [
+      "Damage Dealt: 105% ⇒ 100%",
+      "Damage Taken: 95% ⇒ 100%",
+      "Tenacity: 10% ⇒ 0%"
+     ]
+    },
+    {
+     "name": "Tristana",
+     "changes": [
+      "Damage Dealt: 105% ⇒ 100%",
+      "Damage Taken: 95% ⇒ 100%"
+     ]
+    },
+    {
+     "name": "Twitch",
+     "changes": [
+      "Damage Taken: 95% ⇒ 100%"
+     ]
+    },
+    {
+     "name": "Smolder",
+     "changes": [
+      "Damage Taken: 102% ⇒ 100%"
+     ]
+    },
+    {
+     "name": "Varus",
+     "changes": [
+      "Damage Taken: 105% ⇒ 100%"
+     ]
+    },
+    {
+     "name": "Samira",
+     "changes": [
+      "Damage Taken: 105% ⇒ 100%"
+     ]
+    },
+    {
+     "name": "Fiddlesticks",
+     "changes": [
+      "Damage Dealt: 95% ⇒ 100%",
+      "Damage Taken: 105% ⇒ 100%"
+     ]
+    }
+   ],
+   "augments": [],
+   "items": [],
+   "systems": [],
+   "bugfixes": [
+    "Fixed a bug where Graves would deal obscene amounts of damage with Marksmage.",
+    "Fixed a bug where Veil of Warding went on cooldown on respawn.",
+    "Fixed a bug where Viego could be unable to complete Icathia's Fall if he possessed an enemy with the quest.",
+    "Fixed Phenomenal Evil not granting 40 AP if chosen after the first Augment.",
+    "Fixed Ashe Q not apply Marksmage.",
+    "Fixed Smolder Q being unable to be cast during E with certain Augments.",
+    "Fixed Aurelion Sol not being properly charged double mana for his Q with Overflow.",
+    "Demon's Dance no longer grants health based on Stat Anvils instead of just Augments.",
+    "Fixed a bug where Poros from Poro Blaster could see into Brush.",
+    "Fixed a bug where if your snowball Augments were removed by Pandora's box, your snowball cooldown would be drastically longer than intended.",
+    "Fixed a bug where you could overwrite Clown College's summoner spell if you used Snowball while selecting it.",
+    "Fixed a bug where Neeko could not activate Ultimate Awakening if she ulted while disguised as a non-champion.",
+    "Fixed a bug where Upgrade: Thornmail allowed you to buy unlimited Thornmails.",
+    "Fixed a bug where Jax W would not trigger Marksmage.",
+    "Fixed a bug where Stuck in Here With Me triggered on Aatrox's death while using R.",
+    "Fixed a bug where Ezreal Q did not trigger Typhoon.",
+    "Fixed a bug where Illaoi E scaled with Minionmancer."
+   ],
+   "aram": {
+    "champions": [
+     {
+      "name": "Qiyana",
+      "changes": [
+       "Ability Haste: 0 ⇒ 20"
+      ]
+     }
+    ],
+    "notes": [
+     "Only a small adjustment to Qiyana this patch! Go off, queen!"
+    ]
+   },
+   "intro": "Hey Mayhemers! This patch we have a handful of champion changes and some general bugfixes, but nothing big. See you on the Bridge(s)!"
+  },
+  {
+   "patch": "26.10",
+   "gameVersion": "16.10",
+   "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-10-notes/",
+   "date": "2026-05-12",
+   "noMayhemSection": false,
+   "champions": [
+    {
+     "name": "Viktor",
+     "changes": [
+      "Damage Dealt: 95% ⇒ 100%",
+      "Damage Taken: 105% ⇒ 100%",
+      "Passive Stacks per Kill - Champion: 20 ⇒ 8",
+      "Passive Stacks per Kill - Cannon 10 ⇒ 5",
+      "NEW In ARAM maps, Viktor gains 1 stack every 5 seconds."
+     ]
+    }
+   ],
+   "augments": [
+    {
+     "name": "Big Brain",
+     "changes": [
+      "NEW Refresh on Respawn or every 70 seconds"
+     ]
+    },
+    {
+     "name": "Fan the Hammer",
+     "changes": [
+      "No longer triggers on minions"
+     ]
+    },
+    {
+     "name": "Outlaw's Grit",
+     "changes": [
+      "NEW Stacks now reset based on a 15s duration instead of a fixed timer",
+      "Stacks show up on buff bar"
+     ]
+    },
+    {
+     "name": "Upgrade Zhonya's",
+     "changes": [
+      "NEW Grants 50% Bonus MS during Stasis"
+     ]
+    }
+   ],
+   "items": [],
+   "systems": [
+    "Bilgewater Cannon QoL: Movement lockout from not taking the canon: 2s ⇒ 0.5s",
+    "Bilgewater Cannon QoL: Movement lockout from landing after taking the canon: removed"
+   ],
+   "bugfixes": [
+    "Fixed a bug where Dropkick could permanently reveal an enemy killed by it under specific circumstances.",
+    "Fixed a bug where Qiyana would be given water when using W on walls.",
+    "Fixed a bug where using Bilgewater’s Cannon would trigger health relics when flying over them.",
+    "Fixed a bug where killing a unit with Snowball would sometimes not trigger Upgrade: Snowball’s effect.",
+    "Fixed a bug where Azir’s soldiers did not trigger Marksmage.",
+    "Fixed a bug where Outlaw’s Grit would be granted stacks by each map’s unique transportation.",
+    "Fixed a bug where Gangplank would gain multiplicative amounts of Damage reduction or increase when chaining barrels.",
+    "Fixed a bug where Snowball benefited from Item Damage increases.",
+    "Fixed a bug where Clones of a champion with Slow and Steady did not have their Attack Speed limited.",
+    "Fixed a bug where Bounce of the Poro King went through spellshields.",
+    "Fixed a bug where taking certain snowball augments would reset your non-snowball summoner spell’s cooldown.",
+    "Fixed a bug where Laser Heal would erroneously reset cooldowns of spells that should have stayed sealed, such as Riven R or Rumble while Overheated.",
+    "Fixed a bug where Ultimate Awakening would erroneously reset cooldowns of spells that should have stayed sealed.",
+    "Fixed a bug where Dropkick dealt bonus damage to ALL units below the execute threshold, not just champions.",
+    "Fixed a bug where Briar could get snowball permanently disabled when using at the same time as her R.",
+    "Fixed a bug with various augments where resetting cooldowns of Ammo spells would grant you 1 more charge than the maximum allowed of charges.",
+    "Fixed a bug where Neeko would apply Mad Scientist’s size change to her clone twice.",
+    "Fixed a bug where Tank Engine incorrectly displayed its granted health in the tooltip."
+   ],
+   "aram": {
+    "champions": [
+     {
+      "name": "Viktor",
+      "changes": [
+       "Damage Dealt: 95% ⇒ 100%",
+       "Damage Taken: 105% ⇒ 100%",
+       "Passive Stacks per Kill - Champion: 20 ⇒ 8",
+       "Passive Stacks per Kill - Cannon 10 ⇒ 5",
+       "NEW In ARAM maps, Viktor gains 1 stack every 5 seconds."
+      ]
+     }
+    ],
+    "systems": [
+     "Bilgewater Cannon QoL: Movement lockout from not taking the canon: 2s ⇒ 0.5s",
+     "Bilgewater Cannon QoL: Movement lockout from landing after taking the canon: removed"
+    ]
+   },
+   "intro": "Hello ARAMers! In this patch, we’re focusing on quality-of-life improvements for both augments and maps. For augments, Upgrade Zhonya’s now grants a bit more movement speed, helping you reposition more fluidly in fights. We’ve also smoothed out usability for Fan the Hammer, Big Brain, and Outlaw’s Grit, making them more intuitive and reliable to use. On the map side, Bilgewater Cannons will now have a much shorter delay if you accidentally dismount early, and we’ve removed the brief immobility on landing to keep movement feeling responsive. On Howling Abyss, we fixed an issue where Qiyana could not access her Earth element. Our lovely friend Viktor is also getting a small update in ARAM and Mayhem. He now gains stacks over time, with reduced reliance on minion and champion takedowns. This should give him a smoother and more consistent power progression throughout the game. See you on the Bridge! Outlaw's Grit NEW Stacks now reset based on a 15s duration instead of a fixed timer"
+  },
+  {
+   "patch": "26.9",
+   "gameVersion": "16.9",
+   "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-9-notes/",
+   "date": "2026-04-28",
+   "noMayhemSection": false,
+   "champions": [
+    {
+     "name": "Bard",
+     "changes": [
+      "Caretaker's Shrine W Move Speed: 20 / 22.5 / 25 / 27.5 / 30% (+ 6% per 100 AP) ⇒ 25 / 27.5 / 30 / 32.5 / 35% (+ 7.5% per 100 AP)",
+      "Caretaker's Shrine W Ammo Cooldown: 10 ⇒ 8"
+     ]
+    },
+    {
+     "name": "Ornn",
+     "changes": [
+      "Living Forge P Cooldown: 120 seconds ⇒ 90 - 10 seconds (based on level)"
+     ]
+    }
+   ],
+   "augments": [
+    {
+     "name": "Upgrade Sword of Blossoming Dawn",
+     "changes": [
+      "[REMOVED] Basic attacks against champions now deal 50% damage"
+     ]
+    },
+    {
+     "name": "Prom Queen",
+     "changes": [
+      "Cooldown: 25 seconds ⇒ 35 seconds"
+     ]
+    },
+    {
+     "name": "Grandma's Chili Oil",
+     "changes": [
+      "Base Damage per second:100 ⇒ 150",
+      "Bonus Damage per burn source: 60 ⇒ 50",
+      "Base Heal per second: 60 - 150 (based on level) ⇒ 30 - 75 (based on level)",
+      "Bonus heal per burn source: 50 ⇒ 25"
+     ]
+    }
+   ],
+   "items": [],
+   "systems": [
+    "Health Relic: [UNCHANGED] 8% Missing Health / Mana on Pickup",
+    "Health Relic: AOE Effect - Missing Health and Mana: 16% ⇒ 22%"
+   ],
+   "bugfixes": [
+    "Fixed a bug where Lightning Strikes granted 20% bonus attack speed instead of 20% total attack speed in Mayhem.",
+    "Fixed a bug where Kaenic Rookern and Opportunity did not benefit from Item Haste.",
+    "Fixed a bug where Azir's mana costs appeared doubled with Overflow but were not actually increased in Mayhem ARAM.",
+    "Fixed a bug where Ekko stayed invisible after using Clown College followed by E in Mayhem ARAM.",
+    "Fixed a bug champions with recasts were charged for their recast spell with the Augment Overflow.",
+    "Fixed a bug where selecting Buff Buddies before Ocean Soul caused Red Brambleback to become ineffective in Mayhem ARAM.",
+    "Fixed a bug where Taliyah T-posed after dying to Empowered by the Faithful's execution in Mayhem ARAM.",
+    "Fixed a bug where some champions could not trigger the Marksmage effect with empowered attacks in Mayhem ARAM.",
+    "Fixed a bug where Vel'Koz's Q mana cost was not doubled after selecting Overflow in Hextech Mayhem ARAM.",
+    "Fixed a bug where Shaco's clone did not display a health bar or model at high Shrink Engine stacks in Mayhem ARAM.",
+    "Fixed a bug where Empowered by the Faithful effect was lost if revived by Zilean's R in Mayhem ARAM.",
+    "Fixed a bug where Droppybara's actual damage range exceeded its indicator range.",
+    "Fixed a bug where Xayah and Aphelios could continuously trigger ReEnergize without cooldown in Mayhem ARAM.",
+    "Fixed a bug where selecting Hextech Biggest Snowball Ever followed by Hextech Pinball caused Pinball to lose its true damage in Mayhem.",
+    "Fixed a bug where Neeko displayed Draw Your Sword VFX while disguised as a non-champion."
+   ],
+   "aram": {
+    "items": [
+     {
+      "name": "Hubris",
+      "changes": [
+       "Attack Damage: 60 ⇒ 55",
+       "Ability Haste: 15 ⇒ 10"
+      ]
+     }
+    ]
+   },
+   "intro": "We have a few small adjustments for Mayhem focused on time-based abilities for Bard and Ornn, Health Relic improvements, and a few balance tweaks for some Augments."
+  },
+  {
+   "patch": "26.8",
+   "gameVersion": "16.8",
+   "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-8-notes/",
+   "date": "2026-04-14",
+   "noMayhemSection": false,
+   "champions": [
+    {
+     "name": "Mel",
+     "changes": [
+      "Rebuttal W Cooldown: 35 / 32 / 29 / 26 / 23 ⇒ 45 / 44 / 43 / 42 / 41"
+     ]
+    }
+   ],
+   "augments": [
+    {
+     "name": "Fan the Hammer",
+     "changes": [
+      "Per Missile Damage: 10 - 52.5 (+ 15% bonus AD) ⇒ 8 - 51 (+ 14% bonus AD)"
+     ]
+    },
+    {
+     "name": "Giant Slayer",
+     "changes": [
+      "Movement Speed: 30% ⇒ 20%"
+     ]
+    },
+    {
+     "name": "Grandma's Chili Oil",
+     "changes": [
+      "Will no longer heal allied minions."
+     ]
+    },
+    {
+     "name": "Movement Speed Stat Anvil",
+     "changes": [
+      "18% ⇒ 15%"
+     ]
+    },
+    {
+     "name": "Homeguard",
+     "changes": [
+      "Time to regain bonus movespeed after taking damage: 3 ⇒ 6 seconds"
+     ]
+    },
+    {
+     "name": "Quantum Computing",
+     "changes": [
+      "Outer damage: 200 - 350 (+65% bonus AD) (+ 40% AP) ⇒ + (75% Bonus AD) (+ 45% AP)",
+      "No base damage change"
+     ]
+    },
+    {
+     "name": "Red Envelopes",
+     "changes": [
+      "Movement Speed from pickup: 150 ⇒ 100",
+      "Movement Speed duration: 4 ⇒ 3 seconds"
+     ]
+    },
+    {
+     "name": "With Haste",
+     "changes": [
+      "Movement Speed from Ability Haste: 100% ⇒ 70%",
+      "??? (Missing Ping)",
+      "Healing towards allies will not be affected by Howling Abyss Buff's heal cut"
+     ]
+    }
+   ],
+   "items": [
+    {
+     "name": "Immortal Shieldbow",
+     "changes": [
+      "Cooldown: 75 ⇒ 60 seconds"
+     ]
+    },
+    {
+     "name": "Locket of the Iron Solari",
+     "changes": [
+      "Cooldown: 90 ⇒ 75 seconds"
+     ]
+    },
+    {
+     "name": "Maw of Malmortius",
+     "changes": [
+      "Cooldown: 75 ⇒ 60 seconds"
+     ]
+    },
+    {
+     "name": "Protoplasm Harness",
+     "changes": [
+      "Cooldown: 90 ⇒ 60 seconds"
+     ]
+    },
+    {
+     "name": "Randuin's Omen",
+     "changes": [
+      "Cooldown: 90 ⇒ 60 seconds"
+     ]
+    },
+    {
+     "name": "Shurelya's Battlesong",
+     "changes": [
+      "Cooldown: 75 ⇒ 60 seconds"
+     ]
+    },
+    {
+     "name": "Sterak's Gage",
+     "changes": [
+      "Cooldown: 75 ⇒ 60 seconds"
+     ]
+    }
+   ],
+   "systems": [],
+   "bugfixes": [
+    "Fixed a bug where Train of the Dead changed directions with champions that have a zombie effect.",
+    "Fixed a bug where Crack Open That Egg VFX did not persist correctly on subsequent shields after the initial expiration in Mayhem.",
+    "Fixed a bug that caused Karma’s R cooldown to be reduced by the Firefox augment.",
+    "Fixed a bug that caused Aphelios to not work with Marksmage.",
+    "Fixed a bug where Marksmage Hextech did not trigger additional damage when purchasing Ability Power items on Aphelios in Mayhem ARAM.",
+    "Fixed a bug where Graves dealt higher than intended damage with Marksmage in Mayhem ARAM.",
+    "Fixed a bug that caused Illaoi’s E clone to gain the effects of the Final Form.",
+    "Fixed a bug where Quantum Computing was doing more than double damage on the inside circle.",
+    "Fixed a bug where Infernal Conduit dealt higher than intended base damage and scaling in Mayhem.",
+    "Fixed a bug where Droppybara incorrectly triggered certain champion passives in Mayhem.",
+    "Fixed a bug where Archmage did not affect abilities with deferred cooldowns in Mayhem.",
+    "Fixed a bug where Harmful Summoner Spell was not cast when hit by Dash/Mark while Snowball Roulette was equipped in Mayhem.",
+    "Fixed a bug where Slow and Steady contained a syntax error in Mayhem.",
+    "Fixed a bug where Devil on Your Shoulder did not apply to all target-sourced damage over time effects in Mayhem.",
+    "Fixed a bug where Bard did not benefit from Stackosaurus’s set bonus when collecting chimes in Mayhem.",
+    "Fixed a bug where Kai’Sa could not evolve her W after gaining Ability Power from Stat Anvil in Mayhem ARAM.",
+    "Fixed a bug where Fan the Hammer dealt less of its displayed damage in Mayhem ARAM.",
+    "Fixed a bug where Dropkick triggered on turrets and crystals in Mayhem ARAM.",
+    "Fixed a bug where selecting Biggest Snowball Ever followed by Pinball caused Pinball to lose its true damage in Mayhem ARAM.",
+    "Fixed a bug where Void Immolation’s Immolate effect could stop working shortly after activation in Mayhem.",
+    "Fixed a bug where Augments that added an item to your inventory could accidentally consume components of the item without properly compensating you.",
+    "Fixed a bug where stat augments could grant two prismatic stat options instead of three in Mayhem."
+   ],
+   "aram": {
+    "champions": [
+     {
+      "name": "Mel",
+      "changes": [
+       "Rebuttal W Cooldown: 35 / 32 / 29 / 26 / 23 ⇒ 45 / 44 / 43 / 42 / 41"
+      ]
+     }
+    ],
+    "items": [
+     {
+      "name": "Locket of the Iron Solari",
+      "changes": [
+       "Cooldown: 90 ⇒ 75 seconds"
+      ]
+     },
+     {
+      "name": "Protoplasm Harness",
+      "changes": [
+       "ARAM: Cooldown: 90 ⇒ 75 seconds"
+      ]
+     },
+     {
+      "name": "Randuin's Omen",
+      "changes": [
+       "Cooldown: 90 ⇒ 60 seconds"
+      ]
+     }
+    ],
+    "notes": [
+     "For this patch we’re going to be bringing over some changes we’re also doing in Mayhem so that item actives can come up a bit more frequently."
+    ]
+   },
+   "intro": "Hello ARAM Mayhemers! In this patch, we’re continuing to reduce passive and persistent Movement Speed from Augments to give champions more room to react and make fights easier to read. To help address overall damage levels, we’re also buffing a number of items and the Health Relic system. Several melee and tank support items now have lower cooldowns, making them more impactful and usable in Mayhem’s fast-paced fights. See you on the Bridge!"
+  },
+  {
+   "patch": "26.7",
+   "gameVersion": "16.7",
+   "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-7-notes/",
+   "date": "2026-03-31",
+   "noMayhemSection": false,
+   "champions": [
+    {
+     "name": "Shyvana",
+     "changes": [
+      "Fury Generation: 1.25 ⇒ 2.5"
+     ]
+    }
+   ],
+   "augments": [
+    {
+     "name": "Poro Blaster",
+     "changes": [
+      "NEW Knocks back enemies once only when you have 5 poros.",
+      "Poro respawn time: 5s ⇒ 3.5s"
+     ]
+    },
+    {
+     "name": "Void Rift",
+     "changes": [
+      "Added 0.75 second cooldown per target."
+     ]
+    }
+   ],
+   "items": [],
+   "systems": [
+    "April Fool's - Vengeful Poros: Poros now use their muscular arms to move and attack players who hoard poro snax, dealing 1 true damage repeatedly until one of them gets fed.",
+    "April Fool's - Cheerful Poros: A Poro (or Wharf Rat) will welcome players in chat at game start.",
+    "April Fool's - Poro Snax: Poro Snax now visually look like cheeseburgers.",
+    "April Fool's - Flash: Flash leaves behind an emoting afterimage.",
+    "April Fool's - Healthbar Scaling: Healthbars scale with champion size.",
+    "April Fool's - Turrets: Turrets flash Mastery when they kill a champion and use an emote when destroyed. Dying to a turret has a chance to self-ping Missing.",
+    "April Fool's - Dearest Karthus: There's a small chance for an automatic chat message addressed to Karthus when Karthus reaches level 6.",
+    "April Fool's - Howling Abyss: There's a small chance for Lissandra to send a message at the end of the game.",
+    "April Fool's - Party Favors: New Item, Party Favor, is in the shop. Using it starts or joins a dance party. The more the merrier!",
+    "April Fool's - Custom Healthbar Colors: New Item, Custom Healthbars, is in the shop. Purchase automatically changes the color of the buyers healthbar to the corresponding color.",
+    "All champion abilities that directly interact with stats (Yasuo Q Cooldown, Kai'sa Evolutions) now scale with stat anvils in Mayhem.",
+    "Vampirism is no longer offered if you have Warmog's Armor.",
+    "Draw Your Sword is no longer offered if you have Runaan's Hurricane.",
+    "Kayn no longer loses the ability to shop after choosing a form.",
+    "Yuumi no longer loses the ability to shop after attaching to an ally.",
+    "Dropkick no longer overrides a champion's execute indicator if they have one.",
+    "Little Legends no longer display an icon on the minimap."
+   ],
+   "bugfixes": [
+    "This patch includes fixes for several champion-specific interactions, particularly around the shop and Augment behavior. We've also continued improving overall Augment usability, including fixes for: Prom Queen's charm interaction, Shyvana with Final City Transit, Neeko with firefox issue and Azir's Minion Mancer behavior.",
+    "Fixed a bug where Shyvana lost fury on death with Final City Transit.",
+    "Fixed a bug where Azir's W soldier damage was not increased by Minionmancer.",
+    "Fixed a bug where Katarina's Q and W would trigger Stuck Here With Me.",
+    "Fixed a bug where Mel could reflect Heads Up Cupcakes with W and gain gold from the generated cupcakes.",
+    "Fixed a bug where Neeko selecting Firefox would interrupt her form transformation.",
+    "Fixed a bug where Gangplank's E had no cooldown after selecting certain augments.",
+    "Fixed an issue where Shaco with Hextech Vampirism could leave a clone at 0 health indefinitely if R was cast before death.",
+    "Fixed a bug where Viego with King Me would upgrade ALL his items after exiting possession.",
+    "Kog'Maw W now properly applies on the missile from the Dual Wield Augment.",
+    "Fixed an issue where Mel Q would last too long after taking Cheating and Pandora's Box.",
+    "Fixed an issue where Ultimate Awakening did not refresh Rengar's basic ability cooldowns.",
+    "Fixed an issue where Sion with Ultimate Revolution could refresh R duration incorrectly when casting R again in zombie form.",
+    "Fixed an issue where Fiddlesticks' W cooldown was not properly refunded from a full cast when selecting Bread and Jam.",
+    "Fixed an issue where Samira's Q cooldown was not properly refunded after using her EQ combo.",
+    "Fixed an issue where Lightning Strikes attack speed did not reduce Yasuo's Q cooldown.",
+    "Fixed a bug where Taliyah with Rabble Rousing could spam R to heal.",
+    "Fixed a bug where using Clown College's Deceive spell with Rell's abilities could cause her model to become stuck underground.",
+    "Fixed a bug where Graves' R cooldown was not reduced after selecting Dashing.",
+    "Fixed a bug where Kindred's abilities did not reset after casting R with Ultimate Awakening.",
+    "Fixed a bug where Heimerdinger could trigger It's Killing Time by simply toggling R.",
+    "Fixed a bug where Tahm Kench with It's Killing Time would fail to cast R but still trigger the rune.",
+    "Fixed a bug where Renekton could remain invisible after using W with Clown College's Deceive.",
+    "Fixed a bug where Udyr could remain invisible after using R with Clown College's Deceive.",
+    "Fixed an issue where Skilled Sniper sometimes failed to refund cooldowns when hitting enemies with multiple spells at once.",
+    "Fixed an issue where after Viego transforms into a champion with Heartsteel and then transforms back, enemies would still see the Heartsteel icon.",
+    "Fixed an issue where Courage of the Colossus would trigger on self-crowd control.",
+    "Fixed an issue where purchasing multiple Anvils before selecting a Hex could cause the Hex to disappear.",
+    "Fixed an issue where Runaan's Hurricane could be purchased after selecting Draw Your Sword.",
+    "Fixed an issue where Little Legends were visible in the enemy base when their owner was dead.",
+    "Fixed a bug where Quantum Computing's cooldown could activate while dead.",
+    "Fixed a bug where Draw your Sword still counted you as Melee after being transformed into a different augment by Pandora's Box.",
+    "Fixed a bug where Impassible's Glacial Augment could be triggered multiple times before going on cooldown.",
+    "Fixed a bug where the actual cooldown of Ultimate Awakening was 35 seconds instead of the described 20 seconds.",
+    "Fixed a bug where Crit 'n Cast was tagged as a damage augment.",
+    "Fixed a bug where Empowered By The Faithful could break movement when using WASD.",
+    "Fixed a bug where Atma's did not display its granted Ability Haste.",
+    "Fixed a bug where Restless Restoration would restore excessive health when first selected.",
+    "Fixed a bug where Poro Blaster could knock back untargetable champions.",
+    "Fixed a bug where Upgrade Snowball tooltip incorrectly stated that the area around hit enemies is revealed.",
+    "Fixed a bug where Snowball Upgrade slow was not applied when hitting an enemy with Mark while Biggest Snowball Ever was equipped.",
+    "Fixed a bug where selecting a Snowball augment while having Snowball with Dash available could grant two Snowball summoner spells.",
+    "Fixed a bug where upgraded Lich Bane passive tooltip had incorrect spacing.",
+    "Fixed a bug where Prom Queen could charm nearby champions and minions on death.",
+    "Fixed a bug where some Flash SFX was missing after casting Flash 2.",
+    "Inferno Triggered now properly checks for unique casts.",
+    "Fixed a bug where selecting Self-Destruct while dead would trigger an immediate cast of the augment.",
+    "Fixed a bug where Banshee's Veil would go on cooldown and not restore health when interacting with Heads Up Cupcakes.",
+    "Fixed a bug where Heads up Cupcakes were destroyed by windwalls.",
+    "Fixed a bug where Tap Dancer was missing its name when displayed in chat.",
+    "Fixed a bug where gaining Hand of Baron while dead caused VFX spam.",
+    "Fixed a bug where Hand of Baron's VFX were not removed while dead."
+   ],
+   "aram": {},
+   "intro": "Our Poros have evolved…ARMS? Welcome to the April Fools patch! This patch brings a variety of easter eggs to the Bridge, including a buffed Poro and rainbow-colored health bars. Keep an eye out and things might not be quite what they seem. We'll continue improving the Mayhem experience. Cheers, and see you on the Bridge! This patch focuses on reducing frustration around Augments and champion quality of life. For Poro Blaster, we've adjusted its knockback behavior to be less punishing for melee champions. It will now only knock back once when you have 5 Poros, and we've reduced the respawn timer to keep the action flowing. We've also made a small adjustment to Void Rift to make its periodic damage less overwhelming."
+  },
+  {
+   "patch": "26.6",
+   "gameVersion": "16.6",
+   "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-6-notes/",
+   "date": "2026-03-17",
+   "noMayhemSection": false,
+   "champions": [
+    {
+     "name": "Illaoi",
+     "changes": [
+      "Damage Taken: 105% ⇒ 100%",
+      "Healing: 80% ⇒ 90%"
+     ]
+    },
+    {
+     "name": "Sett",
+     "changes": [
+      "Damage Taken: 110% ⇒ 100%"
+     ]
+    },
+    {
+     "name": "Shyvana",
+     "changes": [
+      "Damage Taken: 105% ⇒ 100%"
+     ]
+    },
+    {
+     "name": "Sion",
+     "changes": [
+      "Damage Taken: 110% ⇒ 100%"
+     ]
+    },
+    {
+     "name": "Swain",
+     "changes": [
+      "Damage Taken: 115% ⇒ 105%",
+      "Healing: 80% ⇒ 90%",
+      "Damage Dealt: 95% ⇒ 100%"
+     ]
+    },
+    {
+     "name": "Urgot",
+     "changes": [
+      "Damage Taken: 105% ⇒ 100%"
+     ]
+    },
+    {
+     "name": "Vladimir",
+     "changes": [
+      "Damage Taken: 105% ⇒ 100%",
+      "Healing: 90% ⇒ 100%",
+      "Damage Dealt: 95% ⇒ 100%"
+     ]
+    }
+   ],
+   "augments": [
+    {
+     "name": "Droppybara",
+     "changes": [
+      "AoE Size: 550 ⇒ 650",
+      "Max Health True Damage: 25% ⇒ 30%",
+      "Slow Amount: 35% ⇒ 45%"
+     ]
+    },
+    {
+     "name": "Dual Wield",
+     "changes": [
+      "Attack Speed Bonus: 20% ⇒ 10%"
+     ]
+    },
+    {
+     "name": "Fire Fox",
+     "changes": [
+      "Bonus Movement Speed: 40% ⇒ 25%"
+     ]
+    },
+    {
+     "name": "Ice Cold",
+     "changes": [
+      "Flat Movement Speed Decrease: 100 ⇒ 75"
+     ]
+    },
+    {
+     "name": "Juiced",
+     "changes": [
+      "On-Hit Max Mana % Damage: 3.5% ⇒ 4.5%",
+      "Now only affects Champions"
+     ]
+    },
+    {
+     "name": "Prom Queen",
+     "changes": [
+      "Charm Duration: 2 ⇒ 1.5 seconds"
+     ]
+    },
+    {
+     "name": "Sonata",
+     "changes": [
+      "Self Movement Speed Buff: 50% ⇒ 30%",
+      "Ally Movement Speed Buff: 30% ⇒ 20%"
+     ]
+    },
+    {
+     "name": "Speed Demon",
+     "changes": [
+      "Decay Time: 1 ⇒ 0.75 seconds"
+     ]
+    },
+    {
+     "name": "Stuck In Here With Me",
+     "changes": [
+      "Now casts for Katarina as soon as she begins channeling her Ultimate"
+     ]
+    },
+    {
+     "name": "Triggered Inferno",
+     "changes": [
+      "Movement Speed per Stack: (2.75 - 3.5) ⇒ (4.25 - 5)",
+      "Damage per Shot: 10 - 40 (+ 0.35 AD) (+ 0.2 AP) ⇒ 20-40 (+ 0.4 AD) (+ 0.25 AP)"
+     ]
+    },
+    {
+     "name": "Watch Out Cupcake",
+     "changes": [
+      "Gold for Non-Holder: 15 ⇒ 50"
+     ]
+    },
+    {
+     "name": "Make It Rain",
+     "changes": [
+      "Enemies now drop coins on takedowns.",
+      "Level 2: Drops 6 coins",
+      "Level 3: Drops 12 coins",
+      "Dropped Coins each grant 5 gold and can only be picked up by the Augment holder and allied champions."
+     ]
+    }
+   ],
+   "items": [],
+   "systems": [
+    "Red Envelopes No longer Appear on the Minimap for either team",
+    "Final City Transit now only displays a chat message to the augment's owner per champion hit.",
+    "Vampirism and Perseverance are now mutually exclusive and are no longer offered when you possess one or the other.",
+    "Slap Around now has an icon for its associated debuff.",
+    "Champion Summons such as Naafiri's Packmates no longer display a chat message when they have a large amount of Hats."
+   ],
+   "bugfixes": [
+    "Fixed a bug where purchasing a Stat Anvil would prevent Augments from being offered in Mayhem ARAM.",
+    "Fixed a bug where Sion would lose part of his Magic Resist after his first death in Mayhem.",
+    "Fixed an issue where Aphelios could not open the Hextech panel by pressing the C key in Mayhem ARAM.",
+    "Fixed a bug in Mayhem ARAM Custom Mode where selecting Butcher's Bridge would load Howling Abyss instead.",
+    "Fixed a bug where Nasus Q did not properly display how many stacks it granted in both ARAM and Mayhem."
+   ],
+   "aram": {},
+   "intro": "In this patch, we're continuing our work on improving tank and melee experiences through both Augment updates and champion balance adjustments. For Augments, we've taken a look at general movement speed effects, especially cases where excessive mobility created frustrating experiences for melee champions. We've also buffed several newer Augments to make them easier to use and better at delivering on their intended fantasy. Looking to drop a massive Capybara on someone? It's now much easier to land. We've also reworked Make It Rain to make the gold payoff more visible and more celebratory. Now, enemies will burst into coins on takedown, and both you and your teammates can pick them up. On the champion side, we're continuing to remove some older ARAM-specific modifiers so these champions can feel closer to their true power levels. And last but certainly not least we're doing a broader cleanup to make the augment selection flow smoother and less buggy. We'll continue squishing any remaining issues in future updates. Completely unrelated note, the Poros have started a new workout routine…"
+  },
+  {
+   "patch": "26.5",
+   "gameVersion": "16.5",
+   "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-5-notes/",
+   "date": "2026-03-03",
+   "noMayhemSection": false,
+   "champions": [],
+   "augments": [
+    {
+     "name": "Upgrade Immolate",
+     "changes": [
+      "Gold per tick: 10 ⇒ 12"
+     ]
+    },
+    {
+     "name": "Slow Cooker",
+     "changes": [
+      "Damage scaling off max HP: 1.5% ⇒ 2%"
+     ]
+    },
+    {
+     "name": "Celestial Body",
+     "changes": [
+      "Max Health Gain: 1250 ⇒ 1500"
+     ]
+    },
+    {
+     "name": "Guilty Pleasure",
+     "changes": [
+      "Heal amount from immobilizing / grounding enemy: 10-150 (+ 1.5% Max HP) ⇒ 30-250 (+ 1.5% Max HP)"
+     ]
+    },
+    {
+     "name": "Perseverance",
+     "changes": [
+      "Base regen: 8 Health / sec ⇒ 10 Health / sec",
+      "Low HP regen: 16 Health / sec ⇒ 20 Health / sec"
+     ]
+    },
+    {
+     "name": "Courage of the Colossus",
+     "changes": [
+      "Shield: 100-300 + 4%HP ⇒ 150-450 + 4%HP"
+     ]
+    },
+    {
+     "name": "Adamant",
+     "changes": [
+      "MR / armor gained per immobilizing / grounding enemy: 8 ⇒ 10"
+     ]
+    },
+    {
+     "name": "Impassable",
+     "changes": [
+      "Aftershock and Glacial CD: 15s ⇒ 20s"
+     ]
+    },
+    {
+     "name": "Stuck In Here With Me",
+     "changes": [
+      "Post-taunt damage mitigation: 40% ⇒ 50%"
+     ]
+    },
+    {
+     "name": "Dropkick",
+     "changes": [
+      "Execute threshold AD scaling: .03% ⇒ .035%"
+     ]
+    },
+    {
+     "name": "Dropybara",
+     "changes": [
+      "Cooldown: 75s ⇒ 45s"
+     ]
+    },
+    {
+     "name": "Golden Snowball",
+     "changes": [
+      "Invulnerability duration: 1s ⇒ 1.5s"
+     ]
+    },
+    {
+     "name": "Poro King",
+     "changes": [
+      "Move speed increase: 25% ⇒ 40%",
+      "Damage reduction: 85% ⇒ 70%",
+      "Damage: 100-300 + 5% Bonus HP + 100% Bonus AD + 50% Bonus AP ⇒ 100-700"
+     ]
+    },
+    {
+     "name": "Void Rift",
+     "changes": [
+      "Damage: 75-350 + 450% Lethality + 450% Magic Pen ⇒ 100-450 + 550% Lethality + 550% Magic Pen",
+      "Width: 210 ⇒ 250"
+     ]
+    },
+    {
+     "name": "Escape Plan",
+     "changes": [
+      "Removed CD reset on death"
+     ]
+    },
+    {
+     "name": "Critical Missile",
+     "changes": [
+      "Damage: 11 - 40+7% bonus AD + 10% AP ⇒ 20 - 100 per missile"
+     ]
+    },
+    {
+     "name": "NEW Upgrade Sword of Blossoming Dawn",
+     "changes": [
+      "Gain 100% Attack Speed",
+      "When you have Sword of Blossoming Dawn, your attacks against champions deal 50% damage but increase Sword of Blossoming Dawn’s healing by 250%"
+     ]
+    },
+    {
+     "name": "NEW Wee Woo Wee Woo Set Bonus",
+     "changes": [
+      "Set Bonus: Gain Bonus effects towards allies below 50% health",
+      "(2) Gain 50% Movement Speed",
+      "(3) Your next heal or shield restores 12% of the target’s missing health (10 seconds cooldown)"
+     ]
+    }
+   ],
+   "items": [
+    {
+     "name": "Moonstone Renewer",
+     "changes": [
+      "Garlic: Moonstone’s chain healing will not select targets with Vampirism"
+     ]
+    },
+    {
+     "name": "Diadem of Songs",
+     "changes": [
+      "Silver: Diadem’s healing missile will not select targets with Vampirism"
+     ]
+    }
+   ],
+   "systems": [
+    "Player HUD: REMOVED: Removed Augment Set icons from player HUD",
+    "Structures: Nexus base HP: 5500 ⇒ 3000",
+    "Structures: Nexus Tower base HP: 1800 ⇒ 3000"
+   ],
+   "bugfixes": [
+    "Fixed a bug where Divine Intervention had no cooldown.",
+    "Fixed a bug where Grandma’s Chili Oil buff/debuff was missing icons and tooltips.",
+    "Fixed a bug where Grandma’s Chili Oil pool effects stopped being applied when multiple players were standing in it.",
+    "Fixed a bug where Inferno Conduit’s damage did not trigger Grandma’s Chili Oil.",
+    "Fixed a bug so that Void Immolation counts as 2 burn sources for Grandma’s Chili Oil.",
+    "Fixed a bug where Zilean could infinitely proc Ultimate Revolution by self-casting Chronoshift (R) after reviving.",
+    "Fixed a bug where Empowered by the Faithful had debug buffs on allies.",
+    "Fixed a bug where Empowered by the Faithful’s shockwave could cause champions to become invisible.",
+    "Fixed a bug where champions could be knocked back further than intended when combining Inferno Triggered and Poro Blaster.",
+    "Fixed a bug where the Sonata gained cooldown reduction from Ability Haste despite being at the Set 2 bonus for Fully Automated.",
+    "Fixed a bug where The Butcher’s Bridge cannon did not show its range indicator on the minimap.",
+    "Fixed a bug where The Golden Spatula could be lost if you had full items and completed the mission after selecting Quest: Urf’s Champion and using Poro-Snax.",
+    "Fixed a bug where Poro King removed Cho’Gath ult stacks or Sion W stacks.",
+    "Fixed a bug where Upgrade Immolate did not work with Void Immolation.",
+    "Fixed a bug where Red Envelope did not grant Attack Damage.",
+    "Fixed a bug where Droppybara and Poro King worked on Aurora’s and Zaahen’s passives. Aurora’s and Zaahen’s passives will no longer be procced by augment damage.",
+    "Fixed a bug where Upgrade Sheen did not heal on proc.",
+    "Fixed a bug where using a Stat Anvil Voucher before the first augment offering caused the augment offering to break.",
+    "Fixed a bug where Upgrade Thornmail's effect exists if you don't have the items.",
+    "Fixed a bug where Upgrade Thornmail's Shield can be proc by minions.",
+    "Fixed a bug where taking Pinball Snowball broke Hexgate’s repositioning function."
+   ],
+   "aram": {},
+   "intro": "Hello Mayhem enjoyers! In this patch, we’re focusing on tank experience improvements and a few quality-of-life updates. Over the past few patches, we’ve seen some overall power inflation, and tanks have been finding it harder to truly hold the frontline. To address this, we’re systematically buffing tank-oriented Augments, including both health-focused and durability-focused options. Our goal is to help tanks feel sturdier and more reliable in their role. We’ll continue monitoring their performance and plan to follow up with more targeted adjustments in future patches if needed. We’ve reworked Wee Woo Wee Woo to better deliver on the “true ambulance” fantasy. It now gives you stronger burst-healing potential to save your allies in critical moments. To give support players even more options, we’re also introducing an Upgraded Sword of Blossoming Dawn Augment, which alters your healing pattern and opens up new ways to sustain your team. We’ve noticed that players often don’t have enough time to fully enjoy their power once they’ve completed their builds and Augments. To address this, we’re adjusting Nexus and Nexus turret health. These changes aim to: Provide more comeback opportunities for the losing team. Give the winning team a bit more time to show off their full power spike. And avoid games ending too abruptly while still preventing stalled-out hostage scenarios. We’ll continue monitoring other systems to ensure late-game pacing remains satisfying. Hope you enjoy the updates, and see you on the Bridge!"
+  },
+  {
+   "patch": "26.4",
+   "gameVersion": "16.4",
+   "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-4-notes/",
+   "date": "2026-02-18",
+   "noMayhemSection": false,
+   "champions": [],
+   "augments": [
+    {
+     "name": "Poro Blaster",
+     "changes": [
+      "Can now only be picked up by 1 player per team.",
+      "Increased the time required to stack Poros."
+     ]
+    },
+    {
+     "name": "Heads Up Cupcake!",
+     "changes": [
+      "On Pick Up Slow: 50% ⇒ 25%",
+      "Gold per 1000 Healing: 200 ⇒ 150",
+      "Missing Health Healing: 20 - 50% ⇒ 5 - 15%"
+     ]
+    },
+    {
+     "name": "Devil On Your Shoulder",
+     "changes": [
+      "Health Drain Near Enemies: 7.5% ⇒ 5%",
+      "Bonus True Damage: 20% ⇒ 15%"
+     ]
+    },
+    {
+     "name": "Speed Demon",
+     "changes": [
+      "Speed Increase: 350, decays over 2 seconds ⇒ 200, decays over 1 second"
+     ]
+    },
+    {
+     "name": "Kill Secured",
+     "changes": [
+      "Bonus Movement Speed Towards Low Health Champions: 100% ⇒ 60%"
+     ]
+    },
+    {
+     "name": "Make It Rain Set",
+     "changes": [
+      "Gold Reward: 30 / 50 / 100% ⇒ 15 / 30 / 50%"
+     ]
+    },
+    {
+     "name": "Archmage Set",
+     "changes": [
+      "Cooldown Refund: 40% ⇒ 30%"
+     ]
+    },
+    {
+     "name": "Deathknell Set",
+     "changes": [
+      "Death Timer Reduction: 40% ⇒ 25%"
+     ]
+    },
+    {
+     "name": "Red Envelope",
+     "changes": [
+      "Gold per Envelope: (10 - 18) to (25 - 58) ⇒ (8-15) to (22 - 46)"
+     ]
+    },
+    {
+     "name": "Donation",
+     "changes": [
+      "Gold: 2500 ⇒ 1750"
+     ]
+    },
+    {
+     "name": "Stats",
+     "changes": [
+      "Number of Stat Anvils Given: 3 ⇒ 2"
+     ]
+    },
+    {
+     "name": "Stats on Stats",
+     "changes": [
+      "Number of Stat Anvils Given: 4 ⇒ 3"
+     ]
+    },
+    {
+     "name": "Stats on Stats on Stats",
+     "changes": [
+      "Number of Stat Anvils Given: 5 ⇒ 4"
+     ]
+    },
+    {
+     "name": "Shrink Engine",
+     "changes": [
+      "Haste per Stack: 10 ⇒ 8",
+      "Movement Speed per Stack: 2% ⇒ 1%"
+     ]
+    },
+    {
+     "name": "Vampirism",
+     "changes": [
+      "Omnivamp: 30% ⇒ 25%"
+     ]
+    },
+    {
+     "name": "Prismatic Stat Anvil",
+     "changes": [
+      "Melee Omnivamp: 25% ⇒ 20%",
+      "Ranged Omnivamp: 12.5% ⇒ 10%"
+     ]
+    },
+    {
+     "name": "Hand of Baron",
+     "changes": [
+      "Adaptive Force: 33% ⇒ 25%"
+     ]
+    },
+    {
+     "name": "Firecracker Set",
+     "changes": [
+      "2 Set Missile Damage: 40% ⇒ 25%",
+      "4 Set Missile Damage: 80% ⇒ 50%"
+     ]
+    },
+    {
+     "name": "Wee Woo Wee Woo Set",
+     "changes": [
+      "Set Bonus Heal Power: 15 / 25 / 35% ⇒ 10 / 20 / 30%",
+      "Set Bonus Movement Speed: 40 / 50 / 60% ⇒ 30 / 40 / 50%"
+     ]
+    },
+    {
+     "name": "High Roller Set",
+     "changes": [
+      "3 Set Bonus Change for Gold or Prismatic Anvils: 50% ⇒ 20%",
+      "5 Set Bonus Change for Gold or Prismatic Anvils: 100% ⇒ 50%"
+     ]
+    }
+   ],
+   "items": [],
+   "systems": [
+    "Augment Set Panel Hover Delay: Reduced Hover Delay from 0.75 ⇒ 0.1 seconds",
+    "Level 4 Reward: 300 gold ⇒ Golden Reroll"
+   ],
+   "bugfixes": [
+    "Fixed a bug where Prom Queen failed to trigger after you were dead.",
+    "Fixed a bug where Critical Healing and Critical Missile could trigger infinitely.",
+    "Fixed a bug where Critical Missile triggered too often with Tank it Or leave it.",
+    "Fixed a bug where Firecracker Set bonus caused attack timers to reset.",
+    "Fixed a bug where the Firecracker Set bonus was triggering on basic attack effects.",
+    "Fixed a bug where players could select the same augment multiple times.",
+    "Fixed a bug where you spin me around could cause champions to lose their original spells.",
+    "Fixed a bug where Soul Siphon healed an incorrect amount when having Jeweled Gauntlet.",
+    "Fixed a bug where champions are unable to select anvils from High Roller Set, examples like Kog'Maw, Sion and Karthus.",
+    "Fixed a bug where your augments could get overwritten when you leveled up in base.",
+    "Fixed a bug where you were unable to select your last augment after selecting stat anvils.",
+    "Fixed a bug where you would buy anvil in shop and overwrite your current augment selection.",
+    "Fixed a bug where the Poro King gave incorrect damage reduction.",
+    "Fixed a bug where Poro King did not get CC Immune during unstoppable state.",
+    "Fixed a bug where you can get infinite armor by reselling Thornmail in shop when having Upgrade Thornmail.",
+    "Fixed a bug where you can swap both summoner slots when offered active summoners, snowballs and flashes.",
+    "Fixed a bug where spam clicking summoner swap button can give you stacking haste on Snowball Augments.",
+    "Fixed a bug where selecting Gangplank's Silver Serpents's trade will swap another active summoner in your summoner slot.",
+    "Fixed a bug where ??? could execute players in Kindred R or execute Tryndamere when he cast R.",
+    "Fixed a bug where Upgrade sheen could proc double healing when you have Dusk and Dawn.",
+    "Fix a bug where Upgrade Sheen was tracking damages dealt to minions.",
+    "Fixed a bug where Pyke's ultimate did not benefit from Dashing.",
+    "Fixed a bug where Poro blaster was visible on champions with Stealth.",
+    "Fixed a bug where Whispering's Circlet and Diadem of Songs are not considered as a hat in Hat on Hat augment.",
+    "Fixed a bug where Grandma's Chili Oil's burn was doing incorrect damage per second.",
+    "Fixed a bug where Pandora's Box did not count for High Roller Augment Set.",
+    "Fixed a bug where Master of Duality did not grant additional Ability Power when they are gained through the Stackosaurus Set Bonus.",
+    "Fixed a bug where Flash's recharge was incorrect if you have flashy and flash 2.",
+    "Fixed a bug where Void Immolation did not trigger Upgrade Immolate's Effect.",
+    "Fixed a bug where Upgrade Immolate gold generation does not increase when ranking up the Make it Rain set bonus.",
+    "Fixed a bug where Fully Automated's 3 piece bonus is active with the 2 piece bonus."
+   ],
+   "aram": {
+    "champions": [
+     {
+      "name": "Zaahen",
+      "changes": [
+       "Damage Dealt: 100% ⇒ 95%",
+       "Damage Taken: 100% ⇒ 105%"
+      ]
+     }
+    ]
+   },
+   "intro": "In this week's patch notes we've got a mix of changes that went live in 26.3 included here for posterity plus some additional changes coming in 26.4."
+  },
+  {
+   "patch": "26.3",
+   "gameVersion": "16.3",
+   "url": "https://www.leagueoflegends.com/en-us/news/game-updates/patch-26-3-notes/",
+   "date": "2026-02-03",
+   "noMayhemSection": false,
+   "champions": [],
+   "augments": [
+    {
+     "name": "Deathknell (NEW Augment Set)",
+     "changes": [
+      "Description: Dive into death and use augments for true damage",
+      "Set bonus (2) Reduce death timer by 40%",
+      "Set members: Clown College, Train of the Dead, Self Destruct, Dive Bomber"
+     ]
+    },
+    {
+     "name": "Firecracker (NEW Augment Set)",
+     "changes": [
+      "Description: Missiles are cool, more missiles are cooler. Firecracker missiles will bounce extra times to nearby enemies and deal a portion of their original damage.",
+      "Set bonus (2) 2 bounces, dealing 40% of original damage.",
+      "Set bonus (4) 3 bounces, dealing 80% of original damage",
+      "Set members: Fan the Hammer, Magic Missile, Critical Missile, Light'em Up, Typhoon, Twin Fire"
+     ]
+    },
+    {
+     "name": "High Roller (NEW Augment Set)",
+     "changes": [
+      "Description: You miss 100% of the shots you don't take - Shaco - Twisted Fate (probably)",
+      "Set bonus (2) Minions have a chance to drop a Stat Anvil on death.",
+      "Set bonus (3) +50% chance for Gold or Prismatic Anvils.",
+      "Set bonus (4) +50% chance for Gold or Prismatic Anvils.",
+      "Set members: Transmute Chaos, Pandora's Box, Stats on Stats on Stats, Transmute Prismatic, Stats on Stats, Stats, Transmute Gold"
+     ]
+    },
+    {
+     "name": "Stackasaurus Rex (NEW Augment Set)",
+     "changes": [
+      "Description: Stacks Stacks Stacks Stacks Stacks",
+      "Set bonus (2) Gain 50% More.",
+      "Set bonus (3) Gain 100% More.",
+      "Set bonus (4) Gain 200% More.",
+      "Set members: Infinite Recursion, Master of Duality, Tap Dancer, Soul Eater, Quest: Steal your heart, Phenomenal Evil, Shrink Engine, Hubris, Slap Around"
+     ]
+    },
+    {
+     "name": "Wee Woo Wee Woo (NEW Augment Set)",
+     "changes": [
+      "Set bonus (2) 40% Speed, 25% Heal and Shield Power.",
+      "Set bonus (3) 50% Speed, 35% Heal and Shield Power.",
+      "Set bonus (4) 60% Speed, 45% Heal and Shield Power.",
+      "Set members: Windspeaker's Blessing, I'm a Baby Kitty Where is Mama, Upgrade: Mikaels Blessing, All For You, Critical Healing, Sonata, First Aid Kit."
+     ]
+    },
+    {
+     "name": "Fully Automated (NEW Augment Set)",
+     "changes": [
+      "Description: The first step to making a Mayhem factory truly grow.",
+      "Set bonus (2) Reduce Autocast cooldowns by 30%",
+      "Set bonus (3) Autocast cooldown scales with Ability Haste.",
+      "Set members: Prom Queen, Quantum Computing, Ok Boomerang, Sonata, Divine Intervention, Self Destruct, Frost Wraith, Firefox"
+     ]
+    },
+    {
+     "name": "Archmage (NEW Augment Set)",
+     "changes": [
+      "Description: A load bearing structure of any game.",
+      "Set bonus (2) Refund 40% of a random ability's cooldown when you cast a spell.",
+      "Set members: Overflow, Mind to Matter, Buff Buddy, Juiced, Ocean Soul"
+     ]
+    },
+    {
+     "name": "Make it Rain (NEW Augment Set)",
+     "changes": [
+      "Description: Gold rules everything around you.",
+      "Set bonus (2) 25% more gold from augments and kills.",
+      "Set bonus (3) 50% more gold from augments and kills.",
+      "Set bonus (4) 100% more gold from augments and kills.",
+      "Set members: Goldrend, Heads Up Cupcake!, Donation, Red Envelope, From Beginning to End, Upgrade Immolate, Upgrade Collector"
+     ]
+    },
+    {
+     "name": "Snowday (NEW Augment Set)",
+     "changes": [
+      "Description: Snowballs go brr",
+      "Set bonus (2) Gain 50 Ability Haste on Snowball and snowballs deal an extra 30% more damage.",
+      "Set bonus (3) Gain 100 Ability Haste on Snowball and snowballs deal an extra 50% more damage.",
+      "Set bonus (2) Gain 150 Ability Haste on Snowball and snowballs deal an extra 100% more damage.",
+      "Set members: Biggest Snowball, Golden Snowball, Snowball Upgrade, Pinball Snowball, Snowball Roulette"
+     ]
+    },
+    {
+     "name": "Empyrean Promise",
+     "changes": [
+      "Delay Moving Time: 0.5 seconds ⇒ 0.25 seconds",
+      "Move Speed: 3500 ⇒ 4000",
+      "Cooldown: 30 ⇒ 20",
+      "Augment user gets the shield immediately when traveling instead of landing."
+     ]
+    },
+    {
+     "name": "Lesser Heal",
+     "changes": [
+      "Cooldown: 45 ⇒ 30",
+      "Base Heal: 150-430 (based on level) ⇒ 200-550 (based on level)"
+     ]
+    },
+    {
+     "name": "Cerberus",
+     "changes": [
+      "Attack Speed Amp: 140% / 80% ⇒ 200% / 115%",
+      "Bonus Damage: 120 - 360 ⇒ 120 - 360 ( 40% AD) (+30% AP)"
+     ]
+    },
+    {
+     "name": "Goldrend",
+     "changes": [
+      "Gold per proc: 15 Gold ⇒ 30 Gold"
+     ]
+    },
+    {
+     "name": "From Beginning to End",
+     "changes": [
+      "First Strike Gold proc base: 10 ⇒ 20",
+      "Bonus True Damage: 7% ⇒ 10%",
+      "Gold Conversion: 50% / 35% ⇒ 60% / 42%"
+     ]
+    },
+    {
+     "name": "Lightning Strike",
+     "changes": [
+      "Attack Speed Required: 3.5 ⇒ 1.75"
+     ]
+    },
+    {
+     "name": "Mystic Punch",
+     "changes": [
+      "On-hit ability cooldown reduction: 20% ⇒ 1.25 seconds"
+     ]
+    }
+   ],
+   "items": [],
+   "systems": [
+    "Mayhem Progression Track Tier 4: 300 Starting Gold ⇒ Golden Reroll (mid-patch update)",
+    "Augment Hover Delay: 0.75 ⇒ 0.1 seconds (mid-patch update)",
+    "Poro Blaster: Only 1 player per team can get this augment; Increased the time required to stack Poros (mid-patch update)",
+    "Heads Up Cupcake!: On Pick Up Slow: 50% ⇒ 25%; Gold per 1000 healing: 200 ⇒ 150; Missing Health Healing: 50 - 20% ⇒ 5 - 15% (mid-patch update)",
+    "Devil On Your Shoulder: Health drain near enemies: 7.5 ⇒ 5% drain; Bonus true damage: 20% ⇒ 15% (mid-patch update)",
+    "Speed Demon: Speed gain: 350 decay over 2s ⇒ 200 decay over 1s (mid-patch update)",
+    "Kill Secured: Bonus MS towards low health champion: 100% ⇒ 60% (mid-patch update)",
+    "Make it Rain Set Reward: 30/50/100% ⇒ 15/30/50% (mid-patch update)",
+    "Archmage Set Reward: 40% ⇒ 30% (mid-patch update)",
+    "Deathknell Set Reward: 40% ⇒ 25% (mid-patch update)",
+    "Mayhem Progression Track (NEW) - Level 1 - Red Envelope Augment - Pick up Red Envelopes around the map to increase your Gold and a random stat.",
+    "Mayhem Progression Track (NEW) - Level 2 - Weighted Popoffs Augment - Strike enemies to \"popoff\" allowing your abilities to cooldown faster.",
+    "Mayhem Progression Track (NEW) - Level 3 - \"Poro Snack, Please\" Emote",
+    "Mayhem Progression Track (NEW) - Level 4 - +300 Starting Gold - Gain 300 more Gold at the start of each Mayhem game.",
+    "Mayhem Progression Track (NEW) - Level 5 - Growth Spurt Augment - When cast, increase your size, health and Knockup nearby enemies.",
+    "Mayhem Progression Track (NEW) - Level 6 - Poro Blast Icon",
+    "Mayhem Progression Track (NEW) - Level 7 - Donation Augment - Gain a significant amount of Gold. No questions asked.",
+    "Mayhem Progression Track (NEW) - Level 8 - Bounce of the Poro King Augment - Bounce on enemies crazy style as the Poro King to Knockback and deal damage.",
+    "Mayhem Progression Track (NEW) - Level 9 - \"So Bright!\" Emote",
+    "Mayhem Progression Track (NEW) - Level 10 - Speed Demon Augment - Damage an enemy to temporarily gain movement speed.",
+    "Mayhem Progression Track (NEW) - Level 11 - Spirit Bloom Slumber Icon",
+    "Mayhem Progression Track (NEW) - Level 12 - Shrink Engine Augment - Gain Ability Haste, Move Speed, and Shrink on every takedown.",
+    "Mayhem Progression Track (NEW) - Level 13 - Gold Reroll - Chance to reroll an Augment into a higher tier Augment.",
+    "Mayhem Progression Track (NEW) - Level 14 - Crack Open That Egg Augment - Your shields can now detonate, dealing damage to nearby enemies.",
+    "Mayhem Progression Track (NEW) - Level 15 - \"Avalanche!\" Emote",
+    "Mayhem Progression Track (NEW) - Level 16 - Void Immolation Augment - Convert Sunfire Aegis and Hollow Radiance into Void Immolation.",
+    "Mayhem Progression Track (NEW) - Level 17 - Gift-Giving Poros Icon",
+    "Mayhem Progression Track (NEW) - Level 18 - Anvil Voucher - You'll get an Anvil Voucher item at the start of each game that you can redeem to gain extra stats.",
+    "Mayhem Progression Track (NEW) - Level 19 - Inferno Triggered Augment - Automatically cast Samira's R when you reach \"S\" in style.",
+    "Mayhem Progression Track (NEW) - Level 20 - Champion Selfie Icon",
+    "Mayhem Progression Track (NEW) - Level 21 - Thornmail Upgrade - Thornmail and Bramble Vest will reflect more damage from attacks.",
+    "Mayhem Progression Track (NEW) - Level 22 - \"Pls Send Help\" Emote",
+    "Mayhem Progression Track (NEW) - Level 23 - Elixirs- Gain free Elixir at levels 9/12/16.",
+    "Mayhem Progression Track (NEW) - Level 24 – Dropkick Augment - Your attacks execute enemy champions, restoring health, and Knocking Back enemies.",
+    "Mayhem Progression Track (NEW) - Level 25 - Sonata - Automatically alternate casting Sona's E and W.",
+    "Mayhem Progression Track (NEW) - Level 26 - Poro King Banner",
+    "Mayhem Progression Track (NEW) - Level 27 - Stuck in Here with Me Augment - Gain damage reduction and taunt enemies after casting your ultimate.",
+    "Mayhem Progression Track (NEW) - Level 28 - Loving Family Emote",
+    "Mayhem Progression Track (NEW) - Level 29 - Empowered By The Faith Augment - Heal and Shield allies to earn \"Devotion\" which will execute low-health enemies.",
+    "Mayhem Progression Track (NEW) - Level 30 - \"Blasting Off!\" Icon",
+    "Mayhem Progression Track (NEW) - Level 31 - Golden Reroll - Further increased chance to reroll into a higher tier augment",
+    "Mayhem Progression Track (NEW) - Level 32 - ??? - Your Missing Pings now do something… no idea what though.",
+    "You can now take any summoner spells you want. For active Summoner Spell augments like Blade Waltz or Biggest Snowball you'll be able to select which slot to replace it.",
+    "NEW: Augment Sets system added (9 sets; collecting 2-4 Augments from the same set unlocks a set bonus)"
+   ],
+   "bugfixes": [
+    "Fixed a bug where Critical Healing and Critical Missile could trigger infinitely. (mid-patch update)",
+    "Fixed a bug where Prom Queen failed to trigger after you died. (mid-patch update)",
+    "Fixed a bug where Critical Missile triggered too often with Tank It or Leave It. (mid-patch update)",
+    "Fixed a bug where the Firecracker set bonus caused the attack timer to reset. (mid-patch update)",
+    "Fixed a bug where the Firecracker set bonus was triggering on basic attack effects (mid-patch update)",
+    "Fixed a bug where players could select the same augment multiple times. (mid-patch update)"
+   ],
+   "aram": {},
+   "intro": "Hello Mayhem enjoyers! We're excited to introduce a patch packed with new Augments, new Augment Sets, and a NEW progression track! This patch adds 45 new Augments, with some unlockable through the progression track as you play. We've heard your feedback around augment diversity and underserved classes, so we focused on expanding options for them, including item upgrades, active summoner effects, and more Prismatic Augments! But what about existing Augments? We're giving some underperforming Augments light tuning and refreshing the system overall with the introduction of Augment Sets. Season of Mayhem provides a new out of game experience for Mayhem enjoyers to give you something to progress and augment your future games! With this track we’re exploring rewarding Mayhem enjoyers and giving you all exciting goals to strive for within the mode. Our goals here are to make this easy to progress and we’ve made it pretty quick so you should never feel behind if you haven’t progressed it yet. You'll also find a couple of cosmetics like emotes and icons, as well as a new banner to show your devotion to the Poro King. Check out all the rewards you can earn below: We've seen tons of creative Augment combinations in Mayhem, and we want to make those moments even more rewarding and create new combinations with an exciting element that ties them together. Some augments sounded like they fit on paper, but that didn’t come across power wise… that's where Augment Sets come in. Some Augments will now belong to a themed set. When you collect 2–4 Augments from the same set, you'll unlock a special bonus that enhances that combination even further. Love diving into chaos with Clown College and Dive Bomb? No problem! Completing that Augment Set will reduce your death timer by 40%, letting you get back into the action faster. BOOM. There are 9 Augment Sets in total, and we can't wait to see the wild combinations you discover. Missiles are cool, more missiles are cooler. Firecracker missiles will bounce extra times to nearby enemies and deal a portion of their original damage."
+  },
+  {
+   "patch": "26.2",
+   "gameVersion": "16.2",
+   "url": "https://www.leagueoflegends.com/en-us/news/game-updates/patch-26-2-notes/",
+   "date": "2026-01-21",
+   "noMayhemSection": false,
+   "note": "No ARAM: Mayhem balance section; only an ARAM section with 'Bug Fixes - ARAM & ARAM:Mayhem' and 'Bug Fixes - ARAM:Mayhem Only'",
+   "champions": [],
+   "augments": [],
+   "items": [],
+   "systems": [],
+   "bugfixes": [
+    "Fixed a bug where Hexgates did not allow players to teleport behind the turret. (ARAM & ARAM: Mayhem)",
+    "Fixed a bug where players were interrupted when trying to use the Portal's in Koeshin's Crossing Map. (ARAM & ARAM: Mayhem)",
+    "Fixed a bug where Glass Cannon prevented Bloodthirster from triggering.",
+    "Fixed a bug where Smolder’s Q did not work with ReEnergize.",
+    "Fixed a bug where Flashy and Flash 2 would cancel Fiddlesticks’s R channel.",
+    "Fixed a bug where Empyrean Promise’s range was smaller than intended.",
+    "Fixed a bug where Sword of the Blossoming Dawn’s passive could target the wrong ally.",
+    "Fixed a bug where snowball damage from Snowball Upgrade and The Biggest Snowball was triggering Aurora’s and Zaahen’s passives.",
+    "Fixed a bug where First Strike was not tracking gold correctly in From Beginning to End."
+   ],
+   "aram": {},
+   "intro": ""
+  },
+  {
+   "patch": "26.1",
+   "gameVersion": "16.1",
+   "url": "https://www.leagueoflegends.com/en-us/news/game-updates/patch-26-1-notes/",
+   "date": "2026-01-07",
+   "noMayhemSection": false,
+   "champions": [
+    {
+     "name": "Ivern",
+     "changes": [
+      "Damage Dealt: 95% ⇒ 100%",
+      "Shielding Done: 80% ⇒ 100%"
+     ]
+    },
+    {
+     "name": "Janna",
+     "changes": [
+      "Damage Dealt: 95% ⇒ 100%",
+      "Damage Taken: 105% ⇒ 100%",
+      "Healing: 90% ⇒ 100%",
+      "Shielding: 95% ⇒ 100%"
+     ]
+    },
+    {
+     "name": "Karma",
+     "changes": [
+      "RQ Bonus Damage: 40 / 90 / 140 / 190 ⇒ 40 / 100 / 160 / 220"
+     ]
+    },
+    {
+     "name": "Milio",
+     "changes": [
+      "Healing: 95% ⇒ 100%",
+      "Shielding: 90% ⇒ 100%",
+      "Ability Haste: -10 ⇒ 0"
+     ]
+    },
+    {
+     "name": "Nami",
+     "changes": [
+      "Damage Dealt: 95% ⇒ 100%",
+      "Damage Taken: 105% ⇒ 100%"
+     ]
+    },
+    {
+     "name": "Renata",
+     "changes": [
+      "Damage Dealt: 95% ⇒ 100%",
+      "Shielding: 80% ⇒ 100%"
+     ]
+    },
+    {
+     "name": "Sona",
+     "changes": [
+      "W Heal Ratio: 20% ⇒ 30%",
+      "W Shield Ratio: 20% ⇒ 25%",
+      "Q Cooldown: 10s ⇒ 8s"
+     ]
+    }
+   ],
+   "augments": [
+    {
+     "name": "Snowball Roulette",
+     "changes": [
+      "Augment Tier: Prismatic ⇒ Gold"
+     ]
+    },
+    {
+     "name": "It's Killing Time",
+     "changes": [
+      "Instead of storing damage from all sources, now only store from the augment owner."
+     ]
+    },
+    {
+     "name": "Flashy",
+     "changes": [
+      "Instead of refreshing 1 charge every 180s, will now refresh all 3 charges every 120 seconds."
+     ]
+    },
+    {
+     "name": "Quest: Steel Your Heart",
+     "changes": [
+      "We've updated the functionality of the reward to now multiply future stacks by 3 and not just the stacks at the time of completion.",
+      "The tooltip implied this but it didn't actually work this way, so we're just making it do that to match the expectation and so Heartsteel can go brr."
+     ]
+    },
+    {
+     "name": "Quest: Urf's Champion",
+     "changes": [
+      "Golden Spatula Stats: Attack Damage: 60 ⇒ 90",
+      "Golden Spatula Stats: Ability Power: 80 ⇒ 110",
+      "Golden Spatula Stats: Movement Speed: 5% ⇒ 10%",
+      "Golden Spatula Stats: Immolate Range: 300 ⇒ 400"
+     ]
+    }
+   ],
+   "items": [],
+   "systems": [
+    "We've disabled the Bastionbreaker item from ARAM and ARAM Mayhem. (mid-patch update)",
+    "We've temporarily disabled the Executioner augment from appearing for Gangplank due to an unintended interaction. (mid-patch update)",
+    "We've temporarily disabled the Flashy augment while we resolve some bugs that have popped up with it. (mid-patch update)",
+    "Fixed an issue that allowed the ability to roll multiples of the same augment and stack them. (mid-patch update)",
+    "We've identified an issue that caused two Stormrazors to appear in the shop. (mid-patch update)",
+    "Fixed an issue where Zeri could reach over the attack speed cap. (This was actually fixed in the original 16.1 patch but was missing from the notes) (mid-patch update)"
+   ],
+   "bugfixes": [
+    "Fixed a bug where Ultimate's Awakening's buff bar is displaying incorrect Ability Haste.",
+    "Add a cooldown tracker for Ultimate Awakening.",
+    "Fixed a bug where Executioner is not working with Renger's basic abilities.",
+    "Fixed a bug where Orbital Laser's Ground damage is doing incorrect damage to minions.",
+    "Fixed a bug where Orbital Laser is tracking damage dealt to minions.",
+    "Fixed a bug where Gold Rend fails to function if your ally also takes it."
+   ],
+   "aram": {},
+   "intro": ""
+  }
+ ]
+}

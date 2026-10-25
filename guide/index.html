@@ -4,172 +4,163 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Mayhem Info</title>
-  <meta name="description" content="How ARAM Mayhem works: rules, quests, challenges, items, maps and augment history.">
+  <meta name="description" content="How ARAM Mayhem works: rules, quests, challenges and items.">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <main>
     <div class="nav">
       <div class="segmented" role="tablist">
-        <button type="button" role="tab" data-tab="overview">What is Mayhem</button>
-        <button type="button" role="tab" data-tab="rules">Rules</button>
-        <button type="button" role="tab" data-tab="stages">Augment stages</button>
-        <button type="button" role="tab" data-tab="quests">Quests</button>
-        <button type="button" role="tab" data-tab="challenges">Challenges</button>
-        <button type="button" role="tab" data-tab="items">Items</button>
-        <button type="button" role="tab" data-tab="maps">Maps &amp; extras</button>
-        <button type="button" role="tab" data-tab="history">Augment history</button>
-        <button type="button" role="tab" data-tab="archive">Archive</button>
+        <button type="button" role="tab" data-tab="overview" data-t>What is Mayhem</button>
+        <button type="button" role="tab" data-tab="rules" data-t>Rules</button>
+        <button type="button" role="tab" data-tab="stages" data-t>Augment stages</button>
+        <button type="button" role="tab" data-tab="quests" data-t>Quests</button>
+        <button type="button" role="tab" data-tab="challenges" data-t>Challenges</button>
+        <button type="button" role="tab" data-tab="items" data-t>Items</button>
+        <button type="button" role="tab" data-tab="maps" data-t>Extras</button>
       </div>
       <span id="patch" class="eyebrow"></span>
     </div>
 
     <section class="panel" id="panel-overview" hidden>
-      <img id="hero" class="hero" alt="Mayhem augment cards, Poro Snax and the Poro King crown">
+      <img id="hero" class="hero" alt="Mayhem augment cards, Poro Snax and the Poro King crown" data-t-attr="alt">
       <div class="card">
-        <p class="eyebrow">The mode</p>
-        <h2 class="section">ARAM with augments</h2>
-        <p class="muted" style="margin-top:0.5rem">ARAM: Mayhem is ARAM on the Howling Abyss with Arena-style augments.
-          You pick an augment from a hand of Silver, Gold or Prismatic cards at <span id="aug-levels">set levels</span>, and you can reroll the hand.
-          Some augments are quests: hit a goal during the game and they turn into something bigger, including items you
-          can't buy anywhere else.</p>
+        <p class="eyebrow" data-t>The mode</p>
+        <h2 class="section" data-t>ARAM with augments</h2>
+        <p class="muted" style="margin-top:0.5rem" id="overview-intro"></p>
       </div>
       <div class="facts" id="facts"></div>
       <div class="card">
-        <div class="card-head"><h2>Queues</h2><span class="muted small">Queue IDs</span></div>
-        <div class="chips" id="queues"></div>
+        <div class="card-head"><h2 data-t>Region Teams</h2></div>
+        <p class="muted" data-t>The strongest Mayhem team from each region of Runeterra.</p>
+        <p class="small" style="margin-top:0.5rem"><a href="/info/region-teams" target="_top" data-t>Open Region Teams →</a></p>
+      </div>
+      <div class="card">
+        <div class="card-head"><h2 data-t>How Mayhem has changed</h2></div>
+        <div id="story"></div>
       </div>
     </section>
 
     <section class="panel" id="panel-rules" hidden>
       <div class="card">
-        <p class="eyebrow">House rules</p>
-        <h2 class="section">What Mayhem changes on top of ARAM</h2>
-        <p class="muted" style="margin-top:0.5rem">Mode-wide settings. Some of these values may be per level rather than flat.</p>
+        <p class="eyebrow" data-t>House rules</p>
+        <h2 class="section" data-t>What Mayhem changes on top of ARAM</h2>
+        <p class="muted" style="margin-top:0.5rem" data-t>Mode-wide settings. Some of these values may be per level rather than flat.</p>
       </div>
       <div class="grid" id="rule-list"></div>
-      <div class="card">
-        <div class="card-head"><h2>Summoner spells</h2><span class="muted small">Allowed in Mayhem</span></div>
-        <div class="grid tight" id="spell-list"></div>
+      <div class="card" id="xp-card" hidden>
+        <div class="card-head"><h2 data-t>XP by level</h2><span class="muted small" data-t>Total XP to reach each level</span></div>
+        <div class="table-wrap"><table>
+          <thead><tr><th data-t>Level</th><th class="num" data-t>Total XP</th><th class="num" data-t>XP for killing a champion this level</th></tr></thead>
+          <tbody id="xp-rows"></tbody>
+        </table></div>
+      </div>
+      <div class="card" id="turret-card" hidden>
+        <div class="card-head"><h2 data-t>Turrets</h2><span class="muted small" data-t>The rewards are what each player on the team gets when it falls.</span></div>
+        <div class="table-wrap"><table>
+          <thead><tr><th data-t>Turret</th><th class="num" data-t>Health</th><th class="num" data-t>Damage</th><th class="num" data-t>Armor / MR</th><th class="num" data-t>Range</th><th class="num" data-t>Attacks per second</th><th class="num" data-t>Gold reward</th><th class="num" data-t>XP reward</th></tr></thead>
+          <tbody id="turret-rows"></tbody>
+        </table></div>
+        <p class="muted small" id="turret-note" style="margin-top:0.5rem"></p>
       </div>
       <div class="card">
-        <div class="card-head"><h2>Augments that add a summoner spell</h2></div>
+        <div class="card-head"><h2 data-t>Champion select</h2></div>
+        <p class="muted" id="champ-select-intro"></p>
+        <div class="eyebrow" style="margin:0.75rem 0 0.5rem" data-t>Augments that give keystones</div>
+        <div class="grid tight" id="keystone-list"></div>
+      </div>
+      <div class="card">
+        <div class="card-head"><h2 data-t>Augments that add a summoner spell</h2></div>
         <div class="grid" id="spell-augment-list"></div>
       </div>
     </section>
 
     <section class="panel" id="panel-stages" hidden>
       <div class="card">
-        <p class="eyebrow">Augment stages</p>
-        <h2 class="section">When augments come, and the odds of seeing one</h2>
+        <p class="eyebrow" data-t>Augment stages</p>
+        <h2 class="section" data-t>When augments come, and the odds of seeing one</h2>
         <p class="muted" style="margin-top:0.5rem" id="stages-intro"></p>
       </div>
       <div class="facts" id="stage-list"></div>
       <div class="card">
-        <div class="card-head"><h2>Offer odds by rarity</h2><span class="muted small">For one augment you want</span></div>
+        <div class="card-head"><h2 data-t>Offer odds by rarity</h2><span class="muted small" data-t>For one augment you want</span></div>
         <div class="table-wrap"><table>
-          <thead><tr><th>Rarity</th><th class="num">In the pool</th><th class="num">Offered in a selection</th><th class="num">Using every reroll</th><th class="num">In one of four selections</th></tr></thead>
+          <thead><tr><th data-t>Rarity</th><th class="num" data-t>In the pool</th><th class="num" data-t>Offered in a selection</th><th class="num" data-t>Using every reroll</th><th class="num" data-t>In one of four selections</th></tr></thead>
           <tbody id="odds-rows"></tbody>
         </table></div>
         <p class="muted small" style="margin-top:0.75rem" id="odds-note"></p>
+      </div>
+      <div class="card" id="track-card" hidden>
+        <div class="card-head"><h2 id="track-title" data-t>Mayhem progression track</h2><span class="muted small" id="track-dates"></span></div>
+        <p class="muted" id="track-intro"></p>
+        <div class="chips" id="track-xp" style="margin-top:0.5rem"></div>
+        <div class="grid tight" id="track-list" style="margin-top:0.75rem"></div>
+      </div>
+      <div class="card">
+        <div class="card-head"><h2 data-t>Changing your selections</h2><span class="muted small" data-t>More augments, rerolls or rarity</span></div>
+        <div class="grid" id="selection-list"></div>
+      </div>
+      <div class="card" id="fallback-card" hidden>
+        <div class="card-head"><h2 data-t>When a rarity runs out</h2><span class="muted small" data-t>Fallback augments</span></div>
+        <p class="muted" id="fallback-intro"></p>
+        <div id="fallback-list"></div>
       </div>
     </section>
 
     <section class="panel" id="panel-items" hidden>
       <div class="card">
-        <p class="eyebrow">Items</p>
-        <h2 class="section">Items that work differently in Mayhem</h2>
+        <p class="eyebrow" data-t>Items</p>
+        <h2 class="section" data-t>Items that work differently in Mayhem</h2>
         <p class="muted" style="margin-top:0.5rem" id="items-intro"></p>
       </div>
       <div class="table-wrap"><table>
-        <thead><tr><th>Item</th><th>Value</th><th class="num">Rift</th><th class="num">Mayhem</th></tr></thead>
+        <thead><tr><th data-t>Item</th><th data-t>Value</th><th class="num" data-t>Rift</th><th class="num" data-t>Mayhem</th></tr></thead>
         <tbody id="item-changes"></tbody>
       </table></div>
       <div class="card">
-        <div class="card-head"><h2>Items you get from augments</h2><span class="muted small">Not bought in the shop</span></div>
+        <div class="card-head"><h2 data-t>Items you get from augments</h2><span class="muted small" data-t>Not bought in the shop</span></div>
         <p class="muted small" style="margin-bottom:0.85rem" id="granted-intro"></p>
         <div class="grid tight" id="granted-list"></div>
       </div>
     </section>
 
-    <section class="panel" id="panel-history" hidden>
-      <div class="card">
-        <p class="eyebrow">Augment history</p>
-        <h2 class="section">Every augment change, patch by patch</h2>
-        <p class="muted" style="margin-top:0.5rem" id="history-intro"></p>
-        <div class="lookup" style="margin-top:0.85rem">
-          <input id="history-search" type="search" placeholder="Find an augment" autocomplete="off" aria-label="Find an augment">
-        </div>
-      </div>
-      <div class="panel" id="history-list"></div>
-      <p class="muted small" id="history-empty" hidden>No changes for that augment.</p>
-    </section>
-
-    <section class="panel" id="panel-archive" hidden>
-      <div class="card">
-        <p class="eyebrow">Archive</p>
-        <h2 class="section">Features from past Mayhem seasons</h2>
-        <p class="muted" style="margin-top:0.5rem">Things Mayhem used to have.</p>
-      </div>
-      <div class="card">
-        <div class="card-head"><h2>Augment Sets</h2><span class="muted small">Bonuses for taking augments that share a theme</span></div>
-        <p class="muted small" style="margin-bottom:0.85rem">Each set's name and bonus. Which augments belonged to each set and the exact numbers per tier aren't known, so they aren't shown.</p>
-        <div class="grid tight" id="set-list"></div>
-      </div>
-    </section>
-
     <section class="panel" id="panel-quests" hidden>
       <div class="card">
-        <p class="eyebrow">Quest augments</p>
-        <h2 class="section">Every quest, every milestone</h2>
-        <p class="muted" style="margin-top:0.5rem">These augments track a goal during the game. Each step lists what you
-          need and what you get. A few amounts, like damage, are
-          filled in during the game, so they aren't shown here.</p>
+        <p class="eyebrow" data-t>Quest augments</p>
+        <h2 class="section" data-t>Every quest, every milestone</h2>
+        <p class="muted" style="margin-top:0.5rem" data-t>These augments track a goal during the game. Each step lists what you need and what you get. A few amounts, like damage, are filled in during the game, so they aren't shown here.</p>
       </div>
       <div class="grid" id="quest-list"></div>
+      <div class="card" id="rival-card" hidden>
+        <div class="card-head"><h2 data-t>Champion rivalries</h2><span class="muted small" data-t>Extra goals for some champions</span></div>
+        <p class="muted" data-t>Some champions get an extra goal in Mayhem, usually when their rival is in the same game. What finishing it gives isn't known yet, so it isn't listed here.</p>
+        <div class="grid" id="rival-list" style="margin-top:0.75rem"></div>
+      </div>
     </section>
 
     <section class="panel" id="panel-challenges" hidden>
       <div class="card">
-        <p class="eyebrow">ARAM challenges</p>
-        <h2 class="section">Mayhem games count</h2>
+        <p class="eyebrow" data-t>ARAM challenges</p>
+        <h2 class="section" data-t>Mayhem games count</h2>
         <p class="muted" style="margin-top:0.5rem" id="ch-intro"></p>
-        <form class="lookup" id="lookup" hidden style="margin-top:0.85rem">
-          <input name="riotId" placeholder="Riot ID, like Name#NA1" autocomplete="username" aria-label="Riot ID" required>
-          <select name="region" aria-label="Region">
-            <option value="na1">NA</option><option value="euw1">EUW</option><option value="eun1">EUNE</option>
-            <option value="kr">KR</option><option value="br1">BR</option><option value="la1">LAN</option>
-            <option value="la2">LAS</option><option value="oc1">OCE</option><option value="tr1">TR</option>
-            <option value="ru">RU</option><option value="jp1">JP</option><option value="sg2">SEA</option>
-            <option value="tw2">TW</option><option value="vn2">VN</option>
-          </select>
-          <button class="btn" type="submit">Show my progress</button>
-          <span id="lookup-msg" class="muted small"></span>
-        </form>
       </div>
       <div id="challenge-groups" class="panel"></div>
     </section>
 
     <section class="panel" id="panel-maps" hidden>
       <div class="card">
-        <p class="eyebrow">Maps</p>
-        <h2 class="section">Howling Abyss and its skins</h2>
-        <p class="muted" style="margin-top:0.5rem">Mayhem games can load the bridge in different themes. Same layout, new look.</p>
-      </div>
-      <div class="grid tight maps" id="map-list"></div>
-      <div class="card">
-        <div class="card-head"><h2>Mayhem-only items</h2><span class="muted small">Quest rewards and cosmetics</span></div>
+        <div class="card-head"><h2 data-t>Mayhem-only items</h2><span class="muted small" data-t>Quest rewards and cosmetics</span></div>
         <div class="grid tight" id="item-list"></div>
       </div>
       <div class="card">
-        <div class="card-head"><h2>Mayhem units</h2><span class="muted small">Characters that exist only for this mode</span></div>
+        <div class="card-head"><h2 data-t>Mayhem units</h2><span class="muted small" data-t>Characters that exist only for this mode</span></div>
         <div class="grid tight" id="summon-list"></div>
       </div>
     </section>
 
       </main>
+  <script src="i18n.js"></script>
   <script src="data.js"></script>
-  <script src="history.js"></script>
   <script src="app.js"></script>
 </body>
 </html>

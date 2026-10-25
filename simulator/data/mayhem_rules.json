@@ -3,7 +3,23 @@
  "rules": {
   "base_crit_multiplier": {"value": 2.0, "confidence": "likely", "note": "Mayhem raised base crit damage 175% -> 200% in 26.1"},
   "crit_overflow_ad_per_percent": {"value": 0.45, "confidence": "approx"},
-  "attack_speed_cap": {"value": 5.0, "confidence": "verified"}
+  "crit_overflow_adaptive_per_percent": {"value": 0.75, "confidence": "verified", "note": "Adaptive Force per 1% crit chance over 100% (0.75 AP or 0.45 bonus AD); crit_overflow_ad_per_percent is the Yunara simulator's AD-only version"},
+  "attack_speed_cap": {"value": 5.0, "confidence": "verified"},
+  "mayhem_health_melee": {"value": 600, "confidence": "verified", "note": "bonus base health at level 18 for melee champions, growing from 20 at level 1"},
+  "mayhem_health_ranged": {"value": 400, "confidence": "verified", "note": "the same for ranged champions"},
+  "mayhem_resists_melee": {"value": 15, "confidence": "likely", "note": "bonus armor and magic resist for melee champions"},
+  "mayhem_resists_ranged": {"value": 0, "confidence": "likely", "note": "ranged champions are meant to get bonus armor and magic resist too, but currently get none (a known game bug)"},
+  "long_range_start": {"value": 1000, "confidence": "verified", "note": "ARAM: enemy champions further away than this deal less damage (tools/sync_mode_rules.py copies it from the guide's mode rules)"},
+  "long_range_damage_near": {"value": 0.85, "confidence": "verified", "note": "share of damage taken from an enemy champion just past long_range_start (not damage over time or ultimates)"},
+  "long_range_damage_far": {"value": 0.70, "confidence": "verified", "note": "the same at twice long_range_start or more, falling in a straight line"},
+  "combo_breaker_tenacity": {"value": 0.2, "confidence": "verified", "note": "Combo Breaker: tenacity gained (stacking) for each separate immobilize, from the mode's game data"},
+  "on_fire_attack_speed": {"value": 0.2, "confidence": "verified", "note": "On Fire!: bonus attack speed (the mode's game data)"},
+  "on_fire_move_speed": {"value": 0.2, "confidence": "verified", "note": "On Fire!: bonus move speed toward enemies (10% otherwise)"},
+  "on_fire_healing_cut": {"value": 0.25, "confidence": "verified", "note": "On Fire!: share of healing received that is lost"},
+  "on_fire_damage_taken_melee": {"value": 1.25, "confidence": "verified", "note": "On Fire!: damage taken multiplier, melee"},
+  "on_fire_damage_taken_ranged": {"value": 1.35, "confidence": "verified", "note": "On Fire!: damage taken multiplier, ranged"},
+  "combo_breaker_duration": {"value": 3.25, "confidence": "verified", "note": "how long Combo Breaker's tenacity lasts, refreshed by each new immobilize"},
+  "grievous_wounds": {"value": 0.4, "confidence": "verified", "note": "healing cut while an enemy's Grievous Wounds item (Morellonomicon, Thornmail, Mortal Reminder, Chempunk Chainsword) reaches you"}
  },
  "model": {
   "extra_hit_weight": 0.5,
@@ -20,6 +36,10 @@
   "hitbox_radius": 65,
   "lane_half_width": 550,
   "in_range_damage_boost": 1.3,
+  "focus_ramp": 3,
+  "focus_ramp_note": "In a team fight the enemies' first spells and attacks are split between you and your teammates, so their damage on you builds up from nothing to full over this many seconds after they engage. Added after comparing every champion's most-played build with real games: squishy melee champions (Zed, Kayn, Rengar, Bel'Veth) died walking in before landing anything, far below their real damage share. With 3 seconds (and until_death_damage_scale 2.6 to 2.8 to keep the median champion alive about 13.5 seconds) the rank correlation of simulated damage with real damage share went from 0.36 to 0.45.",
+  "death_blast_life": 13.5,
+  "death_blast_life_note": "Damage dealt when you die (Dive Bomber) counts in full only after a life this long (the median champion's), and in proportion before it. Damage per second is measured over one life, so without this a build that died in 4 seconds earned its explosion over 4 seconds instead of over a normal life, and the build search paired Dive Bomber with glass builds that die fast (87 of 173 best builds).",
   "positions_note": "Everyone stands on the lane and moves at their move speed. You walk into range of your target for attacks and abilities; ranged champions step back from short-ranged enemies. Enemies walk to their reach once the fight starts and hurt you only while you're inside it. Skillshots land where the target will be when they arrive; an enemy that sees one coming (dodge_chance) sidesteps after reaction_time. How much damage a champion takes overall follows its real damage-taken share; in_range_damage_boost makes up for enemies you kill hitting you less. Estimates, tuned so average survival and skillshot accuracy match the earlier model.",
   "enemy_abilities": 1,
   "enemy_hit_chance": 0.7,
@@ -39,8 +59,8 @@
   "until_death": 1,
   "until_death_note": "Each fight runs until the champion dies (cheat-death passives and ultimates from champion_overrides.json included), at most fight_cap seconds. fight_mean/sd/min/max only apply with until_death 0.",
   "fight_cap": 90,
-  "until_death_damage_scale": 2.6,
-  "until_death_damage_scale_note": "Multiplies the enemies' damage in fights that last until you die, tuned so a typical champion with its usual build lasted about 20-25 seconds against real games' average enemy (one enemy can't reach a kiting champion as often as a team does). Level-18 enemies with full builds hit about 1.5x harder on top, so about 12 seconds now. Lowered from 6 to 4.7 when enemies started casting their own abilities (their long-range hits reach kiting champions), keeping the median champion alive about 12 seconds with its usual build. Lowered to 2.6 when enemies stopped waiting 2-6 s before engaging (they now fight from the first second, as you do), keeping the median champion with its usual build alive about 13.5 seconds as before.",
+  "until_death_damage_scale": 2.8,
+  "until_death_damage_scale_note": "Multiplies the enemies' damage in fights that last until you die, tuned so a typical champion with its usual build lasted about 20-25 seconds against real games' average enemy (one enemy can't reach a kiting champion as often as a team does). Level-18 enemies with full builds hit about 1.5x harder on top, so about 12 seconds now. Lowered from 6 to 4.7 when enemies started casting their own abilities (their long-range hits reach kiting champions), keeping the median champion alive about 12 seconds with its usual build. Lowered to 2.6 when enemies stopped waiting 2-6 s before engaging (they now fight from the first second, as you do), keeping the median champion with its usual build alive about 13.5 seconds as before. Raised to 2.8 with focus_ramp, for the same 13.5 seconds.",
   "team_size": 1,
   "cc_rate_min": 0.05,
   "cc_rate_max": 0.2,
@@ -69,6 +89,17 @@
   "final_trials": 2000,
   "finalists": 12,
   "fitting_items_only": true,
-  "fitting_items_note": "Search only items whose roles fit the champion's class and its AP/AD ability scalings. mayhem_sim --any-items lifts this."
+  "fitting_items_note": "Search only items whose roles fit the champion's class and its AP/AD ability scalings. mayhem_sim --any-items lifts this.",
+  "smart": {
+   "candidate_items": 15,
+   "candidate_augments": 10,
+   "item_sets": 24,
+   "augment_sets": 12,
+   "start_trials": 250,
+   "keep_one_in": 3,
+   "finalists": 4,
+   "final_trials": 20000,
+   "note": "mayhem_sim --search smart: every 5-item set from candidate_items shortlisted items is screened, then every augment set from candidate_augments shortlisted augments; the best item_sets x augment_sets builds (plus each boots option and the quick search's best builds) race with successive halving, start_trials fights each, the best 1/keep_one_in going on with keep_one_in times as many, until finalists are left for final_trials fights."
+  }
  }
 }

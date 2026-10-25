@@ -1,6 +1,6 @@
 {
  "meta": {
-  "game_version": "16.20",
+  "game_version": "16.21",
   "notes": [
    "stats: the game's item bin on this patch (verified). effects: data/item_effects.json (passives; approx unless confidence says otherwise), with values the item bin holds (Mayhem over ARAM over base) read from it."
   ]
@@ -18,7 +18,9 @@
    "stats": {
     "as": 0.3
    },
-   "effects": {},
+   "effects": {
+    "ms": 45
+   },
    "confidence": "verified"
   },
   "sorcerers": {
@@ -32,7 +34,9 @@
    "stats": {
     "magic_pen": 12
    },
-   "effects": {},
+   "effects": {
+    "ms": 45
+   },
    "confidence": "verified"
   },
   "ionian": {
@@ -48,7 +52,9 @@
    "stats": {
     "ah": 10
    },
-   "effects": {},
+   "effects": {
+    "ms": 45
+   },
    "confidence": "verified"
   },
   "plated": {
@@ -63,7 +69,9 @@
    "stats": {
     "armor": 25
    },
-   "effects": {},
+   "effects": {
+    "ms": 45
+   },
    "confidence": "verified"
   },
   "mercurys": {
@@ -79,7 +87,46 @@
    "stats": {
     "mr": 20
    },
-   "effects": {},
+   "effects": {
+    "ms": 45,
+    "tenacity": 0.3
+   },
+   "confidence": "likely"
+  },
+  "gluttonous": {
+   "id": 3008,
+   "name": "Gluttonous Greaves",
+   "slot": "boots",
+   "cost": 1100,
+   "roles": [
+    "ad",
+    "ap",
+    "tank",
+    "bruiser"
+   ],
+   "stats": {
+    "omnivamp": 0.1
+   },
+   "effects": {
+    "ms": 45
+   },
+   "confidence": "verified",
+   "note": "Slay counted at its full 10 takedown stacks (+6% omnivamp)"
+  },
+  "swiftness": {
+   "id": 3009,
+   "name": "Boots of Swiftness",
+   "slot": "boots",
+   "cost": 1000,
+   "roles": [
+    "ad",
+    "ap",
+    "tank"
+   ],
+   "stats": {},
+   "effects": {
+    "ms": 55
+   },
    "confidence": "verified"
   },
   "infinity_edge": {
@@ -112,7 +159,8 @@
     "armor_pen": 0.35
    },
    "effects": {},
-   "confidence": "likely"
+   "confidence": "likely",
+   "group": "last_whisper"
   },
   "mortal_reminder": {
    "id": 3033,
@@ -127,8 +175,11 @@
     "crit": 0.25,
     "armor_pen": 0.3
    },
-   "effects": {},
-   "confidence": "likely"
+   "effects": {
+    "grievous": 1
+   },
+   "confidence": "likely",
+   "group": "last_whisper"
   },
   "phantom_dancer": {
    "id": 3046,
@@ -142,7 +193,9 @@
     "as": 0.65,
     "crit": 0.25
    },
-   "effects": {},
+   "effects": {
+    "ms_pct": 0.1
+   },
    "confidence": "likely"
   },
   "rapid_firecannon": {
@@ -157,7 +210,9 @@
     "as": 0.35,
     "crit": 0.25
    },
-   "effects": {},
+   "effects": {
+    "ms_pct": 0.04
+   },
    "confidence": "likely"
   },
   "navori": {
@@ -174,6 +229,7 @@
     "crit": 0.25
    },
    "effects": {
+    "ms_pct": 0.04,
     "attack_cdr_pct": 0.15
    },
    "confidence": "approx"
@@ -191,6 +247,7 @@
     "crit": 0.25
    },
    "effects": {
+    "ms_pct": 0.05,
     "bolts": 2,
     "bolts_ad": 0.4
    },
@@ -299,7 +356,9 @@
     "as": 0.45,
     "crit": 0.25
    },
-   "effects": {},
+   "effects": {
+    "ms_pct": 0.04
+   },
    "confidence": "verified"
   },
   "atmas": {
@@ -351,6 +410,7 @@
     "as": 0.4
    },
    "effects": {
+    "ms_pct": 0.04,
     "kraken_every": 3,
     "kraken_damage": 200,
     "kraken_missing_amp": 0.75
@@ -411,6 +471,7 @@
     "mr": 45
    },
    "effects": {
+    "tenacity": 0.2,
     "onhit_magic": 45
    },
    "confidence": "likely"
@@ -446,6 +507,7 @@
     "as": 0.3
    },
    "effects": {
+    "ms_pct": 0.04,
     "storm_every": 4,
     "storm_magic": 70
    },
@@ -497,7 +559,7 @@
     "ah": 20
    },
    "effects": {
-    "armor_shred": 0.3
+    "cleaver_shred": 0.3
    },
    "confidence": "approx"
   },
@@ -555,7 +617,8 @@
    "effects": {
     "cleave_ad": 0.4
    },
-   "confidence": "approx"
+   "confidence": "approx",
+   "group": "hydra"
   },
   "titanic": {
    "id": 3748,
@@ -573,7 +636,8 @@
    "effects": {
     "onhit_own_hp": 0.015
    },
-   "confidence": "approx"
+   "confidence": "approx",
+   "group": "hydra"
   },
   "profane_hydra": {
    "id": 6698,
@@ -591,7 +655,8 @@
    "effects": {
     "cleave_ad": 0.4
    },
-   "confidence": "approx"
+   "confidence": "approx",
+   "group": "hydra"
   },
   "stridebreaker": {
    "id": 6631,
@@ -607,7 +672,8 @@
     "hp": 450
    },
    "effects": {},
-   "confidence": "verified"
+   "confidence": "verified",
+   "group": "hydra"
   },
   "deaths_dance": {
    "id": 6333,
@@ -639,13 +705,15 @@
     "hp": 400
    },
    "effects": {
+    "tenacity": 0.2,
     "base_ad_pct": 0.5,
     "lifeline_bonus_hp": 0.7,
     "lifeline_duration": 4.5,
     "lifeline_threshold": 0.3,
     "shield_ranged": 0.6
    },
-   "confidence": "approx"
+   "confidence": "approx",
+   "group": "lifeline"
   },
   "shojin": {
    "id": 3161,
@@ -701,8 +769,10 @@
     "hp": 450,
     "ah": 15
    },
-   "effects": {},
-   "confidence": "verified"
+   "effects": {
+    "grievous": 1
+   },
+   "confidence": "approx"
   },
   "hullbreaker": {
    "id": 3181,
@@ -716,7 +786,9 @@
     "ad": 40,
     "hp": 500
    },
-   "effects": {},
+   "effects": {
+    "ms_pct": 0.04
+   },
    "confidence": "verified"
   },
   "hexplate": {
@@ -774,7 +846,8 @@
     "lifeline_threshold": 0.3,
     "shield_ranged": 0.75
    },
-   "confidence": "approx"
+   "confidence": "approx",
+   "group": "lifeline"
   },
   "youmuus": {
    "id": 3142,
@@ -788,7 +861,9 @@
     "ad": 55,
     "lethality": 18
    },
-   "effects": {},
+   "effects": {
+    "ms_pct": 0.04
+   },
    "confidence": "verified"
   },
   "serpents_fang": {
@@ -883,7 +958,9 @@
     "ad": 50,
     "lethality": 15
    },
-   "effects": {},
+   "effects": {
+    "ms_pct": 0.04
+   },
    "confidence": "verified"
   },
   "voltaic": {
@@ -916,7 +993,8 @@
    "effects": {
     "ap_amp": 0.3
    },
-   "confidence": "likely"
+   "confidence": "likely",
+   "group": "magical_opus"
   },
   "void_staff": {
    "id": 3135,
@@ -931,7 +1009,8 @@
     "magic_pen_pct": 0.4
    },
    "effects": {},
-   "confidence": "likely"
+   "confidence": "likely",
+   "group": "blight"
   },
   "cryptbloom": {
    "id": 3137,
@@ -947,7 +1026,8 @@
     "magic_pen_pct": 0.3
    },
    "effects": {},
-   "confidence": "verified"
+   "confidence": "verified",
+   "group": "blight"
   },
   "shadowflame": {
    "id": 4645,
@@ -1039,6 +1119,7 @@
     "magic_pen": 15
    },
    "effects": {
+    "ms_pct": 0.06,
     "proc_flat": 125,
     "proc_ap": 0.1,
     "proc_cd": 30,
@@ -1059,6 +1140,7 @@
     "ah": 10
    },
    "effects": {
+    "ms_pct": 0.06,
     "spellblade_base_ad": 0.75,
     "spellblade_ap": 0.45,
     "spellblade_magic": 1,
@@ -1147,7 +1229,9 @@
     "hp": 350,
     "ah": 25
    },
-   "effects": {},
+   "effects": {
+    "ms_pct": 0.04
+   },
    "confidence": "verified"
   },
   "zhonyas": {
@@ -1193,8 +1277,10 @@
     "hp": 350,
     "ah": 15
    },
-   "effects": {},
-   "confidence": "verified"
+   "effects": {
+    "grievous": 1
+   },
+   "confidence": "approx"
   },
   "rylais": {
    "id": 3116,
@@ -1316,8 +1402,8 @@
     "ah": 10
    },
    "effects": {
-    "aura_flat": 25,
-    "aura_bonus_hp": 0.01
+    "aura_flat": 20,
+    "aura_bonus_hp": 0.015
    },
    "confidence": "approx"
   },
@@ -1385,8 +1471,12 @@
     "hp": 150,
     "armor": 75
    },
-   "effects": {},
-   "confidence": "verified"
+   "effects": {
+    "grievous": 1,
+    "thorns_flat": 20,
+    "thorns_bonus_armor": 0.1
+   },
+   "confidence": "approx"
   },
   "randuins": {
    "id": 3143,
@@ -1415,7 +1505,9 @@
     "hp": 350,
     "armor": 55
    },
-   "effects": {},
+   "effects": {
+    "ms_pct": 0.04
+   },
    "confidence": "verified"
   },
   "jaksho": {
@@ -1462,8 +1554,10 @@
     "mr": 50,
     "ah": 10
    },
-   "effects": {},
-   "confidence": "verified"
+   "effects": {
+    "healing_received": 0.25
+   },
+   "confidence": "likely"
   },
   "force_of_nature": {
    "id": 4401,
@@ -1477,7 +1571,9 @@
     "hp": 400,
     "mr": 55
    },
-   "effects": {},
+   "effects": {
+    "ms_pct": 0.04
+   },
    "confidence": "verified"
   },
   "unending_despair": {
@@ -1550,6 +1646,1337 @@
    },
    "effects": {},
    "confidence": "verified"
+  },
+  "mercurial_scimitar": {
+   "id": 3139,
+   "name": "Mercurial Scimitar",
+   "slot": "legendary",
+   "cost": 3200,
+   "roles": [
+    "ad",
+    "bruiser"
+   ],
+   "stats": {
+    "ad": 50,
+    "mr": 35,
+    "lifesteal": 0.1
+   },
+   "effects": {},
+   "confidence": "verified"
+  },
+  "endless_hunger": {
+   "id": 2517,
+   "name": "Endless Hunger",
+   "slot": "legendary",
+   "cost": 3100,
+   "roles": [
+    "ad",
+    "bruiser",
+    "lethality",
+    "ability_ad"
+   ],
+   "stats": {
+    "ad": 65,
+    "omnivamp": 0.05
+   },
+   "effects": {
+    "tenacity": 0.2
+   },
+   "confidence": "verified",
+   "note": "Famine's haste from bonus AD and Feast's takedown omnivamp aren't counted"
+  },
+  "dusk_and_dawn": {
+   "id": 2510,
+   "name": "Dusk and Dawn",
+   "slot": "legendary",
+   "cost": 3100,
+   "roles": [
+    "ap_onhit",
+    "ap"
+   ],
+   "stats": {
+    "ap": 60,
+    "as": 0.2,
+    "hp": 300,
+    "ah": 20
+   },
+   "effects": {
+    "spellblade_base_ad": 0.75,
+    "spellblade_ap": 0.1,
+    "spellblade_magic": 1,
+    "spellblade_cd": 1.5
+   },
+   "confidence": "approx",
+   "note": "the spellblade's heal and second on-hit aren't counted"
+  },
+  "shieldbow": {
+   "id": 6673,
+   "name": "Immortal Shieldbow",
+   "slot": "legendary",
+   "cost": 3000,
+   "roles": [
+    "crit"
+   ],
+   "stats": {
+    "ad": 55,
+    "crit": 0.25
+   },
+   "effects": {
+    "lifeline_flat": 700,
+    "lifeline_duration": 3,
+    "lifeline_threshold": 0.3,
+    "shield_ranged": 0.8
+   },
+   "confidence": "approx",
+   "group": "lifeline",
+   "note": "level 18 shield"
+  },
+  "protoplasm": {
+   "id": 2525,
+   "name": "Protoplasm Harness",
+   "slot": "legendary",
+   "cost": 2600,
+   "roles": [
+    "tank",
+    "bruiser"
+   ],
+   "stats": {
+    "hp": 600,
+    "ah": 20
+   },
+   "effects": {
+    "lifeline_flat": 300,
+    "lifeline_duration": 5,
+    "lifeline_threshold": 0.3
+   },
+   "confidence": "approx",
+   "group": "lifeline",
+   "note": "its 300 max Health at level 18 stands in as a shield; the heal over time isn't counted"
+  },
+  "winters_approach": {
+   "id": 3119,
+   "name": "Winter's Approach",
+   "slot": "legendary",
+   "cost": 2400,
+   "roles": [
+    "tank"
+   ],
+   "stats": {
+    "hp": 550,
+    "ah": 15,
+    "mana": 500
+   },
+   "effects": {},
+   "confidence": "verified",
+   "note": "Fimbulwinter's shield isn't counted"
+  },
+  "dawncore": {
+   "id": 6621,
+   "name": "Dawncore",
+   "slot": "legendary",
+   "cost": 2500,
+   "roles": [
+    "support"
+   ],
+   "stats": {
+    "ap": 55,
+    "mana_regen": 1
+   },
+   "effects": {
+    "heal_shield_power": 0.16
+   },
+   "confidence": "verified",
+   "note": "First Light's 10 AP from its own mana regen counted"
+  },
+  "imperial_mandate": {
+   "id": 4005,
+   "name": "Imperial Mandate",
+   "slot": "legendary",
+   "cost": 2400,
+   "roles": [
+    "support"
+   ],
+   "stats": {
+    "ap": 60,
+    "ah": 15,
+    "mana_regen": 1.5
+   },
+   "effects": {},
+   "confidence": "verified",
+   "note": "mark and ally damage aren't counted"
+  },
+  "mikaels": {
+   "id": 3222,
+   "name": "Mikael's Blessing",
+   "slot": "legendary",
+   "cost": 2300,
+   "roles": [
+    "support"
+   ],
+   "stats": {
+    "hp": 250,
+    "ah": 15,
+    "mana_regen": 1
+   },
+   "effects": {
+    "heal_shield_power": 0.12
+   },
+   "confidence": "verified"
+  },
+  "knights_vow": {
+   "id": 3109,
+   "name": "Knight's Vow",
+   "slot": "legendary",
+   "cost": 2300,
+   "roles": [
+    "support"
+   ],
+   "stats": {
+    "hp": 200,
+    "armor": 40,
+    "ah": 10
+   },
+   "effects": {},
+   "confidence": "verified"
+  },
+  "redemption": {
+   "id": 3107,
+   "name": "Redemption",
+   "slot": "legendary",
+   "cost": 2300,
+   "roles": [
+    "support"
+   ],
+   "stats": {
+    "ap": 30,
+    "ah": 15,
+    "mana_regen": 1
+   },
+   "effects": {
+    "heal_shield_power": 0.1
+   },
+   "confidence": "verified"
+  },
+  "bandlepipes": {
+   "id": 2524,
+   "name": "Bandlepipes",
+   "slot": "legendary",
+   "cost": 2300,
+   "roles": [
+    "support"
+   ],
+   "stats": {
+    "hp": 200,
+    "armor": 20,
+    "mr": 20,
+    "ah": 15
+   },
+   "effects": {},
+   "confidence": "verified"
+  },
+  "flowing_water": {
+   "id": 6616,
+   "name": "Staff of Flowing Water",
+   "slot": "legendary",
+   "cost": 2250,
+   "roles": [
+    "support"
+   ],
+   "stats": {
+    "ap": 35,
+    "ah": 10,
+    "mana_regen": 1.25
+   },
+   "effects": {
+    "heal_shield_power": 0.1
+   },
+   "confidence": "verified"
+  },
+  "echoes_of_helia": {
+   "id": 6620,
+   "name": "Echoes of Helia",
+   "slot": "legendary",
+   "cost": 2200,
+   "roles": [
+    "support"
+   ],
+   "stats": {
+    "ap": 35,
+    "hp": 200,
+    "ah": 20,
+    "mana_regen": 1.25
+   },
+   "effects": {},
+   "confidence": "verified"
+  },
+  "moonstone": {
+   "id": 6617,
+   "name": "Moonstone Renewer",
+   "slot": "legendary",
+   "cost": 2200,
+   "roles": [
+    "support"
+   ],
+   "stats": {
+    "ap": 25,
+    "hp": 200,
+    "ah": 20,
+    "mana_regen": 1.25
+   },
+   "effects": {},
+   "confidence": "verified"
+  },
+  "ardent_censer": {
+   "id": 3504,
+   "name": "Ardent Censer",
+   "slot": "legendary",
+   "cost": 2200,
+   "roles": [
+    "support"
+   ],
+   "stats": {
+    "ap": 45,
+    "mana_regen": 1.25
+   },
+   "effects": {
+    "ms_pct": 0.04,
+    "heal_shield_power": 0.1
+   },
+   "confidence": "verified"
+  },
+  "locket": {
+   "id": 3190,
+   "name": "Locket of the Iron Solari",
+   "slot": "legendary",
+   "cost": 2200,
+   "roles": [
+    "support"
+   ],
+   "stats": {
+    "hp": 200,
+    "armor": 30,
+    "mr": 30,
+    "ah": 10
+   },
+   "effects": {},
+   "confidence": "verified"
+  },
+  "zekes": {
+   "id": 3050,
+   "name": "Zeke's Convergence",
+   "slot": "legendary",
+   "cost": 2200,
+   "roles": [
+    "support"
+   ],
+   "stats": {
+    "hp": 300,
+    "armor": 25,
+    "mr": 25,
+    "ah": 10
+   },
+   "effects": {},
+   "confidence": "verified",
+   "note": "Frostfire Tempest isn't counted"
+  },
+  "shurelyas": {
+   "id": 2065,
+   "name": "Shurelya's Battlesong",
+   "slot": "legendary",
+   "cost": 2200,
+   "roles": [
+    "support"
+   ],
+   "stats": {
+    "ap": 50,
+    "ah": 15,
+    "mana_regen": 1.25
+   },
+   "effects": {
+    "ms_pct": 0.04
+   },
+   "confidence": "verified"
+  },
+  "whispering_circlet": {
+   "id": 2526,
+   "name": "Whispering Circlet",
+   "slot": "legendary",
+   "cost": 2250,
+   "roles": [
+    "support"
+   ],
+   "stats": {
+    "hp": 200,
+    "mana": 300,
+    "mana_regen": 0.75
+   },
+   "effects": {
+    "heal_shield_power": 0.08
+   },
+   "confidence": "verified"
+  },
+  "boots_t1": {
+   "id": 1001,
+   "name": "Boots",
+   "slot": "component",
+   "cost": 300,
+   "roles": [],
+   "stats": {},
+   "effects": {
+    "ms": 25
+   },
+   "confidence": "verified"
+  },
+  "verdant_barrier": {
+   "id": 4632,
+   "name": "Verdant Barrier",
+   "slot": "component",
+   "cost": 1600,
+   "roles": [],
+   "stats": {
+    "ap": 40,
+    "mr": 25
+   },
+   "effects": {
+    "spell_shield_cd": 60
+   },
+   "confidence": "approx"
+  },
+  "lifeline_item": {
+   "id": 4003,
+   "name": "Lifeline",
+   "slot": "component",
+   "cost": 1600,
+   "roles": [],
+   "stats": {
+    "ad": 25,
+    "lethality": 5
+   },
+   "effects": {
+    "ms_pct": 0.04
+   },
+   "confidence": "verified"
+  },
+  "seekers_armguard": {
+   "id": 2420,
+   "name": "Seeker's Armguard",
+   "slot": "component",
+   "cost": 1600,
+   "roles": [],
+   "stats": {
+    "ap": 40,
+    "armor": 25
+   },
+   "effects": {},
+   "confidence": "verified"
+  },
+  "shattered_armguard": {
+   "id": 2421,
+   "name": "Shattered Armguard",
+   "slot": "component",
+   "cost": 1600,
+   "roles": [],
+   "stats": {
+    "ap": 40,
+    "armor": 25
+   },
+   "effects": {},
+   "confidence": "verified"
+  },
+  "last_whisper": {
+   "id": 3035,
+   "name": "Last Whisper",
+   "slot": "component",
+   "cost": 1450,
+   "roles": [],
+   "stats": {
+    "ad": 20,
+    "armor_pen": 0.18
+   },
+   "effects": {},
+   "confidence": "verified"
+  },
+  "brutalizer": {
+   "id": 2020,
+   "name": "The Brutalizer",
+   "slot": "component",
+   "cost": 1337,
+   "roles": [],
+   "stats": {
+    "ad": 25,
+    "ah": 10,
+    "lethality": 5
+   },
+   "effects": {},
+   "confidence": "verified"
+  },
+  "noonquiver": {
+   "id": 6670,
+   "name": "Noonquiver",
+   "slot": "component",
+   "cost": 1300,
+   "roles": [],
+   "stats": {
+    "ad": 15,
+    "crit": 0.2
+   },
+   "effects": {},
+   "confidence": "verified"
+  },
+  "hexdrinker": {
+   "id": 3155,
+   "name": "Hexdrinker",
+   "slot": "component",
+   "cost": 1300,
+   "roles": [],
+   "stats": {
+    "ad": 25,
+    "mr": 25
+   },
+   "effects": {
+    "lifeline_flat": 280,
+    "lifeline_magic": 1,
+    "lifeline_duration": 2.5,
+    "lifeline_threshold": 0.3,
+    "shield_ranged": 0.75
+   },
+   "confidence": "approx",
+   "group": "lifeline",
+   "note": "level 18 shield"
+  },
+  "haunting_guise": {
+   "id": 3147,
+   "name": "Haunting Guise",
+   "slot": "component",
+   "cost": 1300,
+   "roles": [],
+   "stats": {
+    "ap": 30,
+    "hp": 200
+   },
+   "effects": {
+    "damage_amp": 0.06
+   },
+   "confidence": "approx",
+   "note": "Madness at its full 6% assumed"
+  },
+  "quicksilver_sash": {
+   "id": 3140,
+   "name": "Quicksilver Sash",
+   "slot": "component",
+   "cost": 1300,
+   "roles": [],
+   "stats": {
+    "mr": 30
+   },
+   "effects": {},
+   "confidence": "verified"
+  },
+  "bf_sword": {
+   "id": 1038,
+   "name": "B. F. Sword",
+   "slot": "component",
+   "cost": 1300,
+   "roles": [],
+   "stats": {
+    "ad": 40
+   },
+   "effects": {},
+   "confidence": "verified"
+  },
+  "spectres_cowl": {
+   "id": 3211,
+   "name": "Spectre's Cowl",
+   "slot": "component",
+   "cost": 1250,
+   "roles": [],
+   "stats": {
+    "hp": 200,
+    "mr": 35
+   },
+   "effects": {},
+   "confidence": "verified"
+  },
+  "lost_chapter": {
+   "id": 3802,
+   "name": "Lost Chapter",
+   "slot": "component",
+   "cost": 1200,
+   "roles": [],
+   "stats": {
+    "ap": 40,
+    "ah": 10,
+    "mana": 300
+   },
+   "effects": {},
+   "confidence": "verified"
+  },
+  "zeal": {
+   "id": 3086,
+   "name": "Zeal",
+   "slot": "component",
+   "cost": 1200,
+   "roles": [],
+   "stats": {
+    "as": 0.15,
+    "crit": 0.15
+   },
+   "effects": {
+    "ms_pct": 0.04
+   },
+   "confidence": "verified"
+  },
+  "tiamat": {
+   "id": 3077,
+   "name": "Tiamat",
+   "slot": "component",
+   "cost": 1200,
+   "roles": [],
+   "stats": {
+    "ad": 25
+   },
+   "effects": {
+    "cleave_ad": 0.4
+   },
+   "confidence": "approx",
+   "group": "hydra"
+  },
+  "hearthbound_axe": {
+   "id": 3051,
+   "name": "Hearthbound Axe",
+   "slot": "component",
+   "cost": 1200,
+   "roles": [],
+   "stats": {
+    "ad": 20,
+    "as": 0.2
+   },
+   "effects": {},
+   "confidence": "verified"
+  },
+  "large_rod": {
+   "id": 1058,
+   "name": "Needlessly Large Rod",
+   "slot": "component",
+   "cost": 1200,
+   "roles": [],
+   "stats": {
+    "ap": 65
+   },
+   "effects": {},
+   "confidence": "verified"
+  },
+  "tunneler": {
+   "id": 2021,
+   "name": "Tunneler",
+   "slot": "component",
+   "cost": 1150,
+   "roles": [],
+   "stats": {
+    "ad": 15,
+    "hp": 250
+   },
+   "effects": {},
+   "confidence": "verified"
+  },
+  "blighting_jewel": {
+   "id": 4630,
+   "name": "Blighting Jewel",
+   "slot": "component",
+   "cost": 1100,
+   "roles": [],
+   "stats": {
+    "ap": 25,
+    "magic_pen_pct": 0.13
+   },
+   "effects": {},
+   "confidence": "verified"
+  },
+  "hextech_alternator": {
+   "id": 3145,
+   "name": "Hextech Alternator",
+   "slot": "component",
+   "cost": 1100,
+   "roles": [],
+   "stats": {
+    "ap": 45
+   },
+   "effects": {
+    "proc_flat": 65,
+    "proc_cd": 40,
+    "proc_targets": 1
+   },
+   "confidence": "approx"
+  },
+  "phage": {
+   "id": 3044,
+   "name": "Phage",
+   "slot": "component",
+   "cost": 1100,
+   "roles": [],
+   "stats": {
+    "ad": 15,
+    "hp": 200
+   },
+   "effects": {},
+   "confidence": "verified"
+  },
+  "steel_sigil": {
+   "id": 2019,
+   "name": "Steel Sigil",
+   "slot": "component",
+   "cost": 1100,
+   "roles": [],
+   "stats": {
+    "ad": 15,
+    "armor": 30
+   },
+   "effects": {},
+   "confidence": "verified"
+  },
+  "caulfields": {
+   "id": 3133,
+   "name": "Caulfield's Warhammer",
+   "slot": "component",
+   "cost": 1050,
+   "roles": [],
+   "stats": {
+    "ad": 20,
+    "ah": 10
+   },
+   "effects": {},
+   "confidence": "verified"
+  },
+  "serrated_dirk": {
+   "id": 3134,
+   "name": "Serrated Dirk",
+   "slot": "component",
+   "cost": 1000,
+   "roles": [],
+   "stats": {
+    "ad": 20,
+    "lethality": 10
+   },
+   "effects": {},
+   "confidence": "verified"
+  },
+  "wardens_mail": {
+   "id": 3082,
+   "name": "Warden's Mail",
+   "slot": "component",
+   "cost": 1000,
+   "roles": [],
+   "stats": {
+    "armor": 40
+   },
+   "effects": {},
+   "confidence": "verified"
+  },
+  "bamis_cinder": {
+   "id": 6660,
+   "name": "Bami's Cinder",
+   "slot": "component",
+   "cost": 900,
+   "roles": [],
+   "stats": {
+    "hp": 150,
+    "ah": 5
+   },
+   "effects": {
+    "aura_flat": 15
+   },
+   "confidence": "approx"
+  },
+  "bandleglass": {
+   "id": 4642,
+   "name": "Bandleglass Mirror",
+   "slot": "component",
+   "cost": 900,
+   "roles": [],
+   "stats": {
+    "ap": 20,
+    "ah": 10,
+    "mana_regen": 1
+   },
+   "effects": {},
+   "confidence": "verified"
+  },
+  "aether_wisp": {
+   "id": 3113,
+   "name": "Aether Wisp",
+   "slot": "component",
+   "cost": 900,
+   "roles": [],
+   "stats": {
+    "ap": 30
+   },
+   "effects": {
+    "ms_pct": 0.04
+   },
+   "confidence": "verified"
+  },
+  "sheen": {
+   "id": 3057,
+   "name": "Sheen",
+   "slot": "component",
+   "cost": 900,
+   "roles": [],
+   "stats": {
+    "ah": 10
+   },
+   "effects": {
+    "spellblade_base_ad": 1.0,
+    "spellblade_cd": 1.5
+   },
+   "confidence": "approx"
+  },
+  "glacial_buckler": {
+   "id": 3024,
+   "name": "Glacial Buckler",
+   "slot": "component",
+   "cost": 900,
+   "roles": [],
+   "stats": {
+    "armor": 25,
+    "ah": 10,
+    "mana": 300
+   },
+   "effects": {},
+   "confidence": "verified"
+  },
+  "fated_ashes": {
+   "id": 2508,
+   "name": "Fated Ashes",
+   "slot": "component",
+   "cost": 900,
+   "roles": [],
+   "stats": {
+    "ap": 30
+   },
+   "effects": {
+    "burn_flat": 5,
+    "burn_duration": 3
+   },
+   "confidence": "approx"
+  },
+  "vampiric_scepter": {
+   "id": 1053,
+   "name": "Vampiric Scepter",
+   "slot": "component",
+   "cost": 900,
+   "roles": [],
+   "stats": {
+    "ad": 15,
+    "lifesteal": 0.07
+   },
+   "effects": {},
+   "confidence": "verified"
+  },
+  "giants_belt": {
+   "id": 1011,
+   "name": "Giant's Belt",
+   "slot": "component",
+   "cost": 900,
+   "roles": [],
+   "stats": {
+    "hp": 350
+   },
+   "effects": {},
+   "confidence": "verified"
+  },
+  "pickaxe": {
+   "id": 1037,
+   "name": "Pickaxe",
+   "slot": "component",
+   "cost": 875,
+   "roles": [],
+   "stats": {
+    "ad": 25
+   },
+   "effects": {},
+   "confidence": "verified"
+  },
+  "fiendish_codex": {
+   "id": 3108,
+   "name": "Fiendish Codex",
+   "slot": "component",
+   "cost": 850,
+   "roles": [],
+   "stats": {
+    "ap": 25,
+    "ah": 10
+   },
+   "effects": {},
+   "confidence": "verified"
+  },
+  "negatron": {
+   "id": 1057,
+   "name": "Negatron Cloak",
+   "slot": "component",
+   "cost": 850,
+   "roles": [],
+   "stats": {
+    "mr": 45
+   },
+   "effects": {},
+   "confidence": "verified"
+  },
+  "blasting_wand": {
+   "id": 1026,
+   "name": "Blasting Wand",
+   "slot": "component",
+   "cost": 850,
+   "roles": [],
+   "stats": {
+    "ap": 45
+   },
+   "effects": {},
+   "confidence": "verified"
+  },
+  "oblivion_orb": {
+   "id": 3916,
+   "name": "Oblivion Orb",
+   "slot": "component",
+   "cost": 800,
+   "roles": [],
+   "stats": {
+    "ap": 25
+   },
+   "effects": {
+    "grievous": 1
+   },
+   "confidence": "approx"
+  },
+  "crystalline_bracer": {
+   "id": 3801,
+   "name": "Crystalline Bracer",
+   "slot": "component",
+   "cost": 800,
+   "roles": [],
+   "stats": {
+    "hp": 200
+   },
+   "effects": {},
+   "confidence": "verified"
+  },
+  "executioners": {
+   "id": 3123,
+   "name": "Executioner's Calling",
+   "slot": "component",
+   "cost": 800,
+   "roles": [],
+   "stats": {
+    "ad": 15
+   },
+   "effects": {
+    "grievous": 1
+   },
+   "confidence": "approx"
+  },
+  "bramble_vest": {
+   "id": 3076,
+   "name": "Bramble Vest",
+   "slot": "component",
+   "cost": 800,
+   "roles": [],
+   "stats": {
+    "armor": 30
+   },
+   "effects": {
+    "grievous": 1,
+    "thorns_flat": 10
+   },
+   "confidence": "approx"
+  },
+  "kindlegem": {
+   "id": 3067,
+   "name": "Kindlegem",
+   "slot": "component",
+   "cost": 800,
+   "roles": [],
+   "stats": {
+    "hp": 200,
+    "ah": 10
+   },
+   "effects": {},
+   "confidence": "verified"
+  },
+  "winged_moonplate": {
+   "id": 3066,
+   "name": "Winged Moonplate",
+   "slot": "component",
+   "cost": 800,
+   "roles": [],
+   "stats": {
+    "hp": 200
+   },
+   "effects": {
+    "ms_pct": 0.04
+   },
+   "confidence": "verified"
+  },
+  "chain_vest": {
+   "id": 1031,
+   "name": "Chain Vest",
+   "slot": "component",
+   "cost": 800,
+   "roles": [],
+   "stats": {
+    "armor": 40
+   },
+   "effects": {},
+   "confidence": "verified"
+  },
+  "rectrix": {
+   "id": 6690,
+   "name": "Rectrix",
+   "slot": "component",
+   "cost": 775,
+   "roles": [],
+   "stats": {
+    "ad": 15
+   },
+   "effects": {
+    "ms_pct": 0.04
+   },
+   "confidence": "verified"
+  },
+  "recurve_bow": {
+   "id": 1043,
+   "name": "Recurve Bow",
+   "slot": "component",
+   "cost": 700,
+   "roles": [],
+   "stats": {
+    "as": 0.15
+   },
+   "effects": {
+    "onhit_phys": 15
+   },
+   "confidence": "approx"
+  },
+  "scouts_slingshot": {
+   "id": 3144,
+   "name": "Scout's Slingshot",
+   "slot": "component",
+   "cost": 600,
+   "roles": [],
+   "stats": {
+    "as": 0.2
+   },
+   "effects": {},
+   "confidence": "verified"
+  },
+  "forbidden_idol": {
+   "id": 3114,
+   "name": "Forbidden Idol",
+   "slot": "component",
+   "cost": 600,
+   "roles": [],
+   "stats": {
+    "mana_regen": 0.5
+   },
+   "effects": {
+    "heal_shield_power": 0.08
+   },
+   "confidence": "verified"
+  },
+  "cloak_of_agility": {
+   "id": 1018,
+   "name": "Cloak of Agility",
+   "slot": "component",
+   "cost": 600,
+   "roles": [],
+   "stats": {
+    "crit": 0.15
+   },
+   "effects": {},
+   "confidence": "verified"
+  },
+  "tear": {
+   "id": 3070,
+   "name": "Tear of the Goddess",
+   "slot": "component",
+   "cost": 400,
+   "roles": [],
+   "stats": {
+    "mana": 240
+   },
+   "effects": {},
+   "confidence": "verified"
+  },
+  "amp_tome": {
+   "id": 1052,
+   "name": "Amplifying Tome",
+   "slot": "component",
+   "cost": 400,
+   "roles": [],
+   "stats": {
+    "ap": 20
+   },
+   "effects": {},
+   "confidence": "verified"
+  },
+  "null_magic_mantle": {
+   "id": 1033,
+   "name": "Null-Magic Mantle",
+   "slot": "component",
+   "cost": 400,
+   "roles": [],
+   "stats": {
+    "mr": 20
+   },
+   "effects": {},
+   "confidence": "verified"
+  },
+  "ruby_crystal": {
+   "id": 1028,
+   "name": "Ruby Crystal",
+   "slot": "component",
+   "cost": 400,
+   "roles": [],
+   "stats": {
+    "hp": 150
+   },
+   "effects": {},
+   "confidence": "verified"
+  },
+  "long_sword": {
+   "id": 1036,
+   "name": "Long Sword",
+   "slot": "component",
+   "cost": 350,
+   "roles": [],
+   "stats": {
+    "ad": 10
+   },
+   "effects": {},
+   "confidence": "verified"
+  },
+  "cloth_armor": {
+   "id": 1029,
+   "name": "Cloth Armor",
+   "slot": "component",
+   "cost": 300,
+   "roles": [],
+   "stats": {
+    "armor": 15
+   },
+   "effects": {},
+   "confidence": "verified"
+  },
+  "sapphire_crystal": {
+   "id": 1027,
+   "name": "Sapphire Crystal",
+   "slot": "component",
+   "cost": 300,
+   "roles": [],
+   "stats": {
+    "mana": 300
+   },
+   "effects": {},
+   "confidence": "verified"
+  },
+  "rejuvenation_bead": {
+   "id": 1006,
+   "name": "Rejuvenation Bead",
+   "slot": "component",
+   "cost": 300,
+   "roles": [],
+   "stats": {},
+   "effects": {},
+   "confidence": "verified"
+  },
+  "glowing_mote": {
+   "id": 2022,
+   "name": "Glowing Mote",
+   "slot": "component",
+   "cost": 250,
+   "roles": [],
+   "stats": {
+    "ah": 5
+   },
+   "effects": {},
+   "confidence": "verified"
+  },
+  "dagger": {
+   "id": 1042,
+   "name": "Dagger",
+   "slot": "component",
+   "cost": 250,
+   "roles": [],
+   "stats": {
+    "as": 0.1
+   },
+   "effects": {},
+   "confidence": "verified"
+  },
+  "faerie_charm": {
+   "id": 1004,
+   "name": "Faerie Charm",
+   "slot": "component",
+   "cost": 200,
+   "roles": [],
+   "stats": {
+    "mana_regen": 0.5
+   },
+   "effects": {},
+   "confidence": "verified"
+  },
+  "guardians_hammer": {
+   "id": 3184,
+   "name": "Guardian's Hammer",
+   "slot": "starter",
+   "cost": 950,
+   "roles": [],
+   "stats": {
+    "ad": 25,
+    "hp": 150,
+    "lifesteal": 0.05
+   },
+   "effects": {},
+   "confidence": "verified"
+  },
+  "guardians_blade": {
+   "id": 3177,
+   "name": "Guardian's Blade",
+   "slot": "starter",
+   "cost": 950,
+   "roles": [],
+   "stats": {
+    "ad": 30,
+    "hp": 150,
+    "ah": 15
+   },
+   "effects": {},
+   "confidence": "verified"
+  },
+  "guardians_orb": {
+   "id": 3112,
+   "name": "Guardian's Orb",
+   "slot": "starter",
+   "cost": 950,
+   "roles": [],
+   "stats": {
+    "ap": 50,
+    "hp": 150
+   },
+   "effects": {},
+   "confidence": "verified"
+  },
+  "guardians_horn": {
+   "id": 2051,
+   "name": "Guardian's Horn",
+   "slot": "starter",
+   "cost": 950,
+   "roles": [],
+   "stats": {
+    "hp": 150
+   },
+   "effects": {},
+   "confidence": "verified"
+  },
+  "golden_spatula": {
+   "id": 994403,
+   "name": "Golden Spatula",
+   "slot": "reward",
+   "cost": 2500,
+   "roles": [],
+   "stats": {
+    "ad": 90,
+    "ap": 110,
+    "as": 0.4,
+    "crit": 0.15,
+    "hp": 200,
+    "armor": 20,
+    "mr": 20,
+    "ah": 20,
+    "lifesteal": 0.1,
+    "mana": 200,
+    "mana_regen": 1
+   },
+   "effects": {
+    "ms_pct": 0.1
+   },
+   "confidence": "verified",
+   "note": "being On Fire isn't counted"
+  },
+  "jarvan_is": {
+   "id": 1111,
+   "name": "Jarvan I's",
+   "slot": "reward",
+   "cost": 300,
+   "roles": [],
+   "stats": {
+    "as": 0.25,
+    "armor": 25,
+    "mr": 20,
+    "ah": 10,
+    "magic_pen": 12
+   },
+   "effects": {
+    "ms": 100,
+    "tenacity": 0.3
+   },
+   "confidence": "verified"
+  },
+  "ultra_hydra": {
+   "id": 226668,
+   "name": "Ultra Hydra",
+   "slot": "reward",
+   "cost": 6000,
+   "roles": [],
+   "stats": {
+    "ad": 200,
+    "hp": 1000,
+    "ah": 25,
+    "lethality": 25,
+    "omnivamp": 0.15
+   },
+   "effects": {
+    "cleave_ad": 0.4,
+    "onhit_own_hp": 0.02
+   },
+   "confidence": "approx",
+   "group": "hydra",
+   "note": "its active isn't counted"
+  },
+  "void_immolation": {
+   "id": 223069,
+   "name": "Void Immolation",
+   "slot": "reward",
+   "cost": 6000,
+   "roles": [],
+   "stats": {
+    "hp": 1000,
+    "armor": 100,
+    "mr": 80,
+    "ah": 25
+   },
+   "effects": {
+    "aura_flat": 20,
+    "aura_bonus_hp": 0.025
+   },
+   "confidence": "approx",
+   "note": "Desolate's explosion on kills isn't counted"
+  },
+  "wooglets": {
+   "id": 228002,
+   "name": "Wooglet's Witchcap",
+   "slot": "reward",
+   "cost": 6000,
+   "roles": [],
+   "stats": {
+    "ap": 300,
+    "armor": 50,
+    "ah": 20
+   },
+   "effects": {
+    "ap_amp": 0.5
+   },
+   "confidence": "approx",
+   "group": "magical_opus",
+   "note": "Time Stop isn't counted"
   }
  }
 }

@@ -7,9 +7,8 @@ export const dynamic = "force-dynamic";
 export function GET() {
   const has = (k: string) => Boolean(serverEnv(k));
   return NextResponse.json({
-    ADMIN_PASSWORD: has("ADMIN_PASSWORD"),
+    OWNER_EMAIL: has("OWNER_EMAIL"),
     GITHUB_TOKEN: has("GITHUB_TOKEN"),
-    RIOT_API_KEY: has("RIOT_API_KEY"),
     bindings: bindingNames(),
   });
 }

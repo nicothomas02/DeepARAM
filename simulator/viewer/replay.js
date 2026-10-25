@@ -5,19 +5,38 @@
 (() => {
   "use strict";
   const DATA = "replay-data/";
+  // full.html draws the fight with 3D models; index.html ("Performance mode") draws it in 2D with
+  // champion icons. Everything else (fights, panel, sounds, controls) is the same in both.
+  const FULL = document.documentElement.dataset.edition === "full";
   const BUST = "?v=" + (window.REPLAY_VERSION || "0");
   const SLOT_COLORS = { P: "#ffd36b", Q: "#4fc3f7", W: "#7bd88f", E: "#f4b860", R: "#e66ad2" };
-  const TYPE_COLORS = { physical: "#f08a4b", magic: "#7aa2ff", true: "#f4f4f4" };
+  // Floating combat text as the game draws it. Colours: [fill, outline] per kind. Motion, in px of a 1080p screen:
+  // sideways speed (alternating right and left), upward speed, pull (sideways, down), start offset and random jitter;
+  // it pops in larger and settles over `shrink` s, stays for `hold` s, then fades over `fade` s.
+  const FLOAT_COLORS = { physical: ["#ff8c34", "#190d05"], magic: ["#00b0f0", "#001219"], true: ["#ffffff", "#191919"], heal: ["#4cf854", "#232323"] };
+  const FLOAT = {
+    hit: { vx: [50, 65], vy: [150, 180], pull: [0, 500], at: [0, 0], jitter: 0, shrink: 0.15, pop: 0.5, scale: 1, hold: 0.4, fade: 0.45 },
+    crit: { vx: [90, 105], vy: [190, 210], pull: [-40, 625], at: [25, 10], jitter: 20, shrink: 0.1, pop: 0.35, scale: 1.75, hold: 0.4, fade: 0.45 },
+    heal: { vx: [0, 0], vy: [110, 110], pull: [0, 0], at: [0, 40], jitter: 0, shrink: 0.15, pop: 0.5, scale: 0.9, hold: 0.3, fade: 0.45 },
+  };
+  const FLOAT_SIZE = 27;  // px at 1080p
+  const CRIT_ICONS = {};
+  for (const [kind, file] of [["physical", "criticon"], ["magic", "criticonmagic"], ["true", "criticontrue"]]) {
+    const im = new Image();
+    im.src = "/assets/ux/floatingtext/" + file + ".png";
+    CRIT_ICONS[kind] = im;
+  }
   // What the simulator measures (the Mode picker in sim-panel.js): damage per second, or per fight the damage
   // you take, the damage you mitigate, the Health you restore and the seconds of crowd control you deal.
   const MODES = {
-    damage: { label: "Damage", key: "mean_dps", fight: "total_damage", now: (s) => s.damage },
-    taken: { label: "Damage taken", key: "damage_taken", fight: "damage_taken", now: (s) => s.taken },
-    mitigated: { label: "Damage mitigated", key: "damage_mitigated", fight: "damage_mitigated", now: (s) => s.mitigated },
-    healing: { label: "Healing done", key: "healing", fight: "healing", now: (s) => s.healing },
-    cc: { label: "Crowd control", key: "cc_seconds", fight: "cc_seconds", now: (s) => s.ccDealt, seconds: true },
+    damage: { get label() { return T("Damage"); }, key: "mean_dps", fight: "total_damage", now: (s) => s.damage },
+    taken: { get label() { return T("Damage taken"); }, key: "damage_taken", fight: "damage_taken", now: (s) => s.taken },
+    mitigated: { get label() { return T("Damage mitigated"); }, key: "damage_mitigated", fight: "damage_mitigated", now: (s) => s.mitigated },
+    healing: { get label() { return T("Healing done"); }, key: "healing", fight: "healing", now: (s) => s.healing },
+    shielding: { get label() { return T("Shielding"); }, key: "shielding", fight: "shielding", now: (s) => s.shielded },
+    cc: { get label() { return T("Crowd control"); }, key: "cc_seconds", fight: "cc_seconds", now: (s) => s.ccDealt, seconds: true },
   };
-  const modeValue = (m, v) => (MODES[m].seconds ? (v || 0).toFixed(1) + " s" : Math.round(v || 0).toLocaleString());
+  const modeValue = (m, v) => (MODES[m].seconds ? T("{n} s", { n: (v || 0).toFixed(1) }) : Math.round(v || 0).toLocaleString());
   let mode = "damage";
   const SOURCE_COLORS = ["#c9d6e2", SLOT_COLORS.Q, SLOT_COLORS.W, SLOT_COLORS.E, SLOT_COLORS.R, "#b9a3ff", SLOT_COLORS.P];
   const SLOT_COL = { P: 1, Q: 2, W: 3, E: 4, R: 5 };
@@ -37,7 +56,7 @@
   onSettings(() => { reduceMotion = readMotion(); });
   const $ = (id) => document.getElementById(id);
 
-  let index = null, traces = null, sprite = null, byId = new Map();
+  let index = null, traces = null, byId = new Map();
   // Game art loaded at run time (not in the repo); a page that can't reach it falls back to
   // copies in replay-data/art/ when they're there.
   const CDRAGON = "/assets/cd/latest/";
@@ -52,6 +71,7 @@
   let poroImg = null;
   loadImage([CDRAGON + "game/assets/spells/icons2d/porocharge_quest2.png", DATA + "art/poro.png"], (im) => { poroImg = im; });
   const PORO_SPEED = 900, PORO_WIDTH = 420; // match poro_speed and poro_width in data/augments.json
+  const ATTACK_MISSILE = 2000;  // basic attack missile speed (u/s); the simulator applies the hit at once
   // Which abilities move their caster (dash or blink), from each spell's tags.
   let anims = {};
   fetch(DATA + "anims.json" + BUST).then((r) => (r.ok ? r.json() : {})).then((a) => {
@@ -73,14 +93,14 @@
   Promise.all([
     fetch(DATA + "index.json" + BUST).then((r) => r.json()),
     fetch(DATA + "traces.json" + BUST).then((r) => r.json()),
-    new Promise((ok, fail) => { const im = new Image(); im.onload = () => ok(im); im.onerror = () => ok(null); im.src = DATA + "sprites.webp" + BUST; }),
-  ]).then(([idx, tr, im]) => {
-    index = idx; traces = tr; sprite = im;
-    for (const c of index.champions) byId.set(c.id.toLowerCase(), c);
+    window.I18N.ready,
+  ]).then(([idx, tr]) => {
+    index = idx; traces = tr;
+    for (const c of index.champions) { c.name = NAME("champions", c.id, c.name); byId.set(c.id.toLowerCase(), c); }
     const sel = $("champ");
     const list = index.champions.filter((c) => traces[c.id]).sort((a, b) => a.name.localeCompare(b.name));
     for (const c of list) sel.add(new Option(c.name, c.id));
-    // #Jinx, or #Jinx&items=a,b&augs=c,d for a build from the leaderboard (simulated by sim-panel.js).
+    // #Jinx, or #Jinx&items=a,b&augs=c,d for a shared build (simulated by sim-panel.js).
     const hashParts = decodeURIComponent(location.hash.slice(1)).split("&");
     const fromHash = hashParts[0].toLowerCase();
     const linked = new URLSearchParams(hashParts.slice(1).join("&"));
@@ -94,8 +114,8 @@
     requestAnimationFrame(frame);
     if (window.onReplayData) window.onReplayData(index);
   }).catch((err) => {
-    $("title").textContent = "Replays could not be loaded";
-    $("state").textContent = "Build them with tools/build_replay_assets.py, then serve this folder over HTTP. (" + err + ")";
+    $("title").textContent = T("Replays could not be loaded");
+    $("state").textContent = T("Try reloading the page.") + " (" + err + ")";
   });
 
   // ---------- one champion's fight ----------
@@ -104,8 +124,9 @@
     trace = custom[champ.id] || traces[champ.id];
     fight = prepare(trace);
     t = 0; playing = true; shown.clear(); clipState.slot = null;
-    $("play").textContent = "Pause";
-    $("title").textContent = champ.name + (champ.title ? ", " + champ.title : "");
+    $("play").textContent = T("Pause");
+    // Titles ("the Loose Cannon") are English only, so other languages show the name alone.
+    $("title").textContent = champ.name;
     $("total").textContent = fight.duration.toFixed(1);
     try { history.replaceState(null, "", "#" + champ.id); } catch (e) { /* sandboxed */ }
     renderBuild();
@@ -134,13 +155,14 @@
     const end = ev.find((e) => e.k === "end");
     const f = { duration: Math.max(tr.fight.duration, end ? end.t : 0), length: tr.fight.duration, engage: tr.fight.engage_at, maxHp: tr.fight.max_hp, events: ev,
       casts: [], attacks: [], procs: [], cc: [], kills: [], self: [], spawns: new Map(), focus: [], numbers: [],
-      ecc: [], heals: [], shields: [],
+      ecc: [], heals: [], shields: [], toggles: [],
       damage: [], death: null, pos: [], geo: {}, poros: [] };
     for (const a of tr.abilities || []) f.geo[a.slot] = a;
     let lastNum = null;
     for (const e of ev) {
       switch (e.k) {
         case "cast": f.casts.push(e); break;
+        case "toggle": f.toggles.push(e); break;
         case "attack": f.attacks.push(e); break;
         case "proc": f.procs.push(e); break;
         case "cc": f.cc.push(e); break;
@@ -179,6 +201,32 @@
         }
       }
     }
+    // A dash is recorded as two snapshots at the same moment; spread it over the time a
+    // 1500 u/s dash takes (but before the next snapshot), so the model travels instead of teleporting.
+    // Your blinks (Flash, Ezreal's E) stay instant.
+    const me = String(tr.champion || (champ && champ.id) || "");
+    const blinkAt = (t) => f.casts.some((c) => Math.abs(c.t + (c.a || 0) - t) < 0.15 && moveOf(me, c.s) === "blink");
+    for (let i = 1; i < f.pos.length; i++) {
+      const a = f.pos[i - 1], b = f.pos[i], next = f.pos[i + 1];
+      const dMe = Math.hypot(b.me.x - a.me.x, b.me.y - a.me.y);
+      let d = 0;
+      for (const [u, p] of b.m) { const q = a.m.get(u); if (q) d = Math.max(d, Math.hypot(p.x - q.x, p.y - q.y)); }
+      const gap = b.t - a.t;
+      if (dMe > d && blinkAt(b.t)) continue;
+      d = Math.max(d, dMe);
+      if (gap >= 0.02 && d / gap <= 2000) continue;
+      const want = Math.min(a.t + d / 1500, next ? next.t - 0.01 : Infinity);
+      if (want > b.t) b.t = want;
+    }
+    // Numbers landing on one target close together stack upward instead of on top of each other,
+    // and, as in the game, each one flies off to the other side from the last.
+    const recent = new Map();
+    for (const n of f.numbers) {
+      const prev = recent.get(n.u);
+      n.fan = prev && n.t - prev.t < 0.25 ? (prev.fan + 1) % 4 : 0;
+      n.side = prev ? -prev.side : 1;
+      recent.set(n.u, n);
+    }
     // When each slot is next cast, for the cooldown sweep.
     const bySlot = {};
     for (const c of f.casts) (bySlot[c.s] = bySlot[c.s] || []).push(c);
@@ -187,8 +235,26 @@
     f.enemyCasts = enemyCasts(f);
     // Traces from the positional simulator say where everyone stands; older ones don't.
     f.positional = f.pos.length > 1;
-    if (f.positional) for (const c of f.casts) c.from = worldAt(f, c.land).me;
+    if (f.positional) for (const c of f.casts) {
+      c.from = worldAt(f, c.land).me;
+      // A line's missile at its own speed (newer traces carry it) stays on screen until it reaches its range.
+      const geo = f.geo[c.s] || {};
+      if (c.x === "line" && geo.speed > 0 && c.ax !== undefined)
+        c.life = Math.max(0.6, (geo.range || Math.hypot(c.ax - c.from.x, c.ay - c.from.y)) / geo.speed + 0.3 - (c.fl || 0));
+    }
     if (f.positional) for (const w of f.poros) w.from = worldAt(f, w.t).me;
+    // A ranged attack's missile flies distance / speed and lands when the simulator applies the
+    // hit (e.t); it leaves after the wind-up, so the animation starts wind-up + flight earlier.
+    for (const a of f.attacks) {
+      let fly = 0;
+      if (tr.ranged) {
+        const w = f.positional && worldAt(f, a.t), q = w && w.m.get(a.u);
+        fly = q ? Math.min(0.6, Math.max(0.05, Math.hypot(q.x - w.me.x, q.y - w.me.y) / ATTACK_MISSILE)) : 0.18;
+      }
+      a.fly = fly;
+      a.start = a.t - fly - (a.a || 0.3);
+    }
+    f.attacks.forEach((a, i) => { a.n = i; a.span = i + 1 < f.attacks.length ? f.attacks[i + 1].start - a.start : Infinity; });
     // Crits on attacks: tag the matching damage number.
     for (const a of f.attacks) if (a.f) {
       const n = f.numbers.find((n) => n.u === a.u && Math.abs(n.t - a.t) < 1e-6 && n.src === 0);
@@ -255,8 +321,9 @@
     return cast && time - cast.t < castWindow("e" + uid, cast) ? cast : null;
   }
 
-  // Where everyone stands at time t (game units), between the recorded snapshots.
-  function worldAt(f, time) {
+  // Where everyone stands at time t (game units), between the recorded snapshots. out, when
+  // given, is reused (its Map cleared) so the per-frame lookups don't allocate a Map each.
+  function worldAt(f, time, out) {
     const P = f.pos;
     let lo = 0, hi = P.length - 1;
     if (time <= P[0].t) return P[0];
@@ -264,15 +331,21 @@
     while (hi - lo > 1) { const mid = (lo + hi) >> 1; if (P[mid].t <= time) lo = mid; else hi = mid; }
     const a = P[lo], b = P[hi], k = (time - a.t) / Math.max(1e-6, b.t - a.t);
     const mix = (p, q) => (q ? { x: p.x + (q.x - p.x) * k, y: p.y + (q.y - p.y) * k } : p);
-    const m = new Map();
+    const m = out ? out.m : new Map();
+    m.clear();
     for (const [u, p] of a.m) m.set(u, mix(p, b.m.get(u)));
-    for (const [u, p] of b.m) if (!m.has(u) && k > 0.5) m.set(u, p);
-    return { t: time, me: mix(a.me, b.me), m };
+    // A unit that appears in the next snapshot stands where it will be (not at your feet).
+    for (const [u, p] of b.m) if (!m.has(u)) m.set(u, p);
+    const w = out || {};
+    w.t = time; w.me = mix(a.me, b.me); w.m = m;
+    return w;
   }
+  const scratch = [0, 1, 2].map(() => ({ m: new Map() }));
   // The lane on screen: the view follows the fight.
   const LANE = 550;
   const cam = { x: null };
-  function camera(W, H, world, focus, dt) {
+  // rate: playback speed, so the view keeps up with the fight at 2x and doesn't race it at 0.25x.
+  function camera(W, H, world, focus, dt, rate) {
     // About as much of the lane as the game's own camera shows (2000 game units across), and
     // never less than the lane's whole width top to bottom.
     const k = Math.max((H * 0.74) / (2 * LANE), W / 2000);
@@ -280,46 +353,62 @@
     let want = f ? (world.me.x * 0.55 + f.x * 0.45) : world.me.x + 300;
     const half = W / 2 / k;
     // Keep you on screen with a margin.
-    want = Math.min(Math.max(want, world.me.x - half + 160), world.me.x + half - 160);
+    const lo = world.me.x - half + 160, hi = world.me.x + half - 160;
+    want = Math.min(Math.max(want, lo), hi);
     if (cam.x === null || dt <= 0 || dt > 0.5) cam.x = want;
-    else cam.x += (want - cam.x) * (1 - Math.exp(-dt * 3));
+    else cam.x += (want - cam.x) * (1 - Math.exp(-dt * (rate || 1) * 3));
+    cam.x = Math.min(Math.max(cam.x, lo), hi);  // a dash never carries you off screen while the view catches up
     return { k, cx: cam.x, sx: (p) => W / 2 + (p.x - cam.x) * k, sy: (p) => H * 0.55 + p.y * k };
   }
 
   // ---------- state at time t ----------
+  // The running totals are kept between frames: playing forward only reads the events since the
+  // last frame; a seek backwards, a restart or another fight starts over from the first event.
+  let acc = null;
   function stateAt(time) {
-    const s = { enemies: new Map(), focus: -1, kills: 0, damage: 0, bySource: (trace.sources || []).map(() => 0), selfHp: fight.maxHp,
-      cc: false, dead: false, taken: 0, mitigated: 0, healing: 0, ccDealt: 0 };
-    for (const e of fight.events) {
-      if (e.t > time) break;
-      if (e.k === "spawn") s.enemies.set(e.u, { uid: e.u, champ: e.x, hp: e.hp, max: e.max, born: e.t, died: null });
-      else if (e.k === "focus") s.focus = e.u;
-      else if (e.k === "damage") {
-        const en = s.enemies.get(e.u);
-        if (en) en.hp = e.hp;
-        s.damage += e.a || 0;
-        if (e.src >= 0) s.bySource[e.src] += e.a || 0;
-      } else if (e.k === "kill") {
-        const en = s.enemies.get(e.u);
-        if (en) { en.hp = 0; en.died = e.t; }
-        s.kills++;
-      } else if (e.k === "heal" && e.tot) s.healing = e.tot;
-      else if (e.k === "ecc" && e.tot) s.ccDealt = e.tot;
+    if (!acc || acc.fight !== fight || time < acc.time) {
+      acc = { fight, time: 0, i: 0, enemies: new Map(), focus: -1, kills: 0, damage: 0,
+        bySource: (trace.sources || []).map(() => 0), healing: 0, ccDealt: 0 };
     }
+    const ev = fight.events;
+    for (; acc.i < ev.length; acc.i++) {
+      const e = ev[acc.i];
+      if (e.t > time) break;
+      if (e.k === "spawn") acc.enemies.set(e.u, { uid: e.u, champ: e.x, hp: e.hp, max: e.max, born: e.t, died: null });
+      else if (e.k === "focus") acc.focus = e.u;
+      else if (e.k === "damage") {
+        const en = acc.enemies.get(e.u);
+        if (en) en.hp = e.hp;
+        acc.damage += e.a || 0;
+        if (e.src >= 0) acc.bySource[e.src] += e.a || 0;
+      } else if (e.k === "kill") {
+        const en = acc.enemies.get(e.u);
+        if (en) { en.hp = 0; en.died = e.t; }
+        acc.kills++;
+      } else if (e.k === "heal" && e.tot) acc.healing = e.tot;
+      else if (e.k === "ecc" && e.tot) acc.ccDealt = e.tot;
+    }
+    acc.time = time;
+    const s = { enemies: acc.enemies, focus: acc.focus, kills: acc.kills, damage: acc.damage, bySource: acc.bySource, selfHp: fight.maxHp,
+      cc: false, dead: false, taken: 0, mitigated: 0, shielded: 0, healing: acc.healing, ccDealt: acc.ccDealt };
     // Own HP falls steadily between samples.
-    let prev = null, next = null;
-    for (const e of fight.self) { if (e.t <= time) prev = e; else { next = e; break; } }
+    const S = fight.self;
+    let lo = 0, hi = S.length;  // first sample after time
+    while (lo < hi) { const mid = (lo + hi) >> 1; if (S[mid].t <= time) lo = mid + 1; else hi = mid; }
+    const prev = lo > 0 ? S[lo - 1] : null, next = lo < S.length ? S[lo] : null;
     if (prev) {
       s.selfHp = prev.hp;
       s.shield = prev.sh || 0;
       s.taken = prev.tk || 0;
       s.mitigated = prev.mt || 0;
+      s.shielded = prev.ab || 0;
       if (next && next.t > prev.t) {
         const k = (time - prev.t) / (next.t - prev.t);
         s.selfHp = prev.hp + (next.hp - prev.hp) * k;
         s.shield = (prev.sh || 0) + ((next.sh || 0) - (prev.sh || 0)) * k;
         if (next.tk !== undefined) s.taken += (next.tk - s.taken) * k;
         if (next.mt !== undefined) s.mitigated += (next.mt - s.mitigated) * k;
+        s.shielded += ((next.ab || 0) - s.shielded) * k;
       }
       // Shields end on their own between samples.
       if (s.shield > 0 && !fight.shields.some((sh) => sh.t <= time && time < sh.t + (sh.l || 0))) s.shield = 0;
@@ -346,12 +435,15 @@
     suppress: ["SUPPRESSED", "#d36bff"], polymorph: ["POLYMORPHED", "#6bffb3"], root: ["ROOTED", "#7fd17f"],
     slow: ["SLOWED", "#6bc7ff"], silence: ["SILENCED", "#c9d6e2"],
   };
+  // The badge words in the page's language, once the dictionary is in (English keys stay above).
+  window.I18N.ready.then(() => { for (const v of Object.values(CC_LOOK)) v[0] = T(v[0]); });
   // How a champion under crowd control moves: the stunned clip, running when feared,
   // tossed into the air when knocked up. Roots, slows and silences don't change the pose.
   function ccPose(kind, age, total) {
     if (kind === "fear") return { role: "run", t: age, loop: true };
     if (kind === "root" || kind === "slow" || kind === "silence") return null;
-    return { role: "stunned", t: age, loop: true, lift: kind === "knockup" ? Math.sin(Math.PI * Math.min(1, age / Math.max(0.2, total))) : 0 };
+    if (kind === "knockup") return { role: "knockup", t: age, loop: false, lift: Math.sin(Math.PI * Math.min(1, age / Math.max(0.2, total))) };
+    return { role: "stunned", t: age, loop: true, lift: 0 };
   }
   // A badge over a head: what holds the champion and a bar for the time left.
   function ccBadge(g, x, y, kind, left, total, u) {
@@ -416,18 +508,15 @@
   function paintIcon(c, row, col, size) {
     const g = c.getContext("2d");
     drawIcon(g, row, col, 0, 0, size, false);
-    const im = !sprite && row >= 0 ? ddImage(row, col) : null;
+    const im = row >= 0 ? ddImage(row, col) : null;
     if (im && !(im.complete && im.naturalWidth))
       im.addEventListener("load", () => { g.clearRect(0, 0, size, size); drawIcon(g, row, col, 0, 0, size, false); }, { once: true });
   }
   function drawIcon(g, row, col, x, y, size, round) {
     g.save();
     if (round) { g.beginPath(); g.arc(x + size / 2, y + size / 2, size / 2, 0, Math.PI * 2); g.clip(); }
-    const single = row >= 0 && !sprite ? ddIcon(row, col) : null;
-    if (row >= 0 && sprite) {
-      const S = index.icon_size;
-      g.drawImage(sprite, col * S, row * S, S, S, x, y, size, size);
-    } else if (single) {
+    const single = row >= 0 ? ddIcon(row, col) : null;
+    if (single) {
       g.drawImage(single, x, y, size, size);
     } else {
       g.fillStyle = "#262626"; g.fillRect(x, y, size, size);
@@ -482,41 +571,80 @@
   }
   // Which animation each model plays at time t, worked out from the timeline so
   // scrubbing shows the same pose as playing.
+  // free: past the part of the cast or attack that roots its caster (wind-up and channel), so a
+  // champion who walks off plays its run instead of sliding in the rest of the clip.
   function myAnim(time, s) {
     if (s.dead) return { role: "death", t: time - fight.death.t, loop: false };
     let cast = null;
     for (const c of fight.casts) { if (c.t > time) break; cast = c; }
-    if (cast && time - cast.t < castWindow("me", cast)) return { role: cast.s, t: time - cast.t, loop: false, n: cast.n };
+    if (cast && time - cast.t < castWindow("me", cast))
+      return { role: cast.s, t: time - cast.t, loop: false, n: cast.n, free: time - cast.t > (cast.a || 0.25) + (cast.l || 0) + 0.1 };
     if (s.cc) {
       const c = s.ccOn;
       return (c && ccPose(c.x, time - c.t, c.a - c.t)) || { role: "stunned", t: time, loop: true };
     }
+    // An attack's animation starts with its wind-up (and, for a ranged attack, the missile's flight)
+    // before the hit lands. Attacks alternate between the model's attack clips, and when they come
+    // faster than a clip lasts the clip plays faster to fit, as the game scales attack animations.
     let atk = null;
-    // An attack's animation starts with its wind-up and fires when the attack lands.
-    const windup = (a) => a.a || 0.3;
-    for (const a of fight.attacks) { if (a.t - windup(a) > time) break; atk = a; }
-    if (atk && time - (atk.t - windup(atk)) < windup(atk) + 0.45)
-      return { role: atk.f ? "crit" : "attack", t: time - (atk.t - windup(atk)), loop: false };
+    for (const a of fight.attacks) { if (a.start > time) break; atk = a; }
+    if (atk) {
+      const role = atk.f ? "crit" : "attack", age = time - atk.start;
+      const M = window.Models3D && window.Models3D.ok ? window.Models3D : null;
+      const len = (M && M.castLength("me", role, atk.n)) || (atk.a || 0.3) + 0.45;
+      const fit = Math.min(len, atk.span);
+      if (age < fit) return { role, t: age * (len / fit), loop: false, n: atk.n, free: age > (atk.a || 0.3) + atk.fly + 0.1 };
+    }
+    // A kill: a laugh, taunt or joke (in turn) while the next enemy comes; walking cuts it short.
+    let kill = null, kn = 0;
+    for (const k of fight.kills) { if (k.t > time) break; kill = k; kn++; }
+    if (kill && time - kill.t > CHEER_DELAY && time - kill.t < CHEER_DELAY + CHEER_FOR) {
+      const cheer = CHEERS[(kn - 1) % CHEERS.length];
+      return { role: cheer, t: time - kill.t - CHEER_DELAY, loop: false, free: true };
+    }
     return { role: "idle", t: time, loop: true };
   }
-  function enemyAnim(time, en) {
+  // Enemies attack while you're within their reach (the same test as the red line to you) and
+  // alive, about once every ENEMY_ATTACK seconds; otherwise they stand (or run after you).
+  const ENEMY_ATTACK = 1.25, DEAD_FOR = 2;
+  // Celebrating a kill (after the target falls) and a new enemy's arrival pose, in seconds.
+  const CHEERS = ["laugh", "taunt", "joke"], CHEER_DELAY = 0.35, CHEER_FOR = 2.2, ARRIVE_FOR = 1.6;
+  function enemyAnim(time, en, world) {
     if (en.died !== null) return { role: "death", t: time - en.died, loop: false };
     // Your champion is down: the enemies who are still standing dance.
-    if (fight.death && time >= fight.death.t + 0.4) return { role: "dance", t: time - fight.death.t - 0.4, loop: true };
+    // laughing first, then dancing.
+    if (fight.death && time >= fight.death.t + 0.4) {
+      const k = time - fight.death.t - 0.4;
+      return k < CHEER_FOR ? { role: "laugh", t: k, loop: false } : { role: "dance", t: k - CHEER_FOR, loop: true };
+    }
     const held = enemyCc(en.uid, time);
     const pose = held && ccPose(held.x, time - held.t, held.a - held.t);
     if (pose) return pose;
     const cast = enemyCastAt(en.uid, time);
-    if (cast) return { role: cast.s, t: time - cast.t, loop: false, n: cast.n };
+    if (cast) return { role: cast.s, t: time - cast.t, loop: false, n: cast.n, free: time - cast.t > (cast.a || 0.25) + 0.1 };
+    // A later enemy arrives with its respawn pose (walking in plays the run instead).
+    if (en.born > 0.05 && time - en.born < ARRIVE_FOR) return { role: "respawn", t: time - en.born, loop: false, free: true };
     if (held && held.x === "root") return { role: "idle", t: time, loop: true };
-    if (time < fight.engage) return { role: "idle", t: time + en.uid * 0.7, loop: true };
-    return { role: "attack", t: time + en.uid * 0.37, loop: true, chase: true };
+    if (time < fight.engage || (fight.death && time >= fight.death.t)) return { role: "idle", t: time + en.uid * 0.7, loop: true, chase: true };
+    if (world) {
+      const w = world.m.get(en.uid), sp = fight.spawns.get(en.uid);
+      if (!w || Math.hypot(w.x - world.me.x, w.y - world.me.y) > ((sp && sp.a) || 550) + 130) return { role: "idle", t: time, loop: true, chase: true };
+    }
+    const since = time - fight.engage + ((en.uid * 0.37) % ENEMY_ATTACK), k = Math.floor(since / ENEMY_ATTACK), age = since - k * ENEMY_ATTACK;
+    const M = window.Models3D && window.Models3D.ok ? window.Models3D : null;
+    const len = (M && M.castLength("e" + en.uid, "attack", k)) || ENEMY_ATTACK, rate = Math.max(1, len / ENEMY_ATTACK);
+    if (age * rate >= len) return { role: "idle", t: time, loop: true, chase: true };
+    return { role: "attack", t: age * rate, loop: false, n: k, chase: true, free: age > 0.4 };
   }
 
+  // The camera looks down at 45 degrees, so a circle on the floor shows this much as tall as it is wide.
+  const FLOOR_TILT = Math.SQRT1_2;
+  // A champion's in-game hitbox radius (game units): 65 for most, 55 to 80 for some.
+  const hitboxOf = (id) => (byId.get(String(id).toLowerCase()) || {}).radius || 65;
   // A soft pool of light in the team's colour under a model, so it stands out from the floor.
   function footShadow(g, x, y, rx, rgb) {
     g.save();
-    g.translate(x, y); g.scale(1, 0.42);
+    g.translate(x, y); g.scale(1, FLOOR_TILT);
     const grd = g.createRadialGradient(0, 0, 0, 0, 0, rx);
     grd.addColorStop(0, `rgba(${rgb},.22)`); grd.addColorStop(1, `rgba(${rgb},0)`);
     g.fillStyle = grd; g.beginPath(); g.arc(0, 0, rx, 0, Math.PI * 2); g.fill();
@@ -528,8 +656,8 @@
     // Scale: bigger shapes on narrow screens so portraits stay readable on a phone.
     const W = arena.width, H = arena.height, u = W / dpr < 600 ? W / 760 : W / 1280;
     const s = stateAt(time);
-    const world = fight.positional ? worldAt(fight, time) : null;
-    const view = world ? camera(W, H, world, s.focus, dt) : null;
+    const world = fight.positional ? worldAt(fight, time, scratch[0]) : null;
+    const view = world ? camera(W, H, world, s.focus, dt, playing ? speed : 1) : null;
     const scr = (p) => ({ x: view.sx(p), y: view.sy(p) });
     // Ground: a plain, dark lane, kept quiet so champions and ability effects stand out.
     const g = ctx;
@@ -548,7 +676,8 @@
     g.strokeStyle = "rgba(143,211,255,.16)"; g.lineWidth = 2 * u;
     g.beginPath(); g.moveTo(0, top); g.lineTo(W, top); g.moveTo(0, bottom); g.lineTo(W, bottom); g.stroke();
 
-    const alive = [...s.enemies.values()].filter((e) => e.died === null || time - e.died < 0.8);
+    // The fallen stay ~2 s so a 3D model can play its death and fade (a portrait goes after 0.8 s).
+    let alive = [...s.enemies.values()].filter((e) => e.died === null || time - e.died < DEAD_FOR);
     const others = alive.filter((e) => e.uid !== s.focus).sort((a, b) => a.uid - b.uid);
     const st = world ? { me: scr(world.me), front: scr(world.me), back: [] } : seats(W, H, Math.max(1, others.length));
     const target = (en) => (en.uid === s.focus ? st.front : st.back[others.indexOf(en)] || st.back[0]);
@@ -559,38 +688,49 @@
         const w = world.m.get(en.uid);
         if (w) { const p = scr(w); if (!d) { d = {}; shown.set(en.uid, d); } d.x = p.x; d.y = p.y; d.wx = w.x; d.wy = w.y; }
         else if (d && d.wx !== undefined) { d.x = view.sx({ x: d.wx }); d.y = view.sy({ y: d.wy }); }
-        else if (!d) { d = { x: st.me.x, y: st.me.y }; shown.set(en.uid, d); }
-        continue;
+        continue;  // not drawn until it has a place on the map
       }
       const want = target(en);
       if (!d || dt <= 0 || dt > 0.5) { d = { x: want.x, y: want.y }; shown.set(en.uid, d); }
       else { const k = 1 - Math.exp(-dt * 8); d.x += (want.x - d.x) * k; d.y += (want.y - d.y) * k; }
     }
+    if (world) alive = alive.filter((en) => shown.has(en.uid));
     const posOf = (uid) => shown.get(uid) || st.front;
     const R = 46 * u;          // your portrait radius
     const r = 34 * u;          // enemy portrait radius
 
-    // Your attacks: melee lunges, ranged projectiles.
+    // Melee attacks lunge a portrait forward (a 3D model plays its attack clip instead).
+    const M = window.Models3D && window.Models3D.ok ? window.Models3D : null;
+    const myModel = !!(M && M.actors.has("me"));
     let lunge = 0;
-    for (const a of fight.attacks) {
-      const age = time - a.t;
-      if (age < -0.18 || age > 0.25) continue;
-      const to = posOf(a.u);
-      if (trace.ranged) {
-        if (age < 0) {
-          const p = 1 + age / 0.18;
-          const x = st.me.x + (to.x - st.me.x) * p, y = st.me.y + (to.y - st.me.y) * p;
-          g.fillStyle = a.f ? "#ffd36b" : "#e9f3ff";
-          g.beginPath(); g.arc(x, y, (a.f ? 7 : 4.5) * u, 0, Math.PI * 2); g.fill();
-        }
-      } else if (Math.abs(age) < 0.15) lunge = Math.max(lunge, 1 - Math.abs(age) / 0.15);
-    }
+    if (!trace.ranged && !myModel)
+      for (const a of fight.attacks) {
+        const age = time - a.t;
+        if (age < -0.15) break;
+        if (age < 0.15) lunge = Math.max(lunge, 1 - Math.abs(age) / 0.15);
+      }
 
+    // With the 3D models, abilities (and attacks, passives, toggles, Poros) the champion has effects for are
+    // drawn with them (effects3d.js) instead of these shapes; fx collects this frame's for M.frame.
+    const FX = world && M && M.effects, fx = [];
     // Poro Charge (Poro Stampede): each wave is a row of Poros running down the lane.
+    // With the 3D models and the stampede's own effects, each Poro is the game's (effects3d.js).
+    const poroFx = FX && FX.has("mayhem", "PoroCharge");
     for (const w of fight.poros) {
       if (!w.from || !world) continue;
       const dx = w.ax - w.from.x, dy = w.ay - w.from.y, len = Math.hypot(dx, dy) || 1;
       const since = time - w.t, travel = len / PORO_SPEED;
+      if (poroFx) {
+        if (since < 0 || since > travel + 2) continue;
+        const ux = dx / len, uy = dy / len, n = 5, dir = { x: view.sx({ x: w.from.x + ux }) - view.sx(w.from), y: view.sy({ y: w.from.y + uy }) - view.sy(w.from) };
+        for (let i = 0; i < n; i++) {
+          const off = (i + 0.5 - n / 2) * (PORO_WIDTH / n);
+          const a = { x: w.from.x - uy * off, y: w.from.y + ux * off }, b = { x: a.x + ux * len, y: a.y + uy * len };
+          fx.push({ champ: "mayhem", slot: "PoroCharge", role: "missile", t: since - i * 0.04, from: scr(a), to: scr(b), dur: travel, dir, h: 0 });
+        }
+        fx.push({ champ: "mayhem", slot: "PoroCharge", role: "cast", t: since, at: scr(w.from), dir, dur: 0.6, h: 0 });
+        continue;
+      }
       if (since < 0 || since > travel + 0.3) continue;
       const ux = dx / len, uy = dy / len, d = Math.min(len, since * PORO_SPEED);
       g.globalAlpha = since > travel ? 1 - (since - travel) / 0.3 : 1;
@@ -610,10 +750,32 @@
       g.globalAlpha = 1;
     }
 
-    // Ability casts.
+    // Toggles (Singed Q, Karthus E, Amumu W, Anivia R): a slowly turning ring while switched on,
+    // around you or, for one placed on a target, around it.
+    const toggleOn = new Map();
+    if (!s.dead) for (const e of fight.toggles) { if (e.t > time) break; if (e.f) toggleOn.set(e.s, e); else toggleOn.delete(e.s); }
+    for (const [slot, e] of toggleOn) {
+      const at = e.u !== undefined ? posOf(e.u) : st.me;
+      const roles = FX && FX.has(champ.id, slot) && FX.roles(champ.id, slot);
+      const part = roles && ["buff", "area", "cast"].find((k) => roles[k]);
+      if (part) { fx.push({ champ: champ.id, slot, role: part, t: time - e.t, at, dur: time - e.t + 1, h: 0 }); continue; }
+      const rad = world ? Math.max(20 * u, (e.a || 300) * view.k) : (e.u !== undefined ? 50 : 70) * u;
+      const col = SLOT_COLORS[slot] || "#fff";
+      g.save();
+      g.fillStyle = col; g.strokeStyle = col;
+      g.globalAlpha = 0.1 + 0.04 * Math.sin(time * 4); g.beginPath(); g.arc(at.x, at.y, rad, 0, Math.PI * 2); g.fill();
+      g.globalAlpha = 0.55; g.lineWidth = 2.5 * u; g.setLineDash([10 * u, 8 * u]); g.lineDashOffset = -time * 30 * u;
+      g.beginPath(); g.arc(at.x, at.y, rad, 0, Math.PI * 2); g.stroke();
+      g.restore();
+    }
+
+    // Ability casts (the wind-up and channel rings stay with effects).
     for (const c of fight.casts) {
+      const fxOn = !!(FX && c.from && FX.has(champ.id, c.s));
+      if (fxOn) castEffects(fx, FX, c, time, scr, posOf, view.k);
       const age = time - c.land - (world ? c.fl || 0 : 0);  // since it landed
-      if (time < c.t || (age > 0.6 && !(c.l && time < c.land + c.l))) continue;
+      const life = c.life || 0.6;
+      if (time < c.t || (age > life && !(c.l && time < c.land + c.l))) continue;
       const col = SLOT_COLORS[c.s] || "#fff";
       const to = c.u >= 0 ? posOf(c.u) : st.front;
       const miss = !c.f;
@@ -629,9 +791,11 @@
         g.beginPath(); g.arc(st.me.x, st.me.y, R + 10 * u, -Math.PI / 2, -Math.PI / 2 + p * Math.PI * 2); g.stroke();
         g.setLineDash([]);
       }
-      if (age > 0.6) continue;
+      if (age > life) continue;
       const fly = 0.2;
-      if (world && c.from && ["line", "circle", "cone", "self"].includes(c.x)) {
+      if (fxOn) {
+        // drawn in 3D
+      } else if (world && c.from && ["line", "circle", "cone", "self"].includes(c.x)) {
         drawShape(g, c, time, col, scr, view.k, u);
       } else if (c.x === "aoe") {
         if (age > -0.1) {
@@ -666,7 +830,7 @@
           g.beginPath(); g.arc(to.x, to.y, r + age * 120 * u, 0, Math.PI * 2); g.stroke(); g.globalAlpha = 1;
         }
       }
-      if (miss && age > 0 && age < 0.6) floatText(overlay, "MISS", to.x, to.y - r - 30 * u - age * 40 * u, 1 - age / 0.6, "#c9d6e2", 18 * u);
+      if (miss && age > 0 && age < 0.6) floatText(overlay, T("MISS"), to.x, to.y - r - 30 * u - age * 40 * u, 1 - age / 0.6, "#c9d6e2", 18 * u);
     }
 
     // Who is hurting you: a faint line from each enemy whose reach you're inside.
@@ -707,39 +871,57 @@
         if (time - c.land > 0.3 || moveOf(champ.id, c.s) !== "blink") continue;
         blinks.push({ k: time - c.land, a: scr(worldAt(fight, c.t).me), b: scr(c.from), once: true });
       }
-    const M = window.Models3D && window.Models3D.ok ? window.Models3D : null;
+    // An enemy's dash or blink carries it toward you and back (the fight's positions don't move it).
+    const dashedTo = (en, p) => {
+      const ec = en.died === null ? enemyCastAt(en.uid, time) : null;
+      const em = ec && moveOf(en.champ, ec.s);
+      const et = em ? travel(em, time - ec.t) : 0;
+      return et > 0 ? { x: p.x + (st.me.x - p.x) * et, y: p.y + (st.me.y - p.y) * et, blink: em === "blink", k: time - ec.t } : null;
+    };
     let heads = {};
     if (M) {
       const look = (a, b) => ({ x: b.x - a.x, y: b.y - a.y });
       // Who is on the move (game units a second), to play their run while they walk.
-      const before = world && worldAt(fight, time - 0.15), after = world && worldAt(fight, time + 0.15);
+      const before = world && worldAt(fight, time - 0.15, scratch[1]), after = world && worldAt(fight, time + 0.15, scratch[2]);
       const velocity = (a, b) => (a && b ? { x: (b.x - a.x) / 0.3, y: (b.y - a.y) / 0.3 } : null);
-      const walking = (v) => v && Math.hypot(v.x, v.y) > 60;
+      // Walking plays the run, sped up or slowed to the pace (the clips are made for about 345 u/s).
+      // A cast or attack holds its pose through its wind-up, then gives way to the run; a dash
+      // (much faster than any walk) keeps the cast's pose.
+      const pace = (v) => (v ? Math.hypot(v.x, v.y) : 0);
+      const runs = (anim, v) => { const k = pace(v); return k > 60 && (anim.role === "idle" || (anim.free && k < 1000)); };
+      // Well above a walk (a speed burst), the haste run where the model has one.
+      const runPose = (v) => pace(v) > 480
+        ? { role: "haste", t: time, loop: true, rate: Math.min(2, Math.max(0.5, pace(v) / 480)) }
+        : { role: "run", t: time, loop: true, rate: Math.min(2, Math.max(0.5, pace(v) / 345)) };
+      // After the engage, idle is the plain loop (no idle variations in the middle of a fight).
+      const calm = (a) => (a.role === "idle" ? { ...a, rate: 1, base: time >= fight.engage } : a);
       // Models are drawn at their in-game size: px per game unit, as the floor is drawn.
       const unit = view ? view.k : null;
       const mine = myAnim(time, s), myV = world && velocity(before.me, after.me);
-      const myRun = mine.role === "idle" && walking(myV);
+      const myRun = !s.dead && runs(mine, myV);
       const fighters = [{ key: "me", champ: champ.id, x: meX, y: meY, face: 1, unit,
         dir: myRun ? myV : world && s.focus >= 0 ? look(st.me, posOf(s.focus)) : null,
-        ...(myRun ? { role: "run", t: time, loop: true } : mine) }];
+        ...(myRun ? runPose(myV) : calm(mine)) }];
       for (const en of alive) {
         let p = posOf(en.uid);
-        const ec = en.died === null ? enemyCastAt(en.uid, time) : null;
-        const em = ec && !world && moveOf(en.champ, ec.s);
-        const et = em ? travel(em, time - ec.t) : 0;
-        if (et > 0) {
-          const q = { x: p.x + (st.me.x - p.x) * et, y: p.y + (st.me.y - p.y) * et };
-          if (em === "blink") blinks.push({ k: time - ec.t, a: p, b: q });
+        const q = dashedTo(en, p);
+        if (q) {
+          if (q.blink) blinks.push({ k: q.k, a: p, b: q });
           p = q;
         }
-        const anim = enemyAnim(time, en), v = world && en.died === null && velocity(before.m.get(en.uid), after.m.get(en.uid));
-        const run = (anim.role === "idle" || anim.chase) && walking(v);
+        const anim = enemyAnim(time, en, world), v = world && en.died === null && velocity(before.m.get(en.uid), after.m.get(en.uid));
+        const run = en.died === null && runs(anim, v);
+        // The fallen fade out over the last part of their stay.
+        const gone = en.died === null ? 0 : time - en.died;
         fighters.push({ key: "e" + en.uid, champ: en.champ, x: p.x, y: p.y, face: -1, unit,
-          dir: run ? v : world ? look(p, st.me) : null,
-          visible: en.died === null || time - en.died < 1.6, ...(run ? { role: "run", t: time + en.uid * 0.3, loop: true } : anim) });
+          dir: run ? v : world ? look(p, st.me) : null, alpha: Math.max(0, Math.min(1, (DEAD_FOR - gone) / 0.6)),
+          ...(run ? runPose(v) : calm(anim)) });
       }
       for (const f of fighters) if (f.lift) f.y -= f.lift * 55 * u;  // knocked up into the air
-      heads = M.frame(fighters, W, H, lowQuality() ? 0.75 : 1);
+      if (FX) moreEffects(fx, FX, time, s, posOf, { x: meX, y: meY }, view.k, alive);
+      heads = M.frame(fighters, W, H, lowQuality() ? 0.75 : 1, fx, unit);
+      // Keep the bars and badges above heads clear of the HUD along the top.
+      for (const k in heads) heads[k].y = Math.max(heads[k].y, 56 * dpr);
     }
     const og = overlay;
     og.setTransform(1, 0, 0, 1, 0, 0);
@@ -754,16 +936,38 @@
     }
     og.globalAlpha = 1;
 
-    // Enemies.
+    // Your ranged attacks: the missile leaves after the wind-up and lands as the hit does, at
+    // about half the models' height (chest to chest).
+    const atkFx = FX && FX.has(champ.id, "attack") ? FX.roles(champ.id, "attack") : null;
+    if (trace.ranged && !s.dead && !(atkFx && atkFx.missile)) {
+      const mid = (x, y, head) => (head ? y + (head.y - y) * 0.45 : y);
+      for (const a of fight.attacks) {
+        const age = time - a.t;
+        if (age < -0.6) break;  // the longest flight
+        if (age >= 0 || age < -a.fly) continue;
+        const to = posOf(a.u), p = 1 + age / a.fly;
+        const y0 = mid(meX, meY, heads.me), y1 = mid(to.x, to.y, heads["e" + a.u]);
+        const x = meX + (to.x - meX) * p, y = y0 + (y1 - y0) * p;
+        og.fillStyle = a.f ? "#ffd36b" : "#e9f3ff";
+        og.beginPath(); og.arc(x, y, (a.f ? 7 : 4.5) * u, 0, Math.PI * 2); og.fill();
+      }
+    }
+
+    // Enemies. numTop: where damage numbers start over each enemy, above its badge and cast icon.
+    const numTop = new Map();
     for (const en of alive) {
-      const p = posOf(en.uid);
+      const p = dashedTo(en, posOf(en.uid)) || posOf(en.uid);
       const born = ease((time - en.born) / 0.3);
       const fade = en.died !== null ? 1 - (time - en.died) / 0.8 : 1;
       const rr = r * (en.uid === s.focus ? 1.15 : 0.9);
       const d = shown.get(en.uid);
       d.hp = d.hp === undefined || dt <= 0 || dt > 0.5 ? en.hp : d.hp + (en.hp - d.hp) * (1 - Math.exp(-dt * 12));
       const head = heads["e" + en.uid];
+      if (!head && en.died !== null && time - en.died >= 0.8) continue;
+      const held = en.died === null ? enemyCc(en.uid, time) : null;
       const cast = en.died === null ? enemyCastAt(en.uid, time) : null;
+      const above = head ? head.y - 10 * u : p.y - rr - 20 * u;  // the badge's bottom edge
+      numTop.set(en.uid, above - (cast && time - cast.t < 1.1 ? 58 : held ? 23 : 10) * u);
       if (cast) {
         const age = time - cast.t, ic = 44 * u;
         const top = head ? head.y - 14 * u : p.y - rr - 18 * u;
@@ -786,15 +990,16 @@
       if (head) {
         // Model: a ring at its feet, portrait and HP bar above its head.
         g.globalAlpha = Math.max(0, fade);
-        footShadow(g, p.x, p.y, rr * 1.3, "240,96,90");
-        g.strokeStyle = en.uid === s.focus ? "#f0605a" : "rgba(240,96,90,.55)"; g.lineWidth = 3 * u;
-        g.beginPath(); g.ellipse(p.x, p.y, rr * 1.2, rr * 0.5, 0, 0, Math.PI * 2); g.stroke();
+        // The ring is the champion's hitbox, at its in-game size.
+        const hb = view ? Math.max(6 * u, hitboxOf(en.champ) * view.k) : rr * 1.2;
+        footShadow(g, p.x, p.y, hb * 1.15, "240,96,90");
+        g.strokeStyle = en.uid === s.focus ? "#f0605a" : "rgba(240,96,90,.55)"; g.lineWidth = 2.5 * u;
+        g.beginPath(); g.ellipse(p.x, p.y, hb, hb * FLOOR_TILT, 0, 0, Math.PI * 2); g.stroke();
         g.globalAlpha = 1;
         if (en.died === null) {
           const bw = rr * 2;
           drawIcon(og, iconRow(en.champ), 0, head.x - bw / 2 - 22 * u, head.y - 10 * u, 18 * u, true);
           hpBar(og, head.x - bw / 2, head.y - 4 * u, bw, d.hp / en.max, "#f0605a");
-          const held = enemyCc(en.uid, time);
           if (held) ccBadge(og, head.x, head.y - 10 * u, held.x, held.a - time, held.a - held.t, u);
         }
         continue;
@@ -808,7 +1013,6 @@
       g.strokeStyle = en.uid === s.focus ? "#f0605a" : "rgba(240,96,90,.6)"; g.lineWidth = 3 * u;
       g.beginPath(); g.arc(p.x, p.y, rr, 0, Math.PI * 2); g.stroke();
       hpBar(og, p.x - rr, p.y - rr - 14 * u, rr * 2, d.hp / en.max, "#f0605a");
-      const held = en.died === null ? enemyCc(en.uid, time) : null;
       if (held) ccBadge(og, p.x, p.y - rr - 20 * u, held.x, held.a - time, held.a - held.t, u);
       if (en.died !== null) {
         g.strokeStyle = "#f4f4f4"; g.lineWidth = 5 * u;
@@ -823,9 +1027,10 @@
     const myHead = heads.me;
     let labelY = meY + R + 30 * u;
     if (myHead) {
-      footShadow(g, meX, meY, R * 1.3, "143,211,255");
-      g.strokeStyle = s.dead ? "rgba(120,120,120,.6)" : "#8fd3ff"; g.lineWidth = 3 * u;
-      g.beginPath(); g.ellipse(meX, meY, R * 1.2, R * 0.5, 0, 0, Math.PI * 2); g.stroke();
+      const hb = view ? Math.max(6 * u, hitboxOf(trace.champion) * view.k) : R * 1.2;
+      footShadow(g, meX, meY, hb * 1.15, "143,211,255");
+      g.strokeStyle = s.dead ? "rgba(120,120,120,.6)" : "#8fd3ff"; g.lineWidth = 2.5 * u;
+      g.beginPath(); g.ellipse(meX, meY, hb, hb * FLOOR_TILT, 0, 0, Math.PI * 2); g.stroke();
       hpBar(og, myHead.x - R, myHead.y - 4 * u, R * 2, frac, frac < 0.3 ? "#f0605a" : "#5fd38a", (s.shield || 0) / fight.maxHp);
       labelY = meY + R * 0.5 + 26 * u;
     } else {
@@ -850,11 +1055,12 @@
       if (c) ccBadge(og, meX, top, kind, c.a - time, c.a - c.t, u);
       else floatText(og, CC_LOOK.stun[0], meX, labelY, 1, CC_LOOK.stun[1], 15 * u);
     }
-    if (s.dead) floatText(og, "SLAIN", meX, labelY, 1, "#f0605a", 18 * u);
-    else if (time < fight.engage) floatText(og, "ENEMIES ENGAGE IN " + (fight.engage - time).toFixed(1) + " s", meX, labelY + (s.cc ? 18 * u : 0), 0.8, "#8295a8", 13 * u);
+    if (s.dead) floatText(og, T("SLAIN"), meX, labelY, 1, "#f0605a", 18 * u);
+    else if (time < fight.engage) floatText(og, T("ENEMIES ENGAGE IN {n} s", { n: (fight.engage - time).toFixed(1) }), meX, labelY + (s.cc ? 18 * u : 0), 0.8, "#8295a8", 13 * u);
 
     // On-hit passives.
-    for (const pr of fight.procs) {
+    const procFx = FX && FX.has(champ.id, "P") ? FX.roles(champ.id, "P") : null;
+    if (!(procFx && (procFx.hit || procFx.buff))) for (const pr of fight.procs) {
       const age = time - pr.t;
       if (age < 0 || age > 0.4) continue;
       const p = posOf(pr.u);
@@ -868,11 +1074,11 @@
       if (age < 0 || age > 0.9 || n.a < 1) continue;
       const p = posOf(n.u);
       const head = heads["e" + n.u];
-      const baseY = head ? head.y - 20 * u : p.y - r - 26 * u;
-      const jitter = ((n.t * 997) % 1 - 0.5) * 50 * u;
-      const size = (n.crit ? 26 : n.a > 400 ? 22 : 16) * u;
-      floatText(overlay, Math.round(n.a).toString() + (n.crit ? "!" : ""), (head ? head.x : p.x) + jitter, baseY - age * 70 * u, 1 - age / 0.9,
-        n.crit ? "#ffd36b" : TYPE_COLORS[n.x] || "#fff", size);
+      const baseY = (numTop.get(n.u) ?? (head ? head.y - 20 * u : p.y - r - 26 * u)) - (n.fan || 0) * 16 * u;
+      const fl = floating(n.crit ? FLOAT.crit : FLOAT.hit, age, n.side || 1, n.t * 997 + n.u, u);
+      if (!fl) continue;
+      gameNumber(overlay, Math.round(n.a).toString(), (head ? head.x : p.x) + fl.dx, baseY - fl.dy, fl.alpha,
+        FLOAT_COLORS[n.x] || FLOAT_COLORS.true, fl.size, n.crit ? CRIT_ICONS[n.x] : null);
     }
 
     $("kills").textContent = s.kills;
@@ -882,7 +1088,7 @@
     $("modeHud").hidden = !showMode;
     if (showMode) { $("modeName").textContent = MODES[mode].label; $("modeVal").textContent = modeValue(mode, MODES[mode].now(s)); }
     // Crits: a flash where the attack lands.
-    if (!lowQuality())
+    if (!lowQuality() && !(atkFx && atkFx.crit))
       for (const a of fight.attacks) {
         const age = time - a.t;
         if (!a.f || age < 0 || age > 0.25) continue;
@@ -901,7 +1107,8 @@
       const age = time - h.t;
       if (age < 0 || age > 1 || h.a < 5) continue;
       const top = myHead ? myHead.y - 30 * u : meY - R - 40 * u;
-      floatText(og, "+" + Math.round(h.a), meX + 40 * u, top - age * 50 * u, 1 - age, "#5fd38a", 15 * u);
+      const fl = floating(FLOAT.heal, age, 1, h.t * 997, u);
+      if (fl) gameNumber(og, "+" + Math.round(h.a), meX + 40 * u + fl.dx, top + 40 * 0.7 * u - fl.dy, fl.alpha, FLOAT_COLORS.heal, fl.size * 0.8);
     }
 
     // Shields on you: a white number and, outside Low graphics, a ring that fades as it ends.
@@ -909,7 +1116,7 @@
       const age = time - sh.t;
       if (age < 0 || age > (sh.l || 1)) continue;
       const top = myHead ? myHead.y - 30 * u : meY - R - 40 * u;
-      if (age < 1) floatText(og, "+" + Math.round(sh.a) + " shield", meX - 40 * u, top - age * 50 * u, 1 - age, "#eef3f8", 14 * u);
+      if (age < 1) floatText(og, T("+{n} shield", { n: Math.round(sh.a) }), meX - 40 * u, top - age * 50 * u, 1 - age, "#eef3f8", 14 * u);
     }
     if ((s.shield || 0) > 1 && !s.dead && !lowQuality()) {
       og.globalAlpha = 0.35 + 0.15 * Math.sin(time * 6);
@@ -928,7 +1135,7 @@
         og.beginPath(); og.ellipse(p.x, p.y, (30 + age * 160) * u, (12 + age * 60) * u, 0, 0, Math.PI * 2); og.stroke();
         og.globalAlpha = 1;
       }
-      floatText(og, k.f ? "EXECUTED" : "KILL", p.x, y - 30 * u - age * 30 * u, 1 - age / 0.9, k.f ? "#ff5a4f" : "#ffd36b", (k.f ? 18 : 16) * u);
+      floatText(og, k.f ? T("EXECUTED") : T("KILL"), p.x, y - 30 * u - age * 30 * u, 1 - age / 0.9, k.f ? "#ff5a4f" : "#ffd36b", (k.f ? 18 : 16) * u);
     }
 
     // Dashes: a streak from where you set off.
@@ -938,6 +1145,8 @@
         const age = time - c.land;
         if (age < -0.05 || age > 0.35 || moveOf(champ.id, c.s) !== "dash" || !c.from) continue;
         const a = scr(worldAt(fight, c.t).me), b = scr(c.from);
+        // A dash with no known start (or a hidden, zero-size canvas) has no finite ends, which would throw and stop the replay.
+        if (![a.x, a.y, b.x, b.y].every(Number.isFinite)) continue;
         const grad = og.createLinearGradient(a.x, a.y, b.x, b.y);
         grad.addColorStop(0, "rgba(233,243,255,0)"); grad.addColorStop(1, "rgba(233,243,255,.7)");
         og.globalAlpha = Math.max(0, 1 - age / 0.35); og.strokeStyle = grad; og.lineWidth = 10 * u; og.lineCap = "round";
@@ -946,8 +1155,87 @@
       }
 
     const held = s.cc ? (CC_LOOK[(s.ccOn && s.ccOn.x) || "stun"] || CC_LOOK.stun)[0] : "";
-    $("state").textContent = s.dead ? "Slain" : held ? held[0] + held.slice(1).toLowerCase() : "";
+    $("state").textContent = s.dead ? T("Slain") : held ? (window.I18N.lang === "en" ? held[0] + held.slice(1).toLowerCase() : held) : "";
     return s;
+  }
+
+  // One of your casts as the game draws it (3D edition): its effect's parts for effects3d.js, in
+  // device px. cast: at you as it starts; missile: out along its path at its speed (a line to its
+  // range, else to the target or the spot aimed at); hit: on the target when it lands; area: on the
+  // spot aimed at; buff: on the target for as long as your crowd control holds it.
+  function castEffects(out, FX, c, time, scr, posOf, k) {
+    const since = time - c.t;
+    if (since < 0 || since > 10) return;
+    const roles = FX.roles(champ.id, c.s);
+    if (!roles) return;
+    const geo = fight.geo[c.s] || {}, id = champ.id, s = c.s;
+    const from = scr(c.from), target = c.u >= 0 ? posOf(c.u) : null;
+    const aim = c.ax !== undefined ? scr({ x: c.ax, y: c.ay }) : target || from;
+    const dir = { x: aim.x - from.x, y: aim.y - from.y }, dl = Math.hypot(dir.x, dir.y) || 1;
+    const fl = c.fl || 0;
+    if (roles.cast) out.push({ champ: id, slot: s, role: "cast", t: since, at: from, dir, dur: (c.a || 0) + (c.l || 0) + 0.3, h: 0 });
+    // When the missile reaches the target: a line at its speed, otherwise the flight the trace gives.
+    let hitAt = c.land + fl;
+    if (roles.missile) {
+      let to = target || aim, dur = fl || 0.25;
+      if (c.x === "line" && geo.speed > 0) {
+        const range = (geo.range || dl / k) * k;
+        to = { x: from.x + (dir.x / dl) * range, y: from.y + (dir.y / dl) * range };
+        dur = range / k / geo.speed;
+        if (target) hitAt = c.land + Math.hypot(target.x - from.x, target.y - from.y) / k / geo.speed;
+      }
+      out.push({ champ: id, slot: s, role: "missile", t: time - c.land, from, to, dur, dir, h: 100 });
+    }
+    if (roles.area) out.push({ champ: id, slot: s, role: "area", t: time - c.land - fl, at: aim, dir, dur: c.l || 1, h: 0 });
+    if (c.f && target) {
+      if (roles.hit) out.push({ champ: id, slot: s, role: "hit", t: time - hitAt, at: target, dir, dur: 0.5, h: 0 });
+      if (roles.buff) {
+        const held = fight.ecc.find((e) => e.u === c.u && Math.abs(e.t - hitAt) < 0.4);
+        out.push({ champ: id, slot: s, role: "buff", t: time - hitAt, at: target, dir, dur: held ? held.a - held.t : 1.5, h: 0 });
+      }
+    }
+  }
+
+  // The rest of the fight as the game draws it (3D edition), where the champions have effects: your
+  // attacks (missile, hit, crit), your on-hit passive, and each enemy's abilities (cast, a missile to
+  // you, the hit, and the crowd control it holds you in).
+  function moreEffects(out, FX, time, s, posOf, me, k, alive) {
+    const id = champ.id, atk = FX.has(id, "attack") && FX.roles(id, "attack");
+    if (atk && !s.dead) for (const a of fight.attacks) {
+      if (a.t - a.fly > time) break;
+      if (time - a.t > 1.5) continue;
+      const to = posOf(a.u), dir = { x: to.x - me.x, y: to.y - me.y };
+      if (atk.missile && a.fly > 0) out.push({ champ: id, slot: "attack", role: "missile", t: time - (a.t - a.fly), from: me, to, dur: a.fly, dir, h: 100 });
+      const hit = a.f && atk.crit ? "crit" : "hit";
+      if (atk[hit]) out.push({ champ: id, slot: "attack", role: hit, t: time - a.t, at: to, dir, dur: 0.4, h: 0 });
+    }
+    const pas = FX.has(id, "P") && FX.roles(id, "P");
+    if (pas) for (const pr of fight.procs) {
+      if (pr.t > time) break;
+      if (time - pr.t > 1.5) continue;
+      const role = pas.hit ? "hit" : "buff";
+      out.push({ champ: id, slot: "P", role, t: time - pr.t, at: posOf(pr.u), dur: 0.6, h: 0 });
+    }
+    for (const en of alive) {
+      if (!FX.has(en.champ, "Q") && !FX.has(en.champ, "R")) continue;
+      const from = posOf(en.uid), dir = { x: me.x - from.x, y: me.y - from.y };
+      const dist = Math.hypot(dir.x, dir.y) / k;
+      for (const c of fight.enemyCasts.get(en.uid) || []) {
+        if (c.t > time) break;
+        if (time - c.t > 4 || (en.died !== null && c.t > en.died)) continue;
+        const roles = FX.has(en.champ, c.s) && FX.roles(en.champ, c.s);
+        if (!roles) continue;
+        const launch = c.t + 0.25, fly = Math.min(0.8, dist / 1400);
+        if (roles.cast) out.push({ champ: en.champ, slot: c.s, role: "cast", t: time - c.t, at: from, dir, dur: 0.6, h: 0 });
+        if (roles.missile) out.push({ champ: en.champ, slot: c.s, role: "missile", t: time - launch, from, to: me, dur: fly, dir, h: 100 });
+        if (roles.area && !roles.missile) out.push({ champ: en.champ, slot: c.s, role: "area", t: time - launch, at: me, dir, dur: 1, h: 0 });
+        if (roles.hit) out.push({ champ: en.champ, slot: c.s, role: "hit", t: time - launch - fly, at: me, dir, dur: 0.5, h: 0 });
+        if (roles.buff && c.cc) {
+          const held = fight.cc.find((x) => Math.abs(x.t - c.t - 0.3) < 0.5);
+          out.push({ champ: en.champ, slot: c.s, role: "buff", t: time - launch - fly, at: me, dir, dur: held ? held.a - held.t : 1.2, h: 0 });
+        }
+      }
+    }
   }
 
   // One of your abilities drawn to scale where it was aimed: a line's path and missile,
@@ -961,11 +1249,15 @@
     g.save();
     g.strokeStyle = col; g.fillStyle = col;
     if (c.x === "line") {
-      const span = fl > 0 ? fl * 1.25 : 0.15, p = Math.min(1, since / span), fade = since > span ? 1 - (since - span) / 0.3 : 1;
+      // With its missile speed (newer traces), the head flies at that speed out to the ability's
+      // range; older traces only know the flight to the target.
+      const wl = Math.hypot(c.ax - c.from.x, c.ay - c.from.y) || 1, reach = geo.speed > 0 ? (geo.range || wl) / wl : 1;
+      const span = geo.speed > 0 ? (geo.range || wl) / geo.speed : fl > 0 ? fl * 1.25 : 0.15;
+      const p = reach * Math.min(1, since / span), fade = since > span ? 1 - (since - span) / 0.3 : 1;
       if (fade > 0) {
         const w = Math.max(3 * u, (geo.width || 80) * k);
         g.globalAlpha = 0.16 * fade; g.lineWidth = w;
-        g.beginPath(); g.moveTo(from.x, from.y); g.lineTo(aim.x, aim.y); g.stroke();
+        g.beginPath(); g.moveTo(from.x, from.y); g.lineTo(from.x + dx * reach, from.y + dy * reach); g.stroke();
         const hx = from.x + dx * p, hy = from.y + dy * p;
         g.globalAlpha = fade; g.lineWidth = Math.max(5 * u, w * 0.7); g.lineCap = "round";
         g.beginPath(); g.moveTo(hx - (dx / dl) * 50 * u * Math.min(1, p * 4), hy - (dy / dl) * 50 * u * Math.min(1, p * 4)); g.lineTo(hx, hy); g.stroke();
@@ -1001,6 +1293,35 @@
     g.restore();
   }
 
+  // A damage or heal number in the game's style: heavy type with a thick dark outline.
+  // Where a floating number is `age` s after it appears: offset from its start (px, up is positive), size and alpha;
+  // null once it has faded. side: 1 flies right, -1 left. u: the arena's px per layout unit.
+  function floating(spec, age, side, seed, u) {
+    if (age < 0 || age > spec.hold + spec.fade) return null;
+    const rnd = (i) => { const v = Math.sin(seed * 12.9898 + i * 78.233) * 43758.5453; return v - Math.floor(v); };
+    const k = 0.7 * u;  // 1080p px -> arena px
+    const vx = (spec.vx[0] + (spec.vx[1] - spec.vx[0]) * rnd(1)) * side, vy = spec.vy[0] + (spec.vy[1] - spec.vy[0]) * rnd(2);
+    const ox = spec.at[0] * side + spec.jitter * (rnd(3) * 2 - 1), oy = spec.at[1] + spec.jitter * (rnd(4) * 2 - 1);
+    const dx = ox + vx * age + 0.5 * spec.pull[0] * side * age * age, dy = oy + vy * age - 0.5 * spec.pull[1] * age * age;
+    const scale = spec.scale * (1 + spec.pop * Math.max(0, 1 - age / spec.shrink));
+    const alpha = age < spec.hold ? 1 : 1 - (age - spec.hold) / spec.fade;
+    return { dx: dx * k, dy: dy * k, size: FLOAT_SIZE * scale * k, alpha };
+  }
+  // A game-style number: bold, outlined, with a drop shadow; a crit icon before it when given.
+  function gameNumber(g, text, x, y, alpha, [fill, outline], size, icon = null) {
+    g.globalAlpha = Math.max(0, Math.min(1, alpha));
+    g.font = `800 ${size}px "Geist", system-ui, sans-serif`;
+    g.textAlign = "center"; g.lineJoin = "round";
+    const sh = Math.max(1, size / 14);
+    g.fillStyle = "rgba(0,0,0,.75)"; g.fillText(text, x + sh, y + sh);
+    g.lineWidth = Math.max(2, size / 7); g.strokeStyle = outline; g.strokeText(text, x, y);
+    g.fillStyle = fill; g.fillText(text, x, y);
+    if (icon && icon.complete && icon.naturalWidth) {
+      const w = g.measureText(text).width, s = size * 1.1;
+      g.drawImage(icon, x - w / 2 - s * 0.9, y - s * 0.8, s, s);
+    }
+    g.lineJoin = "miter"; g.globalAlpha = 1;
+  }
   function floatText(g, text, x, y, alpha, color, size) {
     g.globalAlpha = Math.max(0, Math.min(1, alpha));
     g.font = `600 ${size}px "Geist Mono", ui-monospace, monospace`;
@@ -1020,6 +1341,7 @@
     if (!fight) return;
     const dpr = pixelRatio();
     const w = Math.round(track.clientWidth * dpr), h = Math.round(track.clientHeight * dpr);
+    if (!w || !h) return; // hidden (another Simulator tab is open): nothing to draw until it shows
     if (tc.width !== w || tc.height !== h) { tc.width = w; tc.height = h; }
     const key = w + "x" + h;
     if (trackKey === key && trackCache.fight === fight) return;
@@ -1047,6 +1369,7 @@
   }
   function drawPlayhead() {
     drawTrack();
+    if (!trackCache.width || !trackCache.height || !tc.width || !tc.height) return;
     const W = tc.width, H = tc.height, x = (t / fight.duration) * W;
     tg.drawImage(trackCache, 0, 0);
     tg.fillStyle = "rgba(10,16,23,.45)"; tg.fillRect(x, 0, W - x, H);
@@ -1065,6 +1388,7 @@
   // ---------- 3D models ----------
   let modelMode = false;
   function attachModels() {
+    if (!FULL) return;
     const M = window.Models3D;
     // Antialiasing is fixed when the 3D canvas is made: off for low, and for auto on touch screens
     // (phones have dense screens, where it costs the most and shows the least).
@@ -1075,6 +1399,7 @@
   window.addEventListener("models3d-ready", attachModels);
   attachModels();
   function setupModels() {
+    if (!FULL) return;
     const M = window.Models3D;
     if (!M || !M.ok || !champ) return;
     const id = champ.id;
@@ -1084,20 +1409,21 @@
       video.pause();
       $("clipVideo").hidden = ok;
       $("clipNote").textContent = ok
-        ? "Click an ability (or press Q, W, E, R) and your champion casts it in the arena."
-        : "No model for this champion yet, so casts play the ability's preview instead.";
+        ? T("Click an ability (or press Q, W, E, R) and your champion casts it in the arena.")
+        : T("No model for this champion yet, so casts play the ability's preview instead.");
     });
   }
   // Ability button or key: the model's animation, or the clip without a model.
   function showAbility(slot) {
-    if (modelMode) { showCaption(slot); window.Models3D.previewRole(slot); playSound(champ, slot, 1); }
-    else playClip(slot);
+    showCaption(slot);
+    if (modelMode) window.Models3D.previewRole(slot);
+    playSound(champ, slot, 1);
   }
 
   // ---------- ability and death sounds ----------
   // With the 3D models, each cast plays its ability's sound and each death the champion's death sound.
-  // replay-data/sounds/ holds them all joined into one file. Without it, casts fall back to the first
-  // burst of sound in the ability's preview video, and deaths are silent.
+  // replay-data/sounds/ holds them all joined into one file (tools/build_game_sounds.py); without it, the
+  // website's pack in /assets/sounds/ (tools/pack_clip_sounds.py, ability sounds only, so deaths are silent).
   // Browsers only allow sound after the first click or key.
   // On or off follows the site setting sound (on unless it is false); the Sound button changes it too.
   const readSound = () => siteSettings().sound !== false;
@@ -1110,7 +1436,21 @@
   // Master volume from the slider, 0 to 1, remembered between visits.
   let masterVolume = 0.8;
   try { const v = parseFloat(localStorage.getItem("replayVolume")); if (v >= 0 && v <= 1) masterVolume = v; } catch (e) {}
-  fetch(DATA + "sounds/sounds.json" + BUST).then((r) => (r.ok ? r.json() : {})).then((m) => { soundFiles = m; }).catch(() => {});
+  let soundBase = DATA + "sounds/";
+  const loadSounds = (base) => fetch(base + "sounds.json" + BUST).then((r) => (r.ok ? r.json() : null)).then((m) => {
+    if (m && m.clips) { soundFiles = m; soundBase = base; return true; }
+    return false;
+  }).catch(() => false);
+  // The site serves files whole (no byte ranges), so a player can't jump into the middle of one and every
+  // clip would start at 0:00, which is Aatrox's first sound. A copy held in memory can be jumped into.
+  let soundUrl = null;
+  // On the website (/embed/...) replay-data/sounds/ is never there, so only local copies try it first.
+  (location.pathname.startsWith("/embed/") ? Promise.resolve(false) : loadSounds(DATA + "sounds/")).then((ok) => ok || loadSounds("/assets/sounds/")).then((ok) => {
+    if (!ok) return;
+    fetch(soundBase + soundFiles.file + BUST).then((r) => (r.ok ? r.blob() : null)).then((b) => {
+      if (b) soundUrl = URL.createObjectURL(b);
+    }).catch(() => {});
+  });
   // A few audio players reused round robin. Each is started once inside the first click or
   // key press, which lets it play later from the animation loop (Safari needs this per player).
   const voices = [];
@@ -1135,22 +1475,47 @@
     const p = pickVoice.play();
     if (p && p.catch) p.catch(() => {});
   }
+  // A short synthesized tone per ability (lower for the ultimate, falling for a death).
+  let audio = null;
+  const TONES = { Q: [660, 0.12], W: [520, 0.12], E: [440, 0.14], R: [220, 0.35], P: [780, 0.08], D: [300, 0.45] };
+  function synth(slot, volume) {
+    const [freq, len] = TONES[slot] || TONES.Q;
+    try {
+      audio = audio || new (window.AudioContext || window.webkitAudioContext)();
+      const now = audio.currentTime, osc = audio.createOscillator(), gain = audio.createGain();
+      osc.type = slot === "R" ? "sawtooth" : "triangle";
+      osc.frequency.setValueAtTime(freq, now);
+      osc.frequency.exponentialRampToValueAtTime(slot === "D" ? freq / 3 : freq * 1.5, now + len);
+      gain.gain.setValueAtTime(0.0001, now);
+      gain.gain.exponentialRampToValueAtTime(Math.max(0.0002, 0.18 * volume * masterVolume), now + 0.01);
+      gain.gain.exponentialRampToValueAtTime(0.0001, now + len);
+      osc.connect(gain).connect(audio.destination);
+      osc.start(now); osc.stop(now + len + 0.02);
+    } catch (e) { /* no Web Audio */ }
+  }
   function playSound(c, slot, volume) {
-    if (!soundOn || !gestured || !voices.length || !c) return;
-    const packed = soundFiles.clips && soundFiles.clips[c.id] && soundFiles.clips[c.id][slot];
-    const video = !soundFiles.clips && slot !== "D" && c.sound && c.sound[slot];
-    if (!packed && !video) return;
-    const k = String(c.key).padStart(4, "0");
+    if (!soundOn || !gestured || !c || masterVolume === 0) return;
+    // Until the game's sounds have loaded (or if they can't), a tone of our own.
+    const packed = soundUrl && voices.length && soundFiles.clips && soundFiles.clips[c.id] && soundFiles.clips[c.id][slot];
+    if (!packed) { if (!soundUrl) synth(slot, volume); return; }
     const a = voices[nextVoice++ % voices.length];
     a.pause();
-    a.src = packed ? `${DATA}sounds/${soundFiles.file}${BUST}#t=${packed[0]},${packed[0] + packed[1]}`
-      : `${index.clip_cdn}/${k}/ability_${k}_${slot}1.webm#t=${video[0]},${video[0] + video[1]}`;
-    a.volume = Math.min(1, volume * masterVolume);
-    const p = a.play();
-    if (p && p.catch) p.catch(() => {});
-    // Media fragments stop late in some browsers; end the clip on time so it never runs into the next one.
     clearTimeout(a.stopTimer);
-    a.onplaying = packed ? () => { clearTimeout(a.stopTimer); a.stopTimer = setTimeout(() => a.pause(), packed[1] * 1000); } : null;
+    a.volume = Math.min(1, volume * masterVolume);
+    // Every champion's clips sit in one file; jump to this clip's start.
+    const src = soundUrl;
+    const start = () => {
+      a.currentTime = packed[0];
+      const p = a.play();
+      if (p && p.catch) p.catch(() => {});
+    };
+    a.onplaying = () => { clearTimeout(a.stopTimer); a.stopTimer = setTimeout(() => a.pause(), packed[1] * 1000); };
+    if (a.dataset.src === src && a.readyState >= 1) start();
+    else {
+      a.dataset.src = src;
+      a.onloadedmetadata = () => { a.onloadedmetadata = null; start(); };
+      a.src = src;
+    }
   }
   // The champion's pick quote, when you choose a champion.
   let pickVoice = null;
@@ -1172,7 +1537,7 @@
     if (!soundOn) for (const a of voices) a.pause();
     if (pickVoice) { pickVoice.volume = Math.min(pickVoice.volume, masterVolume); if (!soundOn) pickVoice.pause(); }
     const b = $("sound");
-    b.textContent = soundOn ? "Sound on" : "Sound off";
+    b.textContent = soundOn ? T("Sound on") : T("Sound off");
     b.setAttribute("aria-pressed", String(soundOn));
   }
   for (const type of ["pointerdown", "keydown"])
@@ -1188,11 +1553,7 @@
     else video.removeAttribute("src");
     showCaption("Q");
     video.pause();
-    if (!modelMode) $("clipNote").textContent = "Each cast plays the official preview of that ability. Click an ability to watch it again.";
-  }
-  function clipUrl(slot) {
-    const k = String(champ.key).padStart(4, "0");
-    return `${index.clip_cdn}/${k}/ability_${k}_${slot}1.webm`;
+    if (!modelMode) $("clipNote").textContent = T("Each cast plays the official preview of that ability. Click an ability to watch it again.");
   }
   function showCaption(slot) {
     $("clipChip").textContent = slot;
@@ -1214,15 +1575,13 @@
     };
     if (index.local_clips) {
       const seg = champ.clip && champ.clip[slot];
-      if (!seg) { video.pause(); showFallback("There's no preview clip for this ability."); return; }
+      if (!seg) { video.pause(); showFallback(T("There's no preview clip for this ability.")); return; }
       fb.hidden = true;
       clipState.start = seg[0]; clipState.end = seg[0] + seg[1] - 0.05;
       video.currentTime = seg[0];
     } else {
-      fb.hidden = true;
-      clipState.start = 0; clipState.end = Infinity;
-      video.src = clipUrl(slot);
-      video.onerror = () => showFallback("The preview clip couldn't be loaded.");
+      video.pause(); showFallback(T("There's no preview clip for this ability."));
+      return;
     }
     video.playbackRate = 1;
     const p = video.play();
@@ -1237,53 +1596,84 @@
     if (!busy || (slot === "R" && clipState.slot !== "R")) playClip(slot);
   }
 
+  let abButtons = [];  // the ability buttons' cooldown canvases, so a frame doesn't query the page
   function renderAbilities() {
-    const box = $("abilities"); box.textContent = "";
-    for (const slot of "QWER") {
+    const box = $("abilities"); box.textContent = ""; abButtons = [];
+    // The passive first, then Q, W, E and R with their cooldowns.
+    for (const slot of "PQWER") {
       const b = document.createElement("button");
       b.type = "button"; b.className = "ab"; b.dataset.slot = slot;
-      b.title = `${slot}: ${(champ.spells || {})[slot] || ""}. Click to see it.`;
+      const name = (champ.spells || {})[slot] || (slot === "P" ? T("Passive") : "");
+      b.title = slot === "P" ? name : T("{slot}: {name}. Click to see it.", { slot, name });
       const c = document.createElement("canvas"); c.width = c.height = 128;
       paintIcon(c, champ.row, SLOT_COL[slot], 128);
-      const cd = document.createElement("canvas"); cd.width = cd.height = 128; cd.className = "cd";
       const k = document.createElement("span"); k.className = "key"; k.textContent = slot; k.style.color = SLOT_COLORS[slot];
-      b.append(c, cd, k);
-      b.addEventListener("click", () => showAbility(slot));
-      box.append(b);
+      b.append(c);
+      if (slot !== "P") {
+        const cd = document.createElement("canvas"); cd.width = cd.height = 128; cd.className = "cd";
+        b.append(cd);
+        abButtons.push({ slot, cd, g: cd.getContext("2d") });
+        b.addEventListener("click", () => showAbility(slot));
+      } else b.disabled = true;
+      b.append(k);
+      // The ability's cooldown with this build's ability haste, under its icon.
+      const w = document.createElement("div"); w.className = "ab-wrap";
+      const t = document.createElement("span"); t.className = "ab-cd"; t.dataset.slot = slot;
+      w.append(b, t);
+      box.append(w);
+    }
+    showCooldownTimes();
+  }
+  // Each ability's cooldown in this fight's build (older replays only have the base cooldown).
+  function cooldownOf(slot) {
+    const a = fight && fight.geo[slot];
+    return a ? (a.build_cooldown !== undefined ? a.build_cooldown : a.cooldown) : null;
+  }
+  function showCooldownTimes() {
+    for (const el of document.querySelectorAll("#abilities .ab-cd")) {
+      const cd = cooldownOf(el.dataset.slot);
+      el.textContent = cd ? T("{n} s", { n: cd < 10 ? cd.toFixed(1) : Math.round(cd) }) : "";
     }
   }
   function drawCooldowns(time) {
-    for (const b of document.querySelectorAll(".ab")) {
-      const cd = b.querySelector(".cd"), g = cd.getContext("2d");
-      let last = null;
-      for (const c of fight.casts) if (c.s === b.dataset.slot && c.t <= time) last = c;
-      const never = !fight.casts.some((c) => c.s === b.dataset.slot);
-      const p = never ? -1 : !last || time >= last.next ? 2 : (time - last.t) / Math.max(0.01, last.next - last.t);
-      const key = fight === cd.fight ? Math.round(p * 200) : NaN;  // skip a redraw that wouldn't change it
+    for (const { slot, cd, g } of abButtons) {
+      let last = null, never = true;
+      for (const c of fight.casts) { if (c.s !== slot) continue; never = false; if (c.t > time) break; last = c; }
+      // Ready again after its cooldown, or sooner when the next cast came first (a reset).
+      const len = cooldownOf(slot);
+      const ready = last ? Math.min(last.next, len ? last.land + len : last.next) : 0;
+      const p = never ? -1 : !last || time >= ready ? 2 : (time - last.t) / Math.max(0.01, ready - last.t);
+      const left = p >= 0 && p <= 1 ? ready - time : 0;
+      const key = fight === cd.fight ? Math.round(p * 200) * 1000 + Math.ceil(left * 10) : NaN;  // skip a redraw that wouldn't change it
       if (key === cd.drawn) continue;
-      cd.drawn = Math.round(p * 200); cd.fight = fight;
+      cd.drawn = key; cd.fight = fight;
       g.clearRect(0, 0, 128, 128);
       if (never) { g.fillStyle = "rgba(10,16,23,.7)"; g.fillRect(0, 0, 128, 128); continue; }
       if (p > 1) continue;
       g.fillStyle = "rgba(10,16,23,.65)";
       g.beginPath(); g.moveTo(64, 64); g.arc(64, 64, 100, -Math.PI / 2 + p * Math.PI * 2, Math.PI * 1.5); g.closePath(); g.fill();
+      // Seconds until it's back, as in the game.
+      g.font = "700 46px system-ui, sans-serif"; g.textAlign = "center"; g.textBaseline = "middle";
+      g.lineWidth = 6; g.strokeStyle = "rgba(0,0,0,.8)"; g.fillStyle = "#fff";
+      const txt = left < 1 ? left.toFixed(1) : String(Math.ceil(left));
+      g.strokeText(txt, 64, 66); g.fillText(txt, 64, 66);
     }
   }
 
   // ---------- side panels ----------
   function renderBuild() {
     const b = $("build"); b.textContent = "";
-    for (const it of trace.build.items) { const s = document.createElement("span"); s.textContent = it.name; b.append(s); }
-    for (const a of trace.build.augments) { const s = document.createElement("span"); s.className = "aug " + (a.rarity || ""); s.textContent = a.name; b.append(s); }
+    for (const it of trace.build.items) { const s = document.createElement("span"); s.textContent = NAME("items", it.id, it.name); b.append(s); }
+    for (const a of trace.build.augments) { const s = document.createElement("span"); s.className = "aug " + (a.rarity || ""); s.textContent = NAME("augments", a.id, a.name); b.append(s); }
     const sm = trace.summary, f = trace.fight;
     const has = mode !== "damage" && sm[MODES[mode].key] !== undefined;
     const st = [
-      ...(has ? [[MODES[mode].label + " / fight", modeValue(mode, sm[MODES[mode].key])]] : []),
-      ["Average DPS", Math.round(sm.mean_dps).toLocaleString()],
-      ["Time alive", (sm.time_alive || 0).toFixed(1) + " s"],
-      ["Kills / min", sm.kills_per_minute.toFixed(1)],
-      ["This fight", f.duration.toFixed(1) + " s"],
-      [f.team.length === 1 ? "Enemy" : "Enemies", f.team.join(", ")],
+      ...(has ? [[T("{mode} / fight", { mode: MODES[mode].label }), modeValue(mode, sm[MODES[mode].key])]] : []),
+      [T("Average DPS"), Math.round(sm.mean_dps).toLocaleString()],
+      [T("Time alive"), T("{n} s", { n: (sm.time_alive || 0).toFixed(1) })],
+      [T("Kills / min"), sm.kills_per_minute.toFixed(1)],
+      [T("This fight"), T("{n} s", { n: f.duration.toFixed(1) })],
+      [f.team.length === 1 ? T("Enemy") : T("Enemies"), f.team.map((id) => NAME("champions", id, (byId.get(id.toLowerCase()) || { name: id }).name)).join(", ")],
     ];
     const box = $("stats"); box.textContent = "";
     for (const [k, v] of st) {
@@ -1300,7 +1690,7 @@
       box.replaceChildren(); box.drawn = null;
       trace.sources.forEach((name, i) => {
         const row = document.createElement("div"); row.className = "bar";
-        const label = document.createElement("span"); label.textContent = name;
+        const label = document.createElement("span"); label.textContent = T(name);
         const fill = document.createElement("div"); fill.className = "fill";
         const bar = document.createElement("i"); bar.style.background = SOURCE_COLORS[i]; fill.append(bar);
         const v = document.createElement("b");
@@ -1317,6 +1707,11 @@
     });
   }
 
+  // When embedded in the site (same origin), let it buzz and chime when you come out of the fight alive.
+  function haptic(kind) {
+    try { if (window.parent !== window) window.parent.postMessage({ type: "deeparam-haptic", kind }, location.origin); } catch {}
+  }
+
   // ---------- main loop ----------
   function frame(now) {
     // Low quality: about 30 frames a second (skip a screen refresh when the last frame was recent).
@@ -1329,23 +1724,21 @@
       const before = t;
       if (playing && !dragging) {
         t = Math.min(fight.duration, t + dt * speed);
-        if (t >= fight.duration) { playing = false; $("play").textContent = "Play"; }
+        if (t >= fight.duration) { playing = false; $("play").textContent = T("Play"); if (before < fight.duration && !fight.death) haptic("win"); }
         // Clips for casts that started during this frame.
         let latest = null;
         for (const c of fight.casts) if (c.t > before && c.t <= t) latest = !latest || c.s === "R" ? c : latest;
         if (latest) maybeClip(latest.s);
-        if (modelMode) {
-          for (const c of fight.casts) if (c.t > before && c.t <= t) playSound(champ, c.s, 1);
-          for (const [uid, list] of fight.enemyCasts)
-            for (const c of list) if (c.t > before && c.t <= t) {
-              const sp = fight.spawns.get(uid);
-              playSound(sp && byId.get(String(sp.x).toLowerCase()), c.s, 0.45);
-            }
-          if (fight.death && fight.death.t > before && fight.death.t <= t) playSound(champ, "D", 1);
-          for (const k of fight.kills) if (k.t > before && k.t <= t) {
-            const sp = fight.spawns.get(k.u);
-            playSound(sp && byId.get(String(sp.x).toLowerCase()), "D", 0.6);
+        for (const c of fight.casts) if (c.t > before && c.t <= t) playSound(champ, c.s, 1);
+        for (const [uid, list] of fight.enemyCasts)
+          for (const c of list) if (c.t > before && c.t <= t) {
+            const sp = fight.spawns.get(uid);
+            playSound(sp && byId.get(String(sp.x).toLowerCase()), c.s, 0.45);
           }
+        if (fight.death && fight.death.t > before && fight.death.t <= t) playSound(champ, "D", 1);
+        for (const k of fight.kills) if (k.t > before && k.t <= t) {
+          const sp = fight.spawns.get(k.u);
+          playSound(sp && byId.get(String(sp.x).toLowerCase()), "D", 0.6);
         }
       }
       const s = drawArena(t, reduceMotion ? 0 : dt);
@@ -1368,10 +1761,10 @@
     if (!fight) return;
     if (t >= fight.duration) { t = 0; shown.clear(); }
     playing = !playing;
-    $("play").textContent = playing ? "Pause" : "Play";
+    $("play").textContent = playing ? T("Pause") : T("Play");
     if (!playing) video.pause();
   });
-  $("restart").addEventListener("click", () => { t = 0; shown.clear(); playing = true; $("play").textContent = "Pause"; });
+  $("restart").addEventListener("click", () => { t = 0; shown.clear(); playing = true; $("play").textContent = T("Pause"); });
   $("speed").addEventListener("change", (e) => { speed = parseFloat(e.target.value); });
   $("sound").addEventListener("click", () => { soundOn = !soundOn; saveSound(); syncSound(); });
   syncSound();  // the button shows the saved setting from the start

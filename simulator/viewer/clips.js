@@ -6,7 +6,8 @@
 // champion or skin prefix.
 //
 // Returns {clips, extra, after}:
-//   clips: {idle, run, attack, crit, Q, W, E, R, stunned, death, dance}, one name each (or null)
+//   clips: {idle, run, attack, crit, Q, W, E, R, stunned, death, dance, respawn, laugh, taunt, joke,
+//          knockup, haste}, one name each (or null)
 //   extra: {idle: [...], attack: [...], Q: [...], ...}, other versions of the same move,
 //          played in turn (idle variations, Yasuo's three Q swings, Lux's other idles)
 //   after: {Q: name, ...}, the clip that finishes an ability back into idle (Spell4_toIdle)
@@ -36,6 +37,14 @@ export function pickClips(names) {
     stunned: find("stunned", "stun", /stun/),
     death: find("death", /^death/, /(^|_)death/),
     dance: find("dance_loop", "dance_loop_base", "dance_base", "dance", /(^|_)dance(_loop)?(_base)?$/, /dance/),
+    // Moves the fight has no ability for: a new enemy arriving, a kill celebrated, being knocked
+    // into the air, running at a burst of speed.
+    respawn: find("respawn", "respawn_base", /(^|_)respawn(_base)?$/),
+    laugh: find("laugh", "laugh_base", /(^|_)laugh(_base|_loop)?$/, /laugh/),
+    taunt: find("taunt", "taunt_base", "taunt_loop", /(^|_)taunt(_base|_loop)?$/, /taunt(?!_into)/),
+    joke: find("joke", "joke_base", /(^|_)joke(_base|_loop)?$/, /joke/),
+    knockup: find("knockup", "knock_up", /(^|_)knock_?up(_base)?$/, /knock_?up/),
+    haste: find("run_haste", "run_haste_base", /(^|_)run_?haste(_base)?$/),
   };
 
   // Other versions of the same move, in name order: one idle and one attack variation, up to

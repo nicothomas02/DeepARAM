@@ -3,10 +3,10 @@ import augmentNames from "@/data/augment-names.json";
 import championNames from "@/data/champion-names.json";
 import type { SearchItem } from "@/components/SearchPalette";
 import { augmentHref } from "./augments";
+import { augmentTiers } from "./augment-tiers";
 import { itemPages } from "./item-pages";
 import { readRepoCsv, readRepoJson } from "./repo-data";
 import { navPages } from "./tabs";
-import { BETA } from "./beta";
 import { champStats, type PatchRow } from "./tiers";
 
 // Small summaries of each section's data, read from the repo at build time.
@@ -29,12 +29,16 @@ export function topChampions(n = 6): Ranked[] {
     .slice(0, n);
 }
 
-export function topAugments(n = 6): Ranked[] {
-  const rows = readRepoCsv("data/cn/augments.csv") ?? [];
-  return rows
-    .filter((r) => r.tier && AUGS[r.augment_id])
-    .map((r) => ({ id: r.augment_id, name: AUGS[r.augment_id], tier: r.tier, winRate: Number(r.win_rate), pickRate: Number(r.pick_rate) }))
-    .sort((a, b) => b.winRate - a.winRate)
+/** The best augments by DeepScore, the same score and order as the Tier List's Augments tab. */
+export function topAugments(n = 6) {
+  return [...augmentTiers()].sort((a, b) => b.deepScore - a.deepScore).slice(0, n);
+}
+
+/** The best legendary items by DeepScore (item scores compare within a tier, so legendaries are ranked together). */
+export function topItems(n = 6) {
+  return itemPages()
+    .filter((i) => i.tier === "legendary" && i.deepScore !== null)
+    .sort((a, b) => (b.deepScore ?? 0) - (a.deepScore ?? 0))
     .slice(0, n);
 }
 
@@ -50,11 +54,13 @@ export const livePatch = () => readRepoCsv("data/cn/history/patches.csv")?.at(-1
 type Builds = { builds: { champion: string; title: string; augments: string[]; why: string }[] };
 export const kitchenBuild = () => readRepoJson<Builds>("data/cook-builds/builds.json")?.builds[0] ?? null;
 
-type Best = { champions: { champion: string; summary: { mean_dps: number } }[] };
+type DummyDps = { champions: { champion: string; dps: number }[] };
+/** Damage per second of each champion's simulated best build on a training dummy with the average enemy's
+ *  max Health and resists, held at 50% Health (so missing-Health damage counts the same for everyone). */
 export function topDps(n = 5) {
-  const best = readRepoJson<Best>("simulator/viewer/replay-data/best-builds.json");
-  return (best?.champions ?? [])
-    .map((c) => ({ id: c.champion, name: champName(c.champion), dps: c.summary.mean_dps }))
+  const dummy = readRepoJson<DummyDps>("simulator/viewer/replay-data/dummy-dps.json");
+  return (dummy?.champions ?? [])
+    .map((c) => ({ id: c.champion, name: champName(c.champion), dps: c.dps }))
     .sort((a, b) => b.dps - a.dps)
     .slice(0, n);
 }
@@ -68,7 +74,7 @@ export function counts() {
 
 export const searchPages = (): SearchItem[] => [
   { group: "Pages", name: "Home", hint: "Page", href: "/" },
-  ...[...navPages(), { href: "/stats", label: "My Stats" }].map((t) => ({ group: "Pages", name: t.label, hint: BETA.has(t.href) ? "Page · Beta" : "Page", href: t.href })),
+  ...[...navPages(), { href: "/account#my-stats", label: "My Stats" }].map((t) => ({ group: "Pages", name: t.label, hint: "Page", href: t.href })),
 ];
 
 export function searchItems(): SearchItem[] {
@@ -80,6 +86,7 @@ export function searchItems(): SearchItem[] {
     hint: pct(Number(r.win_rate)),
     href: `/champions/${r.name}`,
     icon: `/icons/champions/${r.name}.webp`,
+    ref: ["champions", r.name] as SearchItem["ref"],
   }));
   const augs = (readRepoCsv("data/cn/augments.csv") ?? [])
     .filter((r) => AUGS[r.augment_id])
@@ -89,8 +96,9 @@ export function searchItems(): SearchItem[] {
       hint: r.tier || "Augment",
       href: augmentHref(r.augment_id) ?? `/tier-list?tab=augments&q=${encodeURIComponent(AUGS[r.augment_id])}`,
       icon: `/icons/augments/${r.augment_id}.webp`,
+      ref: ["augments", r.augment_id] as SearchItem["ref"],
     }));
-  const builtItems = itemPages().map((i) => ({ group: "Items", name: i.name, hint: i.cost ? `${i.cost} gold` : "Item", href: `/items/${i.slug}`, icon: i.icon }));
+  const builtItems = itemPages().map((i) => ({ group: "Items", name: i.name, hint: i.cost ? `${i.cost} gold` : "Item", href: `/items/${i.slug}`, icon: i.icon, ref: ["items", String(i.id)] as SearchItem["ref"] }));
   return [
     ...pages,
     ...champs.sort((a, b) => a.name.localeCompare(b.name)),
@@ -99,9 +107,9 @@ export function searchItems(): SearchItem[] {
   ];
 }
 
-export type HomeChamp = { id: string; name: string; tier: string; winRate: number; pickRate: number };
+export type HomeChamp = { id: string; name: string; tier: string; winRate: number; pickRate: number; deepScore: number };
 
-/** Live-patch tiers for every champion (same Bayesian tiers as the Tier List's default view). */
+/** Live-patch tiers for every champion (same DeepScore tiers as the Tier List's default view). */
 export function liveTiers(): HomeChamp[] {
   const patch = livePatch();
   const num = (v?: string) => (v === undefined || v === "" ? null : Number(v));
@@ -120,7 +128,7 @@ export function liveTiers(): HomeChamp[] {
       augs: r.augment_ids ?? "",
     }));
   if (!patch || !rows.length) return [];
-  return champStats(rows, new Set([patch])).map((c) => ({ id: c.name, name: champName(c.name), tier: c.tier, winRate: c.win_rate, pickRate: c.pick_rate }));
+  return champStats(rows, new Set([patch])).map((c) => ({ id: c.name, name: champName(c.name), tier: c.tier, winRate: c.win_rate, pickRate: c.pick_rate, deepScore: c.deepScore }));
 }
 
 export const kitchenBuilds = () => readRepoJson<Builds>("data/cook-builds/builds.json")?.builds ?? [];
@@ -128,6 +136,7 @@ export const kitchenBuilds = () => readRepoJson<Builds>("data/cook-builds/builds
 // The Lab's Chef's Special: one unusual build a day (data/cook-builds/chefs-special.json, null on days without one).
 type RawSpecial = {
   title: string;
+  chef?: string;
   champion: string;
   champion_name: string;
   tier?: string;
@@ -145,6 +154,7 @@ export function chefsSpecial() {
   const pages = new Map(itemPages().map((i) => [i.name, i]));
   return {
     title: s.title,
+    date: /^\d{4}-\d{2}-\d{2}$/.test(s.chef ?? "") ? s.chef! : null,
     champion: s.champion,
     name: s.champion_name || champName(s.champion),
     tier: s.tier ?? "",
@@ -154,6 +164,6 @@ export function chefsSpecial() {
     play: s.play ?? "",
     items: (s.items ?? []).map((name) => ({ name, icon: pages.get(name)?.icon, href: pages.has(name) ? `/items/${pages.get(name)!.slug}` : null })),
     augments: (s.augments ?? []).map((a) => ({ name: a.name, rarity: a.rarity.toLowerCase(), core: a.core, icon: a.icon })),
-    href: s.href || "/lab#chefs-special",
+    href: s.href || "/kitchen#chefs-special",
   };
 }

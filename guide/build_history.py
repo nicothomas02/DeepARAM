@@ -11,7 +11,7 @@ CommunityDragon keeps every past patch (raw.communitydragon.org/16.10/...). For 
 and compares each patch with the one before. Each patch's extract is cached in
 ~/.cache/deeparam-guide/history/, so later runs only download new patches.
 """
-import json, os, re, time, urllib.error, urllib.request
+import http.client, json, os, re, time, urllib.error, urllib.request
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 BASE = "https://raw.communitydragon.org"
@@ -32,7 +32,8 @@ def get(url, tries=4):
                 return None
             if attempt == tries - 1:
                 raise
-        except (urllib.error.URLError, ConnectionError):
+        except (urllib.error.URLError, ConnectionError, http.client.HTTPException, json.JSONDecodeError):
+            # HTTPException covers a download cut off midway (IncompleteRead).
             if attempt == tries - 1:
                 raise
         time.sleep(2 ** attempt)
@@ -47,7 +48,8 @@ def exists(url):
         except urllib.error.HTTPError as e:
             if e.code in (403, 404):
                 return False
-        except (urllib.error.URLError, ConnectionError):
+        except (urllib.error.URLError, ConnectionError, http.client.HTTPException, json.JSONDecodeError):
+            # HTTPException covers a download cut off midway (IncompleteRead).
             pass
         time.sleep(2 ** attempt)
     return True

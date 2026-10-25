@@ -42,7 +42,7 @@ export default function HoverPreview() {
       const a = (e.target as Element).closest?.<HTMLAnchorElement>(SELECTOR);
       if (a === current.current) return;
       hide();
-      if (!a || a.closest(".palette, .site-header, .cmp-tray, [data-no-preview]")) return;
+      if (!a || a.closest(".palette, .site-header, [data-no-preview]")) return;
       const path = new URL(a.href, location.href).pathname;
       if (path === location.pathname) return;
       current.current = a;

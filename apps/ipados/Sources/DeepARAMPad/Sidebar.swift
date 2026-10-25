@@ -47,7 +47,7 @@ struct Sidebar: View {
             if let first = search.search(model.searchText, limit: 1).first { model.open(first.url) }
         }
         .safeAreaInset(edge: .bottom) { footer }
-        .sheet(isPresented: $showAbout) { AboutView() }
+        .sheet(isPresented: $showAbout) { AboutView(webViews: model.webViews) }
     }
 
     @ViewBuilder private var results: some View {

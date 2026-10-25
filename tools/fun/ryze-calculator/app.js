@@ -1,8 +1,12 @@
-(function () {
+LabI18n.ready(function () {
   "use strict";
   const data = window.RYZE_DATA;
+  const T = LabI18n.t;
+  // Official item and augment names in the visitor's language; their long tooltips stay English where untranslated.
+  for (const it of data.items) it.name = LabI18n.name("items", it.id, it.name);
+  for (const a of data.augments) a.name = LabI18n.name("augments", a.id, a.name);
   const $ = (id) => document.getElementById(id);
-  const fmt = (n, d = 0) => (isFinite(n) ? n.toLocaleString("en-US", { maximumFractionDigits: d }) : "∞");
+  const fmt = (n, d = 0) => (isFinite(n) ? LabI18n.num(n, { maximumFractionDigits: d }) : "∞");
   const pct = (n, d = 0) => (isFinite(n) ? `${fmt(n * 100, d)}%` : "∞");
 
   const MAX_ITEMS = 6, MAX_AUGS = 4;
@@ -64,8 +68,8 @@
       for (let i = 0; i < max; i++) {
         const t = list[i] !== undefined ? toThing(list[i]) : null;
         out.push(t
-          ? el("button", { class: "slot filled", title: `Remove ${t.name}`, "aria-label": `Remove ${t.name}`, on: () => remove(i) }, el("img", { src: t.icon, alt: "" }))
-          : el("button", { class: "slot", disabled: true, "aria-label": "Empty slot" }));
+          ? el("button", { class: "slot filled", title: T("Remove {name}", { name: t.name }), "aria-label": T("Remove {name}", { name: t.name }), on: () => remove(i) }, el("img", { src: t.icon, alt: "" }))
+          : el("button", { class: "slot", disabled: true, "aria-label": T("Empty slot") }));
       }
       return out;
     };
@@ -74,7 +78,7 @@
     $("aug-slots").classList.add("augs");
 
     $("item-picker").replaceChildren(...data.items.map((it) => el("button", {
-      class: build.items.includes(it.id) ? "pick on" : "pick", title: it.text, disabled: !canAddItem(it),
+      class: build.items.includes(it.id) ? "pick on" : "pick", title: T(it.text), disabled: !canAddItem(it),
       on: () => { if (canAddItem(it)) { build.items.push(it.id); update(); } },
     }, el("img", { src: it.icon, alt: "", loading: "lazy" }), el("span", {}, it.name, el("span", { class: "tier" }, statLine(it))))));
 
@@ -82,19 +86,19 @@
     $("aug-picker").replaceChildren(...data.augments.map((a) => {
       const on = build.augments.includes(a.key);
       return el("button", {
-        class: on ? "pick on" : "pick", title: a.text, "aria-pressed": on ? "true" : "false",
+        class: on ? "pick on" : "pick", title: T(a.text), "aria-pressed": on ? "true" : "false",
         disabled: !on && build.augments.length >= MAX_AUGS,
         on: () => (on ? removeAug(a.key) : addAug(a.key)),
-      }, el("img", { src: a.icon, alt: "", loading: "lazy" }), el("span", {}, a.name, el("span", { class: "tier" }, a.tier)));
+      }, el("img", { src: a.icon, alt: "", loading: "lazy" }), el("span", {}, a.name, el("span", { class: "tier" }, T(a.tier))));
     }));
   }
 
   function statLine(it) {
     const parts = [];
-    if (it.ap) parts.push(`${it.ap} AP`);
-    if (it.mana) parts.push(`${it.mana} Mana`);
-    if (it.hp) parts.push(`${it.hp} HP`);
-    return parts.join(" · ") || "Component";
+    if (it.ap) parts.push(T("{n} AP", { n: it.ap }));
+    if (it.mana) parts.push(T("{n} Mana", { n: it.mana }));
+    if (it.hp) parts.push(T("{n} HP", { n: it.hp }));
+    return parts.join(" · ") || T("Component");
   }
 
   function addAug(key) {
@@ -125,12 +129,12 @@
         build.opts[o.key] = o.type === "check" ? input.checked : Math.max(0, Math.min(o.max ?? 1e6, +input.value || 0));
         update(false);
       });
-      return el("label", {}, o.label, input);
+      return el("label", {}, T(o.label), input);
     });
     for (const x of EXTRAS) {
       const input = el("input", { type: "number", min: 0, step: 10, value: build.extra[x.key] || 0, inputmode: "numeric" });
       input.addEventListener("input", () => { build.extra[x.key] = Math.max(0, +input.value || 0); update(false); });
-      rows.push(el("label", {}, x.label, input));
+      rows.push(el("label", {}, T(x.label), input));
     }
     $("options").replaceChildren(...rows);
   }
@@ -146,10 +150,10 @@
     bar.classList.toggle("full", r.infinite);
     const need = r.manaForInfinite - r.currentManaPool;
     $("gain-note").textContent = r.infinite
-      ? "Infinite: every loop gives back more AP than it started with."
+      ? T("Infinite: every loop gives back more AP than it started with.")
       : r.loopGain === 0
-        ? "No loop yet. Seraph's Embrace, or Riftmaker with Mind to Matter or Fimbulwinter, turns Mana back into AP."
-        : `Each loop gives back ${pct(r.loopGain, 1)} of the AP that went in. About ${fmt(need)} more base Mana would make it infinite.`;
+        ? T("No loop yet. Seraph's Embrace, or Riftmaker with Mind to Matter or Fimbulwinter, turns Mana back into AP.")
+        : T("Each loop gives back {pct} of the AP that went in. About {mana} more base Mana would make it infinite.", { pct: pct(r.loopGain, 1), mana: fmt(need) });
 
     drawChart(r);
 
@@ -160,21 +164,21 @@
     ];
     if (r.overflow) stats.push(["Overflow bonus", pct(r.overflow)]);
     if (r.actualizer) stats.push(["Actualizer bonus", pct(r.actualizer)]);
-    $("stats").replaceChildren(...stats.map(([k, v]) => el("div", {}, el("dt", {}, k), el("dd", {}, v))));
+    $("stats").replaceChildren(...stats.map(([k, v]) => el("div", {}, el("dt", {}, T(k)), el("dd", {}, v))));
 
     const S = data.champion.spells;
     $("spells").replaceChildren(
-      el("tr", {}, el("th", {}, "Ability"), el("th", {}, "Scaling"), el("th", {}, "Damage")),
+      el("tr", {}, el("th", {}, T("Ability")), el("th", {}, T("Scaling")), el("th", {}, T("Damage"))),
       ...[["Q", "Overload"], ["W", "Rune Prison"], ["E", "Spell Flux"]].map(([k, n]) => el("tr", {},
-        el("td", {}, `${k} · ${n}`),
-        el("td", { class: "muted" }, `${S[k].base[4]} + ${fmt(S[k].apRatio * 100)}% AP + ${fmt(S[k].bonusManaRatio * 100)}% bonus Mana`),
+        el("td", {}, `${k} · ${T(n)}`),
+        el("td", { class: "muted" }, T("{base} + {ap}% AP + {mana}% bonus Mana", { base: S[k].base[4], ap: fmt(S[k].apRatio * 100), mana: fmt(S[k].bonusManaRatio * 100) })),
         el("td", {}, fmt(r.spells[k])))));
 
     const rows = r.sources.map((s) => el("tr", {}, el("td", {}, s.label),
       el("td", {}, s.kind === "amp" ? `+${pct(s.value)} AP` : `+${fmt(s.value)} AP`)));
-    if (r.awe) rows.push(el("tr", {}, el("td", {}, `Awe (${pct(r.awe)} of bonus Mana), after multipliers`), el("td", {}, `+${fmt(r.aweAP)} AP`)));
-    if (r.riftRatio && r.bonusHP) rows.push(el("tr", {}, el("td", {}, `Riftmaker (${pct(r.riftRatio)} of bonus Health), after multipliers`), el("td", {}, `+${fmt(r.riftAP)} AP`)));
-    $("breakdown").replaceChildren(el("tr", {}, el("th", {}, "Source"), el("th", {}, "AP")), ...rows);
+    if (r.awe) rows.push(el("tr", {}, el("td", {}, T("Awe ({pct} of bonus Mana), after multipliers", { pct: pct(r.awe) })), el("td", {}, `+${fmt(r.aweAP)} AP`)));
+    if (r.riftRatio && r.bonusHP) rows.push(el("tr", {}, el("td", {}, T("{name} ({pct} of bonus Health), after multipliers", { name: LabI18n.name("items", 4633, "Riftmaker"), pct: pct(r.riftRatio) })), el("td", {}, `+${fmt(r.riftAP)} AP`)));
+    $("breakdown").replaceChildren(el("tr", {}, el("th", {}, T("Source")), el("th", {}, "AP")), ...rows);
   }
 
   function drawChart(r) {
@@ -192,7 +196,7 @@
       mk("path", { class: "area", d: `${line}L300,80L0,80Z` }),
       mk("path", { class: "line", d: line }),
     );
-    svg.setAttribute("aria-label", `AP after each of ${pts.length - 1} loops, settling at ${fmt(r.finalAP)}`);
+    svg.setAttribute("aria-label", T("AP after each of {n} loops, settling at {ap}", { n: pts.length - 1, ap: fmt(r.finalAP) }));
   }
 
   function update(rerenderControls = true) {
@@ -227,14 +231,14 @@
   }
 
   $("ryze-icon").src = data.champion.icon;
-  $("patch").textContent = `Patch ${data.patch.split(".").slice(0, 2).join(".")}.`;
+  $("patch").textContent = T("Patch {patch}.", { patch: data.patch.split(".").slice(0, 2).join(".") });
   $("level").addEventListener("input", (e) => { build.level = +e.target.value; update(false); });
   $("preset").addEventListener("click", () => { build = structuredClone(PRESET); update(); });
   $("reset").addEventListener("click", () => { build = { level: 18, items: [], augments: [], opts: {}, extra: {} }; update(); });
   $("share").addEventListener("click", async (e) => {
-    try { await navigator.clipboard.writeText(location.href); e.target.textContent = "Link copied"; }
-    catch { e.target.textContent = "Copy the address bar"; }
-    setTimeout(() => (e.target.textContent = "Copy link"), 1500);
+    try { await navigator.clipboard.writeText(location.href); e.target.textContent = T("Link copied"); }
+    catch { e.target.textContent = T("Copy the address bar"); }
+    setTimeout(() => (e.target.textContent = T("Copy link")), 1500);
   });
   update();
-})();
+});

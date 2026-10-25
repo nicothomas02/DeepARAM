@@ -1,152 +1,333 @@
 import Link from "next/link";
+import RowLink from "@/components/RowLink";
 import { text } from "@/lib/content";
-import { chefsSpecial, statsDate, counts, kitchenBuilds, livePatch, liveTiers, topAugments } from "@/lib/highlights";
-import { whatToBuildData } from "@/lib/what-to-build";
-import { ChampionJump, Favorites, KitchenPick, TierSnapshot } from "@/components/HomeWidgets";
-import { BETA } from "@/lib/beta";
-import HeroParticles from "@/components/HeroParticles";
-import { augmentHref } from "@/lib/augments";
-import { movers } from "@/lib/champions";
-import { KITCHEN, navPages } from "@/lib/tabs";
-import RecentStrip from "@/components/RecentStrip";
+import { chefsSpecial, statsDate, counts, kitchenBuilds, livePatch, liveTiers, topAugments, topDps, topItems } from "@/lib/highlights";
+import { duoRows } from "@/lib/duos";
+import { recap, recapPatches } from "@/lib/patches";
+import { readRepoJson } from "@/lib/repo-data";
+import type { PatchSchedule } from "@/lib/patch-schedule";
+import PatchCountdown from "@/components/PatchCountdown";
+import { championSplash } from "@/lib/champions";
+import { FunLists, KitchenPick, TierSnapshot } from "@/components/HomeWidgets";
+import { funLists, powerCurveLists, profileValue, typicalGame } from "@/lib/estimates";
+import { liveWithChange } from "@/lib/champions";
+import championIds from "@/data/champion-ids.json";
+import { KITCHEN } from "@/lib/tabs";
+import championNames from "@/data/champion-names.json";
+
+const NAMES = championNames as Record<string, string>;
+const ALIAS = Object.fromEntries(Object.entries(championIds as Record<string, number>).map(([alias, id]) => [id, alias]));
+import RecentPlayed from "@/components/RecentPlayed";
+import { TourChip } from "@/components/FirstVisitTour";
+import { LocalDate, ModeName, Name, T } from "@/components/I18n";
+import { patchName } from "@/lib/patch-name";
+import { signedPts } from "@/components/champion/Ranked";
 
 // eslint-disable-next-line @next/next/no-img-element
 const Icon = ({ src }: { src: string }) => <img className="icon" src={src} alt="" width={24} height={24} loading="lazy" />;
 
 const pct = (v: number) => `${(v * 100).toFixed(1)}%`;
-const pts = (v: number) => `${v > 0 ? "+" : ""}${(v * 100).toFixed(1)}`;
 
-// The full builds with the best win rate among builds players commonly use (at least 3% of a
-// champion's games), one per champion.
-function winningBuilds(n = 6) {
-  const d = whatToBuildData();
-  return d.champions
-    .filter((c) => c.best && c.best.winRate !== null && c.best.pickRate >= 0.03)
-    .sort((a, b) => (b.best!.winRate ?? 0) - (a.best!.winRate ?? 0))
-    .slice(0, n)
-    .map((c) => ({
-      id: c.id,
-      name: c.name,
-      winRate: c.best!.winRate ?? 0,
-      items: c.best!.items.filter((i) => d.items[i]?.[1]).map((i) => ({ id: i, name: d.items[i][0], icon: d.items[i][1] })),
-    }));
+// The pairs that help each other most on the live patch: the Duos tab's order, by win rate boost (synergy
+// adjusted for how often a pair is played, lib/duos.ts).
+const topDuos = (n = 5) => [...duoRows()].sort((a, b) => b.delta - a.delta).slice(0, n);
+
+// The number each "Top 10 at" list ranks on, written for its row (FunLists adds the unit): live-patch
+// shares, estimated typical-game numbers, and simulated damage at level 8 → 18 for early and late game.
+function funValues(): Record<string, (id: number, alias: string) => string | null> {
+  const live = new Map(liveWithChange().live.map((c) => [c.name, c]));
+  const ranks = powerCurveLists().ranks;
+  const fmt = (v: number | null | undefined, f: (v: number) => string) => (typeof v === "number" ? f(v) : null);
+  const int = (v: number) => Math.round(v).toLocaleString("en-US");
+  const one = (v: number) => v.toFixed(1);
+  const curve = (id: number) => {
+    const r = ranks.get(id);
+    return r ? `${Math.round(r.early * 100)}% → ${Math.round(r.late * 100)}%` : null;
+  };
+  return {
+    damage: (_, a) => fmt(live.get(a)?.damage, pct),
+    tank: (_, a) => fmt(live.get(a)?.tank, pct),
+    teamplay: (_, a) => fmt(live.get(a)?.kp, pct),
+    healing: (id) => fmt(profileValue(id, "heal_per_min"), int),
+    crowd_control: (id) => fmt(profileValue(id, "cc_seconds"), one),
+    mitigated: (id) => fmt(profileValue(id, "mitigated_per_min"), int),
+    cs: (id) => fmt(profileValue(id, "cs"), one),
+    pentakills: (id) => fmt(profileValue(id, "pentakills"), (v) => (v > 0 ? Math.round(1 / v).toLocaleString("en-US") : "—")),
+    dead: (_, a) => fmt(live.get(a)?.dead, (v) => `${Math.floor(v / 60)}m ${String(Math.round(v % 60)).padStart(2, "0")}s`),
+    towers: (id) => fmt(profileValue(id, "turret_damage"), int),
+    early_game: curve,
+    late_game: curve,
+  };
 }
 
 export default function Home() {
   const tiers = liveTiers();
   const augs = topAugments();
-  const patch = livePatch();
+  const gear = topItems();
+  const patch = livePatch() && patchName(livePatch());
   const special = chefsSpecial();
   const builds = special ? [] : kitchenBuilds();
-  const wins = winningBuilds();
   const n = counts();
   const date = statsDate();
-  const moved = movers();
+  const duos = topDuos();
+  const dps = topDps();
+  const schedule = readRepoJson<PatchSchedule>("data/patch-schedule.json");
+  const last = recapPatches()[0];
+  const latest = last ? recap(last) : null;
+  const game = typicalGame();
+  const value = funValues();
+  // Lists the daily estimates don't carry are ranked here, from the same numbers (most time dead first).
+  const live = new Map(liveWithChange().live.map((c) => [c.name, c]));
+  const topBy = (key: (id: number) => number | null | undefined, low = false) =>
+    Object.values(championIds as Record<string, number>)
+      .flatMap((id) => {
+        const v = key(id);
+        return typeof v === "number" ? [{ id, v }] : [];
+      })
+      .sort((a, b) => (low ? a.v - b.v : b.v - a.v))
+      .slice(0, 10)
+      .map((x) => x.id);
+  const extra = {
+    mitigated: topBy((id) => profileValue(id, "mitigated_per_min")),
+    cs: topBy((id) => profileValue(id, "cs")),
+    pentakills: topBy((id) => profileValue(id, "pentakills")),
+    dead: topBy((id) => live.get(ALIAS[id])?.dead),
+  };
+  const fun = Object.fromEntries(
+    Object.entries({ ...funLists(), ...extra, early_game: powerCurveLists().early, late_game: powerCurveLists().late }).map(([k, ids]) => [
+      k,
+      ids.flatMap((id) => (ALIAS[id] ? [{ id: ALIAS[id], name: NAMES[ALIAS[id]] ?? ALIAS[id], value: value[k]?.(id, ALIAS[id]) ?? null }] : [])),
+    ]),
+  );
 
   return (
     <>
-      <section className="hero has-particles">
-        <HeroParticles />
+      <section className="hero has-art" style={{ "--art": "url(/assets/art/arambloom.webp)" } as React.CSSProperties}>
         <p className="eyebrow">
-          ARAM Mayhem{patch ? ` · Patch ${patch}` : ""}{date ? ` · Last updated ${date.toLocaleDateString("en-US", { month: "short", day: "numeric", timeZone: "UTC" })}` : ""}
+          <ModeName />
+          {patch && (
+            <>
+              {" · "}
+              <T v={{ patch }}>{"Patch {patch}"}</T>
+            </>
+          )}
+          {date && (
+            <>
+              {" · "}
+              <T>Last updated</T> <LocalDate iso={date.toISOString()} />
+            </>
+          )}
         </p>
-        <h1>{text("home.title", "Every Mayhem pick, measured.")}</h1>
-        <p className="lede">{text("home.lede")}</p>
-        {tiers.length > 0 && <ChampionJump champs={tiers} />}
-        <div className="stat-row">
-          <div>
-            <b>{n.champions}</b>
-            <span>champions tracked</span>
-          </div>
-          <div>
-            <b>{n.augments}</b>
-            <span>augments rated</span>
-          </div>
+        <h1>
+          <T>{text("home.title", "Every Mayhem pick, measured.")}</T>
+        </h1>
+        {/* Not .lede: Simple view hides those, and this line says what the site is. */}
+        <p className="hero-tagline">
+          <T>{text("home.lede")}</T>
+        </p>
+        <div className="hero-actions">
+          <Link className="btn" href="/tier-list">
+            <T>Tier List</T>
+          </Link>
+          <Link className="btn ghost" href="/simulator">
+            <T>Simulator</T>
+          </Link>
+          <TourChip />
         </div>
       </section>
 
       <div className="bento">
-        <RecentStrip />
-        <Favorites champs={tiers} />
+        {schedule && (
+          <section className="card span-all home-patch" data-accent="pbe">
+            <PatchCountdown schedule={schedule} asOf={new Date().toISOString()} dataPatch={livePatch()} />
+            {latest && (
+              <Link className="home-recap" href={`/patches/${patchName(latest.patch)}`}>
+                <b>
+                  <T v={{ patch: patchName(latest.patch) }}>{"Patch {patch} recap"}</T>
+                </b>
+                <span>
+                  {latest.hasAugmentHistory ? (
+                    <T ns="patches" v={{ n: latest.changed.length }}>
+                      {"{n} augments changed"}
+                    </T>
+                  ) : (
+                    <T ns="patches">Win rates only</T>
+                  )}
+                </span>
+                <span aria-hidden="true">→</span>
+              </Link>
+            )}
+          </section>
+        )}
+        <RecentPlayed />
         {tiers.length > 0 && (
           <section className="card span-7" data-accent="tier">
             <div className="card-head">
-              <h2>Tier List{patch ? ` · Patch ${patch}` : ""}</h2>
-              <Link href="/tier-list">All {n.champions} →</Link>
+              <h2>
+                <T>Tier List</T>
+                {patch && (
+                  <>
+                    {" · "}
+                    <T v={{ patch }}>{"Patch {patch}"}</T>
+                  </>
+                )}
+              </h2>
+              <Link href="/tier-list">
+                <T v={{ n: n.champions }}>{"All {n} →"}</T>
+              </Link>
             </div>
-            <TierSnapshot champs={tiers} />
+            <TierSnapshot champs={tiers.map((c) => ({ ...c, splash: championSplash(c.id) }))} />
           </section>
         )}
         {augs.length > 0 && (
           <section className="card span-5" data-accent="gold">
             <div className="card-head">
-              <h2>Best augments</h2>
-              <Link href="/augments">All →</Link>
+              <h2>
+                <T>Best augments</T>
+              </h2>
+              <Link href="/tier-list?tab=augments">
+                <T>All →</T>
+              </Link>
             </div>
             <div className="rank">
               {augs.map((a, i) => (
-                <Link key={a.id} href={augmentHref(a.id) ?? `/tier-list?tab=augments&q=${encodeURIComponent(a.name)}`} data-tilt="soft" data-rarity={a.tier?.toLowerCase()}>
+                <RowLink key={a.id} href={a.href} data-tilt="soft" data-rarity={a.rarity}>
                   <span className="rank-i">{i + 1}</span>
                   <Icon src={`/icons/augments/${a.id}.webp`} />
-                  <span className="rank-name">{a.name}</span>
-                  <span className={`chip tier-${a.tier?.toLowerCase()}`}>{a.tier}</span>
-                  <span className="rank-v">{pct(a.winRate)}</span>
-                </Link>
+                  <span className="rank-name">
+                    <Name kind="augments" id={a.id}>
+                      {a.name}
+                    </Name>
+                  </span>
+                  <span className={`chip tier-${a.tier?.toLowerCase()}`}>{a.tier && <T>{a.tier}</T>}</span>
+                  <span className="rank-v">{Math.round(a.deepScore)}</span>
+                </RowLink>
               ))}
             </div>
           </section>
         )}
-        {moved.prev && moved.up.length > 0 && (
-          <section className="card span-all" data-accent="tier">
+        {gear.length > 0 && (
+          <section className="card span-all" data-accent="gold">
             <div className="card-head">
-              <h2>Biggest movers since {moved.prev}</h2>
-              <Link href="/tier-list?sort=change.desc">All changes →</Link>
+              <h2>
+                <T>Best items</T>
+              </h2>
+              <Link href="/tier-list?tab=items">
+                <T>All →</T>
+              </Link>
             </div>
-            <div className="movers">
-              {[
-                ["Rising", moved.up],
-                ["Falling", moved.down],
-              ].map(([label, list]) => (
-                <div key={label as string} className="rank">
-                  <p className="movers-label">{label as string}</p>
-                  {(list as typeof moved.up).map((m) => (
-                    <Link key={m.id} href={`/champions/${m.id}`}>
-                      <Icon src={`/icons/champions/${m.id}.webp`} />
-                      <span className="rank-name">{m.name}</span>
-                      <span className={`chip tier-${m.tier.toLowerCase()}`}>{m.tier}</span>
-                      <span className="rank-v">{pct(m.winRate)}</span>
-                      <span className={`rank-v ${m.change > 0 ? "delta-up" : "delta-down"}`}>{pts(m.change)}</span>
-                    </Link>
-                  ))}
-                </div>
+            <div className="rank">
+              {gear.map((i, n) => (
+                <RowLink key={i.id} href={`/items/${i.slug}`} data-tilt="soft">
+                  <span className="rank-i">{n + 1}</span>
+                  {i.icon ? <Icon src={i.icon} /> : null}
+                  <span className="rank-name">
+                    <Name kind="items" id={String(i.id)}>
+                      {i.name}
+                    </Name>
+                  </span>
+                  <span className="rank-v">{Math.round(i.deepScore ?? 0)}</span>
+                </RowLink>
               ))}
             </div>
+          </section>
+        )}
+        {duos.length > 0 && (
+          <section className="card span-4" data-accent="tier">
+            <div className="card-head">
+              <h2>
+                <T>Best duos</T>
+              </h2>
+              <Link href="/tier-list?cview=duos">
+                <T>All →</T>
+              </Link>
+            </div>
+            <div className="rank home-duos">
+              {duos.map((d) => (
+                <RowLink key={d.pair} href={`/champions/${d.a}`}>
+                  <span className="home-duo-icons">
+                    <Icon src={`/icons/champions/${d.a}.webp`} />
+                    <Icon src={`/icons/champions/${d.b}.webp`} />
+                  </span>
+                  <span className="rank-name">
+                    <Name kind="champions" id={d.a}>
+                      {NAMES[d.a] ?? d.a}
+                    </Name>
+                    {" + "}
+                    <Name kind="champions" id={d.b}>
+                      {NAMES[d.b] ?? d.b}
+                    </Name>
+                  </span>
+                  <span className="rank-v">
+                    <T ns="tables" v={{ n: signedPts(d.delta) }}>
+                      {"{n} pts"}
+                    </T>
+                  </span>
+                </RowLink>
+              ))}
+            </div>
+          </section>
+        )}
+        {dps.length > 0 && (
+          <section className="card span-4" data-accent="sim">
+            <div className="card-head">
+              <h2>
+                <T>Most simulated damage</T>
+              </h2>
+              <Link href="/simulator">
+                <T>Simulator →</T>
+              </Link>
+            </div>
+            <div className="rank home-dps">
+              {dps.map((c, i) => (
+                <RowLink key={c.id} href={`/champions/${c.id}`}>
+                  <span className="rank-i">{i + 1}</span>
+                  <Icon src={`/icons/champions/${c.id}.webp`} />
+                  <span className="rank-name">
+                    <Name kind="champions" id={c.id}>
+                      {c.name}
+                    </Name>
+                  </span>
+                  <span className="rank-v">
+                    <T v={{ n: Math.round(c.dps).toLocaleString("en-US") }}>{"{n} DPS"}</T>
+                  </span>
+                </RowLink>
+              ))}
+            </div>
+            <p className="card-note home-dps-note">
+              <T>Training dummy at 50% Health</T>
+            </p>
           </section>
         )}
         {special && (
-          <section className="card span-5 feature chef-special" data-accent="lab">
+          <section className="card span-4 feature chef-special" data-accent="lab">
             <div className="card-head">
-              <h2>Chef&apos;s Special</h2>
-              <Link href={special.href}>The Lab →</Link>
+              <h2>
+                <T>Today&apos;s Chef Special</T>
+              </h2>
+              <Link href={special.href}>
+                <T>The Kitchen →</T>
+              </Link>
             </div>
-            <div className="kitchen-head">
+            <Link className="kitchen-head" href={special.href}>
               <Icon src={`/icons/champions/${special.champion}.webp`} />
               <div>
                 <p className="eyebrow">
-                  {special.name}
+                  <Name kind="champions" id={special.champion}>
+                    {special.name}
+                  </Name>
                   {special.tier && ` · ${special.tier}`}
                 </p>
                 <h3>{special.title}</h3>
               </div>
-            </div>
-            <p className="clamp">{special.why}</p>
+            </Link>
             {special.items.length > 0 && (
               <div className="chef-items">
                 {special.items.map((i) =>
                   i.href ? (
-                    <Link key={i.name} href={i.href} title={i.name}>
+                    <RowLink key={i.name} href={i.href} title={i.name}>
                       {i.icon ? <Icon src={i.icon} /> : i.name}
-                    </Link>
+                    </RowLink>
                   ) : (
                     <span key={i.name} className="chip">
                       {i.name}
@@ -155,72 +336,83 @@ export default function Home() {
                 )}
               </div>
             )}
-            <div className="chips">
-              {special.augments.map((a) => (
-                <span key={a.name} className={`chip ${a.core ? `tier-${a.rarity}` : ""}`}>
-                  {a.name}
-                </span>
-              ))}
-            </div>
+            {special.augments.some((a) => a.core) && (
+              <div className="chips">
+                {special.augments
+                  .filter((a) => a.core)
+                  .map((a) => (
+                    <span key={a.name} className={`chip tier-${a.rarity}`}>
+                      {a.name}
+                    </span>
+                  ))}
+              </div>
+            )}
             {special.winRate !== null && (
               <p className="table-note">
-                Won {pct(special.winRate)} of games with this core{special.champWinRate !== null ? `, against ${pct(special.champWinRate)} for ${special.name} overall` : ""}.
-                {special.play && ` ${special.play}`}
+                <T v={{ wr: pct(special.winRate) }}>{"Won {wr} of games with this core."}</T>
               </p>
             )}
           </section>
         )}
-        {builds.length > 0 && (
-          <section className="card span-5 feature" data-accent="lab">
+        {Object.values(fun).some((l) => l.length) && (
+          <section className="card span-all" data-accent="tier">
             <div className="card-head">
-              <h2>Cook builds from The Lab</h2>
-              <Link href={KITCHEN}>More →</Link>
+              <h2>
+                <T>Top 10 at</T>
+              </h2>
+              <span className="card-note">
+                <T>Estimated</T>
+              </span>
+            </div>
+            <FunLists lists={fun} />
+          </section>
+        )}
+        {game && (
+          // A slim strip: three numbers don't need a card of their own.
+          <section className="card span-all home-typical" data-accent="gold">
+            <h2>
+              <T>A typical game</T>
+              <span className="card-note">
+                <T>Estimated</T>
+              </span>
+            </h2>
+            <div className="stat-row">
+              <div>
+                <b>
+                  <T v={{ n: Math.round(game.minutes) }}>{"{n} min"}</T>
+                </b>
+                <span>
+                  <T>game length</T>
+                </span>
+              </div>
+              <div>
+                <b>{pct(game.blue)}</b>
+                <span>
+                  <T>blue side wins</T>
+                </span>
+              </div>
+              <div>
+                <b>{pct(game.red)}</b>
+                <span>
+                  <T>red side wins</T>
+                </span>
+              </div>
+            </div>
+          </section>
+        )}
+        {builds.length > 0 && (
+          <section className="card span-all feature" data-accent="lab">
+            <div className="card-head">
+              <h2>
+                <T>Cook builds from The Kitchen</T>
+              </h2>
+              <Link href={KITCHEN}>
+                <T>More →</T>
+              </Link>
             </div>
             <KitchenPick builds={builds} />
           </section>
         )}
-        {wins.length > 0 && (
-          <section className="card span-7" data-accent="gold">
-            <div className="card-head">
-              <h2>Winning builds this patch</h2>
-              <Link href="/what-to-build">Build Helper →</Link>
-            </div>
-            <div className="rank home-builds">
-              {wins.map((c) => (
-                <Link key={c.id} href={`/champions/${c.id}`}>
-                  <Icon src={`/icons/champions/${c.id}.webp`} />
-                  <span className="rank-name">{c.name}</span>
-                  <span className="home-build-items" aria-label={c.items.map((i) => i.name).join(", ")}>
-                    {c.items.map((i) => (
-                      // eslint-disable-next-line @next/next/no-img-element
-                      <img key={i.id} src={i.icon} alt="" title={i.name} width={24} height={24} loading="lazy" />
-                    ))}
-                  </span>
-                  <span className="rank-v wr-good">{pct(c.winRate)}</span>
-                </Link>
-              ))}
-            </div>
-          </section>
-        )}
-        <section className="card span-5" data-accent="info">
-          <div className="card-head">
-            <h2>More to explore</h2>
-          </div>
-          <div className="rank links">
-            {[...navPages().filter((t) => t.href !== "/tier-list"), { href: "/stats", label: "My Stats", body: "Your own Mayhem games" }].map((l) => (
-              <Link key={l.href} href={l.href}>
-                <span className="rank-name">
-                  {l.label}
-                  {BETA.has(l.href) && <span className="beta">Beta</span>}
-                </span>
-                <span className="rank-body">{l.body}</span>
-                <span className="rank-arrow" aria-hidden="true">
-                  →
-                </span>
-              </Link>
-            ))}
-          </div>
-        </section>
       </div>
     </>
   );

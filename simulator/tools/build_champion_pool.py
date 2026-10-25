@@ -10,9 +10,10 @@ Sources (all fetched live, then cached; CommunityDragon's latest/ is the live pa
     of ability values and cooldowns.
   - The English string table (tooltips, which say whether a number is magic,
     physical or true damage).
-  - aramnerfs.com/mayhem, only for the per-champion modifiers Riot applies on
-    the server and ships in no client file: damage dealt/taken, ability haste
-    and attack speed.
+  - The official League wiki, only for the per-champion modifiers Riot applies
+    on the server and ships in no client file (damage dealt/taken, healing,
+    shielding, tenacity, ability haste, attack speed), read from
+    data/wiki/mayhem_modifiers.json, which the guide shares.
   - simulator/data/cn_enemy_pool.json (built by build_enemy_pool.py): role,
     CC rating and China-server Mayhem damage shares, used to check results.
 
@@ -57,7 +58,8 @@ GAME_DATA = CDRAGON + "/plugins/rcp-be-lol-game-data/global/default/v1"
 CONTENT_METADATA = CDRAGON + "/content-metadata.json"
 STRINGTABLE = CDRAGON + "/game/en_us/data/menu/en_us/lol.stringtable.json"
 CHAMP_BIN = CDRAGON + "/game/data/characters/{c}/{c}.bin.json"
-MAYHEM_BALANCE = "https://www.aramnerfs.com/mayhem"
+# Per-champion Mayhem modifiers, read from the official wiki by the Info tools (shared with the guide).
+MAYHEM_MODIFIERS = os.path.join(HERE, "..", "..", "data", "wiki", "mayhem_modifiers.json")
 
 LEVEL = 18
 RANKS = {"Q": 5, "W": 5, "E": 5, "R": 3}
@@ -143,7 +145,7 @@ class Evaluator:
     def __init__(self, spell, rank, base_stats, notes):
         self.spell = spell
         self.rank = rank
-        self.base = base_stats  # level-18 base values: ad, hp, armor, mr
+        self.base = base_stats  # level-18 base values: ad, hp, armor, mr (and mana)
         self.notes = notes
         self.values = {}
         self.mode_overrides = []
@@ -220,8 +222,10 @@ class Evaluator:
                 for b in bps:
                     if b.get("mLevel") == lvl:
                         v += float(b.get("mAdditionalBonusAtThisLevel", 0.0))
-                        if "mBonusPerLevelAtAndAfter" in b:
-                            per = float(b["mBonusPerLevelAtAndAfter"])
+                        # A breakpoint always sets the per-level bonus from here on; the
+                        # bin omits it when it is 0 (Senna's passive stops growing at 11).
+                        hashed = [x for k, x in b.items() if k.startswith("{")]
+                        per = float(b.get("mBonusPerLevelAtAndAfter", hashed[0] if hashed else 0.0))
                 v += per
             return Lin({"const": v})
         if t == "ByCharLevelFormulaCalculationPart":
@@ -254,8 +258,11 @@ class Evaluator:
         if t == "CooldownMultiplierCalculationPart":
             return Lin({"const": 1.0})
         if t == "AbilityResourceByCoefficientCalculationPart":
-            self.notes.add("mana scaling ignored")
-            return Lin()
+            # Max mana: bonus mana (items) as bonus_mana; the base pool at level 18 as a constant.
+            coef = float(p.get("mCoefficient", 0.0))
+            if p.get("mStatFormula", 0) == 2:
+                return Lin({"bonus_mana": coef})
+            return Lin({"const": coef * self.base.get("mana", 0.0), "bonus_mana": coef})
         if t:
             self.notes.add(f"unsupported part {t}")
         return Lin()
@@ -334,8 +341,13 @@ def flat_is_range(inner, refs, i):
     return i > 0 and bool(re.search(r"\bto\s*$|-\s*$", inner[refs[i - 1].end():refs[i].start()].lower()))
 
 
+def round_coef(v):
+    """4 decimals, but small coefficients (a percent of max Health per AP) keep 3 significant digits."""
+    return round(v, 4) if abs(v) >= 0.01 else float(f"{v:.3g}")
+
+
 def round_lin(lin):
-    return {k: round(v, 4) for k, v in lin.items() if abs(v) > 1e-9}
+    return {k: round_coef(v) for k, v in lin.items() if abs(v) > 1e-9}
 
 
 def parse_spell(slot, spell_obj, strings, base_stats, attack_range=125):
@@ -709,10 +721,16 @@ def parse_passives(bin_data, record, rules, strings, base, attack_range, notes):
         want = rule.get("calcs")
         hits = [dict(h, per_second=False) for h in parsed["hits"]
                 if (want is None and not h["alt"]) or (want and h["calc"].split("~")[0] in want)]
+        if rule.get("hits"):  # whole hits by hand: an ability's passive on-hit that the passive tooltip lacks
+            hits = [dict(h, per_second=False) for h in rule["hits"]]
+        elif rule.get("scaling"):  # the hit's numbers by hand (e.g. without the attack's own AD it replaces)
+            hits = [dict(h, scaling=dict(rule["scaling"])) for h in hits[:1]] or [
+                {"type": rule.get("type", "magic"), "calc": "Manual", "scaling": dict(rule["scaling"]),
+                 "target": "flat", "per_second": False, "alt": False}]  # a passive scripted without tooltip numbers (Bard's meeps)
         mult = float(rule.get("mult", 1.0))
         if mult != 1.0:
             for h in hits:
-                h["scaling"] = {k: round(c * mult, 4) for k, c in h["scaling"].items()}
+                h["scaling"] = {k: round_coef(c * mult) for k, c in h["scaling"].items()}
         hits = [h for h in hits if h["scaling"]]
         if not hits:
             notes.append(f"P: no damage for {rule.get('calcs') or 'its passive'}")
@@ -726,9 +744,79 @@ def parse_passives(bin_data, record, rules, strings, base, attack_range, notes):
             "max_charges": max(1, int(round(value(rule.get("max_charges"), 1)))),
             "aoe": bool(rule.get("aoe")),
             "below_hp": round(value(rule.get("below_hp"), 0.0), 3),
+            "ability_cdr": round(value(rule.get("ability_cdr"), 0.0), 3),
+            **({"restore": float(rule["restore"])} if rule.get("restore") else {}),
+            **({"basic_cdr": float(rule["basic_cdr"])} if rule.get("basic_cdr") else {}),
+            **({"needs_hit": True} if rule.get("needs_hit") else {}),
             "hits": hits,
         })
     return out
+
+
+def eval_hits(specs, spell_obj, slot, base):
+    """Hits named by calc and evaluated from a spell's own formulas: {"calc", "type", "target", "mult"}."""
+    out = []
+    for h in specs:
+        if "scaling" in h:
+            out.append({"alt": False, "per_second": False, "target": "flat", **h})
+            continue
+        notes = set()
+        ev = Evaluator((spell_obj or {}).get("mSpell") or {}, RANKS.get(slot, 1), base, notes)
+        lin, _ = ev.calc(h["calc"])
+        mult = h.get("mult", 1.0)
+        out.append({"calc": h["calc"], "type": h.get("type", "magic"),
+                    "scaling": {k: round_coef(v * mult) for k, v in (lin or {}).items() if abs(v) > 1e-9},
+                    "target": h.get("target", "flat"), "per_second": h.get("per_second", False), "alt": False})
+    return out
+
+
+def apply_fix(a, fix, spell_obj, base):
+    """A hand fix (champion_overrides.json) on one parsed ability."""
+    for k, v in fix.items():
+        if k == "geometry":
+            a["geometry"].update(v)
+        elif k == "hit_mults":  # {calc name: multiplier}, e.g. a recast or a hit count
+            for h in a["hits"]:
+                if h["calc"] in v:
+                    h["scaling"] = {s: round_coef(c * v[h["calc"]]) for s, c in h["scaling"].items()}
+        elif k == "hit_adds":  # {calc name: {stat: amount}}: stacks added to a hit (Nasus Q)
+            for h in a["hits"]:
+                for stat, amt in v.get(h["calc"], {}).items():
+                    h["scaling"][stat] = round_coef(h["scaling"].get(stat, 0) + amt)
+        elif k == "alt_calcs":  # damage numbers that replace the main hit rather than add to it
+            for h in a["hits"]:
+                if h["calc"] in v:
+                    h["alt"] = True
+        elif k == "calcs":  # only these of the parsed numbers count (one of several spells in a slot)
+            a["hits"] = [dict(h, alt=False) for h in a["hits"] if h["calc"] in v]
+        elif k == "hits":  # hits given outright, or named by calc and evaluated from the spell
+            a["hits"] = eval_hits(v, spell_obj, a["slot"], base)
+        elif k == "cooldown_calc":  # a cooldown kept in one of the spell's formulas
+            notes = set()
+            lin, _ = Evaluator((spell_obj or {}).get("mSpell") or {}, RANKS.get(a["slot"], 1), base, notes).calc(v)
+            if lin:
+                a["cooldown"] = round(lin.const(), 3)
+        elif k == "pet" and isinstance(v, dict):
+            a["pet"] = {pk: (eval_hits(pv, spell_obj, a["slot"], base) if pk in ("hits", "slam") else pv) for pk, pv in v.items()}
+        elif k not in ("why", "variants"):
+            a[k] = v
+
+
+def make_variant(base_ability, spec, bin_data, slot_spell, strings, base, attack_range):
+    """One version of an ability slot: a copy of the parsed ability, or another spell of the champion
+    ("spell"), with its own hand fixes."""
+    import copy
+    slot = base_ability["slot"]
+    spell_obj = find_spell(bin_data, spec["spell"]) if spec.get("spell") else slot_spell
+    if spec.get("spell") and spell_obj:
+        v = parse_spell(slot, spell_obj, strings, base, attack_range)
+        v["cost"] = base_ability.get("cost", 0.0)
+    else:
+        v = copy.deepcopy({k: x for k, x in base_ability.items() if k != "variants"})
+    apply_fix(v, {k: x for k, x in spec.items() if k != "spell"}, spell_obj, base)
+    v["notes"] = []
+    v.pop("mode_overrides", None)
+    return v
 
 
 def find_spell(bin_data, path):
@@ -749,27 +837,22 @@ def find_spell(bin_data, path):
 # ARAM Mayhem balance table
 # ---------------------------------------------------------------------------
 
-def parse_mayhem_balance(page):
-    t = re.sub(r"<script.*?</script>|<style.*?</style>", "", page, flags=re.S)
-    t = re.sub(r"<[^>]+>", "|", t)
-    t = html.unescape(re.sub(r"(\s*\|\s*)+", "|", t))
-    patch = re.search(r"Patch\|([0-9.]+)\|", t)
+def load_mayhem_balance(path):
+    """Per-champion Mayhem modifiers from data/wiki/mayhem_modifiers.json (fractions, ability haste in
+    points), as the multipliers and bonuses the engine reads. Champions it leaves out have none."""
+    with open(path, encoding="utf-8") as f:
+        src = json.load(f)
     out = {}
-    starts = list(re.finditer(r"(?<=\|)([^|]+)\|Dmg Dealt\|([^|]+)\|Dmg Taken\|([^|]+)\|", t))
-    for i, m in enumerate(starts):
-        end = starts[i + 1].start() if i + 1 < len(starts) else len(t)
-        rest = t[m.end():end].strip("|")
-        pctv = lambda s: float(s.replace("%", "").replace("+", "")) / 100.0 if re.match(r"^[+-]?[0-9.]+%$", s) else 0.0
-        entry = {"damage_dealt": round(1 + pctv(m.group(2)), 4), "damage_taken": round(1 + pctv(m.group(3)), 4),
-                 "ability_haste": 0.0, "attack_speed": 0.0}
-        ah = re.search(r"Ability haste (increased|reduced) by ([0-9.]+)", rest)
-        if ah:
-            entry["ability_haste"] = float(ah.group(2)) * (1 if ah.group(1) == "increased" else -1)
-        asp = re.search(r"Total attack speed (increased|reduced) by ([0-9.]+)%", rest)
-        if asp:
-            entry["attack_speed"] = float(asp.group(2)) / 100 * (1 if asp.group(1) == "increased" else -1)
-        out[norm(m.group(1))] = entry
-    return out, (patch.group(1) if patch else "")
+    for name, e in src["champions"].items():
+        m = e.get("mayhem") or {}
+        out[norm(name)] = {"damage_dealt": round(1.0 + m.get("damage_dealt", 0), 4),
+                           "damage_taken": round(1.0 + m.get("damage_taken", 0), 4),
+                           "ability_haste": float(m.get("ability_haste", 0)),
+                           "attack_speed": float(m.get("attack_speed", 0)),
+                           "healing": round(1.0 + m.get("healing", 0), 4),
+                           "shielding": round(1.0 + m.get("shielding", 0), 4),
+                           "tenacity": float(m.get("tenacity", 0))}
+    return out, f"wiki read {src.get('read', '?')}"
 
 
 def norm(name):
@@ -810,8 +893,8 @@ def main():
               for c in summary if 0 < c["id"] < 10000}
     log(f"game version {version}: {len(champs)} champions")
     strings = {k.lower(): v for k, v in json.loads(fetch(STRINGTABLE, cache, "stringtable.json"))["entries"].items()}
-    balance, balance_patch = parse_mayhem_balance(fetch(MAYHEM_BALANCE, cache, "mayhem-balance.html"))
-    log(f"Mayhem balance table (patch {balance_patch}): {len(balance)} champions")
+    balance, balance_patch = load_mayhem_balance(MAYHEM_MODIFIERS)
+    log(f"Mayhem balance table ({balance_patch}): {len(balance)} champions")
 
     with open(args.pool, encoding="utf-8") as f:
         pool = json.load(f)
@@ -862,10 +945,14 @@ def main():
             "armor": level_stat(s["armor"], s["armorperlevel"]),
             "mr": level_stat(s["spellblock"], s["spellblockperlevel"]),
         }
+        res = resource(record)
+        if res["kind"] == "mana":
+            base["mana"] = level_stat(res["pool"], res["pool_per_level"])
         spell_paths = record.get("spells") or []
-        abilities, notes = [], []
+        abilities, notes, spell_objs = [], [], {}
         for slot, path in zip("QWER", spell_paths):
             obj = find_spell(bin_data, path)
+            spell_objs[slot] = obj
             if obj is None:
                 notes.append(f"{slot}: spell data not found")
                 continue
@@ -888,23 +975,10 @@ def main():
                 continue
             for a in abilities:
                 if a["slot"] == slot:
-                    for k, v in fix.items():
-                        if k == "geometry":
-                            a["geometry"].update(v)
-                        elif k == "hit_mults":  # {calc name: multiplier}, e.g. a recast or a hit count
-                            for h in a["hits"]:
-                                if h["calc"] in v:
-                                    h["scaling"] = {s: round(c * v[h["calc"]], 4) for s, c in h["scaling"].items()}
-                        elif k == "hit_adds":  # {calc name: {stat: amount}}: stacks added to a hit (Nasus Q)
-                            for h in a["hits"]:
-                                for stat, amt in v.get(h["calc"], {}).items():
-                                    h["scaling"][stat] = round(h["scaling"].get(stat, 0) + amt, 4)
-                        elif k == "alt_calcs":  # damage numbers that replace the main hit rather than add to it
-                            for h in a["hits"]:
-                                if h["calc"] in v:
-                                    h["alt"] = True
-                        elif k != "why":
-                            a[k] = v
+                    apply_fix(a, fix, spell_objs.get(slot), base)
+                    if "variants" in fix:  # versions of the slot the kit swaps in mid-fight (Hwei, Aphelios)
+                        a["variants"] = [make_variant(a, v, bin_data, spell_objs.get(slot), strings, base, s["attackrange"])
+                                         for v in fix["variants"]]
                     a["notes"].append("hand override: " + fix.get("why", ""))
         abilities = [a for a in abilities if not a.get("skip")]
         for a in abilities:
@@ -942,12 +1016,17 @@ def main():
                 "attack_windup_mod": round(float((record.get("basicAttack") or {}).get(
                     "mAttackDelayCastOffsetPercentAttackSpeedRatio", 1.0)), 4),
                 "move_speed": s["movespeed"],
+                # The in-game hitbox: most champions 65, some 55, 70 or 80.
+                "gameplay_radius": float(record.get("overrideGameplayCollisionRadius") or 65.0),
             },
             "mayhem": {
                 "damage_dealt": (bal or {}).get("damage_dealt", 1.0),
                 "damage_taken": (bal or {}).get("damage_taken", 1.0),
                 "ability_haste": (bal or {}).get("ability_haste", 0.0),
                 "attack_speed": (bal or {}).get("attack_speed", 0.0),
+                "healing": (bal or {}).get("healing", 1.0),
+                "shielding": (bal or {}).get("shielding", 1.0),
+                "tenacity": (bal or {}).get("tenacity", 0.0),
             },
             "resource": resource(record),
             "cn": {k: p[k] for k in ("weight", "damage_share", "damage_taken_share", "win_rate", "cc", "phys_share")} if p else None,
@@ -983,11 +1062,11 @@ def main():
             "notes": [
                 "Ability damage is parsed from Riot's game data (CommunityDragon) and tooltips: every number tagged as "
                 "magic, physical or true damage, evaluated at level 18 with max ranks. scaling keys: const, ap, bonus_ad, "
-                "bonus_hp, bonus_armor, bonus_mr, as (bonus attack speed), crit, lethality.",
+                "bonus_hp, bonus_armor, bonus_mr, bonus_mana, as (bonus attack speed), crit, lethality.",
                 "target is flat or a fraction of the target's max/current/missing health. alt marks numbers that look like "
                 "alternatives (empowered, maximum, recast) rather than extra hits.",
-                "mayhem holds the server-side ARAM Mayhem modifiers (damage dealt/taken, ability haste, attack speed) "
-                "from aramnerfs.com; ability values and cooldowns use Riot's own ARAM/Kiwi overrides from each bin.",
+                "mayhem holds the server-side ARAM Mayhem modifiers (damage dealt/taken, healing, shielding, tenacity, "
+                "ability haste, attack speed) from the official League wiki; ability values and cooldowns use Riot's own ARAM/Kiwi overrides from each bin.",
                 "cn holds 101.qq.com China-server Mayhem stats: damage_share is the average share of the team's damage.",
             ],
         },

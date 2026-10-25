@@ -1,6 +1,7 @@
 import Combine
 import DeepARAMKit
 import SwiftUI
+import WebKit
 
 /// One window's state: the selected section, the champion beside it, and their pages.
 @MainActor
@@ -8,7 +9,10 @@ final class PadModel: ObservableObject {
     @Published var section: SiteTab? = .tiers {
         didSet {
             focusChampionPane = false
-            if let section, section != oldValue { state(for: section).page.loadIfNeeded() }
+            if let section, section != oldValue {
+                Haptics.shared.play(.step)
+                state(for: section).page.loadIfNeeded()
+            }
         }
     }
     /// The champion in the side pane, by alias; nil shows the champion grid.
@@ -34,6 +38,9 @@ final class PadModel: ObservableObject {
     private var states: [String: PageState] = [:]
     private var watchers: Set<AnyCancellable> = []
 
+    /// Every page in this window, for the Haptics switch.
+    var webViews: [WKWebView] { [championState.page.webView] + states.values.map(\.page.webView) }
+
     var championVisible: Bool { showChampionPane && isRegularWidth }
     var current: PageState? { section.map(state(for:)) }
     var active: PageState? { focusChampionPane && championVisible && champion != nil ? championState : current }
@@ -49,6 +56,7 @@ final class PadModel: ObservableObject {
     }
 
     func openChampion(_ alias: String) {
+        if alias != champion { Haptics.shared.play(.tap) }
         champion = alias
         if championVisible {
             championState.page.open(Champion.url(alias))

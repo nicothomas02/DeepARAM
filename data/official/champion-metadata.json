@@ -1,0 +1,2235 @@
+{
+ "Aatrox": {
+  "tags": [
+   "Sustained Damage",
+   "Self Healing"
+  ],
+  "playstyle": {
+   "damage": 3,
+   "toughness": 3,
+   "control": 2,
+   "mobility": 2,
+   "utility": 2
+  }
+ },
+ "Ahri": {
+  "tags": [
+   "Mobile",
+   "Burst"
+  ],
+  "playstyle": {
+   "damage": 3,
+   "toughness": 1,
+   "control": 2,
+   "mobility": 3,
+   "utility": 1
+  }
+ },
+ "Akali": {
+  "tags": [
+   "Mobile",
+   "Burst"
+  ],
+  "playstyle": {
+   "damage": 3,
+   "toughness": 1,
+   "control": 1,
+   "mobility": 3,
+   "utility": 1
+  }
+ },
+ "Akshan": {
+  "tags": [
+   "Mobile",
+   "Stealth"
+  ],
+  "playstyle": {
+   "damage": 3,
+   "toughness": 1,
+   "control": 1,
+   "mobility": 3,
+   "utility": 2
+  }
+ },
+ "Alistar": {
+  "tags": [
+   "Crowd Control",
+   "Initiator"
+  ],
+  "playstyle": {
+   "damage": 1,
+   "toughness": 3,
+   "control": 3,
+   "mobility": 1,
+   "utility": 2
+  }
+ },
+ "Ambessa": {
+  "tags": [
+   "Mobile",
+   "Dive"
+  ],
+  "playstyle": {
+   "damage": 3,
+   "toughness": 2,
+   "control": 1,
+   "mobility": 3,
+   "utility": 1
+  }
+ },
+ "Amumu": {
+  "tags": [
+   "Crowd Control",
+   "Initiator"
+  ],
+  "playstyle": {
+   "damage": 2,
+   "toughness": 3,
+   "control": 3,
+   "mobility": 1,
+   "utility": 1
+  }
+ },
+ "Anivia": {
+  "tags": [
+   "AoE",
+   "Crowd Control"
+  ],
+  "playstyle": {
+   "damage": 3,
+   "toughness": 1,
+   "control": 3,
+   "mobility": 1,
+   "utility": 2
+  }
+ },
+ "Annie": {
+  "tags": [
+   "Summon",
+   "Burst"
+  ],
+  "playstyle": {
+   "damage": 3,
+   "toughness": 1,
+   "control": 3,
+   "mobility": 1,
+   "utility": 2
+  }
+ },
+ "Aphelios": {
+  "tags": [
+   "Hypercarry",
+   "Auto-attack"
+  ],
+  "playstyle": {
+   "damage": 3,
+   "toughness": 1,
+   "control": 2,
+   "mobility": 1,
+   "utility": 1
+  }
+ },
+ "Ashe": {
+  "tags": [
+   "Auto-attack",
+   "Crowd Control"
+  ],
+  "playstyle": {
+   "damage": 2,
+   "toughness": 1,
+   "control": 3,
+   "mobility": 1,
+   "utility": 2
+  }
+ },
+ "AurelionSol": {
+  "tags": [
+   "Hypercarry",
+   "AoE"
+  ],
+  "playstyle": {
+   "damage": 3,
+   "toughness": 1,
+   "control": 2,
+   "mobility": 2,
+   "utility": 1
+  }
+ },
+ "Aurora": {
+  "tags": [
+   "Burst",
+   "Stealth"
+  ],
+  "playstyle": {
+   "damage": 3,
+   "toughness": 1,
+   "control": 2,
+   "mobility": 3,
+   "utility": 1
+  }
+ },
+ "Azir": {
+  "tags": [
+   "Hypercarry",
+   "Auto-attack"
+  ],
+  "playstyle": {
+   "damage": 3,
+   "toughness": 1,
+   "control": 2,
+   "mobility": 2,
+   "utility": 1
+  }
+ },
+ "Bard": {
+  "tags": [
+   "Crowd Control",
+   "Mobile"
+  ],
+  "playstyle": {
+   "damage": 1,
+   "toughness": 1,
+   "control": 3,
+   "mobility": 2,
+   "utility": 3
+  }
+ },
+ "Belveth": {
+  "tags": [
+   "Auto-attack",
+   "Mobile"
+  ],
+  "playstyle": {
+   "damage": 3,
+   "toughness": 1,
+   "control": 2,
+   "mobility": 3,
+   "utility": 1
+  }
+ },
+ "Blitzcrank": {
+  "tags": [
+   "Initiator",
+   "Crowd Control"
+  ],
+  "playstyle": {
+   "damage": 1,
+   "toughness": 2,
+   "control": 3,
+   "mobility": 1,
+   "utility": 1
+  }
+ },
+ "Brand": {
+  "tags": [
+   "Damage-over-Time",
+   "AoE"
+  ],
+  "playstyle": {
+   "damage": 3,
+   "toughness": 1,
+   "control": 2,
+   "mobility": 1,
+   "utility": 1
+  }
+ },
+ "Braum": {
+  "tags": [
+   "Durable",
+   "Crowd Control"
+  ],
+  "playstyle": {
+   "damage": 1,
+   "toughness": 2,
+   "control": 3,
+   "mobility": 1,
+   "utility": 2
+  }
+ },
+ "Briar": {
+  "tags": [
+   "Self Healing",
+   "Dive"
+  ],
+  "playstyle": {
+   "damage": 2,
+   "toughness": 2,
+   "control": 3,
+   "mobility": 3,
+   "utility": 1
+  }
+ },
+ "Caitlyn": {
+  "tags": [
+   "Auto-attack",
+   "Burst"
+  ],
+  "playstyle": {
+   "damage": 3,
+   "toughness": 1,
+   "control": 2,
+   "mobility": 2,
+   "utility": 1
+  }
+ },
+ "Camille": {
+  "tags": [
+   "Dive",
+   "Duelist"
+  ],
+  "playstyle": {
+   "damage": 3,
+   "toughness": 2,
+   "control": 2,
+   "mobility": 3,
+   "utility": 1
+  }
+ },
+ "Cassiopeia": {
+  "tags": [
+   "Crowd Control",
+   "Sustained Damage"
+  ],
+  "playstyle": {
+   "damage": 3,
+   "toughness": 1,
+   "control": 3,
+   "mobility": 1,
+   "utility": 1
+  }
+ },
+ "Chogath": {
+  "tags": [
+   "Durable",
+   "Crowd Control"
+  ],
+  "playstyle": {
+   "damage": 2,
+   "toughness": 3,
+   "control": 2,
+   "mobility": 1,
+   "utility": 1
+  }
+ },
+ "Corki": {
+  "tags": [
+   "Auto-attack",
+   "AoE"
+  ],
+  "playstyle": {
+   "damage": 3,
+   "toughness": 1,
+   "control": 1,
+   "mobility": 2,
+   "utility": 1
+  }
+ },
+ "Darius": {
+  "tags": [
+   "Duelist",
+   "Self Healing"
+  ],
+  "playstyle": {
+   "damage": 3,
+   "toughness": 2,
+   "control": 2,
+   "mobility": 1,
+   "utility": 1
+  }
+ },
+ "Diana": {
+  "tags": [
+   "Burst",
+   "Dive"
+  ],
+  "playstyle": {
+   "damage": 3,
+   "toughness": 2,
+   "control": 2,
+   "mobility": 2,
+   "utility": 1
+  }
+ },
+ "DrMundo": {
+  "tags": [
+   "Durable",
+   "Self Healing"
+  ],
+  "playstyle": {
+   "damage": 2,
+   "toughness": 3,
+   "control": 1,
+   "mobility": 1,
+   "utility": 1
+  }
+ },
+ "Draven": {
+  "tags": [
+   "Auto-attack",
+   "Burst"
+  ],
+  "playstyle": {
+   "damage": 3,
+   "toughness": 1,
+   "control": 1,
+   "mobility": 2,
+   "utility": 1
+  }
+ },
+ "Ekko": {
+  "tags": [
+   "Burst",
+   "Mobile"
+  ],
+  "playstyle": {
+   "damage": 3,
+   "toughness": 2,
+   "control": 2,
+   "mobility": 3,
+   "utility": 1
+  }
+ },
+ "Elise": {
+  "tags": [
+   "Shapeshift",
+   "Burst"
+  ],
+  "playstyle": {
+   "damage": 2,
+   "toughness": 2,
+   "control": 2,
+   "mobility": 2,
+   "utility": 1
+  }
+ },
+ "Evelynn": {
+  "tags": [
+   "Stealth",
+   "Burst"
+  ],
+  "playstyle": {
+   "damage": 2,
+   "toughness": 2,
+   "control": 1,
+   "mobility": 2,
+   "utility": 2
+  }
+ },
+ "Ezreal": {
+  "tags": [
+   "Long Range",
+   "Mobile"
+  ]
+ },
+ "FiddleSticks": {
+  "tags": [
+   "Self Healing",
+   "AoE"
+  ],
+  "playstyle": {
+   "damage": 3,
+   "toughness": 1,
+   "control": 3,
+   "mobility": 1,
+   "utility": 1
+  }
+ },
+ "Fiora": {
+  "tags": [
+   "Duelist",
+   "Mobile"
+  ],
+  "playstyle": {
+   "damage": 3,
+   "toughness": 2,
+   "control": 2,
+   "mobility": 2,
+   "utility": 2
+  }
+ },
+ "Fizz": {
+  "tags": [
+   "Burst",
+   "Mobile"
+  ],
+  "playstyle": {
+   "damage": 3,
+   "toughness": 1,
+   "control": 2,
+   "mobility": 3,
+   "utility": 1
+  }
+ },
+ "Galio": {
+  "tags": [
+   "Battlecaster",
+   "Crowd Control"
+  ],
+  "playstyle": {
+   "damage": 2,
+   "toughness": 3,
+   "control": 3,
+   "mobility": 2,
+   "utility": 1
+  }
+ },
+ "Gangplank": {
+  "tags": [
+   "AoE",
+   "Burst"
+  ],
+  "playstyle": {
+   "damage": 3,
+   "toughness": 1,
+   "control": 1,
+   "mobility": 1,
+   "utility": 2
+  }
+ },
+ "Garen": {
+  "tags": [
+   "Durable",
+   "Sustained Damage"
+  ],
+  "playstyle": {
+   "damage": 2,
+   "toughness": 3,
+   "control": 1,
+   "mobility": 1,
+   "utility": 1
+  }
+ },
+ "Gnar": {
+  "tags": [
+   "Shapeshift",
+   "Crowd Control"
+  ],
+  "playstyle": {
+   "damage": 2,
+   "toughness": 3,
+   "control": 2,
+   "mobility": 2,
+   "utility": 1
+  }
+ },
+ "Gragas": {
+  "tags": [
+   "Burst",
+   "Crowd Control"
+  ],
+  "playstyle": {
+   "damage": 2,
+   "toughness": 3,
+   "control": 3,
+   "mobility": 2,
+   "utility": 1
+  }
+ },
+ "Graves": {
+  "tags": [
+   "Burst",
+   "Auto-attack"
+  ],
+  "playstyle": {
+   "damage": 3,
+   "toughness": 2,
+   "control": 1,
+   "mobility": 2,
+   "utility": 2
+  }
+ },
+ "Gwen": {
+  "tags": [
+   "Sustained Damage",
+   "Duelist"
+  ],
+  "playstyle": {
+   "damage": 3,
+   "toughness": 2,
+   "control": 1,
+   "mobility": 3,
+   "utility": 1
+  }
+ },
+ "Hecarim": {
+  "tags": [
+   "Mobile",
+   "Dive"
+  ],
+  "playstyle": {
+   "damage": 2,
+   "toughness": 2,
+   "control": 2,
+   "mobility": 2,
+   "utility": 1
+  }
+ },
+ "Heimerdinger": {
+  "tags": [
+   "Summon",
+   "Sustained Damage"
+  ],
+  "playstyle": {
+   "damage": 3,
+   "toughness": 1,
+   "control": 2,
+   "mobility": 1,
+   "utility": 2
+  }
+ },
+ "Hwei": {
+  "tags": [
+   "AoE",
+   "Long Range"
+  ],
+  "playstyle": {
+   "damage": 3,
+   "toughness": 1,
+   "control": 3,
+   "mobility": 1,
+   "utility": 2
+  }
+ },
+ "Illaoi": {
+  "tags": [
+   "Self Healing",
+   "Duelist"
+  ],
+  "playstyle": {
+   "damage": 3,
+   "toughness": 2,
+   "control": 1,
+   "mobility": 1,
+   "utility": 1
+  }
+ },
+ "Irelia": {
+  "tags": [
+   "Mobile",
+   "Duelist"
+  ],
+  "playstyle": {
+   "damage": 2,
+   "toughness": 2,
+   "control": 2,
+   "mobility": 3,
+   "utility": 2
+  }
+ },
+ "Ivern": {
+  "tags": [
+   "Summon",
+   "Ally Protection"
+  ],
+  "playstyle": {
+   "damage": 1,
+   "toughness": 1,
+   "control": 3,
+   "mobility": 2,
+   "utility": 3
+  }
+ },
+ "Janna": {
+  "tags": [
+   "Crowd Control",
+   "Ally Protection"
+  ],
+  "playstyle": {
+   "damage": 1,
+   "toughness": 1,
+   "control": 3,
+   "mobility": 1,
+   "utility": 3
+  }
+ },
+ "JarvanIV": {
+  "tags": [
+   "Dive",
+   "Crowd Control"
+  ],
+  "playstyle": {
+   "damage": 2,
+   "toughness": 2,
+   "control": 2,
+   "mobility": 2,
+   "utility": 2
+  }
+ },
+ "Jax": {
+  "tags": [
+   "Duelist",
+   "Auto-attack"
+  ],
+  "playstyle": {
+   "damage": 3,
+   "toughness": 2,
+   "control": 2,
+   "mobility": 2,
+   "utility": 1
+  }
+ },
+ "Jayce": {
+  "tags": [
+   "Shapeshift",
+   "Long Range"
+  ],
+  "playstyle": {
+   "damage": 3,
+   "toughness": 1,
+   "control": 1,
+   "mobility": 2,
+   "utility": 2
+  }
+ },
+ "Jhin": {
+  "tags": [
+   "Long Range",
+   "Burst"
+  ],
+  "playstyle": {
+   "damage": 3,
+   "toughness": 1,
+   "control": 2,
+   "mobility": 1,
+   "utility": 1
+  }
+ },
+ "Jinx": {
+  "tags": [
+   "Auto-attack",
+   "Hypercarry"
+  ],
+  "playstyle": {
+   "damage": 3,
+   "toughness": 1,
+   "control": 2,
+   "mobility": 1,
+   "utility": 1
+  }
+ },
+ "KSante": {
+  "tags": [
+   "Durable",
+   "Duelist"
+  ],
+  "playstyle": {
+   "damage": 2,
+   "toughness": 3,
+   "control": 3,
+   "mobility": 2,
+   "utility": 2
+  }
+ },
+ "Kaisa": {
+  "tags": [
+   "Dive",
+   "Auto-attack"
+  ],
+  "playstyle": {
+   "damage": 3,
+   "toughness": 1,
+   "control": 1,
+   "mobility": 3,
+   "utility": 1
+  }
+ },
+ "Kalista": {
+  "tags": [
+   "Mobile",
+   "Auto-attack"
+  ],
+  "playstyle": {
+   "damage": 3,
+   "toughness": 1,
+   "control": 1,
+   "mobility": 3,
+   "utility": 2
+  }
+ },
+ "Karma": {
+  "tags": [
+   "Ally Protection",
+   "AoE"
+  ],
+  "playstyle": {
+   "damage": 2,
+   "toughness": 1,
+   "control": 2,
+   "mobility": 1,
+   "utility": 2
+  }
+ },
+ "Karthus": {
+  "tags": [
+   "AoE",
+   "Sustained Damage"
+  ],
+  "playstyle": {
+   "damage": 3,
+   "toughness": 1,
+   "control": 1,
+   "mobility": 1,
+   "utility": 2
+  }
+ },
+ "Kassadin": {
+  "tags": [
+   "Hypercarry",
+   "Mobile"
+  ],
+  "playstyle": {
+   "damage": 3,
+   "toughness": 2,
+   "control": 1,
+   "mobility": 3,
+   "utility": 1
+  }
+ },
+ "Katarina": {
+  "tags": [
+   "Mobile",
+   "Burst"
+  ],
+  "playstyle": {
+   "damage": 3,
+   "toughness": 1,
+   "control": 1,
+   "mobility": 3,
+   "utility": 1
+  }
+ },
+ "Kayle": {
+  "tags": [
+   "Hypercarry",
+   "Auto-attack"
+  ],
+  "playstyle": {
+   "damage": 3,
+   "toughness": 1,
+   "control": 1,
+   "mobility": 1,
+   "utility": 3
+  }
+ },
+ "Kayn": {
+  "tags": [
+   "Mobile",
+   "Dive"
+  ],
+  "playstyle": {
+   "damage": 3,
+   "toughness": 1,
+   "control": 1,
+   "mobility": 3,
+   "utility": 1
+  }
+ },
+ "Kennen": {
+  "tags": [
+   "Burst",
+   "AoE"
+  ],
+  "playstyle": {
+   "damage": 3,
+   "toughness": 1,
+   "control": 3,
+   "mobility": 1,
+   "utility": 1
+  }
+ },
+ "Khazix": {
+  "tags": [
+   "Burst",
+   "Stealth"
+  ],
+  "playstyle": {
+   "damage": 3,
+   "toughness": 1,
+   "control": 1,
+   "mobility": 2,
+   "utility": 1
+  }
+ },
+ "Kindred": {
+  "tags": [
+   "Auto-attack",
+   "Mobile"
+  ],
+  "playstyle": {
+   "damage": 3,
+   "toughness": 1,
+   "control": 2,
+   "mobility": 3,
+   "utility": 2
+  }
+ },
+ "Kled": {
+  "tags": [
+   "Dive",
+   "Duelist"
+  ],
+  "playstyle": {
+   "damage": 3,
+   "toughness": 2,
+   "control": 1,
+   "mobility": 3,
+   "utility": 1
+  }
+ },
+ "KogMaw": {
+  "tags": [
+   "Hypercarry",
+   "Auto-attack"
+  ],
+  "playstyle": {
+   "damage": 3,
+   "toughness": 1,
+   "control": 1,
+   "mobility": 1,
+   "utility": 1
+  }
+ },
+ "Leblanc": {
+  "tags": [
+   "Burst",
+   "Mobile"
+  ],
+  "playstyle": {
+   "damage": 3,
+   "toughness": 1,
+   "control": 2,
+   "mobility": 3,
+   "utility": 1
+  }
+ },
+ "LeeSin": {
+  "tags": [
+   "Mobile",
+   "Duelist"
+  ],
+  "playstyle": {
+   "damage": 3,
+   "toughness": 2,
+   "control": 2,
+   "mobility": 3,
+   "utility": 1
+  }
+ },
+ "Leona": {
+  "tags": [
+   "Initiator",
+   "Crowd Control"
+  ],
+  "playstyle": {
+   "damage": 1,
+   "toughness": 3,
+   "control": 3,
+   "mobility": 1,
+   "utility": 1
+  }
+ },
+ "Lillia": {
+  "tags": [
+   "Mobile",
+   "Damage-over-Time"
+  ],
+  "playstyle": {
+   "damage": 3,
+   "toughness": 1,
+   "control": 2,
+   "mobility": 2,
+   "utility": 2
+  }
+ },
+ "Lissandra": {
+  "tags": [
+   "Crowd Control",
+   "Burst"
+  ],
+  "playstyle": {
+   "damage": 3,
+   "toughness": 1,
+   "control": 3,
+   "mobility": 2,
+   "utility": 1
+  }
+ },
+ "Locke": {
+  "tags": [
+   "Burst",
+   "Mobile"
+  ],
+  "playstyle": {
+   "damage": 3,
+   "toughness": 2,
+   "control": 1,
+   "mobility": 3,
+   "utility": 1
+  }
+ },
+ "Lucian": {
+  "tags": [
+   "Mobile",
+   "Burst"
+  ],
+  "playstyle": {
+   "damage": 3,
+   "toughness": 1,
+   "control": 1,
+   "mobility": 3,
+   "utility": 1
+  }
+ },
+ "Lulu": {
+  "tags": [
+   "Ally Protection",
+   "Crowd Control"
+  ],
+  "playstyle": {
+   "damage": 2,
+   "toughness": 1,
+   "control": 2,
+   "mobility": 1,
+   "utility": 3
+  }
+ },
+ "Lux": {
+  "tags": [
+   "Burst",
+   "Long Range"
+  ],
+  "playstyle": {
+   "damage": 3,
+   "toughness": 1,
+   "control": 2,
+   "mobility": 1,
+   "utility": 2
+  }
+ },
+ "Malphite": {
+  "tags": [
+   "Initiator",
+   "Crowd Control"
+  ],
+  "playstyle": {
+   "damage": 1,
+   "toughness": 3,
+   "control": 3,
+   "mobility": 1,
+   "utility": 1
+  }
+ },
+ "Malzahar": {
+  "tags": [
+   "Damage-over-Time",
+   "Summon"
+  ],
+  "playstyle": {
+   "damage": 3,
+   "toughness": 1,
+   "control": 3,
+   "mobility": 1,
+   "utility": 2
+  }
+ },
+ "Maokai": {
+  "tags": [
+   "Initiator",
+   "Crowd Control"
+  ],
+  "playstyle": {
+   "damage": 1,
+   "toughness": 3,
+   "control": 3,
+   "mobility": 1,
+   "utility": 2
+  }
+ },
+ "MasterYi": {
+  "tags": [
+   "Auto-attack",
+   "Hypercarry"
+  ],
+  "playstyle": {
+   "damage": 3,
+   "toughness": 1,
+   "control": 1,
+   "mobility": 2,
+   "utility": 1
+  }
+ },
+ "Mel": {
+  "tags": [
+   "Long Range",
+   "AoE"
+  ],
+  "playstyle": {
+   "damage": 3,
+   "toughness": 1,
+   "control": 2,
+   "mobility": 1,
+   "utility": 1
+  }
+ },
+ "Milio": {
+  "tags": [
+   "Ally Protection",
+   "AoE"
+  ],
+  "playstyle": {
+   "damage": 1,
+   "toughness": 1,
+   "control": 2,
+   "mobility": 1,
+   "utility": 3
+  }
+ },
+ "MissFortune": {
+  "tags": [
+   "AoE",
+   "Burst"
+  ],
+  "playstyle": {
+   "damage": 3,
+   "toughness": 1,
+   "control": 1,
+   "mobility": 1,
+   "utility": 1
+  }
+ },
+ "MonkeyKing": {
+  "tags": [
+   "Dive",
+   "AoE"
+  ],
+  "playstyle": {
+   "damage": 2,
+   "toughness": 2,
+   "control": 2,
+   "mobility": 2,
+   "utility": 1
+  }
+ },
+ "Mordekaiser": {
+  "tags": [
+   "Duelist",
+   "Sustained Damage"
+  ],
+  "playstyle": {
+   "damage": 3,
+   "toughness": 2,
+   "control": 1,
+   "mobility": 1,
+   "utility": 2
+  }
+ },
+ "Morgana": {
+  "tags": [
+   "Crowd Control",
+   "Ally Protection"
+  ],
+  "playstyle": {
+   "damage": 2,
+   "toughness": 1,
+   "control": 3,
+   "mobility": 1,
+   "utility": 2
+  }
+ },
+ "Naafiri": {
+  "tags": [
+   "Summon",
+   "Mobile"
+  ],
+  "playstyle": {
+   "damage": 3,
+   "toughness": 1,
+   "control": 1,
+   "mobility": 3,
+   "utility": 1
+  }
+ },
+ "Nami": {
+  "tags": [
+   "Ally Protection",
+   "Crowd Control"
+  ],
+  "playstyle": {
+   "damage": 1,
+   "toughness": 1,
+   "control": 3,
+   "mobility": 1,
+   "utility": 2
+  }
+ },
+ "Nasus": {
+  "tags": [
+   "Durable",
+   "Hypercarry"
+  ],
+  "playstyle": {
+   "damage": 2,
+   "toughness": 3,
+   "control": 2,
+   "mobility": 1,
+   "utility": 1
+  }
+ },
+ "Nautilus": {
+  "tags": [
+   "Initiator",
+   "Crowd Control"
+  ],
+  "playstyle": {
+   "damage": 1,
+   "toughness": 3,
+   "control": 3,
+   "mobility": 1,
+   "utility": 1
+  }
+ },
+ "Neeko": {
+  "tags": [
+   "AoE",
+   "Burst"
+  ],
+  "playstyle": {
+   "damage": 3,
+   "toughness": 1,
+   "control": 3,
+   "mobility": 1,
+   "utility": 1
+  }
+ },
+ "Nidalee": {
+  "tags": [
+   "Shapeshift",
+   "Mobile"
+  ],
+  "playstyle": {
+   "damage": 3,
+   "toughness": 1,
+   "control": 1,
+   "mobility": 3,
+   "utility": 2
+  }
+ },
+ "Nilah": {
+  "tags": [
+   "Auto-attack",
+   "AoE"
+  ],
+  "playstyle": {
+   "damage": 3,
+   "toughness": 1,
+   "control": 1,
+   "mobility": 3,
+   "utility": 2
+  }
+ },
+ "Nocturne": {
+  "tags": [
+   "Dive",
+   "Duelist"
+  ],
+  "playstyle": {
+   "damage": 3,
+   "toughness": 1,
+   "control": 2,
+   "mobility": 2,
+   "utility": 2
+  }
+ },
+ "Nunu": {
+  "tags": [
+   "Initiator",
+   "Battlecaster"
+  ],
+  "playstyle": {
+   "damage": 1,
+   "toughness": 3,
+   "control": 2,
+   "mobility": 1,
+   "utility": 2
+  }
+ },
+ "Olaf": {
+  "tags": [
+   "Duelist",
+   "Self Healing"
+  ],
+  "playstyle": {
+   "damage": 2,
+   "toughness": 2,
+   "control": 2,
+   "mobility": 1,
+   "utility": 1
+  }
+ },
+ "Orianna": {
+  "tags": [
+   "AoE",
+   "Long Range"
+  ],
+  "playstyle": {
+   "damage": 2,
+   "toughness": 1,
+   "control": 2,
+   "mobility": 1,
+   "utility": 2
+  }
+ },
+ "Ornn": {
+  "tags": [
+   "Initiator",
+   "Crowd Control"
+  ],
+  "playstyle": {
+   "damage": 1,
+   "toughness": 3,
+   "control": 3,
+   "mobility": 1,
+   "utility": 2
+  }
+ },
+ "Pantheon": {
+  "tags": [
+   "Dive",
+   "Duelist"
+  ],
+  "playstyle": {
+   "damage": 3,
+   "toughness": 2,
+   "control": 2,
+   "mobility": 2,
+   "utility": 1
+  }
+ },
+ "Poppy": {
+  "tags": [
+   "Durable",
+   "Dive"
+  ],
+  "playstyle": {
+   "damage": 2,
+   "toughness": 3,
+   "control": 3,
+   "mobility": 2,
+   "utility": 1
+  }
+ },
+ "Pyke": {
+  "tags": [
+   "Mobile",
+   "Stealth"
+  ],
+  "playstyle": {
+   "damage": 2,
+   "toughness": 1,
+   "control": 3,
+   "mobility": 3,
+   "utility": 1
+  }
+ },
+ "Qiyana": {
+  "tags": [
+   "Burst",
+   "Mobile"
+  ],
+  "playstyle": {
+   "damage": 3,
+   "toughness": 1,
+   "control": 2,
+   "mobility": 2,
+   "utility": 1
+  }
+ },
+ "Quinn": {
+  "tags": [
+   "Mobile",
+   "Duelist"
+  ],
+  "playstyle": {
+   "damage": 3,
+   "toughness": 1,
+   "control": 2,
+   "mobility": 3,
+   "utility": 1
+  }
+ },
+ "Rakan": {
+  "tags": [
+   "Mobile",
+   "Crowd Control"
+  ],
+  "playstyle": {
+   "damage": 1,
+   "toughness": 2,
+   "control": 3,
+   "mobility": 3,
+   "utility": 3
+  }
+ },
+ "Rammus": {
+  "tags": [
+   "Mobile",
+   "Crowd Control"
+  ],
+  "playstyle": {
+   "damage": 2,
+   "toughness": 3,
+   "control": 3,
+   "mobility": 2,
+   "utility": 1
+  }
+ },
+ "RekSai": {
+  "tags": [
+   "Mobile",
+   "Dive"
+  ],
+  "playstyle": {
+   "damage": 2,
+   "toughness": 2,
+   "control": 2,
+   "mobility": 2,
+   "utility": 2
+  }
+ },
+ "Rell": {
+  "tags": [
+   "Crowd Control",
+   "Initiator"
+  ],
+  "playstyle": {
+   "damage": 1,
+   "toughness": 3,
+   "control": 3,
+   "mobility": 2,
+   "utility": 2
+  }
+ },
+ "Renata": {
+  "tags": [
+   "Crowd Control",
+   "Ally Protection"
+  ],
+  "playstyle": {
+   "damage": 2,
+   "toughness": 1,
+   "control": 3,
+   "mobility": 1,
+   "utility": 2
+  }
+ },
+ "Renekton": {
+  "tags": [
+   "Duelist",
+   "Durable"
+  ],
+  "playstyle": {
+   "damage": 2,
+   "toughness": 2,
+   "control": 2,
+   "mobility": 2,
+   "utility": 1
+  }
+ },
+ "Rengar": {
+  "tags": [
+   "Stealth",
+   "Burst"
+  ],
+  "playstyle": {
+   "damage": 3,
+   "toughness": 1,
+   "control": 2,
+   "mobility": 2,
+   "utility": 1
+  }
+ },
+ "Riven": {
+  "tags": [
+   "Mobile",
+   "Duelist"
+  ],
+  "playstyle": {
+   "damage": 3,
+   "toughness": 2,
+   "control": 2,
+   "mobility": 3,
+   "utility": 1
+  }
+ },
+ "Rumble": {
+  "tags": [
+   "Damage-over-Time",
+   "Battlecaster"
+  ],
+  "playstyle": {
+   "damage": 3,
+   "toughness": 2,
+   "control": 2,
+   "mobility": 1,
+   "utility": 1
+  }
+ },
+ "Ryze": {
+  "tags": [
+   "Battlecaster",
+   "Sustained Damage"
+  ],
+  "playstyle": {
+   "damage": 3,
+   "toughness": 1,
+   "control": 2,
+   "mobility": 2,
+   "utility": 2
+  }
+ },
+ "Samira": {
+  "tags": [
+   "AoE",
+   "Dive"
+  ],
+  "playstyle": {
+   "damage": 3,
+   "toughness": 2,
+   "control": 1,
+   "mobility": 3,
+   "utility": 1
+  }
+ },
+ "Sejuani": {
+  "tags": [
+   "Crowd Control",
+   "Initiator"
+  ],
+  "playstyle": {
+   "damage": 2,
+   "toughness": 2,
+   "control": 3,
+   "mobility": 2,
+   "utility": 1
+  }
+ },
+ "Senna": {
+  "tags": [
+   "Auto-attack",
+   "Ally Protection"
+  ],
+  "playstyle": {
+   "damage": 2,
+   "toughness": 1,
+   "control": 2,
+   "mobility": 1,
+   "utility": 3
+  }
+ },
+ "Seraphine": {
+  "tags": [
+   "AoE",
+   "Ally Protection"
+  ],
+  "playstyle": {
+   "damage": 3,
+   "toughness": 1,
+   "control": 3,
+   "mobility": 1,
+   "utility": 2
+  }
+ },
+ "Sett": {
+  "tags": [
+   "Duelist",
+   "Durable"
+  ],
+  "playstyle": {
+   "damage": 2,
+   "toughness": 2,
+   "control": 2,
+   "mobility": 2,
+   "utility": 1
+  }
+ },
+ "Shaco": {
+  "tags": [
+   "Stealth",
+   "Summon"
+  ],
+  "playstyle": {
+   "damage": 3,
+   "toughness": 1,
+   "control": 2,
+   "mobility": 2,
+   "utility": 2
+  }
+ },
+ "Shen": {
+  "tags": [
+   "Ally Protection",
+   "Duelist"
+  ],
+  "playstyle": {
+   "damage": 2,
+   "toughness": 3,
+   "control": 2,
+   "mobility": 2,
+   "utility": 3
+  }
+ },
+ "Shyvana": {
+  "tags": [],
+  "playstyle": {
+   "damage": 2,
+   "toughness": 2,
+   "control": 1,
+   "mobility": 2,
+   "utility": 1
+  }
+ },
+ "Singed": {
+  "tags": [
+   "Battlecaster",
+   "Damage-over-Time"
+  ],
+  "playstyle": {
+   "damage": 2,
+   "toughness": 3,
+   "control": 2,
+   "mobility": 2,
+   "utility": 1
+  }
+ },
+ "Sion": {
+  "tags": [
+   "Durable",
+   "Crowd Control"
+  ],
+  "playstyle": {
+   "damage": 2,
+   "toughness": 3,
+   "control": 3,
+   "mobility": 1,
+   "utility": 1
+  }
+ },
+ "Sivir": {
+  "tags": [
+   "AoE",
+   "Auto-attack"
+  ],
+  "playstyle": {
+   "damage": 3,
+   "toughness": 1,
+   "control": 1,
+   "mobility": 1,
+   "utility": 2
+  }
+ },
+ "Skarner": {
+  "tags": [
+   "Crowd Control",
+   "Initiator"
+  ],
+  "playstyle": {
+   "damage": 2,
+   "toughness": 3,
+   "control": 3,
+   "mobility": 2,
+   "utility": 1
+  }
+ },
+ "Smolder": {
+  "tags": [
+   "Hypercarry",
+   "AoE"
+  ],
+  "playstyle": {
+   "damage": 3,
+   "toughness": 1,
+   "control": 1,
+   "mobility": 1,
+   "utility": 1
+  }
+ },
+ "Sona": {
+  "tags": [
+   "Ally Protection",
+   "Crowd Control"
+  ],
+  "playstyle": {
+   "damage": 2,
+   "toughness": 1,
+   "control": 2,
+   "mobility": 1,
+   "utility": 2
+  }
+ },
+ "Soraka": {
+  "tags": [
+   "Ally Protection",
+   "Crowd Control"
+  ],
+  "playstyle": {
+   "damage": 1,
+   "toughness": 1,
+   "control": 2,
+   "mobility": 1,
+   "utility": 3
+  }
+ },
+ "Swain": {
+  "tags": [
+   "Battlecaster",
+   "Self Healing"
+  ],
+  "playstyle": {
+   "damage": 2,
+   "toughness": 2,
+   "control": 2,
+   "mobility": 1,
+   "utility": 1
+  }
+ },
+ "Sylas": {
+  "tags": [
+   "Duelist",
+   "Battlecaster"
+  ],
+  "playstyle": {
+   "damage": 2,
+   "toughness": 2,
+   "control": 1,
+   "mobility": 3,
+   "utility": 1
+  }
+ },
+ "Syndra": {
+  "tags": [
+   "Burst",
+   "Long Range"
+  ],
+  "playstyle": {
+   "damage": 3,
+   "toughness": 1,
+   "control": 2,
+   "mobility": 1,
+   "utility": 1
+  }
+ },
+ "TahmKench": {
+  "tags": [
+   "Crowd Control",
+   "Ally Protection"
+  ],
+  "playstyle": {
+   "damage": 2,
+   "toughness": 3,
+   "control": 2,
+   "mobility": 1,
+   "utility": 3
+  }
+ },
+ "Taliyah": {
+  "tags": [
+   "Crowd Control",
+   "AoE"
+  ],
+  "playstyle": {
+   "damage": 3,
+   "toughness": 1,
+   "control": 2,
+   "mobility": 1,
+   "utility": 3
+  }
+ },
+ "Talon": {
+  "tags": [
+   "Mobile",
+   "Burst"
+  ],
+  "playstyle": {
+   "damage": 3,
+   "toughness": 1,
+   "control": 1,
+   "mobility": 2,
+   "utility": 1
+  }
+ },
+ "Taric": {
+  "tags": [
+   "Durable",
+   "Ally Protection"
+  ],
+  "playstyle": {
+   "damage": 1,
+   "toughness": 2,
+   "control": 2,
+   "mobility": 1,
+   "utility": 3
+  }
+ },
+ "Teemo": {
+  "tags": [
+   "Damage-over-Time",
+   "Stealth"
+  ],
+  "playstyle": {
+   "damage": 3,
+   "toughness": 1,
+   "control": 2,
+   "mobility": 1,
+   "utility": 2
+  }
+ },
+ "Thresh": {
+  "tags": [
+   "Initiator",
+   "Ally Protection"
+  ],
+  "playstyle": {
+   "damage": 1,
+   "toughness": 2,
+   "control": 3,
+   "mobility": 1,
+   "utility": 3
+  }
+ },
+ "Tristana": {
+  "tags": [
+   "Mobile",
+   "Auto-attack"
+  ],
+  "playstyle": {
+   "damage": 3,
+   "toughness": 1,
+   "control": 2,
+   "mobility": 2,
+   "utility": 1
+  }
+ },
+ "Trundle": {
+  "tags": [
+   "Duelist",
+   "Self Healing"
+  ],
+  "playstyle": {
+   "damage": 2,
+   "toughness": 3,
+   "control": 1,
+   "mobility": 1,
+   "utility": 2
+  }
+ },
+ "Tryndamere": {
+  "tags": [
+   "Duelist",
+   "Auto-attack"
+  ],
+  "playstyle": {
+   "damage": 3,
+   "toughness": 2,
+   "control": 1,
+   "mobility": 2,
+   "utility": 1
+  }
+ },
+ "TwistedFate": {
+  "tags": [
+   "Burst",
+   "Auto-attack"
+  ],
+  "playstyle": {
+   "damage": 3,
+   "toughness": 1,
+   "control": 2,
+   "mobility": 2,
+   "utility": 2
+  }
+ },
+ "Twitch": {
+  "tags": [
+   "Hypercarry",
+   "Stealth"
+  ],
+  "playstyle": {
+   "damage": 3,
+   "toughness": 1,
+   "control": 1,
+   "mobility": 2,
+   "utility": 1
+  }
+ },
+ "Udyr": {
+  "tags": [
+   "Auto-attack",
+   "Durable"
+  ],
+  "playstyle": {
+   "damage": 2,
+   "toughness": 3,
+   "control": 2,
+   "mobility": 2,
+   "utility": 1
+  }
+ },
+ "Urgot": {
+  "tags": [
+   "Duelist",
+   "Sustained Damage"
+  ],
+  "playstyle": {
+   "damage": 2,
+   "toughness": 2,
+   "control": 2,
+   "mobility": 1,
+   "utility": 1
+  }
+ },
+ "Varus": {
+  "tags": [
+   "Long Range",
+   "Auto-attack"
+  ],
+  "playstyle": {
+   "damage": 3,
+   "toughness": 1,
+   "control": 2,
+   "mobility": 1,
+   "utility": 1
+  }
+ },
+ "Vayne": {
+  "tags": [
+   "Hypercarry",
+   "Stealth"
+  ],
+  "playstyle": {
+   "damage": 3,
+   "toughness": 1,
+   "control": 2,
+   "mobility": 2,
+   "utility": 1
+  }
+ },
+ "Veigar": {
+  "tags": [
+   "Hypercarry",
+   "Burst"
+  ],
+  "playstyle": {
+   "damage": 3,
+   "toughness": 1,
+   "control": 3,
+   "mobility": 1,
+   "utility": 1
+  }
+ },
+ "Velkoz": {
+  "tags": [
+   "Long Range",
+   "AoE"
+  ],
+  "playstyle": {
+   "damage": 3,
+   "toughness": 1,
+   "control": 2,
+   "mobility": 1,
+   "utility": 1
+  }
+ },
+ "Vex": {
+  "tags": [
+   "Burst",
+   "Crowd Control"
+  ],
+  "playstyle": {
+   "damage": 3,
+   "toughness": 2,
+   "control": 2,
+   "mobility": 2,
+   "utility": 1
+  }
+ },
+ "Vi": {
+  "tags": [
+   "Dive",
+   "Auto-attack"
+  ],
+  "playstyle": {
+   "damage": 2,
+   "toughness": 2,
+   "control": 3,
+   "mobility": 2,
+   "utility": 1
+  }
+ },
+ "Viego": {
+  "tags": [
+   "Shapeshift",
+   "Duelist"
+  ],
+  "playstyle": {
+   "damage": 3,
+   "toughness": 1,
+   "control": 2,
+   "mobility": 2,
+   "utility": 1
+  }
+ },
+ "Viktor": {
+  "tags": [
+   "Sustained Damage",
+   "AoE"
+  ],
+  "playstyle": {
+   "damage": 3,
+   "toughness": 1,
+   "control": 2,
+   "mobility": 1,
+   "utility": 1
+  }
+ },
+ "Vladimir": {
+  "tags": [
+   "Self Healing",
+   "Battlecaster"
+  ],
+  "playstyle": {
+   "damage": 3,
+   "toughness": 2,
+   "control": 1,
+   "mobility": 1,
+   "utility": 1
+  }
+ },
+ "Volibear": {
+  "tags": [
+   "Duelist",
+   "Durable"
+  ],
+  "playstyle": {
+   "damage": 2,
+   "toughness": 3,
+   "control": 2,
+   "mobility": 2,
+   "utility": 1
+  }
+ },
+ "Warwick": {
+  "tags": [
+   "Self Healing",
+   "Duelist"
+  ],
+  "playstyle": {
+   "damage": 2,
+   "toughness": 2,
+   "control": 2,
+   "mobility": 1,
+   "utility": 1
+  }
+ },
+ "Xayah": {
+  "tags": [
+   "AoE",
+   "Auto-attack"
+  ],
+  "playstyle": {
+   "damage": 3,
+   "toughness": 2,
+   "control": 3,
+   "mobility": 1,
+   "utility": 1
+  }
+ },
+ "Xerath": {
+  "tags": [
+   "Long Range",
+   "AoE"
+  ],
+  "playstyle": {
+   "damage": 3,
+   "toughness": 1,
+   "control": 2,
+   "mobility": 1,
+   "utility": 1
+  }
+ },
+ "XinZhao": {
+  "tags": [],
+  "playstyle": {
+   "damage": 2,
+   "toughness": 2,
+   "control": 2,
+   "mobility": 2,
+   "utility": 1
+  }
+ },
+ "Yasuo": {
+  "tags": [
+   "Duelist",
+   "Mobile"
+  ],
+  "playstyle": {
+   "damage": 3,
+   "toughness": 1,
+   "control": 2,
+   "mobility": 3,
+   "utility": 2
+  }
+ },
+ "Yone": {
+  "tags": [
+   "Mobile",
+   "Duelist"
+  ],
+  "playstyle": {
+   "damage": 3,
+   "toughness": 1,
+   "control": 2,
+   "mobility": 3,
+   "utility": 1
+  }
+ },
+ "Yorick": {
+  "tags": [
+   "Summon",
+   "Duelist"
+  ],
+  "playstyle": {
+   "damage": 2,
+   "toughness": 2,
+   "control": 2,
+   "mobility": 1,
+   "utility": 2
+  }
+ },
+ "Yunara": {
+  "tags": [
+   "Auto-attack",
+   "Sustained Damage"
+  ],
+  "playstyle": {
+   "damage": 3,
+   "toughness": 1,
+   "control": 1,
+   "mobility": 2,
+   "utility": 1
+  }
+ },
+ "Yuumi": {
+  "tags": [
+   "Ally Protection",
+   "AoE"
+  ],
+  "playstyle": {
+   "damage": 1,
+   "toughness": 1,
+   "control": 1,
+   "mobility": 3,
+   "utility": 3
+  }
+ },
+ "Zaahen": {
+  "tags": [],
+  "playstyle": {
+   "damage": 2,
+   "toughness": 2,
+   "control": 2,
+   "mobility": 2,
+   "utility": 1
+  }
+ },
+ "Zac": {
+  "tags": [
+   "Initiator",
+   "Self Healing"
+  ],
+  "playstyle": {
+   "damage": 2,
+   "toughness": 3,
+   "control": 3,
+   "mobility": 2,
+   "utility": 1
+  }
+ },
+ "Zed": {
+  "tags": [
+   "Burst",
+   "Mobile"
+  ],
+  "playstyle": {
+   "damage": 3,
+   "toughness": 1,
+   "control": 1,
+   "mobility": 3,
+   "utility": 1
+  }
+ },
+ "Zeri": {
+  "tags": [
+   "Mobile",
+   "Burst"
+  ],
+  "playstyle": {
+   "damage": 2,
+   "toughness": 1,
+   "control": 2,
+   "mobility": 3,
+   "utility": 1
+  }
+ },
+ "Ziggs": {
+  "tags": [
+   "Long Range",
+   "AoE"
+  ],
+  "playstyle": {
+   "damage": 3,
+   "toughness": 1,
+   "control": 2,
+   "mobility": 2,
+   "utility": 1
+  }
+ },
+ "Zilean": {
+  "tags": [
+   "Crowd Control",
+   "Ally Protection"
+  ],
+  "playstyle": {
+   "damage": 2,
+   "toughness": 1,
+   "control": 2,
+   "mobility": 2,
+   "utility": 3
+  }
+ },
+ "Zoe": {
+  "tags": [
+   "Burst",
+   "Long Range"
+  ],
+  "playstyle": {
+   "damage": 3,
+   "toughness": 1,
+   "control": 2,
+   "mobility": 2,
+   "utility": 1
+  }
+ },
+ "Zyra": {
+  "tags": [
+   "Summon",
+   "Crowd Control"
+  ],
+  "playstyle": {
+   "damage": 3,
+   "toughness": 1,
+   "control": 3,
+   "mobility": 1,
+   "utility": 1
+  }
+ }
+}

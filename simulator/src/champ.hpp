@@ -3,6 +3,7 @@
 // build optimizer. Same fight scenario, enemy pool and RNG as the Yunara sim.
 #pragma once
 
+#include <algorithm>
 #include <array>
 #include <cstdint>
 #include <map>
@@ -68,8 +69,43 @@ struct Ability {
     Area area = Area::Single;
     Geometry geo;
     bool aura = false;  // per-second damage on a toggle or very short cooldown: always on
+    bool toggle = false; // switched on while enemies are in reach (Singed Q, Karthus E, Amumu W)
+    double trail = 0;    // > 0: an aura that also lingers this long where you walked (Singed Q's cloud)
+    double linger = 0;   // > 0: an aura's damage keeps ticking this long after a target leaves it (poison)
     int onhitEvery = 0; // > 0: a passive that procs on every Nth attack instead of a cast
+    int casts = 1;      // casts per cooldown, each granting after-ability passive charges (Riven Q: 3)
+    int afterAttacks = 0; // > 0: cast only once this many attacks have hit the target since its last cast (stacks to build: Twitch E)
+    double ramp = 0;    // on-hit passives: each proc on the same target adds a stack that multiplies the damage,
+                        // lost after this many seconds without a hit (Bel'Veth R)
+    bool noHaste = false;
+    bool appliesOnHit = false;
+    double invuln = 0;
+    double refund = 0;
+    double critRefund = 0;      // seconds off its cooldown whenever an attack crits (Tryndamere E)
+    double attackCdr = 0;       // seconds off its cooldown whenever an attack lands (Senna Q, Kai'Sa E)
+    double readyDelay = 0;      // seconds before its cooldown starts, untouched by haste and refunds (TF W's card cycling)
+    double missingMax = 0;      // > 0: the missing-Health bonus stops growing at this share missing (Veigar R)
+    double soloMult = 1;        // damage x this when the cast hits only one enemy (Karthus Q on a lone target)
+    double missingAmp = 0;      // damage x (1 + this x the target's missing share of Health) (Jhin R)          // mana or energy restored when it hits its target (Zed's shadows hitting it too)          // seconds the caster takes no damage from the cast on (Pantheon E's shield)  // its hit on the first target applies on-hit effects (Bel'Veth Q)  // the cooldown isn't reduced by ability haste (a resource or stack build-up time)
+    // Damage scaled by how far it flew: x1 up to rangeFrom, rising to rangeMax at rangeTo (Nidalee Q).
+    double rangeFrom = 0, rangeTo = 0, rangeMax = 1;
+    // Marks the targets hit: for markDuration seconds, markShare of the damage you deal them is
+    // dealt again as physical damage by this ability (Zed R).
+    double markDuration = 0, markShare = 0;
+    // A buff on yourself when cast, for buffDuration seconds: bonus attack speed, attack damage
+    // (flat, and a share of your bonus AD), damage of your attacks (multiplier), omnivamp and healing received.
+    double buffDuration = 0, buffAs = 0, buffAd = 0, buffBonusAdPct = 0, buffAttackMult = 1, buffVamp = 0, buffHealAmp = 0;
+    bool missingIsolated = false;  // the missing-Health bonus only on an immobilized target or a lone hit (Hwei's Severing Bolt)
+    bool placeholder = false;     // a slot kept empty until the kit fills it mid-fight (Viego's possessions, Aphelios' off-hand)
+    // A summon that fights on its own for petDuration seconds: an attack every 1/petAs seconds on your
+    // target, and every petSlamEvery-th attack (at most every petSlamCd seconds) a slam around it that
+    // knocks up for petSlamCc seconds (Ivern's Daisy).
+    double petDuration = 0, petAs = 1, petSlamCd = 0, petSlamCc = 0;
+    int petSlamEvery = 0;
+    std::vector<Hit> petHits, petSlam;
     std::vector<Hit> hits;
+    // Versions of this ability the kit swaps in mid-fight: Hwei's three spells per slot, Aphelios' weapons.
+    std::vector<Ability> variants;
 };
 
 // A champion passive's damage and when it lands (data/passives.json via data/champions.json).
@@ -81,6 +117,10 @@ struct Passive {
     int charges = 1, maxCharges = 1;  // AfterAbility: empowered attacks per cast, and how many can be stored
     bool aoe = false;       // also hits enemies near the target
     double belowHp = 0;     // only against targets below this share of their max Health
+    double abilityCdr = 0;  // seconds off its current cooldown whenever an ability cast hits (Galio)
+    double restore = 0;     // mana or energy it gives back when it procs (Ambessa)
+    double basicCdr = 0;    // seconds off the current cooldowns of Q, W and E whenever it procs (Taric)
+    bool needsHit = false;  // AfterAbility: only casts that hit an enemy charge it (Lux marks the enemies she hits)
     std::vector<Hit> hits;
 };
 
@@ -91,6 +131,7 @@ struct ChampionKit {
     double hp = 600, hpG = 100, armor = 30, armorG = 4.5, mr = 32, mrG = 2;
     double ad = 60, adG = 3.5, as = 0.65, asG = 0.02, asRatio = 0.65;
     double damageDealt = 1, damageTaken = 1, mayhemAh = 0, mayhemAs = 0;
+    double mayhemHealing = 1, mayhemShielding = 1, mayhemTenacity = 0;  // Mayhem balance: heal and shield power, tenacity
     bool hasCn = false;
     double cnDamageShare = 0.2, cnTakenShare = 0.2, cnWeight = 0, cnWinRate = 0.5;
     double attackRange = 125, moveSpeed = 335;
@@ -105,6 +146,10 @@ struct ChampionKit {
     // reviveFrac of max Health. deathNeedsR: only while the ultimate is ready (it's used up).
     double deathAct = 0, reviveFrac = 0, reviveDelay = 0, deathChance = 1;
     bool deathNeedsR = false;
+    // While acting on after death (Sion's Glory in Death): fixed attack speed, on-hit damage from the
+    // target's max Health, and whether abilities can still be cast.
+    double deathAs = 0, deathOnhitMaxHp = 0;
+    bool deathAbilities = true;
     std::vector<Ability> abilities;
     std::vector<Passive> passives;
     // Mana or energy (resource 1 or 2; 0: casts are free): pool and regeneration per second.
@@ -119,6 +164,7 @@ struct ChampionKit {
 
 struct Effect {
     std::string key, name, slot, rarity, confidence;
+    std::string group;      // items of one group (Last Whisper, Blight, Hydra, Lifeline) can't be bought together
     std::string needsItem;  // augments that only work with an item (Upgrade Infinity Edge): its key
     std::string bind;      // augments on one of your abilities: which kind it picks (any, aoe, missile, cc, buff)
     int id = 0;
@@ -128,7 +174,28 @@ struct Effect {
 };
 
 struct Rules {
-    double critMult = 2.0, critOverflowAd = 0.45, asCap = 5.0;
+    double critMult = 2.0, critOverflowAf = 0.75, asCap = 5.0;
+    double grievous = 0.4;  // healing cut by Grievous Wounds
+    // Mayhem stats every champion gets: base health growing from 20 at level 1 to these at 18, and bonus
+    // armor and magic resist (melee only for now).
+    double mayhemHpMelee = 600, mayhemHpRanged = 400, mayhemResistMelee = 15, mayhemResistRanged = 0;
+    double mayhemHp(int level, bool ranged) const {
+        const double top = ranged ? mayhemHpRanged : mayhemHpMelee;
+        return top <= 0 ? 0.0 : 20.0 + (top - 20.0) * (std::clamp(level, 1, 18) - 1) / 17.0;
+    }
+    double mayhemResist(bool ranged) const { return ranged ? mayhemResistRanged : mayhemResistMelee; }
+    // ARAM: damage from enemy champions further than longRangeStart units away is cut to longRangeNear,
+    // falling to longRangeFar at twice that distance (not damage over time or ultimates).
+    double longRangeStart = 1000, longRangeNear = 0.85, longRangeFar = 0.70;
+    // Combo Breaker (Mayhem): each separate immobilize grants comboTenacity more tenacity (stacking) for
+    // comboDuration seconds, refreshed by the next one.
+    double comboTenacity = 0.2, comboDuration = 3.25;
+    // On Fire! (an optional fight setting): bonus attack and move speed, less healing, more damage taken.
+    double fireAs = 0.2, fireMs = 0.2, fireHeal = 0.25, fireTakenMelee = 1.25, fireTakenRanged = 1.35;
+    double longRange(double dist) const {
+        if (dist <= longRangeStart) return 1.0;
+        return longRangeNear + (longRangeFar - longRangeNear) * std::min(1.0, (dist - longRangeStart) / longRangeStart);
+    }
     double extraHitWeight = 0.5;
     double castMin = 0.0, castMax = 1.5, minCooldown = 0.75, dotDuration = 3.0, spellbladeWindow = 10.0;
     // Positions: whether a skillshot lands comes from where everyone stands and moves.
@@ -140,6 +207,9 @@ struct Rules {
     // Enemies only hurt you while in reach, so their damage while in reach is scaled
     // up to keep a fight's total about where real games put it.
     double inRangeBoost = 1.0;
+    double focusRamp = 0;     // seconds over which the enemies' damage on you builds up to full
+    double deathBlastLife = 0;  // damage dealt on death counts in full only after a life this long
+    bool focusFromContact = false;  // the ramp starts when an enemy first has you in reach
     double comboOrder = 1;  // 1: cast in each champion's recommended combo order; 0: by damage
     // Enemies cast their own abilities: their damage partly arrives as those abilities' hits (on
     // their cooldowns, in their range), and their crowd control is their own (rate kept to real games).
@@ -154,6 +224,13 @@ struct OptimizerSettings {
     int screenTrials = 64, finalTrials = 2000, finalists = 12;
     // Only search items that fit the champion's class and scalings (no AD-crit Lux).
     bool fittingItemsOnly = true;
+    // Smart search (mayhem_sim --search smart): items and augments searched together, then
+    // successive halving: every shortlisted build gets smartStartTrials fights, the best
+    // 1/smartKeep go on with smartKeep times as many, until smartFinalists are left for
+    // smartFinalTrials fights each.
+    bool smart = false;
+    int smartItems = 15, smartAugs = 10, smartItemSets = 24, smartAugSets = 12;
+    int smartStartTrials = 250, smartKeep = 3, smartFinalists = 4, smartFinalTrials = 20000;
 };
 
 struct Build {
@@ -243,14 +320,15 @@ struct TraceEvent {
     double flight = 0;        // casts: seconds the missile flies
     std::vector<double> pos;  // pos: uid, x, y for everyone standing (uid -1 is the champion)
     // Running fight totals: self/death carry damage taken and mitigated so far, heal the Health
-    // restored so far, ecc the seconds of crowd control dealt so far.
-    double taken = 0, mitigated = 0, total = 0;
+    // restored so far, shielded the damage your shields absorbed so far, ecc the seconds of crowd control dealt so far.
+    double taken = 0, mitigated = 0, shielded = 0, total = 0;
 };
 
 struct FightTrace {
     Result result;
     double engageAt = 0, maxHp = 0;
-    std::vector<std::string> team;  // enemy champion ids in this fight
+    std::vector<std::string> team;  // enemy champion ids in this fight (and the ones that step in later)
+    std::vector<double> cooldowns;  // each ability's cooldown with the build's ability haste
     std::vector<TraceEvent> events;
 };
 
@@ -267,7 +345,7 @@ struct Summary {
     double singleTargetDps = 0, killsPerMinute = 0, survivalRate = 0, meanTimeAlive = 0;
     double damageTakenPerSec = 0;  // damage you take per second alive, after your resists
     // Per fight, on average: Health lost, damage mitigated, Health restored, seconds of crowd control dealt.
-    double damageTaken = 0, damageMitigated = 0, healing = 0, ccSeconds = 0;
+    double damageTaken = 0, damageMitigated = 0, healing = 0, ccSeconds = 0, shielding = 0;
     // Short against long fights: damage per second over the first kShortFight and the first
     // kLongFight seconds from your first hit (going down early counts against both).
     double shortDps = 0, longDps = 0;
@@ -276,8 +354,9 @@ struct Summary {
 Summary summarize(const std::vector<Result>& results);
 
 // What a build search ranks builds by: damage per second (the default), or per fight the damage you
-// take, the damage you mitigate, the Health you restore, or the seconds of crowd control you deal.
-enum class Metric { Damage, Taken, Mitigated, Healing, Cc };
+// take, the damage you mitigate, the Health you restore, the damage your shields absorb, or the seconds
+// of crowd control you deal.
+enum class Metric { Damage, Taken, Mitigated, Healing, Cc, Shielding };
 bool parseMetric(const std::string& name, Metric& out);
 double metricOf(const Result& r, Metric m);
 double metricOf(const Summary& s, Metric m);
@@ -292,6 +371,7 @@ struct Ranked {
 // the highest per-fight value of another metric.
 // Uses the same fights for every build (common random numbers) so small
 // differences are real differences, not noise. threads > 1 splits the work.
+// With lib.optimizer.smart it runs the slower, wider smart search instead.
 std::vector<Ranked> optimize(const Library& lib, const ChampionKit& champ, const Scenario& sc, int threads,
                              int top = 5, Metric metric = Metric::Damage);
 

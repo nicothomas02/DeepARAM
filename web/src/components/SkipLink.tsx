@@ -1,8 +1,11 @@
 "use client";
 
+import { useT } from "./I18n";
+
 // "Skip to content" for keyboard users. Moves focus without adding #main to the address, since
 // embedded tools read the page's #hash.
 export default function SkipLink() {
+  const t = useT();
   return (
     <a
       className="skip-link"
@@ -15,7 +18,7 @@ export default function SkipLink() {
         main.scrollIntoView();
       }}
     >
-      Skip to content
+      {t("Skip to content")}
     </a>
   );
 }

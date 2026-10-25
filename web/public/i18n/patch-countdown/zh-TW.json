@@ -1,0 +1,10 @@
+{
+ "Patch {patch} comes out in {n} days": "{patch} 版本將在 {n} 天後上線",
+ "Patch {patch} comes out tomorrow": "{patch} 版本將於明天上線",
+ "day": "天",
+ "days": "天",
+ "Patch {patch} comes out in under 24 hours": "更新 {patch} 將在 24 小時內發布",
+ "{set} (Patch {patch}) is live!": "{set}（版本 {patch}）已上線！",
+ "Patch {patch} is live!": "版本 {patch} 已上線！",
+ "New patch data takes a couple of days to collect.": "新版本的資料需要幾天時間收集。"
+}

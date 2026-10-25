@@ -1,6 +1,6 @@
 import site from "@/content/site.json";
 
-// Site text Nico edits at /admin. The editor commits src/content/site.json to main, which redeploys the site.
+// Site text Nico edits at /account/edit. The editor commits src/content/site.json to main, which redeploys the site.
 // Every key below is one field in the editor; keys missing from the JSON fall back to "".
 
 export type Field = { key: string; label: string; group: string; long?: boolean; hint?: string };

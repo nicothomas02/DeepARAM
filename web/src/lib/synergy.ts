@@ -1,43 +1,20 @@
-import "server-only";
-import championIds from "@/data/champion-ids.json";
-import { champName } from "./highlights";
-import { liveWithChange } from "./champions";
-import { readRepoJson } from "./repo-data";
+// Duo synergy: how much more two champions win together than their own win rates predict.
+//
+// Two strong champions win a lot together even if they don't help each other, so the pair's win rate
+// alone (or its gap to the average of the two) mostly rewards strong champions. Instead we work out the
+// win rate the pair would have if neither did anything for the other: on the log-odds scale, each
+// champion's edge over a coin flip adds up (a 55% and a 55% champion would win about 59.9% together).
+// Synergy is the pair's real win rate minus that expected one, in percentage points: above zero, the
+// pair is more than the sum of its parts.
+//
+// No shrinking for small samples: even the rarest listed pairs have so many games that their synergy
+// spreads just as widely as the most common pairs' (checked October 2026), so sample luck is negligible.
 
-// Pair win rates for the Team Builder (/synergy), built once per deploy into /data/synergy.json:
-// each champion's 50 best partners (data/cn/champions.json) plus the top duos (data/cn/duos.json).
-// Win rates are stored in basis points to keep the file small.
+const clamp = (p: number) => Math.min(0.99, Math.max(0.01, p));
+const logit = (p: number) => Math.log(clamp(p) / (1 - clamp(p)));
 
-const IDS = championIds as Record<string, number>;
-const ALIAS = Object.fromEntries(Object.entries(IDS).map(([alias, id]) => [id, alias]));
+/** The win rate two champions would have together if they didn't help or hurt each other. */
+export const expectedPairWinRate = (a: number, b: number) => 1 / (1 + Math.exp(-(logit(a) + logit(b))));
 
-type Champs = { champions: { name: string; best_partners?: { champion_id: number; win_rate: number }[] }[] };
-type Duos = { duos: { names: string[]; win_rate: number }[] };
-
-export type SynergyData = {
-  champions: { id: string; name: string; tier: string; winRate: number }[];
-  /** pairs[a][b] = win rate together in basis points, both directions. */
-  pairs: Record<string, Record<string, number>>;
-};
-
-const bp = (v: number) => Math.round(v * 10000);
-
-export function synergyData(): SynergyData {
-  const pairs: SynergyData["pairs"] = {};
-  const put = (a: string, b: string, wr: number) => {
-    if (!a || !b || a === b) return;
-    for (const [x, y] of [
-      [a, b],
-      [b, a],
-    ]) {
-      (pairs[x] ??= {})[y] ??= bp(wr);
-    }
-  };
-  for (const d of readRepoJson<Duos>("data/cn/duos.json")?.duos ?? []) put(d.names[0], d.names[1], d.win_rate);
-  for (const c of readRepoJson<Champs>("data/cn/champions.json")?.champions ?? [])
-    for (const p of c.best_partners ?? []) put(c.name, ALIAS[p.champion_id], p.win_rate);
-  const champions = liveWithChange()
-    .live.map((c) => ({ id: c.name, name: champName(c.name), tier: c.tier, winRate: c.win_rate }))
-    .sort((a, b) => a.name.localeCompare(b.name));
-  return { champions, pairs };
-}
+/** Pair win rate minus the expected one. */
+export const synergy = (pairWinRate: number, a: number, b: number): number => pairWinRate - expectedPairWinRate(a, b);

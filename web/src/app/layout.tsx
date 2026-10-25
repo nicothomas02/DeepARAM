@@ -1,11 +1,11 @@
 import type { Metadata, Viewport } from "next";
-import { Bricolage_Grotesque, Geist, Geist_Mono } from "next/font/google";
+import { Mona_Sans } from "next/font/google";
 import Link from "next/link";
 import FeedbackBox from "@/components/FeedbackBox";
 import PageTransitions from "@/components/PageTransitions";
 import TiltEffects from "@/components/TiltEffects";
 import SwipeGestures from "@/components/SwipeGestures";
-import CompareTray from "@/components/CompareTray";
+import PressDown from "@/components/PressDown";
 import HoverPreview from "@/components/HoverPreview";
 import CountUp from "@/components/CountUp";
 import KeyboardShortcuts from "@/components/KeyboardShortcuts";
@@ -14,14 +14,17 @@ import FirstVisitTour from "@/components/FirstVisitTour";
 import UpdateToast from "@/components/UpdateToast";
 import AccountButton from "@/components/AccountButton";
 import BrandMark from "@/components/BrandMark";
+import HapticTaps from "@/components/HapticTaps";
 import MobileTabBar from "@/components/MobileTabBar";
 import NavLinks from "@/components/NavLinks";
 import SearchPalette from "@/components/SearchPalette";
 import ErrorReporter from "@/components/ErrorReporter";
 import SettingsMenu from "@/components/SettingsMenu";
 import { text } from "@/lib/content";
-import { searchPages } from "@/lib/highlights";
+import { livePatch, searchPages } from "@/lib/highlights";
 import { SETTINGS_SCRIPT } from "@/lib/settings";
+import { LANG_SCRIPT } from "@/lib/i18n";
+import { T } from "@/components/I18n";
 import { THEME_COLORS, THEME_KEY } from "@/lib/theme";
 import { navGroups, navItems } from "@/lib/tabs";
 import "./globals.css";
@@ -30,36 +33,39 @@ import SkipLink from "@/components/SkipLink";
 import ViewMemory from "@/components/ViewMemory";
 import { VIEW_SCRIPT } from "@/lib/url-state";
 import BackToTop from "@/components/BackToTop";
-import RecentTracker from "@/components/RecentTracker";
 
-const sans = Geist({ subsets: ["latin"], variable: "--font-sans" });
-const mono = Geist_Mono({ subsets: ["latin"], variable: "--font-mono" });
-const display = Bricolage_Grotesque({ subsets: ["latin"], weight: ["600", "700"], variable: "--font-display" });
+// Mona Sans for headlines, text and numbers; next/font serves it from deeparam.com.
+const sans = Mona_Sans({ subsets: ["latin", "latin-ext", "vietnamese"], variable: "--font-sans" });
 
 const DESCRIPTION = "ARAM Mayhem tier list, augment win rates and a teamfight simulator for the current patch.";
+// Home's title in search results; other pages set their own with pageMeta.
+const TITLE = "DeepARAM: ARAM Mayhem Tier List, Augments & Builds";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://deeparam.com"),
-  title: "DeepARAM",
+  title: TITLE,
   description: DESCRIPTION,
   alternates: { canonical: "/" },
   applicationName: "DeepARAM",
-  openGraph: { type: "website", siteName: "DeepARAM", title: "DeepARAM", description: DESCRIPTION, url: "/", images: [{ url: "/og.png", width: 1200, height: 630, alt: "DeepARAM" }] },
-  twitter: { card: "summary_large_image", title: "DeepARAM", description: DESCRIPTION, images: ["/og.png"] },
+  openGraph: { type: "website", siteName: "DeepARAM", title: TITLE, description: DESCRIPTION, url: "/", images: [{ url: "/og.png", width: 1200, height: 630, alt: "DeepARAM" }] },
+  twitter: { card: "summary_large_image", title: TITLE, description: DESCRIPTION, images: ["/og.png"] },
 };
 
 // Tells search engines the site's name and logo, so results show "DeepARAM" with the Augment Hex icon.
-const STRUCTURED_DATA = JSON.stringify([
-  { "@context": "https://schema.org", "@type": "WebSite", name: "DeepARAM", url: "https://deeparam.com/" },
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    name: "DeepARAM",
-    url: "https://deeparam.com/",
-    logo: "https://deeparam.com/icons/app/icon-512.png",
-    email: "admin@deeparam.com",
-  },
-]);
+// One object with an @graph, not a bare array: some Safari extensions read "@context" off the top level and throw on an array.
+const STRUCTURED_DATA = JSON.stringify({
+  "@context": "https://schema.org",
+  "@graph": [
+    { "@type": "WebSite", name: "DeepARAM", alternateName: ["Deep ARAM", "deeparam.com"], url: "https://deeparam.com/" },
+    {
+      "@type": "Organization",
+      name: "DeepARAM",
+      url: "https://deeparam.com/",
+      logo: "https://deeparam.com/icons/app/icon-512.png",
+      email: "admin@deeparam.com",
+    },
+  ],
+});
 
 export const viewport: Viewport = {
   viewportFit: "cover",
@@ -78,7 +84,7 @@ const DEVICE_SCRIPT = `try{var u=navigator.userAgent;if(/iPhone|iPad|iPod|Androi
 // New visitors start in dark mode; "system" follows the device.
 const THEME_SCRIPT = `var t="dark";try{t=localStorage.getItem(${JSON.stringify(THEME_KEY)})||"dark"}catch(e){}if(t==="light"||t==="dark")document.documentElement.dataset.theme=t;`;
 
-// The Ko-fi link Nico sets at /admin: a full ko-fi.com link or just the page name.
+// The Ko-fi link Nico sets at /account/edit: a full ko-fi.com link or just the page name.
 function kofiUrl() {
   const v = text("kofi").trim();
   if (!v) return "";
@@ -94,9 +100,9 @@ export default function RootLayout({
 }>) {
   const kofi = kofiUrl();
   return (
-    <html lang="en" className={`${sans.variable} ${mono.variable} ${display.variable}`} suppressHydrationWarning>
+    <html lang="en" className={sans.variable} data-patch={livePatch() ?? undefined} suppressHydrationWarning>
       <head>
-        <script dangerouslySetInnerHTML={{ __html: DEVICE_SCRIPT + THEME_SCRIPT + SETTINGS_SCRIPT + VIEW_SCRIPT }} />
+        <script dangerouslySetInnerHTML={{ __html: DEVICE_SCRIPT + THEME_SCRIPT + SETTINGS_SCRIPT + VIEW_SCRIPT + LANG_SCRIPT }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: STRUCTURED_DATA }} />
       </head>
       <body>
@@ -127,24 +133,31 @@ export default function RootLayout({
             <AccountButton />
           </div>
         </header>
-        {text("banner") && <p className="site-banner">{text("banner")}</p>}
+        {text("banner") && (
+          <p className="site-banner">
+            <T>{text("banner")}</T>
+          </p>
+        )}
         <main id="main" tabIndex={-1}>
           {children}
         </main>
         <footer className="site-footer">
           <FeedbackBox />
-          <nav className="footer-links" aria-label="Legal">
-            <Link href="/privacy">Privacy</Link>
-            <Link href="/terms">Terms</Link>
-            <Link href="/status">Status</Link>
-            <a href="mailto:admin@deeparam.com">Contact</a>
+          <nav className="footer-links" aria-label="Site">
+            <Link href="/privacy">
+              <T>Privacy</T>
+            </Link>
+            <Link href="/terms">
+              <T>Terms</T>
+            </Link>
           </nav>
-          <p>{text("footer")}</p>
+          <p>
+            <T>{text("footer")}</T>
+          </p>
         </footer>
         <PageTransitions />
         <TiltEffects />
         <SwipeGestures />
-        <CompareTray />
         <HoverPreview />
         <CountUp />
         <KeyboardShortcuts />
@@ -154,7 +167,8 @@ export default function RootLayout({
         <OfflineSupport />
         <ViewMemory />
         <BackToTop />
-        <RecentTracker />
+        <HapticTaps />
+        <PressDown />
         <MobileTabBar tabs={navGroups().map(({ href, label, group }) => ({ href, label, group }))} />
       </body>
     </html>

@@ -2,8 +2,19 @@
 
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useNames, useT, type NameKind } from "./I18n";
 
-export type SearchItem = { group: string; name: string; hint: string; href: string; icon?: string };
+/** `ref` names a champion, augment or item, so search shows and matches its name in the page's language too. */
+export type SearchItem = { group: string; name: string; hint: string; href: string; icon?: string; ref?: [NameKind, string] };
+
+// Hints written from numbers on the server ("52.1% win", "3000 gold", "Page · Beta"), in the page's language.
+function hintText(hint: string, t: (s: string, v?: Record<string, string | number>) => string) {
+  const win = hint.match(/^([\d.]+%) win$/);
+  if (win) return t("{wr} win", { wr: win[1] });
+  const gold = hint.match(/^(\d+) gold$/);
+  if (gold) return t("{n} gold", { n: gold[1] });
+  return hint.split(" · ").map((h) => t(h)).join(" · ");
+}
 
 // Header search: ⌘K, Ctrl+K or / opens a palette that jumps to any page, champion, augment or item.
 // Embedded tools pass those keys up too (Embed.tsx), so search opens from anywhere on the site.
@@ -25,11 +36,15 @@ export default function SearchPalette({ pages }: { pages: SearchItem[] }) {
   const [query, setQuery] = useState("");
   const [sel, setSel] = useState(0);
   const input = useRef<HTMLInputElement>(null);
+  const t = useT();
+  const names = useNames();
+  // Each entry's name in the page's language (pages through the shared dictionary); English still matches.
+  const local = useCallback((i: SearchItem) => (i.ref ? names(i.ref[0], i.ref[1], i.name) : i.group === "Pages" ? t(i.name) : i.name), [names, t]);
 
   const shown = useMemo(() => {
     const q = query.trim().toLowerCase();
-    return (q ? items.filter((i) => i.name.toLowerCase().includes(q)) : items.filter((i) => i.group === "Pages")).slice(0, 40);
-  }, [items, query]);
+    return (q ? items.filter((i) => i.name.toLowerCase().includes(q) || local(i).toLowerCase().includes(q)) : items.filter((i) => i.group === "Pages")).slice(0, 40);
+  }, [items, query, local]);
 
   const show = useCallback(() => {
     setQuery("");
@@ -70,22 +85,22 @@ export default function SearchPalette({ pages }: { pages: SearchItem[] }) {
   let group = "";
   return (
     <>
-      <button type="button" className="search-btn" onClick={show} onPointerEnter={load} onFocus={load} title="Search champions, augments, items and pages">
+      <button type="button" className="search-btn" onClick={show} onPointerEnter={load} onFocus={load} title={t("Search champions, augments, items and pages")}>
         <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
           <circle cx="11" cy="11" r="6.5" />
           <path d="m20 20-4-4" />
         </svg>
-        <span className="search-label">Search</span>
+        <span className="search-label">{t("Search")}</span>
         <kbd>⌘K</kbd>
       </button>
       {open && (
         <div className="palette-bg" onMouseDown={(e) => e.target === e.currentTarget && setOpen(false)}>
-          <div className="palette" role="dialog" aria-label="Search">
+          <div className="palette" role="dialog" aria-label={t("Search")}>
             <input
               ref={input}
               value={query}
-              placeholder="Search a champion, augment, item or page"
-              aria-label="Search"
+              placeholder={t("Search a champion, augment, item or page")}
+              aria-label={t("Search")}
               onChange={(e) => {
                 setQuery(e.target.value);
                 setSel(0);
@@ -105,19 +120,19 @@ export default function SearchPalette({ pages }: { pages: SearchItem[] }) {
               }}
             />
             <ul>
-              {shown.length === 0 && <li className="palette-group">{loaded === "yes" ? "No matches" : "Loading…"}</li>}
+              {shown.length === 0 && <li className="palette-group">{loaded === "yes" ? t("No matches") : t("Loading…")}</li>}
               {shown.map((it, i) => {
                 const head = it.group !== group ? (group = it.group) : null;
                 return (
                   <li key={`${it.group}-${it.name}`}>
-                    {head && <p className="palette-group">{head}</p>}
+                    {head && <p className="palette-group">{t(head)}</p>}
                     <button type="button" data-active={i === sel || undefined} onMouseEnter={() => setSel(i)} onClick={() => go(i)}>
                       {it.icon && (
                         // eslint-disable-next-line @next/next/no-img-element
                         <img src={it.icon} alt="" width={22} height={22} loading="lazy" />
                       )}
-                      {it.name}
-                      <span>{it.hint}</span>
+                      {local(it)}
+                      <span>{hintText(it.hint, t)}</span>
                     </button>
                   </li>
                 );

@@ -3,10 +3,11 @@
  "Aatrox": [
   {
    "trigger": "attack",
-   "cooldown": "PCooldown",
+   "cooldown": 4,
    "calcs": [
     "PDamage"
-   ]
+   ],
+   "why": "Deathbringer Stance: 10s at level 18, cut 2s by every attack or ability hit on a champion (4s on a sweetspot), so it is up about every 4s"
   }
  ],
  "Akali": [
@@ -36,10 +37,12 @@
  "Ambessa": [
   {
    "trigger": "after_ability",
-   "max_charges": 2,
+   "max_charges": 3,
+   "restore": 70,
    "calcs": [
     "Calc_OnHit_Damage_Flat"
-   ]
+   ],
+   "why": "Medarda Maxim: each cast stores an empowered attack (up to 3) that restores 70 energy at level 13+"
   }
  ],
  "Aurora": [
@@ -135,7 +138,13 @@
   {
    "trigger": "attack",
    "cooldown": 5.0,
-   "aoe": true
+   "aoe": true,
+   "ability_cdr": 3,
+   "scaling": {
+    "const": 115,
+    "ap": 0.4,
+    "bonus_mr": 0.6
+   }
   }
  ],
  "Gangplank": [
@@ -201,6 +210,15 @@
   {
    "trigger": "attack",
    "aoe": true
+  },
+  {
+   "trigger": "attack",
+   "scaling": {
+    "const": 35,
+    "ap": 0.2,
+    "bonus_ad": 0.1
+   },
+   "why": "Starfire Spellblade passive (KayleE EPassiveTotalDamage at rank 5): every attack"
   }
  ],
  "Khazix": [
@@ -248,7 +266,9 @@
  "Lux": [
   {
    "trigger": "after_ability",
-   "max_charges": 1
+   "max_charges": 1,
+   "needs_hit": true,
+   "why": "Illumination: only abilities that hit an enemy mark it (Prismatic Barrier and missed skillshots mark no one); the next attack detonates the mark"
   }
  ],
  "MasterYi": [
@@ -292,8 +312,11 @@
  "Nautilus": [
   {
    "trigger": "attack",
-   "cooldown": 8.0,
-   "per_target": true
+   "cooldown": 6.0,
+   "per_target": true,
+   "scaling": {
+    "const": 116
+   }
   }
  ],
  "Nocturne": [
@@ -339,11 +362,19 @@
  "Renata": [
   {
    "trigger": "attack",
-   "cooldown": "PassiveDuration",
-   "per_target": true,
    "calcs": [
     "PercentAmpCalcSelf"
-   ]
+   ],
+   "mult": 0.5,
+   "why": "Leverage: an attack on an unmarked enemy champion deals 1-2% (+2% per 100 AP) max Health and marks it for 6s; it only hits again once an ally consumes the mark"
+  },
+  {
+   "trigger": "attack",
+   "calcs": [
+    "PercentAmpCalc"
+   ],
+   "mult": 0.5,
+   "why": "An ally's hit consumes the mark for the same damage again (credited to her). The simulated fight has no allies, so both halves count on about half her attacks, as in a team fight where allies don't always hit between them"
   }
  ],
  "Riven": [
@@ -369,6 +400,12 @@
   }
  ],
  "Senna": [
+  {
+   "trigger": "attack",
+   "calcs": [
+    "BonusOnHitDamage"
+   ]
+  },
   {
    "trigger": "hit",
    "every": 2,
@@ -434,7 +471,9 @@
   {
    "trigger": "after_ability",
    "charges": 2,
-   "max_charges": 2
+   "max_charges": 2,
+   "basic_cdr": 1.1,
+   "why": "Bravado: two empowered attacks per cast, each taking 1 + AH/(AH+100) seconds (about 1.1 with this build's haste) off the remaining cooldowns of Q, W and E"
   }
  ],
  "Twitch": [
@@ -486,13 +525,170 @@
  "Ziggs": [
   {
    "trigger": "attack",
-   "cooldown": 6.0
+   "cooldown": 6.0,
+   "ability_cdr": "SpellCdr",
+   "why": "Short Fuse: each ability cuts its cooldown by 6s at level 18 (SpellCdr)"
   }
  ],
  "Zoe": [
   {
    "trigger": "after_ability",
    "max_charges": 1
+  }
+ ],
+ "Bard": [
+  {
+   "trigger": "attack",
+   "cooldown": 3,
+   "aoe": true,
+   "type": "magic",
+   "scaling": {
+    "const": 78,
+    "ap": 0.4
+   },
+   "why": "Meeps (wiki: 30 + 6 per 5 chimes + 40% AP bonus magic damage on an attack, splashing from 15 chimes): 40 chimes by level 18 assumed, so 78 + 40% AP, 3 meeps stored and one more every 6 s, about one every 3 s over a fight"
+  }
+ ],
+ "Shyvana": [
+  {
+   "trigger": "attack",
+   "hits": [
+    {
+     "type": "magic",
+     "calc": "EmberstrikeOnHit",
+     "scaling": {
+      "const": 0.01,
+      "bonus_ad": 0.00011
+     },
+     "target": "target_max_hp"
+    }
+   ],
+   "why": "Emberstrike passive: every basic attack deals 1% (+1.1% per 100 bonus AD) of the target's max health as bonus magic damage (hand-written hits: Scalemail's tooltip has no damage)"
+  }
+ ],
+ "Thresh": [
+  {
+   "trigger": "attack",
+   "hits": [
+    {
+     "type": "magic",
+     "calc": "FlayPassive",
+     "scaling": {
+      "const": 142,
+      "bonus_ad": 0.25
+     },
+     "target": "flat"
+    }
+   ],
+   "why": "Flay passive: every basic attack deals bonus magic damage, 1.7 per Soul (70 Souls assumed, as in kit_passives) plus an AD ratio that charges to 210% AD over 10s without attacking; attacking about every 1.2s keeps it near 25% AD"
+  }
+ ],
+ "Milio": [
+  {
+   "trigger": "hit",
+   "cooldown": 5,
+   "hits": [
+    {
+     "type": "magic",
+     "calc": "FiredUp",
+     "scaling": {
+      "const": 65,
+      "ap": 0.2
+     },
+     "target": "flat"
+    }
+   ],
+   "why": "Fired Up!: Milio counts as an ally for his own abilities, so self-cast Warm Hugs (2 charges per 13s) and Cozy Campfire enchant him; his next attack or ability hit then deals 15% of his AD (about 15) plus a 50 (+20% AP) burn. About one enchant per 5s"
+  }
+ ],
+ "Kennen": [
+  {
+   "trigger": "attack",
+   "every": 5,
+   "hits": [
+    {
+     "type": "magic",
+     "calc": "TotalDamagePassive",
+     "scaling": {
+      "const": 75.0,
+      "bonus_ad": 1.2,
+      "ap": 0.35
+     },
+     "target": "flat",
+     "alt": false
+    }
+   ],
+   "why": "Electrical Surge passive: every 5th attack deals 75 (+120% bonus AD) (+35% AP) bonus magic damage on-hit (rank 5)"
+  }
+ ],
+ "Fizz": [
+  {
+   "trigger": "attack",
+   "cooldown": 3,
+   "hits": [
+    {
+     "type": "magic",
+     "calc": "DoTDamage",
+     "scaling": {
+      "const": 90.0,
+      "ap": 0.25
+     },
+     "target": "flat",
+     "alt": false
+    }
+   ],
+   "why": "Seastone Trident passive: attacks make the target bleed for 90 (+25% AP) over 3s; the bleed refreshes rather than stacks"
+  },
+  {
+   "trigger": "attack",
+   "hits": [
+    {
+     "type": "magic",
+     "calc": "OnHitBuffDamage",
+     "scaling": {
+      "const": 40.0,
+      "ap": 0.3
+     },
+     "target": "flat",
+     "alt": false
+    }
+   ],
+   "why": "Seastone Trident active: for 5s after the empowered attack, every attack deals 40 (+30% AP) bonus magic damage; with the 5s cooldown that is always up in a fight"
+  }
+ ],
+ "Viego": [
+  {
+   "trigger": "attack",
+   "hits": [
+    {
+     "type": "physical",
+     "calc": "TotalPercentHealthOnHit",
+     "scaling": {
+      "const": 0.06
+     },
+     "target": "target_current_hp",
+     "alt": false
+    }
+   ],
+   "why": "Blade of the Ruined King passive: attacks deal 6% of the target's current Health as bonus physical damage (rank 5); kept while possessing"
+  }
+ ],
+ "Ivern": [
+  {
+   "trigger": "attack",
+   "hits": [
+    {
+     "type": "magic",
+     "calc": "TotalDamage",
+     "scaling": {
+      "const": 25.0,
+      "ap": 0.1
+     },
+     "target": "flat",
+     "alt": false
+    }
+   ],
+   "why": "Brushmaker: attacks in his brush (and 3 s after) deal 50 (+20% AP) bonus magic damage; he keeps a brush up about half the fight, so half of it per attack"
   }
  ]
 }

@@ -1,0 +1,383 @@
+{
+ "1006": [
+  "pen",
+  "fighter"
+ ],
+ "1013": [
+  "tank",
+  "support"
+ ],
+ "1015": [
+  "ap",
+  "support"
+ ],
+ "1018": [
+  "tank"
+ ],
+ "1019": [
+  "pen"
+ ],
+ "1022": [
+  "attack_speed"
+ ],
+ "1027": [
+  "pen"
+ ],
+ "1028": [
+  "tank"
+ ],
+ "1030": [
+  "ap"
+ ],
+ "1036": [
+  "attack_speed"
+ ],
+ "1037": [
+  "support"
+ ],
+ "1038": [
+  "ap"
+ ],
+ "1041": [
+  "fighter",
+  "tank"
+ ],
+ "1044": [
+  "ap",
+  "support"
+ ],
+ "1045": [
+  "ap"
+ ],
+ "1046": [
+  "fighter"
+ ],
+ "1047": [
+  "crit"
+ ],
+ "1048": [
+  "crit",
+  "ap",
+  "pen",
+  "fighter"
+ ],
+ "1051": [
+  "attack_speed"
+ ],
+ "1054": [
+  "attack_speed",
+  "ap",
+  "fighter"
+ ],
+ "1056": [
+  "ap"
+ ],
+ "1057": [
+  "tank"
+ ],
+ "1058": [
+  "attack_speed",
+  "fighter"
+ ],
+ "1063": [
+  "pen"
+ ],
+ "1064": [
+  "tank",
+  "support"
+ ],
+ "1067": [
+  "ap",
+  "fighter",
+  "tank",
+  "support"
+ ],
+ "1071": [
+  "attack_speed"
+ ],
+ "1073": [
+  "pen"
+ ],
+ "1074": [
+  "attack_speed"
+ ],
+ "1076": [
+  "tank",
+  "support"
+ ],
+ "1077": [
+  "crit"
+ ],
+ "1079": [
+  "attack_speed",
+  "fighter"
+ ],
+ "1080": [
+  "crit"
+ ],
+ "1081": [
+  "attack_speed"
+ ],
+ "1084": [
+  "attack_speed",
+  "ap",
+  "pen",
+  "fighter"
+ ],
+ "1087": [
+  "attack_speed"
+ ],
+ "1092": [
+  "crit"
+ ],
+ "1095": [
+  "tank",
+  "support"
+ ],
+ "1097": [
+  "ap"
+ ],
+ "1115": [
+  "attack_speed"
+ ],
+ "1118": [
+  "crit",
+  "tank",
+  "support"
+ ],
+ "1129": [
+  "ap"
+ ],
+ "1133": [
+  "ap"
+ ],
+ "1134": [
+  "attack_speed"
+ ],
+ "1136": [
+  "fighter",
+  "tank",
+  "support"
+ ],
+ "1138": [
+  "attack_speed",
+  "pen",
+  "fighter"
+ ],
+ "1141": [
+  "support"
+ ],
+ "1149": [
+  "tank",
+  "support"
+ ],
+ "1152": [
+  "tank"
+ ],
+ "1156": [
+  "ap"
+ ],
+ "1170": [
+  "attack_speed"
+ ],
+ "1180": [
+  "ap"
+ ],
+ "1181": [
+  "tank"
+ ],
+ "1187": [
+  "pen",
+  "fighter"
+ ],
+ "1195": [
+  "attack_speed",
+  "ap",
+  "pen"
+ ],
+ "1205": [
+  "ap",
+  "pen"
+ ],
+ "1206": [
+  "attack_speed",
+  "pen",
+  "fighter"
+ ],
+ "1211": [
+  "ap",
+  "pen"
+ ],
+ "1225": [
+  "attack_speed"
+ ],
+ "1308": [
+  "ap"
+ ],
+ "1310": [
+  "pen"
+ ],
+ "1311": [
+  "ap",
+  "fighter"
+ ],
+ "1314": [
+  "pen",
+  "tank"
+ ],
+ "1315": [
+  "pen"
+ ],
+ "1318": [
+  "ap"
+ ],
+ "1319": [
+  "tank"
+ ],
+ "1320": [
+  "crit",
+  "attack_speed",
+  "pen"
+ ],
+ "1322": [
+  "attack_speed",
+  "pen",
+  "fighter"
+ ],
+ "1323": [
+  "ap",
+  "tank",
+  "support"
+ ],
+ "1324": [
+  "tank",
+  "support"
+ ],
+ "1325": [
+  "crit",
+  "attack_speed",
+  "ap",
+  "pen",
+  "fighter"
+ ],
+ "1326": [
+  "pen"
+ ],
+ "1327": [
+  "ap",
+  "tank",
+  "support"
+ ],
+ "1328": [
+  "crit",
+  "attack_speed"
+ ],
+ "1331": [
+  "support"
+ ],
+ "1332": [
+  "ap",
+  "support"
+ ],
+ "1336": [
+  "crit"
+ ],
+ "1337": [
+  "pen",
+  "fighter",
+  "tank"
+ ],
+ "1344": [
+  "ap",
+  "pen",
+  "tank"
+ ],
+ "1346": [
+  "attack_speed",
+  "ap",
+  "pen",
+  "fighter"
+ ],
+ "1353": [
+  "tank"
+ ],
+ "1361": [
+  "tank"
+ ],
+ "1375": [
+  "tank"
+ ],
+ "1390": [
+  "ap"
+ ],
+ "1415": [
+  "crit"
+ ],
+ "1420": [
+  "tank",
+  "support"
+ ],
+ "1421": [
+  "pen",
+  "tank"
+ ],
+ "1996": [
+  "attack_speed"
+ ],
+ "2004": [
+  "support"
+ ],
+ "2005": [
+  "fighter"
+ ],
+ "2009": [
+  "crit",
+  "attack_speed"
+ ],
+ "2010": [
+  "crit"
+ ],
+ "2016": [
+  "crit"
+ ],
+ "2026": [
+  "pen"
+ ],
+ "2064": [
+  "pen",
+  "tank"
+ ],
+ "2065": [
+  "pen",
+  "tank"
+ ],
+ "2073": [
+  "pen",
+  "tank"
+ ],
+ "2077": [
+  "ap",
+  "tank",
+  "support"
+ ],
+ "2099": [
+  "pen"
+ ],
+ "2100": [
+  "support"
+ ],
+ "2102": [
+  "fighter"
+ ],
+ "2108": [
+  "support"
+ ],
+ "2116": [
+  "support"
+ ],
+ "2144": [
+  "ap",
+  "tank",
+  "support"
+ ]
+}

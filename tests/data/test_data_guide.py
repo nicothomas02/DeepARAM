@@ -188,6 +188,63 @@ def test_augment_rules_tiers_match_pool(rules):
         assert sum(1 for v in tiers.values() if v == tier) == rules["odds"][tier]["pool"], tier
 
 
+def test_mode_rules(guide):
+    m = load_json("guide/mode_rules.json")
+    assert m["patch"] == guide["patch"]
+    assert m["attackSpeedCap"] >= m["aramAttackSpeedCap"] > 2  # Mayhem raises the cap above regular ARAM's
+    assert m["critOverflow"] in ("adaptive", None)
+    assert m["runes"] in (True, False)
+    assert m["aura"] and all(l and "@" not in l and "{{" not in l for l in m["aura"])
+    tiers = load_json("guide/augment_rules.json")["tiers"]
+    for aid, runes in m["keystoneAugments"].items():
+        assert aid in tiers and runes and all(runes)
+    r = guide["rules"]
+    for k in ("attackSpeedCap", "critOverflow", "runes", "aura"):
+        assert r[k] == m[k], k
+
+
+def test_champ_select(guide):
+    cs = guide["champSelect"]
+    assert cs["runes"] == guide["rules"]["runes"]
+    allowed = {x["name"] for x in guide["spells"]}
+    assert not allowed & set(cs["notInMayhem"])
+    for a in cs["keystoneAugments"]:
+        assert a["tier"] in TIERS and a["runes"] and "Keystone" in a["text"]
+
+
+def test_selection_augments(rules):
+    for a in rules["selectionAugments"]:
+        assert str(a["id"]) in rules["tiers"] and a["tier"] in TIERS
+        assert "@" not in a["text"] and re.search(r"augment|reroll", a["text"], re.I)
+    assert rules["goldenReroll"]["name"] and rules["goldenReroll"]["text"]
+
+
+def test_progression_track(guide, rules):
+    t = guide["track"]
+    if t is None:
+        pytest.skip("no Mayhem track on this patch")
+    assert t["name"] and t["start"] <= t["end"]
+    assert [r["level"] for r in t["levels"]] == list(range(1, t["size"] + 1))
+    assert all(r["kind"] in ("Augment", "Emote", "Icon", "Title", "Reward") and r["name"] for r in t["levels"])
+    unlocks = {int(k): v for k, v in rules["unlocks"].items()}
+    assert unlocks == {r["augmentId"]: r["level"] for r in t["levels"] if r.get("augmentId")}
+    assert sum(r["kind"] == "Augment" for r in t["levels"]) >= t["size"] / 3
+
+
+def test_augment_details(guide, rules):
+    d = load_json("guide/augment_details.json")
+    assert d["patch"] == guide["patch"]
+    assert set(d["augments"]) == set(rules["tiers"])
+    unlocks = rules.get("unlocks", {})
+    for aid, a in d["augments"].items():
+        assert a["name"] and a["tier"] == rules["tiers"][aid]
+        for t in (a["text"], a["tooltip"]):
+            assert not re.search(r"@|\{\{|%i:|\?(?=[\s%.,/)]|$)", t), (a["name"], t)
+        assert all(isinstance(v, (int, float, list)) for v in a["values"].values())
+        assert a["unlockLevel"] == unlocks.get(aid)
+    assert any(a["grants"] for a in d["augments"].values())
+
+
 def test_granted_items(rules):
     ids = [g["id"] for g in rules["grantedItems"]]
     assert len(ids) == len(set(ids))
@@ -298,3 +355,79 @@ def test_site_paths_point_at_mirror(build_data, build_history):
         out = mod.site_paths(f'"{url}"')
         assert out == '"/assets/cd/latest/game/assets/ux/kiwi/icon.png"'
         assert "communitydragon" not in out
+
+
+def test_mode_mechanics():
+    r = load_json("guide/mode_rules.json")
+    assert r["startLevel"] == 3
+    times = list(r["respawn"]["byLevel"].values())
+    assert list(r["respawn"]["byLevel"])[0] == "3" and times == sorted(times) and len(times) == 16
+    assert 0 < r["longRange"]["reductionMin"] < r["longRange"]["reductionMax"] < 1 and r["longRange"]["range"] > 0
+    assert r["critConversion"]["adPerPercent"] > 0 and r["critConversion"]["apPerPercent"] > 0
+    assert 0 < r["structures"]["bonusMax"] < 1 and r["structures"]["from"] < r["structures"]["to"]
+    assert 0 < r["minions"]["aoeMultiplier"] <= 1 and r["minions"]["blackout"]["range"] > 0
+    assert 0 < r["relics"]["pickup"] < r["relics"]["beam"] < 1
+    assert {f["map"] for f in r["fastTravel"]} >= {"Howling Abyss", "Koeshin's Crossing", "Butcher's Bridge"}
+
+
+
+def test_official_track_and_story(guide):
+    t = guide["track"]  # None between tracks, when the event hub has no live Mayhem track
+    if t and t.get("totalXp"):
+        assert sum(r["xp"] for r in t["levels"]) == t["totalXp"] and all(o["xp"] > 0 for o in t["objectives"])
+        assert "A title" not in [r["name"] for r in t["levels"]]
+    assert guide["story"] and all(e["date"] and e["text"] for e in guide["story"])
+
+def test_game_constants():
+    c = load_json("guide/game_constants.json")
+    assert c["mayhemQueue"] in c["mayhemQueues"] and {m["id"] for m in c["maps"]} >= {12}
+    assert all(q["id"] and q["name"] for q in c["queues"])
+
+
+def test_economy(guide):
+    """Gold & XP card: the mode's passive income, kill gold and XP curve (Simulator reads the same block)."""
+    e = guide["rules"]["economy"]
+    assert e == load_json("guide/mode_rules.json")["economy"]
+    assert e["startingGold"] > 0 and e["killGold"] > 0 and e["firstBlood"] > 0 and e["assistSeconds"] > 0
+    g = e["passiveGold"]
+    assert g["perMinute"] == round(g["amount"] * 60 / g["every"], 1) and g["aramPerMinute"] > 0
+    levels = [l["level"] for l in e["levels"]]
+    assert levels == list(range(levels[0], 19)) and levels[0] > 1
+    xp = [l["xp"] for l in e["levels"]]
+    assert xp == sorted(xp) and all(l["killXp"] > 0 for l in e["levels"])
+    assert len(e["minionXpSplit"]) == 5 and e["minionXpSplit"] == sorted(e["minionXpSplit"], reverse=True)
+
+
+def test_surrender(guide):
+    s = guide["rules"]["surrender"]
+    assert s["voteSeconds"] > 0 and 0 < s["opensWithAfk"] <= s["opens"]
+    assert 0 < s["remakeFrom"] < s["remakeUntil"] <= s["opens"]
+
+
+def test_rival_quests(guide):
+    """Champion quests that run in Mayhem: each has a name and, per champion, a goal; ids are real champions."""
+    qs = guide["rivalQuests"]
+    assert len(qs) >= 3 and len({q["name"] for q in qs}) == len(qs)
+    champs = {c["id"] for c in load_js_data("champions/data.js", "CHAMPS_DATA")["champions"]}
+    for q in qs:
+        assert q["name"] and q["champions"]
+        for c in q["champions"]:
+            assert c["id"] in champs and c["name"] and c["text"] and "<" not in c["text"] and "@" not in c["text"]
+
+
+def test_fallback_augments(guide, rules):
+    """When a rarity runs out, the game offers from a fixed list per rarity; each augment there has that rarity."""
+    fb = guide["fallbackAugments"]
+    assert [f["tier"] for f in fb] == ["Silver", "Gold", "Prismatic"]
+    for f in fb:
+        assert f["augments"] and all(a["tier"] == f["tier"] and a["name"] and a["id"] for a in f["augments"])
+
+
+def test_turrets(guide):
+    """Turrets card: the three Howling Abyss turrets, with Mayhem's own health where it overrides the base."""
+    t = guide["rules"]["turrets"]
+    assert t == load_json("guide/mode_rules.json")["turrets"]
+    assert [x["key"] for x in t] == ["outer", "inhibitor", "nexus"]
+    for x in t:
+        assert x["hp"] > 0 and x["damage"] > 0 and x["armor"] > 0 and x["range"] > 0 and 0 < x["attackSpeed"] < 2
+        assert x["baseHp"] is None or x["baseHp"] != x["hp"]

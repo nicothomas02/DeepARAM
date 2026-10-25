@@ -174,9 +174,10 @@ def test_pbe_data_is_the_pbe_patch():
 
 def test_viewer_pbe_copy_matches_data_pbe(tmp_path):
     """tools/refresh_pbe.sh ships data/pbe/ (notes stripped) to viewer/replay-data/pbe/, which the browser loads."""
-    files = [str(PBE_DIR / f"{n}.json") for n in ("champions", "items", "augments")]
+    names = ("champions", "items", "augments", "augment_pools")
+    files = [str(PBE_DIR / f"{n}.json") for n in names]
     subprocess.run([sys.executable, str(SIM_DIR / "tools/strip_notes.py"), str(tmp_path), *files], check=True, timeout=120)
-    for n in ("champions", "items", "augments"):
+    for n in names:
         assert load_json(tmp_path / f"{n}.json") == load_json(VIEWER_DIR / f"replay-data/pbe/{n}.json"), \
             f"viewer/replay-data/pbe/{n}.json is out of date; run sh simulator/tools/refresh_pbe.sh"
 
@@ -204,6 +205,61 @@ def test_game_data_dir_is_what_gets_loaded(run_json, tmp_path):
     assert {a["key"] for a in live["augments"]} == set(live_augs)
 
 
+
+
+# ---------------------------------------------------------------- PBE augment pools (PBE best builds)
+
+def _norm(name):
+    return re.sub(r"[^a-z0-9]", "", name.lower())
+
+
+def _datamine_augments():
+    return load_json(SIM_DIR.parent / "data/pbe/kiwi-s3.json")["augments"]
+
+
+def test_pbe_augments_follow_the_datamine():
+    """The PBE patch's augments: live, less the removed and disabled ones, plus the added ones."""
+    dm = _datamine_augments()
+    live = {_norm(a["name"]) for a in load_json(DATA_DIR / "augments.json")["augments"].values()}
+    pbe = {_norm(a["name"]) for a in load_json(PBE_DIR / "augments.json")["augments"].values()}
+    added = {_norm(a["name"]) for a in dm["added"]} - {_norm("Pentakill (choose any ability)")}
+    gone = {_norm(a["name"]) for a in dm["removed"]} | {
+        _norm(c["name"]) for c in dm["changed"]
+        if any("disabled" in str(x.get("pbe", "")).lower() for x in c["changes"])}
+    assert pbe == (live - gone) | added
+
+
+def test_pbe_pools_offer_only_pbe_augments_and_every_new_one():
+    pbe = load_json(PBE_DIR / "augments.json")["augments"]
+    live = set(load_json(DATA_DIR / "augments.json")["augments"])
+    new = set(pbe) - live
+    pools = load_json(PBE_DIR / "augment_pools.json")["pools"]
+    assert pools.keys() == load_json(DATA_DIR / "augment_pools.json")["pools"].keys()
+    for cid, pool in pools.items():
+        assert set(pool) <= set(pbe), cid
+        assert new <= set(pool), cid
+
+
+def test_pbe_switch_uses_pbe_pools(run_json):
+    live = run_json("mayhem_sim", ["--list", "--json"])
+    pbe = run_json("mayhem_sim", ["--list", "--json", "--game-data", "data/pbe"])
+    jinx = {c["id"]: set(c["augments"]) for c in pbe["champions"]}["Jinx"]
+    live_keys, pbe_keys = {a["key"] for a in live["augments"]}, {a["key"] for a in pbe["augments"]}
+    # Augments new on the PBE patch (26.22: One Hit Wonder, RISE) are offered there and not on live.
+    new = pbe_keys - live_keys
+    assert new and new <= jinx, new - jinx
+    assert not new & {a for c in live["champions"] for a in c["augments"]}
+    assert not (live_keys - pbe_keys) & jinx
+
+
+def test_most_new_pbe_augments_are_modeled():
+    """New PBE augments get effects from the PBE client's numbers; the rest say why they have none."""
+    pbe = load_json(PBE_DIR / "augments.json")["augments"]
+    new = [a for k, a in pbe.items() if k not in load_json(DATA_DIR / "augments.json")["augments"]]
+    modeled = [a for a in new if a.get("stats") or a.get("effects")]
+    assert new, "the PBE patch should add augments over live"
+    for a in new:
+        assert a in modeled or a.get("note", "").startswith("No effect in the simulator"), a["name"]
 
 
 def test_pbe_list_json_loads(run_sim):
@@ -261,3 +317,102 @@ def test_short_and_long_fight_dps_are_reported(run_json):
 def test_5v5_rejects_duplicate_allies(run_sim):
     proc = run_sim("mayhem_sim", ["--champ", "Jinx", "--allies", "Lulu,Lulu,Leona,Ahri", "--trials", "20", "--seed", "1"])
     assert proc.returncode > 0
+
+
+# ---------------------------------------------------------------- a new enemy after each kill
+
+SHYVANA = ["--champ", "Shyvana", "--items", "sorcerers,gunblade,rabadons,shadowflame,stormsurge,void_staff",
+           "--augs", "overloaded,eureka,ominous_pact,back_to_basics", "--seed", "3"]
+
+
+def _traced(run_sim, tmp_path, extra=()):
+    path = tmp_path / "trace.json"
+    proc = run_sim("mayhem_sim", [*SHYVANA, *extra, "--json", "--trace", path])
+    assert proc.returncode == 0, proc.stderr
+    return load_json(path)
+
+
+def test_fallen_enemy_is_replaced_by_a_new_random_champion(run_sim, tmp_path):
+    fight = _traced(run_sim, tmp_path)["fight"]
+    assert fight["kills"] >= 2
+    assert len(fight["team"]) == len(set(fight["team"])) and len(fight["team"]) >= 3
+
+
+def test_same_enemy_comes_back_when_asked(run_sim, tmp_path):
+    assert len(_traced(run_sim, tmp_path, ["--set", "random_respawn=0"])["fight"]["team"]) == 1
+    fight = _traced(run_sim, tmp_path, ["--team", "Ashe"])["fight"]
+    assert fight["kills"] >= 1 and fight["team"] == ["Ashe"]
+
+
+def test_trace_has_cooldowns_with_the_builds_haste(run_sim, tmp_path):
+    for a in _traced(run_sim, tmp_path)["abilities"]:
+        assert 0 < a["build_cooldown"] <= a["cooldown"], a
+
+
+# ---------------------------------------------------------------- Kit fixes for the furthest-off champions (2026-10-20)
+
+def test_attacks_take_time_off_senna_q(run_sim, tmp_path):
+    """Senna's attacks take 1 s off Piercing Darkness's cooldown (attack_cdr), so with no ability haste
+    Q comes back sooner than its 15 s cooldown."""
+    path = tmp_path / "senna.json"
+    proc = run_sim("mayhem_sim", ["--champ", "Senna", "--items", "infinity_edge,berserkers", "--augs", "",
+                                  "--seed", "3", "--json", "--trace", path,
+                                  "--set", DUMMIES + ",fight_min=40,fight_max=40,target_hp=1000000"])
+    assert proc.returncode == 0, proc.stderr
+    casts = [e["t"] for e in load_json(path)["events"] if e["k"] == "cast" and e.get("s") == "Q"]
+    assert len(casts) >= 3
+    assert max(b - a for a, b in zip(casts, casts[1:])) < 14
+
+
+@pytest.mark.parametrize("path", [DATA_DIR / "champions.json", PBE_DIR / "champions.json"], ids=["live", "pbe"])
+def test_kit_fixes_in_data(path):
+    """Requiem hits every enemy champion, Equinox's root hit counts at extra-hit weight, and Tormented
+    Shadow and High Note grow with the target's missing Health."""
+    champs = {c["id"]: {a["slot"]: a for a in c["abilities"]} for c in load_json(path)["champions"]}
+    assert champs["Karthus"]["R"]["hits"][0]["scaling"]["const"] >= 4 * 200
+    assert [h["calc"] for h in champs["Soraka"]["E"]["hits"]] == ["TotalDamage", "RootDamage"]
+    assert champs["Morgana"]["W"]["missing_amp"] == 1.0
+    assert champs["Seraphine"]["Q"]["missing_amp"] == 1.0 and champs["Seraphine"]["Q"]["missing_max"] == 0.75
+    for champ, slot in (("Senna", "Q"), ("Kaisa", "E"), ("Shyvana", "Q"), ("Zeri", "E"), ("Graves", "E")):
+        assert champs[champ][slot]["attack_cdr"] > 0, (champ, slot)
+
+
+# ---------------------------------------------------------------- Optimize for shielding (2026-10-20)
+
+def test_shielding_is_reported_and_ranked(run_json, run_sim, tmp_path):
+    """The summary reports the damage your shields absorbed per fight, the trace carries it as a running
+    total ("ab"), and --metric shielding is accepted."""
+    args = ["--champ", "Riven", "--trials", "100", "--seed", "2", "--json"]  # Valor (E) shields herself
+    assert summary(run_json("mayhem_sim", args))["shielding"] > 0
+    assert summary(run_json("mayhem_sim", ["--champ", "Jinx", *JINX_BUILD, "--trials", "100", "--seed", "2", "--json"]))["shielding"] == 0
+    run_json("mayhem_sim", [*args, "--trace", tmp_path / "t.json"])
+    tr = load_json(tmp_path / "t.json")
+    absorbed = [e["ab"] for e in tr["events"] if e["k"] in ("self", "death") and "ab" in e]
+    assert absorbed and absorbed == sorted(absorbed)
+    assert abs(absorbed[-1] - tr["fight"]["shielding"]) <= 1
+    proc = run_sim("mayhem_sim", ["--champ", "Riven", "--metric", "shielding", "--trials", "20", "--seed", "1", "--json"])
+    assert proc.returncode == 0, proc.stderr
+
+
+# ---------------------------------------------------------------- Training dummy like the game's (2026-10-20)
+
+def test_training_dummy_is_like_the_practice_dummy(run_json):
+    """The dummy never dies (its Health refills), never hits back or crowd controls you, and every
+    fight lasts the usual fight length (fight_mean), so the result is the champion's pure DPS."""
+    s = summary(run_json("mayhem_sim", ["--champ", "Jinx", *JINX_BUILD, "--set", "fixed_target=1,target_hp=500",
+                                        "--trials", "50", "--seed", "1", "--json"]))
+    assert s["kills_per_minute"] == 0 and s["damage_taken"] == 0 and s["survival_rate"] == 1
+    assert s["time_alive"] == 18.0 and s["mean_dps"] > 1000
+
+
+def test_dummy_held_at_half_health_counts_missing_health_damage(run_json):
+    """dummy_hp=0.5 holds the dummy at half Health, so missing-Health damage (Jinx's R, Kraken Slayer)
+    grows, and the dummy still never dies. The home page ranks champions on this dummy."""
+    def run(extra):
+        return summary(run_json("mayhem_sim", ["--champ", "Jinx", "--items", "kraken,infinity_edge",
+                                               "--set", "fixed_target=1" + extra, "--trials", "200", "--seed", "5", "--json"]))
+    full, half = run(",dummy_hp=1"), run(",dummy_hp=0.5")
+    assert run("")["mean_dps"] == full["mean_dps"], "dummy_hp=1 should be the default dummy"
+    assert half["share_by_source"]["R"] > 1.5 * full["share_by_source"]["R"]
+    assert half["mean_dps"] > full["mean_dps"]
+    assert half["kills_per_minute"] == 0 and half["survival_rate"] == 1

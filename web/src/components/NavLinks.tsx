@@ -3,26 +3,24 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
-import { BETA } from "@/lib/beta";
 import type { NavItem } from "@/lib/tabs";
+import { useT } from "./I18n";
 
 // Each tab has its own accent colour (globals.css, [data-accent]).
-const ACCENT: Record<string, string> = { "/tier-list": "tier", "/simulator": "sim", "/pbe": "pbe", "/info": "info", "/lab": "lab" };
-
-const Beta = ({ href }: { href: string }) => (BETA.has(href) ? <span className="beta">Beta</span> : null);
+const ACCENT: Record<string, string> = { "/tier-list": "tier", "/simulator": "sim", "/pbe": "pbe", "/info": "info", "/kitchen": "lab" };
 
 export default function NavLinks({ items }: { items: NavItem[] }) {
   const pathname = usePathname();
+  const t = useT();
   const active = (href: string) => (href === "/" ? pathname === "/" : pathname === href || pathname.startsWith(href + "/"));
   return (
     <nav className="nav">
-      {items.map((t) =>
-        t.children ? (
-          <NavMenu key={t.href} item={t} current={t.children.some((c) => active(c.href))} pathname={pathname} />
+      {items.map((it) =>
+        it.children ? (
+          <NavMenu key={it.href} item={it} current={it.children.some((c) => active(c.href))} pathname={pathname} />
         ) : (
-          <Link key={t.href} href={t.href} data-accent={ACCENT[t.href]} aria-current={active(t.href) ? "page" : undefined}>
-            {t.label}
-            <Beta href={t.href} />
+          <Link key={it.href} href={it.href} data-accent={ACCENT[it.href]} aria-current={active(it.href) ? "page" : undefined}>
+            {t(it.label)}
           </Link>
         ),
       )}
@@ -36,6 +34,7 @@ function NavMenu({ item, current, pathname }: { item: NavItem; current: boolean;
   const [at, setAt] = useState<{ top: number; left: number } | null>(null);
   const btn = useRef<HTMLButtonElement>(null);
   const menu = useRef<HTMLDivElement>(null);
+  const t = useT();
 
   useEffect(() => setAt(null), [pathname]);
   useEffect(() => {
@@ -75,7 +74,7 @@ function NavMenu({ item, current, pathname }: { item: NavItem; current: boolean;
         aria-current={current ? "page" : undefined}
         onClick={toggle}
       >
-        {item.label}
+        {t(item.label)}
         <svg viewBox="0 0 12 12" width="10" height="10" aria-hidden="true">
           <path d="M3 4.5 6 7.5 9 4.5" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
@@ -84,11 +83,8 @@ function NavMenu({ item, current, pathname }: { item: NavItem; current: boolean;
         <div ref={menu} className="nav-menu" style={at}>
           {item.children!.map((c) => (
             <Link key={c.href} href={c.href} data-accent={ACCENT[c.href]} aria-current={pathname === c.href ? "page" : undefined}>
-              <b>
-                {c.label}
-                <Beta href={c.href} />
-              </b>
-              {c.body && <span>{c.body}</span>}
+              <b>{t(c.label)}</b>
+              {c.body && <span>{t(c.body)}</span>}
             </Link>
           ))}
         </div>

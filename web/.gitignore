@@ -54,4 +54,4 @@ next-env.d.ts
 
 # stray test screenshots
 /*.png
-/src/data/status.json
+/src/data/share-builds.json

@@ -31,21 +31,36 @@ that grows to fit it. Keep paths inside the folder relative.
 ```bash
 cd web
 npm install
-cp .env.example .env.local   # then paste your Riot API key
 npm run dev
 ```
 
 Open http://localhost:3000.
 
-## Riot API key
+## Languages
 
-The key lives only in the `RIOT_API_KEY` environment variable and is read on
-the server (`src/lib/riot.ts`). The browser calls this site's own API routes,
-never Riot directly, so the key is never sent to visitors. Riot responses are
-cached for a few minutes to save rate limit (on Vercel; see Known differences
-for Cloudflare).
+The site speaks Riot's languages (list: `src/i18n/languages.json`). Pages are built
+once, in English; the visitor's language (their pick in Settings or the footer,
+else their browser's language) is applied in the browser after the page loads.
+Anything without a translation stays in English.
 
-Example route: `/api/riot/account?gameName=Name&tagLine=NA1&region=americas`.
+- **Page text** is looked up by its English wording in
+  `public/i18n/<namespace>/<code>.json`. `en.json` lists every key (key = value);
+  each other language maps the same keys. `common` is the shared chrome (header,
+  footer, settings, search, account, tour, Home). Each tab uses its own
+  namespace named after its route (`tier-list`, `simulator`, `pbe`, `lab`, ...).
+- **In a component** (server or client): `<T>Best augments</T>`, or with a tab's
+  namespace and placeholders `<T ns="tier-list" v={{ n }}>{"All {n} →"}</T>`.
+  In a client component: `const t = useT("tier-list"); t("Win rate")`.
+  Both come from `src/components/I18n.tsx`.
+- **Champion, item and augment names** use the official translations in
+  `public/i18n/names/<code>.json` (`scripts/fetch_names.py`, refreshed by
+  `fetch_assets.py --refresh`): `<Name kind="champions" id="AurelionSol">Aurelion Sol</Name>`
+  or `useNames()("items", 3031, "Infinity Edge")`. `<ModeName />` is the mode's own
+  name in each language. Dates: `<LocalDate iso="2026-10-17" />`.
+- **Embedded tools** (same origin) read the language from `<html data-lang>` of
+  the parent page or `localStorage["deeparam-lang"]`, and can fetch the same files.
+- `npm test` (`tests/unit/i18n.test.ts`) fails when a language misses a key or
+  changes a `{placeholder}`, so add a key to every language file at once.
 
 ## Keeping the site up to date
 
@@ -58,19 +73,17 @@ commits show up on their own. Pull requests get their own preview URL.
 
 The site runs on Cloudflare Workers through the OpenNext adapter
 (`@opennextjs/cloudflare`). Every page is prerendered at build time and served
-as a static asset; only `/api/riot/*` runs as code.
+as a static asset; only the API routes run as code.
 
 1. In the Cloudflare dashboard go to **Workers & Pages → Create → Import a
    repository** and pick this repo.
 2. Set **Root directory** to `web`, **Build command** to
    `npx opennextjs-cloudflare build` and **Deploy command** to
    `npx opennextjs-cloudflare deploy`.
-3. Add `RIOT_API_KEY` as a **Secret** under the Worker's Settings → Variables
-   and Secrets.
-4. Every push to `main` deploys.
+3. Every push to `main` deploys.
 
-To try the Cloudflare build locally, copy `.dev.vars.example` to `.dev.vars`,
-add your key, and run `npm run preview` (http://localhost:8787). `npm run deploy`
+To try the Cloudflare build locally, copy `.dev.vars.example` to `.dev.vars`
+and run `npm run preview` (http://localhost:8787). `npm run deploy`
 deploys from your machine after `npx wrangler login`.
 
 A development key expires every 24 hours, so a site that stays up needs a

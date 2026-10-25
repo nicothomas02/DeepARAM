@@ -1,13 +1,23 @@
 import { NextRequest } from "next/server";
 import { isPlatform, tokenOwner } from "@/lib/profiles";
-import { cleanGame, sharedCount, shareGames, unshareGames } from "@/lib/shared-games";
+import { livePatch } from "@/lib/highlights";
+import { cleanGame, sharedCount, sharedTotals, shareGames, unshareGames } from "@/lib/shared-games";
 
 // POST /api/games {action: "share" | "remove" | "status", token, platform, games?}, sent by the My Stats
 // helper for players who turned sharing on. The token only proves who is sharing; see lib/shared-games.ts.
+// GET /api/games → {all, patch}: how many shared games the site holds, in all and on the live patch.
 const MAX_BODY = 600_000;
 const MAX_GAMES = 50;
 
 const json = (obj: unknown, status = 200) => Response.json(obj, { status, headers: { "Cache-Control": "no-store" } });
+
+export async function GET() {
+  try {
+    return Response.json(await sharedTotals(livePatch()), { headers: { "Cache-Control": "public, max-age=300" } });
+  } catch {
+    return json({ all: null, patch: null });
+  }
+}
 
 export async function POST(req: NextRequest) {
   const text = await req.text();

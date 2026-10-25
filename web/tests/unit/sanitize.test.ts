@@ -48,6 +48,15 @@ describe("cleanGame", () => {
     expect(JSON.stringify(out)).not.toContain("secret");
   });
 
+  it("keeps per-minute gold and experience as numbers, at most 90 minutes", async () => {
+    const players = game.players.map((p, i) => (i ? p : { ...p, goldMin: [500, "1400", -3, ...Array(100).fill(9e9)], xpMin: "lots" }));
+    const out = (await cleanGame({ ...game, players }))!;
+    expect(out.game.players[0].goldMin!.slice(0, 3)).toEqual([500, 1400, 0]);
+    expect(out.game.players[0].goldMin).toHaveLength(90);
+    expect(Math.max(...out.game.players[0].goldMin!)).toBe(500_000);
+    expect(out.game.players[0].xpMin).toEqual([]);
+  });
+
   it("gives the same game the same key whoever shares it", async () => {
     expect((await cleanGame(game))!.key).toBe((await cleanGame({ ...game, players: game.players.slice().reverse() }))!.key);
   });

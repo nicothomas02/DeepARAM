@@ -10,6 +10,13 @@ const TONES = {
     [660, 0.07],
     [990, 0.12],
   ],
+  tick: [[1320, 0.03]],
+  thud: [[220, 0.14]],
+  win: [
+    [660, 0.07],
+    [880, 0.07],
+    [1320, 0.16],
+  ],
 } as const;
 
 let ctx: AudioContext | null = null;

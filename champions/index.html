@@ -12,20 +12,21 @@
     <section class="panel" id="list">
       <div class="card">
         <p class="eyebrow" id="patch"></p>
-        <h2 class="section">Champions in Mayhem</h2>
+        <h2 class="section" data-t>Champions in Mayhem</h2>
         <p class="muted" style="margin-top:0.5rem" id="list-intro"></p>
       </div>
       <div class="toolbar">
-        <input id="search" type="search" placeholder="Find a champion" autocomplete="off" aria-label="Find a champion">
+        <input id="search" type="search" placeholder="Find a champion" autocomplete="off" aria-label="Find a champion" data-t-attr="placeholder,aria-label">
         <div class="filters" id="filters"></div>
       </div>
       <div class="roster" id="roster"></div>
-      <p class="muted small" id="empty" hidden>No champion matches.</p>
+      <p class="muted small" id="empty" hidden data-t>No champion matches.</p>
     </section>
 
     <section class="panel" id="page" hidden></section>
 
   </main>
+  <script src="i18n.js"></script>
   <script src="data.js"></script>
   <script src="app.js"></script>
 </body>

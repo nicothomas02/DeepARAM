@@ -1,0 +1,581 @@
+{
+ "regions": [
+  {
+   "key": "bandle-city",
+   "name": "Bandle City"
+  },
+  {
+   "key": "bilgewater",
+   "name": "Bilgewater"
+  },
+  {
+   "key": "demacia",
+   "name": "Demacia"
+  },
+  {
+   "key": "freljord",
+   "name": "Freljord"
+  },
+  {
+   "key": "ionia",
+   "name": "Ionia"
+  },
+  {
+   "key": "ixtal",
+   "name": "Ixtal"
+  },
+  {
+   "key": "noxus",
+   "name": "Noxus"
+  },
+  {
+   "key": "piltover",
+   "name": "Piltover"
+  },
+  {
+   "key": "shadow-isles",
+   "name": "Shadow Isles"
+  },
+  {
+   "key": "shurima",
+   "name": "Shurima"
+  },
+  {
+   "key": "mount-targon",
+   "name": "Targon"
+  },
+  {
+   "key": "void",
+   "name": "Void"
+  },
+  {
+   "key": "zaun",
+   "name": "Zaun"
+  },
+  {
+   "key": "unaffiliated",
+   "name": "Runeterra"
+  }
+ ],
+ "champions": {
+  "Aatrox": [
+   "unaffiliated"
+  ],
+  "Ahri": [
+   "ionia"
+  ],
+  "Akali": [
+   "ionia"
+  ],
+  "Akshan": [
+   "shurima"
+  ],
+  "Alistar": [
+   "unaffiliated"
+  ],
+  "Ambessa": [
+   "noxus"
+  ],
+  "Amumu": [
+   "shurima"
+  ],
+  "Anivia": [
+   "freljord"
+  ],
+  "Annie": [
+   "unaffiliated"
+  ],
+  "Aphelios": [
+   "mount-targon"
+  ],
+  "Ashe": [
+   "freljord"
+  ],
+  "AurelionSol": [
+   "unaffiliated"
+  ],
+  "Aurora": [
+   "freljord"
+  ],
+  "Azir": [
+   "shurima"
+  ],
+  "Bard": [
+   "unaffiliated"
+  ],
+  "Belveth": [
+   "void"
+  ],
+  "Blitzcrank": [
+   "zaun"
+  ],
+  "Brand": [
+   "unaffiliated"
+  ],
+  "Braum": [
+   "freljord"
+  ],
+  "Briar": [
+   "noxus"
+  ],
+  "Caitlyn": [
+   "piltover"
+  ],
+  "Camille": [
+   "piltover"
+  ],
+  "Cassiopeia": [
+   "noxus"
+  ],
+  "Chogath": [
+   "void"
+  ],
+  "Corki": [
+   "bandle-city"
+  ],
+  "Darius": [
+   "noxus"
+  ],
+  "Diana": [
+   "mount-targon"
+  ],
+  "DrMundo": [
+   "zaun"
+  ],
+  "Draven": [
+   "noxus"
+  ],
+  "Ekko": [
+   "zaun"
+  ],
+  "Elise": [
+   "shadow-isles"
+  ],
+  "Evelynn": [
+   "unaffiliated"
+  ],
+  "Ezreal": [
+   "piltover"
+  ],
+  "FiddleSticks": [
+   "unaffiliated"
+  ],
+  "Fiora": [
+   "demacia"
+  ],
+  "Fizz": [
+   "unaffiliated"
+  ],
+  "Galio": [
+   "demacia"
+  ],
+  "Gangplank": [
+   "bilgewater"
+  ],
+  "Garen": [
+   "demacia"
+  ],
+  "Gnar": [
+   "freljord"
+  ],
+  "Gragas": [
+   "freljord"
+  ],
+  "Graves": [
+   "bilgewater"
+  ],
+  "Gwen": [
+   "shadow-isles"
+  ],
+  "Hecarim": [
+   "shadow-isles"
+  ],
+  "Heimerdinger": [
+   "piltover"
+  ],
+  "Hwei": [
+   "ionia"
+  ],
+  "Illaoi": [
+   "bilgewater"
+  ],
+  "Irelia": [
+   "ionia"
+  ],
+  "Ivern": [
+   "ionia"
+  ],
+  "Janna": [
+   "zaun"
+  ],
+  "JarvanIV": [
+   "demacia"
+  ],
+  "Jax": [
+   "unaffiliated"
+  ],
+  "Jayce": [
+   "piltover"
+  ],
+  "Jhin": [
+   "ionia"
+  ],
+  "Jinx": [
+   "zaun"
+  ],
+  "KSante": [
+   "shurima"
+  ],
+  "Kaisa": [
+   "void"
+  ],
+  "Kalista": [
+   "shadow-isles"
+  ],
+  "Karma": [
+   "ionia"
+  ],
+  "Karthus": [
+   "shadow-isles"
+  ],
+  "Kassadin": [
+   "void"
+  ],
+  "Katarina": [
+   "noxus"
+  ],
+  "Kayle": [
+   "demacia"
+  ],
+  "Kayn": [
+   "ionia"
+  ],
+  "Kennen": [
+   "ionia"
+  ],
+  "Khazix": [
+   "void"
+  ],
+  "Kindred": [
+   "unaffiliated"
+  ],
+  "Kled": [
+   "noxus"
+  ],
+  "KogMaw": [
+   "void"
+  ],
+  "Leblanc": [
+   "noxus"
+  ],
+  "LeeSin": [
+   "ionia"
+  ],
+  "Leona": [
+   "mount-targon"
+  ],
+  "Lillia": [
+   "ionia"
+  ],
+  "Lissandra": [
+   "freljord"
+  ],
+  "Locke": [
+   "demacia"
+  ],
+  "Lucian": [
+   "unaffiliated"
+  ],
+  "Lulu": [
+   "bandle-city"
+  ],
+  "Lux": [
+   "demacia"
+  ],
+  "Malphite": [
+   "ixtal"
+  ],
+  "Malzahar": [
+   "void"
+  ],
+  "Maokai": [
+   "shadow-isles"
+  ],
+  "MasterYi": [
+   "ionia"
+  ],
+  "Mel": [
+   "noxus"
+  ],
+  "Milio": [
+   "ixtal"
+  ],
+  "MissFortune": [
+   "bilgewater"
+  ],
+  "MonkeyKing": [
+   "ionia"
+  ],
+  "Mordekaiser": [
+   "noxus"
+  ],
+  "Morgana": [
+   "demacia"
+  ],
+  "Naafiri": [
+   "shurima"
+  ],
+  "Nami": [
+   "unaffiliated"
+  ],
+  "Nasus": [
+   "shurima"
+  ],
+  "Nautilus": [
+   "bilgewater"
+  ],
+  "Neeko": [
+   "ixtal"
+  ],
+  "Nidalee": [
+   "ixtal"
+  ],
+  "Nilah": [
+   "bilgewater"
+  ],
+  "Nocturne": [
+   "unaffiliated"
+  ],
+  "Nunu": [
+   "freljord"
+  ],
+  "Olaf": [
+   "freljord"
+  ],
+  "Orianna": [
+   "piltover"
+  ],
+  "Ornn": [
+   "freljord"
+  ],
+  "Pantheon": [
+   "mount-targon"
+  ],
+  "Poppy": [
+   "demacia"
+  ],
+  "Pyke": [
+   "bilgewater"
+  ],
+  "Qiyana": [
+   "ixtal"
+  ],
+  "Quinn": [
+   "demacia"
+  ],
+  "Rakan": [
+   "ionia"
+  ],
+  "Rammus": [
+   "shurima"
+  ],
+  "RekSai": [
+   "void"
+  ],
+  "Rell": [
+   "noxus"
+  ],
+  "Renata": [
+   "zaun"
+  ],
+  "Renekton": [
+   "shurima"
+  ],
+  "Rengar": [
+   "ixtal"
+  ],
+  "Riven": [
+   "noxus"
+  ],
+  "Rumble": [
+   "bandle-city"
+  ],
+  "Ryze": [
+   "unaffiliated"
+  ],
+  "Samira": [
+   "noxus"
+  ],
+  "Sejuani": [
+   "freljord"
+  ],
+  "Senna": [
+   "unaffiliated"
+  ],
+  "Seraphine": [
+   "piltover"
+  ],
+  "Sett": [
+   "ionia"
+  ],
+  "Shaco": [
+   "unaffiliated"
+  ],
+  "Shen": [
+   "ionia"
+  ],
+  "Shyvana": [
+   "demacia"
+  ],
+  "Singed": [
+   "zaun"
+  ],
+  "Sion": [
+   "noxus"
+  ],
+  "Sivir": [
+   "shurima"
+  ],
+  "Skarner": [
+   "ixtal"
+  ],
+  "Smolder": [
+   "unaffiliated"
+  ],
+  "Sona": [
+   "demacia"
+  ],
+  "Soraka": [
+   "mount-targon"
+  ],
+  "Swain": [
+   "noxus"
+  ],
+  "Sylas": [
+   "demacia"
+  ],
+  "Syndra": [
+   "ionia"
+  ],
+  "TahmKench": [
+   "unaffiliated"
+  ],
+  "Taliyah": [
+   "shurima"
+  ],
+  "Talon": [
+   "noxus"
+  ],
+  "Taric": [
+   "mount-targon"
+  ],
+  "Teemo": [
+   "bandle-city"
+  ],
+  "Thresh": [
+   "shadow-isles"
+  ],
+  "Tristana": [
+   "bandle-city"
+  ],
+  "Trundle": [
+   "freljord"
+  ],
+  "Tryndamere": [
+   "freljord"
+  ],
+  "TwistedFate": [
+   "bilgewater"
+  ],
+  "Twitch": [
+   "zaun"
+  ],
+  "Udyr": [
+   "freljord"
+  ],
+  "Urgot": [
+   "zaun"
+  ],
+  "Varus": [
+   "ionia"
+  ],
+  "Vayne": [
+   "demacia"
+  ],
+  "Veigar": [
+   "bandle-city"
+  ],
+  "Velkoz": [
+   "void"
+  ],
+  "Vex": [
+   "shadow-isles"
+  ],
+  "Vi": [
+   "piltover"
+  ],
+  "Viego": [
+   "shadow-isles"
+  ],
+  "Viktor": [
+   "zaun"
+  ],
+  "Vladimir": [
+   "noxus"
+  ],
+  "Volibear": [
+   "freljord"
+  ],
+  "Warwick": [
+   "zaun"
+  ],
+  "Xayah": [
+   "ionia"
+  ],
+  "Xerath": [
+   "shurima"
+  ],
+  "XinZhao": [
+   "demacia"
+  ],
+  "Yasuo": [
+   "ionia"
+  ],
+  "Yone": [
+   "ionia"
+  ],
+  "Yorick": [
+   "shadow-isles"
+  ],
+  "Yunara": [
+   "ionia"
+  ],
+  "Yuumi": [
+   "bandle-city"
+  ],
+  "Zaahen": [
+   "unaffiliated"
+  ],
+  "Zac": [
+   "zaun"
+  ],
+  "Zed": [
+   "ionia"
+  ],
+  "Zeri": [
+   "zaun"
+  ],
+  "Ziggs": [
+   "zaun"
+  ],
+  "Zilean": [
+   "unaffiliated"
+  ],
+  "Zoe": [
+   "mount-targon"
+  ],
+  "Zyra": [
+   "ixtal"
+  ]
+ }
+}

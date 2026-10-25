@@ -3,11 +3,29 @@
 import { usePathname } from "next/navigation";
 import { useEffect } from "react";
 
-// Headline numbers (.stat-row values and anything marked data-count-up) count up from zero the first
-// time they scroll into view. Only the existing text node's value changes, and it ends on the exact
-// original text, so React's markup is untouched. Off with reduced motion.
+// Headline numbers (.stat-row values, DeepScore badges and anything marked data-count-up) count up from
+// zero the first time they scroll into view. Only the existing text node's value changes, and it ends on
+// the exact original text, so React's markup is untouched. Off with reduced motion.
+//
+// The first visit after a new live patch (<html data-patch>) marks <html data-patch-new> for that
+// session, and globals.css pulses the numbers the patch moved (changes up or down).
 
-const SELECTOR = ".stat-row b, [data-count-up]";
+const SELECTOR = ".stat-row b, .deepscore, [data-count-up]";
+
+function patchIsNew(patch: string | undefined): boolean {
+  if (!patch) return false;
+  try {
+    const known = sessionStorage.getItem("deeparam-patch-new");
+    if (known !== null) return known === "1";
+    const seen = localStorage.getItem("deeparam-seen-patch");
+    localStorage.setItem("deeparam-seen-patch", patch);
+    const fresh = Boolean(seen) && seen !== patch;
+    sessionStorage.setItem("deeparam-patch-new", fresh ? "1" : "0");
+    return fresh;
+  } catch {
+    return false;
+  }
+}
 const DURATION = 900;
 // "57.4%", "1,234", "#3 of 173", "+0.8"
 const NUMBER = /^([^\d-]*)(-?[\d,]*\.?\d+)(.*)$/;
@@ -42,6 +60,10 @@ function animate(el: Element) {
 
 export default function CountUp() {
   const pathname = usePathname();
+  useEffect(() => {
+    const root = document.documentElement;
+    if (patchIsNew(root.dataset.patch)) root.dataset.patchNew = "";
+  }, []);
   useEffect(() => {
     if (reduced()) return;
     const seen = new WeakSet<Element>();

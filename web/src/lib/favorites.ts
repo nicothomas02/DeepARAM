@@ -6,7 +6,8 @@ import { useSyncExternalStore } from "react";
 // and show in a card on the home page. Every change fires FAVORITES_EVENT; other tabs get "storage".
 
 const KEY = "deeparam-favorites";
-const EVENT = "deeparam-favorites";
+export const FAVORITES_EVENT = "deeparam-favorites";
+const EVENT = FAVORITES_EVENT;
 const EMPTY: string[] = [];
 
 let cached: { raw: string | null; list: string[] } = { raw: null, list: EMPTY };
@@ -37,12 +38,18 @@ function subscribe(fn: () => void) {
 
 export function toggleFavorite(id: string) {
   const list = read();
-  const next = list.includes(id) ? list.filter((x) => x !== id) : [...list, id];
+  setFavorites(list.includes(id) ? list.filter((x) => x !== id) : [...list, id]);
+}
+
+/** Replaces the whole list (an account sync brings the saved one). */
+export function setFavorites(next: string[]) {
   try {
     localStorage.setItem(KEY, JSON.stringify(next));
   } catch {}
   dispatchEvent(new Event(EVENT));
 }
+
+export const readFavorites = read;
 
 /** Starred champion ids, oldest first. Empty on the server and before hydration. */
 export const useFavorites = () => useSyncExternalStore(subscribe, read, () => EMPTY);

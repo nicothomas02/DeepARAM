@@ -1,75 +1,16 @@
 {
  "builds": {
-  "pbe": "16.21.8289811",
-  "live": "16.20.8248524"
+  "pbe": "16.22.8316254",
+  "live": "16.21.8298620"
  },
- "dataAsOf": "2026-10-16",
+ "dataAsOf": "2026-10-23",
  "counts": {
-  "unclear": 2,
-  "mixed": 4,
-  "buff": 10,
-  "nerf": 12,
-  "neutral": 4,
-  "removed": 17,
-  "new": 40
+  "mixed": 2,
+  "buff": 1,
+  "new": 2,
+  "removed": 9
  },
  "entries": [
-  {
-   "kind": "champion",
-   "name": "Azir",
-   "lines": [
-    {
-     "text": "Resource stat 40 → 50",
-     "tag": "unclear"
-    }
-   ],
-   "tag": "unclear"
-  },
-  {
-   "kind": "champion",
-   "name": "Caitlyn",
-   "lines": [
-    {
-     "text": "Q base damage 50/90/130/170/210 → 50/95/140/185/230",
-     "tag": "buff"
-    },
-    {
-     "text": "Passive crit damage scaling 100% → 80%",
-     "tag": "nerf"
-    },
-    {
-     "text": "Passive headshot bonus at level breakpoints +20% → +10%",
-     "tag": "nerf"
-    }
-   ],
-   "tag": "mixed"
-  },
-  {
-   "kind": "champion",
-   "name": "Darius",
-   "lines": [
-    {
-     "text": "Q cooldown 9/8/7/6/5s → 9/7.75/6.5/5.25/4s",
-     "tag": "buff"
-    }
-   ],
-   "tag": "buff"
-  },
-  {
-   "kind": "champion",
-   "name": "Jinx",
-   "lines": [
-    {
-     "text": "Base Health 630 → 610",
-     "tag": "nerf"
-    },
-    {
-     "text": "AD per level 3.25 → 3",
-     "tag": "nerf"
-    }
-   ],
-   "tag": "nerf"
-  },
   {
    "kind": "champion",
    "name": "Lee Sin",
@@ -79,46 +20,7 @@
      "tag": "nerf"
     },
     {
-     "text": "R base damage 175/400/625 → 150/350/550",
-     "tag": "nerf"
-    },
-    {
-     "text": "Mayhem only, W: Shield 80/140/200/260/320 (+80% AP) → Shield 80 at all ranks (+80% AP)",
-     "tag": "nerf"
-    }
-   ],
-   "tag": "nerf"
-  },
-  {
-   "kind": "champion",
-   "name": "Locke",
-   "lines": [
-    {
-     "text": "Resource stat 70 → 60",
-     "tag": "unclear"
-    },
-    {
-     "text": "Q ammo cooldown reset 20–35% → 10–40%",
-     "tag": "mixed"
-    },
-    {
-     "text": "W mana cost 55–75 → 65–85",
-     "tag": "nerf"
-    },
-    {
-     "text": "W heal cap 150–450 → 100–500 (level 1 → 18)",
-     "tag": "mixed"
-    },
-    {
-     "text": "W additional heal starts at 20 instead of 40",
-     "tag": "nerf"
-    },
-    {
-     "text": "E on-hit damage 40/50/60/70/80 → 40/55/70/85/100",
-     "tag": "buff"
-    },
-    {
-     "text": "E on-hit ratio 40% → 50%",
+     "text": "Mayhem only, W: 80 shield at every rank → 80/140/200/260/320 shield",
      "tag": "buff"
     }
    ],
@@ -126,494 +28,83 @@
   },
   {
    "kind": "champion",
-   "name": "Miss Fortune",
+   "name": "Mel",
    "lines": [
     {
-     "text": "E damage per second 35/50/65/80/95 → 45/60/75/90/105",
+     "text": "Base Health 630 → 590, Health per level 99 → 107",
+     "tag": "mixed"
+    },
+    {
+     "text": "Base AD 54 → 52, Attack Speed per level 2.5% → 2.75%",
+     "tag": "mixed"
+    },
+    {
+     "text": "Armor per level 5.2 → 5.4",
      "tag": "buff"
     },
     {
-     "text": "R crit damage multiplier 30% → 45%",
-     "tag": "buff"
-    }
-   ],
-   "tag": "buff"
-  },
-  {
-   "kind": "champion",
-   "name": "Nidalee",
-   "lines": [
+     "text": "Base Mana 480 → 455, resource stat 28 → 38",
+     "tag": "mixed"
+    },
     {
-     "text": "Cougar Pounce damage 55/100/145/190 → 50/90/130/170",
+     "text": "Passive bonus bolt damage at level 1: 8 → 4",
      "tag": "nerf"
     },
     {
-     "text": "Primal Surge bonus Attack Speed 30–70% → 20–60%",
-     "tag": "nerf"
-    }
-   ],
-   "tag": "nerf"
-  },
-  {
-   "kind": "champion",
-   "name": "Nunu & Willump",
-   "lines": [
-    {
-     "text": "R base damage 625/925/1275 → 750/1100/1450",
-     "tag": "buff"
-    }
-   ],
-   "tag": "buff"
-  },
-  {
-   "kind": "champion",
-   "name": "Orianna",
-   "lines": [
-    {
-     "text": "Q AP ratio 55% → 60%",
-     "tag": "buff"
+     "text": "Q reworked: first hit 60 + 25% AP, then 5/10/15/20/25 + 8% AP per extra bolt (was 60/85/110/135/160 + 55% AP, then 5/7/9/11/13 + 5% AP per bolt)",
+     "tag": "unclear"
     },
     {
-     "text": "W AP ratio 80% → 85%",
+     "text": "Q mana cost 70–90 → 60–80, bolt speed 3800 → 3200",
+     "tag": "mixed"
+    },
+    {
+     "text": "W reworked: shield 80/110/140/170/200 + 70% AP → 50/80/110/140/170 + 50% AP for 2s, with 10–30% Move Speed and damage to nearby enemies; it no longer reflects projectiles",
+     "tag": "unclear"
+    },
+    {
+     "text": "W cooldown 38/35/33/29/26s → 30/28.5/27/25.5/24s, mana cost 80/60/40/20/0 → 100/75/50/25/0",
+     "tag": "mixed"
+    },
+    {
+     "text": "E root 1.5s → 0.8–1s, up to 1.6–2.2s",
+     "tag": "mixed"
+    },
+    {
+     "text": "E slow 30% → 20/25/30/35/40%, mana cost 50–90 → 40–80",
+     "tag": "mixed"
+    },
+    {
+     "text": "R cooldown 120/100/80s → 120/90/60s",
      "tag": "buff"
     }
    ],
-   "tag": "buff"
-  },
-  {
-   "kind": "champion",
-   "name": "Qiyana",
-   "lines": [
-    {
-     "text": "Q base damage 80/110/140/170/200 → 70/100/130/160/190, now for both enchanted and unenchanted Q",
-     "tag": "nerf"
-    }
-   ],
-   "tag": "nerf"
-  },
-  {
-   "kind": "champion",
-   "name": "Rammus",
-   "lines": [
-    {
-     "text": "W bonus Armor/MR 30/37.5/45/52.5/60% → 30/35/40/45/50%",
-     "tag": "nerf"
-    },
-    {
-     "text": "W flat bonus Armor 27/32/37/42/47 → 25/30/35/40/45",
-     "tag": "nerf"
-    }
-   ],
-   "tag": "nerf"
-  },
-  {
-   "kind": "champion",
-   "name": "Ryze",
-   "lines": [
-    {
-     "text": "Q Move Speed 28/32/36/40/44% → 30/35/40/45/50%",
-     "tag": "buff"
-    },
-    {
-     "text": "W AP ratio 60% → 70%",
-     "tag": "buff"
-    },
-    {
-     "text": "R Overload damage bonus 40/65/90% → 40/70/100%",
-     "tag": "buff"
-    }
-   ],
-   "tag": "buff"
-  },
-  {
-   "kind": "champion",
-   "name": "Sion",
-   "lines": [
-    {
-     "text": "Health per level 87 → 95",
-     "tag": "buff"
-    },
-    {
-     "text": "R max damage 400/800/1200 → 450/900/1350",
-     "tag": "buff"
-    },
-    {
-     "text": "R max damage AD ratio 120% → 180%",
-     "tag": "buff"
-    }
-   ],
-   "tag": "buff"
-  },
-  {
-   "kind": "champion",
-   "name": "Taliyah",
-   "lines": [
-    {
-     "text": "E base damage 60/105/150/195/240 → 70/115/160/205/250",
-     "tag": "buff"
-    },
-    {
-     "text": "E detonation damage 25/40/55/70/85 → 30/45/60/75/90",
-     "tag": "buff"
-    },
-    {
-     "text": "E AP ratio 60% → 70%",
-     "tag": "buff"
-    }
-   ],
-   "tag": "buff"
-  },
-  {
-   "kind": "champion",
-   "name": "Tristana",
-   "lines": [
-    {
-     "text": "Q Attack Speed 60/75/90/105/120% → 40/60/80/100/120%",
-     "tag": "nerf"
-    }
-   ],
-   "tag": "nerf"
+   "tag": "mixed"
   },
   {
    "kind": "champion",
    "name": "Varus",
    "lines": [
     {
-     "text": "Q reworked: 50/95/140/185/230 + 80% bonus AD, up to +70% with charge (was 80/150/220/290/360 + 120% bonus AD at max charge)",
-     "tag": "unclear"
-    },
-    {
-     "text": "W on-hit 4/13/22/31/40 → 4/10/16/22/28, on-hit AP ratio 25% → 30%",
-     "tag": "mixed"
-    },
-    {
-     "text": "W Blight %HP per stack 3/3.5/4/4.5/5% → 2.5/3/3.5/4/4.5%",
-     "tag": "nerf"
-    },
-    {
-     "text": "W empowered Q %HP damage 6/8/10/12/14% → 6/7/8/9/10%",
-     "tag": "nerf"
-    },
-    {
-     "text": "W cooldown refund per Blight stack 13% → 11%",
-     "tag": "nerf"
-    },
-    {
-     "text": "Mayhem only, Q: 150% bonus AD at max charge → 90% bonus AD, growing with charge (about 153% at full charge)",
-     "tag": "unclear"
-    }
-   ],
-   "tag": "nerf"
-  },
-  {
-   "kind": "champion",
-   "name": "Vel'Koz",
-   "lines": [
-    {
-     "text": "Passive AP ratio 60% → 65%",
+     "text": "Passive Attack Speed after a minion kill 11% → 14%, after a champion kill 33% → 42%",
      "tag": "buff"
     },
     {
-     "text": "Passive max base damage 180 → 205",
+     "text": "Q minimum damage 50/95/140/185/230 → 50/100/150/200/250",
      "tag": "buff"
     }
    ],
    "tag": "buff"
   },
   {
-   "kind": "champion",
-   "name": "Viktor",
-   "lines": [
-    {
-     "text": "Base Move Speed 335 → 330",
-     "tag": "nerf"
-    },
-    {
-     "text": "Q shield 40–140 → 30–130 (by level)",
-     "tag": "nerf"
-    },
-    {
-     "text": "Q shield AP ratio 25% → 20%",
-     "tag": "nerf"
-    }
-   ],
-   "tag": "nerf"
-  },
-  {
-   "kind": "champion",
-   "name": "Wukong",
-   "lines": [
-    {
-     "text": "Base Health regen 0.7 → 1.1",
-     "tag": "buff"
-    },
-    {
-     "text": "Passive bonus Armor start 6 → 4.5",
-     "tag": "nerf"
-    }
-   ],
-   "tag": "mixed"
-  },
-  {
-   "kind": "champion",
-   "name": "Xin Zhao",
-   "lines": [
-    {
-     "text": "Q bonus AD ratio 40% → 45%",
-     "tag": "buff"
-    },
-    {
-     "text": "E permanent Attack Speed bonus reduced (5 → 4)",
-     "tag": "nerf"
-    }
-   ],
-   "tag": "mixed"
-  },
-  {
-   "kind": "champion",
-   "name": "Yone",
-   "lines": [
-    {
-     "text": "Q AD ratio 110% → 105%",
-     "tag": "nerf"
-    }
-   ],
-   "tag": "nerf"
-  },
-  {
-   "kind": "champion",
-   "name": "Yuumi",
-   "lines": [
-    {
-     "text": "E cast range 25,000 → 500",
-     "tag": "nerf"
-    }
-   ],
-   "tag": "nerf"
-  },
-  {
-   "kind": "champion",
-   "name": "Zyra",
-   "lines": [
-    {
-     "text": "W seed recharge time 18/16/14/12/10s → 16/14.5/13/11.5/10s",
-     "tag": "buff"
-    }
-   ],
-   "tag": "buff"
-  },
-  {
-   "kind": "item",
-   "name": "Dawncore",
-   "lines": [
-    {
-     "text": "AP per 100% base mana regen 10 → 15",
-     "tag": "buff"
-    }
-   ],
-   "tag": "buff"
-  },
-  {
-   "kind": "item",
-   "name": "Gluttonous Greaves",
-   "lines": [
-    {
-     "text": "Combine cost 700 → 800 gold",
-     "tag": "nerf"
-    }
-   ],
-   "tag": "nerf"
-  },
-  {
-   "kind": "item",
-   "name": "Hubris",
-   "lines": [
-    {
-     "text": "Now has separate melee and ranged values. Numbers look the same: 15 AD plus 2 per statue for melee, about 10 plus 1 for ranged.",
-     "tag": "neutral"
-    }
-   ],
-   "tag": "neutral"
-  },
-  {
-   "kind": "item",
-   "name": "Party Favor",
-   "lines": [
-    {
-     "text": "Removed, along with the Healthbar Splash cosmetics",
-     "tag": "removed"
-    }
-   ],
-   "tag": "removed"
-  },
-  {
-   "kind": "item",
-   "name": "Poro-Snax",
-   "lines": [
-    {
-     "text": "New Disco Ball icon (cosmetic)",
-     "tag": "neutral"
-    }
-   ],
-   "tag": "neutral"
-  },
-  {
    "kind": "augment",
-   "name": "Echo Cast",
+   "name": "RISE",
    "tier": "prismatic",
-   "icon": "/assets/augments/pbe/genericabilityaugmenticon_prismatic.png",
-   "lines": [
-    {
-     "text": "Clone duration: 7s → 4s",
-     "tag": "nerf"
-    }
-   ],
-   "tag": "nerf"
-  },
-  {
-   "kind": "augment",
-   "name": "Jeweled Gauntlet",
-   "tier": "prismatic",
-   "icon": "/assets/augments/pbe/jeweledgauntlet_large.png",
-   "lines": [
-    {
-     "text": "Tooltip wording: 145% total damage → 45% bonus damage (same value)",
-     "tag": "neutral"
-    }
-   ],
-   "tag": "neutral"
-  },
-  {
-   "kind": "augment",
-   "name": "Spirit Bomb",
-   "tier": "prismatic",
-   "icon": "/assets/augments/pbe/spiritbomb_large.png",
-   "lines": [
-    {
-     "text": "Hits: All units → Fewer unit types",
-     "tag": "unclear"
-    }
-   ],
-   "tag": "unclear"
-  },
-  {
-   "kind": "augment",
-   "name": "Infernal Soul",
-   "tier": "silver",
-   "icon": "/assets/augments/pbe/infernalsoul_large.png",
-   "lines": [
-    {
-     "text": "Damage counter: All damage → Champion damage only",
-     "tag": "neutral"
-    }
-   ],
-   "tag": "neutral"
-  },
-  {
-   "kind": "augment",
-   "name": "Snap Back",
-   "tier": "gold",
-   "icon": "/assets/augments/pbe/genericabilityaugmenticon_gold.png",
-   "lines": [
-    {
-     "text": "Status: Enabled → Disabled (may be cut)",
-     "tag": "removed"
-    }
-   ],
-   "tag": "removed"
-  },
-  {
-   "kind": "augment",
-   "name": "Sneakerhead",
-   "tier": "prismatic",
-   "icon": "/assets/augments/pbe/sneakerhead_large.png",
-   "lines": [
-    {
-     "text": "Status: Enabled → Disabled (may be cut)",
-     "tag": "removed"
-    }
-   ],
-   "tag": "removed"
-  },
-  {
-   "kind": "augment",
-   "name": "HEAVY",
-   "tier": "gold",
-   "icon": "/assets/augments/pbe/pentakill_small.png",
-   "set": "Pentakill",
-   "lines": [
-    {
-     "text": "Empowers Q: +20 Ability Haste and +10% damage, healing and shielding.",
-     "tag": "new"
-    }
-   ],
-   "tag": "new"
-  },
-  {
-   "kind": "augment",
-   "name": "POWER",
-   "tier": "gold",
-   "icon": "/assets/augments/pbe/pentakill_small.png",
-   "set": "Pentakill",
-   "lines": [
-    {
-     "text": "Empowers W: +20 Ability Haste and +10% damage, healing and shielding.",
-     "tag": "new"
-    }
-   ],
-   "tag": "new"
-  },
-  {
-   "kind": "augment",
-   "name": "THRASH",
-   "tier": "gold",
-   "icon": "/assets/augments/pbe/pentakill_small.png",
-   "set": "Pentakill",
-   "lines": [
-    {
-     "text": "Empowers E: +20 Ability Haste and +10% damage, healing and shielding.",
-     "tag": "new"
-    }
-   ],
-   "tag": "new"
-  },
-  {
-   "kind": "augment",
-   "name": "DOOM",
-   "tier": "gold",
-   "icon": "/assets/augments/pbe/pentakill_small.png",
-   "set": "Pentakill",
-   "lines": [
-    {
-     "text": "Empowers R: +20 Ability Haste and +10% damage, healing and shielding.",
-     "tag": "new"
-    }
-   ],
-   "tag": "new"
-  },
-  {
-   "kind": "augment",
-   "name": "Pentakill (choose any ability)",
-   "tier": "gold",
-   "icon": null,
-   "set": "Pentakill",
-   "lines": [
-    {
-     "text": "Empower one basic ability (+20 Ability Haste, +10% damage, healing and shielding). At level 18, Empower another, ultimate included.",
-     "tag": "new"
-    }
-   ],
-   "tag": "new"
-  },
-  {
-   "kind": "augment",
-   "name": "Big Shot",
-   "tier": "prismatic",
-   "icon": "/assets/augments/pbe/bigshot_small.png",
+   "icon": "/assets/augments/pbe/zerohour_large.png",
    "set": null,
    "lines": [
     {
-     "text": "+35% Crit Damage and +25% bonus AD. 75% of your Attack Speed turns into Crit Damage.",
+     "text": "Pick an ability: if it kills an enemy champion, you can recast it up to 2 more times. Each recast deals 25% more damage than the last.",
      "tag": "new"
     }
    ],
@@ -621,209 +112,13 @@
   },
   {
    "kind": "augment",
-   "name": "Totentanz",
-   "tier": "prismatic",
-   "icon": "/assets/augments/pbe/totentanz_small.png",
-   "set": null,
-   "lines": [
-    {
-     "text": "Summoner spell: blink forward and become Unkillable. If you don't get a takedown within 5 seconds, you die.",
-     "tag": "new"
-    }
-   ],
-   "tag": "new"
-  },
-  {
-   "kind": "augment",
-   "name": "Group Hug",
-   "tier": "prismatic",
-   "icon": "/assets/augments/pbe/empyreampromise_large.png",
-   "set": null,
-   "lines": [
-    {
-     "text": "A heal or shield also recasts on two nearby allies.",
-     "tag": "new"
-    }
-   ],
-   "tag": "new"
-  },
-  {
-   "kind": "augment",
-   "name": "Mosh Monster",
-   "tier": "prismatic",
-   "icon": "/assets/augments/pbe/genericabilityaugmenticon_prismatic.png",
-   "set": null,
-   "lines": [
-    {
-     "text": "Casting an ability gives +300–750 HP and slows nearby enemies. Takedowns make it permanently stronger.",
-     "tag": "new"
-    }
-   ],
-   "tag": "new"
-  },
-  {
-   "kind": "augment",
-   "name": "Third Times the Harm",
-   "tier": "prismatic",
-   "icon": "/assets/augments/pbe/silverbeats_large.png",
-   "set": null,
-   "lines": [
-    {
-     "text": "Every third attack deals true damage that grows permanently.",
-     "tag": "new"
-    }
-   ],
-   "tag": "new"
-  },
-  {
-   "kind": "augment",
-   "name": "Bouncing Bees",
-   "tier": "prismatic",
-   "icon": "/assets/augments/pbe/kingme_large.png",
-   "set": null,
-   "lines": [
-    {
-     "text": "After you cast an ability, your next attack bounces. Completing its quest gives +30 AD and more bounces.",
-     "tag": "new"
-    }
-   ],
-   "tag": "new"
-  },
-  {
-   "kind": "augment",
-   "name": "Get Jinxed",
-   "tier": "gold",
-   "icon": "/assets/augments/pbe/overextender_large.png",
-   "set": null,
-   "lines": [
-    {
-     "text": "Summoner spell: ride a Jinx rocket.",
-     "tag": "new"
-    }
-   ],
-   "tag": "new"
-  },
-  {
-   "kind": "augment",
-   "name": "Brass Blast",
-   "tier": "gold",
-   "icon": "/assets/augments/pbe/camo_large.png",
-   "set": null,
-   "lines": [
-    {
-     "text": "Summoner spell: charge up a trumpet blast that knocks enemies back.",
-     "tag": "new"
-    }
-   ],
-   "tag": "new"
-  },
-  {
-   "kind": "augment",
-   "name": "BEES!!!",
-   "tier": "gold",
-   "icon": "/assets/augments/pbe/bees_small.png",
-   "set": null,
-   "lines": [
-    {
-     "text": "Ability hits periodically launch a beehive.",
-     "tag": "new"
-    }
-   ],
-   "tag": "new"
-  },
-  {
-   "kind": "augment",
-   "name": "Salvation",
-   "tier": "gold",
-   "icon": "/assets/augments/pbe/salvation_large.png",
-   "set": null,
-   "lines": [
-    {
-     "text": "Near-lethal damage releases a shockwave that heals your team.",
-     "tag": "new"
-    }
-   ],
-   "tag": "new"
-  },
-  {
-   "kind": "augment",
-   "name": "Heavy Is The Crown",
-   "tier": "gold",
-   "icon": "/assets/augments/pbe/heavyisthecrown_small.png",
-   "set": null,
-   "lines": [
-    {
-     "text": "AD, AP and Attack Speed that grow with takedowns, at the cost of Move Speed. You lose half your stacks on death.",
-     "tag": "new"
-    }
-   ],
-   "tag": "new"
-  },
-  {
-   "kind": "augment",
-   "name": "Weapon of Destiny",
-   "tier": "gold",
-   "icon": "/assets/augments/pbe/protagonistssignatureweapon_large.png",
-   "set": null,
-   "lines": [
-    {
-     "text": "Your first Legendary item grows with takedowns.",
-     "tag": "new"
-    }
-   ],
-   "tag": "new"
-  },
-  {
-   "kind": "augment",
-   "name": "Upgrade Stormsurge",
-   "tier": "gold",
-   "icon": "/assets/augments/pbe/upgradehubris_large.png",
-   "set": null,
-   "lines": [
-    {
-     "text": "Squall always explodes, and you get 500 gold.",
-     "tag": "new"
-    }
-   ],
-   "tag": "new"
-  },
-  {
-   "kind": "augment",
-   "name": "Arcane Axiom",
-   "tier": "gold",
-   "icon": "/assets/augments/pbe/arcaneaxiom_large.png",
-   "set": null,
-   "lines": [
-    {
-     "text": "Details not revealed yet.",
-     "tag": "new"
-    }
-   ],
-   "tag": "new"
-  },
-  {
-   "kind": "augment",
-   "name": "Armored Impact",
-   "tier": "gold",
-   "icon": "/assets/augments/pbe/armoredimpact_small.png",
-   "set": null,
-   "lines": [
-    {
-     "text": "Details not revealed yet.",
-     "tag": "new"
-    }
-   ],
-   "tag": "new"
-  },
-  {
-   "kind": "augment",
-   "name": "CRIMSON COBALT",
+   "name": "One Hit Wonder",
    "tier": "gold",
    "icon": "/assets/augments/pbe/genericabilityaugmenticon_gold.png",
    "set": null,
    "lines": [
     {
-     "text": "Details not revealed yet.",
+     "text": "Pick an ability: it deals more damage for each point of Ability Haste you have, but Ability Haste no longer lowers its cooldown.",
      "tag": "new"
     }
    ],
@@ -831,275 +126,9 @@
   },
   {
    "kind": "augment",
-   "name": "Double Time",
-   "tier": "gold",
-   "icon": "/assets/augments/pbe/aram_phenomenalevil_large.png",
-   "set": null,
-   "lines": [
-    {
-     "text": "Details not revealed yet.",
-     "tag": "new"
-    }
-   ],
-   "tag": "new"
-  },
-  {
-   "kind": "augment",
-   "name": "Enchanting Butterflies",
-   "tier": "gold",
-   "icon": "/assets/augments/pbe/enchantedbuttery_small.png",
-   "set": null,
-   "lines": [
-    {
-     "text": "Details not revealed yet.",
-     "tag": "new"
-    }
-   ],
-   "tag": "new"
-  },
-  {
-   "kind": "augment",
-   "name": "Jeweled Bracelet",
-   "tier": "gold",
-   "icon": "/assets/augments/pbe/genericabilityaugmenticon_gold.png",
-   "set": null,
-   "lines": [
-    {
-     "text": "Details not revealed yet.",
-     "tag": "new"
-    }
-   ],
-   "tag": "new"
-  },
-  {
-   "kind": "augment",
-   "name": "Recoil",
-   "tier": "gold",
-   "icon": "/assets/augments/pbe/genericabilityaugmenticon_gold.png",
-   "set": null,
-   "lines": [
-    {
-     "text": "Details not revealed yet.",
-     "tag": "new"
-    }
-   ],
-   "tag": "new"
-  },
-  {
-   "kind": "augment",
-   "name": "Sap Magic",
-   "tier": "gold",
-   "icon": "/assets/augments/pbe/mercysstrike_large.png",
-   "set": null,
-   "lines": [
-    {
-     "text": "Details not revealed yet.",
-     "tag": "new"
-    }
-   ],
-   "tag": "new"
-  },
-  {
-   "kind": "augment",
-   "name": "Still Here",
-   "tier": "gold",
-   "icon": "/assets/augments/pbe/stillhere_small.png",
-   "set": null,
-   "lines": [
-    {
-     "text": "Details not revealed yet.",
-     "tag": "new"
-    }
-   ],
-   "tag": "new"
-  },
-  {
-   "kind": "augment",
-   "name": "Take'em Down Down Down",
-   "tier": "gold",
-   "icon": "/assets/augments/pbe/takeemdowndowndown_small.png",
-   "set": null,
-   "lines": [
-    {
-     "text": "Details not revealed yet.",
-     "tag": "new"
-    }
-   ],
-   "tag": "new"
-  },
-  {
-   "kind": "augment",
-   "name": "The Boom and the Bass",
-   "tier": "gold",
-   "icon": "/assets/augments/pbe/theboomandthebass_small.png",
-   "set": null,
-   "lines": [
-    {
-     "text": "Details not revealed yet.",
-     "tag": "new"
-    }
-   ],
-   "tag": "new"
-  },
-  {
-   "kind": "augment",
-   "name": "Tickle Monster",
-   "tier": "gold",
-   "icon": "/assets/augments/pbe/ticklemonster_large.png",
-   "set": null,
-   "lines": [
-    {
-     "text": "Details not revealed yet.",
-     "tag": "new"
-    }
-   ],
-   "tag": "new"
-  },
-  {
-   "kind": "augment",
-   "name": "Lich Brain",
-   "tier": "silver",
-   "icon": "/assets/augments/pbe/lichbrain_large.png",
-   "set": null,
-   "lines": [
-    {
-     "text": "30 AP + 4% of bonus HP as AP.",
-     "tag": "new"
-    }
-   ],
-   "tag": "new"
-  },
-  {
-   "kind": "augment",
-   "name": "Ultimate Recursion",
-   "tier": "silver",
-   "icon": "/assets/augments/pbe/zealot_large.png",
-   "set": null,
-   "lines": [
-    {
-     "text": "+50 Ultimate Haste.",
-     "tag": "new"
-    }
-   ],
-   "tag": "new"
-  },
-  {
-   "kind": "augment",
-   "name": "Blue Barrier",
-   "tier": "silver",
-   "icon": "/assets/augments/pbe/bluenote_small.png",
-   "set": null,
-   "lines": [
-    {
-     "text": "Details not revealed yet.",
-     "tag": "new"
-    }
-   ],
-   "tag": "new"
-  },
-  {
-   "kind": "augment",
-   "name": "Flow of Spirit",
-   "tier": "silver",
-   "icon": "/assets/augments/pbe/genericabilityaugmenticon_gold.png",
-   "set": null,
-   "lines": [
-    {
-     "text": "Details not revealed yet.",
-     "tag": "new"
-    }
-   ],
-   "tag": "new"
-  },
-  {
-   "kind": "augment",
-   "name": "Fruitify",
-   "tier": "silver",
-   "icon": "/assets/augments/pbe/fruitseason_large.png",
-   "set": null,
-   "lines": [
-    {
-     "text": "Takedowns burst into Fruit: 3 at level 1, +1 at levels 7, 11 and 15. Each Fruit restores 6% max Health and 6% max Mana (or 10 Energy, Fury, Rage or Courage).",
-     "tag": "new"
-    }
-   ],
-   "tag": "new"
-  },
-  {
-   "kind": "augment",
-   "name": "Gift of the Drowned",
-   "tier": "silver",
-   "icon": "/assets/augments/pbe/giftofthedrowned_large.png",
-   "set": null,
-   "lines": [
-    {
-     "text": "Details not revealed yet.",
-     "tag": "new"
-    }
-   ],
-   "tag": "new"
-  },
-  {
-   "kind": "augment",
-   "name": "Hands off the Talent",
-   "tier": "silver",
-   "icon": "/assets/augments/pbe/bonk_large.png",
-   "set": null,
-   "lines": [
-    {
-     "text": "Details not revealed yet.",
-     "tag": "new"
-    }
-   ],
-   "tag": "new"
-  },
-  {
-   "kind": "augment",
-   "name": "Lonely Warrior",
-   "tier": "silver",
-   "icon": "/assets/augments/pbe/adamant_large.png",
-   "set": null,
-   "lines": [
-    {
-     "text": "Details not revealed yet.",
-     "tag": "new"
-    }
-   ],
-   "tag": "new"
-  },
-  {
-   "kind": "augment",
-   "name": "No Mana No Problem",
-   "tier": "silver",
-   "icon": null,
-   "set": null,
-   "lines": [
-    {
-     "text": "Details not revealed yet.",
-     "tag": "new"
-    }
-   ],
-   "tag": "new"
-  },
-  {
-   "kind": "augment",
-   "name": "Sound Barrier",
-   "tier": "silver",
-   "icon": "/assets/augments/pbe/swiftandsafe_large.png",
-   "set": null,
-   "lines": [
-    {
-     "text": "Details not revealed yet.",
-     "tag": "new"
-    }
-   ],
-   "tag": "new"
-  },
-  {
-   "kind": "augment",
-   "name": "Drop Bear",
+   "name": "Devil on Your Shoulder",
    "tier": "prismatic",
-   "icon": null,
+   "icon": "/assets/augments/live/littledevil_large.png",
    "lines": [
     {
      "text": "Removed from the augment pool.",
@@ -1110,9 +139,9 @@
   },
   {
    "kind": "augment",
-   "name": "Dropkick",
+   "name": "Quantum Computing",
    "tier": "prismatic",
-   "icon": "/assets/augments/live/dropkick_large.png",
+   "icon": "/assets/augments/live/quantumcomputing_large.png",
    "lines": [
     {
      "text": "Removed from the augment pool.",
@@ -1123,74 +152,9 @@
   },
   {
    "kind": "augment",
-   "name": "Fan the Hammer",
-   "tier": "prismatic",
-   "icon": "/assets/augments/live/fanthehammer_large.png",
-   "lines": [
-    {
-     "text": "Removed from the augment pool.",
-     "tag": "removed"
-    }
-   ],
-   "tag": "removed"
-  },
-  {
-   "kind": "augment",
-   "name": "High Roller",
-   "tier": "prismatic",
-   "icon": "/assets/augments/live/highroller_large.png",
-   "lines": [
-    {
-     "text": "Removed from the augment pool.",
-     "tag": "removed"
-    }
-   ],
-   "tag": "removed"
-  },
-  {
-   "kind": "augment",
-   "name": "Dimension Shift",
-   "tier": "prismatic",
-   "icon": "/assets/augments/live/whenthedarknesscomes_large.png",
-   "lines": [
-    {
-     "text": "Removed from the augment pool.",
-     "tag": "removed"
-    }
-   ],
-   "tag": "removed"
-  },
-  {
-   "kind": "augment",
-   "name": "Poro Stampede",
-   "tier": "prismatic",
-   "icon": "/assets/augments/live/questporocharge_large.png",
-   "lines": [
-    {
-     "text": "Removed from the augment pool.",
-     "tag": "removed"
-    }
-   ],
-   "tag": "removed"
-  },
-  {
-   "kind": "augment",
-   "name": "Ult Bot",
-   "tier": "prismatic",
-   "icon": "/assets/augments/live/skipthebasic_large.png",
-   "lines": [
-    {
-     "text": "Removed from the augment pool.",
-     "tag": "removed"
-    }
-   ],
-   "tag": "removed"
-  },
-  {
-   "kind": "augment",
-   "name": "Spiritual Purification",
+   "name": "Perseverance",
    "tier": "gold",
-   "icon": "/assets/augments/live/spiritualpurification_large.png",
+   "icon": "/assets/augments/live/perseverance_large.png",
    "lines": [
     {
      "text": "Removed from the augment pool.",
@@ -1201,9 +165,9 @@
   },
   {
    "kind": "augment",
-   "name": "Yowch My Coins!",
+   "name": "Snowball Upgrade",
    "tier": "gold",
-   "icon": null,
+   "icon": "/assets/augments/live/snowballupgrade_large.png",
    "lines": [
     {
      "text": "Removed from the augment pool.",
@@ -1214,9 +178,9 @@
   },
   {
    "kind": "augment",
-   "name": "Combusting Interest",
+   "name": "Vampirism",
    "tier": "gold",
-   "icon": "/assets/augments/live/bloodmoney2_large.png",
+   "icon": "/assets/augments/live/vampired_large.png",
    "lines": [
     {
      "text": "Removed from the augment pool.",
@@ -1227,9 +191,9 @@
   },
   {
    "kind": "augment",
-   "name": "Hide on Bush",
+   "name": "Void Dash",
    "tier": "gold",
-   "icon": "/assets/augments/live/brushpower_large.png",
+   "icon": "/assets/augments/live/genericabilityaugmenticon_gold.png",
    "lines": [
     {
      "text": "Removed from the augment pool.",
@@ -1240,35 +204,35 @@
   },
   {
    "kind": "augment",
-   "name": "Critical Missile",
-   "tier": "gold",
-   "icon": "/assets/augments/live/criticalmissile_large.png",
-   "lines": [
-    {
-     "text": "Removed from the augment pool.",
-     "tag": "removed"
-    }
-   ],
-   "tag": "removed"
-  },
-  {
-   "kind": "augment",
-   "name": "Our Healing",
-   "tier": "gold",
-   "icon": "/assets/augments/live/equillibrium_large.png",
-   "lines": [
-    {
-     "text": "Removed from the augment pool.",
-     "tag": "removed"
-    }
-   ],
-   "tag": "removed"
-  },
-  {
-   "kind": "augment",
-   "name": "Crit 'n Cast",
+   "name": "Adamant",
    "tier": "silver",
-   "icon": "/assets/augments/live/critncast_large.png",
+   "icon": "/assets/augments/live/adamant_large.png",
+   "lines": [
+    {
+     "text": "Removed from the augment pool.",
+     "tag": "removed"
+    }
+   ],
+   "tag": "removed"
+  },
+  {
+   "kind": "augment",
+   "name": "Double Strike",
+   "tier": "silver",
+   "icon": "/assets/augments/live/adamant_large.png",
+   "lines": [
+    {
+     "text": "Removed from the augment pool.",
+     "tag": "removed"
+    }
+   ],
+   "tag": "removed"
+  },
+  {
+   "kind": "augment",
+   "name": "Support Main",
+   "tier": "silver",
+   "icon": "/assets/augments/live/questsupportmain_large.png",
    "lines": [
     {
      "text": "Removed from the augment pool.",

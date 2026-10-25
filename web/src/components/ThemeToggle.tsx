@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { THEME_COLORS, THEME_EVENT, THEME_KEY } from "@/lib/theme";
+import { useT } from "./I18n";
 
 // Light / Dark / System switch in the header. The choice is kept in localStorage and applied as
 // <html data-theme> before paint (THEME_SCRIPT in layout.tsx); "system" removes the attribute.
@@ -46,6 +47,7 @@ function apply(theme: Theme) {
 
 export default function ThemeToggle({ labels = false }: { labels?: boolean }) {
   const [theme, setTheme] = useState<Theme>("dark");
+  const t = useT();
 
   useEffect(() => {
     let saved: string | null = null;
@@ -70,13 +72,13 @@ export default function ThemeToggle({ labels = false }: { labels?: boolean }) {
   };
 
   return (
-    <div className="theme-toggle" role="group" aria-label="Theme">
+    <div className="theme-toggle" role="group" aria-label={t("Theme")}>
       {OPTIONS.map((o) => (
-        <button key={o.value} type="button" aria-pressed={theme === o.value} aria-label={labels ? undefined : o.label} title={o.label} onClick={() => pick(o.value)}>
+        <button key={o.value} type="button" aria-pressed={theme === o.value} aria-label={labels ? undefined : t(o.label)} title={t(o.label)} onClick={() => pick(o.value)}>
           <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
             {o.icon}
           </svg>
-          {labels && <span>{o.label}</span>}
+          {labels && <span>{t(o.label)}</span>}
         </button>
       ))}
     </div>

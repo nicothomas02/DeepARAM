@@ -1,4 +1,5 @@
-// Moves to the next or previous in-page tab (SubTabs) or, on a page without them, the neighbouring
+// Moves to the next or previous in-page tab (SubTabs); else follows the page's own next/previous link
+// (a[data-swipe="next"|"prev"], like the next champion on a champion page); else the neighbouring
 // bottom-bar tab. Shared by phone swipes (SwipeGestures) and the [ and ] keys (KeyboardShortcuts).
 import { buzz } from "./haptics";
 
@@ -12,6 +13,12 @@ export function switchTab(dir: 1 | -1) {
       next.click();
       next.scrollIntoView({ block: "nearest", inline: "nearest" });
     }
+    return;
+  }
+  const step = document.querySelector<HTMLAnchorElement>(`main a[data-swipe="${dir > 0 ? "next" : "prev"}"]`);
+  if (step) {
+    buzz("step");
+    step.click();
     return;
   }
   const links = [...document.querySelectorAll<HTMLAnchorElement>(".tabbar a")];

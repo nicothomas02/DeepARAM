@@ -6,6 +6,7 @@ import datetime as dt
 import json
 import os
 import subprocess
+from types import SimpleNamespace
 
 import pytest
 
@@ -33,6 +34,7 @@ def offline(mi, monkeypatch, tmp_path):
     monkeypatch.setattr(mi.subprocess, "run", no_subprocess)
     monkeypatch.setattr(mi.time, "sleep", lambda s: None)
     monkeypatch.setattr(mi, "SHARING_FILE", str(tmp_path / "support" / "sharing.json"))
+    monkeypatch.setattr(mi, "HISTORY_FILE", str(tmp_path / "support" / "history.json"))
     monkeypatch.setattr(mi, "ASSET_CACHE", str(tmp_path / "cache"))
     monkeypatch.setenv("MAYHEM_LCU_CA", str(tmp_path / "ca.pem"))
 
@@ -263,7 +265,7 @@ def test_compact_kills(mi):
 
 def test_fill_kill_maps(mi):
     a, b, c, d = (dict(fixture("lcu_game_mayhem.json"), gameId=i) for i in (1, 2, 3, 4))
-    d["killMap"] = [[1, 2, 3, 4, 5]]
+    d["killMap"], d["curves"] = [[1, 2, 3, 4, 5]], {}
     lcu = FakeLcu(mi, timelines={1: fixture("timeline.json"), 2: None, 3: ConnectionError("down")})
     changed = mi.fill_kill_maps(lcu, [a, b, c, d], progress=lambda m: None)
     assert changed == 2
@@ -273,6 +275,47 @@ def test_fill_kill_maps(mi):
     assert d["killMap"] == [[1, 2, 3, 4, 5]]
     assert not any(p.endswith("/4") for p in lcu.calls)
     assert mi.fill_kill_maps(lcu, [d], progress=lambda m: None) == 0
+
+
+def timeline_with_frames():
+    t = fixture("timeline.json")
+    t["frames"][0]["participantFrames"] = {"1": {"totalGold": 500, "xp": 0}, "6": {"totalGold": 500, "xp": 0}}
+    t["frames"][1]["participantFrames"] = {"1": {"totalGold": 1400, "xp": 380}, "6": {"totalGold": 1100, "xp": 300}}
+    return t
+
+
+def test_compact_curves(mi):
+    assert mi.compact_curves(timeline_with_frames()) == {"1": [[500, 0], [1400, 380]], "6": [[500, 0], [1100, 300]]}
+    assert mi.compact_curves(None) == {} and mi.compact_curves(fixture("timeline.json")) == {}
+
+
+def test_fill_kill_maps_adds_curves_to_games_that_only_have_kills(mi):
+    old, gone, done = (dict(fixture("lcu_game_mayhem.json"), gameId=i) for i in (1, 2, 3))
+    old["killMap"] = [[1, 2, 3, 4, 5]]
+    gone["killMap"] = None  # the client had no timeline: not asked again
+    done["killMap"], done["curves"] = [], {"1": [[500, 0]]}
+    lcu = FakeLcu(mi, timelines={1: timeline_with_frames()})
+    assert mi.fill_kill_maps(lcu, [old, gone, done], progress=lambda m: None) == 1
+    assert old["curves"]["1"] == [[500, 0], [1400, 380]] and len(old["killMap"]) == 3
+    assert not any(p.endswith(("/2", "/3")) for p in lcu.calls)
+
+
+def test_fill_kill_maps_prefers_the_service_and_falls_back_to_the_client(mi, monkeypatch):
+    a, b, c = (dict(fixture("lcu_game_mayhem.json"), gameId=i, platformId="EUW1") for i in (1, 2, 3))
+    asked = []
+
+    def sgp_timeline(host, token, match_id, timeout=30):
+        asked.append((host, token, match_id))
+        if match_id == "EUW1_1":
+            return fixture("timeline.json")
+        raise mi.HttpError(404 if match_id == "EUW1_2" else 503, match_id)
+    monkeypatch.setattr(mi, "sgp_timeline", sgp_timeline)
+    lcu = FakeLcu(mi, timelines={3: fixture("timeline.json")})
+    assert mi.fill_kill_maps(lcu, [a, b, c], progress=lambda m: None, sgp=("https://sgp.test", "tok")) == 3
+    assert sorted(m for _, _, m in asked) == ["EUW1_1", "EUW1_2", "EUW1_3"]
+    assert {(h, t) for h, t, _ in asked} == {("https://sgp.test", "tok")}
+    assert len(a["killMap"]) == 3 and len(c["killMap"]) == 3  # c came from the client after the service failed
+    assert b["killMap"] is None  # neither has it
 
 
 def test_fill_kill_maps_respects_limit(mi):
@@ -286,6 +329,10 @@ def test_fill_kill_maps_respects_limit(mi):
 
 def setup_import(mi, monkeypatch, lcu, ids_by_tags):
     monkeypatch.setattr(mi, "find_client", lambda lockfile=None: lcu)
+
+    def sgp_timeline(host, token, match_id, timeout=30):  # the service is down: timelines come from the client
+        raise ConnectionError(match_id)
+    monkeypatch.setattr(mi, "sgp_timeline", sgp_timeline)
     sgp = fake_sgp(ids_by_tags)
     monkeypatch.setattr(mi, "sgp_get", sgp)
     return sgp
@@ -342,7 +389,7 @@ def test_run_import_refuses_another_accounts_archive(mi, monkeypatch, tmp_path):
 
 def test_run_import_nothing_new_leaves_file_untouched(mi, monkeypatch, tmp_path):
     old = fixture("lcu_game_old.json")
-    old["killMap"] = []
+    old["killMap"], old["curves"] = [], {}
     path = tmp_path / "same.json"
     path.write_text(json.dumps({"puuid": ME, "games": [old]}))
     before = path.read_text()
@@ -371,6 +418,17 @@ def test_anonymise_strips_identity(mi):
     assert p0["items"] == [3006, 3095, 3115] and p0["cs"] == 42 and p0["multi"] == [1, 0, 0, 0]
     assert p0["perks"] == [8005, 9111] and p0["spells"] == [4, 32] and p0["styles"] == [8000, 8100]
     assert [t["win"] for t in a["teams"]] == [True, False]
+    assert p0["goldMin"] == [] and p0["xpMin"] == []  # no timeline yet
+
+
+def test_anonymise_shares_each_players_gold_and_xp_by_minute(mi):
+    g = dict(fixture("lcu_game_mayhem.json"))
+    pid = g["participants"][0]["participantId"]
+    g["curves"] = {str(pid): [[500, 0], [1400, 380]]}
+    a = mi.anonymise(g)
+    p = next(p for p in a["players"] if p["champ"] == g["participants"][0]["championId"])
+    assert p["goldMin"] == [500, 1400] and p["xpMin"] == [0, 380]
+    assert sum(bool(p["goldMin"]) for p in a["players"]) == 1
 
 
 def test_anonymise_converts_millisecond_durations_and_rejects_bad_games(mi):
@@ -418,6 +476,48 @@ def test_share_new_games_sends_anonymised_batches(mi, monkeypatch, tmp_path):
     assert set(mi.sharing_settings()["shared"]) == {str(g["gameId"]) for g in games}
 
 
+def test_save_new_history_is_off_by_default(mi, tmp_path):
+    assert mi.history_settings() == {"enabled": False, "saved": []}
+    assert mi.save_new_history(str(tmp_path / "x.json")) is None
+
+
+def test_private_game_keeps_own_stats_teammates_names_and_only_enemy_champions(mi):
+    game = dict(fixture("lcu_game_mayhem.json"), killMap=[[60, 100, 200, 1, 6]])
+    g = mi.private_game(game, ME)
+    mine = [p for p in g["participants"] if p.get("puuid") == "me"]
+    assert len(mine) == 1 and len(g["participants"]) == len(game["participants"])
+    assert set(mine[0]["stats"]) == set(mi.HISTORY_STATS)
+    team = mine[0]["teamId"]
+    mates = [p for p in g["participants"] if p.get("puuid") != "me" and p["teamId"] == team]
+    enemies = [p for p in g["participants"] if p["teamId"] != team]
+    assert mates and all(p.get("riotIdGameName") and set(p["stats"]) == set(mi.HISTORY_MATE_STATS) for p in mates)
+    assert all("puuid" not in p for p in mates)
+    assert enemies and all(set(p) == {"participantId", "teamId", "championId"} for p in enemies)
+    assert ME not in json.dumps(g) and "participantIdentities" not in g
+    assert g["killMap"] == [[60, 100, 200, 1, 6]]
+    assert mi.private_game(game, "someone-else") is None
+
+
+def test_save_new_history_sends_new_games_in_batches(mi, monkeypatch, tmp_path):
+    games = [dict(fixture("lcu_game_mayhem.json"), gameId=i) for i in range(1, mi.HISTORY_BATCH + 3)]
+    path = tmp_path / "h.json"
+    path.write_text(json.dumps(games))
+    mi.save_history_settings({"enabled": True, "saved": ["1"]})
+    monkeypatch.setattr(mi, "find_client", lambda lockfile=None: FakeLcu(mi))
+    sent = []
+
+    def site_post(lcu, path_, payload):
+        sent.append((path_, payload))
+        return {"saved": 5}
+    monkeypatch.setattr(mi, "site_post", site_post)
+    assert mi.save_new_history(str(path), progress=lambda m: None) == 5
+    ids = [g["gameId"] for _, p in sent for g in p["games"]]
+    assert 1 not in ids and len(ids) == len(games) - 1
+    assert all(path_ == "/api/history" and p["action"] == "save" and len(p["games"]) <= mi.HISTORY_BATCH for path_, p in sent)
+    assert ME not in json.dumps(sent)
+    assert set(mi.history_settings()["saved"]) == {str(g["gameId"]) for g in games}
+
+
 # ---------- local helper server ----------
 
 def test_site_asset_rejects_paths_outside_assets(mi):
@@ -434,6 +534,20 @@ def test_site_asset_serves_cache(mi):
     assert mi.site_asset("/assets/fonts/fonts.css") == b"body{}"
 
 
+def test_site_asset_fetches_translations_fresh_and_keeps_a_copy(mi, monkeypatch):
+    calls = []
+
+    def curl(cmd, **k):
+        calls.append(cmd[-1])
+        return SimpleNamespace(returncode=0 if len(calls) == 1 else 22, stdout=b'{"Win rate":"Taux de victoire"}')
+    monkeypatch.setattr(mi.subprocess, "run", curl)
+    assert mi.site_asset("/i18n/stats/fr.json") == b'{"Win rate":"Taux de victoire"}'
+    # offline the next time: the saved copy is used
+    assert mi.site_asset("/i18n/stats/fr.json") == b'{"Win rate":"Taux de victoire"}'
+    assert calls == ["https://deeparam.com/i18n/stats/fr.json"] * 2
+    assert mi.site_asset("/i18n/../secret") is None
+
+
 def test_platform_ids(mi):
     assert set(mi.PLATFORM_BY_REGION.values()) <= {"na1", "br1", "la1", "la2", "euw1", "eun1", "tr1", "ru", "me1",
                                                     "kr", "jp1", "oc1", "sg2", "tw2", "vn2"}
@@ -443,3 +557,148 @@ def test_platform_ids(mi):
 def test_site_post_refuses_unknown_region(mi):
     with pytest.raises(mi.ImportFailed, match="region"):
         mi.site_post(FakeLcu(mi, region="XX"), "/api/games", {})
+
+
+# ---------- live game recording ----------
+
+def live_frame(t, augments=None, end=False):
+    me = {"riotId": "Me#1", "level": 3, "currentGold": 500.0,
+          "championStats": {"attackDamage": 70, "abilityPower": 10, "maxHealth": 900},
+          "abilities": {"Q": {"abilityLevel": 2}, "Passive": {}}}
+    if augments:
+        me["augments"] = augments
+    events = [{"EventName": "GameStart", "EventTime": 0.0}]
+    if end:
+        events.append({"EventName": "GameEnd", "EventTime": t, "Result": "Win"})
+    return {"activePlayer": me, "events": {"Events": events},
+            "gameData": {"gameTime": t, "gameMode": "KIWI", "mapNumber": 12, "mapTerrain": "Default"},
+            "allPlayers": [{"riotId": "Me#1", "championName": "Ahri", "team": "ORDER", "level": 3,
+                            "items": [{"slot": 0, "itemID": 1056, "count": 1}], "scores": {"kills": 1},
+                            "summonerSpells": {"summonerSpellOne": {
+                                "rawDisplayName": "GeneratedTip_SummonerSpell_SummonerFlash_DisplayName"}},
+                            "runes": {"keystone": {"id": 8112}}}]}
+
+
+def test_live_recorder_saves_one_file_per_game(mi, tmp_path):
+    import threading
+    frames = iter([None, {"activePlayer": {}}, live_frame(5), live_frame(15, [101]),
+                   live_frame(25, [101, 202]), live_frame(35, [101, 202], end=True)])
+    stop = threading.Event()
+    stop.wait = lambda s: None
+
+    def fetch():
+        f = next(frames, "done")
+        if f == "done":
+            stop.set()
+            return None
+        if f is None:
+            raise ConnectionError("no game")
+        return f
+
+    status = {}
+    mi.live_recorder(stop, status, fetch=fetch, folder=str(tmp_path / "live"), progress=lambda m: None)
+    recs = mi.live_recordings(str(tmp_path / "live"))
+    assert len(recs) == 1 and status["recording"] is None
+    r = recs[0]
+    assert r["complete"] and r["version"] == mi.LIVE_FORMAT and r["gameTime"] == 35
+    assert r["player"] == {"riotId": "Me#1", "champion": "Ahri", "team": "ORDER"}
+    assert [s["augments"] for s in r["snapshots"]] == [[], [101], [101, 202], [101, 202]]
+    assert r["snapshots"][0]["abilities"] == {"Q": 2} and r["snapshots"][0]["items"] == [[0, 1056, 1]]
+    assert r["players"][0]["spells"] == ["SummonerFlash"] and r["players"][0]["keystone"] == 8112
+    assert r["events"][-1] == {"t": 35, "name": "GameEnd", "result": "Win"}
+
+
+def test_live_recording_closed_mid_game_is_kept(mi, tmp_path):
+    import threading
+    frames = iter([live_frame(5), live_frame(15), None])
+    stop = threading.Event()
+    stop.wait = lambda s: None
+
+    def fetch():
+        f = next(frames, "done")
+        if f == "done":
+            stop.set()
+        if not isinstance(f, dict):
+            raise ConnectionError("closed")
+        return f
+
+    mi.live_recorder(stop, {}, fetch=fetch, folder=str(tmp_path), progress=lambda m: None)
+    (r,) = mi.live_recordings(str(tmp_path))
+    assert r["complete"] and len(r["snapshots"]) == 2
+
+
+def test_profile_sends_no_link_code(mi, monkeypatch):
+    # Connecting is one click (pair); the old one-time code from the account page is gone.
+    sent = []
+    monkeypatch.setattr(mi, "find_client", lambda lockfile=None: None)
+    monkeypatch.setattr(mi, "site_post", lambda lcu, path, payload: sent.append((path, payload)) or {"linked": False})
+    mi.site_profile("pair-status", pair="x" * 32)
+    assert sent == [("/api/profile", {"action": "pair-status", "pair": "x" * 32})]
+    assert "code" not in mi.site_profile.__code__.co_varnames
+
+
+class CollectionLcu(FakeLcu):
+    def get(self, path):
+        if path == "/lol-summoner/v1/current-summoner":
+            self.calls.append(path)
+            return {"puuid": self.puuid, "gameName": "Tester", "tagLine": "NA1", "summonerId": 42}
+        if path == "/lol-champions/v1/inventories/42/champions-minimal":
+            return [{"id": 103, "ownership": {"owned": True}}, {"id": 1, "ownership": {"owned": False, "rental": {"rented": True}}},
+                    {"id": -1, "ownership": {"owned": True}}]
+        if path == "/lol-champions/v1/inventories/42/skins-minimal":
+            return [{"id": 103001, "ownership": {"owned": True}}, {"id": 103002, "ownership": {"owned": False}}]
+        return super().get(path)
+
+
+def test_run_import_saves_owned_champions_and_skins(mi, monkeypatch, tmp_path):
+    old = fixture("lcu_game_old.json")
+    path = tmp_path / "backup.json"
+    path.write_text(json.dumps({"puuid": ME, "games": [dict(old, killMap=[])]}))
+    lcu = CollectionLcu(mi, games=[old])
+    setup_import(mi, monkeypatch, lcu, {mi.SGP_MAYHEM_TAGS: [old["gameId"]]})
+    summary = mi.run_import(str(path), sgp_host="h", progress=lambda m: None)
+    assert summary["added"] == 0
+    out = json.loads(path.read_text())  # saved even with no new games, because the collection changed
+    assert out["owned"] == {"champions": [103], "skins": [103001]}
+
+
+def test_pair_opens_the_account_page_on_the_site_only(mi, monkeypatch):
+    import webbrowser
+    opened, sent = [], []
+    monkeypatch.setattr(webbrowser, "open", opened.append)
+    monkeypatch.setattr(mi, "find_client", lambda lockfile=None: FakeLcu(mi))
+    replies = iter([{"pair": "a" * 32, "connect": "/account?connect=" + "a" * 32 + "#my-stats"},
+                    {"pair": "b" * 32, "connect": "https://elsewhere.example/"}])
+
+    def site_post(lcu, path_, payload):
+        sent.append(payload)
+        return next(replies)
+    monkeypatch.setattr(mi, "site_post", site_post)
+    assert mi.site_profile("pair")["url"] == mi.SITE + "/account?connect=" + "a" * 32 + "#my-stats"
+    mi.site_profile("pair")  # anything but the account page isn't opened
+    assert opened == [mi.SITE + "/account?connect=" + "a" * 32 + "#my-stats"]
+    assert sent[0] == {"action": "pair", "pair": None}
+
+
+def test_my_pick_names_the_players_champion_and_result(mi):
+    game = {"participantIdentities": [{"participantId": 1, "player": {"puuid": "x"}}, {"participantId": 2, "player": {"puuid": "me"}}],
+            "participants": [{"participantId": 1, "championId": 10, "stats": {"win": False}},
+                             {"participantId": 2, "championId": 22, "stats": {"win": True}}]}
+    assert mi.my_pick(game, "me") == {"champion": 22, "win": True}
+    assert mi.my_pick(game, "nobody") is None
+
+
+def test_kill_positions_are_fetched_several_at_a_time(mi):
+    import time
+
+    class SlowLcu:
+        def get(self, path):
+            time.sleep(0.2)
+            if path.endswith("/3"):
+                raise mi.HttpError(404, "missing")
+            return {"frames": []}
+    games = [{"gameId": i} for i in range(1, 13)]
+    start = time.monotonic()
+    assert mi.fill_kill_maps(SlowLcu(), games, progress=lambda m: None) == 12
+    assert time.monotonic() - start < 12 * 0.2 / 2  # one by one would take 2.4 s
+    assert games[2]["killMap"] is None and games[0]["killMap"] == []

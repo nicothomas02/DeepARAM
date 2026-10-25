@@ -3,10 +3,25 @@
 import { useEffect, useState } from "react";
 import { buzz } from "@/lib/haptics";
 import { setParams } from "@/lib/url-state";
+import { useT } from "./I18n";
 
 // In-page tabs. Panels are rendered on the server and this only switches which is visible,
 // except `lazy` ones, which mount the first time they're opened (so they can load their own data then).
-export default function SubTabs({ tabs }: { tabs: { id: string; label: string; content: React.ReactNode; lazy?: boolean }[] }) {
+// With `ns`, tab labels are translated from that namespace.
+export default function SubTabs({
+  tabs,
+  ns,
+}: {
+  tabs: {
+    id: string;
+    label: string;
+    content: React.ReactNode;
+    lazy?: boolean;
+  }[];
+  ns?: string;
+}) {
+  const tr = useT(ns);
+  const label = (l: string) => (ns ? tr(l) : l);
   const [active, setActive] = useState(tabs[0]?.id);
   const [opened, setOpened] = useState<Set<string>>(() => new Set());
   useEffect(() => {
@@ -32,10 +47,14 @@ export default function SubTabs({ tabs }: { tabs: { id: string; label: string; c
               if (t.id !== active) buzz("step");
               setActive(t.id);
               // Search and sort belong to the tab they were set on.
-              setParams({ tab: t.id === tabs[0]?.id ? null : t.id, q: null, sort: null });
+              setParams({
+                tab: t.id === tabs[0]?.id ? null : t.id,
+                q: null,
+                sort: null,
+              });
             }}
           >
-            {t.label}
+            {label(t.label)}
           </button>
         ))}
       </div>

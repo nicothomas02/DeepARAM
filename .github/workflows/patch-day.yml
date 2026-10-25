@@ -1,0 +1,82 @@
+name: Patch day
+
+# Moves the site to a new live patch on the day Riot's schedule (data/patch-schedule.json) says it ships,
+# from its "time" (6:30 AM Pacific). Runs at 13:30 and 14:30 UTC (6:30 AM Pacific in summer and in winter;
+# patch_day.py ignores the one that is still before 6:30 there), then every 20 minutes from Tuesday to
+# Friday and once a day as fallbacks, since GitHub can delay or skip scheduled runs. web/scripts/patch_day.py
+# checks whether a scheduled patch is due and already out, and keeps waiting until it is. Then this run refreshes the art, names, Guide and champion data for it, checks the
+# site still builds and passes its tests, and pushes to main, which deploys. Days with nothing due stop
+# after the first step.
+on:
+  schedule:
+    - cron: "30 13,14 * * 2-5"
+    - cron: "*/20 * * * 2-5"
+    - cron: "37 15 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: patch-day
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    outputs:
+      status: ${{ steps.check.outputs.status }}
+      version: ${{ steps.check.outputs.version }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Is a new patch out?
+        id: check
+        run: python3 web/scripts/patch_day.py
+      - name: Refresh art, names and game data for the new patch
+        if: steps.check.outputs.status == 'ready'
+        run: |
+          pip install xxhash pytest
+          python3 web/scripts/fetch_assets.py --refresh
+          python3 guide/build_data.py --languages
+          python3 guide/build_history.py
+          python3 champions/build_data.py
+          python3 champions/build_i18n.py
+          python3 web/scripts/fetch_descriptions.py
+      - uses: actions/setup-node@v4
+        if: steps.check.outputs.status == 'ready'
+        with:
+          node-version: 22
+      - name: Build and test the site
+        if: steps.check.outputs.status == 'ready'
+        working-directory: web
+        run: |
+          npm ci --no-audit --no-fund
+          npm run build
+          npm test
+          cd .. && python -m pytest tests/data -q
+      - name: Push to main
+        if: steps.check.outputs.status == 'ready'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add web/public/assets web/public/i18n web/public/embed web/src/data guide champions
+          if git diff --cached --quiet; then
+            echo "Nothing changed"
+          else
+            git commit -m "Live patch ${{ steps.check.outputs.version }}"
+            git pull --rebase
+            git push
+          fi
+
+  # Once a new patch has shipped, export the databases to an encrypted GitHub pre-release (backup.yml).
+  backup:
+    needs: refresh
+    if: needs.refresh.outputs.status == 'ready'
+    uses: ./.github/workflows/backup.yml
+    with:
+      patch: ${{ needs.refresh.outputs.version }}
+    secrets: inherit

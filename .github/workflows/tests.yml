@@ -30,7 +30,7 @@ jobs:
           cache: npm
           cache-dependency-path: web/package-lock.json
       - run: npm ci --no-audit --no-fund
-      # The build writes generated files (embeds, src/data/status.json) that the type check and tests read.
+      # The build writes generated files (embeds) that the type check and tests read.
       - name: Build
         run: npm run build
       - name: Type check

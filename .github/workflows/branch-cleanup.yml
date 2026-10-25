@@ -1,0 +1,41 @@
+name: Branch cleanup
+
+# Deletes a branch once its pull request is merged or closed, so old branches don't pile up.
+# Run it by hand ("Run workflow") to sweep every old one. A branch is only deleted when it has
+# no open pull request and nothing on it is newer than its last closed one, so work in progress
+# is never lost. A deleted branch can be restored from its pull request page.
+on:
+  pull_request:
+    types: [closed]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: read
+
+jobs:
+  cleanup:
+    if: github.event_name == 'workflow_dispatch' || github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    steps:
+      - name: Delete finished branches
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          ONLY: ${{ github.event.pull_request.head.ref }}
+        run: |
+          default=$(gh api "repos/$GH_REPO" --jq .default_branch)
+          if [ -n "$ONLY" ]; then branches="$ONLY"; else branches=$(gh api --paginate "repos/$GH_REPO/branches" --jq '.[].name'); fi
+          for b in $branches; do
+            [ "$b" = "$default" ] && continue
+            open=$(gh pr list --head "$b" --state open --json number --jq length)
+            [ "$open" = 0 ] || { echo "keep $b (open pull request)"; continue; }
+            last=$(gh pr list --head "$b" --state all --json headRefOid,closedAt --jq 'sort_by(.closedAt) | last | .headRefOid // ""')
+            [ -n "$last" ] || { echo "keep $b (never had a pull request)"; continue; }
+            sha=$(gh api "repos/$GH_REPO/branches/$b" --jq .commit.sha)
+            if [ "$sha" = "$last" ] || gh api "repos/$GH_REPO/compare/$sha...$last" --jq '.status' | grep -qx 'identical\|ahead'; then
+              gh api -X DELETE "repos/$GH_REPO/git/refs/heads/$b" && echo "deleted $b"
+            else
+              echo "keep $b (has commits after its last pull request)"
+            fi
+          done

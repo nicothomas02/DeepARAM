@@ -1,11 +1,13 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useT } from "./I18n";
 
 // A "back to top" button that appears after scrolling down a couple of screens. Jumps instantly when
-// motion is reduced. Sits above the compare tray and the phone tab bar.
+// motion is reduced. Sits above the phone tab bar.
 export default function BackToTop() {
   const [show, setShow] = useState(false);
+  const t = useT();
   useEffect(() => {
     const check = () => setShow(scrollY > innerHeight * 1.5);
     check();
@@ -18,8 +20,8 @@ export default function BackToTop() {
     <button
       type="button"
       className="back-to-top"
-      aria-label="Back to top"
-      title="Back to top"
+      aria-label={t("Back to top")}
+      title={t("Back to top")}
       onClick={() => {
         scrollTo({ top: 0, behavior: reduced() ? "auto" : "smooth" });
         document.getElementById("main")?.focus({ preventScroll: true });

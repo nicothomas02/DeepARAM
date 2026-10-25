@@ -1,11 +1,11 @@
 import DeepARAMKit
 import SwiftUI
+import WebKit
 
 /// The native tab bar: Home, Tiers, Simulator, PBE and More, like the site's phone tabs.
 struct RootView: View {
     @StateObject private var pages = PageStore()
     @State private var selection = SiteTab.home.id
-    @State private var reselected = 0
 
     var body: some View {
         TabView(selection: tabBinding) {
@@ -18,7 +18,6 @@ struct RootView: View {
                 .tabItem { Label("More", systemImage: "ellipsis") }
                 .tag("more")
         }
-        .tabHaptics(selection: selection, reselected: reselected)
         .onOpenURL { url in open(url) }
         .onReceive(NotificationCenter.default.publisher(for: PatchAlerts.openPage)) { note in
             if let url = note.object as? URL { open(url) }
@@ -28,9 +27,11 @@ struct RootView: View {
     /// Tapping the tab you're already on scrolls to the top, then back to that tab's first page.
     private var tabBinding: Binding<String> {
         Binding(get: { selection }, set: { new in
-            if new == selection, let tab = SiteTab.primary.first(where: { $0.id == new }) {
-                pages.page(for: tab).reselect()
-                reselected += 1
+            if new == selection {
+                if let tab = SiteTab.primary.first(where: { $0.id == new }) { pages.page(for: tab).reselect() }
+                Haptics.shared.play(.tap)
+            } else {
+                Haptics.shared.play(.step)
             }
             selection = new
         })
@@ -45,23 +46,13 @@ struct RootView: View {
     }
 }
 
-private extension View {
-    /// A tick on tab changes and a light tap on re-selecting a tab (Vision Pro has no haptics).
-    @ViewBuilder
-    func tabHaptics(selection: String, reselected: Int) -> some View {
-        #if os(visionOS)
-        self
-        #else
-        sensoryFeedback(.selection, trigger: selection)
-            .sensoryFeedback(.impact(weight: .light), trigger: reselected)
-        #endif
-    }
-}
-
 /// Keeps one page per tab for the life of the app, so switching tabs never reloads.
 @MainActor
 final class PageStore: ObservableObject {
     private var pages: [String: SitePage] = [:]
+
+    /// Every page made so far, for things that apply to all of them (the Haptics switch).
+    var webViews: [WKWebView] { pages.values.map(\.webView) }
 
     func page(for tab: SiteTab) -> SitePage {
         if let p = pages[tab.id] { return p }
@@ -74,6 +65,13 @@ final class PageStore: ObservableObject {
 /// A site page with a thin progress bar and a note when it's showing a saved copy.
 struct WebTab: View {
     @ObservedObject var page: SitePage
+    @State private var retrying = false
+
+    private func retry() {
+        Haptics.shared.play(.tap)
+        retrying = true
+        page.reload()
+    }
 
     var body: some View {
         ZStack(alignment: .top) {
@@ -84,11 +82,18 @@ struct WebTab: View {
                 ProgressView().progressViewStyle(.linear).tint(Theme.accent).frame(height: 2)
             }
             if page.failedOffline {
-                OfflineEmpty { page.reload() }
+                OfflineEmpty { retry() }
             }
         }
         .safeAreaInset(edge: .bottom, spacing: 0) {
-            if let date = page.offlineCopyDate { OfflineBanner(date: date) { page.reload() } }
+            if let date = page.offlineCopyDate { OfflineBanner(date: date) { retry() } }
+        }
+        .onChange(of: page.offlineCopyDate != nil || page.failedOffline) { _, offline in
+            if offline { Haptics.shared.play(.warning) }
+        }
+        .onChange(of: page.isLoading) { wasLoading, loading in
+            // A retry that came back online.
+            if wasLoading, !loading, retrying { retrying = false; if page.offlineCopyDate == nil && !page.failedOffline { Haptics.shared.play(.done) } }
         }
     }
 }

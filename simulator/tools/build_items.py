@@ -100,13 +100,14 @@ BIN_EFFECTS = {
     "nashors": {"onhit_magic": dv("NashorsBaseValue"), "onhit_magic_ap": dv("NashorsAPValue")},
     "wits_end": {"onhit_magic": calc_number("OnHitDamage")},
     "statikk": {"storm_magic": dv("ChainDamage")},
-    "black_cleaver": {"armor_shred": dv_product("ShredPerStack", "MaxStacks")},
+    "black_cleaver": {"cleaver_shred": dv_product("ShredPerStack", "MaxStacks")},
     "trinity": {"spellblade_base_ad": dv("SpellbladeMultiplier"), "spellblade_cd": dv("SpellbladeCooldown")},
     "eclipse": {"maxhp_proc_cd": dv("Cooldown"), "proc_shield_flat": dv("MeleeBaseShield"),
                 "proc_shield_bonus_ad": dv("MeleeShieldADRatio"), "proc_shield_duration": dv("ShieldDuration"),
                 "shield_ranged": dv("RangedShieldMult")},
     "heartsteel": {"heartsteel_flat": dv("BaseDamage"), "heartsteel_own_hp": dv("MaxHPRatio"), "heartsteel_cd": dv("PerTargetCooldown")},
     "overlords_bloodmail": {"ad_per_bonus_hp": dv("HPToADPercentage")},
+    "thornmail": {"thorns_flat": dv("BaseDamage"), "thorns_bonus_armor": dv("BonusArmorDamageRatio")},
     "unending_despair": {"drain_bonus_hp": dv("BonusHealthDrainPercentage"), "drain_cd": dv("Cooldown"), "drain_range": dv("DrainRange")},
     "steraks": {"base_ad_pct": dv("ADtoAD"), "lifeline_bonus_hp": dv("BaseShieldRatio"),
                 "lifeline_duration": dv("ShieldDuration"), "lifeline_threshold": dv("LowHealthThreshold"),
@@ -173,6 +174,20 @@ def bin_stats(item):
     return {k: clean(item[f]) for k, f in BIN_STATS.items() if item.get(f)}
 
 
+# Stats the simulator reads as effect keys (move speed, tenacity, heal and shield power).
+BIN_STAT_EFFECTS = {
+    "ms": "mFlatMovementSpeedMod",
+    "ms_pct": "mPercentMovementSpeedMod",
+    "tenacity": "mPercentTenacityItemMod",
+    "heal_shield_power": "mPercentHealingAmountMod",
+}
+
+# item_effects.json group -> items.json slot. Only boots and legendaries go into the build search;
+# components, starters and the items augments hand out can be put in a build by hand.
+GROUPS = {"boots": "boots", "items": "legendary", "components": "component", "starters": "starter",
+          "rewards": "reward"}
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     ap.add_argument("--cache", default=DEFAULT_CACHE)
@@ -186,8 +201,8 @@ def main():
     with open(os.path.join(DATA, "item_effects.json"), encoding="utf-8") as f:
         hand = json.load(f)
     out, from_bin, changed = {}, 0, []
-    for group in ("boots", "items"):
-        for item_id, h in hand[group].items():
+    for group, slot in GROUPS.items():
+        for item_id, h in hand.get(group, {}).items():
             iid = int(item_id)
             it, b = listing.get(iid), bins.get(iid)
             if it is None or b is None:
@@ -196,7 +211,8 @@ def main():
             stats.update(h.get("stats", {}))
             for k, v in h.get("stats_add", {}).items():
                 stats[k] = stats.get(k, 0) + v
-            effects = dict(h.get("effects", {}))
+            effects = {k: clean(b[f]) for k, f in BIN_STAT_EFFECTS.items() if b.get(f)}
+            effects.update(h.get("effects", {}))
             vals, calcs = data_values(b), b.get("mItemCalculations", {})
             for key, getter in BIN_EFFECTS.get(h["key"], {}).items():
                 v = getter(vals, calcs)
@@ -211,12 +227,14 @@ def main():
             out[h["key"]] = {
                 "id": iid,
                 "name": it["name"],
-                "slot": "boots" if group == "boots" else "legendary",
+                "slot": slot,
                 "cost": it["priceTotal"],
                 "roles": h.get("roles", []),
                 "stats": stats,
                 "effects": effects,
                 "confidence": h.get("confidence", "approx" if h.get("effects") else "verified"),
+                # Items of one group (Last Whisper, Blight, Hydra, Lifeline) can't be bought together.
+                **({"group": h["group"]} if h.get("group") else {}),
                 **({"note": h["note"]} if h.get("note") else {}),
             }
     doc = {"meta": {"game_version": version,

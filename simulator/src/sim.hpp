@@ -59,6 +59,7 @@ struct EnemyProfile {
     // all-champion sim: how hard its build hits at the fight's level compared with the
     // mid-game state real games' damage numbers average over (1 = the same), and its penetration
     double power = 1.0, lethality = 0, armorPen = 0, magicPen = 0, magicPenPct = 0;
+    double attackSpeed = 0, attackRange = 0;  // all-champion sim: its attacks, for thorns (Thornmail)
 };
 
 struct Scenario {
@@ -85,6 +86,10 @@ struct Scenario {
     // How much damage Yunara takes relative to the average player (from real games).
     double damageTakenFactor = 1.0;
     double targetHp = 3800, targetArmor = 120, targetMr = 80;
+    // Below 1, the training dummy's Health is held at this share of its max (0.5 = half), so
+    // effects that read the target's missing or current Health see that value all fight. At 1 it
+    // starts full and refills when emptied.
+    double dummyHp = 1;
     // Damage aimed at Yunara (before her armor and MR), and when it starts.
     double enemyDpsMean = 500, enemyDpsSd = 200, enemyPhysShare = 0.55;
     double engageMin = 2, engageMax = 6;
@@ -93,6 +98,8 @@ struct Scenario {
     // All-champion sim: fight until the champion dies (fightCap seconds at most) instead of
     // for a drawn fight length, and how many enemies a fight has (0 = the enemy pool's size).
     bool untilDeath = false;
+    bool onFire = false;  // Mayhem's On Fire! buff on your champion
+    bool randomRespawn = true;  // a fallen enemy from the pool is replaced by a new random champion
     double fightCap = 90, deathDamageScale = 1;
     int teamSizeRule = 0;
     int enemyLevel = 18;  // all-champion sim: the enemies' level

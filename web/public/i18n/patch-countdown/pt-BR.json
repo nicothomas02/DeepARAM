@@ -1,0 +1,10 @@
+{
+ "Patch {patch} comes out in {n} days": "A atualização {patch} chega em {n} dias",
+ "Patch {patch} comes out tomorrow": "A atualização {patch} chega amanhã",
+ "day": "dia",
+ "days": "dias",
+ "Patch {patch} comes out in under 24 hours": "O patch {patch} sai em menos de 24 horas",
+ "{set} (Patch {patch}) is live!": "{set} (Patch {patch}) já está no ar!",
+ "Patch {patch} is live!": "O Patch {patch} já está no ar!",
+ "New patch data takes a couple of days to collect.": "Os dados do novo patch levam alguns dias para serem coletados."
+}

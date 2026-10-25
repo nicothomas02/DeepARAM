@@ -16,17 +16,17 @@ export type ToolTab = Tab & { slug: string; entry: string; order: number; folder
 const SKIP = new Set(["web", "node_modules", ".git", ".github"]);
 
 // Where each embedded folder (by slug) is published. Anything not listed lives at /tools/<slug>.
-// The Kitchen's cook builds are part of The Lab now (KITCHEN), so its folder is no tab of its own.
-export const KITCHEN = "/lab#cook-builds";
+// The Kitchen (tools/fun, formerly The Lab) holds the Chef Specials; cook-builds is its data, no tab of its own.
+export const KITCHEN = "/kitchen";
 const HIDDEN = new Set(["cook-builds"]);
 const ROUTES: Record<string, string> = {
   champions: "/champions",
   guide: "/info",
-  fun: "/lab",
+  fun: "/kitchen",
 };
 export const toolHref = (slug: string) => ROUTES[slug] ?? `/tools/${slug}`;
 // Tab names the site sets regardless of the folder's own label.
-const LABELS: Record<string, string> = { guide: "Info" };
+const LABELS: Record<string, string> = { guide: "About", fun: "The Kitchen" };
 
 export function discoverToolTabs(): ToolTab[] {
   const root = repoPath("");
@@ -39,7 +39,9 @@ export function discoverToolTabs(): ToolTab[] {
       if (existsSync(manifest) && !HIDDEN.has(d.name)) {
         try {
           const m = JSON.parse(readFileSync(manifest, "utf8"));
-          const slug = String(m.slug ?? d.name).toLowerCase().replace(/[^a-z0-9-]+/g, "-");
+          const slug = String(m.slug ?? d.name)
+            .toLowerCase()
+            .replace(/[^a-z0-9-]+/g, "-");
           found.push({
             slug,
             href: toolHref(slug),
@@ -69,17 +71,18 @@ const pick = (href: string): NavItem[] => {
 };
 
 /** The header's tabs, grouped by what a player is trying to do:
- *  Tier List · Builds (what to build and which augments) · Simulator · Patches (live recaps and the PBE) · More (Info, The Lab, newer tool folders).
+ *  Tier List (champions, augments, items, duos, augments by icon, draft practice) · Simulator · The Kitchen ·
+ *  More (PBE, Patches, About, newer tool folders), the same order as the phone tab bar.
+ *  Builds for a champion are on its page.
  *  My Stats sits behind the account button; champion, augment and item pages open from the tier lists and search. */
 export function navItems(): NavItem[] {
   const tools = discoverToolTabs().filter((t) => t.href.startsWith("/tools/"));
   const menu = (href: string, label: string, children: NavItem[]): NavItem[] => (children.length ? [{ href, label, children }] : []);
   return [
     ...pick("/tier-list"),
-    ...menu("#builds", "Builds", [...pick("/what-to-build"), ...pick("/augments"), ...pick("/builder"), ...pick("/compare"), ...pick("/synergy"), ...pick("/draft")]),
     ...pick("/simulator"),
-    ...menu("#patches", "Patches", [...pick("/pbe"), ...pick("/patches")]),
-    ...menu("#more", "More", [...pick("/info"), ...pick("/lab"), ...tools.flatMap((t) => pick(t.href))]),
+    ...pick("/kitchen"),
+    ...menu("#more", "More", [...pick("/pbe"), ...pick("/patches"), ...pick("/info"), ...tools.flatMap((t) => pick(t.href))]),
   ];
 }
 

@@ -4,13 +4,14 @@ import { championAliases } from "@/lib/champions";
 import { itemPages } from "@/lib/item-pages";
 import { recapPatches } from "@/lib/patches";
 import { navPages } from "@/lib/tabs";
+import { patchName } from "@/lib/patch-name";
 
 const SITE = "https://deeparam.com";
 
-// Every page in the header, plus Home, My Stats and each champion, augment, item and patch page. Rebuilt with each deploy.
+// Every page in the header, plus Home, the champion list, My Stats and each champion, augment, item and patch page. Rebuilt with each deploy.
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
-  const pages = ["/", ...navPages().map((t) => t.href), "/stats", "/privacy", "/terms", "/status", ...championAliases().map((a) => `/champions/${a}`), ...augmentPages().map((a) => `/augments/${a.slug}`), ...itemPages().map((i) => `/items/${i.slug}`), ...recapPatches().map((p) => `/patches/${p}`)];
+  const pages = ["/", ...navPages().map((t) => t.href), "/champions", "/info/region-teams", "/privacy", "/terms", ...championAliases().map((a) => `/champions/${a}`), ...augmentPages().map((a) => `/augments/${a.slug}`), ...itemPages().map((i) => `/items/${i.slug}`), ...recapPatches().map((p) => `/patches/${patchName(p)}`)];
   return [...new Set(pages)].map((path) => ({
     url: SITE + (path === "/" ? "" : path),
     lastModified: now,

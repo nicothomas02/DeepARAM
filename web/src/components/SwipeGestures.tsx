@@ -1,12 +1,16 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import { switchTab } from "@/lib/subtab-nav";
-import { buzz } from "@/lib/haptics";
+import { useRouter } from "next/navigation";
+import { useEffect, useRef, useState, useTransition } from "react";
+import { buzz, inApp } from "@/lib/haptics";
 
-// Phone gestures. A sideways swipe switches the page's in-page tabs (SubTabs) or, on a page without
-// them, moves to the neighbouring bottom-bar tab. Pull-to-refresh is added only in the installed app
-// (standalone display), since browsers already have their own. Touch screens only.
+// Phone gestures. A sideways swipe that starts inside an element marked data-swipe-target goes to that
+// element, as a "deeparam-swipe" event ({detail: {dir}}); elsewhere sideways swipes do nothing (they no
+// longer switch tabs or pages).
+// Pulling down at the top of a page refreshes it in
+// place, with a tick when it's far enough and a buzz when the fresh page is in. It replaces the
+// browser's own pull (turned off while this is on); the DeepARAM app has its native one, so not there.
+// Touch screens only.
 
 const MIN_X = 70;
 const EDGE = 24; // leave the screen edges to the system's back and forward gestures
@@ -25,11 +29,25 @@ export default function SwipeGestures() {
   const [pull, setPull] = useState(0);
   const [refreshing, setRefreshing] = useState(false);
   const pullRef = useRef(0);
+  const router = useRouter();
+  const [pending, startTransition] = useTransition();
+
+  // The refreshed page is in: stop spinning (after a beat, so it reads as a refresh) and say so.
+  useEffect(() => {
+    if (pending || !refreshing) return;
+    const t = setTimeout(() => {
+      setRefreshing(false);
+      buzz("done");
+    }, 450);
+    return () => clearTimeout(t);
+  }, [pending, refreshing]);
 
   useEffect(() => {
     if (!matchMedia("(pointer: coarse)").matches) return;
-    const standalone = matchMedia("(display-mode: standalone)").matches || (navigator as { standalone?: boolean }).standalone === true;
-    let start: { x: number; y: number; t: number; sideways: boolean; top: boolean } | null = null;
+    const pullable = !inApp();
+    const root = document.documentElement;
+    if (pullable) root.style.overscrollBehaviorY = "contain";
+    let start: { x: number; y: number; t: number; sideways: boolean; top: boolean; owner: Element | null } | null = null;
 
     const down = (e: TouchEvent) => {
       if (e.touches.length !== 1) return (start = null);
@@ -39,8 +57,9 @@ export default function SwipeGestures() {
         x: p.clientX,
         y: p.clientY,
         t: performance.now(),
+        owner: target.closest("[data-swipe-target]"),
         sideways: p.clientX > EDGE && p.clientX < innerWidth - EDGE && !ownsSideways(target),
-        top: standalone && scrollY <= 0 && !target.closest("dialog, .sheet, [data-no-swipe]"),
+        top: pullable && scrollY <= 0 && !target.closest("dialog, .sheet, [data-no-swipe]"),
       };
     };
     const move = (e: TouchEvent) => {
@@ -65,16 +84,18 @@ export default function SwipeGestures() {
         setPull((pullRef.current = 0));
         if (go) {
           setRefreshing(true);
-          location.reload();
+          startTransition(() => router.refresh());
         }
         return;
       }
       const p = e.changedTouches[0];
       const dx = p.clientX - s.x;
       const dy = p.clientY - s.y;
-      if (!s.sideways || performance.now() - s.t > 700 || Math.abs(dx) < MIN_X || Math.abs(dx) < Math.abs(dy) * 2) return;
+      if (!s.owner?.isConnected || !s.sideways || performance.now() - s.t > 700 || Math.abs(dx) < MIN_X || Math.abs(dx) < Math.abs(dy) * 2) return;
       if (getSelection()?.toString()) return;
-      switchTab(dx < 0 ? 1 : -1);
+      const dir = dx < 0 ? 1 : -1;
+      buzz("step");
+      s.owner.dispatchEvent(new CustomEvent("deeparam-swipe", { detail: { dir } }));
     };
 
     addEventListener("touchstart", down, { passive: true });
@@ -86,12 +107,13 @@ export default function SwipeGestures() {
     };
     addEventListener("touchcancel", cancel);
     return () => {
+      root.style.removeProperty("overscroll-behavior-y");
       removeEventListener("touchstart", down);
       removeEventListener("touchmove", move);
       removeEventListener("touchend", up);
       removeEventListener("touchcancel", cancel);
     };
-  }, []);
+  }, [router]);
 
   if (!pull && !refreshing) return null;
   const ready = pull >= 70 || refreshing;

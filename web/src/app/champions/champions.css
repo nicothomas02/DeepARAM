@@ -1,0 +1,54 @@
+/* /champions: every champion, A to Z, as small tiles. */
+.champ-index {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr));
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.champ-index a {
+  display: grid;
+  grid-template-columns: 40px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.45rem 0.6rem 0.45rem 0.45rem;
+  border: 1px solid var(--line);
+  border-radius: var(--r-sm);
+  background: var(--surface);
+  box-shadow: var(--depth-tile);
+  color: inherit;
+  text-decoration: none;
+}
+.champ-index a:hover,
+.champ-index a:focus-visible {
+  background: var(--hover);
+}
+.champ-index img {
+  border-radius: 6px;
+}
+.champ-index-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight: 600;
+}
+.champ-index-tier {
+  min-width: 1.6rem;
+  padding: 0.1rem 0.35rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-align: center;
+  background: var(--raised);
+}
+.champ-index-tier[data-tier="S"] { background: #e2553f; color: #ffffff; }
+.champ-index-tier[data-tier="A"] { background: #f0913a; color: #1a0e02; }
+.champ-index-tier[data-tier="B"] { background: #e6c24a; color: #1d1602; }
+.champ-index-tier[data-tier="C"] { background: #7fb6e8; color: #04121c; }
+.champ-index-tier[data-tier="D"] { background: #5b6472; color: #ffffff; }
+@media (pointer: coarse) {
+  .champ-index {
+    grid-template-columns: repeat(auto-fill, minmax(9.5rem, 1fr));
+  }
+}

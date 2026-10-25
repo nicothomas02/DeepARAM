@@ -1,5 +1,5 @@
 window.GUIDE_DATA = {
- "patch": "16.20.8248524",
+ "patch": "16.21.8298620",
  "hero": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/assets/leagueclient/gamemodeassets/kiwi/kiwi-tutorial-set2.png",
  "queues": [
   {
@@ -40,9 +40,9 @@ window.GUIDE_DATA = {
   }
  ],
  "augmentCounts": {
-  "Silver": 61,
-  "Gold": 82,
-  "Prismatic": 73
+  "Silver": 60,
+  "Gold": 75,
+  "Prismatic": 65
  },
  "maps": [
   {
@@ -80,48 +80,6 @@ window.GUIDE_DATA = {
   }
  ],
  "items": [
-  {
-   "id": 550001,
-   "name": "Healthbar Splash: Blue",
-   "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/assets/items/icons2d/kiwi/kiwi_550001.png",
-   "text": ""
-  },
-  {
-   "id": 550002,
-   "name": "Healthbar Splash: Orange",
-   "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/assets/items/icons2d/kiwi/kiwi_550002.png",
-   "text": ""
-  },
-  {
-   "id": 550003,
-   "name": "Healthbar Splash: Green",
-   "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/assets/items/icons2d/kiwi/kiwi_550003.png",
-   "text": ""
-  },
-  {
-   "id": 550004,
-   "name": "Healthbar Splash: Pink",
-   "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/assets/items/icons2d/kiwi/kiwi_550004.png",
-   "text": ""
-  },
-  {
-   "id": 550006,
-   "name": "Healthbar Splash: Rainbow",
-   "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/assets/items/icons2d/kiwi/kiwi_550006.png",
-   "text": ""
-  },
-  {
-   "id": 550005,
-   "name": "Healthbar Cleanup: Reset Color",
-   "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/assets/items/icons2d/kiwi/kiwi_550005.png",
-   "text": ""
-  },
-  {
-   "id": 550007,
-   "name": "Party Favor",
-   "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/assets/items/icons2d/kiwi/kiwi_550007.png",
-   "text": ""
-  },
   {
    "id": 226668,
    "name": "Ultra Hydra",
@@ -307,11 +265,85 @@ window.GUIDE_DATA = {
    "notes": []
   },
   {
-   "key": "PoroChargeQuest",
-   "name": "Poro Stampede",
-   "augmentId": 2046,
+   "key": "UltraHydraQuest",
+   "name": "Ultra Hydra",
+   "augmentId": 2141,
    "tier": "Prismatic",
    "inPool": true,
+   "icon": "/assets/cd/latest/game/assets/ux/kiwi/augments/icons/ultrahydra_large.png",
+   "milestones": [
+    {
+     "need": 3,
+     "quest": "Possess Titanic Hydra, Ravenous Hydra and Profane Hydra.",
+     "reward": "Get Ultra Hydra."
+    }
+   ],
+   "notes": []
+  },
+  {
+   "key": "UrfsChampionQuest",
+   "name": "Urf's Champion",
+   "augmentId": 1154,
+   "tier": "Prismatic",
+   "inPool": true,
+   "icon": "/assets/cd/latest/game/assets/ux/kiwi/augments/icons/quest_urfschampion_large.png",
+   "milestones": [
+    {
+     "need": 18,
+     "quest": "Score 18 takedowns.",
+     "reward": "Gain The Golden Spatula."
+    }
+   ],
+   "notes": []
+  },
+  {
+   "key": "WoogletsWitchcapQuest",
+   "name": "Wooglet's Witchcap",
+   "augmentId": 1156,
+   "tier": "Prismatic",
+   "inPool": true,
+   "icon": "/assets/cd/latest/game/assets/ux/cherry/augments/icons/quest_woogletswitchcap_large.png",
+   "milestones": [
+    {
+     "need": 2,
+     "quest": "Possess Rabadon's Deathcap and Zhonya's Hourglass.",
+     "reward": "Get Wooglet's Witchcap."
+    }
+   ],
+   "notes": []
+  },
+  {
+   "key": "BouncingBeesQuest",
+   "name": "Bouncing Bees",
+   "augmentId": 3048,
+   "tier": "Prismatic",
+   "inPool": false,
+   "icon": "/assets/cd/latest/game/assets/ux/kiwi/augments/icons/kingme_large.png",
+   "milestones": [
+    {
+     "need": 10,
+     "quest": "Bounce Attacks onto enemy Champions 10 times",
+     "reward": "Gain %i:scaleAD% 30 Attack Damage and an extra bounce per Quest Level"
+    },
+    {
+     "need": 40,
+     "quest": "Bounce Attacks onto enemy Champions 40 times",
+     "reward": "Gain +%i:scaleAD% 30 Attack Damage and an extra bounce per Quest Level"
+    },
+    {
+     "need": 163,
+     "quest": "Bounce Attacks onto enemy Champions 163 times",
+     "reward": "Gain +%i:scaleAD% 30 Attack Damage and an extra bounce per Quest Level"
+    }
+   ],
+   "notes": []
+  },
+  {
+   "key": "PoroChargeQuest",
+   "name": "Poro Stampede",
+   "augmentId": null,
+   "tier": null,
+   "inPool": false,
    "icon": "/assets/cd/latest/game/assets/ux/kiwi/augments/icons/poroking_large.png",
    "milestones": [
     {
@@ -368,54 +400,6 @@ window.GUIDE_DATA = {
    "notes": [
     "\"Oho! Look how charming they are!\" — Poro Herder"
    ]
-  },
-  {
-   "key": "UltraHydraQuest",
-   "name": "Ultra Hydra",
-   "augmentId": 2141,
-   "tier": "Prismatic",
-   "inPool": true,
-   "icon": "/assets/cd/latest/game/assets/ux/kiwi/augments/icons/ultrahydra_large.png",
-   "milestones": [
-    {
-     "need": 3,
-     "quest": "Possess Titanic Hydra, Ravenous Hydra and Profane Hydra.",
-     "reward": "Get Ultra Hydra."
-    }
-   ],
-   "notes": []
-  },
-  {
-   "key": "UrfsChampionQuest",
-   "name": "Urf's Champion",
-   "augmentId": 1154,
-   "tier": "Prismatic",
-   "inPool": true,
-   "icon": "/assets/cd/latest/game/assets/ux/kiwi/augments/icons/quest_urfschampion_large.png",
-   "milestones": [
-    {
-     "need": 18,
-     "quest": "Score 18 takedowns.",
-     "reward": "Gain The Golden Spatula."
-    }
-   ],
-   "notes": []
-  },
-  {
-   "key": "WoogletsWitchcapQuest",
-   "name": "Wooglet's Witchcap",
-   "augmentId": 1156,
-   "tier": "Prismatic",
-   "inPool": true,
-   "icon": "/assets/cd/latest/game/assets/ux/cherry/augments/icons/quest_woogletswitchcap_large.png",
-   "milestones": [
-    {
-     "need": 2,
-     "quest": "Possess Rabadon's Deathcap and Zhonya's Hourglass.",
-     "reward": "Get Wooglet's Witchcap."
-    }
-   ],
-   "notes": []
   }
  ],
  "challenges": [
@@ -1356,6 +1340,24 @@ window.GUIDE_DATA = {
   }
  ],
  "rules": {
+  "aura": [
+   "+70 Summoner Spell Haste",
+   "Increased Mana and Energy Regeneration",
+   "Gain Experience Passively",
+   "Healing Effects on Allies are 50% as Effective",
+   "AoE Damage Dealt to Minions is 75% Effective",
+   "Nearby Enemy Minion Deaths Grant 6 Gold",
+   "Excess Critical Strike Chance gets converted to Adaptive Force",
+   "Attack Speed Maximum raised to 5.0",
+   "Melee champions gain Armor and Magic Resistance",
+   "All champions gain additional Health",
+   "All champions gain Presence of Mind"
+  ],
+  "attackSpeedCap": 5.0,
+  "aramAttackSpeedCap": 3.0,
+  "critOverflow": "adaptive",
+  "runes": false,
+  "cards": 3,
   "augmentLevels": [
    3,
    7,
@@ -1382,6 +1384,7 @@ window.GUIDE_DATA = {
    "PassiveGold": 50.0
   },
   "onFire": {
+   "name": "On Fire!",
    "text": "Burn nearby enemies and gain faster spell Cooldowns, increased Movement Speed towards enemy champions, increased Attack Speed, and increased Mana Regen. However, become more vulnerable to damage and receive reduced shielding and healing.",
    "values": {
     "GrievousAmount": -0.25,
@@ -1395,7 +1398,247 @@ window.GUIDE_DATA = {
     "DamageTakenAmp_Range": 1.350000023841858,
     "DamageTakenAmp_Melee": 1.25
    }
-  }
+  },
+  "auraName": "Mayhemic Magic",
+  "mechanics": {
+   "startLevel": 3,
+   "respawn": {
+    "byLevel": {
+     "3": 11.0,
+     "4": 13.0,
+     "5": 15.0,
+     "6": 17.0,
+     "7": 19.0,
+     "8": 21.0,
+     "9": 22.0,
+     "10": 24.0,
+     "11": 26.0,
+     "12": 28.0,
+     "13": 30.0,
+     "14": 32.0,
+     "15": 34.0,
+     "16": 36.0,
+     "17": 38.0,
+     "18": 40.0
+    },
+    "scaleFrom": 1440,
+    "scaleStep": 60,
+    "scalePerStep": 0.025,
+    "scaleCap": 1.25
+   },
+   "longRange": {
+    "range": 1000,
+    "reductionMin": 0.15,
+    "reductionMax": 0.3,
+    "excludes": [
+     "damage over time",
+     "ultimate abilities"
+    ]
+   },
+   "critConversion": {
+    "adPerPercent": 0.45,
+    "apPerPercent": 0.75
+   },
+   "structures": {
+    "bonusMax": 0.25,
+    "from": 1080,
+    "to": 1800
+   },
+   "minions": {
+    "aoeMultiplier": 0.75,
+    "blackout": {
+     "units": [
+      "siege",
+      "super"
+     ],
+     "range": 1100,
+     "revealSeconds": 3.0
+    }
+   },
+   "relics": {
+    "pickup": 0.08,
+    "beam": 0.22,
+    "aramBeam": 0.16,
+    "radius": 850.0,
+    "delay": 2.5,
+    "firstOuter": 105,
+    "firstInner": 150,
+    "respawn": 90
+   },
+   "fastTravel": [
+    {
+     "map": "Howling Abyss",
+     "name": "Frost Gates",
+     "text": "Gates behind each Nexus send you from base to just in front of your outer turret, or your inhibitor turret once the outer turret falls. They only go one way, out of base."
+    },
+    {
+     "map": "Koeshin's Crossing",
+     "name": "Portals",
+     "text": "One pair sends you out of base, one way only. A second pair by the side wall goes both ways. Entering takes a short channel that damage interrupts."
+    },
+    {
+     "map": "Butcher's Bridge",
+     "name": "Cannon Launchers",
+     "text": "Launchers next to each base fire you out into the lane."
+    },
+    {
+     "map": "Bridge of Progress",
+     "name": "Hex gates and Acceleration Pads",
+     "text": "Hex gates (manholes on the Zaun side) send you out of base. Acceleration Pads give 25% bonus Move Speed for 1 second."
+    }
+   ],
+   "portalSpeed": {
+    "bonus": 0.5,
+    "seconds": 1.5
+   }
+  },
+  "economy": {
+   "startingGold": 1400.0,
+   "passiveGold": {
+    "amount": 42.5,
+    "every": 5.0,
+    "perMinute": 510.0,
+    "aramPerMinute": 360.0
+   },
+   "passiveXp": {
+    "amount": 5.0,
+    "every": 1.0,
+    "perMinute": 300.0
+   },
+   "killGold": 200.0,
+   "firstBlood": 90.0,
+   "assistSeconds": 20.0,
+   "levels": [
+    {
+     "level": 4,
+     "xp": 1140.0,
+     "killXp": 215.0
+    },
+    {
+     "level": 5,
+     "xp": 1650.0,
+     "killXp": 275.0
+    },
+    {
+     "level": 6,
+     "xp": 2400.0,
+     "killXp": 335.0
+    },
+    {
+     "level": 7,
+     "xp": 3180.0,
+     "killXp": 395.0
+    },
+    {
+     "level": 8,
+     "xp": 4060.0,
+     "killXp": 455.0
+    },
+    {
+     "level": 9,
+     "xp": 5040.0,
+     "killXp": 515.0
+    },
+    {
+     "level": 10,
+     "xp": 6120.0,
+     "killXp": 590.0
+    },
+    {
+     "level": 11,
+     "xp": 7300.0,
+     "killXp": 640.0
+    },
+    {
+     "level": 12,
+     "xp": 8580.0,
+     "killXp": 690.0
+    },
+    {
+     "level": 13,
+     "xp": 9960.0,
+     "killXp": 740.0
+    },
+    {
+     "level": 14,
+     "xp": 11440.0,
+     "killXp": 790.0
+    },
+    {
+     "level": 15,
+     "xp": 13020.0,
+     "killXp": 840.0
+    },
+    {
+     "level": 16,
+     "xp": 14700.0,
+     "killXp": 890.0
+    },
+    {
+     "level": 17,
+     "xp": 16480.0,
+     "killXp": 940.0
+    },
+    {
+     "level": 18,
+     "xp": 18360.0,
+     "killXp": 990.0
+    }
+   ],
+   "minionXpSplit": [
+    0.92,
+    0.6,
+    0.4,
+    0.3,
+    0.24
+   ],
+   "levelGapXp": 0.16
+  },
+  "surrender": {
+   "voteSeconds": 25.0,
+   "opens": 480.0,
+   "opensWithAfk": 210.0,
+   "remakeFrom": 90.0,
+   "remakeUntil": 180.0
+  },
+  "turrets": [
+   {
+    "key": "outer",
+    "hp": 1300.0,
+    "baseHp": null,
+    "damage": 185.0,
+    "armor": 60.0,
+    "mr": 60.0,
+    "range": 750.0,
+    "attackSpeed": 0.833,
+    "gold": 150.0,
+    "xp": 30.0
+   },
+   {
+    "key": "inhibitor",
+    "hp": 3900.0,
+    "baseHp": null,
+    "damage": 205.0,
+    "armor": 63.0,
+    "mr": 63.0,
+    "range": 750.0,
+    "attackSpeed": 0.833,
+    "gold": 150.0,
+    "xp": 70.0
+   },
+   {
+    "key": "nexus",
+    "hp": 1200.0,
+    "baseHp": 1800.0,
+    "damage": 195.0,
+    "armor": 60.0,
+    "mr": 60.0,
+    "range": 750.0,
+    "attackSpeed": 0.833,
+    "gold": 150.0,
+    "xp": 120.0
+   }
+  ]
  },
  "spells": [
   {
@@ -1448,20 +1691,6 @@ window.GUIDE_DATA = {
   }
  ],
  "spellAugments": [
-  {
-   "name": "Poro Stampede",
-   "id": 2046,
-   "tier": "Prismatic",
-   "icon": "/assets/cd/latest/game/assets/ux/kiwi/augments/icons/questporocharge_small.png",
-   "text": "QUEST: Gather Poro Snax and feed Poros.\n\nREWARD: Gain the Poro Charge Summoner Spell, which launches waves of Poros at the enemy team. Additional waves unlock per Quest Level."
-  },
-  {
-   "name": "Dimension Shift",
-   "id": 2063,
-   "tier": "Prismatic",
-   "icon": "/assets/cd/latest/game/assets/ux/kiwi/augments/icons/whenthedarknesscomes_small.png",
-   "text": "Gain the When the Darkness Comes Summoner Spell. Create a zone that transports everyone inside of it to another dimension."
-  },
   {
    "name": "Flash 2",
    "id": 1348,
@@ -1566,19 +1795,19 @@ window.GUIDE_DATA = {
    "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/assets/items/icons2d/6697_hubris.png",
    "changes": [
     {
-     "name": "ADPerStatue",
-     "rift": 3.0,
-     "mayhem": 1.0
-    },
-    {
-     "name": "BaseADBonus",
-     "rift": 12.0,
-     "mayhem": 10.0
-    },
-    {
      "name": "BuffDuration",
      "rift": 90.0,
      "mayhem": 45.0
+    },
+    {
+     "name": "ADPerStatueMelee",
+     "rift": 3.0,
+     "mayhem": 2.0
+    },
+    {
+     "name": "ADPerStatueRangedMult",
+     "rift": 0.6669999957084656,
+     "mayhem": 0.5
     }
    ]
   },
@@ -1921,7 +2150,7 @@ window.GUIDE_DATA = {
   }
  ],
  "augmentRules": {
-  "patch": "16.20.8248524",
+  "patch": "16.21.8298620",
   "levels": [
    3,
    7,
@@ -1932,19 +2161,19 @@ window.GUIDE_DATA = {
   "rerollsPerSlot": 1,
   "odds": {
    "Silver": {
-    "pool": 61,
-    "offer": 0.0492,
-    "withRerolls": 0.0984
+    "pool": 60,
+    "offer": 0.05,
+    "withRerolls": 0.1
    },
    "Gold": {
-    "pool": 82,
-    "offer": 0.0366,
-    "withRerolls": 0.0732
+    "pool": 75,
+    "offer": 0.04,
+    "withRerolls": 0.08
    },
    "Prismatic": {
-    "pool": 73,
-    "offer": 0.0411,
-    "withRerolls": 0.0822
+    "pool": 65,
+    "offer": 0.0462,
+    "withRerolls": 0.0923
    }
   },
   "grantedItems": [
@@ -1955,15 +2184,6 @@ window.GUIDE_DATA = {
     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/assets/items/icons2d/4403_goldenspatula.png",
     "augmentId": 1154,
     "augment": "Urf's Champion",
-    "augmentTier": "Prismatic"
-   },
-   {
-    "id": 1111,
-    "name": "Jarvan I's",
-    "how": "reward",
-    "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/assets/items/icons2d/1111_jarvanis.png",
-    "augmentId": 1343,
-    "augment": "Sneakerhead",
     "augmentTier": "Prismatic"
    },
    {
@@ -2047,6 +2267,430 @@ window.GUIDE_DATA = {
     "augment": "Ultra Hydra",
     "augmentTier": "Prismatic"
    }
+  ],
+  "selectionAugments": [
+   {
+    "id": 1237,
+    "name": "Transmute: Gold",
+    "tier": "Silver",
+    "icon": "/assets/cd/latest/game/assets/ux/cherry/augments/icons/transmutegold_small.png",
+    "text": "Gain a random Gold Augment."
+   },
+   {
+    "id": 1238,
+    "name": "Transmute: Prismatic",
+    "tier": "Gold",
+    "icon": "/assets/cd/latest/game/assets/ux/cherry/augments/icons/transmuteprismatic_small.png",
+    "text": "Gain a random Prismatic Augment."
+   },
+   {
+    "id": 1337,
+    "name": "King Me",
+    "tier": "Prismatic",
+    "icon": "/assets/cd/latest/game/assets/ux/kiwi/augments/icons/kingme_small.png",
+    "text": "The first time you take the enemy transport with a Legendary Item you become Kinged, upgrading your item and gaining a random Prismatic Augment."
+   },
+   {
+    "id": 1402,
+    "name": "Stats on Stats on Stats!",
+    "tier": "Prismatic",
+    "icon": "/assets/cd/latest/game/assets/ux/cherry/augments/icons/statsonstatsonstats_small.png",
+    "text": "Gain 4 Stat Anvils, with a higher chance of Gold and Prismatic Anvils! On your next Augment selection, gain one additional reroll per slot."
+   },
+   {
+    "id": 1243,
+    "name": "Transmute: Chaos",
+    "tier": "Prismatic",
+    "icon": "/assets/cd/latest/game/assets/ux/cherry/augments/icons/transmutechaos_small.png",
+    "text": "Gain 2 random Augments."
+   }
+  ],
+  "goldenReroll": {
+   "name": "Golden Reroll",
+   "text": "Reroll into an augment one tier higher.",
+   "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/assets/rewards/kiwi/goldenreroll.png"
+  },
+  "unlocks": {}
+ },
+ "champSelect": {
+  "runes": false,
+  "keystoneAugments": [
+   {
+    "id": 1038,
+    "name": "From Beginning To End",
+    "tier": "Gold",
+    "icon": "/assets/cd/latest/game/assets/ux/cherry/augments/icons/frombeginningtoend_small.png",
+    "text": "Gain the First Strike and Dark Harvest Keystone Runes.",
+    "runes": [
+     "First Strike",
+     "Dark Harvest"
+    ]
+   },
+   {
+    "id": 1149,
+    "name": "Impassable",
+    "tier": "Gold",
+    "icon": "/assets/cd/latest/game/assets/ux/cherry/augments/icons/impassable_small.png",
+    "text": "Gain the Aftershock and Glacial Augment Keystone Runes.",
+    "runes": [
+     "Aftershock",
+     "Glacial Augment"
+    ]
+   },
+   {
+    "id": 1079,
+    "name": "Symphony of War",
+    "tier": "Prismatic",
+    "icon": "/assets/cd/latest/game/assets/ux/cherry/augments/icons/symphonyofwar_small.png",
+    "text": "Gain the Lethal Tempo and Conqueror Keystone Runes.",
+    "runes": [
+     "Lethal Tempo",
+     "Conqueror"
+    ]
+   }
+  ],
+  "notInMayhem": [
+   "Exhaust"
   ]
- }
+ },
+ "rivalQuests": [
+  {
+   "key": "Quests_ViktorVsJayce_Name",
+   "name": "Our Shared Dream",
+   "champions": [
+    {
+     "id": 112,
+     "name": "Viktor",
+     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/112.png",
+     "text": "Viktor must take down Jayce 5 times."
+    },
+    {
+     "id": 126,
+     "name": "Jayce",
+     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/126.png",
+     "text": "Jayce must take down Viktor 5 times."
+    }
+   ]
+  },
+  {
+   "key": "Quests_WarwickVsVi_Name",
+   "name": "The Beast and the Brawler",
+   "champions": [
+    {
+     "id": 19,
+     "name": "Warwick",
+     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/19.png",
+     "text": "Score an Ace."
+    },
+    {
+     "id": 254,
+     "name": "Vi",
+     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/254.png",
+     "text": "Score an Ace."
+    }
+   ]
+  },
+  {
+   "key": "Quests_JinxVsCaitlyn_Name",
+   "name": "Caught in the Crossfire",
+   "champions": [
+    {
+     "id": 222,
+     "name": "Jinx",
+     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/222.png",
+     "text": "Catch Caitlyn in one of Jinx's Flame Chompers! and slay her within 5 seconds."
+    },
+    {
+     "id": 51,
+     "name": "Caitlyn",
+     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/51.png",
+     "text": "Catch Jinx in Caitlyn's Yordle Snap Trap and slay her within 5 seconds."
+    }
+   ]
+  },
+  {
+   "key": "Quests_SingedVsHeimerdinger_Name",
+   "name": "For Science's Sake",
+   "champions": [
+    {
+     "id": 27,
+     "name": "Singed",
+     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/27.png",
+     "text": "Collect 10 Health Relics."
+    },
+    {
+     "id": 74,
+     "name": "Heimerdinger",
+     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/74.png",
+     "text": "Collect 10 Health Relics."
+    }
+   ]
+  },
+  {
+   "key": "Quests_JinxTeam_Name",
+   "name": "Echoes of Innocence",
+   "champions": [
+    {
+     "id": 222,
+     "name": "Jinx",
+     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/222.png",
+     "text": "Feed Poros 5 times."
+    },
+    {
+     "id": 245,
+     "name": "Ekko",
+     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/245.png",
+     "text": "Ekko's team must emote 5 times."
+    }
+   ]
+  }
+ ],
+ "fallbackAugments": [
+  {
+   "tier": "Silver",
+   "augments": [
+    {
+     "id": 2127,
+     "name": "Forged By The Master",
+     "tier": "Silver",
+     "icon": "/assets/cd/latest/game/assets/ux/kiwi/augments/icons/forgedbythemaster_small.png"
+    },
+    {
+     "id": 1046,
+     "name": "Infernal Soul",
+     "tier": "Silver",
+     "icon": "/assets/cd/latest/game/assets/ux/cherry/augments/icons/infernalsoul_small.png"
+    },
+    {
+     "id": 1057,
+     "name": "Mountain Soul",
+     "tier": "Silver",
+     "icon": "/assets/cd/latest/game/assets/ux/cherry/augments/icons/mountainsoul_small.png"
+    },
+    {
+     "id": 1060,
+     "name": "Ocean Soul",
+     "tier": "Silver",
+     "icon": "/assets/cd/latest/game/assets/ux/cherry/augments/icons/oceansoul_small.png"
+    },
+    {
+     "id": 1386,
+     "name": "Spin Me Right Round",
+     "tier": "Silver",
+     "icon": "/assets/cd/latest/game/assets/ux/kiwi/augments/icons/youspinmerightround_small.png"
+    },
+    {
+     "id": 1404,
+     "name": "Stats!",
+     "tier": "Silver",
+     "icon": "/assets/cd/latest/game/assets/ux/cherry/augments/icons/stats_small.png"
+    },
+    {
+     "id": 1237,
+     "name": "Transmute: Gold",
+     "tier": "Silver",
+     "icon": "/assets/cd/latest/game/assets/ux/cherry/augments/icons/transmutegold_small.png"
+    },
+    {
+     "id": 2088,
+     "name": "Snowday",
+     "tier": "Silver",
+     "icon": "/assets/cd/latest/game/assets/ux/kiwi/augments/icons/snowday_small.png"
+    },
+    {
+     "id": 1308,
+     "name": "FireFox",
+     "tier": "Silver",
+     "icon": "/assets/cd/latest/game/assets/ux/cherry/augments/icons/firfox_small.png"
+    },
+    {
+     "id": 1416,
+     "name": "Hextech Soul",
+     "tier": "Silver",
+     "icon": "/assets/cd/latest/game/assets/ux/cherry/augments/icons/infernalsoul_small.png"
+    }
+   ]
+  },
+  {
+   "tier": "Gold",
+   "augments": [
+    {
+     "id": 1002,
+     "name": "Apex Inventor",
+     "tier": "Gold",
+     "icon": "/assets/cd/latest/game/assets/ux/cherry/augments/icons/apexinventor_small.png"
+    },
+    {
+     "id": 1403,
+     "name": "Stats on Stats!",
+     "tier": "Gold",
+     "icon": "/assets/cd/latest/game/assets/ux/cherry/augments/icons/statsonstats_small.png"
+    },
+    {
+     "id": 1238,
+     "name": "Transmute: Prismatic",
+     "tier": "Gold",
+     "icon": "/assets/cd/latest/game/assets/ux/cherry/augments/icons/transmuteprismatic_small.png"
+    },
+    {
+     "id": 1384,
+     "name": "Donation",
+     "tier": "Gold",
+     "icon": "/assets/cd/latest/game/assets/ux/kiwi/augments/icons/donation_small.png"
+    },
+    {
+     "id": 1358,
+     "name": "Pinball",
+     "tier": "Gold",
+     "icon": "/assets/cd/latest/game/assets/ux/kiwi/augments/icons/pinballsnowball_small.png"
+    },
+    {
+     "id": 1068,
+     "name": "Recursion",
+     "tier": "Gold",
+     "icon": "/assets/cd/latest/game/assets/ux/cherry/augments/icons/recursion_small.png"
+    },
+    {
+     "id": 1150,
+     "name": "Bread And Jam",
+     "tier": "Gold",
+     "icon": "/assets/cd/latest/game/assets/ux/kiwi/augments/icons/genericabilityaugmenticon_gold.png"
+    },
+    {
+     "id": 1103,
+     "name": "Bread And Butter",
+     "tier": "Gold",
+     "icon": "/assets/cd/latest/game/assets/ux/kiwi/augments/icons/genericabilityaugmenticon_gold.png"
+    },
+    {
+     "id": 1151,
+     "name": "Bread and Cheese",
+     "tier": "Gold",
+     "icon": "/assets/cd/latest/game/assets/ux/kiwi/augments/icons/genericabilityaugmenticon_gold.png"
+    },
+    {
+     "id": 2043,
+     "name": "Nature is Healing",
+     "tier": "Gold",
+     "icon": "/assets/cd/latest/game/assets/ux/kiwi/augments/icons/natureishealing_small.png"
+    }
+   ]
+  },
+  {
+   "tier": "Prismatic",
+   "augments": [
+    {
+     "id": 1004,
+     "name": "Back To Basics",
+     "tier": "Prismatic",
+     "icon": "/assets/cd/latest/game/assets/ux/cherry/augments/icons/backtobasics_small.png"
+    },
+    {
+     "id": 2007,
+     "name": "Devil on Your Shoulder",
+     "tier": "Prismatic",
+     "icon": "/assets/cd/latest/game/assets/ux/kiwi/augments/icons/littledevil_small.png"
+    },
+    {
+     "id": 1195,
+     "name": "Giant Slayer",
+     "tier": "Prismatic",
+     "icon": "/assets/cd/latest/game/assets/ux/cherry/augments/icons/giantslayer_small.png"
+    },
+    {
+     "id": 1389,
+     "name": "Hand of Baron",
+     "tier": "Prismatic",
+     "icon": "/assets/cd/latest/game/assets/ux/kiwi/augments/icons/handofbaron_small.png"
+    },
+    {
+     "id": 1337,
+     "name": "King Me",
+     "tier": "Prismatic",
+     "icon": "/assets/cd/latest/game/assets/ux/kiwi/augments/icons/kingme_small.png"
+    },
+    {
+     "id": 1053,
+     "name": "Mad Scientist",
+     "tier": "Prismatic",
+     "icon": "/assets/cd/latest/game/assets/ux/cherry/augments/icons/madscientist_small.png"
+    },
+    {
+     "id": 1062,
+     "name": "Omni Soul",
+     "tier": "Prismatic",
+     "icon": "/assets/cd/latest/game/assets/ux/cherry/augments/icons/omnisoul_small.png"
+    },
+    {
+     "id": 12317,
+     "name": "Pandora's Box",
+     "tier": "Prismatic",
+     "icon": "/assets/cd/latest/game/assets/ux/cherry/augments/icons/pandoras_box_small.png"
+    },
+    {
+     "id": 1343,
+     "name": "Sneakerhead",
+     "tier": "Prismatic",
+     "icon": "/assets/cd/latest/game/assets/ux/kiwi/augments/icons/sneakerhead_small.png"
+    },
+    {
+     "id": 1154,
+     "name": "Urf's Champion",
+     "tier": "Prismatic",
+     "icon": "/assets/cd/latest/game/assets/ux/kiwi/augments/icons/quest_urfschampion_small.png"
+    },
+    {
+     "id": 1402,
+     "name": "Stats on Stats on Stats!",
+     "tier": "Prismatic",
+     "icon": "/assets/cd/latest/game/assets/ux/cherry/augments/icons/statsonstatsonstats_small.png"
+    },
+    {
+     "id": 1243,
+     "name": "Transmute: Chaos",
+     "tier": "Prismatic",
+     "icon": "/assets/cd/latest/game/assets/ux/cherry/augments/icons/transmutechaos_small.png"
+    },
+    {
+     "id": 1335,
+     "name": "Goldrend",
+     "tier": "Prismatic",
+     "icon": "/assets/cd/latest/game/assets/ux/kiwi/augments/icons/goldrend_small.png"
+    },
+    {
+     "id": 1329,
+     "name": "Biggest Snowball Ever",
+     "tier": "Prismatic",
+     "icon": "/assets/cd/latest/game/assets/ux/kiwi/augments/icons/biggestsnowballever_small.png"
+    }
+   ]
+  }
+ ],
+ "track": null,
+ "story": [
+  {
+   "date": "2025-10",
+   "text": "Mayhem arrives as its own queue next to regular ARAM, with Arena augments plus over 40 new ones. Augments with an always-on effect are left out so ten players stay readable."
+  },
+  {
+   "date": "2026-01",
+   "text": "The mode's run is extended, and patch 26.3 adds Augment Sets and the progression track."
+  },
+  {
+   "date": "2026-03",
+   "text": "Mayhem stays with no planned end date."
+  },
+  {
+   "date": "2026-06",
+   "text": "Patch 26.12 removes Augment Sets, since builds and games felt too alike. Popular set effects come back as single augments, and Ability Augments arrive, each one powering up a single ability."
+  },
+  {
+   "date": "2026-07",
+   "text": "Mayhem Classic-ish runs for a limited time in its own queue: only the 60 original champions in their current form, a Classic-style map, Classic items and Classic-themed augments."
+  },
+  {
+   "date": "Next",
+   "text": "A music-themed set with new augments, a musical act on stage at spawn, and missions with rewards of their own."
+  }
+ ]
 };

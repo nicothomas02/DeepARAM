@@ -2,154 +2,72 @@
 /* eslint-disable @next/next/no-img-element -- small local icons */
 
 import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { useEffect, useMemo, useState } from "react";
-import { useFavorites } from "@/lib/favorites";
-import FavoriteStar from "./FavoriteStar";
+import RowLink from "@/components/RowLink";
+import { useState } from "react";
+import { useNames, useT } from "./I18n";
 
-// The home page's interactive pieces: jump to a champion, the live tier snapshot,
+// The home page's interactive pieces: the live tier snapshot,
 // an augment offer to roll, and a Kitchen build to reroll.
 
-type Champ = { id: string; name: string; tier: string; winRate: number; pickRate: number };
+type Champ = { id: string; name: string; tier: string; winRate: number; pickRate: number; deepScore: number; splash?: string };
 type Build = { champion: string; title: string; augments: string[]; why: string };
 
 const pct = (v: number) => `${(v * 100).toFixed(1)}%`;
 const champIcon = (id: string) => `/icons/champions/${id}.webp`;
-const fold = (s: string) => s.normalize("NFD").replace(/[^a-z0-9]/gi, "").toLowerCase();
 
-/** A search box that opens the champion's page. */
-export function ChampionJump({ champs }: { champs: Champ[] }) {
-  const router = useRouter();
-  const [q, setQ] = useState("");
-  const [sel, setSel] = useState(0);
-  const [open, setOpen] = useState(false);
-  const matches = useMemo(() => {
-    const f = fold(q);
-    if (!f) return [];
-    return champs
-      .filter((c) => fold(c.name).includes(f) || fold(c.id).includes(f))
-      .sort((a, b) => Number(!fold(a.name).startsWith(f)) - Number(!fold(b.name).startsWith(f)) || a.name.localeCompare(b.name))
-      .slice(0, 6);
-  }, [q, champs]);
-  useEffect(() => setSel(0), [q]);
-  const go = (c?: Champ) => c && router.push(`/champions/${c.id}`);
-
-  return (
-    <div className="jump" onBlur={(e) => !e.currentTarget.contains(e.relatedTarget) && setOpen(false)}>
-      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
-        <circle cx="11" cy="11" r="7" />
-        <path d="m20 20-3.5-3.5" />
-      </svg>
-      <input
-        value={q}
-        onChange={(e) => (setQ(e.target.value), setOpen(true))}
-        onFocus={() => setOpen(true)}
-        onKeyDown={(e) => {
-          if (e.key === "ArrowDown" || e.key === "ArrowUp") {
-            e.preventDefault();
-            const step = e.key === "ArrowDown" ? 1 : -1;
-            setSel((s) => Math.max(0, Math.min(s + step, matches.length - 1)));
-          } else if (e.key === "Enter") go(matches[sel]);
-          else if (e.key === "Escape") setOpen(false);
-        }}
-        placeholder="Find a champion…"
-        aria-label="Find a champion"
-        role="combobox"
-        aria-expanded={open && matches.length > 0}
-        aria-controls="jump-list"
-        autoComplete="off"
-        spellCheck={false}
-      />
-      {open && matches.length > 0 && (
-        <ul className="jump-list" id="jump-list" role="listbox">
-          {matches.map((c, i) => (
-            <li key={c.id} role="option" aria-selected={i === sel}>
-              <Link href={`/champions/${c.id}`} onMouseEnter={() => setSel(i)}>
-                <img src={champIcon(c.id)} alt="" width={28} height={28} />
-                <span>{c.name}</span>
-                <span className={`chip tier-${c.tier.toLowerCase()}`}>{c.tier}</span>
-                <span className="jump-wr">{pct(c.winRate)}</span>
-              </Link>
-            </li>
-          ))}
-        </ul>
-      )}
-    </div>
-  );
-}
-
-/** Starred champions with their live numbers; hidden until a champion is starred. */
-export function Favorites({ champs }: { champs: Champ[] }) {
-  const ids = useFavorites();
-  const list = ids.map((id) => champs.find((c) => c.id === id)).filter((c): c is Champ => Boolean(c));
-  if (!list.length) return null;
-  return (
-    <section className="card span-all" data-accent="gold">
-      <div className="card-head">
-        <h2>Your favorites</h2>
-        <Link href="/tier-list">On the Tier List →</Link>
-      </div>
-      <div className="fav-grid">
-        {list.map((c) => (
-          <div key={c.id} className="fav-card">
-            <Link href={`/champions/${c.id}`}>
-              <img src={champIcon(c.id)} alt="" width={40} height={40} loading="lazy" />
-              <span className="fav-name">
-                <b>{c.name}</b>
-                <span>
-                  {pct(c.winRate)} win · {pct(c.pickRate)} pick
-                </span>
-              </span>
-              <span className={`chip tier-${c.tier.toLowerCase()}`}>{c.tier}</span>
-            </Link>
-            <FavoriteStar id={c.id} name={c.name} />
-          </div>
-        ))}
-      </div>
-    </section>
-  );
-}
-
-/** The live patch's S and A tier champions as icons; hover or focus one for its numbers. */
+/** The live patch's S and A tier champions as icons; hover or focus one for its numbers; tapping one shows them, tapping it again opens its page. */
 export function TierSnapshot({ champs }: { champs: Champ[] }) {
   const [tier, setTier] = useState("S");
+  const t = useT();
+  const names = useNames();
   const [hover, setHover] = useState<Champ | null>(null);
-  const list = champs.filter((c) => c.tier === tier).sort((a, b) => b.winRate - a.winRate);
+  const list = champs.filter((c) => c.tier === tier).sort((a, b) => b.deepScore - a.deepScore);
   const shown = hover && hover.tier === tier ? hover : list[0];
   return (
     <div className="snap">
-      <div className="seg snap-tiers" role="group" aria-label="Tier">
-        {["S", "A", "B", "C", "D"].map((t) => (
-          <button key={t} type="button" aria-pressed={tier === t} onClick={() => (setTier(t), setHover(null))}>
-            {t}
+      <div className="seg snap-tiers" role="group" aria-label={t("Tier")}>
+        {["S", "A", "B", "C", "D"].map((x) => (
+          <button key={x} type="button" aria-pressed={tier === x} onClick={() => (setTier(x), setHover(null))}>
+            {x}
           </button>
         ))}
       </div>
       <div className="snap-grid" onMouseLeave={() => setHover(null)}>
         {list.map((c) => (
-          <Link
+          <RowLink
             key={c.id}
             href={`/champions/${c.id}`}
             className={shown?.id === c.id ? "on" : undefined}
-            onMouseEnter={() => setHover(c)}
-            onFocus={() => setHover(c)}
-            aria-label={`${c.name}: ${pct(c.winRate)} win rate`}
+            onPointerEnter={(e) => e.pointerType === "mouse" && setHover(c)}
+            onFocus={(e) => e.currentTarget.matches(":focus-visible") && setHover(c)}
+            onClick={(e) => {
+              // A champion that isn't in the card yet is only selected; the next click opens its page.
+              if (shown?.id === c.id) return;
+              e.preventDefault();
+              setHover(c);
+            }}
+            aria-label={t("{name}: {wr} win rate", { name: names("champions", c.id, c.name), wr: pct(c.winRate) })}
           >
             <img src={champIcon(c.id)} alt="" width={40} height={40} loading="lazy" />
-          </Link>
+          </RowLink>
         ))}
       </div>
       {shown && (
-        <div className="snap-card" aria-live="polite">
+        <Link
+          href={`/champions/${shown.id}`}
+          className="snap-card"
+          aria-live="polite"
+          data-tilt="soft"
+          data-parallax
+          style={shown.splash ? ({ "--splash": `url("${shown.splash}")` } as React.CSSProperties) : undefined}
+        >
           <img src={champIcon(shown.id)} alt="" width={44} height={44} />
           <div>
-            <b>{shown.name}</b>
-            <span>
-              {pct(shown.winRate)} win · {pct(shown.pickRate)} pick
-            </span>
+            <b>{names("champions", shown.id, shown.name)}</b>
+            <span>{t("{ds} DeepScore · {wr} win · {pr} pick", { ds: Math.round(shown.deepScore), wr: pct(shown.winRate), pr: pct(shown.pickRate) })}</span>
           </div>
           <span className={`chip tier-${shown.tier.toLowerCase()}`}>{shown.tier}</span>
-        </div>
+        </Link>
       )}
     </div>
   );
@@ -157,10 +75,11 @@ export function TierSnapshot({ champs }: { champs: Champ[] }) {
 
 // Each offer is one rarity, like the game's; prismatic offers are the rarest.
 
-
 /** One Kitchen build at a time, with a button for another. */
 export function KitchenPick({ builds }: { builds: Build[] }) {
   const [i, setI] = useState(0);
+  const t = useT();
+  const names = useNames();
   const b = builds[i];
   if (!b) return null;
   return (
@@ -168,7 +87,7 @@ export function KitchenPick({ builds }: { builds: Build[] }) {
       <div className="kitchen-head">
         <img src={champIcon(b.champion)} alt="" width={40} height={40} />
         <div>
-          <p className="eyebrow">{b.champion}</p>
+          <p className="eyebrow">{names("champions", b.champion, b.champion)}</p>
           <h3>{b.title}</h3>
         </div>
       </div>
@@ -182,9 +101,68 @@ export function KitchenPick({ builds }: { builds: Build[] }) {
       </div>
       {builds.length > 1 && (
         <button type="button" className="btn ghost" onClick={() => setI((n) => (n + 1) % builds.length)}>
-          Another build ({i + 1}/{builds.length})
+          {t("Another build ({i}/{n})", { i: i + 1, n: builds.length })}
         </button>
       )}
     </div>
+  );
+}
+
+// Each list's tab and how its number reads ({v} is already formatted by the page).
+const FUN: [string, string, string][] = [
+  ["damage", "Damage", "{v} damage share"],
+  ["tank", "Tanking", "{v} damage taken"],
+  ["mitigated", "Damage mitigated", "{v} mitigated/min"],
+  ["teamplay", "Kill participation", "{v} kill participation"],
+  ["dead", "Time dead", "{v}"],
+  ["cs", "CS", "{v} CS"],
+  ["healing", "Healing", "{v} healing/min"],
+  ["crowd_control", "Crowd control", "{v}s crowd control"],
+  ["pentakills", "Pentakills", "Pentakill every {v} games"],
+  ["towers", "Towers", "{v} tower damage"],
+  ["early_game", "Early game", "{v}"],
+  ["late_game", "Late game", "{v}"],
+];
+// Where each list's "See all champions" link goes: the Tier List sorted by that stat when it has the
+// column, otherwise the full champion list.
+const FULL: Record<string, string> = {
+  damage: "/tier-list?sort=damage.desc",
+  tank: "/tier-list?sort=tank.desc",
+  teamplay: "/tier-list?sort=kp.desc",
+  dead: "/tier-list?sort=dead.desc",
+};
+const CURVE_NOTE = "Simulated damage: share of champions beaten at level 8 → level 18.";
+
+/** Estimated top 10 champions at one thing a game, picked from a short list, each with its number. */
+export function FunLists({ lists }: { lists: Record<string, { id: string; name: string; value: string | null }[]> }) {
+  const kinds = FUN.filter(([k]) => lists[k]?.length);
+  const [kind, setKind] = useState(kinds[0]?.[0] ?? "");
+  const t = useT();
+  const names = useNames();
+  const unit = FUN.find(([k]) => k === kind)?.[2] ?? "{v}";
+  return (
+    <>
+      <div className="seg fun-kinds" role="group" aria-label={t("Top 10 at")}>
+        {kinds.map(([k, l]) => (
+          <button key={k} type="button" aria-pressed={kind === k} onClick={() => setKind(k)}>
+            {t(l)}
+          </button>
+        ))}
+      </div>
+      {(kind === "early_game" || kind === "late_game") && <p className="fun-note">{t(CURVE_NOTE)}</p>}
+      <div className="rank fun-rank">
+        {(lists[kind] ?? []).map((c, i) => (
+          <RowLink key={c.id} href={`/champions/${c.id}`}>
+            <span className="rank-i">{i + 1}</span>
+            <img className="icon" src={champIcon(c.id)} alt="" width={24} height={24} loading="lazy" />
+            <span className="rank-name">{names("champions", c.id, c.name)}</span>
+            {c.value !== null && <span className="rank-v">{unit === "{v}" ? c.value : t(unit, { v: c.value })}</span>}
+          </RowLink>
+        ))}
+      </div>
+      <Link className="see-all" href={FULL[kind] ?? "/champions"}>
+        {t("See all champions →")}
+      </Link>
+    </>
   );
 }

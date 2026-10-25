@@ -1,6 +1,6 @@
 import "server-only";
 import { d1 } from "./env";
-import { PLATFORMS, riotFetch, type Platform } from "./riot";
+import { PLATFORMS, type Platform } from "./platforms";
 
 // Public player pages. A player publishes from My Stats on their own computer; the local helper sends the
 // signed-in client's access token with the summary, and the page is stored under the account that token
@@ -35,11 +35,9 @@ export function cleanProfile(raw: unknown): ProfileData | null {
   };
 }
 
-export const isPlatform = (p: unknown): p is Platform => typeof p === "string" && p in PLATFORMS;
+export const isPlatform = (p: unknown): p is Platform => typeof p === "string" && Object.hasOwn(PLATFORMS, p);
 
 type Owner = { puuid: string; name: string; tag: string };
-
-const SGP_HOSTS = ["usw2", "euc1", "apne1", "apse1"].map((h) => `https://${h}-red.pp.sgp.pvp.net`);
 
 /** The account a client access token belongs to, or null if the token isn't valid. */
 export async function tokenOwner(token: string, platform: Platform): Promise<Owner | null> {
@@ -52,33 +50,9 @@ export async function tokenOwner(token: string, platform: Platform): Promise<Own
       if (u.sub && u.acct?.game_name && u.acct.tag_line) return { puuid: u.sub, name: u.acct.game_name, tag: u.acct.tag_line };
     }
   } catch {
-    // Fall through to the match-history check.
+    // The token couldn't be checked.
   }
-  // Older tokens: read the account from the token, then confirm the token by reading that account's history.
-  let sub: string | undefined;
-  try {
-    sub = JSON.parse(atob(token.split(".")[1].replace(/-/g, "+").replace(/_/g, "/"))).sub;
-  } catch {
-    return null;
-  }
-  if (!sub || !/^[\w-]{20,100}$/.test(sub)) return null;
-  let valid = false;
-  for (const host of SGP_HOSTS) {
-    try {
-      const res = await fetch(`${host}/match-history-query/v1/products/lol/player/${sub}?startIndex=0&count=1&tagsQueryType=AND`, { headers: auth, cache: "no-store" });
-      if (res.ok) { valid = true; break; }
-    } catch {
-      // Try the next host.
-    }
-  }
-  if (!valid) return null;
-  try {
-    const region = PLATFORMS[platform] === "sea" ? "asia" : PLATFORMS[platform];
-    const a = await riotFetch<{ gameName: string; tagLine: string }>(region, `/riot/account/v1/accounts/by-puuid/${sub}`, 0);
-    return { puuid: sub, name: a.gameName, tag: a.tagLine };
-  } catch {
-    return null;
-  }
+  return null;
 }
 
 export const nameKey = (name: string, tag: string) => `${name}-${tag}`.normalize("NFKC").toLowerCase().replace(/\s+/g, "");

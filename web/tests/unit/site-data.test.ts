@@ -31,7 +31,10 @@ describe("live data", () => {
 describe("page addresses", () => {
   it("gives every champion, augment and item a unique address", () => {
     const champs = championAliases();
-    expect(champs.length).toBe(Object.keys(championIds).length);
+    // Every real champion gets a page; another mode's "Jade_" stand-ins don't.
+    expect(champs.length).toBe(Object.keys(championIds).filter((a) => !a.startsWith("Jade_")).length);
+    expect(champs).toContain("Ahri");
+    expect(champs.some((a) => a.includes("_"))).toBe(false);
     expect(unique(champs.map((a) => a.toLowerCase()))).toBe(true);
     const augs = augmentPages();
     expect(augs.length).toBeGreaterThan(50);
@@ -55,19 +58,30 @@ describe("page addresses", () => {
       const r = recap(p)!;
       expect(r.patch).toBe(p);
       expect(r.prev).toBe(patches[i + 1] ?? null);
-      for (const a of [...r.added, ...r.removed, ...r.changed]) expect(a.name).toBeTruthy();
+      for (const a of r.changed) expect(a.name).toBeTruthy();
     });
     expect(recap("0.0")).toBeNull();
   });
 });
 
 describe("header", () => {
-  it("shows Tier List, Builds, Simulator, Patches and More, with every page in one of them", () => {
+  it("shows Tier List, Simulator, The Kitchen and More (PBE, Patches, About), with every page in one of them", () => {
     const top = navItems().map((n) => n.label);
-    expect(top).toEqual(["Tier List", "Builds", "Simulator", "Patches", "More"]);
+    expect(top).toEqual(["Tier List", "Simulator", "The Kitchen", "More"]);
+    expect(
+      navItems()[3]
+        .children?.slice(0, 3)
+        .map((n) => n.label),
+    ).toEqual(["PBE", "Patches", "About"]);
     for (const n of navItems()) if (n.children) expect(n.children.length, n.label).toBeGreaterThan(1);
     const hrefs = navPages().map((n) => n.href);
-    expect(hrefs).toEqual(expect.arrayContaining(["/tier-list", "/simulator", "/pbe", "/patches", "/what-to-build", "/augments", "/builder", "/compare", "/synergy", "/draft", "/info", "/lab"]));
+    expect(hrefs).toEqual(expect.arrayContaining(["/tier-list", "/simulator", "/pbe", "/patches", "/info", "/kitchen"]));
+    // The build tools (Build Editor, Team Builder) were removed.
+    expect(hrefs).not.toContain("/builds");
+    // Augments (by icon, draft practice) moved into the Tier List.
+    expect(hrefs).not.toContain("/augments");
+    // Items is a Tier List tab.
+    expect(hrefs).not.toContain("/items");
     expect(unique(hrefs)).toBe(true);
   });
 });

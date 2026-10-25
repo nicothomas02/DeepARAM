@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Mayhem Stats</title>
-  <link rel="stylesheet" href="/assets/fonts/fonts.css">
+  <link rel="stylesheet" href="/assets/fonts/mona-sans.css">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -16,10 +16,24 @@
       <p id="sample-note" class="sample-note" hidden>Showing example games, not real ones. Import your games to see your stats.</p>
     </div>
     <div id="actions" class="actions" hidden>
+      <button id="banner-btn" type="button" class="btn" aria-expanded="false" aria-controls="banner-pick">Banner</button>
+      <a id="to-site" class="btn" target="_blank" rel="noopener" hidden title="Shows your latest games under Recently played on deeparam.com, in this browser only">Show on deeparam.com</a>
       <button id="sync" type="button" class="btn primary sync-btn" title="Needs the Riot Client open and signed in on this computer">Import games from client</button>
     </div>
   </header>
+  <div id="banner-pick" class="banner-pick" hidden>
+    <label class="field"><span>Champion</span><select id="banner-champ"></select></label>
+    <span class="foot" id="banner-note"></span>
+  </div>
   <p id="sync-status" class="sync-status" aria-live="polite" hidden></p>
+  <section id="sync-live" class="sync-live" aria-hidden="true" hidden>
+    <div class="sl-top">
+      <span class="sl-count"><b id="sl-added">0</b> <span id="sl-label"></span></span>
+      <span class="sl-step" id="sl-step"></span>
+    </div>
+    <div class="sl-bar"><i id="sl-fill"></i></div>
+    <div class="sl-champs" id="sl-champs"></div>
+  </section>
 
   <section id="loader" class="empty">
     <div class="ico" aria-hidden="true">↻</div>
@@ -122,15 +136,62 @@
     </div>
 
     <section class="card">
+      <div class="card-h"><h3>Best teammate champions</h3>
+        <span class="foot">Allies you win most with · at least <input type="number" id="f-minally" value="5" min="1" class="tiny" aria-label="Minimum games"> games together</span></div>
+      <div class="tbl-wrap"><table id="t-allies"></table></div>
+    </section>
+
+    <section class="card" id="mates-card" hidden>
+      <div class="card-h"><h3>Teammates</h3>
+        <span class="foot">Players you've teamed up with · at least <input type="number" id="f-minmate" value="2" min="1" class="tiny" aria-label="Minimum games"> games together</span></div>
+      <p class="sub mates-hint">Choose a name to see how they did in your games together.</p>
+      <div class="tbl-wrap"><table id="t-mates"></table></div>
+      <div id="mate-panel" class="mate-panel" hidden></div>
+    </section>
+
+    <section class="card">
       <div class="card-h"><h3>Recent games</h3><span class="foot" id="n-games"></span></div>
       <div class="tbl-wrap"><table id="t-games"></table></div>
     </section>
 
+    <section class="card" id="live-card" hidden>
+      <div class="card-h"><h3>Recorded games</h3><span class="foot" id="live-status"></span></div>
+      <p class="sub">While this page's helper is open, each game you play is recorded: your stats, gold, items and augments as the game goes. Nothing is shown during the game. Recordings stay on this computer.</p>
+      <div class="tbl-wrap"><table id="t-live"></table></div>
+      <div class="two-col">
+        <div>
+          <h4>Augment pick order</h4>
+          <p class="foot">Win rate of each augment by when you took it, in recorded games</p>
+          <div class="tbl-wrap"><table id="t-picks"></table></div>
+        </div>
+        <div>
+          <h4>Win rate by map</h4>
+          <p class="foot">Recorded games only</p>
+          <div id="wr-map" class="wrbars"></div>
+        </div>
+      </div>
+    </section>
+
     <section class="card" id="share-card" hidden>
       <div class="card-h"><h3>Share games anonymously</h3><span class="foot" id="share-count"></span></div>
-      <p class="sub">Off unless you turn it on. When on, each import also sends your games to help build stats across all players, such as matchups, augment combos and team comps. Shared games carry champions, items, augments, runes, spells and results, never names or account ids. Turning it off removes everything you shared.</p>
+      <p class="sub">Off unless you turn it on. When on, each import also sends your games to help build stats across all players, such as matchups, augment combos and team comps. Shared games carry champions, items, augments, runes, spells, results and each player's gold and experience minute by minute, never names or account ids. Turning it off removes everything you shared.</p>
+      <p class="sub">Shared games build stats the site can't get any other way: runes, matchups, augment pairs and real game counts for every champion.</p>
       <label class="share-toggle"><input type="checkbox" id="share-on"> Share my games</label>
       <p class="foot" id="share-status" hidden></p>
+    </section>
+
+    <section class="card" id="history-card" hidden>
+      <div class="card-h"><h3>Save games to my account</h3><span class="foot" id="history-count"></span></div>
+      <p class="sub">Off unless you turn it on. When on, each import also saves your games to your deeparam.com account, so My Stats on your account page shows them on any device. Only you can see them. Turning it off removes them from your account.</p>
+      <label class="share-toggle"><input type="checkbox" id="history-on"> Save my games to my account</label>
+      <p class="foot" id="history-status" hidden></p>
+    </section>
+
+    <section class="card" id="link-card" hidden>
+      <div class="card-h"><h3>Connect account</h3></div>
+      <p class="sub">Connect the Riot account signed in to this computer to your deeparam.com account. Your account page opens in your browser: sign in there if you need to, then choose Connect. Only your Riot ID is connected; your games stay here unless you choose to save them.</p>
+      <button id="pair-start" type="button" class="btn primary">Connect to deeparam.com</button>
+      <p class="foot" id="link-status" hidden></p>
     </section>
 
     <section class="card" id="profile-card" hidden>

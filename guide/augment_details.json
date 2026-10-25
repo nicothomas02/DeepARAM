@@ -1,0 +1,2718 @@
+{
+ "patch": "16.21.8298620",
+ "augments": {
+  "1205": {
+   "name": "ADAPt",
+   "tier": "Silver",
+   "text": "Convert Bonus Attack Damage to Ability Power. Gain 15% Ability Power.",
+   "tooltip": "Converts at a rate of 1.66666 Ability Power per point of Attack Damage.",
+   "grants": [],
+   "values": {
+    "ConversionRate": 1.6667,
+    "InverseRate": 0.6,
+    "APAmp": 0.15
+   },
+   "unlockLevel": null
+  },
+  "2138": {
+   "name": "Adaptive Ward",
+   "tier": "Silver",
+   "text": "This effect can stack.",
+   "tooltip": "This effect can stack.",
+   "grants": [],
+   "values": {
+    "Buff_Duration": 6.0,
+    "Cooldown": 4.0
+   },
+   "unlockLevel": null
+  },
+  "1007": {
+   "name": "Blunt Force",
+   "tier": "Silver",
+   "text": "Gain 20% Attack Damage.",
+   "tooltip": "",
+   "grants": [],
+   "values": {
+    "ADAmp": 0.2
+   },
+   "unlockLevel": null
+  },
+  "2144": {
+   "name": "Bolstered",
+   "tier": "Silver",
+   "text": "Shields granted from your chosen ability are stronger and scaling with target's missing Health.",
+   "tooltip": "Shields granted from your chosen ability are up to 60% stronger, scaling with target's missing Health.\n\nMost effective at 30% max health.",
+   "grants": [],
+   "values": {
+    "BonusRatioMax": 0.6,
+    "MinHealthThreshold": 0.3
+   },
+   "unlockLevel": null
+  },
+  "1022": {
+   "name": "Deft",
+   "tier": "Silver",
+   "text": "Gain 60% Attack Speed.",
+   "tooltip": "Gain 60% Attack Speed.",
+   "grants": [],
+   "values": {
+    "AttackSpeed": 0.6
+   },
+   "unlockLevel": null
+  },
+  "1025": {
+   "name": "Dive Bomber",
+   "tier": "Silver",
+   "text": "Explodes when you die, dealing massive true damage.",
+   "tooltip": "Explodes when you die, dealing 20% of the target's max Health as true damage to nearby enemies.",
+   "grants": [],
+   "values": {
+    "ExplosionRadius": 500.0,
+    "PercentMaxHPDamage": 0.2
+   },
+   "unlockLevel": null
+  },
+  "1026": {
+   "name": "Don't Blink",
+   "tier": "Silver",
+   "text": "Gain 1% bonus damage per 10 Move Speed you have more than the target.",
+   "tooltip": "Gain 1% bonus damage per 10 Movement Speed more you have than the target.",
+   "grants": [],
+   "values": {
+    "BonusDamagePerMSDifference": 0.001
+   },
+   "unlockLevel": null
+  },
+  "2131": {
+   "name": "Don't Change the Channel",
+   "tier": "Silver",
+   "text": "Gain a Shield for every second you spend Channeling.",
+   "tooltip": "It decays when you are not Channeling.",
+   "grants": [],
+   "values": {
+    "Shield_Interval": 1.0
+   },
+   "unlockLevel": null
+  },
+  "2148": {
+   "name": "Double Strike",
+   "tier": "Silver",
+   "text": "your chosen ability applies On-Hit effects an additional time.",
+   "tooltip": "your chosen ability applies On-Hit effects an additional time.",
+   "grants": [],
+   "values": {},
+   "unlockLevel": null
+  },
+  "1028": {
+   "name": "Erosion",
+   "tier": "Silver",
+   "text": "Damaging enemies adds a stacking Armor and Magic Resist shred for 4s.",
+   "tooltip": "",
+   "grants": [],
+   "values": {
+    "Shred": 0.015,
+    "ShredDuration": 4.0,
+    "MaxStacks": 20.0
+   },
+   "unlockLevel": null
+  },
+  "1333": {
+   "name": "Escape Plan",
+   "tier": "Silver",
+   "text": "Gain a massive decaying Shield, decaying Movement Speed, and a decaying shrink effect upon reaching 35% Health.",
+   "tooltip": "",
+   "grants": [],
+   "values": {
+    "SizeMod": 0.2,
+    "Duration": 5.0,
+    "MovespeedModEnhanced": 1.5,
+    "Cooldown": 75.0,
+    "HealthThreshold": 0.35,
+    "ShieldRatio": 0.65,
+    "MaxLevel": 1.0
+   },
+   "unlockLevel": null
+  },
+  "1308": {
+   "name": "FireFox",
+   "tier": "Silver",
+   "text": "Autocast Gain Movement Speed and conjure three flames that orbit you, targetting the closest visible enemy in range and dealing magic damage.",
+   "tooltip": "Subsequent hits do 30% damage.",
+   "grants": [],
+   "values": {
+    "MovementSpeed": 0.25,
+    "MovementSpeedDuration": 2.0,
+    "MinionBonusDamageMultiplier": 2.0,
+    "MinionBonusDamageThreshold": 0.2,
+    "BaseDamage": [
+     20.0,
+     45.0,
+     70.0,
+     95.0,
+     120.0,
+     145.0,
+     170.0
+    ],
+    "RepeatDamageMod": 0.3,
+    "AcquisitionRange": 550.0,
+    "BonusAcquisitionRange": 725.0,
+    "InitialDelay": 0.25,
+    "SecondaryDelay": 0.4,
+    "FlameDuration": 2.5,
+    "OrbitRadius": 150.0,
+    "Cooldown": 7.0,
+    "MaxLevel": 1.0
+   },
+   "unlockLevel": null
+  },
+  "1037": {
+   "name": "First-Aid Kit",
+   "tier": "Silver",
+   "text": "Gain 20% Heal and Shield Power.",
+   "tooltip": "Gain 20% Heal and Shield Power.",
+   "grants": [],
+   "values": {
+    "HealShieldAmp": 0.2
+   },
+   "unlockLevel": null
+  },
+  "1348": {
+   "name": "Flash 2",
+   "tier": "Silver",
+   "text": "Gain a second Flash Summoner Spell and 70 Summoner Haste.",
+   "tooltip": "Gain a second Flash Summoner Spell and 70 Summoner Haste.",
+   "grants": [],
+   "values": {
+    "Cooldown": 60.0,
+    "SummonerHaste": 70.0
+   },
+   "unlockLevel": null
+  },
+  "1187": {
+   "name": "Flashbang",
+   "tier": "Silver",
+   "text": "Your Flash causes an explosion that damages and Slows (resets on death).",
+   "tooltip": "",
+   "grants": [],
+   "values": {
+    "SlowAmount": 0.35,
+    "SlowDuration": 1.25,
+    "Range": 300.0
+   },
+   "unlockLevel": null
+  },
+  "2127": {
+   "name": "Forged By The Master",
+   "tier": "Silver",
+   "text": "",
+   "tooltip": "",
+   "grants": [],
+   "values": {},
+   "unlockLevel": null
+  },
+  "1138": {
+   "name": "Goredrink",
+   "tier": "Silver",
+   "text": "Gain 15% Omnivamp.",
+   "tooltip": "Gain 15% Omnivamp.",
+   "grants": [],
+   "values": {
+    "Omnivamp": 0.15
+   },
+   "unlockLevel": null
+  },
+  "1181": {
+   "name": "Heavy Hitter",
+   "tier": "Silver",
+   "text": "Your Attacks deal additional physical damage equal to 3.5% of your max Health.",
+   "tooltip": "",
+   "grants": [],
+   "values": {
+    "HealthPercent": 0.035
+   },
+   "unlockLevel": null
+  },
+  "1416": {
+   "name": "Hextech Soul",
+   "tier": "Silver",
+   "text": "Periodically your next damaging Ability or Attack triggers a lightning blast, chaining through enemies to deal damage and Slow.",
+   "tooltip": "Periodically your next damaging Ability or Attack triggers a lightning blast, chaining through enemies to deal damage and Slow.",
+   "grants": [],
+   "values": {},
+   "unlockLevel": null
+  },
+  "1105": {
+   "name": "Homeguard",
+   "tier": "Silver",
+   "text": "Gain 100% Movement Speed, disabled for 6 seconds after taking damage.",
+   "tooltip": "Gain 100% Movement Speed, disabled for 6 seconds after taking damage.",
+   "grants": [],
+   "values": {
+    "MovementSpeed": 1.0,
+    "Duration": 10.0,
+    "DisableCooldown": 6.0
+   },
+   "unlockLevel": null
+  },
+  "1044": {
+   "name": "Ice Cold",
+   "tier": "Silver",
+   "text": "Your Slowing effects reduce Movement Speed by an extra 75.",
+   "tooltip": "Your Slowing effects reduce Movement Speed by an extra 75.",
+   "grants": [],
+   "values": {
+    "ExtraSlowAmount": 75.0,
+    "SlowDuration": 1.0
+   },
+   "unlockLevel": null
+  },
+  "1046": {
+   "name": "Infernal Soul",
+   "tier": "Silver",
+   "text": "You gain the Infernal Dragon Soul, dealing bonus damage when you hit enemies with Abilities or Attacks.",
+   "tooltip": "You gain the Infernal Soul, dealing bonus damage when you hit enemies with Abilities or Attacks.",
+   "grants": [],
+   "values": {},
+   "unlockLevel": null
+  },
+  "2125": {
+   "name": "It's Go Time",
+   "tier": "Silver",
+   "text": "Activating your chosen ability grants you Movement Speed for its duration.",
+   "tooltip": "",
+   "grants": [],
+   "values": {},
+   "unlockLevel": null
+  },
+  "2016": {
+   "name": "Juiced",
+   "tier": "Silver",
+   "text": "",
+   "tooltip": "",
+   "grants": [],
+   "values": {
+    "ManaPercentDamagePercent": 0.07,
+    "MaxLevel": 1.0,
+    "MaxLevelManaSpendThreshold": 300.0,
+    "MaxLevelPerTriggerDamageAmp": 0.1
+   },
+   "unlockLevel": null
+  },
+  "2026": {
+   "name": "Kill Secured",
+   "tier": "Silver",
+   "text": "Gain increased Movement Speed towards enemies at low Health.",
+   "tooltip": "Gain 60% Movement Speed towards enemies below 40% health.",
+   "grants": [],
+   "values": {
+    "MovementSpeed": 0.6,
+    "HealthThreshold": 0.4,
+    "MaxLevel": 1.0
+   },
+   "unlockLevel": null
+  },
+  "1305": {
+   "name": "Leg Day",
+   "tier": "Silver",
+   "text": "Gain 50 Movement Speed and 50% Slow Resist.",
+   "tooltip": "Gain 50 Movement Speed and 50% Slow Resist.",
+   "grants": [],
+   "values": {
+    "MovementSpeed": 50.0,
+    "SlowResist": 0.5
+   },
+   "unlockLevel": null
+  },
+  "1051": {
+   "name": "Light 'Em Up!",
+   "tier": "Silver",
+   "text": "Every 4th Attack shoots 4 missiles dealing magic damage On-Hit.",
+   "tooltip": "",
+   "grants": [],
+   "values": {},
+   "unlockLevel": null
+  },
+  "1314": {
+   "name": "Mighty Shield",
+   "tier": "Silver",
+   "text": "",
+   "tooltip": "",
+   "grants": [],
+   "values": {
+    "ShieldDuration": 3.0,
+    "Cooldown": 5.0
+   },
+   "unlockLevel": null
+  },
+  "1056": {
+   "name": "Mind to Matter",
+   "tier": "Silver",
+   "text": "Increase max Health by half of your Mana.",
+   "tooltip": "",
+   "grants": [],
+   "values": {
+    "ConvertCap": 99999.0
+   },
+   "unlockLevel": null
+  },
+  "1057": {
+   "name": "Mountain Soul",
+   "tier": "Silver",
+   "text": "You gain the Mountain Soul, gaining a Shield after being out of combat for a short time.",
+   "tooltip": "You gain the Mountain Soul, gaining Shield after being out of combat for a short time.",
+   "grants": [],
+   "values": {},
+   "unlockLevel": null
+  },
+  "1060": {
+   "name": "Ocean Soul",
+   "tier": "Silver",
+   "text": "Gain the Ocean Soul, granting high Health and Mana regen after damaging enemies.",
+   "tooltip": "Gain the Ocean Soul, granting high Health and Mana Regen after damaging enemies.",
+   "grants": [],
+   "values": {},
+   "unlockLevel": null
+  },
+  "1347": {
+   "name": "Poltergeist",
+   "tier": "Silver",
+   "text": "Gain Poltergeist as a Summoner Spell. Poltergeist casts both Barrier and Ghost.",
+   "tooltip": "Gain Poltergeist as a Summoner Spell.\n\nPoltergeist casts both Barrier and Ghost.",
+   "grants": [],
+   "values": {
+    "Duration": 5.0,
+    "AllyRange": 835.0,
+    "MoveSpeed": 0.3
+   },
+   "unlockLevel": null
+  },
+  "2018": {
+   "name": "Purist - Caster",
+   "tier": "Silver",
+   "text": "Gain percent cooldown reduction and convert all of your Attack Speed into Ability Haste.",
+   "tooltip": "Conversion Rate: 0.65 Ability Haste per 1% Attack Speed",
+   "grants": [],
+   "values": {
+    "Haste_Per_AS": 0.65,
+    "MaxLevel": 1.0
+   },
+   "unlockLevel": null
+  },
+  "1170": {
+   "name": "Scoped Weapons",
+   "tier": "Silver",
+   "text": "",
+   "tooltip": "",
+   "grants": [],
+   "values": {
+    "MeleeRangeIncrease": 75.0,
+    "RangedRangeIncrease": 50.0
+   },
+   "unlockLevel": null
+  },
+  "1073": {
+   "name": "Shadow Runner",
+   "tier": "Silver",
+   "text": "After using a Dash, Blink, or Teleport Ability or exiting Stealth, gain Movement Speed.",
+   "tooltip": "After using a Dash, Blink, or Teleport Ability or exiting Stealth, gain 300 Movement Speed for 2 seconds.",
+   "grants": [],
+   "values": {
+    "MSAmount": 300.0,
+    "BuffDuration": 2.0
+   },
+   "unlockLevel": null
+  },
+  "2073": {
+   "name": "Siphon",
+   "tier": "Silver",
+   "text": "Damaging enemy champions with your chosen ability heals you.",
+   "tooltip": "Heal for 30% of the damage dealt to enemy champions by your chosen ability.",
+   "grants": [],
+   "values": {
+    "Lifesteal": 0.3
+   },
+   "unlockLevel": null
+  },
+  "1136": {
+   "name": "Slap Around",
+   "tier": "Silver",
+   "text": "Gain 10 Adaptive Force when you Immobilize or Ground an enemy. Lose 50% on death.",
+   "tooltip": "Each time you Immobilize or Ground an enemy, gain a stack granting 10 Adaptive Force. Lose 50% stacks on death.",
+   "grants": [],
+   "values": {
+    "AdaptiveForce": 10.0,
+    "SpellIDCD": 5.0,
+    "PercentOfStacksLost": 0.5
+   },
+   "unlockLevel": null
+  },
+  "2088": {
+   "name": "Snowday",
+   "tier": "Silver",
+   "text": "Gain 100 Ability Haste on your Snowball. It deals additional magic damage when hitting an enemy. If you don't have one, gain a Snowball.",
+   "tooltip": "Snowball gains 100 Ability Haste and deals 100% increased damage.",
+   "grants": [
+    "Snowball"
+   ],
+   "values": {
+    "AH": 100.0,
+    "DamageAmp": 1.0
+   },
+   "unlockLevel": null
+  },
+  "1076": {
+   "name": "Sonic Boom",
+   "tier": "Silver",
+   "text": "Buffing, Healing, or Shielding your ally deals damage and Slows enemies surrounding them.",
+   "tooltip": "",
+   "grants": [],
+   "values": {
+    "Radius": 450.0,
+    "ProcCooldown": 2.0,
+    "SlowAmount": -0.3
+   },
+   "unlockLevel": null
+  },
+  "1386": {
+   "name": "Spin Me Right Round",
+   "tier": "Silver",
+   "text": "Replace a Summoner Spell with Heroic Swing. Heroic Swing fires a grappling hook, sticking into terrain, after which you can Recast to swing around it. While swinging, automatically Attack the nearest enemy. Colliding with an enemy champion or Recasting ends the swing.",
+   "tooltip": "Replace a Summoner Spell with Heroic Swing.\n\nHeroic Swing fires a grappling hook, sticking into terrain, after which you can Recast to swing around it. While swinging, automatically Attack the nearest enemy. Colliding with an enemy champion or Recasting ends the swing.",
+   "grants": [
+    "Heroic Swing"
+   ],
+   "values": {
+    "BaseDamage": [
+     0.0,
+     15.0,
+     30.0,
+     45.0,
+     60.0,
+     75.0,
+     90.0
+    ],
+    "ADRatio": 0.15,
+    "TimeToCastE2": 2.0,
+    "AnchorLifetime": 3.0,
+    "MinJumpbackDistance": 250.0,
+    "CritDamageReduction": 0.1,
+    "AttackSpeedCoefficient": 0.3,
+    "EdgeToEdgeCollisionRadius": 50.0,
+    "AttackFrequency": 0.2,
+    "OnHitDamageReduction": 0.25,
+    "ResetCooldownToSet": 0.5,
+    "DistanceShiftTowardsWall": 175.0,
+    "E3LockoutDuration": 0.5,
+    "SpinDuration": 25000.0,
+    "AttackRange": 500.0,
+    "MaxLevel": 1.0
+   },
+   "unlockLevel": null
+  },
+  "1214": {
+   "name": "Spin To Win",
+   "tier": "Silver",
+   "text": "",
+   "tooltip": "",
+   "grants": [],
+   "values": {
+    "SpinHaste": 30.0
+   },
+   "unlockLevel": null
+  },
+  "1204": {
+   "name": "Stackosaurus Rex",
+   "tier": "Silver",
+   "text": "When you gain permanent Stacks of an Ability, gain 100% more!",
+   "tooltip": "When you gain permanent Stacks of an Ability, gain 100% more!",
+   "grants": [],
+   "values": {
+    "StackModifier": 1.0
+   },
+   "unlockLevel": null
+  },
+  "1404": {
+   "name": "Stats!",
+   "tier": "Silver",
+   "text": "Gain 2 Stat Anvils!",
+   "tooltip": "Gain 2 Stat Anvils!",
+   "grants": [],
+   "values": {
+    "AmountOfStatAnvils": 2.0
+   },
+   "unlockLevel": null
+  },
+  "2076": {
+   "name": "Stay Resolute",
+   "tier": "Silver",
+   "text": "",
+   "tooltip": "If this is not your first augment, gain 20 Armor and Magic Resistance.",
+   "grants": [],
+   "values": {
+    "AdditionalARMR": 20.0,
+    "SpellIDCD": 5.0
+   },
+   "unlockLevel": null
+  },
+  "2108": {
+   "name": "Support Main",
+   "tier": "Silver",
+   "text": "REWARD: Any healing you provide now also Heals Over Time after the initial heal.",
+   "tooltip": "REWARD: Any healing you provide now also Heals Over Time for 25% of the initial heal over 3 seconds.",
+   "grants": [],
+   "values": {
+    "HealPercent": 25.0,
+    "HealDuration": 3.0
+   },
+   "unlockLevel": null
+  },
+  "1315": {
+   "name": "Swift and Safe",
+   "tier": "Silver",
+   "text": "Gain a Shield after a Dash or Blink.",
+   "tooltip": "",
+   "grants": [],
+   "values": {
+    "Cooldown": 5.0,
+    "APPercent": 0.26,
+    "ADPercent": 0.65,
+    "ShieldDuration": 2.0
+   },
+   "unlockLevel": null
+  },
+  "1080": {
+   "name": "Tank It Or Leave It",
+   "tier": "Silver",
+   "text": "You can Critically Defend using your Crit Chance (max 50% chance), giving you a chance to reduce damage. Gain 25% Crit Chance.",
+   "tooltip": "You can Critically Defend using your Crit Chance (max 50% chance), giving you a chance to reduce damage taken by 20%. Gain 25% Crit Chance.",
+   "grants": [],
+   "values": {
+    "DamageReduction": 0.2,
+    "CritChance": 0.25,
+    "MaxChance": 0.5,
+    "SpellIDCD": 5.0
+   },
+   "unlockLevel": null
+  },
+  "1237": {
+   "name": "Transmute: Gold",
+   "tier": "Silver",
+   "text": "Gain a random Gold Augment.",
+   "tooltip": "Gain a random Gold Augment.",
+   "grants": [],
+   "values": {},
+   "unlockLevel": null
+  },
+  "2136": {
+   "name": "Trusty Weapon",
+   "tier": "Silver",
+   "text": "Striking enemy champions with your chosen ability forges a bond of Friendship. your chosen ability gains temporarily increased damage based on your level of Friendship.",
+   "tooltip": "This effect can stack.\n\n\"It's—it's not like I like you or anything!!\" — your chosen ability",
+   "grants": [],
+   "values": {
+    "Buff_Duration": 6.0
+   },
+   "unlockLevel": null
+  },
+  "1415": {
+   "name": "Twin Fire",
+   "tier": "Silver",
+   "text": "Gain 25% Critical Strike Chance.",
+   "tooltip": "Gain 25% Critical Strike Chance.",
+   "grants": [],
+   "values": {
+    "ADRatio": 0.07,
+    "CrtiChance": 0.25,
+    "AdditionalMisDivision": 3.0,
+    "APRatio": 0.07,
+    "Cooldown": 5.0,
+    "MaxLevel": 3.0
+   },
+   "unlockLevel": null
+  },
+  "1087": {
+   "name": "Typhoon",
+   "tier": "Silver",
+   "text": "Your Attacks shoot a missile at an additional target, dealing reduced damage and applying On-Hit effects.",
+   "tooltip": "Your Attacks shoot a missile at an additional target, dealing 30% damage and applying On-Hit effects.",
+   "grants": [],
+   "values": {
+    "ADRatio": 0.3
+   },
+   "unlockLevel": null
+  },
+  "1112": {
+   "name": "Ultimate Unstoppable",
+   "tier": "Silver",
+   "text": "After using your Ultimate, you become immune to crowd control for 3 seconds. (8 second Cooldown).",
+   "tooltip": "After using your Ultimate, you become immune to crowd control for 3 seconds. (8 second Cooldown).",
+   "grants": [],
+   "values": {
+    "Cooldown": 8.0,
+    "UnstoppableDuration": 3.0
+   },
+   "unlockLevel": null
+  },
+  "1320": {
+   "name": "Upgrade Collector",
+   "tier": "Silver",
+   "text": "Executing enemies with The Collector's Passive increases its execute threshold and grants bonus Gold. Gain 250 Gold.",
+   "tooltip": "Executing enemies with The Collector's Passive increases execute threshold by 0.5% and grant additional 50 Gold.\n\nGain 250 Gold.",
+   "grants": [],
+   "values": {
+    "UpgradedGoldAmount": 50.0,
+    "ExecutionInc": 0.005,
+    "MaxCount": 15.0,
+    "InstantGoldGain": 250.0,
+    "MaxLevel": 2.0
+   },
+   "unlockLevel": null
+  },
+  "2157": {
+   "name": "Upgrade Death's Dance",
+   "tier": "Silver",
+   "text": "",
+   "tooltip": "",
+   "grants": [],
+   "values": {
+    "HealPercent": 1.25,
+    "BonusHealPercentTT": 0.25
+   },
+   "unlockLevel": null
+  },
+  "1319": {
+   "name": "Upgrade Immolate",
+   "tier": "Silver",
+   "text": "Hollow Radiance and Sunfire Aegis grant 12 Gold per target affected with Immolate. Gain 250 Gold.",
+   "tooltip": "Hollow Radiance and Sunfire Aegis grant 12 Gold per target affected with Immolate. Gain 250 Gold.",
+   "grants": [],
+   "values": {
+    "GoldPerTick": 12.0
+   },
+   "unlockLevel": null
+  },
+  "1318": {
+   "name": "Upgrade Zhonya's",
+   "tier": "Silver",
+   "text": "Reduce Zhonya's Hourglass Cooldown to 45 seconds. You can now move and gain Movement Speed when in Zhonya's Hourglass, Seeker's Armguard, or Wooglet's Witchcap stasis. Gain 250 Gold.",
+   "tooltip": "Reduce Zhonya's Hourglass Cooldown to 45 seconds. You can now move when in Zhonya's Hourglass, Seeker's Armguard, or Wooglet's Witchcap stasis and gain 50% Movement Speed during it.",
+   "grants": [],
+   "values": {
+    "UpgradeCD": 45.0,
+    "UpgradeMS": 0.5
+   },
+   "unlockLevel": null
+  },
+  "1034": {
+   "name": "Veil of Warding",
+   "tier": "Silver",
+   "text": "Gain a Spell Shield every 30 seconds that blocks the next enemy Ability.",
+   "tooltip": "Gain a Spell Shield every 30 seconds that blocks the next enemy Ability.",
+   "grants": [],
+   "values": {
+    "ShieldDuration": 2500.0,
+    "Cooldown": 30.0,
+    "MaxLevel": 2.0
+   },
+   "unlockLevel": null
+  },
+  "1097": {
+   "name": "Witchful Thinking",
+   "tier": "Silver",
+   "text": "",
+   "tooltip": "",
+   "grants": [],
+   "values": {
+    "APFlat": 70.0
+   },
+   "unlockLevel": null
+  },
+  "2009": {
+   "name": "Zealot",
+   "tier": "Silver",
+   "text": "",
+   "tooltip": "",
+   "grants": [],
+   "values": {
+    "ASAPRatio": 0.0005,
+    "CritAPRatio": 0.0005,
+    "MaxLevel": 1.0,
+    "BaseAttackSpd": 0.35,
+    "BaseCritChance": 0.25
+   },
+   "unlockLevel": null
+  },
+  "1206": {
+   "name": "escAPADe",
+   "tier": "Silver",
+   "text": "Convert Ability Power to Bonus Attack Damage. Gain 15% Attack Damage.",
+   "tooltip": "Converts at a rate of 0.6 Attack Damage per point of Ability Power.",
+   "grants": [],
+   "values": {
+    "ConversionRate": 0.6,
+    "InverseRate": 1.6667,
+    "ADAmp": 0.15
+   },
+   "unlockLevel": null
+  },
+  "1141": {
+   "name": "All For You",
+   "tier": "Gold",
+   "text": "Your Heals and Shields are stronger when used on an ally.",
+   "tooltip": "Your Heals and Shields are 30% stronger when used on an ally.",
+   "grants": [],
+   "values": {
+    "HealShieldAmp": 0.3
+   },
+   "unlockLevel": null
+  },
+  "1002": {
+   "name": "Apex Inventor",
+   "tier": "Gold",
+   "text": "Gain 100 Item Haste (equivalent to 50% Item CDR). Item Haste reduces the cooldown of all Item Abilities.",
+   "tooltip": "Gain 100 Item Haste (equivalent to 50% Item CDR).\n\nItem Haste reduces the cooldown of all Item Abilities.",
+   "grants": [],
+   "values": {
+    "ItemHaste": 100.0,
+    "TooltipCDR": 50.0
+   },
+   "unlockLevel": null
+  },
+  "2111": {
+   "name": "BONK!",
+   "tier": "Gold",
+   "text": "Attacks and Abilities empowered by your chosen ability deal additional damage to the target and nearby enemies.",
+   "tooltip": "Attacks and Abilities empowered by your chosen ability deal an additional 30% damage to the target and nearby enemies.",
+   "grants": [],
+   "values": {
+    "DamageMultiplier": 0.3,
+    "AoERange": 300.0
+   },
+   "unlockLevel": null
+  },
+  "1180": {
+   "name": "Big Brain",
+   "tier": "Gold",
+   "text": "Gain 3 Shield for every 1 Ability Power. Resets on death or 70 seconds after depletion.",
+   "tooltip": "Resets on death or 70 seconds after depletion.",
+   "grants": [],
+   "values": {
+    "ShieldBase": 3.0,
+    "APRatio": 3.0,
+    "AP": 1.0
+   },
+   "unlockLevel": null
+  },
+  "1103": {
+   "name": "Bread And Butter",
+   "tier": "Gold",
+   "text": "Your your chosen ability gains 100 Ability Haste.",
+   "tooltip": "Your your chosen ability gains 100 Ability Haste.",
+   "grants": [],
+   "values": {
+    "QAbilityHaste": 100.0,
+    "QReducedAbilityHaste": 100.0
+   },
+   "unlockLevel": null
+  },
+  "1150": {
+   "name": "Bread And Jam",
+   "tier": "Gold",
+   "text": "Your your chosen ability gains 100 Ability Haste.",
+   "tooltip": "Your your chosen ability gains 100 Ability Haste.",
+   "grants": [],
+   "values": {
+    "WAbilityHaste": 100.0
+   },
+   "unlockLevel": null
+  },
+  "1151": {
+   "name": "Bread and Cheese",
+   "tier": "Gold",
+   "text": "Your your chosen ability gains 100 Ability Haste.",
+   "tooltip": "Your your chosen ability gains 100 Ability Haste.",
+   "grants": [],
+   "values": {
+    "EAbilityHaste": 100.0
+   },
+   "unlockLevel": null
+  },
+  "1013": {
+   "name": "Celestial Body",
+   "tier": "Gold",
+   "text": "Gain 1500 Health, but you deal 10% less damage.",
+   "tooltip": "Gain 1500 Health, but you deal 10% less damage.",
+   "grants": [],
+   "values": {
+    "Health": 1500.0,
+    "DamageReduction": 0.1
+   },
+   "unlockLevel": null
+  },
+  "2078": {
+   "name": "Chain Reaction",
+   "tier": "Gold",
+   "text": "If a target Knocked Back by your chosen ability hits another champion, they are Knocked Up and dealt damage. When colliding with terrain, the Knock Up duration is extended and they are dealt bonus damage.",
+   "tooltip": "Knock Up Duration and Height scale with your spell's cooldown.",
+   "grants": [],
+   "values": {
+    "WallStunDuration": 0.5,
+    "MinKnockUpHeight": 1.23,
+    "MinKnockUpDuration": 0.75,
+    "MaxCooldown": 100.0,
+    "BuffDetectDuration": 1.0,
+    "CollisionRadius": 200.0,
+    "MaxKnockUpDuration": 1.1,
+    "WallCollisionDamage_Min": 150.0,
+    "WallCollisionDamage_Max": 800.0,
+    "EnemyHitDamage_Min": 100.0,
+    "EnemyHitDamage_Max": 400.0,
+    "ChampCollideKnockupDuration": 0.5
+   },
+   "unlockLevel": null
+  },
+  "1118": {
+   "name": "Critical Healing",
+   "tier": "Gold",
+   "text": "Your healing and Shields can Critically Strike for 40% bonus amount. Gain 25% Crit Chance.",
+   "tooltip": "Your healing and Shields can Critically Strike for 40% bonus amount. Gain 25% Crit Chance.",
+   "grants": [],
+   "values": {
+    "CritHeal": 0.4,
+    "CritChance": 0.25,
+    "SpellIDCD": 5.0,
+    "CriticalMissleTriggerRange": 550.0
+   },
+   "unlockLevel": null
+  },
+  "1328": {
+   "name": "Critical Rhythm",
+   "tier": "Gold",
+   "text": "Your basic Attack stacks Attack Speed on Critical Strikes. Gain 25% Crit chance.",
+   "tooltip": "Your basic Attack stacks 6% Attack Speed on Critical Strikes up to 10 stacks.\n\nGain 25% Crit chance.",
+   "grants": [],
+   "values": {
+    "ASPerStack": 0.06,
+    "CritChance": 0.25,
+    "MaxStack": 10.0,
+    "BuffDuration": 6.0,
+    "MaxLevel": 2.0,
+    "Cooldown": 4.0
+   },
+   "unlockLevel": null
+  },
+  "1020": {
+   "name": "Dawnbringer's Resolve",
+   "tier": "Gold",
+   "text": "When dropping below 50% Health, heal for 30% max Health over 3 seconds. Resets on death or every 45 seconds.",
+   "tooltip": "When dropping below 50% Health, heal for 30% max Health over 3 seconds.\nResets on death or every 45 seconds.",
+   "grants": [],
+   "values": {
+    "HealthThreshold": 0.5,
+    "HealAmount": 0.3,
+    "Duration": 3.0,
+    "Cooldown": 45.0
+   },
+   "unlockLevel": null
+  },
+  "1301": {
+   "name": "Divine Intervention",
+   "tier": "Gold",
+   "text": "Every 35 seconds, Autocast a protective star. Upon its landing, you and nearby allies become Invulnerable for a few seconds.",
+   "tooltip": "Every 35 seconds, Autocast a protective star that slowly descends upon you. When it lands, you and nearby allies become Invulnerable for 2.5 seconds.",
+   "grants": [],
+   "values": {
+    "BaseCD": 35.0,
+    "InvulnerabilityDuration": 2.5,
+    "Radius": 400.0,
+    "InitalDelay": 15.0,
+    "WarningDelay": 2.5
+   },
+   "unlockLevel": null
+  },
+  "1384": {
+   "name": "Donation",
+   "tier": "Gold",
+   "text": "Get 1750 Gold. No questions asked.",
+   "tooltip": "Receive 1750 Gold. Thanks chat! :)",
+   "grants": [],
+   "values": {
+    "GoldAmount": 1750.0,
+    "IncFrequency": 10.0,
+    "MaxLevel": 1.0
+   },
+   "unlockLevel": null
+  },
+  "2091": {
+   "name": "Endless Decimation",
+   "tier": "Gold",
+   "text": "While in combat, Autocast a circular axe that deals physical damage. Enemies on the outer edge take additional damage and heal you.",
+   "tooltip": "Autocast a circular axe swing that deals physical damage every 8 seconds in combat. Each enemy hit along the outer edge reduces this ability's cooldown by 10% down to a minimum of 3 seconds.",
+   "grants": [],
+   "values": {
+    "BaseHealPercent": 0.18,
+    "InnerRadiusDamageMod": 0.5,
+    "Cooldown": 8.0,
+    "WindupLength": 1.25,
+    "PreWindupWarningLength": 1.5,
+    "BaseCDRPercent": 0.1
+   },
+   "unlockLevel": null
+  },
+  "1029": {
+   "name": "Ethereal Weapon",
+   "tier": "Gold",
+   "text": "Your Abilities apply On-Hit effects. 1 second Cooldown per target.",
+   "tooltip": "Your Abilities apply On-Hit effects. 1 second Cooldown per target.",
+   "grants": [],
+   "values": {
+    "Cooldown": 1.5
+   },
+   "unlockLevel": null
+  },
+  "1036": {
+   "name": "Firebrand",
+   "tier": "Gold",
+   "text": "Your Attacks apply an infinitely stacking Burn On-Hit, dealing damage over time.",
+   "tooltip": "Your Attacks also Burn enemies, dealing 0.4% max Health magic damage damage per second over 5 seconds. This Burn stacks infinitely.",
+   "grants": [],
+   "values": {
+    "PercentMaxHPDamagePer5Seconds": 0.02,
+    "BleedDuration": 5.0
+   },
+   "unlockLevel": null
+  },
+  "1116": {
+   "name": "Flashy",
+   "tier": "Gold",
+   "text": "Your Flash has 3 charges. After 120 seconds, regain all charges.",
+   "tooltip": "Your Flash has 3 charges. After 120 seconds, regain all charges.",
+   "grants": [],
+   "values": {
+    "FlashCooldown": 2.0,
+    "FlashAmmoTooltip": 3.0,
+    "AmmoRechargeTime": 120.0
+   },
+   "unlockLevel": null
+  },
+  "1038": {
+   "name": "From Beginning To End",
+   "tier": "Gold",
+   "text": "Gain the First Strike and Dark Harvest Keystone Runes.",
+   "tooltip": "Gain the First Strike and Dark Harvest Keystone Runes.\nFirst Strike: When you initiate champion combat, deal 10% extra damage for 3 seconds and gain Gold based on damage dealt.\nDark Harvest: Damaging a low Health champion inflicts adaptive damage and harvests a soul from the victim.",
+   "grants": [
+    "First Strike",
+    "Dark Harvest"
+   ],
+   "values": {
+    "AugDuration": 3.0,
+    "DamageAmp": 0.1,
+    "OOCTimer": 10.0,
+    "GoldProcBonus": 20.0,
+    "GoldPercentBonus": 0.6,
+    "GoldPercentBonusRanged": 0.42,
+    "GraceWindow": 0.25,
+    "MissileNoiseNumberLimiter": 3.0,
+    "MissileNoiseRangeLimiter": 1500.0,
+    "HarvestThreshold": 0.5,
+    "DHCooldown": 35.0,
+    "BaseDamageLow": 50.0,
+    "BaseDamageHigh": 100.0,
+    "ADRatio": 0.1,
+    "APRatio": 0.05,
+    "DamagePerSoulEssence": 11.0,
+    "CooldownResetValue": 1.0,
+    "ModesCooldownReduction": 1.0,
+    "StartingSoulsPerAugment": 8.0
+   },
+   "unlockLevel": null
+  },
+  "2103": {
+   "name": "From Downtown",
+   "tier": "Gold",
+   "text": "",
+   "tooltip": "",
+   "grants": [],
+   "values": {
+    "SnipeDistance": 600.0,
+    "AOE": [
+     150.0,
+     225.0,
+     337.5,
+     506.25,
+     759.375,
+     1139.0625,
+     1708.5938
+    ],
+    "MaxDistanceForScaling": 3000.0,
+    "MaxAOEDistanceScaling": 2.0,
+    "MaxDamageDistanceScaling": 2.3,
+    "PerTargetPerCastIDCooldown": 8.0
+   },
+   "unlockLevel": null
+  },
+  "1322": {
+   "name": "Get Excited!",
+   "tier": "Gold",
+   "text": "Increase Movement Speed and Attack Speed for 4 seconds on takedown.",
+   "tooltip": "Gain 100% Movement Speed and 15% Attack Speed for 4 seconds on takedown.",
+   "grants": [],
+   "values": {
+    "BuffDuration": 4.0,
+    "ASBuff": 0.15,
+    "MSBuff": 1.0,
+    "MaxLevel": 2.0
+   },
+   "unlockLevel": null
+  },
+  "1401": {
+   "name": "Growth Spurt",
+   "tier": "Gold",
+   "text": "Gain Growth Spurt as a Summoner Spell. Growth Spurt suddenly increases your size, Knocking Up nearby enemies and granting max Health.",
+   "tooltip": "Gain Growth Spurt as a Summoner Spell.",
+   "grants": [],
+   "values": {
+    "BonusHealth": 300.0,
+    "SlowPercent": [
+     15.0,
+     30.0,
+     45.0,
+     60.0,
+     75.0,
+     90.0,
+     105.0
+    ],
+    "BuffDuration": 7.0,
+    "AoERadius": 400.0,
+    "KnockbackDuration": 1.0,
+    "KnockbackDistance": 275.0,
+    "ScaleIncrease": 0.5,
+    "MaxLevel": 1.0
+   },
+   "unlockLevel": null
+  },
+  "1149": {
+   "name": "Impassable",
+   "tier": "Gold",
+   "text": "Gain the Aftershock and Glacial Augment Keystone Runes.",
+   "tooltip": "Gain the Aftershock and Glacial Augment Keystone Runes.\nAftershock: After Immobilizing an enemy champion, gain defenses and later deal a burst of magic damage around you.Glacial Augment: Immobilizing an enemy champion will spawn 3 glacial rays that Slow nearby enemies and reduce their damage to your allies.",
+   "grants": [
+    "Aftershock",
+    "Glacial Augment"
+   ],
+   "values": {
+    "SlowZoneDuration": 3.0,
+    "SlowZoneSlowBase": 0.2,
+    "SlowZoneLength": 700.0,
+    "SlowZoneWidth": 80.0,
+    "RayCount": 3.0,
+    "Cooldown": 12.0,
+    "BeamPosIndent": 100.0,
+    "CCCarryOverRatio": 1.0,
+    "DmgReduction": 0.15,
+    "SlowZoneSlowAPRatio": 0.06,
+    "SlowZoneSlowbADRatio": 0.07,
+    "SlowZoneSlowHealShieldRatio": 0.09,
+    "DamageRadius": 350.0,
+    "StartingBaseDamage": 25.0,
+    "MaxBaseDamage": 120.0,
+    "DelayBeforeBurst": 2.5,
+    "HealthRatio": 8.0,
+    "SizeInc": 0.25,
+    "SlowAmount": 0.15,
+    "SlowDuration": 2.5,
+    "FlatResists": 35.0,
+    "FlatResistsMax": 35.0,
+    "BonusResistsMin": 80.0,
+    "BonusResistsMax": 150.0,
+    "PercentBonusResists": 0.8
+   },
+   "unlockLevel": null
+  },
+  "1047": {
+   "name": "It's Critical",
+   "tier": "Gold",
+   "text": "Gain 50% Crit chance.",
+   "tooltip": "Gain 50% Crit chance.",
+   "grants": [],
+   "values": {
+    "CritChance": 0.5
+   },
+   "unlockLevel": null
+  },
+  "1211": {
+   "name": "It's Killing Time",
+   "tier": "Gold",
+   "text": "After casting your Ultimate, mark all enemies and store up damage you deal to them. When it ends, detonate the damage.",
+   "tooltip": "After casting your Ultimate, mark all enemies and store 40% of damage you deal to them. After 5 seconds, detonate the stored damage (8 second Cooldown).",
+   "grants": [],
+   "values": {
+    "MarkDuration": 5.0,
+    "Cooldown": 8.0,
+    "DamageStorePercentage": 0.4,
+    "VFXHighDamageThreshold": 500.0
+   },
+   "unlockLevel": null
+  },
+  "2096": {
+   "name": "Lil' Extra Help",
+   "tier": "Gold",
+   "text": "",
+   "tooltip": "",
+   "grants": [],
+   "values": {},
+   "unlockLevel": null
+  },
+  "1133": {
+   "name": "Magic Missile",
+   "tier": "Gold",
+   "text": "Dealing Ability damage fires 3 missiles, each dealing percent max Health true damage based on distance traveled.",
+   "tooltip": "Dealing Ability damage fires 3 missiles at each enemy hit, each dealing up to 1% max Health true damage based on distance traveled.",
+   "grants": [],
+   "values": {
+    "NumberOfMissiles": 3.0,
+    "MaxHealthDamagePerMissile": 0.0033,
+    "Cooldown": 6.0,
+    "MaxRangeThreshold": 1000.0,
+    "MaxHealthDamageTooltip": 1.0
+   },
+   "unlockLevel": null
+  },
+  "1129": {
+   "name": "Marksmage",
+   "tier": "Gold",
+   "text": "Your Attacks deal additional physical damage equal to 75% Ability Power.",
+   "tooltip": "",
+   "grants": [],
+   "values": {
+    "APRatio": 0.75
+   },
+   "unlockLevel": null
+  },
+  "2133": {
+   "name": "Mercy's Strike",
+   "tier": "Gold",
+   "text": "After healing or shielding your ally with your chosen ability, your next basic attack gains attack range, attack speed and deals bonus max Health magic damage.",
+   "tooltip": "Turret take 2.5% max health magic damage.",
+   "grants": [],
+   "values": {
+    "AttackRangeInc": 300.0,
+    "HealthPercentBase": 0.025,
+    "HSPercent": 0.2,
+    "ASBonus": 0.75
+   },
+   "unlockLevel": null
+  },
+  "1104": {
+   "name": "Minionmancer",
+   "tier": "Gold",
+   "text": "Your summons gain 40% increased size, health, and damage.",
+   "tooltip": "Your summons gain 40% increased size, health, and damage.",
+   "grants": [],
+   "values": {
+    "MinionSizeIncrease": 0.4,
+    "MinionHealthIncrease": 0.4,
+    "MinionDamageIncrease": 0.4
+   },
+   "unlockLevel": null
+  },
+  "2043": {
+   "name": "Nature is Healing",
+   "tier": "Gold",
+   "text": "Entering Brush regenerates a large amount of Health.",
+   "tooltip": "",
+   "grants": [],
+   "values": {
+    "BrushCooldown": 20.0,
+    "MaxLevel": 1.0
+   },
+   "unlockLevel": null
+  },
+  "1326": {
+   "name": "Nightstalking",
+   "tier": "Gold",
+   "text": "Takedowns against enemy champions within 3 seconds of damaging them grants you Movement Speed and renders you invisible.",
+   "tooltip": "Takedowns against enemy champions within 3 seconds of damaging them grants you 40% Move Speed and renders you invisible for 1.5 seconds.",
+   "grants": [],
+   "values": {
+    "StealthDuration": 1.5,
+    "TakedownWindow": 3.0,
+    "Cooldown": 10.0,
+    "StealthMoveSpeed": 0.4
+   },
+   "unlockLevel": null
+  },
+  "1061": {
+   "name": "Ok Boomerang",
+   "tier": "Gold",
+   "text": "",
+   "tooltip": "",
+   "grants": [],
+   "values": {
+    "BaseCooldown": 7.0
+   },
+   "unlockLevel": null
+  },
+  "1063": {
+   "name": "Outlaw's Grit",
+   "tier": "Gold",
+   "text": "After using a Dash, Blink, or Teleport Ability you gain 12 Armor and Magic Resist up to 5 stacks.",
+   "tooltip": "Resets every 15 seconds.",
+   "grants": [],
+   "values": {
+    "MaxStacks": 5.0,
+    "ResistsPerStack": 12.0,
+    "Refresh": 15.0
+   },
+   "unlockLevel": null
+  },
+  "2119": {
+   "name": "Overextender",
+   "tier": "Gold",
+   "text": "Recall to enter your Cannon Launcher. It has significantly increased range, travel speed, and damage.",
+   "tooltip": "Your Cannon Launcher has significantly increased range, travel speed, and damage. Recall to enter your Cannon Launcher.",
+   "grants": [],
+   "values": {
+    "DamageIncrease": 0.5,
+    "CannonRangeIncrease": 12000.0
+   },
+   "unlockLevel": null
+  },
+  "1311": {
+   "name": "Overflow",
+   "tier": "Gold",
+   "text": "Your Mana costs are doubled. Your Ability Heals, Shields, and damage are increased based on your max Mana.",
+   "tooltip": "Your Mana costs double.",
+   "grants": [],
+   "values": {
+    "InitialAmpPercent": 10.0
+   },
+   "unlockLevel": null
+  },
+  "2137": {
+   "name": "Pat On The Back",
+   "tier": "Gold",
+   "text": "Allies encourage you when you walk past, granting you a Shield and Movement Speed.",
+   "tooltip": "This effect can stack.",
+   "grants": [],
+   "values": {
+    "Trigger_Radius": 200.0,
+    "Buff_Duration": 3.0
+   },
+   "unlockLevel": null
+  },
+  "1390": {
+   "name": "Phenomenal Evil",
+   "tier": "Gold",
+   "text": "Permanently gain 1 Ability Power when you damage enemy champions with Abilities. If taken as your second Augment, starts with 40 Ability Power.",
+   "tooltip": "Permanently gain 1 Ability Power when you damage enemy champions with Abilities.\n\nIf taken as your second Augment, starts with 40 Ability Power.\n\nVeigar would be proud!",
+   "grants": [],
+   "values": {
+    "ProcCooldown": 1.0,
+    "StartingAPIfSecondAugment": 40.0,
+    "APPerProc": 1.0,
+    "SpellIDCD": 3.0
+   },
+   "unlockLevel": null
+  },
+  "1358": {
+   "name": "Pinball",
+   "tier": "Gold",
+   "text": "Your Snowball gains Ability Haste and deals extra True Damage. When the Snowball bounces off walls, it increases in size and damage and has a reduced Cooldown.",
+   "tooltip": "Each bounce increases its size by 25%, increases its damage dealt by 20% and reduces its Cooldown by 30%.",
+   "grants": [
+    "Snowball"
+   ],
+   "values": {
+    "AbilityHaste": 50.0,
+    "CDRefundOnBounce": 0.3,
+    "SizeAmp": 0.25,
+    "DamageAmp": 0.2,
+    "CastRangeAmp": 0.1,
+    "MaxLevel": 1.0
+   },
+   "unlockLevel": null
+  },
+  "2139": {
+   "name": "Porcupine",
+   "tier": "Gold",
+   "text": "Taking damage from champions builds up a burst of needles that fly out of you, dealing damage and slowing nearby enemies.",
+   "tooltip": "Taking damage from champions builds up a burst of needles.",
+   "grants": [],
+   "values": {
+    "Radius": 400.0,
+    "VFX_Breakpoint_1": 0.25,
+    "VFX_Breakpoint_2": 0.5,
+    "VFX_Breakpoint_3": 0.75,
+    "Cast_Windup": 1.5,
+    "Slow_Duration": 2.0
+   },
+   "unlockLevel": null
+  },
+  "2102": {
+   "name": "Pressure Cooker",
+   "tier": "Gold",
+   "text": "Every second, apply a stacking Burn to nearby enemy champions, scaling with your max Health. QUEST: Deal Burn damage to enemy Champions. REWARD: Size and damage increase per Quest Level.",
+   "tooltip": "Every second, apply a stacking Burn to nearby enemy champions, scaling with your max Health. QUEST: Deal Burn damage to enemy Champions. REWARD: Size and damage increase per Quest Level.",
+   "grants": [],
+   "values": {
+    "Range": 300.0,
+    "Range2": 500.0,
+    "BurnVamp": 0.05,
+    "BleedDuration": 2.0,
+    "Range3": 600.0
+   },
+   "unlockLevel": null
+  },
+  "2100": {
+   "name": "Pursuit of Haste",
+   "tier": "Gold",
+   "text": "",
+   "tooltip": "",
+   "grants": [],
+   "values": {
+    "AbilityHastePer10CD": 1.0,
+    "AbilityHasteReward": 80.0,
+    "QuestNumerator": [
+     250.0,
+     625.0,
+     1562.5,
+     3906.25,
+     9765.625,
+     24414.0625,
+     61035.1562
+    ]
+   },
+   "unlockLevel": null
+  },
+  "2116": {
+   "name": "Pursuit of Power",
+   "tier": "Gold",
+   "text": "REWARD: Permanently increase your chosen ability damage.",
+   "tooltip": "REWARD: Permanently increase your chosen ability damage.",
+   "grants": [],
+   "values": {
+    "DamageAmpReward": 30.0
+   },
+   "unlockLevel": null
+  },
+  "2064": {
+   "name": "Quickstep",
+   "tier": "Gold",
+   "text": "When you use your chosen ability, dash towards your cursor.",
+   "tooltip": "When you use your chosen ability, dash towards your cursor.",
+   "grants": [],
+   "values": {
+    "ChargeRange": 350.0
+   },
+   "unlockLevel": null
+  },
+  "2077": {
+   "name": "Ravenous Bind",
+   "tier": "Gold",
+   "text": "Immobilizing or Grounding enemy champions with your chosen ability deals extra damage and heals you.",
+   "tooltip": "Healing increases up to 50% based on spell cooldown.",
+   "grants": [],
+   "values": {
+    "BounceRangeCheck": 500.0,
+    "Heal_APRatio": 0.05,
+    "Heal_bHPRatio": 0.1,
+    "Damage_APRatio": 0.1,
+    "Damage_HPRatio": 0.005,
+    "BonusHealingPercent_Min": 0.15,
+    "BonusHealingPercent_Max": 0.5
+   },
+   "unlockLevel": null
+  },
+  "1068": {
+   "name": "Recursion",
+   "tier": "Gold",
+   "text": "Gain 60 Ability Haste.",
+   "tooltip": "Gain 60 Ability Haste.",
+   "grants": [],
+   "values": {
+    "AbilityHaste": 60.0
+   },
+   "unlockLevel": null
+  },
+  "1067": {
+   "name": "Rejuvenation",
+   "tier": "Gold",
+   "text": "Using your chosen ability restores Health.",
+   "tooltip": "",
+   "grants": [],
+   "values": {
+    "MaxHealthPercentageHeal": 0.015,
+    "BonusPercentMax": 0.5,
+    "bAD": 0.25,
+    "AP": 0.15,
+    "BonusHealthPercentageHeal": 0.05
+   },
+   "unlockLevel": null
+  },
+  "2126": {
+   "name": "Reload",
+   "tier": "Gold",
+   "text": "Basic Attacks On-Hit during your chosen ability reduce its cooldown.",
+   "tooltip": "",
+   "grants": [],
+   "values": {
+    "Buff_Duration": 6.0,
+    "Radius": 300.0
+   },
+   "unlockLevel": null
+  },
+  "1071": {
+   "name": "Scopier Weapons",
+   "tier": "Gold",
+   "text": "",
+   "tooltip": "",
+   "grants": [],
+   "values": {
+    "MeleeRangeIncrease": 150.0,
+    "RangedRangeIncrease": 100.0
+   },
+   "unlockLevel": null
+  },
+  "1072": {
+   "name": "Searing Dawn",
+   "tier": "Gold",
+   "text": "Your Abilities mark enemies, causing them to take additional magic damage from your ally's next Attack or Ability.",
+   "tooltip": "",
+   "grants": [],
+   "values": {
+    "ProcCooldown": 0.75
+   },
+   "unlockLevel": null
+  },
+  "2032": {
+   "name": "Shark Bait",
+   "tier": "Gold",
+   "text": "A few seconds after death, a shark chomps all nearby enemies. You can move after death to aim the shark attack.",
+   "tooltip": "On death, become Shark Bait. You can take no actions other than moving, which slows nearby enemies by 40%.",
+   "grants": [],
+   "values": {
+    "AOESize": 400.0,
+    "Duration": 3.5,
+    "MoveSpeed": 400.0,
+    "Slow": 0.4,
+    "MaxLevel": 2.0,
+    "MissingHealthPercent": 0.3
+   },
+   "unlockLevel": null
+  },
+  "2034": {
+   "name": "Shark Tempest",
+   "tier": "Gold",
+   "text": "Sharks circle your Snowball, slowing and damaging nearby enemies. When your Snowball hits a Champion, they become trapped in a shark storm!",
+   "tooltip": "",
+   "grants": [],
+   "values": {
+    "Range": 300.0,
+    "AttachedAOESize": 425.0,
+    "SlowDuration": 1.5,
+    "AttachedSlowDuration": 3.0,
+    "SlowStrengthTT": 0.4,
+    "SlowStrength": -0.4,
+    "AttachDuration": 3.0
+   },
+   "unlockLevel": null
+  },
+  "1373": {
+   "name": "Shrink Engine",
+   "tier": "Gold",
+   "text": "Takedowns makes you smaller and grant Ability Haste and Movement Speed. Lose 65% stacks on death.",
+   "tooltip": "Takedowns grant a stack that makes you 4% smaller, grants 8 Ability Haste, and 1% Movement Speed.\n\nLose 65% stacks on death.\n------------------------------------------------------------",
+   "grants": [],
+   "values": {
+    "SizeReductionPerStack": 0.04,
+    "MoveSpeedAmpPerStack": 0.01,
+    "MinSize": 20.0,
+    "PercentOfStacksLost": 0.65,
+    "HastePerStack": 8.0,
+    "MaxLevel": 2.0
+   },
+   "unlockLevel": null
+  },
+  "1074": {
+   "name": "Shrink Ray",
+   "tier": "Gold",
+   "text": "Your Attacks reduce the target's damage and size by 15% On-Hit.",
+   "tooltip": "Your Attacks reduce an enemy's damage by 15% for 3 seconds.",
+   "grants": [],
+   "values": {
+    "DamageReduction": 0.15
+   },
+   "unlockLevel": null
+  },
+  "1113": {
+   "name": "Skilled Sniper",
+   "tier": "Gold",
+   "text": "Snipe an enemy with a non-Ultimate Ability refunds 80% Cooldown (65% for periodic Abilities).",
+   "tooltip": "Snipe an enemy with a non-Ultimate Ability refunds 80% Cooldown (65% for periodic Abilities).\n\nSnipe - Damage enemies over 600 distance away",
+   "grants": [],
+   "values": {
+    "SnipeDistance": 600.0,
+    "ReducedCooldownPercent": 0.8,
+    "PeriodicReductionAmount": 0.65
+   },
+   "unlockLevel": null
+  },
+  "2080": {
+   "name": "Snowblast",
+   "tier": "Gold",
+   "text": "Recasting Snowball deals increased damage, Knocks Up the target, and Knocks Back nearby enemies.",
+   "tooltip": "Your Snowball gains 100 Ability Haste.",
+   "grants": [
+    "Snowball"
+   ],
+   "values": {
+    "AbilityHaste": 100.0
+   },
+   "unlockLevel": null
+  },
+  "1420": {
+   "name": "Sonata",
+   "tier": "Gold",
+   "text": "Every 10 seconds, automatically cast the Aria of Perseverence and Song of Celerity in an alternating melody. Aria of Perseverence heals nearby allies and grants a temporary shielding aura. Song of Celerity grants a temporary aura that provides bonus Movement Speed.",
+   "tooltip": "Every 10 seconds, automatically cast the Aria of Perseverence and Song of Celerity in an alternating melody.\n\nAria of Perseverence heals nearby allies and grants a temporary shielding aura.\n\nSong of Celerity grants a temporary aura that provides bonus Movement Speed.",
+   "grants": [
+    "Aria of Perseverence",
+    "Song of Celerity"
+   ],
+   "values": {
+    "Cooldown": 10.0,
+    "MaxLevel": 1.0
+   },
+   "unlockLevel": null
+  },
+  "1375": {
+   "name": "Soul Eater",
+   "tier": "Gold",
+   "text": "Immobilizing an enemy champion grants 20 max Health.",
+   "tooltip": "Immobilizing an enemy champion grants 20 max Health.",
+   "grants": [],
+   "values": {
+    "HealthGainPerStack": 20.0,
+    "SpellIDCD": 5.0
+   },
+   "unlockLevel": null
+  },
+  "1077": {
+   "name": "Soul Siphon",
+   "tier": "Gold",
+   "text": "Heal for 12% of damage done by Critical Strikes. Gain 25% Crit chance.",
+   "tooltip": "Gain 25% Crit Chance and 12% Lifesteal on Critical Strikes.",
+   "grants": [],
+   "values": {
+    "HealPercentage": 0.12,
+    "CritChance": 0.25
+   },
+   "unlockLevel": null
+  },
+  "1403": {
+   "name": "Stats on Stats!",
+   "tier": "Gold",
+   "text": "Gain 3 Stat Anvils, with a higher chance of Gold and Prismatic Anvils!",
+   "tooltip": "Gain 3 Stat Anvils, with a higher chance of Gold and Prismatic Anvils!",
+   "grants": [],
+   "values": {
+    "AmountOfStatAnvils": 3.0
+   },
+   "unlockLevel": null
+  },
+  "1152": {
+   "name": "Steel Your Heart",
+   "tier": "Gold",
+   "text": "QUEST: Possess Heartsteel with 300+ stacks. REWARD: Multiply your Heartsteel stacks by 3.",
+   "tooltip": "QUEST: Possess Heartsteel with 300+ stacks.\n\nREWARD: Multiply your Heartsteel stacks by 3.",
+   "grants": [],
+   "values": {
+    "StackThreshold": 300.0,
+    "StackMultiplication": 3.0
+   },
+   "unlockLevel": null
+  },
+  "1353": {
+   "name": "Tank Engine",
+   "tier": "Gold",
+   "text": "On takedown, gain a stack that increases your size and max Health. Lose stacks on death.",
+   "tooltip": "On takedown, gain a stack that grants 5% increased size and 5% max Health. Lose 65% of stacks on death.",
+   "grants": [],
+   "values": {
+    "SizeIncrement": 0.05,
+    "MaxHPIncrement": 0.05,
+    "PercentOfStacksLost": 0.65
+   },
+   "unlockLevel": null
+  },
+  "2129": {
+   "name": "Terrain'd",
+   "tier": "Gold",
+   "text": "Your your chosen ability deals damage in an area around it.",
+   "tooltip": "",
+   "grants": [],
+   "values": {
+    "AHMin": 20.0,
+    "AHMax": 60.0,
+    "MinDamagePerTick": 40.0,
+    "MaxDamagePerTick": 70.0,
+    "APRatio": 0.05
+   },
+   "unlockLevel": null
+  },
+  "2065": {
+   "name": "Terror",
+   "tier": "Gold",
+   "text": "Whenever you cast your chosen ability, Fear enemies around you.",
+   "tooltip": "Whenever you cast your chosen ability, Fear enemies around you for 1.75 seconds.",
+   "grants": [],
+   "values": {
+    "FearDurationCDDenominator": 20.0,
+    "FearRange": 450.0,
+    "MaximumFearDuration": 1.75
+   },
+   "unlockLevel": null
+  },
+  "1084": {
+   "name": "Thread the Needle",
+   "tier": "Gold",
+   "text": "Gain 18% Armor Penetration and Magic Penetration.",
+   "tooltip": "Gain 18% Armor Penetration and Magic Penetration.",
+   "grants": [],
+   "values": {
+    "PercentPen": 0.18
+   },
+   "unlockLevel": null
+  },
+  "2083": {
+   "name": "Tooth Fairy",
+   "tier": "Gold",
+   "text": "Bursting enemies drops Teeth. Picking up Teeth grants you permanent Lethality and Magic Penetration.",
+   "tooltip": "4 seconds cooldown per target",
+   "grants": [],
+   "values": {
+    "BurstDurationCheck": 2.5,
+    "PerTargetCooldown": 4.0
+   },
+   "unlockLevel": null
+  },
+  "1238": {
+   "name": "Transmute: Prismatic",
+   "tier": "Gold",
+   "text": "Gain a random Prismatic Augment.",
+   "tooltip": "Gain a random Prismatic Augment.",
+   "grants": [],
+   "values": {},
+   "unlockLevel": null
+  },
+  "1336": {
+   "name": "Upgrade Infinity Edge",
+   "tier": "Gold",
+   "text": "Gain 500 Gold. Having Infinity Edge allows your Critical Strike Chance to grant random Critical Strike Damage each Attack.",
+   "tooltip": "Gain 500 Gold.\nHaving Infinity Edge allows your Critical Strikes to deal random bonus Critical Strike Damage, scaling up to 50% of your Critical Strike Chance.",
+   "grants": [],
+   "values": {
+    "BonusCritDMG": 0.1,
+    "CritChanceToDamage": 0.5
+   },
+   "unlockLevel": null
+  },
+  "2140": {
+   "name": "Upgrade Ravenous Hydra",
+   "tier": "Gold",
+   "text": "Your spell hits trigger Cleave against enemies.",
+   "tooltip": "Your spell hits trigger Cleave against enemies.\n\nGain 500 Gold.",
+   "grants": [],
+   "values": {
+    "Cooldown": 1.0,
+    "Gold": 500.0
+   },
+   "unlockLevel": null
+  },
+  "1996": {
+   "name": "Upgrade Sheen",
+   "tier": "Gold",
+   "text": "Your Spellblade effects deal additional damage and heal you for a percent of the target's health. Additionally, gain 250 Gold.",
+   "tooltip": "Your Spellblade effects deal additional damage equal to 4% of the target's health and heal you for 3.5% of the target's health. Additionally, gain 250 Gold.",
+   "grants": [],
+   "values": {
+    "DamageMaxHP": 0.04,
+    "HealMaxHP": 0.035
+   },
+   "unlockLevel": null
+  },
+  "2143": {
+   "name": "Upgrade Sundered Sky",
+   "tier": "Gold",
+   "text": "",
+   "tooltip": "",
+   "grants": [],
+   "values": {},
+   "unlockLevel": null
+  },
+  "1092": {
+   "name": "Vulnerability",
+   "tier": "Gold",
+   "text": "Your Item and damage over time effects can Critically Strike. Gain 25% Crit chance.",
+   "tooltip": "Your Item and damage over time effects can Critically Strike for 145% extra damage.\n\nGain 25% Crit chance.",
+   "grants": [],
+   "values": {
+    "CritDamage": 1.45,
+    "CritChance": 0.25,
+    "SpellIDCD": 5.0
+   },
+   "unlockLevel": null
+  },
+  "2132": {
+   "name": "Warlock Juicebox",
+   "tier": "Gold",
+   "text": "",
+   "tooltip": "",
+   "grants": [],
+   "values": {
+    "MaxLevel": 1.0
+   },
+   "unlockLevel": null
+  },
+  "1005": {
+   "name": "Wee Woo Wee Woo",
+   "tier": "Gold",
+   "text": "When moving towards allies with low Health, gain Movement Speed. Your Healing and Shielding are greater based on how low your target's Health is.",
+   "tooltip": "",
+   "grants": [],
+   "values": {
+    "VFX_Health_Threshold": 0.5,
+    "MS_Linger_Duration": 2.0,
+    "MaxLevel": 1.0
+   },
+   "unlockLevel": null
+  },
+  "1098": {
+   "name": "With Haste",
+   "tier": "Gold",
+   "text": "Gain Move Speed equal to 70% of your Ability Haste.",
+   "tooltip": "",
+   "grants": [],
+   "values": {
+    "AbilityHasteToMSConversion": 0.7
+   },
+   "unlockLevel": null
+  },
+  "2087": {
+   "name": "Archmage",
+   "tier": "Prismatic",
+   "text": "Casting a spell refunds another random spell's cost by 30% of the original spell's Cooldown.",
+   "tooltip": "Casting a spell refunds another random spell's cost by 30% of the original spell's Cooldown.",
+   "grants": [],
+   "values": {
+    "RefundPercent": 0.3,
+    "MaxLevel": 1.0
+   },
+   "unlockLevel": null
+  },
+  "1004": {
+   "name": "Back To Basics",
+   "tier": "Prismatic",
+   "text": "Gain increased Ability Damage, Healing, Shielding, and Ability Haste, but you cannot use your Ultimate Ability.",
+   "tooltip": "Your Ultimate Ability is sealed. Gain 35% Ability Damage, Healing, Shielding, and 70 Ability Haste.",
+   "grants": [],
+   "values": {
+    "DamageAmp": 0.35,
+    "HealingAmp": 0.35,
+    "ShieldingAmp": 0.35,
+    "Haste": 70.0
+   },
+   "unlockLevel": null
+  },
+  "1329": {
+   "name": "Biggest Snowball Ever",
+   "tier": "Prismatic",
+   "text": "Gain 100 Ability Haste on Snowball. Your snowball is BIG and will pass through minions. It Slows, Knocks Up champions, and deals additional damage. If you don't have one, gain a Snowball.",
+   "tooltip": "Gain 100 Ability Haste on Snowball.\n\nYour snowball is BIG and will pass through minions.\n\nIf you don't have one, gain a Snowball.",
+   "grants": [
+    "Snowball"
+   ],
+   "values": {
+    "MoveSpeedMod": -0.2,
+    "SlowDuration": 2.0,
+    "KnockUpDuration": 0.75,
+    "Haste": 100.0,
+    "MoveSpeedModTooltip": 0.2,
+    "APRatio": 0.6,
+    "bADRatio": 1.0
+   },
+   "unlockLevel": null
+  },
+  "1006": {
+   "name": "Blade Waltz",
+   "tier": "Prismatic",
+   "text": "Gain Blade Waltz as a Summoner Spell.",
+   "tooltip": "",
+   "grants": [],
+   "values": {
+    "TotalHits": 8.0
+   },
+   "unlockLevel": null
+  },
+  "1011": {
+   "name": "Can't Touch This",
+   "tier": "Prismatic",
+   "text": "Casting your Ultimate makes you Invulnerable for a short duration.",
+   "tooltip": "Casting your Ultimate makes you Invulnerable for 2 seconds (8s Cooldown).",
+   "grants": [],
+   "values": {
+    "Cooldown": 8.0,
+    "InvulnDuration": 2.0
+   },
+   "unlockLevel": null
+  },
+  "1015": {
+   "name": "Circle of Death",
+   "tier": "Prismatic",
+   "text": "Healing and Health Regen also deals magic damage to the nearest enemy champion.",
+   "tooltip": "Your healing and Health Regen deal 70% of the value magic damage to the nearest enemy champion.",
+   "grants": [],
+   "values": {
+    "HealToDamageConversion": 0.7,
+    "DamageRange": 1000.0
+   },
+   "unlockLevel": null
+  },
+  "1310": {
+   "name": "Clown College",
+   "tier": "Prismatic",
+   "text": "Gain Deceive Summoner Spell. Gain Backstab Passive. When you die, deal a large amount of true damage and Fear nearby enemies.",
+   "tooltip": "Deceive: You teleport and become Invisible for 3 seconds.\n\nHallucinate: Death: On death, deal 25% maximum Health true damage and fear for 1s around you.",
+   "grants": [
+    "Backstab",
+    "Deceive",
+    "Hallucinate: Death"
+   ],
+   "values": {
+    "StealthDuration": 3.0,
+    "PseudoCastTime": 0.125,
+    "ExtraAATime": 1.0,
+    "CastRange": 400.0,
+    "FearDuration": 1.0,
+    "FearRadius": 350.0,
+    "FearDamage": 0.25,
+    "BaseDamage": 100.0
+   },
+   "unlockLevel": null
+  },
+  "1018": {
+   "name": "Courage of the Colossus",
+   "tier": "Prismatic",
+   "text": "",
+   "tooltip": "",
+   "grants": [],
+   "values": {
+    "HealthScalar": 0.04,
+    "SpellIDCD": 5.0
+   },
+   "unlockLevel": null
+  },
+  "1323": {
+   "name": "Cruelty",
+   "tier": "Prismatic",
+   "text": "On Immobilizing or Grounding a champion, summon a comet that lands after a delay, dealing magic damage to nearby enemies.",
+   "tooltip": "On Immobilizing or Grounding an enemy champion, summon a comet above them.\nThis effect has a 6 seconds Cooldown per target per spell cast.",
+   "grants": [],
+   "values": {
+    "DelayTime": 1.0,
+    "PerSpellLockout": 6.0,
+    "Radius": 300.0
+   },
+   "unlockLevel": null
+  },
+  "1019": {
+   "name": "Dashing",
+   "tier": "Prismatic",
+   "text": "Your dash, leap, blink, or teleport Abilities gain 175 Ability Haste.",
+   "tooltip": "Your dash, leap, blink, or teleport Abilities gain 175 Ability Haste.",
+   "grants": [],
+   "values": {
+    "Haste": 175.0
+   },
+   "unlockLevel": null
+  },
+  "2010": {
+   "name": "Double Tap",
+   "tier": "Prismatic",
+   "text": "Your Critical Strikes apply On-Hit effects an additional time.",
+   "tooltip": "Your Critical Strikes apply On-Hit effects an additional time.",
+   "grants": [],
+   "values": {
+    "MaxLevel": 2.0,
+    "AdditionalOnHitCount": 1.0,
+    "Cooldown": 5.0
+   },
+   "unlockLevel": null
+  },
+  "1134": {
+   "name": "Draw Your Sword",
+   "tier": "Prismatic",
+   "text": "Become melee and gain Attack Damage, Health, Attack Speed, Lifesteal, and Movement Speed (scaling with the range you give up).",
+   "tooltip": "You are now melee. Gain 24% Attack Damage, 24% Health, 20% Attack Speed, 20% Lifesteal, and 20% Move Speed (each further increased based on Attack Range lost).",
+   "grants": [],
+   "values": {
+    "BonusAD": 0.24,
+    "BonusHP": 0.24,
+    "BonusAS": 0.2,
+    "BonusMS": 0.2,
+    "BonusLifesteal": 0.2,
+    "MeleeAttackRange": 200.0,
+    "MaxStatMod": 1.0,
+    "ExtraStackAttackRangeFloor": 500.0,
+    "ExtraStackAttackRangeCeiling": 650.0
+   },
+   "unlockLevel": null
+  },
+  "1225": {
+   "name": "Dual Wield",
+   "tier": "Prismatic",
+   "text": "Attacks fire a bolt that applies On-Hit effects at reduced strength. Gain 10% total Attack Speed.",
+   "tooltip": "When you Attack, fire a bolt that deals 40% damage and applies your On-Hit effects at 40% effectiveness.\n\nGain 10% total Attack Speed.",
+   "grants": [],
+   "values": {
+    "AttackSpeed": 0.1,
+    "AttackReduction": 0.4,
+    "OnHitMod": 0.4,
+    "SecondMissileDelay": 0.15
+   },
+   "unlockLevel": null
+  },
+  "1027": {
+   "name": "Earthwake",
+   "tier": "Prismatic",
+   "text": "Your dash, blink, or teleport Abilities leave behind a trail that detonates after 0.75 second.",
+   "tooltip": "",
+   "grants": [],
+   "values": {
+    "ExplosionRadius": 300.0,
+    "ExplosionDelayTime": 0.75,
+    "APRatio": 0.6,
+    "BonusADRatio": 1.25,
+    "PerwaveDamageCD": 1.0,
+    "MaxRange": 2000.0,
+    "MinionMod": 0.7
+   },
+   "unlockLevel": null
+  },
+  "2062": {
+   "name": "Echo Cast",
+   "tier": "Prismatic",
+   "text": "Casting your chosen ability sends a clone toward your mouse position and recasts it.",
+   "tooltip": "Casting your chosen ability sends a clone of the ability toward your mouse position and recasts it after 0.25 seconds.",
+   "grants": [],
+   "values": {
+    "DelayTime": 0.25,
+    "CloneMissileSpeed": 1000.0,
+    "CloneMoveToDistance": 500.0,
+    "CloneDamageRatio": 1.0,
+    "CloneDuration": 4.0
+   },
+   "unlockLevel": null
+  },
+  "2004": {
+   "name": "Empowered By The Faithful",
+   "tier": "Prismatic",
+   "text": "Healing or Shielding allies blesses them, causing their damage to fill you with devotion. When you have enough devotion, unleash a shockwave dealing magic damage and executes low health enemies.",
+   "tooltip": "Healing or Shielding an ally blesses them for 8 seconds. When blessed allies deal damage to enemy champions, gain stacks of Devotion.",
+   "grants": [],
+   "values": {
+    "Buff_Duration": 8.0,
+    "Devotion_Threshold": 50.0,
+    "Dot_Cooldown": 1.0
+   },
+   "unlockLevel": null
+  },
+  "1331": {
+   "name": "Empyrean Promise",
+   "tier": "Prismatic",
+   "text": "Gain 15% Heal and Shield power. Gain Empyrean Promise as a Summoner Spell.",
+   "tooltip": "Gain 15% Heal and Shield power. Gain Empyrean Promise as a Summoner Spell.\n\nVigilance",
+   "grants": [
+    "Empyrean Promise"
+   ],
+   "values": {
+    "ShieldDuration": 3.0,
+    "ShieldRatioAP": 1.0,
+    "ShieldRatioBHealth": 0.1,
+    "DelayMovingTime": 0.25,
+    "HSAmp": 0.15,
+    "MoveSpeed": 4000.0
+   },
+   "unlockLevel": null
+  },
+  "2098": {
+   "name": "En Passant",
+   "tier": "Prismatic",
+   "text": "Periodically identify Vitals on enemy champions. Hitting them with Attacks or Abilities deals max Health true damage, restores Health, and grants Movement Speed. These effects can stack.",
+   "tooltip": "Periodically identify Vitals on enemy champions.",
+   "grants": [],
+   "values": {
+    "BaseVitalDamage": 0.06,
+    "StackDamage": 0.015,
+    "MSDuration": 2.0,
+    "VitalMaxHealthDamage": 0.06,
+    "MS": 0.5,
+    "MissingHealthHeal": 0.05
+   },
+   "unlockLevel": null
+  },
+  "1030": {
+   "name": "Eureka",
+   "tier": "Prismatic",
+   "text": "Gain Ability Haste equal to 30% Ability Power.",
+   "tooltip": "",
+   "grants": [],
+   "values": {
+    "APToHasteConversion": 0.3
+   },
+   "unlockLevel": null
+  },
+  "1194": {
+   "name": "Fey Magic",
+   "tier": "Prismatic",
+   "text": "Damaging with your Ultimate Polymorphs enemies for a few seconds.",
+   "tooltip": "Damaging with your Ultimate Polymorphs enemies for 2 seconds (15 second Cooldown).",
+   "grants": [],
+   "values": {
+    "WEnemySlow": 60.0,
+    "PolyCooldown": 15.0,
+    "PolyDuration": 2.0
+   },
+   "unlockLevel": null
+  },
+  "1344": {
+   "name": "Final Form",
+   "tier": "Prismatic",
+   "text": "After casting your Ultimate, gain a max Health Shield, Omnivamp and Movement Speed for 10 seconds.",
+   "tooltip": "After casting your Ultimate, gain a 50% max Health Shield, 20% Omnivamp and 30% bonus Movement Speed for 10 seconds. (20 seconds Cooldown).",
+   "grants": [],
+   "values": {
+    "MaxHealthShield": 0.5,
+    "OmniVamp": 0.2,
+    "MSBonus": 0.3,
+    "AugDuration": 10.0,
+    "Cooldown": 20.0,
+    "MaxLevel": 2.0
+   },
+   "unlockLevel": null
+  },
+  "1195": {
+   "name": "Giant Slayer",
+   "tier": "Prismatic",
+   "text": "Become tiny, gain Movement Speed, and gain bonus damage to champions based on how much larger they are than you.",
+   "tooltip": "Become tiny, gain 20% Movement Speed, and deal between 10% and 30% bonus damage to champions based on how much larger they are than you.",
+   "grants": [],
+   "values": {
+    "SizeMod": 0.25,
+    "MovespeedMod": 0.2,
+    "SmallBonusDamage": 0.1,
+    "MedBonusDamage": 0.15,
+    "LargeBonusDamage": 0.25,
+    "XLargeBonusDamage": 0.3
+   },
+   "unlockLevel": null
+  },
+  "1325": {
+   "name": "Glass Cannon",
+   "tier": "Prismatic",
+   "text": "Reduce max Health by 30%.",
+   "tooltip": "Reduce max Health by 30%.",
+   "grants": [],
+   "values": {
+    "TrueDamagePerc": 0.25,
+    "HPReductionPerc": 0.3,
+    "MaxLevel": 3.0,
+    "RangedTrueDamagePercDisplay": [
+     0.15,
+     0.15,
+     0.2,
+     0.3,
+     0.3,
+     0.3,
+     0.3
+    ]
+   },
+   "unlockLevel": null
+  },
+  "1335": {
+   "name": "Goldrend",
+   "tier": "Prismatic",
+   "text": "Damaging a champion with Attacks or Abilities deals additional magic damage, and grants you Gold and Movement Speed.",
+   "tooltip": "",
+   "grants": [],
+   "values": {
+    "MovementSpeedDuration": 1.5,
+    "PercentMovespeedGain": 0.25,
+    "TimerDuration": 30.0,
+    "APRatio": 0.2,
+    "GoldPerProc": 10.0,
+    "TotalLoops": 3.0,
+    "BonusADRatio": 0.4
+   },
+   "unlockLevel": null
+  },
+  "1041": {
+   "name": "Goliath",
+   "tier": "Prismatic",
+   "text": "Become large, gaining 35% Health and 15% Adaptive Force.",
+   "tooltip": "Become large, gaining 35% Health and 15% Adaptive Force.",
+   "grants": [],
+   "values": {
+    "SizeAmp": 0.5,
+    "HealthAmp": 0.35,
+    "ADAmp": 0.15,
+    "APAmp": 0.15,
+    "AFAmp": 0.15
+   },
+   "unlockLevel": null
+  },
+  "1389": {
+   "name": "Hand of Baron",
+   "tier": "Prismatic",
+   "text": "Gain 25% Adaptive Force. Nearby allied minions are greatly empowered.",
+   "tooltip": "Gain 25% Adaptive Force. Nearby allied minions are greatly empowered.",
+   "grants": [],
+   "values": {
+    "AFAmp": 0.25
+   },
+   "unlockLevel": null
+  },
+  "2107": {
+   "name": "Hellbent",
+   "tier": "Prismatic",
+   "text": "Damaging enemy champions with Attacks or Abilities grants stacks. At max stacks, you revive empowered upon death.",
+   "tooltip": "Striking enemy champions with Attacks or Abilities grants you a stack of Revivemaxxing for 6 seconds (max: 10). At max stacks become Hellbent.\n\nThis has a 90 second cooldown.",
+   "grants": [],
+   "values": {
+    "Revive_Duration": 4.0,
+    "Cooldown": 90.0,
+    "Buff_Duration": 15.0,
+    "Stacks_Duration": 6.0,
+    "Stacks_Max": 10.0,
+    "MaxLevel": 1.0
+   },
+   "unlockLevel": null
+  },
+  "1392": {
+   "name": "Holy Snowball",
+   "tier": "Prismatic",
+   "text": "Gain 100 Ability Haste on Snowball. You are briefly Invulnerable when you dash with Snowball. If you don't have one, gain a Snowball.",
+   "tooltip": "Gain 100 Ability Haste on Snowball.\n\nYou become Invulnerable for 1.5 seconds when you dash with Snowball.\n\nIf you don't have one, gain a Snowball.",
+   "grants": [
+    "Snowball"
+   ],
+   "values": {
+    "InvulnerabilityDuration": 1.5,
+    "Haste": 100.0
+   },
+   "unlockLevel": null
+  },
+  "1361": {
+   "name": "Icathia's Fall",
+   "tier": "Prismatic",
+   "text": "Immediately: Gain a Bami's Cinder. QUEST: Possess Sunfire Aegis and Hollow Radiance. REWARD: These Items combine into Void Immolation.",
+   "tooltip": "Immediately: Gain a Bami's Cinder.\n\nRequirement: Possess Sunfire Aegis and Hollow Radiance.\n\nReward: Combine Sunfire Aegis and Hollow Radiance into Void Immolation.",
+   "grants": [],
+   "values": {},
+   "unlockLevel": null
+  },
+  "1045": {
+   "name": "Infernal Conduit",
+   "tier": "Prismatic",
+   "text": "Your Abilities apply stacking Burn that deals damage over time. Your Burn effects reduce your basic Ability Cooldowns.",
+   "tooltip": "All your Burn effects lower your basic Ability Cooldowns by 0.08 seconds when they damage enemy champions.",
+   "grants": [],
+   "values": {
+    "BleedDuration": 3.0,
+    "FlatCooldownRefundPerTick": 0.08,
+    "ProcCooldown": 1.0
+   },
+   "unlockLevel": null
+  },
+  "1388": {
+   "name": "Infinite Recursion",
+   "tier": "Prismatic",
+   "text": "Gain 60 Ability Haste, plus 3 Ability Haste per takedown.",
+   "tooltip": "Gain 60 Ability Haste, plus 3 Ability Haste per takedown.",
+   "grants": [],
+   "values": {
+    "HastePerStack": 3.0,
+    "StartingHaste": 60.0,
+    "MaxLevel": 1.0
+   },
+   "unlockLevel": null
+  },
+  "1048": {
+   "name": "Jeweled Gauntlet",
+   "tier": "Prismatic",
+   "text": "Your Abilities can Critically Strike.",
+   "tooltip": "Your Abilities can Critically Strike for 45% increased damage.",
+   "grants": [],
+   "values": {
+    "CritDamage": 1.45,
+    "CritChance": 0.25,
+    "CritConverRatio": 0.0004,
+    "CritDamageTooltip": 45.0
+   },
+   "unlockLevel": null
+  },
+  "1337": {
+   "name": "King Me",
+   "tier": "Prismatic",
+   "text": "The first time you take the enemy transport with a Legendary Item you become Kinged, upgrading your item and gaining a random Prismatic Augment.",
+   "tooltip": "The first time you take the enemy transport with a Legendary Item you become Kinged, upgrading your item and gaining a random Prismatic Augment.",
+   "grants": [],
+   "values": {
+    "MasterworkLevel": 13.0,
+    "BaseStatAmp": 0.1,
+    "GameModeInteger": 1.0,
+    "UpgradeTotalGoldValue": 1000.0,
+    "UpgradeADEff": 35.0,
+    "UpgradeAPEff": 20.0,
+    "UpgradeHPEff": 2.66,
+    "UpgradeAREff": 20.0,
+    "UpgradeMREff": 18.0,
+    "UpgradeAHEff": 31.25,
+    "UpgradeASEff": 30.0
+   },
+   "unlockLevel": null
+  },
+  "1053": {
+   "name": "Mad Scientist",
+   "tier": "Prismatic",
+   "text": "On each Revive, you grow large (gaining Adaptive Force and Health) or tiny (gaining Ability Haste and Movement Speed).",
+   "tooltip": "On each Revive, you grow large (gaining 30% Adaptive Force and 20% Health) or tiny (gaining 70 Ability Haste and 40% Movement Speed).",
+   "grants": [],
+   "values": {
+    "ADAmp": 0.3,
+    "APAmp": 0.3,
+    "HealthAmp": 0.2,
+    "MovespeedAmp": 0.4,
+    "Haste": 70.0,
+    "SizeAmp": 0.4
+   },
+   "unlockLevel": null
+  },
+  "1054": {
+   "name": "Master of Duality",
+   "tier": "Prismatic",
+   "text": "Your Attacks grant you stacking Ability Power and your Abilities that damage enemies grant you Attack Damage.",
+   "tooltip": "This buff stacks and refreshes infinitely but lasts 5 seconds.",
+   "grants": [],
+   "values": {
+    "StackDuration": 5.0
+   },
+   "unlockLevel": null
+  },
+  "2055": {
+   "name": "Multishot",
+   "tier": "Prismatic",
+   "text": "REWARD: Fire additional missiles per Quest Level.",
+   "tooltip": "REWARD: Fire additional missiles per Quest Level.",
+   "grants": [],
+   "values": {
+    "DamageDeductionRatio": 0.3
+   },
+   "unlockLevel": null
+  },
+  "1058": {
+   "name": "Mystic Punch",
+   "tier": "Prismatic",
+   "text": "On-Hit reduce the cooldown of your abilities by 1.25 seconds .",
+   "tooltip": "On-Hit reduce the cooldown of your abilities by 1.25 seconds .",
+   "grants": [],
+   "values": {
+    "CooldownRefund": 1.25,
+    "MinCDR": 0.5
+   },
+   "unlockLevel": null
+  },
+  "1332": {
+   "name": "Ominous Pact",
+   "tier": "Prismatic",
+   "text": "Gain Ability Power, Movement Speed, and Omnivamp based on missing Health, taking damage each time you cast.",
+   "tooltip": "Spell casts cost 5% of your current Health.\n\nMax benefit at 30% Health.",
+   "grants": [],
+   "values": {
+    "MaxOmnivamp": 0.2,
+    "MSMod": 0.5,
+    "SpellHealthCost": 0.05,
+    "HealthThresholdTT": 0.3,
+    "MaxLevel": 2.0
+   },
+   "unlockLevel": null
+  },
+  "1062": {
+   "name": "Omni Soul",
+   "tier": "Prismatic",
+   "text": "Gain 3 random Dragon Souls.",
+   "tooltip": "Gain 3 random Dragon Souls.",
+   "grants": [],
+   "values": {
+    "SoulsToAdd": 3.0
+   },
+   "unlockLevel": null
+  },
+  "2123": {
+   "name": "Overloaded",
+   "tier": "Prismatic",
+   "text": "Using another Ability resets the cooldown of your chosen ability.",
+   "tooltip": "Using another Ability resets the cooldown of your chosen ability.\n\n\"They come for the scroll... Stick to the plan... EQEQEQ...\" — The Blue One",
+   "grants": [],
+   "values": {},
+   "unlockLevel": null
+  },
+  "12317": {
+   "name": "Pandora's Box",
+   "tier": "Prismatic",
+   "text": "Transmute all of your augments into random PrismaticAugments.",
+   "tooltip": "Transmute all of your augments into random PrismaticAugments.",
+   "grants": [],
+   "values": {},
+   "unlockLevel": null
+  },
+  "2135": {
+   "name": "Pin Cushion",
+   "tier": "Prismatic",
+   "text": "Attacks during your chosen ability gouge your target with Nails. Nails accumulate damage, execute, and grant Movement Speed upon expiration.",
+   "tooltip": "Attacks during your chosen ability gouge your target with Nails.\n\nNails will explode early and execute if the accumulated damage would kill the enemy champion.",
+   "grants": [],
+   "values": {
+    "MSPerStack": 10.0,
+    "ASPerStack": 0.05
+   },
+   "unlockLevel": null
+  },
+  "1421": {
+   "name": "Prom Queen",
+   "tier": "Prismatic",
+   "text": "Every 35 seconds, Autocast a sparkly tiara descends upon you. When it lands, gain Rakan's Ultimate, charming enemies you touch.",
+   "tooltip": "Every 35 seconds, Autocast a sparkly tiara descends upon you. When it lands, gain Rakan's Ultimate, charming enemies you touch.",
+   "grants": [],
+   "values": {
+    "BaseCD": 35.0,
+    "CharmDuration": 1.5,
+    "Radius": 300.0,
+    "WarningDelay": 2.5,
+    "MoveSpeedPercent": 0.5,
+    "PromQueenDuration": 6.0
+   },
+   "unlockLevel": null
+  },
+  "1324": {
+   "name": "Protein Shake",
+   "tier": "Prismatic",
+   "text": "",
+   "tooltip": "",
+   "grants": [],
+   "values": {
+    "ConversionRate": 0.35,
+    "InitialHS": 25.0,
+    "MaxLevel": 1.0
+   },
+   "unlockLevel": null
+  },
+  "2099": {
+   "name": "Rite of Ascension",
+   "tier": "Prismatic",
+   "text": "On takedown, enemy champions leave behind their Essence. Attacking the Essence grants movement speed and resets basic ability cooldowns.",
+   "tooltip": "Champion takedowns within 3 seconds of damaging them causes them to leave behind their Essence for 8 seconds. Attacking an Essence consumes it.\n\nToday, you will see the power of Ascension! — Azir, the Emperor of the Sands",
+   "grants": [],
+   "values": {
+    "Soul_Duration": 8.0,
+    "Windup_Duration": 1.25,
+    "Radius": 375.0,
+    "Move_Speed_Duration": 2.0,
+    "Soul_Attack_Range": 400.0,
+    "Kill_Track_Duration": 3.0,
+    "MaxLevel": 1.0
+   },
+   "unlockLevel": null
+  },
+  "1115": {
+   "name": "Scopiest Weapons",
+   "tier": "Prismatic",
+   "text": "",
+   "tooltip": "",
+   "grants": [],
+   "values": {
+    "MeleeRangeIncrease": 250.0,
+    "RangedRangeIncrease": 150.0
+   },
+   "unlockLevel": null
+  },
+  "2072": {
+   "name": "Spell Split",
+   "tier": "Prismatic",
+   "text": "Your your chosen ability missile splits into two on hit, at max Range, or when Recast.",
+   "tooltip": "Your your chosen ability missile splits into two on hit, at max Range, or when Recast.\n\nEnemies take less damage if hit by the same spell.",
+   "grants": [],
+   "values": {
+    "DelayTime": 0.25,
+    "AHMin": 10.0,
+    "AHMax": 50.0,
+    "RecastDelay": 0.15,
+    "DamageDeductionRatio": 0.3
+   },
+   "unlockLevel": null
+  },
+  "2104": {
+   "name": "Spirit Bomb",
+   "tier": "Prismatic",
+   "text": "Healing and Shielding allied champions builds up a Spirit Bomb. At max stacks, toss the bomb onto lowest Health ally to heal and shield them and nearby allies.",
+   "tooltip": "Healing and Shielding builds up a Spirit Bomb. At max stacks, toss the Spirit Bomb at your lowest Health ally.",
+   "grants": [],
+   "values": {
+    "Radius": 475.0,
+    "Shield_Duration": 2.0,
+    "VFX_Breakpoint_1": 0.25,
+    "VFX_Breakpoint_2": 0.5,
+    "VFX_Breakpoint_3": 0.75,
+    "Cast_Delay": 1.1
+   },
+   "unlockLevel": null
+  },
+  "2115": {
+   "name": "Squishy Slappy Grab",
+   "tier": "Prismatic",
+   "text": "Occasionally send out squishy, slappy hands towards all nearby enemy champions, tethering them. Your next attack will pull in all tethered enemies.",
+   "tooltip": "Occasionally send out Squishy Slappy Hands that latch on to all nearby enemy champions for 4 seconds.\n\nThis has a 30 second cooldown.",
+   "grants": [],
+   "values": {
+    "Cooldown": 30.0,
+    "Buff_Duration": 4.0,
+    "Cast_Radius": 450.0,
+    "Radius": 800.0,
+    "Shield_Duration": 2.5,
+    "Stun_Duration": 0.25,
+    "Cast_Delay": 1.5,
+    "Tether_Range": 950.0,
+    "Close_Pull_Range": 450.0,
+    "Long_Pull_Distance": 350.0
+   },
+   "unlockLevel": null
+  },
+  "1402": {
+   "name": "Stats on Stats on Stats!",
+   "tier": "Prismatic",
+   "text": "Gain 4 Stat Anvils, with a higher chance of Gold and Prismatic Anvils! On your next Augment selection, gain one additional reroll per slot.",
+   "tooltip": "Gain 4 Stat Anvils, with a higher chance of Gold and Prismatic Anvils!\n\nOn your next Augment selection, gain one additional reroll per slot.",
+   "grants": [],
+   "values": {
+    "AmountOfStatAnvils": 4.0
+   },
+   "unlockLevel": null
+  },
+  "1413": {
+   "name": "Stuck In Here With Me",
+   "tier": "Prismatic",
+   "text": "Using your Ultimate Taunts nearby enemies and grants you damage reduction. Gain 30 Ultimate Ability Haste.",
+   "tooltip": "Gain 30 Ultimate Ability Haste.",
+   "grants": [],
+   "values": {
+    "TauntRadius": 500.0,
+    "TauntDuration": 2.0,
+    "TauntChannelTime": 2.0,
+    "AugmentCooldown": 30.0,
+    "UltimateHaste": 30.0,
+    "MaxLevel": 1.0
+   },
+   "unlockLevel": null
+  },
+  "2134": {
+   "name": "Surge Field",
+   "tier": "Prismatic",
+   "text": "On Ultimate cast, spawn a Zone that grants Ability Haste and Movement Speed. While inside, it fires missiles that deal 20% of your damage.",
+   "tooltip": "On ultimate cast, spawn a Zone around you. While in it, gain 50 Ability Haste, 40% Movement Speed, and fire missiles that deal 20% of damage dealt to enemies.\n\nThe Zone follows you the first time you leave it and expires after a short duration the second time you do so.",
+   "grants": [],
+   "values": {
+    "Buff_Duration": 6.0,
+    "Radius": 300.0,
+    "MissileDamagePercent": 0.2,
+    "ZoneMovementSpeed": 0.4,
+    "ZoneAbilityHaste": 50.0,
+    "MaxLevel": 1.0
+   },
+   "unlockLevel": null
+  },
+  "1079": {
+   "name": "Symphony of War",
+   "tier": "Prismatic",
+   "text": "Gain the Lethal Tempo and Conqueror Keystone Runes.",
+   "tooltip": "Gain the Lethal Tempo and Conqueror Keystone Runes.\nLethal Tempo - Attacking champions grants Attack Speed, stacking up to 6 times. At 6 stacks, your Attacks launch a bolt that deals additional damage.\nConqueror: Gain stacks of Adaptive Force when attacking enemy champions. After reaching 12 stacks, heal for a portion of damage you deal to champions.",
+   "grants": [
+    "Lethal Tempo",
+    "Conqueror"
+   ],
+   "values": {
+    "MinAdaptivePerStack": 3.0,
+    "MaxAdaptivePerStack": 5.5,
+    "MaxStacks": 12.0,
+    "BuffDuration": 5.0,
+    "TimeUntilNextStackFromSameSpell": 5.0,
+    "HealingPercent": 0.1,
+    "RangedHealingPercent": 0.08,
+    "Duration": 6.0,
+    "RangeBonus": 50.0,
+    "PerCastIDLockout": 10.0,
+    "ASCap": 10.0,
+    "StackCap": 6.0
+   },
+   "unlockLevel": null
+  },
+  "1081": {
+   "name": "Tap Dancer",
+   "tier": "Prismatic",
+   "text": "Your Attacks grant you Movement Speed. Gain Attack Speed based on your Movement Speed.",
+   "tooltip": "Your Attacks grant you 10 Movement Speed.\n\nThe buff stacks and refreshes infinitely but lasts 5 seconds.",
+   "grants": [],
+   "values": {
+    "MSPerHit": 10.0,
+    "MSToASConversion": 0.001,
+    "MaxStack": 100.0,
+    "StackDuration": 5.0
+   },
+   "unlockLevel": null
+  },
+  "1001": {
+   "name": "Titan's Resolve",
+   "tier": "Prismatic",
+   "text": "Gain stacks when taking or dealing damage. For every 10 stacks, gain Adaptive Force, Armor, Magic Resist, Size, and Tenacity.",
+   "tooltip": "Dealing and receiving champion damage grants you 1 stack of Juggernauting for 6 seconds.\n\nStacks fall off faster the more you have.",
+   "grants": [],
+   "values": {
+    "Stacks_Max": 10.0,
+    "Stack_Duration": 6.0,
+    "StacksPerHit": 1.0,
+    "MaxLevel": 2.0
+   },
+   "unlockLevel": null
+  },
+  "1243": {
+   "name": "Transmute: Chaos",
+   "tier": "Prismatic",
+   "text": "Gain 2 random Augments.",
+   "tooltip": "Gain 2 random Augments.",
+   "grants": [],
+   "values": {
+    "Augment1SilverChance": 30.0,
+    "Augment1GoldChance": 70.0,
+    "Augment2SilverChance": 30.0,
+    "Augment2GoldChance": 70.0,
+    "AugmentsToGrantToolTipOnly": 2.0
+   },
+   "unlockLevel": null
+  },
+  "2005": {
+   "name": "Triggered Inferno",
+   "tier": "Prismatic",
+   "text": "Gain Daredevil Impulse. When you reach S Style, automatically use Inferno Trigger.",
+   "tooltip": "Damaging enemy champions with Attacks or Abilities different from the previous one grants Style (from F to S).\n\nAt S Style consume your Style to unleash a torrent of gunshots at all nearby enemies 10 times over 2 seconds.\n\nShots apply Lifesteal and deal 25% damage to minions.",
+   "grants": [],
+   "values": {
+    "Style_Duration": 6.0,
+    "Cooldown": 5.0,
+    "Duration": 2.25,
+    "MinionDamageMod": 0.25
+   },
+   "unlockLevel": null
+  },
+  "2054": {
+   "name": "Tripleshot",
+   "tier": "Prismatic",
+   "text": "Your your chosen ability targets 2 additional enemies in front of you.",
+   "tooltip": "Your your chosen ability targets 2 additional enemies in front of you.\n\nUnits take less damage from the same spell.",
+   "grants": [],
+   "values": {
+    "FuzzyRange": 150.0,
+    "BonusRadiusAroundPrimaryTarget": 0.5,
+    "Bolt": 2.0,
+    "AHMin": 10.0,
+    "AHMax": 50.0,
+    "ReducedDamageIndex": 0.8
+   },
+   "unlockLevel": null
+  },
+  "1349": {
+   "name": "Ultimate Awakening",
+   "tier": "Prismatic",
+   "text": "Gain 30 Ultimate Ability Haste. After using your Ultimate, refresh your basic abilities and gain 300 basic ability haste for 15s. (20s Cooldown)",
+   "tooltip": "Gain 30 Ultimate Ability Haste.\nAfter using your Ultimate, refresh your basic abilities and gain 300 basic ability haste for 15s. (20s Cooldown)",
+   "grants": [],
+   "values": {
+    "Cooldown": 20.0,
+    "AH": 30.0,
+    "AdditionalHaste": 300.0,
+    "BuffDuration": 15.0
+   },
+   "unlockLevel": null
+  },
+  "1088": {
+   "name": "Ultimate Revolution",
+   "tier": "Prismatic",
+   "text": "Refresh your Ultimate after casting it (75 seconds Cooldown or reset on death).",
+   "tooltip": "Refresh your Ultimate after casting it (75 seconds Cooldown or reset on death).",
+   "grants": [],
+   "values": {
+    "Cooldown": 75.0
+   },
+   "unlockLevel": null
+  },
+  "2141": {
+   "name": "Ultra Hydra",
+   "tier": "Prismatic",
+   "text": "Gain a Tiamat when completing a Hydra Item. QUEST: Gain Ravenous Hydra, Profane Hydra and Titanic Hydra. REWARD: Gain Ultra Hydra.",
+   "tooltip": "Gain a Tiamat when completing a Hydra Item.\n\nQUEST: Gain Ravenous Hydra, Profane Hydra and Titanic Hydra.\n\nREWARD: Gain Ultra Hydra.",
+   "grants": [],
+   "values": {},
+   "unlockLevel": null
+  },
+  "1379": {
+   "name": "Upgrade Sword of Blossoming Dawn",
+   "tier": "Prismatic",
+   "text": "Gain 100% Attack Speed. Increase Sword of Blossoming Dawn's healing to 250% when you attack enemy champions.",
+   "tooltip": "Gain 100% Attack Speed.\n\nIncrease Sword of Blossoming Dawn's healing to 250% when you attack enemy champions.",
+   "grants": [],
+   "values": {
+    "AttackSpeed": 1.0,
+    "AttackDamageNerf": 0.5,
+    "PercentInc": 2.5,
+    "MaxLevel": 1.0
+   },
+   "unlockLevel": null
+  },
+  "1154": {
+   "name": "Urf's Champion",
+   "tier": "Prismatic",
+   "text": "REWARD: Golden Spatula",
+   "tooltip": "REWARD: Golden Spatula",
+   "grants": [],
+   "values": {},
+   "unlockLevel": null
+  },
+  "1095": {
+   "name": "Windspeaker's Blessing",
+   "tier": "Prismatic",
+   "text": "Your Healing and Shielding also increases the target's Armor and Magic Resist for 3 seconds.",
+   "tooltip": "",
+   "grants": [],
+   "values": {},
+   "unlockLevel": null
+  },
+  "1156": {
+   "name": "Wooglet's Witchcap",
+   "tier": "Prismatic",
+   "text": "Immediately gain a Needlessly Large Rod. QUEST: Possess Rabadon's Deathcap and Zhonya's Hourglass. REWARD: Gain Wooglet's Witchcap.",
+   "tooltip": "Immediately gain a Needlessly Large Rod.\n\nQUEST: Possess Rabadon's Deathcap and Zhonya's Hourglass.\n\nREWARD: Gain Wooglet's Witchcap.",
+   "grants": [],
+   "values": {},
+   "unlockLevel": null
+  }
+ }
+}

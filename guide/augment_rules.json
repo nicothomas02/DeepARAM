@@ -1,5 +1,5 @@
 {
- "patch": "16.20.8248524",
+ "patch": "16.21.8298620",
  "levels": [
   3,
   7,
@@ -10,19 +10,19 @@
  "rerollsPerSlot": 1,
  "odds": {
   "Silver": {
-   "pool": 61,
-   "offer": 0.0492,
-   "withRerolls": 0.0984
+   "pool": 60,
+   "offer": 0.05,
+   "withRerolls": 0.1
   },
   "Gold": {
-   "pool": 82,
-   "offer": 0.0366,
-   "withRerolls": 0.0732
+   "pool": 75,
+   "offer": 0.04,
+   "withRerolls": 0.08
   },
   "Prismatic": {
-   "pool": 73,
-   "offer": 0.0411,
-   "withRerolls": 0.0822
+   "pool": 65,
+   "offer": 0.0462,
+   "withRerolls": 0.0923
   }
  },
  "tiers": {
@@ -114,7 +114,6 @@
   "1206": "Silver",
   "1211": "Gold",
   "1214": "Silver",
-  "1220": "Prismatic",
   "1225": "Prismatic",
   "1237": "Silver",
   "1238": "Gold",
@@ -142,14 +141,11 @@
   "1335": "Prismatic",
   "1336": "Gold",
   "1337": "Prismatic",
-  "1343": "Prismatic",
   "1344": "Prismatic",
-  "1345": "Gold",
   "1347": "Silver",
   "1348": "Silver",
   "1349": "Prismatic",
   "1353": "Gold",
-  "1356": "Gold",
   "1358": "Gold",
   "1361": "Prismatic",
   "1373": "Gold",
@@ -173,23 +169,17 @@
   "1996": "Gold",
   "2004": "Prismatic",
   "2005": "Prismatic",
-  "2006": "Prismatic",
   "2009": "Silver",
   "2010": "Prismatic",
   "2016": "Silver",
   "2018": "Silver",
-  "2024": "Silver",
   "2026": "Silver",
-  "2031": "Prismatic",
   "2032": "Gold",
   "2034": "Gold",
-  "2042": "Gold",
   "2043": "Gold",
-  "2046": "Prismatic",
   "2054": "Prismatic",
   "2055": "Prismatic",
   "2062": "Prismatic",
-  "2063": "Prismatic",
   "2064": "Gold",
   "2065": "Gold",
   "2072": "Prismatic",
@@ -198,13 +188,10 @@
   "2077": "Gold",
   "2078": "Gold",
   "2080": "Gold",
-  "2082": "Gold",
   "2083": "Gold",
   "2087": "Prismatic",
   "2088": "Silver",
-  "2089": "Gold",
   "2091": "Gold",
-  "2095": "Prismatic",
   "2096": "Gold",
   "2098": "Prismatic",
   "2099": "Prismatic",
@@ -214,17 +201,14 @@
   "2104": "Prismatic",
   "2107": "Prismatic",
   "2108": "Silver",
-  "2109": "Gold",
   "2111": "Gold",
   "2115": "Prismatic",
   "2116": "Gold",
-  "2118": "Prismatic",
   "2119": "Gold",
   "2123": "Prismatic",
   "2125": "Silver",
   "2126": "Gold",
   "2127": "Silver",
-  "2128": "Gold",
   "2129": "Gold",
   "2131": "Silver",
   "2132": "Gold",
@@ -251,15 +235,6 @@
    "icon": "https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/assets/items/icons2d/4403_goldenspatula.png",
    "augmentId": 1154,
    "augment": "Urf's Champion",
-   "augmentTier": "Prismatic"
-  },
-  {
-   "id": 1111,
-   "name": "Jarvan I's",
-   "how": "reward",
-   "icon": "https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/assets/items/icons2d/1111_jarvanis.png",
-   "augmentId": 1343,
-   "augment": "Sneakerhead",
    "augmentTier": "Prismatic"
   },
   {
@@ -343,5 +318,48 @@
    "augment": "Ultra Hydra",
    "augmentTier": "Prismatic"
   }
- ]
+ ],
+ "selectionAugments": [
+  {
+   "id": 1237,
+   "name": "Transmute: Gold",
+   "tier": "Silver",
+   "icon": "https://raw.communitydragon.org/latest/game/assets/ux/cherry/augments/icons/transmutegold_small.png",
+   "text": "Gain a random Gold Augment."
+  },
+  {
+   "id": 1238,
+   "name": "Transmute: Prismatic",
+   "tier": "Gold",
+   "icon": "https://raw.communitydragon.org/latest/game/assets/ux/cherry/augments/icons/transmuteprismatic_small.png",
+   "text": "Gain a random Prismatic Augment."
+  },
+  {
+   "id": 1337,
+   "name": "King Me",
+   "tier": "Prismatic",
+   "icon": "https://raw.communitydragon.org/latest/game/assets/ux/kiwi/augments/icons/kingme_small.png",
+   "text": "The first time you take the enemy transport with a Legendary Item you become Kinged, upgrading your item and gaining a random Prismatic Augment."
+  },
+  {
+   "id": 1402,
+   "name": "Stats on Stats on Stats!",
+   "tier": "Prismatic",
+   "icon": "https://raw.communitydragon.org/latest/game/assets/ux/cherry/augments/icons/statsonstatsonstats_small.png",
+   "text": "Gain 4 Stat Anvils, with a higher chance of Gold and Prismatic Anvils! On your next Augment selection, gain one additional reroll per slot."
+  },
+  {
+   "id": 1243,
+   "name": "Transmute: Chaos",
+   "tier": "Prismatic",
+   "icon": "https://raw.communitydragon.org/latest/game/assets/ux/cherry/augments/icons/transmutechaos_small.png",
+   "text": "Gain 2 random Augments."
+  }
+ ],
+ "goldenReroll": {
+  "name": "Golden Reroll",
+  "text": "Reroll into an augment one tier higher.",
+  "icon": "https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/assets/rewards/kiwi/goldenreroll.png"
+ },
+ "unlocks": {}
 }

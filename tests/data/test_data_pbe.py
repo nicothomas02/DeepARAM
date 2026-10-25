@@ -91,7 +91,8 @@ def test_fame_bands(pbe):
     ids = [b["id"] for b in bands]
     assert len(ids) == len(set(ids))
     unlock = [b["unlockFame"] for b in bands]
-    assert unlock[0] == 0 and unlock == sorted(unlock)
+    # Only bands new on the test server are listed, so the first need not start unlocked.
+    assert all(u >= 0 for u in unlock) and unlock == sorted(unlock)
     ranks = list(pbe["fame"]["superstarRank"]["rankNames"].values())
     assert ranks == sorted(ranks)
 

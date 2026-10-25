@@ -14,10 +14,11 @@ Usage:
 --cn needs augments.json and champions.json from data/cn/fetch_cn.py.
 --sim is the all-champion simulator (simulator/, `make mayhem_sim`); leave it out to skip simulator numbers.
 """
-import argparse, csv, json, os, re, subprocess, time, urllib.request
+import argparse, csv, glob, json, os, re, subprocess, time, urllib.request
 import xxhash
 
 HERE = os.path.dirname(os.path.abspath(__file__))
+REPO = os.path.join(HERE, "..", "..")
 # The page lives in The Lab (tools/fun/cook-builds/); this folder keeps the hand-written builds.
 PAGE = os.path.join(HERE, "..", "..", "tools", "fun", "cook-builds")
 CD = "https://raw.communitydragon.org/latest"
@@ -57,7 +58,7 @@ def augment_text(text, data_values, s):
         return m.group(0) if v is None else "%g" % round(v * float(m.group(2) or 1), 2)
     text = re.sub(r"@([A-Za-z0-9_]+)(?:\*([0-9.]+))?@", rep, text)
     text = text.split("---")[0]
-    text = re.sub(r"(Damage Dealt|Bonus Damage|Gold Generated|Total Healing Done|Total Health Gained|Terrain Damage|Encouragements Received|Number of Bounces|Units knocked back|Spirit Bombs Tossed|Bonus Healing|Times Triggered|Out of)\b.*$", "", text)
+    text = re.sub(r"(Damage Dealt|Bonus Damage|Gold Generated|Total Healing Done|Total Health Gained|Terrain Damage|Encouragements Received|Number of Bounces|Units knocked back|Spirit Bombs Tossed|Bonus Healing|Times Triggered|Damage Reduced|Out of)\b.*$", "", text)
     text = re.sub(r"<[^>]+>|%i:[A-Za-z]+%", "", text)
     text = re.sub(r"\{\{\s*Item_Keyword_OnHit\s*\}\}", "On-Hit", text)
     # Ability-specific augments are rolled for one of the champion's abilities.
@@ -68,7 +69,8 @@ def augment_text(text, data_values, s):
     text = text.replace("an extra damage", "extra damage").replace("()", "")
     text = re.sub(r"\b1 plus (?=[a-z])", "", text)
     text = re.sub(r"\b(\w+) \1\b", r"\1", text)  # "damage damage" from joined strings
-    return re.sub(r"\s+", " ", text).replace(" ,", ",").replace(" .", ".").strip()
+    text = re.sub(r"\s+", " ", text).replace(" ,", ",").replace(" .", ".").strip()
+    return re.sub(r"(?<=[.!)])\s+[^.!:]{1,40}:$", "", text)  # a stat counter's label left at the end
 
 
 def best_text(candidates, dv, s):
@@ -166,6 +168,37 @@ def tier(core_wr):
     return "Pure troll"
 
 
+def chef_i18n(chef):
+    """The Chef Special's text in each of the site's languages (The Lab's translations, tools/fun/i18n/<code>.json).
+    Names are left out: the site's own name files translate champions, items and augments by id."""
+    out = {}
+    for path in sorted(glob.glob(os.path.join(REPO, "tools", "fun", "i18n", "*.json"))):
+        code = os.path.basename(path)[:-5]
+        if code == "en":
+            continue
+        d = json.load(open(path, encoding="utf-8"))
+        out[code] = {
+            "title": d.get(chef["title"], chef["title"]),
+            "why": d.get(chef["why"], chef["why"]),
+            "play": d.get(chef["play"], chef["play"]),
+            "augments": [d.get(a["text"], a["text"]) for a in chef["augments"]],
+        }
+    return out
+
+
+def item_id_map():
+    """English item name -> an item id the site's name files translate (the lowest id sold in ARAM)."""
+    dd = sorted(glob.glob(os.path.join(REPO, "web", "public", "assets", "dd", "*", "data", "en_US", "item.json")),
+                key=lambda p: [int(x) for x in re.findall(r"\d+", p.split(os.sep + "dd" + os.sep)[1].split(os.sep)[0])])
+    if not dd:
+        return {}
+    out = {}
+    for k, v in sorted(json.load(open(dd[-1], encoding="utf-8"))["data"].items(), key=lambda kv: int(kv[0])):
+        if v.get("maps", {}).get("12"):
+            out.setdefault(v["name"], int(k))
+    return out
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--cn", default=os.path.join(HERE, "..", "cn"))
@@ -183,20 +216,29 @@ def main():
     names_by_id = {v: k for k, v in champ_ids.items()}
     n_champs = len(champs)
     augs = mayhem_augments()
+    # An augment that has since left the live pool keeps the text and icon its archived build was published with.
+    prev = {}
+    try:
+        with open(os.path.join(PAGE, "data.js"), encoding="utf-8") as f:
+            old = json.loads(f.read().split("=", 1)[1].strip().rstrip(";"))
+        prev = {r["name"]: r for b in old["builds"] for r in b["augments"]}
+    except (OSError, ValueError, KeyError, IndexError):
+        pass
     sim_list = json.loads(subprocess.run([a.sim, "--list", "--json"], capture_output=True, text=True, check=True, cwd=os.path.dirname(a.sim)).stdout) if a.sim else None
     sim_names = {c["id"]: c["name"] for c in sim_list["champions"]} if sim_list else {}
 
+    item_ids = item_id_map()
     out = []
     for b in builds:
         cid = champ_ids[b["champion"]]
         c = champs.get(cid, {})
         rows = []
         for i, name in enumerate(b["augments"]):
-            g = augs[name]
+            g = augs.get(name) or prev[name]
             st = aug_stats.get(g["id"], {})
             rows.append({
-                "name": name, "rarity": g["rarity"], "text": text_overrides.get(name, g["text"]), "core": i < b["core"],
-                "icon": save_icon(g["icon_url"], "augments/" + slug(name) + ".png"),
+                "name": name, "id": g["id"], "rarity": g["rarity"], "text": text_overrides.get(name, g["text"]), "core": i < b["core"],
+                "icon": save_icon(g["icon_url"], "augments/" + slug(name) + ".png") if name in augs else g["icon"],
                 "win_rate": st.get("win_rate"), "pick_rate": st.get("pick_rate"), "win_rank": st.get("win_rank"),
                 "best_champions": [names_by_id.get(x, str(x)) for x in st.get("best_champions", [])],
                 "champion_is_best": cid in st.get("best_champions", []),
@@ -206,6 +248,7 @@ def main():
         entry = dict(b)
         entry.update({
             "champion_name": sim_names.get(b["champion"], b["champion"]),
+            "item_ids": [item_ids.get(n) for n in b["items"]],
             "champion_icon": save_icon(f"{GD}/champion-icons/{cid}.png", f"champions/{cid}.png"),
             "champion_win_rate": c.get("win_rate"), "champion_pick_rate": c.get("pick_rate"),
             "champion_win_rank": 1 + sum(1 for x in champs.values() if x["win_rate"] > c.get("win_rate", 0)),
@@ -226,27 +269,37 @@ def main():
     }
     with open(os.path.join(PAGE, "data.js"), "w", encoding="utf-8") as f:
         f.write("window.COOK_DATA = " + json.dumps({"meta": meta, "builds": out}, indent=1, ensure_ascii=False) + ";\n")
-    # The Lab's front page names today's Chef's Special (the build with the newest `chef` date) without loading all of data.js.
-    chef = max((b for b in out if b.get("chef")), key=lambda b: b["chef"], default=None)
-    pick = {k: chef[k] for k in ("id", "title", "champion_name", "chef", "tier")} if chef else None
+    # The Lab's front page names today's Chef Special (the build with the newest `chef` date) and counts the
+    # archive (every build with a `chef` date) without loading all of data.js.
+    specials = [b for b in out if b.get("chef")]
+    chef = max(specials, key=lambda b: b["chef"], default=None)
+    pick = dict({k: chef[k] for k in ("id", "title", "champion", "champion_name", "chef")}, count=len(specials)) if chef else None
     with open(os.path.join(PAGE, "chef.js"), "w", encoding="utf-8") as f:
         f.write("window.COOK_CHEF = " + json.dumps(pick, ensure_ascii=False) + ";\n")
-    # Home shows today's Chef's Special too; this file has everything its card needs, with icon paths as the
+    # Home shows today's Chef Special too; this file has everything its card needs, with icon paths as the
     # site serves them (The Lab is published at /embed/fun/) and the link to the full build.
     site = "/embed/fun/cook-builds/"
     special = None
     if chef:
-        special = {k: chef[k] for k in ("id", "title", "champion", "champion_name", "chef", "tier", "core_win_rate",
-                                         "champion_win_rate", "why", "play", "items", "core_usual", "core")}
+        # No stats: a Chef Special is picked for the idea, not its win rate.
+        special = {k: chef[k] for k in ("id", "title", "champion", "champion_name", "chef", "why", "play", "items", "core")}
         special.update({
             "champion_icon": site + chef["champion_icon"],
-            "augments": [{"name": r["name"], "rarity": r["rarity"], "core": r["core"], "win_rate": r["win_rate"],
+            "augments": [{"name": r["name"], "rarity": r["rarity"], "core": r["core"], "text": r["text"],
                           "icon": site + r["icon"]} for r in chef["augments"]],
-            "href": "/lab#chefs-special",
+            "href": "/kitchen#chefs-special",
+            "archive_href": "/kitchen#chef-archive",
+            # Sharing: the dated link keeps opening this special after it is replaced; the image is its link preview.
+            "share_href": "/kitchen/" + chef["chef"],  # its link preview shows the share image
+            "share_image": site + "share/" + chef["id"] + ".png",
+            "item_ids": chef["item_ids"],
+            "i18n": chef_i18n(chef),
         })
+        for a, r in zip(special["augments"], chef["augments"]):
+            a["id"] = r["id"]
     with open(os.path.join(HERE, "chefs-special.json"), "w", encoding="utf-8") as f:
         f.write(json.dumps(special, indent=2, ensure_ascii=False) + "\n")
-    print(f"wrote {len(out)} builds" + (f"; Chef's Special {chef['chef']}: {chef['title']}" if chef else ""))
+    print(f"wrote {len(out)} builds" + (f"; Today's Chef Special {chef['chef']}: {chef['title']}" if chef else ""))
 
 
 if __name__ == "__main__":

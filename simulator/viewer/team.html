@@ -3,15 +3,19 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Mayhem 5v5 Teamfight</title>
+<title>Mayhem Teamfight</title>
 <link rel="stylesheet" href="/assets/fonts/fonts.css">
 <style>
 /* Same look as the fight replay page (index.html). */
 :root {
   --bg: #e7ebef; --surface: #f0f3f6; --raised: #e0e5eb; --fg: #1f252e; --muted: #525b68; --line: #d3dae2;
   --hover: var(--raised); --accent: #9b7bff; --accent-ink: #120a2b;
-  --accent-soft: color-mix(in srgb, var(--accent) 16%, transparent);
-  --accent-text: color-mix(in srgb, var(--accent) 70%, var(--fg));
+  /* Colour mixes worked out ahead of time, since older Safari and Firefox can't mix colours in CSS:
+     accent at 16% over transparent, accent 50% with --fg for text, accent 45%/50% with --line for
+     hover borders, --hp-low 75% with --fg. */
+  --accent-soft: rgba(155, 123, 255, 0.16);
+  --accent-text: #5d5096;
+  --accent-line: #baafef; --accent-line-strong: #b7aaf0; --foe-text: #b44844;
   --good: #197048; --bad: #a83831; --gold: #e0a83c;
   --abyss: var(--bg);
   --panel: var(--surface);
@@ -29,10 +33,12 @@
 }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
   --bg: #090b0f; --surface: #11151c; --raised: #181d26; --fg: #e8ecf2; --muted: #8b94a3; --line: #222936;
-  --good: #4cc98b; --bad: #f0776f; color-scheme: dark; } }
+  --good: #4cc98b; --bad: #f0776f;
+  --accent-text: #b29dfb; --accent-line: #584e90; --accent-line-strong: #5e529a; --foe-text: #e67975; color-scheme: dark; } }
 :root[data-theme="dark"] {
   --bg: #090b0f; --surface: #11151c; --raised: #181d26; --fg: #e8ecf2; --muted: #8b94a3; --line: #222936;
-  --good: #4cc98b; --bad: #f0776f; color-scheme: dark; }
+  --good: #4cc98b; --bad: #f0776f;
+  --accent-text: #b29dfb; --accent-line: #584e90; --accent-line-strong: #5e529a; --foe-text: #e67975; color-scheme: dark; }
 * { box-sizing: border-box; }
 html, body { background: var(--bg); color: var(--fg); }
 body { margin: 0; font: 14px/1.5 var(--body); }
@@ -42,10 +48,9 @@ body { margin: 0; font: 14px/1.5 var(--body); }
 header { display: flex; flex-wrap: wrap; align-items: end; gap: 12px 24px; justify-content: space-between; }
 h1 { font: 700 clamp(26px, 3.2vw, 32px)/1.1 var(--display); letter-spacing: -.025em; margin: 0; text-wrap: balance; }
 .eyebrow { font: 500 11.5px/1 var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
-.beta { display: inline-block; margin-left: 6px; padding: 3px 7px; border: 1px solid var(--accent); border-radius: 999px; color: var(--accent-text); background: var(--accent-soft); letter-spacing: .06em; vertical-align: 1px; }
 select, button { font: 500 14px var(--body); color: var(--fg); border: 1px solid var(--line); border-radius: 10px; padding: 7px 12px; background: var(--surface); }
 button { cursor: pointer; }
-button:hover, select:hover { background: var(--accent-soft); border-color: color-mix(in srgb, var(--accent) 45%, var(--line)); }
+button:hover, select:hover { background: var(--accent-soft); border-color: var(--accent-line); }
 button.primary { background: var(--accent); color: var(--accent-ink); border-color: transparent; }
 button.primary:hover { opacity: .9; background: var(--accent); }
 button:disabled { opacity: .5; cursor: progress; }
@@ -53,7 +58,10 @@ button:disabled { opacity: .5; cursor: progress; }
 .card { background: var(--surface); border: 1px solid var(--line); border-top: 2px solid var(--accent); border-radius: 14px; padding: 18px 20px; min-width: 0; }
 .card h2 { font: 500 11.5px/1 var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--accent-text); margin: 0 0 12px; }
 .card.foe { border-top-color: var(--hp-low); }
-.card.foe h2 { color: color-mix(in srgb, var(--hp-low) 75%, var(--fg)); }
+.card.foe h2 { color: var(--foe-text); }
+.team-head { display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: center; margin: 0 0 12px; }
+.team-head h2 { margin: 0 auto 0 0; }
+.team-head label { display: inline-flex; gap: 6px; align-items: center; color: var(--muted); font-size: 13px; }
 .teams { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
 @media (max-width: 860px) { .teams { grid-template-columns: minmax(0, 1fr); } }
 .slot { display: grid; grid-template-columns: 40px minmax(0, 1fr); gap: 4px 10px; align-items: center; padding: 8px 0; border-top: 1px solid var(--line); }
@@ -103,33 +111,47 @@ td.who { font-family: var(--body); }
 .note { color: var(--muted); font-size: 12px; max-width: 80ch; }
 [hidden] { display: none !important; }
 @media (prefers-reduced-motion: reduce) { .status.busy::before { animation: none; } }
+/* Phones: 16px text in boxes, so iPhone Safari doesn't zoom in when one is tapped. */
+@media (pointer: coarse) { input, select, textarea { font-size: max(16px, 1em) !important; } }
 </style>
 </head>
 <body>
 <main class="wrap">
   <header>
     <div>
-      <div class="eyebrow">Simulator <span class="beta">Beta</span></div>
-      <h1>5v5 teamfight</h1>
+      <div class="eyebrow">Simulator</div>
+      <h1 id="pageTitle">Teamfight</h1>
     </div>
     <div class="row">
       <label class="patch">Patch <select id="patchSel" aria-label="Patch"><option value="live">Live</option><option value="pbe">PBE</option></select></label>
-      <button id="randomFoes" type="button">Likely enemies</button>
+      <button id="popularTeams" type="button" title="Both teams as the lineups seen most often in real games">Most popular teams</button>
       <button id="runTeam" class="primary" type="button" disabled>Simulate the fight</button>
     </div>
   </header>
-  <p class="note">Pick your champion, four allies and five enemies. Each champion starts with its most popular build; open a
-    champion's build to change it. Every champion fights the other team on its own, then the two teams trade that damage
-    at once, with front-liners soaking their usual share. Each matchup runs 300 times.</p>
+  <p class="note">Pick both teams. They start as the lineups seen most often in real games, built from the champions most
+    often played together; Randomize fills a team with random champions. Each champion starts with its most popular build;
+    open a champion's build to change it. Every champion fights the other team on its own, then the two teams trade that
+    damage at once, with front-liners soaking their usual share. Each matchup runs 300 times.</p>
   <div class="status" id="status" role="status">Loading the simulator…</div>
   <div class="teams">
-    <section class="card" aria-labelledby="allyTitle"><h2 id="allyTitle">Your team</h2><div id="allies"></div></section>
-    <section class="card foe" aria-labelledby="foeTitle"><h2 id="foeTitle">Enemy team</h2><div id="foes"></div></section>
+    <section class="card" aria-labelledby="allyTitle">
+      <div class="team-head"><h2 id="allyTitle">Your team</h2>
+        <label>Champions <select id="allySize"><option>1</option><option>2</option><option>3</option><option>4</option><option selected>5</option></select></label>
+        <button id="randomAllies" type="button">Randomize</button></div>
+      <div id="allies"></div>
+    </section>
+    <section class="card foe" aria-labelledby="foeTitle">
+      <div class="team-head"><h2 id="foeTitle">Enemy team</h2>
+        <label>Champions <select id="foeSize"><option>1</option><option>2</option><option>3</option><option>4</option><option selected>5</option></select></label>
+        <button id="randomFoes" type="button">Randomize</button></div>
+      <div id="foes"></div>
+    </section>
   </div>
   <section class="card" id="result" hidden aria-labelledby="resTitle">
     <h2 id="resTitle">Result</h2>
     <div class="stats">
       <div><small>Your team wins</small><b id="winRate">–</b></div>
+      <div><small>Teamfights simulated</small><b id="trials">–</b></div>
       <div><small>Fight length</small><b id="fightLen">–</b></div>
       <div><small>Your team's DPS</small><b id="teamDps">–</b></div>
       <div><small>Enemy team's DPS</small><b id="enemyDps">–</b></div>
@@ -143,7 +165,8 @@ td.who { font-family: var(--body); }
     </div>
   </section>
 </main>
-<script>window.REPLAY_VERSION = "41";</script>
-<script src="team.js?v=41"></script>
+<script>window.REPLAY_VERSION = "76";</script>
+<script src="i18n.js?v=76"></script>
+<script src="team.js?v=76"></script>
 </body>
 </html>

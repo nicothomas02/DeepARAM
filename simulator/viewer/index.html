@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-edition="public">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -14,8 +14,12 @@
 :root {
   --bg: #e7ebef; --surface: #f0f3f6; --raised: #e0e5eb; --fg: #1f252e; --muted: #525b68; --line: #d3dae2;
   --hover: var(--raised); --accent: #9b7bff; --accent-ink: #120a2b;
-  --accent-soft: color-mix(in srgb, var(--accent) 16%, transparent);
-  --accent-text: color-mix(in srgb, var(--accent) 70%, var(--fg));
+  /* Colour mixes worked out ahead of time, since older Safari and Firefox can't mix colours in CSS:
+     accent at 16% over transparent, accent 50% with --fg for text, accent 45%/50% with --line for
+     hover borders, --hp-low 75% with --fg. */
+  --accent-soft: rgba(155, 123, 255, 0.16);
+  --accent-text: #5d5096;
+  --accent-line: #baafef; --accent-line-strong: #b7aaf0; --foe-text: #b44844;
   --good: #197048; --bad: #a83831; --gold: #e0a83c;
   --abyss: var(--bg);
   --panel: var(--surface);
@@ -33,28 +37,31 @@
 }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
   --bg: #090b0f; --surface: #11151c; --raised: #181d26; --fg: #e8ecf2; --muted: #8b94a3; --line: #222936;
-  --good: #4cc98b; --bad: #f0776f; color-scheme: dark; } }
+  --good: #4cc98b; --bad: #f0776f;
+  --accent-text: #b29dfb; --accent-line: #584e90; --accent-line-strong: #5e529a; --foe-text: #e67975; color-scheme: dark; } }
 :root[data-theme="dark"] {
   --bg: #090b0f; --surface: #11151c; --raised: #181d26; --fg: #e8ecf2; --muted: #8b94a3; --line: #222936;
-  --good: #4cc98b; --bad: #f0776f; color-scheme: dark; }
+  --good: #4cc98b; --bad: #f0776f;
+  --accent-text: #b29dfb; --accent-line: #584e90; --accent-line-strong: #5e529a; --foe-text: #e67975; color-scheme: dark; }
 * { box-sizing: border-box; }
 html, body { background: var(--abyss); color: var(--frost); }
 body { margin: 0; font: 14px/1.5 var(--body); }
-.wrap { margin: 0 auto; padding-block: 40px 48px;
+.wrap { margin: 0 auto; padding-block: 20px 48px;
   padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
   display: grid; gap: 16px; }
 header { display: flex; flex-wrap: wrap; align-items: end; gap: 12px 24px; justify-content: space-between; }
 h1 { font: 700 clamp(26px, 3.2vw, 32px)/1.1 var(--display); letter-spacing: -.025em; margin: 0; text-wrap: balance; }
 .eyebrow { font: 500 11.5px/1 var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
-.beta { display: inline-block; margin-left: 6px; padding: 3px 7px; border: 1px solid var(--accent); border-radius: 999px; color: var(--accent-text); background: var(--accent-soft); letter-spacing: .06em; vertical-align: 1px; }
 .picker { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.picker label[for="modeSel"], .picker label[for="patchSel"] { margin-left: 12px; }
 label.lbl { font: 500 11px/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
 select, button { font: 500 14px var(--body); color: var(--frost); background: transparent; border: 1px solid var(--line);
   border-radius: 10px; padding: 7px 12px; background: var(--surface); }
 button { cursor: pointer; }
-button:hover, select:hover { background: var(--accent-soft); border-color: color-mix(in srgb, var(--accent) 45%, var(--line)); }
+button:hover, select:hover { background: var(--accent-soft); border-color: var(--accent-line); }
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 6px; }
-.stage { display: grid; grid-template-columns: minmax(0, 1fr); gap: 16px; align-items: start; }
+/* The arena stays a moderate size on wide screens, centred, so the panels below stay in view. */
+.stage { display: grid; grid-template-columns: minmax(0, 1fr); gap: 16px; align-items: start; width: 100%; max-width: 880px; margin: 0 auto; }
 @media (max-width: 860px) { .stage { grid-template-columns: minmax(0, 1fr); } }
 .arena { background: var(--screen); border: 1px solid var(--line); border-radius: 14px; color-scheme: dark; overflow: hidden; position: relative; min-width: 0; }
 .arena canvas { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; max-width: 100%; }
@@ -65,6 +72,7 @@ button:hover, select:hover { background: var(--accent-soft); border-color: color
 .clip { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; display: grid;
   grid-template-rows: auto auto 1fr; min-width: 0; }
 .clip[hidden] { display: none; }
+[hidden] { display: none !important; }
 .clip-video { position: relative; background: #05080c; aspect-ratio: 360 / 246; max-width: 100%; }
 .clip-video video { width: 100%; height: 100%; display: block; object-fit: cover; }
 .clip-video .fallback { position: absolute; inset: 0; display: grid; place-items: center; color: var(--muted); font-size: 13px; text-align: center; padding: 16px; }
@@ -75,8 +83,15 @@ button:hover, select:hover { background: var(--accent-soft); border-color: color
 .abilities { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; padding: 12px; align-content: start; }
 .ab { position: relative; padding: 0; border-radius: 8px; overflow: hidden; aspect-ratio: 1; border: 2px solid var(--line); background: var(--panel-2); }
 .ab canvas { width: 100%; height: 100%; display: block; }
-.ab .key { position: absolute; left: 4px; bottom: 3px; font: 600 12px var(--mono); text-shadow: 0 1px 2px #000; }
+.ab .key { position: absolute; left: 3px; bottom: 2px; font: 600 10px var(--mono); text-shadow: 0 1px 2px #000; }
 .ab .cd { position: absolute; inset: 0; pointer-events: none; }
+/* The ability row sits in the arena's bottom-left corner, so the arena keeps the space. */
+.ab-row { position: absolute; left: 8px; bottom: 8px; z-index: 2; display: grid;
+  grid-template-columns: repeat(5, 30px); gap: 4px; padding: 4px 6px 2px; border-radius: 10px; background: rgba(5, 8, 12, .6); }
+.ab-row .ab { border-radius: 6px; border-width: 1.5px; }
+.ab-wrap { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.ab-cd { text-align: center; font: 600 9.5px var(--mono); color: #c9d1d9; min-height: 1.15em; }
+.ab:disabled { cursor: default; opacity: 1; }
 .ab.lit { border-color: var(--accent); }
 .clip-note { padding: 0 12px 12px; color: var(--muted); font-size: 12px; }
 .timeline { background: var(--panel); border: 1px solid var(--line); border-top: 2px solid var(--accent); border-radius: 14px; padding: 10px 12px; display: grid; gap: 8px; }
@@ -88,8 +103,15 @@ button:hover, select:hover { background: var(--accent-soft); border-color: color
 .track canvas { width: 100%; height: 100%; display: block; }
 .legend { display: flex; flex-wrap: wrap; gap: 6px 16px; color: var(--muted); font-size: 12px; }
 .legend i { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 6px; vertical-align: -1px; }
-.lower { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 16px; }
-@media (max-width: 860px) { .lower { grid-template-columns: minmax(0, 1fr); } }
+/* Results: the build and its numbers on the left, damage by source on the right, in one compact card. */
+.results { padding: 14px 18px; }
+.results-grid { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 12px 24px; }
+@media (max-width: 860px) { .results-grid { grid-template-columns: minmax(0, 1fr); } }
+.results h3 { margin: 0 0 8px; font: 600 13px var(--body); color: var(--muted); }
+.results .stats { grid-template-columns: repeat(auto-fit, minmax(92px, 1fr)); gap: 8px; margin-top: 10px; }
+.results .stats b { font-size: 17px; }
+.results .bars { gap: 5px; }
+.results .bar { grid-template-columns: 100px minmax(0, 1fr) 60px; font-size: 12.5px; }
 .card { background: var(--panel); border: 1px solid var(--line); border-top: 2px solid var(--accent); border-radius: 14px; padding: 18px 20px; min-width: 0; }
 .card h2 { font: 500 11.5px/1 var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--accent-text); margin: 0 0 12px; }
 .build { display: flex; flex-wrap: wrap; gap: 6px; }
@@ -121,6 +143,12 @@ button:hover, select:hover { background: var(--accent-soft); border-color: color
 .sim-status.err { color: var(--hp-low); }
 .linkish { background: none; border: 0; padding: 0; color: var(--accent, #8fd3ff); text-decoration: underline; cursor: pointer; font: inherit; }
 .sim-submit { display: flex; flex-wrap: wrap; gap: 6px 10px; align-items: center; margin-top: 6px; color: var(--muted); font-size: 13px; }
+.kitchen-form { flex-basis: 100%; display: grid; gap: 8px; max-width: 520px; }
+.kitchen-form label { display: grid; gap: 4px; color: var(--frost); }
+.kitchen-form input[type=text] { font-family: var(--body); }
+.kitchen-form textarea { width: 100%; font: 13px var(--body); color: var(--frost); background: var(--surface);
+  border: 1px solid var(--line); border-radius: 8px; padding: 6px 8px; resize: vertical; }
+#kitchenNote a { color: var(--ice); }
 .sim-status.busy::before { content: ""; display: inline-block; width: 10px; height: 10px; margin-right: 8px; border-radius: 50%;
   border: 2px solid var(--ice); border-right-color: transparent; animation: spin .8s linear infinite; vertical-align: -1px; }
 @keyframes spin { to { transform: rotate(1turn); } }
@@ -133,7 +161,7 @@ fieldset { border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px
 legend { font: 500 11px var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); padding: 0 6px; }
 .field { display: grid; grid-template-columns: minmax(0, 1fr) 96px; gap: 8px; align-items: center; font-size: 13px; }
 .field label { color: var(--frost); min-width: 0; }
-.field:has(select) { grid-template-columns: minmax(0, 1fr) 150px; }
+.field.has-select { grid-template-columns: minmax(0, 1fr) 150px; }
 .field small { display: block; color: var(--muted); font-size: 11px; line-height: 1.3; }
 .field.changed label::after { content: " •"; color: var(--e); }
 input[type=number], input[type=text] { width: 100%; font: 500 13px var(--mono); font-variant-numeric: tabular-nums; color: var(--frost);
@@ -144,7 +172,7 @@ fieldset select { width: 100%; min-width: 0; font-size: 13px; padding: 6px 8px; 
 .modes { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 13px; }
 .modes label { display: flex; gap: 6px; align-items: center; cursor: pointer; }
 .enemy { display: grid; gap: 6px; padding: 8px; border: 1px solid var(--line); border-radius: 8px; background: var(--raised); }
-.enemy:hover { border-color: color-mix(in srgb, var(--accent) 50%, var(--line)); }
+.enemy:hover { border-color: var(--accent-line-strong); }
 fieldset.wide { grid-column: 1 / -1; }
 .enemy-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 10px; }
 .enemy.changed { border-color: var(--e); }
@@ -156,14 +184,20 @@ fieldset.wide { grid-column: 1 / -1; }
 .enemy-stats input.changed { border-color: var(--e); }
 .sub { font: 500 11px var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-top: 4px; }
 .adv { border-top: 1px solid var(--line); padding-top: 10px; }
-.adv summary { cursor: pointer; font: 500 12px var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); width: fit-content; }
-.adv summary:hover { color: var(--frost); }
-.adv[open] summary { margin-bottom: 12px; }
+.adv-dialog { width: min(1100px, calc(100vw - 32px)); max-height: calc(100dvh - 32px); padding: 18px 20px; overflow: auto;
+  color: var(--fg); background: var(--bg); border: 1px solid var(--line); border-radius: 14px; }
+.adv-dialog::backdrop { background: rgba(0, 0, 0, .55); }
+.adv-dialog h2 { margin: 0 0 4px; }
+.adv-dialog h2:focus { outline: none; }
+.adv-actions { position: sticky; bottom: -18px; display: flex; justify-content: flex-end; gap: 8px; margin: 14px -20px -18px; padding: 12px 20px;
+  background: var(--bg); border-top: 1px solid var(--line); }
 #advCount { color: var(--e); text-transform: none; letter-spacing: 0; }
 .alts { display: grid; gap: 6px; }
 .alts button { text-align: left; display: grid; grid-template-columns: 64px minmax(0, 1fr); gap: 10px; font-size: 12px; }
 .alts button b { font: 500 13px var(--mono); font-variant-numeric: tabular-nums; }
 @media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto; } .sim-status.busy::before { animation: none; } }
+/* Phones: 16px text in boxes, so iPhone Safari doesn't zoom in when one is tapped. */
+@media (pointer: coarse) { input, select, textarea { font-size: max(16px, 1em) !important; } }
 </style>
 <!-- replay-page-head-end -->
 </head>
@@ -172,13 +206,19 @@ fieldset.wide { grid-column: 1 / -1; }
 <div class="wrap">
   <header>
     <div>
-      <div class="eyebrow">ARAM Mayhem simulator · fight replay <span class="beta" title="Experimental">Beta</span></div>
+      <div class="eyebrow">ARAM Mayhem simulator · fight replay</div>
       <h1 id="title">Loading replays…</h1>
     </div>
     <div class="picker">
       <label class="lbl" for="champ">Champion</label>
       <select id="champ" aria-label="Champion"></select>
       <button id="rand" type="button" title="Pick a random champion">Random</button>
+      <label class="lbl" for="modeSel" title="What the simulator measures, and what Optimize looks for">Optimize for</label>
+      <select id="modeSel" disabled><option value="damage">Damage</option><option value="taken">Damage taken</option>
+        <option value="mitigated">Damage mitigated</option><option value="healing">Healing done</option>
+        <option value="shielding">Shielding</option><option value="cc">Crowd control (seconds)</option></select>
+      <label class="lbl" for="patchSel" title="The test server's upcoming patch">Patch</label>
+      <select id="patchSel" disabled><option value="live">Live</option><option value="pbe">PBE (test server)</option></select>
     </div>
   </header>
 
@@ -187,6 +227,7 @@ fieldset.wide { grid-column: 1 / -1; }
       <canvas id="arena" width="1280" height="720" aria-label="Animated fight"></canvas>
       <canvas id="arena3d" class="layer" aria-hidden="true"></canvas>
       <canvas id="arenaOverlay" class="layer" width="1280" height="720" aria-hidden="true"></canvas>
+      <div class="abilities ab-row" id="abilities"></div>
       <div class="hud"><span>Kills <b id="kills">0</b></span><span>Damage <b id="dmg">0</b></span><span id="modeHud" hidden><span id="modeName"></span> <b id="modeVal">0</b></span><span id="state"></span></div>
     </div>
     <div class="clip" hidden>
@@ -196,7 +237,6 @@ fieldset.wide { grid-column: 1 / -1; }
         <div class="fallback" id="fallback" hidden></div>
       </div>
       <div>
-        <div class="abilities" id="abilities"></div>
         <div class="clip-note" id="clipNote">Loading your champion's model…</div>
       </div>
     </div>
@@ -222,23 +262,37 @@ fieldset.wide { grid-column: 1 / -1; }
     </div>
   </section>
 
+  <section class="card results" aria-labelledby="resultsTitle">
+    <h2 id="resultsTitle">Results</h2>
+    <div class="results-grid">
+      <div>
+        <h3 id="buildTitle">Simulated best build</h3>
+        <div class="build" id="build"></div>
+        <div class="stats" id="stats"></div>
+      </div>
+      <div>
+        <h3>Damage so far</h3>
+        <div class="bars" id="bars"></div>
+      </div>
+    </div>
+  </section>
+
   <section class="card sim" id="sim">
     <div class="sim-head">
       <h2>Change the simulation</h2>
-      <label class="patch" title="What the simulator measures, and what Find the best build looks for">Mode
-        <select id="modeSel" disabled><option value="damage">Damage</option><option value="taken">Damage taken</option>
-          <option value="mitigated">Damage mitigated</option><option value="healing">Healing done</option>
-          <option value="cc">Crowd control (seconds)</option></select></label>
-      <label class="patch" title="The test server's upcoming patch">Patch
-        <select id="patchSel" disabled><option value="live">Live</option><option value="pbe">PBE (test server)</option></select></label>
-      <button id="runBuild" class="primary" type="button" disabled>Simulate this build</button>
-      <button id="findBest" type="button" disabled>Find the best build</button>
-      <button id="resetAll" type="button" disabled>Reset to defaults</button>
+      <button id="findBest" type="button" disabled>Optimize</button>
+      <button id="runBuild" class="primary" type="button" disabled>Simulate</button>
     </div>
     <div class="sim-status" id="simStatus">Loading the simulator…</div>
     <div class="sim-submit" id="submitBox" hidden>
-      <button id="submitScore" type="button">Submit to Survival</button>
-      <span id="submitNote"></span>
+      <button id="kitchenBtn" type="button">Submit to The Kitchen</button>
+      <form class="kitchen-form" id="kitchenForm" hidden>
+        <label>Title <input id="kitchenTitle" type="text" minlength="3" maxlength="60" required placeholder="Name your build"></label>
+        <label>Why it works <textarea id="kitchenDesc" minlength="20" maxlength="280" required rows="3" placeholder="A sentence or two for other players"></textarea></label>
+        <p class="note">Approved builds show in The Kitchen with your display name.</p>
+        <div><button class="primary" type="submit" id="kitchenSend">Send</button> <button type="button" id="kitchenCancel">Cancel</button></div>
+      </form>
+      <span id="kitchenNote" aria-live="polite"></span>
     </div>
     <div class="sim-grid">
       <fieldset id="buildBox"><legend>Build</legend></fieldset>
@@ -252,34 +306,25 @@ fieldset.wide { grid-column: 1 / -1; }
       </fieldset>
       <fieldset id="fightBox"><legend>Fight</legend></fieldset>
     </div>
-    <details class="adv" id="advBox">
-      <summary>Advanced settings <span id="advCount"></span></summary>
+    <div class="adv"><button type="button" id="advBtn" aria-haspopup="dialog">Advanced settings <span id="advCount"></span></button></div>
+    <dialog class="adv-dialog" id="advDialog" aria-labelledby="advTitle">
+      <h2 id="advTitle" tabindex="-1" autofocus>Advanced settings</h2>
+      <p class="note">Changes here take effect when you press Apply.</p>
       <div class="sim-grid" id="advGrid"></div>
-    </details>
+      <div class="adv-actions"><button type="button" id="advCancel">Cancel</button> <button type="button" class="primary" id="advApply">Apply</button></div>
+    </dialog>
     <div class="alts" id="alts" hidden></div>
   </section>
 
-  <section class="lower">
-    <div class="card">
-      <h2 id="buildTitle">Simulated best build</h2>
-      <div class="build" id="build"></div>
-      <div class="stats" id="stats"></div>
-    </div>
-    <div class="card">
-      <h2>Damage so far</h2>
-      <div class="bars" id="bars"></div>
-    </div>
-  </section>
 
   <p class="note">The simulator is in beta: an experiment whose results can shift as the model changes. This is one typical fight (the median of 200) from the simulator, using the build it found best. Some champions' numbers are approximate, and passives that depend on allies, deaths or summons aren't counted.
-  The champion models, animations and icons belong to Riot Games. This project isn't endorsed by Riot Games and doesn't reflect the views or opinions of Riot Games or anyone officially involved in producing or managing League of Legends.</p>
+  The champion sounds and icons belong to Riot Games. This project isn't endorsed by Riot Games and doesn't reflect the views or opinions of Riot Games or anyone officially involved in producing or managing League of Legends.</p>
 </div>
-<script type="importmap">{"imports": {"three": "/assets/lib/three-0.160.0/build/three.module.js",
-  "three/addons/": "/assets/lib/three-0.160.0/examples/jsm/"}}</script>
-<script>window.REPLAY_VERSION = "41";</script>
-<script src="replay.js?v=41"></script>
-<script type="module" src="models3d.js?v=41"></script>
-<script src="sim-panel.js?v=41"></script>
+<script>window.REPLAY_VERSION = "76";</script>
+<script src="i18n.js?v=76"></script>
+<script src="replay.js?v=76"></script>
+<!-- full-edition-scripts -->
+<script src="sim-panel.js?v=76"></script>
 <!-- replay-page-end -->
 </body>
 </html>

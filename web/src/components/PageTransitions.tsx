@@ -8,7 +8,7 @@ import { savedView } from "@/lib/url-state";
 // and a champion's icon (or the Tier List panel's splash) morphs into the champion page's hero.
 // Skipped where the browser lacks View Transitions or motion is reduced (OS setting or gear menu).
 
-type VT = { finished: Promise<void> };
+type VT = { ready: Promise<void>; finished: Promise<void> };
 type Doc = Document & { startViewTransition?: (cb: () => Promise<void>) => VT };
 
 const reduced = () => document.documentElement.dataset.motion === "reduce" || matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -50,7 +50,7 @@ export default function PageTransitions() {
 
       // A plain link to a remembered page opens its saved view (lib/url-state.ts, ViewMemory).
       const target = url.pathname + (url.search || savedView(url.pathname)) + url.hash;
-      doc.startViewTransition(
+      const vt = doc.startViewTransition(
         () =>
           new Promise<void>((resolve) => {
             named.forEach((el) => el.style.removeProperty("view-transition-name"));
@@ -60,6 +60,9 @@ export default function PageTransitions() {
             setTimeout(resolve, 1200); // never hold the page if the route doesn't change
           }),
       );
+      // The browser drops the animation when the tab is hidden or the window resizes mid-change. The
+      // page still changes; only the animation is skipped, so that isn't an error.
+      vt.ready.catch(() => {});
     };
     document.addEventListener("click", onClick, true);
     return () => document.removeEventListener("click", onClick, true);

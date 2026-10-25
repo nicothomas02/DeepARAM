@@ -34,6 +34,9 @@ Usage: mayhem_sim [options]
                       real-game damage shares
   --kit NAME          show what the simulator read from a champion's abilities
   --any-items         search every item, not just ones that fit the champion
+  --search MODE       quick (the default) or smart: a wider search of items and
+                      augments together that races the builds and keeps the best,
+                      about 3x slower (optimizer.smart in the rules file)
   --list              list champions, items and augments
   --trials N          fights per build in the final comparison
   --seed N            RNG seed
@@ -51,14 +54,15 @@ Usage: mayhem_sim [options]
                       Name:hp=5000:armor=250 (hp, armor, mr, damage_share, phys_share,
                       cc, damage_taken); add items and augments with
                       Name:items=warmogs+thornmail:augs=goliath (their HP, armor, MR)
-  --allies a,b,c,d    with --champ: a 5v5 with these four allies (each with its most
-                      popular build, or Name:items=a+b:augs=c+d); --items/--augs set
-                      yours (default: your most popular build); --team names the five
+  --allies a,b,c,d    with --champ: a teamfight with these allies, 0 to 4 ("" for none; each
+                      with its most popular build, or Name:items=a+b:augs=c+d); --items/--augs
+                      set yours (default: your most popular build); --team names 1 to 5
                       enemies the same way (default: the five most likely enemies)
   --combo EQRW        with --champ: cast order when several abilities are ready
                       (default: the champion's recommended combo, data/combos.json)
   --metric M          what the build search ranks by: damage (per second, the default), or per
-                      fight taken (damage taken), mitigated, healing, or cc (seconds dealt)
+                      fight taken (damage taken), mitigated, healing, shielding (damage your
+                      shields absorbed) or cc (seconds dealt)
   --list --json       champions, items, augments, settings and the enemy pool as JSON
   --help              show this help
 )";
@@ -115,19 +119,35 @@ std::string num(double v) {
 }
 
 // The fight with the median DPS (or the chosen measure) out of the first 200, so a replay shows a typical fight.
-uint64_t typicalTrial(const Library& lib, const ChampionKit& c, const Build& b, const Scenario& sc, Metric metric) {
+// Among the few fights nearest the median, the first where the ultimate is cast wins, so a replay shows it.
+FightTrace typicalFight(const Library& lib, const ChampionKit& c, const Build& b, const Scenario& sc, Metric metric,
+                        uint64_t& trial) {
     const auto res = runTrials(lib, c, b, sc, 0, 200);
     std::vector<std::pair<double, size_t>> dps;
     for (size_t i = 0; i < res.size(); ++i) dps.push_back({metricOf(res[i], metric), i});
     std::sort(dps.begin(), dps.end());
-    return dps[dps.size() / 2].second;
+    const size_t mid = dps.size() / 2;
+    bool hasR = false;
+    for (const auto& a : c.abilities) hasR = hasR || a.slot == 'R';
+    FightTrace first;
+    for (size_t k = 0; k < (hasR ? 9u : 1u) && k <= 2 * mid; ++k) {
+        const size_t at = k % 2 ? mid + (k + 1) / 2 : mid - k / 2;
+        if (at >= dps.size()) continue;
+        FightTrace tr = traceFight(lib, c, b, sc, dps[at].second);
+        if (k == 0) trial = dps[at].second;
+        bool r = !hasR;
+        for (const auto& e : tr.events) r = r || (e.kind == "cast" && e.slot == 'R');
+        if (r) { trial = dps[at].second; return tr; }
+        if (k == 0) first = std::move(tr);
+    }
+    return first;
 }
 
 // Writes a fight trace for the replay viewer (viewer/). Short keys keep the files small.
 bool writeTrace(const Library& lib, const ChampionKit& c, const Build& b, const Scenario& sc, const Summary& summary,
                 const std::string& path, Metric metric = Metric::Damage) {
-    const uint64_t trial = typicalTrial(lib, c, b, sc, metric);
-    const FightTrace tr = traceFight(lib, c, b, sc, trial);
+    uint64_t trial = 0;
+    const FightTrace tr = typicalFight(lib, c, b, sc, metric, trial);
     std::ostringstream o;
     o << "{\"champion\": " << jsonStr(c.id) << ", \"name\": " << jsonStr(c.name) << ", \"key\": " << c.championId
       << ", \"role\": " << jsonStr(c.role) << ", \"ranged\": " << (c.ranged ? "true" : "false")
@@ -138,15 +158,18 @@ bool writeTrace(const Library& lib, const ChampionKit& c, const Build& b, const 
           << ", \"name\": " << jsonStr(lib.items.at(b.items[i]).name) << "}";
     o << "], \"augments\": [";
     for (size_t i = 0; i < b.augments.size(); ++i)
-        o << (i ? ", " : "") << "{\"key\": " << jsonStr(b.augments[i]) << ", \"name\": "
+        o << (i ? ", " : "") << "{\"key\": " << jsonStr(b.augments[i]) << ", \"id\": " << lib.augments.at(b.augments[i]).id << ", \"name\": "
           << jsonStr(lib.augments.at(b.augments[i]).name) << ", \"rarity\": " << jsonStr(lib.augments.at(b.augments[i]).rarity) << "}";
     o << "]},\n \"abilities\": [";
     for (size_t i = 0; i < c.abilities.size(); ++i) {
         const Ability& a = c.abilities[i];
         o << (i ? ", " : "") << "{\"slot\": \"" << a.slot << "\", \"name\": " << jsonStr(a.name)
-          << ", \"cooldown\": " << num(a.cooldown) << ", \"passive\": " << (a.aura || a.onhitEvery > 0 ? "true" : "false")
+          << ", \"cooldown\": " << num(a.cooldown);
+        if (i < tr.cooldowns.size()) o << ", \"build_cooldown\": " << num(tr.cooldowns[i]);
+        o << ", \"passive\": " << (a.aura || a.onhitEvery > 0 ? "true" : "false")
           << ", \"range\": " << num(a.geo.range) << ", \"radius\": " << num(a.geo.radius)
-          << ", \"width\": " << num(a.geo.width) << ", \"angle\": " << num(a.geo.angle) << "}";
+          << ", \"width\": " << num(a.geo.width) << ", \"angle\": " << num(a.geo.angle)
+          << ", \"speed\": " << num(a.geo.speed) << "}";
     }
     o << "],\n \"summary\": " << summaryJson(summary);
     o << ",\n \"fight\": {\"trial\": " << trial << ", \"seed\": " << sc.seed << ", \"duration\": " << num(tr.result.duration)
@@ -154,6 +177,7 @@ bool writeTrace(const Library& lib, const ChampionKit& c, const Build& b, const 
       << ", \"died\": " << (tr.result.died ? "true" : "false") << ", \"time_alive\": " << num(tr.result.timeAlive)
       << ", \"total_damage\": " << num(tr.result.totalDamage) << ", \"damage_taken\": " << num(tr.result.damageTaken)
       << ", \"damage_mitigated\": " << num(tr.result.mitigated) << ", \"healing\": " << num(tr.result.healed)
+      << ", \"shielding\": " << num(tr.result.shielded)
       << ", \"cc_seconds\": " << num(tr.result.ccDealt) << ", \"kills\": " << tr.result.kills << ", \"team\": [";
     for (size_t i = 0; i < tr.team.size(); ++i) o << (i ? ", " : "") << jsonStr(tr.team[i]);
     o << "]},\n \"sources\": [";
@@ -173,6 +197,7 @@ bool writeTrace(const Library& lib, const ChampionKit& c, const Build& b, const 
             o << ", \"hp\": " << num(e.hp) << ", \"max\": " << num(e.maxHp);
         if (e.shield > 0) o << ", \"sh\": " << num(e.shield);
         if (e.kind == "self" || e.kind == "death") o << ", \"tk\": " << std::lround(e.taken) << ", \"mt\": " << std::lround(e.mitigated);
+        if ((e.kind == "self" || e.kind == "death") && e.shielded >= 0.5) o << ", \"ab\": " << std::lround(e.shielded);
         if (e.total > 0) o << ", \"tot\": " << num(e.total);
         if (e.flag) o << ", \"f\": 1";
         if (e.kind == "cast" || e.kind == "poro") o << ", \"ax\": " << std::lround(e.x) << ", \"ay\": " << std::lround(e.y) << ", \"fl\": " << num(e.flight);
@@ -198,10 +223,10 @@ std::string summaryJson(const Summary& s) {
                   "{\"mean_dps\": %.1f, \"ci95\": %.1f, \"p5\": %.1f, \"median\": %.1f, \"p95\": %.1f, "
                   "\"single_target_dps\": %.1f, \"kills_per_minute\": %.3f, \"survival_rate\": %.4f, "
                   "\"time_alive\": %.2f, \"damage_taken_per_s\": %.1f, \"dps_short_fight\": %.1f, \"dps_long_fight\": %.1f, "
-                  "\"damage_taken\": %.0f, \"damage_mitigated\": %.0f, \"healing\": %.0f, \"cc_seconds\": %.2f, \"share_by_source\": {",
+                  "\"damage_taken\": %.0f, \"damage_mitigated\": %.0f, \"healing\": %.0f, \"shielding\": %.0f, \"cc_seconds\": %.2f, \"share_by_source\": {",
                   s.meanDps, s.ci95, s.p5, s.median, s.p95, s.singleTargetDps, s.killsPerMinute, s.survivalRate,
                   s.meanTimeAlive, s.damageTakenPerSec, s.shortDps, s.longDps, s.damageTaken, s.damageMitigated, s.healing,
-                  s.ccSeconds);
+                  s.shielding, s.ccSeconds);
     std::string out = buf;
     for (int i = 0; i < SrcCount; ++i) {
         std::snprintf(buf, sizeof buf, "%s\"%s\": %.4f", i ? ", " : "", kSourceNames[i], s.shareBySource[i]);
@@ -279,7 +304,7 @@ double spearman(std::vector<double> a, std::vector<double> b) {
 int main(int argc, char** argv) {
     std::string rulesPath = MAYHEM_DEFAULT_RULES, gameDir, champName, kitName;
     std::vector<std::string> items, augs;
-    bool all = false, asJson = false, list = false, customBuild = false, anyItems = false;
+    bool all = false, asJson = false, list = false, customBuild = false, anyItems = false, smartSearch = false, teamMode = false;
     std::string tracePath, traceDir, combo;
     Metric metric = Metric::Damage;
     Library::Settings settings;
@@ -306,16 +331,21 @@ int main(int argc, char** argv) {
         else if (a == "--augs") augs = splitList(next());
         else if (a == "--all") all = true;
         else if (a == "--any-items") anyItems = true;
+        else if (a == "--search") {
+            const std::string m = next();
+            if (m != "quick" && m != "smart") { std::cerr << "--search must be quick or smart, got " << m << "\n"; return 2; }
+            smartSearch = m == "smart";
+        }
         else if (a == "--list") list = true;
         else if (a == "--json") asJson = true;
         else if (a == "--trace") tracePath = next();
         else if (a == "--trace-dir") traceDir = next();
         else if (a == "--team") team = splitList(next());
-        else if (a == "--allies") allies = splitList(next());
+        else if (a == "--allies") { allies = splitList(next()); teamMode = true; }
         else if (a == "--combo") combo = next();
         else if (a == "--metric") {
             const std::string m = next();
-            if (!parseMetric(m, metric)) { std::cerr << "--metric must be damage, taken, mitigated, healing or cc, got " << m << "\n"; return 2; }
+            if (!parseMetric(m, metric)) { std::cerr << "--metric must be damage, taken, mitigated, healing, shielding or cc, got " << m << "\n"; return 2; }
         }
         else if (a == "--set") {
             for (const auto& kv : splitList(next())) {
@@ -354,8 +384,9 @@ int main(int argc, char** argv) {
         std::cerr << "error: " << e.what() << "\n";
         return 1;
     }
-    if (trials > 0) lib.optimizer.finalTrials = trials;
+    if (trials > 0) lib.optimizer.finalTrials = lib.optimizer.smartFinalTrials = trials;
     if (anyItems) lib.optimizer.fittingItemsOnly = false;
+    lib.optimizer.smart = smartSearch;
     if (seed >= 0) lib.scenario.seed = static_cast<uint64_t>(seed);
 
     if (list && asJson) {
@@ -373,9 +404,10 @@ int main(int argc, char** argv) {
             for (const auto& [k, e] : m) {
                 std::string roles;
                 for (size_t i = 0; i < e.roles.size(); ++i) roles += (i ? ", " : "") + jsonStr(e.roles[i]);
-                std::printf("%s{\"key\": %s, \"name\": %s, \"slot\": %s, \"rarity\": %s, \"roles\": [%s], \"modeled\": %s}",
-                            first ? "" : ", ", jsonStr(k).c_str(), jsonStr(e.name).c_str(), jsonStr(e.slot).c_str(),
-                            jsonStr(e.rarity).c_str(), roles.c_str(), e.stats.empty() && e.effects.empty() ? "false" : "true");
+                std::printf("%s{\"key\": %s, \"id\": %d, \"name\": %s, \"slot\": %s, \"rarity\": %s, \"roles\": [%s], \"modeled\": %s%s}",
+                            first ? "" : ", ", jsonStr(k).c_str(), e.id, jsonStr(e.name).c_str(), jsonStr(e.slot).c_str(),
+                            jsonStr(e.rarity).c_str(), roles.c_str(), e.stats.empty() && e.effects.empty() ? "false" : "true",
+                            e.group.empty() ? "" : (", \"group\": " + jsonStr(e.group)).c_str());
                 first = false;
             }
         };
@@ -389,12 +421,13 @@ int main(int argc, char** argv) {
         const std::map<std::string, double> defaults = {
             {"level", sc.level}, {"enemy_level", sc.enemyLevel}, {"fight_mean", sc.fightMean}, {"fight_sd", sc.fightSd}, {"fight_min", sc.fightMin},
             {"fight_max", sc.fightMax}, {"engage_min", sc.engageMin}, {"engage_max", sc.engageMax},
-            {"until_death", sc.untilDeath ? 1.0 : 0.0}, {"fight_cap", sc.fightCap},
+            {"until_death", sc.untilDeath ? 1.0 : 0.0}, {"on_fire", sc.onFire ? 1.0 : 0.0},
+            {"random_respawn", sc.randomRespawn ? 1.0 : 0.0}, {"fight_cap", sc.fightCap},
             {"team_size", sc.teamSizeRule > 0 ? sc.teamSizeRule : 5},
             {"enemy_damage_scale", 1}, {"cc_scale", 1}, {"cc_min", sc.ccMin}, {"cc_max", sc.ccMax},
             {"start_distance", sc.startDistance}, {"enemy_spread", sc.enemySpread}, {"r_ready_chance", sc.rReadyChance},
             {"retarget_delay", sc.retargetDelay}, {"fixed_target", 0}, {"target_hp", dummy[0]},
-            {"target_armor", dummy[1]}, {"target_mr", dummy[2]}, {"dodge_chance", r.dodgeChance},
+            {"target_armor", dummy[1]}, {"target_mr", dummy[2]}, {"dummy_hp", 1.0}, {"dodge_chance", r.dodgeChance},
             {"reaction_time", r.reactionTime}, {"aim_lead", r.aimLead}, {"combo_order", r.comboOrder}};
         std::printf("],\n \"settings\": [");
         bool first = true;
@@ -447,7 +480,7 @@ int main(int argc, char** argv) {
         if (!champName.empty()) {
             const ChampionKit* c = lib.find(champName);
             if (!c) { std::cerr << "unknown champion " << champName << "\n"; return 2; }
-            if (!allies.empty()) {
+            if (teamMode) {
                 // "Lulu" or "Lulu:items=a+b:augs=c+d", each with its most popular build unless given.
                 auto pickOf = [&](const std::string& entry) {
                     std::vector<std::string> parts;
@@ -489,8 +522,8 @@ int main(int argc, char** argv) {
                     !writeTrace(lib, *c, tr.members.front().build, tr.members.front().scenario, tr.members.front().summary, tracePath))
                     return 1;
                 if (asJson) {
-                    std::printf("{\"mode\": \"team\", \"win_rate\": %.4f, \"fight_length\": %.2f, \"team_dps\": %.1f, \"enemy_dps\": %.1f",
-                                tr.winRate, tr.fightLength, tr.teamDps, tr.enemyDps);
+                    std::printf("{\"mode\": \"team\", \"trials\": %d, \"win_rate\": %.4f, \"fight_length\": %.2f, \"team_dps\": %.1f, "
+                                "\"enemy_dps\": %.1f", n, tr.winRate, tr.fightLength, tr.teamDps, tr.enemyDps);
                     for (int s = 0; s < 2; ++s) {
                         const auto& list = s ? tr.foes : tr.members;
                         std::printf(", \"%s\": [", s ? "enemies" : "members");
@@ -513,7 +546,7 @@ int main(int argc, char** argv) {
                     }
                     std::printf("]}\n");
                 } else {
-                    std::printf("5v5: your team wins %.0f%% of fights; a fight lasts %.1f s (median).\n", tr.winRate * 100,
+                    std::printf("%zuv%zu: your team wins %.0f%% of fights; a fight lasts %.1f s (median).\n", mine.size(), theirs.size(), tr.winRate * 100,
                                 tr.fightLength);
                     std::printf("Your team deals %.0f damage per second, the enemy team %.0f.\n", tr.teamDps, tr.enemyDps);
                     for (int s = 0; s < 2; ++s) {

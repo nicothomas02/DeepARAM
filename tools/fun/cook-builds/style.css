@@ -4,7 +4,7 @@
 :root {
   color-scheme: light;
   --bg: #e7ebef; --surface: #f0f3f6; --raised: #e0e5eb; --fg: #1f252e; --muted: #525b68; --line: #d3dae2;
-  --accent: #ec5aa6; --accent-ink: #2a0b1c; --accent-soft: color-mix(in srgb, #ec5aa6 16%, transparent);
+  --accent: #ec5aa6; --accent-ink: #2a0b1c; --accent-soft: rgba(236, 90, 166, 0.16);
   --good: #197048; --bad: #a83831; --gold: #80601a; --silver: #59626e;
   --display: "Bricolage Grotesque", "Geist", system-ui, sans-serif;
   --sans: "Geist", system-ui, -apple-system, "Segoe UI", sans-serif;
@@ -14,22 +14,34 @@
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     --bg: #090b0f; --surface: #11151c; --raised: #181d26; --fg: #e8ecf2; --muted: #8b94a3; --line: #222936;
-    --accent: #ec5aa6; --accent-ink: #2a0b1c; --accent-soft: color-mix(in srgb, #ec5aa6 16%, transparent);
+    --accent: #ec5aa6; --accent-ink: #2a0b1c; --accent-soft: rgba(236, 90, 166, 0.16);
+    --a-ink: #eb86bd; --a-line: #7d3f68; --gain: #773860; --gold-ink: #e2bc73; --gold-line: #816839;
     --good: #4cc98b; --bad: #f0776f; --gold: #e0b45c; --silver: #a3adbb; color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
   --bg: #090b0f; --surface: #11151c; --raised: #181d26; --fg: #e8ecf2; --muted: #8b94a3; --line: #222936;
-  --accent: #ec5aa6; --accent-ink: #2a0b1c; --accent-soft: color-mix(in srgb, #ec5aa6 16%, transparent);
+  --accent: #ec5aa6; --accent-ink: #2a0b1c; --accent-soft: rgba(236, 90, 166, 0.16);
+  --a-ink: #eb86bd; --a-line: #7d3f68; --gain: #773860; --gold-ink: #e2bc73; --gold-line: #816839;
   --good: #4cc98b; --bad: #f0776f; --gold: #e0b45c; --silver: #a3adbb; color-scheme: dark;
 }
 
 /* The Lab's hue (site colour pass): accent, tints and hue-tinted text. Gold accents use the site gold. */
 :root {
   --a: #ec5aa6;
-  --a-ink: color-mix(in srgb, var(--a) 70%, var(--fg));
-  --a-soft: color-mix(in srgb, var(--a) 16%, transparent);
   --hue-gold: #e0a83c;
+  /* Precomputed colour mixes (no color-mix(), so Safari before 16.2 and Firefox before 113 render the same).
+     The light values are darkened to reach 4.5:1 contrast; dark values are set in the dark blocks above. */
+  --a-ink: #8a416c;
+  --a-soft: rgba(236, 90, 166, 0.16);
+  --a-20: rgba(236, 90, 166, 0.2);
+  --a-30: rgba(236, 90, 166, 0.3);
+  --a-40: rgba(236, 90, 166, 0.4);
+  --a-70: rgba(236, 90, 166, 0.7);
+  --a-line: #dea0c7;
+  --gain: #e5a6cc;
+  --gold-ink: #7a5b16;
+  --gold-line: #dac18f;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -46,31 +58,21 @@ header p.muted { margin-top: 10px; max-width: 60ch; }
 .muted { color: var(--muted); }
 .small { font-size: 12.5px; }
 
-.controls { display: flex; flex-wrap: wrap; gap: 10px; justify-content: space-between; align-items: center; }
-.filters { display: inline-flex; flex-wrap: wrap; padding: 3px; background: var(--raised); border-radius: 10px; gap: 2px; }
-.filters button { font: inherit; border: 0; background: none; padding: 5px 12px; border-radius: 8px; font-size: 13.5px; font-weight: 500; color: var(--muted); cursor: pointer; }
-.filters button:hover { color: var(--a-ink); }
-.filters button[aria-pressed="true"] { background: var(--a-soft); color: var(--a-ink); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--a) 40%, transparent); }
-.filters .count { font: 500 11.5px var(--mono); margin-left: 6px; color: var(--muted); }
-.sort { display: flex; align-items: center; gap: 8px; font-size: 13.5px; color: var(--muted); }
 select { font: inherit; font-size: 13.5px; color: var(--fg); height: 36px; padding: 0 10px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); cursor: pointer; }
 select:hover { border-color: var(--muted); }
 
-#builds { display: grid; gap: 16px; }
 
 .card { position: relative; overflow: hidden; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 18px; display: grid; gap: 14px; min-width: 0; transition: border-color 0.2s, box-shadow 0.2s; }
-.card::before { content: ""; position: absolute; inset: 0 0 auto; height: 3px; background: linear-gradient(90deg, var(--a), color-mix(in srgb, var(--a) 30%, transparent)); }
-.card:hover { border-color: color-mix(in srgb, var(--a) 45%, var(--line)); box-shadow: 0 10px 30px -18px var(--a); }
+.card::before { content: ""; position: absolute; inset: 0 0 auto; height: 3px; background: linear-gradient(90deg, var(--a), var(--a-30)); }
+.card:hover { border-color: var(--a-line); box-shadow: 0 10px 30px -18px var(--a); }
 .card-head { display: flex; gap: 14px; align-items: center; }
 .card-head img { width: 52px; height: 52px; border-radius: 12px; flex: none; }
 .card-head .who { flex: 1; min-width: 0; }
 .card-head .sub { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 4px; font-size: 13px; color: var(--a-ink); font-weight: 500; }
-.score { text-align: right; flex: none; }
-.score .value { font: 600 22px/1.2 var(--mono); font-variant-numeric: tabular-nums; letter-spacing: -.02em; }
-.score .label { display: block; color: var(--muted); font-size: 12.5px; }
+.share { display: inline-flex; align-items: center; gap: 6px; flex: none; align-self: flex-start; padding: 4px; border: 0; background: none; color: var(--a-ink); font: inherit; font-size: 14px; cursor: pointer; }
+.share:hover span { text-decoration: underline; text-underline-offset: 3px; }
 
 .chip { display: inline-flex; align-items: center; height: 22px; padding: 0 8px; border-radius: 999px; font: 500 11.5px var(--mono); border: 1px solid var(--line); color: var(--muted); white-space: nowrap; }
-.chip.tier { color: var(--a-ink); background: var(--a-soft); border-color: color-mix(in srgb, var(--a) 40%, transparent); }
 .chip.prismatic { border: 0; color: #1a1030; background: linear-gradient(100deg, #9fe7ff, #c9b8ff 40%, #ffb8e0 70%, #ffe2a3); }
 .chip.gold { border: 0; color: #2b1d05; background: var(--hue-gold); }
 .chip.silver { border: 0; color: #12161d; background: #b9c2ce; }
@@ -91,27 +93,27 @@ select:hover { border-color: var(--muted); }
 .augs .desc { color: var(--muted); font-size: 13px; line-height: 1.45; margin-top: 2px; }
 .augs .wr { text-align: right; font: 500 13.5px var(--mono); font-variant-numeric: tabular-nums; white-space: nowrap; }
 .augs .wr small { display: block; color: var(--muted); font-size: 11.5px; font-weight: 400; }
-.augs li.flex .name::after { content: "flex"; display: inline-flex; align-items: center; height: 20px; padding: 0 7px; border-radius: 999px; background: var(--raised); font: 500 11px var(--mono); color: var(--muted); }
+.augs li.flex .name::after { content: attr(data-flex); display: inline-flex; align-items: center; height: 20px; padding: 0 7px; border-radius: 999px; background: var(--raised); font: 500 11px var(--mono); color: var(--muted); }
 
 .items { list-style: none; display: grid; gap: 6px; }
 .items li { padding: 7px 12px; border-radius: var(--r-sm); background: var(--raised); font-size: 13.5px; transition: background 0.15s; }
 .items li:hover { background: var(--a-soft); }
 
-.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 8px; }
-.stats div { padding: 10px 12px; border-radius: var(--r-sm); background: var(--raised); min-width: 0; }
-.stats dt { color: var(--muted); font-size: 12.5px; }
-.stats dd { font: 600 16px/1.3 var(--mono); font-variant-numeric: tabular-nums; }
-.stats dd small { font: 400 12px var(--sans); color: var(--muted); }
 
-/* Chef's Special: today's build, set apart in gold. */
-.chef { display: grid; gap: 10px; }
+/* Today's Chef Special, set apart in gold. */
+.chef { display: grid; grid-template-columns: minmax(0, 1fr); gap: 10px; }
 .chef-head { display: flex; flex-wrap: wrap; gap: 4px 12px; align-items: baseline; justify-content: space-between; }
-.chef .eyebrow { color: color-mix(in srgb, var(--hue-gold) 70%, var(--fg)); font-size: 12.5px; }
-.chef .card { border-color: color-mix(in srgb, var(--hue-gold) 50%, var(--line)); box-shadow: 0 12px 34px -22px var(--hue-gold); }
-.chef .card::before { height: 4px; background: linear-gradient(90deg, var(--hue-gold), color-mix(in srgb, var(--a) 70%, transparent)); }
+.chef .eyebrow { color: var(--gold-ink); font-size: 12.5px; }
+.chef .card { border-color: var(--gold-line); box-shadow: 0 12px 34px -22px var(--hue-gold); }
+.chef-archive { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.chef-archive .eyebrow { margin: 0 4px 0 0; }
+.chef-archive button, .chef-archive select { font: inherit; }
+.chef-archive select { max-width: 100%; min-width: 0; flex: 1 1 220px; }
+.chef-archive button:disabled { opacity: 0.45; cursor: default; }
+.chef-head a, a.chef-chip { color: var(--gold-ink); }
+a.chef-chip { text-decoration: none; }
+.chef .card::before { height: 4px; background: linear-gradient(90deg, var(--hue-gold), var(--a-70)); }
 
-footer { max-width: 72ch; display: grid; gap: 8px; padding-top: 20px; border-top: 1px solid var(--line); }
-footer a { color: var(--a-ink); }
 /* Win rates: 52% or more reads good, 48% or less reads bad. */
 .good { color: var(--good); }
 .bad { color: var(--bad); }
@@ -121,6 +123,8 @@ footer a { color: var(--a-ink); }
   .cols { grid-template-columns: 1fr; }
   .card { padding: 14px; }
   .card-head { flex-wrap: wrap; }
-  .score { text-align: left; width: 100%; display: flex; align-items: baseline; gap: 8px; }
 }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+.community { display: grid; gap: 12px; margin-top: 8px; }
+.community h2 { font-size: 21px; }
+.community-builds { display: grid; gap: 16px; }

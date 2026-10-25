@@ -3,12 +3,11 @@ import { serverEnv } from "./env";
 import { cleanContent, type Content } from "./content";
 import bundled from "@/content/site.json";
 
-// Backs the /admin editor. Two Cloudflare secrets:
-//   ADMIN_PASSWORD  what Nico types to unlock the editor
-//   GITHUB_TOKEN    fine-grained token with Contents read/write on NicoAura/DeepARAM only
+// Backs the site editor (/account/edit), open to the owner's account only (OWNER_EMAIL, lib/accounts.ts). Secret:
+//   GITHUB_TOKEN    fine-grained token with Contents read/write on nicothomas02/DeepARAM only
 // A save commits src/content/site.json to main; Workers Builds then redeploys the site.
 
-const REPO = "NicoAura/DeepARAM";
+const REPO = "nicothomas02/DeepARAM";
 const FILE = "web/src/content/site.json";
 const BRANCH = "main";
 
@@ -18,21 +17,6 @@ export class AdminError extends Error {
     public status: number,
   ) {
     super(message);
-  }
-}
-
-export async function checkPassword(given: string | null) {
-  const want = serverEnv("ADMIN_PASSWORD");
-  if (!want) throw new AdminError("The editor isn't set up yet: ADMIN_PASSWORD is missing.", 503);
-  const enc = new TextEncoder();
-  const [a, b] = await Promise.all([crypto.subtle.digest("SHA-256", enc.encode(given ?? "")), crypto.subtle.digest("SHA-256", enc.encode(want))]);
-  const x = new Uint8Array(a);
-  const y = new Uint8Array(b);
-  let diff = 0;
-  for (let i = 0; i < x.length; i++) diff |= x[i] ^ y[i];
-  if (diff !== 0) {
-    await new Promise((r) => setTimeout(r, 800)); // slows down guessing
-    throw new AdminError("Wrong password.", 401);
   }
 }
 
@@ -69,7 +53,7 @@ export async function saveContent(input: unknown, sha: string | null): Promise<s
   const body = JSON.stringify(cleanContent(input), null, 2) + "\n";
   const res = await github(`contents/${FILE}`, {
     method: "PUT",
-    body: JSON.stringify({ message: "Edit site text from /admin", content: toBase64(body), sha, branch: BRANCH }),
+    body: JSON.stringify({ message: "Edit site text from the site editor", content: toBase64(body), sha, branch: BRANCH }),
   });
   if (res.status === 409 || res.status === 422) throw new AdminError("The text changed since you opened the editor. Reload to get the latest, then save again.", 409);
   if (!res.ok) throw new AdminError(`GitHub returned ${res.status} saving the site text.`, 502);

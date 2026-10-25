@@ -1,0 +1,10 @@
+{
+ "Patch {patch} comes out in {n} days": "Patchul {patch} apare peste {n} zile",
+ "Patch {patch} comes out tomorrow": "Patchul {patch} apare mâine",
+ "day": "zi",
+ "days": "zile",
+ "Patch {patch} comes out in under 24 hours": "Patch-ul {patch} apare în mai puțin de 24 de ore",
+ "{set} (Patch {patch}) is live!": "{set} (patch-ul {patch}) a apărut!",
+ "Patch {patch} is live!": "Patch-ul {patch} a apărut!",
+ "New patch data takes a couple of days to collect.": "Datele pentru noul patch se adună în câteva zile."
+}

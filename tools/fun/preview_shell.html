@@ -1,13 +1,14 @@
 <meta charset="utf-8">
-<title>The Lab</title>
+<title>The Kitchen</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap">
 <style>
-/* Layout: the DeepARAM app shell (sticky bar with pill tabs) around The Lab tab; each tool runs in its own frame below a pill switcher. */
+/* Layout: the DeepARAM app shell (sticky bar with pill tabs) around The Kitchen tab; each tool runs in its own frame below a pill switcher. */
 :root {
   --bg: #e7ebef; --surface: #f0f3f6; --raised: #e0e5eb; --fg: #1f252e; --muted: #525b68; --line: #d3dae2;
   --accent: #09659d; --accent-ink: #ffffff; --accent-soft: #d6e6f1;
+  --bar: rgba(231, 235, 239, 0.82); --lab-ink: #8a416c; --lab-line: #dea0c7; --lab-tint: #f0eaf1;
   --display: "Bricolage Grotesque", "Geist", system-ui, sans-serif;
   --sans: "Geist", system-ui, -apple-system, "Segoe UI", sans-serif;
   --mono: "Geist Mono", ui-monospace, "SF Mono", Menlo, monospace;
@@ -15,10 +16,12 @@
 }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
   --bg: #090b0f; --surface: #11151c; --raised: #181d26; --fg: #e8ecf2; --muted: #8b94a3; --line: #222936;
-  --accent: #5cc0ff; --accent-ink: #04121c; --accent-soft: #0f2533; color-scheme: dark } }
+  --accent: #5cc0ff; --accent-ink: #04121c; --accent-soft: #0f2533;
+  --bar: rgba(9, 11, 15, 0.82); --lab-ink: #eb86bd; --lab-line: #7d3f68; --lab-tint: #1e1924; color-scheme: dark } }
 :root[data-theme="dark"] {
   --bg: #090b0f; --surface: #11151c; --raised: #181d26; --fg: #e8ecf2; --muted: #8b94a3; --line: #222936;
-  --accent: #5cc0ff; --accent-ink: #04121c; --accent-soft: #0f2533; color-scheme: dark }
+  --accent: #5cc0ff; --accent-ink: #04121c; --accent-soft: #0f2533;
+  --bar: rgba(9, 11, 15, 0.82); --lab-ink: #eb86bd; --lab-line: #7d3f68; --lab-tint: #1e1924; color-scheme: dark }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { background: var(--bg); color: var(--fg); font: 15px/1.5 var(--sans); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
@@ -26,7 +29,7 @@ body { background: var(--bg); color: var(--fg); font: 15px/1.5 var(--sans); -web
 .wrap { padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
 
 body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); }
-.bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: color-mix(in srgb, var(--bg) 82%, transparent); backdrop-filter: saturate(1.4) blur(14px); -webkit-backdrop-filter: saturate(1.4) blur(14px); border-bottom: 1px solid var(--line); }
+.bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--bar); backdrop-filter: saturate(1.4) blur(14px); -webkit-backdrop-filter: saturate(1.4) blur(14px); border-bottom: 1px solid var(--line); }
 .bar .wrap { display: flex; align-items: center; gap: 14px; height: 60px; }
 .brand { font: 700 19px/1 var(--display); letter-spacing: -.02em; display: flex; align-items: center; gap: 8px; flex: none; }
 .brand i { width: 22px; height: 22px; border-radius: 7px; background: conic-gradient(from 200deg, var(--accent), #8a7dff, #ff7ac6, #ffc35a, var(--accent)); display: block; }
@@ -34,7 +37,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .site-nav { display: flex; gap: 2px; padding: 3px; background: var(--raised); border-radius: 999px; overflow-x: auto; scrollbar-width: none; min-width: 0; margin-inline: auto; }
 .site-nav::-webkit-scrollbar { display: none; }
 .site-nav span { flex: none; padding: 6px 13px; border-radius: 999px; font-size: 13.5px; font-weight: 500; color: var(--muted); }
-.site-nav span[aria-current] { background: color-mix(in srgb, #ec5aa6 16%, transparent); color: color-mix(in srgb, #ec5aa6 70%, var(--fg)); box-shadow: inset 0 0 0 1px color-mix(in srgb, #ec5aa6 40%, transparent); }
+.site-nav span[aria-current] { background: rgba(236, 90, 166, 0.16); color: var(--lab-ink); box-shadow: inset 0 0 0 1px rgba(236, 90, 166, 0.4); }
 .bar-spacer { width: 100px; flex: none; }
 
 main { padding-block: 28px 64px; }
@@ -48,8 +51,8 @@ h1 { font: 700 clamp(30px, 4.6vw, 44px)/1.04 var(--display); letter-spacing: -.0
 .tabs::-webkit-scrollbar { display: none; }
 .tab { flex: none; font: 500 13.5px var(--sans); background: none; border: 0; color: var(--muted); cursor: pointer; padding: 6px 12px; border-radius: 9px; white-space: nowrap; }
 .tab:hover { color: var(--fg); }
-.tab:hover { color: color-mix(in srgb, #ec5aa6 70%, var(--fg)); }
-.tab[aria-selected="true"] { background: color-mix(in srgb, #ec5aa6 16%, transparent); color: color-mix(in srgb, #ec5aa6 70%, var(--fg)); box-shadow: inset 0 0 0 1px color-mix(in srgb, #ec5aa6 40%, transparent); }
+.tab:hover { color: var(--lab-ink); }
+.tab[aria-selected="true"] { background: rgba(236, 90, 166, 0.16); color: var(--lab-ink); box-shadow: inset 0 0 0 1px rgba(236, 90, 166, 0.4); }
 
 .panels { padding-top: 8px; }
 .panel iframe { display: block; width: 100%; border: 0; min-height: 600px; background: var(--bg); }
@@ -57,8 +60,8 @@ h1 { font: 700 clamp(30px, 4.6vw, 44px)/1.04 var(--display); letter-spacing: -.0
 .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: 16px; padding-top: 20px; }
 .tool-card { display: grid; gap: 4px; text-align: left; font: inherit; color: inherit; cursor: pointer; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 18px; }
 .tool-card { position: relative; overflow: hidden; }
-.tool-card::before { content: ""; position: absolute; inset: 0 0 auto; height: 3px; background: linear-gradient(90deg, #ec5aa6, color-mix(in srgb, #ec5aa6 30%, transparent)); }
-.tool-card:hover { border-color: color-mix(in srgb, #ec5aa6 45%, var(--line)); background: color-mix(in srgb, #ec5aa6 6%, var(--surface)); }
+.tool-card::before { content: ""; position: absolute; inset: 0 0 auto; height: 3px; background: linear-gradient(90deg, #ec5aa6, rgba(236, 90, 166, 0.3)); }
+.tool-card:hover { border-color: var(--lab-line); background: var(--lab-tint); }
 .tool-name { font-weight: 600; }
 .tool-desc { color: var(--muted); font-size: 13.5px; }
 .note { color: var(--muted); font-size: 12.5px; padding-top: 20px; max-width: 62ch; }
@@ -75,7 +78,7 @@ h1 { font: 700 clamp(30px, 4.6vw, 44px)/1.04 var(--display); letter-spacing: -.0
   <div class="wrap">
     <span class="brand"><i></i><span>Deep<b>ARAM</b></span></span>
     <nav class="site-nav" aria-label="Site sections">
-      <span>Home</span><span>Stats</span><span>Tier List</span><span>Simulator</span><span>PBE</span><span aria-current="page">The Lab</span>
+      <span>Home</span><span>Stats</span><span>Tier List</span><span>Simulator</span><span>PBE</span><span aria-current="page">The Kitchen</span>
     </nav>
     <span class="bar-spacer"></span>
   </div>
@@ -83,11 +86,11 @@ h1 { font: 700 clamp(30px, 4.6vw, 44px)/1.04 var(--display); letter-spacing: -.0
 
 <main class="wrap">
   <section class="intro">
-    <div><p class="label">Calculators and cook builds</p><h1>The Lab</h1></div>
-    <p class="sub">Pick a champion, items and augments and see how far the numbers go. Each tool loads the best build found so far; change anything to try your own.</p>
+    <div><p class="label">Chef Specials</p><h1>The Kitchen</h1></div>
+    <p class="sub">A new unconventional build every day, built on augments that work together. Infinite Ryze and Region Teams are here too until they move to Simulator and Info.</p>
   </section>
 
-  <nav class="tabs" role="tablist" aria-label="The Lab">
+  <nav class="tabs" role="tablist" aria-label="The Kitchen">
     <button class="tab" type="button" role="tab" id="tab-home" data-go="home">Overview</button>
     <!--TABS-->
   </nav>

@@ -111,7 +111,9 @@ def sample_archive(champ_names, aug_names, aug_rarity, mayhem_ids, n=640, seed=7
             "gameCreation": t,
             "gameVersion": f"16.{max(1, 20 - i // 40)}.1",
             "gameDuration": int(rng.gauss(1150, 160)),
-            "participants": [{"participantId": 1, "championId": int(champ), "teamId": 100, "stats": stats}],
+            "participants": [{"participantId": 1, "championId": int(champ), "teamId": 100, "stats": stats}]
+            + [{"participantId": k + 2, "championId": int(c), "teamId": 100, "stats": {"win": win}}
+               for k, c in enumerate(random.Random(seed * 7919 + i).sample([c for c in champs if c != champ], 4))],
             "participantIdentities": [{"participantId": 1, "player": me}],
         })
     return {"puuid": me["puuid"], "gameName": me["gameName"], "tagLine": me["tagLine"], "games": games}

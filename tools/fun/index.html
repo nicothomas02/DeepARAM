@@ -3,44 +3,21 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>The Lab</title>
-  <link rel="stylesheet" href="style.css">
+  <title>The Kitchen</title>
 </head>
 <body>
-  <main>
-    <header>
-      <p class="eyebrow">Infinite Ryze and cook builds · ARAM Mayhem</p>
-      <h1>The Lab</h1>
-      <p class="muted">How far Ryze's AP to Mana loop goes, and troll builds that turn out to work.</p>
-    </header>
-    <h2 class="group">Calculator</h2>
-    <nav class="tools" aria-label="Calculator">
-      <a class="tool" href="ryze-calculator/index.html">
-        <span><b>Infinite Ryze</b><span>How far Ryze's AP to Mana loop goes with your items and augments</span></span><span class="arrow" aria-hidden="true">→</span>
-      </a>
-    </nav>
-    <h2 class="group" id="cook-builds">Cook builds</h2>
-    <nav class="tools" aria-label="Cook builds">
-      <a class="tool chef-tool" href="cook-builds/index.html#chefs-special">
-        <span><b>Chef's Special</b><span id="chef-text">A new unconventional build every day, built on an augment or item gimmick</span></span><span class="arrow" aria-hidden="true">→</span>
-      </a>
-      <a class="tool" href="cook-builds/index.html">
-        <span><b>Cook Builds</b><span>Troll builds built on strange augment interactions, checked against Mayhem win rates and the simulator</span></span><span class="arrow" aria-hidden="true">→</span>
-      </a>
-    </nav>
-  </main>
-  <script src="cook-builds/chef.js"></script>
+  <p><a href="cook-builds/index.html">The Kitchen</a></p>
   <script>
-    // Today's Chef's Special by name.
+    // The Kitchen is the Chef Special page. Old Lab links still work: #chefs-special, #chefs-special-YYYY-MM-DD and
+    // #chef-archive open that special, #community the community builds, and the calculators that moved to other tabs open there.
     (function () {
-      var c = window.COOK_CHEF;
-      if (c) document.getElementById("chef-text").textContent = "Today: " + c.title + " (" + c.champion_name + "), a new unconventional build every day";
-    })();
-    // Deep links: /lab#cook-builds, #chefs-special (or #<tool folder>) opens that page straight away.
-    (function () {
-      var go = location.hash.slice(1).replace(/[^a-z-]/g, "");
-      var a = go && document.querySelector(go === "chefs-special" ? ".chef-tool" : '.tool[href="' + go + '/index.html"]');
-      if (a) location.replace(a.getAttribute("href"));
+      var go = location.hash.slice(1).replace(/[^a-z0-9-]/g, "");
+      var moved = { "ryze-calculator": "/kitchen?tab=infinite-ryze", "region-teams": "/info/region-teams" }[go];
+      if (moved) {
+        try { if (window.top !== window) return void window.top.location.replace(moved); } catch (e) { /* not same origin */ }
+        return location.replace(go + "/index.html");
+      }
+      location.replace("cook-builds/index.html" + (/^(chefs-special|chef-archive|community$)/.test(go) ? "#" + go : ""));
     })();
   </script>
 </body>

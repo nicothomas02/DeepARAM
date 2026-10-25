@@ -46,7 +46,7 @@ EMBED_DATA = mayhem_rules champions items augments augment_pools cn_enemy_pool c
 wasm-mayhem: $(CHAMP_SRC) $(CHAMP_HDR)
 	mkdir -p dist dist/embed
 	python3 tools/strip_notes.py dist/embed $(EMBED_DATA:%=data/%.json)
-	$(EMCC) -std=c++17 -O2 $(CHAMP_SRC) -o dist/mayhem_sim.js \
+	$(EMCC) -std=c++17 -O2 -fexceptions $(CHAMP_SRC) -o dist/mayhem_sim.js \
 		-sMODULARIZE -sEXPORT_NAME=MayhemSim -sALLOW_MEMORY_GROWTH -sENVIRONMENT=worker,web,node \
 		-sINVOKE_RUN=0 -sEXIT_RUNTIME=0 -sEXPORTED_RUNTIME_METHODS=callMain,FS \
 		$(foreach f,$(EMBED_DATA),--embed-file dist/embed/$(f).json@data/$(f).json)
@@ -60,10 +60,14 @@ wasm-mayhem: $(CHAMP_SRC) $(CHAMP_HDR)
 # glTF-Transform packages listed there on NODE_PATH).
 replay: mayhem_sim
 	rm -rf viewer/replay-data/traces && mkdir -p viewer/replay-data/traces
-	./mayhem_sim --all --trace-dir viewer/replay-data/traces --json > viewer/replay-data/best-builds.json
+	./mayhem_sim --all --search smart --trace-dir viewer/replay-data/traces --json > viewer/replay-data/best-builds.json
+	./mayhem_sim --all --search smart --game-data data/pbe --json > viewer/replay-data/pbe/best-builds.json
 	python3 tools/build_replay_assets.py --traces viewer/replay-data/traces --out viewer/replay-data $(CLIPS)
 	$(MAKE) wasm-mayhem && cp dist/mayhem_sim.js dist/mayhem_sim.wasm viewer/replay-data/
 	$(if $(MODELS),node tools/build_models.mjs --index viewer/replay-data/index.json --out viewer/replay-data/models)
+	python3 tools/build_team_pairs.py
+	python3 tools/build_dummy_dps.py
+	python3 ../web/scripts/build_item_sim.py
 	python3 tools/build_sounds.py --index viewer/replay-data/index.json
 	$(if $(LOCAL),python3 tools/build_anim_data.py --index viewer/replay-data/index.json --out viewer/replay-data/anims.json)
 	$(if $(SOUNDS),python3 tools/build_game_sounds.py --index viewer/replay-data/index.json --out viewer/replay-data/sounds)

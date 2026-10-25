@@ -30,9 +30,8 @@ from pathlib import Path
 # The client's own champion data and icons (CommunityDragon's latest/ is the live patch).
 ASSET_ROOT = "https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/"
 CLIP_CDN = "https://d28xe8vt774jo5.cloudfront.net/champion-abilities"
-# What the page loads: the website's own copies of the icons and clips (web/public/assets/).
+# What the page loads: the website's own copy of the icons (web/public/assets/).
 SITE_ICON_BASE = "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/"
-SITE_CLIPS = "/assets/clips"
 ICON = 64
 # Abilities that move the caster (from the client's ability descriptions), so the replay can carry
 # the model to its target and back.
@@ -176,6 +175,7 @@ def main():
         champs.append({
             "id": c["id"], "name": c["name"], "key": int(c["champion_id"]), "title": gd.get("title", ""),
             "role": c.get("role", ""), "combo": combos.get(c["id"], "QWER"),
+            "radius": c["stats"].get("gameplay_radius", 65),
             "passive": gd["passive"]["name"],
             "spells": {s: gd["spells"][i]["name"] for i, s in enumerate(SLOTS)},
             "dash": "".join(s for i, s in enumerate(SLOTS) if DASH.search(gd["spells"][i]["description"].split(". ")[0])),
@@ -212,7 +212,7 @@ def main():
                 print(f"\rclips {done}/{len(champs)} {cid:<14}", end="", file=sys.stderr, flush=True)
         print(file=sys.stderr)
 
-    json.dump({"game_version": version, "icon_base": SITE_ICON_BASE, "icon_size": ICON, "local_clips": args.clips, "clip_cdn": SITE_CLIPS,
+    json.dump({"game_version": version, "icon_base": SITE_ICON_BASE, "icon_size": ICON, "local_clips": args.clips,
                "champions": champs}, open(out / "index.json", "w"), separators=(",", ":"))
     json.dump(traces, open(out / "traces.json", "w"), separators=(",", ":"))
     missing = [c["id"] for c in champs if args.clips and not c.get("clip")]

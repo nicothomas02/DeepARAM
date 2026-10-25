@@ -1,120 +1,190 @@
 {
-  "_note": "Hand-written cook builds. Every build flips what its champion is known for (Nico, 2026-10-16: keep only builds like Melee Bomb Man Ziggs). build_data.py adds augment text, Mayhem win rates and simulator numbers and writes data.js. The first `core` augments decide the build's tier; the rest are flex picks. `augment_text` replaces the generated text for augments whose tooltip numbers the game data doesn't fill in. A build with a `chef` date was the Chef's Special that day; the page features the newest one (a new pick is added every day).",
+  "_note": "Chef Specials, one per day (Nico, 2026-10-17: The Kitchen shows only Chef Specials). Each build's `chef` date is the day it was served; never remove or redate one, since every dated build is the archive. build_data.py adds augment text and icons and writes data.js, chef.js and chefs-special.json.",
   "augment_text": {
     "With Haste": "Gain Move Speed equal to a share of your Ability Haste.",
     "Overloaded": "Using another Ability resets the cooldown of the chosen ability."
   },
   "builds": [
     {
-      "id": "ziggs-melee",
-      "champion": "Ziggs",
-      "title": "Melee Bomb Man",
+      "id": "tryndamere-bloodlust-doctor",
+      "champion": "Tryndamere",
+      "title": "The Bloodlust Doctor",
       "augments": [
-        "Draw Your Sword",
-        "Dual Wield",
-        "Firebrand",
-        "Juiced"
+        "Critical Healing",
+        "Circle of Death",
+        "Tank It Or Leave It"
       ],
-      "core": 4,
+      "core": 2,
       "items": [
-        "Berserker's Greaves",
-        "Nashor's Tooth",
-        "Guinsoo's Rageblade",
-        "Blade of The Ruined King",
-        "Wit's End",
-        "Riftmaker"
-      ],
-      "why": "Ziggs gives up his bombs-from-a-mile-away identity and walks up to stab people. Draw Your Sword turns his range into AD, Health, Attack Speed and Lifesteal, and his passive Short Fuse still blows up on his next melee hit. Dual Wield, Firebrand and Juiced pile on-hit magic damage onto every swing.",
-      "play": "Walk at them. Throw a bomb only when you're already standing on them."
-    },
-    {
-      "id": "darius-sniper",
-      "champion": "Darius",
-      "title": "Noxian Sniper",
-      "augments": [
-        "Scoped Weapons",
-        "Scopier Weapons",
-        "Scopiest Weapons",
-        "Typhoon"
-      ],
-      "core": 3,
-      "items": [
-        "Berserker's Greaves",
-        "Kraken Slayer",
-        "Blade of The Ruined King",
-        "Guinsoo's Rageblade",
-        "Wit's End",
-        "Sterak's Gage"
-      ],
-      "why": "The reverse of Melee Bomb Man. Melee champions get more from the range augments than ranged ones (75, 150 and 250), so all three together add 475 range and put Darius's autos at 650, the same as Caitlyn's. He stacks Hemorrhage from across the fight, and Typhoon fires a second shot at another target.",
-      "play": "Stand at the back and auto. Walk up only to Guillotine whoever has five stacks."
-    },
-    {
-      "id": "veigar-marksman",
-      "champion": "Veigar",
-      "title": "Tiny Marksman",
-      "augments": [
-        "escAPADe",
-        "Dual Wield",
-        "Critical Rhythm",
-        "It's Critical"
-      ],
-      "core": 4,
-      "items": [
-        "Berserker's Greaves",
-        "Rabadon's Deathcap",
-        "Infinity Edge",
-        "Kraken Slayer",
-        "Lord Dominik's Regards",
-        "Phantom Dancer"
-      ],
-      "why": "Veigar's whole game is stacking infinite Ability Power. escAPADe turns every point of it into 0.6 bonus AD (plus 15% more AD), so his Q stacks and even Rabadon's Deathcap now feed his auto attacks. Dual Wield, Critical Rhythm and It's Critical make him a crit marksman with a yordle hat.",
-      "play": "Farm Q stacks like normal, then right-click everyone. Cage still works."
-    },
-    {
-      "id": "blitzcrank-hook-line-kraken",
-      "champion": "Blitzcrank",
-      "title": "Hook, Line and Kraken",
-      "augments": [
-        "Ethereal Weapon",
-        "Mystic Punch",
-        "Juiced",
-        "Firebrand"
-      ],
-      "core": 3,
-      "items": [
-        "Berserker's Greaves",
-        "Nashor's Tooth",
-        "Kraken Slayer",
-        "Blade of The Ruined King",
-        "Wit's End",
-        "Guinsoo's Rageblade"
-      ],
-      "why": "Ethereal Weapon makes Rocket Grab apply on-hit effects, so the hook lands like a fully built attack-speed carry's auto: Blade of the Ruined King takes a chunk of current health, Kraken Slayer, Wit's End, Nashor's and Juiced all proc, and Firebrand starts a burn before the target has even arrived. Mystic Punch then turns that on-hit into cooldown back on the hook. The support robot is now the team's on-hit ADC, and his best attack has 1,100 range.",
-      "play": "Turn on Overdrive, hook someone, then Power Fist them as they land so they eat two rounds of on-hit. Pop Static Field to proc everything on everyone nearby, and keep auto-attacking until Mystic Punch hands the hook back."
-    },
-    {
-      "id": "janna-giant",
-      "champion": "Janna",
-      "title": "The Eye of the Storm",
-      "augments": [
-        "Goliath",
-        "Tank Engine",
-        "Steel Your Heart",
-        "Celestial Body"
-      ],
-      "core": 3,
-      "items": [
-        "Plated Steelcaps",
-        "Heartsteel",
+        "Rite of Ruin",
+        "Spirit Visage",
+        "Riftmaker",
         "Warmog's Armor",
-        "Sunfire Aegis",
-        "Unending Despair",
-        "Jak'Sho, The Protean"
+        "Mercury's Treads",
+        "Rabadon's Deathcap"
       ],
-      "why": "Janna is a feather that floats behind her team and throws shields. Here she eats every Health augment in the pool instead. Goliath makes her large, Tank Engine grows her with every takedown, and Steel Your Heart triples her Heartsteel stacks once they pass 300. She ends the game as the biggest thing on the bridge, and Monsoon now knocks enemies away from a wall of Health.",
-      "play": "Walk in first. Tornado the backline, then Monsoon when they finally reach you.",
+      "why": "Tryndamere already crits for free: his Fury raises his crit chance as he fights, and Bloodlust spends it to heal him. Critical Healing lets heals crit for 40% more off that same crit chance, and Circle of Death turns 70% of all his healing and Health Regen into magic damage on the nearest enemy champion, so every Bloodlust is a crit roll that blasts someone. Rite of Ruin adds crit chance on every spell cast and Spirit Visage makes his heals 25% bigger. Bloodlust's heal grows with Ability Power, so the crit carry becomes an AP healer whose heals do the killing.",
+      "play": "Fill your Fury, then Bloodlust next to the enemy you want hit. Undying Rage keeps you alive long enough to cast it again. Tank It Or Leave It is the flex pick.",
       "chef": "2026-10-17"
+    },
+    {
+      "id": "janna-speeding-ticket",
+      "champion": "Janna",
+      "title": "Speeding Ticket",
+      "augments": [
+        "Tap Dancer",
+        "Don't Blink",
+        "Ice Cold",
+        "Get Excited!"
+      ],
+      "core": 3,
+      "items": [
+        "Phantom Dancer",
+        "Dead Man's Plate",
+        "Nashor's Tooth",
+        "Lich Bane",
+        "Cosmic Drive",
+        "Boots of Swiftness"
+      ],
+      "why": "Janna's Tailwind has a line nobody reads: a portion of her bonus Move Speed becomes bonus magic damage on hit and on Zephyr, and Zephyr's passive hands her free Move Speed just for existing. Tap Dancer gives her 10 Move Speed per attack, stacking for as long as she keeps hitting, and Don't Blink adds 1% damage for every 10 Move Speed she has over her target, so every attack makes the next one faster, harder on hit, and stronger on top. Zephyr's active slows the target and Ice Cold takes another 75 Move Speed off every slow, which widens the Don't Blink gap from the other side. Phantom Dancer, Lich Bane and Boots of Swiftness pile on raw speed, Dead Man's Plate stores speed while she runs and dumps it into her next attack, and Cosmic Drive gives her more Move Speed every time that on-hit magic damage lands. The enchanter stops shielding anyone and becomes an on-hit carry whose only real stat is Move Speed.",
+      "play": "Zephyr the squishiest target, then keep attacking: the longer the chase, the harder you hit. Get Excited! is the flex pick, since a takedown gives 100% Move Speed for 4 seconds and Don't Blink reads that as free damage.",
+      "chef": "2026-10-18"
+    },
+    {
+      "id": "ivern-hedge-fund",
+      "champion": "Ivern",
+      "title": "Hedge Fund",
+      "augments": [
+        "Hide on Bush",
+        "Nature is Healing",
+        "Mercy's Strike",
+        "Lil' Extra Help"
+      ],
+      "core": 4,
+      "items": [
+        "Nashor's Tooth",
+        "Guinsoo's Rageblade",
+        "Lich Bane",
+        "Rabadon's Deathcap",
+        "Cosmic Drive",
+        "Berserker's Greaves"
+      ],
+      "why": "Ivern's Brushmaker has a passive almost nobody builds around: while he stands in brush, and for a moment after leaving it, his attacks deal bonus magic damage, and its active grows a fresh patch of brush anywhere he likes. Hide on Bush makes him deal 20% more damage for as long as he stays in brush, and Nature is Healing regenerates a large amount of Health every time he enters one, so every Brushmaker cast is a new entrance: a heal, a damage buff and a round of empowered attacks, on demand. Triggerseed feeds the other half: Mercy's Strike turns its shield into a next attack with extra range, Attack Speed and max Health magic damage, and Lil' Extra Help adds Attack Range and Attack Speed for as long as that shield lasts, so one shield from inside the brush is a short burst of long-range, fast, empowered attacks. Nashor's Tooth and Guinsoo's Rageblade stack more on-hit magic damage onto every one of those attacks, Rabadon's Deathcap grows all of it, and Cosmic Drive gives him the Move Speed to hop from one hedge to the next. The forest's gentlest support turns into an on-hit carry who plants his own ambush wherever he stands.",
+      "play": "Grow a brush on top of the fight, shield whoever is closest, and attack from inside it while the shield lasts; when the fight moves, grow another one and step in for the heal.",
+      "chef": "2026-10-19"
+    },
+    {
+      "id": "taric-friendly-fireworks",
+      "champion": "Taric",
+      "title": "Friendly Fireworks",
+      "augments": [
+        "Upgrade Sword of Blossoming Dawn",
+        "Sonic Boom",
+        "Empowered By The Faithful"
+      ],
+      "core": 3,
+      "items": [
+        "Sword of Blossoming Dawn",
+        "Ardent Censer",
+        "Moonstone Renewer",
+        "Echoes of Helia",
+        "Staff of Flowing Water",
+        "Berserker's Greaves"
+      ],
+      "why": "Taric's Bravado is the part of his kit everyone forgets: after every spell his next two attacks come out in quick succession and shave time off his spell cooldowns, so a Taric who keeps casting keeps swinging. Sword of Blossoming Dawn turns each of those swings into a heal on the lowest health ally nearby, and Upgrade Sword of Blossoming Dawn adds 100% Attack Speed and makes that heal far bigger whenever he is hitting champions. Sonic Boom makes every heal or shield on an ally explode, damaging and slowing the enemies around that ally, and Empowered By The Faithful blesses everyone he heals, so their damage fills him with devotion until a shockwave goes off that executes low health enemies. Bastion casts his Starlight's Touch from his linked ally too, Moonstone Renewer chains each heal to a second ally for another boom, Ardent Censer hands both of them extra Attack Speed, and Echoes of Helia adds even more healing. The gem knight stops being the team's bodyguard and becomes its bomb: his allies are the grenades and every autoattack pulls a pin.",
+      "play": "Link the carry with Bastion, cast anything, then keep attacking the closest champion so every swing heals a teammate and blows up whoever is standing next to them.",
+      "chef": "2026-10-20"
+    },
+    {
+      "id": "braum-group-project",
+      "champion": "Braum",
+      "title": "Group Project",
+      "augments": [
+        "Cruelty",
+        "Slap Around",
+        "Impassable"
+      ],
+      "core": 3,
+      "items": [
+        "Bandlepipes",
+        "Imperial Mandate",
+        "Nashor's Tooth",
+        "Riftmaker",
+        "Rabadon's Deathcap",
+        "Mercury's Treads"
+      ],
+      "why": "Braum's Concussive Blows has a line most people skim past: once he lands the first stack, his allies' basic attacks stack it too, and the fourth stack stuns. That turns every teammate who can swing a weapon into a stun button, and every one of those stuns counts as Braum's. Cruelty drops a comet of magic damage on each champion he Immobilizes, Slap Around banks 10 Adaptive Force per stun, and Impassable adds an Aftershock burst and Glacial Augment's slowing rays, so a single stun pays out three times and leaves him stronger for the next one. Bandlepipes hands the whole team Attack Speed every time he stuns someone, so the next four stacks land even faster, Imperial Mandate marks each stunned target to take more damage, and with Nashor's Tooth, Riftmaker and Rabadon's Deathcap all that Adaptive Force becomes Ability Power. The bodyguard stops standing in front of his team and becomes its artillery, and his teammates are the ones pulling the trigger.",
+      "play": "Tag one enemy with Winter's Bite, then let your carries hit the same target; every stun calls down a comet, so keep re-tagging whoever they are shooting.",
+      "chef": "2026-10-21"
+    },
+    {
+      "id": "quinn-wall-street-bouncer",
+      "champion": "Quinn",
+      "title": "Wall Street Bouncer",
+      "augments": [
+        "Chain Reaction",
+        "Ravenous Bind",
+        "Soul Eater",
+        "Dashing"
+      ],
+      "core": 4,
+      "items": [
+        "Navori Flickerblade",
+        "Spear of Shojin",
+        "Heartsteel",
+        "Overlord's Bloodmail",
+        "Sterak's Gage",
+        "Mercury's Treads"
+      ],
+      "why": "Vault has a side effect nobody plays around: after Quinn dashes in she leaps backwards and slightly Knocks the target Back. Chain Reaction on Vault turns that polite nudge into a Knock Up whenever the shoved enemy hits another champion or a wall, with a longer Knock Up and bonus damage against terrain, and the bridge is one long corridor of walls. Every Vault is now an immobilize, so Ravenous Bind makes it heal her and hit harder, Soul Eater hands her permanent max Health for each one, and Dashing gives the dash 175 Ability Haste so it comes back almost at once. Navori Flickerblade closes the loop: Vault marks its target with Harrier, Heightened Senses gives Attack Speed for hitting Harrier targets, and each of those Attacks cuts the remaining Vault cooldown by 15%, while Spear of Shojin adds Basic Ability Haste on top. Heartsteel and Soul Eater stack Health that Overlord's Bloodmail turns into Attack Damage, so the ranged scout ends up a walking shoulder-check who throws people into walls and tanks off the bounce.",
+      "play": "Stand with your back to open ground and Vault enemies toward a wall or into their own teammate, then hit the Harrier mark so Vault is ready again. Behind Enemy Lines is just a bus to the next wall.",
+      "chef": "2026-10-22"
+    },
+    {
+      "id": "zoe-flash-photography",
+      "champion": "Zoe",
+      "title": "Flash Photography",
+      "augments": [
+        "Flashy",
+        "Flashbang",
+        "Flash 2",
+        "Poltergeist"
+      ],
+      "core": 4,
+      "items": [
+        "Ionian Boots of Lucidity",
+        "Lich Bane",
+        "Rabadon's Deathcap",
+        "Shadowflame",
+        "Stormsurge",
+        "Void Staff"
+      ],
+      "why": "Zoe's Spell Thief hides a second passive line under the one everyone reads: whenever she casts that Ability or any Summoner Spell, she tosses 3 missiles at the target she Attacked most recently. Flashy gives her Flash three charges and Flashbang makes every one of those Flashes explode for damage and a Slow, so a single blink is now an area nuke plus a volley, and Flash 2 hands her a second Flash plus 70 Summoner Haste so the whole bar reloads sooner. Poltergeist bolts on one more Summoner Spell that casts Barrier and Ghost together, so even her panic button is three more missiles. Ionian Boots of Lucidity feed the loop with Summoner Spell Haste, Lich Bane turns the Attack she throws after an Ability into a bonus magic hit while it also marks who the next volley chases, and Rabadon's Deathcap, Shadowflame, Stormsurge and Void Staff make each small magic hit land like a real one. The long-range Paddle Star sniper stops waiting on her star and becomes a machine gun whose trigger is the Summoner bar.",
+      "play": "Attack whoever you want dead first, because the missiles follow the last target you hit. Then empty the bar on top of them, and Flash sideways, not away.",
+      "chef": "2026-10-23"
+    },
+    {
+      "id": "olaf-health-is-mana",
+      "champion": "Olaf",
+      "title": "Health Is Mana",
+      "augments": [
+        "Purist - Caster",
+        "Ominous Pact",
+        "escAPADe",
+        "Skilled Sniper"
+      ],
+      "core": 4,
+      "items": [
+        "Berserker's Greaves",
+        "Nashor's Tooth",
+        "Wit's End",
+        "Experimental Hexplate",
+        "Spear of Shojin",
+        "Kraken Slayer"
+      ],
+      "why": "Olaf's Berserker Rage hands him Attack Speed for every point of Health he is missing, and Tough It Out stacks even more Attack Speed on top; Purist - Caster converts all of that Attack Speed into Ability Haste, so the lower his Health bar, the faster his cooldowns run. Ominous Pact makes every spell cast cost a slice of his current Health and pays him back with Ability Power, Movement Speed and Omnivamp based on missing Health, so casting Undertow drains him, the drain feeds Berserker Rage, and the Attack Speed comes back out as more Haste for the next axe. escAPADe turns that Ability Power into bonus Attack Damage for his physical damage axes, and Skilled Sniper refunds most of Undertow's cooldown whenever the axe lands on someone more than 600 units away, so he never has to walk up and pick it up. Nashor's Tooth, Wit's End, Kraken Slayer and Berserker's Greaves are bought purely as Attack Speed to be converted into Haste (the Nashor's Ability Power also becomes Attack Damage through escAPADe), while Spear of Shojin and Experimental Hexplate add Attack Damage, Haste and the Health pool he deliberately burns. The melee berserker who has to run at people becomes a long-range artillery piece that lobs axes from max range and plays better the closer he is to dead.",
+      "play": "Sit at max Undertow range, throw axes until your Health sits near the bottom third, then keep throwing instead of chasing the axe. Reckless Swing is your emergency self-damage if you are too healthy; Ragnarok is for walking out, not in.",
+      "chef": "2026-10-24"
     }
   ]
 }

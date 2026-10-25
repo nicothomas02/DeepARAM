@@ -2,18 +2,20 @@
 
 import { usePathname, useRouter } from "next/navigation";
 import { useCallback, useEffect, useLayoutEffect, useState } from "react";
+import { useT } from "./I18n";
 
-// A short guided tour for first-time visitors on Home: a spotlight moves over a few key places with a
-// line about each. Shown once per browser (localStorage); Settings' "Take the tour" or /?tour replays it.
+// A short guided tour of Home: a spotlight moves over a few key places with a line about each. It never
+// opens by itself: first-time visitors get a small "Take a quick tour" chip under the headline (TourChip),
+// which starts it or can be dismissed; either ends the offer for this browser (localStorage). Settings'
+// "Take the tour" or /?tour replays it.
 
 const KEY = "deeparam-tour";
 /** Fired by Settings' "Take the tour" link. */
 export const TOUR_EVENT = "deeparam-tour";
 
 const STEPS: { sel: string[]; title: string; body: string }[] = [
-  { sel: [".hero .jump"], title: "Find a champion", body: "Type a name to jump to their build, augments and win rate." },
-  { sel: ['.site-header .nav a[href="/tier-list"]', '.tabbar a[href="/tier-list"]'], title: "Tier List", body: "Every champion and augment ranked on the live patch. Pick older patches or play the timeline." },
-  { sel: ['.site-header .nav a[href="/simulator"]', '.tabbar a[href="/simulator"]'], title: "Simulator", body: "Simulated teamfights and builds for every champion. Try your own build in the Build Editor too." },
+  { sel: ['.site-header .nav a[href="/tier-list"]', '.tabbar a[href="/tier-list"]'], title: "Tier List", body: "Every champion and augment ranked on the live patch. Pick older patches from the list." },
+  { sel: ['.site-header .nav a[href="/simulator"]', '.tabbar a[href="/simulator"]'], title: "Simulator", body: "Simulated teamfights and builds for every champion." },
   { sel: [".search-btn"], title: "Search anything", body: "Champions, augments, items and pages. Press / or Ctrl+K from anywhere." },
   { sel: ['.site-header [aria-label="Settings"]'], title: "Make it yours", body: "Light or dark theme, less motion, sound and graphics. Saved in this browser." },
 ];
@@ -28,6 +30,7 @@ export default function FirstVisitTour() {
   const [i, setI] = useState(0);
   const [rect, setRect] = useState<DOMRect | null>(null);
   const [asked, setAsked] = useState(0);
+  const t = useT();
   useEffect(() => {
     const ask = () => setAsked((n) => n + 1);
     addEventListener(TOUR_EVENT, ask);
@@ -36,19 +39,14 @@ export default function FirstVisitTour() {
 
   useEffect(() => {
     if (pathname !== "/") return;
-    const replay = asked > 0 || new URLSearchParams(location.search).has("tour");
-    let seen = true;
-    try {
-      seen = localStorage.getItem(KEY) === "done";
-    } catch {}
-    if (seen && !replay) return;
+    if (!asked && !new URLSearchParams(location.search).has("tour")) return;
     const t = setTimeout(() => {
       const ok = STEPS.filter((s) => find(s.sel));
       if (ok.length) {
         setI(0);
         setSteps(ok);
       }
-    }, replay ? 400 : 1500);
+    }, 400);
     return () => clearTimeout(t);
   }, [pathname, asked]);
 
@@ -102,24 +100,52 @@ export default function FirstVisitTour() {
       <div className="tour-hole" style={{ left: rect.left - pad, top: rect.top - pad, width: rect.width + pad * 2, height: rect.height + pad * 2 }} />
       <div className="tour-card" style={below ? { left, top: rect.bottom + pad + 12 } : { left, top: rect.top - pad - 12, translate: "0 -100%" }}>
         <p className="tour-count">
-          {i + 1} of {steps.length}
+          {t("{i} of {n}", { i: i + 1, n: steps.length })}
         </p>
-        <h2 id="tour-title">{step.title}</h2>
-        <p>{step.body}</p>
+        <h2 id="tour-title">{t(step.title)}</h2>
+        <p>{t(step.body)}</p>
         <div className="tour-actions">
           <button type="button" className="tour-skip" onClick={finish}>
-            {i === steps.length - 1 ? "Close" : "Skip tour"}
+            {i === steps.length - 1 ? t("Close") : t("Skip tour")}
           </button>
           {i > 0 && (
             <button type="button" className="btn ghost" onClick={() => setI(i - 1)}>
-              Back
+              {t("Back")}
             </button>
           )}
           <button type="button" className="btn" autoFocus onClick={() => (i < steps.length - 1 ? setI(i + 1) : finish())}>
-            {i < steps.length - 1 ? "Next" : "Done"}
+            {i < steps.length - 1 ? t("Next") : t("Done")}
           </button>
         </div>
       </div>
     </div>
+  );
+}
+
+/** Home's offer of the tour for first-time visitors: starts it, or × hides the offer for good. */
+export function TourChip() {
+  const [show, setShow] = useState(false);
+  const t = useT();
+  useEffect(() => {
+    try {
+      setShow(localStorage.getItem(KEY) !== "done");
+    } catch {}
+  }, []);
+  if (!show) return null;
+  const close = () => {
+    try {
+      localStorage.setItem(KEY, "done");
+    } catch {}
+    setShow(false);
+  };
+  return (
+    <span className="tour-chip">
+      <button type="button" onClick={() => (close(), dispatchEvent(new Event(TOUR_EVENT)))}>
+        {t("New here? Take a quick tour")}
+      </button>
+      <button type="button" className="tour-chip-x" aria-label={t("Dismiss")} onClick={close}>
+        ×
+      </button>
+    </span>
   );
 }

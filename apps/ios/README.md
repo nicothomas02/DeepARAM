@@ -5,7 +5,7 @@ matching deeparam.com page, so every site update reaches the app without a new r
 
 - **Tabs** keep their place when you switch; tapping the current tab scrolls to the top, then back to its first page.
 - **Offline:** every page you open is saved. With no connection the tab shows the saved copy and when it was saved.
-- **Haptics** on tab changes and pull to refresh.
+- **Haptics** on tab changes, re-taps, pull to refresh, retry and going offline, plus every tap the site itself buzzes for (it calls `navigator.vibrate`, which the app turns into native haptics). One switch in More > Haptics, the same setting as Vibration in the site's settings menu.
 - **Patch alerts** (More > New patch alerts): iOS wakes the app in the background now and then; it checks
   `/data/app-status.json` (falling back to the sitemap) and posts a notification for a new live patch or PBE update.
   Tapping it opens that patch recap or the PBE tab.

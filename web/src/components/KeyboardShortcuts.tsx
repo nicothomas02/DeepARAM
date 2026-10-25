@@ -11,13 +11,10 @@ const GO: [string, string, string][] = [
   ["h", "/", "Home"],
   ["t", "/tier-list", "Tier List"],
   ["s", "/simulator", "Simulator"],
+  ["k", "/kitchen", "The Kitchen"],
   ["p", "/pbe", "PBE"],
-  ["c", "/compare", "Compare"],
-  ["b", "/builder", "Build Editor"],
-  ["d", "/draft", "Augment Draft"],
-  ["m", "/synergy", "Team Builder"],
-  ["r", "/patches", "Patch Recaps"],
-  ["i", "/info", "Info"],
+  ["r", "/patches", "Patches"],
+  ["i", "/info", "About"],
 ];
 
 const SHEET: { group: string; keys: [string[], string][] }[] = [
@@ -33,13 +30,6 @@ const SHEET: { group: string; keys: [string[], string][] }[] = [
     ],
   },
   { group: "Go to", keys: GO.map(([k, , label]) => [["g", k], label]) },
-  {
-    group: "On a champion page",
-    keys: [
-      [["f"], "Add to or remove from favorites"],
-      [["x"], "Add to or remove from compare"],
-    ],
-  },
 ];
 
 const typing = (t: EventTarget | null) => {
@@ -80,12 +70,6 @@ export default function KeyboardShortcuts() {
       } else if (k === "[" || k === "]") {
         e.preventDefault();
         switchTab(k === "]" ? 1 : -1);
-      } else if (k === "f" || k === "x") {
-        const btn = document.querySelector<HTMLButtonElement>(`.champ-hero-links ${k === "f" ? ".fav-star" : ".cmp-toggle"}`);
-        if (btn) {
-          e.preventDefault();
-          btn.click();
-        }
       }
     };
     addEventListener("keydown", onKey);

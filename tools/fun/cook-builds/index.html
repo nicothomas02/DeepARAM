@@ -3,35 +3,29 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Cook Builds · The Lab</title>
+  <title>Chef Specials · The Kitchen</title>
+  <meta name="description" content="A new unconventional ARAM Mayhem build every day, built on augments that work together, with every earlier Chef Special by date.">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <main>
     <header>
-      <p class="eyebrow"><a href="../index.html">The Lab</a> · ARAM Mayhem</p>
-      <h1>Cook Builds</h1>
-      <p class="muted">Troll builds built on strange augment interactions: a hook that lands like a fully built auto-attack, an artillery mage gone melee, and champions who swap their range. Each is checked against Mayhem win rates and the damage simulator.</p>
+      <p class="eyebrow">The Kitchen · ARAM Mayhem</p>
+      <h1>Chef Specials</h1>
+      <p class="muted">A new unconventional build every day: a side effect of the champion's kit, two or more augments that turn it into a new job, and items that feed the same loop. Every earlier special stays in the archive.</p>
     </header>
 
     <section id="chefs-special" class="chef" aria-labelledby="chef-label" hidden></section>
 
-    <div class="controls">
-      <div class="filters" role="group" aria-label="Filter by tier" id="filters"></div>
-      <label class="sort">Sort
-        <select id="sort">
-          <option value="tier">Tier</option>
-          <option value="core">Augment win rate</option>
-          <option value="champ">Champion win rate</option>
-          <option value="name">Champion name</option>
-        </select>
-      </label>
-    </div>
-
-    <section id="builds" aria-live="polite"></section>
-
-    <footer class="muted small" id="footer"></footer>
+    <section id="community" class="community" aria-labelledby="community-label" hidden>
+      <div class="chef-head">
+        <h2 id="community-label">Community builds</h2>
+        <p class="muted small">Builds players sent from the Simulator, picked by the chef. <a href="/simulator" target="_top">Send yours from the Simulator</a></p>
+      </div>
+      <div id="community-builds" class="community-builds"></div>
+    </section>
   </main>
+  <script src="../i18n.js"></script>
   <script src="data.js"></script>
   <script src="app.js"></script>
 </body>

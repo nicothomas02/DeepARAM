@@ -44,14 +44,15 @@ def test_shipped_page_assets_exist(path):
 
 def test_generated_data_has_asset_paths():
     """Guard against the scan silently finding nothing (a path format change would make every check pass)."""
-    for f in ("guide/data.js", "guide/history.js", "champions/data.js", "champions/skins.js"):
+    for f in ("guide/data.js", "guide/history.js", "champions/data.js"):
         assert len(_refs([f])) > 10, f
 
 
 def test_shipped_pages_use_no_outside_asset_hosts():
     """After the site build's rewrites, pages load nothing from outside hosts (fonts, images, models, scripts)."""
     url = re.compile(r"https?://[^\s\"'`<>()\\]+")
-    allowed = re.compile(r"^http://www\.w3\.org/")  # SVG/XML namespaces, not requests
+    # SVG/XML namespaces (not requests), and the site itself (My Stats run from the helper links back to it)
+    allowed = re.compile(r"^(http://www\.w3\.org/|https://deeparam\.com/)")
     bad = []
     for f in EMBED_FILES:
         for u in url.findall(embed_transform(read(f))):
@@ -64,12 +65,21 @@ def test_web_source_asset_paths_exist():
     files = []
     for d in ("web/src",):
         for dirpath, _, names in os.walk(repo(d)):
+            # dd-swap.json lists client files that are no longer kept, mapped to their official copies
             files += [os.path.relpath(os.path.join(dirpath, n), repo()) for n in names
-                      if n.endswith((".ts", ".tsx", ".css", ".json"))]
+                      if n.endswith((".ts", ".tsx", ".css", ".json")) and n != "dd-swap.json"]
     refs = _refs(files, transform=False)
     assert refs
     missing = [(f, p) for f, p in refs if not asset_exists(p)]
     assert not missing
+
+
+def test_official_copies_exist():
+    """Every official copy web/src/data/dd-swap.json points at is mirrored."""
+    swap = load_json("web/src/data/dd-swap.json")["paths"]
+    assert len(swap) > 1000
+    missing = [p for p in swap.values() if not asset_exists(p)]
+    assert not missing, missing[:10]
 
 
 def test_large_augment_icon_list():

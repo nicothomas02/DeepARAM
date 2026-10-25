@@ -1,0 +1,33 @@
+{
+ "maps": {
+  "1": "Summoner's Rift",
+  "10": "Twisted Treeline",
+  "11": "Summoner's Rift",
+  "12": "Howling Abyss",
+  "14": "Butcher's Bridge",
+  "16": "Cosmic Ruins",
+  "18": "Valoran City Park",
+  "19": "Substructure 43",
+  "2": "Summoner's Rift",
+  "20": "Crash Site",
+  "21": "Nexus Blitz",
+  "22": "Convergence",
+  "3": "The Proving Grounds",
+  "30": "Rings of Wrath",
+  "35": "The Bandlewood",
+  "4": "Twisted Treeline",
+  "8": "The Crystal Scar"
+ },
+ "queues": {
+  "2400": "ARAM Mayhem",
+  "300": "Legend of the Poro King",
+  "450": "ARAM",
+  "65": "ARAM",
+  "67": "ARAM Co-op vs AI",
+  "72": "1v1 Snowdown Showdown",
+  "720": "ARAM Clash",
+  "73": "2v2 Snowdown Showdown",
+  "78": "One For All: Mirror Mode",
+  "920": "Legend of the Poro King"
+ }
+}

@@ -23,13 +23,15 @@ export type Settings = {
   colors: "standard" | "colorblind";
   /** Base text size; everything sized in rem follows it. */
   text: "standard" | "large" | "larger";
-  /** Reopen the Tier List, Compare, Team Builder and Build Editor the way they were left. */
+  /** Reopen the Tier List the way it was left. */
   remember: boolean;
   /** The Tier List's starting patch range. */
-  tierRange: "live" | "last3" | "all";
+  tierRange: "live" | "set" | "last3" | "all";
+  /** "simple" hides fine print and expert controls site-wide (html[data-view]); "detailed" shows everything. */
+  view: "simple" | "detailed";
 };
 
-export const DEFAULT_SETTINGS: Settings = { motion: "system", sound: true, uiSound: false, haptics: true, graphics: "auto", contrast: "standard", colors: "standard", remember: true, text: "standard", tierRange: "live" };
+export const DEFAULT_SETTINGS: Settings = { motion: "system", sound: true, uiSound: false, haptics: true, graphics: "auto", contrast: "standard", colors: "standard", remember: true, text: "standard", tierRange: "live", view: "simple" };
 
 export function loadSettings(): Settings {
   try {
@@ -59,7 +61,8 @@ export function applySettings(s: Settings) {
   else delete root.dataset.colors;
   if (s.text === "large" || s.text === "larger") root.dataset.text = s.text;
   else delete root.dataset.text;
+  root.dataset.view = s.view === "detailed" ? "detailed" : "simple";
 }
 
-/** Inline before-paint script: applies reduced motion, contrast, colour and text size choices from saved settings. */
-export const SETTINGS_SCRIPT = `try{var s=JSON.parse(localStorage.getItem(${JSON.stringify(SETTINGS_KEY)})||"{}"),d=document.documentElement.dataset;if(s.motion==="reduce")d.motion="reduce";if(s.contrast==="high")d.contrast="high";if(s.colors==="colorblind")d.colors="colorblind";if(s.text==="large"||s.text==="larger")d.text=s.text}catch(e){}`;
+/** Inline before-paint script: applies reduced motion, contrast, colour, text size and page detail choices from saved settings. */
+export const SETTINGS_SCRIPT = `try{var s=JSON.parse(localStorage.getItem(${JSON.stringify(SETTINGS_KEY)})||"{}"),d=document.documentElement.dataset;if(s.motion==="reduce")d.motion="reduce";if(s.contrast==="high")d.contrast="high";if(s.colors==="colorblind")d.colors="colorblind";if(s.text==="large"||s.text==="larger")d.text=s.text;d.view=s.view==="detailed"?"detailed":"simple"}catch(e){}`;

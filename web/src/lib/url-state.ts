@@ -5,7 +5,7 @@
 // to the page reopens it the way it was left: VIEW_SCRIPT restores it on a full page load and
 // ViewMemory on links within the site. Off with Settings > Remember my views.
 
-export const REMEMBERED = ["/tier-list", "/compare", "/synergy", "/builder", "/what-to-build", "/augments"];
+export const REMEMBERED = ["/tier-list"];
 const VIEW_KEY = "deeparam-view:";
 
 const remembering = () => {

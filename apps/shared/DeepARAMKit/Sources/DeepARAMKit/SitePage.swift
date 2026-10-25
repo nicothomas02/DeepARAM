@@ -32,6 +32,7 @@ public final class SitePage: NSObject, ObservableObject {
         config.websiteDataStore = .default() // shared by every tab: settings and sign-in carry over
         config.applicationNameForUserAgent = Site.userAgentSuffix
         config.userContentController.addUserScript(WKUserScript(source: AppChrome.script(platform: platform), injectionTime: .atDocumentStart, forMainFrameOnly: true))
+        HapticsBridge.install(in: config.userContentController)
         #if os(iOS)
         config.allowsInlineMediaPlayback = true
         config.dataDetectorTypes = []
@@ -94,6 +95,7 @@ public final class SitePage: NSObject, ObservableObject {
 
     #if os(iOS)
     @objc private func pulledToRefresh(_ control: UIRefreshControl) {
+        Haptics.shared.play(.tap)
         reload()
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) { control.endRefreshing() }
     }
