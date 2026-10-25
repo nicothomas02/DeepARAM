@@ -1,297 +1,297 @@
 {
-  "id": "zoe-flash-photography",
-  "title": "Flash Photography",
-  "champion": "Zoe",
-  "champion_name": "Zoe",
-  "chef": "2026-10-23",
-  "why": "Zoe's Spell Thief hides a second passive line under the one everyone reads: whenever she casts that Ability or any Summoner Spell, she tosses 3 missiles at the target she Attacked most recently. Flashy gives her Flash three charges and Flashbang makes every one of those Flashes explode for damage and a Slow, so a single blink is now an area nuke plus a volley, and Flash 2 hands her a second Flash plus 70 Summoner Haste so the whole bar reloads sooner. Poltergeist bolts on one more Summoner Spell that casts Barrier and Ghost together, so even her panic button is three more missiles. Ionian Boots of Lucidity feed the loop with Summoner Spell Haste, Lich Bane turns the Attack she throws after an Ability into a bonus magic hit while it also marks who the next volley chases, and Rabadon's Deathcap, Shadowflame, Stormsurge and Void Staff make each small magic hit land like a real one. The long-range Paddle Star sniper stops waiting on her star and becomes a machine gun whose trigger is the Summoner bar.",
-  "play": "Attack whoever you want dead first, because the missiles follow the last target you hit. Then empty the bar on top of them, and Flash sideways, not away.",
+  "id": "olaf-health-is-mana",
+  "title": "Health Is Mana",
+  "champion": "Olaf",
+  "champion_name": "Olaf",
+  "chef": "2026-10-24",
+  "why": "Olaf's Berserker Rage hands him Attack Speed for every point of Health he is missing, and Tough It Out stacks even more Attack Speed on top; Purist - Caster converts all of that Attack Speed into Ability Haste, so the lower his Health bar, the faster his cooldowns run. Ominous Pact makes every spell cast cost a slice of his current Health and pays him back with Ability Power, Movement Speed and Omnivamp based on missing Health, so casting Undertow drains him, the drain feeds Berserker Rage, and the Attack Speed comes back out as more Haste for the next axe. escAPADe turns that Ability Power into bonus Attack Damage for his physical damage axes, and Skilled Sniper refunds most of Undertow's cooldown whenever the axe lands on someone more than 600 units away, so he never has to walk up and pick it up. Nashor's Tooth, Wit's End, Kraken Slayer and Berserker's Greaves are bought purely as Attack Speed to be converted into Haste (the Nashor's Ability Power also becomes Attack Damage through escAPADe), while Spear of Shojin and Experimental Hexplate add Attack Damage, Haste and the Health pool he deliberately burns. The melee berserker who has to run at people becomes a long-range artillery piece that lobs axes from max range and plays better the closer he is to dead.",
+  "play": "Sit at max Undertow range, throw axes until your Health sits near the bottom third, then keep throwing instead of chasing the axe. Reckless Swing is your emergency self-damage if you are too healthy; Ragnarok is for walking out, not in.",
   "items": [
-    "Ionian Boots of Lucidity",
-    "Lich Bane",
-    "Rabadon's Deathcap",
-    "Shadowflame",
-    "Stormsurge",
-    "Void Staff"
+    "Berserker's Greaves",
+    "Nashor's Tooth",
+    "Wit's End",
+    "Experimental Hexplate",
+    "Spear of Shojin",
+    "Kraken Slayer"
   ],
   "core": 4,
-  "champion_icon": "/embed/fun/cook-builds/icons/champions/142.png",
+  "champion_icon": "/embed/fun/cook-builds/icons/champions/2.png",
   "augments": [
     {
-      "name": "Flashy",
+      "name": "Purist - Caster",
+      "rarity": "Silver",
+      "core": true,
+      "text": "Gain percent cooldown reduction and convert all of your Attack Speed into Ability Haste.",
+      "icon": "/embed/fun/cook-builds/icons/augments/purist-caster.png",
+      "id": 2018
+    },
+    {
+      "name": "Ominous Pact",
+      "rarity": "Prismatic",
+      "core": true,
+      "text": "Gain Ability Power, 50% Movement Speed, and 20% Omnivamp based on missing Health. Spell casts cost 5% of your current Health. Max benefit at 30% Health.",
+      "icon": "/embed/fun/cook-builds/icons/augments/ominous-pact.png",
+      "id": 1332
+    },
+    {
+      "name": "escAPADe",
+      "rarity": "Silver",
+      "core": true,
+      "text": "Convert Ability Power to Bonus Attack Damage. Gain 15% Attack Damage.",
+      "icon": "/embed/fun/cook-builds/icons/augments/escapade.png",
+      "id": 1206
+    },
+    {
+      "name": "Skilled Sniper",
       "rarity": "Gold",
       "core": true,
-      "text": "Your Flash has 3 charges. After 120 seconds, regain all charges.",
-      "icon": "/embed/fun/cook-builds/icons/augments/flashy.png",
-      "id": 1116
-    },
-    {
-      "name": "Flashbang",
-      "rarity": "Silver",
-      "core": true,
-      "text": "Your Flash causes an explosion that damages and Slows (resets on death).",
-      "icon": "/embed/fun/cook-builds/icons/augments/flashbang.png",
-      "id": 1187
-    },
-    {
-      "name": "Flash 2",
-      "rarity": "Silver",
-      "core": true,
-      "text": "Gain a second Flash Summoner Spell and 70 Summoner Haste.",
-      "icon": "/embed/fun/cook-builds/icons/augments/flash-2.png",
-      "id": 1348
-    },
-    {
-      "name": "Poltergeist",
-      "rarity": "Silver",
-      "core": true,
-      "text": "Gain Poltergeist as a Summoner Spell. Poltergeist casts both Barrier and Ghost.",
-      "icon": "/embed/fun/cook-builds/icons/augments/poltergeist.png",
-      "id": 1347
+      "text": "Snipe an enemy with a non-Ultimate Ability refunds 80% Cooldown (65% for periodic Abilities). Snipe - Damage enemies over 600 distance away",
+      "icon": "/embed/fun/cook-builds/icons/augments/skilled-sniper.png",
+      "id": 1113
     }
   ],
   "href": "/kitchen#chefs-special",
   "archive_href": "/kitchen#chef-archive",
-  "share_href": "/kitchen/2026-10-23",
-  "share_image": "/embed/fun/cook-builds/share/zoe-flash-photography.png",
+  "share_href": "/kitchen/2026-10-24",
+  "share_image": "/embed/fun/cook-builds/share/olaf-health-is-mana.png",
   "item_ids": [
-    3158,
-    3100,
-    3089,
-    4645,
-    4646,
-    3135
+    3006,
+    3115,
+    3091,
+    3073,
+    3161,
+    6672
   ],
   "i18n": {
     "ar": {
-      "title": "تصوير بالفلاش",
-      "why": "تخفي مهارة W لدى زوي سطرًا ثانيًا من القدرة السلبية تحت السطر الذي يقرؤه الجميع: كلما استخدمت هذه المهارة أو أي تعويذة استدعاء، ترمي 3 قذائف على آخر هدف هاجمته. التألق يمنح الانتقال الخاطف لديها 3 شحنات، وقنبلة ضوئية تجعل كل انتقال خاطف ينفجر ليُلحق الضرر ويُبطئ، فتصبح قفزة واحدة قنبلة على منطقة مع رشقة قذائف، والانتقال الخاطف 2 يمنحها انتقالًا خاطفًا ثانيًا و70 من تسارع تعويذات الاستدعاء لتعود الشريطة كلها أسرع. شبح الضوضاء يضيف تعويذة استدعاء أخرى تُلقي الحاجز والشبح معًا، فحتى زر الذعر لديها يعني 3 قذائف إضافية. حذاء الوعي الأيوني يغذي الحلقة بتسارع تعويذات الاستدعاء، وعفونة الموتى تحوّل الهجمة بعد المهارة إلى ضربة سحرية إضافية تحدد أيضًا من ستطارده الرشقة التالية، بينما قبعة موت رابادون ولهيب الأشباح والمد العاصف وصولجان الفويد تجعل كل ضربة سحرية صغيرة تصيب كأنها ضربة حقيقية. قناصة مهارة Q تتوقف عن انتظار نجمتها وتصبح رشاشًا زناده شريط تعويذات الاستدعاء.",
-      "play": "هاجم أولًا من تريده ميتًا، لأن القذائف تلاحق آخر هدف أصبته. ثم أفرغ الشريط فوقه، واستخدم الانتقال الخاطف إلى الجانب لا إلى الخلف.",
+      "title": "الصحة هي المانا",
+      "why": "تمنح قدرة أولاف السلبية، غضب الهائج، سرعة هجوم مقابل كل نقطة صحة مفقودة، وتضيف قدرته W المزيد فوقها؛ ويحوّل النقيّ - ملقي التعويذات كل سرعة الهجوم هذه إلى تسريع قدرات، فكلما انخفض شريط صحته، تسارعت فترات تهدئته. يجعل الميثاق المشؤوم كل تعويذة تكلّفه جزءًا من صحته الحالية ويعوّضه بقوة قدرات وسرعة حركة وامتصاص شامل حسب الصحة المفقودة: رمي Q يستنزفه، والاستنزاف يغذي قدرته السلبية، وتعود سرعة الهجوم تسريعًا للفأس التالية. ويحوّل مغامرة قوة القدرات هذه إلى ضرر هجوم إضافي لفؤوسه الجسدية، ويعيد القناص الماهر معظم تهدئة Q كلما أصابت الفأس أحدًا على بعد أكثر من 600 وحدة، فلا يحتاج أبدًا إلى التقاطها. يشتري سن ناشور والموقف الحرج وقاتل الكراكن ودرع ساق الجامح من أجل سرعة الهجوم التي تتحول إلى تسريع فقط (وقوة القدرات من سن ناشور تصبح أيضًا ضرر هجوم عبر مغامرة)، بينما يضيف رمح شوجين وصفيحة الهيكستيك التجريبية ضرر هجوم وتسريعًا والصحة التي يحرقها عمدًا. يتحول الهائج القريب المدى الذي يجب أن يركض نحو الخصوم إلى مدفعية ترمي الفؤوس من أقصى مدى، ويلعب أفضل كلما اقترب من الموت.",
+      "play": "ابقَ على أقصى مدى لـ Q وارمِ الفؤوس حتى تنزل صحتك قرب الثلث الأخير، ثم واصل الرمي بدل مطاردة الفأس. قدرة E هي ضررك الذاتي للطوارئ إن كانت صحتك عالية جدًا؛ وR للخروج لا للدخول.",
       "augments": [
-        "للانتقال الخاطف لديك 3 شحنات. بعد 120 ثانية، تستعيد جميع الشحنات.",
-        "يُحدث الانتقال الخاطف انفجارًا يُلحق الضرر ويُبطئ (يُعاد تعيينه عند الموت).",
-        "احصل على تعويذة استدعاء ثانية للانتقال الخاطف و70 من تسارع تعويذات الاستدعاء.",
-        "احصل على شبح الضوضاء كتعويذة استدعاء. يُلقي شبح الضوضاء الحاجز والشبح معًا."
+        "احصل على تقليل نسبي لفترة التهدئة وحوّل كل سرعة هجومك إلى تسريع قدرات.",
+        "احصل على قوة قدرات و50% سرعة حركة و20% امتصاص شامل حسب الصحة المفقودة. استخدام التعويذات يكلّف 5% من صحتك الحالية. أقصى فائدة عند 30% صحة.",
+        "يحوّل قوة القدرات إلى ضرر هجوم إضافي. احصل على 15% ضرر هجوم.",
+        "قنص عدو بقدرة غير القدرة القصوى يعيد 80% من فترة التهدئة (65% للقدرات الدورية). القنص: إلحاق الضرر بالأعداء على بعد أكثر من 600 وحدة."
       ]
     },
     "cs": {
-      "title": "Fotka s bleskem",
-      "why": "Zoeino W skrývá pod řádkem, který všichni čtou, druhou pasivku: kdykoli použije tuto schopnost nebo jakékoli vyvolávačovo kouzlo, hodí 3 střely na cíl, na který naposledy zaútočila. Okázalý dává jejímu Skoku 3 náboje a Oslepení nechá každý z těch Skoků vybuchnout, takže zraňuje a zpomaluje, a jediný blink je tak plošná bomba plus salva, a Skok 2 jí dá druhý Skok a 70 zrychlení vyvolávačových kouzel, takže se celá lišta nabíjí rychleji. Poltergeist přidá ještě jedno vyvolávačovo kouzlo, které sešle Bariéru a Ducha naráz, takže i její panické tlačítko jsou další 3 střely. Ionské boty jasnosti krmí smyčku zrychlením vyvolávačových kouzel, Zhouba lichů změní útok po schopnosti v bonusový magický zásah, který zároveň označí, koho další salva pronásleduje, a Rabadonův smrtící klobouk, Stínový plamen, Nával bouře a Hůl Prázdnoty zařídí, že každý malý magický zásah bouchne jako pořádný. Odstřelovačka s Q přestane čekat na svou hvězdu a stane se kulometem, jehož spouští je lišta vyvolávačových kouzel.",
-      "play": "Nejdřív zaútoč na toho, koho chceš mít mrtvého, protože střely letí na poslední zasažený cíl. Pak na něj vysyp celou lištu a Skákej do strany, ne pryč.",
+      "title": "Zdraví je mana",
+      "why": "Olafova pasivka, Běsnění berserkra, mu dává rychlost útoků za každý chybějící bod zdraví a jeho W přidává ještě víc; Ryzí sesilatel přemění všechnu tuhle rychlost útoků na zrychlení schopností, takže čím níž je jeho ukazatel zdraví, tím rychleji mu běží přebíjení. Zlověstný pakt nechá každé seslání stát kus aktuálního zdraví a vrací mu sílu schopností, rychlost pohybu a všeupírství podle chybějícího zdraví: sesílání Q ho vysává, ztráta zdraví krmí pasivku a rychlost útoků se vrací jako zrychlení pro další sekeru. Transformátor mění tuhle sílu schopností na bonusové útočné poškození pro jeho fyzické sekery a Zkušený odstřelovač vrátí většinu přebíjení Q, kdykoli sekera zasáhne někoho na víc než 600 jednotek, takže pro ni nikdy nemusí chodit. Nashorův tesák, Nouzová, Zabiják krakenů a Šílencovy boty kupuje jen kvůli rychlosti útoků, která se mění na zrychlení (síla schopností z Tesáku se přes Transformátor taky stává útočným poškozením), zatímco Oštěp Šódžinu a Experimentální magiplát přidávají útočné poškození, zrychlení a zdraví, které schválně pálí. Berserker na blízko, co musí běžet na lidi, se stává dělostřelectvem, které hází sekery z maximálního dosahu a hraje tím líp, čím blíž je smrti.",
+      "play": "Drž se na maximálním dosahu Q, házej sekery, dokud ti zdraví neklesne zhruba ke spodní třetině, a pak házej dál místo honění sekery. E je tvoje nouzové poškození sebe sama, když máš moc zdraví; R je na útěk, ne na vstup.",
       "augments": [
-        "Tvůj Skok má 3 náboje. Po 120 sekundách získáš zpět všechny náboje.",
-        "Tvůj Skok způsobí výbuch, který zraňuje a zpomaluje (obnoví se po smrti).",
-        "Získáš druhé vyvolávačovo kouzlo Skok a 70 zrychlení vyvolávačových kouzel.",
-        "Získáš Poltergeist jako vyvolávačovo kouzlo. Poltergeist sešle Bariéru i Ducha zároveň."
+        "Získáš procentuální zkrácení přebíjení a přeměníš veškerou rychlost útoků na zrychlení schopností.",
+        "Získáš sílu schopností, 50% rychlosti pohybu a 20% všeupírství podle chybějícího zdraví. Seslání schopností stojí 5% aktuálního zdraví. Maximální účinek při 30% zdraví.",
+        "Přemění sílu schopností na bonusové útočné poškození. Získáš 15% útočného poškození.",
+        "Odstřelení nepřítele schopností, která není superschopnost, vrátí 80% přebíjení (65% u periodických schopností). Odstřelení: zasažení nepřátel na vzdálenost přes 600 jednotek."
       ]
     },
     "de": {
-      "title": "Blitzlichtgewitter",
-      "why": "Zoes W versteckt eine zweite passive Zeile unter der, die alle lesen: Immer wenn sie diese Fähigkeit oder irgendeinen Beschwörerzauber einsetzt, wirft sie 3 Geschosse auf das Ziel, das sie zuletzt angegriffen hat. Blitzartig gibt ihrem Blitz 3 Ladungen und Potz Blitz lässt jeden dieser Blitze explodieren, was Schaden verursacht und verlangsamt, also wird ein einziger Blink zur Flächenbombe plus Salve, und Blitz 2 gibt ihr einen zweiten Blitz plus 70 Beschwörerzauber-Tempo, damit die ganze Leiste schneller nachlädt. Poltergeist schraubt noch einen Beschwörerzauber dazu, der Barriere und Geist gleichzeitig wirkt, also ist sogar ihr Panikknopf 3 weitere Geschosse. Ionische Stiefel der Deutlichkeit füttern die Schleife mit Beschwörerzauber-Tempo, Fluch des Lichs macht den Angriff nach einer Fähigkeit zu einem magischen Bonustreffer und markiert dabei, wen die nächste Salve jagt, und Rabadons Todeshaube, Schattenflamme, Sturmblitz und Leerenstab lassen jeden kleinen magischen Treffer wie einen echten einschlagen. Die Q-Sniperin hört auf, auf ihren Stern zu warten, und wird zum Maschinengewehr, dessen Abzug die Beschwörerzauber-Leiste ist.",
-      "play": "Greif zuerst den an, den du tot sehen willst, denn die Geschosse folgen dem letzten getroffenen Ziel. Dann leer die Leiste auf ihm aus, und blitz zur Seite, nicht weg.",
+      "title": "Leben ist Mana",
+      "why": "Olafs Passive, Berserkerwut, gibt ihm Angriffstempo für jeden fehlenden Lebenspunkt, und sein W legt noch mehr Angriffstempo obendrauf; Purist – Zauberer wandelt all dieses Angriffstempo in Fähigkeitstempo um, also laufen seine Abklingzeiten umso schneller, je leerer seine Lebensleiste ist. Unheilvoller Pakt lässt jeden Zauber einen Teil seines aktuellen Lebens kosten und zahlt ihm abhängig vom fehlenden Leben Fähigkeitsstärke, Lauftempo und Omnivampirismus zurück: Sein Q saugt ihn aus, der Lebensverlust füttert seine Passive, und das Angriffstempo kommt als Fähigkeitstempo für die nächste Axt zurück. Im Wandel macht aus dieser Fähigkeitsstärke zusätzlichen Angriffsschaden für seine physischen Äxte, und Geschickter Scharfschütze erstattet den Großteil der Abklingzeit seines Q, wenn die Axt jemanden in über 600 Einheiten Entfernung trifft, sodass er sie nie aufsammeln muss. Nashors Zahn, Ende der Weisheit, Krakenbezwinger und Beinschienen des Berserkers kauft er nur für Angriffstempo, das zu Fähigkeitstempo wird (die Fähigkeitsstärke von Nashors Zahn wird durch Im Wandel ebenfalls Angriffsschaden), während Speer von Shojin und Experimentelle Hexpanzerung Angriffsschaden, Fähigkeitstempo und das Leben liefern, das er absichtlich verbrennt. Der Nahkampf-Berserker, der auf Leute zurennen muss, wird zur Artillerie, die Äxte aus maximaler Reichweite wirft und umso besser spielt, je näher er am Tod ist.",
+      "play": "Bleib auf maximaler Q-Reichweite, wirf Äxte, bis dein Leben im unteren Drittel ist, und wirf dann weiter, statt der Axt hinterherzulaufen. E ist dein Notfall-Selbstschaden, wenn du zu gesund bist; R ist zum Rauslaufen, nicht zum Reinlaufen.",
       "augments": [
-        "Dein Blitz hat 3 Ladungen. Nach 120 Sekunden erhältst du alle Ladungen zurück.",
-        "Dein Blitz löst eine Explosion aus, die Schaden verursacht und verlangsamt (wird beim Tod zurückgesetzt).",
-        "Erhalte einen zweiten Blitz-Beschwörerzauber und 70 Beschwörerzauber-Tempo.",
-        "Erhalte Poltergeist als Beschwörerzauber. Poltergeist wirkt sowohl Barriere als auch Geist."
+        "Erhalte prozentuale Abklingzeitverringerung und wandle dein gesamtes Angriffstempo in Fähigkeitstempo um.",
+        "Erhalte abhängig vom fehlenden Leben Fähigkeitsstärke, 50% Lauftempo und 20% Omnivampirismus. Zauber kosten 5% deines aktuellen Lebens. Maximaler Effekt bei 30% Leben.",
+        "Wandle Fähigkeitsstärke in zusätzlichen Angriffsschaden um. Erhalte 15% Angriffsschaden.",
+        "Einen Gegner mit einer Nicht-Ultimate-Fähigkeit zu snipen erstattet 80% der Abklingzeit (65% bei periodischen Fähigkeiten). Snipen: Gegnern in über 600 Einheiten Entfernung Schaden zufügen."
       ]
     },
     "el": {
-      "title": "Φωτογραφία με φλας",
-      "why": "Το W της Ζόη κρύβει μια δεύτερη γραμμή παθητικής κάτω από αυτή που διαβάζουν όλοι: κάθε φορά που χρησιμοποιεί αυτή την ικανότητα ή οποιοδήποτε ξόρκι επικαλεστή, ρίχνει 3 βλήματα στον στόχο που επιτέθηκε τελευταίο. Το Φλασιά δίνει 3 φορτίσεις στο Φλας της και το Και Κρότος και Λάμψη κάνει κάθε Φλας να εκρήγνυται προκαλώντας ζημιά και Επιβράδυνση, οπότε ένα μόνο blink γίνεται βόμβα περιοχής συν ριπή, ενώ το Φλας 2 της δίνει δεύτερο Φλας και 70 Επιτάχυνση Ξορκιών Επικαλεστή για να ξαναγεμίζει όλη η μπάρα πιο γρήγορα. Το Ενοχλητικό Φάντασμα προσθέτει ακόμα ένα ξόρκι επικαλεστή που ρίχνει Φράγμα και Φάντασμα μαζί, οπότε ακόμα και το κουμπί πανικού της είναι 3 βλήματα παραπάνω. Οι Ιόνιες Μπότες της Διαύγειας τροφοδοτούν τον κύκλο με Επιτάχυνση Ξορκιών Επικαλεστή, ο Όλεθρος των Απέθαντων κάνει την επίθεση μετά από ικανότητα επιπλέον μαγικό χτύπημα που ταυτόχρονα σημαδεύει ποιον κυνηγά η επόμενη ριπή, και το Καπέλο του Ράμπαντον, η Φλόγα της Σκιάς, το Ξέσπασμα Καταιγίδας και η Ράβδος του Κενού κάνουν κάθε μικρό μαγικό χτύπημα να πονάει σαν κανονικό. Η σκοπευτής του Q σταματά να περιμένει το αστέρι της και γίνεται πολυβόλο με σκανδάλη την μπάρα των ξορκιών επικαλεστή.",
-      "play": "Χτύπα πρώτα αυτόν που θες νεκρό, γιατί τα βλήματα ακολουθούν τον τελευταίο στόχο που χτύπησες. Μετά άδειασε την μπάρα πάνω του, και κάνε Φλας στο πλάι, όχι μακριά.",
+      "title": "Η Ζωή Είναι Μάνα",
+      "why": "Η παθητική του Όλαφ, Οργή του Μπερζέρκερ, του δίνει Ταχύτητα Επίθεσης για κάθε πόντο Ζωής που του λείπει, και το W του προσθέτει κι άλλη από πάνω· το Καθαρολόγος - Μάγος μετατρέπει όλη αυτή την Ταχύτητα Επίθεσης σε Επιτάχυνση Ικανοτήτων, οπότε όσο πιο χαμηλά πέφτει η μπάρα Ζωής του, τόσο πιο γρήγορα τρέχουν οι χρόνοι επαναφόρτισης. Η Δυσοίωνη Συμφωνία κάνει κάθε ικανότητα να κοστίζει ένα κομμάτι της τρέχουσας Ζωής του και τον ανταμείβει με Δύναμη Ικανοτήτων, Ταχύτητα Κίνησης και Παμβαμπιρισμό ανάλογα με τη Ζωή που λείπει: το Q τον στραγγίζει, το στράγγισμα ταΐζει την παθητική και η Ταχύτητα Επίθεσης επιστρέφει ως Επιτάχυνση για το επόμενο τσεκούρι. Το αναΠΡΟΣΑΡΜΟΓή μετατρέπει αυτή τη Δύναμη Ικανοτήτων σε επιπλέον Ζημιά Επίθεσης για τα φυσικά του τσεκούρια, και το Ικανός Ελεύθερος Σκοπευτής επιστρέφει το μεγαλύτερο μέρος της επαναφόρτισης του Q κάθε φορά που το τσεκούρι χτυπά κάποιον πάνω από 600 μονάδες μακριά, οπότε δεν χρειάζεται ποτέ να πάει να το μαζέψει. Το Δόντι του Νάσορ, το Παρανοϊκό Ξίφος, ο Σφαγέας Κράκεν και οι Περικνημίδες του Μπερζέρκερ αγοράζονται μόνο για την Ταχύτητα Επίθεσης που γίνεται Επιτάχυνση (η Δύναμη Ικανοτήτων του Δοντιού γίνεται κι αυτή Ζημιά Επίθεσης μέσω του αναΠΡΟΣΑΡΜΟΓή), ενώ το Δόρυ του Σοτζίν και η Πειραματική Μαγοτεχνική Πανοπλία δίνουν Ζημιά Επίθεσης, Επιτάχυνση και τη Ζωή που καίει επίτηδες. Ο μαχητής εξ επαφής που πρέπει να τρέχει πάνω στους αντιπάλους γίνεται πυροβολικό που πετά τσεκούρια από το μέγιστο βεληνεκές και παίζει καλύτερα όσο πιο κοντά είναι στον θάνατο.",
+      "play": "Μείνε στο μέγιστο βεληνεκές του Q, πέτα τσεκούρια μέχρι η Ζωή σου να πέσει κοντά στο τελευταίο τρίτο και συνέχισε να πετάς αντί να κυνηγάς το τσεκούρι. Το E είναι η αυτοζημιά έκτακτης ανάγκης αν έχεις πολλή Ζωή· το R είναι για να φύγεις, όχι για να μπεις.",
       "augments": [
-        "Το Φλας σου έχει 3 φορτίσεις. Μετά από 120 δευτερόλεπτα, ανακτάς όλες τις φορτίσεις.",
-        "Το Φλας σου προκαλεί έκρηξη που προκαλεί ζημιά και Επιβράδυνση (επαναφέρεται με τον θάνατο).",
-        "Αποκτάς δεύτερο ξόρκι επικαλεστή Φλας και 70 Επιτάχυνση Ξορκιών Επικαλεστή.",
-        "Αποκτάς το Ενοχλητικό Φάντασμα ως ξόρκι επικαλεστή. Ρίχνει ταυτόχρονα Φράγμα και Φάντασμα."
+        "Αποκτάτε ποσοστιαία μείωση χρόνου επαναφόρτισης και μετατρέπετε όλη την Ταχύτητα Επίθεσης σε Επιτάχυνση Ικανοτήτων.",
+        "Αποκτάτε Δύναμη Ικανοτήτων, 50% Ταχύτητα Κίνησης και 20% Παμβαμπιρισμό ανάλογα με τη Ζωή που λείπει. Η χρήση ικανοτήτων κοστίζει 5% της τρέχουσας Ζωής. Μέγιστο όφελος στο 30% Ζωής.",
+        "Μετατρέπει τη Δύναμη Ικανοτήτων σε επιπλέον Ζημιά Επίθεσης. Αποκτάτε 15% Ζημιά Επίθεσης.",
+        "Η ελεύθερη σκόπευση σε εχθρό με ικανότητα που δεν είναι η Υπέρτατη επιστρέφει 80% του χρόνου επαναφόρτισης (65% για περιοδικές ικανότητες). Ελεύθερη σκόπευση: ζημιά σε εχθρούς σε απόσταση πάνω από 600."
       ]
     },
     "es-MX": {
-      "title": "Foto con flash",
-      "why": "La W de Zoe esconde una segunda línea de pasiva debajo de la que todos leen: cada vez que lanza esa habilidad o cualquier hechizo de invocador, arroja 3 proyectiles al último objetivo que atacó. Llamativo le da 3 cargas a su Destello y Quieto hace que cada uno de esos Destellos explote, infligiendo daño y una ralentización, así que un solo blink se vuelve un bombazo de área más una ráfaga, y Destello 2 le da un segundo Destello y 70 de velocidad de hechizos de invocador para que toda la barra recargue más rápido. Poltergeist le agrega otro hechizo de invocador que lanza Barrera y Fantasmal al mismo tiempo, así que hasta su botón de pánico son 3 proyectiles más. Las Botas Jonias de la Lucidez alimentan el ciclo con velocidad de hechizos de invocador, la Maldición del Liche convierte el ataque que lanza después de una habilidad en un golpe mágico extra que además marca a quién persigue la siguiente ráfaga, y el Sombrero Mortífero de Rabadon, Lumbría, Descarga Tormentosa y el Báculo del Vacío hacen que cada golpecito mágico pegue como uno de verdad. La francotiradora de la Q deja de esperar a su estrella y se vuelve una ametralladora cuyo gatillo es la barra de hechizos de invocador.",
-      "play": "Ataca primero al que quieras ver muerto, porque los proyectiles siguen al último objetivo golpeado. Luego vacía la barra encima de él, y usa Destello de lado, no para huir.",
+      "title": "La vida es maná",
+      "why": "La pasiva de Olaf, Furia del Berserker, le da velocidad de ataque por cada punto de vida que le falta, y su W le acumula todavía más; Purista: Hechicero convierte toda esa velocidad de ataque en velocidad de habilidades, así que entre más baja esté su barra de vida, más rápido corren sus enfriamientos. Pacto Ominoso hace que cada hechizo cueste una parte de su vida actual y se lo regresa en poder de habilidad, velocidad de movimiento y omnivampirismo según la vida que le falta: lanzar su Q lo drena, ese drenaje alimenta su pasiva y la velocidad de ataque regresa como velocidad de habilidades para la siguiente hacha. escaPHaDA convierte ese poder de habilidad en daño de ataque adicional para sus hachas físicas, y Francotirador Experto le reembolsa la mayor parte del enfriamiento de la Q cada vez que el hacha le pega a alguien a más de 600 unidades, así que nunca tiene que ir por ella. Diente de Nashor, Al Filo de la Cordura, Matakrakens y Grebas del Berserker se compran solo por la velocidad de ataque que se convierte en velocidad de habilidades (el poder del Diente también se vuelve daño de ataque con escaPHaDA), mientras que Lanza de Shojin y Placa Hexperimental dan daño de ataque, velocidad de habilidades y la vida que quema a propósito. El berserker cuerpo a cuerpo que tiene que correr hacia la gente se vuelve una pieza de artillería que lanza hachas desde el alcance máximo y juega mejor entre más cerca está de morir.",
+      "play": "Quédate al alcance máximo de la Q, lanza hachas hasta que tu vida baje al último tercio y sigue lanzando en lugar de perseguir el hacha. La E es tu autodaño de emergencia si tienes demasiada vida; la R es para salir, no para entrar.",
       "augments": [
-        "Tu Destello tiene 3 cargas. Después de 120 segundos, recuperas todas las cargas.",
-        "Tu Destello causa una explosión que inflige daño y ralentiza (se reinicia al morir).",
-        "Obtienes un segundo hechizo de invocador Destello y 70 de velocidad de hechizos de invocador.",
-        "Obtienes Poltergeist como hechizo de invocador. Poltergeist lanza Barrera y Fantasmal a la vez."
+        "Obtienes reducción porcentual de enfriamiento y conviertes toda tu velocidad de ataque en velocidad de habilidades.",
+        "Obtienes poder de habilidad, 50% de velocidad de movimiento y 20% de omnivampirismo según la vida faltante. Lanzar hechizos cuesta 5% de tu vida actual. Beneficio máximo al 30% de vida.",
+        "Convierte el poder de habilidad en daño de ataque adicional. Obtienes 15% de daño de ataque.",
+        "Hacerle de francotirador a un enemigo con una habilidad que no sea la definitiva reembolsa 80% del enfriamiento (65% en habilidades periódicas). Francotirador: infligir daño a enemigos a más de 600 de distancia."
       ]
     },
     "es": {
-      "title": "Foto con flash",
-      "why": "La W de Zoe esconde una segunda línea de pasiva debajo de la que todo el mundo lee: cada vez que lanza esa habilidad o cualquier hechizo de invocador, arroja 3 proyectiles al último objetivo al que atacó. Llamativo le da 3 cargas a su Destello y Destello explosivo hace que cada uno de esos Destellos explote causando daño y una ralentización, así que un solo blink se convierte en un bombazo en área más una ráfaga, y Destello 2 le da un segundo Destello y 70 de aceleración de hechizos de invocador para que toda la barra recargue antes. Poltergeist le añade otro hechizo de invocador que lanza Barrera y Fantasma a la vez, así que hasta su botón del pánico son 3 proyectiles más. Las Botas jonias de la lucidez alimentan el bucle con aceleración de hechizos de invocador, la Perdición del liche convierte el ataque que lanza tras una habilidad en un golpe mágico extra que además marca a quién persigue la siguiente ráfaga, y el Sombrero mortal de Rabadon, la Llamasombría, la Sobrecarga tormentosa y el Bastón del Vacío hacen que cada golpecito mágico pegue como uno de verdad. La francotiradora de la Q deja de esperar a su estrella y se convierte en una ametralladora cuyo gatillo es la barra de hechizos de invocador.",
-      "play": "Ataca primero al que quieras ver muerto, porque los proyectiles siguen al último objetivo golpeado. Luego vacía la barra encima de él, y haz Destello hacia un lado, no hacia atrás.",
+      "title": "La vida es maná",
+      "why": "La pasiva de Olaf, Ira del berserker, le da velocidad de ataque por cada punto de vida que le falta, y su W le apila todavía más; Purista - Lanzador convierte toda esa velocidad de ataque en aceleración de habilidades, así que cuanto más baja está su barra de vida, más rápido van sus enfriamientos. Pacto ominoso hace que cada hechizo cueste una parte de su vida actual y se lo devuelve en poder de habilidad, velocidad de movimiento y omnivampirismo según la vida que le falta: lanzar su Q lo drena, ese drenaje alimenta su pasiva y la velocidad de ataque vuelve como aceleración para la siguiente hacha. EscaPHaDA convierte ese poder de habilidad en daño de ataque adicional para sus hachas físicas, y Francotirador habilidoso le devuelve la mayor parte del enfriamiento de la Q cada vez que el hacha impacta a alguien a más de 600 unidades, así que nunca tiene que ir a recogerla. Diente de Nashor, Final del ingenio, Verdugo de krakens y Grebas de berserker se compran solo por la velocidad de ataque que se convierte en aceleración (el poder del Diente también pasa a daño de ataque con EscaPHaDA), mientras que Lanza de Shojin y Experimento de hexarmadura aportan daño de ataque, aceleración y la vida que quema a propósito. El berserker cuerpo a cuerpo que tiene que correr hacia la gente se convierte en una pieza de artillería que lanza hachas desde rango máximo y juega mejor cuanto más cerca está de morir.",
+      "play": "Quédate a rango máximo de la Q, lanza hachas hasta que tu vida baje al último tercio y sigue lanzando en vez de perseguir el hacha. La E es tu autodaño de emergencia si tienes demasiada vida; la R es para salir, no para entrar.",
       "augments": [
-        "Tu Destello tiene 3 cargas. Tras 120 segundos, recuperas todas las cargas.",
-        "Tu Destello provoca una explosión que inflige daño y ralentiza (se reinicia al morir).",
-        "Obtienes un segundo hechizo de invocador Destello y 70 de aceleración de hechizos de invocador.",
-        "Obtienes Poltergeist como hechizo de invocador. Poltergeist lanza Barrera y Fantasma a la vez."
+        "Obtienes reducción porcentual de enfriamiento y conviertes toda tu velocidad de ataque en aceleración de habilidades.",
+        "Obtienes poder de habilidad, un 50% de velocidad de movimiento y un 20% de omnivampirismo según la vida que te falta. Lanzar hechizos cuesta un 5% de tu vida actual. Beneficio máximo al 30% de vida.",
+        "Convierte el poder de habilidad en daño de ataque adicional. Obtienes un 15% de daño de ataque.",
+        "Hacer de francotirador sobre un enemigo con una habilidad que no sea la definitiva reembolsa un 80% del enfriamiento (65% en habilidades periódicas). Francotirador: infligir daño a enemigos a más de 600 de distancia."
       ]
     },
     "fr": {
-      "title": "Photo au flash",
-      "why": "Le W de Zoé cache une deuxième ligne de passif sous celle que tout le monde lit : chaque fois qu'elle lance cette compétence ou n'importe quel sort d'invocateur, elle envoie 3 projectiles sur la dernière cible qu'elle a attaquée. Sauts éclair donne 3 charges à son Saut éclair et Grenade éclair fait exploser chacun de ces Sauts éclair en infligeant des dégâts et un ralentissement, donc un seul blink devient une bombe de zone plus une salve, et Saut éclair 2 lui offre un deuxième Saut éclair plus 70 d'accélération de sort d'invocateur pour recharger toute la barre plus vite. Poltergeist ajoute encore un sort d'invocateur qui lance Barrière et Fantôme en même temps, donc même son bouton panique, c'est 3 projectiles de plus. Les Bottes de lucidité nourrissent la boucle avec de l'accélération de sort d'invocateur, le Fléau de liche transforme l'attaque qu'elle place après une compétence en coup magique bonus tout en marquant la cible de la prochaine salve, et la Coiffe de Rabadon, la Flamme-ombre, l'Onde orageuse et le Bâton du vide font frapper chaque petit coup magique comme un vrai. La sniper du Q arrête d'attendre son étoile et devient une mitrailleuse dont la gâchette est la barre des sorts d'invocateur.",
-      "play": "Attaquez d'abord celui que vous voulez voir mort, car les projectiles suivent la dernière cible touchée. Puis videz la barre sur lui, et Saut éclair sur le côté, pas en arrière.",
+      "title": "La vie, c'est du mana",
+      "why": "Le passif d'Olaf, Rage du berserker, lui donne de la vitesse d'attaque pour chaque point de PV manquant, et son W en ajoute encore par-dessus ; Puriste - Lanceur de compétence convertit toute cette vitesse d'attaque en accélération de compétence, donc plus sa barre de vie baisse, plus ses délais de récupération fondent. Pacte sinistre fait coûter à chaque sort une part de ses PV actuels et le rembourse en puissance, vitesse de déplacement et omnivampirisme selon ses PV manquants : lancer son Q le vide, la perte de PV nourrit son passif, et la vitesse d'attaque revient en accélération pour la hache suivante. Conversion physique transforme cette puissance en dégâts d'attaque bonus pour ses haches physiques, et Sniper rembourse la majeure partie du délai du Q chaque fois que la hache touche quelqu'un à plus de 600 unités, donc il n'a jamais besoin d'aller la ramasser. Dent de Nashor, Au bout du rouleau, Tueur de krakens et Jambières du berzerker ne sont achetés que pour leur vitesse d'attaque convertie en accélération (la puissance de la Dent devient aussi des dégâts d'attaque grâce à Conversion physique), tandis que Lance de Shojin et Hexplaque expérimentale ajoutent dégâts d'attaque, accélération et les PV qu'il brûle exprès. Le berserker de mêlée qui doit foncer sur les gens devient une pièce d'artillerie qui lance des haches à portée max et joue mieux plus il est proche de la mort.",
+      "play": "Reste à portée max du Q, lance des haches jusqu'à descendre vers le dernier tiers de tes PV, puis continue de lancer au lieu de courir après la hache. Le E sert à te blesser en urgence si tu as trop de PV ; le R, c'est pour sortir, pas pour rentrer.",
       "augments": [
-        "Votre Saut éclair a 3 charges. Après 120 secondes, récupérez toutes les charges.",
-        "Votre Saut éclair provoque une explosion qui inflige des dégâts et ralentit (réinitialisé à la mort).",
-        "Obtenez un deuxième sort d'invocateur Saut éclair et 70 d'accélération de sort d'invocateur.",
-        "Obtenez Poltergeist comme sort d'invocateur. Poltergeist lance à la fois Barrière et Fantôme."
+        "Obtenez de la réduction de délai de récupération en pourcentage et convertissez toute votre vitesse d'attaque en accélération de compétence.",
+        "Obtenez de la puissance, 50% de vitesse de déplacement et 20% d'omnivampirisme selon vos PV manquants. Lancer un sort coûte 5% de vos PV actuels. Bonus maximal à 30% de PV.",
+        "Convertit la puissance en dégâts d'attaque bonus. Obtenez 15% de dégâts d'attaque.",
+        "Sniper un ennemi avec une compétence autre que l'ultime rembourse 80% de son délai de récupération (65% pour les compétences périodiques). Sniper : infliger des dégâts à un ennemi à plus de 600 unités de distance."
       ]
     },
     "hu": {
-      "title": "Vakus fotó",
-      "why": "Zoe W-je elrejt egy második passzív sort az alatt, amit mindenki elolvas: valahányszor ezt a képességet vagy bármelyik idézővarázslatot használja, 3 lövedéket dob arra a célpontra, amelyet legutóbb megtámadott. A Látványos 3 töltetet ad az Átvillanásának, a Villámgránát pedig minden Átvillanást sebző és lassító robbanássá tesz, így egyetlen blink területi bomba plusz sortűz, a 2. Átvillanás pedig ad egy második Átvillanást és 70 idézővarázslat-gyorsítást, hogy az egész sáv hamarabb töltődjön. A Kopogószellem még egy idézővarázslatot ad, ami egyszerre használja a Védőpajzsot és a Szellemet, így még a pánikgombja is 3 újabb lövedék. Az Ioniai fénycipő idézővarázslat-gyorsítással táplálja a kört, a Félholt csapás a képesség utáni támadást bónusz mágikus találattá alakítja, ami egyben megjelöli, kit üldöz a következő sortűz, a Rabadon halálsüvege, az Árnyékláng, a Viharhullám és Az Üresség botja pedig minden kis mágikus találatot igazinak érzékeltet. A Q-s mesterlövész nem várja tovább a csillagát, hanem géppuska lesz, aminek a ravasza az idézővarázslat-sáv.",
-      "play": "Először azt támadd meg, akit holtan akarsz látni, mert a lövedékek az utoljára eltalált célpontot követik. Aztán ürítsd ki rá a sávot, és oldalra villanj, ne el.",
+      "title": "Az életerő a mana",
+      "why": "Olaf passzív képessége, a Dühöngő őrület, minden hiányzó életerőpont után támadási sebességet ad, a W-je pedig még többet rak rá; a Purista – Varázsló ezt az egész támadási sebességet képességsiettetéssé alakítja, vagyis minél lejjebb van az életerőcsíkja, annál gyorsabban töltődnek a képességei. A Baljós egyesség miatt minden képességhasználat a jelenlegi életereje egy részébe kerül, cserébe a hiányzó életerő alapján képességerőt, mozgási sebességet és mindenvámpírságot ad: a Q dobálása leszívja, a fogyás táplálja a passzívot, a támadási sebesség pedig siettetésként tér vissza a következő baltához. A Specializáció ezt a képességerőt bónusz sebzéssé alakítja a fizikai baltáihoz, a Képzett mesterlövész pedig visszaadja a Q töltési idejének nagy részét, ha a balta 600 egységnél távolabb talál el valakit, így soha nem kell felvennie. A Nashor fogát, az Utolsó esélyt, a Krakenölőt és a Dühöngők csizmáját csak a siettetéssé váló támadási sebesség miatt veszi (a Nashor fogának képességereje a Specializáció révén szintén sebzés lesz), a Shojin lándzsája és a Kísérleti hexpáncél pedig sebzést, siettetést és azt az életerőt adja, amit szándékosan éget. A közelharci dühöngő, akinek rá kell rohannia az ellenre, tüzérséggé válik, ami maximális távolról dobálja a baltákat, és annál jobban játszik, minél közelebb van a halálhoz.",
+      "play": "Maradj a Q maximális hatótávján, dobálj baltákat, amíg az életerőd az alsó harmad környékére esik, aztán dobálj tovább ahelyett, hogy a balta után futnál. Az E a vészhelyzeti önsebzésed, ha túl egészséges vagy; az R kifelé jár, nem befelé.",
       "augments": [
-        "Az Átvillanásod 3 töltettel rendelkezik. 120 másodperc után az összes töltet visszatölt.",
-        "Az Átvillanásod robbanást okoz, ami sebez és lassít (halálkor visszaáll).",
-        "Kapsz egy második Átvillanás idézővarázslatot és 70 idézővarázslat-gyorsítást.",
-        "Megkapod a Kopogószellemet idézővarázslatként. A Kopogószellem egyszerre használja a Védőpajzsot és a Szellemet."
+        "Százalékos töltésiidő-csökkentést kapsz, és az összes támadási sebességed képességsiettetéssé alakul.",
+        "A hiányzó életerő alapján képességerőt, 50% mozgási sebességet és 20% mindenvámpírságot kapsz. A képességhasználat a jelenlegi életerőd 5%-ába kerül. Maximális hatás 30% életerőnél.",
+        "A képességerőt bónusz sebzéssé alakítja. 15% sebzést kapsz.",
+        "Ha egy ellenfelet nem végső képességgel lősz le messziről, a töltési idő 80%-a visszatérül (időszakos képességeknél 65%). Messzi lövés: 600 egységnél távolabbi ellenfelek sebzése."
       ]
     },
     "id": {
-      "title": "Foto Pakai Flash",
-      "why": "W milik Zoe menyembunyikan baris pasif kedua di bawah baris yang dibaca semua orang: setiap kali dia memakai Ability itu atau Summoner Spell apa pun, dia melempar 3 misil ke target yang terakhir dia Attack. Flashy memberi Flash-nya 3 charge dan Flashbang membuat setiap Flash itu meledak, memberi damage dan Slow, jadi satu blink langsung jadi bom area plus satu rentetan, lalu Flash 2 memberinya Flash kedua dan 70 Summoner Haste supaya seluruh bar cepat terisi lagi. Poltergeist menambah satu Summoner Spell lagi yang memakai Barrier dan Ghost sekaligus, jadi tombol paniknya pun berarti 3 misil lagi. Ionian Boots of Lucidity memberi makan loop ini dengan Summoner Spell Haste, Lich Bane mengubah Attack setelah Ability jadi hit magic tambahan sekaligus menandai siapa yang dikejar rentetan berikutnya, dan Rabadon's Deathcap, Shadowflame, Stormsurge, serta Void Staff bikin setiap hit magic kecil terasa seperti hit sungguhan. Sniper Q jarak jauh berhenti menunggu bintangnya dan berubah jadi senapan mesin yang pelatuknya adalah bar Summoner Spell.",
-      "play": "Attack dulu musuh yang ingin kamu habisi, karena misilnya mengikuti target terakhir yang kamu kena. Lalu kosongkan bar di atasnya, dan Flash ke samping, bukan kabur.",
+      "title": "Health Adalah Mana",
+      "why": "Pasif Olaf, Berserker Rage, memberinya Attack Speed untuk setiap poin Health yang hilang, dan W-nya menambah lebih banyak lagi; Purist - Caster mengubah semua Attack Speed itu menjadi Ability Haste, jadi makin rendah bar Health-nya, makin cepat cooldown-nya berputar. Ominous Pact membuat setiap cast memakan sebagian Health saat ini dan membayarnya kembali dengan Ability Power, Movement Speed, dan Omnivamp berdasarkan Health yang hilang: melempar Q menguras dirinya, Health yang hilang memberi makan pasifnya, dan Attack Speed kembali sebagai Haste untuk kapak berikutnya. escAPADe mengubah Ability Power itu menjadi bonus Attack Damage untuk kapak fisiknya, dan Skilled Sniper mengembalikan sebagian besar cooldown Q setiap kali kapak mengenai musuh lebih dari 600 unit, jadi dia tidak perlu memungut kapaknya. Nashor's Tooth, Wit's End, Kraken Slayer, dan Berserker's Greaves dibeli hanya demi Attack Speed yang diubah jadi Haste (Ability Power dari Nashor's juga jadi Attack Damage lewat escAPADe), sementara Spear of Shojin dan Experimental Hexplate menambah Attack Damage, Haste, dan Health yang sengaja dia bakar. Berserker melee yang harus lari ke musuh berubah jadi artileri yang melempar kapak dari jarak maksimum dan makin jago makin dekat dia dengan kematian.",
+      "play": "Berdiri di jarak maksimum Q, lempar kapak sampai Health-mu turun ke sekitar sepertiga terakhir, lalu terus lempar alih-alih mengejar kapak. E adalah self-damage daruratmu kalau Health-mu terlalu banyak; R untuk kabur, bukan untuk masuk.",
       "augments": [
-        "Flash-mu punya 3 charge. Setelah 120 detik, semua charge pulih.",
-        "Flash-mu menimbulkan ledakan yang memberi damage dan Slow (reset saat mati).",
-        "Dapatkan Summoner Spell Flash kedua dan 70 Summoner Haste.",
-        "Dapatkan Poltergeist sebagai Summoner Spell. Poltergeist memakai Barrier dan Ghost sekaligus."
+        "Dapatkan pengurangan cooldown persentase dan ubah semua Attack Speed-mu menjadi Ability Haste.",
+        "Dapatkan Ability Power, 50% Movement Speed, dan 20% Omnivamp berdasarkan Health yang hilang. Cast spell memakan 5% Health saat ini. Manfaat maksimum di 30% Health.",
+        "Ubah Ability Power menjadi bonus Attack Damage. Dapatkan 15% Attack Damage.",
+        "Snipe musuh dengan Ability non-Ultimate mengembalikan 80% Cooldown (65% untuk Ability periodik). Snipe: memberi damage ke musuh yang berjarak lebih dari 600."
       ]
     },
     "it": {
-      "title": "Foto col flash",
-      "why": "La W di Zoe nasconde una seconda riga di passiva sotto quella che leggono tutti: ogni volta che lancia quell'abilità o qualsiasi incantesimo dell'evocatore, scaglia 3 proiettili sull'ultimo bersaglio che ha attaccato. Sgargiante dà 3 cariche al suo Flash e Granata stordente fa esplodere ognuno di quei Flash infliggendo danni e un rallentamento, quindi un singolo blink diventa una bomba ad area più una raffica, e Flash 2 le dà un secondo Flash più 70 velocità incantesimi dell'evocatore così tutta la barra si ricarica prima. Poltergeist aggiunge un altro incantesimo dell'evocatore che lancia Barriera e Spettralità insieme, quindi anche il suo tasto del panico vale 3 proiettili in più. Gli Stivali dell'acume di Ionia alimentano il ciclo con velocità incantesimi dell'evocatore, Terrore dei lich trasforma l'attacco che tira dopo un'abilità in un colpo magico bonus che segna anche chi inseguirà la prossima raffica, e Copricapo di Rabadon, Ombrofiamma, Apice della tempesta e Bastone del Vuoto fanno colpire ogni piccolo colpo magico come uno vero. La cecchina della Q smette di aspettare la sua stella e diventa una mitragliatrice il cui grilletto è la barra degli incantesimi dell'evocatore.",
-      "play": "Attacca per primo chi vuoi vedere morto, perché i proiettili seguono l'ultimo bersaglio colpito. Poi svuota la barra addosso a lui, e fai Flash di lato, non all'indietro.",
+      "title": "La vita è mana",
+      "why": "La passiva di Olaf, Furia del berserker, gli dà velocità d'attacco per ogni punto di salute mancante, e la sua W ne aggiunge ancora; Purista - Mago converte tutta quella velocità d'attacco in velocità abilità, quindi più la sua barra della salute scende, più veloci vanno le sue ricariche. Patto nefasto fa costare a ogni incantesimo una fetta della sua salute attuale e lo ripaga con potere magico, velocità di movimento e rubavita globale in base alla salute mancante: lanciare la Q lo prosciuga, il prosciugamento alimenta la passiva e la velocità d'attacco torna come velocità abilità per l'ascia successiva. Fuggi fuggi trasforma quel potere magico in attacco fisico bonus per le sue asce fisiche, e Abile cecchino rimborsa gran parte della ricarica della Q ogni volta che l'ascia colpisce qualcuno a più di 600 unità, così non deve mai andare a raccoglierla. Dente di Nashor, Speranza perduta, Uccisore di Kraken e Gambali del berserker si comprano solo per la velocità d'attacco da convertire in velocità abilità (il potere magico del Dente diventa anche attacco fisico grazie a Fuggi fuggi), mentre Lancia di Shojin e Hexcorazza sperimentale danno attacco fisico, velocità abilità e la salute che brucia apposta. Il berserker da mischia che deve correre addosso alla gente diventa un pezzo d'artiglieria che lancia asce dalla gittata massima e gioca meglio quanto più è vicino alla morte.",
+      "play": "Stai alla gittata massima della Q, lancia asce finché la salute non scende verso l'ultimo terzo, poi continua a lanciare invece di inseguire l'ascia. La E è il tuo autodanno d'emergenza se hai troppa salute; la R serve per uscire, non per entrare.",
       "augments": [
-        "Il tuo Flash ha 3 cariche. Dopo 120 secondi, recuperi tutte le cariche.",
-        "Il tuo Flash provoca un'esplosione che infligge danni e rallenta (si azzera alla morte).",
-        "Ottieni un secondo incantesimo dell'evocatore Flash e 70 velocità incantesimi dell'evocatore.",
-        "Ottieni Poltergeist come incantesimo dell'evocatore. Poltergeist lancia sia Barriera che Spettralità."
+        "Ottieni riduzione ricarica percentuale e converti tutta la tua velocità d'attacco in velocità abilità.",
+        "Ottieni potere magico, 50% velocità di movimento e 20% rubavita globale in base alla salute mancante. Lanciare incantesimi costa il 5% della salute attuale. Beneficio massimo al 30% di salute.",
+        "Converte il potere magico in attacco fisico bonus. Ottieni il 15% di attacco fisico.",
+        "Colpire da cecchino un nemico con un'abilità non suprema rimborsa l'80% della ricarica (65% per le abilità periodiche). Cecchino: infliggere danni a nemici a più di 600 unità di distanza."
       ]
     },
     "ja": {
-      "title": "フラッシュ撮影",
-      "why": "ゾーイのWには、みんなが読む行の下にもう1行パッシブが隠れている。このスキルかサモナースペルを使うたびに、最後に通常攻撃した対象へ3発のミサイルを投げつけるのだ。閃光でフラッシュが3チャージになり、フラッシュバンでそのフラッシュ1回1回がダメージとスローを与える爆発を起こすので、ブリンク1回が範囲爆撃と一斉射撃のセットになる。さらにフラッシュ2で2つ目のフラッシュとサモナースペルヘイスト70が付いて、バー全体の回転が早まる。ポルターガイストはバリアとゴーストを同時に発動するサモナースペルをもう1つ追加するので、逃げボタンですらミサイル3発追加だ。アイオニア ブーツはサモナースペルヘイストでこのループを加速させ、リッチ ベインはスキル後の通常攻撃を追加魔法ダメージに変えつつ次の一斉射撃の狙いもつけてくれる。ラバドン デスキャップ、シャドウフレイム、ストームサージ、ヴォイド スタッフで小さな魔法ダメージ1発1発が本物の威力になる。Qの遠距離スナイパーは星を待つのをやめ、サモナースペルのバーが引き金のマシンガンに変わる。",
-      "play": "倒したい相手を先に殴ろう。ミサイルは最後に当てた対象を追いかける。あとはその上でバーを空にして、フラッシュは逃げずに横へ。",
+      "title": "体力はマナ",
+      "why": "オラフのパッシブ「バーサーカーレイジ」は減少体力に応じて攻撃速度をくれて、Wがさらに攻撃速度を上乗せする。純粋なるキャスターはその攻撃速度をすべてスキルヘイストに変換するので、体力バーが減るほどクールダウンが速く回る。不穏な盟約はスキルを使うたびに現在体力の一部を払わせ、減少体力に応じて魔力、移動速度、オムニヴァンプで返してくれる。つまりQを投げるたびに体力が減り、その減少がパッシブを育て、攻撃速度がヘイストになって次の斧に戻ってくる。魔攻のいたずらはその魔力を物理の斧のための増加攻撃力に変え、腕利きスナイパーは斧が600ユニットより遠くの相手に当たるたびにQのクールダウンの大半を返すので、斧を拾いに行く必要がまったくない。ナッシャー トゥース、ウィッツ エンド、クラーケン スレイヤー、バーサーカー ブーツはヘイストに変わる攻撃速度のためだけに買い(ナッシャーの魔力も魔攻のいたずらで攻撃力になる)、ショウジンの矛と実験的ヘクスプレートは攻撃力、ヘイスト、そしてわざと燃やすための体力を足す。敵に走り寄るしかなかった近接バーサーカーが、最大射程から斧を投げる砲台になり、死にかけるほど強くなる。",
+      "play": "Qの最大射程に立って、体力が下3分の1あたりになるまで斧を投げ、斧を追いかけずにそのまま投げ続けよう。体力が多すぎるときはEが緊急の自傷ダメージ。Rは突っ込むためじゃなく、逃げるために使おう。",
       "augments": [
-        "フラッシュのチャージが3つになる。120秒後、すべてのチャージを回復する。",
-        "フラッシュ使用時に爆発が起き、ダメージとスローを与える(死亡時リセット)。",
-        "2つ目のサモナースペル「フラッシュ」とサモナースペルヘイスト70を獲得する。",
-        "サモナースペル「ポルターガイスト」を獲得する。ポルターガイストはバリアとゴーストを同時に発動する。"
+        "割合クールダウン短縮を獲得し、すべての攻撃速度をスキルヘイストに変換する。",
+        "減少体力に応じて魔力、移動速度50%、オムニヴァンプ20%を獲得する。スキルの使用に現在体力の5%を消費する。体力30%で効果が最大になる。",
+        "魔力を増加攻撃力に変換する。攻撃力が15%増加する。",
+        "アルティメット以外のスキルで敵を狙撃すると、クールダウンが80%解消される(周期的なスキルは65%)。狙撃:600より遠い敵にダメージを与えること。"
       ]
     },
     "ko": {
-      "title": "플래시 촬영",
-      "why": "조이의 W에는 다들 읽는 줄 밑에 두 번째 패시브가 숨어 있습니다. 이 스킬이나 아무 소환사 주문을 쓸 때마다 마지막으로 공격한 대상에게 투사체 3개를 던지죠. 점멸 난사는 점멸을 3회 충전으로 만들고, 점멸탄은 그 점멸마다 피해를 주고 둔화시키는 폭발을 일으키니 점멸 한 번이 광역 폭탄에 일제 사격까지 됩니다. 점멸 2는 두 번째 점멸과 소환사 주문 가속 70을 줘서 바 전체가 더 빨리 돌아옵니다. 폴터가이스트는 방어막과 유체화를 동시에 쓰는 소환사 주문을 하나 더 붙여 주니, 도망 버튼조차 투사체 3개 추가입니다. 명석함의 아이오니아 장화는 소환사 주문 가속으로 이 순환을 먹여 살리고, 리치베인은 스킬 뒤 기본 공격을 추가 마법 피해로 바꾸면서 다음 일제 사격이 누구를 쫓을지도 찍어 줍니다. 라바돈의 죽음모자, 그림자불꽃, 폭풍 쇄도, 공허의 지팡이가 작은 마법 피해 하나하나를 진짜 한 방처럼 만들어 줍니다. Q 저격수는 별을 기다리지 않고, 소환사 주문 바가 방아쇠인 기관총이 됩니다.",
-      "play": "죽이고 싶은 상대를 먼저 때리세요. 투사체는 마지막으로 맞힌 대상을 따라갑니다. 그다음 그 위에서 바를 전부 비우고, 점멸은 도망 말고 옆으로.",
+      "title": "체력이 곧 마나",
+      "why": "올라프의 패시브 광전사의 분노는 잃은 체력 1마다 공격 속도를 주고, W가 그 위에 공격 속도를 더 얹어줍니다. 순수주의자 - 마법사는 이 공격 속도를 전부 스킬 가속으로 바꿔서, 체력 바가 낮을수록 재사용 대기시간이 더 빨리 돌아갑니다. 불길한 서약은 스킬을 쓸 때마다 현재 체력 일부를 소모하게 하고, 잃은 체력에 비례해 주문력, 이동 속도, 모든 피해 흡혈로 돌려줍니다. 그래서 Q를 던질 때마다 체력이 빠지고, 빠진 체력이 패시브를 키우고, 공격 속도가 다음 도끼를 위한 스킬 가속으로 돌아옵니다. 마법사 (물리)는 그 주문력을 물리 도끼용 추가 공격력으로 바꾸고, 노련한 저격수는 도끼가 600 유닛보다 먼 적에게 맞을 때마다 Q 재사용 대기시간 대부분을 돌려주니, 도끼를 주우러 갈 필요가 없습니다. 내셔의 이빨, 마법사의 최후, 크라켄 학살자, 광전사의 군화는 스킬 가속으로 바뀌는 공격 속도만 보고 사고(내셔의 주문력도 마법사 (물리)로 공격력이 됩니다), 쇼진의 창과 실험적 마공학판은 공격력, 스킬 가속, 그리고 일부러 태울 체력을 줍니다. 적에게 달려가야만 하던 근접 광전사가 최대 사거리에서 도끼를 던지는 포대가 되고, 죽기 직전일수록 더 잘 싸웁니다.",
+      "play": "Q 최대 사거리에 서서 체력이 아래 3분의 1쯤 될 때까지 도끼를 던지고, 도끼를 주우러 가지 말고 계속 던지세요. 체력이 너무 많으면 E가 비상용 자해 수단이고, R은 들어갈 때가 아니라 빠질 때 쓰세요.",
       "augments": [
-        "점멸이 3회 충전됩니다. 120초 후 모든 충전량을 회복합니다.",
-        "점멸 시 폭발이 일어나 피해를 입히고 둔화시킵니다(사망 시 초기화).",
-        "두 번째 점멸 소환사 주문과 소환사 주문 가속 70을 얻습니다.",
-        "폴터가이스트를 소환사 주문으로 얻습니다. 폴터가이스트는 방어막과 유체화를 모두 사용합니다."
+        "재사용 대기시간이 일정 비율 감소하고 모든 공격 속도가 스킬 가속으로 전환됩니다.",
+        "잃은 체력에 비례해 주문력, 50% 이동 속도, 20% 모든 피해 흡혈을 얻습니다. 스킬을 사용할 때마다 현재 체력의 5%를 소모합니다. 체력 30%일 때 효과가 최대입니다.",
+        "주문력을 추가 공격력으로 전환합니다. 공격력이 15% 증가합니다.",
+        "궁극기가 아닌 스킬로 적을 저격하면 재사용 대기시간이 80% 돌아옵니다(주기적인 스킬은 65%). 저격: 600 거리보다 먼 적에게 피해를 입히는 것."
       ]
     },
     "pl": {
-      "title": "Zdjęcie z fleszem",
-      "why": "W Zoe ukrywa drugą linijkę biernej pod tą, którą wszyscy czytają: za każdym razem, gdy używa tej umiejętności albo dowolnego czaru przywoływacza, rzuca 3 pociski w cel, który ostatnio zaatakowała. Zabłysnąć z Przytupem daje jej Błyskowi 3 ładunki, a Granat Błyskowy sprawia, że każdy z tych Błysków wybucha, zadając obrażenia i spowalniając, więc jeden blink to bomba obszarowa plus salwa, a Błysk 2 daje jej drugi Błysk i 70 przyspieszenia czarów przywoływacza, żeby cały pasek ładował się szybciej. Poltergeist dokłada jeszcze jeden czar przywoływacza, który rzuca naraz Barierę i Ducha, więc nawet jej przycisk paniki to kolejne 3 pociski. Ioniańskie Buty Jasności Umysłu karmią pętlę przyspieszeniem czarów przywoływacza, Zmora Licza zamienia atak po umiejętności w dodatkowe magiczne trafienie, które przy okazji oznacza, kogo goni następna salwa, a Zabójczy Kapelusz Rabadona, Płomień Cienia, Przepływ Burzy i Kostur Pustki sprawiają, że każde małe magiczne trafienie wchodzi jak prawdziwe. Snajperka od Q przestaje czekać na swoją gwiazdę i staje się karabinem maszynowym, którego spustem jest pasek czarów przywoływacza.",
-      "play": "Najpierw zaatakuj tego, kogo chcesz zabić, bo pociski lecą w ostatni trafiony cel. Potem wyładuj na nim cały pasek i Błyskaj w bok, nie do tyłu.",
+      "title": "Zdrowie to mana",
+      "why": "Bierna umiejętność Olafa, Szał Berserkera, daje mu prędkość ataku za każdy brakujący punkt zdrowia, a jego W dorzuca jeszcze więcej; Purysta — mag zamienia całą tę prędkość ataku na przyspieszenie umiejętności, więc im niżej jest jego pasek zdrowia, tym szybciej lecą czasy odnowienia. Złowieszczy Pakt sprawia, że każde użycie umiejętności kosztuje część jego obecnego zdrowia, i oddaje mu moc umiejętności, prędkość ruchu i wszechwampiryzm zależnie od brakującego zdrowia: rzucanie Q go wysysa, utrata zdrowia karmi bierną, a prędkość ataku wraca jako przyspieszenie na kolejny topór. EskAPADa zamienia tę moc umiejętności na dodatkowe obrażenia od ataku dla jego fizycznych toporów, a Doświadczony Snajper zwraca większość odnowienia Q, gdy topór trafi kogoś z ponad 600 jednostek, więc nigdy nie musi po niego chodzić. Ząb Nashora, Koniec Rozumu, Pogromca Krakenów i Nagolenniki Berserkera kupuje tylko dla prędkości ataku zamienianej na przyspieszenie (moc umiejętności z Zęba też staje się obrażeniami od ataku dzięki EskAPADzie), a Włócznia Shojin i Eksperymentalny Hexpierśnik dają obrażenia od ataku, przyspieszenie i zdrowie, które celowo spala. Berserker do walki wręcz, który musi biec na ludzi, staje się artylerią rzucającą toporami z maksymalnego zasięgu i gra tym lepiej, im bliżej mu do śmierci.",
+      "play": "Trzymaj się na maksymalnym zasięgu Q, rzucaj toporami, aż zdrowie zejdzie w okolice ostatniej jednej trzeciej, i rzucaj dalej zamiast gonić topór. E to awaryjne obrażenia dla siebie, gdy masz za dużo zdrowia; R służy do wychodzenia, nie wchodzenia.",
       "augments": [
-        "Twój Błysk ma 3 ładunki. Po 120 sekundach odzyskujesz wszystkie ładunki.",
-        "Twój Błysk wywołuje eksplozję, która zadaje obrażenia i spowalnia (resetuje się po śmierci).",
-        "Zyskujesz drugi czar przywoływacza Błysk i 70 przyspieszenia czarów przywoływacza.",
-        "Zyskujesz Poltergeist jako czar przywoływacza. Poltergeist rzuca jednocześnie Barierę i Ducha."
+        "Zyskaj procentowe skrócenie czasu odnowienia i zamień całą swoją prędkość ataku na przyspieszenie umiejętności.",
+        "Zyskaj moc umiejętności, 50% prędkości ruchu i 20% wszechwampiryzmu zależnie od brakującego zdrowia. Użycie umiejętności kosztuje 5% obecnego zdrowia. Maksymalny efekt przy 30% zdrowia.",
+        "Zamień moc umiejętności na dodatkowe obrażenia od ataku. Zyskaj 15% obrażeń od ataku.",
+        "Snajperskie trafienie wroga umiejętnością inną niż superumiejętność zwraca 80% czasu odnowienia (65% dla umiejętności okresowych). Snajperskie trafienie: zadanie obrażeń wrogowi z odległości ponad 600 jednostek."
       ]
     },
     "pt-BR": {
-      "title": "Foto com Flash",
-      "why": "O W da Zoe esconde uma segunda linha de passiva embaixo da que todo mundo lê: sempre que ela usa essa habilidade ou qualquer feitiço de invocador, ela arremessa 3 projéteis no último alvo que atacou. Brilhante dá 3 cargas ao Flash dela e Explosão de Luz faz cada um desses Flashes explodir causando dano e Lentidão, então um único blink vira uma bomba em área mais uma rajada, e Flash 2 dá um segundo Flash e 70 de Aceleração de Feitiços de Invocador pra barra inteira recarregar mais rápido. Poltergeist adiciona mais um feitiço de invocador que usa Barreira e Fantasma juntos, então até o botão do pânico dela são mais 3 projéteis. As Botas Ionianas da Lucidez alimentam o ciclo com Aceleração de Feitiços de Invocador, a Perdição de Lich transforma o ataque que ela dá depois de uma habilidade num golpe mágico bônus que ainda marca quem a próxima rajada persegue, e o Capuz da Morte de Rabadon, a Chama Sombria, o Ápice da Tempestade e o Cajado do Vazio fazem cada golpezinho mágico bater como um de verdade. A sniper do Q para de esperar a estrela e vira uma metralhadora cujo gatilho é a barra de feitiços de invocador.",
-      "play": "Ataque primeiro quem você quer ver morto, porque os projéteis seguem o último alvo atingido. Depois esvazie a barra em cima dele, e dê Flash pro lado, não pra trás.",
+      "title": "Vida é mana",
+      "why": "A passiva do Olaf, Fúria do Berserker, dá Velocidade de Ataque para cada ponto de Vida que falta, e o W dele empilha ainda mais por cima; Purista - Conjurador converte toda essa Velocidade de Ataque em Aceleração de Habilidade, então quanto mais baixa a barra de Vida, mais rápido rodam as recargas. Pacto Nefasto faz cada feitiço custar uma fatia da Vida atual e devolve Poder de Habilidade, Velocidade de Movimento e Onivampirismo com base na Vida perdida: lançar o Q drena ele, o dreno alimenta a passiva e a Velocidade de Ataque volta como Aceleração para o próximo machado. EscapaDdA transforma esse Poder de Habilidade em Dano de Ataque bônus para os machados físicos, e Fuzileiro de Elite devolve a maior parte da recarga do Q sempre que o machado acerta alguém a mais de 600 unidades, então ele nunca precisa ir buscar. Dente de Na'Shor, Limite da Razão, Mata-Cráquens e Grevas do Berserker são comprados só pela Velocidade de Ataque que vira Aceleração (o Poder de Habilidade do Dente também vira Dano de Ataque com EscapaDdA), enquanto Lança de Shojin e Hexoplaca Experimental dão Dano de Ataque, Aceleração e a Vida que ele queima de propósito. O berserker corpo a corpo que precisa correr atrás do povo vira uma artilharia que arremessa machados do alcance máximo e joga melhor quanto mais perto está de morrer.",
+      "play": "Fique no alcance máximo do Q, jogue machados até sua Vida chegar perto do último terço e continue jogando em vez de correr atrás do machado. O E é seu autodano de emergência se você estiver com Vida demais; o R é pra sair, não pra entrar.",
       "augments": [
-        "Seu Flash tem 3 cargas. Após 120 segundos, recupere todas as cargas.",
-        "Seu Flash causa uma explosão que causa dano e Lentidão (reinicia ao morrer).",
-        "Ganhe um segundo feitiço de invocador Flash e 70 de Aceleração de Feitiços de Invocador.",
-        "Ganhe Poltergeist como feitiço de invocador. Poltergeist usa Barreira e Fantasma ao mesmo tempo."
+        "Receba redução percentual de recarga e converta toda a sua Velocidade de Ataque em Aceleração de Habilidade.",
+        "Receba Poder de Habilidade, 50% de Velocidade de Movimento e 20% de Onivampirismo com base na Vida perdida. Lançar feitiços custa 5% da sua Vida atual. Benefício máximo com 30% de Vida.",
+        "Converte Poder de Habilidade em Dano de Ataque bônus. Receba 15% de Dano de Ataque.",
+        "Atingir de longe um inimigo com uma Habilidade que não seja a Suprema reembolsa 80% da recarga (65% para Habilidades periódicas). De longe: causar dano a inimigos a mais de 600 de distância."
       ]
     },
     "ro": {
-      "title": "Poză cu bliț",
-      "why": "W-ul lui Zoe ascunde o a doua linie de pasivă sub cea pe care o citește toată lumea: de fiecare dată când folosește această abilitate sau orice vrajă de invocator, aruncă 3 proiectile spre ținta pe care a atacat-o ultima oară. Cupa mondială la sprinturi îi dă Flash-ului 3 încărcături, iar Grenadă orbitoare face ca fiecare Flash să explodeze, provocând daune și încetinind, așa că un singur blink devine o bombă de zonă plus o salvă, iar Flash 2 îi dă un al doilea Flash și 70 de grăbire pentru vrăjile de invocator, ca toată bara să se reîncarce mai repede. Stafie adaugă încă o vrajă de invocator care folosește Barieră și Fantomă deodată, așa că până și butonul ei de panică înseamnă alte 3 proiectile. Cizmele ioniene pentru luciditate hrănesc bucla cu grăbire pentru vrăjile de invocator, Urgia de pe lume transformă atacul de după o abilitate într-o lovitură magică bonus care marchează și ținta următoarei salve, iar Pălăria malefică a lui Rabadon, Flacăra întunericului, Furtună dezlănțuită și Sceptrul Vidului fac ca fiecare mică lovitură magică să lovească precum una adevărată. Lunetista de pe Q nu-și mai așteaptă steaua și devine o mitralieră al cărei trăgaci e bara de vrăji de invocator.",
-      "play": "Atacă mai întâi pe cine vrei mort, pentru că proiectilele urmăresc ultima țintă lovită. Apoi golește bara peste el și dă Flash în lateral, nu înapoi.",
+      "title": "Viața e mana",
+      "why": "Pasiva lui Olaf, Furia berserkerului, îi dă viteză de atac pentru fiecare punct de viață lipsă, iar W-ul lui mai adaugă peste; Purist – Mag transformă toată această viteză de atac în accelerare a abilităților, așa că, cu cât bara de viață e mai jos, cu atât timpii de reactivare fug mai repede. Pact de rău augur face ca fiecare abilitate să coste o parte din viața curentă și îl răsplătește cu putere a abilităților, viteză de mișcare și omnivampirism în funcție de viața lipsă: aruncarea Q-ului îl secătuiește, pierderea de viață hrănește pasiva, iar viteza de atac se întoarce ca accelerare pentru următorul topor. Metamorfoză transformă puterea abilităților în daune de atac bonus pentru topoarele lui fizice, iar Lunetist expert îi returnează cea mai mare parte din timpul de reactivare al Q-ului de fiecare dată când toporul lovește pe cineva la peste 600 de unități, așa că nu trebuie să meargă niciodată după el. Dintele lui Nashor, Sfârșitul rațiunii, Ucigașul de krakeni și Cizmele berserkerului sunt cumpărate doar pentru viteza de atac transformată în accelerare (puterea abilităților din Dinte devine și ea daune de atac prin Metamorfoză), în timp ce Lancea lui Shojin și Hexarmura experimentală aduc daune de atac, accelerare și viața pe care o arde intenționat. Berserkerul corp la corp care trebuie să alerge spre oameni devine o piesă de artilerie care aruncă topoare de la distanță maximă și joacă mai bine cu cât e mai aproape de moarte.",
+      "play": "Stai la raza maximă a Q-ului, aruncă topoare până când viața îți coboară spre ultima treime, apoi aruncă în continuare în loc să alergi după topor. E-ul e autoavarierea ta de urgență dacă ești prea sănătos; R-ul e pentru ieșit, nu pentru intrat.",
       "augments": [
-        "Flash-ul tău are 3 încărcături. După 120 de secunde, recuperezi toate încărcăturile.",
-        "Flash-ul tău provoacă o explozie care provoacă daune și încetinește (se resetează la moarte).",
-        "Primești a doua vrajă de invocator Flash și 70 de grăbire pentru vrăjile de invocator.",
-        "Primești Stafie ca vrajă de invocator. Stafie folosește atât Barieră, cât și Fantomă."
+        "Primești reducere procentuală a timpului de reactivare și îți transformi toată viteza de atac în accelerare a abilităților.",
+        "Primești putere a abilităților, 50% viteză de mișcare și 20% omnivampirism în funcție de viața lipsă. Folosirea abilităților costă 5% din viața curentă. Beneficiu maxim la 30% viață.",
+        "Transformă puterea abilităților în daune de atac bonus. Primești 15% daune de atac.",
+        "Lovirea de la distanță a unui inamic cu o abilitate care nu e supremă returnează 80% din timpul de reactivare (65% pentru abilitățile periodice). Lovire de la distanță: provocarea de daune inamicilor aflați la peste 600 de unități."
       ]
     },
     "ru": {
-      "title": "Фото со вспышкой",
-      "why": "W Зои прячет вторую строчку пассивки под той, которую все читают: каждый раз, когда она применяет это умение или любое заклинание призывателя, она бросает 3 снаряда в цель, которую атаковала последней. Скакун дает ее Скачку 3 заряда, а Светошумовая граната заставляет каждый такой Скачок взрываться, нанося урон и замедляя, так что один блинк превращается в бомбу по площади плюс залп, а Скачок 2 дает ей второй Скачок и 70 ускорения заклинаний призывателя, чтобы вся панель перезаряжалась быстрее. Полтергейст добавляет еще одно заклинание призывателя, которое применяет Барьер и Призрак одновременно, так что даже ее кнопка паники это еще 3 снаряда. Ионийские сапоги просветления кормят цикл ускорением заклинаний призывателя, Гроза Личей превращает атаку после умения в бонусный магический удар, который заодно помечает, за кем полетит следующий залп, а Смертельная шляпа Рабадона, Сумрачное пламя, Штормовой прилив и Посох Бездны делают так, что каждый маленький магический удар бьет как настоящий. Снайперша с Q перестает ждать свою звезду и становится пулеметом, у которого спусковой крючок это панель заклинаний призывателя.",
-      "play": "Сначала атакуйте того, кого хотите убить, потому что снаряды летят в последнюю пораженную цель. Потом вывалите на него всю панель и прыгайте Скачком вбок, а не назад.",
+      "title": "Здоровье — это мана",
+      "why": "Пассивка Олафа, Ярость берсерка, даёт ему скорость атаки за каждую единицу недостающего здоровья, а его W накидывает ещё сверху; Принципиальность – умения превращает всю эту скорость атаки в ускорение умений, так что чем ниже полоска здоровья, тем быстрее откатываются умения. Зловещий договор заставляет каждое умение стоить часть текущего здоровья и возвращает силу умений, скорость передвижения и всевампиризм в зависимости от недостающего здоровья: каждый Q его иссушает, потеря здоровья кормит пассивку, а скорость атаки возвращается ускорением для следующего топора. Трансмутация превращает эту силу умений в дополнительную силу атаки для его физических топоров, а Опытный снайпер возвращает большую часть перезарядки Q, когда топор попадает в цель дальше 600 единиц, так что поднимать его не нужно вообще. Зуб Нашора, Смерть Разума, Убийца кракенов и Наголенники берсерка берутся только ради скорости атаки, которая становится ускорением (сила умений Зуба тоже уходит в силу атаки через Трансмутацию), а Копье Седзина и Экспериментальная хекстековая броня дают силу атаки, ускорение и то самое здоровье, которое он сжигает специально. Берсерк ближнего боя, которому надо бежать на врага, становится артиллерией, кидающей топоры с максимальной дистанции, и играет тем лучше, чем ближе он к смерти.",
+      "play": "Стой на максимальной дальности Q, кидай топоры, пока здоровье не опустится к нижней трети, и продолжай кидать вместо того, чтобы бегать за топором. E — твой экстренный урон по себе, если ты слишком здоров; R — чтобы уйти, а не зайти.",
       "augments": [
-        "Ваш Скачок имеет 3 заряда. Через 120 секунд все заряды восстанавливаются.",
-        "Ваш Скачок вызывает взрыв, который наносит урон и замедляет (сбрасывается при смерти).",
-        "Вы получаете второе заклинание призывателя Скачок и 70 ускорения заклинаний призывателя.",
-        "Вы получаете Полтергейст как заклинание призывателя. Полтергейст применяет и Барьер, и Призрак."
+        "Получите процентное сокращение перезарядки и преобразуйте всю скорость атаки в ускорение умений.",
+        "Получите силу умений, 50% скорости передвижения и 20% всевампиризма в зависимости от недостающего здоровья. Применение умений стоит 5% текущего здоровья. Максимальный эффект при 30% здоровья.",
+        "Преобразует силу умений в дополнительную силу атаки. Вы получаете 15% силы атаки.",
+        "Снайперское попадание по врагу умением, кроме суперспособности, возвращает 80% перезарядки (65% для периодических умений). Снайперское попадание — урон по врагам дальше 600 единиц."
       ]
     },
     "th": {
-      "title": "ถ่ายรูปเปิดแฟลช",
-      "why": "สกิล W ของ Zoe ซ่อนพาสซีฟบรรทัดที่สองไว้ใต้บรรทัดที่ทุกคนอ่าน: ทุกครั้งที่เธอใช้สกิลนี้หรือ Summoner Spell ใดก็ได้ เธอจะขว้างกระสุน 3 ลูกใส่เป้าหมายที่เธอโจมตีล่าสุด Flashy ทำให้ Flash ของเธอมี 3 ชาร์จ และ Flashbang ทำให้ Flash ทุกครั้งระเบิดสร้างความเสียหายและ Slow ดังนั้นการวาร์ปครั้งเดียวกลายเป็นระเบิดวงกว้างพร้อมกระสุนชุดหนึ่ง ส่วน Flash 2 ให้ Flash อันที่สองพร้อม 70 Summoner Haste ให้ทั้งแถบคูลดาวน์เร็วขึ้น Poltergeist เพิ่ม Summoner Spell อีกอันที่ใช้ Barrier และ Ghost พร้อมกัน แม้แต่ปุ่มหนีตายของเธอก็คือกระสุนเพิ่มอีก 3 ลูก Ionian Boots of Lucidity เติมลูปนี้ด้วย Summoner Spell Haste ส่วน Lich Bane เปลี่ยนการโจมตีหลังใช้สกิลให้เป็นดาเมจเวทเพิ่ม พร้อมกับมาร์กว่ากระสุนชุดถัดไปจะไล่ใคร และ Rabadon's Deathcap, Shadowflame, Stormsurge กับ Void Staff ทำให้ดาเมจเวทเล็กๆ ทุกครั้งแรงเหมือนของจริง สไนเปอร์สาย Q เลิกรอดาวของตัวเองแล้วกลายเป็นปืนกลที่ไกปืนคือแถบ Summoner Spell",
-      "play": "ตีคนที่อยากให้ตายก่อน เพราะกระสุนจะตามเป้าหมายล่าสุดที่โดน แล้วเทแถบทั้งหมดใส่หัวเขา และ Flash ออกด้านข้าง ไม่ใช่หนี",
+      "title": "เลือดคือมานา",
+      "why": "พาสซีฟของ Olaf อย่าง Berserker Rage ให้ Attack Speed ตามทุกแต้ม Health ที่เสียไป และ W ยังเพิ่ม Attack Speed ซ้อนเข้าไปอีก ส่วน Purist - Caster แปลง Attack Speed ทั้งหมดนั้นเป็น Ability Haste เลือดยิ่งน้อย คูลดาวน์ยิ่งหมุนเร็ว Ominous Pact ทำให้การใช้สกิลทุกครั้งเสีย Health ปัจจุบันส่วนหนึ่ง แล้วคืนให้เป็น Ability Power, Movement Speed และ Omnivamp ตาม Health ที่เสียไป การปา Q จึงดูดเลือดตัวเอง เลือดที่เสียไปก็ป้อนพาสซีฟ และ Attack Speed ก็กลับมาเป็น Haste ให้ขวานลูกถัดไป escAPADe แปลง Ability Power นั้นเป็น Attack Damage โบนัสให้ขวานกายภาพของเขา และ Skilled Sniper คืนคูลดาวน์ Q ส่วนใหญ่ทุกครั้งที่ขวานโดนศัตรูที่อยู่ไกลเกิน 600 ยูนิต เลยไม่ต้องเดินไปเก็บขวานเลย Nashor's Tooth, Wit's End, Kraken Slayer และ Berserker's Greaves ซื้อมาแค่เพื่อ Attack Speed ที่จะกลายเป็น Haste (Ability Power จาก Nashor's ก็กลายเป็น Attack Damage ผ่าน escAPADe ด้วย) ส่วน Spear of Shojin กับ Experimental Hexplate ให้ Attack Damage, Haste และ Health ที่เขาตั้งใจเผาทิ้ง เบอร์เซิร์กเกอร์สายประชิดที่ต้องวิ่งเข้าหาศัตรูกลายเป็นปืนใหญ่ที่ปาขวานจากระยะสุด และยิ่งใกล้ตายยิ่งเล่นเก่ง",
+      "play": "ยืนที่ระยะสุดของ Q ปาขวานจนเลือดลงไปราวหนึ่งในสามสุดท้าย แล้วปาต่อไปแทนที่จะวิ่งตามขวาน ถ้าเลือดเยอะเกินไป E คือการทำดาเมจใส่ตัวเองฉุกเฉิน ส่วน R มีไว้หนี ไม่ได้มีไว้บุก",
       "augments": [
-        "Flash ของคุณมี 3 ชาร์จ หลังจาก 120 วินาที จะได้ชาร์จทั้งหมดคืน",
-        "Flash ของคุณทำให้เกิดระเบิดที่สร้างความเสียหายและ Slow (รีเซ็ตเมื่อตาย)",
-        "ได้รับ Summoner Spell Flash อันที่สองและ 70 Summoner Haste",
-        "ได้รับ Poltergeist เป็น Summoner Spell โดย Poltergeist จะใช้ทั้ง Barrier และ Ghost"
+        "รับการลดคูลดาวน์เป็นเปอร์เซ็นต์ และแปลง Attack Speed ทั้งหมดเป็น Ability Haste",
+        "รับ Ability Power, Movement Speed 50% และ Omnivamp 20% ตาม Health ที่เสียไป การใช้สกิลเสีย Health ปัจจุบัน 5% ได้ผลสูงสุดที่ Health 30%",
+        "แปลง Ability Power เป็น Attack Damage โบนัส รับ Attack Damage 15%",
+        "การสไนป์ศัตรูด้วยสกิลที่ไม่ใช่อัลติเมตจะคืนคูลดาวน์ 80% (65% สำหรับสกิลแบบเป็นช่วงเวลา) สไนป์: ทำดาเมจใส่ศัตรูที่อยู่ไกลเกิน 600"
       ]
     },
     "tr": {
-      "title": "Flaşlı Fotoğraf",
-      "why": "Zoe'nin W'su herkesin okuduğu satırın altında ikinci bir pasif saklıyor: bu yeteneği veya herhangi bir sihirdar büyüsünü her kullandığında, en son saldırdığı hedefe 3 mermi fırlatıyor. Çekirge Gibi, Sıçra'sına 3 yük veriyor ve Sıçrayan Bomba her Sıçra'yı hasar veren ve yavaşlatan bir patlamaya çeviriyor; yani tek bir blink alan bombası artı bir yaylım oluyor, 2. Sıçra da ona ikinci bir Sıçra ve 70 sihirdar büyüsü hızı vererek bütün çubuğu daha çabuk dolduruyor. Öcü, Bariyer ve Hayalet'i aynı anda kullanan bir sihirdar büyüsü daha ekliyor; yani panik düğmesi bile 3 mermi daha demek. Ionia Çizmeleri döngüyü sihirdar büyüsü hızıyla besliyor, Lich Boğan yetenekten sonraki saldırıyı bonus büyü hasarlı bir vuruşa çeviriyor ve bir sonraki yaylımın kimi kovalayacağını da işaretliyor; Rabadon'un Şapkası, Gölgealev, Yıldırım Asası ve Hiçlik Değneği de her küçük büyü vuruşunu gerçek bir vuruş gibi indiriyor. Q'nun keskin nişancısı yıldızını beklemeyi bırakıp tetiği sihirdar büyüsü çubuğu olan bir makineli tüfeğe dönüşüyor.",
-      "play": "Önce ölmesini istediğin kişiye saldır, çünkü mermiler en son vurduğun hedefi takip eder. Sonra çubuğu onun üstüne boşalt, ve kaçmak için değil yana Sıçra.",
+      "title": "Can Manadır",
+      "why": "Olaf'ın pasifi Çılgın Öfke, eksik her can puanı için ona saldırı hızı verir, W'si de üstüne daha fazlasını ekler; Saf Yetenek bu saldırı hızının tamamını yetenek hızına çevirir, yani can barı ne kadar düşükse bekleme süreleri o kadar hızlı akar. Uğursuz Ahit her yetenek kullanımını mevcut canından bir dilime mal eder ve eksik cana göre yetenek gücü, hareket hızı ve genel can çalma olarak geri öder: Q atmak onu emer, kaybedilen can pasifini besler, saldırı hızı da bir sonraki balta için yetenek hızı olarak geri gelir. Saldırı Gücüne Güç Kat bu yetenek gücünü fiziksel baltaları için ek saldırı gücüne çevirir, Yetenekli Keskin Nişancı da balta 600 birimden uzaktaki birine her isabet ettiğinde Q'nun bekleme süresinin çoğunu iade eder, böylece baltayı almaya hiç gitmesi gerekmez. Nashor'un Dişi, Aklın Sonu, Kraken Katili ve Savaşçı Çizmeleri yalnızca yetenek hızına dönüşen saldırı hızı için alınır (Diş'in yetenek gücü de Saldırı Gücüne Güç Kat ile saldırı gücü olur), Shojin'in Mızrağı ve Deneysel Hexzırh ise saldırı gücü, yetenek hızı ve bilerek yaktığı canı verir. Rakibe koşmak zorunda olan yakın dövüş çılgını, maksimum menzilden balta fırlatan bir topçuya dönüşür ve ölüme ne kadar yakınsa o kadar iyi oynar.",
+      "play": "Q'nun maksimum menzilinde dur, canın son üçte bire yaklaşana kadar balta at, sonra baltanın peşinden koşmak yerine atmaya devam et. Fazla canın varsa E acil durum öz hasarındır; R çıkmak için, girmek için değil.",
       "augments": [
-        "Sıçra'nın 3 yükü olur. 120 saniye sonra tüm yükleri geri kazanırsın.",
-        "Sıçra'n hasar veren ve yavaşlatan bir patlamaya yol açar (ölünce sıfırlanır).",
-        "İkinci bir Sıçra sihirdar büyüsü ve 70 sihirdar büyüsü hızı kazan.",
-        "Sihirdar büyüsü olarak Öcü kazan. Öcü, hem Bariyer hem Hayalet kullanır."
+        "Yüzdesel bekleme süresi azaltma kazan ve tüm saldırı hızını yetenek hızına çevir.",
+        "Eksik cana göre yetenek gücü, %50 hareket hızı ve %20 genel can çalma kazan. Yetenek kullanmak mevcut canının %5'ine mal olur. En yüksek fayda %30 canda.",
+        "Yetenek gücünü ek saldırı gücüne çevirir. %15 saldırı gücü kazan.",
+        "Bir rakibi Ulti dışı bir yetenekle uzaktan vurmak bekleme süresinin %80'ini iade eder (periyodik yeteneklerde %65). Uzaktan vurma: 600 birimden uzaktaki rakiplere hasar vermek."
       ]
     },
     "vi": {
-      "title": "Chụp Ảnh Có Flash",
-      "why": "Chiêu W của Zoe giấu một dòng nội tại thứ hai bên dưới dòng mà ai cũng đọc: mỗi khi cô dùng kỹ năng này hoặc bất kỳ phép bổ trợ nào, cô ném 3 quả đạn vào mục tiêu mà cô vừa đánh gần nhất. Tốc Biến Liên Hoàn cho Tốc Biến của cô 3 lượt và Lựu Đạn Mù khiến mỗi lần Tốc Biến phát nổ gây sát thương và Làm Chậm, nên một cú nháy là cả quả bom diện rộng lẫn một loạt đạn, còn Tốc Biến 2 cho cô Tốc Biến thứ hai cùng 70 điểm hồi phép bổ trợ để cả thanh hồi nhanh hơn. Yêu Tinh gắn thêm một phép bổ trợ dùng cùng lúc Lá Chắn và Tốc Hành, nên đến cả nút hoảng loạn của cô cũng là thêm 3 quả đạn. Giày Khai Sáng Ionia nuôi vòng lặp bằng điểm hồi phép bổ trợ, Kiếm Tai Ương biến đòn đánh sau kỹ năng thành một cú sát thương phép cộng thêm đồng thời đánh dấu ai sẽ bị loạt đạn tiếp theo đuổi theo, còn Mũ Phù Thủy Rabadon, Ngọn Lửa Hắc Hóa, Quyền Trượng Bão Tố và Trượng Hư Vô làm mỗi cú phép nhỏ đau như cú thật. Nàng xạ thủ tầm xa của chiêu Q thôi chờ ngôi sao và trở thành khẩu súng máy có cò súng là thanh phép bổ trợ.",
-      "play": "Đánh trước kẻ bạn muốn hạ, vì đạn sẽ đuổi theo mục tiêu trúng đòn cuối cùng. Rồi xả hết thanh phép lên đầu hắn, và Tốc Biến sang ngang chứ đừng chạy.",
+      "title": "Máu Là Năng Lượng",
+      "why": "Nội tại của Olaf, Cuồng Nộ, cho hắn tốc độ đánh theo từng điểm máu đã mất, và W của hắn còn cộng thêm nữa; Thuần Pháp - Thuật Sư chuyển toàn bộ tốc độ đánh đó thành điểm hồi kỹ năng, nên thanh máu càng thấp thì kỹ năng hồi càng nhanh. Khế Ước Quỷ Quyệt khiến mỗi lần dùng kỹ năng tốn một phần máu hiện tại và trả lại sức mạnh phép thuật, tốc độ di chuyển và hút máu toàn phần theo lượng máu đã mất: ném Q làm hắn mất máu, máu mất lại nuôi nội tại, và tốc độ đánh quay về thành điểm hồi kỹ năng cho chiếc rìu tiếp theo. Chuyển Hoá SMPT-SMCK biến sức mạnh phép thuật đó thành sức mạnh công kích cộng thêm cho những chiếc rìu vật lý, còn Xạ Thủ Kỳ Cựu hoàn lại phần lớn thời gian hồi Q mỗi khi rìu trúng ai đó ở xa hơn 600 đơn vị, nên hắn chẳng bao giờ phải chạy đi nhặt rìu. Nanh Nashor, Đao Tím, Móc Diệt Thủy Quái và Giày Cuồng Nộ được mua chỉ để lấy tốc độ đánh đổi thành điểm hồi kỹ năng (sức mạnh phép thuật của Nanh Nashor cũng thành sức mạnh công kích nhờ Chuyển Hoá SMPT-SMCK), còn Ngọn Giáo Shojin và Khiên Hextech Thử Nghiệm cho sức mạnh công kích, điểm hồi kỹ năng và lượng máu mà hắn cố tình đốt. Gã cuồng chiến cận chiến vốn phải lao vào người khác trở thành khẩu pháo ném rìu từ tầm tối đa, và càng gần chết thì càng chơi hay.",
+      "play": "Đứng ở tầm tối đa của Q, ném rìu cho đến khi máu tụt về khoảng một phần ba cuối, rồi tiếp tục ném thay vì chạy theo nhặt rìu. E là chiêu tự gây sát thương khẩn cấp khi bạn còn quá nhiều máu; R là để chạy ra, không phải để lao vào.",
       "augments": [
-        "Tốc Biến của bạn có 3 lượt. Sau 120 giây, hồi lại toàn bộ lượt.",
-        "Tốc Biến của bạn gây ra một vụ nổ gây sát thương và Làm Chậm (đặt lại khi chết).",
-        "Nhận thêm phép bổ trợ Tốc Biến thứ hai và 70 điểm hồi phép bổ trợ.",
-        "Nhận Yêu Tinh làm phép bổ trợ. Yêu Tinh dùng cả Lá Chắn và Tốc Hành."
+        "Nhận giảm thời gian hồi chiêu theo phần trăm và chuyển toàn bộ tốc độ đánh thành điểm hồi kỹ năng.",
+        "Nhận sức mạnh phép thuật, 50% tốc độ di chuyển và 20% hút máu toàn phần dựa trên lượng máu đã mất. Dùng kỹ năng tốn 5% máu hiện tại. Hiệu quả tối đa khi còn 30% máu.",
+        "Chuyển sức mạnh phép thuật thành sức mạnh công kích cộng thêm. Nhận thêm 15% sức mạnh công kích.",
+        "Bắn tỉa kẻ địch bằng kỹ năng không phải chiêu cuối sẽ hoàn lại 80% thời gian hồi (65% với kỹ năng định kỳ). Bắn tỉa: gây sát thương lên kẻ địch ở khoảng cách hơn 600."
       ]
     },
     "zh-CN": {
-      "title": "闪光摄影",
-      "why": "暮光星灵的W在大家都会读的那行下面还藏着第二行被动：每当她施放这个技能或任意召唤师技能时，都会向她最近一次普攻的目标扔出3枚飞弹。闪现向前让她的闪现拥有3层充能，闪光弹让每一次闪现都炸出一个造成伤害并减速的爆炸，所以一次闪现就是范围轰炸加一轮齐射；闪闪现现再给她第二个闪现和70召唤师技能急速，整排技能转得更快。吵闹鬼再塞进一个同时施放屏障和幽灵疾步的召唤师技能，连她的保命键都是额外3枚飞弹。明朗之靴用召唤师技能急速喂养这个循环，巫妖之祸把技能后的普攻变成额外魔法伤害，同时标记下一轮齐射追谁，灭世者的死亡之帽、影焰、风暴狂涌和虚空之杖让每一下小魔法伤害都打出真伤害的分量。Q技能的远程狙击手不再等她的星星，变成一挺以召唤师技能栏为扳机的机关枪。",
-      "play": "先普攻你最想击杀的人，因为飞弹会追最后命中的目标。然后在他头上把技能栏清空，闪现往旁边闪，别往后闪。",
+      "title": "血条就是蓝条",
+      "why": "奥拉夫的被动狂战之怒会按已损失生命值给他攻击速度，W还会再叠一层攻速；纯粹主义者 - 术师把这些攻速全部转化为技能急速，所以血条越低，冷却转得越快。不祥契约让每次施法消耗一部分当前生命值，并按已损失生命值返还法术强度、移动速度和全能吸血：扔Q会掉血，掉的血喂给被动，攻速又变成急速回到下一把斧头上。魔法转物理把这些法术强度变成物理斧头的额外攻击力，老练狙神则在斧头命中600码以外的敌人时返还大部分Q的冷却，所以他根本不用去捡斧头。纳什之牙、智慧末刃、海妖杀手和狂战士胫甲只是为了攻速而买，全部转成急速（纳什之牙的法强也会通过魔法转物理变成攻击力），朔极之矛和海克斯注力刚壁则提供攻击力、急速和他故意烧掉的生命值。原本必须冲脸的近战狂战士变成了一门从最远距离扔斧头的大炮，而且越接近死亡打得越好。",
+      "play": "站在Q的最远距离扔斧头，直到血量掉到三分之一左右，然后继续扔，别去追斧头。血太多时E是你的紧急自残手段；R是用来跑路的，不是用来冲的。",
       "augments": [
-        "你的闪现拥有3层充能。120秒后，恢复所有充能。",
-        "你的闪现会造成一次爆炸，造成伤害并减速（死亡时重置）。",
-        "获得第二个闪现召唤师技能和70召唤师技能急速。",
-        "获得召唤师技能吵闹鬼。吵闹鬼会同时施放屏障和幽灵疾步。"
+        "获得百分比冷却缩减，并将你的全部攻击速度转化为技能急速。",
+        "基于已损失生命值获得法术强度、50%移动速度和20%全能吸血。施放技能消耗5%当前生命值。生命值为30%时效果最大。",
+        "将法术强度转化为额外攻击力。获得15%攻击力。",
+        "用非终极技能狙击敌人会返还80%冷却时间（周期性技能为65%）。狙击：对600距离以外的敌人造成伤害。"
       ]
     },
     "zh-TW": {
-      "title": "閃光攝影",
-      "why": "柔依的W在大家都會讀的那行下面還藏著第二行被動：每當她施放這個技能或任何召喚師技能時，都會朝她最近一次普攻的目標丟出3發飛彈。閃光俠讓她的閃現擁有3層充能，閃光彈讓每一次閃現都炸出造成傷害並緩速的爆炸，所以一次閃現就是範圍轟炸加一輪齊射；二次閃現再給她第二個閃現和70召喚師技能加速，整排技能轉得更快。搗蛋鬼再加上一個同時施放光盾和鬼步的召喚師技能，連她的保命鍵都是多3發飛彈。愛歐尼亞之靴用召喚師技能加速餵養這個循環，巫妖之禍把技能後的普攻變成額外魔法傷害，同時標記下一輪齊射追誰，死亡之帽、黯影之炎、雷霆風暴和虛空之杖讓每一下小魔法傷害都打出真正的分量。Q的遠程狙擊手不再等她的星星，變成一挺以召喚師技能欄為扳機的機關槍。",
-      "play": "先普攻你最想擊殺的人，因為飛彈會追最後命中的目標。接著在他頭上把技能欄清空，閃現往旁邊閃，別往後閃。",
+      "title": "血條就是魔力",
+      "why": "歐拉夫的被動狂戰之怒會依照已損失生命給他攻擊速度，W還會再疊一層攻速；純粹 - 法師把這些攻速全部轉換為技能急速，所以血條越低，冷卻轉得越快。不祥契約讓每次施法消耗一部分當前生命，並依照已損失生命回饋魔法攻擊、跑速和全能吸血：丟Q會掉血，掉的血餵給被動，攻速又變成急速回到下一把斧頭上。轉換惡作劇把這些魔法攻擊變成物理斧頭的額外攻擊力，老練狙擊手則在斧頭命中600單位以外的敵人時返還大部分Q的冷卻，所以他根本不用去撿斧頭。納什之牙、智慧末刃、海妖殺手和狂戰士護脛只是為了攻速而買，全部轉成急速（納什之牙的魔攻也會透過轉換惡作劇變成攻擊力），精進之矛和實驗型海克斯板甲則提供攻擊力、急速和他故意燒掉的生命。原本必須衝臉的近戰狂戰士變成一門從最遠距離丟斧頭的大砲，而且越接近死亡打得越好。",
+      "play": "站在Q的最遠距離丟斧頭，直到血量掉到三分之一左右，然後繼續丟，別去追斧頭。血太多時E是你的緊急自殘手段；R是用來逃跑的，不是用來衝的。",
       "augments": [
-        "你的閃現擁有3層充能。120秒後，恢復所有充能。",
-        "你的閃現會引發爆炸，造成傷害並緩速（死亡時重置）。",
-        "獲得第二個閃現召喚師技能和70召喚師技能加速。",
-        "獲得召喚師技能搗蛋鬼。搗蛋鬼會同時施放光盾和鬼步。"
+        "獲得百分比冷卻縮減，並將所有攻擊速度轉換為技能急速。",
+        "依照已損失生命獲得魔法攻擊、50%跑速和20%全能吸血。施放技能消耗5%當前生命。生命為30%時效果最大。",
+        "將魔法攻擊轉換為額外攻擊力。獲得15%攻擊力。",
+        "用非大絕的技能狙擊敵人會返還80%冷卻時間（週期性技能為65%）。狙擊：對600距離以外的敵人造成傷害。"
       ]
     }
   }

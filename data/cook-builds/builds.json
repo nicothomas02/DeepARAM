@@ -162,6 +162,29 @@
       "why": "Zoe's Spell Thief hides a second passive line under the one everyone reads: whenever she casts that Ability or any Summoner Spell, she tosses 3 missiles at the target she Attacked most recently. Flashy gives her Flash three charges and Flashbang makes every one of those Flashes explode for damage and a Slow, so a single blink is now an area nuke plus a volley, and Flash 2 hands her a second Flash plus 70 Summoner Haste so the whole bar reloads sooner. Poltergeist bolts on one more Summoner Spell that casts Barrier and Ghost together, so even her panic button is three more missiles. Ionian Boots of Lucidity feed the loop with Summoner Spell Haste, Lich Bane turns the Attack she throws after an Ability into a bonus magic hit while it also marks who the next volley chases, and Rabadon's Deathcap, Shadowflame, Stormsurge and Void Staff make each small magic hit land like a real one. The long-range Paddle Star sniper stops waiting on her star and becomes a machine gun whose trigger is the Summoner bar.",
       "play": "Attack whoever you want dead first, because the missiles follow the last target you hit. Then empty the bar on top of them, and Flash sideways, not away.",
       "chef": "2026-10-23"
+    },
+    {
+      "id": "olaf-health-is-mana",
+      "champion": "Olaf",
+      "title": "Health Is Mana",
+      "augments": [
+        "Purist - Caster",
+        "Ominous Pact",
+        "escAPADe",
+        "Skilled Sniper"
+      ],
+      "core": 4,
+      "items": [
+        "Berserker's Greaves",
+        "Nashor's Tooth",
+        "Wit's End",
+        "Experimental Hexplate",
+        "Spear of Shojin",
+        "Kraken Slayer"
+      ],
+      "why": "Olaf's Berserker Rage hands him Attack Speed for every point of Health he is missing, and Tough It Out stacks even more Attack Speed on top; Purist - Caster converts all of that Attack Speed into Ability Haste, so the lower his Health bar, the faster his cooldowns run. Ominous Pact makes every spell cast cost a slice of his current Health and pays him back with Ability Power, Movement Speed and Omnivamp based on missing Health, so casting Undertow drains him, the drain feeds Berserker Rage, and the Attack Speed comes back out as more Haste for the next axe. escAPADe turns that Ability Power into bonus Attack Damage for his physical damage axes, and Skilled Sniper refunds most of Undertow's cooldown whenever the axe lands on someone more than 600 units away, so he never has to walk up and pick it up. Nashor's Tooth, Wit's End, Kraken Slayer and Berserker's Greaves are bought purely as Attack Speed to be converted into Haste (the Nashor's Ability Power also becomes Attack Damage through escAPADe), while Spear of Shojin and Experimental Hexplate add Attack Damage, Haste and the Health pool he deliberately burns. The melee berserker who has to run at people becomes a long-range artillery piece that lobs axes from max range and plays better the closer he is to dead.",
+      "play": "Sit at max Undertow range, throw axes until your Health sits near the bottom third, then keep throwing instead of chasing the axe. Reckless Swing is your emergency self-damage if you are too healthy; Ragnarok is for walking out, not in.",
+      "chef": "2026-10-24"
     }
   ]
 }
