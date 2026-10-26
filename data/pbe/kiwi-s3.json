@@ -2,7 +2,7 @@
   "meta": {
     "mode": "ARAM: Mayhem",
     "label": "Patch 26.22",
-    "dataAsOf": "2026-10-23",
+    "dataAsOf": "2026-10-26",
     "caveat": "PBE content can change before release.",
     "augmentPool": {
       "live": 249,
@@ -15,12 +15,13 @@
     "chinaPoolChanged": false,
     "notes": [
       "Live is now patch 26.21, so this page lists only what's new in 26.22.",
+      "Update 2026-10-26 (patch 26.22): Armored Impact, BEES!!! and Take'em Down Down Down are changed.",
       "Update 2026-10-23 (patch 26.22): 9 augments leave the pool, and Varus gets stronger.",
       "Update 2026-10-21: Lee Sin's Mayhem W shield now grows with rank.",
       "Ability values are listed for ranks 1-5 (basic abilities) or 1-3 (ultimates)."
     ],
     "builds": {
-      "pbe": "16.22.8316254",
+      "pbe": "16.22.8321601",
       "live": "16.21.8298620"
     }
   },
@@ -117,7 +118,52 @@
         "icon": "/assets/augments/live/questsupportmain_large.png"
       }
     ],
-    "changed": []
+    "changed": [
+      {
+        "name": "Armored Impact",
+        "changes": [
+          {
+            "stat": "Bonus damage from bonus Armor",
+            "live": "250%",
+            "pbe": "220%"
+          },
+          {
+            "stat": "Base damage (by level)",
+            "live": "50–125",
+            "pbe": "25–125"
+          }
+        ],
+        "direction": "nerf",
+        "tier": "gold",
+        "icon": "/assets/augments/pbe/armoredimpact_small.png"
+      },
+      {
+        "name": "BEES!!!",
+        "changes": [
+          {
+            "stat": "Bee damage (by level)",
+            "live": "75–200",
+            "pbe": "75–140"
+          }
+        ],
+        "direction": "nerf",
+        "tier": "gold",
+        "icon": "/assets/augments/pbe/bees_small.png"
+      },
+      {
+        "name": "Take'em Down Down Down",
+        "changes": [
+          {
+            "stat": "Missing Health damage at max stacks",
+            "live": "15% + more from your stats",
+            "pbe": "17%, no longer grows with stats"
+          }
+        ],
+        "direction": "mixed",
+        "tier": "gold",
+        "icon": "/assets/augments/pbe/takeemdowndowndown_small.png"
+      }
+    ]
   },
   "championOverrides": [
     {
