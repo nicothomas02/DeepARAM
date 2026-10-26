@@ -1,297 +1,297 @@
 {
-  "id": "olaf-health-is-mana",
-  "title": "Health Is Mana",
-  "champion": "Olaf",
-  "champion_name": "Olaf",
-  "chef": "2026-10-24",
-  "why": "Olaf's Berserker Rage hands him Attack Speed for every point of Health he is missing, and Tough It Out stacks even more Attack Speed on top; Purist - Caster converts all of that Attack Speed into Ability Haste, so the lower his Health bar, the faster his cooldowns run. Ominous Pact makes every spell cast cost a slice of his current Health and pays him back with Ability Power, Movement Speed and Omnivamp based on missing Health, so casting Undertow drains him, the drain feeds Berserker Rage, and the Attack Speed comes back out as more Haste for the next axe. escAPADe turns that Ability Power into bonus Attack Damage for his physical damage axes, and Skilled Sniper refunds most of Undertow's cooldown whenever the axe lands on someone more than 600 units away, so he never has to walk up and pick it up. Nashor's Tooth, Wit's End, Kraken Slayer and Berserker's Greaves are bought purely as Attack Speed to be converted into Haste (the Nashor's Ability Power also becomes Attack Damage through escAPADe), while Spear of Shojin and Experimental Hexplate add Attack Damage, Haste and the Health pool he deliberately burns. The melee berserker who has to run at people becomes a long-range artillery piece that lobs axes from max range and plays better the closer he is to dead.",
-  "play": "Sit at max Undertow range, throw axes until your Health sits near the bottom third, then keep throwing instead of chasing the axe. Reckless Swing is your emergency self-damage if you are too healthy; Ragnarok is for walking out, not in.",
+  "id": "nilah-whip-blade-nurse",
+  "title": "Whip-Blade Nurse",
+  "champion": "Nilah",
+  "champion_name": "Nilah",
+  "chef": "2026-10-25",
+  "why": "Nilah's kit already leaks healing everywhere: Formless Blade turns her crit chance into lifesteal that overflows into shields, and Apotheosis heals every nearby ally for a cut of its damage. Critical Healing hands her the crit chance that Formless Blade wants while letting all of those heals and shields crit, and Spirit Bomb, Empowered By The Faithful and Support Main all trigger off the same thing: healing allies, which her ultimate does on its own. Sword of Blossoming Dawn is the missing piece, because its Peppermint on-hit makes every single auto attack heal the lowest ally, so each basic attack now charges a Spirit Bomb, blesses teammates for an executing shockwave and leaves a heal-over-time behind, while Ardent Censer, Moonstone Renewer and Echoes of Helia reward each of those ally heals with attack speed, chained heals and stored damage turned into healing. Infinity Edge and Navori Flickerblade keep her crit chance high so the whip-blade still hurts and Formless Blade keeps her own health topped. A melee crit carry turns into a frontline medic whose auto attacks are the healing spell.",
+  "play": "Glue yourself to your tankiest ally and keep auto-attacking anything in range; every hit heals the team and fills the bomb. Hold Apotheosis for a brawl where the whole team is hurt so one ultimate dumps a flood of crit heals and sets off the Faithful shockwave.",
   "items": [
-    "Berserker's Greaves",
-    "Nashor's Tooth",
-    "Wit's End",
-    "Experimental Hexplate",
-    "Spear of Shojin",
-    "Kraken Slayer"
+    "Sword of Blossoming Dawn",
+    "Ardent Censer",
+    "Moonstone Renewer",
+    "Echoes of Helia",
+    "Infinity Edge",
+    "Navori Flickerblade"
   ],
   "core": 4,
-  "champion_icon": "/embed/fun/cook-builds/icons/champions/2.png",
+  "champion_icon": "/embed/fun/cook-builds/icons/champions/895.png",
   "augments": [
     {
-      "name": "Purist - Caster",
-      "rarity": "Silver",
-      "core": true,
-      "text": "Gain percent cooldown reduction and convert all of your Attack Speed into Ability Haste.",
-      "icon": "/embed/fun/cook-builds/icons/augments/purist-caster.png",
-      "id": 2018
-    },
-    {
-      "name": "Ominous Pact",
-      "rarity": "Prismatic",
-      "core": true,
-      "text": "Gain Ability Power, 50% Movement Speed, and 20% Omnivamp based on missing Health. Spell casts cost 5% of your current Health. Max benefit at 30% Health.",
-      "icon": "/embed/fun/cook-builds/icons/augments/ominous-pact.png",
-      "id": 1332
-    },
-    {
-      "name": "escAPADe",
-      "rarity": "Silver",
-      "core": true,
-      "text": "Convert Ability Power to Bonus Attack Damage. Gain 15% Attack Damage.",
-      "icon": "/embed/fun/cook-builds/icons/augments/escapade.png",
-      "id": 1206
-    },
-    {
-      "name": "Skilled Sniper",
+      "name": "Critical Healing",
       "rarity": "Gold",
       "core": true,
-      "text": "Snipe an enemy with a non-Ultimate Ability refunds 80% Cooldown (65% for periodic Abilities). Snipe - Damage enemies over 600 distance away",
-      "icon": "/embed/fun/cook-builds/icons/augments/skilled-sniper.png",
-      "id": 1113
+      "text": "Your healing and Shields can Critically Strike for 40% bonus amount. Gain 25% Crit Chance.",
+      "icon": "/embed/fun/cook-builds/icons/augments/critical-healing.png",
+      "id": 1118
+    },
+    {
+      "name": "Spirit Bomb",
+      "rarity": "Prismatic",
+      "core": true,
+      "text": "Healing and Shielding allied champions builds up a Spirit Bomb. At max stacks, toss the bomb onto lowest Health ally to heal and shield them and nearby allies.",
+      "icon": "/embed/fun/cook-builds/icons/augments/spirit-bomb.png",
+      "id": 2104
+    },
+    {
+      "name": "Empowered By The Faithful",
+      "rarity": "Prismatic",
+      "core": true,
+      "text": "Healing or Shielding allies blesses them, causing their damage to fill you with devotion. When you have enough devotion, unleash a shockwave dealing magic damage and executes low health enemies.",
+      "icon": "/embed/fun/cook-builds/icons/augments/empowered-by-the-faithful.png",
+      "id": 2004
+    },
+    {
+      "name": "Support Main",
+      "rarity": "Silver",
+      "core": true,
+      "text": "QUEST: Heal allied champions for Health. REWARD: Any healing you provide now also Heals Over Time after the initial heal.",
+      "icon": "/embed/fun/cook-builds/icons/augments/support-main.png",
+      "id": 2108
     }
   ],
   "href": "/kitchen#chefs-special",
   "archive_href": "/kitchen#chef-archive",
-  "share_href": "/kitchen/2026-10-24",
-  "share_image": "/embed/fun/cook-builds/share/olaf-health-is-mana.png",
+  "share_href": "/kitchen/2026-10-25",
+  "share_image": "/embed/fun/cook-builds/share/nilah-whip-blade-nurse.png",
   "item_ids": [
-    3006,
-    3115,
-    3091,
-    3073,
-    3161,
-    6672
+    124011,
+    3504,
+    6617,
+    6620,
+    3031,
+    6675
   ],
   "i18n": {
     "ar": {
-      "title": "الصحة هي المانا",
-      "why": "تمنح قدرة أولاف السلبية، غضب الهائج، سرعة هجوم مقابل كل نقطة صحة مفقودة، وتضيف قدرته W المزيد فوقها؛ ويحوّل النقيّ - ملقي التعويذات كل سرعة الهجوم هذه إلى تسريع قدرات، فكلما انخفض شريط صحته، تسارعت فترات تهدئته. يجعل الميثاق المشؤوم كل تعويذة تكلّفه جزءًا من صحته الحالية ويعوّضه بقوة قدرات وسرعة حركة وامتصاص شامل حسب الصحة المفقودة: رمي Q يستنزفه، والاستنزاف يغذي قدرته السلبية، وتعود سرعة الهجوم تسريعًا للفأس التالية. ويحوّل مغامرة قوة القدرات هذه إلى ضرر هجوم إضافي لفؤوسه الجسدية، ويعيد القناص الماهر معظم تهدئة Q كلما أصابت الفأس أحدًا على بعد أكثر من 600 وحدة، فلا يحتاج أبدًا إلى التقاطها. يشتري سن ناشور والموقف الحرج وقاتل الكراكن ودرع ساق الجامح من أجل سرعة الهجوم التي تتحول إلى تسريع فقط (وقوة القدرات من سن ناشور تصبح أيضًا ضرر هجوم عبر مغامرة)، بينما يضيف رمح شوجين وصفيحة الهيكستيك التجريبية ضرر هجوم وتسريعًا والصحة التي يحرقها عمدًا. يتحول الهائج القريب المدى الذي يجب أن يركض نحو الخصوم إلى مدفعية ترمي الفؤوس من أقصى مدى، ويلعب أفضل كلما اقترب من الموت.",
-      "play": "ابقَ على أقصى مدى لـ Q وارمِ الفؤوس حتى تنزل صحتك قرب الثلث الأخير، ثم واصل الرمي بدل مطاردة الفأس. قدرة E هي ضررك الذاتي للطوارئ إن كانت صحتك عالية جدًا؛ وR للخروج لا للدخول.",
+      "title": "ممرضة النصل السوط",
+      "why": "مجموعة مهارات نيلا تسرّب العلاج في كل مكان أصلًا: المهارة السلبية لـ Q تحوّل فرصة الضربة الحرجة إلى سرقة حياة يتحول فائضها إلى درع، و R تعالج كل الحلفاء القريبين بجزء من الضرر الذي تلحقه. العلاج الحرج يعطيها فرصة الضربة الحرجة التي تريدها Q ويجعل كل هذا العلاج والدروع قادرة على أن تكون حرجة، بينما قنبلة الروح وبركة الأوفياء وأخصائي الدعم تتفعل كلها بالشيء نفسه: علاج الحلفاء، وهو ما تفعله مهارتها النهائية وحدها. سيف الفجر المزدهر هو القطعة الناقصة، لأن تأثيره عند الإصابة يجعل كل هجمة أساسية تعالج الحليف الأقل صحة، فكل هجمة تشحن قنبلة الروح وتبارك الزملاء لموجة صدمية تنهي الأعداء وتترك علاجًا مع الوقت، بينما المجس الوهاج وحجر القمر المنعش وأصداء هيليا تكافئ كل علاج للحلفاء بسرعة هجوم وعلاج متسلسل وضرر مخزّن يتحول إلى علاج. السيف الأبدي ونصال نافوري الخاطفة يبقيان فرصة الضربة الحرجة عالية حتى يظل النصل السوط مؤلمًا وتبقي Q صحتها ممتلئة. حاملة ضرر حرجة قريبة المدى تتحول إلى مسعفة في الخط الأمامي هجماتها الأساسية هي تعويذة العلاج.",
+      "play": "التصق بأقوى حليف تحمّلًا واضرب كل ما في مداك؛ كل ضربة تعالج الفريق وتملأ القنبلة. احتفظ بـ R لمعركة يكون فيها الفريق كله مصابًا، لتطلق مهارة نهائية واحدة سيلًا من العلاج الحرج وتفجّر موجة الأوفياء.",
       "augments": [
-        "احصل على تقليل نسبي لفترة التهدئة وحوّل كل سرعة هجومك إلى تسريع قدرات.",
-        "احصل على قوة قدرات و50% سرعة حركة و20% امتصاص شامل حسب الصحة المفقودة. استخدام التعويذات يكلّف 5% من صحتك الحالية. أقصى فائدة عند 30% صحة.",
-        "يحوّل قوة القدرات إلى ضرر هجوم إضافي. احصل على 15% ضرر هجوم.",
-        "قنص عدو بقدرة غير القدرة القصوى يعيد 80% من فترة التهدئة (65% للقدرات الدورية). القنص: إلحاق الضرر بالأعداء على بعد أكثر من 600 وحدة."
+        "علاجك ودروعك الواقية يمكن أن تكون حرجة بزيادة 40%. تحصل على 25% فرصة ضربة حرجة.",
+        "علاج الأبطال الحلفاء ومنحهم الدروع يشحن قنبلة الروح. عند أقصى عدد من الشحنات، ارمِ القنبلة على الحليف الأقل صحة لعلاجه ومنحه درعًا هو والحلفاء القريبين.",
+        "علاج الحلفاء أو منحهم دروعًا يباركهم، فيملؤك ضررهم بالتفاني. عندما يكفي تفانيك، تطلق موجة صدمة تُلحق ضررًا سحريًا وتُجهز على الأعداء منخفضي الصحة.",
+        "المهمة: عالج صحة الأبطال الحلفاء. المكافأة: أي علاج تقدمه الآن يعالج أيضًا مع مرور الوقت بعد العلاج الأولي."
       ]
     },
     "cs": {
-      "title": "Zdraví je mana",
-      "why": "Olafova pasivka, Běsnění berserkra, mu dává rychlost útoků za každý chybějící bod zdraví a jeho W přidává ještě víc; Ryzí sesilatel přemění všechnu tuhle rychlost útoků na zrychlení schopností, takže čím níž je jeho ukazatel zdraví, tím rychleji mu běží přebíjení. Zlověstný pakt nechá každé seslání stát kus aktuálního zdraví a vrací mu sílu schopností, rychlost pohybu a všeupírství podle chybějícího zdraví: sesílání Q ho vysává, ztráta zdraví krmí pasivku a rychlost útoků se vrací jako zrychlení pro další sekeru. Transformátor mění tuhle sílu schopností na bonusové útočné poškození pro jeho fyzické sekery a Zkušený odstřelovač vrátí většinu přebíjení Q, kdykoli sekera zasáhne někoho na víc než 600 jednotek, takže pro ni nikdy nemusí chodit. Nashorův tesák, Nouzová, Zabiják krakenů a Šílencovy boty kupuje jen kvůli rychlosti útoků, která se mění na zrychlení (síla schopností z Tesáku se přes Transformátor taky stává útočným poškozením), zatímco Oštěp Šódžinu a Experimentální magiplát přidávají útočné poškození, zrychlení a zdraví, které schválně pálí. Berserker na blízko, co musí běžet na lidi, se stává dělostřelectvem, které hází sekery z maximálního dosahu a hraje tím líp, čím blíž je smrti.",
-      "play": "Drž se na maximálním dosahu Q, házej sekery, dokud ti zdraví neklesne zhruba ke spodní třetině, a pak házej dál místo honění sekery. E je tvoje nouzové poškození sebe sama, když máš moc zdraví; R je na útěk, ne na vstup.",
+      "title": "Sestřička s bičem-čepelí",
+      "why": "Nilahina sada už všude ztrácí léčení: pasivní Q mění její šanci na kritický zásah v krádež životů, jejíž přebytek se mění ve štít, a její R léčí všechny blízké spojence o část způsobeného poškození. Kritické léčení jí dává šanci na kritický zásah, kterou Q chce, a zároveň nechává všechna ta léčení a štíty kriticky zasahovat, a Duchovní bomba, Posílení věrnými i Hráč za podporu se spouští stejnou věcí: léčením spojenců, což její ulti dělá samo. Meč rozpuku úsvitu je chybějící dílek, protože jeho efekt při zásahu způsobí, že každý základní útok vyléčí nejslabšího spojence, takže každý auto nabíjí Duchovní bombu, žehná spoluhráčům pro popravující rázovou vlnu a nechá za sebou léčení v čase, zatímco Žhnoucí kadidelnice, Měsíční obnovovač a Ozvěny Helie odmění každé léčení spojence rychlostí útoku, řetězovým léčením a uloženým poškozením proměněným v léčení. Ostří nekonečna a Blikavá čepel Navori drží šanci na kritický zásah vysoko, aby bič-čepel pořád bolel a Q drželo její vlastní zdraví nahoře. Kritická carry na blízko se mění ve zdravotnici v první linii, jejíž základní útoky jsou léčivé kouzlo.",
+      "play": "Přilep se k nejodolnějšímu spojenci a útoč na všechno v dosahu; každý zásah léčí tým a plní bombu. Nech si R na mela, kde je zraněný celý tým, aby jedno ulti vychrlilo záplavu kritických léčení a odpálilo rázovou vlnu věrných.",
       "augments": [
-        "Získáš procentuální zkrácení přebíjení a přeměníš veškerou rychlost útoků na zrychlení schopností.",
-        "Získáš sílu schopností, 50% rychlosti pohybu a 20% všeupírství podle chybějícího zdraví. Seslání schopností stojí 5% aktuálního zdraví. Maximální účinek při 30% zdraví.",
-        "Přemění sílu schopností na bonusové útočné poškození. Získáš 15% útočného poškození.",
-        "Odstřelení nepřítele schopností, která není superschopnost, vrátí 80% přebíjení (65% u periodických schopností). Odstřelení: zasažení nepřátel na vzdálenost přes 600 jednotek."
+        "Tvé léčení a štíty můžou kriticky zasáhnout za 40 % navíc. Získáš 25 % šance na kritický zásah.",
+        "Léčení a štítování spojeneckých šampionů nabíjí Duchovní bombu. Při maximu nabití hodíš bombu na spojence s nejnižším zdravím a vyléčíš a ochráníš štítem jeho i blízké spojence.",
+        "Léčení nebo štíty na spojence jim požehnají a jejich poškození tě plní oddaností. Když máš dost oddanosti, vypustíš rázovou vlnu, která způsobí magické poškození a popraví nepřátele s nízkým zdravím.",
+        "ÚKOL: Vyléč spojeneckým šampionům zdraví. ODMĚNA: Každé tvoje léčení teď po počátečním léčení léčí i v průběhu času."
       ]
     },
     "de": {
-      "title": "Leben ist Mana",
-      "why": "Olafs Passive, Berserkerwut, gibt ihm Angriffstempo für jeden fehlenden Lebenspunkt, und sein W legt noch mehr Angriffstempo obendrauf; Purist – Zauberer wandelt all dieses Angriffstempo in Fähigkeitstempo um, also laufen seine Abklingzeiten umso schneller, je leerer seine Lebensleiste ist. Unheilvoller Pakt lässt jeden Zauber einen Teil seines aktuellen Lebens kosten und zahlt ihm abhängig vom fehlenden Leben Fähigkeitsstärke, Lauftempo und Omnivampirismus zurück: Sein Q saugt ihn aus, der Lebensverlust füttert seine Passive, und das Angriffstempo kommt als Fähigkeitstempo für die nächste Axt zurück. Im Wandel macht aus dieser Fähigkeitsstärke zusätzlichen Angriffsschaden für seine physischen Äxte, und Geschickter Scharfschütze erstattet den Großteil der Abklingzeit seines Q, wenn die Axt jemanden in über 600 Einheiten Entfernung trifft, sodass er sie nie aufsammeln muss. Nashors Zahn, Ende der Weisheit, Krakenbezwinger und Beinschienen des Berserkers kauft er nur für Angriffstempo, das zu Fähigkeitstempo wird (die Fähigkeitsstärke von Nashors Zahn wird durch Im Wandel ebenfalls Angriffsschaden), während Speer von Shojin und Experimentelle Hexpanzerung Angriffsschaden, Fähigkeitstempo und das Leben liefern, das er absichtlich verbrennt. Der Nahkampf-Berserker, der auf Leute zurennen muss, wird zur Artillerie, die Äxte aus maximaler Reichweite wirft und umso besser spielt, je näher er am Tod ist.",
-      "play": "Bleib auf maximaler Q-Reichweite, wirf Äxte, bis dein Leben im unteren Drittel ist, und wirf dann weiter, statt der Axt hinterherzulaufen. E ist dein Notfall-Selbstschaden, wenn du zu gesund bist; R ist zum Rauslaufen, nicht zum Reinlaufen.",
+      "title": "Peitschenklingen-Krankenschwester",
+      "why": "Nilahs Kit verliert schon überall Heilung: Ihr passives Q wandelt ihre kritische Trefferchance in Lebensraub um, der überschüssig zu Schilden wird, und ihr R heilt alle Verbündeten in der Nähe um einen Teil ihres Schadens. Kritische Heilung gibt ihr genau die kritische Trefferchance, die ihr Q will, und lässt all diese Heilungen und Schilde kritisch treffen, und Geisterbombe, Verstärkt durch die Gläubigen und Supporterspieler lösen alle durch dasselbe aus: Verbündete heilen, was ihre Ulti ganz von selbst macht. Schwert des aufblühenden Morgens ist das fehlende Puzzleteil, denn sein Treffereffekt lässt jeden einzelnen normalen Angriff den schwächsten Verbündeten heilen, also lädt jeder Auto eine Geisterbombe auf, segnet Mitspieler für eine hinrichtende Schockwelle und hinterlässt eine Heilung über Zeit, während Thymiaterion, Mondstein-Erneuerer und Echos von Helia jede dieser Heilungen mit Angriffstempo, Kettenheilungen und gespeichertem Schaden belohnen, der zu Heilung wird. Klinge der Unendlichkeit und Flimmerklinge der Navori halten ihre kritische Trefferchance hoch, damit die Peitschenklinge weiter wehtut und ihr Q ihr eigenes Leben oben hält. Eine Nahkampf-Crit-Carry wird zur Sanitäterin an der Front, deren normale Angriffe der Heilzauber sind.",
+      "play": "Klebe an deinem tankigsten Verbündeten und greif alles in Reichweite an; jeder Treffer heilt das Team und füllt die Bombe. Heb dir dein R für eine Keilerei auf, in der das ganze Team verletzt ist, damit eine Ulti eine Flut kritischer Heilungen auslöst und die Schockwelle der Gläubigen zündet.",
       "augments": [
-        "Erhalte prozentuale Abklingzeitverringerung und wandle dein gesamtes Angriffstempo in Fähigkeitstempo um.",
-        "Erhalte abhängig vom fehlenden Leben Fähigkeitsstärke, 50% Lauftempo und 20% Omnivampirismus. Zauber kosten 5% deines aktuellen Lebens. Maximaler Effekt bei 30% Leben.",
-        "Wandle Fähigkeitsstärke in zusätzlichen Angriffsschaden um. Erhalte 15% Angriffsschaden.",
-        "Einen Gegner mit einer Nicht-Ultimate-Fähigkeit zu snipen erstattet 80% der Abklingzeit (65% bei periodischen Fähigkeiten). Snipen: Gegnern in über 600 Einheiten Entfernung Schaden zufügen."
+        "Deine Heilungen und Schilde können für 40 % zusätzlichen Wert kritisch treffen. Erhalte 25 % kritische Trefferchance.",
+        "Das Heilen und Abschirmen verbündeter Champions baut eine Geisterbombe auf. Bei maximalen Steigerungen wirfst du die Bombe auf den Verbündeten mit dem wenigsten Leben, um ihn und Verbündete in der Nähe zu heilen und abzuschirmen.",
+        "Verbündete zu heilen oder abzuschirmen segnet sie, wodurch ihr Schaden dich mit Hingabe füllt. Hast du genug Hingabe, entfesselst du eine Schockwelle, die magischen Schaden verursacht und Gegner mit wenig Leben exekutiert.",
+        "QUEST: Heile verbündete Champions um Leben. BELOHNUNG: Jede Heilung, die du gewährst, heilt nach der ersten Heilung zusätzlich über Zeit."
       ]
     },
     "el": {
-      "title": "Η Ζωή Είναι Μάνα",
-      "why": "Η παθητική του Όλαφ, Οργή του Μπερζέρκερ, του δίνει Ταχύτητα Επίθεσης για κάθε πόντο Ζωής που του λείπει, και το W του προσθέτει κι άλλη από πάνω· το Καθαρολόγος - Μάγος μετατρέπει όλη αυτή την Ταχύτητα Επίθεσης σε Επιτάχυνση Ικανοτήτων, οπότε όσο πιο χαμηλά πέφτει η μπάρα Ζωής του, τόσο πιο γρήγορα τρέχουν οι χρόνοι επαναφόρτισης. Η Δυσοίωνη Συμφωνία κάνει κάθε ικανότητα να κοστίζει ένα κομμάτι της τρέχουσας Ζωής του και τον ανταμείβει με Δύναμη Ικανοτήτων, Ταχύτητα Κίνησης και Παμβαμπιρισμό ανάλογα με τη Ζωή που λείπει: το Q τον στραγγίζει, το στράγγισμα ταΐζει την παθητική και η Ταχύτητα Επίθεσης επιστρέφει ως Επιτάχυνση για το επόμενο τσεκούρι. Το αναΠΡΟΣΑΡΜΟΓή μετατρέπει αυτή τη Δύναμη Ικανοτήτων σε επιπλέον Ζημιά Επίθεσης για τα φυσικά του τσεκούρια, και το Ικανός Ελεύθερος Σκοπευτής επιστρέφει το μεγαλύτερο μέρος της επαναφόρτισης του Q κάθε φορά που το τσεκούρι χτυπά κάποιον πάνω από 600 μονάδες μακριά, οπότε δεν χρειάζεται ποτέ να πάει να το μαζέψει. Το Δόντι του Νάσορ, το Παρανοϊκό Ξίφος, ο Σφαγέας Κράκεν και οι Περικνημίδες του Μπερζέρκερ αγοράζονται μόνο για την Ταχύτητα Επίθεσης που γίνεται Επιτάχυνση (η Δύναμη Ικανοτήτων του Δοντιού γίνεται κι αυτή Ζημιά Επίθεσης μέσω του αναΠΡΟΣΑΡΜΟΓή), ενώ το Δόρυ του Σοτζίν και η Πειραματική Μαγοτεχνική Πανοπλία δίνουν Ζημιά Επίθεσης, Επιτάχυνση και τη Ζωή που καίει επίτηδες. Ο μαχητής εξ επαφής που πρέπει να τρέχει πάνω στους αντιπάλους γίνεται πυροβολικό που πετά τσεκούρια από το μέγιστο βεληνεκές και παίζει καλύτερα όσο πιο κοντά είναι στον θάνατο.",
-      "play": "Μείνε στο μέγιστο βεληνεκές του Q, πέτα τσεκούρια μέχρι η Ζωή σου να πέσει κοντά στο τελευταίο τρίτο και συνέχισε να πετάς αντί να κυνηγάς το τσεκούρι. Το E είναι η αυτοζημιά έκτακτης ανάγκης αν έχεις πολλή Ζωή· το R είναι για να φύγεις, όχι για να μπεις.",
+      "title": "Νοσοκόμα με Μαστίγιο-Λεπίδα",
+      "why": "Το κιτ της Νίλα ήδη σκορπάει θεραπεία παντού: η παθητική του Q μετατρέπει την πιθανότητα καίριου χτυπήματος σε κλοπή ζωής που, όταν περισσεύει, γίνεται ασπίδα, και το R θεραπεύει όλους τους κοντινούς συμμάχους κατά ένα μέρος της ζημιάς της. Η Καίρια Θεραπεία της δίνει την πιθανότητα καίριου που θέλει το Q και κάνει όλες αυτές τις θεραπείες και ασπίδες να μπορούν να είναι καίριες, ενώ η Βόμβα Πνεύματος, το Αντλώντας Δύναμη από τους Πιστούς και ο Υποστηρικτής ενεργοποιούνται όλα από το ίδιο πράγμα: τη θεραπεία συμμάχων, που το ultimate της κάνει μόνο του. Το Ξίφος της Ανθισμένης Αυγής είναι το κομμάτι που λείπει, γιατί το εφέ του στο χτύπημα κάνει κάθε βασική επίθεση να θεραπεύει τον πιο χτυπημένο σύμμαχο, άρα κάθε auto γεμίζει μια Βόμβα Πνεύματος, ευλογεί τους συμπαίκτες για ένα ωστικό κύμα που εκτελεί και αφήνει πίσω θεραπεία με τον χρόνο, ενώ το Λαμπρό Θυμιατό, ο Ανανεωτής Φεγγαρόπετρας και οι Απόηχοι της Έλια ανταμείβουν κάθε θεραπεία συμμάχου με ταχύτητα επίθεσης, αλυσιδωτές θεραπείες και αποθηκευμένη ζημιά που γίνεται θεραπεία. Η Αιχμή του Απείρου και η Τρεμολεπίδα των Ναβόρι κρατούν ψηλά την πιθανότητα καίριου ώστε το μαστίγιο-λεπίδα να πονάει ακόμα και το Q να κρατά γεμάτη τη ζωή της. Μια κοντινή carry με καίρια γίνεται νοσοκόμα της πρώτης γραμμής που οι βασικές επιθέσεις της είναι το ξόρκι θεραπείας.",
+      "play": "Κόλλα στον πιο tanky σύμμαχό σου και χτύπα ό,τι είναι στην εμβέλεια· κάθε χτύπημα θεραπεύει την ομάδα και γεμίζει τη βόμβα. Κράτα το R για καβγά όπου όλη η ομάδα είναι χτυπημένη, ώστε ένα ultimate να ρίξει πλημμύρα από καίριες θεραπείες και να πυροδοτήσει το ωστικό κύμα των Πιστών.",
       "augments": [
-        "Αποκτάτε ποσοστιαία μείωση χρόνου επαναφόρτισης και μετατρέπετε όλη την Ταχύτητα Επίθεσης σε Επιτάχυνση Ικανοτήτων.",
-        "Αποκτάτε Δύναμη Ικανοτήτων, 50% Ταχύτητα Κίνησης και 20% Παμβαμπιρισμό ανάλογα με τη Ζωή που λείπει. Η χρήση ικανοτήτων κοστίζει 5% της τρέχουσας Ζωής. Μέγιστο όφελος στο 30% Ζωής.",
-        "Μετατρέπει τη Δύναμη Ικανοτήτων σε επιπλέον Ζημιά Επίθεσης. Αποκτάτε 15% Ζημιά Επίθεσης.",
-        "Η ελεύθερη σκόπευση σε εχθρό με ικανότητα που δεν είναι η Υπέρτατη επιστρέφει 80% του χρόνου επαναφόρτισης (65% για περιοδικές ικανότητες). Ελεύθερη σκόπευση: ζημιά σε εχθρούς σε απόσταση πάνω από 600."
+        "Οι θεραπείες και οι Ασπίδες σου μπορούν να είναι Καίριες για 40% επιπλέον ποσό. Κερδίζεις 25% Πιθανότητα Καίριου Χτυπήματος.",
+        "Η θεραπεία και η θωράκιση συμμαχικών πρωταθλητών γεμίζει μια Βόμβα Πνεύματος. Στις μέγιστες στοίβες, πετάξτε τη βόμβα στον σύμμαχο με τη λιγότερη Ζωή για να θεραπεύσετε και να θωρακίσετε αυτόν και τους κοντινούς συμμάχους.",
+        "Η θεραπεία ή η ασπίδα σε συμμάχους τους ευλογεί, και η ζημιά τους σε γεμίζει αφοσίωση. Όταν έχεις αρκετή αφοσίωση, απελευθερώνεις ένα ωστικό κύμα που προκαλεί μαγική ζημιά και εκτελεί εχθρούς με χαμηλή Ζωή.",
+        "ΑΠΟΣΤΟΛΗ: Θεραπεύστε Ζωή σε συμμαχικούς πρωταθλητές. ΑΝΤΑΜΟΙΒΗ: Κάθε θεραπεία που παρέχετε πλέον θεραπεύει και με τον χρόνο μετά την αρχική θεραπεία."
       ]
     },
     "es-MX": {
-      "title": "La vida es maná",
-      "why": "La pasiva de Olaf, Furia del Berserker, le da velocidad de ataque por cada punto de vida que le falta, y su W le acumula todavía más; Purista: Hechicero convierte toda esa velocidad de ataque en velocidad de habilidades, así que entre más baja esté su barra de vida, más rápido corren sus enfriamientos. Pacto Ominoso hace que cada hechizo cueste una parte de su vida actual y se lo regresa en poder de habilidad, velocidad de movimiento y omnivampirismo según la vida que le falta: lanzar su Q lo drena, ese drenaje alimenta su pasiva y la velocidad de ataque regresa como velocidad de habilidades para la siguiente hacha. escaPHaDA convierte ese poder de habilidad en daño de ataque adicional para sus hachas físicas, y Francotirador Experto le reembolsa la mayor parte del enfriamiento de la Q cada vez que el hacha le pega a alguien a más de 600 unidades, así que nunca tiene que ir por ella. Diente de Nashor, Al Filo de la Cordura, Matakrakens y Grebas del Berserker se compran solo por la velocidad de ataque que se convierte en velocidad de habilidades (el poder del Diente también se vuelve daño de ataque con escaPHaDA), mientras que Lanza de Shojin y Placa Hexperimental dan daño de ataque, velocidad de habilidades y la vida que quema a propósito. El berserker cuerpo a cuerpo que tiene que correr hacia la gente se vuelve una pieza de artillería que lanza hachas desde el alcance máximo y juega mejor entre más cerca está de morir.",
-      "play": "Quédate al alcance máximo de la Q, lanza hachas hasta que tu vida baje al último tercio y sigue lanzando en lugar de perseguir el hacha. La E es tu autodaño de emergencia si tienes demasiada vida; la R es para salir, no para entrar.",
+      "title": "Enfermera de Látigo-Espada",
+      "why": "El kit de Nilah ya suelta curación por todos lados: su Q pasiva convierte su probabilidad de crítico en robo de vida que se desborda en escudos, y su R cura a todos los aliados cercanos con parte de su daño. Curación Crítica le da la probabilidad de crítico que quiere su Q y además deja que todas esas curaciones y escudos sean críticos, y Bomba Espiritual, Poder de los Seguidores y Main Soporte se activan con lo mismo: curar aliados, cosa que su definitiva hace sola. Espada del Amanecer Floreciente es la pieza que faltaba, porque su efecto al impactar hace que cada ataque básico cure al aliado con menos vida, así que cada auto carga una Bomba Espiritual, bendice a tus compas para una onda expansiva que ejecuta y deja una curación con el tiempo, mientras Pebetero Ardiente, Renovador de Piedra Lunar y Ecos de Helia premian cada curación a aliados con velocidad de ataque, curaciones en cadena y daño guardado convertido en curación. Filo del Infinito y Cuchilla Rauda de Navori mantienen alta su probabilidad de crítico para que el látigo siga pegando duro y su Q mantenga su vida al tope. Una carry cuerpo a cuerpo de críticos se vuelve una enfermera de primera línea cuyos ataques básicos son el hechizo de curación.",
+      "play": "Pégate a tu aliado más tanque y ataca todo lo que tengas en rango; cada golpe cura al equipo y llena la bomba. Guarda tu R para una pelea donde todo el equipo esté lastimado, así una sola definitiva suelta un montón de curaciones críticas y activa la onda de Poder de los Seguidores.",
       "augments": [
-        "Obtienes reducción porcentual de enfriamiento y conviertes toda tu velocidad de ataque en velocidad de habilidades.",
-        "Obtienes poder de habilidad, 50% de velocidad de movimiento y 20% de omnivampirismo según la vida faltante. Lanzar hechizos cuesta 5% de tu vida actual. Beneficio máximo al 30% de vida.",
-        "Convierte el poder de habilidad en daño de ataque adicional. Obtienes 15% de daño de ataque.",
-        "Hacerle de francotirador a un enemigo con una habilidad que no sea la definitiva reembolsa 80% del enfriamiento (65% en habilidades periódicas). Francotirador: infligir daño a enemigos a más de 600 de distancia."
+        "Tus curaciones y escudos pueden ser críticos y otorgar 40% adicional. Obtienes 25% de Probabilidad de Crítico.",
+        "Curar y proteger a campeones aliados acumula una Bomba Espiritual. Con el máximo de acumulaciones, lanza la bomba al aliado con menos vida para curarlo y protegerlo a él y a los aliados cercanos.",
+        "Curar o dar escudo a tus aliados los bendice, y su daño te llena de devoción. Cuando tienes suficiente devoción, liberas una onda expansiva que inflige daño mágico y ejecuta a los enemigos con poca vida.",
+        "MISIÓN: cura vida a campeones aliados. RECOMPENSA: cualquier curación que des ahora también cura con el tiempo después de la curación inicial."
       ]
     },
     "es": {
-      "title": "La vida es maná",
-      "why": "La pasiva de Olaf, Ira del berserker, le da velocidad de ataque por cada punto de vida que le falta, y su W le apila todavía más; Purista - Lanzador convierte toda esa velocidad de ataque en aceleración de habilidades, así que cuanto más baja está su barra de vida, más rápido van sus enfriamientos. Pacto ominoso hace que cada hechizo cueste una parte de su vida actual y se lo devuelve en poder de habilidad, velocidad de movimiento y omnivampirismo según la vida que le falta: lanzar su Q lo drena, ese drenaje alimenta su pasiva y la velocidad de ataque vuelve como aceleración para la siguiente hacha. EscaPHaDA convierte ese poder de habilidad en daño de ataque adicional para sus hachas físicas, y Francotirador habilidoso le devuelve la mayor parte del enfriamiento de la Q cada vez que el hacha impacta a alguien a más de 600 unidades, así que nunca tiene que ir a recogerla. Diente de Nashor, Final del ingenio, Verdugo de krakens y Grebas de berserker se compran solo por la velocidad de ataque que se convierte en aceleración (el poder del Diente también pasa a daño de ataque con EscaPHaDA), mientras que Lanza de Shojin y Experimento de hexarmadura aportan daño de ataque, aceleración y la vida que quema a propósito. El berserker cuerpo a cuerpo que tiene que correr hacia la gente se convierte en una pieza de artillería que lanza hachas desde rango máximo y juega mejor cuanto más cerca está de morir.",
-      "play": "Quédate a rango máximo de la Q, lanza hachas hasta que tu vida baje al último tercio y sigue lanzando en vez de perseguir el hacha. La E es tu autodaño de emergencia si tienes demasiada vida; la R es para salir, no para entrar.",
+      "title": "Enfermera de látigo-espada",
+      "why": "El kit de Nilah ya pierde curación por todas partes: su Q pasiva convierte su probabilidad de crítico en robo de vida que se desborda en escudos, y su R cura a todos los aliados cercanos con parte de su daño. Curación crítica le da la probabilidad de crítico que pide su Q y además permite que todas esas curaciones y escudos sean críticos, y Bomba espiritual, El poder de la fe y Experiencia en apoyos se activan con lo mismo: curar aliados, algo que su definitiva hace sola. Espada del amanecer floreciente es la pieza que falta, porque su efecto al impactar hace que cada ataque básico cure al aliado con menos vida, así que cada auto carga una Bomba espiritual, bendice a tus compañeros para una onda expansiva que ejecuta y deja una curación con el tiempo, mientras Incensario ardiente, Renovación de piedra lunar y Ecos de Helia premian cada curación a aliados con velocidad de ataque, curaciones en cadena y daño almacenado convertido en curación. Filo infinito y Filofugaz de Navori mantienen alta su probabilidad de crítico para que el látigo siga doliendo y su Q mantenga su propia vida al tope. Una carry cuerpo a cuerpo de críticos se convierte en una enfermera de primera línea cuyos ataques básicos son el hechizo de curación.",
+      "play": "Pégate a tu aliado más tanque y ataca todo lo que esté en rango; cada golpe cura al equipo y llena la bomba. Guarda tu R para una pelea donde todo el equipo esté herido, así una sola definitiva suelta un mar de curaciones críticas y activa la onda de El poder de la fe.",
       "augments": [
-        "Obtienes reducción porcentual de enfriamiento y conviertes toda tu velocidad de ataque en aceleración de habilidades.",
-        "Obtienes poder de habilidad, un 50% de velocidad de movimiento y un 20% de omnivampirismo según la vida que te falta. Lanzar hechizos cuesta un 5% de tu vida actual. Beneficio máximo al 30% de vida.",
-        "Convierte el poder de habilidad en daño de ataque adicional. Obtienes un 15% de daño de ataque.",
-        "Hacer de francotirador sobre un enemigo con una habilidad que no sea la definitiva reembolsa un 80% del enfriamiento (65% en habilidades periódicas). Francotirador: infligir daño a enemigos a más de 600 de distancia."
+        "Tus curaciones y escudos pueden ser críticos y otorgar un 40 % adicional. Obtienes un 25 % de probabilidad de crítico.",
+        "Curar y proteger a campeones aliados acumula una Bomba espiritual. Con el máximo de acumulaciones, lanza la bomba al aliado con menos vida para curarlo y protegerlo a él y a los aliados cercanos.",
+        "Curar o proteger con escudo a tus aliados los bendice, y su daño te llena de devoción. Cuando tienes suficiente devoción, liberas una onda expansiva que inflige daño mágico y ejecuta a los enemigos con poca vida.",
+        "MISIÓN: cura vida a campeones aliados. RECOMPENSA: cualquier curación que des ahora también cura con el tiempo tras la curación inicial."
       ]
     },
     "fr": {
-      "title": "La vie, c'est du mana",
-      "why": "Le passif d'Olaf, Rage du berserker, lui donne de la vitesse d'attaque pour chaque point de PV manquant, et son W en ajoute encore par-dessus ; Puriste - Lanceur de compétence convertit toute cette vitesse d'attaque en accélération de compétence, donc plus sa barre de vie baisse, plus ses délais de récupération fondent. Pacte sinistre fait coûter à chaque sort une part de ses PV actuels et le rembourse en puissance, vitesse de déplacement et omnivampirisme selon ses PV manquants : lancer son Q le vide, la perte de PV nourrit son passif, et la vitesse d'attaque revient en accélération pour la hache suivante. Conversion physique transforme cette puissance en dégâts d'attaque bonus pour ses haches physiques, et Sniper rembourse la majeure partie du délai du Q chaque fois que la hache touche quelqu'un à plus de 600 unités, donc il n'a jamais besoin d'aller la ramasser. Dent de Nashor, Au bout du rouleau, Tueur de krakens et Jambières du berzerker ne sont achetés que pour leur vitesse d'attaque convertie en accélération (la puissance de la Dent devient aussi des dégâts d'attaque grâce à Conversion physique), tandis que Lance de Shojin et Hexplaque expérimentale ajoutent dégâts d'attaque, accélération et les PV qu'il brûle exprès. Le berserker de mêlée qui doit foncer sur les gens devient une pièce d'artillerie qui lance des haches à portée max et joue mieux plus il est proche de la mort.",
-      "play": "Reste à portée max du Q, lance des haches jusqu'à descendre vers le dernier tiers de tes PV, puis continue de lancer au lieu de courir après la hache. Le E sert à te blesser en urgence si tu as trop de PV ; le R, c'est pour sortir, pas pour rentrer.",
+      "title": "Infirmière à la lame-fouet",
+      "why": "Le kit de Nilah laisse déjà fuir des soins partout : son Q passif transforme ses chances de coup critique en vol de vie qui déborde en boucliers, et son R soigne tous les alliés proches d'une partie de ses dégâts. Soins critiques lui donne les chances de coup critique que son Q réclame tout en permettant à tous ces soins et boucliers d'être critiques, et Genkidama, Dévotion et Expertise en soins se déclenchent tous sur la même chose : soigner des alliés, ce que son ultime fait tout seul. Épée de l'aube est la pièce manquante, car son effet à l'impact fait que chaque attaque de base soigne l'allié le plus faible, donc chaque auto charge une Genkidama, bénit les coéquipiers pour une onde de choc qui exécute et laisse un soin sur la durée, tandis qu'Encensoir ardent, Régénérateur de pierre de lune et Échos d'Helia récompensent chacun de ces soins d'alliés avec de la vitesse d'attaque, des soins en chaîne et des dégâts stockés transformés en soins. Lame d'infini et Tremblelame navori gardent ses chances de critique hautes pour que la lame-fouet fasse toujours mal et que son Q garde sa propre vie au max. Une carry de mêlée à crits devient une infirmière de première ligne dont les attaques de base sont le sort de soin.",
+      "play": "Colle-toi à ton allié le plus tanky et auto-attaque tout ce qui est à portée ; chaque coup soigne l'équipe et remplit la bombe. Garde ton R pour une baston où toute l'équipe est blessée, pour qu'un seul ultime déverse un flot de soins critiques et déclenche l'onde de choc de Dévotion.",
       "augments": [
-        "Obtenez de la réduction de délai de récupération en pourcentage et convertissez toute votre vitesse d'attaque en accélération de compétence.",
-        "Obtenez de la puissance, 50% de vitesse de déplacement et 20% d'omnivampirisme selon vos PV manquants. Lancer un sort coûte 5% de vos PV actuels. Bonus maximal à 30% de PV.",
-        "Convertit la puissance en dégâts d'attaque bonus. Obtenez 15% de dégâts d'attaque.",
-        "Sniper un ennemi avec une compétence autre que l'ultime rembourse 80% de son délai de récupération (65% pour les compétences périodiques). Sniper : infliger des dégâts à un ennemi à plus de 600 unités de distance."
+        "Vos soins et boucliers peuvent être critiques et augmentés de 40 %. Vous gagnez 25 % de chances de coup critique.",
+        "Soigner et protéger des champions alliés charge une Genkidama. Au maximum de cumuls, lancez la bombe sur l'allié avec le moins de PV pour le soigner et le protéger, ainsi que les alliés proches.",
+        "Soigner ou protéger des alliés les bénit : leurs dégâts vous remplissent de dévotion. Quand vous avez assez de dévotion, vous libérez une onde de choc qui inflige des dégâts magiques et exécute les ennemis à faibles PV.",
+        "QUÊTE : soignez des PV de champions alliés. RÉCOMPENSE : tous vos soins soignent aussi sur la durée après le soin initial."
       ]
     },
     "hu": {
-      "title": "Az életerő a mana",
-      "why": "Olaf passzív képessége, a Dühöngő őrület, minden hiányzó életerőpont után támadási sebességet ad, a W-je pedig még többet rak rá; a Purista – Varázsló ezt az egész támadási sebességet képességsiettetéssé alakítja, vagyis minél lejjebb van az életerőcsíkja, annál gyorsabban töltődnek a képességei. A Baljós egyesség miatt minden képességhasználat a jelenlegi életereje egy részébe kerül, cserébe a hiányzó életerő alapján képességerőt, mozgási sebességet és mindenvámpírságot ad: a Q dobálása leszívja, a fogyás táplálja a passzívot, a támadási sebesség pedig siettetésként tér vissza a következő baltához. A Specializáció ezt a képességerőt bónusz sebzéssé alakítja a fizikai baltáihoz, a Képzett mesterlövész pedig visszaadja a Q töltési idejének nagy részét, ha a balta 600 egységnél távolabb talál el valakit, így soha nem kell felvennie. A Nashor fogát, az Utolsó esélyt, a Krakenölőt és a Dühöngők csizmáját csak a siettetéssé váló támadási sebesség miatt veszi (a Nashor fogának képességereje a Specializáció révén szintén sebzés lesz), a Shojin lándzsája és a Kísérleti hexpáncél pedig sebzést, siettetést és azt az életerőt adja, amit szándékosan éget. A közelharci dühöngő, akinek rá kell rohannia az ellenre, tüzérséggé válik, ami maximális távolról dobálja a baltákat, és annál jobban játszik, minél közelebb van a halálhoz.",
-      "play": "Maradj a Q maximális hatótávján, dobálj baltákat, amíg az életerőd az alsó harmad környékére esik, aztán dobálj tovább ahelyett, hogy a balta után futnál. Az E a vészhelyzeti önsebzésed, ha túl egészséges vagy; az R kifelé jár, nem befelé.",
+      "title": "Ostorpengés ápolónő",
+      "why": "Nilah képességei már mindenhol szivárogtatják a gyógyítást: a Q passzívja a kritikus esélyét életlopássá alakítja, aminek a túlgyógyítása pajzzsá válik, az R pedig minden közeli szövetségest meggyógyít a sebzése egy részével. A Kritikus gyógyítás megadja a kritikus esélyt, amit a Q akar, és közben az összes gyógyítást és pajzsot is kritikussá teheti, a Lélekbomba, a Felemelő hit és az Elsődleges támogató pedig ugyanattól indul be: szövetségesek gyógyításától, amit az ultija magától megcsinál. A virágzó hajnal kardja a hiányzó darab, mert a találati hatása miatt minden alaptámadás meggyógyítja a legsebesültebb szövetségest, így minden auto tölti a Lélekbombát, megáldja a csapattársakat egy kivégző lökéshullámhoz és idővel ható gyógyítást hagy maga után, míg a Hívők tömjénje, a Holdkőmegújító és a Helia visszhangja minden szövetséges-gyógyítást támadási sebességgel, láncolt gyógyítással és gyógyítássá alakított tárolt sebzéssel jutalmaz. A Határtalan penge és a Navori villanópenge magasan tartja a kritikus esélyt, hogy az ostorpenge továbbra is fájjon, és a Q tele tartsa a saját életét. A közelharci kritikus carryből frontvonalbeli szanitéc lesz, akinek az alaptámadásai a gyógyító varázslat.",
+      "play": "Tapadj rá a legtankosabb szövetségesedre, és üss mindent, ami hatótávon belül van; minden találat gyógyítja a csapatot és tölti a bombát. Az R-t tartsd meg egy olyan bunyóra, ahol az egész csapat sérült, hogy egyetlen ulti kritikus gyógyítások áradatát zúdítsa ki, és elsüsse a hit lökéshullámát.",
       "augments": [
-        "Százalékos töltésiidő-csökkentést kapsz, és az összes támadási sebességed képességsiettetéssé alakul.",
-        "A hiányzó életerő alapján képességerőt, 50% mozgási sebességet és 20% mindenvámpírságot kapsz. A képességhasználat a jelenlegi életerőd 5%-ába kerül. Maximális hatás 30% életerőnél.",
-        "A képességerőt bónusz sebzéssé alakítja. 15% sebzést kapsz.",
-        "Ha egy ellenfelet nem végső képességgel lősz le messziről, a töltési idő 80%-a visszatérül (időszakos képességeknél 65%). Messzi lövés: 600 egységnél távolabbi ellenfelek sebzése."
+        "A gyógyításaid és pajzsaid kritikusak lehetnek, 40% bónusz mennyiséggel. 25% kritikus esélyt kapsz.",
+        "A szövetséges hősök gyógyítása és pajzsolása Lélekbombát tölt. Maximális töltésnél dobd a bombát a legkevesebb életerejű szövetségesre, hogy őt és a közeli szövetségeseket gyógyítsa és pajzsolja.",
+        "A szövetségesek gyógyítása vagy pajzzsal védése megáldja őket, így sebzésük odaadással tölt fel. Ha elég odaadást gyűjtöttél, lökéshullámot szabadítasz fel, ami mágikus sebzést okoz, és kivégzi az alacsony életerejű ellenfeleket.",
+        "KÜLDETÉS: Gyógyíts életerőt szövetséges hősöknek. JUTALOM: Minden gyógyításod a kezdeti gyógyítás után idővel is gyógyít."
       ]
     },
     "id": {
-      "title": "Health Adalah Mana",
-      "why": "Pasif Olaf, Berserker Rage, memberinya Attack Speed untuk setiap poin Health yang hilang, dan W-nya menambah lebih banyak lagi; Purist - Caster mengubah semua Attack Speed itu menjadi Ability Haste, jadi makin rendah bar Health-nya, makin cepat cooldown-nya berputar. Ominous Pact membuat setiap cast memakan sebagian Health saat ini dan membayarnya kembali dengan Ability Power, Movement Speed, dan Omnivamp berdasarkan Health yang hilang: melempar Q menguras dirinya, Health yang hilang memberi makan pasifnya, dan Attack Speed kembali sebagai Haste untuk kapak berikutnya. escAPADe mengubah Ability Power itu menjadi bonus Attack Damage untuk kapak fisiknya, dan Skilled Sniper mengembalikan sebagian besar cooldown Q setiap kali kapak mengenai musuh lebih dari 600 unit, jadi dia tidak perlu memungut kapaknya. Nashor's Tooth, Wit's End, Kraken Slayer, dan Berserker's Greaves dibeli hanya demi Attack Speed yang diubah jadi Haste (Ability Power dari Nashor's juga jadi Attack Damage lewat escAPADe), sementara Spear of Shojin dan Experimental Hexplate menambah Attack Damage, Haste, dan Health yang sengaja dia bakar. Berserker melee yang harus lari ke musuh berubah jadi artileri yang melempar kapak dari jarak maksimum dan makin jago makin dekat dia dengan kematian.",
-      "play": "Berdiri di jarak maksimum Q, lempar kapak sampai Health-mu turun ke sekitar sepertiga terakhir, lalu terus lempar alih-alih mengejar kapak. E adalah self-damage daruratmu kalau Health-mu terlalu banyak; R untuk kabur, bukan untuk masuk.",
+      "title": "Perawat Whip-Blade",
+      "why": "Kit Nilah sudah membocorkan heal ke mana-mana: pasif Q-nya mengubah Crit Chance jadi Life Steal yang kelebihannya jadi Shield, dan R-nya menyembuhkan semua ally di dekatnya sebagian dari damage-nya. Critical Healing memberinya Crit Chance yang diinginkan Q sekaligus membuat semua heal dan Shield itu bisa crit, sementara Spirit Bomb, Empowered By The Faithful dan Support Main semuanya terpicu oleh hal yang sama: menyembuhkan ally, yang dilakukan ultimate-nya dengan sendirinya. Sword of Blossoming Dawn adalah kepingan yang hilang, karena efek On-Hit-nya membuat setiap basic attack menyembuhkan ally dengan HP terendah, jadi setiap auto mengisi Spirit Bomb, memberkati teman setim untuk shockwave yang mengeksekusi dan meninggalkan heal over time, sementara Ardent Censer, Moonstone Renewer dan Echoes of Helia memberi hadiah tiap heal ke ally berupa Attack Speed, heal berantai dan damage tersimpan yang jadi heal. Infinity Edge dan Navori Flickerblade menjaga Crit Chance tetap tinggi supaya whip-blade-nya tetap sakit dan Q menjaga HP-nya sendiri tetap penuh. Carry crit melee berubah jadi medic garis depan yang basic attack-nya adalah skill heal.",
+      "play": "Tempel terus ally paling tanky dan serang apa pun dalam jangkauan; setiap hit menyembuhkan tim dan mengisi bomb. Simpan R untuk war saat seluruh tim terluka, supaya satu ultimate menumpahkan banjir heal crit dan memicu shockwave Faithful.",
       "augments": [
-        "Dapatkan pengurangan cooldown persentase dan ubah semua Attack Speed-mu menjadi Ability Haste.",
-        "Dapatkan Ability Power, 50% Movement Speed, dan 20% Omnivamp berdasarkan Health yang hilang. Cast spell memakan 5% Health saat ini. Manfaat maksimum di 30% Health.",
-        "Ubah Ability Power menjadi bonus Attack Damage. Dapatkan 15% Attack Damage.",
-        "Snipe musuh dengan Ability non-Ultimate mengembalikan 80% Cooldown (65% untuk Ability periodik). Snipe: memberi damage ke musuh yang berjarak lebih dari 600."
+        "Healing dan Shield-mu bisa Critical Strike dengan bonus 40%. Dapatkan 25% Crit Chance.",
+        "Menyembuhkan dan memberi Shield champion ally mengisi Spirit Bomb. Saat stack maksimal, lempar bomb ke ally dengan HP terendah untuk menyembuhkan dan memberi Shield padanya dan ally di sekitarnya.",
+        "Heal atau shield ke ally akan memberkati mereka, dan damage mereka mengisi devosimu. Saat devosi cukup, lepaskan gelombang kejut yang memberi magic damage dan mengeksekusi musuh dengan Health rendah.",
+        "QUEST: Sembuhkan HP champion ally. REWARD: Setiap heal yang kamu berikan kini juga menyembuhkan seiring waktu setelah heal awal."
       ]
     },
     "it": {
-      "title": "La vita è mana",
-      "why": "La passiva di Olaf, Furia del berserker, gli dà velocità d'attacco per ogni punto di salute mancante, e la sua W ne aggiunge ancora; Purista - Mago converte tutta quella velocità d'attacco in velocità abilità, quindi più la sua barra della salute scende, più veloci vanno le sue ricariche. Patto nefasto fa costare a ogni incantesimo una fetta della sua salute attuale e lo ripaga con potere magico, velocità di movimento e rubavita globale in base alla salute mancante: lanciare la Q lo prosciuga, il prosciugamento alimenta la passiva e la velocità d'attacco torna come velocità abilità per l'ascia successiva. Fuggi fuggi trasforma quel potere magico in attacco fisico bonus per le sue asce fisiche, e Abile cecchino rimborsa gran parte della ricarica della Q ogni volta che l'ascia colpisce qualcuno a più di 600 unità, così non deve mai andare a raccoglierla. Dente di Nashor, Speranza perduta, Uccisore di Kraken e Gambali del berserker si comprano solo per la velocità d'attacco da convertire in velocità abilità (il potere magico del Dente diventa anche attacco fisico grazie a Fuggi fuggi), mentre Lancia di Shojin e Hexcorazza sperimentale danno attacco fisico, velocità abilità e la salute che brucia apposta. Il berserker da mischia che deve correre addosso alla gente diventa un pezzo d'artiglieria che lancia asce dalla gittata massima e gioca meglio quanto più è vicino alla morte.",
-      "play": "Stai alla gittata massima della Q, lancia asce finché la salute non scende verso l'ultimo terzo, poi continua a lanciare invece di inseguire l'ascia. La E è il tuo autodanno d'emergenza se hai troppa salute; la R serve per uscire, non per entrare.",
+      "title": "Infermiera con la lama-frusta",
+      "why": "Il kit di Nilah perde già cure ovunque: la passiva della sua Q trasforma la probabilità di critico in rubavita che in eccesso diventa scudo, e la sua R cura tutti gli alleati vicini di una parte dei suoi danni. Guarigione critica le dà la probabilità di critico che la Q vuole e fa andare a segno come critici tutte quelle cure e quegli scudi, e Bomba spirituale, Con la forza dei fedeli e Giocatore di supporto si attivano tutti con la stessa cosa: curare gli alleati, cosa che la sua ultimate fa da sola. Spada dell'Alba fiorente è il pezzo mancante, perché il suo effetto sul colpo fa sì che ogni singolo attacco base curi l'alleato più debole, quindi ogni auto carica una Bomba spirituale, benedice i compagni per un'onda d'urto che giustizia e lascia una cura nel tempo, mentre Incensiere ardente, Pietra di luna rinnovata ed Echi di Helia premiano ogni cura agli alleati con velocità d'attacco, cure a catena e danni accumulati trasformati in cure. Frammento d'infinito e Lama rotante Navori tengono alta la probabilità di critico così la lama-frusta fa ancora male e la Q tiene piena la sua vita. Una carry melee da critici diventa un'infermiera in prima linea i cui attacchi base sono l'incantesimo di cura.",
+      "play": "Incollati all'alleato più tank e attacca tutto quello che hai a portata; ogni colpo cura la squadra e riempie la bomba. Tieni la R per una rissa in cui tutta la squadra è ferita, così una sola ultimate scarica un fiume di cure critiche e fa partire l'onda d'urto dei fedeli.",
       "augments": [
-        "Ottieni riduzione ricarica percentuale e converti tutta la tua velocità d'attacco in velocità abilità.",
-        "Ottieni potere magico, 50% velocità di movimento e 20% rubavita globale in base alla salute mancante. Lanciare incantesimi costa il 5% della salute attuale. Beneficio massimo al 30% di salute.",
-        "Converte il potere magico in attacco fisico bonus. Ottieni il 15% di attacco fisico.",
-        "Colpire da cecchino un nemico con un'abilità non suprema rimborsa l'80% della ricarica (65% per le abilità periodiche). Cecchino: infliggere danni a nemici a più di 600 unità di distanza."
+        "Le tue cure e i tuoi scudi possono essere critici per un 40% bonus. Ottieni il 25% di probabilità di critico.",
+        "Curare e proteggere i campioni alleati carica una Bomba spirituale. Al massimo delle cariche, lancia la bomba sull'alleato con meno salute per curare e proteggere lui e gli alleati vicini.",
+        "Curare o proteggere con uno scudo gli alleati li benedice, e i loro danni ti riempiono di devozione. Quando hai abbastanza devozione, scateni un'onda d'urto che infligge danni magici e giustizia i nemici con poca salute.",
+        "MISSIONE: cura salute ai campioni alleati. RICOMPENSA: tutte le cure che fornisci ora curano anche nel tempo dopo la cura iniziale."
       ]
     },
     "ja": {
-      "title": "体力はマナ",
-      "why": "オラフのパッシブ「バーサーカーレイジ」は減少体力に応じて攻撃速度をくれて、Wがさらに攻撃速度を上乗せする。純粋なるキャスターはその攻撃速度をすべてスキルヘイストに変換するので、体力バーが減るほどクールダウンが速く回る。不穏な盟約はスキルを使うたびに現在体力の一部を払わせ、減少体力に応じて魔力、移動速度、オムニヴァンプで返してくれる。つまりQを投げるたびに体力が減り、その減少がパッシブを育て、攻撃速度がヘイストになって次の斧に戻ってくる。魔攻のいたずらはその魔力を物理の斧のための増加攻撃力に変え、腕利きスナイパーは斧が600ユニットより遠くの相手に当たるたびにQのクールダウンの大半を返すので、斧を拾いに行く必要がまったくない。ナッシャー トゥース、ウィッツ エンド、クラーケン スレイヤー、バーサーカー ブーツはヘイストに変わる攻撃速度のためだけに買い(ナッシャーの魔力も魔攻のいたずらで攻撃力になる)、ショウジンの矛と実験的ヘクスプレートは攻撃力、ヘイスト、そしてわざと燃やすための体力を足す。敵に走り寄るしかなかった近接バーサーカーが、最大射程から斧を投げる砲台になり、死にかけるほど強くなる。",
-      "play": "Qの最大射程に立って、体力が下3分の1あたりになるまで斧を投げ、斧を追いかけずにそのまま投げ続けよう。体力が多すぎるときはEが緊急の自傷ダメージ。Rは突っ込むためじゃなく、逃げるために使おう。",
+      "title": "鞭剣ナース",
+      "why": "ニーラのキットはもともと回復をあちこちに垂れ流している。Qのパッシブはクリティカル率をライフスティールに変え、あふれた分はシールドになり、Rは与えたダメージの一部で周囲の味方全員を回復する。クリティカルヒールはQが欲しがるクリティカル率をくれるうえに、その回復とシールドすべてをクリティカルさせられるようにし、スピリットボム、信ずる者の加護、サポートメインはどれも同じことで発動する。それは味方の回復で、彼女のアルティメットが勝手にやってくれる。花咲く夜明けの剣が最後のピースで、その通常攻撃時効果のおかげで通常攻撃1発ごとに一番体力の低い味方を回復するので、オートを入れるたびにスピリットボムがたまり、味方を祝福して処刑する衝撃波を準備し、継続回復まで残していく。さらにアーデント センサー、ムーンストーンの再生、ヘリアの残響が味方を回復するたびに攻撃速度、連鎖回復、ためたダメージからの回復でご褒美をくれる。インフィニティ エッジとナヴォリ フリッカーブレードでクリティカル率を高く保ち、鞭剣はちゃんと痛いままでQが自分の体力も満タンに保つ。近接クリティカルキャリーが、通常攻撃こそが回復スキルな最前線の衛生兵に変わる。",
+      "play": "一番硬い味方にくっついて、射程内のものを殴り続けよう。1発ごとにチームが回復してボムがたまる。Rはチーム全員が削れている乱戦まで取っておき、1回のアルティメットでクリティカル回復の洪水を流して信ずる者の衝撃波を起こそう。",
       "augments": [
-        "割合クールダウン短縮を獲得し、すべての攻撃速度をスキルヘイストに変換する。",
-        "減少体力に応じて魔力、移動速度50%、オムニヴァンプ20%を獲得する。スキルの使用に現在体力の5%を消費する。体力30%で効果が最大になる。",
-        "魔力を増加攻撃力に変換する。攻撃力が15%増加する。",
-        "アルティメット以外のスキルで敵を狙撃すると、クールダウンが80%解消される(周期的なスキルは65%)。狙撃:600より遠い敵にダメージを与えること。"
+        "回復とシールドがクリティカルし、効果量が40%増加する。クリティカル率+25%。",
+        "味方チャンピオンを回復またはシールドするとスピリットボムがたまる。最大スタックでボムを体力が最も低い味方に投げ、その味方と周囲の味方を回復しシールドを付与する。",
+        "味方を回復またはシールドで守ると祝福を与え、その味方が与えたダメージで自身に信仰が溜まる。信仰が十分に溜まると衝撃波を放って魔法ダメージを与え、体力の低い敵をキルする。",
+        "クエスト: 味方チャンピオンの体力を回復する。報酬: 自分が行うすべての回復が、最初の回復の後に継続回復も行うようになる。"
       ]
     },
     "ko": {
-      "title": "체력이 곧 마나",
-      "why": "올라프의 패시브 광전사의 분노는 잃은 체력 1마다 공격 속도를 주고, W가 그 위에 공격 속도를 더 얹어줍니다. 순수주의자 - 마법사는 이 공격 속도를 전부 스킬 가속으로 바꿔서, 체력 바가 낮을수록 재사용 대기시간이 더 빨리 돌아갑니다. 불길한 서약은 스킬을 쓸 때마다 현재 체력 일부를 소모하게 하고, 잃은 체력에 비례해 주문력, 이동 속도, 모든 피해 흡혈로 돌려줍니다. 그래서 Q를 던질 때마다 체력이 빠지고, 빠진 체력이 패시브를 키우고, 공격 속도가 다음 도끼를 위한 스킬 가속으로 돌아옵니다. 마법사 (물리)는 그 주문력을 물리 도끼용 추가 공격력으로 바꾸고, 노련한 저격수는 도끼가 600 유닛보다 먼 적에게 맞을 때마다 Q 재사용 대기시간 대부분을 돌려주니, 도끼를 주우러 갈 필요가 없습니다. 내셔의 이빨, 마법사의 최후, 크라켄 학살자, 광전사의 군화는 스킬 가속으로 바뀌는 공격 속도만 보고 사고(내셔의 주문력도 마법사 (물리)로 공격력이 됩니다), 쇼진의 창과 실험적 마공학판은 공격력, 스킬 가속, 그리고 일부러 태울 체력을 줍니다. 적에게 달려가야만 하던 근접 광전사가 최대 사거리에서 도끼를 던지는 포대가 되고, 죽기 직전일수록 더 잘 싸웁니다.",
-      "play": "Q 최대 사거리에 서서 체력이 아래 3분의 1쯤 될 때까지 도끼를 던지고, 도끼를 주우러 가지 말고 계속 던지세요. 체력이 너무 많으면 E가 비상용 자해 수단이고, R은 들어갈 때가 아니라 빠질 때 쓰세요.",
+      "title": "채찍검 간호사",
+      "why": "닐라의 스킬셋은 이미 사방에 회복을 흘리고 다닌다. Q 패시브는 치명타 확률을 생명력 흡수로 바꾸고 넘치는 회복은 보호막이 되며, R은 가한 피해의 일부만큼 주변 아군 전원을 회복시킨다. 치명적 치유는 Q가 원하는 치명타 확률을 주는 동시에 그 모든 회복과 보호막이 치명타로 터질 수 있게 하고, 영혼 폭탄, 신념을 통한 강화, 서포터 주력은 전부 같은 조건으로 발동한다. 바로 아군 회복인데, 그녀의 궁극기가 알아서 해 준다. 꽃피는 새벽의 검이 마지막 퍼즐 조각이다. 적중 시 효과 덕분에 기본 공격 하나하나가 체력이 가장 낮은 아군을 회복시키니, 평타마다 영혼 폭탄이 차고 아군을 축복해 처형 충격파를 준비하며 지속 회복까지 남긴다. 불타는 향로, 월석 재생기, 헬리아의 메아리는 아군을 회복할 때마다 공격 속도, 연쇄 회복, 저장한 피해를 바꾼 회복으로 보상해 준다. 무한의 대검과 나보리 명멸검이 치명타 확률을 높게 유지해 채찍검이 여전히 아프고 Q가 자기 체력도 가득 채워 준다. 근접 치명타 캐리가 평타 자체가 힐 스킬인 최전방 위생병으로 바뀐다.",
+      "play": "가장 단단한 아군에게 붙어서 사거리 안의 모든 걸 때리자. 한 대 칠 때마다 팀이 회복되고 폭탄이 찬다. R은 팀 전원이 다친 난전까지 아껴서 궁 한 번으로 치명타 회복을 쏟아붓고 신념의 충격파를 터뜨리자.",
       "augments": [
-        "재사용 대기시간이 일정 비율 감소하고 모든 공격 속도가 스킬 가속으로 전환됩니다.",
-        "잃은 체력에 비례해 주문력, 50% 이동 속도, 20% 모든 피해 흡혈을 얻습니다. 스킬을 사용할 때마다 현재 체력의 5%를 소모합니다. 체력 30%일 때 효과가 최대입니다.",
-        "주문력을 추가 공격력으로 전환합니다. 공격력이 15% 증가합니다.",
-        "궁극기가 아닌 스킬로 적을 저격하면 재사용 대기시간이 80% 돌아옵니다(주기적인 스킬은 65%). 저격: 600 거리보다 먼 적에게 피해를 입히는 것."
+        "회복과 보호막에 치명타가 적용되어 40% 추가 효과를 냅니다. 치명타 확률이 25% 증가합니다.",
+        "아군 챔피언을 회복시키거나 보호막을 씌우면 영혼 폭탄이 쌓입니다. 최대 중첩 시 체력이 가장 낮은 아군에게 폭탄을 던져 그 아군과 주변 아군을 회복시키고 보호막을 씌웁니다.",
+        "아군을 회복시키거나 보호막을 씌우면 축복을 내려, 그 아군이 입힌 피해로 신앙심이 쌓입니다. 신앙심이 충분히 쌓이면 충격파를 방출해 마법 피해를 입히고 체력이 낮은 적을 처형합니다.",
+        "퀘스트: 아군 챔피언의 체력을 회복시키세요. 보상: 내가 주는 모든 회복이 첫 회복 이후 지속 회복도 합니다."
       ]
     },
     "pl": {
-      "title": "Zdrowie to mana",
-      "why": "Bierna umiejętność Olafa, Szał Berserkera, daje mu prędkość ataku za każdy brakujący punkt zdrowia, a jego W dorzuca jeszcze więcej; Purysta — mag zamienia całą tę prędkość ataku na przyspieszenie umiejętności, więc im niżej jest jego pasek zdrowia, tym szybciej lecą czasy odnowienia. Złowieszczy Pakt sprawia, że każde użycie umiejętności kosztuje część jego obecnego zdrowia, i oddaje mu moc umiejętności, prędkość ruchu i wszechwampiryzm zależnie od brakującego zdrowia: rzucanie Q go wysysa, utrata zdrowia karmi bierną, a prędkość ataku wraca jako przyspieszenie na kolejny topór. EskAPADa zamienia tę moc umiejętności na dodatkowe obrażenia od ataku dla jego fizycznych toporów, a Doświadczony Snajper zwraca większość odnowienia Q, gdy topór trafi kogoś z ponad 600 jednostek, więc nigdy nie musi po niego chodzić. Ząb Nashora, Koniec Rozumu, Pogromca Krakenów i Nagolenniki Berserkera kupuje tylko dla prędkości ataku zamienianej na przyspieszenie (moc umiejętności z Zęba też staje się obrażeniami od ataku dzięki EskAPADzie), a Włócznia Shojin i Eksperymentalny Hexpierśnik dają obrażenia od ataku, przyspieszenie i zdrowie, które celowo spala. Berserker do walki wręcz, który musi biec na ludzi, staje się artylerią rzucającą toporami z maksymalnego zasięgu i gra tym lepiej, im bliżej mu do śmierci.",
-      "play": "Trzymaj się na maksymalnym zasięgu Q, rzucaj toporami, aż zdrowie zejdzie w okolice ostatniej jednej trzeciej, i rzucaj dalej zamiast gonić topór. E to awaryjne obrażenia dla siebie, gdy masz za dużo zdrowia; R służy do wychodzenia, nie wchodzenia.",
+      "title": "Pielęgniarka z biczo-ostrzem",
+      "why": "Zestaw Nilah już wszędzie gubi leczenie: bierne Q zamienia jej szansę na trafienie krytyczne w kradzież życia, której nadmiar staje się tarczą, a jej R leczy wszystkich pobliskich sojuszników o część zadanych obrażeń. Leczenie Krytyczne daje jej szansę na krytyka, której chce Q, i pozwala wszystkim tym leczeniom i tarczom trafiać krytycznie, a Duchowa Bomba, Wzmocnienie Wiarą Wiernych i Rola Wsparcia aktywują się od tego samego: leczenia sojuszników, co jej superumiejętność robi sama. Miecz Kwitnącego Świtu to brakujący element, bo jego efekt przy trafieniu sprawia, że każdy podstawowy atak leczy najsłabszego sojusznika, więc każdy auto ładuje Duchową Bombę, błogosławi sojuszników na egzekwującą falę uderzeniową i zostawia leczenie w czasie, a Ognisty Trybularz, Odnowienie Kamienia Księżycowego i Echa Helii nagradzają każde leczenie sojusznika prędkością ataku, łańcuchowym leczeniem i zmagazynowanymi obrażeniami zamienionymi w leczenie. Ostrze Nieskończoności i Migoczące Ostrze Navori trzymają szansę na krytyka wysoko, żeby biczo-ostrze dalej bolało, a Q trzymało jej zdrowie na maksie. Krytyczna carry do walki wręcz staje się sanitariuszką na pierwszej linii, której podstawowe ataki są czarem leczącym.",
+      "play": "Przyklej się do najbardziej tankowego sojusznika i atakuj wszystko w zasięgu; każde trafienie leczy drużynę i ładuje bombę. Zachowaj R na bijatykę, w której cała drużyna jest ranna, żeby jedna superumiejętność wylała falę krytycznych leczeń i odpaliła falę uderzeniową Wiernych.",
       "augments": [
-        "Zyskaj procentowe skrócenie czasu odnowienia i zamień całą swoją prędkość ataku na przyspieszenie umiejętności.",
-        "Zyskaj moc umiejętności, 50% prędkości ruchu i 20% wszechwampiryzmu zależnie od brakującego zdrowia. Użycie umiejętności kosztuje 5% obecnego zdrowia. Maksymalny efekt przy 30% zdrowia.",
-        "Zamień moc umiejętności na dodatkowe obrażenia od ataku. Zyskaj 15% obrażeń od ataku.",
-        "Snajperskie trafienie wroga umiejętnością inną niż superumiejętność zwraca 80% czasu odnowienia (65% dla umiejętności okresowych). Snajperskie trafienie: zadanie obrażeń wrogowi z odległości ponad 600 jednostek."
+        "Twoje leczenie i tarcze mogą trafić krytycznie, dając 40% więcej. Zyskujesz 25% szansy na trafienie krytyczne.",
+        "Leczenie i osłanianie sojuszniczych bohaterów ładuje Duchową Bombę. Przy maksymalnej liczbie ładunków rzuć bombę na sojusznika z najmniejszą ilością zdrowia, by uleczyć i osłonić jego i pobliskich sojuszników.",
+        "Leczenie lub osłanianie tarczą sojuszników błogosławi ich, a ich obrażenia napełniają cię oddaniem. Gdy masz dość oddania, uwalniasz falę uderzeniową, która zadaje obrażenia magiczne i dobija wrogów z niskim zdrowiem.",
+        "ZADANIE: Lecz zdrowie sojuszniczych bohaterów. NAGRODA: Każde twoje leczenie po początkowym leczeniu leczy też z czasem."
       ]
     },
     "pt-BR": {
-      "title": "Vida é mana",
-      "why": "A passiva do Olaf, Fúria do Berserker, dá Velocidade de Ataque para cada ponto de Vida que falta, e o W dele empilha ainda mais por cima; Purista - Conjurador converte toda essa Velocidade de Ataque em Aceleração de Habilidade, então quanto mais baixa a barra de Vida, mais rápido rodam as recargas. Pacto Nefasto faz cada feitiço custar uma fatia da Vida atual e devolve Poder de Habilidade, Velocidade de Movimento e Onivampirismo com base na Vida perdida: lançar o Q drena ele, o dreno alimenta a passiva e a Velocidade de Ataque volta como Aceleração para o próximo machado. EscapaDdA transforma esse Poder de Habilidade em Dano de Ataque bônus para os machados físicos, e Fuzileiro de Elite devolve a maior parte da recarga do Q sempre que o machado acerta alguém a mais de 600 unidades, então ele nunca precisa ir buscar. Dente de Na'Shor, Limite da Razão, Mata-Cráquens e Grevas do Berserker são comprados só pela Velocidade de Ataque que vira Aceleração (o Poder de Habilidade do Dente também vira Dano de Ataque com EscapaDdA), enquanto Lança de Shojin e Hexoplaca Experimental dão Dano de Ataque, Aceleração e a Vida que ele queima de propósito. O berserker corpo a corpo que precisa correr atrás do povo vira uma artilharia que arremessa machados do alcance máximo e joga melhor quanto mais perto está de morrer.",
-      "play": "Fique no alcance máximo do Q, jogue machados até sua Vida chegar perto do último terço e continue jogando em vez de correr atrás do machado. O E é seu autodano de emergência se você estiver com Vida demais; o R é pra sair, não pra entrar.",
+      "title": "Enfermeira da Lâmina-Chicote",
+      "why": "O kit da Nilah já vaza cura pra todo lado: o passivo do Q transforma a chance de acerto crítico dela em roubo de vida que transborda em escudos, e o R cura todos os aliados próximos com parte do dano. Cura Crítica dá a chance de crítico que o Q quer e ainda deixa todas essas curas e escudos serem críticos, e Bomba Espiritual, Poder da Devoção e Especialista em Suporte ativam com a mesma coisa: curar aliados, o que a ultimate dela faz sozinha. Espada da Alvorada Florescente é a peça que faltava, porque o efeito ao atingir faz cada ataque básico curar o aliado com menos vida, então cada auto carrega uma Bomba Espiritual, abençoa os aliados para uma onda de choque que executa e deixa uma cura ao longo do tempo, enquanto Turíbulo Ardente, Regenerador de Pedra Lunar e Ecos de Helia recompensam cada cura em aliado com velocidade de ataque, curas em cadeia e dano guardado virando cura. Gume do Infinito e Adaga Oscilante Navori mantêm a chance de crítico alta pra lâmina-chicote continuar doendo e o Q manter a vida dela cheia. Uma carry corpo a corpo de crítico vira uma enfermeira da linha de frente cujos ataques básicos são a magia de cura.",
+      "play": "Gruda no aliado mais tanque e ataca tudo que estiver no alcance; cada golpe cura o time e enche a bomba. Guarda o R pra uma briga em que o time todo está ferido, assim uma ultimate só despeja uma enxurrada de curas críticas e solta a onda de choque do Poder da Devoção.",
       "augments": [
-        "Receba redução percentual de recarga e converta toda a sua Velocidade de Ataque em Aceleração de Habilidade.",
-        "Receba Poder de Habilidade, 50% de Velocidade de Movimento e 20% de Onivampirismo com base na Vida perdida. Lançar feitiços custa 5% da sua Vida atual. Benefício máximo com 30% de Vida.",
-        "Converte Poder de Habilidade em Dano de Ataque bônus. Receba 15% de Dano de Ataque.",
-        "Atingir de longe um inimigo com uma Habilidade que não seja a Suprema reembolsa 80% da recarga (65% para Habilidades periódicas). De longe: causar dano a inimigos a mais de 600 de distância."
+        "Suas curas e escudos podem ser críticos, com 40% de valor adicional. Receba 25% de Chance de Acerto Crítico.",
+        "Curar e proteger campeões aliados acumula uma Bomba Espiritual. No máximo de acúmulos, arremesse a bomba no aliado com menos Vida para curar e proteger ele e os aliados próximos.",
+        "Curar ou dar escudo a aliados os abençoa, e o dano deles enche você de devoção. Quando você tem devoção suficiente, libera uma onda de choque que causa dano mágico e executa inimigos com pouca Vida.",
+        "MISSÃO: cure Vida de campeões aliados. RECOMPENSA: qualquer cura que você fornecer agora também cura ao longo do tempo após a cura inicial."
       ]
     },
     "ro": {
-      "title": "Viața e mana",
-      "why": "Pasiva lui Olaf, Furia berserkerului, îi dă viteză de atac pentru fiecare punct de viață lipsă, iar W-ul lui mai adaugă peste; Purist – Mag transformă toată această viteză de atac în accelerare a abilităților, așa că, cu cât bara de viață e mai jos, cu atât timpii de reactivare fug mai repede. Pact de rău augur face ca fiecare abilitate să coste o parte din viața curentă și îl răsplătește cu putere a abilităților, viteză de mișcare și omnivampirism în funcție de viața lipsă: aruncarea Q-ului îl secătuiește, pierderea de viață hrănește pasiva, iar viteza de atac se întoarce ca accelerare pentru următorul topor. Metamorfoză transformă puterea abilităților în daune de atac bonus pentru topoarele lui fizice, iar Lunetist expert îi returnează cea mai mare parte din timpul de reactivare al Q-ului de fiecare dată când toporul lovește pe cineva la peste 600 de unități, așa că nu trebuie să meargă niciodată după el. Dintele lui Nashor, Sfârșitul rațiunii, Ucigașul de krakeni și Cizmele berserkerului sunt cumpărate doar pentru viteza de atac transformată în accelerare (puterea abilităților din Dinte devine și ea daune de atac prin Metamorfoză), în timp ce Lancea lui Shojin și Hexarmura experimentală aduc daune de atac, accelerare și viața pe care o arde intenționat. Berserkerul corp la corp care trebuie să alerge spre oameni devine o piesă de artilerie care aruncă topoare de la distanță maximă și joacă mai bine cu cât e mai aproape de moarte.",
-      "play": "Stai la raza maximă a Q-ului, aruncă topoare până când viața îți coboară spre ultima treime, apoi aruncă în continuare în loc să alergi după topor. E-ul e autoavarierea ta de urgență dacă ești prea sănătos; R-ul e pentru ieșit, nu pentru intrat.",
+      "title": "Asistenta cu sabie-bici",
+      "why": "Kitul lui Nilah scurge deja vindecare peste tot: pasivul lui Q îi transformă șansa de lovitură critică în furt de viață care, în exces, devine scut, iar R-ul ei vindecă toți aliații din apropiere cu o parte din daunele provocate. Vindecare critică îi dă șansa de critic pe care o vrea Q-ul și le permite tuturor acestor vindecări și scuturi să fie critice, iar Bomba spiritului, Puterea credincioșilor și Jucător de suport se activează toate din același lucru: vindecarea aliaților, pe care ultimate-ul ei o face singur. Sabia răsăritului e piesa lipsă, pentru că efectul ei la impact face ca fiecare atac de bază să-l vindece pe aliatul cel mai rănit, așa că fiecare auto încarcă o Bombă a spiritului, își binecuvântează coechipierii pentru o undă de șoc care execută și lasă o vindecare în timp, în timp ce Cădelnița aprinsă, Reînnoirea pietrei lunii și Ecourile Heliei răsplătesc fiecare vindecare a unui aliat cu viteză de atac, vindecări în lanț și daune stocate transformate în vindecare. Sabia infinitului și Tăișul sclipitor din Navori îi țin șansa de critic sus, ca biciul-sabie să doară în continuare și Q-ul să-i țină viața plină. O carry corp la corp pe critice devine o asistentă din prima linie ale cărei atacuri de bază sunt vraja de vindecare.",
+      "play": "Lipește-te de cel mai tanky aliat și atacă tot ce e în rază; fiecare lovitură vindecă echipa și umple bomba. Păstrează R-ul pentru o încăierare în care toată echipa e rănită, ca un singur ultimate să reverse un val de vindecări critice și să declanșeze unda credincioșilor.",
       "augments": [
-        "Primești reducere procentuală a timpului de reactivare și îți transformi toată viteza de atac în accelerare a abilităților.",
-        "Primești putere a abilităților, 50% viteză de mișcare și 20% omnivampirism în funcție de viața lipsă. Folosirea abilităților costă 5% din viața curentă. Beneficiu maxim la 30% viață.",
-        "Transformă puterea abilităților în daune de atac bonus. Primești 15% daune de atac.",
-        "Lovirea de la distanță a unui inamic cu o abilitate care nu e supremă returnează 80% din timpul de reactivare (65% pentru abilitățile periodice). Lovire de la distanță: provocarea de daune inamicilor aflați la peste 600 de unități."
+        "Vindecările și scuturile tale pot fi critice, cu 40% valoare în plus. Primești 25% șansă de critic.",
+        "Vindecarea și protejarea campionilor aliați încarcă o Bombă a spiritului. La numărul maxim de cumuluri, aruncă bomba pe aliatul cu cea mai puțină viață pentru a-l vindeca și proteja pe el și pe aliații din apropiere.",
+        "Vindecarea sau protejarea aliaților cu scuturi îi binecuvântează, iar daunele lor te umplu de devotament. Când ai destul devotament, eliberezi o undă de șoc care provoacă daune magice și execută inamicii cu viață puțină.",
+        "MISIUNE: Vindecă viața campionilor aliați. RECOMPENSĂ: Orice vindecare oferi acum vindecă și în timp după vindecarea inițială."
       ]
     },
     "ru": {
-      "title": "Здоровье — это мана",
-      "why": "Пассивка Олафа, Ярость берсерка, даёт ему скорость атаки за каждую единицу недостающего здоровья, а его W накидывает ещё сверху; Принципиальность – умения превращает всю эту скорость атаки в ускорение умений, так что чем ниже полоска здоровья, тем быстрее откатываются умения. Зловещий договор заставляет каждое умение стоить часть текущего здоровья и возвращает силу умений, скорость передвижения и всевампиризм в зависимости от недостающего здоровья: каждый Q его иссушает, потеря здоровья кормит пассивку, а скорость атаки возвращается ускорением для следующего топора. Трансмутация превращает эту силу умений в дополнительную силу атаки для его физических топоров, а Опытный снайпер возвращает большую часть перезарядки Q, когда топор попадает в цель дальше 600 единиц, так что поднимать его не нужно вообще. Зуб Нашора, Смерть Разума, Убийца кракенов и Наголенники берсерка берутся только ради скорости атаки, которая становится ускорением (сила умений Зуба тоже уходит в силу атаки через Трансмутацию), а Копье Седзина и Экспериментальная хекстековая броня дают силу атаки, ускорение и то самое здоровье, которое он сжигает специально. Берсерк ближнего боя, которому надо бежать на врага, становится артиллерией, кидающей топоры с максимальной дистанции, и играет тем лучше, чем ближе он к смерти.",
-      "play": "Стой на максимальной дальности Q, кидай топоры, пока здоровье не опустится к нижней трети, и продолжай кидать вместо того, чтобы бегать за топором. E — твой экстренный урон по себе, если ты слишком здоров; R — чтобы уйти, а не зайти.",
+      "title": "Медсестра с хлыстом-клинком",
+      "why": "Набор умений Нилы и так повсюду разбрызгивает лечение: пассивка Q превращает её шанс критического удара в вампиризм, излишки которого становятся щитом, а R лечит всех ближайших союзников на часть нанесённого урона. Критическое лечение даёт ей тот самый шанс крита, которого хочет Q, и позволяет всем этим лечениям и щитам критовать, а Духовная бомба, Сила верных и Спец поддержки срабатывают от одного и того же: от лечения союзников, что её ульта делает сама по себе. Меч сияющего рассвета — недостающий кусок, ведь его эффект при попадании заставляет каждую автоатаку лечить самого раненого союзника, так что каждый удар заряжает Духовную бомбу, благословляет тиммейтов на добивающую ударную волну и оставляет лечение со временем, а Пылающая кадильница, Исцеляющий лунный камень и Эхо Гелии награждают каждое лечение союзника скоростью атаки, цепным лечением и накопленным уроном, превращённым в лечение. Грань Бесконечности и Летающий нож Навори держат шанс крита высоким, чтобы хлыст-клинок всё ещё больно бил, а Q держало её здоровье полным. Критовая кэрри ближнего боя превращается в медика на передовой, чьи автоатаки и есть лечащее заклинание.",
+      "play": "Прилипни к самому танковому союзнику и бей всё в радиусе атаки; каждый удар лечит команду и заряжает бомбу. Держи R для замеса, где ранена вся команда, чтобы одна ульта выплеснула поток критовых лечений и запустила ударную волну верных.",
       "augments": [
-        "Получите процентное сокращение перезарядки и преобразуйте всю скорость атаки в ускорение умений.",
-        "Получите силу умений, 50% скорости передвижения и 20% всевампиризма в зависимости от недостающего здоровья. Применение умений стоит 5% текущего здоровья. Максимальный эффект при 30% здоровья.",
-        "Преобразует силу умений в дополнительную силу атаки. Вы получаете 15% силы атаки.",
-        "Снайперское попадание по врагу умением, кроме суперспособности, возвращает 80% перезарядки (65% для периодических умений). Снайперское попадание — урон по врагам дальше 600 единиц."
+        "Ваше лечение и щиты могут быть критическими и усиливаются на 40%. Вы получаете 25% шанса критического удара.",
+        "Лечение и наложение щитов на союзных чемпионов заряжает Духовную бомбу. При максимуме зарядов бросьте бомбу в союзника с наименьшим запасом здоровья, чтобы вылечить и защитить щитом его и ближайших союзников.",
+        "Лечение или щиты на союзников благословляют их, и их урон наполняет вас преданностью. Когда преданности достаточно, вы высвобождаете ударную волну, которая наносит магический урон и добивает врагов с низким здоровьем.",
+        "ЗАДАНИЕ: восстановите здоровье союзным чемпионам. НАГРАДА: любое ваше лечение теперь после начального лечения также лечит со временем."
       ]
     },
     "th": {
-      "title": "เลือดคือมานา",
-      "why": "พาสซีฟของ Olaf อย่าง Berserker Rage ให้ Attack Speed ตามทุกแต้ม Health ที่เสียไป และ W ยังเพิ่ม Attack Speed ซ้อนเข้าไปอีก ส่วน Purist - Caster แปลง Attack Speed ทั้งหมดนั้นเป็น Ability Haste เลือดยิ่งน้อย คูลดาวน์ยิ่งหมุนเร็ว Ominous Pact ทำให้การใช้สกิลทุกครั้งเสีย Health ปัจจุบันส่วนหนึ่ง แล้วคืนให้เป็น Ability Power, Movement Speed และ Omnivamp ตาม Health ที่เสียไป การปา Q จึงดูดเลือดตัวเอง เลือดที่เสียไปก็ป้อนพาสซีฟ และ Attack Speed ก็กลับมาเป็น Haste ให้ขวานลูกถัดไป escAPADe แปลง Ability Power นั้นเป็น Attack Damage โบนัสให้ขวานกายภาพของเขา และ Skilled Sniper คืนคูลดาวน์ Q ส่วนใหญ่ทุกครั้งที่ขวานโดนศัตรูที่อยู่ไกลเกิน 600 ยูนิต เลยไม่ต้องเดินไปเก็บขวานเลย Nashor's Tooth, Wit's End, Kraken Slayer และ Berserker's Greaves ซื้อมาแค่เพื่อ Attack Speed ที่จะกลายเป็น Haste (Ability Power จาก Nashor's ก็กลายเป็น Attack Damage ผ่าน escAPADe ด้วย) ส่วน Spear of Shojin กับ Experimental Hexplate ให้ Attack Damage, Haste และ Health ที่เขาตั้งใจเผาทิ้ง เบอร์เซิร์กเกอร์สายประชิดที่ต้องวิ่งเข้าหาศัตรูกลายเป็นปืนใหญ่ที่ปาขวานจากระยะสุด และยิ่งใกล้ตายยิ่งเล่นเก่ง",
-      "play": "ยืนที่ระยะสุดของ Q ปาขวานจนเลือดลงไปราวหนึ่งในสามสุดท้าย แล้วปาต่อไปแทนที่จะวิ่งตามขวาน ถ้าเลือดเยอะเกินไป E คือการทำดาเมจใส่ตัวเองฉุกเฉิน ส่วน R มีไว้หนี ไม่ได้มีไว้บุก",
+      "title": "พยาบาลดาบแส้",
+      "why": "ชุดสกิลของ Nilah ปล่อยฮีลรั่วไปทั่วอยู่แล้ว: พาสซีฟของ Q เปลี่ยนโอกาสคริติคอลเป็น Life Steal และส่วนที่ฮีลเกินจะกลายเป็นโล่ ส่วน R ก็ฮีลเพื่อนรอบตัวทุกคนตามส่วนหนึ่งของดาเมจที่ทำได้ Critical Healing ให้โอกาสคริที่ Q ต้องการ และทำให้ฮีลกับโล่ทั้งหมดคริได้ด้วย ส่วน Spirit Bomb, Empowered By The Faithful และ Support Main ทำงานจากสิ่งเดียวกันหมด คือการฮีลเพื่อน ซึ่งอัลติของเธอทำเองอยู่แล้ว Sword of Blossoming Dawn คือชิ้นส่วนที่ขาดไป เพราะเอฟเฟกต์ On-Hit ทำให้การโจมตีปกติทุกครั้งฮีลเพื่อนที่เลือดน้อยที่สุด ทุกการตีจึงชาร์จ Spirit Bomb อวยพรเพื่อนร่วมทีมเพื่อปล่อยคลื่นกระแทกที่ประหาร และทิ้งฮีลต่อเนื่องไว้ ขณะที่ Ardent Censer, Moonstone Renewer และ Echoes of Helia ให้รางวัลกับทุกการฮีลเพื่อนเป็นความเร็วโจมตี ฮีลแบบส่งต่อ และดาเมจที่เก็บไว้กลายเป็นฮีล Infinity Edge กับ Navori Flickerblade รักษาโอกาสคริให้สูงเพื่อให้ดาบแส้ยังเจ็บ และ Q คอยเติมเลือดตัวเองให้เต็ม แครี่สายคริระยะประชิดกลายเป็นหมอแนวหน้าที่การโจมตีปกติคือสกิลฮีล",
+      "play": "เกาะติดเพื่อนที่ถึกที่สุดแล้วตีทุกอย่างในระยะ ทุกการตีฮีลทีมและเติมระเบิด เก็บ R ไว้ใช้ตอนตีกันที่ทั้งทีมเลือดลด เพื่อให้อัลติครั้งเดียวเทฮีลคริออกมาเป็นสายและจุดคลื่นกระแทกของ Faithful",
       "augments": [
-        "รับการลดคูลดาวน์เป็นเปอร์เซ็นต์ และแปลง Attack Speed ทั้งหมดเป็น Ability Haste",
-        "รับ Ability Power, Movement Speed 50% และ Omnivamp 20% ตาม Health ที่เสียไป การใช้สกิลเสีย Health ปัจจุบัน 5% ได้ผลสูงสุดที่ Health 30%",
-        "แปลง Ability Power เป็น Attack Damage โบนัส รับ Attack Damage 15%",
-        "การสไนป์ศัตรูด้วยสกิลที่ไม่ใช่อัลติเมตจะคืนคูลดาวน์ 80% (65% สำหรับสกิลแบบเป็นช่วงเวลา) สไนป์: ทำดาเมจใส่ศัตรูที่อยู่ไกลเกิน 600"
+        "การฮีลและโล่ของคุณคริติคอลได้ เพิ่มปริมาณ 40% ได้รับโอกาสคริติคอล 25%",
+        "การฮีลและให้โล่แชมเปี้ยนฝ่ายเดียวกันจะสะสม Spirit Bomb เมื่อสะสมเต็ม ให้ปาระเบิดใส่เพื่อนที่เลือดน้อยที่สุดเพื่อฮีลและให้โล่แก่เขาและเพื่อนรอบข้าง",
+        "การฮีลหรือให้โล่แก่เพื่อนร่วมทีมจะอวยพรพวกเขา และดาเมจของพวกเขาจะเติมศรัทธาให้คุณ เมื่อมีศรัทธาพอ จะปล่อยคลื่นกระแทกที่สร้างดาเมจเวทและประหารศัตรูที่เลือดน้อย",
+        "ภารกิจ: ฮีลเลือดให้แชมเปี้ยนฝ่ายเดียวกัน รางวัล: การฮีลทุกครั้งของคุณจะฮีลต่อเนื่องตามเวลาหลังจากฮีลครั้งแรกด้วย"
       ]
     },
     "tr": {
-      "title": "Can Manadır",
-      "why": "Olaf'ın pasifi Çılgın Öfke, eksik her can puanı için ona saldırı hızı verir, W'si de üstüne daha fazlasını ekler; Saf Yetenek bu saldırı hızının tamamını yetenek hızına çevirir, yani can barı ne kadar düşükse bekleme süreleri o kadar hızlı akar. Uğursuz Ahit her yetenek kullanımını mevcut canından bir dilime mal eder ve eksik cana göre yetenek gücü, hareket hızı ve genel can çalma olarak geri öder: Q atmak onu emer, kaybedilen can pasifini besler, saldırı hızı da bir sonraki balta için yetenek hızı olarak geri gelir. Saldırı Gücüne Güç Kat bu yetenek gücünü fiziksel baltaları için ek saldırı gücüne çevirir, Yetenekli Keskin Nişancı da balta 600 birimden uzaktaki birine her isabet ettiğinde Q'nun bekleme süresinin çoğunu iade eder, böylece baltayı almaya hiç gitmesi gerekmez. Nashor'un Dişi, Aklın Sonu, Kraken Katili ve Savaşçı Çizmeleri yalnızca yetenek hızına dönüşen saldırı hızı için alınır (Diş'in yetenek gücü de Saldırı Gücüne Güç Kat ile saldırı gücü olur), Shojin'in Mızrağı ve Deneysel Hexzırh ise saldırı gücü, yetenek hızı ve bilerek yaktığı canı verir. Rakibe koşmak zorunda olan yakın dövüş çılgını, maksimum menzilden balta fırlatan bir topçuya dönüşür ve ölüme ne kadar yakınsa o kadar iyi oynar.",
-      "play": "Q'nun maksimum menzilinde dur, canın son üçte bire yaklaşana kadar balta at, sonra baltanın peşinden koşmak yerine atmaya devam et. Fazla canın varsa E acil durum öz hasarındır; R çıkmak için, girmek için değil.",
+      "title": "Kırbaç Kılıçlı Hemşire",
+      "why": "Nilah'ın kiti zaten her yere iyileştirme sızdırıyor: Q pasifi kritik vuruş ihtimalini can çalmaya çeviriyor ve fazlası kalkana dönüşüyor, R'si de yakındaki tüm dostları verdiği hasarın bir kısmı kadar iyileştiriyor. Kritik İyileştirme Q'nun istediği kritik vuruş ihtimalini veriyor ve tüm bu iyileştirmelerin ve kalkanların kritik vurmasını sağlıyor; Ruh Bombası, Kudret ve Destek Oyuncusu ise hep aynı şeyle tetikleniyor: dostları iyileştirmek, ki ultisi bunu kendiliğinden yapıyor. Seher Kılıcı eksik parça, çünkü isabet etkisi her bir temel saldırının en düşük canlı dostu iyileştirmesini sağlıyor; yani her otomatik saldırı bir Ruh Bombası dolduruyor, takım arkadaşlarını infaz eden bir şok dalgası için kutsuyor ve geride zamanla iyileştirme bırakıyor. Kızgın Buhurdanlık, Dinçleştirici Aytaşı ve Helia'nın Yankıları da her dost iyileştirmesini saldırı hızı, zincirleme iyileştirme ve iyileştirmeye dönen depolanmış hasarla ödüllendiriyor. Ebedi Kılıç ve Navori Tezbıçağı kritik vuruş ihtimalini yüksek tutuyor ki kırbaç kılıç acıtmaya devam etsin ve Q kendi canını dolu tutsun. Yakın dövüş kritik taşıyıcı, temel saldırıları iyileştirme büyüsü olan bir ön saf sıhhiyecisine dönüşüyor.",
+      "play": "En tank dostuna yapış ve menzildeki her şeye saldır; her vuruş takımı iyileştirir ve bombayı doldurur. R'yi tüm takımın yaralı olduğu bir kapışmaya sakla ki tek bir ulti kritik iyileştirme seli boşaltıp Kudret'in şok dalgasını patlatsın.",
       "augments": [
-        "Yüzdesel bekleme süresi azaltma kazan ve tüm saldırı hızını yetenek hızına çevir.",
-        "Eksik cana göre yetenek gücü, %50 hareket hızı ve %20 genel can çalma kazan. Yetenek kullanmak mevcut canının %5'ine mal olur. En yüksek fayda %30 canda.",
-        "Yetenek gücünü ek saldırı gücüne çevirir. %15 saldırı gücü kazan.",
-        "Bir rakibi Ulti dışı bir yetenekle uzaktan vurmak bekleme süresinin %80'ini iade eder (periyodik yeteneklerde %65). Uzaktan vurma: 600 birimden uzaktaki rakiplere hasar vermek."
+        "İyileştirmelerin ve Kalkanların %40 ek miktarla Kritik Vuruş yapabilir. %25 Kritik Vuruş İhtimali kazanırsın.",
+        "Dost şampiyonları iyileştirmek ve kalkanla korumak bir Ruh Bombası doldurur. Azami yükte bombayı en düşük canlı dosta atarak onu ve yakındaki dostları iyileştir ve kalkanla koru.",
+        "Müttefikleri iyileştirmek veya kalkanla korumak onları kutsar ve onların hasarı seni bağlılıkla doldurur. Yeterli bağlılığa ulaştığında büyü hasarı veren ve düşük canlı düşmanları infaz eden bir şok dalgası salarsın.",
+        "GÖREV: Dost şampiyonların canını iyileştir. ÖDÜL: Yaptığın her iyileştirme artık ilk iyileştirmeden sonra zamanla da iyileştirir."
       ]
     },
     "vi": {
-      "title": "Máu Là Năng Lượng",
-      "why": "Nội tại của Olaf, Cuồng Nộ, cho hắn tốc độ đánh theo từng điểm máu đã mất, và W của hắn còn cộng thêm nữa; Thuần Pháp - Thuật Sư chuyển toàn bộ tốc độ đánh đó thành điểm hồi kỹ năng, nên thanh máu càng thấp thì kỹ năng hồi càng nhanh. Khế Ước Quỷ Quyệt khiến mỗi lần dùng kỹ năng tốn một phần máu hiện tại và trả lại sức mạnh phép thuật, tốc độ di chuyển và hút máu toàn phần theo lượng máu đã mất: ném Q làm hắn mất máu, máu mất lại nuôi nội tại, và tốc độ đánh quay về thành điểm hồi kỹ năng cho chiếc rìu tiếp theo. Chuyển Hoá SMPT-SMCK biến sức mạnh phép thuật đó thành sức mạnh công kích cộng thêm cho những chiếc rìu vật lý, còn Xạ Thủ Kỳ Cựu hoàn lại phần lớn thời gian hồi Q mỗi khi rìu trúng ai đó ở xa hơn 600 đơn vị, nên hắn chẳng bao giờ phải chạy đi nhặt rìu. Nanh Nashor, Đao Tím, Móc Diệt Thủy Quái và Giày Cuồng Nộ được mua chỉ để lấy tốc độ đánh đổi thành điểm hồi kỹ năng (sức mạnh phép thuật của Nanh Nashor cũng thành sức mạnh công kích nhờ Chuyển Hoá SMPT-SMCK), còn Ngọn Giáo Shojin và Khiên Hextech Thử Nghiệm cho sức mạnh công kích, điểm hồi kỹ năng và lượng máu mà hắn cố tình đốt. Gã cuồng chiến cận chiến vốn phải lao vào người khác trở thành khẩu pháo ném rìu từ tầm tối đa, và càng gần chết thì càng chơi hay.",
-      "play": "Đứng ở tầm tối đa của Q, ném rìu cho đến khi máu tụt về khoảng một phần ba cuối, rồi tiếp tục ném thay vì chạy theo nhặt rìu. E là chiêu tự gây sát thương khẩn cấp khi bạn còn quá nhiều máu; R là để chạy ra, không phải để lao vào.",
+      "title": "Y Tá Roi Kiếm",
+      "why": "Bộ kỹ năng của Nilah vốn đã rò rỉ hồi máu khắp nơi: nội tại Q biến tỉ lệ chí mạng thành hút máu, phần dư hóa thành lá chắn, còn R hồi máu cho mọi đồng minh gần đó theo một phần sát thương gây ra. Hồi Máu Chí Mạng cho cô đúng thứ tỉ lệ chí mạng mà Q cần, đồng thời cho mọi lượng hồi máu và lá chắn đó có thể chí mạng, còn Tinh Linh Cầu, Đức Tin Tiếp Sức và Hỗ Trợ Chính đều kích hoạt từ cùng một việc: hồi máu cho đồng minh, thứ mà chiêu cuối của cô tự làm. Kiếm Bình Minh Nở Rộ là mảnh ghép còn thiếu, vì hiệu ứng trên đòn đánh khiến mỗi đòn đánh thường hồi máu cho đồng minh yếu máu nhất, nên mỗi phát đánh đều tích Tinh Linh Cầu, ban phước cho đồng đội để tạo sóng xung kích kết liễu và để lại hồi máu theo thời gian, trong khi Lư Hương Sôi Sục, Bùa Nguyệt Thạch và Vọng Âm Helia thưởng cho mỗi lần hồi máu đồng minh bằng tốc độ đánh, hồi máu lan truyền và sát thương tích trữ biến thành hồi máu. Vô Cực Kiếm và Đao Chớp Navori giữ tỉ lệ chí mạng cao để roi kiếm vẫn đau và Q giữ máu của cô luôn đầy. Một xạ thủ chí mạng cận chiến hóa thành y tá tuyến đầu mà đòn đánh thường chính là phép hồi máu.",
+      "play": "Bám sát đồng minh trâu nhất và đánh mọi thứ trong tầm; mỗi đòn đều hồi máu cho đội và nạp bom. Giữ R cho pha giao tranh khi cả đội đều mất máu, để một chiêu cuối tuôn ra cơn lũ hồi máu chí mạng và kích hoạt sóng xung kích Đức Tin.",
       "augments": [
-        "Nhận giảm thời gian hồi chiêu theo phần trăm và chuyển toàn bộ tốc độ đánh thành điểm hồi kỹ năng.",
-        "Nhận sức mạnh phép thuật, 50% tốc độ di chuyển và 20% hút máu toàn phần dựa trên lượng máu đã mất. Dùng kỹ năng tốn 5% máu hiện tại. Hiệu quả tối đa khi còn 30% máu.",
-        "Chuyển sức mạnh phép thuật thành sức mạnh công kích cộng thêm. Nhận thêm 15% sức mạnh công kích.",
-        "Bắn tỉa kẻ địch bằng kỹ năng không phải chiêu cuối sẽ hoàn lại 80% thời gian hồi (65% với kỹ năng định kỳ). Bắn tỉa: gây sát thương lên kẻ địch ở khoảng cách hơn 600."
+        "Lượng hồi máu và Lá Chắn của bạn có thể Chí Mạng, tăng thêm 40%. Nhận 25% Tỉ Lệ Chí Mạng.",
+        "Hồi máu và tạo lá chắn cho tướng đồng minh sẽ tích tụ Tinh Linh Cầu. Khi đạt cộng dồn tối đa, ném quả cầu vào đồng minh ít máu nhất để hồi máu và tạo lá chắn cho họ cùng các đồng minh gần đó.",
+        "Hồi máu hoặc tạo lá chắn cho đồng minh sẽ ban phước cho họ, và sát thương họ gây ra tích lòng sùng kính cho bạn. Khi đủ lòng sùng kính, bạn giải phóng một làn sóng xung kích gây sát thương phép và kết liễu kẻ địch thấp máu.",
+        "NHIỆM VỤ: Hồi Máu cho tướng đồng minh. PHẦN THƯỞNG: Mọi lượng hồi máu bạn tạo ra giờ còn hồi máu theo thời gian sau lần hồi đầu tiên."
       ]
     },
     "zh-CN": {
-      "title": "血条就是蓝条",
-      "why": "奥拉夫的被动狂战之怒会按已损失生命值给他攻击速度，W还会再叠一层攻速；纯粹主义者 - 术师把这些攻速全部转化为技能急速，所以血条越低，冷却转得越快。不祥契约让每次施法消耗一部分当前生命值，并按已损失生命值返还法术强度、移动速度和全能吸血：扔Q会掉血，掉的血喂给被动，攻速又变成急速回到下一把斧头上。魔法转物理把这些法术强度变成物理斧头的额外攻击力，老练狙神则在斧头命中600码以外的敌人时返还大部分Q的冷却，所以他根本不用去捡斧头。纳什之牙、智慧末刃、海妖杀手和狂战士胫甲只是为了攻速而买，全部转成急速（纳什之牙的法强也会通过魔法转物理变成攻击力），朔极之矛和海克斯注力刚壁则提供攻击力、急速和他故意烧掉的生命值。原本必须冲脸的近战狂战士变成了一门从最远距离扔斧头的大炮，而且越接近死亡打得越好。",
-      "play": "站在Q的最远距离扔斧头，直到血量掉到三分之一左右，然后继续扔，别去追斧头。血太多时E是你的紧急自残手段；R是用来跑路的，不是用来冲的。",
+      "title": "鞭刃护士",
+      "why": "尼菈的技能组本来就到处漏治疗：Q的被动把暴击几率转化为生命偷取，溢出的治疗会变成护盾，R则按造成伤害的一部分治疗附近所有友军。会心治疗给了她Q想要的暴击几率，还让这些治疗和护盾都能暴击，而灵魄炸弹、信念者的强化和主玩辅助全都靠同一件事触发：治疗友军，而她的大招自己就会做到。花晓之剑是最后一块拼图，它的攻击特效让每一次普攻都治疗生命值最低的友军，于是每一下平A都在充能灵魄炸弹、祝福队友蓄出能斩杀的冲击波，还会留下持续治疗；炽热香炉、月石再生器和海力亚的回响则在每次治疗友军时奖励攻击速度、连锁治疗和由储存伤害转化的治疗。无尽之刃和纳沃利烁刃让暴击几率保持在高位，鞭刃依旧够痛，Q也能把她自己的血量补满。一个近战暴击核心，变成了普攻就是治疗技能的前排医疗兵。",
+      "play": "贴着最肉的队友，攻击范围内的一切；每一下都在治疗团队并充能炸弹。把R留到全队都残血的团战，让一次大招倾泻出大量暴击治疗，并引爆信念者的冲击波。",
       "augments": [
-        "获得百分比冷却缩减，并将你的全部攻击速度转化为技能急速。",
-        "基于已损失生命值获得法术强度、50%移动速度和20%全能吸血。施放技能消耗5%当前生命值。生命值为30%时效果最大。",
-        "将法术强度转化为额外攻击力。获得15%攻击力。",
-        "用非终极技能狙击敌人会返还80%冷却时间（周期性技能为65%）。狙击：对600距离以外的敌人造成伤害。"
+        "你的治疗和护盾可以暴击，额外提升40%。获得25%暴击几率。",
+        "治疗和护盾友方英雄会积攒灵魄炸弹。达到最大层数时，将炸弹投向生命值最低的友军，治疗并护盾该友军及其附近友军。",
+        "治疗友军或为其提供护盾会祝福他们，他们造成的伤害会为你积攒信仰。信仰足够时，释放一道冲击波，造成魔法伤害并处决低生命值敌人。",
+        "任务：为友方英雄治疗生命值。奖励：你提供的任何治疗在初始治疗之后还会持续治疗。"
       ]
     },
     "zh-TW": {
-      "title": "血條就是魔力",
-      "why": "歐拉夫的被動狂戰之怒會依照已損失生命給他攻擊速度，W還會再疊一層攻速；純粹 - 法師把這些攻速全部轉換為技能急速，所以血條越低，冷卻轉得越快。不祥契約讓每次施法消耗一部分當前生命，並依照已損失生命回饋魔法攻擊、跑速和全能吸血：丟Q會掉血，掉的血餵給被動，攻速又變成急速回到下一把斧頭上。轉換惡作劇把這些魔法攻擊變成物理斧頭的額外攻擊力，老練狙擊手則在斧頭命中600單位以外的敵人時返還大部分Q的冷卻，所以他根本不用去撿斧頭。納什之牙、智慧末刃、海妖殺手和狂戰士護脛只是為了攻速而買，全部轉成急速（納什之牙的魔攻也會透過轉換惡作劇變成攻擊力），精進之矛和實驗型海克斯板甲則提供攻擊力、急速和他故意燒掉的生命。原本必須衝臉的近戰狂戰士變成一門從最遠距離丟斧頭的大砲，而且越接近死亡打得越好。",
-      "play": "站在Q的最遠距離丟斧頭，直到血量掉到三分之一左右，然後繼續丟，別去追斧頭。血太多時E是你的緊急自殘手段；R是用來逃跑的，不是用來衝的。",
+      "title": "鞭刃護士",
+      "why": "尼菈的技能組本來就到處漏補：Q的被動把暴擊率轉成生命竊取，溢出的治療會變成護盾，R則依造成傷害的一部分治療附近所有隊友。暴擊治療給她Q想要的暴擊率，還讓這些治療和護盾都能暴擊，而靈魂炸彈、因信得力和專精輔助全都靠同一件事觸發：治療隊友，而她的大絕自己就會做到。破曉綻放之劍是最後一塊拼圖，它的命中效果讓每一下普攻都治療生命最低的隊友，所以每次普攻都在累積靈魂炸彈、祝福隊友蓄出能處決的衝擊波，還會留下持續治療；熾灼魔器、月之石再生裝置和希利亞的迴響則在每次治療隊友時回饋攻擊速度、連鎖治療和由儲存傷害轉成的治療。無盡之刃和那歐閃刃把暴擊率維持在高檔，鞭刃依然很痛，Q也能把她自己的血補滿。一個近戰暴擊核心，變成普攻就是治療技能的前排醫護兵。",
+      "play": "黏著最肉的隊友，攻擊範圍內的一切；每一下都在治療全隊並累積炸彈。把R留到全隊都殘血的混戰，讓一次大絕灑出大量暴擊治療，並引爆因信得力的衝擊波。",
       "augments": [
-        "獲得百分比冷卻縮減，並將所有攻擊速度轉換為技能急速。",
-        "依照已損失生命獲得魔法攻擊、50%跑速和20%全能吸血。施放技能消耗5%當前生命。生命為30%時效果最大。",
-        "將魔法攻擊轉換為額外攻擊力。獲得15%攻擊力。",
-        "用非大絕的技能狙擊敵人會返還80%冷卻時間（週期性技能為65%）。狙擊：對600距離以外的敵人造成傷害。"
+        "你的治療和護盾可以暴擊，額外提升40%。獲得25%暴擊率。",
+        "治療和護盾友方英雄會累積靈魂炸彈。達到最大層數時，將炸彈丟向生命最低的隊友，治療並護盾該隊友及其附近隊友。",
+        "治療友軍或為其提供護盾會祝福他們，他們造成的傷害會為你累積信仰。信仰足夠時，釋放一道衝擊波，造成魔法傷害並處決低生命敵人。",
+        "任務：為友方英雄治療生命值。獎勵：你提供的任何治療在初始治療後還會持續治療。"
       ]
     }
   }
