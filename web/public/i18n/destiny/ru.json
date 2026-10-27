@@ -35,5 +35,22 @@
  "Stat value": "Ценность характеристик",
  "Anticipated: Weapon of Destiny has no games yet, so items are ranked by how valuable their stats are to upgrade. Once it has games, they're ranked by DeepScore from how the Weapon wins.": "Ожидаемо: у Оружия судьбы пока нет игр, поэтому предметы отсортированы по ценности их характеристик для улучшения. Когда игры появятся, они будут отсортированы по DeepScore в зависимости от того, как побеждает Оружие.",
  "Estimated. Ranked by DeepScore, from each item's win rate and pick rate as the first Legendary item of the champions who take the augment. Items no champion buys first have no score yet.": "Оценка. Отсортировано по DeepScore на основе процента побед и частоты выбора каждого предмета как первого легендарного предмета у чемпионов, которые берут это усиление. У предметов, которые ни один чемпион не покупает первыми, пока нет оценки.",
- "Stat value rates each item from 0 to 100 against the others, where 50 is average. Each of its stats counts by how much it's worth to upgrade, most for stats that multiply all your damage such as Critical Strike Damage or Armor Penetration, and by how few Legendary items give it. Tiers: S 70+, A 59+, B 44+, C 32+, D below.": "Ценность характеристик оценивает каждый предмет от 0 до 100 относительно остальных, где 50 — среднее. Каждая характеристика учитывается по тому, насколько ценно её улучшать (больше всего те, что умножают весь ваш урон, например Критический урон или Пробивание брони), и по тому, как мало легендарных предметов её дают. Уровни: S 70+, A 59+, B 44+, C 32+, D ниже."
+ "Stat value rates each item from 0 to 100 against the others, where 50 is average. Each of its stats counts by how much it's worth to upgrade, most for stats that multiply all your damage such as Critical Strike Damage or Armor Penetration, and by how few Legendary items give it. Tiers: S 70+, A 59+, B 44+, C 32+, D below.": "Ценность характеристик оценивает каждый предмет от 0 до 100 относительно остальных, где 50 — среднее. Каждая характеристика учитывается по тому, насколько ценно её улучшать (больше всего те, что умножают весь ваш урон, например Критический урон или Пробивание брони), и по тому, как мало легендарных предметов её дают. Уровни: S 70+, A 59+, B 44+, C 32+, D ниже.",
+ "Champion": "Чемпион",
+ "Find a champion": "Найти чемпиона",
+ "Best item": "Лучший предмет",
+ "Estimated. How much making this item the Weapon of Destiny raises the champion's win rate: its simulated upgrades plus how the item already wins as this champion's first Legendary item.": "Оценка. Насколько вырастет процент побед чемпиона, если сделать этот предмет Оружием судьбы: его смоделированные улучшения плюс то, как предмет уже побеждает в качестве первого легендарного предмета этого чемпиона.",
+ "Fight power": "Боевая сила",
+ "Simulated. How much stronger the upgraded item makes the champion in fights, with half its usual takedowns per game.": "Моделирование. Насколько сильнее улучшенный предмет делает чемпиона в боях, при половине его обычного числа участий в убийствах за игру.",
+ "Built first": "Покупают первым",
+ "How often the champion already buys this item as its first Legendary item.": "Как часто чемпион уже покупает этот предмет первым легендарным.",
+ "Next best": "Следующий",
+ "The second-best item to upgrade for this champion.": "Второй по силе предмет для улучшения у этого чемпиона.",
+ "View": "Вид",
+ "By item": "По предметам",
+ "By champion": "По чемпионам",
+ "Each champion's best item to make its Weapon of Destiny: every candidate is upgraded in simulated fights with the champion's most popular build, then combined with how the item already wins as its first Legendary item.": "Лучший предмет каждого чемпиона для Оружия судьбы: каждый кандидат улучшается в смоделированных боях с самой популярной сборкой чемпиона, а затем учитывается, как предмет уже побеждает в качестве его первого легендарного предмета.",
+ "Simulated and estimated. Win rate boost turns the simulated upgrades into estimated win rate points, so champions near the top gain the most from the augment.": "Моделирование и оценка. Прирост процента побед переводит смоделированные улучшения в оценочные пункты, поэтому чемпионы вверху списка выигрывают от усиления больше всего.",
+ "Simulated": "Симуляция",
+ "Simulated: picked from simulated fights with each champion's most popular build.": "Симуляция: выбрано по симулированным боям с самой популярной сборкой каждого чемпиона."
 }

@@ -4,7 +4,7 @@
 import { describe, expect, it } from "vitest";
 import championIds from "@/data/champion-ids.json";
 import { itemPages } from "@/lib/item-pages";
-import { weaponOfDestiny } from "@/lib/weapon-of-destiny";
+import { destinyByChampion, weaponOfDestiny } from "@/lib/weapon-of-destiny";
 
 describe("Weapon of Destiny ranking", () => {
   const data = weaponOfDestiny()!;
@@ -51,5 +51,23 @@ describe("Weapon of Destiny ranking", () => {
     const top = [...data.rows].sort((a, b) => b.rank! - a.rank!).slice(0, 4).map((r) => r.name);
     for (const name of ["Infinity Edge", "Void Staff", "Lord Dominik's Regards"]) expect(top).toContain(name);
     for (const r of data.rows) expect(r.score, r.name).not.toBeNull();
+  });
+});
+
+describe("Weapon of Destiny by champion", () => {
+  const rows = destinyByChampion();
+  const pages = new Map(itemPages().map((i) => [i.id, i]));
+
+  it("gives most champions a Legendary item with a page, and a different next best", () => {
+    expect(rows.length).toBeGreaterThan(150);
+    for (const r of rows) {
+      expect(championIds, r.champion).toHaveProperty(r.champion);
+      expect(pages.get(r.item.id)?.tier, r.champion).toBe("legendary");
+      if (r.next) expect(r.next.id, r.champion).not.toBe(r.item.id);
+      // Win rate points as fractions: a few points at most.
+      expect(Math.abs(r.boost), r.champion).toBeLessThan(0.15);
+      expect(r.share).toBeGreaterThanOrEqual(0);
+      expect(r.share).toBeLessThanOrEqual(1);
+    }
   });
 });

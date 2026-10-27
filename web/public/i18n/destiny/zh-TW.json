@@ -35,5 +35,22 @@
  "Stat value": "屬性價值",
  "Anticipated: Weapon of Destiny has no games yet, so items are ranked by how valuable their stats are to upgrade. Once it has games, they're ranked by DeepScore from how the Weapon wins.": "預期：命定武器還沒有對局資料，因此裝備依升級屬性的價值排序。有了對局資料後，將依命定武器勝率得出的 DeepScore 排序。",
  "Estimated. Ranked by DeepScore, from each item's win rate and pick rate as the first Legendary item of the champions who take the augment. Items no champion buys first have no score yet.": "估算。依 DeepScore 排序，根據每件裝備作為選擇該強化的英雄第一件傳說裝備時的勝率和選取率。沒有英雄首先購買的裝備暫時沒有評分。",
- "Stat value rates each item from 0 to 100 against the others, where 50 is average. Each of its stats counts by how much it's worth to upgrade, most for stats that multiply all your damage such as Critical Strike Damage or Armor Penetration, and by how few Legendary items give it. Tiers: S 70+, A 59+, B 44+, C 32+, D below.": "屬性價值將每件裝備與其他裝備比較，按 0 到 100 評分，50 為平均。每項屬性依其升級價值計分，暴擊傷害、物理穿透這類能放大你全部傷害的屬性最受重視，同時提供該屬性的傳說裝備越少，它就越有價值。等級：S 70+、A 59+、B 44+、C 32+，以下為 D。"
+ "Stat value rates each item from 0 to 100 against the others, where 50 is average. Each of its stats counts by how much it's worth to upgrade, most for stats that multiply all your damage such as Critical Strike Damage or Armor Penetration, and by how few Legendary items give it. Tiers: S 70+, A 59+, B 44+, C 32+, D below.": "屬性價值將每件裝備與其他裝備比較，按 0 到 100 評分，50 為平均。每項屬性依其升級價值計分，暴擊傷害、物理穿透這類能放大你全部傷害的屬性最受重視，同時提供該屬性的傳說裝備越少，它就越有價值。等級：S 70+、A 59+、B 44+、C 32+，以下為 D。",
+ "Champion": "英雄",
+ "Find a champion": "尋找英雄",
+ "Best item": "最佳裝備",
+ "Estimated. How much making this item the Weapon of Destiny raises the champion's win rate: its simulated upgrades plus how the item already wins as this champion's first Legendary item.": "估算。把這件裝備作為命定武器能讓英雄勝率提升多少：模擬中的升級收益，加上該裝備作為這名英雄第一件傳說裝備時的實際勝率表現。",
+ "Fight power": "戰鬥力",
+ "Simulated. How much stronger the upgraded item makes the champion in fights, with half its usual takedowns per game.": "模擬。升級後的裝備讓英雄在戰鬥中變強多少，按每場平常參與擊殺次數的一半計算。",
+ "Built first": "首件購買率",
+ "How often the champion already buys this item as its first Legendary item.": "該英雄本來就把這件裝備作為第一件傳說裝備購買的比例。",
+ "Next best": "次選",
+ "The second-best item to upgrade for this champion.": "這名英雄第二適合升級的裝備。",
+ "View": "檢視",
+ "By item": "依裝備",
+ "By champion": "依英雄",
+ "Each champion's best item to make its Weapon of Destiny: every candidate is upgraded in simulated fights with the champion's most popular build, then combined with how the item already wins as its first Legendary item.": "每名英雄最適合作為命定武器的裝備：每件候選裝備都在使用該英雄最熱門出裝的模擬戰鬥中升級，再結合該裝備作為其第一件傳說裝備時的實際勝率表現。",
+ "Simulated and estimated. Win rate boost turns the simulated upgrades into estimated win rate points, so champions near the top gain the most from the augment.": "模擬加估算。勝率提升把模擬中的升級收益換算成估算的勝率百分點，因此排在前面的英雄從這個強化中獲益最多。",
+ "Simulated": "模擬",
+ "Simulated: picked from simulated fights with each champion's most popular build.": "模擬：根據每位英雄最熱門出裝的模擬戰鬥選出。"
 }

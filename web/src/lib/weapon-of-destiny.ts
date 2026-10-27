@@ -96,3 +96,66 @@ function deepScore(entries: Entry[]): Map<string, number> {
   const mean = 0.5 + rated.reduce((s, [, v]) => s + v.lift! * v.share, 0) / total;
   return new Map(rated.map(([id, v]) => [id, lowerBound(0.5 + v.lift!, (v.share / median) * MEDIAN_GAMES, mean, PRIOR * MEDIAN_GAMES)]));
 }
+
+// By champion: each champion's best Weapon of Destiny item from data/estimates/champion_upgrades.py, which upgrades
+// every candidate (items the champion buys first, or in its popular build) in the Simulator and adds the item's real
+// win rate as a first item. Score is in win rate points.
+
+type Upgrades = {
+  champions: Record<
+    string,
+    {
+      weapon_of_destiny: {
+        takedowns: number;
+        best: number;
+        options: { item: number; sim_gain: number; first_share: number; score: number }[];
+      } | null;
+    }
+  >;
+};
+
+export type DestinyChampionRow = {
+  /** Champion id, as the tables and pages use it ("MonkeyKing"). */
+  champion: string;
+  item: { id: number; slug: string; name: string; icon: string };
+  /** Estimated win rate points from upgrading it, as a fraction (0.02 = 2 points). */
+  boost: number;
+  /** Simulated: how much stronger the upgrades make the champion in fights, as a fraction. */
+  power: number;
+  /** How often the champion already buys it as its first Legendary item. */
+  share: number;
+  /** The second-best item, when there is one. */
+  next: { id: number; slug: string; name: string; icon: string } | null;
+  /** Takedowns per game the upgrade was simulated with. */
+  takedowns: number;
+};
+
+export function destinyByChampion(): DestinyChampionRow[] {
+  const data = readRepoJson<Upgrades>("data/estimates/champion_upgrades.json");
+  if (!data) return [];
+  const pages = new Map(itemPages().map((p) => [p.id, p]));
+  const item = (id: number) => {
+    const p = pages.get(id);
+    return p ? { id, slug: p.slug, name: p.name, icon: p.icon ?? "" } : null;
+  };
+  const byKey = new Map(Object.entries(championIds).map(([alias, key]) => [String(key), alias]));
+  const rows: DestinyChampionRow[] = [];
+  for (const [key, c] of Object.entries(data.champions)) {
+    const wd = c.weapon_of_destiny;
+    const champion = byKey.get(key);
+    if (!wd || !champion) continue;
+    const options = wd.options.filter((o) => pages.has(o.item)).sort((a, b) => b.score - a.score);
+    const [best, second] = options;
+    if (!best) continue;
+    rows.push({
+      champion,
+      item: item(best.item)!,
+      boost: best.score / 100,
+      power: best.sim_gain / 100,
+      share: best.first_share,
+      next: second ? item(second.item) : null,
+      takedowns: wd.takedowns,
+    });
+  }
+  return rows;
+}

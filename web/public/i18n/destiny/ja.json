@@ -35,5 +35,22 @@
  "Stat value": "ステータス価値",
  "Anticipated: Weapon of Destiny has no games yet, so items are ranked by how valuable their stats are to upgrade. Once it has games, they're ranked by DeepScore from how the Weapon wins.": "予想：「運命の武器」にはまだ試合データがないため、強化するステータスの価値でアイテムを並べています。試合データが集まると、運命の武器の勝ち方に基づくDeepScoreで並べます。",
  "Estimated. Ranked by DeepScore, from each item's win rate and pick rate as the first Legendary item of the champions who take the augment. Items no champion buys first have no score yet.": "推定。このオーグメントを取るチャンピオンが最初のレジェンドアイテムとして選んだときの勝率とピック率から算出したDeepScoreで並べています。どのチャンピオンも最初に買わないアイテムにはまだスコアがありません。",
- "Stat value rates each item from 0 to 100 against the others, where 50 is average. Each of its stats counts by how much it's worth to upgrade, most for stats that multiply all your damage such as Critical Strike Damage or Armor Penetration, and by how few Legendary items give it. Tiers: S 70+, A 59+, B 44+, C 32+, D below.": "ステータス価値は、各アイテムを他のアイテムと比べて0〜100で評価します（50が平均）。各ステータスは強化する価値で数え、クリティカルダメージや物理防御貫通のように与えるダメージ全体を増やすステータスを最も重視し、さらにそのステータスを持つレジェンドアイテムの少なさも考慮します。ティア：S 70+、A 59+、B 44+、C 32+、それ未満はD。"
+ "Stat value rates each item from 0 to 100 against the others, where 50 is average. Each of its stats counts by how much it's worth to upgrade, most for stats that multiply all your damage such as Critical Strike Damage or Armor Penetration, and by how few Legendary items give it. Tiers: S 70+, A 59+, B 44+, C 32+, D below.": "ステータス価値は、各アイテムを他のアイテムと比べて0〜100で評価します（50が平均）。各ステータスは強化する価値で数え、クリティカルダメージや物理防御貫通のように与えるダメージ全体を増やすステータスを最も重視し、さらにそのステータスを持つレジェンドアイテムの少なさも考慮します。ティア：S 70+、A 59+、B 44+、C 32+、それ未満はD。",
+ "Champion": "チャンピオン",
+ "Find a champion": "チャンピオンを検索",
+ "Best item": "最適アイテム",
+ "Estimated. How much making this item the Weapon of Destiny raises the champion's win rate: its simulated upgrades plus how the item already wins as this champion's first Legendary item.": "推定。このアイテムを運命の武器にしたときにチャンピオンの勝率がどれだけ上がるか：シミュレーションでの強化分に、このチャンピオンの最初のレジェンドアイテムとしての実際の勝ち具合を加えたもの。",
+ "Fight power": "戦闘力",
+ "Simulated. How much stronger the upgraded item makes the champion in fights, with half its usual takedowns per game.": "シミュレーション。強化されたアイテムで戦闘中のチャンピオンがどれだけ強くなるか（1試合あたりの通常のテイクダウン数の半分で計算）。",
+ "Built first": "最初に購入",
+ "How often the champion already buys this item as its first Legendary item.": "このチャンピオンがすでにこのアイテムを最初のレジェンドアイテムとして買う割合。",
+ "Next best": "次点",
+ "The second-best item to upgrade for this champion.": "このチャンピオンで2番目に強化に向いたアイテム。",
+ "View": "表示",
+ "By item": "アイテム別",
+ "By champion": "チャンピオン別",
+ "Each champion's best item to make its Weapon of Destiny: every candidate is upgraded in simulated fights with the champion's most popular build, then combined with how the item already wins as its first Legendary item.": "各チャンピオンが運命の武器にすべき最適アイテム：候補ごとにチャンピオンの最も人気のビルドでシミュレーション戦闘を行って強化し、最初のレジェンドアイテムとしての実際の勝ち具合と組み合わせています。",
+ "Simulated and estimated. Win rate boost turns the simulated upgrades into estimated win rate points, so champions near the top gain the most from the augment.": "シミュレーションと推定。勝率上昇はシミュレーションの強化分を推定勝率ポイントに換算したもので、上位のチャンピオンほどこのオーグメントの恩恵が大きくなります。",
+ "Simulated": "シミュレーション",
+ "Simulated: picked from simulated fights with each champion's most popular build.": "シミュレーション：各チャンピオンの最も人気のビルドによるシミュレーション戦闘から選択。"
 }

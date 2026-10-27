@@ -35,5 +35,22 @@
  "Stat value": "Valor dos atributos",
  "Anticipated: Weapon of Destiny has no games yet, so items are ranked by how valuable their stats are to upgrade. Once it has games, they're ranked by DeepScore from how the Weapon wins.": "Previsto: Arma do Destino ainda não tem partidas, então os itens são ordenados por quão valiosos são seus atributos para melhorar. Quando houver partidas, eles serão ordenados por DeepScore conforme a Arma vence.",
  "Estimated. Ranked by DeepScore, from each item's win rate and pick rate as the first Legendary item of the champions who take the augment. Items no champion buys first have no score yet.": "Estimado. Ordenado por DeepScore, a partir da taxa de vitória e de escolha de cada item como primeiro item lendário dos campeões que pegam o aumento. Itens que nenhum campeão compra primeiro ainda não têm pontuação.",
- "Stat value rates each item from 0 to 100 against the others, where 50 is average. Each of its stats counts by how much it's worth to upgrade, most for stats that multiply all your damage such as Critical Strike Damage or Armor Penetration, and by how few Legendary items give it. Tiers: S 70+, A 59+, B 44+, C 32+, D below.": "O valor dos atributos avalia cada item de 0 a 100 em relação aos outros, sendo 50 a média. Cada atributo conta pelo quanto vale melhorá-lo, principalmente os que multiplicam todo o seu dano, como Dano de Acerto Crítico ou Penetração de Armadura, e por quão poucos itens lendários o dão. Níveis: S 70+, A 59+, B 44+, C 32+, D abaixo."
+ "Stat value rates each item from 0 to 100 against the others, where 50 is average. Each of its stats counts by how much it's worth to upgrade, most for stats that multiply all your damage such as Critical Strike Damage or Armor Penetration, and by how few Legendary items give it. Tiers: S 70+, A 59+, B 44+, C 32+, D below.": "O valor dos atributos avalia cada item de 0 a 100 em relação aos outros, sendo 50 a média. Cada atributo conta pelo quanto vale melhorá-lo, principalmente os que multiplicam todo o seu dano, como Dano de Acerto Crítico ou Penetração de Armadura, e por quão poucos itens lendários o dão. Níveis: S 70+, A 59+, B 44+, C 32+, D abaixo.",
+ "Champion": "Campeão",
+ "Find a champion": "Buscar um campeão",
+ "Best item": "Melhor item",
+ "Estimated. How much making this item the Weapon of Destiny raises the champion's win rate: its simulated upgrades plus how the item already wins as this champion's first Legendary item.": "Estimado. Quanto transformar este item na Arma do Destino aumenta a taxa de vitória do campeão: suas melhorias simuladas mais como o item já vence como primeiro item lendário deste campeão.",
+ "Fight power": "Poder em luta",
+ "Simulated. How much stronger the upgraded item makes the champion in fights, with half its usual takedowns per game.": "Simulado. Quanto o item melhorado deixa o campeão mais forte nas lutas, com metade das suas participações em abates habituais por partida.",
+ "Built first": "Comprado primeiro",
+ "How often the champion already buys this item as its first Legendary item.": "Com que frequência o campeão já compra este item como primeiro item lendário.",
+ "Next best": "Próximo melhor",
+ "The second-best item to upgrade for this champion.": "O segundo melhor item para melhorar com este campeão.",
+ "View": "Visualização",
+ "By item": "Por item",
+ "By champion": "Por campeão",
+ "Each champion's best item to make its Weapon of Destiny: every candidate is upgraded in simulated fights with the champion's most popular build, then combined with how the item already wins as its first Legendary item.": "O melhor item de cada campeão para ser sua Arma do Destino: cada candidato é melhorado em lutas simuladas com a build mais popular do campeão e depois combinado com como o item já vence como seu primeiro item lendário.",
+ "Simulated and estimated. Win rate boost turns the simulated upgrades into estimated win rate points, so champions near the top gain the most from the augment.": "Simulado e estimado. O aumento de taxa de vitória converte as melhorias simuladas em pontos estimados de taxa de vitória, então os campeões no topo ganham mais com o aumento.",
+ "Simulated": "Simulado",
+ "Simulated: picked from simulated fights with each champion's most popular build.": "Simulado: escolhido a partir de lutas simuladas com a build mais popular de cada campeão."
 }

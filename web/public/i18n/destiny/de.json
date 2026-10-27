@@ -35,5 +35,22 @@
  "Stat value": "Statwert",
  "Anticipated: Weapon of Destiny has no games yet, so items are ranked by how valuable their stats are to upgrade. Once it has games, they're ranked by DeepScore from how the Weapon wins.": "Erwartet: Waffe des Schicksals hat noch keine Spiele, daher sind die Gegenstände danach sortiert, wie wertvoll ihre Werte zum Aufwerten sind. Sobald es Spiele gibt, werden sie nach DeepScore sortiert, je nachdem, wie die Waffe gewinnt.",
  "Estimated. Ranked by DeepScore, from each item's win rate and pick rate as the first Legendary item of the champions who take the augment. Items no champion buys first have no score yet.": "Geschätzt. Nach DeepScore sortiert, aus der Siegrate und Wahlrate jedes Gegenstands als erster legendärer Gegenstand der Champions, die die Verstärkung nehmen. Gegenstände, die kein Champion zuerst kauft, haben noch keine Wertung.",
- "Stat value rates each item from 0 to 100 against the others, where 50 is average. Each of its stats counts by how much it's worth to upgrade, most for stats that multiply all your damage such as Critical Strike Damage or Armor Penetration, and by how few Legendary items give it. Tiers: S 70+, A 59+, B 44+, C 32+, D below.": "Der Statwert bewertet jeden Gegenstand von 0 bis 100 im Vergleich zu den anderen, wobei 50 der Durchschnitt ist. Jeder seiner Werte zählt danach, wie wertvoll er zum Aufwerten ist, am meisten Werte, die deinen gesamten Schaden vervielfachen, etwa Kritischer Schaden oder Rüstungsdurchdringung, und danach, wie wenige legendäre Gegenstände ihn geben. Stufen: S 70+, A 59+, B 44+, C 32+, D darunter."
+ "Stat value rates each item from 0 to 100 against the others, where 50 is average. Each of its stats counts by how much it's worth to upgrade, most for stats that multiply all your damage such as Critical Strike Damage or Armor Penetration, and by how few Legendary items give it. Tiers: S 70+, A 59+, B 44+, C 32+, D below.": "Der Statwert bewertet jeden Gegenstand von 0 bis 100 im Vergleich zu den anderen, wobei 50 der Durchschnitt ist. Jeder seiner Werte zählt danach, wie wertvoll er zum Aufwerten ist, am meisten Werte, die deinen gesamten Schaden vervielfachen, etwa Kritischer Schaden oder Rüstungsdurchdringung, und danach, wie wenige legendäre Gegenstände ihn geben. Stufen: S 70+, A 59+, B 44+, C 32+, D darunter.",
+ "Champion": "Champion",
+ "Find a champion": "Champion suchen",
+ "Best item": "Bester Gegenstand",
+ "Estimated. How much making this item the Weapon of Destiny raises the champion's win rate: its simulated upgrades plus how the item already wins as this champion's first Legendary item.": "Geschätzt. Wie stark es die Siegrate des Champions erhöht, diesen Gegenstand zur Waffe des Schicksals zu machen: seine simulierten Aufwertungen plus wie der Gegenstand als erster legendärer Gegenstand dieses Champions bereits gewinnt.",
+ "Fight power": "Kampfkraft",
+ "Simulated. How much stronger the upgraded item makes the champion in fights, with half its usual takedowns per game.": "Simuliert. Wie viel stärker der aufgewertete Gegenstand den Champion in Kämpfen macht, mit der Hälfte seiner üblichen Kills und Assists pro Spiel.",
+ "Built first": "Zuerst gekauft",
+ "How often the champion already buys this item as its first Legendary item.": "Wie oft der Champion diesen Gegenstand bereits als ersten legendären Gegenstand kauft.",
+ "Next best": "Nächstbester",
+ "The second-best item to upgrade for this champion.": "Der zweitbeste Gegenstand zum Aufwerten für diesen Champion.",
+ "View": "Ansicht",
+ "By item": "Nach Gegenstand",
+ "By champion": "Nach Champion",
+ "Each champion's best item to make its Weapon of Destiny: every candidate is upgraded in simulated fights with the champion's most popular build, then combined with how the item already wins as its first Legendary item.": "Der beste Gegenstand jedes Champions für die Waffe des Schicksals: Jeder Kandidat wird in simulierten Kämpfen mit dem beliebtesten Build des Champions aufgewertet und dann damit kombiniert, wie der Gegenstand als sein erster legendärer Gegenstand bereits gewinnt.",
+ "Simulated and estimated. Win rate boost turns the simulated upgrades into estimated win rate points, so champions near the top gain the most from the augment.": "Simuliert und geschätzt. Der Siegraten-Bonus rechnet die simulierten Aufwertungen in geschätzte Siegratenpunkte um, sodass Champions weiter oben am meisten von der Verstärkung profitieren.",
+ "Simulated": "Simuliert",
+ "Simulated: picked from simulated fights with each champion's most popular build.": "Simuliert: gewählt anhand simulierter Kämpfe mit dem beliebtesten Build jedes Champions."
 }

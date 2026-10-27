@@ -30,7 +30,7 @@ import { allChampionTags, championTagData } from "@/lib/champion-tags";
 import { fillGames } from "@/lib/fill";
 import { patchName } from "@/lib/patch-name";
 import WeaponOfDestiny from "@/components/WeaponOfDestiny";
-import { weaponOfDestiny } from "@/lib/weapon-of-destiny";
+import { destinyByChampion, weaponOfDestiny } from "@/lib/weapon-of-destiny";
 import Pentakill from "@/components/Pentakill";
 import { pentakill } from "@/lib/pentakill";
 
@@ -221,7 +221,7 @@ export default function TierListPage() {
       id: "weapon-of-destiny",
       label: "Weapon of Destiny",
       lazy: true,
-      content: <WeaponOfDestiny items={destiny.rows} gold={destiny.gold} anticipated={destiny.anticipated} />,
+      content: <WeaponOfDestiny items={destiny.rows} gold={destiny.gold} anticipated={destiny.anticipated} champions={destinyByChampion()} />,
     });
   }
 

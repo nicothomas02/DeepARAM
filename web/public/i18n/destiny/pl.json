@@ -35,5 +35,22 @@
  "Stat value": "Wartość statystyk",
  "Anticipated: Weapon of Destiny has no games yet, so items are ranked by how valuable their stats are to upgrade. Once it has games, they're ranked by DeepScore from how the Weapon wins.": "Przewidywane: Broń Przeznaczenia nie ma jeszcze gier, więc przedmioty są uszeregowane według tego, jak cenne są ich statystyki do ulepszania. Gdy pojawią się gry, będą szeregowane według DeepScore na podstawie tego, jak wygrywa Broń.",
  "Estimated. Ranked by DeepScore, from each item's win rate and pick rate as the first Legendary item of the champions who take the augment. Items no champion buys first have no score yet.": "Szacunek. Uszeregowane według DeepScore, na podstawie współczynnika zwycięstw i wyborów każdego przedmiotu jako pierwszego legendarnego przedmiotu bohaterów, którzy biorą to ulepszenie. Przedmioty, których żaden bohater nie kupuje jako pierwszych, nie mają jeszcze wyniku.",
- "Stat value rates each item from 0 to 100 against the others, where 50 is average. Each of its stats counts by how much it's worth to upgrade, most for stats that multiply all your damage such as Critical Strike Damage or Armor Penetration, and by how few Legendary items give it. Tiers: S 70+, A 59+, B 44+, C 32+, D below.": "Wartość statystyk ocenia każdy przedmiot od 0 do 100 na tle pozostałych, gdzie 50 to średnia. Każda jego statystyka liczy się według tego, ile jest warte jej ulepszanie, najbardziej te, które mnożą wszystkie twoje obrażenia, jak Obrażenia trafienia krytycznego czy Przebicie pancerza, oraz według tego, jak mało legendarnych przedmiotów ją daje. Poziomy: S 70+, A 59+, B 44+, C 32+, D poniżej."
+ "Stat value rates each item from 0 to 100 against the others, where 50 is average. Each of its stats counts by how much it's worth to upgrade, most for stats that multiply all your damage such as Critical Strike Damage or Armor Penetration, and by how few Legendary items give it. Tiers: S 70+, A 59+, B 44+, C 32+, D below.": "Wartość statystyk ocenia każdy przedmiot od 0 do 100 na tle pozostałych, gdzie 50 to średnia. Każda jego statystyka liczy się według tego, ile jest warte jej ulepszanie, najbardziej te, które mnożą wszystkie twoje obrażenia, jak Obrażenia trafienia krytycznego czy Przebicie pancerza, oraz według tego, jak mało legendarnych przedmiotów ją daje. Poziomy: S 70+, A 59+, B 44+, C 32+, D poniżej.",
+ "Champion": "Bohater",
+ "Find a champion": "Znajdź bohatera",
+ "Best item": "Najlepszy przedmiot",
+ "Estimated. How much making this item the Weapon of Destiny raises the champion's win rate: its simulated upgrades plus how the item already wins as this champion's first Legendary item.": "Szacunek. O ile zrobienie z tego przedmiotu Broni Przeznaczenia podnosi współczynnik zwycięstw bohatera: jego symulowane ulepszenia plus to, jak przedmiot już wygrywa jako pierwszy legendarny przedmiot tego bohatera.",
+ "Fight power": "Siła w walce",
+ "Simulated. How much stronger the upgraded item makes the champion in fights, with half its usual takedowns per game.": "Symulacja. O ile ulepszony przedmiot wzmacnia bohatera w walkach, przy połowie jego zwykłych udziałów w zabójstwach na grę.",
+ "Built first": "Kupowany pierwszy",
+ "How often the champion already buys this item as its first Legendary item.": "Jak często bohater już kupuje ten przedmiot jako pierwszy legendarny.",
+ "Next best": "Następny najlepszy",
+ "The second-best item to upgrade for this champion.": "Drugi najlepszy przedmiot do ulepszania dla tego bohatera.",
+ "View": "Widok",
+ "By item": "Według przedmiotu",
+ "By champion": "Według bohatera",
+ "Each champion's best item to make its Weapon of Destiny: every candidate is upgraded in simulated fights with the champion's most popular build, then combined with how the item already wins as its first Legendary item.": "Najlepszy przedmiot każdego bohatera na Broń Przeznaczenia: każdy kandydat jest ulepszany w symulowanych walkach z najpopularniejszym buildem bohatera, a potem łączony z tym, jak przedmiot już wygrywa jako jego pierwszy legendarny przedmiot.",
+ "Simulated and estimated. Win rate boost turns the simulated upgrades into estimated win rate points, so champions near the top gain the most from the augment.": "Symulacja i szacunek. Wzrost współczynnika zwycięstw zamienia symulowane ulepszenia na szacowane punkty, więc bohaterowie na górze zyskują na tym ulepszeniu najwięcej.",
+ "Simulated": "Symulacja",
+ "Simulated: picked from simulated fights with each champion's most popular build.": "Symulacja: wybrane na podstawie symulowanych walk z najpopularniejszym buildem każdego bohatera."
 }

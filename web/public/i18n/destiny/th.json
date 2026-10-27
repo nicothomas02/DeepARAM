@@ -35,5 +35,22 @@
  "Stat value": "คุณค่าค่าสถานะ",
  "Anticipated: Weapon of Destiny has no games yet, so items are ranked by how valuable their stats are to upgrade. Once it has games, they're ranked by DeepScore from how the Weapon wins.": "คาดการณ์: Weapon of Destiny ยังไม่มีข้อมูลเกม จึงเรียงไอเทมตามคุณค่าของค่าสถานะที่จะอัปเกรด เมื่อมีข้อมูลเกมแล้ว จะเรียงตาม DeepScore จากผลชนะของอาวุธ",
  "Estimated. Ranked by DeepScore, from each item's win rate and pick rate as the first Legendary item of the champions who take the augment. Items no champion buys first have no score yet.": "ประมาณการ เรียงตาม DeepScore จากอัตราชนะและอัตราเลือกของแต่ละไอเทมเมื่อเป็นไอเทม Legendary ชิ้นแรกของแชมเปียนที่เลือกออคเมนต์นี้ ไอเทมที่ไม่มีแชมเปียนคนใดซื้อเป็นชิ้นแรกยังไม่มีคะแนน",
- "Stat value rates each item from 0 to 100 against the others, where 50 is average. Each of its stats counts by how much it's worth to upgrade, most for stats that multiply all your damage such as Critical Strike Damage or Armor Penetration, and by how few Legendary items give it. Tiers: S 70+, A 59+, B 44+, C 32+, D below.": "คุณค่าค่าสถานะให้คะแนนแต่ละไอเทมตั้งแต่ 0 ถึง 100 เทียบกับไอเทมอื่น โดย 50 คือค่าเฉลี่ย ค่าสถานะแต่ละอย่างนับตามคุณค่าในการอัปเกรด โดยค่าสถานะที่เพิ่มดาเมจทั้งหมดแบบทวีคูณ เช่น ดาเมจคริติคอล หรือ เจาะเกราะ มีน้ำหนักมากที่สุด และนับตามจำนวนไอเทม Legendary ที่ให้ค่าสถานะนั้นซึ่งยิ่งน้อยยิ่งมีค่า ระดับ: S 70+, A 59+, B 44+, C 32+, D ต่ำกว่านั้น"
+ "Stat value rates each item from 0 to 100 against the others, where 50 is average. Each of its stats counts by how much it's worth to upgrade, most for stats that multiply all your damage such as Critical Strike Damage or Armor Penetration, and by how few Legendary items give it. Tiers: S 70+, A 59+, B 44+, C 32+, D below.": "คุณค่าค่าสถานะให้คะแนนแต่ละไอเทมตั้งแต่ 0 ถึง 100 เทียบกับไอเทมอื่น โดย 50 คือค่าเฉลี่ย ค่าสถานะแต่ละอย่างนับตามคุณค่าในการอัปเกรด โดยค่าสถานะที่เพิ่มดาเมจทั้งหมดแบบทวีคูณ เช่น ดาเมจคริติคอล หรือ เจาะเกราะ มีน้ำหนักมากที่สุด และนับตามจำนวนไอเทม Legendary ที่ให้ค่าสถานะนั้นซึ่งยิ่งน้อยยิ่งมีค่า ระดับ: S 70+, A 59+, B 44+, C 32+, D ต่ำกว่านั้น",
+ "Champion": "แชมเปี้ยน",
+ "Find a champion": "ค้นหาแชมเปี้ยน",
+ "Best item": "ไอเทมที่ดีที่สุด",
+ "Estimated. How much making this item the Weapon of Destiny raises the champion's win rate: its simulated upgrades plus how the item already wins as this champion's first Legendary item.": "ประมาณการ ว่าการทำให้ไอเทมนี้เป็น Weapon of Destiny ช่วยเพิ่มอัตราชนะของแชมเปียนได้เท่าไร: ผลการอัปเกรดจากการจำลอง บวกกับผลชนะจริงของไอเทมเมื่อเป็นไอเทม Legendary ชิ้นแรกของแชมเปียนนี้",
+ "Fight power": "พลังต่อสู้",
+ "Simulated. How much stronger the upgraded item makes the champion in fights, with half its usual takedowns per game.": "จำลอง ไอเทมที่อัปเกรดแล้วทำให้แชมเปียนแข็งแกร่งขึ้นในการต่อสู้เท่าไร โดยคิดจากครึ่งหนึ่งของจำนวนการมีส่วนร่วมสังหารปกติต่อเกม",
+ "Built first": "ซื้อเป็นชิ้นแรก",
+ "How often the champion already buys this item as its first Legendary item.": "แชมเปียนซื้อไอเทมนี้เป็นไอเทม Legendary ชิ้นแรกอยู่แล้วบ่อยแค่ไหน",
+ "Next best": "ตัวเลือกถัดไป",
+ "The second-best item to upgrade for this champion.": "ไอเทมที่ดีที่สุดอันดับสองสำหรับอัปเกรดกับแชมเปียนนี้",
+ "View": "มุมมอง",
+ "By item": "ตามไอเทม",
+ "By champion": "ตามแชมเปียน",
+ "Each champion's best item to make its Weapon of Destiny: every candidate is upgraded in simulated fights with the champion's most popular build, then combined with how the item already wins as its first Legendary item.": "ไอเทมที่ดีที่สุดของแต่ละแชมเปียนสำหรับทำเป็น Weapon of Destiny: ไอเทมแต่ละตัวเลือกจะถูกอัปเกรดในการต่อสู้จำลองด้วยบิลด์ยอดนิยมของแชมเปียน แล้วนำมารวมกับผลชนะจริงของไอเทมเมื่อเป็นไอเทม Legendary ชิ้นแรก",
+ "Simulated and estimated. Win rate boost turns the simulated upgrades into estimated win rate points, so champions near the top gain the most from the augment.": "จำลองและประมาณการ การเพิ่มอัตราชนะแปลงผลการอัปเกรดจากการจำลองเป็นแต้มอัตราชนะโดยประมาณ แชมเปียนที่อยู่ด้านบนจึงได้ประโยชน์จากออคเมนต์นี้มากที่สุด",
+ "Simulated": "จำลอง",
+ "Simulated: picked from simulated fights with each champion's most popular build.": "จำลอง: เลือกจากการต่อสู้จำลองด้วยบิลด์ยอดนิยมที่สุดของแต่ละแชมเปี้ยน"
 }

@@ -35,5 +35,22 @@
  "Stat value": "Hodnota statistik",
  "Anticipated: Weapon of Destiny has no games yet, so items are ranked by how valuable their stats are to upgrade. Once it has games, they're ranked by DeepScore from how the Weapon wins.": "Očekávané: Zbraň osudu zatím nemá žádné hry, takže předměty jsou seřazeny podle toho, jak cenné je vylepšovat jejich statistiky. Jakmile hry budou, seřadí se podle DeepScore z toho, jak Zbraň vyhrává.",
  "Estimated. Ranked by DeepScore, from each item's win rate and pick rate as the first Legendary item of the champions who take the augment. Items no champion buys first have no score yet.": "Odhad. Seřazeno podle DeepScore z míry výher a míry výběru každého předmětu jako prvního legendárního předmětu šampionů, kteří si tento augment berou. Předměty, které žádný šampion nekupuje jako první, zatím nemají skóre.",
- "Stat value rates each item from 0 to 100 against the others, where 50 is average. Each of its stats counts by how much it's worth to upgrade, most for stats that multiply all your damage such as Critical Strike Damage or Armor Penetration, and by how few Legendary items give it. Tiers: S 70+, A 59+, B 44+, C 32+, D below.": "Hodnota statistik hodnotí každý předmět od 0 do 100 vůči ostatním, kde 50 je průměr. Každá jeho statistika se počítá podle toho, jak cenné je ji vylepšovat, nejvíc statistiky, které násobí všechno tvé poškození, jako Poškození kritickým zásahem nebo Průraz brnění, a podle toho, jak málo legendárních předmětů ji dává. Úrovně: S 70+, A 59+, B 44+, C 32+, D níže."
+ "Stat value rates each item from 0 to 100 against the others, where 50 is average. Each of its stats counts by how much it's worth to upgrade, most for stats that multiply all your damage such as Critical Strike Damage or Armor Penetration, and by how few Legendary items give it. Tiers: S 70+, A 59+, B 44+, C 32+, D below.": "Hodnota statistik hodnotí každý předmět od 0 do 100 vůči ostatním, kde 50 je průměr. Každá jeho statistika se počítá podle toho, jak cenné je ji vylepšovat, nejvíc statistiky, které násobí všechno tvé poškození, jako Poškození kritickým zásahem nebo Průraz brnění, a podle toho, jak málo legendárních předmětů ji dává. Úrovně: S 70+, A 59+, B 44+, C 32+, D níže.",
+ "Champion": "Šampion",
+ "Find a champion": "Najít šampiona",
+ "Best item": "Nejlepší předmět",
+ "Estimated. How much making this item the Weapon of Destiny raises the champion's win rate: its simulated upgrades plus how the item already wins as this champion's first Legendary item.": "Odhad. O kolik zvýší míru výher šampiona, když se tento předmět stane Zbraní osudu: jeho simulovaná vylepšení plus jak předmět už vyhrává jako první legendární předmět tohoto šampiona.",
+ "Fight power": "Síla v boji",
+ "Simulated. How much stronger the upgraded item makes the champion in fights, with half its usual takedowns per game.": "Simulace. O kolik vylepšený předmět posílí šampiona v bojích, s polovinou jeho obvyklých zabití a asistencí za hru.",
+ "Built first": "Kupován první",
+ "How often the champion already buys this item as its first Legendary item.": "Jak často šampion tento předmět už kupuje jako první legendární předmět.",
+ "Next best": "Další nejlepší",
+ "The second-best item to upgrade for this champion.": "Druhý nejlepší předmět k vylepšení pro tohoto šampiona.",
+ "View": "Zobrazení",
+ "By item": "Podle předmětu",
+ "By champion": "Podle šampiona",
+ "Each champion's best item to make its Weapon of Destiny: every candidate is upgraded in simulated fights with the champion's most popular build, then combined with how the item already wins as its first Legendary item.": "Nejlepší předmět každého šampiona pro Zbraň osudu: každý kandidát se vylepší v simulovaných bojích s nejoblíbenějším buildem šampiona a pak se zkombinuje s tím, jak předmět už vyhrává jako jeho první legendární předmět.",
+ "Simulated and estimated. Win rate boost turns the simulated upgrades into estimated win rate points, so champions near the top gain the most from the augment.": "Simulace a odhad. Zvýšení míry výher převádí simulovaná vylepšení na odhadované body míry výher, takže šampioni nahoře z augmentu získají nejvíc.",
+ "Simulated": "Simulace",
+ "Simulated: picked from simulated fights with each champion's most popular build.": "Simulace: vybráno podle simulovaných soubojů s nejoblíbenějším buildem každého šampiona."
 }
