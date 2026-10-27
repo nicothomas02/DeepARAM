@@ -43,14 +43,14 @@ public struct SiteTab: Identifiable, Hashable, Sendable {
     /// The four main tabs; everything else lives under More.
     public static let primary: [SiteTab] = [.home, .tiers, .simulator, .pbe]
 
-    /// The More menu, in the site's order.
+    /// The More menu: the rest of the site's header, then the pages it opens from elsewhere
+    /// (champions from the tier lists, My Stats behind the account button).
     public static let more: [SiteTab] = [
-        SiteTab(id: "compare", title: "Compare", symbol: "rectangle.split.2x1", path: "/compare"),
-        SiteTab(id: "synergy", title: "Team Builder", symbol: "person.3.fill", path: "/synergy"),
+        SiteTab(id: "kitchen", title: "The Kitchen", symbol: "frying.pan.fill", path: "/kitchen"),
         SiteTab(id: "patches", title: "Patch Recaps", symbol: "doc.text.fill", path: "/patches"),
+        SiteTab(id: "champions", title: "Champions", symbol: "person.2.fill", path: "/champions"),
         SiteTab(id: "info", title: "Info", symbol: "book.fill", path: "/info"),
-        SiteTab(id: "lab", title: "The Lab", symbol: "testtube.2", path: "/lab"),
-        SiteTab(id: "stats", title: "My Stats", symbol: "person.crop.circle", path: "/stats"),
+        SiteTab(id: "account", title: "Account", symbol: "person.crop.circle", path: "/account"),
     ]
 
     public static let legal: [SiteTab] = [

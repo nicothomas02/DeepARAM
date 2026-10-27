@@ -25,10 +25,17 @@ struct MainWindow: View {
         .navigationTitle(model.title)
         .toolbar { toolbar }
         .focusedSceneObject(model)
+        // Handoff: the page on screen shows up on a nearby iPhone or iPad, in the app or in Safari.
+        .userActivity(WindowModel.handoffActivity, isActive: model.shareableURL != nil) { activity in
+            activity.title = model.title
+            activity.webpageURL = model.shareableURL
+            activity.isEligibleForHandoff = true
+        }
         .onAppear { OpenWindowBridge.openMain = { [openWindow] in openWindow(id: "main") } }
         .onReceive(NotificationCenter.default.publisher(for: .deeparamOpenURL)) { note in
-            // Patch alerts land in the frontmost window.
-            guard let url = note.object as? URL, model.current.webView.window?.isKeyWindow == true else { return }
+            // Patch alerts, links and the menu bar panel land in the window the router picked.
+            guard let url = note.object as? URL, let target = note.userInfo?["window"] as? NSWindow,
+                  model.current.webView.window === target else { return }
             model.open(url)
         }
     }
@@ -127,8 +134,11 @@ final class WindowRouter {
 
     func open(_ url: URL) {
         NSApp.activate(ignoringOtherApps: true)
-        if NSApp.windows.contains(where: { $0.isVisible && $0.canBecomeMain }) {
-            NotificationCenter.default.post(name: .deeparamOpenURL, object: url)
+        // The frontmost app window, even while the menu bar panel has focus.
+        let windows = NSApp.orderedWindows.filter { $0.isVisible && $0.canBecomeMain }
+        if let target = windows.first(where: \.isMainWindow) ?? windows.first {
+            target.makeKeyAndOrderFront(nil)
+            NotificationCenter.default.post(name: .deeparamOpenURL, object: url, userInfo: ["window": target])
         } else {
             pending = url
             OpenWindowBridge.openMain?()

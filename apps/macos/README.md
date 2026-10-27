@@ -10,6 +10,12 @@ the rest), each shown in its own web view that remembers where you were, plus wh
   a day (and after each new patch). With no connection a page shows its saved copy under a banner.
 - **Patch notifications**: every 3 hours (and on wake) the app reads `/data/app-status.json` and posts a
   notification when a new live or PBE patch appears. Clicking it opens the Tier List or PBE page.
+- **Menu bar lookup**: a menu bar icon opens a small panel with today's Chef Special and a champion search.
+  Pick a champion to see their tier, win rate, skill order, items and augments for the live patch, or open
+  their page. It reads `/data/watch.json` and keeps the last copy for offline use. Switch it off in Settings.
+- **Handoff**: the page on screen is offered to a nearby iPhone or iPad.
+- **App links**: `deeparam://champions/Ahri` (or any site path) opens that page in the frontmost window.
+- **Dock menu**: right-click the Dock icon to jump to a section. About DeepARAM shows Riot's notice.
 - Links to other sites open in the default browser. Sign-in and settings persist like Safari's.
 
 The web view, offline copies, sections, link rules and patch check come from `apps/shared/DeepARAMKit`,

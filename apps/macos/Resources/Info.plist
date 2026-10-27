@@ -32,6 +32,21 @@
 	<string>DeepARAM isn't endorsed by Riot Games.</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>com.deeparam.mac</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>deeparam</string>
+			</array>
+		</dict>
+	</array>
+	<key>NSUserActivityTypes</key>
+	<array>
+		<string>com.deeparam.mac.browsing</string>
+	</array>
 	<key>NSSupportsAutomaticTermination</key>
 	<false/>
 </dict>
