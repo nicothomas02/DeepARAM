@@ -1,20 +1,20 @@
 {
  "Champion": "Hős",
  "Start": "Kezdés",
- "The basic ability to Empower at the start of the game: the one that makes the champion strongest at levels 8, 13 and 18.": "Az alapképesség, amit a játék elején érdemes megerősíteni: amelyikkel a hős a 8., 13. és 18. szinten a legerősebb.",
+ "The basic ability to Empower at the start of the game: the one that helps the team most at levels 8, 13 and 18.": "Az alapképesség, amit a játék elején érdemes megerősíteni: amelyik a 8., 13. és 18. szinten a legtöbbet segít a csapatnak.",
  "Level 18": "18. szint",
  "The second ability to Empower at level 18, the ultimate included, on top of the first one.": "A második képesség, amit a 18. szinten érdemes megerősíteni, a végső képességet is beleértve, az első mellé.",
  "Win rate boost": "Győzelmi többlet",
  "Estimated. How much both Empowers together raise the champion's win rate: the start pick counts for the whole game, the level 18 pick for the part played at level 18.": "Becsült. Mennyivel emeli a két megerősítés együtt a hős győzelmi arányát: a kezdő választás az egész játékra számít, a 18. szintes a 18. szinten játszott részre.",
  "Start power": "Kezdő erő",
- "Simulated. How much stronger the start pick makes the champion in fights, averaged over levels 8, 13 and 18.": "Szimulált. Mennyivel erősebb a hős a harcokban a kezdő választással, a 8., 13. és 18. szint átlagában.",
+ "Simulated. How much more the start pick adds to team fights (damage, healing and shielding, crowd control), averaged over levels 8, 13 and 18.": "Szimulált. Mennyivel többet ad a kezdő választás a csapatharcokban (sebzés, gyógyítás és pajzsok, tömegirányítás), a 8., 13. és 18. szint átlagában.",
  "Level 18 power": "Erő a 18. szinten",
- "Simulated. How much stronger the level 18 pick makes the champion in fights, on top of the start pick.": "Szimulált. Mennyivel erősebb a hős a harcokban a 18. szintes választással, a kezdő választáson felül.",
+ "Simulated. How much more the level 18 pick adds to team fights, on top of the start pick.": "Szimulált. Mennyivel többet ad a 18. szintű választás a csapatharcokban a kezdő választáson felül.",
  "Close call": "Szoros döntés",
  "The next best start pick when it's almost as strong. Either one works.": "A következő legjobb kezdő választás, ha majdnem ugyanolyan erős. Bármelyik jó.",
  "Simulated: picked from simulated fights with each champion's most popular build.": "Szimulált: minden hős legnépszerűbb buildjével vívott szimulált harcok alapján választva.",
  "Simulated": "Szimulált",
  "In a Pentakill game you Empower one basic ability at the start and a second one at level 18, where the ultimate counts too: {heavy} for Q, {power} for W, {thrash} for E and {doom} for R. Each gives the ability 20 Ability Haste and 10% more damage, healing and shielding.": "Egy Pentakill játékban a kezdéskor megerősítesz egy alapképességet, a 18. szinten pedig egy másodikat, ahol a végső képesség is számít: {heavy} a Q-hoz, {power} a W-hez, {thrash} az E-hez és {doom} az R-hez. Mindegyik 20 képességgyorsítást és 10%-kal több sebzést, gyógyítást és pajzsot ad a képességnek.",
  "Find a champion": "Hős keresése",
- "Simulated. Each pick is the ability that makes the champion strongest in simulated fights with its most popular build. Win rate boost turns that into estimated win rate points, so champions near the top gain the most from a Pentakill game.": "Szimulált. Minden választás az a képesség, amellyel a hős a legnépszerűbb buildjével a legerősebb a szimulált harcokban. A győzelmi többlet ezt becsült győzelmi arány pontokká alakítja: a lista tetején álló hősök nyernek a legtöbbet egy Pentakill játékkal."
+ "Simulated. Each pick is the ability that adds the most to a team fight with the champion's most popular build, judged by its role: damage for carries; healing, shielding and crowd control for supports and tanks. Win rate boost turns that into estimated win rate points, so champions near the top gain the most from a Pentakill game.": "Szimulált. Minden választás az a képesség, amely a legtöbbet adja egy csapatharchoz a hős legnépszerűbb buildjével, a szerepe szerint: sebzés a carryknél; gyógyítás, pajzsok és tömegirányítás a supportoknál és tankoknál. A győzelmi többlet ezt becsült győzelmi arány pontokká alakítja: a lista tetején álló hősök nyernek a legtöbbet egy Pentakill játékkal."
 }

@@ -1,20 +1,20 @@
 {
  "Champion": "Campeón",
  "Start": "Inicio",
- "The basic ability to Empower at the start of the game: the one that makes the champion strongest at levels 8, 13 and 18.": "La habilidad básica que conviene potenciar al inicio de la partida: la que hace más fuerte al campeón en los niveles 8, 13 y 18.",
+ "The basic ability to Empower at the start of the game: the one that helps the team most at levels 8, 13 and 18.": "La habilidad básica que conviene potenciar al inicio de la partida: la que más ayuda al equipo en los niveles 8, 13 y 18.",
  "Level 18": "Nivel 18",
  "The second ability to Empower at level 18, the ultimate included, on top of the first one.": "La segunda habilidad que conviene potenciar en el nivel 18, la definitiva incluida, además de la primera.",
  "Win rate boost": "Mejora de victorias",
  "Estimated. How much both Empowers together raise the champion's win rate: the start pick counts for the whole game, the level 18 pick for the part played at level 18.": "Estimado. Cuánto suben juntos ambos potenciadores la tasa de victorias del campeón: la elección inicial cuenta para toda la partida y la del nivel 18 para la parte jugada en el nivel 18.",
  "Start power": "Poder inicial",
- "Simulated. How much stronger the start pick makes the champion in fights, averaged over levels 8, 13 and 18.": "Simulado. Cuánto más fuerte hace la elección inicial al campeón en combate, de media en los niveles 8, 13 y 18.",
+ "Simulated. How much more the start pick adds to team fights (damage, healing and shielding, crowd control), averaged over levels 8, 13 and 18.": "Simulado. Cuánto más aporta la elección inicial en las peleas de equipo (daño, curación y escudos, control de masas), de media en los niveles 8, 13 y 18.",
  "Level 18 power": "Poder en nivel 18",
- "Simulated. How much stronger the level 18 pick makes the champion in fights, on top of the start pick.": "Simulado. Cuánto más fuerte hace la elección del nivel 18 al campeón en combate, además de la elección inicial.",
+ "Simulated. How much more the level 18 pick adds to team fights, on top of the start pick.": "Simulado. Cuánto más aporta la elección del nivel 18 en las peleas de equipo, además de la elección inicial.",
  "Close call": "Elección ajustada",
  "The next best start pick when it's almost as strong. Either one works.": "La siguiente mejor elección inicial cuando es casi igual de fuerte. Cualquiera de las dos sirve.",
  "Simulated: picked from simulated fights with each champion's most popular build.": "Simulado: elegido a partir de combates simulados con la build más popular de cada campeón.",
  "Simulated": "Simulado",
  "In a Pentakill game you Empower one basic ability at the start and a second one at level 18, where the ultimate counts too: {heavy} for Q, {power} for W, {thrash} for E and {doom} for R. Each gives the ability 20 Ability Haste and 10% more damage, healing and shielding.": "En una partida Pentakill potencias una habilidad básica al inicio y una segunda en el nivel 18, donde también cuenta la definitiva: {heavy} para la Q, {power} para la W, {thrash} para la E y {doom} para la R. Cada una da a la habilidad 20 de aceleración de habilidad y un 10 % más de daño, curación y escudos.",
  "Find a champion": "Buscar un campeón",
- "Simulated. Each pick is the ability that makes the champion strongest in simulated fights with its most popular build. Win rate boost turns that into estimated win rate points, so champions near the top gain the most from a Pentakill game.": "Simulado. Cada elección es la habilidad que hace más fuerte al campeón en combates simulados con su build más popular. La mejora de victorias lo convierte en puntos de tasa de victorias estimados: los campeones de arriba son los que más ganan con una partida Pentakill."
+ "Simulated. Each pick is the ability that adds the most to a team fight with the champion's most popular build, judged by its role: damage for carries; healing, shielding and crowd control for supports and tanks. Win rate boost turns that into estimated win rate points, so champions near the top gain the most from a Pentakill game.": "Simulado. Cada elección es la habilidad que más aporta a una pelea de equipo con la build más popular del campeón, según su rol: daño para los carries; curación, escudos y control de masas para los soportes y tanques. La mejora de victorias lo convierte en puntos de tasa de victorias estimados: los campeones de arriba son los que más ganan con una partida Pentakill."
 }

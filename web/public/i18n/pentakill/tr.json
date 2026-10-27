@@ -1,20 +1,20 @@
 {
  "Champion": "Şampiyon",
  "Start": "Başlangıç",
- "The basic ability to Empower at the start of the game: the one that makes the champion strongest at levels 8, 13 and 18.": "Oyunun başında güçlendirilecek temel yetenek: şampiyonu 8, 13 ve 18. seviyelerde en güçlü yapan.",
+ "The basic ability to Empower at the start of the game: the one that helps the team most at levels 8, 13 and 18.": "Oyunun başında güçlendirilecek temel yetenek: 8, 13 ve 18. seviyelerde takıma en çok yardım eden.",
  "Level 18": "18. seviye",
  "The second ability to Empower at level 18, the ultimate included, on top of the first one.": "İlkine ek olarak 18. seviyede güçlendirilecek ikinci yetenek, ulti dahil.",
  "Win rate boost": "Kazanma oranı artışı",
  "Estimated. How much both Empowers together raise the champion's win rate: the start pick counts for the whole game, the level 18 pick for the part played at level 18.": "Tahmini. İki güçlendirmenin birlikte şampiyonun kazanma oranını ne kadar artırdığı: başlangıç seçimi tüm oyun boyunca, 18. seviye seçimi oyunun 18. seviyede oynanan kısmında sayılır.",
  "Start power": "Başlangıç gücü",
- "Simulated. How much stronger the start pick makes the champion in fights, averaged over levels 8, 13 and 18.": "Simülasyon. Başlangıç seçiminin şampiyonu çatışmalarda ne kadar güçlendirdiği, 8, 13 ve 18. seviyelerin ortalaması.",
+ "Simulated. How much more the start pick adds to team fights (damage, healing and shielding, crowd control), averaged over levels 8, 13 and 18.": "Simülasyon. Başlangıç seçiminin takım savaşlarına ne kadar kattığı (hasar, iyileştirme ve kalkanlar, kitle kontrolü), 8, 13 ve 18. seviyelerin ortalaması.",
  "Level 18 power": "18. seviye gücü",
- "Simulated. How much stronger the level 18 pick makes the champion in fights, on top of the start pick.": "Simülasyon. 18. seviye seçiminin, başlangıç seçimine ek olarak şampiyonu çatışmalarda ne kadar güçlendirdiği.",
+ "Simulated. How much more the level 18 pick adds to team fights, on top of the start pick.": "Simülasyon. 18. seviye seçiminin, başlangıç seçiminin üstüne takım savaşlarına ne kadar kattığı.",
  "Close call": "Yakın seçim",
  "The next best start pick when it's almost as strong. Either one works.": "Neredeyse aynı güçteyse bir sonraki en iyi başlangıç seçimi. İkisi de olur.",
  "Simulated: picked from simulated fights with each champion's most popular build.": "Simülasyon: her şampiyonun en popüler buildiyle yapılan simüle çatışmalara göre seçildi.",
  "Simulated": "Simülasyon",
  "In a Pentakill game you Empower one basic ability at the start and a second one at level 18, where the ultimate counts too: {heavy} for Q, {power} for W, {thrash} for E and {doom} for R. Each gives the ability 20 Ability Haste and 10% more damage, healing and shielding.": "Bir Pentakill oyununda başlangıçta bir temel yeteneği, 18. seviyede de ikinci bir yeteneği güçlendirirsin; burada ulti de sayılır: Q için {heavy}, W için {power}, E için {thrash} ve R için {doom}. Her biri yeteneğe 20 Yetenek Hızı ve %10 fazla hasar, iyileştirme ve kalkan verir.",
  "Find a champion": "Şampiyon bul",
- "Simulated. Each pick is the ability that makes the champion strongest in simulated fights with its most popular build. Win rate boost turns that into estimated win rate points, so champions near the top gain the most from a Pentakill game.": "Simülasyon. Her seçim, şampiyonu en popüler buildiyle simüle çatışmalarda en güçlü yapan yetenektir. Kazanma oranı artışı bunu tahmini kazanma oranı puanlarına çevirir: listenin üstündeki şampiyonlar bir Pentakill oyunundan en çok kazananlardır."
+ "Simulated. Each pick is the ability that adds the most to a team fight with the champion's most popular build, judged by its role: damage for carries; healing, shielding and crowd control for supports and tanks. Win rate boost turns that into estimated win rate points, so champions near the top gain the most from a Pentakill game.": "Simülasyon. Her seçim, şampiyonun en popüler buildiyle bir takım savaşına en çok katkı veren yetenektir; rolüne göre değerlendirilir: taşıyıcılar için hasar; destekler ve tanklar için iyileştirme, kalkanlar ve kitle kontrolü. Kazanma oranı artışı bunu tahmini kazanma oranı puanlarına çevirir: listenin üstündeki şampiyonlar bir Pentakill oyunundan en çok kazananlardır."
 }

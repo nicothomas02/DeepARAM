@@ -1,20 +1,20 @@
 {
  "Champion": "Champion",
  "Start": "Awal",
- "The basic ability to Empower at the start of the game: the one that makes the champion strongest at levels 8, 13 and 18.": "Ability dasar yang di-Empower di awal game: yang membuat champion paling kuat di level 8, 13 dan 18.",
+ "The basic ability to Empower at the start of the game: the one that helps the team most at levels 8, 13 and 18.": "Ability dasar yang di-Empower di awal game: yang paling membantu tim di level 8, 13 dan 18.",
  "Level 18": "Level 18",
  "The second ability to Empower at level 18, the ultimate included, on top of the first one.": "Ability kedua yang di-Empower di level 18, termasuk ultimate, di atas yang pertama.",
  "Win rate boost": "Tambahan win rate",
  "Estimated. How much both Empowers together raise the champion's win rate: the start pick counts for the whole game, the level 18 pick for the part played at level 18.": "Perkiraan. Seberapa besar kedua Empower bersama menaikkan win rate champion: pilihan awal berlaku sepanjang game, pilihan level 18 untuk bagian game di level 18.",
  "Start power": "Kekuatan awal",
- "Simulated. How much stronger the start pick makes the champion in fights, averaged over levels 8, 13 and 18.": "Simulasi. Seberapa kuat pilihan awal membuat champion dalam pertarungan, rata-rata di level 8, 13 dan 18.",
+ "Simulated. How much more the start pick adds to team fights (damage, healing and shielding, crowd control), averaged over levels 8, 13 and 18.": "Simulasi. Seberapa banyak tambahan pilihan awal dalam team fight (damage, heal dan shield, crowd control), rata-rata di level 8, 13 dan 18.",
  "Level 18 power": "Kekuatan level 18",
- "Simulated. How much stronger the level 18 pick makes the champion in fights, on top of the start pick.": "Simulasi. Seberapa kuat pilihan level 18 membuat champion dalam pertarungan, di atas pilihan awal.",
+ "Simulated. How much more the level 18 pick adds to team fights, on top of the start pick.": "Simulasi. Seberapa banyak tambahan pilihan level 18 dalam team fight, di atas pilihan awal.",
  "Close call": "Pilihan tipis",
  "The next best start pick when it's almost as strong. Either one works.": "Pilihan awal terbaik berikutnya saat hampir sama kuat. Keduanya bisa dipakai.",
  "Simulated: picked from simulated fights with each champion's most popular build.": "Simulasi: dipilih dari pertarungan simulasi dengan build terpopuler tiap champion.",
  "Simulated": "Simulasi",
  "In a Pentakill game you Empower one basic ability at the start and a second one at level 18, where the ultimate counts too: {heavy} for Q, {power} for W, {thrash} for E and {doom} for R. Each gives the ability 20 Ability Haste and 10% more damage, healing and shielding.": "Dalam game Pentakill kamu meng-Empower satu ability dasar di awal dan ability kedua di level 18, saat ultimate juga dihitung: {heavy} untuk Q, {power} untuk W, {thrash} untuk E dan {doom} untuk R. Masing-masing memberi ability itu 20 Ability Haste dan 10% damage, heal dan shield lebih banyak.",
  "Find a champion": "Cari champion",
- "Simulated. Each pick is the ability that makes the champion strongest in simulated fights with its most popular build. Win rate boost turns that into estimated win rate points, so champions near the top gain the most from a Pentakill game.": "Simulasi. Tiap pilihan adalah ability yang membuat champion paling kuat dalam pertarungan simulasi dengan build terpopulernya. Tambahan win rate mengubahnya menjadi poin win rate perkiraan, jadi champion di atas paling diuntungkan oleh game Pentakill."
+ "Simulated. Each pick is the ability that adds the most to a team fight with the champion's most popular build, judged by its role: damage for carries; healing, shielding and crowd control for supports and tanks. Win rate boost turns that into estimated win rate points, so champions near the top gain the most from a Pentakill game.": "Simulasi. Tiap pilihan adalah ability yang paling banyak menambah team fight dengan build terpopuler champion, sesuai perannya: damage untuk carry; heal, shield dan crowd control untuk support dan tank. Tambahan win rate mengubahnya menjadi poin win rate perkiraan, jadi champion di atas paling diuntungkan oleh game Pentakill."
 }

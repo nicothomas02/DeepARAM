@@ -4,18 +4,21 @@ import augmentNames from "@/data/augment-names.json";
 import { augmentHref } from "@/lib/augments";
 import type { ChampionUpgrades } from "@/lib/champion-upgrades";
 import { Cell, Panel, signed } from "./Ranked";
+import SimTag from "./SimTag";
 
 // A champion page's "Best upgrades" panel (lib/champion-upgrades.ts): the best 4 augments together, the item to
 // make the Weapon of Destiny and the Pentakill picks. Labelled simulated and estimated, like the Tier List tab.
 
 const NS = "champions";
 const AUG_NAMES = augmentNames as Record<string, string>;
+const SIM_TITLE = "Simulated: one of these augments has no real games yet, so only simulated fights put it in the set.";
 
-function Line({ label, children, cells }: { label: string; children: React.ReactNode; cells: React.ReactNode }) {
+function Line({ label, tag, children, cells }: { label: string; tag?: React.ReactNode; children: React.ReactNode; cells: React.ReactNode }) {
   return (
     <div className="cp-upg">
       <small className="cp-upg-label">
         <T ns={NS}>{label}</T>
+        {tag}
       </small>
       <div className="cp-what">{children}</div>
       {cells}
@@ -56,6 +59,7 @@ export default function BestUpgrades({ u }: { u: ChampionUpgrades }) {
         {u.augments && (
           <Line
             label="Best 4 augments together"
+            tag={u.augments.simulated && <SimTag title={SIM_TITLE} />}
             cells={
               <>
                 <Cell value={signed(u.augments.boost)} label="Est. boost" tone={u.augments.boost > 0 ? "up" : undefined} />

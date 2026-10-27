@@ -1,20 +1,20 @@
 {
  "Champion": "Campion",
  "Start": "Start",
- "The basic ability to Empower at the start of the game: the one that makes the champion strongest at levels 8, 13 and 18.": "Abilitatea de bază de întărit la începutul jocului: cea care îl face pe campion cel mai puternic la nivelurile 8, 13 și 18.",
+ "The basic ability to Empower at the start of the game: the one that helps the team most at levels 8, 13 and 18.": "Abilitatea de bază de întărit la începutul jocului: cea care ajută cel mai mult echipa la nivelurile 8, 13 și 18.",
  "Level 18": "Nivelul 18",
  "The second ability to Empower at level 18, the ultimate included, on top of the first one.": "A doua abilitate de întărit la nivelul 18, inclusiv cea supremă, pe lângă prima.",
  "Win rate boost": "Spor de victorie",
  "Estimated. How much both Empowers together raise the champion's win rate: the start pick counts for the whole game, the level 18 pick for the part played at level 18.": "Estimat. Cât cresc împreună cele două întăriri rata de victorie a campionului: alegerea de start contează tot jocul, cea de la nivelul 18 pentru partea jucată la nivelul 18.",
  "Start power": "Putere la start",
- "Simulated. How much stronger the start pick makes the champion in fights, averaged over levels 8, 13 and 18.": "Simulat. Cât de mult mai puternic face alegerea de start campionul în lupte, în medie la nivelurile 8, 13 și 18.",
+ "Simulated. How much more the start pick adds to team fights (damage, healing and shielding, crowd control), averaged over levels 8, 13 and 18.": "Simulat. Cât adaugă alegerea de start în luptele de echipă (daune, vindecare și scuturi, control al mulțimilor), în medie la nivelurile 8, 13 și 18.",
  "Level 18 power": "Putere la nivelul 18",
- "Simulated. How much stronger the level 18 pick makes the champion in fights, on top of the start pick.": "Simulat. Cât de mult mai puternic face alegerea de la nivelul 18 campionul în lupte, pe lângă alegerea de start.",
+ "Simulated. How much more the level 18 pick adds to team fights, on top of the start pick.": "Simulat. Cât adaugă alegerea de la nivelul 18 în luptele de echipă, peste alegerea de start.",
  "Close call": "Alegere strânsă",
  "The next best start pick when it's almost as strong. Either one works.": "Următoarea cea mai bună alegere de start când e aproape la fel de puternică. Oricare merge.",
  "Simulated: picked from simulated fights with each champion's most popular build.": "Simulat: ales din lupte simulate cu cel mai popular build al fiecărui campion.",
  "Simulated": "Simulat",
  "In a Pentakill game you Empower one basic ability at the start and a second one at level 18, where the ultimate counts too: {heavy} for Q, {power} for W, {thrash} for E and {doom} for R. Each gives the ability 20 Ability Haste and 10% more damage, healing and shielding.": "Într-un joc Pentakill întărești o abilitate de bază la start și a doua la nivelul 18, când contează și cea supremă: {heavy} pentru Q, {power} pentru W, {thrash} pentru E și {doom} pentru R. Fiecare îi dă abilității 20 de accelerare a abilităților și cu 10% mai multe daune, vindecări și scuturi.",
  "Find a champion": "Caută un campion",
- "Simulated. Each pick is the ability that makes the champion strongest in simulated fights with its most popular build. Win rate boost turns that into estimated win rate points, so champions near the top gain the most from a Pentakill game.": "Simulat. Fiecare alegere este abilitatea care îl face pe campion cel mai puternic în lupte simulate cu cel mai popular build al său. Sporul de victorie transformă asta în puncte estimate de rată de victorie: campionii din vârf câștigă cel mai mult dintr-un joc Pentakill."
+ "Simulated. Each pick is the ability that adds the most to a team fight with the champion's most popular build, judged by its role: damage for carries; healing, shielding and crowd control for supports and tanks. Win rate boost turns that into estimated win rate points, so champions near the top gain the most from a Pentakill game.": "Simulat. Fiecare alegere este abilitatea care adaugă cel mai mult într-o luptă de echipă cu cel mai popular build al campionului, după rolul lui: daune pentru carry; vindecare, scuturi și control al mulțimilor pentru suporți și tancuri. Sporul de victorie transformă asta în puncte estimate de rată de victorie: campionii din vârf câștigă cel mai mult dintr-un joc Pentakill."
 }

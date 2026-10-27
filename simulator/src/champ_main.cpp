@@ -223,10 +223,10 @@ std::string summaryJson(const Summary& s) {
                   "{\"mean_dps\": %.1f, \"ci95\": %.1f, \"p5\": %.1f, \"median\": %.1f, \"p95\": %.1f, "
                   "\"single_target_dps\": %.1f, \"kills_per_minute\": %.3f, \"survival_rate\": %.4f, "
                   "\"time_alive\": %.2f, \"damage_taken_per_s\": %.1f, \"dps_short_fight\": %.1f, \"dps_long_fight\": %.1f, "
-                  "\"damage_taken\": %.0f, \"damage_mitigated\": %.0f, \"healing\": %.0f, \"shielding\": %.0f, \"cc_seconds\": %.2f, \"share_by_source\": {",
+                  "\"damage_taken\": %.0f, \"damage_mitigated\": %.0f, \"healing\": %.0f, \"shielding\": %.0f, \"cc_seconds\": %.2f, \"cc_hard_seconds\": %.2f, \"share_by_source\": {",
                   s.meanDps, s.ci95, s.p5, s.median, s.p95, s.singleTargetDps, s.killsPerMinute, s.survivalRate,
                   s.meanTimeAlive, s.damageTakenPerSec, s.shortDps, s.longDps, s.damageTaken, s.damageMitigated, s.healing,
-                  s.shielding, s.ccSeconds);
+                  s.shielding, s.ccSeconds, s.ccHardSeconds);
     std::string out = buf;
     for (int i = 0; i < SrcCount; ++i) {
         std::snprintf(buf, sizeof buf, "%s\"%s\": %.4f", i ? ", " : "", kSourceNames[i], s.shareBySource[i]);

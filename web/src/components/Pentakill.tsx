@@ -5,7 +5,8 @@ import type { PentakillRow } from "@/lib/pentakill";
 import { useNames, useT } from "./I18n";
 
 // The Tier List's Pentakill tab (?tab=pentakill): the ability each champion should Empower at the start of a
-// Pentakill game and the one to add at level 18, sorted by the estimated win rate boost (lib/pentakill.ts).
+// Pentakill game and the one to add at level 18, judged by what it adds to a team fight for the champion's role
+// (healing and shielding for enchanters, damage for carries), sorted by the estimated win rate boost (lib/pentakill.ts).
 
 // A pick within this much of the next best start pick is a close call: either one works.
 const CLOSE = 0.01;
@@ -23,7 +24,7 @@ export default function Pentakill({ rows }: { rows: PentakillRow[] }) {
       format: "ability",
       iconKey: "startIcon",
       sortable: false,
-      hint: t("The basic ability to Empower at the start of the game: the one that makes the champion strongest at levels 8, 13 and 18."),
+      hint: t("The basic ability to Empower at the start of the game: the one that helps the team most at levels 8, 13 and 18."),
     },
     {
       key: "level18",
@@ -44,14 +45,14 @@ export default function Pentakill({ rows }: { rows: PentakillRow[] }) {
       label: t("Start power"),
       format: "pct",
       phone: "hide",
-      hint: t("Simulated. How much stronger the start pick makes the champion in fights, averaged over levels 8, 13 and 18."),
+      hint: t("Simulated. How much more the start pick adds to team fights (damage, healing and shielding, crowd control), averaged over levels 8, 13 and 18."),
     },
     {
       key: "level18Gain",
       label: t("Level 18 power"),
       format: "pct",
       phone: "hide",
-      hint: t("Simulated. How much stronger the level 18 pick makes the champion in fights, on top of the start pick."),
+      hint: t("Simulated. How much more the level 18 pick adds to team fights, on top of the start pick."),
     },
     {
       key: "next",
@@ -95,7 +96,7 @@ export default function Pentakill({ rows }: { rows: PentakillRow[] }) {
       <DataTable columns={columns} rows={data} initialSort={{ key: "boost", desc: true }} searchKey="champion" searchLabel={t("Find a champion")} urlTab="pentakill" />
       <p className="patch-note">
         {t(
-          "Simulated. Each pick is the ability that makes the champion strongest in simulated fights with its most popular build. Win rate boost turns that into estimated win rate points, so champions near the top gain the most from a Pentakill game.",
+          "Simulated. Each pick is the ability that adds the most to a team fight with the champion's most popular build, judged by its role: damage for carries; healing, shielding and crowd control for supports and tanks. Win rate boost turns that into estimated win rate points, so champions near the top gain the most from a Pentakill game.",
         )}
       </p>
     </>
