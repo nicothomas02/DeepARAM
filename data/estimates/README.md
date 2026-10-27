@@ -41,7 +41,9 @@ research note `early-vs-late-game.md` in the project files.
 `weapon_of_destiny.py` ranks Legendary items for the Weapon of Destiny augment (Tier List tab). Each
 takedown adds 200 gold worth of the item's own upgradeable stats, shared equally among them; the
 amounts per 1,000 gold come from the augment's spell data in `kiwi.bin`, the item's stats from the item
-bin. Each one's Weapon is the first Legendary item in its core builds. Per item: `share` (how often it's
+bin. Each one's Weapon is the first Legendary item in its core builds (in buy order). Legendary means the
+simulator's Legendary items plus every other Legendary item Mayhem's shop sells (`item-groups.json`, e.g.
+Mayhem's Hubris 126697), so a build that starts with one isn't credited to its second item. Per item: `share` (how often it's
 the Weapon), `lift` (win rate of core builds starting with it minus the champion's average over its core
 builds, weighted like share), `rare` (its stats' average rarity among Legendary items) and `value`
 (each stat's rarity times its worth in `VALUE`: 3 for Critical Strike Damage and % penetration, 2 for

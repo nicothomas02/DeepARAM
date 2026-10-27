@@ -399,10 +399,14 @@ export default function DataTable({
                     ) : c.format === "champion-icon" ? (
                       r[c.key] ? <ChampionIcon id={String(r[c.key])} /> : "–"
                     ) : c.format === "item" ? (
-                      // The row carries the item's name in the page's language already.
-                      <RowLink className="cell-link" href={String(r[c.hrefKey ?? "href"])}>
+                      // The row carries the item's name in the page's language already; items without a page aren't links.
+                      r[c.hrefKey ?? "href"] ? (
+                        <RowLink className="cell-link" href={String(r[c.hrefKey ?? "href"])}>
+                          <Named src={String(r[c.iconKey ?? "icon"] ?? "")} name={String(r[c.key] ?? "")} />
+                        </RowLink>
+                      ) : (
                         <Named src={String(r[c.iconKey ?? "icon"] ?? "")} name={String(r[c.key] ?? "")} />
-                      </RowLink>
+                      )
                     ) : c.format === "ability" ? (
                       r[c.key] ? <Ability src={String(r[c.iconKey ?? "icon"] ?? "")} text={String(r[c.key])} /> : "–"
                     ) : c.format === "augment" ? (
