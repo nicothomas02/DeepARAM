@@ -1,6 +1,5 @@
 // Weapon of Destiny tab: every ranked item is a Legendary item with a page, its per-takedown stats add up to the
-// augment's 200 gold, and the tiers follow the score: stat value while the augment has no games (Anticipated),
-// DeepScore once it has.
+// augment's 200 gold, and the tiers follow the predicted score, stat value (Nico 2026-10-27).
 import { describe, expect, it } from "vitest";
 import championIds from "@/data/champion-ids.json";
 import { itemPages } from "@/lib/item-pages";
@@ -28,37 +27,32 @@ describe("Weapon of Destiny ranking", () => {
     }
   });
 
-  it("tiers a higher score at least as high, with shares that add up", () => {
+  it("tiers a higher stat value at least as high, with shares that add up", () => {
     const order = ["S", "A", "B", "C", "D"];
-    const scored = data.rows.filter((r) => r.rank !== null).sort((a, b) => b.rank! - a.rank!);
-    expect(scored.length).toBeGreaterThan(20);
+    const scored = [...data.rows].sort((a, b) => b.rank - a.rank);
     for (let k = 1; k < scored.length; k++) {
-      expect(order.indexOf(scored[k].tier!)).toBeGreaterThanOrEqual(order.indexOf(scored[k - 1].tier!));
-      expect(scored[k].score!).toBeLessThanOrEqual(scored[k - 1].score!);
+      expect(order.indexOf(scored[k].tier)).toBeGreaterThanOrEqual(order.indexOf(scored[k - 1].tier));
+      expect(scored[k].score).toBeLessThanOrEqual(scored[k - 1].score);
     }
-    for (const r of data.rows) if (r.rank === null) expect([r.score, r.tier, r.lift]).toEqual([null, null, null]);
     const total = data.rows.reduce((s, r) => s + r.share, 0);
     expect(total).toBeGreaterThan(0.95);
     expect(total).toBeLessThan(1.01);
     for (const r of data.rows) {
-      expect(r.statValue).toBeGreaterThanOrEqual(0);
-      expect(r.statValue).toBeLessThanOrEqual(100);
+      expect(r.score).toBeGreaterThanOrEqual(0);
+      expect(r.score).toBeLessThanOrEqual(100);
       if (r.best) expect(championIds).toHaveProperty(r.best);
     }
   });
 
-  it("spreads stat value thin over many stats", () => {
-    const by = new Map(data.rows.map((r) => [r.name, r]));
-    // Infinity Edge (crit damage) is worth more per takedown than Ravenous Hydra's spread of common stats.
-    expect(by.get("Infinity Edge")!.statValue).toBeGreaterThan(by.get("Ravenous Hydra")!.statValue);
-  });
-
-  it("ranks damage-multiplying stats first while anticipated", () => {
-    if (!data.anticipated) return;
+  it("ranks rare, damage-multiplying stats first and spreads value thin over many stats", () => {
     // Critical Strike Damage and Armor or Magic Penetration % each come from one or two Legendary items.
-    const top = [...data.rows].sort((a, b) => b.rank! - a.rank!).slice(0, 4).map((r) => r.name);
+    const top = [...data.rows].sort((a, b) => b.rank - a.rank).slice(0, 4).map((r) => r.name);
     for (const name of ["Infinity Edge", "Void Staff", "Lord Dominik's Regards"]) expect(top).toContain(name);
-    for (const r of data.rows) expect(r.score, r.name).not.toBeNull();
+    const by = new Map(data.rows.map((r) => [r.name, r]));
+    // Infinity Edge (crit damage) is worth more per takedown than Ravenous Hydra's spread of common stats, and
+    // Phantom Dancer's rare Move Speed % beats Trinity Force's AD, Health and Haste.
+    expect(by.get("Infinity Edge")!.score).toBeGreaterThan(by.get("Ravenous Hydra")!.score);
+    expect(by.get("Phantom Dancer")!.score).toBeGreaterThan(by.get("Trinity Force")!.score);
   });
 });
 
@@ -72,10 +66,7 @@ describe("Weapon of Destiny by champion", () => {
       expect(championIds, r.champion).toHaveProperty(r.champion);
       expect(pages.get(r.item.id)?.tier, r.champion).toBe("legendary");
       if (r.next) expect(r.next.id, r.champion).not.toBe(r.item.id);
-      // Win rate points as fractions: a few points at most.
-      expect(Math.abs(r.boost), r.champion).toBeLessThan(0.15);
-      expect(r.share).toBeGreaterThanOrEqual(0);
-      expect(r.share).toBeLessThanOrEqual(1);
+      expect(r.power, r.champion).toBeGreaterThan(0);
     }
   });
 });
