@@ -14,7 +14,7 @@ The code behind [deeparam.com](https://deeparam.com): ARAM Mayhem tier lists, a 
 | `champions/` | Per-champion pages ([README](champions/README.md)) |
 | `tools/fun/`, `data/cook-builds/` | The Lab's tools and cook builds ([README](data/cook-builds/README.md)) |
 | `dashboard/`, `importer/` | My Stats: the personal stats page and the League client importer (below) |
-| `apps/` | iPhone/iPad and Mac apps ([iOS](apps/ios/README.md), [iPad](apps/ipados/README.md), [macOS](apps/macos/README.md)) |
+| `apps/` | iPhone/iPad, Vision Pro and Mac apps ([iOS](apps/ios/README.md), [iPad](apps/ipados/README.md), [Vision Pro](apps/visionos/README.md), [macOS](apps/macos/README.md)) |
 
 A folder with a `site-tab.json` is embedded into the site by `web/scripts/sync-embeds.mjs`.
 
