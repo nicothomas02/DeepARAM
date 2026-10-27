@@ -4,7 +4,7 @@ import { augmentSlug } from "./augments";
 import { champName } from "./highlights";
 import { liveWithChange } from "./champions";
 import { grade, lowerBound } from "./deepscore";
-import { ITEM_TIERS, inMayhem, itemClasses, itemTier, items, rewardItems, type ItemTier } from "./items";
+import { ITEM_TIERS, inMayhem, itemClasses, itemTier, items, ranked, rewardItems, transformsInto, type ItemTier } from "./items";
 import { tagsFor } from "./item-tags";
 import { ddVersion } from "./dd-swap";
 import { readRepoJson } from "./repo-data";
@@ -54,11 +54,31 @@ function lifts(builders: ItemPage["builders"]) {
   return w ? { lift: sum / w, weight: w } : null;
 }
 
+// An item's builders plus those of the items that transform into it (Archangel's Staff counts toward Seraph's
+// Embrace), summed per champion with win rates weighted by pick rate.
+function withSources(id: number, all: Map<number, ItemPage["builders"]>): ItemPage["builders"] {
+  const sources = [...all.keys()].filter((s) => transformsInto(s) === id);
+  if (!sources.length) return all.get(id) ?? [];
+  const byChamp = new Map<string, { b: ItemPage["builders"][number]; wins: number; rated: number }>();
+  for (const b of [id, ...sources].flatMap((s) => all.get(s) ?? [])) {
+    const m = byChamp.get(b.id) ?? { b: { ...b, pickRate: 0, winRate: null }, wins: 0, rated: 0 };
+    m.b.pickRate = Math.min(1, m.b.pickRate + b.pickRate);
+    if (b.winRate !== null) {
+      m.wins += b.winRate * b.pickRate;
+      m.rated += b.pickRate;
+    }
+    m.b.winRate = m.rated ? m.wins / m.rated : null;
+    byChamp.set(b.id, m);
+  }
+  return [...byChamp.values()].map((m) => m.b);
+}
+
 function scoreTiers(list: ItemPage[], all: Map<number, ItemPage["builders"]>) {
   for (const tier of ITEM_TIERS) {
+    // Components and items that transform keep no DeepScore (lib/items.ts ranked).
     const group = list
-      .filter((i) => i.tier === tier)
-      .map((i) => ({ i, l: lifts(all.get(i.id) ?? []) }))
+      .filter((i) => i.tier === tier && ranked(i.id))
+      .map((i) => ({ i, l: lifts(withSources(i.id, all)) }))
       .filter((x): x is { i: ItemPage; l: { lift: number; weight: number } } => x.l !== null);
     if (!group.length) continue;
     const weights = group.map((x) => x.l.weight).sort((a, b) => a - b);
