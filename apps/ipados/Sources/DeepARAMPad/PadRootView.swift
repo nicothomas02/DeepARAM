@@ -9,6 +9,8 @@ public struct PadRootView: View {
     @SceneStorage("pad.championPane") private var savedPane = true
     @SceneStorage("pad.split") private var savedSplit = 0.58
     @Environment(\.horizontalSizeClass) private var sizeClass
+    @ObservedObject private var links = AppLinks.shared
+    @State private var restored = false
 
     public init() {}
 
@@ -29,6 +31,8 @@ public struct PadRootView: View {
         .onChange(of: model.split) { _, f in savedSplit = Double(f) }
         .task { await model.load() }
         .onOpenURL { url in model.open(Self.siteURL(from: url)) }
+        // Home Screen quick actions and the Siri "Open Page" shortcut.
+        .onChange(of: links.pending) { _, _ in if restored { openPendingLink() } }
         .onContinueUserActivity(NSUserActivityTypeBrowsingWeb) { activity in
             if let url = activity.webpageURL { model.open(url) }
         }
@@ -39,6 +43,15 @@ public struct PadRootView: View {
         model.split = CGFloat(savedSplit)
         model.section = SiteTab.padSection(id: savedSection) ?? .padTierList
         if let alias = savedChampion { model.openChampion(alias) }
+        restored = true
+        // A quick action that launched the app opens after the saved window is back.
+        openPendingLink()
+    }
+
+    private func openPendingLink() {
+        guard let url = links.pending else { return }
+        links.pending = nil
+        model.open(url)
     }
 
     /// deeparam://champions/Jinx and https://deeparam.com/champions/Jinx both open Jinx;
