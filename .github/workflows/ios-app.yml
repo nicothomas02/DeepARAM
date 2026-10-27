@@ -8,6 +8,9 @@ on:
     branches: [main]
     paths: ["apps/ios/**", "apps/ipados/**", "apps/visionos/**", "apps/shared/**", ".github/workflows/ios-app.yml"]
 
+permissions:
+  contents: read
+
 concurrency:
   group: ios-app-${{ github.ref }}
   cancel-in-progress: true
