@@ -43,3 +43,17 @@ describe("cleanSubmission", () => {
     expect(s.lang).toBeNull();
   });
 });
+
+// Home's Chef Special card compares itself with /data/chef-special.json and refreshes when they differ,
+// so the route must name the same special the pages are built from (data/cook-builds/chefs-special.json).
+describe("current Chef Special route", () => {
+  it("names the special in the repo data", async () => {
+    const { GET } = await import("@/app/data/chef-special.json/route");
+    const { chefsSpecial } = await import("@/lib/highlights");
+    const { readFileSync } = await import("node:fs");
+    const raw = JSON.parse(readFileSync(new URL("../../../data/cook-builds/chefs-special.json", import.meta.url), "utf8"));
+    const body = await GET().json();
+    expect(body.id).toBe(raw.id);
+    expect(body.id).toBe(chefsSpecial()?.id);
+  });
+});

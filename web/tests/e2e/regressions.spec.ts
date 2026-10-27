@@ -118,3 +118,27 @@ test("pages don't load every listed champion in the background", async ({ page }
     page.removeAllListeners("request");
   }
 });
+
+// A Home page kept from yesterday showed yesterday's Chef Special while The Kitchen showed today's.
+// When the current special differs from the one on the page, Home reloads its data (a non-prefetch RSC
+// request for "/"; prefetches of the Home link don't count).
+const homeRefresh = (r: { url(): string; headers(): Record<string, string> }) =>
+  new URL(r.url()).pathname === "/" && !!r.headers()["rsc"] && !r.headers()["next-router-prefetch"];
+
+test("Home refreshes a Chef Special kept from an earlier day", async ({ page }) => {
+  await page.route("**/data/chef-special.json*", (r) => r.fulfill({ json: { id: "a-newer-special" } }));
+  const refreshed = page.waitForRequest(homeRefresh, { timeout: 15_000 });
+  await page.goto("/");
+  await expect(page.locator(".chef-special")).toBeVisible();
+  await refreshed;
+});
+
+test("Home keeps a current Chef Special as it is", async ({ page }) => {
+  const refreshes: string[] = [];
+  page.on("request", (r) => homeRefresh(r) && refreshes.push(r.url()));
+  const checked = page.waitForResponse((r) => new URL(r.url()).pathname === "/data/chef-special.json");
+  await page.goto("/");
+  await checked;
+  await page.waitForTimeout(1000);
+  expect(refreshes).toEqual([]);
+});
