@@ -293,6 +293,7 @@ struct Result {
     double mitigated = 0;  // damage your Armor, Magic Resist, shields and damage reduction kept off your Health
     double healed = 0;     // Health you restored to yourself
     double ccDealt = 0;    // seconds of crowd control you put on enemies (overlaps on one enemy count once)
+    double ccHard = 0;     // the same, weighted by strength: a stun 1, a root 0.75, a silence 0.5, a slow its amount
     double exposure = 0;  // share of the enemies' damage that could reach you, averaged over the fight
     double firstHit = -1; // when you first deal damage
     double inShort = 0, inLong = 0;  // damage dealt in the kShortFight and kLongFight seconds from then
@@ -346,6 +347,7 @@ struct Summary {
     double damageTakenPerSec = 0;  // damage you take per second alive, after your resists
     // Per fight, on average: Health lost, damage mitigated, Health restored, seconds of crowd control dealt.
     double damageTaken = 0, damageMitigated = 0, healing = 0, ccSeconds = 0, shielding = 0;
+    double ccHardSeconds = 0;  // crowd control seconds weighted by strength (Result::ccHard)
     // Short against long fights: damage per second over the first kShortFight and the first
     // kLongFight seconds from your first hit (going down early counts against both).
     double shortDps = 0, longDps = 0;

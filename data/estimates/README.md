@@ -67,10 +67,16 @@ Weapon of Destiny item and a theoretical best set of 4 augments. Method in the s
   much), plus log(time alive) at the role's survival weight (0.25 carries up to 0.6 tanks): fights run until the
   champion goes down, so surviving longer counts, but not in full (a revive or lifesteal loop can double a fight).
 - Pentakill: start pick = best average gain at level 8, 13 (training dummies) and 18 (real enemies); level 18 pick
-  tried on top of it. Win rate boost = BETA x (start gain + 0.35 x level 18 gain), 0.35 being the share of a
-  game's fights at level 18. Shown on the Tier List's Pentakill tab (`web/src/lib/pentakill.ts`).
-- Weapon of Destiny: candidates are items bought first in 5%+ of the champion's core builds or in its popular
-  build; each is upgraded with half its estimated takedowns per game. Score = sim gain x BETA + the item's real
+  tried on top of it. Picks are scored for a team fight: crowd control counts by strength (the simulator's
+  `cc_hard_seconds`: stun 1, root 0.75, silence 0.5, a slow its amount) at an average champion's damage per second,
+  and `pentakill_team.json` (hand-checked from the game's ability values) adds what the one-champion fight can't
+  see: heals and shields on allies (Soraka W, Yuumi R, Lulu E...) and team utility (revives, team invulnerability,
+  spell shields, team speed) counted as crowd control seconds. Healing and shielding added this way count 1.8x,
+  the 0.8 being the survival credit the simulator gives a champion's own healing (median over tanks and supports).
+  Win rate boost = BETA x (start gain + 0.35 x level 18 gain), 0.35 being the share of a game's fights at level 18.
+  Shown on the Tier List's Pentakill tab (`web/src/lib/pentakill.ts`) and champion pages.
+- Weapon of Destiny: candidates are items bought first in 5%+ of the champion's core builds (every Legendary item
+  Mayhem sells counts as a first item, Hubris and Rite of Ruin included) or in its popular build; each is upgraded with half its estimated takedowns per game. Score = sim gain x BETA + the item's real
   first-item win rate vs the champion's average (shrunk when rarely bought first).
 - Augments: sum of each augment's estimated lift on this champion (`augments` above, shrunk by pick / (pick + 1%),
   and by global pick / (global pick + 0.5%) because brand-new augments with almost no games have a meaningless fair

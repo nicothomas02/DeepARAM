@@ -1,20 +1,20 @@
 {
  "Champion": "Tướng",
  "Start": "Khởi đầu",
- "The basic ability to Empower at the start of the game: the one that makes the champion strongest at levels 8, 13 and 18.": "Kỹ năng cơ bản nên cường hóa đầu trận: kỹ năng khiến tướng mạnh nhất ở cấp 8, 13 và 18.",
+ "The basic ability to Empower at the start of the game: the one that helps the team most at levels 8, 13 and 18.": "Kỹ năng cơ bản nên cường hóa đầu trận: kỹ năng giúp đội nhiều nhất ở cấp 8, 13 và 18.",
  "Level 18": "Cấp 18",
  "The second ability to Empower at level 18, the ultimate included, on top of the first one.": "Kỹ năng thứ hai nên cường hóa ở cấp 18, tính cả chiêu cuối, thêm vào kỹ năng đầu tiên.",
  "Win rate boost": "Mức tăng tỉ lệ thắng",
  "Estimated. How much both Empowers together raise the champion's win rate: the start pick counts for the whole game, the level 18 pick for the part played at level 18.": "Ước tính. Cả hai lần cường hóa cùng nâng tỉ lệ thắng của tướng bao nhiêu: lựa chọn khởi đầu tính cho cả trận, lựa chọn cấp 18 cho phần trận chơi ở cấp 18.",
  "Start power": "Sức mạnh khởi đầu",
- "Simulated. How much stronger the start pick makes the champion in fights, averaged over levels 8, 13 and 18.": "Mô phỏng. Lựa chọn khởi đầu khiến tướng mạnh hơn bao nhiêu khi giao tranh, trung bình ở cấp 8, 13 và 18.",
+ "Simulated. How much more the start pick adds to team fights (damage, healing and shielding, crowd control), averaged over levels 8, 13 and 18.": "Mô phỏng. Lựa chọn khởi đầu đóng góp thêm bao nhiêu trong giao tranh tổng (sát thương, hồi máu và lá chắn, khống chế), trung bình ở cấp 8, 13 và 18.",
  "Level 18 power": "Sức mạnh cấp 18",
- "Simulated. How much stronger the level 18 pick makes the champion in fights, on top of the start pick.": "Mô phỏng. Lựa chọn cấp 18 khiến tướng mạnh hơn bao nhiêu khi giao tranh, thêm vào lựa chọn khởi đầu.",
+ "Simulated. How much more the level 18 pick adds to team fights, on top of the start pick.": "Mô phỏng. Lựa chọn ở cấp 18 đóng góp thêm bao nhiêu trong giao tranh tổng, ngoài lựa chọn khởi đầu.",
  "Close call": "Lựa chọn sát nút",
  "The next best start pick when it's almost as strong. Either one works.": "Lựa chọn khởi đầu tốt thứ hai khi nó gần như mạnh ngang. Chọn cái nào cũng được.",
  "Simulated: picked from simulated fights with each champion's most popular build.": "Mô phỏng: chọn từ các trận giao tranh mô phỏng với lối lên đồ phổ biến nhất của mỗi tướng.",
  "Simulated": "Mô phỏng",
  "In a Pentakill game you Empower one basic ability at the start and a second one at level 18, where the ultimate counts too: {heavy} for Q, {power} for W, {thrash} for E and {doom} for R. Each gives the ability 20 Ability Haste and 10% more damage, healing and shielding.": "Trong trận Pentakill, bạn cường hóa một kỹ năng cơ bản lúc đầu và một kỹ năng thứ hai ở cấp 18, khi chiêu cuối cũng được tính: {heavy} cho Q, {power} cho W, {thrash} cho E và {doom} cho R. Mỗi cái cho kỹ năng 20 Điểm Hồi Kỹ Năng và thêm 10% sát thương, hồi máu và lá chắn.",
  "Find a champion": "Tìm tướng",
- "Simulated. Each pick is the ability that makes the champion strongest in simulated fights with its most popular build. Win rate boost turns that into estimated win rate points, so champions near the top gain the most from a Pentakill game.": "Mô phỏng. Mỗi lựa chọn là kỹ năng khiến tướng mạnh nhất trong giao tranh mô phỏng với lối lên đồ phổ biến nhất của nó. Mức tăng tỉ lệ thắng đổi điều đó thành điểm tỉ lệ thắng ước tính, nên các tướng ở đầu bảng được lợi nhiều nhất từ trận Pentakill."
+ "Simulated. Each pick is the ability that adds the most to a team fight with the champion's most popular build, judged by its role: damage for carries; healing, shielding and crowd control for supports and tanks. Win rate boost turns that into estimated win rate points, so champions near the top gain the most from a Pentakill game.": "Mô phỏng. Mỗi lựa chọn là kỹ năng đóng góp nhiều nhất cho một trận giao tranh tổng với lối lên đồ phổ biến nhất của tướng, tùy theo vai trò: sát thương cho tướng gánh đội; hồi máu, lá chắn và khống chế cho hỗ trợ và đỡ đòn. Mức tăng tỉ lệ thắng đổi điều đó thành điểm tỉ lệ thắng ước tính, nên các tướng ở đầu bảng được lợi nhiều nhất từ trận Pentakill."
 }

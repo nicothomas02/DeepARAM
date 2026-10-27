@@ -1982,7 +1982,9 @@ private:
         if (immobilizes(a)) dur = comboBreaker(e.combo, e.comboUntil, t_ < std::max(e.ccUntil, e.rootUntil), dur, a.cc == "knockup");
         const double until = t_ + dur;
         double& held = a.cc == "slow" ? e.slowUntil : a.cc == "root" ? e.rootUntil : a.cc == "silence" ? e.silenceUntil : e.ccUntil;
-        res_.ccDealt += std::max(0.0, until - std::max(t_, held));
+        const double added = std::max(0.0, until - std::max(t_, held));
+        res_.ccDealt += added;
+        res_.ccHard += added * (a.cc == "slow" ? a.ccSlow : a.cc == "root" ? 0.75 : a.cc == "silence" ? 0.5 : 1.0);
         // Only the strongest slow counts while several overlap.
         if (a.cc == "slow") e.slow = t_ < held ? std::max(e.slow, a.ccSlow) : a.ccSlow;
         held = std::max(held, until);
@@ -1996,7 +1998,9 @@ private:
     void ccEnemy(Enemy& e, double duration, const char* kind) {
         if (!e.alive || duration <= 0) return;
         duration = comboBreaker(e.combo, e.comboUntil, t_ < std::max(e.ccUntil, e.rootUntil), duration, false);
-        res_.ccDealt += std::max(0.0, t_ + duration - std::max(t_, e.ccUntil));
+        const double added = std::max(0.0, t_ + duration - std::max(t_, e.ccUntil));
+        res_.ccDealt += added;
+        res_.ccHard += added;
         e.ccUntil = std::max(e.ccUntil, t_ + duration);
         if (trace_) {
             TraceEvent ev;
@@ -3584,6 +3588,7 @@ Summary summarize(const std::vector<Result>& results) {
         s.damageMitigated += r.mitigated;
         s.healing += r.healed;
         s.ccSeconds += r.ccDealt;
+        s.ccHardSeconds += r.ccHard;
         s.shielding += r.shielded;
         total += r.totalDamage;
         for (int i = 0; i < SrcCount; ++i) s.shareBySource[i] += r.bySource[i];
@@ -3609,6 +3614,7 @@ Summary summarize(const std::vector<Result>& results) {
     s.healing /= n;
     s.shielding /= n;
     s.ccSeconds /= n;
+    s.ccHardSeconds /= n;
     s.shortDps /= n;
     s.longDps /= n;
     if (total > 0)

@@ -18,12 +18,22 @@ carries. Not in full: survival is where the sim is least sure (a revive or a lif
              healing and shielding) and another one at level 18 (the ultimate allowed). The start pick is the
              basic ability with the best average gain at level 8 (2 items, 1 augment), level 13 (4 items,
              2 augments; both against level-matched training dummies) and level 18 (full build against real
-             enemies). The level 18 pick is tried on top of it with the full build. Win rate boost = BETA x
+             enemies). The level 18 pick is tried on top of it with the full build. Picks are scored for a
+             team fight (team_gain), not the champion's own fight alone: crowd control counts by strength (a
+             slow by its amount) and each second of it is worth at least an average champion's damage per
+             second; and team_extra adds what the simulator can't see, from pentakill_team.json: healing and
+             shielding on allies, team utility (a revive, team invulnerability, a spell shield, team speed)
+             counted as crowd control seconds, and the champion's own heals and shields in the training-dummy
+             stages. Healing and shielding added there count 1.8 times (KEEP_ALIVE: the time it keeps someone
+             fighting, as the simulator counts the champion's own). Role weights decide the blend, so an
+             enchanter picks its heal or shield, a carry its damage. Win rate boost = BETA x
              (start gain + LEVEL18_SHARE x level 18 gain): the start pick counts all game, the level 18 one
              for the part of a fight-heavy game played at 18 (about a third).
   destiny    Weapon of Destiny makes the first Legendary item the Weapon: each takedown adds 200 gold of its
              own stats (data/estimates/weapon_of_destiny.json). Candidates are the Legendary items the champion
-             buys first in real core builds (5%+ of them) and the ones in its popular build. Each is put in the
+             buys first in real core builds (5%+ of them; every Legendary item Mayhem sells counts as a first
+             item, so a build that starts with Hubris isn't credited to its second) and the ones in its popular
+             build. Each is put in the
              popular build, then upgraded with half the champion's takedowns per game (estimated kills + assists:
              the augment comes mid-game). Score = sim gain of the upgrade, turned into win-rate points (BETA),
              plus the item's real win rate as a first item for this champion minus its average first item.
@@ -115,7 +125,7 @@ def sim(champ, items, augs, settings, trials=TRIALS, wod=None, takedowns=0):
     if r.returncode:
         raise RuntimeError(f"{champ} {items} {all_augs}: {r.stderr.strip()[:300]}")
     s = json.loads(r.stdout)["builds"][0]["summary"]
-    out = {k: s.get(k, 0) for k in ("mean_dps", "healing", "shielding", "cc_seconds", "time_alive")}
+    out = {k: s.get(k, 0) for k in ("mean_dps", "healing", "shielding", "cc_seconds", "cc_hard_seconds", "time_alive")}
     os.makedirs(os.path.dirname(path), exist_ok=True)
     with open(path, "w") as f:
         json.dump(out, f)
@@ -139,6 +149,9 @@ def gain(base, new, role):
     return math.log(max(n, 1e-6) / max(b, 1e-6)) + ws * alive
 
 
+SIM_ITEMS = load_json(os.path.join(SIM, "data", "items.json"))["items"]
+KITS = {c["id"]: c for c in load_json(os.path.join(SIM, "data", "champions.json"))["champions"]}
+TEAM = {k: v for k, v in load_json(os.path.join(cm.HERE, "pentakill_team.json")).items() if not k.startswith("_")}
 GROUPS = {k: v["group"] for k, v in load_json(os.path.join(SIM, "data", "items.json"))["items"].items() if v.get("group")}
 
 
@@ -157,18 +170,98 @@ def legal(items):
 
 # ---------------------------------------------------------------- Pentakill
 
-def pentakill(e):
+STAGE_LEVEL = {"early": 8, "mid": 13, "late": 18}
+EFFECTIVE = 0.7  # share of healing and shielding that counts: the rest is overhealing or lands on a full-health ally
+AMP, HASTE = 0.10, 20  # what an Empower adds to its ability: 10% more damage, healing and shielding; 20 ability haste
+# Healing and shielding also keep their target fighting longer. In the simulator that is worth about 0.8 times the
+# healing itself (median over the tanks' and supports' Empowers that change their own healing), so healing and
+# shielding the simulator can't see count 1.8 times.
+KEEP_ALIVE = 0.8
+
+
+def build_stats(champ, items, level):
+    """The stats a heal or shield scales with, from the champion's base stats and its items."""
+    kit = KITS[champ]
+    st = kit["stats"]
+    n = level - 1
+    grow = lambda base, per: base + per * n * (0.7025 + 0.0175 * n)  # noqa: E731
+    bonus = {}
+    for i in items:
+        for k, v in (SIM_ITEMS.get(i, {}).get("stats") or {}).items():
+            bonus[k] = bonus.get(k, 0) + v
+    hp = grow(st["hp"], st["hp_per_level"])
+    return {"ap": bonus.get("ap", 0), "bonus_ad": bonus.get("ad", 0), "ad": grow(st["ad"], st["ad_per_level"]) + bonus.get("ad", 0),
+            "bonus_hp": bonus.get("hp", 0), "hp": hp + bonus.get("hp", 0), "ah": kit["mayhem"].get("ability_haste", 0) + bonus.get("ah", 0)}
+
+
+def amount(scaling, stats):
+    return sum(v if k == "const" else v * stats.get(k, 0) for k, v in (scaling or {}).items())
+
+
+def team_extra(champ, role, slot, items, stage, cc_ref):
+    """What Empowering `slot` adds per second that the simulator can't see, in the same damage-equivalent units as
+    value(): healing and shielding on allies (pentakill_team.json), team utility counted as crowd control seconds,
+    and in the training-dummy stages (nobody hits back, so heals and shields there count nothing) the champion's own
+    heals and shields. More casts from the haste, and 10% more healing and shielding per cast."""
+    kit = KITS[champ]
+    ab = next((a for a in kit["abilities"] if a["slot"] == slot), None)
+    team = TEAM.get(champ, {}).get(slot, {})
+    ab = ab or {}  # the kit leaves out abilities that deal no damage (Rakan E, Shen R); the table gives their cooldown
+    cooldown = ab.get("cooldown") or team.get("cooldown")
+    if not cooldown or ab.get("no_haste"):
+        return 0.0
+    stats = build_stats(champ, items, STAGE_LEVEL[stage])
+    rate = (100 + stats["ah"]) / (100 * cooldown)
+    rate_up = (100 + stats["ah"] + HASTE) / (100 * cooldown)
+    wh, wc, _ = ROLE_WEIGHTS.get(role, (0.4, 0.4, 0.5))
+    mode = kit.get("mayhem", {})
+    per_cast = 0.0
+    for kind, mod in (("heal", "healing"), ("shield", "shielding")):
+        own = (ab.get(kind) or {}).get("scaling")
+        reach = team.get("allies", 0) * bool(team.get(kind) or own) + (1 if own and stage != "late" else 0)
+        per_cast += amount(team.get(kind) or own, stats) * reach * mode.get(mod, 1.0)
+    out = wh * EFFECTIVE * (1 + KEEP_ALIVE) * per_cast * ((1 + AMP) * rate_up - rate)
+    return out + wc * cc_ref * team.get("util", 0) * (rate_up - rate)
+
+
+def team_value(s, role, ref):
+    """value() for a team fight: crowd control counted by strength (a slow by its amount) and each second of it worth
+    `ref`."""
+    wh, wc, _ = ROLE_WEIGHTS.get(role, (0.4, 0.4, 0.5))
+    alive = max(s["time_alive"], 1.0)
+    return s["mean_dps"] + (wh * (s["healing"] + s["shielding"]) + wc * ref * s["cc_hard_seconds"]) / alive
+
+
+def team_gain(base, new, role, cc_ref, extra):
+    """gain() for a team fight: a second of crowd control is worth at least an average champion's damage per second
+    (it stops that enemy and the whole team hits them), plus team_extra on top of the simulated value."""
+    ref = max(base["mean_dps"], cc_ref, 1.0)
+    b, n = team_value(base, role, ref), team_value(new, role, ref) + extra
+    ws = ROLE_WEIGHTS.get(role, (0.4, 0.4, 0.5))[2]
+    alive = math.log(max(new["time_alive"], 0.1) / max(base["time_alive"], 0.1))
+    return math.log(max(n, 1e-6) / max(b, 1e-6)) + ws * alive
+
+
+def pentakill_bases(e):
+    """The champion's plain build at each stage (the reference for CC_REF)."""
+    items, augs = legal(e["build"]["items"]), e["build"]["augments"]
+    return {st: sim(e["id"], items[:n_i], augs[:n_a], settings)["mean_dps"] for st, (n_i, n_a, settings) in STAGES.items()}
+
+
+def pentakill(e, cc_ref):
     champ, role = e["id"], e["role"]
     items, augs = legal(e["build"]["items"]), e["build"]["augments"]
     stage_gain = {}
     for stage, (n_items, n_augs, settings) in STAGES.items():
         it, au = items[:n_items], augs[:n_augs]
         base = sim(champ, it, au, settings)
-        stage_gain[stage] = {s: gain(base, sim(champ, it, au + [EMPOWER[s]], settings), role) for s in "QWE"}
+        stage_gain[stage] = {s: team_gain(base, sim(champ, it, au + [EMPOWER[s]], settings), role, cc_ref[stage],
+                                          team_extra(champ, role, s, it, stage, cc_ref[stage])) for s in "QWE"}
     start_score = {s: statistics.mean(stage_gain[st][s] for st in STAGES) for s in "QWE"}
     first = max("QWE", key=lambda s: start_score[s])
     with_first = sim(champ, items, augs + [EMPOWER[first]], LATE)
-    late = {s: gain(with_first, sim(champ, items, augs + [EMPOWER[first], EMPOWER[s]], LATE), role)
+    late = {s: team_gain(with_first, sim(champ, items, augs + [EMPOWER[first], EMPOWER[s]], LATE), role, cc_ref["late"],
+                         team_extra(champ, role, s, items, "late", cc_ref["late"]))
             for s in "QWER" if s != first}
     second = max(late, key=lambda s: late[s])
     pct = lambda g: round(100 * (math.exp(g) - 1), 2)
@@ -193,7 +286,7 @@ def destiny(e, ctx, beta):
     champ, role, cid = e["id"], e["role"], str(e["champion_id"])
     items = legal(e["build"]["items"])
     legendary_keys = ctx["legendary"]
-    firsts = wod.first_legendary(ctx["builds"].get(cid, {}), set(ctx["leg_ids"].values()))
+    firsts = wod.first_legendary(ctx["builds"].get(cid, {}), ctx["shop_legendary"])
     cands = {ctx["id_to_key"][g] for g, (share, _) in firsts.items() if share >= FIRST_SHARE and g in ctx["id_to_key"]}
     cands |= {i for i in items if i in legendary_keys}
     cands = {c for c in cands if c in ctx["wod_keys"]}
@@ -383,6 +476,7 @@ def main():
     global BIN_STAMP
     BIN_STAMP = hashlib.sha1(open(SIM_BIN, "rb").read()).hexdigest()[:12]
     enemies = load_json(os.path.join(SIM, "data", "cn_enemy_pool.json"))["enemies"]
+    pool = [e for e in enemies if len(legal(e["build"]["items"])) >= 4 and e["build"].get("augments")]
     if args.only:
         keep = set(args.only.split(","))
         enemies = [e for e in enemies if e["id"] in keep or e["name"] in keep]
@@ -394,6 +488,7 @@ def main():
     key_to_id = {k: v["id"] for k, v in sim_items.items()}
     leg = {k: v["id"] for k, v in sim_items.items() if v.get("slot") == "legendary"}
     stats, builds = cm.champion_stats(), cm.builds()
+    groups = cm.load(os.path.join(cm.REPO, "web", "src", "data", "item-groups.json"))
     dev, _ = cm.augment_on_champion(stats, builds, cm.fair_augments())
     ctx = {
         "builds": builds,
@@ -402,6 +497,9 @@ def main():
         "global_pick": {str(a["augment_id"]): a["pick_rate"] for a in cm.load(os.path.join(cm.CN, "augments.json"))["augments"]},
         "legendary": set(leg), "leg_ids": leg, "key_to_id": key_to_id,
         "id_to_key": {v: k for k, v in leg.items()},
+        # Every Legendary item Mayhem's shop sells, the simulator's or not (Hubris, Rite of Ruin), so a core build that
+        # starts with one isn't credited to its second item.
+        "shop_legendary": set(leg.values()) | {int(k) for k, g in groups.items() if g.get("e") == 5 and g.get("m") == 1},
         "wod_stats": {k: wod_data[str(v)]["per_takedown"] for k, v in leg.items() if str(v) in wod_data},
         "pools": load_json(os.path.join(SIM, "data", "augment_pools.json"))["pools"],
         "aug_key": {v["id"]: k for k, v in sim_augs.items() if v.get("id")},
@@ -426,7 +524,9 @@ def main():
         beta, corr, n = fit_beta(singles, stat_only)
         print(f"beta {beta:.4f} (r {corr:.3f}, {n} champion-augment pairs)", file=sys.stderr, flush=True)
         print("pentakill", file=sys.stderr, flush=True)
-        pk = dict(zip([e["id"] for e in enemies], ex.map(lambda e: safe(pentakill, e), enemies)))
+        bases = [b for b in ex.map(lambda e: safe(pentakill_bases, e), pool) if b]
+        cc_ref = {st: statistics.median(b[st] for b in bases) for st in STAGES}
+        pk = dict(zip([e["id"] for e in enemies], ex.map(lambda e: safe(pentakill, e, cc_ref), enemies)))
         for v in pk.values():
             if v:
                 v["boost"] = pentakill_boost(v, beta)

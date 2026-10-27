@@ -1,0 +1,89 @@
+{
+ "_about": "What a Pentakill Empower does for the team that the fight simulator can't see (champion_upgrades.py, team_extra). The simulator plays the champion's own fight, so healing and shielding on allies and team utility count as nothing there. Per champion and ability: cooldown = the ability's cooldown at full rank when the simulator kit leaves the ability out; allies = how many allies besides the caster an average cast heals or shields (its amount is the simulator kit's heal/shield, or heal/shield here when the kit leaves it out because only allies get it); util = what one cast is worth in seconds of crowd control on an enemy (a revive, team invulnerability, a spell shield, team speed), for effects with no heal, shield or crowd control to count. Amounts are the game's own ability values at full rank.",
+ "Alistar": {"R": {"util": 1.5, "why": "Unbreakable Will: 75% damage reduction while he holds the front line"}},
+ "Bard": {
+  "W": {"allies": 1, "why": "Caretaker's Shrine heals the ally who picks it up"},
+  "E": {"util": 0.3, "why": "Magical Journey moves the team through walls"},
+  "R": {"util": 2.5, "why": "Tempered Fate puts several enemies in stasis"}
+ },
+ "Braum": {
+  "W": {"util": 0.5, "why": "Stand Behind Me: leaps to an ally and gives them armor and magic resist"},
+  "E": {"util": 1.0, "why": "Unbreakable blocks projectiles aimed at the team and cuts the damage Braum takes"}
+ },
+ "Galio": {"R": {"util": 1.0, "why": "Hero's Entrance shields every ally in the landing zone"}},
+ "Hwei": {"W": {"shield": {"const": 260, "ap": 0.6}, "allies": 1.5, "why": "Pool of Reflection shields allies standing in it"}},
+ "Janna": {
+  "E": {"util": 0.3, "why": "Eye of the Storm also gives the shielded ally attack damage"},
+  "R": {"allies": 2, "why": "Monsoon heals every nearby ally"}
+ },
+ "Kalista": {"R": {"util": 0.5, "why": "Fate's Call pulls her bound ally to safety or into a knock up"}},
+ "Karma": {"E": {"shield": {"const": 280, "ap": 0.6}, "allies": 1, "util": 0.3, "why": "Inspire shields an ally and speeds them up"}},
+ "Kayle": {
+  "W": {"allies": 1, "why": "Celestial Blessing heals Kayle and an ally"},
+  "R": {"util": 3.0, "why": "Divine Judgment makes an ally untargetable"}
+ },
+ "Kindred": {"R": {"allies": 1.5, "util": 3.0, "why": "Lamb's Respite keeps everyone inside from dying, then heals them"}},
+ "Lulu": {
+  "W": {"util": 0.3, "why": "Whimsy can speed up an ally instead"},
+  "E": {"shield": {"const": 230, "ap": 0.5}, "allies": 1, "why": "Help, Pix! shields an ally (the simulator uses its damage half)"},
+  "R": {"util": 0.5, "why": "Wild Growth saves an ally from bursts and knocks up enemies around them"}
+ },
+ "Lux": {"W": {"allies": 1.5, "why": "Prismatic Barrier shields every ally it passes through, there and back"}},
+ "Milio": {
+  "W": {"allies": 1.5, "util": 0.3, "why": "Cozy Campfire heals allies near the target and gives them attack range"},
+  "R": {"allies": 2, "util": 0.5, "why": "Breath of Life heals and cleanses every nearby ally"}
+ },
+ "Morgana": {"E": {"util": 0.5, "why": "Black Shield makes an ally immune to crowd control"}},
+ "Nami": {
+  "W": {"allies": 1, "why": "Ebb and Flow bounces between allies and enemies, healing allies"},
+  "E": {"util": 0.3, "why": "Tidecaller's Blessing makes an ally's attacks slow"}
+ },
+ "Nasus": {"W": {"util": 0.75, "why": "Wither cripples one enemy's movement and attack speed"}},
+ "Poppy": {"W": {"util": 0.5, "why": "Steadfast Presence stops enemy dashes around her"}},
+ "Rakan": {
+  "Q": {"allies": 1, "why": "Gleaming Quill heals nearby allies"},
+  "E": {"shield": {"const": 150, "ap": 0.7}, "allies": 1, "cooldown": 12, "why": "Battle Dance shields the ally Rakan dashes to"}
+ },
+ "Renata": {
+  "W": {"util": 1.0, "why": "Bailout keeps an ally fighting past death and can revive them"},
+  "E": {"allies": 1, "why": "Loyalty Program shields allies it passes"},
+  "R": {"util": 2.0, "why": "Hostile Takeover turns enemies on each other"}
+ },
+ "Senna": {
+  "Q": {"heal": {"const": 120, "ap": 0.35, "bonus_ad": 0.4}, "allies": 1, "why": "Piercing Darkness heals allies it passes"},
+  "R": {"allies": 1.5, "why": "Dawning Shadow shields every ally in its path"}
+ },
+ "Seraphine": {
+  "W": {"allies": 1.5, "util": 0.3, "why": "Surround Sound shields, heals and speeds up nearby allies"},
+  "R": {"util": 2.5, "why": "Encore charms every enemy it passes"}
+ },
+ "Shen": {
+  "W": {"util": 0.5, "why": "Spirit's Refuge blocks enemy attacks on allies in the zone"},
+  "R": {"shield": {"const": 320, "bonus_hp": 0.15, "ap": 1.35}, "allies": 1, "util": 1.0, "cooldown": 160, "why": "Stand United shields an ally anywhere and brings Shen to them"}
+ },
+ "Sivir": {"R": {"util": 1.5, "why": "On The Hunt speeds up the whole team"}},
+ "Sona": {
+  "W": {"allies": 1, "why": "Aria of Perseverance heals the most hurt ally and shields allies nearby"},
+  "E": {"util": 0.4, "why": "Song of Celerity speeds up nearby allies"}
+ },
+ "Soraka": {
+  "W": {"heal": {"const": 170, "ap": 0.5}, "allies": 1, "why": "Astral Infusion heals an ally"},
+  "R": {"allies": 4, "why": "Wish heals every ally"}
+ },
+ "TahmKench": {"W": {"util": 0.3, "why": "Abyssal Dive brings an ally in or out of the fight"}},
+ "Taric": {
+  "Q": {"allies": 1.5, "why": "Starlight's Touch heals nearby allies"},
+  "R": {"util": 8.0, "why": "Cosmic Radiance makes Taric and nearby allies invulnerable for 2.5 seconds: most of five enemies' damage for that long"}
+ },
+ "Thresh": {"W": {"allies": 1, "util": 0.5, "why": "Dark Passage shields an ally and pulls them to safety"}},
+ "Yasuo": {"W": {"util": 0.5, "why": "Wind Wall blocks enemy projectiles for the team"}},
+ "Yuumi": {
+  "E": {"util": 0.3, "why": "Zoomies also gives her ally attack speed and mana"},
+  "R": {"heal": {"const": 350, "ap": 0.6}, "allies": 1, "why": "Final Chapter heals her ally with every wave (5 waves)"}
+ },
+ "Zilean": {
+  "W": {"util": 0.75, "why": "Rewind takes 10 seconds off his other cooldowns: more bombs and more slows"},
+  "E": {"util": 1.0, "why": "Time Warp slows an enemy by up to 99% or speeds up an ally"},
+  "R": {"util": 4.0, "why": "Chronoshift revives an ally: their Health and the rest of the fight"}
+ }
+}

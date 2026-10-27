@@ -1,20 +1,20 @@
 {
  "Champion": "Šampion",
  "Start": "Start",
- "The basic ability to Empower at the start of the game: the one that makes the champion strongest at levels 8, 13 and 18.": "Základní schopnost, kterou posílíš na začátku hry: ta, se kterou je šampion nejsilnější na úrovních 8, 13 a 18.",
+ "The basic ability to Empower at the start of the game: the one that helps the team most at levels 8, 13 and 18.": "Základní schopnost, kterou posílíš na začátku hry: ta, která nejvíc pomůže týmu na úrovních 8, 13 a 18.",
  "Level 18": "Úroveň 18",
  "The second ability to Empower at level 18, the ultimate included, on top of the first one.": "Druhá schopnost, kterou posílíš na úrovni 18, včetně ultimátky, navíc k té první.",
  "Win rate boost": "Přírůstek výher",
  "Estimated. How much both Empowers together raise the champion's win rate: the start pick counts for the whole game, the level 18 pick for the part played at level 18.": "Odhad. Jak moc obě posílení dohromady zvednou šampionovu úspěšnost: startovní volba platí celou hru, volba na úrovni 18 tu část hry odehranou na úrovni 18.",
  "Start power": "Síla na startu",
- "Simulated. How much stronger the start pick makes the champion in fights, averaged over levels 8, 13 and 18.": "Simulace. O kolik silnějším dělá startovní volba šampiona v soubojích, v průměru na úrovních 8, 13 a 18.",
+ "Simulated. How much more the start pick adds to team fights (damage, healing and shielding, crowd control), averaged over levels 8, 13 and 18.": "Simulace. Kolik startovní volba přidá v týmových soubojích (poškození, léčení a štíty, omezení pohybu), v průměru na úrovních 8, 13 a 18.",
  "Level 18 power": "Síla na úrovni 18",
- "Simulated. How much stronger the level 18 pick makes the champion in fights, on top of the start pick.": "Simulace. O kolik silnějším dělá volba na úrovni 18 šampiona v soubojích, navíc ke startovní volbě.",
+ "Simulated. How much more the level 18 pick adds to team fights, on top of the start pick.": "Simulace. Kolik volba na úrovni 18 přidá v týmových soubojích navíc ke startovní volbě.",
  "Close call": "Těsná volba",
  "The next best start pick when it's almost as strong. Either one works.": "Další nejlepší startovní volba, když je skoro stejně silná. Funguje kterákoli z nich.",
  "Simulated: picked from simulated fights with each champion's most popular build.": "Simulace: vybráno podle simulovaných soubojů s nejoblíbenějším buildem každého šampiona.",
  "Simulated": "Simulace",
  "In a Pentakill game you Empower one basic ability at the start and a second one at level 18, where the ultimate counts too: {heavy} for Q, {power} for W, {thrash} for E and {doom} for R. Each gives the ability 20 Ability Haste and 10% more damage, healing and shielding.": "Ve hře Pentakill posílíš jednu základní schopnost na startu a druhou na úrovni 18, kdy se počítá i ultimátka: {heavy} pro Q, {power} pro W, {thrash} pro E a {doom} pro R. Každé dá schopnosti 20 zrychlení schopností a o 10 % víc poškození, léčení a štítů.",
  "Find a champion": "Najít šampiona",
- "Simulated. Each pick is the ability that makes the champion strongest in simulated fights with its most popular build. Win rate boost turns that into estimated win rate points, so champions near the top gain the most from a Pentakill game.": "Simulace. Každá volba je schopnost, se kterou je šampion nejsilnější v simulovaných soubojích se svým nejoblíbenějším buildem. Přírůstek výher to převádí na odhadované body úspěšnosti: šampioni nahoře získají ze hry Pentakill nejvíc."
+ "Simulated. Each pick is the ability that adds the most to a team fight with the champion's most popular build, judged by its role: damage for carries; healing, shielding and crowd control for supports and tanks. Win rate boost turns that into estimated win rate points, so champions near the top gain the most from a Pentakill game.": "Simulace. Každá volba je schopnost, která nejvíc přidá týmovému souboji s nejoblíbenějším buildem šampiona, podle jeho role: poškození u carry; léčení, štíty a omezení pohybu u podpor a tanků. Přírůstek výher to převádí na odhadované body úspěšnosti: šampioni nahoře získají ze hry Pentakill nejvíc."
 }

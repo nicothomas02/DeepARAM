@@ -1,20 +1,20 @@
 {
  "Champion": "챔피언",
  "Start": "시작",
- "The basic ability to Empower at the start of the game: the one that makes the champion strongest at levels 8, 13 and 18.": "게임 시작 시 강화할 기본 스킬: 레벨 8, 13, 18에서 챔피언을 가장 강하게 만드는 스킬.",
+ "The basic ability to Empower at the start of the game: the one that helps the team most at levels 8, 13 and 18.": "게임 시작 시 강화할 기본 스킬: 레벨 8, 13, 18에서 팀에 가장 도움이 되는 스킬.",
  "Level 18": "레벨 18",
  "The second ability to Empower at level 18, the ultimate included, on top of the first one.": "첫 번째에 더해 레벨 18에서 강화할 두 번째 스킬(궁극기 포함).",
  "Win rate boost": "승률 상승",
  "Estimated. How much both Empowers together raise the champion's win rate: the start pick counts for the whole game, the level 18 pick for the part played at level 18.": "추정. 두 강화가 함께 챔피언의 승률을 얼마나 올리는지: 시작 선택은 게임 전체에, 레벨 18 선택은 레벨 18로 플레이하는 구간에 적용됩니다.",
  "Start power": "시작 시 힘",
- "Simulated. How much stronger the start pick makes the champion in fights, averaged over levels 8, 13 and 18.": "시뮬레이션. 시작 선택이 전투에서 챔피언을 얼마나 강하게 만드는지 (레벨 8, 13, 18 평균).",
+ "Simulated. How much more the start pick adds to team fights (damage, healing and shielding, crowd control), averaged over levels 8, 13 and 18.": "시뮬레이션. 시작 선택이 한타에서 더해 주는 정도 (피해, 회복과 보호막, 군중 제어), 레벨 8, 13, 18 평균.",
  "Level 18 power": "레벨 18 힘",
- "Simulated. How much stronger the level 18 pick makes the champion in fights, on top of the start pick.": "시뮬레이션. 시작 선택에 더해 레벨 18 선택이 전투에서 챔피언을 얼마나 강하게 만드는지.",
+ "Simulated. How much more the level 18 pick adds to team fights, on top of the start pick.": "시뮬레이션. 레벨 18 선택이 시작 선택에 더해 한타에서 더해 주는 정도.",
  "Close call": "박빙",
  "The next best start pick when it's almost as strong. Either one works.": "거의 비슷하게 강할 때의 차선 시작 선택. 어느 쪽이든 괜찮습니다.",
  "Simulated: picked from simulated fights with each champion's most popular build.": "시뮬레이션: 각 챔피언의 가장 인기 있는 빌드로 한 시뮬레이션 전투에서 선택.",
  "Simulated": "시뮬레이션",
  "In a Pentakill game you Empower one basic ability at the start and a second one at level 18, where the ultimate counts too: {heavy} for Q, {power} for W, {thrash} for E and {doom} for R. Each gives the ability 20 Ability Haste and 10% more damage, healing and shielding.": "펜타킬 게임에서는 시작 시 기본 스킬 하나를, 레벨 18에 두 번째 스킬을 강화하며, 이때는 궁극기도 선택할 수 있습니다: Q는 {heavy}, W는 {power}, E는 {thrash}, R은 {doom}. 각각 스킬에 스킬 가속 20과 피해량, 회복량, 보호막 10% 증가를 줍니다.",
  "Find a champion": "챔피언 찾기",
- "Simulated. Each pick is the ability that makes the champion strongest in simulated fights with its most popular build. Win rate boost turns that into estimated win rate points, so champions near the top gain the most from a Pentakill game.": "시뮬레이션. 각 선택은 가장 인기 있는 빌드로 한 시뮬레이션 전투에서 챔피언을 가장 강하게 만드는 스킬입니다. 승률 상승은 이를 추정 승률 포인트로 바꾼 것으로, 위쪽 챔피언일수록 펜타킬 게임에서 이득이 큽니다."
+ "Simulated. Each pick is the ability that adds the most to a team fight with the champion's most popular build, judged by its role: damage for carries; healing, shielding and crowd control for supports and tanks. Win rate boost turns that into estimated win rate points, so champions near the top gain the most from a Pentakill game.": "시뮬레이션. 각 선택은 챔피언의 가장 인기 있는 빌드로 한 한타에 가장 크게 기여하는 스킬이며, 역할에 따라 판단합니다: 캐리는 피해, 서포터와 탱커는 회복, 보호막, 군중 제어. 승률 상승은 이를 추정 승률 포인트로 바꾼 것으로, 위쪽 챔피언일수록 펜타킬 게임에서 이득이 큽니다."
 }

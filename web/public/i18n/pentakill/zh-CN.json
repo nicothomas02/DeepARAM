@@ -1,20 +1,20 @@
 {
  "Champion": "英雄",
  "Start": "开局",
- "The basic ability to Empower at the start of the game: the one that makes the champion strongest at levels 8, 13 and 18.": "开局时强化的基础技能：让英雄在 8、13 和 18 级时最强的那个。",
+ "The basic ability to Empower at the start of the game: the one that helps the team most at levels 8, 13 and 18.": "开局时强化的基础技能：在 8、13 和 18 级时对团队帮助最大的那个。",
  "Level 18": "18 级",
  "The second ability to Empower at level 18, the ultimate included, on top of the first one.": "在第一个之外，18 级时强化的第二个技能（包括终极技能）。",
  "Win rate boost": "胜率提升",
  "Estimated. How much both Empowers together raise the champion's win rate: the start pick counts for the whole game, the level 18 pick for the part played at level 18.": "估计。两次强化合计能让英雄胜率提高多少：开局选择作用于整局，18 级选择作用于 18 级后的那部分对局。",
  "Start power": "开局强度",
- "Simulated. How much stronger the start pick makes the champion in fights, averaged over levels 8, 13 and 18.": "模拟。开局选择让英雄在战斗中变强多少，取 8、13 和 18 级的平均值。",
+ "Simulated. How much more the start pick adds to team fights (damage, healing and shielding, crowd control), averaged over levels 8, 13 and 18.": "模拟。开局选择在团战中多带来多少（伤害、治疗和护盾、控制），取 8、13 和 18 级的平均值。",
  "Level 18 power": "18 级强度",
- "Simulated. How much stronger the level 18 pick makes the champion in fights, on top of the start pick.": "模拟。在开局选择之上，18 级选择让英雄在战斗中变强多少。",
+ "Simulated. How much more the level 18 pick adds to team fights, on top of the start pick.": "模拟。18 级的选择在开局选择之外，在团战中多带来多少。",
  "Close call": "难分高下",
  "The next best start pick when it's almost as strong. Either one works.": "次优的开局选择，几乎一样强时显示。选哪个都行。",
  "Simulated: picked from simulated fights with each champion's most popular build.": "模拟：根据每个英雄最热门出装的模拟战斗选出。",
  "Simulated": "模拟",
  "In a Pentakill game you Empower one basic ability at the start and a second one at level 18, where the ultimate counts too: {heavy} for Q, {power} for W, {thrash} for E and {doom} for R. Each gives the ability 20 Ability Haste and 10% more damage, healing and shielding.": "在五杀摇滚对局中，你在开局强化一个基础技能，在 18 级再强化第二个技能，此时终极技能也可选：Q 对应{heavy}，W 对应{power}，E 对应{thrash}，R 对应{doom}。每个都给技能 20 技能急速，以及 10% 额外伤害、治疗和护盾。",
  "Find a champion": "查找英雄",
- "Simulated. Each pick is the ability that makes the champion strongest in simulated fights with its most popular build. Win rate boost turns that into estimated win rate points, so champions near the top gain the most from a Pentakill game.": "模拟。每个选择都是让英雄在使用最热门出装的模拟战斗中最强的技能。胜率提升把它换算成估计的胜率百分点，所以排在前面的英雄从五杀摇滚对局中获益最多。"
+ "Simulated. Each pick is the ability that adds the most to a team fight with the champion's most popular build, judged by its role: damage for carries; healing, shielding and crowd control for supports and tanks. Win rate boost turns that into estimated win rate points, so champions near the top gain the most from a Pentakill game.": "模拟。每个选择都是在英雄最热门出装下对团战贡献最大的技能，按定位判断：输出位看伤害；辅助和坦克看治疗、护盾和控制。胜率提升把它换算成估计的胜率百分点，所以排在前面的英雄从五杀摇滚对局中获益最多。"
 }
