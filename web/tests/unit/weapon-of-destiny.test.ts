@@ -13,7 +13,9 @@ describe("Weapon of Destiny ranking", () => {
   it("ranks most Legendary items", () => {
     expect(data.gold).toBe(200);
     expect(data.rows.length).toBeGreaterThan(80);
-    for (const r of data.rows) expect(pages.get(r.id)?.tier, r.name).toBe("legendary");
+    // Items without a page (Mayhem's Hubris) are Legendary items only seen in core builds: some champion buys them first.
+    for (const r of data.rows) if (r.slug) expect(pages.get(r.id)?.tier, r.name).toBe("legendary");
+    else expect(r.share, r.name).toBeGreaterThan(0);
   });
 
   it("gives each item only upgradeable stats, shared equally", () => {
@@ -39,10 +41,16 @@ describe("Weapon of Destiny ranking", () => {
     expect(total).toBeGreaterThan(0.95);
     expect(total).toBeLessThan(1.01);
     for (const r of data.rows) {
-      expect(r.rare).toBeGreaterThanOrEqual(0);
-      expect(r.rare).toBeLessThanOrEqual(100);
+      expect(r.statValue).toBeGreaterThanOrEqual(0);
+      expect(r.statValue).toBeLessThanOrEqual(100);
       if (r.best) expect(championIds).toHaveProperty(r.best);
     }
+  });
+
+  it("spreads stat value thin over many stats", () => {
+    const by = new Map(data.rows.map((r) => [r.name, r]));
+    // Infinity Edge (crit damage) is worth more per takedown than Ravenous Hydra's spread of common stats.
+    expect(by.get("Infinity Edge")!.statValue).toBeGreaterThan(by.get("Ravenous Hydra")!.statValue);
   });
 
   it("ranks damage-multiplying stats first while anticipated", () => {

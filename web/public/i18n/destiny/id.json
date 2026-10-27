@@ -23,8 +23,6 @@
  "Estimated. Win rate of builds that start with it, minus what the same champions win with their other first items.": "Perkiraan. Win rate build yang dimulai dengan item ini, dikurangi win rate champion yang sama dengan item pertama lainnya.",
  "Pick rate": "Pick rate",
  "Estimated. How often it would be the Weapon of Destiny: the first Legendary item of the champions likely to take the augment.": "Perkiraan. Seberapa sering item ini menjadi Weapon of Destiny: item Legendary pertama dari champion yang kemungkinan mengambil augment ini.",
- "Rare stats": "Stat langka",
- "How much of each upgrade goes into stats few Legendary items give, such as Critical Strike Damage or Armor Penetration. 100 is the rarest mix.": "Seberapa banyak tiap upgrade masuk ke stat yang jarang diberikan item Legendary, seperti Critical Strike Damage atau Armor Penetration. 100 adalah campuran paling langka.",
  "Each takedown": "Per takedown",
  "What one takedown adds to the item: {gold} gold worth of its own stats, shared equally.": "Yang ditambahkan satu takedown ke item: stat milik item itu sendiri senilai {gold} gold, dibagi rata.",
  "Best with": "Terbaik dengan",
@@ -52,5 +50,6 @@
  "Each champion's best item to make its Weapon of Destiny: every candidate is upgraded in simulated fights with the champion's most popular build, then combined with how the item already wins as its first Legendary item.": "Item terbaik tiap champion untuk dijadikan Weapon of Destiny: setiap kandidat di-upgrade dalam pertarungan simulasi dengan build paling populer champion, lalu digabung dengan seberapa sering item itu sudah menang sebagai item Legendary pertamanya.",
  "Simulated and estimated. Win rate boost turns the simulated upgrades into estimated win rate points, so champions near the top gain the most from the augment.": "Simulasi dan perkiraan. Kenaikan win rate mengubah upgrade yang disimulasikan menjadi poin win rate perkiraan, jadi champion di atas paling diuntungkan oleh augment ini.",
  "Simulated": "Simulasi",
- "Simulated: picked from simulated fights with each champion's most popular build.": "Simulasi: dipilih dari pertarungan simulasi dengan build terpopuler tiap champion."
+ "Simulated: picked from simulated fights with each champion's most popular build.": "Simulasi: dipilih dari pertarungan simulasi dengan build terpopuler tiap champion.",
+ "How much each takedown is worth to this item, from 0 to 100 where 50 is average. Its stats count most when few Legendary items give them or they multiply all your damage, and the gold is shared among them, so an item with many stats spreads it thin.": "Seberapa berharga setiap takedown bagi item ini, dari 0 sampai 100 dengan 50 sebagai rata-rata. Stat-nya paling berharga saat sedikit item Legendary memberikannya atau stat itu melipatgandakan semua damage-mu, dan gold dibagi di antara stat-nya, jadi item dengan banyak stat menyebarnya tipis."
 }

@@ -23,8 +23,6 @@
  "Estimated. Win rate of builds that start with it, minus what the same champions win with their other first items.": "Ước tính. Tỉ lệ thắng của các lối lên đồ bắt đầu bằng nó, trừ đi tỉ lệ thắng của cùng các tướng đó với trang bị đầu tiên khác.",
  "Pick rate": "Tỉ lệ chọn",
  "Estimated. How often it would be the Weapon of Destiny: the first Legendary item of the champions likely to take the augment.": "Ước tính. Mức độ thường xuyên nó trở thành Vũ Khí Định Mệnh: trang bị Huyền Thoại đầu tiên của các tướng có khả năng chọn lõi này.",
- "Rare stats": "Chỉ số hiếm",
- "How much of each upgrade goes into stats few Legendary items give, such as Critical Strike Damage or Armor Penetration. 100 is the rarest mix.": "Phần của mỗi lần nâng cấp đi vào các chỉ số mà ít trang bị Huyền Thoại có, như Sát Thương Chí Mạng hay Xuyên Giáp. 100 là tổ hợp hiếm nhất.",
  "Each takedown": "Mỗi lần tham gia hạ gục",
  "What one takedown adds to the item: {gold} gold worth of its own stats, shared equally.": "Một lần tham gia hạ gục thêm cho trang bị: chỉ số của chính nó trị giá {gold} vàng, chia đều.",
  "Best with": "Hợp nhất với",
@@ -52,5 +50,6 @@
  "Each champion's best item to make its Weapon of Destiny: every candidate is upgraded in simulated fights with the champion's most popular build, then combined with how the item already wins as its first Legendary item.": "Trang bị tốt nhất của mỗi tướng để làm Vũ Khí Định Mệnh: mỗi ứng viên được nâng cấp trong giao tranh mô phỏng với lối lên đồ phổ biến nhất của tướng, rồi kết hợp với tỉ lệ thắng sẵn có của trang bị khi là trang bị Huyền Thoại đầu tiên.",
  "Simulated and estimated. Win rate boost turns the simulated upgrades into estimated win rate points, so champions near the top gain the most from the augment.": "Mô phỏng và ước tính. Mức tăng tỉ lệ thắng đổi phần nâng cấp mô phỏng thành điểm tỉ lệ thắng ước tính, nên các tướng ở trên được lợi nhiều nhất từ lõi này.",
  "Simulated": "Mô phỏng",
- "Simulated: picked from simulated fights with each champion's most popular build.": "Mô phỏng: chọn từ các trận giao tranh mô phỏng với lối lên đồ phổ biến nhất của mỗi tướng."
+ "Simulated: picked from simulated fights with each champion's most popular build.": "Mô phỏng: chọn từ các trận giao tranh mô phỏng với lối lên đồ phổ biến nhất của mỗi tướng.",
+ "How much each takedown is worth to this item, from 0 to 100 where 50 is average. Its stats count most when few Legendary items give them or they multiply all your damage, and the gold is shared among them, so an item with many stats spreads it thin.": "Mỗi lần tham gia hạ gục đáng giá bao nhiêu với trang bị này, từ 0 đến 100 trong đó 50 là trung bình. Chỉ số được tính nhiều nhất khi ít trang bị Huyền Thoại có nó hoặc khi nó nhân toàn bộ sát thương của bạn, và vàng được chia đều giữa các chỉ số, nên trang bị có nhiều chỉ số sẽ bị dàn mỏng."
 }

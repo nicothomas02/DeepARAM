@@ -23,8 +23,6 @@
  "Estimated. Win rate of builds that start with it, minus what the same champions win with their other first items.": "Tahmini. Onunla başlayan dizilimlerin kazanma oranı, eksi aynı şampiyonların diğer ilk eşyalarıyla kazandığı oran.",
  "Pick rate": "Seçilme oranı",
  "Estimated. How often it would be the Weapon of Destiny: the first Legendary item of the champions likely to take the augment.": "Tahmini. Ne sıklıkla Kaderin Silahı olacağı: bu güçlendirmeyi alması muhtemel şampiyonların ilk Efsanevi eşyası.",
- "Rare stats": "Nadir istatistikler",
- "How much of each upgrade goes into stats few Legendary items give, such as Critical Strike Damage or Armor Penetration. 100 is the rarest mix.": "Her geliştirmenin ne kadarının az sayıda Efsanevi eşyanın verdiği istatistiklere gittiği, örneğin Kritik Vuruş Hasarı veya Zırh Delme. 100 en nadir karışımdır.",
  "Each takedown": "Katkı başına",
  "What one takedown adds to the item: {gold} gold worth of its own stats, shared equally.": "Bir katkının eşyaya kattığı: kendi istatistiklerinden {gold} altın değerinde, eşit paylaştırılmış.",
  "Best with": "En iyi uyum",
@@ -52,5 +50,6 @@
  "Each champion's best item to make its Weapon of Destiny: every candidate is upgraded in simulated fights with the champion's most popular build, then combined with how the item already wins as its first Legendary item.": "Her şampiyonun Kaderin Silahı yapacağı en iyi eşya: her aday, şampiyonun en popüler dizilimiyle simüle edilen çatışmalarda geliştirilir, sonra eşyanın ilk Efsanevi eşyası olarak zaten ne kadar kazandığıyla birleştirilir.",
  "Simulated and estimated. Win rate boost turns the simulated upgrades into estimated win rate points, so champions near the top gain the most from the augment.": "Simülasyon ve tahmin. Kazanma oranı artışı, simüle edilen geliştirmeleri tahmini kazanma oranı puanlarına çevirir; bu yüzden üstteki şampiyonlar bu güçlendirmeden en çok kazanır.",
  "Simulated": "Simülasyon",
- "Simulated: picked from simulated fights with each champion's most popular build.": "Simülasyon: her şampiyonun en popüler buildiyle yapılan simüle çatışmalara göre seçildi."
+ "Simulated: picked from simulated fights with each champion's most popular build.": "Simülasyon: her şampiyonun en popüler buildiyle yapılan simüle çatışmalara göre seçildi.",
+ "How much each takedown is worth to this item, from 0 to 100 where 50 is average. Its stats count most when few Legendary items give them or they multiply all your damage, and the gold is shared among them, so an item with many stats spreads it thin.": "Her alaşağı etmenin bu eşya için ne kadar değerli olduğu; 0 ile 100 arası, 50 ortalama. İstatistikleri, az sayıda Efsanevi eşya veriyorsa ya da tüm hasarını katlıyorsa en çok sayılır; altın aralarında paylaşılır, bu yüzden çok istatistikli bir eşya onu ince dağıtır."
 }

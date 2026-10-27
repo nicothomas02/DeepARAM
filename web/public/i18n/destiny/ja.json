@@ -23,8 +23,6 @@
  "Estimated. Win rate of builds that start with it, minus what the same champions win with their other first items.": "推定値。このアイテムから始めるビルドの勝率から、同じチャンピオンが他の最初のアイテムで勝つ率を引いたもの。",
  "Pick rate": "ピック率",
  "Estimated. How often it would be the Weapon of Destiny: the first Legendary item of the champions likely to take the augment.": "推定値。運命の武器になる頻度：このオーグメントを選びそうなチャンピオンが最初に完成させるレジェンドアイテム。",
- "Rare stats": "希少ステータス",
- "How much of each upgrade goes into stats few Legendary items give, such as Critical Strike Damage or Armor Penetration. 100 is the rarest mix.": "アップグレードのうち、クリティカルダメージや物理防御貫通など、持つレジェンドアイテムが少ないステータスに回る割合。100が最も希少な組み合わせです。",
  "Each takedown": "テイクダウンごと",
  "What one takedown adds to the item: {gold} gold worth of its own stats, shared equally.": "テイクダウン1回でアイテムに追加されるもの：そのアイテム自身のステータスを{gold}ゴールド分、均等に分配。",
  "Best with": "相性の良い相手",
@@ -52,5 +50,6 @@
  "Each champion's best item to make its Weapon of Destiny: every candidate is upgraded in simulated fights with the champion's most popular build, then combined with how the item already wins as its first Legendary item.": "各チャンピオンが運命の武器にすべき最適アイテム：候補ごとにチャンピオンの最も人気のビルドでシミュレーション戦闘を行って強化し、最初のレジェンドアイテムとしての実際の勝ち具合と組み合わせています。",
  "Simulated and estimated. Win rate boost turns the simulated upgrades into estimated win rate points, so champions near the top gain the most from the augment.": "シミュレーションと推定。勝率上昇はシミュレーションの強化分を推定勝率ポイントに換算したもので、上位のチャンピオンほどこのオーグメントの恩恵が大きくなります。",
  "Simulated": "シミュレーション",
- "Simulated: picked from simulated fights with each champion's most popular build.": "シミュレーション：各チャンピオンの最も人気のビルドによるシミュレーション戦闘から選択。"
+ "Simulated: picked from simulated fights with each champion's most popular build.": "シミュレーション：各チャンピオンの最も人気のビルドによるシミュレーション戦闘から選択。",
+ "How much each takedown is worth to this item, from 0 to 100 where 50 is average. Its stats count most when few Legendary items give them or they multiply all your damage, and the gold is shared among them, so an item with many stats spreads it thin.": "テイクダウン1回がこのアイテムにとってどれだけの価値か（0〜100、50が平均）。持つレジェンドアイテムが少ないステータスや与えるダメージ全体を増やすステータスほど重視され、ゴールドはステータス間で分けられるため、ステータスの多いアイテムほど薄く広がります。"
 }

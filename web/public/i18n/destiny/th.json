@@ -23,8 +23,6 @@
  "Estimated. Win rate of builds that start with it, minus what the same champions win with their other first items.": "ค่าประมาณ อัตราชนะของบิลด์ที่เริ่มด้วยไอเทมนี้ ลบด้วยอัตราชนะของแชมเปี้ยนกลุ่มเดียวกันเมื่อเริ่มด้วยไอเทมอื่น",
  "Pick rate": "อัตราการเลือก",
  "Estimated. How often it would be the Weapon of Destiny: the first Legendary item of the champions likely to take the augment.": "ค่าประมาณ ความถี่ที่ไอเทมนี้จะเป็น Weapon of Destiny: ไอเทม Legendary ชิ้นแรกของแชมเปี้ยนที่มีแนวโน้มเลือกออคเมนต์นี้",
- "Rare stats": "ค่าสถานะหายาก",
- "How much of each upgrade goes into stats few Legendary items give, such as Critical Strike Damage or Armor Penetration. 100 is the rarest mix.": "สัดส่วนของการอัปเกรดแต่ละครั้งที่เข้าไปในค่าสถานะที่ไอเทม Legendary ไม่กี่ชิ้นให้ เช่น Critical Strike Damage หรือ Armor Penetration โดย 100 คือชุดที่หายากที่สุด",
  "Each takedown": "ต่อ Takedown",
  "What one takedown adds to the item: {gold} gold worth of its own stats, shared equally.": "สิ่งที่หนึ่ง Takedown เพิ่มให้ไอเทม: ค่าสถานะของไอเทมเองมูลค่า {gold} Gold แบ่งเท่า ๆ กัน",
  "Best with": "เข้ากันที่สุดกับ",
@@ -52,5 +50,6 @@
  "Each champion's best item to make its Weapon of Destiny: every candidate is upgraded in simulated fights with the champion's most popular build, then combined with how the item already wins as its first Legendary item.": "ไอเทมที่ดีที่สุดของแต่ละแชมเปียนสำหรับทำเป็น Weapon of Destiny: ไอเทมแต่ละตัวเลือกจะถูกอัปเกรดในการต่อสู้จำลองด้วยบิลด์ยอดนิยมของแชมเปียน แล้วนำมารวมกับผลชนะจริงของไอเทมเมื่อเป็นไอเทม Legendary ชิ้นแรก",
  "Simulated and estimated. Win rate boost turns the simulated upgrades into estimated win rate points, so champions near the top gain the most from the augment.": "จำลองและประมาณการ การเพิ่มอัตราชนะแปลงผลการอัปเกรดจากการจำลองเป็นแต้มอัตราชนะโดยประมาณ แชมเปียนที่อยู่ด้านบนจึงได้ประโยชน์จากออคเมนต์นี้มากที่สุด",
  "Simulated": "จำลอง",
- "Simulated: picked from simulated fights with each champion's most popular build.": "จำลอง: เลือกจากการต่อสู้จำลองด้วยบิลด์ยอดนิยมที่สุดของแต่ละแชมเปี้ยน"
+ "Simulated: picked from simulated fights with each champion's most popular build.": "จำลอง: เลือกจากการต่อสู้จำลองด้วยบิลด์ยอดนิยมที่สุดของแต่ละแชมเปี้ยน",
+ "How much each takedown is worth to this item, from 0 to 100 where 50 is average. Its stats count most when few Legendary items give them or they multiply all your damage, and the gold is shared among them, so an item with many stats spreads it thin.": "การมีส่วนร่วมสังหารแต่ละครั้งมีค่ากับไอเทมนี้แค่ไหน ตั้งแต่ 0 ถึง 100 โดย 50 คือค่าเฉลี่ย ค่าสถานะจะมีน้ำหนักมากเมื่อมีไอเทม Legendary ให้เพียงไม่กี่ชิ้นหรือเมื่อเพิ่มดาเมจทั้งหมดแบบทวีคูณ และทองจะถูกแบ่งระหว่างค่าสถานะ ไอเทมที่มีค่าสถานะหลายอย่างจึงได้รับแบบกระจายบางๆ"
 }

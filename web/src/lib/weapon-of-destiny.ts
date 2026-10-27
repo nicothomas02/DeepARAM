@@ -2,6 +2,7 @@ import "server-only";
 import championIds from "@/data/champion-ids.json";
 import { grade, lowerBound } from "./deepscore";
 import { itemPages } from "./item-pages";
+import { items as clientItems } from "./items";
 import { readRepoJson } from "./repo-data";
 
 // Weapon of Destiny tab (/tier-list?tab=weapon-of-destiny): which Legendary item is best to upgrade with the
@@ -24,7 +25,8 @@ type Data = {
 
 export type DestinyRow = {
   id: number;
-  slug: string;
+  /** Its item page; null for a Legendary item without one (Mayhem's Hubris is only in core builds). */
+  slug: string | null;
   name: string;
   icon: string;
   /** Simulator stat key -> amount one takedown adds (fractions for percentages). */
@@ -33,8 +35,9 @@ export type DestinyRow = {
   share: number;
   /** Estimated win rate as the Weapon minus what the same champions win anyway; null when none buys it first. */
   lift: number | null;
-  /** 0-100: how rare its stats are among Legendary items, 100 for the rarest mix. */
-  rare: number;
+  /** 0-100 against the other items, 50 average (lib/deepscore.ts grade): what each takedown's gold is worth to it,
+   *  its stats counted by rarity and worth and shared among them, so items with many stats spread it thin. */
+  statValue: number;
   /** 0-100 against the other items (lib/deepscore.ts): stat value while anticipated, else DeepScore; null when
    *  it has no DeepScore (no champion buys it first). */
   score: number | null;
@@ -52,18 +55,20 @@ const PRIOR = 0.25; // the average's weight, in median items' worth of games
 export function weaponOfDestiny(): { gold: number; anticipated: boolean; rows: DestinyRow[] } | null {
   const data = readRepoJson<Data>("data/estimates/weapon_of_destiny.json");
   if (!data) return null;
-  const pages = new Map(itemPages().map((p) => [p.id, p]));
+  const pages = new Map<number, { id: number; slug: string | null; name: string; icon?: string }>(itemPages().map((p) => [p.id, p]));
+  // Legendary items without a page count when some champion buys them first (Mayhem's Hubris, only in core builds).
+  for (const [id, i] of clientItems()) if (!pages.has(id) && data.items[id]?.share) pages.set(id, { id, slug: null, name: i.name, icon: i.icon });
   const entries = Object.entries(data.items).filter(([id]) => pages.has(Number(id)));
   if (!entries.length) return null;
   const anticipated = data.anticipated ?? true;
   const bounds = anticipated ? new Map(entries.map(([id, v]) => [id, v.value])) : deepScore(entries);
   const grades = grade([...bounds.values()]);
   const graded = new Map([...bounds.keys()].map((id, k) => [id, grades[k]]));
-  const top = Math.max(...entries.map(([, v]) => v.rare));
+  const values = grade(entries.map(([, v]) => v.value));
   return {
     gold: data.gold_per_takedown,
     anticipated,
-    rows: entries.map(([id, v]) => {
+    rows: entries.map(([id, v], k) => {
       const page = pages.get(Number(id))!;
       const best = v.best.find((c) => c in championIds) ?? null;
       const g = graded.get(id);
@@ -75,7 +80,7 @@ export function weaponOfDestiny(): { gold: number; anticipated: boolean; rows: D
         perTakedown: v.per_takedown,
         share: v.share,
         lift: anticipated || bounds.has(id) ? v.lift : null,
-        rare: Math.round((v.rare / top) * 100),
+        statValue: values[k].deepScore,
         score: g?.deepScore ?? null,
         tier: g?.tier ?? null,
         rank: bounds.get(id) ?? null,

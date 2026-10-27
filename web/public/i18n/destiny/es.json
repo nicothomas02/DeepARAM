@@ -23,8 +23,6 @@
  "Estimated. Win rate of builds that start with it, minus what the same champions win with their other first items.": "Estimado. Tasa de victorias de las builds que empiezan con él, menos lo que ganan los mismos campeones con sus otros primeros objetos.",
  "Pick rate": "Tasa de elección",
  "Estimated. How often it would be the Weapon of Destiny: the first Legendary item of the champions likely to take the augment.": "Estimado. Con qué frecuencia sería el Arma del destino: el primer objeto legendario de los campeones que probablemente elijan el aumento.",
- "Rare stats": "Estadísticas raras",
- "How much of each upgrade goes into stats few Legendary items give, such as Critical Strike Damage or Armor Penetration. 100 is the rarest mix.": "Cuánto de cada mejora va a estadísticas que dan pocos objetos legendarios, como el daño crítico o la penetración de armadura. 100 es la mezcla más rara.",
  "Each takedown": "Por participación",
  "What one takedown adds to the item: {gold} gold worth of its own stats, shared equally.": "Lo que añade al objeto cada participación en un asesinato: {gold} de oro en sus propias estadísticas, repartido a partes iguales.",
  "Best with": "Mejor con",
@@ -52,5 +50,6 @@
  "Each champion's best item to make its Weapon of Destiny: every candidate is upgraded in simulated fights with the champion's most popular build, then combined with how the item already wins as its first Legendary item.": "El mejor objeto de cada campeón para convertirlo en su Arma del destino: cada candidato se mejora en combates simulados con la build más popular del campeón y luego se combina con cómo gana ya el objeto como su primer objeto legendario.",
  "Simulated and estimated. Win rate boost turns the simulated upgrades into estimated win rate points, so champions near the top gain the most from the augment.": "Simulado y estimado. El aumento de tasa de victorias convierte las mejoras simuladas en puntos estimados de tasa de victorias, así que los campeones de arriba son los que más ganan con el aumento.",
  "Simulated": "Simulado",
- "Simulated: picked from simulated fights with each champion's most popular build.": "Simulado: elegido a partir de combates simulados con la build más popular de cada campeón."
+ "Simulated: picked from simulated fights with each champion's most popular build.": "Simulado: elegido a partir de combates simulados con la build más popular de cada campeón.",
+ "How much each takedown is worth to this item, from 0 to 100 where 50 is average. Its stats count most when few Legendary items give them or they multiply all your damage, and the gold is shared among them, so an item with many stats spreads it thin.": "Cuánto vale cada participación en asesinato para este objeto, de 0 a 100, donde 50 es la media. Sus estadísticas cuentan más cuando pocos objetos legendarios las dan o multiplican todo tu daño, y el oro se reparte entre ellas, así que un objeto con muchas estadísticas lo diluye."
 }

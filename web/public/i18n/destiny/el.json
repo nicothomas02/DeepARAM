@@ -23,8 +23,6 @@
  "Estimated. Win rate of builds that start with it, minus what the same champions win with their other first items.": "Εκτίμηση. Ποσοστό νικών των builds που ξεκινούν με αυτό, μείον όσα κερδίζουν οι ίδιοι Ήρωες με τα άλλα πρώτα αντικείμενά τους.",
  "Pick rate": "Ποσοστό επιλογής",
  "Estimated. How often it would be the Weapon of Destiny: the first Legendary item of the champions likely to take the augment.": "Εκτίμηση. Πόσο συχνά θα ήταν το Όπλο του Πεπρωμένου: το πρώτο Θρυλικό αντικείμενο των Ηρώων που πιθανότατα θα πάρουν την ενίσχυση.",
- "Rare stats": "Σπάνια στατιστικά",
- "How much of each upgrade goes into stats few Legendary items give, such as Critical Strike Damage or Armor Penetration. 100 is the rarest mix.": "Πόσο από κάθε αναβάθμιση πηγαίνει σε στατιστικά που δίνουν λίγα Θρυλικά αντικείμενα, όπως Ζημιά Κρίσιμου Χτυπήματος ή Διείσδυση Θωράκισης. Το 100 είναι ο πιο σπάνιος συνδυασμός.",
  "Each takedown": "Ανά συμμετοχή",
  "What one takedown adds to the item: {gold} gold worth of its own stats, shared equally.": "Τι προσθέτει στο αντικείμενο μία συμμετοχή σε φόνο: δικά του στατιστικά αξίας {gold} χρυσού, μοιρασμένα εξίσου.",
  "Best with": "Καλύτερο με",
@@ -52,5 +50,6 @@
  "Each champion's best item to make its Weapon of Destiny: every candidate is upgraded in simulated fights with the champion's most popular build, then combined with how the item already wins as its first Legendary item.": "Το καλύτερο αντικείμενο κάθε πρωταθλητή για Όπλο του Πεπρωμένου: κάθε υποψήφιο αναβαθμίζεται σε προσομοιωμένες μάχες με το πιο δημοφιλές build του πρωταθλητή και μετά συνδυάζεται με το πώς ήδη κερδίζει ως πρώτο Θρυλικό αντικείμενό του.",
  "Simulated and estimated. Win rate boost turns the simulated upgrades into estimated win rate points, so champions near the top gain the most from the augment.": "Προσομοίωση και εκτίμηση. Η αύξηση ποσοστού νικών μετατρέπει τις προσομοιωμένες αναβαθμίσεις σε εκτιμώμενες μονάδες ποσοστού νικών, οπότε οι πρωταθλητές στην κορυφή κερδίζουν περισσότερο από την ενίσχυση.",
  "Simulated": "Προσομοίωση",
- "Simulated: picked from simulated fights with each champion's most popular build.": "Προσομοίωση: επιλέχθηκε από προσομοιωμένες μάχες με το πιο δημοφιλές build κάθε ήρωα."
+ "Simulated: picked from simulated fights with each champion's most popular build.": "Προσομοίωση: επιλέχθηκε από προσομοιωμένες μάχες με το πιο δημοφιλές build κάθε ήρωα.",
+ "How much each takedown is worth to this item, from 0 to 100 where 50 is average. Its stats count most when few Legendary items give them or they multiply all your damage, and the gold is shared among them, so an item with many stats spreads it thin.": "Πόσο αξίζει κάθε συμμετοχή σε εξόντωση για αυτό το αντικείμενο, από 0 έως 100 όπου το 50 είναι ο μέσος όρος. Τα στατιστικά του μετράνε περισσότερο όταν τα δίνουν λίγα Θρυλικά αντικείμενα ή όταν πολλαπλασιάζουν όλη τη ζημιά σου, και ο χρυσός μοιράζεται ανάμεσά τους, οπότε ένα αντικείμενο με πολλά στατιστικά τον απλώνει λεπτά."
 }

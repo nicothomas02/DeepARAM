@@ -119,7 +119,11 @@ def main():
     dv, full = augment_values()
     bins = fetch("game/items.cdtb.bin.json")
     sim_items = common.load(os.path.join(common.REPO, "simulator", "data", "items.json"))["items"]
+    # Legendary items: the simulator's, plus any other Legendary item Mayhem's shop sells (the game's own item
+    # groups, e.g. Mayhem's Hubris 126697), so a build that starts with one isn't credited to its second item.
+    groups = common.load(os.path.join(common.REPO, "web", "src", "data", "item-groups.json"))
     legendary = {v["id"] for v in sim_items.values() if v.get("slot") == "legendary"}
+    legendary |= {int(k) for k, g in groups.items() if g.get("e") == 5 and g.get("m") == 1}
     stats = {
         gid: [k for k, (_, field) in UPGRADES.items() if bins.get(f"Items/{gid}", {}).get(field)] for gid in legendary
     }

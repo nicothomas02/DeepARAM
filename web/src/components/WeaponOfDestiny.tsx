@@ -14,13 +14,13 @@ import { useNames, useT } from "./I18n";
 
 type Item = {
   id: number;
-  slug: string;
+  slug: string | null;
   name: string;
   icon: string;
   perTakedown: Record<string, number>;
   share: number;
   lift: number | null;
-  rare: number;
+  statValue: number;
   score: number | null;
   tier: string | null;
   rank: number | null;
@@ -113,11 +113,13 @@ export default function WeaponOfDestiny({
         },
         pickRate,
         {
-          key: "rare",
-          label: t("Rare stats"),
+          key: "statValue",
+          label: t("Stat value"),
           format: "int",
           phone: "hide",
-          hint: t("How much of each upgrade goes into stats few Legendary items give, such as Critical Strike Damage or Armor Penetration. 100 is the rarest mix."),
+          hint: t(
+            "How much each takedown is worth to this item, from 0 to 100 where 50 is average. Its stats count most when few Legendary items give them or they multiply all your damage, and the gold is shared among them, so an item with many stats spreads it thin.",
+          ),
         },
         stats,
         best,
@@ -126,13 +128,13 @@ export default function WeaponOfDestiny({
     id: i.id,
     name: names("items", i.id, i.name),
     icon: i.icon,
-    href: `/items/${i.slug}`,
+    href: i.slug ? `/items/${i.slug}` : null,
     tier: i.tier,
     score: i.score,
     rank: i.rank,
     lift: i.lift,
     share: i.share,
-    rare: i.rare,
+    statValue: i.statValue,
     stats: perTakedown(i.perTakedown),
     best: i.best,
   }));

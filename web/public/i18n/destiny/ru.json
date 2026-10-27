@@ -23,8 +23,6 @@
  "Estimated. Win rate of builds that start with it, minus what the same champions win with their other first items.": "Оценка. Процент побед сборок, начинающихся с него, минус то, что те же чемпионы выигрывают с другими первыми предметами.",
  "Pick rate": "Частота выбора",
  "Estimated. How often it would be the Weapon of Destiny: the first Legendary item of the champions likely to take the augment.": "Оценка. Как часто он был бы Оружием судьбы: первый легендарный предмет чемпионов, которые, вероятно, возьмут это усиление.",
- "Rare stats": "Редкие характеристики",
- "How much of each upgrade goes into stats few Legendary items give, such as Critical Strike Damage or Armor Penetration. 100 is the rarest mix.": "Какая часть каждого улучшения идёт в характеристики, которые дают немногие легендарные предметы, например критический урон или пробивание брони. 100 — самое редкое сочетание.",
  "Each takedown": "За участие в убийстве",
  "What one takedown adds to the item: {gold} gold worth of its own stats, shared equally.": "Что одно участие в убийстве добавляет предмету: его собственные характеристики на {gold} золота, поровну.",
  "Best with": "Лучше всего с",
@@ -52,5 +50,6 @@
  "Each champion's best item to make its Weapon of Destiny: every candidate is upgraded in simulated fights with the champion's most popular build, then combined with how the item already wins as its first Legendary item.": "Лучший предмет каждого чемпиона для Оружия судьбы: каждый кандидат улучшается в смоделированных боях с самой популярной сборкой чемпиона, а затем учитывается, как предмет уже побеждает в качестве его первого легендарного предмета.",
  "Simulated and estimated. Win rate boost turns the simulated upgrades into estimated win rate points, so champions near the top gain the most from the augment.": "Моделирование и оценка. Прирост процента побед переводит смоделированные улучшения в оценочные пункты, поэтому чемпионы вверху списка выигрывают от усиления больше всего.",
  "Simulated": "Симуляция",
- "Simulated: picked from simulated fights with each champion's most popular build.": "Симуляция: выбрано по симулированным боям с самой популярной сборкой каждого чемпиона."
+ "Simulated: picked from simulated fights with each champion's most popular build.": "Симуляция: выбрано по симулированным боям с самой популярной сборкой каждого чемпиона.",
+ "How much each takedown is worth to this item, from 0 to 100 where 50 is average. Its stats count most when few Legendary items give them or they multiply all your damage, and the gold is shared among them, so an item with many stats spreads it thin.": "Сколько стоит каждое участие в убийстве для этого предмета, от 0 до 100, где 50 — среднее. Его характеристики ценнее всего, когда их дают немногие легендарные предметы или они умножают весь ваш урон, а золото делится между ними, поэтому у предмета с множеством характеристик оно размазывается."
 }

@@ -23,8 +23,6 @@
  "Estimated. Win rate of builds that start with it, minus what the same champions win with their other first items.": "تقديري. نسبة فوز البنيات التي تبدأ به، ناقص ما يفوز به الأبطال أنفسهم مع عناصرهم الأولى الأخرى.",
  "Pick rate": "نسبة الاختيار",
  "Estimated. How often it would be the Weapon of Destiny: the first Legendary item of the champions likely to take the augment.": "تقديري. كم مرة سيكون سلاحَ المصير: أول عنصر أسطوري لدى الأبطال الذين يُرجَّح أن يختاروا هذا التعزيز.",
- "Rare stats": "خصائص نادرة",
- "How much of each upgrade goes into stats few Legendary items give, such as Critical Strike Damage or Armor Penetration. 100 is the rarest mix.": "كم من كل ترقية يذهب إلى خصائص لا تمنحها إلا عناصر أسطورية قليلة، مثل ضرر الضربات الحرجة أو اختراق الدروع. ‏100 هي أندر تركيبة.",
  "Each takedown": "لكل مشاركة في القتل",
  "What one takedown adds to the item: {gold} gold worth of its own stats, shared equally.": "ما تضيفه مشاركة واحدة في القتل إلى العنصر: من خصائصه نفسها بقيمة {gold} ذهب، موزعة بالتساوي.",
  "Best with": "الأفضل مع",
@@ -52,5 +50,6 @@
  "Each champion's best item to make its Weapon of Destiny: every candidate is upgraded in simulated fights with the champion's most popular build, then combined with how the item already wins as its first Legendary item.": "أفضل عنصر لكل بطل ليكون سلاح المصير: تتم ترقية كل عنصر مرشح في معارك محاكاة ببناء البطل الأكثر شيوعًا، ثم يُجمع ذلك مع أداء العنصر بالفعل كأول عنصر أسطوري له.",
  "Simulated and estimated. Win rate boost turns the simulated upgrades into estimated win rate points, so champions near the top gain the most from the augment.": "محاكاة وتقديري. يحوّل تعزيز معدل الفوز الترقيات المحاكاة إلى نقاط تقديرية في معدل الفوز، لذا يستفيد الأبطال في الأعلى أكثر من هذا التعزيز.",
  "Simulated": "محاكاة",
- "Simulated: picked from simulated fights with each champion's most popular build.": "محاكاة: اختير من معارك محاكاة ببناء كل بطل الأكثر شيوعًا."
+ "Simulated: picked from simulated fights with each champion's most popular build.": "محاكاة: اختير من معارك محاكاة ببناء كل بطل الأكثر شيوعًا.",
+ "How much each takedown is worth to this item, from 0 to 100 where 50 is average. Its stats count most when few Legendary items give them or they multiply all your damage, and the gold is shared among them, so an item with many stats spreads it thin.": "مقدار ما تساويه كل مشاركة في القتل لهذا العنصر، من 0 إلى 100 حيث 50 هو المتوسط. تُحسب إحصائياته أكثر عندما تمنحها عناصر أسطورية قليلة أو عندما تضاعف كل ضررك، ويُقسَّم الذهب بينها، لذا فإن العنصر ذا الإحصائيات الكثيرة يوزّعه بشكل رقيق."
 }

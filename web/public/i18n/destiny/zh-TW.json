@@ -23,8 +23,6 @@
  "Estimated. Win rate of builds that start with it, minus what the same champions win with their other first items.": "估計值。以它開局的出裝勝率，減去同樣的英雄用其他首件裝備時的勝率。",
  "Pick rate": "選用率",
  "Estimated. How often it would be the Weapon of Destiny: the first Legendary item of the champions likely to take the augment.": "估計值。它成為命定武器的頻率：可能選擇該強化的英雄的第一件傳說裝備。",
- "Rare stats": "稀有屬性",
- "How much of each upgrade goes into stats few Legendary items give, such as Critical Strike Damage or Armor Penetration. 100 is the rarest mix.": "每次強化中有多少進入很少有傳說裝備提供的屬性，例如爆擊傷害或物理穿透。100 為最稀有的組合。",
  "Each takedown": "每次參與擊殺",
  "What one takedown adds to the item: {gold} gold worth of its own stats, shared equally.": "每次參與擊殺為裝備增加：價值 {gold} 金幣的裝備自身屬性，平均分配。",
  "Best with": "最佳搭配",
@@ -52,5 +50,6 @@
  "Each champion's best item to make its Weapon of Destiny: every candidate is upgraded in simulated fights with the champion's most popular build, then combined with how the item already wins as its first Legendary item.": "每名英雄最適合作為命定武器的裝備：每件候選裝備都在使用該英雄最熱門出裝的模擬戰鬥中升級，再結合該裝備作為其第一件傳說裝備時的實際勝率表現。",
  "Simulated and estimated. Win rate boost turns the simulated upgrades into estimated win rate points, so champions near the top gain the most from the augment.": "模擬加估算。勝率提升把模擬中的升級收益換算成估算的勝率百分點，因此排在前面的英雄從這個強化中獲益最多。",
  "Simulated": "模擬",
- "Simulated: picked from simulated fights with each champion's most popular build.": "模擬：根據每位英雄最熱門出裝的模擬戰鬥選出。"
+ "Simulated: picked from simulated fights with each champion's most popular build.": "模擬：根據每位英雄最熱門出裝的模擬戰鬥選出。",
+ "How much each takedown is worth to this item, from 0 to 100 where 50 is average. Its stats count most when few Legendary items give them or they multiply all your damage, and the gold is shared among them, so an item with many stats spreads it thin.": "每次參與擊殺對這件裝備有多大價值，0 到 100 分，50 為平均。提供該屬性的傳說裝備越少、或屬性能放大你全部傷害，就越受重視；金幣會在屬性之間平分，所以屬性多的裝備會被攤薄。"
 }

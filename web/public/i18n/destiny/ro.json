@@ -23,8 +23,6 @@
  "Estimated. Win rate of builds that start with it, minus what the same champions win with their other first items.": "Estimat. Rata de victorii a build-urilor care încep cu el, minus cât câștigă aceiași campioni cu celelalte prime obiecte.",
  "Pick rate": "Rată de alegere",
  "Estimated. How often it would be the Weapon of Destiny: the first Legendary item of the champions likely to take the augment.": "Estimat. Cât de des ar fi Arma destinului: primul obiect legendar al campionilor care ar alege probabil augmentarea.",
- "Rare stats": "Statistici rare",
- "How much of each upgrade goes into stats few Legendary items give, such as Critical Strike Damage or Armor Penetration. 100 is the rarest mix.": "Cât din fiecare îmbunătățire merge în statistici pe care le dau puține obiecte legendare, cum ar fi daunele critice sau penetrarea armurii. 100 e cel mai rar amestec.",
  "Each takedown": "Per eliminare",
  "What one takedown adds to the item: {gold} gold worth of its own stats, shared equally.": "Ce adaugă o eliminare obiectului: statistici proprii în valoare de {gold} aur, împărțite egal.",
  "Best with": "Cel mai bun cu",
@@ -52,5 +50,6 @@
  "Each champion's best item to make its Weapon of Destiny: every candidate is upgraded in simulated fights with the champion's most popular build, then combined with how the item already wins as its first Legendary item.": "Cel mai bun obiect al fiecărui campion pentru Arma destinului: fiecare candidat este îmbunătățit în lupte simulate cu cel mai popular build al campionului, apoi combinat cu cum câștigă deja obiectul ca primul său obiect legendar.",
  "Simulated and estimated. Win rate boost turns the simulated upgrades into estimated win rate points, so champions near the top gain the most from the augment.": "Simulat și estimat. Creșterea ratei de victorii transformă îmbunătățirile simulate în puncte estimate, așa că campionii de sus câștigă cel mai mult din augment.",
  "Simulated": "Simulat",
- "Simulated: picked from simulated fights with each champion's most popular build.": "Simulat: ales din lupte simulate cu cel mai popular build al fiecărui campion."
+ "Simulated: picked from simulated fights with each champion's most popular build.": "Simulat: ales din lupte simulate cu cel mai popular build al fiecărui campion.",
+ "How much each takedown is worth to this item, from 0 to 100 where 50 is average. Its stats count most when few Legendary items give them or they multiply all your damage, and the gold is shared among them, so an item with many stats spreads it thin.": "Cât valorează fiecare participare la o eliminare pentru acest obiect, de la 0 la 100, unde 50 este media. Statisticile lui contează cel mai mult când puține obiecte legendare le oferă sau când îți multiplică toate daunele, iar aurul se împarte între ele, așa că un obiect cu multe statistici îl împrăștie."
 }
