@@ -43,20 +43,15 @@ takedown adds 200 gold worth of the item's own upgradeable stats, shared equally
 amounts per 1,000 gold come from the augment's spell data in `kiwi.bin`, the item's stats from the item
 bin. Each one's Weapon is the first Legendary item in its core builds (in buy order). Legendary means the
 simulator's Legendary items plus every other Legendary item Mayhem's shop sells (`item-groups.json`, e.g.
-Mayhem's Hubris 126697), so a build that starts with one isn't credited to its second item. Per item: `share` (how often it's
-the Weapon), `lift` (win rate of core builds starting with it minus the champion's average over its core
-builds, weighted like share), `rare` (its stats' average rarity among Legendary items) and `value`
-(each stat's rarity times its worth in `VALUE`: 3 for Critical Strike Damage and % penetration, 2 for
-flat penetration, crit and attack speed, 1.5 for healing, else 1; averaged).
+Mayhem's Hubris 126697), so a build that starts with one isn't credited to its second item. Per item:
+`value`, what the site ranks by (each stat's rarity among Legendary items times its worth in `VALUE`: 3 for
+Critical Strike Damage and % penetration, 2 for flat penetration, crit and attack speed, 1.5 for healing and
+Move Speed %, else 1; averaged over the item's stats), and `share` (how often it's the Weapon, for "Best
+with": champions weighted by pick rate x how often they take the augment).
 
-While no champion lists the augment in the feed, the output has `anticipated: true`: takers are
-extrapolated (every champion weighted by pick rate x kills + assists from `profiles`) and the site
-labels the tab Anticipated and ranks by `value` (Nico 2026-10-23). Once champions take it, they're
-weighted by pick rate x how often they take it, and the site ranks by a DeepScore from lift and share
-the way the Items tab does. That differs from the regular item DeepScore (first items only, weighted by
-who takes the augment; rank correlation 0.14 on the extrapolated takers). The augment's real takers
-showed up in the feed on 2026-10-27; win rates are still those of each champion's core builds, since the
-feed has no augment-item pairs. Refreshed daily by `fill.yml` after the Mayhem stats update.
+The site labels the tab Predicted and ranks by `value` only (Nico 2026-10-27): the feed shows who takes the
+augment but not which games had it, so the win rates of builds starting with an item aren't the augment's.
+Refreshed daily by `fill.yml` after the Mayhem stats update.
 
 ## Best upgrades per champion (`champion_upgrades.json`, simulated + estimated)
 
