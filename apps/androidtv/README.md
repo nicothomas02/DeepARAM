@@ -25,6 +25,8 @@ has no augment tier list or PBE, so those tabs hide.
 - The manifest requires `android.software.leanback` and not a touchscreen, so Play only offers this
   build to TVs. The launcher banner is `res/drawable-xhdpi/banner.png`.
 
+Riot's notice comes from the shared module `apps/android/core` (included in `settings.gradle.kts`).
+
 ## Build and run
 
 Needs JDK 17+ and the Android SDK (platform 35). Android Studio works too: open this folder.

@@ -37,6 +37,7 @@ import androidx.tv.material3.Tab
 import androidx.tv.material3.TabRow
 import androidx.tv.material3.Text
 import androidx.compose.foundation.Image
+import com.deeparam.core.Legal
 import com.deeparam.tv.ui.AboutScreen
 import com.deeparam.tv.ui.AugmentsScreen
 import com.deeparam.tv.ui.ChampionDetail
