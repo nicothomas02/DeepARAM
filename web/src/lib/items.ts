@@ -73,17 +73,42 @@ export function itemTier(id: number): ItemTier {
   return recipeTier(id);
 }
 
-function recipeTier(id: number): ItemTier {
+function recipeMap(): Map<number, Recipe> {
   if (!recipes) {
     const file = join(process.cwd(), "public", "assets", "cd", "latest", GAME_DATA, "v1", "items.json");
     recipes = new Map((existsSync(file) ? (JSON.parse(readFileSync(file, "utf8")) as Recipe[]) : []).map((r) => [r.id, r]));
   }
-  const r = recipes.get(id);
+  return recipes;
+}
+
+let transforms: Map<number, number> | null = null;
+/** The item this one turns into mid-game, at the end of the chain (Archangel's Staff into Seraph's Embrace,
+ *  Spellthief's Edge through Frostfang into Shard of True Ice), or undefined if it doesn't transform. */
+export function transformsInto(id: number): number | undefined {
+  if (!transforms) {
+    const next = new Map<number, number>();
+    for (const r of recipeMap().values()) if (r.specialRecipe && r.specialRecipe !== r.id) next.set(r.specialRecipe, r.id);
+    transforms = new Map();
+    for (const from of next.keys()) {
+      let to = next.get(from)!;
+      for (let hops = 0; next.has(to) && hops < 5; hops++) to = next.get(to)!;
+      transforms.set(from, to);
+    }
+  }
+  return transforms.get(id);
+}
+
+/** Whether an item gets a DeepScore. Components and items that transform are mostly seen in an inventory when
+ *  a game ended before they were finished, so their win rates read low; they're shown without a score. */
+export const ranked = (id: number): boolean => transformsInto(id) === undefined && !["epic", "basic"].includes(itemTier(id));
+
+function recipeTier(id: number): ItemTier {
+  const r = recipeMap().get(id);
   if (!r) return "legendary";
   if (r.categories?.includes("Boots")) return "boots";
   if (r.categories?.includes("Consumable")) return "consumable";
   // Transformations (Whispering Circlet into Diadem of Songs) aren't upgrades.
-  const upgrades = (r.to ?? []).filter((t) => recipes!.get(t)?.specialRecipe !== id);
+  const upgrades = (r.to ?? []).filter((t) => recipeMap().get(t)?.specialRecipe !== id);
   if (upgrades.length) return r.from?.length ? "epic" : "basic";
   if (!r.from?.length && r.priceTotal < 1000) return "starter";
   return "legendary";

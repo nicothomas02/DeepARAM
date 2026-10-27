@@ -7,6 +7,7 @@ import { grade, lowerBound } from "./deepscore";
 import {
   ITEM_TIERS,
   itemTier,
+  ranked,
   items,
   rewardItems,
   type ItemTier,
@@ -248,12 +249,12 @@ function tiered(list: ItemRow[]): ItemRow[] {
     (r) =>
       r.items.length === 1 && !seen.has(r.items[0]) && seen.add(r.items[0]),
   );
-  return ITEM_TIERS.flatMap((tier) =>
-    scoreItems(one.filter((r) => itemTier(r.items[0]) === tier)).map((r) => ({
-      ...r,
-      tier,
-    })),
-  );
+  // Components and items that transform are listed after the scored ones, by pick rate, without a DeepScore (lib/items.ts ranked).
+  return ITEM_TIERS.flatMap((tier) => {
+    const inTier = one.filter((r) => itemTier(r.items[0]) === tier);
+    const unscored = inTier.filter((r) => !ranked(r.items[0])).sort((x, y) => y.pickRate - x.pickRate);
+    return [...scoreItems(inTier.filter((r) => ranked(r.items[0]))), ...unscored].map((r) => ({ ...r, tier }));
+  });
 }
 
 /** Each core build with the boots most often bought alongside it in six-item builds, or the best boots overall. */
@@ -289,7 +290,7 @@ function lateSlots(core: ItemRow | undefined, single: ItemRow[]): LateSlot[] {
   const taken = new Set(core.items);
   // Scored against each other: the core items would otherwise crowd every option to the bottom of the scale.
   const pool = scoreItems(
-    single.filter((r) => r.tier === "legendary" && !taken.has(r.items[0])),
+    single.filter((r) => r.tier === "legendary" && ranked(r.items[0]) && !taken.has(r.items[0])),
   );
   const slots: LateSlot[] = [];
   for (const slot of LATE_SLOTS) {
