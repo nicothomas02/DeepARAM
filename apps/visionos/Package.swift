@@ -5,7 +5,7 @@ import PackageDescription
 // toolbar, and any page in a window of its own. The DeepARAM app in apps/ios shows it on visionOS.
 let package = Package(
     name: "DeepARAMVision",
-    platforms: [.visionOS(.v1), .macOS(.v14)],
+    platforms: [.visionOS("2.0"), .macOS(.v14)],
     products: [.library(name: "DeepARAMVision", targets: ["DeepARAMVision"])],
     dependencies: [.package(path: "../shared/DeepARAMKit")],
     targets: [

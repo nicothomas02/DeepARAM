@@ -33,6 +33,7 @@ public struct VisionRootView<Settings: View>: View {
                 .tag("more")
         }
         .onOpenURL { open($0) }
+        .task { await ChampionModelStore.shared.load() }
         .onReceive(NotificationCenter.default.publisher(for: openNotification)) { note in
             if let url = note.object as? URL { open(url) }
         }

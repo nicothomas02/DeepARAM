@@ -7,6 +7,7 @@ import SwiftUI
 struct VisionPage: View {
     @ObservedObject var page: SitePage
     let title: String
+    @ObservedObject private var models = ChampionModelStore.shared
     @Environment(\.openWindow) private var openWindow
 
     var body: some View {
@@ -49,6 +50,11 @@ struct VisionPage: View {
                 }
             }
             ToolbarItemGroup(placement: .topBarTrailing) {
+                if let url = shareableURL, let model = models.models?.model(forPage: url) {
+                    Button("View in 3D", systemImage: "cube") {
+                        openWindow(id: ChampionVolume.id, value: model.id)
+                    }
+                }
                 Button("Reload", systemImage: "arrow.clockwise") { page.reload() }
                 if let url = shareableURL {
                     ShareLink(item: url)
@@ -61,7 +67,7 @@ struct VisionPage: View {
     }
 
     private var shareableURL: URL? {
-        guard let url = page.webView.url, Site.isInternal(url) else { return nil }
+        guard let url = page.currentURL ?? page.webView.url, Site.isInternal(url) else { return nil }
         return url
     }
 }

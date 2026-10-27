@@ -26,6 +26,13 @@ struct DeepARAMApp: App {
                 .tint(Theme.accent)
         }
         .defaultSize(width: 1000, height: 800)
+
+        // A champion's 3D model in a volume beside the windows.
+        WindowGroup("Champion in 3D", id: ChampionVolume.id, for: String.self) { $id in
+            ChampionVolume(championID: id)
+        }
+        .windowStyle(.volumetric)
+        .defaultSize(ChampionVolume.size, in: .meters)
         #else
         WindowGroup {
             Group {

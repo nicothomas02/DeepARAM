@@ -19,10 +19,13 @@ public final class SitePage: NSObject, ObservableObject {
     /// Set while the page on screen is a saved copy; holds when it was saved.
     @Published public private(set) var offlineCopyDate: Date?
     @Published public private(set) var failedOffline = false
+    /// The page's address, kept current through the site's own in-page navigation too.
+    @Published public private(set) var currentURL: URL?
 
     private let store: OfflineStore
     private var started = false
     private var loadingCopy = false
+    private var urlObservation: NSKeyValueObservation?
 
     public init(tab: SiteTab, platform: String, store: OfflineStore = OfflineStore()) {
         self.tab = tab
@@ -43,6 +46,10 @@ public final class SitePage: NSObject, ObservableObject {
         webView.navigationDelegate = self
         webView.uiDelegate = self
         webView.allowsBackForwardNavigationGestures = true
+        urlObservation = webView.observe(\.url, options: [.new]) { [weak self] web, _ in
+            // WebKit reports changes on the main thread.
+            MainActor.assumeIsolated { self?.currentURL = web.url }
+        }
         #if os(iOS) || os(visionOS)
         webView.isOpaque = false
         webView.backgroundColor = .clear

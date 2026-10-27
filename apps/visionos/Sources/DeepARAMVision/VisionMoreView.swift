@@ -11,6 +11,9 @@ struct VisionMoreView<Settings: View>: View {
         NavigationStack {
             List {
                 Section {
+                    NavigationLink { ChampionGallery() } label: { Label("3D Champions", systemImage: "cube") }
+                }
+                Section {
                     ForEach(SiteTab.more) { tab in
                         NavigationLink(value: tab) { Label(tab.title, systemImage: tab.symbol) }
                     }
