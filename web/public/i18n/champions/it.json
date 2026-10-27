@@ -172,5 +172,13 @@
  "Next page": "Pagina successiva",
  "No augments match these filters.": "Nessun potenziamento corrisponde a questi filtri.",
  "All picks": "Tutte le scelte",
- "Estimated: augments often taken at this pick on this champion.": "Stimato: potenziamenti spesso presi a questa scelta con questo campione."
+ "Estimated: augments often taken at this pick on this champion.": "Stimato: potenziamenti spesso presi a questa scelta con questo campione.",
+ "Best upgrades": "Migliori potenziamenti",
+ "Simulated and estimated. The best 4 augments count how well they work together, not just each one alone. Weapon of Destiny shows the item that gains the most from its upgrades.": "Simulato e stimato. I 4 migliori potenziamenti contano quanto funzionano insieme, non solo ognuno da solo. Arma del destino mostra l'oggetto che guadagna di più dai suoi potenziamenti.",
+ "Best 4 augments together": "I 4 migliori potenziamenti insieme",
+ "Est. boost": "Aumento stim.",
+ "Simulated gain": "Aumento simulato",
+ "Takedowns": "Partecipazioni",
+ "Weapon of Destiny": "Arma del Destino",
+ "Pentakill": "Pentakill"
 }

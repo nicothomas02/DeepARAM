@@ -772,6 +772,48 @@ html[data-view="simple"] .cp-fold:not([data-open]) > .cp-fold-body {
   }
 }
 
+/* Best upgrades: a label, what to pick and two numbers per line; phones put the label on its own line. */
+.cp-upg {
+  display: grid;
+  grid-template-columns: 9.5rem minmax(0, 1fr) repeat(2, 5.4rem);
+  gap: 0.5rem;
+  align-items: center;
+  padding: 0.55rem 1rem;
+  border-bottom: 1px solid var(--line);
+}
+.cp-rows > .cp-upg:last-child {
+  border-bottom: 0;
+}
+.cp-upg-label {
+  color: var(--muted);
+  font-weight: 600;
+}
+.cp-quad {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.4rem 1rem;
+  min-width: 0;
+}
+.cp-upg-when {
+  min-width: 3.6rem;
+  color: var(--muted);
+  font-size: 0.75rem;
+  white-space: nowrap;
+}
+@media (max-width: 560px) {
+  .cp-upg {
+    grid-template-columns: minmax(0, 1fr) repeat(2, 3.9rem);
+    gap: 0.35rem;
+    padding: 0.5rem 0.7rem;
+  }
+  .cp-upg-label {
+    grid-column: 1 / -1;
+  }
+  .cp-quad {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
 /* Performance tiles: how far the champion sits from the average. */
 .cp-perf em {
   color: var(--muted);

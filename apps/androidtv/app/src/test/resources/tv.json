@@ -1,0 +1,34 @@
+{
+  "patch": "26.21",
+  "champions": [
+    {"id": "Ahri", "name": "Ahri", "tier": "A", "winRate": 0.5179, "pickRate": 0.031, "icon": "/icons/champions/Ahri.webp",
+     "skills": ["Q", "E", "W"],
+     "items": [{"name": "Sorcerer's Shoes", "icon": "/icons/items/3020.webp"}, {"name": "Rabadon's Deathcap", "icon": "/icons/items/3089.webp"}],
+     "augments": {"prismatic": [{"name": "Eureka", "icon": "/a/eureka.webp"}], "gold": [{"name": "BEES!!!", "icon": null}], "silver": []}},
+    {"id": "Akali", "name": "Akali", "tier": "A", "winRate": 0.49, "pickRate": 0.02, "icon": "/icons/champions/Akali.webp", "skills": [], "items": [], "augments": {}},
+    {"id": "Jinx", "name": "Jinx", "tier": "S", "winRate": 0.55, "pickRate": 0.05, "icon": "/icons/champions/Jinx.webp", "skills": [], "items": [], "augments": {}},
+    {"id": "Briar", "name": "Briar", "tier": null, "winRate": null, "pickRate": null, "icon": null, "skills": [], "items": [], "augments": {}}
+  ],
+  "augments": [
+    {"name": "Eureka", "rarity": "prismatic", "tier": "S", "winRate": 0.56, "pickRate": 0.04, "icon": "/a/eureka.webp"},
+    {"name": "BEES!!!", "rarity": "gold", "tier": "B", "winRate": 0.51, "pickRate": 0.03, "icon": "/a/bees.webp"}
+  ],
+  "chefsSpecial": {
+    "title": "Mole Artillery", "champion": "RekSai", "name": "Rek'Sai", "date": "2026-10-26",
+    "why": "Long range pokes.", "play": "Stay burrowed.",
+    "items": [{"name": "Horizon Focus", "icon": "/icons/items/4628.webp"}],
+    "augments": [{"name": "Multishot", "rarity": "prismatic", "core": true}, {"name": "Skilled Sniper", "rarity": "gold", "core": false}]
+  },
+  "pbe": {
+    "label": "PBE 26.22", "dataAsOf": "2026-10-27", "caveat": "PBE changes can still change before release.",
+    "augmentPool": {"live": 210, "pbe": 214},
+    "augments": {
+      "added": [{"name": "Shrink Ray", "rarity": "gold", "description": "Your attacks shrink enemies.", "icon": "/icons/augments/9001.webp"}],
+      "removed": [],
+      "changed": [{"name": "Eureka", "rarity": "prismatic", "direction": "nerf", "changes": [{"stat": "Ability haste", "live": "30", "pbe": "25"}], "icon": null}]
+    },
+    "championChanges": [{"champion": "Jinx", "changes": ["Q bonus range 100 → 125"]}],
+    "itemChanges": [],
+    "modeChanges": ["Bridge of Progress returns"]
+  }
+}

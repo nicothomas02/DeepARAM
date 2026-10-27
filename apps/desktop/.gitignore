@@ -1,0 +1,9 @@
+node_modules/
+src-tauri/target/
+src-tauri/gen/
+flatpak/build/
+flatpak/repo/
+flatpak/.flatpak-builder/
+flatpak/shared-modules/
+flatpak/deeparam.deb
+flatpak/*.flatpak

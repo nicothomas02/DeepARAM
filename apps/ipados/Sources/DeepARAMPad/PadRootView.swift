@@ -37,14 +37,18 @@ public struct PadRootView: View {
     private func restore() {
         model.showChampionPane = savedPane
         model.split = CGFloat(savedSplit)
-        model.section = SiteTab.padSections.first { $0.id == savedSection } ?? .tiers
+        model.section = SiteTab.padSection(id: savedSection) ?? .padTierList
         if let alias = savedChampion { model.openChampion(alias) }
     }
 
-    /// deeparam://champions/Jinx and https://deeparam.com/champions/Jinx both open Jinx.
+    /// deeparam://champions/Jinx and https://deeparam.com/champions/Jinx both open Jinx;
+    /// deeparam://tier-list?tab=pentakill keeps its ?tab= and #fragment.
     static func siteURL(from url: URL) -> URL {
-        guard url.scheme == "deeparam" else { return url }
-        return Site.url("/" + [url.host, url.path.isEmpty ? nil : String(url.path.dropFirst())].compactMap { $0 }.joined(separator: "/"))
+        guard url.scheme == "deeparam", var parts = URLComponents(url: url, resolvingAgainstBaseURL: false) else { return url }
+        parts.path = "/" + [parts.host, parts.path.isEmpty ? nil : String(parts.path.dropFirst())].compactMap { $0 }.joined(separator: "/")
+        parts.scheme = Site.base.scheme
+        parts.host = Site.host
+        return parts.url ?? Site.url(parts.path)
     }
 }
 
@@ -89,9 +93,6 @@ struct PageToolbar: ToolbarContent {
                 .disabled(!state.canGoForward)
         }
         ToolbarItemGroup(placement: .topBarTrailing) {
-            if section.isBeta {
-                Text("Beta").font(.caption.weight(.semibold)).foregroundStyle(.secondary)
-            }
             Button { state.page.reload() } label: { Label("Reload", systemImage: "arrow.clockwise") }
             if let url = state.url, Site.isInternal(url) {
                 ShareLink(item: url) { Label("Share", systemImage: "square.and.arrow.up") }

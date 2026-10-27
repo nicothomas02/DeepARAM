@@ -172,5 +172,13 @@
  "Next page": "Další stránka",
  "No augments match these filters.": "Těmto filtrům neodpovídá žádné vylepšení.",
  "All picks": "Všechny volby",
- "Estimated: augments often taken at this pick on this champion.": "Odhad: vylepšení, která se u tohoto šampiona v této volbě často berou."
+ "Estimated: augments often taken at this pick on this champion.": "Odhad: vylepšení, která se u tohoto šampiona v této volbě často berou.",
+ "Best upgrades": "Nejlepší vylepšení",
+ "Simulated and estimated. The best 4 augments count how well they work together, not just each one alone. Weapon of Destiny shows the item that gains the most from its upgrades.": "Simulace a odhad. Nejlepší 4 augmenty počítají s tím, jak dobře fungují spolu, ne jen každý zvlášť. Zbraň osudu ukazuje předmět, který ze svých vylepšení získá nejvíc.",
+ "Best 4 augments together": "Nejlepší 4 augmenty dohromady",
+ "Est. boost": "Odh. přírůstek",
+ "Simulated gain": "Přírůstek v simulaci",
+ "Takedowns": "Účasti na zabití",
+ "Weapon of Destiny": "Zbraň osudu",
+ "Pentakill": "Pentakill"
 }

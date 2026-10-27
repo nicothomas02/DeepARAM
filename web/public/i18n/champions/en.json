@@ -172,5 +172,13 @@
  "Next page": "Next page",
  "No augments match these filters.": "No augments match these filters.",
  "All picks": "All picks",
- "Estimated: augments often taken at this pick on this champion.": "Estimated: augments often taken at this pick on this champion."
+ "Estimated: augments often taken at this pick on this champion.": "Estimated: augments often taken at this pick on this champion.",
+ "Best upgrades": "Best upgrades",
+ "Simulated and estimated. The best 4 augments count how well they work together, not just each one alone. Weapon of Destiny shows the item that gains the most from its upgrades.": "Simulated and estimated. The best 4 augments count how well they work together, not just each one alone. Weapon of Destiny shows the item that gains the most from its upgrades.",
+ "Best 4 augments together": "Best 4 augments together",
+ "Est. boost": "Est. boost",
+ "Simulated gain": "Simulated gain",
+ "Takedowns": "Takedowns",
+ "Weapon of Destiny": "Weapon of Destiny",
+ "Pentakill": "Pentakill"
 }

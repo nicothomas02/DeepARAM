@@ -172,5 +172,13 @@
  "Next page": "หน้าถัดไป",
  "No augments match these filters.": "ไม่มี Augment ที่ตรงกับตัวกรองนี้",
  "All picks": "ทุกการเลือก",
- "Estimated: augments often taken at this pick on this champion.": "ประมาณการ: Augment ที่มักเลือกในรอบนี้กับแชมเปี้ยนตัวนี้"
+ "Estimated: augments often taken at this pick on this champion.": "ประมาณการ: Augment ที่มักเลือกในรอบนี้กับแชมเปี้ยนตัวนี้",
+ "Best upgrades": "การอัปเกรดที่ดีที่สุด",
+ "Simulated and estimated. The best 4 augments count how well they work together, not just each one alone. Weapon of Destiny shows the item that gains the most from its upgrades.": "จำลองและประมาณการ 4 ออกเมนต์ที่ดีที่สุดนับรวมว่าทำงานร่วมกันได้ดีแค่ไหน ไม่ใช่แค่แต่ละอันเดี่ยว ๆ อาวุธแห่งโชคชะตาแสดงไอเทมที่ได้ประโยชน์จากการอัปเกรดมากที่สุด",
+ "Best 4 augments together": "4 ออกเมนต์ที่ดีที่สุดรวมกัน",
+ "Est. boost": "เพิ่มขึ้น (ประมาณ)",
+ "Simulated gain": "เพิ่มขึ้น (จำลอง)",
+ "Takedowns": "การมีส่วนร่วมฆ่า",
+ "Weapon of Destiny": "Weapon of Destiny",
+ "Pentakill": "Pentakill"
 }

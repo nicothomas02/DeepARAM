@@ -172,5 +172,13 @@
  "Next page": "Következő oldal",
  "No augments match these filters.": "Egy fejlesztés sem felel meg ezeknek a szűrőknek.",
  "All picks": "Minden választás",
- "Estimated: augments often taken at this pick on this champion.": "Becsült: ennél a bajnoknál ennél a választásnál gyakran választott fejlesztések."
+ "Estimated: augments often taken at this pick on this champion.": "Becsült: ennél a bajnoknál ennél a választásnál gyakran választott fejlesztések.",
+ "Best upgrades": "Legjobb fejlesztések",
+ "Simulated and estimated. The best 4 augments count how well they work together, not just each one alone. Weapon of Destiny shows the item that gains the most from its upgrades.": "Szimulált és becsült. A legjobb 4 kiegészítő azt is számolja, mennyire működnek együtt, nem csak egyenként. A Sors fegyvere azt a tárgyat mutatja, amely a legtöbbet nyeri a fejlesztéseiből.",
+ "Best 4 augments together": "A legjobb 4 kiegészítő együtt",
+ "Est. boost": "Becs. többlet",
+ "Simulated gain": "Szimulált többlet",
+ "Takedowns": "Részvételek",
+ "Weapon of Destiny": "A Végzet fegyvere",
+ "Pentakill": "Pentakill"
 }

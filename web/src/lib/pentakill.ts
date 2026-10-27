@@ -46,7 +46,13 @@ export type PentakillRow = {
 
 type Ability = { slot: string; name: string; icon?: string };
 
+let cache: PentakillRow[] | null = null;
+
 export function pentakill(): PentakillRow[] {
+  return (cache ??= read());
+}
+
+function read(): PentakillRow[] {
   const data = readRepoJson<Data>("data/estimates/champion_upgrades.json");
   if (!data) return [];
   const byKey = new Map(Object.entries(championIds).map(([alias, key]) => [String(key), alias]));

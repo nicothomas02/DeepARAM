@@ -172,5 +172,13 @@
  "Next page": "Następna strona",
  "No augments match these filters.": "Żadne ulepszenie nie pasuje do tych filtrów.",
  "All picks": "Wszystkie wybory",
- "Estimated: augments often taken at this pick on this champion.": "Szacunkowo: ulepszenia często brane przy tym wyborze na tym bohaterze."
+ "Estimated: augments often taken at this pick on this champion.": "Szacunkowo: ulepszenia często brane przy tym wyborze na tym bohaterze.",
+ "Best upgrades": "Najlepsze ulepszenia",
+ "Simulated and estimated. The best 4 augments count how well they work together, not just each one alone. Weapon of Destiny shows the item that gains the most from its upgrades.": "Symulacja i szacunek. Najlepsze 4 ulepszenia liczą, jak dobrze działają razem, a nie tylko każde osobno. Broń przeznaczenia pokazuje przedmiot, który najwięcej zyskuje na ulepszeniach.",
+ "Best 4 augments together": "Najlepsze 4 ulepszenia razem",
+ "Est. boost": "Szac. przyrost",
+ "Simulated gain": "Przyrost w symulacji",
+ "Takedowns": "Udziały w zabójstwach",
+ "Weapon of Destiny": "Broń Przeznaczenia",
+ "Pentakill": "Pentakill"
 }

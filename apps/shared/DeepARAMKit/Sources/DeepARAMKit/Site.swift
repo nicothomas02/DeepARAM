@@ -44,7 +44,8 @@ public struct SiteTab: Identifiable, Hashable, Sendable {
     /// The four main tabs, as on the site's phone tab bar; everything else lives under More.
     public static let primary: [SiteTab] = [.home, .tiers, .simulator, .kitchen]
 
-    /// The More menu, in the site's order.
+    /// The More menu: the rest of the site's header, then the pages it opens from elsewhere
+    /// (champions from the tier lists, My Stats behind the account button).
     public static let more: [SiteTab] = [
         .pbe,
         SiteTab(id: "patches", title: "Patch Recaps", symbol: "doc.text.fill", path: "/patches"),
