@@ -1590,6 +1590,10 @@ html[data-device="mobile"] .data-table th {
     display: none;
   }
 
+  .data-table.fit > .table-scroll .ability-name {
+    display: none;
+  }
+
   .data-table.fit > .table-scroll .pin {
     position: static;
     box-shadow: none;

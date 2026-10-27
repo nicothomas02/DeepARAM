@@ -18,9 +18,10 @@ import type { TagInfo } from "@/lib/tag-info";
 export type Column = {
   key: string;
   label: string;
-  format?: "pct" | "pts" | "spread" | "num" | "int" | "sec" | "text" | "champion" | "champion-icon" | "augment" | "item" | "tier" | "deepscore" | "tags";
+  format?: "pct" | "pts" | "spread" | "num" | "int" | "sec" | "text" | "champion" | "champion-icon" | "augment" | "item" | "ability" | "tier" | "deepscore" | "tags";
   sortable?: boolean;
-  /** For "augment" columns: the row key holding the augment id, for its icon; for "item" columns, the icon's address. */
+  /** For "augment" columns: the row key holding the augment id, for its icon; for "item" and "ability" columns, the
+   *  icon's address. */
   iconKey?: string;
   /** The row key holding a page to open from this cell (an augment's own page, a build's replay). */
   hrefKey?: string;
@@ -102,7 +103,7 @@ function TierChip({ tier, was }: { tier: string; was: Row[string] | undefined })
 
 // Numbers get a colour where it means something: win rates above or below an even 50%, and changes up or down.
 function cellClass(c: Column, v: Row[string]) {
-  if (!c.format || ["text", "champion", "champion-icon", "augment", "item", "tier", "tags"].includes(c.format)) return "";
+  if (!c.format || ["text", "champion", "champion-icon", "augment", "item", "ability", "tier", "tags"].includes(c.format)) return "";
   const n = Number(v);
   if (v === null || v === "" || Number.isNaN(n)) return "num";
   if (c.format === "pct" && /win/.test(c.key)) return n >= 0.52 ? "num wr-high" : n <= 0.48 ? "num wr-low" : "num";
@@ -179,6 +180,21 @@ function breakable(label: string) {
 }
 
 // Champion and augment icons come from the League client (web/scripts/fetch_icons.py).
+// An ability as "Q · Orb of Deception": phones keep the icon and the key, the name only shows on wider screens.
+function Ability({ src, text }: { src: string; text: string }) {
+  const [slot, ...rest] = text.split(" · ");
+  return (
+    <span className="champ ability-cell" title={text}>
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      {src && <img src={src} alt="" width={24} height={24} loading="lazy" />}
+      <span className="nm">
+        {slot}
+        {rest.length > 0 && <span className="ability-name"> · {rest.join(" · ")}</span>}
+      </span>
+    </span>
+  );
+}
+
 function Named({ src, name }: { src: string; name: string }) {
   const [broken, setBroken] = useState(false);
   return (
@@ -352,7 +368,7 @@ export default function DataTable({
               {columns.map((c) => (
                 <th
                   key={c.key}
-                  className={cls(c, c.format && !["text", "champion", "champion-icon", "augment", "item", "tier", "tags"].includes(c.format) ? "num" : "")}
+                  className={cls(c, c.format && !["text", "champion", "champion-icon", "augment", "item", "ability", "tier", "tags"].includes(c.format) ? "num" : "")}
                   aria-sort={c.sortable !== false && sort.key === (c.sortKey ?? c.key) ? (sort.desc ? "descending" : "ascending") : undefined}
                 >
                   {c.sortable === false ? (
@@ -387,6 +403,8 @@ export default function DataTable({
                       <RowLink className="cell-link" href={String(r[c.hrefKey ?? "href"])}>
                         <Named src={String(r[c.iconKey ?? "icon"] ?? "")} name={String(r[c.key] ?? "")} />
                       </RowLink>
+                    ) : c.format === "ability" ? (
+                      r[c.key] ? <Ability src={String(r[c.iconKey ?? "icon"] ?? "")} text={String(r[c.key])} /> : "–"
                     ) : c.format === "augment" ? (
                       c.hrefKey && r[c.hrefKey] ? (
                         <RowLink className="cell-link" href={String(r[c.hrefKey])}>

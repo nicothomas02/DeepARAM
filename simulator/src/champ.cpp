@@ -2325,8 +2325,11 @@ private:
             ev.x = shot.aim.x; ev.y = shot.aim.y; ev.flight = shot.flight;
             record(ev);
         }
-        if (!a.shield.empty()) addShield(scaled(a.shield) * hsp_, a.shieldDuration, a.slot);
-        if (!a.heal.empty()) heal(scaled(a.heal) * hsp_);
+        // Pentakill's empowered slot also heals and shields for as much more as it amps damage.
+        const double slotAmp = get(fx_, slotKey);
+        const double slotHsp = slotAmp ? hsp_ * (1 + slotAmp) : hsp_;
+        if (!a.shield.empty()) addShield(scaled(a.shield) * slotHsp, a.shieldDuration, a.slot);
+        if (!a.heal.empty()) heal(scaled(a.heal) * slotHsp);
         // Tripleshot, Spell Split: the ability also hits a few more enemies near the target, for less.
         std::vector<std::pair<Enemy*, double>> targets;
         for (Enemy* e : shot.hits) targets.push_back({e, 1.0});
