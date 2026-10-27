@@ -18,6 +18,7 @@ import championNames from "@/data/champion-names.json";
 const NAMES = championNames as Record<string, string>;
 const ALIAS = Object.fromEntries(Object.entries(championIds as Record<string, number>).map(([alias, id]) => [id, alias]));
 import RecentPlayed from "@/components/RecentPlayed";
+import FreshChefSpecial from "@/components/FreshChefSpecial";
 import { TourChip } from "@/components/FirstVisitTour";
 import { LocalDate, ModeName, Name, T } from "@/components/I18n";
 import { patchName } from "@/lib/patch-name";
@@ -300,7 +301,8 @@ export default function Home() {
           </section>
         )}
         {special && (
-          <section className="card span-4 feature chef-special" data-accent="lab">
+          <section className="card span-4 feature chef-special" data-accent="lab" data-special={special.id}>
+            <FreshChefSpecial id={special.id} />
             <div className="card-head">
               <h2>
                 <T>Today&apos;s Chef Special</T>
