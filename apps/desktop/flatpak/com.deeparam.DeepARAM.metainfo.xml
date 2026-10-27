@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>com.deeparam.DeepARAM</id>
+  <name>DeepARAM</name>
+  <summary>ARAM Mayhem tier list, builds and teamfight simulator</summary>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>MIT</project_license>
+  <developer id="com.deeparam">
+    <name>DeepARAM</name>
+  </developer>
+  <description>
+    <p>DeepARAM in its own window: the ARAM Mayhem tier list, augment and item rankings, champion pages, the fight simulator and test server changes.</p>
+    <p>It sends a notification when a new live patch or test server build lands, and remembers the page you used last.</p>
+    <p>DeepARAM isn't endorsed by Riot Games and doesn't reflect the views or opinions of Riot Games or anyone officially involved in producing or managing Riot Games properties. Riot Games, and all associated properties are trademarks or registered trademarks of Riot Games, Inc.</p>
+  </description>
+  <launchable type="desktop-id">com.deeparam.DeepARAM.desktop</launchable>
+  <url type="homepage">https://deeparam.com</url>
+  <content_rating type="oars-1.1"/>
+  <releases>
+    <release version="0.1.0" date="2026-10-27"/>
+  </releases>
+</component>
