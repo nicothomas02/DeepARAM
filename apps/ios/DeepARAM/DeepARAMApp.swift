@@ -36,4 +36,30 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
         PatchAlerts.shared.register()
         return true
     }
+
+    func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
+        let config = UISceneConfiguration(name: nil, sessionRole: connectingSceneSession.role)
+        config.delegateClass = SceneDelegate.self
+        return config
+    }
+}
+
+/// Home Screen quick actions (press and hold the app icon). Each one's type is the page's path,
+/// set in Info.plist; the root view opens it in the tab it belongs to.
+final class SceneDelegate: NSObject, UIWindowSceneDelegate {
+    func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+        if let item = connectionOptions.shortcutItem { Self.open(item) }
+    }
+
+    func windowScene(_ windowScene: UIWindowScene, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
+        completionHandler(Self.open(shortcutItem))
+    }
+
+    @discardableResult
+    private static func open(_ item: UIApplicationShortcutItem) -> Bool {
+        guard item.type.hasPrefix("/") else { return false }
+        let url = Site.url(item.type)
+        Task { @MainActor in AppLinks.shared.open(url) }
+        return true
+    }
 }

@@ -64,4 +64,22 @@ final class DeepARAMKitTests: XCTestCase {
         XCTAssertEqual(builds.champions[0].skillOrder, "Q > E > W")
         XCTAssertEqual(builds.champions[0].url.absoluteString, "https://deeparam.com/champions/Kaisa")
     }
+
+    func testTabForLink() {
+        XCTAssertEqual(SiteTab.tab(for: Site.url("/"))?.id, "home")
+        XCTAssertEqual(SiteTab.tab(for: Site.url("/tier-list?tab=pentakill"))?.id, "tiers")
+        XCTAssertEqual(SiteTab.tab(for: Site.url("/kitchen/2026-10-26"))?.id, "kitchen")
+        XCTAssertEqual(SiteTab.tab(for: Site.url("/pbe"))?.id, "pbe")
+        XCTAssertEqual(SiteTab.tab(for: Site.url("/stats"))?.id, "account")
+        XCTAssertNil(SiteTab.tab(for: URL(string: "https://ko-fi.com/x")!))
+    }
+
+    func testTabsMatchTheSite() {
+        XCTAssertEqual(SiteTab.primary.map(\.path), ["/", "/tier-list", "/simulator", "/kitchen"])
+        XCTAssertEqual(Set((SiteTab.primary + SiteTab.more).map(\.id)).count, SiteTab.primary.count + SiteTab.more.count)
+        XCTAssertTrue(SiteTab.tiers.sections.contains { $0.path == "/tier-list?tab=weapon-of-destiny" })
+        for tab in SiteTab.primary + SiteTab.more {
+            for link in tab.sections { XCTAssertEqual(SiteTab.tab(for: link.url), tab) }
+        }
+    }
 }

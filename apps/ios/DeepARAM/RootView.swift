@@ -2,10 +2,11 @@ import DeepARAMKit
 import SwiftUI
 import WebKit
 
-/// The native tab bar: Home, Tiers, Simulator, PBE and More, like the site's phone tabs.
+/// The native tab bar: Home, Tier List, Simulator, The Kitchen and More, like the site's phone tabs.
 struct RootView: View {
     @StateObject private var pages = PageStore()
     @State private var selection = SiteTab.home.id
+    @State private var morePath: [SiteTab] = []
 
     var body: some View {
         TabView(selection: tabBinding) {
@@ -14,13 +15,21 @@ struct RootView: View {
                     .tabItem { Label(tab.title, systemImage: tab.symbol) }
                     .tag(tab.id)
             }
-            MoreView(pages: pages)
+            MoreView(pages: pages, path: $morePath) { open($0) }
                 .tabItem { Label("More", systemImage: "ellipsis") }
                 .tag("more")
         }
         .onOpenURL { url in open(url) }
+        .onContinueUserActivity(NSUserActivityTypeBrowsingWeb) { activity in
+            if let url = activity.webpageURL { open(url) }
+        }
         .onReceive(NotificationCenter.default.publisher(for: PatchAlerts.openPage)) { note in
             if let url = note.object as? URL { open(url) }
+        }
+        .onReceive(AppLinks.shared.$pending) { url in
+            guard let url else { return }
+            AppLinks.shared.pending = nil
+            open(url)
         }
     }
 
@@ -37,12 +46,18 @@ struct RootView: View {
         })
     }
 
-    /// Opens a site link (from a notification or a deeparam.com link) in the tab it belongs to.
-    private func open(_ url: URL) {
-        let path = url.path.isEmpty ? "/" : url.path
-        let tab = SiteTab.primary.last { $0.path != "/" && (path == $0.path || path.hasPrefix($0.path + "/")) } ?? .home
-        selection = tab.id
-        pages.page(for: tab).open(Site.url(path + (url.query.map { "?" + $0 } ?? "")))
+    /// Opens a site link (from a notification, a shortcut or a deeparam.com link) in the tab it
+    /// belongs to: a main tab, or a page under More. Anything else opens on Home.
+    private func open(_ link: URL) {
+        guard let url = Site.pageURL(forAppLink: link) else { return }
+        let tab = SiteTab.tab(for: url) ?? .home
+        if SiteTab.more.contains(tab) {
+            selection = "more"
+            morePath = [tab]
+        } else {
+            selection = tab.id
+        }
+        pages.page(for: tab).open(url)
     }
 }
 
