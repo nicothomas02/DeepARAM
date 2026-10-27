@@ -41,10 +41,14 @@ public struct PadRootView: View {
         if let alias = savedChampion { model.openChampion(alias) }
     }
 
-    /// deeparam://champions/Jinx and https://deeparam.com/champions/Jinx both open Jinx.
+    /// deeparam://champions/Jinx and https://deeparam.com/champions/Jinx both open Jinx;
+    /// deeparam://tier-list?tab=pentakill keeps its ?tab= and #fragment.
     static func siteURL(from url: URL) -> URL {
-        guard url.scheme == "deeparam" else { return url }
-        return Site.url("/" + [url.host, url.path.isEmpty ? nil : String(url.path.dropFirst())].compactMap { $0 }.joined(separator: "/"))
+        guard url.scheme == "deeparam", var parts = URLComponents(url: url, resolvingAgainstBaseURL: false) else { return url }
+        parts.path = "/" + [parts.host, parts.path.isEmpty ? nil : String(parts.path.dropFirst())].compactMap { $0 }.joined(separator: "/")
+        parts.scheme = Site.base.scheme
+        parts.host = Site.host
+        return parts.url ?? Site.url(parts.path)
     }
 }
 
