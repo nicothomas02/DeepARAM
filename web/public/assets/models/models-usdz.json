@@ -1,0 +1,694 @@
+{
+ "Aatrox": {
+  "file": "aatrox/266000/model.usdz",
+  "name": "Aatrox"
+ },
+ "Ahri": {
+  "file": "ahri/103000/model.usdz",
+  "name": "Ahri"
+ },
+ "Akali": {
+  "file": "akali/84000/model.usdz",
+  "name": "Akali"
+ },
+ "Akshan": {
+  "file": "akshan/166000/model.usdz",
+  "name": "Akshan"
+ },
+ "Alistar": {
+  "file": "alistar/12000/model.usdz",
+  "name": "Alistar"
+ },
+ "Ambessa": {
+  "file": "ambessa/799000/model.usdz",
+  "name": "Ambessa"
+ },
+ "Amumu": {
+  "file": "amumu/32000/model.usdz",
+  "name": "Amumu"
+ },
+ "Anivia": {
+  "file": "anivia/34000/model.usdz",
+  "name": "Anivia"
+ },
+ "Annie": {
+  "file": "annie/1000/model.usdz",
+  "name": "Annie"
+ },
+ "Aphelios": {
+  "file": "aphelios/523000/model.usdz",
+  "name": "Aphelios"
+ },
+ "Ashe": {
+  "file": "ashe/22000/model.usdz",
+  "name": "Ashe"
+ },
+ "AurelionSol": {
+  "file": "aurelionsol/136000/model.usdz",
+  "name": "Aurelion Sol"
+ },
+ "Aurora": {
+  "file": "aurora/893000/model.usdz",
+  "name": "Aurora"
+ },
+ "Azir": {
+  "file": "azir/268000/model.usdz",
+  "name": "Azir"
+ },
+ "Bard": {
+  "file": "bard/432000/model.usdz",
+  "name": "Bard"
+ },
+ "Belveth": {
+  "file": "belveth/200000/model.usdz",
+  "name": "Bel'Veth"
+ },
+ "Blitzcrank": {
+  "file": "blitzcrank/53000/model.usdz",
+  "name": "Blitzcrank"
+ },
+ "Brand": {
+  "file": "brand/63000/model.usdz",
+  "name": "Brand"
+ },
+ "Braum": {
+  "file": "braum/201000/model.usdz",
+  "name": "Braum"
+ },
+ "Briar": {
+  "file": "briar/233000/model.usdz",
+  "name": "Briar"
+ },
+ "Caitlyn": {
+  "file": "caitlyn/51000/model.usdz",
+  "name": "Caitlyn"
+ },
+ "Camille": {
+  "file": "camille/164000/model.usdz",
+  "name": "Camille"
+ },
+ "Cassiopeia": {
+  "file": "cassiopeia/69000/model.usdz",
+  "name": "Cassiopeia"
+ },
+ "Chogath": {
+  "file": "chogath/31000/model.usdz",
+  "name": "Cho'Gath"
+ },
+ "Corki": {
+  "file": "corki/42000/model.usdz",
+  "name": "Corki"
+ },
+ "Darius": {
+  "file": "darius/122000/model.usdz",
+  "name": "Darius"
+ },
+ "Diana": {
+  "file": "diana/131000/model.usdz",
+  "name": "Diana"
+ },
+ "DrMundo": {
+  "file": "drmundo/36000/model.usdz",
+  "name": "Dr. Mundo"
+ },
+ "Draven": {
+  "file": "draven/119000/model.usdz",
+  "name": "Draven"
+ },
+ "Ekko": {
+  "file": "ekko/245000/model.usdz",
+  "name": "Ekko"
+ },
+ "Elise": {
+  "file": "elise/60000/model.usdz",
+  "name": "Elise"
+ },
+ "Evelynn": {
+  "file": "evelynn/28000/model.usdz",
+  "name": "Evelynn"
+ },
+ "Ezreal": {
+  "file": "ezreal/81000/model.usdz",
+  "name": "Ezreal"
+ },
+ "Fiddlesticks": {
+  "file": "fiddlesticks/9000/model.usdz",
+  "name": "Fiddlesticks"
+ },
+ "Fiora": {
+  "file": "fiora/114000/model.usdz",
+  "name": "Fiora"
+ },
+ "Fizz": {
+  "file": "fizz/105000/model.usdz",
+  "name": "Fizz"
+ },
+ "Galio": {
+  "file": "galio/3000/model.usdz",
+  "name": "Galio"
+ },
+ "Gangplank": {
+  "file": "gangplank/41000/model.usdz",
+  "name": "Gangplank"
+ },
+ "Garen": {
+  "file": "garen/86000/model.usdz",
+  "name": "Garen"
+ },
+ "Gnar": {
+  "file": "gnar/150000/model.usdz",
+  "name": "Gnar"
+ },
+ "Gragas": {
+  "file": "gragas/79000/model.usdz",
+  "name": "Gragas"
+ },
+ "Graves": {
+  "file": "graves/104000/model.usdz",
+  "name": "Graves"
+ },
+ "Gwen": {
+  "file": "gwen/887000/model.usdz",
+  "name": "Gwen"
+ },
+ "Hecarim": {
+  "file": "hecarim/120000/model.usdz",
+  "name": "Hecarim"
+ },
+ "Heimerdinger": {
+  "file": "heimerdinger/74000/model.usdz",
+  "name": "Heimerdinger"
+ },
+ "Hwei": {
+  "file": "hwei/910000/model.usdz",
+  "name": "Hwei"
+ },
+ "Illaoi": {
+  "file": "illaoi/420000/model.usdz",
+  "name": "Illaoi"
+ },
+ "Irelia": {
+  "file": "irelia/39000/model.usdz",
+  "name": "Irelia"
+ },
+ "Ivern": {
+  "file": "ivern/427000/model.usdz",
+  "name": "Ivern"
+ },
+ "Janna": {
+  "file": "janna/40000/model.usdz",
+  "name": "Janna"
+ },
+ "JarvanIV": {
+  "file": "jarvaniv/59000/model.usdz",
+  "name": "Jarvan IV"
+ },
+ "Jax": {
+  "file": "jax/24000/model.usdz",
+  "name": "Jax"
+ },
+ "Jayce": {
+  "file": "jayce/126000/model.usdz",
+  "name": "Jayce"
+ },
+ "Jhin": {
+  "file": "jhin/202000/model.usdz",
+  "name": "Jhin"
+ },
+ "Jinx": {
+  "file": "jinx/222000/model.usdz",
+  "name": "Jinx"
+ },
+ "KSante": {
+  "file": "ksante/897000/model.usdz",
+  "name": "K'Sante"
+ },
+ "Kaisa": {
+  "file": "kaisa/145000/model.usdz",
+  "name": "Kai'Sa"
+ },
+ "Kalista": {
+  "file": "kalista/429000/model.usdz",
+  "name": "Kalista"
+ },
+ "Karma": {
+  "file": "karma/43000/model.usdz",
+  "name": "Karma"
+ },
+ "Karthus": {
+  "file": "karthus/30000/model.usdz",
+  "name": "Karthus"
+ },
+ "Kassadin": {
+  "file": "kassadin/38000/model.usdz",
+  "name": "Kassadin"
+ },
+ "Katarina": {
+  "file": "katarina/55000/model.usdz",
+  "name": "Katarina"
+ },
+ "Kayle": {
+  "file": "kayle/10000/model.usdz",
+  "name": "Kayle"
+ },
+ "Kayn": {
+  "file": "kayn/141000/model.usdz",
+  "name": "Kayn"
+ },
+ "Kennen": {
+  "file": "kennen/85000/model.usdz",
+  "name": "Kennen"
+ },
+ "Khazix": {
+  "file": "khazix/121000/model.usdz",
+  "name": "Kha'Zix"
+ },
+ "Kindred": {
+  "file": "kindred/203000/model.usdz",
+  "name": "Kindred"
+ },
+ "Kled": {
+  "file": "kled/240000/model.usdz",
+  "name": "Kled"
+ },
+ "KogMaw": {
+  "file": "kogmaw/96000/model.usdz",
+  "name": "Kog'Maw"
+ },
+ "Leblanc": {
+  "file": "leblanc/7000/model.usdz",
+  "name": "LeBlanc"
+ },
+ "LeeSin": {
+  "file": "leesin/64000/model.usdz",
+  "name": "Lee Sin"
+ },
+ "Leona": {
+  "file": "leona/89000/model.usdz",
+  "name": "Leona"
+ },
+ "Lillia": {
+  "file": "lillia/876000/model.usdz",
+  "name": "Lillia"
+ },
+ "Lissandra": {
+  "file": "lissandra/127000/model.usdz",
+  "name": "Lissandra"
+ },
+ "Locke": {
+  "file": "locke/805000/model.usdz",
+  "name": "Locke"
+ },
+ "Lucian": {
+  "file": "lucian/236000/model.usdz",
+  "name": "Lucian"
+ },
+ "Lulu": {
+  "file": "lulu/117000/model.usdz",
+  "name": "Lulu"
+ },
+ "Lux": {
+  "file": "lux/99000/model.usdz",
+  "name": "Lux"
+ },
+ "Malphite": {
+  "file": "malphite/54000/model.usdz",
+  "name": "Malphite"
+ },
+ "Malzahar": {
+  "file": "malzahar/90000/model.usdz",
+  "name": "Malzahar"
+ },
+ "Maokai": {
+  "file": "maokai/57000/model.usdz",
+  "name": "Maokai"
+ },
+ "MasterYi": {
+  "file": "masteryi/11000/model.usdz",
+  "name": "Master Yi"
+ },
+ "Mel": {
+  "file": "mel/800000/model.usdz",
+  "name": "Mel"
+ },
+ "Milio": {
+  "file": "milio/902000/model.usdz",
+  "name": "Milio"
+ },
+ "MissFortune": {
+  "file": "missfortune/21000/model.usdz",
+  "name": "Miss Fortune"
+ },
+ "MonkeyKing": {
+  "file": "monkeyking/62000/model.usdz",
+  "name": "Wukong"
+ },
+ "Mordekaiser": {
+  "file": "mordekaiser/82000/model.usdz",
+  "name": "Mordekaiser"
+ },
+ "Morgana": {
+  "file": "morgana/25000/model.usdz",
+  "name": "Morgana"
+ },
+ "Naafiri": {
+  "file": "naafiri/950000/model.usdz",
+  "name": "Naafiri"
+ },
+ "Nami": {
+  "file": "nami/267000/model.usdz",
+  "name": "Nami"
+ },
+ "Nasus": {
+  "file": "nasus/75000/model.usdz",
+  "name": "Nasus"
+ },
+ "Nautilus": {
+  "file": "nautilus/111000/model.usdz",
+  "name": "Nautilus"
+ },
+ "Neeko": {
+  "file": "neeko/518000/model.usdz",
+  "name": "Neeko"
+ },
+ "Nidalee": {
+  "file": "nidalee/76000/model.usdz",
+  "name": "Nidalee"
+ },
+ "Nilah": {
+  "file": "nilah/895000/model.usdz",
+  "name": "Nilah"
+ },
+ "Nocturne": {
+  "file": "nocturne/56000/model.usdz",
+  "name": "Nocturne"
+ },
+ "Nunu": {
+  "file": "nunu/20000/model.usdz",
+  "name": "Nunu & Willump"
+ },
+ "Olaf": {
+  "file": "olaf/2000/model.usdz",
+  "name": "Olaf"
+ },
+ "Orianna": {
+  "file": "orianna/61000/model.usdz",
+  "name": "Orianna"
+ },
+ "Ornn": {
+  "file": "ornn/516000/model.usdz",
+  "name": "Ornn"
+ },
+ "Pantheon": {
+  "file": "pantheon/80000/model.usdz",
+  "name": "Pantheon"
+ },
+ "Poppy": {
+  "file": "poppy/78000/model.usdz",
+  "name": "Poppy"
+ },
+ "Pyke": {
+  "file": "pyke/555000/model.usdz",
+  "name": "Pyke"
+ },
+ "Qiyana": {
+  "file": "qiyana/246000/model.usdz",
+  "name": "Qiyana"
+ },
+ "Quinn": {
+  "file": "quinn/133000/model.usdz",
+  "name": "Quinn"
+ },
+ "Rakan": {
+  "file": "rakan/497000/model.usdz",
+  "name": "Rakan"
+ },
+ "Rammus": {
+  "file": "rammus/33000/model.usdz",
+  "name": "Rammus"
+ },
+ "RekSai": {
+  "file": "reksai/421000/model.usdz",
+  "name": "Rek'Sai"
+ },
+ "Rell": {
+  "file": "rell/526000/model.usdz",
+  "name": "Rell"
+ },
+ "Renata": {
+  "file": "renata/888000/model.usdz",
+  "name": "Renata Glasc"
+ },
+ "Renekton": {
+  "file": "renekton/58000/model.usdz",
+  "name": "Renekton"
+ },
+ "Rengar": {
+  "file": "rengar/107000/model.usdz",
+  "name": "Rengar"
+ },
+ "Riven": {
+  "file": "riven/92000/model.usdz",
+  "name": "Riven"
+ },
+ "Rumble": {
+  "file": "rumble/68000/model.usdz",
+  "name": "Rumble"
+ },
+ "Ryze": {
+  "file": "ryze/13000/model.usdz",
+  "name": "Ryze"
+ },
+ "Samira": {
+  "file": "samira/360000/model.usdz",
+  "name": "Samira"
+ },
+ "Sejuani": {
+  "file": "sejuani/113000/model.usdz",
+  "name": "Sejuani"
+ },
+ "Senna": {
+  "file": "senna/235000/model.usdz",
+  "name": "Senna"
+ },
+ "Seraphine": {
+  "file": "seraphine/147000/model.usdz",
+  "name": "Seraphine"
+ },
+ "Sett": {
+  "file": "sett/875000/model.usdz",
+  "name": "Sett"
+ },
+ "Shaco": {
+  "file": "shaco/35000/model.usdz",
+  "name": "Shaco"
+ },
+ "Shen": {
+  "file": "shen/98000/model.usdz",
+  "name": "Shen"
+ },
+ "Shyvana": {
+  "file": "shyvana/102000/model.usdz",
+  "name": "Shyvana"
+ },
+ "Singed": {
+  "file": "singed/27000/model.usdz",
+  "name": "Singed"
+ },
+ "Sion": {
+  "file": "sion/14000/model.usdz",
+  "name": "Sion"
+ },
+ "Sivir": {
+  "file": "sivir/15000/model.usdz",
+  "name": "Sivir"
+ },
+ "Skarner": {
+  "file": "skarner/72000/model.usdz",
+  "name": "Skarner"
+ },
+ "Smolder": {
+  "file": "smolder/901000/model.usdz",
+  "name": "Smolder"
+ },
+ "Sona": {
+  "file": "sona/37000/model.usdz",
+  "name": "Sona"
+ },
+ "Soraka": {
+  "file": "soraka/16000/model.usdz",
+  "name": "Soraka"
+ },
+ "Swain": {
+  "file": "swain/50000/model.usdz",
+  "name": "Swain"
+ },
+ "Sylas": {
+  "file": "sylas/517000/model.usdz",
+  "name": "Sylas"
+ },
+ "Syndra": {
+  "file": "syndra/134000/model.usdz",
+  "name": "Syndra"
+ },
+ "TahmKench": {
+  "file": "tahmkench/223000/model.usdz",
+  "name": "Tahm Kench"
+ },
+ "Taliyah": {
+  "file": "taliyah/163000/model.usdz",
+  "name": "Taliyah"
+ },
+ "Talon": {
+  "file": "talon/91000/model.usdz",
+  "name": "Talon"
+ },
+ "Taric": {
+  "file": "taric/44000/model.usdz",
+  "name": "Taric"
+ },
+ "Teemo": {
+  "file": "teemo/17000/model.usdz",
+  "name": "Teemo"
+ },
+ "Thresh": {
+  "file": "thresh/412000/model.usdz",
+  "name": "Thresh"
+ },
+ "Tristana": {
+  "file": "tristana/18000/model.usdz",
+  "name": "Tristana"
+ },
+ "Trundle": {
+  "file": "trundle/48000/model.usdz",
+  "name": "Trundle"
+ },
+ "Tryndamere": {
+  "file": "tryndamere/23000/model.usdz",
+  "name": "Tryndamere"
+ },
+ "TwistedFate": {
+  "file": "twistedfate/4000/model.usdz",
+  "name": "Twisted Fate"
+ },
+ "Twitch": {
+  "file": "twitch/29000/model.usdz",
+  "name": "Twitch"
+ },
+ "Udyr": {
+  "file": "udyr/77000/model.usdz",
+  "name": "Udyr"
+ },
+ "Urgot": {
+  "file": "urgot/6000/model.usdz",
+  "name": "Urgot"
+ },
+ "Varus": {
+  "file": "varus/110000/model.usdz",
+  "name": "Varus"
+ },
+ "Vayne": {
+  "file": "vayne/67000/model.usdz",
+  "name": "Vayne"
+ },
+ "Veigar": {
+  "file": "veigar/45000/model.usdz",
+  "name": "Veigar"
+ },
+ "Velkoz": {
+  "file": "velkoz/161000/model.usdz",
+  "name": "Vel'Koz"
+ },
+ "Vex": {
+  "file": "vex/711000/model.usdz",
+  "name": "Vex"
+ },
+ "Vi": {
+  "file": "vi/254000/model.usdz",
+  "name": "Vi"
+ },
+ "Viego": {
+  "file": "viego/234000/model.usdz",
+  "name": "Viego"
+ },
+ "Viktor": {
+  "file": "viktor/112000/model.usdz",
+  "name": "Viktor"
+ },
+ "Vladimir": {
+  "file": "vladimir/8000/model.usdz",
+  "name": "Vladimir"
+ },
+ "Volibear": {
+  "file": "volibear/106000/model.usdz",
+  "name": "Volibear"
+ },
+ "Warwick": {
+  "file": "warwick/19000/model.usdz",
+  "name": "Warwick"
+ },
+ "Xayah": {
+  "file": "xayah/498000/model.usdz",
+  "name": "Xayah"
+ },
+ "Xerath": {
+  "file": "xerath/101000/model.usdz",
+  "name": "Xerath"
+ },
+ "XinZhao": {
+  "file": "xinzhao/5000/model.usdz",
+  "name": "Xin Zhao"
+ },
+ "Yasuo": {
+  "file": "yasuo/157000/model.usdz",
+  "name": "Yasuo"
+ },
+ "Yone": {
+  "file": "yone/777000/model.usdz",
+  "name": "Yone"
+ },
+ "Yorick": {
+  "file": "yorick/83000/model.usdz",
+  "name": "Yorick"
+ },
+ "Yunara": {
+  "file": "yunara/804000/model.usdz",
+  "name": "Yunara"
+ },
+ "Yuumi": {
+  "file": "yuumi/350000/model.usdz",
+  "name": "Yuumi"
+ },
+ "Zaahen": {
+  "file": "zaahen/904000/model.usdz",
+  "name": "Zaahen"
+ },
+ "Zac": {
+  "file": "zac/154000/model.usdz",
+  "name": "Zac"
+ },
+ "Zed": {
+  "file": "zed/238000/model.usdz",
+  "name": "Zed"
+ },
+ "Zeri": {
+  "file": "zeri/221000/model.usdz",
+  "name": "Zeri"
+ },
+ "Ziggs": {
+  "file": "ziggs/115000/model.usdz",
+  "name": "Ziggs"
+ },
+ "Zilean": {
+  "file": "zilean/26000/model.usdz",
+  "name": "Zilean"
+ },
+ "Zoe": {
+  "file": "zoe/142000/model.usdz",
+  "name": "Zoe"
+ },
+ "Zyra": {
+  "file": "zyra/143000/model.usdz",
+  "name": "Zyra"
+ }
+}
