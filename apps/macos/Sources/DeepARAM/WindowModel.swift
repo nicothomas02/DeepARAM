@@ -8,6 +8,7 @@ import WebKit
 final class WindowModel: ObservableObject {
     static let sections: [SiteTab] = SiteTab.primary + SiteTab.more
     private static let lastSectionKey = "deeparam.lastSection"
+    static let handoffActivity = "com.deeparam.mac.browsing"
 
     @Published var selection: String {
         didSet {

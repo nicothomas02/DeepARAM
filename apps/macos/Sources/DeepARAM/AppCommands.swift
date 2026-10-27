@@ -7,6 +7,18 @@ struct AppCommands: Commands {
     @Environment(\.openWindow) private var openWindow
 
     var body: some Commands {
+        CommandGroup(replacing: .appInfo) {
+            Button("About DeepARAM") {
+                let credits = NSAttributedString(
+                    string: Legal.riotNotice,
+                    attributes: [.font: NSFont.systemFont(ofSize: NSFont.smallSystemFontSize),
+                                 .foregroundColor: NSColor.secondaryLabelColor]
+                )
+                NSApp.orderFrontStandardAboutPanel(options: [.credits: credits])
+                NSApp.activate(ignoringOtherApps: true)
+            }
+        }
+
         CommandGroup(after: .newItem) {
             Button("New Tab") {
                 // A new window joins the current one as a tab when tabbing is on.

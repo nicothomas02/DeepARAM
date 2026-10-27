@@ -8,6 +8,7 @@ enum AppSettings {
         static let saveOffline = "saveSectionsOffline"
         static let reopenLastPage = "reopenLastPage"
         static let pageZoom = "pageZoom"
+        static let showMenuBar = "showMenuBarLookup"
     }
 
     static func register() {
@@ -17,6 +18,7 @@ enum AppSettings {
             Key.saveOffline: true,
             Key.reopenLastPage: true,
             Key.pageZoom: 1.0,
+            Key.showMenuBar: true,
         ])
     }
 

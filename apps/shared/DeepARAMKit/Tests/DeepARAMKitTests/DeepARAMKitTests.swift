@@ -23,4 +23,45 @@ final class DeepARAMKitTests: XCTestCase {
         let s = OfflineStore(folder: URL(fileURLWithPath: "/tmp"))
         XCTAssertNotEqual(s.fileURL(for: Site.url("/")), s.fileURL(for: Site.url("/pbe")))
     }
+
+    func testPatchNamesFollowTheSite() {
+        XCTAssertEqual(Site.patchName("16.21"), "26.21")
+        XCTAssertEqual(Site.patchName("15.24"), "25.24")
+        XCTAssertEqual(Site.patchName("26.01"), "26.1")
+    }
+
+    func testAppLinksOpenSitePages() {
+        XCTAssertEqual(Site.pageURL(forAppLink: URL(string: "deeparam://champions/Ahri")!)?.absoluteString,
+                       "https://deeparam.com/champions/Ahri")
+        XCTAssertEqual(Site.pageURL(forAppLink: URL(string: "deeparam://tier-list?tab=augments")!)?.absoluteString,
+                       "https://deeparam.com/tier-list?tab=augments")
+        XCTAssertEqual(Site.pageURL(forAppLink: URL(string: "deeparam://")!)?.absoluteString, "https://deeparam.com/")
+        XCTAssertEqual(Site.pageURL(forAppLink: URL(string: "https://deeparam.com/pbe")!)?.absoluteString,
+                       "https://deeparam.com/pbe")
+        XCTAssertNil(Site.pageURL(forAppLink: URL(string: "https://example.com/")!))
+    }
+
+    func testQuickBuildsDecodeAndSearch() throws {
+        let json = """
+        {"patch":"16.21","chefsSpecial":{"title":"Mole Artillery","champion":"RekSai","name":"Rek'Sai","tier":null,
+         "play":"Burrow early.","items":["Horizon Focus"],"augments":[{"name":"Multishot","rarity":"prismatic"}]},
+         "champions":[
+          {"id":"Kaisa","name":"Kai'Sa","tier":"A","winRate":0.52,"skills":["Q","E","W"],"items":["Kraken Slayer"],
+           "augments":{"prismatic":["Final Form"],"gold":[],"silver":[]}},
+          {"id":"Nunu","name":"Nunu & Willump","tier":null,"winRate":null,"skills":["Q","W","E"],"items":[],
+           "augments":{"prismatic":[],"gold":[],"silver":[]}},
+          {"id":"Akali","name":"Akali","tier":"B","winRate":0.5,"skills":["Q","E","W"],"items":[],
+           "augments":{"prismatic":[],"gold":[],"silver":[]}}]}
+        """
+        let builds = try JSONDecoder().decode(QuickBuilds.self, from: Data(json.utf8))
+        XCTAssertEqual(builds.patchName, "26.21")
+        XCTAssertEqual(builds.chefsSpecial?.name, "Rek'Sai")
+        XCTAssertEqual(builds.search("kaisa").map(\.id), ["Kaisa"])
+        XCTAssertEqual(builds.search("nunu willump").map(\.id), ["Nunu"])
+        // Names starting with the query come before names that only contain it.
+        XCTAssertEqual(builds.search("ka").map(\.id), ["Kaisa", "Akali"])
+        XCTAssertEqual(builds.search("  ").count, 0)
+        XCTAssertEqual(builds.champions[0].skillOrder, "Q > E > W")
+        XCTAssertEqual(builds.champions[0].url.absoluteString, "https://deeparam.com/champions/Kaisa")
+    }
 }

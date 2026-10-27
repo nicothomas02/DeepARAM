@@ -6,6 +6,7 @@ struct SettingsView: View {
     @AppStorage(AppSettings.Key.notifyPbe) private var notifyPbe = true
     @AppStorage(AppSettings.Key.saveOffline) private var saveOffline = true
     @AppStorage(AppSettings.Key.reopenLastPage) private var reopenLastPage = true
+    @AppStorage(AppSettings.Key.showMenuBar) private var showMenuBar = true
     @State private var status = ""
 
     var body: some View {
@@ -39,6 +40,7 @@ struct SettingsView: View {
             }
             Section("Windows") {
                 Toggle("Reopen the last section on launch", isOn: $reopenLastPage)
+                Toggle("Show champion lookup in the menu bar", isOn: $showMenuBar)
             }
             if !status.isEmpty {
                 Text(status).font(.callout).foregroundStyle(.secondary)
