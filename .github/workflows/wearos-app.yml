@@ -3,10 +3,10 @@ name: Wear OS app
 # Tests and builds the Wear OS app whenever it changes.
 on:
   pull_request:
-    paths: ["apps/wearos/**", ".github/workflows/wearos-app.yml"]
+    paths: ["apps/wearos/**", "apps/android/core/**", ".github/workflows/wearos-app.yml"]
   push:
     branches: [main]
-    paths: ["apps/wearos/**", ".github/workflows/wearos-app.yml"]
+    paths: ["apps/wearos/**", "apps/android/core/**", ".github/workflows/wearos-app.yml"]
 
 concurrency:
   group: wearos-app-${{ github.ref }}

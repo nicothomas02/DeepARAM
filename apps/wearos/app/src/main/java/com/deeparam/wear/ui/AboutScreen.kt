@@ -19,7 +19,7 @@ import androidx.wear.compose.material.Scaffold
 import androidx.wear.compose.material.Text
 import com.deeparam.wear.R
 import com.deeparam.wear.WatchStore
-import com.deeparam.wear.data.Legal
+import com.deeparam.core.Legal
 
 /** When the data was last updated, and Riot's notice. */
 @Composable
