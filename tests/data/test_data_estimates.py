@@ -82,3 +82,22 @@ def test_champion_upgrades():
         assert len(set(best["keys"])) == 4
         assert set(best["keys"]) <= set(pools[cid])
         assert best["score"] == pytest.approx(best["real"] + best["synergy"], abs=0.02)
+        assert isinstance(best["simulated"], bool)
+
+
+def test_pentakill_picks_by_role():
+    """Pentakill picks are judged for a team fight: an enchanter Empowers its ally heal or shield, not its damage."""
+    d = load_json("data/estimates/champion_upgrades.json")["champions"]
+    by_name = {c["key"]: c["pentakill"] for c in d.values()}
+    assert by_name["Soraka"]["start"] == "W"
+    assert by_name["Sona"]["start"] == "W"
+    assert by_name["Lulu"]["start"] == "E"
+    assert by_name["Janna"]["start"] == "E"
+    # Every ally effect in the team table names a real ability of a champion the simulator knows.
+    kits = {c["id"].lower() for c in load_json("simulator/data/champions.json")["champions"]}
+    team = {k: v for k, v in load_json("data/estimates/pentakill_team.json").items() if not k.startswith("_")}
+    for champ, slots in team.items():
+        assert champ.lower() in kits, champ
+        for slot, fx in slots.items():
+            assert slot in "QWER" and fx.get("why"), (champ, slot)
+            assert fx.get("allies", 0) > 0 or fx.get("util", 0) > 0, (champ, slot)

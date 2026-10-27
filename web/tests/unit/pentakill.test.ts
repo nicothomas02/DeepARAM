@@ -43,6 +43,7 @@ describe("Best upgrades on champion pages", () => {
     const pages = new Map(itemPages().map((i) => [i.id, i]));
     for (const [alias, u] of full) {
       expect(new Set(u!.augments!.ids).size, alias).toBe(4);
+      expect(typeof u!.augments!.simulated, alias).toBe("boolean");
       expect(pages.get(u!.destiny!.id)?.tier, alias).toBe("legendary");
       expect(u!.pentakill!.champion).toBe(alias);
     }

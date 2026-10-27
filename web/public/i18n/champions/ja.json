@@ -180,5 +180,7 @@
  "Simulated gain": "シミュレーション上昇",
  "Takedowns": "キル関与",
  "Weapon of Destiny": "運命の武器",
- "Pentakill": "ペンタキル"
+ "Pentakill": "ペンタキル",
+ "Simulated": "シミュレーション",
+ "Simulated: one of these augments has no real games yet, so only simulated fights put it in the set.": "シミュレーション：このうち1つのオーグメントにはまだ実際の試合がなく、シミュレーション戦闘だけでセットに入っています。"
 }

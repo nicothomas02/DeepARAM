@@ -150,7 +150,7 @@ def gain(base, new, role):
 
 
 SIM_ITEMS = load_json(os.path.join(SIM, "data", "items.json"))["items"]
-KITS = {c["id"]: c for c in load_json(os.path.join(SIM, "data", "champions.json"))["champions"]}
+KITS = {c["id"].lower(): c for c in load_json(os.path.join(SIM, "data", "champions.json"))["champions"]}  # FiddleSticks
 TEAM = {k: v for k, v in load_json(os.path.join(cm.HERE, "pentakill_team.json")).items() if not k.startswith("_")}
 GROUPS = {k: v["group"] for k, v in load_json(os.path.join(SIM, "data", "items.json"))["items"].items() if v.get("group")}
 
@@ -168,6 +168,20 @@ def legal(items):
     return out
 
 
+def mark_simulated(sets, build, no_data):
+    """Flag each augment set holding an augment with no real games (on the live feed, or on this champion): its
+    place in the set comes from the simulator alone, so the site labels the set Simulated."""
+    rows = build.get("augments", {})
+    rows = rows.get("all") or [a for k in ("silver", "gold", "prismatic") for a in rows.get(k, [])]
+    known = {a.get("id") for a in rows} - no_data
+    for key in ("best", "by_real_only"):
+        if sets.get(key):
+            sets[key]["simulated"] = any(a not in known for a in sets[key]["augments"])
+    for r in sets.get("runners_up", []):
+        r["simulated"] = any(a not in known for a in r["augments"])
+    return sets
+
+
 # ---------------------------------------------------------------- Pentakill
 
 STAGE_LEVEL = {"early": 8, "mid": 13, "late": 18}
@@ -181,7 +195,7 @@ KEEP_ALIVE = 0.8
 
 def build_stats(champ, items, level):
     """The stats a heal or shield scales with, from the champion's base stats and its items."""
-    kit = KITS[champ]
+    kit = KITS[champ.lower()]
     st = kit["stats"]
     n = level - 1
     grow = lambda base, per: base + per * n * (0.7025 + 0.0175 * n)  # noqa: E731
@@ -203,7 +217,7 @@ def team_extra(champ, role, slot, items, stage, cc_ref):
     value(): healing and shielding on allies (pentakill_team.json), team utility counted as crowd control seconds,
     and in the training-dummy stages (nobody hits back, so heals and shields there count nothing) the champion's own
     heals and shields. More casts from the haste, and 10% more healing and shielding per cast."""
-    kit = KITS[champ]
+    kit = KITS[champ.lower()]
     ab = next((a for a in kit["abilities"] if a["slot"] == slot), None)
     team = TEAM.get(champ, {}).get(slot, {})
     ab = ab or {}  # the kit leaves out abilities that deal no damage (Rakan E, Shen R); the table gives their cooldown
@@ -538,8 +552,11 @@ def main():
 
     champions = {}
     dd = cm.data_dragon()
+    no_data = {a["augment_id"] for a in cm.load(os.path.join(cm.CN, "augments.json")).get("no_data", [])}
     for e in enemies:
         cid = str(e["champion_id"])
+        if sets.get(e["id"]):
+            mark_simulated(sets[e["id"]], ctx["builds"].get(cid, {}), no_data)
         champions[cid] = {"name": dd.get(cid, {}).get("name", e["name"]), "key": e["id"], "role": e["role"],
                           "pentakill": pk.get(e["id"]), "weapon_of_destiny": wd.get(e["id"]),
                           "augments": sets.get(e["id"])}
@@ -547,7 +564,8 @@ def main():
         "patch": cm.live_patch(), "simulated": True,
         "method": {"trials": TRIALS, "seed": SEED, "role_weights": ROLE_WEIGHTS, "pick_prior": PICK_PRIOR,
                    "beta": round(beta, 5), "beta_corr": round(corr, 3), "beta_pairs": n,
-                   "takedown_share": TAKEDOWN_SHARE, "level18_share": LEVEL18_SHARE, "first_share": FIRST_SHARE},
+                   "takedown_share": TAKEDOWN_SHARE, "level18_share": LEVEL18_SHARE, "first_share": FIRST_SHARE,
+                   "effective": EFFECTIVE, "keep_alive": KEEP_ALIVE},
         "champions": champions,
     }
     path = OUT if not args.only else OUT.replace(".json", ".partial.json")

@@ -788,6 +788,10 @@ html[data-view="simple"] .cp-fold:not([data-open]) > .cp-fold-body {
   color: var(--muted);
   font-weight: 600;
 }
+.cp-upg-tag {
+  display: table;
+  margin-top: 0.3rem;
+}
 .cp-quad {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
