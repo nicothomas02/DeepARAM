@@ -14,6 +14,7 @@ import { championAliases, championSummary, champList } from "@/lib/champions";
 import {
   bestRow,
   championPage,
+  scoreRows,
   MIN_PAIR_PICK,
   type ItemRow,
 } from "@/lib/champion-page";
@@ -308,12 +309,12 @@ export default async function ChampionPage({
     );
   const bestStart = p.starting[0];
   const bestSkill = bestRow(p.skills, 0.1);
-  const spells = fillSpells(c.alias, c.winRate ?? 0.5);
-  const spellsEstimated = spells.some((r) => r.estimated);
-  // Estimated spells have no win rate, so the best pick is simply the most common one.
-  const bestSpells = spellsEstimated
-    ? spells[0]
-    : (bestRow(spells.filter((r) => r.pickRate >= 0.05)) ?? spells[0]);
+  const rawSpells = fillSpells(c.alias, c.winRate ?? 0.5);
+  const spellsEstimated = rawSpells.some((r) => r.estimated);
+  // Spell pairs rank by DeepScore like the build lists. Estimated spells have no win rate, so they keep
+  // their most-picked-first order.
+  const spells = spellsEstimated ? rawSpells : scoreRows(rawSpells);
+  const bestSpells = spells[0];
   const games = fillGames()?.[c.alias];
   const gamesEstimated = fillEstimated();
   const radar = new Map(c.radar.map((a) => [a.key, a]));

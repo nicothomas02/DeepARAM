@@ -47,6 +47,10 @@ jobs:
       - name: Estimate other stats (augments per champion, items, profiles, odds)
         if: steps.fresh.outputs.run == 'true'
         run: python3 data/estimates/build.py
+      - name: Weapon of Destiny tier list (follows who takes the augment)
+        if: steps.fresh.outputs.run == 'true'
+        # Downloads the augment and item data from CommunityDragon; keep yesterday's ranking if that fails.
+        run: python3 data/estimates/weapon_of_destiny.py || echo "::warning::Weapon of Destiny ranking not refreshed"
       - name: Simulated early/mid/late power curve
         if: steps.fresh.outputs.run == 'true'
         run: |

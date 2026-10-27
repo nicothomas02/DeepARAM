@@ -119,7 +119,7 @@ type ClientChamp = {
 
 // champions/data.js and modifiers.js are the champion tab's own files: a `window.X = {...};` assignment each.
 const loaded = new Map<string, unknown>();
-function windowJson<T>(rel: string): T | null {
+export function windowJson<T>(rel: string): T | null {
   if (!loaded.has(rel)) {
     let v: unknown = null;
     if (repoHas(rel)) {
@@ -303,8 +303,10 @@ function lateSlots(core: ItemRow | undefined, single: ItemRow[]): LateSlot[] {
   return slots;
 }
 
-/** DeepScore for each of a champion's items against the champion's other items (lib/deepscore.ts), best first. */
-function scoreItems(list: ItemRow[]): ItemRow[] {
+const scoreItems = (list: ItemRow[]): ItemRow[] => scoreRows(list);
+
+/** DeepScore for each row against the rest of the champion's list (items, builds, spell pairs; lib/deepscore.ts), best first. */
+export function scoreRows<T extends { winRate: number; pickRate: number }>(list: T[]): (T & { deepScore?: number })[] {
   if (!list.length) return list;
   const picks = list.map((r) => r.pickRate).sort((x, y) => x - y);
   const median = picks[Math.floor(picks.length / 2)] || 1;

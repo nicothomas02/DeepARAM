@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { championPage } from "@/lib/champion-page";
+import { championPage, scoreRows } from "@/lib/champion-page";
 import { itemTier } from "@/lib/items";
 import { championAugmentStages } from "@/lib/estimates";
 
@@ -43,5 +43,26 @@ describe("champion augment pick order estimate", () => {
     }
     const perPick = [0, 1, 2, 3].map((i) => p.augments.reduce((t, a) => t + a.pickRate * m.get(a.id)![i], 0));
     for (const v of perPick) expect(Math.abs(v - perPick[0])).toBeLessThan(0.05);
+  });
+});
+
+// Starters, core builds, later items and rated spell pairs all rank by DeepScore, so a rare high win rate
+// doesn't outrank a common, slightly lower one.
+describe("DeepScore ranking of build lists", () => {
+  it("puts a common solid pick above a rare lucky one", () => {
+    const ranked = scoreRows([
+      { id: "rare", winRate: 0.7, pickRate: 0.002 },
+      { id: "solid", winRate: 0.56, pickRate: 0.4 },
+      { id: "weak", winRate: 0.48, pickRate: 0.3 },
+    ]);
+    expect(ranked.map((r) => r.id)).toEqual(["solid", "rare", "weak"]);
+  });
+
+  it("ranks every list on the champion page best DeepScore first", () => {
+    const p = championPage("Annie")!;
+    for (const list of [p.starting, p.core, ...p.late.map((s) => s.options)]) {
+      const scores = list.map((r) => r.deepScore!);
+      expect(scores).toEqual([...scores].sort((a, b) => b - a));
+    }
   });
 });

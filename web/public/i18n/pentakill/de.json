@@ -1,0 +1,20 @@
+{
+ "Champion": "Champion",
+ "Start": "Start",
+ "The basic ability to Empower at the start of the game: the one that makes the champion strongest at levels 8, 13 and 18.": "Die Grundfähigkeit, die du zu Spielbeginn verstärkst: die, mit der der Champion auf Stufe 8, 13 und 18 am stärksten ist.",
+ "Level 18": "Stufe 18",
+ "The second ability to Empower at level 18, the ultimate included, on top of the first one.": "Die zweite Fähigkeit, die du auf Stufe 18 verstärkst, die ultimative eingeschlossen, zusätzlich zur ersten.",
+ "Win rate boost": "Siegraten-Plus",
+ "Estimated. How much both Empowers together raise the champion's win rate: the start pick counts for the whole game, the level 18 pick for the part played at level 18.": "Geschätzt. Wie stark beide Verstärkungen zusammen die Siegrate des Champions erhöhen: die Startwahl zählt fürs ganze Spiel, die Wahl auf Stufe 18 für den Teil, der auf Stufe 18 gespielt wird.",
+ "Start power": "Stärke zu Beginn",
+ "Simulated. How much stronger the start pick makes the champion in fights, averaged over levels 8, 13 and 18.": "Simuliert. Wie viel stärker die Startwahl den Champion in Kämpfen macht, gemittelt über Stufe 8, 13 und 18.",
+ "Level 18 power": "Stärke auf Stufe 18",
+ "Simulated. How much stronger the level 18 pick makes the champion in fights, on top of the start pick.": "Simuliert. Wie viel stärker die Wahl auf Stufe 18 den Champion in Kämpfen macht, zusätzlich zur Startwahl.",
+ "Close call": "Knappe Wahl",
+ "The next best start pick when it's almost as strong. Either one works.": "Die nächstbeste Startwahl, wenn sie fast genauso stark ist. Beide funktionieren.",
+ "Simulated: picked from simulated fights with each champion's most popular build.": "Simuliert: gewählt anhand simulierter Kämpfe mit dem beliebtesten Build jedes Champions.",
+ "Simulated": "Simuliert",
+ "In a Pentakill game you Empower one basic ability at the start and a second one at level 18, where the ultimate counts too: {heavy} for Q, {power} for W, {thrash} for E and {doom} for R. Each gives the ability 20 Ability Haste and 10% more damage, healing and shielding.": "In einem Pentakill-Spiel verstärkst du zu Beginn eine Grundfähigkeit und auf Stufe 18 eine zweite, wobei auch die ultimative zählt: {heavy} für Q, {power} für W, {thrash} für E und {doom} für R. Jede gibt der Fähigkeit 20 Fähigkeitstempo und 10 % mehr Schaden, Heilung und Schilde.",
+ "Find a champion": "Champion suchen",
+ "Simulated. Each pick is the ability that makes the champion strongest in simulated fights with its most popular build. Win rate boost turns that into estimated win rate points, so champions near the top gain the most from a Pentakill game.": "Simuliert. Jede Wahl ist die Fähigkeit, mit der der Champion in simulierten Kämpfen mit seinem beliebtesten Build am stärksten ist. Das Siegraten-Plus rechnet das in geschätzte Siegratenpunkte um: Champions weit oben profitieren am meisten von einem Pentakill-Spiel."
+}

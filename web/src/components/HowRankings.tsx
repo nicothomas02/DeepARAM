@@ -3,11 +3,10 @@
 import { useEffect, useRef } from "react";
 import { useT } from "./I18n";
 import { TIER_Z } from "@/lib/deepscore";
-import { loadSettings } from "@/lib/settings";
 
 // "How rankings work": a few plain lines on the numbers the Tier List and champion pages show (DeepScore and
-// tiers, win rate boost, estimates, game counts). Closed in Simple view, open in Detailed (Settings > Page
-// detail). A link to #how-rankings, like the one under each table's column hints, opens it.
+// tiers, win rate boost, estimates, game counts). Starts closed (Nico, 2026-10-27). A link to #how-rankings,
+// like the one under each table's column hints, opens it.
 
 export const RANKINGS_ID = "how-rankings";
 
@@ -26,9 +25,6 @@ export default function HowRankings() {
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    try {
-      if (loadSettings().view === "detailed") el.open = true;
-    } catch {}
     const onHash = () => {
       if (location.hash === `#${RANKINGS_ID}`) el.open = true;
     };

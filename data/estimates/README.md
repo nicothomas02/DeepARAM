@@ -52,7 +52,36 @@ extrapolated (every champion weighted by pick rate x kills + assists from `profi
 labels the tab Anticipated and ranks by `value` (Nico 2026-10-23). Once champions take it, they're
 weighted by pick rate x how often they take it, and the site ranks by a DeepScore from lift and share
 the way the Items tab does. That differs from the regular item DeepScore (first items only, weighted by
-who takes the augment; rank correlation 0.14 on the extrapolated takers). Not scheduled: rerun after patches.
+who takes the augment; rank correlation 0.14 on the extrapolated takers). The augment's real takers
+showed up in the feed on 2026-10-27; win rates are still those of each champion's core builds, since the
+feed has no augment-item pairs. Refreshed daily by `fill.yml` after the Mayhem stats update.
+
+## Best upgrades per champion (`champion_upgrades.json`, simulated + estimated)
+
+`champion_upgrades.py` writes, per champion, the Pentakill Empowers (start pick Q/W/E, level 18 pick incl. R), the
+Weapon of Destiny item and a theoretical best set of 4 augments. Method in the script's docstring; in short:
+
+- Every sim run uses the champion's most popular real build and shared fights (same seed), so two runs differ only
+  by the change tested. A run's value is damage per second plus healing, shielding and crowd control per second
+  alive, weighted by role (carries count damage almost alone, tanks and supports count protection and CC about as
+  much), plus log(time alive) at the role's survival weight (0.25 carries up to 0.6 tanks): fights run until the
+  champion goes down, so surviving longer counts, but not in full (a revive or lifesteal loop can double a fight).
+- Pentakill: start pick = best average gain at level 8, 13 (training dummies) and 18 (real enemies); level 18 pick
+  tried on top of it. Win rate boost = BETA x (start gain + 0.35 x level 18 gain), 0.35 being the share of a
+  game's fights at level 18. Shown on the Tier List's Pentakill tab (`web/src/lib/pentakill.ts`).
+- Weapon of Destiny: candidates are items bought first in 5%+ of the champion's core builds or in its popular
+  build; each is upgraded with half its estimated takedowns per game. Score = sim gain x BETA + the item's real
+  first-item win rate vs the champion's average (shrunk when rarely bought first).
+- Augments: sum of each augment's estimated lift on this champion (`augments` above, shrunk by pick / (pick + 1%),
+  and by global pick / (global pick + 0.5%) because brand-new augments with almost no games have a meaningless fair
+  win rate) + BETA x sim synergy (gain of the set minus its augments' single gains), softly capped at +-3 points
+  so one sim outlier can't decide a set. BETA (win-rate points per unit of log sim gain) is the within-champion
+  slope of real lift on sim gain over stat-only augments, where the sim is exact (0.066, r 0.24 over ~1,070 champion-augment pairs; on all modeled
+  augments the slope is ~5x flatter from x noise). Searched: 14 best by real lift + 6 best by sim gain, every pair
+  simulated, the 25 best sets of 4 re-simulated whole.
+
+About 37,000 sim runs, 2.5 hours on 4 cores; results are cached in `~/.cache/deeparam-sim/upgrades/`. Needs
+`make -C simulator mayhem_sim`. Not scheduled: rerun after patches.
 
 ## Tried and dropped
 

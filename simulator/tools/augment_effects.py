@@ -288,19 +288,19 @@ SPEC = {
     2123: {"spell_bind": "any", "effects": {"bound_reset_on_cast": 1}},
     2140: {"requires_item": "ravenous", "effects": {"ability_cleave_cd": dv("Cooldown")},
            "note": "the Gold has no effect"},
-    # Season 3 (PBE) augments.
+    # Season 3 augments (Pentakill's HEAVY, POWER, THRASH, DOOM are live from 26.21).
     3170: {"effects": {"ah_q": 20, "amp_q": 0.1},
-           "note": "HEAVY: the augment carries no numbers; its tooltip's 20 haste and 10% damage on Q (the 10% more "
-                   "healing and shielding isn't modeled)"},
+           "note": "HEAVY: the augment carries no numbers; its tooltip's 20 haste, 10% damage and 10% healing "
+                   "and shielding on Q"},
     3171: {"effects": {"ah_w": 20, "amp_w": 0.1},
-           "note": "POWER: the augment carries no numbers; its tooltip's 20 haste and 10% damage on W (the 10% more "
-                   "healing and shielding isn't modeled)"},
+           "note": "POWER: the augment carries no numbers; its tooltip's 20 haste, 10% damage and 10% healing "
+                   "and shielding on W"},
     3172: {"effects": {"ah_e": 20, "amp_e": 0.1},
-           "note": "THRASH: the augment carries no numbers; its tooltip's 20 haste and 10% damage on E (the 10% more "
-                   "healing and shielding isn't modeled)"},
+           "note": "THRASH: the augment carries no numbers; its tooltip's 20 haste, 10% damage and 10% healing "
+                   "and shielding on E"},
     3173: {"effects": {"ah_r": 20, "amp_r": 0.1},
-           "note": "DOOM: the augment carries no numbers; its tooltip's 20 haste and 10% damage on R (the 10% more "
-                   "healing and shielding isn't modeled)"},
+           "note": "DOOM: the augment carries no numbers; its tooltip's 20 haste, 10% damage and 10% healing "
+                   "and shielding on R"},
     3018: {"stats": {"crit_damage": lvl("{d130a2db}")},
            "effects": {"bonus_ad_pct": lvl("{cdab7380}"), "as_to_crit": lvl("{5615d931}"),
                        "as_crit_rate": dv("ConversionCritNum", 100)}},

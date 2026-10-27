@@ -62,3 +62,23 @@ def test_power_curve():
             assert 0 < c[s] <= 1
     late, early = d["late_game"][0], d["early_game"][0]
     assert d["champions"][str(late)]["scaling"] > 0 > d["champions"][str(early)]["scaling"]
+
+
+def test_champion_upgrades():
+    d = load_json("data/estimates/champion_upgrades.json")
+    assert d["simulated"] is True and d["method"]["beta"] > 0
+    pools = load_json("simulator/data/augment_pools.json")["pools"]
+    items = {v["id"]: v for v in load_json("simulator/data/items.json")["items"].values()}
+    assert len(d["champions"]) > 150
+    for cid, c in d["champions"].items():
+        pk = c["pentakill"]
+        # Pentakill: a basic ability at the start, a different one (the ultimate allowed) at level 18.
+        assert pk["start"] in "QWE" and pk["level18"] in "QWER" and pk["level18"] != pk["start"]
+        wod = c["weapon_of_destiny"]
+        if wod["best"]:
+            assert items[wod["best"]]["slot"] == "legendary"
+            assert wod["options"][0]["item"] == wod["best"]
+        best = c["augments"]["best"]
+        assert len(set(best["keys"])) == 4
+        assert set(best["keys"]) <= set(pools[cid])
+        assert best["score"] == pytest.approx(best["real"] + best["synergy"], abs=0.02)

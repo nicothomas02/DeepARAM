@@ -1,46 +1,22 @@
 {
-  "id": "olaf-health-is-mana",
-  "title": "Health Is Mana",
-  "champion": "Olaf",
-  "champion_name": "Olaf",
-  "chef": "2026-10-24",
-  "why": "Olaf's Berserker Rage hands him Attack Speed for every point of Health he is missing, and Tough It Out stacks even more Attack Speed on top; Purist - Caster converts all of that Attack Speed into Ability Haste, so the lower his Health bar, the faster his cooldowns run. Ominous Pact makes every spell cast cost a slice of his current Health and pays him back with Ability Power, Movement Speed and Omnivamp based on missing Health, so casting Undertow drains him, the drain feeds Berserker Rage, and the Attack Speed comes back out as more Haste for the next axe. escAPADe turns that Ability Power into bonus Attack Damage for his physical damage axes, and Skilled Sniper refunds most of Undertow's cooldown whenever the axe lands on someone more than 600 units away, so he never has to walk up and pick it up. Nashor's Tooth, Wit's End, Kraken Slayer and Berserker's Greaves are bought purely as Attack Speed to be converted into Haste (the Nashor's Ability Power also becomes Attack Damage through escAPADe), while Spear of Shojin and Experimental Hexplate add Attack Damage, Haste and the Health pool he deliberately burns. The melee berserker who has to run at people becomes a long-range artillery piece that lobs axes from max range and plays better the closer he is to dead.",
-  "play": "Sit at max Undertow range, throw axes until your Health sits near the bottom third, then keep throwing instead of chasing the axe. Reckless Swing is your emergency self-damage if you are too healthy; Ragnarok is for walking out, not in.",
+  "id": "reksai-mole-artillery",
+  "title": "Mole Artillery",
+  "champion": "RekSai",
+  "champion_name": "Rek'Sai",
+  "chef": "2026-10-26",
+  "why": "Everyone uses Rek'Sai's Burrow to tunnel in and bite, but while burrowed her Q turns into Prey Seeker, a long-range burst of earth that damages and reveals whatever it hits, and most players only use it to poke before diving. Skilled Sniper refunds 80% of its cooldown whenever it lands from over 600 range, so Prey Seeker is nearly always up, which races through Multishot's quest of hitting champions with it for extra missiles, and Spell Split splits each of those missiles in two on hit or at max range. Magic Missile fires three more true-damage missiles at every enemy the ability hits, stronger the farther they travel, so a volley from across the lane rains down on the whole team. Horizon Focus feeds the same loop by revealing every champion you hit from 600 range or more plus the enemies around them, and Rabadon's Deathcap, Shadowflame, Stormsurge and Luden's Echo pile on Ability Power, so a melee jungle diver becomes an AP artillery mage who never comes up for air.",
+  "play": "Burrow early and stay under, park at max range and keep firing Prey Seeker at anything in sight. Only Unburrow to knock up a diver, then dig back in and keep shelling.",
   "items": [
-    "Berserker's Greaves",
-    "Nashor's Tooth",
-    "Wit's End",
-    "Experimental Hexplate",
-    "Spear of Shojin",
-    "Kraken Slayer"
+    "Horizon Focus",
+    "Rabadon's Deathcap",
+    "Shadowflame",
+    "Stormsurge",
+    "Luden's Echo",
+    "Sorcerer's Shoes"
   ],
   "core": 4,
-  "champion_icon": "/embed/fun/cook-builds/icons/champions/2.png",
+  "champion_icon": "/embed/fun/cook-builds/icons/champions/421.png",
   "augments": [
-    {
-      "name": "Purist - Caster",
-      "rarity": "Silver",
-      "core": true,
-      "text": "Gain percent cooldown reduction and convert all of your Attack Speed into Ability Haste.",
-      "icon": "/embed/fun/cook-builds/icons/augments/purist-caster.png",
-      "id": 2018
-    },
-    {
-      "name": "Ominous Pact",
-      "rarity": "Prismatic",
-      "core": true,
-      "text": "Gain Ability Power, 50% Movement Speed, and 20% Omnivamp based on missing Health. Spell casts cost 5% of your current Health. Max benefit at 30% Health.",
-      "icon": "/embed/fun/cook-builds/icons/augments/ominous-pact.png",
-      "id": 1332
-    },
-    {
-      "name": "escAPADe",
-      "rarity": "Silver",
-      "core": true,
-      "text": "Convert Ability Power to Bonus Attack Damage. Gain 15% Attack Damage.",
-      "icon": "/embed/fun/cook-builds/icons/augments/escapade.png",
-      "id": 1206
-    },
     {
       "name": "Skilled Sniper",
       "rarity": "Gold",
@@ -48,250 +24,274 @@
       "text": "Snipe an enemy with a non-Ultimate Ability refunds 80% Cooldown (65% for periodic Abilities). Snipe - Damage enemies over 600 distance away",
       "icon": "/embed/fun/cook-builds/icons/augments/skilled-sniper.png",
       "id": 1113
+    },
+    {
+      "name": "Multishot",
+      "rarity": "Prismatic",
+      "core": true,
+      "text": "QUEST: Hit enemy Champions with the chosen ability times. REWARD: Fire additional missiles per Quest Level.",
+      "icon": "/embed/fun/cook-builds/icons/augments/multishot.png",
+      "id": 2055
+    },
+    {
+      "name": "Spell Split",
+      "rarity": "Prismatic",
+      "core": true,
+      "text": "Your chosen ability missile splits into two on hit, at max Range, or when Recast. Additional target hit: Enemies take less damage if hit by the same spell.",
+      "icon": "/embed/fun/cook-builds/icons/augments/spell-split.png",
+      "id": 2072
+    },
+    {
+      "name": "Magic Missile",
+      "rarity": "Gold",
+      "core": true,
+      "text": "Dealing Ability damage fires 3 missiles at each enemy hit, each dealing up to 1% max Health true damage based on distance traveled.",
+      "icon": "/embed/fun/cook-builds/icons/augments/magic-missile.png",
+      "id": 1133
     }
   ],
   "href": "/kitchen#chefs-special",
   "archive_href": "/kitchen#chef-archive",
-  "share_href": "/kitchen/2026-10-24",
-  "share_image": "/embed/fun/cook-builds/share/olaf-health-is-mana.png",
+  "share_href": "/kitchen/2026-10-26",
+  "share_image": "/embed/fun/cook-builds/share/reksai-mole-artillery.png",
   "item_ids": [
-    3006,
-    3115,
-    3091,
-    3073,
-    3161,
-    6672
+    4628,
+    3089,
+    4645,
+    4646,
+    6655,
+    3020
   ],
   "i18n": {
     "ar": {
-      "title": "الصحة هي المانا",
-      "why": "تمنح قدرة أولاف السلبية، غضب الهائج، سرعة هجوم مقابل كل نقطة صحة مفقودة، وتضيف قدرته W المزيد فوقها؛ ويحوّل النقيّ - ملقي التعويذات كل سرعة الهجوم هذه إلى تسريع قدرات، فكلما انخفض شريط صحته، تسارعت فترات تهدئته. يجعل الميثاق المشؤوم كل تعويذة تكلّفه جزءًا من صحته الحالية ويعوّضه بقوة قدرات وسرعة حركة وامتصاص شامل حسب الصحة المفقودة: رمي Q يستنزفه، والاستنزاف يغذي قدرته السلبية، وتعود سرعة الهجوم تسريعًا للفأس التالية. ويحوّل مغامرة قوة القدرات هذه إلى ضرر هجوم إضافي لفؤوسه الجسدية، ويعيد القناص الماهر معظم تهدئة Q كلما أصابت الفأس أحدًا على بعد أكثر من 600 وحدة، فلا يحتاج أبدًا إلى التقاطها. يشتري سن ناشور والموقف الحرج وقاتل الكراكن ودرع ساق الجامح من أجل سرعة الهجوم التي تتحول إلى تسريع فقط (وقوة القدرات من سن ناشور تصبح أيضًا ضرر هجوم عبر مغامرة)، بينما يضيف رمح شوجين وصفيحة الهيكستيك التجريبية ضرر هجوم وتسريعًا والصحة التي يحرقها عمدًا. يتحول الهائج القريب المدى الذي يجب أن يركض نحو الخصوم إلى مدفعية ترمي الفؤوس من أقصى مدى، ويلعب أفضل كلما اقترب من الموت.",
-      "play": "ابقَ على أقصى مدى لـ Q وارمِ الفؤوس حتى تنزل صحتك قرب الثلث الأخير، ثم واصل الرمي بدل مطاردة الفأس. قدرة E هي ضررك الذاتي للطوارئ إن كانت صحتك عالية جدًا؛ وR للخروج لا للدخول.",
+      "title": "مدفعية الخُلد",
+      "why": "الكل يستخدم الحفر عند ريكساي ليحفر نحو هدفه ويعضّ، لكن وهي تحت الأرض يتحول Q إلى دفعة تراب بعيدة المدى تضرّ الأعداء المصابين وتكشفهم، ومعظم اللاعبين يستخدمونها فقط للمناوشة قبل الهجوم. القناص الماهر يعيد 80% من وقت التهدئة عند الإصابة من أبعد من 600، لذا يكون Q جاهزًا تقريبًا دائمًا، فتنجز مهمة إطلاق متعدد (إصابة الأبطال بالقدرة) بسرعة للحصول على قذائف إضافية، وانقسام التعويذة يقسم كل قذيفة إلى اثنتين عند الإصابة أو عند أقصى مدى. القذيفة السحرية تطلق ثلاث قذائف ضرر حقيقي إضافية على كل عدو مصاب، وتقوى كلما طارت أبعد، فتمطر رشقة من الطرف الآخر من المسار على الفريق كله. تركيز الأفق يغذي الحلقة نفسها بكشف كل بطل تصيبه من مسافة 600 أو أكثر والأعداء حوله، وقبعة موت رابادون ولهيب الأشباح والمد العاصف وصدى لودن تكدّس قوة القدرات، فتتحول المقاتلة القريبة إلى ساحرة مدفعية AP لا تصعد إلى السطح أبدًا.",
+      "play": "احفر مبكرًا وابقَ تحت الأرض، قف عند أقصى مدى وأطلق Q على كل ما تراه. لا تخرج إلا لترفع من يقفز عليك في الهواء، ثم احفر مجددًا وواصل القصف.",
       "augments": [
-        "احصل على تقليل نسبي لفترة التهدئة وحوّل كل سرعة هجومك إلى تسريع قدرات.",
-        "احصل على قوة قدرات و50% سرعة حركة و20% امتصاص شامل حسب الصحة المفقودة. استخدام التعويذات يكلّف 5% من صحتك الحالية. أقصى فائدة عند 30% صحة.",
-        "يحوّل قوة القدرات إلى ضرر هجوم إضافي. احصل على 15% ضرر هجوم.",
-        "قنص عدو بقدرة غير القدرة القصوى يعيد 80% من فترة التهدئة (65% للقدرات الدورية). القنص: إلحاق الضرر بالأعداء على بعد أكثر من 600 وحدة."
+        "قنص عدو بقدرة غير القدرة القصوى يعيد 80% من فترة التهدئة (65% للقدرات الدورية). القنص: إلحاق الضرر بالأعداء على بعد أكثر من 600 وحدة.",
+        "المهمة: أصب أبطال العدو بالقدرة المختارة عددًا محددًا من المرات. المكافأة: أطلق قذائف إضافية لكل مستوى من المهمة.",
+        "تنقسم قذيفة قدرتك المختارة إلى اثنتين عند الإصابة أو عند أقصى مدى أو عند إعادة الاستخدام. الأهداف الإضافية المصابة: يتلقى الأعداء ضررًا أقل إذا أصابتهم التعويذة نفسها.",
+        "إلحاق ضرر القدرات يطلق 3 قذائف على كل عدو مصاب، تلحق كل منها ما يصل إلى 1% من الصحة القصوى ضررًا حقيقيًا بحسب المسافة المقطوعة."
       ]
     },
     "cs": {
-      "title": "Zdraví je mana",
-      "why": "Olafova pasivka, Běsnění berserkra, mu dává rychlost útoků za každý chybějící bod zdraví a jeho W přidává ještě víc; Ryzí sesilatel přemění všechnu tuhle rychlost útoků na zrychlení schopností, takže čím níž je jeho ukazatel zdraví, tím rychleji mu běží přebíjení. Zlověstný pakt nechá každé seslání stát kus aktuálního zdraví a vrací mu sílu schopností, rychlost pohybu a všeupírství podle chybějícího zdraví: sesílání Q ho vysává, ztráta zdraví krmí pasivku a rychlost útoků se vrací jako zrychlení pro další sekeru. Transformátor mění tuhle sílu schopností na bonusové útočné poškození pro jeho fyzické sekery a Zkušený odstřelovač vrátí většinu přebíjení Q, kdykoli sekera zasáhne někoho na víc než 600 jednotek, takže pro ni nikdy nemusí chodit. Nashorův tesák, Nouzová, Zabiják krakenů a Šílencovy boty kupuje jen kvůli rychlosti útoků, která se mění na zrychlení (síla schopností z Tesáku se přes Transformátor taky stává útočným poškozením), zatímco Oštěp Šódžinu a Experimentální magiplát přidávají útočné poškození, zrychlení a zdraví, které schválně pálí. Berserker na blízko, co musí běžet na lidi, se stává dělostřelectvem, které hází sekery z maximálního dosahu a hraje tím líp, čím blíž je smrti.",
-      "play": "Drž se na maximálním dosahu Q, házej sekery, dokud ti zdraví neklesne zhruba ke spodní třetině, a pak házej dál místo honění sekery. E je tvoje nouzové poškození sebe sama, když máš moc zdraví; R je na útěk, ne na vstup.",
+      "title": "Krtčí dělostřelectvo",
+      "why": "Všichni používají Rek'Saiino Zahrabání k tomu, aby se prokopali k cíli a kousli, ale zahrabaná se její Q mění v dalekonosný výbuch země, který zraní a odhalí zasažené nepřátele, a většina hráčů ho používá jen na otravování před vstupem do boje. Zkušený odstřelovač vrací 80 % přebíjení, když zasáhneš z více než 600 jednotek, takže Q je skoro pořád připravené, což rychle splní úkol Vícenásobného výstřelu (zasahuj šampiony schopností) za další střely, a Rozdělení kouzla rozdělí každou z nich na dvě při zásahu nebo na maximální vzdálenosti. Čarovná střela vypálí na každého zasaženého nepřítele tři další střely se skutečným poškozením, které jsou tím silnější, čím dál letí, takže salva přes celou linku prší na celý tým. Soustředěný horizont krmí stejnou smyčku tím, že odhalí každého šampiona zasaženého z 600 a víc i nepřátele kolem něj, a Rabadonův smrtící klobouk, Stínový plamen, Nával bouře a Ludenova ozvěna nabírají sílu schopností, takže z bojovnice nablízko je AP dělostřelecká mágyně, která se nikdy nevynoří.",
+      "play": "Zahrab se brzy a zůstaň dole, postav se na maximální vzdálenost a pal Q do všeho, co vidíš. Vynoř se jen kvůli vyhození útočníka do vzduchu, pak se zase zahrab a dál ostřeluj.",
       "augments": [
-        "Získáš procentuální zkrácení přebíjení a přeměníš veškerou rychlost útoků na zrychlení schopností.",
-        "Získáš sílu schopností, 50% rychlosti pohybu a 20% všeupírství podle chybějícího zdraví. Seslání schopností stojí 5% aktuálního zdraví. Maximální účinek při 30% zdraví.",
-        "Přemění sílu schopností na bonusové útočné poškození. Získáš 15% útočného poškození.",
-        "Odstřelení nepřítele schopností, která není superschopnost, vrátí 80% přebíjení (65% u periodických schopností). Odstřelení: zasažení nepřátel na vzdálenost přes 600 jednotek."
+        "Odstřelení nepřítele schopností, která není superschopnost, vrátí 80% přebíjení (65% u periodických schopností). Odstřelení: zasažení nepřátel na vzdálenost přes 600 jednotek.",
+        "ÚKOL: Zasáhni nepřátelské šampiony zvolenou schopností určitý počet krát. ODMĚNA: Za každou úroveň úkolu vystřelíš další střely.",
+        "Střela zvolené schopnosti se při zásahu, na maximální vzdálenosti nebo při opětovném použití rozdělí na dvě. Další zasažené cíle: nepřátelé utrpí menší poškození, pokud je zasáhne totéž kouzlo.",
+        "Způsobení poškození schopností vystřelí 3 střely na každého zasaženého nepřítele, z nichž každá způsobí až 1 % max. zdraví jako skutečné poškození podle uražené vzdálenosti."
       ]
     },
     "de": {
-      "title": "Leben ist Mana",
-      "why": "Olafs Passive, Berserkerwut, gibt ihm Angriffstempo für jeden fehlenden Lebenspunkt, und sein W legt noch mehr Angriffstempo obendrauf; Purist – Zauberer wandelt all dieses Angriffstempo in Fähigkeitstempo um, also laufen seine Abklingzeiten umso schneller, je leerer seine Lebensleiste ist. Unheilvoller Pakt lässt jeden Zauber einen Teil seines aktuellen Lebens kosten und zahlt ihm abhängig vom fehlenden Leben Fähigkeitsstärke, Lauftempo und Omnivampirismus zurück: Sein Q saugt ihn aus, der Lebensverlust füttert seine Passive, und das Angriffstempo kommt als Fähigkeitstempo für die nächste Axt zurück. Im Wandel macht aus dieser Fähigkeitsstärke zusätzlichen Angriffsschaden für seine physischen Äxte, und Geschickter Scharfschütze erstattet den Großteil der Abklingzeit seines Q, wenn die Axt jemanden in über 600 Einheiten Entfernung trifft, sodass er sie nie aufsammeln muss. Nashors Zahn, Ende der Weisheit, Krakenbezwinger und Beinschienen des Berserkers kauft er nur für Angriffstempo, das zu Fähigkeitstempo wird (die Fähigkeitsstärke von Nashors Zahn wird durch Im Wandel ebenfalls Angriffsschaden), während Speer von Shojin und Experimentelle Hexpanzerung Angriffsschaden, Fähigkeitstempo und das Leben liefern, das er absichtlich verbrennt. Der Nahkampf-Berserker, der auf Leute zurennen muss, wird zur Artillerie, die Äxte aus maximaler Reichweite wirft und umso besser spielt, je näher er am Tod ist.",
-      "play": "Bleib auf maximaler Q-Reichweite, wirf Äxte, bis dein Leben im unteren Drittel ist, und wirf dann weiter, statt der Axt hinterherzulaufen. E ist dein Notfall-Selbstschaden, wenn du zu gesund bist; R ist zum Rauslaufen, nicht zum Reinlaufen.",
+      "title": "Maulwurf-Artillerie",
+      "why": "Alle nutzen Rek'Sais Eingraben, um sich heranzutunneln und zuzubeißen, aber eingegraben wird ihr Q zu einem weitreichenden Erdstoß, der getroffene Gegner verletzt und aufdeckt, und die meisten benutzen ihn nur zum Anstupsen vor dem Dive. Geschickter Scharfschütze erstattet 80 % der Abklingzeit, wenn er aus über 600 Reichweite trifft, also ist das Q fast immer bereit, was die Quest von Mehrfachschuss (Champions mit der Fähigkeit treffen) für zusätzliche Geschosse durchrasen lässt, und Zauberteilung spaltet jedes dieser Geschosse beim Treffer oder auf maximaler Reichweite in zwei. Magisches Geschoss feuert drei weitere Geschosse mit absolutem Schaden auf jeden getroffenen Gegner, die stärker werden, je weiter sie fliegen, also regnet eine Salve quer über die Lane aufs ganze Team. Horizontfokus füttert dieselbe Schleife, indem es jeden Champion aufdeckt, den du aus 600 oder mehr Reichweite triffst, samt Gegnern in der Nähe, und Rabadons Todeshaube, Schattenflamme, Sturmblitz und Ludens Echo stapeln Fähigkeitsstärke, sodass aus dem Nahkampf-Diver ein AP-Artilleriemagier wird, der nie wieder auftaucht.",
+      "play": "Grab dich früh ein und bleib unten, parke auf maximaler Reichweite und feuere dein Q auf alles, was du siehst. Tauch nur auf, um einen Diver hochzuschleudern, dann grab dich wieder ein und beschieß weiter.",
       "augments": [
-        "Erhalte prozentuale Abklingzeitverringerung und wandle dein gesamtes Angriffstempo in Fähigkeitstempo um.",
-        "Erhalte abhängig vom fehlenden Leben Fähigkeitsstärke, 50% Lauftempo und 20% Omnivampirismus. Zauber kosten 5% deines aktuellen Lebens. Maximaler Effekt bei 30% Leben.",
-        "Wandle Fähigkeitsstärke in zusätzlichen Angriffsschaden um. Erhalte 15% Angriffsschaden.",
-        "Einen Gegner mit einer Nicht-Ultimate-Fähigkeit zu snipen erstattet 80% der Abklingzeit (65% bei periodischen Fähigkeiten). Snipen: Gegnern in über 600 Einheiten Entfernung Schaden zufügen."
+        "Einen Gegner mit einer Nicht-Ultimate-Fähigkeit zu snipen erstattet 80% der Abklingzeit (65% bei periodischen Fähigkeiten). Snipen: Gegnern in über 600 Einheiten Entfernung Schaden zufügen.",
+        "QUEST: Triff gegnerische Champions mit der gewählten Fähigkeit oft genug. BELOHNUNG: Feuere pro Queststufe zusätzliche Geschosse ab.",
+        "Das Geschoss deiner gewählten Fähigkeit teilt sich beim Treffer, auf maximaler Reichweite oder bei Reaktivierung in zwei. Zusätzlich getroffene Ziele: Gegner erleiden weniger Schaden, wenn sie vom selben Zauber getroffen werden.",
+        "Fähigkeitsschaden feuert 3 Geschosse auf jeden getroffenen Gegner, die je bis zu 1 % des maximalen Lebens als absoluten Schaden verursachen, abhängig von der zurückgelegten Strecke."
       ]
     },
     "el": {
-      "title": "Η Ζωή Είναι Μάνα",
-      "why": "Η παθητική του Όλαφ, Οργή του Μπερζέρκερ, του δίνει Ταχύτητα Επίθεσης για κάθε πόντο Ζωής που του λείπει, και το W του προσθέτει κι άλλη από πάνω· το Καθαρολόγος - Μάγος μετατρέπει όλη αυτή την Ταχύτητα Επίθεσης σε Επιτάχυνση Ικανοτήτων, οπότε όσο πιο χαμηλά πέφτει η μπάρα Ζωής του, τόσο πιο γρήγορα τρέχουν οι χρόνοι επαναφόρτισης. Η Δυσοίωνη Συμφωνία κάνει κάθε ικανότητα να κοστίζει ένα κομμάτι της τρέχουσας Ζωής του και τον ανταμείβει με Δύναμη Ικανοτήτων, Ταχύτητα Κίνησης και Παμβαμπιρισμό ανάλογα με τη Ζωή που λείπει: το Q τον στραγγίζει, το στράγγισμα ταΐζει την παθητική και η Ταχύτητα Επίθεσης επιστρέφει ως Επιτάχυνση για το επόμενο τσεκούρι. Το αναΠΡΟΣΑΡΜΟΓή μετατρέπει αυτή τη Δύναμη Ικανοτήτων σε επιπλέον Ζημιά Επίθεσης για τα φυσικά του τσεκούρια, και το Ικανός Ελεύθερος Σκοπευτής επιστρέφει το μεγαλύτερο μέρος της επαναφόρτισης του Q κάθε φορά που το τσεκούρι χτυπά κάποιον πάνω από 600 μονάδες μακριά, οπότε δεν χρειάζεται ποτέ να πάει να το μαζέψει. Το Δόντι του Νάσορ, το Παρανοϊκό Ξίφος, ο Σφαγέας Κράκεν και οι Περικνημίδες του Μπερζέρκερ αγοράζονται μόνο για την Ταχύτητα Επίθεσης που γίνεται Επιτάχυνση (η Δύναμη Ικανοτήτων του Δοντιού γίνεται κι αυτή Ζημιά Επίθεσης μέσω του αναΠΡΟΣΑΡΜΟΓή), ενώ το Δόρυ του Σοτζίν και η Πειραματική Μαγοτεχνική Πανοπλία δίνουν Ζημιά Επίθεσης, Επιτάχυνση και τη Ζωή που καίει επίτηδες. Ο μαχητής εξ επαφής που πρέπει να τρέχει πάνω στους αντιπάλους γίνεται πυροβολικό που πετά τσεκούρια από το μέγιστο βεληνεκές και παίζει καλύτερα όσο πιο κοντά είναι στον θάνατο.",
-      "play": "Μείνε στο μέγιστο βεληνεκές του Q, πέτα τσεκούρια μέχρι η Ζωή σου να πέσει κοντά στο τελευταίο τρίτο και συνέχισε να πετάς αντί να κυνηγάς το τσεκούρι. Το E είναι η αυτοζημιά έκτακτης ανάγκης αν έχεις πολλή Ζωή· το R είναι για να φύγεις, όχι για να μπεις.",
+      "title": "Πυροβολικό Τυφλοπόντικα",
+      "why": "Όλοι χρησιμοποιούν το Θάψιμο της Ρεκ'Σάι για να σκάψουν ως τον στόχο και να δαγκώσουν, αλλά θαμμένη το Q της γίνεται μια έκρηξη χώματος μεγάλης εμβέλειας που τραυματίζει και αποκαλύπτει τους εχθρούς που χτυπά, και οι περισσότεροι το χρησιμοποιούν μόνο για τσίμπημα πριν μπουν. Ο Ικανός Ελεύθερος Σκοπευτής επιστρέφει το 80% της αναμονής όταν χτυπάς από πάνω από 600, οπότε το Q είναι σχεδόν πάντα έτοιμο, κάτι που ολοκληρώνει γρήγορα την αποστολή της Πολλαπλής Βολής (χτύπα πρωταθλητές με την ικανότητα) για επιπλέον βλήματα, και η Διάσπαση Ικανότητας χωρίζει καθένα από αυτά στα δύο στο χτύπημα ή στη μέγιστη εμβέλεια. Το Μαγικό Βλήμα ρίχνει άλλα τρία βλήματα καθαρής ζημιάς σε κάθε εχθρό που χτυπιέται, πιο δυνατά όσο πιο μακριά ταξιδεύουν, οπότε μια ομοβροντία από την άλλη άκρη της λωρίδας πέφτει σε όλη την ομάδα. Η Συγκέντρωση στον Ορίζοντα τροφοδοτεί τον ίδιο κύκλο αποκαλύπτοντας κάθε πρωταθλητή που χτυπάς από 600 ή περισσότερο και τους εχθρούς γύρω του, και το Καπέλο του Ράμπαντον, η Φλόγα της Σκιάς, το Ξέσπασμα Καταιγίδας και ο Απόηχος του Λούντεν στοιβάζουν Δύναμη Ικανοτήτων, οπότε η μαχήτρια σώμα με σώμα γίνεται μάγισσα πυροβολικού AP που δεν βγαίνει ποτέ στην επιφάνεια.",
+      "play": "Θάψου νωρίς και μείνε από κάτω, στάσου στη μέγιστη εμβέλεια και ρίχνε Q σε ό,τι βλέπεις. Βγες μόνο για να πετάξεις στον αέρα όποιον βουτήξει πάνω σου, μετά θάψου ξανά και συνέχισε τον βομβαρδισμό.",
       "augments": [
-        "Αποκτάτε ποσοστιαία μείωση χρόνου επαναφόρτισης και μετατρέπετε όλη την Ταχύτητα Επίθεσης σε Επιτάχυνση Ικανοτήτων.",
-        "Αποκτάτε Δύναμη Ικανοτήτων, 50% Ταχύτητα Κίνησης και 20% Παμβαμπιρισμό ανάλογα με τη Ζωή που λείπει. Η χρήση ικανοτήτων κοστίζει 5% της τρέχουσας Ζωής. Μέγιστο όφελος στο 30% Ζωής.",
-        "Μετατρέπει τη Δύναμη Ικανοτήτων σε επιπλέον Ζημιά Επίθεσης. Αποκτάτε 15% Ζημιά Επίθεσης.",
-        "Η ελεύθερη σκόπευση σε εχθρό με ικανότητα που δεν είναι η Υπέρτατη επιστρέφει 80% του χρόνου επαναφόρτισης (65% για περιοδικές ικανότητες). Ελεύθερη σκόπευση: ζημιά σε εχθρούς σε απόσταση πάνω από 600."
+        "Η ελεύθερη σκόπευση σε εχθρό με ικανότητα που δεν είναι η Υπέρτατη επιστρέφει 80% του χρόνου επαναφόρτισης (65% για περιοδικές ικανότητες). Ελεύθερη σκόπευση: ζημιά σε εχθρούς σε απόσταση πάνω από 600.",
+        "ΑΠΟΣΤΟΛΗ: Χτύπα εχθρικούς πρωταθλητές με την επιλεγμένη ικανότητα ορισμένες φορές. ΑΝΤΑΜΟΙΒΗ: Ρίχνεις επιπλέον βλήματα ανά επίπεδο αποστολής.",
+        "Το βλήμα της επιλεγμένης ικανότητάς σου χωρίζεται στα δύο στο χτύπημα, στη μέγιστη εμβέλεια ή όταν ενεργοποιείται ξανά. Επιπλέον στόχοι: οι εχθροί δέχονται λιγότερη ζημιά αν τους χτυπήσει η ίδια ικανότητα.",
+        "Η πρόκληση ζημιάς με ικανότητες ρίχνει 3 βλήματα σε κάθε εχθρό που χτυπιέται, καθένα από τα οποία προκαλεί έως 1% της μέγιστης Ζωής ως καθαρή ζημιά ανάλογα με την απόσταση που διένυσε."
       ]
     },
     "es-MX": {
-      "title": "La vida es maná",
-      "why": "La pasiva de Olaf, Furia del Berserker, le da velocidad de ataque por cada punto de vida que le falta, y su W le acumula todavía más; Purista: Hechicero convierte toda esa velocidad de ataque en velocidad de habilidades, así que entre más baja esté su barra de vida, más rápido corren sus enfriamientos. Pacto Ominoso hace que cada hechizo cueste una parte de su vida actual y se lo regresa en poder de habilidad, velocidad de movimiento y omnivampirismo según la vida que le falta: lanzar su Q lo drena, ese drenaje alimenta su pasiva y la velocidad de ataque regresa como velocidad de habilidades para la siguiente hacha. escaPHaDA convierte ese poder de habilidad en daño de ataque adicional para sus hachas físicas, y Francotirador Experto le reembolsa la mayor parte del enfriamiento de la Q cada vez que el hacha le pega a alguien a más de 600 unidades, así que nunca tiene que ir por ella. Diente de Nashor, Al Filo de la Cordura, Matakrakens y Grebas del Berserker se compran solo por la velocidad de ataque que se convierte en velocidad de habilidades (el poder del Diente también se vuelve daño de ataque con escaPHaDA), mientras que Lanza de Shojin y Placa Hexperimental dan daño de ataque, velocidad de habilidades y la vida que quema a propósito. El berserker cuerpo a cuerpo que tiene que correr hacia la gente se vuelve una pieza de artillería que lanza hachas desde el alcance máximo y juega mejor entre más cerca está de morir.",
-      "play": "Quédate al alcance máximo de la Q, lanza hachas hasta que tu vida baje al último tercio y sigue lanzando en lugar de perseguir el hacha. La E es tu autodaño de emergencia si tienes demasiada vida; la R es para salir, no para entrar.",
+      "title": "Artillería topo",
+      "why": "Todos usan Excavar de Rek'Sai para meterse bajo tierra y morder, pero excavada su Q se vuelve una ráfaga de tierra de largo alcance que daña y revela a los enemigos alcanzados, y casi todos la usan solo para picar antes de entrar. Francotirador Experto reembolsa el 80 % del enfriamiento cuando acierta desde más de 600 de distancia, así que la Q está casi siempre lista, lo que completa rapidísimo la misión de Multidisparo (golpear campeones con la habilidad) para sacar proyectiles extra, y Hechizo Dividido parte cada uno de esos proyectiles en dos al impactar o a alcance máximo. Misil Mágico dispara tres proyectiles más de daño verdadero a cada enemigo alcanzado, más fuertes entre más lejos viajan, así que una andanada desde el otro lado de la línea le llueve a todo el equipo. Enfoque al Horizonte alimenta el mismo ciclo revelando a cada campeón que golpeas desde 600 o más y a los enemigos cercanos, y Sombrero Mortífero de Rabadon, Lumbría, Descarga Tormentosa y Eco de Luden apilan poder de habilidad, así que la luchadora cuerpo a cuerpo se vuelve una maga de artillería AP que nunca sale a respirar.",
+      "play": "Excava temprano y quédate abajo, ponte a alcance máximo y dispara la Q a todo lo que veas. Sal solo para lanzar por los aires a quien se te tire encima, vuelve a excavar y sigue bombardeando.",
       "augments": [
-        "Obtienes reducción porcentual de enfriamiento y conviertes toda tu velocidad de ataque en velocidad de habilidades.",
-        "Obtienes poder de habilidad, 50% de velocidad de movimiento y 20% de omnivampirismo según la vida faltante. Lanzar hechizos cuesta 5% de tu vida actual. Beneficio máximo al 30% de vida.",
-        "Convierte el poder de habilidad en daño de ataque adicional. Obtienes 15% de daño de ataque.",
-        "Hacerle de francotirador a un enemigo con una habilidad que no sea la definitiva reembolsa 80% del enfriamiento (65% en habilidades periódicas). Francotirador: infligir daño a enemigos a más de 600 de distancia."
+        "Hacerle de francotirador a un enemigo con una habilidad que no sea la definitiva reembolsa 80% del enfriamiento (65% en habilidades periódicas). Francotirador: infligir daño a enemigos a más de 600 de distancia.",
+        "MISIÓN: golpea campeones enemigos con la habilidad elegida cierto número de veces. RECOMPENSA: dispara proyectiles adicionales por nivel de misión.",
+        "El proyectil de la habilidad elegida se divide en dos al impactar, a alcance máximo o al reactivarla. Objetivos adicionales alcanzados: los enemigos reciben menos daño si los golpea el mismo hechizo.",
+        "Infligir daño de habilidad dispara 3 proyectiles a cada enemigo alcanzado, cada uno con hasta un 1 % de la vida máxima como daño verdadero según la distancia recorrida."
       ]
     },
     "es": {
-      "title": "La vida es maná",
-      "why": "La pasiva de Olaf, Ira del berserker, le da velocidad de ataque por cada punto de vida que le falta, y su W le apila todavía más; Purista - Lanzador convierte toda esa velocidad de ataque en aceleración de habilidades, así que cuanto más baja está su barra de vida, más rápido van sus enfriamientos. Pacto ominoso hace que cada hechizo cueste una parte de su vida actual y se lo devuelve en poder de habilidad, velocidad de movimiento y omnivampirismo según la vida que le falta: lanzar su Q lo drena, ese drenaje alimenta su pasiva y la velocidad de ataque vuelve como aceleración para la siguiente hacha. EscaPHaDA convierte ese poder de habilidad en daño de ataque adicional para sus hachas físicas, y Francotirador habilidoso le devuelve la mayor parte del enfriamiento de la Q cada vez que el hacha impacta a alguien a más de 600 unidades, así que nunca tiene que ir a recogerla. Diente de Nashor, Final del ingenio, Verdugo de krakens y Grebas de berserker se compran solo por la velocidad de ataque que se convierte en aceleración (el poder del Diente también pasa a daño de ataque con EscaPHaDA), mientras que Lanza de Shojin y Experimento de hexarmadura aportan daño de ataque, aceleración y la vida que quema a propósito. El berserker cuerpo a cuerpo que tiene que correr hacia la gente se convierte en una pieza de artillería que lanza hachas desde rango máximo y juega mejor cuanto más cerca está de morir.",
-      "play": "Quédate a rango máximo de la Q, lanza hachas hasta que tu vida baje al último tercio y sigue lanzando en vez de perseguir el hacha. La E es tu autodaño de emergencia si tienes demasiada vida; la R es para salir, no para entrar.",
+      "title": "Artillería topo",
+      "why": "Todo el mundo usa Excavar de Rek'Sai para meterse bajo tierra y morder, pero excavada su Q se convierte en una ráfaga de tierra de largo alcance que daña y revela a los enemigos alcanzados, y casi todos la usan solo para hostigar antes de entrar. Francotirador habilidoso reembolsa el 80 % del enfriamiento cuando acierta desde más de 600 de distancia, así que la Q está casi siempre lista, lo que completa volando la misión de Disparo múltiple (golpear campeones con la habilidad) para ganar proyectiles extra, y División de hechizos parte cada uno de esos proyectiles en dos al impactar o a alcance máximo. Misil mágico dispara tres proyectiles más de daño verdadero a cada enemigo alcanzado, más fuertes cuanto más lejos viajan, así que una andanada desde la otra punta de la línea llueve sobre todo el equipo. Precisión infalible alimenta el mismo bucle revelando a cada campeón que golpeas desde 600 o más y a los enemigos cercanos, y Sombrero mortal de Rabadon, Llamasombría, Sobrecarga tormentosa y Eco de Luden acumulan poder de habilidad, así que la luchadora cuerpo a cuerpo se vuelve una maga de artillería AP que nunca sale a respirar.",
+      "play": "Excava pronto y quédate bajo tierra, colócate a alcance máximo y dispara la Q a todo lo que veas. Sal solo para lanzar por los aires a quien se tire encima, vuelve a excavar y sigue bombardeando.",
       "augments": [
-        "Obtienes reducción porcentual de enfriamiento y conviertes toda tu velocidad de ataque en aceleración de habilidades.",
-        "Obtienes poder de habilidad, un 50% de velocidad de movimiento y un 20% de omnivampirismo según la vida que te falta. Lanzar hechizos cuesta un 5% de tu vida actual. Beneficio máximo al 30% de vida.",
-        "Convierte el poder de habilidad en daño de ataque adicional. Obtienes un 15% de daño de ataque.",
-        "Hacer de francotirador sobre un enemigo con una habilidad que no sea la definitiva reembolsa un 80% del enfriamiento (65% en habilidades periódicas). Francotirador: infligir daño a enemigos a más de 600 de distancia."
+        "Hacer de francotirador sobre un enemigo con una habilidad que no sea la definitiva reembolsa un 80% del enfriamiento (65% en habilidades periódicas). Francotirador: infligir daño a enemigos a más de 600 de distancia.",
+        "MISIÓN: golpea campeones enemigos con la habilidad elegida cierto número de veces. RECOMPENSA: dispara proyectiles adicionales por nivel de misión.",
+        "El proyectil de la habilidad elegida se divide en dos al impactar, a alcance máximo o al reactivarla. Objetivos adicionales alcanzados: los enemigos reciben menos daño si los golpea el mismo hechizo.",
+        "Infligir daño de habilidad dispara 3 proyectiles a cada enemigo alcanzado, cada uno con hasta un 1 % de la vida máxima como daño verdadero según la distancia recorrida."
       ]
     },
     "fr": {
-      "title": "La vie, c'est du mana",
-      "why": "Le passif d'Olaf, Rage du berserker, lui donne de la vitesse d'attaque pour chaque point de PV manquant, et son W en ajoute encore par-dessus ; Puriste - Lanceur de compétence convertit toute cette vitesse d'attaque en accélération de compétence, donc plus sa barre de vie baisse, plus ses délais de récupération fondent. Pacte sinistre fait coûter à chaque sort une part de ses PV actuels et le rembourse en puissance, vitesse de déplacement et omnivampirisme selon ses PV manquants : lancer son Q le vide, la perte de PV nourrit son passif, et la vitesse d'attaque revient en accélération pour la hache suivante. Conversion physique transforme cette puissance en dégâts d'attaque bonus pour ses haches physiques, et Sniper rembourse la majeure partie du délai du Q chaque fois que la hache touche quelqu'un à plus de 600 unités, donc il n'a jamais besoin d'aller la ramasser. Dent de Nashor, Au bout du rouleau, Tueur de krakens et Jambières du berzerker ne sont achetés que pour leur vitesse d'attaque convertie en accélération (la puissance de la Dent devient aussi des dégâts d'attaque grâce à Conversion physique), tandis que Lance de Shojin et Hexplaque expérimentale ajoutent dégâts d'attaque, accélération et les PV qu'il brûle exprès. Le berserker de mêlée qui doit foncer sur les gens devient une pièce d'artillerie qui lance des haches à portée max et joue mieux plus il est proche de la mort.",
-      "play": "Reste à portée max du Q, lance des haches jusqu'à descendre vers le dernier tiers de tes PV, puis continue de lancer au lieu de courir après la hache. Le E sert à te blesser en urgence si tu as trop de PV ; le R, c'est pour sortir, pas pour rentrer.",
+      "title": "Artillerie taupe",
+      "why": "Tout le monde utilise Fouissement de Rek'Sai pour creuser jusqu'à sa cible et mordre, mais sous terre son Q devient une salve de terre à longue portée qui blesse et révèle les ennemis touchés, et la plupart des joueurs s'en servent juste pour harceler avant d'engager. Sniper rembourse 80 % du délai de récupération quand il touche à plus de 600 de portée, donc le Q est presque toujours prêt, ce qui boucle vite la quête de Multiples coups (toucher des champions avec la compétence) pour des projectiles en plus, et Division magique coupe chacun de ces projectiles en deux à l'impact ou à portée max. Projectiles magiques tire trois projectiles de dégâts bruts en plus sur chaque ennemi touché, plus forts selon la distance parcourue, donc une salve tirée de l'autre bout de la lane pleut sur toute l'équipe. Concentration lointaine nourrit la même boucle en révélant chaque champion touché à 600 de portée ou plus et les ennemis autour, et Coiffe de Rabadon, Flamme-ombre, Onde orageuse et Écho de Luden empilent la puissance, donc la plongeuse au corps à corps devient une mage d'artillerie AP qui ne remonte jamais respirer.",
+      "play": "Enterrez-vous tôt et restez sous terre, postez-vous à portée max et balancez votre Q sur tout ce qui bouge. Ne sortez que pour projeter un plongeur en l'air, puis recreusez et continuez à pilonner.",
       "augments": [
-        "Obtenez de la réduction de délai de récupération en pourcentage et convertissez toute votre vitesse d'attaque en accélération de compétence.",
-        "Obtenez de la puissance, 50% de vitesse de déplacement et 20% d'omnivampirisme selon vos PV manquants. Lancer un sort coûte 5% de vos PV actuels. Bonus maximal à 30% de PV.",
-        "Convertit la puissance en dégâts d'attaque bonus. Obtenez 15% de dégâts d'attaque.",
-        "Sniper un ennemi avec une compétence autre que l'ultime rembourse 80% de son délai de récupération (65% pour les compétences périodiques). Sniper : infliger des dégâts à un ennemi à plus de 600 unités de distance."
+        "Sniper un ennemi avec une compétence autre que l'ultime rembourse 80% de son délai de récupération (65% pour les compétences périodiques). Sniper : infliger des dégâts à un ennemi à plus de 600 unités de distance.",
+        "QUÊTE : touchez des champions ennemis avec la compétence choisie un certain nombre de fois. RÉCOMPENSE : tirez des projectiles supplémentaires par niveau de quête.",
+        "Le projectile de la compétence choisie se divise en deux à l'impact, à portée maximale ou à la réactivation. Cibles supplémentaires touchées : les ennemis subissent moins de dégâts s'ils sont touchés par le même sort.",
+        "Infliger des dégâts de compétence tire 3 projectiles sur chaque ennemi touché, chacun infligeant jusqu'à 1 % des PV max en dégâts bruts selon la distance parcourue."
       ]
     },
     "hu": {
-      "title": "Az életerő a mana",
-      "why": "Olaf passzív képessége, a Dühöngő őrület, minden hiányzó életerőpont után támadási sebességet ad, a W-je pedig még többet rak rá; a Purista – Varázsló ezt az egész támadási sebességet képességsiettetéssé alakítja, vagyis minél lejjebb van az életerőcsíkja, annál gyorsabban töltődnek a képességei. A Baljós egyesség miatt minden képességhasználat a jelenlegi életereje egy részébe kerül, cserébe a hiányzó életerő alapján képességerőt, mozgási sebességet és mindenvámpírságot ad: a Q dobálása leszívja, a fogyás táplálja a passzívot, a támadási sebesség pedig siettetésként tér vissza a következő baltához. A Specializáció ezt a képességerőt bónusz sebzéssé alakítja a fizikai baltáihoz, a Képzett mesterlövész pedig visszaadja a Q töltési idejének nagy részét, ha a balta 600 egységnél távolabb talál el valakit, így soha nem kell felvennie. A Nashor fogát, az Utolsó esélyt, a Krakenölőt és a Dühöngők csizmáját csak a siettetéssé váló támadási sebesség miatt veszi (a Nashor fogának képességereje a Specializáció révén szintén sebzés lesz), a Shojin lándzsája és a Kísérleti hexpáncél pedig sebzést, siettetést és azt az életerőt adja, amit szándékosan éget. A közelharci dühöngő, akinek rá kell rohannia az ellenre, tüzérséggé válik, ami maximális távolról dobálja a baltákat, és annál jobban játszik, minél közelebb van a halálhoz.",
-      "play": "Maradj a Q maximális hatótávján, dobálj baltákat, amíg az életerőd az alsó harmad környékére esik, aztán dobálj tovább ahelyett, hogy a balta után futnál. Az E a vészhelyzeti önsebzésed, ha túl egészséges vagy; az R kifelé jár, nem befelé.",
+      "title": "Vakondtüzérség",
+      "why": "Mindenki arra használja Rek'Sai Beásását, hogy odaássa magát és harapjon, pedig beásva a Q-ja egy nagy hatótávú földrobbanássá válik, ami sebzi és felfedi az eltalált ellenfeleket, és a legtöbben csak piszkálásra használják a beugrás előtt. A Képzett mesterlövész a visszatöltési idő 80%-át visszaadja, ha 600 egységnél messzebbről találsz, így a Q szinte mindig kész, ami gyorsan teljesíti a Többlövetű küldetését (találj el hősöket a képességgel) plusz lövedékekért, a Varázslatmegosztás pedig mindegyiket kettéosztja találatkor vagy maximális távolságon. A Varázslövedék minden eltalált ellenfélre három további tiszta sebzésű lövedéket lő, amik annál erősebbek, minél messzebbre repülnek, így a sáv túlsó végéről indított sortűz az egész csapatra zúdul. A Horizont ugyanezt a kört táplálja: felfed minden hőst, akit 600 vagy több távolságról találsz el, és a körülöttük lévő ellenfeleket is, a Rabadon halálsüvege, az Árnyékláng, a Viharhullám és a Luden visszhangja pedig képességerőt halmoz, így a közelharci harcosból AP tüzérmágus lesz, aki soha nem jön fel levegőért.",
+      "play": "Áss be korán és maradj lent, állj maximális távolságra és lődd a Q-t mindenre, amit látsz. Csak akkor bukkanj fel, ha fel kell dobnod egy rád ugró ellenfelet, aztán áss vissza és lőj tovább.",
       "augments": [
-        "Százalékos töltésiidő-csökkentést kapsz, és az összes támadási sebességed képességsiettetéssé alakul.",
-        "A hiányzó életerő alapján képességerőt, 50% mozgási sebességet és 20% mindenvámpírságot kapsz. A képességhasználat a jelenlegi életerőd 5%-ába kerül. Maximális hatás 30% életerőnél.",
-        "A képességerőt bónusz sebzéssé alakítja. 15% sebzést kapsz.",
-        "Ha egy ellenfelet nem végső képességgel lősz le messziről, a töltési idő 80%-a visszatérül (időszakos képességeknél 65%). Messzi lövés: 600 egységnél távolabbi ellenfelek sebzése."
+        "Ha egy ellenfelet nem végső képességgel lősz le messziről, a töltési idő 80%-a visszatérül (időszakos képességeknél 65%). Messzi lövés: 600 egységnél távolabbi ellenfelek sebzése.",
+        "KÜLDETÉS: Találd el az ellenséges hősöket a választott képességgel adott számú alkalommal. JUTALOM: Küldetésszintenként további lövedékeket lősz ki.",
+        "A választott képességed lövedéke kettéválik találatkor, maximális hatótávon vagy újraaktiváláskor. További eltalált célpontok: az ellenfelek kevesebb sebzést szenvednek, ha ugyanaz a varázslat találja el őket.",
+        "A képességsebzés minden eltalált ellenfélre 3 lövedéket lő ki, mindegyik a megtett távolság alapján legfeljebb a maximális életerő 1%-ának megfelelő tiszta sebzést okoz."
       ]
     },
     "id": {
-      "title": "Health Adalah Mana",
-      "why": "Pasif Olaf, Berserker Rage, memberinya Attack Speed untuk setiap poin Health yang hilang, dan W-nya menambah lebih banyak lagi; Purist - Caster mengubah semua Attack Speed itu menjadi Ability Haste, jadi makin rendah bar Health-nya, makin cepat cooldown-nya berputar. Ominous Pact membuat setiap cast memakan sebagian Health saat ini dan membayarnya kembali dengan Ability Power, Movement Speed, dan Omnivamp berdasarkan Health yang hilang: melempar Q menguras dirinya, Health yang hilang memberi makan pasifnya, dan Attack Speed kembali sebagai Haste untuk kapak berikutnya. escAPADe mengubah Ability Power itu menjadi bonus Attack Damage untuk kapak fisiknya, dan Skilled Sniper mengembalikan sebagian besar cooldown Q setiap kali kapak mengenai musuh lebih dari 600 unit, jadi dia tidak perlu memungut kapaknya. Nashor's Tooth, Wit's End, Kraken Slayer, dan Berserker's Greaves dibeli hanya demi Attack Speed yang diubah jadi Haste (Ability Power dari Nashor's juga jadi Attack Damage lewat escAPADe), sementara Spear of Shojin dan Experimental Hexplate menambah Attack Damage, Haste, dan Health yang sengaja dia bakar. Berserker melee yang harus lari ke musuh berubah jadi artileri yang melempar kapak dari jarak maksimum dan makin jago makin dekat dia dengan kematian.",
-      "play": "Berdiri di jarak maksimum Q, lempar kapak sampai Health-mu turun ke sekitar sepertiga terakhir, lalu terus lempar alih-alih mengejar kapak. E adalah self-damage daruratmu kalau Health-mu terlalu banyak; R untuk kabur, bukan untuk masuk.",
+      "title": "Artileri Tikus Tanah",
+      "why": "Semua orang pakai Burrow Rek'Sai buat menggali ke target lalu menggigit, tapi saat burrowed Q-nya berubah jadi ledakan tanah jarak jauh yang memberi damage dan me-reveal musuh yang kena, dan kebanyakan pemain cuma pakai itu buat poke sebelum dive. Skilled Sniper mengembalikan 80% cooldown tiap kali kena dari jarak lebih dari 600, jadi Q hampir selalu siap, yang bikin quest Multishot (kenai champion pakai ability) cepat selesai demi missile tambahan, dan Spell Split membelah tiap missile itu jadi dua saat kena atau di range maksimal. Magic Missile menembakkan tiga missile true damage lagi ke setiap musuh yang kena, makin kuat makin jauh terbangnya, jadi satu tembakan dari ujung lane lain menghujani seluruh tim. Horizon Focus mengisi loop yang sama dengan me-reveal tiap champion yang kamu kenai dari 600 atau lebih plus musuh di sekitarnya, dan Rabadon's Deathcap, Shadowflame, Stormsurge serta Luden's Echo menumpuk Ability Power, jadi diver melee berubah jadi mage artileri AP yang nggak pernah naik ke permukaan.",
+      "play": "Burrow lebih awal dan tetap di bawah tanah, diam di range maksimal dan tembak Q ke apa pun yang terlihat. Keluar cuma buat knock up diver, lalu gali lagi dan terus bombardir.",
       "augments": [
-        "Dapatkan pengurangan cooldown persentase dan ubah semua Attack Speed-mu menjadi Ability Haste.",
-        "Dapatkan Ability Power, 50% Movement Speed, dan 20% Omnivamp berdasarkan Health yang hilang. Cast spell memakan 5% Health saat ini. Manfaat maksimum di 30% Health.",
-        "Ubah Ability Power menjadi bonus Attack Damage. Dapatkan 15% Attack Damage.",
-        "Snipe musuh dengan Ability non-Ultimate mengembalikan 80% Cooldown (65% untuk Ability periodik). Snipe: memberi damage ke musuh yang berjarak lebih dari 600."
+        "Snipe musuh dengan Ability non-Ultimate mengembalikan 80% Cooldown (65% untuk Ability periodik). Snipe: memberi damage ke musuh yang berjarak lebih dari 600.",
+        "QUEST: Kenai champion musuh dengan ability pilihan sebanyak jumlah tertentu. REWARD: Tembakkan missile tambahan per Quest Level.",
+        "Missile ability pilihanmu terbelah jadi dua saat kena, di range maksimal, atau saat di-recast. Target tambahan yang kena: musuh menerima damage lebih kecil jika terkena spell yang sama.",
+        "Memberi damage ability menembakkan 3 missile ke setiap musuh yang kena, masing-masing memberi hingga 1% Health maksimal sebagai true damage berdasarkan jarak tempuh."
       ]
     },
     "it": {
-      "title": "La vita è mana",
-      "why": "La passiva di Olaf, Furia del berserker, gli dà velocità d'attacco per ogni punto di salute mancante, e la sua W ne aggiunge ancora; Purista - Mago converte tutta quella velocità d'attacco in velocità abilità, quindi più la sua barra della salute scende, più veloci vanno le sue ricariche. Patto nefasto fa costare a ogni incantesimo una fetta della sua salute attuale e lo ripaga con potere magico, velocità di movimento e rubavita globale in base alla salute mancante: lanciare la Q lo prosciuga, il prosciugamento alimenta la passiva e la velocità d'attacco torna come velocità abilità per l'ascia successiva. Fuggi fuggi trasforma quel potere magico in attacco fisico bonus per le sue asce fisiche, e Abile cecchino rimborsa gran parte della ricarica della Q ogni volta che l'ascia colpisce qualcuno a più di 600 unità, così non deve mai andare a raccoglierla. Dente di Nashor, Speranza perduta, Uccisore di Kraken e Gambali del berserker si comprano solo per la velocità d'attacco da convertire in velocità abilità (il potere magico del Dente diventa anche attacco fisico grazie a Fuggi fuggi), mentre Lancia di Shojin e Hexcorazza sperimentale danno attacco fisico, velocità abilità e la salute che brucia apposta. Il berserker da mischia che deve correre addosso alla gente diventa un pezzo d'artiglieria che lancia asce dalla gittata massima e gioca meglio quanto più è vicino alla morte.",
-      "play": "Stai alla gittata massima della Q, lancia asce finché la salute non scende verso l'ultimo terzo, poi continua a lanciare invece di inseguire l'ascia. La E è il tuo autodanno d'emergenza se hai troppa salute; la R serve per uscire, non per entrare.",
+      "title": "Artiglieria talpa",
+      "why": "Tutti usano Scavare di Rek'Sai per infilarsi sottoterra e mordere, ma da scavata la sua Q diventa una raffica di terra a lungo raggio che danneggia e rivela i nemici colpiti, e quasi tutti la usano solo per punzecchiare prima di ingaggiare. Abile cecchino rimborsa l'80% della ricarica quando colpisce da oltre 600 di distanza, quindi la Q è quasi sempre pronta, e così la missione di Colpo multiplo (colpire campioni con l'abilità) vola via per ottenere proiettili extra, mentre Incantesimo scisso divide ognuno di quei proiettili in due all'impatto o a gittata massima. Proiettile magico spara altri tre proiettili di danni puri su ogni nemico colpito, più forti quanto più lontano viaggiano, quindi una salva dall'altra parte della corsia piove su tutta la squadra. Concentrazione dell'orizzonte alimenta lo stesso ciclo rivelando ogni campione colpito da 600 o più e i nemici vicini, e Copricapo di Rabadon, Ombrofiamma, Apice della tempesta ed Eco di Luden accumulano potere magico, così la tuffatrice in mischia diventa una maga artigliera AP che non torna mai in superficie.",
+      "play": "Scava presto e resta sotto, piazzati a gittata massima e spara la Q su tutto quello che vedi. Esci solo per lanciare in aria chi ti si tuffa addosso, poi riscava e continua a bombardare.",
       "augments": [
-        "Ottieni riduzione ricarica percentuale e converti tutta la tua velocità d'attacco in velocità abilità.",
-        "Ottieni potere magico, 50% velocità di movimento e 20% rubavita globale in base alla salute mancante. Lanciare incantesimi costa il 5% della salute attuale. Beneficio massimo al 30% di salute.",
-        "Converte il potere magico in attacco fisico bonus. Ottieni il 15% di attacco fisico.",
-        "Colpire da cecchino un nemico con un'abilità non suprema rimborsa l'80% della ricarica (65% per le abilità periodiche). Cecchino: infliggere danni a nemici a più di 600 unità di distanza."
+        "Colpire da cecchino un nemico con un'abilità non suprema rimborsa l'80% della ricarica (65% per le abilità periodiche). Cecchino: infliggere danni a nemici a più di 600 unità di distanza.",
+        "MISSIONE: colpisci campioni nemici con l'abilità scelta un certo numero di volte. RICOMPENSA: spari proiettili aggiuntivi per livello della missione.",
+        "Il proiettile dell'abilità scelta si divide in due all'impatto, a gittata massima o alla riattivazione. Bersagli aggiuntivi colpiti: i nemici subiscono meno danni se colpiti dallo stesso incantesimo.",
+        "Infliggere danni da abilità spara 3 proiettili su ogni nemico colpito, ognuno dei quali infligge fino all'1% della salute massima in danni puri in base alla distanza percorsa."
       ]
     },
     "ja": {
-      "title": "体力はマナ",
-      "why": "オラフのパッシブ「バーサーカーレイジ」は減少体力に応じて攻撃速度をくれて、Wがさらに攻撃速度を上乗せする。純粋なるキャスターはその攻撃速度をすべてスキルヘイストに変換するので、体力バーが減るほどクールダウンが速く回る。不穏な盟約はスキルを使うたびに現在体力の一部を払わせ、減少体力に応じて魔力、移動速度、オムニヴァンプで返してくれる。つまりQを投げるたびに体力が減り、その減少がパッシブを育て、攻撃速度がヘイストになって次の斧に戻ってくる。魔攻のいたずらはその魔力を物理の斧のための増加攻撃力に変え、腕利きスナイパーは斧が600ユニットより遠くの相手に当たるたびにQのクールダウンの大半を返すので、斧を拾いに行く必要がまったくない。ナッシャー トゥース、ウィッツ エンド、クラーケン スレイヤー、バーサーカー ブーツはヘイストに変わる攻撃速度のためだけに買い(ナッシャーの魔力も魔攻のいたずらで攻撃力になる)、ショウジンの矛と実験的ヘクスプレートは攻撃力、ヘイスト、そしてわざと燃やすための体力を足す。敵に走り寄るしかなかった近接バーサーカーが、最大射程から斧を投げる砲台になり、死にかけるほど強くなる。",
-      "play": "Qの最大射程に立って、体力が下3分の1あたりになるまで斧を投げ、斧を追いかけずにそのまま投げ続けよう。体力が多すぎるときはEが緊急の自傷ダメージ。Rは突っ込むためじゃなく、逃げるために使おう。",
+      "title": "モグラ砲兵",
+      "why": "みんなレク＝サイの潜行は掘り進んで噛みつくために使うけど、潜っている間のQは敵に当たるとダメージを与えて可視化する長射程の土の弾になり、ほとんどの人は突っ込む前の削りにしか使っていない。腕利きスナイパーは600より遠くから当てるとクールダウンの80%を返してくれるのでQはほぼ常に撃てて、マルチショットのクエスト（アビリティでチャンピオンに当てる）をあっという間に達成して追加ミサイルを獲得し、スペルスプリットがそのミサイルを命中時か最大射程で2つに分裂させる。マジックミサイルは当たった敵ごとに確定ダメージのミサイルをさらに3発撃ち、遠くまで飛ぶほど強くなるので、レーンの反対側から撃った一斉射撃が敵チーム全体に降り注ぐ。ホライゾン フォーカスは600以上の距離から当てたチャンピオンと周りの敵を可視化して同じループを支え、ラバドン デスキャップ、シャドウフレイム、ストームサージ、ルーデン エコーで魔力を積むので、近接ダイバーが二度と地上に出てこないAP砲撃メイジに変わる。",
+      "play": "早めに潜って地中にとどまり、最大射程に陣取って見えるものすべてにQを撃とう。飛び込んでくる相手を打ち上げるときだけ地上に出て、また潜って砲撃を続けよう。",
       "augments": [
-        "割合クールダウン短縮を獲得し、すべての攻撃速度をスキルヘイストに変換する。",
-        "減少体力に応じて魔力、移動速度50%、オムニヴァンプ20%を獲得する。スキルの使用に現在体力の5%を消費する。体力30%で効果が最大になる。",
-        "魔力を増加攻撃力に変換する。攻撃力が15%増加する。",
-        "アルティメット以外のスキルで敵を狙撃すると、クールダウンが80%解消される(周期的なスキルは65%)。狙撃:600より遠い敵にダメージを与えること。"
+        "アルティメット以外のスキルで敵を狙撃すると、クールダウンが80%解消される(周期的なスキルは65%)。狙撃:600より遠い敵にダメージを与えること。",
+        "クエスト: 選んだアビリティで敵チャンピオンに規定回数当てる。報酬: クエストレベルごとに追加のミサイルを発射する。",
+        "選んだアビリティのミサイルが命中時、最大射程到達時、または再発動時に2つに分裂する。追加で当たった対象: 同じスキルに当たった敵が受けるダメージは低下する。",
+        "アビリティでダメージを与えると、当たった敵1体ごとにミサイルを3発発射し、それぞれが飛んだ距離に応じて最大で最大体力の1%の確定ダメージを与える。"
       ]
     },
     "ko": {
-      "title": "체력이 곧 마나",
-      "why": "올라프의 패시브 광전사의 분노는 잃은 체력 1마다 공격 속도를 주고, W가 그 위에 공격 속도를 더 얹어줍니다. 순수주의자 - 마법사는 이 공격 속도를 전부 스킬 가속으로 바꿔서, 체력 바가 낮을수록 재사용 대기시간이 더 빨리 돌아갑니다. 불길한 서약은 스킬을 쓸 때마다 현재 체력 일부를 소모하게 하고, 잃은 체력에 비례해 주문력, 이동 속도, 모든 피해 흡혈로 돌려줍니다. 그래서 Q를 던질 때마다 체력이 빠지고, 빠진 체력이 패시브를 키우고, 공격 속도가 다음 도끼를 위한 스킬 가속으로 돌아옵니다. 마법사 (물리)는 그 주문력을 물리 도끼용 추가 공격력으로 바꾸고, 노련한 저격수는 도끼가 600 유닛보다 먼 적에게 맞을 때마다 Q 재사용 대기시간 대부분을 돌려주니, 도끼를 주우러 갈 필요가 없습니다. 내셔의 이빨, 마법사의 최후, 크라켄 학살자, 광전사의 군화는 스킬 가속으로 바뀌는 공격 속도만 보고 사고(내셔의 주문력도 마법사 (물리)로 공격력이 됩니다), 쇼진의 창과 실험적 마공학판은 공격력, 스킬 가속, 그리고 일부러 태울 체력을 줍니다. 적에게 달려가야만 하던 근접 광전사가 최대 사거리에서 도끼를 던지는 포대가 되고, 죽기 직전일수록 더 잘 싸웁니다.",
-      "play": "Q 최대 사거리에 서서 체력이 아래 3분의 1쯤 될 때까지 도끼를 던지고, 도끼를 주우러 가지 말고 계속 던지세요. 체력이 너무 많으면 E가 비상용 자해 수단이고, R은 들어갈 때가 아니라 빠질 때 쓰세요.",
+      "title": "두더지 포병",
+      "why": "다들 렉사이의 땅굴 파기를 파고들어서 무는 데 쓰지만, 땅속에 있을 때 Q는 맞은 적에게 피해를 주고 위치를 드러내는 사거리 긴 흙 폭발로 바뀌고, 대부분은 들어가기 전에 견제용으로만 써요. 노련한 저격수는 600보다 먼 거리에서 맞히면 재사용 대기시간의 80%를 돌려줘서 Q가 거의 항상 준비돼 있고, 덕분에 다중 공격 퀘스트(스킬로 챔피언 맞히기)를 순식간에 깨서 추가 미사일을 받고, 주문 분산이 그 미사일을 적중 시나 최대 사거리에서 둘로 쪼개요. 마법 미사일은 맞은 적마다 고정 피해 미사일을 세 발 더 쏘고, 멀리 날아갈수록 세지니까 라인 반대편에서 쏜 일제 사격이 적 팀 전체에 쏟아져요. 지평선의 초점은 600 이상 거리에서 맞힌 챔피언과 그 주변 적을 드러내며 같은 고리를 받쳐 주고, 라바돈의 죽음모자, 그림자불꽃, 폭풍 쇄도, 루덴의 메아리로 주문력을 쌓으니 근접 돌진형 챔피언이 절대 땅 위로 안 나오는 AP 포격 마법사가 돼요.",
+      "play": "일찍 땅굴을 파고 계속 땅속에 있으면서 최대 사거리에 자리 잡고 보이는 건 다 Q로 쏘세요. 달려드는 적을 띄울 때만 튀어나오고, 다시 파고들어서 계속 포격하세요.",
       "augments": [
-        "재사용 대기시간이 일정 비율 감소하고 모든 공격 속도가 스킬 가속으로 전환됩니다.",
-        "잃은 체력에 비례해 주문력, 50% 이동 속도, 20% 모든 피해 흡혈을 얻습니다. 스킬을 사용할 때마다 현재 체력의 5%를 소모합니다. 체력 30%일 때 효과가 최대입니다.",
-        "주문력을 추가 공격력으로 전환합니다. 공격력이 15% 증가합니다.",
-        "궁극기가 아닌 스킬로 적을 저격하면 재사용 대기시간이 80% 돌아옵니다(주기적인 스킬은 65%). 저격: 600 거리보다 먼 적에게 피해를 입히는 것."
+        "궁극기가 아닌 스킬로 적을 저격하면 재사용 대기시간이 80% 돌아옵니다(주기적인 스킬은 65%). 저격: 600 거리보다 먼 적에게 피해를 입히는 것.",
+        "퀘스트: 선택한 스킬로 적 챔피언을 정해진 횟수만큼 맞히세요. 보상: 퀘스트 레벨마다 미사일을 추가로 발사합니다.",
+        "선택한 스킬의 투사체가 적중 시, 최대 사거리에서, 또는 재사용 시 둘로 갈라집니다. 추가로 맞은 대상: 같은 스킬에 맞은 적은 피해를 덜 받습니다.",
+        "스킬 피해를 입히면 맞은 적마다 미사일 3발을 발사하며, 각각 날아간 거리에 따라 최대 체력의 최대 1%만큼 고정 피해를 입힙니다."
       ]
     },
     "pl": {
-      "title": "Zdrowie to mana",
-      "why": "Bierna umiejętność Olafa, Szał Berserkera, daje mu prędkość ataku za każdy brakujący punkt zdrowia, a jego W dorzuca jeszcze więcej; Purysta — mag zamienia całą tę prędkość ataku na przyspieszenie umiejętności, więc im niżej jest jego pasek zdrowia, tym szybciej lecą czasy odnowienia. Złowieszczy Pakt sprawia, że każde użycie umiejętności kosztuje część jego obecnego zdrowia, i oddaje mu moc umiejętności, prędkość ruchu i wszechwampiryzm zależnie od brakującego zdrowia: rzucanie Q go wysysa, utrata zdrowia karmi bierną, a prędkość ataku wraca jako przyspieszenie na kolejny topór. EskAPADa zamienia tę moc umiejętności na dodatkowe obrażenia od ataku dla jego fizycznych toporów, a Doświadczony Snajper zwraca większość odnowienia Q, gdy topór trafi kogoś z ponad 600 jednostek, więc nigdy nie musi po niego chodzić. Ząb Nashora, Koniec Rozumu, Pogromca Krakenów i Nagolenniki Berserkera kupuje tylko dla prędkości ataku zamienianej na przyspieszenie (moc umiejętności z Zęba też staje się obrażeniami od ataku dzięki EskAPADzie), a Włócznia Shojin i Eksperymentalny Hexpierśnik dają obrażenia od ataku, przyspieszenie i zdrowie, które celowo spala. Berserker do walki wręcz, który musi biec na ludzi, staje się artylerią rzucającą toporami z maksymalnego zasięgu i gra tym lepiej, im bliżej mu do śmierci.",
-      "play": "Trzymaj się na maksymalnym zasięgu Q, rzucaj toporami, aż zdrowie zejdzie w okolice ostatniej jednej trzeciej, i rzucaj dalej zamiast gonić topór. E to awaryjne obrażenia dla siebie, gdy masz za dużo zdrowia; R służy do wychodzenia, nie wchodzenia.",
+      "title": "Kretowa artyleria",
+      "why": "Wszyscy używają Zakopania Rek'Sai, żeby przekopać się do celu i ugryźć, ale pod ziemią jej Q zmienia się w dalekosiężny wybuch ziemi, który rani i odsłania trafionych wrogów, a większość graczy używa go tylko do podgryzania przed wejściem. Doświadczony Snajper zwraca 80% czasu odnowienia, gdy trafisz z ponad 600 jednostek, więc Q jest prawie zawsze gotowe, co błyskawicznie zalicza zadanie Wielostrzału (trafiaj bohaterów umiejętnością) po dodatkowe pociski, a Podział Zaklęcia dzieli każdy z nich na dwa przy trafieniu lub na maksymalnym zasięgu. Magiczny Pocisk wystrzeliwuje trzy kolejne pociski z obrażeniami nieuchronnymi w każdego trafionego wroga, tym mocniejsze, im dalej lecą, więc salwa z drugiego końca alei spada na całą drużynę. Skupienie Horyzontalne napędza tę samą pętlę, odsłaniając każdego bohatera trafionego z 600 jednostek lub więcej i wrogów wokół niego, a Zabójczy Kapelusz Rabadona, Płomień Cienia, Przepływ Burzy i Echo Luden dokładają moc umiejętności, więc wojowniczka do zwarcia staje się artyleryjską magiczką AP, która nigdy nie wychodzi na powierzchnię.",
+      "play": "Zakop się wcześnie i zostań pod ziemią, stań na maksymalnym zasięgu i strzelaj Q we wszystko, co widzisz. Wyjdź tylko po to, żeby podrzucić nurkującego wroga, potem zakop się znowu i ostrzeliwuj dalej.",
       "augments": [
-        "Zyskaj procentowe skrócenie czasu odnowienia i zamień całą swoją prędkość ataku na przyspieszenie umiejętności.",
-        "Zyskaj moc umiejętności, 50% prędkości ruchu i 20% wszechwampiryzmu zależnie od brakującego zdrowia. Użycie umiejętności kosztuje 5% obecnego zdrowia. Maksymalny efekt przy 30% zdrowia.",
-        "Zamień moc umiejętności na dodatkowe obrażenia od ataku. Zyskaj 15% obrażeń od ataku.",
-        "Snajperskie trafienie wroga umiejętnością inną niż superumiejętność zwraca 80% czasu odnowienia (65% dla umiejętności okresowych). Snajperskie trafienie: zadanie obrażeń wrogowi z odległości ponad 600 jednostek."
+        "Snajperskie trafienie wroga umiejętnością inną niż superumiejętność zwraca 80% czasu odnowienia (65% dla umiejętności okresowych). Snajperskie trafienie: zadanie obrażeń wrogowi z odległości ponad 600 jednostek.",
+        "ZADANIE: Traf wrogich bohaterów wybraną umiejętnością określoną liczbę razy. NAGRODA: Wystrzeliwuj dodatkowe pociski za każdy poziom zadania.",
+        "Pocisk wybranej umiejętności dzieli się na dwa przy trafieniu, na maksymalnym zasięgu lub przy ponownym użyciu. Dodatkowo trafione cele: wrogowie otrzymują mniej obrażeń, jeśli trafi ich to samo zaklęcie.",
+        "Zadawanie obrażeń umiejętnościami wystrzeliwuje 3 pociski w każdego trafionego wroga, z których każdy zadaje do 1% maks. zdrowia jako obrażenia nieuchronne zależnie od przebytego dystansu."
       ]
     },
     "pt-BR": {
-      "title": "Vida é mana",
-      "why": "A passiva do Olaf, Fúria do Berserker, dá Velocidade de Ataque para cada ponto de Vida que falta, e o W dele empilha ainda mais por cima; Purista - Conjurador converte toda essa Velocidade de Ataque em Aceleração de Habilidade, então quanto mais baixa a barra de Vida, mais rápido rodam as recargas. Pacto Nefasto faz cada feitiço custar uma fatia da Vida atual e devolve Poder de Habilidade, Velocidade de Movimento e Onivampirismo com base na Vida perdida: lançar o Q drena ele, o dreno alimenta a passiva e a Velocidade de Ataque volta como Aceleração para o próximo machado. EscapaDdA transforma esse Poder de Habilidade em Dano de Ataque bônus para os machados físicos, e Fuzileiro de Elite devolve a maior parte da recarga do Q sempre que o machado acerta alguém a mais de 600 unidades, então ele nunca precisa ir buscar. Dente de Na'Shor, Limite da Razão, Mata-Cráquens e Grevas do Berserker são comprados só pela Velocidade de Ataque que vira Aceleração (o Poder de Habilidade do Dente também vira Dano de Ataque com EscapaDdA), enquanto Lança de Shojin e Hexoplaca Experimental dão Dano de Ataque, Aceleração e a Vida que ele queima de propósito. O berserker corpo a corpo que precisa correr atrás do povo vira uma artilharia que arremessa machados do alcance máximo e joga melhor quanto mais perto está de morrer.",
-      "play": "Fique no alcance máximo do Q, jogue machados até sua Vida chegar perto do último terço e continue jogando em vez de correr atrás do machado. O E é seu autodano de emergência se você estiver com Vida demais; o R é pra sair, não pra entrar.",
+      "title": "Artilharia Toupeira",
+      "why": "Todo mundo usa o Escavar da Rek'Sai pra cavar até o alvo e morder, mas enterrada a Q dela vira uma rajada de terra de longo alcance que causa dano e revela os inimigos atingidos, e quase todo mundo só usa isso pra cutucar antes de entrar. Fuzileiro de Elite devolve 80% do tempo de recarga quando acerta de mais de 600 de distância, então a Q fica quase sempre disponível, o que voa pela missão de Disparos Múltiplos (acertar campeões com a habilidade) pra ganhar projéteis extras, e Feitiço Dividido parte cada um desses projéteis em dois ao acertar ou no alcance máximo. Projétil Mágico dispara mais três projéteis de dano verdadeiro em cada inimigo atingido, mais fortes quanto mais longe viajam, então uma saraivada do outro lado da rota chove no time inteiro. Foco do Horizonte alimenta o mesmo ciclo revelando cada campeão que você acerta de 600 ou mais e os inimigos ao redor, e Capuz da Morte de Rabadon, Chama Sombria, Ápice da Tempestade e Eco de Luden empilham Poder de Habilidade, então a lutadora corpo a corpo vira uma maga de artilharia AP que nunca sobe pra respirar.",
+      "play": "Enterre-se cedo e fique lá embaixo, pare no alcance máximo e dispare a Q em tudo que aparecer. Só saia pra arremessar quem mergulhar em você, depois cave de novo e continue bombardeando.",
       "augments": [
-        "Receba redução percentual de recarga e converta toda a sua Velocidade de Ataque em Aceleração de Habilidade.",
-        "Receba Poder de Habilidade, 50% de Velocidade de Movimento e 20% de Onivampirismo com base na Vida perdida. Lançar feitiços custa 5% da sua Vida atual. Benefício máximo com 30% de Vida.",
-        "Converte Poder de Habilidade em Dano de Ataque bônus. Receba 15% de Dano de Ataque.",
-        "Atingir de longe um inimigo com uma Habilidade que não seja a Suprema reembolsa 80% da recarga (65% para Habilidades periódicas). De longe: causar dano a inimigos a mais de 600 de distância."
+        "Atingir de longe um inimigo com uma Habilidade que não seja a Suprema reembolsa 80% da recarga (65% para Habilidades periódicas). De longe: causar dano a inimigos a mais de 600 de distância.",
+        "MISSÃO: acerte campeões inimigos com a habilidade escolhida um certo número de vezes. RECOMPENSA: dispare projéteis adicionais por nível da missão.",
+        "O projétil da habilidade escolhida se divide em dois ao acertar, no alcance máximo ou ao ser reativado. Alvos adicionais atingidos: inimigos sofrem menos dano se atingidos pelo mesmo feitiço.",
+        "Causar dano de habilidade dispara 3 projéteis em cada inimigo atingido, cada um causando até 1% da Vida máxima como dano verdadeiro com base na distância percorrida."
       ]
     },
     "ro": {
-      "title": "Viața e mana",
-      "why": "Pasiva lui Olaf, Furia berserkerului, îi dă viteză de atac pentru fiecare punct de viață lipsă, iar W-ul lui mai adaugă peste; Purist – Mag transformă toată această viteză de atac în accelerare a abilităților, așa că, cu cât bara de viață e mai jos, cu atât timpii de reactivare fug mai repede. Pact de rău augur face ca fiecare abilitate să coste o parte din viața curentă și îl răsplătește cu putere a abilităților, viteză de mișcare și omnivampirism în funcție de viața lipsă: aruncarea Q-ului îl secătuiește, pierderea de viață hrănește pasiva, iar viteza de atac se întoarce ca accelerare pentru următorul topor. Metamorfoză transformă puterea abilităților în daune de atac bonus pentru topoarele lui fizice, iar Lunetist expert îi returnează cea mai mare parte din timpul de reactivare al Q-ului de fiecare dată când toporul lovește pe cineva la peste 600 de unități, așa că nu trebuie să meargă niciodată după el. Dintele lui Nashor, Sfârșitul rațiunii, Ucigașul de krakeni și Cizmele berserkerului sunt cumpărate doar pentru viteza de atac transformată în accelerare (puterea abilităților din Dinte devine și ea daune de atac prin Metamorfoză), în timp ce Lancea lui Shojin și Hexarmura experimentală aduc daune de atac, accelerare și viața pe care o arde intenționat. Berserkerul corp la corp care trebuie să alerge spre oameni devine o piesă de artilerie care aruncă topoare de la distanță maximă și joacă mai bine cu cât e mai aproape de moarte.",
-      "play": "Stai la raza maximă a Q-ului, aruncă topoare până când viața îți coboară spre ultima treime, apoi aruncă în continuare în loc să alergi după topor. E-ul e autoavarierea ta de urgență dacă ești prea sănătos; R-ul e pentru ieșit, nu pentru intrat.",
+      "title": "Artileria cârtiță",
+      "why": "Toată lumea folosește Îngroparea lui Rek'Sai ca să sape până la țintă și să muște, dar îngropată, Q-ul ei devine o explozie de pământ cu rază mare care rănește și dezvăluie inamicii loviți, iar majoritatea jucătorilor îl folosesc doar ca să ciupească înainte de atac. Lunetist expert returnează 80% din timpul de reîncărcare când lovești de la peste 600 de unități, deci Q-ul e aproape mereu gata, ceea ce termină rapid misiunea Ținte multiple (lovește campioni cu abilitatea) pentru proiectile în plus, iar Împărțirea vrăjii taie fiecare proiectil în două la impact sau la rază maximă. Proiectile magice trage încă trei proiectile cu daune absolute în fiecare inamic lovit, mai puternice cu cât zboară mai departe, așa că o salvă de la celălalt capăt al culoarului plouă peste toată echipa. Focalizarea orizontului hrănește aceeași buclă dezvăluind fiecare campion lovit de la 600 sau mai mult și inamicii din jur, iar Pălăria malefică a lui Rabadon, Flacăra întunericului, Furtună dezlănțuită și Ecoul lui Luden adună putere a abilităților, așa că luptătoarea corp la corp devine o magiciană de artilerie AP care nu mai iese niciodată la suprafață.",
+      "play": "Îngroapă-te devreme și stai jos, oprește-te la rază maximă și trage Q în tot ce vezi. Ieși doar ca să arunci în aer pe cine sare pe tine, apoi sapă din nou și bombardează mai departe.",
       "augments": [
-        "Primești reducere procentuală a timpului de reactivare și îți transformi toată viteza de atac în accelerare a abilităților.",
-        "Primești putere a abilităților, 50% viteză de mișcare și 20% omnivampirism în funcție de viața lipsă. Folosirea abilităților costă 5% din viața curentă. Beneficiu maxim la 30% viață.",
-        "Transformă puterea abilităților în daune de atac bonus. Primești 15% daune de atac.",
-        "Lovirea de la distanță a unui inamic cu o abilitate care nu e supremă returnează 80% din timpul de reactivare (65% pentru abilitățile periodice). Lovire de la distanță: provocarea de daune inamicilor aflați la peste 600 de unități."
+        "Lovirea de la distanță a unui inamic cu o abilitate care nu e supremă returnează 80% din timpul de reactivare (65% pentru abilitățile periodice). Lovire de la distanță: provocarea de daune inamicilor aflați la peste 600 de unități.",
+        "MISIUNE: Lovește campionii inamici cu abilitatea aleasă de un anumit număr de ori. RECOMPENSĂ: Lansezi proiectile suplimentare pentru fiecare nivel al misiunii.",
+        "Proiectilul abilității alese se împarte în două la impact, la rază maximă sau la reactivare. Ținte suplimentare lovite: inamicii primesc mai puține daune dacă sunt loviți de aceeași vrajă.",
+        "Provocarea de daune cu abilități lansează 3 proiectile spre fiecare inamic lovit, fiecare provocând până la 1% din viața maximă ca daune absolute în funcție de distanța parcursă."
       ]
     },
     "ru": {
-      "title": "Здоровье — это мана",
-      "why": "Пассивка Олафа, Ярость берсерка, даёт ему скорость атаки за каждую единицу недостающего здоровья, а его W накидывает ещё сверху; Принципиальность – умения превращает всю эту скорость атаки в ускорение умений, так что чем ниже полоска здоровья, тем быстрее откатываются умения. Зловещий договор заставляет каждое умение стоить часть текущего здоровья и возвращает силу умений, скорость передвижения и всевампиризм в зависимости от недостающего здоровья: каждый Q его иссушает, потеря здоровья кормит пассивку, а скорость атаки возвращается ускорением для следующего топора. Трансмутация превращает эту силу умений в дополнительную силу атаки для его физических топоров, а Опытный снайпер возвращает большую часть перезарядки Q, когда топор попадает в цель дальше 600 единиц, так что поднимать его не нужно вообще. Зуб Нашора, Смерть Разума, Убийца кракенов и Наголенники берсерка берутся только ради скорости атаки, которая становится ускорением (сила умений Зуба тоже уходит в силу атаки через Трансмутацию), а Копье Седзина и Экспериментальная хекстековая броня дают силу атаки, ускорение и то самое здоровье, которое он сжигает специально. Берсерк ближнего боя, которому надо бежать на врага, становится артиллерией, кидающей топоры с максимальной дистанции, и играет тем лучше, чем ближе он к смерти.",
-      "play": "Стой на максимальной дальности Q, кидай топоры, пока здоровье не опустится к нижней трети, и продолжай кидать вместо того, чтобы бегать за топором. E — твой экстренный урон по себе, если ты слишком здоров; R — чтобы уйти, а не зайти.",
+      "title": "Кротовья артиллерия",
+      "why": "Все используют Закапывание Рек'Сай, чтобы прокопаться к цели и укусить, но под землей ее Q превращается в дальнобойный выброс земли, который ранит и раскрывает задетых врагов, и большинство игроков пользуется им только для пока перед заходом. Опытный снайпер возвращает 80% перезарядки, когда попадаешь с расстояния больше 600, так что Q почти всегда готово, и задание Града снарядов (попадать умением по чемпионам) пролетает за дополнительные снаряды, а Разделяющееся умение делит каждый из них надвое при попадании или на максимальной дальности. Волшебные стрелы выпускают еще три снаряда с чистым уроном в каждого задетого врага, и чем дальше они летят, тем сильнее бьют, так что залп с другого конца линии накрывает всю команду. Хекстековый прицел подпитывает ту же петлю, раскрывая каждого чемпиона, по которому ты попал с 600 и дальше, и врагов рядом с ним, а Смертельная шляпа Рабадона, Сумрачное пламя, Штормовой прилив и Эхо Людена копят силу умений, так что ныряльщица ближнего боя становится AP-артиллеристкой, которая никогда не вылезает из-под земли.",
+      "play": "Закапывайся пораньше и сиди внизу, встань на максимальную дальность и стреляй Q во все, что видишь. Вылезай только чтобы подбросить ныряющего на тебя врага, потом закапывайся обратно и продолжай обстрел.",
       "augments": [
-        "Получите процентное сокращение перезарядки и преобразуйте всю скорость атаки в ускорение умений.",
-        "Получите силу умений, 50% скорости передвижения и 20% всевампиризма в зависимости от недостающего здоровья. Применение умений стоит 5% текущего здоровья. Максимальный эффект при 30% здоровья.",
-        "Преобразует силу умений в дополнительную силу атаки. Вы получаете 15% силы атаки.",
-        "Снайперское попадание по врагу умением, кроме суперспособности, возвращает 80% перезарядки (65% для периодических умений). Снайперское попадание — урон по врагам дальше 600 единиц."
+        "Снайперское попадание по врагу умением, кроме суперспособности, возвращает 80% перезарядки (65% для периодических умений). Снайперское попадание — урон по врагам дальше 600 единиц.",
+        "ЗАДАНИЕ: попадите выбранным умением по вражеским чемпионам нужное число раз. НАГРАДА: выпускайте дополнительные снаряды за каждый уровень задания.",
+        "Снаряд выбранного умения делится надвое при попадании, на максимальной дальности или при повторном применении. Дополнительные цели: враги получают меньше урона, если их задевает то же умение.",
+        "Нанесение урона умениями выпускает 3 снаряда в каждого задетого врага, каждый из которых наносит до 1% от максимального запаса здоровья в виде чистого урона в зависимости от пройденного расстояния."
       ]
     },
     "th": {
-      "title": "เลือดคือมานา",
-      "why": "พาสซีฟของ Olaf อย่าง Berserker Rage ให้ Attack Speed ตามทุกแต้ม Health ที่เสียไป และ W ยังเพิ่ม Attack Speed ซ้อนเข้าไปอีก ส่วน Purist - Caster แปลง Attack Speed ทั้งหมดนั้นเป็น Ability Haste เลือดยิ่งน้อย คูลดาวน์ยิ่งหมุนเร็ว Ominous Pact ทำให้การใช้สกิลทุกครั้งเสีย Health ปัจจุบันส่วนหนึ่ง แล้วคืนให้เป็น Ability Power, Movement Speed และ Omnivamp ตาม Health ที่เสียไป การปา Q จึงดูดเลือดตัวเอง เลือดที่เสียไปก็ป้อนพาสซีฟ และ Attack Speed ก็กลับมาเป็น Haste ให้ขวานลูกถัดไป escAPADe แปลง Ability Power นั้นเป็น Attack Damage โบนัสให้ขวานกายภาพของเขา และ Skilled Sniper คืนคูลดาวน์ Q ส่วนใหญ่ทุกครั้งที่ขวานโดนศัตรูที่อยู่ไกลเกิน 600 ยูนิต เลยไม่ต้องเดินไปเก็บขวานเลย Nashor's Tooth, Wit's End, Kraken Slayer และ Berserker's Greaves ซื้อมาแค่เพื่อ Attack Speed ที่จะกลายเป็น Haste (Ability Power จาก Nashor's ก็กลายเป็น Attack Damage ผ่าน escAPADe ด้วย) ส่วน Spear of Shojin กับ Experimental Hexplate ให้ Attack Damage, Haste และ Health ที่เขาตั้งใจเผาทิ้ง เบอร์เซิร์กเกอร์สายประชิดที่ต้องวิ่งเข้าหาศัตรูกลายเป็นปืนใหญ่ที่ปาขวานจากระยะสุด และยิ่งใกล้ตายยิ่งเล่นเก่ง",
-      "play": "ยืนที่ระยะสุดของ Q ปาขวานจนเลือดลงไปราวหนึ่งในสามสุดท้าย แล้วปาต่อไปแทนที่จะวิ่งตามขวาน ถ้าเลือดเยอะเกินไป E คือการทำดาเมจใส่ตัวเองฉุกเฉิน ส่วน R มีไว้หนี ไม่ได้มีไว้บุก",
+      "title": "ทหารปืนใหญ่ตัวตุ่น",
+      "why": "ทุกคนใช้ Burrow ของ Rek'Sai เพื่อมุดเข้าไปกัด แต่ตอนมุดดิน Q ของเธอจะกลายเป็นการระเบิดดินระยะไกลที่สร้างดาเมจและเปิดตำแหน่งศัตรูที่โดน และคนส่วนใหญ่ใช้แค่ไว้ป็อกก่อนพุ่งเข้าไป Skilled Sniper คืนคูลดาวน์ 80% เมื่อยิงโดนจากระยะเกิน 600 ทำให้ Q แทบจะพร้อมตลอด ซึ่งทำภารกิจของ Multishot (ใช้สกิลยิงโดนแชมเปี้ยน) เสร็จไวเพื่อรับมิสไซล์เพิ่ม และ Spell Split ก็แยกมิสไซล์แต่ละลูกเป็นสองเมื่อโดนหรือถึงระยะสุดทาง Magic Missile ยิงมิสไซล์ดาเมจจริงเพิ่มอีกสามลูกใส่ศัตรูทุกตัวที่โดน ยิ่งบินไกลยิ่งแรง ชุดยิงจากอีกฝั่งเลนเลยถล่มใส่ทั้งทีม Horizon Focus ป้อนลูปเดียวกันด้วยการเปิดตำแหน่งแชมเปี้ยนทุกตัวที่โดนจากระยะ 600 ขึ้นไปและศัตรูรอบ ๆ ส่วน Rabadon's Deathcap, Shadowflame, Stormsurge และ Luden's Echo อัดพลังเวท ทำให้สายพุ่งระยะประชิดกลายเป็นเมจปืนใหญ่ AP ที่ไม่เคยโผล่ขึ้นมาเลย",
+      "play": "มุดดินตั้งแต่เนิ่น ๆ แล้วอยู่ใต้ดินไว้ ยืนที่ระยะสุดและยิง Q ใส่ทุกอย่างที่เห็น โผล่ขึ้นมาแค่ตอนจะกระแทกคนที่พุ่งเข้ามาให้ลอย แล้วมุดกลับลงไปยิงต่อ",
       "augments": [
-        "รับการลดคูลดาวน์เป็นเปอร์เซ็นต์ และแปลง Attack Speed ทั้งหมดเป็น Ability Haste",
-        "รับ Ability Power, Movement Speed 50% และ Omnivamp 20% ตาม Health ที่เสียไป การใช้สกิลเสีย Health ปัจจุบัน 5% ได้ผลสูงสุดที่ Health 30%",
-        "แปลง Ability Power เป็น Attack Damage โบนัส รับ Attack Damage 15%",
-        "การสไนป์ศัตรูด้วยสกิลที่ไม่ใช่อัลติเมตจะคืนคูลดาวน์ 80% (65% สำหรับสกิลแบบเป็นช่วงเวลา) สไนป์: ทำดาเมจใส่ศัตรูที่อยู่ไกลเกิน 600"
+        "การสไนป์ศัตรูด้วยสกิลที่ไม่ใช่อัลติเมตจะคืนคูลดาวน์ 80% (65% สำหรับสกิลแบบเป็นช่วงเวลา) สไนป์: ทำดาเมจใส่ศัตรูที่อยู่ไกลเกิน 600",
+        "ภารกิจ: ใช้สกิลที่เลือกยิงโดนแชมเปี้ยนศัตรูตามจำนวนครั้งที่กำหนด รางวัล: ยิงมิสไซล์เพิ่มตามเลเวลภารกิจ",
+        "มิสไซล์ของสกิลที่เลือกจะแยกเป็นสองเมื่อโดนเป้า เมื่อถึงระยะสุด หรือเมื่อกดใช้ซ้ำ เป้าหมายเพิ่มเติมที่โดน: ศัตรูจะรับดาเมจน้อยลงถ้าโดนสกิลเดียวกัน",
+        "การสร้างดาเมจจากสกิลจะยิงมิสไซล์ 3 ลูกใส่ศัตรูทุกตัวที่โดน แต่ละลูกสร้างดาเมจจริงสูงสุด 1% ของพลังชีวิตสูงสุดตามระยะทางที่บิน"
       ]
     },
     "tr": {
-      "title": "Can Manadır",
-      "why": "Olaf'ın pasifi Çılgın Öfke, eksik her can puanı için ona saldırı hızı verir, W'si de üstüne daha fazlasını ekler; Saf Yetenek bu saldırı hızının tamamını yetenek hızına çevirir, yani can barı ne kadar düşükse bekleme süreleri o kadar hızlı akar. Uğursuz Ahit her yetenek kullanımını mevcut canından bir dilime mal eder ve eksik cana göre yetenek gücü, hareket hızı ve genel can çalma olarak geri öder: Q atmak onu emer, kaybedilen can pasifini besler, saldırı hızı da bir sonraki balta için yetenek hızı olarak geri gelir. Saldırı Gücüne Güç Kat bu yetenek gücünü fiziksel baltaları için ek saldırı gücüne çevirir, Yetenekli Keskin Nişancı da balta 600 birimden uzaktaki birine her isabet ettiğinde Q'nun bekleme süresinin çoğunu iade eder, böylece baltayı almaya hiç gitmesi gerekmez. Nashor'un Dişi, Aklın Sonu, Kraken Katili ve Savaşçı Çizmeleri yalnızca yetenek hızına dönüşen saldırı hızı için alınır (Diş'in yetenek gücü de Saldırı Gücüne Güç Kat ile saldırı gücü olur), Shojin'in Mızrağı ve Deneysel Hexzırh ise saldırı gücü, yetenek hızı ve bilerek yaktığı canı verir. Rakibe koşmak zorunda olan yakın dövüş çılgını, maksimum menzilden balta fırlatan bir topçuya dönüşür ve ölüme ne kadar yakınsa o kadar iyi oynar.",
-      "play": "Q'nun maksimum menzilinde dur, canın son üçte bire yaklaşana kadar balta at, sonra baltanın peşinden koşmak yerine atmaya devam et. Fazla canın varsa E acil durum öz hasarındır; R çıkmak için, girmek için değil.",
+      "title": "Köstebek Topçusu",
+      "why": "Herkes Rek'Sai'nin Toprağa Gömülme'sini hedefe kadar kazıp ısırmak için kullanır, ama gömülüyken Q'su isabet ettiği rakiplere hasar veren ve onları açığa çıkaran uzun menzilli bir toprak patlamasına dönüşür ve çoğu oyuncu bunu sadece dalmadan önce dürtmek için kullanır. Yetenekli Keskin Nişancı, 600 birimden uzaktan isabet ettiğinde bekleme süresinin %80'ini iade eder, yani Q neredeyse hep hazırdır; bu da Çoklu Atış'ın görevini (yetenekle şampiyonlara isabet et) fazladan mermiler için hızla bitirir, Bölünen Büyü de bu mermilerin her birini isabette veya azami menzilde ikiye böler. Büyü Atışı, isabet edilen her rakibe ne kadar uzağa giderse o kadar güçlü olan üç tane daha gerçek hasarlı mermi yollar, yani koridorun öbür ucundan atılan bir yaylım bütün takımın üstüne yağar. Ufukgetiren aynı döngüyü besler: 600 veya daha uzaktan vurduğun her şampiyonu ve etrafındaki rakipleri açığa çıkarır; Rabadon'un Şapkası, Gölgealev, Yıldırım Asası ve Luden'in Feryadı da yetenek gücü yığar, böylece yakın dövüşçü bir dalıcı, yüzeye hiç çıkmayan bir AP topçu büyücüsüne dönüşür.",
+      "play": "Erkenden toprağa gömül ve aşağıda kal, azami menzile park et ve gördüğün her şeye Q at. Sadece üstüne dalan birini havaya savurmak için yüzeye çık, sonra tekrar gömül ve bombalamaya devam et.",
       "augments": [
-        "Yüzdesel bekleme süresi azaltma kazan ve tüm saldırı hızını yetenek hızına çevir.",
-        "Eksik cana göre yetenek gücü, %50 hareket hızı ve %20 genel can çalma kazan. Yetenek kullanmak mevcut canının %5'ine mal olur. En yüksek fayda %30 canda.",
-        "Yetenek gücünü ek saldırı gücüne çevirir. %15 saldırı gücü kazan.",
-        "Bir rakibi Ulti dışı bir yetenekle uzaktan vurmak bekleme süresinin %80'ini iade eder (periyodik yeteneklerde %65). Uzaktan vurma: 600 birimden uzaktaki rakiplere hasar vermek."
+        "Bir rakibi Ulti dışı bir yetenekle uzaktan vurmak bekleme süresinin %80'ini iade eder (periyodik yeteneklerde %65). Uzaktan vurma: 600 birimden uzaktaki rakiplere hasar vermek.",
+        "GÖREV: Seçilen yetenekle rakip şampiyonlara belirli sayıda isabet et. ÖDÜL: Görev seviyesi başına ek mermiler fırlat.",
+        "Seçtiğin yeteneğin mermisi isabette, azami menzilde veya yeniden kullanıldığında ikiye bölünür. Ek hedefler: Aynı büyünün isabet ettiği rakipler daha az hasar alır.",
+        "Yetenek hasarı vermek, isabet edilen her rakibe 3 mermi fırlatır; her biri kat edilen mesafeye bağlı olarak azami canın %1'ine kadar gerçek hasar verir."
       ]
     },
     "vi": {
-      "title": "Máu Là Năng Lượng",
-      "why": "Nội tại của Olaf, Cuồng Nộ, cho hắn tốc độ đánh theo từng điểm máu đã mất, và W của hắn còn cộng thêm nữa; Thuần Pháp - Thuật Sư chuyển toàn bộ tốc độ đánh đó thành điểm hồi kỹ năng, nên thanh máu càng thấp thì kỹ năng hồi càng nhanh. Khế Ước Quỷ Quyệt khiến mỗi lần dùng kỹ năng tốn một phần máu hiện tại và trả lại sức mạnh phép thuật, tốc độ di chuyển và hút máu toàn phần theo lượng máu đã mất: ném Q làm hắn mất máu, máu mất lại nuôi nội tại, và tốc độ đánh quay về thành điểm hồi kỹ năng cho chiếc rìu tiếp theo. Chuyển Hoá SMPT-SMCK biến sức mạnh phép thuật đó thành sức mạnh công kích cộng thêm cho những chiếc rìu vật lý, còn Xạ Thủ Kỳ Cựu hoàn lại phần lớn thời gian hồi Q mỗi khi rìu trúng ai đó ở xa hơn 600 đơn vị, nên hắn chẳng bao giờ phải chạy đi nhặt rìu. Nanh Nashor, Đao Tím, Móc Diệt Thủy Quái và Giày Cuồng Nộ được mua chỉ để lấy tốc độ đánh đổi thành điểm hồi kỹ năng (sức mạnh phép thuật của Nanh Nashor cũng thành sức mạnh công kích nhờ Chuyển Hoá SMPT-SMCK), còn Ngọn Giáo Shojin và Khiên Hextech Thử Nghiệm cho sức mạnh công kích, điểm hồi kỹ năng và lượng máu mà hắn cố tình đốt. Gã cuồng chiến cận chiến vốn phải lao vào người khác trở thành khẩu pháo ném rìu từ tầm tối đa, và càng gần chết thì càng chơi hay.",
-      "play": "Đứng ở tầm tối đa của Q, ném rìu cho đến khi máu tụt về khoảng một phần ba cuối, rồi tiếp tục ném thay vì chạy theo nhặt rìu. E là chiêu tự gây sát thương khẩn cấp khi bạn còn quá nhiều máu; R là để chạy ra, không phải để lao vào.",
+      "title": "Pháo Binh Chuột Chũi",
+      "why": "Ai cũng dùng Độn Thổ của Rek'Sai để đào tới rồi cắn, nhưng khi độn thổ, Q của cô thành một cú phun đất tầm xa gây sát thương và làm lộ diện kẻ địch trúng chiêu, mà đa số người chơi chỉ dùng nó để cấu rỉa trước khi lao vào. Xạ Thủ Kỳ Cựu hoàn lại 80% thời gian hồi chiêu khi trúng từ xa hơn 600 đơn vị, nên Q gần như lúc nào cũng sẵn, giúp hoàn thành nhiệm vụ của Bắn Liên Hoàn (dùng kỹ năng trúng tướng) cực nhanh để có thêm tên lửa, và Phân Chia Kỹ Năng tách mỗi tên lửa làm đôi khi trúng hoặc ở tầm tối đa. Tên Lửa Ma Pháp bắn thêm ba tên lửa sát thương chuẩn vào mỗi kẻ địch trúng chiêu, bay càng xa càng mạnh, nên một loạt bắn từ đầu kia đường sẽ trút xuống cả đội. Kính Nhắm Ma Pháp nuôi cùng vòng lặp bằng cách làm lộ diện mỗi tướng bị bắn trúng từ 600 trở lên cùng kẻ địch xung quanh, còn Mũ Phù Thủy Rabadon, Ngọn Lửa Hắc Hóa, Quyền Trượng Bão Tố và Vọng Âm Luden chồng Sức Mạnh Phép Thuật, biến một đấu sĩ cận chiến thành pháp sư pháo binh AP không bao giờ chui lên.",
+      "play": "Độn thổ sớm và ở dưới đất, đứng ở tầm tối đa và bắn Q vào mọi thứ bạn thấy. Chỉ trồi lên để hất tung kẻ lao vào bạn, rồi đào xuống lại và tiếp tục nã pháo.",
       "augments": [
-        "Nhận giảm thời gian hồi chiêu theo phần trăm và chuyển toàn bộ tốc độ đánh thành điểm hồi kỹ năng.",
-        "Nhận sức mạnh phép thuật, 50% tốc độ di chuyển và 20% hút máu toàn phần dựa trên lượng máu đã mất. Dùng kỹ năng tốn 5% máu hiện tại. Hiệu quả tối đa khi còn 30% máu.",
-        "Chuyển sức mạnh phép thuật thành sức mạnh công kích cộng thêm. Nhận thêm 15% sức mạnh công kích.",
-        "Bắn tỉa kẻ địch bằng kỹ năng không phải chiêu cuối sẽ hoàn lại 80% thời gian hồi (65% với kỹ năng định kỳ). Bắn tỉa: gây sát thương lên kẻ địch ở khoảng cách hơn 600."
+        "Bắn tỉa kẻ địch bằng kỹ năng không phải chiêu cuối sẽ hoàn lại 80% thời gian hồi (65% với kỹ năng định kỳ). Bắn tỉa: gây sát thương lên kẻ địch ở khoảng cách hơn 600.",
+        "NHIỆM VỤ: Dùng kỹ năng đã chọn đánh trúng tướng địch đủ số lần. PHẦN THƯỞNG: Bắn thêm tên lửa theo mỗi cấp nhiệm vụ.",
+        "Tên lửa của kỹ năng đã chọn tách làm đôi khi trúng, ở tầm tối đa hoặc khi tái kích hoạt. Mục tiêu bị trúng thêm: Kẻ địch nhận ít sát thương hơn nếu bị trúng bởi cùng một phép.",
+        "Gây sát thương kỹ năng sẽ bắn 3 tên lửa vào mỗi kẻ địch bị trúng, mỗi tên lửa gây tối đa 1% Máu tối đa dưới dạng sát thương chuẩn dựa trên quãng đường bay."
       ]
     },
     "zh-CN": {
-      "title": "血条就是蓝条",
-      "why": "奥拉夫的被动狂战之怒会按已损失生命值给他攻击速度，W还会再叠一层攻速；纯粹主义者 - 术师把这些攻速全部转化为技能急速，所以血条越低，冷却转得越快。不祥契约让每次施法消耗一部分当前生命值，并按已损失生命值返还法术强度、移动速度和全能吸血：扔Q会掉血，掉的血喂给被动，攻速又变成急速回到下一把斧头上。魔法转物理把这些法术强度变成物理斧头的额外攻击力，老练狙神则在斧头命中600码以外的敌人时返还大部分Q的冷却，所以他根本不用去捡斧头。纳什之牙、智慧末刃、海妖杀手和狂战士胫甲只是为了攻速而买，全部转成急速（纳什之牙的法强也会通过魔法转物理变成攻击力），朔极之矛和海克斯注力刚壁则提供攻击力、急速和他故意烧掉的生命值。原本必须冲脸的近战狂战士变成了一门从最远距离扔斧头的大炮，而且越接近死亡打得越好。",
-      "play": "站在Q的最远距离扔斧头，直到血量掉到三分之一左右，然后继续扔，别去追斧头。血太多时E是你的紧急自残手段；R是用来跑路的，不是用来冲的。",
+      "title": "地鼠炮兵",
+      "why": "大家都用虚空遁地兽的遁地去钻过去咬人，但遁地时她的Q会变成一道远程的岩土冲击，对命中的敌人造成伤害并暴露其位置，大多数人只拿它在开团前消耗一下。老练狙神在600码外命中时返还80%冷却，所以Q几乎一直能放，于是多重射击的任务（用技能命中英雄）很快就做完，拿到额外飞弹，咒语裂变再让每一枚飞弹在命中时或最远距离分裂成两枚。魔法飞弹会对每个被命中的敌人再打出三枚真实伤害飞弹，飞得越远伤害越高，所以从线的另一头打出的一轮齐射会砸向整支敌队。视界专注喂的是同一个循环：在600码或更远处命中的每个英雄和他们身边的敌人都会被暴露，灭世者的死亡之帽、影焰、风暴狂涌和卢登的回声堆满法术强度，于是一个近战突进英雄变成了一个永远不出土的AP炮台法师。",
+      "play": "早点遁地并一直待在地下，站在最远距离对看得见的一切放Q。只有在要击飞冲过来的人时才出土，然后再钻回去继续轰。",
       "augments": [
-        "获得百分比冷却缩减，并将你的全部攻击速度转化为技能急速。",
-        "基于已损失生命值获得法术强度、50%移动速度和20%全能吸血。施放技能消耗5%当前生命值。生命值为30%时效果最大。",
-        "将法术强度转化为额外攻击力。获得15%攻击力。",
-        "用非终极技能狙击敌人会返还80%冷却时间（周期性技能为65%）。狙击：对600距离以外的敌人造成伤害。"
+        "用非终极技能狙击敌人会返还80%冷却时间（周期性技能为65%）。狙击：对600距离以外的敌人造成伤害。",
+        "任务：用选定的技能命中敌方英雄指定次数。奖励：每级任务额外发射飞弹。",
+        "你选定技能的飞弹在命中时、到达最远距离时或再次施放时分裂成两枚。额外命中的目标：被同一个技能命中的敌人受到的伤害降低。",
+        "造成技能伤害时会对每个被命中的敌人发射3枚飞弹，每枚根据飞行距离造成最多相当于最大生命值1%的真实伤害。"
       ]
     },
     "zh-TW": {
-      "title": "血條就是魔力",
-      "why": "歐拉夫的被動狂戰之怒會依照已損失生命給他攻擊速度，W還會再疊一層攻速；純粹 - 法師把這些攻速全部轉換為技能急速，所以血條越低，冷卻轉得越快。不祥契約讓每次施法消耗一部分當前生命，並依照已損失生命回饋魔法攻擊、跑速和全能吸血：丟Q會掉血，掉的血餵給被動，攻速又變成急速回到下一把斧頭上。轉換惡作劇把這些魔法攻擊變成物理斧頭的額外攻擊力，老練狙擊手則在斧頭命中600單位以外的敵人時返還大部分Q的冷卻，所以他根本不用去撿斧頭。納什之牙、智慧末刃、海妖殺手和狂戰士護脛只是為了攻速而買，全部轉成急速（納什之牙的魔攻也會透過轉換惡作劇變成攻擊力），精進之矛和實驗型海克斯板甲則提供攻擊力、急速和他故意燒掉的生命。原本必須衝臉的近戰狂戰士變成一門從最遠距離丟斧頭的大砲，而且越接近死亡打得越好。",
-      "play": "站在Q的最遠距離丟斧頭，直到血量掉到三分之一左右，然後繼續丟，別去追斧頭。血太多時E是你的緊急自殘手段；R是用來逃跑的，不是用來衝的。",
+      "title": "地鼠砲兵",
+      "why": "大家都用雷珂煞的鑽地去鑽過去咬人，但鑽地時她的Q會變成一道遠程的岩土衝擊，對命中的敵人造成傷害並暴露位置，多數人只拿它在開戰前消耗一下。老練狙擊手在600距離外命中時返還80%冷卻，所以Q幾乎一直能放，多重射擊的任務（用技能命中英雄）很快就完成，拿到額外飛彈，法術逬裂再讓每一枚飛彈在命中時或最遠距離分裂成兩枚。魔法導彈會對每個被命中的敵人再射出三枚真實傷害飛彈，飛得越遠傷害越高，所以從路線另一頭打出的一輪齊射會砸向整支敵隊。視界專注餵的是同一個循環：在600或更遠處命中的每個英雄和他們身邊的敵人都會被暴露，死亡之帽、黯影之炎、雷霆風暴和盧登回音疊滿魔法攻擊，於是一個近戰突進英雄變成永遠不出土的AP砲台法師。",
+      "play": "早點鑽地並一直待在地下，站在最遠距離對看得到的一切放Q。只有要擊飛衝過來的人時才出土，然後再鑽回去繼續轟。",
       "augments": [
-        "獲得百分比冷卻縮減，並將所有攻擊速度轉換為技能急速。",
-        "依照已損失生命獲得魔法攻擊、50%跑速和20%全能吸血。施放技能消耗5%當前生命。生命為30%時效果最大。",
-        "將魔法攻擊轉換為額外攻擊力。獲得15%攻擊力。",
-        "用非大絕的技能狙擊敵人會返還80%冷卻時間（週期性技能為65%）。狙擊：對600距離以外的敵人造成傷害。"
+        "用非大絕的技能狙擊敵人會返還80%冷卻時間（週期性技能為65%）。狙擊：對600距離以外的敵人造成傷害。",
+        "任務：用選定的技能命中敵方英雄指定次數。獎勵：每級任務額外發射飛彈。",
+        "你選定技能的飛彈在命中時、到達最遠距離時或再次施放時分裂成兩枚。額外命中的目標：被同一個技能命中的敵人受到的傷害降低。",
+        "造成技能傷害時會對每個被命中的敵人發射3枚飛彈，每枚依飛行距離造成最多相當於最大生命值1%的真實傷害。"
       ]
     }
   }
