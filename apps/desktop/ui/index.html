@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DeepARAM</title>
+<style>
+  :root { color-scheme: dark; --bg: #090b0f; --panel: #11151b; --text: #e7ebef; --muted: #8b95a1; --line: #222a33; --gold: #d8b25a; }
+  @media (prefers-color-scheme: light) {
+    :root { color-scheme: light; --bg: #e7ebef; --panel: #f5f7f9; --text: #0d1117; --muted: #56606b; --line: #cfd6dd; }
+  }
+  * { box-sizing: border-box; }
+  html, body { height: 100%; margin: 0; }
+  body { background: var(--bg); color: var(--text); font: 15px/1.5 "Segoe UI Variable", "Segoe UI", system-ui, sans-serif; display: grid; place-items: center; }
+  main { width: min(440px, calc(100% - 32px)); text-align: center; }
+  img { width: 72px; height: 72px; border-radius: 16px; }
+  h1 { font-size: 20px; font-weight: 600; margin: 16px 0 4px; }
+  p { color: var(--muted); margin: 0 0 20px; }
+  button { font: inherit; color: var(--bg); background: var(--text); border: 0; border-radius: 8px; padding: 8px 18px; cursor: pointer; }
+  button:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+  .spin { width: 22px; height: 22px; margin: 20px auto 0; border: 2px solid var(--line); border-top-color: var(--text); border-radius: 50%; animation: spin .8s linear infinite; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  footer { position: fixed; bottom: 12px; left: 16px; right: 16px; color: var(--muted); font-size: 11px; text-align: center; }
+  [hidden] { display: none !important; }
+</style>
+</head>
+<body>
+<main>
+  <img src="icon.png" alt="">
+  <div id="loading"><div class="spin" aria-label="Loading"></div></div>
+  <div id="offline" hidden>
+    <h1>You're offline</h1>
+    <p id="msg">DeepARAM will open as soon as your connection is back.</p>
+    <button id="retry" type="button">Try again</button>
+  </div>
+</main>
+<footer>DeepARAM isn't endorsed by Riot Games and doesn't reflect the views or opinions of Riot Games or anyone officially involved in producing or managing Riot Games properties. Riot Games, and all associated properties are trademarks or registered trademarks of Riot Games, Inc.</footer>
+<script>
+  // Opens the site at the page used last; shows the offline screen and keeps retrying while the connection is down.
+  const SITE = "https://deeparam.com";
+  const params = new URLSearchParams(location.search);
+  const path = (params.get("path") || "/").startsWith("/") ? params.get("path") || "/" : "/";
+  const patch = params.get("patch");
+  if (patch) document.getElementById("msg").textContent = `Last seen patch ${patch}. DeepARAM will open as soon as your connection is back.`;
+
+  let timer;
+  async function open() {
+    clearTimeout(timer);
+    document.getElementById("loading").hidden = false;
+    document.getElementById("offline").hidden = true;
+    try {
+      const ctrl = new AbortController();
+      const t = setTimeout(() => ctrl.abort(), 8000);
+      await fetch(SITE + "/data/app-status.json", { mode: "no-cors", cache: "no-store", signal: ctrl.signal });
+      clearTimeout(t);
+      location.replace(SITE + path);
+    } catch {
+      document.getElementById("loading").hidden = true;
+      document.getElementById("offline").hidden = false;
+      timer = setTimeout(open, 15000);
+    }
+  }
+  document.getElementById("retry").addEventListener("click", open);
+  addEventListener("online", open);
+  open();
+</script>
+</body>
+</html>
