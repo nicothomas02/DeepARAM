@@ -17,7 +17,7 @@ public final class TVStore: ObservableObject {
     /// Set while the data on screen is the saved copy; holds when it was saved.
     @Published public private(set) var savedCopyDate: Date?
 
-    public static let path = "/data/tv.json"
+    public nonisolated static let path = "/data/tv.json"
     private let session: URLSession
     private let file: URL
     private var lastLoad: Date?
@@ -33,12 +33,12 @@ public final class TVStore: ObservableObject {
         }
     }
 
-    public static func decode(_ bytes: Data) throws -> TVData {
+    public nonisolated static func decode(_ bytes: Data) throws -> TVData {
         try JSONDecoder().decode(TVData.self, from: bytes)
     }
 
     /// The full address of a picture path from the data.
-    public static func url(_ path: String?) -> URL? {
+    public nonisolated static func url(_ path: String?) -> URL? {
         guard let path, !path.isEmpty else { return nil }
         return Site.url(path)
     }
