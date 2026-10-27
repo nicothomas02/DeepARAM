@@ -5,12 +5,15 @@ The iPad layout of the DeepARAM app, in SwiftUI. Every section is the live deepa
 
 ## What it adds on iPad
 
-- **Sidebar** with every section and one search over champions, augments, items and pages.
+- **Sidebar** in the site's order: Home, Tier List, Simulator, The Kitchen, then More (PBE, Patches,
+  Info, Champions) and Account (with My Stats). The selected section lists its own tabs underneath, such
+  as Champions, Augments, Items, Weapon of Destiny and Pentakill on the Tier List. One search covers
+  champions, augments, items and pages.
 - **Champion pane**: champion links open beside the current page, for example the Tier List on the
   left and a champion on the right. Drag the divider to resize; double-tap it to reset. With no
   champion picked, the pane shows a grid of every champion. A champion can also open in its own
   window (Stage Manager, Split View) or be dragged in from search.
-- **Keyboard shortcuts** (hold ⌘ to see them): ⌘1–⌘0 sections, ⌘F find, ⇧⌘F search the page,
+- **Keyboard shortcuts** (hold ⌘ to see them): ⌘1–⌘9 sections, ⌃⇥ / ⌃⇧⇥ next and previous tab, ⌘F find, ⇧⌘F search the page,
   ⌘R reload, ⌘[ / ⌘] back and forward, ⌘↑ top, ⌥⌘C champion pane, ⇧⌘G all champions.
 - **Apple Pencil**: double-tap or squeeze toggles the champion pane (unless the Pencil gesture is set
   to do nothing in Settings), 44-point targets with hover highlights, Scribble in search fields.
