@@ -85,20 +85,7 @@ jobs:
           working-directory: apps/android
           script: |
             ./gradlew :app:connectedDebugAndroidTest --console=plain
-            mkdir -p screenshots
-            adb install -r app/build/outputs/apk/debug/app-debug.apk
-            adb shell am start -W -n com.deeparam.app/.MainActivity -a android.intent.action.VIEW -d https://deeparam.com/
-            sleep 25
-            adb exec-out screencap -p > screenshots/phone-home.png
-            adb shell am start -W -n com.deeparam.app/.MainActivity -a android.intent.action.VIEW -d https://deeparam.com/tier-list
-            sleep 20
-            adb exec-out screencap -p > screenshots/phone-tier-list.png
-            adb shell wm size 2560x1600
-            adb shell wm density 320
-            sleep 10
-            adb exec-out screencap -p > screenshots/tablet-tier-list.png
-            adb shell wm size reset
-            adb shell wm density reset
+            sh scripts/screenshots.sh
       - uses: actions/upload-artifact@v4
         if: always()
         with:
