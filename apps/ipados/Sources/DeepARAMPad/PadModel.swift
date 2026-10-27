@@ -6,7 +6,7 @@ import WebKit
 /// One window's state: the selected section, the champion beside it, and their pages.
 @MainActor
 final class PadModel: ObservableObject {
-    @Published var section: SiteTab? = .tiers {
+    @Published var section: SiteTab? = .padTierList {
         didSet {
             focusChampionPane = false
             if let section, section != oldValue {
@@ -80,10 +80,20 @@ final class PadModel: ObservableObject {
         guard Site.isInternal(url) else { return }
         if let target = SiteTab.padSection(for: url) {
             section = target
-            if url.path != target.path { state(for: target).page.open(url) }
+            // A sub-tab (?tab=) or deeper page opens in the section; its plain address just switches to it.
+            if url.absoluteString != target.url.absoluteString { state(for: target).page.open(url) }
         } else {
             current?.page.open(url)
         }
+    }
+
+    /// Moves the section page to its next (1) or previous (-1) sub-tab, wrapping around.
+    func stepSubtab(_ step: Int) {
+        guard let section, let page = current else { return }
+        let subs = section.padSubtabs
+        guard !subs.isEmpty else { return }
+        let index = section.subtab(in: page.url).flatMap(subs.firstIndex(of:)) ?? 0
+        page.page.open(section.url(subtab: subs[(index + step + subs.count) % subs.count]))
     }
 
     func toggleChampionPane() {

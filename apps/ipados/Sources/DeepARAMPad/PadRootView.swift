@@ -37,7 +37,7 @@ public struct PadRootView: View {
     private func restore() {
         model.showChampionPane = savedPane
         model.split = CGFloat(savedSplit)
-        model.section = SiteTab.padSections.first { $0.id == savedSection } ?? .tiers
+        model.section = SiteTab.padSection(id: savedSection) ?? .padTierList
         if let alias = savedChampion { model.openChampion(alias) }
     }
 
@@ -89,9 +89,6 @@ struct PageToolbar: ToolbarContent {
                 .disabled(!state.canGoForward)
         }
         ToolbarItemGroup(placement: .topBarTrailing) {
-            if section.isBeta {
-                Text("Beta").font(.caption.weight(.semibold)).foregroundStyle(.secondary)
-            }
             Button { state.page.reload() } label: { Label("Reload", systemImage: "arrow.clockwise") }
             if let url = state.url, Site.isInternal(url) {
                 ShareLink(item: url) { Label("Share", systemImage: "square.and.arrow.up") }

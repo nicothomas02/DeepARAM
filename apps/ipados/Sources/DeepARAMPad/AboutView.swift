@@ -28,7 +28,7 @@ struct AboutView: View {
                 Section {
                     Toggle("Haptics", isOn: Binding(get: { haptics.enabled }, set: { haptics.setEnabled($0, pages: webViews) }))
                 } footer: {
-                    Text("Light taps when you switch sections, star a champion, draft augments and more. Same switch as Vibration in the site's settings.")
+                    Text("Light taps when you switch sections, open a champion and more. Same switch as Vibration in the site's settings.")
                 }
                 Section("Keyboard") {
                     Text("Hold ⌘ on a hardware keyboard to see every shortcut.")
