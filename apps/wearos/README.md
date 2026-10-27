@@ -14,7 +14,8 @@ A small native app (Compose for Wear OS), the Wear OS twin of the Apple Watch ap
 It runs on its own (no phone needed, `com.google.android.wearable.standalone`). It uses the same
 applicationId as the phone app in `apps/android` (`com.deeparam.app`) so both ship in one Google Play
 listing; watch versionCodes use the 1xxxxxx range so they never collide with the phone's.
-Plugin versions match `apps/android`.
+Plugin versions match `apps/android`, and Riot's notice comes from the shared module `apps/android/core`
+(included through `settings.gradle.kts`).
 
 Data comes from `/data/watch.json` on the site (`web/src/app/data/watch.json/route.ts`), the same file
 the Apple Watch app reads.

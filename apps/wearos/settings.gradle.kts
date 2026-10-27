@@ -16,3 +16,7 @@ dependencyResolutionManagement {
 
 rootProject.name = "DeepARAMWear"
 include(":app")
+
+// Shared with the phone app: Riot's notice and site constants.
+include(":core")
+project(":core").projectDir = file("../android/core")
