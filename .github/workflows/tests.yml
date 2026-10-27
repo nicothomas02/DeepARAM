@@ -50,7 +50,12 @@ jobs:
 
   simulator:
     name: Simulator
-    runs-on: ubuntu-latest
+    # Pinned: the snapshot tests compare exact Monte Carlo results, which can move in the last
+    # digit when the system math library (log, cos, acos) or CPU differs. The pinned values, the
+    # site's replay data and the cloud build machines all come from Ubuntu 24.04. GitHub's Ubuntu
+    # 26.04 runners shift five snapshots slightly (a local 26.04 container with the same g++ 15
+    # matches, so it is the runner, not the code). Change this only with a full re-pin.
+    runs-on: ubuntu-24.04
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
