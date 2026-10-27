@@ -1,0 +1,37 @@
+name: Chef Special to Discord
+
+# When a new Chef Special lands on main, waits for the deploy to serve its page, then posts it to the
+# Discord channel behind the DISCORD_CHEF_WEBHOOK secret. Each date is posted once (only dates new in
+# this push). Run it by hand with a date to re-post one.
+on:
+  push:
+    branches: [main]
+    paths: [data/cook-builds/builds.json]
+  workflow_dispatch:
+    inputs:
+      date:
+        description: Chef Special date to (re)post, YYYY-MM-DD
+        required: true
+
+permissions:
+  contents: read
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - name: Post to Discord
+        env:
+          DISCORD_CHEF_WEBHOOK: ${{ secrets.DISCORD_CHEF_WEBHOOK }}
+          BEFORE: ${{ github.event.before }}
+          INPUT_DATE: ${{ inputs.date }}
+        run: |
+          if [ -n "$INPUT_DATE" ]; then
+            python3 tools/discord/post_chef_special.py --date "$INPUT_DATE"
+          else
+            python3 tools/discord/post_chef_special.py --before "$BEFORE"
+          fi
