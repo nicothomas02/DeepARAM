@@ -1,12 +1,15 @@
 import DeepARAMKit
 import SwiftUI
 
-/// The More tab: the site's other pages, patch alerts, and the legal pages and notice.
+/// The More tab: the site's other pages, shortcuts into the main tabs' subtabs, patch alerts,
+/// and the legal pages and notice.
 struct MoreView: View {
     @ObservedObject var pages: PageStore
+    @Binding var path: [SiteTab]
+    /// Opens a page in the tab it belongs to (used for the subtab shortcuts).
+    let open: (URL) -> Void
     @AppStorage(PatchAlerts.enabledKey) private var alertsOn = false
     @ObservedObject private var haptics = Haptics.shared
-    @State private var path = NavigationPath()
     @State private var alertsDenied = false
 
     var body: some View {
@@ -15,6 +18,14 @@ struct MoreView: View {
                 Section {
                     ForEach(SiteTab.more) { tab in
                         NavigationLink(value: tab) { Label(tab.title, systemImage: tab.symbol) }
+                    }
+                }
+                ForEach(SiteTab.primary.filter { !$0.sections.isEmpty }) { tab in
+                    Section(tab.title) {
+                        ForEach(tab.sections) { link in
+                            Button { open(link.url) } label: { Label(link.title, systemImage: link.symbol) }
+                                .foregroundStyle(.primary)
+                        }
                     }
                 }
                 Section {

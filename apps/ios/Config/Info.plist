@@ -15,6 +15,52 @@
 		<key>UIApplicationSupportsMultipleScenes</key>
 		<true/>
 	</dict>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>com.deeparam.app</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>deeparam</string>
+			</array>
+		</dict>
+	</array>
+	<key>UIApplicationShortcutItems</key>
+	<array>
+		<dict>
+			<key>UIApplicationShortcutItemType</key>
+			<string>/tier-list?tab=champions</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>Tier List</string>
+			<key>UIApplicationShortcutItemIconSymbolName</key>
+			<string>chart.bar.fill</string>
+		</dict>
+		<dict>
+			<key>UIApplicationShortcutItemType</key>
+			<string>/tier-list?tab=weapon-of-destiny</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>Weapon of Destiny</string>
+			<key>UIApplicationShortcutItemIconSymbolName</key>
+			<string>wand.and.stars</string>
+		</dict>
+		<dict>
+			<key>UIApplicationShortcutItemType</key>
+			<string>/tier-list?tab=pentakill</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>Pentakill</string>
+			<key>UIApplicationShortcutItemIconSymbolName</key>
+			<string>hand.raised.fingers.spread.fill</string>
+		</dict>
+		<dict>
+			<key>UIApplicationShortcutItemType</key>
+			<string>/kitchen</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>Today's Chef Special</string>
+			<key>UIApplicationShortcutItemIconSymbolName</key>
+			<string>frying.pan.fill</string>
+		</dict>
+	</array>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
 </dict>
