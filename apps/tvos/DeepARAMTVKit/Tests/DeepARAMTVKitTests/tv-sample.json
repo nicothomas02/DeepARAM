@@ -1,0 +1,595 @@
+{
+ "patch": "26.21",
+ "champions": [
+  {
+   "id": "Aatrox",
+   "name": "Aatrox",
+   "icon": "/icons/champions/Aatrox.webp",
+   "tier": "C",
+   "winRate": 0.4694,
+   "pickRate": 0.0582,
+   "skills": [
+    "Q",
+    "E",
+    "W"
+   ],
+   "items": [
+    {
+     "name": "Boots of Swiftness",
+     "icon": "/assets/dd/16.21.1/img/item/223009.png"
+    },
+    {
+     "name": "Hubris",
+     "icon": "/assets/dd/16.21.1/img/item/226697.png"
+    },
+    {
+     "name": "Endless Hunger",
+     "icon": "/assets/dd/16.21.1/img/item/222517.png"
+    },
+    {
+     "name": "Spirit Visage",
+     "icon": "/assets/dd/16.21.1/img/item/223065.png"
+    },
+    {
+     "name": "Mercury's Treads",
+     "icon": "/assets/dd/16.21.1/img/item/223111.png"
+    },
+    {
+     "name": "Spear of Shojin",
+     "icon": "/assets/dd/16.21.1/img/item/223161.png"
+    },
+    {
+     "name": "Death's Dance",
+     "icon": "/assets/dd/16.21.1/img/item/226333.png"
+    }
+   ],
+   "augments": {
+    "prismatic": [
+     {
+      "name": "Final Form",
+      "icon": "/icons/augments/1344.webp"
+     },
+     {
+      "name": "Goliath",
+      "icon": "/icons/augments/1041.webp"
+     },
+     {
+      "name": "Ultra Hydra",
+      "icon": "/icons/augments/2141.webp"
+     }
+    ],
+    "gold": [
+     {
+      "name": "Ravenous Bind",
+      "icon": "/icons/augments/2077.webp"
+     },
+     {
+      "name": "Transmute: Prismatic",
+      "icon": "/icons/augments/1238.webp"
+     },
+     {
+      "name": "Tank Engine",
+      "icon": "/icons/augments/1353.webp"
+     }
+    ],
+    "silver": [
+     {
+      "name": "Upgrade Death's Dance",
+      "icon": "/icons/augments/2157.webp"
+     },
+     {
+      "name": "Blunt Force",
+      "icon": "/icons/augments/1007.webp"
+     },
+     {
+      "name": "Goredrink",
+      "icon": "/icons/augments/1138.webp"
+     }
+    ]
+   }
+  },
+  {
+   "id": "Ahri",
+   "name": "Ahri",
+   "icon": "/icons/champions/Ahri.webp",
+   "tier": "A",
+   "winRate": 0.5179,
+   "pickRate": 0.0569,
+   "skills": [
+    "Q",
+    "E",
+    "W"
+   ],
+   "items": [
+    {
+     "name": "Sorcerer's Shoes",
+     "icon": "/assets/dd/16.21.1/img/item/223020.png"
+    },
+    {
+     "name": "Rabadon's Deathcap",
+     "icon": "/assets/dd/16.21.1/img/item/223089.png"
+    },
+    {
+     "name": "Void Staff",
+     "icon": "/assets/dd/16.21.1/img/item/223135.png"
+    },
+    {
+     "name": "Shadowflame",
+     "icon": "/assets/dd/16.21.1/img/item/224645.png"
+    },
+    {
+     "name": "Stormsurge",
+     "icon": "/assets/dd/16.21.1/img/item/224646.png"
+    },
+    {
+     "name": "Luden's Echo",
+     "icon": "/assets/dd/16.21.1/img/item/226655.png"
+    }
+   ],
+   "augments": {
+    "prismatic": [
+     {
+      "name": "Eureka",
+      "icon": "/icons/augments/1030.webp"
+     },
+     {
+      "name": "Jeweled Gauntlet",
+      "icon": "/icons/augments/1048.webp"
+     },
+     {
+      "name": "Archmage",
+      "icon": "/icons/augments/2087.webp"
+     }
+    ],
+    "gold": [
+     {
+      "name": "BEES!!!",
+      "icon": "/icons/augments/3086.webp"
+     },
+     {
+      "name": "Warlock Juicebox",
+      "icon": "/icons/augments/2132.webp"
+     },
+     {
+      "name": "Recursion",
+      "icon": "/icons/augments/1068.webp"
+     }
+    ],
+    "silver": [
+     {
+      "name": "ADAPt",
+      "icon": "/icons/augments/1205.webp"
+     },
+     {
+      "name": "Witchful Thinking",
+      "icon": "/icons/augments/1097.webp"
+     },
+     {
+      "name": "Twin Fire",
+      "icon": "/icons/augments/1415.webp"
+     }
+    ]
+   }
+  },
+  {
+   "id": "Akali",
+   "name": "Akali",
+   "icon": "/icons/champions/Akali.webp",
+   "tier": "D",
+   "winRate": 0.44809999999999994,
+   "pickRate": 0.028399999999999998,
+   "skills": [
+    "Q",
+    "E",
+    "W"
+   ],
+   "items": [
+    {
+     "name": "Sorcerer's Shoes",
+     "icon": "/assets/dd/16.21.1/img/item/223020.png"
+    },
+    {
+     "name": "Rabadon's Deathcap",
+     "icon": "/assets/dd/16.21.1/img/item/223089.png"
+    },
+    {
+     "name": "Lich Bane",
+     "icon": "/assets/dd/16.21.1/img/item/223100.png"
+    },
+    {
+     "name": "Void Staff",
+     "icon": "/assets/dd/16.21.1/img/item/223135.png"
+    },
+    {
+     "name": "Hextech Gunblade",
+     "icon": "/assets/dd/16.21.1/img/item/663146.png"
+    },
+    {
+     "name": "Shadowflame",
+     "icon": "/assets/dd/16.21.1/img/item/224645.png"
+    }
+   ],
+   "augments": {
+    "prismatic": [
+     {
+      "name": "Jeweled Gauntlet",
+      "icon": "/icons/augments/1048.webp"
+     },
+     {
+      "name": "Clown College",
+      "icon": "/icons/augments/1310.webp"
+     },
+     {
+      "name": "Wooglet's Witchcap",
+      "icon": "/icons/augments/1156.webp"
+     }
+    ],
+    "gold": [
+     {
+      "name": "Warlock Juicebox",
+      "icon": "/icons/augments/2132.webp"
+     },
+     {
+      "name": "Upgrade Stormsurge",
+      "icon": "/icons/augments/3150.webp"
+     },
+     {
+      "name": "Marksmage",
+      "icon": "/icons/augments/1129.webp"
+     }
+    ],
+    "silver": [
+     {
+      "name": "ADAPt",
+      "icon": "/icons/augments/1205.webp"
+     },
+     {
+      "name": "Goredrink",
+      "icon": "/icons/augments/1138.webp"
+     },
+     {
+      "name": "Escape Plan",
+      "icon": "/icons/augments/1333.webp"
+     }
+    ]
+   }
+  },
+  {
+   "id": "Akshan",
+   "name": "Akshan",
+   "icon": "/icons/champions/Akshan.webp",
+   "tier": "D",
+   "winRate": 0.45520000000000005,
+   "pickRate": 0.0271,
+   "skills": [
+    "Q",
+    "E",
+    "W"
+   ],
+   "items": [
+    {
+     "name": "Berserker's Greaves",
+     "icon": "/assets/dd/16.21.1/img/item/223006.png"
+    },
+    {
+     "name": "Infinity Edge",
+     "icon": "/assets/dd/16.21.1/img/item/223031.png"
+    },
+    {
+     "name": "Lord Dominik's Regards",
+     "icon": "/assets/dd/16.21.1/img/item/223036.png"
+    },
+    {
+     "name": "Bloodthirster",
+     "icon": "/assets/dd/16.21.1/img/item/223072.png"
+    },
+    {
+     "name": "Blade of The Ruined King",
+     "icon": "/assets/dd/16.21.1/img/item/223153.png"
+    },
+    {
+     "name": "The Collector",
+     "icon": "/assets/dd/16.21.1/img/item/667666.png"
+    }
+   ],
+   "augments": {
+    "prismatic": [
+     {
+      "name": "Dual Wield",
+      "icon": "/icons/augments/1225.webp"
+     },
+     {
+      "name": "Big Shot",
+      "icon": "/icons/augments/3018.webp"
+     },
+     {
+      "name": "Giant Slayer",
+      "icon": "/icons/augments/1195.webp"
+     }
+    ],
+    "gold": [
+     {
+      "name": "Upgrade Infinity Edge",
+      "icon": "/icons/augments/1336.webp"
+     },
+     {
+      "name": "Vulnerability",
+      "icon": "/icons/augments/1092.webp"
+     },
+     {
+      "name": "Soul Siphon",
+      "icon": "/icons/augments/1077.webp"
+     }
+    ],
+    "silver": [
+     {
+      "name": "Upgrade Collector",
+      "icon": "/icons/augments/1320.webp"
+     },
+     {
+      "name": "Blunt Force",
+      "icon": "/icons/augments/1007.webp"
+     },
+     {
+      "name": "Deft",
+      "icon": "/icons/augments/1022.webp"
+     }
+    ]
+   }
+  }
+ ],
+ "augments": [
+  {
+   "name": "Draw Your Sword",
+   "icon": "/icons/augments/1134.webp",
+   "rarity": "prismatic",
+   "tier": "S",
+   "winRate": 0.5873,
+   "pickRate": 0.1534
+  },
+  {
+   "name": "Infinite Recursion",
+   "icon": "/icons/augments/1388.webp",
+   "rarity": "prismatic",
+   "tier": "S",
+   "winRate": 0.5387,
+   "pickRate": 0.3597
+  },
+  {
+   "name": "Ultra Hydra",
+   "icon": "/icons/augments/2141.webp",
+   "rarity": "prismatic",
+   "tier": "S",
+   "winRate": 0.5428,
+   "pickRate": 0.2003
+  },
+  {
+   "name": "Armored Impact",
+   "icon": "/icons/augments/3049.webp",
+   "rarity": "gold",
+   "tier": "S",
+   "winRate": 0.5471,
+   "pickRate": 0.402
+  },
+  {
+   "name": "BEES!!!",
+   "icon": "/icons/augments/3086.webp",
+   "rarity": "gold",
+   "tier": "S",
+   "winRate": 0.5376,
+   "pickRate": 0.7164
+  },
+  {
+   "name": "Weapon of Destiny",
+   "icon": "/icons/augments/3081.webp",
+   "rarity": "gold",
+   "tier": "S",
+   "winRate": 0.5339,
+   "pickRate": 0.3896
+  },
+  {
+   "name": "Stackosaurus Rex",
+   "icon": "/icons/augments/1204.webp",
+   "rarity": "silver",
+   "tier": "S",
+   "winRate": 0.5421,
+   "pickRate": 0.0722
+  },
+  {
+   "name": "Heavy Hitter",
+   "icon": "/icons/augments/1181.webp",
+   "rarity": "silver",
+   "tier": "S",
+   "winRate": 0.5244,
+   "pickRate": 0.2946
+  },
+  {
+   "name": "Blue Barrier",
+   "icon": "/icons/augments/3051.webp",
+   "rarity": "silver",
+   "tier": "S",
+   "winRate": 0.5387,
+   "pickRate": 0.1191
+  }
+ ],
+ "chefsSpecial": {
+  "title": "Mole Artillery",
+  "date": "2026-10-26",
+  "champion": "RekSai",
+  "name": "Rek'Sai",
+  "icon": "/icons/champions/RekSai.webp",
+  "why": "Everyone uses Rek'Sai's Burrow to tunnel in and bite, but while burrowed her Q turns into Prey Seeker, a long-range burst of earth that damages and reveals whatever it hits, and most players only use it to poke before diving. Skilled Sniper refunds 80% of its cooldown whenever it lands from over 600 range, so Prey Seeker is nearly always up, which races through Multishot's quest of hitting champions with it for extra missiles, and Spell Split splits each of those missiles in two on hit or at max range. Magic Missile fires three more true-damage missiles at every enemy the ability hits, stronger the farther they travel, so a volley from across the lane rains down on the whole team. Horizon Focus feeds the same loop by revealing every champion you hit from 600 range or more plus the enemies around them, and Rabadon's Deathcap, Shadowflame, Stormsurge and Luden's Echo pile on Ability Power, so a melee jungle diver becomes an AP artillery mage who never comes up for air.",
+  "play": "Burrow early and stay under, park at max range and keep firing Prey Seeker at anything in sight. Only Unburrow to knock up a diver, then dig back in and keep shelling.",
+  "items": [
+   {
+    "name": "Horizon Focus",
+    "icon": "/assets/dd/16.21.1/img/item/224628.png"
+   },
+   {
+    "name": "Rabadon's Deathcap",
+    "icon": "/assets/dd/16.21.1/img/item/223089.png"
+   },
+   {
+    "name": "Shadowflame",
+    "icon": "/assets/dd/16.21.1/img/item/224645.png"
+   },
+   {
+    "name": "Stormsurge",
+    "icon": "/assets/dd/16.21.1/img/item/224646.png"
+   },
+   {
+    "name": "Luden's Echo",
+    "icon": "/assets/dd/16.21.1/img/item/226655.png"
+   },
+   {
+    "name": "Sorcerer's Shoes",
+    "icon": "/assets/dd/16.21.1/img/item/223020.png"
+   }
+  ],
+  "augments": [
+   {
+    "name": "Skilled Sniper",
+    "rarity": "gold",
+    "core": true,
+    "icon": "/icons/augments/1113.webp"
+   },
+   {
+    "name": "Multishot",
+    "rarity": "prismatic",
+    "core": true,
+    "icon": "/icons/augments/2055.webp"
+   },
+   {
+    "name": "Spell Split",
+    "rarity": "prismatic",
+    "core": true,
+    "icon": "/icons/augments/2072.webp"
+   },
+   {
+    "name": "Magic Missile",
+    "rarity": "gold",
+    "core": true,
+    "icon": "/icons/augments/1133.webp"
+   }
+  ]
+ },
+ "pbe": {
+  "label": "Patch 26.22",
+  "dataAsOf": "2026-10-26",
+  "caveat": "PBE content can change before release.",
+  "augmentPool": {
+   "live": 249,
+   "pbe": 242
+  },
+  "augments": {
+   "added": [
+    {
+     "name": "RISE",
+     "rarity": "prismatic",
+     "description": "Pick an ability: if it kills an enemy champion, you can recast it up to 2 more times. Each recast deals 25% more damage than the last.",
+     "icon": "/assets/augments/pbe/zerohour_large.png"
+    },
+    {
+     "name": "One Hit Wonder",
+     "rarity": "gold",
+     "description": "Pick an ability: it deals more damage for each point of Ability Haste you have, but Ability Haste no longer lowers its cooldown.",
+     "icon": "/assets/augments/pbe/genericabilityaugmenticon_gold.png"
+    }
+   ],
+   "removed": [
+    {
+     "name": "Devil on Your Shoulder",
+     "rarity": "prismatic",
+     "icon": "/assets/augments/live/littledevil_large.png"
+    },
+    {
+     "name": "Quantum Computing",
+     "rarity": "prismatic",
+     "icon": "/assets/augments/live/quantumcomputing_large.png"
+    }
+   ],
+   "changed": [
+    {
+     "name": "Armored Impact",
+     "rarity": "gold",
+     "direction": "nerf",
+     "changes": [
+      {
+       "stat": "Bonus damage from bonus Armor",
+       "live": "250%",
+       "pbe": "220%"
+      },
+      {
+       "stat": "Base damage (by level)",
+       "live": "50–125",
+       "pbe": "25–125"
+      }
+     ],
+     "icon": "/assets/augments/pbe/armoredimpact_small.png"
+    },
+    {
+     "name": "BEES!!!",
+     "rarity": "gold",
+     "direction": "nerf",
+     "changes": [
+      {
+       "stat": "Bee damage (by level)",
+       "live": "75–200",
+       "pbe": "75–140"
+      }
+     ],
+     "icon": "/assets/augments/pbe/bees_small.png"
+    },
+    {
+     "name": "Take'em Down Down Down",
+     "rarity": "gold",
+     "direction": "mixed",
+     "changes": [
+      {
+       "stat": "Missing Health damage at max stacks",
+       "live": "15% + more from your stats",
+       "pbe": "17%, no longer grows with stats"
+      }
+     ],
+     "icon": "/assets/augments/pbe/takeemdowndowndown_small.png"
+    }
+   ]
+  },
+  "championChanges": [
+   {
+    "champion": "Lee Sin",
+    "changes": [
+     "W cooldown 7s → 8s"
+    ]
+   },
+   {
+    "champion": "Mel",
+    "changes": [
+     "Base Health 630 → 590, Health per level 99 → 107",
+     "Base AD 54 → 52, Attack Speed per level 2.5% → 2.75%",
+     "Armor per level 5.2 → 5.4",
+     "Base Mana 480 → 455, resource stat 28 → 38",
+     "Passive bonus bolt damage at level 1: 8 → 4",
+     "Q reworked: first hit 60 + 25% AP, then 5/10/15/20/25 + 8% AP per extra bolt (was 60/85/110/135/160 + 55% AP, then 5/7/9/11/13 + 5% AP per bolt)",
+     "Q mana cost 70–90 → 60–80, bolt speed 3800 → 3200",
+     "W reworked: shield 80/110/140/170/200 + 70% AP → 50/80/110/140/170 + 50% AP for 2s, with 10–30% Move Speed and damage to nearby enemies; it no longer reflects projectiles",
+     "W cooldown 38/35/33/29/26s → 30/28.5/27/25.5/24s, mana cost 80/60/40/20/0 → 100/75/50/25/0",
+     "E root 1.5s → 0.8–1s, up to 1.6–2.2s",
+     "E slow 30% → 20/25/30/35/40%, mana cost 50–90 → 40–80",
+     "R cooldown 120/100/80s → 120/90/60s"
+    ]
+   },
+   {
+    "champion": "Varus",
+    "changes": [
+     "Passive Attack Speed after a minion kill 11% → 14%, after a champion kill 33% → 42%",
+     "Q minimum damage 50/95/140/185/230 → 50/100/150/200/250"
+    ]
+   }
+  ],
+  "itemChanges": [],
+  "modeChanges": [
+   "Minion XP shared by 5 nearby allies drops from 24% to 20% each (regular ARAM too)."
+  ]
+ }
+}
