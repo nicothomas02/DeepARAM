@@ -2,6 +2,8 @@
 // another ability (the ultimate allowed) and both come with the champion's own ability name and icon.
 import { describe, expect, it } from "vitest";
 import championIds from "@/data/champion-ids.json";
+import { championUpgrades } from "@/lib/champion-upgrades";
+import { itemPages } from "@/lib/item-pages";
 import { pentakill } from "@/lib/pentakill";
 
 describe("Pentakill picks", () => {
@@ -29,6 +31,20 @@ describe("Pentakill picks", () => {
       expect(Math.abs(r.boost), r.champion).toBeLessThan(0.05);
       expect(Math.sign(r.boost) || 1, r.champion).toBe(Math.sign(r.startGain + 0.35 * r.level18Gain) || 1);
       expect(r.margin, r.champion).toBeGreaterThanOrEqual(0);
+    }
+  });
+});
+
+describe("Best upgrades on champion pages", () => {
+  it("gives most champions 4 augments, a Legendary Weapon of Destiny and their Pentakill picks", () => {
+    const all = Object.keys(championIds).map((alias) => [alias, championUpgrades(alias)] as const);
+    const full = all.filter(([, u]) => u?.augments && u.destiny && u.pentakill);
+    expect(full.length).toBeGreaterThan(150);
+    const pages = new Map(itemPages().map((i) => [i.id, i]));
+    for (const [alias, u] of full) {
+      expect(new Set(u!.augments!.ids).size, alias).toBe(4);
+      expect(pages.get(u!.destiny!.id)?.tier, alias).toBe("legendary");
+      expect(u!.pentakill!.champion).toBe(alias);
     }
   });
 });

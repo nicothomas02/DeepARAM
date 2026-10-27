@@ -172,5 +172,13 @@
  "Next page": "Следующая страница",
  "No augments match these filters.": "Нет аугментов под эти фильтры.",
  "All picks": "Все выборы",
- "Estimated: augments often taken at this pick on this champion.": "Оценка: аугменты, которые часто берут на этом выборе на этом чемпионе."
+ "Estimated: augments often taken at this pick on this champion.": "Оценка: аугменты, которые часто берут на этом выборе на этом чемпионе.",
+ "Best upgrades": "Лучшие улучшения",
+ "Simulated and estimated. The best 4 augments count how well they work together, not just each one alone. Weapon of Destiny shows the item that gains the most from its upgrades.": "Симуляция и оценка. Лучшие 4 аугмента учитывают, насколько хорошо они работают вместе, а не только каждый по отдельности. Оружие судьбы показывает предмет, который больше всего выигрывает от улучшений.",
+ "Best 4 augments together": "Лучшие 4 аугмента вместе",
+ "Est. boost": "Оц. прирост",
+ "Simulated gain": "Прирост в симуляции",
+ "Takedowns": "Участия",
+ "Weapon of Destiny": "Оружие судьбы",
+ "Pentakill": "Pentakill"
 }

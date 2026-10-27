@@ -172,5 +172,13 @@
  "Next page": "Trang sau",
  "No augments match these filters.": "Không có Lõi Nâng Cấp nào khớp với các bộ lọc này.",
  "All picks": "Mọi lượt chọn",
- "Estimated: augments often taken at this pick on this champion.": "Ước tính: các Lõi Nâng Cấp thường được chọn ở lượt này với tướng này."
+ "Estimated: augments often taken at this pick on this champion.": "Ước tính: các Lõi Nâng Cấp thường được chọn ở lượt này với tướng này.",
+ "Best upgrades": "Nâng cấp tốt nhất",
+ "Simulated and estimated. The best 4 augments count how well they work together, not just each one alone. Weapon of Destiny shows the item that gains the most from its upgrades.": "Mô phỏng và ước tính. 4 lõi nâng cấp tốt nhất tính cả mức phối hợp với nhau, không chỉ từng cái riêng. Vũ Khí Định Mệnh cho thấy trang bị được lợi nhiều nhất từ các lần nâng cấp.",
+ "Best 4 augments together": "4 lõi nâng cấp tốt nhất cùng nhau",
+ "Est. boost": "Mức tăng ư.t.",
+ "Simulated gain": "Mức tăng mô phỏng",
+ "Takedowns": "Tham gia hạ gục",
+ "Weapon of Destiny": "Vũ Khí Định Mệnh",
+ "Pentakill": "Pentakill"
 }

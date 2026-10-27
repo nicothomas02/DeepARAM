@@ -172,5 +172,13 @@
  "Next page": "Επόμενη σελίδα",
  "No augments match these filters.": "Καμία ενίσχυση δεν ταιριάζει με αυτά τα φίλτρα.",
  "All picks": "Όλες οι επιλογές",
- "Estimated: augments often taken at this pick on this champion.": "Εκτίμηση: ενισχύσεις που παίρνονται συχνά σε αυτή την επιλογή με αυτόν τον πρωταθλητή."
+ "Estimated: augments often taken at this pick on this champion.": "Εκτίμηση: ενισχύσεις που παίρνονται συχνά σε αυτή την επιλογή με αυτόν τον πρωταθλητή.",
+ "Best upgrades": "Καλύτερες αναβαθμίσεις",
+ "Simulated and estimated. The best 4 augments count how well they work together, not just each one alone. Weapon of Destiny shows the item that gains the most from its upgrades.": "Προσομοίωση και εκτίμηση. Οι 4 καλύτερες ενισχύσεις μετρούν πόσο καλά δουλεύουν μαζί, όχι μόνο η καθεμία μόνη της. Το Όπλο του Πεπρωμένου δείχνει το αντικείμενο που κερδίζει περισσότερο από τις αναβαθμίσεις του.",
+ "Best 4 augments together": "Οι 4 καλύτερες ενισχύσεις μαζί",
+ "Est. boost": "Εκτ. ενίσχυση",
+ "Simulated gain": "Κέρδος προσομοίωσης",
+ "Takedowns": "Συμμετοχές",
+ "Weapon of Destiny": "Όπλο του Πεπρωμένου",
+ "Pentakill": "Pentakill"
 }

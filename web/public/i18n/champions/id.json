@@ -172,5 +172,13 @@
  "Next page": "Halaman berikutnya",
  "No augments match these filters.": "Tidak ada augment yang cocok dengan filter ini.",
  "All picks": "Semua pilihan",
- "Estimated: augments often taken at this pick on this champion.": "Perkiraan: augment yang sering diambil pada pilihan ini dengan champion ini."
+ "Estimated: augments often taken at this pick on this champion.": "Perkiraan: augment yang sering diambil pada pilihan ini dengan champion ini.",
+ "Best upgrades": "Upgrade terbaik",
+ "Simulated and estimated. The best 4 augments count how well they work together, not just each one alone. Weapon of Destiny shows the item that gains the most from its upgrades.": "Simulasi dan perkiraan. 4 augment terbaik menghitung seberapa baik mereka bekerja bersama, bukan hanya masing-masing. Weapon of Destiny menunjukkan item yang paling diuntungkan oleh upgrade-nya.",
+ "Best 4 augments together": "4 augment terbaik bersama",
+ "Est. boost": "Tambahan perk.",
+ "Simulated gain": "Tambahan simulasi",
+ "Takedowns": "Takedown",
+ "Weapon of Destiny": "Weapon of Destiny",
+ "Pentakill": "Pentakill"
 }
