@@ -7,32 +7,38 @@ Simulator (simulator/mayhem_sim, `make -C simulator mayhem_sim`) run on the cham
 (simulator/data/cn_enemy_pool.json). Sim runs share their fights (same seed), so two builds differ only by the
 change being tested.
 
-Value of a sim run. Damage per second, plus healing and shielding per second alive and crowd control per second
-alive (as a share of the champion's damage per second), weighted by role (ROLE_WEIGHTS): carries count damage
-almost alone, supports and tanks count protection and crowd control about as much as damage. A change's sim gain
-is log(value with it / value without it).
+Value of a sim run. Damage per second, plus healing, shielding and crowd control per second alive (each crowd
+control second worth a second of the champion's damage), weighted by role (ROLE_WEIGHTS): carries count damage
+almost alone, tanks and supports count protection and crowd control about as much as damage. A change's sim gain is
+log(value with it / value without it) plus log(time alive with / without) at the role's weight: fights run until
+the champion goes down, so surviving longer counts: 0.6 for tanks, 0.5 for supports, 0.4 for fighters, 0.25 for
+carries. Not in full: survival is where the sim is least sure (a revive or a lifesteal loop can double a fight).
 
   pentakill  Pentakill Empowers one basic ability at the start (Q/W/E: 20 ability haste, 10% more damage,
              healing and shielding) and another one at level 18 (the ultimate allowed). The start pick is the
              basic ability with the best average gain at level 8 (2 items, 1 augment), level 13 (4 items,
              2 augments; both against level-matched training dummies) and level 18 (full build against real
-             enemies). The level 18 pick is tried on top of it with the full build.
+             enemies). The level 18 pick is tried on top of it with the full build. Win rate boost = BETA x
+             (start gain + LEVEL18_SHARE x level 18 gain): the start pick counts all game, the level 18 one
+             for the part of a fight-heavy game played at 18 (about a third).
   destiny    Weapon of Destiny makes the first Legendary item the Weapon: each takedown adds 200 gold of its
              own stats (data/estimates/weapon_of_destiny.json). Candidates are the Legendary items the champion
              buys first in real core builds (5%+ of them) and the ones in its popular build. Each is put in the
              popular build, then upgraded with half the champion's takedowns per game (estimated kills + assists:
              the augment comes mid-game). Score = sim gain of the upgrade, turned into win-rate points (BETA),
              plus the item's real win rate as a first item for this champion minus its average first item.
-  augments   Real part: each augment's estimated win rate on this champion (estimates.json: the feed's
+  augments   Real part: each augment's estimated win rate on this champion (estimates.json's model: the feed's
              per-champion grade and the augment's fair win rate) minus the champion's own, trusted less when
-             rarely picked (x pick / (pick + PICK_PRIOR)). These add up on the logit scale, which assumes no
+             rarely picked on the champion (x pick / (pick + PICK_PRIOR)) and when the overall feed barely has the
+             augment (real_lift: about a dozen live augments sit near 0 picks there). These add up on the logit scale, which assumes no
              synergy. Synergy part: the Simulator runs the popular build with each augment alone, with pairs and
              with the best candidate sets of 4. Synergy = gain of the set minus the gains of its augments one by
              one: positive when they feed each other (crit + crit damage, haste + on-cast), negative when they
              overlap (two stat caps, two shields that never stack). It's turned into win-rate points with BETA,
              fitted across all champions as the slope of real lift on single-augment sim gain, on augments that
              only add stats (fit_beta).
-             Score of a set = sum of real lifts + BETA x synergy. "Theoretical": it ignores which rarities the
+             Score of a set = sum of real lifts + BETA x synergy, the synergy part squashed softly toward
+             +-3 points (SYNERGY_CAP). "Theoretical": it ignores which rarities the
              game offers you and when. Augments that hand out random augments (Transmute, King Me) are left out.
 
 Usage: python3 data/estimates/champion_upgrades.py [--only Ahri,Jinx] [--jobs 4]
@@ -64,18 +70,21 @@ PAIR_TRIALS = 1500
 SEED = 26
 
 EMPOWER = {"Q": "heavy", "W": "power", "E": "thrash", "R": "doom"}
+LEVEL18_SHARE = 0.35  # share of a game's fights played at level 18, for the level 18 Empower's boost
 STAGES = {
     "early": (2, 1, "level=8,enemy_level=8,fixed_target=1,target_hp=1900,target_armor=55,target_mr=42"),
     "mid": (4, 2, "level=13,enemy_level=13,fixed_target=1,target_hp=3300,target_armor=95,target_mr=65"),
     "late": (6, 4, "level=18,enemy_level=18"),
 }
 LATE = STAGES["late"][2]
-# (healing + shielding, crowd control) worth per role, against damage at 1.
+# Per role: healing + shielding and crowd control worth (against damage at 1), and how much staying alive counts.
 ROLE_WEIGHTS = {
-    "marksman": (0.25, 0.25), "mage": (0.3, 0.4), "assassin": (0.25, 0.25),
-    "fighter": (0.5, 0.5), "tank": (0.8, 1.0), "support": (1.0, 1.0),
+    "marksman": (0.25, 0.25, 0.25), "mage": (0.3, 0.4, 0.25), "assassin": (0.25, 0.25, 0.25),
+    "fighter": (0.5, 0.5, 0.4), "tank": (0.8, 1.0, 0.6), "support": (1.0, 1.0, 0.5),
 }
 PICK_PRIOR = 0.01
+GLOBAL_PRIOR = 0.005  # an augment's overall pick rate at which its real data counts half (real_lift)
+SYNERGY_CAP = 3.0  # win-rate points; synergy is squashed softly toward this (synergy_points)
 SHORTLIST_REAL, SHORTLIST_SIM, SETS_CHECKED = 14, 6, 25
 FIRST_SHARE = 0.05
 TAKEDOWN_SHARE = 0.5
@@ -114,16 +123,20 @@ def sim(champ, items, augs, settings, trials=TRIALS, wod=None, takedowns=0):
 
 
 def value(s, role, ref_dps):
-    """Damage-equivalent per second of a sim summary."""
-    wh, wc = ROLE_WEIGHTS.get(role, (0.4, 0.4))
+    """Damage-equivalent per second alive of a sim summary."""
+    wh, wc, _ = ROLE_WEIGHTS.get(role, (0.4, 0.4, 0.5))
     alive = max(s["time_alive"], 1.0)
-    return s["mean_dps"] + wh * (s["healing"] + s["shielding"]) / alive + wc * ref_dps * s["cc_seconds"] / alive
+    return s["mean_dps"] + (wh * (s["healing"] + s["shielding"]) + wc * ref_dps * s["cc_seconds"]) / alive
 
 
 def gain(base, new, role):
+    """log(value with / without), plus staying alive longer at the role's weight (fights run until the champion
+    goes down)."""
     ref = max(base["mean_dps"], 1.0)
     b, n = value(base, role, ref), value(new, role, ref)
-    return math.log(max(n, 1e-6) / max(b, 1e-6))
+    ws = ROLE_WEIGHTS.get(role, (0.4, 0.4, 0.5))[2]
+    alive = math.log(max(new["time_alive"], 0.1) / max(base["time_alive"], 0.1))
+    return math.log(max(n, 1e-6) / max(b, 1e-6)) + ws * alive
 
 
 GROUPS = {k: v["group"] for k, v in load_json(os.path.join(SIM, "data", "items.json"))["items"].items() if v.get("group")}
@@ -165,6 +178,13 @@ def pentakill(e):
         "level18_options": {s: pct(g) for s, g in late.items()},
         "gain": round(pct(start_score[first]) + pct(late[second]), 2),
     }
+
+
+def pentakill_boost(pk, beta):
+    """Estimated win rate points from both Empowers: their sim gains (log scale) turned into points with BETA."""
+    g = lambda pct: math.log(1 + pct / 100)
+    start, late = g(pk["start_options"][pk["start"]]["score"]), g(pk["level18_options"][pk["level18"]])
+    return round(100 * beta * (start + LEVEL18_SHARE * late), 2)
 
 
 # ---------------------------------------------------------------- Weapon of Destiny
@@ -228,18 +248,29 @@ def ensure_scaled(n, ctx):
 
 # ---------------------------------------------------------------- Augments
 
+def real_lift(champ_wr, dev, grade, global_pick, model):
+    """Estimated win rate of an augment on a champion minus the champion's own (estimates.json's model,
+    common.augment_win_rate), with the augment's part trusted only as far as the overall feed backs it: a dozen
+    live augments have almost no picks there (pick rate ~0), so their fair win rate is noise."""
+    trust = global_pick / (global_pick + GLOBAL_PRIOR)
+    z = cm.logit(champ_wr) + trust * (model["lambda"] * cm.logit(0.5 + dev) + model["grade"].get(grade or "", 0.0))
+    return cm.sigmoid(z) - champ_wr
+
+
 def augment_singles(e, ctx):
     """Real lift and sim gain of every candidate augment on its own (for the shortlist and BETA)."""
     champ, role, cid = e["id"], e["role"], str(e["champion_id"])
     items = legal(e["build"]["items"])
     pool = set(ctx["pools"].get(cid, []))
     rows = {}
-    for r in ctx["est"].get(cid, []):
-        key = ctx["aug_key"].get(r["id"])
-        if not key or key not in pool or r["id"] in ctx["selection"]:
+    champ_wr = ctx["stats"].get(cid, {}).get("win_rate")
+    for r in ctx["builds"].get(cid, {}).get("augments", {}).get("all", []):
+        key, aid = ctx["aug_key"].get(r["id"]), str(r["id"])
+        if not key or key not in pool or r["id"] in ctx["selection"] or champ_wr is None or aid not in ctx["dev"]:
             continue
-        rows[key] = {"id": r["id"], "lift": r["lift"], "pick": r["pick_rate"],
-                     "real": r["lift"] * r["pick_rate"] / (r["pick_rate"] + PICK_PRIOR),
+        lift = real_lift(champ_wr, ctx["dev"][aid], r.get("grade"), ctx["global_pick"].get(aid, 0.0), ctx["model"])
+        rows[key] = {"id": r["id"], "lift": lift, "pick": r["pick_rate"],
+                     "real": lift * r["pick_rate"] / (r["pick_rate"] + PICK_PRIOR),
                      "modeled": key in ctx["modeled"], "sim": 0.0}
     base = sim(champ, items, [], LATE)
     for key, r in rows.items():
@@ -288,14 +319,15 @@ def augment_sets(e, ctx, singles, beta):
     for ks in ranked:
         syn = set_gain(ks) - sum(singles[k]["sim"] for k in ks)
         real = sum(singles[k]["real"] for k in ks)
-        scored.append((real + beta * syn, real, syn, ks))
+        scored.append((real + synergy_points(beta * syn), real, syn, ks))
     scored.sort(key=lambda t: -t[0])
 
     def row(t):
         score, real, syn, ks = t
         ks = sorted(ks, key=lambda k: -singles[k]["real"])
         return {"augments": [singles[k]["id"] for k in ks], "keys": ks,
-                "score": round(100 * score, 2), "real": round(100 * real, 2), "synergy": round(100 * beta * syn, 2),
+                "score": round(100 * score, 2), "real": round(100 * real, 2),
+                "synergy": round(100 * synergy_points(beta * syn), 2),
                 "sim_synergy": round(100 * syn, 2)}
 
     plain_row = next(t for t in scored if t[3] == plain)
@@ -307,6 +339,13 @@ def augment_sets(e, ctx, singles, beta):
         "best_pair_synergy": [{"keys": list(k), "sim_synergy": round(100 * v, 2)} for v, k in pairs[:3] if v > 0],
         "worst_pair_synergy": [{"keys": list(k), "sim_synergy": round(100 * v, 2)} for v, k in pairs[::-1][:2] if v < 0],
     }
+
+
+def synergy_points(x):
+    """Synergy in win-rate units, squashed softly toward +-SYNERGY_CAP points: the sim's biggest interactions
+    (revives, survival loops on tanks) are where it's least reliable, and one set shouldn't outweigh all the real data."""
+    cap = SYNERGY_CAP / 100
+    return cap * math.tanh(x / cap)
 
 
 def fit_beta(all_singles, stat_only):
@@ -354,10 +393,13 @@ def main():
     wod_data = load_json(os.path.join(cm.HERE, "weapon_of_destiny.json"))["items"]
     key_to_id = {k: v["id"] for k, v in sim_items.items()}
     leg = {k: v["id"] for k, v in sim_items.items() if v.get("slot") == "legendary"}
+    stats, builds = cm.champion_stats(), cm.builds()
+    dev, _ = cm.augment_on_champion(stats, builds, cm.fair_augments())
     ctx = {
-        "builds": cm.builds(),
+        "builds": builds,
         "profiles": cm.load(os.path.join(cm.HERE, "estimates.json"))["profiles"],
-        "est": cm.load(os.path.join(cm.HERE, "estimates.json"))["augments"],
+        "stats": stats, "dev": dev, "model": cm.load(os.path.join(cm.HERE, "fitted.json"))["augment_model"],
+        "global_pick": {str(a["augment_id"]): a["pick_rate"] for a in cm.load(os.path.join(cm.CN, "augments.json"))["augments"]},
         "legendary": set(leg), "leg_ids": leg, "key_to_id": key_to_id,
         "id_to_key": {v: k for k, v in leg.items()},
         "wod_stats": {k: wod_data[str(v)]["per_takedown"] for k, v in leg.items() if str(v) in wod_data},
@@ -385,6 +427,9 @@ def main():
         print(f"beta {beta:.4f} (r {corr:.3f}, {n} champion-augment pairs)", file=sys.stderr, flush=True)
         print("pentakill", file=sys.stderr, flush=True)
         pk = dict(zip([e["id"] for e in enemies], ex.map(lambda e: safe(pentakill, e), enemies)))
+        for v in pk.values():
+            if v:
+                v["boost"] = pentakill_boost(v, beta)
         print("weapon of destiny", file=sys.stderr, flush=True)
         wd = dict(zip([e["id"] for e in enemies], ex.map(lambda e: safe(destiny, e, ctx, beta), enemies)))
         print("augment sets", file=sys.stderr, flush=True)
@@ -402,7 +447,7 @@ def main():
         "patch": cm.live_patch(), "simulated": True,
         "method": {"trials": TRIALS, "seed": SEED, "role_weights": ROLE_WEIGHTS, "pick_prior": PICK_PRIOR,
                    "beta": round(beta, 5), "beta_corr": round(corr, 3), "beta_pairs": n,
-                   "takedown_share": TAKEDOWN_SHARE, "first_share": FIRST_SHARE},
+                   "takedown_share": TAKEDOWN_SHARE, "level18_share": LEVEL18_SHARE, "first_share": FIRST_SHARE},
         "champions": champions,
     }
     path = OUT if not args.only else OUT.replace(".json", ".partial.json")

@@ -119,7 +119,7 @@ type ClientChamp = {
 
 // champions/data.js and modifiers.js are the champion tab's own files: a `window.X = {...};` assignment each.
 const loaded = new Map<string, unknown>();
-function windowJson<T>(rel: string): T | null {
+export function windowJson<T>(rel: string): T | null {
   if (!loaded.has(rel)) {
     let v: unknown = null;
     if (repoHas(rel)) {

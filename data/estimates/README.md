@@ -62,17 +62,21 @@ Weapon of Destiny item and a theoretical best set of 4 augments. Method in the s
 - Every sim run uses the champion's most popular real build and shared fights (same seed), so two runs differ only
   by the change tested. A run's value is damage per second plus healing, shielding and crowd control per second
   alive, weighted by role (carries count damage almost alone, tanks and supports count protection and CC about as
-  much).
+  much), plus log(time alive) at the role's survival weight (0.25 carries up to 0.6 tanks): fights run until the
+  champion goes down, so surviving longer counts, but not in full (a revive or lifesteal loop can double a fight).
 - Pentakill: start pick = best average gain at level 8, 13 (training dummies) and 18 (real enemies); level 18 pick
-  tried on top of it.
+  tried on top of it. Win rate boost = BETA x (start gain + 0.35 x level 18 gain), 0.35 being the share of a
+  game's fights at level 18. Shown on the Tier List's Pentakill tab (`web/src/lib/pentakill.ts`).
 - Weapon of Destiny: candidates are items bought first in 5%+ of the champion's core builds or in its popular
   build; each is upgraded with half its estimated takedowns per game. Score = sim gain x BETA + the item's real
   first-item win rate vs the champion's average (shrunk when rarely bought first).
-- Augments: sum of each augment's estimated lift on this champion (`augments` above, shrunk by pick / (pick + 1%))
-  + BETA x sim synergy (gain of the set minus its augments' single gains). BETA (win-rate points per unit of log sim
-  gain) is the within-champion slope of real lift on sim gain over stat-only augments, where the sim is exact
-  (0.14, r 0.27 over ~1,070 champion-augment pairs; on all modeled augments the slope is ~5x flatter from x noise).
-  Searched: 14 best by real lift + 6 best by sim gain, every pair simulated, the 25 best sets of 4 re-simulated whole.
+- Augments: sum of each augment's estimated lift on this champion (`augments` above, shrunk by pick / (pick + 1%),
+  and by global pick / (global pick + 0.5%) because brand-new augments with almost no games have a meaningless fair
+  win rate) + BETA x sim synergy (gain of the set minus its augments' single gains), softly capped at +-3 points
+  so one sim outlier can't decide a set. BETA (win-rate points per unit of log sim gain) is the within-champion
+  slope of real lift on sim gain over stat-only augments, where the sim is exact (BETA_TEXT; on all modeled
+  augments the slope is ~5x flatter from x noise). Searched: 14 best by real lift + 6 best by sim gain, every pair
+  simulated, the 25 best sets of 4 re-simulated whole.
 
 About 37,000 sim runs, 2.5 hours on 4 cores; results are cached in `~/.cache/deeparam-sim/upgrades/`. Needs
 `make -C simulator mayhem_sim`. Not scheduled: rerun after patches.

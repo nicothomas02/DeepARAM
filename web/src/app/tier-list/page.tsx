@@ -31,6 +31,8 @@ import { fillGames } from "@/lib/fill";
 import { patchName } from "@/lib/patch-name";
 import WeaponOfDestiny from "@/components/WeaponOfDestiny";
 import { weaponOfDestiny } from "@/lib/weapon-of-destiny";
+import Pentakill from "@/components/Pentakill";
+import { pentakill } from "@/lib/pentakill";
 
 export const metadata: Metadata = pageMeta(
   "/tier-list",
@@ -221,6 +223,12 @@ export default function TierListPage() {
       lazy: true,
       content: <WeaponOfDestiny items={destiny.rows} gold={destiny.gold} anticipated={destiny.anticipated} />,
     });
+  }
+
+  // Which abilities to Empower in a Pentakill game, by the estimated win rate boost.
+  const penta = pentakill();
+  if (penta.length) {
+    tabs.push({ id: "pentakill", label: "Pentakill", lazy: true, content: <Pentakill rows={penta} /> });
   }
 
   return (

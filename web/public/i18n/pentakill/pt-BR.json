@@ -1,0 +1,20 @@
+{
+ "Champion": "Campeão",
+ "Start": "Início",
+ "The basic ability to Empower at the start of the game: the one that makes the champion strongest at levels 8, 13 and 18.": "A habilidade básica para potencializar no início da partida: a que deixa o campeão mais forte nos níveis 8, 13 e 18.",
+ "Level 18": "Nível 18",
+ "The second ability to Empower at level 18, the ultimate included, on top of the first one.": "A segunda habilidade para potencializar no nível 18, incluindo a ultimate, além da primeira.",
+ "Win rate boost": "Ganho de vitórias",
+ "Estimated. How much both Empowers together raise the champion's win rate: the start pick counts for the whole game, the level 18 pick for the part played at level 18.": "Estimado. Quanto as duas potencializações juntas aumentam a taxa de vitórias do campeão: a escolha inicial vale a partida toda, a do nível 18 a parte jogada no nível 18.",
+ "Start power": "Força no início",
+ "Simulated. How much stronger the start pick makes the champion in fights, averaged over levels 8, 13 and 18.": "Simulado. Quanto a escolha inicial deixa o campeão mais forte em lutas, na média dos níveis 8, 13 e 18.",
+ "Level 18 power": "Força no nível 18",
+ "Simulated. How much stronger the level 18 pick makes the champion in fights, on top of the start pick.": "Simulado. Quanto a escolha do nível 18 deixa o campeão mais forte em lutas, além da escolha inicial.",
+ "Close call": "Escolha apertada",
+ "The next best start pick when it's almost as strong. Either one works.": "A próxima melhor escolha inicial quando é quase tão forte. Qualquer uma funciona.",
+ "Simulated: picked from simulated fights with each champion's most popular build.": "Simulado: escolhido a partir de lutas simuladas com a build mais popular de cada campeão.",
+ "Simulated": "Simulado",
+ "In a Pentakill game you Empower one basic ability at the start and a second one at level 18, where the ultimate counts too: {heavy} for Q, {power} for W, {thrash} for E and {doom} for R. Each gives the ability 20 Ability Haste and 10% more damage, healing and shielding.": "Numa partida Pentakill você potencializa uma habilidade básica no início e uma segunda no nível 18, quando a ultimate também vale: {heavy} para Q, {power} para W, {thrash} para E e {doom} para R. Cada uma dá à habilidade 20 de Aceleração de Habilidade e 10% a mais de dano, cura e escudos.",
+ "Find a champion": "Buscar um campeão",
+ "Simulated. Each pick is the ability that makes the champion strongest in simulated fights with its most popular build. Win rate boost turns that into estimated win rate points, so champions near the top gain the most from a Pentakill game.": "Simulado. Cada escolha é a habilidade que deixa o campeão mais forte em lutas simuladas com sua build mais popular. O ganho de vitórias converte isso em pontos estimados de taxa de vitórias: os campeões do topo são os que mais ganham numa partida Pentakill."
+}

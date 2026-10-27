@@ -2326,7 +2326,8 @@ private:
             record(ev);
         }
         // Pentakill's empowered slot also heals and shields for as much more as it amps damage.
-        const double slotHsp = hsp_ * (1 + get(fx_, slotKey));
+        const double slotAmp = get(fx_, slotKey);
+        const double slotHsp = slotAmp ? hsp_ * (1 + slotAmp) : hsp_;
         if (!a.shield.empty()) addShield(scaled(a.shield) * slotHsp, a.shieldDuration, a.slot);
         if (!a.heal.empty()) heal(scaled(a.heal) * slotHsp);
         // Tripleshot, Spell Split: the ability also hits a few more enemies near the target, for less.
