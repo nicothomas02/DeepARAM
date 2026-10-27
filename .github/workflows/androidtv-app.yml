@@ -1,0 +1,40 @@
+name: Android TV app
+
+# Tests and builds the Android TV app whenever it changes.
+on:
+  pull_request:
+    paths: ["apps/androidtv/**", ".github/workflows/androidtv-app.yml"]
+  push:
+    branches: [main]
+    paths: ["apps/androidtv/**", ".github/workflows/androidtv-app.yml"]
+
+concurrency:
+  group: androidtv-app-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    defaults:
+      run:
+        working-directory: apps/androidtv
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Test and build
+        run: ./gradlew --no-daemon testDebugUnitTest assembleDebug bundleRelease
+      - uses: actions/upload-artifact@v4
+        with:
+          name: DeepARAM-androidtv
+          path: |
+            apps/androidtv/app/build/outputs/apk/debug/app-debug.apk
+            apps/androidtv/app/build/outputs/bundle/release/app-release.aab
+          retention-days: 14
