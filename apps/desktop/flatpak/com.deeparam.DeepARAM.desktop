@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=DeepARAM
+GenericName=ARAM Mayhem stats
+Comment=ARAM Mayhem tier list, builds and teamfight simulator
+Exec=deeparam
+Icon=com.deeparam.DeepARAM
+Terminal=false
+Categories=Game;Utility;
+Keywords=League of Legends;ARAM;Mayhem;tier list;augments;simulator;PBE;
+StartupWMClass=deeparam

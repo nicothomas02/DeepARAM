@@ -172,5 +172,13 @@
  "Next page": "次のページ",
  "No augments match these filters.": "この条件に合うオーグメントはありません。",
  "All picks": "すべての選択",
- "Estimated: augments often taken at this pick on this champion.": "推定:このチャンピオンでこの選択によく取られるオーグメントです。"
+ "Estimated: augments often taken at this pick on this champion.": "推定:このチャンピオンでこの選択によく取られるオーグメントです。",
+ "Best upgrades": "ベストアップグレード",
+ "Simulated and estimated. The best 4 augments count how well they work together, not just each one alone. Weapon of Destiny shows the item that gains the most from its upgrades.": "シミュレーションと推定。ベスト4オーグメントは単体の強さだけでなく、組み合わせの相性も考慮しています。運命の武器は、アップグレードで最も得をするアイテムです。",
+ "Best 4 augments together": "ベスト4オーグメントの組み合わせ",
+ "Est. boost": "推定上昇",
+ "Simulated gain": "シミュレーション上昇",
+ "Takedowns": "キル関与",
+ "Weapon of Destiny": "運命の武器",
+ "Pentakill": "ペンタキル"
 }

@@ -16,6 +16,13 @@ public struct PadCommands: Commands {
                     .keyboardShortcut(index < Self.keys.count ? KeyboardShortcut(Self.keys[index], modifiers: .command) : nil)
             }
             Divider()
+            Button("Next Tab") { model?.stepSubtab(1) }
+                .keyboardShortcut(.tab, modifiers: .control)
+                .disabled(model?.section?.padSubtabs.isEmpty != false)
+            Button("Previous Tab") { model?.stepSubtab(-1) }
+                .keyboardShortcut(.tab, modifiers: [.control, .shift])
+                .disabled(model?.section?.padSubtabs.isEmpty != false)
+            Divider()
             Button("Back") { model?.active?.page.goBack() }
                 .keyboardShortcut("[", modifiers: .command)
                 .disabled(model?.active?.page.canGoBack != true)

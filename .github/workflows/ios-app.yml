@@ -1,12 +1,15 @@
 name: iPhone and iPad app
 
-# Builds the iPhone and iPad app and tests the shared Swift package whenever either changes.
+# Builds the iPhone and iPad app (with the Apple Watch app embedded) and tests their Swift packages whenever any of them changes.
 on:
   pull_request:
-    paths: ["apps/ios/**", "apps/ipados/**", "apps/shared/**", ".github/workflows/ios-app.yml"]
+    paths: ["apps/ios/**", "apps/ipados/**", "apps/shared/**", "apps/watchos/**", ".github/workflows/ios-app.yml"]
   push:
     branches: [main]
-    paths: ["apps/ios/**", "apps/ipados/**", "apps/shared/**", ".github/workflows/ios-app.yml"]
+    paths: ["apps/ios/**", "apps/ipados/**", "apps/shared/**", "apps/watchos/**", ".github/workflows/ios-app.yml"]
+
+permissions:
+  contents: read
 
 concurrency:
   group: ios-app-${{ github.ref }}
@@ -28,5 +31,23 @@ jobs:
         run: |
           xcodebuild build -project DeepARAM.xcodeproj -scheme DeepARAM \
             -destination 'generic/platform=iOS Simulator' \
+            CODE_SIGNING_ALLOWED=NO | tail -40
+          exit ${PIPESTATUS[0]}
+
+  watch:
+    runs-on: macos-15
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: Use the newest Xcode
+        run: sudo xcode-select -s "$(ls -d /Applications/Xcode_16*.app | sort -V | tail -1)" && xcodebuild -version
+      - name: Test the watch package
+        working-directory: apps/watchos/DeepARAMWatchKit
+        run: swift test
+      - name: Build the watch app for the simulator
+        working-directory: apps/ios
+        run: |
+          xcodebuild build -project DeepARAM.xcodeproj -scheme DeepARAMWatch \
+            -destination 'generic/platform=watchOS Simulator' \
             CODE_SIGNING_ALLOWED=NO | tail -40
           exit ${PIPESTATUS[0]}

@@ -1,3 +1,4 @@
+#if !os(tvOS) // tvOS has no web view; the Apple TV app draws its own screens.
 import Foundation
 import SwiftUI
 import WebKit
@@ -213,4 +214,5 @@ struct WebViewHost: NSViewRepresentable {
     func makeNSView(context: Context) -> WKWebView { webView }
     func updateNSView(_ view: WKWebView, context: Context) {}
 }
+#endif
 #endif

@@ -1,0 +1,96 @@
+name: Android app
+
+# Builds the Android phone, tablet and ChromeOS app (apps/android) and runs its tests whenever it changes.
+# The device job opens the live site in the app on an emulator, checks it is dressed for the app, and
+# keeps phone and tablet screenshots as a download on the run.
+on:
+  pull_request:
+    paths: ["apps/android/**", ".github/workflows/android-app.yml"]
+  push:
+    branches: [main]
+    paths: ["apps/android/**", ".github/workflows/android-app.yml"]
+  workflow_dispatch:
+
+concurrency:
+  group: android-app-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+defaults:
+  run:
+    working-directory: apps/android
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Unit tests, lint, debug app and release bundle
+        run: ./gradlew :core:testDebugUnitTest :app:lintDebug :app:assembleDebug :app:bundleRelease --console=plain
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: android-reports
+          path: |
+            apps/android/app/build/reports/lint-results-debug.html
+            apps/android/core/build/reports/tests/
+          if-no-files-found: ignore
+      # A debug build anyone can install on an Android phone or Chromebook to try the app.
+      - uses: actions/upload-artifact@v4
+        with:
+          name: deeparam-debug-apk
+          path: apps/android/app/build/outputs/apk/debug/app-debug.apk
+
+  device:
+    name: Emulator
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Let the emulator use KVM
+        working-directory: .
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+      - name: Build the app and its device tests
+        run: ./gradlew :app:assembleDebug :app:assembleDebugAndroidTest --console=plain
+      - name: Device tests and screenshots
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 34
+          target: google_apis
+          arch: x86_64
+          disable-animations: true
+          # The default 2 GB emulator dropped off adb partway through the web view tests; give it room.
+          ram-size: 4096M
+          heap-size: 512M
+          disk-size: 4096M
+          cores: 4
+          emulator-options: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
+          working-directory: apps/android
+          script: |
+            ./gradlew :app:connectedDebugAndroidTest --console=plain
+            sh scripts/screenshots.sh
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: android-screenshots
+          path: |
+            apps/android/screenshots/
+            apps/android/app/build/reports/androidTests/
+          if-no-files-found: ignore

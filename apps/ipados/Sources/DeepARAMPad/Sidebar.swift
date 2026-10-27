@@ -15,24 +15,19 @@ struct Sidebar: View {
     var body: some View {
         List(selection: $model.section) {
             if model.searchText.isEmpty {
-                Section {
-                    ForEach(SiteTab.padSections) { section in
-                        NavigationLink(value: section) {
-                            Label {
-                                HStack {
-                                    Text(section.title)
-                                    if section.isBeta {
-                                        Text("Beta")
-                                            .font(.caption2.weight(.semibold))
-                                            .padding(.horizontal, 6).padding(.vertical, 2)
-                                            .background(.tint.opacity(0.15), in: Capsule())
-                                    }
-                                }
-                            } icon: {
-                                Image(systemName: section.symbol)
+                ForEach(SiteTab.padGroups) { group in
+                    Section {
+                        ForEach(group.sections) { section in
+                            NavigationLink(value: section) {
+                                Label(section.title, systemImage: section.symbol)
+                            }
+                            .padding(.vertical, 4)
+                            if section == model.section, !section.padSubtabs.isEmpty {
+                                SubtabRows(state: model.state(for: section), section: section)
                             }
                         }
-                        .padding(.vertical, 4)
+                    } header: {
+                        if let title = group.title { Text(title) }
                     }
                 }
             } else {
@@ -94,6 +89,30 @@ private struct PatchLabelStyle: LabelStyle {
         HStack(spacing: 6) {
             configuration.icon.font(.system(size: 7)).foregroundStyle(.green)
             configuration.title
+        }
+    }
+}
+
+/// The selected section's sub-tabs (Champions, Augments, Items on the Tier List), indented under it.
+private struct SubtabRows: View {
+    @ObservedObject var state: PageState
+    let section: SiteTab
+
+    var body: some View {
+        let current = section.subtab(in: state.url)
+        ForEach(section.padSubtabs) { sub in
+            Button { state.page.open(section.url(subtab: sub)) } label: {
+                Text(sub.title)
+                    .font(.subheadline)
+                    .fontWeight(sub == current ? .semibold : .regular)
+                    .foregroundStyle(sub == current ? Color.accentColor : .secondary)
+                    .padding(.leading, 36)
+                    .frame(maxWidth: .infinity, minHeight: 36, alignment: .leading)
+                    .contentShape(Rectangle())
+            }
+            .buttonStyle(.plain)
+            .hoverEffect()
+            .accessibilityAddTraits(sub == current ? .isSelected : [])
         }
     }
 }

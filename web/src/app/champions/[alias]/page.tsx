@@ -60,6 +60,8 @@ import championIds from "@/data/champion-ids.json";
 import augmentNames from "@/data/augment-names.json";
 import "../champion-page.css";
 import { patchName } from "@/lib/patch-name";
+import BestUpgrades from "@/components/champion/BestUpgrades";
+import { championUpgrades } from "@/lib/champion-upgrades";
 
 const AUG_NAMES = augmentNames as Record<string, string>;
 
@@ -217,6 +219,7 @@ export async function generateMetadata({
 const SPOTS = [
   { id: "augments", label: "Augments" },
   { id: "combos", label: "Augment combinations" },
+  { id: "upgrades", label: "Best upgrades" },
   { id: "builds", label: "Builds" },
   { id: "playstyle", label: "Playstyle" },
   { id: "teammates", label: "Teammates" },
@@ -290,6 +293,7 @@ export default async function ChampionPage({
   const prev = all[(at - 1 + all.length) % all.length];
   const next = all[(at + 1) % all.length];
   const info = p.itemInfo;
+  const upgrades = championUpgrades(c.alias);
   const bestCore = p.core[0]; // the lists rank by DeepScore, which already trusts rare builds less
   // Augments rank by their DeepScore, the same rating the Tier List uses.
   const scores = new Map(augmentTiers().map((a) => [a.id, a.deepScore]));
@@ -653,6 +657,7 @@ export default async function ChampionPage({
               <NotYet text="Augment pairs and their win rates appear here once enough games are in. Each pair needs a minimum number of games before it shows." />
             </Panel>
           )}
+          {upgrades && <BestUpgrades u={upgrades} />}
 
           <h2 className="cp-group" id="builds">
             <T ns={NS}>Builds</T>

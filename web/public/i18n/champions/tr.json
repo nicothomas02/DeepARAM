@@ -172,5 +172,13 @@
  "Next page": "Sonraki sayfa",
  "No augments match these filters.": "Bu filtrelere uyan güçlendirme yok.",
  "All picks": "Tüm seçimler",
- "Estimated: augments often taken at this pick on this champion.": "Tahmini: bu şampiyonda bu seçimde sık alınan güçlendirmeler."
+ "Estimated: augments often taken at this pick on this champion.": "Tahmini: bu şampiyonda bu seçimde sık alınan güçlendirmeler.",
+ "Best upgrades": "En iyi yükseltmeler",
+ "Simulated and estimated. The best 4 augments count how well they work together, not just each one alone. Weapon of Destiny shows the item that gains the most from its upgrades.": "Simülasyon ve tahmin. En iyi 4 güçlendirme, yalnızca tek tek değil birlikte ne kadar iyi çalıştıklarını da hesaba katar. Kader Silahı, yükseltmelerinden en çok kazanan eşyayı gösterir.",
+ "Best 4 augments together": "Birlikte en iyi 4 güçlendirme",
+ "Est. boost": "Tah. artış",
+ "Simulated gain": "Simüle artış",
+ "Takedowns": "Katılımlar",
+ "Weapon of Destiny": "Kaderin Silahı",
+ "Pentakill": "Pentakill"
 }

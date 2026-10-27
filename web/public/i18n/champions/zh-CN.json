@@ -172,5 +172,13 @@
  "Next page": "下一页",
  "No augments match these filters.": "没有符合这些筛选条件的强化符文。",
  "All picks": "所有选择",
- "Estimated: augments often taken at this pick on this champion.": "估算:该英雄在这次选择时常拿的强化符文。"
+ "Estimated: augments often taken at this pick on this champion.": "估算:该英雄在这次选择时常拿的强化符文。",
+ "Best upgrades": "最佳强化",
+ "Simulated and estimated. The best 4 augments count how well they work together, not just each one alone. Weapon of Destiny shows the item that gains the most from its upgrades.": "模拟与估计。最佳 4 个海克斯强化考虑了它们之间的配合，而不只是各自单独的强度。命运之武器显示从强化中获益最多的装备。",
+ "Best 4 augments together": "最佳 4 个海克斯强化组合",
+ "Est. boost": "估计提升",
+ "Simulated gain": "模拟提升",
+ "Takedowns": "参与击杀",
+ "Weapon of Destiny": "命运之武器",
+ "Pentakill": "五杀摇滚"
 }

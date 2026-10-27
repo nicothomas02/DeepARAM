@@ -9,15 +9,43 @@
 /* Begin PBXBuildFile section */
 		D1A000000000000000000010 /* DeepARAMKit in Frameworks */ = {isa = PBXBuildFile; productRef = D1A000000000000000000031 /* DeepARAMKit */; };
 		D1A000000000000000000011 /* DeepARAMPad in Frameworks */ = {isa = PBXBuildFile; productRef = D1A000000000000000000033 /* DeepARAMPad */; };
+		D1C000000000000000000010 /* DeepARAMWatchKit in Frameworks */ = {isa = PBXBuildFile; productRef = D1C000000000000000000031 /* DeepARAMWatchKit */; };
+		D1C000000000000000000011 /* DeepARAMWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = D1C000000000000000000020 /* DeepARAMWatch.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D1C000000000000000000060 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D1A000000000000000000080 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D1C000000000000000000070;
+			remoteInfo = DeepARAMWatch;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D1C000000000000000000053 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				D1C000000000000000000011 /* DeepARAMWatch.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		D1A000000000000000000020 /* DeepARAM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeepARAM.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D1C000000000000000000020 /* DeepARAMWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeepARAMWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1A000000000000000000021 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		D1A000000000000000000040 /* DeepARAM */ = {isa = PBXFileSystemSynchronizedRootGroup; path = DeepARAM; sourceTree = "<group>"; };
+		D1C000000000000000000040 /* DeepARAMWatch */ = {isa = PBXFileSystemSynchronizedRootGroup; name = DeepARAMWatch; path = ../watchos/DeepARAMWatch; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -30,6 +58,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D1C000000000000000000050 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D1C000000000000000000010 /* DeepARAMWatchKit in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -37,6 +73,7 @@
 			isa = PBXGroup;
 			children = (
 				D1A000000000000000000040 /* DeepARAM */,
+				D1C000000000000000000040 /* DeepARAMWatch */,
 				D1A000000000000000000062 /* Config */,
 				D1A000000000000000000061 /* Products */,
 			);
@@ -46,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				D1A000000000000000000020 /* DeepARAM.app */,
+				D1C000000000000000000020 /* DeepARAMWatch.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -68,10 +106,12 @@
 				D1A000000000000000000051 /* Sources */,
 				D1A000000000000000000050 /* Frameworks */,
 				D1A000000000000000000052 /* Resources */,
+				D1C000000000000000000053 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				D1C000000000000000000061 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				D1A000000000000000000040 /* DeepARAM */,
@@ -85,6 +125,29 @@
 			productReference = D1A000000000000000000020 /* DeepARAM.app */;
 			productType = "com.apple.product-type.application";
 		};
+		D1C000000000000000000070 /* DeepARAMWatch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D1C000000000000000000092 /* Build configuration list for PBXNativeTarget "DeepARAMWatch" */;
+			buildPhases = (
+				D1C000000000000000000051 /* Sources */,
+				D1C000000000000000000050 /* Frameworks */,
+				D1C000000000000000000052 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				D1C000000000000000000040 /* DeepARAMWatch */,
+			);
+			name = DeepARAMWatch;
+			packageProductDependencies = (
+				D1C000000000000000000031 /* DeepARAMWatchKit */,
+			);
+			productName = DeepARAMWatch;
+			productReference = D1C000000000000000000020 /* DeepARAMWatch.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -96,6 +159,9 @@
 				LastUpgradeCheck = 1600;
 				TargetAttributes = {
 					D1A000000000000000000070 = {
+						CreatedOnToolsVersion = 16.0;
+					};
+					D1C000000000000000000070 = {
 						CreatedOnToolsVersion = 16.0;
 					};
 				};
@@ -112,6 +178,7 @@
 			packageReferences = (
 				D1A000000000000000000030 /* XCLocalSwiftPackageReference "../shared/DeepARAMKit" */,
 				D1A000000000000000000032 /* XCLocalSwiftPackageReference "../ipados" */,
+				D1C000000000000000000030 /* XCLocalSwiftPackageReference "../watchos/DeepARAMWatchKit" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = D1A000000000000000000061 /* Products */;
@@ -119,12 +186,20 @@
 			projectRoot = "";
 			targets = (
 				D1A000000000000000000070 /* DeepARAM */,
+				D1C000000000000000000070 /* DeepARAMWatch */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		D1A000000000000000000052 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D1C000000000000000000052 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -141,7 +216,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D1C000000000000000000051 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D1C000000000000000000061 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D1C000000000000000000070 /* DeepARAMWatch */;
+			targetProxy = D1C000000000000000000060 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		D1A0000000000000000000A1 /* Debug */ = {
@@ -259,6 +349,66 @@
 			};
 			name = Release;
 		};
+		D1C0000000000000000000B1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = DeepARAM;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.deeparam.app;
+				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.deeparam.app.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "watchos watchsimulator";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 10.0;
+			};
+			name = Debug;
+		};
+		D1C0000000000000000000B2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = DeepARAM;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.deeparam.app;
+				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.deeparam.app.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "watchos watchsimulator";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 10.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -280,6 +430,15 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		D1C000000000000000000092 /* Build configuration list for PBXNativeTarget "DeepARAMWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D1C0000000000000000000B1 /* Debug */,
+				D1C0000000000000000000B2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
@@ -291,6 +450,10 @@
 			isa = XCLocalSwiftPackageReference;
 			relativePath = ../ipados;
 		};
+		D1C000000000000000000030 /* XCLocalSwiftPackageReference "../watchos/DeepARAMWatchKit" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../watchos/DeepARAMWatchKit;
+		};
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -301,6 +464,10 @@
 		D1A000000000000000000033 /* DeepARAMPad */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = DeepARAMPad;
+		};
+		D1C000000000000000000031 /* DeepARAMWatchKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DeepARAMWatchKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
