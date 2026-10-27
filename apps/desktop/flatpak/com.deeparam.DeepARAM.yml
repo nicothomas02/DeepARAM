@@ -1,0 +1,42 @@
+# Flatpak build of the DeepARAM desktop app. It repackages the .deb that `npx tauri build` makes on
+# Linux, so build that first (CI does: .github/workflows/desktop-app.yml), then from this folder:
+#   cp ../src-tauri/target/release/bundle/deb/*.deb deeparam.deb
+#   git clone --depth 1 https://github.com/flathub/shared-modules.git
+#   flatpak-builder --user --install-deps-from=flathub --repo=repo build com.deeparam.DeepARAM.yml
+#   flatpak build-bundle repo DeepARAM.flatpak com.deeparam.DeepARAM
+id: com.deeparam.DeepARAM
+runtime: org.gnome.Platform
+runtime-version: "51"
+sdk: org.gnome.Sdk
+command: deeparam
+finish-args:
+  - --share=ipc
+  - --share=network
+  - --socket=wayland
+  - --socket=fallback-x11
+  - --device=dri
+  # Patch notifications and the tray icon.
+  - --talk-name=org.freedesktop.Notifications
+  - --talk-name=org.kde.StatusNotifierWatcher
+modules:
+  # The tray icon library Tauri loads on Linux; not part of the GNOME runtime.
+  - shared-modules/libayatana-appindicator/libayatana-appindicator-gtk3.json
+
+  - name: deeparam
+    buildsystem: simple
+    sources:
+      - type: file
+        path: deeparam.deb
+      - type: file
+        path: com.deeparam.DeepARAM.desktop
+      - type: file
+        path: com.deeparam.DeepARAM.metainfo.xml
+    build-commands:
+      - ar -x deeparam.deb
+      - tar -xf data.tar.*
+      - install -Dm755 usr/bin/deeparam /app/bin/deeparam
+      - install -Dm644 com.deeparam.DeepARAM.desktop /app/share/applications/com.deeparam.DeepARAM.desktop
+      - install -Dm644 com.deeparam.DeepARAM.metainfo.xml /app/share/metainfo/com.deeparam.DeepARAM.metainfo.xml
+      - install -Dm644 usr/share/icons/hicolor/32x32/apps/deeparam.png /app/share/icons/hicolor/32x32/apps/com.deeparam.DeepARAM.png
+      - install -Dm644 usr/share/icons/hicolor/128x128/apps/deeparam.png /app/share/icons/hicolor/128x128/apps/com.deeparam.DeepARAM.png
+      - install -Dm644 usr/share/icons/hicolor/256x256@2/apps/deeparam.png /app/share/icons/hicolor/256x256/apps/com.deeparam.DeepARAM.png

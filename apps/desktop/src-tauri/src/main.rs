@@ -31,7 +31,7 @@ const PAGE_SCRIPT: &str = r#"
   const pill = (text) => {
     const el = document.createElement("div");
     el.textContent = text;
-    el.style.cssText = "position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:2147483647;padding:8px 14px;border-radius:8px;background:#11151b;color:#e7ebef;border:1px solid #222a33;font:13px 'Segoe UI',system-ui,sans-serif;box-shadow:0 6px 24px rgba(0,0,0,.4)";
+    el.style.cssText = "position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:2147483647;padding:8px 14px;border-radius:8px;background:#11151b;color:#e7ebef;border:1px solid #222a33;font:13px 'Segoe UI',Cantarell,'Noto Sans',system-ui,sans-serif;box-shadow:0 6px 24px rgba(0,0,0,.4)";
     return el;
   };
   addEventListener("keydown", (e) => {
@@ -69,6 +69,31 @@ const PLATFORM: &str = "linux";
 const AUTOSTART_LABEL: &str = "Start with Windows";
 #[cfg(not(windows))]
 const AUTOSTART_LABEL: &str = "Start at login";
+
+/// Whether the desktop shows tray icons. Windows always does; on Linux it needs a StatusNotifier host
+/// (KDE, Ubuntu's GNOME, most others), and stock GNOME has none, so there closing the window quits
+/// instead of leaving DeepARAM running with no icon to bring it back or quit it.
+#[cfg(not(target_os = "linux"))]
+fn has_tray() -> bool {
+    true
+}
+#[cfg(target_os = "linux")]
+fn has_tray() -> bool {
+    static HAS: std::sync::OnceLock<bool> = std::sync::OnceLock::new();
+    *HAS.get_or_init(|| {
+        let owned = || -> zbus::Result<bool> {
+            let conn = zbus::blocking::Connection::session()?;
+            let dbus = zbus::blocking::fdo::DBusProxy::new(&conn)?;
+            Ok(dbus.name_has_owner("org.kde.StatusNotifierWatcher".try_into()?)?)
+        };
+        owned().unwrap_or(false)
+    })
+}
+
+/// Launching at sign-in can't be set up from inside the Flatpak sandbox, so the tray leaves it out there.
+fn autostart_available() -> bool {
+    std::env::var_os("FLATPAK_ID").is_none()
+}
 
 #[derive(Default, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase", default)]
@@ -268,10 +293,11 @@ fn build_tray(app: &AppHandle) -> tauri::Result<()> {
     let auto = CheckMenuItem::with_id(app, "auto", AUTOSTART_LABEL, true, autostart_on, None::<&str>)?;
     let quit = MenuItem::with_id(app, "quit", "Quit DeepARAM", true, None::<&str>)?;
     let sep = || PredefinedMenuItem::separator(app);
-    let menu = Menu::with_items(
-        app,
-        &[&open, &sep()?, &tier, &sim, &patches, &pbe, &sep()?, &check, &notes, &auto, &sep()?, &quit],
-    )?;
+    let menu = Menu::with_items(app, &[&open, &sep()?, &tier, &sim, &patches, &pbe, &sep()?, &check, &notes])?;
+    if autostart_available() {
+        menu.append(&auto)?;
+    }
+    menu.append_items(&[&sep()?, &quit])?;
 
     let notes_item = notes.clone();
     let auto_item = auto.clone();
@@ -338,6 +364,9 @@ fn main() {
         .on_window_event(|win, event| {
             // Closing the window keeps DeepARAM in the tray so patch notifications still arrive.
             if let WindowEvent::CloseRequested { api, .. } = event {
+                if !has_tray() {
+                    return;
+                }
                 api.prevent_close();
                 let _ = win.hide();
                 let app = win.app_handle();
