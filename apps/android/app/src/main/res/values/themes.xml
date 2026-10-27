@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- The site's dark theme, so the window never flashes white before the first page draws. -->
+    <style name="Theme.DeepARAM" parent="android:Theme.Material.NoActionBar">
+        <item name="android:windowBackground">@color/background</item>
+        <item name="android:colorAccent">@color/accent</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+    </style>
+    <color name="background">#090B0F</color>
+    <color name="accent">#5CC0FF</color>
+    <color name="launcher_background">#090B0F</color>
+</resources>
