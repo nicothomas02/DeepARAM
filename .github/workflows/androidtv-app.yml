@@ -1,12 +1,12 @@
 name: Android TV app
 
-# Tests and builds the Android TV app whenever it changes.
+# Tests and builds the Android TV app whenever it or the shared Android core module changes.
 on:
   pull_request:
-    paths: ["apps/androidtv/**", ".github/workflows/androidtv-app.yml"]
+    paths: ["apps/androidtv/**", "apps/android/core/**", ".github/workflows/androidtv-app.yml"]
   push:
     branches: [main]
-    paths: ["apps/androidtv/**", ".github/workflows/androidtv-app.yml"]
+    paths: ["apps/androidtv/**", "apps/android/core/**", ".github/workflows/androidtv-app.yml"]
 
 concurrency:
   group: androidtv-app-${{ github.ref }}
