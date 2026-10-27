@@ -172,5 +172,13 @@
  "Next page": "Pagina următoare",
  "No augments match these filters.": "Niciun augment nu se potrivește acestor filtre.",
  "All picks": "Toate alegerile",
- "Estimated: augments often taken at this pick on this champion.": "Estimat: augmente luate des la această alegere pe acest campion."
+ "Estimated: augments often taken at this pick on this champion.": "Estimat: augmente luate des la această alegere pe acest campion.",
+ "Best upgrades": "Cele mai bune îmbunătățiri",
+ "Simulated and estimated. The best 4 augments count how well they work together, not just each one alone. Weapon of Destiny shows the item that gains the most from its upgrades.": "Simulat și estimat. Cele mai bune 4 augmentări țin cont de cât de bine merg împreună, nu doar fiecare singură. Arma destinului arată obiectul care câștigă cel mai mult din îmbunătățiri.",
+ "Best 4 augments together": "Cele mai bune 4 augmentări împreună",
+ "Est. boost": "Spor est.",
+ "Simulated gain": "Spor simulat",
+ "Takedowns": "Participări",
+ "Weapon of Destiny": "Arma destinului",
+ "Pentakill": "Pentakill"
 }
