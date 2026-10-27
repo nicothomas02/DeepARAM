@@ -74,7 +74,7 @@ Weapon of Destiny item and a theoretical best set of 4 augments. Method in the s
   and by global pick / (global pick + 0.5%) because brand-new augments with almost no games have a meaningless fair
   win rate) + BETA x sim synergy (gain of the set minus its augments' single gains), softly capped at +-3 points
   so one sim outlier can't decide a set. BETA (win-rate points per unit of log sim gain) is the within-champion
-  slope of real lift on sim gain over stat-only augments, where the sim is exact (BETA_TEXT; on all modeled
+  slope of real lift on sim gain over stat-only augments, where the sim is exact (0.066, r 0.24 over ~1,070 champion-augment pairs; on all modeled
   augments the slope is ~5x flatter from x noise). Searched: 14 best by real lift + 6 best by sim gain, every pair
   simulated, the 25 best sets of 4 re-simulated whole.
 
