@@ -28,7 +28,7 @@ jobs:
     runs-on: macos-15
     timeout-minutes: 30
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 0
       - name: Use the newest Xcode
@@ -38,7 +38,7 @@ jobs:
       - name: Zip it
         # ditto keeps the app's signature and permissions, which a plain zip would lose.
         run: ditto -c -k --keepParent apps/macos/build/DeepARAM.app "DeepARAM-mac-${VERSION#v}.zip"
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: release-mac
           path: DeepARAM-mac-*.zip
@@ -49,12 +49,12 @@ jobs:
     runs-on: windows-latest
     timeout-minutes: 45
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - id: has
         shell: bash
         run: echo "app=$([ -f apps/desktop/package.json ] && echo yes || echo no)" >> "$GITHUB_OUTPUT"
       - if: steps.has.outputs.app == 'yes'
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
           node-version: 22
           cache: npm
@@ -72,7 +72,7 @@ jobs:
           npm ci
           npx tauri build
       - if: steps.has.outputs.app == 'yes'
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: release-windows
           path: |
@@ -85,7 +85,7 @@ jobs:
     needs: [mac, windows]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v8
         with:
           pattern: release-*
           merge-multiple: true
