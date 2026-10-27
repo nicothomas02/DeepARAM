@@ -11,6 +11,7 @@ matching deeparam.com page, so every site update reaches the app without a new r
   Tapping it opens that patch recap or the PBE tab.
 - The site's own phone tab bar and header links are hidden inside the app (`AppChrome` in the shared package).
 - Riot's "not endorsed" notice is at the bottom of More.
+- **Apple Watch:** the `DeepARAMWatch` target (sources in `apps/watchos`) is embedded, so the watch app installs with the phone app. See `apps/watchos/README.md`.
 
 Shared code (tabs, web view, offline copies, patch checks) lives in `apps/shared/DeepARAMKit` so the iPad and Mac apps use the same pieces.
 
