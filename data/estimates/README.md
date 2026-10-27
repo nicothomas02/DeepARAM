@@ -52,7 +52,9 @@ extrapolated (every champion weighted by pick rate x kills + assists from `profi
 labels the tab Anticipated and ranks by `value` (Nico 2026-10-23). Once champions take it, they're
 weighted by pick rate x how often they take it, and the site ranks by a DeepScore from lift and share
 the way the Items tab does. That differs from the regular item DeepScore (first items only, weighted by
-who takes the augment; rank correlation 0.14 on the extrapolated takers). Not scheduled: rerun after patches.
+who takes the augment; rank correlation 0.14 on the extrapolated takers). The augment's real takers
+showed up in the feed on 2026-10-27; win rates are still those of each champion's core builds, since the
+feed has no augment-item pairs. Refreshed daily by `fill.yml` after the Mayhem stats update.
 
 ## Best upgrades per champion (`champion_upgrades.json`, simulated + estimated)
 
