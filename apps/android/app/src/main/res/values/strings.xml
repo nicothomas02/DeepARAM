@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">DeepARAM</string>
+    <string name="channel_patches">New patches</string>
+    <string name="channel_patches_desc">A new live patch or PBE update is on DeepARAM.</string>
+</resources>
