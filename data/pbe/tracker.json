@@ -1,17 +1,32 @@
 {
  "builds": {
-  "pbe": "16.22.8321601",
+  "pbe": "16.22.8326211",
   "live": "16.21.8298620"
  },
- "dataAsOf": "2026-10-26",
+ "dataAsOf": "2026-10-27",
  "counts": {
+  "buff": 10,
   "mixed": 3,
-  "buff": 1,
-  "nerf": 2,
+  "nerf": 3,
   "new": 2,
   "removed": 9
  },
  "entries": [
+  {
+   "kind": "champion",
+   "name": "Kayle",
+   "lines": [
+    {
+     "text": "Q cooldown 12/11/10/9/8s → 10/9.5/9/8.5/8s",
+     "tag": "buff"
+    },
+    {
+     "text": "R cooldown 160/120/80s → 140/110/80s",
+     "tag": "buff"
+    }
+   ],
+   "tag": "buff"
+  },
   {
    "kind": "champion",
    "name": "Lee Sin",
@@ -26,6 +41,21 @@
     }
    ],
    "tag": "mixed"
+  },
+  {
+   "kind": "champion",
+   "name": "Locke",
+   "lines": [
+    {
+     "text": "Q mark damage 18/26/34/42/50 → 15/22/29/36/43",
+     "tag": "nerf"
+    },
+    {
+     "text": "W duration 6s → 5s",
+     "tag": "nerf"
+    }
+   ],
+   "tag": "nerf"
   },
   {
    "kind": "champion",
@@ -84,6 +114,17 @@
   },
   {
    "kind": "champion",
+   "name": "Rumble",
+   "lines": [
+    {
+     "text": "R damage per second AP ratio 35% → 40%",
+     "tag": "buff"
+    }
+   ],
+   "tag": "buff"
+  },
+  {
+   "kind": "champion",
    "name": "Varus",
    "lines": [
     {
@@ -92,6 +133,28 @@
     },
     {
      "text": "Q minimum damage 50/95/140/185/230 → 50/100/150/200/250",
+     "tag": "buff"
+    }
+   ],
+   "tag": "buff"
+  },
+  {
+   "kind": "champion",
+   "name": "Viktor",
+   "lines": [
+    {
+     "text": "Health per level 100 → 105",
+     "tag": "buff"
+    }
+   ],
+   "tag": "buff"
+  },
+  {
+   "kind": "champion",
+   "name": "Zaahen",
+   "lines": [
+    {
+     "text": "Q cooldown 10/9/8/7/6s → 8/7.5/7/6.5/6s",
      "tag": "buff"
     }
    ],
@@ -123,6 +186,10 @@
     {
      "text": "Bee damage (by level): 75–200 → 75–140",
      "tag": "nerf"
+    },
+    {
+     "text": "Bee travel speed: 1800 → 1200",
+     "tag": "nerf"
     }
    ],
    "tag": "nerf"
@@ -139,6 +206,79 @@
     }
    ],
    "tag": "mixed"
+  },
+  {
+   "kind": "augment",
+   "name": "Dawnbringer's Resolve",
+   "tier": "gold",
+   "icon": "/assets/augments/pbe/dawnbringersresolve_large.png",
+   "lines": [
+    {
+     "text": "Healing (of max Health): 30% → 35%",
+     "tag": "buff"
+    }
+   ],
+   "tag": "buff"
+  },
+  {
+   "kind": "augment",
+   "name": "Ravenous Bind",
+   "tier": "gold",
+   "icon": "/assets/augments/pbe/upgradehubris_large.png",
+   "lines": [
+    {
+     "text": "Minimum healing (by level): 50–200 → 75–300",
+     "tag": "buff"
+    },
+    {
+     "text": "Healing from bonus Health: 10% → 12%",
+     "tag": "buff"
+    }
+   ],
+   "tag": "buff"
+  },
+  {
+   "kind": "augment",
+   "name": "Soul Eater",
+   "tier": "gold",
+   "icon": "/assets/augments/pbe/souleater_large.png",
+   "lines": [
+    {
+     "text": "Health per stack: 20 → 30",
+     "tag": "buff"
+    }
+   ],
+   "tag": "buff"
+  },
+  {
+   "kind": "augment",
+   "name": "Squishy Slappy Grab",
+   "tier": "prismatic",
+   "icon": "/assets/augments/pbe/squishyslappygrab_large.png",
+   "lines": [
+    {
+     "text": "Shield (by level): 50–200 → 100–300",
+     "tag": "buff"
+    },
+    {
+     "text": "Shield from bonus Armor and Magic Resist: 50% → 70%",
+     "tag": "buff"
+    }
+   ],
+   "tag": "buff"
+  },
+  {
+   "kind": "augment",
+   "name": "Stay Resolute",
+   "tier": "silver",
+   "icon": "/assets/augments/pbe/genericabilityaugmenticon_silver.png",
+   "lines": [
+    {
+     "text": "Armor and Magic Resist per hit: 1 (levels 1–6), 2 (7–10), 3 (11+) → 2 (levels 1–10), 3 (11+)",
+     "tag": "buff"
+    }
+   ],
+   "tag": "buff"
   },
   {
    "kind": "augment",

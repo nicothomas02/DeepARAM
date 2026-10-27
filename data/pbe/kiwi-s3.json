@@ -2,7 +2,7 @@
   "meta": {
     "mode": "ARAM: Mayhem",
     "label": "Patch 26.22",
-    "dataAsOf": "2026-10-26",
+    "dataAsOf": "2026-10-27",
     "caveat": "PBE content can change before release.",
     "augmentPool": {
       "live": 249,
@@ -15,13 +15,14 @@
     "chinaPoolChanged": false,
     "notes": [
       "Live is now patch 26.21, so this page lists only what's new in 26.22.",
+      "Update 2026-10-27 (patch 26.22): Kayle, Rumble, Viktor and Zaahen get stronger, Locke gets weaker, and Soul Eater, Squishy Slappy Grab, Dawnbringer's Resolve, Ravenous Bind and Stay Resolute get stronger.",
       "Update 2026-10-26 (patch 26.22): Armored Impact, BEES!!! and Take'em Down Down Down are changed.",
       "Update 2026-10-23 (patch 26.22): 9 augments leave the pool, and Varus gets stronger.",
       "Update 2026-10-21: Lee Sin's Mayhem W shield now grows with rank.",
       "Ability values are listed for ranks 1-5 (basic abilities) or 1-3 (ultimates)."
     ],
     "builds": {
-      "pbe": "16.22.8321601",
+      "pbe": "16.22.8326211",
       "live": "16.21.8298620"
     }
   },
@@ -144,6 +145,11 @@
             "stat": "Bee damage (by level)",
             "live": "75–200",
             "pbe": "75–140"
+          },
+          {
+            "stat": "Bee travel speed",
+            "live": "1800",
+            "pbe": "1200"
           }
         ],
         "direction": "nerf",
@@ -162,6 +168,81 @@
         "direction": "mixed",
         "tier": "gold",
         "icon": "/assets/augments/pbe/takeemdowndowndown_small.png"
+      },
+      {
+        "name": "Dawnbringer's Resolve",
+        "changes": [
+          {
+            "stat": "Healing (of max Health)",
+            "live": "30%",
+            "pbe": "35%"
+          }
+        ],
+        "direction": "buff",
+        "tier": "gold",
+        "icon": "/assets/augments/pbe/dawnbringersresolve_large.png"
+      },
+      {
+        "name": "Ravenous Bind",
+        "changes": [
+          {
+            "stat": "Minimum healing (by level)",
+            "live": "50–200",
+            "pbe": "75–300"
+          },
+          {
+            "stat": "Healing from bonus Health",
+            "live": "10%",
+            "pbe": "12%"
+          }
+        ],
+        "direction": "buff",
+        "tier": "gold",
+        "icon": "/assets/augments/pbe/upgradehubris_large.png"
+      },
+      {
+        "name": "Soul Eater",
+        "changes": [
+          {
+            "stat": "Health per stack",
+            "live": "20",
+            "pbe": "30"
+          }
+        ],
+        "direction": "buff",
+        "tier": "gold",
+        "icon": "/assets/augments/pbe/souleater_large.png"
+      },
+      {
+        "name": "Squishy Slappy Grab",
+        "changes": [
+          {
+            "stat": "Shield (by level)",
+            "live": "50–200",
+            "pbe": "100–300"
+          },
+          {
+            "stat": "Shield from bonus Armor and Magic Resist",
+            "live": "50%",
+            "pbe": "70%"
+          }
+        ],
+        "direction": "buff",
+        "tier": "prismatic",
+        "icon": "/assets/augments/pbe/squishyslappygrab_large.png"
+      },
+      {
+        "name": "Stay Resolute",
+        "changes": [
+          {
+            "stat": "Armor and Magic Resist per hit",
+            "live": "1 (levels 1–6), 2 (7–10), 3 (11+)",
+            "pbe": "2 (levels 1–10), 3 (11+)"
+          }
+        ],
+        "direction": "buff",
+        "tier": "silver",
+        "icon": "/assets/augments/pbe/genericabilityaugmenticon_silver.png"
       }
     ]
   },
@@ -188,9 +269,23 @@
     "summary": "Base-game champion changes on the test server. They also apply in Mayhem.",
     "list": [
       {
+        "champion": "Kayle",
+        "changes": [
+          "Q cooldown 12/11/10/9/8s → 10/9.5/9/8.5/8s",
+          "R cooldown 160/120/80s → 140/110/80s"
+        ]
+      },
+      {
         "champion": "Lee Sin",
         "changes": [
           "W cooldown 7s → 8s"
+        ]
+      },
+      {
+        "champion": "Locke",
+        "changes": [
+          "Q mark damage 18/26/34/42/50 → 15/22/29/36/43",
+          "W duration 6s → 5s"
         ]
       },
       {
@@ -211,10 +306,28 @@
         ]
       },
       {
+        "champion": "Rumble",
+        "changes": [
+          "R damage per second AP ratio 35% → 40%"
+        ]
+      },
+      {
         "champion": "Varus",
         "changes": [
           "Passive Attack Speed after a minion kill 11% → 14%, after a champion kill 33% → 42%",
           "Q minimum damage 50/95/140/185/230 → 50/100/150/200/250"
+        ]
+      },
+      {
+        "champion": "Viktor",
+        "changes": [
+          "Health per level 100 → 105"
+        ]
+      },
+      {
+        "champion": "Zaahen",
+        "changes": [
+          "Q cooldown 10/9/8/7/6s → 8/7.5/7/6.5/6s"
         ]
       }
     ]

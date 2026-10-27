@@ -1,6 +1,6 @@
 {
  "meta": {
-  "built_at": "2026-10-26T22:27:08+00:00",
+  "built_at": "2026-10-27T22:28:29+00:00",
   "game_version": "16.22",
   "cdragon": "pbe",
   "mayhem_balance_patch": "wiki read 2026-10-17",
@@ -17294,7 +17294,7 @@
      "cast_time": 0.0,
      "shield": {
       "scaling": {
-       "const": 80.0,
+       "const": 380.0,
        "ap": 0.8
       },
       "duration": 2.0
@@ -18203,7 +18203,7 @@
        "calc": "NailDamage",
        "scaling": {
         "ap": 0.35,
-        "const": 50.0
+        "const": 43.0
        },
        "target": "flat",
        "per_second": false,
@@ -18223,7 +18223,7 @@
      "cost": 50.0,
      "targeting": "Self",
      "area": "aoe",
-     "duration": 6.0,
+     "duration": 5.0,
      "geometry": {
       "shape": "circle",
       "range": 0.0,
@@ -20053,7 +20053,7 @@
      "cooldown": 6.0,
      "cast_time": 0.35,
      "cost": 90.0,
-     "targeting": "LocationClamped",
+     "targeting": "Location",
      "area": "aoe",
      "duration": 0.0,
      "geometry": {
@@ -20070,6 +20070,7 @@
        "type": "magic",
        "calc": "InitialDamage",
        "scaling": {
+        "const": 60.0,
         "ap": 0.25
        },
        "target": "flat",
@@ -20078,9 +20079,10 @@
       },
       {
        "type": "magic",
-       "calc": "TotalDamage",
+       "calc": "TotalDamageTT",
        "scaling": {
-        "ap": 0.25
+        "const": 285.0,
+        "ap": 0.97
        },
        "target": "flat",
        "per_second": false,
@@ -20088,11 +20090,7 @@
       }
      ],
      "mode_overrides": [],
-     "notes": [
-      "missing value {709efe92}",
-      "missing value {9f5ea20c}",
-      "missing value {d29d0667}"
-     ]
+     "notes": []
     },
     {
      "slot": "W",
@@ -20124,6 +20122,7 @@
        "type": "magic",
        "calc": "InitialDamage",
        "scaling": {
+        "const": 55.0,
         "ap": 0.1
        },
        "target": "flat",
@@ -20133,8 +20132,7 @@
      ],
      "mode_overrides": [],
      "notes": [
-      "ARAM cooldown",
-      "missing value {d29d0667}"
+      "ARAM cooldown"
      ]
     },
     {
@@ -27366,7 +27364,7 @@
        "calc": "DamagePerSecond",
        "scaling": {
         "const": 280.0,
-        "ap": 0.35
+        "ap": 0.4
        },
        "target": "flat",
        "per_second": true,
@@ -35145,8 +35143,8 @@
        "type": "physical",
        "calc": "TotalDamageMax",
        "scaling": {
-        "const": 230.0,
-        "bonus_ad": 0.9
+        "const": 425.0,
+        "bonus_ad": 1.53
        },
        "target": "flat",
        "per_second": false,
@@ -35157,7 +35155,6 @@
       "Kiwi:tADRatioMin"
      ],
      "notes": [
-      "missing value {0508ccce}",
       "hand override: Piercing Arrow: min and max charge are alternatives; max was being added at half weight"
      ]
     },
@@ -36728,7 +36725,7 @@
    "ranged": true,
    "stats": {
     "hp": 600.0,
-    "hp_per_level": 100.0,
+    "hp_per_level": 105.0,
     "armor": 23.0,
     "armor_per_level": 4.4,
     "mr": 30.0,
