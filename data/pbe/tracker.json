@@ -1,17 +1,47 @@
 {
  "builds": {
-  "pbe": "16.22.8326211",
+  "pbe": "16.22.8331392",
   "live": "16.21.8298620"
  },
- "dataAsOf": "2026-10-27",
+ "dataAsOf": "2026-10-28",
  "counts": {
-  "buff": 10,
-  "mixed": 3,
-  "nerf": 3,
+  "buff": 17,
+  "mixed": 4,
+  "nerf": 5,
   "new": 2,
   "removed": 9
  },
  "entries": [
+  {
+   "kind": "champion",
+   "name": "Aurelion Sol",
+   "lines": [
+    {
+     "text": "E damage per second 10/15/20/25/30 → 10/16/22/28/34",
+     "tag": "buff"
+    },
+    {
+     "text": "E damage per second AP ratio 12% → 12/13/14/15/16%",
+     "tag": "buff"
+    }
+   ],
+   "tag": "buff"
+  },
+  {
+   "kind": "champion",
+   "name": "Corki",
+   "lines": [
+    {
+     "text": "R damage 90/170/250 → 100/190/280",
+     "tag": "buff"
+    },
+    {
+     "text": "R AD ratio 85% → 90%",
+     "tag": "buff"
+    }
+   ],
+   "tag": "buff"
+  },
   {
    "kind": "champion",
    "name": "Kayle",
@@ -56,6 +86,17 @@
     }
    ],
    "tag": "nerf"
+  },
+  {
+   "kind": "champion",
+   "name": "Maokai",
+   "lines": [
+    {
+     "text": "Q max Health damage 2/2.5/3/3.5/4% → 2.5/3/3.5/4/4.5%",
+     "tag": "buff"
+    }
+   ],
+   "tag": "buff"
   },
   {
    "kind": "champion",
@@ -114,6 +155,25 @@
   },
   {
    "kind": "champion",
+   "name": "Naafiri",
+   "lines": [
+    {
+     "text": "Q second hit healing 45/60/75/90/105 → 55/70/85/100/115",
+     "tag": "buff"
+    },
+    {
+     "text": "Q healing bonus AD ratio 40% → 45%",
+     "tag": "buff"
+    },
+    {
+     "text": "R bonus AD 20% → 22%",
+     "tag": "buff"
+    }
+   ],
+   "tag": "buff"
+  },
+  {
+   "kind": "champion",
    "name": "Rumble",
    "lines": [
     {
@@ -122,6 +182,43 @@
     }
    ],
    "tag": "buff"
+  },
+  {
+   "kind": "champion",
+   "name": "Shen",
+   "lines": [
+    {
+     "text": "Q damage cap against minions 100/125/150/175/200 → 120/140/160/180/200",
+     "tag": "buff"
+    }
+   ],
+   "tag": "buff"
+  },
+  {
+   "kind": "champion",
+   "name": "Smolder",
+   "lines": [
+    {
+     "text": "W explosion damage 10/35/60/85/110 → 25/50/75/100/125",
+     "tag": "buff"
+    }
+   ],
+   "tag": "buff"
+  },
+  {
+   "kind": "champion",
+   "name": "Thresh",
+   "lines": [
+    {
+     "text": "Base AD 56 → 54",
+     "tag": "nerf"
+    },
+    {
+     "text": "R damage 250/400/550 → 200/350/500",
+     "tag": "nerf"
+    }
+   ],
+   "tag": "nerf"
   },
   {
    "kind": "champion",
@@ -151,6 +248,17 @@
   },
   {
    "kind": "champion",
+   "name": "Yasuo",
+   "lines": [
+    {
+     "text": "Q AD ratio 105% → 100%",
+     "tag": "nerf"
+    }
+   ],
+   "tag": "nerf"
+  },
+  {
+   "kind": "champion",
    "name": "Zaahen",
    "lines": [
     {
@@ -159,6 +267,21 @@
     }
    ],
    "tag": "buff"
+  },
+  {
+   "kind": "item",
+   "name": "Overlord's Bloodmail",
+   "lines": [
+    {
+     "text": "Attack Damage 30 → 40",
+     "tag": "buff"
+    },
+    {
+     "text": "Bonus AD from missing Health 12% → 10%",
+     "tag": "nerf"
+    }
+   ],
+   "tag": "mixed"
   },
   {
    "kind": "augment",
@@ -188,7 +311,7 @@
      "tag": "nerf"
     },
     {
-     "text": "Bee travel speed: 1800 → 1200",
+     "text": "Hive flight time: 0.75s → 1.1s",
      "tag": "nerf"
     }
    ],
@@ -275,6 +398,19 @@
    "lines": [
     {
      "text": "Armor and Magic Resist per hit: 1 (levels 1–6), 2 (7–10), 3 (11+) → 2 (levels 1–10), 3 (11+)",
+     "tag": "buff"
+    }
+   ],
+   "tag": "buff"
+  },
+  {
+   "kind": "augment",
+   "name": "Titan's Resolve",
+   "tier": "prismatic",
+   "icon": "/assets/augments/pbe/iamthejuggernaut_large.png",
+   "lines": [
+    {
+     "text": "Stacks needed for each bonus: 10 → 7",
      "tag": "buff"
     }
    ],
