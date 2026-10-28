@@ -1,297 +1,297 @@
 {
-  "id": "reksai-mole-artillery",
-  "title": "Mole Artillery",
-  "champion": "RekSai",
-  "champion_name": "Rek'Sai",
-  "chef": "2026-10-26",
-  "why": "Everyone uses Rek'Sai's Burrow to tunnel in and bite, but while burrowed her Q turns into Prey Seeker, a long-range burst of earth that damages and reveals whatever it hits, and most players only use it to poke before diving. Skilled Sniper refunds 80% of its cooldown whenever it lands from over 600 range, so Prey Seeker is nearly always up, which races through Multishot's quest of hitting champions with it for extra missiles, and Spell Split splits each of those missiles in two on hit or at max range. Magic Missile fires three more true-damage missiles at every enemy the ability hits, stronger the farther they travel, so a volley from across the lane rains down on the whole team. Horizon Focus feeds the same loop by revealing every champion you hit from 600 range or more plus the enemies around them, and Rabadon's Deathcap, Shadowflame, Stormsurge and Luden's Echo pile on Ability Power, so a melee jungle diver becomes an AP artillery mage who never comes up for air.",
-  "play": "Burrow early and stay under, park at max range and keep firing Prey Seeker at anything in sight. Only Unburrow to knock up a diver, then dig back in and keep shelling.",
+  "id": "skarner-crit-happens",
+  "title": "Crit Happens",
+  "champion": "Skarner",
+  "champion_name": "Skarner",
+  "chef": "2026-10-27",
+  "why": "Skarner's passive Threads of Vibration is mostly an afterthought: his attacks, boulder and ult stack Quaking, and at max stacks the target takes max Health magic damage over time, which is a damage-over-time effect. Vulnerability lets damage-over-time and item effects critically strike for 145% extra damage and hands him 25% crit chance, and Tank It Or Leave It adds another 25% so that same crit chance also rolls a 20% damage reduction every time he gets hit, so a tank who never crits suddenly wants crit for both offence and defence. Infernal Conduit makes every ability stack a burn that crits too and cuts his basic cooldowns, so he throws more boulders and quakes to re-stack Quaking, while Firebrand piles an infinitely stacking burn onto the three empowered attacks from Shattered Earth. Liandry's Torment, Sunfire Aegis, Hollow Radiance, Thornmail and Heartsteel are all item damage, so their burns, Immolate ticks, thorns and charged slam roll crits off the same 50% chance. The scorpion ends up a walking crit-chance bonfire whose tank items are his damage.",
+  "play": "Build full tank, walk into the enemy team and just keep stacking: Q three attacks, throw the boulder, quake, ult whoever is closest. You are not the one who crits, your burns are.",
   "items": [
-    "Horizon Focus",
-    "Rabadon's Deathcap",
-    "Shadowflame",
-    "Stormsurge",
-    "Luden's Echo",
-    "Sorcerer's Shoes"
+    "Liandry's Torment",
+    "Sunfire Aegis",
+    "Hollow Radiance",
+    "Thornmail",
+    "Heartsteel",
+    "Plated Steelcaps"
   ],
   "core": 4,
-  "champion_icon": "/embed/fun/cook-builds/icons/champions/421.png",
+  "champion_icon": "/embed/fun/cook-builds/icons/champions/72.png",
   "augments": [
     {
-      "name": "Skilled Sniper",
+      "name": "Vulnerability",
       "rarity": "Gold",
       "core": true,
-      "text": "Snipe an enemy with a non-Ultimate Ability refunds 80% Cooldown (65% for periodic Abilities). Snipe - Damage enemies over 600 distance away",
-      "icon": "/embed/fun/cook-builds/icons/augments/skilled-sniper.png",
-      "id": 1113
+      "text": "Your Item and damage over time effects can Critically Strike for 145% extra damage. Gain 25% Crit chance.",
+      "icon": "/embed/fun/cook-builds/icons/augments/vulnerability.png",
+      "id": 1092
     },
     {
-      "name": "Multishot",
+      "name": "Tank It Or Leave It",
+      "rarity": "Silver",
+      "core": true,
+      "text": "You can Critically Defend using your Crit Chance (max 50% chance), giving you a chance to reduce damage taken by 20%. Gain 25% Crit Chance.",
+      "icon": "/embed/fun/cook-builds/icons/augments/tank-it-or-leave-it.png",
+      "id": 1080
+    },
+    {
+      "name": "Infernal Conduit",
       "rarity": "Prismatic",
       "core": true,
-      "text": "QUEST: Hit enemy Champions with the chosen ability times. REWARD: Fire additional missiles per Quest Level.",
-      "icon": "/embed/fun/cook-builds/icons/augments/multishot.png",
-      "id": 2055
+      "text": "Your Abilities apply stacking Burn that deals damage over time. Your Burn effects reduce your basic Ability Cooldowns.",
+      "icon": "/embed/fun/cook-builds/icons/augments/infernal-conduit.png",
+      "id": 1045
     },
     {
-      "name": "Spell Split",
-      "rarity": "Prismatic",
-      "core": true,
-      "text": "Your chosen ability missile splits into two on hit, at max Range, or when Recast. Additional target hit: Enemies take less damage if hit by the same spell.",
-      "icon": "/embed/fun/cook-builds/icons/augments/spell-split.png",
-      "id": 2072
-    },
-    {
-      "name": "Magic Missile",
+      "name": "Firebrand",
       "rarity": "Gold",
       "core": true,
-      "text": "Dealing Ability damage fires 3 missiles at each enemy hit, each dealing up to 1% max Health true damage based on distance traveled.",
-      "icon": "/embed/fun/cook-builds/icons/augments/magic-missile.png",
-      "id": 1133
+      "text": "Your Attacks also Burn enemies, dealing 0.4% max Health magic damage per second over 5 seconds. This Burn stacks infinitely.",
+      "icon": "/embed/fun/cook-builds/icons/augments/firebrand.png",
+      "id": 1036
     }
   ],
   "href": "/kitchen#chefs-special",
   "archive_href": "/kitchen#chef-archive",
-  "share_href": "/kitchen/2026-10-26",
-  "share_image": "/embed/fun/cook-builds/share/reksai-mole-artillery.png",
+  "share_href": "/kitchen/2026-10-27",
+  "share_image": "/embed/fun/cook-builds/share/skarner-crit-happens.png",
   "item_ids": [
-    4628,
-    3089,
-    4645,
-    4646,
-    6655,
-    3020
+    6653,
+    3068,
+    6664,
+    3075,
+    3084,
+    3047
   ],
   "i18n": {
     "ar": {
-      "title": "مدفعية الخُلد",
-      "why": "الكل يستخدم الحفر عند ريكساي ليحفر نحو هدفه ويعضّ، لكن وهي تحت الأرض يتحول Q إلى دفعة تراب بعيدة المدى تضرّ الأعداء المصابين وتكشفهم، ومعظم اللاعبين يستخدمونها فقط للمناوشة قبل الهجوم. القناص الماهر يعيد 80% من وقت التهدئة عند الإصابة من أبعد من 600، لذا يكون Q جاهزًا تقريبًا دائمًا، فتنجز مهمة إطلاق متعدد (إصابة الأبطال بالقدرة) بسرعة للحصول على قذائف إضافية، وانقسام التعويذة يقسم كل قذيفة إلى اثنتين عند الإصابة أو عند أقصى مدى. القذيفة السحرية تطلق ثلاث قذائف ضرر حقيقي إضافية على كل عدو مصاب، وتقوى كلما طارت أبعد، فتمطر رشقة من الطرف الآخر من المسار على الفريق كله. تركيز الأفق يغذي الحلقة نفسها بكشف كل بطل تصيبه من مسافة 600 أو أكثر والأعداء حوله، وقبعة موت رابادون ولهيب الأشباح والمد العاصف وصدى لودن تكدّس قوة القدرات، فتتحول المقاتلة القريبة إلى ساحرة مدفعية AP لا تصعد إلى السطح أبدًا.",
-      "play": "احفر مبكرًا وابقَ تحت الأرض، قف عند أقصى مدى وأطلق Q على كل ما تراه. لا تخرج إلا لترفع من يقفز عليك في الهواء، ثم احفر مجددًا وواصل القصف.",
+      "title": "الضربات الحرجة تحدث",
+      "why": "عادةً ما تكون القدرة السلبية لسكارنر تفصيلًا جانبيًا: هجماته وصخرته وقدرته القصوى تضيف شحنات الارتجاج، وعند أقصى عدد من الشحنات يتلقى الهدف ضررًا سحريًا بمرور الوقت حسب أقصى صحة له، أي أنه تأثير ضرر بمرور الوقت. الهشاشة تتيح لتأثيرات الضرر بمرور الوقت وتأثيرات العتاد أن تسدد ضربات حرجة بضرر إضافي 145% وتمنحه 25% فرصة ضربة حرجة، وعليك بالتدرع تضيف 25% أخرى، فتمنحه نفس فرصة الضربة الحرجة أيضًا فرصة لتقليل كل ضربة يتلقاها بنسبة 20%: دبابة لا تسدد ضربات حرجة أبدًا تريد فجأة الضربات الحرجة للهجوم والدفاع معًا. المجرى المشتعل يجعل كل قدرة تضيف حرقًا متراكمًا يسدد ضربات حرجة هو الآخر ويقلل فترات تهدئة قدراته الأساسية، فيرمي صخورًا وارتجاجات أكثر ليعيد تكديس الارتجاج، بينما تضيف الجمرة حرقًا يتراكم بلا حدود على الهجمات الثلاث المعززة من Q. عذاب لياندري والدرع الشمسي والتألق الأجوف والدرع الشوكي والقلب الفولاذي كلها ضرر عتاد، فحروقها واحتراقها وأشواكها وضربتها المشحونة تسدد ضربات حرجة بنفس نسبة 50%. يتحول العقرب إلى نار متنقلة من فرص الضربات الحرجة، وعتاد الدبابة لديه هو ضرره.",
+      "play": "اشترِ عتاد دبابة كاملًا، اقتحم الفريق الخصم واستمر في التكديس: ثلاث هجمات بـ Q، ارمِ الصخرة، الارتجاج، القدرة القصوى على الأقرب. لست أنت من يسدد الضربات الحرجة، بل حروقك.",
       "augments": [
-        "قنص عدو بقدرة غير القدرة القصوى يعيد 80% من فترة التهدئة (65% للقدرات الدورية). القنص: إلحاق الضرر بالأعداء على بعد أكثر من 600 وحدة.",
-        "المهمة: أصب أبطال العدو بالقدرة المختارة عددًا محددًا من المرات. المكافأة: أطلق قذائف إضافية لكل مستوى من المهمة.",
-        "تنقسم قذيفة قدرتك المختارة إلى اثنتين عند الإصابة أو عند أقصى مدى أو عند إعادة الاستخدام. الأهداف الإضافية المصابة: يتلقى الأعداء ضررًا أقل إذا أصابتهم التعويذة نفسها.",
-        "إلحاق ضرر القدرات يطلق 3 قذائف على كل عدو مصاب، تلحق كل منها ما يصل إلى 1% من الصحة القصوى ضررًا حقيقيًا بحسب المسافة المقطوعة."
+        "يمكن لتأثيرات عتادك وتأثيرات الضرر بمرور الوقت أن تسدد ضربة حرجة بضرر إضافي 145%. تحصل على 25% فرصة ضربة حرجة.",
+        "يمكنك الدفاع الحرج باستخدام فرصة ضربتك الحرجة (بحد أقصى 50%)، ما يمنحك فرصة لتقليل الضرر المتلقى بنسبة 20%. تحصل على 25% فرصة ضربة حرجة.",
+        "تضيف قدراتك حرقًا متراكمًا يُلحق ضررًا بمرور الوقت. تأثيرات الحرق لديك تقلل فترات تهدئة قدراتك الأساسية.",
+        "تحرق هجماتك الأعداء أيضًا، فتلحق ضررًا سحريًا يعادل 0.4% من أقصى صحتهم كل ثانية لمدة 5 ثوانٍ. يتراكم هذا الحرق بلا حدود."
       ]
     },
     "cs": {
-      "title": "Krtčí dělostřelectvo",
-      "why": "Všichni používají Rek'Saiino Zahrabání k tomu, aby se prokopali k cíli a kousli, ale zahrabaná se její Q mění v dalekonosný výbuch země, který zraní a odhalí zasažené nepřátele, a většina hráčů ho používá jen na otravování před vstupem do boje. Zkušený odstřelovač vrací 80 % přebíjení, když zasáhneš z více než 600 jednotek, takže Q je skoro pořád připravené, což rychle splní úkol Vícenásobného výstřelu (zasahuj šampiony schopností) za další střely, a Rozdělení kouzla rozdělí každou z nich na dvě při zásahu nebo na maximální vzdálenosti. Čarovná střela vypálí na každého zasaženého nepřítele tři další střely se skutečným poškozením, které jsou tím silnější, čím dál letí, takže salva přes celou linku prší na celý tým. Soustředěný horizont krmí stejnou smyčku tím, že odhalí každého šampiona zasaženého z 600 a víc i nepřátele kolem něj, a Rabadonův smrtící klobouk, Stínový plamen, Nával bouře a Ludenova ozvěna nabírají sílu schopností, takže z bojovnice nablízko je AP dělostřelecká mágyně, která se nikdy nevynoří.",
-      "play": "Zahrab se brzy a zůstaň dole, postav se na maximální vzdálenost a pal Q do všeho, co vidíš. Vynoř se jen kvůli vyhození útočníka do vzduchu, pak se zase zahrab a dál ostřeluj.",
+      "title": "Krit se stává",
+      "why": "Skarnerova pasivka je většinou vedlejší věc: jeho útoky, balvan i ultimátka přidávají Otřesy a při maximu Otřesů utrpí cíl v průběhu času magické poškození podle maximálního zdraví, tedy efekt poškození v čase. Zranitelnost umožňuje efektům poškození v čase a efektům předmětů kriticky zasáhnout za 145 % poškození navíc a dává mu 25% šanci na kritický zásah, a Kritická odolnost přidává dalších 25 %, takže ta samá šance na krit mu dává i šanci snížit každý přijatý zásah o 20 %: tank, který nikdy nekrituje, najednou chce krit pro útok i obranu. Pekelné spojení zařídí, že každá schopnost přidá kumulativní hoření, které také krituje a zkracuje přebíjení jeho základních schopností, takže hází víc balvanů a otřesů, aby znovu nasbíral Otřesy, a Ohnivý cejch přidává nekonečně kumulativní hoření na tři posílené útoky z jeho Q. Liandryho utrpení, Záštita slunečního žáru, Dutá záře, Trnobrnění a Srdcová ocel jsou poškození z předmětů, takže jejich hoření, Spalování, trny i nabitý úder kritují se stejnou 50% šancí. Ze štíra se stane chodící táborák šance na krit, jehož tankovské předměty jsou jeho poškozením.",
+      "play": "Postav full tanka, vlez do nepřátelského týmu a prostě sbírej Otřesy: tři útoky z Q, hoď balvan, otřes, ultimátku na nejbližšího. Nekrituješ ty, kritují tvoje hoření.",
       "augments": [
-        "Odstřelení nepřítele schopností, která není superschopnost, vrátí 80% přebíjení (65% u periodických schopností). Odstřelení: zasažení nepřátel na vzdálenost přes 600 jednotek.",
-        "ÚKOL: Zasáhni nepřátelské šampiony zvolenou schopností určitý počet krát. ODMĚNA: Za každou úroveň úkolu vystřelíš další střely.",
-        "Střela zvolené schopnosti se při zásahu, na maximální vzdálenosti nebo při opětovném použití rozdělí na dvě. Další zasažené cíle: nepřátelé utrpí menší poškození, pokud je zasáhne totéž kouzlo.",
-        "Způsobení poškození schopností vystřelí 3 střely na každého zasaženého nepřítele, z nichž každá způsobí až 1 % max. zdraví jako skutečné poškození podle uražené vzdálenosti."
+        "Tvé efekty předmětů a poškození v čase mohou kriticky zasáhnout a způsobit 145 % poškození navíc. Získáš 25% šanci na kritický zásah.",
+        "Díky šanci na kritický zásah se můžeš kriticky bránit (max. 50% šance), což ti dá šanci snížit přijaté poškození o 20 %. Získáš 25 % šance na kritický zásah.",
+        "Tvé schopnosti přidávají kumulativní hoření, které způsobuje poškození v čase. Tvé efekty hoření zkracují přebíjení tvých základních schopností.",
+        "Tvé útoky navíc zapalují nepřátele a způsobují jim magické poškození ve výši 0,4 % maximálního zdraví za sekundu po dobu 5 sekund. Toto hoření se kumuluje donekonečna."
       ]
     },
     "de": {
-      "title": "Maulwurf-Artillerie",
-      "why": "Alle nutzen Rek'Sais Eingraben, um sich heranzutunneln und zuzubeißen, aber eingegraben wird ihr Q zu einem weitreichenden Erdstoß, der getroffene Gegner verletzt und aufdeckt, und die meisten benutzen ihn nur zum Anstupsen vor dem Dive. Geschickter Scharfschütze erstattet 80 % der Abklingzeit, wenn er aus über 600 Reichweite trifft, also ist das Q fast immer bereit, was die Quest von Mehrfachschuss (Champions mit der Fähigkeit treffen) für zusätzliche Geschosse durchrasen lässt, und Zauberteilung spaltet jedes dieser Geschosse beim Treffer oder auf maximaler Reichweite in zwei. Magisches Geschoss feuert drei weitere Geschosse mit absolutem Schaden auf jeden getroffenen Gegner, die stärker werden, je weiter sie fliegen, also regnet eine Salve quer über die Lane aufs ganze Team. Horizontfokus füttert dieselbe Schleife, indem es jeden Champion aufdeckt, den du aus 600 oder mehr Reichweite triffst, samt Gegnern in der Nähe, und Rabadons Todeshaube, Schattenflamme, Sturmblitz und Ludens Echo stapeln Fähigkeitsstärke, sodass aus dem Nahkampf-Diver ein AP-Artilleriemagier wird, der nie wieder auftaucht.",
-      "play": "Grab dich früh ein und bleib unten, parke auf maximaler Reichweite und feuere dein Q auf alles, was du siehst. Tauch nur auf, um einen Diver hochzuschleudern, dann grab dich wieder ein und beschieß weiter.",
+      "title": "Krit passiert",
+      "why": "Skarners Passiv ist meist Nebensache: Seine Angriffe, sein Felsbrocken und seine Ultimate stapeln Beben, und bei maximalen Steigerungen erleidet das Ziel über Zeit magischen Schaden abhängig vom maximalen Leben, also ein Schaden-über-Zeit-Effekt. Verwundbarkeit lässt Schaden-über-Zeit- und Gegenstandseffekte kritisch treffen für 145 % zusätzlichen Schaden und gibt ihm 25 % kritische Trefferchance, und Tank es oder lass es legt weitere 25 % drauf, sodass dieselbe Krit-Chance auch bei jedem Treffer gegen ihn eine Chance auf 20 % Schadensverringerung würfelt: Ein Tank, der nie crittet, will plötzlich Krit für Angriff und Verteidigung. Infernalische Verbindung lässt jede Fähigkeit einen stapelbaren Brand verursachen, der ebenfalls crittet und seine Grundfähigkeiten-Abklingzeiten verringert, also wirft er mehr Felsbrocken und Beben, um Beben neu zu stapeln, während Feuerbrand einen unendlich stapelbaren Brand auf die drei verstärkten Angriffe seines Q legt. Liandrys Qual, Sonnenfeuer-Ägide, Hohler Glanz, Dornenpanzer und Herzstahl sind alles Gegenstandsschaden, also critten ihre Brände, Feuersbrunst-Ticks, Dornen und der aufgeladene Schlag mit denselben 50 %. Der Skorpion wird zum wandelnden Krit-Lagerfeuer, dessen Tank-Gegenstände sein Schaden sind.",
+      "play": "Bau full Tank, lauf ins gegnerische Team und stapel einfach weiter: drei Q-Angriffe, Felsbrocken werfen, Beben, Ultimate auf den Nächsten. Nicht du crittest, deine Brände tun es.",
       "augments": [
-        "Einen Gegner mit einer Nicht-Ultimate-Fähigkeit zu snipen erstattet 80% der Abklingzeit (65% bei periodischen Fähigkeiten). Snipen: Gegnern in über 600 Einheiten Entfernung Schaden zufügen.",
-        "QUEST: Triff gegnerische Champions mit der gewählten Fähigkeit oft genug. BELOHNUNG: Feuere pro Queststufe zusätzliche Geschosse ab.",
-        "Das Geschoss deiner gewählten Fähigkeit teilt sich beim Treffer, auf maximaler Reichweite oder bei Reaktivierung in zwei. Zusätzlich getroffene Ziele: Gegner erleiden weniger Schaden, wenn sie vom selben Zauber getroffen werden.",
-        "Fähigkeitsschaden feuert 3 Geschosse auf jeden getroffenen Gegner, die je bis zu 1 % des maximalen Lebens als absoluten Schaden verursachen, abhängig von der zurückgelegten Strecke."
+        "Deine Gegenstands- und Schaden-über-Zeit-Effekte können kritisch treffen und verursachen dabei 145 % zusätzlichen Schaden. Erhalte 25 % kritische Trefferchance.",
+        "Du kannst mit deiner kritischen Trefferchance kritisch verteidigen (max. 50 % Chance), wodurch du eine Chance hast, erlittenen Schaden um 20 % zu verringern. Erhalte 25 % kritische Trefferchance.",
+        "Deine Fähigkeiten verursachen einen stapelbaren Brand, der Schaden über Zeit verursacht. Deine Brandeffekte verringern die Abklingzeiten deiner Grundfähigkeiten.",
+        "Deine Angriffe verbrennen Gegner zusätzlich und verursachen 5 Sek. lang pro Sekunde magischen Schaden in Höhe von 0,4 % ihres maximalen Lebens. Dieser Brand ist unendlich stapelbar."
       ]
     },
     "el": {
-      "title": "Πυροβολικό Τυφλοπόντικα",
-      "why": "Όλοι χρησιμοποιούν το Θάψιμο της Ρεκ'Σάι για να σκάψουν ως τον στόχο και να δαγκώσουν, αλλά θαμμένη το Q της γίνεται μια έκρηξη χώματος μεγάλης εμβέλειας που τραυματίζει και αποκαλύπτει τους εχθρούς που χτυπά, και οι περισσότεροι το χρησιμοποιούν μόνο για τσίμπημα πριν μπουν. Ο Ικανός Ελεύθερος Σκοπευτής επιστρέφει το 80% της αναμονής όταν χτυπάς από πάνω από 600, οπότε το Q είναι σχεδόν πάντα έτοιμο, κάτι που ολοκληρώνει γρήγορα την αποστολή της Πολλαπλής Βολής (χτύπα πρωταθλητές με την ικανότητα) για επιπλέον βλήματα, και η Διάσπαση Ικανότητας χωρίζει καθένα από αυτά στα δύο στο χτύπημα ή στη μέγιστη εμβέλεια. Το Μαγικό Βλήμα ρίχνει άλλα τρία βλήματα καθαρής ζημιάς σε κάθε εχθρό που χτυπιέται, πιο δυνατά όσο πιο μακριά ταξιδεύουν, οπότε μια ομοβροντία από την άλλη άκρη της λωρίδας πέφτει σε όλη την ομάδα. Η Συγκέντρωση στον Ορίζοντα τροφοδοτεί τον ίδιο κύκλο αποκαλύπτοντας κάθε πρωταθλητή που χτυπάς από 600 ή περισσότερο και τους εχθρούς γύρω του, και το Καπέλο του Ράμπαντον, η Φλόγα της Σκιάς, το Ξέσπασμα Καταιγίδας και ο Απόηχος του Λούντεν στοιβάζουν Δύναμη Ικανοτήτων, οπότε η μαχήτρια σώμα με σώμα γίνεται μάγισσα πυροβολικού AP που δεν βγαίνει ποτέ στην επιφάνεια.",
-      "play": "Θάψου νωρίς και μείνε από κάτω, στάσου στη μέγιστη εμβέλεια και ρίχνε Q σε ό,τι βλέπεις. Βγες μόνο για να πετάξεις στον αέρα όποιον βουτήξει πάνω σου, μετά θάψου ξανά και συνέχισε τον βομβαρδισμό.",
+      "title": "Τα καίρια συμβαίνουν",
+      "why": "Η παθητική ικανότητα του Σκάρνερ συνήθως περνάει απαρατήρητη: οι επιθέσεις του, ο βράχος και η υπέρτατη ικανότητά του προσθέτουν φορτία Σεισμού, και στα μέγιστα φορτία ο στόχος δέχεται με τον χρόνο μαγική ζημιά βάσει της μέγιστης Ζωής του, δηλαδή ένα εφέ ζημιάς με τον χρόνο. Το Τρωτό Σημείο επιτρέπει στα εφέ ζημιάς με τον χρόνο και στα εφέ αντικειμένων να κάνουν καίρια χτυπήματα για 145% επιπλέον ζημιά και του δίνει 25% πιθανότητα καίριου, και η Καίρια Υπεράσπιση προσθέτει άλλο 25%, οπότε η ίδια πιθανότητα καίριου του δίνει και πιθανότητα να μειώσει κατά 20% κάθε χτύπημα που δέχεται: ένα τανκ που δεν κάνει ποτέ καίρια ξαφνικά θέλει καίρια για επίθεση και άμυνα. Ο Καταχθόνιος Αγωγός κάνει κάθε ικανότητα να προκαλεί αθροιστικό Κάψιμο που κάνει κι αυτό καίρια και μειώνει τους χρόνους επαναφόρτισης των βασικών του ικανοτήτων, οπότε ρίχνει περισσότερους βράχους και σεισμούς για να ξαναφορτώσει τον Σεισμό, ενώ το Πυροσφράγισμα προσθέτει ένα απεριόριστα αθροιστικό Κάψιμο στις τρεις ενισχυμένες επιθέσεις του Q. Το Μαρτύριο της Λιάντρι, η Αιγίδα του Ήλιου, η Κενή Λαμπρότητα, η Αγκαθωράκιση και ο Ατσαλόκαρδος είναι όλα ζημιά αντικειμένων, οπότε τα καψίματα, η Πυρπόληση, τα αγκάθια και το φορτισμένο χτύπημά τους κάνουν καίρια με το ίδιο 50%. Ο σκορπιός γίνεται μια περπατητή φωτιά πιθανότητας καίριου, που τα αντικείμενα τανκ του είναι η ζημιά του.",
+      "play": "Φτιάξε full τανκ, μπες στην αντίπαλη ομάδα και απλώς συνέχισε να φορτώνεις: τρεις επιθέσεις με Q, πέτα τον βράχο, σεισμός, υπέρτατη στον πιο κοντινό. Δεν κάνεις εσύ καίρια, τα καψίματά σου κάνουν.",
       "augments": [
-        "Η ελεύθερη σκόπευση σε εχθρό με ικανότητα που δεν είναι η Υπέρτατη επιστρέφει 80% του χρόνου επαναφόρτισης (65% για περιοδικές ικανότητες). Ελεύθερη σκόπευση: ζημιά σε εχθρούς σε απόσταση πάνω από 600.",
-        "ΑΠΟΣΤΟΛΗ: Χτύπα εχθρικούς πρωταθλητές με την επιλεγμένη ικανότητα ορισμένες φορές. ΑΝΤΑΜΟΙΒΗ: Ρίχνεις επιπλέον βλήματα ανά επίπεδο αποστολής.",
-        "Το βλήμα της επιλεγμένης ικανότητάς σου χωρίζεται στα δύο στο χτύπημα, στη μέγιστη εμβέλεια ή όταν ενεργοποιείται ξανά. Επιπλέον στόχοι: οι εχθροί δέχονται λιγότερη ζημιά αν τους χτυπήσει η ίδια ικανότητα.",
-        "Η πρόκληση ζημιάς με ικανότητες ρίχνει 3 βλήματα σε κάθε εχθρό που χτυπιέται, καθένα από τα οποία προκαλεί έως 1% της μέγιστης Ζωής ως καθαρή ζημιά ανάλογα με την απόσταση που διένυσε."
+        "Τα εφέ των αντικειμένων σας και τα εφέ ζημιάς με τον χρόνο μπορούν να κάνουν Καίριο Χτύπημα για 145% επιπλέον ζημιά. Κερδίζετε 25% Πιθανότητα Καίριου.",
+        "Μπορείς να κάνεις Καίρια Άμυνα με την Πιθανότητα Καίριου Χτυπήματος (έως 50%), με πιθανότητα να μειώσεις τη ζημιά που δέχεσαι κατά 20%. Κερδίζεις 25% Πιθανότητα Καίριου Χτυπήματος.",
+        "Οι Ικανότητές σας προκαλούν αθροιστικό Κάψιμο που προκαλεί ζημιά με τον χρόνο. Τα εφέ Καψίματός σας μειώνουν τους Χρόνους Επαναφόρτισης των βασικών Ικανοτήτων σας.",
+        "Οι Επιθέσεις σας καίνε επίσης τους εχθρούς, προκαλώντας μαγική ζημιά ίση με το 0,4% της μέγιστης Ζωής τους ανά δευτερόλεπτο για 5 δευτερόλεπτα. Αυτό το Κάψιμο αθροίζεται απεριόριστα."
       ]
     },
     "es-MX": {
-      "title": "Artillería topo",
-      "why": "Todos usan Excavar de Rek'Sai para meterse bajo tierra y morder, pero excavada su Q se vuelve una ráfaga de tierra de largo alcance que daña y revela a los enemigos alcanzados, y casi todos la usan solo para picar antes de entrar. Francotirador Experto reembolsa el 80 % del enfriamiento cuando acierta desde más de 600 de distancia, así que la Q está casi siempre lista, lo que completa rapidísimo la misión de Multidisparo (golpear campeones con la habilidad) para sacar proyectiles extra, y Hechizo Dividido parte cada uno de esos proyectiles en dos al impactar o a alcance máximo. Misil Mágico dispara tres proyectiles más de daño verdadero a cada enemigo alcanzado, más fuertes entre más lejos viajan, así que una andanada desde el otro lado de la línea le llueve a todo el equipo. Enfoque al Horizonte alimenta el mismo ciclo revelando a cada campeón que golpeas desde 600 o más y a los enemigos cercanos, y Sombrero Mortífero de Rabadon, Lumbría, Descarga Tormentosa y Eco de Luden apilan poder de habilidad, así que la luchadora cuerpo a cuerpo se vuelve una maga de artillería AP que nunca sale a respirar.",
-      "play": "Excava temprano y quédate abajo, ponte a alcance máximo y dispara la Q a todo lo que veas. Sal solo para lanzar por los aires a quien se te tire encima, vuelve a excavar y sigue bombardeando.",
+      "title": "Los críticos pasan",
+      "why": "La pasiva de Skarner casi siempre pasa desapercibida: sus ataques, su roca y su definitiva acumulan Temblor, y con el máximo de acumulaciones el objetivo recibe daño mágico con el tiempo según su vida máxima, o sea, un efecto de daño con el tiempo. Vulnerabilidad permite que los efectos de daño con el tiempo y de objetos asesten golpes críticos con 145% de daño adicional y le da 25% de probabilidad de crítico, y Tanque o ¿Tan Qué? agrega otro 25%, así que esa misma probabilidad de crítico también le da chance de reducir 20% cada golpe que recibe: un tanque que nunca hace críticos de repente quiere crítico para atacar y para defender. Conducto Infernal hace que cada habilidad aplique una quemadura acumulable que también es crítica y reduce sus enfriamientos básicos, así que lanza más rocas y sacudidas para volver a acumular Temblor, mientras Espada de Fuego pone una quemadura que se acumula sin límite en los tres ataques potenciados de su Q. El Tormento de Liandry, Égida de Fuego Solar, Resplandor Vacío, Cota de Espinas y Corazón de Acero son daño de objetos, así que sus quemaduras, su Inmolación, sus espinas y su golpe cargado hacen crítico con ese mismo 50%. El escorpión se vuelve una fogata andante de críticos cuyos objetos de tanque son su daño.",
+      "play": "Ármate full tanque, métete al equipo enemigo y no pares de acumular: tres ataques de Q, avienta la roca, sacude, definitiva al más cercano. Tú no haces críticos, tus quemaduras sí.",
       "augments": [
-        "Hacerle de francotirador a un enemigo con una habilidad que no sea la definitiva reembolsa 80% del enfriamiento (65% en habilidades periódicas). Francotirador: infligir daño a enemigos a más de 600 de distancia.",
-        "MISIÓN: golpea campeones enemigos con la habilidad elegida cierto número de veces. RECOMPENSA: dispara proyectiles adicionales por nivel de misión.",
-        "El proyectil de la habilidad elegida se divide en dos al impactar, a alcance máximo o al reactivarla. Objetivos adicionales alcanzados: los enemigos reciben menos daño si los golpea el mismo hechizo.",
-        "Infligir daño de habilidad dispara 3 proyectiles a cada enemigo alcanzado, cada uno con hasta un 1 % de la vida máxima como daño verdadero según la distancia recorrida."
+        "Tus efectos de objetos y de daño con el tiempo pueden asestar golpes críticos e infligir 145% de daño adicional. Obtienes 25% de probabilidad de crítico.",
+        "Puedes hacer una Defensa Crítica usando tu Probabilidad de Crítico (máximo 50%), lo que te da una probabilidad de reducir el daño recibido en 20%. Obtienes 25% de Probabilidad de Crítico.",
+        "Tus habilidades aplican una quemadura acumulable que inflige daño con el tiempo. Tus efectos de quemadura reducen los enfriamientos de tus habilidades básicas.",
+        "Tus ataques también queman a los enemigos e infligen daño mágico equivalente al 0.4% de su vida máxima por segundo durante 5 s. Esta quemadura se acumula sin límite."
       ]
     },
     "es": {
-      "title": "Artillería topo",
-      "why": "Todo el mundo usa Excavar de Rek'Sai para meterse bajo tierra y morder, pero excavada su Q se convierte en una ráfaga de tierra de largo alcance que daña y revela a los enemigos alcanzados, y casi todos la usan solo para hostigar antes de entrar. Francotirador habilidoso reembolsa el 80 % del enfriamiento cuando acierta desde más de 600 de distancia, así que la Q está casi siempre lista, lo que completa volando la misión de Disparo múltiple (golpear campeones con la habilidad) para ganar proyectiles extra, y División de hechizos parte cada uno de esos proyectiles en dos al impactar o a alcance máximo. Misil mágico dispara tres proyectiles más de daño verdadero a cada enemigo alcanzado, más fuertes cuanto más lejos viajan, así que una andanada desde la otra punta de la línea llueve sobre todo el equipo. Precisión infalible alimenta el mismo bucle revelando a cada campeón que golpeas desde 600 o más y a los enemigos cercanos, y Sombrero mortal de Rabadon, Llamasombría, Sobrecarga tormentosa y Eco de Luden acumulan poder de habilidad, así que la luchadora cuerpo a cuerpo se vuelve una maga de artillería AP que nunca sale a respirar.",
-      "play": "Excava pronto y quédate bajo tierra, colócate a alcance máximo y dispara la Q a todo lo que veas. Sal solo para lanzar por los aires a quien se tire encima, vuelve a excavar y sigue bombardeando.",
+      "title": "Los críticos pasan",
+      "why": "La pasiva de Skarner suele pasar desapercibida: sus ataques, su roca y su definitiva acumulan Temblor, y con el máximo de acumulaciones el objetivo sufre daño mágico con el tiempo según su vida máxima, o sea, un efecto de daño con el tiempo. Vulnerabilidad permite que los efectos de daño con el tiempo y de objetos sean críticos con un 145 % de daño adicional y le da un 25 % de probabilidad de crítico, y Tanques y mazmorras añade otro 25 %, así que esa misma probabilidad de crítico también le da una opción de reducir un 20 % cada golpe que recibe: un tanque que nunca hace críticos de repente quiere crítico para atacar y para defender. Conducto infernal hace que cada habilidad aplique una quemadura acumulable que también es crítica y reduce sus enfriamientos básicos, así que lanza más rocas y sacudidas para volver a acumular Temblor, mientras Quemazón añade una quemadura que se acumula sin límite a los tres ataques potenciados de su Q. Tormento de Liandry, Égida de fuego solar, Fulgor vano, Malla de espinas y Corazón de acero son daño de objetos, así que sus quemaduras, su Inmolación, sus espinas y su golpe cargado hacen crítico con ese mismo 50 %. El escorpión se convierte en una hoguera andante de críticos cuyos objetos de tanque son su daño.",
+      "play": "Vete full tanque, métete en el equipo enemigo y no pares de acumular: tres ataques de Q, lanza la roca, sacude, definitiva al más cercano. Tú no haces críticos, tus quemaduras sí.",
       "augments": [
-        "Hacer de francotirador sobre un enemigo con una habilidad que no sea la definitiva reembolsa un 80% del enfriamiento (65% en habilidades periódicas). Francotirador: infligir daño a enemigos a más de 600 de distancia.",
-        "MISIÓN: golpea campeones enemigos con la habilidad elegida cierto número de veces. RECOMPENSA: dispara proyectiles adicionales por nivel de misión.",
-        "El proyectil de la habilidad elegida se divide en dos al impactar, a alcance máximo o al reactivarla. Objetivos adicionales alcanzados: los enemigos reciben menos daño si los golpea el mismo hechizo.",
-        "Infligir daño de habilidad dispara 3 proyectiles a cada enemigo alcanzado, cada uno con hasta un 1 % de la vida máxima como daño verdadero según la distancia recorrida."
+        "Tus efectos de objetos y de daño con el tiempo pueden ser críticos e infligir un 145 % de daño adicional. Obtienes un 25 % de probabilidad de crítico.",
+        "Puedes defenderte críticamente usando tu probabilidad de crítico (máx. 50 % de probabilidad), lo que te da una probabilidad de reducir el daño recibido un 20 %. Obtienes un 25 % de probabilidad de crítico.",
+        "Tus habilidades aplican una quemadura acumulable que inflige daño con el tiempo. Tus efectos de quemadura reducen los enfriamientos de tus habilidades básicas.",
+        "Tus ataques también queman a los enemigos e infligen daño mágico equivalente al 0,4 % de su vida máxima por segundo durante 5 s. Esta quemadura se acumula sin límite."
       ]
     },
     "fr": {
-      "title": "Artillerie taupe",
-      "why": "Tout le monde utilise Fouissement de Rek'Sai pour creuser jusqu'à sa cible et mordre, mais sous terre son Q devient une salve de terre à longue portée qui blesse et révèle les ennemis touchés, et la plupart des joueurs s'en servent juste pour harceler avant d'engager. Sniper rembourse 80 % du délai de récupération quand il touche à plus de 600 de portée, donc le Q est presque toujours prêt, ce qui boucle vite la quête de Multiples coups (toucher des champions avec la compétence) pour des projectiles en plus, et Division magique coupe chacun de ces projectiles en deux à l'impact ou à portée max. Projectiles magiques tire trois projectiles de dégâts bruts en plus sur chaque ennemi touché, plus forts selon la distance parcourue, donc une salve tirée de l'autre bout de la lane pleut sur toute l'équipe. Concentration lointaine nourrit la même boucle en révélant chaque champion touché à 600 de portée ou plus et les ennemis autour, et Coiffe de Rabadon, Flamme-ombre, Onde orageuse et Écho de Luden empilent la puissance, donc la plongeuse au corps à corps devient une mage d'artillerie AP qui ne remonte jamais respirer.",
-      "play": "Enterrez-vous tôt et restez sous terre, postez-vous à portée max et balancez votre Q sur tout ce qui bouge. Ne sortez que pour projeter un plongeur en l'air, puis recreusez et continuez à pilonner.",
+      "title": "Le crit arrive",
+      "why": "Le passif de Skarner est presque anecdotique : ses attaques, son rocher et son ultime appliquent des cumuls de Tremblement, et au maximum de cumuls la cible subit des dégâts magiques sur la durée basés sur ses PV max, donc un effet de dégâts sur la durée. Vulnérabilité permet aux effets de dégâts sur la durée et aux effets d'objets de faire des coups critiques à 145 % de dégâts supplémentaires et lui donne 25 % de chances de coup critique, et Défenses critiques ajoute encore 25 %, si bien que ces mêmes chances de critique lui donnent aussi une chance de réduire de 20 % chaque coup reçu : un tank qui ne crit jamais veut soudain du critique pour attaquer et pour défendre. Conduit infernal fait appliquer à chaque compétence une brûlure cumulable qui crit elle aussi et réduit ses délais de récupération de base, donc il lance plus de rochers et de séismes pour recumuler le Tremblement, pendant que Brasier ajoute une brûlure cumulable à l'infini sur les trois attaques renforcées de son Q. Tourment de Liandry, Égide solaire, Rayonnement du vide, Cotte épineuse et Cœuracier sont tous des dégâts d'objets, donc leurs brûlures, leur Immolation, leurs épines et leur frappe chargée critent avec ces mêmes 50 %. Le scorpion devient un brasier ambulant à chances de critique dont les objets de tank sont les dégâts.",
+      "play": "Full tank, fonce dans l'équipe adverse et cumule sans arrêt : trois attaques de Q, le rocher, le séisme, l'ultime sur le plus proche. Ce n'est pas toi qui crits, ce sont tes brûlures.",
       "augments": [
-        "Sniper un ennemi avec une compétence autre que l'ultime rembourse 80% de son délai de récupération (65% pour les compétences périodiques). Sniper : infliger des dégâts à un ennemi à plus de 600 unités de distance.",
-        "QUÊTE : touchez des champions ennemis avec la compétence choisie un certain nombre de fois. RÉCOMPENSE : tirez des projectiles supplémentaires par niveau de quête.",
-        "Le projectile de la compétence choisie se divise en deux à l'impact, à portée maximale ou à la réactivation. Cibles supplémentaires touchées : les ennemis subissent moins de dégâts s'ils sont touchés par le même sort.",
-        "Infliger des dégâts de compétence tire 3 projectiles sur chaque ennemi touché, chacun infligeant jusqu'à 1 % des PV max en dégâts bruts selon la distance parcourue."
+        "Vos effets d'objets et de dégâts sur la durée peuvent faire des coups critiques infligeant 145 % de dégâts supplémentaires. Vous gagnez 25 % de chances de coup critique.",
+        "Vous pouvez faire une défense critique grâce à vos chances de coup critique (50 % de chances max), ce qui vous donne une chance de réduire les dégâts subis de 20 %. Vous gagnez 25 % de chances de coup critique.",
+        "Vos compétences appliquent une brûlure cumulable qui inflige des dégâts sur la durée. Vos effets de brûlure réduisent les délais de récupération de vos compétences de base.",
+        "Vos attaques brûlent également les ennemis, infligeant des dégâts magiques à hauteur de 0,4 % de leurs PV max par seconde pendant 5 sec. Cette brûlure se cumule à l'infini."
       ]
     },
     "hu": {
-      "title": "Vakondtüzérség",
-      "why": "Mindenki arra használja Rek'Sai Beásását, hogy odaássa magát és harapjon, pedig beásva a Q-ja egy nagy hatótávú földrobbanássá válik, ami sebzi és felfedi az eltalált ellenfeleket, és a legtöbben csak piszkálásra használják a beugrás előtt. A Képzett mesterlövész a visszatöltési idő 80%-át visszaadja, ha 600 egységnél messzebbről találsz, így a Q szinte mindig kész, ami gyorsan teljesíti a Többlövetű küldetését (találj el hősöket a képességgel) plusz lövedékekért, a Varázslatmegosztás pedig mindegyiket kettéosztja találatkor vagy maximális távolságon. A Varázslövedék minden eltalált ellenfélre három további tiszta sebzésű lövedéket lő, amik annál erősebbek, minél messzebbre repülnek, így a sáv túlsó végéről indított sortűz az egész csapatra zúdul. A Horizont ugyanezt a kört táplálja: felfed minden hőst, akit 600 vagy több távolságról találsz el, és a körülöttük lévő ellenfeleket is, a Rabadon halálsüvege, az Árnyékláng, a Viharhullám és a Luden visszhangja pedig képességerőt halmoz, így a közelharci harcosból AP tüzérmágus lesz, aki soha nem jön fel levegőért.",
-      "play": "Áss be korán és maradj lent, állj maximális távolságra és lődd a Q-t mindenre, amit látsz. Csak akkor bukkanj fel, ha fel kell dobnod egy rád ugró ellenfelet, aztán áss vissza és lőj tovább.",
+      "title": "A krit megesik",
+      "why": "Skarner passzív képessége általában mellékes: a támadásai, a sziklája és a végső képessége Rengés-töltéseket raknak fel, és maximális töltésnél a célpont idővel a maximális életereje alapján mágikus sebzést szenved, vagyis ez egy idővel sebző hatás. A Sebezhetőség lehetővé teszi, hogy az idővel sebző és a tárgyhatások kritikusan sebezzenek 145% extra sebzéssel, és 25% kritikus esélyt ad neki, a Tank így is, úgy is pedig hozzáad még 25%-ot, így ugyanez a kritikus esély minden őt érő találatnál esélyt ad 20% sebzéscsökkentésre: egy tank, aki sosem kritel, hirtelen támadáshoz és védekezéshez is kritet akar. A Pokoli csatorna miatt minden képessége halmozódó égést okoz, ami szintén kritel és csökkenti az alapképességei töltési idejét, így több sziklát és rengést dob, hogy újra felrakja a Rengést, a Lázító pedig végtelenül halmozódó égést rak a Q három felerősített támadására. A Liandry gyötrelme, a Naptűz égisz, a Tompa ragyogás, a Tüskevért és az Acélos szív mind tárgysebzés, így égéseik, Égetésük, tüskéik és a feltöltött csapás ugyanazzal az 50%-kal kritelnek. A skorpióból egy két lábon járó kritikus esély-máglya lesz, akinek a tank tárgyai adják a sebzését.",
+      "play": "Építs full tankot, rohanj be az ellenséges csapatba, és csak halmozz: három Q-támadás, szikla, rengés, végső a legközelebbire. Nem te kritelsz, hanem az égéseid.",
       "augments": [
-        "Ha egy ellenfelet nem végső képességgel lősz le messziről, a töltési idő 80%-a visszatérül (időszakos képességeknél 65%). Messzi lövés: 600 egységnél távolabbi ellenfelek sebzése.",
-        "KÜLDETÉS: Találd el az ellenséges hősöket a választott képességgel adott számú alkalommal. JUTALOM: Küldetésszintenként további lövedékeket lősz ki.",
-        "A választott képességed lövedéke kettéválik találatkor, maximális hatótávon vagy újraaktiváláskor. További eltalált célpontok: az ellenfelek kevesebb sebzést szenvednek, ha ugyanaz a varázslat találja el őket.",
-        "A képességsebzés minden eltalált ellenfélre 3 lövedéket lő ki, mindegyik a megtett távolság alapján legfeljebb a maximális életerő 1%-ának megfelelő tiszta sebzést okoz."
+        "A tárgyhatásaid és az idővel sebző hatásaid kritikusan sebezhetnek, 145% extra sebzést okozva. 25% kritikus esélyt kapsz.",
+        "A kritikus esélyeddel kritikusan védekezhetsz (legfeljebb 50% esély), ami esélyt ad arra, hogy 20%-kal csökkentsd a kapott sebzést. 25% kritikus esélyt kapsz.",
+        "A képességeid halmozódó égést okoznak, ami idővel sebez. Az égéshatásaid csökkentik az alapképességeid töltési idejét.",
+        "A támadásaid az ellenfeleket is meggyújtják, 5 mp-en át másodpercenként a maximális életerejük 0,4%-ának megfelelő mágikus sebzést okozva. Ez az égés végtelenül halmozódik."
       ]
     },
     "id": {
-      "title": "Artileri Tikus Tanah",
-      "why": "Semua orang pakai Burrow Rek'Sai buat menggali ke target lalu menggigit, tapi saat burrowed Q-nya berubah jadi ledakan tanah jarak jauh yang memberi damage dan me-reveal musuh yang kena, dan kebanyakan pemain cuma pakai itu buat poke sebelum dive. Skilled Sniper mengembalikan 80% cooldown tiap kali kena dari jarak lebih dari 600, jadi Q hampir selalu siap, yang bikin quest Multishot (kenai champion pakai ability) cepat selesai demi missile tambahan, dan Spell Split membelah tiap missile itu jadi dua saat kena atau di range maksimal. Magic Missile menembakkan tiga missile true damage lagi ke setiap musuh yang kena, makin kuat makin jauh terbangnya, jadi satu tembakan dari ujung lane lain menghujani seluruh tim. Horizon Focus mengisi loop yang sama dengan me-reveal tiap champion yang kamu kenai dari 600 atau lebih plus musuh di sekitarnya, dan Rabadon's Deathcap, Shadowflame, Stormsurge serta Luden's Echo menumpuk Ability Power, jadi diver melee berubah jadi mage artileri AP yang nggak pernah naik ke permukaan.",
-      "play": "Burrow lebih awal dan tetap di bawah tanah, diam di range maksimal dan tembak Q ke apa pun yang terlihat. Keluar cuma buat knock up diver, lalu gali lagi dan terus bombardir.",
+      "title": "Crit Happens",
+      "why": "Pasif Skarner biasanya dianggap sepele: serangan, batu, dan ultimanya menumpuk Quaking, dan saat tumpukan penuh target menerima magic damage seiring waktu berdasarkan max Health, alias efek damage over time. Vulnerability membuat efek damage over time dan efek item bisa Critical Strike dengan 145% damage tambahan dan memberinya 25% crit chance, lalu Tank It Or Leave It menambah 25% lagi, jadi crit chance yang sama juga memberinya peluang mengurangi 20% damage setiap kali kena pukul: tank yang tidak pernah crit tiba-tiba butuh crit untuk menyerang sekaligus bertahan. Infernal Conduit membuat setiap ability memberi Burn bertumpuk yang juga bisa crit dan mengurangi cooldown basic ability, jadi dia melempar lebih banyak batu dan quake untuk menumpuk Quaking lagi, sementara Firebrand menambah Burn yang bertumpuk tanpa batas ke tiga serangan yang diperkuat Q-nya. Liandry's Torment, Sunfire Aegis, Hollow Radiance, Thornmail, dan Heartsteel semuanya item damage, jadi Burn, Immolate, duri, dan serangan charge-nya crit dengan 50% yang sama. Si kalajengking jadi api unggun crit chance berjalan yang item tank-nya adalah damage-nya.",
+      "play": "Build full tank, masuk ke tim musuh dan terus tumpuk: tiga serangan Q, lempar batu, quake, ulti ke yang paling dekat. Bukan kamu yang crit, Burn-mu yang crit.",
       "augments": [
-        "Snipe musuh dengan Ability non-Ultimate mengembalikan 80% Cooldown (65% untuk Ability periodik). Snipe: memberi damage ke musuh yang berjarak lebih dari 600.",
-        "QUEST: Kenai champion musuh dengan ability pilihan sebanyak jumlah tertentu. REWARD: Tembakkan missile tambahan per Quest Level.",
-        "Missile ability pilihanmu terbelah jadi dua saat kena, di range maksimal, atau saat di-recast. Target tambahan yang kena: musuh menerima damage lebih kecil jika terkena spell yang sama.",
-        "Memberi damage ability menembakkan 3 missile ke setiap musuh yang kena, masing-masing memberi hingga 1% Health maksimal sebagai true damage berdasarkan jarak tempuh."
+        "Efek Item dan damage over time milikmu bisa Critical Strike dan memberikan 145% damage tambahan. Dapatkan 25% Crit Chance.",
+        "Kamu bisa Critical Defend memakai Crit Chance-mu (maks. 50% peluang), memberi peluang mengurangi damage yang diterima sebesar 20%. Dapatkan 25% Crit Chance.",
+        "Ability-mu memberikan Burn bertumpuk yang memberikan damage seiring waktu. Efek Burn-mu mengurangi Cooldown basic Ability.",
+        "Serangan juga membakar musuh, memberikan magic damage sebesar 0,4% max Health per detik selama 5 detik. Burn ini bertumpuk tanpa batas."
       ]
     },
     "it": {
-      "title": "Artiglieria talpa",
-      "why": "Tutti usano Scavare di Rek'Sai per infilarsi sottoterra e mordere, ma da scavata la sua Q diventa una raffica di terra a lungo raggio che danneggia e rivela i nemici colpiti, e quasi tutti la usano solo per punzecchiare prima di ingaggiare. Abile cecchino rimborsa l'80% della ricarica quando colpisce da oltre 600 di distanza, quindi la Q è quasi sempre pronta, e così la missione di Colpo multiplo (colpire campioni con l'abilità) vola via per ottenere proiettili extra, mentre Incantesimo scisso divide ognuno di quei proiettili in due all'impatto o a gittata massima. Proiettile magico spara altri tre proiettili di danni puri su ogni nemico colpito, più forti quanto più lontano viaggiano, quindi una salva dall'altra parte della corsia piove su tutta la squadra. Concentrazione dell'orizzonte alimenta lo stesso ciclo rivelando ogni campione colpito da 600 o più e i nemici vicini, e Copricapo di Rabadon, Ombrofiamma, Apice della tempesta ed Eco di Luden accumulano potere magico, così la tuffatrice in mischia diventa una maga artigliera AP che non torna mai in superficie.",
-      "play": "Scava presto e resta sotto, piazzati a gittata massima e spara la Q su tutto quello che vedi. Esci solo per lanciare in aria chi ti si tuffa addosso, poi riscava e continua a bombardare.",
+      "title": "Il critico capita",
+      "why": "La passiva di Skarner passa quasi sempre in secondo piano: i suoi attacchi, il masso e la suprema applicano cariche di Sisma, e al massimo delle cariche il bersaglio subisce danni magici nel tempo in base alla salute massima, cioè un effetto di danni nel tempo. Vulnerabilità permette agli effetti di danni nel tempo e degli oggetti di mettere a segno colpi critici con il 145% di danni aggiuntivi e gli dà il 25% di probabilità di critico, e Difendere o lasciare aggiunge un altro 25%, quindi la stessa probabilità di critico gli dà anche la possibilità di ridurre del 20% ogni colpo subito: un tank che non critta mai all'improvviso vuole il critico sia per attaccare sia per difendersi. Tramite infernale fa applicare a ogni abilità un'ustione cumulabile che critta anch'essa e riduce le ricariche delle abilità base, così lancia più massi e scosse per ricaricare Sisma, mentre Tizzone aggiunge un'ustione cumulabile all'infinito ai tre attacchi potenziati della sua Q. Tormento di Liandry, Egida del Sole, Luce vana, Corazza spinata e Cuore d'acciaio sono tutti danni da oggetto, quindi le loro ustioni, Immolazione, spine e colpo caricato crittano con lo stesso 50%. Lo scorpione diventa un falò ambulante di critici i cui oggetti da tank sono i suoi danni.",
+      "play": "Full tank, buttati nella squadra nemica e continua ad accumulare: tre attacchi di Q, lancia il masso, la scossa, suprema sul più vicino. Non sei tu a crittare, sono le tue ustioni.",
       "augments": [
-        "Colpire da cecchino un nemico con un'abilità non suprema rimborsa l'80% della ricarica (65% per le abilità periodiche). Cecchino: infliggere danni a nemici a più di 600 unità di distanza.",
-        "MISSIONE: colpisci campioni nemici con l'abilità scelta un certo numero di volte. RICOMPENSA: spari proiettili aggiuntivi per livello della missione.",
-        "Il proiettile dell'abilità scelta si divide in due all'impatto, a gittata massima o alla riattivazione. Bersagli aggiuntivi colpiti: i nemici subiscono meno danni se colpiti dallo stesso incantesimo.",
-        "Infliggere danni da abilità spara 3 proiettili su ogni nemico colpito, ognuno dei quali infligge fino all'1% della salute massima in danni puri in base alla distanza percorsa."
+        "I tuoi effetti degli oggetti e di danni nel tempo possono mettere a segno colpi critici infliggendo il 145% di danni aggiuntivi. Ottieni il 25% di probabilità di colpo critico.",
+        "Puoi effettuare una Difesa critica usando la tua probabilità di critico (massimo 50%), con la possibilità di ridurre i danni subiti del 20%. Ottieni il 25% di probabilità di critico.",
+        "Le tue abilità applicano un'ustione cumulabile che infligge danni nel tempo. I tuoi effetti di ustione riducono le ricariche delle tue abilità base.",
+        "I tuoi attacchi bruciano anche i nemici, infliggendo danni magici pari allo 0,4% della loro salute massima al secondo per 5 secondi. Questa ustione è cumulabile all'infinito."
       ]
     },
     "ja": {
-      "title": "モグラ砲兵",
-      "why": "みんなレク＝サイの潜行は掘り進んで噛みつくために使うけど、潜っている間のQは敵に当たるとダメージを与えて可視化する長射程の土の弾になり、ほとんどの人は突っ込む前の削りにしか使っていない。腕利きスナイパーは600より遠くから当てるとクールダウンの80%を返してくれるのでQはほぼ常に撃てて、マルチショットのクエスト（アビリティでチャンピオンに当てる）をあっという間に達成して追加ミサイルを獲得し、スペルスプリットがそのミサイルを命中時か最大射程で2つに分裂させる。マジックミサイルは当たった敵ごとに確定ダメージのミサイルをさらに3発撃ち、遠くまで飛ぶほど強くなるので、レーンの反対側から撃った一斉射撃が敵チーム全体に降り注ぐ。ホライゾン フォーカスは600以上の距離から当てたチャンピオンと周りの敵を可視化して同じループを支え、ラバドン デスキャップ、シャドウフレイム、ストームサージ、ルーデン エコーで魔力を積むので、近接ダイバーが二度と地上に出てこないAP砲撃メイジに変わる。",
-      "play": "早めに潜って地中にとどまり、最大射程に陣取って見えるものすべてにQを撃とう。飛び込んでくる相手を打ち上げるときだけ地上に出て、また潜って砲撃を続けよう。",
+      "title": "クリティカルは起きるもの",
+      "why": "スカーナーのパッシブはたいてい おまけ扱い：通常攻撃、岩、アルティメットが「震動」のスタックを付与し、最大スタックで対象は最大体力に応じた魔法ダメージを時間をかけて受ける。つまり継続ダメージ効果だ。「搦め手」はアイテム効果と継続ダメージ効果にクリティカルを発生させ（145%の追加ダメージ）、クリティカル率25%もくれる。「タンクこそ至高」でさらに25%、同じクリティカル率で被ダメージ20%軽減の判定も入るので、クリティカルと無縁のタンクが攻撃にも防御にもクリティカルを欲しがることになる。「獄炎路」は全スキルにスタックする燃焼を付与し、その燃焼もクリティカルするうえ通常スキルのクールダウンを短縮するので、岩と震動をもっと投げて「震動」を積み直せる。「火付け役」はQで強化される3回の通常攻撃に無限にスタックする燃焼を乗せる。ライアンドリーの仮面、サンファイア イージス、ホロウ レディアンス、ソーンメイル、心の鋼はすべてアイテムダメージなので、燃焼も焼却も反射ダメージもチャージ攻撃も同じ50%でクリティカルする。サソリはタンクアイテムがそのまま火力になる、歩くクリティカル焚き火になる。",
+      "play": "フルタンクで敵チームに突っ込んで、ひたすらスタック：Qで3回殴り、岩を投げ、震動、一番近い敵にアルティメット。クリティカルを出すのは君じゃない、燃焼だ。",
       "augments": [
-        "アルティメット以外のスキルで敵を狙撃すると、クールダウンが80%解消される(周期的なスキルは65%)。狙撃:600より遠い敵にダメージを与えること。",
-        "クエスト: 選んだアビリティで敵チャンピオンに規定回数当てる。報酬: クエストレベルごとに追加のミサイルを発射する。",
-        "選んだアビリティのミサイルが命中時、最大射程到達時、または再発動時に2つに分裂する。追加で当たった対象: 同じスキルに当たった敵が受けるダメージは低下する。",
-        "アビリティでダメージを与えると、当たった敵1体ごとにミサイルを3発発射し、それぞれが飛んだ距離に応じて最大で最大体力の1%の確定ダメージを与える。"
+        "アイテム効果と継続ダメージ効果がクリティカルになり、145%の追加ダメージを与えるようになる。クリティカル率+25%。",
+        "クリティカル率を使ってクリティカル防御が発生するようになり(最大50%)、受けるダメージを20%軽減する確率を得る。クリティカル率+25%。",
+        "スキルがスタックする燃焼を付与し、継続ダメージを与える。燃焼効果が通常スキルのクールダウンを短縮する。",
+        "通常攻撃が敵を燃焼させ、5秒かけて毎秒最大体力の0.4%の魔法ダメージを与える。この燃焼は無限にスタックする。"
       ]
     },
     "ko": {
-      "title": "두더지 포병",
-      "why": "다들 렉사이의 땅굴 파기를 파고들어서 무는 데 쓰지만, 땅속에 있을 때 Q는 맞은 적에게 피해를 주고 위치를 드러내는 사거리 긴 흙 폭발로 바뀌고, 대부분은 들어가기 전에 견제용으로만 써요. 노련한 저격수는 600보다 먼 거리에서 맞히면 재사용 대기시간의 80%를 돌려줘서 Q가 거의 항상 준비돼 있고, 덕분에 다중 공격 퀘스트(스킬로 챔피언 맞히기)를 순식간에 깨서 추가 미사일을 받고, 주문 분산이 그 미사일을 적중 시나 최대 사거리에서 둘로 쪼개요. 마법 미사일은 맞은 적마다 고정 피해 미사일을 세 발 더 쏘고, 멀리 날아갈수록 세지니까 라인 반대편에서 쏜 일제 사격이 적 팀 전체에 쏟아져요. 지평선의 초점은 600 이상 거리에서 맞힌 챔피언과 그 주변 적을 드러내며 같은 고리를 받쳐 주고, 라바돈의 죽음모자, 그림자불꽃, 폭풍 쇄도, 루덴의 메아리로 주문력을 쌓으니 근접 돌진형 챔피언이 절대 땅 위로 안 나오는 AP 포격 마법사가 돼요.",
-      "play": "일찍 땅굴을 파고 계속 땅속에 있으면서 최대 사거리에 자리 잡고 보이는 건 다 Q로 쏘세요. 달려드는 적을 띄울 때만 튀어나오고, 다시 파고들어서 계속 포격하세요.",
+      "title": "치명타는 터지기 마련",
+      "why": "스카너의 기본 지속 효과는 보통 신경도 안 쓰는 부분이다. 기본 공격, 바위, 궁극기가 '진동' 중첩을 쌓고, 최대 중첩이 되면 대상은 최대 체력 비례 마법 피해를 지속적으로 입는다. 즉 지속 피해 효과다. 취약은 지속 피해와 아이템 효과가 145% 추가 피해로 치명타를 낼 수 있게 하고 치명타 확률 25%를 주며, 확률적 방어가 25%를 더해서 같은 치명타 확률로 맞을 때마다 받는 피해 20% 감소 판정까지 굴린다. 치명타와는 평생 인연이 없던 탱커가 갑자기 공격과 방어 모두를 위해 치명타를 원하게 된다. 지옥의 전도체는 모든 스킬에 중첩되는 화상을 부여하는데, 이 화상도 치명타가 터지고 기본 스킬 재사용 대기시간을 줄여 주니 바위와 진동을 더 자주 던져 '진동'을 다시 쌓는다. 화염 낙인은 Q로 강화된 기본 공격 세 번에 무한히 중첩되는 화상을 얹는다. 리안드리의 고통, 태양불꽃 방패, 공허한 광휘, 가시 갑옷, 강철심장은 전부 아이템 피해라서 화상, 제물 피해, 가시, 충전된 공격이 모두 같은 50%로 치명타가 터진다. 전갈은 탱커 아이템이 곧 딜이 되는 걸어 다니는 치명타 모닥불이 된다.",
+      "play": "풀탱 가고 적 팀 한가운데로 들어가서 계속 중첩만 쌓자. Q로 세 번 때리고, 바위 던지고, 진동, 가장 가까운 적에게 궁. 치명타는 네가 아니라 화상이 터뜨린다.",
       "augments": [
-        "궁극기가 아닌 스킬로 적을 저격하면 재사용 대기시간이 80% 돌아옵니다(주기적인 스킬은 65%). 저격: 600 거리보다 먼 적에게 피해를 입히는 것.",
-        "퀘스트: 선택한 스킬로 적 챔피언을 정해진 횟수만큼 맞히세요. 보상: 퀘스트 레벨마다 미사일을 추가로 발사합니다.",
-        "선택한 스킬의 투사체가 적중 시, 최대 사거리에서, 또는 재사용 시 둘로 갈라집니다. 추가로 맞은 대상: 같은 스킬에 맞은 적은 피해를 덜 받습니다.",
-        "스킬 피해를 입히면 맞은 적마다 미사일 3발을 발사하며, 각각 날아간 거리에 따라 최대 체력의 최대 1%만큼 고정 피해를 입힙니다."
+        "아이템 효과와 지속 피해 효과가 치명타를 입힐 수 있으며 145%의 추가 피해를 입힙니다. 치명타 확률이 25% 증가합니다.",
+        "치명타 확률로 치명적 방어가 가능해져(최대 50% 확률), 받는 피해를 20% 줄일 확률을 얻습니다. 치명타 확률이 25% 증가합니다.",
+        "스킬이 중첩되는 화상을 적용해 지속 피해를 입힙니다. 화상 효과가 기본 스킬 재사용 대기시간을 감소시킵니다.",
+        "기본 공격 시 적을 불태워 5초 동안 매초 최대 체력의 0.4%에 해당하는 마법 피해를 입힙니다. 이 화상은 무한히 중첩됩니다."
       ]
     },
     "pl": {
-      "title": "Kretowa artyleria",
-      "why": "Wszyscy używają Zakopania Rek'Sai, żeby przekopać się do celu i ugryźć, ale pod ziemią jej Q zmienia się w dalekosiężny wybuch ziemi, który rani i odsłania trafionych wrogów, a większość graczy używa go tylko do podgryzania przed wejściem. Doświadczony Snajper zwraca 80% czasu odnowienia, gdy trafisz z ponad 600 jednostek, więc Q jest prawie zawsze gotowe, co błyskawicznie zalicza zadanie Wielostrzału (trafiaj bohaterów umiejętnością) po dodatkowe pociski, a Podział Zaklęcia dzieli każdy z nich na dwa przy trafieniu lub na maksymalnym zasięgu. Magiczny Pocisk wystrzeliwuje trzy kolejne pociski z obrażeniami nieuchronnymi w każdego trafionego wroga, tym mocniejsze, im dalej lecą, więc salwa z drugiego końca alei spada na całą drużynę. Skupienie Horyzontalne napędza tę samą pętlę, odsłaniając każdego bohatera trafionego z 600 jednostek lub więcej i wrogów wokół niego, a Zabójczy Kapelusz Rabadona, Płomień Cienia, Przepływ Burzy i Echo Luden dokładają moc umiejętności, więc wojowniczka do zwarcia staje się artyleryjską magiczką AP, która nigdy nie wychodzi na powierzchnię.",
-      "play": "Zakop się wcześnie i zostań pod ziemią, stań na maksymalnym zasięgu i strzelaj Q we wszystko, co widzisz. Wyjdź tylko po to, żeby podrzucić nurkującego wroga, potem zakop się znowu i ostrzeliwuj dalej.",
+      "title": "Kryt się zdarza",
+      "why": "Bierna umiejętność Skarnera to zwykle szczegół: jego ataki, głaz i superumiejętność nakładają ładunki Wstrząsu, a przy maksymalnej liczbie ładunków cel otrzymuje z czasem obrażenia magiczne zależne od maksymalnego zdrowia, czyli efekt obrażeń w czasie. Wrażliwość pozwala efektom obrażeń w czasie i efektom przedmiotów trafiać krytycznie za 145% dodatkowych obrażeń i daje mu 25% szansy na trafienie krytyczne, a Obrona albo Nic dorzuca kolejne 25%, więc ta sama szansa na krytyka daje mu też szansę na zmniejszenie o 20% każdego otrzymanego ciosu: tank, który nigdy nie kryci, nagle chce krytyka i do ataku, i do obrony. Piekielny Przewodnik sprawia, że każda umiejętność nakłada kumulujące się podpalenie, które też kryci i skraca czasy odnowienia podstawowych umiejętności, więc rzuca więcej głazów i wstrząsów, żeby znów nałożyć Wstrząs, a Znamię Ognia dokłada nieskończenie kumulujące się podpalenie do trzech wzmocnionych ataków z Q. Udręka Liandry'ego, Słoneczna Egida, Głucha Poświata, Kolczasta Kolczuga i Stalowe Serce to obrażenia od przedmiotów, więc ich podpalenia, Pożoga, kolce i naładowany cios krycą z tą samą szansą 50%. Skorpion staje się chodzącym ogniskiem szansy na krytyka, którego przedmioty na tanka są jego obrażeniami.",
+      "play": "Buduj full tanka, wbiegnij w drużynę wroga i po prostu nakładaj ładunki: trzy ataki z Q, rzut głazem, wstrząs, superumiejętność w najbliższego. To nie ty krycisz, tylko twoje podpalenia.",
       "augments": [
-        "Snajperskie trafienie wroga umiejętnością inną niż superumiejętność zwraca 80% czasu odnowienia (65% dla umiejętności okresowych). Snajperskie trafienie: zadanie obrażeń wrogowi z odległości ponad 600 jednostek.",
-        "ZADANIE: Traf wrogich bohaterów wybraną umiejętnością określoną liczbę razy. NAGRODA: Wystrzeliwuj dodatkowe pociski za każdy poziom zadania.",
-        "Pocisk wybranej umiejętności dzieli się na dwa przy trafieniu, na maksymalnym zasięgu lub przy ponownym użyciu. Dodatkowo trafione cele: wrogowie otrzymują mniej obrażeń, jeśli trafi ich to samo zaklęcie.",
-        "Zadawanie obrażeń umiejętnościami wystrzeliwuje 3 pociski w każdego trafionego wroga, z których każdy zadaje do 1% maks. zdrowia jako obrażenia nieuchronne zależnie od przebytego dystansu."
+        "Efekty twoich przedmiotów i obrażeń w czasie mogą trafiać krytycznie, zadając 145% dodatkowych obrażeń. Zyskujesz 25% szansy na trafienie krytyczne.",
+        "Możesz krytycznie się bronić dzięki szansie na trafienie krytyczne (maks. 50% szansy), co daje szansę na zmniejszenie otrzymywanych obrażeń o 20%. Zyskujesz 25% szansy na trafienie krytyczne.",
+        "Twoje umiejętności nakładają kumulujące się podpalenie, które zadaje obrażenia w czasie. Twoje efekty podpalenia skracają czasy odnowienia podstawowych umiejętności.",
+        "Twoje ataki dodatkowo podpalają wrogów, zadając co sekundę przez 5 sek. obrażenia magiczne równe 0,4% ich maksymalnego zdrowia. To podpalenie kumuluje się w nieskończoność."
       ]
     },
     "pt-BR": {
-      "title": "Artilharia Toupeira",
-      "why": "Todo mundo usa o Escavar da Rek'Sai pra cavar até o alvo e morder, mas enterrada a Q dela vira uma rajada de terra de longo alcance que causa dano e revela os inimigos atingidos, e quase todo mundo só usa isso pra cutucar antes de entrar. Fuzileiro de Elite devolve 80% do tempo de recarga quando acerta de mais de 600 de distância, então a Q fica quase sempre disponível, o que voa pela missão de Disparos Múltiplos (acertar campeões com a habilidade) pra ganhar projéteis extras, e Feitiço Dividido parte cada um desses projéteis em dois ao acertar ou no alcance máximo. Projétil Mágico dispara mais três projéteis de dano verdadeiro em cada inimigo atingido, mais fortes quanto mais longe viajam, então uma saraivada do outro lado da rota chove no time inteiro. Foco do Horizonte alimenta o mesmo ciclo revelando cada campeão que você acerta de 600 ou mais e os inimigos ao redor, e Capuz da Morte de Rabadon, Chama Sombria, Ápice da Tempestade e Eco de Luden empilham Poder de Habilidade, então a lutadora corpo a corpo vira uma maga de artilharia AP que nunca sobe pra respirar.",
-      "play": "Enterre-se cedo e fique lá embaixo, pare no alcance máximo e dispare a Q em tudo que aparecer. Só saia pra arremessar quem mergulhar em você, depois cave de novo e continue bombardeando.",
+      "title": "Crítico acontece",
+      "why": "A passiva do Skarner quase sempre passa batida: os ataques, a pedra e a ultimate dele acumulam Tremor, e com o máximo de acúmulos o alvo sofre dano mágico ao longo do tempo com base na Vida máxima, ou seja, um efeito de dano ao longo do tempo. Vulnerabilidade faz efeitos de dano ao longo do tempo e de itens darem acerto crítico com 145% de dano adicional e dá 25% de chance de acerto crítico, e Aguenta ou Vaza soma mais 25%, então essa mesma chance de crítico também dá uma chance de reduzir em 20% cada golpe que ele leva: um tanque que nunca crita de repente quer crítico pra atacar e pra defender. Condutor Infernal faz cada habilidade aplicar uma queimadura acumulável que também crita e reduz as recargas básicas dele, então ele joga mais pedras e tremores pra reacumular Tremor, enquanto Incendiário coloca uma queimadura que acumula infinitamente nos três ataques potencializados do Q. Tormento de Liandry, Égide de Fogo Solar, Resplendor Vazio, Armadura de Espinhos e Coração de Aço são todos dano de item, então as queimaduras, a Imolação, os espinhos e o golpe carregado deles critam com os mesmos 50%. O escorpião vira uma fogueira ambulante de chance de crítico cujos itens de tanque são o dano dele.",
+      "play": "Vai full tanque, entra no time inimigo e só continua acumulando: três ataques de Q, joga a pedra, tremor, ult no mais próximo. Não é você que crita, são suas queimaduras.",
       "augments": [
-        "Atingir de longe um inimigo com uma Habilidade que não seja a Suprema reembolsa 80% da recarga (65% para Habilidades periódicas). De longe: causar dano a inimigos a mais de 600 de distância.",
-        "MISSÃO: acerte campeões inimigos com a habilidade escolhida um certo número de vezes. RECOMPENSA: dispare projéteis adicionais por nível da missão.",
-        "O projétil da habilidade escolhida se divide em dois ao acertar, no alcance máximo ou ao ser reativado. Alvos adicionais atingidos: inimigos sofrem menos dano se atingidos pelo mesmo feitiço.",
-        "Causar dano de habilidade dispara 3 projéteis em cada inimigo atingido, cada um causando até 1% da Vida máxima como dano verdadeiro com base na distância percorrida."
+        "Seus efeitos de itens e de dano ao longo do tempo podem causar Acerto Crítico com 145% de dano adicional. Receba 25% de Chance de Acerto Crítico.",
+        "Você pode fazer uma Defesa Crítica usando sua Chance de Acerto Crítico (máximo de 50%), com chance de reduzir o dano recebido em 20%. Receba 25% de Chance de Acerto Crítico.",
+        "Suas Habilidades aplicam uma Queimadura acumulável que causa dano ao longo do tempo. Seus efeitos de Queimadura reduzem as Recargas das suas Habilidades básicas.",
+        "Seus Ataques também queimam inimigos, causando dano mágico igual a 0,4% da Vida máxima por segundo ao longo de 5 segundos. Essa Queimadura acumula infinitamente."
       ]
     },
     "ro": {
-      "title": "Artileria cârtiță",
-      "why": "Toată lumea folosește Îngroparea lui Rek'Sai ca să sape până la țintă și să muște, dar îngropată, Q-ul ei devine o explozie de pământ cu rază mare care rănește și dezvăluie inamicii loviți, iar majoritatea jucătorilor îl folosesc doar ca să ciupească înainte de atac. Lunetist expert returnează 80% din timpul de reîncărcare când lovești de la peste 600 de unități, deci Q-ul e aproape mereu gata, ceea ce termină rapid misiunea Ținte multiple (lovește campioni cu abilitatea) pentru proiectile în plus, iar Împărțirea vrăjii taie fiecare proiectil în două la impact sau la rază maximă. Proiectile magice trage încă trei proiectile cu daune absolute în fiecare inamic lovit, mai puternice cu cât zboară mai departe, așa că o salvă de la celălalt capăt al culoarului plouă peste toată echipa. Focalizarea orizontului hrănește aceeași buclă dezvăluind fiecare campion lovit de la 600 sau mai mult și inamicii din jur, iar Pălăria malefică a lui Rabadon, Flacăra întunericului, Furtună dezlănțuită și Ecoul lui Luden adună putere a abilităților, așa că luptătoarea corp la corp devine o magiciană de artilerie AP care nu mai iese niciodată la suprafață.",
-      "play": "Îngroapă-te devreme și stai jos, oprește-te la rază maximă și trage Q în tot ce vezi. Ieși doar ca să arunci în aer pe cine sare pe tine, apoi sapă din nou și bombardează mai departe.",
+      "title": "Criticele se întâmplă",
+      "why": "Pasiva lui Skarner e de obicei un detaliu: atacurile, bolovanul și ultimate-ul lui aplică cumuluri de Cutremur, iar la cumuluri maxime ținta primește daune magice în timp în funcție de viața maximă, deci un efect de daune în timp. Vulnerabilitate permite efectelor de daune în timp și efectelor obiectelor să dea lovituri critice cu 145% daune suplimentare și îi dă 25% șansă de lovitură critică, iar Un tanc la țanc mai adaugă 25%, așa că aceeași șansă de critic îi dă și o șansă să reducă cu 20% fiecare lovitură primită: un tanc care nu dă niciodată critic vrea brusc critic și pentru atac, și pentru apărare. Conduită infernală face ca fiecare abilitate să aplice o arsură cumulabilă care dă și ea critic și îi reduce timpii de reîncărcare de bază, așa că aruncă mai mulți bolovani și mai multe cutremure ca să recumuleze Cutremurul, în timp ce Foc și pară pune o arsură cumulabilă la infinit pe cele trei atacuri amplificate ale lui Q. Agonia Liandrei, Scut solar, Energie radiantă superficială, Armură cu spini și Inimă de oțel sunt toate daune de la obiecte, deci arsurile, Imolarea, spinii și lovitura încărcată dau critic cu aceeași șansă de 50%. Scorpionul devine un rug ambulant de critice ale cărui obiecte de tanc sunt daunele lui.",
+      "play": "Fă full tanc, intră în echipa inamică și cumulează întruna: trei atacuri cu Q, aruncă bolovanul, cutremurul, ultimate pe cel mai apropiat. Nu tu dai critic, arsurile tale dau.",
       "augments": [
-        "Lovirea de la distanță a unui inamic cu o abilitate care nu e supremă returnează 80% din timpul de reactivare (65% pentru abilitățile periodice). Lovire de la distanță: provocarea de daune inamicilor aflați la peste 600 de unități.",
-        "MISIUNE: Lovește campionii inamici cu abilitatea aleasă de un anumit număr de ori. RECOMPENSĂ: Lansezi proiectile suplimentare pentru fiecare nivel al misiunii.",
-        "Proiectilul abilității alese se împarte în două la impact, la rază maximă sau la reactivare. Ținte suplimentare lovite: inamicii primesc mai puține daune dacă sunt loviți de aceeași vrajă.",
-        "Provocarea de daune cu abilități lansează 3 proiectile spre fiecare inamic lovit, fiecare provocând până la 1% din viața maximă ca daune absolute în funcție de distanța parcursă."
+        "Efectele obiectelor tale și efectele de daune în timp pot da lovituri critice, provocând 145% daune suplimentare. Primești 25% șansă de lovitură critică.",
+        "Poți da o apărare critică folosind șansa de critic (maximum 50% șansă), ceea ce îți dă o șansă să reduci daunele primite cu 20%. Primești 25% șansă de critic.",
+        "Abilitățile tale aplică o arsură cumulabilă care provoacă daune în timp. Efectele tale de arsură reduc timpii de reîncărcare ai abilităților de bază.",
+        "Atacurile tale ard și ele inamicii, provocând daune magice egale cu 0,4% din viața maximă pe secundă timp de 5 secunde. Această arsură se cumulează la infinit."
       ]
     },
     "ru": {
-      "title": "Кротовья артиллерия",
-      "why": "Все используют Закапывание Рек'Сай, чтобы прокопаться к цели и укусить, но под землей ее Q превращается в дальнобойный выброс земли, который ранит и раскрывает задетых врагов, и большинство игроков пользуется им только для пока перед заходом. Опытный снайпер возвращает 80% перезарядки, когда попадаешь с расстояния больше 600, так что Q почти всегда готово, и задание Града снарядов (попадать умением по чемпионам) пролетает за дополнительные снаряды, а Разделяющееся умение делит каждый из них надвое при попадании или на максимальной дальности. Волшебные стрелы выпускают еще три снаряда с чистым уроном в каждого задетого врага, и чем дальше они летят, тем сильнее бьют, так что залп с другого конца линии накрывает всю команду. Хекстековый прицел подпитывает ту же петлю, раскрывая каждого чемпиона, по которому ты попал с 600 и дальше, и врагов рядом с ним, а Смертельная шляпа Рабадона, Сумрачное пламя, Штормовой прилив и Эхо Людена копят силу умений, так что ныряльщица ближнего боя становится AP-артиллеристкой, которая никогда не вылезает из-под земли.",
-      "play": "Закапывайся пораньше и сиди внизу, встань на максимальную дальность и стреляй Q во все, что видишь. Вылезай только чтобы подбросить ныряющего на тебя врага, потом закапывайся обратно и продолжай обстрел.",
+      "title": "Крит случается",
+      "why": "Пассивное умение Скарнера обычно никто не замечает: его автоатаки, валун и суперспособность накладывают заряды Сотрясения, а при максимуме зарядов цель получает магический урон со временем в зависимости от максимального запаса здоровья, то есть это эффект периодического урона. Уязвимость позволяет эффектам периодического урона и эффектам предметов наносить критический удар со 145% дополнительного урона и дает ему 25% шанса критического удара, а Непробиваемость добавляет еще 25%, так что тот же шанс крита дает ему еще и шанс снизить на 20% каждый полученный удар: танк, который никогда не критует, вдруг хочет крит и для атаки, и для защиты. Огнепровод заставляет каждое умение накладывать суммирующееся горение, которое тоже критует и сокращает перезарядку его базовых умений, так что он бросает больше валунов и сотрясений, чтобы снова набрать Сотрясение, а Тавро добавляет бесконечно суммирующееся горение к трем усиленным автоатакам от его Q. Мучения Лиандри, Эгида солнечного пламени, Сияние пустоты, Шипованный доспех и Сердце стали дают урон от предметов, поэтому их горение, Испепеление, шипы и заряженный удар критуют с тем же шансом 50%. Скорпион превращается в ходячий костер шанса крита, у которого танковые предметы и есть урон.",
+      "play": "Собирай полный танк, влетай в команду врага и просто накладывай заряды: три автоатаки с Q, валун, сотрясение, ульта по ближайшему. Критуешь не ты, а твое горение.",
       "augments": [
-        "Снайперское попадание по врагу умением, кроме суперспособности, возвращает 80% перезарядки (65% для периодических умений). Снайперское попадание — урон по врагам дальше 600 единиц.",
-        "ЗАДАНИЕ: попадите выбранным умением по вражеским чемпионам нужное число раз. НАГРАДА: выпускайте дополнительные снаряды за каждый уровень задания.",
-        "Снаряд выбранного умения делится надвое при попадании, на максимальной дальности или при повторном применении. Дополнительные цели: враги получают меньше урона, если их задевает то же умение.",
-        "Нанесение урона умениями выпускает 3 снаряда в каждого задетого врага, каждый из которых наносит до 1% от максимального запаса здоровья в виде чистого урона в зависимости от пройденного расстояния."
+        "Эффекты ваших предметов и периодического урона могут наносить критический удар с 145% дополнительного урона. Вы получаете 25% шанса критического удара.",
+        "Вы можете критически защищаться, используя свой шанс критического удара (не больше 50%): с этим шансом получаемый урон снижается на 20%. Вы получаете 25% шанса критического удара.",
+        "Ваши умения накладывают суммирующееся горение, которое наносит периодический урон. Ваши эффекты горения сокращают перезарядку базовых умений.",
+        "Ваши автоатаки также поджигают врагов, нанося магический урон в размере 0,4% от их максимального запаса здоровья в секунду в течение 5 сек. Это горение суммируется бесконечно."
       ]
     },
     "th": {
-      "title": "ทหารปืนใหญ่ตัวตุ่น",
-      "why": "ทุกคนใช้ Burrow ของ Rek'Sai เพื่อมุดเข้าไปกัด แต่ตอนมุดดิน Q ของเธอจะกลายเป็นการระเบิดดินระยะไกลที่สร้างดาเมจและเปิดตำแหน่งศัตรูที่โดน และคนส่วนใหญ่ใช้แค่ไว้ป็อกก่อนพุ่งเข้าไป Skilled Sniper คืนคูลดาวน์ 80% เมื่อยิงโดนจากระยะเกิน 600 ทำให้ Q แทบจะพร้อมตลอด ซึ่งทำภารกิจของ Multishot (ใช้สกิลยิงโดนแชมเปี้ยน) เสร็จไวเพื่อรับมิสไซล์เพิ่ม และ Spell Split ก็แยกมิสไซล์แต่ละลูกเป็นสองเมื่อโดนหรือถึงระยะสุดทาง Magic Missile ยิงมิสไซล์ดาเมจจริงเพิ่มอีกสามลูกใส่ศัตรูทุกตัวที่โดน ยิ่งบินไกลยิ่งแรง ชุดยิงจากอีกฝั่งเลนเลยถล่มใส่ทั้งทีม Horizon Focus ป้อนลูปเดียวกันด้วยการเปิดตำแหน่งแชมเปี้ยนทุกตัวที่โดนจากระยะ 600 ขึ้นไปและศัตรูรอบ ๆ ส่วน Rabadon's Deathcap, Shadowflame, Stormsurge และ Luden's Echo อัดพลังเวท ทำให้สายพุ่งระยะประชิดกลายเป็นเมจปืนใหญ่ AP ที่ไม่เคยโผล่ขึ้นมาเลย",
-      "play": "มุดดินตั้งแต่เนิ่น ๆ แล้วอยู่ใต้ดินไว้ ยืนที่ระยะสุดและยิง Q ใส่ทุกอย่างที่เห็น โผล่ขึ้นมาแค่ตอนจะกระแทกคนที่พุ่งเข้ามาให้ลอย แล้วมุดกลับลงไปยิงต่อ",
+      "title": "Crit Happens",
+      "why": "พาสซีฟของ Skarner มักถูกมองข้าม: การโจมตี ก้อนหิน และอัลติของเขาจะสะสม Quaking และเมื่อสะสมครบ เป้าหมายจะได้รับความเสียหายเวทตามพลังชีวิตสูงสุดต่อเนื่อง ซึ่งก็คือเอฟเฟกต์ความเสียหายต่อเนื่อง Vulnerability ทำให้เอฟเฟกต์ความเสียหายต่อเนื่องและเอฟเฟกต์ไอเทมติดคริได้ด้วยความเสียหายเพิ่ม 145% และให้โอกาสคริ 25% ส่วน Tank It Or Leave It เพิ่มอีก 25% โอกาสคริเดียวกันนั้นจึงยังทอยลดความเสียหาย 20% ทุกครั้งที่โดนตี: แทงก์ที่ไม่เคยคริเลยกลับอยากได้คริทั้งเพื่อบุกและเพื่อรับ Infernal Conduit ทำให้ทุกสกิลติด Burn แบบสะสมที่คริได้เหมือนกันและลดคูลดาวน์สกิลพื้นฐาน เขาจึงขว้างหินและกระทืบพื้นได้บ่อยขึ้นเพื่อสะสม Quaking ใหม่ ขณะที่ Firebrand เพิ่ม Burn ที่สะสมได้ไม่จำกัดให้การโจมตีเสริมพลังสามครั้งจาก Q ของเขา Liandry's Torment, Sunfire Aegis, Hollow Radiance, Thornmail และ Heartsteel ล้วนเป็นความเสียหายจากไอเทม Burn, Immolate, หนาม และการโจมตีชาร์จของมันจึงคริได้ด้วยโอกาส 50% เดียวกัน แมงป่องกลายเป็นกองไฟคริเดินได้ที่ไอเทมแทงก์คือดาเมจของเขา",
+      "play": "ออกแทงก์เต็ม พุ่งเข้าทีมศัตรูแล้วสะสมไปเรื่อย ๆ: ตีสามทีด้วย Q ขว้างหิน กระทืบพื้น อัลติใส่คนที่ใกล้ที่สุด ไม่ใช่คุณที่คริ แต่เป็น Burn ของคุณ",
       "augments": [
-        "การสไนป์ศัตรูด้วยสกิลที่ไม่ใช่อัลติเมตจะคืนคูลดาวน์ 80% (65% สำหรับสกิลแบบเป็นช่วงเวลา) สไนป์: ทำดาเมจใส่ศัตรูที่อยู่ไกลเกิน 600",
-        "ภารกิจ: ใช้สกิลที่เลือกยิงโดนแชมเปี้ยนศัตรูตามจำนวนครั้งที่กำหนด รางวัล: ยิงมิสไซล์เพิ่มตามเลเวลภารกิจ",
-        "มิสไซล์ของสกิลที่เลือกจะแยกเป็นสองเมื่อโดนเป้า เมื่อถึงระยะสุด หรือเมื่อกดใช้ซ้ำ เป้าหมายเพิ่มเติมที่โดน: ศัตรูจะรับดาเมจน้อยลงถ้าโดนสกิลเดียวกัน",
-        "การสร้างดาเมจจากสกิลจะยิงมิสไซล์ 3 ลูกใส่ศัตรูทุกตัวที่โดน แต่ละลูกสร้างดาเมจจริงสูงสุด 1% ของพลังชีวิตสูงสุดตามระยะทางที่บิน"
+        "เอฟเฟกต์ไอเทมและเอฟเฟกต์ความเสียหายต่อเนื่องของคุณติดคริติคอลได้ สร้างความเสียหายเพิ่ม 145% รับโอกาสคริติคอล 25%",
+        "คุณป้องกันแบบคริติคอลได้โดยใช้โอกาสคริติคอล (สูงสุด 50%) มีโอกาสลดความเสียหายที่ได้รับ 20% ได้รับโอกาสคริติคอล 25%",
+        "สกิลของคุณติด Burn แบบสะสมที่สร้างความเสียหายต่อเนื่อง เอฟเฟกต์ Burn ของคุณลดคูลดาวน์สกิลพื้นฐาน",
+        "การโจมตีของคุณเผาศัตรูด้วย สร้างความเสียหายเวท 0.4% ของพลังชีวิตสูงสุดต่อวินาทีเป็นเวลา 5 วินาที Burn นี้สะสมได้ไม่จำกัด"
       ]
     },
     "tr": {
-      "title": "Köstebek Topçusu",
-      "why": "Herkes Rek'Sai'nin Toprağa Gömülme'sini hedefe kadar kazıp ısırmak için kullanır, ama gömülüyken Q'su isabet ettiği rakiplere hasar veren ve onları açığa çıkaran uzun menzilli bir toprak patlamasına dönüşür ve çoğu oyuncu bunu sadece dalmadan önce dürtmek için kullanır. Yetenekli Keskin Nişancı, 600 birimden uzaktan isabet ettiğinde bekleme süresinin %80'ini iade eder, yani Q neredeyse hep hazırdır; bu da Çoklu Atış'ın görevini (yetenekle şampiyonlara isabet et) fazladan mermiler için hızla bitirir, Bölünen Büyü de bu mermilerin her birini isabette veya azami menzilde ikiye böler. Büyü Atışı, isabet edilen her rakibe ne kadar uzağa giderse o kadar güçlü olan üç tane daha gerçek hasarlı mermi yollar, yani koridorun öbür ucundan atılan bir yaylım bütün takımın üstüne yağar. Ufukgetiren aynı döngüyü besler: 600 veya daha uzaktan vurduğun her şampiyonu ve etrafındaki rakipleri açığa çıkarır; Rabadon'un Şapkası, Gölgealev, Yıldırım Asası ve Luden'in Feryadı da yetenek gücü yığar, böylece yakın dövüşçü bir dalıcı, yüzeye hiç çıkmayan bir AP topçu büyücüsüne dönüşür.",
-      "play": "Erkenden toprağa gömül ve aşağıda kal, azami menzile park et ve gördüğün her şeye Q at. Sadece üstüne dalan birini havaya savurmak için yüzeye çık, sonra tekrar gömül ve bombalamaya devam et.",
+      "title": "Kritik olur böyle",
+      "why": "Skarner'ın pasifi genelde önemsiz bir detaydır: saldırıları, kayası ve ultisi Sarsıntı yükü bırakır ve azami yükte hedef zamanla azami Can'ına bağlı büyü hasarı alır, yani bu bir zamana yayılan hasar etkisidir. Zafiyet, zamana yayılan hasar ve eşya etkilerinin %145 ilave hasarla kritik vurmasını sağlar ve ona %25 kritik vuruş ihtimali verir, Ya Tankla Ya Terk Et de %25 daha ekler, böylece aynı kritik ihtimali ona aldığı her darbede %20 hasar azaltma şansı da verir: hiç kritik vurmayan bir tank birden hem saldırı hem savunma için kritik ister. Alev Geçidi her yeteneğin birikebilen bir yanma uygulamasını sağlar, bu yanma da kritik vurur ve temel yetenek bekleme sürelerini azaltır, bu yüzden Sarsıntı'yı yeniden biriktirmek için daha çok kaya atar ve sarsıntı yapar, Yakıcı Damga da Q'sunun üç güçlendirilmiş saldırısına sonsuz birikebilen bir yanma ekler. Liandry'nin Eziyeti, Günateşi Kalkanı, Donuk Işıltı, Çivili Zırh ve Çelikyürek'in hepsi eşya hasarıdır, bu yüzden yanmaları, Kızgın Alev'i, dikenleri ve yüklü vuruşu aynı %50 ile kritik vurur. Akrep, tank eşyaları hasarı olan, yürüyen bir kritik ihtimali şenlik ateşine dönüşür.",
+      "play": "Full tank kas, rakip takımın içine dal ve yük biriktirmeye devam et: Q ile üç saldırı, kayayı at, sarsıntı, en yakındakine ulti. Kritik vuran sen değilsin, yanmaların.",
       "augments": [
-        "Bir rakibi Ulti dışı bir yetenekle uzaktan vurmak bekleme süresinin %80'ini iade eder (periyodik yeteneklerde %65). Uzaktan vurma: 600 birimden uzaktaki rakiplere hasar vermek.",
-        "GÖREV: Seçilen yetenekle rakip şampiyonlara belirli sayıda isabet et. ÖDÜL: Görev seviyesi başına ek mermiler fırlat.",
-        "Seçtiğin yeteneğin mermisi isabette, azami menzilde veya yeniden kullanıldığında ikiye bölünür. Ek hedefler: Aynı büyünün isabet ettiği rakipler daha az hasar alır.",
-        "Yetenek hasarı vermek, isabet edilen her rakibe 3 mermi fırlatır; her biri kat edilen mesafeye bağlı olarak azami canın %1'ine kadar gerçek hasar verir."
+        "Eşya ve zamana yayılan hasar etkilerin kritik vurarak %145 ilave hasar verebilir. %25 kritik vuruş ihtimali kazanırsın.",
+        "Kritik Vuruş İhtimalini kullanarak Kritik Savunma yapabilirsin (en fazla %50 ihtimal); bu sana aldığın hasarı %20 azaltma şansı verir. %25 Kritik Vuruş İhtimali kazanırsın.",
+        "Yeteneklerin zamana yayılan hasar veren, birikebilen bir yanma uygular. Yanma etkilerin temel yeteneklerinin bekleme sürelerini azaltır.",
+        "Saldırıların rakipleri de yakar ve 5 saniye boyunca saniyede azami Can'larının %0,4'ü kadar büyü hasarı verir. Bu yanma sonsuz kez birikebilir."
       ]
     },
     "vi": {
-      "title": "Pháo Binh Chuột Chũi",
-      "why": "Ai cũng dùng Độn Thổ của Rek'Sai để đào tới rồi cắn, nhưng khi độn thổ, Q của cô thành một cú phun đất tầm xa gây sát thương và làm lộ diện kẻ địch trúng chiêu, mà đa số người chơi chỉ dùng nó để cấu rỉa trước khi lao vào. Xạ Thủ Kỳ Cựu hoàn lại 80% thời gian hồi chiêu khi trúng từ xa hơn 600 đơn vị, nên Q gần như lúc nào cũng sẵn, giúp hoàn thành nhiệm vụ của Bắn Liên Hoàn (dùng kỹ năng trúng tướng) cực nhanh để có thêm tên lửa, và Phân Chia Kỹ Năng tách mỗi tên lửa làm đôi khi trúng hoặc ở tầm tối đa. Tên Lửa Ma Pháp bắn thêm ba tên lửa sát thương chuẩn vào mỗi kẻ địch trúng chiêu, bay càng xa càng mạnh, nên một loạt bắn từ đầu kia đường sẽ trút xuống cả đội. Kính Nhắm Ma Pháp nuôi cùng vòng lặp bằng cách làm lộ diện mỗi tướng bị bắn trúng từ 600 trở lên cùng kẻ địch xung quanh, còn Mũ Phù Thủy Rabadon, Ngọn Lửa Hắc Hóa, Quyền Trượng Bão Tố và Vọng Âm Luden chồng Sức Mạnh Phép Thuật, biến một đấu sĩ cận chiến thành pháp sư pháo binh AP không bao giờ chui lên.",
-      "play": "Độn thổ sớm và ở dưới đất, đứng ở tầm tối đa và bắn Q vào mọi thứ bạn thấy. Chỉ trồi lên để hất tung kẻ lao vào bạn, rồi đào xuống lại và tiếp tục nã pháo.",
+      "title": "Chí mạng thì cứ xảy ra",
+      "why": "Nội tại của Skarner thường bị bỏ qua: đòn đánh, tảng đá và chiêu cuối của hắn cộng dồn Chấn Động, và khi đầy cộng dồn mục tiêu nhận sát thương phép theo thời gian dựa trên Máu tối đa, tức là một hiệu ứng sát thương theo thời gian. Yếu Điểm cho hiệu ứng sát thương theo thời gian và hiệu ứng trang bị chí mạng với 145% sát thương cộng thêm và cho hắn 25% tỉ lệ chí mạng, còn Chiến Hoặc Chuồn thêm 25% nữa, nên cùng tỉ lệ chí mạng đó còn cho hắn cơ hội giảm 20% mỗi đòn phải nhận: một con tank chưa bao giờ chí mạng bỗng muốn chí mạng cho cả công lẫn thủ. Hỏa Ngục Dẫn Truyền khiến mọi kỹ năng gây thiêu đốt cộng dồn, cũng chí mạng được và giảm hồi chiêu kỹ năng cơ bản, nên hắn ném nhiều đá và dậm đất hơn để cộng dồn lại Chấn Động, còn Hỏa Tinh thêm thiêu đốt cộng dồn vô hạn lên ba đòn đánh được cường hóa từ Q. Mặt Nạ Đọa Đày Liandry, Khiên Thái Dương, Áo Choàng Hắc Quang, Giáp Gai và Trái Tim Khổng Thần đều là sát thương trang bị, nên thiêu đốt, Thiêu Rụi, phản sát thương và đòn đánh tích tụ của chúng đều chí mạng với cùng 50% đó. Con bọ cạp thành một đống lửa trại chí mạng biết đi, đồ tank chính là sát thương của hắn.",
+      "play": "Lên full tank, lao vào team địch và cứ cộng dồn: ba đòn đánh với Q, ném đá, dậm đất, chiêu cuối lên đứa gần nhất. Không phải bạn chí mạng, mà là thiêu đốt của bạn.",
       "augments": [
-        "Bắn tỉa kẻ địch bằng kỹ năng không phải chiêu cuối sẽ hoàn lại 80% thời gian hồi (65% với kỹ năng định kỳ). Bắn tỉa: gây sát thương lên kẻ địch ở khoảng cách hơn 600.",
-        "NHIỆM VỤ: Dùng kỹ năng đã chọn đánh trúng tướng địch đủ số lần. PHẦN THƯỞNG: Bắn thêm tên lửa theo mỗi cấp nhiệm vụ.",
-        "Tên lửa của kỹ năng đã chọn tách làm đôi khi trúng, ở tầm tối đa hoặc khi tái kích hoạt. Mục tiêu bị trúng thêm: Kẻ địch nhận ít sát thương hơn nếu bị trúng bởi cùng một phép.",
-        "Gây sát thương kỹ năng sẽ bắn 3 tên lửa vào mỗi kẻ địch bị trúng, mỗi tên lửa gây tối đa 1% Máu tối đa dưới dạng sát thương chuẩn dựa trên quãng đường bay."
+        "Hiệu ứng trang bị và hiệu ứng sát thương theo thời gian của bạn có thể chí mạng, gây thêm 145% sát thương. Nhận 25% tỉ lệ chí mạng.",
+        "Bạn có thể Phòng Thủ Chí Mạng dựa trên Tỉ Lệ Chí Mạng (tối đa 50%), có cơ hội giảm 20% sát thương nhận vào. Nhận 25% Tỉ Lệ Chí Mạng.",
+        "Kỹ năng của bạn gây thiêu đốt cộng dồn gây sát thương theo thời gian. Hiệu ứng thiêu đốt của bạn giảm hồi chiêu kỹ năng cơ bản.",
+        "Đòn đánh của bạn còn thiêu đốt kẻ địch, gây sát thương phép bằng 0,4% Máu tối đa mỗi giây trong 5 giây. Thiêu đốt này cộng dồn vô hạn."
       ]
     },
     "zh-CN": {
-      "title": "地鼠炮兵",
-      "why": "大家都用虚空遁地兽的遁地去钻过去咬人，但遁地时她的Q会变成一道远程的岩土冲击，对命中的敌人造成伤害并暴露其位置，大多数人只拿它在开团前消耗一下。老练狙神在600码外命中时返还80%冷却，所以Q几乎一直能放，于是多重射击的任务（用技能命中英雄）很快就做完，拿到额外飞弹，咒语裂变再让每一枚飞弹在命中时或最远距离分裂成两枚。魔法飞弹会对每个被命中的敌人再打出三枚真实伤害飞弹，飞得越远伤害越高，所以从线的另一头打出的一轮齐射会砸向整支敌队。视界专注喂的是同一个循环：在600码或更远处命中的每个英雄和他们身边的敌人都会被暴露，灭世者的死亡之帽、影焰、风暴狂涌和卢登的回声堆满法术强度，于是一个近战突进英雄变成了一个永远不出土的AP炮台法师。",
-      "play": "早点遁地并一直待在地下，站在最远距离对看得见的一切放Q。只有在要击飞冲过来的人时才出土，然后再钻回去继续轰。",
+      "title": "暴击总会发生",
+      "why": "上古领主的被动通常没人在意：他的普攻、巨石和大招会叠加“震荡”，叠满后目标会在持续时间内受到基于最大生命值的魔法伤害，也就是一个持续伤害效果。易损让持续伤害和装备效果能够暴击，造成145%额外伤害，还给他25%暴击几率；会心防御再加25%，于是同一份暴击几率还能在每次挨打时判定一次20%减伤：一个从不暴击的坦克突然为了进攻和防守都想要暴击。炼狱导管让每个技能都附带可叠加的灼烧，这个灼烧同样能暴击，还会缩短基础技能冷却，所以他能扔出更多巨石和震地来重新叠“震荡”；火上浇油则在Q强化的三次普攻上叠加可无限叠加的灼烧。兰德里的折磨、日炎圣盾、璀璨回响、荆棘之甲和心之钢都是装备伤害，所以它们的灼烧、献祭、反伤和蓄力重击都用同样的50%几率暴击。蝎子变成了一堆会走路的暴击篝火，坦克装就是他的输出。",
+      "play": "出满坦装，冲进敌方人堆里一直叠：Q打三下，扔巨石，震地，大招拉最近的人。暴击的不是你，是你的灼烧。",
       "augments": [
-        "用非终极技能狙击敌人会返还80%冷却时间（周期性技能为65%）。狙击：对600距离以外的敌人造成伤害。",
-        "任务：用选定的技能命中敌方英雄指定次数。奖励：每级任务额外发射飞弹。",
-        "你选定技能的飞弹在命中时、到达最远距离时或再次施放时分裂成两枚。额外命中的目标：被同一个技能命中的敌人受到的伤害降低。",
-        "造成技能伤害时会对每个被命中的敌人发射3枚飞弹，每枚根据飞行距离造成最多相当于最大生命值1%的真实伤害。"
+        "你的装备效果和持续伤害效果可以暴击，造成145%额外伤害。获得25%暴击几率。",
+        "你可以用暴击几率进行暴击防御（最高50%几率），有几率使受到的伤害降低20%。获得25%暴击几率。",
+        "你的技能会施加可叠加的灼烧，持续造成伤害。你的灼烧效果会减少你的基础技能冷却时间。",
+        "你的攻击还会灼烧敌人，在5秒内每秒造成相当于其0.4%最大生命值的魔法伤害。该灼烧可无限叠加。"
       ]
     },
     "zh-TW": {
-      "title": "地鼠砲兵",
-      "why": "大家都用雷珂煞的鑽地去鑽過去咬人，但鑽地時她的Q會變成一道遠程的岩土衝擊，對命中的敵人造成傷害並暴露位置，多數人只拿它在開戰前消耗一下。老練狙擊手在600距離外命中時返還80%冷卻，所以Q幾乎一直能放，多重射擊的任務（用技能命中英雄）很快就完成，拿到額外飛彈，法術逬裂再讓每一枚飛彈在命中時或最遠距離分裂成兩枚。魔法導彈會對每個被命中的敵人再射出三枚真實傷害飛彈，飛得越遠傷害越高，所以從路線另一頭打出的一輪齊射會砸向整支敵隊。視界專注餵的是同一個循環：在600或更遠處命中的每個英雄和他們身邊的敵人都會被暴露，死亡之帽、黯影之炎、雷霆風暴和盧登回音疊滿魔法攻擊，於是一個近戰突進英雄變成永遠不出土的AP砲台法師。",
-      "play": "早點鑽地並一直待在地下，站在最遠距離對看得到的一切放Q。只有要擊飛衝過來的人時才出土，然後再鑽回去繼續轟。",
+      "title": "爆擊總會發生",
+      "why": "史加納的被動通常沒人在意：他的普攻、巨石和大絕會疊加「震盪」，疊滿後目標會在持續時間內受到基於最大生命的魔法傷害，也就是一個持續傷害效果。見縫插針讓持續傷害和裝備效果可以爆擊，造成145%額外傷害，還給他25%爆擊機率；毫髮無傷再加25%，於是同一份爆擊機率還能在每次被打時判定一次20%減傷：一個從來不爆擊的坦克突然為了進攻和防守都想要爆擊。煉獄使者讓每個技能都附帶可疊加的燃燒，這個燃燒同樣能爆擊，還會縮短基本技能冷卻，所以他能丟出更多巨石和震地來重新疊「震盪」；煽風點火則在Q強化的三次普攻上疊加可無限疊加的燃燒。黎安卓的折磨、日炎聖盾、虛偽光彩、荊棘之甲和雄心之鋼都是裝備傷害，所以它們的燃燒、獻祭、反傷和蓄力重擊都用同樣的50%機率爆擊。蠍子變成一堆會走路的爆擊營火，坦克裝就是他的輸出。",
+      "play": "出滿坦裝，衝進敵方人群裡一直疊：Q打三下，丟巨石，震地，大絕抓最近的人。爆擊的不是你，是你的燃燒。",
       "augments": [
-        "用非大絕的技能狙擊敵人會返還80%冷卻時間（週期性技能為65%）。狙擊：對600距離以外的敵人造成傷害。",
-        "任務：用選定的技能命中敵方英雄指定次數。獎勵：每級任務額外發射飛彈。",
-        "你選定技能的飛彈在命中時、到達最遠距離時或再次施放時分裂成兩枚。額外命中的目標：被同一個技能命中的敵人受到的傷害降低。",
-        "造成技能傷害時會對每個被命中的敵人發射3枚飛彈，每枚依飛行距離造成最多相當於最大生命值1%的真實傷害。"
+        "你的裝備效果和持續傷害效果可以爆擊，造成145%額外傷害。獲得25%爆擊機率。",
+        "你可以用暴擊率進行暴擊防禦（最高50%機率），有機率使受到的傷害降低20%。獲得25%暴擊率。",
+        "你的技能會施加可疊加的燃燒，持續造成傷害。你的燃燒效果會減少你的基本技能冷卻時間。",
+        "你的攻擊還會燃燒敵人，在5秒內每秒造成相當於其0.4%最大生命的魔法傷害。此燃燒可無限疊加。"
       ]
     }
   }
