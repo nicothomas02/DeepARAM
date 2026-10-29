@@ -255,7 +255,10 @@
    "max_charges": 1,
    "calcs": [
     "TotalDamage"
-   ]
+   ],
+   "can_crit": true,
+   "onhit": 1,
+   "why": "Lightslinger: the second shot of the empowered attack is an attack of its own at 50-60% AD by level: it can crit and applies on-hit effects"
   }
  ],
  "Lulu": [
@@ -461,10 +464,11 @@
  ],
  "Talon": [
   {
-   "trigger": "ability",
+   "trigger": "hit",
    "every": 3,
    "cooldown": 6.0,
-   "per_target": true
+   "per_target": true,
+   "why": "Blade's End: basic attacks and ability hits both wound a champion; the third wound starts the bleed"
   }
  ],
  "Taric": [

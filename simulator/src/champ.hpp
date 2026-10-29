@@ -78,7 +78,8 @@ struct Ability {
     double ramp = 0;    // on-hit passives: each proc on the same target adds a stack that multiplies the damage,
                         // lost after this many seconds without a hit (Bel'Veth R)
     bool noHaste = false;
-    bool appliesOnHit = false;
+    double appliesOnHit = 0;  // on-hit effects on the first target per cast: 1 for a full application (Bel'Veth Q,
+                              // Irelia Q), or the effectiveness times the hits per cast (Katarina R: 15 daggers at 35%)
     double invuln = 0;
     double refund = 0;
     double critRefund = 0;      // seconds off its cooldown whenever an attack crits (Tryndamere E)
@@ -121,6 +122,8 @@ struct Passive {
     double restore = 0;     // mana or energy it gives back when it procs (Ambessa)
     double basicCdr = 0;    // seconds off the current cooldowns of Q, W and E whenever it procs (Taric)
     bool needsHit = false;  // AfterAbility: only casts that hit an enemy charge it (Lux marks the enemies she hits)
+    bool canCrit = false;   // the proc is an extra shot that crits with the champion's crit chance (Lucian)
+    double onhit = 0;       // it also applies on-hit effects at this scale (Lucian's second shot: 1)
     std::vector<Hit> hits;
 };
 
