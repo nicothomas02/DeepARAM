@@ -59,6 +59,10 @@ describe("page addresses", () => {
       expect(r.patch).toBe(p);
       expect(r.prev).toBe(patches[i + 1] ?? null);
       for (const a of r.changed) expect(a.name).toBeTruthy();
+      // Rose the most only lists gains and Fell the most only drops, so no champion shows in both.
+      for (const c of r.up) expect(c.change).toBeGreaterThan(0);
+      for (const c of r.down) expect(c.change).toBeLessThan(0);
+      expect(r.up.filter((c) => r.down.some((d) => d.id === c.id))).toEqual([]);
     });
     expect(recap("0.0")).toBeNull();
   });

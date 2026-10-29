@@ -27,6 +27,21 @@ describe("settings", () => {
     expect(document.documentElement.dataset.motion).toBeUndefined();
   });
 
+  it("falls back to the default for a setting whose saved value the site doesn't know", () => {
+    // A hand-edited or older/newer copy in storage: "off" would otherwise count as sound on, and a choice
+    // the gear menu doesn't offer would show no option pressed.
+    localStorage.setItem(SETTINGS_KEY, JSON.stringify({ sound: "off", view: "compact", tierRange: "last3", text: 12, contrast: "high", extra: true }));
+    const s = loadSettings();
+    expect(s.sound).toBe(true);
+    expect(s.view).toBe("simple");
+    expect(s.tierRange).toBe("set");
+    expect(s.text).toBe("standard");
+    expect(s.contrast).toBe("high");
+    expect(s).not.toHaveProperty("extra");
+    localStorage.setItem(SETTINGS_KEY, JSON.stringify([1, 2]));
+    expect(loadSettings()).toEqual(DEFAULT_SETTINGS);
+  });
+
   it("before-paint script applies reduced motion and never throws", () => {
     localStorage.setItem(SETTINGS_KEY, JSON.stringify({ motion: "reduce" }));
     new Function(SETTINGS_SCRIPT)();

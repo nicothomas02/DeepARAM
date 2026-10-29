@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { champStats, type PatchRow } from "@/lib/tiers";
+import { champStats, risersAndFallers, type PatchRow } from "@/lib/tiers";
 import { grade, lowerBound, TIER_Z } from "@/lib/deepscore";
 
 const row = (name: string, win_rate: number, pick_rate: number, patch = "16.20", days = 14): PatchRow => ({
@@ -65,6 +65,27 @@ describe("champStats", () => {
   it("names the latest patch's augments and skips unknown ids", () => {
     const rows = [{ ...row("A", 0.5, 0.1), augs: "not-an-augment" }];
     expect(champStats(rows, new Set(["16.20"]))[0].top_augments).toBe("");
+  });
+});
+
+describe("risersAndFallers", () => {
+  const c = (name: string, change: number) => ({ name, change });
+
+  it("lists the biggest gains and the biggest drops, biggest first", () => {
+    const list = [c("A", 0.02), c("B", -0.03), c("C", 0.05), c("D", -0.01), c("E", 0.01), c("F", -0.04)];
+    const { up, down } = risersAndFallers(list, 2);
+    expect(up.map((x) => x.name)).toEqual(["C", "A"]);
+    expect(down.map((x) => x.name)).toEqual(["F", "B"]);
+  });
+
+  it("never lists a champion that rose among the drops, or one that fell among the gains", () => {
+    // Fewer movers than two lists of five: the lists must not overlap or borrow from the other side.
+    const { up, down } = risersAndFallers([c("A", 0.02), c("B", -0.03), c("C", 0.01)], 5);
+    expect(up.map((x) => x.name)).toEqual(["A", "C"]);
+    expect(down.map((x) => x.name)).toEqual(["B"]);
+    expect(risersAndFallers([c("A", 0.02), c("B", 0.01)], 5).down).toEqual([]);
+    expect(risersAndFallers([c("A", 0)], 5)).toEqual({ up: [], down: [] });
+    expect(risersAndFallers([], 5)).toEqual({ up: [], down: [] });
   });
 });
 

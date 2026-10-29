@@ -23,7 +23,10 @@ export function readRepoCsv(rel: string): CsvRow[] | null {
   return repoHas(rel) ? parseCsv(readFileSync(repoPath(rel), "utf8")) : null;
 }
 
-function parseCsv(text: string): CsvRow[] {
+/** Rows keyed by the header line. An empty file, or a header alone, gives no rows. */
+export function parseCsv(text: string): CsvRow[] {
+  // A byte-order mark would otherwise become part of the first column's name, leaving every row's `patch` undefined.
+  if (text.charCodeAt(0) === 0xfeff) text = text.slice(1);
   const rows: string[][] = [];
   let row: string[] = [];
   let field = "";
@@ -50,6 +53,6 @@ function parseCsv(text: string): CsvRow[] {
   }
   row.push(field);
   if (row.some((f) => f !== "")) rows.push(row);
-  const [header, ...body] = rows;
+  const [header = [], ...body] = rows;
   return body.map((r) => Object.fromEntries(header.map((h, i) => [h, r[i] ?? ""])));
 }

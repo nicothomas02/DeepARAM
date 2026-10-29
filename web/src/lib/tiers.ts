@@ -64,6 +64,16 @@ const weighted = (pairs: [number | null, number][]) => {
   return w > 0 ? sum / w : null;
 };
 
+/**
+ * The n biggest win-rate gains and the n biggest drops, biggest first. Only gains go in `up` and only drops in
+ * `down`: when fewer than 2n champions moved, taking the first and last n of one sorted list would put the same
+ * champion in both, and list a champion that rose among the drops.
+ */
+export function risersAndFallers<T extends { change: number }>(list: T[], n: number): { up: T[]; down: T[] } {
+  const sorted = [...list].sort((a, b) => b.change - a.change);
+  return { up: sorted.filter((c) => c.change > 0).slice(0, n), down: sorted.filter((c) => c.change < 0).slice(-n).reverse() };
+}
+
 export function champStats(rows: PatchRow[], patches: Set<string>): ChampStats[] {
   const picked = rows.filter((r) => patches.has(r.patch));
   const totalDays = [...new Set(picked.map((r) => `${r.patch}:${r.days}`))].reduce((d, k) => d + Number(k.split(":")[1]), 0);

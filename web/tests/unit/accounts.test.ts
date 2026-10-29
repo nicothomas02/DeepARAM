@@ -32,6 +32,11 @@ describe("synced account data", () => {
     expect(d).toEqual({ settings: { sound: false, motion: "reduce" } });
     expect(cleanData(null)).toEqual({ settings: {} });
   });
+
+  it("drops a setting whose value the site can't use, so it can't reach every browser the account syncs to", () => {
+    const d = cleanData({ settings: { view: "compact", motion: "reduce", text: "huge", tierRange: "last3", graphics: "low" } });
+    expect(d).toEqual({ settings: { motion: "reduce", tierRange: "set", graphics: "low" } });
+  });
 });
 
 describe("owner-only files", () => {
