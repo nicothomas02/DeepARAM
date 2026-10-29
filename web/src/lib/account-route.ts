@@ -11,12 +11,15 @@ export const json = (obj: unknown, status = 200) => NextResponse.json(obj, { sta
 export async function body(req: NextRequest): Promise<Record<string, unknown>> {
   const text = await req.text();
   if (text.length > MAX_BODY) throw new AccountError("Too large", 413);
+  let v: unknown;
   try {
-    const v = JSON.parse(text || "{}");
-    return v && typeof v === "object" ? v : {};
+    v = JSON.parse(text || "{}");
   } catch {
     throw new AccountError("Bad request");
   }
+  // An array, a bare string or a number isn't a request either.
+  if (!v || typeof v !== "object" || Array.isArray(v)) throw new AccountError("Bad request");
+  return v as Record<string, unknown>;
 }
 
 export const isSecure = (req: NextRequest) => req.nextUrl.protocol === "https:";

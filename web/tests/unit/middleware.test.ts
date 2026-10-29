@@ -31,6 +31,15 @@ describe("rate limits", () => {
     expect((await middleware(req("6.6.6.6", "/api/account", "PUT"))).status).toBe(200);
   });
 
+  it("counts the owner's site-text saves and Contact us deletes as writes, but not their reads", async () => {
+    for (let i = 0; i < 10; i++) expect((await middleware(req("7.7.7.7", "/api/admin/content", "POST"))).status).toBe(200);
+    expect((await middleware(req("7.7.7.7", "/api/admin/content", "POST"))).status).toBe(429);
+    expect((await middleware(req("7.7.7.7", "/api/contact", "DELETE"))).status).toBe(429);
+    expect((await middleware(req("7.7.7.7", "/api/admin/content", "GET"))).status).toBe(200);
+    expect((await middleware(req("7.7.7.7", "/api/contact", "GET"))).status).toBe(200);
+    expect(config.matcher).toContain("/api/admin/content");
+  });
+
   it("never limits reading public profiles", async () => {
     for (let i = 0; i < 50; i++) expect((await middleware(req("4.4.4.4", "/api/profile", "GET"))).status).toBe(200);
   });

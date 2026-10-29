@@ -39,7 +39,6 @@ export function patchRows(): PatchRow[] {
 
 export const patchList = () => (readRepoCsv("data/cn/history/patches.csv") ?? []).map((p) => p.patch);
 
-export type Mover = { id: string; name: string; tier: string; winRate: number; change: number };
 
 /** Each champion's live-patch stats with its win-rate change since the previous patch (null if it wasn't there). */
 let cache: { live: (ChampStats & { change: number | null; rank: number })[]; patch: string | null; prev: string | null } | null = null;
@@ -58,16 +57,6 @@ export function liveWithChange() {
     : [];
   cache = { live, patch, prev };
   return cache;
-}
-
-/** Biggest win-rate gains and drops since the previous patch. */
-export function movers(n = 4): { up: Mover[]; down: Mover[]; prev: string | null } {
-  const { live, prev } = liveWithChange();
-  const withChange = live
-    .filter((c) => c.change !== null)
-    .map((c) => ({ id: c.name, name: champName(c.name), tier: c.tier, winRate: c.win_rate, change: c.change! }));
-  const sorted = [...withChange].sort((a, b) => b.change - a.change);
-  return { up: sorted.slice(0, n), down: sorted.slice(-n).reverse(), prev };
 }
 
 type ClientChampion = { title?: string; shortBio?: string; skins?: { splashPath?: string; uncenteredSplashPath?: string }[] };
