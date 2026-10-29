@@ -489,9 +489,11 @@
     "as": 0.35
    },
    "effects": {
-    "onhit_magic": 30
+    "onhit_magic": 30,
+    "onhit_magic_ap": 0.1
    },
-   "confidence": "approx"
+   "confidence": "approx",
+   "note": "Shadow: 30 + 10% bonus AD + 10% AP magic damage on-hit (item bin OnHitDamage); the bonus AD part and the alternating armor and magic resist aren't modeled"
   },
   "statikk": {
    "id": 3087,
@@ -637,7 +639,8 @@
     "onhit_own_hp": 0.015
    },
    "confidence": "approx",
-   "group": "hydra"
+   "group": "hydra",
+   "note": "Cleave: 1% max Health on-hit plus 3% to enemies behind the target, and Titanic Crescent (4% + 9% behind, 10 s cooldown); 1.5% on-hit stands in for all of it (melee only in the shop, so no ranged halving)"
   },
   "profane_hydra": {
    "id": 6698,
@@ -729,9 +732,15 @@
     "hp": 450
    },
    "effects": {
-    "ability_amp": 0.08
+    "stack_on": 2,
+    "stack_max": 4,
+    "stack_duration": 6,
+    "stack_cd": 1,
+    "stack_ability_amp": 0.03,
+    "stack_ability_amp_if_ranged": 0.015
    },
-   "confidence": "approx"
+   "confidence": "approx",
+   "note": "Focused Will: ability hits build 3% ability damage per stack (1.5% ranged) for 6 s, up to 4 stacks, one stack per second"
   },
   "eclipse": {
    "id": 6692,

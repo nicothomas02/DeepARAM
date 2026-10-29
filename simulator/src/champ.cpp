@@ -831,6 +831,7 @@ struct Enemy {
     int cleaver = 0;            // Black Cleaver stacks on it (up to 5)
     double markUntil = -1, markShare = 0;  // your mark on it (Zed R): a share of your damage is dealt again
     Source markSrc = SrcR;
+    double augMarkUntil = -1, augMarkShare = 0;  // It's Killing Time's mark, on top of the kit's
     std::vector<double> castReady;  // its own abilities: when each is next up
     double attackClock = 0;         // its attacks on you, for thorns (Thornmail)
 };
@@ -920,7 +921,7 @@ private:
     struct Trig { const Bag* fx = nullptr; double readyAt = 0, taken = 0; int counter = 0; std::map<int, double> perTarget; };
     std::vector<Trig> trigs_;
     // Stacking buffs ("stack_" and "stack2_" keys): stats per stack, all lost when the stacks expire.
-    struct Stack { const Bag* fx = nullptr; std::string p; int n = 0; double expire = -1, readyAt = 0, ap = 0, ad = 0, as = 0, ms = 0; };
+    struct Stack { const Bag* fx = nullptr; std::string p; int n = 0; double expire = -1, readyAt = 0, ap = 0, ad = 0, as = 0, ms = 0, amp = 0; };
     std::vector<Stack> stacks_;
     // Augments on one of your abilities (spell_bind): which ability it picked.
     struct Bound { const Bag* fx = nullptr; size_t idx = static_cast<size_t>(-1); std::string kind; };
@@ -1037,6 +1038,22 @@ private:
         return out;
     }
 
+    // Effects with a ranged version: "x_if_ranged" replaces "x" for ranged champions (Symphony of War's
+    // Lethal Tempo and Conqueror, Spear of Shojin) and is dropped for melee ones.
+    static Bag rangedSplit(Bag b, bool ranged) {
+        static const std::string suffix = "_if_ranged";
+        Bag out;
+        for (const auto& [k, v] : b) {
+            const size_t n = k.size();
+            if (n > suffix.size() && k.compare(n - suffix.size(), suffix.size(), suffix) == 0) {
+                if (ranged) out[k.substr(0, n - suffix.size())] = v;
+            } else if (!out.count(k)) {
+                out[k] = v;
+            }
+        }
+        return out;
+    }
+
     static bool immobilizes(const Ability& a) { return !a.cc.empty() && a.cc != "slow" && a.cc != "silence"; }
 
     // Adaptive Force: Ability Power, or 0.6 bonus AD each when the build has more AD than AP.
@@ -1076,10 +1093,16 @@ private:
             hasDash_ |= a.geo.move != Move::None;
             hasImmobilize_ |= immobilizes(a);
         }
+        // Whether the ranged values of effects apply ("x_if_ranged" replaces "x"): ranged champions,
+        // Kayle once her passive gives her range, not a champion Draw Your Sword makes melee.
+        bool rangedFx = ch_.ranged || (get(ch_.kitEffects, "attack_range_set") > ch_.attackRange &&
+                                       sc_.level >= get(ch_.kitEffects, "attack_range_level"));
+        for (const Effect* e : effects)
+            if (get(e->effects, "sword_ad") > 0) rangedFx = false;
         double bestBlade = -1;
         for (const Effect* e : effects) {
             addBag(atLevel(e->stats), stats);
-            bags_.push_back(atLevel(e->effects));
+            bags_.push_back(rangedSplit(atLevel(e->effects), rangedFx));
             const Bag& f = bags_.back();
             addBag(f, fx_);
             if (lib_.items.count(e->key) && &lib_.items.at(e->key) == e) addBag(f, itemFx_);
@@ -2073,6 +2096,7 @@ private:
         const double dmg = sc_.fixedTarget ? raw * mult : std::min(target->hp, raw * mult);
         // A mark stores part of the (pre-mitigation, non-true) damage and pops it as physical damage.
         const double marked = t_ < target->markUntil && type != DamageType::True && !inMark_ ? raw * target->markShare : 0.0;
+        const double augMarked = t_ < target->augMarkUntil && type != DamageType::True && !inMark_ ? raw * target->augMarkShare : 0.0;
         double vamp = omnivamp_ + buffVamp_ + (physicalAttack ? lifesteal_ + get(fx_, "lifesteal_missing") * missingFrac() : 0.0) + (t_ < rVampUntil_ ? get(fx_, "r_omnivamp") : 0.0);
         if (!stacks_.empty()) vamp += fullStackVamp();
         if (get(fx_, "vamp_missing") > 0)  // Ominous Pact: grows with missing Health, full at 30% Health
@@ -2127,6 +2151,11 @@ private:
         if (marked > 0 && target->alive) {
             inMark_ = true;
             deal(target, marked, DamageType::Physical, target->markSrc);
+            inMark_ = false;
+        }
+        if (augMarked > 0 && target->alive) {
+            inMark_ = true;
+            deal(target, augMarked, DamageType::Physical, SrcItems);
             inMark_ = false;
         }
         // Glass Cannon: extra true damage on top.
@@ -2921,17 +2950,19 @@ private:
             ++s.n;
             double ap = get(f, s.p + "ap"), ad = get(f, s.p + "ad");
             const double as = get(f, s.p + "as"), ms = get(f, s.p + "ms"), af = get(f, s.p + "af");
+            const double amp = get(f, s.p + "ability_amp");  // Spear of Shojin: ability damage per stack
             ap_ += ap; bonusAd_ += ad; ad_ += ad;
             if (af > 0) addAdaptive(af, &ap, &ad);
-            s.ap += ap; s.ad += ad; s.as += as; s.ms += ms;
+            s.ap += ap; s.ad += ad; s.as += as; s.ms += ms; s.amp += amp;
             tempAs_ += as;
             moveSpeed_ += ms;
+            abilityAmp_ += amp;
             if (as != 0 || (ms != 0 && msToAs_ > 0)) updateAs();
         }
     }
     void expireStack(Stack& s) {
         if (s.n == 0 || s.expire < 0 || t_ < s.expire) return;
-        ap_ -= s.ap; bonusAd_ -= s.ad; ad_ -= s.ad; tempAs_ -= s.as; moveSpeed_ -= s.ms;
+        ap_ -= s.ap; bonusAd_ -= s.ad; ad_ -= s.ad; tempAs_ -= s.as; moveSpeed_ -= s.ms; abilityAmp_ -= s.amp;
         const double ready = s.readyAt;
         s = Stack{s.fx, s.p};
         s.readyAt = ready;
@@ -3026,7 +3057,15 @@ private:
         }
         if (get(f, "r_window") > 0 && t_ >= rWindowReady_) {  // It's Killing Time, Surge Field
             rWindowReady_ = t_ + get(f, "r_window_cd");
-            rWindowUntil_ = t_ + get(f, "r_window");
+            if (get(f, "r_mark") > 0) {  // It's Killing Time: a mark on every enemy that stores a share of the
+                for (Enemy& e : enemies_) {  // non-true damage and pops it as physical damage (as Zed's R)
+                    if (!e.alive) continue;
+                    e.augMarkUntil = t_ + get(f, "r_window");
+                    e.augMarkShare = get(f, "r_mark");
+                }
+            } else {
+                rWindowUntil_ = t_ + get(f, "r_window");
+            }
         }
         if (get(f, "r_cc") > 0 && t_ >= rCcReady_ && !hits.empty()) {  // Fey Magic
             rCcReady_ = t_ + get(f, "r_cc_cd");
