@@ -11,12 +11,13 @@
 4. Be forgiving at the edges. Champion and augment names are fuzzy-matched, unknown names return suggestions, and
    every answer carries the stat date so the model can say how old the numbers are.
 
-Non-goals for this draft: writing data, touching the website or Cloudflare config, replacing the site's own pages.
+Non-goals for this draft: writing repo data (the to-do file is the one exception), touching the website or
+Cloudflare config, replacing the site's own pages.
 
 ## Tools
 
 `champion_stats`, `tier_list`, `best_build`, `augment_stats`, `best_duos`, `champion_trend`, `patch_changes`,
-`project_status`. The README has the signatures. They were chosen because the repo already keeps clean JSON for
+`search`, `project_status`, `desk_todos`, `add_todo`, `complete_todo`. The README has the signatures. They were chosen because the repo already keeps clean JSON for
 each; nothing is derived that the site doesn't also derive. Two candidates were left out: per-augment win rates by
 champion (the Tencent build pages publish pick rate and grade only) and summoner spells (no Mayhem source).
 
@@ -44,8 +45,10 @@ artifact can only reach HTTPS. The data is public already (it is in a public rep
 not leakage, and the to-do list is the one private part.
 
 - **Transport**: the SDK's streamable HTTP (`/mcp`) behind TLS. No SSE.
-- **First step**: a static bearer token checked by the proxy (Caddy, Cloudflare Access service token, or the Worker)
-  and stored as a secret, never in the repo. Enough for a single user.
+- **First step (done)**: `--http --token` wraps the SDK's Starlette app in a tiny ASGI middleware that requires
+  `Authorization: Bearer <token>` on every request (constant-time compare, 401 otherwise) and refuses to start
+  without a token unless `--insecure-local`. The token is passed on the command line or `DASHBOARD_TOKEN`, never
+  stored in the repo. Enough for a single user behind a Cloudflare Tunnel; the README has the steps.
 - **Proper step**: MCP's OAuth 2.1 flow with the SDK's `token_verifier` (Cloudflare Access, or a Worker on
   `workers-oauth-provider`), so claude.ai can connect as a custom connector without pasting tokens.
 - **Scopes**: read-only tools need none. If to-dos become writable, split a `todos:write` scope and keep the
@@ -53,6 +56,14 @@ not leakage, and the to-do list is the one private part.
 - **Rate and size limits**: cap `top` and reject bodies over a few KB; cache the JSON reads for an hour.
 - **Freshness**: the Worker reads from `raw.githubusercontent.com` on `main`, so it follows the data Actions with no
   deploy step.
+
+## Done since the first draft
+
+- `--http` mode over the SDK's streamable HTTP with a bearer-token gate, `--allowed-host` for the tunnel hostname,
+  README instructions for a Cloudflare Tunnel + claude.ai custom connector (instructions only, no config in the repo).
+- To-dos are writable: `desk_todos` (Desk order, plus `importance` / `due` sorts, compact text), `add_todo`,
+  `complete_todo`, atomic writes, tolerant of a missing file. This is the first half of next step 1.
+- `search` over champions, items and augments in one call.
 
 ## Next steps
 

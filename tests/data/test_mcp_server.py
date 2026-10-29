@@ -231,10 +231,13 @@ def test_every_tool_is_json_serialisable_and_compact():
     calls = [
         (mcp_tools.champion_stats, ("Jhin",)), (mcp_tools.tier_list, ()), (mcp_tools.best_build, ("Jhin",)),
         (mcp_tools.augment_stats, ("bees",)), (mcp_tools.best_duos, ()), (mcp_tools.champion_trend, ("Jhin",)),
-        (mcp_tools.patch_changes, ()), (mcp_tools.project_status, ()),
+        (mcp_tools.patch_changes, ()), (mcp_tools.search, ("teemo",)), (mcp_tools.project_status, ()),
+        (mcp_tools.desk_todos, ()), (mcp_tools.add_todo, ("x", 1)), (mcp_tools.complete_todo, ("x",)),
     ]
     assert [fn for fn, _ in calls] == list(mcp_tools.TOOLS)
     for fn, args in calls:
+        if fn in (mcp_tools.add_todo, mcp_tools.complete_todo):
+            continue  # exercised against a temp file in the to-do tests below
         out = fn(*args)
         assert isinstance(out, dict) and "error" not in out, fn.__name__
         _assert_compact_json(out)
@@ -257,3 +260,195 @@ def test_server_registers_every_tool():
     server = mcp_tools.build_server()
     names = {t.name for t in asyncio.run(server.list_tools())}
     assert names == {fn.__name__ for fn in mcp_tools.TOOLS}
+
+
+# --- to-dos ---------------------------------------------------------------------------------------------------
+
+@pytest.fixture
+def todo_file(tmp_path, monkeypatch):
+    path = tmp_path / "todos.json"
+    path.write_text(json.dumps({"_note": "keep me", "todos": [
+        {"id": "a", "title": "slow important", "minutes": 120, "importance": 5, "project": "dashboard"},
+        {"id": "b", "title": "quick low", "minutes": 5, "importance": 1},
+        {"id": "c", "title": "quick high", "minutes": 5, "importance": 4, "due": "2999-01-01"},
+        {"id": "d", "title": "done", "minutes": 1, "importance": 5, "done": True},
+    ]}), encoding="utf-8")
+    monkeypatch.setattr(mcp_tools, "TODOS_PATH", str(path))
+    return path
+
+
+def test_desk_todos_desk_order_quickest_then_most_important(todo_file):
+    out = mcp_tools.desk_todos()
+    assert out["sort"] == "desk" and [t["id"] for t in out["todos"]] == ["c", "b", "a"]
+    assert out["open_count"] == 3 and out["count"] == 3 and out["total_minutes"] == 130
+    assert out["todos"][0]["days_left"] > 0
+    lines = out["text"].splitlines()
+    assert len(lines) == 3 and lines[0].startswith("[ ] 5m  !4  quick high") and lines[0].endswith("#c")
+    assert "due 2999-01-01" in lines[0]
+    assert [t["id"] for t in mcp_tools.desk_todos(include_done=True)["todos"]] == ["d", "c", "b", "a"]
+    assert mcp_tools.desk_todos(include_done=True)["text"].startswith("[x] 1m  !5  done")
+
+
+def test_desk_todos_other_sorts_and_filters(todo_file):
+    assert [t["id"] for t in mcp_tools.desk_todos(sort="importance")["todos"]] == ["a", "c", "b"]
+    assert [t["id"] for t in mcp_tools.desk_todos(sort="due")["todos"]] == ["c", "b", "a"]
+    assert [t["id"] for t in mcp_tools.desk_todos(project="Dashboard")["todos"]] == ["a"]
+    assert "error" in mcp_tools.desk_todos(sort="random") and "sorts" in mcp_tools.desk_todos(sort="random")
+
+
+def test_desk_todos_missing_and_broken_file(tmp_path, monkeypatch):
+    monkeypatch.setattr(mcp_tools, "TODOS_PATH", str(tmp_path / "nope.json"))
+    out = mcp_tools.desk_todos()
+    assert out["todos"] == [] and out["text"] == "(nothing open)" and "todos_error" not in out
+    assert "todos_error" in mcp_tools.project_status()
+    broken = tmp_path / "broken.json"
+    broken.write_text("{not json", encoding="utf-8")
+    monkeypatch.setattr(mcp_tools, "TODOS_PATH", str(broken))
+    assert "todos_error" in mcp_tools.desk_todos()
+    assert "error" in mcp_tools.add_todo("x", 5)
+    assert broken.read_text(encoding="utf-8") == "{not json", "a broken file is never overwritten"
+
+
+def test_add_todo_writes_atomically_and_keeps_note(todo_file):
+    out = mcp_tools.add_todo("Link tools/mcp from the main README", 5, 2, project="deeparam", due="2030-01-02")
+    assert "error" not in out and out["added"]["id"] == "link-tools-mcp-from-the-main-readme"
+    assert out["added"]["minutes"] == 5 and out["added"]["importance"] == 2 and out["added"]["days_left"] > 0
+    assert out["open_count"] == 4
+    doc = json.loads(todo_file.read_text(encoding="utf-8"))
+    assert doc["_note"] == "keep me" and len(doc["todos"]) == 5 and doc["todos"][-1]["due"] == "2030-01-02"
+    assert not [p for p in todo_file.parent.iterdir() if p.name.startswith(".todos-")], "no temp file left behind"
+    again = mcp_tools.add_todo("Link tools/mcp from the main README", 5)
+    assert again["added"]["id"] == "link-tools-mcp-from-the-main-readme-2"
+    # 5-minute items first (importance 4, then the two new importance-3 ones, then importance 1), 120-minute last
+    order = [t["id"] for t in mcp_tools.desk_todos()["todos"]]
+    assert order[0] == "c" and order[3] == "b" and order[-1] == "a"
+
+
+def test_add_todo_validation(todo_file):
+    assert "error" in mcp_tools.add_todo("", 5)
+    assert "error" in mcp_tools.add_todo("x", 0)
+    assert "error" in mcp_tools.add_todo("x", "soon")
+    assert "error" in mcp_tools.add_todo("x", 5, 6)
+    assert "error" in mcp_tools.add_todo("x", 5, 0)
+    assert "error" in mcp_tools.add_todo("x", 5, due="tomorrow")
+    assert len(json.loads(todo_file.read_text(encoding="utf-8"))["todos"]) == 4, "nothing written on error"
+
+
+def test_add_todo_creates_missing_file(tmp_path, monkeypatch):
+    path = tmp_path / "new" / "todos.json"
+    monkeypatch.setattr(mcp_tools, "TODOS_PATH", str(path))
+    out = mcp_tools.add_todo("first", 10, 5)
+    assert out["added"]["id"] == "first" and out["open_count"] == 1
+    assert json.loads(path.read_text(encoding="utf-8"))["todos"][0]["title"] == "first"
+
+
+def test_complete_todo(todo_file):
+    out = mcp_tools.complete_todo("b")
+    assert out["completed"]["done"] is True and out["completed"]["id"] == "b" and out["open_count"] == 2
+    doc = json.loads(todo_file.read_text(encoding="utf-8"))
+    b = next(t for t in doc["todos"] if t["id"] == "b")
+    assert b["done"] is True and b["done_at"].count("-") == 2
+    assert [t["id"] for t in mcp_tools.desk_todos()["todos"]] == ["c", "a"]
+    assert mcp_tools.complete_todo("b")["already_done"] is True
+    missing = mcp_tools.complete_todo("zzz")
+    assert "error" in missing and missing["ids"] == ["a", "c"]
+
+
+# --- search ---------------------------------------------------------------------------------------------------
+
+def test_search_finds_all_three_kinds():
+    out = mcp_tools.search("teemo")
+    assert out["matches"][0] == {**out["matches"][0], "type": "champion", "id": 17, "name": "Teemo", "score": 1.0}
+    assert out["matches"][0]["roles"]
+    blunt = mcp_tools.search("blunt force")["matches"][0]
+    assert blunt["type"] == "augment" and blunt["id"] == 1007 and blunt["rarity"] and blunt["has_stats"] is True
+    bork = mcp_tools.search("blade of the ruined king")["matches"][0]
+    assert bork["type"] == "item" and bork["id"] == 3153 and bork["price"] > 0
+    kinds = {m["type"] for m in mcp_tools.search("blade", limit=50)["matches"]}
+    assert {"item", "augment"} <= kinds
+
+
+def test_search_fuzzy_limit_and_types():
+    out = mcp_tools.search("teeemo", limit=3)
+    assert out["matches"][0]["name"] == "Teemo" and len(out["matches"]) <= 3
+    assert all(m["type"] == "item" for m in mcp_tools.search("blade", types="items")["matches"])
+    assert all(m["type"] in ("champion", "augment") for m in mcp_tools.search("bl", types="champion,augment")["matches"])
+    assert "error" in mcp_tools.search("")
+    assert "error" in mcp_tools.search("x", types="runes")
+    assert mcp_tools.search("qqqqqqqqqq")["matches"] == []
+    scores = [m["score"] for m in mcp_tools.search("infinity", limit=20)["matches"]]
+    assert scores == sorted(scores, reverse=True)
+    _assert_compact_json(mcp_tools.search("a", limit=50))
+
+
+# --- HTTP mode ------------------------------------------------------------------------------------------------
+
+@pytest.mark.parametrize("header, ok", [
+    ("Bearer s3cret", True), ("bearer s3cret", True), ("Bearer  s3cret ", True),
+    ("Bearer wrong", False), ("Basic s3cret", False), ("s3cret", False), ("", False), (None, False),
+])
+def test_bearer_check(header, ok):
+    assert mcp_tools.BearerAuth.check(header, "s3cret") is ok
+
+
+def test_http_refuses_to_start_without_token():
+    with pytest.raises(SystemExit):
+        mcp_tools.build_http_app(None)
+    with pytest.raises(SystemExit):
+        mcp_tools.main(["--http"])
+    with pytest.raises(SystemExit):
+        mcp_tools.main(["--http", "--insecure-local", "--host", "0.0.0.0"])
+    args = mcp_tools.parse_args(["--http", "--port", "9000", "--token", "t", "--allowed-host", "mcp.example.com"])
+    assert args.http and args.port == 9000 and args.token == "t" and args.allowed_host == ["mcp.example.com"]
+    assert mcp_tools.parse_args([]).port == 8765
+
+
+@pytest.mark.skipif(importlib.util.find_spec("mcp") is None or importlib.util.find_spec("starlette") is None,
+                    reason="mcp/starlette not installed")
+def test_http_auth_gate_and_tool_call():
+    from starlette.testclient import TestClient
+    app = mcp_tools.build_http_app("s3cret", allowed_hosts=["testserver"])
+    init = {"jsonrpc": "2.0", "id": 1, "method": "initialize", "params": {
+        "protocolVersion": "2025-06-18", "capabilities": {}, "clientInfo": {"name": "test", "version": "1"}}}
+    accept = {"Accept": "application/json, text/event-stream", "Content-Type": "application/json"}
+    with TestClient(app) as c:
+        assert c.post("/mcp", json=init, headers=accept).status_code == 401
+        assert c.post("/mcp", json=init, headers={**accept, "Authorization": "Bearer nope"}).status_code == 401
+        assert c.get("/mcp").status_code == 401
+        auth = {**accept, "Authorization": "Bearer s3cret"}
+        r = c.post("/mcp", json=init, headers=auth)
+        assert r.status_code == 200, r.text
+        sid = r.headers["mcp-session-id"]
+        auth["Mcp-Session-Id"] = sid
+        c.post("/mcp", json={"jsonrpc": "2.0", "method": "notifications/initialized"}, headers=auth)
+        r = c.post("/mcp", json={"jsonrpc": "2.0", "id": 2, "method": "tools/list"}, headers=auth)
+        assert r.status_code == 200
+        names = {t["name"] for t in _sse_result(r.text)["tools"]}
+        assert names == {fn.__name__ for fn in mcp_tools.TOOLS}
+        r = c.post("/mcp", json={"jsonrpc": "2.0", "id": 3, "method": "tools/call",
+                                 "params": {"name": "search", "arguments": {"query": "teemo", "limit": 1}}}, headers=auth)
+        assert r.status_code == 200
+        result = _sse_result(r.text)
+        assert result.get("isError") is not True
+        assert "Teemo" in json.dumps(result)
+        # the session id alone is not enough: the token is checked on every request
+        assert c.post("/mcp", json={"jsonrpc": "2.0", "id": 4, "method": "tools/list"},
+                      headers={**accept, "Mcp-Session-Id": sid}).status_code == 401
+
+
+def test_insecure_local_app_has_no_gate():
+    pytest.importorskip("mcp")
+    app = mcp_tools.build_http_app(None, insecure_local=True)
+    assert not isinstance(app, mcp_tools.BearerAuth)
+
+
+def _sse_result(text):
+    """The JSON-RPC result from a streamable-HTTP response (SSE `data:` lines or a plain JSON body)."""
+    if text.lstrip().startswith("{"):
+        return json.loads(text)["result"]
+    for line in text.splitlines():
+        if line.startswith("data:"):
+            msg = json.loads(line[5:])
+            if "result" in msg:
+                return msg["result"]
+    raise AssertionError(f"no result in response: {text[:300]}")

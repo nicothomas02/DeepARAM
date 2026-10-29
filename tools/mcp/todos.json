@@ -1,7 +1,8 @@
 {
- "_note": "Nico's Desk to-dos. `minutes` is the estimated time, `importance` 1 (low) to 5 (high). project_status() lists open ones quickest-first, then most important. Replace with your own; set DASHBOARD_TODOS to point elsewhere.",
+ "_note": "Nico's Desk to-dos. `minutes` is the estimated time, `importance` 1 (low) to 5 (high). desk_todos() / project_status() list open ones quickest-first, then most important; add_todo() and complete_todo() write here. Replace with your own; set DASHBOARD_TODOS to point elsewhere.",
  "todos": [
-  {"id": "mcp-remote", "title": "Expose the Dashboard MCP server remotely (HTTP wrapper or Worker)", "minutes": 120, "importance": 4, "project": "dashboard"},
+  {"id": "mcp-remote", "title": "Expose the Dashboard MCP server remotely (HTTP wrapper or Worker)", "minutes": 120, "importance": 4, "project": "dashboard", "done": true, "done_at": "2026-10-29"},
+  {"id": "tunnel", "title": "Run the MCP server behind a Cloudflare Tunnel and add it as a claude.ai connector", "minutes": 30, "importance": 4, "project": "dashboard"},
   {"id": "desk-connect", "title": "Point Nico's Desk at the MCP server for live stats", "minutes": 60, "importance": 5, "project": "dashboard"},
   {"id": "sleeper", "title": "Add Sleeper fantasy tools (matchup, waiver suggestions)", "minutes": 180, "importance": 3, "project": "dashboard"},
   {"id": "todo-source", "title": "Move to-dos out of todos.json into the Desk artifact's database", "minutes": 45, "importance": 3, "project": "dashboard"},

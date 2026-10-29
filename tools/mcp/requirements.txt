@@ -1,3 +1,4 @@
 # Runtime: only the official MCP SDK. The tool functions themselves use the standard library.
+# --http uses the SDK's Starlette app and uvicorn, both already pulled in by mcp.
 mcp>=1.2
-# Tests (tests/data/test_mcp_server.py) run with pytest alone; mcp is optional there.
+# Tests (tests/data/test_mcp_server.py) run with pytest alone; mcp (and starlette for the HTTP tests) is optional there.

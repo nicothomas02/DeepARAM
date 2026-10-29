@@ -3,7 +3,8 @@
 
 Every tool is a plain function that reads the repo's committed JSON (offline, read-only) and returns a compact
 dict. The MCP wiring (`build_server`, `main`) is kept separate so tests and other scripts can import the functions
-without the `mcp` package installed. Run `python3 tools/mcp/dashboard_mcp.py` to serve over stdio.
+without the `mcp` package installed. Run `python3 tools/mcp/dashboard_mcp.py` to serve over stdio, or
+`--http --port 8765 --token SECRET` for MCP streamable HTTP at /mcp behind a bearer token.
 
 Data sources (all relative to the repo root):
   data/cn/champions.json                      per-champion Mayhem stats (Tencent, daily)
@@ -19,13 +20,16 @@ Data sources (all relative to the repo root):
 """
 from __future__ import annotations
 
+import argparse
 import difflib
 import functools
+import hmac
 import json
 import os
 import re
 import subprocess
 import sys
+import tempfile
 from datetime import date, datetime, timezone
 from typing import Any
 
@@ -54,6 +58,7 @@ def clear_cache() -> None:
     _champion_index.cache_clear()
     _augment_index.cache_clear()
     _item_names.cache_clear()
+    _search_corpus.cache_clear()
 
 
 def pct(x: float | None, digits: int = 1) -> float | None:
@@ -416,33 +421,161 @@ def _todo_sort_key(t: dict) -> tuple:
     return (t.get("minutes", 10**6), -int(t.get("importance", 0)), t.get("title", ""))
 
 
-def project_status(include_done: bool = False, commits: int = 5) -> dict:
-    """Open to-dos from tools/mcp/todos.json in Desk order (quickest to longest, then most to least important),
-    the newest commits, the current branch, and the dates of the newest data files."""
-    todos: list[dict] = []
-    todos_error = None
+TODO_SORTS = {
+    "desk": _todo_sort_key,
+    "importance": lambda t: (-int(t.get("importance", 0)), t.get("minutes", 10**6), t.get("title", "")),
+    "due": lambda t: (t.get("due") is None, t.get("due") or "", *_todo_sort_key(t)),
+}
+
+
+def _read_todos_file() -> tuple[dict, str | None]:
+    """The whole todos.json document ({"_note": ..., "todos": [...]}) and an error string when it is missing or
+    broken. A missing file reads as an empty list, so the first add_todo creates it."""
     try:
         with open(TODOS_PATH, encoding="utf-8") as f:
             raw = json.load(f)
-        todos = raw.get("todos", raw) if isinstance(raw, dict) else raw
+    except FileNotFoundError:
+        return {"todos": []}, None
     except (OSError, ValueError) as e:
-        todos_error = f"{type(e).__name__}: {e}"
+        return {"todos": []}, f"{type(e).__name__}: {e}"
+    if isinstance(raw, list):
+        raw = {"todos": raw}
+    raw.setdefault("todos", [])
+    return raw, None
+
+
+def _write_todos_file(doc: dict) -> None:
+    """Atomic write: temp file in the same directory, then rename over todos.json."""
+    directory = os.path.dirname(os.path.abspath(TODOS_PATH)) or "."
+    os.makedirs(directory, exist_ok=True)
+    fd, tmp = tempfile.mkstemp(prefix=".todos-", suffix=".json.tmp", dir=directory)
+    try:
+        with os.fdopen(fd, "w", encoding="utf-8") as f:
+            json.dump(doc, f, ensure_ascii=False, indent=1)
+            f.write("\n")
+        os.replace(tmp, TODOS_PATH)
+    except BaseException:
+        try:
+            os.unlink(tmp)
+        except OSError:
+            pass
+        raise
+
+
+def _todo_view(t: dict, today: date | None = None) -> dict:
+    item = {k: t.get(k) for k in ("id", "title", "minutes", "importance", "project", "due", "done") if t.get(k) is not None}
+    if t.get("due"):
+        try:
+            item["days_left"] = (date.fromisoformat(t["due"]) - (today or date.today())).days
+        except ValueError:
+            pass
+    return item
+
+
+def _todo_line(t: dict) -> str:
+    """One compact line: `[ ] 5m  !2  Link tools/mcp from the main README  (deeparam, due 2026-11-01, 3d)  #readme-link`."""
+    box = "[x]" if t.get("done") else "[ ]"
+    extras = [x for x in (t.get("project"), f"due {t['due']}" if t.get("due") else None,
+                          f"{t['days_left']}d" if "days_left" in t else None) if x]
+    tail = f"  ({', '.join(extras)})" if extras else ""
+    return f"{box} {t.get('minutes', '?')}m  !{t.get('importance', '?')}  {t.get('title', '')}{tail}  #{t.get('id', '')}"
+
+
+def desk_todos(sort: str = "desk", include_done: bool = False, project: str | None = None) -> dict:
+    """Nico's to-dos from tools/mcp/todos.json. sort="desk" is the Desk order: quickest to longest estimated time,
+    then most to least important (importance 1-5). Also "importance" (then quickest) and "due" (soonest first,
+    undated last). Done items are hidden unless include_done. Returns the items and a compact `text` rendering."""
+    sort = norm(sort) or "desk"
+    if sort not in TODO_SORTS:
+        return {"error": f"unknown sort: {sort!r}", "sorts": list(TODO_SORTS)}
+    doc, error = _read_todos_file()
     today = date.today()
     items = []
-    for t in sorted(todos, key=_todo_sort_key):
+    for t in sorted(doc["todos"], key=TODO_SORTS[sort]):
         if t.get("done") and not include_done:
             continue
-        item = {k: t.get(k) for k in ("id", "title", "minutes", "importance", "project", "due", "done") if t.get(k) is not None}
-        if t.get("due"):
-            try:
-                item["days_left"] = (date.fromisoformat(t["due"]) - today).days
-            except ValueError:
-                pass
-        items.append(item)
+        if project and norm(t.get("project", "")) != norm(project):
+            continue
+        items.append(_todo_view(t, today))
+    out: dict[str, Any] = {
+        "sort": sort, "count": len(items), "open_count": sum(1 for t in items if not t.get("done")),
+        "total_minutes": sum(int(t.get("minutes") or 0) for t in items if not t.get("done")),
+        "todos": items, "text": "\n".join(_todo_line(t) for t in items) or "(nothing open)",
+    }
+    if error:
+        out["todos_error"] = error
+    return out
+
+
+def _todo_id(title: str, taken: set[str]) -> str:
+    base = re.sub(r"-+", "-", re.sub(r"[^a-z0-9]+", "-", title.lower())).strip("-")[:40] or "todo"
+    tid, n = base, 2
+    while tid in taken:
+        tid, n = f"{base}-{n}", n + 1
+    return tid
+
+
+def add_todo(title: str, minutes: int, importance: int = 3, project: str | None = None, due: str | None = None) -> dict:
+    """Add a to-do to tools/mcp/todos.json: title, estimated minutes (> 0), importance 1 (low) to 5 (high),
+    optional project and due date (YYYY-MM-DD). The id is made from the title. Creates the file if missing."""
+    title = str(title or "").strip()
+    if not title:
+        return {"error": "title is required"}
+    try:
+        minutes, importance = int(minutes), int(importance)
+    except (TypeError, ValueError):
+        return {"error": "minutes and importance must be integers"}
+    if minutes <= 0:
+        return {"error": "minutes must be > 0"}
+    if not 1 <= importance <= 5:
+        return {"error": "importance must be 1-5"}
+    if due:
+        try:
+            due = date.fromisoformat(str(due)).isoformat()
+        except ValueError:
+            return {"error": f"due must be YYYY-MM-DD, got {due!r}"}
+    doc, error = _read_todos_file()
+    if error:
+        return {"error": f"cannot read {TODOS_PATH}: {error}"}
+    todo = {"id": _todo_id(title, {t.get("id") for t in doc["todos"]}), "title": title, "minutes": minutes,
+            "importance": importance}
+    if project:
+        todo["project"] = str(project).strip()
+    if due:
+        todo["due"] = due
+    doc["todos"].append(todo)
+    _write_todos_file(doc)
+    return {"added": _todo_view(todo), "open_count": sum(1 for t in doc["todos"] if not t.get("done"))}
+
+
+def complete_todo(id: str) -> dict:
+    """Mark a to-do done by id (the `id` shown by desk_todos / project_status). Records `done_at` (UTC date)."""
+    doc, error = _read_todos_file()
+    if error:
+        return {"error": f"cannot read {TODOS_PATH}: {error}"}
+    todo = next((t for t in doc["todos"] if t.get("id") == id), None)
+    if not todo:
+        return {"error": f"unknown to-do id: {id!r}", "ids": [t.get("id") for t in doc["todos"] if not t.get("done")]}
+    if todo.get("done"):
+        return {"completed": _todo_view(todo), "already_done": True}
+    todo["done"] = True
+    todo["done_at"] = datetime.now(timezone.utc).date().isoformat()
+    _write_todos_file(doc)
+    return {"completed": _todo_view(todo), "open_count": sum(1 for t in doc["todos"] if not t.get("done"))}
+
+
+def project_status(include_done: bool = False, commits: int = 5) -> dict:
+    """Open to-dos from tools/mcp/todos.json in Desk order (quickest to longest, then most to least important),
+    the newest commits, the current branch, and the dates of the newest data files."""
+    todos_error = None
+    if not os.path.exists(TODOS_PATH):
+        todos_error = f"FileNotFoundError: {TODOS_PATH}"
+    todos = desk_todos(include_done=include_done)
+    todos_error = todos_error or todos.get("todos_error")
     log = _git("log", f"-{max(1, int(commits))}", "--format=%h %as %s")
     out: dict[str, Any] = {
-        "todos": items,
-        "open_count": len(items),
+        "todos": todos["todos"],
+        "open_count": todos["open_count"],
         "branch": _git("rev-parse", "--abbrev-ref", "HEAD") or None,
         "recent_commits": [ln for ln in log.splitlines() if ln],
         "data": {
@@ -457,7 +590,70 @@ def project_status(include_done: bool = False, commits: int = 5) -> dict:
     return out
 
 
-TOOLS = (champion_stats, tier_list, best_build, augment_stats, best_duos, champion_trend, patch_changes, project_status)
+# --- search ---------------------------------------------------------------------------------------------------
+
+@functools.lru_cache(maxsize=None)
+def _search_corpus() -> tuple[tuple[str, str, int, str, dict], ...]:
+    """(norm_name, type, id, name, extra) for every champion, purchasable item and augment."""
+    rows: list[tuple[str, str, int, str, dict]] = []
+    seen: set[tuple[str, str]] = set()
+    for rec in _champion_index().values():
+        if ("champion", rec["name"]) in seen:
+            continue
+        seen.add(("champion", rec["name"]))
+        rows.append((norm(rec["name"]), "champion", rec["id"], rec["name"], {"roles": rec["roles"]}))
+    for i in sorted(load_json(CD, "items.json"), key=lambda i: i["id"]):
+        if not i.get("inStore") or not i.get("name") or ("item", i["name"]) in seen:
+            continue
+        seen.add(("item", i["name"]))
+        rows.append((norm(i["name"]), "item", i["id"], i["name"], {"price": i.get("priceTotal")}))
+    with_stats = {a["augment_id"] for a in load_json("data", "cn", "augments.json")["augments"]}
+    # Duplicate augment names exist (e.g. 7 and 1007 "Blunt Force"); the one with Mayhem stats wins.
+    for a in sorted(_augment_index().values(), key=lambda a: (a["id"] not in with_stats, a["id"])):
+        if not a["name"] or ("augment", a["name"]) in seen:
+            continue
+        seen.add(("augment", a["name"]))
+        rows.append((norm(a["name"]), "augment", a["id"], a["name"], {"rarity": a["rarity"], "has_stats": a["id"] in with_stats}))
+    return tuple(rows)
+
+
+def _search_score(q: str, key: str) -> float:
+    if q == key:
+        return 1.0
+    ratio = difflib.SequenceMatcher(None, q, key).ratio()
+    if key.startswith(q):
+        return max(ratio, 0.9)
+    if q in key:
+        return max(ratio, 0.8)
+    return ratio
+
+
+def search(query: str, limit: int = 8, types: str | None = None) -> dict:
+    """Fuzzy search champions, items and augments by name in one call. Returns the best matches with their
+    type, id, name and a score 0-1. `types` narrows to a comma list of champion, item, augment."""
+    q = norm(query)
+    if not q:
+        return {"error": "query is required"}
+    wanted = {norm(t).rstrip("s") for t in str(types).split(",") if norm(t)} if types else None
+    if wanted and not wanted <= {"champion", "item", "augment"}:
+        return {"error": f"unknown types: {types!r}", "types": ["champion", "item", "augment"]}
+    cutoff = 0.5 if len(q) > 3 else 0.6
+    hits = []
+    for key, kind, oid, name, extra in _search_corpus():
+        if wanted and kind not in wanted:
+            continue
+        score = _search_score(q, key)
+        if score >= cutoff:
+            hits.append((-score, len(key), kind, oid, name, extra))
+    hits.sort()
+    limit = max(1, min(int(limit), 50))
+    return {"query": query, "count": len(hits), "matches": [
+        {"type": kind, "id": oid, "name": name, "score": round(-s, 3), **extra} for s, _, kind, oid, name, extra in hits[:limit]
+    ]}
+
+
+TOOLS = (champion_stats, tier_list, best_build, augment_stats, best_duos, champion_trend, patch_changes, search,
+         project_status, desk_todos, add_todo, complete_todo)
 
 
 # --- MCP wiring -----------------------------------------------------------------------------------------------
@@ -476,6 +672,70 @@ def build_server():
     return server
 
 
+class BearerAuth:
+    """ASGI middleware: every HTTP request must carry `Authorization: Bearer <token>` (constant-time compare).
+    Lifespan and other non-HTTP scopes pass through. Also exempts nothing: health checks need the token too."""
+
+    def __init__(self, app, token: str):
+        if not token:
+            raise ValueError("BearerAuth needs a non-empty token")
+        self.app, self.token = app, token
+
+    @staticmethod
+    def check(authorization: str | None, token: str) -> bool:
+        if not authorization:
+            return False
+        scheme, _, value = authorization.strip().partition(" ")
+        return scheme.lower() == "bearer" and hmac.compare_digest(value.strip().encode(), token.encode())
+
+    async def __call__(self, scope, receive, send):
+        if scope["type"] != "http":
+            return await self.app(scope, receive, send)
+        header = next((v for k, v in scope.get("headers", []) if k == b"authorization"), b"").decode("latin-1")
+        if not self.check(header, self.token):
+            body = b'{"error":"unauthorized"}'
+            await send({"type": "http.response.start", "status": 401, "headers": [
+                (b"content-type", b"application/json"), (b"content-length", str(len(body)).encode()),
+                (b"www-authenticate", b'Bearer realm="deeparam-dashboard"')]})
+            await send({"type": "http.response.body", "body": body})
+            return
+        return await self.app(scope, receive, send)
+
+
+def build_http_app(token: str | None, allowed_hosts: list[str] | None = None, insecure_local: bool = False, path: str = "/mcp"):
+    """The streamable-HTTP ASGI app (the SDK's Starlette app) wrapped in BearerAuth. Without a token it is only
+    built when insecure_local is set. allowed_hosts extends the SDK's DNS-rebinding allow list (localhost by
+    default) with e.g. the tunnel hostname."""
+    if not token and not insecure_local:
+        raise SystemExit("--http needs --token <secret> (or --insecure-local to serve without auth on localhost)")
+    from mcp.server.transport_security import TransportSecuritySettings
+    hosts = ["127.0.0.1:*", "localhost:*", "[::1]:*", *(allowed_hosts or [])]
+    security = TransportSecuritySettings(enable_dns_rebinding_protection=True, allowed_hosts=hosts,
+                                         allowed_origins=[f"http://{h}" for h in hosts] + [f"https://{h}" for h in hosts])
+    app = build_server().streamable_http_app(streamable_http_path=path, transport_security=security)
+    return BearerAuth(app, token) if token else app
+
+
+def serve_http(host: str, port: int, token: str | None, allowed_hosts: list[str] | None, insecure_local: bool) -> None:
+    import uvicorn
+    app = build_http_app(token, allowed_hosts, insecure_local)
+    print(f"deeparam-dashboard MCP on http://{host}:{port}/mcp ({'bearer token' if token else 'NO AUTH'})", file=sys.stderr)
+    uvicorn.run(app, host=host, port=port, log_level="info")
+
+
+def parse_args(argv: list[str]) -> argparse.Namespace:
+    ap = argparse.ArgumentParser(description="DeepARAM Dashboard MCP server (stdio by default).")
+    ap.add_argument("--http", action="store_true", help="serve MCP streamable HTTP at /mcp instead of stdio")
+    ap.add_argument("--host", default="127.0.0.1", help="bind address for --http (default 127.0.0.1)")
+    ap.add_argument("--port", type=int, default=8765, help="port for --http (default 8765)")
+    ap.add_argument("--token", default=os.environ.get("DASHBOARD_TOKEN"),
+                    help="bearer token every HTTP request must send (or env DASHBOARD_TOKEN)")
+    ap.add_argument("--allowed-host", action="append", default=[], metavar="HOST[:PORT]",
+                    help="extra Host header to accept, e.g. the Cloudflare Tunnel hostname (repeatable)")
+    ap.add_argument("--insecure-local", action="store_true", help="allow --http without --token (localhost only)")
+    return ap.parse_args(argv)
+
+
 def main(argv: list[str] | None = None) -> int:
     argv = sys.argv[1:] if argv is None else argv
     if argv and argv[0] == "--call":  # quick manual check: python3 dashboard_mcp.py --call champion_stats Teemo
@@ -484,6 +744,12 @@ def main(argv: list[str] | None = None) -> int:
             print("tools:", ", ".join(f.__name__ for f in TOOLS), file=sys.stderr)
             return 2
         print(json.dumps(fn(*argv[2:]), ensure_ascii=False, indent=1))
+        return 0
+    args = parse_args(argv)
+    if args.http:
+        if args.insecure_local and args.host not in ("127.0.0.1", "localhost", "::1"):
+            raise SystemExit("--insecure-local only allows binding to localhost; pass --token to bind elsewhere")
+        serve_http(args.host, args.port, args.token, args.allowed_host, args.insecure_local)
         return 0
     build_server().run(transport="stdio")
     return 0
