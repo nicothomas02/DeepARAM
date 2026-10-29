@@ -1,0 +1,10 @@
+{
+ "_note": "Nico's Desk to-dos. `minutes` is the estimated time, `importance` 1 (low) to 5 (high). project_status() lists open ones quickest-first, then most important. Replace with your own; set DASHBOARD_TODOS to point elsewhere.",
+ "todos": [
+  {"id": "mcp-remote", "title": "Expose the Dashboard MCP server remotely (HTTP wrapper or Worker)", "minutes": 120, "importance": 4, "project": "dashboard"},
+  {"id": "desk-connect", "title": "Point Nico's Desk at the MCP server for live stats", "minutes": 60, "importance": 5, "project": "dashboard"},
+  {"id": "sleeper", "title": "Add Sleeper fantasy tools (matchup, waiver suggestions)", "minutes": 180, "importance": 3, "project": "dashboard"},
+  {"id": "todo-source", "title": "Move to-dos out of todos.json into the Desk artifact's database", "minutes": 45, "importance": 3, "project": "dashboard"},
+  {"id": "readme-link", "title": "Link tools/mcp from the main README", "minutes": 5, "importance": 2, "project": "deeparam"}
+ ]
+}
