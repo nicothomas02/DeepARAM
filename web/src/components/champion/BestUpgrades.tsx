@@ -12,6 +12,8 @@ import SimTag from "./SimTag";
 const NS = "champions";
 const AUG_NAMES = augmentNames as Record<string, string>;
 const SIM_TITLE = "Simulated: one of these augments has no real games yet, so only simulated fights put it in the set.";
+/** A simulated gain as a signed whole percentage, "+41%" or "-3%": the sign comes from the number, never "+-3%". */
+const gain = (v: number) => `${v > 0 ? "+" : ""}${Math.round(v * 100)}%`;
 
 function Line({ label, tag, children, cells }: { label: string; tag?: React.ReactNode; children: React.ReactNode; cells: React.ReactNode }) {
   return (
@@ -97,7 +99,7 @@ export default function BestUpgrades({ u }: { u: ChampionUpgrades }) {
             label="Weapon of Destiny"
             cells={
               <>
-                <Cell value={`+${Math.round(u.destiny.gain * 100)}%`} label="Simulated gain" />
+                <Cell value={gain(u.destiny.gain)} label="Simulated gain" />
                 <Cell value={u.destiny.takedowns} label="Takedowns" />
               </>
             }
@@ -121,7 +123,7 @@ export default function BestUpgrades({ u }: { u: ChampionUpgrades }) {
             cells={
               <>
                 <Cell value={signed(u.pentakill.boost)} label="Est. boost" tone={u.pentakill.boost > 0 ? "up" : undefined} />
-                <Cell value={`+${Math.round(u.pentakill.startGain * 100)}%`} label="Simulated gain" />
+                <Cell value={gain(u.pentakill.startGain)} label="Simulated gain" />
               </>
             }
           >
