@@ -46,9 +46,10 @@ export default function ContactMessages() {
                 <p className="contact-msg-text">{m.message}</p>
                 <div className="kitchen-sub-actions">
                   {m.replyTo ? (
-                    // The address is encoded (keeping its @) so nothing in it can add headers to the link; a signed-in
-                    // sender's account email wasn't checked as strictly as a typed reply address (lib/contact.ts).
-                    <a className="btn" href={`mailto:${encodeURIComponent(m.replyTo).replace("%40", "@")}?subject=${encodeURIComponent("Re: your DeepARAM message")}`}>
+                    // The address is encoded (keeping every @, though a real one has just the one) so nothing in it can
+                    // add headers to the link; a signed-in sender's account email wasn't checked as strictly as a typed
+                    // reply address (lib/contact.ts).
+                    <a className="btn" href={`mailto:${encodeURIComponent(m.replyTo).replaceAll("%40", "@")}?subject=${encodeURIComponent("Re: your DeepARAM message")}`}>
                       {t("Reply to {email}", { email: m.replyTo })}
                     </a>
                   ) : (

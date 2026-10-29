@@ -28,6 +28,15 @@ describe("cleanMessage", () => {
     expect(cleanMessage({ message: "Found a bug", replyTo: "first.last+tag@sub.example.co.uk" }).replyTo).toBe("first.last+tag@sub.example.co.uk");
   });
 
+  it("turns a long garbage address away without stalling", () => {
+    // The address check runs on whatever the request body carries: the length cap turns a 10,000-character string
+    // away before the pattern runs, and a near-miss that fits under the cap must not make the pattern backtrack.
+    const start = performance.now();
+    for (const garbage of ["a@" + "a.".repeat(4999) + "!", "a@" + "a.".repeat(98) + "!"])
+      expect(() => cleanMessage({ message: "Found a bug", replyTo: garbage })).toThrow("That email address doesn't look right.");
+    expect(performance.now() - start).toBeLessThan(200);
+  });
+
   it("keeps only a page path from this site", () => {
     expect(cleanMessage({ message: "Hello there", page: "https://evil.example/" }).page).toBeNull();
   });
