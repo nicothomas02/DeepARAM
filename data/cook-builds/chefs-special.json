@@ -1,297 +1,297 @@
 {
-  "id": "skarner-crit-happens",
-  "title": "Crit Happens",
-  "champion": "Skarner",
-  "champion_name": "Skarner",
-  "chef": "2026-10-27",
-  "why": "Skarner's passive Threads of Vibration is mostly an afterthought: his attacks, boulder and ult stack Quaking, and at max stacks the target takes max Health magic damage over time, which is a damage-over-time effect. Vulnerability lets damage-over-time and item effects critically strike for 145% extra damage and hands him 25% crit chance, and Tank It Or Leave It adds another 25% so that same crit chance also rolls a 20% damage reduction every time he gets hit, so a tank who never crits suddenly wants crit for both offence and defence. Infernal Conduit makes every ability stack a burn that crits too and cuts his basic cooldowns, so he throws more boulders and quakes to re-stack Quaking, while Firebrand piles an infinitely stacking burn onto the three empowered attacks from Shattered Earth. Liandry's Torment, Sunfire Aegis, Hollow Radiance, Thornmail and Heartsteel are all item damage, so their burns, Immolate ticks, thorns and charged slam roll crits off the same 50% chance. The scorpion ends up a walking crit-chance bonfire whose tank items are his damage.",
-  "play": "Build full tank, walk into the enemy team and just keep stacking: Q three attacks, throw the boulder, quake, ult whoever is closest. You are not the one who crits, your burns are.",
+  "id": "irelia-forgot-how-to-auto",
+  "title": "Forgot How To Auto",
+  "champion": "Irelia",
+  "champion_name": "Irelia",
+  "chef": "2026-10-28",
+  "why": "Irelia's Ionian Fervor gives her stacking Attack Speed every time a spell hits, and at full stacks it adds bonus damage on hit. Purist - Caster converts all of that Attack Speed into Ability Haste, so the stacks she earns by casting come back as more casts. Ethereal Weapon makes her abilities apply On-Hit effects, so every Bladesurge, Flawless Duet and Vanguard's Edge carries her Fervor bonus and Mystic Punch, which cuts 1.25 seconds off all her cooldowns per On-Hit; Double Strike on Bladesurge applies those On-Hits a second time. Nashor's Tooth and Wit's End are bought for Attack Speed that Purist turns into Haste and for On-Hit magic damage that her spells now deliver, while Rabadon's Deathcap and Riftmaker bring the Ability Power. The auto-attack duelist never right-clicks again and becomes an AP caster whose spells are the on-hits.",
+  "play": "Mark targets with Flawless Duet or Vanguard's Edge, then chain Bladesurge through them and the minions. Every hit refunds cooldowns, so just keep dashing and forget your attack button exists.",
   "items": [
-    "Liandry's Torment",
-    "Sunfire Aegis",
-    "Hollow Radiance",
-    "Thornmail",
-    "Heartsteel",
-    "Plated Steelcaps"
+    "Nashor's Tooth",
+    "Wit's End",
+    "Rabadon's Deathcap",
+    "Riftmaker",
+    "Zhonya's Hourglass",
+    "Ionian Boots of Lucidity"
   ],
   "core": 4,
-  "champion_icon": "/embed/fun/cook-builds/icons/champions/72.png",
+  "champion_icon": "/embed/fun/cook-builds/icons/champions/39.png",
   "augments": [
     {
-      "name": "Vulnerability",
-      "rarity": "Gold",
-      "core": true,
-      "text": "Your Item and damage over time effects can Critically Strike for 145% extra damage. Gain 25% Crit chance.",
-      "icon": "/embed/fun/cook-builds/icons/augments/vulnerability.png",
-      "id": 1092
-    },
-    {
-      "name": "Tank It Or Leave It",
+      "name": "Purist - Caster",
       "rarity": "Silver",
       "core": true,
-      "text": "You can Critically Defend using your Crit Chance (max 50% chance), giving you a chance to reduce damage taken by 20%. Gain 25% Crit Chance.",
-      "icon": "/embed/fun/cook-builds/icons/augments/tank-it-or-leave-it.png",
-      "id": 1080
+      "text": "Gain percent cooldown reduction and convert all of your Attack Speed into Ability Haste.",
+      "icon": "/embed/fun/cook-builds/icons/augments/purist-caster.png",
+      "id": 2018
     },
     {
-      "name": "Infernal Conduit",
-      "rarity": "Prismatic",
-      "core": true,
-      "text": "Your Abilities apply stacking Burn that deals damage over time. Your Burn effects reduce your basic Ability Cooldowns.",
-      "icon": "/embed/fun/cook-builds/icons/augments/infernal-conduit.png",
-      "id": 1045
-    },
-    {
-      "name": "Firebrand",
+      "name": "Ethereal Weapon",
       "rarity": "Gold",
       "core": true,
-      "text": "Your Attacks also Burn enemies, dealing 0.4% max Health magic damage per second over 5 seconds. This Burn stacks infinitely.",
-      "icon": "/embed/fun/cook-builds/icons/augments/firebrand.png",
-      "id": 1036
+      "text": "Your Abilities apply On-Hit effects. 1 second Cooldown per target.",
+      "icon": "/embed/fun/cook-builds/icons/augments/ethereal-weapon.png",
+      "id": 1029
+    },
+    {
+      "name": "Mystic Punch",
+      "rarity": "Prismatic",
+      "core": true,
+      "text": "On-Hit reduce the cooldown of your abilities by 1.25 seconds.",
+      "icon": "/embed/fun/cook-builds/icons/augments/mystic-punch.png",
+      "id": 1058
+    },
+    {
+      "name": "Double Strike",
+      "rarity": "Silver",
+      "core": true,
+      "text": "the chosen ability applies On-Hit effects an additional time.",
+      "icon": "/embed/fun/cook-builds/icons/augments/double-strike.png",
+      "id": 2148
     }
   ],
   "href": "/kitchen#chefs-special",
   "archive_href": "/kitchen#chef-archive",
-  "share_href": "/kitchen/2026-10-27",
-  "share_image": "/embed/fun/cook-builds/share/skarner-crit-happens.png",
+  "share_href": "/kitchen/2026-10-28",
+  "share_image": "/embed/fun/cook-builds/share/irelia-forgot-how-to-auto.png",
   "item_ids": [
-    6653,
-    3068,
-    6664,
-    3075,
-    3084,
-    3047
+    3115,
+    3091,
+    3089,
+    4633,
+    3157,
+    3158
   ],
   "i18n": {
     "ar": {
-      "title": "الضربات الحرجة تحدث",
-      "why": "عادةً ما تكون القدرة السلبية لسكارنر تفصيلًا جانبيًا: هجماته وصخرته وقدرته القصوى تضيف شحنات الارتجاج، وعند أقصى عدد من الشحنات يتلقى الهدف ضررًا سحريًا بمرور الوقت حسب أقصى صحة له، أي أنه تأثير ضرر بمرور الوقت. الهشاشة تتيح لتأثيرات الضرر بمرور الوقت وتأثيرات العتاد أن تسدد ضربات حرجة بضرر إضافي 145% وتمنحه 25% فرصة ضربة حرجة، وعليك بالتدرع تضيف 25% أخرى، فتمنحه نفس فرصة الضربة الحرجة أيضًا فرصة لتقليل كل ضربة يتلقاها بنسبة 20%: دبابة لا تسدد ضربات حرجة أبدًا تريد فجأة الضربات الحرجة للهجوم والدفاع معًا. المجرى المشتعل يجعل كل قدرة تضيف حرقًا متراكمًا يسدد ضربات حرجة هو الآخر ويقلل فترات تهدئة قدراته الأساسية، فيرمي صخورًا وارتجاجات أكثر ليعيد تكديس الارتجاج، بينما تضيف الجمرة حرقًا يتراكم بلا حدود على الهجمات الثلاث المعززة من Q. عذاب لياندري والدرع الشمسي والتألق الأجوف والدرع الشوكي والقلب الفولاذي كلها ضرر عتاد، فحروقها واحتراقها وأشواكها وضربتها المشحونة تسدد ضربات حرجة بنفس نسبة 50%. يتحول العقرب إلى نار متنقلة من فرص الضربات الحرجة، وعتاد الدبابة لديه هو ضرره.",
-      "play": "اشترِ عتاد دبابة كاملًا، اقتحم الفريق الخصم واستمر في التكديس: ثلاث هجمات بـ Q، ارمِ الصخرة، الارتجاج، القدرة القصوى على الأقرب. لست أنت من يسدد الضربات الحرجة، بل حروقك.",
+      "title": "نسيت كيف تهاجم",
+      "why": "تمنح القدرة الخاملة لإيريليا، الحماسة الأيونية، سرعة هجوم متراكمة كلما أصابت إحدى مهاراتها، وعند الحد الأقصى من التراكمات ضررًا إضافيًا عند الإصابة. يحوّل النقيّ - ملقي التعويذات كل سرعة الهجوم هذه إلى تسريع للمهارات، فتعود التراكمات التي تكسبها بإلقاء التعويذات على شكل تعويذات أكثر. يجعل السلاح الأثيري مهاراتها تطبّق تأثيرات الإصابة، لذا تحمل اندفاعة النصل والثنائي الخالي من العيوب ونصل الطليعة مكافأة الحماسة ولكمة الغموض، التي تخصم 1.25 ثانية من كل فترات التهدئة لكل تأثير إصابة؛ والضربة المزدوجة على اندفاعة النصل تطبّق هذه التأثيرات مرة ثانية. تشتري سن ناشور والموقف الحرج من أجل سرعة الهجوم التي يحوّلها النقيّ إلى تسريع، ومن أجل الضرر السحري عند الإصابة الذي تُلحقه مهاراتها الآن، بينما تجلب قبعة موت رابادون وصانع الصدوع قوة المهارات. مبارزة الهجمات الأساسية لا تنقر بالزر الأيمن مجددًا، وتصبح ساحرة AP تعويذاتها هي الإصابات.",
+      "play": "علّم الأهداف بالثنائي الخالي من العيوب أو نصل الطليعة، ثم سلسل اندفاعة النصل عبرهم وعبر التوابع. كل إصابة تقلل فترات التهدئة، فاستمر في الاندفاع وانسَ أن زر الهجوم موجود.",
       "augments": [
-        "يمكن لتأثيرات عتادك وتأثيرات الضرر بمرور الوقت أن تسدد ضربة حرجة بضرر إضافي 145%. تحصل على 25% فرصة ضربة حرجة.",
-        "يمكنك الدفاع الحرج باستخدام فرصة ضربتك الحرجة (بحد أقصى 50%)، ما يمنحك فرصة لتقليل الضرر المتلقى بنسبة 20%. تحصل على 25% فرصة ضربة حرجة.",
-        "تضيف قدراتك حرقًا متراكمًا يُلحق ضررًا بمرور الوقت. تأثيرات الحرق لديك تقلل فترات تهدئة قدراتك الأساسية.",
-        "تحرق هجماتك الأعداء أيضًا، فتلحق ضررًا سحريًا يعادل 0.4% من أقصى صحتهم كل ثانية لمدة 5 ثوانٍ. يتراكم هذا الحرق بلا حدود."
+        "احصل على تقليل نسبي لفترة التهدئة وحوّل كل سرعة هجومك إلى تسريع قدرات.",
+        "تطبّق مهاراتك تأثيرات الإصابة. فترة تهدئة ثانية واحدة لكل هدف.",
+        "عند الإصابة، تقلل فترة تهدئة مهاراتك بمقدار 1.25 ثانية.",
+        "تطبّق المهارة المختارة تأثيرات الإصابة مرة إضافية."
       ]
     },
     "cs": {
-      "title": "Krit se stává",
-      "why": "Skarnerova pasivka je většinou vedlejší věc: jeho útoky, balvan i ultimátka přidávají Otřesy a při maximu Otřesů utrpí cíl v průběhu času magické poškození podle maximálního zdraví, tedy efekt poškození v čase. Zranitelnost umožňuje efektům poškození v čase a efektům předmětů kriticky zasáhnout za 145 % poškození navíc a dává mu 25% šanci na kritický zásah, a Kritická odolnost přidává dalších 25 %, takže ta samá šance na krit mu dává i šanci snížit každý přijatý zásah o 20 %: tank, který nikdy nekrituje, najednou chce krit pro útok i obranu. Pekelné spojení zařídí, že každá schopnost přidá kumulativní hoření, které také krituje a zkracuje přebíjení jeho základních schopností, takže hází víc balvanů a otřesů, aby znovu nasbíral Otřesy, a Ohnivý cejch přidává nekonečně kumulativní hoření na tři posílené útoky z jeho Q. Liandryho utrpení, Záštita slunečního žáru, Dutá záře, Trnobrnění a Srdcová ocel jsou poškození z předmětů, takže jejich hoření, Spalování, trny i nabitý úder kritují se stejnou 50% šancí. Ze štíra se stane chodící táborák šance na krit, jehož tankovské předměty jsou jeho poškozením.",
-      "play": "Postav full tanka, vlez do nepřátelského týmu a prostě sbírej Otřesy: tři útoky z Q, hoď balvan, otřes, ultimátku na nejbližšího. Nekrituješ ty, kritují tvoje hoření.",
+      "title": "Zapomněla, jak se útočí",
+      "why": "Irelijina pasivka Iónský zápal jí dává kumulující se rychlost útoků pokaždé, když zasáhne schopností, a při maximu nábojů navíc poškození při zásahu. Ryzí sesilatel převede všechnu tu rychlost útoků na zrychlení schopností, takže náboje, které získá sesíláním, se vrací jako další kouzla. Éterická zbraň nechá její schopnosti aktivovat efekty při zásahu, takže Nápor čepele, Dokonalé duo a Čepel předvoje nesou bonus ze Zápalu i Mystický úder, který za každý efekt při zásahu zkrátí všechny přebíjecí doby o 1,25 sekundy; Dvojitý úder na Náporu čepele aplikuje ty efekty podruhé. Nashorův tesák a Nouzovou kupuje kvůli rychlosti útoků, kterou Ryzí sesilatel mění na zrychlení, a kvůli magickému poškození při zásahu, které teď dávají její schopnosti, zatímco Rabadonův smrtící klobouk a Tvůrce Žlebu dodají sílu schopností. Duelantka na automatické útoky už nikdy neklikne pravým a stane se AP mágem, jehož kouzla jsou zásahy.",
+      "play": "Označ cíle Dokonalým duem nebo Čepelí předvoje a pak řetěz Nápor čepele přes ně a přes poskoky. Každý zásah zkracuje přebíjení, tak prostě dál skákej a zapomeň, že máš tlačítko útoku.",
       "augments": [
-        "Tvé efekty předmětů a poškození v čase mohou kriticky zasáhnout a způsobit 145 % poškození navíc. Získáš 25% šanci na kritický zásah.",
-        "Díky šanci na kritický zásah se můžeš kriticky bránit (max. 50% šance), což ti dá šanci snížit přijaté poškození o 20 %. Získáš 25 % šance na kritický zásah.",
-        "Tvé schopnosti přidávají kumulativní hoření, které způsobuje poškození v čase. Tvé efekty hoření zkracují přebíjení tvých základních schopností.",
-        "Tvé útoky navíc zapalují nepřátele a způsobují jim magické poškození ve výši 0,4 % maximálního zdraví za sekundu po dobu 5 sekund. Toto hoření se kumuluje donekonečna."
+        "Získáš procentuální zkrácení přebíjení a přeměníš veškerou rychlost útoků na zrychlení schopností.",
+        "Tvé schopnosti aktivují efekty při zásahu. Přebíjecí doba 1 s pro každý cíl.",
+        "Při zásahu zkrátí přebíjecí dobu tvých schopností o 1,25 s.",
+        "Zvolená schopnost aktivuje efekty při zásahu ještě jednou."
       ]
     },
     "de": {
-      "title": "Krit passiert",
-      "why": "Skarners Passiv ist meist Nebensache: Seine Angriffe, sein Felsbrocken und seine Ultimate stapeln Beben, und bei maximalen Steigerungen erleidet das Ziel über Zeit magischen Schaden abhängig vom maximalen Leben, also ein Schaden-über-Zeit-Effekt. Verwundbarkeit lässt Schaden-über-Zeit- und Gegenstandseffekte kritisch treffen für 145 % zusätzlichen Schaden und gibt ihm 25 % kritische Trefferchance, und Tank es oder lass es legt weitere 25 % drauf, sodass dieselbe Krit-Chance auch bei jedem Treffer gegen ihn eine Chance auf 20 % Schadensverringerung würfelt: Ein Tank, der nie crittet, will plötzlich Krit für Angriff und Verteidigung. Infernalische Verbindung lässt jede Fähigkeit einen stapelbaren Brand verursachen, der ebenfalls crittet und seine Grundfähigkeiten-Abklingzeiten verringert, also wirft er mehr Felsbrocken und Beben, um Beben neu zu stapeln, während Feuerbrand einen unendlich stapelbaren Brand auf die drei verstärkten Angriffe seines Q legt. Liandrys Qual, Sonnenfeuer-Ägide, Hohler Glanz, Dornenpanzer und Herzstahl sind alles Gegenstandsschaden, also critten ihre Brände, Feuersbrunst-Ticks, Dornen und der aufgeladene Schlag mit denselben 50 %. Der Skorpion wird zum wandelnden Krit-Lagerfeuer, dessen Tank-Gegenstände sein Schaden sind.",
-      "play": "Bau full Tank, lauf ins gegnerische Team und stapel einfach weiter: drei Q-Angriffe, Felsbrocken werfen, Beben, Ultimate auf den Nächsten. Nicht du crittest, deine Brände tun es.",
+      "title": "Vergessen, wie man angreift",
+      "why": "Irelias Passiv, Ionischer Eifer, gibt ihr stapelndes Angriffstempo, wann immer eine Fähigkeit trifft, und bei maximalen Steigerungen zusätzlichen Treffer-Schaden. Purist – Zauberer wandelt all dieses Angriffstempo in Fähigkeitstempo um, also werden die Steigerungen, die sie durchs Zaubern verdient, zu noch mehr Zaubern. Ätherische Waffe lässt ihre Fähigkeiten Treffereffekte auslösen, also tragen Klingenwoge, Makelloses Duett und Klinge der Vorhut ihren Eifer-Bonus und Mystischer Schlag, der pro Treffereffekt 1,25 Sekunden von all ihren Abklingzeiten abzieht; Doppelschlag auf Klingenwoge löst diese Treffereffekte ein zweites Mal aus. Nashors Zahn und Ende der Weisheit kauft sie für Angriffstempo, das Purist zu Fähigkeitstempo macht, und für magischen Treffer-Schaden, den jetzt ihre Fähigkeiten austeilen, während Rabadons Todeshaube und Kluftformer die Fähigkeitsstärke liefern. Die Auto-Attack-Duellantin klickt nie wieder rechts und wird zur AP-Magierin, deren Fähigkeiten die Treffer sind.",
+      "play": "Markiere Gegner mit Makelloses Duett oder Klinge der Vorhut und kette dann Klingenwoge durch sie und die Vasallen. Jeder Treffer senkt deine Abklingzeiten, also dash einfach weiter und vergiss, dass es eine Angriffstaste gibt.",
       "augments": [
-        "Deine Gegenstands- und Schaden-über-Zeit-Effekte können kritisch treffen und verursachen dabei 145 % zusätzlichen Schaden. Erhalte 25 % kritische Trefferchance.",
-        "Du kannst mit deiner kritischen Trefferchance kritisch verteidigen (max. 50 % Chance), wodurch du eine Chance hast, erlittenen Schaden um 20 % zu verringern. Erhalte 25 % kritische Trefferchance.",
-        "Deine Fähigkeiten verursachen einen stapelbaren Brand, der Schaden über Zeit verursacht. Deine Brandeffekte verringern die Abklingzeiten deiner Grundfähigkeiten.",
-        "Deine Angriffe verbrennen Gegner zusätzlich und verursachen 5 Sek. lang pro Sekunde magischen Schaden in Höhe von 0,4 % ihres maximalen Lebens. Dieser Brand ist unendlich stapelbar."
+        "Erhalte prozentuale Abklingzeitverringerung und wandle dein gesamtes Angriffstempo in Fähigkeitstempo um.",
+        "Deine Fähigkeiten lösen Treffereffekte aus. 1 Sekunde Abklingzeit pro Ziel.",
+        "Treffereffekt: Verringert die Abklingzeit deiner Fähigkeiten um 1,25 Sekunden.",
+        "Die gewählte Fähigkeit löst Treffereffekte ein weiteres Mal aus."
       ]
     },
     "el": {
-      "title": "Τα καίρια συμβαίνουν",
-      "why": "Η παθητική ικανότητα του Σκάρνερ συνήθως περνάει απαρατήρητη: οι επιθέσεις του, ο βράχος και η υπέρτατη ικανότητά του προσθέτουν φορτία Σεισμού, και στα μέγιστα φορτία ο στόχος δέχεται με τον χρόνο μαγική ζημιά βάσει της μέγιστης Ζωής του, δηλαδή ένα εφέ ζημιάς με τον χρόνο. Το Τρωτό Σημείο επιτρέπει στα εφέ ζημιάς με τον χρόνο και στα εφέ αντικειμένων να κάνουν καίρια χτυπήματα για 145% επιπλέον ζημιά και του δίνει 25% πιθανότητα καίριου, και η Καίρια Υπεράσπιση προσθέτει άλλο 25%, οπότε η ίδια πιθανότητα καίριου του δίνει και πιθανότητα να μειώσει κατά 20% κάθε χτύπημα που δέχεται: ένα τανκ που δεν κάνει ποτέ καίρια ξαφνικά θέλει καίρια για επίθεση και άμυνα. Ο Καταχθόνιος Αγωγός κάνει κάθε ικανότητα να προκαλεί αθροιστικό Κάψιμο που κάνει κι αυτό καίρια και μειώνει τους χρόνους επαναφόρτισης των βασικών του ικανοτήτων, οπότε ρίχνει περισσότερους βράχους και σεισμούς για να ξαναφορτώσει τον Σεισμό, ενώ το Πυροσφράγισμα προσθέτει ένα απεριόριστα αθροιστικό Κάψιμο στις τρεις ενισχυμένες επιθέσεις του Q. Το Μαρτύριο της Λιάντρι, η Αιγίδα του Ήλιου, η Κενή Λαμπρότητα, η Αγκαθωράκιση και ο Ατσαλόκαρδος είναι όλα ζημιά αντικειμένων, οπότε τα καψίματα, η Πυρπόληση, τα αγκάθια και το φορτισμένο χτύπημά τους κάνουν καίρια με το ίδιο 50%. Ο σκορπιός γίνεται μια περπατητή φωτιά πιθανότητας καίριου, που τα αντικείμενα τανκ του είναι η ζημιά του.",
-      "play": "Φτιάξε full τανκ, μπες στην αντίπαλη ομάδα και απλώς συνέχισε να φορτώνεις: τρεις επιθέσεις με Q, πέτα τον βράχο, σεισμός, υπέρτατη στον πιο κοντινό. Δεν κάνεις εσύ καίρια, τα καψίματά σου κάνουν.",
+      "title": "Ξέχασε πώς χτυπάνε",
+      "why": "Η παθητική της Ιρέλια, Ιόνιος Ζήλος, της δίνει σωρευτική Ταχύτητα Επίθεσης κάθε φορά που μια ικανότητα βρίσκει στόχο, και στις μέγιστες στοίβες επιπλέον ζημιά κατά το χτύπημα. Το Καθαρολόγος - Μάγος μετατρέπει όλη αυτή την Ταχύτητα Επίθεσης σε Επιτάχυνση Ικανοτήτων, οπότε οι στοίβες που κερδίζει ρίχνοντας ξόρκια γυρίζουν ως ακόμα περισσότερα ξόρκια. Το Αιθέριο Όπλο κάνει τις ικανότητές της να εφαρμόζουν εφέ χτυπήματος, οπότε η Ορμή Λεπίδων, το Άψογο Ντουέτο και η Λεπίδα της Εμπροσθοφυλακής κουβαλούν το μπόνους του Ζήλου και τη Μυστικιστική Γροθιά, που αφαιρεί 1,25 δευτερόλεπτα από όλους τους χρόνους επαναφόρτισης ανά εφέ χτυπήματος· το Διπλό Χτύπημα στην Ορμή Λεπίδων εφαρμόζει αυτά τα εφέ δεύτερη φορά. Το Δόντι του Νάσορ και το Παρανοϊκό Ξίφος τα παίρνει για την Ταχύτητα Επίθεσης που ο Καθαρολόγος κάνει Επιτάχυνση και για τη μαγική ζημιά κατά το χτύπημα που τώρα δίνουν οι ικανότητές της, ενώ το Καπέλο του Ράμπαντον και ο Διχαστής φέρνουν τη Δύναμη Ικανοτήτων. Η μονομάχος των βασικών επιθέσεων δεν κάνει ποτέ ξανά δεξί κλικ και γίνεται AP μάγισσα που τα ξόρκια της είναι τα χτυπήματα.",
+      "play": "Σημάδεψε στόχους με το Άψογο Ντουέτο ή τη Λεπίδα της Εμπροσθοφυλακής και μετά αλυσόδεσε Ορμή Λεπίδων πάνω τους και στα τσιράκια. Κάθε χτύπημα μειώνει τους χρόνους, οπότε συνέχισε τα dash και ξέχνα ότι υπάρχει κουμπί επίθεσης.",
       "augments": [
-        "Τα εφέ των αντικειμένων σας και τα εφέ ζημιάς με τον χρόνο μπορούν να κάνουν Καίριο Χτύπημα για 145% επιπλέον ζημιά. Κερδίζετε 25% Πιθανότητα Καίριου.",
-        "Μπορείς να κάνεις Καίρια Άμυνα με την Πιθανότητα Καίριου Χτυπήματος (έως 50%), με πιθανότητα να μειώσεις τη ζημιά που δέχεσαι κατά 20%. Κερδίζεις 25% Πιθανότητα Καίριου Χτυπήματος.",
-        "Οι Ικανότητές σας προκαλούν αθροιστικό Κάψιμο που προκαλεί ζημιά με τον χρόνο. Τα εφέ Καψίματός σας μειώνουν τους Χρόνους Επαναφόρτισης των βασικών Ικανοτήτων σας.",
-        "Οι Επιθέσεις σας καίνε επίσης τους εχθρούς, προκαλώντας μαγική ζημιά ίση με το 0,4% της μέγιστης Ζωής τους ανά δευτερόλεπτο για 5 δευτερόλεπτα. Αυτό το Κάψιμο αθροίζεται απεριόριστα."
+        "Αποκτάτε ποσοστιαία μείωση χρόνου επαναφόρτισης και μετατρέπετε όλη την Ταχύτητα Επίθεσης σε Επιτάχυνση Ικανοτήτων.",
+        "Οι Ικανότητές σου εφαρμόζουν εφέ χτυπήματος. 1 δευτερόλεπτο επαναφόρτιση ανά στόχο.",
+        "Κατά το χτύπημα, μειώνει τον χρόνο επαναφόρτισης των ικανοτήτων σου κατά 1,25 δευτερόλεπτα.",
+        "Η επιλεγμένη ικανότητα εφαρμόζει εφέ χτυπήματος μία επιπλέον φορά."
       ]
     },
     "es-MX": {
-      "title": "Los críticos pasan",
-      "why": "La pasiva de Skarner casi siempre pasa desapercibida: sus ataques, su roca y su definitiva acumulan Temblor, y con el máximo de acumulaciones el objetivo recibe daño mágico con el tiempo según su vida máxima, o sea, un efecto de daño con el tiempo. Vulnerabilidad permite que los efectos de daño con el tiempo y de objetos asesten golpes críticos con 145% de daño adicional y le da 25% de probabilidad de crítico, y Tanque o ¿Tan Qué? agrega otro 25%, así que esa misma probabilidad de crítico también le da chance de reducir 20% cada golpe que recibe: un tanque que nunca hace críticos de repente quiere crítico para atacar y para defender. Conducto Infernal hace que cada habilidad aplique una quemadura acumulable que también es crítica y reduce sus enfriamientos básicos, así que lanza más rocas y sacudidas para volver a acumular Temblor, mientras Espada de Fuego pone una quemadura que se acumula sin límite en los tres ataques potenciados de su Q. El Tormento de Liandry, Égida de Fuego Solar, Resplandor Vacío, Cota de Espinas y Corazón de Acero son daño de objetos, así que sus quemaduras, su Inmolación, sus espinas y su golpe cargado hacen crítico con ese mismo 50%. El escorpión se vuelve una fogata andante de críticos cuyos objetos de tanque son su daño.",
-      "play": "Ármate full tanque, métete al equipo enemigo y no pares de acumular: tres ataques de Q, avienta la roca, sacude, definitiva al más cercano. Tú no haces críticos, tus quemaduras sí.",
+      "title": "Se me olvidó cómo atacar",
+      "why": "La pasiva de Irelia, Fervor Jonio, le da velocidad de ataque acumulable cada vez que una habilidad golpea y, al máximo de acumulaciones, daño adicional al golpear. Purista: Hechicero convierte toda esa velocidad de ataque en velocidad de habilidades, así que las acumulaciones que gana lanzando hechizos regresan como más hechizos. Arma Etérea hace que sus habilidades apliquen efectos al golpear, así que Oleada de Cuchillas, Dúo Impecable y Filo de Vanguardia cargan su bonificación de Fervor y Golpe Místico, que le quita 1.25 segundos a todos sus enfriamientos por cada efecto al golpear; Golpe Doble en Oleada de Cuchillas aplica esos efectos una segunda vez. Diente de Nashor y Al Filo de la Cordura se compran por la velocidad de ataque que Purista vuelve velocidad de habilidades y por el daño mágico al golpear que ahora hacen sus habilidades, mientras Sombrero Mortífero de Rabadon y Agrietador dan el poder de habilidad. La duelista de ataques básicos nunca vuelve a dar clic derecho y se vuelve una maga AP cuyos hechizos son los golpes.",
+      "play": "Marca objetivos con Dúo Impecable o Filo de Vanguardia y encadena Oleada de Cuchillas entre ellos y los minions. Cada golpe reduce tus enfriamientos, así que no dejes de saltar y olvídate de que existe el botón de ataque.",
       "augments": [
-        "Tus efectos de objetos y de daño con el tiempo pueden asestar golpes críticos e infligir 145% de daño adicional. Obtienes 25% de probabilidad de crítico.",
-        "Puedes hacer una Defensa Crítica usando tu Probabilidad de Crítico (máximo 50%), lo que te da una probabilidad de reducir el daño recibido en 20%. Obtienes 25% de Probabilidad de Crítico.",
-        "Tus habilidades aplican una quemadura acumulable que inflige daño con el tiempo. Tus efectos de quemadura reducen los enfriamientos de tus habilidades básicas.",
-        "Tus ataques también queman a los enemigos e infligen daño mágico equivalente al 0.4% de su vida máxima por segundo durante 5 s. Esta quemadura se acumula sin límite."
+        "Obtienes reducción porcentual de enfriamiento y conviertes toda tu velocidad de ataque en velocidad de habilidades.",
+        "Tus habilidades aplican efectos al golpear. 1 segundo de enfriamiento por objetivo.",
+        "Al golpear, reduce el enfriamiento de tus habilidades en 1.25 segundos.",
+        "La habilidad elegida aplica efectos al golpear una vez más."
       ]
     },
     "es": {
-      "title": "Los críticos pasan",
-      "why": "La pasiva de Skarner suele pasar desapercibida: sus ataques, su roca y su definitiva acumulan Temblor, y con el máximo de acumulaciones el objetivo sufre daño mágico con el tiempo según su vida máxima, o sea, un efecto de daño con el tiempo. Vulnerabilidad permite que los efectos de daño con el tiempo y de objetos sean críticos con un 145 % de daño adicional y le da un 25 % de probabilidad de crítico, y Tanques y mazmorras añade otro 25 %, así que esa misma probabilidad de crítico también le da una opción de reducir un 20 % cada golpe que recibe: un tanque que nunca hace críticos de repente quiere crítico para atacar y para defender. Conducto infernal hace que cada habilidad aplique una quemadura acumulable que también es crítica y reduce sus enfriamientos básicos, así que lanza más rocas y sacudidas para volver a acumular Temblor, mientras Quemazón añade una quemadura que se acumula sin límite a los tres ataques potenciados de su Q. Tormento de Liandry, Égida de fuego solar, Fulgor vano, Malla de espinas y Corazón de acero son daño de objetos, así que sus quemaduras, su Inmolación, sus espinas y su golpe cargado hacen crítico con ese mismo 50 %. El escorpión se convierte en una hoguera andante de críticos cuyos objetos de tanque son su daño.",
-      "play": "Vete full tanque, métete en el equipo enemigo y no pares de acumular: tres ataques de Q, lanza la roca, sacude, definitiva al más cercano. Tú no haces críticos, tus quemaduras sí.",
+      "title": "Olvidé cómo autoatacar",
+      "why": "La pasiva de Irelia, Fervor jonio, le da velocidad de ataque acumulable cada vez que una habilidad impacta y, con el máximo de acumulaciones, daño adicional al impactar. Purista - Lanzador convierte toda esa velocidad de ataque en aceleración de habilidades, así que las acumulaciones que gana lanzando hechizos se convierten en más hechizos. Arma etérea hace que sus habilidades apliquen efectos al impactar, así que Oleada de cuchillas, Dúo impecable y Filo de la vanguardia llevan su bonus de Fervor y Guantazo místico, que resta 1,25 segundos a todos sus enfriamientos por cada efecto al impactar; Golpe doble en Oleada de cuchillas aplica esos efectos una segunda vez. Diente de Nashor y Final del ingenio se compran por la velocidad de ataque que Purista convierte en aceleración y por el daño mágico al impactar que ahora dan sus habilidades, mientras Sombrero mortal de Rabadon y Creagrietas ponen el poder de habilidad. La duelista de autoataques no vuelve a hacer clic derecho y se convierte en una maga AP cuyos hechizos son los impactos.",
+      "play": "Marca objetivos con Dúo impecable o Filo de la vanguardia y encadena Oleada de cuchillas entre ellos y los súbditos. Cada impacto reduce tus enfriamientos, así que sigue saltando y olvida que tienes botón de ataque.",
       "augments": [
-        "Tus efectos de objetos y de daño con el tiempo pueden ser críticos e infligir un 145 % de daño adicional. Obtienes un 25 % de probabilidad de crítico.",
-        "Puedes defenderte críticamente usando tu probabilidad de crítico (máx. 50 % de probabilidad), lo que te da una probabilidad de reducir el daño recibido un 20 %. Obtienes un 25 % de probabilidad de crítico.",
-        "Tus habilidades aplican una quemadura acumulable que inflige daño con el tiempo. Tus efectos de quemadura reducen los enfriamientos de tus habilidades básicas.",
-        "Tus ataques también queman a los enemigos e infligen daño mágico equivalente al 0,4 % de su vida máxima por segundo durante 5 s. Esta quemadura se acumula sin límite."
+        "Obtienes reducción porcentual de enfriamiento y conviertes toda tu velocidad de ataque en aceleración de habilidades.",
+        "Tus habilidades aplican efectos al impactar. 1 segundo de enfriamiento por objetivo.",
+        "Al impactar, reduce el enfriamiento de tus habilidades en 1,25 segundos.",
+        "La habilidad elegida aplica efectos al impactar una vez más."
       ]
     },
     "fr": {
-      "title": "Le crit arrive",
-      "why": "Le passif de Skarner est presque anecdotique : ses attaques, son rocher et son ultime appliquent des cumuls de Tremblement, et au maximum de cumuls la cible subit des dégâts magiques sur la durée basés sur ses PV max, donc un effet de dégâts sur la durée. Vulnérabilité permet aux effets de dégâts sur la durée et aux effets d'objets de faire des coups critiques à 145 % de dégâts supplémentaires et lui donne 25 % de chances de coup critique, et Défenses critiques ajoute encore 25 %, si bien que ces mêmes chances de critique lui donnent aussi une chance de réduire de 20 % chaque coup reçu : un tank qui ne crit jamais veut soudain du critique pour attaquer et pour défendre. Conduit infernal fait appliquer à chaque compétence une brûlure cumulable qui crit elle aussi et réduit ses délais de récupération de base, donc il lance plus de rochers et de séismes pour recumuler le Tremblement, pendant que Brasier ajoute une brûlure cumulable à l'infini sur les trois attaques renforcées de son Q. Tourment de Liandry, Égide solaire, Rayonnement du vide, Cotte épineuse et Cœuracier sont tous des dégâts d'objets, donc leurs brûlures, leur Immolation, leurs épines et leur frappe chargée critent avec ces mêmes 50 %. Le scorpion devient un brasier ambulant à chances de critique dont les objets de tank sont les dégâts.",
-      "play": "Full tank, fonce dans l'équipe adverse et cumule sans arrêt : trois attaques de Q, le rocher, le séisme, l'ultime sur le plus proche. Ce n'est pas toi qui crits, ce sont tes brûlures.",
+      "title": "J'ai oublié comment auto",
+      "why": "Le passif d'Irelia, Ferveur ionienne, lui donne de la vitesse d'attaque cumulable chaque fois qu'une compétence touche, et des dégâts supplémentaires à l'impact au maximum de cumuls. Puriste - Lanceur de compétence convertit toute cette vitesse d'attaque en accélération de compétence, donc les cumuls qu'elle gagne en lançant des sorts se transforment en encore plus de sorts. Arme éthérée fait appliquer les effets à l'impact à ses compétences, donc Assaut tranchant, Duo parfait et Lames de l'avant-garde transportent son bonus de Ferveur et Coups accélérants, qui retire 1,25 seconde à tous ses délais de récupération par effet à l'impact ; Coup double sur Assaut tranchant applique ces effets une seconde fois. Dent de Nashor et Au bout du rouleau sont achetés pour la vitesse d'attaque que Puriste change en accélération et pour les dégâts magiques à l'impact que ses sorts infligent désormais, pendant que la Coiffe de Rabadon et Créateur de failles apportent la puissance. La duelliste à auto-attaques ne fait plus jamais de clic droit et devient une mage AP dont les sorts sont les impacts.",
+      "play": "Marque tes cibles avec Duo parfait ou Lames de l'avant-garde, puis enchaîne Assaut tranchant sur elles et sur les sbires. Chaque impact réduit tes délais, alors continue de dasher et oublie que ta touche d'attaque existe.",
       "augments": [
-        "Vos effets d'objets et de dégâts sur la durée peuvent faire des coups critiques infligeant 145 % de dégâts supplémentaires. Vous gagnez 25 % de chances de coup critique.",
-        "Vous pouvez faire une défense critique grâce à vos chances de coup critique (50 % de chances max), ce qui vous donne une chance de réduire les dégâts subis de 20 %. Vous gagnez 25 % de chances de coup critique.",
-        "Vos compétences appliquent une brûlure cumulable qui inflige des dégâts sur la durée. Vos effets de brûlure réduisent les délais de récupération de vos compétences de base.",
-        "Vos attaques brûlent également les ennemis, infligeant des dégâts magiques à hauteur de 0,4 % de leurs PV max par seconde pendant 5 sec. Cette brûlure se cumule à l'infini."
+        "Obtenez de la réduction de délai de récupération en pourcentage et convertissez toute votre vitesse d'attaque en accélération de compétence.",
+        "Vos compétences appliquent les effets à l'impact. Délai de récupération de 1 seconde par cible.",
+        "À l'impact, réduit le délai de récupération de vos compétences de 1,25 seconde.",
+        "La compétence choisie applique les effets à l'impact une fois de plus."
       ]
     },
     "hu": {
-      "title": "A krit megesik",
-      "why": "Skarner passzív képessége általában mellékes: a támadásai, a sziklája és a végső képessége Rengés-töltéseket raknak fel, és maximális töltésnél a célpont idővel a maximális életereje alapján mágikus sebzést szenved, vagyis ez egy idővel sebző hatás. A Sebezhetőség lehetővé teszi, hogy az idővel sebző és a tárgyhatások kritikusan sebezzenek 145% extra sebzéssel, és 25% kritikus esélyt ad neki, a Tank így is, úgy is pedig hozzáad még 25%-ot, így ugyanez a kritikus esély minden őt érő találatnál esélyt ad 20% sebzéscsökkentésre: egy tank, aki sosem kritel, hirtelen támadáshoz és védekezéshez is kritet akar. A Pokoli csatorna miatt minden képessége halmozódó égést okoz, ami szintén kritel és csökkenti az alapképességei töltési idejét, így több sziklát és rengést dob, hogy újra felrakja a Rengést, a Lázító pedig végtelenül halmozódó égést rak a Q három felerősített támadására. A Liandry gyötrelme, a Naptűz égisz, a Tompa ragyogás, a Tüskevért és az Acélos szív mind tárgysebzés, így égéseik, Égetésük, tüskéik és a feltöltött csapás ugyanazzal az 50%-kal kritelnek. A skorpióból egy két lábon járó kritikus esély-máglya lesz, akinek a tank tárgyai adják a sebzését.",
-      "play": "Építs full tankot, rohanj be az ellenséges csapatba, és csak halmozz: három Q-támadás, szikla, rengés, végső a legközelebbire. Nem te kritelsz, hanem az égéseid.",
+      "title": "Elfelejtett ütni",
+      "why": "Irelia passzívja, a Ioniai lelkesedés, halmozódó támadási sebességet ad neki minden alkalommal, amikor egy képessége talál, maximális töltésnél pedig plusz sebzést találatkor. A Purista – Varázsló az összes támadási sebességet képesség-gyorsítássá alakítja, így a varázslással szerzett töltések még több varázslatként térnek vissza. Az Asztrális fegyver miatt a képességei találati hatásokat váltanak ki, így a Pengeroham, a Hibátlan kettős és az Élcsapat pengéje viszi a Lelkesedés bónuszát és a Misztikus ütést, ami találati hatásonként 1,25 másodperccel csökkenti az összes töltési idejét; a Kettős vágás a Pengerohamon másodszor is kiváltja ezeket. A Nashor fogát és az Utolsó esélyt a támadási sebesség miatt veszi, amit a Purista gyorsítássá alakít, és a találati mágikus sebzés miatt, amit most a képességei osztanak, a Rabadon halálsüvege és a Szurdokhasító pedig hozza a képességerőt. Az alaptámadásos párbajhős soha többé nem kattint jobb gombbal, és AP mágus lesz, akinek a varázslatai a találatok.",
+      "play": "Jelöld meg a célpontokat a Hibátlan kettőssel vagy az Élcsapat pengéjével, aztán láncold rajtuk és a csatlósokon a Pengerohamot. Minden találat csökkenti a töltési időket, szóval csak dash-elj tovább, és felejtsd el, hogy van támadás gombod.",
       "augments": [
-        "A tárgyhatásaid és az idővel sebző hatásaid kritikusan sebezhetnek, 145% extra sebzést okozva. 25% kritikus esélyt kapsz.",
-        "A kritikus esélyeddel kritikusan védekezhetsz (legfeljebb 50% esély), ami esélyt ad arra, hogy 20%-kal csökkentsd a kapott sebzést. 25% kritikus esélyt kapsz.",
-        "A képességeid halmozódó égést okoznak, ami idővel sebez. Az égéshatásaid csökkentik az alapképességeid töltési idejét.",
-        "A támadásaid az ellenfeleket is meggyújtják, 5 mp-en át másodpercenként a maximális életerejük 0,4%-ának megfelelő mágikus sebzést okozva. Ez az égés végtelenül halmozódik."
+        "Százalékos töltésiidő-csökkentést kapsz, és az összes támadási sebességed képességsiettetéssé alakul.",
+        "A képességeid találati hatásokat váltanak ki. Célpontonként 1 másodperc töltési idő.",
+        "Találatkor 1,25 másodperccel csökkenti a képességeid töltési idejét.",
+        "A kiválasztott képesség még egyszer kiváltja a találati hatásokat."
       ]
     },
     "id": {
-      "title": "Crit Happens",
-      "why": "Pasif Skarner biasanya dianggap sepele: serangan, batu, dan ultimanya menumpuk Quaking, dan saat tumpukan penuh target menerima magic damage seiring waktu berdasarkan max Health, alias efek damage over time. Vulnerability membuat efek damage over time dan efek item bisa Critical Strike dengan 145% damage tambahan dan memberinya 25% crit chance, lalu Tank It Or Leave It menambah 25% lagi, jadi crit chance yang sama juga memberinya peluang mengurangi 20% damage setiap kali kena pukul: tank yang tidak pernah crit tiba-tiba butuh crit untuk menyerang sekaligus bertahan. Infernal Conduit membuat setiap ability memberi Burn bertumpuk yang juga bisa crit dan mengurangi cooldown basic ability, jadi dia melempar lebih banyak batu dan quake untuk menumpuk Quaking lagi, sementara Firebrand menambah Burn yang bertumpuk tanpa batas ke tiga serangan yang diperkuat Q-nya. Liandry's Torment, Sunfire Aegis, Hollow Radiance, Thornmail, dan Heartsteel semuanya item damage, jadi Burn, Immolate, duri, dan serangan charge-nya crit dengan 50% yang sama. Si kalajengking jadi api unggun crit chance berjalan yang item tank-nya adalah damage-nya.",
-      "play": "Build full tank, masuk ke tim musuh dan terus tumpuk: tiga serangan Q, lempar batu, quake, ulti ke yang paling dekat. Bukan kamu yang crit, Burn-mu yang crit.",
+      "title": "Lupa Cara Auto Attack",
+      "why": "Pasif Irelia, Ionian Fervor, memberinya Attack Speed bertumpuk setiap kali skill-nya kena, dan saat stack penuh menambah damage bonus on-hit. Purist - Caster mengubah semua Attack Speed itu jadi Ability Haste, jadi stack yang ia dapat dari cast skill kembali sebagai lebih banyak cast. Ethereal Weapon membuat skill-nya menerapkan efek On-Hit, jadi Bladesurge, Flawless Duet, dan Vanguard's Edge membawa bonus Fervor dan Mystic Punch, yang memotong 1,25 detik dari semua cooldown-nya per On-Hit; Double Strike di Bladesurge menerapkan efek On-Hit itu sekali lagi. Nashor's Tooth dan Wit's End dibeli demi Attack Speed yang diubah Purist jadi Haste dan demi magic damage On-Hit yang sekarang diberikan skill-nya, sementara Rabadon's Deathcap dan Riftmaker menyumbang Ability Power. Duelist auto attack ini tidak pernah klik kanan lagi dan berubah jadi caster AP yang skill-nya adalah on-hit.",
+      "play": "Tandai target dengan Flawless Duet atau Vanguard's Edge, lalu sambung Bladesurge ke mereka dan minion. Tiap hit memotong cooldown, jadi terus dash dan lupakan tombol serangmu.",
       "augments": [
-        "Efek Item dan damage over time milikmu bisa Critical Strike dan memberikan 145% damage tambahan. Dapatkan 25% Crit Chance.",
-        "Kamu bisa Critical Defend memakai Crit Chance-mu (maks. 50% peluang), memberi peluang mengurangi damage yang diterima sebesar 20%. Dapatkan 25% Crit Chance.",
-        "Ability-mu memberikan Burn bertumpuk yang memberikan damage seiring waktu. Efek Burn-mu mengurangi Cooldown basic Ability.",
-        "Serangan juga membakar musuh, memberikan magic damage sebesar 0,4% max Health per detik selama 5 detik. Burn ini bertumpuk tanpa batas."
+        "Dapatkan pengurangan cooldown persentase dan ubah semua Attack Speed-mu menjadi Ability Haste.",
+        "Skill-mu menerapkan efek On-Hit. Cooldown 1 detik per target.",
+        "On-Hit mengurangi cooldown skill-mu sebesar 1,25 detik.",
+        "Skill yang dipilih menerapkan efek On-Hit satu kali lagi."
       ]
     },
     "it": {
-      "title": "Il critico capita",
-      "why": "La passiva di Skarner passa quasi sempre in secondo piano: i suoi attacchi, il masso e la suprema applicano cariche di Sisma, e al massimo delle cariche il bersaglio subisce danni magici nel tempo in base alla salute massima, cioè un effetto di danni nel tempo. Vulnerabilità permette agli effetti di danni nel tempo e degli oggetti di mettere a segno colpi critici con il 145% di danni aggiuntivi e gli dà il 25% di probabilità di critico, e Difendere o lasciare aggiunge un altro 25%, quindi la stessa probabilità di critico gli dà anche la possibilità di ridurre del 20% ogni colpo subito: un tank che non critta mai all'improvviso vuole il critico sia per attaccare sia per difendersi. Tramite infernale fa applicare a ogni abilità un'ustione cumulabile che critta anch'essa e riduce le ricariche delle abilità base, così lancia più massi e scosse per ricaricare Sisma, mentre Tizzone aggiunge un'ustione cumulabile all'infinito ai tre attacchi potenziati della sua Q. Tormento di Liandry, Egida del Sole, Luce vana, Corazza spinata e Cuore d'acciaio sono tutti danni da oggetto, quindi le loro ustioni, Immolazione, spine e colpo caricato crittano con lo stesso 50%. Lo scorpione diventa un falò ambulante di critici i cui oggetti da tank sono i suoi danni.",
-      "play": "Full tank, buttati nella squadra nemica e continua ad accumulare: tre attacchi di Q, lancia il masso, la scossa, suprema sul più vicino. Non sei tu a crittare, sono le tue ustioni.",
+      "title": "Ho scordato come si attacca",
+      "why": "La passiva di Irelia, Fervore ioniano, le dà velocità d'attacco cumulabile ogni volta che un'abilità colpisce e, al massimo delle cariche, danni bonus sul colpo. Purista - Mago converte tutta quella velocità d'attacco in velocità abilità, quindi le cariche che guadagna lanciando abilità tornano come altre abilità. Arma eterea fa applicare alle sue abilità gli effetti sul colpo, quindi Ondata di lame, Duetto perfetto e Lama dell'avanguardia trasportano il bonus di Fervore e Pugno mistico, che toglie 1,25 secondi a tutte le sue ricariche per ogni effetto sul colpo; Doppio colpo su Ondata di lame applica quegli effetti una seconda volta. Dente di Nashor e Speranza perduta li compra per la velocità d'attacco che Purista trasforma in velocità abilità e per i danni magici sul colpo che ora infliggono le sue abilità, mentre Copricapo di Rabadon e Araldo del Vuoto portano il potere magico. La duellante da attacchi base non clicca mai più col tasto destro e diventa una maga AP le cui abilità sono i colpi.",
+      "play": "Marca i bersagli con Duetto perfetto o Lama dell'avanguardia, poi concatena Ondata di lame tra loro e i minion. Ogni colpo riduce le ricariche, quindi continua a scattare e dimentica che esiste il tasto d'attacco.",
       "augments": [
-        "I tuoi effetti degli oggetti e di danni nel tempo possono mettere a segno colpi critici infliggendo il 145% di danni aggiuntivi. Ottieni il 25% di probabilità di colpo critico.",
-        "Puoi effettuare una Difesa critica usando la tua probabilità di critico (massimo 50%), con la possibilità di ridurre i danni subiti del 20%. Ottieni il 25% di probabilità di critico.",
-        "Le tue abilità applicano un'ustione cumulabile che infligge danni nel tempo. I tuoi effetti di ustione riducono le ricariche delle tue abilità base.",
-        "I tuoi attacchi bruciano anche i nemici, infliggendo danni magici pari allo 0,4% della loro salute massima al secondo per 5 secondi. Questa ustione è cumulabile all'infinito."
+        "Ottieni riduzione ricarica percentuale e converti tutta la tua velocità d'attacco in velocità abilità.",
+        "Le tue abilità applicano gli effetti sul colpo. 1 secondo di ricarica per bersaglio.",
+        "Sul colpo, riduce la ricarica delle tue abilità di 1,25 secondi.",
+        "L'abilità scelta applica gli effetti sul colpo una volta in più."
       ]
     },
     "ja": {
-      "title": "クリティカルは起きるもの",
-      "why": "スカーナーのパッシブはたいてい おまけ扱い：通常攻撃、岩、アルティメットが「震動」のスタックを付与し、最大スタックで対象は最大体力に応じた魔法ダメージを時間をかけて受ける。つまり継続ダメージ効果だ。「搦め手」はアイテム効果と継続ダメージ効果にクリティカルを発生させ（145%の追加ダメージ）、クリティカル率25%もくれる。「タンクこそ至高」でさらに25%、同じクリティカル率で被ダメージ20%軽減の判定も入るので、クリティカルと無縁のタンクが攻撃にも防御にもクリティカルを欲しがることになる。「獄炎路」は全スキルにスタックする燃焼を付与し、その燃焼もクリティカルするうえ通常スキルのクールダウンを短縮するので、岩と震動をもっと投げて「震動」を積み直せる。「火付け役」はQで強化される3回の通常攻撃に無限にスタックする燃焼を乗せる。ライアンドリーの仮面、サンファイア イージス、ホロウ レディアンス、ソーンメイル、心の鋼はすべてアイテムダメージなので、燃焼も焼却も反射ダメージもチャージ攻撃も同じ50%でクリティカルする。サソリはタンクアイテムがそのまま火力になる、歩くクリティカル焚き火になる。",
-      "play": "フルタンクで敵チームに突っ込んで、ひたすらスタック：Qで3回殴り、岩を投げ、震動、一番近い敵にアルティメット。クリティカルを出すのは君じゃない、燃焼だ。",
+      "title": "通常攻撃の仕方を忘れた",
+      "why": "イレリアのパッシブ「アイオニアの熱情」は、スキルが命中するたびにスタックする攻撃速度を与え、最大スタック時には通常攻撃時の追加ダメージも与える。「純粋なるキャスター」はその攻撃速度をすべてスキルヘイストに変換するので、スキルで稼いだスタックがさらなるスキルとして返ってくる。「エーテル武器」でスキルが通常攻撃時効果を発動するようになり、「ブレードサージ」「フローレス デュエット」「ヴァンガード エッジ」が熱情のボーナスと、通常攻撃時効果ごとに全スキルのクールダウンを1.25秒短縮する「神秘の鉄拳」を運ぶ。「ダブルストライク」をブレードサージに付ければ、その効果がもう一度発動する。ナッシャー トゥースとウィッツ エンドは、純粋なるキャスターがヘイストに変える攻撃速度と、今やスキルが与える通常攻撃時魔法ダメージのために買い、ラバドン デスキャップとリフトメーカーが魔力を担う。通常攻撃のデュエリストは二度と右クリックせず、スキルこそが攻撃のAPメイジになる。",
+      "play": "フローレス デュエットかヴァンガード エッジでマークを付け、敵とミニオンにブレードサージをつなげよう。当たるたびにクールダウンが縮むので、ひたすらダッシュして攻撃ボタンの存在は忘れていい。",
       "augments": [
-        "アイテム効果と継続ダメージ効果がクリティカルになり、145%の追加ダメージを与えるようになる。クリティカル率+25%。",
-        "クリティカル率を使ってクリティカル防御が発生するようになり(最大50%)、受けるダメージを20%軽減する確率を得る。クリティカル率+25%。",
-        "スキルがスタックする燃焼を付与し、継続ダメージを与える。燃焼効果が通常スキルのクールダウンを短縮する。",
-        "通常攻撃が敵を燃焼させ、5秒かけて毎秒最大体力の0.4%の魔法ダメージを与える。この燃焼は無限にスタックする。"
+        "割合クールダウン短縮を獲得し、すべての攻撃速度をスキルヘイストに変換する。",
+        "スキルが通常攻撃時効果を発動する。対象ごとにクールダウン1秒。",
+        "通常攻撃時: スキルのクールダウンを1.25秒短縮する。",
+        "選択したスキルが通常攻撃時効果をもう一度発動する。"
       ]
     },
     "ko": {
-      "title": "치명타는 터지기 마련",
-      "why": "스카너의 기본 지속 효과는 보통 신경도 안 쓰는 부분이다. 기본 공격, 바위, 궁극기가 '진동' 중첩을 쌓고, 최대 중첩이 되면 대상은 최대 체력 비례 마법 피해를 지속적으로 입는다. 즉 지속 피해 효과다. 취약은 지속 피해와 아이템 효과가 145% 추가 피해로 치명타를 낼 수 있게 하고 치명타 확률 25%를 주며, 확률적 방어가 25%를 더해서 같은 치명타 확률로 맞을 때마다 받는 피해 20% 감소 판정까지 굴린다. 치명타와는 평생 인연이 없던 탱커가 갑자기 공격과 방어 모두를 위해 치명타를 원하게 된다. 지옥의 전도체는 모든 스킬에 중첩되는 화상을 부여하는데, 이 화상도 치명타가 터지고 기본 스킬 재사용 대기시간을 줄여 주니 바위와 진동을 더 자주 던져 '진동'을 다시 쌓는다. 화염 낙인은 Q로 강화된 기본 공격 세 번에 무한히 중첩되는 화상을 얹는다. 리안드리의 고통, 태양불꽃 방패, 공허한 광휘, 가시 갑옷, 강철심장은 전부 아이템 피해라서 화상, 제물 피해, 가시, 충전된 공격이 모두 같은 50%로 치명타가 터진다. 전갈은 탱커 아이템이 곧 딜이 되는 걸어 다니는 치명타 모닥불이 된다.",
-      "play": "풀탱 가고 적 팀 한가운데로 들어가서 계속 중첩만 쌓자. Q로 세 번 때리고, 바위 던지고, 진동, 가장 가까운 적에게 궁. 치명타는 네가 아니라 화상이 터뜨린다.",
+      "title": "평타 치는 법을 잊었다",
+      "why": "이렐리아의 패시브 아이오니아의 열정은 스킬이 적중할 때마다 중첩되는 공격 속도를 주고, 최대 중첩에서는 적중 시 추가 피해도 준다. 순수주의자 - 마법사는 그 공격 속도를 전부 스킬 가속으로 바꾸니, 스킬을 써서 얻은 중첩이 다시 더 많은 스킬로 돌아온다. 환영 무기는 스킬이 적중 시 효과를 적용하게 해서 칼날 쇄도, 완벽한 조화, 선봉에 선 칼날이 열정 보너스와, 적중 시 효과마다 모든 스킬 재사용 대기시간을 1.25초 줄이는 신비한 주먹을 실어 나른다. 칼날 쇄도에 2연속 공격을 걸면 그 효과가 한 번 더 적용된다. 내셔의 이빨과 마법사의 최후는 순수주의자가 가속으로 바꾸는 공격 속도와 이제 스킬이 넣는 적중 시 마법 피해 때문에 사고, 라바돈의 죽음모자와 균열 생성기가 주문력을 맡는다. 평타 결투가는 다시는 우클릭하지 않고, 스킬이 곧 평타인 AP 마법사가 된다.",
+      "play": "완벽한 조화나 선봉에 선 칼날로 표식을 남긴 뒤 적과 미니언 사이로 칼날 쇄도를 이어 가세요. 맞힐 때마다 쿨이 줄어드니 계속 돌진하고 공격 버튼은 잊어버리세요.",
       "augments": [
-        "아이템 효과와 지속 피해 효과가 치명타를 입힐 수 있으며 145%의 추가 피해를 입힙니다. 치명타 확률이 25% 증가합니다.",
-        "치명타 확률로 치명적 방어가 가능해져(최대 50% 확률), 받는 피해를 20% 줄일 확률을 얻습니다. 치명타 확률이 25% 증가합니다.",
-        "스킬이 중첩되는 화상을 적용해 지속 피해를 입힙니다. 화상 효과가 기본 스킬 재사용 대기시간을 감소시킵니다.",
-        "기본 공격 시 적을 불태워 5초 동안 매초 최대 체력의 0.4%에 해당하는 마법 피해를 입힙니다. 이 화상은 무한히 중첩됩니다."
+        "재사용 대기시간이 일정 비율 감소하고 모든 공격 속도가 스킬 가속으로 전환됩니다.",
+        "스킬이 적중 시 효과를 적용합니다. 대상마다 재사용 대기시간 1초.",
+        "적중 시 스킬 재사용 대기시간이 1.25초 감소합니다.",
+        "선택한 스킬이 적중 시 효과를 한 번 더 적용합니다."
       ]
     },
     "pl": {
-      "title": "Kryt się zdarza",
-      "why": "Bierna umiejętność Skarnera to zwykle szczegół: jego ataki, głaz i superumiejętność nakładają ładunki Wstrząsu, a przy maksymalnej liczbie ładunków cel otrzymuje z czasem obrażenia magiczne zależne od maksymalnego zdrowia, czyli efekt obrażeń w czasie. Wrażliwość pozwala efektom obrażeń w czasie i efektom przedmiotów trafiać krytycznie za 145% dodatkowych obrażeń i daje mu 25% szansy na trafienie krytyczne, a Obrona albo Nic dorzuca kolejne 25%, więc ta sama szansa na krytyka daje mu też szansę na zmniejszenie o 20% każdego otrzymanego ciosu: tank, który nigdy nie kryci, nagle chce krytyka i do ataku, i do obrony. Piekielny Przewodnik sprawia, że każda umiejętność nakłada kumulujące się podpalenie, które też kryci i skraca czasy odnowienia podstawowych umiejętności, więc rzuca więcej głazów i wstrząsów, żeby znów nałożyć Wstrząs, a Znamię Ognia dokłada nieskończenie kumulujące się podpalenie do trzech wzmocnionych ataków z Q. Udręka Liandry'ego, Słoneczna Egida, Głucha Poświata, Kolczasta Kolczuga i Stalowe Serce to obrażenia od przedmiotów, więc ich podpalenia, Pożoga, kolce i naładowany cios krycą z tą samą szansą 50%. Skorpion staje się chodzącym ogniskiem szansy na krytyka, którego przedmioty na tanka są jego obrażeniami.",
-      "play": "Buduj full tanka, wbiegnij w drużynę wroga i po prostu nakładaj ładunki: trzy ataki z Q, rzut głazem, wstrząs, superumiejętność w najbliższego. To nie ty krycisz, tylko twoje podpalenia.",
+      "title": "Zapomniała, jak się atakuje",
+      "why": "Bierna umiejętność Irelii, Joński Zapał, daje jej kumulującą się prędkość ataku za każdym razem, gdy trafi umiejętnością, a przy maksymalnych ładunkach dodatkowe obrażenia przy trafieniu. Purysta — mag zamienia całą tę prędkość ataku na przyspieszenie umiejętności, więc ładunki zdobyte rzucaniem czarów wracają jako kolejne czary. Eteryczna Broń sprawia, że jej umiejętności nakładają efekty przy trafieniu, więc Szarża Ostrzy, Doskonały Duet i Ostrze Awangardy niosą premię z Zapału i Mistyczny Cios, który za każdy efekt przy trafieniu skraca wszystkie czasy odnowienia o 1,25 sekundy; Podwójne Uderzenie na Szarży Ostrzy nakłada te efekty drugi raz. Ząb Nashora i Koniec Rozumu kupuje dla prędkości ataku, którą Purysta zmienia w przyspieszenie, i dla magicznych obrażeń przy trafieniu, które teraz zadają jej umiejętności, a Zabójczy Kapelusz Rabadona i Szczelinotwórca dają moc umiejętności. Duelistka od autoataków już nigdy nie klika prawym i staje się magiem AP, którego czary są trafieniami.",
+      "play": "Oznacz cele Doskonałym Duetem albo Ostrzem Awangardy, a potem łańcuchuj Szarżę Ostrzy przez nie i stwory. Każde trafienie skraca odnowienia, więc po prostu dashuj dalej i zapomnij, że masz przycisk ataku.",
       "augments": [
-        "Efekty twoich przedmiotów i obrażeń w czasie mogą trafiać krytycznie, zadając 145% dodatkowych obrażeń. Zyskujesz 25% szansy na trafienie krytyczne.",
-        "Możesz krytycznie się bronić dzięki szansie na trafienie krytyczne (maks. 50% szansy), co daje szansę na zmniejszenie otrzymywanych obrażeń o 20%. Zyskujesz 25% szansy na trafienie krytyczne.",
-        "Twoje umiejętności nakładają kumulujące się podpalenie, które zadaje obrażenia w czasie. Twoje efekty podpalenia skracają czasy odnowienia podstawowych umiejętności.",
-        "Twoje ataki dodatkowo podpalają wrogów, zadając co sekundę przez 5 sek. obrażenia magiczne równe 0,4% ich maksymalnego zdrowia. To podpalenie kumuluje się w nieskończoność."
+        "Zyskaj procentowe skrócenie czasu odnowienia i zamień całą swoją prędkość ataku na przyspieszenie umiejętności.",
+        "Twoje umiejętności nakładają efekty przy trafieniu. 1 sekunda odnowienia na cel.",
+        "Przy trafieniu skraca czas odnowienia twoich umiejętności o 1,25 sekundy.",
+        "Wybrana umiejętność nakłada efekty przy trafieniu dodatkowy raz."
       ]
     },
     "pt-BR": {
-      "title": "Crítico acontece",
-      "why": "A passiva do Skarner quase sempre passa batida: os ataques, a pedra e a ultimate dele acumulam Tremor, e com o máximo de acúmulos o alvo sofre dano mágico ao longo do tempo com base na Vida máxima, ou seja, um efeito de dano ao longo do tempo. Vulnerabilidade faz efeitos de dano ao longo do tempo e de itens darem acerto crítico com 145% de dano adicional e dá 25% de chance de acerto crítico, e Aguenta ou Vaza soma mais 25%, então essa mesma chance de crítico também dá uma chance de reduzir em 20% cada golpe que ele leva: um tanque que nunca crita de repente quer crítico pra atacar e pra defender. Condutor Infernal faz cada habilidade aplicar uma queimadura acumulável que também crita e reduz as recargas básicas dele, então ele joga mais pedras e tremores pra reacumular Tremor, enquanto Incendiário coloca uma queimadura que acumula infinitamente nos três ataques potencializados do Q. Tormento de Liandry, Égide de Fogo Solar, Resplendor Vazio, Armadura de Espinhos e Coração de Aço são todos dano de item, então as queimaduras, a Imolação, os espinhos e o golpe carregado deles critam com os mesmos 50%. O escorpião vira uma fogueira ambulante de chance de crítico cujos itens de tanque são o dano dele.",
-      "play": "Vai full tanque, entra no time inimigo e só continua acumulando: três ataques de Q, joga a pedra, tremor, ult no mais próximo. Não é você que crita, são suas queimaduras.",
+      "title": "Esqueci como dar auto",
+      "why": "A passiva de Irelia, Fervor Ioniano, dá Velocidade de Ataque acumulável sempre que uma habilidade acerta e, no máximo de acúmulos, dano extra ao atingir. Purista - Conjurador converte toda essa Velocidade de Ataque em Aceleração de Habilidade, então os acúmulos que ela ganha usando habilidades voltam como mais habilidades. Arma Etérea faz suas habilidades aplicarem efeitos ao atingir, então Investida de Lâminas, Dueto Perfeito e Gume da Vanguarda carregam o bônus do Fervor e Soco Místico, que tira 1,25 segundo de todas as recargas por efeito ao atingir; Ataque Duplo na Investida de Lâminas aplica esses efeitos uma segunda vez. Dente de Na'Shor e Limite da Razão entram pela Velocidade de Ataque que o Purista vira Aceleração e pelo dano mágico ao atingir que agora sai das habilidades, enquanto Capuz da Morte de Rabadon e Criafendas trazem o Poder de Habilidade. A duelista de ataque básico nunca mais clica com o botão direito e vira uma maga AP cujas habilidades são os ataques.",
+      "play": "Marque alvos com Dueto Perfeito ou Gume da Vanguarda e encadeie Investida de Lâminas por eles e pelas tropas. Cada acerto reduz suas recargas, então continue avançando e esqueça que o botão de ataque existe.",
       "augments": [
-        "Seus efeitos de itens e de dano ao longo do tempo podem causar Acerto Crítico com 145% de dano adicional. Receba 25% de Chance de Acerto Crítico.",
-        "Você pode fazer uma Defesa Crítica usando sua Chance de Acerto Crítico (máximo de 50%), com chance de reduzir o dano recebido em 20%. Receba 25% de Chance de Acerto Crítico.",
-        "Suas Habilidades aplicam uma Queimadura acumulável que causa dano ao longo do tempo. Seus efeitos de Queimadura reduzem as Recargas das suas Habilidades básicas.",
-        "Seus Ataques também queimam inimigos, causando dano mágico igual a 0,4% da Vida máxima por segundo ao longo de 5 segundos. Essa Queimadura acumula infinitamente."
+        "Receba redução percentual de recarga e converta toda a sua Velocidade de Ataque em Aceleração de Habilidade.",
+        "Suas Habilidades aplicam efeitos ao atingir. 1 segundo de Recarga por alvo.",
+        "Ao atingir, reduz a recarga das suas habilidades em 1,25 segundo.",
+        "A habilidade escolhida aplica efeitos ao atingir mais uma vez."
       ]
     },
     "ro": {
-      "title": "Criticele se întâmplă",
-      "why": "Pasiva lui Skarner e de obicei un detaliu: atacurile, bolovanul și ultimate-ul lui aplică cumuluri de Cutremur, iar la cumuluri maxime ținta primește daune magice în timp în funcție de viața maximă, deci un efect de daune în timp. Vulnerabilitate permite efectelor de daune în timp și efectelor obiectelor să dea lovituri critice cu 145% daune suplimentare și îi dă 25% șansă de lovitură critică, iar Un tanc la țanc mai adaugă 25%, așa că aceeași șansă de critic îi dă și o șansă să reducă cu 20% fiecare lovitură primită: un tanc care nu dă niciodată critic vrea brusc critic și pentru atac, și pentru apărare. Conduită infernală face ca fiecare abilitate să aplice o arsură cumulabilă care dă și ea critic și îi reduce timpii de reîncărcare de bază, așa că aruncă mai mulți bolovani și mai multe cutremure ca să recumuleze Cutremurul, în timp ce Foc și pară pune o arsură cumulabilă la infinit pe cele trei atacuri amplificate ale lui Q. Agonia Liandrei, Scut solar, Energie radiantă superficială, Armură cu spini și Inimă de oțel sunt toate daune de la obiecte, deci arsurile, Imolarea, spinii și lovitura încărcată dau critic cu aceeași șansă de 50%. Scorpionul devine un rug ambulant de critice ale cărui obiecte de tanc sunt daunele lui.",
-      "play": "Fă full tanc, intră în echipa inamică și cumulează întruna: trei atacuri cu Q, aruncă bolovanul, cutremurul, ultimate pe cel mai apropiat. Nu tu dai critic, arsurile tale dau.",
+      "title": "A uitat cum se dă cu auto",
+      "why": "Pasiva Ireliei, Fervoarea ioniană, îi dă viteză de atac cumulabilă de fiecare dată când o abilitate lovește, iar la cumulări maxime daune suplimentare la impact. Purist – Mag transformă toată viteza de atac în accelerare a abilităților, așa că cumulările câștigate din vrăji se întorc ca și mai multe vrăji. Armă eterică face ca abilitățile ei să aplice efecte la impact, deci Avântul lamelor, Duetul impecabil și Lama avangardei poartă bonusul Fervorii și Lovitura mistică, ce taie 1,25 secunde din toți timpii de reîncărcare pentru fiecare efect la impact; Lovitura dublă pe Avântul lamelor aplică acele efecte a doua oară. Dintele lui Nashor și Sfârșitul rațiunii le cumpără pentru viteza de atac pe care Purist o face accelerare și pentru daunele magice la impact pe care acum le dau abilitățile ei, iar Pălăria malefică a lui Rabadon și Creator de rifturi aduc puterea abilităților. Duelista de atacuri de bază nu mai dă niciodată click dreapta și devine un mag AP ale cărui vrăji sunt loviturile.",
+      "play": "Marchează ținte cu Duetul impecabil sau Lama avangardei, apoi înlănțuie Avântul lamelor prin ele și prin minioni. Fiecare lovitură scade reîncărcările, așa că dă dash în continuare și uită că ai buton de atac.",
       "augments": [
-        "Efectele obiectelor tale și efectele de daune în timp pot da lovituri critice, provocând 145% daune suplimentare. Primești 25% șansă de lovitură critică.",
-        "Poți da o apărare critică folosind șansa de critic (maximum 50% șansă), ceea ce îți dă o șansă să reduci daunele primite cu 20%. Primești 25% șansă de critic.",
-        "Abilitățile tale aplică o arsură cumulabilă care provoacă daune în timp. Efectele tale de arsură reduc timpii de reîncărcare ai abilităților de bază.",
-        "Atacurile tale ard și ele inamicii, provocând daune magice egale cu 0,4% din viața maximă pe secundă timp de 5 secunde. Această arsură se cumulează la infinit."
+        "Primești reducere procentuală a timpului de reactivare și îți transformi toată viteza de atac în accelerare a abilităților.",
+        "Abilitățile tale aplică efecte la impact. Reîncărcare de 1 secundă per țintă.",
+        "La impact, reduce timpul de reîncărcare al abilităților tale cu 1,25 secunde.",
+        "Abilitatea aleasă aplică efectele la impact încă o dată."
       ]
     },
     "ru": {
-      "title": "Крит случается",
-      "why": "Пассивное умение Скарнера обычно никто не замечает: его автоатаки, валун и суперспособность накладывают заряды Сотрясения, а при максимуме зарядов цель получает магический урон со временем в зависимости от максимального запаса здоровья, то есть это эффект периодического урона. Уязвимость позволяет эффектам периодического урона и эффектам предметов наносить критический удар со 145% дополнительного урона и дает ему 25% шанса критического удара, а Непробиваемость добавляет еще 25%, так что тот же шанс крита дает ему еще и шанс снизить на 20% каждый полученный удар: танк, который никогда не критует, вдруг хочет крит и для атаки, и для защиты. Огнепровод заставляет каждое умение накладывать суммирующееся горение, которое тоже критует и сокращает перезарядку его базовых умений, так что он бросает больше валунов и сотрясений, чтобы снова набрать Сотрясение, а Тавро добавляет бесконечно суммирующееся горение к трем усиленным автоатакам от его Q. Мучения Лиандри, Эгида солнечного пламени, Сияние пустоты, Шипованный доспех и Сердце стали дают урон от предметов, поэтому их горение, Испепеление, шипы и заряженный удар критуют с тем же шансом 50%. Скорпион превращается в ходячий костер шанса крита, у которого танковые предметы и есть урон.",
-      "play": "Собирай полный танк, влетай в команду врага и просто накладывай заряды: три автоатаки с Q, валун, сотрясение, ульта по ближайшему. Критуешь не ты, а твое горение.",
+      "title": "Забыла, как бить автоатаками",
+      "why": "Пассивное умение Ирелии, Ионийский пыл, дает ей накапливаемую скорость атаки каждый раз, когда умение попадает, а на максимуме зарядов — дополнительный урон при попадании. Принципиальность – умения превращает всю эту скорость атаки в ускорение умений, так что заряды, которые она копит заклинаниями, возвращаются новыми заклинаниями. Эфемерное оружие заставляет ее умения накладывать эффекты при попадании, поэтому Вихрь клинков, Безупречный дуэт и Клинок авангарда несут бонус Пыла и Мистический удар, который за каждый эффект при попадании сокращает все ее перезарядки на 1,25 секунды; Двойной удар на Вихре клинков накладывает эти эффекты второй раз. Зуб Нашора и Смерть Разума берутся ради скорости атаки, которую Принципиальность превращает в ускорение, и ради магического урона при попадании, который теперь наносят ее умения, а Смертельная шляпа Рабадона и Творец разломов дают силу умений. Дуэлянтка на автоатаках больше никогда не жмет правую кнопку и становится AP-магом, чьи умения и есть удары.",
+      "play": "Пометьте цели Безупречным дуэтом или Клинком авангарда, затем цепляйте Вихрь клинков через них и миньонов. Каждое попадание сокращает перезарядки, так что просто продолжайте рывки и забудьте про кнопку атаки.",
       "augments": [
-        "Эффекты ваших предметов и периодического урона могут наносить критический удар с 145% дополнительного урона. Вы получаете 25% шанса критического удара.",
-        "Вы можете критически защищаться, используя свой шанс критического удара (не больше 50%): с этим шансом получаемый урон снижается на 20%. Вы получаете 25% шанса критического удара.",
-        "Ваши умения накладывают суммирующееся горение, которое наносит периодический урон. Ваши эффекты горения сокращают перезарядку базовых умений.",
-        "Ваши автоатаки также поджигают врагов, нанося магический урон в размере 0,4% от их максимального запаса здоровья в секунду в течение 5 сек. Это горение суммируется бесконечно."
+        "Получите процентное сокращение перезарядки и преобразуйте всю скорость атаки в ускорение умений.",
+        "Ваши умения накладывают эффекты при попадании. Перезарядка 1 сек. для каждой цели.",
+        "При попадании сокращает время перезарядки ваших умений на 1,25 сек.",
+        "Выбранное умение накладывает эффекты при попадании еще один раз."
       ]
     },
     "th": {
-      "title": "Crit Happens",
-      "why": "พาสซีฟของ Skarner มักถูกมองข้าม: การโจมตี ก้อนหิน และอัลติของเขาจะสะสม Quaking และเมื่อสะสมครบ เป้าหมายจะได้รับความเสียหายเวทตามพลังชีวิตสูงสุดต่อเนื่อง ซึ่งก็คือเอฟเฟกต์ความเสียหายต่อเนื่อง Vulnerability ทำให้เอฟเฟกต์ความเสียหายต่อเนื่องและเอฟเฟกต์ไอเทมติดคริได้ด้วยความเสียหายเพิ่ม 145% และให้โอกาสคริ 25% ส่วน Tank It Or Leave It เพิ่มอีก 25% โอกาสคริเดียวกันนั้นจึงยังทอยลดความเสียหาย 20% ทุกครั้งที่โดนตี: แทงก์ที่ไม่เคยคริเลยกลับอยากได้คริทั้งเพื่อบุกและเพื่อรับ Infernal Conduit ทำให้ทุกสกิลติด Burn แบบสะสมที่คริได้เหมือนกันและลดคูลดาวน์สกิลพื้นฐาน เขาจึงขว้างหินและกระทืบพื้นได้บ่อยขึ้นเพื่อสะสม Quaking ใหม่ ขณะที่ Firebrand เพิ่ม Burn ที่สะสมได้ไม่จำกัดให้การโจมตีเสริมพลังสามครั้งจาก Q ของเขา Liandry's Torment, Sunfire Aegis, Hollow Radiance, Thornmail และ Heartsteel ล้วนเป็นความเสียหายจากไอเทม Burn, Immolate, หนาม และการโจมตีชาร์จของมันจึงคริได้ด้วยโอกาส 50% เดียวกัน แมงป่องกลายเป็นกองไฟคริเดินได้ที่ไอเทมแทงก์คือดาเมจของเขา",
-      "play": "ออกแทงก์เต็ม พุ่งเข้าทีมศัตรูแล้วสะสมไปเรื่อย ๆ: ตีสามทีด้วย Q ขว้างหิน กระทืบพื้น อัลติใส่คนที่ใกล้ที่สุด ไม่ใช่คุณที่คริ แต่เป็น Burn ของคุณ",
+      "title": "ลืมวิธีตีธรรมดา",
+      "why": "พาสซีฟของ Irelia คือ Ionian Fervor ให้ Attack Speed สะสมทุกครั้งที่สกิลโดนเป้าหมาย และเมื่อสะสมเต็มจะได้ดาเมจเพิ่มแบบ on-hit Purist - Caster เปลี่ยน Attack Speed ทั้งหมดนั้นเป็น Ability Haste สแตคที่ได้จากการกดสกิลจึงกลับมาเป็นการกดสกิลมากขึ้น Ethereal Weapon ทำให้สกิลของเธอติดเอฟเฟกต์ On-Hit ดังนั้น Bladesurge, Flawless Duet และ Vanguard's Edge จะพาโบนัสของ Fervor และ Mystic Punch ไปด้วย ซึ่งลดคูลดาวน์ทุกสกิล 1.25 วินาทีต่อ On-Hit ส่วน Double Strike ที่ใส่กับ Bladesurge ทำให้เอฟเฟกต์ On-Hit ติดอีกครั้ง Nashor's Tooth และ Wit's End ซื้อเพื่อเอา Attack Speed ที่ Purist แปลงเป็น Haste และดาเมจเวท On-Hit ที่ตอนนี้สกิลเป็นตัวส่ง ส่วน Rabadon's Deathcap และ Riftmaker ให้ Ability Power นักดวลสายตีธรรมดาจะไม่คลิกขวาอีกเลย และกลายเป็นเมจ AP ที่สกิลคือการตี",
+      "play": "มาร์คเป้าหมายด้วย Flawless Duet หรือ Vanguard's Edge แล้วต่อ Bladesurge ผ่านพวกเขาและมินเนียน ทุกการโดนลดคูลดาวน์ ก็แค่แดชต่อไปแล้วลืมปุ่มโจมตีไปเลย",
       "augments": [
-        "เอฟเฟกต์ไอเทมและเอฟเฟกต์ความเสียหายต่อเนื่องของคุณติดคริติคอลได้ สร้างความเสียหายเพิ่ม 145% รับโอกาสคริติคอล 25%",
-        "คุณป้องกันแบบคริติคอลได้โดยใช้โอกาสคริติคอล (สูงสุด 50%) มีโอกาสลดความเสียหายที่ได้รับ 20% ได้รับโอกาสคริติคอล 25%",
-        "สกิลของคุณติด Burn แบบสะสมที่สร้างความเสียหายต่อเนื่อง เอฟเฟกต์ Burn ของคุณลดคูลดาวน์สกิลพื้นฐาน",
-        "การโจมตีของคุณเผาศัตรูด้วย สร้างความเสียหายเวท 0.4% ของพลังชีวิตสูงสุดต่อวินาทีเป็นเวลา 5 วินาที Burn นี้สะสมได้ไม่จำกัด"
+        "รับการลดคูลดาวน์เป็นเปอร์เซ็นต์ และแปลง Attack Speed ทั้งหมดเป็น Ability Haste",
+        "สกิลของคุณติดเอฟเฟกต์ On-Hit คูลดาวน์ 1 วินาทีต่อเป้าหมาย",
+        "On-Hit ลดคูลดาวน์สกิลของคุณ 1.25 วินาที",
+        "สกิลที่เลือกจะติดเอฟเฟกต์ On-Hit เพิ่มอีกหนึ่งครั้ง"
       ]
     },
     "tr": {
-      "title": "Kritik olur böyle",
-      "why": "Skarner'ın pasifi genelde önemsiz bir detaydır: saldırıları, kayası ve ultisi Sarsıntı yükü bırakır ve azami yükte hedef zamanla azami Can'ına bağlı büyü hasarı alır, yani bu bir zamana yayılan hasar etkisidir. Zafiyet, zamana yayılan hasar ve eşya etkilerinin %145 ilave hasarla kritik vurmasını sağlar ve ona %25 kritik vuruş ihtimali verir, Ya Tankla Ya Terk Et de %25 daha ekler, böylece aynı kritik ihtimali ona aldığı her darbede %20 hasar azaltma şansı da verir: hiç kritik vurmayan bir tank birden hem saldırı hem savunma için kritik ister. Alev Geçidi her yeteneğin birikebilen bir yanma uygulamasını sağlar, bu yanma da kritik vurur ve temel yetenek bekleme sürelerini azaltır, bu yüzden Sarsıntı'yı yeniden biriktirmek için daha çok kaya atar ve sarsıntı yapar, Yakıcı Damga da Q'sunun üç güçlendirilmiş saldırısına sonsuz birikebilen bir yanma ekler. Liandry'nin Eziyeti, Günateşi Kalkanı, Donuk Işıltı, Çivili Zırh ve Çelikyürek'in hepsi eşya hasarıdır, bu yüzden yanmaları, Kızgın Alev'i, dikenleri ve yüklü vuruşu aynı %50 ile kritik vurur. Akrep, tank eşyaları hasarı olan, yürüyen bir kritik ihtimali şenlik ateşine dönüşür.",
-      "play": "Full tank kas, rakip takımın içine dal ve yük biriktirmeye devam et: Q ile üç saldırı, kayayı at, sarsıntı, en yakındakine ulti. Kritik vuran sen değilsin, yanmaların.",
+      "title": "Düz Vuruşu Unuttu",
+      "why": "Irelia'nın pasifi İyonya Coşkusu, bir yeteneği her isabet ettiğinde ona birikimli saldırı hızı verir, maksimum yükte ise isabette ek hasar ekler. Saf Yetenek bütün o saldırı hızını yetenek hızına çevirir, yani büyü yaparak kazandığı yükler daha fazla büyü olarak geri döner. Olağandışı Silah yeteneklerinin isabet etkileri uygulamasını sağlar, böylece Kılıç Hücumu, Kusursuz Düet ve Öncü Kılıcı Coşku bonusunu ve isabet etkisi başına bütün bekleme sürelerinden 1,25 saniye düşen Mistik Yumruk'u taşır; Kılıç Hücumu'na verilen Çift Saldırı bu etkileri ikinci kez uygular. Nashor'un Dişi ve Aklın Sonu'nu, Saf Yetenek'in yetenek hızına çevirdiği saldırı hızı ve artık yeteneklerinin vurduğu isabette büyü hasarı için alır; Rabadon'un Şapkası ve Vadiyaran da yetenek gücünü getirir. Düz vuruş düellocusu bir daha asla sağ tıklamaz ve büyüleri isabet olan bir AP büyücüsüne dönüşür.",
+      "play": "Hedefleri Kusursuz Düet ya da Öncü Kılıcı ile işaretle, sonra Kılıç Hücumu'nu onlar ve minyonlar arasında zincirle. Her isabet bekleme sürelerini düşürür, yani atılmaya devam et ve saldırı tuşunun varlığını unut.",
       "augments": [
-        "Eşya ve zamana yayılan hasar etkilerin kritik vurarak %145 ilave hasar verebilir. %25 kritik vuruş ihtimali kazanırsın.",
-        "Kritik Vuruş İhtimalini kullanarak Kritik Savunma yapabilirsin (en fazla %50 ihtimal); bu sana aldığın hasarı %20 azaltma şansı verir. %25 Kritik Vuruş İhtimali kazanırsın.",
-        "Yeteneklerin zamana yayılan hasar veren, birikebilen bir yanma uygular. Yanma etkilerin temel yeteneklerinin bekleme sürelerini azaltır.",
-        "Saldırıların rakipleri de yakar ve 5 saniye boyunca saniyede azami Can'larının %0,4'ü kadar büyü hasarı verir. Bu yanma sonsuz kez birikebilir."
+        "Yüzdesel bekleme süresi azaltma kazan ve tüm saldırı hızını yetenek hızına çevir.",
+        "Yeteneklerin isabet etkileri uygular. Hedef başına 1 saniye bekleme süresi.",
+        "İsabette yeteneklerinin bekleme süresini 1,25 saniye azaltır.",
+        "Seçilen yetenek isabet etkilerini bir kez daha uygular."
       ]
     },
     "vi": {
-      "title": "Chí mạng thì cứ xảy ra",
-      "why": "Nội tại của Skarner thường bị bỏ qua: đòn đánh, tảng đá và chiêu cuối của hắn cộng dồn Chấn Động, và khi đầy cộng dồn mục tiêu nhận sát thương phép theo thời gian dựa trên Máu tối đa, tức là một hiệu ứng sát thương theo thời gian. Yếu Điểm cho hiệu ứng sát thương theo thời gian và hiệu ứng trang bị chí mạng với 145% sát thương cộng thêm và cho hắn 25% tỉ lệ chí mạng, còn Chiến Hoặc Chuồn thêm 25% nữa, nên cùng tỉ lệ chí mạng đó còn cho hắn cơ hội giảm 20% mỗi đòn phải nhận: một con tank chưa bao giờ chí mạng bỗng muốn chí mạng cho cả công lẫn thủ. Hỏa Ngục Dẫn Truyền khiến mọi kỹ năng gây thiêu đốt cộng dồn, cũng chí mạng được và giảm hồi chiêu kỹ năng cơ bản, nên hắn ném nhiều đá và dậm đất hơn để cộng dồn lại Chấn Động, còn Hỏa Tinh thêm thiêu đốt cộng dồn vô hạn lên ba đòn đánh được cường hóa từ Q. Mặt Nạ Đọa Đày Liandry, Khiên Thái Dương, Áo Choàng Hắc Quang, Giáp Gai và Trái Tim Khổng Thần đều là sát thương trang bị, nên thiêu đốt, Thiêu Rụi, phản sát thương và đòn đánh tích tụ của chúng đều chí mạng với cùng 50% đó. Con bọ cạp thành một đống lửa trại chí mạng biết đi, đồ tank chính là sát thương của hắn.",
-      "play": "Lên full tank, lao vào team địch và cứ cộng dồn: ba đòn đánh với Q, ném đá, dậm đất, chiêu cuối lên đứa gần nhất. Không phải bạn chí mạng, mà là thiêu đốt của bạn.",
+      "title": "Quên Cách Đánh Thường",
+      "why": "Nội tại của Irelia, Nhiệt Huyết Ionia, cho cô tốc độ đánh cộng dồn mỗi khi kỹ năng trúng đích, và khi đầy cộng dồn thì thêm sát thương khi đánh trúng. Thuần Pháp - Thuật Sư đổi toàn bộ tốc độ đánh đó thành điểm hồi kỹ năng, nên cộng dồn kiếm được nhờ dùng chiêu lại quay về thành thêm chiêu. Vũ Khí Siêu Nhiên khiến kỹ năng của cô kích hoạt hiệu ứng trên đòn đánh, nên Lao Kiếm, Song Kiếm Hợp Bích và Lưỡi Kiếm Tiên Phong mang theo phần thưởng Nhiệt Huyết và Cú Đấm Thần Bí, giảm 1,25 giây mọi thời gian hồi chiêu mỗi lần kích hoạt hiệu ứng trên đòn đánh; Chém Đôi gắn vào Lao Kiếm áp dụng các hiệu ứng đó thêm lần nữa. Nanh Nashor và Đao Tím được mua vì tốc độ đánh mà Thuần Pháp đổi thành điểm hồi kỹ năng và vì sát thương phép trên đòn đánh mà giờ kỹ năng của cô gây ra, còn Mũ Phù Thủy Rabadon và Quyền Trượng Ác Thần lo phần sức mạnh phép thuật. Đấu sĩ đánh thường không bao giờ chuột phải nữa và thành pháp sư AP mà chiêu nào cũng là đòn đánh.",
+      "play": "Đánh dấu mục tiêu bằng Song Kiếm Hợp Bích hoặc Lưỡi Kiếm Tiên Phong, rồi Lao Kiếm liên hoàn qua chúng và lính. Mỗi đòn trúng đều giảm hồi chiêu, cứ lướt tiếp và quên luôn nút đánh thường đi.",
       "augments": [
-        "Hiệu ứng trang bị và hiệu ứng sát thương theo thời gian của bạn có thể chí mạng, gây thêm 145% sát thương. Nhận 25% tỉ lệ chí mạng.",
-        "Bạn có thể Phòng Thủ Chí Mạng dựa trên Tỉ Lệ Chí Mạng (tối đa 50%), có cơ hội giảm 20% sát thương nhận vào. Nhận 25% Tỉ Lệ Chí Mạng.",
-        "Kỹ năng của bạn gây thiêu đốt cộng dồn gây sát thương theo thời gian. Hiệu ứng thiêu đốt của bạn giảm hồi chiêu kỹ năng cơ bản.",
-        "Đòn đánh của bạn còn thiêu đốt kẻ địch, gây sát thương phép bằng 0,4% Máu tối đa mỗi giây trong 5 giây. Thiêu đốt này cộng dồn vô hạn."
+        "Nhận giảm thời gian hồi chiêu theo phần trăm và chuyển toàn bộ tốc độ đánh thành điểm hồi kỹ năng.",
+        "Kỹ năng của bạn áp dụng hiệu ứng trên đòn đánh. Hồi chiêu 1 giây cho mỗi mục tiêu.",
+        "Hiệu ứng trên đòn đánh: giảm 1,25 giây thời gian hồi chiêu của các kỹ năng.",
+        "Kỹ năng được chọn áp dụng hiệu ứng trên đòn đánh thêm một lần."
       ]
     },
     "zh-CN": {
-      "title": "暴击总会发生",
-      "why": "上古领主的被动通常没人在意：他的普攻、巨石和大招会叠加“震荡”，叠满后目标会在持续时间内受到基于最大生命值的魔法伤害，也就是一个持续伤害效果。易损让持续伤害和装备效果能够暴击，造成145%额外伤害，还给他25%暴击几率；会心防御再加25%，于是同一份暴击几率还能在每次挨打时判定一次20%减伤：一个从不暴击的坦克突然为了进攻和防守都想要暴击。炼狱导管让每个技能都附带可叠加的灼烧，这个灼烧同样能暴击，还会缩短基础技能冷却，所以他能扔出更多巨石和震地来重新叠“震荡”；火上浇油则在Q强化的三次普攻上叠加可无限叠加的灼烧。兰德里的折磨、日炎圣盾、璀璨回响、荆棘之甲和心之钢都是装备伤害，所以它们的灼烧、献祭、反伤和蓄力重击都用同样的50%几率暴击。蝎子变成了一堆会走路的暴击篝火，坦克装就是他的输出。",
-      "play": "出满坦装，冲进敌方人堆里一直叠：Q打三下，扔巨石，震地，大招拉最近的人。暴击的不是你，是你的灼烧。",
+      "title": "忘了怎么平A",
+      "why": "刀锋舞者的被动艾欧尼亚热诚让她每次技能命中都获得可叠加的攻击速度，满层时还会获得额外的攻击特效伤害。纯粹主义者 - 术师把这些攻击速度全部转化为技能急速，于是靠放技能攒下的层数又变成了更多技能。虚幻武器让她的技能能触发攻击特效，所以利刃冲击、比翼双刃和先锋之刃都会带上热诚加成和秘术冲拳，每次攻击特效让她所有技能冷却缩短1.25秒；双重打击绑在利刃冲击上，会让这些攻击特效再触发一次。纳什之牙和智慧末刃买来是为了纯粹主义者要转化的攻击速度，以及现在由技能打出的攻击特效魔法伤害，灭世者的死亡之帽和裂隙制造者负责法术强度。平A决斗者从此不再右键，变成一个技能就是攻击的AP法师。",
+      "play": "用比翼双刃或先锋之刃标记目标，然后在他们和小兵之间连续利刃冲击。每次命中都会减冷却，所以一直冲就行，忘掉攻击键吧。",
       "augments": [
-        "你的装备效果和持续伤害效果可以暴击，造成145%额外伤害。获得25%暴击几率。",
-        "你可以用暴击几率进行暴击防御（最高50%几率），有几率使受到的伤害降低20%。获得25%暴击几率。",
-        "你的技能会施加可叠加的灼烧，持续造成伤害。你的灼烧效果会减少你的基础技能冷却时间。",
-        "你的攻击还会灼烧敌人，在5秒内每秒造成相当于其0.4%最大生命值的魔法伤害。该灼烧可无限叠加。"
+        "获得百分比冷却缩减，并将你的全部攻击速度转化为技能急速。",
+        "你的技能会施加攻击特效。每个目标有1秒冷却时间。",
+        "攻击特效：使你的技能冷却时间减少1.25秒。",
+        "所选技能会额外施加一次攻击特效。"
       ]
     },
     "zh-TW": {
-      "title": "爆擊總會發生",
-      "why": "史加納的被動通常沒人在意：他的普攻、巨石和大絕會疊加「震盪」，疊滿後目標會在持續時間內受到基於最大生命的魔法傷害，也就是一個持續傷害效果。見縫插針讓持續傷害和裝備效果可以爆擊，造成145%額外傷害，還給他25%爆擊機率；毫髮無傷再加25%，於是同一份爆擊機率還能在每次被打時判定一次20%減傷：一個從來不爆擊的坦克突然為了進攻和防守都想要爆擊。煉獄使者讓每個技能都附帶可疊加的燃燒，這個燃燒同樣能爆擊，還會縮短基本技能冷卻，所以他能丟出更多巨石和震地來重新疊「震盪」；煽風點火則在Q強化的三次普攻上疊加可無限疊加的燃燒。黎安卓的折磨、日炎聖盾、虛偽光彩、荊棘之甲和雄心之鋼都是裝備傷害，所以它們的燃燒、獻祭、反傷和蓄力重擊都用同樣的50%機率爆擊。蠍子變成一堆會走路的爆擊營火，坦克裝就是他的輸出。",
-      "play": "出滿坦裝，衝進敵方人群裡一直疊：Q打三下，丟巨石，震地，大絕抓最近的人。爆擊的不是你，是你的燃燒。",
+      "title": "忘了怎麼普攻",
+      "why": "伊瑞莉雅的被動愛歐尼亞之熱誠讓她每次技能命中都獲得可疊加的攻擊速度，疊滿時還會獲得額外的命中特效傷害。純粹 - 法師把這些攻擊速度全部轉換成技能加速，於是靠施放技能疊出的層數又變回更多技能。幻影武器讓她的技能能觸發命中特效，所以刀鋒突擊、比翼雙刃和先鋒之刃都會帶著熱誠加成和祕術拳擊，每次命中特效讓她所有技能冷卻減少1.25秒；雙重打擊綁在刀鋒突擊上，會讓這些命中特效再觸發一次。納什之牙和智慧末刃是為了純粹要轉換的攻擊速度，以及現在由技能打出的命中特效魔法傷害而買，死亡之帽和峽谷製造者負責魔法攻擊。普攻決鬥者從此不再按右鍵，變成技能就是攻擊的AP法師。",
+      "play": "用比翼雙刃或先鋒之刃標記目標，再在他們和小兵之間連續刀鋒突擊。每次命中都會減冷卻，一直衝就對了，忘掉攻擊鍵吧。",
       "augments": [
-        "你的裝備效果和持續傷害效果可以爆擊，造成145%額外傷害。獲得25%爆擊機率。",
-        "你可以用暴擊率進行暴擊防禦（最高50%機率），有機率使受到的傷害降低20%。獲得25%暴擊率。",
-        "你的技能會施加可疊加的燃燒，持續造成傷害。你的燃燒效果會減少你的基本技能冷卻時間。",
-        "你的攻擊還會燃燒敵人，在5秒內每秒造成相當於其0.4%最大生命的魔法傷害。此燃燒可無限疊加。"
+        "獲得百分比冷卻縮減，並將所有攻擊速度轉換為技能急速。",
+        "你的技能會施加命中特效。每個目標有1秒冷卻時間。",
+        "命中特效：使你的技能冷卻時間減少1.25秒。",
+        "所選技能會額外施加一次命中特效。"
       ]
     }
   }

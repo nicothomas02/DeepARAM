@@ -254,6 +254,29 @@
       "why": "Skarner's passive Threads of Vibration is mostly an afterthought: his attacks, boulder and ult stack Quaking, and at max stacks the target takes max Health magic damage over time, which is a damage-over-time effect. Vulnerability lets damage-over-time and item effects critically strike for 145% extra damage and hands him 25% crit chance, and Tank It Or Leave It adds another 25% so that same crit chance also rolls a 20% damage reduction every time he gets hit, so a tank who never crits suddenly wants crit for both offence and defence. Infernal Conduit makes every ability stack a burn that crits too and cuts his basic cooldowns, so he throws more boulders and quakes to re-stack Quaking, while Firebrand piles an infinitely stacking burn onto the three empowered attacks from Shattered Earth. Liandry's Torment, Sunfire Aegis, Hollow Radiance, Thornmail and Heartsteel are all item damage, so their burns, Immolate ticks, thorns and charged slam roll crits off the same 50% chance. The scorpion ends up a walking crit-chance bonfire whose tank items are his damage.",
       "play": "Build full tank, walk into the enemy team and just keep stacking: Q three attacks, throw the boulder, quake, ult whoever is closest. You are not the one who crits, your burns are.",
       "chef": "2026-10-27"
+    },
+    {
+      "id": "irelia-forgot-how-to-auto",
+      "champion": "Irelia",
+      "title": "Forgot How To Auto",
+      "augments": [
+        "Purist - Caster",
+        "Ethereal Weapon",
+        "Mystic Punch",
+        "Double Strike"
+      ],
+      "core": 4,
+      "items": [
+        "Nashor's Tooth",
+        "Wit's End",
+        "Rabadon's Deathcap",
+        "Riftmaker",
+        "Zhonya's Hourglass",
+        "Ionian Boots of Lucidity"
+      ],
+      "why": "Irelia's Ionian Fervor gives her stacking Attack Speed every time a spell hits, and at full stacks it adds bonus damage on hit. Purist - Caster converts all of that Attack Speed into Ability Haste, so the stacks she earns by casting come back as more casts. Ethereal Weapon makes her abilities apply On-Hit effects, so every Bladesurge, Flawless Duet and Vanguard's Edge carries her Fervor bonus and Mystic Punch, which cuts 1.25 seconds off all her cooldowns per On-Hit; Double Strike on Bladesurge applies those On-Hits a second time. Nashor's Tooth and Wit's End are bought for Attack Speed that Purist turns into Haste and for On-Hit magic damage that her spells now deliver, while Rabadon's Deathcap and Riftmaker bring the Ability Power. The auto-attack duelist never right-clicks again and becomes an AP caster whose spells are the on-hits.",
+      "play": "Mark targets with Flawless Duet or Vanguard's Edge, then chain Bladesurge through them and the minions. Every hit refunds cooldowns, so just keep dashing and forget your attack button exists.",
+      "chef": "2026-10-28"
     }
   ]
 }
