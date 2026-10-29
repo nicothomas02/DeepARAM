@@ -21,6 +21,13 @@ describe("cleanMessage", () => {
     expect(() => cleanMessage(body as Record<string, unknown>)).toThrow(error);
   });
 
+  it("refuses an address that would smuggle extra recipients into the owner's reply link", () => {
+    // The inbox replies through a mailto: link; a ? or & in the address would add headers to it.
+    for (const bad of ["me@example.com?bcc=them@example.com", "me@example.com&cc=x", "me@exa%40mple.com", "me@example.com/x", "me@example.com,you@example.com"])
+      expect(() => cleanMessage({ message: "Found a bug", replyTo: bad })).toThrow("That email address doesn't look right.");
+    expect(cleanMessage({ message: "Found a bug", replyTo: "first.last+tag@sub.example.co.uk" }).replyTo).toBe("first.last+tag@sub.example.co.uk");
+  });
+
   it("keeps only a page path from this site", () => {
     expect(cleanMessage({ message: "Hello there", page: "https://evil.example/" }).page).toBeNull();
   });

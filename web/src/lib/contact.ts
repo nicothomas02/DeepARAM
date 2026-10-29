@@ -37,7 +37,9 @@ export function cleanMessage(body: Record<string, unknown>): ContactMessage {
   if (message.length < MIN_LENGTH) throw new AccountError("Write a little more first.");
   if (message.length > MAX_LENGTH) throw new AccountError("That's too long. Keep it under 2,000 characters.");
   const raw = typeof body.replyTo === "string" ? body.replyTo.trim() : "";
-  if (raw && (raw.length > 200 || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(raw))) throw new AccountError("That email address doesn't look right.");
+  // The inbox replies through a mailto: link, so the address can't carry what would add headers or
+  // recipients to it (?, &, %, /, commas, semicolons); the rest of an address is letters, digits and . _ + -.
+  if (raw && (raw.length > 200 || !/^[\w.+-]+@[\w-]+(\.[\w-]+)+$/.test(raw))) throw new AccountError("That email address doesn't look right.");
   const page = typeof body.page === "string" && body.page.startsWith("/") ? body.page.slice(0, 200) : null;
   return { message, replyTo: raw || null, page };
 }

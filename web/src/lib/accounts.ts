@@ -4,7 +4,7 @@ import { CHALLENGE_COOKIE, OWNER_FLAG, SESSION_COOKIE, SESSION_DAYS, SIGNED_IN_F
 import { accountsDb, sessionAccount, sha256, type DB, type SessionAccount } from "./account-session";
 import { profileByPuuid, profilePath } from "./profiles";
 import { enabledProviders, PROVIDER_NAMES, type Identity, type Provider } from "./oauth";
-import { DEFAULT_SETTINGS } from "./settings";
+import { cleanSettings } from "./settings";
 import { serverEnv } from "./env";
 import CHAMPIONS from "@/data/champion-names.json";
 
@@ -148,16 +148,10 @@ export async function passwordSignIn(email: string, password: string): Promise<{
 
 export type AccountData = { settings: Record<string, unknown> };
 
-/** Keeps only what the site saves: known settings with the right types. */
+/** Keeps only what the site saves: known settings with values the site can use (lib/settings.ts cleanSettings). */
 export function cleanData(raw: unknown): AccountData {
   const r = (raw && typeof raw === "object" ? raw : {}) as Record<string, unknown>;
-  const settings: Record<string, unknown> = {};
-  const s = (r.settings && typeof r.settings === "object" ? r.settings : {}) as Record<string, unknown>;
-  for (const [k, def] of Object.entries(DEFAULT_SETTINGS)) {
-    const v = s[k];
-    if (typeof v === typeof def && (typeof v !== "string" || v.length <= 20)) settings[k] = v;
-  }
-  return { settings };
+  return { settings: cleanSettings(r.settings) };
 }
 
 /** Saves the synced settings. Anything else already stored with the account (old Favorites) is left as it is. */

@@ -7,7 +7,7 @@ import { champName, livePatch } from "./highlights";
 import { localAsset } from "./assets";
 import { official } from "./dd-swap";
 import { readRepoCsv, readRepoJson } from "./repo-data";
-import { champStats, type ChampStats, type PatchRow } from "./tiers";
+import { champStats, risersAndFallers, type ChampStats, type PatchRow } from "./tiers";
 
 // One summary per champion for its own page (/champions/<Alias>) and the home page's movers:
 // live-patch tier and rates, the change since the previous patch, top augments and best partners.
@@ -66,8 +66,7 @@ export function movers(n = 4): { up: Mover[]; down: Mover[]; prev: string | null
   const withChange = live
     .filter((c) => c.change !== null)
     .map((c) => ({ id: c.name, name: champName(c.name), tier: c.tier, winRate: c.win_rate, change: c.change! }));
-  const sorted = [...withChange].sort((a, b) => b.change - a.change);
-  return { up: sorted.slice(0, n), down: sorted.slice(-n).reverse(), prev };
+  return { ...risersAndFallers(withChange, n), prev };
 }
 
 type ClientChampion = { title?: string; shortBio?: string; skins?: { splashPath?: string; uncenteredSplashPath?: string }[] };

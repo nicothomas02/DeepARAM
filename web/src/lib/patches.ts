@@ -6,7 +6,7 @@ import { patchList, patchRows } from "./champions";
 import { readRepoCsv, repoHas, repoPath } from "./repo-data";
 import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
-import { champStats } from "./tiers";
+import { champStats, risersAndFallers } from "./tiers";
 
 // A short recap per live patch (/patches/<patch>): what changed for Mayhem augments (changed numbers,
 // from guide/history.js), the augments it added to or removed from the pool, and which champions rose and fell most that patch.
@@ -69,10 +69,10 @@ export function recap(patch: string): Recap | null {
   const rows = patchRows();
   const now = champStats(rows, new Set([patch]));
   const before = prev ? new Map(champStats(rows, new Set([prev])).map((c) => [c.name, c.win_rate])) : new Map<string, number>();
-  const moved = now
-    .filter((c) => before.has(c.name))
-    .map((c) => ({ id: c.name, name: champName(c.name), winRate: c.win_rate, change: c.win_rate - before.get(c.name)! }))
-    .sort((a, b) => b.change - a.change);
+  const moved = risersAndFallers(
+    now.filter((c) => before.has(c.name)).map((c) => ({ id: c.name, name: champName(c.name), winRate: c.win_rate, change: c.win_rate - before.get(c.name)! })),
+    5,
+  );
   const h = guideHistory();
   const entry = h?.patches.find((p) => p.patch === patch);
   // Removed augments may have no page or icon left.
@@ -95,8 +95,8 @@ export function recap(patch: string): Recap | null {
       ...ref(c.id),
       changes: c.changes.map((x) => ({ name: label(x.name), old: value(x.old), new: value(x.new) })),
     })),
-    up: moved.slice(0, 5),
-    down: moved.slice(-5).reverse(),
+    up: moved.up,
+    down: moved.down,
     hasAugmentHistory: Boolean(h?.patches.some((p) => p.patch === patch)),
   };
 }

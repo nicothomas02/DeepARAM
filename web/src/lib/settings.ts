@@ -33,16 +33,44 @@ export type Settings = {
 
 export const DEFAULT_SETTINGS: Settings = { motion: "system", sound: true, uiSound: false, haptics: true, graphics: "auto", contrast: "standard", colors: "standard", remember: true, text: "standard", tierRange: "live", view: "simple" };
 
+/** The values each choice setting can take; the on/off ones take a boolean. */
+const CHOICES: { [K in keyof Settings as Settings[K] extends string ? K : never]: readonly Settings[K][] } = {
+  motion: ["system", "reduce"],
+  graphics: ["auto", "low", "high"],
+  contrast: ["standard", "high"],
+  colors: ["standard", "colorblind"],
+  text: ["standard", "large", "larger"],
+  tierRange: ["live", "set", "all"],
+  view: ["simple", "detailed"],
+};
+
+/**
+ * The known settings in `raw` whose values the site can use, nothing else. A hand-edited copy, or one saved by
+ * another version of the site, can't then switch sound on with "off" or leave the gear menu with no option pressed.
+ */
+export function cleanSettings(raw: unknown): Partial<Settings> {
+  const r = (raw && typeof raw === "object" && !Array.isArray(raw) ? raw : {}) as Record<string, unknown>;
+  const out: Record<string, unknown> = {};
+  for (const [k, def] of Object.entries(DEFAULT_SETTINGS)) {
+    // "last3" is the old name of the "set" range.
+    const v = k === "tierRange" && r[k] === "last3" ? "set" : r[k];
+    const ok = typeof def === "boolean" ? typeof v === "boolean" : (CHOICES[k as keyof typeof CHOICES] as readonly string[]).includes(v as string);
+    if (ok) out[k] = v;
+  }
+  return out as Partial<Settings>;
+}
+
 export function loadSettings(): Settings {
   try {
-    return { ...DEFAULT_SETTINGS, ...JSON.parse(localStorage.getItem(SETTINGS_KEY) || "{}") };
+    return { ...DEFAULT_SETTINGS, ...cleanSettings(JSON.parse(localStorage.getItem(SETTINGS_KEY) || "{}")) };
   } catch {
     return DEFAULT_SETTINGS;
   }
 }
 
 export function saveSettings(patch: Partial<Settings>) {
-  const next = { ...loadSettings(), ...patch };
+  // The patch is cleaned too: an account's synced copy may predate a choice's current values.
+  const next = { ...loadSettings(), ...cleanSettings(patch) };
   try {
     localStorage.setItem(SETTINGS_KEY, JSON.stringify(next));
   } catch {}
