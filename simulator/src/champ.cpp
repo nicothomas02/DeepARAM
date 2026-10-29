@@ -205,6 +205,8 @@ ChampionKit loadChampion(const json::Value& c, const Rules& rules) {
         ps.restore = p["restore"].asNumber(0);
         ps.basicCdr = std::max(0.0, p["basic_cdr"].asNumber(0));
         ps.needsHit = p["needs_hit"].asBool(false);
+        ps.canCrit = p["can_crit"].asBool(false);
+        ps.onhit = std::max(0.0, p["onhit"].asNumber(0));
         for (const auto& h : p["hits"].arr) ps.hits.push_back(hitOf(h));
         if (!ps.hits.empty()) k.passives.push_back(ps);
     }
@@ -244,7 +246,8 @@ ChampionKit loadChampion(const json::Value& c, const Rules& rules) {
         ab.linger = std::max(0.0, a["linger"].asNumber(0));
         ab.ramp = a["ramp"].asNumber(0);
         ab.noHaste = a["no_haste"].asBool(false);
-        ab.appliesOnHit = a["applies_onhit"].asBool(false);
+        ab.appliesOnHit = a["applies_onhit"].isNumber() ? std::max(0.0, a["applies_onhit"].asNumber(0))
+                                                        : (a["applies_onhit"].asBool(false) ? 1.0 : 0.0);
         ab.invuln = a["invuln"].asNumber(0);
         ab.refund = a["refund"].asNumber(0);
         ab.soloMult = a["solo_mult"].asNumber(1);
@@ -2407,8 +2410,8 @@ private:
                 for (size_t i = 0; i < ch_.passives.size(); ++i)
                     if (ch_.passives[i].abilityCdr > 0 && !ch_.passives[i].perTarget)
                         passiveState_[i].readyAt -= ch_.passives[i].abilityCdr;
-            if (first && a.appliesOnHit && e->alive) {  // Bel'Veth Q: on-hit effects on the first target
-                applyOnHit(e, 1.0);
+            if (first && a.appliesOnHit > 0 && e->alive) {  // on-hit effects on the first target (Bel'Veth Q,
+                applyOnHit(e, a.appliesOnHit);                // Irelia Q; Katarina R: 15 daggers at 35%)
                 onhitProcs(e, false);
             }
             if (first && !a.hits.empty() && e->alive) passivesOn(e, false);
@@ -2719,9 +2722,12 @@ private:
             std::vector<Enemy*> targets{e};
             if (p.aoe)
                 for (Enemy* o : near(e->pos, 350, e)) targets.push_back(o);
+            // An extra shot (Lucian's Lightslinger) crits like an attack and carries on-hit effects.
+            const double critMult = p.canCrit && rng_.chance(crit_) ? rules_.critMult + critDamage_ : 1.0;
             for (Enemy* t : targets)
                 for (const auto& h : p.hits)
-                    if (t->alive) deal(t, hitRaw(h, *t), h.type, SrcPassive);
+                    if (t->alive) deal(t, hitRaw(h, *t) * critMult, h.type, SrcPassive, p.canCrit);  // attack-like: life steal too
+            if (p.onhit > 0 && e->alive) applyOnHit(e, p.onhit);
         }
     }
     // Abilities charge "after using an Ability" passives (Riven, Zoe, Lucian...).

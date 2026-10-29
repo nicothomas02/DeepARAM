@@ -602,6 +602,10 @@
     "amount": 0.5
    },
    "why": "Riposte only stuns if it parries an immobilizing effect; otherwise it slows 50% for 1.5s"
+  },
+  "Q": {
+   "applies_onhit": true,
+   "why": "Lunge applies on-hit effects"
   }
  },
  "Fizz": {
@@ -973,7 +977,12 @@
    "hit_mults": {
     "TotalADDamageCalc": 2
    },
-   "why": "Death Lotus channels for 2.5 seconds; the totals are the whole channel; per-dagger numbers are part of them"
+   "why": "Death Lotus channels for 2.5 seconds; the totals are the whole channel; per-dagger numbers are part of them; each of its 15 daggers applies on-hit effects at 35% (rank 3), 5.25 full on-hit applications per cast",
+   "applies_onhit": 5.25
+  },
+  "E": {
+   "cooldown": 3,
+   "why": "Shunpo: picking up a dagger refunds 78% of its cooldown (8 s at rank 5 under Mayhem); Q and W each drop one every 7 and 11 s, so between natural cooldowns and pickups Shunpo is cast about every 3 s in a fight"
   }
  },
  "Malzahar": {
@@ -1440,6 +1449,15 @@
     "duration": 0.75
    },
    "why": "Stand Aside knocks aside briefly; the 2 s was its slow"
+  },
+  "W": {
+   "buff": {
+    "duration": 3,
+    "as": 0.4
+   },
+   "cooldown": 3,
+   "no_haste": true,
+   "why": "Blood Rush: +40% attack speed for 3 s (rank 5) and a decaying move speed burst; catching a Spinning Axe resets its cooldown, and the axes are juggled onto every attack here, so it is up again as soon as it expires"
   }
  },
  "Evelynn": {
@@ -2237,6 +2255,13 @@
    ],
    "why": "passive is the on-kill explosion; charge usually detonates at full 4 stacks; the charge's full damage needs 4 stacks (attacks/abilities after it is placed): its damage lands about 3 attacks after the cast, and not at all if the target dies first",
    "after_attacks": 3
+  },
+  "Q": {
+   "buff": {
+    "duration": 7,
+    "as": 1.1
+   },
+   "why": "Rapid Fire: +110% attack speed (rank 5) for its 7 s duration; it is a self buff, not a 210-radius hit"
   }
  },
  "Twitch": {
@@ -2571,7 +2596,8 @@
    "geometry": {
     "move": "dash"
    },
-   "why": "Jaws of the Beast held down makes Warwick leap with his target"
+   "why": "Jaws of the Beast held down makes Warwick leap with his target; the bite applies on-hit effects",
+   "applies_onhit": true
   }
  },
  "Amumu": {
@@ -2940,6 +2966,24 @@
   "W": {
    "placeholder": true,
    "why": "holds the off-hand weapon's ability (see Q)"
+  }
+ },
+ "Irelia": {
+  "Q": {
+   "applies_onhit": true,
+   "why": "Bladesurge applies on-hit effects"
+  }
+ },
+ "Ezreal": {
+  "Q": {
+   "applies_onhit": true,
+   "why": "Mystic Shot applies on-hit effects"
+  }
+ },
+ "Gangplank": {
+  "Q": {
+   "applies_onhit": true,
+   "why": "Parrrley applies on-hit effects"
   }
  }
 }

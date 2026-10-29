@@ -748,6 +748,8 @@ def parse_passives(bin_data, record, rules, strings, base, attack_range, notes):
             **({"restore": float(rule["restore"])} if rule.get("restore") else {}),
             **({"basic_cdr": float(rule["basic_cdr"])} if rule.get("basic_cdr") else {}),
             **({"needs_hit": True} if rule.get("needs_hit") else {}),
+            **({"can_crit": True} if rule.get("can_crit") else {}),
+            **({"onhit": float(rule["onhit"])} if rule.get("onhit") else {}),
             "hits": hits,
         })
     return out
