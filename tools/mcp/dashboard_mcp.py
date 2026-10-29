@@ -716,8 +716,21 @@ def build_http_app(token: str | None, allowed_hosts: list[str] | None = None, in
     return BearerAuth(app, token) if token else app
 
 
+def check_http_args(token: str | None, host: str, insecure_local: bool) -> None:
+    """Argument checks for --http, done before any optional dependency (mcp, uvicorn) is imported so a bad
+    command line fails with a usage message rather than an ImportError."""
+    if not token and not insecure_local:
+        raise SystemExit("--http needs --token <secret> (or --insecure-local to serve without auth on localhost)")
+    if insecure_local and host not in ("127.0.0.1", "localhost", "::1"):
+        raise SystemExit("--insecure-local only allows binding to localhost; pass --token to bind elsewhere")
+
+
 def serve_http(host: str, port: int, token: str | None, allowed_hosts: list[str] | None, insecure_local: bool) -> None:
-    import uvicorn
+    check_http_args(token, host, insecure_local)
+    try:
+        import uvicorn
+    except ImportError as e:  # pragma: no cover - depends on the environment
+        raise SystemExit(f"--http needs the optional dependencies: pip install mcp uvicorn ({e})") from e
     app = build_http_app(token, allowed_hosts, insecure_local)
     print(f"deeparam-dashboard MCP on http://{host}:{port}/mcp ({'bearer token' if token else 'NO AUTH'})", file=sys.stderr)
     uvicorn.run(app, host=host, port=port, log_level="info")
@@ -747,8 +760,7 @@ def main(argv: list[str] | None = None) -> int:
         return 0
     args = parse_args(argv)
     if args.http:
-        if args.insecure_local and args.host not in ("127.0.0.1", "localhost", "::1"):
-            raise SystemExit("--insecure-local only allows binding to localhost; pass --token to bind elsewhere")
+        check_http_args(args.token, args.host, args.insecure_local)
         serve_http(args.host, args.port, args.token, args.allowed_host, args.insecure_local)
         return 0
     build_server().run(transport="stdio")
