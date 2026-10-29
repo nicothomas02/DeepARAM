@@ -2172,7 +2172,14 @@
     "DamageCalc": 6,
     "DemonflareDamageTotal": 2
    },
-   "why": "Demonic Ascension drains every second; parsed as one tick (~6s in a duel); Demonflare is always cast once (manually after 2s or automatically at the end): full weight"
+   "why": "Demonic Ascension drains every second; parsed as one tick (~6s in a duel): the damage is x6 and the drain's healing (HealingCalc 45 + 5% AP + 1.5% bonus Health per second per enemy, read once by the parser) is the same 6 ticks on one enemy (270 + 30% AP + 9% bonus Health); Demonflare is always cast once (manually after 2s or automatically at the end): full weight",
+   "heal": {
+    "scaling": {
+     "const": 270.0,
+     "ap": 0.3,
+     "bonus_hp": 0.09
+    }
+   }
   }
  },
  "Sylas": {
