@@ -1493,7 +1493,15 @@
     }
    ],
    "parse_quality": "partial",
-   "notes": []
+   "notes": [],
+   "kit": {
+    "stats": {
+     "armor_pen": 0.2
+    },
+    "effects": {
+     "ability_vamp": 0.12
+    }
+   }
   },
   {
    "id": "Amumu",
@@ -6500,7 +6508,7 @@
      "slot": "E",
      "name": "DianaTeleport",
      "rank": 5,
-     "cooldown": 14.0,
+     "cooldown": 6,
      "cast_time": 0.25,
      "cost": 60.0,
      "targeting": "",
@@ -6530,7 +6538,9 @@
       }
      ],
      "mode_overrides": [],
-     "notes": []
+     "notes": [
+      "hand override: Lunar Rush's cooldown is refreshed when it hits a target marked by Crescent Strike's Moonlight, so it is cast about as often as Q (6 s at rank 5 under Mayhem)"
+     ]
     },
     {
      "slot": "R",
@@ -6626,7 +6636,20 @@
    "parse_quality": "good",
    "notes": [
     "no Mayhem damage dealt/taken modifiers listed"
-   ]
+   ],
+   "kit": {
+    "stats": {
+     "as_l1": 0.1,
+     "as_l18": 0.4
+    },
+    "effects": {
+     "stack_on": 2,
+     "stack_max": 1,
+     "stack_duration": 3,
+     "stack_as_l1": 0.2,
+     "stack_as_l18": 0.8
+    }
+   }
   },
   {
    "id": "DrMundo",
@@ -6823,7 +6846,15 @@
      },
      "hits": [],
      "mode_overrides": [],
-     "notes": []
+     "notes": [
+      "hand override: Maximum Dosage (rank 3): regenerates 60% of max Health over 10 s (MaxHealthHoT; check the share in game), restored here when cast; the missing-Health-to-max-Health and move speed parts are not modeled"
+     ],
+     "heal": {
+      "scaling": {
+       "max_hp": 0.6
+      }
+     },
+     "cast_for_heal": true
     }
    ],
    "parse_quality": "good",
@@ -6834,7 +6865,9 @@
      "ad_l18": 76.5
     },
     "effects": {
-     "ad_per_bonus_hp": 0.032
+     "ad_per_bonus_hp": 0.032,
+     "hp_regen_pct_l1": 0.0016,
+     "hp_regen_pct_l18": 0.005
     }
    }
   },
@@ -10103,7 +10136,15 @@
    "parse_quality": "good",
    "notes": [
     "no Mayhem damage dealt/taken modifiers listed"
-   ]
+   ],
+   "kit": {
+    "effects": {
+     "attack_ad_mult_l1": 1.78,
+     "attack_ad_mult_l18": 2.0,
+     "reload_every": 2,
+     "reload_time": 1.5
+    }
+   }
   },
   {
    "id": "Gwen",
@@ -10181,8 +10222,19 @@
        "type": "magic",
        "calc": "MiniSwipeDamage",
        "scaling": {
-        "const": 130.0,
-        "ap": 0.25
+        "const": 325.0,
+        "ap": 0.625
+       },
+       "target": "flat",
+       "per_second": false,
+       "alt": false
+      },
+      {
+       "type": "true",
+       "calc": "MiniSwipeDamage",
+       "scaling": {
+        "const": 325.0,
+        "ap": 0.625
        },
        "target": "flat",
        "per_second": false,
@@ -10192,8 +10244,19 @@
        "type": "magic",
        "calc": "FinalSwipeDamage",
        "scaling": {
-        "const": 160.0,
-        "ap": 0.4
+        "const": 80.0,
+        "ap": 0.2
+       },
+       "target": "flat",
+       "per_second": false,
+       "alt": false
+      },
+      {
+       "type": "true",
+       "calc": "FinalSwipeDamage",
+       "scaling": {
+        "const": 80.0,
+        "ap": 0.2
        },
        "target": "flat",
        "per_second": false,
@@ -10204,7 +10267,7 @@
       "ARAM:APRatio"
      ],
      "notes": [
-      "hand override: Snip Snip! snips 5 times at full stacks before the final cut"
+      "hand override: Snip Snip! snips 5 times at full stacks (130 + 25% AP each) before the final cut (160 + 40% AP), and the center of each strike deals half of it as true damage: the target she casts on stands in the center"
      ]
     },
     {
@@ -10234,7 +10297,7 @@
      "slot": "E",
      "name": "GwenE",
      "rank": 5,
-     "cooldown": 11.0,
+     "cooldown": 6,
      "cast_time": 0.0,
      "cost": 35.0,
      "targeting": "Location",
@@ -10264,7 +10327,13 @@
       }
      ],
      "mode_overrides": [],
-     "notes": []
+     "notes": [
+      "hand override: Skip 'n Slash: empowered attacks for 4 s with 80% attack speed at rank 5 (check in game) and the on-hit magic damage (counted once per cast here); the first empowered attack that hits refunds 50% of its cooldown (11 s under Mayhem)"
+     ],
+     "buff": {
+      "duration": 4,
+      "as": 0.8
+     }
     },
     {
      "slot": "R",
@@ -10334,7 +10403,7 @@
    ],
    "passives": [
     {
-     "trigger": "attack",
+     "trigger": "hit",
      "every": 1,
      "cooldown": 0.0,
      "per_target": false,
@@ -15583,10 +15652,10 @@
      "hits": [
       {
        "type": "physical",
-       "calc": "TotalDamage",
+       "calc": "DarkinFlatDamage",
        "scaling": {
-        "const": 390.0,
-        "bonus_ad": 1.9
+        "const": 161.33,
+        "bonus_ad": 1.3
        },
        "target": "flat",
        "per_second": false,
@@ -15594,32 +15663,21 @@
       },
       {
        "type": "physical",
-       "calc": "DarkinFlatDamage",
-       "scaling": {
-        "const": 80.665,
-        "bonus_ad": 0.65
-       },
-       "target": "flat",
-       "per_second": false,
-       "alt": true
-      },
-      {
-       "type": "physical",
        "calc": "DarkinPercentDamage",
        "scaling": {
-        "const": 0.06,
-        "bonus_ad": 0.00035
+        "const": 0.12,
+        "bonus_ad": 0.0007
        },
        "target": "target_max_hp",
        "per_second": false,
-       "alt": true
+       "alt": false
       }
      ],
      "mode_overrides": [
       "ARAM:BonusADRatio"
      ],
      "notes": [
-      "hand override: Reaping Slash hits twice: the dash and the following sweep each deal the full damage"
+      "hand override: Rhaast's Reaping Slash (the form CN bruiser builds imply): 65% bonus AD plus a share of the target's max Health, twice (the dash and the following sweep each deal it)"
      ]
     },
     {
@@ -15720,17 +15778,6 @@
      "hits": [
       {
        "type": "physical",
-       "calc": "Damage",
-       "scaling": {
-        "const": 350.0,
-        "bonus_ad": 1.5
-       },
-       "target": "flat",
-       "per_second": false,
-       "alt": false
-      },
-      {
-       "type": "physical",
        "calc": "SlayerDamage",
        "scaling": {
         "const": 0.15,
@@ -15738,15 +15785,22 @@
        },
        "target": "target_max_hp",
        "per_second": false,
-       "alt": true
+       "alt": false
       }
      ],
      "mode_overrides": [],
-     "notes": []
+     "notes": [
+      "hand override: Rhaast's Umbral Trespass deals a share of the target's max Health (SlayerDamage), not the Shadow Assassin's flat damage"
+     ]
     }
    ],
    "parse_quality": "good",
-   "notes": []
+   "notes": [],
+   "kit": {
+    "effects": {
+     "ability_vamp": 0.3
+    }
+   }
   },
   {
    "id": "Kennen",
@@ -20945,7 +20999,7 @@
      "per_target": false,
      "charges": 1,
      "max_charges": 1,
-     "aoe": false,
+     "aoe": true,
      "below_hp": 0.0,
      "ability_cdr": 0.0,
      "hits": [
@@ -20976,7 +21030,12 @@
    "parse_quality": "good",
    "notes": [
     "no Mayhem damage dealt/taken modifiers listed"
-   ]
+   ],
+   "kit": {
+    "effects": {
+     "magic_pen_pct_kit": 0.15
+    }
+   }
   },
   {
    "id": "Morgana",
@@ -28684,7 +28743,7 @@
        "type": "true",
        "calc": "DamageCalc",
        "scaling": {
-        "const": 240.0
+        "const": 160.0
        },
        "target": "flat",
        "per_second": false,
@@ -28697,14 +28756,16 @@
      ],
      "notes": [
       "ARAM cooldown",
-      "hand override: Haymaker adds 25-50% of spent Grit as damage and shields for the Grit spent (approximate)"
+      "hand override: Haymaker spends the Grit stored from damage taken (kit_passives.json): about 35% of it (rank 5, plus a little per 100 bonus AD; check in game) as true damage on the first target in the center and 75% of it as a shield decaying over 3 s; the base true damage is the parsed DamageCalc"
      ],
      "shield": {
       "scaling": {
-       "const": 300
+       "const": 0
       },
       "duration": 3.0
-     }
+     },
+     "stored_damage": 0.35,
+     "stored_shield": 0.75
     },
     {
      "slot": "E",
@@ -28827,7 +28888,16 @@
     }
    ],
    "parse_quality": "good",
-   "notes": []
+   "notes": [],
+   "kit": {
+    "effects": {
+     "fast_attack_every": 2,
+     "fast_attack_mult": 8,
+     "stored_taken": 1.0,
+     "stored_window": 4,
+     "stored_cap": 0.5
+    }
+   }
   },
   {
    "id": "Shaco",

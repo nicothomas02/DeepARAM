@@ -155,7 +155,8 @@
  ],
  "Gwen": [
   {
-   "trigger": "attack"
+   "trigger": "hit",
+   "why": "A Thousand Cuts: on every attack, and Q's snips and R's needles apply it to the enemies they hit (once per cast here)"
   }
  ],
  "Hwei": [
@@ -297,7 +298,9 @@
    "calcs": [
     "AuraDamagePerStack",
     "PercentHealthForAura"
-   ]
+   ],
+   "aoe": true,
+   "why": "Darkness Rise: after 3 hits an aura around him burns every nearby enemy each second while he keeps hitting (one tick per second, on the target and the enemies near it)"
   }
  ],
  "Naafiri": [
