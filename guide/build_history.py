@@ -11,7 +11,10 @@ CommunityDragon keeps every past patch (raw.communitydragon.org/16.10/...). For 
 and compares each patch with the one before. Each patch's extract is cached in
 ~/.cache/deeparam-guide/history/, so later runs only download new patches.
 """
-import http.client, json, os, re, time, urllib.error, urllib.request
+import http.client, json, os, re, sys, time, urllib.error, urllib.request
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from build_data import Bin  # noqa: E402
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 BASE = "https://raw.communitydragon.org"
@@ -64,8 +67,10 @@ def extract(patch):
     kiwi = get(f"{BASE}/{patch}/game/maps/modespecificdata/kiwi.bin.json")
     if not kiwi:
         return None
+    kiwi = Bin(kiwi)
     gd = f"{BASE}/{patch}/plugins/rcp-be-lol-game-data/global/default"
-    pool = set(next((x["augmentList"] for x in get(f"{gd}/v1/augment-lists.json") or [] if x["modeName"] == "KIWI"), []))
+    pool = {kiwi.key(p) for p in next((x["augmentList"] for x in get(f"{gd}/v1/augment-lists.json") or [] if x["modeName"] == "KIWI"), [])
+            if "/GuestOfHonorAugments/" not in p}
     names = {a["id"]: a for a in get(f"{gd}/v1/cherry-augments.json") or []}
     out = {}
     for apath, a in kiwi.items():

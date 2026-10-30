@@ -1,5 +1,5 @@
 {
- "patch": "16.21.8298620",
+ "patch": "16.21.8328265",
  "levels": [
   3,
   7,
@@ -10,19 +10,19 @@
  "rerollsPerSlot": 1,
  "odds": {
   "Silver": {
-   "pool": 60,
-   "offer": 0.05,
-   "withRerolls": 0.1
+   "pool": 70,
+   "offer": 0.0429,
+   "withRerolls": 0.0857
   },
   "Gold": {
-   "pool": 75,
-   "offer": 0.04,
-   "withRerolls": 0.08
+   "pool": 94,
+   "offer": 0.0319,
+   "withRerolls": 0.0638
   },
   "Prismatic": {
-   "pool": 65,
-   "offer": 0.0462,
-   "withRerolls": 0.0923
+   "pool": 71,
+   "offer": 0.0423,
+   "withRerolls": 0.0845
   }
  },
  "tiers": {
@@ -225,6 +225,41 @@
   "2144": "Silver",
   "2148": "Silver",
   "2157": "Silver",
+  "3004": "Gold",
+  "3016": "Prismatic",
+  "3018": "Prismatic",
+  "3025": "Silver",
+  "3036": "Gold",
+  "3039": "Gold",
+  "3048": "Prismatic",
+  "3049": "Gold",
+  "3051": "Silver",
+  "3052": "Silver",
+  "3053": "Prismatic",
+  "3055": "Silver",
+  "3058": "Gold",
+  "3059": "Silver",
+  "3063": "Silver",
+  "3071": "Gold",
+  "3075": "Gold",
+  "3078": "Gold",
+  "3079": "Prismatic",
+  "3081": "Gold",
+  "3085": "Silver",
+  "3086": "Gold",
+  "3088": "Gold",
+  "3094": "Silver",
+  "3116": "Gold",
+  "3118": "Gold",
+  "3121": "Silver",
+  "3123": "Gold",
+  "3129": "Gold",
+  "3131": "Gold",
+  "3132": "Gold",
+  "3134": "Silver",
+  "3149": "Prismatic",
+  "3150": "Gold",
+  "3163": "Gold",
   "12317": "Prismatic"
  },
  "grantedItems": [

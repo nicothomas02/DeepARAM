@@ -431,3 +431,25 @@ def test_turrets(guide):
     for x in t:
         assert x["hp"] > 0 and x["damage"] > 0 and x["armor"] > 0 and x["range"] > 0 and 0 < x["attackSpeed"] < 2
         assert x["baseHp"] is None or x["baseHp"] != x["hp"]
+
+
+def test_bin_names_by_path_or_hash(build_data):
+    """Bin files can name an entry by path while references to it are still hashes (and the other way round)."""
+    B = build_data
+    assert B.bin_hash("Maps/ModeSpecificData/ModesQuests/BouncingBeesQuest") == "{f5593c37}"
+    b = B.Bin({"Maps/ModeSpecificData/ModesQuests/BouncingBeesQuest": {"a": 1}, "{0000abcd}": {"b": 2}})
+    assert b.get("{f5593c37}") == {"a": 1} and b.key("{f5593c37}") == "Maps/ModeSpecificData/ModesQuests/BouncingBeesQuest"
+    assert b.get("{0000abcd}") == {"b": 2} and b.get("{12345678}") is None and b.key("{12345678}") == "{12345678}"
+    hashed = B.Bin({B.bin_hash("Maps/X"): 3})
+    assert hashed.get("Maps/X") == 3
+
+
+def test_fill_negative_factor(build_data):
+    assert build_data.fill("down by @MSDecrease*-100@%", {"msdecrease": -0.05}, None, None) == "down by 5%"
+
+
+def test_pool_matches_augment_list(guide):
+    """Every augment in a selection pool has a tier, and the quests' augments are found (none lost to name format)."""
+    rules = load_json("guide/augment_rules.json")
+    assert sum(o["pool"] for o in rules["odds"].values()) == len(rules["tiers"])
+    assert all(q["augmentId"] for q in guide["quests"] if q["inPool"])

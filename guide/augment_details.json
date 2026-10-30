@@ -1,5 +1,5 @@
 {
- "patch": "16.21.8298620",
+ "patch": "16.21.8328265",
  "augments": {
   "1205": {
    "name": "ADAPt",
@@ -23,6 +23,17 @@
    "values": {
     "Buff_Duration": 6.0,
     "Cooldown": 4.0
+   },
+   "unlockLevel": null
+  },
+  "3051": {
+   "name": "Blue Barrier",
+   "tier": "Silver",
+   "text": "",
+   "tooltip": "",
+   "grants": [],
+   "values": {
+    "ShieldDuration": 1.5
    },
    "unlockLevel": null
   },
@@ -201,11 +212,42 @@
    },
    "unlockLevel": null
   },
+  "3085": {
+   "name": "Flow of Spirit",
+   "tier": "Silver",
+   "text": "Casting your chosen ability grants you Attack Speed for a duration.",
+   "tooltip": "",
+   "grants": [],
+   "values": {
+    "Buff_Duration": 4.0
+   },
+   "unlockLevel": null
+  },
   "2127": {
    "name": "Forged By The Master",
    "tier": "Silver",
    "text": "",
    "tooltip": "",
+   "grants": [],
+   "values": {},
+   "unlockLevel": null
+  },
+  "3121": {
+   "name": "Fruitify",
+   "tier": "Silver",
+   "text": "Takedowns create explosions of Fruit. Fruit restores Health and Mana.",
+   "tooltip": "",
+   "grants": [],
+   "values": {
+    "FruitDuration": 10.0
+   },
+   "unlockLevel": null
+  },
+  "3063": {
+   "name": "Gift of the Drowned",
+   "tier": "Silver",
+   "text": "Bonus Health is converted into Lethality.",
+   "tooltip": "Bonus Health is converted into Lethality.",
    "grants": [],
    "values": {},
    "unlockLevel": null
@@ -218,6 +260,18 @@
    "grants": [],
    "values": {
     "Omnivamp": 0.15
+   },
+   "unlockLevel": null
+  },
+  "3052": {
+   "name": "Hands off the Talent",
+   "tier": "Silver",
+   "text": "Attacks fired close to your max Attack Range deal bonus physical damage On-Hit.",
+   "tooltip": "",
+   "grants": [],
+   "values": {
+    "MaxDistanceProximity": 0.75,
+    "IncreasedDamage": 0.15
    },
    "unlockLevel": null
   },
@@ -323,6 +377,15 @@
    },
    "unlockLevel": null
   },
+  "3094": {
+   "name": "Lich Brain",
+   "tier": "Silver",
+   "text": "",
+   "tooltip": "",
+   "grants": [],
+   "values": {},
+   "unlockLevel": null
+  },
   "1051": {
    "name": "Light 'Em Up!",
    "tier": "Silver",
@@ -330,6 +393,20 @@
    "tooltip": "",
    "grants": [],
    "values": {},
+   "unlockLevel": null
+  },
+  "3134": {
+   "name": "Lonely Warrior",
+   "tier": "Silver",
+   "text": "Gain Attack Speed, Armor, and Magic Resist for each nearby enemy champion.",
+   "tooltip": "",
+   "grants": [],
+   "values": {
+    "ASPerEnemy": 0.15,
+    "ArmorPerEnemy": 10.0,
+    "MRPerEnemy": 10.0,
+    "ProximityRange": 600.0
+   },
    "unlockLevel": null
   },
   "1314": {
@@ -362,6 +439,17 @@
    "tooltip": "You gain the Mountain Soul, gaining Shield after being out of combat for a short time.",
    "grants": [],
    "values": {},
+   "unlockLevel": null
+  },
+  "3059": {
+   "name": "No Mana, No Problem",
+   "tier": "Silver",
+   "text": "Mana from your items is converted into Ability Power. Increase your total Ability Power by 15%.",
+   "tooltip": "Mana from your items is converted into Ability Power.\n\nIncrease your total Ability Power by 15%.",
+   "grants": [],
+   "values": {
+    "APAmp": 0.15
+   },
    "unlockLevel": null
   },
   "1060": {
@@ -470,6 +558,18 @@
     "Radius": 450.0,
     "ProcCooldown": 2.0,
     "SlowAmount": -0.3
+   },
+   "unlockLevel": null
+  },
+  "3025": {
+   "name": "Sound Barrier",
+   "tier": "Silver",
+   "text": "Shielding an ally grants Move Speed and Ghost decaying over 1.5 seconds.",
+   "tooltip": "Cooldown per target: 1.5 seconds.",
+   "grants": [],
+   "values": {
+    "BurstDecayDuration": 1.5,
+    "PerTargetCooldown": 1.5
    },
    "unlockLevel": null
   },
@@ -641,6 +741,15 @@
    },
    "unlockLevel": null
   },
+  "3055": {
+   "name": "Ultimate Recursion",
+   "tier": "Silver",
+   "text": "",
+   "tooltip": "",
+   "grants": [],
+   "values": {},
+   "unlockLevel": null
+  },
   "1112": {
    "name": "Ultimate Unstoppable",
    "tier": "Silver",
@@ -778,6 +887,44 @@
    },
    "unlockLevel": null
   },
+  "3118": {
+   "name": "Arcane Axiom",
+   "tier": "Gold",
+   "text": "When a champion that you damaged within 3 seconds dies, refund a portion of your Ultimate Ability's total cooldown.",
+   "tooltip": "",
+   "grants": [],
+   "values": {
+    "ResetWindow": 3.0
+   },
+   "unlockLevel": null
+  },
+  "3049": {
+   "name": "Armored Impact",
+   "tier": "Gold",
+   "text": "",
+   "tooltip": "",
+   "grants": [],
+   "values": {
+    "ArmorPercent": 2.5,
+    "AOEStartSize": 160.0,
+    "AOEScalePercentPerArmor": 0.005,
+    "Cooldown": 10.0
+   },
+   "unlockLevel": null
+  },
+  "3086": {
+   "name": "BEES!!!",
+   "tier": "Gold",
+   "text": "Periodically, your next Ability hit against an enemy champion launches a hive of Bees that explodes, Slowing and dealing magic damage over a short duration. Bees apply On-Hit effects.",
+   "tooltip": "According to all known laws of aviation, there is no way a bee should be able to fly...",
+   "grants": [],
+   "values": {
+    "Damage_Duration": 2.0,
+    "AoE_Radius": 425.0,
+    "TicksPerSecond": 2.0
+   },
+   "unlockLevel": null
+  },
   "2111": {
    "name": "BONK!",
    "tier": "Gold",
@@ -800,6 +947,27 @@
     "ShieldBase": 3.0,
     "APRatio": 3.0,
     "AP": 1.0
+   },
+   "unlockLevel": null
+  },
+  "3071": {
+   "name": "Brass Blast",
+   "tier": "Gold",
+   "text": "Replace a Summoner Spell with Brass Blast. Brass Blast: Charge up a large trumpet, Knocking Back and dealing magic damage to enemies.",
+   "tooltip": "Replace a Summoner Spell with Brass Blast.\n\nBegin Charging: Charge up a large trumpet for up to 1.5 seconds.\n\nMinimum Charge Time: 0.25 seconds",
+   "grants": [
+    "Brass Blast"
+   ],
+   "values": {
+    "ConeStartRange": 700.0,
+    "MaxChargeTime": 2.5,
+    "ChargeTimeTT": 1.5,
+    "KnockbackDuration": 0.75,
+    "KnockBackDistanceMax": 500.0,
+    "SelfSlowPercent": 0.1,
+    "KnockbackSpeed": 1300.0,
+    "KnockbackHeight": 250.0,
+    "MinChargeTimeTT": 0.25
    },
    "unlockLevel": null
   },
@@ -834,6 +1002,17 @@
    "grants": [],
    "values": {
     "EAbilityHaste": 100.0
+   },
+   "unlockLevel": null
+  },
+  "3088": {
+   "name": "CRIMSON COBALT",
+   "tier": "Gold",
+   "text": "Enemy champions damaged by your chosen ability are marked. Attacking a marked enemy deals bonus magic damage and reduces the cooldown of your chosen ability.",
+   "tooltip": "Enemy champions damaged by your chosen ability are marked for 4 seconds.",
+   "grants": [],
+   "values": {
+    "Debuff_Duration": 4.0
    },
    "unlockLevel": null
   },
@@ -940,6 +1119,29 @@
     "GoldAmount": 1750.0,
     "IncFrequency": 10.0,
     "MaxLevel": 1.0
+   },
+   "unlockLevel": null
+  },
+  "3036": {
+   "name": "Double Time",
+   "tier": "Gold",
+   "text": "Damaging an enemy champion with 2 separate Abilities in quick succession deals magic damage and grants max Mana.",
+   "tooltip": "4 second Cooldown Per Target",
+   "grants": [],
+   "values": {
+    "DamageWindowSeconds": 4.0,
+    "ManaGainCD": 4.0
+   },
+   "unlockLevel": null
+  },
+  "3163": {
+   "name": "Enchanting Butterflies",
+   "tier": "Gold",
+   "text": "Healing or Shielding allied champions gathers Butterflies.",
+   "tooltip": "Healing or Shielding allied champions gathers Butterflies around you.",
+   "grants": [],
+   "values": {
+    "OrbitRadius": 150.0
    },
    "unlockLevel": null
   },
@@ -1065,6 +1267,38 @@
    },
    "unlockLevel": null
   },
+  "3004": {
+   "name": "Get Jinxed",
+   "tier": "Gold",
+   "text": "Replace a Summoner Spell with Get Jinxed! Get Jinxed!: Ride a rocket that explodes after hitting an enemy champion, structure, or wall. Enemies within the blast radius take physical damage.",
+   "tooltip": "Replace a Summoner Spell with Get Jinxed!\n\nGet Jinxed!: Ride a rocket that explodes upon hitting an enemy champion, structure, or terrain.\n\nThe impact radius of the rocket grows as it travels.\nYou are Invulnerable and Untargetable while riding the rocket.\n\n\"Aww, c'mon. What's the worst that could happen?\" — Jinx, the Loose Cannon",
+   "grants": [
+    "Get Jinxed!"
+   ],
+   "values": {
+    "AoERadius": 400.0,
+    "TerrainRadius": 50.0,
+    "CollisionRadius": 100.0,
+    "MaxLevel": 1.0,
+    "RideDuration": 15.0,
+    "InitialSpeed": 250.0,
+    "BoosterSpeed1": 750.0,
+    "BoosterSpeed2": 50.0,
+    "BoosterSpeed3": 1400.0,
+    "TurnRateMultiplier1": 5.0,
+    "TurnRateMultiplier2": 3.0,
+    "TurnRateMultiplier3": 1.75,
+    "CastTime": 0.4,
+    "TurnRateMultTime1": 0.8,
+    "TurnRateMultTime2": 2.0,
+    "TurnRateMultTime3": 2.3,
+    "BoosterDelay1": 0.8,
+    "BoosterDelay2": 1.75,
+    "BoosterDelay3": 2.25,
+    "DistanceForMaxDamage": 2000.0
+   },
+   "unlockLevel": null
+  },
   "1401": {
    "name": "Growth Spurt",
    "tier": "Gold",
@@ -1088,6 +1322,29 @@
     "KnockbackDistance": 275.0,
     "ScaleIncrease": 0.5,
     "MaxLevel": 1.0
+   },
+   "unlockLevel": null
+  },
+  "3132": {
+   "name": "Heavy Is The Crown",
+   "tier": "Gold",
+   "text": "Gain Attack Damage, Ability Power, and Attack Speed but decreased Move Speed. Getting a takedown grants you a stack of Burden that increases this effect. Lose half your stacks on death",
+   "tooltip": "Gain 10 Attack Damage, 25 Ability Power, and increase your Bonus Attack Damage, Bonus Ability Power, and Total Attack Speed by 10%. Decrease your total Move Speed by 5% in combat.\n\nGetting a takedown grants you a stack of Burden, increasing your Bonus Attack Damage, Bonus Ability Power, and Total Attack Speed by 5%, while further decreasing your Move Speed by 2.5% per stack to a minimum of 50%.\n\nLose 50% of your stacks on death.\n\nThis is what you asked for...",
+   "grants": [],
+   "values": {
+    "StatIncreasePercentPerTakedown": 0.05,
+    "MSDecreasePerTakedown": -0.025,
+    "CrownSizeGrowthPerTakedown": 0.05,
+    "MaxMSDecrease": -0.5,
+    "AHPerTakedown": 8.0,
+    "InitialStatIncrease": 0.1,
+    "InitialMSDecrease": -0.05,
+    "InitialAHIncrease": 10.0,
+    "InitialFlatAD": 10.0,
+    "InitialFlatAP": 25.0,
+    "PercentStackLostOnDeath": 0.5,
+    "CombatSecondsUntilSlow": 1.5,
+    "CombatDuration": 7.0
    },
    "unlockLevel": null
   },
@@ -1152,6 +1409,15 @@
     "DamageStorePercentage": 0.4,
     "VFXHighDamageThreshold": 500.0
    },
+   "unlockLevel": null
+  },
+  "3123": {
+   "name": "Jeweled Bracelet",
+   "tier": "Gold",
+   "text": "your chosen ability can Critically Strike.",
+   "tooltip": "",
+   "grants": [],
+   "values": {},
    "unlockLevel": null
   },
   "2096": {
@@ -1424,6 +1690,21 @@
    },
    "unlockLevel": null
   },
+  "3075": {
+   "name": "Recoil",
+   "tier": "Gold",
+   "text": "Your your chosen ability deals increased damage and knocks you backward.",
+   "tooltip": "",
+   "grants": [],
+   "values": {
+    "RecoilDistance": 450.0,
+    "RecoilSpeed": 1500.0,
+    "ArmedTimeout": 4.0,
+    "ShakeDuration": 0.25,
+    "ShakeMagnitude": 45.0
+   },
+   "unlockLevel": null
+  },
   "1068": {
    "name": "Recursion",
    "tier": "Gold",
@@ -1460,6 +1741,36 @@
     "Buff_Duration": 6.0,
     "Radius": 300.0
    },
+   "unlockLevel": null
+  },
+  "3039": {
+   "name": "Salvation",
+   "tier": "Gold",
+   "text": "",
+   "tooltip": "",
+   "grants": [],
+   "values": {
+    "Increment": 2.0,
+    "BaseDamage": 100.0,
+    "KnockbackDistanceMin": 100.0,
+    "KnockbackDistanceMax": 450.0,
+    "KnockbackRange": 600.0,
+    "HealAPRatio": 1.2,
+    "HealHealthRatio": 0.1,
+    "HealRange": 1200.0,
+    "MaxRangeHealPercent": 0.5,
+    "HealthPercentTrigger": 0.5,
+    "AuraCooldown": 90.0
+   },
+   "unlockLevel": null
+  },
+  "3129": {
+   "name": "Sap Magic",
+   "tier": "Gold",
+   "text": "Casting an Ability reduces this effect's cooldown.",
+   "tooltip": "",
+   "grants": [],
+   "values": {},
    "unlockLevel": null
   },
   "1071": {
@@ -1633,6 +1944,35 @@
    },
    "unlockLevel": null
   },
+  "3131": {
+   "name": "Still Here",
+   "tier": "Gold",
+   "text": "Gain Attack Speed and Lifesteal based on your missing Health.",
+   "tooltip": "Gain 2% Attack Speed and 0.35% Lifesteal for each 1% of missing Health.",
+   "grants": [],
+   "values": {
+    "ASPerMissingPercentHP": 0.02,
+    "AHMissingPercentHP": 2.0,
+    "OmnivampPerMissingPercentHP": 0.0035
+   },
+   "unlockLevel": null
+  },
+  "3116": {
+   "name": "Take'em Down Down Down",
+   "tier": "Gold",
+   "text": "Attacks and Abilities deal bonus magic damage and apply stacks to enemy champions. At max stacks, consume them to deal missing Health magic damage and you restore Health based on the damage dealt.",
+   "tooltip": "",
+   "grants": [],
+   "values": {
+    "Stacks_Max_Minus_One": 4.0,
+    "Stacks_Max": 5.0,
+    "Stack_Duration": 5.0,
+    "Attack_Stacks": 1.0,
+    "Ability_Stacks": 1.0,
+    "Attack_Empower_Duration": 4.0
+   },
+   "unlockLevel": null
+  },
   "1353": {
    "name": "Tank Engine",
    "tier": "Gold",
@@ -1674,6 +2014,19 @@
    },
    "unlockLevel": null
   },
+  "3078": {
+   "name": "The Boom and the Bass",
+   "tier": "Gold",
+   "text": "After casting an Ability, your next Attack is faster, deals bonus magic damage, and grants you decaying Move Speed.",
+   "tooltip": "",
+   "grants": [],
+   "values": {
+    "Charge_Duration": 6.0,
+    "Move_Speed_Duration": 2.0,
+    "Max_Counters": 2.0
+   },
+   "unlockLevel": null
+  },
   "1084": {
    "name": "Thread the Needle",
    "tier": "Gold",
@@ -1682,6 +2035,18 @@
    "grants": [],
    "values": {
     "PercentPen": 0.18
+   },
+   "unlockLevel": null
+  },
+  "3058": {
+   "name": "Tickle Monster",
+   "tier": "Gold",
+   "text": "Attack Damage is converted into Attack Speed. Attacks deal bonus magic damage On-Hit.",
+   "tooltip": "Attack Damage is converted into Attack Speed.",
+   "grants": [],
+   "values": {
+    "ADMultiplier": 1.75,
+    "CalcASVal": 0.0175
    },
    "unlockLevel": null
   },
@@ -1742,6 +2107,20 @@
    },
    "unlockLevel": null
   },
+  "3150": {
+   "name": "Upgrade Stormsurge",
+   "tier": "Gold",
+   "text": "Stormsurge's Squall now always detonates in an area, dealing max Health magic damage. Enemy champions caught in the initial blast are marked by Squall.",
+   "tooltip": "Enemy champions caught in the initial blast are marked by Squall.",
+   "grants": [],
+   "values": {
+    "BlastRadius": 350.0,
+    "PercentHealthBase": 0.1,
+    "PercentHealthPerAP": 0.0002,
+    "SpreadSquallOnBlast": 1.0
+   },
+   "unlockLevel": null
+  },
   "2143": {
    "name": "Upgrade Sundered Sky",
    "tier": "Gold",
@@ -1772,6 +2151,36 @@
    "grants": [],
    "values": {
     "MaxLevel": 1.0
+   },
+   "unlockLevel": null
+  },
+  "3081": {
+   "name": "Weapon of Destiny",
+   "tier": "Gold",
+   "text": "Your first Legendary Item becomes the Weapon of Destiny, gaining increased stats for every earned champion takedown.",
+   "tooltip": "Your first Legendary Item becomes the Weapon of Destiny. When a champion you damaged within the last 3 seconds dies, increase the Weapon of Destiny's stats.\n\nThe Weapon of Destiny cannot be sold.",
+   "grants": [],
+   "values": {
+    "GoldValue": 200.0,
+    "BaselineGoldAmp": 1000.0,
+    "UpgradeAD": 30.0,
+    "UpgradeAP": 50.0,
+    "UpgradeCritChance": 0.25,
+    "UpgradeCritDamage": 0.06,
+    "UpgradeAS": 0.4,
+    "UpgradeAH": 20.0,
+    "UpgradeHSPower": 0.2,
+    "UpgradeAR": 50.0,
+    "UpgradeMR": 50.0,
+    "UpgradeArmorPenFlat": 35.0,
+    "UpgradeMagicPenFlat": 25.0,
+    "UpgradeArmorPenPercent": 0.25,
+    "UpgradeMagicPenPercent": 0.15,
+    "UpgradeLifesteal": 0.25,
+    "UpgradeOmnivamp": 0.25,
+    "UpgradeMSPercent": 0.15,
+    "UpgradeMana": 1000.0,
+    "UpgradeHealth": 375.0
    },
    "unlockLevel": null
   },
@@ -1825,6 +2234,20 @@
    },
    "unlockLevel": null
   },
+  "3018": {
+   "name": "Big Shot",
+   "tier": "Prismatic",
+   "text": "",
+   "tooltip": "",
+   "grants": [],
+   "values": {
+    "KillTrackDuration": 3.0,
+    "VFX_Breakpoint_High": 85.0,
+    "VFX_Breakpoint_Medium": 55.0,
+    "ConversionCritNum": 0.0067
+   },
+   "unlockLevel": null
+  },
   "1329": {
    "name": "Biggest Snowball Ever",
    "tier": "Prismatic",
@@ -1852,6 +2275,21 @@
    "grants": [],
    "values": {
     "TotalHits": 8.0
+   },
+   "unlockLevel": null
+  },
+  "3048": {
+   "name": "Bouncing Bees",
+   "tier": "Prismatic",
+   "text": "After casting an ability, your next Attack bounces to the nearest enemy QUEST: Bounce Attacks onto enemy Champions REWARD: Gain +30 Attack Damage and an extra bounce per Quest Level",
+   "tooltip": "After using an ability, your next attack bounces to the nearest enemy.\n\nQUEST: Bounce attacks onto enemy Champions\n\nREWARD: Gain +30AD and an extra bounce per Quest Level",
+   "grants": [],
+   "values": {
+    "BounceDistance": 700.0,
+    "BounceAngle": 140.0,
+    "ADPerMilestone": 30.0,
+    "BounceProcDuration": 10.0,
+    "BounceAngleIncreasePerBounce": 5.0
    },
    "unlockLevel": null
   },
@@ -2172,6 +2610,18 @@
    },
    "unlockLevel": null
   },
+  "3149": {
+   "name": "Group Hug",
+   "tier": "Prismatic",
+   "text": "Healing or Shielding an allied champion with your chosen ability casts that spell again on 2 other nearby allied champions.",
+   "tooltip": "Healing or Shielding an allied champion with your chosen ability casts that spell again on 2 other nearby allied champions.\n\nThe power of friendship!",
+   "grants": [],
+   "values": {
+    "TargetToPick": 2.0,
+    "MinRange": 500.0
+   },
+   "unlockLevel": null
+  },
   "1389": {
    "name": "Hand of Baron",
    "tier": "Prismatic",
@@ -2307,6 +2757,19 @@
    "grants": [],
    "values": {
     "StackDuration": 5.0
+   },
+   "unlockLevel": null
+  },
+  "3053": {
+   "name": "Mosh Monster",
+   "tier": "Prismatic",
+   "text": "",
+   "tooltip": "Takedowns earned while using your chosen ability are worth triple.",
+   "grants": [],
+   "values": {
+    "InitialAOESize": 350.0,
+    "HPIncreasePerTakedownPercent": 0.03,
+    "CountersPerUltKill": 3.0
    },
    "unlockLevel": null
   },
@@ -2580,6 +3043,17 @@
    },
    "unlockLevel": null
   },
+  "3016": {
+   "name": "Third Times the Harm",
+   "tier": "Prismatic",
+   "text": "Every third consecutive Attack against an enemy champion deals true damage and permanently increases the damage dealt by this effect.",
+   "tooltip": "",
+   "grants": [],
+   "values": {
+    "Mark_Duration": 4.0
+   },
+   "unlockLevel": null
+  },
   "1001": {
    "name": "Titan's Resolve",
    "tier": "Prismatic",
@@ -2591,6 +3065,23 @@
     "Stack_Duration": 6.0,
     "StacksPerHit": 1.0,
     "MaxLevel": 2.0
+   },
+   "unlockLevel": null
+  },
+  "3079": {
+   "name": "Totentanz",
+   "tier": "Prismatic",
+   "text": "Replace a Summoner Spell with A Dance with Death. A Dance with Death: Blink forward and become Unkillable. Get a takedown within 5 seconds or else YOU DIE.",
+   "tooltip": "Replace a Summoner Spell with A Dance with Death.\n\nA Dance with Death: Become Unkillable for 5 seconds and blink forward.\n\nIf not, YOU DIE.\n\n\"You all die, why not choose how?\" — Karthus, the Deathsinger",
+   "grants": [
+    "A Dance with Death"
+   ],
+   "values": {
+    "Buff_Duration": 5.0,
+    "Takedown_Window": 3.0,
+    "CastTime": 1.0,
+    "MinHealth": 25.0,
+    "Kill_Empower_Duration": 10.0
    },
    "unlockLevel": null
   },
