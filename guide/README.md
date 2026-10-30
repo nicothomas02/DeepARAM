@@ -45,6 +45,12 @@ and Items tabs.
 It also lists `selectionAugments` (live augments that add an augment or rerolls, such as King Me) and the
 `goldenReroll` reward text.
 
+The pool is the KIWI list in `v1/augment-lists.json`, minus Guest of Honor augments (`/GuestOfHonorAugments/`, a
+band's own augments such as Pentakill's, given by that band's rule rather than offered). Bin entries can be named by
+path or by hash, and the two can be mixed in one file (16.21.8328265 named the new 26.21 augments by path while the
+quests' references stayed hashed), so `build_data.py` and `build_history.py` read bins through `Bin`, which resolves
+either form (`bin_hash`: FNV-1a of the lower-case path). Before that, the 35 augments added in 26.21 were missed.
+
 ## Mayhem progression track
 
 `build_track()` reads the newest `kMayhem` season pass from `v1/event-hub.json` (name, dates, level count from its

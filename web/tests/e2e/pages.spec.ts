@@ -326,10 +326,10 @@ test("patch history groups by set, recaps list added and removed augments only w
   await expect(page.locator(".recap-set-head", { hasText: "Launch" })).toHaveCount(1);
   await page.locator("a.recap-row").first().click();
   await expect(page.locator(".champ-hero .eyebrow")).toContainText(live.name);
-  // Patch 16.21 (26.21) removed augments and added none; 16.12 did both.
+  // Patches 26.21 (35 new augments, 13 removed, per its patch notes) and 26.12 did both; 26.20 did neither.
   await page.goto("/patches/26.21");
   await expect(page.locator("main h2", { hasText: "Augments removed" })).toHaveCount(1);
-  await expect(page.locator("main h2", { hasText: "Augments added" })).toHaveCount(0);
+  await expect(page.locator("main h2", { hasText: "Augments added" })).toHaveCount(1);
   await page.goto("/patches/26.12");
   await expect(page.locator("main h2", { hasText: "Augments added" })).toHaveCount(1);
   await expect(page.locator("main h2", { hasText: "Augments removed" })).toHaveCount(1);

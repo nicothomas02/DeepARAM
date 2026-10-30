@@ -1,5 +1,5 @@
 window.GUIDE_DATA = {
- "patch": "16.21.8298620",
+ "patch": "16.21.8328265",
  "hero": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/assets/leagueclient/gamemodeassets/kiwi/kiwi-tutorial-set2.png",
  "queues": [
   {
@@ -40,9 +40,9 @@ window.GUIDE_DATA = {
   }
  ],
  "augmentCounts": {
-  "Silver": 60,
-  "Gold": 75,
-  "Prismatic": 65
+  "Silver": 70,
+  "Gold": 94,
+  "Prismatic": 71
  },
  "maps": [
   {
@@ -208,6 +208,32 @@ window.GUIDE_DATA = {
    "notes": []
   },
   {
+   "key": "BouncingBeesQuest",
+   "name": "Bouncing Bees",
+   "augmentId": 3048,
+   "tier": "Prismatic",
+   "inPool": true,
+   "icon": "/assets/cd/latest/game/assets/ux/kiwi/augments/icons/kingme_large.png",
+   "milestones": [
+    {
+     "need": 10,
+     "quest": "Bounce Attacks onto enemy Champions 10 times",
+     "reward": "Gain 30 Attack Damage and an extra bounce per Quest Level"
+    },
+    {
+     "need": 40,
+     "quest": "Bounce Attacks onto enemy Champions 40 times",
+     "reward": "Gain +30 Attack Damage and an extra bounce per Quest Level"
+    },
+    {
+     "need": 163,
+     "quest": "Bounce Attacks onto enemy Champions 163 times",
+     "reward": "Gain +30 Attack Damage and an extra bounce per Quest Level"
+    }
+   ],
+   "notes": []
+  },
+  {
    "key": "VoidImmolationQuest",
    "name": "Icathia's Fall",
    "augmentId": 1361,
@@ -308,32 +334,6 @@ window.GUIDE_DATA = {
      "need": 2,
      "quest": "Possess Rabadon's Deathcap and Zhonya's Hourglass.",
      "reward": "Get Wooglet's Witchcap."
-    }
-   ],
-   "notes": []
-  },
-  {
-   "key": "BouncingBeesQuest",
-   "name": "Bouncing Bees",
-   "augmentId": 3048,
-   "tier": "Prismatic",
-   "inPool": false,
-   "icon": "/assets/cd/latest/game/assets/ux/kiwi/augments/icons/kingme_large.png",
-   "milestones": [
-    {
-     "need": 10,
-     "quest": "Bounce Attacks onto enemy Champions 10 times",
-     "reward": "Gain %i:scaleAD% 30 Attack Damage and an extra bounce per Quest Level"
-    },
-    {
-     "need": 40,
-     "quest": "Bounce Attacks onto enemy Champions 40 times",
-     "reward": "Gain +%i:scaleAD% 30 Attack Damage and an extra bounce per Quest Level"
-    },
-    {
-     "need": 163,
-     "quest": "Bounce Attacks onto enemy Champions 163 times",
-     "reward": "Gain +%i:scaleAD% 30 Attack Damage and an extra bounce per Quest Level"
     }
    ],
    "notes": []
@@ -2150,7 +2150,7 @@ window.GUIDE_DATA = {
   }
  ],
  "augmentRules": {
-  "patch": "16.21.8298620",
+  "patch": "16.21.8328265",
   "levels": [
    3,
    7,
@@ -2161,19 +2161,19 @@ window.GUIDE_DATA = {
   "rerollsPerSlot": 1,
   "odds": {
    "Silver": {
-    "pool": 60,
-    "offer": 0.05,
-    "withRerolls": 0.1
+    "pool": 70,
+    "offer": 0.0429,
+    "withRerolls": 0.0857
    },
    "Gold": {
-    "pool": 75,
-    "offer": 0.04,
-    "withRerolls": 0.08
+    "pool": 94,
+    "offer": 0.0319,
+    "withRerolls": 0.0638
    },
    "Prismatic": {
-    "pool": 65,
-    "offer": 0.0462,
-    "withRerolls": 0.0923
+    "pool": 71,
+    "offer": 0.0423,
+    "withRerolls": 0.0845
    }
   },
   "grantedItems": [

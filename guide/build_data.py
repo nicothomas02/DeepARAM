@@ -64,6 +64,36 @@ MAYHEM_ITEMS = [550001, 550002, 550003, 550004, 550006, 550005, 550007, 226668, 
 _FETCHED = {}  # files every language's build shares (the string tables are too big to keep)
 
 
+def bin_hash(path):
+    """A bin entry's hashed name: FNV-1a of the lower-case path, as "{xxxxxxxx}"."""
+    h = 0x811C9DC5
+    for c in path.lower().encode():
+        h = ((h ^ c) * 0x01000193) & 0xFFFFFFFF
+    return "{%08x}" % h
+
+
+class Bin(dict):
+    """A bin file's entries. The same entry can be named by its path or by its hash, depending on which names the
+    file's converter knows: a key may be a path while references to it are still hashes, or the other way round.
+    get() and key() accept either form."""
+
+    def __init__(self, entries):
+        super().__init__(entries or {})
+        self.paths = {bin_hash(k): k for k in self if not k.startswith("{")}
+
+    def key(self, ref):
+        """The name this file uses for the entry ref points at (ref itself when it isn't here)."""
+        if not isinstance(ref, str) or ref in self:
+            return ref
+        if ref.startswith("{"):
+            return self.paths.get(ref, ref)
+        h = bin_hash(ref)
+        return h if h in self else ref
+
+    def get(self, ref, default=None):
+        return super().get(self.key(ref), default)
+
+
 def get(url, tries=6):
     if url in _FETCHED:
         return _FETCHED[url]
@@ -116,7 +146,7 @@ def build(ch, lo="en_us"):
         return f"{BASE}/{ch}/game/" + re.sub(r"\.(tex|dds)$", ".png", p)
 
     version = get(f"{BASE}/{ch}/content-metadata.json")["version"].split("+")[0]
-    kiwi = get(f"{BASE}/{ch}/game/maps/modespecificdata/kiwi.bin.json")
+    kiwi = Bin(get(f"{BASE}/{ch}/game/maps/modespecificdata/kiwi.bin.json"))
     entries = get(f"{BASE}/{ch}/game/{lo}/data/menu/en_us/lol.stringtable.json")["entries"]
 
     def s(key, default=""):
@@ -125,7 +155,8 @@ def build(ch, lo="en_us"):
         return entries.get(key.lower()) or entries.get(key_hash(key)) or default
 
     pool = {x["modeName"]: x["augmentList"] for x in get(f"{gd}/v1/augment-lists.json")}
-    in_pool = set(pool.get("KIWI", []))
+    # Guest of Honor augments (a band's own augments, given by that band's rule) aren't offered in selections
+    in_pool = {kiwi.key(p) for p in pool.get("KIWI", []) if "/GuestOfHonorAugments/" not in p}
 
     # ---- Quests: each ModesQuestData belongs to one augment that points at it
     augments = {k: v for k, v in kiwi.items() if isinstance(v, dict) and v.get("__type") == "AugmentData"}
@@ -133,7 +164,8 @@ def build(ch, lo="en_us"):
     for qpath, q in kiwi.items():
         if not (isinstance(q, dict) and q.get("__type") == "ModesQuestData"):
             continue
-        apath, a = next(((k, v) for k, v in augments.items() if qpath in json.dumps(v)), (None, None))
+        refs = (qpath, bin_hash(qpath)) if not qpath.startswith("{") else (qpath, kiwi.key(qpath))
+        apath, a = next(((k, v) for k, v in augments.items() if any(r in json.dumps(v) for r in refs)), (None, None))
         values = {}
         if a:
             sp = kiwi.get(a.get("RootSpell"), {}).get("mSpell", {})
@@ -206,7 +238,7 @@ def build(ch, lo="en_us"):
                for n, folder, icon, t in SUMMONS]
 
     # ---- Mode rules from map12.bin
-    m12 = get(f"{BASE}/{ch}/game/data/maps/shipping/map12/map12.bin.json")
+    m12 = Bin(get(f"{BASE}/{ch}/game/data/maps/shipping/map12/map12.bin.json"))
     consts = {v["mName"]: {k: c.get("mValue") for k, c in v.get("mConstants", {}).items()}
               for v in m12.values() if isinstance(v, dict) and v.get("mName", "").startswith("Kiwi_Balance")}
     spells = {p.split("/")[-1]: v for p, v in m12.items() if "/Spells/" in p and isinstance(v, dict)}
@@ -353,7 +385,7 @@ def build(ch, lo="en_us"):
                      "icon": asset("/lol-game-data/assets/ASSETS/Rewards/Kiwi/GoldenReroll.png")}
 
     # ---- Items with Mayhem (or ARAM) values that differ from Summoner's Rift
-    items_bin = get(f"{BASE}/{ch}/game/items.cdtb.bin.json")
+    items_bin = Bin(get(f"{BASE}/{ch}/game/items.cdtb.bin.json"))
     item_changes = []
     for path, b in items_bin.items():
         o = (b.get("DataValuesModeOverride") or {}) if isinstance(b, dict) else {}
@@ -821,7 +853,7 @@ def fill(text, values, need, tier):
         else:
             return "?"
         return f"{v:g}"
-    text = re.sub(r"@([A-Za-z0-9_.*]+)@", rep, text or "")
+    text = re.sub(r"@([A-Za-z0-9_.]+(?:\*-?[0-9.]+)?)@", rep, text or "")
     if SPELL_NAME == CHOSEN_ABILITY["en_us"]:
         text = re.sub(r"your \{\{ ?SpellName ?\}\}", SPELL_NAME, text)
     text = re.sub(r"\{\{ ?SpellName ?\}\}", SPELL_NAME, text)
@@ -831,7 +863,8 @@ def fill(text, values, need, tier):
 def quest_labels(text):
     """A milestone's highlighted labels, in any language, as the English QUEST: and REWARD: (first and second)."""
     n = iter(("QUEST:", "REWARD:"))
-    return re.sub(r"<font color='#F0C200'>[^<]*</font>", lambda m: next(n, m.group(0)), text or "")
+    text = re.sub(r"%i:[A-Za-z0-9_]+%\s*", "", text or "")  # inline stat icons
+    return re.sub(r"<font color='#F0C200'>[^<]*</font>", lambda m: next(n, m.group(0)), text)
 
 
 def split_quest(text):
