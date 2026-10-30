@@ -1,13 +1,13 @@
 {
  "builds": {
-  "pbe": "16.22.8334968",
-  "live": "16.21.8298620"
+  "pbe": "16.22.8340287",
+  "live": "16.21.8328265"
  },
- "dataAsOf": "2026-10-29",
+ "dataAsOf": "2026-10-30",
  "counts": {
-  "buff": 17,
-  "mixed": 4,
-  "nerf": 5,
+  "buff": 16,
+  "nerf": 6,
+  "mixed": 3,
   "new": 2,
   "removed": 9
  },
@@ -64,13 +64,9 @@
     {
      "text": "W cooldown 7s → 8s",
      "tag": "nerf"
-    },
-    {
-     "text": "Mayhem only, W: 80 shield at every rank → 80/140/200/260/320 shield",
-     "tag": "buff"
     }
    ],
-   "tag": "mixed"
+   "tag": "nerf"
   },
   {
    "kind": "champion",
@@ -219,21 +215,6 @@
     }
    ],
    "tag": "nerf"
-  },
-  {
-   "kind": "champion",
-   "name": "Varus",
-   "lines": [
-    {
-     "text": "Passive Attack Speed after a minion kill 11% → 14%, after a champion kill 33% → 42%",
-     "tag": "buff"
-    },
-    {
-     "text": "Q minimum damage 50/95/140/185/230 → 50/100/150/200/250",
-     "tag": "buff"
-    }
-   ],
-   "tag": "buff"
   },
   {
    "kind": "champion",
