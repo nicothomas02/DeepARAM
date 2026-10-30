@@ -1,37 +1,29 @@
 {
-  "id": "irelia-forgot-how-to-auto",
-  "title": "Forgot How To Auto",
-  "champion": "Irelia",
-  "champion_name": "Irelia",
-  "chef": "2026-10-28",
-  "why": "Irelia's Ionian Fervor gives her stacking Attack Speed every time a spell hits, and at full stacks it adds bonus damage on hit. Purist - Caster converts all of that Attack Speed into Ability Haste, so the stacks she earns by casting come back as more casts. Ethereal Weapon makes her abilities apply On-Hit effects, so every Bladesurge, Flawless Duet and Vanguard's Edge carries her Fervor bonus and Mystic Punch, which cuts 1.25 seconds off all her cooldowns per On-Hit; Double Strike on Bladesurge applies those On-Hits a second time. Nashor's Tooth and Wit's End are bought for Attack Speed that Purist turns into Haste and for On-Hit magic damage that her spells now deliver, while Rabadon's Deathcap and Riftmaker bring the Ability Power. The auto-attack duelist never right-clicks again and becomes an AP caster whose spells are the on-hits.",
-  "play": "Mark targets with Flawless Duet or Vanguard's Edge, then chain Bladesurge through them and the minions. Every hit refunds cooldowns, so just keep dashing and forget your attack button exists.",
+  "id": "kled-nail-gun-salesman",
+  "title": "The Nail Gun Salesman",
+  "champion": "Kled",
+  "champion_name": "Kled",
+  "chef": "2026-10-29",
+  "why": "Kled's Violent Tendencies is a side effect most players barely think about: his next attack grants a big burst of Attack Speed for four attacks, then it sits on cooldown. With these augments rolled on Violent Tendencies, Reload makes every on-hit attack during it cut its cooldown, and Mystic Punch cuts all of his ability cooldowns on every on-hit, so the four fast attacks plus every attack in between bring it back far sooner. While it is up, Lil' Extra Help hands Kled bonus Attack Range and even more Attack Speed, and Pin Cushion turns each of those attacks into Nails that pile up damage and then execute. Guinsoo's Rageblade feeds the same loop, because when fully stacked every third attack applies on-hit effects twice, doubling the Reload and Mystic Punch cooldown cuts, while Blade of The Ruined King, Wit's End, Kraken Slayer and Terminus make every nailed attack hurt. The bear-trap brawler turns into a long-range nail gun that lives in Violent Tendencies.",
+  "play": "Start Violent Tendencies on whoever is closest, stay at max range so the Nails keep stacking, and let Reload and Mystic Punch hand it right back. Save Jousting to get back onto a target whose Nails are about to pop.",
   "items": [
-    "Nashor's Tooth",
+    "Guinsoo's Rageblade",
+    "Blade of The Ruined King",
     "Wit's End",
-    "Rabadon's Deathcap",
-    "Riftmaker",
-    "Zhonya's Hourglass",
-    "Ionian Boots of Lucidity"
+    "Kraken Slayer",
+    "Terminus",
+    "Berserker's Greaves"
   ],
   "core": 4,
-  "champion_icon": "/embed/fun/cook-builds/icons/champions/39.png",
+  "champion_icon": "/embed/fun/cook-builds/icons/champions/240.png",
   "augments": [
     {
-      "name": "Purist - Caster",
-      "rarity": "Silver",
-      "core": true,
-      "text": "Gain percent cooldown reduction and convert all of your Attack Speed into Ability Haste.",
-      "icon": "/embed/fun/cook-builds/icons/augments/purist-caster.png",
-      "id": 2018
-    },
-    {
-      "name": "Ethereal Weapon",
+      "name": "Reload",
       "rarity": "Gold",
       "core": true,
-      "text": "Your Abilities apply On-Hit effects. 1 second Cooldown per target.",
-      "icon": "/embed/fun/cook-builds/icons/augments/ethereal-weapon.png",
-      "id": 1029
+      "text": "Basic Attacks On-Hit during the chosen ability reduce its cooldown.",
+      "icon": "/embed/fun/cook-builds/icons/augments/reload.png",
+      "id": 2126
     },
     {
       "name": "Mystic Punch",
@@ -42,256 +34,264 @@
       "id": 1058
     },
     {
-      "name": "Double Strike",
-      "rarity": "Silver",
+      "name": "Lil' Extra Help",
+      "rarity": "Gold",
       "core": true,
-      "text": "the chosen ability applies On-Hit effects an additional time.",
-      "icon": "/embed/fun/cook-builds/icons/augments/double-strike.png",
-      "id": 2148
+      "text": "Gain Attack Range and Attack Speed during Your chosen ability duration.",
+      "icon": "/embed/fun/cook-builds/icons/augments/lil-extra-help.png",
+      "id": 2096
+    },
+    {
+      "name": "Pin Cushion",
+      "rarity": "Prismatic",
+      "core": true,
+      "text": "Attacks during the chosen ability gouge your target with Nails. Nails accumulate damage, execute, and grant Movement Speed upon expiration.",
+      "icon": "/embed/fun/cook-builds/icons/augments/pin-cushion.png",
+      "id": 2135
     }
   ],
   "href": "/kitchen#chefs-special",
   "archive_href": "/kitchen#chef-archive",
-  "share_href": "/kitchen/2026-10-28",
-  "share_image": "/embed/fun/cook-builds/share/irelia-forgot-how-to-auto.png",
+  "share_href": "/kitchen/2026-10-29",
+  "share_image": "/embed/fun/cook-builds/share/kled-nail-gun-salesman.png",
   "item_ids": [
-    3115,
+    3124,
+    3153,
     3091,
-    3089,
-    4633,
-    3157,
-    3158
+    6672,
+    3302,
+    3006
   ],
   "i18n": {
     "ar": {
-      "title": "نسيت كيف تهاجم",
-      "why": "تمنح القدرة الخاملة لإيريليا، الحماسة الأيونية، سرعة هجوم متراكمة كلما أصابت إحدى مهاراتها، وعند الحد الأقصى من التراكمات ضررًا إضافيًا عند الإصابة. يحوّل النقيّ - ملقي التعويذات كل سرعة الهجوم هذه إلى تسريع للمهارات، فتعود التراكمات التي تكسبها بإلقاء التعويذات على شكل تعويذات أكثر. يجعل السلاح الأثيري مهاراتها تطبّق تأثيرات الإصابة، لذا تحمل اندفاعة النصل والثنائي الخالي من العيوب ونصل الطليعة مكافأة الحماسة ولكمة الغموض، التي تخصم 1.25 ثانية من كل فترات التهدئة لكل تأثير إصابة؛ والضربة المزدوجة على اندفاعة النصل تطبّق هذه التأثيرات مرة ثانية. تشتري سن ناشور والموقف الحرج من أجل سرعة الهجوم التي يحوّلها النقيّ إلى تسريع، ومن أجل الضرر السحري عند الإصابة الذي تُلحقه مهاراتها الآن، بينما تجلب قبعة موت رابادون وصانع الصدوع قوة المهارات. مبارزة الهجمات الأساسية لا تنقر بالزر الأيمن مجددًا، وتصبح ساحرة AP تعويذاتها هي الإصابات.",
-      "play": "علّم الأهداف بالثنائي الخالي من العيوب أو نصل الطليعة، ثم سلسل اندفاعة النصل عبرهم وعبر التوابع. كل إصابة تقلل فترات التهدئة، فاستمر في الاندفاع وانسَ أن زر الهجوم موجود.",
+      "title": "بائع مسدس المسامير",
+      "why": "مهارة W لدى كليد أثر جانبي لا يفكر فيه أحد تقريبًا: هجومه التالي يمنحه دفعة كبيرة من سرعة الهجوم لأربع هجمات، ثم تدخل في فترة التهدئة. عندما تقع هذه التعزيزات على مهارة W، تجعل إعادة التلقيم كل هجوم بتأثير عند الإصابة خلالها يقلل فترة تهدئتها، وتقلل لكمة الغموض فترة تهدئة كل قدراته مع كل تأثير عند الإصابة، فتعيدها الهجمات الأربع السريعة وكل هجوم بينها أسرع بكثير. أثناء تفعيلها، تمنح مساعدة إضافية بسيطة كليد مدى هجوم إضافيًا وسرعة هجوم أكبر، وتحوّل وسادة الدبابيس كل هجمة منها إلى مسامير تجمع الضرر ثم تُجهز على الهدف. ويغذي نصل غضب غينسو الحلقة نفسها، فعند اكتمال شحناته تطبق كل هجمة ثالثة تأثيرات الإصابة مرتين، مضاعفة تقليل التهدئة من إعادة التلقيم ولكمة الغموض، بينما تجعل نصل الملك المحطَم والموقف الحرج وقاتل الكراكن ومحطة النهاية كل هجمة مسمّرة مؤلمة. يتحول المشاكس صاحب فخ الدببة إلى مسدس مسامير بعيد المدى يعيش داخل مهارة W.",
+      "play": "فعّل W على أقرب عدو، وابقَ على أقصى مدى لتستمر المسامير في التراكم، ودع إعادة التلقيم ولكمة الغموض يعيدانها إليك فورًا. احتفظ بـ E للعودة إلى هدف توشك مساميره على الانفجار.",
       "augments": [
-        "احصل على تقليل نسبي لفترة التهدئة وحوّل كل سرعة هجومك إلى تسريع قدرات.",
-        "تطبّق مهاراتك تأثيرات الإصابة. فترة تهدئة ثانية واحدة لكل هدف.",
+        "الهجمات الأساسية بتأثير عند الإصابة أثناء القدرة المختارة تقلل فترة تهدئتها.",
         "عند الإصابة، تقلل فترة تهدئة مهاراتك بمقدار 1.25 ثانية.",
-        "تطبّق المهارة المختارة تأثيرات الإصابة مرة إضافية."
+        "تحصل على مدى هجوم وسرعة هجوم طوال مدة القدرة المختارة.",
+        "الهجمات أثناء القدرة المختارة تغرس المسامير في هدفك. تجمع المسامير الضرر، وتُجهز على الهدف، وتمنح سرعة حركة عند انتهائها."
       ]
     },
     "cs": {
-      "title": "Zapomněla, jak se útočí",
-      "why": "Irelijina pasivka Iónský zápal jí dává kumulující se rychlost útoků pokaždé, když zasáhne schopností, a při maximu nábojů navíc poškození při zásahu. Ryzí sesilatel převede všechnu tu rychlost útoků na zrychlení schopností, takže náboje, které získá sesíláním, se vrací jako další kouzla. Éterická zbraň nechá její schopnosti aktivovat efekty při zásahu, takže Nápor čepele, Dokonalé duo a Čepel předvoje nesou bonus ze Zápalu i Mystický úder, který za každý efekt při zásahu zkrátí všechny přebíjecí doby o 1,25 sekundy; Dvojitý úder na Náporu čepele aplikuje ty efekty podruhé. Nashorův tesák a Nouzovou kupuje kvůli rychlosti útoků, kterou Ryzí sesilatel mění na zrychlení, a kvůli magickému poškození při zásahu, které teď dávají její schopnosti, zatímco Rabadonův smrtící klobouk a Tvůrce Žlebu dodají sílu schopností. Duelantka na automatické útoky už nikdy neklikne pravým a stane se AP mágem, jehož kouzla jsou zásahy.",
-      "play": "Označ cíle Dokonalým duem nebo Čepelí předvoje a pak řetěz Nápor čepele přes ně a přes poskoky. Každý zásah zkracuje přebíjení, tak prostě dál skákej a zapomeň, že máš tlačítko útoku.",
+      "title": "Podomní prodejce hřebíkovaček",
+      "why": "Kledovo W je vedlejší efekt, nad kterým skoro nikdo nepřemýšlí: jeho další útok mu na čtyři útoky dá pořádnou dávku rychlosti útoku a pak se dobíjí. Když tahle vylepšení padnou na jeho W, Načíst znovu zařídí, že každý útok s efektem při zásahu během něj zkrátí jeho dobíjení, a Mystický úder při každém efektu při zásahu zkrátí dobíjení všech jeho schopností, takže čtyři rychlé útoky a každý útok mezi nimi ho vrátí mnohem dřív. Dokud je aktivní, Troška pomoci navíc dá Kledovi dosah útoku navíc a ještě víc rychlosti útoku, a Jehelníček promění každý z těch útoků v hřebíky, které hromadí poškození a pak popraví. Guinsoova zuřivá čepel krmí stejnou smyčku, protože při plném nabití každý třetí útok uplatní efekty při zásahu dvakrát, takže zdvojnásobí zkrácení od Načíst znovu a Mystického úderu, zatímco Čepel Padlého krále, Nouzová, Zabiják krakenů a Terminus zařídí, že každý přibitý útok bolí. Rváč s pastí na medvědy se z něj stane hřebíkovačka na dálku, která v podstatě bydlí ve svém W.",
+      "play": "Spusť W na nejbližšího nepřítele, drž se na maximálním dosahu, ať se hřebíky dál hromadí, a nech Načíst znovu a Mystický úder, ať ti ho hned vrátí. E si nech na návrat k cíli, jehož hřebíky se chystají bouchnout.",
       "augments": [
-        "Získáš procentuální zkrácení přebíjení a přeměníš veškerou rychlost útoků na zrychlení schopností.",
-        "Tvé schopnosti aktivují efekty při zásahu. Přebíjecí doba 1 s pro každý cíl.",
+        "Základní útoky s efektem při zásahu během zvolené schopnosti zkracují její dobu dobíjení.",
         "Při zásahu zkrátí přebíjecí dobu tvých schopností o 1,25 s.",
-        "Zvolená schopnost aktivuje efekty při zásahu ještě jednou."
+        "Po dobu trvání zvolené schopnosti získáváš dosah útoku a rychlost útoku.",
+        "Útoky během zvolené schopnosti zasazují cíli hřebíky. Hřebíky hromadí poškození, popravují a po vypršení poskytují rychlost pohybu."
       ]
     },
     "de": {
-      "title": "Vergessen, wie man angreift",
-      "why": "Irelias Passiv, Ionischer Eifer, gibt ihr stapelndes Angriffstempo, wann immer eine Fähigkeit trifft, und bei maximalen Steigerungen zusätzlichen Treffer-Schaden. Purist – Zauberer wandelt all dieses Angriffstempo in Fähigkeitstempo um, also werden die Steigerungen, die sie durchs Zaubern verdient, zu noch mehr Zaubern. Ätherische Waffe lässt ihre Fähigkeiten Treffereffekte auslösen, also tragen Klingenwoge, Makelloses Duett und Klinge der Vorhut ihren Eifer-Bonus und Mystischer Schlag, der pro Treffereffekt 1,25 Sekunden von all ihren Abklingzeiten abzieht; Doppelschlag auf Klingenwoge löst diese Treffereffekte ein zweites Mal aus. Nashors Zahn und Ende der Weisheit kauft sie für Angriffstempo, das Purist zu Fähigkeitstempo macht, und für magischen Treffer-Schaden, den jetzt ihre Fähigkeiten austeilen, während Rabadons Todeshaube und Kluftformer die Fähigkeitsstärke liefern. Die Auto-Attack-Duellantin klickt nie wieder rechts und wird zur AP-Magierin, deren Fähigkeiten die Treffer sind.",
-      "play": "Markiere Gegner mit Makelloses Duett oder Klinge der Vorhut und kette dann Klingenwoge durch sie und die Vasallen. Jeder Treffer senkt deine Abklingzeiten, also dash einfach weiter und vergiss, dass es eine Angriffstaste gibt.",
+      "title": "Der Nagelpistolen-Vertreter",
+      "why": "Kleds W ist ein Nebeneffekt, über den kaum jemand nachdenkt: Sein nächster Angriff gibt ihm für vier Angriffe einen ordentlichen Schub Angriffstempo, danach ist es auf Abklingzeit. Wenn diese Augments auf sein W fallen, senkt Neu laden mit jedem Treffer-Angriff währenddessen dessen Abklingzeit, und Mystischer Schlag senkt bei jedem Treffereffekt die Abklingzeiten all seiner Fähigkeiten, also holen die vier schnellen Angriffe plus jeder Angriff dazwischen es viel früher zurück. Solange es aktiv ist, gibt Etwas zusätzliche Hilfe Kled zusätzliche Angriffsreichweite und noch mehr Angriffstempo, und Nadelkissen macht aus jedem dieser Angriffe Nägel, die Schaden aufstauen und dann exekutieren. Guinsoos Wutklinge füttert dieselbe Schleife, denn voll aufgeladen löst jeder dritte Angriff Treffereffekte doppelt aus und verdoppelt so die Abklingzeitsenkung von Neu laden und Mystischer Schlag, während Klinge des gestürzten Königs, Ende der Weisheit, Krakenbezwinger und Terminus jeden genagelten Angriff wehtun lassen. Der Bärenfallen-Schläger wird zur Nagelpistole mit großer Reichweite, die quasi in seinem W wohnt.",
+      "play": "Starte dein W auf dem nächstbesten Gegner, bleib auf maximaler Reichweite, damit sich die Nägel weiter stapeln, und lass Neu laden und Mystischer Schlag es dir sofort zurückgeben. Heb dir dein E auf, um wieder an ein Ziel ranzukommen, dessen Nägel gleich platzen.",
       "augments": [
-        "Erhalte prozentuale Abklingzeitverringerung und wandle dein gesamtes Angriffstempo in Fähigkeitstempo um.",
-        "Deine Fähigkeiten lösen Treffereffekte aus. 1 Sekunde Abklingzeit pro Ziel.",
+        "Treffer-Angriffe während der gewählten Fähigkeit verringern deren Abklingzeit.",
         "Treffereffekt: Verringert die Abklingzeit deiner Fähigkeiten um 1,25 Sekunden.",
-        "Die gewählte Fähigkeit löst Treffereffekte ein weiteres Mal aus."
+        "Erhalte Angriffsreichweite und Angriffstempo für die Dauer der gewählten Fähigkeit.",
+        "Angriffe während der gewählten Fähigkeit spicken dein Ziel mit Nägeln. Nägel stauen Schaden auf, exekutieren und gewähren beim Ablaufen Lauftempo."
       ]
     },
     "el": {
-      "title": "Ξέχασε πώς χτυπάνε",
-      "why": "Η παθητική της Ιρέλια, Ιόνιος Ζήλος, της δίνει σωρευτική Ταχύτητα Επίθεσης κάθε φορά που μια ικανότητα βρίσκει στόχο, και στις μέγιστες στοίβες επιπλέον ζημιά κατά το χτύπημα. Το Καθαρολόγος - Μάγος μετατρέπει όλη αυτή την Ταχύτητα Επίθεσης σε Επιτάχυνση Ικανοτήτων, οπότε οι στοίβες που κερδίζει ρίχνοντας ξόρκια γυρίζουν ως ακόμα περισσότερα ξόρκια. Το Αιθέριο Όπλο κάνει τις ικανότητές της να εφαρμόζουν εφέ χτυπήματος, οπότε η Ορμή Λεπίδων, το Άψογο Ντουέτο και η Λεπίδα της Εμπροσθοφυλακής κουβαλούν το μπόνους του Ζήλου και τη Μυστικιστική Γροθιά, που αφαιρεί 1,25 δευτερόλεπτα από όλους τους χρόνους επαναφόρτισης ανά εφέ χτυπήματος· το Διπλό Χτύπημα στην Ορμή Λεπίδων εφαρμόζει αυτά τα εφέ δεύτερη φορά. Το Δόντι του Νάσορ και το Παρανοϊκό Ξίφος τα παίρνει για την Ταχύτητα Επίθεσης που ο Καθαρολόγος κάνει Επιτάχυνση και για τη μαγική ζημιά κατά το χτύπημα που τώρα δίνουν οι ικανότητές της, ενώ το Καπέλο του Ράμπαντον και ο Διχαστής φέρνουν τη Δύναμη Ικανοτήτων. Η μονομάχος των βασικών επιθέσεων δεν κάνει ποτέ ξανά δεξί κλικ και γίνεται AP μάγισσα που τα ξόρκια της είναι τα χτυπήματα.",
-      "play": "Σημάδεψε στόχους με το Άψογο Ντουέτο ή τη Λεπίδα της Εμπροσθοφυλακής και μετά αλυσόδεσε Ορμή Λεπίδων πάνω τους και στα τσιράκια. Κάθε χτύπημα μειώνει τους χρόνους, οπότε συνέχισε τα dash και ξέχνα ότι υπάρχει κουμπί επίθεσης.",
+      "title": "Ο Πλασιέ του Καρφωτικού",
+      "why": "Το W του Κλεντ είναι μια παρενέργεια που σχεδόν κανείς δεν σκέφτεται: η επόμενη επίθεσή του του δίνει μια γερή δόση Ταχύτητας Επίθεσης για τέσσερις επιθέσεις και μετά μπαίνει σε επαναφόρτιση. Με αυτές τις Ενισχύσεις στο W του, η Επαναφόρτωση κάνει κάθε επίθεση με εφέ κατά το χτύπημα στη διάρκειά του να μειώνει τον χρόνο επαναφόρτισής του, και η Μυστικιστική Γροθιά μειώνει τον χρόνο επαναφόρτισης όλων των ικανοτήτων του σε κάθε εφέ κατά το χτύπημα, οπότε οι τέσσερις γρήγορες επιθέσεις και κάθε επίθεση ενδιάμεσα το φέρνουν πίσω πολύ νωρίτερα. Όσο είναι ενεργό, το Ένα Χεράκι Παραπάνω δίνει στον Κλεντ επιπλέον Εμβέλεια Επίθεσης και ακόμα περισσότερη Ταχύτητα Επίθεσης, και το Μαξιλαράκι για Καρφίτσες κάνει κάθε τέτοια επίθεση καρφιά που μαζεύουν ζημιά και μετά εκτελούν. Το Οργισμένο Σπαθί του Γκουίνσου τροφοδοτεί τον ίδιο κύκλο, αφού με πλήρη φόρτιση κάθε τρίτη επίθεση εφαρμόζει δύο φορές τα εφέ κατά το χτύπημα, διπλασιάζοντας τη μείωση από Επαναφόρτωση και Μυστικιστική Γροθιά, ενώ η Λεπίδα του Έκπτωτου Βασιλιά, το Παρανοϊκό Ξίφος, ο Σφαγέας Κράκεν και το Τέρμινους κάνουν κάθε καρφωμένη επίθεση να πονάει. Ο καβγατζής με την αρκουδοπαγίδα γίνεται ένα καρφωτικό μεγάλης εμβέλειας που ζει μέσα στο W του.",
+      "play": "Ξεκίνα το W στον πιο κοντινό αντίπαλο, μείνε στη μέγιστη εμβέλεια για να συνεχίζουν να μαζεύονται τα καρφιά και άσε την Επαναφόρτωση και τη Μυστικιστική Γροθιά να σου το επιστρέφουν αμέσως. Κράτα το E για να ξαναπέσεις πάνω σε στόχο που τα καρφιά του είναι έτοιμα να σκάσουν.",
       "augments": [
-        "Αποκτάτε ποσοστιαία μείωση χρόνου επαναφόρτισης και μετατρέπετε όλη την Ταχύτητα Επίθεσης σε Επιτάχυνση Ικανοτήτων.",
-        "Οι Ικανότητές σου εφαρμόζουν εφέ χτυπήματος. 1 δευτερόλεπτο επαναφόρτιση ανά στόχο.",
+        "Οι Βασικές Επιθέσεις με εφέ κατά το χτύπημα κατά τη διάρκεια της επιλεγμένης ικανότητας μειώνουν τον χρόνο επαναφόρτισής της.",
         "Κατά το χτύπημα, μειώνει τον χρόνο επαναφόρτισης των ικανοτήτων σου κατά 1,25 δευτερόλεπτα.",
-        "Η επιλεγμένη ικανότητα εφαρμόζει εφέ χτυπήματος μία επιπλέον φορά."
+        "Κερδίζεις εμβέλεια επίθεσης και ταχύτητα επίθεσης για τη διάρκεια της επιλεγμένης ικανότητας.",
+        "Οι επιθέσεις κατά τη διάρκεια της επιλεγμένης ικανότητας καρφώνουν τον στόχο σας με καρφιά. Τα καρφιά συσσωρεύουν ζημιά, εκτελούν και δίνουν Ταχύτητα Κίνησης όταν λήξουν."
       ]
     },
     "es-MX": {
-      "title": "Se me olvidó cómo atacar",
-      "why": "La pasiva de Irelia, Fervor Jonio, le da velocidad de ataque acumulable cada vez que una habilidad golpea y, al máximo de acumulaciones, daño adicional al golpear. Purista: Hechicero convierte toda esa velocidad de ataque en velocidad de habilidades, así que las acumulaciones que gana lanzando hechizos regresan como más hechizos. Arma Etérea hace que sus habilidades apliquen efectos al golpear, así que Oleada de Cuchillas, Dúo Impecable y Filo de Vanguardia cargan su bonificación de Fervor y Golpe Místico, que le quita 1.25 segundos a todos sus enfriamientos por cada efecto al golpear; Golpe Doble en Oleada de Cuchillas aplica esos efectos una segunda vez. Diente de Nashor y Al Filo de la Cordura se compran por la velocidad de ataque que Purista vuelve velocidad de habilidades y por el daño mágico al golpear que ahora hacen sus habilidades, mientras Sombrero Mortífero de Rabadon y Agrietador dan el poder de habilidad. La duelista de ataques básicos nunca vuelve a dar clic derecho y se vuelve una maga AP cuyos hechizos son los golpes.",
-      "play": "Marca objetivos con Dúo Impecable o Filo de Vanguardia y encadena Oleada de Cuchillas entre ellos y los minions. Cada golpe reduce tus enfriamientos, así que no dejes de saltar y olvídate de que existe el botón de ataque.",
+      "title": "El vendedor de pistolas de clavos",
+      "why": "La W de Kled es un efecto secundario en el que casi nadie piensa: su siguiente ataque le da un buen boost de Velocidad de Ataque por cuatro ataques y luego entra en enfriamiento. Con estos aumentos en su W, Recargar hace que cada ataque con efecto al impactar durante ella reduzca su enfriamiento, y Golpe Místico reduce el enfriamiento de todas sus habilidades con cada efecto al impactar, así que los cuatro ataques rápidos y todos los de en medio la regresan mucho antes. Mientras está activa, Un Poco de Ayuda le da a Kled Alcance de Ataque extra y todavía más Velocidad de Ataque, y Alfiletero convierte cada uno de esos ataques en clavos que acumulan daño y luego ejecutan. Espadafuria de Guinsoo alimenta el mismo ciclo, porque con cargas completas cada tercer ataque aplica los efectos al impactar dos veces, duplicando la reducción de Recargar y Golpe Místico, mientras Espada del Rey Arruinado, Al Filo de la Cordura, Matakrakens y Terminus hacen que cada ataque con clavos duela. El peleonero de la trampa para osos se vuelve una pistola de clavos de largo alcance que vive en su W.",
+      "play": "Activa tu W en quien tengas más cerca, quédate a alcance máximo para que los clavos se sigan acumulando y deja que Recargar y Golpe Místico te la regresen al instante. Guarda tu E para volver con un objetivo cuyos clavos estén por reventar.",
       "augments": [
-        "Obtienes reducción porcentual de enfriamiento y conviertes toda tu velocidad de ataque en velocidad de habilidades.",
-        "Tus habilidades aplican efectos al golpear. 1 segundo de enfriamiento por objetivo.",
+        "Los Ataques básicos con efecto al impactar durante la habilidad elegida reducen su enfriamiento.",
         "Al golpear, reduce el enfriamiento de tus habilidades en 1.25 segundos.",
-        "La habilidad elegida aplica efectos al golpear una vez más."
+        "Obtienes alcance de ataque y velocidad de ataque durante la duración de la habilidad elegida.",
+        "Los ataques durante la habilidad elegida llenan de clavos a tu objetivo. Los clavos acumulan daño, ejecutan y otorgan Velocidad de Movimiento al expirar."
       ]
     },
     "es": {
-      "title": "Olvidé cómo autoatacar",
-      "why": "La pasiva de Irelia, Fervor jonio, le da velocidad de ataque acumulable cada vez que una habilidad impacta y, con el máximo de acumulaciones, daño adicional al impactar. Purista - Lanzador convierte toda esa velocidad de ataque en aceleración de habilidades, así que las acumulaciones que gana lanzando hechizos se convierten en más hechizos. Arma etérea hace que sus habilidades apliquen efectos al impactar, así que Oleada de cuchillas, Dúo impecable y Filo de la vanguardia llevan su bonus de Fervor y Guantazo místico, que resta 1,25 segundos a todos sus enfriamientos por cada efecto al impactar; Golpe doble en Oleada de cuchillas aplica esos efectos una segunda vez. Diente de Nashor y Final del ingenio se compran por la velocidad de ataque que Purista convierte en aceleración y por el daño mágico al impactar que ahora dan sus habilidades, mientras Sombrero mortal de Rabadon y Creagrietas ponen el poder de habilidad. La duelista de autoataques no vuelve a hacer clic derecho y se convierte en una maga AP cuyos hechizos son los impactos.",
-      "play": "Marca objetivos con Dúo impecable o Filo de la vanguardia y encadena Oleada de cuchillas entre ellos y los súbditos. Cada impacto reduce tus enfriamientos, así que sigue saltando y olvida que tienes botón de ataque.",
+      "title": "El vendedor de pistolas de clavos",
+      "why": "La W de Kled es un efecto secundario en el que casi nadie piensa: su siguiente ataque le da un buen chute de velocidad de ataque durante cuatro ataques y luego entra en enfriamiento. Con estos aumentos tocando en su W, Recarga hace que cada ataque con efecto al impacto durante ella reduzca su enfriamiento, y Guantazo místico reduce el enfriamiento de todas sus habilidades con cada efecto al impacto, así que los cuatro ataques rápidos y todos los de en medio la traen de vuelta mucho antes. Mientras está activa, Una ayudita le da a Kled alcance de ataque extra y aún más velocidad de ataque, y Alfiletero convierte cada uno de esos ataques en clavos que acumulan daño y luego ejecutan. Hoja de furia de Guinsoo alimenta el mismo bucle, porque al tope de cargas cada tercer ataque aplica los efectos al impacto dos veces, duplicando la reducción de Recarga y Guantazo místico, mientras Hoja del rey arruinado, Final del ingenio, Verdugo de krakens y El final hacen que cada ataque con clavos duela. El matón de la trampa para osos se convierte en una pistola de clavos de largo alcance que vive en su W.",
+      "play": "Activa tu W en el que tengas más cerca, quédate a alcance máximo para que los clavos sigan acumulándose y deja que Recarga y Guantazo místico te la devuelvan al momento. Guarda tu E para volver sobre un objetivo cuyos clavos estén a punto de reventar.",
       "augments": [
-        "Obtienes reducción porcentual de enfriamiento y conviertes toda tu velocidad de ataque en aceleración de habilidades.",
-        "Tus habilidades aplican efectos al impactar. 1 segundo de enfriamiento por objetivo.",
+        "Los ataques básicos con efecto al impacto durante la habilidad elegida reducen su enfriamiento.",
         "Al impactar, reduce el enfriamiento de tus habilidades en 1,25 segundos.",
-        "La habilidad elegida aplica efectos al impactar una vez más."
+        "Obtienes alcance de ataque y velocidad de ataque durante la duración de la habilidad elegida.",
+        "Los ataques durante la habilidad elegida acribillan a tu objetivo con clavos. Los clavos acumulan daño, ejecutan y otorgan velocidad de movimiento al expirar."
       ]
     },
     "fr": {
-      "title": "J'ai oublié comment auto",
-      "why": "Le passif d'Irelia, Ferveur ionienne, lui donne de la vitesse d'attaque cumulable chaque fois qu'une compétence touche, et des dégâts supplémentaires à l'impact au maximum de cumuls. Puriste - Lanceur de compétence convertit toute cette vitesse d'attaque en accélération de compétence, donc les cumuls qu'elle gagne en lançant des sorts se transforment en encore plus de sorts. Arme éthérée fait appliquer les effets à l'impact à ses compétences, donc Assaut tranchant, Duo parfait et Lames de l'avant-garde transportent son bonus de Ferveur et Coups accélérants, qui retire 1,25 seconde à tous ses délais de récupération par effet à l'impact ; Coup double sur Assaut tranchant applique ces effets une seconde fois. Dent de Nashor et Au bout du rouleau sont achetés pour la vitesse d'attaque que Puriste change en accélération et pour les dégâts magiques à l'impact que ses sorts infligent désormais, pendant que la Coiffe de Rabadon et Créateur de failles apportent la puissance. La duelliste à auto-attaques ne fait plus jamais de clic droit et devient une mage AP dont les sorts sont les impacts.",
-      "play": "Marque tes cibles avec Duo parfait ou Lames de l'avant-garde, puis enchaîne Assaut tranchant sur elles et sur les sbires. Chaque impact réduit tes délais, alors continue de dasher et oublie que ta touche d'attaque existe.",
+      "title": "Le VRP du pistolet à clous",
+      "why": "Le W de Kled est un effet secondaire auquel presque personne ne pense : sa prochaine attaque lui donne un gros boost de vitesse d'attaque pendant quatre attaques, puis il passe en délai de récupération. Avec ces augments tombés sur son W, Rechargement fait que chaque attaque à effet à l'impact pendant ce sort en réduit le délai, et Coups accélérants réduit le délai de toutes ses compétences à chaque effet à l'impact, donc les quatre attaques rapides plus toutes celles entre deux le ramènent bien plus vite. Tant qu'il est actif, Petit coup de pouce donne à Kled de la portée d'attaque et encore plus de vitesse d'attaque, et Pelote d'épingles transforme chacune de ces attaques en clous qui accumulent les dégâts puis exécutent. Lame enragée de Guinsoo nourrit la même boucle, car une fois chargée à fond, une attaque sur trois applique les effets à l'impact deux fois, doublant les réductions de Rechargement et de Coups accélérants, pendant que Lame du roi déchu, Au bout du rouleau, Tueur de krakens et Terminus font mal à chaque attaque cloutée. Le bagarreur au piège à ours devient un pistolet à clous longue portée qui vit dans son W.",
+      "play": "Lance ton W sur l'ennemi le plus proche, reste à portée max pour que les clous continuent de s'empiler, et laisse Rechargement et Coups accélérants te le rendre aussitôt. Garde ton E pour revenir sur une cible dont les clous vont exploser.",
       "augments": [
-        "Obtenez de la réduction de délai de récupération en pourcentage et convertissez toute votre vitesse d'attaque en accélération de compétence.",
-        "Vos compétences appliquent les effets à l'impact. Délai de récupération de 1 seconde par cible.",
+        "Les attaques de base à effet à l'impact pendant la compétence choisie en réduisent le délai de récupération.",
         "À l'impact, réduit le délai de récupération de vos compétences de 1,25 seconde.",
-        "La compétence choisie applique les effets à l'impact une fois de plus."
+        "Gagnez de la portée d'attaque et de la vitesse d'attaque pendant la durée de la compétence choisie.",
+        "Les attaques pendant la compétence choisie criblent votre cible de clous. Les clous accumulent des dégâts, exécutent et confèrent de la vitesse de déplacement à leur expiration."
       ]
     },
     "hu": {
-      "title": "Elfelejtett ütni",
-      "why": "Irelia passzívja, a Ioniai lelkesedés, halmozódó támadási sebességet ad neki minden alkalommal, amikor egy képessége talál, maximális töltésnél pedig plusz sebzést találatkor. A Purista – Varázsló az összes támadási sebességet képesség-gyorsítássá alakítja, így a varázslással szerzett töltések még több varázslatként térnek vissza. Az Asztrális fegyver miatt a képességei találati hatásokat váltanak ki, így a Pengeroham, a Hibátlan kettős és az Élcsapat pengéje viszi a Lelkesedés bónuszát és a Misztikus ütést, ami találati hatásonként 1,25 másodperccel csökkenti az összes töltési idejét; a Kettős vágás a Pengerohamon másodszor is kiváltja ezeket. A Nashor fogát és az Utolsó esélyt a támadási sebesség miatt veszi, amit a Purista gyorsítássá alakít, és a találati mágikus sebzés miatt, amit most a képességei osztanak, a Rabadon halálsüvege és a Szurdokhasító pedig hozza a képességerőt. Az alaptámadásos párbajhős soha többé nem kattint jobb gombbal, és AP mágus lesz, akinek a varázslatai a találatok.",
-      "play": "Jelöld meg a célpontokat a Hibátlan kettőssel vagy az Élcsapat pengéjével, aztán láncold rajtuk és a csatlósokon a Pengerohamot. Minden találat csökkenti a töltési időket, szóval csak dash-elj tovább, és felejtsd el, hogy van támadás gombod.",
+      "title": "A szögbelövő-ügynök",
+      "why": "Kled W-je olyan mellékhatás, amire szinte senki sem gondol: a következő támadása négy támadásig jó adag támadási sebességet ad neki, aztán újratöltődik. Ha ezek a fejlesztések a W-jére esnek, az Újratöltés miatt minden találati hatású támadás közben csökkenti a töltési idejét, a Misztikus ütés pedig minden találati hatásnál az összes képessége töltési idejét csökkenti, így a négy gyors támadás és minden közbeeső támadás sokkal hamarabb visszahozza. Amíg aktív, az Egy kis extra segítség extra támadási hatótávot és még több támadási sebességet ad Klednek, a Tűpárna pedig ezeket a támadásokat szögekké alakítja, amelyek sebzést gyűjtenek, majd kivégeznek. Guinsoo dühpengéje ugyanazt a kört táplálja, mert teljes töltésen minden harmadik támadás kétszer alkalmazza a találati hatásokat, megduplázva az Újratöltés és a Misztikus ütés töltésicsökkentését, közben A letaszított király kardja, az Utolsó esély, a Krakenölő és a Vég minden szögelt támadást fájdalmassá tesz. A medvecsapdás verekedőből nagy hatótávú szögbelövő lesz, ami gyakorlatilag a W-jében lakik.",
+      "play": "Indítsd a W-t a legközelebbi ellenfélen, maradj maximális hatótávon, hogy a szögek tovább gyűljenek, és hagyd, hogy az Újratöltés és a Misztikus ütés azonnal visszaadja. Az E-t tartsd meg, hogy visszaérj egy célpontra, akinek a szögei mindjárt robbannak.",
       "augments": [
-        "Százalékos töltésiidő-csökkentést kapsz, és az összes támadási sebességed képességsiettetéssé alakul.",
-        "A képességeid találati hatásokat váltanak ki. Célpontonként 1 másodperc töltési idő.",
+        "A kiválasztott képesség alatt a találati hatású alaptámadások csökkentik annak töltési idejét.",
         "Találatkor 1,25 másodperccel csökkenti a képességeid töltési idejét.",
-        "A kiválasztott képesség még egyszer kiváltja a találati hatásokat."
+        "A kiválasztott képesség időtartama alatt támadási hatótávot és támadási sebességet kapsz.",
+        "A kiválasztott képesség alatti támadások szögeket vernek a célpontba. A szögek sebzést gyűjtenek, kivégeznek, és lejáratukkor mozgási sebességet adnak."
       ]
     },
     "id": {
-      "title": "Lupa Cara Auto Attack",
-      "why": "Pasif Irelia, Ionian Fervor, memberinya Attack Speed bertumpuk setiap kali skill-nya kena, dan saat stack penuh menambah damage bonus on-hit. Purist - Caster mengubah semua Attack Speed itu jadi Ability Haste, jadi stack yang ia dapat dari cast skill kembali sebagai lebih banyak cast. Ethereal Weapon membuat skill-nya menerapkan efek On-Hit, jadi Bladesurge, Flawless Duet, dan Vanguard's Edge membawa bonus Fervor dan Mystic Punch, yang memotong 1,25 detik dari semua cooldown-nya per On-Hit; Double Strike di Bladesurge menerapkan efek On-Hit itu sekali lagi. Nashor's Tooth dan Wit's End dibeli demi Attack Speed yang diubah Purist jadi Haste dan demi magic damage On-Hit yang sekarang diberikan skill-nya, sementara Rabadon's Deathcap dan Riftmaker menyumbang Ability Power. Duelist auto attack ini tidak pernah klik kanan lagi dan berubah jadi caster AP yang skill-nya adalah on-hit.",
-      "play": "Tandai target dengan Flawless Duet atau Vanguard's Edge, lalu sambung Bladesurge ke mereka dan minion. Tiap hit memotong cooldown, jadi terus dash dan lupakan tombol serangmu.",
+      "title": "Sales Nail Gun",
+      "why": "W Kled adalah efek samping yang hampir nggak pernah dipikirin orang: attack berikutnya ngasih dia lonjakan Attack Speed besar selama empat attack, lalu masuk cooldown. Kalau augment ini jatuh ke W-nya, Reload bikin tiap attack On-Hit selama W memotong cooldown W, dan Mystic Punch memotong cooldown semua ability tiap kali On-Hit, jadi empat attack cepat plus semua attack di antaranya bikin W balik jauh lebih cepat. Selama aktif, Lil' Extra Help ngasih Kled Attack Range tambahan dan Attack Speed lebih banyak lagi, dan Pin Cushion mengubah tiap attack itu jadi Nails yang menumpuk damage lalu mengeksekusi. Guinsoo's Rageblade menyuapi loop yang sama, karena saat full stack setiap attack ketiga menerapkan efek On-Hit dua kali, menggandakan potongan cooldown dari Reload dan Mystic Punch, sementara Blade of the Ruined King, Wit's End, Kraken Slayer, dan Terminus bikin tiap attack berpaku makin sakit. Si tukang ribut dengan perangkap beruang berubah jadi nail gun jarak jauh yang tinggal di dalam W-nya.",
+      "play": "Nyalakan W ke musuh terdekat, tetap di range maksimal biar Nails terus menumpuk, dan biarkan Reload dan Mystic Punch langsung mengembalikannya. Simpan E buat balik nempel ke target yang Nails-nya mau meledak.",
       "augments": [
-        "Dapatkan pengurangan cooldown persentase dan ubah semua Attack Speed-mu menjadi Ability Haste.",
-        "Skill-mu menerapkan efek On-Hit. Cooldown 1 detik per target.",
+        "Basic Attack On-Hit selama ability pilihan mengurangi cooldown-nya.",
         "On-Hit mengurangi cooldown skill-mu sebesar 1,25 detik.",
-        "Skill yang dipilih menerapkan efek On-Hit satu kali lagi."
+        "Dapatkan Attack Range dan Attack Speed selama durasi skill yang dipilih.",
+        "Attack selama ability pilihan menancapkan Nails ke target. Nails menumpuk damage, mengeksekusi, dan memberi Movement Speed saat berakhir."
       ]
     },
     "it": {
-      "title": "Ho scordato come si attacca",
-      "why": "La passiva di Irelia, Fervore ioniano, le dà velocità d'attacco cumulabile ogni volta che un'abilità colpisce e, al massimo delle cariche, danni bonus sul colpo. Purista - Mago converte tutta quella velocità d'attacco in velocità abilità, quindi le cariche che guadagna lanciando abilità tornano come altre abilità. Arma eterea fa applicare alle sue abilità gli effetti sul colpo, quindi Ondata di lame, Duetto perfetto e Lama dell'avanguardia trasportano il bonus di Fervore e Pugno mistico, che toglie 1,25 secondi a tutte le sue ricariche per ogni effetto sul colpo; Doppio colpo su Ondata di lame applica quegli effetti una seconda volta. Dente di Nashor e Speranza perduta li compra per la velocità d'attacco che Purista trasforma in velocità abilità e per i danni magici sul colpo che ora infliggono le sue abilità, mentre Copricapo di Rabadon e Araldo del Vuoto portano il potere magico. La duellante da attacchi base non clicca mai più col tasto destro e diventa una maga AP le cui abilità sono i colpi.",
-      "play": "Marca i bersagli con Duetto perfetto o Lama dell'avanguardia, poi concatena Ondata di lame tra loro e i minion. Ogni colpo riduce le ricariche, quindi continua a scattare e dimentica che esiste il tasto d'attacco.",
+      "title": "Il piazzista della sparachiodi",
+      "why": "La W di Kled è un effetto collaterale a cui quasi nessuno pensa: il suo prossimo attacco gli dà una bella spinta di velocità d'attacco per quattro attacchi, poi va in ricarica. Con questi potenziamenti sulla sua W, Ricarica fa sì che ogni attacco con effetto sul colpo durante l'abilità ne riduca la ricarica, e Pugno mistico riduce la ricarica di tutte le sue abilità a ogni effetto sul colpo, quindi i quattro attacchi rapidi più tutti quelli in mezzo la riportano molto prima. Finché è attiva, Un piccolo aiuto in più dà a Kled gittata d'attacco bonus e ancora più velocità d'attacco, e Puntaspilli trasforma ognuno di quegli attacchi in chiodi che accumulano danni e poi giustiziano. Furia di Guinsoo alimenta lo stesso ciclo, perché a cariche massime ogni terzo attacco applica gli effetti sul colpo due volte, raddoppiando le riduzioni di Ricarica e Pugno mistico, mentre Lama del re in rovina, Speranza perduta, Uccisore di Kraken e Terminus fanno male a ogni attacco inchiodato. Il rissoso della tagliola diventa una sparachiodi a lunga gittata che vive dentro la sua W.",
+      "play": "Attiva la W su chi hai più vicino, resta alla gittata massima così i chiodi continuano ad accumularsi, e lascia che Ricarica e Pugno mistico te la restituiscano subito. Tieni la E per tornare su un bersaglio i cui chiodi stanno per esplodere.",
       "augments": [
-        "Ottieni riduzione ricarica percentuale e converti tutta la tua velocità d'attacco in velocità abilità.",
-        "Le tue abilità applicano gli effetti sul colpo. 1 secondo di ricarica per bersaglio.",
+        "Gli attacchi base con effetto sul colpo durante l'abilità scelta ne riducono la ricarica.",
         "Sul colpo, riduce la ricarica delle tue abilità di 1,25 secondi.",
-        "L'abilità scelta applica gli effetti sul colpo una volta in più."
+        "Ottieni gittata d'attacco e velocità d'attacco per la durata dell'abilità scelta.",
+        "Gli attacchi durante l'abilità scelta trafiggono il bersaglio con chiodi. I chiodi accumulano danni, giustiziano e conferiscono velocità di movimento alla scadenza."
       ]
     },
     "ja": {
-      "title": "通常攻撃の仕方を忘れた",
-      "why": "イレリアのパッシブ「アイオニアの熱情」は、スキルが命中するたびにスタックする攻撃速度を与え、最大スタック時には通常攻撃時の追加ダメージも与える。「純粋なるキャスター」はその攻撃速度をすべてスキルヘイストに変換するので、スキルで稼いだスタックがさらなるスキルとして返ってくる。「エーテル武器」でスキルが通常攻撃時効果を発動するようになり、「ブレードサージ」「フローレス デュエット」「ヴァンガード エッジ」が熱情のボーナスと、通常攻撃時効果ごとに全スキルのクールダウンを1.25秒短縮する「神秘の鉄拳」を運ぶ。「ダブルストライク」をブレードサージに付ければ、その効果がもう一度発動する。ナッシャー トゥースとウィッツ エンドは、純粋なるキャスターがヘイストに変える攻撃速度と、今やスキルが与える通常攻撃時魔法ダメージのために買い、ラバドン デスキャップとリフトメーカーが魔力を担う。通常攻撃のデュエリストは二度と右クリックせず、スキルこそが攻撃のAPメイジになる。",
-      "play": "フローレス デュエットかヴァンガード エッジでマークを付け、敵とミニオンにブレードサージをつなげよう。当たるたびにクールダウンが縮むので、ひたすらダッシュして攻撃ボタンの存在は忘れていい。",
+      "title": "釘打ち機のセールスマン",
+      "why": "クレッドのWは、ほとんど誰も気にしない副産物だ。次の通常攻撃から4回分だけ攻撃速度が大きく上がり、その後はクールダウンに入る。これらのオーグメントがWに付けば、リロードでW中の通常攻撃時効果つき攻撃ごとにそのクールダウンが短くなり、神秘の鉄拳は通常攻撃時効果のたびに全スキルのクールダウンを短縮するので、4回の高速攻撃とその合間の攻撃でWがずっと早く戻ってくる。発動中はちょこっとヘルプが攻撃範囲とさらなる攻撃速度をくれて、針山がその攻撃すべてをダメージを溜めて最後に処刑する釘に変える。グインソー レイジブレードも同じループを回す。最大スタック時は3回に1回通常攻撃時効果が2回発動するので、リロードと神秘の鉄拳の短縮も2倍だ。さらにルインドキング ブレード、ウィッツ エンド、クラーケン スレイヤー、テルミヌスで釘入りの一撃一撃が痛くなる。トラバサミの喧嘩屋が、Wに住みつく長射程の釘打ち機に変身する。",
+      "play": "一番近い敵にWを始動し、釘が溜まり続けるよう最大射程をキープして、リロードと神秘の鉄拳ですぐに戻してもらおう。Eは釘が弾けそうな相手に再び張り付くために温存。",
       "augments": [
-        "割合クールダウン短縮を獲得し、すべての攻撃速度をスキルヘイストに変換する。",
-        "スキルが通常攻撃時効果を発動する。対象ごとにクールダウン1秒。",
+        "選択したスキル中の通常攻撃時効果つき通常攻撃がそのクールダウンを短縮する。",
         "通常攻撃時: スキルのクールダウンを1.25秒短縮する。",
-        "選択したスキルが通常攻撃時効果をもう一度発動する。"
+        "選択したスキルの効果時間中、攻撃射程と攻撃速度が増加する。",
+        "選択したスキル中の通常攻撃が対象に釘を打ち込む。釘はダメージを蓄積して処刑し、効果終了時に移動速度を付与する。"
       ]
     },
     "ko": {
-      "title": "평타 치는 법을 잊었다",
-      "why": "이렐리아의 패시브 아이오니아의 열정은 스킬이 적중할 때마다 중첩되는 공격 속도를 주고, 최대 중첩에서는 적중 시 추가 피해도 준다. 순수주의자 - 마법사는 그 공격 속도를 전부 스킬 가속으로 바꾸니, 스킬을 써서 얻은 중첩이 다시 더 많은 스킬로 돌아온다. 환영 무기는 스킬이 적중 시 효과를 적용하게 해서 칼날 쇄도, 완벽한 조화, 선봉에 선 칼날이 열정 보너스와, 적중 시 효과마다 모든 스킬 재사용 대기시간을 1.25초 줄이는 신비한 주먹을 실어 나른다. 칼날 쇄도에 2연속 공격을 걸면 그 효과가 한 번 더 적용된다. 내셔의 이빨과 마법사의 최후는 순수주의자가 가속으로 바꾸는 공격 속도와 이제 스킬이 넣는 적중 시 마법 피해 때문에 사고, 라바돈의 죽음모자와 균열 생성기가 주문력을 맡는다. 평타 결투가는 다시는 우클릭하지 않고, 스킬이 곧 평타인 AP 마법사가 된다.",
-      "play": "완벽한 조화나 선봉에 선 칼날로 표식을 남긴 뒤 적과 미니언 사이로 칼날 쇄도를 이어 가세요. 맞힐 때마다 쿨이 줄어드니 계속 돌진하고 공격 버튼은 잊어버리세요.",
+      "title": "못총 영업사원",
+      "why": "클레드의 W는 거의 아무도 신경 쓰지 않는 부수 효과다. 다음 기본 공격부터 네 번 동안 공격 속도가 크게 오르고, 그다음엔 재사용 대기시간에 들어간다. 이 증강들이 W에 붙으면 재장전 덕분에 W 도중 적중 시 효과가 있는 기본 공격마다 W의 재사용 대기시간이 줄고, 신비한 주먹은 적중 시 효과마다 모든 스킬의 재사용 대기시간을 줄여서, 빠른 공격 네 번과 그 사이의 모든 공격이 W를 훨씬 빨리 돌려준다. W가 켜져 있는 동안 작은 도움은 클레드에게 추가 사거리와 더 많은 공격 속도를 주고, 바늘꽂이는 그 공격 하나하나를 피해를 쌓았다가 처형하는 못으로 바꾼다. 구인수의 격노검도 같은 루프를 돌린다. 최대 중첩 시 세 번째 공격마다 적중 시 효과가 두 번 적용돼 재장전과 신비한 주먹의 감소량도 두 배가 되고, 몰락한 왕의 검, 마법사의 최후, 크라켄 학살자, 경계가 못 박힌 공격 하나하나를 아프게 만든다. 곰덫 든 싸움꾼이 W 안에서 사는 장거리 못총으로 변신한다.",
+      "play": "가장 가까운 적에게 W를 시작하고, 못이 계속 쌓이도록 최대 사거리를 유지하면서 재장전과 신비한 주먹이 바로 W를 돌려주게 하자. E는 못이 곧 터질 대상에게 다시 붙을 때 쓰도록 아껴 두자.",
       "augments": [
-        "재사용 대기시간이 일정 비율 감소하고 모든 공격 속도가 스킬 가속으로 전환됩니다.",
-        "스킬이 적중 시 효과를 적용합니다. 대상마다 재사용 대기시간 1초.",
+        "선택한 스킬 도중 적중 시 효과가 있는 기본 공격이 해당 스킬의 재사용 대기시간을 감소시킵니다.",
         "적중 시 스킬 재사용 대기시간이 1.25초 감소합니다.",
-        "선택한 스킬이 적중 시 효과를 한 번 더 적용합니다."
+        "선택한 스킬의 지속시간 동안 공격 사거리와 공격 속도를 얻습니다.",
+        "선택한 스킬 도중의 공격이 대상에게 못을 박습니다. 못은 피해를 누적하고 처형하며, 만료 시 이동 속도를 부여합니다."
       ]
     },
     "pl": {
-      "title": "Zapomniała, jak się atakuje",
-      "why": "Bierna umiejętność Irelii, Joński Zapał, daje jej kumulującą się prędkość ataku za każdym razem, gdy trafi umiejętnością, a przy maksymalnych ładunkach dodatkowe obrażenia przy trafieniu. Purysta — mag zamienia całą tę prędkość ataku na przyspieszenie umiejętności, więc ładunki zdobyte rzucaniem czarów wracają jako kolejne czary. Eteryczna Broń sprawia, że jej umiejętności nakładają efekty przy trafieniu, więc Szarża Ostrzy, Doskonały Duet i Ostrze Awangardy niosą premię z Zapału i Mistyczny Cios, który za każdy efekt przy trafieniu skraca wszystkie czasy odnowienia o 1,25 sekundy; Podwójne Uderzenie na Szarży Ostrzy nakłada te efekty drugi raz. Ząb Nashora i Koniec Rozumu kupuje dla prędkości ataku, którą Purysta zmienia w przyspieszenie, i dla magicznych obrażeń przy trafieniu, które teraz zadają jej umiejętności, a Zabójczy Kapelusz Rabadona i Szczelinotwórca dają moc umiejętności. Duelistka od autoataków już nigdy nie klika prawym i staje się magiem AP, którego czary są trafieniami.",
-      "play": "Oznacz cele Doskonałym Duetem albo Ostrzem Awangardy, a potem łańcuchuj Szarżę Ostrzy przez nie i stwory. Każde trafienie skraca odnowienia, więc po prostu dashuj dalej i zapomnij, że masz przycisk ataku.",
+      "title": "Akwizytor Gwoździarek",
+      "why": "W Kleda to efekt uboczny, o którym prawie nikt nie myśli: jego następny atak daje mu spory zastrzyk prędkości ataku na cztery ataki, a potem wchodzi w odnowienie. Gdy te ulepszenia trafią na jego W, Odśwież sprawia, że każdy atak z efektem przy trafieniu w jego trakcie skraca jego odnowienie, a Mistyczny Cios skraca odnowienie wszystkich umiejętności przy każdym efekcie przy trafieniu, więc cztery szybkie ataki plus każdy atak pomiędzy przywracają je dużo szybciej. Dopóki jest aktywne, Drobna Pomoc daje Kledowi dodatkowy zasięg ataku i jeszcze więcej prędkości ataku, a Poduszeczka na Szpilki zamienia każdy z tych ataków w gwoździe, które kumulują obrażenia, a potem dobijają. Ostrze Gniewu Guinsoo napędza tę samą pętlę, bo przy pełnych ładunkach co trzeci atak nakłada efekty przy trafieniu dwukrotnie, podwajając skracanie odnowienia z Odśwież i Mistycznego Ciosu, a Ostrze Zniszczonego Króla, Koniec Rozumu, Pogromca Krakenów i Ostatni Przystanek sprawiają, że każdy przybity atak boli. Zadymiarz z sidłami na niedźwiedzie zmienia się w dalekosiężną gwoździarkę, która praktycznie mieszka w swoim W.",
+      "play": "Odpal W na najbliższym wrogu, trzymaj maksymalny zasięg, żeby gwoździe dalej się kumulowały, i pozwól, by Odśwież i Mistyczny Cios od razu ci je oddały. Zachowaj E, żeby wrócić do celu, którego gwoździe zaraz wybuchną.",
       "augments": [
-        "Zyskaj procentowe skrócenie czasu odnowienia i zamień całą swoją prędkość ataku na przyspieszenie umiejętności.",
-        "Twoje umiejętności nakładają efekty przy trafieniu. 1 sekunda odnowienia na cel.",
+        "Podstawowe ataki z efektem przy trafieniu podczas wybranej umiejętności skracają jej czas odnowienia.",
         "Przy trafieniu skraca czas odnowienia twoich umiejętności o 1,25 sekundy.",
-        "Wybrana umiejętność nakłada efekty przy trafieniu dodatkowy raz."
+        "Zyskujesz zasięg ataku i prędkość ataku na czas trwania wybranej umiejętności.",
+        "Ataki podczas wybranej umiejętności nabijają cel gwoździami. Gwoździe kumulują obrażenia, dobijają i dają prędkość ruchu po wygaśnięciu."
       ]
     },
     "pt-BR": {
-      "title": "Esqueci como dar auto",
-      "why": "A passiva de Irelia, Fervor Ioniano, dá Velocidade de Ataque acumulável sempre que uma habilidade acerta e, no máximo de acúmulos, dano extra ao atingir. Purista - Conjurador converte toda essa Velocidade de Ataque em Aceleração de Habilidade, então os acúmulos que ela ganha usando habilidades voltam como mais habilidades. Arma Etérea faz suas habilidades aplicarem efeitos ao atingir, então Investida de Lâminas, Dueto Perfeito e Gume da Vanguarda carregam o bônus do Fervor e Soco Místico, que tira 1,25 segundo de todas as recargas por efeito ao atingir; Ataque Duplo na Investida de Lâminas aplica esses efeitos uma segunda vez. Dente de Na'Shor e Limite da Razão entram pela Velocidade de Ataque que o Purista vira Aceleração e pelo dano mágico ao atingir que agora sai das habilidades, enquanto Capuz da Morte de Rabadon e Criafendas trazem o Poder de Habilidade. A duelista de ataque básico nunca mais clica com o botão direito e vira uma maga AP cujas habilidades são os ataques.",
-      "play": "Marque alvos com Dueto Perfeito ou Gume da Vanguarda e encadeie Investida de Lâminas por eles e pelas tropas. Cada acerto reduz suas recargas, então continue avançando e esqueça que o botão de ataque existe.",
+      "title": "O Vendedor de Pistola de Pregos",
+      "why": "O W do Kled é um efeito colateral em que quase ninguém pensa: o próximo ataque dele dá um belo pico de Velocidade de Ataque por quatro ataques e depois entra em recarga. Com esses aprimoramentos caindo no W, Recarga faz cada ataque com efeito ao atingir durante ele reduzir a recarga dele, e Soco Místico reduz a recarga de todas as habilidades a cada efeito ao atingir, então os quatro ataques rápidos mais todos os do meio trazem ele de volta muito antes. Enquanto ele está ativo, Ajudinha Extra dá ao Kled Alcance de Ataque bônus e ainda mais Velocidade de Ataque, e Alfinetada transforma cada um desses ataques em pregos que acumulam dano e depois executam. Lâmina da Fúria de Guinsoo alimenta o mesmo ciclo, porque com acúmulos máximos todo terceiro ataque aplica efeitos ao atingir duas vezes, dobrando a redução de Recarga e Soco Místico, enquanto Espada do Rei Destruído, Limite da Razão, Mata-Cráquens e Terminus fazem cada ataque pregado doer. O brigão da armadilha de urso vira uma pistola de pregos de longo alcance que mora no W.",
+      "play": "Ative o W em quem estiver mais perto, fique no alcance máximo pros pregos continuarem acumulando e deixe Recarga e Soco Místico devolverem ele na hora. Guarde o E pra voltar num alvo cujos pregos estão prestes a estourar.",
       "augments": [
-        "Receba redução percentual de recarga e converta toda a sua Velocidade de Ataque em Aceleração de Habilidade.",
-        "Suas Habilidades aplicam efeitos ao atingir. 1 segundo de Recarga por alvo.",
+        "Ataques Básicos com efeito ao atingir durante a habilidade escolhida reduzem a recarga dela.",
         "Ao atingir, reduz a recarga das suas habilidades em 1,25 segundo.",
-        "A habilidade escolhida aplica efeitos ao atingir mais uma vez."
+        "Receba alcance de ataque e velocidade de ataque durante a duração da habilidade escolhida.",
+        "Ataques durante a habilidade escolhida cravam pregos no alvo. Os pregos acumulam dano, executam e concedem Velocidade de Movimento ao expirar."
       ]
     },
     "ro": {
-      "title": "A uitat cum se dă cu auto",
-      "why": "Pasiva Ireliei, Fervoarea ioniană, îi dă viteză de atac cumulabilă de fiecare dată când o abilitate lovește, iar la cumulări maxime daune suplimentare la impact. Purist – Mag transformă toată viteza de atac în accelerare a abilităților, așa că cumulările câștigate din vrăji se întorc ca și mai multe vrăji. Armă eterică face ca abilitățile ei să aplice efecte la impact, deci Avântul lamelor, Duetul impecabil și Lama avangardei poartă bonusul Fervorii și Lovitura mistică, ce taie 1,25 secunde din toți timpii de reîncărcare pentru fiecare efect la impact; Lovitura dublă pe Avântul lamelor aplică acele efecte a doua oară. Dintele lui Nashor și Sfârșitul rațiunii le cumpără pentru viteza de atac pe care Purist o face accelerare și pentru daunele magice la impact pe care acum le dau abilitățile ei, iar Pălăria malefică a lui Rabadon și Creator de rifturi aduc puterea abilităților. Duelista de atacuri de bază nu mai dă niciodată click dreapta și devine un mag AP ale cărui vrăji sunt loviturile.",
-      "play": "Marchează ținte cu Duetul impecabil sau Lama avangardei, apoi înlănțuie Avântul lamelor prin ele și prin minioni. Fiecare lovitură scade reîncărcările, așa că dă dash în continuare și uită că ai buton de atac.",
+      "title": "Agentul de vânzări cu pistolul de cuie",
+      "why": "W-ul lui Kled e un efect secundar la care aproape nimeni nu se gândește: următorul lui atac îi dă un val serios de viteză de atac pentru patru atacuri, apoi intră în timp de reîncărcare. Cu aceste augmentări picate pe W, Reîncarcă face ca fiecare atac cu efect la impact din timpul lui să-i reducă timpul de reîncărcare, iar Lovitură mistică reduce timpul de reîncărcare al tuturor abilităților la fiecare efect la impact, așa că cele patru atacuri rapide plus fiecare atac dintre ele îl aduc înapoi mult mai repede. Cât timp e activ, Un pic de ajutor în plus îi dă lui Kled rază de atac bonus și și mai multă viteză de atac, iar Pernă de ace transformă fiecare dintre aceste atacuri în cuie care adună daune și apoi execută. Spada furiei lui Guinsoo hrănește aceeași buclă, pentru că la încărcare maximă fiecare al treilea atac aplică efectele la impact de două ori, dublând reducerile de la Reîncarcă și Lovitură mistică, în timp ce Sabia regelui înfrânt, Sfârșitul rațiunii, Ucigașul de krakeni și Terminus fac ca fiecare atac bătut în cuie să doară. Bătăușul cu capcana de urs devine un pistol de cuie cu rază lungă care locuiește în W-ul lui.",
+      "play": "Pornește W-ul pe cel mai apropiat inamic, stai la rază maximă ca să se tot adune cuiele și lasă Reîncarcă și Lovitură mistică să ți-l dea imediat înapoi. Păstrează E-ul ca să revii pe o țintă ale cărei cuie stau să explodeze.",
       "augments": [
-        "Primești reducere procentuală a timpului de reactivare și îți transformi toată viteza de atac în accelerare a abilităților.",
-        "Abilitățile tale aplică efecte la impact. Reîncărcare de 1 secundă per țintă.",
+        "Atacurile de bază cu efect la impact din timpul abilității alese îi reduc timpul de reîncărcare.",
         "La impact, reduce timpul de reîncărcare al abilităților tale cu 1,25 secunde.",
-        "Abilitatea aleasă aplică efectele la impact încă o dată."
+        "Primești rază de atac și viteză de atac pe durata abilității alese.",
+        "Atacurile din timpul abilității alese îți împănează ținta cu cuie. Cuiele adună daune, execută și oferă viteză de mișcare la expirare."
       ]
     },
     "ru": {
-      "title": "Забыла, как бить автоатаками",
-      "why": "Пассивное умение Ирелии, Ионийский пыл, дает ей накапливаемую скорость атаки каждый раз, когда умение попадает, а на максимуме зарядов — дополнительный урон при попадании. Принципиальность – умения превращает всю эту скорость атаки в ускорение умений, так что заряды, которые она копит заклинаниями, возвращаются новыми заклинаниями. Эфемерное оружие заставляет ее умения накладывать эффекты при попадании, поэтому Вихрь клинков, Безупречный дуэт и Клинок авангарда несут бонус Пыла и Мистический удар, который за каждый эффект при попадании сокращает все ее перезарядки на 1,25 секунды; Двойной удар на Вихре клинков накладывает эти эффекты второй раз. Зуб Нашора и Смерть Разума берутся ради скорости атаки, которую Принципиальность превращает в ускорение, и ради магического урона при попадании, который теперь наносят ее умения, а Смертельная шляпа Рабадона и Творец разломов дают силу умений. Дуэлянтка на автоатаках больше никогда не жмет правую кнопку и становится AP-магом, чьи умения и есть удары.",
-      "play": "Пометьте цели Безупречным дуэтом или Клинком авангарда, затем цепляйте Вихрь клинков через них и миньонов. Каждое попадание сокращает перезарядки, так что просто продолжайте рывки и забудьте про кнопку атаки.",
+      "title": "Коммивояжёр гвоздемётов",
+      "why": "W Кледа — побочный эффект, о котором почти никто не думает: его следующая атака дает солидный прирост скорости атаки на четыре атаки, после чего уходит на перезарядку. Если эти аугменты выпали на его W, Перезаряжание заставляет каждую атаку с эффектом при попадании во время умения сокращать его перезарядку, а Мистический удар при каждом эффекте при попадании сокращает перезарядку всех его умений, так что четыре быстрые атаки плюс каждая атака между ними возвращают W гораздо раньше. Пока оно активно, Своевременная помощь дает Кледу дополнительную дальность атаки и еще больше скорости атаки, а Игольница превращает каждую из этих атак в гвозди, которые копят урон, а потом добивают. Клинок ярости Гинсу питает ту же петлю: на максимуме зарядов каждая третья атака применяет эффекты при попадании дважды, удваивая сокращение перезарядки от Перезаряжания и Мистического удара, а Клинок Падшего короля, Смерть Разума, Убийца кракенов и Светотень делают каждую атаку с гвоздями больной. Драчун с медвежьим капканом превращается в дальнобойный гвоздемёт, который живет в своем W.",
+      "play": "Включай W на ближайшем враге, держись на максимальной дальности, чтобы гвозди продолжали копиться, и пусть Перезаряжание с Мистическим ударом сразу его возвращают. Прибереги E, чтобы снова догнать цель, чьи гвозди вот-вот взорвутся.",
       "augments": [
-        "Получите процентное сокращение перезарядки и преобразуйте всю скорость атаки в ускорение умений.",
-        "Ваши умения накладывают эффекты при попадании. Перезарядка 1 сек. для каждой цели.",
+        "Автоатаки с эффектом при попадании во время выбранного умения сокращают его перезарядку.",
         "При попадании сокращает время перезарядки ваших умений на 1,25 сек.",
-        "Выбранное умение накладывает эффекты при попадании еще один раз."
+        "Вы получаете дальность атаки и скорость атаки на время действия выбранного умения.",
+        "Атаки во время выбранного умения вбивают в цель гвозди. Гвозди копят урон, добивают и дают скорость передвижения по истечении."
       ]
     },
     "th": {
-      "title": "ลืมวิธีตีธรรมดา",
-      "why": "พาสซีฟของ Irelia คือ Ionian Fervor ให้ Attack Speed สะสมทุกครั้งที่สกิลโดนเป้าหมาย และเมื่อสะสมเต็มจะได้ดาเมจเพิ่มแบบ on-hit Purist - Caster เปลี่ยน Attack Speed ทั้งหมดนั้นเป็น Ability Haste สแตคที่ได้จากการกดสกิลจึงกลับมาเป็นการกดสกิลมากขึ้น Ethereal Weapon ทำให้สกิลของเธอติดเอฟเฟกต์ On-Hit ดังนั้น Bladesurge, Flawless Duet และ Vanguard's Edge จะพาโบนัสของ Fervor และ Mystic Punch ไปด้วย ซึ่งลดคูลดาวน์ทุกสกิล 1.25 วินาทีต่อ On-Hit ส่วน Double Strike ที่ใส่กับ Bladesurge ทำให้เอฟเฟกต์ On-Hit ติดอีกครั้ง Nashor's Tooth และ Wit's End ซื้อเพื่อเอา Attack Speed ที่ Purist แปลงเป็น Haste และดาเมจเวท On-Hit ที่ตอนนี้สกิลเป็นตัวส่ง ส่วน Rabadon's Deathcap และ Riftmaker ให้ Ability Power นักดวลสายตีธรรมดาจะไม่คลิกขวาอีกเลย และกลายเป็นเมจ AP ที่สกิลคือการตี",
-      "play": "มาร์คเป้าหมายด้วย Flawless Duet หรือ Vanguard's Edge แล้วต่อ Bladesurge ผ่านพวกเขาและมินเนียน ทุกการโดนลดคูลดาวน์ ก็แค่แดชต่อไปแล้วลืมปุ่มโจมตีไปเลย",
+      "title": "เซลส์ปืนยิงตะปู",
+      "why": "W ของ Kled เป็นผลพลอยได้ที่แทบไม่มีใครสนใจ: การโจมตีครั้งถัดไปให้ Attack Speed ก้อนใหญ่สี่ครั้ง แล้วก็ติดคูลดาวน์ ถ้า Augment เหล่านี้ไปลงที่ W ของเขา Reload ทำให้ทุกการโจมตีแบบ On-Hit ระหว่าง W ลดคูลดาวน์ของมัน และ Mystic Punch ลดคูลดาวน์ทุกสกิลทุกครั้งที่ On-Hit ทำงาน การโจมตีเร็วสี่ครั้งบวกทุกการโจมตีระหว่างนั้นจึงพา W กลับมาเร็วขึ้นมาก ระหว่างที่ W ทำงาน Lil' Extra Help ให้ Attack Range เพิ่มและ Attack Speed มากขึ้นอีก ส่วน Pin Cushion เปลี่ยนการโจมตีแต่ละครั้งเป็นตะปูที่สะสมดาเมจแล้วประหารเป้าหมาย Guinsoo's Rageblade ป้อนลูปเดียวกัน เพราะเมื่อสแตคเต็มทุกการโจมตีครั้งที่สามจะใช้เอฟเฟกต์ On-Hit สองครั้ง ทำให้การลดคูลดาวน์ของ Reload และ Mystic Punch เพิ่มเป็นสองเท่า ขณะที่ Blade of the Ruined King, Wit's End, Kraken Slayer และ Terminus ทำให้ทุกการโจมตีที่ตอกตะปูเจ็บ นักเลงถือกับดักหมีกลายเป็นปืนยิงตะปูระยะไกลที่อาศัยอยู่ใน W",
+      "play": "เปิด W ใส่ศัตรูที่ใกล้ที่สุด ยืนระยะโจมตีสูงสุดให้ตะปูสะสมต่อไป แล้วปล่อยให้ Reload กับ Mystic Punch คืน W ให้ทันที เก็บ E ไว้กลับไปประชิดเป้าหมายที่ตะปูใกล้ระเบิด",
       "augments": [
-        "รับการลดคูลดาวน์เป็นเปอร์เซ็นต์ และแปลง Attack Speed ทั้งหมดเป็น Ability Haste",
-        "สกิลของคุณติดเอฟเฟกต์ On-Hit คูลดาวน์ 1 วินาทีต่อเป้าหมาย",
+        "การโจมตีพื้นฐานแบบ On-Hit ระหว่างสกิลที่เลือกจะลดคูลดาวน์ของสกิลนั้น",
         "On-Hit ลดคูลดาวน์สกิลของคุณ 1.25 วินาที",
-        "สกิลที่เลือกจะติดเอฟเฟกต์ On-Hit เพิ่มอีกหนึ่งครั้ง"
+        "ได้รับระยะโจมตีและความเร็วโจมตีตลอดระยะเวลาของสกิลที่เลือก",
+        "การโจมตีระหว่างสกิลที่เลือกจะตอกตะปูใส่เป้าหมาย ตะปูสะสมดาเมจ ประหาร และให้ Movement Speed เมื่อหมดเวลา"
       ]
     },
     "tr": {
-      "title": "Düz Vuruşu Unuttu",
-      "why": "Irelia'nın pasifi İyonya Coşkusu, bir yeteneği her isabet ettiğinde ona birikimli saldırı hızı verir, maksimum yükte ise isabette ek hasar ekler. Saf Yetenek bütün o saldırı hızını yetenek hızına çevirir, yani büyü yaparak kazandığı yükler daha fazla büyü olarak geri döner. Olağandışı Silah yeteneklerinin isabet etkileri uygulamasını sağlar, böylece Kılıç Hücumu, Kusursuz Düet ve Öncü Kılıcı Coşku bonusunu ve isabet etkisi başına bütün bekleme sürelerinden 1,25 saniye düşen Mistik Yumruk'u taşır; Kılıç Hücumu'na verilen Çift Saldırı bu etkileri ikinci kez uygular. Nashor'un Dişi ve Aklın Sonu'nu, Saf Yetenek'in yetenek hızına çevirdiği saldırı hızı ve artık yeteneklerinin vurduğu isabette büyü hasarı için alır; Rabadon'un Şapkası ve Vadiyaran da yetenek gücünü getirir. Düz vuruş düellocusu bir daha asla sağ tıklamaz ve büyüleri isabet olan bir AP büyücüsüne dönüşür.",
-      "play": "Hedefleri Kusursuz Düet ya da Öncü Kılıcı ile işaretle, sonra Kılıç Hücumu'nu onlar ve minyonlar arasında zincirle. Her isabet bekleme sürelerini düşürür, yani atılmaya devam et ve saldırı tuşunun varlığını unut.",
+      "title": "Çivi Tabancası Pazarlamacısı",
+      "why": "Kled'in W'si neredeyse kimsenin düşünmediği bir yan etki: sonraki saldırısı ona dört saldırı boyunca ciddi bir saldırı hızı patlaması verir, sonra bekleme süresine girer. Bu güçlendirmeler W'sine denk gelirse, Yeniden Yükle bu sırada her isabet etkili saldırının onun bekleme süresini azaltmasını sağlar, Mistik Yumruk da her isabet etkisinde tüm yeteneklerinin bekleme süresini düşürür, yani dört hızlı saldırı ve aradaki her saldırı onu çok daha erken geri getirir. Aktifken Küçük Bir Yardım Kled'e ek saldırı menzili ve daha da fazla saldırı hızı verir, İğnelik de bu saldırıların her birini hasar biriktirip sonra infaz eden çivilere çevirir. Guinsoo'nun Hiddeti aynı döngüyü besler, çünkü tam yüklüyken her üçüncü saldırı isabet etkilerini iki kez uygular ve Yeniden Yükle ile Mistik Yumruk'un bekleme süresi azaltmasını ikiye katlar; Mahvolmuş Kralın Kılıcı, Aklın Sonu, Kraken Katili ve Son Durak da her çivili saldırıyı acıtır. Ayı kapanlı kavgacı, W'sinde yaşayan uzun menzilli bir çivi tabancasına dönüşür.",
+      "play": "W'yi en yakındaki rakibe başlat, çiviler birikmeye devam etsin diye azami menzilde kal ve Yeniden Yükle ile Mistik Yumruk onu hemen geri versin. E'yi, çivileri patlamak üzere olan bir hedefe geri dönmek için sakla.",
       "augments": [
-        "Yüzdesel bekleme süresi azaltma kazan ve tüm saldırı hızını yetenek hızına çevir.",
-        "Yeteneklerin isabet etkileri uygular. Hedef başına 1 saniye bekleme süresi.",
+        "Seçilen yetenek sırasında isabet etkili temel saldırılar onun bekleme süresini azaltır.",
         "İsabette yeteneklerinin bekleme süresini 1,25 saniye azaltır.",
-        "Seçilen yetenek isabet etkilerini bir kez daha uygular."
+        "Seçilen yeteneğin süresi boyunca saldırı menzili ve saldırı hızı kazanırsın.",
+        "Seçilen yetenek sırasında yapılan saldırılar hedefine çiviler saplar. Çiviler hasar biriktirir, infaz eder ve süreleri dolduğunda hareket hızı kazandırır."
       ]
     },
     "vi": {
-      "title": "Quên Cách Đánh Thường",
-      "why": "Nội tại của Irelia, Nhiệt Huyết Ionia, cho cô tốc độ đánh cộng dồn mỗi khi kỹ năng trúng đích, và khi đầy cộng dồn thì thêm sát thương khi đánh trúng. Thuần Pháp - Thuật Sư đổi toàn bộ tốc độ đánh đó thành điểm hồi kỹ năng, nên cộng dồn kiếm được nhờ dùng chiêu lại quay về thành thêm chiêu. Vũ Khí Siêu Nhiên khiến kỹ năng của cô kích hoạt hiệu ứng trên đòn đánh, nên Lao Kiếm, Song Kiếm Hợp Bích và Lưỡi Kiếm Tiên Phong mang theo phần thưởng Nhiệt Huyết và Cú Đấm Thần Bí, giảm 1,25 giây mọi thời gian hồi chiêu mỗi lần kích hoạt hiệu ứng trên đòn đánh; Chém Đôi gắn vào Lao Kiếm áp dụng các hiệu ứng đó thêm lần nữa. Nanh Nashor và Đao Tím được mua vì tốc độ đánh mà Thuần Pháp đổi thành điểm hồi kỹ năng và vì sát thương phép trên đòn đánh mà giờ kỹ năng của cô gây ra, còn Mũ Phù Thủy Rabadon và Quyền Trượng Ác Thần lo phần sức mạnh phép thuật. Đấu sĩ đánh thường không bao giờ chuột phải nữa và thành pháp sư AP mà chiêu nào cũng là đòn đánh.",
-      "play": "Đánh dấu mục tiêu bằng Song Kiếm Hợp Bích hoặc Lưỡi Kiếm Tiên Phong, rồi Lao Kiếm liên hoàn qua chúng và lính. Mỗi đòn trúng đều giảm hồi chiêu, cứ lướt tiếp và quên luôn nút đánh thường đi.",
+      "title": "Gã Bán Súng Bắn Đinh",
+      "why": "W của Kled là một hiệu ứng phụ mà hầu như chẳng ai để ý: đòn đánh tiếp theo cho hắn một cú tăng Tốc Độ Đánh lớn trong bốn đòn, rồi vào thời gian hồi chiêu. Khi các Lõi Nâng Cấp này rơi vào W, Lên Đạn khiến mỗi đòn đánh có hiệu ứng trên đòn đánh trong lúc đó giảm hồi chiêu của nó, còn Cú Đấm Thần Bí giảm hồi chiêu mọi kỹ năng mỗi lần kích hoạt hiệu ứng trên đòn đánh, nên bốn đòn đánh nhanh cộng mọi đòn đánh xen giữa đưa W quay lại sớm hơn nhiều. Khi W đang bật, Một Chút Trợ Giúp cho Kled thêm Tầm Đánh và thêm Tốc Độ Đánh, còn Gối Cắm Kim biến mỗi đòn đánh đó thành đinh tích sát thương rồi kết liễu. Cuồng Đao Guinsoo nuôi cùng vòng lặp đó, vì khi đầy cộng dồn cứ mỗi đòn thứ ba sẽ áp dụng hiệu ứng trên đòn đánh hai lần, nhân đôi phần giảm hồi chiêu của Lên Đạn và Cú Đấm Thần Bí, trong khi Gươm Suy Vong, Đao Tím, Móc Diệt Thủy Quái và Cung Chạng Vạng làm mỗi đòn đóng đinh đều đau. Gã đầu gấu cầm bẫy gấu biến thành khẩu súng bắn đinh tầm xa sống luôn trong W.",
+      "play": "Bật W lên kẻ địch gần nhất, đứng ở tầm đánh tối đa để đinh tiếp tục cộng dồn, và để Lên Đạn cùng Cú Đấm Thần Bí trả W lại ngay. Giữ E để lao lại vào mục tiêu có đinh sắp nổ.",
       "augments": [
-        "Nhận giảm thời gian hồi chiêu theo phần trăm và chuyển toàn bộ tốc độ đánh thành điểm hồi kỹ năng.",
-        "Kỹ năng của bạn áp dụng hiệu ứng trên đòn đánh. Hồi chiêu 1 giây cho mỗi mục tiêu.",
+        "Đòn đánh thường có hiệu ứng trên đòn đánh trong lúc dùng kỹ năng được chọn sẽ giảm hồi chiêu của nó.",
         "Hiệu ứng trên đòn đánh: giảm 1,25 giây thời gian hồi chiêu của các kỹ năng.",
-        "Kỹ năng được chọn áp dụng hiệu ứng trên đòn đánh thêm một lần."
+        "Nhận thêm tầm đánh và tốc độ đánh trong thời gian kỹ năng đã chọn có hiệu lực.",
+        "Đòn đánh trong lúc dùng kỹ năng được chọn sẽ ghim đinh vào mục tiêu. Đinh tích sát thương, kết liễu và cho Tốc Độ Di Chuyển khi hết hạn."
       ]
     },
     "zh-CN": {
-      "title": "忘了怎么平A",
-      "why": "刀锋舞者的被动艾欧尼亚热诚让她每次技能命中都获得可叠加的攻击速度，满层时还会获得额外的攻击特效伤害。纯粹主义者 - 术师把这些攻击速度全部转化为技能急速，于是靠放技能攒下的层数又变成了更多技能。虚幻武器让她的技能能触发攻击特效，所以利刃冲击、比翼双刃和先锋之刃都会带上热诚加成和秘术冲拳，每次攻击特效让她所有技能冷却缩短1.25秒；双重打击绑在利刃冲击上，会让这些攻击特效再触发一次。纳什之牙和智慧末刃买来是为了纯粹主义者要转化的攻击速度，以及现在由技能打出的攻击特效魔法伤害，灭世者的死亡之帽和裂隙制造者负责法术强度。平A决斗者从此不再右键，变成一个技能就是攻击的AP法师。",
-      "play": "用比翼双刃或先锋之刃标记目标，然后在他们和小兵之间连续利刃冲击。每次命中都会减冷却，所以一直冲就行，忘掉攻击键吧。",
+      "title": "射钉枪推销员",
+      "why": "暴怒骑士的W是个几乎没人在意的副作用：他的下一次攻击会在四次攻击内获得一大波攻击速度，然后进入冷却。当这些强化符文落在W上时，装填让W期间每次带攻击特效的普攻都减少它的冷却，秘术冲拳则在每次攻击特效时减少他所有技能的冷却，于是四次快速攻击加上中间的每一下普攻，都能让W更快回来。W开着的时候，小小的额外帮助给他额外攻击距离和更多攻速，针插垫把每一下攻击变成会累积伤害、最后斩杀的钉子。鬼索的狂暴之刃也在喂同一个循环：满层时每第三次攻击会触发两次攻击特效，让装填和秘术冲拳的冷却缩减翻倍，而破败王者之刃、智慧末刃、海妖杀手和界弓让每一下钉钉子都很疼。拿捕熊夹的莽夫，变成了住在W里的远程射钉枪。",
+      "play": "对最近的敌人开W，站在最远攻击距离让钉子持续叠加，让装填和秘术冲拳马上把W还给你。E留着，用来重新贴上钉子快要爆的目标。",
       "augments": [
-        "获得百分比冷却缩减，并将你的全部攻击速度转化为技能急速。",
-        "你的技能会施加攻击特效。每个目标有1秒冷却时间。",
+        "在所选技能期间，带攻击特效的普攻会减少该技能的冷却时间。",
         "攻击特效：使你的技能冷却时间减少1.25秒。",
-        "所选技能会额外施加一次攻击特效。"
+        "在所选技能持续期间获得攻击距离和攻速。",
+        "在所选技能期间的攻击会给目标钉上钉子。钉子会累积伤害、进行斩杀，并在结束时提供移动速度。"
       ]
     },
     "zh-TW": {
-      "title": "忘了怎麼普攻",
-      "why": "伊瑞莉雅的被動愛歐尼亞之熱誠讓她每次技能命中都獲得可疊加的攻擊速度，疊滿時還會獲得額外的命中特效傷害。純粹 - 法師把這些攻擊速度全部轉換成技能加速，於是靠施放技能疊出的層數又變回更多技能。幻影武器讓她的技能能觸發命中特效，所以刀鋒突擊、比翼雙刃和先鋒之刃都會帶著熱誠加成和祕術拳擊，每次命中特效讓她所有技能冷卻減少1.25秒；雙重打擊綁在刀鋒突擊上，會讓這些命中特效再觸發一次。納什之牙和智慧末刃是為了純粹要轉換的攻擊速度，以及現在由技能打出的命中特效魔法傷害而買，死亡之帽和峽谷製造者負責魔法攻擊。普攻決鬥者從此不再按右鍵，變成技能就是攻擊的AP法師。",
-      "play": "用比翼雙刃或先鋒之刃標記目標，再在他們和小兵之間連續刀鋒突擊。每次命中都會減冷卻，一直衝就對了，忘掉攻擊鍵吧。",
+      "title": "射釘槍推銷員",
+      "why": "克雷德的W是個幾乎沒人在意的副作用：他的下一次攻擊會在四次攻擊內獲得一大波攻擊速度，然後進入冷卻。當這些強化落在W上時，重新載入讓W期間每次帶命中效果的普攻都減少它的冷卻，祕術拳擊則在每次命中效果時減少他所有技能的冷卻，於是四次快速攻擊加上中間的每一下普攻，都能讓W更快回來。W開著的時候，小小助力給他額外攻擊距離和更多攻速，針插把每一下攻擊變成會累積傷害、最後斬殺的釘子。鬼索的狂暴之刃也在餵同一個循環：滿層時每第三次攻擊會觸發兩次命中效果，讓重新載入和祕術拳擊的冷卻縮減翻倍，而殞落王者之劍、智慧末刃、海妖殺手和臨界點讓每一下釘釘子都很痛。拿捕熊夾的莽夫，變成了住在W裡的遠程射釘槍。",
+      "play": "對最近的敵人開W，站在最遠攻擊距離讓釘子持續疊加，讓重新載入和祕術拳擊馬上把W還給你。E留著，用來重新貼上釘子快要爆的目標。",
       "augments": [
-        "獲得百分比冷卻縮減，並將所有攻擊速度轉換為技能急速。",
-        "你的技能會施加命中特效。每個目標有1秒冷卻時間。",
+        "在所選技能期間，帶命中效果的普攻會減少該技能的冷卻時間。",
         "命中特效：使你的技能冷卻時間減少1.25秒。",
-        "所選技能會額外施加一次命中特效。"
+        "在所選技能持續期間獲得攻擊距離和攻速。",
+        "在所選技能期間的攻擊會替目標釘上釘子。釘子會累積傷害、進行斬殺，並在結束時提供移動速度。"
       ]
     }
   }
