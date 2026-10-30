@@ -277,6 +277,29 @@
       "why": "Irelia's Ionian Fervor gives her stacking Attack Speed every time a spell hits, and at full stacks it adds bonus damage on hit. Purist - Caster converts all of that Attack Speed into Ability Haste, so the stacks she earns by casting come back as more casts. Ethereal Weapon makes her abilities apply On-Hit effects, so every Bladesurge, Flawless Duet and Vanguard's Edge carries her Fervor bonus and Mystic Punch, which cuts 1.25 seconds off all her cooldowns per On-Hit; Double Strike on Bladesurge applies those On-Hits a second time. Nashor's Tooth and Wit's End are bought for Attack Speed that Purist turns into Haste and for On-Hit magic damage that her spells now deliver, while Rabadon's Deathcap and Riftmaker bring the Ability Power. The auto-attack duelist never right-clicks again and becomes an AP caster whose spells are the on-hits.",
       "play": "Mark targets with Flawless Duet or Vanguard's Edge, then chain Bladesurge through them and the minions. Every hit refunds cooldowns, so just keep dashing and forget your attack button exists.",
       "chef": "2026-10-28"
+    },
+    {
+      "id": "kled-nail-gun-salesman",
+      "champion": "Kled",
+      "title": "The Nail Gun Salesman",
+      "augments": [
+        "Reload",
+        "Mystic Punch",
+        "Lil' Extra Help",
+        "Pin Cushion"
+      ],
+      "core": 4,
+      "items": [
+        "Guinsoo's Rageblade",
+        "Blade of The Ruined King",
+        "Wit's End",
+        "Kraken Slayer",
+        "Terminus",
+        "Berserker's Greaves"
+      ],
+      "why": "Kled's Violent Tendencies is a side effect most players barely think about: his next attack grants a big burst of Attack Speed for four attacks, then it sits on cooldown. With these augments rolled on Violent Tendencies, Reload makes every on-hit attack during it cut its cooldown, and Mystic Punch cuts all of his ability cooldowns on every on-hit, so the four fast attacks plus every attack in between bring it back far sooner. While it is up, Lil' Extra Help hands Kled bonus Attack Range and even more Attack Speed, and Pin Cushion turns each of those attacks into Nails that pile up damage and then execute. Guinsoo's Rageblade feeds the same loop, because when fully stacked every third attack applies on-hit effects twice, doubling the Reload and Mystic Punch cooldown cuts, while Blade of The Ruined King, Wit's End, Kraken Slayer and Terminus make every nailed attack hurt. The bear-trap brawler turns into a long-range nail gun that lives in Violent Tendencies.",
+      "play": "Start Violent Tendencies on whoever is closest, stay at max range so the Nails keep stacking, and let Reload and Mystic Punch hand it right back. Save Jousting to get back onto a target whose Nails are about to pop.",
+      "chef": "2026-10-29"
     }
   ]
 }
