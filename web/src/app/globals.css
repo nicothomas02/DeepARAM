@@ -511,9 +511,6 @@ h1 {
 .span-7 {
   grid-column: span 7;
 }
-.span-8 {
-  grid-column: span 8;
-}
 .span-all {
   grid-column: 1 / -1;
 }
@@ -1341,8 +1338,7 @@ h1 {
   .span-4,
   .span-5,
   .span-6,
-  .span-7,
-  .span-8 {
+  .span-7 {
     grid-column: 1 / -1;
   }
   .search-label,
@@ -1583,7 +1579,6 @@ html[data-device="mobile"] .data-table th {
     max-width: none;
     margin: 0;
   }
-
 
   /* A trimmed table fits the screen: no pinned column, the row number back, names and headings wrap. */
   .data-table.fit > .table-scroll .ph-hide {
@@ -1868,17 +1863,6 @@ html[data-device="mobile"] .sheet .sheet-group:first-child {
   cursor: default;
 }
 
-.admin-login {
-  display: grid;
-  gap: 0.5rem;
-  max-width: 420px;
-}
-
-.admin-row {
-  display: flex;
-  gap: 0.5rem;
-}
-
 .admin {
   display: grid;
   gap: 1rem;
@@ -1900,8 +1884,7 @@ html[data-device="mobile"] .sheet .sheet-group:first-child {
   min-width: 0;
 }
 
-.admin-field label,
-.admin-login label {
+.admin-field label {
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -1911,8 +1894,7 @@ html[data-device="mobile"] .sheet .sheet-group:first-child {
 }
 
 .admin input,
-.admin textarea,
-.admin-login input {
+.admin textarea {
   width: 100%;
   min-width: 0;
   padding: 0.55rem 0.75rem;
@@ -1923,10 +1905,6 @@ html[data-device="mobile"] .sheet .sheet-group:first-child {
   font: inherit;
   font-size: 0.9375rem;
   resize: vertical;
-}
-
-.admin-login input {
-  flex: 1;
 }
 
 .admin-dot {
@@ -2971,7 +2949,6 @@ select:focus-visible {
 }
 
 html[data-motion="reduce"] .card[data-accent]:hover,
-html[data-motion="reduce"] .item-card:hover,
 html[data-motion="reduce"] .btn:hover {
   transform: none;
 }
@@ -4689,10 +4666,6 @@ th > button[data-tip] {
   display: grid;
   gap: 1.25rem;
 }
-.helper-pick {
-  display: grid;
-  gap: 0.9rem;
-}
 .helper-threats {
   display: flex;
   flex-wrap: wrap;
@@ -4717,65 +4690,6 @@ th > button[data-tip] {
   color: var(--accent);
   font-weight: 600;
 }
-.helper-items {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(5.5rem, 1fr));
-  gap: 0.75rem;
-}
-.helper-item {
-  display: grid;
-  justify-items: center;
-  gap: 0.35rem;
-  min-width: 0;
-  text-align: center;
-  font-size: 0.75rem;
-  line-height: 1.25;
-}
-.helper-item img {
-  border-radius: 8px;
-  border: 1px solid var(--line);
-}
-.helper-swaps {
-  display: grid;
-  gap: 0.6rem;
-}
-.helper-swaps > div {
-  display: flex;
-  align-items: center;
-  gap: 0.7rem;
-}
-.helper-swaps img {
-  border-radius: 8px;
-}
-.helper-swaps span {
-  display: grid;
-}
-.helper-swaps small {
-  color: var(--muted);
-}
-.helper-skills {
-  margin-top: 0.9rem;
-  color: var(--muted);
-}
-.helper-augs {
-  display: grid;
-  gap: 0.8rem;
-}
-.helper-augs > div {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.5rem 1rem;
-}
-.helper-aug {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  font-size: 0.875rem;
-}
-.helper-aug img {
-  border-radius: 6px;
-}
 
 /* Augment tier list (/augments) */
 .atiers {
@@ -4787,84 +4701,6 @@ th > button[data-tip] {
 .atiers-filters {
   display: grid;
   gap: 0.6rem;
-}
-.atiers-rows {
-  display: grid;
-  gap: 0.75rem;
-}
-.atiers-row {
-  display: grid;
-  grid-template-columns: 3rem minmax(0, 1fr);
-  gap: 0.75rem;
-  align-items: start;
-  padding: 0.75rem;
-  border: 1px solid var(--line);
-  border-radius: 14px;
-  background: var(--surface);
-}
-.chip.atiers-tier {
-  display: grid;
-  place-items: center;
-  width: 3rem;
-  height: 3rem;
-  padding: 0;
-  border-radius: 10px;
-  font-size: 1.25rem;
-  font-weight: 800;
-}
-.atiers-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(6.5rem, 1fr));
-  gap: 0.5rem;
-}
-.atiers-aug {
-  display: grid;
-  justify-items: center;
-  gap: 0.25rem;
-  min-width: 0;
-  padding: 0.5rem 0.35rem;
-  border-radius: 10px;
-  color: var(--fg);
-  text-align: center;
-  text-decoration: none;
-}
-.atiers-aug:hover,
-.atiers-aug:focus-visible {
-  background: var(--raised);
-}
-.atiers-aug img {
-  border-radius: 10px;
-  border: 2px solid var(--line);
-}
-.atiers-aug[data-rarity="silver"] img { border-color: var(--silver); }
-.atiers-aug[data-rarity="gold"] img { border-color: var(--gold); }
-.atiers-aug[data-rarity="prismatic"] img { border-color: #b78cf0; }
-.atiers-name {
-  max-width: 100%;
-  font-size: 0.75rem;
-  line-height: 1.2;
-  overflow-wrap: anywhere;
-}
-.atiers-wr {
-  font-size: 0.75rem;
-  font-variant-numeric: tabular-nums;
-}
-.atiers-wr { color: var(--muted); }
-.atiers-wr.wr-high { color: var(--good); font-weight: 600; }
-.atiers-wr.wr-low { color: var(--bad); }
-@media (max-width: 560px) {
-  .atiers-row {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 0.5rem;
-  }
-  .chip.atiers-tier {
-    width: 2.25rem;
-    height: 2.25rem;
-    font-size: 1rem;
-  }
-  .atiers-grid {
-    grid-template-columns: repeat(auto-fill, minmax(5.25rem, 1fr));
-  }
 }
 
 /* Account page (/account) */
@@ -4966,8 +4802,6 @@ th > button[data-tip] {
 .acct-card summary { cursor: pointer; font-weight: 700; }
 .acct-card details[open] summary { margin-bottom: 0.65rem; }
 .acct-who { font-weight: 600; overflow-wrap: anywhere; }
-.acct-me { display: flex; align-items: center; gap: 0.75rem; }
-.acct-me img { border-radius: 50%; flex: none; }
 .acct-who small { display: block; color: var(--muted); font-size: 0.75rem; font-weight: 400; }
 .acct-icons summary { display: flex; align-items: center; gap: 0.5rem; cursor: pointer; }
 .acct-icons summary img { border-radius: 50%; }
@@ -4987,8 +4821,6 @@ th > button[data-tip] {
   border-radius: var(--r-sm);
 }
 .acct-list small { display: block; color: var(--muted); font-size: 0.75rem; }
-.acct-links { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-.acct-links .btn { display: inline-flex; align-items: center; text-decoration: none; }
 .acct-danger summary { color: var(--bad); }
 /* Colour: each card wears a site hue (data-accent) on its heading and buttons; no colour edge (soft look). */
 .acct-card[data-accent] h2, .acct-card[data-accent] h3 { color: var(--a); color: var(--a-ink); }
@@ -4996,7 +4828,6 @@ th > button[data-tip] {
 .acct-card[data-accent] .btn.ghost { border-color: var(--a); }
 .acct-signin[data-accent="gold"] .btn:not(.ghost):not(.danger) { color: #1d1606; }
 .acct-signin[data-accent] .acct-tabs .active { color: var(--a); color: var(--a-ink); box-shadow: inset 0 -2px 0 var(--a); }
-.acct-me img { box-shadow: 0 0 0 2px var(--a); }
 
 .btn.danger { background: var(--bad); color: #fff; }
 
@@ -5038,19 +4869,12 @@ th > button[data-tip] {
 .acct-group, #my-stats, #kitchen { scroll-margin-top: 5rem; }
 .acct-group > h2 { margin: 0 0 0.75rem; font-size: 1.25rem; }
 
-
 /* Item page: simulated damage */
 .item-sim { margin-top: 1.5rem; }
 .item-sim .stat-row { margin-top: 0.25rem; margin-bottom: 0.75rem; }
 .item-sim .rank-v { white-space: nowrap; }
 
-/* Each ability has its own colour, the same in both themes: Q blue, W green, E violet, R amber. */
-.skill-key[data-key="Q"] { --skill: #4ea8ff; }
-.skill-key[data-key="W"] { --skill: #3ccf8e; }
-.skill-key[data-key="E"] { --skill: #b48cff; }
-.skill-key[data-key="R"] { --skill: #f2b544; }
 @media (max-width: 600px) {
-  /* Keep the quick reference close to the top on phones. */
   .showcase { height: 190px; }
 }
 
@@ -5149,17 +4973,6 @@ td > button.deepscore:hover::after,
 td > button.deepscore:focus::after {
   right: auto;
   left: 0;
-}
-.atiers-aug {
-  position: relative;
-}
-.atiers-aug .deepscore {
-  position: absolute;
-  top: 0.15rem;
-  right: 0.15rem;
-  width: 1.6rem;
-  height: 1.6rem;
-  font-size: 0.6875rem;
 }
 
 /* Champion pages: the previous and next champion by name (swipe sideways on phones). */
@@ -5393,52 +5206,6 @@ html[data-patch-new] .chip[data-dir="up"]::after {
   color: var(--muted);
   font-size: 0.875rem;
 }
-.item-card {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  height: 100%;
-  padding: 0.6rem 0.75rem;
-  border: 1px solid var(--line);
-  border-radius: var(--r);
-  background: var(--surface);
-  color: var(--fg);
-  text-decoration: none;
-  box-shadow: var(--depth);
-  transition:
-    border-color 0.15s,
-    transform 0.2s,
-    box-shadow 0.2s;
-}
-.item-card:hover {
-  border-color: var(--accent);
-  box-shadow: var(--depth-hover);
-  transform: translateY(-2px);
-}
-.item-card img {
-  flex: none;
-  border-radius: 8px;
-}
-.item-card-body {
-  display: grid;
-  gap: 0.15rem;
-  min-width: 0;
-}
-.item-card-body b {
-  overflow: hidden;
-  font-size: 0.9rem;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-.item-card-body small {
-  color: var(--muted);
-  font-size: 0.75rem;
-}
-.item-card-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 3px;
-}
 .item-tags-row {
   display: flex;
   flex-wrap: wrap;
@@ -5597,49 +5364,6 @@ button.inline-link {
   font: inherit;
   cursor: pointer;
 }
-
-/* Connected Riot account (account page): rank emblems, mastery against Mayhem tiers, ARAM Clash team */
-.acct-ranks {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem 2rem;
-  margin: 0;
-}
-.acct-ranks dt {
-  color: var(--muted);
-  font-size: 0.8125rem;
-}
-.acct-ranks dd {
-  margin: 0;
-  font-weight: 600;
-}
-.acct-ranks dd span {
-  margin-left: 0.5rem;
-  color: var(--muted);
-  font-family: var(--mono);
-  font-size: 0.8125rem;
-  font-weight: 400;
-}
-.acct-riot { grid-column: 1 / -1; display: grid; gap: 1rem; }
-
-.acct-title { margin: 0; }
-.acct-tokens {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem 1.5rem;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-.acct-tokens li {
-  display: grid;
-  grid-template-columns: 48px auto;
-  column-gap: 0.6rem;
-  align-items: center;
-}
-.acct-tokens img { grid-row: span 2; object-fit: contain; }
-.acct-tokens .name { font-weight: 600; }
-.acct-tokens .lvl { color: var(--muted); font-size: 0.8125rem; }
 
 /* Language picker in Settings (components/LanguagePicker.tsx). */
 .lang-picker {
@@ -5971,20 +5695,6 @@ html[data-view="simple"] [data-detailed] {
 /* Full width on wide screens: two columns of five. */
 @media (min-width: 901px) {
   .rank.fun-rank { grid-template-columns: 1fr 1fr; grid-template-rows: repeat(5, auto); grid-auto-flow: column; column-gap: 2.5rem; }
-}
-.item-card-est { display: block; }
-
-/* Tiers/Table and Cards/Table switches (Tier List's Augments and Items tabs). */
-.seg.view-switch {
-  width: fit-content;
-}
-.seg.view-switch button {
-  flex: none;
-  padding: 0 1rem;
-  white-space: nowrap;
-}
-.atiers > .view-switch + .data-table {
-  margin-top: 0.25rem;
 }
 
 /* Patch Recaps list: what the champion beside each patch is. */

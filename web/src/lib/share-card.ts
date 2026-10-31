@@ -32,15 +32,6 @@ const img = (src: string) =>
 // "#rrggbb" plus an alpha byte; other colour formats are used as they are.
 const alpha = (c: string, a: string) => (/^#[0-9a-f]{6}$/i.test(c) ? c + a : c);
 
-/** Tier chip colours, as on the site (.chip.tier-*). */
-export const TIER_COLORS: Record<string, { color: string; ink: string }> = {
-  S: { color: "#e2553f", ink: "#ffffff" },
-  A: { color: "#f0913a", ink: "#1a0e02" },
-  B: { color: "#e6c24a", ink: "#1d1602" },
-  C: { color: "#7fb6e8", ink: "#04121c" },
-  D: { color: "#5b6472", ink: "#ffffff" },
-};
-
 function roundRect(ctx: CanvasRenderingContext2D, x: number, y: number, w: number, h: number, r: number) {
   ctx.beginPath();
   ctx.roundRect(x, y, w, h, r);
