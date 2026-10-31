@@ -168,7 +168,7 @@ export default function Embed({
   return (
     <div className="embed" data-loading={loaded ? undefined : ""}>
       {!loaded && <Skeleton kind="chart" label={`Loading ${title}…`} />}
-      <iframe ref={ref} src={frameSrc} title={title} style={{ height }} />
+      <iframe ref={ref} src={frameSrc} title={title} style={{ height }} allow="fullscreen" />
     </div>
   );
 }

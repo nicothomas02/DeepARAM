@@ -267,6 +267,16 @@ def test_item_page_simulations_match_the_tuned_patch():
     assert item_sim["patch"] == (DATA_DIR / "tuned_patch.txt").read_text().strip()
     assert item_sim["items"]
 
+def test_item_icons_cover_the_live_items():
+    """The replay's results build shows item icons (viewer/replay-data/item-icons.json, tools/build_item_icons.py):
+    every live item the simulator models has one, and each names a file the site hosts."""
+    icons = load_json(VIEWER_DIR / "replay-data/item-icons.json")
+    live = {str(v["id"]) for v in load_json(DATA_DIR / "items.json")["items"].values()}
+    assert live <= set(icons), sorted(live - set(icons))
+    dd = SIM_DIR.parent / "web/public/assets/dd" / load_json(SIM_DIR.parent / "web/src/data/dd-swap.json")["version"] / "img/item"
+    public = SIM_DIR.parent / "web/public"
+    assert all((public / f.lstrip("/") if f.startswith("/") else dd / f).exists() for f in icons.values())
+
 def test_replay_traces_and_fight_length_name_real_champions():
     ids = {c["id"] for c in champions("live")}
     traces = load_json(VIEWER_DIR / "replay-data/traces.json")

@@ -90,6 +90,18 @@
   const custom = {};       // champion id -> trace the user simulated with their own settings
 
   // ---------- loading ----------
+  // Item icons for the results build: each item's file (tools/build_item_icons.py) in the site's copy of the
+  // official images, whose version the site's asset list names. Until both are in (or without them, outside the
+  // site) items show their names.
+  let itemIcon = () => null;
+  Promise.all([
+    fetch(DATA + "item-icons.json" + BUST).then((r) => r.json()),
+    fetch("/assets/manifest.json").then((r) => r.json()),
+  ]).then(([files, m]) => {
+    if (!m.ddragon_version) return;
+    itemIcon = (id) => { const f = files[id]; return !f ? null : f[0] === "/" ? f : "/assets/dd/" + m.ddragon_version + "/img/item/" + f; };
+    if (trace) renderBuild();
+  }).catch(() => {});
   Promise.all([
     fetch(DATA + "index.json" + BUST).then((r) => r.json()),
     fetch(DATA + "traces.json" + BUST).then((r) => r.json()),
@@ -536,7 +548,8 @@
   function resize() {
     const r = arena.getBoundingClientRect();
     const dpr = pixelRatio();
-    const w = Math.round(r.width * dpr), h = Math.round(r.width * 9 / 16 * dpr);
+    // The page sets the arena's shape (taller on phones, the whole screen in full screen); 16:9 until it has one.
+    const w = Math.round(r.width * dpr), h = Math.round((r.height || r.width * 9 / 16) * dpr);
     if (arena.width !== w || arena.height !== h) { arena.width = w; arena.height = h; overlayCanvas.width = w; overlayCanvas.height = h; }
     return dpr;
   }
@@ -1663,7 +1676,16 @@
   // ---------- side panels ----------
   function renderBuild() {
     const b = $("build"); b.textContent = "";
-    for (const it of trace.build.items) { const s = document.createElement("span"); s.textContent = NAME("items", it.id, it.name); b.append(s); }
+    for (const it of trace.build.items) {
+      const name = NAME("items", it.id, it.name), src = itemIcon(it.id);
+      const chip = () => { const s = document.createElement("span"); s.textContent = name; return s; };
+      if (!src) { b.append(chip()); continue; }
+      const im = new Image(44, 44);
+      im.className = "item"; im.src = src; im.alt = name; im.title = name; im.decoding = "async";
+      im.onerror = () => im.replaceWith(chip());
+      b.append(im);
+    }
+    if (trace.build.augments.length) { const br = document.createElement("div"); br.className = "break"; b.append(br); }
     for (const a of trace.build.augments) { const s = document.createElement("span"); s.className = "aug " + (a.rarity || ""); s.textContent = NAME("augments", a.id, a.name); b.append(s); }
     const sm = trace.summary, f = trace.fight;
     const has = mode !== "damage" && sm[MODES[mode].key] !== undefined;
@@ -1784,4 +1806,23 @@
     else if ("qwer".includes(e.key.toLowerCase()) && e.key.length === 1 && champ) showAbility(e.key.toUpperCase());
   });
   window.addEventListener("resize", drawTrack);
+
+  // Full screen: the arena alone fills the screen, where the browser allows it (not on iPhones, which only
+  // play videos full screen; there the taller phone arena has to do).
+  const fsBtn = $("fullscreen"), arenaBox = arena.parentElement;
+  const fsNow = () => document.fullscreenElement || document.webkitFullscreenElement || null;
+  if (fsBtn && (document.fullscreenEnabled || document.webkitFullscreenEnabled)) {
+    fsBtn.hidden = false;
+    fsBtn.addEventListener("click", () => {
+      const p = fsNow() ? (document.exitFullscreen || document.webkitExitFullscreen).call(document)
+        : (arenaBox.requestFullscreen || arenaBox.webkitRequestFullscreen).call(arenaBox);
+      if (p && p.catch) p.catch(() => {});
+    });
+    const sync = () => {
+      const on = fsNow() === arenaBox, label = on ? T("Exit full screen") : T("Full screen");
+      fsBtn.setAttribute("aria-pressed", String(on)); fsBtn.title = label; fsBtn.setAttribute("aria-label", label);
+    };
+    document.addEventListener("fullscreenchange", sync);
+    document.addEventListener("webkitfullscreenchange", sync);
+  }
 })();
