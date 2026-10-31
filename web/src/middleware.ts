@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getCloudflareContext } from "@opennextjs/cloudflare";
+import { canonicalPath } from "@/lib/page-slugs";
 
 // Per-visitor limits on the routes that cost something: browser error reports (/api/log, so they can't
 // flood the logs), signing in, and the writes (public profiles, shared games,
@@ -55,6 +56,12 @@ function memoryAllows(key: string, limit: number) {
 }
 
 export async function middleware(req: NextRequest) {
+  const fixed = canonicalPath(req.nextUrl.pathname);
+  if (fixed) {
+    const url = req.nextUrl.clone();
+    url.pathname = fixed;
+    return NextResponse.redirect(url, 308);
+  }
   const rule = ruleFor(req);
   if (!rule) return NextResponse.next();
   const ip = req.headers.get("cf-connecting-ip") ?? req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ?? "unknown";
@@ -73,4 +80,4 @@ export async function middleware(req: NextRequest) {
   );
 }
 
-export const config = { matcher: ["/api/log", "/api/profile", "/api/games", "/api/history", "/api/account", "/api/account/:path*", "/api/kitchen/:path*", "/api/contact"] };
+export const config = { matcher: ["/api/log", "/api/profile", "/api/games", "/api/history", "/api/account", "/api/account/:path*", "/api/kitchen/:path*", "/api/contact", "/champions/:alias", "/items/:slug", "/augments/:slug"] };
