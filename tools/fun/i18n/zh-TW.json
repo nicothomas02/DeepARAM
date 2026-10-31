@@ -264,5 +264,11 @@
  "Stand behind the team and cast Molten Shield on whoever is about to get hit, then tag an enemy with Disintegrate or Incinerate to release the Butterflies. Save the Pyromania stun your shield casts build up for Tibbers.": "站在隊伍後面，把E丟給快要挨打的隊友，然後用Q或W碰一下敵人放出蝴蝶。護盾攢出來的被動暈眩留給提伯斯。",
  "Healing or Shielding an allied champion with the chosen ability casts that spell again on 2 other nearby allied champions. Heals and Shields are effective. The power of friendship!": "使用所選技能治療或護盾一名友方英雄時，會對附近另外2名友方英雄再次施放該技能。治療和護盾皆有效。友情的力量！",
  "Healing or Shielding allied champions gathers Butterflies. After collecting Butterflies, damaging an enemy champion fires all of them to deal Magic damage.": "治療或護盾友方英雄會收集蝴蝶。收集蝴蝶後，對敵方英雄造成傷害會射出所有蝴蝶，造成魔法傷害。",
- "Shielding an ally grants Move Speed and Ghost decaying over 1.5 seconds. Cooldown per target: 1.5 seconds.": "為友軍提供護盾會給予其在1.5秒內遞減的跑速和鬼步效果。每個目標的冷卻時間：1.5秒。"
+ "Shielding an ally grants Move Speed and Ghost decaying over 1.5 seconds. Cooldown per target: 1.5 seconds.": "為友軍提供護盾會給予其在1.5秒內遞減的跑速和鬼步效果。每個目標的冷卻時間：1.5秒。",
+ "Latest Chef Special · {date}": "最新主廚特餐 · {date}",
+ "Next special at {time}, your time.": "下一道特餐將於你當地時間 {time} 上桌。",
+ "The next special is on its way.": "下一道特餐正在路上。",
+ "No community builds yet": "還沒有社群出裝",
+ "Cooked up something strange? Build it in the Simulator and send it in. The chef picks the best ones for this page.": "想出了奇怪的玩法？在模擬器裡搭好並投稿。主廚會挑出最好的放到這個頁面。",
+ "Send a build from the Simulator": "從模擬器投稿出裝"
 }

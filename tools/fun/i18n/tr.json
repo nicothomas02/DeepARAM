@@ -264,5 +264,11 @@
  "Stand behind the team and cast Molten Shield on whoever is about to get hit, then tag an enemy with Disintegrate or Incinerate to release the Butterflies. Save the Pyromania stun your shield casts build up for Tibbers.": "Takımın arkasında dur, E'yi dayak yemek üzere olana at, sonra kelebekleri salmak için bir rakibe Q ya da W ile vur. Kalkanlarının doldurduğu pasif sersemletmeyi Tibbers'a sakla.",
  "Healing or Shielding an allied champion with the chosen ability casts that spell again on 2 other nearby allied champions. Heals and Shields are effective. The power of friendship!": "Seçilen yetenekle bir dost şampiyonu iyileştirmek ya da korumak, büyüyü yakındaki 2 dost şampiyona daha yapar. İyileştirmeler ve kalkanlar etkilidir. Dostluğun gücü!",
  "Healing or Shielding allied champions gathers Butterflies. After collecting Butterflies, damaging an enemy champion fires all of them to deal Magic damage.": "Dost şampiyonları iyileştirmek ya da korumak kelebek toplar. Kelebekler toplandıktan sonra bir rakip şampiyona hasar vermek hepsini fırlatır ve büyü hasarı verir.",
- "Shielding an ally grants Move Speed and Ghost decaying over 1.5 seconds. Cooldown per target: 1.5 seconds.": "Bir dostu korumak ona 1,5 saniyede azalan hareket hızı ve Hayalet verir. Hedef başına bekleme süresi: 1,5 saniye."
+ "Shielding an ally grants Move Speed and Ghost decaying over 1.5 seconds. Cooldown per target: 1.5 seconds.": "Bir dostu korumak ona 1,5 saniyede azalan hareket hızı ve Hayalet verir. Hedef başına bekleme süresi: 1,5 saniye.",
+ "Latest Chef Special · {date}": "En Son Şefin Spesiyali · {date}",
+ "Next special at {time}, your time.": "Sonraki spesiyal senin saatinle {time}'da.",
+ "The next special is on its way.": "Sonraki spesiyal yolda.",
+ "No community builds yet": "Henüz topluluk buildi yok",
+ "Cooked up something strange? Build it in the Simulator and send it in. The chef picks the best ones for this page.": "Tuhaf bir şey mi pişirdin? Simülatör'de kur ve gönder. Şef en iyilerini bu sayfa için seçer.",
+ "Send a build from the Simulator": "Simülatör'den build gönder"
 }

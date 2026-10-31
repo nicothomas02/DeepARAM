@@ -264,5 +264,11 @@
  "Stand behind the team and cast Molten Shield on whoever is about to get hit, then tag an enemy with Disintegrate or Incinerate to release the Butterflies. Save the Pyromania stun your shield casts build up for Tibbers.": "Fique atrás do time, jogue o E em quem estiver prestes a apanhar e depois acerte um inimigo com o Q ou o W para soltar as borboletas. Guarde o atordoamento da passiva, carregado pelos escudos, para o Tibbers.",
  "Healing or Shielding an allied champion with the chosen ability casts that spell again on 2 other nearby allied champions. Heals and Shields are effective. The power of friendship!": "Curar ou proteger um campeão aliado com a habilidade escolhida lança o feitiço novamente em outros 2 campeões aliados próximos. Curas e escudos são eficazes. O poder da amizade!",
  "Healing or Shielding allied champions gathers Butterflies. After collecting Butterflies, damaging an enemy champion fires all of them to deal Magic damage.": "Curar ou proteger campeões aliados junta Borboletas. Depois de juntá-las, causar dano a um campeão inimigo dispara todas elas, causando dano mágico.",
- "Shielding an ally grants Move Speed and Ghost decaying over 1.5 seconds. Cooldown per target: 1.5 seconds.": "Proteger um aliado concede Velocidade de Movimento e Fantasmagórico que diminuem ao longo de 1,5 segundo. Recarga por alvo: 1,5 segundo."
+ "Shielding an ally grants Move Speed and Ghost decaying over 1.5 seconds. Cooldown per target: 1.5 seconds.": "Proteger um aliado concede Velocidade de Movimento e Fantasmagórico que diminuem ao longo de 1,5 segundo. Recarga por alvo: 1,5 segundo.",
+ "Latest Chef Special · {date}": "O Especial do Chef mais recente · {date}",
+ "Next special at {time}, your time.": "O próximo especial chega às {time}, no seu horário.",
+ "The next special is on its way.": "O próximo especial está a caminho.",
+ "No community builds yet": "Ainda não há builds da comunidade",
+ "Cooked up something strange? Build it in the Simulator and send it in. The chef picks the best ones for this page.": "Cozinhou algo estranho? Monte no Simulador e envie. O chef escolhe as melhores para esta página.",
+ "Send a build from the Simulator": "Enviar uma build pelo Simulador"
 }

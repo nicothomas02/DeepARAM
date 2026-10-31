@@ -264,5 +264,11 @@
  "Stand behind the team and cast Molten Shield on whoever is about to get hit, then tag an enemy with Disintegrate or Incinerate to release the Butterflies. Save the Pyromania stun your shield casts build up for Tibbers.": "チームの後ろに立ち、殴られそうな味方にEをかけ、QかWで敵に触れて蝶を解き放とう。シールドで溜まったパッシブのスタンはティバーズ用に取っておこう。",
  "Healing or Shielding an allied champion with the chosen ability casts that spell again on 2 other nearby allied champions. Heals and Shields are effective. The power of friendship!": "選択したスキルで味方チャンピオンを回復またはシールドすると、近くの別の味方チャンピオン2体にもそのスキルを再発動する。回復とシールドは効果を発揮する。友情の力！",
  "Healing or Shielding allied champions gathers Butterflies. After collecting Butterflies, damaging an enemy champion fires all of them to deal Magic damage.": "味方チャンピオンを回復またはシールドすると蝶が集まる。蝶を集めた後、敵チャンピオンにダメージを与えると全ての蝶が放たれ、魔法ダメージを与える。",
- "Shielding an ally grants Move Speed and Ghost decaying over 1.5 seconds. Cooldown per target: 1.5 seconds.": "味方にシールドを付与すると、1.5秒かけて減衰する移動速度とゴーストを付与する。対象ごとのクールダウン: 1.5秒。"
+ "Shielding an ally grants Move Speed and Ghost decaying over 1.5 seconds. Cooldown per target: 1.5 seconds.": "味方にシールドを付与すると、1.5秒かけて減衰する移動速度とゴーストを付与する。対象ごとのクールダウン: 1.5秒。",
+ "Latest Chef Special · {date}": "最新のシェフのおすすめ · {date}",
+ "Next special at {time}, your time.": "次のおすすめはあなたの時間で{time}に登場します。",
+ "The next special is on its way.": "次のおすすめを準備中です。",
+ "No community builds yet": "コミュニティビルドはまだありません",
+ "Cooked up something strange? Build it in the Simulator and send it in. The chef picks the best ones for this page.": "変わったビルドを思いついた？シミュレーターで組んで送ってください。シェフが優れたものをこのページに選びます。",
+ "Send a build from the Simulator": "シミュレーターからビルドを送る"
 }
