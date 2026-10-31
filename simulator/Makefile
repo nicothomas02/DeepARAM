@@ -67,6 +67,7 @@ replay: mayhem_sim
 	$(if $(MODELS),node tools/build_models.mjs --index viewer/replay-data/index.json --out viewer/replay-data/models)
 	python3 tools/build_team_pairs.py
 	python3 tools/build_dummy_dps.py
+	python3 tools/build_item_icons.py
 	python3 ../web/scripts/build_item_sim.py
 	python3 tools/build_sounds.py --index viewer/replay-data/index.json
 	$(if $(LOCAL),python3 tools/build_anim_data.py --index viewer/replay-data/index.json --out viewer/replay-data/anims.json)
