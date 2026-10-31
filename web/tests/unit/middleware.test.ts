@@ -60,3 +60,37 @@ describe("rate limits", () => {
       expect(config.matcher).not.toContain(path);
   });
 });
+
+describe("near-miss page addresses", () => {
+  const get = (path: string) => middleware(new NextRequest(`https://deeparam.com${path}`));
+
+  it("sends lower-case, display-name and punctuated champion links to the real page", async () => {
+    for (const [from, to] of [
+      ["/champions/ahri", "/champions/Ahri"],
+      ["/champions/wukong", "/champions/MonkeyKing"],
+      ["/champions/kai'sa", "/champions/Kaisa"],
+      ["/champions/Aurelion%20Sol", "/champions/AurelionSol"],
+    ]) {
+      const r = await get(from);
+      expect(r.status, from).toBe(308);
+      expect(new URL(r.headers.get("location")!).pathname, from).toBe(to);
+    }
+  });
+
+  it("lower-cases item and augment addresses and keeps the query", async () => {
+    const r = await get("/augments/Titans-Resolve?x=1");
+    expect(r.status).toBe(308);
+    const u = new URL(r.headers.get("location")!);
+    expect(u.pathname + u.search).toBe("/augments/titans-resolve?x=1");
+    expect((await get("/items/Infinity-Edge")).status).toBe(308);
+  });
+
+  it("leaves real pages and unknown names alone", async () => {
+    for (const p of ["/champions/Ahri", "/champions/MonkeyKing", "/champions/Nobody", "/augments/titans-resolve", "/items/nope"])
+      expect((await get(p)).status, p).toBe(200);
+  });
+
+  it("matches the routes it fixes", () => {
+    expect(config.matcher).toEqual(expect.arrayContaining(["/champions/:alias", "/items/:slug", "/augments/:slug"]));
+  });
+});
