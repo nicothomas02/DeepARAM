@@ -15,9 +15,6 @@ const models = () =>
     .then((m): Record<string, Entry> => Object.fromEntries(Object.entries(m).map(([k, v]) => [k.toLowerCase(), v])))
     .catch(() => ({}) as Record<string, Entry>));
 
-/** True when this champion has a model. */
-export const hasModel = (alias: string) => models().then((m) => Boolean(m[alias.toLowerCase()]));
-
 // A frame this many game units tall fits an average champion with room to spare, so smaller and
 // larger champions keep their real sizes; giants grow the frame to fit.
 const FRAME = 220;

@@ -52,7 +52,6 @@ export function statsDate() {
 export const livePatch = () => readRepoCsv("data/cn/history/patches.csv")?.at(-1)?.patch ?? null;
 
 type Builds = { builds: { champion: string; title: string; augments: string[]; why: string }[] };
-export const kitchenBuild = () => readRepoJson<Builds>("data/cook-builds/builds.json")?.builds[0] ?? null;
 
 type DummyDps = { champions: { champion: string; dps: number }[] };
 /** Damage per second of each champion's simulated best build on a training dummy with the average enemy's

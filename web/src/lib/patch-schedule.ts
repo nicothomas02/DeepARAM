@@ -22,11 +22,6 @@ export function zonedInstant(date: string, time: string, timeZone: string) {
   return guess;
 }
 
-/** Today's calendar date ("2026-10-17") in the given time zone. */
-export function dayIn(timeZone: string, now: Date) {
-  return new Intl.DateTimeFormat("en-CA", { timeZone, year: "numeric", month: "2-digit", day: "2-digit" }).format(now);
-}
-
 /** The next patch whose update time hasn't come yet, with the days and hours to it. Once a patch's time passes it
  * moves on to the one after, so the countdown rolls over by itself. Null once the list runs out. */
 export function nextPatch(s: PatchSchedule, now = new Date()): NextPatch | null {
