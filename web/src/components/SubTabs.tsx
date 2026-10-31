@@ -28,9 +28,15 @@ export default function SubTabs({
     if (active) setOpened((s) => (s.has(active) ? s : new Set(s).add(active)));
   }, [active]);
   // ?tab=<id> opens that tab, so links from the home page and search land on the right one.
+  // Each tab is a Back step: Back and Forward reopen the tab the address names.
   useEffect(() => {
-    const want = new URLSearchParams(location.search).get("tab");
-    if (want && tabs.some((t) => t.id === want)) setActive(want);
+    const sync = () => {
+      const want = new URLSearchParams(location.search).get("tab");
+      setActive(want && tabs.some((t) => t.id === want) ? want : tabs[0]?.id);
+    };
+    sync();
+    window.addEventListener("popstate", sync);
+    return () => window.removeEventListener("popstate", sync);
   }, [tabs]);
   return (
     <div className="subtabs">
@@ -51,7 +57,7 @@ export default function SubTabs({
                 tab: t.id === tabs[0]?.id ? null : t.id,
                 q: null,
                 sort: null,
-              });
+              }, { push: true });
             }}
           >
             {label(t.label)}

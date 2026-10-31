@@ -2,7 +2,9 @@ import "server-only";
 import augmentNames from "@/data/augment-names.json";
 import championNames from "@/data/champion-names.json";
 import type { SearchItem } from "@/components/SearchPalette";
+import languages from "@/i18n/languages.json";
 import { augmentHref } from "./augments";
+import { foldName } from "./fold";
 import { augmentTiers } from "./augment-tiers";
 import { itemPages } from "./item-pages";
 import { readRepoCsv, readRepoJson } from "./repo-data";
@@ -76,8 +78,26 @@ export const searchPages = (): SearchItem[] => [
   ...[...navPages(), { href: "/account#my-stats", label: "My Stats" }].map((t) => ({ group: "Pages", name: t.label, hint: "Page", href: t.href })),
 ];
 
+// Every champion's name in each site language, folded, so search finds a champion typed in any language
+// (阿狸 or Ари on the English site). Only names that differ from the English one are kept.
+function championNamesEverywhere(): Record<string, string[]> {
+  const out: Record<string, Set<string>> = {};
+  for (const { code } of languages) {
+    if (code === "en") continue;
+    const d = readRepoJson<{ champions?: Record<string, string> }>(`web/public/i18n/names/${code}.json`);
+    for (const [alias, name] of Object.entries(d?.champions ?? {})) (out[alias] ??= new Set()).add(foldName(name));
+  }
+  return Object.fromEntries(
+    Object.entries(out).map(([alias, set]) => {
+      set.delete(foldName(champName(alias)));
+      return [alias, [...set]];
+    }),
+  );
+}
+
 export function searchItems(): SearchItem[] {
   const pct = (v: number) => `${(v * 100).toFixed(1)}% win`;
+  const everywhere = championNamesEverywhere();
   const pages = searchPages();
   const champs = (readRepoCsv("data/cn/champions.csv") ?? []).map((r) => ({
     group: "Champions",
@@ -86,6 +106,7 @@ export function searchItems(): SearchItem[] {
     href: `/champions/${r.name}`,
     icon: `/icons/champions/${r.name}.webp`,
     ref: ["champions", r.name] as SearchItem["ref"],
+    alt: everywhere[r.name]?.length ? everywhere[r.name] : undefined,
   }));
   const augs = (readRepoCsv("data/cn/augments.csv") ?? [])
     .filter((r) => AUGS[r.augment_id])

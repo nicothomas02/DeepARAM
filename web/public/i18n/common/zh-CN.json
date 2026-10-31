@@ -211,5 +211,8 @@
  "Best items": "最佳装备",
  "Cook builds from The Kitchen": "在 The Kitchen 烹制出装",
  "See all champions →": "查看全部英雄 →",
- "{ds} DeepScore · {wr} win · {pr} pick": "{ds} DeepScore · 胜率 {wr} · 选取率 {pr}"
+ "{ds} DeepScore · {wr} win · {pr} pick": "{ds} DeepScore · 胜率 {wr} · 选取率 {pr}",
+ "This page doesn't exist.": "此页面不存在。",
+ "It may have moved, or the link has a typo. Search with / or ⌘K, or try one of these.": "页面可能已移动，或链接有拼写错误。按 / 或 ⌘K 搜索，或试试以下页面。",
+ "Did you mean": "你是不是要找"
 }

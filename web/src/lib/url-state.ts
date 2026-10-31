@@ -1,5 +1,6 @@
 // Keeps a page's view in its address (?tab=, ?q=, ?sort=, ?patches=) so a copied link opens the same view.
-// replaceState: changing a filter doesn't add a Back step.
+// replaceState: changing a filter doesn't add a Back step. Switching tabs does ({ push: true }), so Back returns
+// to the tab before.
 //
 // Pages in REMEMBERED also save their last view (minus the search box) in this browser, so going back
 // to the page reopens it the way it was left: VIEW_SCRIPT restores it on a full page load and
@@ -16,13 +17,15 @@ const remembering = () => {
   }
 };
 
-export function setParams(values: Record<string, string | null>) {
+export function setParams(values: Record<string, string | null>, { push = false } = {}) {
   const url = new URL(location.href);
   for (const [k, v] of Object.entries(values)) {
     if (v === null || v === "") url.searchParams.delete(k);
     else url.searchParams.set(k, v);
   }
-  history.replaceState(history.state, "", url.pathname + url.search + url.hash);
+  const next = url.pathname + url.search + url.hash;
+  if (push && next !== location.pathname + location.search + location.hash) history.pushState(history.state, "", next);
+  else history.replaceState(history.state, "", next);
   if (REMEMBERED.includes(url.pathname) && remembering()) {
     url.searchParams.delete("q");
     try {

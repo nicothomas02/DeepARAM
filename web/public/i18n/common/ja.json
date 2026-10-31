@@ -211,5 +211,8 @@
  "Best items": "おすすめアイテム",
  "Cook builds from The Kitchen": "The Kitchenでビルドを作ろう",
  "See all champions →": "すべてのチャンピオンを見る →",
- "{ds} DeepScore · {wr} win · {pr} pick": "{ds} DeepScore · 勝率{wr} · ピック率{pr}"
+ "{ds} DeepScore · {wr} win · {pr} pick": "{ds} DeepScore · 勝率{wr} · ピック率{pr}",
+ "This page doesn't exist.": "このページは存在しません。",
+ "It may have moved, or the link has a typo. Search with / or ⌘K, or try one of these.": "移動したか、リンクに誤字がある可能性があります。/ または ⌘K で検索するか、次のいずれかをお試しください。",
+ "Did you mean": "もしかして"
 }

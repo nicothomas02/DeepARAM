@@ -4660,6 +4660,10 @@ th > button[data-tip] {
   display: inline-grid;
   place-items: center;
 }
+.nf-suggest { margin-top: 1rem; }
+.nf-suggest ul { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0.4rem 0 0; padding: 0; list-style: none; }
+.nf-suggest .btn { display: inline-flex; align-items: center; gap: 0.5rem; }
+.nf-suggest img { border-radius: 6px; }
 
 /* Build Helper (/what-to-build) */
 .helper {

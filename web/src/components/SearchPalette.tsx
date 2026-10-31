@@ -3,10 +3,12 @@
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useNames, useT, type NameKind } from "./I18n";
-import { foldName } from "@/lib/fold";
+import { rankSearch } from "@/lib/search-rank";
 
-/** `ref` names a champion, augment or item, so search shows and matches its name in the page's language too. */
-export type SearchItem = { group: string; name: string; hint: string; href: string; icon?: string; ref?: [NameKind, string] };
+/** `ref` names a champion, augment or item, so search shows and matches its name in the page's language too.
+ * `alt` holds a champion's other names in every site language, already folded (lib/fold.ts). */
+export type SearchItem = { group: string; name: string; hint: string; href: string; icon?: string; ref?: [NameKind, string]; alt?: string[] };
+
 
 // Hints written from numbers on the server ("52.1% win", "3000 gold", "Page · Beta"), in the page's language.
 function hintText(hint: string, t: (s: string, v?: Record<string, string | number>) => string) {
@@ -44,11 +46,8 @@ export default function SearchPalette({ pages }: { pages: SearchItem[] }) {
 
   const shown = useMemo(() => {
     const q = query.trim().toLowerCase();
-    // "kaisa" finds Kai'Sa and "monkey king" finds Wukong (by its page address); a query that is only
-    // punctuation still matches as typed.
-    const f = foldName(q);
-    const hit = (s: string) => s.toLowerCase().includes(q) || (f !== "" && foldName(s).includes(f));
-    return (q ? items.filter((i) => hit(i.name) || hit(local(i)) || (i.ref?.[0] === "champions" && hit(i.href.split("/").pop() ?? ""))) : items.filter((i) => i.group === "Pages")).slice(0, 40);
+    if (!q) return items.filter((i) => i.group === "Pages").slice(0, 40);
+    return rankSearch(items, q, local).slice(0, 40);
   }, [items, query, local]);
 
   const show = useCallback(() => {

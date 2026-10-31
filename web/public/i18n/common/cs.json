@@ -211,5 +211,8 @@
  "Best items": "Nejlepší předměty",
  "Cook builds from The Kitchen": "Vař buildy v The Kitchen",
  "See all champions →": "Zobrazit všechny šampiony →",
- "{ds} DeepScore · {wr} win · {pr} pick": "{ds} DeepScore · {wr} výher · {pr} výběrů"
+ "{ds} DeepScore · {wr} win · {pr} pick": "{ds} DeepScore · {wr} výher · {pr} výběrů",
+ "This page doesn't exist.": "Tato stránka neexistuje.",
+ "It may have moved, or the link has a typo. Search with / or ⌘K, or try one of these.": "Možná se přesunula nebo je v odkazu překlep. Hledejte pomocí / nebo ⌘K, nebo zkuste jednu z těchto možností.",
+ "Did you mean": "Mysleli jste"
 }
