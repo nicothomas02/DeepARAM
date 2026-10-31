@@ -264,5 +264,11 @@
  "Stand behind the team and cast Molten Shield on whoever is about to get hit, then tag an enemy with Disintegrate or Incinerate to release the Butterflies. Save the Pyromania stun your shield casts build up for Tibbers.": "Μείνε πίσω από την ομάδα, ρίξε το E σε όποιον πάει να φάει ξύλο και μετά χτύπα έναν εχθρό με Q ή W για να αφήσεις τις πεταλούδες. Κράτα το stun της παθητικής, που φορτώνουν οι ασπίδες σου, για τον Τίμπερς.",
  "Healing or Shielding an allied champion with the chosen ability casts that spell again on 2 other nearby allied champions. Heals and Shields are effective. The power of friendship!": "Η θεραπεία ή η θωράκιση ενός συμμαχικού πρωταθλητή με την επιλεγμένη ικανότητα ρίχνει ξανά το ξόρκι σε 2 άλλους κοντινούς συμμαχικούς πρωταθλητές. Οι θεραπείες και οι ασπίδες είναι αποτελεσματικές. Η δύναμη της φιλίας!",
  "Healing or Shielding allied champions gathers Butterflies. After collecting Butterflies, damaging an enemy champion fires all of them to deal Magic damage.": "Η θεραπεία ή η θωράκιση συμμαχικών πρωταθλητών μαζεύει πεταλούδες. Αφού τις μαζέψεις, η ζημιά σε εχθρικό πρωταθλητή τις εκτοξεύει όλες προκαλώντας μαγική ζημιά.",
- "Shielding an ally grants Move Speed and Ghost decaying over 1.5 seconds. Cooldown per target: 1.5 seconds.": "Η θωράκιση ενός συμμάχου του δίνει ταχύτητα κίνησης και Φάντασμα που μειώνονται σε 1,5 δευτερόλεπτο. Χρόνος επαναφόρτισης ανά στόχο: 1,5 δευτερόλεπτο."
+ "Shielding an ally grants Move Speed and Ghost decaying over 1.5 seconds. Cooldown per target: 1.5 seconds.": "Η θωράκιση ενός συμμάχου του δίνει ταχύτητα κίνησης και Φάντασμα που μειώνονται σε 1,5 δευτερόλεπτο. Χρόνος επαναφόρτισης ανά στόχο: 1,5 δευτερόλεπτο.",
+ "Latest Chef Special · {date}": "Η πιο πρόσφατη Σπεσιαλιτέ του Σεφ · {date}",
+ "Next special at {time}, your time.": "Η επόμενη σπεσιαλιτέ στις {time}, στη δική σου ώρα.",
+ "The next special is on its way.": "Η επόμενη σπεσιαλιτέ έρχεται.",
+ "No community builds yet": "Δεν υπάρχουν ακόμα build της κοινότητας",
+ "Cooked up something strange? Build it in the Simulator and send it in. The chef picks the best ones for this page.": "Μαγείρεψες κάτι παράξενο; Φτιάξ' το στον Προσομοιωτή και στείλ' το. Ο σεφ διαλέγει τα καλύτερα για αυτή τη σελίδα.",
+ "Send a build from the Simulator": "Στείλε ένα build από τον Προσομοιωτή"
 }

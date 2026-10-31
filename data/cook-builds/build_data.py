@@ -199,6 +199,22 @@ def item_id_map():
     return out
 
 
+def item_icons(extra_ids=()):
+    """Item id -> the site's own copy of its icon, for every item sold in ARAM (community builds can use any of
+    them) and every id in extra_ids. The path is the client icon under /assets/cd/; the site build points it at
+    the official Data Dragon copy (web/scripts/sync-embeds.mjs), so it keeps working when the patch changes."""
+    cd = os.path.join(REPO, "web", "public", "assets", "cd", "latest", "plugins", "rcp-be-lol-game-data", "global", "default", "v1", "items.json")
+    if not os.path.isfile(cd):
+        return {}
+    wanted = set(item_id_map().values()) | {i for i in extra_ids if i}
+    out = {}
+    for i in json.load(open(cd, encoding="utf-8")):
+        if i["id"] in wanted and i.get("iconPath"):
+            rel = re.sub(r"^/lol-game-data/assets/", "", i["iconPath"], flags=re.I).lower()
+            out[str(i["id"])] = "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/" + rel
+    return dict(sorted(out.items(), key=lambda kv: int(kv[0])))
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--cn", default=os.path.join(HERE, "..", "cn"))
@@ -266,6 +282,7 @@ def main():
         "cn_champion_date": cn_aug["meta"].get("champion_stat_date"),
         "champion_count": n_champs, "augment_count": len(aug_stats),
         "generated": time.strftime("%Y-%m-%d"),
+        "item_icons": item_icons(i for b in out for i in b["item_ids"]),
     }
     with open(os.path.join(PAGE, "data.js"), "w", encoding="utf-8") as f:
         f.write("window.COOK_DATA = " + json.dumps({"meta": meta, "builds": out}, indent=1, ensure_ascii=False) + ";\n")

@@ -9,6 +9,12 @@ LabI18n.ready(function () {
   const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
   const icon = (path) => (window.COOK_ICONS && window.COOK_ICONS[path]) || path;
   const day = (iso) => LabI18n.date(iso, { month: "short", day: "numeric" });
+  // An item's icon (the site's own copy, by item id); the name stays beside it. A missing icon just hides itself.
+  const ITEM_ICONS = (data.meta && data.meta.item_icons) || {};
+  const itemRow = (id, name) => {
+    const src = id != null && ITEM_ICONS[String(id)];
+    return `<li>${src ? `<img src="${esc(src)}" alt="" width="28" height="28" loading="lazy" onerror="this.remove()">` : ""}<span>${esc(name)}</span></li>`;
+  };
   const fullDay = (iso) => LabI18n.date(iso, { weekday: "long", month: "long", day: "numeric", year: "numeric" });
 
   // Every build with a `chef` date was the Chef Special that day; a new one is added every day and the
@@ -66,9 +72,31 @@ LabI18n.ready(function () {
       <p class="play muted"><b>${T("How to play:")}</b> ${esc(T(b.play))}</p>
       <div class="cols">
         <div><h3>${T("Augments")}</h3><ul class="augs">${b.augments.map(augRow).join("")}</ul></div>
-        <div><h3>${T("Items")}</h3><ul class="items">${b.items.map((x, i) => `<li>${esc(itemName(b, i))}</li>`).join("")}</ul></div>
+        <div><h3>${T("Items")}</h3><ul class="items">${b.items.map((x, i) => itemRow((b.item_ids || [])[i], itemName(b, i))).join("")}</ul></div>
       </div>
     </article>`;
+  }
+
+  // A new special lands every day at 7:50 PM New York time. Until today's has landed, the newest one is
+  // yesterday's (or older), so it's the "Latest" special, with when the next one arrives in the visitor's own time.
+  const NY = "America/New_York";
+  const nyParts = (t) => Object.fromEntries(new Intl.DateTimeFormat("en-US", { timeZone: NY, hourCycle: "h23", year: "numeric", month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit" })
+    .formatToParts(t).filter((p) => p.type !== "literal").map((p) => [p.type, +p.value]));
+  const nyToday = (t) => { const p = nyParts(t); return `${p.year}-${String(p.month).padStart(2, "0")}-${String(p.day).padStart(2, "0")}`; };
+  // 7:50 PM New York on the day of t, as a moment: start from that wall time read as UTC, then remove New York's offset.
+  function nyServeTime(t) {
+    const p = nyParts(t);
+    const guess = Date.UTC(p.year, p.month - 1, p.day, 19, 50);
+    const q = nyParts(new Date(guess));
+    const offset = Date.UTC(q.year, q.month - 1, q.day, q.hour, q.minute) - guess;
+    return new Date(guess - offset);
+  }
+  const clock = (t) => t.toLocaleTimeString(LabI18n.lang === "en" ? "en-US" : LabI18n.lang, { hour: "numeric", minute: "2-digit" });
+  function freshness(b) {
+    const now = new Date();
+    if (b.chef >= nyToday(now)) return { fresh: true };
+    const serve = nyServeTime(now);
+    return { fresh: false, next: serve > now ? T("Next special at {time}, your time.", { time: clock(serve) }) : T("The next special is on its way.") };
   }
 
   // The Chef Special box shows today's special, or an older one picked from the archive.
@@ -76,10 +104,12 @@ LabI18n.ready(function () {
     const box = document.getElementById("chefs-special");
     const i = specials.indexOf(b);
     const today = b === chef;
-    const label = esc(T(today ? "Today's Chef Special · {date}" : "Chef Special · {date}", { date: day(b.chef) }));
+    const f = today ? freshness(b) : null;
+    const date = { date: day(b.chef) };
+    const label = esc(!today ? T("Chef Special · {date}", date) : f.fresh ? T("Today's Chef Special · {date}", date) : T("Latest Chef Special · {date}", date));
     const opts = specials.map((s) => `<option value="${esc(s.chef)}"${s === b ? " selected" : ""}>${esc(day(s.chef))} · ${esc(T(s.title))} (${esc(champ(s))})</option>`).join("");
     box.innerHTML = `<div class="chef-head"><p class="eyebrow" id="chef-label">${label}</p>
-      <p class="muted small">${today ? T("A new unconventional build every day, built on augments that work together.") : `${esc(T("Served {date}.", { date: fullDay(b.chef) }))} <a href="#chefs-special">${T("Back to today's")}</a>`}</p></div>
+      <p class="muted small">${today ? `${T("A new unconventional build every day, built on augments that work together.")}${f.next ? ` ${esc(f.next)}` : ""}` : `${esc(T("Served {date}.", { date: fullDay(b.chef) }))} <a href="#chefs-special">${T("Back to today's")}</a>`}</p></div>
       <div class="chef-archive" id="chef-archive" role="group" aria-label="${T("Chef Special archive")}">
         <span class="eyebrow">${esc(T(specials.length === 1 ? "Archive · {n} special" : "Archive · {n} specials", { n: specials.length }))}</span>
         <button type="button" data-go="${i + 1}"${i + 1 >= specials.length ? " disabled" : ""}>${T("‹ Earlier")}</button>
@@ -118,7 +148,7 @@ LabI18n.ready(function () {
       <p class="why" dir="auto">${esc(c.description)}</p>
       <div class="cols">
         ${c.augments.length ? `<div><h3>${T("Augments")}</h3><ul class="items">${c.augments.map((a) => `<li>${esc(LabI18n.name("augments", a.id, a.name))}</li>`).join("")}</ul></div>` : ""}
-        <div><h3>${T("Items")}</h3><ul class="items">${c.items.map((i) => `<li>${esc(LabI18n.name("items", i.id, i.name))}</li>`).join("")}</ul></div>
+        <div><h3>${T("Items")}</h3><ul class="items">${c.items.map((i) => itemRow(i.id, LabI18n.name("items", i.id, i.name))).join("")}</ul></div>
       </div>
     </article>`;
   }
@@ -126,9 +156,14 @@ LabI18n.ready(function () {
     fetch("/api/kitchen/community", { credentials: "same-origin" })
       .then((r) => (r.ok ? r.json() : null))
       .then((j) => {
+        if (!j) return;
         const list = (j && Array.isArray(j.builds) ? j.builds : []).filter((c) => c && c.title && Array.isArray(c.items) && Array.isArray(c.augments));
-        if (!list.length) return;
-        document.getElementById("community-builds").innerHTML = list.map(communityCard).join("");
+        // No approved builds yet: invite the first one instead of hiding the section.
+        document.getElementById("community-builds").innerHTML = list.length ? list.map(communityCard).join("") : `<div class="empty">
+          <p class="empty-title">${T("No community builds yet")}</p>
+          <p class="muted">${T("Cooked up something strange? Build it in the Simulator and send it in. The chef picks the best ones for this page.")}</p>
+          <a class="empty-cta" href="/simulator" target="_top">${T("Send a build from the Simulator")}</a>
+        </div>`;
         document.getElementById("community").hidden = false;
         if (location.hash === "#community") document.getElementById("community").scrollIntoView();
       })

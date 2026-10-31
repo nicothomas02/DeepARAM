@@ -264,5 +264,11 @@
  "Stand behind the team and cast Molten Shield on whoever is about to get hit, then tag an enemy with Disintegrate or Incinerate to release the Butterflies. Save the Pyromania stun your shield casts build up for Tibbers.": "Stai în spatele echipei, aruncă E pe cine urmează să încaseze, apoi lovește un inamic cu Q sau W ca să eliberezi fluturii. Păstrează amețirea din pasivă, încărcată de scuturi, pentru Tibbers.",
  "Healing or Shielding an allied champion with the chosen ability casts that spell again on 2 other nearby allied champions. Heals and Shields are effective. The power of friendship!": "Vindecarea sau protejarea unui campion aliat cu abilitatea aleasă relansează vraja asupra altor 2 campioni aliați din apropiere. Vindecările și scuturile sunt eficiente. Puterea prieteniei!",
  "Healing or Shielding allied champions gathers Butterflies. After collecting Butterflies, damaging an enemy champion fires all of them to deal Magic damage.": "Vindecarea sau protejarea campionilor aliați adună fluturi. După ce aduni fluturi, rănirea unui campion inamic îi lansează pe toți, provocând daune magice.",
- "Shielding an ally grants Move Speed and Ghost decaying over 1.5 seconds. Cooldown per target: 1.5 seconds.": "Protejarea unui aliat îi conferă viteză de mișcare și Fantomă care scad în 1,5 secunde. Timp de reactivare per țintă: 1,5 secunde."
+ "Shielding an ally grants Move Speed and Ghost decaying over 1.5 seconds. Cooldown per target: 1.5 seconds.": "Protejarea unui aliat îi conferă viteză de mișcare și Fantomă care scad în 1,5 secunde. Timp de reactivare per țintă: 1,5 secunde.",
+ "Latest Chef Special · {date}": "Cea mai nouă specialitate a bucătarului · {date}",
+ "Next special at {time}, your time.": "Următoarea specialitate la {time}, ora ta.",
+ "The next special is on its way.": "Următoarea specialitate e pe drum.",
+ "No community builds yet": "Încă nu există builduri ale comunității",
+ "Cooked up something strange? Build it in the Simulator and send it in. The chef picks the best ones for this page.": "Ai gătit ceva ciudat? Construiește-l în Simulator și trimite-l. Bucătarul le alege pe cele mai bune pentru această pagină.",
+ "Send a build from the Simulator": "Trimite un build din Simulator"
 }

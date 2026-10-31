@@ -264,5 +264,11 @@
  "Stand behind the team and cast Molten Shield on whoever is about to get hit, then tag an enemy with Disintegrate or Incinerate to release the Butterflies. Save the Pyromania stun your shield casts build up for Tibbers.": "Стой за командой, кидай E на того, кого вот-вот будут бить, затем задень врага Q или W, чтобы выпустить бабочек. Оглушение пассивки, накопленное щитами, береги для Тибберса.",
  "Healing or Shielding an allied champion with the chosen ability casts that spell again on 2 other nearby allied champions. Heals and Shields are effective. The power of friendship!": "Лечение или щит на союзного чемпиона выбранным умением повторно применяет его к 2 другим союзным чемпионам поблизости. Лечение и щиты действуют в полную силу. Сила дружбы!",
  "Healing or Shielding allied champions gathers Butterflies. After collecting Butterflies, damaging an enemy champion fires all of them to deal Magic damage.": "Лечение или щиты на союзных чемпионах собирают бабочек. После этого нанесение урона вражескому чемпиону выпускает их всех, нанося магический урон.",
- "Shielding an ally grants Move Speed and Ghost decaying over 1.5 seconds. Cooldown per target: 1.5 seconds.": "Щит на союзнике даёт ему скорость передвижения и Призрака, которые ослабевают за 1,5 сек. Перезарядка для каждой цели: 1,5 сек."
+ "Shielding an ally grants Move Speed and Ghost decaying over 1.5 seconds. Cooldown per target: 1.5 seconds.": "Щит на союзнике даёт ему скорость передвижения и Призрака, которые ослабевают за 1,5 сек. Перезарядка для каждой цели: 1,5 сек.",
+ "Latest Chef Special · {date}": "Последнее блюдо от шефа · {date}",
+ "Next special at {time}, your time.": "Следующее блюдо в {time} по вашему времени.",
+ "The next special is on its way.": "Следующее блюдо уже готовится.",
+ "No community builds yet": "Сборок сообщества пока нет",
+ "Cooked up something strange? Build it in the Simulator and send it in. The chef picks the best ones for this page.": "Приготовили что-то странное? Соберите это в Симуляторе и отправьте. Шеф выберет лучшие для этой страницы.",
+ "Send a build from the Simulator": "Отправить сборку из Симулятора"
 }
