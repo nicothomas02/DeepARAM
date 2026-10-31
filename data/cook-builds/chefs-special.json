@@ -1,297 +1,297 @@
 {
-  "id": "kled-nail-gun-salesman",
-  "title": "The Nail Gun Salesman",
-  "champion": "Kled",
-  "champion_name": "Kled",
-  "chef": "2026-10-29",
-  "why": "Kled's Violent Tendencies is a side effect most players barely think about: his next attack grants a big burst of Attack Speed for four attacks, then it sits on cooldown. With these augments rolled on Violent Tendencies, Reload makes every on-hit attack during it cut its cooldown, and Mystic Punch cuts all of his ability cooldowns on every on-hit, so the four fast attacks plus every attack in between bring it back far sooner. While it is up, Lil' Extra Help hands Kled bonus Attack Range and even more Attack Speed, and Pin Cushion turns each of those attacks into Nails that pile up damage and then execute. Guinsoo's Rageblade feeds the same loop, because when fully stacked every third attack applies on-hit effects twice, doubling the Reload and Mystic Punch cooldown cuts, while Blade of The Ruined King, Wit's End, Kraken Slayer and Terminus make every nailed attack hurt. The bear-trap brawler turns into a long-range nail gun that lives in Violent Tendencies.",
-  "play": "Start Violent Tendencies on whoever is closest, stay at max range so the Nails keep stacking, and let Reload and Mystic Punch hand it right back. Save Jousting to get back onto a target whose Nails are about to pop.",
+  "id": "annie-daycare-director",
+  "title": "Daycare Director",
+  "champion": "Annie",
+  "champion_name": "Annie",
+  "chef": "2026-10-30",
+  "why": "Molten Shield has a target nobody uses: Annie can cast it on an ally, handing them a shield, a burst of Move Speed and thorns that damage anyone who hits them, and Tibbers spawns wearing one too. With Group Hug rolled on Molten Shield, every cast shields two more allies, so one button is three shields, three speed boosts and three sets of thorns. Enchanting Butterflies gathers a Butterfly for every ally she shields, Sonic Boom makes each shield explode for damage and a Slow around that ally, and Sound Barrier hands every shielded teammate Move Speed and Ghost, so the moment Annie damages an enemy all the Butterflies fly out as magic damage. Moonstone Renewer chains each shield to yet another ally for one more Butterfly and boom, Staff of Flowing Water and Ardent Censer pay her and every shielded ally in Ability Power, Haste and Attack Speed, and Shurelya's Battlesong buffs the whole team for another round of booms. The point-and-click burst mage stops casting at enemies and becomes a shield bot whose damage comes out of her teammates.",
+  "play": "Stand behind the team and cast Molten Shield on whoever is about to get hit, then tag an enemy with Disintegrate or Incinerate to release the Butterflies. Save the Pyromania stun your shield casts build up for Tibbers.",
   "items": [
-    "Guinsoo's Rageblade",
-    "Blade of The Ruined King",
-    "Wit's End",
-    "Kraken Slayer",
-    "Terminus",
-    "Berserker's Greaves"
+    "Moonstone Renewer",
+    "Staff of Flowing Water",
+    "Ardent Censer",
+    "Shurelya's Battlesong",
+    "Dawncore",
+    "Ionian Boots of Lucidity"
   ],
   "core": 4,
-  "champion_icon": "/embed/fun/cook-builds/icons/champions/240.png",
+  "champion_icon": "/embed/fun/cook-builds/icons/champions/1.png",
   "augments": [
     {
-      "name": "Reload",
-      "rarity": "Gold",
-      "core": true,
-      "text": "Basic Attacks On-Hit during the chosen ability reduce its cooldown.",
-      "icon": "/embed/fun/cook-builds/icons/augments/reload.png",
-      "id": 2126
-    },
-    {
-      "name": "Mystic Punch",
+      "name": "Group Hug",
       "rarity": "Prismatic",
       "core": true,
-      "text": "On-Hit reduce the cooldown of your abilities by 1.25 seconds.",
-      "icon": "/embed/fun/cook-builds/icons/augments/mystic-punch.png",
-      "id": 1058
+      "text": "Healing or Shielding an allied champion with the chosen ability casts that spell again on 2 other nearby allied champions. Heals and Shields are effective. The power of friendship!",
+      "icon": "/embed/fun/cook-builds/icons/augments/group-hug.png",
+      "id": 3149
     },
     {
-      "name": "Lil' Extra Help",
+      "name": "Enchanting Butterflies",
       "rarity": "Gold",
       "core": true,
-      "text": "Gain Attack Range and Attack Speed during Your chosen ability duration.",
-      "icon": "/embed/fun/cook-builds/icons/augments/lil-extra-help.png",
-      "id": 2096
+      "text": "Healing or Shielding allied champions gathers Butterflies. After collecting Butterflies, damaging an enemy champion fires all of them to deal Magic damage.",
+      "icon": "/embed/fun/cook-builds/icons/augments/enchanting-butterflies.png",
+      "id": 3163
     },
     {
-      "name": "Pin Cushion",
-      "rarity": "Prismatic",
+      "name": "Sonic Boom",
+      "rarity": "Silver",
       "core": true,
-      "text": "Attacks during the chosen ability gouge your target with Nails. Nails accumulate damage, execute, and grant Movement Speed upon expiration.",
-      "icon": "/embed/fun/cook-builds/icons/augments/pin-cushion.png",
-      "id": 2135
+      "text": "Buffing, Healing, or Shielding your ally deals damage and Slows enemies surrounding them.",
+      "icon": "/embed/fun/cook-builds/icons/augments/sonic-boom.png",
+      "id": 1076
+    },
+    {
+      "name": "Sound Barrier",
+      "rarity": "Silver",
+      "core": true,
+      "text": "Shielding an ally grants Move Speed and Ghost decaying over 1.5 seconds. Cooldown per target: 1.5 seconds.",
+      "icon": "/embed/fun/cook-builds/icons/augments/sound-barrier.png",
+      "id": 3025
     }
   ],
   "href": "/kitchen#chefs-special",
   "archive_href": "/kitchen#chef-archive",
-  "share_href": "/kitchen/2026-10-29",
-  "share_image": "/embed/fun/cook-builds/share/kled-nail-gun-salesman.png",
+  "share_href": "/kitchen/2026-10-30",
+  "share_image": "/embed/fun/cook-builds/share/annie-daycare-director.png",
   "item_ids": [
-    3124,
-    3153,
-    3091,
-    6672,
-    3302,
-    3006
+    6617,
+    6616,
+    3504,
+    2065,
+    6621,
+    3158
   ],
   "i18n": {
     "ar": {
-      "title": "بائع مسدس المسامير",
-      "why": "مهارة W لدى كليد أثر جانبي لا يفكر فيه أحد تقريبًا: هجومه التالي يمنحه دفعة كبيرة من سرعة الهجوم لأربع هجمات، ثم تدخل في فترة التهدئة. عندما تقع هذه التعزيزات على مهارة W، تجعل إعادة التلقيم كل هجوم بتأثير عند الإصابة خلالها يقلل فترة تهدئتها، وتقلل لكمة الغموض فترة تهدئة كل قدراته مع كل تأثير عند الإصابة، فتعيدها الهجمات الأربع السريعة وكل هجوم بينها أسرع بكثير. أثناء تفعيلها، تمنح مساعدة إضافية بسيطة كليد مدى هجوم إضافيًا وسرعة هجوم أكبر، وتحوّل وسادة الدبابيس كل هجمة منها إلى مسامير تجمع الضرر ثم تُجهز على الهدف. ويغذي نصل غضب غينسو الحلقة نفسها، فعند اكتمال شحناته تطبق كل هجمة ثالثة تأثيرات الإصابة مرتين، مضاعفة تقليل التهدئة من إعادة التلقيم ولكمة الغموض، بينما تجعل نصل الملك المحطَم والموقف الحرج وقاتل الكراكن ومحطة النهاية كل هجمة مسمّرة مؤلمة. يتحول المشاكس صاحب فخ الدببة إلى مسدس مسامير بعيد المدى يعيش داخل مهارة W.",
-      "play": "فعّل W على أقرب عدو، وابقَ على أقصى مدى لتستمر المسامير في التراكم، ودع إعادة التلقيم ولكمة الغموض يعيدانها إليك فورًا. احتفظ بـ E للعودة إلى هدف توشك مساميره على الانفجار.",
+      "title": "مديرة الحضانة",
+      "why": "لمهارة E عند آني هدف لا يستخدمه أحد: يمكنها إلقاؤها على حليف فيحصل على درع ودفعة سرعة حركة وأشواك تؤذي كل من يضربه، ويظهر تيبرز وهو يحملها أيضًا. مع عناق جماعي على مهارة E، كل استخدام يحمي حليفين إضافيين، فزر واحد يعني ثلاثة دروع وثلاث دفعات سرعة وثلاث مجموعات أشواك. الفراشات الساحرة تجمع فراشة عن كل حليف تحميه، والانفجار الصوتي يجعل كل درع ينفجر بضرر وإبطاء حول ذلك الحليف، وحاجز الصوت يمنح كل زميل محمي سرعة وشبحًا، فبمجرد أن تضرب آني عدوًا تنطلق كل الفراشات ضررًا سحريًا. حجر القمر المنعش ينقل كل درع إلى حليف آخر لفراشة وانفجار إضافيين، وصولجان الماء المتدفق والمجس الوهاج يمنحانها وكل حليف محمي قوة قدرات وتسارعًا وسرعة هجوم، ونشيد معركة شوريليا يقوي الفريق كله لجولة انفجارات جديدة. ساحرة الضرر الانفجاري بنقرة واحدة تتوقف عن استهداف الأعداء وتصبح آلة دروع يخرج ضررها من زملائها.",
+      "play": "ابقَ خلف الفريق وألقِ E على من سيتلقى الضرب، ثم اضرب عدوًا بـ Q أو W لإطلاق الفراشات. احتفظ بالصعق من مهارتك السلبية الذي تشحنه دروعك لتيبرز.",
       "augments": [
-        "الهجمات الأساسية بتأثير عند الإصابة أثناء القدرة المختارة تقلل فترة تهدئتها.",
-        "عند الإصابة، تقلل فترة تهدئة مهاراتك بمقدار 1.25 ثانية.",
-        "تحصل على مدى هجوم وسرعة هجوم طوال مدة القدرة المختارة.",
-        "الهجمات أثناء القدرة المختارة تغرس المسامير في هدفك. تجمع المسامير الضرر، وتُجهز على الهدف، وتمنح سرعة حركة عند انتهائها."
+        "علاج أو حماية بطل حليف بالقدرة المختارة يلقي التعويذة مرة أخرى على بطلين حليفين قريبين آخرين. العلاج والدروع فعالة. قوة الصداقة!",
+        "علاج أو حماية الأبطال الحلفاء يجمع الفراشات. بعد جمعها، إلحاق الضرر ببطل عدو يطلقها كلها لتلحق ضررًا سحريًا.",
+        "تعزيز حليفك أو علاجه أو منحه درعًا يُلحق الضرر بالأعداء المحيطين به ويبطئهم.",
+        "حماية حليف تمنحه سرعة حركة وشبحًا يتلاشيان خلال 1.5 ثانية. فترة التهدئة لكل هدف: 1.5 ثانية."
       ]
     },
     "cs": {
-      "title": "Podomní prodejce hřebíkovaček",
-      "why": "Kledovo W je vedlejší efekt, nad kterým skoro nikdo nepřemýšlí: jeho další útok mu na čtyři útoky dá pořádnou dávku rychlosti útoku a pak se dobíjí. Když tahle vylepšení padnou na jeho W, Načíst znovu zařídí, že každý útok s efektem při zásahu během něj zkrátí jeho dobíjení, a Mystický úder při každém efektu při zásahu zkrátí dobíjení všech jeho schopností, takže čtyři rychlé útoky a každý útok mezi nimi ho vrátí mnohem dřív. Dokud je aktivní, Troška pomoci navíc dá Kledovi dosah útoku navíc a ještě víc rychlosti útoku, a Jehelníček promění každý z těch útoků v hřebíky, které hromadí poškození a pak popraví. Guinsoova zuřivá čepel krmí stejnou smyčku, protože při plném nabití každý třetí útok uplatní efekty při zásahu dvakrát, takže zdvojnásobí zkrácení od Načíst znovu a Mystického úderu, zatímco Čepel Padlého krále, Nouzová, Zabiják krakenů a Terminus zařídí, že každý přibitý útok bolí. Rváč s pastí na medvědy se z něj stane hřebíkovačka na dálku, která v podstatě bydlí ve svém W.",
-      "play": "Spusť W na nejbližšího nepřítele, drž se na maximálním dosahu, ať se hřebíky dál hromadí, a nech Načíst znovu a Mystický úder, ať ti ho hned vrátí. E si nech na návrat k cíli, jehož hřebíky se chystají bouchnout.",
+      "title": "Ředitelka školky",
+      "why": "Anniino E má cíl, který nikdo nepoužívá: může ho seslat na spojence, který dostane štít, nával rychlosti pohybu a trny, které zraní každého, kdo ho zasáhne, a Tibbers se s ním rovnou objeví. Se Společným objetím na E každé seslání ochrání další dva spojence, takže jedno tlačítko znamená tři štíty, tři návaly rychlosti a trojí trny. Čarovní motýli sbírají motýla za každého chráněného spojence, Sonický třesk nechá každý štít vybuchnout poškozením a zpomalením kolem spojence a Zvuková bariéra dá každému chráněnému spoluhráči rychlost a Ducha, takže jakmile Annie zraní nepřítele, všichni motýli vyletí jako magické poškození. Měsíční obnovovač přeskočí s každým štítem na dalšího spojence pro dalšího motýla a další třesk, Hůl plynoucí vody a Žhnoucí kadidelnice dají jí i každému chráněnému spojenci sílu schopností, zrychlení a rychlost útoku a Shurelyina bitevní píseň posílí celý tým na další kolo výbuchů. Burst mágyně na jedno kliknutí přestane mířit na nepřátele a stane se automatem na štíty, jejíž poškození vychází ze spoluhráčů.",
+      "play": "Stůj za týmem, házej E na toho, kdo zrovna dostane nakládačku, a pak zasáhni nepřítele Q nebo W, aby vyletěli motýli. Omráčení z pasivky, které nabíjejí tvoje štíty, si nech na Tibberse.",
       "augments": [
-        "Základní útoky s efektem při zásahu během zvolené schopnosti zkracují její dobu dobíjení.",
-        "Při zásahu zkrátí přebíjecí dobu tvých schopností o 1,25 s.",
-        "Po dobu trvání zvolené schopnosti získáváš dosah útoku a rychlost útoku.",
-        "Útoky během zvolené schopnosti zasazují cíli hřebíky. Hřebíky hromadí poškození, popravují a po vypršení poskytují rychlost pohybu."
+        "Léčení nebo štít na spojeneckého šampiona zvolenou schopností sešle kouzlo znovu na 2 další blízké spojenecké šampiony. Léčení a štíty jsou účinné. Síla přátelství!",
+        "Léčení nebo štíty na spojenecké šampiony sbírají motýly. Po nasbírání motýlů poškození nepřátelského šampiona vystřelí všechny a způsobí magické poškození.",
+        "Posílení, léčení nebo štít na spojence způsobí poškození a zpomalí nepřátele kolem něj.",
+        "Štít na spojence mu udělí rychlost pohybu a Ducha, které slábnou během 1,5 sekundy. Přebíjení na cíl: 1,5 sekundy."
       ]
     },
     "de": {
-      "title": "Der Nagelpistolen-Vertreter",
-      "why": "Kleds W ist ein Nebeneffekt, über den kaum jemand nachdenkt: Sein nächster Angriff gibt ihm für vier Angriffe einen ordentlichen Schub Angriffstempo, danach ist es auf Abklingzeit. Wenn diese Augments auf sein W fallen, senkt Neu laden mit jedem Treffer-Angriff währenddessen dessen Abklingzeit, und Mystischer Schlag senkt bei jedem Treffereffekt die Abklingzeiten all seiner Fähigkeiten, also holen die vier schnellen Angriffe plus jeder Angriff dazwischen es viel früher zurück. Solange es aktiv ist, gibt Etwas zusätzliche Hilfe Kled zusätzliche Angriffsreichweite und noch mehr Angriffstempo, und Nadelkissen macht aus jedem dieser Angriffe Nägel, die Schaden aufstauen und dann exekutieren. Guinsoos Wutklinge füttert dieselbe Schleife, denn voll aufgeladen löst jeder dritte Angriff Treffereffekte doppelt aus und verdoppelt so die Abklingzeitsenkung von Neu laden und Mystischer Schlag, während Klinge des gestürzten Königs, Ende der Weisheit, Krakenbezwinger und Terminus jeden genagelten Angriff wehtun lassen. Der Bärenfallen-Schläger wird zur Nagelpistole mit großer Reichweite, die quasi in seinem W wohnt.",
-      "play": "Starte dein W auf dem nächstbesten Gegner, bleib auf maximaler Reichweite, damit sich die Nägel weiter stapeln, und lass Neu laden und Mystischer Schlag es dir sofort zurückgeben. Heb dir dein E auf, um wieder an ein Ziel ranzukommen, dessen Nägel gleich platzen.",
+      "title": "Kita-Leiterin",
+      "why": "Annies E hat ein Ziel, das niemand nutzt: Sie kann es auf einen Verbündeten wirken, der einen Schild, einen Lauftempo-Schub und Dornen bekommt, die jeden verletzen, der ihn trifft, und Tibbers erscheint ebenfalls damit. Mit Gruppenumarmung auf ihrem E schützt jeder Einsatz zwei weitere Verbündete, ein Knopf heißt also drei Schilde, drei Tempo-Schübe und dreimal Dornen. Bezaubernde Schmetterlinge sammelt für jeden geschützten Verbündeten einen Schmetterling, Schallexplosion lässt jeden Schild in Schaden und Verlangsamung um diesen Verbündeten explodieren, und Schallmauer gibt jedem geschützten Teamkollegen Lauftempo und Geist, sodass alle Schmetterlinge als magischer Schaden losfliegen, sobald Annie einen Gegner trifft. Mondstein-Erneuerer springt mit jedem Schild auf noch einen Verbündeten über, für einen weiteren Schmetterling und Knall, Stab des fließenden Wassers und Thymiaterion geben ihr und jedem geschützten Verbündeten Fähigkeitsstärke, Fähigkeitstempo und Angriffstempo, und Shurelyas Kampfhymne bufft das ganze Team für die nächste Runde Explosionen. Die Point-and-Click-Burstmagierin zielt nicht mehr auf Gegner, sondern wird zum Schildautomaten, dessen Schaden aus ihren Teamkollegen kommt.",
+      "play": "Bleib hinter dem Team, wirf dein E auf den, der gleich Schläge kassiert, und triff dann einen Gegner mit Q oder W, um die Schmetterlinge loszulassen. Heb dir die Betäubung deiner Passive, die deine Schilde aufladen, für Tibbers auf.",
       "augments": [
-        "Treffer-Angriffe während der gewählten Fähigkeit verringern deren Abklingzeit.",
-        "Treffereffekt: Verringert die Abklingzeit deiner Fähigkeiten um 1,25 Sekunden.",
-        "Erhalte Angriffsreichweite und Angriffstempo für die Dauer der gewählten Fähigkeit.",
-        "Angriffe während der gewählten Fähigkeit spicken dein Ziel mit Nägeln. Nägel stauen Schaden auf, exekutieren und gewähren beim Ablaufen Lauftempo."
+        "Wenn du einen verbündeten Champion mit der gewählten Fähigkeit heilst oder schützt, wird der Zauber erneut auf 2 andere verbündete Champions in der Nähe gewirkt. Heilungen und Schilde sind voll wirksam. Die Macht der Freundschaft!",
+        "Das Heilen oder Schützen verbündeter Champions sammelt Schmetterlinge. Sind Schmetterlinge gesammelt, feuert Schaden an einem gegnerischen Champion alle ab und verursacht magischen Schaden.",
+        "Verbündete zu verstärken, zu heilen oder abzuschirmen fügt Gegnern um sie herum Schaden zu und verlangsamt sie.",
+        "Einen Verbündeten zu schützen gewährt ihm Lauftempo und Geist, die über 1,5 Sekunden abklingen. Abklingzeit pro Ziel: 1,5 Sekunden."
       ]
     },
     "el": {
-      "title": "Ο Πλασιέ του Καρφωτικού",
-      "why": "Το W του Κλεντ είναι μια παρενέργεια που σχεδόν κανείς δεν σκέφτεται: η επόμενη επίθεσή του του δίνει μια γερή δόση Ταχύτητας Επίθεσης για τέσσερις επιθέσεις και μετά μπαίνει σε επαναφόρτιση. Με αυτές τις Ενισχύσεις στο W του, η Επαναφόρτωση κάνει κάθε επίθεση με εφέ κατά το χτύπημα στη διάρκειά του να μειώνει τον χρόνο επαναφόρτισής του, και η Μυστικιστική Γροθιά μειώνει τον χρόνο επαναφόρτισης όλων των ικανοτήτων του σε κάθε εφέ κατά το χτύπημα, οπότε οι τέσσερις γρήγορες επιθέσεις και κάθε επίθεση ενδιάμεσα το φέρνουν πίσω πολύ νωρίτερα. Όσο είναι ενεργό, το Ένα Χεράκι Παραπάνω δίνει στον Κλεντ επιπλέον Εμβέλεια Επίθεσης και ακόμα περισσότερη Ταχύτητα Επίθεσης, και το Μαξιλαράκι για Καρφίτσες κάνει κάθε τέτοια επίθεση καρφιά που μαζεύουν ζημιά και μετά εκτελούν. Το Οργισμένο Σπαθί του Γκουίνσου τροφοδοτεί τον ίδιο κύκλο, αφού με πλήρη φόρτιση κάθε τρίτη επίθεση εφαρμόζει δύο φορές τα εφέ κατά το χτύπημα, διπλασιάζοντας τη μείωση από Επαναφόρτωση και Μυστικιστική Γροθιά, ενώ η Λεπίδα του Έκπτωτου Βασιλιά, το Παρανοϊκό Ξίφος, ο Σφαγέας Κράκεν και το Τέρμινους κάνουν κάθε καρφωμένη επίθεση να πονάει. Ο καβγατζής με την αρκουδοπαγίδα γίνεται ένα καρφωτικό μεγάλης εμβέλειας που ζει μέσα στο W του.",
-      "play": "Ξεκίνα το W στον πιο κοντινό αντίπαλο, μείνε στη μέγιστη εμβέλεια για να συνεχίζουν να μαζεύονται τα καρφιά και άσε την Επαναφόρτωση και τη Μυστικιστική Γροθιά να σου το επιστρέφουν αμέσως. Κράτα το E για να ξαναπέσεις πάνω σε στόχο που τα καρφιά του είναι έτοιμα να σκάσουν.",
+      "title": "Διευθύντρια Παιδικού Σταθμού",
+      "why": "Το E της Άνι έχει έναν στόχο που δεν χρησιμοποιεί κανείς: μπορεί να το ρίξει σε σύμμαχο, που παίρνει ασπίδα, ώθηση ταχύτητας κίνησης και αγκάθια που χτυπούν όποιον τον χτυπήσει, και ο Τίμπερς εμφανίζεται κι αυτός με ασπίδα. Με την Ομαδική Αγκαλιά στο E, κάθε χρήση προστατεύει άλλους δύο συμμάχους, άρα ένα κουμπί σημαίνει τρεις ασπίδες, τρεις ωθήσεις ταχύτητας και τρία σετ αγκάθια. Οι Μαγικές Πεταλούδες μαζεύουν μια πεταλούδα για κάθε σύμμαχο που προστατεύει, η Ηχητική Έκρηξη κάνει κάθε ασπίδα να εκρήγνυται με ζημιά και επιβράδυνση γύρω από τον σύμμαχο και το Φράγμα Ήχου δίνει σε κάθε προστατευμένο συμπαίκτη ταχύτητα και Φάντασμα, οπότε μόλις η Άνι χτυπήσει εχθρό όλες οι πεταλούδες πετούν ως μαγική ζημιά. Ο Ανανεωτής Φεγγαρόπετρας περνά κάθε ασπίδα σε ακόμη έναν σύμμαχο για ακόμη μία πεταλούδα και έκρηξη, το Ραβδί του Τρεχούμενου Νερού και το Λαμπρό Θυμιατό δίνουν σε εκείνη και σε κάθε προστατευμένο σύμμαχο δύναμη, επιτάχυνση και ταχύτητα επίθεσης, και το Πολεμικό Άσμα της Σουρέλια ενισχύει όλη την ομάδα για νέο γύρο εκρήξεων. Η μάγισσα του point-and-click burst σταματά να σημαδεύει εχθρούς και γίνεται μηχανή ασπίδων που η ζημιά της βγαίνει από τους συμπαίκτες της.",
+      "play": "Μείνε πίσω από την ομάδα, ρίξε το E σε όποιον πάει να φάει ξύλο και μετά χτύπα έναν εχθρό με Q ή W για να αφήσεις τις πεταλούδες. Κράτα το stun της παθητικής, που φορτώνουν οι ασπίδες σου, για τον Τίμπερς.",
       "augments": [
-        "Οι Βασικές Επιθέσεις με εφέ κατά το χτύπημα κατά τη διάρκεια της επιλεγμένης ικανότητας μειώνουν τον χρόνο επαναφόρτισής της.",
-        "Κατά το χτύπημα, μειώνει τον χρόνο επαναφόρτισης των ικανοτήτων σου κατά 1,25 δευτερόλεπτα.",
-        "Κερδίζεις εμβέλεια επίθεσης και ταχύτητα επίθεσης για τη διάρκεια της επιλεγμένης ικανότητας.",
-        "Οι επιθέσεις κατά τη διάρκεια της επιλεγμένης ικανότητας καρφώνουν τον στόχο σας με καρφιά. Τα καρφιά συσσωρεύουν ζημιά, εκτελούν και δίνουν Ταχύτητα Κίνησης όταν λήξουν."
+        "Η θεραπεία ή η θωράκιση ενός συμμαχικού πρωταθλητή με την επιλεγμένη ικανότητα ρίχνει ξανά το ξόρκι σε 2 άλλους κοντινούς συμμαχικούς πρωταθλητές. Οι θεραπείες και οι ασπίδες είναι αποτελεσματικές. Η δύναμη της φιλίας!",
+        "Η θεραπεία ή η θωράκιση συμμαχικών πρωταθλητών μαζεύει πεταλούδες. Αφού τις μαζέψεις, η ζημιά σε εχθρικό πρωταθλητή τις εκτοξεύει όλες προκαλώντας μαγική ζημιά.",
+        "Η ενίσχυση, η θεραπεία ή η ασπίδα στον σύμμαχό σου προκαλεί ζημιά και επιβραδύνει τους εχθρούς γύρω του.",
+        "Η θωράκιση ενός συμμάχου του δίνει ταχύτητα κίνησης και Φάντασμα που μειώνονται σε 1,5 δευτερόλεπτο. Χρόνος επαναφόρτισης ανά στόχο: 1,5 δευτερόλεπτο."
       ]
     },
     "es-MX": {
-      "title": "El vendedor de pistolas de clavos",
-      "why": "La W de Kled es un efecto secundario en el que casi nadie piensa: su siguiente ataque le da un buen boost de Velocidad de Ataque por cuatro ataques y luego entra en enfriamiento. Con estos aumentos en su W, Recargar hace que cada ataque con efecto al impactar durante ella reduzca su enfriamiento, y Golpe Místico reduce el enfriamiento de todas sus habilidades con cada efecto al impactar, así que los cuatro ataques rápidos y todos los de en medio la regresan mucho antes. Mientras está activa, Un Poco de Ayuda le da a Kled Alcance de Ataque extra y todavía más Velocidad de Ataque, y Alfiletero convierte cada uno de esos ataques en clavos que acumulan daño y luego ejecutan. Espadafuria de Guinsoo alimenta el mismo ciclo, porque con cargas completas cada tercer ataque aplica los efectos al impactar dos veces, duplicando la reducción de Recargar y Golpe Místico, mientras Espada del Rey Arruinado, Al Filo de la Cordura, Matakrakens y Terminus hacen que cada ataque con clavos duela. El peleonero de la trampa para osos se vuelve una pistola de clavos de largo alcance que vive en su W.",
-      "play": "Activa tu W en quien tengas más cerca, quédate a alcance máximo para que los clavos se sigan acumulando y deja que Recargar y Golpe Místico te la regresen al instante. Guarda tu E para volver con un objetivo cuyos clavos estén por reventar.",
+      "title": "Directora de guardería",
+      "why": "La E de Annie tiene un objetivo que nadie usa: puede lanzarla a un aliado, que recibe un escudo, un impulso de velocidad de movimiento y espinas que dañan a quien lo golpee, y Tibbers aparece con ella también. Con Abrazo Grupal en su E, cada lanzamiento protege a dos aliados más, así que un botón son tres escudos, tres impulsos de velocidad y tres juegos de espinas. Mariposas Mágicas junta una mariposa por cada aliado protegido, Explosión Sónica hace que cada escudo explote con daño y ralentización alrededor de ese aliado, y Barrera del Sonido le da a cada compañero protegido velocidad y Fantasmal, así que en cuanto Annie daña a un enemigo todas las mariposas salen volando como daño mágico. Renovador de Piedra Lunar encadena cada escudo a otro aliado para una mariposa y una explosión más, Báculo de Agua Fluyente y Pebetero Ardiente le dan a ella y a cada aliado protegido poder, celeridad y velocidad de ataque, y Canto de Guerra de Shurelya potencia a todo el equipo para otra ronda de explosiones. La maga de ráfaga de un clic deja de apuntar a los enemigos y se vuelve una máquina de escudos cuyo daño sale de sus compañeros.",
+      "play": "Quédate detrás del equipo, lánzale la E a quien esté por recibir los golpes y luego pégale a un enemigo con la Q o la W para soltar las mariposas. Guarda el aturdimiento de tu pasiva, que cargan tus escudos, para Tibbers.",
       "augments": [
-        "Los Ataques básicos con efecto al impactar durante la habilidad elegida reducen su enfriamiento.",
-        "Al golpear, reduce el enfriamiento de tus habilidades en 1.25 segundos.",
-        "Obtienes alcance de ataque y velocidad de ataque durante la duración de la habilidad elegida.",
-        "Los ataques durante la habilidad elegida llenan de clavos a tu objetivo. Los clavos acumulan daño, ejecutan y otorgan Velocidad de Movimiento al expirar."
+        "Curar o proteger a un campeón aliado con la habilidad elegida vuelve a lanzar el hechizo sobre otros 2 campeones aliados cercanos. Las curaciones y los escudos son efectivos. ¡El poder de la amistad!",
+        "Curar o proteger a campeones aliados junta mariposas. Después de juntarlas, dañar a un campeón enemigo las dispara todas e inflige daño mágico.",
+        "Potenciar, curar o dar escudo a tu aliado inflige daño y ralentiza a los enemigos a su alrededor.",
+        "Proteger a un aliado le otorga velocidad de movimiento y Fantasmal que disminuyen durante 1.5 segundos. Enfriamiento por objetivo: 1.5 segundos."
       ]
     },
     "es": {
-      "title": "El vendedor de pistolas de clavos",
-      "why": "La W de Kled es un efecto secundario en el que casi nadie piensa: su siguiente ataque le da un buen chute de velocidad de ataque durante cuatro ataques y luego entra en enfriamiento. Con estos aumentos tocando en su W, Recarga hace que cada ataque con efecto al impacto durante ella reduzca su enfriamiento, y Guantazo místico reduce el enfriamiento de todas sus habilidades con cada efecto al impacto, así que los cuatro ataques rápidos y todos los de en medio la traen de vuelta mucho antes. Mientras está activa, Una ayudita le da a Kled alcance de ataque extra y aún más velocidad de ataque, y Alfiletero convierte cada uno de esos ataques en clavos que acumulan daño y luego ejecutan. Hoja de furia de Guinsoo alimenta el mismo bucle, porque al tope de cargas cada tercer ataque aplica los efectos al impacto dos veces, duplicando la reducción de Recarga y Guantazo místico, mientras Hoja del rey arruinado, Final del ingenio, Verdugo de krakens y El final hacen que cada ataque con clavos duela. El matón de la trampa para osos se convierte en una pistola de clavos de largo alcance que vive en su W.",
-      "play": "Activa tu W en el que tengas más cerca, quédate a alcance máximo para que los clavos sigan acumulándose y deja que Recarga y Guantazo místico te la devuelvan al momento. Guarda tu E para volver sobre un objetivo cuyos clavos estén a punto de reventar.",
+      "title": "Directora de guardería",
+      "why": "La E de Annie tiene un objetivo que nadie usa: puede lanzarla a un aliado, que recibe un escudo, un impulso de velocidad de movimiento y espinas que dañan a quien lo golpee, y Tibbers aparece con ella también. Con Abrazo grupal en su E, cada lanzamiento protege a dos aliados más, así que un botón son tres escudos, tres impulsos de velocidad y tres juegos de espinas. Mariposas encantadoras reúne una mariposa por cada aliado protegido, Explosión sónica hace que cada escudo explote con daño y ralentización alrededor de ese aliado, y Barrera del sonido da a cada compañero protegido velocidad y Fantasmal, así que en cuanto Annie daña a un enemigo todas las mariposas salen volando como daño mágico. Renovación de piedra lunar encadena cada escudo a otro aliado para una mariposa y una explosión más, Bastón de aguas fluidas e Incensario ardiente le dan a ella y a cada aliado protegido poder, celeridad y velocidad de ataque, y Canción de batalla de Shurelya potencia a todo el equipo para otra ronda de explosiones. La maga de ráfaga de clic y listo deja de apuntar a los enemigos y se convierte en una máquina de escudos cuyo daño sale de sus compañeros.",
+      "play": "Quédate detrás del equipo, lanza la E a quien esté a punto de comerse un golpe y luego toca a un enemigo con la Q o la W para soltar las mariposas. Guarda el aturdimiento de tu pasiva, que cargan tus escudos, para Tibbers.",
       "augments": [
-        "Los ataques básicos con efecto al impacto durante la habilidad elegida reducen su enfriamiento.",
-        "Al impactar, reduce el enfriamiento de tus habilidades en 1,25 segundos.",
-        "Obtienes alcance de ataque y velocidad de ataque durante la duración de la habilidad elegida.",
-        "Los ataques durante la habilidad elegida acribillan a tu objetivo con clavos. Los clavos acumulan daño, ejecutan y otorgan velocidad de movimiento al expirar."
+        "Curar o proteger a un campeón aliado con la habilidad elegida vuelve a lanzar el hechizo sobre otros 2 campeones aliados cercanos. Las curaciones y los escudos son efectivos. ¡El poder de la amistad!",
+        "Curar o proteger a campeones aliados reúne mariposas. Después de reunirlas, dañar a un campeón enemigo las dispara todas e inflige daño mágico.",
+        "Potenciar, curar o proteger con escudo a tu aliado inflige daño y ralentiza a los enemigos que lo rodean.",
+        "Proteger a un aliado le otorga velocidad de movimiento y Fantasmal que disminuyen durante 1,5 segundos. Enfriamiento por objetivo: 1,5 segundos."
       ]
     },
     "fr": {
-      "title": "Le VRP du pistolet à clous",
-      "why": "Le W de Kled est un effet secondaire auquel presque personne ne pense : sa prochaine attaque lui donne un gros boost de vitesse d'attaque pendant quatre attaques, puis il passe en délai de récupération. Avec ces augments tombés sur son W, Rechargement fait que chaque attaque à effet à l'impact pendant ce sort en réduit le délai, et Coups accélérants réduit le délai de toutes ses compétences à chaque effet à l'impact, donc les quatre attaques rapides plus toutes celles entre deux le ramènent bien plus vite. Tant qu'il est actif, Petit coup de pouce donne à Kled de la portée d'attaque et encore plus de vitesse d'attaque, et Pelote d'épingles transforme chacune de ces attaques en clous qui accumulent les dégâts puis exécutent. Lame enragée de Guinsoo nourrit la même boucle, car une fois chargée à fond, une attaque sur trois applique les effets à l'impact deux fois, doublant les réductions de Rechargement et de Coups accélérants, pendant que Lame du roi déchu, Au bout du rouleau, Tueur de krakens et Terminus font mal à chaque attaque cloutée. Le bagarreur au piège à ours devient un pistolet à clous longue portée qui vit dans son W.",
-      "play": "Lance ton W sur l'ennemi le plus proche, reste à portée max pour que les clous continuent de s'empiler, et laisse Rechargement et Coups accélérants te le rendre aussitôt. Garde ton E pour revenir sur une cible dont les clous vont exploser.",
+      "title": "Directrice de crèche",
+      "why": "Le E d'Annie a une cible que personne n'utilise : elle peut le lancer sur un allié, qui reçoit un bouclier, un boost de vitesse de déplacement et des épines qui blessent quiconque le frappe, et Tibbers apparaît avec le même bouclier. Avec Câlin collectif obtenu sur son E, chaque lancer protège deux alliés de plus : un seul bouton, c'est trois boucliers, trois boosts de vitesse et trois paires d'épines. Papillons enchanteurs récolte un papillon pour chaque allié protégé, Protections létales fait exploser chaque bouclier en dégâts et ralentissement autour de l'allié, et Mur du son donne à chaque coéquipier protégé vitesse et Fantôme, donc dès qu'Annie touche un ennemi, tous les papillons partent en dégâts magiques. Régénérateur de pierre de lune propage chaque bouclier à un allié de plus pour un papillon et une explosion en plus, Bâton des flots et Encensoir ardent lui donnent, à elle et à chaque allié protégé, puissance, accélération et vitesse d'attaque, et Chant de guerre de Shurelya booste toute l'équipe pour une nouvelle vague d'explosions. La mage burst en point-and-click arrête de viser les ennemis et devient un distributeur de boucliers dont les dégâts sortent de ses coéquipiers.",
+      "play": "Reste derrière l'équipe, lance ton E sur celui qui va se faire taper, puis touche un ennemi avec ton A ou ton Z pour lâcher les papillons. Garde l'étourdissement de ton passif, chargé par tes boucliers, pour Tibbers.",
       "augments": [
-        "Les attaques de base à effet à l'impact pendant la compétence choisie en réduisent le délai de récupération.",
-        "À l'impact, réduit le délai de récupération de vos compétences de 1,25 seconde.",
-        "Gagnez de la portée d'attaque et de la vitesse d'attaque pendant la durée de la compétence choisie.",
-        "Les attaques pendant la compétence choisie criblent votre cible de clous. Les clous accumulent des dégâts, exécutent et confèrent de la vitesse de déplacement à leur expiration."
+        "Soigner ou protéger un champion allié avec la compétence choisie relance le sort sur 2 autres champions alliés à proximité. Les soins et boucliers sont efficaces. La force de l'amitié !",
+        "Soigner ou protéger des champions alliés rassemble des papillons. Une fois les papillons rassemblés, infliger des dégâts à un champion ennemi les lance tous pour infliger des dégâts magiques.",
+        "Renforcer, soigner ou protéger votre allié inflige des dégâts aux ennemis qui l'entourent et les ralentit.",
+        "Protéger un allié lui confère de la vitesse de déplacement et Fantôme, qui diminuent en 1,5 seconde. Délai de récupération par cible : 1,5 seconde."
       ]
     },
     "hu": {
-      "title": "A szögbelövő-ügynök",
-      "why": "Kled W-je olyan mellékhatás, amire szinte senki sem gondol: a következő támadása négy támadásig jó adag támadási sebességet ad neki, aztán újratöltődik. Ha ezek a fejlesztések a W-jére esnek, az Újratöltés miatt minden találati hatású támadás közben csökkenti a töltési idejét, a Misztikus ütés pedig minden találati hatásnál az összes képessége töltési idejét csökkenti, így a négy gyors támadás és minden közbeeső támadás sokkal hamarabb visszahozza. Amíg aktív, az Egy kis extra segítség extra támadási hatótávot és még több támadási sebességet ad Klednek, a Tűpárna pedig ezeket a támadásokat szögekké alakítja, amelyek sebzést gyűjtenek, majd kivégeznek. Guinsoo dühpengéje ugyanazt a kört táplálja, mert teljes töltésen minden harmadik támadás kétszer alkalmazza a találati hatásokat, megduplázva az Újratöltés és a Misztikus ütés töltésicsökkentését, közben A letaszított király kardja, az Utolsó esély, a Krakenölő és a Vég minden szögelt támadást fájdalmassá tesz. A medvecsapdás verekedőből nagy hatótávú szögbelövő lesz, ami gyakorlatilag a W-jében lakik.",
-      "play": "Indítsd a W-t a legközelebbi ellenfélen, maradj maximális hatótávon, hogy a szögek tovább gyűljenek, és hagyd, hogy az Újratöltés és a Misztikus ütés azonnal visszaadja. Az E-t tartsd meg, hogy visszaérj egy célpontra, akinek a szögei mindjárt robbannak.",
+      "title": "Óvodaigazgató",
+      "why": "Annie E-jének van egy célpontja, amit senki sem használ: szövetségesre is rakhatja, aki pajzsot, mozgási sebesség-löketet és tüskéket kap, amik megsebeznek mindenkit, aki megüti, és Tibbers is ezzel jelenik meg. A Nagy ölelés az E-jén minden használatnál két további szövetségest is megvéd, így egy gomb három pajzs, három sebességlöket és háromszoros tüske. A Bűvös pillangók minden megvédett szövetségesért gyűjt egy pillangót, a Hangrobbanás minden pajzsot sebzésbe és lassításba robbant a szövetséges körül, a Térhatású pajzs pedig minden megvédett csapattársnak sebességet és Szellemet ad, így amint Annie megsebez egy ellenfelet, az összes pillangó varázssebzésként kirepül. A Holdkőmegújító minden pajzsot továbbvisz egy újabb szövetségesre egy újabb pillangóért és robbanásért, Az áradás botja és a Hívők tömjénje neki és minden megvédett szövetségesnek képességerőt, gyorsítást és támadási sebességet ad, a Shurelia csatadala pedig az egész csapatot felerősíti egy újabb robbanáskörhöz. A rákattintós burst mágus abbahagyja az ellenfelek célzását, és pajzsautomatává válik, akinek a sebzése a csapattársaiból jön.",
+      "play": "Maradj a csapat mögött, dobd az E-t arra, aki épp kapni fog, aztán találj el egy ellenfelet Q-val vagy W-vel, hogy kiengedd a pillangókat. A passzív kábítást, amit a pajzsaid töltenek fel, tartsd meg Tibbersnek.",
       "augments": [
-        "A kiválasztott képesség alatt a találati hatású alaptámadások csökkentik annak töltési idejét.",
-        "Találatkor 1,25 másodperccel csökkenti a képességeid töltési idejét.",
-        "A kiválasztott képesség időtartama alatt támadási hatótávot és támadási sebességet kapsz.",
-        "A kiválasztott képesség alatti támadások szögeket vernek a célpontba. A szögek sebzést gyűjtenek, kivégeznek, és lejáratukkor mozgási sebességet adnak."
+        "Ha a kiválasztott képességgel gyógyítasz vagy pajzsot adsz egy szövetséges hősnek, a varázslat újra elsül 2 másik közeli szövetséges hősre. A gyógyítás és a pajzsok hatásosak. A barátság ereje!",
+        "Szövetséges hősök gyógyítása vagy pajzsolása pillangókat gyűjt. A pillangók összegyűjtése után egy ellenséges hős megsebzése az összeset kilövi, varázssebzést okozva.",
+        "Ha erősíted, gyógyítod vagy pajzzsal véded a szövetségesedet, az sebzi és lelassítja a körülötte lévő ellenfeleket.",
+        "Ha pajzsot adsz egy szövetségesnek, mozgási sebességet és Szellemet kap, amelyek 1,5 mp alatt csökkennek. Célpontonkénti töltési idő: 1,5 mp."
       ]
     },
     "id": {
-      "title": "Sales Nail Gun",
-      "why": "W Kled adalah efek samping yang hampir nggak pernah dipikirin orang: attack berikutnya ngasih dia lonjakan Attack Speed besar selama empat attack, lalu masuk cooldown. Kalau augment ini jatuh ke W-nya, Reload bikin tiap attack On-Hit selama W memotong cooldown W, dan Mystic Punch memotong cooldown semua ability tiap kali On-Hit, jadi empat attack cepat plus semua attack di antaranya bikin W balik jauh lebih cepat. Selama aktif, Lil' Extra Help ngasih Kled Attack Range tambahan dan Attack Speed lebih banyak lagi, dan Pin Cushion mengubah tiap attack itu jadi Nails yang menumpuk damage lalu mengeksekusi. Guinsoo's Rageblade menyuapi loop yang sama, karena saat full stack setiap attack ketiga menerapkan efek On-Hit dua kali, menggandakan potongan cooldown dari Reload dan Mystic Punch, sementara Blade of the Ruined King, Wit's End, Kraken Slayer, dan Terminus bikin tiap attack berpaku makin sakit. Si tukang ribut dengan perangkap beruang berubah jadi nail gun jarak jauh yang tinggal di dalam W-nya.",
-      "play": "Nyalakan W ke musuh terdekat, tetap di range maksimal biar Nails terus menumpuk, dan biarkan Reload dan Mystic Punch langsung mengembalikannya. Simpan E buat balik nempel ke target yang Nails-nya mau meledak.",
+      "title": "Kepala Sekolah PAUD",
+      "why": "E milik Annie punya target yang nggak pernah dipakai orang: dia bisa melemparnya ke ally, yang dapat shield, dorongan Move Speed, dan duri yang melukai siapa pun yang memukulnya, dan Tibbers juga muncul dengan efek itu. Dengan Group Hug di E, tiap cast melindungi dua ally lagi, jadi satu tombol berarti tiga shield, tiga dorongan speed, dan tiga set duri. Enchanting Butterflies mengumpulkan satu kupu-kupu untuk tiap ally yang di-shield, Sonic Boom membuat tiap shield meledak jadi damage dan Slow di sekitar ally itu, dan Sound Barrier memberi tiap rekan yang di-shield Move Speed dan Ghost, jadi begitu Annie memberi damage ke musuh, semua kupu-kupu terbang sebagai magic damage. Moonstone Renewer meneruskan tiap shield ke satu ally lagi untuk satu kupu-kupu dan ledakan tambahan, Staff of Flowing Water dan Ardent Censer memberi dia dan tiap ally yang di-shield Ability Power, Haste, dan Attack Speed, dan Shurelya's Battlesong mem-buff seluruh tim untuk satu ronde ledakan lagi. Mage burst tinggal klik berhenti membidik musuh dan berubah jadi mesin shield yang damage-nya keluar dari rekan setimnya.",
+      "play": "Berdiri di belakang tim, lempar E ke siapa pun yang mau kena pukul, lalu sentuh musuh dengan Q atau W untuk melepas kupu-kupu. Simpan stun pasif yang terisi dari shield-mu untuk Tibbers.",
       "augments": [
-        "Basic Attack On-Hit selama ability pilihan mengurangi cooldown-nya.",
-        "On-Hit mengurangi cooldown skill-mu sebesar 1,25 detik.",
-        "Dapatkan Attack Range dan Attack Speed selama durasi skill yang dipilih.",
-        "Attack selama ability pilihan menancapkan Nails ke target. Nails menumpuk damage, mengeksekusi, dan memberi Movement Speed saat berakhir."
+        "Heal atau Shield ke champion ally dengan ability terpilih akan meng-cast spell itu lagi ke 2 champion ally lain di dekatnya. Heal dan Shield tetap efektif. Kekuatan persahabatan!",
+        "Heal atau Shield ke champion ally mengumpulkan Kupu-kupu. Setelah terkumpul, memberi damage ke champion musuh menembakkan semuanya dan memberi Magic damage.",
+        "Memberi buff, heal, atau shield ke ally akan memberi damage dan Slow ke musuh di sekitarnya.",
+        "Memberi Shield ke ally memberikan Move Speed dan Ghost yang berkurang selama 1,5 detik. Cooldown per target: 1,5 detik."
       ]
     },
     "it": {
-      "title": "Il piazzista della sparachiodi",
-      "why": "La W di Kled è un effetto collaterale a cui quasi nessuno pensa: il suo prossimo attacco gli dà una bella spinta di velocità d'attacco per quattro attacchi, poi va in ricarica. Con questi potenziamenti sulla sua W, Ricarica fa sì che ogni attacco con effetto sul colpo durante l'abilità ne riduca la ricarica, e Pugno mistico riduce la ricarica di tutte le sue abilità a ogni effetto sul colpo, quindi i quattro attacchi rapidi più tutti quelli in mezzo la riportano molto prima. Finché è attiva, Un piccolo aiuto in più dà a Kled gittata d'attacco bonus e ancora più velocità d'attacco, e Puntaspilli trasforma ognuno di quegli attacchi in chiodi che accumulano danni e poi giustiziano. Furia di Guinsoo alimenta lo stesso ciclo, perché a cariche massime ogni terzo attacco applica gli effetti sul colpo due volte, raddoppiando le riduzioni di Ricarica e Pugno mistico, mentre Lama del re in rovina, Speranza perduta, Uccisore di Kraken e Terminus fanno male a ogni attacco inchiodato. Il rissoso della tagliola diventa una sparachiodi a lunga gittata che vive dentro la sua W.",
-      "play": "Attiva la W su chi hai più vicino, resta alla gittata massima così i chiodi continuano ad accumularsi, e lascia che Ricarica e Pugno mistico te la restituiscano subito. Tieni la E per tornare su un bersaglio i cui chiodi stanno per esplodere.",
+      "title": "Direttrice dell'asilo",
+      "why": "La E di Annie ha un bersaglio che nessuno usa: può lanciarla su un alleato, che riceve uno scudo, uno scatto di velocità di movimento e spine che danneggiano chi lo colpisce, e Tibbers compare già con lo scudo addosso. Con Abbraccio di gruppo sulla sua E, ogni lancio protegge altri due alleati, quindi un tasto vale tre scudi, tre scatti di velocità e tre set di spine. Farfalle incantevoli raccoglie una farfalla per ogni alleato protetto, Boom sonico fa esplodere ogni scudo con danni e rallentamento attorno a quell'alleato, e Muro del suono dà a ogni compagno protetto velocità e Spettralità, così appena Annie danneggia un nemico tutte le farfalle partono come danni magici. Pietra di luna rinnovata propaga ogni scudo a un altro alleato per un'altra farfalla e un altro boom, Staffa delle correnti e Incensiere ardente danno a lei e a ogni alleato protetto potere magico, velocità abilità e velocità d'attacco, e Canto di guerra di Shurelya potenzia tutta la squadra per un altro giro di esplosioni. La maga burst punta-e-clicca smette di mirare ai nemici e diventa un distributore di scudi i cui danni escono dai compagni.",
+      "play": "Stai dietro la squadra, lancia la E su chi sta per prendere botte, poi colpisci un nemico con la Q o la W per liberare le farfalle. Tieni lo stordimento della passiva, caricato dagli scudi, per Tibbers.",
       "augments": [
-        "Gli attacchi base con effetto sul colpo durante l'abilità scelta ne riducono la ricarica.",
-        "Sul colpo, riduce la ricarica delle tue abilità di 1,25 secondi.",
-        "Ottieni gittata d'attacco e velocità d'attacco per la durata dell'abilità scelta.",
-        "Gli attacchi durante l'abilità scelta trafiggono il bersaglio con chiodi. I chiodi accumulano danni, giustiziano e conferiscono velocità di movimento alla scadenza."
+        "Curare o proteggere un campione alleato con l'abilità scelta lancia di nuovo l'incantesimo su altri 2 campioni alleati vicini. Cure e scudi sono efficaci. Il potere dell'amicizia!",
+        "Curare o proteggere campioni alleati raccoglie farfalle. Dopo averle raccolte, danneggiare un campione nemico le scaglia tutte, infliggendo danni magici.",
+        "Potenziare, curare o proteggere con uno scudo il tuo alleato infligge danni e rallenta i nemici intorno a lui.",
+        "Proteggere un alleato conferisce velocità di movimento e Spettralità che decadono in 1,5 secondi. Ricarica per bersaglio: 1,5 secondi."
       ]
     },
     "ja": {
-      "title": "釘打ち機のセールスマン",
-      "why": "クレッドのWは、ほとんど誰も気にしない副産物だ。次の通常攻撃から4回分だけ攻撃速度が大きく上がり、その後はクールダウンに入る。これらのオーグメントがWに付けば、リロードでW中の通常攻撃時効果つき攻撃ごとにそのクールダウンが短くなり、神秘の鉄拳は通常攻撃時効果のたびに全スキルのクールダウンを短縮するので、4回の高速攻撃とその合間の攻撃でWがずっと早く戻ってくる。発動中はちょこっとヘルプが攻撃範囲とさらなる攻撃速度をくれて、針山がその攻撃すべてをダメージを溜めて最後に処刑する釘に変える。グインソー レイジブレードも同じループを回す。最大スタック時は3回に1回通常攻撃時効果が2回発動するので、リロードと神秘の鉄拳の短縮も2倍だ。さらにルインドキング ブレード、ウィッツ エンド、クラーケン スレイヤー、テルミヌスで釘入りの一撃一撃が痛くなる。トラバサミの喧嘩屋が、Wに住みつく長射程の釘打ち機に変身する。",
-      "play": "一番近い敵にWを始動し、釘が溜まり続けるよう最大射程をキープして、リロードと神秘の鉄拳ですぐに戻してもらおう。Eは釘が弾けそうな相手に再び張り付くために温存。",
+      "title": "保育園の園長アニー",
+      "why": "アニーのEには誰も使わない対象がある。味方にかけられるのだ。味方はシールド、移動速度アップ、そして殴ってきた敵にダメージを返すトゲを得て、ティバーズも召喚時に同じ効果をまとう。Eに「みんなでハグ」が付けば、1回のキャストで近くの味方2人にも追加でかかり、ボタン1つでシールド3枚、加速3回、トゲ3セットになる。「魅惑の蝶」はシールドした味方ごとに蝶を集め、「ソニックブーム」は各シールドを味方の周りでダメージとスローの爆発に変え、「サウンドバリア」はシールドを受けた味方全員に移動速度とゴーストを与える。アニーが敵にダメージを与えた瞬間、蝶がまとめて魔法ダメージとして飛んでいく。「ムーンストーンの再生」はシールドをさらに別の味方へ連鎖させて蝶と爆発をもう1つ追加し、「フロー ウォーター スタッフ」と「アーデント センサー」は彼女とシールドを受けた味方に魔力、スキルヘイスト、攻撃速度を配り、「シュレリアの戦歌」はチーム全体をバフしてもう一巡爆発させる。ポイント&クリックのバーストメイジは敵を狙うのをやめ、味方からダメージが湧き出るシールド配りマシーンになる。",
+      "play": "チームの後ろに立ち、殴られそうな味方にEをかけ、QかWで敵に触れて蝶を解き放とう。シールドで溜まったパッシブのスタンはティバーズ用に取っておこう。",
       "augments": [
-        "選択したスキル中の通常攻撃時効果つき通常攻撃がそのクールダウンを短縮する。",
-        "通常攻撃時: スキルのクールダウンを1.25秒短縮する。",
-        "選択したスキルの効果時間中、攻撃射程と攻撃速度が増加する。",
-        "選択したスキル中の通常攻撃が対象に釘を打ち込む。釘はダメージを蓄積して処刑し、効果終了時に移動速度を付与する。"
+        "選択したスキルで味方チャンピオンを回復またはシールドすると、近くの別の味方チャンピオン2体にもそのスキルを再発動する。回復とシールドは効果を発揮する。友情の力！",
+        "味方チャンピオンを回復またはシールドすると蝶が集まる。蝶を集めた後、敵チャンピオンにダメージを与えると全ての蝶が放たれ、魔法ダメージを与える。",
+        "味方を強化、回復、またはシールドで守ると、その味方の周囲の敵にダメージとスローを与える。",
+        "味方にシールドを付与すると、1.5秒かけて減衰する移動速度とゴーストを付与する。対象ごとのクールダウン: 1.5秒。"
       ]
     },
     "ko": {
-      "title": "못총 영업사원",
-      "why": "클레드의 W는 거의 아무도 신경 쓰지 않는 부수 효과다. 다음 기본 공격부터 네 번 동안 공격 속도가 크게 오르고, 그다음엔 재사용 대기시간에 들어간다. 이 증강들이 W에 붙으면 재장전 덕분에 W 도중 적중 시 효과가 있는 기본 공격마다 W의 재사용 대기시간이 줄고, 신비한 주먹은 적중 시 효과마다 모든 스킬의 재사용 대기시간을 줄여서, 빠른 공격 네 번과 그 사이의 모든 공격이 W를 훨씬 빨리 돌려준다. W가 켜져 있는 동안 작은 도움은 클레드에게 추가 사거리와 더 많은 공격 속도를 주고, 바늘꽂이는 그 공격 하나하나를 피해를 쌓았다가 처형하는 못으로 바꾼다. 구인수의 격노검도 같은 루프를 돌린다. 최대 중첩 시 세 번째 공격마다 적중 시 효과가 두 번 적용돼 재장전과 신비한 주먹의 감소량도 두 배가 되고, 몰락한 왕의 검, 마법사의 최후, 크라켄 학살자, 경계가 못 박힌 공격 하나하나를 아프게 만든다. 곰덫 든 싸움꾼이 W 안에서 사는 장거리 못총으로 변신한다.",
-      "play": "가장 가까운 적에게 W를 시작하고, 못이 계속 쌓이도록 최대 사거리를 유지하면서 재장전과 신비한 주먹이 바로 W를 돌려주게 하자. E는 못이 곧 터질 대상에게 다시 붙을 때 쓰도록 아껴 두자.",
+      "title": "어린이집 원장 애니",
+      "why": "애니의 E에는 아무도 안 쓰는 대상이 있다. 아군에게 걸 수 있다는 것. 아군은 보호막, 이동 속도 증가, 그리고 자신을 때린 적에게 피해를 주는 가시를 얻고, 티버도 소환될 때 같은 효과를 두른다. E에 단체 포옹이 붙으면 한 번 쓸 때마다 근처 아군 둘에게도 다시 걸려서 버튼 하나로 보호막 셋, 이속 증가 셋, 가시 세 세트가 된다. 황홀한 나비는 보호막을 준 아군마다 나비를 모으고, 음속 폭발은 각 보호막을 그 아군 주변의 피해와 둔화 폭발로 바꾸며, 음속 장벽은 보호막을 받은 팀원 모두에게 이동 속도와 유체화를 준다. 애니가 적에게 피해를 주는 순간 나비가 전부 마법 피해로 날아간다. 월석 재생기는 보호막을 또 다른 아군에게 이어 나비와 폭발을 하나 더 만들고, 흐르는 물의 지팡이와 불타는 향로는 그녀와 보호막 받은 아군에게 주문력, 스킬 가속, 공격 속도를 나눠주며, 슈렐리아의 군가는 팀 전체를 강화해 폭발을 한 바퀴 더 돌린다. 찍고 터뜨리는 버스트 메이지가 적을 노리는 대신 팀원에게서 피해가 나오는 보호막 자판기가 된다.",
+      "play": "팀 뒤에 서서 곧 맞을 아군에게 E를 걸고, Q나 W로 적을 맞혀 나비를 풀어라. 보호막으로 쌓인 패시브 기절은 티버용으로 아껴 둬라.",
       "augments": [
-        "선택한 스킬 도중 적중 시 효과가 있는 기본 공격이 해당 스킬의 재사용 대기시간을 감소시킵니다.",
-        "적중 시 스킬 재사용 대기시간이 1.25초 감소합니다.",
-        "선택한 스킬의 지속시간 동안 공격 사거리와 공격 속도를 얻습니다.",
-        "선택한 스킬 도중의 공격이 대상에게 못을 박습니다. 못은 피해를 누적하고 처형하며, 만료 시 이동 속도를 부여합니다."
+        "선택한 스킬로 아군 챔피언을 회복시키거나 보호막을 씌우면 근처의 다른 아군 챔피언 2명에게 스킬을 다시 시전합니다. 회복과 보호막이 효과를 발휘합니다. 우정의 힘!",
+        "아군 챔피언을 회복시키거나 보호막을 씌우면 나비를 모읍니다. 나비를 모은 뒤 적 챔피언에게 피해를 입히면 나비를 모두 발사해 마법 피해를 입힙니다.",
+        "아군을 강화하거나 회복시키거나 보호막을 씌우면 그 아군 주변의 적에게 피해를 입히고 둔화시킵니다.",
+        "아군에게 보호막을 씌우면 1.5초에 걸쳐 감소하는 이동 속도와 유체화를 부여합니다. 대상별 재사용 대기시간: 1.5초."
       ]
     },
     "pl": {
-      "title": "Akwizytor Gwoździarek",
-      "why": "W Kleda to efekt uboczny, o którym prawie nikt nie myśli: jego następny atak daje mu spory zastrzyk prędkości ataku na cztery ataki, a potem wchodzi w odnowienie. Gdy te ulepszenia trafią na jego W, Odśwież sprawia, że każdy atak z efektem przy trafieniu w jego trakcie skraca jego odnowienie, a Mistyczny Cios skraca odnowienie wszystkich umiejętności przy każdym efekcie przy trafieniu, więc cztery szybkie ataki plus każdy atak pomiędzy przywracają je dużo szybciej. Dopóki jest aktywne, Drobna Pomoc daje Kledowi dodatkowy zasięg ataku i jeszcze więcej prędkości ataku, a Poduszeczka na Szpilki zamienia każdy z tych ataków w gwoździe, które kumulują obrażenia, a potem dobijają. Ostrze Gniewu Guinsoo napędza tę samą pętlę, bo przy pełnych ładunkach co trzeci atak nakłada efekty przy trafieniu dwukrotnie, podwajając skracanie odnowienia z Odśwież i Mistycznego Ciosu, a Ostrze Zniszczonego Króla, Koniec Rozumu, Pogromca Krakenów i Ostatni Przystanek sprawiają, że każdy przybity atak boli. Zadymiarz z sidłami na niedźwiedzie zmienia się w dalekosiężną gwoździarkę, która praktycznie mieszka w swoim W.",
-      "play": "Odpal W na najbliższym wrogu, trzymaj maksymalny zasięg, żeby gwoździe dalej się kumulowały, i pozwól, by Odśwież i Mistyczny Cios od razu ci je oddały. Zachowaj E, żeby wrócić do celu, którego gwoździe zaraz wybuchną.",
+      "title": "Dyrektorka przedszkola",
+      "why": "E Annie ma cel, którego nikt nie używa: może rzucić je na sojusznika, który dostaje tarczę, zryw prędkości ruchu i kolce raniące każdego, kto go uderzy, a Tibbers pojawia się z nią od razu. Z Grupowym Przytulasem na E każde użycie osłania dwóch kolejnych sojuszników, więc jeden przycisk to trzy tarcze, trzy zrywy prędkości i trzy zestawy kolców. Czarujące Motyle zbierają motyla za każdego osłoniętego sojusznika, Grom Dźwiękowy sprawia, że każda tarcza wybucha obrażeniami i spowolnieniem wokół sojusznika, a Bariera Dźwięku daje każdemu osłoniętemu koledze prędkość i Duch, więc gdy tylko Annie zrani wroga, wszystkie motyle wylatują jako obrażenia magiczne. Odnowienie Kamienia Księżycowego przeskakuje z każdą tarczą na kolejnego sojusznika po jeszcze jednego motyla i wybuch, Kostur Płynącej Wody i Ognisty Trybularz dają jej i każdemu osłoniętemu moc umiejętności, przyspieszenie i prędkość ataku, a Pieśń Bitewna Shurelyi wzmacnia całą drużynę na kolejną rundę wybuchów. Magini burstowa od klikania w cel przestaje celować we wrogów i staje się automatem do tarcz, której obrażenia wychodzą z kolegów.",
+      "play": "Stój za drużyną, rzucaj E na tego, kto zaraz oberwie, a potem traf wroga Q albo W, żeby wypuścić motyle. Ogłuszenie z biernej, naładowane tarczami, zostaw na Tibbersa.",
       "augments": [
-        "Podstawowe ataki z efektem przy trafieniu podczas wybranej umiejętności skracają jej czas odnowienia.",
-        "Przy trafieniu skraca czas odnowienia twoich umiejętności o 1,25 sekundy.",
-        "Zyskujesz zasięg ataku i prędkość ataku na czas trwania wybranej umiejętności.",
-        "Ataki podczas wybranej umiejętności nabijają cel gwoździami. Gwoździe kumulują obrażenia, dobijają i dają prędkość ruchu po wygaśnięciu."
+        "Leczenie lub osłanianie sojuszniczego bohatera wybraną umiejętnością rzuca czar ponownie na 2 innych pobliskich sojuszniczych bohaterów. Leczenie i tarcze działają w pełni. Potęga przyjaźni!",
+        "Leczenie lub osłanianie sojuszniczych bohaterów zbiera motyle. Po zebraniu motyli zadanie obrażeń wrogiemu bohaterowi wystrzeliwuje je wszystkie, zadając obrażenia magiczne.",
+        "Wzmacnianie, leczenie lub osłanianie tarczą sojusznika zadaje obrażenia i spowalnia otaczających go wrogów.",
+        "Osłonięcie sojusznika zapewnia mu prędkość ruchu i efekt Ducha, które zanikają w ciągu 1,5 sekundy. Czas odnowienia na cel: 1,5 sekundy."
       ]
     },
     "pt-BR": {
-      "title": "O Vendedor de Pistola de Pregos",
-      "why": "O W do Kled é um efeito colateral em que quase ninguém pensa: o próximo ataque dele dá um belo pico de Velocidade de Ataque por quatro ataques e depois entra em recarga. Com esses aprimoramentos caindo no W, Recarga faz cada ataque com efeito ao atingir durante ele reduzir a recarga dele, e Soco Místico reduz a recarga de todas as habilidades a cada efeito ao atingir, então os quatro ataques rápidos mais todos os do meio trazem ele de volta muito antes. Enquanto ele está ativo, Ajudinha Extra dá ao Kled Alcance de Ataque bônus e ainda mais Velocidade de Ataque, e Alfinetada transforma cada um desses ataques em pregos que acumulam dano e depois executam. Lâmina da Fúria de Guinsoo alimenta o mesmo ciclo, porque com acúmulos máximos todo terceiro ataque aplica efeitos ao atingir duas vezes, dobrando a redução de Recarga e Soco Místico, enquanto Espada do Rei Destruído, Limite da Razão, Mata-Cráquens e Terminus fazem cada ataque pregado doer. O brigão da armadilha de urso vira uma pistola de pregos de longo alcance que mora no W.",
-      "play": "Ative o W em quem estiver mais perto, fique no alcance máximo pros pregos continuarem acumulando e deixe Recarga e Soco Místico devolverem ele na hora. Guarde o E pra voltar num alvo cujos pregos estão prestes a estourar.",
+      "title": "Diretora da Creche",
+      "why": "O E da Annie tem um alvo que ninguém usa: ela pode lançá-lo num aliado, que ganha um escudo, um pico de velocidade de movimento e espinhos que ferem quem bater nele, e o Tibbers já nasce com ele também. Com Abraço em Grupo no E, cada lançamento protege mais dois aliados, então um botão vira três escudos, três picos de velocidade e três conjuntos de espinhos. Borboletas Encantadoras junta uma borboleta para cada aliado protegido, Explosão Sônica faz cada escudo explodir em dano e lentidão em volta daquele aliado, e Barreira do Som dá a cada aliado protegido velocidade e Fantasmagórico, então assim que a Annie causa dano a um inimigo todas as borboletas voam como dano mágico. Regenerador de Pedra Lunar encadeia cada escudo para mais um aliado, rendendo mais uma borboleta e mais uma explosão, Cajado Aquafluxo e Turíbulo Ardente dão a ela e a cada aliado protegido Poder de Habilidade, Aceleração e Velocidade de Ataque, e Hino Bélico de Shurelya buffa o time todo para mais uma rodada de explosões. A maga de burst de clique e pronto para de mirar nos inimigos e vira uma máquina de escudos cujo dano sai dos colegas.",
+      "play": "Fique atrás do time, jogue o E em quem estiver prestes a apanhar e depois acerte um inimigo com o Q ou o W para soltar as borboletas. Guarde o atordoamento da passiva, carregado pelos escudos, para o Tibbers.",
       "augments": [
-        "Ataques Básicos com efeito ao atingir durante a habilidade escolhida reduzem a recarga dela.",
-        "Ao atingir, reduz a recarga das suas habilidades em 1,25 segundo.",
-        "Receba alcance de ataque e velocidade de ataque durante a duração da habilidade escolhida.",
-        "Ataques durante a habilidade escolhida cravam pregos no alvo. Os pregos acumulam dano, executam e concedem Velocidade de Movimento ao expirar."
+        "Curar ou proteger um campeão aliado com a habilidade escolhida lança o feitiço novamente em outros 2 campeões aliados próximos. Curas e escudos são eficazes. O poder da amizade!",
+        "Curar ou proteger campeões aliados junta Borboletas. Depois de juntá-las, causar dano a um campeão inimigo dispara todas elas, causando dano mágico.",
+        "Fortalecer, curar ou dar escudo ao seu aliado causa dano e aplica lentidão nos inimigos ao redor dele.",
+        "Proteger um aliado concede Velocidade de Movimento e Fantasmagórico que diminuem ao longo de 1,5 segundo. Recarga por alvo: 1,5 segundo."
       ]
     },
     "ro": {
-      "title": "Agentul de vânzări cu pistolul de cuie",
-      "why": "W-ul lui Kled e un efect secundar la care aproape nimeni nu se gândește: următorul lui atac îi dă un val serios de viteză de atac pentru patru atacuri, apoi intră în timp de reîncărcare. Cu aceste augmentări picate pe W, Reîncarcă face ca fiecare atac cu efect la impact din timpul lui să-i reducă timpul de reîncărcare, iar Lovitură mistică reduce timpul de reîncărcare al tuturor abilităților la fiecare efect la impact, așa că cele patru atacuri rapide plus fiecare atac dintre ele îl aduc înapoi mult mai repede. Cât timp e activ, Un pic de ajutor în plus îi dă lui Kled rază de atac bonus și și mai multă viteză de atac, iar Pernă de ace transformă fiecare dintre aceste atacuri în cuie care adună daune și apoi execută. Spada furiei lui Guinsoo hrănește aceeași buclă, pentru că la încărcare maximă fiecare al treilea atac aplică efectele la impact de două ori, dublând reducerile de la Reîncarcă și Lovitură mistică, în timp ce Sabia regelui înfrânt, Sfârșitul rațiunii, Ucigașul de krakeni și Terminus fac ca fiecare atac bătut în cuie să doară. Bătăușul cu capcana de urs devine un pistol de cuie cu rază lungă care locuiește în W-ul lui.",
-      "play": "Pornește W-ul pe cel mai apropiat inamic, stai la rază maximă ca să se tot adune cuiele și lasă Reîncarcă și Lovitură mistică să ți-l dea imediat înapoi. Păstrează E-ul ca să revii pe o țintă ale cărei cuie stau să explodeze.",
+      "title": "Directoarea grădiniței",
+      "why": "E-ul lui Annie are o țintă pe care n-o folosește nimeni: îl poate arunca pe un aliat, care primește un scut, un impuls de viteză de mișcare și spini care rănesc pe oricine îl lovește, iar Tibbers apare și el cu scutul. Cu Îmbrățișare de grup pe E, fiecare folosire mai protejează doi aliați, deci un buton înseamnă trei scuturi, trei impulsuri de viteză și trei seturi de spini. Fluturi fermecători adună un fluture pentru fiecare aliat protejat, Explozie sonică face fiecare scut să explodeze în daune și încetinire în jurul aliatului, iar Bariera sunetului dă fiecărui coechipier protejat viteză și Fantomă, așa că imediat ce Annie lovește un inamic toți fluturii zboară ca daune magice. Reînnoirea pietrei lunii trece fiecare scut la încă un aliat pentru încă un fluture și încă o explozie, Sceptrul apei curgătoare și Cădelnița aprinsă îi dau ei și fiecărui aliat protejat putere, accelerare și viteză de atac, iar Cântecul de luptă al Shurelyei întărește toată echipa pentru încă o rundă de explozii. Maga de burst cu un click nu mai țintește inamicii și devine un automat de scuturi ale cărui daune vin din coechipieri.",
+      "play": "Stai în spatele echipei, aruncă E pe cine urmează să încaseze, apoi lovește un inamic cu Q sau W ca să eliberezi fluturii. Păstrează amețirea din pasivă, încărcată de scuturi, pentru Tibbers.",
       "augments": [
-        "Atacurile de bază cu efect la impact din timpul abilității alese îi reduc timpul de reîncărcare.",
-        "La impact, reduce timpul de reîncărcare al abilităților tale cu 1,25 secunde.",
-        "Primești rază de atac și viteză de atac pe durata abilității alese.",
-        "Atacurile din timpul abilității alese îți împănează ținta cu cuie. Cuiele adună daune, execută și oferă viteză de mișcare la expirare."
+        "Vindecarea sau protejarea unui campion aliat cu abilitatea aleasă relansează vraja asupra altor 2 campioni aliați din apropiere. Vindecările și scuturile sunt eficiente. Puterea prieteniei!",
+        "Vindecarea sau protejarea campionilor aliați adună fluturi. După ce aduni fluturi, rănirea unui campion inamic îi lansează pe toți, provocând daune magice.",
+        "Când îți întărești, vindeci sau protejezi cu scut aliatul, inamicii din jurul lui suferă daune și sunt încetiniți.",
+        "Protejarea unui aliat îi conferă viteză de mișcare și Fantomă care scad în 1,5 secunde. Timp de reactivare per țintă: 1,5 secunde."
       ]
     },
     "ru": {
-      "title": "Коммивояжёр гвоздемётов",
-      "why": "W Кледа — побочный эффект, о котором почти никто не думает: его следующая атака дает солидный прирост скорости атаки на четыре атаки, после чего уходит на перезарядку. Если эти аугменты выпали на его W, Перезаряжание заставляет каждую атаку с эффектом при попадании во время умения сокращать его перезарядку, а Мистический удар при каждом эффекте при попадании сокращает перезарядку всех его умений, так что четыре быстрые атаки плюс каждая атака между ними возвращают W гораздо раньше. Пока оно активно, Своевременная помощь дает Кледу дополнительную дальность атаки и еще больше скорости атаки, а Игольница превращает каждую из этих атак в гвозди, которые копят урон, а потом добивают. Клинок ярости Гинсу питает ту же петлю: на максимуме зарядов каждая третья атака применяет эффекты при попадании дважды, удваивая сокращение перезарядки от Перезаряжания и Мистического удара, а Клинок Падшего короля, Смерть Разума, Убийца кракенов и Светотень делают каждую атаку с гвоздями больной. Драчун с медвежьим капканом превращается в дальнобойный гвоздемёт, который живет в своем W.",
-      "play": "Включай W на ближайшем враге, держись на максимальной дальности, чтобы гвозди продолжали копиться, и пусть Перезаряжание с Мистическим ударом сразу его возвращают. Прибереги E, чтобы снова догнать цель, чьи гвозди вот-вот взорвутся.",
+      "title": "Заведующая детсадом",
+      "why": "У E Энни есть цель, которой никто не пользуется: его можно кинуть на союзника, и тот получит щит, рывок скорости передвижения и шипы, ранящие любого, кто его ударит, а Тибберс появляется уже с ним. С Групповыми обнимашками на E каждое применение защищает ещё двух союзников, так что одна кнопка это три щита, три рывка скорости и три набора шипов. Чарующие бабочки собирают бабочку за каждого защищённого союзника, Звуковой удар взрывает каждый щит уроном и замедлением вокруг союзника, а Звуковой барьер даёт каждому защищённому скорость и Призрака, так что стоит Энни задеть врага, все бабочки летят в него магическим уроном. Исцеляющий лунный камень перекидывает каждый щит ещё на одного союзника ради ещё одной бабочки и взрыва, Посох водного потока и Пылающая кадильница дают ей и каждому защищённому силу умений, ускорение умений и скорость атаки, а Боевая песнь Шурелии усиливает всю команду для нового круга взрывов. Бёрст-маг «навёл и кликнул» перестаёт целиться во врагов и становится раздатчиком щитов, чей урон исходит от её тиммейтов.",
+      "play": "Стой за командой, кидай E на того, кого вот-вот будут бить, затем задень врага Q или W, чтобы выпустить бабочек. Оглушение пассивки, накопленное щитами, береги для Тибберса.",
       "augments": [
-        "Автоатаки с эффектом при попадании во время выбранного умения сокращают его перезарядку.",
-        "При попадании сокращает время перезарядки ваших умений на 1,25 сек.",
-        "Вы получаете дальность атаки и скорость атаки на время действия выбранного умения.",
-        "Атаки во время выбранного умения вбивают в цель гвозди. Гвозди копят урон, добивают и дают скорость передвижения по истечении."
+        "Лечение или щит на союзного чемпиона выбранным умением повторно применяет его к 2 другим союзным чемпионам поблизости. Лечение и щиты действуют в полную силу. Сила дружбы!",
+        "Лечение или щиты на союзных чемпионах собирают бабочек. После этого нанесение урона вражескому чемпиону выпускает их всех, нанося магический урон.",
+        "Усиление, лечение или щит на союзника наносит урон и замедляет врагов вокруг него.",
+        "Щит на союзнике даёт ему скорость передвижения и Призрака, которые ослабевают за 1,5 сек. Перезарядка для каждой цели: 1,5 сек."
       ]
     },
     "th": {
-      "title": "เซลส์ปืนยิงตะปู",
-      "why": "W ของ Kled เป็นผลพลอยได้ที่แทบไม่มีใครสนใจ: การโจมตีครั้งถัดไปให้ Attack Speed ก้อนใหญ่สี่ครั้ง แล้วก็ติดคูลดาวน์ ถ้า Augment เหล่านี้ไปลงที่ W ของเขา Reload ทำให้ทุกการโจมตีแบบ On-Hit ระหว่าง W ลดคูลดาวน์ของมัน และ Mystic Punch ลดคูลดาวน์ทุกสกิลทุกครั้งที่ On-Hit ทำงาน การโจมตีเร็วสี่ครั้งบวกทุกการโจมตีระหว่างนั้นจึงพา W กลับมาเร็วขึ้นมาก ระหว่างที่ W ทำงาน Lil' Extra Help ให้ Attack Range เพิ่มและ Attack Speed มากขึ้นอีก ส่วน Pin Cushion เปลี่ยนการโจมตีแต่ละครั้งเป็นตะปูที่สะสมดาเมจแล้วประหารเป้าหมาย Guinsoo's Rageblade ป้อนลูปเดียวกัน เพราะเมื่อสแตคเต็มทุกการโจมตีครั้งที่สามจะใช้เอฟเฟกต์ On-Hit สองครั้ง ทำให้การลดคูลดาวน์ของ Reload และ Mystic Punch เพิ่มเป็นสองเท่า ขณะที่ Blade of the Ruined King, Wit's End, Kraken Slayer และ Terminus ทำให้ทุกการโจมตีที่ตอกตะปูเจ็บ นักเลงถือกับดักหมีกลายเป็นปืนยิงตะปูระยะไกลที่อาศัยอยู่ใน W",
-      "play": "เปิด W ใส่ศัตรูที่ใกล้ที่สุด ยืนระยะโจมตีสูงสุดให้ตะปูสะสมต่อไป แล้วปล่อยให้ Reload กับ Mystic Punch คืน W ให้ทันที เก็บ E ไว้กลับไปประชิดเป้าหมายที่ตะปูใกล้ระเบิด",
+      "title": "ผู้อำนวยการเนอสเซอรี่",
+      "why": "สกิล E ของ Annie มีเป้าหมายที่ไม่มีใครใช้ คือร่ายใส่เพื่อนได้ เพื่อนจะได้โล่ ความเร็วเคลื่อนที่พุ่งขึ้น และหนามที่สะท้อนดาเมจใส่ใครก็ตามที่ตีเขา แถม Tibbers ก็เกิดมาพร้อมโล่นี้ด้วย พอได้ Group Hug ลงที่ E ทุกครั้งที่ร่ายจะโล่ให้เพื่อนใกล้ๆ อีกสองคน กดปุ่มเดียวได้สามโล่ สามบูสต์ความเร็ว และหนามสามชุด Enchanting Butterflies เก็บผีเสื้อหนึ่งตัวต่อเพื่อนที่ได้โล่ Sonic Boom ทำให้ทุกโล่ระเบิดเป็นดาเมจและสโลว์รอบตัวเพื่อนคนนั้น และ Sound Barrier ให้ความเร็วกับ Ghost แก่เพื่อนทุกคนที่ได้โล่ พอ Annie ทำดาเมจใส่ศัตรูเมื่อไหร่ ผีเสื้อทั้งหมดก็พุ่งออกไปเป็นดาเมจเวท Moonstone Renewer ส่งต่อโล่ไปยังเพื่อนอีกคนเพื่อได้ผีเสื้อกับระเบิดเพิ่มอีกหนึ่ง Staff of Flowing Water กับ Ardent Censer ให้ AP, Haste และ Attack Speed แก่เธอและเพื่อนที่ได้โล่ทุกคน และ Shurelya's Battlesong บัฟทั้งทีมเพื่อระเบิดอีกรอบ เมจเบิร์สแบบชี้แล้วคลิกเลิกเล็งศัตรู กลายเป็นเครื่องแจกโล่ที่ดาเมจออกมาจากเพื่อนร่วมทีม",
+      "play": "ยืนหลังทีม ร่าย E ใส่คนที่กำลังจะโดนตี แล้วแตะศัตรูด้วย Q หรือ W เพื่อปล่อยผีเสื้อ เก็บสตันจากพาสซีฟที่โล่ชาร์จไว้ให้ Tibbers",
       "augments": [
-        "การโจมตีพื้นฐานแบบ On-Hit ระหว่างสกิลที่เลือกจะลดคูลดาวน์ของสกิลนั้น",
-        "On-Hit ลดคูลดาวน์สกิลของคุณ 1.25 วินาที",
-        "ได้รับระยะโจมตีและความเร็วโจมตีตลอดระยะเวลาของสกิลที่เลือก",
-        "การโจมตีระหว่างสกิลที่เลือกจะตอกตะปูใส่เป้าหมาย ตะปูสะสมดาเมจ ประหาร และให้ Movement Speed เมื่อหมดเวลา"
+        "การฮีลหรือให้โล่แชมเปี้ยนฝ่ายเดียวกันด้วยสกิลที่เลือก จะร่ายสกิลนั้นซ้ำใส่แชมเปี้ยนฝ่ายเดียวกันอีก 2 คนที่อยู่ใกล้ ฮีลและโล่ได้ผลเต็มที่ พลังแห่งมิตรภาพ!",
+        "การฮีลหรือให้โล่แชมเปี้ยนฝ่ายเดียวกันจะเก็บผีเสื้อ หลังเก็บผีเสื้อแล้ว การทำดาเมจใส่แชมเปี้ยนศัตรูจะยิงผีเสื้อทั้งหมดออกไปสร้างดาเมจเวท",
+        "การบัฟ ฮีล หรือให้โล่แก่เพื่อนร่วมทีมจะสร้างดาเมจและสโลว์ศัตรูที่อยู่รอบตัวพวกเขา",
+        "การให้โล่เพื่อนร่วมทีมจะมอบความเร็วเคลื่อนที่และ Ghost ที่ลดลงภายใน 1.5 วินาที คูลดาวน์ต่อเป้าหมาย: 1.5 วินาที"
       ]
     },
     "tr": {
-      "title": "Çivi Tabancası Pazarlamacısı",
-      "why": "Kled'in W'si neredeyse kimsenin düşünmediği bir yan etki: sonraki saldırısı ona dört saldırı boyunca ciddi bir saldırı hızı patlaması verir, sonra bekleme süresine girer. Bu güçlendirmeler W'sine denk gelirse, Yeniden Yükle bu sırada her isabet etkili saldırının onun bekleme süresini azaltmasını sağlar, Mistik Yumruk da her isabet etkisinde tüm yeteneklerinin bekleme süresini düşürür, yani dört hızlı saldırı ve aradaki her saldırı onu çok daha erken geri getirir. Aktifken Küçük Bir Yardım Kled'e ek saldırı menzili ve daha da fazla saldırı hızı verir, İğnelik de bu saldırıların her birini hasar biriktirip sonra infaz eden çivilere çevirir. Guinsoo'nun Hiddeti aynı döngüyü besler, çünkü tam yüklüyken her üçüncü saldırı isabet etkilerini iki kez uygular ve Yeniden Yükle ile Mistik Yumruk'un bekleme süresi azaltmasını ikiye katlar; Mahvolmuş Kralın Kılıcı, Aklın Sonu, Kraken Katili ve Son Durak da her çivili saldırıyı acıtır. Ayı kapanlı kavgacı, W'sinde yaşayan uzun menzilli bir çivi tabancasına dönüşür.",
-      "play": "W'yi en yakındaki rakibe başlat, çiviler birikmeye devam etsin diye azami menzilde kal ve Yeniden Yükle ile Mistik Yumruk onu hemen geri versin. E'yi, çivileri patlamak üzere olan bir hedefe geri dönmek için sakla.",
+      "title": "Kreş Müdiresi",
+      "why": "Annie'nin E'sinin kimsenin kullanmadığı bir hedefi var: onu bir dosta atabilir, dost bir kalkan, ani bir hareket hızı artışı ve ona vuranı yaralayan dikenler alır, Tibbers da onunla doğar. E'sinde Grup Kucaklaşması varken her kullanım iki dostu daha korur, yani tek tuş üç kalkan, üç hız artışı ve üç takım diken demek. Büyüleyici Kelebekler korunan her dost için bir kelebek toplar, Ses Patlaması her kalkanı o dostun çevresinde hasar ve yavaşlatmayla patlatır, Ses Bariyeri de korunan her takım arkadaşına hız ve Hayalet verir; Annie bir rakibe hasar verdiği an bütün kelebekler büyü hasarı olarak uçar. Dinçleştirici Aytaşı her kalkanı bir dosta daha zincirler, bir kelebek ve bir patlama daha, Akan Su Asası ile Kızgın Buhurdanlık ona ve korunan her dosta yetenek gücü, yetenek hızı ve saldırı hızı verir, Shurelya'nın Savaş Şarkısı da tüm takımı yeni bir patlama turu için güçlendirir. Tıkla-patlat büyücüsü rakiplere nişan almayı bırakıp hasarı takım arkadaşlarından çıkan bir kalkan makinesine dönüşür.",
+      "play": "Takımın arkasında dur, E'yi dayak yemek üzere olana at, sonra kelebekleri salmak için bir rakibe Q ya da W ile vur. Kalkanlarının doldurduğu pasif sersemletmeyi Tibbers'a sakla.",
       "augments": [
-        "Seçilen yetenek sırasında isabet etkili temel saldırılar onun bekleme süresini azaltır.",
-        "İsabette yeteneklerinin bekleme süresini 1,25 saniye azaltır.",
-        "Seçilen yeteneğin süresi boyunca saldırı menzili ve saldırı hızı kazanırsın.",
-        "Seçilen yetenek sırasında yapılan saldırılar hedefine çiviler saplar. Çiviler hasar biriktirir, infaz eder ve süreleri dolduğunda hareket hızı kazandırır."
+        "Seçilen yetenekle bir dost şampiyonu iyileştirmek ya da korumak, büyüyü yakındaki 2 dost şampiyona daha yapar. İyileştirmeler ve kalkanlar etkilidir. Dostluğun gücü!",
+        "Dost şampiyonları iyileştirmek ya da korumak kelebek toplar. Kelebekler toplandıktan sonra bir rakip şampiyona hasar vermek hepsini fırlatır ve büyü hasarı verir.",
+        "Müttefikini güçlendirmek, iyileştirmek veya kalkanla korumak etrafındaki düşmanlara hasar verir ve onları yavaşlatır.",
+        "Bir dostu korumak ona 1,5 saniyede azalan hareket hızı ve Hayalet verir. Hedef başına bekleme süresi: 1,5 saniye."
       ]
     },
     "vi": {
-      "title": "Gã Bán Súng Bắn Đinh",
-      "why": "W của Kled là một hiệu ứng phụ mà hầu như chẳng ai để ý: đòn đánh tiếp theo cho hắn một cú tăng Tốc Độ Đánh lớn trong bốn đòn, rồi vào thời gian hồi chiêu. Khi các Lõi Nâng Cấp này rơi vào W, Lên Đạn khiến mỗi đòn đánh có hiệu ứng trên đòn đánh trong lúc đó giảm hồi chiêu của nó, còn Cú Đấm Thần Bí giảm hồi chiêu mọi kỹ năng mỗi lần kích hoạt hiệu ứng trên đòn đánh, nên bốn đòn đánh nhanh cộng mọi đòn đánh xen giữa đưa W quay lại sớm hơn nhiều. Khi W đang bật, Một Chút Trợ Giúp cho Kled thêm Tầm Đánh và thêm Tốc Độ Đánh, còn Gối Cắm Kim biến mỗi đòn đánh đó thành đinh tích sát thương rồi kết liễu. Cuồng Đao Guinsoo nuôi cùng vòng lặp đó, vì khi đầy cộng dồn cứ mỗi đòn thứ ba sẽ áp dụng hiệu ứng trên đòn đánh hai lần, nhân đôi phần giảm hồi chiêu của Lên Đạn và Cú Đấm Thần Bí, trong khi Gươm Suy Vong, Đao Tím, Móc Diệt Thủy Quái và Cung Chạng Vạng làm mỗi đòn đóng đinh đều đau. Gã đầu gấu cầm bẫy gấu biến thành khẩu súng bắn đinh tầm xa sống luôn trong W.",
-      "play": "Bật W lên kẻ địch gần nhất, đứng ở tầm đánh tối đa để đinh tiếp tục cộng dồn, và để Lên Đạn cùng Cú Đấm Thần Bí trả W lại ngay. Giữ E để lao lại vào mục tiêu có đinh sắp nổ.",
+      "title": "Hiệu Trưởng Nhà Trẻ",
+      "why": "Chiêu E của Annie có một mục tiêu chẳng ai dùng: cô có thể dùng nó lên đồng minh, người đó nhận lá chắn, một cú tăng tốc độ di chuyển và gai phản sát thương lên bất kỳ ai đánh mình, và Tibbers xuất hiện cũng mang sẵn nó. Với Ôm Tập Thể trên E, mỗi lần dùng lại che chắn thêm hai đồng minh, nên một nút bấm là ba lá chắn, ba lần tăng tốc và ba bộ gai. Bướm Phù Phép gom một con bướm cho mỗi đồng minh được che chắn, Vụ Nổ Siêu Thanh khiến mỗi lá chắn nổ ra sát thương và làm chậm quanh đồng minh đó, còn Bức Tường Âm Thanh cho mỗi đồng đội được che chắn tốc độ và Tốc Biến Ma, nên ngay khi Annie gây sát thương lên kẻ địch, cả đàn bướm bay ra thành sát thương phép. Bùa Nguyệt Thạch nối mỗi lá chắn sang thêm một đồng minh để có thêm một con bướm và một vụ nổ, Trượng Lưu Thủy và Lư Hương Sôi Sục cho cô và mỗi đồng minh được che chắn sức mạnh phép thuật, điểm hồi kỹ năng và tốc độ đánh, còn Vương Miện Shurelya buff cả đội cho thêm một lượt nổ. Pháp sư dồn sát thương chỉ-và-bấm thôi nhắm vào kẻ địch và thành cỗ máy phát khiên có sát thương tuôn ra từ đồng đội.",
+      "play": "Đứng sau đội, dùng E lên người sắp bị đánh, rồi chạm kẻ địch bằng Q hoặc W để thả bướm. Giữ cú choáng từ nội tại mà các lá chắn đã tích cho Tibbers.",
       "augments": [
-        "Đòn đánh thường có hiệu ứng trên đòn đánh trong lúc dùng kỹ năng được chọn sẽ giảm hồi chiêu của nó.",
-        "Hiệu ứng trên đòn đánh: giảm 1,25 giây thời gian hồi chiêu của các kỹ năng.",
-        "Nhận thêm tầm đánh và tốc độ đánh trong thời gian kỹ năng đã chọn có hiệu lực.",
-        "Đòn đánh trong lúc dùng kỹ năng được chọn sẽ ghim đinh vào mục tiêu. Đinh tích sát thương, kết liễu và cho Tốc Độ Di Chuyển khi hết hạn."
+        "Hồi máu hoặc tạo lá chắn cho một tướng đồng minh bằng kỹ năng đã chọn sẽ thi triển lại phép đó lên 2 tướng đồng minh khác ở gần. Hồi máu và lá chắn đều có hiệu lực. Sức mạnh của tình bạn!",
+        "Hồi máu hoặc tạo lá chắn cho tướng đồng minh sẽ gom Bướm. Sau khi gom Bướm, gây sát thương lên tướng địch sẽ phóng tất cả chúng ra, gây sát thương phép.",
+        "Cường hóa, hồi máu hoặc tạo lá chắn cho đồng minh sẽ gây sát thương và làm chậm kẻ địch xung quanh họ.",
+        "Tạo lá chắn cho đồng minh cho họ tốc độ di chuyển và Tốc Biến Ma giảm dần trong 1,5 giây. Hồi chiêu mỗi mục tiêu: 1,5 giây."
       ]
     },
     "zh-CN": {
-      "title": "射钉枪推销员",
-      "why": "暴怒骑士的W是个几乎没人在意的副作用：他的下一次攻击会在四次攻击内获得一大波攻击速度，然后进入冷却。当这些强化符文落在W上时，装填让W期间每次带攻击特效的普攻都减少它的冷却，秘术冲拳则在每次攻击特效时减少他所有技能的冷却，于是四次快速攻击加上中间的每一下普攻，都能让W更快回来。W开着的时候，小小的额外帮助给他额外攻击距离和更多攻速，针插垫把每一下攻击变成会累积伤害、最后斩杀的钉子。鬼索的狂暴之刃也在喂同一个循环：满层时每第三次攻击会触发两次攻击特效，让装填和秘术冲拳的冷却缩减翻倍，而破败王者之刃、智慧末刃、海妖杀手和界弓让每一下钉钉子都很疼。拿捕熊夹的莽夫，变成了住在W里的远程射钉枪。",
-      "play": "对最近的敌人开W，站在最远攻击距离让钉子持续叠加，让装填和秘术冲拳马上把W还给你。E留着，用来重新贴上钉子快要爆的目标。",
+      "title": "托儿所园长",
+      "why": "安妮的E有个没人用的目标：可以放给队友，队友获得护盾、一段移速加成和反伤，谁打他谁挨揍，提伯斯被召唤时也自带这层盾。把一起抱抱选在E上，每次施放会再套给附近另外两名队友，一个按键就是三层盾、三次加速和三份反伤。迷人蝴蝶每给一名队友上盾就收集一只蝴蝶，天音爆让每层盾都在那名队友身边炸出伤害和减速，音之屏障给每个被保护的队友移速和幽灵，于是安妮一打到敌人，所有蝴蝶就化作魔法伤害飞出去。月石再生器把每层盾再链到另一名队友身上，多一只蝴蝶多一次爆炸，流水法杖和炽热香炉给她和每个被保护的队友法强、技能急速和攻速，舒瑞娅的战歌给全队加buff，再炸一轮。点谁谁死的爆发法师不再瞄敌人，变成一台伤害从队友身上冒出来的护盾机。",
+      "play": "站在队伍后面，把E丢给马上要挨打的队友，然后用Q或W碰一下敌人放出蝴蝶。护盾攒出来的被动眩晕留给提伯斯。",
       "augments": [
-        "在所选技能期间，带攻击特效的普攻会减少该技能的冷却时间。",
-        "攻击特效：使你的技能冷却时间减少1.25秒。",
-        "在所选技能持续期间获得攻击距离和攻速。",
-        "在所选技能期间的攻击会给目标钉上钉子。钉子会累积伤害、进行斩杀，并在结束时提供移动速度。"
+        "用所选技能治疗或护盾一名友方英雄时，会对附近另外2名友方英雄再次施放该技能。治疗和护盾均有效。友谊的力量！",
+        "治疗或护盾友方英雄会收集蝴蝶。收集蝴蝶后，对敌方英雄造成伤害会射出所有蝴蝶，造成魔法伤害。",
+        "强化、治疗友军或为其提供护盾时，会对其周围的敌人造成伤害并减速。",
+        "为友军提供护盾会给予其在1.5秒内衰减的移动速度和幽灵效果。每个目标的冷却时间：1.5秒。"
       ]
     },
     "zh-TW": {
-      "title": "射釘槍推銷員",
-      "why": "克雷德的W是個幾乎沒人在意的副作用：他的下一次攻擊會在四次攻擊內獲得一大波攻擊速度，然後進入冷卻。當這些強化落在W上時，重新載入讓W期間每次帶命中效果的普攻都減少它的冷卻，祕術拳擊則在每次命中效果時減少他所有技能的冷卻，於是四次快速攻擊加上中間的每一下普攻，都能讓W更快回來。W開著的時候，小小助力給他額外攻擊距離和更多攻速，針插把每一下攻擊變成會累積傷害、最後斬殺的釘子。鬼索的狂暴之刃也在餵同一個循環：滿層時每第三次攻擊會觸發兩次命中效果，讓重新載入和祕術拳擊的冷卻縮減翻倍，而殞落王者之劍、智慧末刃、海妖殺手和臨界點讓每一下釘釘子都很痛。拿捕熊夾的莽夫，變成了住在W裡的遠程射釘槍。",
-      "play": "對最近的敵人開W，站在最遠攻擊距離讓釘子持續疊加，讓重新載入和祕術拳擊馬上把W還給你。E留著，用來重新貼上釘子快要爆的目標。",
+      "title": "幼兒園園長",
+      "why": "安妮的E有個沒人用的目標：可以放給隊友，隊友獲得護盾、一段跑速加成和反傷，誰打他誰受傷，提伯斯被召喚時也自帶這層盾。把大家來抱抱選在E上，每次施放會再套給附近另外兩名隊友，一個按鍵就是三層盾、三次加速和三份反傷。迷人蝶影每替一名隊友上盾就收集一隻蝴蝶，餘音震盪讓每層盾都在那名隊友身邊炸出傷害和緩速，音障給每個被保護的隊友跑速和鬼步，於是安妮一打到敵人，所有蝴蝶就化作魔法傷害飛出去。月之石再生裝置把每層盾再連到另一名隊友身上，多一隻蝴蝶多一次爆炸，流水之杖和熾灼魔器給她和每個被保護的隊友魔攻、技能加速和攻速，蘇瑞亞的戰歌替全隊加buff，再炸一輪。點誰誰死的爆發法師不再瞄敵人，變成一台傷害從隊友身上冒出來的護盾機。",
+      "play": "站在隊伍後面，把E丟給快要挨打的隊友，然後用Q或W碰一下敵人放出蝴蝶。護盾攢出來的被動暈眩留給提伯斯。",
       "augments": [
-        "在所選技能期間，帶命中效果的普攻會減少該技能的冷卻時間。",
-        "命中特效：使你的技能冷卻時間減少1.25秒。",
-        "在所選技能持續期間獲得攻擊距離和攻速。",
-        "在所選技能期間的攻擊會替目標釘上釘子。釘子會累積傷害、進行斬殺，並在結束時提供移動速度。"
+        "使用所選技能治療或護盾一名友方英雄時，會對附近另外2名友方英雄再次施放該技能。治療和護盾皆有效。友情的力量！",
+        "治療或護盾友方英雄會收集蝴蝶。收集蝴蝶後，對敵方英雄造成傷害會射出所有蝴蝶，造成魔法傷害。",
+        "強化、治療友軍或為其提供護盾時，會對其周圍的敵人造成傷害並緩速。",
+        "為友軍提供護盾會給予其在1.5秒內遞減的跑速和鬼步效果。每個目標的冷卻時間：1.5秒。"
       ]
     }
   }

@@ -300,6 +300,29 @@
       "why": "Kled's Violent Tendencies is a side effect most players barely think about: his next attack grants a big burst of Attack Speed for four attacks, then it sits on cooldown. With these augments rolled on Violent Tendencies, Reload makes every on-hit attack during it cut its cooldown, and Mystic Punch cuts all of his ability cooldowns on every on-hit, so the four fast attacks plus every attack in between bring it back far sooner. While it is up, Lil' Extra Help hands Kled bonus Attack Range and even more Attack Speed, and Pin Cushion turns each of those attacks into Nails that pile up damage and then execute. Guinsoo's Rageblade feeds the same loop, because when fully stacked every third attack applies on-hit effects twice, doubling the Reload and Mystic Punch cooldown cuts, while Blade of The Ruined King, Wit's End, Kraken Slayer and Terminus make every nailed attack hurt. The bear-trap brawler turns into a long-range nail gun that lives in Violent Tendencies.",
       "play": "Start Violent Tendencies on whoever is closest, stay at max range so the Nails keep stacking, and let Reload and Mystic Punch hand it right back. Save Jousting to get back onto a target whose Nails are about to pop.",
       "chef": "2026-10-29"
+    },
+    {
+      "id": "annie-daycare-director",
+      "champion": "Annie",
+      "title": "Daycare Director",
+      "augments": [
+        "Group Hug",
+        "Enchanting Butterflies",
+        "Sonic Boom",
+        "Sound Barrier"
+      ],
+      "core": 4,
+      "items": [
+        "Moonstone Renewer",
+        "Staff of Flowing Water",
+        "Ardent Censer",
+        "Shurelya's Battlesong",
+        "Dawncore",
+        "Ionian Boots of Lucidity"
+      ],
+      "why": "Molten Shield has a target nobody uses: Annie can cast it on an ally, handing them a shield, a burst of Move Speed and thorns that damage anyone who hits them, and Tibbers spawns wearing one too. With Group Hug rolled on Molten Shield, every cast shields two more allies, so one button is three shields, three speed boosts and three sets of thorns. Enchanting Butterflies gathers a Butterfly for every ally she shields, Sonic Boom makes each shield explode for damage and a Slow around that ally, and Sound Barrier hands every shielded teammate Move Speed and Ghost, so the moment Annie damages an enemy all the Butterflies fly out as magic damage. Moonstone Renewer chains each shield to yet another ally for one more Butterfly and boom, Staff of Flowing Water and Ardent Censer pay her and every shielded ally in Ability Power, Haste and Attack Speed, and Shurelya's Battlesong buffs the whole team for another round of booms. The point-and-click burst mage stops casting at enemies and becomes a shield bot whose damage comes out of her teammates.",
+      "play": "Stand behind the team and cast Molten Shield on whoever is about to get hit, then tag an enemy with Disintegrate or Incinerate to release the Butterflies. Save the Pyromania stun your shield casts build up for Tibbers.",
+      "chef": "2026-10-30"
     }
   ]
 }
