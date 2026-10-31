@@ -18,7 +18,7 @@
   },
   "dependencies": {
     "@opennextjs/cloudflare": "1.20.15",
-    "@simplewebauthn/browser": "13.3.0",
+    "@simplewebauthn/browser": "14.0.0",
     "@simplewebauthn/server": "13.3.3",
     "next": "16.4.3",
     "react": "19.3.1",
