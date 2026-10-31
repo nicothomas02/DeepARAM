@@ -90,5 +90,8 @@
  "Table": "ตาราง",
  "View": "มุมมอง",
  "win rate boost": "อัตราชนะที่เพิ่มขึ้น",
- "Filter by tags": "กรองตามแท็ก"
+ "Filter by tags": "กรองตามแท็ก",
+ "Recipe": "สูตรประกอบ",
+ "Built from": "สร้างจาก",
+ "Builds into": "ใช้สร้าง"
 }

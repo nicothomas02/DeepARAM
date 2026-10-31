@@ -480,7 +480,7 @@ export default async function ChampionPage({
               </h4>
               <div className="cp-icons">
                 {augRows.slice(0, 5).map((a) => (
-                  <RowLink key={a.id} href={a.href ?? "#augments"} title={a.name}>
+                  <RowLink key={a.id} href={a.href ?? "#augments"} title={a.name} className="cp-named">
                     <img
                       className="cp-icon round"
                       src={`/icons/augments/${a.id}.webp`}
@@ -488,6 +488,11 @@ export default async function ChampionPage({
                       width={36}
                       height={36}
                     />
+                    <small aria-hidden="true">
+                      <Name kind="augments" id={a.id}>
+                        {a.name}
+                      </Name>
+                    </small>
                   </RowLink>
                 ))}
               </div>
@@ -500,7 +505,7 @@ export default async function ChampionPage({
               </h4>
               <div className="cp-icons">
                 {bestStart.items.map((id, i) => (
-                  <ItemIcon key={i} id={id} info={info} />
+                  <ItemIcon key={i} id={id} info={info} named />
                 ))}
               </div>
               <div className="cp-mini">
@@ -539,7 +544,7 @@ export default async function ChampionPage({
                   ? [bestCore.boots, ...bestCore.items]
                   : bestCore.items
                 ).map((id) => (
-                  <ItemIcon key={id} id={id} info={info} />
+                  <ItemIcon key={id} id={id} info={info} named />
                 ))}
               </div>
               <div className="cp-mini">
@@ -558,6 +563,7 @@ export default async function ChampionPage({
                             key={r.items[0]}
                             id={r.items[0]}
                             info={info}
+                            named
                           />
                         ))}
                       </span>

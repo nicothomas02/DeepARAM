@@ -33,5 +33,7 @@
  "{n} augments changed": "Изменено аугментов: {n}",
  "augments changed": "аугментов изменено",
  "{n} added": "добавлено: {n}",
- "{n} removed": "удалено: {n}"
+ "{n} removed": "удалено: {n}",
+ "now": "теперь",
+ "win rate so far": "процент побед на сейчас"
 }

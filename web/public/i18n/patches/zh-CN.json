@@ -33,5 +33,7 @@
  "{n} augments changed": "{n} 个强化符文有改动",
  "augments changed": "个强化符文有改动",
  "{n} added": "新增 {n}",
- "{n} removed": "移除 {n}"
+ "{n} removed": "移除 {n}",
+ "now": "现为",
+ "win rate so far": "目前胜率"
 }

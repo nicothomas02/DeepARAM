@@ -90,5 +90,8 @@
  "Table": "جدول",
  "View": "العرض",
  "win rate boost": "زيادة نسبة الفوز",
- "Filter by tags": "التصفية حسب الوسوم"
+ "Filter by tags": "التصفية حسب الوسوم",
+ "Recipe": "الوصفة",
+ "Built from": "يُصنع من",
+ "Builds into": "يتطور إلى"
 }

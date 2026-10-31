@@ -90,5 +90,8 @@
  "Table": "Tabella",
  "View": "Vista",
  "win rate boost": "aumento vittorie",
- "Filter by tags": "Filtra per tag"
+ "Filter by tags": "Filtra per tag",
+ "Recipe": "Ricetta",
+ "Built from": "Si costruisce con",
+ "Builds into": "Serve per"
 }

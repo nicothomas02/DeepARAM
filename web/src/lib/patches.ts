@@ -52,7 +52,9 @@ const label = (k: string) => {
     .replace(/([a-z])([A-Z])/g, "$1 $2")
     .replace(/\s+/g, " ")
     .trim()
-    .toLowerCase();
+    .toLowerCase()
+    // "Crit damage tooltip" is the number the tooltip shows: plain "Crit damage" reads better.
+    .replace(/ tooltip$/, "");
   return s.charAt(0).toUpperCase() + s.slice(1);
 };
 const value = (v: unknown) => (v === null || v === undefined ? "none" : typeof v === "number" ? String(Math.round(v * 1000) / 1000) : String(v));

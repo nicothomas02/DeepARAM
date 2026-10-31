@@ -33,5 +33,7 @@
  "{n} augments changed": "{n} güçlendirme değişti",
  "augments changed": "güçlendirme değişti",
  "{n} added": "{n} eklendi",
- "{n} removed": "{n} kaldırıldı"
+ "{n} removed": "{n} kaldırıldı",
+ "now": "artık",
+ "win rate so far": "şu ana kadarki kazanma oranı"
 }

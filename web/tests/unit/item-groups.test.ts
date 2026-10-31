@@ -52,4 +52,13 @@ describe("item groups", () => {
     }
     expect(pages.find((i) => i.id === 3031)?.deepScore).not.toBeNull();
   });
+
+  it("shows each item's recipe, counting repeated components once with how many", () => {
+    const trinity = itemPages().find((i) => i.name === "Trinity Force")!;
+    expect(trinity.from.map((p) => p.name)).toEqual(expect.arrayContaining(["Sheen", "Phage"]));
+    expect(trinity.from.every((p) => p.count >= 1 && p.cost > 0)).toBe(true);
+    const sheen = itemPages().find((i) => i.name === "Sheen")!;
+    expect(sheen.into.map((p) => p.name)).toContain("Trinity Force");
+    expect(sheen.into.every((p) => p.slug)).toBe(true);
+  });
 });

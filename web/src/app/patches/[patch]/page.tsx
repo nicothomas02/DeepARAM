@@ -5,7 +5,9 @@ import RowLink from "@/components/RowLink";
 import { notFound } from "next/navigation";
 import { pageMeta } from "@/lib/meta";
 import { recap, recapPatches, type AugRef } from "@/lib/patches";
-import { LocalDate, Name, T } from "@/components/I18n";
+import { Description, LocalDate, Name, T } from "@/components/I18n";
+import { augmentPages } from "@/lib/augments";
+import descriptions from "@/data/descriptions.json";
 import { patchName, patchVersion } from "@/lib/patch-name";
 import { setOf } from "@/lib/sets";
 
@@ -28,7 +30,13 @@ export async function generateMetadata({ params }: { params: Promise<{ patch: st
   );
 }
 
-function Aug({ a }: { a: AugRef }) {
+const EFFECT = (descriptions as { augments: Record<string, string> }).augments;
+// Today's rarity and win rate for augments still in the pool (new ones keep no rarity in the patch history).
+const live = () => new Map(augmentPages().map((p) => [String(p.id), p]));
+
+function Aug({ a, info }: { a: AugRef; info?: { tier: string; winRate: number } }) {
+  const tier = a.tier || info?.tier;
+  const effect = info ? (EFFECT[a.id] ?? "") : undefined;
   const body = (
     <>
       {a.icon ? (
@@ -37,14 +45,41 @@ function Aug({ a }: { a: AugRef }) {
       ) : (
         <span className="icon" aria-hidden="true" />
       )}
-      <span className="rank-name">
-        <Name kind="augments" id={a.id}>
-          {a.name}
-        </Name>
-      </span>
-      {a.tier && (
-        <span className={`chip tier-${a.tier}`}>
-          <T ns="patches">{a.tier[0].toUpperCase() + a.tier.slice(1)}</T>
+      {effect !== undefined ? (
+        <span className="recap-what">
+          <span className="recap-title">
+            <span className="rank-name">
+              <Name kind="augments" id={a.id}>
+                {a.name}
+              </Name>
+            </span>
+            {tier && (
+              <span className={`recap-rarity ${tier.toLowerCase()}`}>
+                <T ns="patches">{tier[0].toUpperCase() + tier.slice(1).toLowerCase()}</T>
+              </span>
+            )}
+          </span>
+          {effect && (
+            <Description kind="augments" id={a.id}>
+              {effect}
+            </Description>
+          )}
+        </span>
+      ) : (
+        <span className="rank-name">
+          <Name kind="augments" id={a.id}>
+            {a.name}
+          </Name>
+        </span>
+      )}
+      {tier && effect === undefined && (
+        <span className={`chip tier-${tier}`}>
+          <T ns="patches">{tier[0].toUpperCase() + tier.slice(1)}</T>
+        </span>
+      )}
+      {info && (
+        <span className={`rank-v ${info.winRate >= 0.52 ? "wr-good" : ""}`}>
+          {pct(info.winRate)}
         </span>
       )}
     </>
@@ -61,6 +96,7 @@ function Aug({ a }: { a: AugRef }) {
 export default async function PatchPage({ params }: { params: Promise<{ patch: string }> }) {
   const r = recap(patchVersion((await params).patch));
   if (!r) notFound();
+  const pages = live();
   const all = recapPatches();
   const i = all.indexOf(r.patch);
   const newer = i > 0 ? all[i - 1] : null;
@@ -216,7 +252,19 @@ export default async function PatchPage({ params }: { params: Promise<{ patch: s
                   <ul>
                     {a.changes.map((x) => (
                       <li key={x.name}>
-                        {x.name}: <s>{x.old}</s> → <b>{x.new}</b>
+                        {x.old === "none" ? (
+                          <>
+                            {x.name}: <T ns="patches">now</T> <b>{x.new}</b>
+                          </>
+                        ) : x.new === "none" ? (
+                          <>
+                            {x.name}: <T ns="patches">removed</T>
+                          </>
+                        ) : (
+                          <>
+                            {x.name}: <s>{x.old}</s> → <b>{x.new}</b>
+                          </>
+                        )}
                       </li>
                     ))}
                   </ul>
@@ -231,10 +279,13 @@ export default async function PatchPage({ params }: { params: Promise<{ patch: s
               <h2>
                 <T ns="patches">Augments added</T>
               </h2>
+              <span className="card-note">
+                <T ns="patches">win rate so far</T>
+              </span>
             </div>
-            <div className="rank plain recap-list">
+            <div className="rank plain recap-list recap-added">
               {r.added.map((a) => (
-                <Aug key={a.id} a={a} />
+                <Aug key={a.id} a={a} info={pages.get(a.id)} />
               ))}
             </div>
           </section>

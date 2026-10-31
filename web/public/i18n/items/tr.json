@@ -90,5 +90,8 @@
  "Table": "Tablo",
  "View": "Görünüm",
  "win rate boost": "kazanma oranı artışı",
- "Filter by tags": "Etiketlere göre filtrele"
+ "Filter by tags": "Etiketlere göre filtrele",
+ "Recipe": "Tarif",
+ "Built from": "Şunlardan yapılır",
+ "Builds into": "Şunlara dönüşür"
 }

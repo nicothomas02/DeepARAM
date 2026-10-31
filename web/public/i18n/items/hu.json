@@ -90,5 +90,8 @@
  "Table": "Táblázat",
  "View": "Nézet",
  "win rate boost": "győzelmi többlet",
- "Filter by tags": "Szűrés címkék szerint"
+ "Filter by tags": "Szűrés címkék szerint",
+ "Recipe": "Recept",
+ "Built from": "Összetevők",
+ "Builds into": "Ebbe építhető"
 }

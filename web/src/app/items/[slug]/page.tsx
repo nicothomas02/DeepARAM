@@ -117,6 +117,56 @@ export default async function ItemPage({ params }: { params: Promise<{ slug: str
           })}
         </div>
       </section>
+      {(i.from.length > 0 || i.into.length > 0) && (
+        <section className="card" data-accent="gold">
+          <div className="card-head">
+            <h2>
+              <T ns="items">Recipe</T>
+            </h2>
+          </div>
+          {(
+            [
+              ["Built from", i.from],
+              ["Builds into", i.into],
+            ] as const
+          ).map(
+            ([label, parts]) =>
+              parts.length > 0 && (
+                <div key={label}>
+                  <p className="item-recipe-label">
+                    <T ns="items">{label}</T>
+                  </p>
+                  <div className="item-recipe">
+                    {parts.map((r) => {
+                      const body = (
+                        <>
+                          {r.icon && (
+                            // eslint-disable-next-line @next/next/no-img-element
+                            <img className="icon" src={r.icon} alt="" width={28} height={28} loading="lazy" />
+                          )}
+                          <span>
+                            {r.count > 1 && `${r.count}× `}
+                            <Name kind="items" id={r.id}>
+                              {r.name}
+                            </Name>
+                          </span>
+                          {r.cost > 0 && <small>{r.cost.toLocaleString("en-US")}</small>}
+                        </>
+                      );
+                      return r.slug ? (
+                        <Link key={r.id} href={`/items/${r.slug}`}>
+                          {body}
+                        </Link>
+                      ) : (
+                        <span key={r.id}>{body}</span>
+                      );
+                    })}
+                  </div>
+                </div>
+              ),
+          )}
+        </section>
+      )}
       {est && (
         <section className="card" data-accent="gold">
           <div className="card-head">

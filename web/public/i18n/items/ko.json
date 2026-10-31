@@ -90,5 +90,8 @@
  "Table": "표",
  "View": "보기",
  "win rate boost": "승률 상승",
- "Filter by tags": "태그로 필터"
+ "Filter by tags": "태그로 필터",
+ "Recipe": "조합법",
+ "Built from": "하위 아이템",
+ "Builds into": "상위 아이템"
 }

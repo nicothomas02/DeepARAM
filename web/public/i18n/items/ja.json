@@ -90,5 +90,8 @@
  "Table": "表",
  "View": "表示",
  "win rate boost": "勝率上昇",
- "Filter by tags": "タグで絞り込む"
+ "Filter by tags": "タグで絞り込む",
+ "Recipe": "レシピ",
+ "Built from": "素材",
+ "Builds into": "派生先"
 }

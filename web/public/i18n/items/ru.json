@@ -90,5 +90,8 @@
  "Table": "Таблица",
  "View": "Вид",
  "win rate boost": "прирост винрейта",
- "Filter by tags": "Фильтр по тегам"
+ "Filter by tags": "Фильтр по тегам",
+ "Recipe": "Рецепт",
+ "Built from": "Собирается из",
+ "Builds into": "Используется в"
 }

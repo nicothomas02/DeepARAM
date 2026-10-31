@@ -33,5 +33,7 @@
  "{n} augments changed": "{n} 個強化有改動",
  "augments changed": "個強化有改動",
  "{n} added": "新增 {n}",
- "{n} removed": "移除 {n}"
+ "{n} removed": "移除 {n}",
+ "now": "現為",
+ "win rate so far": "目前勝率"
 }

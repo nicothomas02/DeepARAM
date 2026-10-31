@@ -148,7 +148,7 @@ export default function AugmentTable({
           </p>
         )}
       </div>
-      <div className="cp-th" data-cols={cols} ref={top}>
+      <div className="cp-th cp-aug" data-cols={cols} ref={top}>
         <span>{t("Rank")}</span>
         <span>{t("Augment")}</span>
         {head("deepScore", "DeepScore")}
@@ -168,24 +168,26 @@ export default function AugmentTable({
                 height={36}
                 loading="lazy"
               />
-              <span className="cp-name">
-                <Name kind="augments" id={a.id}>
-                  {a.name}
-                </Name>
-              </span>
-              <span className={`cp-pill ${a.rarity}`}>
-                {t(LABEL[a.rarity])}
-              </span>
-              {/* The game's own build tags for the augment (lib/build-tags.ts). */}
-              {(a.tags ?? []).map((tag) => (
-                <span key={tag} className="cp-pill cp-tag">
-                  {ts(tag)}
+              <span className="cp-text">
+                <span className="cp-name">
+                  <Name kind="augments" id={a.id}>
+                    {a.name}
+                  </Name>
                 </span>
-              ))}
+                <span className={`cp-pill ${a.rarity}`}>
+                  {t(LABEL[a.rarity])}
+                </span>
+                {/* The game's own build tags for the augment (lib/build-tags.ts). */}
+                {(a.tags ?? []).map((tag) => (
+                  <span key={tag} className="cp-pill cp-tag">
+                    {ts(tag)}
+                  </span>
+                ))}
+              </span>
             </>
           );
           return (
-            <div key={a.id} className="cp-row" data-cols={cols}>
+            <div key={a.id} className="cp-row cp-aug" data-cols={cols}>
               <span className="cp-rk">#{i + 1}</span>
               {a.href ? (
                 <RowLink className="cp-what" href={a.href}>
@@ -211,10 +213,14 @@ export default function AugmentTable({
                       <b className={tone(a.lift ?? 0)}>
                         {(a.winRate * 100).toFixed(1)}%
                       </b>
-                      <small>
+                      {/* Phones show just the points, so the column stays narrow. */}
+                      <small className="cp-wide">
                         {t("{n} boost", {
                           n: tt("{n} pts", { n: signedPts(a.lift ?? 0) }),
                         })}
+                      </small>
+                      <small className="cp-narrow">
+                        {tt("{n} pts", { n: signedPts(a.lift ?? 0) })}
                       </small>
                     </>
                   ) : (
@@ -224,7 +230,7 @@ export default function AugmentTable({
               )}
               <div className="cp-cell">
                 <b>{(a.pickRate * 100).toFixed(1)}%</b>
-                <small>{t("Pick rate")}</small>
+                <small className="cp-wide">{t("Pick rate")}</small>
               </div>
             </div>
           );

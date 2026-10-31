@@ -33,5 +33,7 @@
  "{n} augments changed": "{n} aumentos cambiados",
  "augments changed": "aumentos cambiados",
  "{n} added": "{n} agregados",
- "{n} removed": "{n} eliminados"
+ "{n} removed": "{n} eliminados",
+ "now": "ahora",
+ "win rate so far": "tasa de victorias hasta ahora"
 }
