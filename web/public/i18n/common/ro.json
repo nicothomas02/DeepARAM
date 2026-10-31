@@ -211,5 +211,8 @@
  "Best items": "Cele mai bune obiecte",
  "Cook builds from The Kitchen": "Gătește build-uri în The Kitchen",
  "See all champions →": "Vezi toți campionii →",
- "{ds} DeepScore · {wr} win · {pr} pick": "{ds} DeepScore · {wr} victorii · {pr} alegeri"
+ "{ds} DeepScore · {wr} win · {pr} pick": "{ds} DeepScore · {wr} victorii · {pr} alegeri",
+ "This page doesn't exist.": "Această pagină nu există.",
+ "It may have moved, or the link has a typo. Search with / or ⌘K, or try one of these.": "Poate a fost mutată sau linkul are o greșeală de tipar. Caută cu / sau ⌘K ori încearcă una dintre acestea.",
+ "Did you mean": "Te referi la"
 }

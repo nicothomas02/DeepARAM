@@ -211,5 +211,8 @@
  "Best items": "Лучшие предметы",
  "Cook builds from The Kitchen": "Готовьте сборки в The Kitchen",
  "See all champions →": "Все чемпионы →",
- "{ds} DeepScore · {wr} win · {pr} pick": "{ds} DeepScore · {wr} побед · {pr} выборов"
+ "{ds} DeepScore · {wr} win · {pr} pick": "{ds} DeepScore · {wr} побед · {pr} выборов",
+ "This page doesn't exist.": "Такой страницы нет.",
+ "It may have moved, or the link has a typo. Search with / or ⌘K, or try one of these.": "Возможно, она переехала или в ссылке опечатка. Воспользуйтесь поиском (/ или ⌘K) или попробуйте один из этих вариантов.",
+ "Did you mean": "Возможно, вы имели в виду"
 }

@@ -211,5 +211,8 @@
  "Best items": "En iyi eşyalar",
  "Cook builds from The Kitchen": "The Kitchen'da build pişir",
  "See all champions →": "Tüm şampiyonları gör →",
- "{ds} DeepScore · {wr} win · {pr} pick": "{ds} DeepScore · {wr} galibiyet · {pr} seçilme"
+ "{ds} DeepScore · {wr} win · {pr} pick": "{ds} DeepScore · {wr} galibiyet · {pr} seçilme",
+ "This page doesn't exist.": "Bu sayfa yok.",
+ "It may have moved, or the link has a typo. Search with / or ⌘K, or try one of these.": "Taşınmış olabilir ya da bağlantıda yazım hatası var. / veya ⌘K ile ara ya da bunlardan birini dene.",
+ "Did you mean": "Bunu mu demek istedin"
 }

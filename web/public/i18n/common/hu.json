@@ -211,5 +211,8 @@
  "Best items": "Legjobb tárgyak",
  "Cook builds from The Kitchen": "Főzz buildeket a The Kitchenben",
  "See all champions →": "Az összes bajnok →",
- "{ds} DeepScore · {wr} win · {pr} pick": "{ds} DeepScore · {wr} győzelem · {pr} választás"
+ "{ds} DeepScore · {wr} win · {pr} pick": "{ds} DeepScore · {wr} győzelem · {pr} választás",
+ "This page doesn't exist.": "Ez az oldal nem létezik.",
+ "It may have moved, or the link has a typo. Search with / or ⌘K, or try one of these.": "Lehet, hogy áthelyezték, vagy elírás van a hivatkozásban. Keress a / vagy ⌘K billentyűvel, vagy próbáld ezek egyikét.",
+ "Did you mean": "Erre gondoltál"
 }

@@ -211,5 +211,8 @@
  "Best items": "ไอเทมที่ดีที่สุด",
  "Cook builds from The Kitchen": "ปรุงบิลด์ใน The Kitchen",
  "See all champions →": "ดูแชมเปี้ยนทั้งหมด →",
- "{ds} DeepScore · {wr} win · {pr} pick": "{ds} DeepScore · ชนะ {wr} · เลือก {pr}"
+ "{ds} DeepScore · {wr} win · {pr} pick": "{ds} DeepScore · ชนะ {wr} · เลือก {pr}",
+ "This page doesn't exist.": "ไม่มีหน้านี้",
+ "It may have moved, or the link has a typo. Search with / or ⌘K, or try one of these.": "หน้านี้อาจถูกย้าย หรือลิงก์อาจพิมพ์ผิด ค้นหาด้วย / หรือ ⌘K หรือลองหน้าใดหน้าหนึ่งต่อไปนี้",
+ "Did you mean": "หรือคุณหมายถึง"
 }

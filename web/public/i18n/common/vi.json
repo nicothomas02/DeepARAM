@@ -211,5 +211,8 @@
  "Best items": "Trang bị tốt nhất",
  "Cook builds from The Kitchen": "Nấu build trong The Kitchen",
  "See all champions →": "Xem tất cả tướng →",
- "{ds} DeepScore · {wr} win · {pr} pick": "{ds} DeepScore · Thắng {wr} · Chọn {pr}"
+ "{ds} DeepScore · {wr} win · {pr} pick": "{ds} DeepScore · Thắng {wr} · Chọn {pr}",
+ "This page doesn't exist.": "Trang này không tồn tại.",
+ "It may have moved, or the link has a typo. Search with / or ⌘K, or try one of these.": "Có thể trang đã được chuyển đi, hoặc liên kết bị gõ sai. Tìm bằng / hoặc ⌘K, hoặc thử một trong các trang sau.",
+ "Did you mean": "Có phải bạn muốn tìm"
 }

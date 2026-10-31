@@ -211,5 +211,8 @@
  "Best items": "Mejores objetos",
  "Cook builds from The Kitchen": "Cocina builds en The Kitchen",
  "See all champions →": "Ver todos los campeones →",
- "{ds} DeepScore · {wr} win · {pr} pick": "{ds} DeepScore · {wr} victorias · {pr} de selección"
+ "{ds} DeepScore · {wr} win · {pr} pick": "{ds} DeepScore · {wr} victorias · {pr} de selección",
+ "This page doesn't exist.": "Esta página no existe.",
+ "It may have moved, or the link has a typo. Search with / or ⌘K, or try one of these.": "Puede que se haya movido o que el enlace tenga una errata. Busca con / o ⌘K, o prueba una de estas.",
+ "Did you mean": "¿Quisiste decir"
 }

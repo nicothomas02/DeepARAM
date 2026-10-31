@@ -211,5 +211,8 @@
  "Best items": "Καλύτερα αντικείμενα",
  "Cook builds from The Kitchen": "Μαγείρεψε builds στο The Kitchen",
  "See all champions →": "Δες όλους τους πρωταθλητές →",
- "{ds} DeepScore · {wr} win · {pr} pick": "{ds} DeepScore · {wr} νίκες · {pr} επιλογές"
+ "{ds} DeepScore · {wr} win · {pr} pick": "{ds} DeepScore · {wr} νίκες · {pr} επιλογές",
+ "This page doesn't exist.": "Αυτή η σελίδα δεν υπάρχει.",
+ "It may have moved, or the link has a typo. Search with / or ⌘K, or try one of these.": "Ίσως μετακινήθηκε ή ο σύνδεσμος έχει τυπογραφικό λάθος. Αναζήτησε με / ή ⌘K ή δοκίμασε ένα από αυτά.",
+ "Did you mean": "Μήπως εννοούσες"
 }
