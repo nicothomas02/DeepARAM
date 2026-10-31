@@ -453,3 +453,35 @@ def test_pool_matches_augment_list(guide):
     rules = load_json("guide/augment_rules.json")
     assert sum(o["pool"] for o in rules["odds"].values()) == len(rules["tiers"])
     assert all(q["augmentId"] for q in guide["quests"] if q["inPool"])
+
+
+def test_history_live_pool_matches_augment_rules(history):
+    """The newest patch in history.js has the same pool as augment_rules.json (the live build), so a history build
+    that drops augments (26.21's 35 new ones were once lost to hashed bin keys) fails here."""
+    rules = load_json("guide/augment_rules.json")
+    if not rules["patch"].startswith(history["to"] + "."):
+        pytest.skip("history.js and augment_rules.json are on different patches")
+    assert history["pool"] == len(rules["tiers"])
+    newest = history["patches"][0]
+    assert set(newest["added"]) <= set(rules["tiers"])
+
+
+def test_history_extract_reads_hashed_keys_and_skips_stale_cache(build_history, monkeypatch, tmp_path):
+    """An augment whose kiwi.bin key is a hash while the pool list names its path is in the pool, and a snapshot
+    cached by an older extract() (or for another build) isn't reused."""
+    B = build_history
+    path = "Maps/ModeSpecificData/Augments/BouncingBees"
+    h = load_module("guide/build_data.py", "deeparam_guide_build_data", extra_path=["tools/datamine"]).bin_hash(path)
+    files = {
+        "/16.21/content-metadata.json": {"version": "16.21.8298620+branch"},
+        "/16.21/game/maps/modespecificdata/kiwi.bin.json": {
+            h: {"__type": "AugmentData", "AugmentPlatformId": 3048, "AugmentNameId": "BouncingBees", "rarity": 2}},
+        "/augment-lists.json": [{"modeName": "KIWI", "augmentList": [path]}],
+        "/cherry-augments.json": [{"id": 3048, "nameTRA": "Bouncing Bees"}],
+    }
+    monkeypatch.setattr(B, "get", lambda url, tries=4: next((v for k, v in files.items() if url.endswith(k)), None))
+    monkeypatch.setattr(B, "CACHE", str(tmp_path))
+    (tmp_path / "16.21.json").write_text('{"3048": {"inPool": false}}')  # an old-format snapshot
+    out = B.extract("16.21")
+    assert out["3048"]["inPool"] is True and out["3048"]["tier"] == "Prismatic"
+    assert (tmp_path / f"16.21-16.21.8298620-v{B.CACHE_FORMAT}.json").exists()
