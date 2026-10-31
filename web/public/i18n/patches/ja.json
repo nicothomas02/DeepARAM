@@ -33,5 +33,7 @@
  "{n} augments changed": "オーグメント{n}個に変更",
  "augments changed": "オーグメントに変更",
  "{n} added": "{n}個追加",
- "{n} removed": "{n}個削除"
+ "{n} removed": "{n}個削除",
+ "now": "新たに",
+ "win rate so far": "現時点の勝率"
 }

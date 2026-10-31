@@ -90,5 +90,8 @@
  "Table": "表格",
  "View": "视图",
  "win rate boost": "胜率提升",
- "Filter by tags": "按标签筛选"
+ "Filter by tags": "按标签筛选",
+ "Recipe": "合成路线",
+ "Built from": "合成材料",
+ "Builds into": "可合成"
 }

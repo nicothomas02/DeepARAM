@@ -33,5 +33,7 @@
  "{n} augments changed": "{n} ενισχύσεις άλλαξαν",
  "augments changed": "ενισχύσεις άλλαξαν",
  "{n} added": "{n} προστέθηκαν",
- "{n} removed": "{n} αφαιρέθηκαν"
+ "{n} removed": "{n} αφαιρέθηκαν",
+ "now": "τώρα",
+ "win rate so far": "ποσοστό νικών έως τώρα"
 }

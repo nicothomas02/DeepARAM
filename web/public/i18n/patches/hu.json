@@ -33,5 +33,7 @@
  "{n} augments changed": "{n} fejlesztés változott",
  "augments changed": "fejlesztés változott",
  "{n} added": "{n} új",
- "{n} removed": "{n} eltávolítva"
+ "{n} removed": "{n} eltávolítva",
+ "now": "most",
+ "win rate so far": "eddigi győzelmi arány"
 }

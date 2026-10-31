@@ -136,13 +136,16 @@ export function RatedCells({
 export function ItemIcon({
   id,
   info,
+  named,
 }: {
   id: number;
   info: Record<number, { name: string; icon?: string }>;
+  /** Adds the item's name under the icon where the quick build is full width (phones and tablets). */
+  named?: boolean;
 }) {
   const it = info[id];
   if (!it?.icon) return null;
-  return (
+  const img = (
     <img
       className="cp-icon"
       src={it.icon}
@@ -152,6 +155,17 @@ export function ItemIcon({
       height={36}
       loading="lazy"
     />
+  );
+  if (!named) return img;
+  return (
+    <span className="cp-named">
+      {img}
+      <small aria-hidden="true">
+        <Name kind="items" id={id}>
+          {it.name}
+        </Name>
+      </small>
+    </span>
   );
 }
 

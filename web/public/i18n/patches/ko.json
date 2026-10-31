@@ -33,5 +33,7 @@
  "{n} augments changed": "증강 {n}개 변경",
  "augments changed": "증강 변경",
  "{n} added": "{n}개 추가",
- "{n} removed": "{n}개 삭제"
+ "{n} removed": "{n}개 삭제",
+ "now": "이제",
+ "win rate so far": "현재까지 승률"
 }

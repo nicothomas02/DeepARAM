@@ -33,5 +33,7 @@
  "{n} augments changed": "ออคเมนต์เปลี่ยน {n} รายการ",
  "augments changed": "ออคเมนต์ที่เปลี่ยน",
  "{n} added": "เพิ่ม {n}",
- "{n} removed": "นำออก {n}"
+ "{n} removed": "นำออก {n}",
+ "now": "ตอนนี้",
+ "win rate so far": "อัตราชนะจนถึงตอนนี้"
 }

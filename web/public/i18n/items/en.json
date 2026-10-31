@@ -90,5 +90,8 @@
  "Table": "Table",
  "View": "View",
  "win rate boost": "win rate boost",
- "Filter by tags": "Filter by tags"
+ "Filter by tags": "Filter by tags",
+ "Recipe": "Recipe",
+ "Built from": "Built from",
+ "Builds into": "Builds into"
 }

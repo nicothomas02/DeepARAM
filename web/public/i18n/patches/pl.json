@@ -33,5 +33,7 @@
  "{n} augments changed": "Zmienione ulepszenia: {n}",
  "augments changed": "zmienione ulepszenia",
  "{n} added": "{n} dodano",
- "{n} removed": "{n} usunięto"
+ "{n} removed": "{n} usunięto",
+ "now": "teraz",
+ "win rate so far": "dotychczasowy odsetek wygranych"
 }

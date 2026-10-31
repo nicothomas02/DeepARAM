@@ -33,7 +33,12 @@ export type ItemPage = {
   tier: ItemTier;
   /** 0-100 against the other items of its tier (lib/deepscore.ts); null when no builder has a win rate. */
   deepScore: number | null;
+  /** The recipe: the components it's built from (with how many of each) and the finished items it goes into. */
+  from: RecipePart[];
+  into: RecipePart[];
 };
+
+export type RecipePart = { id: number; name: string; icon?: string; slug?: string; cost: number; count: number };
 
 const MEDIAN_GAMES = 1000; // pseudo-games for an item of median popularity, as on the Tier List
 const PRIOR = 0.25; // the average's weight, in median items' worth of games
@@ -121,7 +126,16 @@ export function itemPages(): ItemPage[] {
   if (cache) return cache;
   const all = items();
   const raw = readRepoJson<
-    { id: number; description?: string; priceTotal?: number; categories?: string[]; inStore?: boolean; displayInItemSets?: boolean }[]
+    {
+      id: number;
+      description?: string;
+      priceTotal?: number;
+      categories?: string[];
+      inStore?: boolean;
+      displayInItemSets?: boolean;
+      from?: number[];
+      to?: number[];
+    }[]
   >(
     "web/public/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/items.json",
   );
@@ -176,10 +190,31 @@ export function itemPages(): ItemPage[] {
         builders: [...(builders.get(i.id) ?? [])].sort((x, y) => y.pickRate - x.pickRate).slice(0, 10),
         tier: itemTier(i.id),
         deepScore: null as number | null,
+        from: [] as RecipePart[],
+        into: [] as RecipePart[],
       };
     })
     .sort((a, b) => a.name.localeCompare(b.name));
   scoreTiers(cache, builders);
+  // Recipes, linking to the parts that have a page of their own.
+  const byId = new Map(cache.map((p) => [p.id, p]));
+  const part = (id: number, count = 1): RecipePart | null => {
+    const it = all.get(id);
+    if (!it) return null;
+    return { id, name: it.name, icon: it.icon, slug: byId.get(id)?.slug, cost: info.get(id)?.priceTotal ?? 0, count };
+  };
+  for (const p of cache) {
+    const from = info.get(p.id)?.from ?? [];
+    const counts = new Map<number, number>();
+    for (const id of from) counts.set(id, (counts.get(id) ?? 0) + 1);
+    p.from = [...counts].map(([id, n]) => part(id, n)).filter((x): x is RecipePart => x !== null);
+    p.into = (info.get(p.id)?.to ?? [])
+      .filter((id) => byId.has(id))
+      .sort((a, b) => byId.get(b)!.popularity - byId.get(a)!.popularity)
+      .slice(0, 8)
+      .map((id) => part(id))
+      .filter((x): x is RecipePart => x !== null);
+  }
   return cache;
 }
 

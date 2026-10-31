@@ -88,7 +88,12 @@ const RELIANCE: Column = {
 };
 
 // Live-patch game counts, when the page has them (lib/fill.ts).
-const GAMES: Column = { key: "games", label: "Games", format: "int", hint: "Estimated games on the live patch." };
+const GAMES: Column = {
+  key: "games",
+  label: "Games",
+  format: "int",
+  hint: "Estimated games on the live patch.",
+};
 
 const MOVERS = { key: "change", desc: true };
 const BEST = { key: "deepScore", desc: true };
@@ -103,7 +108,15 @@ type Props = {
   reliance?: Record<string, number>;
 };
 
-export default function ChampionTiers({ rows: initial, patches, tags, tagInfo, games, scaling = {}, reliance = {} }: Props) {
+export default function ChampionTiers({
+  rows: initial,
+  patches,
+  tags,
+  tagInfo,
+  games,
+  scaling = {},
+  reliance = {},
+}: Props) {
   const t = useT("tier-list");
   const tt = useT("tags");
   const live = patches[patches.length - 1];
@@ -115,10 +128,14 @@ export default function ChampionTiers({ rows: initial, patches, tags, tagInfo, g
   // The starting range is ?patches= from a shared link, else a setting (gear menu); picking patches here doesn't change the setting.
   useEffect(() => {
     const fromUrl = getParam("patches");
-    const listed = fromUrl === "all" ? patches : (fromUrl?.split(",").filter((p) => patches.includes(p)) ?? []);
+    const listed =
+      fromUrl === "all"
+        ? patches
+        : (fromUrl?.split(",").filter((p) => patches.includes(p)) ?? []);
     if (listed.length) return setPicked(new Set(listed));
     const r = loadSettings().tierRange;
-    if (r === "set" || r === "last3") setPicked(new Set(bySet(patches).at(-1)!.patches));
+    if (r === "set" || r === "last3")
+      setPicked(new Set(bySet(patches).at(-1)!.patches));
     else if (r === "all") setPicked(new Set(patches));
   }, [patches]);
 
@@ -136,10 +153,20 @@ export default function ChampionTiers({ rows: initial, patches, tags, tagInfo, g
   // Win rate change since the patch before, when one patch is picked.
   const one = picked.size === 1 ? [...picked][0] : null;
   const before = one ? patches[patches.indexOf(one) - 1] : undefined;
-  const curveLabel = (v: number | undefined) => (v === undefined ? "" : v > 0.5 ? t("Late game") : v < -0.5 ? t("Early game") : t("Even"));
+  const curveLabel = (v: number | undefined) =>
+    v === undefined
+      ? ""
+      : v > 0.5
+        ? t("Late game")
+        : v < -0.5
+          ? t("Early game")
+          : t("Even");
   const stats = useMemo(() => {
     if (missing) return [];
-    const prev = before && have.has(before) ? new Map(champStats(rows, new Set([before])).map((c) => [c.name, c])) : null;
+    const prev =
+      before && have.has(before)
+        ? new Map(champStats(rows, new Set([before])).map((c) => [c.name, c]))
+        : null;
     return champStats(rows, picked).map((c) => {
       const was = prev?.get(c.name);
       // tier_was lets the table slide a changed tier in from the previous patch's (DataTable).
@@ -148,14 +175,30 @@ export default function ChampionTiers({ rows: initial, patches, tags, tagInfo, g
         change: was === undefined ? null : c.win_rate - was.win_rate,
         tier_was: was?.tier ?? null,
         games: one === live ? (games?.[c.name] ?? null) : null,
-        archetype: (tags[c.name] ?? []).filter((t) => tagInfo[t]?.kind !== "play").join(","),
+        archetype: (tags[c.name] ?? [])
+          .filter((t) => tagInfo[t]?.kind !== "play")
+          .join(","),
         scaling: scaling[c.name] ?? null,
         curve: curveLabel(scaling[c.name]),
         reliance: reliance[c.name] ?? null,
       };
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps -- curveLabel follows t
-  }, [rows, picked, before, have, missing, tags, tagInfo, games, one, live, scaling, reliance, t]);
+  }, [
+    rows,
+    picked,
+    before,
+    have,
+    missing,
+    tags,
+    tagInfo,
+    games,
+    one,
+    live,
+    scaling,
+    reliance,
+    t,
+  ]);
 
   // Archetype filter (?tag=Mage,Poke): a champion shows when it has every picked tag. Tiers and
   // DeepScores stay graded against the whole list, so a filtered view shows where each stands overall.
@@ -172,9 +215,16 @@ export default function ChampionTiers({ rows: initial, patches, tags, tagInfo, g
     setWant(next);
     setParams({ tag: next.length ? next.join(",") : null });
   };
-  const shownRows = useMemo(() => (want.length ? stats.filter((c) => want.every((t) => tags[c.name]?.includes(t))) : stats), [stats, want, tags]);
+  const shownRows = useMemo(
+    () =>
+      want.length
+        ? stats.filter((c) => want.every((t) => tags[c.name]?.includes(t)))
+        : stats,
+    [stats, want, tags],
+  );
   const kinds = useMemo(() => tagsByKind(tagInfo), [tagInfo]);
-  const count = (t: string) => stats.filter((c) => tags[c.name]?.includes(t)).length;
+  const count = (t: string) =>
+    stats.filter((c) => tags[c.name]?.includes(t)).length;
   const tagCol: Column = {
     key: "archetype",
     label: "Class",
@@ -188,7 +238,12 @@ export default function ChampionTiers({ rows: initial, patches, tags, tagInfo, g
     setPicked(next);
     const list = [...next];
     setParams({
-      patches: list.length === 1 && list[0] === live ? null : list.length === patches.length ? "all" : list.join(","),
+      patches:
+        list.length === 1 && list[0] === live
+          ? null
+          : list.length === patches.length
+            ? "all"
+            : list.join(","),
     });
   };
   const preset = (list: string[]) => {
@@ -198,7 +253,8 @@ export default function ChampionTiers({ rows: initial, patches, tags, tagInfo, g
       setParams({ sort: null });
     }
   };
-  const same = (list: string[]) => list.length === picked.size && list.every((p) => picked.has(p));
+  const same = (list: string[]) =>
+    list.length === picked.size && list.every((p) => picked.has(p));
   const toggle = (p: string) => {
     const next = new Set(picked);
     if (next.has(p) && next.size > 1) next.delete(p);
@@ -230,7 +286,14 @@ export default function ChampionTiers({ rows: initial, patches, tags, tagInfo, g
   const groups = bySet(patches).reverse();
   const presets: [string, string[]][] = [
     [t("Live patch ({patch})", { patch: patchName(live) }), [live]],
-    ...(groups[0].patches.length > 1 ? [[t("This set ({set})", { set: t(groups[0].set.name) }), groups[0].patches] as [string, string[]]] : []),
+    ...(groups[0].patches.length > 1
+      ? [
+          [
+            t("This set ({set})", { set: t(groups[0].set.name) }),
+            groups[0].patches,
+          ] as [string, string[]],
+        ]
+      : []),
     [t("All time"), patches],
   ];
   const toggleSet = (list: string[]) => {
@@ -245,57 +308,114 @@ export default function ChampionTiers({ rows: initial, patches, tags, tagInfo, g
   const showMulti = picked.size > 1;
   const showChange = !showMulti && Boolean(before);
   const moversOn = sort === MOVERS && same([live]);
+  // The dropdown's own label names the range in use, so phones need only this one control.
+  const rangeLabel = moversOn
+    ? t("Biggest movers")
+    : (presets.find(([, list]) => same(list))?.[0] ??
+      (one
+        ? t("Patch {patch}", { patch: patchName(one) })
+        : t("{n} patches", { n: picked.size })));
+  const closePick = () => {
+    if (pickRef.current) pickRef.current.open = false;
+  };
 
   return (
     <div className="patch-range">
-      {/* Phones put the range buttons and the patch dropdown on one line, the buttons scrolling sideways. */}
+      {/* One dropdown holds both the quick ranges (live patch, this set, all time, biggest movers) and single patches. */}
       <div className="patch-bar">
-        <div className="patch-presets" role="group" aria-label={t("Patch range")}>
-          {presets.map(([label, list]) => (
-            <button key={label} type="button" aria-pressed={same(list) && !moversOn} onClick={() => preset(list)}>
-              {label}
-            </button>
-          ))}
-          {patches.length > 1 && (
-            <button type="button" aria-pressed={moversOn} onClick={movers}>
-              {t("Biggest movers")}
-            </button>
-          )}
-        </div>
         <details className="patch-pick" ref={pickRef}>
-          <summary>{one ? t("Patch {patch}", { patch: patchName(one) }) : t("{n} patches", { n: picked.size })}</summary>
-          <div className="patch-pick-list" role="group" aria-label={t("Patches")}>
-            {groups.map(({ set, patches: list }) => (
-              <div key={set.name} className="patch-pick-set" role="group" aria-label={t(set.name)}>
-                <label className="patch-pick-set-head">
-                  <input
-                    type="checkbox"
-                    checked={list.every((p) => picked.has(p))}
-                    ref={(el) => {
-                      if (el) el.indeterminate = !list.every((p) => picked.has(p)) && list.some((p) => picked.has(p));
-                    }}
-                    onChange={() => toggleSet(list)}
-                  />
-                  {t(set.name)}
-                </label>
-                {[...list].reverse().map((p) => (
-                  <label key={p}>
-                    <input type="checkbox" checked={picked.has(p)} onChange={() => toggle(p)} />
-                    {patchName(p)}
+          <summary>{rangeLabel}</summary>
+          <div className="patch-pick-list">
+            <div
+              className="patch-pick-presets"
+              role="group"
+              aria-label={t("Patch range")}
+            >
+              {presets.map(([label, list]) => (
+                <button
+                  key={label}
+                  type="button"
+                  aria-pressed={same(list) && !moversOn}
+                  onClick={() => {
+                    preset(list);
+                    closePick();
+                  }}
+                >
+                  {label}
+                </button>
+              ))}
+              {patches.length > 1 && (
+                <button
+                  type="button"
+                  aria-pressed={moversOn}
+                  onClick={() => {
+                    movers();
+                    closePick();
+                  }}
+                >
+                  {t("Biggest movers")}
+                </button>
+              )}
+            </div>
+            <div
+              className="patch-pick-patches"
+              role="group"
+              aria-label={t("Patches")}
+            >
+              {groups.map(({ set, patches: list }) => (
+                <div
+                  key={set.name}
+                  className="patch-pick-set"
+                  role="group"
+                  aria-label={t(set.name)}
+                >
+                  <label className="patch-pick-set-head">
+                    <input
+                      type="checkbox"
+                      checked={list.every((p) => picked.has(p))}
+                      ref={(el) => {
+                        if (el)
+                          el.indeterminate =
+                            !list.every((p) => picked.has(p)) &&
+                            list.some((p) => picked.has(p));
+                      }}
+                      onChange={() => toggleSet(list)}
+                    />
+                    {t(set.name)}
                   </label>
-                ))}
-              </div>
-            ))}
+                  {[...list].reverse().map((p) => (
+                    <label key={p}>
+                      <input
+                        type="checkbox"
+                        checked={picked.has(p)}
+                        onChange={() => toggle(p)}
+                      />
+                      {patchName(p)}
+                    </label>
+                  ))}
+                </div>
+              ))}
+            </div>
           </div>
         </details>
       </div>
       {Object.keys(tagInfo).length > 0 && (
-        <details className="items-filter-menu" open={filtersOpen} onToggle={(e) => setFiltersOpen(e.currentTarget.open)}>
+        <details
+          className="items-filter-menu"
+          open={filtersOpen}
+          onToggle={(e) => setFiltersOpen(e.currentTarget.open)}
+        >
           <summary>
             {t("Filter by tags")}
-            {want.length > 0 && <span className="items-filter-n">{want.length}</span>}
+            {want.length > 0 && (
+              <span className="items-filter-n">{want.length}</span>
+            )}
           </summary>
-          <div className="arch-filter" role="group" aria-label={t("Filter by archetype")}>
+          <div
+            className="arch-filter"
+            role="group"
+            aria-label={t("Filter by archetype")}
+          >
             {[...kinds.class, ...kinds.play].map((t) => {
               const n = count(t);
               return (
@@ -315,7 +435,11 @@ export default function ChampionTiers({ rows: initial, patches, tags, tagInfo, g
               );
             })}
             {want.length > 0 && (
-              <button type="button" className="btn ghost arch-clear" onClick={() => (setWant([]), setParams({ tag: null }))}>
+              <button
+                type="button"
+                className="btn ghost arch-clear"
+                onClick={() => (setWant([]), setParams({ tag: null }))}
+              >
                 {t("Clear")}
               </button>
             )}
@@ -325,12 +449,21 @@ export default function ChampionTiers({ rows: initial, patches, tags, tagInfo, g
       <p className="patch-note">
         {picked.size === 1
           ? showChange
-            ? t("Patch {patch}, with the change since {before}. Pick patches from the list to add or remove them.", {
-                patch: patchName([...picked][0]),
-                before: patchName(before),
-              })
-            : t("Patch {patch}. Pick patches from the list to add or remove them.", { patch: patchName([...picked][0]) })
-          : t("{n} patches combined. Pick patches from the list to add or remove them.", { n: picked.size })}
+            ? t(
+                "Patch {patch}, with the change since {before}. Pick patches from the list to add or remove them.",
+                {
+                  patch: patchName([...picked][0]),
+                  before: patchName(before),
+                },
+              )
+            : t(
+                "Patch {patch}. Pick patches from the list to add or remove them.",
+                { patch: patchName([...picked][0]) },
+              )
+          : t(
+              "{n} patches combined. Pick patches from the list to add or remove them.",
+              { n: picked.size },
+            )}
       </p>
       {missing ? (
         <Skeleton rows={12} label={t("Loading older patches…")} />
@@ -338,7 +471,11 @@ export default function ChampionTiers({ rows: initial, patches, tags, tagInfo, g
         // Numbers sit next to the name, as on other stat tables; the class tags come last.
         <DataTable
           key={sort.key}
-          columns={[...STANDARD, ...(showChange ? [{ ...CHANGE, phone: "hide" as const }] : []), { ...tagCol, phone: "hide" }]}
+          columns={[
+            ...STANDARD,
+            ...(showChange ? [{ ...CHANGE, phone: "hide" as const }] : []),
+            { ...tagCol, phone: "hide" },
+          ]}
           advancedColumns={[
             ...ADVANCED.slice(0, 5),
             ...(showChange ? [CHANGE] : []),

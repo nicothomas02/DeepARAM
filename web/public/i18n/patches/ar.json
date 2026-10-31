@@ -33,5 +33,7 @@
  "{n} augments changed": "تغيّر {n} من التعزيزات",
  "augments changed": "تعزيزات تغيّرت",
  "{n} added": "أُضيف {n}",
- "{n} removed": "أُزيل {n}"
+ "{n} removed": "أُزيل {n}",
+ "now": "الآن",
+ "win rate so far": "نسبة الفوز حتى الآن"
 }

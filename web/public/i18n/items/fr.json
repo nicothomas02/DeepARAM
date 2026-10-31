@@ -90,5 +90,8 @@
  "Table": "Tableau",
  "View": "Vue",
  "win rate boost": "gain de victoires",
- "Filter by tags": "Filtrer par tags"
+ "Filter by tags": "Filtrer par tags",
+ "Recipe": "Recette",
+ "Built from": "Construit à partir de",
+ "Builds into": "Sert à construire"
 }
