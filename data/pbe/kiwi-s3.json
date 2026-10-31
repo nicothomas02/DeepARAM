@@ -2,7 +2,7 @@
   "meta": {
     "mode": "ARAM: Mayhem",
     "label": "Patch 26.22",
-    "dataAsOf": "2026-10-30",
+    "dataAsOf": "2026-10-31",
     "caveat": "PBE content can change before release.",
     "augmentPool": {
       "live": 249,
@@ -25,7 +25,7 @@
     ],
     "builds": {
       "pbe": "16.22.8340287",
-      "live": "16.21.8328265"
+      "live": "16.21.8342754"
     }
   },
   "fame": {

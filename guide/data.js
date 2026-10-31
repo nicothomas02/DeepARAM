@@ -1,5 +1,5 @@
 window.GUIDE_DATA = {
- "patch": "16.21.8328265",
+ "patch": "16.21.8342754",
  "hero": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/assets/leagueclient/gamemodeassets/kiwi/kiwi-tutorial-set2.png",
  "queues": [
   {
@@ -2150,7 +2150,7 @@ window.GUIDE_DATA = {
   }
  ],
  "augmentRules": {
-  "patch": "16.21.8328265",
+  "patch": "16.21.8342754",
   "levels": [
    3,
    7,
