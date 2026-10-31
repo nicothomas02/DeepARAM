@@ -9,7 +9,8 @@ CommunityDragon keeps every past patch (raw.communitydragon.org/16.10/...). For 
   v1/augment-lists.json                      which augments are in the KIWI pool (from 16.15; earlier, the Enabled flag)
   v1/cherry-augments.json                    augment names and icons
 and compares each patch with the one before. Each patch's extract is cached in
-~/.cache/deeparam-guide/history/, so later runs only download new patches.
+~/.cache/deeparam-guide/history/, so later runs only download new patches. The cache file is named by the patch's
+build and CACHE_FORMAT, so a snapshot is rebuilt when the folder moves to a new build or extract() changes.
 """
 import http.client, json, os, re, sys, time, urllib.error, urllib.request
 
@@ -21,6 +22,9 @@ BASE = "https://raw.communitydragon.org"
 CACHE = os.path.join(os.path.expanduser("~"), ".cache", "deeparam-guide", "history")
 FIRST = (16, 2)
 TIERS = ["Silver", "Gold", "Prismatic"]
+# Bump when extract() changes how it reads the files. 2: bin entries named by path or by hash (before, augments
+# whose kiwi.bin key was a hash while the pool list named their path were left out of the pool).
+CACHE_FORMAT = 2
 SKIP_VALUES = {"MaxLevel"}  # internal bookkeeping, added to many augments at once in 16.19
 
 
@@ -60,7 +64,8 @@ def exists(url):
 
 def extract(patch):
     """One patch's augments: {platform id: {tier, values, inPool, name, icon}}."""
-    path = os.path.join(CACHE, f"{patch}.json")
+    build = ((get(f"{BASE}/{patch}/content-metadata.json") or {}).get("version") or "unknown").split("+")[0]
+    path = os.path.join(CACHE, f"{patch}-{build}-v{CACHE_FORMAT}.json")
     if os.path.exists(path) and patch != "latest":
         with open(path) as f:
             return json.load(f)
