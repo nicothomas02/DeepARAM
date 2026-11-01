@@ -408,7 +408,9 @@ export default async function ChampionPage({
             </h1>
             {c.title && (
               <p className="cp-sub">
-                {c.title.charAt(0).toUpperCase() + c.title.slice(1)}
+                <Name kind="titles" id={c.alias}>
+                  {c.title.charAt(0).toUpperCase() + c.title.slice(1)}
+                </Name>
               </p>
             )}
             <ArchetypeTags
