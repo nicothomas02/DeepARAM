@@ -323,6 +323,29 @@
       "why": "Molten Shield has a target nobody uses: Annie can cast it on an ally, handing them a shield, a burst of Move Speed and thorns that damage anyone who hits them, and Tibbers spawns wearing one too. With Group Hug rolled on Molten Shield, every cast shields two more allies, so one button is three shields, three speed boosts and three sets of thorns. Enchanting Butterflies gathers a Butterfly for every ally she shields, Sonic Boom makes each shield explode for damage and a Slow around that ally, and Sound Barrier hands every shielded teammate Move Speed and Ghost, so the moment Annie damages an enemy all the Butterflies fly out as magic damage. Moonstone Renewer chains each shield to yet another ally for one more Butterfly and boom, Staff of Flowing Water and Ardent Censer pay her and every shielded ally in Ability Power, Haste and Attack Speed, and Shurelya's Battlesong buffs the whole team for another round of booms. The point-and-click burst mage stops casting at enemies and becomes a shield bot whose damage comes out of her teammates.",
       "play": "Stand behind the team and cast Molten Shield on whoever is about to get hit, then tag an enemy with Disintegrate or Incinerate to release the Butterflies. Save the Pyromania stun your shield casts build up for Tibbers.",
       "chef": "2026-10-30"
+    },
+    {
+      "id": "zac-deceased-repeatedly",
+      "champion": "Zac",
+      "title": "Deceased, Repeatedly",
+      "augments": [
+        "Mad Scientist",
+        "Hellbent",
+        "Clown College",
+        "Dive Bomber"
+      ],
+      "core": 4,
+      "items": [
+        "Heartsteel",
+        "Warmog's Armor",
+        "Jak'Sho, The Protean",
+        "Sunfire Aegis",
+        "Unending Despair",
+        "Mercury's Treads"
+      ],
+      "why": "Zac's Cell Division already treats death as a speed bump: on fatal damage he splits into four bloblets and revives if any survive, and each bloblet carries a share of his max Health, Armor and Magic Resist. Clown College and Dive Bomber both go off when he dies, blasting true damage and Fearing nearby enemies, so the people who would normally stomp the blobs are running away while he reforms. Mad Scientist pays out on every Revive, growing him large or tiny with extra stats, and Hellbent adds a second revive once he has stacked enough champion damage, so one teamfight can hold two deaths, two explosions and two Mad Scientist upgrades. Heartsteel feeds the loop by permanently raising his max Health, which the bloblets inherit, while Warmog's Armor, Jak'Sho, The Protean and the rest pile on the Health and resists the blobs copy. The tank who is supposed to survive becomes a champion whose real job is to die in the middle of the enemy team and come back angrier.",
+      "play": "Slingshot into the whole enemy team and let them kill you on top of their own carries; the explosions and Fear cover your bloblets. Come back, keep hitting champions to stack Hellbent, and do it again.",
+      "chef": "2026-10-31"
     }
   ]
 }

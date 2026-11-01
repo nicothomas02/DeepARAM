@@ -270,5 +270,12 @@
  "The next special is on its way.": "下一道特供正在路上。",
  "No community builds yet": "还没有社区出装",
  "Cooked up something strange? Build it in the Simulator and send it in. The chef picks the best ones for this page.": "想出了奇怪的玩法？在模拟器里搭好并投稿。主厨会挑出最好的放到这个页面。",
- "Send a build from the Simulator": "从模拟器投稿出装"
+ "Send a build from the Simulator": "从模拟器投稿出装",
+ "Deceased, Repeatedly": "死亡，反复死亡",
+ "Zac's Cell Division already treats death as a speed bump: on fatal damage he splits into four bloblets and revives if any survive, and each bloblet carries a share of his max Health, Armor and Magic Resist. Clown College and Dive Bomber both go off when he dies, blasting true damage and Fearing nearby enemies, so the people who would normally stomp the blobs are running away while he reforms. Mad Scientist pays out on every Revive, growing him large or tiny with extra stats, and Hellbent adds a second revive once he has stacked enough champion damage, so one teamfight can hold two deaths, two explosions and two Mad Scientist upgrades. Heartsteel feeds the loop by permanently raising his max Health, which the bloblets inherit, while Warmog's Armor, Jak'Sho, The Protean and the rest pile on the Health and resists the blobs copy. The tank who is supposed to survive becomes a champion whose real job is to die in the middle of the enemy team and come back angrier.": "扎克的细胞分裂把死亡当成减速带：受到致命伤害时分裂成四个小软泥，只要有一个存活就会复活，每个小软泥都继承他一部分最大生命值、护甲和魔法抗性。小丑学院和俯冲轰炸都会在他死亡时触发，造成真实伤害并恐惧附近的敌人，所以平时会踩扁软泥的人都在逃命，而他在重新聚合。科学狂人在每次复活时兑现，让他变大或变小并获得额外属性，濒死悟道在他叠够对英雄的伤害后追加第二次复活，所以一场团战里可以有两次死亡、两次爆炸和两次科学狂人升级。心之钢通过永久提升最大生命值来喂养这个循环，软泥会继承它，而狂徒铠甲、千变者贾修等装备则堆叠软泥会复制的生命值和抗性。本该存活的坦克，变成了真正工作是死在敌方团队中间、然后更生气地回来的英雄。",
+ "Slingshot into the whole enemy team and let them kill you on top of their own carries; the explosions and Fear cover your bloblets. Come back, keep hitting champions to stack Hellbent, and do it again.": "弹射进敌方整个团队，让他们在自己的核心头上杀死你；爆炸和恐惧会掩护你的小软泥。回来后继续攻击英雄叠濒死悟道，然后再来一遍。",
+ "On each Revive, you grow large (gaining 30% Adaptive Force and 20% Health) or tiny (gaining 70 Ability Haste and 40% Movement Speed).": "每次复活时，你会变大（获得30%自适应之力和20%生命值）或变小（获得70技能急速和40%移动速度）。",
+ "Damaging enemy champions with Attacks or Abilities grants stacks. At max stacks, you revive empowered upon death.": "用攻击或技能对敌方英雄造成伤害会获得层数。层数叠满后，死亡时你会强化复活。",
+ "Gain Deceive Summoner Spell. Gain Backstab Passive. When you die, deal a large amount of true damage and Fear nearby enemies.": "获得召唤师技能欺骗。获得被动背刺。死亡时，造成大量真实伤害并恐惧附近的敌人。",
+ "Explodes when you die, dealing 20% of the target's max Health as true damage to nearby enemies.": "死亡时爆炸，对附近的敌人造成相当于目标最大生命值20%的真实伤害。"
 }
