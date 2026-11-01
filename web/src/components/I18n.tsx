@@ -11,7 +11,7 @@ import { DEFAULT_LANG, fill, LANG_EVENT, LANG_KEY, langInfo } from "@/lib/i18n";
 // and in client components: const t = useT("tier-list"); t("Win rate"); const name = useNames(); name("items", 3031, "Infinity Edge").
 
 type Dict = Record<string, string>;
-export type NameKind = "champions" | "items" | "augments";
+export type NameKind = "champions" | "titles" | "items" | "augments";
 type Names = Partial<Record<NameKind, Dict>> & { mode?: string };
 
 const dicts = new Map<string, Dict | "loading" | "failed">();

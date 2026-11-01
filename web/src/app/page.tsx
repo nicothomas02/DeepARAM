@@ -148,9 +148,29 @@ export default function Home() {
                 </b>
                 <span>
                   {latest.hasAugmentHistory ? (
-                    <T ns="patches" v={{ n: latest.changed.length }}>
-                      {"{n} augments changed"}
-                    </T>
+                    <>
+                      {/* Same summary as the Patches page: added and removed first, so a patch that only adds
+                          augments doesn't read as "2 augments changed". */}
+                      {latest.added.length > 0 && (
+                        <>
+                          <T ns="patches" v={{ n: latest.added.length }}>
+                            {"{n} added"}
+                          </T>
+                          {" · "}
+                        </>
+                      )}
+                      {latest.removed.length > 0 && (
+                        <>
+                          <T ns="patches" v={{ n: latest.removed.length }}>
+                            {"{n} removed"}
+                          </T>
+                          {" · "}
+                        </>
+                      )}
+                      <T ns="patches" v={{ n: latest.changed.length }}>
+                        {"{n} augments changed"}
+                      </T>
+                    </>
                   ) : (
                     <T ns="patches">Win rates only</T>
                   )}

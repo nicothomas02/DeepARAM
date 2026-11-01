@@ -2,6 +2,7 @@
 
 For each language in web/src/i18n/languages.json (English is the site's own text and is skipped):
   champions  Data Dragon champion.json for the live version, keyed by champion id (AurelionSol)
+  titles     each champion's title ("the Nine-Tailed Fox") from the same file, keyed the same way
   items      the client's items.json (live), keyed by item id
   augments   the client's Mayhem augment list (live), keyed by augment id
   mode       the mode's own name in that language, from the client's queue list (queue 2400)
@@ -50,6 +51,7 @@ def names(riot, version):
     return {
         "mode": clean((queue or {}).get("name")),
         "champions": {k: clean(v["name"]) for k, v in champs.items()},
+        "titles": {k: clean(v.get("title")) for k, v in champs.items()},
         "items": {str(i["id"]): clean(i.get("name")) for i in items},
         "augments": {str(a["id"]): clean(a.get("nameTRA")) for a in augs},
     }
@@ -78,7 +80,7 @@ def main():
     def one(lang):
         local = names(lang["riot"], version)
         out = {"version": version, "mode": local["mode"] if local["mode"] != en["mode"] else ""}
-        for kind in ("champions", "items", "augments"):
+        for kind in ("champions", "titles", "items", "augments"):
             out[kind] = {k: v for k, v in sorted(local[kind].items()) if v and v != en[kind].get(k)}
         with open(os.path.join(OUT, f"{lang['code']}.json"), "w", encoding="utf-8") as f:
             json.dump(out, f, ensure_ascii=False, separators=(",", ":"), sort_keys=True)
