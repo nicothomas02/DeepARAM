@@ -1,297 +1,297 @@
 {
-  "id": "annie-daycare-director",
-  "title": "Daycare Director",
-  "champion": "Annie",
-  "champion_name": "Annie",
-  "chef": "2026-10-30",
-  "why": "Molten Shield has a target nobody uses: Annie can cast it on an ally, handing them a shield, a burst of Move Speed and thorns that damage anyone who hits them, and Tibbers spawns wearing one too. With Group Hug rolled on Molten Shield, every cast shields two more allies, so one button is three shields, three speed boosts and three sets of thorns. Enchanting Butterflies gathers a Butterfly for every ally she shields, Sonic Boom makes each shield explode for damage and a Slow around that ally, and Sound Barrier hands every shielded teammate Move Speed and Ghost, so the moment Annie damages an enemy all the Butterflies fly out as magic damage. Moonstone Renewer chains each shield to yet another ally for one more Butterfly and boom, Staff of Flowing Water and Ardent Censer pay her and every shielded ally in Ability Power, Haste and Attack Speed, and Shurelya's Battlesong buffs the whole team for another round of booms. The point-and-click burst mage stops casting at enemies and becomes a shield bot whose damage comes out of her teammates.",
-  "play": "Stand behind the team and cast Molten Shield on whoever is about to get hit, then tag an enemy with Disintegrate or Incinerate to release the Butterflies. Save the Pyromania stun your shield casts build up for Tibbers.",
+  "id": "zac-deceased-repeatedly",
+  "title": "Deceased, Repeatedly",
+  "champion": "Zac",
+  "champion_name": "Zac",
+  "chef": "2026-10-31",
+  "why": "Zac's Cell Division already treats death as a speed bump: on fatal damage he splits into four bloblets and revives if any survive, and each bloblet carries a share of his max Health, Armor and Magic Resist. Clown College and Dive Bomber both go off when he dies, blasting true damage and Fearing nearby enemies, so the people who would normally stomp the blobs are running away while he reforms. Mad Scientist pays out on every Revive, growing him large or tiny with extra stats, and Hellbent adds a second revive once he has stacked enough champion damage, so one teamfight can hold two deaths, two explosions and two Mad Scientist upgrades. Heartsteel feeds the loop by permanently raising his max Health, which the bloblets inherit, while Warmog's Armor, Jak'Sho, The Protean and the rest pile on the Health and resists the blobs copy. The tank who is supposed to survive becomes a champion whose real job is to die in the middle of the enemy team and come back angrier.",
+  "play": "Slingshot into the whole enemy team and let them kill you on top of their own carries; the explosions and Fear cover your bloblets. Come back, keep hitting champions to stack Hellbent, and do it again.",
   "items": [
-    "Moonstone Renewer",
-    "Staff of Flowing Water",
-    "Ardent Censer",
-    "Shurelya's Battlesong",
-    "Dawncore",
-    "Ionian Boots of Lucidity"
+    "Heartsteel",
+    "Warmog's Armor",
+    "Jak'Sho, The Protean",
+    "Sunfire Aegis",
+    "Unending Despair",
+    "Mercury's Treads"
   ],
   "core": 4,
-  "champion_icon": "/embed/fun/cook-builds/icons/champions/1.png",
+  "champion_icon": "/embed/fun/cook-builds/icons/champions/154.png",
   "augments": [
     {
-      "name": "Group Hug",
+      "name": "Mad Scientist",
       "rarity": "Prismatic",
       "core": true,
-      "text": "Healing or Shielding an allied champion with the chosen ability casts that spell again on 2 other nearby allied champions. Heals and Shields are effective. The power of friendship!",
-      "icon": "/embed/fun/cook-builds/icons/augments/group-hug.png",
-      "id": 3149
+      "text": "On each Revive, you grow large (gaining 30% Adaptive Force and 20% Health) or tiny (gaining 70 Ability Haste and 40% Movement Speed).",
+      "icon": "/embed/fun/cook-builds/icons/augments/mad-scientist.png",
+      "id": 1053
     },
     {
-      "name": "Enchanting Butterflies",
-      "rarity": "Gold",
+      "name": "Hellbent",
+      "rarity": "Prismatic",
       "core": true,
-      "text": "Healing or Shielding allied champions gathers Butterflies. After collecting Butterflies, damaging an enemy champion fires all of them to deal Magic damage.",
-      "icon": "/embed/fun/cook-builds/icons/augments/enchanting-butterflies.png",
-      "id": 3163
+      "text": "Damaging enemy champions with Attacks or Abilities grants stacks. At max stacks, you revive empowered upon death.",
+      "icon": "/embed/fun/cook-builds/icons/augments/hellbent.png",
+      "id": 2107
     },
     {
-      "name": "Sonic Boom",
+      "name": "Clown College",
+      "rarity": "Prismatic",
+      "core": true,
+      "text": "Gain Deceive Summoner Spell. Gain Backstab Passive. When you die, deal a large amount of true damage and Fear nearby enemies.",
+      "icon": "/embed/fun/cook-builds/icons/augments/clown-college.png",
+      "id": 1310
+    },
+    {
+      "name": "Dive Bomber",
       "rarity": "Silver",
       "core": true,
-      "text": "Buffing, Healing, or Shielding your ally deals damage and Slows enemies surrounding them.",
-      "icon": "/embed/fun/cook-builds/icons/augments/sonic-boom.png",
-      "id": 1076
-    },
-    {
-      "name": "Sound Barrier",
-      "rarity": "Silver",
-      "core": true,
-      "text": "Shielding an ally grants Move Speed and Ghost decaying over 1.5 seconds. Cooldown per target: 1.5 seconds.",
-      "icon": "/embed/fun/cook-builds/icons/augments/sound-barrier.png",
-      "id": 3025
+      "text": "Explodes when you die, dealing 20% of the target's max Health as true damage to nearby enemies.",
+      "icon": "/embed/fun/cook-builds/icons/augments/dive-bomber.png",
+      "id": 1025
     }
   ],
   "href": "/kitchen#chefs-special",
   "archive_href": "/kitchen#chef-archive",
-  "share_href": "/kitchen/2026-10-30",
-  "share_image": "/embed/fun/cook-builds/share/annie-daycare-director.png",
+  "share_href": "/kitchen/2026-10-31",
+  "share_image": "/embed/fun/cook-builds/share/zac-deceased-repeatedly.png",
   "item_ids": [
-    6617,
-    6616,
-    3504,
-    2065,
-    6621,
-    3158
+    3084,
+    3083,
+    6665,
+    3068,
+    2502,
+    3111
   ],
   "i18n": {
     "ar": {
-      "title": "مديرة الحضانة",
-      "why": "لمهارة E عند آني هدف لا يستخدمه أحد: يمكنها إلقاؤها على حليف فيحصل على درع ودفعة سرعة حركة وأشواك تؤذي كل من يضربه، ويظهر تيبرز وهو يحملها أيضًا. مع عناق جماعي على مهارة E، كل استخدام يحمي حليفين إضافيين، فزر واحد يعني ثلاثة دروع وثلاث دفعات سرعة وثلاث مجموعات أشواك. الفراشات الساحرة تجمع فراشة عن كل حليف تحميه، والانفجار الصوتي يجعل كل درع ينفجر بضرر وإبطاء حول ذلك الحليف، وحاجز الصوت يمنح كل زميل محمي سرعة وشبحًا، فبمجرد أن تضرب آني عدوًا تنطلق كل الفراشات ضررًا سحريًا. حجر القمر المنعش ينقل كل درع إلى حليف آخر لفراشة وانفجار إضافيين، وصولجان الماء المتدفق والمجس الوهاج يمنحانها وكل حليف محمي قوة قدرات وتسارعًا وسرعة هجوم، ونشيد معركة شوريليا يقوي الفريق كله لجولة انفجارات جديدة. ساحرة الضرر الانفجاري بنقرة واحدة تتوقف عن استهداف الأعداء وتصبح آلة دروع يخرج ضررها من زملائها.",
-      "play": "ابقَ خلف الفريق وألقِ E على من سيتلقى الضرب، ثم اضرب عدوًا بـ Q أو W لإطلاق الفراشات. احتفظ بالصعق من مهارتك السلبية الذي تشحنه دروعك لتيبرز.",
+      "title": "متوفى، مرارًا وتكرارًا",
+      "why": "انقسام الخلايا عند زاك يعتبر الموت مجرد مطب: عند الضرر القاتل ينقسم إلى أربع كتل صغيرة ويعود للحياة إذا نجت أي منها، وتحمل كل كتلة حصة من أقصى صحته ودرعه ومقاومة السحر. كلية المهرجين وانفجار الموت ينفجران عند موته، فيُلحقان ضررًا حقيقيًا ويُرعبان الأعداء القريبين، فيهرب من كان سيسحق الكتل بينما يعيد تشكيل نفسه. العالِم المجنون يكافئه عند كل إحياء بأن يكبر أو يصغر مع إحصائيات إضافية، وشديد العزم يمنحه إحياءً ثانيًا عندما يجمع ما يكفي من ضرر الأبطال، فتحوي معركة جماعية واحدة موتتين وانفجارين وترقيتين للعالِم المجنون. القلب الفولاذي يغذي الحلقة برفع أقصى صحته للأبد وترثه الكتل، بينما درع وارموغ وجاكشو، المتلون وغيرهما تكدّس الصحة والمقاومات التي تنسخها الكتل. التانك الذي يُفترض أن ينجو يصبح بطلًا مهمته الحقيقية أن يموت وسط فريق العدو ويعود أكثر غضبًا.",
+      "play": "اندفع بالمقلاع إلى وسط الفريق المعادي ودعهم يقتلونك فوق حامليهم؛ الانفجارات والرعب تحمي كتلك الصغيرة. عد، واستمر بضرب الأبطال لتكديس شديد العزم، وكرر ذلك.",
       "augments": [
-        "علاج أو حماية بطل حليف بالقدرة المختارة يلقي التعويذة مرة أخرى على بطلين حليفين قريبين آخرين. العلاج والدروع فعالة. قوة الصداقة!",
-        "علاج أو حماية الأبطال الحلفاء يجمع الفراشات. بعد جمعها، إلحاق الضرر ببطل عدو يطلقها كلها لتلحق ضررًا سحريًا.",
-        "تعزيز حليفك أو علاجه أو منحه درعًا يُلحق الضرر بالأعداء المحيطين به ويبطئهم.",
-        "حماية حليف تمنحه سرعة حركة وشبحًا يتلاشيان خلال 1.5 ثانية. فترة التهدئة لكل هدف: 1.5 ثانية."
+        "عند كل إحياء، تكبر (تكسب 30% من القوة التكيفية و20% من الصحة) أو تصغر (تكسب 70 من تسارع القدرات و40% من سرعة الحركة).",
+        "إلحاق الضرر بأبطال الأعداء بالهجمات أو القدرات يمنحك شحنات. عند الحد الأقصى للشحنات، تعود للحياة معززًا عند موتك.",
+        "تكسب تعويذة الاستدعاء خداع. تكسب السلبية طعنة غدر. عند موتك، تُلحق كمية كبيرة من الضرر الحقيقي وتُرعب الأعداء القريبين.",
+        "تنفجر عند موتك، مُلحقةً ضررًا حقيقيًا يعادل 20% من أقصى صحة الهدف بالأعداء القريبين."
       ]
     },
     "cs": {
-      "title": "Ředitelka školky",
-      "why": "Anniino E má cíl, který nikdo nepoužívá: může ho seslat na spojence, který dostane štít, nával rychlosti pohybu a trny, které zraní každého, kdo ho zasáhne, a Tibbers se s ním rovnou objeví. Se Společným objetím na E každé seslání ochrání další dva spojence, takže jedno tlačítko znamená tři štíty, tři návaly rychlosti a trojí trny. Čarovní motýli sbírají motýla za každého chráněného spojence, Sonický třesk nechá každý štít vybuchnout poškozením a zpomalením kolem spojence a Zvuková bariéra dá každému chráněnému spoluhráči rychlost a Ducha, takže jakmile Annie zraní nepřítele, všichni motýli vyletí jako magické poškození. Měsíční obnovovač přeskočí s každým štítem na dalšího spojence pro dalšího motýla a další třesk, Hůl plynoucí vody a Žhnoucí kadidelnice dají jí i každému chráněnému spojenci sílu schopností, zrychlení a rychlost útoku a Shurelyina bitevní píseň posílí celý tým na další kolo výbuchů. Burst mágyně na jedno kliknutí přestane mířit na nepřátele a stane se automatem na štíty, jejíž poškození vychází ze spoluhráčů.",
-      "play": "Stůj za týmem, házej E na toho, kdo zrovna dostane nakládačku, a pak zasáhni nepřítele Q nebo W, aby vyletěli motýli. Omráčení z pasivky, které nabíjejí tvoje štíty, si nech na Tibberse.",
+      "title": "Opakovaně zesnulý",
+      "why": "Zacovo Buněčné dělení bere smrt jako zpomalovač: při smrtelném poškození se rozdělí na čtyři slizy a vstane z mrtvých, pokud některý přežije, a každý sliz nese část jeho maximálního zdraví, brnění a odolnosti vůči magii. Klaunská univerzita i Sebevražedný atentátník se spustí při jeho smrti, způsobí true damage a vyděsí okolní nepřátele, takže ti, kdo by slizy normálně rozdupali, utíkají, zatímco se skládá zpátky. Šílený vědec vyplácí odměnu při každém oživení, kdy Zac zvětší nebo zmenší s bonusovými staty, a Vražedné odhodlání přidá druhé oživení, jakmile nasbírá dost poškození šampionům, takže jedna týmovka může mít dvě smrti, dva výbuchy a dvě vylepšení Šíleného vědce. Srdcová ocel krmí smyčku trvalým zvyšováním maximálního zdraví, které slizy zdědí, zatímco Warmogova zbroj, Proměnlivý Jak'Sho a další hromadí zdraví a odolnosti, které slizy kopírují. Tank, který má přežít, se stává šampionem, jehož skutečnou prací je zemřít uprostřed nepřátelského týmu a vrátit se naštvanější.",
+      "play": "Vystřel se do celého nepřátelského týmu a nech se zabít nad jejich carry; výbuchy a Strach kryjí tvé slizy. Vrať se, dál tluč šampiony a staguj Vražedné odhodlání, a zopakuj to.",
       "augments": [
-        "Léčení nebo štít na spojeneckého šampiona zvolenou schopností sešle kouzlo znovu na 2 další blízké spojenecké šampiony. Léčení a štíty jsou účinné. Síla přátelství!",
-        "Léčení nebo štíty na spojenecké šampiony sbírají motýly. Po nasbírání motýlů poškození nepřátelského šampiona vystřelí všechny a způsobí magické poškození.",
-        "Posílení, léčení nebo štít na spojence způsobí poškození a zpomalí nepřátele kolem něj.",
-        "Štít na spojence mu udělí rychlost pohybu a Ducha, které slábnou během 1,5 sekundy. Přebíjení na cíl: 1,5 sekundy."
+        "Při každém oživení zvětšíš (získáš 30% Adaptivní síly a 20% zdraví) nebo se zmenšíš (získáš 70 urychlení schopností a 40% rychlosti pohybu).",
+        "Poškozování nepřátelských šampionů útoky nebo schopnostmi dává stacky. Při maximu stacků po smrti vstaneš posílený.",
+        "Získáš kouzlo přivolávače Klam. Získáš pasivku Zákeřný útok. Když zemřeš, způsobíš velké množství true damage a vyděsíš okolní nepřátele.",
+        "Při smrti vybuchneš a způsobíš okolním nepřátelům true damage ve výši 20% maximálního zdraví cíle."
       ]
     },
     "de": {
-      "title": "Kita-Leiterin",
-      "why": "Annies E hat ein Ziel, das niemand nutzt: Sie kann es auf einen Verbündeten wirken, der einen Schild, einen Lauftempo-Schub und Dornen bekommt, die jeden verletzen, der ihn trifft, und Tibbers erscheint ebenfalls damit. Mit Gruppenumarmung auf ihrem E schützt jeder Einsatz zwei weitere Verbündete, ein Knopf heißt also drei Schilde, drei Tempo-Schübe und dreimal Dornen. Bezaubernde Schmetterlinge sammelt für jeden geschützten Verbündeten einen Schmetterling, Schallexplosion lässt jeden Schild in Schaden und Verlangsamung um diesen Verbündeten explodieren, und Schallmauer gibt jedem geschützten Teamkollegen Lauftempo und Geist, sodass alle Schmetterlinge als magischer Schaden losfliegen, sobald Annie einen Gegner trifft. Mondstein-Erneuerer springt mit jedem Schild auf noch einen Verbündeten über, für einen weiteren Schmetterling und Knall, Stab des fließenden Wassers und Thymiaterion geben ihr und jedem geschützten Verbündeten Fähigkeitsstärke, Fähigkeitstempo und Angriffstempo, und Shurelyas Kampfhymne bufft das ganze Team für die nächste Runde Explosionen. Die Point-and-Click-Burstmagierin zielt nicht mehr auf Gegner, sondern wird zum Schildautomaten, dessen Schaden aus ihren Teamkollegen kommt.",
-      "play": "Bleib hinter dem Team, wirf dein E auf den, der gleich Schläge kassiert, und triff dann einen Gegner mit Q oder W, um die Schmetterlinge loszulassen. Heb dir die Betäubung deiner Passive, die deine Schilde aufladen, für Tibbers auf.",
+      "title": "Mehrfach verstorben",
+      "why": "Zacs Zellteilung behandelt den Tod wie eine Bodenwelle: Bei tödlichem Schaden teilt er sich in vier Klümpchen und lebt wieder auf, wenn eines überlebt, und jedes Klümpchen trägt einen Teil seines maximalen Lebens, seiner Rüstung und Magieresistenz. Clown-Hochschule und Sturzbomber lösen beide bei seinem Tod aus, verursachen wahren Schaden und versetzen Gegner in der Nähe in Furcht, sodass die, die die Klümpchen sonst zertrampeln würden, davonrennen, während er sich neu formt. Verrückter Wissenschaftler zahlt bei jeder Wiederbelebung aus und lässt ihn groß oder winzig werden, mit Extra-Werten, und Wild Entschlossen gibt eine zweite Wiederbelebung, sobald er genug Championschaden gestackt hat – ein Teamfight kann also zwei Tode, zwei Explosionen und zwei Upgrades des Verrückten Wissenschaftlers enthalten. Herzstahl füttert die Schleife, indem er sein maximales Leben dauerhaft erhöht, was die Klümpchen erben, während Warmogs Rüstung, Jak'Sho, der Proteaner und der Rest Leben und Resistenzen draufpacken, die die Klümpchen kopieren. Der Tank, der überleben soll, wird zum Champion, dessen eigentlicher Job es ist, mitten im gegnerischen Team zu sterben und wütender zurückzukommen.",
+      "play": "Schleudere dich ins gesamte gegnerische Team und lass dich über ihren Carries umbringen; die Explosionen und die Furcht decken deine Klümpchen. Komm zurück, triff weiter Champions, um Wild Entschlossen zu stacken, und mach es nochmal.",
       "augments": [
-        "Wenn du einen verbündeten Champion mit der gewählten Fähigkeit heilst oder schützt, wird der Zauber erneut auf 2 andere verbündete Champions in der Nähe gewirkt. Heilungen und Schilde sind voll wirksam. Die Macht der Freundschaft!",
-        "Das Heilen oder Schützen verbündeter Champions sammelt Schmetterlinge. Sind Schmetterlinge gesammelt, feuert Schaden an einem gegnerischen Champion alle ab und verursacht magischen Schaden.",
-        "Verbündete zu verstärken, zu heilen oder abzuschirmen fügt Gegnern um sie herum Schaden zu und verlangsamt sie.",
-        "Einen Verbündeten zu schützen gewährt ihm Lauftempo und Geist, die über 1,5 Sekunden abklingen. Abklingzeit pro Ziel: 1,5 Sekunden."
+        "Bei jeder Wiederbelebung wirst du groß (erhältst 30% Adaptive Kraft und 20% Leben) oder winzig (erhältst 70 Fähigkeitseile und 40% Lauftempo).",
+        "Schaden an gegnerischen Champions mit Angriffen oder Fähigkeiten gewährt Stacks. Bei maximalen Stacks wirst du nach dem Tod gestärkt wiederbelebt.",
+        "Du erhältst den Beschwörerzauber Täuschen. Du erhältst die Passivfähigkeit Rückenstich. Wenn du stirbst, verursachst du eine große Menge wahren Schadens und versetzt Gegner in der Nähe in Furcht.",
+        "Explodiert, wenn du stirbst, und verursacht 20% des maximalen Lebens des Ziels als wahren Schaden an Gegnern in der Nähe."
       ]
     },
     "el": {
-      "title": "Διευθύντρια Παιδικού Σταθμού",
-      "why": "Το E της Άνι έχει έναν στόχο που δεν χρησιμοποιεί κανείς: μπορεί να το ρίξει σε σύμμαχο, που παίρνει ασπίδα, ώθηση ταχύτητας κίνησης και αγκάθια που χτυπούν όποιον τον χτυπήσει, και ο Τίμπερς εμφανίζεται κι αυτός με ασπίδα. Με την Ομαδική Αγκαλιά στο E, κάθε χρήση προστατεύει άλλους δύο συμμάχους, άρα ένα κουμπί σημαίνει τρεις ασπίδες, τρεις ωθήσεις ταχύτητας και τρία σετ αγκάθια. Οι Μαγικές Πεταλούδες μαζεύουν μια πεταλούδα για κάθε σύμμαχο που προστατεύει, η Ηχητική Έκρηξη κάνει κάθε ασπίδα να εκρήγνυται με ζημιά και επιβράδυνση γύρω από τον σύμμαχο και το Φράγμα Ήχου δίνει σε κάθε προστατευμένο συμπαίκτη ταχύτητα και Φάντασμα, οπότε μόλις η Άνι χτυπήσει εχθρό όλες οι πεταλούδες πετούν ως μαγική ζημιά. Ο Ανανεωτής Φεγγαρόπετρας περνά κάθε ασπίδα σε ακόμη έναν σύμμαχο για ακόμη μία πεταλούδα και έκρηξη, το Ραβδί του Τρεχούμενου Νερού και το Λαμπρό Θυμιατό δίνουν σε εκείνη και σε κάθε προστατευμένο σύμμαχο δύναμη, επιτάχυνση και ταχύτητα επίθεσης, και το Πολεμικό Άσμα της Σουρέλια ενισχύει όλη την ομάδα για νέο γύρο εκρήξεων. Η μάγισσα του point-and-click burst σταματά να σημαδεύει εχθρούς και γίνεται μηχανή ασπίδων που η ζημιά της βγαίνει από τους συμπαίκτες της.",
-      "play": "Μείνε πίσω από την ομάδα, ρίξε το E σε όποιον πάει να φάει ξύλο και μετά χτύπα έναν εχθρό με Q ή W για να αφήσεις τις πεταλούδες. Κράτα το stun της παθητικής, που φορτώνουν οι ασπίδες σου, για τον Τίμπερς.",
+      "title": "Εκλιπών, Επανειλημμένα",
+      "why": "Η Κυτταρική Διαίρεση του Zac αντιμετωπίζει τον θάνατο σαν σαμαράκι: με θανατηφόρο ζημιά σπάει σε τέσσερα κομματάκια και αναστήνεται αν επιζήσει έστω ένα, και κάθε κομματάκι κρατά μερίδιο από τη μέγιστη Ζωή, την Πανοπλία και την Αντίσταση Μαγείας του. Η Η Μεγάλη των Κλόουν Σχολή και το Βομβαρδιστικό Εφορμήσεων πυροδοτούνται και οι δύο όταν πεθαίνει, προκαλώντας πραγματική ζημιά και τρομάζοντας τους κοντινούς εχθρούς, οπότε όσοι κανονικά θα πατούσαν τα κομματάκια τρέχουν μακριά ενώ αυτός ξαναφτιάχνεται. Ο Τρελός Επιστήμονας πληρώνει σε κάθε Ανάσταση, κάνοντάς τον μεγάλο ή μικροσκοπικό με επιπλέον στατιστικά, και η Αποφασιστικότητα προσθέτει δεύτερη ανάσταση όταν συσσωρεύσει αρκετή ζημιά σε ήρωες, οπότε μία μάχη ομάδων χωράει δύο θανάτους, δύο εκρήξεις και δύο αναβαθμίσεις του Τρελού Επιστήμονα. Ο Ατσαλόκαρδος τροφοδοτεί τον κύκλο αυξάνοντας μόνιμα τη μέγιστη Ζωή του, που κληρονομούν τα κομματάκια, ενώ η Πανοπλία του Γόρμογκ, ο Τζακ'Σο, Ο Πολυμορφικός και τα υπόλοιπα στοιβάζουν Ζωή και αντιστάσεις που αντιγράφουν τα κομματάκια. Ο τανκ που υποτίθεται ότι επιβιώνει γίνεται ήρωας με πραγματική δουλειά να πεθαίνει μέσα στην εχθρική ομάδα και να επιστρέφει πιο θυμωμένος.",
+      "play": "Εκτοξεύσου μέσα σε όλη την εχθρική ομάδα και άσε τους να σε σκοτώσουν πάνω από τους δικούς τους carry· οι εκρήξεις και ο Φόβος καλύπτουν τα κομματάκια σου. Γύρνα πίσω, συνέχισε να χτυπάς ήρωες για να στοιβάξεις Αποφασιστικότητα και ξανά από την αρχή.",
       "augments": [
-        "Η θεραπεία ή η θωράκιση ενός συμμαχικού πρωταθλητή με την επιλεγμένη ικανότητα ρίχνει ξανά το ξόρκι σε 2 άλλους κοντινούς συμμαχικούς πρωταθλητές. Οι θεραπείες και οι ασπίδες είναι αποτελεσματικές. Η δύναμη της φιλίας!",
-        "Η θεραπεία ή η θωράκιση συμμαχικών πρωταθλητών μαζεύει πεταλούδες. Αφού τις μαζέψεις, η ζημιά σε εχθρικό πρωταθλητή τις εκτοξεύει όλες προκαλώντας μαγική ζημιά.",
-        "Η ενίσχυση, η θεραπεία ή η ασπίδα στον σύμμαχό σου προκαλεί ζημιά και επιβραδύνει τους εχθρούς γύρω του.",
-        "Η θωράκιση ενός συμμάχου του δίνει ταχύτητα κίνησης και Φάντασμα που μειώνονται σε 1,5 δευτερόλεπτο. Χρόνος επαναφόρτισης ανά στόχο: 1,5 δευτερόλεπτο."
+        "Σε κάθε Ανάσταση, μεγαλώνεις (κερδίζοντας 30% Προσαρμοστική Δύναμη και 20% Ζωή) ή μικραίνεις (κερδίζοντας 70 Επιτάχυνση Ικανοτήτων και 40% Ταχύτητα Κίνησης).",
+        "Η πρόκληση ζημιάς σε εχθρικούς ήρωες με Επιθέσεις ή Ικανότητες δίνει στοιβάδες. Στο μέγιστο των στοιβάδων, αναστήνεσαι ενισχυμένος όταν πεθάνεις.",
+        "Κερδίζεις το Ξόρκι Επικαλεστή Εξαπάτηση. Κερδίζεις την Παθητική Μαχαιριά στην Πλάτη. Όταν πεθάνεις, προκαλείς μεγάλη πραγματική ζημιά και τρομάζεις τους κοντινούς εχθρούς.",
+        "Εκρήγνυται όταν πεθάνεις, προκαλώντας πραγματική ζημιά ίση με 20% της μέγιστης Ζωής του στόχου στους κοντινούς εχθρούς."
       ]
     },
     "es-MX": {
-      "title": "Directora de guardería",
-      "why": "La E de Annie tiene un objetivo que nadie usa: puede lanzarla a un aliado, que recibe un escudo, un impulso de velocidad de movimiento y espinas que dañan a quien lo golpee, y Tibbers aparece con ella también. Con Abrazo Grupal en su E, cada lanzamiento protege a dos aliados más, así que un botón son tres escudos, tres impulsos de velocidad y tres juegos de espinas. Mariposas Mágicas junta una mariposa por cada aliado protegido, Explosión Sónica hace que cada escudo explote con daño y ralentización alrededor de ese aliado, y Barrera del Sonido le da a cada compañero protegido velocidad y Fantasmal, así que en cuanto Annie daña a un enemigo todas las mariposas salen volando como daño mágico. Renovador de Piedra Lunar encadena cada escudo a otro aliado para una mariposa y una explosión más, Báculo de Agua Fluyente y Pebetero Ardiente le dan a ella y a cada aliado protegido poder, celeridad y velocidad de ataque, y Canto de Guerra de Shurelya potencia a todo el equipo para otra ronda de explosiones. La maga de ráfaga de un clic deja de apuntar a los enemigos y se vuelve una máquina de escudos cuyo daño sale de sus compañeros.",
-      "play": "Quédate detrás del equipo, lánzale la E a quien esté por recibir los golpes y luego pégale a un enemigo con la Q o la W para soltar las mariposas. Guarda el aturdimiento de tu pasiva, que cargan tus escudos, para Tibbers.",
+      "title": "Fallecido, una y otra vez",
+      "why": "La División celular de Zac trata la muerte como un tope: al recibir daño letal se divide en cuatro blobitos y revive si alguno sobrevive, y cada blobito lleva una parte de su Vida máxima, Armadura y Resistencia mágica. Universidad de Payasos y Bombardero en Picada se activan cuando muere, lanzando daño verdadero y aterrando a los enemigos cercanos, así que quienes normalmente aplastarían a los blobs salen corriendo mientras él se reforma. Científico Loco paga en cada Resurrección, haciéndolo grande o diminuto con estadísticas extra, y Endemoniado añade una segunda resurrección cuando acumula suficiente daño a campeones, así que una sola pelea de equipo puede tener dos muertes, dos explosiones y dos mejoras de Científico Loco. Corazón de Acero alimenta el ciclo aumentando permanentemente su Vida máxima, que los blobs heredan, mientras que Armadura de Warmog, Jak'Sho, el Proteico y demás apilan Vida y resistencias que los blobs copian. El tanque que debería sobrevivir se vuelve un campeón cuyo verdadero trabajo es morir en medio del equipo enemigo y volver más enojado.",
+      "play": "Lánzate con la resortera contra todo el equipo enemigo y deja que te maten encima de sus carries; las explosiones y el Terror cubren a tus blobitos. Regresa, sigue pegándole a campeones para acumular Endemoniado y repítelo.",
       "augments": [
-        "Curar o proteger a un campeón aliado con la habilidad elegida vuelve a lanzar el hechizo sobre otros 2 campeones aliados cercanos. Las curaciones y los escudos son efectivos. ¡El poder de la amistad!",
-        "Curar o proteger a campeones aliados junta mariposas. Después de juntarlas, dañar a un campeón enemigo las dispara todas e inflige daño mágico.",
-        "Potenciar, curar o dar escudo a tu aliado inflige daño y ralentiza a los enemigos a su alrededor.",
-        "Proteger a un aliado le otorga velocidad de movimiento y Fantasmal que disminuyen durante 1.5 segundos. Enfriamiento por objetivo: 1.5 segundos."
+        "En cada Resurrección, creces (ganas 30% de Fuerza adaptable y 20% de Vida) o te vuelves diminuto (ganas 70 de Celeridad de habilidad y 40% de Velocidad de movimiento).",
+        "Dañar campeones enemigos con ataques o habilidades otorga acumulaciones. Con las acumulaciones al máximo, revives potenciado al morir.",
+        "Obtienes el hechizo de invocador Engañar. Obtienes la pasiva Puñalada trasera. Cuando mueres, infliges una gran cantidad de daño verdadero y aterras a los enemigos cercanos.",
+        "Explota cuando mueres, infligiendo daño verdadero equivalente al 20% de la Vida máxima del objetivo a los enemigos cercanos."
       ]
     },
     "es": {
-      "title": "Directora de guardería",
-      "why": "La E de Annie tiene un objetivo que nadie usa: puede lanzarla a un aliado, que recibe un escudo, un impulso de velocidad de movimiento y espinas que dañan a quien lo golpee, y Tibbers aparece con ella también. Con Abrazo grupal en su E, cada lanzamiento protege a dos aliados más, así que un botón son tres escudos, tres impulsos de velocidad y tres juegos de espinas. Mariposas encantadoras reúne una mariposa por cada aliado protegido, Explosión sónica hace que cada escudo explote con daño y ralentización alrededor de ese aliado, y Barrera del sonido da a cada compañero protegido velocidad y Fantasmal, así que en cuanto Annie daña a un enemigo todas las mariposas salen volando como daño mágico. Renovación de piedra lunar encadena cada escudo a otro aliado para una mariposa y una explosión más, Bastón de aguas fluidas e Incensario ardiente le dan a ella y a cada aliado protegido poder, celeridad y velocidad de ataque, y Canción de batalla de Shurelya potencia a todo el equipo para otra ronda de explosiones. La maga de ráfaga de clic y listo deja de apuntar a los enemigos y se convierte en una máquina de escudos cuyo daño sale de sus compañeros.",
-      "play": "Quédate detrás del equipo, lanza la E a quien esté a punto de comerse un golpe y luego toca a un enemigo con la Q o la W para soltar las mariposas. Guarda el aturdimiento de tu pasiva, que cargan tus escudos, para Tibbers.",
+      "title": "Fallecido, repetidamente",
+      "why": "La División celular de Zac trata la muerte como un simple bache: al recibir daño letal se divide en cuatro blobs y revive si alguno sobrevive, y cada blob lleva una parte de su salud máxima, armadura y resistencia mágica. Universidad de payasos e Incursión bombardera se activan cuando muere, infligiendo daño verdadero y aterrorizando a los enemigos cercanos, así que quienes normalmente pisotearían a los blobs salen corriendo mientras él se recompone. Científico loco paga con cada resurrección, haciéndolo grande o diminuto con estadísticas extra, y Cabezonería añade una segunda resurrección cuando ha acumulado suficiente daño a campeones, así que una sola pelea de equipo puede incluir dos muertes, dos explosiones y dos mejoras de Científico loco. Corazón de acero alimenta el bucle aumentando permanentemente su salud máxima, que los blobs heredan, mientras que Armadura de Warmog, Jak'Sho el Proteico y el resto apilan salud y resistencias que los blobs copian. El tanque que debería sobrevivir se convierte en un campeón cuyo verdadero trabajo es morir en medio del equipo enemigo y volver más cabreado.",
+      "play": "Lánzate con el tirachinas contra todo el equipo enemigo y deja que te maten encima de sus carries; las explosiones y el terror cubren a tus blobs. Vuelve, sigue golpeando a campeones para acumular Cabezonería y repítelo.",
       "augments": [
-        "Curar o proteger a un campeón aliado con la habilidad elegida vuelve a lanzar el hechizo sobre otros 2 campeones aliados cercanos. Las curaciones y los escudos son efectivos. ¡El poder de la amistad!",
-        "Curar o proteger a campeones aliados reúne mariposas. Después de reunirlas, dañar a un campeón enemigo las dispara todas e inflige daño mágico.",
-        "Potenciar, curar o proteger con escudo a tu aliado inflige daño y ralentiza a los enemigos que lo rodean.",
-        "Proteger a un aliado le otorga velocidad de movimiento y Fantasmal que disminuyen durante 1,5 segundos. Enfriamiento por objetivo: 1,5 segundos."
+        "En cada resurrección, creces (ganas un 30% de fuerza adaptativa y un 20% de salud) o te vuelves diminuto (ganas 70 de celeridad de habilidad y un 40% de velocidad de movimiento).",
+        "Dañar a campeones enemigos con ataques o habilidades otorga acumulaciones. Con las acumulaciones al máximo, revives potenciado al morir.",
+        "Obtienes el hechizo de invocador Engañar. Obtienes la pasiva Puñalada trasera. Cuando mueres, infliges una gran cantidad de daño verdadero y aterrorizas a los enemigos cercanos.",
+        "Explota cuando mueres, infligiendo a los enemigos cercanos daño verdadero equivalente al 20% de la salud máxima del objetivo."
       ]
     },
     "fr": {
-      "title": "Directrice de crèche",
-      "why": "Le E d'Annie a une cible que personne n'utilise : elle peut le lancer sur un allié, qui reçoit un bouclier, un boost de vitesse de déplacement et des épines qui blessent quiconque le frappe, et Tibbers apparaît avec le même bouclier. Avec Câlin collectif obtenu sur son E, chaque lancer protège deux alliés de plus : un seul bouton, c'est trois boucliers, trois boosts de vitesse et trois paires d'épines. Papillons enchanteurs récolte un papillon pour chaque allié protégé, Protections létales fait exploser chaque bouclier en dégâts et ralentissement autour de l'allié, et Mur du son donne à chaque coéquipier protégé vitesse et Fantôme, donc dès qu'Annie touche un ennemi, tous les papillons partent en dégâts magiques. Régénérateur de pierre de lune propage chaque bouclier à un allié de plus pour un papillon et une explosion en plus, Bâton des flots et Encensoir ardent lui donnent, à elle et à chaque allié protégé, puissance, accélération et vitesse d'attaque, et Chant de guerre de Shurelya booste toute l'équipe pour une nouvelle vague d'explosions. La mage burst en point-and-click arrête de viser les ennemis et devient un distributeur de boucliers dont les dégâts sortent de ses coéquipiers.",
-      "play": "Reste derrière l'équipe, lance ton E sur celui qui va se faire taper, puis touche un ennemi avec ton A ou ton Z pour lâcher les papillons. Garde l'étourdissement de ton passif, chargé par tes boucliers, pour Tibbers.",
+      "title": "Décédé, à répétition",
+      "why": "La Division cellulaire de Zac traite la mort comme un simple ralentisseur : sur des dégâts mortels, il se divise en quatre blobs et ressuscite si l'un d'eux survit, et chaque blob porte une part de ses PV max, de son armure et de sa résistance magique. Université des clowns et Kamikaze se déclenchent tous deux à sa mort, infligeant des dégâts bruts et effrayant les ennemis proches, si bien que ceux qui écraseraient normalement les blobs prennent la fuite pendant qu'il se reforme. Savant fou paie à chaque résurrection, le rendant énorme ou minuscule avec des stats en plus, et Reviviscence ajoute une seconde résurrection une fois assez de dégâts aux champions accumulés, si bien qu'un seul combat d'équipe peut contenir deux morts, deux explosions et deux améliorations de Savant fou. Cœuracier alimente la boucle en augmentant définitivement ses PV max, que les blobs héritent, tandis que l'Armure de Warmog, Jak'Sho, le Protéiforme et le reste empilent PV et résistances que les blobs copient. Le tank censé survivre devient un champion dont le vrai boulot est de mourir au milieu de l'équipe ennemie et de revenir plus remonté.",
+      "play": "Catapulte-toi dans toute l'équipe ennemie et laisse-les te tuer au milieu de leurs carrys ; les explosions et la peur couvrent tes blobs. Reviens, continue de frapper des champions pour cumuler Reviviscence et recommence.",
       "augments": [
-        "Soigner ou protéger un champion allié avec la compétence choisie relance le sort sur 2 autres champions alliés à proximité. Les soins et boucliers sont efficaces. La force de l'amitié !",
-        "Soigner ou protéger des champions alliés rassemble des papillons. Une fois les papillons rassemblés, infliger des dégâts à un champion ennemi les lance tous pour infliger des dégâts magiques.",
-        "Renforcer, soigner ou protéger votre allié inflige des dégâts aux ennemis qui l'entourent et les ralentit.",
-        "Protéger un allié lui confère de la vitesse de déplacement et Fantôme, qui diminuent en 1,5 seconde. Délai de récupération par cible : 1,5 seconde."
+        "À chaque résurrection, tu deviens énorme (gain de 30 % de puissance adaptative et 20 % de PV) ou minuscule (gain de 70 d'accélération de compétence et 40 % de vitesse de déplacement).",
+        "Infliger des dégâts aux champions ennemis avec des attaques ou des compétences confère des cumuls. Au maximum de cumuls, tu ressuscites renforcé à ta mort.",
+        "Tu gagnes le sort d'invocateur Duperie. Tu gagnes la passive Attaque sournoise. À ta mort, tu infliges une grande quantité de dégâts bruts et effraies les ennemis proches.",
+        "Explose à ta mort, infligeant aux ennemis proches des dégâts bruts équivalents à 20 % des PV max de la cible."
       ]
     },
     "hu": {
-      "title": "Óvodaigazgató",
-      "why": "Annie E-jének van egy célpontja, amit senki sem használ: szövetségesre is rakhatja, aki pajzsot, mozgási sebesség-löketet és tüskéket kap, amik megsebeznek mindenkit, aki megüti, és Tibbers is ezzel jelenik meg. A Nagy ölelés az E-jén minden használatnál két további szövetségest is megvéd, így egy gomb három pajzs, három sebességlöket és háromszoros tüske. A Bűvös pillangók minden megvédett szövetségesért gyűjt egy pillangót, a Hangrobbanás minden pajzsot sebzésbe és lassításba robbant a szövetséges körül, a Térhatású pajzs pedig minden megvédett csapattársnak sebességet és Szellemet ad, így amint Annie megsebez egy ellenfelet, az összes pillangó varázssebzésként kirepül. A Holdkőmegújító minden pajzsot továbbvisz egy újabb szövetségesre egy újabb pillangóért és robbanásért, Az áradás botja és a Hívők tömjénje neki és minden megvédett szövetségesnek képességerőt, gyorsítást és támadási sebességet ad, a Shurelia csatadala pedig az egész csapatot felerősíti egy újabb robbanáskörhöz. A rákattintós burst mágus abbahagyja az ellenfelek célzását, és pajzsautomatává válik, akinek a sebzése a csapattársaiból jön.",
-      "play": "Maradj a csapat mögött, dobd az E-t arra, aki épp kapni fog, aztán találj el egy ellenfelet Q-val vagy W-vel, hogy kiengedd a pillangókat. A passzív kábítást, amit a pajzsaid töltenek fel, tartsd meg Tibbersnek.",
+      "title": "Elhunyt, ismételten",
+      "why": "Zac Sejtosztódása a halált sebességkorlátozónak tekinti: halálos sebzésnél négy gubancra esik szét, és feltámad, ha bármelyik túléli, és minden gubanc viszi a maximális életereje, páncélja és varázsellenállása egy részét. A Bohóciskola és az Öngyilkos bomba is a halálakor robban, valódi sebzést okoz és megfélemlíti a közeli ellenfeleket, így akik amúgy eltaposnák a gubancokat, elmenekülnek, amíg ő újraformálódik. Az Őrült tudós minden feltámadáskor fizet: nagyra vagy aprócskára növeszti extra statokkal, az Elszánt pedig egy második feltámadást ad, ha elég bajnoksebzést halmozott fel, így egyetlen csapatharcban két halál, két robbanás és két Őrült tudós fejlesztés is elfér. Az Acélos szív táplálja a hurkot azzal, hogy tartósan növeli a maximális életerejét, amit a gubancok örökölnek, míg a Warmog vértje, Jak'Sho, a váltakozó és a többi olyan életerőt és ellenállásokat halmoz, amit a gubancok lemásolnak. A tank, akinek túl kellene élnie, olyan bajnokká válik, akinek az igazi dolga, hogy az ellenfél csapatának közepén meghaljon és dühösebben jöjjön vissza.",
+      "play": "Csúzlizd be magad az egész ellenséges csapatba, és hagyd, hogy a carryjeik fölött öljenek meg; a robbanások és a Félelem fedezik a gubancaidat. Gyere vissza, ütögess bajnokokat az Elszánt halmozásához, és csináld újra.",
       "augments": [
-        "Ha a kiválasztott képességgel gyógyítasz vagy pajzsot adsz egy szövetséges hősnek, a varázslat újra elsül 2 másik közeli szövetséges hősre. A gyógyítás és a pajzsok hatásosak. A barátság ereje!",
-        "Szövetséges hősök gyógyítása vagy pajzsolása pillangókat gyűjt. A pillangók összegyűjtése után egy ellenséges hős megsebzése az összeset kilövi, varázssebzést okozva.",
-        "Ha erősíted, gyógyítod vagy pajzzsal véded a szövetségesedet, az sebzi és lelassítja a körülötte lévő ellenfeleket.",
-        "Ha pajzsot adsz egy szövetségesnek, mozgási sebességet és Szellemet kap, amelyek 1,5 mp alatt csökkennek. Célpontonkénti töltési idő: 1,5 mp."
+        "Minden feltámadáskor megnősz (30% Adaptív erőt és 20% életerőt kapsz) vagy aprócska leszel (70 képességgyorsítást és 40% mozgási sebességet kapsz).",
+        "Ellenséges bajnokok támadásokkal vagy képességekkel való sebzése töltetet ad. Maximális töltetnél halálodkor megerősödve támadsz fel.",
+        "Megkapod a Megtévesztés idézővarázst. Megkapod a Hátbaszúrás passzívát. Amikor meghalsz, nagy mennyiségű valódi sebzést okozol és megfélemlíted a közeli ellenfeleket.",
+        "Felrobban, amikor meghalsz, és a közeli ellenfeleknek a célpont maximális életerejének 20%-át kitevő valódi sebzést okoz."
       ]
     },
     "id": {
-      "title": "Kepala Sekolah PAUD",
-      "why": "E milik Annie punya target yang nggak pernah dipakai orang: dia bisa melemparnya ke ally, yang dapat shield, dorongan Move Speed, dan duri yang melukai siapa pun yang memukulnya, dan Tibbers juga muncul dengan efek itu. Dengan Group Hug di E, tiap cast melindungi dua ally lagi, jadi satu tombol berarti tiga shield, tiga dorongan speed, dan tiga set duri. Enchanting Butterflies mengumpulkan satu kupu-kupu untuk tiap ally yang di-shield, Sonic Boom membuat tiap shield meledak jadi damage dan Slow di sekitar ally itu, dan Sound Barrier memberi tiap rekan yang di-shield Move Speed dan Ghost, jadi begitu Annie memberi damage ke musuh, semua kupu-kupu terbang sebagai magic damage. Moonstone Renewer meneruskan tiap shield ke satu ally lagi untuk satu kupu-kupu dan ledakan tambahan, Staff of Flowing Water dan Ardent Censer memberi dia dan tiap ally yang di-shield Ability Power, Haste, dan Attack Speed, dan Shurelya's Battlesong mem-buff seluruh tim untuk satu ronde ledakan lagi. Mage burst tinggal klik berhenti membidik musuh dan berubah jadi mesin shield yang damage-nya keluar dari rekan setimnya.",
-      "play": "Berdiri di belakang tim, lempar E ke siapa pun yang mau kena pukul, lalu sentuh musuh dengan Q atau W untuk melepas kupu-kupu. Simpan stun pasif yang terisi dari shield-mu untuk Tibbers.",
+      "title": "Mati, Berulang Kali",
+      "why": "Cell Division milik Zac menganggap kematian cuma polisi tidur: saat menerima damage fatal dia pecah jadi empat bloblet dan revive kalau ada yang selamat, dan tiap bloblet membawa sebagian max Health, Armor, dan Magic Resist-nya. Clown College dan Dive Bomber sama-sama meledak saat dia mati, memberi true damage dan membuat musuh di sekitar Fear, jadi orang yang biasanya menginjak blob malah lari sementara dia membentuk ulang dirinya. Mad Scientist membayar di setiap Revive, membuatnya jadi besar atau kecil dengan stat tambahan, dan Hellbent menambah revive kedua setelah dia menumpuk cukup damage ke champion, jadi satu teamfight bisa berisi dua kematian, dua ledakan, dan dua upgrade Mad Scientist. Heartsteel memberi makan loop ini dengan menaikkan max Health-nya secara permanen, yang diwarisi bloblet, sementara Warmog's Armor, Jak'Sho, The Protean, dan item lain menumpuk Health dan resist yang disalin blob. Tank yang seharusnya bertahan hidup berubah jadi champion yang tugas aslinya adalah mati di tengah tim musuh dan kembali dengan lebih marah.",
+      "play": "Slingshot ke seluruh tim musuh dan biarkan mereka membunuhmu di atas carry mereka sendiri; ledakan dan Fear melindungi bloblet-mu. Balik lagi, terus hajar champion untuk menumpuk Hellbent, lalu ulangi.",
       "augments": [
-        "Heal atau Shield ke champion ally dengan ability terpilih akan meng-cast spell itu lagi ke 2 champion ally lain di dekatnya. Heal dan Shield tetap efektif. Kekuatan persahabatan!",
-        "Heal atau Shield ke champion ally mengumpulkan Kupu-kupu. Setelah terkumpul, memberi damage ke champion musuh menembakkan semuanya dan memberi Magic damage.",
-        "Memberi buff, heal, atau shield ke ally akan memberi damage dan Slow ke musuh di sekitarnya.",
-        "Memberi Shield ke ally memberikan Move Speed dan Ghost yang berkurang selama 1,5 detik. Cooldown per target: 1,5 detik."
+        "Di setiap Revive, kamu jadi besar (mendapat 30% Adaptive Force dan 20% Health) atau kecil (mendapat 70 Ability Haste dan 40% Movement Speed).",
+        "Memberi damage ke champion musuh dengan Attack atau Ability memberi stack. Saat stack maksimal, kamu revive dengan buff saat mati.",
+        "Dapatkan Summoner Spell Deceive. Dapatkan Passive Backstab. Saat kamu mati, beri true damage dalam jumlah besar dan Fear musuh di sekitar.",
+        "Meledak saat kamu mati, memberi true damage sebesar 20% max Health target ke musuh di sekitar."
       ]
     },
     "it": {
-      "title": "Direttrice dell'asilo",
-      "why": "La E di Annie ha un bersaglio che nessuno usa: può lanciarla su un alleato, che riceve uno scudo, uno scatto di velocità di movimento e spine che danneggiano chi lo colpisce, e Tibbers compare già con lo scudo addosso. Con Abbraccio di gruppo sulla sua E, ogni lancio protegge altri due alleati, quindi un tasto vale tre scudi, tre scatti di velocità e tre set di spine. Farfalle incantevoli raccoglie una farfalla per ogni alleato protetto, Boom sonico fa esplodere ogni scudo con danni e rallentamento attorno a quell'alleato, e Muro del suono dà a ogni compagno protetto velocità e Spettralità, così appena Annie danneggia un nemico tutte le farfalle partono come danni magici. Pietra di luna rinnovata propaga ogni scudo a un altro alleato per un'altra farfalla e un altro boom, Staffa delle correnti e Incensiere ardente danno a lei e a ogni alleato protetto potere magico, velocità abilità e velocità d'attacco, e Canto di guerra di Shurelya potenzia tutta la squadra per un altro giro di esplosioni. La maga burst punta-e-clicca smette di mirare ai nemici e diventa un distributore di scudi i cui danni escono dai compagni.",
-      "play": "Stai dietro la squadra, lancia la E su chi sta per prendere botte, poi colpisci un nemico con la Q o la W per liberare le farfalle. Tieni lo stordimento della passiva, caricato dagli scudi, per Tibbers.",
+      "title": "Defunto, a ripetizione",
+      "why": "La Divisione cellulare di Zac tratta la morte come un dosso: quando subisce danno letale si divide in quattro blobbetti e rivive se uno sopravvive, e ogni blobbetto porta una parte della sua Salute massima, Armatura e Resistenza magica. Università dei clown e Assaltatore scattano entrambi quando muore, infliggendo danno puro e spaventando i nemici vicini, così chi di solito pesterebbe i blob scappa via mentre lui si ricompone. Scienziato pazzo paga a ogni Resurrezione, rendendolo grande o minuscolo con statistiche extra, e Furioso aggiunge una seconda resurrezione quando ha accumulato abbastanza danno ai campioni, così un solo scontro può contenere due morti, due esplosioni e due potenziamenti di Scienziato pazzo. Cuore d'acciaio alimenta il ciclo aumentando in modo permanente la sua Salute massima, che i blob ereditano, mentre Armatura di Warmog, Jak'Sho, il Mutevole e il resto accumulano Salute e resistenze che i blob copiano. Il tank che dovrebbe sopravvivere diventa un campione il cui vero lavoro è morire in mezzo al team nemico e tornare più arrabbiato.",
+      "play": "Lanciati con la fionda in mezzo a tutto il team nemico e fatti uccidere sopra i loro carry; le esplosioni e la Paura coprono i tuoi blobbetti. Torna, continua a colpire i campioni per accumulare Furioso e rifallo.",
       "augments": [
-        "Curare o proteggere un campione alleato con l'abilità scelta lancia di nuovo l'incantesimo su altri 2 campioni alleati vicini. Cure e scudi sono efficaci. Il potere dell'amicizia!",
-        "Curare o proteggere campioni alleati raccoglie farfalle. Dopo averle raccolte, danneggiare un campione nemico le scaglia tutte, infliggendo danni magici.",
-        "Potenziare, curare o proteggere con uno scudo il tuo alleato infligge danni e rallenta i nemici intorno a lui.",
-        "Proteggere un alleato conferisce velocità di movimento e Spettralità che decadono in 1,5 secondi. Ricarica per bersaglio: 1,5 secondi."
+        "A ogni Resurrezione, diventi grande (ottieni il 30% di Forza adattiva e il 20% di Salute) o minuscolo (ottieni 70 di Velocità di abilità e il 40% di Velocità di movimento).",
+        "Danneggiare i campioni nemici con attacchi o abilità conferisce cariche. Alle cariche massime, quando muori rivivi potenziato.",
+        "Ottieni l'incantesimo dell'evocatore Inganno. Ottieni la passiva Pugnalata alle spalle. Quando muori, infliggi una grande quantità di danno puro e spaventi i nemici vicini.",
+        "Esplode quando muori, infliggendo ai nemici vicini danno puro pari al 20% della Salute massima del bersaglio."
       ]
     },
     "ja": {
-      "title": "保育園の園長アニー",
-      "why": "アニーのEには誰も使わない対象がある。味方にかけられるのだ。味方はシールド、移動速度アップ、そして殴ってきた敵にダメージを返すトゲを得て、ティバーズも召喚時に同じ効果をまとう。Eに「みんなでハグ」が付けば、1回のキャストで近くの味方2人にも追加でかかり、ボタン1つでシールド3枚、加速3回、トゲ3セットになる。「魅惑の蝶」はシールドした味方ごとに蝶を集め、「ソニックブーム」は各シールドを味方の周りでダメージとスローの爆発に変え、「サウンドバリア」はシールドを受けた味方全員に移動速度とゴーストを与える。アニーが敵にダメージを与えた瞬間、蝶がまとめて魔法ダメージとして飛んでいく。「ムーンストーンの再生」はシールドをさらに別の味方へ連鎖させて蝶と爆発をもう1つ追加し、「フロー ウォーター スタッフ」と「アーデント センサー」は彼女とシールドを受けた味方に魔力、スキルヘイスト、攻撃速度を配り、「シュレリアの戦歌」はチーム全体をバフしてもう一巡爆発させる。ポイント&クリックのバーストメイジは敵を狙うのをやめ、味方からダメージが湧き出るシールド配りマシーンになる。",
-      "play": "チームの後ろに立ち、殴られそうな味方にEをかけ、QかWで敵に触れて蝶を解き放とう。シールドで溜まったパッシブのスタンはティバーズ用に取っておこう。",
+      "title": "死亡、何度でも",
+      "why": "ザックの細胞分裂は死を単なる減速帯として扱う。致死ダメージを受けると4つのスライムに分裂し、1体でも生き残れば復活する。各スライムは最大体力、アーマー、魔法防御の一部を引き継ぐ。ピエロ大学と急降下爆撃はどちらも死亡時に発動し、固定ダメージを与えて周囲の敵をフィアーにするので、本来ならスライムを踏み潰す敵が逃げ惑っている間に再構築できる。狂気の化学者は復活のたびに大型化または小型化して追加ステータスを得られ、ヘルベントは十分なチャンピオンへのダメージを溜めると2回目の復活を追加するので、1回の集団戦で2回の死、2回の爆発、2回の狂気の化学者強化が起こり得る。心の鋼は最大体力を永続的に上げてループを回し、それをスライムが引き継ぎ、ワーモグ アーマーや変幻自在のジャック＝ショーなどはスライムがコピーする体力と耐性を積み上げる。生き残るはずのタンクが、敵チームの真ん中で死んで、より怒って戻ってくるのが本職のチャンピオンになる。",
+      "play": "パチンコで敵チーム全員の中に飛び込み、敵のキャリーの上で死のう。爆発とフィアーがスライムを守ってくれる。復活したらチャンピオンを殴り続けてヘルベントを溜め、もう一度。",
       "augments": [
-        "選択したスキルで味方チャンピオンを回復またはシールドすると、近くの別の味方チャンピオン2体にもそのスキルを再発動する。回復とシールドは効果を発揮する。友情の力！",
-        "味方チャンピオンを回復またはシールドすると蝶が集まる。蝶を集めた後、敵チャンピオンにダメージを与えると全ての蝶が放たれ、魔法ダメージを与える。",
-        "味方を強化、回復、またはシールドで守ると、その味方の周囲の敵にダメージとスローを与える。",
-        "味方にシールドを付与すると、1.5秒かけて減衰する移動速度とゴーストを付与する。対象ごとのクールダウン: 1.5秒。"
+        "復活のたびに、大型化(適応力30%と体力20%を獲得)または小型化(スキルヘイスト70と移動速度40%を獲得)する。",
+        "攻撃またはアビリティで敵チャンピオンにダメージを与えるとスタックを獲得する。スタックが最大になると、死亡時に強化されて復活する。",
+        "サモナースペル「欺く」を獲得する。パッシブ「バックスタブ」を獲得する。死亡時、大量の固定ダメージを与え、周囲の敵をフィアーにする。",
+        "死亡時に爆発し、周囲の敵に対象の最大体力の20%の固定ダメージを与える。"
       ]
     },
     "ko": {
-      "title": "어린이집 원장 애니",
-      "why": "애니의 E에는 아무도 안 쓰는 대상이 있다. 아군에게 걸 수 있다는 것. 아군은 보호막, 이동 속도 증가, 그리고 자신을 때린 적에게 피해를 주는 가시를 얻고, 티버도 소환될 때 같은 효과를 두른다. E에 단체 포옹이 붙으면 한 번 쓸 때마다 근처 아군 둘에게도 다시 걸려서 버튼 하나로 보호막 셋, 이속 증가 셋, 가시 세 세트가 된다. 황홀한 나비는 보호막을 준 아군마다 나비를 모으고, 음속 폭발은 각 보호막을 그 아군 주변의 피해와 둔화 폭발로 바꾸며, 음속 장벽은 보호막을 받은 팀원 모두에게 이동 속도와 유체화를 준다. 애니가 적에게 피해를 주는 순간 나비가 전부 마법 피해로 날아간다. 월석 재생기는 보호막을 또 다른 아군에게 이어 나비와 폭발을 하나 더 만들고, 흐르는 물의 지팡이와 불타는 향로는 그녀와 보호막 받은 아군에게 주문력, 스킬 가속, 공격 속도를 나눠주며, 슈렐리아의 군가는 팀 전체를 강화해 폭발을 한 바퀴 더 돌린다. 찍고 터뜨리는 버스트 메이지가 적을 노리는 대신 팀원에게서 피해가 나오는 보호막 자판기가 된다.",
-      "play": "팀 뒤에 서서 곧 맞을 아군에게 E를 걸고, Q나 W로 적을 맞혀 나비를 풀어라. 보호막으로 쌓인 패시브 기절은 티버용으로 아껴 둬라.",
+      "title": "사망, 또 사망",
+      "why": "자크의 세포 분열은 죽음을 그저 과속방지턱 정도로 여깁니다. 치명적인 피해를 입으면 네 개의 방울로 분열하고, 하나라도 살아남으면 부활하며, 각 방울은 최대 체력, 방어력, 마법 저항력의 일부를 물려받습니다. 광대 대학과 폭격기는 모두 자크가 죽을 때 발동해 고정 피해를 입히고 주변 적에게 공포를 걸기 때문에, 평소라면 방울을 짓밟을 적들이 도망가는 사이 자크는 몸을 재결합합니다. 미친 과학자는 부활할 때마다 추가 능력치와 함께 거대화 또는 소형화시켜 주고, 열의는 챔피언에게 충분한 피해를 쌓으면 두 번째 부활을 추가하므로, 한 번의 한타에서 두 번의 죽음, 두 번의 폭발, 두 번의 미친 과학자 강화가 일어날 수 있습니다. 강철심장은 최대 체력을 영구히 올려 이 순환을 돕고 방울들이 그것을 물려받으며, 워모그의 갑옷, 해신 작쇼 등은 방울이 복사하는 체력과 저항력을 쌓아줍니다. 살아남아야 할 탱커가, 적 팀 한복판에서 죽고 더 화나서 돌아오는 것이 진짜 일인 챔피언이 됩니다.",
+      "play": "새총으로 적 팀 전체에 뛰어들어 적 캐리들 위에서 죽으세요. 폭발과 공포가 방울들을 지켜줍니다. 돌아와서 챔피언을 계속 때려 열의를 쌓고, 또 반복하세요.",
       "augments": [
-        "선택한 스킬로 아군 챔피언을 회복시키거나 보호막을 씌우면 근처의 다른 아군 챔피언 2명에게 스킬을 다시 시전합니다. 회복과 보호막이 효과를 발휘합니다. 우정의 힘!",
-        "아군 챔피언을 회복시키거나 보호막을 씌우면 나비를 모읍니다. 나비를 모은 뒤 적 챔피언에게 피해를 입히면 나비를 모두 발사해 마법 피해를 입힙니다.",
-        "아군을 강화하거나 회복시키거나 보호막을 씌우면 그 아군 주변의 적에게 피해를 입히고 둔화시킵니다.",
-        "아군에게 보호막을 씌우면 1.5초에 걸쳐 감소하는 이동 속도와 유체화를 부여합니다. 대상별 재사용 대기시간: 1.5초."
+        "부활할 때마다 거대화(적응형 능력치 30%와 체력 20% 획득)하거나 소형화(스킬 가속 70과 이동 속도 40% 획득)합니다.",
+        "공격이나 스킬로 적 챔피언에게 피해를 입히면 중첩을 얻습니다. 최대 중첩이 되면 죽을 때 강화된 상태로 부활합니다.",
+        "소환사 주문 '기만'을 얻습니다. 패시브 '백스탭'을 얻습니다. 죽으면 막대한 고정 피해를 입히고 주변 적에게 공포를 겁니다.",
+        "죽을 때 폭발하여 주변 적에게 대상 최대 체력의 20%만큼 고정 피해를 입힙니다."
       ]
     },
     "pl": {
-      "title": "Dyrektorka przedszkola",
-      "why": "E Annie ma cel, którego nikt nie używa: może rzucić je na sojusznika, który dostaje tarczę, zryw prędkości ruchu i kolce raniące każdego, kto go uderzy, a Tibbers pojawia się z nią od razu. Z Grupowym Przytulasem na E każde użycie osłania dwóch kolejnych sojuszników, więc jeden przycisk to trzy tarcze, trzy zrywy prędkości i trzy zestawy kolców. Czarujące Motyle zbierają motyla za każdego osłoniętego sojusznika, Grom Dźwiękowy sprawia, że każda tarcza wybucha obrażeniami i spowolnieniem wokół sojusznika, a Bariera Dźwięku daje każdemu osłoniętemu koledze prędkość i Duch, więc gdy tylko Annie zrani wroga, wszystkie motyle wylatują jako obrażenia magiczne. Odnowienie Kamienia Księżycowego przeskakuje z każdą tarczą na kolejnego sojusznika po jeszcze jednego motyla i wybuch, Kostur Płynącej Wody i Ognisty Trybularz dają jej i każdemu osłoniętemu moc umiejętności, przyspieszenie i prędkość ataku, a Pieśń Bitewna Shurelyi wzmacnia całą drużynę na kolejną rundę wybuchów. Magini burstowa od klikania w cel przestaje celować we wrogów i staje się automatem do tarcz, której obrażenia wychodzą z kolegów.",
-      "play": "Stój za drużyną, rzucaj E na tego, kto zaraz oberwie, a potem traf wroga Q albo W, żeby wypuścić motyle. Ogłuszenie z biernej, naładowane tarczami, zostaw na Tibbersa.",
+      "title": "Zmarły, wielokrotnie",
+      "why": "Podział komórkowy Zaca traktuje śmierć jak próg zwalniający: przy śmiertelnych obrażeniach rozpada się na cztery blobiki i wskrzesza się, jeśli któryś przeżyje, a każdy blobik niesie część jego maksymalnego zdrowia, pancerza i odporności na magię. Wyższa Szkoła Błaznowania i Bombowe Zakończenie odpalają się obie po jego śmierci, zadając obrażenia nieuchronne i przerażając pobliskich wrogów, więc ci, którzy normalnie rozdeptaliby blobiki, uciekają, kiedy on się składa na nowo. Szalony Naukowiec wypłaca przy każdym Wskrzeszeniu, robiąc z niego olbrzyma lub maluszka z dodatkowymi statystykami, a Piekielna determinacja dodaje drugie wskrzeszenie, gdy nazbiera dość obrażeń zadanych bohaterom, więc jedna walka drużynowa może zmieścić dwie śmierci, dwie eksplozje i dwa ulepszenia Szalonego Naukowca. Stalowe Serce karmi pętlę, trwale zwiększając jego maksymalne zdrowie, które dziedziczą blobiki, a Plemienna Zbroja, Jak'Sho Zmienny i reszta piętrzą zdrowie i odporności, które blobiki kopiują. Tank, który ma przetrwać, staje się bohaterem, którego prawdziwą robotą jest umrzeć w środku wrogiej drużyny i wrócić bardziej wkurzonym.",
+      "play": "Wystrzel się w całą wrogą drużynę i daj się zabić nad ich carry; eksplozje i Strach osłaniają twoje blobiki. Wróć, dalej bij bohaterów, żeby stackować Piekielną determinację, i zrób to jeszcze raz.",
       "augments": [
-        "Leczenie lub osłanianie sojuszniczego bohatera wybraną umiejętnością rzuca czar ponownie na 2 innych pobliskich sojuszniczych bohaterów. Leczenie i tarcze działają w pełni. Potęga przyjaźni!",
-        "Leczenie lub osłanianie sojuszniczych bohaterów zbiera motyle. Po zebraniu motyli zadanie obrażeń wrogiemu bohaterowi wystrzeliwuje je wszystkie, zadając obrażenia magiczne.",
-        "Wzmacnianie, leczenie lub osłanianie tarczą sojusznika zadaje obrażenia i spowalnia otaczających go wrogów.",
-        "Osłonięcie sojusznika zapewnia mu prędkość ruchu i efekt Ducha, które zanikają w ciągu 1,5 sekundy. Czas odnowienia na cel: 1,5 sekundy."
+        "Przy każdym Wskrzeszeniu rośniesz (zyskujesz 30% Adaptacyjnej Siły i 20% zdrowia) albo stajesz się maleńki (zyskujesz 70 Przyspieszenia Umiejętności i 40% Prędkości Ruchu).",
+        "Zadawanie obrażeń wrogim bohaterom atakami lub umiejętnościami daje ładunki. Przy maksymalnej liczbie ładunków po śmierci wskrzeszasz się wzmocniony.",
+        "Zyskujesz czar przywoływacza Zwód. Zyskujesz pasywkę Cios w Plecy. Kiedy giniesz, zadajesz dużą ilość obrażeń nieuchronnych i przerażasz pobliskich wrogów.",
+        "Wybucha, gdy giniesz, zadając pobliskim wrogom obrażenia nieuchronne równe 20% maksymalnego zdrowia celu."
       ]
     },
     "pt-BR": {
-      "title": "Diretora da Creche",
-      "why": "O E da Annie tem um alvo que ninguém usa: ela pode lançá-lo num aliado, que ganha um escudo, um pico de velocidade de movimento e espinhos que ferem quem bater nele, e o Tibbers já nasce com ele também. Com Abraço em Grupo no E, cada lançamento protege mais dois aliados, então um botão vira três escudos, três picos de velocidade e três conjuntos de espinhos. Borboletas Encantadoras junta uma borboleta para cada aliado protegido, Explosão Sônica faz cada escudo explodir em dano e lentidão em volta daquele aliado, e Barreira do Som dá a cada aliado protegido velocidade e Fantasmagórico, então assim que a Annie causa dano a um inimigo todas as borboletas voam como dano mágico. Regenerador de Pedra Lunar encadeia cada escudo para mais um aliado, rendendo mais uma borboleta e mais uma explosão, Cajado Aquafluxo e Turíbulo Ardente dão a ela e a cada aliado protegido Poder de Habilidade, Aceleração e Velocidade de Ataque, e Hino Bélico de Shurelya buffa o time todo para mais uma rodada de explosões. A maga de burst de clique e pronto para de mirar nos inimigos e vira uma máquina de escudos cujo dano sai dos colegas.",
-      "play": "Fique atrás do time, jogue o E em quem estiver prestes a apanhar e depois acerte um inimigo com o Q ou o W para soltar as borboletas. Guarde o atordoamento da passiva, carregado pelos escudos, para o Tibbers.",
+      "title": "Falecido, repetidamente",
+      "why": "A Divisão Celular do Zac trata a morte como um quebra-molas: ao receber dano fatal ele se divide em quatro blobinhos e revive se algum sobreviver, e cada blobinho carrega uma parte da Vida máxima, Armadura e Resistência Mágica dele. Faculdade de Palhaço e Bombardeiro disparam quando ele morre, causando dano verdadeiro e aterrorizando inimigos próximos, então quem normalmente pisotearia os blobs sai correndo enquanto ele se reforma. Cientista Louco paga a cada Ressurreição, deixando-o grande ou minúsculo com atributos extras, e Possuído adiciona uma segunda ressurreição quando ele acumula dano suficiente em campeões, então uma única luta de equipe pode ter duas mortes, duas explosões e dois aprimoramentos de Cientista Louco. Coração de Aço alimenta o ciclo aumentando permanentemente a Vida máxima dele, que os blobs herdam, enquanto Armadura de Warmog, Jak'Sho, o Inconstante e o resto empilham Vida e resistências que os blobs copiam. O tanque que deveria sobreviver vira um campeão cujo verdadeiro trabalho é morrer no meio do time inimigo e voltar mais bravo.",
+      "play": "Se lance com o estilingue no time inimigo inteiro e deixe que te matem em cima dos carries deles; as explosões e o Medo protegem seus blobinhos. Volte, continue batendo em campeões para acumular Possuído e faça de novo.",
       "augments": [
-        "Curar ou proteger um campeão aliado com a habilidade escolhida lança o feitiço novamente em outros 2 campeões aliados próximos. Curas e escudos são eficazes. O poder da amizade!",
-        "Curar ou proteger campeões aliados junta Borboletas. Depois de juntá-las, causar dano a um campeão inimigo dispara todas elas, causando dano mágico.",
-        "Fortalecer, curar ou dar escudo ao seu aliado causa dano e aplica lentidão nos inimigos ao redor dele.",
-        "Proteger um aliado concede Velocidade de Movimento e Fantasmagórico que diminuem ao longo de 1,5 segundo. Recarga por alvo: 1,5 segundo."
+        "A cada Ressurreição, você cresce (ganhando 30% de Força Adaptativa e 20% de Vida) ou fica minúsculo (ganhando 70 de Aceleração de Habilidade e 40% de Velocidade de Movimento).",
+        "Causar dano a campeões inimigos com Ataques ou Habilidades concede acúmulos. Com os acúmulos no máximo, você revive fortalecido ao morrer.",
+        "Ganha o Feitiço de Invocador Enganar. Ganha a Passiva Facada nas Costas. Quando você morre, causa uma grande quantidade de dano verdadeiro e aterroriza inimigos próximos.",
+        "Explode quando você morre, causando dano verdadeiro equivalente a 20% da Vida máxima do alvo aos inimigos próximos."
       ]
     },
     "ro": {
-      "title": "Directoarea grădiniței",
-      "why": "E-ul lui Annie are o țintă pe care n-o folosește nimeni: îl poate arunca pe un aliat, care primește un scut, un impuls de viteză de mișcare și spini care rănesc pe oricine îl lovește, iar Tibbers apare și el cu scutul. Cu Îmbrățișare de grup pe E, fiecare folosire mai protejează doi aliați, deci un buton înseamnă trei scuturi, trei impulsuri de viteză și trei seturi de spini. Fluturi fermecători adună un fluture pentru fiecare aliat protejat, Explozie sonică face fiecare scut să explodeze în daune și încetinire în jurul aliatului, iar Bariera sunetului dă fiecărui coechipier protejat viteză și Fantomă, așa că imediat ce Annie lovește un inamic toți fluturii zboară ca daune magice. Reînnoirea pietrei lunii trece fiecare scut la încă un aliat pentru încă un fluture și încă o explozie, Sceptrul apei curgătoare și Cădelnița aprinsă îi dau ei și fiecărui aliat protejat putere, accelerare și viteză de atac, iar Cântecul de luptă al Shurelyei întărește toată echipa pentru încă o rundă de explozii. Maga de burst cu un click nu mai țintește inamicii și devine un automat de scuturi ale cărui daune vin din coechipieri.",
-      "play": "Stai în spatele echipei, aruncă E pe cine urmează să încaseze, apoi lovește un inamic cu Q sau W ca să eliberezi fluturii. Păstrează amețirea din pasivă, încărcată de scuturi, pentru Tibbers.",
+      "title": "Decedat, în repetate rânduri",
+      "why": "Diviziunea celulară a lui Zac tratează moartea ca pe o limitare de viteză: la daune fatale se desparte în patru blobi și înviază dacă oricare supraviețuiește, iar fiecare blob poartă o parte din Viața maximă, Armura și Rezistența magică ale lui. Universitatea clovnilor și Bombardier în picaj se declanșează amândouă când moare, provocând daune reale și înfricoșând inamicii din apropiere, așa că cei care ar călca de obicei blobii fug în timp ce el se reface. Savant nebun plătește la fiecare Înviere, făcându-l mare sau minuscul cu statistici în plus, iar Înverșunare adaugă a doua înviere când acumulează destule daune asupra campionilor, așa că o singură luptă de echipă poate conține două morți, două explozii și două îmbunătățiri de Savant nebun. Inimă de oțel alimentează bucla crescând permanent Viața lui maximă, pe care blobii o moștenesc, în timp ce Armura lui Warmog, Jak'Sho cel schimbător și restul adună Viață și rezistențe pe care blobii le copiază. Tancul care ar trebui să supraviețuiască devine un campion a cărui adevărată meserie e să moară în mijlocul echipei inamice și să se întoarcă mai furios.",
+      "play": "Aruncă-te cu praștia în toată echipa inamică și lasă-i să te omoare peste carry-urile lor; exploziile și Frica îți acoperă blobii. Întoarce-te, continuă să lovești campioni ca să aduni Înverșunare și fă-o din nou.",
       "augments": [
-        "Vindecarea sau protejarea unui campion aliat cu abilitatea aleasă relansează vraja asupra altor 2 campioni aliați din apropiere. Vindecările și scuturile sunt eficiente. Puterea prieteniei!",
-        "Vindecarea sau protejarea campionilor aliați adună fluturi. După ce aduni fluturi, rănirea unui campion inamic îi lansează pe toți, provocând daune magice.",
-        "Când îți întărești, vindeci sau protejezi cu scut aliatul, inamicii din jurul lui suferă daune și sunt încetiniți.",
-        "Protejarea unui aliat îi conferă viteză de mișcare și Fantomă care scad în 1,5 secunde. Timp de reactivare per țintă: 1,5 secunde."
+        "La fiecare Înviere, devii mare (primești 30% Forță adaptivă și 20% Viață) sau minuscul (primești 70 Accelerare abilități și 40% Viteză de mișcare).",
+        "Provocarea de daune campionilor inamici cu Atacuri sau Abilități oferă acumulări. La acumulări maxime, înviezi întărit când mori.",
+        "Primești Vraja invocatorului Înșelăciune. Primești Pasiva Lovitură pe la spate. Când mori, provoci o cantitate mare de daune reale și înfricoșezi inamicii din apropiere.",
+        "Explodează când mori, provocând inamicilor din apropiere daune reale egale cu 20% din Viața maximă a țintei."
       ]
     },
     "ru": {
-      "title": "Заведующая детсадом",
-      "why": "У E Энни есть цель, которой никто не пользуется: его можно кинуть на союзника, и тот получит щит, рывок скорости передвижения и шипы, ранящие любого, кто его ударит, а Тибберс появляется уже с ним. С Групповыми обнимашками на E каждое применение защищает ещё двух союзников, так что одна кнопка это три щита, три рывка скорости и три набора шипов. Чарующие бабочки собирают бабочку за каждого защищённого союзника, Звуковой удар взрывает каждый щит уроном и замедлением вокруг союзника, а Звуковой барьер даёт каждому защищённому скорость и Призрака, так что стоит Энни задеть врага, все бабочки летят в него магическим уроном. Исцеляющий лунный камень перекидывает каждый щит ещё на одного союзника ради ещё одной бабочки и взрыва, Посох водного потока и Пылающая кадильница дают ей и каждому защищённому силу умений, ускорение умений и скорость атаки, а Боевая песнь Шурелии усиливает всю команду для нового круга взрывов. Бёрст-маг «навёл и кликнул» перестаёт целиться во врагов и становится раздатчиком щитов, чей урон исходит от её тиммейтов.",
-      "play": "Стой за командой, кидай E на того, кого вот-вот будут бить, затем задень врага Q или W, чтобы выпустить бабочек. Оглушение пассивки, накопленное щитами, береги для Тибберса.",
+      "title": "Скончался, многократно",
+      "why": "Деление клеток Зака считает смерть лишь лежачим полицейским: при смертельном уроне он распадается на четыре сгустка и воскресает, если хоть один выживет, и каждый сгусток несет долю его максимального здоровья, брони и сопротивления магии. Цирковое искусство и Прощальный подарок срабатывают при его смерти, нанося чистый урон и пугая врагов рядом, так что те, кто обычно топтал бы сгустки, разбегаются, пока он собирается заново. Безумный ученый платит при каждом Воскрешении, делая его огромным или крошечным с бонусными характеристиками, а Одержимость добавляет второе воскрешение, когда он накопит достаточно урона по чемпионам, так что в одной командной драке может уместиться две смерти, два взрыва и два улучшения Безумного ученого. Сердце стали подпитывает цикл, навсегда увеличивая его максимальное здоровье, которое наследуют сгустки, а Доспех Вармога, Жак'Шо Многоликий и прочее набивают здоровье и сопротивления, которые сгустки копируют. Танк, который должен выживать, становится чемпионом, чья настоящая работа - умереть посреди вражеской команды и вернуться злее.",
+      "play": "Катапультируйся во всю вражескую команду и дай им убить себя поверх их кэрри; взрывы и страх прикроют твои сгустки. Вернись, продолжай бить чемпионов, чтобы копить Одержимость, и повтори.",
       "augments": [
-        "Лечение или щит на союзного чемпиона выбранным умением повторно применяет его к 2 другим союзным чемпионам поблизости. Лечение и щиты действуют в полную силу. Сила дружбы!",
-        "Лечение или щиты на союзных чемпионах собирают бабочек. После этого нанесение урона вражескому чемпиону выпускает их всех, нанося магический урон.",
-        "Усиление, лечение или щит на союзника наносит урон и замедляет врагов вокруг него.",
-        "Щит на союзнике даёт ему скорость передвижения и Призрака, которые ослабевают за 1,5 сек. Перезарядка для каждой цели: 1,5 сек."
+        "При каждом Воскрешении ты становишься огромным (получаешь 30% адаптивной силы и 20% здоровья) или крошечным (получаешь 70 ускорения умений и 40% скорости движения).",
+        "Нанесение урона вражеским чемпионам атаками или умениями дает заряды. При максимуме зарядов после смерти ты воскресаешь усиленным.",
+        "Ты получаешь заклинание призывателя Обман и пассивное умение Удар в спину. Когда ты умираешь, наносишь большое количество чистого урона и пугаешь ближайших врагов.",
+        "Взрывается при твоей смерти, нанося ближайшим врагам чистый урон в размере 20% от максимального здоровья цели."
       ]
     },
     "th": {
-      "title": "ผู้อำนวยการเนอสเซอรี่",
-      "why": "สกิล E ของ Annie มีเป้าหมายที่ไม่มีใครใช้ คือร่ายใส่เพื่อนได้ เพื่อนจะได้โล่ ความเร็วเคลื่อนที่พุ่งขึ้น และหนามที่สะท้อนดาเมจใส่ใครก็ตามที่ตีเขา แถม Tibbers ก็เกิดมาพร้อมโล่นี้ด้วย พอได้ Group Hug ลงที่ E ทุกครั้งที่ร่ายจะโล่ให้เพื่อนใกล้ๆ อีกสองคน กดปุ่มเดียวได้สามโล่ สามบูสต์ความเร็ว และหนามสามชุด Enchanting Butterflies เก็บผีเสื้อหนึ่งตัวต่อเพื่อนที่ได้โล่ Sonic Boom ทำให้ทุกโล่ระเบิดเป็นดาเมจและสโลว์รอบตัวเพื่อนคนนั้น และ Sound Barrier ให้ความเร็วกับ Ghost แก่เพื่อนทุกคนที่ได้โล่ พอ Annie ทำดาเมจใส่ศัตรูเมื่อไหร่ ผีเสื้อทั้งหมดก็พุ่งออกไปเป็นดาเมจเวท Moonstone Renewer ส่งต่อโล่ไปยังเพื่อนอีกคนเพื่อได้ผีเสื้อกับระเบิดเพิ่มอีกหนึ่ง Staff of Flowing Water กับ Ardent Censer ให้ AP, Haste และ Attack Speed แก่เธอและเพื่อนที่ได้โล่ทุกคน และ Shurelya's Battlesong บัฟทั้งทีมเพื่อระเบิดอีกรอบ เมจเบิร์สแบบชี้แล้วคลิกเลิกเล็งศัตรู กลายเป็นเครื่องแจกโล่ที่ดาเมจออกมาจากเพื่อนร่วมทีม",
-      "play": "ยืนหลังทีม ร่าย E ใส่คนที่กำลังจะโดนตี แล้วแตะศัตรูด้วย Q หรือ W เพื่อปล่อยผีเสื้อ เก็บสตันจากพาสซีฟที่โล่ชาร์จไว้ให้ Tibbers",
+      "title": "ตายแล้วตายอีก",
+      "why": "Cell Division ของ Zac มองความตายเป็นแค่เนินชะลอความเร็ว: เมื่อโดนดาเมจถึงตายเขาจะแยกเป็นบล็อบเล็ก ๆ สี่ก้อนและฟื้นคืนชีพถ้ามีก้อนไหนรอด โดยแต่ละก้อนจะได้ส่วนแบ่งของ Health, Armor และ Magic Resist สูงสุดของเขา Clown College และ Dive Bomber ทำงานตอนเขาตาย สร้าง true damage และทำให้ศัตรูใกล้ ๆ ติด Fear คนที่ปกติจะเหยียบบล็อบจึงวิ่งหนีระหว่างที่เขากลับมารวมร่าง Mad Scientist จ่ายผลตอบแทนทุกครั้งที่ Revive ทำให้เขาตัวใหญ่หรือตัวเล็กพร้อมสเตตัสเพิ่ม และ Hellbent เพิ่ม revive ครั้งที่สองเมื่อสะสมดาเมจใส่แชมเปี้ยนได้มากพอ ทีมไฟต์เดียวจึงมีได้สองการตาย สองการระเบิด และสองอัปเกรด Mad Scientist Heartsteel ป้อนลูปนี้ด้วยการเพิ่ม Health สูงสุดถาวรซึ่งบล็อบสืบทอด ส่วน Warmog's Armor, Jak'Sho, The Protean และไอเทมอื่น ๆ ก็พอก Health และเรซิสต์ที่บล็อบคัดลอก แทงค์ที่ควรจะรอดกลายเป็นแชมเปี้ยนที่หน้าที่จริงคือไปตายกลางทีมศัตรูแล้วกลับมาโกรธกว่าเดิม",
+      "play": "Slingshot เข้าใส่ทั้งทีมศัตรูแล้วให้พวกมันฆ่าคุณทับบนแครี่ของตัวเอง การระเบิดและ Fear ช่วยคุ้มกันบล็อบของคุณ กลับมา ตีแชมเปี้ยนต่อเพื่อสะสม Hellbent แล้วทำซ้ำ",
       "augments": [
-        "การฮีลหรือให้โล่แชมเปี้ยนฝ่ายเดียวกันด้วยสกิลที่เลือก จะร่ายสกิลนั้นซ้ำใส่แชมเปี้ยนฝ่ายเดียวกันอีก 2 คนที่อยู่ใกล้ ฮีลและโล่ได้ผลเต็มที่ พลังแห่งมิตรภาพ!",
-        "การฮีลหรือให้โล่แชมเปี้ยนฝ่ายเดียวกันจะเก็บผีเสื้อ หลังเก็บผีเสื้อแล้ว การทำดาเมจใส่แชมเปี้ยนศัตรูจะยิงผีเสื้อทั้งหมดออกไปสร้างดาเมจเวท",
-        "การบัฟ ฮีล หรือให้โล่แก่เพื่อนร่วมทีมจะสร้างดาเมจและสโลว์ศัตรูที่อยู่รอบตัวพวกเขา",
-        "การให้โล่เพื่อนร่วมทีมจะมอบความเร็วเคลื่อนที่และ Ghost ที่ลดลงภายใน 1.5 วินาที คูลดาวน์ต่อเป้าหมาย: 1.5 วินาที"
+        "ทุกครั้งที่ Revive คุณจะตัวใหญ่ (ได้ 30% Adaptive Force และ 20% Health) หรือตัวเล็ก (ได้ 70 Ability Haste และ 40% Movement Speed)",
+        "การสร้างดาเมจใส่แชมเปี้ยนศัตรูด้วย Attack หรือ Ability จะให้สแตก เมื่อสแตกเต็ม คุณจะฟื้นคืนชีพแบบเสริมพลังเมื่อตาย",
+        "ได้รับ Summoner Spell Deceive ได้รับ Passive Backstab เมื่อคุณตาย จะสร้าง true damage จำนวนมากและทำให้ศัตรูใกล้ ๆ ติด Fear",
+        "ระเบิดเมื่อคุณตาย สร้าง true damage เท่ากับ 20% ของ Health สูงสุดของเป้าหมายใส่ศัตรูใกล้ ๆ"
       ]
     },
     "tr": {
-      "title": "Kreş Müdiresi",
-      "why": "Annie'nin E'sinin kimsenin kullanmadığı bir hedefi var: onu bir dosta atabilir, dost bir kalkan, ani bir hareket hızı artışı ve ona vuranı yaralayan dikenler alır, Tibbers da onunla doğar. E'sinde Grup Kucaklaşması varken her kullanım iki dostu daha korur, yani tek tuş üç kalkan, üç hız artışı ve üç takım diken demek. Büyüleyici Kelebekler korunan her dost için bir kelebek toplar, Ses Patlaması her kalkanı o dostun çevresinde hasar ve yavaşlatmayla patlatır, Ses Bariyeri de korunan her takım arkadaşına hız ve Hayalet verir; Annie bir rakibe hasar verdiği an bütün kelebekler büyü hasarı olarak uçar. Dinçleştirici Aytaşı her kalkanı bir dosta daha zincirler, bir kelebek ve bir patlama daha, Akan Su Asası ile Kızgın Buhurdanlık ona ve korunan her dosta yetenek gücü, yetenek hızı ve saldırı hızı verir, Shurelya'nın Savaş Şarkısı da tüm takımı yeni bir patlama turu için güçlendirir. Tıkla-patlat büyücüsü rakiplere nişan almayı bırakıp hasarı takım arkadaşlarından çıkan bir kalkan makinesine dönüşür.",
-      "play": "Takımın arkasında dur, E'yi dayak yemek üzere olana at, sonra kelebekleri salmak için bir rakibe Q ya da W ile vur. Kalkanlarının doldurduğu pasif sersemletmeyi Tibbers'a sakla.",
+      "title": "Vefat Etti, Defalarca",
+      "why": "Zac'in Hücre Bölünmesi ölümü hız tümseği sayar: ölümcül hasarda dört yumağa bölünür ve biri hayatta kalırsa dirilir, her yumak maksimum Can, Zırh ve Büyü Direncinin bir payını taşır. Palyaço Koleji ve Kamikaze ikisi de öldüğünde patlar, gerçek hasar verir ve yakındaki düşmanları Korkutur; yani normalde yumakları ezecek kişiler o kendini toparlarken kaçar. Çılgın Bilim İnsanı her Dirilişte ödeme yapar, onu ek statlarla büyük ya da minik yapar, Cehennem Gazabı ise yeterince şampiyon hasarı biriktirince ikinci bir diriliş ekler; yani tek bir takım savaşında iki ölüm, iki patlama ve iki Çılgın Bilim İnsanı yükseltmesi sığabilir. Çelikyürek maksimum Canını kalıcı artırarak döngüyü besler ve yumaklar bunu miras alır, Warmog'un Zırhı, Şahbaz Jak'Sho ve diğerleri ise yumakların kopyaladığı Can ve dirençleri yığar. Hayatta kalması beklenen tank, asıl işi düşman takımının ortasında ölüp daha öfkeli geri dönmek olan bir şampiyona dönüşür.",
+      "play": "Sapanla bütün düşman takımının içine uç ve kendi carry'lerinin üstünde seni öldürmelerine izin ver; patlamalar ve Korku yumaklarını korur. Geri dön, Cehennem Gazabı biriktirmek için şampiyonlara vurmaya devam et ve tekrarla.",
       "augments": [
-        "Seçilen yetenekle bir dost şampiyonu iyileştirmek ya da korumak, büyüyü yakındaki 2 dost şampiyona daha yapar. İyileştirmeler ve kalkanlar etkilidir. Dostluğun gücü!",
-        "Dost şampiyonları iyileştirmek ya da korumak kelebek toplar. Kelebekler toplandıktan sonra bir rakip şampiyona hasar vermek hepsini fırlatır ve büyü hasarı verir.",
-        "Müttefikini güçlendirmek, iyileştirmek veya kalkanla korumak etrafındaki düşmanlara hasar verir ve onları yavaşlatır.",
-        "Bir dostu korumak ona 1,5 saniyede azalan hareket hızı ve Hayalet verir. Hedef başına bekleme süresi: 1,5 saniye."
+        "Her Dirilişte büyürsün (%30 Uyarlanabilir Güç ve %20 Can kazanırsın) ya da minik olursun (70 Yetenek Hızı ve %40 Hareket Hızı kazanırsın).",
+        "Saldırılar veya Yeteneklerle düşman şampiyonlara hasar vermek yığın kazandırır. Maksimum yığında öldüğünde güçlenmiş olarak dirilirsin.",
+        "Çağırıcı Büyüsü Aldatma'yı kazanırsın. Pasif Sırtından Bıçaklama'yı kazanırsın. Öldüğünde büyük miktarda gerçek hasar verir ve yakındaki düşmanları Korkutursun.",
+        "Öldüğünde patlar ve yakındaki düşmanlara hedefin maksimum Canının %20'si kadar gerçek hasar verir."
       ]
     },
     "vi": {
-      "title": "Hiệu Trưởng Nhà Trẻ",
-      "why": "Chiêu E của Annie có một mục tiêu chẳng ai dùng: cô có thể dùng nó lên đồng minh, người đó nhận lá chắn, một cú tăng tốc độ di chuyển và gai phản sát thương lên bất kỳ ai đánh mình, và Tibbers xuất hiện cũng mang sẵn nó. Với Ôm Tập Thể trên E, mỗi lần dùng lại che chắn thêm hai đồng minh, nên một nút bấm là ba lá chắn, ba lần tăng tốc và ba bộ gai. Bướm Phù Phép gom một con bướm cho mỗi đồng minh được che chắn, Vụ Nổ Siêu Thanh khiến mỗi lá chắn nổ ra sát thương và làm chậm quanh đồng minh đó, còn Bức Tường Âm Thanh cho mỗi đồng đội được che chắn tốc độ và Tốc Biến Ma, nên ngay khi Annie gây sát thương lên kẻ địch, cả đàn bướm bay ra thành sát thương phép. Bùa Nguyệt Thạch nối mỗi lá chắn sang thêm một đồng minh để có thêm một con bướm và một vụ nổ, Trượng Lưu Thủy và Lư Hương Sôi Sục cho cô và mỗi đồng minh được che chắn sức mạnh phép thuật, điểm hồi kỹ năng và tốc độ đánh, còn Vương Miện Shurelya buff cả đội cho thêm một lượt nổ. Pháp sư dồn sát thương chỉ-và-bấm thôi nhắm vào kẻ địch và thành cỗ máy phát khiên có sát thương tuôn ra từ đồng đội.",
-      "play": "Đứng sau đội, dùng E lên người sắp bị đánh, rồi chạm kẻ địch bằng Q hoặc W để thả bướm. Giữ cú choáng từ nội tại mà các lá chắn đã tích cho Tibbers.",
+      "title": "Đã Mất, Nhiều Lần",
+      "why": "Phân Bào của Zac xem cái chết chỉ là cái gờ giảm tốc: khi nhận sát thương chí mạng, anh tách làm bốn cục nhầy và hồi sinh nếu có cục nào sống sót, mỗi cục mang một phần Máu tối đa, Giáp và Kháng phép của anh. Học Thuật Làm Hề và Cảm Tử Quân đều nổ khi anh chết, gây sát thương chuẩn và làm Sợ hãi kẻ địch gần đó, nên những kẻ thường sẽ giẫm nát các cục nhầy lại phải bỏ chạy trong khi anh tái tạo. Bác Học Điên trả thưởng ở mỗi lần Hồi sinh, khiến anh to ra hoặc nhỏ lại cùng chỉ số thêm, còn Quyết Tâm Bất Diệt thêm lần hồi sinh thứ hai khi anh tích đủ sát thương lên tướng địch, nên một trận giao tranh có thể chứa hai cái chết, hai vụ nổ và hai lần nâng cấp Bác Học Điên. Trái Tim Khổng Thần tiếp lửa cho vòng lặp bằng cách tăng vĩnh viễn Máu tối đa, các cục nhầy thừa hưởng, trong khi Giáp Máu Warmog, Jak'Sho, Vỏ Bọc Thích Nghi và các món khác chồng Máu và kháng tính mà cục nhầy sao chép. Tanker đáng lẽ phải sống sót lại thành một tướng có việc thật sự là chết giữa đội địch rồi quay lại cáu hơn.",
+      "play": "Phóng ná vào cả đội địch và để họ giết bạn ngay trên đầu các carry của họ; vụ nổ và Sợ hãi che chắn cho các cục nhầy của bạn. Quay lại, tiếp tục đánh tướng để chồng Quyết Tâm Bất Diệt, rồi làm lại.",
       "augments": [
-        "Hồi máu hoặc tạo lá chắn cho một tướng đồng minh bằng kỹ năng đã chọn sẽ thi triển lại phép đó lên 2 tướng đồng minh khác ở gần. Hồi máu và lá chắn đều có hiệu lực. Sức mạnh của tình bạn!",
-        "Hồi máu hoặc tạo lá chắn cho tướng đồng minh sẽ gom Bướm. Sau khi gom Bướm, gây sát thương lên tướng địch sẽ phóng tất cả chúng ra, gây sát thương phép.",
-        "Cường hóa, hồi máu hoặc tạo lá chắn cho đồng minh sẽ gây sát thương và làm chậm kẻ địch xung quanh họ.",
-        "Tạo lá chắn cho đồng minh cho họ tốc độ di chuyển và Tốc Biến Ma giảm dần trong 1,5 giây. Hồi chiêu mỗi mục tiêu: 1,5 giây."
+        "Mỗi lần Hồi sinh, bạn to ra (nhận 30% Sức mạnh thích ứng và 20% Máu) hoặc nhỏ lại (nhận 70 Gia tốc kỹ năng và 40% Tốc độ di chuyển).",
+        "Gây sát thương lên tướng địch bằng Đòn đánh hoặc Kỹ năng sẽ nhận dồn. Khi dồn tối đa, bạn hồi sinh được cường hóa khi chết.",
+        "Nhận phép bổ trợ Đánh Lừa. Nhận Nội tại Đâm Lén. Khi chết, gây một lượng lớn sát thương chuẩn và làm Sợ hãi kẻ địch gần đó.",
+        "Phát nổ khi bạn chết, gây sát thương chuẩn bằng 20% Máu tối đa của mục tiêu lên kẻ địch gần đó."
       ]
     },
     "zh-CN": {
-      "title": "托儿所园长",
-      "why": "安妮的E有个没人用的目标：可以放给队友，队友获得护盾、一段移速加成和反伤，谁打他谁挨揍，提伯斯被召唤时也自带这层盾。把一起抱抱选在E上，每次施放会再套给附近另外两名队友，一个按键就是三层盾、三次加速和三份反伤。迷人蝴蝶每给一名队友上盾就收集一只蝴蝶，天音爆让每层盾都在那名队友身边炸出伤害和减速，音之屏障给每个被保护的队友移速和幽灵，于是安妮一打到敌人，所有蝴蝶就化作魔法伤害飞出去。月石再生器把每层盾再链到另一名队友身上，多一只蝴蝶多一次爆炸，流水法杖和炽热香炉给她和每个被保护的队友法强、技能急速和攻速，舒瑞娅的战歌给全队加buff，再炸一轮。点谁谁死的爆发法师不再瞄敌人，变成一台伤害从队友身上冒出来的护盾机。",
-      "play": "站在队伍后面，把E丢给马上要挨打的队友，然后用Q或W碰一下敌人放出蝴蝶。护盾攒出来的被动眩晕留给提伯斯。",
+      "title": "死亡，反复死亡",
+      "why": "扎克的细胞分裂把死亡当成减速带：受到致命伤害时分裂成四个小软泥，只要有一个存活就会复活，每个小软泥都继承他一部分最大生命值、护甲和魔法抗性。小丑学院和俯冲轰炸都会在他死亡时触发，造成真实伤害并恐惧附近的敌人，所以平时会踩扁软泥的人都在逃命，而他在重新聚合。科学狂人在每次复活时兑现，让他变大或变小并获得额外属性，濒死悟道在他叠够对英雄的伤害后追加第二次复活，所以一场团战里可以有两次死亡、两次爆炸和两次科学狂人升级。心之钢通过永久提升最大生命值来喂养这个循环，软泥会继承它，而狂徒铠甲、千变者贾修等装备则堆叠软泥会复制的生命值和抗性。本该存活的坦克，变成了真正工作是死在敌方团队中间、然后更生气地回来的英雄。",
+      "play": "弹射进敌方整个团队，让他们在自己的核心头上杀死你；爆炸和恐惧会掩护你的小软泥。回来后继续攻击英雄叠濒死悟道，然后再来一遍。",
       "augments": [
-        "用所选技能治疗或护盾一名友方英雄时，会对附近另外2名友方英雄再次施放该技能。治疗和护盾均有效。友谊的力量！",
-        "治疗或护盾友方英雄会收集蝴蝶。收集蝴蝶后，对敌方英雄造成伤害会射出所有蝴蝶，造成魔法伤害。",
-        "强化、治疗友军或为其提供护盾时，会对其周围的敌人造成伤害并减速。",
-        "为友军提供护盾会给予其在1.5秒内衰减的移动速度和幽灵效果。每个目标的冷却时间：1.5秒。"
+        "每次复活时，你会变大（获得30%自适应之力和20%生命值）或变小（获得70技能急速和40%移动速度）。",
+        "用攻击或技能对敌方英雄造成伤害会获得层数。层数叠满后，死亡时你会强化复活。",
+        "获得召唤师技能欺骗。获得被动背刺。死亡时，造成大量真实伤害并恐惧附近的敌人。",
+        "死亡时爆炸，对附近的敌人造成相当于目标最大生命值20%的真实伤害。"
       ]
     },
     "zh-TW": {
-      "title": "幼兒園園長",
-      "why": "安妮的E有個沒人用的目標：可以放給隊友，隊友獲得護盾、一段跑速加成和反傷，誰打他誰受傷，提伯斯被召喚時也自帶這層盾。把大家來抱抱選在E上，每次施放會再套給附近另外兩名隊友，一個按鍵就是三層盾、三次加速和三份反傷。迷人蝶影每替一名隊友上盾就收集一隻蝴蝶，餘音震盪讓每層盾都在那名隊友身邊炸出傷害和緩速，音障給每個被保護的隊友跑速和鬼步，於是安妮一打到敵人，所有蝴蝶就化作魔法傷害飛出去。月之石再生裝置把每層盾再連到另一名隊友身上，多一隻蝴蝶多一次爆炸，流水之杖和熾灼魔器給她和每個被保護的隊友魔攻、技能加速和攻速，蘇瑞亞的戰歌替全隊加buff，再炸一輪。點誰誰死的爆發法師不再瞄敵人，變成一台傷害從隊友身上冒出來的護盾機。",
-      "play": "站在隊伍後面，把E丟給快要挨打的隊友，然後用Q或W碰一下敵人放出蝴蝶。護盾攢出來的被動暈眩留給提伯斯。",
+      "title": "死亡，反覆死亡",
+      "why": "札克的細胞分裂把死亡當成減速丘：受到致命傷害時分裂成四個小史萊姆，只要有一個存活就會復活，每個小史萊姆都繼承他一部分最大生命值、護甲和魔法防禦。小丑學院和自爆炸彈客都會在他死亡時觸發，造成真實傷害並恐懼附近的敵人，所以平常會踩扁史萊姆的人都在逃命，而他在重新聚合。瘋狂科學家在每次復活時兌現，讓他變大或變小並獲得額外屬性，陰魂不散在他疊夠對英雄的傷害後追加第二次復活，所以一場團戰裡可以有兩次死亡、兩次爆炸和兩次瘋狂科學家升級。雄心之鋼透過永久提升最大生命值來餵養這個循環，史萊姆會繼承它，而好戰者鎧甲、千變萬化之賈克修等裝備則堆疊史萊姆會複製的生命值和抗性。本該存活的坦克，變成了真正工作是死在敵方團隊中間、然後更生氣地回來的英雄。",
+      "play": "彈射進敵方整個團隊，讓他們在自己的核心頭上殺死你；爆炸和恐懼會掩護你的小史萊姆。回來後繼續攻擊英雄疊陰魂不散，然後再來一遍。",
       "augments": [
-        "使用所選技能治療或護盾一名友方英雄時，會對附近另外2名友方英雄再次施放該技能。治療和護盾皆有效。友情的力量！",
-        "治療或護盾友方英雄會收集蝴蝶。收集蝴蝶後，對敵方英雄造成傷害會射出所有蝴蝶，造成魔法傷害。",
-        "強化、治療友軍或為其提供護盾時，會對其周圍的敵人造成傷害並緩速。",
-        "為友軍提供護盾會給予其在1.5秒內遞減的跑速和鬼步效果。每個目標的冷卻時間：1.5秒。"
+        "每次復活時，你會變大（獲得30%適應之力和20%生命值）或變小（獲得70技能加速和40%移動速度）。",
+        "用攻擊或技能對敵方英雄造成傷害會獲得層數。層數疊滿後，死亡時你會強化復活。",
+        "獲得召喚師技能欺騙。獲得被動背刺。死亡時，造成大量真實傷害並恐懼附近的敵人。",
+        "死亡時爆炸，對附近的敵人造成相當於目標最大生命值20%的真實傷害。"
       ]
     }
   }

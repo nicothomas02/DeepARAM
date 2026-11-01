@@ -270,5 +270,12 @@
  "The next special is on its way.": "下一道特餐正在路上。",
  "No community builds yet": "還沒有社群出裝",
  "Cooked up something strange? Build it in the Simulator and send it in. The chef picks the best ones for this page.": "想出了奇怪的玩法？在模擬器裡搭好並投稿。主廚會挑出最好的放到這個頁面。",
- "Send a build from the Simulator": "從模擬器投稿出裝"
+ "Send a build from the Simulator": "從模擬器投稿出裝",
+ "Deceased, Repeatedly": "死亡，反覆死亡",
+ "Zac's Cell Division already treats death as a speed bump: on fatal damage he splits into four bloblets and revives if any survive, and each bloblet carries a share of his max Health, Armor and Magic Resist. Clown College and Dive Bomber both go off when he dies, blasting true damage and Fearing nearby enemies, so the people who would normally stomp the blobs are running away while he reforms. Mad Scientist pays out on every Revive, growing him large or tiny with extra stats, and Hellbent adds a second revive once he has stacked enough champion damage, so one teamfight can hold two deaths, two explosions and two Mad Scientist upgrades. Heartsteel feeds the loop by permanently raising his max Health, which the bloblets inherit, while Warmog's Armor, Jak'Sho, The Protean and the rest pile on the Health and resists the blobs copy. The tank who is supposed to survive becomes a champion whose real job is to die in the middle of the enemy team and come back angrier.": "札克的細胞分裂把死亡當成減速丘：受到致命傷害時分裂成四個小史萊姆，只要有一個存活就會復活，每個小史萊姆都繼承他一部分最大生命值、護甲和魔法防禦。小丑學院和自爆炸彈客都會在他死亡時觸發，造成真實傷害並恐懼附近的敵人，所以平常會踩扁史萊姆的人都在逃命，而他在重新聚合。瘋狂科學家在每次復活時兌現，讓他變大或變小並獲得額外屬性，陰魂不散在他疊夠對英雄的傷害後追加第二次復活，所以一場團戰裡可以有兩次死亡、兩次爆炸和兩次瘋狂科學家升級。雄心之鋼透過永久提升最大生命值來餵養這個循環，史萊姆會繼承它，而好戰者鎧甲、千變萬化之賈克修等裝備則堆疊史萊姆會複製的生命值和抗性。本該存活的坦克，變成了真正工作是死在敵方團隊中間、然後更生氣地回來的英雄。",
+ "Slingshot into the whole enemy team and let them kill you on top of their own carries; the explosions and Fear cover your bloblets. Come back, keep hitting champions to stack Hellbent, and do it again.": "彈射進敵方整個團隊，讓他們在自己的核心頭上殺死你；爆炸和恐懼會掩護你的小史萊姆。回來後繼續攻擊英雄疊陰魂不散，然後再來一遍。",
+ "On each Revive, you grow large (gaining 30% Adaptive Force and 20% Health) or tiny (gaining 70 Ability Haste and 40% Movement Speed).": "每次復活時，你會變大（獲得30%適應之力和20%生命值）或變小（獲得70技能加速和40%移動速度）。",
+ "Damaging enemy champions with Attacks or Abilities grants stacks. At max stacks, you revive empowered upon death.": "用攻擊或技能對敵方英雄造成傷害會獲得層數。層數疊滿後，死亡時你會強化復活。",
+ "Gain Deceive Summoner Spell. Gain Backstab Passive. When you die, deal a large amount of true damage and Fear nearby enemies.": "獲得召喚師技能欺騙。獲得被動背刺。死亡時，造成大量真實傷害並恐懼附近的敵人。",
+ "Explodes when you die, dealing 20% of the target's max Health as true damage to nearby enemies.": "死亡時爆炸，對附近的敵人造成相當於目標最大生命值20%的真實傷害。"
 }
