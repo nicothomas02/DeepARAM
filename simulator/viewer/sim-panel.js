@@ -7,6 +7,9 @@
   // The Fight box shows the four settings most people change; the rest sit under "Advanced settings", by topic.
   const BASIC_KEYS = ["level", "enemy_level", "until_death", "enemy_damage_scale"];
   const WHOLE_KEYS = ["level", "enemy_level", "until_death", "on_fire", "random_respawn", "team_size", "fixed_target", "combo_order"];  // integer steps
+  // Allowed range of the number fields that have one; a typed value outside it snaps back in.
+  const RANGES = { level: [1, 18], enemy_level: [1, 18], enemy_damage_scale: [0.1, 5], team_size: [1, 5] };
+  const inRange = (key, v) => (RANGES[key] ? Math.min(RANGES[key][1], Math.max(RANGES[key][0], v)) : v);
   const ADVANCED = [
     ["Fight length", ["fight_cap", "fight_mean", "fight_sd", "fight_min", "fight_max", "engage_min", "engage_max"]],
     ["Crowd control on you", ["cc_scale", "cc_min", "cc_max"]],
@@ -243,7 +246,6 @@
     const size = meta.settings.find((s) => s.key === "team_size");
     if (size) {
       const f = field(size, false);
-      f.querySelector("input").min = 1; f.querySelector("input").max = 5;
       f.querySelector("input").addEventListener("change", renderEnemies);
       box.append(f);
     }
@@ -393,12 +395,19 @@
       inp = document.createElement("input");
       inp.type = "number";
       inp.step = WHOLE_KEYS.includes(s.key) ? 1 : Math.abs(s.default) <= 1 ? 0.05 : s.default >= 100 ? 10 : 1;
+      if (RANGES[s.key]) [inp.min, inp.max] = RANGES[s.key];
+      // Leaving the field shows the value the fight will use.
+      inp.addEventListener("change", () => {
+        const v = parseFloat(inp.value);
+        inp.value = Number.isFinite(v) ? inRange(s.key, WHOLE_KEYS.includes(s.key) ? Math.round(v) : v) : s.default;
+        inp.dispatchEvent(new Event("input"));
+      });
     }
     inp.id = id;
     inp.value = fieldValues[s.key] !== undefined ? fieldValues[s.key] : s.default;
     const mark = () => wrap.classList.toggle("changed", Math.abs(parseFloat(inp.value) - s.default) > 1e-9);
     inp.addEventListener(inp.tagName === "SELECT" ? "change" : "input", () => {
-      const v = parseFloat(inp.value);
+      const v = inRange(s.key, parseFloat(inp.value));
       if (Number.isFinite(v) && Math.abs(v - s.default) > 1e-9) fieldValues[s.key] = v; else delete fieldValues[s.key];
       mark();
       countAdvanced();
