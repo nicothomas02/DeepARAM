@@ -1,297 +1,297 @@
 {
-  "id": "zac-deceased-repeatedly",
-  "title": "Deceased, Repeatedly",
-  "champion": "Zac",
-  "champion_name": "Zac",
-  "chef": "2026-10-31",
-  "why": "Zac's Cell Division already treats death as a speed bump: on fatal damage he splits into four bloblets and revives if any survive, and each bloblet carries a share of his max Health, Armor and Magic Resist. Clown College and Dive Bomber both go off when he dies, blasting true damage and Fearing nearby enemies, so the people who would normally stomp the blobs are running away while he reforms. Mad Scientist pays out on every Revive, growing him large or tiny with extra stats, and Hellbent adds a second revive once he has stacked enough champion damage, so one teamfight can hold two deaths, two explosions and two Mad Scientist upgrades. Heartsteel feeds the loop by permanently raising his max Health, which the bloblets inherit, while Warmog's Armor, Jak'Sho, The Protean and the rest pile on the Health and resists the blobs copy. The tank who is supposed to survive becomes a champion whose real job is to die in the middle of the enemy team and come back angrier.",
-  "play": "Slingshot into the whole enemy team and let them kill you on top of their own carries; the explosions and Fear cover your bloblets. Come back, keep hitting champions to stack Hellbent, and do it again.",
+  "id": "zeri-right-click-veigar",
+  "title": "Right-Click Veigar",
+  "champion": "Zeri",
+  "champion_name": "Zeri",
+  "chef": "2026-11-01",
+  "why": "Living Battery has a throwaway line everyone ignores: Zeri's Attacks deal magic damage and are treated as Abilities. Phenomenal Evil reads that literally, so every right-click on a champion permanently stacks Ability Power, turning Zeri into a Veigar who farms stacks by auto-attacking. Marksmage closes the loop by making her Attacks deal extra damage based on that Ability Power, so the stacks go straight back into the autos. Twin Fire and Magic Missile both trigger on ability damage, so every auto also sprays missiles, and her long range lets Magic Missile's shots travel far. The items are pure mage items that key off Abilities: Rylai's slows, Liandry's burns and Luden's echoes all fire off her autos, while Rabadon's multiplies the stacks and Nashor's gives the attack speed to cast her 'spell' faster.",
+  "play": "Build like a mage, play like a marksman: stand at max range and right-click champions nonstop to farm stacks and launch missiles. Take Phenomenal Evil early so the stacks have the whole game to grow.",
   "items": [
-    "Heartsteel",
-    "Warmog's Armor",
-    "Jak'Sho, The Protean",
-    "Sunfire Aegis",
-    "Unending Despair",
-    "Mercury's Treads"
+    "Nashor's Tooth",
+    "Rabadon's Deathcap",
+    "Rylai's Crystal Scepter",
+    "Liandry's Torment",
+    "Luden's Echo",
+    "Sorcerer's Shoes"
   ],
   "core": 4,
-  "champion_icon": "/embed/fun/cook-builds/icons/champions/154.png",
+  "champion_icon": "/embed/fun/cook-builds/icons/champions/221.png",
   "augments": [
     {
-      "name": "Mad Scientist",
-      "rarity": "Prismatic",
+      "name": "Phenomenal Evil",
+      "rarity": "Gold",
       "core": true,
-      "text": "On each Revive, you grow large (gaining 30% Adaptive Force and 20% Health) or tiny (gaining 70 Ability Haste and 40% Movement Speed).",
-      "icon": "/embed/fun/cook-builds/icons/augments/mad-scientist.png",
-      "id": 1053
+      "text": "Permanently gain 1 Ability Power when you damage enemy champions with Abilities. If taken as your second Augment, starts with 40 Ability Power. You have gained AP. Veigar would be proud!",
+      "icon": "/embed/fun/cook-builds/icons/augments/phenomenal-evil.png",
+      "id": 1390
     },
     {
-      "name": "Hellbent",
-      "rarity": "Prismatic",
+      "name": "Marksmage",
+      "rarity": "Gold",
       "core": true,
-      "text": "Damaging enemy champions with Attacks or Abilities grants stacks. At max stacks, you revive empowered upon death.",
-      "icon": "/embed/fun/cook-builds/icons/augments/hellbent.png",
-      "id": 2107
+      "text": "Your Attacks deal additional physical damage equal to 75% Ability Power.",
+      "icon": "/embed/fun/cook-builds/icons/augments/marksmage.png",
+      "id": 1129
     },
     {
-      "name": "Clown College",
-      "rarity": "Prismatic",
-      "core": true,
-      "text": "Gain Deceive Summoner Spell. Gain Backstab Passive. When you die, deal a large amount of true damage and Fear nearby enemies.",
-      "icon": "/embed/fun/cook-builds/icons/augments/clown-college.png",
-      "id": 1310
-    },
-    {
-      "name": "Dive Bomber",
+      "name": "Twin Fire",
       "rarity": "Silver",
       "core": true,
-      "text": "Explodes when you die, dealing 20% of the target's max Health as true damage to nearby enemies.",
-      "icon": "/embed/fun/cook-builds/icons/augments/dive-bomber.png",
-      "id": 1025
+      "text": "On ability damage, fire missiles that deal magic damage each. Gain 25% Critical Strike Chance.",
+      "icon": "/embed/fun/cook-builds/icons/augments/twin-fire.png",
+      "id": 1415
+    },
+    {
+      "name": "Magic Missile",
+      "rarity": "Gold",
+      "core": true,
+      "text": "Dealing Ability damage fires 3 missiles at each enemy hit, each dealing up to 1% max Health true damage based on distance traveled.",
+      "icon": "/embed/fun/cook-builds/icons/augments/magic-missile.png",
+      "id": 1133
     }
   ],
   "href": "/kitchen#chefs-special",
   "archive_href": "/kitchen#chef-archive",
-  "share_href": "/kitchen/2026-10-31",
-  "share_image": "/embed/fun/cook-builds/share/zac-deceased-repeatedly.png",
+  "share_href": "/kitchen/2026-11-01",
+  "share_image": "/embed/fun/cook-builds/share/zeri-right-click-veigar.png",
   "item_ids": [
-    3084,
-    3083,
-    6665,
-    3068,
-    2502,
-    3111
+    3115,
+    3089,
+    3116,
+    6653,
+    6655,
+    3020
   ],
   "i18n": {
     "ar": {
-      "title": "متوفى، مرارًا وتكرارًا",
-      "why": "انقسام الخلايا عند زاك يعتبر الموت مجرد مطب: عند الضرر القاتل ينقسم إلى أربع كتل صغيرة ويعود للحياة إذا نجت أي منها، وتحمل كل كتلة حصة من أقصى صحته ودرعه ومقاومة السحر. كلية المهرجين وانفجار الموت ينفجران عند موته، فيُلحقان ضررًا حقيقيًا ويُرعبان الأعداء القريبين، فيهرب من كان سيسحق الكتل بينما يعيد تشكيل نفسه. العالِم المجنون يكافئه عند كل إحياء بأن يكبر أو يصغر مع إحصائيات إضافية، وشديد العزم يمنحه إحياءً ثانيًا عندما يجمع ما يكفي من ضرر الأبطال، فتحوي معركة جماعية واحدة موتتين وانفجارين وترقيتين للعالِم المجنون. القلب الفولاذي يغذي الحلقة برفع أقصى صحته للأبد وترثه الكتل، بينما درع وارموغ وجاكشو، المتلون وغيرهما تكدّس الصحة والمقاومات التي تنسخها الكتل. التانك الذي يُفترض أن ينجو يصبح بطلًا مهمته الحقيقية أن يموت وسط فريق العدو ويعود أكثر غضبًا.",
-      "play": "اندفع بالمقلاع إلى وسط الفريق المعادي ودعهم يقتلونك فوق حامليهم؛ الانفجارات والرعب تحمي كتلك الصغيرة. عد، واستمر بضرب الأبطال لتكديس شديد العزم، وكرر ذلك.",
+      "title": "فيغار بالنقر الأيمن",
+      "why": "في قدرة زيري السلبية سطر عابر يتجاهله الجميع: هجمات زيري تُلحق ضررًا سحريًا وتُعامل كقدرات. الشر الهائل يأخذ هذا حرفيًا، فكل نقرة يمنى على بطل تمنحها قوة قدرات دائمة، وتتحول زيري إلى فيغار يجمع الشحنات بالهجمات العادية. الساحر القناص يغلق الحلقة: هجماتها تُلحق ضررًا إضافيًا حسب قوة القدرات هذه، فتعود الشحنات مباشرة إلى الهجمات. النار المزدوجة والقذيفة السحرية تنطلقان كلتاهما عند ضرر القدرات، فكل هجمة تطلق قذائف أيضًا، ومداها الطويل يجعل قذائف القذيفة السحرية تقطع مسافة بعيدة. العناصر كلها عناصر سحرة تتفاعل مع القدرات: صولجان كريستال رايلاي يُبطئ، وعذاب لياندري يحرق، وصدى لودن يتردد مع كل هجمة، بينما قبعة موت رابادون تضاعف الشحنات وسن ناشور يمنح سرعة الهجوم لإلقاء «تعويذتها» أسرع.",
+      "play": "اِبنِ كساحر والعب كرامٍ: ابقَ على أقصى مدى وانقر على الأبطال بلا توقف لتجمع الشحنات وتطلق القذائف. خذ الشر الهائل مبكرًا لتكبر الشحنات طوال المباراة.",
       "augments": [
-        "عند كل إحياء، تكبر (تكسب 30% من القوة التكيفية و20% من الصحة) أو تصغر (تكسب 70 من تسارع القدرات و40% من سرعة الحركة).",
-        "إلحاق الضرر بأبطال الأعداء بالهجمات أو القدرات يمنحك شحنات. عند الحد الأقصى للشحنات، تعود للحياة معززًا عند موتك.",
-        "تكسب تعويذة الاستدعاء خداع. تكسب السلبية طعنة غدر. عند موتك، تُلحق كمية كبيرة من الضرر الحقيقي وتُرعب الأعداء القريبين.",
-        "تنفجر عند موتك، مُلحقةً ضررًا حقيقيًا يعادل 20% من أقصى صحة الهدف بالأعداء القريبين."
+        "اكسب بشكل دائم 1 قوة قدرات عند إلحاق الضرر بأبطال الأعداء بالقدرات. إذا اخترته كتعزيزك الثاني، تبدأ بـ 40 قوة قدرات. لقد اكتسبت قوة قدرات. سيكون فيغار فخورًا!",
+        "تُلحق هجماتك ضررًا جسديًا إضافيًا يساوي 75% من قوة القدرات.",
+        "عند إلحاق ضرر القدرات، أطلق قذائف تُلحق كل منها ضررًا سحريًا. اكسب 25% فرصة ضربة حرجة.",
+        "إلحاق ضرر القدرات يطلق 3 قذائف على كل عدو مصاب، تلحق كل منها ما يصل إلى 1% من الصحة القصوى ضررًا حقيقيًا بحسب المسافة المقطوعة."
       ]
     },
     "cs": {
-      "title": "Opakovaně zesnulý",
-      "why": "Zacovo Buněčné dělení bere smrt jako zpomalovač: při smrtelném poškození se rozdělí na čtyři slizy a vstane z mrtvých, pokud některý přežije, a každý sliz nese část jeho maximálního zdraví, brnění a odolnosti vůči magii. Klaunská univerzita i Sebevražedný atentátník se spustí při jeho smrti, způsobí true damage a vyděsí okolní nepřátele, takže ti, kdo by slizy normálně rozdupali, utíkají, zatímco se skládá zpátky. Šílený vědec vyplácí odměnu při každém oživení, kdy Zac zvětší nebo zmenší s bonusovými staty, a Vražedné odhodlání přidá druhé oživení, jakmile nasbírá dost poškození šampionům, takže jedna týmovka může mít dvě smrti, dva výbuchy a dvě vylepšení Šíleného vědce. Srdcová ocel krmí smyčku trvalým zvyšováním maximálního zdraví, které slizy zdědí, zatímco Warmogova zbroj, Proměnlivý Jak'Sho a další hromadí zdraví a odolnosti, které slizy kopírují. Tank, který má přežít, se stává šampionem, jehož skutečnou prací je zemřít uprostřed nepřátelského týmu a vrátit se naštvanější.",
-      "play": "Vystřel se do celého nepřátelského týmu a nech se zabít nad jejich carry; výbuchy a Strach kryjí tvé slizy. Vrať se, dál tluč šampiony a staguj Vražedné odhodlání, a zopakuj to.",
+      "title": "Veigar na pravé tlačítko",
+      "why": "Pasivka Zeri má jeden řádek, který všichni přehlížejí: Zeriiny útoky způsobují magické poškození a považují se za schopnosti. Fenomenální zlo to bere doslova, takže každé kliknutí pravým tlačítkem na šampiona trvale přidá sílu schopností a ze Zeri se stane Veigar, který farmí stacky základními útoky. Střelomág uzavírá smyčku: její útoky způsobují dodatečné poškození podle této síly schopností, takže stacky jdou rovnou zpátky do útoků. Dvojitý výstřel i Čarovná střela se spouštějí při poškození schopností, takže každý útok navíc vystřelí střely, a díky jejímu velkému dosahu letí střely Čarovné střely daleko. Předměty jsou čisté mágské předměty, které reagují na schopnosti: Rylaino křišťálové žezlo zpomaluje, Liandryho utrpení pálí a Ludenova ozvěna se ozývá při každém útoku, zatímco Rabadonův smrtící klobouk násobí stacky a Nashorův tesák dává rychlost útoku, aby sesílala své „kouzlo“ rychleji.",
+      "play": "Stav jako mág, hraj jako střelec: stůj na maximální vzdálenost a nepřetržitě klikej na šampiony, ať farmíš stacky a pálíš střely. Vezmi Fenomenální zlo brzo, ať stacky rostou celou hru.",
       "augments": [
-        "Při každém oživení zvětšíš (získáš 30% Adaptivní síly a 20% zdraví) nebo se zmenšíš (získáš 70 urychlení schopností a 40% rychlosti pohybu).",
-        "Poškozování nepřátelských šampionů útoky nebo schopnostmi dává stacky. Při maximu stacků po smrti vstaneš posílený.",
-        "Získáš kouzlo přivolávače Klam. Získáš pasivku Zákeřný útok. Když zemřeš, způsobíš velké množství true damage a vyděsíš okolní nepřátele.",
-        "Při smrti vybuchneš a způsobíš okolním nepřátelům true damage ve výši 20% maximálního zdraví cíle."
+        "Trvale získáš 1 bod síly schopností, když poškodíš nepřátelské šampiony schopnostmi. Pokud to vybereš jako druhé vylepšení, začínáš se 40 body síly schopností. Získal jsi AP. Veigar by byl hrdý!",
+        "Tvé útoky způsobují dodatečné fyzické poškození ve výši 75 % síly schopností.",
+        "Při poškození schopností vystřelíš střely, z nichž každá způsobí magické poškození. Získáš 25% šanci na kritický zásah.",
+        "Způsobení poškození schopností vystřelí 3 střely na každého zasaženého nepřítele, z nichž každá způsobí až 1 % max. zdraví jako skutečné poškození podle uražené vzdálenosti."
       ]
     },
     "de": {
-      "title": "Mehrfach verstorben",
-      "why": "Zacs Zellteilung behandelt den Tod wie eine Bodenwelle: Bei tödlichem Schaden teilt er sich in vier Klümpchen und lebt wieder auf, wenn eines überlebt, und jedes Klümpchen trägt einen Teil seines maximalen Lebens, seiner Rüstung und Magieresistenz. Clown-Hochschule und Sturzbomber lösen beide bei seinem Tod aus, verursachen wahren Schaden und versetzen Gegner in der Nähe in Furcht, sodass die, die die Klümpchen sonst zertrampeln würden, davonrennen, während er sich neu formt. Verrückter Wissenschaftler zahlt bei jeder Wiederbelebung aus und lässt ihn groß oder winzig werden, mit Extra-Werten, und Wild Entschlossen gibt eine zweite Wiederbelebung, sobald er genug Championschaden gestackt hat – ein Teamfight kann also zwei Tode, zwei Explosionen und zwei Upgrades des Verrückten Wissenschaftlers enthalten. Herzstahl füttert die Schleife, indem er sein maximales Leben dauerhaft erhöht, was die Klümpchen erben, während Warmogs Rüstung, Jak'Sho, der Proteaner und der Rest Leben und Resistenzen draufpacken, die die Klümpchen kopieren. Der Tank, der überleben soll, wird zum Champion, dessen eigentlicher Job es ist, mitten im gegnerischen Team zu sterben und wütender zurückzukommen.",
-      "play": "Schleudere dich ins gesamte gegnerische Team und lass dich über ihren Carries umbringen; die Explosionen und die Furcht decken deine Klümpchen. Komm zurück, triff weiter Champions, um Wild Entschlossen zu stacken, und mach es nochmal.",
+      "title": "Rechtsklick-Veigar",
+      "why": "Zeris Passiv hat eine Wegwerf-Zeile, die jeder ignoriert: Zeris Angriffe verursachen magischen Schaden und gelten als Fähigkeiten. Phänomenal bösartig nimmt das wörtlich, also stapelt jeder Rechtsklick auf einen Champion dauerhaft Fähigkeitsstärke, und Zeri wird zu einem Veigar, der seine Stacks per Auto-Attack farmt. Magierschütze schließt den Kreis, denn ihre Angriffe verursachen zusätzlichen Schaden basierend auf dieser Fähigkeitsstärke, also fließen die Stacks direkt zurück in die Autos. Doppelfeuer und Magisches Geschoss lösen beide bei Fähigkeitsschaden aus, also feuert jeder Auto zusätzlich Geschosse, und dank ihrer großen Reichweite fliegen die Schüsse von Magisches Geschoss weit. Die Items sind reine Magier-Items, die auf Fähigkeiten reagieren: Rylais Kristallzepter verlangsamt, Liandrys Qual brennt und Ludens Echo hallt bei jedem ihrer Autos, während Rabadons Todeshaube die Stacks multipliziert und Nashors Zahn das Angriffstempo liefert, um ihren „Zauber“ schneller zu wirken.",
+      "play": "Bau wie ein Magier, spiel wie ein Schütze: Bleib auf maximaler Reichweite und klick Champions pausenlos an, um Stacks zu farmen und Geschosse abzufeuern. Nimm Phänomenal bösartig früh, damit die Stacks das ganze Spiel lang wachsen.",
       "augments": [
-        "Bei jeder Wiederbelebung wirst du groß (erhältst 30% Adaptive Kraft und 20% Leben) oder winzig (erhältst 70 Fähigkeitseile und 40% Lauftempo).",
-        "Schaden an gegnerischen Champions mit Angriffen oder Fähigkeiten gewährt Stacks. Bei maximalen Stacks wirst du nach dem Tod gestärkt wiederbelebt.",
-        "Du erhältst den Beschwörerzauber Täuschen. Du erhältst die Passivfähigkeit Rückenstich. Wenn du stirbst, verursachst du eine große Menge wahren Schadens und versetzt Gegner in der Nähe in Furcht.",
-        "Explodiert, wenn du stirbst, und verursacht 20% des maximalen Lebens des Ziels als wahren Schaden an Gegnern in der Nähe."
+        "Du erhältst dauerhaft 1 Fähigkeitsstärke, wenn du gegnerischen Champions mit Fähigkeiten Schaden zufügst. Wird diese Augmentierung als zweite gewählt, startest du mit 40 Fähigkeitsstärke. Du hast FS erhalten. Veigar wäre stolz!",
+        "Deine Angriffe verursachen zusätzlichen normalen Schaden in Höhe von 75% der Fähigkeitsstärke.",
+        "Bei Fähigkeitsschaden feuerst du Geschosse ab, die jeweils magischen Schaden verursachen. Du erhältst 25% kritische Trefferchance.",
+        "Fähigkeitsschaden feuert 3 Geschosse auf jeden getroffenen Gegner, die je bis zu 1 % des maximalen Lebens als absoluten Schaden verursachen, abhängig von der zurückgelegten Strecke."
       ]
     },
     "el": {
-      "title": "Εκλιπών, Επανειλημμένα",
-      "why": "Η Κυτταρική Διαίρεση του Zac αντιμετωπίζει τον θάνατο σαν σαμαράκι: με θανατηφόρο ζημιά σπάει σε τέσσερα κομματάκια και αναστήνεται αν επιζήσει έστω ένα, και κάθε κομματάκι κρατά μερίδιο από τη μέγιστη Ζωή, την Πανοπλία και την Αντίσταση Μαγείας του. Η Η Μεγάλη των Κλόουν Σχολή και το Βομβαρδιστικό Εφορμήσεων πυροδοτούνται και οι δύο όταν πεθαίνει, προκαλώντας πραγματική ζημιά και τρομάζοντας τους κοντινούς εχθρούς, οπότε όσοι κανονικά θα πατούσαν τα κομματάκια τρέχουν μακριά ενώ αυτός ξαναφτιάχνεται. Ο Τρελός Επιστήμονας πληρώνει σε κάθε Ανάσταση, κάνοντάς τον μεγάλο ή μικροσκοπικό με επιπλέον στατιστικά, και η Αποφασιστικότητα προσθέτει δεύτερη ανάσταση όταν συσσωρεύσει αρκετή ζημιά σε ήρωες, οπότε μία μάχη ομάδων χωράει δύο θανάτους, δύο εκρήξεις και δύο αναβαθμίσεις του Τρελού Επιστήμονα. Ο Ατσαλόκαρδος τροφοδοτεί τον κύκλο αυξάνοντας μόνιμα τη μέγιστη Ζωή του, που κληρονομούν τα κομματάκια, ενώ η Πανοπλία του Γόρμογκ, ο Τζακ'Σο, Ο Πολυμορφικός και τα υπόλοιπα στοιβάζουν Ζωή και αντιστάσεις που αντιγράφουν τα κομματάκια. Ο τανκ που υποτίθεται ότι επιβιώνει γίνεται ήρωας με πραγματική δουλειά να πεθαίνει μέσα στην εχθρική ομάδα και να επιστρέφει πιο θυμωμένος.",
-      "play": "Εκτοξεύσου μέσα σε όλη την εχθρική ομάδα και άσε τους να σε σκοτώσουν πάνω από τους δικούς τους carry· οι εκρήξεις και ο Φόβος καλύπτουν τα κομματάκια σου. Γύρνα πίσω, συνέχισε να χτυπάς ήρωες για να στοιβάξεις Αποφασιστικότητα και ξανά από την αρχή.",
+      "title": "Βέιγκαρ με Δεξί Κλικ",
+      "why": "Το παθητικό της Ζέρι έχει μια πεταμένη γραμμή που όλοι αγνοούν: οι επιθέσεις της Ζέρι προκαλούν μαγική ζημιά και θεωρούνται Ικανότητες. Το Φαινομενικό Κακό το παίρνει κατά γράμμα, οπότε κάθε δεξί κλικ σε Πρωταθλητή προσθέτει μόνιμα Δύναμη Ικανοτήτων και η Ζέρι γίνεται ένας Βέιγκαρ που μαζεύει στοίβες με βασικές επιθέσεις. Ο Μάγος Σκοπευτής κλείνει τον κύκλο: οι επιθέσεις της προκαλούν επιπλέον ζημιά με βάση αυτή τη Δύναμη Ικανοτήτων, άρα οι στοίβες γυρνούν κατευθείαν στις επιθέσεις. Η Διπλή Φωτιά και το Μαγικό Βλήμα ενεργοποιούνται με ζημιά Ικανοτήτων, οπότε κάθε επίθεση εκτοξεύει και βλήματα, και το μεγάλο βεληνεκές της αφήνει τα βλήματα του Μαγικού Βλήματος να ταξιδεύουν μακριά. Τα αντικείμενα είναι καθαρά αντικείμενα μάγου που αντιδρούν στις Ικανότητες: το Κρυστάλλινο Σκήπτρο της Ριλάι επιβραδύνει, Το Μαρτύριο της Λιάντρι καίει και ο Απόηχος του Λούντεν αντηχεί σε κάθε επίθεση, ενώ το Καπέλο του Ράμπαντον πολλαπλασιάζει τις στοίβες και το Δόντι του Νάσορ δίνει Ταχύτητα Επίθεσης για να ρίχνει πιο γρήγορα το «ξόρκι» της.",
+      "play": "Χτίσε σαν μάγος, παίξε σαν σκοπευτής: μείνε στο μέγιστο βεληνεκές και κάνε κλικ στους Πρωταθλητές ασταμάτητα για να μαζεύεις στοίβες και να ρίχνεις βλήματα. Πάρε νωρίς το Φαινομενικό Κακό για να μεγαλώνουν οι στοίβες όλο το παιχνίδι.",
       "augments": [
-        "Σε κάθε Ανάσταση, μεγαλώνεις (κερδίζοντας 30% Προσαρμοστική Δύναμη και 20% Ζωή) ή μικραίνεις (κερδίζοντας 70 Επιτάχυνση Ικανοτήτων και 40% Ταχύτητα Κίνησης).",
-        "Η πρόκληση ζημιάς σε εχθρικούς ήρωες με Επιθέσεις ή Ικανότητες δίνει στοιβάδες. Στο μέγιστο των στοιβάδων, αναστήνεσαι ενισχυμένος όταν πεθάνεις.",
-        "Κερδίζεις το Ξόρκι Επικαλεστή Εξαπάτηση. Κερδίζεις την Παθητική Μαχαιριά στην Πλάτη. Όταν πεθάνεις, προκαλείς μεγάλη πραγματική ζημιά και τρομάζεις τους κοντινούς εχθρούς.",
-        "Εκρήγνυται όταν πεθάνεις, προκαλώντας πραγματική ζημιά ίση με 20% της μέγιστης Ζωής του στόχου στους κοντινούς εχθρούς."
+        "Κερδίζετε μόνιμα 1 Δύναμη Ικανοτήτων όταν προκαλείτε ζημιά σε εχθρικούς Πρωταθλητές με Ικανότητες. Αν επιλεχθεί ως δεύτερη Ενίσχυση, ξεκινάτε με 40 Δύναμη Ικανοτήτων. Κερδίσατε ΔΙ. Ο Βέιγκαρ θα ήταν περήφανος!",
+        "Οι επιθέσεις σας προκαλούν επιπλέον σωματική ζημιά ίση με το 75% της Δύναμης Ικανοτήτων.",
+        "Όταν προκαλείτε ζημιά Ικανοτήτων, εκτοξεύετε βλήματα που προκαλούν μαγική ζημιά το καθένα. Κερδίζετε 25% Πιθανότητα Καίριου Χτυπήματος.",
+        "Η πρόκληση ζημιάς με ικανότητες ρίχνει 3 βλήματα σε κάθε εχθρό που χτυπιέται, καθένα από τα οποία προκαλεί έως 1% της μέγιστης Ζωής ως καθαρή ζημιά ανάλογα με την απόσταση που διένυσε."
       ]
     },
     "es-MX": {
-      "title": "Fallecido, una y otra vez",
-      "why": "La División celular de Zac trata la muerte como un tope: al recibir daño letal se divide en cuatro blobitos y revive si alguno sobrevive, y cada blobito lleva una parte de su Vida máxima, Armadura y Resistencia mágica. Universidad de Payasos y Bombardero en Picada se activan cuando muere, lanzando daño verdadero y aterrando a los enemigos cercanos, así que quienes normalmente aplastarían a los blobs salen corriendo mientras él se reforma. Científico Loco paga en cada Resurrección, haciéndolo grande o diminuto con estadísticas extra, y Endemoniado añade una segunda resurrección cuando acumula suficiente daño a campeones, así que una sola pelea de equipo puede tener dos muertes, dos explosiones y dos mejoras de Científico Loco. Corazón de Acero alimenta el ciclo aumentando permanentemente su Vida máxima, que los blobs heredan, mientras que Armadura de Warmog, Jak'Sho, el Proteico y demás apilan Vida y resistencias que los blobs copian. El tanque que debería sobrevivir se vuelve un campeón cuyo verdadero trabajo es morir en medio del equipo enemigo y volver más enojado.",
-      "play": "Lánzate con la resortera contra todo el equipo enemigo y deja que te maten encima de sus carries; las explosiones y el Terror cubren a tus blobitos. Regresa, sigue pegándole a campeones para acumular Endemoniado y repítelo.",
+      "title": "Veigar de clic derecho",
+      "why": "La pasiva de Zeri tiene una línea de relleno que nadie lee: los ataques de Zeri infligen daño mágico y cuentan como habilidades. Poder Maligno Fenomenal se lo toma literal, así que cada clic derecho sobre un campeón acumula poder de habilidad para siempre y Zeri se vuelve una Veigar que farmea acumulaciones con puros autoataques. Tirador Mágico cierra el ciclo: sus ataques infligen daño adicional según ese poder de habilidad, así que las acumulaciones regresan directo a los autos. Cañones Gemelos y Misil Mágico se activan con daño de habilidad, así que cada auto también suelta proyectiles, y su gran alcance deja que los de Misil Mágico viajen lejos. Los objetos son puros objetos de mago que reaccionan a las habilidades: el Cetro de Cristal de Rylai ralentiza, El Tormento de Liandry quema y el Eco de Luden resuena con cada auto, mientras el Sombrero Mortífero de Rabadon multiplica las acumulaciones y el Diente de Nashor da la velocidad de ataque para lanzar su \"hechizo\" más rápido.",
+      "play": "Arma como mago, juega como tirador: quédate a alcance máximo y dale clic a los campeones sin parar para farmear acumulaciones y lanzar proyectiles. Toma Poder Maligno Fenomenal temprano para que las acumulaciones crezcan toda la partida.",
       "augments": [
-        "En cada Resurrección, creces (ganas 30% de Fuerza adaptable y 20% de Vida) o te vuelves diminuto (ganas 70 de Celeridad de habilidad y 40% de Velocidad de movimiento).",
-        "Dañar campeones enemigos con ataques o habilidades otorga acumulaciones. Con las acumulaciones al máximo, revives potenciado al morir.",
-        "Obtienes el hechizo de invocador Engañar. Obtienes la pasiva Puñalada trasera. Cuando mueres, infliges una gran cantidad de daño verdadero y aterras a los enemigos cercanos.",
-        "Explota cuando mueres, infligiendo daño verdadero equivalente al 20% de la Vida máxima del objetivo a los enemigos cercanos."
+        "Obtienes 1 de poder de habilidad permanente al infligir daño a campeones enemigos con habilidades. Si lo tomas como tu segundo aumento, empiezas con 40 de poder de habilidad. Ganaste PH. ¡Veigar estaría orgulloso!",
+        "Tus ataques infligen daño físico adicional equivalente al 75% del poder de habilidad.",
+        "Al infligir daño de habilidad, disparas proyectiles que infligen daño mágico cada uno. Obtienes 25% de probabilidad de golpe crítico.",
+        "Infligir daño de habilidad dispara 3 proyectiles a cada enemigo alcanzado, cada uno con hasta un 1 % de la vida máxima como daño verdadero según la distancia recorrida."
       ]
     },
     "es": {
-      "title": "Fallecido, repetidamente",
-      "why": "La División celular de Zac trata la muerte como un simple bache: al recibir daño letal se divide en cuatro blobs y revive si alguno sobrevive, y cada blob lleva una parte de su salud máxima, armadura y resistencia mágica. Universidad de payasos e Incursión bombardera se activan cuando muere, infligiendo daño verdadero y aterrorizando a los enemigos cercanos, así que quienes normalmente pisotearían a los blobs salen corriendo mientras él se recompone. Científico loco paga con cada resurrección, haciéndolo grande o diminuto con estadísticas extra, y Cabezonería añade una segunda resurrección cuando ha acumulado suficiente daño a campeones, así que una sola pelea de equipo puede incluir dos muertes, dos explosiones y dos mejoras de Científico loco. Corazón de acero alimenta el bucle aumentando permanentemente su salud máxima, que los blobs heredan, mientras que Armadura de Warmog, Jak'Sho el Proteico y el resto apilan salud y resistencias que los blobs copian. El tanque que debería sobrevivir se convierte en un campeón cuyo verdadero trabajo es morir en medio del equipo enemigo y volver más cabreado.",
-      "play": "Lánzate con el tirachinas contra todo el equipo enemigo y deja que te maten encima de sus carries; las explosiones y el terror cubren a tus blobs. Vuelve, sigue golpeando a campeones para acumular Cabezonería y repítelo.",
+      "title": "Veigar de clic derecho",
+      "why": "La pasiva de Zeri tiene una línea de relleno que nadie mira: los ataques de Zeri infligen daño mágico y se consideran habilidades. Maldad increíble se lo toma al pie de la letra, así que cada clic derecho sobre un campeón acumula poder de habilidad de forma permanente y Zeri se convierte en una Veigar que farmea acumulaciones a base de autoataques. Tirador mágico cierra el círculo: sus ataques infligen daño adicional según ese poder de habilidad, así que las acumulaciones vuelven directas a los autos. Fuego gemelo y Misil mágico se activan con daño de habilidad, así que cada auto también suelta proyectiles, y su gran alcance deja que los de Misil mágico viajen lejos. Los objetos son puros objetos de mago que reaccionan a las habilidades: el Cetro de cristal de Rylai ralentiza, el Tormento de Liandry quema y el Eco de Luden resuena con cada auto, mientras el Sombrero mortal de Rabadon multiplica las acumulaciones y el Diente de Nashor da la velocidad de ataque para lanzar su «hechizo» más rápido.",
+      "play": "Builds de mago, juegas de tirador: quédate a alcance máximo y haz clic a los campeones sin parar para farmear acumulaciones y lanzar proyectiles. Coge Maldad increíble pronto para que las acumulaciones crezcan toda la partida.",
       "augments": [
-        "En cada resurrección, creces (ganas un 30% de fuerza adaptativa y un 20% de salud) o te vuelves diminuto (ganas 70 de celeridad de habilidad y un 40% de velocidad de movimiento).",
-        "Dañar a campeones enemigos con ataques o habilidades otorga acumulaciones. Con las acumulaciones al máximo, revives potenciado al morir.",
-        "Obtienes el hechizo de invocador Engañar. Obtienes la pasiva Puñalada trasera. Cuando mueres, infliges una gran cantidad de daño verdadero y aterrorizas a los enemigos cercanos.",
-        "Explota cuando mueres, infligiendo a los enemigos cercanos daño verdadero equivalente al 20% de la salud máxima del objetivo."
+        "Obtienes 1 de poder de habilidad permanente al infligir daño a campeones enemigos con habilidades. Si lo eliges como segundo aumento, empiezas con 40 de poder de habilidad. Has ganado PH. ¡Veigar estaría orgulloso!",
+        "Tus ataques infligen daño físico adicional equivalente al 75% del poder de habilidad.",
+        "Al infligir daño de habilidad, disparas proyectiles que infligen daño mágico cada uno. Obtienes un 25% de probabilidad de impacto crítico.",
+        "Infligir daño de habilidad dispara 3 proyectiles a cada enemigo alcanzado, cada uno con hasta un 1 % de la vida máxima como daño verdadero según la distancia recorrida."
       ]
     },
     "fr": {
-      "title": "Décédé, à répétition",
-      "why": "La Division cellulaire de Zac traite la mort comme un simple ralentisseur : sur des dégâts mortels, il se divise en quatre blobs et ressuscite si l'un d'eux survit, et chaque blob porte une part de ses PV max, de son armure et de sa résistance magique. Université des clowns et Kamikaze se déclenchent tous deux à sa mort, infligeant des dégâts bruts et effrayant les ennemis proches, si bien que ceux qui écraseraient normalement les blobs prennent la fuite pendant qu'il se reforme. Savant fou paie à chaque résurrection, le rendant énorme ou minuscule avec des stats en plus, et Reviviscence ajoute une seconde résurrection une fois assez de dégâts aux champions accumulés, si bien qu'un seul combat d'équipe peut contenir deux morts, deux explosions et deux améliorations de Savant fou. Cœuracier alimente la boucle en augmentant définitivement ses PV max, que les blobs héritent, tandis que l'Armure de Warmog, Jak'Sho, le Protéiforme et le reste empilent PV et résistances que les blobs copient. Le tank censé survivre devient un champion dont le vrai boulot est de mourir au milieu de l'équipe ennemie et de revenir plus remonté.",
-      "play": "Catapulte-toi dans toute l'équipe ennemie et laisse-les te tuer au milieu de leurs carrys ; les explosions et la peur couvrent tes blobs. Reviens, continue de frapper des champions pour cumuler Reviviscence et recommence.",
+      "title": "Veigar au clic droit",
+      "why": "Le passif de Zeri cache une ligne que tout le monde ignore : les attaques de Zeri infligent des dégâts magiques et sont considérées comme des compétences. Pouvoir maléfique phénoménal le prend au pied de la lettre, donc chaque clic droit sur un champion cumule définitivement de la puissance, et Zeri devient une Veigar qui farme ses cumuls en attaques de base. Tireur magique boucle la boucle : ses attaques infligent des dégâts supplémentaires selon cette puissance, donc les cumuls repartent directement dans les autos. Boum boum et Projectiles magiques se déclenchent tous deux sur les dégâts de compétence, donc chaque auto envoie aussi des projectiles, et sa grande portée laisse ceux de Projectiles magiques voyager loin. Les objets sont de purs objets de mage qui réagissent aux compétences : le Sceptre de Rylai ralentit, le Tourment de Liandry brûle et l'Écho de Luden résonne sur chaque auto, tandis que la Coiffe de Rabadon multiplie les cumuls et la Dent de Nashor donne la vitesse d'attaque pour lancer son « sort » plus vite.",
+      "play": "Build de mage, gameplay de tireur : reste à portée max et clique les champions sans arrêt pour farmer des cumuls et envoyer des projectiles. Prends Pouvoir maléfique phénoménal tôt pour que les cumuls grandissent toute la partie.",
       "augments": [
-        "À chaque résurrection, tu deviens énorme (gain de 30 % de puissance adaptative et 20 % de PV) ou minuscule (gain de 70 d'accélération de compétence et 40 % de vitesse de déplacement).",
-        "Infliger des dégâts aux champions ennemis avec des attaques ou des compétences confère des cumuls. Au maximum de cumuls, tu ressuscites renforcé à ta mort.",
-        "Tu gagnes le sort d'invocateur Duperie. Tu gagnes la passive Attaque sournoise. À ta mort, tu infliges une grande quantité de dégâts bruts et effraies les ennemis proches.",
-        "Explose à ta mort, infligeant aux ennemis proches des dégâts bruts équivalents à 20 % des PV max de la cible."
+        "Vous gagnez définitivement 1 puissance quand vous infligez des dégâts aux champions ennemis avec des compétences. Si vous le prenez comme deuxième augment, vous commencez avec 40 puissance. Vous avez gagné de la puissance. Veigar serait fier !",
+        "Vos attaques infligent des dégâts physiques supplémentaires égaux à 75% de votre puissance.",
+        "Quand vous infligez des dégâts de compétence, vous tirez des projectiles qui infligent chacun des dégâts magiques. Vous gagnez 25% de chances de coup critique.",
+        "Infliger des dégâts de compétence tire 3 projectiles sur chaque ennemi touché, chacun infligeant jusqu'à 1 % des PV max en dégâts bruts selon la distance parcourue."
       ]
     },
     "hu": {
-      "title": "Elhunyt, ismételten",
-      "why": "Zac Sejtosztódása a halált sebességkorlátozónak tekinti: halálos sebzésnél négy gubancra esik szét, és feltámad, ha bármelyik túléli, és minden gubanc viszi a maximális életereje, páncélja és varázsellenállása egy részét. A Bohóciskola és az Öngyilkos bomba is a halálakor robban, valódi sebzést okoz és megfélemlíti a közeli ellenfeleket, így akik amúgy eltaposnák a gubancokat, elmenekülnek, amíg ő újraformálódik. Az Őrült tudós minden feltámadáskor fizet: nagyra vagy aprócskára növeszti extra statokkal, az Elszánt pedig egy második feltámadást ad, ha elég bajnoksebzést halmozott fel, így egyetlen csapatharcban két halál, két robbanás és két Őrült tudós fejlesztés is elfér. Az Acélos szív táplálja a hurkot azzal, hogy tartósan növeli a maximális életerejét, amit a gubancok örökölnek, míg a Warmog vértje, Jak'Sho, a váltakozó és a többi olyan életerőt és ellenállásokat halmoz, amit a gubancok lemásolnak. A tank, akinek túl kellene élnie, olyan bajnokká válik, akinek az igazi dolga, hogy az ellenfél csapatának közepén meghaljon és dühösebben jöjjön vissza.",
-      "play": "Csúzlizd be magad az egész ellenséges csapatba, és hagyd, hogy a carryjeik fölött öljenek meg; a robbanások és a Félelem fedezik a gubancaidat. Gyere vissza, ütögess bajnokokat az Elszánt halmozásához, és csináld újra.",
+      "title": "Jobbklikkes Veigar",
+      "why": "Zeri passzívjában van egy odavetett sor, amit mindenki figyelmen kívül hagy: Zeri támadásai mágikus sebzést okoznak, és képességnek számítanak. Az Elképesztően gonosz ezt szó szerint veszi, így minden jobbklikk egy hősre végleg képességerőt halmoz, és Zeri olyan Veigarrá válik, aki alaptámadásokkal farmolja a halmokat. A Mesterlövész mágus bezárja a kört: támadásai e képességerő alapján bónusz sebzést okoznak, így a halmok egyenesen visszamennek az alaptámadásokba. Az Ikertűz és a Varázslövedék is képességsebzésre aktiválódik, így minden alaptámadás lövedékeket is szór, nagy hatótávja pedig messzire repíti a Varázslövedék lövéseit. A tárgyak tiszta mágustárgyak, amelyek a képességekre reagálnak: Rylai kristálybotja lassít, Liandry gyötrelme éget, Luden visszhangja pedig visszhangzik minden alaptámadásnál, míg Rabadon halálsüvege megsokszorozza a halmokat, Nashor foga pedig támadási sebességet ad, hogy gyorsabban süsse el a „varázslatát”.",
+      "play": "Mágusként építkezz, lövészként játssz: maradj maximális távon, és kattints a hősökre megállás nélkül, hogy halmokat farmolj és lövedékeket lőj. Vedd fel korán az Elképesztően gonoszt, hogy a halmok az egész meccsen nőjenek.",
       "augments": [
-        "Minden feltámadáskor megnősz (30% Adaptív erőt és 20% életerőt kapsz) vagy aprócska leszel (70 képességgyorsítást és 40% mozgási sebességet kapsz).",
-        "Ellenséges bajnokok támadásokkal vagy képességekkel való sebzése töltetet ad. Maximális töltetnél halálodkor megerősödve támadsz fel.",
-        "Megkapod a Megtévesztés idézővarázst. Megkapod a Hátbaszúrás passzívát. Amikor meghalsz, nagy mennyiségű valódi sebzést okozol és megfélemlíted a közeli ellenfeleket.",
-        "Felrobban, amikor meghalsz, és a közeli ellenfeleknek a célpont maximális életerejének 20%-át kitevő valódi sebzést okoz."
+        "Véglegesen 1 képességerőt kapsz, amikor képességekkel sebzed az ellenséges hősöket. Ha második kiegészítésként választod, 40 képességerővel kezdesz. Képességerőt szereztél. Veigar büszke lenne!",
+        "Támadásaid a képességerő 75%-ának megfelelő további fizikai sebzést okoznak.",
+        "Képességsebzéskor lövedékeket lősz ki, amelyek egyenként mágikus sebzést okoznak. 25% kritikus találati esélyt kapsz.",
+        "A képességsebzés minden eltalált ellenfélre 3 lövedéket lő ki, mindegyik a megtett távolság alapján legfeljebb a maximális életerő 1%-ának megfelelő tiszta sebzést okoz."
       ]
     },
     "id": {
-      "title": "Mati, Berulang Kali",
-      "why": "Cell Division milik Zac menganggap kematian cuma polisi tidur: saat menerima damage fatal dia pecah jadi empat bloblet dan revive kalau ada yang selamat, dan tiap bloblet membawa sebagian max Health, Armor, dan Magic Resist-nya. Clown College dan Dive Bomber sama-sama meledak saat dia mati, memberi true damage dan membuat musuh di sekitar Fear, jadi orang yang biasanya menginjak blob malah lari sementara dia membentuk ulang dirinya. Mad Scientist membayar di setiap Revive, membuatnya jadi besar atau kecil dengan stat tambahan, dan Hellbent menambah revive kedua setelah dia menumpuk cukup damage ke champion, jadi satu teamfight bisa berisi dua kematian, dua ledakan, dan dua upgrade Mad Scientist. Heartsteel memberi makan loop ini dengan menaikkan max Health-nya secara permanen, yang diwarisi bloblet, sementara Warmog's Armor, Jak'Sho, The Protean, dan item lain menumpuk Health dan resist yang disalin blob. Tank yang seharusnya bertahan hidup berubah jadi champion yang tugas aslinya adalah mati di tengah tim musuh dan kembali dengan lebih marah.",
-      "play": "Slingshot ke seluruh tim musuh dan biarkan mereka membunuhmu di atas carry mereka sendiri; ledakan dan Fear melindungi bloblet-mu. Balik lagi, terus hajar champion untuk menumpuk Hellbent, lalu ulangi.",
+      "title": "Veigar Klik Kanan",
+      "why": "Pasif Zeri punya satu baris sepele yang diabaikan semua orang: Attack Zeri memberikan magic damage dan dianggap sebagai Ability. Phenomenal Evil membacanya secara harfiah, jadi setiap klik kanan ke champion menambah Ability Power secara permanen, dan Zeri berubah jadi Veigar yang farming stack lewat auto attack. Marksmage menutup lingkarannya: Attack-nya memberikan damage tambahan berdasarkan Ability Power itu, jadi stack langsung kembali ke auto attack. Twin Fire dan Magic Missile sama-sama aktif saat ability damage, jadi setiap auto juga menyemburkan missile, dan range panjangnya membuat missile dari Magic Missile terbang jauh. Item-nya murni item mage yang bereaksi pada Ability: Rylai's Crystal Scepter memberi slow, Liandry's Torment membakar, dan Luden's Echo bergema di setiap auto, sementara Rabadon's Deathcap melipatgandakan stack dan Nashor's Tooth memberi attack speed agar \"spell\"-nya keluar lebih cepat.",
+      "play": "Build seperti mage, main seperti marksman: berdiri di range maksimal dan klik kanan champion tanpa henti untuk farming stack dan meluncurkan missile. Ambil Phenomenal Evil lebih awal supaya stack tumbuh sepanjang game.",
       "augments": [
-        "Di setiap Revive, kamu jadi besar (mendapat 30% Adaptive Force dan 20% Health) atau kecil (mendapat 70 Ability Haste dan 40% Movement Speed).",
-        "Memberi damage ke champion musuh dengan Attack atau Ability memberi stack. Saat stack maksimal, kamu revive dengan buff saat mati.",
-        "Dapatkan Summoner Spell Deceive. Dapatkan Passive Backstab. Saat kamu mati, beri true damage dalam jumlah besar dan Fear musuh di sekitar.",
-        "Meledak saat kamu mati, memberi true damage sebesar 20% max Health target ke musuh di sekitar."
+        "Dapatkan 1 Ability Power secara permanen saat memberikan damage ke champion musuh dengan Ability. Jika diambil sebagai Augment kedua, mulai dengan 40 Ability Power. Kamu telah mendapatkan AP. Veigar pasti bangga!",
+        "Attack-mu memberikan physical damage tambahan sebesar 75% Ability Power.",
+        "Saat memberikan ability damage, tembakkan missile yang masing-masing memberikan magic damage. Dapatkan 25% Critical Strike Chance.",
+        "Memberi damage ability menembakkan 3 missile ke setiap musuh yang kena, masing-masing memberi hingga 1% Health maksimal sebagai true damage berdasarkan jarak tempuh."
       ]
     },
     "it": {
-      "title": "Defunto, a ripetizione",
-      "why": "La Divisione cellulare di Zac tratta la morte come un dosso: quando subisce danno letale si divide in quattro blobbetti e rivive se uno sopravvive, e ogni blobbetto porta una parte della sua Salute massima, Armatura e Resistenza magica. Università dei clown e Assaltatore scattano entrambi quando muore, infliggendo danno puro e spaventando i nemici vicini, così chi di solito pesterebbe i blob scappa via mentre lui si ricompone. Scienziato pazzo paga a ogni Resurrezione, rendendolo grande o minuscolo con statistiche extra, e Furioso aggiunge una seconda resurrezione quando ha accumulato abbastanza danno ai campioni, così un solo scontro può contenere due morti, due esplosioni e due potenziamenti di Scienziato pazzo. Cuore d'acciaio alimenta il ciclo aumentando in modo permanente la sua Salute massima, che i blob ereditano, mentre Armatura di Warmog, Jak'Sho, il Mutevole e il resto accumulano Salute e resistenze che i blob copiano. Il tank che dovrebbe sopravvivere diventa un campione il cui vero lavoro è morire in mezzo al team nemico e tornare più arrabbiato.",
-      "play": "Lanciati con la fionda in mezzo a tutto il team nemico e fatti uccidere sopra i loro carry; le esplosioni e la Paura coprono i tuoi blobbetti. Torna, continua a colpire i campioni per accumulare Furioso e rifallo.",
+      "title": "Veigar col tasto destro",
+      "why": "La passiva di Zeri ha una riga buttata lì che tutti ignorano: gli attacchi di Zeri infliggono danni magici e contano come abilità. Male fenomenale la prende alla lettera, quindi ogni clic destro su un campione accumula potere magico per sempre e Zeri diventa una Veigar che farma cariche a colpi di attacco base. Mago cecchino chiude il cerchio: i suoi attacchi infliggono danni aggiuntivi in base a quel potere magico, quindi le cariche tornano dritte negli auto. Doppio colpo e Proiettile magico si attivano entrambi coi danni da abilità, quindi ogni auto spara anche proiettili, e la sua lunga gittata fa viaggiare lontano quelli di Proiettile magico. Gli oggetti sono puri oggetti da mago che reagiscono alle abilità: lo Scettro di cristallo di Rylai rallenta, il Tormento di Liandry brucia e l'Eco di Luden risuona a ogni auto, mentre il Copricapo di Rabadon moltiplica le cariche e il Dente di Nashor dà la velocità d'attacco per lanciare il suo \"incantesimo\" più in fretta.",
+      "play": "Build da mago, gioco da tiratore: resta alla gittata massima e clicca i campioni senza sosta per farmare cariche e lanciare proiettili. Prendi Male fenomenale presto così le cariche crescono per tutta la partita.",
       "augments": [
-        "A ogni Resurrezione, diventi grande (ottieni il 30% di Forza adattiva e il 20% di Salute) o minuscolo (ottieni 70 di Velocità di abilità e il 40% di Velocità di movimento).",
-        "Danneggiare i campioni nemici con attacchi o abilità conferisce cariche. Alle cariche massime, quando muori rivivi potenziato.",
-        "Ottieni l'incantesimo dell'evocatore Inganno. Ottieni la passiva Pugnalata alle spalle. Quando muori, infliggi una grande quantità di danno puro e spaventi i nemici vicini.",
-        "Esplode quando muori, infliggendo ai nemici vicini danno puro pari al 20% della Salute massima del bersaglio."
+        "Ottieni permanentemente 1 potere magico quando infliggi danni ai campioni nemici con le abilità. Se lo prendi come secondo potenziamento, inizi con 40 potere magico. Hai ottenuto PM. Veigar ne sarebbe fiero!",
+        "I tuoi attacchi infliggono danni fisici aggiuntivi pari al 75% del potere magico.",
+        "Quando infliggi danni da abilità, spari proiettili che infliggono danni magici ciascuno. Ottieni il 25% di probabilità di colpo critico.",
+        "Infliggere danni da abilità spara 3 proiettili su ogni nemico colpito, ognuno dei quali infligge fino all'1% della salute massima in danni puri in base alla distanza percorsa."
       ]
     },
     "ja": {
-      "title": "死亡、何度でも",
-      "why": "ザックの細胞分裂は死を単なる減速帯として扱う。致死ダメージを受けると4つのスライムに分裂し、1体でも生き残れば復活する。各スライムは最大体力、アーマー、魔法防御の一部を引き継ぐ。ピエロ大学と急降下爆撃はどちらも死亡時に発動し、固定ダメージを与えて周囲の敵をフィアーにするので、本来ならスライムを踏み潰す敵が逃げ惑っている間に再構築できる。狂気の化学者は復活のたびに大型化または小型化して追加ステータスを得られ、ヘルベントは十分なチャンピオンへのダメージを溜めると2回目の復活を追加するので、1回の集団戦で2回の死、2回の爆発、2回の狂気の化学者強化が起こり得る。心の鋼は最大体力を永続的に上げてループを回し、それをスライムが引き継ぎ、ワーモグ アーマーや変幻自在のジャック＝ショーなどはスライムがコピーする体力と耐性を積み上げる。生き残るはずのタンクが、敵チームの真ん中で死んで、より怒って戻ってくるのが本職のチャンピオンになる。",
-      "play": "パチンコで敵チーム全員の中に飛び込み、敵のキャリーの上で死のう。爆発とフィアーがスライムを守ってくれる。復活したらチャンピオンを殴り続けてヘルベントを溜め、もう一度。",
+      "title": "右クリック・ベイガー",
+      "why": "ゼリのパッシブには誰も気にしない一文がある。「ゼリの通常攻撃は魔法ダメージを与え、スキルとして扱われる」。偉大なる悪はそれを文字通りに受け取るので、チャンピオンへの右クリック一発ごとに魔力が永続的に増え、ゼリは通常攻撃でスタックを稼ぐベイガーになる。マークスメイジがループを閉じる。通常攻撃がその魔力に応じた追加ダメージを与えるので、稼いだスタックがそのまま通常攻撃に戻ってくる。ツインファイアとマジックミサイルはどちらもスキルダメージで発動するので、通常攻撃のたびにミサイルもばら撒き、長い射程のおかげでマジックミサイルの弾は遠くまで飛ぶ。アイテムはスキルに反応する純メイジアイテム。リーライ クリスタル セプターがスロウを、ライアンドリーの仮面が炎上を、ルーデン エコーが残響を通常攻撃ごとに発動し、ラバドン デスキャップがスタックを増幅、ナッシャー トゥースが「スキル」を速く撃つための攻撃速度をくれる。",
+      "play": "ビルドはメイジ、立ち回りはマークスマン。最大射程に立ってチャンピオンをひたすら右クリックし、スタックを稼いでミサイルを飛ばそう。偉大なる悪は早めに取って、試合全体でスタックを育てよう。",
       "augments": [
-        "復活のたびに、大型化(適応力30%と体力20%を獲得)または小型化(スキルヘイスト70と移動速度40%を獲得)する。",
-        "攻撃またはアビリティで敵チャンピオンにダメージを与えるとスタックを獲得する。スタックが最大になると、死亡時に強化されて復活する。",
-        "サモナースペル「欺く」を獲得する。パッシブ「バックスタブ」を獲得する。死亡時、大量の固定ダメージを与え、周囲の敵をフィアーにする。",
-        "死亡時に爆発し、周囲の敵に対象の最大体力の20%の固定ダメージを与える。"
+        "スキルで敵チャンピオンにダメージを与えると、魔力が永続的に1増加する。2つ目のオーグメントとして選択した場合、魔力40の状態で開始する。魔力を獲得した。ベイガーも誇りに思うだろう！",
+        "通常攻撃が魔力の75%に相当する追加物理ダメージを与える。",
+        "スキルダメージを与えると、それぞれ魔法ダメージを与えるミサイルを発射する。クリティカル率+25%。",
+        "アビリティでダメージを与えると、当たった敵1体ごとにミサイルを3発発射し、それぞれが飛んだ距離に応じて最大で最大体力の1%の確定ダメージを与える。"
       ]
     },
     "ko": {
-      "title": "사망, 또 사망",
-      "why": "자크의 세포 분열은 죽음을 그저 과속방지턱 정도로 여깁니다. 치명적인 피해를 입으면 네 개의 방울로 분열하고, 하나라도 살아남으면 부활하며, 각 방울은 최대 체력, 방어력, 마법 저항력의 일부를 물려받습니다. 광대 대학과 폭격기는 모두 자크가 죽을 때 발동해 고정 피해를 입히고 주변 적에게 공포를 걸기 때문에, 평소라면 방울을 짓밟을 적들이 도망가는 사이 자크는 몸을 재결합합니다. 미친 과학자는 부활할 때마다 추가 능력치와 함께 거대화 또는 소형화시켜 주고, 열의는 챔피언에게 충분한 피해를 쌓으면 두 번째 부활을 추가하므로, 한 번의 한타에서 두 번의 죽음, 두 번의 폭발, 두 번의 미친 과학자 강화가 일어날 수 있습니다. 강철심장은 최대 체력을 영구히 올려 이 순환을 돕고 방울들이 그것을 물려받으며, 워모그의 갑옷, 해신 작쇼 등은 방울이 복사하는 체력과 저항력을 쌓아줍니다. 살아남아야 할 탱커가, 적 팀 한복판에서 죽고 더 화나서 돌아오는 것이 진짜 일인 챔피언이 됩니다.",
-      "play": "새총으로 적 팀 전체에 뛰어들어 적 캐리들 위에서 죽으세요. 폭발과 공포가 방울들을 지켜줍니다. 돌아와서 챔피언을 계속 때려 열의를 쌓고, 또 반복하세요.",
+      "title": "우클릭 베이가",
+      "why": "제리의 패시브에는 다들 무시하는 한 줄이 있다: 제리의 기본 공격은 마법 피해를 입히며 스킬로 취급된다. 극악무도는 이걸 글자 그대로 받아들여서, 챔피언에게 우클릭할 때마다 주문력이 영구히 쌓이고 제리는 평타로 스택을 파밍하는 베이가가 된다. 마법 명사수가 고리를 완성한다: 기본 공격이 그 주문력에 비례한 추가 피해를 입히니, 쌓은 스택이 그대로 평타로 돌아온다. 쌍둥이 불꽃과 마법 미사일은 둘 다 스킬 피해에 발동하니 평타마다 미사일까지 뿌리고, 긴 사거리 덕분에 마법 미사일 탄이 멀리 날아간다. 아이템은 스킬에 반응하는 순수 마법사 아이템이다: 라일라이의 수정홀은 둔화를, 리안드리의 고통은 화상을, 루덴의 메아리는 메아리를 평타마다 터뜨리고, 라바돈의 죽음모자는 스택을 불려주고 내셔의 이빨은 '스킬'을 더 빨리 쓰게 해 줄 공격 속도를 준다.",
+      "play": "빌드는 마법사, 플레이는 원딜: 최대 사거리에서 챔피언을 쉬지 않고 우클릭해 스택을 파밍하고 미사일을 날리자. 스택이 게임 내내 자라도록 극악무도는 일찍 집자.",
       "augments": [
-        "부활할 때마다 거대화(적응형 능력치 30%와 체력 20% 획득)하거나 소형화(스킬 가속 70과 이동 속도 40% 획득)합니다.",
-        "공격이나 스킬로 적 챔피언에게 피해를 입히면 중첩을 얻습니다. 최대 중첩이 되면 죽을 때 강화된 상태로 부활합니다.",
-        "소환사 주문 '기만'을 얻습니다. 패시브 '백스탭'을 얻습니다. 죽으면 막대한 고정 피해를 입히고 주변 적에게 공포를 겁니다.",
-        "죽을 때 폭발하여 주변 적에게 대상 최대 체력의 20%만큼 고정 피해를 입힙니다."
+        "스킬로 적 챔피언에게 피해를 입히면 주문력이 영구적으로 1 증가합니다. 두 번째 증강으로 선택하면 주문력 40으로 시작합니다. 주문력을 얻었습니다. 베이가가 자랑스러워할 겁니다!",
+        "기본 공격이 주문력의 75%만큼 추가 물리 피해를 입힙니다.",
+        "스킬 피해를 입히면 각각 마법 피해를 입히는 미사일을 발사합니다. 치명타 확률이 25% 증가합니다.",
+        "스킬 피해를 입히면 맞은 적마다 미사일 3발을 발사하며, 각각 날아간 거리에 따라 최대 체력의 최대 1%만큼 고정 피해를 입힙니다."
       ]
     },
     "pl": {
-      "title": "Zmarły, wielokrotnie",
-      "why": "Podział komórkowy Zaca traktuje śmierć jak próg zwalniający: przy śmiertelnych obrażeniach rozpada się na cztery blobiki i wskrzesza się, jeśli któryś przeżyje, a każdy blobik niesie część jego maksymalnego zdrowia, pancerza i odporności na magię. Wyższa Szkoła Błaznowania i Bombowe Zakończenie odpalają się obie po jego śmierci, zadając obrażenia nieuchronne i przerażając pobliskich wrogów, więc ci, którzy normalnie rozdeptaliby blobiki, uciekają, kiedy on się składa na nowo. Szalony Naukowiec wypłaca przy każdym Wskrzeszeniu, robiąc z niego olbrzyma lub maluszka z dodatkowymi statystykami, a Piekielna determinacja dodaje drugie wskrzeszenie, gdy nazbiera dość obrażeń zadanych bohaterom, więc jedna walka drużynowa może zmieścić dwie śmierci, dwie eksplozje i dwa ulepszenia Szalonego Naukowca. Stalowe Serce karmi pętlę, trwale zwiększając jego maksymalne zdrowie, które dziedziczą blobiki, a Plemienna Zbroja, Jak'Sho Zmienny i reszta piętrzą zdrowie i odporności, które blobiki kopiują. Tank, który ma przetrwać, staje się bohaterem, którego prawdziwą robotą jest umrzeć w środku wrogiej drużyny i wrócić bardziej wkurzonym.",
-      "play": "Wystrzel się w całą wrogą drużynę i daj się zabić nad ich carry; eksplozje i Strach osłaniają twoje blobiki. Wróć, dalej bij bohaterów, żeby stackować Piekielną determinację, i zrób to jeszcze raz.",
+      "title": "Veigar pod prawym przyciskiem",
+      "why": "Bierna umiejętność Zeri ma linijkę, którą wszyscy ignorują: ataki Zeri zadają obrażenia magiczne i są traktowane jak umiejętności. Niezwykła Nikczemność bierze to dosłownie, więc każdy prawy klik na bohaterze na stałe dodaje moc umiejętności, a Zeri staje się Veigarem, który farmi ładunki autoatakami. Czarostrzelec zamyka pętlę: jej ataki zadają dodatkowe obrażenia zależne od tej mocy umiejętności, więc ładunki wracają prosto do autoataków. Bliźniaczy Ogień i Magiczny Pocisk aktywują się przy obrażeniach od umiejętności, więc każdy autoatak wystrzeliwuje też pociski, a jej duży zasięg pozwala pociskom Magicznego Pocisku lecieć daleko. Przedmioty to czyste przedmioty maga reagujące na umiejętności: Kryształowy Kostur Rylai spowalnia, Udręka Liandry'ego podpala, a Echo Luden rozbrzmiewa przy każdym autoataku, podczas gdy Zabójczy Kapelusz Rabadona mnoży ładunki, a Ząb Nashora daje prędkość ataku, by szybciej rzucać jej „czar”.",
+      "play": "Buduj jak mag, graj jak strzelec: stój na maksymalnym zasięgu i klikaj bohaterów bez przerwy, żeby farmić ładunki i wypuszczać pociski. Bierz Niezwykłą Nikczemność wcześnie, by ładunki rosły przez całą grę.",
       "augments": [
-        "Przy każdym Wskrzeszeniu rośniesz (zyskujesz 30% Adaptacyjnej Siły i 20% zdrowia) albo stajesz się maleńki (zyskujesz 70 Przyspieszenia Umiejętności i 40% Prędkości Ruchu).",
-        "Zadawanie obrażeń wrogim bohaterom atakami lub umiejętnościami daje ładunki. Przy maksymalnej liczbie ładunków po śmierci wskrzeszasz się wzmocniony.",
-        "Zyskujesz czar przywoływacza Zwód. Zyskujesz pasywkę Cios w Plecy. Kiedy giniesz, zadajesz dużą ilość obrażeń nieuchronnych i przerażasz pobliskich wrogów.",
-        "Wybucha, gdy giniesz, zadając pobliskim wrogom obrażenia nieuchronne równe 20% maksymalnego zdrowia celu."
+        "Na stałe zyskujesz 1 pkt. mocy umiejętności, gdy zadajesz obrażenia wrogim bohaterom umiejętnościami. Jeśli wybierzesz to jako drugie ulepszenie, zaczynasz z 40 pkt. mocy umiejętności. Zdobyto MU. Veigar byłby dumny!",
+        "Twoje ataki zadają dodatkowe obrażenia fizyczne równe 75% mocy umiejętności.",
+        "Przy zadaniu obrażeń umiejętnością wystrzeliwujesz pociski, z których każdy zadaje obrażenia magiczne. Zyskujesz 25% szansy na trafienie krytyczne.",
+        "Zadawanie obrażeń umiejętnościami wystrzeliwuje 3 pociski w każdego trafionego wroga, z których każdy zadaje do 1% maks. zdrowia jako obrażenia nieuchronne zależnie od przebytego dystansu."
       ]
     },
     "pt-BR": {
-      "title": "Falecido, repetidamente",
-      "why": "A Divisão Celular do Zac trata a morte como um quebra-molas: ao receber dano fatal ele se divide em quatro blobinhos e revive se algum sobreviver, e cada blobinho carrega uma parte da Vida máxima, Armadura e Resistência Mágica dele. Faculdade de Palhaço e Bombardeiro disparam quando ele morre, causando dano verdadeiro e aterrorizando inimigos próximos, então quem normalmente pisotearia os blobs sai correndo enquanto ele se reforma. Cientista Louco paga a cada Ressurreição, deixando-o grande ou minúsculo com atributos extras, e Possuído adiciona uma segunda ressurreição quando ele acumula dano suficiente em campeões, então uma única luta de equipe pode ter duas mortes, duas explosões e dois aprimoramentos de Cientista Louco. Coração de Aço alimenta o ciclo aumentando permanentemente a Vida máxima dele, que os blobs herdam, enquanto Armadura de Warmog, Jak'Sho, o Inconstante e o resto empilham Vida e resistências que os blobs copiam. O tanque que deveria sobreviver vira um campeão cujo verdadeiro trabalho é morrer no meio do time inimigo e voltar mais bravo.",
-      "play": "Se lance com o estilingue no time inimigo inteiro e deixe que te matem em cima dos carries deles; as explosões e o Medo protegem seus blobinhos. Volte, continue batendo em campeões para acumular Possuído e faça de novo.",
+      "title": "Veigar do Botão Direito",
+      "why": "A passiva da Zeri tem uma linha jogada fora que todo mundo ignora: os ataques da Zeri causam dano mágico e contam como habilidades. Poder Maligno Fenomenal leva isso ao pé da letra, então cada clique direito num campeão acumula Poder de Habilidade pra sempre, e a Zeri vira uma Veigar que farma acúmulos no auto-ataque. Mago Atirador fecha o ciclo: os ataques dela causam dano adicional com base nesse Poder de Habilidade, então os acúmulos voltam direto pros autos. Fogo Duplo e Projétil Mágico ativam com dano de habilidade, então cada auto também solta projéteis, e o alcance longo dela deixa os de Projétil Mágico viajarem longe. Os itens são puros itens de mago que reagem a habilidades: o Cetro de Cristal de Rylai causa lentidão, o Tormento de Liandry queima e o Eco de Luden ecoa a cada auto, enquanto o Capuz da Morte de Rabadon multiplica os acúmulos e o Dente de Na'Shor dá a velocidade de ataque pra soltar a \"magia\" dela mais rápido.",
+      "play": "Build de mago, gameplay de atirador: fica no alcance máximo e clica nos campeões sem parar pra farmar acúmulos e soltar projéteis. Pega Poder Maligno Fenomenal cedo pros acúmulos crescerem a partida toda.",
       "augments": [
-        "A cada Ressurreição, você cresce (ganhando 30% de Força Adaptativa e 20% de Vida) ou fica minúsculo (ganhando 70 de Aceleração de Habilidade e 40% de Velocidade de Movimento).",
-        "Causar dano a campeões inimigos com Ataques ou Habilidades concede acúmulos. Com os acúmulos no máximo, você revive fortalecido ao morrer.",
-        "Ganha o Feitiço de Invocador Enganar. Ganha a Passiva Facada nas Costas. Quando você morre, causa uma grande quantidade de dano verdadeiro e aterroriza inimigos próximos.",
-        "Explode quando você morre, causando dano verdadeiro equivalente a 20% da Vida máxima do alvo aos inimigos próximos."
+        "Ganhe permanentemente 1 de Poder de Habilidade ao causar dano a campeões inimigos com habilidades. Se escolhido como seu segundo Aumento, começa com 40 de Poder de Habilidade. Você ganhou PH. O Veigar ficaria orgulhoso!",
+        "Seus ataques causam dano físico adicional igual a 75% do Poder de Habilidade.",
+        "Ao causar dano de habilidade, dispara projéteis que causam dano mágico cada. Ganhe 25% de Chance de Acerto Crítico.",
+        "Causar dano de habilidade dispara 3 projéteis em cada inimigo atingido, cada um causando até 1% da Vida máxima como dano verdadeiro com base na distância percorrida."
       ]
     },
     "ro": {
-      "title": "Decedat, în repetate rânduri",
-      "why": "Diviziunea celulară a lui Zac tratează moartea ca pe o limitare de viteză: la daune fatale se desparte în patru blobi și înviază dacă oricare supraviețuiește, iar fiecare blob poartă o parte din Viața maximă, Armura și Rezistența magică ale lui. Universitatea clovnilor și Bombardier în picaj se declanșează amândouă când moare, provocând daune reale și înfricoșând inamicii din apropiere, așa că cei care ar călca de obicei blobii fug în timp ce el se reface. Savant nebun plătește la fiecare Înviere, făcându-l mare sau minuscul cu statistici în plus, iar Înverșunare adaugă a doua înviere când acumulează destule daune asupra campionilor, așa că o singură luptă de echipă poate conține două morți, două explozii și două îmbunătățiri de Savant nebun. Inimă de oțel alimentează bucla crescând permanent Viața lui maximă, pe care blobii o moștenesc, în timp ce Armura lui Warmog, Jak'Sho cel schimbător și restul adună Viață și rezistențe pe care blobii le copiază. Tancul care ar trebui să supraviețuiască devine un campion a cărui adevărată meserie e să moară în mijlocul echipei inamice și să se întoarcă mai furios.",
-      "play": "Aruncă-te cu praștia în toată echipa inamică și lasă-i să te omoare peste carry-urile lor; exploziile și Frica îți acoperă blobii. Întoarce-te, continuă să lovești campioni ca să aduni Înverșunare și fă-o din nou.",
+      "title": "Veigar pe click dreapta",
+      "why": "Pasiva lui Zeri are un rând aruncat pe care toată lumea îl ignoră: atacurile lui Zeri provoacă daune magice și sunt considerate abilități. Rău fenomenal ia asta ad litteram, așa că fiecare click dreapta pe un campion adaugă permanent putere a abilităților, iar Zeri devine un Veigar care farmează cumuluri din atacuri de bază. Țintaș magic închide bucla: atacurile ei provoacă daune suplimentare în funcție de acea putere a abilităților, așa că acumulările se întorc direct în autoatacuri. Foc dublu și Proiectile magice se declanșează amândouă la daune din abilități, deci fiecare autoatac trage și proiectile, iar raza ei mare lasă proiectilele de la Proiectile magice să zboare departe. Obiectele sunt pur de mag și reacționează la abilități: Sceptrul de cristal al lui Rylai încetinește, Agonia Liandrei arde și Ecoul lui Luden răsună la fiecare autoatac, în timp ce Pălăria malefică a lui Rabadon multiplică acumulările, iar Dintele lui Nashor dă viteza de atac ca să-și arunce „vraja” mai repede.",
+      "play": "Construiește ca un mag, joacă ca un trăgător: stai la rază maximă și dă click pe campioni non-stop ca să farmezi cumuluri și să lansezi proiectile. Ia Rău fenomenal devreme, ca acumulările să crească tot meciul.",
       "augments": [
-        "La fiecare Înviere, devii mare (primești 30% Forță adaptivă și 20% Viață) sau minuscul (primești 70 Accelerare abilități și 40% Viteză de mișcare).",
-        "Provocarea de daune campionilor inamici cu Atacuri sau Abilități oferă acumulări. La acumulări maxime, înviezi întărit când mori.",
-        "Primești Vraja invocatorului Înșelăciune. Primești Pasiva Lovitură pe la spate. Când mori, provoci o cantitate mare de daune reale și înfricoșezi inamicii din apropiere.",
-        "Explodează când mori, provocând inamicilor din apropiere daune reale egale cu 20% din Viața maximă a țintei."
+        "Primești permanent 1 putere a abilităților când provoci daune campionilor inamici cu abilități. Dacă îl alegi ca a doua augmentare, începi cu 40 putere a abilităților. Ai câștigat PA. Veigar ar fi mândru!",
+        "Atacurile tale provoacă daune fizice suplimentare egale cu 75% din puterea abilităților.",
+        "La daune din abilități, tragi proiectile care provoacă fiecare daune magice. Primești 25% șansă de lovitură critică.",
+        "Provocarea de daune cu abilități lansează 3 proiectile spre fiecare inamic lovit, fiecare provocând până la 1% din viața maximă ca daune absolute în funcție de distanța parcursă."
       ]
     },
     "ru": {
-      "title": "Скончался, многократно",
-      "why": "Деление клеток Зака считает смерть лишь лежачим полицейским: при смертельном уроне он распадается на четыре сгустка и воскресает, если хоть один выживет, и каждый сгусток несет долю его максимального здоровья, брони и сопротивления магии. Цирковое искусство и Прощальный подарок срабатывают при его смерти, нанося чистый урон и пугая врагов рядом, так что те, кто обычно топтал бы сгустки, разбегаются, пока он собирается заново. Безумный ученый платит при каждом Воскрешении, делая его огромным или крошечным с бонусными характеристиками, а Одержимость добавляет второе воскрешение, когда он накопит достаточно урона по чемпионам, так что в одной командной драке может уместиться две смерти, два взрыва и два улучшения Безумного ученого. Сердце стали подпитывает цикл, навсегда увеличивая его максимальное здоровье, которое наследуют сгустки, а Доспех Вармога, Жак'Шо Многоликий и прочее набивают здоровье и сопротивления, которые сгустки копируют. Танк, который должен выживать, становится чемпионом, чья настоящая работа - умереть посреди вражеской команды и вернуться злее.",
-      "play": "Катапультируйся во всю вражескую команду и дай им убить себя поверх их кэрри; взрывы и страх прикроют твои сгустки. Вернись, продолжай бить чемпионов, чтобы копить Одержимость, и повтори.",
+      "title": "Вейгар на правой кнопке",
+      "why": "В пассивке Зери есть проходная строчка, которую все игнорируют: атаки Зери наносят магический урон и считаются умениями. Невероятное зло понимает это буквально, так что каждый правый клик по чемпиону навсегда добавляет силу умений, и Зери превращается в Вейгара, который фармит заряды автоатаками. Маг-стрелок замыкает цикл: её атаки наносят дополнительный урон от этой силы умений, так что заряды сразу возвращаются в автоатаки. Сдвоенный залп и Волшебные стрелы срабатывают от урона умениями, поэтому каждая автоатака ещё и выпускает снаряды, а большая дальность позволяет стрелам улетать далеко. Предметы — чистые предметы мага, реагирующие на умения: Хрустальный скипетр Рилай замедляет, Мучения Лиандри поджигают, а Эхо Людена отзывается на каждую автоатаку, пока Смертельная шляпа Рабадона умножает заряды, а Зуб Нашора даёт скорость атаки, чтобы быстрее кастовать её «заклинание».",
+      "play": "Собирайся как маг, играй как стрелок: стой на максимальной дальности и без остановки кликай по чемпионам, чтобы фармить заряды и пускать снаряды. Бери Невероятное зло пораньше, чтобы заряды росли всю игру.",
       "augments": [
-        "При каждом Воскрешении ты становишься огромным (получаешь 30% адаптивной силы и 20% здоровья) или крошечным (получаешь 70 ускорения умений и 40% скорости движения).",
-        "Нанесение урона вражеским чемпионам атаками или умениями дает заряды. При максимуме зарядов после смерти ты воскресаешь усиленным.",
-        "Ты получаешь заклинание призывателя Обман и пассивное умение Удар в спину. Когда ты умираешь, наносишь большое количество чистого урона и пугаешь ближайших врагов.",
-        "Взрывается при твоей смерти, нанося ближайшим врагам чистый урон в размере 20% от максимального здоровья цели."
+        "Навсегда получайте 1 ед. силы умений, нанося урон вражеским чемпионам умениями. Если выбрано вторым усилением, вы начинаете с 40 ед. силы умений. Вы получили СУ. Вейгар бы гордился!",
+        "Ваши атаки наносят дополнительный физический урон в размере 75% силы умений.",
+        "При нанесении урона умениями вы выпускаете снаряды, каждый из которых наносит магический урон. Вы получаете 25% шанса критического удара.",
+        "Нанесение урона умениями выпускает 3 снаряда в каждого задетого врага, каждый из которых наносит до 1% от максимального запаса здоровья в виде чистого урона в зависимости от пройденного расстояния."
       ]
     },
     "th": {
-      "title": "ตายแล้วตายอีก",
-      "why": "Cell Division ของ Zac มองความตายเป็นแค่เนินชะลอความเร็ว: เมื่อโดนดาเมจถึงตายเขาจะแยกเป็นบล็อบเล็ก ๆ สี่ก้อนและฟื้นคืนชีพถ้ามีก้อนไหนรอด โดยแต่ละก้อนจะได้ส่วนแบ่งของ Health, Armor และ Magic Resist สูงสุดของเขา Clown College และ Dive Bomber ทำงานตอนเขาตาย สร้าง true damage และทำให้ศัตรูใกล้ ๆ ติด Fear คนที่ปกติจะเหยียบบล็อบจึงวิ่งหนีระหว่างที่เขากลับมารวมร่าง Mad Scientist จ่ายผลตอบแทนทุกครั้งที่ Revive ทำให้เขาตัวใหญ่หรือตัวเล็กพร้อมสเตตัสเพิ่ม และ Hellbent เพิ่ม revive ครั้งที่สองเมื่อสะสมดาเมจใส่แชมเปี้ยนได้มากพอ ทีมไฟต์เดียวจึงมีได้สองการตาย สองการระเบิด และสองอัปเกรด Mad Scientist Heartsteel ป้อนลูปนี้ด้วยการเพิ่ม Health สูงสุดถาวรซึ่งบล็อบสืบทอด ส่วน Warmog's Armor, Jak'Sho, The Protean และไอเทมอื่น ๆ ก็พอก Health และเรซิสต์ที่บล็อบคัดลอก แทงค์ที่ควรจะรอดกลายเป็นแชมเปี้ยนที่หน้าที่จริงคือไปตายกลางทีมศัตรูแล้วกลับมาโกรธกว่าเดิม",
-      "play": "Slingshot เข้าใส่ทั้งทีมศัตรูแล้วให้พวกมันฆ่าคุณทับบนแครี่ของตัวเอง การระเบิดและ Fear ช่วยคุ้มกันบล็อบของคุณ กลับมา ตีแชมเปี้ยนต่อเพื่อสะสม Hellbent แล้วทำซ้ำ",
+      "title": "Veigar คลิกขวา",
+      "why": "พาสซีฟของ Zeri มีประโยคเล็ก ๆ ที่ทุกคนมองข้าม: การโจมตีของ Zeri สร้างความเสียหายเวทและนับเป็นสกิล Phenomenal Evil ตีความตรงตัว ทุกคลิกขวาใส่แชมเปี้ยนจึงเพิ่ม Ability Power ถาวร และ Zeri กลายเป็น Veigar ที่ฟาร์มสแตกด้วยการตีธรรมดา Marksmage ปิดวงจร: การโจมตีของเธอสร้างความเสียหายเพิ่มตาม Ability Power นั้น สแตกจึงย้อนกลับเข้าการตีทันที Twin Fire และ Magic Missile ทำงานเมื่อสร้างความเสียหายจากสกิลทั้งคู่ ทุกการตีจึงยิงมิสไซล์ออกไปด้วย และระยะยิงที่ไกลทำให้ลูกของ Magic Missile พุ่งไปได้ไกล ไอเทมเป็นไอเทมเมจล้วนที่ตอบสนองต่อสกิล: Rylai's Crystal Scepter ทำให้ช้า, Liandry's Torment เผา และ Luden's Echo สะท้อนทุกการตี ขณะที่ Rabadon's Deathcap ขยายสแตก และ Nashor's Tooth ให้ความเร็วโจมตีเพื่อปล่อย \"สกิล\" ได้ไวขึ้น",
+      "play": "ออกของแบบเมจ เล่นแบบแครี่: ยืนระยะสุดและคลิกขวาใส่แชมเปี้ยนไม่หยุดเพื่อฟาร์มสแตกและยิงมิสไซล์ เลือก Phenomenal Evil เร็ว ๆ ให้สแตกโตไปตลอดเกม",
       "augments": [
-        "ทุกครั้งที่ Revive คุณจะตัวใหญ่ (ได้ 30% Adaptive Force และ 20% Health) หรือตัวเล็ก (ได้ 70 Ability Haste และ 40% Movement Speed)",
-        "การสร้างดาเมจใส่แชมเปี้ยนศัตรูด้วย Attack หรือ Ability จะให้สแตก เมื่อสแตกเต็ม คุณจะฟื้นคืนชีพแบบเสริมพลังเมื่อตาย",
-        "ได้รับ Summoner Spell Deceive ได้รับ Passive Backstab เมื่อคุณตาย จะสร้าง true damage จำนวนมากและทำให้ศัตรูใกล้ ๆ ติด Fear",
-        "ระเบิดเมื่อคุณตาย สร้าง true damage เท่ากับ 20% ของ Health สูงสุดของเป้าหมายใส่ศัตรูใกล้ ๆ"
+        "ได้รับ Ability Power 1 หน่วยถาวรเมื่อสร้างความเสียหายให้แชมเปี้ยนศัตรูด้วยสกิล หากเลือกเป็น Augment ที่สอง จะเริ่มด้วย Ability Power 40 คุณได้รับ AP แล้ว Veigar คงภูมิใจ!",
+        "การโจมตีของคุณสร้างความเสียหายกายภาพเพิ่มเท่ากับ 75% ของ Ability Power",
+        "เมื่อสร้างความเสียหายจากสกิล ยิงมิสไซล์ที่แต่ละลูกสร้างความเสียหายเวท ได้รับโอกาสคริติคอล 25%",
+        "การสร้างดาเมจจากสกิลจะยิงมิสไซล์ 3 ลูกใส่ศัตรูทุกตัวที่โดน แต่ละลูกสร้างดาเมจจริงสูงสุด 1% ของพลังชีวิตสูงสุดตามระยะทางที่บิน"
       ]
     },
     "tr": {
-      "title": "Vefat Etti, Defalarca",
-      "why": "Zac'in Hücre Bölünmesi ölümü hız tümseği sayar: ölümcül hasarda dört yumağa bölünür ve biri hayatta kalırsa dirilir, her yumak maksimum Can, Zırh ve Büyü Direncinin bir payını taşır. Palyaço Koleji ve Kamikaze ikisi de öldüğünde patlar, gerçek hasar verir ve yakındaki düşmanları Korkutur; yani normalde yumakları ezecek kişiler o kendini toparlarken kaçar. Çılgın Bilim İnsanı her Dirilişte ödeme yapar, onu ek statlarla büyük ya da minik yapar, Cehennem Gazabı ise yeterince şampiyon hasarı biriktirince ikinci bir diriliş ekler; yani tek bir takım savaşında iki ölüm, iki patlama ve iki Çılgın Bilim İnsanı yükseltmesi sığabilir. Çelikyürek maksimum Canını kalıcı artırarak döngüyü besler ve yumaklar bunu miras alır, Warmog'un Zırhı, Şahbaz Jak'Sho ve diğerleri ise yumakların kopyaladığı Can ve dirençleri yığar. Hayatta kalması beklenen tank, asıl işi düşman takımının ortasında ölüp daha öfkeli geri dönmek olan bir şampiyona dönüşür.",
-      "play": "Sapanla bütün düşman takımının içine uç ve kendi carry'lerinin üstünde seni öldürmelerine izin ver; patlamalar ve Korku yumaklarını korur. Geri dön, Cehennem Gazabı biriktirmek için şampiyonlara vurmaya devam et ve tekrarla.",
+      "title": "Sağ Tık Veigar",
+      "why": "Zeri'nin pasifinde herkesin görmezden geldiği bir satır var: Zeri'nin saldırıları büyü hasarı verir ve yetenek sayılır. Acayip Kötülük bunu harfiyen alır, yani bir şampiyona her sağ tık kalıcı olarak Yetenek Gücü biriktirir ve Zeri, temel saldırıyla yük kasan bir Veigar'a dönüşür. Efsunlu Saldırılar döngüyü kapatır: saldırıları bu Yetenek Gücüne göre ek hasar verir, yani yükler doğrudan saldırılara geri döner. İkiz Ateş ve Büyü Atışı yetenek hasarıyla tetiklenir, bu yüzden her saldırı ayrıca mermiler fırlatır ve uzun menzili sayesinde Büyü Atışı'nın mermileri uzağa gider. Eşyalar yeteneklere tepki veren saf büyücü eşyalarıdır: Rylai'nin Kristal Asası yavaşlatır, Liandry'nin Eziyeti yakar ve Luden'in Feryadı her saldırıda yankılanır; Rabadon'un Şapkası yükleri katlar, Nashor'un Dişi ise \"büyüsünü\" daha hızlı yapması için saldırı hızı verir.",
+      "play": "Büyücü gibi kur, nişancı gibi oyna: azami menzilde dur ve yük kasmak, mermi yağdırmak için şampiyonlara durmadan tıkla. Yüklerin tüm oyun boyunca büyümesi için Acayip Kötülük'ü erken al.",
       "augments": [
-        "Her Dirilişte büyürsün (%30 Uyarlanabilir Güç ve %20 Can kazanırsın) ya da minik olursun (70 Yetenek Hızı ve %40 Hareket Hızı kazanırsın).",
-        "Saldırılar veya Yeteneklerle düşman şampiyonlara hasar vermek yığın kazandırır. Maksimum yığında öldüğünde güçlenmiş olarak dirilirsin.",
-        "Çağırıcı Büyüsü Aldatma'yı kazanırsın. Pasif Sırtından Bıçaklama'yı kazanırsın. Öldüğünde büyük miktarda gerçek hasar verir ve yakındaki düşmanları Korkutursun.",
-        "Öldüğünde patlar ve yakındaki düşmanlara hedefin maksimum Canının %20'si kadar gerçek hasar verir."
+        "Rakip şampiyonlara yeteneklerle hasar verdiğinde kalıcı olarak 1 Yetenek Gücü kazanırsın. İkinci Güçlendirme olarak alınırsa 40 Yetenek Gücüyle başlarsın. YG kazandın. Veigar gurur duyardı!",
+        "Saldırıların, Yetenek Gücünün %75'i kadar ek fiziksel hasar verir.",
+        "Yetenek hasarı verdiğinde, her biri büyü hasarı veren mermiler fırlatırsın. %25 Kritik Vuruş İhtimali kazanırsın.",
+        "Yetenek hasarı vermek, isabet edilen her rakibe 3 mermi fırlatır; her biri kat edilen mesafeye bağlı olarak azami canın %1'ine kadar gerçek hasar verir."
       ]
     },
     "vi": {
-      "title": "Đã Mất, Nhiều Lần",
-      "why": "Phân Bào của Zac xem cái chết chỉ là cái gờ giảm tốc: khi nhận sát thương chí mạng, anh tách làm bốn cục nhầy và hồi sinh nếu có cục nào sống sót, mỗi cục mang một phần Máu tối đa, Giáp và Kháng phép của anh. Học Thuật Làm Hề và Cảm Tử Quân đều nổ khi anh chết, gây sát thương chuẩn và làm Sợ hãi kẻ địch gần đó, nên những kẻ thường sẽ giẫm nát các cục nhầy lại phải bỏ chạy trong khi anh tái tạo. Bác Học Điên trả thưởng ở mỗi lần Hồi sinh, khiến anh to ra hoặc nhỏ lại cùng chỉ số thêm, còn Quyết Tâm Bất Diệt thêm lần hồi sinh thứ hai khi anh tích đủ sát thương lên tướng địch, nên một trận giao tranh có thể chứa hai cái chết, hai vụ nổ và hai lần nâng cấp Bác Học Điên. Trái Tim Khổng Thần tiếp lửa cho vòng lặp bằng cách tăng vĩnh viễn Máu tối đa, các cục nhầy thừa hưởng, trong khi Giáp Máu Warmog, Jak'Sho, Vỏ Bọc Thích Nghi và các món khác chồng Máu và kháng tính mà cục nhầy sao chép. Tanker đáng lẽ phải sống sót lại thành một tướng có việc thật sự là chết giữa đội địch rồi quay lại cáu hơn.",
-      "play": "Phóng ná vào cả đội địch và để họ giết bạn ngay trên đầu các carry của họ; vụ nổ và Sợ hãi che chắn cho các cục nhầy của bạn. Quay lại, tiếp tục đánh tướng để chồng Quyết Tâm Bất Diệt, rồi làm lại.",
+      "title": "Veigar Chuột Phải",
+      "why": "Nội tại của Zeri có một dòng ai cũng bỏ qua: đòn đánh của Zeri gây sát thương phép và được tính là kỹ năng. Quỷ Quyệt Vô Thường hiểu đúng từng chữ, nên mỗi cú chuột phải vào tướng địch đều cộng Sức Mạnh Phép Thuật vĩnh viễn, và Zeri biến thành một Veigar cày cộng dồn bằng đánh thường. Xạ Thủ Ma Pháp khép vòng lặp: đòn đánh của cô gây thêm sát thương dựa trên lượng SMPT đó, nên cộng dồn quay ngược lại ngay vào đòn đánh. Ngọn Lửa Song Sinh và Tên Lửa Ma Pháp đều kích hoạt khi gây sát thương kỹ năng, nên mỗi đòn đánh còn bắn thêm tên lửa, và tầm đánh xa giúp đạn của Tên Lửa Ma Pháp bay thật xa. Trang bị toàn đồ pháp sư phản ứng với kỹ năng: Trượng Pha Lê Rylai làm chậm, Mặt Nạ Đọa Đày Liandry thiêu đốt và Vọng Âm Luden vang lên theo từng đòn đánh, còn Mũ Phù Thủy Rabadon nhân cộng dồn và Nanh Nashor cho tốc độ đánh để tung \"phép\" nhanh hơn.",
+      "play": "Lên đồ như pháp sư, chơi như xạ thủ: đứng ở tầm tối đa và chuột phải tướng địch liên tục để cày cộng dồn và bắn tên lửa. Lấy Quỷ Quyệt Vô Thường sớm để cộng dồn lớn suốt cả trận.",
       "augments": [
-        "Mỗi lần Hồi sinh, bạn to ra (nhận 30% Sức mạnh thích ứng và 20% Máu) hoặc nhỏ lại (nhận 70 Gia tốc kỹ năng và 40% Tốc độ di chuyển).",
-        "Gây sát thương lên tướng địch bằng Đòn đánh hoặc Kỹ năng sẽ nhận dồn. Khi dồn tối đa, bạn hồi sinh được cường hóa khi chết.",
-        "Nhận phép bổ trợ Đánh Lừa. Nhận Nội tại Đâm Lén. Khi chết, gây một lượng lớn sát thương chuẩn và làm Sợ hãi kẻ địch gần đó.",
-        "Phát nổ khi bạn chết, gây sát thương chuẩn bằng 20% Máu tối đa của mục tiêu lên kẻ địch gần đó."
+        "Nhận vĩnh viễn 1 Sức Mạnh Phép Thuật khi gây sát thương lên tướng địch bằng kỹ năng. Nếu chọn làm Lõi Nâng Cấp thứ hai, bắt đầu với 40 Sức Mạnh Phép Thuật. Bạn đã nhận SMPT. Veigar sẽ tự hào lắm!",
+        "Đòn đánh của bạn gây thêm sát thương vật lý bằng 75% Sức Mạnh Phép Thuật.",
+        "Khi gây sát thương kỹ năng, bắn ra các tên lửa, mỗi tên lửa gây sát thương phép. Nhận 25% Tỉ Lệ Chí Mạng.",
+        "Gây sát thương kỹ năng sẽ bắn 3 tên lửa vào mỗi kẻ địch bị trúng, mỗi tên lửa gây tối đa 1% Máu tối đa dưới dạng sát thương chuẩn dựa trên quãng đường bay."
       ]
     },
     "zh-CN": {
-      "title": "死亡，反复死亡",
-      "why": "扎克的细胞分裂把死亡当成减速带：受到致命伤害时分裂成四个小软泥，只要有一个存活就会复活，每个小软泥都继承他一部分最大生命值、护甲和魔法抗性。小丑学院和俯冲轰炸都会在他死亡时触发，造成真实伤害并恐惧附近的敌人，所以平时会踩扁软泥的人都在逃命，而他在重新聚合。科学狂人在每次复活时兑现，让他变大或变小并获得额外属性，濒死悟道在他叠够对英雄的伤害后追加第二次复活，所以一场团战里可以有两次死亡、两次爆炸和两次科学狂人升级。心之钢通过永久提升最大生命值来喂养这个循环，软泥会继承它，而狂徒铠甲、千变者贾修等装备则堆叠软泥会复制的生命值和抗性。本该存活的坦克，变成了真正工作是死在敌方团队中间、然后更生气地回来的英雄。",
-      "play": "弹射进敌方整个团队，让他们在自己的核心头上杀死你；爆炸和恐惧会掩护你的小软泥。回来后继续攻击英雄叠濒死悟道，然后再来一遍。",
+      "title": "右键邪恶小法师",
+      "why": "祖安花火的被动里有一句大家都忽略的话：祖安花火的攻击造成魔法伤害，并被视为技能。超凡邪恶把这句话当真了，所以每次右键英雄都会永久叠法术强度，祖安花火变成了一个靠普攻叠层的邪恶小法师。神射法师把循环闭合：她的攻击会根据这些法术强度造成额外伤害，叠的层数直接回到普攻上。双生火焰和魔法飞弹都在造成技能伤害时触发，所以每次普攻还会喷出飞弹，而她的超远射程让魔法飞弹的弹体飞得更远。装备全是对技能起反应的纯法师装：瑞莱的冰晶节杖减速、兰德里的折磨灼烧、卢登的回声在每次普攻时回响，灭世者的死亡之帽放大层数，纳什之牙提供攻速让她更快地放出“技能”。",
+      "play": "出装像法师，打法像射手：站在最远射程，不停右键英雄叠层、放飞弹。早点拿超凡邪恶，让层数叠满整局。",
       "augments": [
-        "每次复活时，你会变大（获得30%自适应之力和20%生命值）或变小（获得70技能急速和40%移动速度）。",
-        "用攻击或技能对敌方英雄造成伤害会获得层数。层数叠满后，死亡时你会强化复活。",
-        "获得召唤师技能欺骗。获得被动背刺。死亡时，造成大量真实伤害并恐惧附近的敌人。",
-        "死亡时爆炸，对附近的敌人造成相当于目标最大生命值20%的真实伤害。"
+        "在用技能对敌方英雄造成伤害时，永久获得1法术强度。如果作为第二个强化选择，则以40法术强度开局。你已获得法术强度。维迦会为你骄傲的！",
+        "你的攻击会造成相当于75%法术强度的额外物理伤害。",
+        "造成技能伤害时，发射各造成魔法伤害的飞弹。获得25%暴击几率。",
+        "造成技能伤害时会对每个被命中的敌人发射3枚飞弹，每枚根据飞行距离造成最多相当于最大生命值1%的真实伤害。"
       ]
     },
     "zh-TW": {
-      "title": "死亡，反覆死亡",
-      "why": "札克的細胞分裂把死亡當成減速丘：受到致命傷害時分裂成四個小史萊姆，只要有一個存活就會復活，每個小史萊姆都繼承他一部分最大生命值、護甲和魔法防禦。小丑學院和自爆炸彈客都會在他死亡時觸發，造成真實傷害並恐懼附近的敵人，所以平常會踩扁史萊姆的人都在逃命，而他在重新聚合。瘋狂科學家在每次復活時兌現，讓他變大或變小並獲得額外屬性，陰魂不散在他疊夠對英雄的傷害後追加第二次復活，所以一場團戰裡可以有兩次死亡、兩次爆炸和兩次瘋狂科學家升級。雄心之鋼透過永久提升最大生命值來餵養這個循環，史萊姆會繼承它，而好戰者鎧甲、千變萬化之賈克修等裝備則堆疊史萊姆會複製的生命值和抗性。本該存活的坦克，變成了真正工作是死在敵方團隊中間、然後更生氣地回來的英雄。",
-      "play": "彈射進敵方整個團隊，讓他們在自己的核心頭上殺死你；爆炸和恐懼會掩護你的小史萊姆。回來後繼續攻擊英雄疊陰魂不散，然後再來一遍。",
+      "title": "右鍵維迦",
+      "why": "婕莉的被動裡有一句大家都忽略的話：婕莉的攻擊造成魔法傷害，並視為技能。極度邪惡把這句話當真，所以每次右鍵英雄都會永久疊魔法攻擊，婕莉變成一個靠普攻疊層的維迦。射手法師把循環接起來：她的攻擊會依這些魔法攻擊造成額外傷害，疊的層數直接回到普攻上。雙響炮和魔法導彈都在造成技能傷害時觸發，所以每次普攻還會噴出飛彈，而她的超遠射程讓魔法導彈的彈體飛得更遠。裝備全是會對技能起反應的純法師裝：瑞萊的冰晶節杖緩速、黎安卓的折磨灼燒、盧登回音在每次普攻時迴響，死亡之帽放大層數，納什之牙提供攻速讓她更快放出「技能」。",
+      "play": "出裝像法師，打法像射手：站在最遠射程，不停右鍵英雄疊層、放飛彈。早點拿極度邪惡，讓層數疊滿整場。",
       "augments": [
-        "每次復活時，你會變大（獲得30%適應之力和20%生命值）或變小（獲得70技能加速和40%移動速度）。",
-        "用攻擊或技能對敵方英雄造成傷害會獲得層數。層數疊滿後，死亡時你會強化復活。",
-        "獲得召喚師技能欺騙。獲得被動背刺。死亡時，造成大量真實傷害並恐懼附近的敵人。",
-        "死亡時爆炸，對附近的敵人造成相當於目標最大生命值20%的真實傷害。"
+        "用技能對敵方英雄造成傷害時，永久獲得 1 魔法攻擊。若作為第二個強化選擇，則以 40 魔法攻擊開局。你已獲得魔攻。維迦會以你為榮！",
+        "你的攻擊額外造成等同 75% 魔法攻擊的物理傷害。",
+        "造成技能傷害時，發射各造成魔法傷害的飛彈。獲得 25% 暴擊率。",
+        "造成技能傷害時會對每個被命中的敵人發射3枚飛彈，每枚依飛行距離造成最多相當於最大生命值1%的真實傷害。"
       ]
     }
   }
