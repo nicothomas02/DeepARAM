@@ -346,6 +346,29 @@
       "why": "Zac's Cell Division already treats death as a speed bump: on fatal damage he splits into four bloblets and revives if any survive, and each bloblet carries a share of his max Health, Armor and Magic Resist. Clown College and Dive Bomber both go off when he dies, blasting true damage and Fearing nearby enemies, so the people who would normally stomp the blobs are running away while he reforms. Mad Scientist pays out on every Revive, growing him large or tiny with extra stats, and Hellbent adds a second revive once he has stacked enough champion damage, so one teamfight can hold two deaths, two explosions and two Mad Scientist upgrades. Heartsteel feeds the loop by permanently raising his max Health, which the bloblets inherit, while Warmog's Armor, Jak'Sho, The Protean and the rest pile on the Health and resists the blobs copy. The tank who is supposed to survive becomes a champion whose real job is to die in the middle of the enemy team and come back angrier.",
       "play": "Slingshot into the whole enemy team and let them kill you on top of their own carries; the explosions and Fear cover your bloblets. Come back, keep hitting champions to stack Hellbent, and do it again.",
       "chef": "2026-10-31"
+    },
+    {
+      "id": "zeri-right-click-veigar",
+      "champion": "Zeri",
+      "title": "Right-Click Veigar",
+      "augments": [
+        "Phenomenal Evil",
+        "Marksmage",
+        "Twin Fire",
+        "Magic Missile"
+      ],
+      "core": 4,
+      "items": [
+        "Nashor's Tooth",
+        "Rabadon's Deathcap",
+        "Rylai's Crystal Scepter",
+        "Liandry's Torment",
+        "Luden's Echo",
+        "Sorcerer's Shoes"
+      ],
+      "why": "Living Battery has a throwaway line everyone ignores: Zeri's Attacks deal magic damage and are treated as Abilities. Phenomenal Evil reads that literally, so every right-click on a champion permanently stacks Ability Power, turning Zeri into a Veigar who farms stacks by auto-attacking. Marksmage closes the loop by making her Attacks deal extra damage based on that Ability Power, so the stacks go straight back into the autos. Twin Fire and Magic Missile both trigger on ability damage, so every auto also sprays missiles, and her long range lets Magic Missile's shots travel far. The items are pure mage items that key off Abilities: Rylai's slows, Liandry's burns and Luden's echoes all fire off her autos, while Rabadon's multiplies the stacks and Nashor's gives the attack speed to cast her 'spell' faster.",
+      "play": "Build like a mage, play like a marksman: stand at max range and right-click champions nonstop to farm stacks and launch missiles. Take Phenomenal Evil early so the stacks have the whole game to grow.",
+      "chef": "2026-11-01"
     }
   ]
 }
