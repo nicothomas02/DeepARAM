@@ -690,5 +690,15 @@
    ],
    "why": "Brushmaker: attacks in his brush (and 3 s after) deal 50 (+20% AP) bonus magic damage; he keeps a brush up about half the fight, so half of it per attack"
   }
+ ],
+ "Vex": [
+  {
+   "trigger": "attack",
+   "cooldown": 10,
+   "calcs": [
+    "GloomProcCalc"
+   ],
+   "why": "Doom 'n Gloom: an enemy that dashes or blinks near Vex is marked with Gloom, and her next attack on it deals the GloomProcCalc bonus (150 + 25% AP at 18); Doom itself (fear, every 15 s cut by Gloom procs) deals no damage. Enemies' dashes aren't tracked, so one Gloom proc every 10 s is assumed (Mayhem kits are full of 6-12 s dashes); check in game"
+  }
  ]
 }

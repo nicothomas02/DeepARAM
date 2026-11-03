@@ -1,6 +1,6 @@
 {
  "meta": {
-  "built_at": "2026-10-21T17:43:49+00:00",
+  "built_at": "2026-10-29T13:05:45+00:00",
   "game_version": "16.21",
   "cdragon": "latest",
   "mayhem_balance_patch": "wiki read 2026-10-17",
@@ -31494,9 +31494,9 @@
      },
      "heal": {
       "scaling": {
-       "const": 45.0,
-       "ap": 0.05,
-       "bonus_hp": 0.015
+       "const": 270.0,
+       "ap": 0.3,
+       "bonus_hp": 0.09
       }
      },
      "cost": 100.0,
@@ -31538,7 +31538,7 @@
      ],
      "mode_overrides": [],
      "notes": [
-      "hand override: Demonic Ascension drains every second; parsed as one tick (~6s in a duel); Demonflare is always cast once (manually after 2s or automatically at the end): full weight"
+      "hand override: Demonic Ascension drains every second; parsed as one tick (~6s in a duel): the damage is x6 and the drain's healing (HealingCalc 45 + 5% AP + 1.5% bonus Health per second per enemy, read once by the parser) is the same 6 ticks on one enemy (270 + 30% AP + 9% bonus Health); Demonflare is always cast once (manually after 2s or automatically at the end): full weight"
      ]
     }
    ],
@@ -36205,6 +36205,32 @@
      "mode_overrides": [],
      "notes": [
       "hand override: Shadow Surge recast dash damage always follows the marked missile; was at half weight"
+     ]
+    }
+   ],
+   "passives": [
+    {
+     "trigger": "attack",
+     "every": 1,
+     "cooldown": 10.0,
+     "per_target": false,
+     "charges": 1,
+     "max_charges": 1,
+     "aoe": false,
+     "below_hp": 0.0,
+     "ability_cdr": 0.0,
+     "hits": [
+      {
+       "type": "magic",
+       "calc": "GloomProcCalc",
+       "scaling": {
+        "const": 150.0,
+        "ap": 0.25
+       },
+       "target": "flat",
+       "per_second": false,
+       "alt": false
+      }
      ]
     }
    ],
