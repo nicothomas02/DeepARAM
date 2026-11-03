@@ -105,7 +105,7 @@ Settings: `start_distance`, `enemy_spread` (fight), `dodge_chance` 0.75, `reacti
 
 ## Items and augments
 
-`data/item_effects.json` is hand-written: which items exist, which roles they suit, and their passives as effect keys. `tools/build_items.py` reads each item's name, cost and stats from the game's own item data on the live patch, and the passive numbers the item bin holds (`mDataValues`, with Riot's ARAM and then Mayhem overrides applied) replace the hand-written values; its `BIN_EFFECTS` table lists which effect key comes from which value. It writes `data/items.json`. The remaining passive values (for example Kraken's damage, Titanic's on-hit, Shojin's amp and Sunfire's aura) are tooltip values as best known and should be checked in game. Effect keys:
+`data/item_effects.json` is hand-written: which items exist, which roles they suit, and their passives as effect keys. `tools/build_items.py` reads each item's name, cost and stats from the game's own item data on the live patch, and the passive numbers the item bin holds (`mDataValues`, with Riot's ARAM and then Mayhem overrides applied) replace the hand-written values; its `BIN_EFFECTS` table lists which effect key comes from which value. It writes `data/items.json`. The remaining passive values (for example Kraken's damage, Titanic's on-hit and Sunfire's aura) are tooltip values as best known and should be checked in game; Spear of Shojin's Focused Will stacks are read from the item bin, and Terminus' on-hit (30 + 10% AP; its 10% bonus AD isn't modeled) is the bin's OnHitDamage calculation written by hand. Effect keys:
 
 | Key | Meaning |
 |---|---|
@@ -122,6 +122,7 @@ Settings: `start_distance`, `enemy_spread` (fight), `dodge_chance` 0.75, `reacti
 | `tenacity` | shortens crowd control on you (not knock-ups) |
 | `healing_received` | more healing from every source (Spirit Visage) |
 | `ability_amp`, `ap_amp`, `damage_amp` | damage or AP multipliers |
+| `stack_on` + `stack_ability_amp` | ability damage that builds up per ability hit (Spear of Shojin: 3% a stack, 1.5% ranged, up to 4 for 6 s) |
 | `maxhp_proc(_cd)` | max-HP damage proc with a cooldown |
 | `burn_*` | damage over time after an ability hits |
 | `proc_*`, `active_*` | Luden's-style procs and active items |
@@ -144,6 +145,8 @@ Augment effects come in a few families, handled by the engine in `src/champ.cpp`
 | conversions | `ap_to_ad`, `ad_to_ap`, `crit_per_ap`, `as_per_ap`, `as_to_ah`, `ms_to_as` and similar; `ad_to_as` (bonus AD becomes attack speed), `as_to_crit` + `as_crit_rate` (part of bonus attack speed becomes crit damage), `mana_to_ap` (item mana becomes AP), `hp_to_lethality` (bonus HP becomes lethality), `ap_per_bonus_hp` |
 | `bonus_ad_pct`, `amp_q/w/e/r`, `ah_q/w/e/r` | more bonus AD; damage, healing and shielding or ability haste for one ability slot (the PBE's Pentakill augments) |
 | `trig_self_below`, `trig_ranged` | a proc that fires only while your HP is below a share; a scale for ranged champions |
+| `*_if_ranged` | the ranged version of any effect value, which replaces it for ranged champions (Symphony of War's Lethal Tempo attack speed and Conqueror heal, Spear of Shojin's stacks); melee champions drop it |
+| `r_window`, `r_mark` | after casting R: a share of your non-true damage to every enemy is stored for `r_window` seconds and dealt again as physical damage (It's Killing Time, like Zed's R mark); `r_window_amp` instead amplifies damage for the window (Surge Field) |
 | `revive_*`, `invuln_*`, `start_shield_*` | revives (Hellbent), short invulnerability, a shield at the start of the fight |
 
 `data/augment_pools.json` lists the augments each champion can be offered, made by `tools/build_augment_pools.py` from every augment seen on that champion in the per-champion build stats (95 to 162 each). The optimizer only picks from the champion's own pool, and `--list --json` includes it. **Poro Stampede** (a quest augment) is modeled as already completed with 20 Poros fed: its Poro Charge spell fires 3 waves of Poros down the lane once per fight, each a wide, slow skillshot dealing 100-200 (by level) + 20 per Poro fed as physical damage, half to champions already hit (`poros_fed` in the augment changes the waves; the waves' length, width and spacing are estimates).
@@ -183,7 +186,8 @@ Boots, five legendaries and four augments. Items are searched greedily to pick a
 - Passives, stacking and HP-scaling kits are mostly missing, so fighters and juggernauts (Sett, Sion, Mundo, Mordekaiser, Gwen, Diana) are underrated.
 - Supports are compared on damage builds, and tanks build glassy because only damage is optimized.
 - Across all champions, simulated DPS ranks champions only roughly like their real CN damage share (Spearman 0.51 on 26.20, `tools/accuracy.py`), and most of that comes from roles: within a role the order is close to random for marksmen and assassins (0.05 and -0.15) and weak for mages and fighters (0.16, 0.20; supports 0.82, tanks 0.59). Simulated DPS plus role predicts the real share at 0.59. Fighting the whole team (`--set team_size=5`), time alive and damage taken don't improve it. Use the simulator to compare builds for one champion, not to rank champions.
-- Mystic Punch is picked very often; its value may be too generous.
+- Mystic Punch is picked very often; its value may be too generous (its client values, 1.25 s per on-hit down to 50% of the cooldown, match the tooltip; the simulator keeps the ultimate out of it).
+- Augment values were audited against the client's tooltips and DataValues (2026-10-29): Symphony of War now uses the spell's ranged Lethal Tempo attack speed (8-12% a stack instead of the melee 13-18%) and ranged Conqueror heal (8% instead of 10%) for ranged champions, and It's Killing Time stores 40% of non-true damage and pops it as physical damage instead of amplifying every damage type by 40%. Giant Slayer (10-30% by the target's size, 20% assumed), Glass Cannon, Dual Wield, Back To Basics, Marksmage, Eureka and Ultimate Awakening match their tooltips; the optimizer still picks Giant Slayer, Glass Cannon and Dive Bomber far more than players do, which comes from the fight model (one short fight, dying only costs the rest of it) rather than their values. En Passant's Vital period isn't in the client data (every 4 s assumed).
 - For Yunara, `yunara_sim` is the better model.
 
 ## Fight replays

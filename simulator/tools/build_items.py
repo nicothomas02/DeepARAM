@@ -101,6 +101,8 @@ BIN_EFFECTS = {
     "wits_end": {"onhit_magic": calc_number("OnHitDamage")},
     "statikk": {"storm_magic": dv("ChainDamage")},
     "black_cleaver": {"cleaver_shred": dv_product("ShredPerStack", "MaxStacks")},
+    "shojin": {"stack_ability_amp": dv("SpellDamageIncrease"), "stack_ability_amp_if_ranged": dv_product("SpellDamageIncrease", "RangedMod"),
+               "stack_max": dv("StackCount"), "stack_duration": dv("StackDuration"), "stack_cd": dv("CastIDLockout")},
     "trinity": {"spellblade_base_ad": dv("SpellbladeMultiplier"), "spellblade_cd": dv("SpellbladeCooldown")},
     "eclipse": {"maxhp_proc_cd": dv("Cooldown"), "proc_shield_flat": dv("MeleeBaseShield"),
                 "proc_shield_bonus_ad": dv("MeleeShieldADRatio"), "proc_shield_duration": dv("ShieldDuration"),

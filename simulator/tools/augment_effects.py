@@ -100,11 +100,13 @@ SPEC = {
     1074: {"effects": {"shrink": dv("DamageReduction"), "shrink_duration": 3}},
     1077: {"stats": {"crit": dv("CritChance")}, "effects": {"crit_lifesteal": dv("HealPercentage")}},
     1079: {"effects": {"stack_on": ATTACK, "stack_max": dv("StackCap"), "stack_duration": dv("Duration"),
-                       "stack_as": lvl("ASMelee"), "as_cap": dv("ASCap"),
+                       "stack_as": lvl("ASMelee"), "stack_as_if_ranged": lvl("ASRanged"), "as_cap": dv("ASCap"),
                        "stack2_on": HIT, "stack2_max": dv("MaxStacks"), "stack2_duration": dv("BuffDuration"),
                        "stack2_af_l1": dv("MinAdaptivePerStack"), "stack2_af_l18": dv("MaxAdaptivePerStack"),
-                       "stack2_full_vamp": dv("HealingPercent")},
-           "note": "Lethal Tempo's melee attack speed per stack (ranged get less)"},
+                       "stack2_full_vamp": dv("HealingPercent"), "stack2_full_vamp_if_ranged": dv("RangedHealingPercent")},
+           "note": "Lethal Tempo's attack speed per stack and Conqueror's heal at full stacks are the spell's melee "
+                   "values, or its ranged ones (ASRanged, RangedHealingPercent) for ranged champions; the bolt at "
+                   "6 stacks isn't modeled"},
     1080: {"stats": {"crit": dv("CritChance")},
            "effects": {"crit_defend": dv("DamageReduction"), "crit_defend_cap": dv("MaxChance")}},
     1081: {"effects": {"stack_on": ATTACK, "stack_max": dv("MaxStack"), "stack_duration": dv("StackDuration"),
@@ -142,9 +144,10 @@ SPEC = {
            "note": "you are tiny, so 20% (of 10-30%) bonus damage by size assumed"},
     1205: {"effects": {"ad_to_ap": dv("ConversionRate"), "ap_amp": dv("APAmp")}},
     1206: {"effects": {"ap_to_ad": dv("ConversionRate"), "ad_pct": dv("ADAmp")}},
-    1211: {"effects": {"r_window": dv("MarkDuration"), "r_window_amp": dv("DamageStorePercentage"),
+    1211: {"effects": {"r_window": dv("MarkDuration"), "r_mark": dv("DamageStorePercentage"),
                        "r_window_cd": dv("Cooldown")},
-           "note": "the stored damage is dealt as it builds rather than all at the end"},
+           "note": "the mark stores a share of your non-true damage to each enemy and pops it as physical damage, "
+                   "dealt as it builds rather than all at the end"},
     1220: {"effects": {"trig_on": ATTACK, "trig_cd": 2, "trig_count": 3, "trig_scale": 1.25, "trig_type": PHYS,
                        "trig_can_crit": 1, "trig_onhit": dv("OnHitRatio"), "trig_": calc("DamagePerBolt")},
            "note": "an 8 s cooldown per direction, so about one volley every 2 s; 3 of the 5 bolts hitting, "
