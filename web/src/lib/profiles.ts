@@ -24,14 +24,19 @@ export function cleanProfile(raw: unknown): ProfileData | null {
   if (!games) return null;
   const champs = Array.isArray(r.champions) ? r.champions.slice(0, 10) : [];
   const badges = Array.isArray(r.badges) ? r.badges.slice(0, 40) : [];
+  const [first, last] = ((f, l) => (f && l && f > l ? [l, f] : [f, l]))(int(r.first, 1e13), int(r.last, 1e13));
+  // The first game comes before the last. Each champion once, with no more wins than games (the page shows wins / games as a percentage) and no
+  // more games than the profile has; each achievement once, since the page keys on its name.
+  const seen = new Set<number>();
   return {
     games, wins: Math.min(games, int(r.wins)), kills: int(r.kills), deaths: int(r.deaths), assists: int(r.assists),
-    damage: int(r.damage), duration: int(r.duration, 36000), first: int(r.first, 1e13), last: int(r.last, 1e13),
+    damage: int(r.damage), duration: int(r.duration, 36000), first, last,
     champions: champs.map((c) => {
       const o = (c ?? {}) as Record<string, unknown>;
-      return { id: int(o.id, 100000), n: int(o.n), w: int(o.w), k: int(o.k), d: int(o.d), a: int(o.a) };
-    }).filter((c) => c.id && c.n),
-    badges: badges.map((b) => String(b).slice(0, 40)).filter(Boolean),
+      const n = Math.min(games, int(o.n));
+      return { id: int(o.id, 100000), n, w: Math.min(n, int(o.w)), k: int(o.k), d: int(o.d), a: int(o.a) };
+    }).filter((c) => c.id && c.n && !seen.has(c.id) && seen.add(c.id)),
+    badges: [...new Set(badges.map((b) => String(b).replace(/\p{C}/gu, "").trim().slice(0, 40)).filter(Boolean))],
   };
 }
 
@@ -80,6 +85,15 @@ const toProfile = (r: Row | null): StoredProfile | null =>
 export async function profileByPuuid(puuid: string) {
   const db = d1("PROFILES");
   return db ? toProfile(await db.prepare("SELECT region, name, tag, data, updated_at FROM profiles WHERE puuid = ?").bind(puuid).first<Row>()) : null;
+}
+
+/** The Riot ID in a /profile address, or null when the address isn't valid percent-encoding (which would otherwise throw). */
+export function profileRiotId(segment: string): string | null {
+  try {
+    return decodeURIComponent(segment);
+  } catch {
+    return null;
+  }
 }
 
 /** riotId is "name-tag" as in the page address; the tag is everything after the last dash. */

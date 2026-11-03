@@ -702,3 +702,115 @@ def test_kill_positions_are_fetched_several_at_a_time(mi):
     assert mi.fill_kill_maps(SlowLcu(), games, progress=lambda m: None) == 12
     assert time.monotonic() - start < 12 * 0.2 / 2  # one by one would take 2.4 s
     assert games[2]["killMap"] is None and games[0]["killMap"] == []
+
+
+# ---------- partial and odd games ----------
+
+def test_private_game_never_claims_a_game_for_an_unknown_owner(mi):
+    """An archive with no owner (no puuid, no identities) must not send games as the owner's: a bot or a player
+    without a puuid would otherwise be marked "me"."""
+    game = fixture("lcu_game_mayhem.json")
+    for pi in game["participantIdentities"]:
+        pi["player"].pop("puuid", None)
+    assert mi.private_game(game, None) is None
+    assert mi.private_game(game, "") is None
+
+
+def test_private_game_survives_missing_identities_and_stats(mi):
+    game = fixture("lcu_game_mayhem.json")
+    game["participantIdentities"] = game["participantIdentities"][:3]  # the rest of the lobby is unknown
+    game["participants"][0]["stats"] = None
+    game["participants"][1].pop("stats", None)
+    g = mi.private_game(game, ME)
+    mine = next(p for p in g["participants"] if p.get("puuid") == "me")
+    assert mine["stats"] == {k: None for k in mi.HISTORY_STATS}
+    named = [p for p in g["participants"] if p.get("riotIdGameName") and p.get("puuid") != "me"]
+    assert [p["participantId"] for p in named] == [2, 3]
+    assert all(set(p) == {"participantId", "teamId", "championId"} for p in g["participants"] if p["participantId"] > 3)
+    assert mi.private_game(dict(game, participants=[]), ME) is None
+    assert mi.private_game(dict(game, participantIdentities=None), ME) is None
+
+
+def test_private_game_keeps_a_remake_and_a_zero_duration_game(mi):
+    game = dict(fixture("lcu_game_mayhem.json"), gameDuration=0)
+    assert mi.private_game(game, ME)["gameDuration"] == 0
+
+
+def test_save_new_history_skips_an_archive_whose_owner_is_unknown(mi, monkeypatch, tmp_path):
+    game = fixture("lcu_game_mayhem.json")
+    for pi in game["participantIdentities"]:
+        pi["player"].pop("puuid", None)
+    path = tmp_path / "h.json"
+    path.write_text(json.dumps([game]))
+    mi.save_history_settings({"enabled": True, "saved": []})
+    monkeypatch.setattr(mi, "find_client", lambda lockfile=None: FakeLcu(mi))
+    sent = []
+
+    def site_post(lcu, path_, payload):
+        sent.append(payload)
+        return {"saved": 0}
+    monkeypatch.setattr(mi, "site_post", site_post)
+    assert mi.save_new_history(str(path), progress=lambda m: None) == 0
+    assert all(p["action"] == "status" or p["games"] == [] for p in sent)
+
+
+def test_save_new_history_sends_a_game_once_even_when_the_archive_repeats_it(mi, monkeypatch, tmp_path):
+    game = fixture("lcu_game_mayhem.json")
+    path = tmp_path / "h.json"
+    path.write_text(json.dumps([game, copy.deepcopy(game), dict(game, gameId=game["gameId"] + 1)]))
+    mi.save_history_settings({"enabled": True, "saved": []})
+    monkeypatch.setattr(mi, "find_client", lambda lockfile=None: FakeLcu(mi))
+    sent = []
+    monkeypatch.setattr(mi, "site_post", lambda lcu, path_, payload: sent.append(payload) or {"saved": 2})
+    assert mi.save_new_history(str(path), progress=lambda m: None) == 2
+    ids = [g["gameId"] for p in sent for g in p["games"]]
+    assert sorted(ids) == [game["gameId"], game["gameId"] + 1]
+
+
+def test_share_new_games_sends_a_game_once_even_when_the_archive_repeats_it(mi, monkeypatch, tmp_path):
+    game = fixture("lcu_game_mayhem.json")
+    path = tmp_path / "s.json"
+    path.write_text(json.dumps([game, copy.deepcopy(game)]))
+    mi.save_sharing({"enabled": True, "shared": []})
+    monkeypatch.setattr(mi, "find_client", lambda lockfile=None: FakeLcu(mi))
+    sent = []
+    monkeypatch.setattr(mi, "site_post", lambda lcu, path_, payload: sent.append(payload) or {"shared": 1})
+    assert mi.share_new_games(str(path), progress=lambda m: None) == 1
+    assert [g["id"] for p in sent for g in p["games"]] == [str(game["gameId"])]
+
+
+def test_anonymise_survives_partial_participants_and_teams(mi):
+    game = fixture("lcu_game_mayhem.json")
+    game["participants"] = [{"participantId": 1, "teamId": 100}, {"participantId": 2, "teamId": 200, "championId": 22, "stats": None}]
+    game["teams"] = [{}]
+    a = mi.anonymise(game)
+    assert [p["champ"] for p in a["players"]] == [None, 22]
+    assert a["players"][1]["multi"] == [0, 0, 0, 0] and a["players"][1]["augs"] == [] and a["players"][1]["cs"] == 0
+    assert a["teams"] == [{"id": None, "win": False, "towers": None, "inhibs": None, "firstBlood": False, "firstTower": False}]
+    assert mi.anonymise(dict(game, gameDuration=None))["duration"] is None
+
+
+def test_anonymise_dates_games_by_utc_day(mi):
+    """A game played late in the evening in the Americas belongs to the UTC day it was played, whatever the
+    computer's time zone, so the same game shared by two players counts once."""
+    game = fixture("lcu_game_mayhem.json")
+    game["gameCreation"] = dt.datetime(2026, 3, 1, 23, 30, tzinfo=dt.timezone.utc).timestamp() * 1000
+    assert mi.anonymise(game)["played"] == "2026-03-01"
+    game["gameCreation"] = dt.datetime(2026, 3, 2, 0, 30, tzinfo=dt.timezone.utc).timestamp() * 1000
+    assert mi.anonymise(game)["played"] == "2026-03-02"
+
+
+def test_run_import_keeps_only_mayhem_queues_and_skips_repeats(mi, monkeypatch, tmp_path):
+    """A game id the match-history service lists twice is fetched once, and games from other queues (ARAM, bots)
+    are fetched but never kept, even when the queue filter handed them over."""
+    mayhem = fixture("lcu_game_mayhem.json")
+    aram = dict(fixture("lcu_game_aram.json"), gameId=mayhem["gameId"] + 1)
+    bots = dict(copy.deepcopy(mayhem), gameId=mayhem["gameId"] + 2, queueId=830)
+    lcu = FakeLcu(mi, games=[mayhem, aram, bots])
+    setup_import(mi, monkeypatch, lcu, {mi.SGP_MAYHEM_TAGS: [mayhem["gameId"], mayhem["gameId"], aram["gameId"], bots["gameId"]]})
+    out = tmp_path / "a.json"
+    r = mi.run_import(str(out), sgp_host="https://sgp.test", progress=lambda m: None)
+    assert r["added"] == 1 and r["total"] == 1
+    _, games = mi.load_archive(str(out))
+    assert [g["gameId"] for g in games] == [mayhem["gameId"]]
+    assert lcu.calls.count(f"/lol-match-history/v1/games/{mayhem['gameId']}") == 1

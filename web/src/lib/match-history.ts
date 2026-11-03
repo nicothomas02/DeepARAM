@@ -33,7 +33,9 @@ export function cleanHistoryGame(raw: unknown): HistoryGame | null {
   const g = raw as Record<string, unknown>;
   const gameId = n(g.gameId, 1e15);
   const version = typeof g.gameVersion === "string" && /^\d{1,2}\.\d{1,2}[\d.]*$/.test(g.gameVersion) ? g.gameVersion.slice(0, 20) : "";
-  if (!gameId || !version) return null;
+  // A game with no creation time has no day to count it on, so it isn't kept (the shared-games cleaner does the same).
+  const gameCreation = n(g.gameCreation, 1e14);
+  if (!gameId || !version || !gameCreation) return null;
   let mine = 0;
   const participants = (Array.isArray(g.participants) ? g.participants : []).slice(0, 10).map((x) => {
     const p = (x ?? {}) as Record<string, unknown>;
@@ -58,10 +60,14 @@ export function cleanHistoryGame(raw: unknown): HistoryGame | null {
     for (const k of MATE_STATS) stats[k] = n(s[k]);
     return { ...base, riotIdGameName: gameName, riotIdTagline: name(mate.riotIdTagline), stats };
   });
+  // Each kill is [seconds, x, y, killer, victim]; a shorter row would leave the dashboard's kill map with holes.
   const killMap = Array.isArray(g.killMap)
-    ? g.killMap.slice(0, 400).filter(Array.isArray).map((k) => (k as unknown[]).slice(0, 5).map((v) => n(v, 1e6)))
+    ? g.killMap.slice(0, 400).filter((k) => Array.isArray(k) && k.length >= 5).map((k) => (k as unknown[]).slice(0, 5).map((v) => n(v, 1e6)))
     : undefined;
-  return { gameId, gameCreation: n(g.gameCreation, 1e14), gameDuration: n(g.gameDuration, 1e7), queueId: n(g.queueId, 1e5), gameVersion: version, participants: cleaned, killMap };
+  // gameDuration is seconds in newer games and milliseconds in older ones (as the dashboard and lib/shared-games.ts know).
+  const rawDuration = n(g.gameDuration, 1e10);
+  const gameDuration = rawDuration > 20000 ? Math.round(rawDuration / 1000) : rawDuration;
+  return { gameId, gameCreation, gameDuration, queueId: n(g.queueId, 1e5), gameVersion: version, participants: cleaned, killMap };
 }
 
 async function table() {

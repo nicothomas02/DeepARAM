@@ -689,6 +689,18 @@ def anonymise(game):
     }
 
 
+def new_games(games, done):
+    """Archive games not sent yet, each game id once: an archive merged by hand can list a game twice."""
+    seen = set(done)
+    todo = []
+    for g in games:
+        key = str(g.get("gameId"))
+        if key not in seen:
+            seen.add(key)
+            todo.append(g)
+    return todo
+
+
 def share_new_games(out, lockfile=None, progress=log):
     """Sends archive games not shared yet. Returns how many this account has shared in all."""
     settings = sharing_settings()
@@ -696,7 +708,7 @@ def share_new_games(out, lockfile=None, progress=log):
         return None
     _, games = load_archive(out)
     done = set(settings["shared"])
-    todo = [g for g in games if str(g.get("gameId")) not in done]
+    todo = new_games(games, done)
     lcu = find_client(lockfile)
     total = None
     for i in range(0, len(todo), SHARE_BATCH):
@@ -753,6 +765,10 @@ def save_history_settings(settings):
 def private_game(game, owner):
     """The game as the owner's account keeps it; None if the owner isn't in it. Teammates keep their Riot ID
     and a few stats, for My Stats' Teammates card; the other team keeps only champions."""
+    if not owner:
+        # An archive without an owner can't say which player is "me": without this a participant with no
+        # account id (a bot, or a lobby the client didn't name) would be sent as the owner's own game.
+        return None
     ids = {pi.get("participantId"): (pi.get("player") or {}) for pi in game.get("participantIdentities") or []}
     mine = next((p for p in game.get("participants") or []
                  if (ids.get(p.get("participantId")) or {}).get("puuid") == owner), None)
@@ -785,7 +801,7 @@ def save_new_history(out, lockfile=None, progress=log):
     container, games = load_archive(out)
     owner = archive_owner(container, games)
     done = set(settings["saved"])
-    todo = [g for g in games if str(g.get("gameId")) not in done]
+    todo = new_games(games, done)
     lcu = find_client(lockfile)
     total = None
     for i in range(0, len(todo), HISTORY_BATCH):

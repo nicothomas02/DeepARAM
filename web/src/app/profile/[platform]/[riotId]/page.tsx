@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import championIds from "@/data/champion-ids.json";
 import { champName } from "@/lib/highlights";
 import { pageMeta } from "@/lib/meta";
-import { profileByRiotId, profilePath } from "@/lib/profiles";
+import { profileByRiotId, profilePath, profileRiotId } from "@/lib/profiles";
 
 // A player's public page, published by them from My Stats. Nothing appears here unless they publish.
 export const dynamic = "force-dynamic";
@@ -19,7 +19,8 @@ const fmtDate = (ms: number) => new Date(ms).toLocaleDateString("en-US", { year:
 
 async function load({ params }: Props) {
   const { platform, riotId } = await params;
-  return profileByRiotId(platform, decodeURIComponent(riotId));
+  const id = profileRiotId(riotId);
+  return id ? profileByRiotId(platform, id) : null;
 }
 
 export async function generateMetadata(props: Props): Promise<Metadata> {
