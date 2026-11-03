@@ -72,7 +72,7 @@ export default function Pentakill({ rows }: { rows: PentakillRow[] }) {
     boost: r.boost,
     startGain: r.startGain,
     level18Gain: r.level18Gain,
-    next: r.margin < CLOSE && r.runnerUp ? r.runnerUp : null,
+    next: r.margin < CLOSE && r.runnerUp ? ability(r.runnerUp, r.runnerUpName) : null,
   }));
 
   return (
