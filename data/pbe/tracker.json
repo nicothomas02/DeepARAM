@@ -1,9 +1,9 @@
 {
  "builds": {
-  "pbe": "16.22.8340287",
+  "pbe": "16.23.8350685",
   "live": "16.21.8342754"
  },
- "dataAsOf": "2026-10-31",
+ "dataAsOf": "2026-11-03",
  "counts": {
   "buff": 16,
   "nerf": 6,
@@ -268,7 +268,7 @@
    "kind": "augment",
    "name": "Armored Impact",
    "tier": "gold",
-   "icon": "/assets/augments/pbe/armoredimpact_small.png",
+   "icon": "/assets/augments/pbe/armoredimpact_large.png",
    "lines": [
     {
      "text": "Bonus damage from bonus Armor: 250% → 220%",
@@ -285,7 +285,7 @@
    "kind": "augment",
    "name": "BEES!!!",
    "tier": "gold",
-   "icon": "/assets/augments/pbe/bees_small.png",
+   "icon": "/assets/augments/pbe/bees_large.png",
    "lines": [
     {
      "text": "Bee damage (by level): 75–200 → 75–140",
@@ -302,7 +302,7 @@
    "kind": "augment",
    "name": "Take'em Down Down Down",
    "tier": "gold",
-   "icon": "/assets/augments/pbe/takeemdowndowndown_small.png",
+   "icon": "/assets/augments/pbe/takeemdowndowndown_large.png",
    "lines": [
     {
      "text": "Missing Health damage at max stacks: 15% + more from your stats → 17%, no longer grows with stats",
