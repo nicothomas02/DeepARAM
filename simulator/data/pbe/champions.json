@@ -6932,7 +6932,7 @@
      "slot": "W",
      "name": "DravenFury",
      "rank": 5,
-     "cooldown": 12.0,
+     "cooldown": 3,
      "cast_time": 0.0,
      "cost": 20.0,
      "targeting": "Self",
@@ -6949,7 +6949,14 @@
      },
      "hits": [],
      "mode_overrides": [],
-     "notes": []
+     "notes": [
+      "hand override: Blood Rush: +40% attack speed for 3 s (rank 5) and a decaying move speed burst; catching a Spinning Axe resets its cooldown, and the axes are juggled onto every attack here, so it is up again as soon as it expires"
+     ],
+     "buff": {
+      "duration": 3,
+      "as": 0.4
+     },
+     "no_haste": true
     },
     {
      "slot": "E",
@@ -7828,7 +7835,10 @@
       }
      ],
      "mode_overrides": [],
-     "notes": []
+     "notes": [
+      "hand override: Mystic Shot applies on-hit effects"
+     ],
+     "applies_onhit": true
     },
     {
      "slot": "W",
@@ -8273,7 +8283,10 @@
       }
      ],
      "mode_overrides": [],
-     "notes": []
+     "notes": [
+      "hand override: Lunge applies on-hit effects"
+     ],
+     "applies_onhit": true
     },
     {
      "slot": "W",
@@ -9049,7 +9062,10 @@
       }
      ],
      "mode_overrides": [],
-     "notes": []
+     "notes": [
+      "hand override: Parrrley applies on-hit effects"
+     ],
+     "applies_onhit": true
     },
     {
      "slot": "W",
@@ -11857,7 +11873,10 @@
       }
      ],
      "mode_overrides": [],
-     "notes": []
+     "notes": [
+      "hand override: Bladesurge applies on-hit effects"
+     ],
+     "applies_onhit": true
     },
     {
      "slot": "W",
@@ -15098,7 +15117,7 @@
      "slot": "E",
      "name": "KatarinaEWrapper",
      "rank": 5,
-     "cooldown": 8.0,
+     "cooldown": 3,
      "cast_time": 0.0,
      "targeting": "Location",
      "area": "aoe",
@@ -15128,7 +15147,9 @@
       }
      ],
      "mode_overrides": [],
-     "notes": []
+     "notes": [
+      "hand override: Shunpo: picking up a dagger refunds 78% of its cooldown (8 s at rank 5 under Mayhem); Q and W each drop one every 7 and 11 s, so between natural cooldowns and pickups Shunpo is cast about every 3 s in a fight"
+     ]
     },
     {
      "slot": "R",
@@ -15194,9 +15215,10 @@
      ],
      "mode_overrides": [],
      "notes": [
-      "hand override: Death Lotus channels for 2.5 seconds; the totals are the whole channel; per-dagger numbers are part of them"
+      "hand override: Death Lotus channels for 2.5 seconds; the totals are the whole channel; per-dagger numbers are part of them; each of its 15 daggers applies on-hit effects at 35% (rank 3), 5.25 full on-hit applications per cast"
      ],
-     "lock": 2.5
+     "lock": 2.5,
+     "applies_onhit": 5.25
     }
    ],
    "passives": [
@@ -18580,6 +18602,8 @@
      "aoe": false,
      "below_hp": 0.0,
      "ability_cdr": 0.0,
+     "can_crit": true,
+     "onhit": 1.0,
      "hits": [
       {
        "type": "physical",
@@ -32748,7 +32772,7 @@
    ],
    "passives": [
     {
-     "trigger": "ability",
+     "trigger": "hit",
      "every": 3,
      "cooldown": 6.0,
      "per_target": true,
@@ -33544,7 +33568,13 @@
      },
      "hits": [],
      "mode_overrides": [],
-     "notes": []
+     "notes": [
+      "hand override: Rapid Fire: +110% attack speed (rank 5) for its 7 s duration; it is a self buff, not a 210-radius hit"
+     ],
+     "buff": {
+      "duration": 7,
+      "as": 1.1
+     }
     },
     {
      "slot": "W",
@@ -37582,8 +37612,9 @@
      "mode_overrides": [],
      "notes": [
       "ARAM cooldown",
-      "hand override: Jaws of the Beast held down makes Warwick leap with his target"
-     ]
+      "hand override: Jaws of the Beast held down makes Warwick leap with his target; the bite applies on-hit effects"
+     ],
+     "applies_onhit": true
     },
     {
      "slot": "W",
