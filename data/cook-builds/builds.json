@@ -369,6 +369,29 @@
       "why": "Living Battery has a throwaway line everyone ignores: Zeri's Attacks deal magic damage and are treated as Abilities. Phenomenal Evil reads that literally, so every right-click on a champion permanently stacks Ability Power, turning Zeri into a Veigar who farms stacks by auto-attacking. Marksmage closes the loop by making her Attacks deal extra damage based on that Ability Power, so the stacks go straight back into the autos. Twin Fire and Magic Missile both trigger on ability damage, so every auto also sprays missiles, and her long range lets Magic Missile's shots travel far. The items are pure mage items that key off Abilities: Rylai's slows, Liandry's burns and Luden's echoes all fire off her autos, while Rabadon's multiplies the stacks and Nashor's gives the attack speed to cast her 'spell' faster.",
       "play": "Build like a mage, play like a marksman: stand at max range and right-click champions nonstop to farm stacks and launch missiles. Take Phenomenal Evil early so the stacks have the whole game to grow.",
       "chef": "2026-11-01"
+    },
+    {
+      "id": "elise-revolving-door",
+      "champion": "Elise",
+      "title": "The Revolving Door",
+      "augments": [
+        "Stuck In Here With Me",
+        "Final Form",
+        "Can't Touch This",
+        "Ultimate Unstoppable"
+      ],
+      "core": 4,
+      "items": [
+        "Thornmail",
+        "Warmog's Armor",
+        "Spirit Visage",
+        "Heartsteel",
+        "Sunfire Aegis",
+        "Plated Steelcaps"
+      ],
+      "why": "Elise's ultimate is Spider Form, a form swap on a tiny cooldown, so every flip between spider and human counts as casting her ultimate, and that is the whole trick. Stuck In Here With Me gives her damage reduction after each ultimate and then taunts the enemies stuck with her, Final Form hands her a shield worth half her max Health plus omnivamp and move speed, Can't Touch This makes her briefly invulnerable, and Ultimate Unstoppable makes her immune to crowd control, so each swap fires whichever of them is off cooldown. Spider Form's own passive heals her on every bite, so with omnivamp on top she sustains while the enemy team is forced to stand on her. Warmog's Armor and Heartsteel make the max Health shield enormous, Spirit Visage makes that shield and her spider heals bigger, and Thornmail punishes every taunted enemy forced to attack her while Sunfire Aegis burns the crowd. The AP assassin becomes a taunting front-line tank whose only button is pressing R over and over.",
+      "play": "Cocoon an enemy, go spider and walk into their team, then keep swapping forms to chain damage reduction, taunts, invulnerability and shields while biting whoever is stuck on you. Build pure Health and Armor and never Rappel out.",
+      "chef": "2026-11-02"
     }
   ]
 }

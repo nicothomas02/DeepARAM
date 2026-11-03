@@ -1,1 +1,1 @@
-window.COOK_CHEF = {"id": "zeri-right-click-veigar", "title": "Right-Click Veigar", "champion": "Zeri", "champion_name": "Zeri", "chef": "2026-11-01", "count": 16};
+window.COOK_CHEF = {"id": "elise-revolving-door", "title": "The Revolving Door", "champion": "Elise", "champion_name": "Elise", "chef": "2026-11-02", "count": 17};
