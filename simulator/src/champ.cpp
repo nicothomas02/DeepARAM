@@ -248,6 +248,8 @@ ChampionKit loadChampion(const json::Value& c, const Rules& rules) {
         ab.invuln = a["invuln"].asNumber(0);
         ab.refund = a["refund"].asNumber(0);
         ab.soloMult = a["solo_mult"].asNumber(1);
+        ab.storedDamage = std::max(0.0, a["stored_damage"].asNumber(0));
+        ab.storedShield = std::max(0.0, a["stored_shield"].asNumber(0));
         ab.missingAmp = a["missing_amp"].asNumber(0);
         ab.missingMax = a["missing_max"].asNumber(0);
         ab.missingIsolated = a["missing_isolated"].asBool(false);
@@ -929,6 +931,17 @@ private:
     bool ranged_ = false, noUlt_ = false, ultOnlyHaste_ = false, hasDash_ = false, hasImmobilize_ = false;
     bool inMark_ = false;
     double buffVamp_ = 0, buffHealAmp_ = 0, attackMult_ = 1;
+    // Damage stored for an ability to spend (Sett's Grit): when it was taken or dealt, and how much.
+    std::deque<std::pair<double, double>> stored_;
+    double storedHit_ = 0;  // true damage the cast in progress adds to its first target
+    double storedPool() {
+        const double window = get(fx_, "stored_window");
+        while (!stored_.empty() && window > 0 && t_ - stored_.front().first > window) stored_.pop_front();
+        double sum = 0;
+        for (const auto& s : stored_) sum += s.second;
+        const double cap = get(fx_, "stored_cap");
+        return cap > 0 ? std::min(sum, cap * maxHp_) : sum;
+    }
     // Self-buffs from abilities (Ability::buff*) still running: when each ends.
     std::vector<std::pair<double, const Ability*>> buffs_;
     std::map<std::pair<int, const Ability*>, std::pair<int, double>> ramps_;  // on-hit ramp stacks per target
@@ -1318,6 +1331,7 @@ private:
             else if (k == "ap") v += c * ap_;
             else if (k == "bonus_ad") v += c * bonusAd_;
             else if (k == "bonus_hp") v += c * bonusHp_;
+            else if (k == "max_hp") v += c * maxHp_;  // your own max Health (Dr. Mundo R's regeneration)
             else if (k == "bonus_armor") v += c * bonusArmor_;
             else if (k == "bonus_mr") v += c * bonusMr_;
             else if (k == "bonus_mana") v += c * bonusMana_;
@@ -2075,9 +2089,11 @@ private:
         const double marked = t_ < target->markUntil && type != DamageType::True && !inMark_ ? raw * target->markShare : 0.0;
         double vamp = omnivamp_ + buffVamp_ + (physicalAttack ? lifesteal_ + get(fx_, "lifesteal_missing") * missingFrac() : 0.0) + (t_ < rVampUntil_ ? get(fx_, "r_omnivamp") : 0.0);
         if (!stacks_.empty()) vamp += fullStackVamp();
+        if (src >= SrcQ && src <= SrcR) vamp += get(fx_, "ability_vamp");  // heals from ability damage only (Ambessa R, Rhaast)
         if (get(fx_, "vamp_missing") > 0)  // Ominous Pact: grows with missing Health, full at 30% Health
             vamp += get(fx_, "vamp_missing") * std::clamp((1.0 - myHp_ / maxHp_) / 0.7, 0.0, 1.0);
         heal(dmg * vamp);
+        if (get(fx_, "stored_dealt") > 0) stored_.push_back({t_, dmg * get(fx_, "stored_dealt")});
         target->hp -= dmg;
         if (type == DamageType::Physical && target->cleaver < 5 && get(fx_, "cleaver_shred") > 0) {
             ++target->cleaver;
@@ -2334,6 +2350,13 @@ private:
         const double slotHsp = slotAmp ? hsp_ * (1 + slotAmp) : hsp_;
         if (!a.shield.empty()) addShield(scaled(a.shield) * slotHsp, a.shieldDuration, a.slot);
         if (!a.heal.empty()) heal(scaled(a.heal) * slotHsp);
+        storedHit_ = 0;
+        if (a.storedDamage > 0 || a.storedShield > 0) {  // spends the stored damage (Sett's Grit)
+            const double pool = storedPool();
+            stored_.clear();
+            if (a.storedShield > 0) addShield(pool * a.storedShield * slotHsp, a.shieldDuration > 0 ? a.shieldDuration : 3.0, a.slot);
+            storedHit_ = pool * a.storedDamage;
+        }
         // Tripleshot, Spell Split: the ability also hits a few more enemies near the target, for less.
         std::vector<std::pair<Enemy*, double>> targets;
         for (Enemy* e : shot.hits) targets.push_back({e, 1.0});
@@ -2373,6 +2396,10 @@ private:
                 executeHit_ = h.target == HitTarget::MissingHp;
                 dealt += deal(e, raw, h.type, src);
                 executeHit_ = false;
+            }
+            if (first && storedHit_ > 0 && e->alive) {  // the stored damage lands on the first target as true damage
+                dealt += deal(e, storedHit_ * amp, DamageType::True, src);
+                storedHit_ = 0;
             }
             if (!a.hits.empty()) {
                 // Upgrade Ravenous Hydra: ability hits Cleave too, once a second.
@@ -2745,6 +2772,8 @@ private:
             for (Enemy* e : near(me_, get(fx_, "drain_range")))
                 deal(e, get(fx_, "drain_bonus_hp") * bonusHp_ / get(fx_, "drain_cd") * dt, DamageType::Magic, SrcItems, false, FxDrain);
         tickPet(until);
+        // hp_regen_pct: Health regeneration as a share of max Health per second (Dr. Mundo's passive).
+        if (get(fx_, "hp_regen_pct") > 0 && myHp_ > 0) heal(get(fx_, "hp_regen_pct") * maxHp_ * dt);
         if (auraDps_ <= 0 && auraHits_.empty()) return;
         // Auras burn whoever stands close: item auras (Sunfire) reach 325, ability
         // auras their own radius.
@@ -2981,6 +3010,7 @@ private:
     void afterDamageTaken(double now, double taken) {
         const double keep = t_;
         t_ = now;
+        if (get(fx_, "stored_taken") > 0 && taken > 0) stored_.push_back({now, taken * get(fx_, "stored_taken")});
         if (get(fx_, "low_heal_max_hp") > 0 && myHp_ < get(fx_, "low_heal_threshold") * maxHp_ && now >= lowHealReady_) {
             lowHealReady_ = now + get(fx_, "low_heal_cd");
             heal(get(fx_, "low_heal_max_hp") * maxHp_);
@@ -3505,11 +3535,15 @@ Result Fight::run() {
         // An attack winds up before it lands and can't be mixed with a cast; once it fires,
         // the rest of the attack timer is free for casting (or walking).
         if (get(fx_, "as_missing") > 0) updateAs();  // attack speed that grows as Health drops
-        const double start = t_, wu = windupTime();
+        // fast_attack_every / fast_attack_mult: every Nth attack winds up and comes this many times faster
+        // (Sett's right punch follows the left at 8x attack speed).
+        const int fastEvery = static_cast<int>(get(fx_, "fast_attack_every"));
+        const double pace = fastEvery > 0 && (attacks_ + 1) % fastEvery == 0 ? 1.0 / std::max(1.0, get(fx_, "fast_attack_mult", 1.0)) : 1.0;
+        const double start = t_, wu = windupTime() * pace;
         busyUntil_ = t_ + wu;
         t_ += wu;
         if (t_ >= duration_ || advance(t_)) break;
-        nextAttack_ = start + 1.0 / attackSpeed_;
+        nextAttack_ = start + pace / attackSpeed_;
         if (!hasPrimary()) continue;  // the target fell during the wind-up
         basicAttack(wu);
         // Jhin: after the last round of ammunition, no attack until the reload is done.

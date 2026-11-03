@@ -300,10 +300,53 @@
  },
  "Gwen": {
   "Q": {
-   "hit_mults": {
-    "MiniSwipeDamage": 5
-   },
-   "why": "Snip Snip! snips 5 times at full stacks before the final cut"
+   "hits": [
+    {
+     "type": "magic",
+     "calc": "MiniSwipeDamage",
+     "scaling": {
+      "const": 325.0,
+      "ap": 0.625
+     },
+     "target": "flat",
+     "per_second": false,
+     "alt": false
+    },
+    {
+     "type": "true",
+     "calc": "MiniSwipeDamage",
+     "scaling": {
+      "const": 325.0,
+      "ap": 0.625
+     },
+     "target": "flat",
+     "per_second": false,
+     "alt": false
+    },
+    {
+     "type": "magic",
+     "calc": "FinalSwipeDamage",
+     "scaling": {
+      "const": 80.0,
+      "ap": 0.2
+     },
+     "target": "flat",
+     "per_second": false,
+     "alt": false
+    },
+    {
+     "type": "true",
+     "calc": "FinalSwipeDamage",
+     "scaling": {
+      "const": 80.0,
+      "ap": 0.2
+     },
+     "target": "flat",
+     "per_second": false,
+     "alt": false
+    }
+   ],
+   "why": "Snip Snip! snips 5 times at full stacks (130 + 25% AP each) before the final cut (160 + 40% AP), and the center of each strike deals half of it as true damage: the target she casts on stands in the center"
   },
   "R": {
    "hit_mults": {
@@ -311,6 +354,14 @@
     "TotalDamage5": 2
    },
    "why": "Needlework's three casts (1, 3, 5 needles) all land in one use; offset the 0.5 secondary weight so 9 needles count"
+  },
+  "E": {
+   "buff": {
+    "duration": 4,
+    "as": 0.8
+   },
+   "cooldown": 6,
+   "why": "Skip 'n Slash: empowered attacks for 4 s with 80% attack speed at rank 5 (check in game) and the on-hit magic damage (counted once per cast here); the first empowered attack that hits refunds 50% of its cooldown (11 s under Mayhem)"
   }
  },
  "Hecarim": {
@@ -1421,6 +1472,10 @@
     "amount": 0.5
    },
    "why": "Moonfall bonus is per extra champion hit; it pulls and slows rather than a 2s knockup"
+  },
+  "E": {
+   "cooldown": 6,
+   "why": "Lunar Rush's cooldown is refreshed when it hits a target marked by Crescent Strike's Moonlight, so it is cast about as often as Q (6 s at rank 5 under Mayhem)"
   }
  },
  "Draven": {
@@ -2051,16 +2106,15 @@
    "why": "Knuckle Down empowers the next two attacks"
   },
   "W": {
-   "hit_mults": {
-    "DamageCalc": 1.5
-   },
+   "stored_damage": 0.35,
+   "stored_shield": 0.75,
    "shield": {
     "scaling": {
-     "const": 300
+     "const": 0
     },
     "duration": 3.0
    },
-   "why": "Haymaker adds 25-50% of spent Grit as damage and shields for the Grit spent (approximate)"
+   "why": "Haymaker spends the Grit stored from damage taken (kit_passives.json): about 35% of it (rank 5, plus a little per 100 bonus AD; check in game) as true damage on the first target in the center and 75% of it as a shield decaying over 3 s; the base true damage is the parsed DamageCalc"
   },
   "E": {
    "cc": {
@@ -2544,10 +2598,21 @@
    "why": "Shadow Step lets Kayn walk through walls; it roots no one"
   },
   "Q": {
+   "calcs": [
+    "DarkinFlatDamage",
+    "DarkinPercentDamage"
+   ],
    "hit_mults": {
-    "TotalDamage": 2
+    "DarkinFlatDamage": 2,
+    "DarkinPercentDamage": 2
    },
-   "why": "Reaping Slash hits twice: the dash and the following sweep each deal the full damage"
+   "why": "Rhaast's Reaping Slash (the form CN bruiser builds imply): 65% bonus AD plus a share of the target's max Health, twice (the dash and the following sweep each deal it)"
+  },
+  "R": {
+   "calcs": [
+    "SlayerDamage"
+   ],
+   "why": "Rhaast's Umbral Trespass deals a share of the target's max Health (SlayerDamage), not the Shadow Assassin's flat damage"
   }
  },
  "JarvanIV": {
@@ -2829,6 +2894,15 @@
     }
    ],
    "why": "Blunt Force Trauma: the empowered attack deals its bonus once; PassiveBonusAD is attack damage (kit_passives.json), and the second AdditionalDamage only hits units a killed enemy is knocked into"
+  },
+  "R": {
+   "heal": {
+    "scaling": {
+     "max_hp": 0.6
+    }
+   },
+   "cast_for_heal": true,
+   "why": "Maximum Dosage (rank 3): regenerates 60% of max Health over 10 s (MaxHealthHoT; check the share in game), restored here when cast; the missing-Health-to-max-Health and move speed parts are not modeled"
   }
  },
  "Corki": {

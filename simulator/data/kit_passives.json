@@ -261,9 +261,11 @@
    "ad_l18": 76.5
   },
   "effects": {
-   "ad_per_bonus_hp": 0.032
+   "ad_per_bonus_hp": 0.032,
+   "hp_regen_pct_l1": 0.0016,
+   "hp_regen_pct_l18": 0.005
   },
-  "why": "Blunt Force Trauma passive: attack damage equal to 3.2% of max Health (rank 5): 3.2% of base Health by level plus 3.2% of bonus Health"
+  "why": "Blunt Force Trauma passive: attack damage equal to 3.2% of max Health (rank 5): 3.2% of base Health by level plus 3.2% of bonus Health; Goes Where He Pleases: regenerates 0.8-2.5% (by level) of max Health every 5 s (MaxHealthRegen; check in game)"
  },
  "Viego": {
   "effects": {
@@ -304,5 +306,59 @@
    "attached": 1
   },
   "why": "You and Me!: attached to an ally she doesn't attack; the fight lasts as long as her ally's, so her damage taken stays as it is"
+ },
+ "Sett": {
+  "effects": {
+   "fast_attack_every": 2,
+   "fast_attack_mult": 8,
+   "stored_taken": 1.0,
+   "stored_window": 4,
+   "stored_cap": 0.5
+  },
+  "why": "Pit Grit: the right punch (every second attack) follows the left at 8x attack speed; Haymaker's passive stores 100% of damage taken as Grit for 4 s, up to 50% of max Health, which W spends (stored_damage, stored_shield on W)"
+ },
+ "Diana": {
+  "stats": {
+   "as_l1": 0.1,
+   "as_l18": 0.4
+  },
+  "effects": {
+   "stack_on": 2,
+   "stack_max": 1,
+   "stack_duration": 3,
+   "stack_as_l1": 0.2,
+   "stack_as_l18": 0.8
+  },
+  "why": "Moonsilver Blade: 10-40% attack speed by level, tripled (another 20-80%) for 3 s after casting an ability; the third-attack cleave is in passives.json"
+ },
+ "Ambessa": {
+  "stats": {
+   "armor_pen": 0.2
+  },
+  "effects": {
+   "ability_vamp": 0.12
+  },
+  "why": "Public Execution passive (rank 3): 20% armor penetration and her abilities heal for about 12% of the damage they deal (Calc_Omnivamp; check the exact share in game)"
+ },
+ "Kayn": {
+  "effects": {
+   "ability_vamp": 0.3
+  },
+  "why": "Rhaast (the form CN bruiser builds imply: Endless Hunger, Death's Dance): abilities heal for about 30% of the damage they deal to champions (check in game); Rhaast's Q and R numbers are picked in champion_overrides.json"
+ },
+ "Graves": {
+  "effects": {
+   "attack_ad_mult_l1": 1.78,
+   "attack_ad_mult_l18": 2.0,
+   "reload_every": 2,
+   "reload_time": 1.5
+  },
+  "why": "New Destiny: each attack fires 4 bullets, the first at 100% AD and the rest at 26-33% AD by level (all four hit a champion in melee to mid range: 1.78-2.0x AD per attack; on-hit effects apply once); two shells, then a reload of about 1.5 s with attack speed (check the reload time in game)"
+ },
+ "Mordekaiser": {
+  "effects": {
+   "magic_pen_pct_kit": 0.15
+  },
+  "why": "Death's Grasp passive: 15% magic penetration at rank 5 (MagicPen; check in game); Darkness Rise is in passives.json as an aura hitting everyone near the target"
  }
 }
