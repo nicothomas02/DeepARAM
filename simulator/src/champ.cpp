@@ -27,6 +27,12 @@ double get(const Bag& b, const std::string& key, double fallback) {
     return it == b.end() ? fallback : it->second;
 }
 
+// Looks a literal up without building a std::string (the fight does this many times per tick).
+double get(const Bag& b, const char* key, double fallback) {
+    auto it = b.find(key);
+    return it == b.end() ? fallback : it->second;
+}
+
 // ---------------------------------------------------------------------------
 // Loading
 // ---------------------------------------------------------------------------
@@ -493,6 +499,7 @@ Library Library::load(const std::string& rulesPath, const Settings& settings, co
             if (!combo.empty()) Library::setCombo(c, combo);
         }
     }
+    lib.indexChampions();
     lib.items = loadEffects(json::parse(readFile(game + "/items.json"))["items"], "legendary");
     lib.augments = loadEffects(json::parse(readFile(game + "/augments.json"))["augments"], "augment");
     const std::string pool = root["scenario"]["enemy_pool"].asString();
@@ -537,8 +544,32 @@ void Library::setCombo(ChampionKit& c, const std::string& combo) {
     c.combo = out;
 }
 
+void Library::indexChampions() {
+    indexById.clear(); indexByName.clear(); indexByNumber.clear();
+    for (size_t i = 0; i < champions.size(); ++i) {  // emplace keeps the first champion with a key
+        indexById.emplace(lower(champions[i].id), i);
+        indexByName.emplace(lower(champions[i].name), i);
+        indexByNumber.emplace(std::to_string(champions[i].championId), i);
+    }
+    indexed = champions.size();
+}
+
 const ChampionKit* Library::find(const std::string& nameOrId) const {
     const std::string want = lower(nameOrId);
+    // The index gives the same answer as the scan below (the first champion matching any of the
+    // three keys) without lowering every champion's id and name on each call: the fight looks an
+    // enemy's kit up every time one steps in.
+    if (indexed > 0 && indexed == champions.size()) {
+        size_t best = champions.size();
+        auto probe = [&](const std::map<std::string, size_t>& index, const std::string& key) {
+            const auto it = index.find(key);
+            if (it != index.end() && it->second < best) best = it->second;
+        };
+        probe(indexById, want);
+        probe(indexByName, want);
+        probe(indexByNumber, nameOrId);
+        return best < champions.size() ? &champions[best] : nullptr;
+    }
     for (const auto& c : champions)
         if (lower(c.id) == want || lower(c.name) == want || std::to_string(c.championId) == nameOrId) return &c;
     return nullptr;
@@ -832,6 +863,7 @@ struct Enemy {
     double markUntil = -1, markShare = 0;  // your mark on it (Zed R): a share of your damage is dealt again
     Source markSrc = SrcR;
     std::vector<double> castReady;  // its own abilities: when each is next up
+    const struct EnemyKit* kit = nullptr;  // its abilities as used on you (enemyKits_), set when it spawns
     double attackClock = 0;         // its attacks on you, for thorns (Thornmail)
 };
 
@@ -847,6 +879,51 @@ struct EnemyKit {
     double abilityShare = 0;   // share of the enemy's damage its abilities deal (the rest is a steady stream)
     std::vector<EnemyCast> casts;
 };
+
+// A Bag read many times per tick by string literal (the build's summed effects): the same map,
+// plus a hash index over it so get(bag, "key") is a hash and one string compare instead of a
+// tree walk. Fill `bag`, then index() once it's final; get() reads the index, so a later change to
+// bag needs index() again.
+class FxBag {
+public:
+    Bag bag;
+    FxBag() = default;
+    FxBag(const FxBag&) = delete;  // the index points into bag's keys
+    FxBag& operator=(const FxBag&) = delete;
+    void index() {
+        size_t size = 16;
+        while (size < 2 * bag.size()) size *= 2;
+        slots_.assign(size, Slot{});
+        for (const auto& [k, v] : bag) {
+            const size_t h = hashOf(k.c_str());
+            size_t i = h & (size - 1);
+            while (slots_[i].key) i = (i + 1) & (size - 1);
+            slots_[i] = Slot{&k, h, v};
+        }
+    }
+    double get(const char* key, double fallback) const {
+        if (slots_.empty()) return mayhem::get(bag, key, fallback);
+        const size_t h = hashOf(key), mask = slots_.size() - 1;
+        for (size_t i = h & mask;; i = (i + 1) & mask) {
+            const Slot& s = slots_[i];
+            if (!s.key) return fallback;
+            if (s.hash == h && *s.key == key) return s.value;
+        }
+    }
+    operator const Bag&() const { return bag; }
+
+private:
+    struct Slot { const std::string* key = nullptr; size_t hash = 0; double value = 0; };
+    std::vector<Slot> slots_;
+    static size_t hashOf(const char* s) {  // FNV-1a
+        uint64_t h = 1469598103934665603ULL;
+        for (; *s; ++s) h = (h ^ static_cast<unsigned char>(*s)) * 1099511628211ULL;
+        return static_cast<size_t>(h);
+    }
+};
+using mayhem::get;  // the Bag overloads stay visible next to these
+inline double get(const FxBag& b, const char* key, double fallback = 0.0) { return b.get(key, fallback); }
+inline double get(const FxBag& b, const std::string& key, double fallback = 0.0) { return b.get(key.c_str(), fallback); }
 
 // An item or augment effect with its own cooldown or counter.
 struct Proc {
@@ -902,8 +979,8 @@ private:
     }
 
     // build
-    Bag fx_;  // summed effects
-    Bag itemFx_;  // the items' effects alone (Vulnerability crits item effects, not augments)
+    FxBag fx_;  // summed effects
+    FxBag itemFx_;  // the items' effects alone (Vulnerability crits item effects, not augments)
     double ad_ = 0, bonusAd_ = 0, baseAd_ = 0, ap_ = 0, bonusAs_ = 0, crit_ = 0, critDamage_ = 0;
     double maxHp_ = 0, bonusHp_ = 0, armor_ = 0, bonusArmor_ = 0, mr_ = 0, bonusMr_ = 0, ah_ = 0, bonusMana_ = 0;
     double lethality_ = 0, armorPen_ = 0, magicPen_ = 0, magicPenPct_ = 0, lifesteal_ = 0, omnivamp_ = 0;
@@ -920,7 +997,20 @@ private:
     struct Trig { const Bag* fx = nullptr; double readyAt = 0, taken = 0; int counter = 0; std::map<int, double> perTarget; };
     std::vector<Trig> trigs_;
     // Stacking buffs ("stack_" and "stack2_" keys): stats per stack, all lost when the stacks expire.
-    struct Stack { const Bag* fx = nullptr; std::string p; int n = 0; double expire = -1, readyAt = 0, ap = 0, ad = 0, as = 0, ms = 0; };
+    struct Stack {
+        const Bag* fx = nullptr;
+        std::string p;
+        // Its "<p>on", "<p>cd"... values, read once (the keys would otherwise be built on every attack).
+        double on = 0, cd = 0, duration = 0, max = 0, apEach = 0, adEach = 0, asEach = 0, msEach = 0, afEach = 0, fullVamp = 0;
+        int n = 0;
+        double expire = -1, readyAt = 0, ap = 0, ad = 0, as = 0, ms = 0;
+        Stack(const Bag* f, const char* prefix) : fx(f), p(prefix) {
+            on = get(*f, p + "on"); cd = get(*f, p + "cd"); duration = get(*f, p + "duration"); max = get(*f, p + "max");
+            apEach = get(*f, p + "ap"); adEach = get(*f, p + "ad"); asEach = get(*f, p + "as"); msEach = get(*f, p + "ms");
+            afEach = get(*f, p + "af"); fullVamp = get(*f, p + "full_vamp");
+        }
+        void reset() { n = 0; expire = -1; ap = ad = as = ms = 0; }  // the stacks are gone; readyAt stays
+    };
     std::vector<Stack> stacks_;
     // Augments on one of your abilities (spell_bind): which ability it picked.
     struct Bound { const Bag* fx = nullptr; size_t idx = static_cast<size_t>(-1); std::string kind; };
@@ -1081,8 +1171,8 @@ private:
             addBag(atLevel(e->stats), stats);
             bags_.push_back(atLevel(e->effects));
             const Bag& f = bags_.back();
-            addBag(f, fx_);
-            if (lib_.items.count(e->key) && &lib_.items.at(e->key) == e) addBag(f, itemFx_);
+            addBag(f, fx_.bag);
+            if (lib_.items.count(e->key) && &lib_.items.at(e->key) == e) addBag(f, itemFx_.bag);
             if (get(f, "spellblade_cd") > 0) {  // spellblades don't stack: keep the strongest
                 const double power = get(f, "spellblade_base_ad") * 3 + get(f, "spellblade_ap") * 3;
                 if (power > bestBlade) { bestBlade = power; spellblade_ = &f; }
@@ -1105,6 +1195,8 @@ private:
                 if (get(f, std::string(p) + "max") > 0) stacks_.push_back({&f, p});
             if (!e->bind.empty()) bound_.push_back({&f, static_cast<size_t>(-1), e->bind});
         }
+        fx_.index();  // the effects are final from here on
+        itemFx_.index();
         const double g = levelScale(sc_.level);
         baseAd_ = ch_.ad + ch_.adG * g;
         bonusAd_ = get(stats, "ad");
@@ -1548,10 +1640,8 @@ private:
         if (enemyKits_.empty() || now <= engageAt_) return 0;
         double total = 0;
         for (auto& e : enemies_) {
-            if (!e.alive) continue;
-            const auto it = enemyKits_.find(e.profile);
-            if (it == enemyKits_.end()) continue;
-            const auto& casts = it->second.casts;
+            if (!e.alive || !e.kit) continue;
+            const auto& casts = e.kit->casts;
             if (e.castReady.size() != casts.size()) {  // first sight of you: abilities come up staggered
                 e.castReady.clear();
                 for (const auto& c : casts) e.castReady.push_back(now + abilityRng_.uniform(0, 0.5 * c.cooldown));
@@ -1610,6 +1700,8 @@ private:
         else { p.hp = sc_.targetHp; p.armor = sc_.targetArmor; p.mr = sc_.targetMr; p.moveSpeed = 0; p.reach = 550; }
         Enemy e;
         e.profile = prof;
+        // Its kit is added before it spawns (setupEnemyKits, respawn) and never changes afterwards.
+        if (const auto it = enemyKits_.find(prof); it != enemyKits_.end()) e.kit = &it->second;
         e.uid = nextUid_++;
         e.maxHp = p.hpSd > 0 ? std::max(0.5 * p.hp, targetRng_.normal(p.hp, p.hp * p.hpSd)) : p.hp;
         e.hp = e.maxHp;
@@ -1650,8 +1742,7 @@ private:
 
     // Share of an enemy's damage that comes as a steady stream while you're in its reach.
     double streamShare(const Enemy& e) const {
-        const auto it = enemyKits_.find(e.profile);
-        return it == enemyKits_.end() ? 1.0 : 1.0 - it->second.abilityShare;
+        return e.kit ? 1.0 - e.kit->abilityShare : 1.0;
     }
 
     bool inCc(double t) const {
@@ -2498,7 +2589,7 @@ private:
         const double itemMagic = get(itemFx_, "onhit_magic") + get(itemFx_, "onhit_magic_ap") * ap_;
         deal(e, scale * itemMagic, DamageType::Magic, SrcItems, false, FxOnHitMagic);
         deal(e, scale * (magic - itemMagic), DamageType::Magic, SrcItems);
-        auto physOf = [&](const Bag& b) {
+        auto physOf = [&](const auto& b) {
             return get(b, "onhit_phys") + get(b, "onhit_cur_hp") * e->hp + get(b, "onhit_own_hp") * maxHp_ + get(b, "onhit_phys_ap") * ap_;
         };
         const double itemPhys = physOf(itemFx_), phys = physOf(fx_);
@@ -2909,18 +3000,17 @@ private:
     void stackEvent(int kind, const Bag* only = nullptr) {
         for (auto& s : stacks_) {
             if (only && s.fx != only) continue;
-            const Bag& f = *s.fx;
-            const int on = static_cast<int>(get(f, s.p + "on"));
+            const int on = static_cast<int>(s.on);
             if (on != kind && !(on == OnHit && (kind == OnAttack || kind == OnAbility))) continue;
             expireStack(s);
             if (t_ < s.readyAt) continue;
-            s.readyAt = t_ + get(f, s.p + "cd");
-            const double dur = get(f, s.p + "duration");
+            s.readyAt = t_ + s.cd;
+            const double dur = s.duration;
             s.expire = dur > 0 ? t_ + dur : -1;  // every stack refreshes; none: they last the fight
-            if (s.n >= get(f, s.p + "max")) continue;
+            if (s.n >= s.max) continue;
             ++s.n;
-            double ap = get(f, s.p + "ap"), ad = get(f, s.p + "ad");
-            const double as = get(f, s.p + "as"), ms = get(f, s.p + "ms"), af = get(f, s.p + "af");
+            double ap = s.apEach, ad = s.adEach;
+            const double as = s.asEach, ms = s.msEach, af = s.afEach;
             ap_ += ap; bonusAd_ += ad; ad_ += ad;
             if (af > 0) addAdaptive(af, &ap, &ad);
             s.ap += ap; s.ad += ad; s.as += as; s.ms += ms;
@@ -2932,9 +3022,7 @@ private:
     void expireStack(Stack& s) {
         if (s.n == 0 || s.expire < 0 || t_ < s.expire) return;
         ap_ -= s.ap; bonusAd_ -= s.ad; ad_ -= s.ad; tempAs_ -= s.as; moveSpeed_ -= s.ms;
-        const double ready = s.readyAt;
-        s = Stack{s.fx, s.p};
-        s.readyAt = ready;
+        s.reset();
         updateAs();
     }
     void tickStacks() {
@@ -2973,7 +3061,7 @@ private:
     double fullStackVamp() const {  // Conqueror: heals at full stacks
         double v = 0;
         for (const auto& s : stacks_)
-            if (s.n > 0 && s.n >= get(*s.fx, s.p + "max")) v += get(*s.fx, s.p + "full_vamp");
+            if (s.n > 0 && s.n >= s.max) v += s.fullVamp;
         return v;
     }
 

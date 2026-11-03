@@ -178,6 +178,23 @@ Boots, five legendaries and four augments. Items are searched greedily to pick a
 
 `--search smart` (used by `make replay` for the published best builds) searches items and augments together. It shortlists 15 items and about 10 augments, screens every five-item set and every four-augment set, then races the best 24 item sets × 12 augment sets, every boots option and the quick search's best builds with successive halving. Each build starts with 250 fights, and the best third go on with three times as many. The last 4 are compared on 20,000 fights. Fights are shared between rounds, so each round only plays new ones. It takes about 3 to 8 times as long as the quick search (Jinx: 80 s instead of 10 s on 4 cores). Settings are in `optimizer.smart`.
 
+## Performance
+
+A fight is stepped every 0.05 s (`Fight::advance` in `src/champ.cpp`), and most of the time goes there and in the damage path under it (`deal`, `basicAttack`, `applyOnHit`, `tickAuras`). Those read the build's effects by name many times per tick, so `fx_` and `itemFx_` are `FxBag`s: the effect `Bag` plus a hash index over its keys, built once per fight in `setupBuild` (any later change to the bag needs `index()` again). `Bag` itself has a transparent comparator so a lookup by string literal builds no `std::string`. `Library::find` answers from an index built by `Library::load` (the fight asks for an enemy's kit every time one steps in), and each `Enemy` keeps a pointer to its kit so the per-tick loops don't search `enemyKits_`.
+
+Any change here must keep results bit-identical: `tests/simulator/snapshots.json` pins exact numbers, and a trial's draws depend only on `(seed, trial index)`. Only hoist work out of the loop, cache values the loop would read again, or replace a lookup with an equivalent one; never reorder floating-point sums, replace a `sqrt` compare with a squared one, or change the compiler flags. Check with `make test`, `python3 -m pytest tests/simulator` (without re-pinning) and a byte-for-byte diff of a few `--json --threads 1 --seed N` runs against the previous build.
+
+To profile, build with `-pg` (or `-g` for `perf` when it is available) and run a fixed build on one thread:
+
+```sh
+c++ -std=c++17 -O2 -g -pg -pthread src/sim.cpp src/champ.cpp src/champ_main.cpp -o mayhem_prof
+./mayhem_prof --champ Jinx --items berserkers,botrk,infinity_edge,lord_dominiks,stormrazor,yuntal \
+    --augs hellbent,dual_wield,giant_slayer,symphony_of_war --json --trials 2000 --threads 1 > /dev/null
+gprof -b mayhem_prof gmon.out | head -40
+```
+
+gprof attributes inlined helpers to their caller, so `advance` carries `moveEnemies`, `enemyCasts` and the damage-taken loop, and a row with the same call counts as `get` is usually `get`.
+
 ## Limits
 
 - Passives, stacking and HP-scaling kits are mostly missing, so fighters and juggernauts (Sett, Sion, Mundo, Mordekaiser, Gwen, Diana) are underrated.

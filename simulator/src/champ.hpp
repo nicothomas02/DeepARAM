@@ -18,9 +18,11 @@ namespace mayhem {
 using yunara::EnemyProfile;
 using yunara::Scenario;
 
-// Flat numeric properties: stats and effect parameters by name.
-using Bag = std::map<std::string, double>;
+// Flat numeric properties: stats and effect parameters by name. The transparent comparator
+// lets the fight look keys up by string literal without building a std::string each time.
+using Bag = std::map<std::string, double, std::less<>>;
 double get(const Bag& b, const std::string& key, double fallback = 0.0);
+double get(const Bag& b, const char* key, double fallback = 0.0);
 
 enum class DamageType { Physical, Magic, True };
 enum class HitTarget { Flat, MaxHp, CurrentHp, MissingHp };
@@ -267,6 +269,13 @@ struct Library {
     // the live patch; data/pbe for the PBE patch).
     static Library load(const std::string& rulesPath, const Settings& settings = {}, const std::string& gameDir = "");
     const ChampionKit* find(const std::string& nameOrId) const;
+    // find() index, built by load() once champions is final: each champion's lowercased id,
+    // lowercased name and champion id number -> its position (the first one when two share a key).
+    // find() falls back to scanning champions when the index doesn't match it (indexed: how many
+    // champions it covers; 0 when there is none).
+    std::map<std::string, size_t> indexById, indexByName, indexByNumber;
+    size_t indexed = 0;
+    void indexChampions();
     // Sets a champion's cast order, e.g. "EQRW" (Q, W, E and R, each at most once). Throws if invalid.
     static void setCombo(ChampionKit& c, const std::string& combo);
     // The fight scenario for one champion: enemy pool without that champion and its
