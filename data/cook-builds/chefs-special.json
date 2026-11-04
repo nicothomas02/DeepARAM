@@ -1,297 +1,297 @@
 {
-  "id": "elise-revolving-door",
-  "title": "The Revolving Door",
-  "champion": "Elise",
-  "champion_name": "Elise",
-  "chef": "2026-11-02",
-  "why": "Elise's ultimate is Spider Form, a form swap on a tiny cooldown, so every flip between spider and human counts as casting her ultimate, and that is the whole trick. Stuck In Here With Me gives her damage reduction after each ultimate and then taunts the enemies stuck with her, Final Form hands her a shield worth half her max Health plus omnivamp and move speed, Can't Touch This makes her briefly invulnerable, and Ultimate Unstoppable makes her immune to crowd control, so each swap fires whichever of them is off cooldown. Spider Form's own passive heals her on every bite, so with omnivamp on top she sustains while the enemy team is forced to stand on her. Warmog's Armor and Heartsteel make the max Health shield enormous, Spirit Visage makes that shield and her spider heals bigger, and Thornmail punishes every taunted enemy forced to attack her while Sunfire Aegis burns the crowd. The AP assassin becomes a taunting front-line tank whose only button is pressing R over and over.",
-  "play": "Cocoon an enemy, go spider and walk into their team, then keep swapping forms to chain damage reduction, taunts, invulnerability and shields while biting whoever is stuck on you. Build pure Health and Armor and never Rappel out.",
+  "id": "cassiopeia-drive-by-serpent",
+  "title": "The Drive-By Serpent",
+  "champion": "Cassiopeia",
+  "champion_name": "Cassiopeia",
+  "chef": "2026-11-03",
+  "why": "Cassiopeia's passive, Serpentine Grace, quietly makes every Move Speed bonus bigger on her, and Twin Fang is a 0.75-second cooldown spell she casts nonstop. With Quickstep rolled on Twin Fang, every cast now dashes her toward her cursor, so she lunges at whoever she is biting every 0.75 seconds; Shadow Runner hands out 300 Move Speed after each dash, which her passive inflates and which never expires because the next dash arrives before the 2 seconds are up. Don't Blink turns that speed lead into 1% bonus damage per 10 Move Speed over the target, and her own Miasma slow and ground plus Petrifying Gaze's slow widen the gap, while Earthwake makes every dash leave a trail that detonates after 0.75 seconds, exactly as the next Twin Fang comes off cooldown. Rylai's slows the target on every fang so the gap grows further, and Cosmic Drive, Lich Bane, Stormsurge, Dead Man's Plate and Force of Nature all carry percent Move Speed that her passive multiplies, with Dead Man's Plate blunting slows and Force of Nature keeping her alive in melee. The stationary poison artillery mage becomes a hyper-mobile drifter who runs rings around the enemy, mining the ground behind her with every bite.",
+  "play": "Poison with Q or W, then hold E and let Quickstep drag you through the target so each dash lays an Earthwake trail and refreshes Shadow Runner. Save R to stun or slow anyone who tries to match your speed.",
   "items": [
-    "Thornmail",
-    "Warmog's Armor",
-    "Spirit Visage",
-    "Heartsteel",
-    "Sunfire Aegis",
-    "Plated Steelcaps"
+    "Rylai's Crystal Scepter",
+    "Cosmic Drive",
+    "Lich Bane",
+    "Stormsurge",
+    "Dead Man's Plate",
+    "Force of Nature"
   ],
   "core": 4,
-  "champion_icon": "/embed/fun/cook-builds/icons/champions/60.png",
+  "champion_icon": "/embed/fun/cook-builds/icons/champions/69.png",
   "augments": [
     {
-      "name": "Stuck In Here With Me",
-      "rarity": "Prismatic",
+      "name": "Quickstep",
+      "rarity": "Gold",
       "core": true,
-      "text": "After using your Ultimate, gain damage reduction for 2 seconds, after which you Taunt enemies inside for 2 seconds. Gain 30 Ultimate Ability Haste.",
-      "icon": "/embed/fun/cook-builds/icons/augments/stuck-in-here-with-me.png",
-      "id": 1413
+      "text": "When you use the chosen ability, dash towards your cursor.",
+      "icon": "/embed/fun/cook-builds/icons/augments/quickstep.png",
+      "id": 2064
     },
     {
-      "name": "Final Form",
-      "rarity": "Prismatic",
-      "core": true,
-      "text": "After casting your Ultimate, gain a 50% max Health Shield, 20% Omnivamp and 30% bonus Movement Speed for 10 seconds. (20 seconds Cooldown).",
-      "icon": "/embed/fun/cook-builds/icons/augments/final-form.png",
-      "id": 1344
-    },
-    {
-      "name": "Can't Touch This",
-      "rarity": "Prismatic",
-      "core": true,
-      "text": "Casting your Ultimate makes you Invulnerable for 2 seconds (8s Cooldown).",
-      "icon": "/embed/fun/cook-builds/icons/augments/can-t-touch-this.png",
-      "id": 1011
-    },
-    {
-      "name": "Ultimate Unstoppable",
+      "name": "Shadow Runner",
       "rarity": "Silver",
       "core": true,
-      "text": "After using your Ultimate, you become immune to crowd control for 3 seconds. (8 second Cooldown).",
-      "icon": "/embed/fun/cook-builds/icons/augments/ultimate-unstoppable.png",
-      "id": 1112
+      "text": "After using a Dash, Blink, or Teleport Ability or exiting Stealth, gain 300 Movement Speed for 2 seconds.",
+      "icon": "/embed/fun/cook-builds/icons/augments/shadow-runner.png",
+      "id": 1073
+    },
+    {
+      "name": "Don't Blink",
+      "rarity": "Silver",
+      "core": true,
+      "text": "Gain 1% bonus damage per 10 Movement Speed more you have than the target.",
+      "icon": "/embed/fun/cook-builds/icons/augments/don-t-blink.png",
+      "id": 1026
+    },
+    {
+      "name": "Earthwake",
+      "rarity": "Prismatic",
+      "core": true,
+      "text": "Your dash, blink, or teleport Abilities leave behind a trail that detonates after 0.75 second.",
+      "icon": "/embed/fun/cook-builds/icons/augments/earthwake.png",
+      "id": 1027
     }
   ],
   "href": "/kitchen#chefs-special",
   "archive_href": "/kitchen#chef-archive",
-  "share_href": "/kitchen/2026-11-02",
-  "share_image": "/embed/fun/cook-builds/share/elise-revolving-door.png",
+  "share_href": "/kitchen/2026-11-03",
+  "share_image": "/embed/fun/cook-builds/share/cassiopeia-drive-by-serpent.png",
   "item_ids": [
-    3075,
-    3083,
-    3065,
-    3084,
-    3068,
-    3047
+    3116,
+    4629,
+    3100,
+    4646,
+    3742,
+    4401
   ],
   "i18n": {
     "ar": {
-      "title": "الباب الدوّار",
-      "why": "الضربة القاضية لإليز هي هيئة العنكبوت، وهي تبديل هيئة بفترة تهدئة صغيرة جدًا، لذلك كل تبديل بين العنكبوت والبشر يُحسب كاستخدام للضربة القاضية، وهذه هي الحيلة كلها. عالقٌ هنا معي يمنحها تقليلًا للضرر بعد كل ضربة قاضية ثم يستفز الأعداء العالقين معها، والهيئة النهائية تمنحها درعًا بقيمة نصف صحتها القصوى مع امتصاص شامل وسرعة حركة، ولا يمكنك لمسي يجعلها منيعة لوقت قصير، وتعويذات خارقة لا تُقهر تجعلها محصنة ضد التحكم، فكل تبديل يطلق ما هو جاهز وقتها. القدرة السلبية لهيئة العنكبوت تشفيها مع كل عضة، فمع الامتصاص الشامل فوقها تصمد بينما يُجبر فريق العدو على الوقوف فوقها. درع وارموغ والقلب الفولاذي يجعلان درع الصحة القصوى ضخمًا، ووجه الروح يكبّر هذا الدرع وشفاء العنكبوت، والدرع الشوكي يعاقب كل عدو مستفَز مجبر على مهاجمتها بينما يحرق الدرع الشمسي الحشد. القاتلة بقوة القدرات تصبح دبابة خط أمامي تستفز وزرها الوحيد هو ضغط R مرة بعد مرة.",
-      "play": "اشرنق عدوًا بـE البشرية، وتحوّل إلى عنكبوت وادخل وسط فريقهم، ثم بدّل الهيئة باستمرار لتسلسل تقليل الضرر والاستفزاز والمناعة والدروع بينما تعض كل من يلتصق بك. ابنِ صحة ودرعًا فقط، ولا تهرب أبدًا بـE العنكبوت.",
+      "title": "الأفعى العابرة",
+      "why": "تجعل المهارة السلبية لـكاسيوبيا كل مكافأة لسرعة الحركة أقوى عليها بهدوء، ومهارة E لديها تعويذة بفترة تهدئة 0.75 ثانية تلقيها بلا توقف. مع الخطوة السريعة على E، كل استخدام يجعلها تندفع نحو المؤشر، فتنقض على من تعضه كل 0.75 ثانية؛ ويمنحها عدَّاء الظلال 300 سرعة حركة بعد كل اندفاع، تضخمها مهارتها السلبية أكثر، ولا تنتهي أبدًا لأن الاندفاع التالي يأتي قبل انقضاء الثانيتين. يحوّل لا ترمش هذا التفوق إلى 1% ضرر إضافي لكل 10 سرعة حركة تزيد بها عن الهدف، ويوسّع إبطاء W وتثبيتها على الأرض وإبطاء R الفارق، بينما تجعل صحوة الأرض كل اندفاع يترك أثرًا ينفجر بعد 0.75 ثانية، تمامًا حين تعود E التالية. يبطئ صولجان كريستال رايلاي الهدف مع كل عضة ليتسع الفارق أكثر، ويمنح الحافز الكوني وعفونة الموتى والمد العاصف ودرع صدر الرجل الميت وقوة الطبيعة جميعها سرعة حركة بالنسبة المئوية تضاعفها مهارتها السلبية، مع تخفيف درع صدر الرجل الميت للإبطاء وإبقاء قوة الطبيعة لها حية في القتال القريب. تتحول الساحرة المدفعية السامة الثابتة إلى متزلجة فائقة الحركة تدور حول العدو وتزرع الألغام في الأرض خلفها مع كل عضة.",
+      "play": "سمّم بـQ أو W، ثم كرّر E ودع الخطوة السريعة تسحبك عبر الهدف لكي يترك كل اندفاع أثر صحوة الأرض ويجدد عدَّاء الظلال. احتفظ بـR لصعق أو إبطاء أي شخص يحاول مجاراة سرعتك.",
       "augments": [
-        "بعد استخدام ضربتك القاضية، احصل على تقليل للضرر لمدة ثانيتين، وبعدها تستفز الأعداء في الداخل لمدة ثانيتين. احصل على 30 من تسريع الضربة القاضية.",
-        "بعد إلقاء ضربتك القاضية، احصل على درع بنسبة 50% من الصحة القصوى و20% امتصاص شامل و30% سرعة حركة إضافية لمدة 10 ثوانٍ. (فترة تهدئة 20 ثانية).",
-        "إلقاء ضربتك القاضية يجعلك منيعًا لمدة ثانيتين (فترة تهدئة 8 ثوانٍ).",
-        "بعد استخدام ضربتك القاضية، تصبح محصنًا ضد التحكم بالحشود لمدة 3 ثوانٍ. (فترة تهدئة 8 ثوانٍ)."
+        "عند استخدام القدرة المختارة، تندفع نحو المؤشر.",
+        "بعد استخدام قدرة اندفاع أو انتقال خاطف أو انتقال آني أو الخروج من التخفي، تحصل على 300 سرعة حركة لمدة ثانيتين.",
+        "تكتسب 1% ضررًا إضافيًا عن كل 10 سرعة حركة تزيد بها على الهدف.",
+        "تترك قدرات الاندفاع أو الانتقال الخاطف أو الانتقال الآني أثرًا ينفجر بعد 0.75 ثانية."
       ]
     },
     "cs": {
-      "title": "Otočné dveře",
-      "why": "Elisina ultimátka je Pavoučí podoba, změna formy s malinkým přebíjením, takže každé přepnutí mezi pavoukem a člověkem se počítá jako seslání ultimátky, a v tom je celý trik. Zůstaneš tu se mnou jí po každé ultimátce dá snížení poškození a pak vyprovokuje nepřátele uvězněné s ní, Závěrečná podoba jí dá štít ve výši poloviny jejího max. zdraví plus všestranný upír a rychlost pohybu, Ruce pryč ji na chvíli udělá nezranitelnou a Ultimátní nezastavitelnost jí dá imunitu vůči omezujícím efektům, takže každé přepnutí spustí to, co je zrovna připravené. Pasivka Pavoučí podoby ji léčí při každém kousnutí, takže s všestranným upírem navíc vydrží, zatímco nepřátelský tým musí stát na ní. Warmogova zbroj a Srdcová ocel udělají štít z max. zdraví obrovským, Otisk duše zvětší tento štít i pavoučí léčení a Trnobrnění trestá každého vyprovokovaného nepřítele, který na ni musí útočit, zatímco Záštita slunečního žáru pálí dav. Z AP zabijačky se stane provokující tank v první linii, jehož jediným tlačítkem je mačkat R pořád dokola.",
-      "play": "Zabal nepřítele lidským E, přepni se na pavouka a vlez do jejich týmu, pak neustále měň podobu a řetěz snížení poškození, provokace, nezranitelnost a štíty, zatímco koušeš každého, kdo se na tebe nalepí. Stav jen zdraví a brnění a nikdy neutíkej pavoučím E.",
+      "title": "Had z projížďky",
+      "why": "Cassiopeiina pasivka nenápadně zesiluje každý bonus k rychlosti pohybu, a její E je kouzlo s přebíjením 0,75 sekundy, které sesílá pořád dokola. S Úkrokem na E ji každé seslání vrhne ke kurzoru, takže se každých 0,75 sekundy vrhne na cíl, který kouše; Nepolapitelný stín dá po každém výpadu 300 rychlosti pohybu, kterou pasivka ještě nafoukne a která nikdy nevyprší, protože další výpad přijde dřív než za 2 sekundy. Nemrkej z toho náskoku udělá 1 % bonusového poškození za každých 10 rychlosti pohybu navíc oproti cíli, zpomalení a uzemnění z W a zpomalení z R rozdíl zvětšují, a Výbušná brázda nechá za každým výpadem stopu, která po 0,75 sekundy vybuchne, přesně když se vrátí další E. Rylaino křišťálové žezlo zpomalí cíl při každém kousnutí, a Kosmický pohon, Zhouba lichů, Nával bouře, Kyrys mrtvého muže a Síla přírody dávají procentuální rychlost pohybu, kterou pasivka násobí; Kyrys mrtvého muže tlumí zpomalení a Síla přírody ji drží naživu na blízko. Statická jedovatá dělostřelkyně se mění v hypermobilní driftařku, která krouží kolem nepřítele a s každým kousnutím za sebou minuje zem.",
+      "play": "Otrav cíl přes Q nebo W, pak spamuj E a nech Úkrok, ať tě táhne skrz cíl, aby každý výpad položil Výbušnou brázdu a obnovil Nepolapitelný stín. R si nech na omráčení nebo zpomalení každého, kdo se snaží držet tvé tempo.",
       "augments": [
-        "Po použití ultimátní schopnosti získáš na 2 sekundy snížení poškození, poté na 2 sekundy vyprovokuješ nepřátele uvnitř. Získáš 30 bodů zrychlení ultimátní schopnosti.",
-        "Po seslání ultimátní schopnosti získáš na 10 sekund štít ve výši 50 % max. zdraví, 20 % všestranného upíra a 30 % bonusové rychlosti pohybu. (Přebíjení 20 sekund).",
-        "Seslání ultimátní schopnosti tě na 2 sekundy učiní nezranitelným (přebíjení 8 s).",
-        "Po použití ultimátní schopnosti získáš na 3 sekundy imunitu vůči omezujícím efektům. (Přebíjení 8 sekund)."
+        "Když použiješ zvolenou schopnost, vyrazíš směrem ke kurzoru.",
+        "Po použití schopnosti s výpadem, přesunem nebo teleportem nebo po opuštění neviditelnosti získáš na 2 sekundy 300 rychlosti pohybu.",
+        "Získáš 1 % bonusového poškození za každých 10 rychlosti pohybu, které máš navíc oproti cíli.",
+        "Tvé schopnosti s výpadem, přesunem nebo teleportem za sebou nechají stopu, která po 0,75 sekundy vybuchne."
       ]
     },
     "de": {
-      "title": "Die Drehtür",
-      "why": "Elises Ultimate ist die Spinnengestalt, ein Formwechsel mit winziger Abklingzeit, also zählt jeder Wechsel zwischen Spinne und Mensch als Ultimate, und genau das ist der ganze Trick. Du kommst hier nicht weg gibt ihr nach jeder Ultimate Schadensverringerung und verspottet danach die Gegner, die mit ihr festsitzen, Finale Form gibt ihr einen Schild in Höhe ihres halben maximalen Lebens plus Omnivampir und Lauftempo, Unantastbar macht sie kurz unverwundbar und Unaufhaltsame Ult macht sie immun gegen Massenkontrolle, sodass jeder Wechsel auslöst, was gerade bereit ist. Das Passiv der Spinnengestalt heilt sie bei jedem Biss, also hält sie mit Omnivampir obendrauf durch, während das gegnerische Team gezwungen ist, auf ihr zu stehen. Warmogs Rüstung und Herzstahl machen den Schild aus maximalem Leben riesig, Geistessicht macht diesen Schild und ihre Spinnenheilung größer, und Dornenpanzer bestraft jeden verspotteten Gegner, der sie angreifen muss, während Sonnenfeuer-Ägide die Menge verbrennt. Die AP-Assassine wird zum spottenden Frontline-Tank, dessen einziger Knopf ist, immer wieder R zu drücken.",
-      "play": "Fessle einen Gegner mit dem menschlichen E, geh in Spinnengestalt und lauf in ihr Team, dann wechsle ständig die Form, um Schadensverringerung, Spott, Unverwundbarkeit und Schilde aneinanderzureihen, während du beißt, wer an dir klebt. Bau nur Leben und Rüstung und flieh nie mit dem Spinnen-E.",
+      "title": "Die Drive-by-Schlange",
+      "why": "Cassiopeias Passive macht leise jeden Lauftempo-Bonus auf ihr stärker, und ihr E ist ein Zauber mit 0,75 Sekunden Abklingzeit, den sie pausenlos wirkt. Mit Schneller Schritt auf ihrem E sprintet sie bei jedem Wirken Richtung Cursor, also springt sie alle 0,75 Sekunden auf das Ziel, das sie gerade beißt; Schattenläufer gibt nach jedem Sprint 300 Lauftempo, das ihre Passive weiter aufbläht und das nie ausläuft, weil der nächste Sprint vor Ablauf der 2 Sekunden kommt. Nicht blinzeln macht aus diesem Tempovorsprung 1 % Bonusschaden pro 10 Lauftempo über dem Ziel, die Verlangsamung und das Festsetzen ihres W plus die Verlangsamung ihres R vergrößern die Lücke, und Erdschneise lässt hinter jedem Sprint eine Spur zurück, die nach 0,75 Sekunden explodiert, genau wenn das nächste E bereit ist. Rylais Kristallzepter verlangsamt das Ziel bei jedem Biss, damit die Lücke noch wächst, und Kosmischer Antrieb, Fluch des Lichs, Sturmblitz, Panzer des toten Mannes und Naturgewalt bringen alle prozentuales Lauftempo, das ihre Passive vervielfacht, wobei Panzer des toten Mannes Verlangsamungen abschwächt und Naturgewalt sie im Nahkampf am Leben hält. Die stationäre Gift-Artilleriemagierin wird zur hypermobilen Driftkönigin, die Kreise um den Gegner läuft und den Boden hinter sich mit jedem Biss vermint.",
+      "play": "Vergifte mit Q oder W, dann spamme E und lass dich von Schneller Schritt durchs Ziel ziehen, damit jeder Sprint eine Erdschneise legt und Schattenläufer auffrischt. Heb dir R auf, um jeden zu betäuben oder zu verlangsamen, der mit deinem Tempo mithalten will.",
       "augments": [
-        "Erhalte nach dem Einsatz deiner ultimativen Fähigkeit 2 Sekunden lang Schadensverringerung, danach verspottest du Gegner darin 2 Sekunden lang. Erhalte 30 ultimative Fähigkeitsbeschleunigung.",
-        "Erhalte nach dem Wirken deiner ultimativen Fähigkeit 10 Sekunden lang einen Schild in Höhe von 50 % deines maximalen Lebens, 20 % Omnivampir und 30 % zusätzliches Lauftempo. (20 Sekunden Abklingzeit).",
-        "Das Wirken deiner ultimativen Fähigkeit macht dich 2 Sekunden lang unverwundbar (8 Sek. Abklingzeit).",
-        "Nach dem Einsatz deiner ultimativen Fähigkeit wirst du 3 Sekunden lang immun gegen Massenkontrolle. (8 Sekunden Abklingzeit)."
+        "Wenn du die gewählte Fähigkeit einsetzt, sprintest du in Richtung deines Cursors.",
+        "Nachdem du eine Sprint-, Blink- oder Teleport-Fähigkeit eingesetzt oder die Tarnung verlassen hast, erhältst du 2 Sekunden lang 300 Lauftempo.",
+        "Erhalte 1 % zusätzlichen Schaden pro 10 Lauftempo, die du mehr hast als das Ziel.",
+        "Deine Sprint-, Blink- oder Teleport-Fähigkeiten hinterlassen eine Spur, die nach 0,75 Sekunden explodiert."
       ]
     },
     "el": {
-      "title": "Η περιστρεφόμενη πόρτα",
-      "why": "Η υπέρτατη της Ελίζ είναι η Μορφή Αράχνης, μια αλλαγή μορφής με μικροσκοπικό χρόνο επαναφόρτισης, οπότε κάθε εναλλαγή ανάμεσα σε αράχνη και άνθρωπο μετράει ως χρήση υπέρτατης, και αυτό είναι όλο το κόλπο. Το Κολλημένος εδώ μαζί μου της δίνει μείωση ζημιάς μετά από κάθε υπέρτατη και μετά προκαλεί τους εχθρούς που έχουν κολλήσει μαζί της, η Τελική Μορφή της δίνει ασπίδα ίση με το μισό της μέγιστης Ζωής της συν πλήρη βαμπιρισμό και ταχύτητα κίνησης, το Ανέγγιχτος την κάνει για λίγο άτρωτη και η Ασταμάτητη Υπέρτατη της δίνει ανοσία στον έλεγχο πλήθους, οπότε κάθε αλλαγή ενεργοποιεί ό,τι είναι έτοιμο. Η παθητική της Μορφής Αράχνης τη θεραπεύει σε κάθε δάγκωμα, οπότε με τον βαμπιρισμό από πάνω αντέχει ενώ η εχθρική ομάδα αναγκάζεται να στέκεται πάνω της. Η Πανοπλία του Γόρμογκ και ο Ατσαλόκαρδος κάνουν την ασπίδα μέγιστης Ζωής τεράστια, η Όψη Πνευμάτων μεγαλώνει αυτή την ασπίδα και τις θεραπείες της αράχνης, και η Αγκαθωράκιση τιμωρεί κάθε προκλημένο εχθρό που αναγκάζεται να της επιτεθεί ενώ η Αιγίδα του Ήλιου καίει το πλήθος. Η AP δολοφόνος γίνεται ένα τανκ πρώτης γραμμής που προκαλεί και που το μόνο του κουμπί είναι να πατάει R ξανά και ξανά.",
-      "play": "Τύλιξε έναν εχθρό με το ανθρώπινο E, γίνε αράχνη και μπες στην ομάδα τους, μετά άλλαζε συνέχεια μορφή για να αλυσιδώνεις μείωση ζημιάς, προκλήσεις, ατρωσία και ασπίδες δαγκώνοντας όποιον έχει κολλήσει πάνω σου. Χτίσε μόνο Ζωή και Θωράκιση και μην το σκας ποτέ με το E της αράχνης.",
+      "title": "Το φίδι του περάσματος",
+      "why": "Η παθητική της Κασσιόπης κάνει αθόρυβα κάθε μπόνους Ταχύτητας Κίνησης πιο δυνατό πάνω της, και το E της είναι ξόρκι με χρόνο επαναφόρτισης 0,75 δευτερολέπτων που το ρίχνει ασταμάτητα. Με τα Γρήγορα Βήματα στο E, κάθε χρήση την εκτοξεύει προς τον κέρσορα, οπότε ορμάει σε όποιον δαγκώνει κάθε 0,75 δευτερόλεπτα· ο Δρομέας της Σκιάς δίνει 300 Ταχύτητα Κίνησης μετά από κάθε εφόρμηση, που η παθητική της φουσκώνει κι άλλο και που δεν λήγει ποτέ, αφού η επόμενη εφόρμηση έρχεται πριν περάσουν τα 2 δευτερόλεπτα. Το Μην Κλείνεις τα Μάτια μετατρέπει αυτό το προβάδισμα σε 1% επιπλέον ζημιά ανά 10 Ταχύτητα Κίνησης πάνω από τον στόχο, η επιβράδυνση και η καθήλωση του W και η επιβράδυνση του R μεγαλώνουν τη διαφορά, και ο Σεισμός κάνει κάθε εφόρμηση να αφήνει ίχνος που εκρήγνυται μετά από 0,75 δευτερόλεπτα, ακριβώς όταν επιστρέφει το επόμενο E. Το Κρυστάλλινο Σκήπτρο της Ριλάι επιβραδύνει τον στόχο σε κάθε δάγκωμα, και τα Κοσμική Ενέργεια, Όλεθρος των Απέθαντων, Ξέσπασμα Καταιγίδας, Θώρακας του Νεκρού και Δύναμη της Φύσης δίνουν όλα ποσοστιαία Ταχύτητα Κίνησης που η παθητική της πολλαπλασιάζει· ο Θώρακας του Νεκρού μειώνει τις επιβραδύνσεις και η Δύναμη της Φύσης την κρατά ζωντανή στο σώμα με σώμα. Η ακίνητη δηλητηριώδης μάγισσα-πυροβολικό γίνεται υπερκινητική drifter που κάνει κύκλους γύρω από τον εχθρό και ναρκοθετεί το έδαφος πίσω της με κάθε δάγκωμα.",
+      "play": "Δηλητηρίασε με Q ή W, μετά πάτα συνέχεια E και άσε τα Γρήγορα Βήματα να σε σέρνουν μέσα από τον στόχο, ώστε κάθε εφόρμηση να αφήνει Σεισμό και να ανανεώνει τον Δρομέα της Σκιάς. Κράτα το R για να ζαλίσεις ή να επιβραδύνεις όποιον προσπαθεί να σε προλάβει.",
       "augments": [
-        "Αφού χρησιμοποιήσεις την Υπέρτατη Ικανότητά σου, αποκτάς μείωση ζημιάς για 2 δευτερόλεπτα, μετά την οποία προκαλείς τους εχθρούς μέσα για 2 δευτερόλεπτα. Αποκτάς 30 Επιτάχυνση Υπέρτατης Ικανότητας.",
-        "Αφού χρησιμοποιήσεις την Υπέρτατη Ικανότητά σου, αποκτάς Ασπίδα ίση με το 50% της μέγιστης Ζωής, 20% Πλήρη Βαμπιρισμό και 30% επιπλέον Ταχύτητα Κίνησης για 10 δευτερόλεπτα. (Χρόνος επαναφόρτισης 20 δευτερόλεπτα).",
-        "Η χρήση της Υπέρτατης Ικανότητάς σου σε κάνει Άτρωτο για 2 δευτερόλεπτα (Χρόνος επαναφόρτισης 8 δ.).",
-        "Αφού χρησιμοποιήσεις την Υπέρτατη Ικανότητά σου, αποκτάς ανοσία στον έλεγχο πλήθους για 3 δευτερόλεπτα. (Χρόνος επαναφόρτισης 8 δευτερόλεπτα)."
+        "Όταν χρησιμοποιείς την επιλεγμένη ικανότητα, εφορμάς προς τον κέρσορα.",
+        "Αφού χρησιμοποιήσεις ικανότητα Εφόρμησης, Αστραπιαίας Μετακίνησης ή Τηλεμεταφοράς ή βγεις από την Αφάνεια, κερδίζεις 300 Ταχύτητα Κίνησης για 2 δευτερόλεπτα.",
+        "Αποκτάς 1% επιπλέον ζημιά για κάθε 10 ταχύτητα κίνησης που έχεις παραπάνω από τον στόχο.",
+        "Οι ικανότητες εφόρμησης, αστραπιαίας μετακίνησης ή τηλεμεταφοράς σου αφήνουν ίχνος που εκρήγνυται μετά από 0,75 δευτερόλεπτα."
       ]
     },
     "es-MX": {
-      "title": "La puerta giratoria",
-      "why": "La definitiva de Elise es la Forma de araña, un cambio de forma con un enfriamiento mínimo, así que cada cambio entre araña y humana cuenta como lanzar la definitiva, y ese es todo el truco. Juntos por Desgracia le da reducción de daño tras cada definitiva y luego provoca a los enemigos atrapados con ella, Forma Final le da un escudo de la mitad de su vida máxima más omnivampirismo y velocidad de movimiento, A Que No Me Alcanzas la vuelve invulnerable un momento y Definitiva Imparable la hace inmune al control de masas, así que cada cambio activa lo que esté listo. La pasiva de la Forma de araña la cura con cada mordida, así que con omnivampirismo encima aguanta mientras el equipo enemigo está obligado a quedarse encima de ella. La Armadura de Warmog y el Corazón de Acero hacen enorme el escudo de vida máxima, la Apariencia Espiritual aumenta ese escudo y sus curaciones de araña, y la Cota de Espinas castiga a cada enemigo provocado que tiene que atacarla mientras la Égida de Fuego Solar quema a la multitud. La asesina de AP se vuelve un tanque de primera línea que provoca y cuyo único botón es picarle a la R una y otra vez.",
-      "play": "Atrapa a un enemigo con la E humana, pásate a araña y métete en su equipo, luego cambia de forma sin parar para encadenar reducción de daño, provocaciones, invulnerabilidad y escudos mientras muerdes a quien se te pegue. Full vida y armadura, y nunca huyas con la E de araña.",
+      "title": "La serpiente de paso",
+      "why": "La pasiva de Cassiopeia hace sin que nadie lo note que cada bonificación de Velocidad de movimiento rinda más en ella, y su E es un hechizo con 0.75 segundos de enfriamiento que lanza sin parar. Con Paso Veloz en su E, cada lanzamiento la impulsa hacia el cursor, así que se abalanza sobre su objetivo cada 0.75 segundos; Movimiento Sombrío da 300 de Velocidad de movimiento después de cada impulso, que su pasiva infla aún más y que nunca se acaba porque el siguiente impulso llega antes de los 2 segundos. No Parpadees convierte esa ventaja en 1% de daño adicional por cada 10 de Velocidad de movimiento que tenga sobre el objetivo, la ralentización y el enraizamiento de su W y la ralentización de su R amplían la diferencia, y Estela Terrestre hace que cada impulso deje un rastro que explota tras 0.75 segundos, justo cuando vuelve su siguiente E. El Cetro de Cristal de Rylai ralentiza al objetivo con cada mordida para ampliar aún más la diferencia, e Impulso Cósmico, Maldición del Liche, Descarga Tormentosa, Placa del Hombre Muerto y Fuerza de la Naturaleza dan porcentaje de velocidad que su pasiva multiplica, con la Placa del Hombre Muerto reduciendo ralentizaciones y Fuerza de la Naturaleza manteniéndola viva cuerpo a cuerpo. La maga artillera venenosa y estática se vuelve una corredora hipermóvil que le da vueltas al enemigo y mina el suelo detrás de ella con cada mordida.",
+      "play": "Envenena con Q o W, luego spamea E y deja que Paso Veloz te arrastre a través del objetivo para que cada impulso deje una Estela Terrestre y renueve Movimiento Sombrío. Guarda la R para aturdir o ralentizar a quien intente seguirte el paso.",
       "augments": [
-        "Después de usar tu definitiva, obtienes reducción de daño durante 2 segundos, después de lo cual provocas a los enemigos que estén dentro durante 2 segundos. Obtienes 30 de velocidad de habilidad definitiva.",
-        "Después de lanzar tu definitiva, obtienes un escudo del 50% de tu vida máxima, 20% de omnivampirismo y 30% de velocidad de movimiento adicional durante 10 segundos. (Enfriamiento de 20 segundos).",
-        "Lanzar tu definitiva te vuelve invulnerable durante 2 segundos (enfriamiento de 8 s).",
-        "Después de usar tu definitiva, te vuelves inmune al control de masas durante 3 segundos. (Enfriamiento de 8 segundos)."
+        "Al usar la habilidad elegida, te impulsas hacia el cursor.",
+        "Después de usar una habilidad de impulso, traslación o teletransportación o salir del sigilo, obtienes 300 de Velocidad de movimiento durante 2 segundos.",
+        "Obtienes 1% de daño adicional por cada 10 de velocidad de movimiento que tengas por encima del objetivo.",
+        "Tus habilidades de impulso, traslación o teletransportación dejan un rastro que explota después de 0.75 segundos."
       ]
     },
     "es": {
-      "title": "La puerta giratoria",
-      "why": "La definitiva de Elise es la Forma de araña, un cambio de forma con un enfriamiento minúsculo, así que cada cambio entre araña y humana cuenta como lanzar la definitiva, y ese es todo el truco. ¡Que nadie se mueva! le da reducción de daño tras cada definitiva y luego provoca a los enemigos atrapados con ella, La forma definitiva le da un escudo de la mitad de su vida máxima más omnivampirismo y velocidad de movimiento, Se mira pero no se toca la vuelve invulnerable un momento y Definitiva imparable la hace inmune al control de masas, así que cada cambio activa lo que esté listo. La pasiva de la Forma de araña la cura con cada mordisco, así que con omnivampirismo encima aguanta mientras el equipo enemigo está obligado a quedarse encima de ella. La Armadura de Warmog y el Corazón de acero hacen enorme el escudo de vida máxima, el Rostro espiritual aumenta ese escudo y sus curaciones de araña, y la Malla de espinas castiga a cada enemigo provocado que tiene que atacarla mientras la Égida de fuego solar quema a la multitud. La asesina de AP se convierte en un tanque de primera línea que provoca y cuyo único botón es pulsar la R una y otra vez.",
-      "play": "Atrapa a un enemigo con la E humana, pasa a araña y métete en su equipo, luego cambia de forma sin parar para encadenar reducción de daño, provocaciones, invulnerabilidad y escudos mientras muerdes a quien se quede pegado a ti. Full vida y armadura, y nunca huyas con la E de araña.",
+      "title": "La serpiente al paso",
+      "why": "La pasiva de Cassiopeia hace en silencio que cada bonificación de velocidad de movimiento rinda más en ella, y su E es un hechizo con 0,75 segundos de enfriamiento que lanza sin parar. Con Paso veloz en su E, cada lanzamiento la hace avanzar hacia el cursor, así que se lanza sobre su objetivo cada 0,75 segundos; Corredor de la penumbra da 300 de velocidad de movimiento tras cada embestida, que su pasiva infla aún más y que nunca caduca porque la siguiente embestida llega antes de que pasen los 2 segundos. No parpadees convierte esa ventaja en un 1 % de daño adicional por cada 10 de velocidad que tenga sobre el objetivo, la ralentización y el enraizamiento de su W y la ralentización de su R amplían la diferencia, y Terremoto hace que cada embestida deje un rastro que explota tras 0,75 segundos, justo cuando vuelve su siguiente E. El Cetro de cristal de Rylai ralentiza al objetivo con cada mordisco para ampliar más la diferencia, e Impulso cósmico, Perdición del liche, Sobrecarga tormentosa, Coraza del muerto y Fuerza de la naturaleza dan porcentaje de velocidad que su pasiva multiplica, con la Coraza del muerto suavizando ralentizaciones y Fuerza de la naturaleza manteniéndola viva cuerpo a cuerpo. La maga artillera venenosa y estática pasa a ser una derrapadora hipermóvil que da vueltas alrededor del enemigo y mina el suelo tras de sí con cada mordisco.",
+      "play": "Envenena con Q o W, luego spamea E y deja que Paso veloz te arrastre a través del objetivo para que cada embestida deje un Terremoto y renueve Corredor de la penumbra. Guarda R para aturdir o ralentizar a quien intente seguirte el ritmo.",
       "augments": [
-        "Tras usar tu definitiva, obtienes reducción de daño durante 2 segundos, tras lo cual provocas a los enemigos que haya dentro durante 2 segundos. Obtienes 30 de celeridad de definitiva.",
-        "Tras lanzar tu definitiva, obtienes un escudo del 50 % de tu vida máxima, un 20 % de omnivampirismo y un 30 % de velocidad de movimiento adicional durante 10 segundos. (Enfriamiento de 20 segundos).",
-        "Lanzar tu definitiva te vuelve invulnerable durante 2 segundos (enfriamiento de 8 s).",
-        "Tras usar tu definitiva, te vuelves inmune al control de masas durante 3 segundos. (Enfriamiento de 8 segundos)."
+        "Al usar la habilidad elegida, te desplazas hacia el cursor.",
+        "Tras usar una habilidad de desplazamiento, traslación o teletransporte o salir del camuflaje, obtienes 300 de velocidad de movimiento durante 2 segundos.",
+        "Obtienes un 1 % de daño adicional por cada 10 de velocidad de movimiento que tengas por encima del objetivo.",
+        "Tus habilidades de desplazamiento, traslación o teletransporte dejan un rastro que explota tras 0,75 segundos."
       ]
     },
     "fr": {
-      "title": "La porte tournante",
-      "why": "L'ultime d'Elise, c'est la Forme d'araignée, un changement de forme au délai minuscule, donc chaque passage entre araignée et humaine compte comme un lancement d'ultime, et c'est tout le principe. Provocation ultime lui donne une réduction des dégâts après chaque ultime puis provoque les ennemis coincés avec elle, Forme finale lui donne un bouclier égal à la moitié de ses PV max plus de l'omnivampirisme et de la vitesse de déplacement, Invulnérabilité ultime la rend brièvement invulnérable et Ultimement inarrêtable la rend insensible aux contrôles, donc chaque changement déclenche ce qui est disponible. Le passif de la Forme d'araignée la soigne à chaque morsure, donc avec l'omnivampirisme en plus elle tient pendant que l'équipe ennemie est forcée de rester sur elle. L'Armure de Warmog et le Cœuracier rendent le bouclier basé sur les PV max énorme, le Visage spirituel augmente ce bouclier et ses soins d'araignée, et la Cotte épineuse punit chaque ennemi provoqué forcé de l'attaquer pendant que l'Égide solaire brûle la mêlée. L'assassin AP devient un tank de première ligne qui provoque et dont le seul bouton est d'appuyer sur R encore et encore.",
-      "play": "Cocon sur un ennemi avec le E humain, passe en araignée et fonce dans leur équipe, puis change de forme sans arrêt pour enchaîner réduction des dégâts, provocations, invulnérabilité et boucliers en mordant ceux qui restent collés à toi. Full PV et armure, et ne fuis jamais avec le E araignée.",
+      "title": "Le serpent qui tire en passant",
+      "why": "La passive de Cassiopeia rend discrètement chaque bonus de vitesse de déplacement plus efficace sur elle, et son E est un sort à 0,75 seconde de délai de récupération qu'elle lance sans arrêt. Avec Pied léger sur son E, chaque lancer la fait foncer vers le curseur, donc elle bondit sur sa cible toutes les 0,75 secondes ; Plus rapide que son ombre donne 300 de vitesse de déplacement après chaque ruée, que sa passive gonfle encore et qui n'expire jamais puisque la ruée suivante arrive avant la fin des 2 secondes. Rapidité létale transforme cette avance en 1 % de dégâts bonus par tranche de 10 de vitesse de plus que la cible, le ralentissement et l'enracinement de son W et le ralentissement de son R creusent l'écart, et Traînée tellurique fait laisser à chaque ruée une traînée qui explose après 0,75 seconde, pile quand le prochain E revient. Le Sceptre de Rylai ralentit la cible à chaque morsure pour creuser encore l'écart, et Volonté cosmique, Fléau de liche, Onde orageuse, Plaque du mort et Force de la nature donnent tous un pourcentage de vitesse que sa passive multiplie, la Plaque du mort réduisant les ralentissements et Force de la nature la gardant en vie au corps à corps. La mage d'artillerie toxique et immobile devient une drifteuse hypermobile qui tourne autour de l'ennemi en minant le sol derrière elle à chaque morsure.",
+      "play": "Empoisonnez avec Q ou W, puis spammez E et laissez Pied léger vous traîner à travers la cible pour que chaque ruée pose une Traînée tellurique et relance Plus rapide que son ombre. Gardez R pour étourdir ou ralentir quiconque tente de suivre votre vitesse.",
       "augments": [
-        "Après avoir utilisé votre ultime, vous gagnez une réduction des dégâts pendant 2 secondes, puis vous provoquez les ennemis à l'intérieur pendant 2 secondes. Vous gagnez 30 accélération de compétence ultime.",
-        "Après avoir lancé votre ultime, vous gagnez un bouclier égal à 50 % de vos PV max, 20 % d'omnivampirisme et 30 % de vitesse de déplacement supplémentaire pendant 10 secondes. (Délai de récupération de 20 secondes).",
-        "Lancer votre ultime vous rend invulnérable pendant 2 secondes (délai de récupération de 8 s).",
-        "Après avoir utilisé votre ultime, vous devenez insensible aux contrôles pendant 3 secondes. (Délai de récupération de 8 secondes)."
+        "Quand vous utilisez la compétence choisie, vous foncez vers votre curseur.",
+        "Après avoir utilisé une compétence de ruée, de blink ou de téléportation ou être sorti du camouflage, vous gagnez 300 vitesse de déplacement pendant 2 secondes.",
+        "Gagnez 1 % de dégâts bonus par tranche de 10 de vitesse de déplacement que vous avez de plus que la cible.",
+        "Vos compétences de ruée, de blink ou de téléportation laissent une traînée qui explose après 0,75 seconde."
       ]
     },
     "hu": {
-      "title": "A forgóajtó",
-      "why": "Elise ultija a Pókforma, egy formaváltás pici töltési idővel, így minden váltás pók és ember között ultinak számít, és ez az egész trükk. Az Itt ragadtál velem minden ulti után sebzéscsökkentést ad, majd provokálja a vele beragadt ellenfeleket, A végső forma a maximális életereje felének megfelelő pajzsot ad, plusz mindenre kiterjedő életlopást és mozgási sebességet, az Érinthetetlen rövid időre sebezhetetlenné teszi, a Végső soron megállíthatatlan pedig immunissá teszi a tömegirányításra, így minden váltás elsüti azt, ami épp kész. A Pókforma passzívja minden harapásnál gyógyítja, így a mindenre kiterjedő életlopással még jobban bírja, miközben az ellenfél csapata kénytelen rajta állni. A Warmog vértje és az Acélos szív óriásira növeli a maximális életerőből számolt pajzsot, a Szellemarc felerősíti ezt a pajzsot és a pókgyógyítást, a Tüskevért pedig megbüntet minden provokált ellenfelet, akinek őt kell ütnie, miközben a Naptűz égisz égeti a tömeget. Az AP-orgyilkosból provokáló frontvonalbeli tank lesz, akinek egyetlen gombja, hogy újra meg újra megnyomja az R-t.",
-      "play": "Gubózz be egy ellenfelet az emberi E-vel, válts pókra és sétálj be a csapatukba, aztán folyamatosan váltogasd a formát, hogy sorban jöjjön a sebzéscsökkentés, a provokálás, a sebezhetetlenség és a pajzsok, miközben megharapod, aki rajtad ragadt. Csak életerőt és páncélt építs, és soha ne menekülj a pók E-vel.",
+      "title": "Az áthajtó kígyó",
+      "why": "Cassiopeia passzív képessége csendben minden mozgási sebesség bónuszt erősebbé tesz rajta, az E-je pedig 0,75 másodperces töltési idejű varázslat, amit megállás nélkül használ. Gyorslépéssel az E-n minden használat a kurzor felé rántja, így 0,75 másodpercenként rávetődik arra, akit éppen mar; Árnyfutó minden roham után 300 mozgási sebességet ad, amit a passzív tovább növel, és ami sosem jár le, mert a következő roham a 2 másodperc vége előtt jön. Ne pislants ezt az előnyt 1% bónusz sebzéssé alakítja minden 10 mozgási sebesség után, amivel gyorsabb a célpontnál, a W lassítása és földhöz kötése, valamint az R lassítása tovább nyitja a különbséget, a Földmunka pedig minden roham mögött nyomot hagy, ami 0,75 másodperc után felrobban, épp amikor visszajön a következő E. Rylai kristálybotja minden marásnál lassítja a célpontot, a Kozmikus hajtómű, Félholt csapás, Viharhullám, Holtak vértje és A természet ereje pedig mind százalékos mozgási sebességet ad, amit a passzív megsokszoroz; a Holtak vértje tompítja a lassításokat, A természet ereje pedig közelharcban is életben tartja. A helyben álló mérgező tüzérmágusból hipermobil driftelő lesz, aki köröket fut az ellenfél körül, és minden marással elaknásítja maga mögött a talajt.",
+      "play": "Mérgezz Q-val vagy W-vel, aztán nyomd az E-t, és hagyd, hogy a Gyorslépés átrántson a célponton, így minden roham Földmunkát hagy és frissíti az Árnyfutót. Az R-t tartsd meg arra, aki tartani próbálja a tempódat.",
       "augments": [
-        "Az ultid használata után 2 másodpercig sebzéscsökkentést kapsz, majd 2 másodpercre provokálod a benne lévő ellenfeleket. 30 ulti-képességgyorsítást kapsz.",
-        "Az ultid használata után 10 másodpercre a maximális életerőd 50%-ának megfelelő pajzsot, 20% mindenre kiterjedő életlopást és 30% bónusz mozgási sebességet kapsz. (20 másodperc töltési idő).",
-        "Az ultid használata 2 másodpercre sebezhetetlenné tesz (8 mp töltési idő).",
-        "Az ultid használata után 3 másodpercig immunis leszel a tömegirányításra. (8 másodperc töltési idő)."
+        "Amikor a kiválasztott képességet használod, a kurzorod felé rohansz.",
+        "Roham-, villanás- vagy teleport-képesség használata, illetve a lopakodásból való kilépés után 2 másodpercig 300 mozgási sebességet kapsz.",
+        "1% bónusz sebzést kapsz minden 10 mozgási sebességért, amivel többed van a célpontnál.",
+        "A roham-, villanás- és teleport-képességeid nyomot hagynak maguk után, ami 0,75 másodperc után felrobban."
       ]
     },
     "id": {
-      "title": "Pintu Putar",
-      "why": "Ultimate Elise adalah Spider Form, ganti wujud dengan cooldown super pendek, jadi setiap kali ganti antara laba-laba dan manusia dihitung sebagai memakai ultimate, dan itulah seluruh triknya. Stuck In Here With Me memberinya damage reduction setelah setiap ultimate lalu men-taunt musuh yang terjebak bersamanya, Final Form memberinya shield sebesar setengah max Health plus omnivamp dan move speed, Can't Touch This membuatnya invulnerable sebentar, dan Ultimate Unstoppable membuatnya kebal crowd control, jadi setiap ganti wujud memicu yang sedang siap. Pasif Spider Form menyembuhkannya di setiap gigitan, jadi dengan omnivamp di atasnya dia tetap bertahan sementara tim musuh dipaksa berdiri di atasnya. Warmog's Armor dan Heartsteel bikin shield dari max Health jadi raksasa, Spirit Visage memperbesar shield itu dan heal laba-labanya, dan Thornmail menghukum setiap musuh yang di-taunt dan terpaksa menyerangnya sementara Sunfire Aegis membakar kerumunan. Assassin AP berubah jadi tank garis depan yang men-taunt, dan satu-satunya tombolnya adalah menekan R terus-menerus.",
-      "play": "Cocoon satu musuh dengan E manusia, ganti ke laba-laba dan jalan masuk ke tim mereka, lalu terus ganti wujud untuk merangkai damage reduction, taunt, invulnerable, dan shield sambil menggigit siapa pun yang menempel padamu. Build full Health dan Armor, dan jangan pernah kabur pakai E laba-laba.",
+      "title": "Ular Lewat Sekilas",
+      "why": "Pasif Cassiopeia diam-diam membuat setiap bonus Move Speed lebih kuat padanya, dan E-nya adalah skill dengan cooldown 0,75 detik yang dia pakai tanpa henti. Dengan Quickstep di E, setiap cast membuatnya dash ke arah kursor, jadi dia menerjang target yang sedang dia gigit setiap 0,75 detik; Shadow Runner memberi 300 Move Speed setelah setiap dash, yang diperbesar lagi oleh pasifnya dan tidak pernah habis karena dash berikutnya datang sebelum 2 detik berakhir. Don't Blink mengubah keunggulan kecepatan itu menjadi 1% bonus damage per 10 Move Speed lebih dari target, slow dan ground dari W serta slow dari R memperlebar selisihnya, dan Earthwake membuat setiap dash meninggalkan jejak yang meledak setelah 0,75 detik, pas saat E berikutnya siap. Rylai's Crystal Scepter memberi slow ke target di setiap gigitan agar selisihnya makin lebar, dan Cosmic Drive, Lich Bane, Stormsurge, Dead Man's Plate serta Force of Nature semuanya memberi Move Speed persen yang dilipatgandakan pasifnya, dengan Dead Man's Plate mengurangi slow dan Force of Nature menjaganya tetap hidup di jarak dekat. Mage artileri racun yang diam di tempat berubah jadi drifter super lincah yang berputar-putar mengelilingi musuh dan memasang ranjau di tanah belakangnya setiap kali menggigit.",
+      "play": "Racuni dengan Q atau W, lalu spam E dan biarkan Quickstep menyeretmu menembus target, supaya setiap dash meninggalkan jejak Earthwake dan menyegarkan Shadow Runner. Simpan R untuk stun atau slow siapa pun yang mencoba menyamai kecepatanmu.",
       "augments": [
-        "Setelah memakai Ultimate, dapatkan damage reduction selama 2 detik, setelah itu kamu men-Taunt musuh di dalam selama 2 detik. Dapatkan 30 Ultimate Ability Haste.",
-        "Setelah memakai Ultimate, dapatkan Shield sebesar 50% max Health, 20% Omnivamp, dan 30% bonus Move Speed selama 10 detik. (Cooldown 20 detik).",
-        "Memakai Ultimate membuatmu Invulnerable selama 2 detik (Cooldown 8 detik).",
-        "Setelah memakai Ultimate, kamu kebal crowd control selama 3 detik. (Cooldown 8 detik)."
+        "Saat kamu menggunakan ability yang dipilih, dash ke arah kursormu.",
+        "Setelah menggunakan Ability Dash, Blink, atau Teleport atau keluar dari Stealth, dapatkan 300 Move Speed selama 2 detik.",
+        "Dapatkan 1% bonus damage per 10 Move Speed yang kamu punya lebih dari target.",
+        "Ability dash, blink, atau teleport-mu meninggalkan jejak yang meledak setelah 0,75 detik."
       ]
     },
     "it": {
-      "title": "La porta girevole",
-      "why": "La suprema di Elise è la Forma ragno, un cambio di forma con una ricarica minuscola, quindi ogni passaggio tra ragno e umana conta come lancio della suprema, ed è tutto qui il trucco. Stai qui con me le dà riduzione danni dopo ogni suprema e poi provoca i nemici bloccati con lei, Forma definitiva le dà uno scudo pari a metà della sua salute massima più omnivampirismo e velocità di movimento, Non puoi toccarmi la rende invulnerabile per un attimo e Inarrestabile suprema la rende immune al controllo, quindi ogni cambio attiva quello che è pronto. La passiva della Forma ragno la cura a ogni morso, quindi con l'omnivampirismo sopra regge mentre la squadra nemica è costretta a starle addosso. Armatura di Warmog e Cuore d'acciaio rendono enorme lo scudo basato sulla salute massima, Corazza spirituale aumenta quello scudo e le cure del ragno, e Corazza spinata punisce ogni nemico provocato costretto ad attaccarla mentre Egida del Sole brucia la mischia. L'assassina AP diventa un tank in prima linea che provoca e il cui unico tasto è premere R ancora e ancora.",
-      "play": "Bozzola un nemico con la E umana, passa a ragno ed entra nella loro squadra, poi cambia forma di continuo per concatenare riduzione danni, provocazioni, invulnerabilità e scudi mordendo chi ti resta attaccato. Full salute e armatura, e non scappare mai con la E da ragno.",
+      "title": "Il serpente in corsa",
+      "why": "La passiva di Cassiopeia rende in silenzio ogni bonus alla velocità di movimento più efficace su di lei, e la sua E è un'abilità con 0,75 secondi di ricarica che lancia senza sosta. Con Passo rapido sulla sua E, ogni lancio la fa scattare verso il cursore, quindi si avventa sul bersaglio ogni 0,75 secondi; Scatto d'ombra dà 300 velocità di movimento dopo ogni scatto, che la sua passiva gonfia ancora e che non scade mai perché lo scatto successivo arriva prima dei 2 secondi. Guarda bene trasforma quel vantaggio in un 1% di danni bonus ogni 10 velocità di movimento in più del bersaglio, il rallentamento e l'immobilizzazione a terra della sua W e il rallentamento della sua R allargano il divario, e Scia distruttiva fa lasciare a ogni scatto una scia che esplode dopo 0,75 secondi, proprio quando torna la E successiva. Lo Scettro di cristallo di Rylai rallenta il bersaglio a ogni morso per allargare ancora il divario, e Spirito cosmico, Terrore dei lich, Apice della tempesta, Corazza dell'uomo morto e Forza della natura danno tutti velocità percentuale che la sua passiva moltiplica, con la Corazza dell'uomo morto che attenua i rallentamenti e Forza della natura che la tiene in vita in mischia. La maga artigliera velenosa e immobile diventa una drifter ipermobile che gira intorno al nemico minando il terreno dietro di sé a ogni morso.",
+      "play": "Avvelena con Q o W, poi spamma E e lascia che Passo rapido ti trascini attraverso il bersaglio, così ogni scatto lascia una Scia distruttiva e rinnova Scatto d'ombra. Tieni la R per stordire o rallentare chi prova a starti dietro.",
       "augments": [
-        "Dopo aver usato la tua suprema, ottieni riduzione danni per 2 secondi, dopodiché provochi i nemici all'interno per 2 secondi. Ottieni 30 velocità abilità suprema.",
-        "Dopo aver lanciato la tua suprema, ottieni uno scudo pari al 50% della salute massima, 20% di omnivampirismo e 30% di velocità di movimento bonus per 10 secondi. (Ricarica di 20 secondi).",
-        "Lanciare la tua suprema ti rende invulnerabile per 2 secondi (ricarica di 8 s).",
-        "Dopo aver usato la tua suprema, diventi immune al controllo per 3 secondi. (Ricarica di 8 secondi)."
+        "Quando usi l'abilità scelta, scatti verso il cursore.",
+        "Dopo aver usato un'abilità di scatto, traslazione o teletrasporto o essere uscito dal camuffamento, ottieni 300 velocità di movimento per 2 secondi.",
+        "Ottieni l'1% di danni bonus per ogni 10 di velocità di movimento in più rispetto al bersaglio.",
+        "Le tue abilità di scatto, traslazione o teletrasporto lasciano una scia che esplode dopo 0,75 secondi."
       ]
     },
     "ja": {
-      "title": "回転ドア",
-      "why": "エリスのアルティメットはスパイダーフォーム、クールダウンがごく短いフォームチェンジなので、蜘蛛と人間を切り替えるたびにアルティメットを発動したことになる。これがトリックのすべてだ。一緒に閉じ込められたはアルティメットのたびにダメージ軽減を与え、その後一緒に閉じ込められた敵を挑発する。最終形態は最大体力の半分のシールドに加えてオムニヴァンプと移動速度を与え、ヤケドするぜは一瞬だけ無敵にし、破竹のアルティメットは行動妨害を無効にするので、切り替えるたびにその時使えるものが発動する。スパイダーフォームの自動効果は噛みつくたびに体力を回復するので、オムニヴァンプも重なって、敵チームが彼女の上に立たされている間も耐え続ける。ワーモグ アーマーと心の鋼で最大体力のシールドは巨大になり、スピリット ビサージュがそのシールドと蜘蛛の回復を強化し、ソーンメイルは彼女を攻撃させられる挑発された敵を罰し、サンファイア イージスが群れを焼く。APアサシンが、ボタンはRを押し続けるだけの挑発するタンクになる。",
-      "play": "人間フォームのEで敵を繭にして、蜘蛛になって敵チームに突っ込み、あとはフォームを切り替え続けてダメージ軽減、挑発、無敵、シールドをつなげながら、くっついてくる相手を噛みまくろう。体力と物理防御だけを積んで、蜘蛛のEで逃げるのは絶対ナシ。",
+      "title": "通りすがりのヘビ",
+      "why": "カシオペアのパッシブは目立たないけれど、彼女が得るすべての移動速度ボーナスを強化する。そしてEはクールダウン0.75秒のスキルで、彼女はこれを休みなく撃ち続ける。「クイックステップ」をEに付けると、使うたびにカーソル方向へダッシュするので、噛みついている相手へ0.75秒ごとに飛びかかる。「影走り」はダッシュのたびに移動速度300を与え、パッシブでさらに膨らみ、次のダッシュが2秒以内に来るので途切れない。「瞬きより速く」はその速度差を、対象より10多い移動速度ごとに1%の追加ダメージに変え、Wのスロウと移動不可、Rのスロウが差をさらに広げる。「アースウェイク」は各ダッシュに0.75秒後に爆発する軌跡を残させ、ちょうど次のEが戻るタイミングで炸裂する。「リーライ クリスタル セプター」は噛むたびに対象をスロウさせて差を広げ、「コズミック ドライブ」「リッチ ベイン」「ストームサージ」「デッド マン プレート」「自然の力」はすべてパッシブで倍増する割合移動速度を持ち、「デッド マン プレート」はスロウを軽減し、「自然の力」は近接戦で彼女を生かす。動かない毒の砲台メイジが、敵の周りを周回しながら噛むたびに背後の地面を地雷原にする超機動ドリフターに変わる。",
+      "play": "QかWで毒を付けたらEを連打し、「クイックステップ」で対象を突き抜けよう。ダッシュのたびに「アースウェイク」の軌跡が残り、「影走り」が更新される。Rは速度についてこようとする相手のスタンかスロウ用に取っておこう。",
       "augments": [
-        "アルティメットスキルを使用した後、2秒間ダメージ軽減を獲得し、その後、内側にいる敵を2秒間挑発する。アルティメットスキルヘイスト+30。",
-        "アルティメットスキルを発動した後、10秒間、最大体力の50%のシールド、20%のオムニヴァンプ、30%の増加移動速度を獲得する。(クールダウン20秒)。",
-        "アルティメットスキルを発動すると2秒間無敵になる(クールダウン8秒)。",
-        "アルティメットスキルを使用した後、3秒間行動妨害無効になる。(クールダウン8秒)。"
+        "選択したスキルを使用すると、カーソル方向へダッシュする。",
+        "ダッシュ、ブリンク、テレポートのスキルを使用するかステルス状態を解除した後、2秒間移動速度が300増加する。",
+        "対象より移動速度が10高いごとに、ダメージが1%増加する。",
+        "ダッシュ、ブリンク、テレポートのスキルが軌跡を残し、0.75秒後に爆発する。"
       ]
     },
     "ko": {
-      "title": "회전문",
-      "why": "엘리스의 궁극기는 거미 형태, 재사용 대기시간이 아주 짧은 형태 전환이라서 거미와 인간 사이를 바꿀 때마다 궁극기를 사용한 것으로 쳐요. 이게 트릭의 전부예요. 도망갈 수 없어는 궁극기를 쓸 때마다 피해 감소를 주고 그다음 함께 갇힌 적들을 도발하고, 최종 형태는 최대 체력의 절반만큼 보호막에 모든 피해 흡혈과 이동 속도를 주고, 난공불락은 잠깐 무적으로 만들고, 궁극의 저지 불가는 군중 제어 면역을 줘서, 형태를 바꿀 때마다 준비된 효과가 터져요. 거미 형태의 기본 지속 효과가 물 때마다 체력을 회복시키니까 모든 피해 흡혈까지 더해서 적 팀이 억지로 그녀 위에 서 있는 동안 버텨요. 워모그의 갑옷과 강철심장이 최대 체력 보호막을 거대하게 만들고, 정령의 형상이 그 보호막과 거미 회복량을 키우고, 가시 갑옷은 도발당해서 그녀를 때릴 수밖에 없는 적을 벌주고, 태양불꽃 방패가 몰려든 적들을 태워요. AP 암살자가 R만 계속 누르는 도발 탱커가 돼요.",
-      "play": "인간 E로 적을 고치에 가두고, 거미로 바꿔서 적 팀 안으로 걸어 들어간 다음, 계속 형태를 바꿔 피해 감소, 도발, 무적, 보호막을 이어 가면서 붙어 있는 적을 물어뜯으세요. 체력과 방어력만 올리고 절대 거미 E로 도망가지 마세요.",
+      "title": "지나가며 무는 뱀",
+      "why": "카시오페아의 패시브는 조용히 그녀가 받는 모든 이동 속도 보너스를 더 강하게 만들고, E는 재사용 대기시간 0.75초짜리 스킬이라 쉬지 않고 씁니다. 날쌘걸음을 E에 붙이면 쓸 때마다 커서 방향으로 돌진하니, 물고 있는 대상에게 0.75초마다 달려듭니다. 그림자 질주는 돌진할 때마다 이동 속도 300을 주고, 패시브가 이를 더 키우며, 다음 돌진이 2초가 지나기 전에 오므로 절대 끊기지 않습니다. 속전속결은 이 속도 차이를 대상보다 높은 이동 속도 10당 1% 추가 피해로 바꾸고, W의 둔화와 이동 불가, R의 둔화가 차이를 벌리며, 대지의 각성은 돌진마다 0.75초 뒤 폭발하는 자국을 남겨 딱 다음 E가 돌아올 때 터집니다. 라일라이의 수정홀은 물 때마다 대상을 둔화시켜 차이를 더 벌리고, 우주의 추진력, 리치베인, 폭풍 쇄도, 망자의 갑옷, 대자연의 힘은 모두 패시브가 배로 불려 주는 % 이동 속도를 주며, 망자의 갑옷은 둔화를 줄이고 대자연의 힘은 근접전에서 그녀를 살려 둡니다. 제자리에 선 독 포격 마법사가 적 주위를 빙빙 돌며 물 때마다 뒤쪽 땅을 지뢰밭으로 만드는 초기동 드리프터가 됩니다.",
+      "play": "Q나 W로 중독시킨 다음 E를 난사하며 날쌘걸음으로 대상을 관통하세요. 돌진마다 대지의 각성 자국이 남고 그림자 질주가 갱신됩니다. R은 속도를 따라오려는 적을 기절시키거나 둔화시키는 데 아껴 두세요.",
       "augments": [
-        "궁극기를 사용한 후 2초 동안 피해 감소를 얻고, 그 후 안에 있는 적을 2초 동안 도발합니다. 궁극기 가속이 30 증가합니다.",
-        "궁극기를 사용한 후 10초 동안 최대 체력의 50%만큼 보호막, 20%의 모든 피해 흡혈, 30%의 추가 이동 속도를 얻습니다. (재사용 대기시간 20초).",
-        "궁극기를 사용하면 2초 동안 무적 상태가 됩니다 (재사용 대기시간 8초).",
-        "궁극기를 사용한 후 3초 동안 군중 제어 효과에 면역이 됩니다. (재사용 대기시간 8초)."
+        "선택한 스킬을 사용하면 커서 방향으로 돌진합니다.",
+        "돌진, 점멸, 순간이동 스킬을 사용하거나 은신에서 벗어나면 2초 동안 이동 속도가 300 증가합니다.",
+        "대상보다 이동 속도가 10 높을 때마다 피해량이 1% 증가합니다.",
+        "돌진, 점멸, 순간이동 스킬이 자국을 남기고, 이 자국은 0.75초 후 폭발합니다."
       ]
     },
     "pl": {
-      "title": "Drzwi obrotowe",
-      "why": "Superumiejętność Elise to Postać Pająka, zmiana formy z malutkim czasem odnowienia, więc każde przejście między pająkiem a człowiekiem liczy się jako użycie superumiejętności i na tym polega cały trik. Tkwisz Tu ze Mną daje jej redukcję obrażeń po każdej superumiejętności, a potem prowokuje wrogów uwięzionych z nią, Ostateczna Postać daje tarczę równą połowie jej maksymalnego zdrowia plus wszechwampiryzm i prędkość ruchu, Nietykalność czyni ją na chwilę niewrażliwą, a Niepowstrzymana Superumiejętność daje odporność na kontrolę tłumu, więc każda zmiana odpala to, co akurat jest gotowe. Bierna umiejętność Postaci Pająka leczy ją przy każdym ugryzieniu, więc z wszechwampiryzmem na dokładkę wytrzymuje, kiedy wroga drużyna musi stać na niej. Plemienna Zbroja i Stalowe Serce robią z tarczy od maksymalnego zdrowia coś ogromnego, Oblicze Ducha wzmacnia tę tarczę i leczenie pająka, a Kolczasta Kolczuga karze każdego sprowokowanego wroga zmuszonego do atakowania jej, podczas gdy Słoneczna Egida pali tłum. Zabójczyni AP staje się prowokującym tankiem z pierwszej linii, której jedynym przyciskiem jest wciskanie R w kółko.",
-      "play": "Złap wroga w kokon ludzkim E, zmień się w pająka i wejdź w ich drużynę, a potem zmieniaj formę bez przerwy, żeby łączyć redukcję obrażeń, prowokacje, niewrażliwość i tarcze, gryząc każdego, kto się do ciebie przykleił. Buduj samo zdrowie i pancerz i nigdy nie uciekaj pajęczym E.",
+      "title": "Wąż z przejazdu",
+      "why": "Bierna umiejętność Cassiopei po cichu wzmacnia na niej każdy bonus do prędkości ruchu, a jej E to czar z 0,75 sekundy odnowienia, którego używa bez przerwy. Z Lekkim Krokiem na E każde użycie robi doskok w stronę kursora, więc rzuca się na gryziony cel co 0,75 sekundy; Cieniobieżca daje 300 prędkości ruchu po każdym doskoku, którą bierna jeszcze podbija i która nigdy nie wygasa, bo kolejny doskok przychodzi przed upływem 2 sekund. Nie Mrugaj zamienia tę przewagę w 1% dodatkowych obrażeń za każde 10 prędkości ruchu więcej niż cel, spowolnienie i uziemienie z W oraz spowolnienie z R powiększają różnicę, a Znaczenie Ziemi sprawia, że każdy doskok zostawia ślad wybuchający po 0,75 sekundy, akurat gdy wraca kolejne E. Kryształowy Kostur Rylai spowalnia cel przy każdym ukąszeniu, a Kosmiczny Impuls, Zmora Licza, Przepływ Burzy, Pancerz Umrzyka i Siła Natury dają procentową prędkość ruchu, którą bierna mnoży; Pancerz Umrzyka osłabia spowolnienia, a Siła Natury trzyma ją przy życiu w zwarciu. Nieruchoma, trująca artyleria zmienia się w hipermobilną driftującą zawodniczkę, która krąży wokół wroga i minuje ziemię za sobą przy każdym ukąszeniu.",
+      "play": "Zatruj Q lub W, potem spamuj E i pozwól, by Lekki Krok przeciągał cię przez cel, żeby każdy doskok zostawiał Znaczenie Ziemi i odświeżał Cieniobieżcę. Zachowaj R, by ogłuszyć lub spowolnić każdego, kto próbuje dotrzymać ci tempa.",
       "augments": [
-        "Po użyciu superumiejętności zyskujesz redukcję obrażeń na 2 sek., po czym prowokujesz wrogów w środku na 2 sek. Zyskujesz 30 pkt. przyspieszenia superumiejętności.",
-        "Po użyciu superumiejętności zyskujesz tarczę równą 50% maksymalnego zdrowia, 20% wszechwampiryzmu i 30% dodatkowej prędkości ruchu na 10 sek. (Czas odnowienia: 20 sek.).",
-        "Użycie superumiejętności czyni cię niewrażliwym na 2 sek. (Czas odnowienia: 8 sek.).",
-        "Po użyciu superumiejętności stajesz się odporny na efekty kontroli tłumu na 3 sek. (Czas odnowienia: 8 sek.)."
+        "Gdy używasz wybranej umiejętności, doskakujesz w stronę kursora.",
+        "Po użyciu umiejętności doskoku, mignięcia lub teleportacji albo wyjściu z kamuflażu zyskujesz 300 prędkości ruchu na 2 sekundy.",
+        "Zyskujesz 1% dodatkowych obrażeń za każde 10 prędkości ruchu, które masz więcej od celu.",
+        "Twoje umiejętności doskoku, mignięcia lub teleportacji zostawiają ślad, który wybucha po 0,75 sekundy."
       ]
     },
     "pt-BR": {
-      "title": "A Porta Giratória",
-      "why": "A ultimate da Elise é a Forma de Aranha, uma troca de forma com recarga minúscula, então cada troca entre aranha e humana conta como usar a ultimate, e esse é o truque todo. Fica Aqui Comigo dá redução de dano depois de cada ultimate e depois provoca os inimigos presos com ela, Forma Final dá um escudo de metade da Vida máxima mais Omnivampirismo e Velocidade de Movimento, Não Encosta deixa ela invulnerável por um instante e Ultimate Imbatível deixa ela imune a controle de grupo, então cada troca ativa o que estiver pronto. A passiva da Forma de Aranha cura ela a cada mordida, então com Omnivampirismo por cima ela aguenta enquanto o time inimigo é obrigado a ficar em cima dela. Armadura de Warmog e Coração de Aço deixam o escudo de Vida máxima enorme, Semblante Espiritual aumenta esse escudo e as curas de aranha, e Armadura de Espinhos pune cada inimigo provocado obrigado a atacá-la enquanto a Égide de Fogo Solar queima a galera. A assassina de PdH vira um tanque de linha de frente que provoca e cujo único botão é apertar R sem parar.",
-      "play": "Prenda um inimigo com o E humano, vire aranha e entre no time deles, depois troque de forma sem parar para encadear redução de dano, provocações, invulnerabilidade e escudos enquanto morde quem estiver grudado em você. Full Vida e Armadura, e nunca fuja com o E de aranha.",
+      "title": "A Serpente de Passagem",
+      "why": "A passiva da Cassiopeia deixa, sem alarde, todo bônus de Velocidade de Movimento mais forte nela, e o E dela é uma habilidade com 0,75 segundo de recarga que ela usa sem parar. Com Passo Rápido no E, cada uso a faz avançar em direção ao cursor, então ela pula em quem está mordendo a cada 0,75 segundo; Corrida das Sombras dá 300 de Velocidade de Movimento depois de cada avanço, que a passiva infla ainda mais e que nunca acaba, porque o próximo avanço chega antes dos 2 segundos. Não Pisque transforma essa vantagem em 1% de dano adicional a cada 10 de Velocidade de Movimento acima do alvo, a lentidão e o enraizamento do W e a lentidão do R aumentam a diferença, e Abalos Sísmicos faz cada avanço deixar um rastro que explode após 0,75 segundo, bem quando o próximo E volta. O Cetro de Cristal de Rylai deixa o alvo lento a cada mordida para aumentar ainda mais a diferença, e Ímpeto Cósmico, Perdição de Lich, Ápice da Tempestade, Couraça do Defunto e Força da Natureza dão Velocidade de Movimento percentual que a passiva multiplica, com a Couraça do Defunto reduzindo lentidões e a Força da Natureza mantendo-a viva no corpo a corpo. A maga de artilharia venenosa e parada vira uma drifter hipermóvel que roda em volta do inimigo, minando o chão atrás dela a cada mordida.",
+      "play": "Envenene com Q ou W, depois spame o E e deixe o Passo Rápido te arrastar pelo alvo, para cada avanço deixar um Abalos Sísmicos e renovar a Corrida das Sombras. Guarde o R para atordoar ou deixar lento quem tentar acompanhar sua velocidade.",
       "augments": [
-        "Depois de usar sua Ultimate, receba redução de dano por 2 segundos, depois disso você provoca os inimigos dentro por 2 segundos. Receba 30 de Aceleração de Habilidade Suprema.",
-        "Depois de usar sua Ultimate, receba um Escudo de 50% da Vida máxima, 20% de Omnivampirismo e 30% de Velocidade de Movimento adicional por 10 segundos. (Recarga de 20 segundos).",
-        "Usar sua Ultimate deixa você Invulnerável por 2 segundos (Recarga de 8s).",
-        "Depois de usar sua Ultimate, você fica imune a controle de grupo por 3 segundos. (Recarga de 8 segundos)."
+        "Ao usar a habilidade escolhida, avance em direção ao cursor.",
+        "Depois de usar uma habilidade de Avanço, Salto ou Teleporte ou sair da Furtividade, ganhe 300 de Velocidade de Movimento por 2 segundos.",
+        "Ganhe 1% de dano adicional a cada 10 de Velocidade de Movimento que você tiver a mais que o alvo.",
+        "Suas habilidades de avanço, salto ou teleporte deixam um rastro que explode após 0,75 segundo."
       ]
     },
     "ro": {
-      "title": "Ușa rotativă",
-      "why": "Abilitatea supremă a lui Elise este Forma de păianjen, o schimbare de formă cu un timp de reîncărcare minuscul, așa că fiecare trecere între păianjen și om contează ca o folosire a supremei, și ăsta e tot trucul. Împreună la ananghie îi dă reducere de daune după fiecare supremă și apoi provoacă inamicii prinși cu ea, Forma finală îi dă un scut egal cu jumătate din viața ei maximă plus omnivampirism și viteză de mișcare, De neatins o face invulnerabilă pentru scurt timp, iar Supremă cu dichis o face imună la controlul mulțimilor, așa că fiecare schimbare declanșează ce e gata. Pasiva Formei de păianjen o vindecă la fiecare mușcătură, așa că, cu omnivampirism pe deasupra, rezistă în timp ce echipa inamică e forțată să stea pe ea. Armura lui Warmog și Inima de oțel fac uriaș scutul bazat pe viața maximă, Înfățișarea sufletului mărește acest scut și vindecările de păianjen, iar Armura cu spini pedepsește fiecare inamic provocat forțat să o atace, în timp ce Scutul solar arde mulțimea. Asasina AP devine un tanc din prima linie care provoacă și al cărui singur buton e să apese R iar și iar.",
-      "play": "Prinde un inamic în cocon cu E-ul uman, treci în păianjen și intră în echipa lor, apoi schimbă forma întruna ca să legi reducerea de daune, provocările, invulnerabilitatea și scuturile în timp ce muști pe oricine e lipit de tine. Construiește doar viață și armură și nu fugi niciodată cu E-ul de păianjen.",
+      "title": "Șarpele din trecere",
+      "why": "Pasiva lui Cassiopeia face pe tăcute ca orice bonus de viteză de mișcare să fie mai puternic pe ea, iar E-ul ei e o vrajă cu timp de reîncărcare de 0,75 secunde pe care o folosește non-stop. Cu Pas rapid pe E, fiecare folosire o aruncă spre cursor, așa că se repede asupra țintei pe care o mușcă la fiecare 0,75 secunde; Alergătorul umbrei îi dă 300 viteză de mișcare după fiecare salt, pe care pasiva o umflă și mai mult și care nu expiră niciodată, pentru că următorul salt vine înainte să treacă cele 2 secunde. Nu clipi transformă avantajul în 1% daune bonus la fiecare 10 viteză de mișcare peste țintă, încetinirea și imobilizarea de la W și încetinirea de la R măresc diferența, iar Cutremur face ca fiecare salt să lase o urmă care explodează după 0,75 secunde, exact când revine următorul E. Sceptrul de cristal al lui Rylai încetinește ținta la fiecare mușcătură, iar Avânt cosmic, Urgia de pe lume, Furtună dezlănțuită, Platoșa ostașului ucis și Forța naturii dau toate viteză procentuală pe care pasiva o multiplică; Platoșa reduce încetinirile, iar Forța naturii o ține în viață la corp la corp. Maga-artilerie otrăvitoare și statică devine o drifteriță hipermobilă care face cercuri în jurul inamicului și minează pământul din urma ei la fiecare mușcătură.",
+      "play": "Otrăvește cu Q sau W, apoi spamează E și lasă Pas rapid să te tragă prin țintă, ca fiecare salt să lase un Cutremur și să reîmprospăteze Alergătorul umbrei. Păstrează R pentru a ameți sau încetini pe oricine încearcă să-ți țină pasul.",
       "augments": [
-        "După ce îți folosești abilitatea supremă, primești reducere de daune timp de 2 secunde, după care provoci inamicii din interior timp de 2 secunde. Primești 30 de grăbire a abilității supreme.",
-        "După ce îți folosești abilitatea supremă, primești un scut egal cu 50% din viața maximă, 20% omnivampirism și 30% viteză de mișcare bonus timp de 10 secunde. (Timp de reîncărcare: 20 de secunde).",
-        "Folosirea abilității supreme te face invulnerabil timp de 2 secunde (timp de reîncărcare: 8 s).",
-        "După ce îți folosești abilitatea supremă, devii imun la controlul mulțimilor timp de 3 secunde. (Timp de reîncărcare: 8 secunde)."
+        "Când folosești abilitatea aleasă, faci un salt spre cursor.",
+        "După ce folosești o abilitate de salt, teleportare scurtă sau teleportare ori ieși din camuflaj, primești 300 viteză de mișcare timp de 2 secunde.",
+        "Primești 1% daune bonus pentru fiecare 10 viteză de mișcare pe care o ai în plus față de țintă.",
+        "Abilitățile tale de salt, teleportare scurtă sau teleportare lasă în urmă o dâră care explodează după 0,75 secunde."
       ]
     },
     "ru": {
-      "title": "Вращающаяся дверь",
-      "why": "Абсолютное умение Элизы – Облик паука, смена формы с крошечной перезарядкой, так что каждое переключение между пауком и человеком считается применением ульты, и в этом весь трюк. Вас заперли со мной дает ей снижение урона после каждой ульты, а затем провоцирует врагов, застрявших рядом с ней, Финальная форма дает щит на половину ее максимального здоровья плюс всестороннее вампирство и скорость передвижения, Не достанешь делает ее ненадолго неуязвимой, а Абсолютная неудержимость дает иммунитет к контролю, так что каждая смена формы запускает то, что уже откатилось. Пассивка Облика паука лечит ее при каждом укусе, так что с вампирством сверху она держится, пока вражеская команда вынуждена стоять на ней. Доспех Вармога и Сердце стали делают щит от максимального здоровья огромным, Облачение духов усиливает этот щит и лечение паука, а Шипованный доспех наказывает каждого спровоцированного врага, которому приходится ее бить, пока Эгида солнечного пламени жжет толпу. AP-убийца становится провоцирующим танком первой линии, у которого одна кнопка: жать R снова и снова.",
-      "play": "Закокунь врага человеческой E, перейди в паука и зайди в их команду, а потом постоянно меняй форму, чтобы связывать снижение урона, провокации, неуязвимость и щиты, кусая всех, кто к тебе прилип. Собирай только здоровье и броню и никогда не убегай паучьей E.",
+      "title": "Змея на ходу",
+      "why": "Пассивное умение Кассиопеи тихо усиливает на ней любые бонусы к скорости передвижения, а её E – заклинание с перезарядкой 0,75 секунды, которое она кастует без остановки. С Резким шагом на E каждое применение бросает её рывком к курсору, так что каждые 0,75 секунды она набрасывается на того, кого кусает; Бег в тени дает 300 скорости передвижения после каждого рывка, пассивка раздувает её ещё сильнее, и она никогда не спадает, потому что следующий рывок приходит раньше, чем пройдут 2 секунды. Не моргай превращает это преимущество в 1% дополнительного урона за каждые 10 скорости больше, чем у цели, замедление и приземление от W и замедление от R увеличивают разрыв, а Борозда заставляет каждый рывок оставлять след, который взрывается через 0,75 секунды, ровно к следующему E. Хрустальный скипетр Рилай замедляет цель при каждом укусе, а Космический ускоритель, Гроза Личей, Штормовой прилив, Броня мертвеца и Сила природы дают процентную скорость передвижения, которую пассивка умножает; Броня мертвеца ослабляет замедления, а Сила природы держит её в живых в ближнем бою. Неподвижная ядовитая маг-артиллерия превращается в гипермобильную дрифтершу, которая нарезает круги вокруг врага и минирует землю за собой каждым укусом.",
+      "play": "Отравите цель через Q или W, затем спамьте E, и пусть Резкий шаг протаскивает вас сквозь цель: каждый рывок оставляет Борозду и обновляет Бег в тени. R держите, чтобы оглушить или замедлить любого, кто пытается угнаться за вами.",
       "augments": [
-        "После применения абсолютного умения вы получаете снижение урона на 2 сек., после чего провоцируете врагов внутри на 2 сек. Вы получаете 30 ед. ускорения абсолютного умения.",
-        "После применения абсолютного умения вы получаете щит прочностью 50% от максимального запаса здоровья, 20% всестороннего вампиризма и 30% дополнительной скорости передвижения на 10 сек. (Перезарядка 20 сек.).",
-        "Применение абсолютного умения делает вас неуязвимым на 2 сек. (перезарядка 8 сек.).",
-        "После применения абсолютного умения вы получаете иммунитет к эффектам контроля на 3 сек. (Перезарядка 8 сек.)."
+        "Когда вы используете выбранное умение, вы совершаете рывок к курсору.",
+        "После применения умения с рывком, скачком или телепортацией или выхода из невидимости вы получаете 300 скорости передвижения на 2 секунды.",
+        "Вы наносите на 1% больше урона за каждые 10 скорости передвижения сверх скорости цели.",
+        "Ваши умения с рывком, скачком или телепортацией оставляют след, который взрывается через 0,75 секунды."
       ]
     },
     "th": {
-      "title": "ประตูหมุน",
-      "why": "อัลติเมทของ Elise คือ Spider Form การสลับร่างที่คูลดาวน์สั้นจิ๋ว ทุกครั้งที่สลับระหว่างแมงมุมกับมนุษย์จึงนับเป็นการใช้อัลติเมท และนี่คือทริคทั้งหมด Stuck In Here With Me ให้ลดความเสียหายหลังอัลติเมททุกครั้ง แล้วยั่วยุศัตรูที่ติดอยู่กับเธอ Final Form ให้โล่เท่าครึ่งหนึ่งของพลังชีวิตสูงสุด พร้อม Omnivamp และความเร็วเคลื่อนที่ Can't Touch This ทำให้เธออมตะชั่วครู่ และ Ultimate Unstoppable ทำให้เธอไม่ติดสถานะควบคุม ทุกการสลับร่างจึงเรียกใช้อันที่พร้อมอยู่ตอนนั้น พาสซีฟของ Spider Form ฮีลเธอทุกครั้งที่กัด เมื่อมี Omnivamp ด้วยเธอจึงยืนหยัดได้ ขณะที่ทีมศัตรูถูกบังคับให้ยืนอยู่บนตัวเธอ Warmog's Armor และ Heartsteel ทำให้โล่จากพลังชีวิตสูงสุดใหญ่มหึมา Spirit Visage ทำให้โล่นั้นและการฮีลแมงมุมมากขึ้น ส่วน Thornmail ลงโทษศัตรูทุกคนที่ถูกยั่วยุจนต้องตีเธอ ขณะที่ Sunfire Aegis เผาฝูงชน แอสแซสซิน AP กลายเป็นแทงก์แนวหน้าสายยั่วยุที่มีปุ่มเดียวคือกด R ซ้ำไปเรื่อย ๆ",
-      "play": "ใช้ E ร่างมนุษย์พันศัตรูเป็นรังไหม สลับเป็นแมงมุมแล้วเดินเข้าไปกลางทีมเขา จากนั้นสลับร่างไปเรื่อย ๆ เพื่อต่อการลดความเสียหาย การยั่วยุ ความเป็นอมตะ และโล่ พร้อมกัดใครก็ตามที่ติดอยู่กับคุณ ออกแต่พลังชีวิตกับเกราะ และอย่าใช้ E ร่างแมงมุมหนีเด็ดขาด",
+      "title": "งูขับผ่าน",
+      "why": "พาสซีฟของ Cassiopeia ทำให้โบนัส Move Speed ทุกอย่างบนตัวเธอแรงขึ้นแบบเงียบ ๆ และ E ของเธอเป็นสกิลคูลดาวน์ 0.75 วินาทีที่เธอกดไม่หยุด พอใส่ Quickstep ไว้ที่ E ทุกครั้งที่ใช้เธอจะพุ่งไปทางเคอร์เซอร์ จึงกระโจนใส่เป้าหมายที่กำลังกัดอยู่ทุก 0.75 วินาที; Shadow Runner ให้ Move Speed 300 หลังพุ่งทุกครั้ง พาสซีฟขยายให้มากขึ้นอีก และไม่มีวันหมด เพราะการพุ่งครั้งต่อไปมาก่อนครบ 2 วินาที Don't Blink เปลี่ยนความเร็วที่เหนือกว่านั้นเป็นดาเมจเพิ่ม 1% ต่อทุก 10 Move Speed ที่มากกว่าเป้าหมาย สโลว์และการตรึงพื้นจาก W กับสโลว์จาก R ช่วยถ่างช่องว่าง และ Earthwake ทำให้การพุ่งแต่ละครั้งทิ้งรอยที่ระเบิดหลัง 0.75 วินาที ตรงกับจังหวะ E ครั้งถัดไปพอดี Rylai's Crystal Scepter สโลว์เป้าหมายทุกครั้งที่กัดเพื่อถ่างช่องว่างอีก ส่วน Cosmic Drive, Lich Bane, Stormsurge, Dead Man's Plate และ Force of Nature ล้วนให้ Move Speed แบบเปอร์เซ็นต์ที่พาสซีฟคูณเพิ่ม โดย Dead Man's Plate ลดผลสโลว์ และ Force of Nature ช่วยให้เธอรอดในระยะประชิด เมจปืนใหญ่สายพิษที่ยืนนิ่งกลายเป็นนักดริฟต์สุดคล่องที่วิ่งวนรอบศัตรูและวางกับระเบิดไว้บนพื้นข้างหลังทุกครั้งที่กัด",
+      "play": "ลงพิษด้วย Q หรือ W แล้วกด E รัว ๆ ให้ Quickstep ลากคุณทะลุเป้าหมาย การพุ่งแต่ละครั้งจะทิ้งรอย Earthwake และรีเฟรช Shadow Runner เก็บ R ไว้สตันหรือสโลว์ใครก็ตามที่พยายามตามความเร็วคุณให้ทัน",
       "augments": [
-        "หลังใช้อัลติเมท ได้รับการลดความเสียหาย 2 วินาที หลังจากนั้นยั่วยุศัตรูที่อยู่ข้างใน 2 วินาที ได้รับ Ultimate Ability Haste 30",
-        "หลังใช้อัลติเมท ได้รับโล่ 50% ของพลังชีวิตสูงสุด, Omnivamp 20% และความเร็วเคลื่อนที่เพิ่มเติม 30% เป็นเวลา 10 วินาที (คูลดาวน์ 20 วินาที)",
-        "การใช้อัลติเมททำให้คุณอมตะ 2 วินาที (คูลดาวน์ 8 วินาที)",
-        "หลังใช้อัลติเมท คุณจะไม่ติดสถานะควบคุมเป็นเวลา 3 วินาที (คูลดาวน์ 8 วินาที)"
+        "เมื่อใช้สกิลที่เลือก จะพุ่งไปทางเคอร์เซอร์",
+        "หลังใช้สกิล Dash, Blink หรือ Teleport หรือออกจากการล่องหน จะได้รับ Move Speed 300 เป็นเวลา 2 วินาที",
+        "ได้รับความเสียหายโบนัส 1% ต่อทุก 10 ความเร็วเคลื่อนที่ที่คุณมีมากกว่าเป้าหมาย",
+        "สกิล Dash, Blink หรือ Teleport ของคุณจะทิ้งรอยที่ระเบิดหลังผ่านไป 0.75 วินาที"
       ]
     },
     "tr": {
-      "title": "Döner Kapı",
-      "why": "Elise'in ultisi Örümcek Formu, minicik bir bekleme süresi olan bir form değiştirme, yani örümcek ile insan arasındaki her geçiş ulti kullanmak sayılıyor ve bütün numara bu. Biz Bizeyiz her ultiden sonra hasar azaltma verir, ardından onunla mahsur kalan rakipleri kışkırtır, Nihai Biçim azami Can'ının yarısı kadar bir kalkan artı tam yaşam çalma ve hareket hızı verir, Dokunulmaz onu kısa süreliğine hasar almaz yapar ve Durdurulamaz Ulti kitle kontrolüne bağışıklık verir, yani her değişim o an hazır olanı tetikler. Örümcek Formu'nun pasifi her ısırıkta onu iyileştirir, yani üstüne tam yaşam çalmayla rakip takım onun üstünde durmaya zorlanırken dayanır. Warmog'un Zırhı ve Çelikyürek azami Can kalkanını devasa yapar, Ruh Gömleği bu kalkanı ve örümcek iyileştirmelerini büyütür, Çivili Zırh ona saldırmak zorunda kalan her kışkırtılmış rakibi cezalandırırken Günateşi Kalkanı kalabalığı yakar. YG suikastçısı, tek tuşu R'ye tekrar tekrar basmak olan kışkırtan bir ön saf tankına dönüşür.",
-      "play": "İnsan E'siyle bir rakibi koza hapset, örümceğe geç ve takımlarının içine yürü, sonra sürekli form değiştirerek hasar azaltma, kışkırtma, hasar almazlık ve kalkanları zincirle, bu sırada sana yapışanı ısır. Sadece Can ve Zırh kas ve asla örümcek E'siyle kaçma.",
+      "title": "Geçerken Isıran Yılan",
+      "why": "Cassiopeia'nın pasifi sessizce üzerindeki her Hareket Hızı bonusunu güçlendirir, E'si ise durmadan kullandığı 0,75 saniye bekleme süreli bir yetenektir. Hızlı Adım E'ye gelince her kullanım onu imlece doğru atar, yani ısırdığı hedefe her 0,75 saniyede bir atılır; Gölge Koşucu her atılmadan sonra 300 Hareket Hızı verir, pasifi bunu daha da şişirir ve bir sonraki atılma 2 saniye dolmadan geldiği için bu hız hiç bitmez. Gözünü Kırpma bu hız farkını hedeften fazla olan her 10 Hareket Hızı için %1 ek hasara çevirir, W'nin yavaşlatması ve yere sabitlemesi ile R'nin yavaşlatması farkı açar, Toprağın Uyanışı da her atılmanın ardında 0,75 saniye sonra patlayan bir iz bırakır, tam bir sonraki E hazır olduğunda. Rylai'nin Kristal Asası her ısırıkta hedefi yavaşlatıp farkı büyütür; Kozmik Hızlandırıcı, Lich Boğan, Yıldırım Asası, Ölü Adamın Zırhı ve Doğanın Kudreti ise pasifinin katladığı yüzdesel Hareket Hızı verir, Ölü Adamın Zırhı yavaşlatmaları azaltır, Doğanın Kudreti de yakın dövüşte hayatta tutar. Yerinden kıpırdamayan zehirli topçu büyücü, düşmanın etrafında tur atan ve her ısırıkta arkasındaki yeri mayınlayan süper hareketli bir drift ustasına dönüşür.",
+      "play": "Q veya W ile zehirle, sonra E'ye bas ve Hızlı Adım seni hedefin içinden geçirsin; her atılma bir Toprağın Uyanışı izi bırakır ve Gölge Koşucu'yu yeniler. R'yi hızına yetişmeye çalışan herkesi sersemletmek ya da yavaşlatmak için sakla.",
       "augments": [
-        "Ultini kullandıktan sonra 2 saniyeliğine hasar azaltma kazan, ardından içerideki rakipleri 2 saniyeliğine kışkırt. 30 Ulti Beceri Hızı kazan.",
-        "Ultini kullandıktan sonra 10 saniyeliğine azami Can'ının %50'si kadar Kalkan, %20 Tam Yaşam Çalma ve %30 ilave Hareket Hızı kazan. (20 saniye Bekleme Süresi).",
-        "Ultini kullanmak seni 2 saniyeliğine Hasar Almaz yapar (8 sn. Bekleme Süresi).",
-        "Ultini kullandıktan sonra 3 saniyeliğine kitle kontrolüne karşı bağışıklık kazanırsın. (8 saniye Bekleme Süresi)."
+        "Seçilen yeteneği kullandığında imlecine doğru atılırsın.",
+        "Atılma, Işınlanma veya Teleport yeteneği kullandıktan ya da Gizlilikten çıktıktan sonra 2 saniyeliğine 300 Hareket Hızı kazanırsın.",
+        "Hedeften fazla olan her 10 hareket hızı için %1 ek hasar kazanırsın.",
+        "Atılma, ışınlanma veya teleport yeteneklerin arkanda 0,75 saniye sonra patlayan bir iz bırakır."
       ]
     },
     "vi": {
-      "title": "Cánh Cửa Xoay",
-      "why": "Chiêu cuối của Elise là Dạng Nhện, một lần đổi dạng với hồi chiêu siêu ngắn, nên mỗi lần đổi giữa nhện và người đều tính là dùng chiêu cuối, và đó là toàn bộ mánh khóe. Bơi Hết Vào Đây cho cô giảm sát thương sau mỗi chiêu cuối rồi khiêu khích kẻ địch bị kẹt cùng cô, Bản Thể Tối Thượng cho cô lá chắn bằng một nửa Máu tối đa cộng hút máu toàn phần và tốc độ di chuyển, Sao Mà Chạm Được làm cô bất khả xâm phạm trong chốc lát, và Chiêu Cuối Không Thể Cản Phá cho cô miễn nhiễm khống chế, nên mỗi lần đổi dạng sẽ kích hoạt cái nào đã hồi xong. Nội tại Dạng Nhện hồi máu cho cô mỗi cú cắn, nên thêm hút máu toàn phần nữa thì cô trụ vững trong khi cả đội địch bị buộc phải đứng lên cô. Giáp Máu Warmog và Trái Tim Khổng Thần làm lá chắn theo Máu tối đa trở nên khổng lồ, Giáp Tâm Linh làm lá chắn đó và hồi máu dạng nhện to hơn, còn Giáp Gai trừng phạt mọi kẻ địch bị khiêu khích phải đánh cô trong khi Khiên Thái Dương thiêu cả đám. Sát thủ AP trở thành đỡ đòn tuyến đầu biết khiêu khích, với nút duy nhất là bấm R liên tục.",
-      "play": "Kén một kẻ địch bằng E dạng người, đổi sang nhện và đi thẳng vào đội họ, rồi liên tục đổi dạng để nối giảm sát thương, khiêu khích, bất khả xâm phạm và lá chắn trong khi cắn bất kỳ ai dính vào bạn. Chỉ lên Máu và Giáp, và đừng bao giờ dùng E dạng nhện để chạy.",
+      "title": "Con Rắn Lướt Qua",
+      "why": "Nội tại của Cassiopeia âm thầm khiến mọi cộng thêm Tốc độ Di chuyển trên cô mạnh hơn, còn E của cô là chiêu có hồi chiêu 0,75 giây mà cô tung liên tục. Với Bước Chân Nhanh Nhẹn trên E, mỗi lần dùng cô sẽ lướt về phía con trỏ, nên cứ 0,75 giây cô lại lao vào mục tiêu đang cắn; Bóng Đen Tốc Độ cho 300 Tốc độ Di chuyển sau mỗi lần lướt, nội tại thổi phồng thêm, và nó không bao giờ hết vì lần lướt tiếp theo đến trước khi 2 giây kết thúc. Đừng Chớp Mắt biến lợi thế tốc độ đó thành 1% sát thương cộng thêm cho mỗi 10 Tốc độ Di chuyển hơn mục tiêu, làm chậm và trói chân của W cùng làm chậm của R nới rộng khoảng cách, còn Chấn Động khiến mỗi lần lướt để lại một vệt phát nổ sau 0,75 giây, đúng lúc E tiếp theo hồi xong. Trượng Pha Lê Rylai làm chậm mục tiêu mỗi lần cắn, còn Động Cơ Vũ Trụ, Kiếm Tai Ương, Quyền Trượng Bão Tố, Giáp Liệt Sĩ và Giáp Thiên Nhiên đều cho Tốc độ Di chuyển theo phần trăm mà nội tại nhân lên; Giáp Liệt Sĩ giảm hiệu ứng làm chậm, Giáp Thiên Nhiên giữ cô sống sót khi cận chiến. Pháp sư pháo đài độc đứng yên biến thành tay drift siêu cơ động, chạy vòng quanh kẻ địch và gài mìn mặt đất phía sau sau mỗi cú cắn.",
+      "play": "Gây độc bằng Q hoặc W, rồi spam E để Bước Chân Nhanh Nhẹn kéo bạn xuyên qua mục tiêu, mỗi lần lướt để lại Chấn Động và làm mới Bóng Đen Tốc Độ. Giữ R để làm choáng hoặc làm chậm bất kỳ ai cố bắt kịp tốc độ của bạn.",
       "augments": [
-        "Sau khi dùng Chiêu Cuối, nhận giảm sát thương trong 2 giây, sau đó Khiêu Khích kẻ địch bên trong trong 2 giây. Nhận 30 Điểm Hồi Kỹ Năng Chiêu Cuối.",
-        "Sau khi dùng Chiêu Cuối, nhận Lá Chắn bằng 50% Máu tối đa, 20% Hút Máu Toàn Phần và 30% Tốc Độ Di Chuyển cộng thêm trong 10 giây. (Hồi chiêu 20 giây).",
-        "Dùng Chiêu Cuối khiến bạn Bất Khả Xâm Phạm trong 2 giây (Hồi chiêu 8 giây).",
-        "Sau khi dùng Chiêu Cuối, bạn miễn nhiễm khống chế trong 3 giây. (Hồi chiêu 8 giây)."
+        "Khi dùng kỹ năng được chọn, lướt về phía con trỏ.",
+        "Sau khi dùng kỹ năng Lướt, Dịch Chuyển Tức Thời hoặc Dịch Chuyển hoặc thoát khỏi Tàng Hình, nhận 300 Tốc độ Di chuyển trong 2 giây.",
+        "Nhận 1% sát thương cộng thêm cho mỗi 10 tốc độ di chuyển bạn có hơn mục tiêu.",
+        "Các kỹ năng lướt, dịch chuyển tức thời hoặc dịch chuyển của bạn để lại một vệt phát nổ sau 0,75 giây."
       ]
     },
     "zh-CN": {
-      "title": "旋转门",
-      "why": "蜘蛛女皇的大招是蜘蛛形态，一个冷却极短的形态切换，所以每次在蜘蛛和人形之间切换都算作施放大招，这就是全部的秘诀。和我一起困在这里让她在每次大招后获得伤害减免，然后嘲讽和她困在一起的敌人，最终形态给她一个相当于一半最大生命值的护盾外加全能吸血和移动速度，你摸不到让她短暂无敌，终极不可阻挡让她免疫控制效果，所以每次切换都会触发当时已经冷却好的那个。蜘蛛形态的被动让她每咬一口都会回血，再加上全能吸血，她能在敌方全队被迫站在她身上时稳稳扛住。狂徒铠甲和心之钢让基于最大生命值的护盾变得巨大，振奋盔甲让这个护盾和蜘蛛回血更多，荆棘之甲惩罚每个被嘲讽、被迫攻击她的敌人，日炎圣盾则灼烧整群人。AP刺客变成一个会嘲讽的前排坦克，唯一的按键就是一遍又一遍地按R。",
-      "play": "用人形E茧住一个敌人，切蜘蛛冲进他们的队伍，然后不停切换形态，把伤害减免、嘲讽、无敌和护盾串起来，同时咬住每个黏在你身上的人。只出生命值和护甲，永远别用蜘蛛E逃跑。",
+      "title": "路过咬一口的蛇",
+      "why": "魔蛇之拥的被动悄悄地让她获得的所有移动速度加成都更强，而她的E是冷却仅0.75秒、她会一刻不停释放的技能。把快步放在E上，每次释放都会让她朝光标冲刺，于是她每0.75秒就扑向正在咬的目标；暗影疾奔在每次冲刺后给予300移动速度，被动会再把它放大，而且下一次冲刺在2秒结束前就会到来，所以永不消失。唯快不破把这份速度优势变成每比目标多10移动速度就多1%伤害，W的减速和禁锢以及R的减速进一步拉大差距，大地苏醒让每次冲刺都留下0.75秒后爆炸的轨迹，正好赶上下一个E转好。瑞莱的冰晶节杖每咬一口都减速目标让差距更大，星界驱驰、巫妖之祸、风暴狂涌、亡者的板甲和自然之力都提供被动会放大的百分比移动速度，亡者的板甲削弱减速，自然之力让她在近身战里活下来。原本站桩的毒系炮台法师，变成绕着敌人转圈、每咬一口就在身后埋下地雷的超机动漂移手。",
+      "play": "用Q或W上毒，然后狂按E，让快步拖着你穿过目标，每次冲刺都留下大地苏醒的轨迹并刷新暗影疾奔。R留着眩晕或减速任何想跟上你速度的人。",
       "augments": [
-        "使用你的终极技能后，获得持续2秒的伤害减免，之后嘲讽范围内的敌人2秒。获得30终极技能急速。",
-        "施放你的终极技能后，获得相当于50%最大生命值的护盾、20%全能吸血和30%额外移动速度，持续10秒。（20秒冷却时间）。",
-        "施放你的终极技能会使你无敌2秒（8秒冷却时间）。",
-        "使用你的终极技能后，你会免疫控制效果3秒。（8秒冷却时间）。"
+        "使用所选技能时，朝光标方向冲刺。",
+        "使用冲刺、闪烁或传送类技能或脱离隐身后，获得300移动速度，持续2秒。",
+        "你的移动速度每比目标多10，就获得1%额外伤害。",
+        "你的冲刺、闪烁或传送类技能会留下一条轨迹，在0.75秒后引爆。"
       ]
     },
     "zh-TW": {
-      "title": "旋轉門",
-      "why": "伊莉絲的大絕是蜘蛛型態，一個冷卻超短的型態切換，所以每次在蜘蛛和人形之間切換都算施放大絕，這就是整個訣竅。隨我同困讓她每次大絕後獲得傷害減免，接著嘲諷和她困在一起的敵人，最終型態給她相當於一半最大生命的護盾，外加全能吸血和移動速度，無法掌握讓她短暫無敵，無敵大絕讓她免疫控場，所以每次切換都會觸發當下冷卻好的那個。蜘蛛型態的被動讓她每咬一口都回血，再加上全能吸血，她能在敵方全隊被迫站在她身上時穩穩撐住。好戰者鎧甲和雄心之鋼讓以最大生命計算的護盾變得巨大，振奮盔甲讓這個護盾和蜘蛛回血更多，荊棘之甲懲罰每個被嘲諷、被迫攻擊她的敵人，日炎聖盾則燒灼整群人。AP刺客變成會嘲諷的前排坦克，唯一的按鍵就是一直按R。",
-      "play": "用人形E把一個敵人包成繭，切蜘蛛衝進他們隊伍，然後不停切換型態，把傷害減免、嘲諷、無敵和護盾串起來，同時咬住每個黏在你身上的人。只出生命和物理防禦，永遠別用蜘蛛E逃跑。",
+      "title": "路過咬一口的蛇",
+      "why": "卡莎碧雅的被動默默讓她得到的所有跑速加成都更強，而她的E是冷卻僅0.75秒、她會不停施放的技能。把快步移動放在E上，每次施放都會讓她朝游標衝刺，於是她每0.75秒就撲向正在咬的目標；飛影跑法在每次衝刺後給予300跑速，被動會再把它放大，而且下一次衝刺在2秒結束前就會到來，所以永不中斷。別眨眼把這份速度優勢變成每比目標多10跑速就多1%傷害，W的緩速與定身以及R的緩速進一步拉開差距，大地覺醒讓每次衝刺都留下0.75秒後爆炸的軌跡，剛好趕上下一個E冷卻完畢。瑞萊的冰晶節杖每咬一口都緩速目標讓差距更大，星河馳騁、巫妖之禍、雷霆風暴、死者肩甲和自然之力都提供被動會放大的百分比跑速，死者肩甲削弱緩速，自然之力讓她在近身戰裡活下來。原本站樁的毒系砲台法師，變成繞著敵人轉圈、每咬一口就在身後埋下地雷的超機動甩尾手。",
+      "play": "用Q或W上毒，然後狂按E，讓快步移動拖著你穿過目標，每次衝刺都留下大地覺醒的軌跡並刷新飛影跑法。R留著暈眩或緩速任何想跟上你速度的人。",
       "augments": [
-        "使用大絕招後，獲得持續2秒的傷害減免，之後嘲諷範圍內的敵人2秒。獲得30大絕招技能加速。",
-        "施放大絕招後，獲得等同50%最大生命的護盾、20%全能吸血和30%額外移動速度，持續10秒。（冷卻時間20秒）。",
-        "施放大絕招會使你無敵2秒（冷卻時間8秒）。",
-        "使用大絕招後，你會免疫控場效果3秒。（冷卻時間8秒）。"
+        "使用所選技能時，朝游標方向衝刺。",
+        "使用衝刺、閃現或傳送類技能或脫離隱形後，獲得300跑速，持續2秒。",
+        "你的移動速度每比目標多10，就獲得1%額外傷害。",
+        "你的衝刺、閃現或傳送類技能會留下一道軌跡，在0.75秒後引爆。"
       ]
     }
   }
