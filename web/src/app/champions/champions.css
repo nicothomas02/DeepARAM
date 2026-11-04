@@ -42,7 +42,7 @@
   text-align: center;
   background: var(--raised);
 }
-.champ-index-tier[data-tier="S"] { background: #e2553f; color: #ffffff; }
+.champ-index-tier[data-tier="S"] { background: #c94430; color: #ffffff; }
 .champ-index-tier[data-tier="A"] { background: #f0913a; color: #1a0e02; }
 .champ-index-tier[data-tier="B"] { background: #e6c24a; color: #1d1602; }
 .champ-index-tier[data-tier="C"] { background: #7fb6e8; color: #04121c; }

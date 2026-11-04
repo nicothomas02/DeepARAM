@@ -82,10 +82,6 @@
  "1063": [
   "pen"
  ],
- "1064": [
-  "tank",
-  "support"
- ],
  "1067": [
   "ap",
   "fighter",
@@ -263,11 +259,6 @@
  "1326": [
   "pen"
  ],
- "1327": [
-  "ap",
-  "tank",
-  "support"
- ],
  "1328": [
   "crit",
   "attack_speed"
@@ -291,12 +282,6 @@
   "ap",
   "pen",
   "tank"
- ],
- "1346": [
-  "attack_speed",
-  "ap",
-  "pen",
-  "fighter"
  ],
  "1353": [
   "tank"
@@ -368,9 +353,6 @@
  ],
  "2102": [
   "fighter"
- ],
- "2108": [
-  "support"
  ],
  "2116": [
   "support"
