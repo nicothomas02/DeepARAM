@@ -2265,7 +2265,7 @@ html[data-device="mobile"] .site-header-inner {
 }
 
 /* Tier list: Bayesian tier letters, Standard / Advanced switch, and the patch range picker. */
-.chip.tier-s { background: #e2553f; border-color: #e2553f; color: #fff; }
+.chip.tier-s { background: #c94430; border-color: #c94430; color: #fff; }
 .chip.tier-a { background: #f0913a; border-color: #f0913a; color: #1a0e02; }
 .chip.tier-b { background: #e6c24a; border-color: #e6c24a; color: #1d1602; }
 .chip.tier-c { background: #7fb6e8; border-color: #7fb6e8; color: #04121c; }
@@ -2858,7 +2858,7 @@ html[data-motion="reduce"] *::after {
 }
 
 /* Home tier snapshot: each tier letter button takes its tier's colour when picked. */
-.snap-tiers button:nth-child(1)[aria-pressed="true"] { background: #e2553f; color: #fff; box-shadow: none; }
+.snap-tiers button:nth-child(1)[aria-pressed="true"] { background: #c94430; color: #fff; box-shadow: none; }
 .snap-tiers button:nth-child(2)[aria-pressed="true"] { background: #f0913a; color: #1a0e02; box-shadow: none; }
 .snap-tiers button:nth-child(3)[aria-pressed="true"] { background: #e6c24a; color: #1d1602; box-shadow: none; }
 .snap-tiers button:nth-child(4)[aria-pressed="true"] { background: #7fb6e8; color: #04121c; box-shadow: none; }
