@@ -68,7 +68,7 @@ jobs:
             echo "Nothing changed"
           else
             git commit -m "Live patch ${{ steps.check.outputs.version }}"
-            git pull --rebase
+            git pull --rebase --autostash
             git push
           fi
 
