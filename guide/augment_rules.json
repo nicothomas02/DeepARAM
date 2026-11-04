@@ -1,5 +1,5 @@
 {
- "patch": "16.21.8342754",
+ "patch": "16.22.8348910",
  "levels": [
   3,
   7,
@@ -10,19 +10,19 @@
  "rerollsPerSlot": 1,
  "odds": {
   "Silver": {
-   "pool": 70,
-   "offer": 0.0429,
-   "withRerolls": 0.0857
+   "pool": 68,
+   "offer": 0.0441,
+   "withRerolls": 0.0882
   },
   "Gold": {
-   "pool": 94,
-   "offer": 0.0319,
-   "withRerolls": 0.0638
+   "pool": 95,
+   "offer": 0.0316,
+   "withRerolls": 0.0632
   },
   "Prismatic": {
-   "pool": 71,
-   "offer": 0.0423,
-   "withRerolls": 0.0845
+   "pool": 72,
+   "offer": 0.0417,
+   "withRerolls": 0.0833
   }
  },
  "tiers": {
@@ -200,7 +200,6 @@
   "2103": "Gold",
   "2104": "Prismatic",
   "2107": "Prismatic",
-  "2108": "Silver",
   "2111": "Gold",
   "2115": "Prismatic",
   "2116": "Gold",
@@ -223,7 +222,6 @@
   "2141": "Prismatic",
   "2143": "Gold",
   "2144": "Silver",
-  "2148": "Silver",
   "2157": "Silver",
   "3004": "Gold",
   "3016": "Prismatic",
@@ -239,6 +237,7 @@
   "3055": "Silver",
   "3058": "Gold",
   "3059": "Silver",
+  "3060": "Gold",
   "3063": "Silver",
   "3071": "Gold",
   "3075": "Gold",
@@ -259,6 +258,7 @@
   "3134": "Silver",
   "3149": "Prismatic",
   "3150": "Gold",
+  "3159": "Prismatic",
   "3163": "Gold",
   "12317": "Prismatic"
  },

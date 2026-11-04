@@ -1,5 +1,5 @@
 {
- "patch": "16.21.8342754",
+ "patch": "16.22.8348910",
  "colors": {
   "Controller": "#3fb6a8",
   "Enchanter": "#57c7b2",
@@ -5008,10 +5008,6 @@
   "1063": [
    "lethality"
   ],
-  "1064": [
-   "tank",
-   "enchanter"
-  ],
   "1067": [
    "ap",
    "fighter",
@@ -5189,11 +5185,6 @@
   "1326": [
    "lethality"
   ],
-  "1327": [
-   "ap",
-   "tank",
-   "enchanter"
-  ],
   "1328": [
    "crit",
    "onhit"
@@ -5217,12 +5208,6 @@
    "ap",
    "lethality",
    "tank"
-  ],
-  "1346": [
-   "onhit",
-   "ap",
-   "lethality",
-   "fighter"
   ],
   "1353": [
    "tank"
@@ -5294,9 +5279,6 @@
   ],
   "2102": [
    "fighter"
-  ],
-  "2108": [
-   "enchanter"
   ],
   "2116": [
    "enchanter"

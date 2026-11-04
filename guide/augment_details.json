@@ -1,5 +1,5 @@
 {
- "patch": "16.21.8342754",
+ "patch": "16.22.8348910",
  "augments": {
   "1205": {
    "name": "ADAPt",
@@ -103,15 +103,6 @@
    "values": {
     "Shield_Interval": 1.0
    },
-   "unlockLevel": null
-  },
-  "2148": {
-   "name": "Double Strike",
-   "tier": "Silver",
-   "text": "your chosen ability applies On-Hit effects an additional time.",
-   "tooltip": "your chosen ability applies On-Hit effects an additional time.",
-   "grants": [],
-   "values": {},
    "unlockLevel": null
   },
   "1028": {
@@ -654,18 +645,6 @@
    },
    "unlockLevel": null
   },
-  "2108": {
-   "name": "Support Main",
-   "tier": "Silver",
-   "text": "REWARD: Any healing you provide now also Heals Over Time after the initial heal.",
-   "tooltip": "REWARD: Any healing you provide now also Heals Over Time for 25% of the initial heal over 3 seconds.",
-   "grants": [],
-   "values": {
-    "HealPercent": 25.0,
-    "HealDuration": 3.0
-   },
-   "unlockLevel": null
-  },
   "1315": {
    "name": "Swift and Safe",
    "tier": "Silver",
@@ -905,7 +884,7 @@
    "tooltip": "",
    "grants": [],
    "values": {
-    "ArmorPercent": 2.5,
+    "ArmorPercent": 2.2,
     "AOEStartSize": 160.0,
     "AOEScalePercentPerArmor": 0.005,
     "Cooldown": 10.0
@@ -1083,12 +1062,12 @@
   "1020": {
    "name": "Dawnbringer's Resolve",
    "tier": "Gold",
-   "text": "When dropping below 50% Health, heal for 30% max Health over 3 seconds. Resets on death or every 45 seconds.",
-   "tooltip": "When dropping below 50% Health, heal for 30% max Health over 3 seconds.\nResets on death or every 45 seconds.",
+   "text": "When dropping below 50% Health, heal for 35% max Health over 3 seconds. Resets on death or every 45 seconds.",
+   "tooltip": "When dropping below 50% Health, heal for 35% max Health over 3 seconds.\nResets on death or every 45 seconds.",
    "grants": [],
    "values": {
     "HealthThreshold": 0.5,
-    "HealAmount": 0.3,
+    "HealAmount": 0.35,
     "Duration": 3.0,
     "Cooldown": 45.0
    },
@@ -1519,6 +1498,15 @@
    },
    "unlockLevel": null
   },
+  "3060": {
+   "name": "One Hit Wonder",
+   "tier": "Gold",
+   "text": "",
+   "tooltip": "",
+   "grants": [],
+   "values": {},
+   "unlockLevel": null
+  },
   "1063": {
    "name": "Outlaw's Grit",
    "tier": "Gold",
@@ -1682,7 +1670,7 @@
    "values": {
     "BounceRangeCheck": 500.0,
     "Heal_APRatio": 0.05,
-    "Heal_bHPRatio": 0.1,
+    "Heal_bHPRatio": 0.12,
     "Damage_APRatio": 0.1,
     "Damage_HPRatio": 0.005,
     "BonusHealingPercent_Min": 0.15,
@@ -1900,11 +1888,11 @@
   "1375": {
    "name": "Soul Eater",
    "tier": "Gold",
-   "text": "Immobilizing an enemy champion grants 20 max Health.",
-   "tooltip": "Immobilizing an enemy champion grants 20 max Health.",
+   "text": "Immobilizing an enemy champion grants 30 max Health.",
+   "tooltip": "Immobilizing an enemy champion grants 30 max Health.",
    "grants": [],
    "values": {
-    "HealthGainPerStack": 20.0,
+    "HealthGainPerStack": 30.0,
     "SpellIDCD": 5.0
    },
    "unlockLevel": null
@@ -2172,10 +2160,10 @@
     "UpgradeHSPower": 0.2,
     "UpgradeAR": 50.0,
     "UpgradeMR": 50.0,
-    "UpgradeArmorPenFlat": 35.0,
-    "UpgradeMagicPenFlat": 25.0,
-    "UpgradeArmorPenPercent": 0.25,
-    "UpgradeMagicPenPercent": 0.15,
+    "UpgradeArmorPenFlat": 20.0,
+    "UpgradeMagicPenFlat": 15.0,
+    "UpgradeArmorPenPercent": 0.15,
+    "UpgradeMagicPenPercent": 0.09,
     "UpgradeLifesteal": 0.25,
     "UpgradeOmnivamp": 0.25,
     "UpgradeMSPercent": 0.15,
@@ -2881,6 +2869,15 @@
    },
    "unlockLevel": null
   },
+  "3159": {
+   "name": "RISE",
+   "tier": "Prismatic",
+   "text": "If you use your chosen ability to kill an enemy champion, you may Recast it. Each subsequentRecast deals additional damage.",
+   "tooltip": "Each subsequent Recast deals additional damage.\n\nMake 'em remember you.",
+   "grants": [],
+   "values": {},
+   "unlockLevel": null
+  },
   "2099": {
    "name": "Rite of Ascension",
    "tier": "Prismatic",
@@ -3057,11 +3054,11 @@
   "1001": {
    "name": "Titan's Resolve",
    "tier": "Prismatic",
-   "text": "Gain stacks when taking or dealing damage. For every 10 stacks, gain Adaptive Force, Armor, Magic Resist, Size, and Tenacity.",
+   "text": "Gain stacks when taking or dealing damage. For every 7 stacks, gain Adaptive Force, Armor, Magic Resist, Size, and Tenacity.",
    "tooltip": "Dealing and receiving champion damage grants you 1 stack of Juggernauting for 6 seconds.\n\nStacks fall off faster the more you have.",
    "grants": [],
    "values": {
-    "Stacks_Max": 10.0,
+    "Stacks_Max": 7.0,
     "Stack_Duration": 6.0,
     "StacksPerHit": 1.0,
     "MaxLevel": 2.0

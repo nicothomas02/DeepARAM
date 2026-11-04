@@ -1,5 +1,5 @@
 {
- "patch": "16.21.8342754",
+ "patch": "16.22.8348910",
  "attackSpeedCap": 5.0,
  "aramAttackSpeedCap": 3.0,
  "critOverflow": "adaptive",
@@ -219,7 +219,8 @@
    0.6,
    0.4,
    0.3,
-   0.24
+   0.2,
+   0.17
   ],
   "levelGapXp": 0.16
  },

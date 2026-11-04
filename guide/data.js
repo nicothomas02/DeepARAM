@@ -1,5 +1,5 @@
 window.GUIDE_DATA = {
- "patch": "16.21.8342754",
+ "patch": "16.22.8348910",
  "hero": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/assets/leagueclient/gamemodeassets/kiwi/kiwi-tutorial-set2.png",
  "queues": [
   {
@@ -40,9 +40,9 @@ window.GUIDE_DATA = {
   }
  ],
  "augmentCounts": {
-  "Silver": 70,
-  "Gold": 94,
-  "Prismatic": 71
+  "Silver": 68,
+  "Gold": 95,
+  "Prismatic": 72
  },
  "maps": [
   {
@@ -95,22 +95,6 @@ window.GUIDE_DATA = {
  ],
  "quests": [
   {
-   "key": "SupportMainQuest",
-   "name": "Support Main",
-   "augmentId": 2108,
-   "tier": "Silver",
-   "inPool": true,
-   "icon": "/assets/cd/latest/game/assets/ux/cherry/augments/icons/firstaidkit_large.png",
-   "milestones": [
-    {
-     "need": 3000,
-     "quest": "Heal allied champions for 3000 health.",
-     "reward": "Any healing you provide now also Heals Over Time for 25% of the initial heal over 3 seconds."
-    }
-   ],
-   "notes": []
-  },
-  {
    "key": "BangBangQuest",
    "name": "From Downtown",
    "augmentId": 2103,
@@ -121,7 +105,7 @@ window.GUIDE_DATA = {
     {
      "need": 15,
      "quest": "Snipe 15 enemy champions with abilities.",
-     "reward": "A meteor flies at enemy champions you Snipe, dealing damage in an area around them. The damage and size of the area increase the further the target is away from you."
+     "reward": "A meteor flies at enemy champions you Snipe, dealing damage around them. The damage and area increase the further away the target is."
     }
    ],
    "notes": [
@@ -400,6 +384,22 @@ window.GUIDE_DATA = {
    "notes": [
     "\"Oho! Look how charming they are!\" — Poro Herder"
    ]
+  },
+  {
+   "key": "SupportMainQuest",
+   "name": "Support Main",
+   "augmentId": null,
+   "tier": null,
+   "inPool": false,
+   "icon": "/assets/cd/latest/game/assets/ux/cherry/augments/icons/firstaidkit_large.png",
+   "milestones": [
+    {
+     "need": 3000,
+     "quest": "Heal allied champions for 3000 health.",
+     "reward": "Any healing you provide now also Heals Over Time for% of the initial heal over seconds."
+    }
+   ],
+   "notes": []
   }
  ],
  "challenges": [
@@ -1590,7 +1590,8 @@ window.GUIDE_DATA = {
     0.6,
     0.4,
     0.3,
-    0.24
+    0.2,
+    0.17
    ],
    "levelGapXp": 0.16
   },
@@ -2150,7 +2151,7 @@ window.GUIDE_DATA = {
   }
  ],
  "augmentRules": {
-  "patch": "16.21.8342754",
+  "patch": "16.22.8348910",
   "levels": [
    3,
    7,
@@ -2161,19 +2162,19 @@ window.GUIDE_DATA = {
   "rerollsPerSlot": 1,
   "odds": {
    "Silver": {
-    "pool": 70,
-    "offer": 0.0429,
-    "withRerolls": 0.0857
+    "pool": 68,
+    "offer": 0.0441,
+    "withRerolls": 0.0882
    },
    "Gold": {
-    "pool": 94,
-    "offer": 0.0319,
-    "withRerolls": 0.0638
+    "pool": 95,
+    "offer": 0.0316,
+    "withRerolls": 0.0632
    },
    "Prismatic": {
-    "pool": 71,
-    "offer": 0.0423,
-    "withRerolls": 0.0845
+    "pool": 72,
+    "offer": 0.0417,
+    "withRerolls": 0.0833
    }
   },
   "grantedItems": [
@@ -2584,12 +2585,6 @@ window.GUIDE_DATA = {
      "name": "Back To Basics",
      "tier": "Prismatic",
      "icon": "/assets/cd/latest/game/assets/ux/cherry/augments/icons/backtobasics_small.png"
-    },
-    {
-     "id": 2007,
-     "name": "Devil on Your Shoulder",
-     "tier": "Prismatic",
-     "icon": "/assets/cd/latest/game/assets/ux/kiwi/augments/icons/littledevil_small.png"
     },
     {
      "id": 1195,

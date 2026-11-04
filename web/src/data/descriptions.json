@@ -1,6 +1,6 @@
 {
 "augments": {
-"1001": "Gain stacks when taking or dealing damage. For every 10 stacks, gain Adaptive Force, Armor, Magic Resist, Size, and Tenacity.",
+"1001": "Gain stacks when taking or dealing damage. For every 7 stacks, gain Adaptive Force, Armor, Magic Resist, Size, and Tenacity.",
 "1002": "Gain 100 Item Haste (equivalent to 50% Item CDR). Item Haste reduces the cooldown of all Item Abilities.",
 "1004": "Gain increased Ability Damage, Healing, Shielding, and Ability Haste, but you cannot use your Ultimate Ability.",
 "1005": "When moving towards allies with low Health, gain Movement Speed. Your Healing and Shielding are greater based on how low your target's Health is.",
@@ -10,7 +10,7 @@
 "1013": "Gain 1500 Health, but you deal 10% less damage.",
 "1015": "Healing and Health Regen also deals magic damage to the nearest enemy champion.",
 "1019": "Your dash, leap, blink, or teleport Abilities gain 175 Ability Haste.",
-"1020": "When dropping below 50% Health, heal for 30% max Health over 3 seconds. Resets on death or every 45 seconds.",
+"1020": "When dropping below 50% Health, heal for 35% max Health over 3 seconds. Resets on death or every 45 seconds.",
 "1022": "Gain 60% Attack Speed.",
 "1025": "Explodes when you die, dealing massive true damage.",
 "1026": "Gain 1% bonus damage per 10 Move Speed you have more than the target.",
@@ -115,7 +115,7 @@
 "1358": "Your Snowball gains Ability Haste and deals extra True Damage. When the Snowball bounces off walls, it increases in size and damage and has a reduced Cooldown.",
 "1361": "Immediately: Gain a Bami's Cinder. QUEST: Possess Sunfire Aegis and Hollow Radiance. REWARD: These Items combine into Void Immolation.",
 "1373": "Takedowns makes you smaller and grant Ability Haste and Movement Speed. Lose 65% stacks on death.",
-"1375": "Immobilizing an enemy champion grants 20 max Health.",
+"1375": "Immobilizing an enemy champion grants 30 max Health.",
 "1379": "Gain 100% Attack Speed. Increase Sword of Blossoming Dawn's healing to 250% when you attack enemy champions.",
 "1384": "Get 1750 Gold. No questions asked.",
 "1386": "Replace a Summoner Spell with Heroic Swing. Heroic Swing fires a grappling hook, sticking into terrain, after which you can Recast to swing around it. While swinging, automatically Attack the nearest enemy. Colliding with an enemy champion or Recasting ends the swing.",
@@ -161,7 +161,6 @@
 "2102": "Every second, apply a stacking Burn to nearby enemy champions, scaling with your max Health. QUEST: Deal Burn damage to enemy Champions. REWARD: Size and damage increase per Quest Level.",
 "2104": "Healing and Shielding allied champions builds up a Spirit Bomb. At max stacks, toss the bomb onto lowest Health ally to heal and shield them and nearby allies.",
 "2107": "Damaging enemy champions with Attacks or Abilities grants stacks. At max stacks, you revive empowered upon death.",
-"2108": "REWARD: Any healing you provide now also Heals Over Time after the initial heal.",
 "2111": "Attacks and Abilities empowered by your chosen ability deal additional damage to the target and nearby enemies.",
 "2115": "Occasionally send out squishy, slappy hands towards all nearby enemy champions, tethering them. Your next attack will pull in all tethered enemies.",
 "2116": "REWARD: Permanently increase your chosen ability damage.",
@@ -181,7 +180,6 @@
 "2140": "Your spell hits trigger Cleave against enemies.",
 "2141": "Gain a Tiamat when completing a Hydra Item. QUEST: Gain Ravenous Hydra, Profane Hydra and Titanic Hydra. REWARD: Gain Ultra Hydra.",
 "2144": "Shields granted from your chosen ability are stronger and scaling with target's missing Health.",
-"2148": "your chosen ability applies On-Hit effects an additional time.",
 "3004": "Replace a Summoner Spell with Get Jinxed! Get Jinxed!: Ride a rocket that explodes after hitting an enemy champion, structure, or wall. Enemies within the blast radius take physical damage.",
 "3016": "Every third consecutive Attack against an enemy champion deals true damage and permanently increases the damage dealt by this effect.",
 "3025": "Shielding an ally grants Move Speed and Ghost decaying over 1.5 seconds.",
@@ -210,6 +208,7 @@
 "3134": "Gain Attack Speed, Armor, and Magic Resist for each nearby enemy champion.",
 "3149": "Healing or Shielding an allied champion with your chosen ability casts that spell again on 2 other nearby allied champions.",
 "3150": "Stormsurge's Squall now always detonates in an area, dealing max Health magic damage. Enemy champions caught in the initial blast are marked by Squall.",
+"3159": "If you use your chosen ability to kill an enemy champion, you may Recast it. Each subsequentRecast deals additional damage.",
 "3163": "Healing or Shielding allied champions gathers Butterflies."
 },
 "items": {
@@ -286,7 +285,7 @@
 "2420": "§Time Stop§ (Single use)\nEnter Stasis for 2.5 seconds.",
 "2421": "§Shattered Time§ Armguard is broken, but can still be upgraded.",
 "2422": "Grants an additional 10 Move Speed. Boots that build from Slightly Magical Footwear retain this bonus Move Speed.",
-"2501": "§Tyranny§ Gain 2.5% of your bonus Health as Attack Damage.\n§Retribution§ Gain up to 12% increased Attack Damage based on your percent missing Health.",
+"2501": "§Tyranny§ Gain 2.5% of your bonus Health as Attack Damage.\n§Retribution§ Gain up to 10% increased Attack Damage based on your percent missing Health.",
 "2502": "§Anguish§ Every 4 seconds while in combat with champions, deal magic damage to nearby enemy champions and heal for 250% of the damage dealt.",
 "2503": "§Baleful Blaze§ Damaging Abilities deals bonus magic damage for 3 seconds.\n§Blackfire§ For each enemy champion, epic and large monster affected by your\n§Baleful Blaze§ , gain 4% Ability Power.",
 "2504": "§Magebane§ After not taking magic damage for 15 seconds, gain a magic shield.",
