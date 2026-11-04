@@ -2,55 +2,31 @@
   "meta": {
     "mode": "ARAM: Mayhem",
     "label": "Patch 26.23",
-    "dataAsOf": "2026-11-03",
+    "dataAsOf": "2026-11-04",
     "caveat": "PBE content can change before release.",
     "augmentPool": {
-      "live": 249,
-      "pbe": 242
+      "live": 242,
+      "pbe": 246
     },
     "augmentCounts": {
-      "added": 2,
-      "removed": 9
+      "added": 4,
+      "removed": 0
     },
     "chinaPoolChanged": false,
     "notes": [
-      "Live is patch 26.21. Patch 26.22 goes live on November 4, so for now this page lists what's new in both 26.22 and 26.23.",
-      "Update 2026-11-03 (patch 26.23): the test server moved to patch 26.23, adding four new Headliners: Bit Rush, Debonair Zed, La Ilusión and Maestro Jhin.",
-      "Update 2026-10-30: a live update already brought Varus's changes and Lee Sin's Mayhem W shield to the live game, so they're no longer listed here.",
-      "Update 2026-10-28 (patch 26.22): Aurelion Sol, Corki, Maokai, Naafiri and Smolder get stronger, Thresh and Yasuo get weaker, Titan's Resolve gets stronger, BEES!!! changes again and Overlord's Bloodmail changes.",
-      "Update 2026-10-27 (patch 26.22): Kayle, Rumble, Viktor and Zaahen get stronger, Locke gets weaker, and Soul Eater, Squishy Slappy Grab, Dawnbringer's Resolve, Ravenous Bind and Stay Resolute get stronger.",
-      "Update 2026-10-26 (patch 26.22): Armored Impact, BEES!!! and Take'em Down Down Down are changed.",
-      "Update 2026-10-23 (patch 26.22): 9 augments leave the pool, and Varus gets stronger.",
-      "Update 2026-10-21: Lee Sin's Mayhem W shield now grows with rank.",
-      "Ability values are listed for ranks 1-5 (basic abilities) or 1-3 (ultimates)."
+      "Live is patch 26.22. This page lists what's new on the test server for patch 26.23.",
+      "Update 2026-11-04 (patch 26.23): four new augments join the pool, one gold and three silver.",
+      "Update 2026-11-03 (patch 26.23): the test server moved to patch 26.23, adding four new Headliners: Bit Rush, Debonair Zed, La Ilusión and Maestro Jhin."
     ],
     "builds": {
-      "pbe": "16.23.8350685",
-      "live": "16.21.8342754"
+      "pbe": "16.23.8355229",
+      "live": "16.22.8348910"
     }
   },
   "fame": {
-    "summary": "The Worlds band unlocks with this patch. Earn Fame to reach it.",
+    "summary": "Fame raises your Superstar Rank and unlocks bands. No new bands on the test server this patch.",
     "rewardsPerBand": 6,
-    "bands": [
-      {
-        "id": "worlds",
-        "name": "Worlds",
-        "unlockFame": 8800,
-        "members": [
-          "Mordekaiser",
-          "Evelynn",
-          "Akali",
-          "K'Sante",
-          "a Poro"
-        ],
-        "sampleObjectives": [
-          "15k crit damage",
-          "250 bonus MS",
-          "10 → 12 team multi-kills"
-        ]
-      }
-    ],
+    "bands": [],
     "superstarRank": {
       "summary": "Fame also raises your Superstar Rank (10 milestones on its own track) and unlocks bands plus Audition Missions, which must be completed within a single game.",
       "rankNames": {
@@ -63,214 +39,37 @@
   "augments": {
     "added": [
       {
-        "name": "RISE",
-        "tier": "prismatic",
-        "description": "Pick an ability: if it kills an enemy champion, you can recast it up to 2 more times. Each recast deals 25% more damage than the last.",
-        "icon": "/assets/augments/pbe/zerohour_large.png"
-      },
-      {
-        "name": "One Hit Wonder",
+        "name": "Steadfast Presence",
         "tier": "gold",
-        "description": "Pick an ability: it deals more damage for each point of Ability Haste you have, but Ability Haste no longer lowers its cooldown.",
+        "description": "Gain 16% more Armor and Magic Resist and 20% Tenacity. Below 40% max Health this doubles to 32% and 40%.",
         "icon": "/assets/augments/pbe/genericabilityaugmenticon_gold.png"
+      },
+      {
+        "name": "Fortified",
+        "tier": "silver",
+        "description": "Gain 20 Armor, then increase your bonus Armor by 25%.",
+        "icon": "/assets/augments/pbe/handsoffthetalent_large.png"
+      },
+      {
+        "name": "Mystic Guard",
+        "tier": "silver",
+        "description": "Gain 20 Magic Resist, then increase your bonus Magic Resist by 25%.",
+        "icon": "/assets/augments/pbe/handsoffthetalent_large.png"
+      },
+      {
+        "name": "Slime Time",
+        "tier": "silver",
+        "description": "Every 6 seconds, release a burst of slime that deals 40–80 + 3–6% max Health magic damage (by level) to nearby enemies. Hitting a champion leaves a blob that heals you for 3–7% max Health when you walk over it; enemies can destroy it.",
+        "icon": "/assets/augments/pbe/slimetime_large.png"
       }
     ],
-    "removed": [
-      {
-        "name": "Devil on Your Shoulder",
-        "tier": "prismatic",
-        "icon": "/assets/augments/live/littledevil_large.png"
-      },
-      {
-        "name": "Quantum Computing",
-        "tier": "prismatic",
-        "icon": "/assets/augments/live/quantumcomputing_large.png"
-      },
-      {
-        "name": "Perseverance",
-        "tier": "gold",
-        "icon": "/assets/augments/live/perseverance_large.png"
-      },
-      {
-        "name": "Snowball Upgrade",
-        "tier": "gold",
-        "icon": "/assets/augments/live/snowballupgrade_large.png"
-      },
-      {
-        "name": "Vampirism",
-        "tier": "gold",
-        "icon": "/assets/augments/live/vampired_large.png"
-      },
-      {
-        "name": "Void Dash",
-        "tier": "gold",
-        "icon": "/assets/augments/live/genericabilityaugmenticon_gold.png"
-      },
-      {
-        "name": "Adamant",
-        "tier": "silver",
-        "icon": "/assets/augments/live/adamant_large.png"
-      },
-      {
-        "name": "Double Strike",
-        "tier": "silver",
-        "icon": "/assets/augments/live/adamant_large.png"
-      },
-      {
-        "name": "Support Main",
-        "tier": "silver",
-        "icon": "/assets/augments/live/questsupportmain_large.png"
-      }
-    ],
-    "changed": [
-      {
-        "name": "Armored Impact",
-        "changes": [
-          {
-            "stat": "Bonus damage from bonus Armor",
-            "live": "250%",
-            "pbe": "220%"
-          },
-          {
-            "stat": "Base damage (by level)",
-            "live": "50–125",
-            "pbe": "25–125"
-          }
-        ],
-        "direction": "nerf",
-        "tier": "gold",
-        "icon": "/assets/augments/pbe/armoredimpact_large.png"
-      },
-      {
-        "name": "BEES!!!",
-        "changes": [
-          {
-            "stat": "Bee damage (by level)",
-            "live": "75–200",
-            "pbe": "75–140"
-          },
-          {
-            "stat": "Hive flight time",
-            "live": "0.75s",
-            "pbe": "1.1s"
-          }
-        ],
-        "direction": "nerf",
-        "tier": "gold",
-        "icon": "/assets/augments/pbe/bees_large.png"
-      },
-      {
-        "name": "Take'em Down Down Down",
-        "changes": [
-          {
-            "stat": "Missing Health damage at max stacks",
-            "live": "15% + more from your stats",
-            "pbe": "17%, no longer grows with stats"
-          }
-        ],
-        "direction": "mixed",
-        "tier": "gold",
-        "icon": "/assets/augments/pbe/takeemdowndowndown_large.png"
-      },
-      {
-        "name": "Dawnbringer's Resolve",
-        "changes": [
-          {
-            "stat": "Healing (of max Health)",
-            "live": "30%",
-            "pbe": "35%"
-          }
-        ],
-        "direction": "buff",
-        "tier": "gold",
-        "icon": "/assets/augments/pbe/dawnbringersresolve_large.png"
-      },
-      {
-        "name": "Ravenous Bind",
-        "changes": [
-          {
-            "stat": "Minimum healing (by level)",
-            "live": "50–200",
-            "pbe": "75–300"
-          },
-          {
-            "stat": "Healing from bonus Health",
-            "live": "10%",
-            "pbe": "12%"
-          }
-        ],
-        "direction": "buff",
-        "tier": "gold",
-        "icon": "/assets/augments/pbe/upgradehubris_large.png"
-      },
-      {
-        "name": "Soul Eater",
-        "changes": [
-          {
-            "stat": "Health per stack",
-            "live": "20",
-            "pbe": "30"
-          }
-        ],
-        "direction": "buff",
-        "tier": "gold",
-        "icon": "/assets/augments/pbe/souleater_large.png"
-      },
-      {
-        "name": "Squishy Slappy Grab",
-        "changes": [
-          {
-            "stat": "Shield (by level)",
-            "live": "50–200",
-            "pbe": "100–300"
-          },
-          {
-            "stat": "Shield from bonus Armor and Magic Resist",
-            "live": "50%",
-            "pbe": "70%"
-          }
-        ],
-        "direction": "buff",
-        "tier": "prismatic",
-        "icon": "/assets/augments/pbe/squishyslappygrab_large.png"
-      },
-      {
-        "name": "Stay Resolute",
-        "changes": [
-          {
-            "stat": "Armor and Magic Resist per hit",
-            "live": "1 (levels 1–6), 2 (7–10), 3 (11+)",
-            "pbe": "2 (levels 1–10), 3 (11+)"
-          }
-        ],
-        "direction": "buff",
-        "tier": "silver",
-        "icon": "/assets/augments/pbe/genericabilityaugmenticon_silver.png"
-      },
-      {
-        "name": "Titan's Resolve",
-        "changes": [
-          {
-            "stat": "Stacks needed for each bonus",
-            "live": "10",
-            "pbe": "7"
-          }
-        ],
-        "direction": "buff",
-        "tier": "prismatic",
-        "icon": "/assets/augments/pbe/iamthejuggernaut_large.png"
-      }
-    ]
+    "removed": [],
+    "changed": []
   },
   "championOverrides": [],
   "headliners": {
     "summary": "New on the test server. Each Mayhem match has one Headliner that adds game-wide bonuses.",
     "list": [
-      {
-        "id": "Worlds",
-        "name": "Superfans",
-        "effect": "Everyone's level cap rises to 21 and everyone gains extra XP. Reaching level 21 gives an extra augment."
-      },
       {
         "id": "Arcade",
         "name": "Bit Rush",
@@ -295,133 +94,11 @@
   },
   "championChanges": {
     "summary": "Base-game champion changes on the test server. They also apply in Mayhem.",
-    "list": [
-      {
-        "champion": "Aurelion Sol",
-        "changes": [
-          "E damage per second 10/15/20/25/30 → 10/16/22/28/34",
-          "E damage per second AP ratio 12% → 12/13/14/15/16%"
-        ]
-      },
-      {
-        "champion": "Corki",
-        "changes": [
-          "R damage 90/170/250 → 100/190/280",
-          "R AD ratio 85% → 90%"
-        ]
-      },
-      {
-        "champion": "Kayle",
-        "changes": [
-          "Q cooldown 12/11/10/9/8s → 10/9.5/9/8.5/8s",
-          "R cooldown 160/120/80s → 140/110/80s"
-        ]
-      },
-      {
-        "champion": "Lee Sin",
-        "changes": [
-          "W cooldown 7s → 8s"
-        ]
-      },
-      {
-        "champion": "Locke",
-        "changes": [
-          "Q mark damage 18/26/34/42/50 → 15/22/29/36/43",
-          "W duration 6s → 5s"
-        ]
-      },
-      {
-        "champion": "Maokai",
-        "changes": [
-          "Q max Health damage 2/2.5/3/3.5/4% → 2.5/3/3.5/4/4.5%"
-        ]
-      },
-      {
-        "champion": "Mel",
-        "changes": [
-          "Base Health 630 → 590, Health per level 99 → 107",
-          "Base AD 54 → 52, Attack Speed per level 2.5% → 2.75%",
-          "Armor per level 5.2 → 5.4",
-          "Base Mana 480 → 455, resource stat 28 → 38",
-          "Passive bonus bolt damage at level 1: 8 → 4",
-          "Q reworked: first hit 60 + 25% AP, then 5/10/15/20/25 + 8% AP per extra bolt (was 60/85/110/135/160 + 55% AP, then 5/7/9/11/13 + 5% AP per bolt)",
-          "Q mana cost 70–90 → 60–80, bolt speed 3800 → 3200",
-          "W reworked: shield 80/110/140/170/200 + 70% AP → 50/80/110/140/170 + 50% AP for 2s, with 10–30% Move Speed and damage to nearby enemies; it no longer reflects projectiles",
-          "W cooldown 38/35/33/29/26s → 30/28.5/27/25.5/24s, mana cost 80/60/40/20/0 → 100/75/50/25/0",
-          "E root 1.5s → 0.8–1s, up to 1.6–2.2s",
-          "E slow 30% → 20/25/30/35/40%, mana cost 50–90 → 40–80",
-          "R cooldown 120/100/80s → 120/90/60s"
-        ]
-      },
-      {
-        "champion": "Naafiri",
-        "changes": [
-          "Q second hit healing 45/60/75/90/105 → 55/70/85/100/115",
-          "Q healing bonus AD ratio 40% → 45%",
-          "R bonus AD 20% → 22%"
-        ]
-      },
-      {
-        "champion": "Rumble",
-        "changes": [
-          "R damage per second AP ratio 35% → 40%"
-        ]
-      },
-      {
-        "champion": "Shen",
-        "changes": [
-          "Q damage cap against minions 100/125/150/175/200 → 120/140/160/180/200"
-        ]
-      },
-      {
-        "champion": "Smolder",
-        "changes": [
-          "W explosion damage 10/35/60/85/110 → 25/50/75/100/125"
-        ]
-      },
-      {
-        "champion": "Thresh",
-        "changes": [
-          "Base AD 56 → 54",
-          "R damage 250/400/550 → 200/350/500"
-        ]
-      },
-      {
-        "champion": "Viktor",
-        "changes": [
-          "Health per level 100 → 105"
-        ]
-      },
-      {
-        "champion": "Yasuo",
-        "changes": [
-          "Q AD ratio 105% → 100%"
-        ]
-      },
-      {
-        "champion": "Zaahen",
-        "changes": [
-          "Q cooldown 10/9/8/7/6s → 8/7.5/7/6.5/6s"
-        ]
-      }
-    ]
+    "list": []
   },
   "itemChanges": {
     "summary": "Changes to items in the Mayhem shop. Runes are unchanged.",
-    "list": [
-      {
-        "item": "Overlord's Bloodmail",
-        "changes": [
-          "Attack Damage 30 → 40",
-          "Bonus AD from missing Health 12% → 10%"
-        ]
-      }
-    ],
-    "outsideMayhemShop": [
-      "Doran's Bow: Attack Damage 8 → 7 (not in the Mayhem item list)"
-    ]
+    "list": []
   },
-  "modeChanges": [
-    "Minion XP shared by 5 nearby allies drops from 24% to 20% each (regular ARAM too)."
-  ]
+  "modeChanges": []
 }
