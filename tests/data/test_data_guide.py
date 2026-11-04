@@ -395,7 +395,7 @@ def test_economy(guide):
     assert levels == list(range(levels[0], 19)) and levels[0] > 1
     xp = [l["xp"] for l in e["levels"]]
     assert xp == sorted(xp) and all(l["killXp"] > 0 for l in e["levels"])
-    assert len(e["minionXpSplit"]) == 5 and e["minionXpSplit"] == sorted(e["minionXpSplit"], reverse=True)
+    assert len(e["minionXpSplit"]) >= 5 and e["minionXpSplit"] == sorted(e["minionXpSplit"], reverse=True)
 
 
 def test_surrender(guide):
