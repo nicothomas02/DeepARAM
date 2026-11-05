@@ -73,3 +73,10 @@ My Stats on deeparam.com (`/account#my-stats`) uses the same helper: with it run
 client** there imports through it. The helper answers only deeparam.com and its own pages. Add `--watch`
 to import by itself when it starts, a minute or two after each game, and every half hour while League is
 open.
+
+### Windows
+
+The importer runs on Windows 10 and 11 too (they include `curl`). Install Python 3 from python.org,
+download this repository, start League and sign in, then double-click
+`importer/Open Mayhem Stats (Windows).bat`. It opens the dashboard and imports by itself after each game
+(`--watch`). Settings and recordings live in `%APPDATA%\Mayhem Stats`.

@@ -775,3 +775,27 @@ def test_helper_preflight_only_for_the_site(helper):
 def test_helper_refuses_posts_from_other_sites(helper):
     r = helper("POST", "/api/share", {"Origin": "https://evil.example", "X-Mayhem": "1", "Content-Length": "0"})
     assert r.status == 403
+
+
+def test_windows_curl_skips_revocation_check_for_the_local_certificate(mi, monkeypatch):
+    seen = []
+
+    def run(cmd, **k):
+        seen.append(cmd)
+        return SimpleNamespace(returncode=0, stdout='{"ok": true}\n200', stderr="")
+    monkeypatch.setattr(mi.subprocess, "run", run)
+    monkeypatch.setattr(mi, "IS_WINDOWS", True)
+    assert mi.curl_json("https://127.0.0.1:1/x", cacert="ca.pem") == {"ok": True}
+    assert "--ssl-no-revoke" in seen[-1]
+    monkeypatch.setattr(mi, "IS_WINDOWS", False)
+    mi.curl_json("https://127.0.0.1:1/x", cacert="ca.pem")
+    assert "--ssl-no-revoke" not in seen[-1]
+
+
+def test_find_client_reads_the_windows_client_command_line(mi, monkeypatch):
+    monkeypatch.setattr(mi, "LOCKFILE_CANDIDATES", [])
+    monkeypatch.setattr(mi, "IS_WINDOWS", True)
+    line = '"C:\\\\Riot Games\\\\League of Legends\\\\LeagueClientUx.exe" --remoting-auth-token=abc-123 --app-port=54321'
+    monkeypatch.setattr(mi.subprocess, "run", lambda cmd, **k: SimpleNamespace(stdout=line + "\n"))
+    lcu = mi.find_client()
+    assert lcu.base == "https://127.0.0.1:54321"

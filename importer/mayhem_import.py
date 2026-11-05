@@ -59,7 +59,19 @@ def mayhem_queue_ids():
 
 MAYHEM_QUEUE_IDS = mayhem_queue_ids()
 
+# Runs on macOS and Windows; both ship python3-compatible curl (Windows 10+ has curl.exe built in).
+IS_WINDOWS = os.name == "nt"
+if IS_WINDOWS:
+    APP_DIR = os.path.join(os.environ.get("APPDATA") or os.path.expanduser("~"), "Mayhem Stats")
+    CACHE_DIR = os.path.join(os.environ.get("LOCALAPPDATA") or os.path.expanduser("~"), "Mayhem Stats", "Cache")
+else:
+    APP_DIR = os.path.expanduser("~/Library/Application Support/Mayhem Stats")
+    CACHE_DIR = os.path.expanduser("~/Library/Caches/Mayhem Stats")
+
 LOCKFILE_CANDIDATES = [
+    r"C:\Riot Games\League of Legends\lockfile",
+    r"D:\Riot Games\League of Legends\lockfile",
+] if IS_WINDOWS else [
     "/Applications/League of Legends.app/Contents/LoL/lockfile",
     os.path.expanduser("~/Applications/League of Legends.app/Contents/LoL/lockfile"),
 ]
@@ -137,6 +149,8 @@ def curl_json(url, *, auth_header=None, cacert=None, timeout=30):
     cmd = ["curl", "-sS", "--max-time", str(timeout), "-w", "\n%{http_code}", "-K", "-"]
     if cacert:
         cmd += ["--cacert", cacert]
+        if IS_WINDOWS:
+            cmd.append("--ssl-no-revoke")  # Windows' TLS can't check revocation for Riot's local certificate
     res = subprocess.run(cmd, input=config, capture_output=True, text=True)
     if res.returncode != 0:
         raise ConnectionError(f"{url}: {res.stderr.strip() or 'curl exit ' + str(res.returncode)}")
@@ -177,6 +191,19 @@ class Lcu:
         return curl_json(self.base + path, auth_header=self.auth, cacert=self.cacert)
 
 
+def running_commands():
+    """Command lines of running programs, one per line."""
+    if IS_WINDOWS:
+        cmd = ["powershell", "-NoProfile", "-Command",
+               "Get-CimInstance Win32_Process -Filter \"Name='LeagueClientUx.exe'\" | ForEach-Object { $_.CommandLine }"]
+    else:
+        cmd = ["ps", "-A", "-o", "args="]
+    try:
+        return subprocess.run(cmd, capture_output=True, text=True).stdout or ""
+    except OSError:
+        return ""
+
+
 def find_client(lockfile=None):
     paths = [lockfile] if lockfile else LOCKFILE_CANDIDATES
     for p in paths:
@@ -191,7 +218,7 @@ def find_client(lockfile=None):
     if lockfile:
         raise ImportFailed(f"Couldn't read a League lockfile at {lockfile}.")
     # Fall back to the running client's command line, for installs elsewhere
-    out = subprocess.run(["ps", "-A", "-o", "args="], capture_output=True, text=True).stdout
+    out = running_commands()
     for line in out.splitlines():
         if "LeagueClientUx" not in line:
             continue
@@ -555,7 +582,7 @@ DASHBOARD_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "
 # The page loads names, fonts and the minimap from the site's /assets/; when it's
 # served from here those come from deeparam.com and are kept for next time.
 SITE = "https://deeparam.com"
-ASSET_CACHE = os.path.expanduser("~/Library/Caches/Mayhem Stats")
+ASSET_CACHE = CACHE_DIR
 
 
 def site_asset(path):
@@ -636,7 +663,7 @@ def site_profile(action, data=None, lockfile=None, pair=None):
 # Off unless the player turns it on in My Stats. Shared games carry no names or account ids: just
 # champions, items, augments, runes, spells and results, so the site can build stats across players.
 
-SHARING_FILE = os.path.expanduser("~/Library/Application Support/Mayhem Stats/sharing.json")
+SHARING_FILE = os.path.join(APP_DIR, "sharing.json")
 SHARE_BATCH = 50
 
 
@@ -733,7 +760,7 @@ def set_sharing(enabled, out, lockfile=None):
 # Riot account is connected to the owner account. Each game keeps this player's own stats and only the
 # champion and team of everyone else, with no names or account ids but the player's own Riot ID.
 
-HISTORY_FILE = os.path.expanduser("~/Library/Application Support/Mayhem Stats/history.json")
+HISTORY_FILE = os.path.join(APP_DIR, "history.json")
 HISTORY_BATCH = 100
 HISTORY_STATS = ("win", "kills", "deaths", "assists", "totalDamageDealtToChampions", "totalDamageTaken", "totalHeal",
                  "largestKillingSpree", "pentaKills", "quadraKills",
@@ -827,7 +854,7 @@ def history_status(lockfile=None):
 # never shows anything while the game is running.
 
 LIVE_URL = "https://127.0.0.1:2999/liveclientdata/allgamedata"
-LIVE_DIR = os.path.expanduser("~/Library/Application Support/Mayhem Stats/live")
+LIVE_DIR = os.path.join(APP_DIR, "live")
 LIVE_EVERY = 10   # seconds between snapshots during a game
 LIVE_IDLE = 15    # seconds between checks for a game starting
 LIVE_KEEP = 200   # recordings kept on disk, newest first
@@ -1240,7 +1267,7 @@ def main():
                     help="archive to create or merge into (default: ~/Downloads/mayhem-backup.json)")
     ap.add_argument("--full", action="store_true",
                     help="check every game Riot still serves, not just the new ones, to fill gaps")
-    ap.add_argument("--lockfile", help="path to League's lockfile, if League isn't in /Applications")
+    ap.add_argument("--lockfile", help="path to League's lockfile, if League isn't installed in the usual place")
     ap.add_argument("--serve", action="store_true",
                     help="open the stats dashboard with a Sync button instead of importing once")
     ap.add_argument("--port", type=int, default=8787, help="port for --serve (default 8787)")
