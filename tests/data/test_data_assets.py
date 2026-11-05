@@ -51,8 +51,8 @@ def test_generated_data_has_asset_paths():
 def test_shipped_pages_use_no_outside_asset_hosts():
     """After the site build's rewrites, pages load nothing from outside hosts (fonts, images, models, scripts)."""
     url = re.compile(r"https?://[^\s\"'`<>()\\]+")
-    # SVG/XML namespaces (not requests), and the site itself (My Stats run from the helper links back to it)
-    allowed = re.compile(r"^(http://www\.w3\.org/|https://deeparam\.com/)")
+    # SVG/XML namespaces (not requests), the local helper on 127.0.0.1:8787, and the site itself (My Stats run from the helper links back to it)
+    allowed = re.compile(r"^(http://www\.w3\.org/|https://deeparam\.com/|http://127\.0\.0\.1:8787/)")
     bad = []
     for f in EMBED_FILES:
         for u in url.findall(embed_transform(read(f))):
