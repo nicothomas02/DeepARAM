@@ -10,7 +10,8 @@ const CSP = [
   "img-src 'self' data: blob:",
   "media-src 'self' blob: data:",
   "font-src 'self' data:",
-  "connect-src 'self' https://cloudflareinsights.com",
+  // 127.0.0.1:8787: My Stats importing through Mayhem Stats on the player's own computer (dashboard/app.js).
+  "connect-src 'self' https://cloudflareinsights.com http://127.0.0.1:8787",
   "frame-src 'self' https://challenges.cloudflare.com",
   "frame-ancestors 'self'",
   "base-uri 'self'",
