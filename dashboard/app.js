@@ -177,6 +177,11 @@ function normalize(g, owner) {
     return { key: (o.name || "").toLowerCase(), name: o.name, champ: o.participant.championId, k: os.kills || 0, d: os.deaths || 0, a: os.assists || 0, dmg: os.totalDamageDealtToChampions || 0 };
   });
   const augs = [1, 2, 3, 4, 5, 6].map((i) => s["playerAugment" + i]).filter((a) => a && a > 0);
+  // Your team's kills and damage, for kill participation and damage share: only when every teammate's stats are in the game.
+  const team = (info.participants || []).filter((o) => o.teamId === p.teamId);
+  const ts = (o) => o.stats || o;
+  const full = team.length > 1 && team.every((o) => typeof ts(o).kills === "number" && typeof ts(o).totalDamageDealtToChampions === "number");
+  const myDmg = s.totalDamageDealtToChampions || 0;
   let time = info.gameCreation || Date.parse(info.gameCreationDate || "") || 0;
   // gameDuration is seconds in newer archives, milliseconds in older ones
   let dur = info.gameDuration || 0;
@@ -207,6 +212,10 @@ function normalize(g, owner) {
     items: [0, 1, 2, 3, 4, 5, 6].map((i) => s["item" + i]).filter((x) => x > 0),
     allies,
     mates,
+    enemies: (info.participants || []).filter((o) => o.teamId !== p.teamId && o.championId > 0).map((o) => o.championId),
+    teamKills: full ? team.reduce((n, o) => n + ts(o).kills, 0) : null,
+    teamDmg: full ? team.reduce((n, o) => n + ts(o).totalDamageDealtToChampions, 0) : null,
+    topDmg: full ? team.every((o) => o === p || ts(o).totalDamageDealtToChampions <= myDmg) : null,
   };
 }
 
@@ -279,7 +288,7 @@ function setupFilters() {
   $("account").textContent = (name ? name + " · " : "") + t("{n} games, {from} to {to}", { n: state.games.length.toLocaleString(), from: fmtDate(first), to: fmtDate(last) });
   if (filtersReady) return;
   filtersReady = true;
-  for (const id of ["f-patch", "f-queue", "f-from", "f-to", "f-champ", "f-minaug", "f-minpair", "f-minally", "f-minmate"]) $(id).addEventListener("input", render);
+  for (const id of ["f-patch", "f-queue", "f-from", "f-to", "f-champ", "f-minaug", "f-minpair", "f-minally", "f-minmate", "f-minenemy"]) $(id).addEventListener("input", render);
   $("f-reset").addEventListener("click", () => {
     for (const id of ["f-queue", "f-from", "f-to", "f-champ"]) $(id).value = "";
     $("f-patch").value = latestPatch;
@@ -308,19 +317,26 @@ const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&l
 function render() {
   const games = filtered();
   renderTiles(games);
-  renderBadges(state.games);
-  renderChart(games);
-  renderKillMap(games);
+  renderForm(games);
+  renderFacts(games);
   renderChamps(games);
   renderAugs(games);
+  renderChart(games);
+  renderGames(games);
+  renderWhen(games);
+  renderSessions(games);
+  renderShare(games);
   renderLength(games);
   renderBoots(games);
-  renderRecords(state.games);
+  renderEnemies(games);
+  renderAllies(games);
   renderCurve(state.games);
   renderPairs(games);
-  renderAllies(games);
   renderMates(games);
-  renderGames(games);
+  renderKillMap(games);
+  renderRecords(state.games);
+  renderTotals(state.games);
+  renderBadges(state.games);
   if (state.live.length) renderLive();
 }
 
@@ -332,16 +348,244 @@ function renderTiles(games) {
   const K = sum(games, (g) => g.kills), D = sum(games, (g) => g.deaths), A = sum(games, (g) => g.assists);
   const dmg = n ? sum(games, (g) => g.damage) / n : 0;
   const dur = n ? sum(games, (g) => g.duration) / n : 0;
+  const kp = shareOf(games, (g) => g.kills + g.assists, (g) => g.teamKills);
+  const ds = shareOf(games, (g) => g.damage, (g) => g.teamDmg);
   const tiles = [
     ["Total matches", n.toLocaleString(), t("{w} W · {l} L", { w: wins, l: n - wins }) + (n < state.games.length ? " · " + t("of {n}", { n: state.games.length.toLocaleString() }) : "")],
     ["Win rate", n ? pct(wins / n) : "–", "", n ? wrClass(wins / n) : ""],
     ["KDA", n ? kda(K, D, A) : "–", n ? `${(K / n).toFixed(1)} / ${(D / n).toFixed(1)} / ${(A / n).toFixed(1)}` : ""],
     ["Damage to champions", n ? Math.round(dmg).toLocaleString() : "–", t("per game")],
     ["Game length", n ? `${Math.floor(dur / 60)}:${String(Math.round(dur % 60)).padStart(2, "0")}` : "–", t("average")],
+    ["Kill participation", kp ? pct(kp.v) : "–", kp ? t("average") : ""],
+    ["Damage share", ds ? pct(ds.v) : "–", ds ? t("of your team's damage") : ""],
     ["Champions played", new Set(games.map((g) => g.champId)).size, ""],
   ];
   $("tiles").innerHTML = tiles.map(([l, v, s, c]) =>
     `<div class="tile ${c || ""}"><div class="label">${esc(t(l))}</div><div class="value">${v}</div><div class="sub">${esc(s)}</div></div>`).join("");
+}
+
+// Average share of your team's total, over the games where every teammate's stats are known: {v, n} or null.
+function shareOf(games, mine, teamTotal) {
+  const G = games.filter((g) => teamTotal(g) > 0);
+  return G.length ? { v: sum(G, (g) => mine(g) / teamTotal(g)) / G.length, n: G.length } : null;
+}
+
+const winRate = (G) => (G.length ? count(G, (g) => g.win) / G.length : 0);
+const champIcon = (id) => `<img src="/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/${Number(id)}.png" alt="" loading="lazy" width="44" height="44">`;
+const tileHtml = ([l, v, s, c]) => `<div class="tile ${c || ""}"><div class="label">${esc(l)}</div><div class="value">${v}</div><div class="sub">${esc(s || "")}</div></div>`;
+const ptsText = (d) => `${d > 0.05 ? "▲ " : d < -0.05 ? "▼ " : ""}${Math.abs(d).toFixed(1)}`;
+
+// ---------- sessions ----------
+// A session is a run of games with breaks under 45 minutes between one game's end and the next one's start.
+// Worked out over every game, so a filtered view still knows which game came before each one.
+const SESSION_GAP = 45 * 60 * 1000;
+let sessionCache = null;
+
+function sessionInfo() {
+  if (sessionCache && sessionCache.games === state.games) return sessionCache;
+  const info = new Map();
+  let prev = null, cur = null;
+  for (const g of [...state.games].sort((a, b) => a.time - b.time)) {
+    const same = prev && g.time - (prev.time + prev.duration * 1000) <= SESSION_GAP;
+    if (!same) cur = [];
+    info.set(g, { pos: cur.length + 1, prev: same ? prev : null, session: cur });
+    cur.push(g);
+    prev = g;
+  }
+  return (sessionCache = { games: state.games, info });
+}
+
+// The sessions that have games in this view, each holding only those games, oldest first.
+function viewSessions(games) {
+  const { info } = sessionInfo();
+  const map = new Map();
+  for (const g of games) {
+    const s = info.get(g).session;
+    if (!map.has(s)) map.set(s, []);
+    map.get(s).push(g);
+  }
+  return [...map.values()].map((l) => l.sort((a, b) => a.time - b.time));
+}
+
+// ---------- recent form ----------
+
+function renderForm(games) {
+  const last = games.slice(0, 20);
+  $("form-note").textContent = last.length ? t("Latest {n} games, newest first", { n: last.length }) : "";
+  $("form-strip").innerHTML = last.map((g) => {
+    const tip = `${champName(g)} · ${t(g.win ? "Win" : "Loss")} · ${g.kills} / ${g.deaths} / ${g.assists} · ${fmtDate(new Date(g.time))}`;
+    return `<img class="${g.win ? "win" : "loss"}" src="${ICON(g.champId)}" alt="${esc(champName(g))}" title="${esc(tip)}" loading="lazy" width="44" height="44">`;
+  }).join("");
+  if (!games.length) { $("form-tiles").innerHTML = ""; return; }
+  let run = 0;
+  for (const g of games) { if (g.win !== games[0].win) break; run++; }
+  const streakText = games[0].win ? (run === 1 ? t("1 win") : t("{n} wins", { n: run })) : (run === 1 ? t("1 loss") : t("{n} losses", { n: run }));
+  const lastWr = winRate(last), allWr = winRate(games);
+  const K = (G) => kda(sum(G, (g) => g.kills), sum(G, (g) => g.deaths), sum(G, (g) => g.assists));
+  const lately = group(last, (g) => g.champId).sort((a, b) => b.n - a.n || b.w - a.w)[0];
+  const tiles = [
+    [t("Current streak"), esc(streakText), "", games[0].win ? "wr-high" : "wr-low"],
+    [t("Win rate, last {n}", { n: last.length }), pct(lastWr), t("{d} pts vs all games in this view", { d: ptsText((lastWr - allWr) * 100) }), wrClass(lastWr)],
+    [t("KDA, last {n}", { n: last.length }), K(last), t("{kda} in all games in this view", { kda: K(games) })],
+  ];
+  if (lately && lately.n > 1) tiles.push([t("Most played lately"), esc(champName(lately.sample)), t("{n} of the last {m} games", { n: lately.n, m: last.length })]);
+  $("form-tiles").innerHTML = tiles.map(tileHtml).join("");
+}
+
+// ---------- fun facts ----------
+// Short findings picked from the games in view. A fact needs enough games behind it to show.
+
+const FACT_MIN = 10; // games behind a "best day", "best time" or "after a loss" fact
+const weekdayName = (i) => new Intl.DateTimeFormat(LANG, { weekday: "long" }).format(new Date(2024, 0, 1 + i)); // 2024-01-01 was a Monday
+const weekday = (g) => (new Date(g.time).getDay() + 6) % 7; // Monday 0 … Sunday 6
+const hourName = (h) => new Intl.DateTimeFormat(LANG, { hour: "numeric" }).format(new Date(2024, 0, 1, h));
+const HOURS = [0, 3, 6, 9, 12, 15, 18, 21];
+const hourSlot = (g) => Math.floor(new Date(g.time).getHours() / 3) * 3;
+const slotName = (h) => `${hourName(h)}–${hourName((h + 3) % 24)}`;
+
+function enemyRows(games) {
+  return group(games, (g) => [...new Set(g.enemies || [])]);
+}
+
+function bestBy(rows, min) {
+  return rows.filter((r) => r.n >= min).sort((a, b) => b.w / b.n - a.w / a.n || b.n - a.n)[0];
+}
+
+function renderFacts(games) {
+  const el = $("facts");
+  if (!games.length) { el.innerHTML = `<p class="foot">${esc(t("No games in this view."))}</p>`; return; }
+  const facts = [];
+  const add = (label, value, sub, icon) => facts.push({ label, value, sub, icon });
+  const games1 = (r) => (r.n === 1 ? t("1 game") : t("{n} games", { n: r.n.toLocaleString() }));
+
+  const hours = sum(games, (g) => g.duration) / 3600;
+  add("Time played", t("{n} h", { n: Math.round(hours).toLocaleString() }),
+    hours >= 24 ? t("That's {n} full days", { n: (hours / 24).toFixed(1) }) : games1({ n: games.length }));
+
+  const champs = group(games, (g) => g.champId).sort((a, b) => b.n - a.n || b.w - a.w);
+  const comfort = champs[0];
+  add("Comfort pick", esc(champName(comfort.sample)), t("{games}, {wr} win rate", { games: games1(comfort), wr: pct(comfort.w / comfort.n) }), comfort.key);
+  const best = bestBy(champs, FACT_MIN);
+  if (best && best !== comfort) add("Best champion", esc(champName(best.sample)), t("{games}, {wr} win rate", { games: games1(best), wr: pct(best.w / best.n) }), best.key);
+
+  const { info } = sessionInfo();
+  const after = (won) => games.filter((g) => { const p = info.get(g).prev; return p && p.win === won; });
+  const afterL = after(false), afterW = after(true);
+  if (afterL.length >= FACT_MIN && afterW.length >= FACT_MIN) {
+    const bounce = winRate(afterL) >= winRate(afterW);
+    add(bounce ? "Bounce back" : "Tilt check", pct(winRate(afterL)), t("Win rate right after a loss, vs {wr} right after a win", { wr: pct(winRate(afterW)) }));
+  }
+
+  const day = bestBy(group(games, weekday), FACT_MIN);
+  if (day) add("Best day", esc(weekdayName(day.key)), t("{games}, {wr} win rate", { games: games1(day), wr: pct(day.w / day.n) }));
+  const slot = bestBy(group(games, hourSlot), FACT_MIN);
+  if (slot) add("Best time to play", esc(slotName(slot.key)), t("{games}, {wr} win rate", { games: games1(slot), wr: pct(slot.w / slot.n) }));
+
+  const known = games.filter((g) => g.topDmg != null);
+  if (known.length >= FACT_MIN) {
+    const top = known.filter((g) => g.topDmg);
+    add("Top damage on your team", pct(top.length / known.length), top.length ? t("You win {wr} of those games", { wr: pct(winRate(top)) }) : "");
+  }
+
+  const enemies = enemyRows(games).filter((r) => r.n >= 4);
+  if (enemies.length >= 2) {
+    enemies.sort((a, b) => a.w / a.n - b.w / b.n || b.n - a.n);
+    const nem = enemies[0];
+    add("Nemesis", esc(champById(nem.key)), t("You win {wr} of {games} against them", { wr: pct(nem.w / nem.n), games: games1(nem) }), nem.key);
+    const fav = enemies.slice(1).sort((a, b) => b.w / b.n - a.w / a.n || b.n - a.n)[0];
+    add("Favorite opponent", esc(champById(fav.key)), t("You win {wr} of {games} against them", { wr: pct(fav.w / fav.n), games: games1(fav) }), fav.key);
+  }
+
+  const days = group(games, (g) => new Date(g.time).toDateString()).sort((a, b) => b.n - a.n || b.w - a.w);
+  if (days[0].n > 1) add("Busiest day", games1(days[0]), `${fmtDate(new Date(days[0].sample.time))} · ${t("{w} W · {l} L", { w: days[0].w, l: days[0].n - days[0].w })}`);
+
+  const longest = viewSessions(games).sort((a, b) => b.length - a.length)[0];
+  if (longest && longest.length > 2) {
+    const w = count(longest, (g) => g.win);
+    const mins = (longest.at(-1).time + longest.at(-1).duration * 1000 - longest[0].time) / 3600000;
+    add("Longest session", games1({ n: longest.length }), `${fmtDate(new Date(longest[0].time))} · ${t("{n} h", { n: mins.toFixed(1) })} · ${t("{w} W · {l} L", { w, l: longest.length - w })}`);
+  }
+
+  const augs = group(games, (g) => [...new Set(g.augs)]).sort((a, b) => b.n - a.n || b.w - a.w)[0];
+  if (augs && augs.n > 2) add("Favorite augment", esc(augName(augs.key)), t("Picked in {games}, {wr} win rate", { games: games1(augs), wr: pct(augs.w / augs.n) }));
+
+  el.innerHTML = facts.map((f) => `<div class="fact">${f.icon != null ? champIcon(f.icon) : ""}<div>
+    <div class="f-label">${esc(t(f.label))}</div><div class="f-v">${f.value}</div><div class="f-sub">${esc(f.sub)}</div></div></div>`).join("");
+}
+
+// ---------- when you play, sessions, your share of the team ----------
+
+function renderWhen(games) {
+  wrBars("wr-hour", HOURS.map((h) => {
+    const G = games.filter((g) => hourSlot(g) === h);
+    return { label: slotName(h), n: G.length, w: count(G, (g) => g.win) };
+  }));
+  wrBars("wr-day", [0, 1, 2, 3, 4, 5, 6].map((d) => {
+    const G = games.filter((g) => weekday(g) === d);
+    return { label: weekdayName(d), n: G.length, w: count(G, (g) => g.win) };
+  }));
+}
+
+const SESSION_POS = [[1, 1, "Game 1"], [2, 2, "Game 2"], [3, 3, "Game 3"], [4, 5, "Games 4–5"], [6, 1e9, "Game 6 or later"]];
+
+function renderSessions(games) {
+  const { info } = sessionInfo();
+  const list = viewSessions(games);
+  $("n-sessions").textContent = list.length ? t("{n} sessions, {avg} games each on average", { n: list.length.toLocaleString(), avg: (games.length / list.length).toFixed(1) }) : "";
+  const bars = (rows) => rows.map(([label, f]) => { const G = games.filter(f); return { label, n: G.length, w: count(G, (g) => g.win) }; });
+  wrBars("wr-session", bars(SESSION_POS.map(([lo, hi, label]) => [label, (g) => info.get(g).pos >= lo && info.get(g).pos <= hi])));
+  wrBars("wr-after", bars([
+    ["After a win", (g) => info.get(g).prev?.win === true],
+    ["After a loss", (g) => info.get(g).prev?.win === false],
+  ]));
+}
+
+const KP_BANDS = [[0, 0.5, "Under 50%"], [0.5, 0.6, "50–60%"], [0.6, 0.7, "60–70%"], [0.7, 0.8, "70–80%"], [0.8, 9, "80% or more"]];
+const DMG_BANDS = [[0, 0.15, "Under 15%"], [0.15, 0.2, "15–20%"], [0.2, 0.25, "20–25%"], [0.25, 0.3, "25–30%"], [0.3, 9, "30% or more"]];
+
+function renderShare(games) {
+  const bands = (list, f) => list.map(([lo, hi, label]) => {
+    const G = games.filter((g) => { const v = f(g); return v != null && v >= lo && v < hi; });
+    return { label, n: G.length, w: count(G, (g) => g.win) };
+  });
+  wrBars("wr-kp", bands(KP_BANDS, (g) => (g.teamKills > 0 ? (g.kills + g.assists) / g.teamKills : null)));
+  wrBars("wr-dshare", bands(DMG_BANDS, (g) => (g.teamDmg > 0 ? g.damage / g.teamDmg : null)));
+}
+
+// Enemy champions you've played against, toughest first. Ties go to the champion seen in more games.
+function renderEnemies(games) {
+  sortState["t-enemies"] ||= { col: 2, asc: true };
+  const min = +$("f-minenemy").value || 1;
+  const rows = enemyRows(games).filter((r) => r.n >= min);
+  table("t-enemies", [
+    { label: "Enemy", get: (r) => champById(r.key), fmt: (r) => esc(champById(r.key)) },
+    { label: "Games", get: (r) => r.n },
+    { label: "Win rate", get: (r) => r.w / r.n - r.n / 1e6, fmt: (r) => pct(r.w / r.n), cls: (r) => wrClass(r.w / r.n) },
+  ], rows, 2);
+}
+
+// Lifetime totals count every imported game, whatever the filters show.
+const TOTALS = [
+  ["Games", (G) => G.length],
+  ["Wins", (G) => count(G, (g) => g.win)],
+  ["Hours played", (G) => Math.round(sum(G, (g) => g.duration) / 3600)],
+  ["Kills", (G) => sum(G, (g) => g.kills), true],
+  ["Deaths", (G) => sum(G, (g) => g.deaths), true],
+  ["Assists", (G) => sum(G, (g) => g.assists), true],
+  ["Damage to champions", (G) => sum(G, (g) => g.damage), true],
+  ["Damage taken", (G) => sum(G, (g) => g.taken), true],
+  ["Healing", (G) => sum(G, (g) => g.heal), true],
+  ["Quadra kills", (G) => sum(G, (g) => g.quadra)],
+  ["Pentakills", (G) => sum(G, (g) => g.penta)],
+  ["Different augments", (G) => new Set(G.flatMap((g) => g.augs)).size],
+];
+
+function renderTotals(G) {
+  $("totals").innerHTML = G.length ? TOTALS.map(([label, f, perGame]) => {
+    const v = f(G);
+    const sub = perGame ? t("{n} per game", { n: Math.round(v / G.length).toLocaleString() }) : "";
+    return `<div class="record"><div class="r-v">${v.toLocaleString()}</div><div class="r-label">${esc(t(label))}</div><div class="r-sub">${esc(sub)}</div></div>`;
+  }).join("") : "";
 }
 
 // Achievements count every imported game, whatever the filters show.

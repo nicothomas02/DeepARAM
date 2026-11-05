@@ -308,3 +308,34 @@ th:last-child, td:last-child { padding-right: 20px; }
 .mate-champs span { font-weight: 600; }
 .mate-champs small { color: var(--muted); font-size: 0.8125rem; }
 .mate-panel .tbl-wrap { margin: 0 -20px -20px; max-height: 360px; }
+
+/* Recent form: the latest games as champion icons ringed green for wins and red for losses */
+.form-strip { display: flex; flex-wrap: wrap; gap: 8px; }
+.form-strip img { width: 44px; height: 44px; border-radius: 12px; box-shadow: 0 0 0 2px var(--bad); background: var(--raised); }
+.form-strip img.win { box-shadow: 0 0 0 2px var(--good); }
+.form-tiles { display: flex; flex-wrap: wrap; gap: 12px 32px; margin-top: 18px; }
+.form-tiles .tile .value { font-size: 1.35rem; }
+.form-tiles .tile .sub { font-size: 0.8125rem; }
+
+/* Fun facts */
+.facts { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 230px), 1fr)); gap: 10px; }
+.fact { display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: var(--r-sm); background: var(--surface); min-width: 0; }
+.fact img { flex: none; width: 44px; height: 44px; border-radius: 12px; }
+.fact > div { min-width: 0; }
+.fact .f-label { font-size: 0.8125rem; color: var(--muted); }
+.fact .f-v { font: 700 1.25rem/1.25 var(--display); overflow-wrap: anywhere; }
+.fact .f-sub { font-size: 0.8125rem; color: var(--muted); }
+
+/* Cards with two lists of bars */
+.sub-h { font-size: 0.875rem; font-weight: 600; color: var(--muted); margin: 18px 0 8px; }
+.card-h + .sub-h { margin-top: 0; }
+#wr-hour .wrbar, #wr-day .wrbar, #wr-session .wrbar, #wr-after .wrbar, #wr-kp .wrbar, #wr-dshare .wrbar { grid-template-columns: minmax(0, 9.5em) 1fr 4.2em 3.5em; }
+@media (max-width: 640px) {
+  .form-strip { gap: 6px; }
+  .form-strip img { width: 36px; height: 36px; border-radius: 10px; }
+  .form-tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 16px; }
+  .facts { grid-template-columns: 1fr 1fr; }
+  .fact { padding: 10px 12px; }
+  .fact img { display: none; }
+  .fact .f-v { font-size: 1.05rem; }
+}
