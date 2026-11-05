@@ -3432,9 +3432,14 @@ html[data-motion="reduce"] .btn:hover {
   gap: 0.75rem;
 }
 
+/* Owner's Messages card on /account: stack date, text and buttons so the text gets the full width
+   (as a flex row the text squeezed to a few characters per line). */
+.acct-list li.contact-msg { display: grid; justify-content: stretch; gap: 0.3rem; }
+.contact-msg p { margin: 0; }
 .contact-msg-text {
   white-space: pre-wrap;
   overflow-wrap: anywhere;
+  min-width: 0;
 }
 
 .feedback-alt a {
