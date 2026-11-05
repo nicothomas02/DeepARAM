@@ -1,4 +1,6 @@
 {
+ "500": "500",
+ "600": "600",
  "Allies drop a candle when they die. Picking it up within 10 seconds shields you and allies within 1500 range for 4 seconds: 250 + 35% max Health (smaller candles: 150 + 15%).": "Müttefikler öldüğünde bir mum düşürür. 10 saniye içinde alırsan sen ve 1500 menzildeki müttefikler 4 saniyelik kalkan kazanır: 250 + azami Canın %35'i (küçük mumlar: 150 + %15).",
  "Augment offers show 4 choices instead of 3.": "Güçlendirme seçimlerinde 3 yerine 4 seçenek çıkar.",
  "Base-game champion changes on the test server. They also apply in Mayhem.": "Test sunucusunda temel oyundaki şampiyon değişiklikleri. Mayhem'de de geçerlidir.",
@@ -14,7 +16,11 @@
  "New on the test server. Each Mayhem match has one Headliner that adds game-wide bonuses.": "Test sunucusunda yeni. Her Mayhem maçında tüm oyuna bonus veren bir Headliner vardır.",
  "PBE content can change before release.": "PBE içeriği çıkıştan önce değişebilir.",
  "Patch 26.23": "Sürüm 26.23",
+ "R damage 450/700/925 → 450/700/950": "R hasarı 450/700/925 → 450/700/950",
+ "Range to find extra allies": "Ek dost bulma menzili",
+ "Range to find extra allies: 500 → 600": "Ek dost bulma menzili: 500 → 600",
  "Takedowns earn Tokens. While dead, spend 4 Tokens to revive at your fountain with 125% bonus Move Speed that fades over 10 seconds.": "Skorlar jeton kazandırır. Ölüyken 4 jeton harcayarak üssünde, 10 saniyede azalan %125 ek Hareket Hızıyla dirilirsin.",
  "Update 2026-11-03 (patch 26.23): the test server moved to patch 26.23, adding four new Headliners: Bit Rush, Debonair Zed, La Ilusión and Maestro Jhin.": "Güncelleme 2026-11-03 (26.23 sürümü): test sunucusu 26.23 sürümüne geçti ve dört yeni Headliner ekledi: Bit Rush, Debonair Zed, La Ilusión ve Maestro Jhin.",
- "Update 2026-11-04 (patch 26.23): four new augments join the pool, one gold and three silver.": "Güncelleme 2026-11-04 (26.23 yaması): havuza biri altın, üçü gümüş dört yeni güçlendirme eklendi."
+ "Update 2026-11-04 (patch 26.23): four new augments join the pool, one gold and three silver.": "Güncelleme 2026-11-04 (26.23 yaması): havuza biri altın, üçü gümüş dört yeni güçlendirme eklendi.",
+ "Update 2026-11-05 (patch 26.23): Vel'Koz's ultimate hits harder at rank 3, and Group Hug reaches allies farther away.": "Güncelleme 2026-11-05 (26.23 yaması): Vel'Koz'un ultisi 3. seviyede daha sert vuruyor ve Grup Kucaklaşması daha uzaktaki dostlara ulaşıyor."
 }

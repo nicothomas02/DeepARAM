@@ -1,4 +1,6 @@
 {
+ "500": "500",
+ "600": "600",
  "Allies drop a candle when they die. Picking it up within 10 seconds shields you and allies within 1500 range for 4 seconds: 250 + 35% max Health (smaller candles: 150 + 15%).": "A szövetségesek halálukkor egy gyertyát ejtenek. Ha 10 másodpercen belül felveszed, te és az 1500-as távolságon belüli szövetségesek 4 másodpercre pajzsot kaptok: 250 + a max. életerő 35%-a (kisebb gyertyák: 150 + 15%).",
  "Augment offers show 4 choices instead of 3.": "Az augment-ajánlatok 3 helyett 4 lehetőséget mutatnak.",
  "Base-game champion changes on the test server. They also apply in Mayhem.": "Hősváltozások az alapjátékban a tesztszerveren. A Mayhemben is érvényesek.",
@@ -14,7 +16,11 @@
  "New on the test server. Each Mayhem match has one Headliner that adds game-wide bonuses.": "Új a tesztszerveren. Minden Mayhem-meccsnek van egy Headlinere, amely az egész játékra bónuszokat ad.",
  "PBE content can change before release.": "A PBE tartalma a megjelenés előtt még változhat.",
  "Patch 26.23": "26.23-as verzió",
+ "R damage 450/700/925 → 450/700/950": "R sebzés 450/700/925 → 450/700/950",
+ "Range to find extra allies": "Hatótáv további szövetségesekhez",
+ "Range to find extra allies: 500 → 600": "Hatótáv további szövetségesekhez: 500 → 600",
  "Takedowns earn Tokens. While dead, spend 4 Tokens to revive at your fountain with 125% bonus Move Speed that fades over 10 seconds.": "A leütésekért zsetonokat kapsz. Halottként 4 zsetonért újraéledhetsz a szökőkutadnál 125% bónusz mozgási sebességgel, ami 10 másodperc alatt elhalványul.",
  "Update 2026-11-03 (patch 26.23): the test server moved to patch 26.23, adding four new Headliners: Bit Rush, Debonair Zed, La Ilusión and Maestro Jhin.": "Frissítés 2026-11-03 (26.23-as verzió): a tesztszerver a 26.23-as verzióra váltott, és négy új Headlinert hoz: Bit Rush, Debonair Zed, La Ilusión és Maestro Jhin.",
- "Update 2026-11-04 (patch 26.23): four new augments join the pool, one gold and three silver.": "Frissítés 2026-11-04 (26.23-as frissítés): négy új bővítés kerül a kínálatba, egy arany és három ezüst."
+ "Update 2026-11-04 (patch 26.23): four new augments join the pool, one gold and three silver.": "Frissítés 2026-11-04 (26.23-as frissítés): négy új bővítés kerül a kínálatba, egy arany és három ezüst.",
+ "Update 2026-11-05 (patch 26.23): Vel'Koz's ultimate hits harder at rank 3, and Group Hug reaches allies farther away.": "Frissítés 2026-11-05 (26.23-as javítás): Vel'Koz végső képessége 3. szinten nagyobbat sebez, a Nagy ölelés pedig távolabbi szövetségeseket is elér."
 }

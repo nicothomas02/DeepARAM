@@ -1,4 +1,6 @@
 {
+ "500": "500",
+ "600": "600",
  "Allies drop a candle when they die. Picking it up within 10 seconds shields you and allies within 1500 range for 4 seconds: 250 + 35% max Health (smaller candles: 150 + 15%).": "Ally menjatuhkan lilin saat mati. Mengambilnya dalam 10 detik memberi shield kepadamu dan ally dalam jarak 1500 selama 4 detik: 250 + 35% Health maksimum (lilin yang lebih kecil: 150 + 15%).",
  "Augment offers show 4 choices instead of 3.": "Pilihan augment menampilkan 4 opsi, bukan 3.",
  "Base-game champion changes on the test server. They also apply in Mayhem.": "Perubahan champion di game dasar pada server uji. Juga berlaku di Mayhem.",
@@ -14,7 +16,11 @@
  "New on the test server. Each Mayhem match has one Headliner that adds game-wide bonuses.": "Baru di server uji. Setiap match Mayhem punya satu Headliner yang memberi bonus untuk seluruh game.",
  "PBE content can change before release.": "Konten PBE bisa berubah sebelum rilis.",
  "Patch 26.23": "Patch 26.23",
+ "R damage 450/700/925 → 450/700/950": "Damage R 450/700/925 → 450/700/950",
+ "Range to find extra allies": "Jangkauan untuk mencari ally tambahan",
+ "Range to find extra allies: 500 → 600": "Jangkauan untuk mencari ally tambahan: 500 → 600",
  "Takedowns earn Tokens. While dead, spend 4 Tokens to revive at your fountain with 125% bonus Move Speed that fades over 10 seconds.": "Takedown memberi Token. Saat mati, gunakan 4 Token untuk hidup kembali di fountain dengan bonus Move Speed 125% yang memudar selama 10 detik.",
  "Update 2026-11-03 (patch 26.23): the test server moved to patch 26.23, adding four new Headliners: Bit Rush, Debonair Zed, La Ilusión and Maestro Jhin.": "Pembaruan 2026-11-03 (patch 26.23): server uji pindah ke patch 26.23 dan menambahkan empat Headliner baru: Bit Rush, Debonair Zed, La Ilusión, dan Maestro Jhin.",
- "Update 2026-11-04 (patch 26.23): four new augments join the pool, one gold and three silver.": "Pembaruan 2026-11-04 (patch 26.23): empat augment baru bergabung ke pool, satu emas dan tiga perak."
+ "Update 2026-11-04 (patch 26.23): four new augments join the pool, one gold and three silver.": "Pembaruan 2026-11-04 (patch 26.23): empat augment baru bergabung ke pool, satu emas dan tiga perak.",
+ "Update 2026-11-05 (patch 26.23): Vel'Koz's ultimate hits harder at rank 3, and Group Hug reaches allies farther away.": "Pembaruan 2026-11-05 (patch 26.23): ultimate Vel'Koz lebih kuat di rank 3, dan Group Hug menjangkau ally yang lebih jauh."
 }

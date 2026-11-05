@@ -1,4 +1,6 @@
 {
+ "500": "500",
+ "600": "600",
  "Allies drop a candle when they die. Picking it up within 10 seconds shields you and allies within 1500 range for 4 seconds: 250 + 35% max Health (smaller candles: 150 + 15%).": "Погибшие союзники роняют свечу. Если подобрать ее в течение 10 секунд, вы и союзники в радиусе 1500 получаете щит на 4 секунды: 250 + 35% от максимального здоровья (маленькие свечи: 150 + 15%).",
  "Augment offers show 4 choices instead of 3.": "В выборе усилений 4 варианта вместо 3.",
  "Base-game champion changes on the test server. They also apply in Mayhem.": "Изменения чемпионов в основной игре на тестовом сервере. Они действуют и в Mayhem.",
@@ -14,7 +16,11 @@
  "New on the test server. Each Mayhem match has one Headliner that adds game-wide bonuses.": "Новое на тестовом сервере. В каждом матче Mayhem есть Headliner, который дает бонусы на весь матч.",
  "PBE content can change before release.": "Содержимое PBE может измениться до выхода.",
  "Patch 26.23": "Патч 26.23",
+ "R damage 450/700/925 → 450/700/950": "Урон R 450/700/925 → 450/700/950",
+ "Range to find extra allies": "Радиус поиска дополнительных союзников",
+ "Range to find extra allies: 500 → 600": "Радиус поиска дополнительных союзников: 500 → 600",
  "Takedowns earn Tokens. While dead, spend 4 Tokens to revive at your fountain with 125% bonus Move Speed that fades over 10 seconds.": "Убийства и содействия приносят жетоны. Пока вы мертвы, потратьте 4 жетона, чтобы возродиться у фонтана со 125% дополнительной скорости передвижения, которая спадает за 10 секунд.",
  "Update 2026-11-03 (patch 26.23): the test server moved to patch 26.23, adding four new Headliners: Bit Rush, Debonair Zed, La Ilusión and Maestro Jhin.": "Обновление 2026-11-03 (патч 26.23): тестовый сервер перешел на патч 26.23 и добавил четыре новых Headliner: Bit Rush, Debonair Zed, La Ilusión и Maestro Jhin.",
- "Update 2026-11-04 (patch 26.23): four new augments join the pool, one gold and three silver.": "Обновление 2026-11-04 (обновление 26.23): в пул добавлены четыре новых аугмента: один золотой и три серебряных."
+ "Update 2026-11-04 (patch 26.23): four new augments join the pool, one gold and three silver.": "Обновление 2026-11-04 (обновление 26.23): в пул добавлены четыре новых аугмента: один золотой и три серебряных.",
+ "Update 2026-11-05 (patch 26.23): Vel'Koz's ultimate hits harder at rank 3, and Group Hug reaches allies farther away.": "Обновление 2026-11-05 (патч 26.23): ульта Вел'Коз сильнее бьет на 3-м уровне, а «Групповые обнимашки» достает до более далеких союзников."
 }

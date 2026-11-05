@@ -2,7 +2,7 @@
   "meta": {
     "mode": "ARAM: Mayhem",
     "label": "Patch 26.23",
-    "dataAsOf": "2026-11-04",
+    "dataAsOf": "2026-11-05",
     "caveat": "PBE content can change before release.",
     "augmentPool": {
       "live": 242,
@@ -15,11 +15,12 @@
     "chinaPoolChanged": false,
     "notes": [
       "Live is patch 26.22. This page lists what's new on the test server for patch 26.23.",
+      "Update 2026-11-05 (patch 26.23): Vel'Koz's ultimate hits harder at rank 3, and Group Hug reaches allies farther away.",
       "Update 2026-11-04 (patch 26.23): four new augments join the pool, one gold and three silver.",
       "Update 2026-11-03 (patch 26.23): the test server moved to patch 26.23, adding four new Headliners: Bit Rush, Debonair Zed, La Ilusión and Maestro Jhin."
     ],
     "builds": {
-      "pbe": "16.23.8355229",
+      "pbe": "16.23.8359444",
       "live": "16.22.8348910"
     }
   },
@@ -42,19 +43,19 @@
         "name": "Steadfast Presence",
         "tier": "gold",
         "description": "Gain 16% more Armor and Magic Resist and 20% Tenacity. Below 40% max Health this doubles to 32% and 40%.",
-        "icon": "/assets/augments/pbe/genericabilityaugmenticon_gold.png"
+        "icon": "/assets/augments/pbe/steadfastpresence_large.png"
       },
       {
         "name": "Fortified",
         "tier": "silver",
         "description": "Gain 20 Armor, then increase your bonus Armor by 25%.",
-        "icon": "/assets/augments/pbe/handsoffthetalent_large.png"
+        "icon": "/assets/augments/pbe/fortified_large.png"
       },
       {
         "name": "Mystic Guard",
         "tier": "silver",
         "description": "Gain 20 Magic Resist, then increase your bonus Magic Resist by 25%.",
-        "icon": "/assets/augments/pbe/handsoffthetalent_large.png"
+        "icon": "/assets/augments/pbe/mysticguard_large.png"
       },
       {
         "name": "Slime Time",
@@ -64,7 +65,21 @@
       }
     ],
     "removed": [],
-    "changed": []
+    "changed": [
+      {
+        "name": "Group Hug",
+        "changes": [
+          {
+            "stat": "Range to find extra allies",
+            "live": "500",
+            "pbe": "600"
+          }
+        ],
+        "direction": "buff",
+        "tier": "prismatic",
+        "icon": "/assets/augments/pbe/empyreampromise_large.png"
+      }
+    ]
   },
   "championOverrides": [],
   "headliners": {
@@ -94,7 +109,14 @@
   },
   "championChanges": {
     "summary": "Base-game champion changes on the test server. They also apply in Mayhem.",
-    "list": []
+    "list": [
+      {
+        "champion": "Vel'Koz",
+        "changes": [
+          "R damage 450/700/925 → 450/700/950"
+        ]
+      }
+    ]
   },
   "itemChanges": {
     "summary": "Changes to items in the Mayhem shop. Runes are unchanged.",

@@ -1,4 +1,6 @@
 {
+ "500": "500",
+ "600": "600",
  "Allies drop a candle when they die. Picking it up within 10 seconds shields you and allies within 1500 range for 4 seconds: 250 + 35% max Health (smaller candles: 150 + 15%).": "味方が死亡するとキャンドルを落とします。10秒以内に拾うと、自分と1500範囲内の味方が4秒間シールドを得ます：250 + 最大体力の35%（小さいキャンドル：150 + 15%）。",
  "Augment offers show 4 choices instead of 3.": "オーグメントの選択肢が3つではなく4つになります。",
  "Base-game champion changes on the test server. They also apply in Mayhem.": "テストサーバーでの通常ゲームのチャンピオン変更。メイヘムにも適用されます。",
@@ -14,7 +16,11 @@
  "New on the test server. Each Mayhem match has one Headliner that adds game-wide bonuses.": "テストサーバーの新要素。メイヘムの各試合には、試合全体にボーナスを与えるヘッドライナーが1組登場します。",
  "PBE content can change before release.": "PBEの内容はリリース前に変更される場合があります。",
  "Patch 26.23": "パッチ26.23",
+ "R damage 450/700/925 → 450/700/950": "Rのダメージ 450/700/925 → 450/700/950",
+ "Range to find extra allies": "追加の味方を探す範囲",
+ "Range to find extra allies: 500 → 600": "追加の味方を探す範囲: 500 → 600",
  "Takedowns earn Tokens. While dead, spend 4 Tokens to revive at your fountain with 125% bonus Move Speed that fades over 10 seconds.": "キルとアシストでトークンを獲得。死亡中にトークンを4枚使うと、自陣の泉で復活し、10秒かけて減衰する125%の増加移動速度を得ます。",
  "Update 2026-11-03 (patch 26.23): the test server moved to patch 26.23, adding four new Headliners: Bit Rush, Debonair Zed, La Ilusión and Maestro Jhin.": "アップデート 2026-11-03（パッチ26.23）：テストサーバーがパッチ26.23に移行し、新しいヘッドライナーが4つ追加されました：Bit Rush、Debonair Zed、La Ilusión、Maestro Jhin。",
- "Update 2026-11-04 (patch 26.23): four new augments join the pool, one gold and three silver.": "アップデート 2026-11-04（パッチ26.23）：新しいオーグメントが4つ追加される。ゴールド1つ、シルバー3つ。"
+ "Update 2026-11-04 (patch 26.23): four new augments join the pool, one gold and three silver.": "アップデート 2026-11-04（パッチ26.23）：新しいオーグメントが4つ追加される。ゴールド1つ、シルバー3つ。",
+ "Update 2026-11-05 (patch 26.23): Vel'Koz's ultimate hits harder at rank 3, and Group Hug reaches allies farther away.": "アップデート 2026-11-05（パッチ26.23）：ヴェル＝コズのアルティメットがランク3で強化され、みんなでハグがより遠くの味方に届くようになりました。"
 }

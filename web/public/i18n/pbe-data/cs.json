@@ -1,4 +1,6 @@
 {
+ "500": "500",
+ "600": "600",
  "Allies drop a candle when they die. Picking it up within 10 seconds shields you and allies within 1500 range for 4 seconds: 250 + 35% max Health (smaller candles: 150 + 15%).": "Spojenci po smrti upustí svíčku. Když ji do 10 sekund sebereš, dostaneš ty i spojenci do vzdálenosti 1500 štít na 4 sekundy: 250 + 35% max. zdraví (menší svíčky: 150 + 15%).",
  "Augment offers show 4 choices instead of 3.": "Nabídky vylepšení ukazují 4 možnosti místo 3.",
  "Base-game champion changes on the test server. They also apply in Mayhem.": "Změny šampionů v základní hře na testovacím serveru. Platí i v Mayhem.",
@@ -14,7 +16,11 @@
  "New on the test server. Each Mayhem match has one Headliner that adds game-wide bonuses.": "Novinka na testovacím serveru. Každý zápas Mayhem má jednoho Headlinera, který přidává bonusy celé hře.",
  "PBE content can change before release.": "Obsah PBE se může před vydáním změnit.",
  "Patch 26.23": "Verze 26.23",
+ "R damage 450/700/925 → 450/700/950": "Poškození R 450/700/925 → 450/700/950",
+ "Range to find extra allies": "Dosah pro další spojence",
+ "Range to find extra allies: 500 → 600": "Dosah pro další spojence: 500 → 600",
  "Takedowns earn Tokens. While dead, spend 4 Tokens to revive at your fountain with 125% bonus Move Speed that fades over 10 seconds.": "Za zabití a asistence získáváš žetony. Když jsi mrtvý, utrať 4 žetony a oživ se u své fontány se 125% bonusovou rychlostí pohybu, která během 10 sekund slábne.",
  "Update 2026-11-03 (patch 26.23): the test server moved to patch 26.23, adding four new Headliners: Bit Rush, Debonair Zed, La Ilusión and Maestro Jhin.": "Aktualizace 2026-11-03 (verze 26.23): testovací server přešel na verzi 26.23 a přidal čtyři nové Headlinery: Bit Rush, Debonair Zed, La Ilusión a Maestro Jhin.",
- "Update 2026-11-04 (patch 26.23): four new augments join the pool, one gold and three silver.": "Aktualizace 2026-11-04 (verze 26.23): do nabídky přibývají čtyři nová vylepšení, jedno zlaté a tři stříbrná."
+ "Update 2026-11-04 (patch 26.23): four new augments join the pool, one gold and three silver.": "Aktualizace 2026-11-04 (verze 26.23): do nabídky přibývají čtyři nová vylepšení, jedno zlaté a tři stříbrná.",
+ "Update 2026-11-05 (patch 26.23): Vel'Koz's ultimate hits harder at rank 3, and Group Hug reaches allies farther away.": "Aktualizace 2026-11-05 (verze 26.23): Vel'Kozova superschopnost na 3. úrovni dává víc poškození a Společné objetí dosáhne na vzdálenější spojence."
 }

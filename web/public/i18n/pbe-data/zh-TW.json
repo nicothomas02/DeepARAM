@@ -1,4 +1,6 @@
 {
+ "500": "500",
+ "600": "600",
  "Allies drop a candle when they die. Picking it up within 10 seconds shields you and allies within 1500 range for 4 seconds: 250 + 35% max Health (smaller candles: 150 + 15%).": "友軍陣亡時會掉落一根蠟燭。10 秒內撿起後，你和 1500 範圍內的友軍獲得持續 4 秒的護盾：250 + 35% 最大生命值（小蠟燭：150 + 15%）。",
  "Augment offers show 4 choices instead of 3.": "強化選項從 3 個變為 4 個。",
  "Base-game champion changes on the test server. They also apply in Mayhem.": "測試伺服器上的基礎遊戲英雄改動。它們同樣適用於 Mayhem。",
@@ -14,7 +16,11 @@
  "New on the test server. Each Mayhem match has one Headliner that adds game-wide bonuses.": "測試伺服器新內容。每場 Mayhem 對戰都有一個 Headliner，為整場遊戲提供加成。",
  "PBE content can change before release.": "PBE 內容在正式推出前可能會變動。",
  "Patch 26.23": "26.23 版本",
+ "R damage 450/700/925 → 450/700/950": "R傷害 450/700/925 → 450/700/950",
+ "Range to find extra allies": "尋找額外友軍的範圍",
+ "Range to find extra allies: 500 → 600": "尋找額外友軍的範圍: 500 → 600",
  "Takedowns earn Tokens. While dead, spend 4 Tokens to revive at your fountain with 125% bonus Move Speed that fades over 10 seconds.": "參與擊殺可獲得代幣。陣亡時花費 4 個代幣即可在主堡泉水復活，並獲得 125% 額外移動速度，在 10 秒內逐漸衰減。",
  "Update 2026-11-03 (patch 26.23): the test server moved to patch 26.23, adding four new Headliners: Bit Rush, Debonair Zed, La Ilusión and Maestro Jhin.": "更新 2026-11-03（26.23 版本）：測試伺服器已更新到 26.23 版本，新增四個 Headliner：Bit Rush、Debonair Zed、La Ilusión 和 Maestro Jhin。",
- "Update 2026-11-04 (patch 26.23): four new augments join the pool, one gold and three silver.": "更新 2026-11-04（26.23版本）：新增四個強化，一個金色、三個銀色。"
+ "Update 2026-11-04 (patch 26.23): four new augments join the pool, one gold and three silver.": "更新 2026-11-04（26.23版本）：新增四個強化，一個金色、三個銀色。",
+ "Update 2026-11-05 (patch 26.23): Vel'Koz's ultimate hits harder at rank 3, and Group Hug reaches allies farther away.": "更新 2026-11-05（26.23版本）：威寇茲的大絕在3級時傷害提高，大家來抱抱能觸及更遠的友軍。"
 }

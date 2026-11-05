@@ -1,4 +1,6 @@
 {
+ "500": "500",
+ "600": "600",
  "Allies drop a candle when they die. Picking it up within 10 seconds shields you and allies within 1500 range for 4 seconds: 250 + 35% max Health (smaller candles: 150 + 15%).": "Đồng minh rơi ra một ngọn nến khi chết. Nhặt nó trong 10 giây sẽ tạo lá chắn cho bạn và đồng minh trong phạm vi 1500 trong 4 giây: 250 + 35% Máu tối đa (nến nhỏ hơn: 150 + 15%).",
  "Augment offers show 4 choices instead of 3.": "Các lựa chọn lõi nâng cấp có 4 lựa chọn thay vì 3.",
  "Base-game champion changes on the test server. They also apply in Mayhem.": "Thay đổi tướng của trò chơi gốc trên máy chủ thử nghiệm. Cũng áp dụng trong Mayhem.",
@@ -14,7 +16,11 @@
  "New on the test server. Each Mayhem match has one Headliner that adds game-wide bonuses.": "Mới trên máy chủ thử nghiệm. Mỗi trận Mayhem có một Headliner mang lại hiệu ứng cho cả trận.",
  "PBE content can change before release.": "Nội dung PBE có thể thay đổi trước khi ra mắt.",
  "Patch 26.23": "Phiên bản 26.23",
+ "R damage 450/700/925 → 450/700/950": "Sát thương R 450/700/925 → 450/700/950",
+ "Range to find extra allies": "Tầm tìm thêm đồng minh",
+ "Range to find extra allies: 500 → 600": "Tầm tìm thêm đồng minh: 500 → 600",
  "Takedowns earn Tokens. While dead, spend 4 Tokens to revive at your fountain with 125% bonus Move Speed that fades over 10 seconds.": "Hạ gục và hỗ trợ cho bạn Xu. Khi đang chết, dùng 4 Xu để hồi sinh ở bệ đá cổ với 125% Tốc độ Di chuyển cộng thêm giảm dần trong 10 giây.",
  "Update 2026-11-03 (patch 26.23): the test server moved to patch 26.23, adding four new Headliners: Bit Rush, Debonair Zed, La Ilusión and Maestro Jhin.": "Cập nhật 2026-11-03 (phiên bản 26.23): máy chủ thử nghiệm chuyển sang phiên bản 26.23, thêm bốn Headliner mới: Bit Rush, Debonair Zed, La Ilusión và Maestro Jhin.",
- "Update 2026-11-04 (patch 26.23): four new augments join the pool, one gold and three silver.": "Cập nhật 2026-11-04 (phiên bản 26.23): bốn Lõi Nâng Cấp mới được thêm vào, một vàng và ba bạc."
+ "Update 2026-11-04 (patch 26.23): four new augments join the pool, one gold and three silver.": "Cập nhật 2026-11-04 (phiên bản 26.23): bốn Lõi Nâng Cấp mới được thêm vào, một vàng và ba bạc.",
+ "Update 2026-11-05 (patch 26.23): Vel'Koz's ultimate hits harder at rank 3, and Group Hug reaches allies farther away.": "Cập nhật 2026-11-05 (bản 26.23): chiêu cuối của Vel'Koz mạnh hơn ở cấp 3, và Ôm Tập Thể với tới đồng minh ở xa hơn."
 }

@@ -1,4 +1,6 @@
 {
+ "500": "500",
+ "600": "600",
  "Allies drop a candle when they die. Picking it up within 10 seconds shields you and allies within 1500 range for 4 seconds: 250 + 35% max Health (smaller candles: 150 + 15%).": "เพื่อนร่วมทีมจะทิ้งเทียนไว้เมื่อตาย หากเก็บภายใน 10 วินาที คุณและเพื่อนในระยะ 1500 จะได้รับโล่เป็นเวลา 4 วินาที: 250 + 35% ของพลังชีวิตสูงสุด (เทียนเล็ก: 150 + 15%)",
  "Augment offers show 4 choices instead of 3.": "ตัวเลือกออคเมนต์แสดง 4 ตัวเลือกแทน 3",
  "Base-game champion changes on the test server. They also apply in Mayhem.": "การเปลี่ยนแปลงแชมเปี้ยนของเกมหลักบนเซิร์ฟเวอร์ทดสอบ มีผลใน Mayhem ด้วย",
@@ -14,7 +16,11 @@
  "New on the test server. Each Mayhem match has one Headliner that adds game-wide bonuses.": "ใหม่บนเซิร์ฟเวอร์ทดสอบ ทุกเกม Mayhem มี Headliner หนึ่งวงที่ให้โบนัสทั้งเกม",
  "PBE content can change before release.": "เนื้อหาบน PBE อาจเปลี่ยนแปลงก่อนปล่อยจริง",
  "Patch 26.23": "แพตช์ 26.23",
+ "R damage 450/700/925 → 450/700/950": "ดาเมจ R 450/700/925 → 450/700/950",
+ "Range to find extra allies": "ระยะหาพันธมิตรเพิ่มเติม",
+ "Range to find extra allies: 500 → 600": "ระยะหาพันธมิตรเพิ่มเติม: 500 → 600",
  "Takedowns earn Tokens. While dead, spend 4 Tokens to revive at your fountain with 125% bonus Move Speed that fades over 10 seconds.": "การฆ่าและช่วยฆ่าให้โทเคน ระหว่างตาย ใช้ 4 โทเคนเพื่อฟื้นที่น้ำพุพร้อม Move Speed เพิ่ม 125% ที่ค่อยๆ ลดลงใน 10 วินาที",
  "Update 2026-11-03 (patch 26.23): the test server moved to patch 26.23, adding four new Headliners: Bit Rush, Debonair Zed, La Ilusión and Maestro Jhin.": "อัปเดต 2026-11-03 (แพตช์ 26.23): เซิร์ฟเวอร์ทดสอบย้ายไปแพตช์ 26.23 และเพิ่ม Headliner ใหม่สี่แบบ: Bit Rush, Debonair Zed, La Ilusión และ Maestro Jhin",
- "Update 2026-11-04 (patch 26.23): four new augments join the pool, one gold and three silver.": "อัปเดต 2026-11-04 (แพตช์ 26.23): ออคเมนต์ใหม่ 4 อันเข้าสู่พูล ระดับทอง 1 อันและระดับเงิน 3 อัน"
+ "Update 2026-11-04 (patch 26.23): four new augments join the pool, one gold and three silver.": "อัปเดต 2026-11-04 (แพตช์ 26.23): ออคเมนต์ใหม่ 4 อันเข้าสู่พูล ระดับทอง 1 อันและระดับเงิน 3 อัน",
+ "Update 2026-11-05 (patch 26.23): Vel'Koz's ultimate hits harder at rank 3, and Group Hug reaches allies farther away.": "อัปเดต 2026-11-05 (แพตช์ 26.23): อัลติเมตของ Vel'Koz แรงขึ้นที่เลเวล 3 และ Group Hug เอื้อมถึงพันธมิตรที่อยู่ไกลขึ้น"
 }

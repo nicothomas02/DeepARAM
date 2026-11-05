@@ -1,6 +1,6 @@
 {
  "meta": {
-  "built_at": "2026-11-04T23:37:38+00:00",
+  "built_at": "2026-11-05T23:30:32+00:00",
   "game_version": "16.23",
   "cdragon": "pbe",
   "mayhem_balance_patch": "wiki read 2026-10-17",
@@ -35958,7 +35958,7 @@
        "type": "magic",
        "calc": "TotalDamage",
        "scaling": {
-        "const": 925.0,
+        "const": 950.0,
         "ap": 1.25
        },
        "target": "flat",

@@ -1,4 +1,6 @@
 {
+ "500": "500",
+ "600": "600",
  "Allies drop a candle when they die. Picking it up within 10 seconds shields you and allies within 1500 range for 4 seconds: 250 + 35% max Health (smaller candles: 150 + 15%).": "Οι σύμμαχοι αφήνουν ένα κερί όταν πεθαίνουν. Αν το μαζέψεις μέσα σε 10 δευτερόλεπτα, εσύ και οι σύμμαχοι σε απόσταση 1500 παίρνετε ασπίδα για 4 δευτερόλεπτα: 250 + 35% της μέγιστης Ζωής (μικρότερα κεριά: 150 + 15%).",
  "Augment offers show 4 choices instead of 3.": "Οι προσφορές augment δείχνουν 4 επιλογές αντί για 3.",
  "Base-game champion changes on the test server. They also apply in Mayhem.": "Αλλαγές Ηρώων του βασικού παιχνιδιού στον δοκιμαστικό server. Ισχύουν και στο Mayhem.",
@@ -14,7 +16,11 @@
  "New on the test server. Each Mayhem match has one Headliner that adds game-wide bonuses.": "Νέο στον δοκιμαστικό server. Κάθε αγώνας Mayhem έχει έναν Headliner που δίνει μπόνους σε όλο το παιχνίδι.",
  "PBE content can change before release.": "Το περιεχόμενο του PBE μπορεί να αλλάξει πριν από την κυκλοφορία.",
  "Patch 26.23": "Έκδοση 26.23",
+ "R damage 450/700/925 → 450/700/950": "Ζημιά R 450/700/925 → 450/700/950",
+ "Range to find extra allies": "Εμβέλεια για επιπλέον συμμάχους",
+ "Range to find extra allies: 500 → 600": "Εμβέλεια για επιπλέον συμμάχους: 500 → 600",
  "Takedowns earn Tokens. While dead, spend 4 Tokens to revive at your fountain with 125% bonus Move Speed that fades over 10 seconds.": "Οι εξοντώσεις δίνουν Μάρκες. Όσο είσαι νεκρός, ξόδεψε 4 Μάρκες για να αναστηθείς στο σιντριβάνι σου με 125% επιπλέον Ταχύτητα Κίνησης που μειώνεται σε 10 δευτερόλεπτα.",
  "Update 2026-11-03 (patch 26.23): the test server moved to patch 26.23, adding four new Headliners: Bit Rush, Debonair Zed, La Ilusión and Maestro Jhin.": "Ενημέρωση 2026-11-03 (έκδοση 26.23): ο δοκιμαστικός server πέρασε στην έκδοση 26.23 και προσθέτει τέσσερις νέους Headliners: Bit Rush, Debonair Zed, La Ilusión και Maestro Jhin.",
- "Update 2026-11-04 (patch 26.23): four new augments join the pool, one gold and three silver.": "Ενημέρωση 2026-11-04 (ενημέρωση 26.23): τέσσερις νέες ενισχύσεις μπαίνουν στη δεξαμενή, μία χρυσή και τρεις ασημένιες."
+ "Update 2026-11-04 (patch 26.23): four new augments join the pool, one gold and three silver.": "Ενημέρωση 2026-11-04 (ενημέρωση 26.23): τέσσερις νέες ενισχύσεις μπαίνουν στη δεξαμενή, μία χρυσή και τρεις ασημένιες.",
+ "Update 2026-11-05 (patch 26.23): Vel'Koz's ultimate hits harder at rank 3, and Group Hug reaches allies farther away.": "Ενημέρωση 2026-11-05 (έκδοση 26.23): η απόλυτη ικανότητα του Βελ'Κοζ χτυπά πιο δυνατά στο επίπεδο 3 και η Ομαδική Αγκαλιά φτάνει πιο μακρινούς συμμάχους."
 }

@@ -1,4 +1,6 @@
 {
+ "500": "500",
+ "600": "600",
  "Allies drop a candle when they die. Picking it up within 10 seconds shields you and allies within 1500 range for 4 seconds: 250 + 35% max Health (smaller candles: 150 + 15%).": "يُسقط الحلفاء شمعة عند موتهم. التقاطها خلال 10 ثوانٍ يمنحك أنت والحلفاء ضمن مدى 1500 درعًا لمدة 4 ثوانٍ: 250 + 35% من الصحة القصوى (الشموع الأصغر: 150 + 15%).",
  "Augment offers show 4 choices instead of 3.": "تعرض عروض التعزيزات 4 خيارات بدلًا من 3.",
  "Base-game champion changes on the test server. They also apply in Mayhem.": "تغييرات الأبطال في اللعبة الأساسية على خادم الاختبار. تنطبق أيضًا في Mayhem.",
@@ -14,7 +16,11 @@
  "New on the test server. Each Mayhem match has one Headliner that adds game-wide bonuses.": "جديد على خادم الاختبار. في كل مباراة Mayhem يوجد Headliner واحد يمنح مكافآت للمباراة كلها.",
  "PBE content can change before release.": "قد يتغير محتوى PBE قبل الإصدار.",
  "Patch 26.23": "الإصدار 26.23",
+ "R damage 450/700/925 → 450/700/950": "ضرر R 450/700/925 ← 450/700/950",
+ "Range to find extra allies": "مدى العثور على حلفاء إضافيين",
+ "Range to find extra allies: 500 → 600": "مدى العثور على حلفاء إضافيين: 500 ← 600",
  "Takedowns earn Tokens. While dead, spend 4 Tokens to revive at your fountain with 125% bonus Move Speed that fades over 10 seconds.": "تمنحك عمليات الإقصاء رموزًا. أثناء موتك، أنفق 4 رموز لتعود إلى الحياة عند نافورتك مع سرعة حركة إضافية 125% تتلاشى خلال 10 ثوانٍ.",
  "Update 2026-11-03 (patch 26.23): the test server moved to patch 26.23, adding four new Headliners: Bit Rush, Debonair Zed, La Ilusión and Maestro Jhin.": "تحديث 2026-11-03 (الإصدار 26.23): انتقل خادم الاختبار إلى الإصدار 26.23 وأضاف أربعة Headliners جديدة: Bit Rush وDebonair Zed وLa Ilusión وMaestro Jhin.",
- "Update 2026-11-04 (patch 26.23): four new augments join the pool, one gold and three silver.": "تحديث 2026-11-04 (الإصدار 26.23): أربعة تعزيزات جديدة تنضم إلى المجموعة، واحد ذهبي وثلاثة فضية."
+ "Update 2026-11-04 (patch 26.23): four new augments join the pool, one gold and three silver.": "تحديث 2026-11-04 (الإصدار 26.23): أربعة تعزيزات جديدة تنضم إلى المجموعة، واحد ذهبي وثلاثة فضية.",
+ "Update 2026-11-05 (patch 26.23): Vel'Koz's ultimate hits harder at rank 3, and Group Hug reaches allies farther away.": "تحديث 2026-11-05 (الإصدار 26.23): أصبحت القدرة القصوى لـفيلكوز أقوى في المستوى 3، ويصل عناق جماعي إلى حلفاء أبعد."
 }

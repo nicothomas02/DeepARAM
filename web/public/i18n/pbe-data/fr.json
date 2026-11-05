@@ -1,4 +1,6 @@
 {
+ "500": "500",
+ "600": "600",
  "Allies drop a candle when they die. Picking it up within 10 seconds shields you and allies within 1500 range for 4 seconds: 250 + 35% max Health (smaller candles: 150 + 15%).": "Les alliés lâchent une bougie en mourant. La ramasser dans les 10 secondes vous protège, vous et les alliés à moins de 1500, avec un bouclier de 4 secondes : 250 + 35% des PV max (petites bougies : 150 + 15%).",
  "Augment offers show 4 choices instead of 3.": "Les offres d'augments proposent 4 choix au lieu de 3.",
  "Base-game champion changes on the test server. They also apply in Mayhem.": "Changements de champions du jeu de base sur le serveur de test. Ils s'appliquent aussi en Mayhem.",
@@ -14,7 +16,11 @@
  "New on the test server. Each Mayhem match has one Headliner that adds game-wide bonuses.": "Nouveau sur le serveur de test. Chaque partie de Mayhem a un Headliner qui ajoute des bonus à toute la partie.",
  "PBE content can change before release.": "Le contenu du PBE peut changer avant sa sortie.",
  "Patch 26.23": "Version 26.23",
+ "R damage 450/700/925 → 450/700/950": "Dégâts du R 450/700/925 → 450/700/950",
+ "Range to find extra allies": "Portée pour trouver des alliés supplémentaires",
+ "Range to find extra allies: 500 → 600": "Portée pour trouver des alliés supplémentaires: 500 → 600",
  "Takedowns earn Tokens. While dead, spend 4 Tokens to revive at your fountain with 125% bonus Move Speed that fades over 10 seconds.": "Les éliminations rapportent des jetons. Quand vous êtes mort, dépensez 4 jetons pour réapparaître à votre fontaine avec 125% de vitesse de déplacement bonus qui diminue sur 10 secondes.",
  "Update 2026-11-03 (patch 26.23): the test server moved to patch 26.23, adding four new Headliners: Bit Rush, Debonair Zed, La Ilusión and Maestro Jhin.": "Mise à jour 2026-11-03 (version 26.23) : le serveur de test est passé en version 26.23 et ajoute quatre nouveaux Headliners : Bit Rush, Debonair Zed, La Ilusión et Maestro Jhin.",
- "Update 2026-11-04 (patch 26.23): four new augments join the pool, one gold and three silver.": "Mise à jour du 2026-11-04 (version 26.23) : quatre nouveaux augments rejoignent la sélection, un en or et trois en argent."
+ "Update 2026-11-04 (patch 26.23): four new augments join the pool, one gold and three silver.": "Mise à jour du 2026-11-04 (version 26.23) : quatre nouveaux augments rejoignent la sélection, un en or et trois en argent.",
+ "Update 2026-11-05 (patch 26.23): Vel'Koz's ultimate hits harder at rank 3, and Group Hug reaches allies farther away.": "Mise à jour 2026-11-05 (patch 26.23) : l'ultime de Vel'Koz frappe plus fort au rang 3, et Câlin collectif atteint des alliés plus éloignés."
 }

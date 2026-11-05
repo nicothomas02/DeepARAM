@@ -1,18 +1,43 @@
 {
  "builds": {
-  "pbe": "16.23.8355229",
+  "pbe": "16.23.8359444",
   "live": "16.22.8348910"
  },
- "dataAsOf": "2026-11-04",
+ "dataAsOf": "2026-11-05",
  "counts": {
+  "buff": 2,
   "new": 4
  },
  "entries": [
   {
+   "kind": "champion",
+   "name": "Vel'Koz",
+   "lines": [
+    {
+     "text": "R damage 450/700/925 → 450/700/950",
+     "tag": "buff"
+    }
+   ],
+   "tag": "buff"
+  },
+  {
+   "kind": "augment",
+   "name": "Group Hug",
+   "tier": "prismatic",
+   "icon": "/assets/augments/pbe/empyreampromise_large.png",
+   "lines": [
+    {
+     "text": "Range to find extra allies: 500 → 600",
+     "tag": "buff"
+    }
+   ],
+   "tag": "buff"
+  },
+  {
    "kind": "augment",
    "name": "Steadfast Presence",
    "tier": "gold",
-   "icon": "/assets/augments/pbe/genericabilityaugmenticon_gold.png",
+   "icon": "/assets/augments/pbe/steadfastpresence_large.png",
    "set": null,
    "lines": [
     {
@@ -26,7 +51,7 @@
    "kind": "augment",
    "name": "Fortified",
    "tier": "silver",
-   "icon": "/assets/augments/pbe/handsoffthetalent_large.png",
+   "icon": "/assets/augments/pbe/fortified_large.png",
    "set": null,
    "lines": [
     {
@@ -40,7 +65,7 @@
    "kind": "augment",
    "name": "Mystic Guard",
    "tier": "silver",
-   "icon": "/assets/augments/pbe/handsoffthetalent_large.png",
+   "icon": "/assets/augments/pbe/mysticguard_large.png",
    "set": null,
    "lines": [
     {
