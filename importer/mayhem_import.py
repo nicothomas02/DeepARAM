@@ -1116,7 +1116,9 @@ def serve(out, port, lockfile=None, sgp_host=None, open_browser=True, record_liv
 
         def cors(self):
             if self.site_origin():
-                self.send_header("Access-Control-Allow-Origin", self.headers["Origin"])
+                # Echo the allow-listed value itself, never the raw header
+                origin = next(o for o in SITE_ORIGINS if o == self.headers["Origin"])
+                self.send_header("Access-Control-Allow-Origin", origin)
                 self.send_header("Vary", "Origin")
 
         def do_OPTIONS(self):
