@@ -182,5 +182,11 @@
  "Weapon of Destiny": "Weapon of Destiny",
  "Pentakill": "Pentakill",
  "Simulated": "จำลอง",
- "Simulated: one of these augments has no real games yet, so only simulated fights put it in the set.": "จำลอง: ออคเมนต์หนึ่งในนี้ยังไม่มีเกมจริง จึงมีแค่การต่อสู้จำลองที่จัดให้อยู่ในชุด"
+ "Simulated: one of these augments has no real games yet, so only simulated fights put it in the set.": "จำลอง: ออคเมนต์หนึ่งในนี้ยังไม่มีเกมจริง จึงมีแค่การต่อสู้จำลองที่จัดให้อยู่ในชุด",
+ "Boots before the 1st item": "รองเท้าก่อนไอเทมชิ้นที่ 1",
+ "Boots after the 1st item": "รองเท้าหลังไอเทมชิ้นที่ 1",
+ "Boots after the 2nd item": "รองเท้าหลังไอเทมชิ้นที่ 2",
+ "Boots after the 3rd item": "รองเท้าหลังไอเทมชิ้นที่ 3",
+ "Boots are shown where to buy them.": "รองเท้าแสดงตรงจุดที่ควรซื้อ",
+ "Core builds show the boots where the Simulator says to buy them: the first point where they add as much per gold as the next item.": "บิลด์หลักแสดงรองเท้าตรงจุดที่ตัวจำลองแนะนำให้ซื้อ: จุดแรกที่รองเท้าให้ผลต่อทองเท่ากับไอเทมชิ้นถัดไป"
 }

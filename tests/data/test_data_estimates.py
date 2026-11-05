@@ -85,6 +85,24 @@ def test_champion_upgrades():
         assert isinstance(best["simulated"], bool)
 
 
+def test_boots_timing():
+    """Simulated boots step per core build: 0-3 core items bought before the boots, keyed by real core builds."""
+    d = load_json("data/estimates/boots_timing.json")
+    assert d["simulated"] is True
+    boots = {v["id"] for v in load_json("simulator/data/items.json")["items"].values() if v.get("slot") == "boots"}
+    assert len(d["champions"]) > 150
+    steps = []
+    for cid, cores in d["champions"].items():
+        real = {",".join(map(str, r["items"])) for r in load_json(f"data/cn/builds/{cid}.json")["items"]["core"]}
+        for core, by_boots in cores.items():
+            assert core in real, (cid, core)
+            for b, step in by_boots.items():
+                assert int(b) in boots and 0 <= step <= 3
+                steps.append(step)
+    # Most boots come after the 1st item; some later, so the page doesn't just put them first.
+    assert steps.count(1) > len(steps) / 3 and sum(s >= 2 for s in steps) > len(steps) / 10
+
+
 def test_pentakill_picks_by_role():
     """Pentakill picks are judged for a team fight: an enchanter Empowers its ally heal or shield, not its damage."""
     d = load_json("data/estimates/champion_upgrades.json")["champions"]

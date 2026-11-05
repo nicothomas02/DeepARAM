@@ -182,5 +182,11 @@
  "Weapon of Destiny": "Оружие судьбы",
  "Pentakill": "Pentakill",
  "Simulated": "Симуляция",
- "Simulated: one of these augments has no real games yet, so only simulated fights put it in the set.": "Симуляция: у одного из этих аугментов ещё нет реальных игр, поэтому в набор его поставили только симулированные бои."
+ "Simulated: one of these augments has no real games yet, so only simulated fights put it in the set.": "Симуляция: у одного из этих аугментов ещё нет реальных игр, поэтому в набор его поставили только симулированные бои.",
+ "Boots before the 1st item": "Ботинки до 1-го предмета",
+ "Boots after the 1st item": "Ботинки после 1-го предмета",
+ "Boots after the 2nd item": "Ботинки после 2-го предмета",
+ "Boots after the 3rd item": "Ботинки после 3-го предмета",
+ "Boots are shown where to buy them.": "Ботинки показаны там, где их покупать.",
+ "Core builds show the boots where the Simulator says to buy them: the first point where they add as much per gold as the next item.": "В основных сборках ботинки стоят там, где их советует покупать Симулятор: в первый момент, когда они дают за золото столько же, сколько следующий предмет."
 }

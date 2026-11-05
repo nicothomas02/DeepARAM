@@ -49,9 +49,21 @@ export type ItemRow = Rated & {
   items: number[];
   deepScore?: number;
   tier?: ItemTier;
-  /** Core builds: the boots that go with the core, shown first. */
+  /** Core builds: the boots that go with the core. */
   boots?: number;
+  /** Core builds: how many core items come before the boots (simulated, data/estimates/boots_timing.json). */
+  bootsAt?: number;
 };
+
+/** A row's items in the order they're bought: the boots go in at bootsAt (first when it isn't known). */
+export function buildOrder(r: ItemRow): number[] {
+  if (r.boots === undefined) return r.items;
+  const at = Math.min(r.bootsAt ?? 0, r.items.length);
+  return [...r.items.slice(0, at), r.boots, ...r.items.slice(at)];
+}
+
+/** Per champion id: core build ("id,id,id") -> boots id -> core items bought before the boots. */
+type BootsTiming = { champions: Record<string, Record<string, Record<string, number>>> };
 /** The options for one item slot after the core (4th, 5th, 6th), best DeepScore first. */
 export type LateSlot = { slot: number; options: ItemRow[] };
 export type SkillRow = Rated & { max: string[]; levels: string[] };
@@ -208,7 +220,9 @@ export function championPage(alias: string): ChampionPage | null {
     ...rows(b?.items?.boots),
     ...rows(b?.items?.starting),
   ]);
-  const core = withBoots(scoreItems(rows(b?.items?.core)), full, boots[0]);
+  const timing =
+    readRepoJson<BootsTiming>("data/estimates/boots_timing.json")?.champions[String(id)] ?? {};
+  const core = withBoots(scoreItems(rows(b?.items?.core)), full, boots[0], timing);
   const page = {
     winRate: base,
     skills,
@@ -257,12 +271,24 @@ function tiered(list: ItemRow[]): ItemRow[] {
   });
 }
 
-/** Each core build with the boots most often bought alongside it in six-item builds, or the best boots overall. */
+/**
+ * Each core build with the boots most often bought alongside it in six-item builds, or the best boots overall, and
+ * when to buy them: the simulated step for that core, else the step the champion's other cores use most with those boots.
+ */
 function withBoots(
   core: ItemRow[],
   full: ItemRow[],
   best: ItemRow | undefined,
+  timing: BootsTiming["champions"][string],
 ): ItemRow[] {
+  const usual = (boots: number) => {
+    const n = new Map<number, number>();
+    for (const t of Object.values(timing)) {
+      const at = t[String(boots)];
+      if (at !== undefined) n.set(at, (n.get(at) ?? 0) + 1);
+    }
+    return [...n].sort((x, y) => y[1] - x[1] || x[0] - y[0])[0]?.[0];
+  };
   return core.map((r) => {
     const share = new Map<number, number>();
     for (const f of full) {
@@ -273,7 +299,9 @@ function withBoots(
     }
     const paired = [...share].sort((x, y) => y[1] - x[1])[0]?.[0];
     const boots = paired ?? best?.items[0];
-    return boots === undefined ? r : { ...r, boots };
+    if (boots === undefined) return r;
+    const bootsAt = timing[r.items.join(",")]?.[String(boots)] ?? usual(boots);
+    return bootsAt === undefined ? { ...r, boots } : { ...r, boots, bootsAt };
   });
 }
 

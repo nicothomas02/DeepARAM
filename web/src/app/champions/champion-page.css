@@ -1274,3 +1274,17 @@ html[data-view="simple"] .cp-fold:not([data-open]) > .cp-fold-body {
 .cp-th {
   scroll-margin-top: 6rem;
 }
+
+/* When to buy the boots in a core build (simulated). */
+.cp-boots-when {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0.5rem 0 0;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+.cp-boots-note {
+  padding: 0 1rem 0.4rem;
+}

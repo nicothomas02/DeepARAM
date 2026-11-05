@@ -182,5 +182,11 @@
  "Weapon of Destiny": "سلاح المصير",
  "Pentakill": "Pentakill",
  "Simulated": "محاكاة",
- "Simulated: one of these augments has no real games yet, so only simulated fights put it in the set.": "محاكاة: أحد هذه التعزيزات ليست له مباريات حقيقية بعد، لذا وضعته المعارك المحاكاة وحدها في المجموعة."
+ "Simulated: one of these augments has no real games yet, so only simulated fights put it in the set.": "محاكاة: أحد هذه التعزيزات ليست له مباريات حقيقية بعد، لذا وضعته المعارك المحاكاة وحدها في المجموعة.",
+ "Boots before the 1st item": "الحذاء قبل العنصر الأول",
+ "Boots after the 1st item": "الحذاء بعد العنصر الأول",
+ "Boots after the 2nd item": "الحذاء بعد العنصر الثاني",
+ "Boots after the 3rd item": "الحذاء بعد العنصر الثالث",
+ "Boots are shown where to buy them.": "يظهر الحذاء في موضع شرائه.",
+ "Core builds show the boots where the Simulator says to buy them: the first point where they add as much per gold as the next item.": "تعرض البنيات الأساسية الحذاء حيث يقول المحاكي إنه يجب شراؤه: أول نقطة يضيف فيها مقابل كل ذهب بقدر ما يضيفه العنصر التالي."
 }

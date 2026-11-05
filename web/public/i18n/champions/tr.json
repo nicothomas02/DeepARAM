@@ -182,5 +182,11 @@
  "Weapon of Destiny": "Kaderin Silahı",
  "Pentakill": "Pentakill",
  "Simulated": "Simülasyon",
- "Simulated: one of these augments has no real games yet, so only simulated fights put it in the set.": "Simülasyon: bu güçlendirmelerden birinin henüz gerçek oyunu yok, sete onu yalnızca simüle çatışmalar koydu."
+ "Simulated: one of these augments has no real games yet, so only simulated fights put it in the set.": "Simülasyon: bu güçlendirmelerden birinin henüz gerçek oyunu yok, sete onu yalnızca simüle çatışmalar koydu.",
+ "Boots before the 1st item": "1. eşyadan önce botlar",
+ "Boots after the 1st item": "1. eşyadan sonra botlar",
+ "Boots after the 2nd item": "2. eşyadan sonra botlar",
+ "Boots after the 3rd item": "3. eşyadan sonra botlar",
+ "Boots are shown where to buy them.": "Botlar alınacakları yerde gösterilir.",
+ "Core builds show the boots where the Simulator says to buy them: the first point where they add as much per gold as the next item.": "Temel dizilimler botları Simülatör'ün alınmasını önerdiği yerde gösterir: altın başına bir sonraki eşya kadar değer kattıkları ilk an."
 }

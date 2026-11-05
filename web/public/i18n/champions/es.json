@@ -182,5 +182,11 @@
  "Weapon of Destiny": "Arma del destino",
  "Pentakill": "Pentakill",
  "Simulated": "Simulado",
- "Simulated: one of these augments has no real games yet, so only simulated fights put it in the set.": "Simulado: uno de estos aumentos aún no tiene partidas reales, así que solo los combates simulados lo pusieron en el conjunto."
+ "Simulated: one of these augments has no real games yet, so only simulated fights put it in the set.": "Simulado: uno de estos aumentos aún no tiene partidas reales, así que solo los combates simulados lo pusieron en el conjunto.",
+ "Boots before the 1st item": "Botas antes del 1.er objeto",
+ "Boots after the 1st item": "Botas después del 1.er objeto",
+ "Boots after the 2nd item": "Botas después del 2.º objeto",
+ "Boots after the 3rd item": "Botas después del 3.er objeto",
+ "Boots are shown where to buy them.": "Las botas aparecen donde conviene comprarlas.",
+ "Core builds show the boots where the Simulator says to buy them: the first point where they add as much per gold as the next item.": "Las builds principales muestran las botas donde el Simulador dice que se compren: el primer momento en que aportan por oro tanto como el siguiente objeto."
 }

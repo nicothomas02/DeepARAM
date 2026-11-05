@@ -182,5 +182,11 @@
  "Weapon of Destiny": "運命の武器",
  "Pentakill": "ペンタキル",
  "Simulated": "シミュレーション",
- "Simulated: one of these augments has no real games yet, so only simulated fights put it in the set.": "シミュレーション：このうち1つのオーグメントにはまだ実際の試合がなく、シミュレーション戦闘だけでセットに入っています。"
+ "Simulated: one of these augments has no real games yet, so only simulated fights put it in the set.": "シミュレーション：このうち1つのオーグメントにはまだ実際の試合がなく、シミュレーション戦闘だけでセットに入っています。",
+ "Boots before the 1st item": "1つ目のアイテムの前にブーツ",
+ "Boots after the 1st item": "1つ目のアイテムの後にブーツ",
+ "Boots after the 2nd item": "2つ目のアイテムの後にブーツ",
+ "Boots after the 3rd item": "3つ目のアイテムの後にブーツ",
+ "Boots are shown where to buy them.": "ブーツは買うタイミングの位置に表示されます。",
+ "Core builds show the boots where the Simulator says to buy them: the first point where they add as much per gold as the next item.": "コアビルドでは、シミュレーターが勧める購入タイミングにブーツを表示します。ゴールドあたりの効果が次のアイテムと同等以上になる最初の時点です。"
 }
