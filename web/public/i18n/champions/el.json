@@ -182,5 +182,11 @@
  "Weapon of Destiny": "Όπλο του Πεπρωμένου",
  "Pentakill": "Pentakill",
  "Simulated": "Προσομοίωση",
- "Simulated: one of these augments has no real games yet, so only simulated fights put it in the set.": "Προσομοίωση: μία από αυτές τις επαυξήσεις δεν έχει ακόμα πραγματικά παιχνίδια, οπότε μόνο οι προσομοιωμένες μάχες την έβαλαν στο σετ."
+ "Simulated: one of these augments has no real games yet, so only simulated fights put it in the set.": "Προσομοίωση: μία από αυτές τις επαυξήσεις δεν έχει ακόμα πραγματικά παιχνίδια, οπότε μόνο οι προσομοιωμένες μάχες την έβαλαν στο σετ.",
+ "Boots before the 1st item": "Μπότες πριν από το 1ο αντικείμενο",
+ "Boots after the 1st item": "Μπότες μετά το 1ο αντικείμενο",
+ "Boots after the 2nd item": "Μπότες μετά το 2ο αντικείμενο",
+ "Boots after the 3rd item": "Μπότες μετά το 3ο αντικείμενο",
+ "Boots are shown where to buy them.": "Οι μπότες εμφανίζονται εκεί που πρέπει να τις αγοράσεις.",
+ "Core builds show the boots where the Simulator says to buy them: the first point where they add as much per gold as the next item.": "Τα βασικά builds δείχνουν τις μπότες εκεί που ο Προσομοιωτής λέει να τις αγοράσεις: στο πρώτο σημείο όπου προσφέρουν ανά χρυσό όσο και το επόμενο αντικείμενο."
 }

@@ -3,7 +3,7 @@
 // with names already resolved. Built once per deploy.
 // Shape is decoded by apps/watchos/DeepARAMWatchKit/Sources/DeepARAMWatchKit/WatchData.swift.
 import { augmentTiers } from "@/lib/augment-tiers";
-import { bestRow, championPage, scoreRows } from "@/lib/champion-page";
+import { bestRow, buildOrder, championPage, scoreRows } from "@/lib/champion-page";
 import { champList } from "@/lib/champions";
 import { fillSpells } from "@/lib/fill";
 import { chefsSpecial, livePatch, liveTiers } from "@/lib/highlights";
@@ -24,7 +24,7 @@ export function GET() {
     // Same picks as the champion page's "Best" column: boots, the best core, then the top pick for the
     // 4th, 5th and 6th slot.
     const core = p.core[0];
-    const itemIds = core ? [...(core.boots ? [core.boots] : []), ...core.items, ...p.late.map((s) => s.options[0]?.items[0])] : [];
+    const itemIds = core ? [...buildOrder(core), ...p.late.map((s) => s.options[0]?.items[0])] : [];
     const items = [...new Set(itemIds.map((i) => (i ? p.itemInfo[i]?.name : undefined)).filter((n): n is string => !!n))];
     const rawSpells = fillSpells(id, t?.winRate ?? p.winRate ?? 0.5);
     const spells = (rawSpells.some((r) => r.estimated) ? rawSpells : scoreRows(rawSpells))[0];

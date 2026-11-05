@@ -182,5 +182,11 @@
  "Weapon of Destiny": "Arma del Destino",
  "Pentakill": "Pentakill",
  "Simulated": "Simulato",
- "Simulated: one of these augments has no real games yet, so only simulated fights put it in the set.": "Simulato: uno di questi potenziamenti non ha ancora partite reali, quindi solo gli scontri simulati lo hanno messo nel set."
+ "Simulated: one of these augments has no real games yet, so only simulated fights put it in the set.": "Simulato: uno di questi potenziamenti non ha ancora partite reali, quindi solo gli scontri simulati lo hanno messo nel set.",
+ "Boots before the 1st item": "Stivali prima del 1° oggetto",
+ "Boots after the 1st item": "Stivali dopo il 1° oggetto",
+ "Boots after the 2nd item": "Stivali dopo il 2° oggetto",
+ "Boots after the 3rd item": "Stivali dopo il 3° oggetto",
+ "Boots are shown where to buy them.": "Gli stivali sono mostrati dove comprarli.",
+ "Core builds show the boots where the Simulator says to buy them: the first point where they add as much per gold as the next item.": "Le build principali mostrano gli stivali dove il Simulatore consiglia di comprarli: il primo punto in cui rendono per oro quanto l'oggetto successivo."
 }
