@@ -112,6 +112,9 @@ select:hover { border-color: var(--muted); }
 .chef-archive .eyebrow { margin: 0 4px 0 0; }
 .chef-archive button, .chef-archive select { font: inherit; }
 .chef-archive select { max-width: 100%; min-width: 0; flex: 1 1 220px; }
+/* Earlier / Later: ghost buttons that match the day picker beside them. */
+.chef-archive button { display: inline-flex; align-items: center; height: 36px; padding: 0 14px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); color: var(--fg); font-size: 13.5px; font-weight: 500; white-space: nowrap; cursor: pointer; transition: border-color 0.15s, background 0.15s, color 0.15s; }
+.chef-archive button:hover:not(:disabled) { border-color: var(--gold-line); background: var(--a-soft); color: var(--gold-ink); }
 .chef-archive button:disabled { opacity: 0.45; cursor: default; }
 .chef-head a, a.chef-chip { color: var(--gold-ink); }
 a.chef-chip { text-decoration: none; }
