@@ -735,8 +735,14 @@ def helper(mi, monkeypatch, tmp_path):
     monkeypatch.setattr(mi, "log", lambda m: None)
     out = tmp_path / "archive.json"
     out.write_text(json.dumps({"puuid": ME, "games": []}))
-    threading.Thread(target=mi.serve, args=(str(out), port), kwargs={"open_browser": False, "record_live": False},
-                     daemon=True).start()
+    died = []
+
+    def run_helper():
+        try:
+            mi.serve(str(out), port, open_browser=False, record_live=False)
+        except BaseException as e:  # show why the helper never started, instead of only "connection refused"
+            died.append(repr(e))
+    threading.Thread(target=run_helper, daemon=True).start()
     import http.client
     import time as _t
     for _ in range(500):  # up to ~10 s: a busy CI runner can be slow to start the server thread
@@ -746,7 +752,7 @@ def helper(mi, monkeypatch, tmp_path):
         except OSError:
             _t.sleep(0.02)
     else:
-        raise RuntimeError("helper did not start listening")
+        raise RuntimeError(f"helper did not start listening: {died}")
 
     def call(method, path, headers=None):
         c = http.client.HTTPConnection("127.0.0.1", port, timeout=5)
