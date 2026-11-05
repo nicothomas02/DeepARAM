@@ -124,5 +124,8 @@
  "Your settings, like motion, sound and page detail, follow you to every browser you sign in on.": "Ваши настройки, например анимация, звук и детализация страниц, переносятся во все браузеры, где вы вошли.",
  "Your name and icon": "Ваше имя и значок",
  "Pick a display name and a champion icon for your account.": "Выберите отображаемое имя и значок чемпиона для аккаунта.",
- "Free, and you never need your Riot password.": "Бесплатно, и пароль от Riot никогда не нужен."
+ "Free, and you never need your Riot password.": "Бесплатно, и пароль от Riot никогда не нужен.",
+ "Most played": "Самый частый",
+ "Most played picks your most played champion from the games saved to your account, and changes when that does.": "«Самый частый» выбирает чемпиона, за которого вы больше всего играли в сохранённых в аккаунте играх, и меняется вместе с ним.",
+ "Most played picks your most played champion once games are saved to your account.": "«Самый частый» выбирает чемпиона, за которого вы больше всего играли, как только в аккаунте появятся сохранённые игры."
 }

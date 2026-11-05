@@ -4884,6 +4884,7 @@ th > button[data-tip] {
 .acct-icon-grid button { display: grid; place-items: center; min-height: 44px; padding: 2px; border: 2px solid transparent; border-radius: 8px; background: none; color: inherit; font-size: 0.7rem; cursor: pointer; }
 .acct-icon-grid button img { border-radius: 6px; }
 .acct-icon-grid button.picked { border-color: var(--accent); }
+.acct-icon-grid button.wide { grid-column: span 2; display: flex; justify-content: center; gap: 0.3rem; }
 .acct-list { display: grid; gap: 0.35rem; padding: 0; list-style: none; }
 .acct-list li {
   display: flex;
