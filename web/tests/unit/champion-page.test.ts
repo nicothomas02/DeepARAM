@@ -1,19 +1,35 @@
 import { describe, expect, it } from "vitest";
-import { championPage, scoreRows } from "@/lib/champion-page";
+import { buildOrder, championPage, scoreRows } from "@/lib/champion-page";
 import { itemTier } from "@/lib/items";
 import { championAugmentStages } from "@/lib/estimates";
 
-// Champion page builds: the core shows its boots, then the 4th, 5th and 6th item options.
+// Champion page builds: the core shows its boots where they're bought, then the 4th, 5th and 6th item options.
 describe("champion page core build", () => {
   const p = championPage("Annie")!;
 
-  it("puts boots in front of every core build", () => {
+  it("puts boots in every core build at their simulated buy step", () => {
     expect(p.core.length).toBeGreaterThan(0);
     for (const r of p.core) {
       expect(r.boots).toBeDefined();
       expect(itemTier(r.boots!)).toBe("boots");
       expect(p.itemInfo[r.boots!]?.name).toBeTruthy();
+      expect(r.bootsAt).toBeGreaterThanOrEqual(0);
+      expect(r.bootsAt).toBeLessThanOrEqual(r.items.length);
+      const order = buildOrder(r);
+      expect(order).toHaveLength(r.items.length + 1);
+      expect(order[r.bootsAt!]).toBe(r.boots);
+      expect(order.filter((i) => i !== r.boots)).toEqual(r.items);
     }
+    // Not every core starts with boots any more.
+    expect(p.core.some((r) => r.bootsAt! > 0)).toBe(true);
+  });
+
+  it("orders a row without boots or timing as before", () => {
+    const r = { items: [1, 2, 3], winRate: 0.5, pickRate: 0.1, lift: 0 };
+    expect(buildOrder(r)).toEqual([1, 2, 3]);
+    expect(buildOrder({ ...r, boots: 9 })).toEqual([9, 1, 2, 3]);
+    expect(buildOrder({ ...r, boots: 9, bootsAt: 2 })).toEqual([1, 2, 9, 3]);
+    expect(buildOrder({ ...r, boots: 9, bootsAt: 3 })).toEqual([1, 2, 3, 9]);
   });
 
   it("offers legendary options for slots 4, 5 and 6 that skip the core and earlier top picks", () => {

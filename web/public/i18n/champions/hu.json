@@ -182,5 +182,11 @@
  "Weapon of Destiny": "A Végzet fegyvere",
  "Pentakill": "Pentakill",
  "Simulated": "Szimulált",
- "Simulated: one of these augments has no real games yet, so only simulated fights put it in the set.": "Szimulált: az egyik fejlesztésnek még nincsenek valódi játékai, így csak a szimulált harcok tették a sorba."
+ "Simulated: one of these augments has no real games yet, so only simulated fights put it in the set.": "Szimulált: az egyik fejlesztésnek még nincsenek valódi játékai, így csak a szimulált harcok tették a sorba.",
+ "Boots before the 1st item": "Csizma az 1. tárgy előtt",
+ "Boots after the 1st item": "Csizma az 1. tárgy után",
+ "Boots after the 2nd item": "Csizma a 2. tárgy után",
+ "Boots after the 3rd item": "Csizma a 3. tárgy után",
+ "Boots are shown where to buy them.": "A csizma ott látható, ahol meg kell venni.",
+ "Core builds show the boots where the Simulator says to buy them: the first point where they add as much per gold as the next item.": "Az alap buildek ott mutatják a csizmát, ahol a Szimulátor szerint meg kell venni: az első ponton, ahol aranyonként annyit ad, mint a következő tárgy."
 }

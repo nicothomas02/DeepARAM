@@ -1,297 +1,297 @@
 {
-  "id": "cassiopeia-drive-by-serpent",
-  "title": "The Drive-By Serpent",
-  "champion": "Cassiopeia",
-  "champion_name": "Cassiopeia",
-  "chef": "2026-11-03",
-  "why": "Cassiopeia's passive, Serpentine Grace, quietly makes every Move Speed bonus bigger on her, and Twin Fang is a 0.75-second cooldown spell she casts nonstop. With Quickstep rolled on Twin Fang, every cast now dashes her toward her cursor, so she lunges at whoever she is biting every 0.75 seconds; Shadow Runner hands out 300 Move Speed after each dash, which her passive inflates and which never expires because the next dash arrives before the 2 seconds are up. Don't Blink turns that speed lead into 1% bonus damage per 10 Move Speed over the target, and her own Miasma slow and ground plus Petrifying Gaze's slow widen the gap, while Earthwake makes every dash leave a trail that detonates after 0.75 seconds, exactly as the next Twin Fang comes off cooldown. Rylai's slows the target on every fang so the gap grows further, and Cosmic Drive, Lich Bane, Stormsurge, Dead Man's Plate and Force of Nature all carry percent Move Speed that her passive multiplies, with Dead Man's Plate blunting slows and Force of Nature keeping her alive in melee. The stationary poison artillery mage becomes a hyper-mobile drifter who runs rings around the enemy, mining the ground behind her with every bite.",
-  "play": "Poison with Q or W, then hold E and let Quickstep drag you through the target so each dash lays an Earthwake trail and refreshes Shadow Runner. Save R to stun or slow anyone who tries to match your speed.",
+  "id": "azir-melee-by-proxy",
+  "title": "Melee By Proxy",
+  "champion": "Azir",
+  "champion_name": "Azir",
+  "chef": "2026-11-04",
+  "why": "Azir never swings his own weapon: Arise! says that when he Attacks an enemy near a Sand Soldier, the soldiers stab instead and deal magic damage in a line, so his real reach is wherever his soldiers are standing. Draw Your Sword makes him melee and pays out Attack Damage, Health, Attack Speed, Lifesteal and Move Speed that grow with every point of Attack Range lost, and Azir gives up a huge chunk of range on paper while giving up none in practice, because the soldiers keep stabbing from their own range. Tickle Monster converts all that Attack Damage, which his soldiers never used anyway, into Attack Speed and adds magic damage On-Hit, and Ethereal Weapon makes his Abilities apply On-Hit effects, so every soldier stab carries Tickle Monster plus Nashor's Tooth, Guinsoo's Rageblade, Wit's End, Blade of The Ruined King and Terminus down the whole line. Master of Duality closes the loop: soldier stabs are Ability damage, so they grant Attack Damage, which Tickle Monster turns into more Attack Speed, which means more stabs, which means more Attack Damage. The ranged control mage becomes a melee on-hit bruiser who collects every melee bonus without ever standing within sword's reach of anyone.",
+  "play": "Drop a soldier between you and the target, right-click, and let the soldiers do the on-hit work; use Shifting Sands only to reposition onto a soldier, never to go in yourself. Your own sword does nothing, so never fight where a soldier isn't.",
   "items": [
-    "Rylai's Crystal Scepter",
-    "Cosmic Drive",
-    "Lich Bane",
-    "Stormsurge",
-    "Dead Man's Plate",
-    "Force of Nature"
+    "Berserker's Greaves",
+    "Nashor's Tooth",
+    "Guinsoo's Rageblade",
+    "Wit's End",
+    "Blade of The Ruined King",
+    "Terminus"
   ],
   "core": 4,
-  "champion_icon": "/embed/fun/cook-builds/icons/champions/69.png",
+  "champion_icon": "/embed/fun/cook-builds/icons/champions/268.png",
   "augments": [
     {
-      "name": "Quickstep",
-      "rarity": "Gold",
-      "core": true,
-      "text": "When you use the chosen ability, dash towards your cursor.",
-      "icon": "/embed/fun/cook-builds/icons/augments/quickstep.png",
-      "id": 2064
-    },
-    {
-      "name": "Shadow Runner",
-      "rarity": "Silver",
-      "core": true,
-      "text": "After using a Dash, Blink, or Teleport Ability or exiting Stealth, gain 300 Movement Speed for 2 seconds.",
-      "icon": "/embed/fun/cook-builds/icons/augments/shadow-runner.png",
-      "id": 1073
-    },
-    {
-      "name": "Don't Blink",
-      "rarity": "Silver",
-      "core": true,
-      "text": "Gain 1% bonus damage per 10 Movement Speed more you have than the target.",
-      "icon": "/embed/fun/cook-builds/icons/augments/don-t-blink.png",
-      "id": 1026
-    },
-    {
-      "name": "Earthwake",
+      "name": "Draw Your Sword",
       "rarity": "Prismatic",
       "core": true,
-      "text": "Your dash, blink, or teleport Abilities leave behind a trail that detonates after 0.75 second.",
-      "icon": "/embed/fun/cook-builds/icons/augments/earthwake.png",
-      "id": 1027
+      "text": "You are now melee. Gain 24% Attack Damage, 24% Health, 20% Attack Speed, 20% Lifesteal, and 20% Move Speed (each further increased based on Attack Range lost).",
+      "icon": "/embed/fun/cook-builds/icons/augments/draw-your-sword.png",
+      "id": 1134
+    },
+    {
+      "name": "Tickle Monster",
+      "rarity": "Gold",
+      "core": true,
+      "text": "Attack Damage is convertedinto Attack Speed. Attacks deal bonus magic damage On-Hit.",
+      "icon": "/embed/fun/cook-builds/icons/augments/tickle-monster.png",
+      "id": 3058
+    },
+    {
+      "name": "Ethereal Weapon",
+      "rarity": "Gold",
+      "core": true,
+      "text": "Your Abilities apply On-Hit effects. 1 second Cooldown per target.",
+      "icon": "/embed/fun/cook-builds/icons/augments/ethereal-weapon.png",
+      "id": 1029
+    },
+    {
+      "name": "Master of Duality",
+      "rarity": "Prismatic",
+      "core": true,
+      "text": "Your Attacks grant you stacking Ability Power and your Abilities that damage enemies grant you Attack Damage.",
+      "icon": "/embed/fun/cook-builds/icons/augments/master-of-duality.png",
+      "id": 1054
     }
   ],
   "href": "/kitchen#chefs-special",
   "archive_href": "/kitchen#chef-archive",
-  "share_href": "/kitchen/2026-11-03",
-  "share_image": "/embed/fun/cook-builds/share/cassiopeia-drive-by-serpent.png",
+  "share_href": "/kitchen/2026-11-04",
+  "share_image": "/embed/fun/cook-builds/share/azir-melee-by-proxy.png",
   "item_ids": [
-    3116,
-    4629,
-    3100,
-    4646,
-    3742,
-    4401
+    3006,
+    3115,
+    3124,
+    3091,
+    3153,
+    3302
   ],
   "i18n": {
     "ar": {
-      "title": "الأفعى العابرة",
-      "why": "تجعل المهارة السلبية لـكاسيوبيا كل مكافأة لسرعة الحركة أقوى عليها بهدوء، ومهارة E لديها تعويذة بفترة تهدئة 0.75 ثانية تلقيها بلا توقف. مع الخطوة السريعة على E، كل استخدام يجعلها تندفع نحو المؤشر، فتنقض على من تعضه كل 0.75 ثانية؛ ويمنحها عدَّاء الظلال 300 سرعة حركة بعد كل اندفاع، تضخمها مهارتها السلبية أكثر، ولا تنتهي أبدًا لأن الاندفاع التالي يأتي قبل انقضاء الثانيتين. يحوّل لا ترمش هذا التفوق إلى 1% ضرر إضافي لكل 10 سرعة حركة تزيد بها عن الهدف، ويوسّع إبطاء W وتثبيتها على الأرض وإبطاء R الفارق، بينما تجعل صحوة الأرض كل اندفاع يترك أثرًا ينفجر بعد 0.75 ثانية، تمامًا حين تعود E التالية. يبطئ صولجان كريستال رايلاي الهدف مع كل عضة ليتسع الفارق أكثر، ويمنح الحافز الكوني وعفونة الموتى والمد العاصف ودرع صدر الرجل الميت وقوة الطبيعة جميعها سرعة حركة بالنسبة المئوية تضاعفها مهارتها السلبية، مع تخفيف درع صدر الرجل الميت للإبطاء وإبقاء قوة الطبيعة لها حية في القتال القريب. تتحول الساحرة المدفعية السامة الثابتة إلى متزلجة فائقة الحركة تدور حول العدو وتزرع الألغام في الأرض خلفها مع كل عضة.",
-      "play": "سمّم بـQ أو W، ثم كرّر E ودع الخطوة السريعة تسحبك عبر الهدف لكي يترك كل اندفاع أثر صحوة الأرض ويجدد عدَّاء الظلال. احتفظ بـR لصعق أو إبطاء أي شخص يحاول مجاراة سرعتك.",
+      "title": "مقاتل بالوكالة",
+      "why": "أزير لا يلوّح بسلاحه أبدًا: عندما يهاجم عدوًا قرب جندي رمال، تطعن الجنود بدلًا منه وتوجّه ضررًا سحريًا في خط مستقيم، فمداه الحقيقي هو أي مكان يقف فيه جنوده. استلَّ سيفك تجعله مقاتلًا قريب المدى وتمنحه قوة هجوم وصحة وسرعة هجوم وسرقة حياة وسرعة حركة تزداد مع كل نقطة من مدى الهجوم يفقدها، فيتخلى أزير عن جزء ضخم من مداه على الورق دون أن يخسر شيئًا فعليًا، لأن الجنود يواصلون الطعن من مداهم. وحش الدغدغة يحوّل كل قوة الهجوم هذه، التي لم يستخدمها جنوده أصلًا، إلى سرعة هجوم ويضيف ضررًا سحريًا عند الضرب، والسلاح الأثيري يجعل قدراته تطبّق تأثيرات عند الضرب، فتحمل كل طعنة من الجنود وحش الدغدغة مع سن ناشور ونصل غضب غينسو والموقف الحرج ونصل الملك المحطَم ومحطة النهاية على امتداد الخط كله. أستاذ الازدواجية يُكمل الحلقة: طعنات الجنود ضرر قدرات، فتمنح قوة هجوم، ووحش الدغدغة يحوّلها إلى سرعة هجوم أكثر، أي طعنات أكثر، أي قوة هجوم أكثر. الساحر البعيد المدى يصير مقاتلًا قريب المدى يعتمد على الضرب، يجمع كل مكافآت القتال القريب دون أن يقف على بعد سيف من أي أحد.",
+      "play": "ضع جنديًا بين نفسك والهدف، انقر بالزر الأيمن، ودع الجنود يتولون ضرر الضرب؛ استخدم E فقط لتغيير موقعك إلى جندي، ولا تدخل به بنفسك أبدًا. سيفك الخاص لا يفعل شيئًا، فلا تقاتل أبدًا حيث لا يوجد جندي.",
       "augments": [
-        "عند استخدام القدرة المختارة، تندفع نحو المؤشر.",
-        "بعد استخدام قدرة اندفاع أو انتقال خاطف أو انتقال آني أو الخروج من التخفي، تحصل على 300 سرعة حركة لمدة ثانيتين.",
-        "تكتسب 1% ضررًا إضافيًا عن كل 10 سرعة حركة تزيد بها على الهدف.",
-        "تترك قدرات الاندفاع أو الانتقال الخاطف أو الانتقال الآني أثرًا ينفجر بعد 0.75 ثانية."
+        "أصبحت الآن مقاتلًا قريب المدى. تكتسب 24% قوة هجوم و24% صحة و20% سرعة هجوم و20% سرقة حياة و20% سرعة حركة (وتزداد كلها بحسب مدى الهجوم المفقود).",
+        "تتحول قوة الهجوم إلى سرعة هجوم. تُلحق الهجمات ضررًا سحريًا إضافيًا عند الضرب.",
+        "تطبّق مهاراتك تأثيرات الإصابة. فترة تهدئة ثانية واحدة لكل هدف.",
+        "تمنحك هجماتك قوة قدرات متراكمة، وتمنحك قدراتك التي تضر الأعداء قوة هجوم."
       ]
     },
     "cs": {
-      "title": "Had z projížďky",
-      "why": "Cassiopeiina pasivka nenápadně zesiluje každý bonus k rychlosti pohybu, a její E je kouzlo s přebíjením 0,75 sekundy, které sesílá pořád dokola. S Úkrokem na E ji každé seslání vrhne ke kurzoru, takže se každých 0,75 sekundy vrhne na cíl, který kouše; Nepolapitelný stín dá po každém výpadu 300 rychlosti pohybu, kterou pasivka ještě nafoukne a která nikdy nevyprší, protože další výpad přijde dřív než za 2 sekundy. Nemrkej z toho náskoku udělá 1 % bonusového poškození za každých 10 rychlosti pohybu navíc oproti cíli, zpomalení a uzemnění z W a zpomalení z R rozdíl zvětšují, a Výbušná brázda nechá za každým výpadem stopu, která po 0,75 sekundy vybuchne, přesně když se vrátí další E. Rylaino křišťálové žezlo zpomalí cíl při každém kousnutí, a Kosmický pohon, Zhouba lichů, Nával bouře, Kyrys mrtvého muže a Síla přírody dávají procentuální rychlost pohybu, kterou pasivka násobí; Kyrys mrtvého muže tlumí zpomalení a Síla přírody ji drží naživu na blízko. Statická jedovatá dělostřelkyně se mění v hypermobilní driftařku, která krouží kolem nepřítele a s každým kousnutím za sebou minuje zem.",
-      "play": "Otrav cíl přes Q nebo W, pak spamuj E a nech Úkrok, ať tě táhne skrz cíl, aby každý výpad položil Výbušnou brázdu a obnovil Nepolapitelný stín. R si nech na omráčení nebo zpomalení každého, kdo se snaží držet tvé tempo.",
+      "title": "Zblízka v zastoupení",
+      "why": "Azir nikdy nemáchá vlastní zbraní: když zaútočí na nepřítele poblíž Písečného vojáka, vojáci bodnou místo něj a v přímce uštědří magické poškození, takže jeho skutečný dosah je všude tam, kde stojí jeho vojáci. Tas meč z něj udělá bojovníka na blízko a dá mu sílu útoku, zdraví, rychlost útoku, vysávání života a rychlost pohybu, které rostou s každým bodem ztraceného dosahu útoku. Azir tak na papíře přijde o obrovský kus dosahu, ale v praxi o nic, protože vojáci bodají dál ze svého dosahu. Lechtavá příšera mění veškerou sílu útoku, kterou jeho vojáci stejně nikdy nepoužili, na rychlost útoku a přidává magické poškození při zásahu, Éterická zbraň zajistí, že jeho schopnosti aplikují efekty při zásahu, a každé bodnutí vojáka tak nese Lechtavou příšeru plus Nashorův tesák, Guinsoovu zuřivou čepel, Nouzovou, Čepel Padlého krále a Terminus po celé délce přímky. Vládce duality uzavírá kruh: bodnutí vojáků je poškození schopnostmi, takže dává sílu útoku, kterou Lechtavá příšera mění na další rychlost útoku, což znamená další bodnutí, a tedy další sílu útoku. Z kontrolního mága na dálku se stane bruiser na blízko postavený na zásazích, který sbírá všechny bonusy pro boj zblízka, aniž by se kdy dostal na dosah meče kohokoli.",
+      "play": "Hoď vojáka mezi sebe a cíl, klikni pravým tlačítkem a nech vojáky odvést práci při zásahu; E používej jen na přesun k vojákovi, nikdy ne k vlastnímu vstupu do boje. Tvůj vlastní meč nedělá nic, takže nikdy nebojuj tam, kde nestojí voják.",
       "augments": [
-        "Když použiješ zvolenou schopnost, vyrazíš směrem ke kurzoru.",
-        "Po použití schopnosti s výpadem, přesunem nebo teleportem nebo po opuštění neviditelnosti získáš na 2 sekundy 300 rychlosti pohybu.",
-        "Získáš 1 % bonusového poškození za každých 10 rychlosti pohybu, které máš navíc oproti cíli.",
-        "Tvé schopnosti s výpadem, přesunem nebo teleportem za sebou nechají stopu, která po 0,75 sekundy vybuchne."
+        "Teď jsi bojovník na blízko. Získáš 24 % síly útoku, 24 % zdraví, 20 % rychlosti útoku, 20 % vysávání života a 20 % rychlosti pohybu (každé se dál zvyšuje podle ztraceného dosahu útoku).",
+        "Síla útoku se mění na rychlost útoku. Útoky způsobují bonusové magické poškození při zásahu.",
+        "Tvé schopnosti aktivují efekty při zásahu. Přebíjecí doba 1 s pro každý cíl.",
+        "Tvé útoky ti dávají stackující sílu schopností a tvé schopnosti, které poškozují nepřátele, ti dávají sílu útoku."
       ]
     },
     "de": {
-      "title": "Die Drive-by-Schlange",
-      "why": "Cassiopeias Passive macht leise jeden Lauftempo-Bonus auf ihr stärker, und ihr E ist ein Zauber mit 0,75 Sekunden Abklingzeit, den sie pausenlos wirkt. Mit Schneller Schritt auf ihrem E sprintet sie bei jedem Wirken Richtung Cursor, also springt sie alle 0,75 Sekunden auf das Ziel, das sie gerade beißt; Schattenläufer gibt nach jedem Sprint 300 Lauftempo, das ihre Passive weiter aufbläht und das nie ausläuft, weil der nächste Sprint vor Ablauf der 2 Sekunden kommt. Nicht blinzeln macht aus diesem Tempovorsprung 1 % Bonusschaden pro 10 Lauftempo über dem Ziel, die Verlangsamung und das Festsetzen ihres W plus die Verlangsamung ihres R vergrößern die Lücke, und Erdschneise lässt hinter jedem Sprint eine Spur zurück, die nach 0,75 Sekunden explodiert, genau wenn das nächste E bereit ist. Rylais Kristallzepter verlangsamt das Ziel bei jedem Biss, damit die Lücke noch wächst, und Kosmischer Antrieb, Fluch des Lichs, Sturmblitz, Panzer des toten Mannes und Naturgewalt bringen alle prozentuales Lauftempo, das ihre Passive vervielfacht, wobei Panzer des toten Mannes Verlangsamungen abschwächt und Naturgewalt sie im Nahkampf am Leben hält. Die stationäre Gift-Artilleriemagierin wird zur hypermobilen Driftkönigin, die Kreise um den Gegner läuft und den Boden hinter sich mit jedem Biss vermint.",
-      "play": "Vergifte mit Q oder W, dann spamme E und lass dich von Schneller Schritt durchs Ziel ziehen, damit jeder Sprint eine Erdschneise legt und Schattenläufer auffrischt. Heb dir R auf, um jeden zu betäuben oder zu verlangsamen, der mit deinem Tempo mithalten will.",
+      "title": "Nahkampf per Stellvertreter",
+      "why": "Azir schwingt nie selbst seine Waffe: Wenn er einen Gegner in der Nähe eines Sandsoldaten angreift, stechen stattdessen die Soldaten zu und verursachen in einer Linie magischen Schaden, seine echte Reichweite ist also dort, wo seine Soldaten stehen. Zieh dein Schwert macht ihn zum Nahkämpfer und gibt ihm Angriffsschaden, Leben, Angriffstempo, Lebensraub und Lauftempo, die mit jedem verlorenen Punkt Angriffsreichweite wachsen. Auf dem Papier gibt Azir einen riesigen Batzen Reichweite auf, in der Praxis aber keine, weil die Soldaten weiter aus ihrer eigenen Reichweite zustechen. Kitzelmonster verwandelt den ganzen Angriffsschaden, den seine Soldaten sowieso nie genutzt haben, in Angriffstempo und fügt magischen Schaden bei Treffer hinzu, und Ätherische Waffe lässt seine Fähigkeiten Effekte bei Treffer auslösen, sodass jeder Soldatenstich Kitzelmonster plus Nashors Zahn, Guinsoos Wutklinge, Ende der Weisheit, Klinge des gestürzten Königs und Terminus die ganze Linie entlang trägt. Meister der Dualität schließt den Kreis: Soldatenstiche sind Fähigkeitsschaden, also geben sie Angriffsschaden, den Kitzelmonster in mehr Angriffstempo verwandelt, was mehr Stiche bedeutet, also mehr Angriffsschaden. Der Fernkampf-Kontrollmagier wird zum Nahkampf-Bruiser mit On-Hit-Fokus, der jeden Nahkampfbonus abgreift, ohne je in Schwertreichweite von irgendwem zu stehen.",
+      "play": "Setz einen Soldaten zwischen dich und das Ziel, klick rechts und lass die Soldaten die On-Hit-Arbeit machen; nutz E nur, um dich zu einem Soldaten zu versetzen, nie um selbst reinzugehen. Dein eigenes Schwert tut nichts, also kämpf nie dort, wo kein Soldat steht.",
       "augments": [
-        "Wenn du die gewählte Fähigkeit einsetzt, sprintest du in Richtung deines Cursors.",
-        "Nachdem du eine Sprint-, Blink- oder Teleport-Fähigkeit eingesetzt oder die Tarnung verlassen hast, erhältst du 2 Sekunden lang 300 Lauftempo.",
-        "Erhalte 1 % zusätzlichen Schaden pro 10 Lauftempo, die du mehr hast als das Ziel.",
-        "Deine Sprint-, Blink- oder Teleport-Fähigkeiten hinterlassen eine Spur, die nach 0,75 Sekunden explodiert."
+        "Du bist jetzt ein Nahkämpfer. Erhalte 24 % Angriffsschaden, 24 % Leben, 20 % Angriffstempo, 20 % Lebensraub und 20 % Lauftempo (jeweils zusätzlich erhöht je nach verlorener Angriffsreichweite).",
+        "Angriffsschaden wird in Angriffstempo umgewandelt. Angriffe verursachen bei Treffer zusätzlichen magischen Schaden.",
+        "Deine Fähigkeiten lösen Treffereffekte aus. 1 Sekunde Abklingzeit pro Ziel.",
+        "Deine Angriffe gewähren dir stapelnde Fähigkeitsstärke und deine Fähigkeiten, die Gegnern Schaden zufügen, gewähren dir Angriffsschaden."
       ]
     },
     "el": {
-      "title": "Το φίδι του περάσματος",
-      "why": "Η παθητική της Κασσιόπης κάνει αθόρυβα κάθε μπόνους Ταχύτητας Κίνησης πιο δυνατό πάνω της, και το E της είναι ξόρκι με χρόνο επαναφόρτισης 0,75 δευτερολέπτων που το ρίχνει ασταμάτητα. Με τα Γρήγορα Βήματα στο E, κάθε χρήση την εκτοξεύει προς τον κέρσορα, οπότε ορμάει σε όποιον δαγκώνει κάθε 0,75 δευτερόλεπτα· ο Δρομέας της Σκιάς δίνει 300 Ταχύτητα Κίνησης μετά από κάθε εφόρμηση, που η παθητική της φουσκώνει κι άλλο και που δεν λήγει ποτέ, αφού η επόμενη εφόρμηση έρχεται πριν περάσουν τα 2 δευτερόλεπτα. Το Μην Κλείνεις τα Μάτια μετατρέπει αυτό το προβάδισμα σε 1% επιπλέον ζημιά ανά 10 Ταχύτητα Κίνησης πάνω από τον στόχο, η επιβράδυνση και η καθήλωση του W και η επιβράδυνση του R μεγαλώνουν τη διαφορά, και ο Σεισμός κάνει κάθε εφόρμηση να αφήνει ίχνος που εκρήγνυται μετά από 0,75 δευτερόλεπτα, ακριβώς όταν επιστρέφει το επόμενο E. Το Κρυστάλλινο Σκήπτρο της Ριλάι επιβραδύνει τον στόχο σε κάθε δάγκωμα, και τα Κοσμική Ενέργεια, Όλεθρος των Απέθαντων, Ξέσπασμα Καταιγίδας, Θώρακας του Νεκρού και Δύναμη της Φύσης δίνουν όλα ποσοστιαία Ταχύτητα Κίνησης που η παθητική της πολλαπλασιάζει· ο Θώρακας του Νεκρού μειώνει τις επιβραδύνσεις και η Δύναμη της Φύσης την κρατά ζωντανή στο σώμα με σώμα. Η ακίνητη δηλητηριώδης μάγισσα-πυροβολικό γίνεται υπερκινητική drifter που κάνει κύκλους γύρω από τον εχθρό και ναρκοθετεί το έδαφος πίσω της με κάθε δάγκωμα.",
-      "play": "Δηλητηρίασε με Q ή W, μετά πάτα συνέχεια E και άσε τα Γρήγορα Βήματα να σε σέρνουν μέσα από τον στόχο, ώστε κάθε εφόρμηση να αφήνει Σεισμό και να ανανεώνει τον Δρομέα της Σκιάς. Κράτα το R για να ζαλίσεις ή να επιβραδύνεις όποιον προσπαθεί να σε προλάβει.",
+      "title": "Σώμα με σώμα δι' αντιπροσώπου",
+      "why": "Ο Άζιρ δεν κουνάει ποτέ το δικό του όπλο: όταν επιτίθεται σε έναν εχθρό κοντά σε έναν Στρατιώτη της Άμμου, οι στρατιώτες μαχαιρώνουν στη θέση του και προκαλούν μαγική ζημιά σε ευθεία γραμμή, οπότε η πραγματική εμβέλειά του είναι εκεί που στέκονται οι στρατιώτες του. Το Τράβα Το Σπαθί Σου τον κάνει μάχιμο εκ του σύνεγγυς και του δίνει Ζημιά Επίθεσης, Ζωή, Ταχύτητα Επίθεσης, Κλοπή Ζωής και Ταχύτητα Κίνησης που αυξάνονται με κάθε μονάδα Εμβέλειας Επίθεσης που χάνει. Ο Άζιρ στα χαρτιά χάνει τεράστιο κομμάτι εμβέλειας, ενώ στην πράξη δεν χάνει τίποτα, γιατί οι στρατιώτες συνεχίζουν να μαχαιρώνουν από τη δική τους εμβέλεια. Ο Γαργαλοτέρας μετατρέπει όλη αυτή τη Ζημιά Επίθεσης, που οι στρατιώτες του δεν χρησιμοποιούσαν ποτέ, σε Ταχύτητα Επίθεσης και προσθέτει μαγική ζημιά On-Hit, και το Αιθέριο Όπλο κάνει τις ικανότητές του να εφαρμόζουν εφέ On-Hit, οπότε κάθε μαχαιριά στρατιώτη κουβαλά τον Γαργαλοτέρα μαζί με το Δόντι του Νάσορ, το Οργισμένο Σπαθί του Γκουίνσου, το Παρανοϊκό Ξίφος, τη Λεπίδα του Έκπτωτου Βασιλιά και το Τέρμινους σε όλη τη γραμμή. Ο Δάσκαλος της Διττότητας κλείνει τον κύκλο: οι μαχαιριές των στρατιωτών είναι ζημιά ικανοτήτων, άρα δίνουν Ζημιά Επίθεσης, που ο Γαργαλοτέρας μετατρέπει σε περισσότερη Ταχύτητα Επίθεσης, που σημαίνει περισσότερες μαχαιριές, άρα περισσότερη Ζημιά Επίθεσης. Ο μάγος ελέγχου από απόσταση γίνεται bruiser εκ του σύνεγγυς με βάση το On-Hit, που μαζεύει κάθε μπόνους του σώμα με σώμα χωρίς να σταθεί ποτέ σε απόσταση σπαθιού από κανέναν.",
+      "play": "Ρίξε έναν στρατιώτη ανάμεσα σε σένα και τον στόχο, κάνε δεξί κλικ και άσε τους στρατιώτες να κάνουν τη δουλειά του On-Hit· χρησιμοποίησε το E μόνο για να μεταφερθείς σε έναν στρατιώτη, ποτέ για να μπεις εσύ μέσα. Το δικό σου σπαθί δεν κάνει τίποτα, οπότε μην πολεμάς ποτέ εκεί που δεν υπάρχει στρατιώτης.",
       "augments": [
-        "Όταν χρησιμοποιείς την επιλεγμένη ικανότητα, εφορμάς προς τον κέρσορα.",
-        "Αφού χρησιμοποιήσεις ικανότητα Εφόρμησης, Αστραπιαίας Μετακίνησης ή Τηλεμεταφοράς ή βγεις από την Αφάνεια, κερδίζεις 300 Ταχύτητα Κίνησης για 2 δευτερόλεπτα.",
-        "Αποκτάς 1% επιπλέον ζημιά για κάθε 10 ταχύτητα κίνησης που έχεις παραπάνω από τον στόχο.",
-        "Οι ικανότητες εφόρμησης, αστραπιαίας μετακίνησης ή τηλεμεταφοράς σου αφήνουν ίχνος που εκρήγνυται μετά από 0,75 δευτερόλεπτα."
+        "Είσαι πλέον μάχιμος εκ του σύνεγγυς. Κερδίζεις 24% Ζημιά Επίθεσης, 24% Ζωή, 20% Ταχύτητα Επίθεσης, 20% Κλοπή Ζωής και 20% Ταχύτητα Κίνησης (το καθένα αυξάνεται περαιτέρω ανάλογα με την Εμβέλεια Επίθεσης που χάνεται).",
+        "Η Ζημιά Επίθεσης μετατρέπεται σε Ταχύτητα Επίθεσης. Οι επιθέσεις προκαλούν επιπλέον μαγική ζημιά On-Hit.",
+        "Οι Ικανότητές σου εφαρμόζουν εφέ χτυπήματος. 1 δευτερόλεπτο επαναφόρτιση ανά στόχο.",
+        "Οι επιθέσεις σου σού δίνουν Δύναμη Ικανοτήτων που στοιβάζεται και οι ικανότητές σου που προκαλούν ζημιά σε εχθρούς σού δίνουν Ζημιά Επίθεσης."
       ]
     },
     "es-MX": {
-      "title": "La serpiente de paso",
-      "why": "La pasiva de Cassiopeia hace sin que nadie lo note que cada bonificación de Velocidad de movimiento rinda más en ella, y su E es un hechizo con 0.75 segundos de enfriamiento que lanza sin parar. Con Paso Veloz en su E, cada lanzamiento la impulsa hacia el cursor, así que se abalanza sobre su objetivo cada 0.75 segundos; Movimiento Sombrío da 300 de Velocidad de movimiento después de cada impulso, que su pasiva infla aún más y que nunca se acaba porque el siguiente impulso llega antes de los 2 segundos. No Parpadees convierte esa ventaja en 1% de daño adicional por cada 10 de Velocidad de movimiento que tenga sobre el objetivo, la ralentización y el enraizamiento de su W y la ralentización de su R amplían la diferencia, y Estela Terrestre hace que cada impulso deje un rastro que explota tras 0.75 segundos, justo cuando vuelve su siguiente E. El Cetro de Cristal de Rylai ralentiza al objetivo con cada mordida para ampliar aún más la diferencia, e Impulso Cósmico, Maldición del Liche, Descarga Tormentosa, Placa del Hombre Muerto y Fuerza de la Naturaleza dan porcentaje de velocidad que su pasiva multiplica, con la Placa del Hombre Muerto reduciendo ralentizaciones y Fuerza de la Naturaleza manteniéndola viva cuerpo a cuerpo. La maga artillera venenosa y estática se vuelve una corredora hipermóvil que le da vueltas al enemigo y mina el suelo detrás de ella con cada mordida.",
-      "play": "Envenena con Q o W, luego spamea E y deja que Paso Veloz te arrastre a través del objetivo para que cada impulso deje una Estela Terrestre y renueve Movimiento Sombrío. Guarda la R para aturdir o ralentizar a quien intente seguirte el paso.",
+      "title": "Melé por Poderes",
+      "why": "Azir nunca blande su propia arma: cuando ataca a un enemigo cerca de un Soldado de Arena, los soldados apuñalan en su lugar e infligen daño mágico en línea, así que su alcance real es donde estén parados sus soldados. Desenvaina tu Espada lo vuelve cuerpo a cuerpo y le da Daño de Ataque, Vida, Velocidad de Ataque, Robo de Vida y Velocidad de Movimiento que crecen con cada punto de Alcance de Ataque perdido; en el papel Azir renuncia a un montón de alcance, pero en la práctica no pierde nada, porque los soldados siguen apuñalando desde su propio alcance. Monstruo de las Cosquillas convierte todo ese Daño de Ataque, que sus soldados nunca usaron de todos modos, en Velocidad de Ataque y añade daño mágico Al Impactar, y Arma Etérea hace que sus habilidades apliquen efectos Al Impactar, así que cada puñalada de un soldado lleva Monstruo de las Cosquillas más Diente de Nashor, Espadafuria de Guinsoo, Al Filo de la Cordura, Espada del Rey Arruinado y Terminus a lo largo de toda la línea. Maestro de la Dualidad cierra el círculo: las puñaladas de los soldados son daño de habilidad, así que otorgan Daño de Ataque, que Monstruo de las Cosquillas convierte en más Velocidad de Ataque, lo que significa más puñaladas, lo que significa más Daño de Ataque. El mago de control a distancia se vuelve un bruiser cuerpo a cuerpo de Al Impactar que se lleva todos los bonos de melé sin pararse nunca al alcance de la espada de nadie.",
+      "play": "Suelta un soldado entre tú y el objetivo, haz clic derecho y deja que los soldados hagan el trabajo Al Impactar; usa la E solo para reposicionarte hacia un soldado, nunca para entrar tú. Tu propia espada no hace nada, así que nunca pelees donde no haya un soldado.",
       "augments": [
-        "Al usar la habilidad elegida, te impulsas hacia el cursor.",
-        "Después de usar una habilidad de impulso, traslación o teletransportación o salir del sigilo, obtienes 300 de Velocidad de movimiento durante 2 segundos.",
-        "Obtienes 1% de daño adicional por cada 10 de velocidad de movimiento que tengas por encima del objetivo.",
-        "Tus habilidades de impulso, traslación o teletransportación dejan un rastro que explota después de 0.75 segundos."
+        "Ahora eres cuerpo a cuerpo. Obtienes 24% de Daño de Ataque, 24% de Vida, 20% de Velocidad de Ataque, 20% de Robo de Vida y 20% de Velocidad de Movimiento (cada uno aumenta aún más según el Alcance de Ataque perdido).",
+        "El Daño de Ataque se convierte en Velocidad de Ataque. Los ataques infligen daño mágico adicional Al Impactar.",
+        "Tus habilidades aplican efectos al golpear. 1 segundo de enfriamiento por objetivo.",
+        "Tus ataques te otorgan Poder de Habilidad acumulable y tus habilidades que dañan a los enemigos te otorgan Daño de Ataque."
       ]
     },
     "es": {
-      "title": "La serpiente al paso",
-      "why": "La pasiva de Cassiopeia hace en silencio que cada bonificación de velocidad de movimiento rinda más en ella, y su E es un hechizo con 0,75 segundos de enfriamiento que lanza sin parar. Con Paso veloz en su E, cada lanzamiento la hace avanzar hacia el cursor, así que se lanza sobre su objetivo cada 0,75 segundos; Corredor de la penumbra da 300 de velocidad de movimiento tras cada embestida, que su pasiva infla aún más y que nunca caduca porque la siguiente embestida llega antes de que pasen los 2 segundos. No parpadees convierte esa ventaja en un 1 % de daño adicional por cada 10 de velocidad que tenga sobre el objetivo, la ralentización y el enraizamiento de su W y la ralentización de su R amplían la diferencia, y Terremoto hace que cada embestida deje un rastro que explota tras 0,75 segundos, justo cuando vuelve su siguiente E. El Cetro de cristal de Rylai ralentiza al objetivo con cada mordisco para ampliar más la diferencia, e Impulso cósmico, Perdición del liche, Sobrecarga tormentosa, Coraza del muerto y Fuerza de la naturaleza dan porcentaje de velocidad que su pasiva multiplica, con la Coraza del muerto suavizando ralentizaciones y Fuerza de la naturaleza manteniéndola viva cuerpo a cuerpo. La maga artillera venenosa y estática pasa a ser una derrapadora hipermóvil que da vueltas alrededor del enemigo y mina el suelo tras de sí con cada mordisco.",
-      "play": "Envenena con Q o W, luego spamea E y deja que Paso veloz te arrastre a través del objetivo para que cada embestida deje un Terremoto y renueve Corredor de la penumbra. Guarda R para aturdir o ralentizar a quien intente seguirte el ritmo.",
+      "title": "Melé por poderes",
+      "why": "Azir nunca blande su propia arma: cuando ataca a un enemigo cerca de un soldado de arena, los soldados apuñalan en su lugar e infligen daño mágico en línea, así que su alcance real es donde estén plantados sus soldados. ¡Desenvaina la espada! lo convierte en cuerpo a cuerpo y le da daño de ataque, vida, velocidad de ataque, robo de vida y velocidad de movimiento que crecen con cada punto de alcance de ataque perdido; sobre el papel Azir renuncia a un montón de alcance, pero en la práctica no pierde nada, porque los soldados siguen apuñalando desde su propio alcance. Monstruo de las cosquillas convierte todo ese daño de ataque, que sus soldados nunca usaron de todos modos, en velocidad de ataque y añade daño mágico al impactar, y Arma etérea hace que sus habilidades apliquen efectos al impactar, así que cada puñalada de un soldado lleva Monstruo de las cosquillas más Diente de Nashor, Hoja de furia de Guinsoo, Final del ingenio, Hoja del rey arruinado y El final a lo largo de toda la línea. Dualidad cierra el círculo: las puñaladas de los soldados son daño de habilidad, así que dan daño de ataque, que Monstruo de las cosquillas convierte en más velocidad de ataque, lo que significa más puñaladas, lo que significa más daño de ataque. El mago de control a distancia se convierte en un bruiser cuerpo a cuerpo de efectos al impactar que se lleva todas las bonificaciones de melé sin ponerse nunca al alcance de la espada de nadie.",
+      "play": "Suelta un soldado entre tú y el objetivo, haz clic derecho y deja que los soldados hagan el trabajo al impactar; usa la E solo para recolocarte sobre un soldado, nunca para entrar tú. Tu propia espada no hace nada, así que nunca pelees donde no haya un soldado.",
       "augments": [
-        "Al usar la habilidad elegida, te desplazas hacia el cursor.",
-        "Tras usar una habilidad de desplazamiento, traslación o teletransporte o salir del camuflaje, obtienes 300 de velocidad de movimiento durante 2 segundos.",
-        "Obtienes un 1 % de daño adicional por cada 10 de velocidad de movimiento que tengas por encima del objetivo.",
-        "Tus habilidades de desplazamiento, traslación o teletransporte dejan un rastro que explota tras 0,75 segundos."
+        "Ahora eres cuerpo a cuerpo. Obtienes un 24 % de daño de ataque, un 24 % de vida, un 20 % de velocidad de ataque, un 20 % de robo de vida y un 20 % de velocidad de movimiento (cada uno aumenta aún más según el alcance de ataque perdido).",
+        "El daño de ataque se convierte en velocidad de ataque. Los ataques infligen daño mágico adicional al impactar.",
+        "Tus habilidades aplican efectos al impactar. 1 segundo de enfriamiento por objetivo.",
+        "Tus ataques te otorgan poder de habilidad acumulable y tus habilidades que dañan a enemigos te otorgan daño de ataque."
       ]
     },
     "fr": {
-      "title": "Le serpent qui tire en passant",
-      "why": "La passive de Cassiopeia rend discrètement chaque bonus de vitesse de déplacement plus efficace sur elle, et son E est un sort à 0,75 seconde de délai de récupération qu'elle lance sans arrêt. Avec Pied léger sur son E, chaque lancer la fait foncer vers le curseur, donc elle bondit sur sa cible toutes les 0,75 secondes ; Plus rapide que son ombre donne 300 de vitesse de déplacement après chaque ruée, que sa passive gonfle encore et qui n'expire jamais puisque la ruée suivante arrive avant la fin des 2 secondes. Rapidité létale transforme cette avance en 1 % de dégâts bonus par tranche de 10 de vitesse de plus que la cible, le ralentissement et l'enracinement de son W et le ralentissement de son R creusent l'écart, et Traînée tellurique fait laisser à chaque ruée une traînée qui explose après 0,75 seconde, pile quand le prochain E revient. Le Sceptre de Rylai ralentit la cible à chaque morsure pour creuser encore l'écart, et Volonté cosmique, Fléau de liche, Onde orageuse, Plaque du mort et Force de la nature donnent tous un pourcentage de vitesse que sa passive multiplie, la Plaque du mort réduisant les ralentissements et Force de la nature la gardant en vie au corps à corps. La mage d'artillerie toxique et immobile devient une drifteuse hypermobile qui tourne autour de l'ennemi en minant le sol derrière elle à chaque morsure.",
-      "play": "Empoisonnez avec Q ou W, puis spammez E et laissez Pied léger vous traîner à travers la cible pour que chaque ruée pose une Traînée tellurique et relance Plus rapide que son ombre. Gardez R pour étourdir ou ralentir quiconque tente de suivre votre vitesse.",
+      "title": "Mêlée par procuration",
+      "why": "Azir ne brandit jamais sa propre arme : quand il attaque un ennemi près d'un soldat des sables, ce sont les soldats qui frappent à sa place et infligent des dégâts magiques en ligne, donc sa vraie portée, c'est là où se tiennent ses soldats. Combat rapproché le rend corps à corps et lui donne des dégâts d'attaque, des PV, de la vitesse d'attaque, du vol de vie et de la vitesse de déplacement qui augmentent avec chaque point de portée d'attaque perdu ; sur le papier Azir abandonne une énorme part de sa portée, mais en pratique il n'en perd aucune, car les soldats continuent de frapper depuis leur propre portée. Monstre à chatouilles convertit tous ces dégâts d'attaque, que ses soldats n'utilisaient de toute façon jamais, en vitesse d'attaque et ajoute des dégâts magiques à l'impact, et Arme éthérée fait appliquer les effets à l'impact à ses compétences, donc chaque coup de soldat transporte Monstre à chatouilles plus Dent de Nashor, Lame enragée de Guinsoo, Au bout du rouleau, Lame du roi déchu et Terminus sur toute la ligne. Dualité boucle la boucle : les coups des soldats sont des dégâts de compétence, donc ils donnent des dégâts d'attaque, que Monstre à chatouilles transforme en plus de vitesse d'attaque, ce qui veut dire plus de coups, donc plus de dégâts d'attaque. Le mage de contrôle à distance devient un bruiser de mêlée basé sur les effets à l'impact, qui récolte tous les bonus de mêlée sans jamais se tenir à portée d'épée de quiconque.",
+      "play": "Pose un soldat entre toi et la cible, fais un clic droit et laisse les soldats faire le boulot à l'impact ; utilise E uniquement pour te repositionner sur un soldat, jamais pour y aller toi-même. Ta propre épée ne fait rien, donc ne te bats jamais là où il n'y a pas de soldat.",
       "augments": [
-        "Quand vous utilisez la compétence choisie, vous foncez vers votre curseur.",
-        "Après avoir utilisé une compétence de ruée, de blink ou de téléportation ou être sorti du camouflage, vous gagnez 300 vitesse de déplacement pendant 2 secondes.",
-        "Gagnez 1 % de dégâts bonus par tranche de 10 de vitesse de déplacement que vous avez de plus que la cible.",
-        "Vos compétences de ruée, de blink ou de téléportation laissent une traînée qui explose après 0,75 seconde."
+        "Vous êtes maintenant au corps à corps. Vous gagnez 24 % de dégâts d'attaque, 24 % de PV, 20 % de vitesse d'attaque, 20 % de vol de vie et 20 % de vitesse de déplacement (chacun étant encore augmenté selon la portée d'attaque perdue).",
+        "Les dégâts d'attaque sont convertis en vitesse d'attaque. Les attaques infligent des dégâts magiques bonus à l'impact.",
+        "Vos compétences appliquent les effets à l'impact. Délai de récupération de 1 seconde par cible.",
+        "Vos attaques vous confèrent de la puissance cumulable et vos compétences qui infligent des dégâts aux ennemis vous confèrent des dégâts d'attaque."
       ]
     },
     "hu": {
-      "title": "Az áthajtó kígyó",
-      "why": "Cassiopeia passzív képessége csendben minden mozgási sebesség bónuszt erősebbé tesz rajta, az E-je pedig 0,75 másodperces töltési idejű varázslat, amit megállás nélkül használ. Gyorslépéssel az E-n minden használat a kurzor felé rántja, így 0,75 másodpercenként rávetődik arra, akit éppen mar; Árnyfutó minden roham után 300 mozgási sebességet ad, amit a passzív tovább növel, és ami sosem jár le, mert a következő roham a 2 másodperc vége előtt jön. Ne pislants ezt az előnyt 1% bónusz sebzéssé alakítja minden 10 mozgási sebesség után, amivel gyorsabb a célpontnál, a W lassítása és földhöz kötése, valamint az R lassítása tovább nyitja a különbséget, a Földmunka pedig minden roham mögött nyomot hagy, ami 0,75 másodperc után felrobban, épp amikor visszajön a következő E. Rylai kristálybotja minden marásnál lassítja a célpontot, a Kozmikus hajtómű, Félholt csapás, Viharhullám, Holtak vértje és A természet ereje pedig mind százalékos mozgási sebességet ad, amit a passzív megsokszoroz; a Holtak vértje tompítja a lassításokat, A természet ereje pedig közelharcban is életben tartja. A helyben álló mérgező tüzérmágusból hipermobil driftelő lesz, aki köröket fut az ellenfél körül, és minden marással elaknásítja maga mögött a talajt.",
-      "play": "Mérgezz Q-val vagy W-vel, aztán nyomd az E-t, és hagyd, hogy a Gyorslépés átrántson a célponton, így minden roham Földmunkát hagy és frissíti az Árnyfutót. Az R-t tartsd meg arra, aki tartani próbálja a tempódat.",
+      "title": "Közelharc Közvetítővel",
+      "why": "Azir sosem a saját fegyverével csap le: az Arise! szerint ha egy Homokkatona közelében támad meg egy ellenséget, a katonák szúrnak helyette, és mágikus sebzést okoznak egy vonalban, vagyis a valódi hatótávja ott van, ahol a katonái állnak. A Ránts kardot közelharcossá teszi, és Támadóerőt, Életerőt, Támadási sebességet, Életerő-lopást és Mozgási sebességet ad, ami minden elvesztett Támadási hatótáv-pont után nő; Azir papíron hatalmas hatótávot veszít, a gyakorlatban viszont semmit, mert a katonák a saját hatótávjukból szúrnak tovább. A Csikiszörny ezt a rengeteg Támadóerőt, amit a katonái amúgy sem használtak, Támadási sebességgé alakítja, és találatkor mágikus sebzést ad hozzá, az Asztrális fegyver pedig a képességeit találatkor érvényesülő hatásokat alkalmazóvá teszi, így minden katonaszúrás a Csikiszörnyet, valamint Nashor foga, Guinsoo dühpengéje, Utolsó esély, A letaszított király kardja és Vég hatását is viszi a teljes vonalon. A Mesteri kettősség bezárja a kört: a katonák szúrásai képességsebzésnek számítanak, ezért Támadóerőt adnak, amit a Csikiszörny még több Támadási sebességgé alakít, ami még több szúrást jelent, ami még több Támadóerőt. A távolsági irányító mágusból közelharci találatkor-hatásos verőlegény lesz, aki minden közelharci bónuszt learat, anélkül hogy bárkinek a kardjának hatótávjába kerülne.",
+      "play": "Tegyél le egy katonát közted és a célpont közé, kattints jobb gombbal, és hagyd, hogy a katonák végezzék a találatkor-hatásos munkát; az E-t csak arra használd, hogy egy katonára pozicionáld magad, soha ne azzal ugorj be. A saját kardod semmit sem csinál, ezért sose harcolj ott, ahol nincs katona.",
       "augments": [
-        "Amikor a kiválasztott képességet használod, a kurzorod felé rohansz.",
-        "Roham-, villanás- vagy teleport-képesség használata, illetve a lopakodásból való kilépés után 2 másodpercig 300 mozgási sebességet kapsz.",
-        "1% bónusz sebzést kapsz minden 10 mozgási sebességért, amivel többed van a célpontnál.",
-        "A roham-, villanás- és teleport-képességeid nyomot hagynak maguk után, ami 0,75 másodperc után felrobban."
+        "Mostantól közelharci vagy. Kapsz 24% Támadóerőt, 24% Életerőt, 20% Támadási sebességet, 20% Életerő-lopást és 20% Mozgási sebességet (mindegyik tovább nő az elvesztett Támadási hatótáv alapján).",
+        "A Támadóerő Támadási sebességgé alakul. A támadások találatkor plusz mágikus sebzést okoznak.",
+        "A képességeid találati hatásokat váltanak ki. Célpontonként 1 másodperc töltési idő.",
+        "A támadásaid halmozódó Varázserőt adnak, a sebző képességeid pedig Támadóerőt adnak."
       ]
     },
     "id": {
-      "title": "Ular Lewat Sekilas",
-      "why": "Pasif Cassiopeia diam-diam membuat setiap bonus Move Speed lebih kuat padanya, dan E-nya adalah skill dengan cooldown 0,75 detik yang dia pakai tanpa henti. Dengan Quickstep di E, setiap cast membuatnya dash ke arah kursor, jadi dia menerjang target yang sedang dia gigit setiap 0,75 detik; Shadow Runner memberi 300 Move Speed setelah setiap dash, yang diperbesar lagi oleh pasifnya dan tidak pernah habis karena dash berikutnya datang sebelum 2 detik berakhir. Don't Blink mengubah keunggulan kecepatan itu menjadi 1% bonus damage per 10 Move Speed lebih dari target, slow dan ground dari W serta slow dari R memperlebar selisihnya, dan Earthwake membuat setiap dash meninggalkan jejak yang meledak setelah 0,75 detik, pas saat E berikutnya siap. Rylai's Crystal Scepter memberi slow ke target di setiap gigitan agar selisihnya makin lebar, dan Cosmic Drive, Lich Bane, Stormsurge, Dead Man's Plate serta Force of Nature semuanya memberi Move Speed persen yang dilipatgandakan pasifnya, dengan Dead Man's Plate mengurangi slow dan Force of Nature menjaganya tetap hidup di jarak dekat. Mage artileri racun yang diam di tempat berubah jadi drifter super lincah yang berputar-putar mengelilingi musuh dan memasang ranjau di tanah belakangnya setiap kali menggigit.",
-      "play": "Racuni dengan Q atau W, lalu spam E dan biarkan Quickstep menyeretmu menembus target, supaya setiap dash meninggalkan jejak Earthwake dan menyegarkan Shadow Runner. Simpan R untuk stun atau slow siapa pun yang mencoba menyamai kecepatanmu.",
+      "title": "Melee Lewat Perantara",
+      "why": "Azir tidak pernah mengayunkan senjatanya sendiri: menurut Arise!, saat dia Menyerang musuh di dekat Prajurit Pasir, para prajurit yang menusuk dan memberi magic damage dalam satu garis, jadi jangkauan aslinya ada di mana pun prajuritnya berdiri. Draw Your Sword membuatnya melee dan memberi Attack Damage, Health, Attack Speed, Lifesteal, dan Move Speed yang naik di setiap poin Attack Range yang hilang, dan Azir kehilangan jangkauan besar di atas kertas tapi tidak kehilangan apa pun dalam praktik, karena prajurit tetap menusuk dari jangkauan mereka sendiri. Tickle Monster mengubah semua Attack Damage itu, yang memang tidak pernah dipakai prajuritnya, menjadi Attack Speed dan menambah magic damage On-Hit, lalu Ethereal Weapon membuat Ability-nya menerapkan efek On-Hit, jadi setiap tusukan prajurit membawa Tickle Monster plus Nashor's Tooth, Guinsoo's Rageblade, Wit's End, Blade of the Ruined King, dan Terminus ke seluruh garis. Master of Duality menutup lingkarannya: tusukan prajurit adalah damage Ability, jadi memberi Attack Damage, yang diubah Tickle Monster menjadi lebih banyak Attack Speed, artinya lebih banyak tusukan, artinya lebih banyak Attack Damage. Mage kontrol jarak jauh berubah jadi bruiser melee on-hit yang mengumpulkan semua bonus melee tanpa pernah berdiri dalam jangkauan pedang siapa pun.",
+      "play": "Taruh satu prajurit di antara kamu dan target, klik kanan, dan biarkan para prajurit mengerjakan damage on-hit; pakai E hanya untuk pindah posisi ke prajurit, jangan pernah untuk masuk sendiri. Pedangmu sendiri tidak berguna, jadi jangan bertarung di tempat yang tidak ada prajuritnya.",
       "augments": [
-        "Saat kamu menggunakan ability yang dipilih, dash ke arah kursormu.",
-        "Setelah menggunakan Ability Dash, Blink, atau Teleport atau keluar dari Stealth, dapatkan 300 Move Speed selama 2 detik.",
-        "Dapatkan 1% bonus damage per 10 Move Speed yang kamu punya lebih dari target.",
-        "Ability dash, blink, atau teleport-mu meninggalkan jejak yang meledak setelah 0,75 detik."
+        "Kamu sekarang melee. Dapatkan 24% Attack Damage, 24% Health, 20% Attack Speed, 20% Lifesteal, dan 20% Move Speed (masing-masing meningkat lagi berdasarkan Attack Range yang hilang).",
+        "Attack Damage diubah menjadi Attack Speed. Serangan memberi bonus magic damage On-Hit.",
+        "Skill-mu menerapkan efek On-Hit. Cooldown 1 detik per target.",
+        "Seranganmu memberi Ability Power yang bertumpuk dan Ability-mu yang melukai musuh memberi Attack Damage."
       ]
     },
     "it": {
-      "title": "Il serpente in corsa",
-      "why": "La passiva di Cassiopeia rende in silenzio ogni bonus alla velocità di movimento più efficace su di lei, e la sua E è un'abilità con 0,75 secondi di ricarica che lancia senza sosta. Con Passo rapido sulla sua E, ogni lancio la fa scattare verso il cursore, quindi si avventa sul bersaglio ogni 0,75 secondi; Scatto d'ombra dà 300 velocità di movimento dopo ogni scatto, che la sua passiva gonfia ancora e che non scade mai perché lo scatto successivo arriva prima dei 2 secondi. Guarda bene trasforma quel vantaggio in un 1% di danni bonus ogni 10 velocità di movimento in più del bersaglio, il rallentamento e l'immobilizzazione a terra della sua W e il rallentamento della sua R allargano il divario, e Scia distruttiva fa lasciare a ogni scatto una scia che esplode dopo 0,75 secondi, proprio quando torna la E successiva. Lo Scettro di cristallo di Rylai rallenta il bersaglio a ogni morso per allargare ancora il divario, e Spirito cosmico, Terrore dei lich, Apice della tempesta, Corazza dell'uomo morto e Forza della natura danno tutti velocità percentuale che la sua passiva moltiplica, con la Corazza dell'uomo morto che attenua i rallentamenti e Forza della natura che la tiene in vita in mischia. La maga artigliera velenosa e immobile diventa una drifter ipermobile che gira intorno al nemico minando il terreno dietro di sé a ogni morso.",
-      "play": "Avvelena con Q o W, poi spamma E e lascia che Passo rapido ti trascini attraverso il bersaglio, così ogni scatto lascia una Scia distruttiva e rinnova Scatto d'ombra. Tieni la R per stordire o rallentare chi prova a starti dietro.",
+      "title": "Mischia per Procura",
+      "why": "Azir non agita mai la propria arma: secondo Arise!, quando attacca un nemico vicino a un Soldato di sabbia, sono i soldati a colpire al suo posto infliggendo danni magici in linea, quindi la sua vera portata è ovunque stiano i suoi soldati. Sguaina la spada lo rende un campione da mischia e dà Danni da attacco, Salute, Velocità d'attacco, Furto di vita e Velocità di movimento che aumentano con ogni punto di Gittata d'attacco perso; Azir perde una bella fetta di gittata sulla carta ma nella pratica nulla, perché i soldati continuano a colpire dalla loro gittata. Mostro del solletico converte tutti quei Danni da attacco, che i suoi soldati non usavano comunque, in Velocità d'attacco e aggiunge danni magici al colpo, mentre Arma eterea fa applicare gli effetti al colpo alle sue abilità, quindi ogni stoccata dei soldati porta con sé Mostro del solletico più Dente di Nashor, Furia di Guinsoo, Speranza perduta, Lama del re in rovina e Terminus lungo tutta la linea. Duplicità chiude il cerchio: le stoccate dei soldati sono danni da abilità, quindi danno Danni da attacco, che Mostro del solletico trasforma in più Velocità d'attacco, cioè più stoccate, cioè più Danni da attacco. Il mago a distanza da controllo diventa un bruiser da mischia con effetti al colpo, che incassa ogni bonus da mischia senza mai mettersi alla portata della spada di nessuno.",
+      "play": "Piazza un soldato tra te e il bersaglio, clicca col destro e lascia che siano i soldati a fare il lavoro al colpo; usa la E solo per riposizionarti su un soldato, mai per entrare tu stesso. La tua spada non fa niente, quindi non combattere mai dove non c'è un soldato.",
       "augments": [
-        "Quando usi l'abilità scelta, scatti verso il cursore.",
-        "Dopo aver usato un'abilità di scatto, traslazione o teletrasporto o essere uscito dal camuffamento, ottieni 300 velocità di movimento per 2 secondi.",
-        "Ottieni l'1% di danni bonus per ogni 10 di velocità di movimento in più rispetto al bersaglio.",
-        "Le tue abilità di scatto, traslazione o teletrasporto lasciano una scia che esplode dopo 0,75 secondi."
+        "Ora sei un campione da mischia. Ottieni il 24% di Danni da attacco, il 24% di Salute, il 20% di Velocità d'attacco, il 20% di Furto di vita e il 20% di Velocità di movimento (ognuno ulteriormente aumentato in base alla Gittata d'attacco persa).",
+        "I Danni da attacco vengono convertiti in Velocità d'attacco. Gli attacchi infliggono danni magici bonus al colpo.",
+        "Le tue abilità applicano gli effetti sul colpo. 1 secondo di ricarica per bersaglio.",
+        "I tuoi attacchi ti conferiscono Potere magico cumulabile e le tue abilità che infliggono danni ai nemici ti conferiscono Danni da attacco."
       ]
     },
     "ja": {
-      "title": "通りすがりのヘビ",
-      "why": "カシオペアのパッシブは目立たないけれど、彼女が得るすべての移動速度ボーナスを強化する。そしてEはクールダウン0.75秒のスキルで、彼女はこれを休みなく撃ち続ける。「クイックステップ」をEに付けると、使うたびにカーソル方向へダッシュするので、噛みついている相手へ0.75秒ごとに飛びかかる。「影走り」はダッシュのたびに移動速度300を与え、パッシブでさらに膨らみ、次のダッシュが2秒以内に来るので途切れない。「瞬きより速く」はその速度差を、対象より10多い移動速度ごとに1%の追加ダメージに変え、Wのスロウと移動不可、Rのスロウが差をさらに広げる。「アースウェイク」は各ダッシュに0.75秒後に爆発する軌跡を残させ、ちょうど次のEが戻るタイミングで炸裂する。「リーライ クリスタル セプター」は噛むたびに対象をスロウさせて差を広げ、「コズミック ドライブ」「リッチ ベイン」「ストームサージ」「デッド マン プレート」「自然の力」はすべてパッシブで倍増する割合移動速度を持ち、「デッド マン プレート」はスロウを軽減し、「自然の力」は近接戦で彼女を生かす。動かない毒の砲台メイジが、敵の周りを周回しながら噛むたびに背後の地面を地雷原にする超機動ドリフターに変わる。",
-      "play": "QかWで毒を付けたらEを連打し、「クイックステップ」で対象を突き抜けよう。ダッシュのたびに「アースウェイク」の軌跡が残り、「影走り」が更新される。Rは速度についてこようとする相手のスタンかスロウ用に取っておこう。",
+      "title": "代理近接",
+      "why": "アジールは自分の武器を一切振りません。W の仕様で、砂兵の近くにいる敵を通常攻撃すると、代わりに砂兵が突き刺して直線上に魔法ダメージを与えるので、本当のリーチは砂兵が立っている場所そのものです。剣を構えよは彼を近接にして、失った攻撃範囲1ごとに増えていく攻撃力、体力、攻撃速度、ライフスティール、移動速度をくれます。アジールは数字の上では大量の射程を捨てますが、砂兵が自分の射程から突き続けるので実際は何も失いません。コチョコチョ モンスターは、どのみち砂兵が使わないその攻撃力を攻撃速度に変換し、ヒット時の魔法ダメージを追加します。エーテル武器はスキルにヒット時効果を適用させるので、砂兵の突きはすべて、コチョコチョ モンスターに加えてナッシャー トゥース、グインソー レイジブレード、ウィッツ エンド、ルインドキング ブレード、テルミヌスの効果を乗せて直線全体に突き抜けます。文武両道が輪を閉じます。砂兵の突きはスキルダメージなので攻撃力が増え、コチョコチョ モンスターがそれをさらに攻撃速度に変え、突きが増え、また攻撃力が増える。遠距離のコントロールメイジが、剣の届く範囲に誰一人入らないまま近接ボーナスを総取りする、ヒット時効果特化の近接ブルーザーに変わります。",
+      "play": "自分と標的の間に砂兵を置いて右クリックし、ヒット時効果の仕事は砂兵に任せましょう。E は砂兵の位置に移動するためだけに使い、自分から突っ込むのは厳禁です。自分の剣は何もしないので、砂兵のいない場所では絶対に戦わないこと。",
       "augments": [
-        "選択したスキルを使用すると、カーソル方向へダッシュする。",
-        "ダッシュ、ブリンク、テレポートのスキルを使用するかステルス状態を解除した後、2秒間移動速度が300増加する。",
-        "対象より移動速度が10高いごとに、ダメージが1%増加する。",
-        "ダッシュ、ブリンク、テレポートのスキルが軌跡を残し、0.75秒後に爆発する。"
+        "あなたは近接になる。攻撃力24%、体力24%、攻撃速度20%、ライフスティール20%、移動速度20%を獲得(それぞれ失った攻撃範囲に応じてさらに増加)。",
+        "攻撃力が攻撃速度に変換される。通常攻撃がヒット時に追加の魔法ダメージを与える。",
+        "スキルが通常攻撃時効果を発動する。対象ごとにクールダウン1秒。",
+        "通常攻撃でスタックするアビリティパワーを獲得し、敵にダメージを与えるスキルで攻撃力を獲得する。"
       ]
     },
     "ko": {
-      "title": "지나가며 무는 뱀",
-      "why": "카시오페아의 패시브는 조용히 그녀가 받는 모든 이동 속도 보너스를 더 강하게 만들고, E는 재사용 대기시간 0.75초짜리 스킬이라 쉬지 않고 씁니다. 날쌘걸음을 E에 붙이면 쓸 때마다 커서 방향으로 돌진하니, 물고 있는 대상에게 0.75초마다 달려듭니다. 그림자 질주는 돌진할 때마다 이동 속도 300을 주고, 패시브가 이를 더 키우며, 다음 돌진이 2초가 지나기 전에 오므로 절대 끊기지 않습니다. 속전속결은 이 속도 차이를 대상보다 높은 이동 속도 10당 1% 추가 피해로 바꾸고, W의 둔화와 이동 불가, R의 둔화가 차이를 벌리며, 대지의 각성은 돌진마다 0.75초 뒤 폭발하는 자국을 남겨 딱 다음 E가 돌아올 때 터집니다. 라일라이의 수정홀은 물 때마다 대상을 둔화시켜 차이를 더 벌리고, 우주의 추진력, 리치베인, 폭풍 쇄도, 망자의 갑옷, 대자연의 힘은 모두 패시브가 배로 불려 주는 % 이동 속도를 주며, 망자의 갑옷은 둔화를 줄이고 대자연의 힘은 근접전에서 그녀를 살려 둡니다. 제자리에 선 독 포격 마법사가 적 주위를 빙빙 돌며 물 때마다 뒤쪽 땅을 지뢰밭으로 만드는 초기동 드리프터가 됩니다.",
-      "play": "Q나 W로 중독시킨 다음 E를 난사하며 날쌘걸음으로 대상을 관통하세요. 돌진마다 대지의 각성 자국이 남고 그림자 질주가 갱신됩니다. R은 속도를 따라오려는 적을 기절시키거나 둔화시키는 데 아껴 두세요.",
+      "title": "대리 근접",
+      "why": "아지르는 자기 무기를 절대 휘두르지 않습니다. W 효과에 따르면 모래 병사 근처의 적을 공격할 때 병사들이 대신 찔러서 일직선으로 마법 피해를 입히므로, 실제 사거리는 병사들이 서 있는 곳입니다. 검을 뽑아라는 아지르를 근접으로 만들고, 잃은 사거리 1마다 커지는 공격력, 체력, 공격 속도, 생명력 흡수, 이동 속도를 줍니다. 아지르는 수치상 사거리를 엄청나게 잃지만 실제로는 하나도 잃지 않습니다. 병사들이 자기 사거리에서 계속 찌르니까요. 간지럼 괴물은 어차피 병사들이 쓰지도 않는 그 공격력을 전부 공격 속도로 전환하고 적중 시 마법 피해를 더해 주며, 환영 무기는 스킬에 적중 시 효과를 적용시키므로, 병사의 찌르기 한 번 한 번이 간지럼 괴물에 더해 내셔의 이빨, 구인수의 격노검, 마법사의 최후, 몰락한 왕의 검, 경계의 효과까지 싣고 일직선을 따라 꽂힙니다. 결투의 대가가 고리를 완성합니다. 병사의 찌르기는 스킬 피해라서 공격력을 주고, 간지럼 괴물이 그걸 더 많은 공격 속도로 바꾸고, 그러면 찌르기가 늘어나고, 다시 공격력이 늘어납니다. 원거리 제어 마법사가 아무도 검이 닿는 거리에 서지 않고도 모든 근접 보너스를 챙기는 적중 시 효과 근접 브루저로 변신합니다.",
+      "play": "나와 대상 사이에 병사를 두고 우클릭해서 적중 시 효과는 병사들에게 맡기세요. E는 병사 위치로 자리를 옮길 때만 쓰고, 직접 뛰어들 때는 절대 쓰지 마세요. 본인 검은 아무 일도 안 하니까 병사가 없는 곳에서는 절대 싸우지 마세요.",
       "augments": [
-        "선택한 스킬을 사용하면 커서 방향으로 돌진합니다.",
-        "돌진, 점멸, 순간이동 스킬을 사용하거나 은신에서 벗어나면 2초 동안 이동 속도가 300 증가합니다.",
-        "대상보다 이동 속도가 10 높을 때마다 피해량이 1% 증가합니다.",
-        "돌진, 점멸, 순간이동 스킬이 자국을 남기고, 이 자국은 0.75초 후 폭발합니다."
+        "당신은 이제 근접입니다. 공격력 24%, 체력 24%, 공격 속도 20%, 생명력 흡수 20%, 이동 속도 20%를 얻습니다 (각각 잃은 사거리에 따라 추가로 증가).",
+        "공격력이 공격 속도로 전환됩니다. 공격이 적중 시 추가 마법 피해를 입힙니다.",
+        "스킬이 적중 시 효과를 적용합니다. 대상마다 재사용 대기시간 1초.",
+        "공격할 때마다 중첩되는 주문력을 얻고, 적에게 피해를 주는 스킬로 공격력을 얻습니다."
       ]
     },
     "pl": {
-      "title": "Wąż z przejazdu",
-      "why": "Bierna umiejętność Cassiopei po cichu wzmacnia na niej każdy bonus do prędkości ruchu, a jej E to czar z 0,75 sekundy odnowienia, którego używa bez przerwy. Z Lekkim Krokiem na E każde użycie robi doskok w stronę kursora, więc rzuca się na gryziony cel co 0,75 sekundy; Cieniobieżca daje 300 prędkości ruchu po każdym doskoku, którą bierna jeszcze podbija i która nigdy nie wygasa, bo kolejny doskok przychodzi przed upływem 2 sekund. Nie Mrugaj zamienia tę przewagę w 1% dodatkowych obrażeń za każde 10 prędkości ruchu więcej niż cel, spowolnienie i uziemienie z W oraz spowolnienie z R powiększają różnicę, a Znaczenie Ziemi sprawia, że każdy doskok zostawia ślad wybuchający po 0,75 sekundy, akurat gdy wraca kolejne E. Kryształowy Kostur Rylai spowalnia cel przy każdym ukąszeniu, a Kosmiczny Impuls, Zmora Licza, Przepływ Burzy, Pancerz Umrzyka i Siła Natury dają procentową prędkość ruchu, którą bierna mnoży; Pancerz Umrzyka osłabia spowolnienia, a Siła Natury trzyma ją przy życiu w zwarciu. Nieruchoma, trująca artyleria zmienia się w hipermobilną driftującą zawodniczkę, która krąży wokół wroga i minuje ziemię za sobą przy każdym ukąszeniu.",
-      "play": "Zatruj Q lub W, potem spamuj E i pozwól, by Lekki Krok przeciągał cię przez cel, żeby każdy doskok zostawiał Znaczenie Ziemi i odświeżał Cieniobieżcę. Zachowaj R, by ogłuszyć lub spowolnić każdego, kto próbuje dotrzymać ci tempa.",
+      "title": "Walka Wręcz przez Pośrednika",
+      "why": "Azir nigdy nie macha własną bronią: według jego W, gdy Atakuje wroga w pobliżu Piaskowego Żołnierza, to żołnierze dźgają zamiast niego i zadają obrażenia magiczne w linii, więc jego prawdziwy zasięg to tam, gdzie stoją jego żołnierze. Dobądź Miecza zmienia go w postać walczącą wręcz i daje Obrażenia od ataku, Zdrowie, Szybkość ataku, Kradzież życia i Prędkość ruchu, które rosną z każdym utraconym punktem Zasięgu ataku, a Azir na papierze traci ogromny kawał zasięgu, w praktyce nie traci nic, bo żołnierze dźgają dalej ze swojego zasięgu. Łaskotkowy Potwór zamienia całe to Obrażenia od ataku, których żołnierze i tak nie używali, w Szybkość ataku i dodaje obrażenia magiczne Przy trafieniu, a Eteryczna Broń sprawia, że jego umiejętności stosują efekty Przy trafieniu, więc każde dźgnięcie żołnierza niesie Łaskotkowego Potwora oraz Ząb Nashora, Ostrze Gniewu Guinsoo, Koniec Rozumu, Ostrze Zniszczonego Króla i Ostatni Przystanek wzdłuż całej linii. Podwójny Mistrz domyka pętlę: dźgnięcia żołnierzy to obrażenia od umiejętności, więc dają Obrażenia od ataku, które Łaskotkowy Potwór zamienia w więcej Szybkości ataku, co oznacza więcej dźgnięć, co oznacza więcej Obrażeń od ataku. Mag kontroli z dystansu zmienia się w osiłka walczącego wręcz na efektach Przy trafieniu, który zgarnia wszystkie bonusy dla wręczników, nie stając nigdy w zasięgu miecza kogokolwiek.",
+      "play": "Postaw żołnierza między sobą a celem, kliknij prawym i niech to żołnierze robią robotę Przy trafieniu; używaj E tylko do przeniesienia się na żołnierza, nigdy żeby samemu wskoczyć w wrogów. Twój własny miecz nic nie robi, więc nigdy nie walcz tam, gdzie nie ma żołnierza.",
       "augments": [
-        "Gdy używasz wybranej umiejętności, doskakujesz w stronę kursora.",
-        "Po użyciu umiejętności doskoku, mignięcia lub teleportacji albo wyjściu z kamuflażu zyskujesz 300 prędkości ruchu na 2 sekundy.",
-        "Zyskujesz 1% dodatkowych obrażeń za każde 10 prędkości ruchu, które masz więcej od celu.",
-        "Twoje umiejętności doskoku, mignięcia lub teleportacji zostawiają ślad, który wybucha po 0,75 sekundy."
+        "Teraz walczysz wręcz. Zyskujesz 24% Obrażeń od ataku, 24% Zdrowia, 20% Szybkości ataku, 20% Kradzieży życia i 20% Prędkości ruchu (każde dodatkowo zwiększone w zależności od utraconego Zasięgu ataku).",
+        "Obrażenia od ataku zostają zamienione w Szybkość ataku. Ataki zadają dodatkowe obrażenia magiczne Przy trafieniu.",
+        "Twoje umiejętności nakładają efekty przy trafieniu. 1 sekunda odnowienia na cel.",
+        "Twoje Ataki dają kumulującą się Moc umiejętności, a Twoje umiejętności zadające obrażenia wrogom dają Obrażenia od ataku."
       ]
     },
     "pt-BR": {
-      "title": "A Serpente de Passagem",
-      "why": "A passiva da Cassiopeia deixa, sem alarde, todo bônus de Velocidade de Movimento mais forte nela, e o E dela é uma habilidade com 0,75 segundo de recarga que ela usa sem parar. Com Passo Rápido no E, cada uso a faz avançar em direção ao cursor, então ela pula em quem está mordendo a cada 0,75 segundo; Corrida das Sombras dá 300 de Velocidade de Movimento depois de cada avanço, que a passiva infla ainda mais e que nunca acaba, porque o próximo avanço chega antes dos 2 segundos. Não Pisque transforma essa vantagem em 1% de dano adicional a cada 10 de Velocidade de Movimento acima do alvo, a lentidão e o enraizamento do W e a lentidão do R aumentam a diferença, e Abalos Sísmicos faz cada avanço deixar um rastro que explode após 0,75 segundo, bem quando o próximo E volta. O Cetro de Cristal de Rylai deixa o alvo lento a cada mordida para aumentar ainda mais a diferença, e Ímpeto Cósmico, Perdição de Lich, Ápice da Tempestade, Couraça do Defunto e Força da Natureza dão Velocidade de Movimento percentual que a passiva multiplica, com a Couraça do Defunto reduzindo lentidões e a Força da Natureza mantendo-a viva no corpo a corpo. A maga de artilharia venenosa e parada vira uma drifter hipermóvel que roda em volta do inimigo, minando o chão atrás dela a cada mordida.",
-      "play": "Envenene com Q ou W, depois spame o E e deixe o Passo Rápido te arrastar pelo alvo, para cada avanço deixar um Abalos Sísmicos e renovar a Corrida das Sombras. Guarde o R para atordoar ou deixar lento quem tentar acompanhar sua velocidade.",
+      "title": "Corpo a Corpo por Procuração",
+      "why": "O Azir nunca balança a própria arma: segundo o W dele, quando ele Ataca um inimigo perto de um Soldado de Areia, os soldados perfuram no lugar dele e causam dano mágico em linha, então o alcance real dele é onde os soldados estiverem. Saque sua Espada o deixa corpo a corpo e dá Dano de Ataque, Vida, Velocidade de Ataque, Roubo de Vida e Velocidade de Movimento que crescem a cada ponto de Alcance de Ataque perdido, e o Azir abre mão de um pedação de alcance no papel sem perder nada na prática, porque os soldados continuam perfurando do alcance deles. Monstro das Cócegas converte todo esse Dano de Ataque, que os soldados nunca usaram mesmo, em Velocidade de Ataque e adiciona dano mágico Ao Acertar, e Arma Etérea faz as Habilidades dele aplicarem efeitos Ao Acertar, então cada perfuração de soldado leva o Monstro das Cócegas mais Dente de Na'Shor, Lâmina da Fúria de Guinsoo, Limite da Razão, Espada do Rei Destruído e Terminus por toda a linha. Mestre da Dualidade fecha o ciclo: as perfurações dos soldados são dano de Habilidade, então dão Dano de Ataque, que o Monstro das Cócegas transforma em mais Velocidade de Ataque, que significa mais perfurações, que significa mais Dano de Ataque. O mago de controle à distância vira um bruiser corpo a corpo de efeitos Ao Acertar que coleta todos os bônus de corpo a corpo sem nunca ficar ao alcance da espada de ninguém.",
+      "play": "Coloque um soldado entre você e o alvo, clique com o botão direito e deixe os soldados fazerem o trabalho Ao Acertar; use o E só para se reposicionar em um soldado, nunca para entrar sozinho. Sua própria espada não faz nada, então nunca lute onde não tem soldado.",
       "augments": [
-        "Ao usar a habilidade escolhida, avance em direção ao cursor.",
-        "Depois de usar uma habilidade de Avanço, Salto ou Teleporte ou sair da Furtividade, ganhe 300 de Velocidade de Movimento por 2 segundos.",
-        "Ganhe 1% de dano adicional a cada 10 de Velocidade de Movimento que você tiver a mais que o alvo.",
-        "Suas habilidades de avanço, salto ou teleporte deixam um rastro que explode após 0,75 segundo."
+        "Você agora é corpo a corpo. Ganhe 24% de Dano de Ataque, 24% de Vida, 20% de Velocidade de Ataque, 20% de Roubo de Vida e 20% de Velocidade de Movimento (cada um ainda aumentado com base no Alcance de Ataque perdido).",
+        "O Dano de Ataque é convertido em Velocidade de Ataque. Os Ataques causam dano mágico bônus Ao Acertar.",
+        "Suas Habilidades aplicam efeitos ao atingir. 1 segundo de Recarga por alvo.",
+        "Seus Ataques concedem Poder de Habilidade cumulativo e suas Habilidades que causam dano a inimigos concedem Dano de Ataque."
       ]
     },
     "ro": {
-      "title": "Șarpele din trecere",
-      "why": "Pasiva lui Cassiopeia face pe tăcute ca orice bonus de viteză de mișcare să fie mai puternic pe ea, iar E-ul ei e o vrajă cu timp de reîncărcare de 0,75 secunde pe care o folosește non-stop. Cu Pas rapid pe E, fiecare folosire o aruncă spre cursor, așa că se repede asupra țintei pe care o mușcă la fiecare 0,75 secunde; Alergătorul umbrei îi dă 300 viteză de mișcare după fiecare salt, pe care pasiva o umflă și mai mult și care nu expiră niciodată, pentru că următorul salt vine înainte să treacă cele 2 secunde. Nu clipi transformă avantajul în 1% daune bonus la fiecare 10 viteză de mișcare peste țintă, încetinirea și imobilizarea de la W și încetinirea de la R măresc diferența, iar Cutremur face ca fiecare salt să lase o urmă care explodează după 0,75 secunde, exact când revine următorul E. Sceptrul de cristal al lui Rylai încetinește ținta la fiecare mușcătură, iar Avânt cosmic, Urgia de pe lume, Furtună dezlănțuită, Platoșa ostașului ucis și Forța naturii dau toate viteză procentuală pe care pasiva o multiplică; Platoșa reduce încetinirile, iar Forța naturii o ține în viață la corp la corp. Maga-artilerie otrăvitoare și statică devine o drifteriță hipermobilă care face cercuri în jurul inamicului și minează pământul din urma ei la fiecare mușcătură.",
-      "play": "Otrăvește cu Q sau W, apoi spamează E și lasă Pas rapid să te tragă prin țintă, ca fiecare salt să lase un Cutremur și să reîmprospăteze Alergătorul umbrei. Păstrează R pentru a ameți sau încetini pe oricine încearcă să-ți țină pasul.",
+      "title": "Corp la corp prin soldați",
+      "why": "Azir nu-și mișcă niciodată propria armă: la W, când atacă un inamic aflat lângă un soldat de nisip, soldații înjunghie în locul lui și provoacă daune magice pe o linie, așa că raza lui reală e oriunde stau soldații. Scoate-ți sabia îl face coleg de luptă corp la corp și îi dă Putere de atac, viață, viteză de atac, vampirism, viteză de mișcare care cresc cu fiecare punct de rază de atac pierdut, iar Azir cedează pe hârtie o grămadă de rază fără să piardă nimic în practică, fiindcă soldații continuă să înjunghie de la raza lor. Monstrul gâdilelii convertește toată Puterea de atac, pe care soldații oricum nu o foloseau, în viteză de atac și adaugă daune magice la lovire, iar Arma eterică face ca abilitățile lui să aplice efecte la lovire, deci fiecare lovitură de soldat poartă Monstrul gâdilelii plus Dintele lui Nashor, Spada furiei lui Guinsoo, Sfârșitul rațiunii, Sabia regelui înfrânt și Terminus pe toată linia. Maestrul dualității închide cercul: loviturile soldaților sunt daune de abilitate, deci dau Putere de atac, pe care Monstrul gâdilelii o transformă în mai multă viteză de atac, adică mai multe lovituri și iar mai multă Putere de atac. Magul de control la distanță devine un bruiser corp la corp pe efecte la lovire, care strânge toate bonusurile de corp la corp fără să se apropie vreodată la o sabie distanță de cineva.",
+      "play": "Pune un soldat între tine și țintă, dă click dreapta și lasă soldații să facă treaba cu efectele la lovire; folosește E doar ca să te repoziționezi pe un soldat, niciodată ca să intri tu în luptă. Sabia ta nu face nimic, așa că nu lupta niciodată acolo unde nu e un soldat.",
       "augments": [
-        "Când folosești abilitatea aleasă, faci un salt spre cursor.",
-        "După ce folosești o abilitate de salt, teleportare scurtă sau teleportare ori ieși din camuflaj, primești 300 viteză de mișcare timp de 2 secunde.",
-        "Primești 1% daune bonus pentru fiecare 10 viteză de mișcare pe care o ai în plus față de țintă.",
-        "Abilitățile tale de salt, teleportare scurtă sau teleportare lasă în urmă o dâră care explodează după 0,75 secunde."
+        "Acum ești corp la corp. Primești 24% Putere de atac, 24% viață, 20% viteză de atac, 20% vampirism și 20% viteză de mișcare (fiecare crescută în plus în funcție de raza de atac pierdută).",
+        "Puterea de atac este convertită în viteză de atac. Atacurile provoacă daune magice bonus la lovire.",
+        "Abilitățile tale aplică efecte la impact. Reîncărcare de 1 secundă per țintă.",
+        "Atacurile tale îți dau Putere a abilităților cumulabilă, iar abilitățile tale care rănesc inamici îți dau Putere de atac."
       ]
     },
     "ru": {
-      "title": "Змея на ходу",
-      "why": "Пассивное умение Кассиопеи тихо усиливает на ней любые бонусы к скорости передвижения, а её E – заклинание с перезарядкой 0,75 секунды, которое она кастует без остановки. С Резким шагом на E каждое применение бросает её рывком к курсору, так что каждые 0,75 секунды она набрасывается на того, кого кусает; Бег в тени дает 300 скорости передвижения после каждого рывка, пассивка раздувает её ещё сильнее, и она никогда не спадает, потому что следующий рывок приходит раньше, чем пройдут 2 секунды. Не моргай превращает это преимущество в 1% дополнительного урона за каждые 10 скорости больше, чем у цели, замедление и приземление от W и замедление от R увеличивают разрыв, а Борозда заставляет каждый рывок оставлять след, который взрывается через 0,75 секунды, ровно к следующему E. Хрустальный скипетр Рилай замедляет цель при каждом укусе, а Космический ускоритель, Гроза Личей, Штормовой прилив, Броня мертвеца и Сила природы дают процентную скорость передвижения, которую пассивка умножает; Броня мертвеца ослабляет замедления, а Сила природы держит её в живых в ближнем бою. Неподвижная ядовитая маг-артиллерия превращается в гипермобильную дрифтершу, которая нарезает круги вокруг врага и минирует землю за собой каждым укусом.",
-      "play": "Отравите цель через Q или W, затем спамьте E, и пусть Резкий шаг протаскивает вас сквозь цель: каждый рывок оставляет Борозду и обновляет Бег в тени. R держите, чтобы оглушить или замедлить любого, кто пытается угнаться за вами.",
+      "title": "Ближний бой по доверенности",
+      "why": "Азир никогда не бьёт сам: по его W, когда он атакует врага рядом с песчаным солдатом, солдаты бьют вместо него и наносят магический урон по линии, так что настоящая дальность Азира там, где стоят его солдаты. «Меч к бою» делает его бойцом ближнего боя и даёт силу атаки, здоровье, скорость атаки, вампиризм и скорость передвижения, которые растут с каждым потерянным пунктом дальности атаки. На бумаге Азир отдаёт огромный кусок дальности, а на деле не теряет ничего, ведь солдаты продолжают бить со своей дальности. «Щекотальный монстр» превращает всю силу атаки, которой солдаты всё равно не пользуются, в скорость атаки и добавляет магический урон при попадании, а «Эфемерное оружие» заставляет его умения накладывать эффекты при попадании, так что каждый удар солдата несёт «Щекотального монстра», «Зуб Нашора», «Клинок ярости Гинсу», «Смерть Разума», «Клинок Падшего короля» и «Светотень» по всей линии. «Мастер двойственности» замыкает круг: удары солдат считаются уроном умениями, а значит дают силу атаки, которую «Щекотальный монстр» превращает в ещё большую скорость атаки, а это ещё больше ударов и ещё больше силы атаки. Маг контроля с дальней дистанции становится бойцом ближнего боя на эффектах при попадании, который собирает все бонусы ближнего боя и ни разу не подходит к врагам на расстояние удара мечом.",
+      "play": "Поставь солдата между собой и целью, жми правой кнопкой и пусть солдаты делают всю работу с эффектами при попадании; E используй только чтобы переместиться к солдату, а не чтобы лезть в бой самому. Твой собственный меч ничего не делает, так что никогда не дерись там, где нет солдата.",
       "augments": [
-        "Когда вы используете выбранное умение, вы совершаете рывок к курсору.",
-        "После применения умения с рывком, скачком или телепортацией или выхода из невидимости вы получаете 300 скорости передвижения на 2 секунды.",
-        "Вы наносите на 1% больше урона за каждые 10 скорости передвижения сверх скорости цели.",
-        "Ваши умения с рывком, скачком или телепортацией оставляют след, который взрывается через 0,75 секунды."
+        "Теперь вы боец ближнего боя. Вы получаете 24% силы атаки, 24% здоровья, 20% скорости атаки, 20% вампиризма и 20% скорости передвижения (каждый бонус дополнительно растёт в зависимости от потерянной дальности атаки).",
+        "Сила атаки преобразуется в скорость атаки. Атаки наносят дополнительный магический урон при попадании.",
+        "Ваши умения накладывают эффекты при попадании. Перезарядка 1 сек. для каждой цели.",
+        "Ваши атаки дают вам накапливаемую силу умений, а ваши умения, наносящие урон врагам, дают вам силу атаки."
       ]
     },
     "th": {
-      "title": "งูขับผ่าน",
-      "why": "พาสซีฟของ Cassiopeia ทำให้โบนัส Move Speed ทุกอย่างบนตัวเธอแรงขึ้นแบบเงียบ ๆ และ E ของเธอเป็นสกิลคูลดาวน์ 0.75 วินาทีที่เธอกดไม่หยุด พอใส่ Quickstep ไว้ที่ E ทุกครั้งที่ใช้เธอจะพุ่งไปทางเคอร์เซอร์ จึงกระโจนใส่เป้าหมายที่กำลังกัดอยู่ทุก 0.75 วินาที; Shadow Runner ให้ Move Speed 300 หลังพุ่งทุกครั้ง พาสซีฟขยายให้มากขึ้นอีก และไม่มีวันหมด เพราะการพุ่งครั้งต่อไปมาก่อนครบ 2 วินาที Don't Blink เปลี่ยนความเร็วที่เหนือกว่านั้นเป็นดาเมจเพิ่ม 1% ต่อทุก 10 Move Speed ที่มากกว่าเป้าหมาย สโลว์และการตรึงพื้นจาก W กับสโลว์จาก R ช่วยถ่างช่องว่าง และ Earthwake ทำให้การพุ่งแต่ละครั้งทิ้งรอยที่ระเบิดหลัง 0.75 วินาที ตรงกับจังหวะ E ครั้งถัดไปพอดี Rylai's Crystal Scepter สโลว์เป้าหมายทุกครั้งที่กัดเพื่อถ่างช่องว่างอีก ส่วน Cosmic Drive, Lich Bane, Stormsurge, Dead Man's Plate และ Force of Nature ล้วนให้ Move Speed แบบเปอร์เซ็นต์ที่พาสซีฟคูณเพิ่ม โดย Dead Man's Plate ลดผลสโลว์ และ Force of Nature ช่วยให้เธอรอดในระยะประชิด เมจปืนใหญ่สายพิษที่ยืนนิ่งกลายเป็นนักดริฟต์สุดคล่องที่วิ่งวนรอบศัตรูและวางกับระเบิดไว้บนพื้นข้างหลังทุกครั้งที่กัด",
-      "play": "ลงพิษด้วย Q หรือ W แล้วกด E รัว ๆ ให้ Quickstep ลากคุณทะลุเป้าหมาย การพุ่งแต่ละครั้งจะทิ้งรอย Earthwake และรีเฟรช Shadow Runner เก็บ R ไว้สตันหรือสโลว์ใครก็ตามที่พยายามตามความเร็วคุณให้ทัน",
+      "title": "ตีแทนผ่านทหาร",
+      "why": "Azir ไม่เคยเหวี่ยงอาวุธเองเลย: W ของเขาทำให้เวลาโจมตีศัตรูที่อยู่ใกล้ทหารทราย ทหารจะแทงแทนและสร้างความเสียหายเวทเป็นเส้นตรง ระยะโจมตีจริงของเขาจึงอยู่ตรงที่ทหารยืนอยู่ Draw Your Sword ทำให้เขากลายเป็นสายประชิด และให้พลังโจมตี เลือด ความเร็วโจมตี ดูดเลือด และความเร็วเคลื่อนที่ ที่เพิ่มขึ้นทุกครั้งที่เสียระยะโจมตี บนกระดาษ Azir เสียระยะไปเยอะมาก แต่ในการเล่นจริงไม่เสียเลย เพราะทหารยังแทงจากระยะของตัวเองอยู่ Tickle Monster แปลงพลังโจมตีทั้งหมดที่ทหารไม่เคยได้ใช้ให้เป็นความเร็วโจมตี และเพิ่มความเสียหายเวทแบบ On-Hit ส่วน Ethereal Weapon ทำให้สกิลของเขาติดเอฟเฟกต์ On-Hit ดังนั้นทุกครั้งที่ทหารแทงจะพก Tickle Monster รวมถึง Nashor's Tooth, Guinsoo's Rageblade, Wit's End, Blade of The Ruined King และ Terminus ไปตลอดแนว Master of Duality ปิดวงจร: การแทงของทหารนับเป็นความเสียหายจากสกิล จึงให้พลังโจมตี ซึ่ง Tickle Monster แปลงเป็นความเร็วโจมตีที่มากขึ้น แปลว่าแทงได้ถี่ขึ้น และได้พลังโจมตีเพิ่มอีก เมจสายคุมระยะไกลกลายเป็นสายประชิดสาย On-Hit ที่เก็บโบนัสสายประชิดครบทุกอย่างโดยไม่ต้องเข้าไปอยู่ในระยะดาบของใครเลย",
+      "play": "วางทหารไว้ระหว่างคุณกับเป้าหมาย คลิกขวา แล้วปล่อยให้ทหารทำงาน On-Hit ให้ ใช้ E เพื่อย้ายตำแหน่งไปหาทหารเท่านั้น ห้ามกระโดดเข้าไปเอง ดาบของคุณเองไม่ทำอะไรเลย อย่าสู้ในที่ที่ไม่มีทหาร",
       "augments": [
-        "เมื่อใช้สกิลที่เลือก จะพุ่งไปทางเคอร์เซอร์",
-        "หลังใช้สกิล Dash, Blink หรือ Teleport หรือออกจากการล่องหน จะได้รับ Move Speed 300 เป็นเวลา 2 วินาที",
-        "ได้รับความเสียหายโบนัส 1% ต่อทุก 10 ความเร็วเคลื่อนที่ที่คุณมีมากกว่าเป้าหมาย",
-        "สกิล Dash, Blink หรือ Teleport ของคุณจะทิ้งรอยที่ระเบิดหลังผ่านไป 0.75 วินาที"
+        "ตอนนี้คุณเป็นสายประชิด ได้รับพลังโจมตี 24% เลือด 24% ความเร็วโจมตี 20% ดูดเลือด 20% และความเร็วเคลื่อนที่ 20% (แต่ละอย่างเพิ่มขึ้นอีกตามระยะโจมตีที่เสียไป)",
+        "พลังโจมตีถูกแปลงเป็นความเร็วโจมตี การโจมตีสร้างความเสียหายเวทเพิ่มเติมแบบ On-Hit",
+        "สกิลของคุณติดเอฟเฟกต์ On-Hit คูลดาวน์ 1 วินาทีต่อเป้าหมาย",
+        "การโจมตีของคุณให้พลังเวทแบบสะสม และสกิลของคุณที่สร้างความเสียหายให้ศัตรูจะให้พลังโจมตีแก่คุณ"
       ]
     },
     "tr": {
-      "title": "Geçerken Isıran Yılan",
-      "why": "Cassiopeia'nın pasifi sessizce üzerindeki her Hareket Hızı bonusunu güçlendirir, E'si ise durmadan kullandığı 0,75 saniye bekleme süreli bir yetenektir. Hızlı Adım E'ye gelince her kullanım onu imlece doğru atar, yani ısırdığı hedefe her 0,75 saniyede bir atılır; Gölge Koşucu her atılmadan sonra 300 Hareket Hızı verir, pasifi bunu daha da şişirir ve bir sonraki atılma 2 saniye dolmadan geldiği için bu hız hiç bitmez. Gözünü Kırpma bu hız farkını hedeften fazla olan her 10 Hareket Hızı için %1 ek hasara çevirir, W'nin yavaşlatması ve yere sabitlemesi ile R'nin yavaşlatması farkı açar, Toprağın Uyanışı da her atılmanın ardında 0,75 saniye sonra patlayan bir iz bırakır, tam bir sonraki E hazır olduğunda. Rylai'nin Kristal Asası her ısırıkta hedefi yavaşlatıp farkı büyütür; Kozmik Hızlandırıcı, Lich Boğan, Yıldırım Asası, Ölü Adamın Zırhı ve Doğanın Kudreti ise pasifinin katladığı yüzdesel Hareket Hızı verir, Ölü Adamın Zırhı yavaşlatmaları azaltır, Doğanın Kudreti de yakın dövüşte hayatta tutar. Yerinden kıpırdamayan zehirli topçu büyücü, düşmanın etrafında tur atan ve her ısırıkta arkasındaki yeri mayınlayan süper hareketli bir drift ustasına dönüşür.",
-      "play": "Q veya W ile zehirle, sonra E'ye bas ve Hızlı Adım seni hedefin içinden geçirsin; her atılma bir Toprağın Uyanışı izi bırakır ve Gölge Koşucu'yu yeniler. R'yi hızına yetişmeye çalışan herkesi sersemletmek ya da yavaşlatmak için sakla.",
+      "title": "Vekil Yakın Dövüş",
+      "why": "Azir kendi silahını asla savurmaz: W'si sayesinde bir Kum Askeri'nin yakınındaki düşmana saldırdığında askerler onun yerine saplar ve bir çizgi boyunca büyü hasarı verir, yani gerçek menzili askerlerin durduğu yerdir. Çek Kılıcını! onu yakın dövüşçü yapar ve kaybedilen her Saldırı Menzili puanıyla büyüyen Saldırı Hasarı, Can, Saldırı Hızı, Can Çalma ve Hareket Hızı verir; Azir kâğıt üzerinde menzilinin büyük kısmından vazgeçer ama pratikte hiçbir şey kaybetmez, çünkü askerler kendi menzillerinden saplamaya devam eder. Gıdık Gıdık, askerlerin zaten hiç kullanmadığı tüm Saldırı Hasarı'nı Saldırı Hızı'na çevirir ve isabette büyü hasarı ekler; Olağandışı Silah ise yeteneklerinin isabet etkileri uygulamasını sağlar, böylece her asker darbesi tüm çizgi boyunca Gıdık Gıdık'ı, Nashor'un Dişi'ni, Guinsoo'nun Hiddeti'ni, Aklın Sonu'nu, Mahvolmuş Kralın Kılıcı'nı ve Son Durak'ı taşır. Denge Uzmanı döngüyü kapatır: asker darbeleri yetenek hasarıdır, yani Saldırı Hasarı verir, Gıdık Gıdık bunu daha fazla Saldırı Hızı'na çevirir, bu da daha fazla darbe, yani daha fazla Saldırı Hasarı demek. Menzilli kontrol büyücüsü, kimsenin kılıç menzilinde durmadan tüm yakın dövüş bonuslarını toplayan isabet etkili bir yakın dövüş bruiser'ına dönüşür.",
+      "play": "Kendinle hedef arasına bir asker bırak, sağ tıkla ve isabet etkisi işini askerlere yaptır; E'yi sadece bir askerin üstüne geçmek için kullan, asla kendin dalmak için değil. Senin kendi kılıcın hiçbir işe yaramaz, o yüzden asker olmayan yerde asla savaşma.",
       "augments": [
-        "Seçilen yeteneği kullandığında imlecine doğru atılırsın.",
-        "Atılma, Işınlanma veya Teleport yeteneği kullandıktan ya da Gizlilikten çıktıktan sonra 2 saniyeliğine 300 Hareket Hızı kazanırsın.",
-        "Hedeften fazla olan her 10 hareket hızı için %1 ek hasar kazanırsın.",
-        "Atılma, ışınlanma veya teleport yeteneklerin arkanda 0,75 saniye sonra patlayan bir iz bırakır."
+        "Artık yakın dövüşçüsün. %24 Saldırı Hasarı, %24 Can, %20 Saldırı Hızı, %20 Can Çalma ve %20 Hareket Hızı kazanırsın (her biri kaybedilen Saldırı Menziline göre ayrıca artar).",
+        "Saldırı Hasarı, Saldırı Hızı'na çevrilir. Saldırılar isabette ek büyü hasarı verir.",
+        "Yeteneklerin isabet etkileri uygular. Hedef başına 1 saniye bekleme süresi.",
+        "Saldırıların sana birikebilen Yetenek Gücü verir, düşmanlara hasar veren yeteneklerin ise sana Saldırı Hasarı verir."
       ]
     },
     "vi": {
-      "title": "Con Rắn Lướt Qua",
-      "why": "Nội tại của Cassiopeia âm thầm khiến mọi cộng thêm Tốc độ Di chuyển trên cô mạnh hơn, còn E của cô là chiêu có hồi chiêu 0,75 giây mà cô tung liên tục. Với Bước Chân Nhanh Nhẹn trên E, mỗi lần dùng cô sẽ lướt về phía con trỏ, nên cứ 0,75 giây cô lại lao vào mục tiêu đang cắn; Bóng Đen Tốc Độ cho 300 Tốc độ Di chuyển sau mỗi lần lướt, nội tại thổi phồng thêm, và nó không bao giờ hết vì lần lướt tiếp theo đến trước khi 2 giây kết thúc. Đừng Chớp Mắt biến lợi thế tốc độ đó thành 1% sát thương cộng thêm cho mỗi 10 Tốc độ Di chuyển hơn mục tiêu, làm chậm và trói chân của W cùng làm chậm của R nới rộng khoảng cách, còn Chấn Động khiến mỗi lần lướt để lại một vệt phát nổ sau 0,75 giây, đúng lúc E tiếp theo hồi xong. Trượng Pha Lê Rylai làm chậm mục tiêu mỗi lần cắn, còn Động Cơ Vũ Trụ, Kiếm Tai Ương, Quyền Trượng Bão Tố, Giáp Liệt Sĩ và Giáp Thiên Nhiên đều cho Tốc độ Di chuyển theo phần trăm mà nội tại nhân lên; Giáp Liệt Sĩ giảm hiệu ứng làm chậm, Giáp Thiên Nhiên giữ cô sống sót khi cận chiến. Pháp sư pháo đài độc đứng yên biến thành tay drift siêu cơ động, chạy vòng quanh kẻ địch và gài mìn mặt đất phía sau sau mỗi cú cắn.",
-      "play": "Gây độc bằng Q hoặc W, rồi spam E để Bước Chân Nhanh Nhẹn kéo bạn xuyên qua mục tiêu, mỗi lần lướt để lại Chấn Động và làm mới Bóng Đen Tốc Độ. Giữ R để làm choáng hoặc làm chậm bất kỳ ai cố bắt kịp tốc độ của bạn.",
+      "title": "Cận Chiến Qua Trung Gian",
+      "why": "Azir không bao giờ tự vung vũ khí: nhờ W, khi hắn đánh một kẻ địch gần Lính Cát, đám lính sẽ đâm thay và gây sát thương phép theo đường thẳng, nên tầm đánh thật của hắn nằm ở chỗ đám lính đang đứng. Rút Kiếm Ra biến hắn thành cận chiến và cho Sát Thương, Máu, Tốc Độ Đánh, Hút Máu và Tốc Độ Di Chuyển tăng thêm theo mỗi điểm Tầm Đánh bị mất; trên giấy tờ Azir mất cả đống tầm đánh nhưng ngoài thực tế thì chẳng mất gì, vì đám lính vẫn đâm từ tầm của chúng. Quái Cù Lét đổi toàn bộ Sát Thương mà đám lính vốn chẳng dùng tới thành Tốc Độ Đánh và thêm sát thương phép theo đòn đánh, còn Vũ Khí Siêu Nhiên khiến kỹ năng của hắn áp dụng hiệu ứng trên đòn đánh, nên mỗi nhát đâm của lính mang theo Quái Cù Lét cùng Nanh Nashor, Cuồng Đao Guinsoo, Đao Tím, Gươm Suy Vong và Cung Chạng Vạng suốt cả đường thẳng. Chúa Tể Tay Đôi khép kín vòng lặp: nhát đâm của lính là sát thương kỹ năng nên cho Sát Thương, Quái Cù Lét đổi thành thêm Tốc Độ Đánh, nghĩa là đâm nhiều hơn, rồi lại thêm Sát Thương. Pháp sư khống chế tầm xa hóa thành đấu sĩ cận chiến chuyên hiệu ứng trên đòn đánh, hưởng đủ mọi bonus cận chiến mà chẳng bao giờ phải đứng trong tầm kiếm của ai.",
+      "play": "Thả một con lính vào giữa bạn và mục tiêu, nhấp chuột phải và để đám lính lo phần hiệu ứng trên đòn đánh; chỉ dùng E để dịch chuyển tới chỗ lính, đừng bao giờ tự lao vào. Kiếm của bạn chẳng làm gì cả, nên đừng bao giờ giao tranh ở chỗ không có lính.",
       "augments": [
-        "Khi dùng kỹ năng được chọn, lướt về phía con trỏ.",
-        "Sau khi dùng kỹ năng Lướt, Dịch Chuyển Tức Thời hoặc Dịch Chuyển hoặc thoát khỏi Tàng Hình, nhận 300 Tốc độ Di chuyển trong 2 giây.",
-        "Nhận 1% sát thương cộng thêm cho mỗi 10 tốc độ di chuyển bạn có hơn mục tiêu.",
-        "Các kỹ năng lướt, dịch chuyển tức thời hoặc dịch chuyển của bạn để lại một vệt phát nổ sau 0,75 giây."
+        "Bạn giờ là cận chiến. Nhận 24% Sát Thương, 24% Máu, 20% Tốc Độ Đánh, 20% Hút Máu và 20% Tốc Độ Di Chuyển (mỗi chỉ số còn tăng thêm theo Tầm Đánh bị mất).",
+        "Sát Thương được chuyển thành Tốc Độ Đánh. Đòn đánh gây thêm sát thương phép theo đòn đánh.",
+        "Kỹ năng của bạn áp dụng hiệu ứng trên đòn đánh. Hồi chiêu 1 giây cho mỗi mục tiêu.",
+        "Đòn đánh của bạn cho bạn Sức Mạnh Phép Thuật cộng dồn, và các kỹ năng gây sát thương lên kẻ địch cho bạn Sát Thương."
       ]
     },
     "zh-CN": {
-      "title": "路过咬一口的蛇",
-      "why": "魔蛇之拥的被动悄悄地让她获得的所有移动速度加成都更强，而她的E是冷却仅0.75秒、她会一刻不停释放的技能。把快步放在E上，每次释放都会让她朝光标冲刺，于是她每0.75秒就扑向正在咬的目标；暗影疾奔在每次冲刺后给予300移动速度，被动会再把它放大，而且下一次冲刺在2秒结束前就会到来，所以永不消失。唯快不破把这份速度优势变成每比目标多10移动速度就多1%伤害，W的减速和禁锢以及R的减速进一步拉大差距，大地苏醒让每次冲刺都留下0.75秒后爆炸的轨迹，正好赶上下一个E转好。瑞莱的冰晶节杖每咬一口都减速目标让差距更大，星界驱驰、巫妖之祸、风暴狂涌、亡者的板甲和自然之力都提供被动会放大的百分比移动速度，亡者的板甲削弱减速，自然之力让她在近身战里活下来。原本站桩的毒系炮台法师，变成绕着敌人转圈、每咬一口就在身后埋下地雷的超机动漂移手。",
-      "play": "用Q或W上毒，然后狂按E，让快步拖着你穿过目标，每次冲刺都留下大地苏醒的轨迹并刷新暗影疾奔。R留着眩晕或减速任何想跟上你速度的人。",
+      "title": "遥控近战",
+      "why": "阿兹尔从来不亲自挥武器：他的W让他攻击沙兵附近的敌人时，由沙兵代替刺击，对一条直线上的敌人造成魔法伤害，所以他真正的攻击距离就是沙兵站的位置。亮出你的剑让他变成近战，并获得攻击力、生命值、攻击速度、生命偷取和移动速度，每损失1点攻击距离都会额外提升；阿兹尔账面上丢了一大截射程，实际上一点没丢，因为沙兵还是从自己的射程刺击。嗡嗡怪兽把沙兵根本用不上的所有攻击力转化为攻击速度，并附加命中时的魔法伤害；虚幻武器让他的技能施加攻击特效，所以每次沙兵刺击都会沿整条直线带上嗡嗡怪兽，以及纳什之牙、鬼索的狂暴之刃、智慧末刃、破败王者之刃和界弓的效果。物法皆修把循环闭合：沙兵的刺击属于技能伤害，会提供攻击力，嗡嗡怪兽再把它转成更多攻击速度，于是刺得更多，攻击力也更多。远程控制法师摇身变成攻击特效近战战士，吃满所有近战加成，却从不用站到任何人的剑锋范围内。",
+      "play": "在自己和目标之间放一个沙兵，右键点击，让沙兵去打攻击特效；E只用来位移到沙兵身上，千万别自己冲进去。你自己的剑不起任何作用，所以别在没有沙兵的地方打架。",
       "augments": [
-        "使用所选技能时，朝光标方向冲刺。",
-        "使用冲刺、闪烁或传送类技能或脱离隐身后，获得300移动速度，持续2秒。",
-        "你的移动速度每比目标多10，就获得1%额外伤害。",
-        "你的冲刺、闪烁或传送类技能会留下一条轨迹，在0.75秒后引爆。"
+        "你现在是近战。获得24%攻击力、24%生命值、20%攻击速度、20%生命偷取和20%移动速度（每一项还会根据损失的攻击距离进一步提升）。",
+        "攻击力会转化为攻击速度。攻击会在命中时造成额外魔法伤害。",
+        "你的技能会施加攻击特效。每个目标有1秒冷却时间。",
+        "你的攻击会为你提供可叠加的法术强度，你对敌人造成伤害的技能会为你提供攻击力。"
       ]
     },
     "zh-TW": {
-      "title": "路過咬一口的蛇",
-      "why": "卡莎碧雅的被動默默讓她得到的所有跑速加成都更強，而她的E是冷卻僅0.75秒、她會不停施放的技能。把快步移動放在E上，每次施放都會讓她朝游標衝刺，於是她每0.75秒就撲向正在咬的目標；飛影跑法在每次衝刺後給予300跑速，被動會再把它放大，而且下一次衝刺在2秒結束前就會到來，所以永不中斷。別眨眼把這份速度優勢變成每比目標多10跑速就多1%傷害，W的緩速與定身以及R的緩速進一步拉開差距，大地覺醒讓每次衝刺都留下0.75秒後爆炸的軌跡，剛好趕上下一個E冷卻完畢。瑞萊的冰晶節杖每咬一口都緩速目標讓差距更大，星河馳騁、巫妖之禍、雷霆風暴、死者肩甲和自然之力都提供被動會放大的百分比跑速，死者肩甲削弱緩速，自然之力讓她在近身戰裡活下來。原本站樁的毒系砲台法師，變成繞著敵人轉圈、每咬一口就在身後埋下地雷的超機動甩尾手。",
-      "play": "用Q或W上毒，然後狂按E，讓快步移動拖著你穿過目標，每次衝刺都留下大地覺醒的軌跡並刷新飛影跑法。R留著暈眩或緩速任何想跟上你速度的人。",
+      "title": "遙控近戰",
+      "why": "阿祈爾從來不親自揮武器：他的W讓他攻擊沙兵附近的敵人時，由沙兵代替刺擊，對一條直線上的敵人造成魔法傷害，所以他真正的攻擊距離就是沙兵站的位置。拔劍吧讓他變成近戰，並獲得物理攻擊、生命值、攻擊速度、生命偷取和移動速度，每損失1點攻擊距離都會額外提升；阿祈爾帳面上丟了一大截射程，實際上一點都沒丟，因為沙兵還是從自己的射程刺擊。搔癢怪獸把沙兵根本用不到的所有物理攻擊轉化為攻擊速度，並附加命中時的魔法傷害；幻影武器讓他的技能施加命中特效，所以每次沙兵刺擊都會沿整條直線帶上搔癢怪獸，以及納什之牙、鬼索的狂暴之刃、智慧末刃、殞落王者之劍和臨界點的效果。雙修大師把循環閉合：沙兵的刺擊屬於技能傷害，會提供物理攻擊，搔癢怪獸再把它轉成更多攻擊速度，於是刺得更多，物理攻擊也更多。遠程控制法師搖身變成命中特效近戰戰士，吃滿所有近戰加成，卻從不用站到任何人的劍鋒範圍內。",
+      "play": "在自己和目標之間放一個沙兵，按右鍵，讓沙兵去打命中特效；E只用來位移到沙兵身上，千萬別自己衝進去。你自己的劍不起任何作用，所以別在沒有沙兵的地方打架。",
       "augments": [
-        "使用所選技能時，朝游標方向衝刺。",
-        "使用衝刺、閃現或傳送類技能或脫離隱形後，獲得300跑速，持續2秒。",
-        "你的移動速度每比目標多10，就獲得1%額外傷害。",
-        "你的衝刺、閃現或傳送類技能會留下一道軌跡，在0.75秒後引爆。"
+        "你現在是近戰。獲得24%物理攻擊、24%生命值、20%攻擊速度、20%生命偷取和20%移動速度（每一項還會根據損失的攻擊距離進一步提升）。",
+        "物理攻擊會轉化為攻擊速度。攻擊會在命中時造成額外魔法傷害。",
+        "你的技能會施加命中特效。每個目標有1秒冷卻時間。",
+        "你的攻擊會為你提供可疊加的魔法攻擊，你對敵人造成傷害的技能會為你提供物理攻擊。"
       ]
     }
   }

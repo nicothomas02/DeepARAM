@@ -182,5 +182,11 @@
  "Weapon of Destiny": "Zbraň osudu",
  "Pentakill": "Pentakill",
  "Simulated": "Simulace",
- "Simulated: one of these augments has no real games yet, so only simulated fights put it in the set.": "Simulace: jedna z těchto augmentací zatím nemá žádné skutečné hry, takže do sady ji dostaly jen simulované souboje."
+ "Simulated: one of these augments has no real games yet, so only simulated fights put it in the set.": "Simulace: jedna z těchto augmentací zatím nemá žádné skutečné hry, takže do sady ji dostaly jen simulované souboje.",
+ "Boots before the 1st item": "Boty před 1. předmětem",
+ "Boots after the 1st item": "Boty po 1. předmětu",
+ "Boots after the 2nd item": "Boty po 2. předmětu",
+ "Boots after the 3rd item": "Boty po 3. předmětu",
+ "Boots are shown where to buy them.": "Boty jsou zobrazeny tam, kde je koupit.",
+ "Core builds show the boots where the Simulator says to buy them: the first point where they add as much per gold as the next item.": "Základní buildy ukazují boty tam, kde je podle Simulátoru koupit: v prvním bodě, kdy za zlato přidají tolik jako další předmět."
 }

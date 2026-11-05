@@ -54,6 +54,26 @@ describe("connecting a Riot account through My Stats", async () => {
     expect(await tokenOwner("short", "na1")).toBeNull();
     expect(await tokenOwner("has spaces in it and is long enough", "na1")).toBeNull();
   });
+  it("reads Riot's userinfo whether it comes as JSON or as a signed token", async () => {
+    const { readUserinfo } = await import("@/lib/profiles");
+    const claims = { sub: "puuid-1", acct: { game_name: "Nicö", tag_line: "damn" } };
+    const b64url = (o: unknown) => btoa(String.fromCharCode(...new TextEncoder().encode(JSON.stringify(o)))).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
+    expect(readUserinfo(JSON.stringify(claims))).toEqual(claims);
+    expect(readUserinfo(`${b64url({ alg: "RS256" })}.${b64url(claims)}.sig`)).toEqual(claims);
+    expect(readUserinfo("garbage")).toBeNull();
+    expect(readUserinfo("")).toBeNull();
+  });
+  it("confirms the owner when Riot answers with a signed token", async () => {
+    const claims = { sub: "puuid-1", acct: { game_name: "nico", tag_line: "damn" } };
+    const jwt = `eyJhbGciOiJSUzI1NiJ9.${btoa(JSON.stringify(claims)).replace(/=+$/, "")}.sig`;
+    const real = globalThis.fetch;
+    globalThis.fetch = (async () => new Response(jwt, { status: 200 })) as typeof fetch;
+    try {
+      expect(await tokenOwner("a".repeat(40), "na1")).toEqual({ puuid: "puuid-1", name: "nico", tag: "damn" });
+    } finally {
+      globalThis.fetch = real;
+    }
+  });
 });
 
 describe("Sign in with Google or Apple", async () => {

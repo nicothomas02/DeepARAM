@@ -415,6 +415,29 @@
       "why": "Cassiopeia's passive, Serpentine Grace, quietly makes every Move Speed bonus bigger on her, and Twin Fang is a 0.75-second cooldown spell she casts nonstop. With Quickstep rolled on Twin Fang, every cast now dashes her toward her cursor, so she lunges at whoever she is biting every 0.75 seconds; Shadow Runner hands out 300 Move Speed after each dash, which her passive inflates and which never expires because the next dash arrives before the 2 seconds are up. Don't Blink turns that speed lead into 1% bonus damage per 10 Move Speed over the target, and her own Miasma slow and ground plus Petrifying Gaze's slow widen the gap, while Earthwake makes every dash leave a trail that detonates after 0.75 seconds, exactly as the next Twin Fang comes off cooldown. Rylai's slows the target on every fang so the gap grows further, and Cosmic Drive, Lich Bane, Stormsurge, Dead Man's Plate and Force of Nature all carry percent Move Speed that her passive multiplies, with Dead Man's Plate blunting slows and Force of Nature keeping her alive in melee. The stationary poison artillery mage becomes a hyper-mobile drifter who runs rings around the enemy, mining the ground behind her with every bite.",
       "play": "Poison with Q or W, then hold E and let Quickstep drag you through the target so each dash lays an Earthwake trail and refreshes Shadow Runner. Save R to stun or slow anyone who tries to match your speed.",
       "chef": "2026-11-03"
+    },
+    {
+      "id": "azir-melee-by-proxy",
+      "champion": "Azir",
+      "title": "Melee By Proxy",
+      "augments": [
+        "Draw Your Sword",
+        "Tickle Monster",
+        "Ethereal Weapon",
+        "Master of Duality"
+      ],
+      "core": 4,
+      "items": [
+        "Berserker's Greaves",
+        "Nashor's Tooth",
+        "Guinsoo's Rageblade",
+        "Wit's End",
+        "Blade of The Ruined King",
+        "Terminus"
+      ],
+      "why": "Azir never swings his own weapon: Arise! says that when he Attacks an enemy near a Sand Soldier, the soldiers stab instead and deal magic damage in a line, so his real reach is wherever his soldiers are standing. Draw Your Sword makes him melee and pays out Attack Damage, Health, Attack Speed, Lifesteal and Move Speed that grow with every point of Attack Range lost, and Azir gives up a huge chunk of range on paper while giving up none in practice, because the soldiers keep stabbing from their own range. Tickle Monster converts all that Attack Damage, which his soldiers never used anyway, into Attack Speed and adds magic damage On-Hit, and Ethereal Weapon makes his Abilities apply On-Hit effects, so every soldier stab carries Tickle Monster plus Nashor's Tooth, Guinsoo's Rageblade, Wit's End, Blade of The Ruined King and Terminus down the whole line. Master of Duality closes the loop: soldier stabs are Ability damage, so they grant Attack Damage, which Tickle Monster turns into more Attack Speed, which means more stabs, which means more Attack Damage. The ranged control mage becomes a melee on-hit bruiser who collects every melee bonus without ever standing within sword's reach of anyone.",
+      "play": "Drop a soldier between you and the target, right-click, and let the soldiers do the on-hit work; use Shifting Sands only to reposition onto a soldier, never to go in yourself. Your own sword does nothing, so never fight where a soldier isn't.",
+      "chef": "2026-11-04"
     }
   ]
 }

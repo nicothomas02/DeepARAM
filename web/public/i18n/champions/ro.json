@@ -182,5 +182,11 @@
  "Weapon of Destiny": "Arma destinului",
  "Pentakill": "Pentakill",
  "Simulated": "Simulat",
- "Simulated: one of these augments has no real games yet, so only simulated fights put it in the set.": "Simulat: una dintre aceste augmentări nu are încă jocuri reale, așa că doar luptele simulate au pus-o în set."
+ "Simulated: one of these augments has no real games yet, so only simulated fights put it in the set.": "Simulat: una dintre aceste augmentări nu are încă jocuri reale, așa că doar luptele simulate au pus-o în set.",
+ "Boots before the 1st item": "Cizme înainte de primul obiect",
+ "Boots after the 1st item": "Cizme după primul obiect",
+ "Boots after the 2nd item": "Cizme după al 2-lea obiect",
+ "Boots after the 3rd item": "Cizme după al 3-lea obiect",
+ "Boots are shown where to buy them.": "Cizmele apar acolo unde trebuie cumpărate.",
+ "Core builds show the boots where the Simulator says to buy them: the first point where they add as much per gold as the next item.": "Build-urile de bază arată cizmele acolo unde Simulatorul spune să le cumperi: primul moment în care aduc pe aur cât următorul obiect."
 }

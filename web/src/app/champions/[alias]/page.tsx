@@ -13,6 +13,7 @@ import { notFound } from "next/navigation";
 import { championAliases, championSummary, champList } from "@/lib/champions";
 import {
   bestRow,
+  buildOrder,
   championPage,
   scoreRows,
   MIN_PAIR_PICK,
@@ -42,6 +43,7 @@ import {
   tone,
 } from "@/components/champion/Ranked";
 import ShowMore from "@/components/champion/ShowMore";
+import SimTag from "@/components/champion/SimTag";
 import Quests from "@/components/champion/Quests";
 import AugmentTable from "@/components/champion/AugmentTable";
 import SectionRail from "@/components/champion/SectionRail";
@@ -149,6 +151,15 @@ function ScoredCells({ r }: { r: ItemRow }) {
   );
 }
 
+// When the boots are bought in a core build: after how many core items (simulated, lib/champion-page.ts withBoots).
+const BOOTS_WHEN: Record<number, string> = {
+  0: "Boots before the 1st item",
+  1: "Boots after the 1st item",
+  2: "Boots after the 2nd item",
+  3: "Boots after the 3rd item",
+};
+const BOOTS_HELP =
+  "Core builds show the boots where the Simulator says to buy them: the first point where they add as much per gold as the next item.";
 const SLOT_LABEL: Record<number, string> = {
   4: "4th item",
   5: "5th item",
@@ -328,7 +339,7 @@ export default async function ChampionPage({
   const itemRows = (rows: typeof p.core, sep = false) =>
     rows.map((r, i) => (
       <Row key={i} rank={i + 1} cells={<ScoredCells r={r} />}>
-        {(r.boots ? [r.boots, ...r.items] : r.items).map((id, j) => (
+        {buildOrder(r).map((id, j) => (
           <span key={j} className="cp-chain">
             {sep && j > 0 && (
               <span className="cp-sep" aria-hidden="true">
@@ -542,13 +553,17 @@ export default async function ChampionPage({
                 <T ns={NS}>Best core build</T>
               </h4>
               <div className="cp-icons">
-                {(bestCore.boots
-                  ? [bestCore.boots, ...bestCore.items]
-                  : bestCore.items
-                ).map((id) => (
+                {buildOrder(bestCore).map((id) => (
                   <ItemIcon key={id} id={id} info={info} named />
                 ))}
               </div>
+              {bestCore.boots !== undefined &&
+                bestCore.bootsAt !== undefined && (
+                  <p className="cp-boots-when">
+                    <T ns={NS}>{BOOTS_WHEN[bestCore.bootsAt]}</T>{" "}
+                    <SimTag title={BOOTS_HELP} />
+                  </p>
+                )}
               <div className="cp-mini">
                 <RatedCells r={bestCore} />
               </div>
@@ -676,6 +691,12 @@ export default async function ChampionPage({
               <ShowMore total={p.core.length} limit={5}>
                 {itemRows(p.core, true)}
               </ShowMore>
+              {p.core.some((r) => r.bootsAt !== undefined) && (
+                <p className="cp-boots-when cp-boots-note">
+                  <T ns={NS}>Boots are shown where to buy them.</T>{" "}
+                  <SimTag title={BOOTS_HELP} />
+                </p>
+              )}
               {est && est.timing.length > 0 && (
                 <div className="cp-timing">
                   <small>

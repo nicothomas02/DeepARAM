@@ -68,3 +68,15 @@ This opens the dashboard at `http://127.0.0.1:8787/` with a **Sync from League**
 button. Pressing it pulls any new games from the client into the archive and
 redraws the page. The helper only listens on your own computer and refuses
 requests from other sites. Close the Terminal window to stop it.
+
+My Stats on deeparam.com (`/account#my-stats`) uses the same helper: with it running, **Import games from
+client** there imports through it. The helper answers only deeparam.com and its own pages. Add `--watch`
+to import by itself when it starts, a minute or two after each game, and every half hour while League is
+open.
+
+### Windows
+
+The importer runs on Windows 10 and 11 too (they include `curl`). Install Python 3 from python.org,
+download this repository, start League and sign in, then double-click
+`importer/Open Mayhem Stats (Windows).bat`. It opens the dashboard and imports by itself after each game
+(`--watch`). Settings and recordings live in `%APPDATA%\Mayhem Stats`.

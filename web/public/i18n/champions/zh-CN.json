@@ -182,5 +182,11 @@
  "Weapon of Destiny": "命运之武器",
  "Pentakill": "五杀摇滚",
  "Simulated": "模拟",
- "Simulated: one of these augments has no real games yet, so only simulated fights put it in the set.": "模拟：其中一个强化符文还没有真实对局，只是模拟战斗把它放进了这一组。"
+ "Simulated: one of these augments has no real games yet, so only simulated fights put it in the set.": "模拟：其中一个强化符文还没有真实对局，只是模拟战斗把它放进了这一组。",
+ "Boots before the 1st item": "第1件装备前买鞋",
+ "Boots after the 1st item": "第1件装备后买鞋",
+ "Boots after the 2nd item": "第2件装备后买鞋",
+ "Boots after the 3rd item": "第3件装备后买鞋",
+ "Boots are shown where to buy them.": "鞋子显示在应购买的位置。",
+ "Core builds show the boots where the Simulator says to buy them: the first point where they add as much per gold as the next item.": "核心出装把鞋子放在模拟器建议购买的位置：即每金币收益首次不低于下一件装备的时刻。"
 }

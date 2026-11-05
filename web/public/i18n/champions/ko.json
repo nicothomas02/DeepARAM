@@ -182,5 +182,11 @@
  "Weapon of Destiny": "운명의 무기",
  "Pentakill": "펜타킬",
  "Simulated": "시뮬레이션",
- "Simulated: one of these augments has no real games yet, so only simulated fights put it in the set.": "시뮬레이션: 이 중 하나의 증강은 아직 실제 게임이 없어, 시뮬레이션 전투만으로 조합에 들어갔습니다."
+ "Simulated: one of these augments has no real games yet, so only simulated fights put it in the set.": "시뮬레이션: 이 중 하나의 증강은 아직 실제 게임이 없어, 시뮬레이션 전투만으로 조합에 들어갔습니다.",
+ "Boots before the 1st item": "1번째 아이템 전에 신발",
+ "Boots after the 1st item": "1번째 아이템 후에 신발",
+ "Boots after the 2nd item": "2번째 아이템 후에 신발",
+ "Boots after the 3rd item": "3번째 아이템 후에 신발",
+ "Boots are shown where to buy them.": "신발은 구매할 시점에 표시됩니다.",
+ "Core builds show the boots where the Simulator says to buy them: the first point where they add as much per gold as the next item.": "핵심 빌드는 시뮬레이터가 권하는 구매 시점에 신발을 표시합니다. 골드당 효과가 다음 아이템만큼 되는 첫 시점입니다."
 }
