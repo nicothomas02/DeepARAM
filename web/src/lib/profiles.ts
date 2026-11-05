@@ -39,6 +39,25 @@ export const isPlatform = (p: unknown): p is Platform => typeof p === "string" &
 
 type Owner = { puuid: string; name: string; tag: string };
 
+type Userinfo = { sub?: string; acct?: { game_name?: string; tag_line?: string } };
+
+/** Riot's userinfo answers either as JSON or, for client tokens now, as a signed JWT ("userinfo+jwt") whose
+ * payload holds the same fields. It came straight from auth.riotgames.com over HTTPS for this token, so its
+ * payload is read as is. */
+export function readUserinfo(body: string): Userinfo | null {
+  const text = body.trim();
+  try {
+    if (text.startsWith("{")) return JSON.parse(text) as Userinfo;
+    const part = text.split(".")[1];
+    if (!part) return null;
+    const b64 = part.replace(/-/g, "+").replace(/_/g, "/");
+    const bytes = Uint8Array.from(atob(b64 + "=".repeat((4 - (b64.length % 4)) % 4)), (c) => c.charCodeAt(0));
+    return JSON.parse(new TextDecoder().decode(bytes)) as Userinfo;
+  } catch {
+    return null;
+  }
+}
+
 /** The account a client access token belongs to, or null if the token isn't valid. */
 export async function tokenOwner(token: string, platform: Platform): Promise<Owner | null> {
   if (!/^[\w.-]{20,8000}$/.test(token)) return null;
@@ -46,8 +65,8 @@ export async function tokenOwner(token: string, platform: Platform): Promise<Own
   try {
     const res = await fetch("https://auth.riotgames.com/userinfo", { headers: auth, cache: "no-store" });
     if (res.ok) {
-      const u = (await res.json()) as { sub?: string; acct?: { game_name?: string; tag_line?: string } };
-      if (u.sub && u.acct?.game_name && u.acct.tag_line) return { puuid: u.sub, name: u.acct.game_name, tag: u.acct.tag_line };
+      const u = readUserinfo(await res.text());
+      if (u?.sub && u.acct?.game_name && u.acct.tag_line) return { puuid: u.sub, name: u.acct.game_name, tag: u.acct.tag_line };
     }
   } catch {
     // The token couldn't be checked.
