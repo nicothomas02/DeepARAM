@@ -702,3 +702,76 @@ def test_kill_positions_are_fetched_several_at_a_time(mi):
     assert mi.fill_kill_maps(SlowLcu(), games, progress=lambda m: None) == 12
     assert time.monotonic() - start < 12 * 0.2 / 2  # one by one would take 2.4 s
     assert games[2]["killMap"] is None and games[0]["killMap"] == []
+
+
+def test_live_recorder_calls_on_end_after_each_game(mi, tmp_path):
+    import threading
+    frames = iter([live_frame(5), live_frame(35, end=True), live_frame(5), None])
+    stop = threading.Event()
+    stop.wait = lambda s: None
+    ends = []
+
+    def fetch():
+        f = next(frames, "done")
+        if f == "done":
+            stop.set()
+        if not isinstance(f, dict):
+            raise ConnectionError("no game")
+        return f
+
+    mi.live_recorder(stop, {}, fetch=fetch, folder=str(tmp_path), progress=lambda m: None, on_end=lambda: ends.append(1))
+    assert len(ends) == 2  # one that reported its end, one closed mid-game
+
+
+@pytest.fixture
+def helper(mi, monkeypatch, tmp_path):
+    """The --serve helper on a free local port, without a browser, live recording or a League client."""
+    import socket
+    import threading
+    s = socket.socket()
+    s.bind(("127.0.0.1", 0))
+    port = s.getsockname()[1]
+    s.close()
+    monkeypatch.setattr(mi, "log", lambda m: None)
+    out = tmp_path / "archive.json"
+    out.write_text(json.dumps({"puuid": ME, "games": []}))
+    threading.Thread(target=mi.serve, args=(str(out), port), kwargs={"open_browser": False, "record_live": False},
+                     daemon=True).start()
+    import http.client
+    import time as _t
+    for _ in range(100):
+        try:
+            socket.create_connection(("127.0.0.1", port), timeout=0.1).close()
+            break
+        except OSError:
+            _t.sleep(0.02)
+
+    def call(method, path, headers=None):
+        c = http.client.HTTPConnection("127.0.0.1", port, timeout=5)
+        c.request(method, path, headers={"Host": f"127.0.0.1:{port}", **(headers or {})})
+        r = c.getresponse()
+        r.read()
+        return r
+    return call
+
+
+def test_helper_lets_my_stats_on_the_site_read_the_archive(helper):
+    r = helper("GET", "/data/mayhem-backup.json", {"Origin": "https://deeparam.com"})
+    assert r.status == 200 and r.getheader("Access-Control-Allow-Origin") == "https://deeparam.com"
+    r = helper("GET", "/data/mayhem-backup.json", {"Origin": "https://evil.example"})
+    assert r.getheader("Access-Control-Allow-Origin") is None
+
+
+def test_helper_preflight_only_for_the_site(helper):
+    ask = {"Access-Control-Request-Method": "POST", "Access-Control-Request-Headers": "x-mayhem",
+           "Access-Control-Request-Private-Network": "true"}
+    r = helper("OPTIONS", "/api/sync", {"Origin": "https://deeparam.com", **ask})
+    assert r.status == 204
+    assert r.getheader("Access-Control-Allow-Private-Network") == "true"
+    assert "X-Mayhem" in r.getheader("Access-Control-Allow-Headers")
+    assert helper("OPTIONS", "/api/sync", {"Origin": "https://evil.example", **ask}).status == 403
+
+
+def test_helper_refuses_posts_from_other_sites(helper):
+    r = helper("POST", "/api/share", {"Origin": "https://evil.example", "X-Mayhem": "1", "Content-Length": "0"})
+    assert r.status == 403

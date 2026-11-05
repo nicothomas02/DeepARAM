@@ -823,6 +823,17 @@ let helperOnline = false;
 // The helper serves this page at its root; the site's copy (under /embed/) has no helper behind it, so it
 // never asks for the archive or the helper's endpoints.
 const ON_HELPER = location.protocol !== "file:" && !location.pathname.startsWith("/embed/");
+// On deeparam.com, My Stats talks to the helper on this computer at its own address. The helper only answers
+// the site's own origin. The browser may ask the player to allow it the first time.
+const HELPER = ON_HELPER ? "" : "http://127.0.0.1:8787/";
+const SITE_HINT = () => t("Mayhem Stats isn't running on this computer. Open the Riot Client and sign in, start Mayhem Stats (Open Mayhem Stats.command), then press Import again.");
+const HELPER_SEEN = "deeparam-helper-seen";
+function rememberHelper(on) {
+  try { on ? localStorage.setItem(HELPER_SEEN, "1") : localStorage.removeItem(HELPER_SEEN); } catch (e) { /* not kept */ }
+}
+function helperSeen() {
+  try { return localStorage.getItem(HELPER_SEEN) === "1"; } catch (e) { return false; }
+}
 
 function setSyncStatus(text, error = false) {
   syncStatus.hidden = !text;
@@ -831,13 +842,13 @@ function setSyncStatus(text, error = false) {
 }
 
 async function syncState() {
-  const res = await fetch("api/sync", { cache: "no-store" });
+  const res = await fetch(HELPER + "api/sync", { cache: "no-store" });
   if (!res.ok) throw new Error(`helper answered ${res.status}`);
   return res.json();
 }
 
 async function reloadArchive() {
-  const res = await fetch("data/mayhem-backup.json", { cache: "no-store" });
+  const res = await fetch(HELPER + "data/mayhem-backup.json", { cache: "no-store" });
   if (res.ok) await loadText(await res.text());
 }
 
@@ -958,6 +969,7 @@ async function watchSync() {
       liveUpdate(s);
       const { added, total, failed } = s.result;
       await reloadArchive();
+      if (!ON_HELPER) { setupShare(); setupHistory(); }
       const summary = added
         ? t(added === 1 ? "Added 1 new game. {total} in your archive." : "Added {n} new games. {total} in your archive.", { n: added, total })
         : t("Up to date. {total} games in your archive.", { total });
@@ -976,13 +988,13 @@ async function watchSync() {
 
 const startSync = async () => {
   if (!helperOnline) {
-    if (!ON_HELPER) return setSyncStatus(OFFLINE_HINT());
     // the helper may have been started since the page loaded
-    try { await syncState(); helperOnline = true; } catch (e) { return setSyncStatus(OFFLINE_HINT()); }
+    try { await syncState(); } catch (e) { rememberHelper(false); return setSyncStatus(ON_HELPER ? OFFLINE_HINT() : SITE_HINT()); }
+    helperFound();
   }
   setSyncStatus(t("Starting…"));
   try {
-    const res = await fetch("api/sync", { method: "POST", headers: { "X-Mayhem": "1" } });
+    const res = await fetch(HELPER + "api/sync", { method: "POST", headers: { "X-Mayhem": "1" } });
     if (!res.ok && res.status !== 409) throw new Error(String(res.status));
   } catch (e) {
     return setSyncStatus(t("Couldn't reach the sync helper."), true);
@@ -992,13 +1004,26 @@ const startSync = async () => {
 for (const b of syncBtns) b.addEventListener("click", startSync);
 
 async function setupSync() {
-  // The empty state already explains Sync, so this only picks up a running sync
-  if (PRESET.sample || !ON_HELPER) return;
+  // The empty state already explains Sync, so this only picks up a running sync. On the site it only looks for
+  // the helper once the player has imported through it, so other visitors' browsers never ask about it.
+  if (PRESET.sample || (!ON_HELPER && !helperSeen())) return;
   try {
     const s = await syncState();
     helperOnline = true;
+    if (!ON_HELPER) rememberHelper(true);
     if (s.running) watchSync();
   } catch (e) { /* no helper; the button explains when pressed */ }
+}
+
+// Found the helper after the page loaded (on the site, when the player pressed Import): show its cards.
+function helperFound() {
+  helperOnline = true;
+  if (ON_HELPER) return;
+  rememberHelper(true);
+  setupProfile();
+  setupShare();
+  setupHistory();
+  setupLive();
 }
 
 // Opened from the sync helper, load the archive it keeps.
@@ -1007,11 +1032,13 @@ async function setupSync() {
   if (PRESET.sample) return loadText(JSON.stringify(PRESET.sample), { sample: true });
   if (ON_HELPER) {
     try {
-      const res = await fetch("data/mayhem-backup.json", { cache: "no-store" });
+      const res = await fetch(HELPER + "data/mayhem-backup.json", { cache: "no-store" });
       if (res.ok) await loadText(await res.text());
     } catch (e) { /* no archive yet */ }
   } else await loadSaved();
   await setupSync();
+  // On the site with the helper running, its archive has every game, saved to the account or not.
+  if (!ON_HELPER && helperOnline) await reloadArchive().catch(() => {});
   setupProfile();
   setupShare();
   setupHistory();
@@ -1057,7 +1084,7 @@ function showProfile(p) {
 }
 
 async function profileCall(action, data) {
-  const res = await fetch("api/profile", {
+  const res = await fetch(HELPER + "api/profile", {
     method: "POST", headers: { "X-Mayhem": "1", "Content-Type": "application/json" },
     body: JSON.stringify({ action, data }),
   });
@@ -1105,7 +1132,7 @@ function linked(j) {
 }
 
 async function pairCall(body) {
-  const res = await fetch("api/profile", {
+  const res = await fetch(HELPER + "api/profile", {
     method: "POST", headers: { "X-Mayhem": "1", "Content-Type": "application/json" }, body: JSON.stringify(body),
   });
   const j = await res.json().catch(() => ({}));
@@ -1174,7 +1201,8 @@ $("pair-start").addEventListener("click", async () => {
 addEventListener("focus", checkPair);
 
 function setupLink() {
-  if (helperOnline && !state.sample) $("link-card").hidden = false;
+  // Connecting to deeparam.com is for the helper's own page; on the site the player is already here.
+  if (ON_HELPER && helperOnline && !state.sample) $("link-card").hidden = false;
 }
 
 // ---------- sharing ----------
@@ -1188,7 +1216,7 @@ function showShare(st) {
 }
 
 async function shareCall(body) {
-  const res = await fetch("api/share", {
+  const res = await fetch(HELPER + "api/share", {
     method: "POST", headers: { "X-Mayhem": "1", "Content-Type": "application/json" }, body: JSON.stringify(body || {}),
   });
   const j = await res.json().catch(() => ({}));
@@ -1233,7 +1261,7 @@ function showHistory(st) {
 }
 
 async function historyCall(body) {
-  const res = await fetch("api/history", {
+  const res = await fetch(HELPER + "api/history", {
     method: "POST", headers: { "X-Mayhem": "1", "Content-Type": "application/json" }, body: JSON.stringify(body || {}),
   });
   const j = await res.json().catch(() => ({}));
@@ -1415,7 +1443,7 @@ function renderLive() {
 async function setupLive() {
   if (!helperOnline || state.sample) return;
   try {
-    const res = await fetch("api/live", { cache: "no-store" });
+    const res = await fetch(HELPER + "api/live", { cache: "no-store" });
     if (!res.ok) return;
     const live = await res.json();
     if (!live.enabled) return;

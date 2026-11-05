@@ -543,7 +543,13 @@ def run_import(out, full=False, lockfile=None, sgp_host=None, progress=log, on_g
 # A web page can't talk to the League client itself (its certificate and
 # password are local), so this serves the dashboard and runs imports for it.
 # It listens on 127.0.0.1 only and accepts sync requests only from its own
-# pages: a POST needs the X-Mayhem header, which other sites can't send.
+# pages and from My Stats on deeparam.com: a POST needs the X-Mayhem header,
+# which a page can only send cross-site after the helper allows its origin.
+SITE_ORIGINS = ("https://deeparam.com", "https://www.deeparam.com")
+# With --watch, how often to look for new games besides right after each game
+WATCH_EVERY = 30 * 60
+# Riot's match history lists a game a little after it ends
+AFTER_GAME_DELAY = 90
 
 DASHBOARD_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "dashboard")
 # The page loads names, fonts and the minimap from the site's /assets/; when it's
@@ -970,8 +976,9 @@ def live_recordings(folder=None):
     return out
 
 
-def live_recorder(stop, status, fetch=None, folder=None, progress=log):
-    """Runs until stop is set: waits for a game, snapshots it, saves it when it ends."""
+def live_recorder(stop, status, fetch=None, folder=None, progress=log, on_end=None):
+    """Runs until stop is set: waits for a game, snapshots it, saves it when it ends.
+    on_end, when given, is called after each saved game (the helper imports it once Riot has it)."""
     fetch = fetch or (lambda: curl_json(LIVE_URL, cacert=riot_ca(), timeout=5))
     rec = None
     while not stop.is_set():
@@ -991,6 +998,8 @@ def live_recorder(stop, status, fetch=None, folder=None, progress=log):
                 progress("Live game saved.")
                 rec = None
                 status["recording"] = None
+                if on_end:
+                    on_end()
                 stop.wait(60)  # the end screen keeps answering for a while
                 continue
         elif rec is not None:
@@ -999,10 +1008,14 @@ def live_recorder(stop, status, fetch=None, folder=None, progress=log):
             progress("Live game saved.")
             rec = None
             status["recording"] = None
+            if on_end:
+                on_end()
         stop.wait(LIVE_EVERY if rec else LIVE_IDLE)
 
 
-def serve(out, port, lockfile=None, sgp_host=None, open_browser=True, record_live=True):
+def serve(out, port, lockfile=None, sgp_host=None, open_browser=True, record_live=True, watch=False):
+    """watch: also import on start, after each game the live recorder sees end, and every WATCH_EVERY seconds
+    while League is open, so the archive (and the account copy, when saving is on) keeps up by itself."""
     import http.server
     import threading
     import webbrowser
@@ -1013,8 +1026,6 @@ def serve(out, port, lockfile=None, sgp_host=None, open_browser=True, record_liv
     lock = threading.Lock()
     live = {"recording": None, "enabled": record_live}
     stop_live = threading.Event()
-    if record_live:
-        threading.Thread(target=live_recorder, args=(stop_live, live), daemon=True).start()
 
     def sync_worker(full):
         def progress(msg):
@@ -1052,6 +1063,36 @@ def serve(out, port, lockfile=None, sgp_host=None, open_browser=True, record_liv
             with lock:
                 state["running"] = False
 
+    def start_sync(full=False):
+        """Starts an import unless one is running. Returns the state to report."""
+        with lock:
+            if not state["running"]:
+                state.update(running=True, log=[], result=None, error=None, progress=None)
+                threading.Thread(target=sync_worker, args=(full,), daemon=True).start()
+            return dict(state)
+
+    def client_open():
+        try:
+            find_client(lockfile)
+            return True
+        except ImportFailed:
+            return False
+
+    def after_game():
+        if watch:
+            threading.Timer(AFTER_GAME_DELAY, start_sync).start()
+
+    def watcher():
+        while not stop_live.is_set():
+            if client_open():
+                start_sync()
+            stop_live.wait(WATCH_EVERY)
+
+    if record_live:
+        threading.Thread(target=live_recorder, args=(stop_live, live), kwargs={"on_end": after_game}, daemon=True).start()
+    if watch:
+        threading.Thread(target=watcher, daemon=True).start()
+
     class Handler(http.server.SimpleHTTPRequestHandler):
         def __init__(self, *a, **kw):
             super().__init__(*a, directory=DASHBOARD_DIR, **kw)
@@ -1063,9 +1104,38 @@ def serve(out, port, lockfile=None, sgp_host=None, open_browser=True, record_liv
             host = (self.headers.get("Host") or "").rsplit(":", 1)[0]
             return host in ("127.0.0.1", "localhost")
 
+        def site_origin(self):
+            return self.headers.get("Origin") in SITE_ORIGINS
+
+        def foreign_origin(self):
+            # Browsers name the page that sent a POST. Pages served from here, or My Stats on the site, may.
+            origin = self.headers.get("Origin")
+            if not origin or self.site_origin():
+                return False
+            return re.sub(r"^https?://", "", origin).rsplit(":", 1)[0] not in ("127.0.0.1", "localhost")
+
+        def cors(self):
+            if self.site_origin():
+                self.send_header("Access-Control-Allow-Origin", self.headers["Origin"])
+                self.send_header("Vary", "Origin")
+
+        def do_OPTIONS(self):
+            # The browser asks first before My Stats on the site talks to this computer
+            if not self.local_host() or not self.site_origin():
+                return self.send_json({"error": "forbidden"}, 403)
+            self.send_response(204)
+            self.cors()
+            self.send_header("Access-Control-Allow-Methods", "GET, POST")
+            self.send_header("Access-Control-Allow-Headers", "X-Mayhem, Content-Type")
+            self.send_header("Access-Control-Allow-Private-Network", "true")
+            self.send_header("Access-Control-Max-Age", "600")
+            self.send_header("Content-Length", "0")
+            self.end_headers()
+
         def send_json(self, obj, code=200):
             body = json.dumps(obj).encode()
             self.send_response(code)
+            self.cors()
             self.send_header("Content-Type", "application/json")
             self.send_header("Cache-Control", "no-store")
             self.send_header("Content-Length", str(len(body)))
@@ -1096,6 +1166,7 @@ def serve(out, port, lockfile=None, sgp_host=None, open_browser=True, record_liv
                 with open(out, "rb") as f:
                     body = f.read()
                 self.send_response(200)
+                self.cors()
                 self.send_header("Content-Type", "application/json")
                 self.send_header("Cache-Control", "no-store")
                 self.send_header("Content-Length", str(len(body)))
@@ -1104,7 +1175,7 @@ def serve(out, port, lockfile=None, sgp_host=None, open_browser=True, record_liv
             return super().do_GET()
 
         def do_POST(self):
-            if not self.local_host() or self.headers.get("X-Mayhem") != "1":
+            if not self.local_host() or self.headers.get("X-Mayhem") != "1" or self.foreign_origin():
                 return self.send_json({"error": "forbidden"}, 403)
             path, _, query = self.path.partition("?")
             if path == "/api/share":
@@ -1144,12 +1215,7 @@ def serve(out, port, lockfile=None, sgp_host=None, open_browser=True, record_liv
                     return self.send_json({"error": "Couldn't reach the League client. Open it, sign in, and try again."}, 502)
             if path != "/api/sync":
                 return self.send_json({"error": "not found"}, 404)
-            with lock:
-                if not state["running"]:
-                    state.update(running=True, log=[], result=None, error=None, progress=None)
-                    full = "full=1" in query.split("&")
-                    threading.Thread(target=sync_worker, args=(full,), daemon=True).start()
-                return self.send_json(dict(state), 202)
+            return self.send_json(start_sync("full=1" in query.split("&")), 202)
 
     server = http.server.ThreadingHTTPServer(("127.0.0.1", port), Handler)
     url = f"http://127.0.0.1:{port}/"
@@ -1178,12 +1244,14 @@ def main():
     ap.add_argument("--port", type=int, default=8787, help="port for --serve (default 8787)")
     ap.add_argument("--no-live", action="store_true", help="with --serve, don't record games while they're played")
     ap.add_argument("--no-browser", action="store_true", help=argparse.SUPPRESS)
+    ap.add_argument("--watch", action="store_true",
+                    help="with --serve, import by itself: on start, after each game, and every half hour")
     ap.add_argument("--sgp-host", help=argparse.SUPPRESS)  # for testing
     args = ap.parse_args()
     out = os.path.expanduser(args.out)
 
     if args.serve:
-        return serve(out, args.port, args.lockfile, args.sgp_host, not args.no_browser, not args.no_live)
+        return serve(out, args.port, args.lockfile, args.sgp_host, not args.no_browser, not args.no_live, args.watch)
     try:
         run_import(out, args.full, args.lockfile, args.sgp_host)
     except ImportFailed as e:
