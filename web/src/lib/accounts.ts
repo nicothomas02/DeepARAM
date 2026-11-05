@@ -6,7 +6,7 @@ import { profileByPuuid, profilePath } from "./profiles";
 import { enabledProviders, PROVIDER_NAMES, type Identity, type Provider } from "./oauth";
 import { DEFAULT_SETTINGS } from "./settings";
 import { serverEnv } from "./env";
-import CHAMPIONS from "@/data/champion-names.json";
+import { ICON_AUTO, ICON_NONE, iconChoice, MOST_PLAYED_SQL, mostPlayedChampion, storedIcon, type PlayedRow } from "./most-played";
 
 // Site accounts: sign in with an email and password or a passkey, and settings follow
 // you to every browser you sign in on. Passwords are stored as salted PBKDF2 hashes, sessions as the
@@ -178,12 +178,17 @@ export async function accountView(a: SessionAccount) {
   } catch {}
   const profile = row.riot_puuid ? await profileByPuuid(row.riot_puuid).catch(() => null) : null;
   const look = await d.prepare("SELECT name, icon FROM account_profile WHERE account = ?").bind(a.id).first<{ name: string | null; icon: string | null }>();
+  const choice = iconChoice(look?.icon);
+  const mostPlayed = await mostPlayedIcon(d, a.id);
   const logins = await d.prepare("SELECT provider, email FROM logins WHERE account = ? ORDER BY created_at").bind(a.id).all<{ provider: Provider; email: string | null }>();
   return {
     id: row.id,
     email: row.email,
     name: look?.name ?? null,
-    icon: look?.icon ?? null,
+    // The icon shown: the one picked, or the most played champion from games saved to the account.
+    icon: choice === ICON_AUTO ? mostPlayed : choice === ICON_NONE ? null : choice,
+    iconChoice: choice,
+    mostPlayed,
     hasPassword: Boolean(row.pass),
     owner: await syncOwner(a.id),
     data,
@@ -217,12 +222,22 @@ export async function confirmIt(a: SessionAccount, password: unknown) {
     throw new AccountError(row?.pass ? "Your password is wrong." : "Sign out and back in, then try again.", 401);
 }
 
-/** Display name (up to 24 characters) and champion icon. Empty clears either one. */
+/** The most played champion in the games saved to this account, or null with none saved. */
+async function mostPlayedIcon(d: DB, id: string): Promise<string | null> {
+  try {
+    return mostPlayedChampion((await d.prepare(MOST_PLAYED_SQL).bind(id).all<PlayedRow>()).results);
+  } catch {
+    // No games table yet.
+    return null;
+  }
+}
+
+/** Display name (up to 24 characters) and champion icon: a champion, "none", or anything else to follow the most played champion. */
 export async function saveProfile(id: string, raw: { name?: unknown; icon?: unknown }) {
   const name = typeof raw.name === "string" ? raw.name.replace(/\s+/g, " ").trim() : "";
   if (name.length > 24) throw new AccountError("Use 24 characters or fewer for your name.");
   if (/[<>\p{C}]/u.test(name)) throw new AccountError("That name has characters it can't use.");
-  const icon = typeof raw.icon === "string" && raw.icon in CHAMPIONS ? raw.icon : null;
+  const icon = storedIcon(raw.icon);
   await (await db())
     .prepare("INSERT INTO account_profile (account, name, icon) VALUES (?, ?, ?) ON CONFLICT (account) DO UPDATE SET name = excluded.name, icon = excluded.icon")
     .bind(id, name || null, icon)

@@ -124,5 +124,8 @@
  "Your settings, like motion, sound and page detail, follow you to every browser you sign in on.": "A beállításaid, például a mozgás, a hang és az oldal részletessége, minden böngészőben veled vannak, ahol bejelentkezel.",
  "Your name and icon": "A neved és ikonod",
  "Pick a display name and a champion icon for your account.": "Válassz megjelenített nevet és hősikont a fiókodhoz.",
- "Free, and you never need your Riot password.": "Ingyenes, és soha nem kell a Riot-jelszavad."
+ "Free, and you never need your Riot password.": "Ingyenes, és soha nem kell a Riot-jelszavad.",
+ "Most played": "Legtöbbet játszott",
+ "Most played picks your most played champion from the games saved to your account, and changes when that does.": "A Legtöbbet játszott a fiókodba mentett játékok alapján a legtöbbet játszott hősödet mutatja, és vele együtt változik.",
+ "Most played picks your most played champion once games are saved to your account.": "A Legtöbbet játszott a legtöbbet játszott hősödet mutatja, amint játékok kerülnek a fiókodba."
 }
