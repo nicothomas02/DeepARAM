@@ -826,7 +826,9 @@ const ON_HELPER = location.protocol !== "file:" && !location.pathname.startsWith
 // On deeparam.com, My Stats talks to the helper on this computer at its own address. The helper only answers
 // the site's own origin. The browser may ask the player to allow it the first time.
 const HELPER = ON_HELPER ? "" : "http://127.0.0.1:8787/";
-const SITE_HINT = () => t("Mayhem Stats isn't running on this computer. Open the Riot Client and sign in, start Mayhem Stats (Open Mayhem Stats.command), then press Import again.");
+// Some browsers don't let a site reach this computer at all (or the player said no when asked), so the hint also
+// points at the helper's own page; games it saves to the account show up here either way.
+const SITE_HINT = () => t("Couldn't reach Mayhem Stats on this computer. Open the Riot Client and sign in, start Mayhem Stats (Open Mayhem Stats.command), then press Import again. If your browser blocks it, import at 127.0.0.1:8787 instead and turn on saving to your account; your games then show up here.");
 const HELPER_SEEN = "deeparam-helper-seen";
 function rememberHelper(on) {
   try { on ? localStorage.setItem(HELPER_SEEN, "1") : localStorage.removeItem(HELPER_SEEN); } catch (e) { /* not kept */ }
