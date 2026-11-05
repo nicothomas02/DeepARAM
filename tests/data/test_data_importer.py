@@ -739,12 +739,14 @@ def helper(mi, monkeypatch, tmp_path):
                      daemon=True).start()
     import http.client
     import time as _t
-    for _ in range(100):
+    for _ in range(500):  # up to ~10 s: a busy CI runner can be slow to start the server thread
         try:
             socket.create_connection(("127.0.0.1", port), timeout=0.1).close()
             break
         except OSError:
             _t.sleep(0.02)
+    else:
+        raise RuntimeError("helper did not start listening")
 
     def call(method, path, headers=None):
         c = http.client.HTTPConnection("127.0.0.1", port, timeout=5)
