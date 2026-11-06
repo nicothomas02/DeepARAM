@@ -14,9 +14,9 @@ android {
         applicationId = "com.deeparam.app"
         minSdk = 30
         targetSdk = 35
-        // Watch builds use 1xxxxxx so they never collide with the phone app's versionCodes.
-        versionCode = 1000001
-        versionName = "1.0"
+        // Watch builds use 1xxxxxx (1000000 + the release number) so they never collide with the phone app's.
+        versionCode = 1_000_000 + (providers.gradleProperty("deeparam.versionCode").orNull?.toInt() ?: 1)
+        versionName = providers.gradleProperty("deeparam.versionName").orNull ?: "1.0"
     }
 
     buildTypes {
@@ -24,6 +24,17 @@ android {
             isMinifyEnabled = true
             isShrinkResources = true
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            // Signed with the upload key when .github/workflows/play-release.yml (or a local
+            // ~/.gradle/gradle.properties) passes it; otherwise the bundle is unsigned.
+            val keystore = providers.gradleProperty("deeparam.keystore").orNull
+            if (keystore != null) {
+                signingConfig = signingConfigs.create("upload") {
+                    storeFile = file(keystore)
+                    storePassword = providers.gradleProperty("deeparam.keystorePassword").get()
+                    keyAlias = providers.gradleProperty("deeparam.keyAlias").get()
+                    keyPassword = providers.gradleProperty("deeparam.keyPassword").get()
+                }
+            }
         }
     }
 
