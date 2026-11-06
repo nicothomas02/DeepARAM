@@ -2,7 +2,7 @@ name: Backup
 
 # Exports the four D1 databases, encrypts them and attaches them to a "backup-<date>" pre-release, so a copy
 # lives outside Cloudflare. Runs after each patch-day push (called from patch-day.yml) and from the Actions
-# tab. The fuller backup (repo, project folder and databases) goes to Nico's Mac; see tools/backup/RESTORE.md.
+# tab. The fuller backup (repo, project folder and databases) goes to Nico's always-on XPS; see tools/backup/RESTORE.md.
 # Needs the repo secrets CLOUDFLARE_API_TOKEN (with Account > D1 > Edit) and BACKUP_PASSPHRASE; without
 # them the job skips.
 on:

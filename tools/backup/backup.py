@@ -1,9 +1,10 @@
 """Patch-release backups of the repo, the project's shared folder and the databases.
 
-Each backup is a folder of plain files (see RESTORE.md next to this script) that ends up on Nico's Mac in
-~/Developer/DeepARAM-backups/<date>-<patch>/. To keep that small, the repo and the shared folder are
-incremental: the first backup holds everything, later ones only what changed since the one before, so a
-restore replays them in order. A state file remembers what the last backup held.
+Each backup is a folder of plain files (see RESTORE.md next to this script) that ends up on Nico's always-on
+Windows XPS in C:\\Users\\nicoa\\Developer\\DeepARAM-backups\\<date>-<patch>\\ (until 2026-11-06 they went to his
+Mac, which isn't always on). To keep that small, the repo and the shared folder are incremental: the first
+backup holds everything, later ones only what changed since the one before, so a restore replays them in
+order. A state file remembers what the last backup held.
 
   prepare  Clone the repo, bundle new commits, pack changed shared files, write MANIFEST.json and a
            pending state. Big files are split into parts small enough to copy one by one.
@@ -21,7 +22,7 @@ import argparse, hashlib, json, os, shutil, subprocess, tarfile, tempfile
 from datetime import datetime, timezone
 
 REPO_URL = "https://github.com/nicothomas02/DeepARAM.git"
-PART = 25 * 1024 * 1024  # the copy to the Mac takes files up to 30 MB
+PART = 25 * 1024 * 1024  # small parts copy to the backup computer one by one and retry cheaply
 SKIP_DIRS = {"backups", ".git", "__pycache__", "node_modules"}
 
 
@@ -107,7 +108,7 @@ def prepare(args):
     manifest = {"created": stamp, "patch": args.patch, "previous": state["backups"][-1] if state["backups"] else None}
 
     known = list(state["repo_tips"])
-    if args.base_tips:  # commits the Mac's own clone already holds count as backed up
+    if args.base_tips:  # commits a local clone on the backup computer already holds count as backed up
         known += [l.split()[0] for l in open(args.base_tips) if l.strip()]
     work = tempfile.mkdtemp(prefix="backup-repo-")
     try:

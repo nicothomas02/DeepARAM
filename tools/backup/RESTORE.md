@@ -1,7 +1,7 @@
 # Restoring DeepARAM from these backups
 
-Backups live on Nico's Mac in `~/Developer/DeepARAM-backups/`, one folder per patch release
-(`<date>-<patch>`), made by `tools/backup/backup.py`. Each folder has:
+Backups live on Nico's always-on Windows XPS in `C:\Users\nicoa\Developer\DeepARAM-backups\`, one folder
+per patch release (`<date>-<patch>`), made by `tools/backup/backup.py`. Each folder has:
 
 - `repo.bundle` (or `repo.bundle.part001`, `.part002`, ...): the repo's commits on every branch and tag
   that the earlier backups didn't already hold.
@@ -12,8 +12,12 @@ Backups live on Nico's Mac in `~/Developer/DeepARAM-backups/`, one folder per pa
 - `MANIFEST.json`: the patch, the branch and tag tips at the time, and what each part holds.
 
 The repo and shared-folder parts are incremental, so restore them by replaying every folder oldest first.
-The first backup's repo bundle builds on the Mac's own clone in `~/Developer/ARAM-Mayhem` (its
-`MANIFEST.json` lists those commits under `prerequisites`), so keep that clone, or start from it.
+The XPS chain starts with a full backup (empty `prerequisites` in its `MANIFEST.json`), so it needs nothing
+else. Run the commands below in Git Bash on the XPS (Git for Windows is installed there), or in any shell
+with git and tar.
+
+Older backups (up to patch 26.21) are on Nico's Mac in `~/Developer/DeepARAM-backups/`. That chain builds on
+the Mac's own clone in `~/Developer/ARAM-Mayhem`; the XPS chain doesn't need either.
 
 ## Joining split parts
 
@@ -25,18 +29,20 @@ cat project-files.tar.gz.part* > project-files.tar.gz
 ## The repo
 
 ```sh
-git clone ~/Developer/ARAM-Mayhem DeepARAM-restored && cd DeepARAM-restored
-for b in ~/Developer/DeepARAM-backups/*/repo.bundle; do
+B=/c/Users/nicoa/Developer/DeepARAM-backups
+git init DeepARAM-restored && cd DeepARAM-restored
+for b in "$B"/*/repo.bundle; do
   git bundle verify "$b" && git fetch "$b" 'refs/heads/*:refs/heads/*' 'refs/tags/*:refs/tags/*' --update-head-ok
 done
-git remote set-url origin https://github.com/nicothomas02/DeepARAM.git   # or a new empty repo
+git reset -q --hard main   # fills the working folder
+git remote add origin https://github.com/nicothomas02/DeepARAM.git   # or a new empty repo
 git push origin --all && git push origin --tags
 ```
 
 ## The shared folder
 
 ```sh
-mkdir project-files && for t in ~/Developer/DeepARAM-backups/*/project-files.tar.gz; do tar -xzf "$t" -C project-files; done
+mkdir project-files && for t in "$B"/*/project-files.tar.gz; do tar -xzf "$t" -C project-files; done
 ```
 
 Then delete the files the newest `MANIFEST.json` lists under `project_files.removed`, and upload the
@@ -48,7 +54,7 @@ Create an empty database of the same name if it's gone, then load the newest dum
 
 ```sh
 cd web
-npx wrangler d1 execute deeparam-profiles --remote --file ~/Developer/DeepARAM-backups/<newest>/d1/deeparam-profiles.sql
+npx wrangler d1 execute deeparam-profiles --remote --file "$B/<newest>/d1/deeparam-profiles.sql"
 ```
 
 Same for `deeparam-games`, `deeparam-sim` and `deeparam-errors`. If a database was recreated, put its new

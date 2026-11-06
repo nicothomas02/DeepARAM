@@ -1,0 +1,57 @@
+name: Simulator WASM
+
+# Rebuilds the browser copy of the simulator (simulator/viewer/replay-data/mayhem_sim.js and .wasm) with
+# Emscripten and commits it to the branch it was started on, so no computer needs Emscripten installed.
+# Start it from the Actions tab or the API on a work branch (never main) after changing simulator/src or the
+# data embedded in the WASM. Commits made with the workflow token don't start other workflows, so it then
+# starts Tests on the new commit itself.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: simulator-wasm-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  wasm:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - name: Refuse main
+        if: github.ref_name == 'main'
+        run: |
+          echo "Run this on a work branch, not main." >&2
+          exit 1
+      - uses: actions/checkout@v4
+      - uses: mymindstorm/setup-emsdk@v14
+        with:
+          version: 4.0.12
+          actions-cache-folder: emsdk-cache
+      - name: Build
+        run: |
+          em++ --version | head -1
+          make -C simulator wasm-mayhem
+          cp simulator/dist/mayhem_sim.js simulator/dist/mayhem_sim.wasm simulator/viewer/replay-data/
+      - name: Commit
+        id: commit
+        run: |
+          if git diff --quiet -- simulator/viewer/replay-data/mayhem_sim.js simulator/viewer/replay-data/mayhem_sim.wasm; then
+            echo "WASM unchanged."
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add simulator/viewer/replay-data/mayhem_sim.js simulator/viewer/replay-data/mayhem_sim.wasm
+          git commit -m "Rebuild the simulator WASM"
+          git push origin "HEAD:${GITHUB_REF_NAME}"
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+      - name: Start Tests on the new commit
+        if: steps.commit.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run tests.yml --ref "$GITHUB_REF_NAME"
