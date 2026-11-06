@@ -190,3 +190,19 @@ def test_viability_checks_drop_unbuyable_items():
     kept = c.items("starting", gems)
     assert [g["items"] for g in kept] == [[3006]] and kept[0]["sim"] == "not simulated"
     assert sum(c.dropped["starting"].values()) == 2
+
+
+def test_viability_checks_use_the_bug_finder():
+    import synergy_checks as sc
+    c = sc.Checker({})
+    assert c.bugs, "data/checks/check_build.py should load"
+    check, d, f, alias, augs = c.bugs
+    jhin = next(x["champion_id"] for x in d["champions"] if x["id"] == "Jhin")
+    tickle = next(a["id"] for a in d["augments"].values() if a["name"] == "Tickle Monster")
+    # Tickle Monster on Jhin is on the Traps list, so it never shows up as a hidden gem.
+    assert not c.bug_check("augments", {"champion": jhin}, augments=[tickle])
+    assert c.dropped["augments"]["flagged by the bug finder"] == 1
+    gem = {"champion": jhin}
+    real = c.bugs
+    c.bugs = (lambda *a: [{"level": "warn", "message": "untested loop"}],) + real[1:]
+    assert c.bug_check("boots", gem, items=[3006]) and gem["caution"] == ["untested loop"]

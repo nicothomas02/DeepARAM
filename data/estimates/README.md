@@ -120,6 +120,9 @@ three-item cores whenever those feed blocks are live again). Shown on the Tier L
   when 2%+ worse, since augment gems have no real win rate behind them). Starting items and unmodelled items
   or augments are "not simulated". The Simulator's own pool list (`simulator/data/augment_pools.json`) misses
   43 newer augments, so it isn't used to drop anything.
+  Bug finder (`data/checks/check_build.py`, run right before in fill.yml): gems it blocks (Traps list, an
+  augment the champion can't be offered) are dropped; warnings (untested stat loops, Simulator vs real games
+  gaps) keep a `caution` list and show "check in game" in the Simulator column.
 - Association, not cause: the players who choose a rare option may differ from the rest.
 
 ## Tried and dropped
