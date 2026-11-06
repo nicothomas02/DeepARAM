@@ -48,10 +48,12 @@ export async function sendMessage(m: ContactMessage, from: { account: SessionAcc
   const since = new Date(Date.now() - 86_400_000).toISOString();
   const sent = await d.prepare("SELECT COUNT(*) AS n FROM contact_messages WHERE sender = ? AND created_at > ?").bind(sender, since).first<{ n: number }>();
   if ((sent?.n ?? 0) >= MAX_PER_DAY) throw new AccountError("That's 5 messages today. Try again tomorrow, or email us.", 429);
+  const id = crypto.randomUUID();
   await d
     .prepare("INSERT INTO contact_messages (id, message, reply_to, page, account, sender, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)")
-    .bind(crypto.randomUUID(), m.message, m.replyTo, m.page, from.account?.id ?? null, sender, new Date().toISOString())
+    .bind(id, m.message, m.replyTo, m.page, from.account?.id ?? null, sender, new Date().toISOString())
     .run();
+  return id;
 }
 
 type Row = {

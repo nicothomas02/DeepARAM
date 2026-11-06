@@ -218,5 +218,12 @@
  "Stats over": "Estatísticas de",
  "Last patch": "Patch anterior",
  "Patches {a} to {b}": "Patches {a} a {b}",
- "The rest of the page stays on the live patch.": "O resto da página continua no patch atual."
+ "The rest of the page stays on the live patch.": "O resto da página continua no patch atual.",
+ "Answers": "Respostas",
+ "Questions players sent us, and our answers.": "Perguntas que os jogadores nos enviaram, e nossas respostas.",
+ "Write to us from the box at the bottom of any page. We answer here, without your name.": "Escreva para nós pela caixa no fim de qualquer página. Respondemos aqui, sem o seu nome.",
+ "In English": "Em inglês",
+ "We answered your message. See the answer": "Respondemos sua mensagem. Ver a resposta",
+ "See answers to player questions": "Ver respostas às perguntas dos jogadores",
+ "We answer on the Answers page, without your name. This box will show a link when yours is up.": "Respondemos na página Respostas, sem o seu nome. Esta caixa mostra um link quando a sua estiver lá."
 }

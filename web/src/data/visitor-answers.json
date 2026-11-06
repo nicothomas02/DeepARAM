@@ -1,0 +1,27 @@
+[
+  {
+    "id": "f198c3eb-6294-4261-8f41-7776ea7a7391",
+    "date": "2026-11-06",
+    "lang": "ko",
+    "question": "항상 잘 쓰고 있어요. 캐릭터 검색할 때 영어나 초성으로도 되게 부탁드립니다. 예: 케이틀린 → ㅋㅇㅌㄹ",
+    "answer": "감사합니다! 이제 초성으로도 검색할 수 있어요. 티어 리스트, 아이템 목록, 사이트 검색(/ 또는 ⌘K)에서 ㅋㅇㅌㄹ을 입력하면 케이틀린이 나옵니다. 영어 이름(Caitlyn)도 어느 언어에서나 검색됩니다.",
+    "en": {
+      "question": "I always use the site. Please let champion search work with English names or Korean initial consonants, e.g. ㅋㅇㅌㄹ for 케이틀린 (Caitlyn).",
+      "answer": "Thanks! You can now search by initial consonants: type ㅋㅇㅌㄹ in the Tier List, the item list or the site search (/ or ⌘K) and Caitlyn comes up. English names (Caitlyn) work in every language too."
+    }
+  },
+  {
+    "id": "36202d77-8913-40a3-a207-e0c71ce7b40c",
+    "date": "2026-11-05",
+    "lang": "en",
+    "question": "Please add an overlay.",
+    "answer": "Thanks for the idea! An in-game overlay with builds and augment picks is on our list for the desktop app. We'll post here when there's news."
+  },
+  {
+    "id": "eaa638c7-7b22-42dc-8e6c-ab70e888ac40",
+    "date": "2026-10-21",
+    "lang": "en",
+    "question": "Why is Draw Your Sword ranked #1 for Kayle (DeepScore 100, 58.6% estimated win rate), and why does it score so well on ADCs when it cuts their attack range? Does DeepScore look at champion mechanics and synergies, like Steel Your Heart with Heavy Hitter on Master Yi, or mostly at win rates?",
+    "answer": "Great question. On a champion page, an augment's win rate is an estimate, and the page labels it that way. It combines how the champion does overall, how much the augment helps the players who pick it, and how well it rates on that champion. DeepScore then ranks those estimates, so it mostly reflects results, not a hand-made read of each kit. Draw Your Sword gives a lot of raw stats, which is why it rated well on some ranged champions despite the shorter range. In the current patch it's no longer on Kayle's list, and her top picks are now different. Steel Your Heart and Heavy Hitter on Master Yi do go together: one stacks health and the other turns health into damage. We want to add a short \"why this augment\" note to champion pages so the picks explain themselves."
+  }
+]

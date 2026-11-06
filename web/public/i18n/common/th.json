@@ -218,5 +218,12 @@
  "Stats over": "สถิติช่วง",
  "Last patch": "แพตช์ก่อนหน้า",
  "Patches {a} to {b}": "แพตช์ {a} ถึง {b}",
- "The rest of the page stays on the live patch.": "ส่วนอื่นของหน้ายังเป็นแพตช์ปัจจุบัน"
+ "The rest of the page stays on the live patch.": "ส่วนอื่นของหน้ายังเป็นแพตช์ปัจจุบัน",
+ "Answers": "คำตอบ",
+ "Questions players sent us, and our answers.": "คำถามจากผู้เล่น และคำตอบของเรา",
+ "Write to us from the box at the bottom of any page. We answer here, without your name.": "เขียนถึงเราได้จากกล่องด้านล่างของทุกหน้า เราตอบที่นี่โดยไม่แสดงชื่อคุณ",
+ "In English": "ภาษาอังกฤษ",
+ "We answered your message. See the answer": "เราตอบข้อความของคุณแล้ว ดูคำตอบ",
+ "See answers to player questions": "ดูคำตอบสำหรับคำถามของผู้เล่น",
+ "We answer on the Answers page, without your name. This box will show a link when yours is up.": "เราตอบในหน้าคำตอบโดยไม่แสดงชื่อคุณ กล่องนี้จะแสดงลิงก์เมื่อคำตอบของคุณขึ้นแล้ว"
 }
