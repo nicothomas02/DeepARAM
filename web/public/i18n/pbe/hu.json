@@ -47,5 +47,9 @@
  "Unnamed": "Névtelen",
  "What's changing from live patch {live} to test server build {pbe} (updated {date}). The augment pool goes from {from} to {to}.": "Ez változik az éles {live} frissítéshez képest a tesztszerver {pbe} buildjében (frissítve: {date}). A bővítéskészlet mérete {from} helyett {to} lesz.",
  "{added} new · {changed} changed · {removed} removed": "{added} új · {changed} módosított · {removed} eltávolított",
- "{n} Fame": "{n} hírnév"
+ "{n} Fame": "{n} hírnév",
+ "Expected win-rate shift": "Várható győzelmiarány-változás",
+ "predicted": "előrejelzés",
+ "From how {n} past patch-note changes moved win rates. Typical miss {mae} pts, against {base} pts for assuming no change; the range is where the real shift usually lands.": "Abból, ahogy {n} korábbi frissítési jegyzetbeli változtatás mozgatta a győzelmi arányokat. Tipikus hiba {mae} pont, szemben {base} ponttal, ha nem feltételezünk változást; a tartomány az, ahová a valódi elmozdulás általában esik.",
+ "pts": "pont"
 }

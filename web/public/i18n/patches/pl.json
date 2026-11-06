@@ -35,5 +35,21 @@
  "{n} added": "{n} dodano",
  "{n} removed": "{n} usunięto",
  "now": "teraz",
- "win rate so far": "dotychczasowy odsetek wygranych"
+ "win rate so far": "dotychczasowy odsetek wygranych",
+ "Did the champion changes work?": "Czy zmiany bohaterów zadziałały?",
+ "vs the {n} champions the notes left alone (they drift ±{sd} pts)": "względem {n} bohaterów, których notatki nie ruszyły (wahają się o ±{sd} pkt)",
+ "Each change is judged against every champion the patch did not touch, so a shift the whole list made does not count. Within noise means the champion moved no more than an unchanged one typically does.": "Każda zmiana jest oceniana względem wszystkich bohaterów, których patch nie dotknął, więc ruch całej listy się nie liczy. „W granicach szumu” znaczy, że bohater nie przesunął się bardziej, niż zwykle robi to niezmieniony.",
+ "pts": "pkt",
+ "How fast the rankings settled": "Jak szybko ustabilizował się ranking",
+ "of the final order on day one": "końcowej kolejności już pierwszego dnia",
+ "pts average gap to the final win rates": "pkt średniej różnicy do końcowych współczynników wygranych",
+ "days to 95% settled": "dni do ustabilizowania w 95%",
+ "A typical patch is {pct}% of its final order after one day, {pts} pts off on average. So many games are played that rankings barely move after the first day; only mid-patch changes do.": "Typowy patch po jednym dniu ma {pct}% swojej końcowej kolejności, średnio o {pts} pkt obok. Rozgrywanych jest tak dużo gier, że ranking po pierwszym dniu prawie się nie rusza; robią to tylko zmiany w trakcie patcha.",
+ "Shifted mid-patch": "Przesunięcie w trakcie patcha",
+ "candidates for a hotfix or a new trick": "kandydaci na hotfix albo nową sztuczkę",
+ "From that day on, the champion's games went this much better or worse than before it, far beyond what the rest of the list did the same day.": "Od tego dnia gry bohatera szły o tyle lepiej lub gorzej niż wcześniej, znacznie bardziej niż reszta listy tego samego dnia.",
+ "Worked": "Zadziałało",
+ "Backfired": "Odwrotny skutek",
+ "Within noise": "W granicach szumu",
+ "Moved": "Przesunął się"
 }

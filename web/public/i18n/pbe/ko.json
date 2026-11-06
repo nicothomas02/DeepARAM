@@ -47,5 +47,9 @@
  "Unnamed": "이름 없음",
  "What's changing from live patch {live} to test server build {pbe} (updated {date}). The augment pool goes from {from} to {to}.": "라이브 {live} 패치에서 테스트 서버 {pbe} 빌드로 바뀌는 내용입니다({date} 업데이트). 증강 풀은 {from}개에서 {to}개로 바뀝니다.",
  "{added} new · {changed} changed · {removed} removed": "신규 {added} · 변경 {changed} · 삭제 {removed}",
- "{n} Fame": "명성 {n}"
+ "{n} Fame": "명성 {n}",
+ "Expected win-rate shift": "예상 승률 변화",
+ "predicted": "예측",
+ "From how {n} past patch-note changes moved win rates. Typical miss {mae} pts, against {base} pts for assuming no change; the range is where the real shift usually lands.": "과거 패치 노트 변경 {n}건이 승률을 어떻게 움직였는지에 기반합니다. 일반적인 오차는 {mae}pt, 변화 없음을 가정하면 {base}pt입니다. 범위는 실제 변화가 보통 들어가는 구간입니다.",
+ "pts": "pt"
 }

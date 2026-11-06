@@ -35,5 +35,21 @@
  "{n} added": "{n} ajoutées",
  "{n} removed": "{n} retirées",
  "now": "désormais",
- "win rate so far": "taux de victoire jusqu'ici"
+ "win rate so far": "taux de victoire jusqu'ici",
+ "Did the champion changes work?": "Les changements de champions ont-ils marché ?",
+ "vs the {n} champions the notes left alone (they drift ±{sd} pts)": "par rapport aux {n} champions que les notes n'ont pas touchés (ils dérivent de ±{sd} pts)",
+ "Each change is judged against every champion the patch did not touch, so a shift the whole list made does not count. Within noise means the champion moved no more than an unchanged one typically does.": "Chaque changement est jugé par rapport à tous les champions que le patch n'a pas touchés, donc un mouvement de toute la liste ne compte pas. « Dans le bruit » signifie que le champion n'a pas bougé plus qu'un champion inchangé ne le fait d'habitude.",
+ "pts": "pts",
+ "How fast the rankings settled": "À quelle vitesse le classement s'est stabilisé",
+ "of the final order on day one": "de l'ordre final dès le premier jour",
+ "pts average gap to the final win rates": "pts d'écart moyen avec les taux de victoire finaux",
+ "days to 95% settled": "jours pour être stabilisé à 95 %",
+ "A typical patch is {pct}% of its final order after one day, {pts} pts off on average. So many games are played that rankings barely move after the first day; only mid-patch changes do.": "Un patch typique est à {pct} % de son ordre final après un jour, à {pts} pts près en moyenne. Il se joue tellement de parties que le classement bouge à peine après le premier jour ; seuls les changements en cours de patch le font.",
+ "Shifted mid-patch": "A basculé en cours de patch",
+ "candidates for a hotfix or a new trick": "candidats à un hotfix ou à une nouvelle astuce",
+ "From that day on, the champion's games went this much better or worse than before it, far beyond what the rest of the list did the same day.": "À partir de ce jour, les parties du champion se sont passées d'autant mieux ou moins bien qu'avant, bien au-delà de ce que le reste de la liste a fait le même jour.",
+ "Worked": "A marché",
+ "Backfired": "Effet inverse",
+ "Within noise": "Dans le bruit",
+ "Moved": "A bougé"
 }

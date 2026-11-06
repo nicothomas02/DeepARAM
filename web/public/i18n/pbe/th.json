@@ -47,5 +47,9 @@
  "Unnamed": "ไม่มีชื่อ",
  "What's changing from live patch {live} to test server build {pbe} (updated {date}). The augment pool goes from {from} to {to}.": "สิ่งที่เปลี่ยนจากแพตช์ปัจจุบัน {live} ไปเป็นบิลด์เซิร์ฟเวอร์ทดสอบ {pbe} (อัปเดต {date}) จำนวน Augment ในพูลเปลี่ยนจาก {from} เป็น {to}",
  "{added} new · {changed} changed · {removed} removed": "ใหม่ {added} · เปลี่ยนแปลง {changed} · ถูกลบ {removed}",
- "{n} Fame": "{n} ชื่อเสียง"
+ "{n} Fame": "{n} ชื่อเสียง",
+ "Expected win-rate shift": "การเปลี่ยนแปลงอัตราชนะที่คาดไว้",
+ "predicted": "คาดการณ์",
+ "From how {n} past patch-note changes moved win rates. Typical miss {mae} pts, against {base} pts for assuming no change; the range is where the real shift usually lands.": "จากการที่การเปลี่ยนแปลงในโน้ตแพตช์ที่ผ่านมา {n} รายการขยับอัตราชนะอย่างไร ความคลาดเคลื่อนทั่วไป {mae} จุด เทียบกับ {base} จุดหากสมมติว่าไม่มีการเปลี่ยนแปลง ช่วงคือจุดที่การเปลี่ยนแปลงจริงมักจะตกอยู่",
+ "pts": "จุด"
 }

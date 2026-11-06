@@ -35,5 +35,21 @@
  "{n} added": "{n} eklendi",
  "{n} removed": "{n} kaldırıldı",
  "now": "artık",
- "win rate so far": "şu ana kadarki kazanma oranı"
+ "win rate so far": "şu ana kadarki kazanma oranı",
+ "Did the champion changes work?": "Şampiyon değişiklikleri işe yaradı mı?",
+ "vs the {n} champions the notes left alone (they drift ±{sd} pts)": "notların dokunmadığı {n} şampiyona kıyasla (onlar ±{sd} puan oynuyor)",
+ "Each change is judged against every champion the patch did not touch, so a shift the whole list made does not count. Within noise means the champion moved no more than an unchanged one typically does.": "Her değişiklik, yamanın dokunmadığı tüm şampiyonlara göre değerlendirilir; bu yüzden tüm listenin yaptığı bir kayma sayılmaz. \"Gürültü içinde\", şampiyonun değişmemiş bir şampiyonun normalde oynadığından fazla oynamadığı anlamına gelir.",
+ "pts": "puan",
+ "How fast the rankings settled": "Sıralama ne kadar hızlı oturdu",
+ "of the final order on day one": "nihai sıralamanın daha ilk gün",
+ "pts average gap to the final win rates": "puan nihai kazanma oranlarına ortalama fark",
+ "days to 95% settled": "gün içinde %95 oturdu",
+ "A typical patch is {pct}% of its final order after one day, {pts} pts off on average. So many games are played that rankings barely move after the first day; only mid-patch changes do.": "Tipik bir yama bir gün sonra nihai sıralamasının %{pct}'ine ulaşır, ortalama {pts} puan sapmayla. O kadar çok oyun oynanıyor ki sıralama ilk günden sonra neredeyse hiç kıpırdamıyor; yalnızca yama ortası değişiklikler kıpırdatıyor.",
+ "Shifted mid-patch": "Yama ortasında kaydı",
+ "candidates for a hotfix or a new trick": "bir düzeltme yaması ya da yeni bir taktik adayları",
+ "From that day on, the champion's games went this much better or worse than before it, far beyond what the rest of the list did the same day.": "O günden itibaren şampiyonun oyunları öncesine göre bu kadar daha iyi ya da kötü gitti; listenin geri kalanının aynı gün yaptığının çok ötesinde.",
+ "Worked": "İşe yaradı",
+ "Backfired": "Ters tepti",
+ "Within noise": "Gürültü içinde",
+ "Moved": "Kıpırdadı"
 }

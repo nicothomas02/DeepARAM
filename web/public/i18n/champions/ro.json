@@ -202,5 +202,14 @@
  "Changes your build": "Îți schimbă build-ul",
  "The best items with this augment differ from your usual build.": "Cele mai bune obiecte cu această augmentare diferă de build-ul tău obișnuit.",
  "Estimated: the augment picks (1st to 4th) where it usually shows up.": "Estimat: alegerile de augmentare (de la a 1-a la a 4-a) în care apare de obicei.",
- "Pick {n}": "Alegerea {n}"
+ "Pick {n}": "Alegerea {n}",
+ "Playstyles": "Stiluri de joc",
+ "{k} groups from the last {n} patches": "{k} grupuri din ultimele {n} patch-uri",
+ "Grouped by how their games actually go: share of the team's damage, damage soaked, kill participation, time dead and which augments they take. Classes are Riot's; a marked champion plays unlike its class.": "Grupați după cum decurg de fapt meciurile lor: partea din daunele echipei, daunele absorbite, participarea la ucideri, timpul mort și ce augmentări iau. Clasele sunt ale Riot; un campion marcat joacă altfel decât clasa lui.",
+ "mostly": "mai ales",
+ "Plays unlike its class:": "Joacă altfel decât clasa lui:",
+ "damage share": "parte din daune",
+ "damage soaked": "daune absorbite",
+ "kill participation": "participare la ucideri",
+ "time dead": "timp mort"
 }

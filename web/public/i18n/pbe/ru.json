@@ -47,5 +47,9 @@
  "Unnamed": "Без названия",
  "What's changing from live patch {live} to test server build {pbe} (updated {date}). The augment pool goes from {from} to {to}.": "Что меняется между патчем {live} на основных серверах и сборкой PBE {pbe} (обновлено {date}). Пул аугментаций меняется с {from} на {to}.",
  "{added} new · {changed} changed · {removed} removed": "новых: {added} · изменено: {changed} · удалено: {removed}",
- "{n} Fame": "Слава: {n}"
+ "{n} Fame": "Слава: {n}",
+ "Expected win-rate shift": "Ожидаемый сдвиг процента побед",
+ "predicted": "прогноз",
+ "From how {n} past patch-note changes moved win rates. Typical miss {mae} pts, against {base} pts for assuming no change; the range is where the real shift usually lands.": "По тому, как {n} прошлых изменений из заметок к патчам сдвинули проценты побед. Типичная ошибка {mae} п. против {base} п., если считать, что ничего не изменится; диапазон — где обычно оказывается реальный сдвиг.",
+ "pts": "п."
 }

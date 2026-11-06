@@ -47,5 +47,9 @@
  "Unnamed": "Tanpa nama",
  "What's changing from live patch {live} to test server build {pbe} (updated {date}). The augment pool goes from {from} to {to}.": "Apa yang berubah dari patch live {live} ke build server uji {pbe} (diperbarui {date}). Jumlah augment berubah dari {from} menjadi {to}.",
  "{added} new · {changed} changed · {removed} removed": "{added} baru · {changed} diubah · {removed} dihapus",
- "{n} Fame": "{n} Fame"
+ "{n} Fame": "{n} Fame",
+ "Expected win-rate shift": "Perkiraan perubahan win rate",
+ "predicted": "prediksi",
+ "From how {n} past patch-note changes moved win rates. Typical miss {mae} pts, against {base} pts for assuming no change; the range is where the real shift usually lands.": "Dari cara {n} perubahan catatan patch sebelumnya menggerakkan win rate. Kesalahan tipikal {mae} poin, dibandingkan {base} poin jika mengasumsikan tidak ada perubahan; rentangnya adalah tempat perubahan sebenarnya biasanya jatuh.",
+ "pts": "poin"
 }

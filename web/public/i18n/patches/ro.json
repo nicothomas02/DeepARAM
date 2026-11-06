@@ -35,5 +35,21 @@
  "{n} added": "{n} adăugate",
  "{n} removed": "{n} eliminate",
  "now": "acum",
- "win rate so far": "rata de victorie până acum"
+ "win rate so far": "rata de victorie până acum",
+ "Did the champion changes work?": "Au funcționat schimbările campionilor?",
+ "vs the {n} champions the notes left alone (they drift ±{sd} pts)": "față de cei {n} campioni pe care notele nu i-au atins (ei oscilează cu ±{sd} pct)",
+ "Each change is judged against every champion the patch did not touch, so a shift the whole list made does not count. Within noise means the champion moved no more than an unchanged one typically does.": "Fiecare schimbare este judecată față de toți campionii pe care patch-ul nu i-a atins, așa că o mișcare a întregii liste nu contează. „În limita zgomotului” înseamnă că acel campion nu s-a mișcat mai mult decât o face de obicei unul neschimbat.",
+ "pts": "pct",
+ "How fast the rankings settled": "Cât de repede s-a așezat clasamentul",
+ "of the final order on day one": "din ordinea finală încă din prima zi",
+ "pts average gap to the final win rates": "pct diferență medie față de ratele de victorie finale",
+ "days to 95% settled": "zile până la 95% așezat",
+ "A typical patch is {pct}% of its final order after one day, {pts} pts off on average. So many games are played that rankings barely move after the first day; only mid-patch changes do.": "Un patch tipic ajunge la {pct}% din ordinea sa finală după o zi, cu o abatere medie de {pts} pct. Se joacă atât de multe meciuri încât clasamentul abia se mișcă după prima zi; doar schimbările din mijlocul patch-ului îl mișcă.",
+ "Shifted mid-patch": "S-a schimbat la mijlocul patch-ului",
+ "candidates for a hotfix or a new trick": "candidați pentru un hotfix sau un truc nou",
+ "From that day on, the champion's games went this much better or worse than before it, far beyond what the rest of the list did the same day.": "Din ziua aceea, meciurile campionului au mers cu atât mai bine sau mai rău decât înainte, mult peste ce a făcut restul listei în aceeași zi.",
+ "Worked": "A funcționat",
+ "Backfired": "Efect invers",
+ "Within noise": "În limita zgomotului",
+ "Moved": "S-a mișcat"
 }

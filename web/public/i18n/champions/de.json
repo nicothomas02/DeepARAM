@@ -202,5 +202,14 @@
  "Changes your build": "Ändert deinen Build",
  "The best items with this augment differ from your usual build.": "Die besten Items mit diesem Augment weichen von deinem üblichen Build ab.",
  "Estimated: the augment picks (1st to 4th) where it usually shows up.": "Geschätzt: die Augment-Wahlen (1. bis 4.), bei denen es meist auftaucht.",
- "Pick {n}": "Wahl {n}"
+ "Pick {n}": "Wahl {n}",
+ "Playstyles": "Spielstile",
+ "{k} groups from the last {n} patches": "{k} Gruppen aus den letzten {n} Patches",
+ "Grouped by how their games actually go: share of the team's damage, damage soaked, kill participation, time dead and which augments they take. Classes are Riot's; a marked champion plays unlike its class.": "Gruppiert danach, wie ihre Spiele tatsächlich laufen: Anteil am Teamschaden, eingesteckter Schaden, Kill-Beteiligung, Zeit tot und welche Augments sie nehmen. Die Klassen sind die von Riot; ein markierter Champion spielt sich anders als seine Klasse.",
+ "mostly": "überwiegend",
+ "Plays unlike its class:": "Spielt sich anders als seine Klasse:",
+ "damage share": "Schadensanteil",
+ "damage soaked": "eingesteckter Schaden",
+ "kill participation": "Kill-Beteiligung",
+ "time dead": "Zeit tot"
 }

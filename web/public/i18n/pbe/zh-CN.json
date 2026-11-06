@@ -47,5 +47,9 @@
  "Unnamed": "未命名",
  "What's changing from live patch {live} to test server build {pbe} (updated {date}). The augment pool goes from {from} to {to}.": "正式服版本 {live} 到测试服版本 {pbe} 的改动（更新于 {date}）。强化符文池从 {from} 个变为 {to} 个。",
  "{added} new · {changed} changed · {removed} removed": "新增 {added} · 改动 {changed} · 移除 {removed}",
- "{n} Fame": "{n} 名气"
+ "{n} Fame": "{n} 名气",
+ "Expected win-rate shift": "预期胜率变化",
+ "predicted": "预测",
+ "From how {n} past patch-note changes moved win rates. Typical miss {mae} pts, against {base} pts for assuming no change; the range is where the real shift usually lands.": "基于过去 {n} 项更新公告改动对胜率的影响。典型误差 {mae} 个点，假设无变化则为 {base} 个点；区间是真实变化通常落在的范围。",
+ "pts": "点"
 }

@@ -47,5 +47,9 @@
  "Unnamed": "Unnamed",
  "What's changing from live patch {live} to test server build {pbe} (updated {date}). The augment pool goes from {from} to {to}.": "What's changing from live patch {live} to test server build {pbe} (updated {date}). The augment pool goes from {from} to {to}.",
  "{added} new · {changed} changed · {removed} removed": "{added} new · {changed} changed · {removed} removed",
- "{n} Fame": "{n} Fame"
+ "{n} Fame": "{n} Fame",
+ "Expected win-rate shift": "Expected win-rate shift",
+ "predicted": "predicted",
+ "From how {n} past patch-note changes moved win rates. Typical miss {mae} pts, against {base} pts for assuming no change; the range is where the real shift usually lands.": "From how {n} past patch-note changes moved win rates. Typical miss {mae} pts, against {base} pts for assuming no change; the range is where the real shift usually lands.",
+ "pts": "pts"
 }

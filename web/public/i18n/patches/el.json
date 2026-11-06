@@ -35,5 +35,21 @@
  "{n} added": "{n} προστέθηκαν",
  "{n} removed": "{n} αφαιρέθηκαν",
  "now": "τώρα",
- "win rate so far": "ποσοστό νικών έως τώρα"
+ "win rate so far": "ποσοστό νικών έως τώρα",
+ "Did the champion changes work?": "Έπιασαν οι αλλαγές στους ήρωες;",
+ "vs the {n} champions the notes left alone (they drift ±{sd} pts)": "σε σχέση με τους {n} ήρωες που οι σημειώσεις δεν άγγιξαν (κυμαίνονται ±{sd} μονάδες)",
+ "Each change is judged against every champion the patch did not touch, so a shift the whole list made does not count. Within noise means the champion moved no more than an unchanged one typically does.": "Κάθε αλλαγή κρίνεται σε σχέση με κάθε ήρωα που η ενημέρωση δεν άγγιξε, οπότε μια μετατόπιση όλης της λίστας δεν μετράει. «Εντός θορύβου» σημαίνει ότι ο ήρωας δεν μετακινήθηκε περισσότερο απ' όσο συνήθως ένας αμετάβλητος.",
+ "pts": "μον.",
+ "How fast the rankings settled": "Πόσο γρήγορα σταθεροποιήθηκε η κατάταξη",
+ "of the final order on day one": "της τελικής σειράς ήδη από την πρώτη μέρα",
+ "pts average gap to the final win rates": "μον. μέση απόκλιση από τα τελικά ποσοστά νίκης",
+ "days to 95% settled": "μέρες μέχρι να σταθεροποιηθεί στο 95%",
+ "A typical patch is {pct}% of its final order after one day, {pts} pts off on average. So many games are played that rankings barely move after the first day; only mid-patch changes do.": "Μια τυπική ενημέρωση φτάνει στο {pct}% της τελικής της σειράς μετά από μία μέρα, με απόκλιση {pts} μονάδων κατά μέσο όρο. Παίζονται τόσα παιχνίδια που η κατάταξη μετά βίας κινείται μετά την πρώτη μέρα· μόνο οι αλλαγές στη μέση της ενημέρωσης την κινούν.",
+ "Shifted mid-patch": "Άλλαξε στη μέση της ενημέρωσης",
+ "candidates for a hotfix or a new trick": "υποψήφιοι για hotfix ή νέο κόλπο",
+ "From that day on, the champion's games went this much better or worse than before it, far beyond what the rest of the list did the same day.": "Από εκείνη τη μέρα, τα παιχνίδια του ήρωα πήγαν τόσο καλύτερα ή χειρότερα απ' ό,τι πριν, πολύ πέρα από ό,τι έκανε η υπόλοιπη λίστα την ίδια μέρα.",
+ "Worked": "Έπιασε",
+ "Backfired": "Αντίθετο αποτέλεσμα",
+ "Within noise": "Εντός θορύβου",
+ "Moved": "Μετακινήθηκε"
 }

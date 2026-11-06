@@ -202,5 +202,14 @@
  "Changes your build": "Mengubah build-mu",
  "The best items with this augment differ from your usual build.": "Item terbaik dengan augment ini berbeda dari build biasamu.",
  "Estimated: the augment picks (1st to 4th) where it usually shows up.": "Perkiraan: pilihan augment (ke-1 sampai ke-4) tempat augment ini biasanya muncul.",
- "Pick {n}": "Pilihan {n}"
+ "Pick {n}": "Pilihan {n}",
+ "Playstyles": "Gaya bermain",
+ "{k} groups from the last {n} patches": "{k} kelompok dari {n} patch terakhir",
+ "Grouped by how their games actually go: share of the team's damage, damage soaked, kill participation, time dead and which augments they take. Classes are Riot's; a marked champion plays unlike its class.": "Dikelompokkan berdasarkan bagaimana game mereka sebenarnya berjalan: porsi damage tim, damage yang diserap, partisipasi kill, waktu mati, dan augment yang diambil. Kelas berasal dari Riot; champion yang ditandai bermain tidak seperti kelasnya.",
+ "mostly": "sebagian besar",
+ "Plays unlike its class:": "Bermain tidak seperti kelasnya:",
+ "damage share": "porsi damage",
+ "damage soaked": "damage yang diserap",
+ "kill participation": "partisipasi kill",
+ "time dead": "waktu mati"
 }

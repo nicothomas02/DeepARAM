@@ -9,6 +9,8 @@ import { livePatch, liveTiers } from "@/lib/highlights";
 import { pageMeta } from "@/lib/meta";
 import "./champions.css";
 import { patchName } from "@/lib/patch-name";
+import { playstyleClusters } from "@/lib/analysis";
+import Playstyles from "./Playstyles";
 
 export const metadata: Metadata = pageMeta(
   "/champions",
@@ -45,6 +47,7 @@ export default function Page() {
           </li>
         ))}
       </ul>
+      <Playstyles data={playstyleClusters()} />
     </>
   );
 }

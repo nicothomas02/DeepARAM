@@ -202,5 +202,14 @@
  "Changes your build": "改變出裝",
  "The best items with this augment differ from your usual build.": "搭配該強化的最佳裝備與你的常用出裝不同。",
  "Estimated: the augment picks (1st to 4th) where it usually shows up.": "估算：該強化通常出現的強化輪次（第1到第4次）。",
- "Pick {n}": "第{n}次"
+ "Pick {n}": "第{n}次",
+ "Playstyles": "打法風格",
+ "{k} groups from the last {n} patches": "基於最近 {n} 個版本的 {k} 個分組",
+ "Grouped by how their games actually go: share of the team's damage, damage soaked, kill participation, time dead and which augments they take. Classes are Riot's; a marked champion plays unlike its class.": "按對局的實際表現分組：團隊傷害占比、承受傷害、擊殺參與率、死亡時間以及所選強化。職業分類來自 Riot；帶標記的英雄打法與其職業不同。",
+ "mostly": "主要是",
+ "Plays unlike its class:": "打法與職業不同：",
+ "damage share": "傷害占比",
+ "damage soaked": "承受傷害",
+ "kill participation": "擊殺參與率",
+ "time dead": "死亡時間"
 }

@@ -35,5 +35,21 @@
  "{n} added": "добавлено: {n}",
  "{n} removed": "удалено: {n}",
  "now": "теперь",
- "win rate so far": "процент побед на сейчас"
+ "win rate so far": "процент побед на сейчас",
+ "Did the champion changes work?": "Сработали ли изменения чемпионов?",
+ "vs the {n} champions the notes left alone (they drift ±{sd} pts)": "относительно {n} чемпионов, которых заметки не затронули (они колеблются на ±{sd} п.)",
+ "Each change is judged against every champion the patch did not touch, so a shift the whole list made does not count. Within noise means the champion moved no more than an unchanged one typically does.": "Каждое изменение оценивается относительно всех чемпионов, которых патч не затронул, поэтому сдвиг всего списка не считается. «В пределах шума» значит, что чемпион сдвинулся не больше, чем обычно сдвигается неизменённый.",
+ "pts": "п.",
+ "How fast the rankings settled": "Как быстро устоялся рейтинг",
+ "of the final order on day one": "итогового порядка уже в первый день",
+ "pts average gap to the final win rates": "п. среднего отклонения от итоговых процентов побед",
+ "days to 95% settled": "дней до устойчивости в 95 %",
+ "A typical patch is {pct}% of its final order after one day, {pts} pts off on average. So many games are played that rankings barely move after the first day; only mid-patch changes do.": "Типичный патч через день уже на {pct} % совпадает с итоговым порядком, в среднем с отклонением {pts} п. Игр так много, что после первого дня рейтинг почти не двигается; его сдвигают только изменения в середине патча.",
+ "Shifted mid-patch": "Сдвиг в середине патча",
+ "candidates for a hotfix or a new trick": "кандидаты на хотфикс или новый трюк",
+ "From that day on, the champion's games went this much better or worse than before it, far beyond what the rest of the list did the same day.": "С этого дня игры чемпиона шли настолько лучше или хуже, чем до него, гораздо сильнее, чем у остального списка в тот же день.",
+ "Worked": "Сработало",
+ "Backfired": "Обратный эффект",
+ "Within noise": "В пределах шума",
+ "Moved": "Сдвинулся"
 }

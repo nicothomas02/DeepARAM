@@ -202,5 +202,14 @@
  "Changes your build": "Mění sestavu",
  "The best items with this augment differ from your usual build.": "Nejlepší předměty s tímto vylepšením se liší od tvé obvyklé sestavy.",
  "Estimated: the augment picks (1st to 4th) where it usually shows up.": "Odhad: volby vylepšení (1. až 4.), ve kterých se obvykle objevuje.",
- "Pick {n}": "Volba {n}"
+ "Pick {n}": "Volba {n}",
+ "Playstyles": "Herní styly",
+ "{k} groups from the last {n} patches": "{k} skupiny z posledních {n} patchů",
+ "Grouped by how their games actually go: share of the team's damage, damage soaked, kill participation, time dead and which augments they take. Classes are Riot's; a marked champion plays unlike its class.": "Seskupeni podle toho, jak jejich hry skutečně probíhají: podíl na poškození týmu, pohlcené poškození, účast na zabitích, čas po smrti a jaké augmenty berou. Třídy jsou od Riotu; označený šampion hraje jinak než jeho třída.",
+ "mostly": "převážně",
+ "Plays unlike its class:": "Hraje jinak než jeho třída:",
+ "damage share": "podíl poškození",
+ "damage soaked": "pohlcené poškození",
+ "kill participation": "účast na zabitích",
+ "time dead": "čas po smrti"
 }

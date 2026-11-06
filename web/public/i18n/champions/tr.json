@@ -202,5 +202,14 @@
  "Changes your build": "Dizilimini değiştirir",
  "The best items with this augment differ from your usual build.": "Bu güçlendirmeyle en iyi eşyalar her zamanki diziliminden farklı.",
  "Estimated: the augment picks (1st to 4th) where it usually shows up.": "Tahmini: genellikle çıktığı güçlendirme seçimleri (1. ile 4.).",
- "Pick {n}": "{n}. seçim"
+ "Pick {n}": "{n}. seçim",
+ "Playstyles": "Oyun tarzları",
+ "{k} groups from the last {n} patches": "son {n} yamadan {k} grup",
+ "Grouped by how their games actually go: share of the team's damage, damage soaked, kill participation, time dead and which augments they take. Classes are Riot's; a marked champion plays unlike its class.": "Oyunlarının gerçekte nasıl gittiğine göre gruplandı: takım hasarındaki pay, emilen hasar, öldürme katılımı, ölü geçen süre ve hangi güçlendirmeleri aldıkları. Sınıflar Riot'un; işaretli bir şampiyon sınıfından farklı oynar.",
+ "mostly": "çoğunlukla",
+ "Plays unlike its class:": "Sınıfından farklı oynar:",
+ "damage share": "hasar payı",
+ "damage soaked": "emilen hasar",
+ "kill participation": "öldürme katılımı",
+ "time dead": "ölü geçen süre"
 }

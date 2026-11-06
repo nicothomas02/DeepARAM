@@ -35,5 +35,21 @@
  "{n} added": "{n} hinzugefügt",
  "{n} removed": "{n} entfernt",
  "now": "jetzt",
- "win rate so far": "Siegrate bisher"
+ "win rate so far": "Siegrate bisher",
+ "Did the champion changes work?": "Haben die Champion-Änderungen gewirkt?",
+ "vs the {n} champions the notes left alone (they drift ±{sd} pts)": "gegenüber den {n} Champions, die die Notes nicht angerührt haben (sie schwanken um ±{sd} Pkt.)",
+ "Each change is judged against every champion the patch did not touch, so a shift the whole list made does not count. Within noise means the champion moved no more than an unchanged one typically does.": "Jede Änderung wird an allen Champions gemessen, die der Patch nicht angerührt hat, sodass eine Bewegung der ganzen Liste nicht zählt. „Im Rauschen“ heißt: Der Champion hat sich nicht stärker bewegt als ein unveränderter üblicherweise.",
+ "pts": "Pkt.",
+ "How fast the rankings settled": "Wie schnell sich die Rangliste gesetzt hat",
+ "of the final order on day one": "der endgültigen Reihenfolge schon am ersten Tag",
+ "pts average gap to the final win rates": "Pkt. durchschnittlicher Abstand zu den endgültigen Siegquoten",
+ "days to 95% settled": "Tage bis 95 % gesetzt",
+ "A typical patch is {pct}% of its final order after one day, {pts} pts off on average. So many games are played that rankings barely move after the first day; only mid-patch changes do.": "Ein typischer Patch hat nach einem Tag {pct} % seiner endgültigen Reihenfolge, im Schnitt {pts} Pkt. daneben. Es werden so viele Spiele gespielt, dass sich Ranglisten nach dem ersten Tag kaum noch bewegen; nur Änderungen mitten im Patch tun das.",
+ "Shifted mid-patch": "Mitten im Patch verschoben",
+ "candidates for a hotfix or a new trick": "Kandidaten für einen Hotfix oder einen neuen Trick",
+ "From that day on, the champion's games went this much better or worse than before it, far beyond what the rest of the list did the same day.": "Ab diesem Tag liefen die Spiele des Champions um so viel besser oder schlechter als davor, weit über das hinaus, was der Rest der Liste am selben Tag tat.",
+ "Worked": "Gewirkt",
+ "Backfired": "Nach hinten losgegangen",
+ "Within noise": "Im Rauschen",
+ "Moved": "Bewegt"
 }

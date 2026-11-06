@@ -5893,3 +5893,89 @@ html[data-view="simple"] [data-detailed] {
   font-size: 0.9rem;
   cursor: pointer;
 }
+
+/* Patch recap: did the champion changes work (data/analysis) */
+.impact-list {
+  list-style: none;
+  margin: 0.75rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0.75rem;
+}
+.impact-list > li {
+  border-top: 1px solid var(--line);
+  padding-top: 0.5rem;
+}
+.impact-list > li:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+.impact-list .rank-name .chip {
+  margin-left: 0.5rem;
+}
+.impact-nums {
+  display: inline-flex;
+  gap: 0.75rem;
+  align-items: baseline;
+  white-space: nowrap;
+}
+.impact-nums small {
+  color: var(--muted);
+}
+.impact-lines {
+  list-style: none;
+  margin: 0.25rem 0 0 2.1rem;
+  padding: 0;
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+.chip.verdict-worked { color: var(--good); border-color: var(--good); }
+.chip.verdict-opposite { color: var(--bad); border-color: var(--bad); }
+.chip.verdict-moved { color: var(--accent); border-color: var(--accent); }
+.pbe-forecast {
+  margin: 0 0 1rem;
+}
+.pbe-forecast .rank.plain.recap-movers a {
+  grid-template-columns: 24px minmax(0, 1fr) 4.5rem 6.5rem;
+}
+@media (max-width: 640px) {
+  .impact-nums {
+    flex-direction: column;
+    gap: 0;
+    align-items: flex-end;
+  }
+  .pbe-forecast .rank.plain.recap-movers a {
+    grid-template-columns: 24px minmax(0, 1fr) 4rem 5.5rem;
+  }
+}
+
+/* Champions A to Z: playstyle groups */
+.playstyles {
+  margin-top: 2rem;
+}
+.playstyle-profile {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1rem;
+  margin: 0 0 0.75rem;
+  font-size: 0.875rem;
+}
+.playstyle-champs {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem;
+}
+.playstyle-champs img {
+  display: block;
+  border-radius: 8px;
+}
+.playstyle-champs li[data-unlike] img {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+.playstyle-unlike {
+  margin-top: 1rem;
+}

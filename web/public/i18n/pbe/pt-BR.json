@@ -47,5 +47,9 @@
  "Unnamed": "Sem nome",
  "What's changing from live patch {live} to test server build {pbe} (updated {date}). The augment pool goes from {from} to {to}.": "O que muda da atualização {live} dos servidores oficiais para a build {pbe} do servidor de testes (atualizado em {date}). O conjunto de aprimoramentos vai de {from} para {to}.",
  "{added} new · {changed} changed · {removed} removed": "{added} novos · {changed} alterados · {removed} removidos",
- "{n} Fame": "{n} de Fama"
+ "{n} Fame": "{n} de Fama",
+ "Expected win-rate shift": "Mudança esperada na taxa de vitória",
+ "predicted": "previsto",
+ "From how {n} past patch-note changes moved win rates. Typical miss {mae} pts, against {base} pts for assuming no change; the range is where the real shift usually lands.": "A partir de como {n} mudanças anteriores das notas de patch moveram as taxas de vitória. Erro típico {mae} pts, contra {base} pts se supuser nenhuma mudança; a faixa é onde a mudança real costuma cair.",
+ "pts": "pts"
 }
