@@ -1,297 +1,297 @@
 {
-  "id": "azir-melee-by-proxy",
-  "title": "Melee By Proxy",
-  "champion": "Azir",
-  "champion_name": "Azir",
-  "chef": "2026-11-04",
-  "why": "Azir never swings his own weapon: Arise! says that when he Attacks an enemy near a Sand Soldier, the soldiers stab instead and deal magic damage in a line, so his real reach is wherever his soldiers are standing. Draw Your Sword makes him melee and pays out Attack Damage, Health, Attack Speed, Lifesteal and Move Speed that grow with every point of Attack Range lost, and Azir gives up a huge chunk of range on paper while giving up none in practice, because the soldiers keep stabbing from their own range. Tickle Monster converts all that Attack Damage, which his soldiers never used anyway, into Attack Speed and adds magic damage On-Hit, and Ethereal Weapon makes his Abilities apply On-Hit effects, so every soldier stab carries Tickle Monster plus Nashor's Tooth, Guinsoo's Rageblade, Wit's End, Blade of The Ruined King and Terminus down the whole line. Master of Duality closes the loop: soldier stabs are Ability damage, so they grant Attack Damage, which Tickle Monster turns into more Attack Speed, which means more stabs, which means more Attack Damage. The ranged control mage becomes a melee on-hit bruiser who collects every melee bonus without ever standing within sword's reach of anyone.",
-  "play": "Drop a soldier between you and the target, right-click, and let the soldiers do the on-hit work; use Shifting Sands only to reposition onto a soldier, never to go in yourself. Your own sword does nothing, so never fight where a soldier isn't.",
+  "id": "anivia-overdraft-protection",
+  "title": "Overdraft Protection",
+  "champion": "Anivia",
+  "champion_name": "Anivia",
+  "chef": "2026-11-05",
+  "why": "Glacial Storm is a toggle that bills Anivia Mana every second it stays on, a running cost nobody thinks about beyond turning it off before she runs dry, and this build makes that bill the whole point. Blue Barrier hands her a share of every point of Mana she spends as a Shield for 1.5 seconds, so a storm that drains her every second re-shields her every second, and Overflow doubles all of her Mana costs, which doubles the Mana feeding Blue Barrier from the very same storm while making the storm's damage more effective too. Mighty Shield pays out Adaptive Force whenever she gains a Shield, which the ticking storm re-arms the moment its cooldown ends, and Ocean Soul grants Health and Mana Regen after damaging enemies, which the storm does nonstop, so the doubled drain keeps getting refilled. Rod of Ages gives Mana back when champions hit her and heals her for 25% of the Mana she spends, which Overflow just doubled, Seraph's Embrace and Malignance pile on Mana to burn, Malignance also scorches the ground under everyone her storm hits, and Spirit Visage makes every shield and heal on her 25% bigger. The fragile artillery mage becomes a frontline tank who walks into the enemy team, flips her storm on and simply stands in it, with Rebirth as the backup plan for when the bank finally closes.",
+  "play": "Build Mana first, then walk into the fight, toggle Glacial Storm on and stay inside it so the drain keeps re-shielding you every second. Only switch the storm off when you are truly out of Mana, and let the egg handle the rest.",
   "items": [
-    "Berserker's Greaves",
-    "Nashor's Tooth",
-    "Guinsoo's Rageblade",
-    "Wit's End",
-    "Blade of The Ruined King",
-    "Terminus"
+    "Rod of Ages",
+    "Seraph's Embrace",
+    "Malignance",
+    "Spirit Visage",
+    "Frozen Heart",
+    "Mercury's Treads"
   ],
   "core": 4,
-  "champion_icon": "/embed/fun/cook-builds/icons/champions/268.png",
+  "champion_icon": "/embed/fun/cook-builds/icons/champions/34.png",
   "augments": [
     {
-      "name": "Draw Your Sword",
-      "rarity": "Prismatic",
-      "core": true,
-      "text": "You are now melee. Gain 24% Attack Damage, 24% Health, 20% Attack Speed, 20% Lifesteal, and 20% Move Speed (each further increased based on Attack Range lost).",
-      "icon": "/embed/fun/cook-builds/icons/augments/draw-your-sword.png",
-      "id": 1134
-    },
-    {
-      "name": "Tickle Monster",
+      "name": "Overflow",
       "rarity": "Gold",
       "core": true,
-      "text": "Attack Damage is convertedinto Attack Speed. Attacks deal bonus magic damage On-Hit.",
-      "icon": "/embed/fun/cook-builds/icons/augments/tickle-monster.png",
-      "id": 3058
+      "text": "Your Mana costs double. Your Ability Heals, Shields, and damage are more effective.",
+      "icon": "/embed/fun/cook-builds/icons/augments/overflow.png",
+      "id": 1311
     },
     {
-      "name": "Ethereal Weapon",
-      "rarity": "Gold",
+      "name": "Blue Barrier",
+      "rarity": "Silver",
       "core": true,
-      "text": "Your Abilities apply On-Hit effects. 1 second Cooldown per target.",
-      "icon": "/embed/fun/cook-builds/icons/augments/ethereal-weapon.png",
-      "id": 1029
+      "text": "Gain of the Mana you spend as a Shield for 1.5 seconds. Shields up to",
+      "icon": "/embed/fun/cook-builds/icons/augments/blue-barrier.png",
+      "id": 3051
     },
     {
-      "name": "Master of Duality",
-      "rarity": "Prismatic",
+      "name": "Mighty Shield",
+      "rarity": "Silver",
       "core": true,
-      "text": "Your Attacks grant you stacking Ability Power and your Abilities that damage enemies grant you Attack Damage.",
-      "icon": "/embed/fun/cook-builds/icons/augments/master-of-duality.png",
-      "id": 1054
+      "text": "Gain Adaptive Force for 3 seconds when you gain a Shield (5 seconds Cooldown).",
+      "icon": "/embed/fun/cook-builds/icons/augments/mighty-shield.png",
+      "id": 1314
+    },
+    {
+      "name": "Ocean Soul",
+      "rarity": "Silver",
+      "core": true,
+      "text": "Gain the Ocean Soul, granting high Health and Mana Regen after damaging enemies.",
+      "icon": "/embed/fun/cook-builds/icons/augments/ocean-soul.png",
+      "id": 1060
     }
   ],
   "href": "/kitchen#chefs-special",
   "archive_href": "/kitchen#chef-archive",
-  "share_href": "/kitchen/2026-11-04",
-  "share_image": "/embed/fun/cook-builds/share/azir-melee-by-proxy.png",
+  "share_href": "/kitchen/2026-11-05",
+  "share_image": "/embed/fun/cook-builds/share/anivia-overdraft-protection.png",
   "item_ids": [
-    3006,
-    3115,
-    3124,
-    3091,
-    3153,
-    3302
+    6657,
+    3040,
+    3118,
+    3065,
+    3110,
+    3111
   ],
   "i18n": {
     "ar": {
-      "title": "مقاتل بالوكالة",
-      "why": "أزير لا يلوّح بسلاحه أبدًا: عندما يهاجم عدوًا قرب جندي رمال، تطعن الجنود بدلًا منه وتوجّه ضررًا سحريًا في خط مستقيم، فمداه الحقيقي هو أي مكان يقف فيه جنوده. استلَّ سيفك تجعله مقاتلًا قريب المدى وتمنحه قوة هجوم وصحة وسرعة هجوم وسرقة حياة وسرعة حركة تزداد مع كل نقطة من مدى الهجوم يفقدها، فيتخلى أزير عن جزء ضخم من مداه على الورق دون أن يخسر شيئًا فعليًا، لأن الجنود يواصلون الطعن من مداهم. وحش الدغدغة يحوّل كل قوة الهجوم هذه، التي لم يستخدمها جنوده أصلًا، إلى سرعة هجوم ويضيف ضررًا سحريًا عند الضرب، والسلاح الأثيري يجعل قدراته تطبّق تأثيرات عند الضرب، فتحمل كل طعنة من الجنود وحش الدغدغة مع سن ناشور ونصل غضب غينسو والموقف الحرج ونصل الملك المحطَم ومحطة النهاية على امتداد الخط كله. أستاذ الازدواجية يُكمل الحلقة: طعنات الجنود ضرر قدرات، فتمنح قوة هجوم، ووحش الدغدغة يحوّلها إلى سرعة هجوم أكثر، أي طعنات أكثر، أي قوة هجوم أكثر. الساحر البعيد المدى يصير مقاتلًا قريب المدى يعتمد على الضرب، يجمع كل مكافآت القتال القريب دون أن يقف على بعد سيف من أي أحد.",
-      "play": "ضع جنديًا بين نفسك والهدف، انقر بالزر الأيمن، ودع الجنود يتولون ضرر الضرب؛ استخدم E فقط لتغيير موقعك إلى جندي، ولا تدخل به بنفسك أبدًا. سيفك الخاص لا يفعل شيئًا، فلا تقاتل أبدًا حيث لا يوجد جندي.",
+      "title": "حماية السحب على المكشوف",
+      "why": "عاصفة أنيفيا الجليدية قدرة بتبديل تسحب منها المانا كل ثانية تبقى فيها شغالة، وهذي تكلفة جارية ما يفكر فيها أحد غير إنه يطفيها قبل ما تنشف المانا، وهذا البناء يخلي هذي الفاتورة هي الفكرة كلها. الحاجز الأزرق يعطيها حصة من كل نقطة مانا تصرفها على شكل درع لمدة 1.5 ثانية، فالعاصفة اللي تستنزفها كل ثانية تعيد تدريعها كل ثانية، والفيض المتدفق يضاعف كل تكاليف المانا عندها، يعني يضاعف المانا اللي تغذي الحاجز الأزرق من نفس العاصفة، ويخلي ضرر العاصفة أكثر فعالية. الدرع الجبار يعطيها القوة التكيفية كل ما تكسب درع، والعاصفة النابضة تعيد تفعيله أول ما ينتهي وقت التهدئة، والروح البحرية تعطي تجديد الصحة والمانا بعد إلحاق الضرر بالأعداء، والعاصفة تسويها بلا توقف، فالاستنزاف المضاعف يتعبى من جديد. قصبة العصور ترجع المانا لما تضربها الأبطال وتشفيها بـ25% من المانا اللي تصرفها، واللي ضاعفها الفيض المتدفق للتو. عناق سيراف والخبث يضيفون مانا للحرق، والخبث يحرق كمان الأرض تحت كل من تضربه عاصفتها، ووجه الروح يخلي كل درع وشفاء عليها أكبر بـ25%. الساحرة المدفعية الهشة تصير دبابة خط أمامي تمشي وسط فريق الأعداء، تشغّل عاصفتها وتوقف فيها وبس، ومعها ميلاد جديد كخطة بديلة لما يسكر البنك أخيرًا.",
+      "play": "ابنِ المانا أول، بعدين ادخل القتال، شغّل العاصفة الجليدية وابقَ داخلها عشان الاستنزاف يعيد تدريعك كل ثانية. لا تطفي العاصفة إلا لما تخلص مانتك فعلًا، وخلّ البيضة تتولى الباقي.",
       "augments": [
-        "أصبحت الآن مقاتلًا قريب المدى. تكتسب 24% قوة هجوم و24% صحة و20% سرعة هجوم و20% سرقة حياة و20% سرعة حركة (وتزداد كلها بحسب مدى الهجوم المفقود).",
-        "تتحول قوة الهجوم إلى سرعة هجوم. تُلحق الهجمات ضررًا سحريًا إضافيًا عند الضرب.",
-        "تطبّق مهاراتك تأثيرات الإصابة. فترة تهدئة ثانية واحدة لكل هدف.",
-        "تمنحك هجماتك قوة قدرات متراكمة، وتمنحك قدراتك التي تضر الأعداء قوة هجوم."
+        "تكاليف المانا عندك تتضاعف. شفاء قدراتك ودروعها وضررها يصيرون أكثر فعالية.",
+        "تكسب من المانا اللي تصرفها درعًا لمدة 1.5 ثانية. الدرع حتى",
+        "تكسب القوة التكيفية لمدة 3 ثواني عند كسب درع (وقت التهدئة 5 ثواني).",
+        "تحصل على الروح البحرية، وتمنحك تجديدًا عاليًا للصحة والمانا بعد إلحاق الضرر بالأعداء."
       ]
     },
     "cs": {
-      "title": "Zblízka v zastoupení",
-      "why": "Azir nikdy nemáchá vlastní zbraní: když zaútočí na nepřítele poblíž Písečného vojáka, vojáci bodnou místo něj a v přímce uštědří magické poškození, takže jeho skutečný dosah je všude tam, kde stojí jeho vojáci. Tas meč z něj udělá bojovníka na blízko a dá mu sílu útoku, zdraví, rychlost útoku, vysávání života a rychlost pohybu, které rostou s každým bodem ztraceného dosahu útoku. Azir tak na papíře přijde o obrovský kus dosahu, ale v praxi o nic, protože vojáci bodají dál ze svého dosahu. Lechtavá příšera mění veškerou sílu útoku, kterou jeho vojáci stejně nikdy nepoužili, na rychlost útoku a přidává magické poškození při zásahu, Éterická zbraň zajistí, že jeho schopnosti aplikují efekty při zásahu, a každé bodnutí vojáka tak nese Lechtavou příšeru plus Nashorův tesák, Guinsoovu zuřivou čepel, Nouzovou, Čepel Padlého krále a Terminus po celé délce přímky. Vládce duality uzavírá kruh: bodnutí vojáků je poškození schopnostmi, takže dává sílu útoku, kterou Lechtavá příšera mění na další rychlost útoku, což znamená další bodnutí, a tedy další sílu útoku. Z kontrolního mága na dálku se stane bruiser na blízko postavený na zásazích, který sbírá všechny bonusy pro boj zblízka, aniž by se kdy dostal na dosah meče kohokoli.",
-      "play": "Hoď vojáka mezi sebe a cíl, klikni pravým tlačítkem a nech vojáky odvést práci při zásahu; E používej jen na přesun k vojákovi, nikdy ne k vlastnímu vstupu do boje. Tvůj vlastní meč nedělá nic, takže nikdy nebojuj tam, kde nestojí voják.",
+      "title": "Ochrana proti přečerpání",
+      "why": "Ledová bouře je u Anivie přepínač, který jí každou sekundu, co běží, bere Manu. Je to průběžný účet, o kterém nikdo nepřemýšlí, kromě toho, že bouři vypne dřív, než Anivii dojde mana, a tahle sestava z toho účtu dělá celou podstatu. Modrá bariéra jí za každý bod utracené Many dá část jako Štít na 1.5 sekundy, takže bouře, která ji každou sekundu vyždímá, ji každou sekundu i obnoví štítem. Přebytek síly zdvojnásobí všechny její náklady na Manu, čímž zdvojnásobí Manu živící Modrou bariéru z téže bouře a zároveň zefektivní poškození bouře. Mocný štít dává Adaptivní sílu, kdykoli získá Štít, což tikající bouře znovu aktivuje, jakmile skončí cooldown, a Mořská duše dává regeneraci Zdraví a Many po zranění nepřátel, což bouře dělá nepřetržitě, takže se zdvojnásobený odliv pořád doplňuje. Hůl věků vrací Manu, když ji zasáhnou šampioni, a léčí ji za 25% utracené Many, kterou Přebytek právě zdvojnásobil. Andělská náruč a Zhoubnost přidávají Manu na spálení, Zhoubnost navíc zapaluje zem pod každým, koho bouře zasáhne, a Otisk duše zesiluje každý štít a léčení na ní o 25%. Křehká dělostřelecká mágyně se stane tankem v první linii, který vkráčí mezi nepřátele, zapne bouři a prostě v ní stojí, se Znovuzrozením jako záložním plánem na chvíli, kdy banka konečně zavře.",
+      "play": "Nejdřív nabuildi Manu, pak vkroč do bitvy, zapni Ledovou bouři a zůstaň v ní, aby tě odliv každou sekundu znovu štítoval. Bouři vypni, až když ti opravdu dojde Mana, a zbytek nech na vejci.",
       "augments": [
-        "Teď jsi bojovník na blízko. Získáš 24 % síly útoku, 24 % zdraví, 20 % rychlosti útoku, 20 % vysávání života a 20 % rychlosti pohybu (každé se dál zvyšuje podle ztraceného dosahu útoku).",
-        "Síla útoku se mění na rychlost útoku. Útoky způsobují bonusové magické poškození při zásahu.",
-        "Tvé schopnosti aktivují efekty při zásahu. Přebíjecí doba 1 s pro každý cíl.",
-        "Tvé útoky ti dávají stackující sílu schopností a tvé schopnosti, které poškozují nepřátele, ti dávají sílu útoku."
+        "Tvoje náklady na Manu se zdvojnásobí. Léčení, Štíty a poškození tvých schopností jsou účinnější.",
+        "Získáš z utracené Many Štít na 1.5 sekundy. Štít až",
+        "Získáš Adaptivní sílu na 3 sekundy, když získáš Štít (cooldown 5 sekund).",
+        "Získáš Mořskou duši, která po zranění nepřátel dává vysokou regeneraci Zdraví a Many."
       ]
     },
     "de": {
-      "title": "Nahkampf per Stellvertreter",
-      "why": "Azir schwingt nie selbst seine Waffe: Wenn er einen Gegner in der Nähe eines Sandsoldaten angreift, stechen stattdessen die Soldaten zu und verursachen in einer Linie magischen Schaden, seine echte Reichweite ist also dort, wo seine Soldaten stehen. Zieh dein Schwert macht ihn zum Nahkämpfer und gibt ihm Angriffsschaden, Leben, Angriffstempo, Lebensraub und Lauftempo, die mit jedem verlorenen Punkt Angriffsreichweite wachsen. Auf dem Papier gibt Azir einen riesigen Batzen Reichweite auf, in der Praxis aber keine, weil die Soldaten weiter aus ihrer eigenen Reichweite zustechen. Kitzelmonster verwandelt den ganzen Angriffsschaden, den seine Soldaten sowieso nie genutzt haben, in Angriffstempo und fügt magischen Schaden bei Treffer hinzu, und Ätherische Waffe lässt seine Fähigkeiten Effekte bei Treffer auslösen, sodass jeder Soldatenstich Kitzelmonster plus Nashors Zahn, Guinsoos Wutklinge, Ende der Weisheit, Klinge des gestürzten Königs und Terminus die ganze Linie entlang trägt. Meister der Dualität schließt den Kreis: Soldatenstiche sind Fähigkeitsschaden, also geben sie Angriffsschaden, den Kitzelmonster in mehr Angriffstempo verwandelt, was mehr Stiche bedeutet, also mehr Angriffsschaden. Der Fernkampf-Kontrollmagier wird zum Nahkampf-Bruiser mit On-Hit-Fokus, der jeden Nahkampfbonus abgreift, ohne je in Schwertreichweite von irgendwem zu stehen.",
-      "play": "Setz einen Soldaten zwischen dich und das Ziel, klick rechts und lass die Soldaten die On-Hit-Arbeit machen; nutz E nur, um dich zu einem Soldaten zu versetzen, nie um selbst reinzugehen. Dein eigenes Schwert tut nichts, also kämpf nie dort, wo kein Soldat steht.",
+      "title": "Überziehungsschutz",
+      "why": "Gletschersturm ist ein Toggle, der Anivia jede Sekunde Mana abzieht, solange er läuft – laufende Kosten, über die sich keiner groß Gedanken macht, außer ihn auszuschalten, bevor ihr das Mana ausgeht. Dieser Build macht genau diese Rechnung zum Kern der Sache. Blaue Barriere gibt ihr für jeden ausgegebenen Mana-Punkt einen Anteil als Schild für 1.5 Sekunden zurück, also schildet ein Sturm, der sie jede Sekunde leersaugt, sie auch jede Sekunde neu auf. Überfluss verdoppelt alle ihre Manakosten, was das Mana für Blaue Barriere aus demselben Sturm verdoppelt und nebenbei den Schaden des Sturms effektiver macht. Mächtiger Schild schüttet Adaptive Kraft aus, wann immer sie einen Schild erhält, was der tickende Sturm sofort wieder auslöst, sobald die Abklingzeit rum ist, und Meeresdrachenseele gewährt Lebens- und Manaregeneration, nachdem sie Gegnern Schaden zugefügt hat – was der Sturm ununterbrochen tut, sodass der verdoppelte Verbrauch ständig aufgefüllt wird. Stab der Zeitalter gibt Mana zurück, wenn Champions sie treffen, und heilt sie um 25% des ausgegebenen Mana, das Überfluss gerade verdoppelt hat. Umarmung des Seraphen und Bösartigkeit packen noch mehr Mana zum Verbrennen drauf, Bösartigkeit versengt außerdem den Boden unter allen, die ihr Sturm trifft, und Geistessicht macht jeden Schild und jede Heilung auf ihr um 25% größer. Aus der zerbrechlichen Artillerie-Magierin wird eine Frontlinien-Tankin, die ins gegnerische Team marschiert, ihren Sturm anwirft und einfach drinsteht – mit Wiedergeburt als Notfallplan, wenn die Bank endgültig dichtmacht.",
+      "play": "Baut zuerst Mana, lauft dann in den Kampf, schaltet Gletschersturm an und bleibt drin, damit der Verbrauch euch jede Sekunde neu schildet. Schaltet den Sturm erst aus, wenn ihr wirklich kein Mana mehr habt, und lasst das Ei den Rest erledigen.",
       "augments": [
-        "Du bist jetzt ein Nahkämpfer. Erhalte 24 % Angriffsschaden, 24 % Leben, 20 % Angriffstempo, 20 % Lebensraub und 20 % Lauftempo (jeweils zusätzlich erhöht je nach verlorener Angriffsreichweite).",
-        "Angriffsschaden wird in Angriffstempo umgewandelt. Angriffe verursachen bei Treffer zusätzlichen magischen Schaden.",
-        "Deine Fähigkeiten lösen Treffereffekte aus. 1 Sekunde Abklingzeit pro Ziel.",
-        "Deine Angriffe gewähren dir stapelnde Fähigkeitsstärke und deine Fähigkeiten, die Gegnern Schaden zufügen, gewähren dir Angriffsschaden."
+        "Deine Manakosten verdoppeln sich. Deine Fähigkeitsheilungen, Schilde und dein Schaden sind effektiver.",
+        "Erhalte einen Teil des ausgegebenen Mana als Schild für 1.5 Sekunden. Schilde bis zu",
+        "Erhalte 3 Sekunden lang Adaptive Kraft, wenn du einen Schild erhältst (5 Sekunden Abklingzeit).",
+        "Erhalte die Meeresdrachenseele, die nach Schaden an Gegnern hohe Lebens- und Manaregeneration gewährt."
       ]
     },
     "el": {
-      "title": "Σώμα με σώμα δι' αντιπροσώπου",
-      "why": "Ο Άζιρ δεν κουνάει ποτέ το δικό του όπλο: όταν επιτίθεται σε έναν εχθρό κοντά σε έναν Στρατιώτη της Άμμου, οι στρατιώτες μαχαιρώνουν στη θέση του και προκαλούν μαγική ζημιά σε ευθεία γραμμή, οπότε η πραγματική εμβέλειά του είναι εκεί που στέκονται οι στρατιώτες του. Το Τράβα Το Σπαθί Σου τον κάνει μάχιμο εκ του σύνεγγυς και του δίνει Ζημιά Επίθεσης, Ζωή, Ταχύτητα Επίθεσης, Κλοπή Ζωής και Ταχύτητα Κίνησης που αυξάνονται με κάθε μονάδα Εμβέλειας Επίθεσης που χάνει. Ο Άζιρ στα χαρτιά χάνει τεράστιο κομμάτι εμβέλειας, ενώ στην πράξη δεν χάνει τίποτα, γιατί οι στρατιώτες συνεχίζουν να μαχαιρώνουν από τη δική τους εμβέλεια. Ο Γαργαλοτέρας μετατρέπει όλη αυτή τη Ζημιά Επίθεσης, που οι στρατιώτες του δεν χρησιμοποιούσαν ποτέ, σε Ταχύτητα Επίθεσης και προσθέτει μαγική ζημιά On-Hit, και το Αιθέριο Όπλο κάνει τις ικανότητές του να εφαρμόζουν εφέ On-Hit, οπότε κάθε μαχαιριά στρατιώτη κουβαλά τον Γαργαλοτέρα μαζί με το Δόντι του Νάσορ, το Οργισμένο Σπαθί του Γκουίνσου, το Παρανοϊκό Ξίφος, τη Λεπίδα του Έκπτωτου Βασιλιά και το Τέρμινους σε όλη τη γραμμή. Ο Δάσκαλος της Διττότητας κλείνει τον κύκλο: οι μαχαιριές των στρατιωτών είναι ζημιά ικανοτήτων, άρα δίνουν Ζημιά Επίθεσης, που ο Γαργαλοτέρας μετατρέπει σε περισσότερη Ταχύτητα Επίθεσης, που σημαίνει περισσότερες μαχαιριές, άρα περισσότερη Ζημιά Επίθεσης. Ο μάγος ελέγχου από απόσταση γίνεται bruiser εκ του σύνεγγυς με βάση το On-Hit, που μαζεύει κάθε μπόνους του σώμα με σώμα χωρίς να σταθεί ποτέ σε απόσταση σπαθιού από κανέναν.",
-      "play": "Ρίξε έναν στρατιώτη ανάμεσα σε σένα και τον στόχο, κάνε δεξί κλικ και άσε τους στρατιώτες να κάνουν τη δουλειά του On-Hit· χρησιμοποίησε το E μόνο για να μεταφερθείς σε έναν στρατιώτη, ποτέ για να μπεις εσύ μέσα. Το δικό σου σπαθί δεν κάνει τίποτα, οπότε μην πολεμάς ποτέ εκεί που δεν υπάρχει στρατιώτης.",
+      "title": "Προστασία από Υπερανάληψη",
+      "why": "Η Παγετώδης Καταιγίδα είναι ικανότητα με εναλλαγή που χρεώνει στην Ανίβια Μάνα κάθε δευτερόλεπτο που μένει ενεργή, ένα τρέχον κόστος που κανείς δεν σκέφτεται πέρα από το να την κλείσει πριν στεγνώσει, και αυτό το build κάνει αυτόν τον λογαριασμό όλο το νόημα. Το Μπλε Φράγμα της δίνει ένα μερίδιο από κάθε μονάδα Μάνας που ξοδεύει ως Ασπίδα για 1.5 δευτερόλεπτα, οπότε μια καταιγίδα που την αδειάζει κάθε δευτερόλεπτο την ξανασκεπάζει με ασπίδα κάθε δευτερόλεπτο, και η Υπερχείλιση διπλασιάζει όλα τα κόστη Μάνας της, κάτι που διπλασιάζει τη Μάνα που τροφοδοτεί το Μπλε Φράγμα από την ίδια καταιγίδα, ενώ κάνει και τη ζημιά της καταιγίδας πιο αποτελεσματική. Η Πανίσχυρη Ασπίδα δίνει Προσαρμοστική Δύναμη όποτε παίρνει Ασπίδα, κάτι που η καταιγίδα με τους παλμούς της οπλίζει ξανά μόλις τελειώσει ο χρόνος επαναφοράς, και η Ψυχή του Ωκεανού δίνει Αναπλήρωση Υγείας και Μάνας μετά από ζημιά σε εχθρούς, κάτι που η καταιγίδα κάνει ασταμάτητα, έτσι η διπλή αιμορραγία γεμίζει συνεχώς πίσω. Η Ράβδος των Αιώνων επιστρέφει Μάνα όταν την χτυπούν οι ήρωες και τη θεραπεύει για 25% της Μάνας που ξοδεύει, την οποία η Υπερχείλιση μόλις διπλασίασε. Η Προστασία των Σεραφείμ και η Κακοήθεια προσθέτουν Μάνα για κάψιμο, η Κακοήθεια καίει επιπλέον το έδαφος κάτω από όλους όσους χτυπά η καταιγίδα της, και η Όψη Πνευμάτων κάνει κάθε ασπίδα και θεραπεία πάνω της 25% μεγαλύτερη. Η εύθραυστη μάγισσα του πυροβολικού γίνεται tank πρώτης γραμμής που μπαίνει στην εχθρική ομάδα, ανάβει την καταιγίδα της και απλώς στέκεται μέσα της, με την Αναγέννηση ως εφεδρικό σχέδιο για όταν η τράπεζα κλείσει επιτέλους.",
+      "play": "Φτιάξε πρώτα Μάνα, μετά μπες στη μάχη, ενεργοποίησε την Παγετώδη Καταιγίδα και μείνε μέσα της ώστε η αιμορραγία να σε ξανασκεπάζει με ασπίδα κάθε δευτερόλεπτο. Κλείσε την καταιγίδα μόνο όταν έχεις πραγματικά μείνει από Μάνα, και άφησε το αυγό να τα καταφέρει.",
       "augments": [
-        "Είσαι πλέον μάχιμος εκ του σύνεγγυς. Κερδίζεις 24% Ζημιά Επίθεσης, 24% Ζωή, 20% Ταχύτητα Επίθεσης, 20% Κλοπή Ζωής και 20% Ταχύτητα Κίνησης (το καθένα αυξάνεται περαιτέρω ανάλογα με την Εμβέλεια Επίθεσης που χάνεται).",
-        "Η Ζημιά Επίθεσης μετατρέπεται σε Ταχύτητα Επίθεσης. Οι επιθέσεις προκαλούν επιπλέον μαγική ζημιά On-Hit.",
-        "Οι Ικανότητές σου εφαρμόζουν εφέ χτυπήματος. 1 δευτερόλεπτο επαναφόρτιση ανά στόχο.",
-        "Οι επιθέσεις σου σού δίνουν Δύναμη Ικανοτήτων που στοιβάζεται και οι ικανότητές σου που προκαλούν ζημιά σε εχθρούς σού δίνουν Ζημιά Επίθεσης."
+        "Τα κόστη Μάνας σου διπλασιάζονται. Οι Θεραπείες, οι Ασπίδες και η ζημιά των Ικανοτήτων σου είναι πιο αποτελεσματικές.",
+        "Κερδίζεις από τη Μάνα που ξοδεύεις ως Ασπίδα για 1.5 δευτερόλεπτα. Ασπίδα έως",
+        "Κερδίζεις Προσαρμοστική Δύναμη για 3 δευτερόλεπτα όταν παίρνεις Ασπίδα (5 δευτερόλεπτα Χρόνος Επαναφοράς).",
+        "Παίρνεις την Ψυχή του Ωκεανού, που δίνει υψηλή Αναπλήρωση Υγείας και Μάνας μετά από ζημιά σε εχθρούς."
       ]
     },
     "es-MX": {
-      "title": "Melé por Poderes",
-      "why": "Azir nunca blande su propia arma: cuando ataca a un enemigo cerca de un Soldado de Arena, los soldados apuñalan en su lugar e infligen daño mágico en línea, así que su alcance real es donde estén parados sus soldados. Desenvaina tu Espada lo vuelve cuerpo a cuerpo y le da Daño de Ataque, Vida, Velocidad de Ataque, Robo de Vida y Velocidad de Movimiento que crecen con cada punto de Alcance de Ataque perdido; en el papel Azir renuncia a un montón de alcance, pero en la práctica no pierde nada, porque los soldados siguen apuñalando desde su propio alcance. Monstruo de las Cosquillas convierte todo ese Daño de Ataque, que sus soldados nunca usaron de todos modos, en Velocidad de Ataque y añade daño mágico Al Impactar, y Arma Etérea hace que sus habilidades apliquen efectos Al Impactar, así que cada puñalada de un soldado lleva Monstruo de las Cosquillas más Diente de Nashor, Espadafuria de Guinsoo, Al Filo de la Cordura, Espada del Rey Arruinado y Terminus a lo largo de toda la línea. Maestro de la Dualidad cierra el círculo: las puñaladas de los soldados son daño de habilidad, así que otorgan Daño de Ataque, que Monstruo de las Cosquillas convierte en más Velocidad de Ataque, lo que significa más puñaladas, lo que significa más Daño de Ataque. El mago de control a distancia se vuelve un bruiser cuerpo a cuerpo de Al Impactar que se lleva todos los bonos de melé sin pararse nunca al alcance de la espada de nadie.",
-      "play": "Suelta un soldado entre tú y el objetivo, haz clic derecho y deja que los soldados hagan el trabajo Al Impactar; usa la E solo para reposicionarte hacia un soldado, nunca para entrar tú. Tu propia espada no hace nada, así que nunca pelees donde no haya un soldado.",
+      "title": "Protección contra sobregiro",
+      "why": "Tormenta glacial es una habilidad de activar y desactivar que le cobra maná a Anivia cada segundo que sigue encendida, un costo constante en el que nadie piensa más allá de apagarla antes de quedarse sin maná, y esta build convierte esa cuenta en lo más importante. Barrera Azul le da una parte de cada punto de maná que gasta como escudo durante 1.5 segundos, así que una tormenta que la drena cada segundo la vuelve a proteger cada segundo. Sobrecarga duplica todos sus costos de maná, lo que duplica el maná que alimenta a Barrera Azul desde la misma tormenta y además vuelve más efectivo el daño de la tormenta. Escudo Poderoso otorga fuerza adaptativa cada vez que gana un escudo, algo que la tormenta, con sus pulsos, vuelve a activar en cuanto termina su enfriamiento, y Alma de los Océanos concede regeneración de salud y maná después de dañar enemigos, cosa que la tormenta hace sin parar, así que el drenaje duplicado se rellena todo el tiempo. Vara de las Edades devuelve maná cuando los campeones la golpean y la cura el 25% del maná que gasta, que Sobrecarga acaba de duplicar. Abrazo del Serafín y Maldad acumulan todavía más maná para quemar, Maldad además quema el suelo bajo todos los que toca su tormenta, y Apariencia Espiritual hace que cada escudo y cada curación sobre ella sea 25% más grande. La frágil maga de artillería se vuelve una tanque de primera línea que se mete al equipo enemigo, prende su tormenta y se queda parada ahí, con Renacimiento como plan B para cuando el banco por fin cierre.",
+      "play": "Compra maná primero, luego métete a la pelea, activa Tormenta glacial y quédate adentro para que el drenaje te vuelva a poner escudo cada segundo. Apaga la tormenta solo cuando de verdad te quedes sin maná, y deja que el huevo se encargue del resto.",
       "augments": [
-        "Ahora eres cuerpo a cuerpo. Obtienes 24% de Daño de Ataque, 24% de Vida, 20% de Velocidad de Ataque, 20% de Robo de Vida y 20% de Velocidad de Movimiento (cada uno aumenta aún más según el Alcance de Ataque perdido).",
-        "El Daño de Ataque se convierte en Velocidad de Ataque. Los ataques infligen daño mágico adicional Al Impactar.",
-        "Tus habilidades aplican efectos al golpear. 1 segundo de enfriamiento por objetivo.",
-        "Tus ataques te otorgan Poder de Habilidad acumulable y tus habilidades que dañan a los enemigos te otorgan Daño de Ataque."
+        "Tus costos de maná se duplican. Las curaciones, los escudos y el daño de tus habilidades son más efectivos.",
+        "Obtén parte del maná que gastas como escudo durante 1.5 segundos. Escudos de hasta",
+        "Obtén fuerza adaptativa durante 3 segundos cuando ganes un escudo (5 segundos de enfriamiento).",
+        "Obtén el Alma de los Océanos, que concede gran regeneración de salud y maná después de dañar enemigos."
       ]
     },
     "es": {
-      "title": "Melé por poderes",
-      "why": "Azir nunca blande su propia arma: cuando ataca a un enemigo cerca de un soldado de arena, los soldados apuñalan en su lugar e infligen daño mágico en línea, así que su alcance real es donde estén plantados sus soldados. ¡Desenvaina la espada! lo convierte en cuerpo a cuerpo y le da daño de ataque, vida, velocidad de ataque, robo de vida y velocidad de movimiento que crecen con cada punto de alcance de ataque perdido; sobre el papel Azir renuncia a un montón de alcance, pero en la práctica no pierde nada, porque los soldados siguen apuñalando desde su propio alcance. Monstruo de las cosquillas convierte todo ese daño de ataque, que sus soldados nunca usaron de todos modos, en velocidad de ataque y añade daño mágico al impactar, y Arma etérea hace que sus habilidades apliquen efectos al impactar, así que cada puñalada de un soldado lleva Monstruo de las cosquillas más Diente de Nashor, Hoja de furia de Guinsoo, Final del ingenio, Hoja del rey arruinado y El final a lo largo de toda la línea. Dualidad cierra el círculo: las puñaladas de los soldados son daño de habilidad, así que dan daño de ataque, que Monstruo de las cosquillas convierte en más velocidad de ataque, lo que significa más puñaladas, lo que significa más daño de ataque. El mago de control a distancia se convierte en un bruiser cuerpo a cuerpo de efectos al impactar que se lleva todas las bonificaciones de melé sin ponerse nunca al alcance de la espada de nadie.",
-      "play": "Suelta un soldado entre tú y el objetivo, haz clic derecho y deja que los soldados hagan el trabajo al impactar; usa la E solo para recolocarte sobre un soldado, nunca para entrar tú. Tu propia espada no hace nada, así que nunca pelees donde no haya un soldado.",
+      "title": "Protección contra descubiertos",
+      "why": "Tormenta glacial es una habilidad de activar y desactivar que le cobra maná a Anivia cada segundo que permanece activa, un coste continuo en el que nadie piensa más allá de apagarla antes de quedarse sin maná, y esta build convierte esa factura en el centro de todo. Barrera azul le da una parte de cada punto de maná que gasta como escudo durante 1.5 segundos, así que una tormenta que la drena cada segundo la reprotege cada segundo. Sobrecarga duplica todos sus costes de maná, lo que duplica el maná que alimenta Barrera azul desde esa misma tormenta y, de paso, hace más eficaz el daño de la tormenta. Escudo de fuerza otorga fuerza adaptable cada vez que gana un escudo, algo que la tormenta, con sus pulsos, vuelve a activar en cuanto termina su enfriamiento, y Alma de océano concede regeneración de salud y maná tras dañar a enemigos, cosa que la tormenta hace sin parar, así que el drenaje duplicado se rellena una y otra vez. Vara de las edades devuelve maná cuando los campeones la golpean y la cura el 25% del maná que gasta, que Sobrecarga acaba de duplicar. Abrazo del serafín y Malignidad apilan aún más maná que quemar, Malignidad además abrasa el suelo bajo todos los que toca su tormenta, y Rostro espiritual hace que cada escudo y cada curación sobre ella sea un 25% mayor. La frágil maga de artillería se convierte en una tanque de primera línea que se mete en el equipo enemigo, activa su tormenta y se queda ahí plantada, con Renacimiento como plan B para cuando el banco por fin cierre.",
+      "play": "Compra maná primero, luego métete en la pelea, activa Tormenta glacial y quédate dentro para que el drenaje te vuelva a poner escudo cada segundo. Apaga la tormenta solo cuando de verdad te quedes sin maná, y deja que el huevo se encargue del resto.",
       "augments": [
-        "Ahora eres cuerpo a cuerpo. Obtienes un 24 % de daño de ataque, un 24 % de vida, un 20 % de velocidad de ataque, un 20 % de robo de vida y un 20 % de velocidad de movimiento (cada uno aumenta aún más según el alcance de ataque perdido).",
-        "El daño de ataque se convierte en velocidad de ataque. Los ataques infligen daño mágico adicional al impactar.",
-        "Tus habilidades aplican efectos al impactar. 1 segundo de enfriamiento por objetivo.",
-        "Tus ataques te otorgan poder de habilidad acumulable y tus habilidades que dañan a enemigos te otorgan daño de ataque."
+        "Tus costes de maná se duplican. Las curaciones, los escudos y el daño de tus habilidades son más eficaces.",
+        "Obtén parte del maná que gastes como escudo durante 1.5 segundos. Escudos de hasta",
+        "Obtén fuerza adaptable durante 3 segundos cuando ganes un escudo (5 segundos de enfriamiento).",
+        "Obtén el Alma de océano, que concede gran regeneración de salud y maná tras dañar a enemigos."
       ]
     },
     "fr": {
-      "title": "Mêlée par procuration",
-      "why": "Azir ne brandit jamais sa propre arme : quand il attaque un ennemi près d'un soldat des sables, ce sont les soldats qui frappent à sa place et infligent des dégâts magiques en ligne, donc sa vraie portée, c'est là où se tiennent ses soldats. Combat rapproché le rend corps à corps et lui donne des dégâts d'attaque, des PV, de la vitesse d'attaque, du vol de vie et de la vitesse de déplacement qui augmentent avec chaque point de portée d'attaque perdu ; sur le papier Azir abandonne une énorme part de sa portée, mais en pratique il n'en perd aucune, car les soldats continuent de frapper depuis leur propre portée. Monstre à chatouilles convertit tous ces dégâts d'attaque, que ses soldats n'utilisaient de toute façon jamais, en vitesse d'attaque et ajoute des dégâts magiques à l'impact, et Arme éthérée fait appliquer les effets à l'impact à ses compétences, donc chaque coup de soldat transporte Monstre à chatouilles plus Dent de Nashor, Lame enragée de Guinsoo, Au bout du rouleau, Lame du roi déchu et Terminus sur toute la ligne. Dualité boucle la boucle : les coups des soldats sont des dégâts de compétence, donc ils donnent des dégâts d'attaque, que Monstre à chatouilles transforme en plus de vitesse d'attaque, ce qui veut dire plus de coups, donc plus de dégâts d'attaque. Le mage de contrôle à distance devient un bruiser de mêlée basé sur les effets à l'impact, qui récolte tous les bonus de mêlée sans jamais se tenir à portée d'épée de quiconque.",
-      "play": "Pose un soldat entre toi et la cible, fais un clic droit et laisse les soldats faire le boulot à l'impact ; utilise E uniquement pour te repositionner sur un soldat, jamais pour y aller toi-même. Ta propre épée ne fait rien, donc ne te bats jamais là où il n'y a pas de soldat.",
+      "title": "Protection contre le découvert",
+      "why": "Tempête glaciale est une capacité à bascule qui facture du mana à Anivia chaque seconde où elle reste active, un coût permanent auquel personne ne pense à part l'éteindre avant d'être à sec, et ce build fait de cette facture le cœur du plan. Barrière bleue lui rend une part de chaque point de mana dépensé sous forme de bouclier pendant 1.5 seconde : une tempête qui la vide chaque seconde la reboucliérise donc chaque seconde. Surcharge double tous ses coûts en mana, ce qui double le mana alimentant Barrière bleue depuis la même tempête tout en rendant les dégâts de la tempête plus efficaces. Puissant bouclier octroie de la force adaptative chaque fois qu'elle gagne un bouclier, ce que la tempête qui tique réarme dès la fin de son délai de récupération, et Âme des océans accorde de la régénération de vie et de mana après avoir infligé des dégâts aux ennemis, ce que la tempête fait sans arrêt, si bien que la ponction doublée est constamment recomblée. Bâton séculaire rend du mana quand des champions la touchent et la soigne de 25% du mana dépensé, que Surcharge vient de doubler. Étreinte du séraphin et Malfaisance ajoutent encore du mana à brûler, Malfaisance brûle en plus le sol sous tous ceux touchés par sa tempête, et Visage spirituel rend chaque bouclier et chaque soin sur elle 25% plus gros. La mage d'artillerie fragile devient un tank de première ligne qui fonce dans l'équipe ennemie, active sa tempête et reste planté dedans, avec Renaissance en plan de secours pour quand la banque fermera enfin ses portes.",
+      "play": "Montez d'abord du mana, puis allez au combat, activez Tempête glaciale et restez dedans pour que la ponction vous remette un bouclier chaque seconde. Ne coupez la tempête que lorsque vous êtes vraiment à sec, et laissez l'œuf s'occuper du reste.",
       "augments": [
-        "Vous êtes maintenant au corps à corps. Vous gagnez 24 % de dégâts d'attaque, 24 % de PV, 20 % de vitesse d'attaque, 20 % de vol de vie et 20 % de vitesse de déplacement (chacun étant encore augmenté selon la portée d'attaque perdue).",
-        "Les dégâts d'attaque sont convertis en vitesse d'attaque. Les attaques infligent des dégâts magiques bonus à l'impact.",
-        "Vos compétences appliquent les effets à l'impact. Délai de récupération de 1 seconde par cible.",
-        "Vos attaques vous confèrent de la puissance cumulable et vos compétences qui infligent des dégâts aux ennemis vous confèrent des dégâts d'attaque."
+        "Vos coûts en mana sont doublés. Les soins, boucliers et dégâts de vos capacités sont plus efficaces.",
+        "Gagnez une partie du mana dépensé sous forme de bouclier pendant 1.5 seconde. Boucliers jusqu'à",
+        "Gagnez de la force adaptative pendant 3 secondes quand vous gagnez un bouclier (5 secondes de délai de récupération).",
+        "Obtenez l'Âme des océans, qui accorde une forte régénération de vie et de mana après avoir infligé des dégâts aux ennemis."
       ]
     },
     "hu": {
-      "title": "Közelharc Közvetítővel",
-      "why": "Azir sosem a saját fegyverével csap le: az Arise! szerint ha egy Homokkatona közelében támad meg egy ellenséget, a katonák szúrnak helyette, és mágikus sebzést okoznak egy vonalban, vagyis a valódi hatótávja ott van, ahol a katonái állnak. A Ránts kardot közelharcossá teszi, és Támadóerőt, Életerőt, Támadási sebességet, Életerő-lopást és Mozgási sebességet ad, ami minden elvesztett Támadási hatótáv-pont után nő; Azir papíron hatalmas hatótávot veszít, a gyakorlatban viszont semmit, mert a katonák a saját hatótávjukból szúrnak tovább. A Csikiszörny ezt a rengeteg Támadóerőt, amit a katonái amúgy sem használtak, Támadási sebességgé alakítja, és találatkor mágikus sebzést ad hozzá, az Asztrális fegyver pedig a képességeit találatkor érvényesülő hatásokat alkalmazóvá teszi, így minden katonaszúrás a Csikiszörnyet, valamint Nashor foga, Guinsoo dühpengéje, Utolsó esély, A letaszított király kardja és Vég hatását is viszi a teljes vonalon. A Mesteri kettősség bezárja a kört: a katonák szúrásai képességsebzésnek számítanak, ezért Támadóerőt adnak, amit a Csikiszörny még több Támadási sebességgé alakít, ami még több szúrást jelent, ami még több Támadóerőt. A távolsági irányító mágusból közelharci találatkor-hatásos verőlegény lesz, aki minden közelharci bónuszt learat, anélkül hogy bárkinek a kardjának hatótávjába kerülne.",
-      "play": "Tegyél le egy katonát közted és a célpont közé, kattints jobb gombbal, és hagyd, hogy a katonák végezzék a találatkor-hatásos munkát; az E-t csak arra használd, hogy egy katonára pozicionáld magad, soha ne azzal ugorj be. A saját kardod semmit sem csinál, ezért sose harcolj ott, ahol nincs katona.",
+      "title": "Folyószámla-védelem",
+      "why": "A Jégvihar Anivia esetében egy kapcsolható képesség, ami minden másodpercben Manát von le, amíg be van kapcsolva. Ez egy futó költség, amivel senki sem foglalkozik azon kívül, hogy kikapcsolja, mielőtt kifogy a mana, ez az összeállítás viszont az egész lényeget erre építi. A Kék pajzs minden elköltött Mana-pont egy részét Pajzsként adja vissza 1.5 másodpercre, így a vihar, ami másodpercenként lecsapolja, másodpercenként újra is pajzsolja. A Túlcsordulás megduplázza az összes Mana-költségét, ezzel megduplázza a Kék pajzsot tápláló Manát ugyanabból a viharból, miközben a vihar sebzését is hatékonyabbá teszi. A Hatalmas pajzs Adaptív erőt ad, valahányszor Pajzsot kap, amit a ketyegő vihar újra élesít, amint lejár a várakozási ideje, az Óceáni lélek pedig Életerő- és Mana-regenerációt ad az ellenségek megsebzése után, amit a vihar megállás nélkül csinál, így a duplázott lecsapolás folyamatosan pótlódik. A Korok pálcája Manát ad vissza, ha bajnokok ütik, és az elköltött Mana 25%-át gyógyítja, amit a Túlcsordulás épp megduplázott. A szeráf ölelése és a Rosszindulat még több elégetnivaló Manát ad, a Rosszindulat ráadásul megperzseli a talajt mindenki alatt, akit a vihar eltalál, a Szellemarc pedig minden rajta lévő pajzsot és gyógyítást 25%-kal erősebbé tesz. A törékeny tüzérmágusból frontvonalbeli tank lesz, aki besétál az ellenséges csapatba, bekapcsolja a viharát, és egyszerűen áll benne, az Újjászületés pedig a B-terv arra az esetre, ha a bank végre bezár.",
+      "play": "Előbb építs Manát, aztán sétálj be a harcba, kapcsold be a Jégvihart, és maradj benne, hogy a lecsapolás másodpercenként újra pajzsoljon. Csak akkor kapcsold ki a vihart, ha tényleg kifogytál a Manából, a többit pedig bízd a tojásra.",
       "augments": [
-        "Mostantól közelharci vagy. Kapsz 24% Támadóerőt, 24% Életerőt, 20% Támadási sebességet, 20% Életerő-lopást és 20% Mozgási sebességet (mindegyik tovább nő az elvesztett Támadási hatótáv alapján).",
-        "A Támadóerő Támadási sebességgé alakul. A támadások találatkor plusz mágikus sebzést okoznak.",
-        "A képességeid találati hatásokat váltanak ki. Célpontonként 1 másodperc töltési idő.",
-        "A támadásaid halmozódó Varázserőt adnak, a sebző képességeid pedig Támadóerőt adnak."
+        "A Mana-költségeid megduplázódnak. A képességeid gyógyítása, Pajzsai és sebzése hatékonyabb.",
+        "Az elköltött Mana-ból Pajzsot kapsz 1.5 másodpercre. A Pajzs legfeljebb",
+        "Adaptív erőt kapsz 3 másodpercre, amikor Pajzsot szerzel (5 másodperc várakozási idő).",
+        "Megkapod az Óceáni lelket, ami az ellenségek megsebzése után magas Életerő- és Mana-regenerációt ad."
       ]
     },
     "id": {
-      "title": "Melee Lewat Perantara",
-      "why": "Azir tidak pernah mengayunkan senjatanya sendiri: menurut Arise!, saat dia Menyerang musuh di dekat Prajurit Pasir, para prajurit yang menusuk dan memberi magic damage dalam satu garis, jadi jangkauan aslinya ada di mana pun prajuritnya berdiri. Draw Your Sword membuatnya melee dan memberi Attack Damage, Health, Attack Speed, Lifesteal, dan Move Speed yang naik di setiap poin Attack Range yang hilang, dan Azir kehilangan jangkauan besar di atas kertas tapi tidak kehilangan apa pun dalam praktik, karena prajurit tetap menusuk dari jangkauan mereka sendiri. Tickle Monster mengubah semua Attack Damage itu, yang memang tidak pernah dipakai prajuritnya, menjadi Attack Speed dan menambah magic damage On-Hit, lalu Ethereal Weapon membuat Ability-nya menerapkan efek On-Hit, jadi setiap tusukan prajurit membawa Tickle Monster plus Nashor's Tooth, Guinsoo's Rageblade, Wit's End, Blade of the Ruined King, dan Terminus ke seluruh garis. Master of Duality menutup lingkarannya: tusukan prajurit adalah damage Ability, jadi memberi Attack Damage, yang diubah Tickle Monster menjadi lebih banyak Attack Speed, artinya lebih banyak tusukan, artinya lebih banyak Attack Damage. Mage kontrol jarak jauh berubah jadi bruiser melee on-hit yang mengumpulkan semua bonus melee tanpa pernah berdiri dalam jangkauan pedang siapa pun.",
-      "play": "Taruh satu prajurit di antara kamu dan target, klik kanan, dan biarkan para prajurit mengerjakan damage on-hit; pakai E hanya untuk pindah posisi ke prajurit, jangan pernah untuk masuk sendiri. Pedangmu sendiri tidak berguna, jadi jangan bertarung di tempat yang tidak ada prajuritnya.",
+      "title": "Perlindungan Overdraft",
+      "why": "Glacial Storm adalah skill toggle yang menagih Mana Anivia setiap detik selama menyala, biaya berjalan yang tidak dipikirkan siapa pun selain mematikannya sebelum dia kehabisan Mana, dan build ini menjadikan tagihan itu inti permainannya. Blue Barrier memberinya sebagian dari setiap poin Mana yang dia pakai sebagai Shield selama 1.5 detik, jadi badai yang menguras Mana setiap detik juga memasang ulang Shield setiap detik, dan Overflow menggandakan semua biaya Mana-nya, yang menggandakan Mana yang masuk ke Blue Barrier dari badai yang sama sekaligus membuat damage badai lebih efektif. Mighty Shield memberi Adaptive Force setiap kali dia mendapat Shield, yang diaktifkan ulang oleh badai begitu cooldown-nya selesai, dan Ocean Soul memberi Health dan Mana Regen tinggi setelah memberi damage ke musuh, yang dilakukan badai tanpa henti, jadi Mana yang terkuras dua kali lipat terus terisi lagi. Rod of Ages mengembalikan Mana saat champion memukulnya dan menyembuhkannya 25% dari Mana yang dia pakai, yang baru saja digandakan Overflow, Seraph's Embrace dan Malignance menambah Mana untuk dibakar, Malignance juga membakar tanah di bawah semua yang terkena badainya, dan Spirit Visage membuat semua shield dan heal padanya 25% lebih besar. Mage artileri yang rapuh berubah jadi tank garis depan yang jalan ke tengah tim musuh, menyalakan badainya dan cukup berdiri di dalamnya, dengan Rebirth sebagai rencana cadangan saat bank akhirnya tutup.",
+      "play": "Bangun Mana dulu, lalu masuk ke teamfight, nyalakan Glacial Storm dan tetap di dalamnya supaya pengurasan Mana terus memasang ulang Shield setiap detik. Matikan badai hanya saat kamu benar-benar kehabisan Mana, dan biarkan telur yang mengurus sisanya.",
       "augments": [
-        "Kamu sekarang melee. Dapatkan 24% Attack Damage, 24% Health, 20% Attack Speed, 20% Lifesteal, dan 20% Move Speed (masing-masing meningkat lagi berdasarkan Attack Range yang hilang).",
-        "Attack Damage diubah menjadi Attack Speed. Serangan memberi bonus magic damage On-Hit.",
-        "Skill-mu menerapkan efek On-Hit. Cooldown 1 detik per target.",
-        "Seranganmu memberi Ability Power yang bertumpuk dan Ability-mu yang melukai musuh memberi Attack Damage."
+        "Biaya Mana kamu berlipat dua. Heal, Shield, dan damage Ability kamu lebih efektif.",
+        "Dapatkan sebagian dari Mana yang kamu pakai sebagai Shield selama 1.5 detik. Shield hingga",
+        "Dapatkan Adaptive Force selama 3 detik saat kamu mendapat Shield (cooldown 5 detik).",
+        "Dapatkan Ocean Soul, yang memberi Health dan Mana Regen tinggi setelah memberi damage ke musuh."
       ]
     },
     "it": {
-      "title": "Mischia per Procura",
-      "why": "Azir non agita mai la propria arma: secondo Arise!, quando attacca un nemico vicino a un Soldato di sabbia, sono i soldati a colpire al suo posto infliggendo danni magici in linea, quindi la sua vera portata è ovunque stiano i suoi soldati. Sguaina la spada lo rende un campione da mischia e dà Danni da attacco, Salute, Velocità d'attacco, Furto di vita e Velocità di movimento che aumentano con ogni punto di Gittata d'attacco perso; Azir perde una bella fetta di gittata sulla carta ma nella pratica nulla, perché i soldati continuano a colpire dalla loro gittata. Mostro del solletico converte tutti quei Danni da attacco, che i suoi soldati non usavano comunque, in Velocità d'attacco e aggiunge danni magici al colpo, mentre Arma eterea fa applicare gli effetti al colpo alle sue abilità, quindi ogni stoccata dei soldati porta con sé Mostro del solletico più Dente di Nashor, Furia di Guinsoo, Speranza perduta, Lama del re in rovina e Terminus lungo tutta la linea. Duplicità chiude il cerchio: le stoccate dei soldati sono danni da abilità, quindi danno Danni da attacco, che Mostro del solletico trasforma in più Velocità d'attacco, cioè più stoccate, cioè più Danni da attacco. Il mago a distanza da controllo diventa un bruiser da mischia con effetti al colpo, che incassa ogni bonus da mischia senza mai mettersi alla portata della spada di nessuno.",
-      "play": "Piazza un soldato tra te e il bersaglio, clicca col destro e lascia che siano i soldati a fare il lavoro al colpo; usa la E solo per riposizionarti su un soldato, mai per entrare tu stesso. La tua spada non fa niente, quindi non combattere mai dove non c'è un soldato.",
+      "title": "Protezione scoperto",
+      "why": "Tempesta glaciale è un'abilità on/off che addebita mana ad Anivia ogni secondo in cui resta attiva, un costo continuo a cui nessuno pensa se non per spegnerla prima di restare a secco, e questa build rende quel conto il punto centrale. Barriera blu le dà una parte di ogni punto di mana speso sotto forma di scudo per 1.5 secondi, quindi una tempesta che la prosciuga ogni secondo la riscuda ogni secondo. Esubero raddoppia tutti i suoi costi in mana, il che raddoppia il mana che alimenta Barriera blu dalla stessa tempesta e rende anche più efficace il danno della tempesta. Scudo possente conferisce forza adattiva ogni volta che ottiene uno scudo, cosa che la tempesta, a ogni tick, riattiva appena finisce il suo tempo di ricarica, e Anima dell'oceano concede rigenerazione di salute e mana dopo aver inflitto danni ai nemici, cosa che la tempesta fa di continuo, così il consumo raddoppiato si riempie in continuazione. Bastone secolare restituisce mana quando i campioni la colpiscono e la cura del 25% del mana speso, che Esubero ha appena raddoppiato. Abbraccio serafico e Malignità aggiungono ancora più mana da bruciare, Malignità inoltre brucia il terreno sotto tutti quelli colpiti dalla sua tempesta, e Corazza spirituale rende ogni scudo e ogni cura su di lei più grande del 25%. La fragile maga d'artiglieria diventa una tank da prima linea che marcia dentro il team nemico, attiva la sua tempesta e ci sta semplicemente in mezzo, con Rinascita come piano B per quando la banca chiuderà finalmente i battenti.",
+      "play": "Prendi prima il mana, poi entra nello scontro, attiva Tempesta glaciale e resta dentro così il consumo ti riscuda ogni secondo. Spegni la tempesta solo quando sei davvero senza mana, e lascia che l'uovo faccia il resto.",
       "augments": [
-        "Ora sei un campione da mischia. Ottieni il 24% di Danni da attacco, il 24% di Salute, il 20% di Velocità d'attacco, il 20% di Furto di vita e il 20% di Velocità di movimento (ognuno ulteriormente aumentato in base alla Gittata d'attacco persa).",
-        "I Danni da attacco vengono convertiti in Velocità d'attacco. Gli attacchi infliggono danni magici bonus al colpo.",
-        "Le tue abilità applicano gli effetti sul colpo. 1 secondo di ricarica per bersaglio.",
-        "I tuoi attacchi ti conferiscono Potere magico cumulabile e le tue abilità che infliggono danni ai nemici ti conferiscono Danni da attacco."
+        "I tuoi costi in mana raddoppiano. Cure, scudi e danni delle tue abilità sono più efficaci.",
+        "Ottieni una parte del mana che spendi sotto forma di scudo per 1.5 secondi. Scudi fino a",
+        "Ottieni forza adattiva per 3 secondi quando ottieni uno scudo (5 secondi di ricarica).",
+        "Ottieni Anima dell'oceano, che concede alta rigenerazione di salute e mana dopo aver inflitto danni ai nemici."
       ]
     },
     "ja": {
-      "title": "代理近接",
-      "why": "アジールは自分の武器を一切振りません。W の仕様で、砂兵の近くにいる敵を通常攻撃すると、代わりに砂兵が突き刺して直線上に魔法ダメージを与えるので、本当のリーチは砂兵が立っている場所そのものです。剣を構えよは彼を近接にして、失った攻撃範囲1ごとに増えていく攻撃力、体力、攻撃速度、ライフスティール、移動速度をくれます。アジールは数字の上では大量の射程を捨てますが、砂兵が自分の射程から突き続けるので実際は何も失いません。コチョコチョ モンスターは、どのみち砂兵が使わないその攻撃力を攻撃速度に変換し、ヒット時の魔法ダメージを追加します。エーテル武器はスキルにヒット時効果を適用させるので、砂兵の突きはすべて、コチョコチョ モンスターに加えてナッシャー トゥース、グインソー レイジブレード、ウィッツ エンド、ルインドキング ブレード、テルミヌスの効果を乗せて直線全体に突き抜けます。文武両道が輪を閉じます。砂兵の突きはスキルダメージなので攻撃力が増え、コチョコチョ モンスターがそれをさらに攻撃速度に変え、突きが増え、また攻撃力が増える。遠距離のコントロールメイジが、剣の届く範囲に誰一人入らないまま近接ボーナスを総取りする、ヒット時効果特化の近接ブルーザーに変わります。",
-      "play": "自分と標的の間に砂兵を置いて右クリックし、ヒット時効果の仕事は砂兵に任せましょう。E は砂兵の位置に移動するためだけに使い、自分から突っ込むのは厳禁です。自分の剣は何もしないので、砂兵のいない場所では絶対に戦わないこと。",
+      "title": "マナ残高不足でも安心",
+      "why": "グレイシャルストームは、オンにしている間ずっと毎秒アニビアのマナを消費するトグルスキルです。普通は枯渇する前に切るだけのコストですが、このビルドではその請求こそが本命になります。ブルーバリアは消費したマナ1ポイントごとの一部を1.5秒間シールドに変えるので、毎秒マナを吸うストームが毎秒シールドを張り直します。さらにオーバーフローでマナコストが2倍になり、同じストームからブルーバリアに流れ込むマナも2倍、ストームのダメージもより強力になります。マイティシールドはシールド獲得のたびにアダプティブフォースをくれて、ストームはクールダウンが明けた瞬間にそれを再発動させます。オーシャンソウルは敵にダメージを与えた後にHPとマナのリジェネを与えてくれて、ストームは休みなく当て続けるので、倍になった消費もどんどん補充されます。ロッド オブ エイジスは被弾でマナを回復し、消費マナの25%ぶんHPも回復します。そのマナはオーバーフローで2倍になったばかりです。セラフ エンブレイスとマリグナンスでさらに燃やせるマナが増え、マリグナンスはストームに当たった全員の足元の地面まで焼き、スピリット ビサージュは彼女に対するシールドと回復をすべて25%強化します。脆い砲台メイジが、敵チームに歩いて突っ込み、ストームをオンにしてただ立っているだけの前線タンクに変身。銀行が閉まったときの保険はリバースです。",
+      "play": "まずマナを積んでから集団戦に突入し、グレイシャルストームをオンにしてその中に居座りましょう。毎秒の消費でシールドが張り直され続けます。ストームを切るのは本当にマナが尽きたときだけ。あとはタマゴにお任せです。",
       "augments": [
-        "あなたは近接になる。攻撃力24%、体力24%、攻撃速度20%、ライフスティール20%、移動速度20%を獲得(それぞれ失った攻撃範囲に応じてさらに増加)。",
-        "攻撃力が攻撃速度に変換される。通常攻撃がヒット時に追加の魔法ダメージを与える。",
-        "スキルが通常攻撃時効果を発動する。対象ごとにクールダウン1秒。",
-        "通常攻撃でスタックするアビリティパワーを獲得し、敵にダメージを与えるスキルで攻撃力を獲得する。"
+        "マナコストが2倍になる。アビリティのヒール、シールド、ダメージがより強力になる。",
+        "消費したマナの一部を1.5秒間シールドとして獲得する。シールドは最大",
+        "シールドを獲得すると3秒間アダプティブフォースを獲得する(クールダウン5秒)。",
+        "オーシャンソウルを獲得し、敵にダメージを与えた後に大幅なHPとマナのリジェネを得る。"
       ]
     },
     "ko": {
-      "title": "대리 근접",
-      "why": "아지르는 자기 무기를 절대 휘두르지 않습니다. W 효과에 따르면 모래 병사 근처의 적을 공격할 때 병사들이 대신 찔러서 일직선으로 마법 피해를 입히므로, 실제 사거리는 병사들이 서 있는 곳입니다. 검을 뽑아라는 아지르를 근접으로 만들고, 잃은 사거리 1마다 커지는 공격력, 체력, 공격 속도, 생명력 흡수, 이동 속도를 줍니다. 아지르는 수치상 사거리를 엄청나게 잃지만 실제로는 하나도 잃지 않습니다. 병사들이 자기 사거리에서 계속 찌르니까요. 간지럼 괴물은 어차피 병사들이 쓰지도 않는 그 공격력을 전부 공격 속도로 전환하고 적중 시 마법 피해를 더해 주며, 환영 무기는 스킬에 적중 시 효과를 적용시키므로, 병사의 찌르기 한 번 한 번이 간지럼 괴물에 더해 내셔의 이빨, 구인수의 격노검, 마법사의 최후, 몰락한 왕의 검, 경계의 효과까지 싣고 일직선을 따라 꽂힙니다. 결투의 대가가 고리를 완성합니다. 병사의 찌르기는 스킬 피해라서 공격력을 주고, 간지럼 괴물이 그걸 더 많은 공격 속도로 바꾸고, 그러면 찌르기가 늘어나고, 다시 공격력이 늘어납니다. 원거리 제어 마법사가 아무도 검이 닿는 거리에 서지 않고도 모든 근접 보너스를 챙기는 적중 시 효과 근접 브루저로 변신합니다.",
-      "play": "나와 대상 사이에 병사를 두고 우클릭해서 적중 시 효과는 병사들에게 맡기세요. E는 병사 위치로 자리를 옮길 때만 쓰고, 직접 뛰어들 때는 절대 쓰지 마세요. 본인 검은 아무 일도 안 하니까 병사가 없는 곳에서는 절대 싸우지 마세요.",
+      "title": "당좌 대월 방지",
+      "why": "눈보라는 켜 두는 동안 매초 애니비아의 마나를 소모하는 토글 스킬입니다. 마나가 바닥나기 전에 끄는 것 말고는 아무도 신경 안 쓰는 유지비인데, 이 빌드는 그 청구서가 핵심입니다. 푸른 방어막은 소모한 마나 1당 일부를 1.5초 동안 보호막으로 바꿔 주니까, 매초 마나를 빨아들이는 눈보라가 매초 보호막을 다시 씌워 줍니다. 거기에 범람이 마나 소모량을 2배로 만들어서 같은 눈보라에서 푸른 방어막으로 들어오는 마나도 2배가 되고, 눈보라의 피해량도 더 강해집니다. 강력한 방패는 보호막을 얻을 때마다 적응형 능력치를 주는데, 눈보라가 재사용 대기시간이 끝나는 즉시 다시 발동시켜 줍니다. 바다의 영혼은 적에게 피해를 입힌 뒤 체력 및 마나 재생을 크게 올려 주고, 눈보라는 쉬지 않고 피해를 주니 두 배가 된 소모량도 계속 채워집니다. 영겁의 지팡이는 챔피언에게 맞을 때 마나를 돌려주고 소모한 마나의 25%만큼 체력을 회복시켜 주는데, 그 마나가 방금 범람으로 2배가 됐죠. 대천사의 포옹과 악의는 태울 마나를 더 쌓아 주고, 악의는 눈보라에 맞은 모두의 발밑 땅까지 불태우며, 정령의 형상은 애니비아가 받는 모든 보호막과 회복량을 25% 늘려 줍니다. 연약한 포격 마법사가 적 팀 한복판으로 걸어 들어가 눈보라를 켜고 그냥 서 있기만 하는 전방 탱커로 변신합니다. 은행 문이 닫힐 때를 위한 보험은 환생이고요.",
+      "play": "마나부터 쌓고 한타에 들어가서 눈보라를 켜고 그 안에 계속 머무르세요. 매초 소모되는 마나가 보호막을 계속 다시 씌워 줍니다. 진짜 마나가 바닥났을 때만 눈보라를 끄고, 나머지는 알한테 맡기세요.",
       "augments": [
-        "당신은 이제 근접입니다. 공격력 24%, 체력 24%, 공격 속도 20%, 생명력 흡수 20%, 이동 속도 20%를 얻습니다 (각각 잃은 사거리에 따라 추가로 증가).",
-        "공격력이 공격 속도로 전환됩니다. 공격이 적중 시 추가 마법 피해를 입힙니다.",
-        "스킬이 적중 시 효과를 적용합니다. 대상마다 재사용 대기시간 1초.",
-        "공격할 때마다 중첩되는 주문력을 얻고, 적에게 피해를 주는 스킬로 공격력을 얻습니다."
+        "마나 소모량이 2배가 됩니다. 스킬의 회복, 보호막, 피해량이 더 강해집니다.",
+        "소모한 마나의 일부를 1.5초 동안 보호막으로 얻습니다. 보호막 최대",
+        "보호막을 얻으면 3초 동안 적응형 능력치를 얻습니다(재사용 대기시간 5초).",
+        "바다의 영혼을 얻어, 적에게 피해를 입힌 뒤 체력 및 마나 재생이 크게 증가합니다."
       ]
     },
     "pl": {
-      "title": "Walka Wręcz przez Pośrednika",
-      "why": "Azir nigdy nie macha własną bronią: według jego W, gdy Atakuje wroga w pobliżu Piaskowego Żołnierza, to żołnierze dźgają zamiast niego i zadają obrażenia magiczne w linii, więc jego prawdziwy zasięg to tam, gdzie stoją jego żołnierze. Dobądź Miecza zmienia go w postać walczącą wręcz i daje Obrażenia od ataku, Zdrowie, Szybkość ataku, Kradzież życia i Prędkość ruchu, które rosną z każdym utraconym punktem Zasięgu ataku, a Azir na papierze traci ogromny kawał zasięgu, w praktyce nie traci nic, bo żołnierze dźgają dalej ze swojego zasięgu. Łaskotkowy Potwór zamienia całe to Obrażenia od ataku, których żołnierze i tak nie używali, w Szybkość ataku i dodaje obrażenia magiczne Przy trafieniu, a Eteryczna Broń sprawia, że jego umiejętności stosują efekty Przy trafieniu, więc każde dźgnięcie żołnierza niesie Łaskotkowego Potwora oraz Ząb Nashora, Ostrze Gniewu Guinsoo, Koniec Rozumu, Ostrze Zniszczonego Króla i Ostatni Przystanek wzdłuż całej linii. Podwójny Mistrz domyka pętlę: dźgnięcia żołnierzy to obrażenia od umiejętności, więc dają Obrażenia od ataku, które Łaskotkowy Potwór zamienia w więcej Szybkości ataku, co oznacza więcej dźgnięć, co oznacza więcej Obrażeń od ataku. Mag kontroli z dystansu zmienia się w osiłka walczącego wręcz na efektach Przy trafieniu, który zgarnia wszystkie bonusy dla wręczników, nie stając nigdy w zasięgu miecza kogokolwiek.",
-      "play": "Postaw żołnierza między sobą a celem, kliknij prawym i niech to żołnierze robią robotę Przy trafieniu; używaj E tylko do przeniesienia się na żołnierza, nigdy żeby samemu wskoczyć w wrogów. Twój własny miecz nic nie robi, więc nigdy nie walcz tam, gdzie nie ma żołnierza.",
+      "title": "Ochrona przed debetem",
+      "why": "Lodowa Burza to zaklęcie włącz/wyłącz, które pobiera od Anivii manę co sekundę, dopóki jest aktywne, czyli stały koszt, o którym nikt nie myśli poza tym, żeby ją wyłączyć, zanim skończy się mana, a ten build robi z tego rachunku sedno sprawy. Niebieska Bariera daje jej część każdego punktu wydanej many jako tarczę na 1.5 sekundy, więc burza, która drenuje ją co sekundę, co sekundę też ją ponownie osłania. Przesyt podwaja wszystkie jej koszty many, co podwaja manę zasilającą Niebieską Barierę z tej samej burzy, a przy okazji zwiększa skuteczność obrażeń burzy. Potężna Tarcza daje siłę adaptacyjną za każdym razem, gdy zyskuje tarczę, co tykająca burza odnawia, gdy tylko skończy się jej czas odnowienia, a Oceaniczna Dusza daje regenerację zdrowia i many po zadaniu obrażeń wrogom, co burza robi bez przerwy, więc podwojony drenaż stale się uzupełnia. Różdżka Wieków zwraca manę, gdy bohaterowie w nią trafiają, i leczy ją z 25% wydanej many, którą Przesyt właśnie podwoił. Uścisk Serafina i Złowrogość dokładają jeszcze więcej many do spalenia, Złowrogość dodatkowo wypala ziemię pod każdym, kogo trafi jej burza, a Oblicze Ducha zwiększa każdą tarczę i każde leczenie na niej o 25%. Krucha maginia artyleryjska staje się czołowym tankiem, który wchodzi w drużynę wroga, włącza burzę i po prostu w niej stoi, z Odrodzeniem jako planem awaryjnym na moment, gdy bank w końcu się zamknie.",
+      "play": "Najpierw kup manę, potem wejdź w walkę, włącz Lodową Burzę i zostań w jej środku, żeby drenaż co sekundę dawał ci nową tarczę. Wyłączaj burzę dopiero wtedy, gdy naprawdę zabraknie ci many, a resztą niech zajmie się jajo.",
       "augments": [
-        "Teraz walczysz wręcz. Zyskujesz 24% Obrażeń od ataku, 24% Zdrowia, 20% Szybkości ataku, 20% Kradzieży życia i 20% Prędkości ruchu (każde dodatkowo zwiększone w zależności od utraconego Zasięgu ataku).",
-        "Obrażenia od ataku zostają zamienione w Szybkość ataku. Ataki zadają dodatkowe obrażenia magiczne Przy trafieniu.",
-        "Twoje umiejętności nakładają efekty przy trafieniu. 1 sekunda odnowienia na cel.",
-        "Twoje Ataki dają kumulującą się Moc umiejętności, a Twoje umiejętności zadające obrażenia wrogom dają Obrażenia od ataku."
+        "Twoje koszty many są podwojone. Leczenie, tarcze i obrażenia twoich umiejętności są skuteczniejsze.",
+        "Zyskaj część wydanej many jako tarczę na 1.5 sekundy. Tarcze do",
+        "Zyskaj siłę adaptacyjną na 3 sekundy, gdy zyskasz tarczę (5 sekund czasu odnowienia).",
+        "Zyskaj Oceaniczną Duszę, która daje wysoką regenerację zdrowia i many po zadaniu obrażeń wrogom."
       ]
     },
     "pt-BR": {
-      "title": "Corpo a Corpo por Procuração",
-      "why": "O Azir nunca balança a própria arma: segundo o W dele, quando ele Ataca um inimigo perto de um Soldado de Areia, os soldados perfuram no lugar dele e causam dano mágico em linha, então o alcance real dele é onde os soldados estiverem. Saque sua Espada o deixa corpo a corpo e dá Dano de Ataque, Vida, Velocidade de Ataque, Roubo de Vida e Velocidade de Movimento que crescem a cada ponto de Alcance de Ataque perdido, e o Azir abre mão de um pedação de alcance no papel sem perder nada na prática, porque os soldados continuam perfurando do alcance deles. Monstro das Cócegas converte todo esse Dano de Ataque, que os soldados nunca usaram mesmo, em Velocidade de Ataque e adiciona dano mágico Ao Acertar, e Arma Etérea faz as Habilidades dele aplicarem efeitos Ao Acertar, então cada perfuração de soldado leva o Monstro das Cócegas mais Dente de Na'Shor, Lâmina da Fúria de Guinsoo, Limite da Razão, Espada do Rei Destruído e Terminus por toda a linha. Mestre da Dualidade fecha o ciclo: as perfurações dos soldados são dano de Habilidade, então dão Dano de Ataque, que o Monstro das Cócegas transforma em mais Velocidade de Ataque, que significa mais perfurações, que significa mais Dano de Ataque. O mago de controle à distância vira um bruiser corpo a corpo de efeitos Ao Acertar que coleta todos os bônus de corpo a corpo sem nunca ficar ao alcance da espada de ninguém.",
-      "play": "Coloque um soldado entre você e o alvo, clique com o botão direito e deixe os soldados fazerem o trabalho Ao Acertar; use o E só para se reposicionar em um soldado, nunca para entrar sozinho. Sua própria espada não faz nada, então nunca lute onde não tem soldado.",
+      "title": "Cheque Especial",
+      "why": "Tempestade Glacial é uma habilidade de ligar e desligar que cobra Mana da Anivia a cada segundo que fica ativa, um custo contínuo em que ninguém pensa além de desligar antes de ficar sem Mana, e essa build faz dessa conta o ponto principal. Barreira Azul dá a ela uma parte de cada ponto de Mana que gasta como Escudo por 1.5 segundo, então uma tempestade que a drena a cada segundo a protege de novo a cada segundo. Transbordamento dobra todos os custos de Mana dela, o que dobra o Mana que alimenta a Barreira Azul vindo da mesma tempestade e ainda deixa o dano da tempestade mais eficaz. Escudo Poderoso concede Força Adaptativa sempre que ela ganha um Escudo, algo que a tempestade, a cada pulso, rearma assim que o tempo de recarga acaba, e Alma do Oceano concede Regeneração de Vida e de Mana depois de causar dano a inimigos, o que a tempestade faz sem parar, então o gasto dobrado vive sendo reposto. Bastão das Eras devolve Mana quando campeões a atingem e a cura em 25% do Mana que ela gasta, que Transbordamento acabou de dobrar. Abraço de Seraph e Malevolência empilham ainda mais Mana para queimar, Malevolência ainda queima o chão sob todos que a tempestade atinge, e Semblante Espiritual deixa todo escudo e toda cura nela 25% maior. A frágil maga de artilharia vira uma tanque de linha de frente que entra no time inimigo, liga a tempestade e simplesmente fica parada nela, com Renascimento como plano B para quando o banco finalmente fechar.",
+      "play": "Compre Mana primeiro, depois entre na luta, ligue a Tempestade Glacial e fique dentro dela para o gasto te proteger de novo a cada segundo. Só desligue a tempestade quando estiver mesmo sem Mana, e deixe o ovo cuidar do resto.",
       "augments": [
-        "Você agora é corpo a corpo. Ganhe 24% de Dano de Ataque, 24% de Vida, 20% de Velocidade de Ataque, 20% de Roubo de Vida e 20% de Velocidade de Movimento (cada um ainda aumentado com base no Alcance de Ataque perdido).",
-        "O Dano de Ataque é convertido em Velocidade de Ataque. Os Ataques causam dano mágico bônus Ao Acertar.",
-        "Suas Habilidades aplicam efeitos ao atingir. 1 segundo de Recarga por alvo.",
-        "Seus Ataques concedem Poder de Habilidade cumulativo e suas Habilidades que causam dano a inimigos concedem Dano de Ataque."
+        "Seus custos de Mana dobram. As Curas, os Escudos e o dano das suas habilidades ficam mais eficazes.",
+        "Ganhe uma parte do Mana que você gasta como Escudo por 1.5 segundo. Escudos de até",
+        "Ganhe Força Adaptativa por 3 segundos ao ganhar um Escudo (5 segundos de recarga).",
+        "Ganhe a Alma do Oceano, que concede alta Regeneração de Vida e de Mana após causar dano a inimigos."
       ]
     },
     "ro": {
-      "title": "Corp la corp prin soldați",
-      "why": "Azir nu-și mișcă niciodată propria armă: la W, când atacă un inamic aflat lângă un soldat de nisip, soldații înjunghie în locul lui și provoacă daune magice pe o linie, așa că raza lui reală e oriunde stau soldații. Scoate-ți sabia îl face coleg de luptă corp la corp și îi dă Putere de atac, viață, viteză de atac, vampirism, viteză de mișcare care cresc cu fiecare punct de rază de atac pierdut, iar Azir cedează pe hârtie o grămadă de rază fără să piardă nimic în practică, fiindcă soldații continuă să înjunghie de la raza lor. Monstrul gâdilelii convertește toată Puterea de atac, pe care soldații oricum nu o foloseau, în viteză de atac și adaugă daune magice la lovire, iar Arma eterică face ca abilitățile lui să aplice efecte la lovire, deci fiecare lovitură de soldat poartă Monstrul gâdilelii plus Dintele lui Nashor, Spada furiei lui Guinsoo, Sfârșitul rațiunii, Sabia regelui înfrânt și Terminus pe toată linia. Maestrul dualității închide cercul: loviturile soldaților sunt daune de abilitate, deci dau Putere de atac, pe care Monstrul gâdilelii o transformă în mai multă viteză de atac, adică mai multe lovituri și iar mai multă Putere de atac. Magul de control la distanță devine un bruiser corp la corp pe efecte la lovire, care strânge toate bonusurile de corp la corp fără să se apropie vreodată la o sabie distanță de cineva.",
-      "play": "Pune un soldat între tine și țintă, dă click dreapta și lasă soldații să facă treaba cu efectele la lovire; folosește E doar ca să te repoziționezi pe un soldat, niciodată ca să intri tu în luptă. Sabia ta nu face nimic, așa că nu lupta niciodată acolo unde nu e un soldat.",
+      "title": "Protecție la descoperit de cont",
+      "why": "Furtuna glaciară este o abilitate cu comutator care îi scade Mana Aniviei în fiecare secundă cât rămâne pornită, un cost continuu la care nimeni nu se gândește în afară de a o opri înainte să rămână fără mană, iar build-ul ăsta face din această factură tot rostul. Scutul albastru îi dă o parte din fiecare punct de Mană cheltuit sub formă de Scut timp de 1.5 secunde, așa că o furtună care o drenează în fiecare secundă o și re-scutește în fiecare secundă, iar Revărsarea îi dublează toate costurile de Mană, ceea ce dublează Mana care alimentează Scutul albastru din aceeași furtună, făcând totodată și daunele furtunii mai eficiente. Scutul strașnic oferă Forță adaptivă ori de câte ori primește un Scut, pe care furtuna ce pulsează îl rearmează imediat ce se termină timpul de reîncărcare, iar Sufletul Dragonului oceanelor oferă regenerare de Sănătate și Mană după ce lovește inamici, lucru pe care furtuna îl face non-stop, deci drenarea dublată se tot umple la loc. Sceptrul străvechi dă înapoi Mană când campionii o lovesc și o vindecă cu 25% din Mana cheltuită, pe care Revărsarea tocmai a dublat-o. Îmbrățișarea serafimului și Nocivitatea adaugă Mană de ars, Nocivitatea pârjolește în plus pământul de sub toți cei loviți de furtună, iar Înfățișarea sufletului face fiecare scut și vindecare asupra ei cu 25% mai mare. Magiciana fragilă de artilerie devine un tanc din prima linie, care intră în echipa inamică, pornește furtuna și pur și simplu stă în ea, cu Renașterea ca plan de rezervă pentru când banca se închide în sfârșit.",
+      "play": "Construiește întâi Mană, apoi intră în luptă, pornește Furtuna glaciară și rămâi în ea ca drenarea să te re-scuteze în fiecare secundă. Oprește furtuna doar când ești cu adevărat fără Mană și lasă oul să se ocupe de restul.",
       "augments": [
-        "Acum ești corp la corp. Primești 24% Putere de atac, 24% viață, 20% viteză de atac, 20% vampirism și 20% viteză de mișcare (fiecare crescută în plus în funcție de raza de atac pierdută).",
-        "Puterea de atac este convertită în viteză de atac. Atacurile provoacă daune magice bonus la lovire.",
-        "Abilitățile tale aplică efecte la impact. Reîncărcare de 1 secundă per țintă.",
-        "Atacurile tale îți dau Putere a abilităților cumulabilă, iar abilitățile tale care rănesc inamici îți dau Putere de atac."
+        "Costurile tale de Mană se dublează. Vindecările, Scuturile și daunele abilităților tale sunt mai eficiente.",
+        "Primești din Mana cheltuită sub formă de Scut timp de 1.5 secunde. Scut de până la",
+        "Primești Forță adaptivă timp de 3 secunde când primești un Scut (5 secunde timp de reîncărcare).",
+        "Primești Sufletul Dragonului oceanelor, care oferă regenerare mare de Sănătate și Mană după ce lovești inamici."
       ]
     },
     "ru": {
-      "title": "Ближний бой по доверенности",
-      "why": "Азир никогда не бьёт сам: по его W, когда он атакует врага рядом с песчаным солдатом, солдаты бьют вместо него и наносят магический урон по линии, так что настоящая дальность Азира там, где стоят его солдаты. «Меч к бою» делает его бойцом ближнего боя и даёт силу атаки, здоровье, скорость атаки, вампиризм и скорость передвижения, которые растут с каждым потерянным пунктом дальности атаки. На бумаге Азир отдаёт огромный кусок дальности, а на деле не теряет ничего, ведь солдаты продолжают бить со своей дальности. «Щекотальный монстр» превращает всю силу атаки, которой солдаты всё равно не пользуются, в скорость атаки и добавляет магический урон при попадании, а «Эфемерное оружие» заставляет его умения накладывать эффекты при попадании, так что каждый удар солдата несёт «Щекотального монстра», «Зуб Нашора», «Клинок ярости Гинсу», «Смерть Разума», «Клинок Падшего короля» и «Светотень» по всей линии. «Мастер двойственности» замыкает круг: удары солдат считаются уроном умениями, а значит дают силу атаки, которую «Щекотальный монстр» превращает в ещё большую скорость атаки, а это ещё больше ударов и ещё больше силы атаки. Маг контроля с дальней дистанции становится бойцом ближнего боя на эффектах при попадании, который собирает все бонусы ближнего боя и ни разу не подходит к врагам на расстояние удара мечом.",
-      "play": "Поставь солдата между собой и целью, жми правой кнопкой и пусть солдаты делают всю работу с эффектами при попадании; E используй только чтобы переместиться к солдату, а не чтобы лезть в бой самому. Твой собственный меч ничего не делает, так что никогда не дерись там, где нет солдата.",
+      "title": "Овердрафт-защита",
+      "why": "Ледяной шторм у Анивии — это переключаемая способность, которая каждую секунду списывает Ману, пока включена. Обычно об этой плате никто не думает, кроме как выключить шторм до того, как Мана кончится, а в этой сборке вся суть как раз в ней. Синий щит превращает долю каждой потраченной Маны в Щит на 1.5 секунды, так что шторм, который сливает её каждую секунду, и щитует её каждую секунду. Переполнение удваивает все её траты Маны, а значит удваивает Ману для Синего щита от того же самого шторма и усиливает урон шторма. Могучий щит даёт Адаптивную силу, когда она получает Щит, и тикающий шторм заряжает его заново, как только он откатился, а Морская душа даёт регенерацию Здоровья и Маны после нанесения урона врагам, чем шторм занимается без остановки, так что удвоенный слив постоянно восполняется. Жезл веков возвращает Ману, когда по ней бьют чемпионы, и лечит её на 25% от потраченной Маны, которую Переполнение только что удвоило. Объятья серафима и Пагубность добавляют Маны на сжигание, Пагубность вдобавок поджигает землю под каждым, кого задел шторм, а Облачение духов делает каждый щит и лечение на ней на 25% сильнее. Хрупкий маг-артиллерист превращается в танка с передовой: заходит в толпу врагов, включает шторм и просто стоит в нём, а Возрождение — запасной план на случай, когда банк наконец закроется.",
+      "play": "Сначала собери Ману, потом иди в замес, включи Ледяной шторм и стой внутри, чтобы слив каждую секунду щитовал тебя заново. Выключай шторм, только когда Мана реально на нуле, а дальше пусть разбирается яйцо.",
       "augments": [
-        "Теперь вы боец ближнего боя. Вы получаете 24% силы атаки, 24% здоровья, 20% скорости атаки, 20% вампиризма и 20% скорости передвижения (каждый бонус дополнительно растёт в зависимости от потерянной дальности атаки).",
-        "Сила атаки преобразуется в скорость атаки. Атаки наносят дополнительный магический урон при попадании.",
-        "Ваши умения накладывают эффекты при попадании. Перезарядка 1 сек. для каждой цели.",
-        "Ваши атаки дают вам накапливаемую силу умений, а ваши умения, наносящие урон врагам, дают вам силу атаки."
+        "Твои затраты Маны удваиваются. Исцеление, Щиты и урон от твоих способностей становятся эффективнее.",
+        "Получай от потраченной Маны в виде Щита на 1.5 секунды. Щит до",
+        "Получай Адаптивную силу на 3 секунды, когда получаешь Щит (перезарядка 5 секунд).",
+        "Получи Морскую душу: мощная регенерация Здоровья и Маны после нанесения урона врагам."
       ]
     },
     "th": {
-      "title": "ตีแทนผ่านทหาร",
-      "why": "Azir ไม่เคยเหวี่ยงอาวุธเองเลย: W ของเขาทำให้เวลาโจมตีศัตรูที่อยู่ใกล้ทหารทราย ทหารจะแทงแทนและสร้างความเสียหายเวทเป็นเส้นตรง ระยะโจมตีจริงของเขาจึงอยู่ตรงที่ทหารยืนอยู่ Draw Your Sword ทำให้เขากลายเป็นสายประชิด และให้พลังโจมตี เลือด ความเร็วโจมตี ดูดเลือด และความเร็วเคลื่อนที่ ที่เพิ่มขึ้นทุกครั้งที่เสียระยะโจมตี บนกระดาษ Azir เสียระยะไปเยอะมาก แต่ในการเล่นจริงไม่เสียเลย เพราะทหารยังแทงจากระยะของตัวเองอยู่ Tickle Monster แปลงพลังโจมตีทั้งหมดที่ทหารไม่เคยได้ใช้ให้เป็นความเร็วโจมตี และเพิ่มความเสียหายเวทแบบ On-Hit ส่วน Ethereal Weapon ทำให้สกิลของเขาติดเอฟเฟกต์ On-Hit ดังนั้นทุกครั้งที่ทหารแทงจะพก Tickle Monster รวมถึง Nashor's Tooth, Guinsoo's Rageblade, Wit's End, Blade of The Ruined King และ Terminus ไปตลอดแนว Master of Duality ปิดวงจร: การแทงของทหารนับเป็นความเสียหายจากสกิล จึงให้พลังโจมตี ซึ่ง Tickle Monster แปลงเป็นความเร็วโจมตีที่มากขึ้น แปลว่าแทงได้ถี่ขึ้น และได้พลังโจมตีเพิ่มอีก เมจสายคุมระยะไกลกลายเป็นสายประชิดสาย On-Hit ที่เก็บโบนัสสายประชิดครบทุกอย่างโดยไม่ต้องเข้าไปอยู่ในระยะดาบของใครเลย",
-      "play": "วางทหารไว้ระหว่างคุณกับเป้าหมาย คลิกขวา แล้วปล่อยให้ทหารทำงาน On-Hit ให้ ใช้ E เพื่อย้ายตำแหน่งไปหาทหารเท่านั้น ห้ามกระโดดเข้าไปเอง ดาบของคุณเองไม่ทำอะไรเลย อย่าสู้ในที่ที่ไม่มีทหาร",
+      "title": "ป้องกันเงินเกินบัญชี",
+      "why": "Glacial Storm เป็นสกิลแบบเปิด/ปิดที่หักมานาของ Anivia ทุกวินาทีที่เปิดไว้ เป็นต้นทุนที่ไม่มีใครสนใจนอกจากปิดมันก่อนมานาจะหมด แต่บิลด์นี้ทำให้บิลนั้นกลายเป็นหัวใจหลักเลย Blue Barrier แปลงมานาที่เธอใช้ทุกแต้มส่วนหนึ่งเป็นโล่นาน 1.5 วินาที พายุที่ดูดมานาทุกวินาทีจึงสร้างโล่ใหม่ให้ทุกวินาที ส่วน Overflow ทำให้ค่ามานาทั้งหมดของเธอเพิ่มเป็นสองเท่า มานาที่ไหลเข้า Blue Barrier จากพายุลูกเดียวกันก็เพิ่มเป็นสองเท่า แถมดาเมจของพายุยังแรงขึ้นด้วย Mighty Shield ให้ Adaptive Force ทุกครั้งที่เธอได้โล่ และพายุก็ทริกเกอร์มันใหม่ทันทีที่คูลดาวน์จบ Ocean Soul ให้การฟื้นฟูเลือดและมานาสูงหลังทำดาเมจศัตรู ซึ่งพายุทำไม่หยุด มานาที่ถูกดูดสองเท่าจึงถูกเติมกลับมาเรื่อย ๆ Rod of Ages คืนมานาเมื่อถูกแชมเปียนโจมตีและฮีลเธอ 25% ของมานาที่ใช้ ซึ่ง Overflow เพิ่งทำให้เป็นสองเท่า Seraph's Embrace กับ Malignance เติมมานาให้เผาเพิ่ม Malignance ยังเผาพื้นใต้เท้าทุกคนที่โดนพายุ และ Spirit Visage ทำให้โล่และฮีลทุกอย่างบนตัวเธอแรงขึ้น 25% จากนักเวทปืนใหญ่ที่เปราะบางกลายเป็นแทงค์แนวหน้าที่เดินเข้าทีมศัตรู เปิดพายุแล้วยืนอยู่ในนั้นเฉย ๆ โดยมี Rebirth เป็นแผนสำรองตอนที่ธนาคารปิดตัวลงในที่สุด",
+      "play": "สร้างมานาก่อน แล้วเดินเข้าไปปะทะ เปิด Glacial Storm แล้วอยู่ในนั้นเลย เพื่อให้การดูดมานาทุกวินาทีสร้างโล่ใหม่ให้คุณ ปิดพายุก็ต่อเมื่อมานาหมดจริง ๆ เท่านั้น ที่เหลือปล่อยให้ไข่จัดการ",
       "augments": [
-        "ตอนนี้คุณเป็นสายประชิด ได้รับพลังโจมตี 24% เลือด 24% ความเร็วโจมตี 20% ดูดเลือด 20% และความเร็วเคลื่อนที่ 20% (แต่ละอย่างเพิ่มขึ้นอีกตามระยะโจมตีที่เสียไป)",
-        "พลังโจมตีถูกแปลงเป็นความเร็วโจมตี การโจมตีสร้างความเสียหายเวทเพิ่มเติมแบบ On-Hit",
-        "สกิลของคุณติดเอฟเฟกต์ On-Hit คูลดาวน์ 1 วินาทีต่อเป้าหมาย",
-        "การโจมตีของคุณให้พลังเวทแบบสะสม และสกิลของคุณที่สร้างความเสียหายให้ศัตรูจะให้พลังโจมตีแก่คุณ"
+        "ค่ามานาของคุณเพิ่มเป็นสองเท่า การฮีล โล่ และดาเมจจากสกิลของคุณมีประสิทธิภาพมากขึ้น",
+        "ได้รับส่วนหนึ่งของมานาที่คุณใช้เป็นโล่นาน 1.5 วินาที โล่สูงสุด",
+        "ได้รับ Adaptive Force นาน 3 วินาทีเมื่อคุณได้รับโล่ (คูลดาวน์ 5 วินาที)",
+        "ได้รับ Ocean Soul ที่ให้การฟื้นฟูเลือดและมานาสูงหลังทำดาเมจศัตรู"
       ]
     },
     "tr": {
-      "title": "Vekil Yakın Dövüş",
-      "why": "Azir kendi silahını asla savurmaz: W'si sayesinde bir Kum Askeri'nin yakınındaki düşmana saldırdığında askerler onun yerine saplar ve bir çizgi boyunca büyü hasarı verir, yani gerçek menzili askerlerin durduğu yerdir. Çek Kılıcını! onu yakın dövüşçü yapar ve kaybedilen her Saldırı Menzili puanıyla büyüyen Saldırı Hasarı, Can, Saldırı Hızı, Can Çalma ve Hareket Hızı verir; Azir kâğıt üzerinde menzilinin büyük kısmından vazgeçer ama pratikte hiçbir şey kaybetmez, çünkü askerler kendi menzillerinden saplamaya devam eder. Gıdık Gıdık, askerlerin zaten hiç kullanmadığı tüm Saldırı Hasarı'nı Saldırı Hızı'na çevirir ve isabette büyü hasarı ekler; Olağandışı Silah ise yeteneklerinin isabet etkileri uygulamasını sağlar, böylece her asker darbesi tüm çizgi boyunca Gıdık Gıdık'ı, Nashor'un Dişi'ni, Guinsoo'nun Hiddeti'ni, Aklın Sonu'nu, Mahvolmuş Kralın Kılıcı'nı ve Son Durak'ı taşır. Denge Uzmanı döngüyü kapatır: asker darbeleri yetenek hasarıdır, yani Saldırı Hasarı verir, Gıdık Gıdık bunu daha fazla Saldırı Hızı'na çevirir, bu da daha fazla darbe, yani daha fazla Saldırı Hasarı demek. Menzilli kontrol büyücüsü, kimsenin kılıç menzilinde durmadan tüm yakın dövüş bonuslarını toplayan isabet etkili bir yakın dövüş bruiser'ına dönüşür.",
-      "play": "Kendinle hedef arasına bir asker bırak, sağ tıkla ve isabet etkisi işini askerlere yaptır; E'yi sadece bir askerin üstüne geçmek için kullan, asla kendin dalmak için değil. Senin kendi kılıcın hiçbir işe yaramaz, o yüzden asker olmayan yerde asla savaşma.",
+      "title": "Hesap Koruması",
+      "why": "Anivia'nın Buzul Fırtınası, açık kaldığı her saniye Mana çeken bir aç-kapa yeteneğidir. Mana bitmeden kapatmaktan öte kimsenin düşünmediği sürekli bir maliyettir ve bu build o faturayı her şeyin merkezine koyuyor. Mavi Bariyer, harcadığı her Mana puanının bir kısmını 1.5 saniyeliğine Kalkan olarak verir; yani onu her saniye kurutan fırtına, onu her saniye yeniden kalkanlar. Taşkın tüm Mana maliyetlerini ikiye katlar, bu da aynı fırtınadan Mavi Bariyer'i besleyen Mana'yı ikiye katlarken fırtınanın hasarını da daha etkili yapar. Kudretli Kalkan, ne zaman Kalkan kazansa Uyarlanabilir Güç verir; tıkır tıkır işleyen fırtına bunu bekleme süresi biter bitmez yeniden kurar. Okyanus Ruhu ise düşmanlara hasar verdikten sonra Can ve Mana Yenilenmesi verir, fırtına bunu durmadan yapar, böylece ikiye katlanan kayıp sürekli geri dolar. Asırlık Sopa, şampiyonlar ona vurduğunda Mana geri verir ve harcadığı Mana'nın %25'i kadar iyileştirir; Taşkın bunu az önce ikiye katladı. Seraph'ın Şefkati ve Habaset yakacak Mana ekler, Habaset ayrıca fırtınasının vurduğu herkesin altındaki zemini kavurur, Ruh Gömleği de üzerindeki her kalkanı ve iyileştirmeyi %25 daha büyük yapar. Kırılgan topçu büyücü, düşman takımının içine yürüyen, fırtınasını açıp öylece içinde duran bir ön saf tankına dönüşür; banka sonunda kapandığında yedek plan ise Yeniden Doğuş.",
+      "play": "Önce Mana yap, sonra savaşa dal, Buzul Fırtınası'nı aç ve içinde kal ki kayıp seni her saniye yeniden kalkanlasın. Fırtınayı ancak gerçekten Mana'n bittiğinde kapat, gerisini yumurtaya bırak.",
       "augments": [
-        "Artık yakın dövüşçüsün. %24 Saldırı Hasarı, %24 Can, %20 Saldırı Hızı, %20 Can Çalma ve %20 Hareket Hızı kazanırsın (her biri kaybedilen Saldırı Menziline göre ayrıca artar).",
-        "Saldırı Hasarı, Saldırı Hızı'na çevrilir. Saldırılar isabette ek büyü hasarı verir.",
-        "Yeteneklerin isabet etkileri uygular. Hedef başına 1 saniye bekleme süresi.",
-        "Saldırıların sana birikebilen Yetenek Gücü verir, düşmanlara hasar veren yeteneklerin ise sana Saldırı Hasarı verir."
+        "Mana maliyetlerin ikiye katlanır. Yeteneklerinin İyileştirmeleri, Kalkanları ve hasarı daha etkili olur.",
+        "Harcadığın Mana'nın bir kısmını 1.5 saniyeliğine Kalkan olarak kazanırsın. Kalkan en fazla",
+        "Kalkan kazandığında 3 saniyeliğine Uyarlanabilir Güç kazanırsın (5 saniye Bekleme Süresi).",
+        "Düşmanlara hasar verdikten sonra yüksek Can ve Mana Yenilenmesi veren Okyanus Ruhu'nu kazanırsın."
       ]
     },
     "vi": {
-      "title": "Cận Chiến Qua Trung Gian",
-      "why": "Azir không bao giờ tự vung vũ khí: nhờ W, khi hắn đánh một kẻ địch gần Lính Cát, đám lính sẽ đâm thay và gây sát thương phép theo đường thẳng, nên tầm đánh thật của hắn nằm ở chỗ đám lính đang đứng. Rút Kiếm Ra biến hắn thành cận chiến và cho Sát Thương, Máu, Tốc Độ Đánh, Hút Máu và Tốc Độ Di Chuyển tăng thêm theo mỗi điểm Tầm Đánh bị mất; trên giấy tờ Azir mất cả đống tầm đánh nhưng ngoài thực tế thì chẳng mất gì, vì đám lính vẫn đâm từ tầm của chúng. Quái Cù Lét đổi toàn bộ Sát Thương mà đám lính vốn chẳng dùng tới thành Tốc Độ Đánh và thêm sát thương phép theo đòn đánh, còn Vũ Khí Siêu Nhiên khiến kỹ năng của hắn áp dụng hiệu ứng trên đòn đánh, nên mỗi nhát đâm của lính mang theo Quái Cù Lét cùng Nanh Nashor, Cuồng Đao Guinsoo, Đao Tím, Gươm Suy Vong và Cung Chạng Vạng suốt cả đường thẳng. Chúa Tể Tay Đôi khép kín vòng lặp: nhát đâm của lính là sát thương kỹ năng nên cho Sát Thương, Quái Cù Lét đổi thành thêm Tốc Độ Đánh, nghĩa là đâm nhiều hơn, rồi lại thêm Sát Thương. Pháp sư khống chế tầm xa hóa thành đấu sĩ cận chiến chuyên hiệu ứng trên đòn đánh, hưởng đủ mọi bonus cận chiến mà chẳng bao giờ phải đứng trong tầm kiếm của ai.",
-      "play": "Thả một con lính vào giữa bạn và mục tiêu, nhấp chuột phải và để đám lính lo phần hiệu ứng trên đòn đánh; chỉ dùng E để dịch chuyển tới chỗ lính, đừng bao giờ tự lao vào. Kiếm của bạn chẳng làm gì cả, nên đừng bao giờ giao tranh ở chỗ không có lính.",
+      "title": "Bảo Hiểm Thấu Chi",
+      "why": "Glacial Storm là chiêu bật/tắt, cứ bật là tốn Năng Lượng của Anivia mỗi giây, một khoản phí duy trì mà chẳng ai để ý ngoài việc tắt đi trước khi cạn mana, và bản build này biến hóa đơn đó thành trọng tâm. Kết Giới Lam biến một phần mỗi điểm Năng Lượng cô tiêu thành Lá Chắn trong 1.5 giây, nên cơn bão hút mana mỗi giây sẽ tạo lại lá chắn mỗi giây; Tràn Trề nhân đôi toàn bộ chi phí Năng Lượng của cô, nghĩa là lượng mana đổ vào Kết Giới Lam từ chính cơn bão đó cũng gấp đôi, đồng thời sát thương của bão cũng hiệu quả hơn. Lá Chắn Hùng Mạnh cho Sức Mạnh Thích Ứng mỗi khi cô nhận Lá Chắn, và cơn bão sẽ kích hoạt lại ngay khi hết thời gian hồi; Linh Hồn Rồng Nước cho Hồi Máu và Hồi Năng Lượng cao sau khi gây sát thương lên kẻ địch, mà cơn bão thì gây sát thương không ngừng nghỉ, nên lượng mana bị hút gấp đôi vẫn liên tục được bù lại. Trượng Trường Sinh hoàn lại Năng Lượng khi cô bị tướng đánh trúng và hồi máu bằng 25% lượng Năng Lượng cô tiêu, mà lượng đó vừa được Tràn Trề nhân đôi; Quyền Trượng Đại Thiên Sứ và Hỏa Khuẩn chất thêm mana để đốt, Hỏa Khuẩn còn thiêu cháy mặt đất dưới chân mọi kẻ trúng bão, và Giáp Tâm Linh khiến mọi lá chắn và hồi máu lên cô mạnh hơn 25%. Pháp sư pháo đài mỏng manh hóa thành tanker tiên phong, cứ thế bước vào đội địch, bật bão rồi đứng yên trong đó, còn Rebirth là phương án dự phòng khi ngân hàng cuối cùng cũng đóng cửa.",
+      "play": "Lên đồ mana trước, rồi lao vào giao tranh, bật Glacial Storm và ở lại trong đó để mỗi giây lượng mana bị hút lại tạo lá chắn cho bạn. Chỉ tắt bão khi bạn thật sự hết mana, phần còn lại cứ để quả trứng lo.",
       "augments": [
-        "Bạn giờ là cận chiến. Nhận 24% Sát Thương, 24% Máu, 20% Tốc Độ Đánh, 20% Hút Máu và 20% Tốc Độ Di Chuyển (mỗi chỉ số còn tăng thêm theo Tầm Đánh bị mất).",
-        "Sát Thương được chuyển thành Tốc Độ Đánh. Đòn đánh gây thêm sát thương phép theo đòn đánh.",
-        "Kỹ năng của bạn áp dụng hiệu ứng trên đòn đánh. Hồi chiêu 1 giây cho mỗi mục tiêu.",
-        "Đòn đánh của bạn cho bạn Sức Mạnh Phép Thuật cộng dồn, và các kỹ năng gây sát thương lên kẻ địch cho bạn Sát Thương."
+        "Chi phí Năng Lượng của bạn tăng gấp đôi. Hồi máu, Lá Chắn và sát thương từ chiêu thức của bạn hiệu quả hơn.",
+        "Nhận một phần Năng Lượng bạn tiêu dưới dạng Lá Chắn trong 1.5 giây. Lá Chắn tối đa",
+        "Nhận Sức Mạnh Thích Ứng trong 3 giây khi bạn nhận Lá Chắn (thời gian hồi 5 giây).",
+        "Nhận Linh Hồn Rồng Nước, cho Hồi Máu và Hồi Năng Lượng cao sau khi gây sát thương lên kẻ địch."
       ]
     },
     "zh-CN": {
-      "title": "遥控近战",
-      "why": "阿兹尔从来不亲自挥武器：他的W让他攻击沙兵附近的敌人时，由沙兵代替刺击，对一条直线上的敌人造成魔法伤害，所以他真正的攻击距离就是沙兵站的位置。亮出你的剑让他变成近战，并获得攻击力、生命值、攻击速度、生命偷取和移动速度，每损失1点攻击距离都会额外提升；阿兹尔账面上丢了一大截射程，实际上一点没丢，因为沙兵还是从自己的射程刺击。嗡嗡怪兽把沙兵根本用不上的所有攻击力转化为攻击速度，并附加命中时的魔法伤害；虚幻武器让他的技能施加攻击特效，所以每次沙兵刺击都会沿整条直线带上嗡嗡怪兽，以及纳什之牙、鬼索的狂暴之刃、智慧末刃、破败王者之刃和界弓的效果。物法皆修把循环闭合：沙兵的刺击属于技能伤害，会提供攻击力，嗡嗡怪兽再把它转成更多攻击速度，于是刺得更多，攻击力也更多。远程控制法师摇身变成攻击特效近战战士，吃满所有近战加成，却从不用站到任何人的剑锋范围内。",
-      "play": "在自己和目标之间放一个沙兵，右键点击，让沙兵去打攻击特效；E只用来位移到沙兵身上，千万别自己冲进去。你自己的剑不起任何作用，所以别在没有沙兵的地方打架。",
+      "title": "透支保护",
+      "why": "暴风雪是个开启后每秒都要消耗冰晶凤凰法力值的开关技能,大家平时只会在她蓝空之前记得关掉,这套build却把这笔账单当成了核心。蓝色屏障会把她每消耗1点法力值的一部分转化为持续1.5秒的护盾,所以每秒吸蓝的暴风雪就会每秒重新给她套盾;溢流让她所有法力消耗翻倍,于是同一场暴风雪流进蓝色屏障的法力也翻倍,暴风雪的伤害也变得更强。强力护盾会在她获得护盾时提供适应之力,暴风雪冷却一结束就会再次触发;海洋龙魂会在造成伤害后提供大量生命回复和法力回复,而暴风雪一直在打伤害,翻倍的消耗就一直有补给。时光之杖会在被英雄命中时返还法力值,并按她消耗法力值的25%为她回血,而这些法力刚刚被溢流翻倍;炽天使之拥和残疫再堆一波可以烧的法力,残疫还会灼烧被暴风雪命中的所有人脚下的地面,振奋盔甲让她身上的所有护盾和治疗效果提升25%。脆皮炮台法师摇身一变成了前排坦克,走进敌人堆里,开启暴风雪,往里面一站就行,而重生是银行倒闭时的后路。",
+      "play": "先出法力装,然后冲进团战,开启暴风雪并待在里面,这样每秒的消耗会一直给你重新套盾。只有真的蓝空了才关掉暴风雪,剩下的交给蛋。",
       "augments": [
-        "你现在是近战。获得24%攻击力、24%生命值、20%攻击速度、20%生命偷取和20%移动速度（每一项还会根据损失的攻击距离进一步提升）。",
-        "攻击力会转化为攻击速度。攻击会在命中时造成额外魔法伤害。",
-        "你的技能会施加攻击特效。每个目标有1秒冷却时间。",
-        "你的攻击会为你提供可叠加的法术强度，你对敌人造成伤害的技能会为你提供攻击力。"
+        "你的法力消耗翻倍。你的技能治疗、护盾和伤害更强。",
+        "获得你所消耗法力值的一部分,转化为持续1.5秒的护盾。护盾最多",
+        "获得护盾时,获得3秒适应之力(冷却时间5秒)。",
+        "获得海洋龙魂,在对敌人造成伤害后获得大量生命回复和法力回复。"
       ]
     },
     "zh-TW": {
-      "title": "遙控近戰",
-      "why": "阿祈爾從來不親自揮武器：他的W讓他攻擊沙兵附近的敵人時，由沙兵代替刺擊，對一條直線上的敵人造成魔法傷害，所以他真正的攻擊距離就是沙兵站的位置。拔劍吧讓他變成近戰，並獲得物理攻擊、生命值、攻擊速度、生命偷取和移動速度，每損失1點攻擊距離都會額外提升；阿祈爾帳面上丟了一大截射程，實際上一點都沒丟，因為沙兵還是從自己的射程刺擊。搔癢怪獸把沙兵根本用不到的所有物理攻擊轉化為攻擊速度，並附加命中時的魔法傷害；幻影武器讓他的技能施加命中特效，所以每次沙兵刺擊都會沿整條直線帶上搔癢怪獸，以及納什之牙、鬼索的狂暴之刃、智慧末刃、殞落王者之劍和臨界點的效果。雙修大師把循環閉合：沙兵的刺擊屬於技能傷害，會提供物理攻擊，搔癢怪獸再把它轉成更多攻擊速度，於是刺得更多，物理攻擊也更多。遠程控制法師搖身變成命中特效近戰戰士，吃滿所有近戰加成，卻從不用站到任何人的劍鋒範圍內。",
-      "play": "在自己和目標之間放一個沙兵，按右鍵，讓沙兵去打命中特效；E只用來位移到沙兵身上，千萬別自己衝進去。你自己的劍不起任何作用，所以別在沒有沙兵的地方打架。",
+      "title": "透支保護",
+      "why": "暴風雪是個開啟後每秒都要消耗艾妮維亞法力的切換技能,大家平常只會在她魔力見底前記得關掉,但這套配裝卻把這筆帳單當成了重點。藍色屏障會把她每消耗1點法力的一部分轉換成持續1.5秒的護盾,所以每秒吸魔的暴風雪就會每秒幫她重新上盾;溢流讓她所有法力消耗翻倍,於是同一場暴風雪流進藍色屏障的法力也翻倍,暴風雪的傷害也變得更強。巨大盾牌會在她獲得護盾時給予適應之力,暴風雪冷卻一結束就會再次觸發;海洋之魂會在造成傷害後給予大量生命與法力回復,而暴風雪一直在打傷害,翻倍的消耗就一直有補給。時光之杖會在被英雄擊中時回復法力,並依她消耗法力的25%為她回血,而這些法力剛被溢流翻倍;熾天使的擁抱和惡意再多堆一波可以燒的法力,惡意還會灼燒被暴風雪打到的所有人腳下的地面,振奮盔甲讓她身上所有護盾與治療效果提升25%。脆皮砲台法師搖身一變成了前排坦克,走進敵隊裡,開啟暴風雪,往裡面一站就好,而重生則是銀行倒閉時的後路。",
+      "play": "先出法力裝,然後衝進團戰,開啟暴風雪並待在裡面,這樣每秒的消耗會一直幫你重新上盾。只有真的沒魔了才關掉暴風雪,剩下的交給蛋。",
       "augments": [
-        "你現在是近戰。獲得24%物理攻擊、24%生命值、20%攻擊速度、20%生命偷取和20%移動速度（每一項還會根據損失的攻擊距離進一步提升）。",
-        "物理攻擊會轉化為攻擊速度。攻擊會在命中時造成額外魔法傷害。",
-        "你的技能會施加命中特效。每個目標有1秒冷卻時間。",
-        "你的攻擊會為你提供可疊加的魔法攻擊，你對敵人造成傷害的技能會為你提供物理攻擊。"
+        "你的法力消耗翻倍。你的技能治療、護盾與傷害更強。",
+        "獲得你所消耗法力的一部分,轉換成持續1.5秒的護盾。護盾最多",
+        "獲得護盾時,獲得3秒適應之力(冷卻時間5秒)。",
+        "獲得海洋之魂,在對敵人造成傷害後獲得大量生命與法力回復。"
       ]
     }
   }

@@ -438,6 +438,29 @@
       "why": "Azir never swings his own weapon: Arise! says that when he Attacks an enemy near a Sand Soldier, the soldiers stab instead and deal magic damage in a line, so his real reach is wherever his soldiers are standing. Draw Your Sword makes him melee and pays out Attack Damage, Health, Attack Speed, Lifesteal and Move Speed that grow with every point of Attack Range lost, and Azir gives up a huge chunk of range on paper while giving up none in practice, because the soldiers keep stabbing from their own range. Tickle Monster converts all that Attack Damage, which his soldiers never used anyway, into Attack Speed and adds magic damage On-Hit, and Ethereal Weapon makes his Abilities apply On-Hit effects, so every soldier stab carries Tickle Monster plus Nashor's Tooth, Guinsoo's Rageblade, Wit's End, Blade of The Ruined King and Terminus down the whole line. Master of Duality closes the loop: soldier stabs are Ability damage, so they grant Attack Damage, which Tickle Monster turns into more Attack Speed, which means more stabs, which means more Attack Damage. The ranged control mage becomes a melee on-hit bruiser who collects every melee bonus without ever standing within sword's reach of anyone.",
       "play": "Drop a soldier between you and the target, right-click, and let the soldiers do the on-hit work; use Shifting Sands only to reposition onto a soldier, never to go in yourself. Your own sword does nothing, so never fight where a soldier isn't.",
       "chef": "2026-11-04"
+    },
+    {
+      "id": "anivia-overdraft-protection",
+      "champion": "Anivia",
+      "title": "Overdraft Protection",
+      "augments": [
+        "Overflow",
+        "Blue Barrier",
+        "Mighty Shield",
+        "Ocean Soul"
+      ],
+      "core": 4,
+      "items": [
+        "Rod of Ages",
+        "Seraph's Embrace",
+        "Malignance",
+        "Spirit Visage",
+        "Frozen Heart",
+        "Mercury's Treads"
+      ],
+      "why": "Glacial Storm is a toggle that bills Anivia Mana every second it stays on, a running cost nobody thinks about beyond turning it off before she runs dry, and this build makes that bill the whole point. Blue Barrier hands her a share of every point of Mana she spends as a Shield for 1.5 seconds, so a storm that drains her every second re-shields her every second, and Overflow doubles all of her Mana costs, which doubles the Mana feeding Blue Barrier from the very same storm while making the storm's damage more effective too. Mighty Shield pays out Adaptive Force whenever she gains a Shield, which the ticking storm re-arms the moment its cooldown ends, and Ocean Soul grants Health and Mana Regen after damaging enemies, which the storm does nonstop, so the doubled drain keeps getting refilled. Rod of Ages gives Mana back when champions hit her and heals her for 25% of the Mana she spends, which Overflow just doubled, Seraph's Embrace and Malignance pile on Mana to burn, Malignance also scorches the ground under everyone her storm hits, and Spirit Visage makes every shield and heal on her 25% bigger. The fragile artillery mage becomes a frontline tank who walks into the enemy team, flips her storm on and simply stands in it, with Rebirth as the backup plan for when the bank finally closes.",
+      "play": "Build Mana first, then walk into the fight, toggle Glacial Storm on and stay inside it so the drain keeps re-shielding you every second. Only switch the storm off when you are truly out of Mana, and let the egg handle the rest.",
+      "chef": "2026-11-05"
     }
   ]
 }
