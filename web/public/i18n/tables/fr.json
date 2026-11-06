@@ -134,5 +134,21 @@
  "Best champ": "Meilleur champion",
  "The champion with the highest estimated win rate boost from this augment.": "Le champion qui gagne le plus en taux de victoire estimé avec cet augment.",
  "Augment pick": "Choix d'augment",
- "Estimated: the augment picks (1st to 4th) where it usually shows up.": "Estimé : les choix d'augment (1er au 4e) où il apparaît le plus souvent."
+ "Estimated: the augment picks (1st to 4th) where it usually shows up.": "Estimé : les choix d'augment (1er au 4e) où il apparaît le plus souvent.",
+ "Damage dealt modifier": "Modificateur de dégâts infligés",
+ "Damage taken modifier": "Modificateur de dégâts subis",
+ "Ability damage": "Dégâts des compétences",
+ "Base attack damage": "Dégâts d'attaque de base",
+ "Base attack speed": "Vitesse d'attaque de base",
+ "Base health": "PV de base",
+ "Base armor and magic resist": "Armure et résistance magique de base",
+ "Damage per fight": "Dégâts par combat",
+ "Damage per second": "Dégâts par seconde",
+ "Time alive": "Temps en vie",
+ "Low": "Bas",
+ "High": "Haut",
+ "Bias %": "Biais %",
+ "Order within role": "Ordre dans le rôle",
+ "Real ÷ predicted": "Réel ÷ prédit",
+ "Find an item": "Chercher un objet"
 }

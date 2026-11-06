@@ -134,5 +134,21 @@
  "Best champ": "最佳英雄",
  "The champion with the highest estimated win rate boost from this augment.": "使用此強化時預估勝率提升最高的英雄。",
  "Augment pick": "強化輪次",
- "Estimated: the augment picks (1st to 4th) where it usually shows up.": "估算：該強化通常出現的強化輪次（第1到第4次）。"
+ "Estimated: the augment picks (1st to 4th) where it usually shows up.": "估算：該強化通常出現的強化輪次（第1到第4次）。",
+ "Damage dealt modifier": "造成傷害修正",
+ "Damage taken modifier": "承受傷害修正",
+ "Ability damage": "技能傷害",
+ "Base attack damage": "基礎攻擊力",
+ "Base attack speed": "基礎攻擊速度",
+ "Base health": "基礎生命值",
+ "Base armor and magic resist": "基礎物理防禦與魔法防禦",
+ "Damage per fight": "每場傷害",
+ "Damage per second": "每秒傷害",
+ "Time alive": "存活時間",
+ "Low": "下限",
+ "High": "上限",
+ "Bias %": "偏差 %",
+ "Order within role": "定位內排名",
+ "Real ÷ predicted": "實際 ÷ 預測",
+ "Find an item": "搜尋裝備"
 }

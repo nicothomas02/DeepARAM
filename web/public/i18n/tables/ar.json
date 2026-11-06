@@ -134,5 +134,21 @@
  "Best champ": "أفضل بطل",
  "The champion with the highest estimated win rate boost from this augment.": "البطل صاحب أعلى زيادة مقدّرة في نسبة الفوز من هذا التعزيز.",
  "Augment pick": "اختيار التعزيز",
- "Estimated: the augment picks (1st to 4th) where it usually shows up.": "تقديري: اختيارات التعزيز (من الأول إلى الرابع) التي يظهر فيها عادةً."
+ "Estimated: the augment picks (1st to 4th) where it usually shows up.": "تقديري: اختيارات التعزيز (من الأول إلى الرابع) التي يظهر فيها عادةً.",
+ "Damage dealt modifier": "مُعدِّل الضرر المُلحَق",
+ "Damage taken modifier": "مُعدِّل الضرر المُتلقّى",
+ "Ability damage": "ضرر القدرات",
+ "Base attack damage": "ضرر الهجوم الأساسي",
+ "Base attack speed": "سرعة الهجوم الأساسية",
+ "Base health": "الصحة الأساسية",
+ "Base armor and magic resist": "الدرع ومقاومة السحر الأساسيان",
+ "Damage per fight": "الضرر في كل قتال",
+ "Damage per second": "الضرر في الثانية",
+ "Time alive": "مدة البقاء حيًا",
+ "Low": "الأدنى",
+ "High": "الأعلى",
+ "Bias %": "الانحياز %",
+ "Order within role": "الترتيب داخل الدور",
+ "Real ÷ predicted": "الحقيقي ÷ المتوقع",
+ "Find an item": "ابحث عن عنصر"
 }

@@ -186,6 +186,29 @@ Boots, five legendaries and four augments. Items are searched greedily to pick a
 - Mystic Punch is picked very often; its value may be too generous.
 - For Yunara, `yunara_sim` is the better model.
 
+## Tuning sensitivity and validation
+
+Two reports feed the Simulator page's Tuning and Accuracy tabs (`make analysis`, also run by `make replay`), both
+in `analysis/`:
+
+- **Tuning sensitivity** (`tools/sensitivity.py` -> `analysis/tuning-sensitivity.json`): every champion, with its
+  most-played real build, has seven levers nudged by -10%, -5%, +5% and +10% (Mayhem damage dealt and damage taken
+  modifiers, ability damage, base AD, base attack speed, base health, base resists), and every legendary item's stat
+  line is nudged the same way on the twelve most-played champions that build it. Each step replays the same fights
+  (common random numbers: the same seeds at every step), three seeds of 300 fights. Per curve it reports the
+  elasticity (slope of log result on log(1 + change): +1% lever -> e% result) for damage per second, time alive,
+  damage per fight and damage taken, its standard error across seeds, a curvature term and whether the curve is
+  monotone, plus role medians and an "exchange rate" (how many % of each lever buy the same damage per fight as
+  +1% damage dealt). About 21,000 runs, 15-20 minutes on 4 cores.
+- **Validation** (`tools/validation.py report` -> `analysis/validation.json`): the accuracy check from
+  `tools/accuracy.py` with 95% bootstrap intervals (2,000 resamples of champions) on every rank correlation, the
+  role-adjusted model scored leave-one-out with calibration bins, calibration slope, R squared and mean absolute
+  error, a role-only baseline (what the Simulator adds over knowing the role), raw bias and residual spread per role,
+  and the champions furthest off.
+- **History** (`tools/validation.py history` -> `analysis/validation-history.json`): earlier Simulator versions
+  checked out into scratch work trees, built and scored with today's real builds and real shares, so every point
+  uses one yardstick. Add a commit to it with `python3 tools/validation.py history analysis/validation-history.json <commit>`.
+
 ## Fight replays
 
 `viewer/` animates one simulated fight per champion: you, the enemy you are hitting and the rest of their team, with every cast, attack, damage number, kill and stun drawn as it happens. Everyone stands where the simulation put them, and each ability is drawn at its real size and shape (line, circle or cone); a faint red line marks each enemy whose reach you are inside. The floor is the Howling Abyss itself (the game's minimap art, turned so the bridge is the lane), and Poro Charge waves run down it as rows of Poros. Choosing a champion plays their champion-select pick quote. These three are streamed from CommunityDragon, so they aren't in the repo; a page that can't reach it uses copies in `viewer/replay-data/art/` (`floor.png`, `poro.png`) and `viewer/replay-data/pick/{championId}.ogg` if present. Every fighter is the champion's animated 3D model (three.js), posed from the simulated timeline: each cast plays that ability's animation, attacks and crits play theirs, champions play their run while they walk, and stuns and deaths show too. Models are drawn at the champion's in-game size on the same scale as the floor and ability shapes (the model's own units times its base skin's scale, so Malphite stands taller than Teemo). Enemies fight from the first second, as you do. Clicking an ability, or pressing Q/W/E/R, makes your champion cast it. Enemies open with their recommended combo when they engage and then keep casting their Q, W and E in that order (R once), with the ability's icon above them; each stun on you is shown as an enemy's ability landing. The simulator models enemy damage as a steady rate, so enemy casts are for show and don't change the numbers. A missing animation falls back to the basic attack (Garen has no separate W, for example). Champions without a model fall back to Riot's ability preview clips.

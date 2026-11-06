@@ -134,5 +134,21 @@
  "Best champ": "Nejlepší šampion",
  "The champion with the highest estimated win rate boost from this augment.": "Šampion s nejvyšším odhadovaným nárůstem míry výher díky tomuto vylepšení.",
  "Augment pick": "Volba vylepšení",
- "Estimated: the augment picks (1st to 4th) where it usually shows up.": "Odhad: volby vylepšení (1. až 4.), ve kterých se obvykle objevuje."
+ "Estimated: the augment picks (1st to 4th) where it usually shows up.": "Odhad: volby vylepšení (1. až 4.), ve kterých se obvykle objevuje.",
+ "Damage dealt modifier": "Modifikátor způsobeného poškození",
+ "Damage taken modifier": "Modifikátor přijatého poškození",
+ "Ability damage": "Poškození schopností",
+ "Base attack damage": "Základní útočné poškození",
+ "Base attack speed": "Základní rychlost útoku",
+ "Base health": "Základní zdraví",
+ "Base armor and magic resist": "Základní brnění a magická odolnost",
+ "Damage per fight": "Poškození za boj",
+ "Damage per second": "Poškození za sekundu",
+ "Time alive": "Doba přežití",
+ "Low": "Nízko",
+ "High": "Vysoko",
+ "Bias %": "Zkreslení %",
+ "Order within role": "Pořadí v roli",
+ "Real ÷ predicted": "Skutečné ÷ předpověď",
+ "Find an item": "Najít předmět"
 }

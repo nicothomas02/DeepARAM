@@ -134,5 +134,21 @@
  "Best champ": "แชมเปียนที่ดีที่สุด",
  "The champion with the highest estimated win rate boost from this augment.": "แชมเปียนที่อัตราชนะเพิ่มขึ้นมากที่สุดโดยประมาณจากออคเมนต์นี้",
  "Augment pick": "ครั้งที่เลือกออคเมนต์",
- "Estimated: the augment picks (1st to 4th) where it usually shows up.": "ประมาณการ: ครั้งที่เลือกออคเมนต์ (ครั้งที่ 1 ถึง 4) ที่มักจะเจอออคเมนต์นี้"
+ "Estimated: the augment picks (1st to 4th) where it usually shows up.": "ประมาณการ: ครั้งที่เลือกออคเมนต์ (ครั้งที่ 1 ถึง 4) ที่มักจะเจอออคเมนต์นี้",
+ "Damage dealt modifier": "ตัวปรับดาเมจที่ทำ",
+ "Damage taken modifier": "ตัวปรับดาเมจที่ได้รับ",
+ "Ability damage": "ดาเมจสกิล",
+ "Base attack damage": "พลังโจมตีพื้นฐาน",
+ "Base attack speed": "ความเร็วโจมตีพื้นฐาน",
+ "Base health": "พลังชีวิตพื้นฐาน",
+ "Base armor and magic resist": "เกราะและค่าต้านเวทพื้นฐาน",
+ "Damage per fight": "ดาเมจต่อการต่อสู้",
+ "Damage per second": "ดาเมจต่อวินาที",
+ "Time alive": "เวลาที่รอดชีวิต",
+ "Low": "ต่ำ",
+ "High": "สูง",
+ "Bias %": "ความเอนเอียง %",
+ "Order within role": "ลำดับในบทบาท",
+ "Real ÷ predicted": "จริง ÷ ทำนาย",
+ "Find an item": "ค้นหาไอเทม"
 }

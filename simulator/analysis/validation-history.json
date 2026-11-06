@@ -1,0 +1,215 @@
+{
+ "points": [
+  {
+   "commit": "0c2d746c",
+   "date": "2026-10-16",
+   "pr": 109,
+   "title": "Simulator: enemy damage follows their build and level; shields",
+   "spearman": 0.374,
+   "ci95": [
+    0.234,
+    0.502
+   ],
+   "role_adjusted": 0.566,
+   "taken": null,
+   "n": 173
+  },
+  {
+   "commit": "0f77831d",
+   "date": "2026-10-16",
+   "pr": 105,
+   "title": "Simulator: more accurate combat, one enemy by default, fights until death, enemy dance, purple accent",
+   "spearman": 0.404,
+   "ci95": [
+    0.266,
+    0.531
+   ],
+   "role_adjusted": 0.59,
+   "taken": null,
+   "n": 173
+  },
+  {
+   "commit": "378cfd6b",
+   "date": "2026-10-16",
+   "pr": 106,
+   "title": "Simulator: real cast times, attack wind-ups, channels and attack resets",
+   "spearman": 0.395,
+   "ci95": [
+    0.26,
+    0.519
+   ],
+   "role_adjusted": 0.575,
+   "taken": null,
+   "n": 173
+  },
+  {
+   "commit": "397c228c",
+   "date": "2026-10-17",
+   "pr": 292,
+   "title": "Simulator: kit fixes for champions far from real games",
+   "spearman": 0.445,
+   "ci95": [
+    0.3,
+    0.566
+   ],
+   "role_adjusted": 0.56,
+   "taken": 0.675,
+   "n": 173
+  },
+  {
+   "commit": "598ce192",
+   "date": "2026-10-17",
+   "pr": 110,
+   "title": "Simulator: champion passives deal damage",
+   "spearman": 0.403,
+   "ci95": [
+    0.264,
+    0.527
+   ],
+   "role_adjusted": 0.58,
+   "taken": null,
+   "n": 173
+  },
+  {
+   "commit": "7c1afa8c",
+   "date": "2026-10-17",
+   "pr": 291,
+   "title": "Simulator: enemy damage builds up over a fight's first 3 seconds",
+   "spearman": 0.411,
+   "ci95": [
+    0.262,
+    0.537
+   ],
+   "role_adjusted": 0.558,
+   "taken": 0.657,
+   "n": 173
+  },
+  {
+   "commit": "f1d9139b",
+   "date": "2026-10-17",
+   "pr": 121,
+   "title": "Simulator: passives, crit, self-heals, mana, enemy abilities, and a 5v5 tab",
+   "spearman": 0.399,
+   "ci95": [
+    0.254,
+    0.53
+   ],
+   "role_adjusted": 0.56,
+   "taken": null,
+   "n": 173
+  },
+  {
+   "commit": "4be94a36",
+   "date": "2026-10-18",
+   "pr": 293,
+   "title": "Simulator: round 2 kit fixes, Thornmail and Vulnerability",
+   "spearman": 0.443,
+   "ci95": [
+    0.296,
+    0.568
+   ],
+   "role_adjusted": 0.559,
+   "taken": 0.671,
+   "n": 173
+  },
+  {
+   "commit": "5e71f86c",
+   "date": "2026-10-18",
+   "pr": 328,
+   "title": "Simulator: model every Howling Abyss shop item and augment reward item",
+   "spearman": 0.475,
+   "ci95": [
+    0.332,
+    0.599
+   ],
+   "role_adjusted": 0.576,
+   "taken": 0.708,
+   "n": 173
+  },
+  {
+   "commit": "b57dfd39",
+   "date": "2026-10-18",
+   "pr": 309,
+   "title": "Simulator: make every pool augment take effect where the kit allows",
+   "spearman": 0.449,
+   "ci95": [
+    0.303,
+    0.576
+   ],
+   "role_adjusted": 0.567,
+   "taken": 0.68,
+   "n": 173
+  },
+  {
+   "commit": "38e72538",
+   "date": "2026-10-20",
+   "pr": 353,
+   "title": "Simulator: kit fixes from the client's spell data (Karthus, Ryze, Kassadin, Morgana) and a better accuracy check",
+   "spearman": 0.493,
+   "ci95": [
+    0.355,
+    0.611
+   ],
+   "role_adjusted": 0.587,
+   "taken": 0.707,
+   "n": 173
+  },
+  {
+   "commit": "89fb3ef5",
+   "date": "2026-10-20",
+   "pr": 367,
+   "title": "Simulator: Tier 1 kit fixes and Tier 6 engine features (Viego, Sylas, Aphelios, Hwei, Yuumi, Renata, Ivern)",
+   "spearman": 0.51,
+   "ci95": [
+    0.373,
+    0.625
+   ],
+   "role_adjusted": 0.601,
+   "taken": 0.702,
+   "n": 173
+  },
+  {
+   "commit": "d220978b",
+   "date": "2026-10-20",
+   "pr": 352,
+   "title": "Simulator: random enemy after each kill, cooldowns under the arena, enemy dashes, PBE best builds",
+   "spearman": 0.481,
+   "ci95": [
+    0.342,
+    0.603
+   ],
+   "role_adjusted": 0.575,
+   "taken": 0.707,
+   "n": 173
+  },
+  {
+   "commit": "bfb7b8d1",
+   "date": "2026-10-21",
+   "pr": 395,
+   "title": "Simulator on live patch 26.21: data, best builds, traces and PBE 26.22",
+   "spearman": 0.485,
+   "ci95": [
+    0.348,
+    0.603
+   ],
+   "role_adjusted": 0.576,
+   "taken": 0.717,
+   "n": 173
+  },
+  {
+   "commit": "be0a5787",
+   "date": "2026-10-27",
+   "pr": 459,
+   "title": "Pentakill picks judged by role; Simulated label on augment sets without real games",
+   "spearman": 0.485,
+   "ci95": [
+    0.348,
+    0.603
+   ],
+   "role_adjusted": 0.576,
+   "taken": 0.717,
+   "n": 173
+  }
+ ],
+ "note": "Each simulator version scored with the same yardstick: today's most-played real builds and real damage shares."
+}

@@ -134,5 +134,21 @@
  "Best champ": "ベストチャンピオン",
  "The champion with the highest estimated win rate boost from this augment.": "このオーグメントで推定勝率上昇が最も大きいチャンピオン。",
  "Augment pick": "オーグメント選択",
- "Estimated: the augment picks (1st to 4th) where it usually shows up.": "推定：よく出てくるオーグメント選択（1回目〜4回目）です。"
+ "Estimated: the augment picks (1st to 4th) where it usually shows up.": "推定：よく出てくるオーグメント選択（1回目〜4回目）です。",
+ "Damage dealt modifier": "与ダメージ補正",
+ "Damage taken modifier": "被ダメージ補正",
+ "Ability damage": "スキルダメージ",
+ "Base attack damage": "基本攻撃力",
+ "Base attack speed": "基本攻撃速度",
+ "Base health": "基本体力",
+ "Base armor and magic resist": "基本物理防御と魔法防御",
+ "Damage per fight": "戦闘あたりダメージ",
+ "Damage per second": "秒間ダメージ",
+ "Time alive": "生存時間",
+ "Low": "下限",
+ "High": "上限",
+ "Bias %": "バイアス %",
+ "Order within role": "ロール内の順位",
+ "Real ÷ predicted": "実際 ÷ 予測",
+ "Find an item": "アイテムを検索"
 }

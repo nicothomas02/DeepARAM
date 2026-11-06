@@ -134,5 +134,21 @@
  "Best champ": "Najlepszy bohater",
  "The champion with the highest estimated win rate boost from this augment.": "Bohater z najwyższym szacowanym wzrostem współczynnika zwycięstw dzięki temu ulepszeniu.",
  "Augment pick": "Wybór ulepszenia",
- "Estimated: the augment picks (1st to 4th) where it usually shows up.": "Szacunek: wybory ulepszeń (1.–4.), w których zwykle się pojawia."
+ "Estimated: the augment picks (1st to 4th) where it usually shows up.": "Szacunek: wybory ulepszeń (1.–4.), w których zwykle się pojawia.",
+ "Damage dealt modifier": "Modyfikator zadawanych obrażeń",
+ "Damage taken modifier": "Modyfikator otrzymywanych obrażeń",
+ "Ability damage": "Obrażenia umiejętności",
+ "Base attack damage": "Bazowe obrażenia od ataku",
+ "Base attack speed": "Bazowa prędkość ataku",
+ "Base health": "Bazowe zdrowie",
+ "Base armor and magic resist": "Bazowy pancerz i odporność na magię",
+ "Damage per fight": "Obrażenia na walkę",
+ "Damage per second": "Obrażenia na sekundę",
+ "Time alive": "Czas życia",
+ "Low": "Nisko",
+ "High": "Wysoko",
+ "Bias %": "Odchylenie %",
+ "Order within role": "Kolejność w roli",
+ "Real ÷ predicted": "Prawdziwe ÷ przewidywane",
+ "Find an item": "Znajdź przedmiot"
 }

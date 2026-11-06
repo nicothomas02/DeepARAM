@@ -17,29 +17,13 @@
 import json, subprocess, sys, os, concurrent.futures as cf, statistics as st
 SIM, OUT = os.path.abspath(sys.argv[1]), sys.argv[2]; TR = sys.argv[3] if len(sys.argv) > 3 else "300"
 R = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
-items = json.load(open(f"{R}/simulator/data/items.json"))["items"]
-by_id = {v["id"]: k for k, v in items.items()}
-augs = json.load(open(f"{R}/simulator/data/augments.json"))["augments"]
-aug_by_id = {v["id"]: k for k, v in augs.items()}
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from real_builds import load as load_ids, real_build as _real_build
+by_id, aug_by_id = load_ids()
 champs = json.load(open(f"{R}/simulator/data/champions.json"))["champions"]
 real = {c["champion_id"]: c for c in json.load(open(f"{R}/data/cn/champions.json"))["champions"]}
 best = {c["champion"]: c for c in json.load(open(f"{R}/simulator/viewer/replay-data/best-builds.json"))["champions"]}
-def real_build(c):
-    f = f"{R}/data/cn/builds/{c["champion_id"]}.json"
-    if not os.path.exists(f): return None
-    b = json.load(open(f))
-    picks = []
-    for fb in b["items"].get("full_builds", []):
-        ks = [by_id[i] for i in fb["items"] if i in by_id]
-        if len(ks) >= 4: picks = ks; break
-    if not picks:
-        for grp in ("boots", "core", "other"):
-            for e in b["items"].get(grp, []):
-                for i in e["items"]:
-                    if i in by_id and by_id[i] not in picks: picks.append(by_id[i])
-    picks = picks[:6]
-    a = [aug_by_id[x["id"]] for x in sorted(b["augments"]["all"], key=lambda x: -x["pick_rate"]) if x["id"] in aug_by_id][:4]
-    return picks, a
+def real_build(c): return _real_build(c, by_id, aug_by_id)
 def run(c):
     rb = real_build(c)
     if not rb or not rb[0]: return None

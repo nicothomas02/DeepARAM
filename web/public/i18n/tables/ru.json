@@ -134,5 +134,21 @@
  "Best champ": "Лучший чемпион",
  "The champion with the highest estimated win rate boost from this augment.": "Чемпион с наибольшим расчётным приростом доли побед от этого усиления.",
  "Augment pick": "Выбор аугмента",
- "Estimated: the augment picks (1st to 4th) where it usually shows up.": "Оценка: выборы аугментов (с 1-го по 4-й), где он обычно появляется."
+ "Estimated: the augment picks (1st to 4th) where it usually shows up.": "Оценка: выборы аугментов (с 1-го по 4-й), где он обычно появляется.",
+ "Damage dealt modifier": "Модификатор наносимого урона",
+ "Damage taken modifier": "Модификатор получаемого урона",
+ "Ability damage": "Урон умений",
+ "Base attack damage": "Базовая сила атаки",
+ "Base attack speed": "Базовая скорость атаки",
+ "Base health": "Базовое здоровье",
+ "Base armor and magic resist": "Базовая броня и сопротивление магии",
+ "Damage per fight": "Урон за бой",
+ "Damage per second": "Урон в секунду",
+ "Time alive": "Время жизни",
+ "Low": "Низ",
+ "High": "Верх",
+ "Bias %": "Смещение %",
+ "Order within role": "Порядок в роли",
+ "Real ÷ predicted": "Реально ÷ прогноз",
+ "Find an item": "Найти предмет"
 }

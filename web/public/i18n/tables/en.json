@@ -132,5 +132,21 @@
  "Estimated. How far the champion's win rate swings with the augments it gets. High means its augment picks matter a lot.": "Estimated. How far the champion's win rate swings with the augments it gets. High means its augment picks matter a lot.",
  "Varies by champion and Augment reliance are typical swings in pts: how much an augment's boost changes between champions, and how much a champion's win rate changes between augments.": "Varies by champion and Augment reliance are typical swings in pts: how much an augment's boost changes between champions, and how much a champion's win rate changes between augments.",
  "Augment pick": "Augment pick",
- "Estimated: the augment picks (1st to 4th) where it usually shows up.": "Estimated: the augment picks (1st to 4th) where it usually shows up."
+ "Estimated: the augment picks (1st to 4th) where it usually shows up.": "Estimated: the augment picks (1st to 4th) where it usually shows up.",
+ "Damage dealt modifier": "Damage dealt modifier",
+ "Damage taken modifier": "Damage taken modifier",
+ "Ability damage": "Ability damage",
+ "Base attack damage": "Base attack damage",
+ "Base attack speed": "Base attack speed",
+ "Base health": "Base health",
+ "Base armor and magic resist": "Base armor and magic resist",
+ "Damage per fight": "Damage per fight",
+ "Damage per second": "Damage per second",
+ "Time alive": "Time alive",
+ "Low": "Low",
+ "High": "High",
+ "Bias %": "Bias %",
+ "Order within role": "Order within role",
+ "Real ÷ predicted": "Real ÷ predicted",
+ "Find an item": "Find an item"
 }

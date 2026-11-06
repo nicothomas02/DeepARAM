@@ -134,5 +134,21 @@
  "Best champ": "최고 챔피언",
  "The champion with the highest estimated win rate boost from this augment.": "이 증강으로 예상 승률 상승이 가장 큰 챔피언입니다.",
  "Augment pick": "증강 선택",
- "Estimated: the augment picks (1st to 4th) where it usually shows up.": "추정: 이 증강이 주로 나오는 증강 선택(1~4번째)입니다."
+ "Estimated: the augment picks (1st to 4th) where it usually shows up.": "추정: 이 증강이 주로 나오는 증강 선택(1~4번째)입니다.",
+ "Damage dealt modifier": "가하는 피해 보정",
+ "Damage taken modifier": "받는 피해 보정",
+ "Ability damage": "스킬 피해",
+ "Base attack damage": "기본 공격력",
+ "Base attack speed": "기본 공격 속도",
+ "Base health": "기본 체력",
+ "Base armor and magic resist": "기본 방어력과 마법 저항력",
+ "Damage per fight": "전투당 피해",
+ "Damage per second": "초당 피해",
+ "Time alive": "생존 시간",
+ "Low": "하한",
+ "High": "상한",
+ "Bias %": "편향 %",
+ "Order within role": "역할 내 순위",
+ "Real ÷ predicted": "실제 ÷ 예측",
+ "Find an item": "아이템 찾기"
 }

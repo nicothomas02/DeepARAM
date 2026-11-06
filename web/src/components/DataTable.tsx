@@ -19,7 +19,7 @@ import type { TagInfo } from "@/lib/tag-info";
 export type Column = {
   key: string;
   label: string;
-  format?: "pct" | "pts" | "spread" | "num" | "int" | "sec" | "text" | "champion" | "champion-icon" | "augment" | "item" | "ability" | "tier" | "deepscore" | "tags";
+  format?: "pct" | "pts" | "spread" | "num" | "num2" | "int" | "sec" | "text" | "champion" | "champion-icon" | "augment" | "item" | "ability" | "tier" | "deepscore" | "tags";
   sortable?: boolean;
   /** For "augment" columns: the row key holding the augment id, for its icon; for "item" and "ability" columns, the
    *  icon's address. */
@@ -73,6 +73,9 @@ function show(v: Row[string], format: Column["format"], pts: (n: string) => stri
       return pts(tenths(n));
     case "num":
       return n.toFixed(1);
+    case "num2":
+      // Two decimals, for elasticities and correlations; −0.00 shows as 0.00.
+      return (Math.round(n * 100) / 100 || 0).toFixed(2);
     case "int":
       // A fixed locale: the browser's own would differ from the server render and break hydration.
       return Math.round(n).toLocaleString("en-US");

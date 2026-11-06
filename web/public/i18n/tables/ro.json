@@ -134,5 +134,21 @@
  "Best champ": "Cel mai bun campion",
  "The champion with the highest estimated win rate boost from this augment.": "Campionul cu cea mai mare creștere estimată a ratei de victorie datorită acestei augmentări.",
  "Augment pick": "Alegerea augmentării",
- "Estimated: the augment picks (1st to 4th) where it usually shows up.": "Estimat: alegerile de augmentare (de la a 1-a la a 4-a) în care apare de obicei."
+ "Estimated: the augment picks (1st to 4th) where it usually shows up.": "Estimat: alegerile de augmentare (de la a 1-a la a 4-a) în care apare de obicei.",
+ "Damage dealt modifier": "Modificator daune provocate",
+ "Damage taken modifier": "Modificator daune primite",
+ "Ability damage": "Daune abilități",
+ "Base attack damage": "Daune de atac de bază",
+ "Base attack speed": "Viteză de atac de bază",
+ "Base health": "Viață de bază",
+ "Base armor and magic resist": "Armură și rezistență magică de bază",
+ "Damage per fight": "Daune pe luptă",
+ "Damage per second": "Daune pe secundă",
+ "Time alive": "Timp în viață",
+ "Low": "Jos",
+ "High": "Sus",
+ "Bias %": "Abatere %",
+ "Order within role": "Ordine în rol",
+ "Real ÷ predicted": "Real ÷ prezis",
+ "Find an item": "Caută un obiect"
 }

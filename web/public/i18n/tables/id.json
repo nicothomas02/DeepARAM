@@ -134,5 +134,21 @@
  "Best champ": "Champion terbaik",
  "The champion with the highest estimated win rate boost from this augment.": "Champion dengan perkiraan kenaikan win rate tertinggi dari augment ini.",
  "Augment pick": "Pilihan augment",
- "Estimated: the augment picks (1st to 4th) where it usually shows up.": "Perkiraan: pilihan augment (ke-1 sampai ke-4) tempat augment ini biasanya muncul."
+ "Estimated: the augment picks (1st to 4th) where it usually shows up.": "Perkiraan: pilihan augment (ke-1 sampai ke-4) tempat augment ini biasanya muncul.",
+ "Damage dealt modifier": "Pengubah damage yang diberikan",
+ "Damage taken modifier": "Pengubah damage yang diterima",
+ "Ability damage": "Damage ability",
+ "Base attack damage": "Attack damage dasar",
+ "Base attack speed": "Attack speed dasar",
+ "Base health": "Health dasar",
+ "Base armor and magic resist": "Armor dan magic resist dasar",
+ "Damage per fight": "Damage per pertarungan",
+ "Damage per second": "Damage per detik",
+ "Time alive": "Waktu hidup",
+ "Low": "Rendah",
+ "High": "Tinggi",
+ "Bias %": "Bias %",
+ "Order within role": "Urutan dalam peran",
+ "Real ÷ predicted": "Asli ÷ prediksi",
+ "Find an item": "Cari item"
 }
