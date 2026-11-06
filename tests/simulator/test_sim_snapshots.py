@@ -77,7 +77,10 @@ CASES = {
         "--champ", "Jinx", "--allies", "Lulu,Leona,Ahri,Darius", "--team", "Malphite,Brand,Sivir,Nami,Trundle",
         "--trials", "200", "--seed", SEED, "--json"]),
     # The optimizer (search, then a 100-fight final comparison).
-    "mayhem_ahri_optimizer": ("mayhem_sim", ["--champ", "Ahri", "--trials", "100", "--seed", SEED, "--json"]),
+    # Ahri's augment pool comes from fixtures/ahri-optimizer (the live data, frozen pool), since the live
+    # pools follow the hourly stats.
+    "mayhem_ahri_optimizer": ("mayhem_sim", [
+        "--champ", "Ahri", "--game-data", "../tests/simulator/fixtures/ahri-optimizer", "--trials", "100", "--seed", SEED, "--json"]),
     # yunara_sim: every preset build.
     "yunara_presets": ("yunara_sim", ["--trials", "1000", "--seed", SEED, "--json"]),
     # yunara_sim: a custom build against the archetype enemies and a fixed target.

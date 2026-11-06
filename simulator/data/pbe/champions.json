@@ -1,7 +1,7 @@
 {
  "meta": {
-  "built_at": "2026-10-27T22:28:29+00:00",
-  "game_version": "16.22",
+  "built_at": "2026-11-06T19:38:26+00:00",
+  "game_version": "16.23",
   "cdragon": "pbe",
   "mayhem_balance_patch": "wiki read 2026-10-17",
   "level": 18,
@@ -2947,8 +2947,8 @@
        "type": "magic",
        "calc": "DamagePerSecond",
        "scaling": {
-        "const": 30.0,
-        "ap": 0.12
+        "const": 34.0,
+        "ap": 0.16
        },
        "target": "flat",
        "per_second": true,
@@ -6048,8 +6048,8 @@
        "type": "physical",
        "calc": "RSmallMissileDamage",
        "scaling": {
-        "const": 333.325,
-        "bonus_ad": 1.1333
+        "const": 373.324,
+        "bonus_ad": 1.2
        },
        "target": "flat",
        "per_second": false,
@@ -6059,8 +6059,8 @@
        "type": "physical",
        "calc": "RBigMissileDamage",
        "scaling": {
-        "const": 500.0,
-        "bonus_ad": 1.7
+        "const": 560.0,
+        "bonus_ad": 1.8
        },
        "target": "flat",
        "per_second": false,
@@ -19598,7 +19598,7 @@
        "type": "magic",
        "calc": "BasePercentHealth",
        "scaling": {
-        "const": 0.04
+        "const": 0.045
        },
        "target": "target_max_hp",
        "per_second": false,
@@ -21273,8 +21273,8 @@
      "cast_time": 0.25,
      "heal": {
       "scaling": {
-       "const": 105.0,
-       "bonus_ad": 0.4
+       "const": 115.0,
+       "bonus_ad": 0.45
       }
      },
      "cost": 90.0,
@@ -23678,16 +23678,17 @@
       {
        "type": "magic",
        "calc": "ReducedDamage",
-       "scaling": {},
+       "scaling": {
+        "const": 126.0,
+        "ap": 0.42
+       },
        "target": "flat",
        "per_second": false,
        "alt": false
       }
      ],
      "mode_overrides": [],
-     "notes": [
-      "missing value {744f889d}"
-     ]
+     "notes": []
     },
     {
      "slot": "W",
@@ -30724,7 +30725,7 @@
        "type": "physical",
        "calc": "ExplosionDamage",
        "scaling": {
-        "const": 110.0,
+        "const": 125.0,
         "bonus_ad": 0.5,
         "ap": 0.8
        },
@@ -33224,7 +33225,7 @@
     "armor_per_level": 0.0,
     "mr": 30.0,
     "mr_per_level": 1.55,
-    "ad": 56.0,
+    "ad": 54.0,
     "ad_per_level": 2.2,
     "attack_speed": 0.625,
     "attack_speed_per_level": 0.035,
@@ -33368,7 +33369,7 @@
        "type": "magic",
        "calc": "PAttackDamageMax",
        "scaling": {
-        "const": 196.14,
+        "const": 191.94,
         "bonus_ad": 2.1
        },
        "target": "flat",
@@ -33422,7 +33423,7 @@
        "type": "magic",
        "calc": "TotalDamage",
        "scaling": {
-        "const": 550.0,
+        "const": 500.0,
         "ap": 1.0
        },
        "target": "flat",
@@ -35957,7 +35958,7 @@
        "type": "magic",
        "calc": "TotalDamage",
        "scaling": {
-        "const": 925.0,
+        "const": 950.0,
         "ap": 1.25
        },
        "target": "flat",
@@ -38717,8 +38718,8 @@
        "type": "physical",
        "calc": "TotalDamage",
        "scaling": {
-        "const": 227.625,
-        "bonus_ad": 1.05
+        "const": 222.5,
+        "bonus_ad": 1.0
        },
        "target": "flat",
        "per_second": false,
