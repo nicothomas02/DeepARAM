@@ -34,9 +34,9 @@ jobs:
         run: |
           if [ -n "$CLOUDFLARE_API_TOKEN" ] && [ -n "$BACKUP_PASSPHRASE" ]; then echo "ok=yes" >> "$GITHUB_OUTPUT"
           else echo "::notice::CLOUDFLARE_API_TOKEN or BACKUP_PASSPHRASE isn't set, so no database backup on GitHub."; fi
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         if: steps.ready.outputs.ok == 'yes'
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         if: steps.ready.outputs.ok == 'yes'
         with:
           node-version: 22
