@@ -391,7 +391,6 @@ fn main() {
             app.manage(overlay::Shared::default());
             let hidden = std::env::args().any(|a| a == HIDDEN_ARG);
             build_window(&handle, hidden)?;
-            overlay::build_window(&handle)?;
             build_tray(&handle)?;
             overlay::watch(handle.clone());
             thread::spawn(move || loop {
