@@ -214,5 +214,9 @@
  "{ds} DeepScore · {wr} win · {pr} pick": "{ds} DeepScore · Thắng {wr} · Chọn {pr}",
  "This page doesn't exist.": "Trang này không tồn tại.",
  "It may have moved, or the link has a typo. Search with / or ⌘K, or try one of these.": "Có thể trang đã được chuyển đi, hoặc liên kết bị gõ sai. Tìm bằng / hoặc ⌘K, hoặc thử một trong các trang sau.",
- "Did you mean": "Có phải bạn muốn tìm"
+ "Did you mean": "Có phải bạn muốn tìm",
+ "Stats over": "Thống kê theo",
+ "Last patch": "Bản cập nhật trước",
+ "Patches {a} to {b}": "Bản {a} đến {b}",
+ "The rest of the page stays on the live patch.": "Phần còn lại của trang vẫn theo bản hiện tại."
 }

@@ -214,5 +214,9 @@
  "{ds} DeepScore · {wr} win · {pr} pick": "{ds} DeepScore · 승률 {wr} · 픽률 {pr}",
  "This page doesn't exist.": "이 페이지는 존재하지 않습니다.",
  "It may have moved, or the link has a typo. Search with / or ⌘K, or try one of these.": "페이지가 이동했거나 링크에 오타가 있을 수 있습니다. / 또는 ⌘K로 검색하거나 아래 중 하나를 시도해 보세요.",
- "Did you mean": "이것을 찾으셨나요"
+ "Did you mean": "이것을 찾으셨나요",
+ "Stats over": "통계 기간",
+ "Last patch": "이전 패치",
+ "Patches {a} to {b}": "패치 {a}~{b}",
+ "The rest of the page stays on the live patch.": "페이지의 나머지는 현재 패치 기준입니다."
 }

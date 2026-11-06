@@ -214,5 +214,9 @@
  "{ds} DeepScore · {wr} win · {pr} pick": "{ds} DeepScore · 勝率{wr} · ピック率{pr}",
  "This page doesn't exist.": "このページは存在しません。",
  "It may have moved, or the link has a typo. Search with / or ⌘K, or try one of these.": "移動したか、リンクに誤字がある可能性があります。/ または ⌘K で検索するか、次のいずれかをお試しください。",
- "Did you mean": "もしかして"
+ "Did you mean": "もしかして",
+ "Stats over": "統計の期間",
+ "Last patch": "前のパッチ",
+ "Patches {a} to {b}": "パッチ {a}〜{b}",
+ "The rest of the page stays on the live patch.": "ページのほかの部分は現在のパッチのままです。"
 }

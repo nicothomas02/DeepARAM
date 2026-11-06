@@ -214,5 +214,9 @@
  "{ds} DeepScore · {wr} win · {pr} pick": "{ds} DeepScore · {wr} victorias · {pr} de selección",
  "This page doesn't exist.": "Esta página no existe.",
  "It may have moved, or the link has a typo. Search with / or ⌘K, or try one of these.": "Puede que se haya movido o que el enlace tenga una errata. Busca con / o ⌘K, o prueba una de estas.",
- "Did you mean": "¿Quisiste decir"
+ "Did you mean": "¿Quisiste decir",
+ "Stats over": "Estadísticas de",
+ "Last patch": "Parche anterior",
+ "Patches {a} to {b}": "Parches {a} a {b}",
+ "The rest of the page stays on the live patch.": "El resto de la página sigue en el parche actual."
 }

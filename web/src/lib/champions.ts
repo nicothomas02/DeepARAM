@@ -8,6 +8,7 @@ import { localAsset } from "./assets";
 import { official } from "./dd-swap";
 import { readRepoCsv, readRepoJson } from "./repo-data";
 import { champStats, type ChampStats, type PatchRow } from "./tiers";
+import { statRanges, type RangeKey, type StatRange } from "./stat-ranges";
 
 // One summary per champion for its own page (/champions/<Alias>) and the home page's movers:
 // live-patch tier and rates, the change since the previous patch, top augments and best partners.
@@ -177,4 +178,32 @@ export function championSummary(alias: string): ChampionSummary | null {
       .map((r) => ({ patch: r.patch, winRate: r.win_rate, pickRate: r.pick_rate })),
     radar: radarFor(alias, live),
   };
+}
+
+export type ChampionRangeStats = {
+  key: RangeKey;
+  label: string;
+  patches: string[];
+  tier: string;
+  rank: number;
+  of: number;
+  winRate: number;
+  pickRate: number;
+  radar: RadarAxis[];
+};
+
+let rangeCache: { range: StatRange; stats: ChampStats[] }[] | null = null;
+/** A champion's tier, rates, rank and profile over each range (live patch, last patch, this set, all
+ *  time), scored the same way as the Tier List for that range. */
+export function championRanges(alias: string): ChampionRangeStats[] {
+  if (!rangeCache) {
+    const rows = patchRows();
+    rangeCache = statRanges(patchList()).map((range) => ({ range, stats: champStats(rows, new Set(range.patches)) }));
+  }
+  return rangeCache.flatMap(({ range: r, stats }) => {
+    const at = stats.findIndex((c) => c.name === alias);
+    if (at < 0) return [];
+    const me = stats[at];
+    return [{ ...r, tier: me.tier, rank: at + 1, of: stats.length, winRate: me.win_rate, pickRate: me.pick_rate, radar: radarFor(alias, stats) }];
+  });
 }

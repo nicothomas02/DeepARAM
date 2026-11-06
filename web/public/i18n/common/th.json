@@ -214,5 +214,9 @@
  "{ds} DeepScore · {wr} win · {pr} pick": "{ds} DeepScore · ชนะ {wr} · เลือก {pr}",
  "This page doesn't exist.": "ไม่มีหน้านี้",
  "It may have moved, or the link has a typo. Search with / or ⌘K, or try one of these.": "หน้านี้อาจถูกย้าย หรือลิงก์อาจพิมพ์ผิด ค้นหาด้วย / หรือ ⌘K หรือลองหน้าใดหน้าหนึ่งต่อไปนี้",
- "Did you mean": "หรือคุณหมายถึง"
+ "Did you mean": "หรือคุณหมายถึง",
+ "Stats over": "สถิติช่วง",
+ "Last patch": "แพตช์ก่อนหน้า",
+ "Patches {a} to {b}": "แพตช์ {a} ถึง {b}",
+ "The rest of the page stays on the live patch.": "ส่วนอื่นของหน้ายังเป็นแพตช์ปัจจุบัน"
 }

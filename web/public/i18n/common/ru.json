@@ -214,5 +214,9 @@
  "{ds} DeepScore · {wr} win · {pr} pick": "{ds} DeepScore · {wr} побед · {pr} выборов",
  "This page doesn't exist.": "Такой страницы нет.",
  "It may have moved, or the link has a typo. Search with / or ⌘K, or try one of these.": "Возможно, она переехала или в ссылке опечатка. Воспользуйтесь поиском (/ или ⌘K) или попробуйте один из этих вариантов.",
- "Did you mean": "Возможно, вы имели в виду"
+ "Did you mean": "Возможно, вы имели в виду",
+ "Stats over": "Статистика за",
+ "Last patch": "Прошлый патч",
+ "Patches {a} to {b}": "Патчи {a}–{b}",
+ "The rest of the page stays on the live patch.": "Остальная страница показывает текущий патч."
 }
