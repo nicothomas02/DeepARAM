@@ -27,6 +27,12 @@ Augments:
   champion clearly worse (more than 2%: augment gems are estimates, with no real win rate behind them), "agrees" when it helps, "no gain" in between (utility the fight can't
   see), "not simulated" when the augment isn't modelled.
 
+Both:
+- bug finder: data/checks/check_build.py (Traps and Bug finder, refreshed right before this in fill.yml). A gem it
+  blocks (a Traps combination, an augment the champion can't be offered) is dropped; one it warns about (a stat
+  loop nobody has tested in game, the Simulator and real games disagreeing) keeps a "caution" list of reasons.
+  Skipped when data/checks isn't there.
+
 Needs simulator/mayhem_sim (`make -C simulator mayhem_sim`); without it only the game-data checks run and
 every gem is "not simulated".
 """
@@ -35,6 +41,7 @@ import json
 import math
 import os
 import subprocess
+import sys
 from concurrent.futures import ThreadPoolExecutor
 
 import common as cm
@@ -96,6 +103,17 @@ class Checker:
                 self.sim = False
         self.cache = {}
         self.dropped = {}
+        self.bugs = None
+        try:
+            sys.path.insert(0, os.path.join(cm.REPO, "data", "checks"))
+            import check_build
+
+            d, f = check_build._state()
+            alias = {c["champion_id"]: c["id"] for c in d["champions"]}
+            augs = {a["id"]: k for k, a in d["augments"].items()}
+            self.bugs = (check_build.check, d, f, alias, augs)
+        except Exception as e:  # the bug finder is optional: without it the other checks still run
+            print(f"Bug finder checks skipped: {e}")
 
     # --- game data ---
 
@@ -106,6 +124,23 @@ class Checker:
     def usual_build(self, champion):
         rows = (self.builds.get(str(champion)) or {}).get("items", {}).get("full_builds") or []
         return max(rows, key=lambda r: r["pick_rate"])["items"] if rows else None
+
+    def bug_check(self, family, gem, augments=(), items=()):
+        """False when the bug finder blocks the gem (counted as dropped); otherwise tags its warnings on the gem."""
+        if not self.bugs:
+            return True
+        check, d, f, alias, augs = self.bugs
+        champ = alias.get(gem["champion"])
+        if not champ:
+            return True
+        problems = check(champ, [augs.get(a, str(a)) for a in augments], list(items), d, f)
+        if any(p["level"] == "block" for p in problems):
+            self.drop(family, "flagged by the bug finder")
+            return False
+        warns = [p["message"] for p in problems if p["level"] == "warn"]
+        if warns:
+            gem["caution"] = warns
+        return True
 
     # --- simulator ---
 
@@ -170,7 +205,7 @@ class Checker:
                 self.drop(family, "not sold in the shop")
             elif any(i in self.granted for i in g["items"]):
                 self.drop(family, "item only an augment gives")
-            else:
+            elif self.bug_check(family, g, items=g["items"]):
                 keep.append(g)
         plans = [self.item_plan(family, g) for g in keep]
         todo = {(p[0], tuple(x)) for p in plans if p for x in (p[2], p[3])}
@@ -197,11 +232,9 @@ class Checker:
     def augments(self, gems, jobs=None):
         keep = []
         for g in gems:
-            c = self.champs.get(str(g["champion"]))
-            key = self.aug_key.get(g["id"])
             if g["id"] not in self.live_augments:
                 self.drop("augments", "not in the live augment pool")
-            else:
+            elif self.bug_check("augments", g, augments=[g["id"]]):
                 keep.append(g)
         plans = [self.augment_plan(g) for g in keep]
         todo = {(p[0], tuple(p[2]), aug) for p in plans if p for aug in ((), (p[3],))}

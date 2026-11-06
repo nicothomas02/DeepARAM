@@ -221,7 +221,7 @@ def gems(scored):
 
 def rounded(o):
     keep = ("champion", "items", "pick_rate", "win_rate", "baseline", "lift", "lift_lo", "lift_hi",
-            "forecast", "forecast_lo", "forecast_hi", "sim", "sim_gain")
+            "forecast", "forecast_lo", "forecast_hi", "sim", "sim_gain", "caution")
     r = {k: (round(o[k], 4) if isinstance(o[k], float) else o[k]) for k in keep if k in o}
     r["games"] = int(round(o["games"], -1))
     return r

@@ -1,0 +1,22 @@
+{
+ "Builds and combos that look great on paper but don't hold up in real games. Check here before you try a theorycraft build.": "理论上看起来很强、实战中却行不通的出装和组合。尝试理论出装前先来这里看看。",
+ "Interactions that might be broken. Each one says what should happen on paper and how to test it in a game. If it really is broken, report it to Riot from the client so it gets fixed.": "可能存在问题的交互。每条都说明理论上应该发生什么，以及如何在对局中测试。如果确实有问题，请在客户端向 Riot 反馈以便修复。",
+ "Show": "显示",
+ "All": "全部",
+ "Stat loop": "属性循环",
+ "Missing augment": "缺失的海克斯",
+ "Simulator vs real games": "模拟器与实战对比",
+ "Does nothing": "没有效果",
+ "Find a champion or augment": "搜索英雄或海克斯",
+ "Nothing matches": "没有匹配结果",
+ "No traps found this patch": "本版本没有发现陷阱",
+ "Nothing to test this patch": "本版本没有需要测试的内容",
+ "Trap": "陷阱",
+ "Confirmed bug": "已确认的漏洞",
+ "Needs a test": "待测试",
+ "Show less": "收起",
+ "+{n} more": "还有 {n} 个",
+ "On paper": "理论上",
+ "In game": "实战中",
+ "How to test": "测试方法"
+}

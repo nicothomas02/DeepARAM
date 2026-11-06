@@ -1,0 +1,22 @@
+{
+ "Builds and combos that look great on paper but don't hold up in real games. Check here before you try a theorycraft build.": "Lối lên đồ và combo trông tuyệt trên lý thuyết nhưng không hiệu quả trong trận thật. Xem ở đây trước khi thử một lối lên đồ lý thuyết.",
+ "Interactions that might be broken. Each one says what should happen on paper and how to test it in a game. If it really is broken, report it to Riot from the client so it gets fixed.": "Những tương tác có thể bị lỗi. Mỗi mục nói điều gì nên xảy ra trên lý thuyết và cách thử trong trận. Nếu thật sự lỗi, hãy báo cho Riot từ client để được sửa.",
+ "Show": "Hiển thị",
+ "All": "Tất cả",
+ "Stat loop": "Vòng lặp chỉ số",
+ "Missing augment": "Lõi nâng cấp bị thiếu",
+ "Simulator vs real games": "Mô phỏng so với trận thật",
+ "Does nothing": "Không có tác dụng",
+ "Find a champion or augment": "Tìm tướng hoặc lõi nâng cấp",
+ "Nothing matches": "Không có kết quả",
+ "No traps found this patch": "Không có bẫy trong bản này",
+ "Nothing to test this patch": "Không có gì để thử trong bản này",
+ "Trap": "Bẫy",
+ "Confirmed bug": "Lỗi đã xác nhận",
+ "Needs a test": "Cần thử",
+ "Show less": "Thu gọn",
+ "+{n} more": "+{n} nữa",
+ "On paper": "Trên lý thuyết",
+ "In game": "Trong trận",
+ "How to test": "Cách thử"
+}

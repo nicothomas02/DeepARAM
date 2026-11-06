@@ -1,0 +1,22 @@
+{
+ "Builds and combos that look great on paper but don't hold up in real games. Check here before you try a theorycraft build.": "Kâğıt üzerinde harika görünen ama gerçek oyunlarda tutmayan dizilimler ve kombolar. Teorik bir dizilimi denemeden önce buraya bak.",
+ "Interactions that might be broken. Each one says what should happen on paper and how to test it in a game. If it really is broken, report it to Riot from the client so it gets fixed.": "Bozuk olabilecek etkileşimler. Her biri kâğıt üzerinde ne olması gerektiğini ve oyunda nasıl deneyeceğini söyler. Gerçekten bozuksa düzeltilmesi için istemciden Riot'a bildir.",
+ "Show": "Göster",
+ "All": "Tümü",
+ "Stat loop": "İstatistik döngüsü",
+ "Missing augment": "Eksik güçlendirme",
+ "Simulator vs real games": "Simülatör ve gerçek oyunlar",
+ "Does nothing": "Hiçbir şey yapmıyor",
+ "Find a champion or augment": "Şampiyon veya güçlendirme ara",
+ "Nothing matches": "Sonuç yok",
+ "No traps found this patch": "Bu yamada tuzak yok",
+ "Nothing to test this patch": "Bu yamada denenecek bir şey yok",
+ "Trap": "Tuzak",
+ "Confirmed bug": "Doğrulanmış hata",
+ "Needs a test": "Denenmeli",
+ "Show less": "Daha az göster",
+ "+{n} more": "+{n} daha",
+ "On paper": "Kâğıt üzerinde",
+ "In game": "Oyunda",
+ "How to test": "Nasıl denenir"
+}
