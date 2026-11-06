@@ -63,7 +63,6 @@ type ItemLifts = {
   moved_ten: number;
   items: Record<string, ItemLift>;
   moved: { id: number; from: number; to: number }[];
-  archive: { games: number; win_rate: number | null; rows: { completed: number; games: number; win_rate: number; ci: [number, number] }[] } | null;
 };
 export type LengthCurve = { games: number; median: number | null; quartiles: [number | null, number | null]; survival: number[]; hazard: number[] };
 export type GameLength = {
@@ -125,8 +124,8 @@ export const itemLift = (id: number): ItemLift | null => lifts()?.items[String(i
 export function itemLiftSummary() {
   const l = lifts();
   if (!l) return null;
-  return { premium: l.premium, ranked: l.ranked, moved: l.moved_ten, archive: l.archive };
+  return { premium: l.premium, ranked: l.ranked, moved: l.moved_ten };
 }
 
-/** How long games last, from the survival analysis of the owner's archive; null until the archive aggregates exist. */
+/** How long games last, from the survival analysis of the owner's archive; private, so the JSON is not in the repo and this is null on the site. */
 export const gameLength = (): GameLength | null => length();

@@ -131,10 +131,7 @@ def test_item_lift_adjusts_against_finished_builds():
         assert abs(v["adjusted"] - (v["raw"] - v["premium"])) < 0.001
         assert -0.5 < v["raw"] < 0.5 and v["weight"] > 0
     assert lift["moved_ten"] == sum(1 for v in ranked.values() if abs(v["rank_raw"] - v["rank_adjusted"]) >= 10)
-    if lift["archive"]:
-        assert sum(r["games"] for r in lift["archive"]["rows"]) == lift["archive"]["games"]
-        for r in lift["archive"]["rows"]:
-            assert r["ci"][0] <= r["win_rate"] <= r["ci"][1]
+    assert "archive" not in lift  # the owner's own stats stay out of the public repo
 
 
 def test_owner_archive_keeps_counts_only(monkeypatch):
@@ -166,7 +163,10 @@ def test_game_length_survival_is_monotone_and_tested():
     assert same["z"] == 0 and same["p"] == 1
     longer = gl.log_rank([0, 0, 0, 20], [0, 20, 0, 0])
     assert longer["z"] > 2 and longer["p"] < 0.05
-    data = load_json("data/analysis/game_length.json")
+    try:
+        data = load_json("data/analysis/game_length.json")  # private output, not in the repo
+    except FileNotFoundError:
+        return
     s = data["curves"]["all"]["survival"]
     assert s[0] == 1.0 and all(a >= b for a, b in zip(s, s[1:]))
     assert 10 < data["curves"]["all"]["median"] < 30

@@ -5,15 +5,15 @@ carries the same "the game went long enough to finish a build" effect as every o
 item against its champion's overall win rate (the raw lift on the item pages) mixes that effect in; here
 each item is measured against the champion's pick-weighted average over all finished builds instead, so the
 number says how the item did among builds that were completed. The premium itself (finished-build average
-minus champion win rate) is reported per champion and overall, and checked against the owner's own archive
-(win rate by number of completed legendary items, counts in archive_aggregates.json).
+minus champion win rate) is reported per champion and overall. A check against the owner's own archive (win
+rate by number of completed legendary items) is run by archive_check(), printed, and kept out of the JSON
+because the owner's stats stay off the public site.
 
 Output data/analysis/item_lift.json:
   premium   {mean, sd, share_positive, champions: n}  the finished-build bonus across champions, in win-rate points
   ranked, moved_ten   legendary items ranked, and how many move ten places or more between the two rankings
   items     id -> {raw, adjusted, premium, weight, rank_raw, rank_adjusted}  lifts as fractions, ranks among legendaries
   moved     the twelve items whose rank changed most between the two lifts (biggest first)
-  archive   win rate (with Wilson ranges) by completed legendary items from the owner's archive, or null
 """
 from __future__ import annotations
 
@@ -93,19 +93,6 @@ def build() -> dict:
         for pos, i in enumerate(sorted(ranked, key=lambda x: -items[x][key]), 1):
             items[i][rank] = pos
     moved = sorted(ranked, key=lambda i: -abs(items[i]["rank_raw"] - items[i]["rank_adjusted"]))
-    archive = None
-    path = c.OUT / "archive_aggregates.json"
-    if path.exists():
-        with open(path, encoding="utf-8") as f:
-            agg = json.load(f)
-        rows = []
-        for k, v in sorted(agg["by_completed_legendary"].items(), key=lambda kv: int(kv[0])):
-            if v["games"]:
-                rows.append({"completed": int(k), "games": v["games"], "win_rate": round(v["wins"] / v["games"], 4),
-                             "ci": wilson(v["wins"], v["games"])})
-        total = sum(r["games"] for r in rows)
-        wins = sum(v["wins"] for v in agg["by_completed_legendary"].values())
-        archive = {"games": total, "win_rate": round(wins / total, 4) if total else None, "rows": rows}
     return {
         "built": c.now_iso(),
         "method": "adjusted lift = item win rate minus the champion's pick-weighted finished-build win rate; raw lift = minus the champion's win rate; ranks among legendary items by pick-weighted lift",
@@ -115,9 +102,24 @@ def build() -> dict:
         "moved_ten": sum(1 for i in ranked if abs(items[i]["rank_raw"] - items[i]["rank_adjusted"]) >= 10),
         "items": {str(i): v for i, v in sorted(items.items())},
         "moved": [{"id": i, "from": items[i]["rank_raw"], "to": items[i]["rank_adjusted"]} for i in moved[:12]],
-        "archive": archive,
     }
+
+
+def archive_check() -> list[dict]:
+    """Win rate (with Wilson ranges) by completed legendary items from archive_aggregates.json, when it exists."""
+    path = c.OUT / "archive_aggregates.json"
+    if not path.exists():
+        return []
+    with open(path, encoding="utf-8") as f:
+        agg = json.load(f)
+    rows = []
+    for k, v in sorted(agg["by_completed_legendary"].items(), key=lambda kv: int(kv[0])):
+        if v["games"]:
+            rows.append({"completed": int(k), "games": v["games"], "win_rate": round(v["wins"] / v["games"], 4), "ci": wilson(v["wins"], v["games"])})
+    return rows
 
 
 if __name__ == "__main__":
     c.write_json(c.OUT / "item_lift.json", build())
+    for r in archive_check():
+        print(f"{r['completed']} completed legendaries: {r['games']} games, {100 * r['win_rate']:.1f}% won ({100 * r['ci'][0]:.0f} to {100 * r['ci'][1]:.0f})")
