@@ -33,6 +33,8 @@ import WeaponOfDestiny from "@/components/WeaponOfDestiny";
 import { destinyByChampion, weaponOfDestiny } from "@/lib/weapon-of-destiny";
 import Pentakill from "@/components/Pentakill";
 import { pentakill } from "@/lib/pentakill";
+import HiddenGems from "@/components/HiddenGems";
+import { hiddenGems } from "@/lib/hidden-gems";
 
 export const metadata: Metadata = pageMeta(
   "/tier-list",
@@ -271,6 +273,12 @@ export default function TierListPage() {
   const penta = pentakill();
   if (penta.length) {
     tabs.push({ id: "pentakill", label: "Pentakill", lazy: true, content: <Pentakill rows={penta} /> });
+  }
+
+  // Rarely picked items and augments that still win clearly more than the champion's usual ones.
+  const gems = hiddenGems();
+  if (gems && (Object.keys(gems.items).length || gems.augments.length)) {
+    tabs.push({ id: "hidden-gems", label: "Hidden gems", lazy: true, content: <HiddenGems data={gems} /> });
   }
 
   return (
