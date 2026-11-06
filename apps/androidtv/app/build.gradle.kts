@@ -14,26 +14,15 @@ android {
         applicationId = "com.deeparam.app"
         minSdk = 23
         targetSdk = 35
-        // TV builds use 2xxxxxx (2000000 + the release number) so they never collide with phone or Wear OS codes.
-        versionCode = 2_000_000 + (providers.gradleProperty("deeparam.versionCode").orNull?.toInt() ?: 1)
-        versionName = providers.gradleProperty("deeparam.versionName").orNull ?: "1.0"
+        // TV builds use 2xxxxxx so they never collide with phone (1, 2, ...) or Wear OS (1xxxxxx) codes.
+        versionCode = 2000001
+        versionName = "1.0"
     }
 
     buildTypes {
         release {
             isMinifyEnabled = true
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
-            // Signed with the upload key when .github/workflows/play-release.yml (or a local
-            // ~/.gradle/gradle.properties) passes it; otherwise the bundle is unsigned.
-            val keystore = providers.gradleProperty("deeparam.keystore").orNull
-            if (keystore != null) {
-                signingConfig = signingConfigs.create("upload") {
-                    storeFile = file(keystore)
-                    storePassword = providers.gradleProperty("deeparam.keystorePassword").get()
-                    keyAlias = providers.gradleProperty("deeparam.keyAlias").get()
-                    keyPassword = providers.gradleProperty("deeparam.keyPassword").get()
-                }
-            }
         }
     }
     compileOptions {

@@ -14,7 +14,7 @@ android {
         applicationId = "com.deeparam.app"
         minSdk = 26
         targetSdk = 35
-        // Play releases pass the run number; phone codes stay below 1000000.
+        // Play releases (.github/workflows/play-release.yml) pass the run number and version.
         versionCode = providers.gradleProperty("deeparam.versionCode").orNull?.toInt() ?: 1
         versionName = providers.gradleProperty("deeparam.versionName").orNull ?: "1.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"

@@ -1,9 +1,9 @@
 name: Google Play release
 
-# Builds signed app bundles for the phone/tablet/Chromebook app (apps/android), Wear OS (apps/wearos) and
-# Android TV (apps/androidtv). All three share one Google Play listing (com.deeparam.app). Run it from the
-# Actions tab with "Run workflow". The bundles are kept on the run for upload in Play Console. With the
-# PLAY_SERVICE_ACCOUNT_JSON secret set and a track picked, they also go to that track as a draft release.
+# Builds the signed app bundle for the Android app (apps/android: phones, tablets and Chromebooks,
+# com.deeparam.app). Run it from the Actions tab with "Run workflow". The bundle is kept on the run for
+# upload in Play Console. With the PLAY_SERVICE_ACCOUNT_JSON secret set and a track picked, it also goes
+# to that track as a draft release.
 # Drafts aren't live: someone still presses "Start rollout" in Play Console.
 #
 # Secrets: ANDROID_UPLOAD_KEYSTORE (the upload .jks, base64), ANDROID_UPLOAD_KEYSTORE_PASSWORD,
@@ -29,11 +29,11 @@ concurrency:
 
 jobs:
   bundles:
-    name: Signed bundles
+    name: Signed bundle
     runs-on: ubuntu-24.04
     timeout-minutes: 45
     env:
-      # Version codes: phone = run number, Wear OS = 1000000 + it, TV = 2000000 + it (set in each build file).
+      # The version code is the run number, so every release is higher than the last.
       RELEASE: ${{ github.run_number }}
       VERSION: ${{ inputs.version }}
     steps:
@@ -63,22 +63,14 @@ jobs:
             echo "deeparam.versionCode=$RELEASE"
             echo "deeparam.versionName=$VERSION"
           } >> ~/.gradle/gradle.properties
-      - name: Phone, tablet and Chromebook
+      - name: Build the bundle
         working-directory: apps/android
         run: ./gradlew :core:testDebugUnitTest :app:bundleRelease --console=plain
-      - name: Wear OS
-        working-directory: apps/wearos
-        run: ./gradlew --no-daemon :app:bundleRelease --console=plain
-      - name: Android TV
-        working-directory: apps/androidtv
-        run: ./gradlew --no-daemon :app:bundleRelease --console=plain
-      - name: Collect bundles
+      - name: Check it is signed
         run: |
           mkdir -p bundles
-          cp apps/android/app/build/outputs/bundle/release/app-release.aab "bundles/deeparam-phone-$VERSION.aab"
-          cp apps/wearos/app/build/outputs/bundle/release/app-release.aab "bundles/deeparam-wear-$VERSION.aab"
-          cp apps/androidtv/app/build/outputs/bundle/release/app-release.aab "bundles/deeparam-tv-$VERSION.aab"
-          for f in bundles/*.aab; do jarsigner -verify "$f" > /dev/null || { echo "::error::$f is not signed"; exit 1; }; done
+          cp apps/android/app/build/outputs/bundle/release/app-release.aab "bundles/deeparam-$VERSION.aab"
+          jarsigner -verify "bundles/deeparam-$VERSION.aab" > /dev/null || { echo "::error::the bundle is not signed"; exit 1; }
           ls -l bundles
       - uses: actions/upload-artifact@v4
         with:
@@ -88,30 +80,15 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: play-mapping-${{ inputs.version }}
-          path: |
-            apps/android/app/build/outputs/mapping/release/mapping.txt
-            apps/wearos/app/build/outputs/mapping/release/mapping.txt
-            apps/androidtv/app/build/outputs/mapping/release/mapping.txt
-          if-no-files-found: ignore
-      # Phone/tablet and TV share the main tracks; Play tells them apart by their manifests.
-      - name: Draft release on Google Play (phone, tablet, TV)
+          path: apps/android/app/build/outputs/mapping/release/mapping.txt
+      - name: Draft release on Google Play
         if: inputs.track != 'none'
         uses: r0adkll/upload-google-play@v1
         with:
           serviceAccountJsonPlainText: ${{ secrets.PLAY_SERVICE_ACCOUNT_JSON }}
           packageName: com.deeparam.app
-          releaseFiles: bundles/deeparam-phone-${{ inputs.version }}.aab,bundles/deeparam-tv-${{ inputs.version }}.aab
+          releaseFiles: bundles/deeparam-${{ inputs.version }}.aab
           releaseName: ${{ inputs.version }}
           track: ${{ inputs.track }}
           status: draft
-      # Wear OS has its own tracks on Play ("wear:internal" and so on).
-      - name: Draft release on Google Play (Wear OS)
-        if: inputs.track != 'none'
-        uses: r0adkll/upload-google-play@v1
-        with:
-          serviceAccountJsonPlainText: ${{ secrets.PLAY_SERVICE_ACCOUNT_JSON }}
-          packageName: com.deeparam.app
-          releaseFiles: bundles/deeparam-wear-${{ inputs.version }}.aab
-          releaseName: ${{ inputs.version }} (Wear OS)
-          track: wear:${{ inputs.track }}
-          status: draft
+          mappingFile: apps/android/app/build/outputs/mapping/release/mapping.txt
