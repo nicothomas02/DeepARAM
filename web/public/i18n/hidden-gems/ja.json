@@ -34,5 +34,13 @@
  "Boots": "ブーツ",
  "First three items": "最初の3アイテム",
  "Items": "アイテム",
- "Full builds": "フルビルド"
+ "Full builds": "フルビルド",
+ "Simulator": "シミュレーター",
+ "Agrees": "一致",
+ "Disagrees": "不一致",
+ "No gain": "効果なし",
+ "Not simulated": "未シミュレート",
+ "Checked in the Simulator against the champion's usual build: Agrees, or Disagrees when it scores more than 15% lower. Starting items and items it doesn't model aren't simulated.": "シミュレーターで、そのチャンピオンのいつものビルドと比較：一致、または15%以上低いと不一致。スタートアイテムとモデル化されていないアイテムはシミュレートしません。",
+ "Checked in the Simulator on the champion's usual build: Agrees when the augment helps, No gain when the fight can't show what it does. Augments that make the champion worse are left out.": "シミュレーターで、そのチャンピオンのいつものビルドで確認：オーグメントが役立てば一致、戦闘でその効果を示せなければ効果なし。チャンピオンを弱くするオーグメントは除外します。",
+ "Before a gem is listed, every item must still be sold in the shop and not be one only an augment gives, and every augment must still be in the pool and not make the champion worse in the Simulator. The Simulator column shows whether a fight in the Simulator backs it up.": "表示する前に、すべてのアイテムがまだショップで売られていてオーグメント専用ではないこと、すべてのオーグメントがまだ排出対象でシミュレーターでチャンピオンを弱くしないことを確認します。シミュレーター列は、シミュレーターでの戦闘が裏付けているかを示します。"
 }

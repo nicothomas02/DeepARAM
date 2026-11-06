@@ -34,5 +34,13 @@
  "Boots": "Bottes",
  "First three items": "Trois premiers objets",
  "Items": "Objets",
- "Full builds": "Builds complets"
+ "Full builds": "Builds complets",
+ "Simulator": "Simulateur",
+ "Agrees": "D'accord",
+ "Disagrees": "Pas d'accord",
+ "No gain": "Sans gain",
+ "Not simulated": "Non simulé",
+ "Checked in the Simulator against the champion's usual build: Agrees, or Disagrees when it scores more than 15% lower. Starting items and items it doesn't model aren't simulated.": "Vérifié dans le simulateur face au build habituel du champion : D'accord, ou Pas d'accord s'il fait plus de 15 % moins bien. Les objets de départ et ceux qu'il ne modélise pas ne sont pas simulés.",
+ "Checked in the Simulator on the champion's usual build: Agrees when the augment helps, No gain when the fight can't show what it does. Augments that make the champion worse are left out.": "Vérifié dans le simulateur sur le build habituel du champion : D'accord quand l'augment aide, Sans gain quand le combat ne peut pas montrer ce qu'il fait. Les augments qui affaiblissent le champion sont écartés.",
+ "Before a gem is listed, every item must still be sold in the shop and not be one only an augment gives, and every augment must still be in the pool and not make the champion worse in the Simulator. The Simulator column shows whether a fight in the Simulator backs it up.": "Avant d'afficher une pépite, chaque objet doit encore être vendu en boutique et ne pas être un objet que seul un augment donne, et chaque augment doit encore être dans le pool et ne pas affaiblir le champion dans le simulateur. La colonne Simulateur indique si un combat dans le simulateur le confirme."
 }

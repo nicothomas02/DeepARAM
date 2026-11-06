@@ -27,8 +27,11 @@ type ItemGem = {
   forecast_lo: number;
   forecast_hi: number;
   games: number;
+  sim?: SimCheck;
 };
-type AugmentGem = { champion: number; id: number; pick_rate: number; grade: string; games: number; rank: number };
+type AugmentGem = { champion: number; id: number; pick_rate: number; grade: string; games: number; rank: number; sim?: SimCheck };
+/** What the Simulator says about a gem (data/estimates/synergy_checks.py). */
+export type SimCheck = "agrees" | "disagrees" | "no gain" | "not simulated";
 type FamilyCheck = {
   checked: number;
   forecast_90_coverage: number;
@@ -65,8 +68,9 @@ export type ItemGemRow = {
   forecastLo: number;
   forecastHi: number;
   games: number;
+  sim: SimCheck;
 };
-export type AugmentGemRow = { champion: string; id: number; name: string; href: string | null; grade: string; pickRate: number; rank: number };
+export type AugmentGemRow = { champion: string; id: number; name: string; href: string | null; grade: string; pickRate: number; rank: number; sim: SimCheck };
 export type GemCheck = { family: GemFamily; checked: number; coverage: number; naive: number; flagged: number; stillAhead: number | null; everyRare: number | null };
 export type HiddenGems = {
   patch: string;
@@ -113,6 +117,7 @@ export function hiddenGems(): HiddenGems | null {
           forecastLo: g.forecast_lo,
           forecastHi: g.forecast_hi,
           games: g.games,
+          sim: g.sim ?? "not simulated",
         },
       ];
     });
@@ -122,7 +127,7 @@ export function hiddenGems(): HiddenGems | null {
     const champion = alias.get(a.champion);
     const name = names[String(a.id)];
     if (!champion || !name) return [];
-    return [{ champion, id: a.id, name, href: augmentHref(a.id), grade: a.grade, pickRate: a.pick_rate, rank: a.rank }];
+    return [{ champion, id: a.id, name, href: augmentHref(a.id), grade: a.grade, pickRate: a.pick_rate, rank: a.rank, sim: a.sim ?? "not simulated" }];
   });
   for (const fam of GEM_FAMILIES) {
     const b = data.backtest?.[fam];

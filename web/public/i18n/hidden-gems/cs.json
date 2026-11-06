@@ -34,5 +34,13 @@
  "Boots": "Boty",
  "First three items": "První tři předměty",
  "Items": "Předměty",
- "Full builds": "Celé buildy"
+ "Full builds": "Celé buildy",
+ "Simulator": "Simulátor",
+ "Agrees": "Souhlasí",
+ "Disagrees": "Nesouhlasí",
+ "No gain": "Bez zisku",
+ "Not simulated": "Nesimulováno",
+ "Checked in the Simulator against the champion's usual build: Agrees, or Disagrees when it scores more than 15% lower. Starting items and items it doesn't model aren't simulated.": "Ověřeno v simulátoru proti obvyklému buildu šampiona: Souhlasí, nebo Nesouhlasí, když vychází o víc než 15 % hůř. Startovní předměty a předměty, které nemodeluje, se nesimulují.",
+ "Checked in the Simulator on the champion's usual build: Agrees when the augment helps, No gain when the fight can't show what it does. Augments that make the champion worse are left out.": "Ověřeno v simulátoru na obvyklém buildu šampiona: Souhlasí, když augment pomáhá, Bez zisku, když boj nedokáže ukázat, co dělá. Augmenty, které šampiona oslabují, vynecháváme.",
+ "Before a gem is listed, every item must still be sold in the shop and not be one only an augment gives, and every augment must still be in the pool and not make the champion worse in the Simulator. The Simulator column shows whether a fight in the Simulator backs it up.": "Než se perla zobrazí, musí se každý předmět stále prodávat v obchodě a nesmí to být předmět, který dává jen augment, a každý augment musí být stále v poolu a nesmí šampiona v simulátoru oslabit. Sloupec Simulátor ukazuje, jestli to boj v simulátoru potvrzuje."
 }

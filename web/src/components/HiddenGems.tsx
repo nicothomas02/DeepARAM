@@ -1,7 +1,7 @@
 "use client";
 
 import DataTable, { type Column, type Row } from "@/components/DataTable";
-import type { AugmentGemRow, GemCheck, GemFamily, HiddenGems as Data, ItemGemRow } from "@/lib/hidden-gems";
+import type { AugmentGemRow, GemCheck, GemFamily, HiddenGems as Data, ItemGemRow, SimCheck } from "@/lib/hidden-gems";
 import { useNames, useT } from "./I18n";
 
 // The Tier List's Hidden gems tab (?tab=hidden-gems): choices few players make on a champion that still win clearly
@@ -15,6 +15,8 @@ const TITLES: Record<GemFamily, string> = {
   other: "Items",
   full_builds: "Full builds",
 };
+
+const SIM: Record<SimCheck, string> = { agrees: "Agrees", disagrees: "Disagrees", "no gain": "No gain", "not simulated": "Not simulated" };
 
 const pct = (n: number) => `${Math.round(n * 1000) / 10}%`;
 
@@ -47,6 +49,15 @@ function ItemTable({ family, rows }: { family: GemFamily; rows: ItemGemRow[] }) 
       hint: t("Win rate minus the champion's usual for this slot, this patch so far."),
     },
     { key: "games", label: t("Games"), format: "int", phone: "hide", hint: t("Estimated.") },
+    {
+      key: "sim",
+      label: t("Simulator"),
+      format: "text",
+      phone: "hide",
+      hint: t(
+        "Checked in the Simulator against the champion's usual build: Agrees, or Disagrees when it scores more than 15% lower. Starting items and items it doesn't model aren't simulated.",
+      ),
+    },
   ];
   const data: Row[] = rows.map((r) => ({
     champion: r.champion,
@@ -59,6 +70,7 @@ function ItemTable({ family, rows }: { family: GemFamily; rows: ItemGemRow[] }) 
     winRate: r.winRate,
     lift: r.lift,
     games: r.games,
+    sim: t(SIM[r.sim]),
   }));
   return (
     <section className="gems-section">
@@ -76,6 +88,15 @@ function AugmentTable({ rows }: { rows: AugmentGemRow[] }) {
     { key: "grade", label: t("Grade"), format: "tier", sortKey: "gradeOrder", hint: t("Its grade on this champion, from game results.") },
     { key: "pickRate", label: t("Picked by"), format: "pct", hint: t("Share of the champion's players who take it.") },
     { key: "rank", label: t("Order"), format: "int", hint: t("Estimated. Most promising first.") },
+    {
+      key: "sim",
+      label: t("Simulator"),
+      format: "text",
+      phone: "hide",
+      hint: t(
+        "Checked in the Simulator on the champion's usual build: Agrees when the augment helps, No gain when the fight can't show what it does. Augments that make the champion worse are left out.",
+      ),
+    },
   ];
   const data: Row[] = rows.map((r) => ({
     champion: r.champion,
@@ -86,6 +107,7 @@ function AugmentTable({ rows }: { rows: AugmentGemRow[] }) {
     gradeOrder: r.grade === "S" ? 2 : 1,
     pickRate: r.pickRate,
     rank: r.rank,
+    sim: t(SIM[r.sim]),
   }));
   return (
     <section className="gems-section">
@@ -137,6 +159,11 @@ function Checks({ checks, on }: { checks: GemCheck[]; on: string[] | null }) {
           </li>
         ))}
       </ul>
+      <p>
+        {t(
+          "Before a gem is listed, every item must still be sold in the shop and not be one only an augment gives, and every augment must still be in the pool and not make the champion worse in the Simulator. The Simulator column shows whether a fight in the Simulator backs it up.",
+        )}
+      </p>
       <p>{t("A hidden gem wins more in practice, which doesn't prove it causes the wins: the players who pick it may differ too.")}</p>
     </details>
   );

@@ -1,7 +1,7 @@
 {
  "patch": "16.22",
  "estimated": true,
- "built": "2026-11-06T19:06:57Z",
+ "built": "2026-11-06T19:25:28Z",
  "max_pick": 0.02,
  "games": 3630000,
  "stale": [
@@ -49,6 +49,7 @@
     "forecast": 0.0991,
     "forecast_lo": 0.0457,
     "forecast_hi": 0.1524,
+    "sim": "not simulated",
     "games": 670
    },
    {
@@ -66,6 +67,7 @@
     "forecast": 0.0809,
     "forecast_lo": 0.0372,
     "forecast_hi": 0.1246,
+    "sim": "not simulated",
     "games": 5500
    },
    {
@@ -83,6 +85,7 @@
     "forecast": 0.078,
     "forecast_lo": 0.0337,
     "forecast_hi": 0.1222,
+    "sim": "not simulated",
     "games": 4500
    },
    {
@@ -99,6 +102,7 @@
     "forecast": 0.0854,
     "forecast_lo": 0.0318,
     "forecast_hi": 0.139,
+    "sim": "not simulated",
     "games": 680
    },
    {
@@ -115,6 +119,7 @@
     "forecast": 0.0693,
     "forecast_lo": 0.0233,
     "forecast_hi": 0.1153,
+    "sim": "not simulated",
     "games": 2270
    },
    {
@@ -132,6 +137,7 @@
     "forecast": 0.0669,
     "forecast_lo": 0.0226,
     "forecast_hi": 0.1111,
+    "sim": "not simulated",
     "games": 4030
    },
    {
@@ -149,6 +155,7 @@
     "forecast": 0.0671,
     "forecast_lo": 0.0225,
     "forecast_hi": 0.1117,
+    "sim": "not simulated",
     "games": 3940
    },
    {
@@ -165,6 +172,7 @@
     "forecast": 0.0668,
     "forecast_lo": 0.018,
     "forecast_hi": 0.1156,
+    "sim": "not simulated",
     "games": 1120
    },
    {
@@ -181,6 +189,7 @@
     "forecast": 0.0635,
     "forecast_lo": 0.0172,
     "forecast_hi": 0.1099,
+    "sim": "not simulated",
     "games": 2110
    },
    {
@@ -198,6 +207,7 @@
     "forecast": 0.0557,
     "forecast_lo": 0.0119,
     "forecast_hi": 0.0995,
+    "sim": "not simulated",
     "games": 5770
    }
   ],
@@ -216,6 +226,8 @@
     "forecast": 0.0356,
     "forecast_lo": 0.0095,
     "forecast_hi": 0.0618,
+    "sim": "agrees",
+    "sim_gain": 0.006,
     "games": 7100
    },
    {
@@ -232,6 +244,8 @@
     "forecast": 0.0432,
     "forecast_lo": 0.0086,
     "forecast_hi": 0.0779,
+    "sim": "agrees",
+    "sim_gain": 0.045,
     "games": 1390
    },
    {
@@ -248,6 +262,8 @@
     "forecast": 0.04,
     "forecast_lo": 0.0052,
     "forecast_hi": 0.0748,
+    "sim": "agrees",
+    "sim_gain": -0.027,
     "games": 1350
    },
    {
@@ -264,6 +280,8 @@
     "forecast": 0.0349,
     "forecast_lo": 0.0037,
     "forecast_hi": 0.0662,
+    "sim": "agrees",
+    "sim_gain": -0.011,
     "games": 2090
    },
    {
@@ -280,6 +298,8 @@
     "forecast": 0.0369,
     "forecast_lo": 0.0029,
     "forecast_hi": 0.071,
+    "sim": "agrees",
+    "sim_gain": 0.043,
     "games": 1470
    },
    {
@@ -296,6 +316,7 @@
     "forecast": 0.0339,
     "forecast_lo": 0.0021,
     "forecast_hi": 0.0657,
+    "sim": "not simulated",
     "games": 1960
    },
    {
@@ -312,6 +333,8 @@
     "forecast": 0.0293,
     "forecast_lo": 0.0018,
     "forecast_hi": 0.0568,
+    "sim": "agrees",
+    "sim_gain": -0.079,
     "games": 4410
    },
    {
@@ -328,6 +351,7 @@
     "forecast": 0.0342,
     "forecast_lo": 0.0015,
     "forecast_hi": 0.0669,
+    "sim": "not simulated",
     "games": 1740
    }
   ],
@@ -351,6 +375,7 @@
     "forecast": 0.094,
     "forecast_lo": 0.0472,
     "forecast_hi": 0.1407,
+    "sim": "not simulated",
     "games": 1520
    },
    {
@@ -372,6 +397,8 @@
     "forecast": 0.0792,
     "forecast_lo": 0.0274,
     "forecast_hi": 0.1309,
+    "sim": "disagrees",
+    "sim_gain": -0.258,
     "games": 770
    },
    {
@@ -393,6 +420,8 @@
     "forecast": 0.0741,
     "forecast_lo": 0.0252,
     "forecast_hi": 0.1229,
+    "sim": "disagrees",
+    "sim_gain": -0.378,
     "games": 1020
    },
    {
@@ -414,6 +443,8 @@
     "forecast": 0.0746,
     "forecast_lo": 0.0233,
     "forecast_hi": 0.1259,
+    "sim": "disagrees",
+    "sim_gain": -0.266,
     "games": 820
    },
    {
@@ -435,6 +466,7 @@
     "forecast": 0.064,
     "forecast_lo": 0.0191,
     "forecast_hi": 0.1089,
+    "sim": "not simulated",
     "games": 2240
    },
    {
@@ -456,6 +488,8 @@
     "forecast": 0.0489,
     "forecast_lo": 0.0039,
     "forecast_hi": 0.0939,
+    "sim": "agrees",
+    "sim_gain": -0.149,
     "games": 2140
    },
    {
@@ -477,6 +511,7 @@
     "forecast": 0.0473,
     "forecast_lo": 0.0039,
     "forecast_hi": 0.0908,
+    "sim": "not simulated",
     "games": 3360
    },
    {
@@ -498,6 +533,7 @@
     "forecast": 0.0466,
     "forecast_lo": 0.0023,
     "forecast_hi": 0.0909,
+    "sim": "not simulated",
     "games": 2580
    }
   ]
@@ -509,6 +545,7 @@
    "pick_rate": 0.0191,
    "grade": "S",
    "games": 9720,
+   "sim": "agrees",
    "rank": 1
   },
   {
@@ -517,6 +554,7 @@
    "pick_rate": 0.018,
    "grade": "S",
    "games": 920,
+   "sim": "not simulated",
    "rank": 2
   },
   {
@@ -525,6 +563,7 @@
    "pick_rate": 0.0181,
    "grade": "A",
    "games": 9310,
+   "sim": "agrees",
    "rank": 3
   },
   {
@@ -533,6 +572,7 @@
    "pick_rate": 0.014,
    "grade": "A",
    "games": 3460,
+   "sim": "agrees",
    "rank": 4
   },
   {
@@ -541,6 +581,7 @@
    "pick_rate": 0.0136,
    "grade": "A",
    "games": 7070,
+   "sim": "agrees",
    "rank": 5
   },
   {
@@ -549,6 +590,7 @@
    "pick_rate": 0.0194,
    "grade": "S",
    "games": 4890,
+   "sim": "not simulated",
    "rank": 6
   },
   {
@@ -557,6 +599,7 @@
    "pick_rate": 0.0171,
    "grade": "S",
    "games": 2000,
+   "sim": "not simulated",
    "rank": 7
   },
   {
@@ -565,6 +608,7 @@
    "pick_rate": 0.0186,
    "grade": "S",
    "games": 4880,
+   "sim": "not simulated",
    "rank": 8
   },
   {
@@ -573,6 +617,7 @@
    "pick_rate": 0.0193,
    "grade": "S",
    "games": 7130,
+   "sim": "not simulated",
    "rank": 9
   },
   {
@@ -581,6 +626,7 @@
    "pick_rate": 0.0084,
    "grade": "A",
    "games": 2860,
+   "sim": "not simulated",
    "rank": 10
   },
   {
@@ -589,6 +635,7 @@
    "pick_rate": 0.0138,
    "grade": "A",
    "games": 3390,
+   "sim": "not simulated",
    "rank": 11
   },
   {
@@ -597,6 +644,7 @@
    "pick_rate": 0.0156,
    "grade": "S",
    "games": 2840,
+   "sim": "not simulated",
    "rank": 12
   },
   {
@@ -605,6 +653,7 @@
    "pick_rate": 0.0198,
    "grade": "S",
    "games": 930,
+   "sim": "not simulated",
    "rank": 13
   },
   {
@@ -613,6 +662,7 @@
    "pick_rate": 0.0186,
    "grade": "S",
    "games": 1120,
+   "sim": "not simulated",
    "rank": 14
   },
   {
@@ -621,6 +671,7 @@
    "pick_rate": 0.017,
    "grade": "S",
    "games": 1340,
+   "sim": "not simulated",
    "rank": 15
   },
   {
@@ -629,6 +680,7 @@
    "pick_rate": 0.0181,
    "grade": "S",
    "games": 4070,
+   "sim": "agrees",
    "rank": 16
   },
   {
@@ -637,6 +689,7 @@
    "pick_rate": 0.0046,
    "grade": "A",
    "games": 1460,
+   "sim": "not simulated",
    "rank": 17
   },
   {
@@ -645,6 +698,7 @@
    "pick_rate": 0.0085,
    "grade": "A",
    "games": 3360,
+   "sim": "not simulated",
    "rank": 18
   },
   {
@@ -653,6 +707,7 @@
    "pick_rate": 0.0085,
    "grade": "A",
    "games": 3710,
+   "sim": "not simulated",
    "rank": 19
   },
   {
@@ -661,6 +716,7 @@
    "pick_rate": 0.0056,
    "grade": "A",
    "games": 2000,
+   "sim": "not simulated",
    "rank": 20
   },
   {
@@ -669,6 +725,7 @@
    "pick_rate": 0.0031,
    "grade": "A",
    "games": 660,
+   "sim": "not simulated",
    "rank": 21
   },
   {
@@ -677,6 +734,7 @@
    "pick_rate": 0.0068,
    "grade": "A",
    "games": 1100,
+   "sim": "not simulated",
    "rank": 22
   },
   {
@@ -685,6 +743,7 @@
    "pick_rate": 0.0114,
    "grade": "A",
    "games": 1930,
+   "sim": "not simulated",
    "rank": 23
   },
   {
@@ -693,6 +752,7 @@
    "pick_rate": 0.0077,
    "grade": "A",
    "games": 620,
+   "sim": "not simulated",
    "rank": 24
   },
   {
@@ -701,6 +761,7 @@
    "pick_rate": 0.0084,
    "grade": "A",
    "games": 2500,
+   "sim": "not simulated",
    "rank": 25
   },
   {
@@ -709,6 +770,7 @@
    "pick_rate": 0.0079,
    "grade": "A",
    "games": 2080,
+   "sim": "not simulated",
    "rank": 26
   },
   {
@@ -717,6 +779,7 @@
    "pick_rate": 0.0121,
    "grade": "A",
    "games": 5270,
+   "sim": "not simulated",
    "rank": 27
   },
   {
@@ -725,6 +788,7 @@
    "pick_rate": 0.0081,
    "grade": "A",
    "games": 1470,
+   "sim": "not simulated",
    "rank": 28
   },
   {
@@ -733,6 +797,7 @@
    "pick_rate": 0.0084,
    "grade": "A",
    "games": 2050,
+   "sim": "not simulated",
    "rank": 29
   },
   {
@@ -741,6 +806,7 @@
    "pick_rate": 0.006,
    "grade": "A",
    "games": 410,
+   "sim": "not simulated",
    "rank": 30
   },
   {
@@ -749,6 +815,7 @@
    "pick_rate": 0.0109,
    "grade": "A",
    "games": 2290,
+   "sim": "not simulated",
    "rank": 31
   },
   {
@@ -757,6 +824,7 @@
    "pick_rate": 0.0076,
    "grade": "A",
    "games": 180,
+   "sim": "not simulated",
    "rank": 32
   },
   {
@@ -765,6 +833,7 @@
    "pick_rate": 0.0091,
    "grade": "A",
    "games": 1080,
+   "sim": "not simulated",
    "rank": 33
   },
   {
@@ -773,6 +842,7 @@
    "pick_rate": 0.0093,
    "grade": "A",
    "games": 740,
+   "sim": "not simulated",
    "rank": 34
   },
   {
@@ -781,6 +851,7 @@
    "pick_rate": 0.008,
    "grade": "A",
    "games": 3890,
+   "sim": "not simulated",
    "rank": 35
   },
   {
@@ -789,6 +860,7 @@
    "pick_rate": 0.006,
    "grade": "A",
    "games": 730,
+   "sim": "not simulated",
    "rank": 36
   },
   {
@@ -797,6 +869,7 @@
    "pick_rate": 0.0075,
    "grade": "A",
    "games": 890,
+   "sim": "not simulated",
    "rank": 37
   },
   {
@@ -805,6 +878,7 @@
    "pick_rate": 0.01,
    "grade": "A",
    "games": 1100,
+   "sim": "not simulated",
    "rank": 38
   },
   {
@@ -813,6 +887,7 @@
    "pick_rate": 0.0096,
    "grade": "A",
    "games": 1060,
+   "sim": "not simulated",
    "rank": 39
   },
   {
@@ -821,6 +896,7 @@
    "pick_rate": 0.0051,
    "grade": "A",
    "games": 840,
+   "sim": "not simulated",
    "rank": 40
   },
   {
@@ -829,6 +905,7 @@
    "pick_rate": 0.009,
    "grade": "A",
    "games": 1940,
+   "sim": "not simulated",
    "rank": 41
   },
   {
@@ -837,6 +914,7 @@
    "pick_rate": 0.0054,
    "grade": "A",
    "games": 1420,
+   "sim": "not simulated",
    "rank": 42
   },
   {
@@ -845,6 +923,7 @@
    "pick_rate": 0.0093,
    "grade": "A",
    "games": 3110,
+   "sim": "not simulated",
    "rank": 43
   },
   {
@@ -853,6 +932,7 @@
    "pick_rate": 0.0069,
    "grade": "A",
    "games": 1660,
+   "sim": "not simulated",
    "rank": 44
   },
   {
@@ -861,6 +941,7 @@
    "pick_rate": 0.0082,
    "grade": "A",
    "games": 2800,
+   "sim": "not simulated",
    "rank": 45
   },
   {
@@ -869,6 +950,7 @@
    "pick_rate": 0.0064,
    "grade": "A",
    "games": 1370,
+   "sim": "not simulated",
    "rank": 46
   },
   {
@@ -877,6 +959,7 @@
    "pick_rate": 0.0083,
    "grade": "A",
    "games": 330,
+   "sim": "not simulated",
    "rank": 47
   },
   {
@@ -885,6 +968,7 @@
    "pick_rate": 0.0089,
    "grade": "A",
    "games": 3030,
+   "sim": "not simulated",
    "rank": 48
   },
   {
@@ -893,6 +977,7 @@
    "pick_rate": 0.0122,
    "grade": "A",
    "games": 1330,
+   "sim": "not simulated",
    "rank": 49
   },
   {
@@ -901,6 +986,7 @@
    "pick_rate": 0.0074,
    "grade": "A",
    "games": 3030,
+   "sim": "not simulated",
    "rank": 50
   },
   {
@@ -909,6 +995,7 @@
    "pick_rate": 0.0118,
    "grade": "A",
    "games": 2970,
+   "sim": "not simulated",
    "rank": 51
   },
   {
@@ -917,6 +1004,7 @@
    "pick_rate": 0.0048,
    "grade": "A",
    "games": 1200,
+   "sim": "not simulated",
    "rank": 52
   },
   {
@@ -925,6 +1013,7 @@
    "pick_rate": 0.0082,
    "grade": "A",
    "games": 250,
+   "sim": "not simulated",
    "rank": 53
   },
   {
@@ -933,6 +1022,7 @@
    "pick_rate": 0.0091,
    "grade": "A",
    "games": 1560,
+   "sim": "not simulated",
    "rank": 54
   },
   {
@@ -941,6 +1031,7 @@
    "pick_rate": 0.0081,
    "grade": "A",
    "games": 3960,
+   "sim": "not simulated",
    "rank": 55
   },
   {
@@ -949,6 +1040,7 @@
    "pick_rate": 0.006,
    "grade": "A",
    "games": 770,
+   "sim": "not simulated",
    "rank": 56
   },
   {
@@ -957,6 +1049,7 @@
    "pick_rate": 0.0071,
    "grade": "A",
    "games": 1520,
+   "sim": "not simulated",
    "rank": 57
   },
   {
@@ -965,6 +1058,7 @@
    "pick_rate": 0.0077,
    "grade": "A",
    "games": 790,
+   "sim": "not simulated",
    "rank": 58
   },
   {
@@ -973,6 +1067,7 @@
    "pick_rate": 0.0105,
    "grade": "A",
    "games": 1620,
+   "sim": "not simulated",
    "rank": 59
   },
   {
@@ -981,6 +1076,7 @@
    "pick_rate": 0.0192,
    "grade": "A",
    "games": 7650,
+   "sim": "not simulated",
    "rank": 60
   },
   {
@@ -989,6 +1085,7 @@
    "pick_rate": 0.0147,
    "grade": "A",
    "games": 1260,
+   "sim": "not simulated",
    "rank": 61
   },
   {
@@ -997,6 +1094,7 @@
    "pick_rate": 0.0065,
    "grade": "A",
    "games": 1390,
+   "sim": "not simulated",
    "rank": 62
   },
   {
@@ -1005,6 +1103,7 @@
    "pick_rate": 0.0022,
    "grade": "A",
    "games": 360,
+   "sim": "not simulated",
    "rank": 63
   },
   {
@@ -1013,6 +1112,7 @@
    "pick_rate": 0.0119,
    "grade": "A",
    "games": 960,
+   "sim": "not simulated",
    "rank": 64
   },
   {
@@ -1021,6 +1121,7 @@
    "pick_rate": 0.0087,
    "grade": "A",
    "games": 2060,
+   "sim": "not simulated",
    "rank": 65
   },
   {
@@ -1029,6 +1130,7 @@
    "pick_rate": 0.0134,
    "grade": "A",
    "games": 2870,
+   "sim": "not simulated",
    "rank": 66
   },
   {
@@ -1037,6 +1139,7 @@
    "pick_rate": 0.0158,
    "grade": "A",
    "games": 5490,
+   "sim": "not simulated",
    "rank": 67
   },
   {
@@ -1045,6 +1148,7 @@
    "pick_rate": 0.0105,
    "grade": "A",
    "games": 2570,
+   "sim": "not simulated",
    "rank": 68
   },
   {
@@ -1053,6 +1157,7 @@
    "pick_rate": 0.0025,
    "grade": "A",
    "games": 480,
+   "sim": "not simulated",
    "rank": 69
   },
   {
@@ -1061,6 +1166,7 @@
    "pick_rate": 0.0019,
    "grade": "A",
    "games": 270,
+   "sim": "not simulated",
    "rank": 70
   },
   {
@@ -1069,6 +1175,7 @@
    "pick_rate": 0.006,
    "grade": "A",
    "games": 1880,
+   "sim": "not simulated",
    "rank": 71
   },
   {
@@ -1077,6 +1184,7 @@
    "pick_rate": 0.018,
    "grade": "A",
    "games": 2460,
+   "sim": "not simulated",
    "rank": 72
   },
   {
@@ -1085,6 +1193,7 @@
    "pick_rate": 0.0066,
    "grade": "A",
    "games": 780,
+   "sim": "not simulated",
    "rank": 73
   },
   {
@@ -1093,6 +1202,7 @@
    "pick_rate": 0.0111,
    "grade": "A",
    "games": 1740,
+   "sim": "not simulated",
    "rank": 74
   },
   {
@@ -1101,6 +1211,7 @@
    "pick_rate": 0.007,
    "grade": "A",
    "games": 2420,
+   "sim": "not simulated",
    "rank": 75
   },
   {
@@ -1109,6 +1220,7 @@
    "pick_rate": 0.0118,
    "grade": "A",
    "games": 4030,
+   "sim": "not simulated",
    "rank": 76
   },
   {
@@ -1117,6 +1229,7 @@
    "pick_rate": 0.005,
    "grade": "A",
    "games": 1280,
+   "sim": "not simulated",
    "rank": 77
   },
   {
@@ -1125,6 +1238,7 @@
    "pick_rate": 0.0124,
    "grade": "A",
    "games": 3140,
+   "sim": "not simulated",
    "rank": 78
   },
   {
@@ -1133,6 +1247,7 @@
    "pick_rate": 0.0099,
    "grade": "A",
    "games": 3390,
+   "sim": "not simulated",
    "rank": 79
   },
   {
@@ -1141,6 +1256,7 @@
    "pick_rate": 0.0086,
    "grade": "A",
    "games": 2040,
+   "sim": "not simulated",
    "rank": 80
   },
   {
@@ -1149,6 +1265,7 @@
    "pick_rate": 0.0139,
    "grade": "A",
    "games": 3470,
+   "sim": "not simulated",
    "rank": 81
   },
   {
@@ -1157,6 +1274,7 @@
    "pick_rate": 0.0166,
    "grade": "A",
    "games": 2140,
+   "sim": "not simulated",
    "rank": 82
   },
   {
@@ -1165,6 +1283,7 @@
    "pick_rate": 0.0112,
    "grade": "A",
    "games": 4660,
+   "sim": "not simulated",
    "rank": 83
   },
   {
@@ -1173,6 +1292,7 @@
    "pick_rate": 0.0168,
    "grade": "S",
    "games": 1120,
+   "sim": "not simulated",
    "rank": 84
   },
   {
@@ -1181,6 +1301,7 @@
    "pick_rate": 0.0188,
    "grade": "S",
    "games": 4480,
+   "sim": "not simulated",
    "rank": 85
   },
   {
@@ -1189,6 +1310,7 @@
    "pick_rate": 0.017,
    "grade": "S",
    "games": 4200,
+   "sim": "not simulated",
    "rank": 86
   },
   {
@@ -1197,15 +1319,8 @@
    "pick_rate": 0.0132,
    "grade": "S",
    "games": 880,
+   "sim": "agrees",
    "rank": 87
-  },
-  {
-   "champion": 77,
-   "id": 1004,
-   "pick_rate": 0.0137,
-   "grade": "S",
-   "games": 2630,
-   "rank": 88
   },
   {
    "champion": 154,
@@ -1213,7 +1328,8 @@
    "pick_rate": 0.0184,
    "grade": "S",
    "games": 1480,
-   "rank": 89
+   "sim": "agrees",
+   "rank": 88
   },
   {
    "champion": 12,
@@ -1221,7 +1337,8 @@
    "pick_rate": 0.0163,
    "grade": "S",
    "games": 3150,
-   "rank": 90
+   "sim": "no gain",
+   "rank": 89
   },
   {
    "champion": 268,
@@ -1229,7 +1346,8 @@
    "pick_rate": 0.0157,
    "grade": "S",
    "games": 1160,
-   "rank": 91
+   "sim": "agrees",
+   "rank": 90
   },
   {
    "champion": 200,
@@ -1237,7 +1355,8 @@
    "pick_rate": 0.019,
    "grade": "S",
    "games": 2920,
-   "rank": 92
+   "sim": "no gain",
+   "rank": 91
   },
   {
    "champion": 12,
@@ -1245,7 +1364,8 @@
    "pick_rate": 0.0089,
    "grade": "A",
    "games": 1720,
-   "rank": 93
+   "sim": "not simulated",
+   "rank": 92
   },
   {
    "champion": 14,
@@ -1253,7 +1373,8 @@
    "pick_rate": 0.019,
    "grade": "S",
    "games": 3500,
-   "rank": 94
+   "sim": "not simulated",
+   "rank": 93
   },
   {
    "champion": 432,
@@ -1261,7 +1382,8 @@
    "pick_rate": 0.0128,
    "grade": "A",
    "games": 600,
-   "rank": 95
+   "sim": "not simulated",
+   "rank": 94
   },
   {
    "champion": 235,
@@ -1269,7 +1391,8 @@
    "pick_rate": 0.0115,
    "grade": "A",
    "games": 3920,
-   "rank": 96
+   "sim": "not simulated",
+   "rank": 95
   },
   {
    "champion": 147,
@@ -1277,7 +1400,8 @@
    "pick_rate": 0.0129,
    "grade": "A",
    "games": 3170,
-   "rank": 97
+   "sim": "not simulated",
+   "rank": 96
   },
   {
    "champion": 98,
@@ -1285,7 +1409,8 @@
    "pick_rate": 0.0076,
    "grade": "A",
    "games": 1110,
-   "rank": 98
+   "sim": "not simulated",
+   "rank": 97
   },
   {
    "champion": 236,
@@ -1293,7 +1418,8 @@
    "pick_rate": 0.019,
    "grade": "S",
    "games": 9290,
-   "rank": 99
+   "sim": "agrees",
+   "rank": 98
   },
   {
    "champion": 15,
@@ -1301,7 +1427,8 @@
    "pick_rate": 0.0162,
    "grade": "S",
    "games": 2750,
-   "rank": 100
+   "sim": "not simulated",
+   "rank": 99
   },
   {
    "champion": 498,
@@ -1309,7 +1436,8 @@
    "pick_rate": 0.0179,
    "grade": "S",
    "games": 3260,
-   "rank": 101
+   "sim": "not simulated",
+   "rank": 100
   },
   {
    "champion": 222,
@@ -1317,7 +1445,8 @@
    "pick_rate": 0.0183,
    "grade": "S",
    "games": 5850,
-   "rank": 102
+   "sim": "not simulated",
+   "rank": 101
   },
   {
    "champion": 523,
@@ -1325,7 +1454,8 @@
    "pick_rate": 0.0182,
    "grade": "S",
    "games": 2660,
-   "rank": 103
+   "sim": "not simulated",
+   "rank": 102
   },
   {
    "champion": 9,
@@ -1333,7 +1463,8 @@
    "pick_rate": 0.0154,
    "grade": "S",
    "games": 2180,
-   "rank": 104
+   "sim": "agrees",
+   "rank": 103
   },
   {
    "champion": 133,
@@ -1341,7 +1472,8 @@
    "pick_rate": 0.0168,
    "grade": "S",
    "games": 1330,
-   "rank": 105
+   "sim": "not simulated",
+   "rank": 104
   },
   {
    "champion": 51,
@@ -1349,7 +1481,8 @@
    "pick_rate": 0.0166,
    "grade": "S",
    "games": 8070,
-   "rank": 106
+   "sim": "not simulated",
+   "rank": 105
   },
   {
    "champion": 119,
@@ -1357,7 +1490,8 @@
    "pick_rate": 0.0198,
    "grade": "S",
    "games": 4990,
-   "rank": 107
+   "sim": "not simulated",
+   "rank": 106
   },
   {
    "champion": 85,
@@ -1365,7 +1499,8 @@
    "pick_rate": 0.0188,
    "grade": "S",
    "games": 1910,
-   "rank": 108
+   "sim": "not simulated",
+   "rank": 107
   },
   {
    "champion": 235,
@@ -1373,7 +1508,8 @@
    "pick_rate": 0.0151,
    "grade": "S",
    "games": 5150,
-   "rank": 109
+   "sim": "agrees",
+   "rank": 108
   },
   {
    "champion": 4,
@@ -1381,7 +1517,8 @@
    "pick_rate": 0.0179,
    "grade": "S",
    "games": 7120,
-   "rank": 110
+   "sim": "agrees",
+   "rank": 109
   },
   {
    "champion": 30,
@@ -1389,7 +1526,8 @@
    "pick_rate": 0.0137,
    "grade": "S",
    "games": 6300,
-   "rank": 111
+   "sim": "agrees",
+   "rank": 110
   },
   {
    "champion": 77,
@@ -1397,7 +1535,8 @@
    "pick_rate": 0.0196,
    "grade": "S",
    "games": 3760,
-   "rank": 112
+   "sim": "agrees",
+   "rank": 111
   },
   {
    "champion": 41,
@@ -1405,7 +1544,8 @@
    "pick_rate": 0.0055,
    "grade": "A",
    "games": 1740,
-   "rank": 113
+   "sim": "agrees",
+   "rank": 112
   },
   {
    "champion": 45,
@@ -1413,7 +1553,8 @@
    "pick_rate": 0.0063,
    "grade": "A",
    "games": 1560,
-   "rank": 114
+   "sim": "agrees",
+   "rank": 113
   },
   {
    "champion": 901,
@@ -1421,7 +1562,8 @@
    "pick_rate": 0.0035,
    "grade": "A",
    "games": 1380,
-   "rank": 115
+   "sim": "agrees",
+   "rank": 114
   },
   {
    "champion": 201,
@@ -1429,7 +1571,8 @@
    "pick_rate": 0.0019,
    "grade": "A",
    "games": 130,
-   "rank": 116
+   "sim": "no gain",
+   "rank": 115
   },
   {
    "champion": 145,
@@ -1437,7 +1580,8 @@
    "pick_rate": 0.0039,
    "grade": "A",
    "games": 2010,
-   "rank": 117
+   "sim": "agrees",
+   "rank": 116
   },
   {
    "champion": 35,
@@ -1445,7 +1589,8 @@
    "pick_rate": 0.0041,
    "grade": "A",
    "games": 1460,
-   "rank": 118
+   "sim": "not simulated",
+   "rank": 117
   },
   {
    "champion": 96,
@@ -1453,7 +1598,8 @@
    "pick_rate": 0.0038,
    "grade": "A",
    "games": 780,
-   "rank": 119
+   "sim": "agrees",
+   "rank": 118
   },
   {
    "champion": 266,
@@ -1461,9 +1607,27 @@
    "pick_rate": 0.0038,
    "grade": "A",
    "games": 810,
+   "sim": "not simulated",
+   "rank": 119
+  },
+  {
+   "champion": 56,
+   "id": 1389,
+   "pick_rate": 0.0026,
+   "grade": "A",
+   "games": 420,
+   "sim": "not simulated",
    "rank": 120
   }
  ],
+ "checks": {
+  "simulator": true,
+  "dropped": {
+   "augments": {
+    "Simulator disagrees": 1
+   }
+  }
+ },
  "backtest": {
   "starting": {
    "checked": 139,

@@ -34,5 +34,13 @@
  "Boots": "Giày",
  "First three items": "Ba trang bị đầu",
  "Items": "Trang bị",
- "Full builds": "Lối lên đồ đầy đủ"
+ "Full builds": "Lối lên đồ đầy đủ",
+ "Simulator": "Mô phỏng",
+ "Agrees": "Đồng ý",
+ "Disagrees": "Không đồng ý",
+ "No gain": "Không có lợi",
+ "Not simulated": "Chưa mô phỏng",
+ "Checked in the Simulator against the champion's usual build: Agrees, or Disagrees when it scores more than 15% lower. Starting items and items it doesn't model aren't simulated.": "Đã kiểm tra trong trình mô phỏng so với lối lên đồ thường dùng của tướng: Đồng ý, hoặc Không đồng ý nếu kém hơn quá 15%. Trang bị khởi đầu và trang bị chưa được mô hình hóa không được mô phỏng.",
+ "Checked in the Simulator on the champion's usual build: Agrees when the augment helps, No gain when the fight can't show what it does. Augments that make the champion worse are left out.": "Đã kiểm tra trong trình mô phỏng với lối lên đồ thường dùng của tướng: Đồng ý khi Lõi Nâng Cấp có ích, Không có lợi khi trận đấu không thể hiện được tác dụng. Lõi Nâng Cấp làm tướng yếu đi bị loại bỏ.",
+ "Before a gem is listed, every item must still be sold in the shop and not be one only an augment gives, and every augment must still be in the pool and not make the champion worse in the Simulator. The Simulator column shows whether a fight in the Simulator backs it up.": "Trước khi một viên ngọc được liệt kê, mọi trang bị phải còn bán trong cửa hàng và không phải loại chỉ Lõi Nâng Cấp mới cho, và mọi Lõi Nâng Cấp phải còn trong nhóm và không làm tướng yếu đi trong trình mô phỏng. Cột Mô phỏng cho biết trận đấu mô phỏng có ủng hộ hay không."
 }

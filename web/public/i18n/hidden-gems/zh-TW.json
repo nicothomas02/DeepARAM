@@ -34,5 +34,13 @@
  "Boots": "鞋子",
  "First three items": "前三件裝備",
  "Items": "裝備",
- "Full builds": "完整出裝"
+ "Full builds": "完整出裝",
+ "Simulator": "模擬器",
+ "Agrees": "吻合",
+ "Disagrees": "不吻合",
+ "No gain": "無收益",
+ "Not simulated": "未模擬",
+ "Checked in the Simulator against the champion's usual build: Agrees, or Disagrees when it scores more than 15% lower. Starting items and items it doesn't model aren't simulated.": "在模擬器中與該英雄的常用出裝對比：吻合，或在得分低 15% 以上時不吻合。起始裝備和模擬器未建模的裝備不做模擬。",
+ "Checked in the Simulator on the champion's usual build: Agrees when the augment helps, No gain when the fight can't show what it does. Augments that make the champion worse are left out.": "在模擬器中用該英雄的常用出裝檢驗：強化有幫助時為吻合，戰鬥無法呈現其效果時為無收益。會讓英雄變弱的強化不列出。",
+ "Before a gem is listed, every item must still be sold in the shop and not be one only an augment gives, and every augment must still be in the pool and not make the champion worse in the Simulator. The Simulator column shows whether a fight in the Simulator backs it up.": "列出遺珠之前，每件裝備都必須仍在商店販售、且不是只能由強化獲得的裝備，每個強化都必須仍在強化池中、且在模擬器裡不會讓英雄變弱。模擬器一欄顯示模擬戰鬥是否支持它。"
 }

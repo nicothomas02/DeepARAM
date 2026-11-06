@@ -34,5 +34,13 @@
  "Boots": "รองเท้า",
  "First three items": "ไอเทมสามชิ้นแรก",
  "Items": "ไอเทม",
- "Full builds": "บิลด์เต็ม"
+ "Full builds": "บิลด์เต็ม",
+ "Simulator": "ตัวจำลอง",
+ "Agrees": "ยืนยัน",
+ "Disagrees": "ไม่ยืนยัน",
+ "No gain": "ไม่มีผล",
+ "Not simulated": "ไม่ได้จำลอง",
+ "Checked in the Simulator against the champion's usual build: Agrees, or Disagrees when it scores more than 15% lower. Starting items and items it doesn't model aren't simulated.": "ตรวจในตัวจำลองเทียบกับบิลด์ปกติของแชมเปี้ยน: ยืนยัน หรือไม่ยืนยันเมื่อได้คะแนนต่ำกว่าเกิน 15% ไอเทมเริ่มต้นและไอเทมที่ไม่ได้จำลองไว้จะไม่ถูกจำลอง",
+ "Checked in the Simulator on the champion's usual build: Agrees when the augment helps, No gain when the fight can't show what it does. Augments that make the champion worse are left out.": "ตรวจในตัวจำลองบนบิลด์ปกติของแชมเปี้ยน: ยืนยันเมื่อ Augment ช่วยได้ ไม่มีผลเมื่อการต่อสู้แสดงสิ่งที่มันทำไม่ได้ Augment ที่ทำให้แชมเปี้ยนอ่อนลงจะไม่แสดง",
+ "Before a gem is listed, every item must still be sold in the shop and not be one only an augment gives, and every augment must still be in the pool and not make the champion worse in the Simulator. The Simulator column shows whether a fight in the Simulator backs it up.": "ก่อนแสดงอัญมณี ไอเทมทุกชิ้นต้องยังขายในร้านและไม่ใช่ไอเทมที่ได้จาก Augment เท่านั้น และ Augment ทุกอันต้องยังอยู่ในพูลและไม่ทำให้แชมเปี้ยนอ่อนลงในตัวจำลอง คอลัมน์ตัวจำลองบอกว่าการต่อสู้ในตัวจำลองสนับสนุนหรือไม่"
 }

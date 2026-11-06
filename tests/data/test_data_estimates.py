@@ -167,10 +167,26 @@ def test_synergies_output():
             assert r["forecast_lo"] > 0 and r["forecast_lo"] <= r["forecast"] <= r["forecast_hi"]
             assert r["lift_lo"] <= r["lift"] <= r["lift_hi"]
         assert [r["forecast_lo"] for r in rows] == sorted((r["forecast_lo"] for r in rows), reverse=True)
+        assert all(r.get("sim") in ("agrees", "disagrees", "not simulated") for r in rows)
+        if fam == "starting":
+            assert all(r["sim"] == "not simulated" for r in rows)
     for a in d["augments"]:
         # No augment win rates: grade, pick rate and order only.
         assert "win_rate" not in a and "lift" not in a
         assert a["grade"] in ("S", "A") and a["pick_rate"] < d["max_pick"]
+        # An augment the Simulator says makes the champion worse is never listed.
+        assert a.get("sim") in ("agrees", "no gain", "not simulated")
+    assert "dropped" in d["checks"]
     assert [a["rank"] for a in d["augments"]] == list(range(1, len(d["augments"]) + 1))
     for fam, b in (d.get("backtest") or {}).items():
         assert 0 <= b["forecast_90_coverage"] <= 1 and 0 <= b["sample_only_95_coverage"] <= 1
+
+
+def test_viability_checks_drop_unbuyable_items():
+    import synergy_checks as sc
+    c = sc.Checker({})
+    granted = next(iter(c.granted))
+    gems = [{"champion": 1, "items": [granted]}, {"champion": 1, "items": [999999999]}, {"champion": 1, "items": [3006]}]
+    kept = c.items("starting", gems)
+    assert [g["items"] for g in kept] == [[3006]] and kept[0]["sim"] == "not simulated"
+    assert sum(c.dropped["starting"].values()) == 2

@@ -34,5 +34,13 @@
  "Boots": "الأحذية",
  "First three items": "أول ثلاثة عناصر",
  "Items": "العناصر",
- "Full builds": "البنيات الكاملة"
+ "Full builds": "البنيات الكاملة",
+ "Simulator": "المحاكي",
+ "Agrees": "يوافق",
+ "Disagrees": "لا يوافق",
+ "No gain": "بلا فائدة",
+ "Not simulated": "لم يُحاكَ",
+ "Checked in the Simulator against the champion's usual build: Agrees, or Disagrees when it scores more than 15% lower. Starting items and items it doesn't model aren't simulated.": "تم التحقق في المحاكي مقابل البنية المعتادة للبطل: يوافق، أو لا يوافق إذا كان أداؤه أقل بأكثر من 15%. لا تُحاكى العناصر الأولية والعناصر التي لا يمثّلها.",
+ "Checked in the Simulator on the champion's usual build: Agrees when the augment helps, No gain when the fight can't show what it does. Augments that make the champion worse are left out.": "تم التحقق في المحاكي على البنية المعتادة للبطل: يوافق عندما يفيد التعزيز، وبلا فائدة عندما لا يستطيع القتال إظهار ما يفعله. تُستبعد التعزيزات التي تُضعف البطل.",
+ "Before a gem is listed, every item must still be sold in the shop and not be one only an augment gives, and every augment must still be in the pool and not make the champion worse in the Simulator. The Simulator column shows whether a fight in the Simulator backs it up.": "قبل عرض أي جوهرة، يجب أن يبقى كل عنصر معروضًا للبيع في المتجر وألا يكون عنصرًا لا يمنحه إلا تعزيز، ويجب أن يبقى كل تعزيز في المجموعة وألا يُضعف البطل في المحاكي. يوضح عمود المحاكي ما إذا كان قتال في المحاكي يدعمها."
 }

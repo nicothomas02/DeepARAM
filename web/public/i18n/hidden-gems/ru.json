@@ -34,5 +34,13 @@
  "Boots": "Ботинки",
  "First three items": "Первые три предмета",
  "Items": "Предметы",
- "Full builds": "Полные сборки"
+ "Full builds": "Полные сборки",
+ "Simulator": "Симулятор",
+ "Agrees": "Подтверждает",
+ "Disagrees": "Не подтверждает",
+ "No gain": "Без пользы",
+ "Not simulated": "Не моделировалось",
+ "Checked in the Simulator against the champion's usual build: Agrees, or Disagrees when it scores more than 15% lower. Starting items and items it doesn't model aren't simulated.": "Проверено в симуляторе против обычной сборки чемпиона: Подтверждает, или Не подтверждает, если результат хуже более чем на 15%. Стартовые предметы и предметы, которых в нём нет, не моделируются.",
+ "Checked in the Simulator on the champion's usual build: Agrees when the augment helps, No gain when the fight can't show what it does. Augments that make the champion worse are left out.": "Проверено в симуляторе на обычной сборке чемпиона: Подтверждает, если аугментация помогает, Без пользы, если бой не может показать её эффект. Аугментации, которые ослабляют чемпиона, не показываются.",
+ "Before a gem is listed, every item must still be sold in the shop and not be one only an augment gives, and every augment must still be in the pool and not make the champion worse in the Simulator. The Simulator column shows whether a fight in the Simulator backs it up.": "Прежде чем жемчужина появится в списке, каждый предмет должен по-прежнему продаваться в магазине и не выдаваться только аугментацией, а каждая аугментация должна оставаться в пуле и не ослаблять чемпиона в симуляторе. Столбец Симулятор показывает, подтверждает ли это бой в симуляторе."
 }

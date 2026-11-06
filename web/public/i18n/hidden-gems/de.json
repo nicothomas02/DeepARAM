@@ -34,5 +34,13 @@
  "Boots": "Stiefel",
  "First three items": "Erste drei Gegenstände",
  "Items": "Gegenstände",
- "Full builds": "Komplette Builds"
+ "Full builds": "Komplette Builds",
+ "Simulator": "Simulator",
+ "Agrees": "Stimmt zu",
+ "Disagrees": "Widerspricht",
+ "No gain": "Kein Gewinn",
+ "Not simulated": "Nicht simuliert",
+ "Checked in the Simulator against the champion's usual build: Agrees, or Disagrees when it scores more than 15% lower. Starting items and items it doesn't model aren't simulated.": "Im Simulator mit dem üblichen Build des Champions verglichen: Stimmt zu, oder Widerspricht, wenn es mehr als 15 % schlechter abschneidet. Startgegenstände und Gegenstände, die er nicht abbildet, werden nicht simuliert.",
+ "Checked in the Simulator on the champion's usual build: Agrees when the augment helps, No gain when the fight can't show what it does. Augments that make the champion worse are left out.": "Im Simulator mit dem üblichen Build des Champions geprüft: Stimmt zu, wenn das Augment hilft, Kein Gewinn, wenn der Kampf nicht zeigen kann, was es tut. Augments, die den Champion schwächer machen, fehlen.",
+ "Before a gem is listed, every item must still be sold in the shop and not be one only an augment gives, and every augment must still be in the pool and not make the champion worse in the Simulator. The Simulator column shows whether a fight in the Simulator backs it up.": "Bevor eine Perle erscheint, muss jeder Gegenstand noch im Shop verkauft werden und darf keiner sein, den nur ein Augment gibt, und jedes Augment muss noch im Pool sein und darf den Champion im Simulator nicht schwächer machen. Die Spalte Simulator zeigt, ob ein Kampf im Simulator sie bestätigt."
 }

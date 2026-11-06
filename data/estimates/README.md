@@ -111,6 +111,15 @@ three-item cores whenever those feed blocks are live again). Shown on the Tier L
 - **Stale blocks**: a block identical for 90%+ of champions to the update 7 days earlier is skipped. The
   feed's single items, three-item cores and skill orders have not changed since 2026-10-16 (every patch since
   then shows the same numbers), so those are out until they move again.
+- **Viability checks** (`synergy_checks.py`, Nico 2026-11-06: a gem must work in the game, not just in the
+  numbers): every item still sold in Mayhem's shop and not one only an augment gives, every augment still in
+  the live pool (real picks on the champion show it's in that champion's pool). Simulator, level 18 vs real
+  enemies: boots and full builds against the champion's most popular full build ("agrees", or "disagrees" when
+  15%+ lower, still listed because the wins are real: on 16.22 that's the full tank Nasus and Trundle builds,
+  a known blind spot of the fight model); augments on that build with and without ("agrees", "no gain"; dropped
+  when 2%+ worse, since augment gems have no real win rate behind them). Starting items and unmodelled items
+  or augments are "not simulated". The Simulator's own pool list (`simulator/data/augment_pools.json`) misses
+  43 newer augments, so it isn't used to drop anything.
 - Association, not cause: the players who choose a rare option may differ from the rest.
 
 ## Tried and dropped

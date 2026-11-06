@@ -34,6 +34,10 @@ win rates): each champion's augments taken by under 2% that the feed grades S or
 ordered by the estimated lift from estimates.json (`augments`, see README.md). There is no game-level
 augment data, so no interval; the order is a model estimate and labelled so.
 
+Every gem is then checked against the game data and the Simulator before it's listed (synergy_checks.py):
+still sold, not an augment-only item, augment in the live pool and the champion's pool, and not clearly worse
+than the usual build in the Simulator. Dropped gems are counted by reason in `checks`.
+
 Feed blocks that stop changing are left out: a block identical for 90%+ of champions to the stats
 update 7 days earlier, while the rest of the feed moves, is marked stale (core items, single items and
 skill orders have been frozen since 2026-10-16).
@@ -52,6 +56,7 @@ import subprocess
 import sys
 
 import common as cm
+from synergy_checks import Checker
 
 OUT = os.path.join(cm.HERE, "synergies.json")
 GAMES = os.path.join(cm.REPO, "data", "fill", "spells_games.json")
@@ -216,8 +221,8 @@ def gems(scored):
 
 def rounded(o):
     keep = ("champion", "items", "pick_rate", "win_rate", "baseline", "lift", "lift_lo", "lift_hi",
-            "forecast", "forecast_lo", "forecast_hi")
-    r = {k: (round(o[k], 4) if isinstance(o[k], float) else o[k]) for k in keep}
+            "forecast", "forecast_lo", "forecast_hi", "sim", "sim_gain")
+    r = {k: (round(o[k], 4) if isinstance(o[k], float) else o[k]) for k in keep if k in o}
     r["games"] = int(round(o["games"], -1))
     return r
 
@@ -257,7 +262,7 @@ def staleness(builds, today, previous=None):
 
 # --- augments (no win rates shown) ------------------------------------------------------------------
 
-def augment_gems(stats, builds, est, total):
+def augment_gems(stats, builds, est, total, checker=None):
     out = []
     for c, b in builds.items():
         if c not in stats:
@@ -274,10 +279,14 @@ def augment_gems(stats, builds, est, total):
             out.append({"champion": int(c), "id": a["id"], "pick_rate": a["pick_rate"], "grade": a["grade"],
                         "games": int(round(games, -1)), "_score": lifts[aid]})
     out.sort(key=lambda r: -r["_score"])
+    if checker:
+        # Check a few more than are kept, since some get dropped.
+        out = checker.augments(out[: AUGMENT_TOP * 2])
+    out = out[:AUGMENT_TOP]
     for i, r in enumerate(out, 1):
         r["rank"] = i
         del r["_score"]
-    return out[:AUGMENT_TOP]
+    return out
 
 
 # --- back-test --------------------------------------------------------------------------------------
@@ -385,6 +394,7 @@ def main():
         cals = {k: v for k, v in old["calibration"].items() if isinstance(v, dict) and "beta" in v}
         fitted_on = old.get("calibrated_on")
     fallback = pooled(cals)
+    checker = Checker(builds)
 
     out = {"patch": live["patch"], "estimated": True,
            "built": dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
@@ -395,9 +405,11 @@ def main():
     for fam in FAMILIES:
         if fam in stale:
             continue
-        out["items"][fam] = [rounded(o) for o in gems(score(options(stats, builds, fam, total), cals.get(fam) or fallback))[:TOP]]
+        found = gems(score(options(stats, builds, fam, total), cals.get(fam) or fallback))
+        out["items"][fam] = [rounded(o) for o in checker.items(fam, found)[:TOP]]
     est = cm.load(os.path.join(cm.HERE, "estimates.json")).get("augments", {})
-    out["augments"] = [] if "augments" in stale else augment_gems(stats, builds, est, total)
+    out["augments"] = [] if "augments" in stale else augment_gems(stats, builds, est, total, checker)
+    out["checks"] = {"simulator": checker.sim, "dropped": checker.dropped}
     out["backtest"] = bt or old.get("backtest")
     with open(OUT, "w", encoding="utf-8") as f:
         json.dump(out, f, ensure_ascii=False, indent=1)
