@@ -28,7 +28,23 @@ self.addEventListener("activate", (e) => {
     caches
       .keys()
       .then((keys) => Promise.all(keys.filter((k) => k.startsWith("deeparam-") && k !== PAGES && k !== STATIC).map((k) => caches.delete(k))))
-      .then(() => self.clients.claim()),
+      .then(() => self.clients.claim())
+      // The page that installed this worker loaded before the worker could see it: keep it too, so the very
+      // first page a visitor opens also works offline.
+      .then(() => self.clients.matchAll({ type: "window" }))
+      .then((wins) =>
+        Promise.all(
+          wins.map(async (w) => {
+            const url = new URL(w.url);
+            if (url.origin !== location.origin || SKIP.test(url.pathname) || url.pathname === OFFLINE) return;
+            const key = url.origin + url.pathname + url.search;
+            if (await caches.match(key, { cacheName: PAGES })) return;
+            const res = await fetch(key).catch(() => null);
+            if (res && res.ok && res.type === "basic") await keep(PAGES, key, res, KEEP_PAGES);
+          }),
+        ),
+      )
+      .catch(() => {}),
   );
 });
 
