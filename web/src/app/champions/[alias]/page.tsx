@@ -10,7 +10,8 @@ import DeepScore from "@/components/DeepScore";
 import { BUILD_DEEPSCORE_HELP, ITEM_DEEPSCORE_HELP } from "@/lib/deepscore";
 import ChampionShowcase from "@/components/ChampionShowcase";
 import { notFound } from "next/navigation";
-import { championAliases, championSummary, champList } from "@/lib/champions";
+import { championAliases, championRanges, championSummary, champList, type RadarAxis } from "@/lib/champions";
+import { RangePicker, RangeView } from "@/components/StatRange";
 import {
   bestRow,
   buildOrder,
@@ -332,10 +333,14 @@ export default async function ChampionPage({
   const bestSpells = spells[0];
   const games = fillGames()?.[c.alias];
   const gamesEstimated = fillEstimated();
-  const radar = new Map(c.radar.map((a) => [a.key, a]));
-  const perf = (
-    ["win_rate", "pick_rate", "damage", "tank", "kp", "dead"] as const
-  ).flatMap((k) => (radar.get(k) ? [radar.get(k)!] : []));
+  const ranges = championRanges(c.alias);
+  const perfOf = (axes: RadarAxis[]) => {
+    const radar = new Map(axes.map((a) => [a.key, a]));
+    return (
+      ["win_rate", "pick_rate", "damage", "tank", "kp", "dead"] as const
+    ).flatMap((k) => (radar.get(k) ? [radar.get(k)!] : []));
+  };
+  const perf = perfOf(c.radar);
   const itemRows = (rows: typeof p.core, sep = false) =>
     rows.map((r, i) => (
       <Row key={i} rank={i + 1} cells={<ScoredCells r={r} />}>
@@ -434,54 +439,88 @@ export default async function ChampionPage({
             )}
           </div>
           {c.tier && (
-            <span
-              className={`cp-tier chip tier-${c.tier.toLowerCase()}`}
-              title="Tier"
-            >
-              {c.tier}
-            </span>
+            <RangeView
+              views={Object.fromEntries(
+                ranges.map((r) => [
+                  r.key,
+                  <span
+                    key={r.key}
+                    className={`cp-tier chip tier-${r.tier.toLowerCase()}`}
+                    title="Tier"
+                  >
+                    {r.tier}
+                  </span>,
+                ]),
+              )}
+            />
           )}
         </div>
         {c.winRate !== undefined && (
-          <div className="cp-strip">
-            <Cell
-              value={pct(c.winRate)}
-              label="Win rate"
-              tone={
-                c.winRate >= 0.52
-                  ? "up"
-                  : c.winRate <= 0.48
-                    ? "down"
-                    : undefined
-              }
-            />
-            {c.change !== null && (
-              <div className="cp-cell">
-                <b className={tone(c.change)}>{signed(c.change)}</b>
-                <small>
-                  <T ns={NS} v={{ patch: patchName(c.prev) }}>
-                    {"since {patch}"}
-                  </T>
-                </small>
+          <RangeView
+            views={{
+              live: (
+                <div className="cp-strip">
+                <Cell
+                  value={pct(c.winRate)}
+                  label="Win rate"
+                  tone={
+                    c.winRate >= 0.52
+                      ? "up"
+                      : c.winRate <= 0.48
+                        ? "down"
+                        : undefined
+                  }
+                />
+                {c.change !== null && (
+                  <div className="cp-cell">
+                    <b className={tone(c.change)}>{signed(c.change)}</b>
+                    <small>
+                      <T ns={NS} v={{ patch: patchName(c.prev) }}>
+                        {"since {patch}"}
+                      </T>
+                    </small>
+                  </div>
+                )}
+                <Cell value={pct(c.pickRate ?? 0)} label="Pick rate" />
+                {games !== undefined && (
+                  <Cell
+                    value={`${gamesEstimated ? "~" : ""}${games.toLocaleString("en-US")}`}
+                    label="Games"
+                  />
+                )}
+                <div className="cp-cell">
+                  <b>#{c.rank}</b>
+                  <small>
+                    <T ns={NS} v={{ n: c.of }}>
+                      {"of {n} by DeepScore"}
+                    </T>
+                  </small>
+                </div>
               </div>
-            )}
-            <Cell value={pct(c.pickRate ?? 0)} label="Pick rate" />
-            {games !== undefined && (
-              <Cell
-                value={`${gamesEstimated ? "~" : ""}${games.toLocaleString("en-US")}`}
-                label="Games"
-              />
-            )}
-            <div className="cp-cell">
-              <b>#{c.rank}</b>
-              <small>
-                <T ns={NS} v={{ n: c.of }}>
-                  {"of {n} by DeepScore"}
-                </T>
-              </small>
-            </div>
-          </div>
+              ),
+              ...Object.fromEntries(
+                ranges
+                  .filter((r) => r.key !== "live")
+                  .map((r) => [
+                    r.key,
+                    <div key={r.key} className="cp-strip">
+                      <Cell value={pct(r.winRate)} label="Win rate" tone={r.winRate >= 0.52 ? "up" : r.winRate <= 0.48 ? "down" : undefined} />
+                      <Cell value={pct(r.pickRate)} label="Pick rate" />
+                      <div className="cp-cell">
+                        <b>#{r.rank}</b>
+                        <small>
+                          <T ns={NS} v={{ n: r.of }}>
+                            {"of {n} by DeepScore"}
+                          </T>
+                        </small>
+                      </div>
+                    </div>,
+                  ]),
+              ),
+            }}
+          />
         )}
+        <RangePicker ranges={ranges.map(({ key, label, patches }) => ({ key, label, patches }))} />
       </section>
 
       <div className="cp">
@@ -988,34 +1027,44 @@ export default async function ChampionPage({
           <h2 className="cp-group" id="performance">
             <T ns={NS}>Performance</T>
           </h2>
-          {perf.length > 0 && (
-            <div className="cp-perf">
-              {perf.map((a) => (
-                <div key={a.key}>
-                  <small>
-                    <T ns={NS}>{a.label}</T>
-                  </small>
-                  <b>{a.value.replace(/ dead$/, "")}</b>
-                  <span>
-                    #{a.rank}{" "}
-                    <T ns={NS} v={{ n: a.of }}>
-                      {"of {n}"}
-                    </T>
-                  </span>
-                  {est?.vsAverage.has(a.key) && (
-                    <em>
-                      <T
-                        ns={NS}
-                        v={{ n: vsAvg(a.key, est.vsAverage.get(a.key)!) }}
-                      >
-                        {"{n} vs average"}
-                      </T>
-                    </em>
-                  )}
-                </div>
-              ))}
-            </div>
-          )}
+          <RangeView
+            views={Object.fromEntries(
+              ranges.map((r) => {
+                const tiles = r.key === "live" ? perf : perfOf(r.radar);
+                return [
+                  r.key,
+                  tiles.length > 0 && (
+                    <div key={r.key} className="cp-perf">
+                      {tiles.map((a) => (
+                        <div key={a.key}>
+                          <small>
+                            <T ns={NS}>{a.label}</T>
+                          </small>
+                          <b>{a.value.replace(/ dead$/, "")}</b>
+                          <span>
+                            #{a.rank}{" "}
+                            <T ns={NS} v={{ n: a.of }}>
+                              {"of {n}"}
+                            </T>
+                          </span>
+                          {r.key === "live" && est?.vsAverage.has(a.key) && (
+                            <em>
+                              <T
+                                ns={NS}
+                                v={{ n: vsAvg(a.key, est.vsAverage.get(a.key)!) }}
+                              >
+                                {"{n} vs average"}
+                              </T>
+                            </em>
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                  ),
+                ];
+              }),
+            )}
+          />
           {est && (est.profile.length > 0 || est.curve) && (
             <Fold
               section="performance"

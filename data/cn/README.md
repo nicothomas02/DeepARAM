@@ -38,6 +38,7 @@ date the API returns, and builds patch and all-time tables in `history/`:
 | `all_time.csv` | Each champion across every patch |
 | `by_month.csv` | Each champion per calendar month |
 | `augments/`, `duos/` | One file per day, written by `fetch_cn.py`; starts 2026-10-15 |
+| `items/<patch>.json` | Every champion's starting, boots and other item lists, the last snapshot of each patch (`item_history.py`, run by `history.py`; backfilled from 16.20). Item pages combine them for ranges beyond the live patch |
 
 Each day's numbers are cumulative since the current patch's window opened, and they
 reset when the next patch's window opens. The script finds those resets as jumps near
