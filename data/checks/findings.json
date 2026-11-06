@@ -1,10 +1,10 @@
 {
- "patch": "16.21",
+ "patch": "16.22",
  "built": "2026-11-06",
  "checks": {
   "loops": 3,
-  "gap": 44,
-  "sim": 11,
+  "gap": 48,
+  "sim": 14,
   "wasted": 0,
   "kitchen": 40
  },
@@ -25,6 +25,40 @@
    "practice": "It doesn't run away. The two bonuses don't keep feeding each other, so Jhin ends up with a modest bump to Attack Damage instead of infinite damage. Jhin also hasn't been seen getting Tickle Monster this patch."
   },
   {
+   "id": "sim-Draven-berserkers",
+   "kind": "sim",
+   "title": "Berserker's Greaves on Draven",
+   "champions": [
+    "Draven"
+   ],
+   "augments": [],
+   "items": [
+    3006
+   ],
+   "theory": "The Simulator puts Berserker's Greaves in Draven's best build: in a fight it adds more than the items it beats.",
+   "practice": "In real games, Draven's builds with Berserker's Greaves win 3.9 points less often than their builds without it.",
+   "gap": -0.0388,
+   "share": 0.063,
+   "status": "trap"
+  },
+  {
+   "id": "sim-Lucian-berserkers",
+   "kind": "sim",
+   "title": "Berserker's Greaves on Lucian",
+   "champions": [
+    "Lucian"
+   ],
+   "augments": [],
+   "items": [
+    3006
+   ],
+   "theory": "The Simulator puts Berserker's Greaves in Lucian's best build: in a fight it adds more than the items it beats.",
+   "practice": "In real games, Lucian's builds with Berserker's Greaves win 7.3 points less often than their builds without it.",
+   "gap": -0.0727,
+   "share": 0.0469,
+   "status": "trap"
+  },
+  {
    "id": "sim-Zeri-berserkers",
    "kind": "sim",
    "title": "Berserker's Greaves on Zeri",
@@ -36,9 +70,9 @@
     3006
    ],
    "theory": "The Simulator puts Berserker's Greaves in Zeri's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Zeri's builds with Berserker's Greaves win 3.0 points less often than their builds without it.",
-   "gap": -0.0303,
-   "share": 0.107,
+   "practice": "In real games, Zeri's builds with Berserker's Greaves win 3.1 points less often than their builds without it.",
+   "gap": -0.0314,
+   "share": 0.1074,
    "status": "trap"
   },
   {
@@ -53,9 +87,9 @@
     3153
    ],
    "theory": "The Simulator puts Blade of The Ruined King in Kayle's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Kayle's builds with Blade of The Ruined King win 5.7 points less often than their builds without it.",
-   "gap": -0.0574,
-   "share": 0.0534,
+   "practice": "In real games, Kayle's builds with Blade of The Ruined King win 5.8 points less often than their builds without it.",
+   "gap": -0.058,
+   "share": 0.0532,
    "status": "trap"
   },
   {
@@ -70,9 +104,9 @@
     3153
    ],
    "theory": "The Simulator puts Blade of The Ruined King in Lucian's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Lucian's builds with Blade of The Ruined King win 8.2 points less often than their builds without it.",
-   "gap": -0.0823,
-   "share": 0.0335,
+   "practice": "In real games, Lucian's builds with Blade of The Ruined King win 8.5 points less often than their builds without it.",
+   "gap": -0.085,
+   "share": 0.0333,
    "status": "trap"
   },
   {
@@ -87,9 +121,9 @@
     3124
    ],
    "theory": "The Simulator puts Guinsoo's Rageblade in Kayle's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Kayle's builds with Guinsoo's Rageblade win 5.0 points less often than their builds without it.",
-   "gap": -0.05,
-   "share": 0.0636,
+   "practice": "In real games, Kayle's builds with Guinsoo's Rageblade win 5.1 points less often than their builds without it.",
+   "gap": -0.0509,
+   "share": 0.0635,
    "status": "trap"
   },
   {
@@ -104,9 +138,9 @@
     3111
    ],
    "theory": "The Simulator puts Mercury's Treads in K'Sante's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, K'Sante's builds with Mercury's Treads win 3.7 points less often than their builds without it.",
-   "gap": -0.0367,
-   "share": 0.0567,
+   "practice": "In real games, K'Sante's builds with Mercury's Treads win 3.5 points less often than their builds without it.",
+   "gap": -0.0346,
+   "share": 0.0569,
    "status": "trap"
   },
   {
@@ -121,9 +155,26 @@
     3089
    ],
    "theory": "The Simulator puts Rabadon's Deathcap in Karma's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Karma's builds with Rabadon's Deathcap win 10.5 points less often than their builds without it.",
-   "gap": -0.1047,
-   "share": 0.1102,
+   "practice": "In real games, Karma's builds with Rabadon's Deathcap win 10.4 points less often than their builds without it.",
+   "gap": -0.1045,
+   "share": 0.1093,
+   "status": "trap"
+  },
+  {
+   "id": "sim-Jayce-seryldas",
+   "kind": "sim",
+   "title": "Serylda's Grudge on Jayce",
+   "champions": [
+    "Jayce"
+   ],
+   "augments": [],
+   "items": [
+    6694
+   ],
+   "theory": "The Simulator puts Serylda's Grudge in Jayce's best build: in a fight it adds more than the items it beats.",
+   "practice": "In real games, Jayce's builds with Serylda's Grudge win 3.4 points less often than their builds without it.",
+   "gap": -0.0337,
+   "share": 0.0316,
    "status": "trap"
   },
   {
@@ -138,9 +189,9 @@
     4645
    ],
    "theory": "The Simulator puts Shadowflame in Karma's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Karma's builds with Shadowflame win 10.5 points less often than their builds without it.",
-   "gap": -0.1047,
-   "share": 0.1102,
+   "practice": "In real games, Karma's builds with Shadowflame win 10.4 points less often than their builds without it.",
+   "gap": -0.1045,
+   "share": 0.1093,
    "status": "trap"
   },
   {
@@ -155,9 +206,9 @@
     3020
    ],
    "theory": "The Simulator puts Sorcerer's Shoes in Gwen's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Gwen's builds with Sorcerer's Shoes win 4.0 points less often than their builds without it.",
-   "gap": -0.0401,
-   "share": 0.0601,
+   "practice": "In real games, Gwen's builds with Sorcerer's Shoes win 3.7 points less often than their builds without it.",
+   "gap": -0.0371,
+   "share": 0.0597,
    "status": "trap"
   },
   {
@@ -172,9 +223,9 @@
     3020
    ],
    "theory": "The Simulator puts Sorcerer's Shoes in Karma's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Karma's builds with Sorcerer's Shoes win 7.3 points less often than their builds without it.",
-   "gap": -0.0729,
-   "share": 0.0893,
+   "practice": "In real games, Karma's builds with Sorcerer's Shoes win 7.2 points less often than their builds without it.",
+   "gap": -0.0723,
+   "share": 0.0886,
    "status": "trap"
   },
   {
@@ -189,9 +240,9 @@
     3020
    ],
    "theory": "The Simulator puts Sorcerer's Shoes in Lillia's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Lillia's builds with Sorcerer's Shoes win 5.4 points less often than their builds without it.",
-   "gap": -0.054,
-   "share": 0.0578,
+   "practice": "In real games, Lillia's builds with Sorcerer's Shoes win 5.3 points less often than their builds without it.",
+   "gap": -0.0525,
+   "share": 0.0575,
    "status": "trap"
   },
   {
@@ -206,9 +257,9 @@
     4646
    ],
    "theory": "The Simulator puts Stormsurge in Karma's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Karma's builds with Stormsurge win 7.4 points less often than their builds without it.",
-   "gap": -0.0742,
-   "share": 0.0961,
+   "practice": "In real games, Karma's builds with Stormsurge win 7.2 points less often than their builds without it.",
+   "gap": -0.0716,
+   "share": 0.0953,
    "status": "trap"
   }
  ],
@@ -276,7 +327,6 @@
    "champions": [
     "Ahri",
     "Ashe",
-    "Aurora",
     "Azir",
     "Bard",
     "Belveth",
@@ -325,16 +375,13 @@
     "Taric",
     "Teemo",
     "Thresh",
-    "Tristana",
     "Trundle",
     "Tryndamere",
     "TwistedFate",
-    "Twitch",
     "Udyr",
     "Urgot",
     "Varus",
     "Vi",
-    "Xayah",
     "XinZhao",
     "Yorick",
     "Zaahen"
@@ -347,6 +394,21 @@
    "items": [],
    "theory": "With Haste turns Ability Haste into Move Speed, Tap Dancer turns Move Speed into Attack Speed, and Purist - Caster turns Attack Speed into Ability Haste. On paper each one keeps raising the other, so Ability Haste grows without end.",
    "test": "Take Purist - Caster and Tap Dancer and With Haste, then open your stats after each item. If Ability Haste keeps climbing on its own, it's a bug worth reporting. If it settles after one step, it's a trap.",
+   "status": "to_test"
+  },
+  {
+   "id": "gap-Alistar",
+   "kind": "gap",
+   "title": "Alistar never gets Get Jinxed",
+   "champions": [
+    "Alistar"
+   ],
+   "augments": [
+    3004
+   ],
+   "items": [],
+   "theory": "At least 93% of champions get Get Jinxed, but Alistar has never been seen taking it, even though Alistar is picked often.",
+   "test": "Play Alistar and watch your augment choices. If it never shows up, Riot has left it out for Alistar. If that doesn't look like it's on purpose, it's worth reporting.",
    "status": "to_test"
   },
   {
@@ -429,6 +491,21 @@
    "status": "to_test"
   },
   {
+   "id": "gap-Darius",
+   "kind": "gap",
+   "title": "Darius never gets Get Jinxed",
+   "champions": [
+    "Darius"
+   ],
+   "augments": [
+    3004
+   ],
+   "items": [],
+   "theory": "At least 93% of champions get Get Jinxed, but Darius has never been seen taking it, even though Darius is picked often.",
+   "test": "Play Darius and watch your augment choices. If it never shows up, Riot has left it out for Darius. If that doesn't look like it's on purpose, it's worth reporting.",
+   "status": "to_test"
+  },
+  {
    "id": "gap-DrMundo",
    "kind": "gap",
    "title": "Dr. Mundo never gets It's Killing Time and 1 more",
@@ -447,7 +524,7 @@
   {
    "id": "gap-Draven",
    "kind": "gap",
-   "title": "Draven never gets Infinite Recursion and 4 more",
+   "title": "Draven never gets Infinite Recursion and 5 more",
    "champions": [
     "Draven"
    ],
@@ -455,11 +532,12 @@
     1388,
     1068,
     1415,
+    3004,
     2087,
     1996
    ],
    "items": [],
-   "theory": "At least 91% of champions get Infinite Recursion, Recursion, Twin Fire, Archmage and Upgrade Sheen, but Draven has never been seen taking them, even though Draven is picked often.",
+   "theory": "At least 91% of champions get Infinite Recursion, Recursion, Twin Fire, Get Jinxed, Archmage and Upgrade Sheen, but Draven has never been seen taking them, even though Draven is picked often.",
    "test": "Play Draven and watch your augment choices. If they never show up, Riot has left them out for Draven. If that doesn't look like it's on purpose, it's worth reporting.",
    "status": "to_test"
   },
@@ -730,18 +808,19 @@
   {
    "id": "gap-Nidalee",
    "kind": "gap",
-   "title": "Nidalee never gets Ultimate Awakening and 3 more",
+   "title": "Nidalee never gets Ultimate Awakening and 4 more",
    "champions": [
     "Nidalee"
    ],
    "augments": [
     1349,
     1004,
+    3004,
     1211,
     3118
    ],
    "items": [],
-   "theory": "At least 90% of champions get Ultimate Awakening, Back To Basics, It's Killing Time and Arcane Axiom, but Nidalee has never been seen taking them, even though Nidalee is picked often.",
+   "theory": "At least 90% of champions get Ultimate Awakening, Back To Basics, Get Jinxed, It's Killing Time and Arcane Axiom, but Nidalee has never been seen taking them, even though Nidalee is picked often.",
    "test": "Play Nidalee and watch your augment choices. If they never show up, Riot has left them out for Nidalee. If that doesn't look like it's on purpose, it's worth reporting.",
    "status": "to_test"
   },
@@ -758,6 +837,21 @@
    "items": [],
    "theory": "At least 90% of champions get Arcane Axiom, but Pantheon has never been seen taking it, even though Pantheon is picked often.",
    "test": "Play Pantheon and watch your augment choices. If it never shows up, Riot has left it out for Pantheon. If that doesn't look like it's on purpose, it's worth reporting.",
+   "status": "to_test"
+  },
+  {
+   "id": "gap-Rengar",
+   "kind": "gap",
+   "title": "Rengar never gets Get Jinxed",
+   "champions": [
+    "Rengar"
+   ],
+   "augments": [
+    3004
+   ],
+   "items": [],
+   "theory": "At least 93% of champions get Get Jinxed, but Rengar has never been seen taking it, even though Rengar is picked often.",
+   "test": "Play Rengar and watch your augment choices. If it never shows up, Riot has left it out for Rengar. If that doesn't look like it's on purpose, it's worth reporting.",
    "status": "to_test"
   },
   {
@@ -835,6 +929,21 @@
    "items": [],
    "theory": "At least 91% of champions get Upgrade Sheen, but Swain has never been seen taking it, even though Swain is picked often.",
    "test": "Play Swain and watch your augment choices. If it never shows up, Riot has left it out for Swain. If that doesn't look like it's on purpose, it's worth reporting.",
+   "status": "to_test"
+  },
+  {
+   "id": "gap-Syndra",
+   "kind": "gap",
+   "title": "Syndra never gets Get Jinxed",
+   "champions": [
+    "Syndra"
+   ],
+   "augments": [
+    3004
+   ],
+   "items": [],
+   "theory": "At least 93% of champions get Get Jinxed, but Syndra has never been seen taking it, even though Syndra is picked often.",
+   "test": "Play Syndra and watch your augment choices. If it never shows up, Riot has left it out for Syndra. If that doesn't look like it's on purpose, it's worth reporting.",
    "status": "to_test"
   },
   {
@@ -1327,12 +1436,10 @@
    "champions": [
     "Nilah"
    ],
-   "augments": [
-    2108
-   ],
+   "augments": [],
    "items": [],
    "theory": "The build leans on Support Main.",
-   "test": "Nilah has never been seen taking Support Main, so it may not be in their augment pool. Check whether it's ever offered on Nilah.",
+   "test": "Support Main isn't in Mayhem on this patch.",
    "build": "nilah-whip-blade-nurse"
   },
   {
@@ -1462,12 +1569,10 @@
    "champions": [
     "Irelia"
    ],
-   "augments": [
-    2148
-   ],
+   "augments": [],
    "items": [],
    "theory": "The build leans on Double Strike.",
-   "test": "Irelia has never been seen taking Double Strike, so it may not be in their augment pool. Check whether it's ever offered on Irelia.",
+   "test": "Double Strike isn't in Mayhem on this patch.",
    "build": "irelia-forgot-how-to-auto"
   },
   {
