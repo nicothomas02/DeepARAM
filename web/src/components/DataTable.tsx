@@ -1,6 +1,7 @@
 "use client";
 
 import RowLink from "./RowLink";
+import { textMatches } from "@/lib/fold";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { KEPT, useKept } from "@/lib/kept";
 import championNames from "@/data/champion-names.json";
@@ -309,7 +310,7 @@ export default function DataTable({
     const local = (id: string, en: string) => names("champions", id, en);
     const filtered =
       q && searchKey
-        ? rows.filter((r) => `${searchText(r[searchKey], local)} ${r.id === undefined ? "" : names("augments", String(r.id), "")}`.toLowerCase().includes(q))
+        ? rows.filter((r) => textMatches(`${searchText(r[searchKey], local)} ${r.id === undefined ? "" : names("augments", String(r.id), "")}`.toLowerCase(), q))
         : rows;
     const dir = sort.desc ? -1 : 1;
     return [...filtered].sort((a, b) => {

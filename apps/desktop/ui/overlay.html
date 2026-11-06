@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DeepARAM overlay</title>
+<style>
+  /* A see-through window over the game: only the card is drawn, and clicks pass through all of it. */
+  :root { color-scheme: dark; --card: rgba(11, 14, 19, .86); --text: #e7ebef; --muted: #9aa4af; --line: rgba(255, 255, 255, .08);
+    --prismatic: #c58cff; --gold: #e2bb5a; --silver: #b9c3cc; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: transparent; overflow: hidden; user-select: none; }
+  body { font: 13px/1.35 "Segoe UI Variable", "Segoe UI", Cantarell, "Noto Sans", system-ui, sans-serif; color: var(--text); padding: 6px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 12px; box-shadow: 0 8px 28px rgba(0, 0, 0, .45); }
+  header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+  header img { width: 40px; height: 40px; border-radius: 10px; }
+  .name { font-size: 16px; font-weight: 600; }
+  .sub { color: var(--muted); font-size: 11px; }
+  h2 { margin: 10px 0 6px; font-size: 11px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: var(--muted); }
+  .row { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+  .key { min-width: 26px; height: 26px; display: grid; place-items: center; border-radius: 8px; background: rgba(255, 255, 255, .08); font-weight: 600; }
+  .arrow { color: var(--muted); }
+  .icon { width: 30px; height: 30px; border-radius: 7px; background: rgba(255, 255, 255, .06); }
+  .spell { display: flex; align-items: center; gap: 6px; margin-right: 6px; }
+  .spell .icon { width: 24px; height: 24px; }
+  .augs { display: grid; gap: 4px; }
+  .aug { display: flex; align-items: center; gap: 8px; }
+  .aug .icon { width: 26px; height: 26px; border-radius: 50%; }
+  .aug.prismatic .icon { box-shadow: 0 0 0 2px var(--prismatic); }
+  .aug.gold .icon { box-shadow: 0 0 0 2px var(--gold); }
+  .aug.silver .icon { box-shadow: 0 0 0 2px var(--silver); }
+  footer { margin-top: 10px; color: var(--muted); font-size: 11px; }
+  [hidden] { display: none !important; }
+</style>
+</head>
+<body>
+<div class="card" id="card" hidden>
+  <header>
+    <img id="champ" alt="">
+    <div>
+      <div class="name" id="name"></div>
+      <div class="sub" id="sub"></div>
+    </div>
+  </header>
+  <h2>Skill order</h2>
+  <div class="row" id="skills"></div>
+  <h2 id="spells-title">Spells</h2>
+  <div class="row" id="spells"></div>
+  <h2>Items</h2>
+  <div class="row" id="items"></div>
+  <h2>Augments to look for</h2>
+  <div class="augs" id="augs"></div>
+  <footer id="hint">Ctrl+Shift+O hides this</footer>
+</div>
+<script>
+  // The app calls showBuild with {site, patch, build} when a game starts; build is one champion from
+  // https://deeparam.com/data/overlay.json.
+  const el = (tag, cls, text) => {
+    const e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (text) e.textContent = text;
+    return e;
+  };
+  const img = (site, src, alt) => {
+    const i = el("img", "icon");
+    i.alt = alt || "";
+    if (src) i.src = src.startsWith("http") ? src : site + src;
+    i.onerror = () => { i.style.visibility = "hidden"; };
+    return i;
+  };
+  window.showBuild = ({ site, patch, build: b }) => {
+    document.getElementById("champ").src = site + b.icon;
+    document.getElementById("name").textContent = b.name;
+    document.getElementById("sub").textContent = patch ? `Quick build · patch ${patch}` : "Quick build";
+
+    const skills = document.getElementById("skills");
+    skills.replaceChildren();
+    b.skills.forEach((k, i) => {
+      if (i) skills.append(el("span", "arrow", "›"));
+      skills.append(el("span", "key", k));
+    });
+
+    const spells = document.getElementById("spells");
+    spells.replaceChildren(...b.spells.map((s) => {
+      const box = el("span", "spell");
+      box.append(img(site, s.icon, ""), el("span", "", s.name));
+      return box;
+    }));
+    spells.hidden = document.getElementById("spells-title").hidden = !b.spells.length;
+
+    document.getElementById("items").replaceChildren(...b.items.map((it) => {
+      const i = img(site, it.icon, it.name);
+      i.title = it.name;
+      return i;
+    }));
+
+    const augs = document.getElementById("augs");
+    augs.replaceChildren();
+    for (const rarity of ["prismatic", "gold", "silver"]) {
+      for (const a of b.augments[rarity] || []) {
+        const row = el("div", `aug ${rarity}`);
+        row.append(img(site, a.icon, ""), el("span", "", a.name));
+        augs.append(row);
+      }
+    }
+    document.getElementById("card").hidden = false;
+  };
+</script>
+</body>
+</html>

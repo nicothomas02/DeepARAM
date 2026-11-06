@@ -214,5 +214,16 @@
  "{ds} DeepScore · {wr} win · {pr} pick": "{ds} DeepScore · {wr} menang · {pr} dipilih",
  "This page doesn't exist.": "Halaman ini tidak ada.",
  "It may have moved, or the link has a typo. Search with / or ⌘K, or try one of these.": "Mungkin sudah dipindahkan, atau ada salah ketik di tautannya. Cari dengan / atau ⌘K, atau coba salah satu ini.",
- "Did you mean": "Maksud kamu"
+ "Did you mean": "Maksud kamu",
+ "Stats over": "Statistik untuk",
+ "Last patch": "Patch sebelumnya",
+ "Patches {a} to {b}": "Patch {a} sampai {b}",
+ "The rest of the page stays on the live patch.": "Bagian lain halaman ini tetap di patch saat ini.",
+ "Answers": "Jawaban",
+ "Questions players sent us, and our answers.": "Pertanyaan dari pemain, dan jawaban kami.",
+ "Write to us from the box at the bottom of any page. We answer here, without your name.": "Tulis ke kami dari kotak di bagian bawah halaman mana pun. Kami menjawab di sini, tanpa namamu.",
+ "In English": "Dalam bahasa Inggris",
+ "We answered your message. See the answer": "Kami sudah menjawab pesanmu. Lihat jawabannya",
+ "See answers to player questions": "Lihat jawaban atas pertanyaan pemain",
+ "We answer on the Answers page, without your name. This box will show a link when yours is up.": "Kami menjawab di halaman Jawaban, tanpa namamu. Kotak ini akan menampilkan tautan saat jawabanmu sudah ada."
 }

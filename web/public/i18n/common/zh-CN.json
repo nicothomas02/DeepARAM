@@ -214,5 +214,16 @@
  "{ds} DeepScore · {wr} win · {pr} pick": "{ds} DeepScore · 胜率 {wr} · 选取率 {pr}",
  "This page doesn't exist.": "此页面不存在。",
  "It may have moved, or the link has a typo. Search with / or ⌘K, or try one of these.": "页面可能已移动，或链接有拼写错误。按 / 或 ⌘K 搜索，或试试以下页面。",
- "Did you mean": "你是不是要找"
+ "Did you mean": "你是不是要找",
+ "Stats over": "统计范围",
+ "Last patch": "上个版本",
+ "Patches {a} to {b}": "版本 {a} 至 {b}",
+ "The rest of the page stays on the live patch.": "页面其余部分仍为当前版本。",
+ "Answers": "答复",
+ "Questions players sent us, and our answers.": "玩家发来的问题和我们的答复。",
+ "Write to us from the box at the bottom of any page. We answer here, without your name.": "在任意页面底部的框里给我们留言。我们会在这里答复，不显示你的名字。",
+ "In English": "英文",
+ "We answered your message. See the answer": "我们已答复你的留言。查看答复",
+ "See answers to player questions": "查看玩家问题的答复",
+ "We answer on the Answers page, without your name. This box will show a link when yours is up.": "我们会在答复页面回复，不显示你的名字。发布后，这里会显示链接。"
 }

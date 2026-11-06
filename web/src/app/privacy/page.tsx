@@ -11,7 +11,7 @@ export default function Privacy() {
     <>
       <Intro eyebrow="Privacy" title="What DeepARAM keeps, and what it doesn't." />
       <article className="card prose">
-        <p>Last updated October 18, 2026.</p>
+        <p>Last updated November 6, 2026.</p>
         <h2>No ads, no tracking</h2>
         <p>
           DeepARAM has no ads and no tracking cookies. We count page visits anonymously, without cookies, to see which pages are used. We don&apos;t sell or share
@@ -68,6 +68,11 @@ export default function Privacy() {
           email address for a reply. If you&apos;re signed in, the message is linked to your account. To limit spam, the message also carries a one-way
           scrambled form of your IP address (or account), used only to count messages per day, never the address itself. Only the site owner reads messages, and
           they&apos;re deleted once handled. You can also just email us instead.
+        </p>
+        <p>
+          We may answer a message on the <a href="/answers">Answers</a> page. The answer shows your question, sometimes shortened or with personal details left
+          out, but never your name, email or account. Your browser remembers which messages it sent, so the box can tell you when yours has an answer; that list
+          stays on your device.
         </p>
         <h2>Contact</h2>
         <p>

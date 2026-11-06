@@ -210,5 +210,16 @@
  "Training dummy at 50% Health": "Training dummy at 50% Health",
  "This page doesn't exist.": "This page doesn't exist.",
  "It may have moved, or the link has a typo. Search with / or ⌘K, or try one of these.": "It may have moved, or the link has a typo. Search with / or ⌘K, or try one of these.",
- "Did you mean": "Did you mean"
+ "Did you mean": "Did you mean",
+ "Stats over": "Stats over",
+ "Last patch": "Last patch",
+ "Patches {a} to {b}": "Patches {a} to {b}",
+ "The rest of the page stays on the live patch.": "The rest of the page stays on the live patch.",
+ "Answers": "Answers",
+ "Questions players sent us, and our answers.": "Questions players sent us, and our answers.",
+ "Write to us from the box at the bottom of any page. We answer here, without your name.": "Write to us from the box at the bottom of any page. We answer here, without your name.",
+ "In English": "In English",
+ "We answered your message. See the answer": "We answered your message. See the answer",
+ "See answers to player questions": "See answers to player questions",
+ "We answer on the Answers page, without your name. This box will show a link when yours is up.": "We answer on the Answers page, without your name. This box will show a link when yours is up."
 }

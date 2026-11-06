@@ -214,5 +214,16 @@
  "{ds} DeepScore · {wr} win · {pr} pick": "{ds} DeepScore · {wr} de victoires · {pr} de sélection",
  "This page doesn't exist.": "Cette page n'existe pas.",
  "It may have moved, or the link has a typo. Search with / or ⌘K, or try one of these.": "Elle a peut-être été déplacée, ou le lien contient une faute de frappe. Cherchez avec / ou ⌘K, ou essayez l'une de ces pages.",
- "Did you mean": "Vouliez-vous dire"
+ "Did you mean": "Vouliez-vous dire",
+ "Stats over": "Stats sur",
+ "Last patch": "Patch précédent",
+ "Patches {a} to {b}": "Patchs {a} à {b}",
+ "The rest of the page stays on the live patch.": "Le reste de la page reste sur le patch actuel.",
+ "Answers": "Réponses",
+ "Questions players sent us, and our answers.": "Les questions des joueurs, et nos réponses.",
+ "Write to us from the box at the bottom of any page. We answer here, without your name.": "Écrivez-nous depuis l'encadré en bas de n'importe quelle page. Nous répondons ici, sans votre nom.",
+ "In English": "En anglais",
+ "We answered your message. See the answer": "Nous avons répondu à votre message. Voir la réponse",
+ "See answers to player questions": "Voir les réponses aux questions des joueurs",
+ "We answer on the Answers page, without your name. This box will show a link when yours is up.": "Nous répondons sur la page Réponses, sans votre nom. Un lien apparaîtra ici quand la vôtre sera en ligne."
 }

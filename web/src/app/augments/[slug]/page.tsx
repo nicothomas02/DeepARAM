@@ -15,6 +15,8 @@ import ShareCard from "@/components/ShareCard";
 import { Description, Name, T } from "@/components/I18n";
 import descriptions from "@/data/descriptions.json";
 import { patchName } from "@/lib/patch-name";
+import { augmentRanges } from "@/lib/stat-ranges";
+import { RangePicker, RangeView } from "@/components/StatRange";
 
 // One page per augment, so each can be found in search (lib/augments.ts).
 
@@ -55,6 +57,10 @@ export default async function AugmentPage({ params }: { params: Promise<{ slug: 
   const stages = augmentStages(a.id);
   const rarity = rarityOdds(a.tier);
   const pages = new Map(itemPages().map((i) => [i.id, i.slug]));
+  // The live patch keeps the page's own numbers; other ranges come from saved patches.
+  const { ranges: allRanges, stats: rangeStats } = augmentRanges();
+  const mine = rangeStats.get(a.id) ?? {};
+  const ranges = allRanges.filter((r) => r.key === "live" || mine[r.key]);
   const fits = augmentItems(a.id).flatMap((f) => {
     const it = item(f.id);
     return it ? [{ id: f.id, name: it.name, icon: it.icon, slug: pages.get(f.id), share: f.share }] : [];
@@ -107,31 +113,69 @@ export default async function AugmentPage({ params }: { params: Promise<{ slug: 
               <T ns="augments">rarity</T>
             </span>
           </div>
-          <div>
-            <b className={a.winRate >= 0.52 ? "wr-high" : a.winRate <= 0.48 ? "wr-low" : ""}>{pct(a.winRate)}</b>
-            <span>
-              {a.winRank ? (
-                <T ns="augments" v={{ rank: a.winRank, of: a.of }}>
-                  {"win rate, #{rank} of {of}"}
-                </T>
-              ) : (
-                <T ns="augments">win rate</T>
-              )}
-            </span>
-          </div>
-          <div>
-            <b>{pct(a.pickRate)}</b>
-            <span>
-              {a.pickRank ? (
-                <T ns="augments" v={{ rank: a.pickRank, of: a.of }}>
-                  {"pick rate, #{rank} of {of}"}
-                </T>
-              ) : (
-                <T ns="augments">pick rate</T>
-              )}
-            </span>
-          </div>
+          <RangeView
+            views={{
+              live: (
+                <>
+                  <div>
+                    <b className={a.winRate >= 0.52 ? "wr-high" : a.winRate <= 0.48 ? "wr-low" : ""}>{pct(a.winRate)}</b>
+                    <span>
+                      {a.winRank ? (
+                        <T ns="augments" v={{ rank: a.winRank, of: a.of }}>
+                          {"win rate, #{rank} of {of}"}
+                        </T>
+                      ) : (
+                        <T ns="augments">win rate</T>
+                      )}
+                    </span>
+                  </div>
+                  <div>
+                    <b>{pct(a.pickRate)}</b>
+                    <span>
+                      {a.pickRank ? (
+                        <T ns="augments" v={{ rank: a.pickRank, of: a.of }}>
+                          {"pick rate, #{rank} of {of}"}
+                        </T>
+                      ) : (
+                        <T ns="augments">pick rate</T>
+                      )}
+                    </span>
+                  </div>
+                </>
+              ),
+              ...Object.fromEntries(
+                ranges.flatMap((r) => {
+                  const x = mine[r.key];
+                  if (r.key === "live" || !x) return [];
+                  return [
+                    [
+                      r.key,
+                      <>
+                        <div>
+                          <b className={x.winRate >= 0.52 ? "wr-high" : x.winRate <= 0.48 ? "wr-low" : ""}>{pct(x.winRate)}</b>
+                          <span>
+                            <T ns="augments" v={{ rank: x.winRank, of: x.of }}>
+                              {"win rate, #{rank} of {of}"}
+                            </T>
+                          </span>
+                        </div>
+                        <div>
+                          <b>{pct(x.pickRate)}</b>
+                          <span>
+                            <T ns="augments" v={{ rank: x.pickRank, of: x.of }}>
+                              {"pick rate, #{rank} of {of}"}
+                            </T>
+                          </span>
+                        </div>
+                      </>,
+                    ],
+                  ];
+                }),
+              ),
+            }}
+          />
         </div>
+        <RangePicker ranges={ranges} />
         {offer && (
           <p className="aug-odds">
             <T

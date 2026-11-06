@@ -10,7 +10,8 @@ const page = (name: string, href: string): SearchItem => ({ group: "Pages", name
 // In the order the search list arrives: pages, then champions, augments and items.
 const ALL = [
   page("Tier List", "/tier-list"),
-  champ("Ahri", "Ahri", ["阿狸", "ари"]),
+  champ("Ahri", "Ahri", ["阿狸", "ари", "아리"]),
+  champ("Caitlyn", "Caitlyn", ["케이틀린"]),
   champ("Anivia"),
   champ("Annie"),
   champ("Kai'Sa", "Kaisa"),
@@ -60,5 +61,12 @@ describe("not-found suggestions", () => {
   it("suggests nothing for unrelated or tiny addresses", () => {
     expect(near("zzzzzzzz")).toEqual([]);
     expect(near("a")).toEqual([]);
+  });
+});
+
+describe("Korean initial-consonant search", () => {
+  it("finds a champion by its initials", () => {
+    expect(rankSearch(ALL, "ㅋㅇㅌㄹ").map((i) => i.name)).toEqual(["Caitlyn"]);
+    expect(rankSearch(ALL, "ㅇㄹ").map((i) => i.name)).toEqual(["Ahri"]);
   });
 });

@@ -4,7 +4,8 @@ import Link from "next/link";
 import RowLink from "@/components/RowLink";
 import { notFound } from "next/navigation";
 import { livePatch } from "@/lib/highlights";
-import { itemBySlug, itemPages } from "@/lib/item-pages";
+import { itemBuilderRanges, itemBySlug, itemPages, type ItemPage } from "@/lib/item-pages";
+import { RangePicker, RangeView } from "@/components/StatRange";
 import { itemSim } from "@/lib/item-sim";
 import { itemEstimate } from "@/lib/estimates";
 import { itemTag } from "@/lib/item-tags";
@@ -44,11 +45,47 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return pageMeta(`/items/${i.slug}`, `${i.name} in ARAM Mayhem`, full);
 }
 
+function builderList(list: ItemPage["builders"]) {
+  return (
+    <div className="rank builders">
+      {list.map((b) => (
+        <RowLink key={b.id} href={`/champions/${b.id}`}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img className="icon" src={`/icons/champions/${b.id}.webp`} alt="" width={24} height={24} loading="lazy" />
+          <span className="rank-name">
+            <Name kind="champions" id={b.id}>
+              {b.name}
+            </Name>
+          </span>
+          <span className="rank-v">
+            <T ns="items" v={{ pct: pct(b.pickRate) }}>
+              {"{pct} build"}
+            </T>
+          </span>
+          <span className={`rank-v ${b.winRate !== null && b.winRate >= 0.52 ? "wr-good" : ""}`}>
+            {b.winRate !== null ? (
+              <T ns="items" v={{ pct: pct(b.winRate) }}>
+                {"{pct} win"}
+              </T>
+            ) : (
+              ""
+            )}
+          </span>
+        </RowLink>
+      ))}
+    </div>
+  );
+}
+
 export default async function ItemPage({ params }: { params: Promise<{ slug: string }> }) {
   const i = itemBySlug((await params).slug);
   if (!i) notFound();
   const sim = itemSim(i.id);
   const est = itemEstimate(i.id);
+  // Who builds it over other ranges, from saved patches; the live patch keeps the page's own list.
+  const { ranges: allRanges, builders: rangeBuilders } = itemBuilderRanges();
+  const byRange = rangeBuilders.get(i.id) ?? {};
+  const ranges = allRanges.filter((r) => r.key === "live" || byRange[r.key]?.length);
   return (
     <>
       <Breadcrumbs
@@ -219,33 +256,13 @@ export default async function ItemPage({ params }: { params: Promise<{ slug: str
               <T ns="items">Built most by</T>
             </h2>
           </div>
-          <div className="rank builders">
-            {i.builders.map((b) => (
-              <RowLink key={b.id} href={`/champions/${b.id}`}>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img className="icon" src={`/icons/champions/${b.id}.webp`} alt="" width={24} height={24} loading="lazy" />
-                <span className="rank-name">
-                  <Name kind="champions" id={b.id}>
-                    {b.name}
-                  </Name>
-                </span>
-                <span className="rank-v">
-                  <T ns="items" v={{ pct: pct(b.pickRate) }}>
-                    {"{pct} build"}
-                  </T>
-                </span>
-                <span className={`rank-v ${b.winRate !== null && b.winRate >= 0.52 ? "wr-good" : ""}`}>
-                  {b.winRate !== null ? (
-                    <T ns="items" v={{ pct: pct(b.winRate) }}>
-                      {"{pct} win"}
-                    </T>
-                  ) : (
-                    ""
-                  )}
-                </span>
-              </RowLink>
-            ))}
-          </div>
+          <RangePicker ranges={ranges} />
+          <RangeView
+            views={{
+              live: builderList(i.builders),
+              ...Object.fromEntries(ranges.flatMap((r) => (r.key !== "live" && byRange[r.key]?.length ? [[r.key, builderList(byRange[r.key]!)]] : []))),
+            }}
+          />
         </section>
       )}
       {i.builders.length === 0 && i.tier !== "reward" && (

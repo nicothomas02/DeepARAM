@@ -414,3 +414,34 @@ def test_cn_json_numbers_finite(champs_json, augs_json):
     for body in (champs_json, augs_json):
         for path, n in walk_numbers(body):
             assert math.isfinite(n), path
+
+
+# ---------- item history (item_history.py) ----------
+
+def test_item_history_one_file_per_known_patch():
+    patches = [p["patch"] for p in read_csv("history/patches.csv")]
+    files = sorted(glob.glob(os.path.join(CN, "history", "items", "*.json")))
+    assert files, "history/items/ should hold at least the live patch"
+    known = {str(i) for i in champion_ids()}
+    ids = known if all(i.isdigit() for i in known) else None
+    for f in files:
+        data = load_json(os.path.relpath(f, REPO))
+        assert data["patch"] in patches and os.path.basename(f) == f"{data['patch']}.json"
+        assert len(data["champions"]) > 100
+        for cid, lists in data["champions"].items():
+            assert ids is None or cid in ids
+            assert set(lists) <= {"starting", "boots", "other"}
+            for rows in lists.values():
+                for items, pick, win in rows:
+                    assert items and all(isinstance(i, int) for i in items)
+                    assert is_rate(pick) and (win is None or is_rate(win))
+
+
+def test_item_history_picks_the_patch_window():
+    mod = load_module("data/cn/item_history.py", "item_history")
+    windows = [{"patch": "16.20", "window_start": "2026-10-12"}, {"patch": "16.21", "window_start": "2026-10-22"}]
+    assert mod.patch_of("2026-10-21", windows) == "16.20"
+    assert mod.patch_of("2026-10-22", windows) == "16.21"
+    assert mod.patch_of("2026-10-01", windows) is None
+    snap = mod.snapshot([{"id": 1, "items": {"boots": [{"items": [3020], "pick_rate": 0.5, "win_rate": 0.49}], "core": []}}])
+    assert snap == {"1": {"starting": [], "boots": [[[3020], 0.5, 0.49]], "other": []}}

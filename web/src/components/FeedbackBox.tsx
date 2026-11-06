@@ -1,20 +1,64 @@
 "use client";
 
-import { useState } from "react";
+import Link from "next/link";
+import { useEffect, useState } from "react";
 import { useBotCheck } from "@/lib/bot-check-client";
 import { useT } from "./I18n";
 
 const EMAIL = "admin@deeparam.com";
+// Ids of messages sent from this browser, so the box can say when one has an answer on /answers.
+const SENT_KEY = "deeparam-sent-messages";
+
+function sentIds(): string[] {
+  try {
+    const v = JSON.parse(localStorage.getItem(SENT_KEY) ?? "[]");
+    return Array.isArray(v) ? v.filter((x) => typeof x === "string") : [];
+  } catch {
+    return [];
+  }
+}
+
+function rememberSent(id: string) {
+  try {
+    localStorage.setItem(SENT_KEY, JSON.stringify([...sentIds(), id].slice(-20)));
+  } catch {
+    // Private mode or blocked storage: the answer is still on /answers.
+  }
+}
+
+/** The newest message from this browser that has an answer, if any. */
+function useAnswered() {
+  const [id, setId] = useState<string | null>(null);
+  useEffect(() => {
+    const mine = sentIds();
+    if (!mine.length) return;
+    fetch("/answers/ids")
+      .then((r) => (r.ok ? r.json() : []))
+      .then((ids: string[]) => setId([...mine].reverse().find((m) => ids.includes(m)) ?? null))
+      .catch(() => {});
+  }, []);
+  return id;
+}
 
 /** The footer's "Found a bug?" box: write a message here (it waits for the owner on /account) or follow the mailto link. */
 export default function FeedbackBox() {
   const t = useT();
   const [open, setOpen] = useState(false);
+  const answered = useAnswered();
   return (
     <section className="feedback-box" aria-label={t("Feedback")}>
       <div>
         <b>{t("Found a bug? Want a feature added?")}</b>
         <span>{t("Send it our way. Ideas from players shape what we build next.")}</span>
+        {answered ? (
+          <Link href={`/answers#a-${answered}`} className="feedback-answered">
+            {t("We answered your message. See the answer")}
+          </Link>
+        ) : (
+          <Link href="/answers" className="feedback-answers">
+            {t("See answers to player questions")}
+          </Link>
+        )}
       </div>
       <div className="feedback-actions">
         <button type="button" className="feedback-mail" aria-expanded={open} onClick={() => setOpen(!open)}>
@@ -47,9 +91,10 @@ function FeedbackForm({ onDone }: { onDone: () => void }) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ message, replyTo, page: location.pathname, check: bot.token }),
       });
-      const j = (await r.json().catch(() => ({}))) as { error?: string };
+      const j = (await r.json().catch(() => ({}))) as { error?: string; id?: string };
       bot.reset();
       if (!r.ok) return setState({ error: j.error ? t(j.error) : t("Something went wrong. Try again.") });
+      if (j.id) rememberSent(j.id);
       setMessage("");
       setState({ sent: true });
     } catch {
@@ -61,6 +106,7 @@ function FeedbackForm({ onDone }: { onDone: () => void }) {
     return (
       <div className="feedback-form" role="status">
         <p>{t("Thanks! Your message is on its way.")}</p>
+        <p>{t("We answer on the Answers page, without your name. This box will show a link when yours is up.")}</p>
         <button type="button" className="btn ghost" onClick={onDone}>
           {t("Close")}
         </button>

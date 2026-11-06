@@ -214,5 +214,16 @@
  "{ds} DeepScore · {wr} win · {pr} pick": "{ds} DeepScore · 승률 {wr} · 픽률 {pr}",
  "This page doesn't exist.": "이 페이지는 존재하지 않습니다.",
  "It may have moved, or the link has a typo. Search with / or ⌘K, or try one of these.": "페이지가 이동했거나 링크에 오타가 있을 수 있습니다. / 또는 ⌘K로 검색하거나 아래 중 하나를 시도해 보세요.",
- "Did you mean": "이것을 찾으셨나요"
+ "Did you mean": "이것을 찾으셨나요",
+ "Stats over": "통계 기간",
+ "Last patch": "이전 패치",
+ "Patches {a} to {b}": "패치 {a}~{b}",
+ "The rest of the page stays on the live patch.": "페이지의 나머지는 현재 패치 기준입니다.",
+ "Answers": "답변",
+ "Questions players sent us, and our answers.": "플레이어들이 보낸 질문과 답변.",
+ "Write to us from the box at the bottom of any page. We answer here, without your name.": "아무 페이지 하단의 상자에서 메시지를 보내 주세요. 이름 없이 여기서 답변해 드려요.",
+ "In English": "영어로 보기",
+ "We answered your message. See the answer": "보내주신 메시지에 답변했어요. 답변 보기",
+ "See answers to player questions": "플레이어 질문 답변 보기",
+ "We answer on the Answers page, without your name. This box will show a link when yours is up.": "답변은 이름 없이 답변 페이지에 올라가요. 올라가면 이 상자에 링크가 표시돼요."
 }
