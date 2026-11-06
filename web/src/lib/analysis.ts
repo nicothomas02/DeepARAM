@@ -60,6 +60,7 @@ type ItemLifts = {
   built: string;
   premium: { champions: number; mean: number; sd: number; share_positive: number | null };
   ranked: number;
+  moved_ten: number;
   items: Record<string, ItemLift>;
   moved: { id: number; from: number; to: number }[];
   archive: { games: number; win_rate: number | null; rows: { completed: number; games: number; win_rate: number; ci: [number, number] }[] } | null;
@@ -124,8 +125,7 @@ export const itemLift = (id: number): ItemLift | null => lifts()?.items[String(i
 export function itemLiftSummary() {
   const l = lifts();
   if (!l) return null;
-  const moved = l.moved.filter((m) => Math.abs(m.from - m.to) >= 10).length;
-  return { premium: l.premium, ranked: l.ranked, moved, archive: l.archive };
+  return { premium: l.premium, ranked: l.ranked, moved: l.moved_ten, archive: l.archive };
 }
 
 /** How long games last, from the survival analysis of the owner's archive; null until the archive aggregates exist. */

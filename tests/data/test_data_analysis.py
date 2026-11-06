@@ -130,8 +130,7 @@ def test_item_lift_adjusts_against_finished_builds():
         # adjusted = raw - premium, up to rounding
         assert abs(v["adjusted"] - (v["raw"] - v["premium"])) < 0.001
         assert -0.5 < v["raw"] < 0.5 and v["weight"] > 0
-    for m in lift["moved"]:
-        assert m["from"] != m["to"] or len(lift["moved"]) < 2
+    assert lift["moved_ten"] == sum(1 for v in ranked.values() if abs(v["rank_raw"] - v["rank_adjusted"]) >= 10)
     if lift["archive"]:
         assert sum(r["games"] for r in lift["archive"]["rows"]) == lift["archive"]["games"]
         for r in lift["archive"]["rows"]:

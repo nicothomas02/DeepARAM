@@ -10,8 +10,9 @@ minus champion win rate) is reported per champion and overall, and checked again
 
 Output data/analysis/item_lift.json:
   premium   {mean, sd, share_positive, champions: n}  the finished-build bonus across champions, in win-rate points
-  items     id -> {raw, adjusted, premium, builders, rank_raw, rank_adjusted}  lifts as fractions, ranks among legendaries
-  moved     items whose rank changed most between the two lifts (biggest first)
+  ranked, moved_ten   legendary items ranked, and how many move ten places or more between the two rankings
+  items     id -> {raw, adjusted, premium, weight, rank_raw, rank_adjusted}  lifts as fractions, ranks among legendaries
+  moved     the twelve items whose rank changed most between the two lifts (biggest first)
   archive   win rate (with Wilson ranges) by completed legendary items from the owner's archive, or null
 """
 from __future__ import annotations
@@ -111,6 +112,7 @@ def build() -> dict:
         "premium": {"champions": len(premiums), "mean": round(100 * c.mean(premiums), 2), "sd": round(100 * c.sd(premiums), 2),
                     "share_positive": round(sum(1 for p in premiums if p > 0) / len(premiums), 3) if premiums else None},
         "ranked": len(ranked),
+        "moved_ten": sum(1 for i in ranked if abs(items[i]["rank_raw"] - items[i]["rank_adjusted"]) >= 10),
         "items": {str(i): v for i, v in sorted(items.items())},
         "moved": [{"id": i, "from": items[i]["rank_raw"], "to": items[i]["rank_adjusted"]} for i in moved[:12]],
         "archive": archive,
