@@ -2,22 +2,22 @@
 
 **Question:** once both ARAM Mayhem teams are locked in, how well does the 5v5 champion draft predict the winner?
 
-**Answer so far (774 games, patches 26.3 to 26.22):** a little, and reliably. The best model, a logistic
+**Answer so far (1,081 games, patches 26.1 to 26.22):** a little, and reliably. The best model, a logistic
 regression on one feature (the sum of each champion's patch-wide win rate, as log-odds, blue minus red), reaches an
-out-of-fold **AUC of 0.60** (95% CI 0.56 to 0.64) and **58% accuracy** against a 55% always-blue baseline, with a
+out-of-fold **AUC of 0.61** (95% CI 0.58 to 0.65) and **60% accuracy** against a 54% always-blue baseline, with a
 permutation-test p of about 0.003. The patch-wide rates, measured on a far larger player base in another region,
-carry over to these games with a slope of 0.83 (CI 0.52 to 1.17, so consistent with one-to-one). Richer
-composition features and per-champion ratings did worse: at ~45 appearances per champion, extra parameters add
-more variance than signal. Full write-up, plots and limits: [`win_prediction.ipynb`](win_prediction.ipynb).
+carry over to these games with a slope of 0.95 (CI 0.67 to 1.25, so one-to-one). Richer composition features come
+close but don't beat it, and per-champion ratings trail: at ~60 appearances per champion, extra parameters add
+about as much variance as signal. Full write-up, plots and limits: [`win_prediction.ipynb`](win_prediction.ipynb).
 
 | Model (5-fold CV x 10) | AUC | Accuracy | Log loss | Brier |
 |---|---|---|---|---|
-| Side only (baseline) | 0.497 | 0.550 | 0.688 | 0.247 |
-| **Draft prior, logistic** | **0.598** | **0.584** | **0.674** | **0.240** |
-| Team composition, logistic | 0.562 | 0.578 | 0.683 | 0.245 |
-| Team composition, gradient boosting | 0.565 | 0.562 | 0.694 | 0.249 |
-| Champion identity, logistic | 0.521 | 0.548 | 0.688 | 0.247 |
-| Champion identity + draft prior | 0.542 | 0.555 | 0.685 | 0.246 |
+| Side only (baseline) | 0.499 | 0.537 | 0.690 | 0.249 |
+| **Draft prior, logistic** | **0.614** | **0.603** | **0.671** | **0.239** |
+| Team composition, logistic | 0.605 | 0.599 | 0.675 | 0.241 |
+| Team composition, gradient boosting | 0.599 | 0.585 | 0.679 | 0.242 |
+| Champion identity, logistic | 0.551 | 0.548 | 0.686 | 0.246 |
+| Champion identity + draft prior | 0.579 | 0.561 | 0.682 | 0.244 |
 
 ## Files
 
