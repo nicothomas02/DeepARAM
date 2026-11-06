@@ -12,6 +12,7 @@ Writes under data/cn/history/:
   by_patch.csv       each champion's full-patch numbers (last day of each window)
   all_time.csv       each champion across all patches, weighted by estimated games
   by_month.csv       each champion per calendar month (see query.py for any range)
+  items/<patch>.json every champion's item lists, last snapshot of each patch (item_history.py)
 
 Usage: python3 data/cn/history.py [--rebuild] [--today]   (--rebuild re-downloads every day; --today adds today so far)
 Standard library only.
@@ -27,6 +28,7 @@ import statistics
 from collections import defaultdict
 from concurrent.futures import ThreadPoolExecutor
 
+import item_history
 import query
 from fetch_cn import HERO_LIST, OUT, get, odp
 
@@ -223,6 +225,9 @@ def main():
         month_rows, n_days = query.stats(q_days, q_windows, q_names, start, end)
         by_month += [{"month": month, "days": n_days, **r} for r in month_rows]
     write("by_month.csv", by_month, ["month", "days", *query.COLS])
+
+    # Item pages' range views need each patch's item lists, which builds/ only holds for today.
+    item_history.archive()
 
     print(f"patches: {len(patch_rows)} ({patch_rows[0]['patch']} to {patch_rows[-1]['patch']}), "
           f"champions: {len(all_time)}")

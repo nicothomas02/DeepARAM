@@ -214,5 +214,9 @@
  "{ds} DeepScore · {wr} win · {pr} pick": "{ds} DeepScore · {wr} győzelem · {pr} választás",
  "This page doesn't exist.": "Ez az oldal nem létezik.",
  "It may have moved, or the link has a typo. Search with / or ⌘K, or try one of these.": "Lehet, hogy áthelyezték, vagy elírás van a hivatkozásban. Keress a / vagy ⌘K billentyűvel, vagy próbáld ezek egyikét.",
- "Did you mean": "Erre gondoltál"
+ "Did you mean": "Erre gondoltál",
+ "Stats over": "Statisztika erre:",
+ "Last patch": "Előző frissítés",
+ "Patches {a} to {b}": "{a}–{b} frissítések",
+ "The rest of the page stays on the live patch.": "Az oldal többi része az aktuális frissítést mutatja."
 }

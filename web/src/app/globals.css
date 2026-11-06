@@ -5790,3 +5790,28 @@ html[data-view="simple"] [data-detailed] {
   color: var(--accent);
   font-size: 0.8125rem;
 }
+
+/* Stat range switch on champion, augment and item pages (components/StatRange.tsx). */
+.stat-range {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.75rem;
+  margin-top: 0.75rem;
+}
+
+.stat-range .seg button {
+  padding: 0 0.75rem;
+  white-space: nowrap;
+}
+
+.stat-range-span {
+  color: var(--muted);
+  font-size: 0.8125rem;
+}
+
+@media (max-width: 640px) {
+  .stat-range .seg {
+    width: 100%;
+  }
+}

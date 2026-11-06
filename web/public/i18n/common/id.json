@@ -214,5 +214,9 @@
  "{ds} DeepScore · {wr} win · {pr} pick": "{ds} DeepScore · {wr} menang · {pr} dipilih",
  "This page doesn't exist.": "Halaman ini tidak ada.",
  "It may have moved, or the link has a typo. Search with / or ⌘K, or try one of these.": "Mungkin sudah dipindahkan, atau ada salah ketik di tautannya. Cari dengan / atau ⌘K, atau coba salah satu ini.",
- "Did you mean": "Maksud kamu"
+ "Did you mean": "Maksud kamu",
+ "Stats over": "Statistik untuk",
+ "Last patch": "Patch sebelumnya",
+ "Patches {a} to {b}": "Patch {a} sampai {b}",
+ "The rest of the page stays on the live patch.": "Bagian lain halaman ini tetap di patch saat ini."
 }

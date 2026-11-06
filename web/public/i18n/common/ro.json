@@ -214,5 +214,9 @@
  "{ds} DeepScore · {wr} win · {pr} pick": "{ds} DeepScore · {wr} victorii · {pr} alegeri",
  "This page doesn't exist.": "Această pagină nu există.",
  "It may have moved, or the link has a typo. Search with / or ⌘K, or try one of these.": "Poate a fost mutată sau linkul are o greșeală de tipar. Caută cu / sau ⌘K ori încearcă una dintre acestea.",
- "Did you mean": "Te referi la"
+ "Did you mean": "Te referi la",
+ "Stats over": "Statistici pentru",
+ "Last patch": "Patchul anterior",
+ "Patches {a} to {b}": "Patchurile {a}–{b}",
+ "The rest of the page stays on the live patch.": "Restul paginii rămâne pe patchul actual."
 }

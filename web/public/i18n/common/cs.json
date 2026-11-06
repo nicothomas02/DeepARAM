@@ -214,5 +214,9 @@
  "{ds} DeepScore · {wr} win · {pr} pick": "{ds} DeepScore · {wr} výher · {pr} výběrů",
  "This page doesn't exist.": "Tato stránka neexistuje.",
  "It may have moved, or the link has a typo. Search with / or ⌘K, or try one of these.": "Možná se přesunula nebo je v odkazu překlep. Hledejte pomocí / nebo ⌘K, nebo zkuste jednu z těchto možností.",
- "Did you mean": "Mysleli jste"
+ "Did you mean": "Mysleli jste",
+ "Stats over": "Statistiky za",
+ "Last patch": "Minulý patch",
+ "Patches {a} to {b}": "Patche {a} až {b}",
+ "The rest of the page stays on the live patch.": "Zbytek stránky zůstává u aktuálního patche."
 }

@@ -8,6 +8,7 @@ import { ITEM_TIERS, inMayhem, itemClasses, itemTier, items, ranked, rewardItems
 import { tagsFor } from "./item-tags";
 import { ddVersion } from "./dd-swap";
 import { readRepoJson } from "./repo-data";
+import { itemHistory, statRanges, type ItemLists, type RangeKey, type StatRange } from "./stat-ranges";
 
 // One page per item in the Mayhem shop (/items/<slug>): every item sold on Howling Abyss, the items
 // augments hand out, and anything champions build. Stats and cost come from the client's item list, the
@@ -15,8 +16,7 @@ import { readRepoJson } from "./repo-data";
 
 const IDS = championIds as Record<string, number>;
 
-type Entry = { items: number[]; pick_rate: number; win_rate?: number };
-type Builds = { items?: Record<string, Entry[]> };
+type Builds = { items?: ItemLists };
 
 export type ItemPage = {
   id: number;
@@ -121,32 +121,14 @@ function shopItems(info: Map<number, { inStore?: boolean }>): number[] {
   });
 }
 
-let cache: ItemPage[] | null = null;
-export function itemPages(): ItemPage[] {
-  if (cache) return cache;
-  const all = items();
-  const raw = readRepoJson<
-    {
-      id: number;
-      description?: string;
-      priceTotal?: number;
-      categories?: string[];
-      inStore?: boolean;
-      displayInItemSets?: boolean;
-      from?: number[];
-      to?: number[];
-    }[]
-  >(
-    "web/public/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/items.json",
-  );
-  const info = new Map((raw ?? []).map((i) => [i.id, i]));
-  // How often each champion buys each item. Within the starting, boots and other lists, the entries an
-  // item appears in are summed (single items and combinations alike), with their win rates weighted by
-  // pick rate; the list where it's most common counts. Combinations matter for items rarely bought on
-  // their own (Gluttonous Greaves, most components).
+// How often each champion buys each item. Within the starting, boots and other lists, the entries an
+// item appears in are summed (single items and combinations alike), with their win rates weighted by
+// pick rate; the list where it's most common counts. Combinations matter for items rarely bought on
+// their own (Gluttonous Greaves, most components).
+function buildersFrom(listsOf: (cid: number) => ItemLists | undefined): Map<number, ItemPage["builders"]> {
   const builders = new Map<number, ItemPage["builders"]>();
   for (const [alias, cid] of Object.entries(IDS)) {
-    const b = readRepoJson<Builds>(`data/cn/builds/${cid}.json`)?.items ?? {};
+    const b = listsOf(cid) ?? {};
     const best = new Map<number, { pick: number; wins: number; rated: number }>();
     for (const list of [b.other ?? [], b.boots ?? [], b.starting ?? []]) {
       const sums = new Map<number, { pick: number; wins: number; rated: number }>();
@@ -169,6 +151,72 @@ export function itemPages(): ItemPage[] {
       builders.set(id, [...(builders.get(id) ?? []), row]);
     }
   }
+  return builders;
+}
+
+const TOP_BUILDERS = 10;
+
+let rangeCache: { ranges: StatRange[]; builders: Map<number, Partial<Record<RangeKey, ItemPage["builders"]>>> } | null = null;
+/** Each item's top builders over each range of saved patches: pick rates averaged by patch days, win
+ *  rates weighted by how often it was built. */
+export function itemBuilderRanges() {
+  if (rangeCache) return rangeCache;
+  const history = itemHistory();
+  const perPatch = new Map(history.map((h) => [h.patch, { days: h.days, builders: buildersFrom((cid) => h.lists.get(cid)) }]));
+  const ranges = statRanges(history.map((h) => h.patch));
+  const builders = new Map<number, Partial<Record<RangeKey, ItemPage["builders"]>>>();
+  for (const range of ranges) {
+    const days = range.patches.reduce((d, p) => d + (perPatch.get(p)?.days ?? 0), 0) || 1;
+    const sums = new Map<number, Map<string, { name: string; pick: number; wins: number; rated: number }>>();
+    for (const p of range.patches) {
+      const one = perPatch.get(p);
+      if (!one) continue;
+      for (const [id, list] of one.builders) {
+        const byChamp = sums.get(id) ?? new Map();
+        for (const b of list) {
+          const m = byChamp.get(b.id) ?? { name: b.name, pick: 0, wins: 0, rated: 0 };
+          m.pick += b.pickRate * one.days;
+          if (b.winRate !== null) {
+            m.wins += b.winRate * b.pickRate * one.days;
+            m.rated += b.pickRate * one.days;
+          }
+          byChamp.set(b.id, m);
+        }
+        sums.set(id, byChamp);
+      }
+    }
+    for (const [id, byChamp] of sums) {
+      const list = [...byChamp]
+        .map(([cid, m]) => ({ id: cid, name: m.name, pickRate: m.pick / days, winRate: m.rated ? m.wins / m.rated : null }))
+        .sort((x, y) => y.pickRate - x.pickRate)
+        .slice(0, TOP_BUILDERS);
+      builders.set(id, { ...builders.get(id), [range.key]: list });
+    }
+  }
+  rangeCache = { ranges, builders };
+  return rangeCache;
+}
+
+let cache: ItemPage[] | null = null;
+export function itemPages(): ItemPage[] {
+  if (cache) return cache;
+  const all = items();
+  const raw = readRepoJson<
+    {
+      id: number;
+      description?: string;
+      priceTotal?: number;
+      categories?: string[];
+      inStore?: boolean;
+      displayInItemSets?: boolean;
+      from?: number[];
+      to?: number[];
+    }[]
+  >(
+    "web/public/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/items.json",
+  );
+  const info = new Map((raw ?? []).map((i) => [i.id, i]));
+  const builders = buildersFrom((cid) => readRepoJson<Builds>(`data/cn/builds/${cid}.json`)?.items ?? {});
   const slugs = new Set<string>();
   const ids = new Set([...builders.keys(), ...shopItems(info), ...rewardItems()].filter((id) => inMayhem(id) || rewardItems().has(id)));
   cache = [...ids]
@@ -187,7 +235,7 @@ export function itemPages(): ItemPage[] {
         stats: statLines(info.get(i.id)?.description ?? ""),
         tags: tagsFor([...(info.get(i.id)?.categories ?? []), ...itemClasses(i.id).map((c) => `class:${c}`)]),
         popularity: (builders.get(i.id) ?? []).reduce((s, b) => s + b.pickRate, 0),
-        builders: [...(builders.get(i.id) ?? [])].sort((x, y) => y.pickRate - x.pickRate).slice(0, 10),
+        builders: [...(builders.get(i.id) ?? [])].sort((x, y) => y.pickRate - x.pickRate).slice(0, TOP_BUILDERS),
         tier: itemTier(i.id),
         deepScore: null as number | null,
         from: [] as RecipePart[],

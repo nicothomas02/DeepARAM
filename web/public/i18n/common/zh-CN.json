@@ -214,5 +214,9 @@
  "{ds} DeepScore · {wr} win · {pr} pick": "{ds} DeepScore · 胜率 {wr} · 选取率 {pr}",
  "This page doesn't exist.": "此页面不存在。",
  "It may have moved, or the link has a typo. Search with / or ⌘K, or try one of these.": "页面可能已移动，或链接有拼写错误。按 / 或 ⌘K 搜索，或试试以下页面。",
- "Did you mean": "你是不是要找"
+ "Did you mean": "你是不是要找",
+ "Stats over": "统计范围",
+ "Last patch": "上个版本",
+ "Patches {a} to {b}": "版本 {a} 至 {b}",
+ "The rest of the page stays on the live patch.": "页面其余部分仍为当前版本。"
 }
