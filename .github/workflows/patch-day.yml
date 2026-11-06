@@ -41,6 +41,7 @@ jobs:
         run: |
           pip install xxhash pytest
           python3 web/scripts/fetch_assets.py --refresh
+          python3 web/scripts/fetch_icons.py
           python3 guide/build_data.py --languages
           python3 guide/build_history.py
           python3 champions/build_data.py
@@ -63,7 +64,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add web/public/assets web/public/i18n web/src/data guide champions data/official
+          git add web/public/assets web/public/icons web/public/i18n web/src/data guide champions data/official
           if git diff --cached --quiet; then
             echo "Nothing changed"
           else

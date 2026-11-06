@@ -62,5 +62,6 @@
  "Set 3": "セット3",
  "This set ({set})": "今のセット（{set}）",
  "Weapon of Destiny": "運命の武器",
- "Pentakill": "ペンタキル"
+ "Pentakill": "ペンタキル",
+ "Augments with no stats yet show a dash and sit at the bottom.": "まだ統計がないオーグメントはダッシュで表示され、一番下に並びます。"
 }

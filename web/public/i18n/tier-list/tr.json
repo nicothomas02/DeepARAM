@@ -62,5 +62,6 @@
  "Set 3": "Set 3",
  "This set ({set})": "Bu set ({set})",
  "Weapon of Destiny": "Kaderin Silahı",
- "Pentakill": "Pentakill"
+ "Pentakill": "Pentakill",
+ "Augments with no stats yet show a dash and sit at the bottom.": "Henüz istatistiği olmayan güçlendirmeler çizgiyle gösterilir ve en altta yer alır."
 }

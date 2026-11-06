@@ -62,5 +62,6 @@
  "Set 3": "赛季 3",
  "This set ({set})": "本赛季（{set}）",
  "Weapon of Destiny": "命运之武器",
- "Pentakill": "五杀摇滚"
+ "Pentakill": "五杀摇滚",
+ "Augments with no stats yet show a dash and sit at the bottom.": "暂无数据的强化以短横显示，排在最后。"
 }

@@ -609,11 +609,15 @@ h1 {
   font: 500 0.75rem var(--mono);
 }
 
+/* A long name (an augment like "The Boom and the Bass") wraps onto a second line instead of being cut off. */
 .rank-name {
+  display: -webkit-box;
   overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
   font-weight: 500;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
 }
 
 .rank-v {
@@ -5831,6 +5835,8 @@ html[data-view="simple"] [data-detailed] {
 .feedback-answered {
   color: var(--accent, inherit);
   font-weight: 600;
+}
+
 /* Stat range switch on champion, augment and item pages (components/StatRange.tsx). */
 .stat-range {
   display: flex;
@@ -5853,5 +5859,22 @@ html[data-view="simple"] [data-detailed] {
 @media (max-width: 640px) {
   .stat-range .seg {
     width: 100%;
+  }
+}
+
+/* Augment tables on phones: the row number gives way (the tier letter keeps the order) and the icon shrinks a little,
+   so augment names get the room. */
+@media (max-width: 640px) {
+  .data-table.fit > .table-scroll table:has(td.aug-col) .rank-col {
+    display: none;
+  }
+
+  .data-table.fit > .table-scroll td.aug-col img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .data-table.fit > .table-scroll td.aug-col .champ {
+    gap: 0.35rem;
   }
 }

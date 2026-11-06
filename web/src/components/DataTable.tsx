@@ -187,7 +187,7 @@ function Ability({ src, text }: { src: string; text: string }) {
   return (
     <span className="champ ability-cell" title={text}>
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      {src && <img src={src} alt="" width={24} height={24} loading="lazy" />}
+      {src && <img key={src} src={src} alt="" width={24} height={24} loading="lazy" />}
       <span className="nm">
         {slot}
         {rest.length > 0 && <span className="ability-name"> · {rest.join(" · ")}</span>}
@@ -214,7 +214,7 @@ function Named({ src, name }: { src: string; name: string }) {
 // A champion's name opens its page.
 function Champion({ id }: { id: string }) {
   const name = useNames()("champions", id, NAMES[id] ?? id.replace(/([a-z])([A-Z])/g, "$1 $2"));
-  const named = <Named src={`/icons/champions/${id}.webp`} name={name} />;
+  const named = <Named key={id} src={`/icons/champions/${id}.webp`} name={name} />;
   return id in championIds ? (
     <RowLink className="cell-link" href={`/champions/${id}`}>
       {named}
@@ -228,7 +228,7 @@ function Champion({ id }: { id: string }) {
 function ChampionIcon({ id }: { id: string }) {
   const name = useNames()("champions", id, NAMES[id] ?? id.replace(/([a-z])([A-Z])/g, "$1 $2"));
   // eslint-disable-next-line @next/next/no-img-element
-  const icon = <img className="champ-icon" src={`/icons/champions/${id}.webp`} alt={name} title={name} width={28} height={28} loading="lazy" />;
+  const icon = <img key={id} className="champ-icon" src={`/icons/champions/${id}.webp`} alt={name} title={name} width={28} height={28} loading="lazy" />;
   return id in championIds ? (
     <RowLink className="cell-link" href={`/champions/${id}`}>
       {icon}
@@ -324,6 +324,20 @@ export default function DataTable({
     });
   }, [rows, sort, query, searchKey, names]);
 
+  // A stable key per row: its id, else its name column, with a counter for repeats (two duo rows can share a name).
+  const rowKeys = useMemo(() => {
+    const seen = new Map<string, number>();
+    const keys = new Map<Row, string>();
+    const keyCol = searchKey ?? columns[0]?.key;
+    for (const r of rows) {
+      const base = String(r.id ?? (keyCol ? r[keyCol] : "") ?? "");
+      const n = seen.get(base) ?? 0;
+      seen.set(base, n + 1);
+      keys.set(r, n ? `${base}#${n}` : base);
+    }
+    return keys;
+  }, [rows, searchKey, columns]);
+
   const toggle = (key: string) => {
     const next = sort.key === key ? { key, desc: !sort.desc } : { key, desc: key !== searchKey };
     setSort(next);
@@ -391,7 +405,9 @@ export default function DataTable({
           </thead>
           <tbody onClick={openRow}>
             {sorted.slice(0, shown).map((r, i) => (
-              <tr key={i}>
+              // Keyed by the row's own identity, not its position: after a sort or search a reused row would show
+              // the previous row's icons until the new ones load.
+              <tr key={rowKeys.get(r) ?? i}>
                 <td className="num muted-cell rank-col">{i + 1}</td>
                 {columns.map((c) => (
                   <td key={c.key} className={cls(c, cellClass(c, r[c.key]))}>
@@ -403,10 +419,10 @@ export default function DataTable({
                       // The row carries the item's name in the page's language already; items without a page aren't links.
                       r[c.hrefKey ?? "href"] ? (
                         <RowLink className="cell-link" href={String(r[c.hrefKey ?? "href"])}>
-                          <Named src={String(r[c.iconKey ?? "icon"] ?? "")} name={String(r[c.key] ?? "")} />
+                          <Named key={String(r[c.iconKey ?? "icon"] ?? "")} src={String(r[c.iconKey ?? "icon"] ?? "")} name={String(r[c.key] ?? "")} />
                         </RowLink>
                       ) : (
-                        <Named src={String(r[c.iconKey ?? "icon"] ?? "")} name={String(r[c.key] ?? "")} />
+                        <Named key={String(r[c.iconKey ?? "icon"] ?? "")} src={String(r[c.iconKey ?? "icon"] ?? "")} name={String(r[c.key] ?? "")} />
                       )
                     ) : c.format === "ability" ? (
                       r[c.key] ? <Ability src={String(r[c.iconKey ?? "icon"] ?? "")} text={String(r[c.key])} /> : "–"
@@ -414,12 +430,14 @@ export default function DataTable({
                       c.hrefKey && r[c.hrefKey] ? (
                         <RowLink className="cell-link" href={String(r[c.hrefKey])}>
                           <Named
+                            key={String(r[c.iconKey ?? "id"])}
                             src={`/icons/augments/${r[c.iconKey ?? "id"]}.webp`}
                             name={names("augments", String(r[c.iconKey ?? "id"]), String(r[c.key] ?? ""))}
                           />
                         </RowLink>
                       ) : (
                         <Named
+                          key={String(r[c.iconKey ?? "id"])}
                           src={`/icons/augments/${r[c.iconKey ?? "id"]}.webp`}
                           name={names("augments", String(r[c.iconKey ?? "id"]), String(r[c.key] ?? ""))}
                         />
