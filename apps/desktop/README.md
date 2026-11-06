@@ -11,6 +11,8 @@ What the app adds on top of the site:
 - Patch notifications: every 30 minutes it reads `https://deeparam.com/data/app-status.json` (`web/src/app/data/app-status.json/route.ts`, also read by the Mac, iPhone and iPad apps) and notifies when the live patch or the PBE build changes.
 - Offline: a bundled start page (`ui/index.html`) waits for the connection and retries; while browsing, a banner shows when the connection drops. WebView2 (Windows) and WebKitGTK (Linux) keep their own disk cache, so pages already opened load fast.
 - Links to other sites open in the default browser.
+- In-game overlay (`src-tauri/src/overlay.rs`, `ui/overlay.html`): during an ARAM Mayhem game, a small see-through panel at the left or right edge of the screen shows the champion page's quick build for the champion you're on: skill order, spells, items and the top 3 prismatic, gold and silver augments. It reads only League's Live Client Data API on `127.0.0.1:2999` (the game mode, your Riot ID and the player list, every 5 seconds) and the builds from `https://deeparam.com/data/overlay.json` (`web/src/app/data/overlay.json/route.ts`). No game memory, no injection: it's an ordinary always-on-top window that clicks pass through, so it shows over League in Borderless or Windowed mode but not exclusive Fullscreen. Ctrl+Shift+O hides or shows it (held only during a game); the tray's "In-game overlay" menu turns it off or moves it to the other side.
+  Riot's rules it keeps to: only static picks available before the game, never augment win rates (banned in overlays), nothing about other players, no timers, and it never picks for you. Debug builds read the builds from `DEEPARAM_OVERLAY_DATA` instead, for testing against a fake game on port 2999.
 
 ## Build
 

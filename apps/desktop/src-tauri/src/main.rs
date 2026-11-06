@@ -1,11 +1,13 @@
 // DeepARAM for desktop: the live site in a native window, with a tray menu and patch notifications.
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
+mod overlay;
+
 use std::{fs, path::PathBuf, sync::Mutex, thread, time::Duration};
 
 use serde::{Deserialize, Serialize};
 use tauri::{
-    menu::{CheckMenuItem, Menu, MenuItem, PredefinedMenuItem},
+    menu::{CheckMenuItem, Menu, MenuItem, PredefinedMenuItem, Submenu},
     tray::{MouseButton, MouseButtonState, TrayIconBuilder, TrayIconEvent},
     webview::{NewWindowResponse, PageLoadEvent},
     AppHandle, Manager, Url, WebviewUrl, WebviewWindow, WebviewWindowBuilder, WindowEvent,
@@ -103,6 +105,11 @@ struct Saved {
     last_path: Option<String>,
     tray_hint_shown: bool,
     notifications_off: bool,
+    /// The in-game overlay is off (it's on unless the player turns it off in the tray).
+    overlay_off: bool,
+    /// The overlay sits on the right edge of the screen instead of the left.
+    overlay_right: bool,
+    overlay_hint_shown: bool,
 }
 
 #[derive(Deserialize)]
@@ -293,7 +300,16 @@ fn build_tray(app: &AppHandle) -> tauri::Result<()> {
     let auto = CheckMenuItem::with_id(app, "auto", AUTOSTART_LABEL, true, autostart_on, None::<&str>)?;
     let quit = MenuItem::with_id(app, "quit", "Quit DeepARAM", true, None::<&str>)?;
     let sep = || PredefinedMenuItem::separator(app);
-    let menu = Menu::with_items(app, &[&open, &sep()?, &tier, &sim, &patches, &pbe, &sep()?, &check, &notes])?;
+    let overlay_right = app.state::<Store>().saved.lock().unwrap().overlay_right;
+    let ov_on =
+        CheckMenuItem::with_id(app, "ov_on", "Show during Mayhem games", true, overlay::enabled(app), None::<&str>)?;
+    let ov_left = CheckMenuItem::with_id(app, "ov_left", "Left side", true, !overlay_right, None::<&str>)?;
+    let ov_right = CheckMenuItem::with_id(app, "ov_right", "Right side", true, overlay_right, None::<&str>)?;
+    let overlay_menu = Submenu::with_items(app, "In-game overlay", true, &[&ov_on, &sep()?, &ov_left, &ov_right])?;
+    let menu = Menu::with_items(
+        app,
+        &[&open, &sep()?, &tier, &sim, &patches, &pbe, &sep()?, &overlay_menu, &sep()?, &check, &notes],
+    )?;
     if autostart_available() {
         menu.append(&auto)?;
     }
@@ -301,6 +317,12 @@ fn build_tray(app: &AppHandle) -> tauri::Result<()> {
 
     let notes_item = notes.clone();
     let auto_item = auto.clone();
+    let side = move |app: &AppHandle, right: bool| {
+        app.state::<Store>().update(|s| s.overlay_right = right);
+        let _ = ov_left.set_checked(!right);
+        let _ = ov_right.set_checked(right);
+        overlay::place(app);
+    };
     TrayIconBuilder::with_id("tray")
         .icon(app.default_window_icon().cloned().expect("app icon"))
         .tooltip("DeepARAM")
@@ -316,6 +338,15 @@ fn build_tray(app: &AppHandle) -> tauri::Result<()> {
                 let app = app.clone();
                 thread::spawn(move || check_patch(&app, true));
             }
+            "ov_on" => {
+                let on = ov_on.is_checked().unwrap_or(true);
+                app.state::<Store>().update(|s| s.overlay_off = !on);
+                if !on {
+                    overlay::stop(app);
+                }
+            }
+            "ov_left" => side(app, false),
+            "ov_right" => side(app, true),
             "notes" => {
                 let on = notes_item.is_checked().unwrap_or(true);
                 app.state::<Store>().update(|s| s.notifications_off = !on);
@@ -349,12 +380,20 @@ fn main() {
         .plugin(tauri_plugin_notification::init())
         .plugin(tauri_plugin_opener::init())
         .plugin(tauri_plugin_autostart::init(MacosLauncher::LaunchAgent, Some(vec![HIDDEN_ARG])))
+        .plugin(
+            tauri_plugin_global_shortcut::Builder::new()
+                .with_handler(|app, _shortcut, event| overlay::on_shortcut(app, event.state()))
+                .build(),
+        )
         .setup(|app| {
             let handle = app.handle().clone();
             app.manage(Store::load(&handle));
+            app.manage(overlay::Shared::default());
             let hidden = std::env::args().any(|a| a == HIDDEN_ARG);
             build_window(&handle, hidden)?;
+            overlay::build_window(&handle)?;
             build_tray(&handle)?;
+            overlay::watch(handle.clone());
             thread::spawn(move || loop {
                 check_patch(&handle, false);
                 thread::sleep(POLL_EVERY);
@@ -364,7 +403,7 @@ fn main() {
         .on_window_event(|win, event| {
             // Closing the window keeps DeepARAM in the tray so patch notifications still arrive.
             if let WindowEvent::CloseRequested { api, .. } = event {
-                if !has_tray() {
+                if win.label() != "main" || !has_tray() {
                     return;
                 }
                 api.prevent_close();
