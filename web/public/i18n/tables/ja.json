@@ -134,5 +134,9 @@
  "Best champ": "ベストチャンピオン",
  "The champion with the highest estimated win rate boost from this augment.": "このオーグメントで推定勝率上昇が最も大きいチャンピオン。",
  "Augment pick": "オーグメント選択",
- "Estimated: the augment picks (1st to 4th) where it usually shows up.": "推定：よく出てくるオーグメント選択（1回目〜4回目）です。"
+ "Estimated: the augment picks (1st to 4th) where it usually shows up.": "推定：よく出てくるオーグメント選択（1回目〜4回目）です。",
+ "Few games": "試合数少",
+ "Too few games": "試合数不足",
+ "Few games marks a win rate that could be off by more than 5 pts either way, so small differences there are likely noise. Under 10 games it says Too few games.": "「試合数少」は、勝率が上下に5pt以上ずれる可能性があることを示します。そのため小さな差はおそらく誤差です。10試合未満では「試合数不足」と表示されます。",
+ "With Page detail set to Detailed, win rates show a ± range: the true rate is within it 95% of the time.": "ページの詳細度を「詳細」にすると、勝率に±の範囲が表示されます。本当の勝率は95%の確率でその範囲内にあります。"
 }

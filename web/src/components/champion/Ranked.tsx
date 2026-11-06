@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element -- small local icons */
 import { Name, T } from "@/components/I18n";
 import type { Rated } from "@/lib/champion-page";
+import WinRate from "@/components/WinRate";
 
 // Champion page building blocks: a panel with a title and row count, a header row, and ranked rows whose
 // numbers sit in fixed columns (value on top, its label below). Rows past the first few hide behind a
@@ -126,7 +127,7 @@ export function RatedCells({
   const l = value ?? r.lift;
   return (
     <>
-      <Cell value={pct(r.winRate)} label="Win rate" />
+      <Cell value={<WinRate p={r.winRate} n={r.games} />} label="Win rate" />
       <Cell value={pct(r.pickRate)} label="Pick rate" />
       <Cell value={signed(l)} label={lift} tone={tone(l)} />
     </>

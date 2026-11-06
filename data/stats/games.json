@@ -1,0 +1,157 @@
+{
+ "about": "Effective matches behind each patch's stats (data/stats/games.py). A champion's games = pick_rate x matches; an item's or a teammate pair's = its share x the champion's games.",
+ "updated": "2026-11-06",
+ "median_per_day": 3629126,
+ "patches": {
+  "15.21": {
+   "days": 14,
+   "per_day": 3629126,
+   "matches": 50807764,
+   "estimated": false
+  },
+  "15.22": {
+   "days": 14,
+   "per_day": 3629126,
+   "matches": 50807764,
+   "estimated": false
+  },
+  "15.23": {
+   "days": 14,
+   "per_day": 3629126,
+   "matches": 50807764,
+   "estimated": false
+  },
+  "15.24": {
+   "days": 35,
+   "per_day": 3081159,
+   "matches": 107840578,
+   "estimated": true
+  },
+  "16.1": {
+   "days": 14,
+   "per_day": 3123880,
+   "matches": 43734323,
+   "estimated": true
+  },
+  "16.2": {
+   "days": 13,
+   "per_day": 3835674,
+   "matches": 49863761,
+   "estimated": true
+  },
+  "16.3": {
+   "days": 29,
+   "per_day": 2778279,
+   "matches": 80570103,
+   "estimated": true
+  },
+  "16.5": {
+   "days": 14,
+   "per_day": 3056089,
+   "matches": 42785240,
+   "estimated": true
+  },
+  "16.6": {
+   "days": 13,
+   "per_day": 3795211,
+   "matches": 49337749,
+   "estimated": true
+  },
+  "16.7": {
+   "days": 15,
+   "per_day": 2933525,
+   "matches": 44002873,
+   "estimated": true
+  },
+  "16.8": {
+   "days": 13,
+   "per_day": 3415578,
+   "matches": 44402517,
+   "estimated": true
+  },
+  "16.9": {
+   "days": 15,
+   "per_day": 2382124,
+   "matches": 35731867,
+   "estimated": true
+  },
+  "16.10": {
+   "days": 14,
+   "per_day": 3629126,
+   "matches": 50807764,
+   "estimated": false
+  },
+  "16.11": {
+   "days": 14,
+   "per_day": 3549030,
+   "matches": 49686416,
+   "estimated": true
+  },
+  "16.12": {
+   "days": 14,
+   "per_day": 3629126,
+   "matches": 50807764,
+   "estimated": false
+  },
+  "16.13": {
+   "days": 21,
+   "per_day": 3546028,
+   "matches": 74466585,
+   "estimated": true
+  },
+  "16.14": {
+   "days": 14,
+   "per_day": 3461774,
+   "matches": 48464832,
+   "estimated": true
+  },
+  "16.15": {
+   "days": 14,
+   "per_day": 2885257,
+   "matches": 40393595,
+   "estimated": true
+  },
+  "16.16": {
+   "days": 14,
+   "per_day": 4172823,
+   "matches": 58419524,
+   "estimated": true
+  },
+  "16.17": {
+   "days": 14,
+   "per_day": 4031128,
+   "matches": 56435788,
+   "estimated": true
+  },
+  "16.18": {
+   "days": 13,
+   "per_day": 3629126,
+   "matches": 47178638,
+   "estimated": false
+  },
+  "16.19": {
+   "days": 19,
+   "per_day": 3629126,
+   "matches": 68953394,
+   "estimated": false
+  },
+  "16.20": {
+   "days": 10,
+   "per_day": 3629126,
+   "matches": 36291260,
+   "estimated": false
+  },
+  "16.21": {
+   "days": 14,
+   "per_day": 3227124,
+   "matches": 45179740,
+   "estimated": true
+  },
+  "16.22": {
+   "days": 1,
+   "per_day": 3629126,
+   "matches": 3629126,
+   "estimated": false
+  }
+ }
+}
