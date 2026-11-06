@@ -93,5 +93,16 @@
  "Filter by tags": "Filtrează după etichete",
  "Recipe": "Rețetă",
  "Built from": "Se construiește din",
- "Builds into": "Se transformă în"
+ "Builds into": "Se transformă în",
+ "Build slot": "Loc în build",
+ "Any slot": "Orice loc",
+ "1st item": "Primul obiect",
+ "2nd item": "Al 2-lea obiect",
+ "3rd item": "Al 3-lea obiect",
+ "Category": "Categorie",
+ "All items": "Toate obiectele",
+ "Hide items augments can give": "Ascunde obiectele date de augmentări",
+ "Estimated: items often bought at this slot.": "Estimat: obiecte cumpărate des pe acest loc.",
+ "AD": "AD",
+ "AP": "AP"
 }

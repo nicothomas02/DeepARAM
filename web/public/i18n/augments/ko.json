@@ -60,5 +60,8 @@
  "{pct} of picks here are this rarity": "여기서 선택의 {pct}가 이 등급",
  "Share of this augment's picks at each augment selection, and how often a pick there is of its rarity.": "각 증강 선택 시점별 이 증강의 선택 비율과, 그 시점의 선택이 이 등급일 확률입니다.",
  "Items that go with it": "어울리는 아이템",
- "Share of the champions who take this augment that build each item.": "이 증강을 고른 챔피언 중 각 아이템을 만드는 비율입니다."
+ "Share of the champions who take this augment that build each item.": "이 증강을 고른 챔피언 중 각 아이템을 만드는 비율입니다.",
+ "Best augments to pair it with": "함께 고르기 좋은 증강",
+ "Win rate when both are taken, across the champions that often pair them.": "둘 다 골랐을 때의 승률로, 자주 함께 고르는 챔피언들을 합쳐 계산했습니다.",
+ "Win rate": "승률"
 }

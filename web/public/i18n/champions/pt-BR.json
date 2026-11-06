@@ -191,5 +191,16 @@
  "Core builds show the boots where the Simulator says to buy them: the first point where they add as much per gold as the next item.": "As builds principais mostram as botas onde o Simulador diz para comprá-las: o primeiro ponto em que rendem por ouro tanto quanto o próximo item.",
  "The biggest win rate boost of any augment on {champ}: +{n} pts.": "O maior aumento de taxa de vitória entre todos os aumentos com {champ}: +{n} pts.",
  "Raises {champ}'s win rate by {n} pts.": "Aumenta a taxa de vitória de {champ} em {n} pts.",
- "Lowers {champ}'s win rate by {n} pts.": "Reduz a taxa de vitória de {champ} em {n} pts."
+ "Lowers {champ}'s win rate by {n} pts.": "Reduz a taxa de vitória de {champ} em {n} pts.",
+ "Build for your augments": "Build para seus aumentos",
+ "The builds below are for any augments. Pick yours to see the best items with it.": "As builds abaixo servem para qualquer aumento. Escolha o seu para ver os melhores itens com ele.",
+ "Simulated: the Simulator's best items with this augment taken, compared with its best items with no augment.": "Simulado: os melhores itens do simulador com este aumento, comparados aos melhores itens sem aumento.",
+ "Pick an augment to see the best items with it. ⇄ marks augments that change your build.": "Escolha um aumento para ver os melhores itens com ele. ⇄ marca os aumentos que mudam sua build.",
+ "Highlighted augments can be added as a second pick.": "Os aumentos destacados podem ser adicionados como segunda escolha.",
+ "Changes your build: {n} different items": "Muda sua build: {n} itens diferentes",
+ "Your usual items still work": "Seus itens de sempre continuam bons",
+ "Changes your build": "Muda sua build",
+ "The best items with this augment differ from your usual build.": "Os melhores itens com este aumento são diferentes da sua build de sempre.",
+ "Estimated: the augment picks (1st to 4th) where it usually shows up.": "Estimado: as escolhas de aumento (1ª a 4ª) em que ele costuma aparecer.",
+ "Pick {n}": "Escolha {n}"
 }

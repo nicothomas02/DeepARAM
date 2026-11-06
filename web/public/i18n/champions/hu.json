@@ -191,5 +191,16 @@
  "Core builds show the boots where the Simulator says to buy them: the first point where they add as much per gold as the next item.": "Az alap buildek ott mutatják a csizmát, ahol a Szimulátor szerint meg kell venni: az első ponton, ahol aranyonként annyit ad, mint a következő tárgy.",
  "The biggest win rate boost of any augment on {champ}: +{n} pts.": "A legnagyobb győzelmi arány-növelés az összes bővítés közül ezen a hősön: {champ}, +{n} pont.",
  "Raises {champ}'s win rate by {n} pts.": "{champ} győzelmi arányát {n} ponttal növeli.",
- "Lowers {champ}'s win rate by {n} pts.": "{champ} győzelmi arányát {n} ponttal csökkenti."
+ "Lowers {champ}'s win rate by {n} pts.": "{champ} győzelmi arányát {n} ponttal csökkenti.",
+ "Build for your augments": "Felszerelés a bővítéseidhez",
+ "The builds below are for any augments. Pick yours to see the best items with it.": "A lenti felszerelések bármilyen bővítéshez jók. Válaszd ki a tiédet, és meglátod a legjobb tárgyakat hozzá.",
+ "Simulated: the Simulator's best items with this augment taken, compared with its best items with no augment.": "Szimulált: a szimulátor legjobb tárgyai ezzel a bővítéssel, összevetve a bővítés nélküli legjobb tárgyaival.",
+ "Pick an augment to see the best items with it. ⇄ marks augments that change your build.": "Válassz egy bővítést, és meglátod a legjobb tárgyakat hozzá. A ⇄ jelöli a felszerelést megváltoztató bővítéseket.",
+ "Highlighted augments can be added as a second pick.": "A kiemelt bővítések második választásként hozzáadhatók.",
+ "Changes your build: {n} different items": "Megváltoztatja a felszerelést: {n} másik tárgy",
+ "Your usual items still work": "A szokásos tárgyaid továbbra is jók",
+ "Changes your build": "Megváltoztatja a felszerelést",
+ "The best items with this augment differ from your usual build.": "A legjobb tárgyak ezzel a bővítéssel eltérnek a szokásos felszerelésedtől.",
+ "Estimated: the augment picks (1st to 4th) where it usually shows up.": "Becslés: a bővítésválasztások (1–4.), ahol általában felbukkan.",
+ "Pick {n}": "{n}. választás"
 }

@@ -28,7 +28,26 @@ type Item = {
   winRate: number | null;
   buildShare: number | null;
   granted: boolean;
+  /** Estimated share of its builds at the 1st, 2nd and 3rd item slot. */
+  slots: number[];
 };
+
+// Quick filters above the tag fold: the build slot it's usually bought at (a quarter or more of its builds there,
+// estimated), a few broad categories, and a switch to leave out items augments hand out (they skew win rates).
+const SLOTS: [string, string][] = [
+  ["", "Any slot"],
+  ["0", "1st item"],
+  ["1", "2nd item"],
+  ["2", "3rd item"],
+];
+const CATEGORIES: [string, string, (i: Item) => boolean][] = [
+  ["", "All items", () => true],
+  ["ad", "AD", (i) => i.tags.includes("ad")],
+  ["ap", "AP", (i) => i.tags.includes("ap")],
+  ["onhit", "On-hit", (i) => i.tags.includes("onhit")],
+  ["tank", "Tank", (i) => i.tags.includes("tank")],
+  ["boots", "Boots", (i) => i.tier === "boots"],
+];
 // Shop tiers (lib/items.ts itemTier), in the order the DeepScore view groups them; each group folds
 // away from its header.
 type Tier = "legendary" | "boots" | "starter" | "epic" | "basic" | "consumable" | "reward";
@@ -59,6 +78,9 @@ export default function ItemIndex({ items }: { items: Item[] }) {
   const name = (i: Item) => names("items", i.id, i.name);
   const [picked, setPicked] = useState<string[]>([]);
   const [query, setQuery] = useState("");
+  const [slot, setSlot] = useState("");
+  const [cat, setCat] = useState("");
+  const [noGranted, setNoGranted] = useState(false);
   const [filtersOpen, setFiltersOpen] = useState(false);
 
   useEffect(() => {
@@ -66,14 +88,27 @@ export default function ItemIndex({ items }: { items: Item[] }) {
     setPicked(tags);
     if (tags.length) setFiltersOpen(true);
     setQuery(getParam("iq") ?? "");
+    const sl = getParam("islot") ?? "";
+    if (SLOTS.some(([k]) => k === sl)) setSlot(sl);
+    const c = getParam("icat") ?? "";
+    if (CATEGORIES.some(([k]) => k === c)) setCat(c);
+    setNoGranted(getParam("inogrant") === "1");
   }, []);
 
   // Only tags some item has; counts follow the tags already picked.
   const shown = useMemo(() => {
     const q = query.trim().toLowerCase();
-    return items.filter((i) => picked.every((t) => i.tags.includes(t)) && (!q || textMatches(`${i.name} ${name(i)}`.toLowerCase(), q)));
+    const inCat = CATEGORIES.find(([k]) => k === cat)?.[2] ?? (() => true);
+    return items.filter(
+      (i) =>
+        picked.every((t) => i.tags.includes(t)) &&
+        inCat(i) &&
+        (!slot || (i.slots[Number(slot)] ?? 0) >= 0.25) &&
+        (!noGranted || (!i.granted && i.tier !== "reward")) &&
+        (!q || textMatches(`${i.name} ${name(i)}`.toLowerCase(), q)),
+    );
     // eslint-disable-next-line react-hooks/exhaustive-deps -- name follows names
-  }, [items, picked, query, names]);
+  }, [items, picked, query, names, slot, cat, noGranted]);
   const count = (key: string) => shown.filter((i) => i.tags.includes(key)).length;
 
   const toggle = (key: string) => {
@@ -101,6 +136,52 @@ export default function ItemIndex({ items }: { items: Item[] }) {
 
   return (
     <div className="items-index">
+      <div className="items-quick">
+        <div className="helper-threats" role="group" aria-label={t("Build slot")}>
+          {SLOTS.map(([k, l]) => (
+            <button
+              key={k || "any"}
+              type="button"
+              className="chip-toggle"
+              aria-pressed={slot === k}
+              title={k ? t("Estimated: items often bought at this slot.") : undefined}
+              onClick={() => {
+                setSlot(k);
+                setParams({ islot: k || null });
+              }}
+            >
+              {t(l)}
+            </button>
+          ))}
+        </div>
+        <div className="helper-threats" role="group" aria-label={t("Category")}>
+          {CATEGORIES.map(([k, l]) => (
+            <button
+              key={k || "all"}
+              type="button"
+              className="chip-toggle"
+              aria-pressed={cat === k}
+              onClick={() => {
+                setCat(k);
+                setParams({ icat: k || null });
+              }}
+            >
+              {t(l)}
+            </button>
+          ))}
+        </div>
+        <label className="items-switch">
+          <input
+            type="checkbox"
+            checked={noGranted}
+            onChange={(e) => {
+              setNoGranted(e.target.checked);
+              setParams({ inogrant: e.target.checked ? "1" : null });
+            }}
+          />
+          {t("Hide items augments can give")}
+        </label>
+      </div>
       <details className="items-filter-menu" open={filtersOpen} onToggle={(e) => setFiltersOpen(e.currentTarget.open)}>
         <summary>
           {t("Filter by tags")}
@@ -154,7 +235,10 @@ export default function ItemIndex({ items }: { items: Item[] }) {
               onClick={() => {
                 setPicked([]);
                 setQuery("");
-                setParams({ itag: null, iq: null });
+                setSlot("");
+                setCat("");
+                setNoGranted(false);
+                setParams({ itag: null, iq: null, islot: null, icat: null, inogrant: null });
               }}
             >
               {t("Show every item")}

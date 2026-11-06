@@ -63,5 +63,12 @@
  "This set ({set})": "Set ini ({set})",
  "Weapon of Destiny": "Weapon of Destiny",
  "Pentakill": "Pentakill",
- "Augments with no stats yet show a dash and sit at the bottom.": "Augment yang belum punya statistik menampilkan tanda strip dan ada di paling bawah."
+ "Augments with no stats yet show a dash and sit at the bottom.": "Augment yang belum punya statistik menampilkan tanda strip dan ada di paling bawah.",
+ "Any pick": "Pilihan apa pun",
+ "Try another rarity, style or pick.": "Coba kelangkaan, gaya, atau pilihan lain.",
+ "Augment pick": "Pilihan augment",
+ "1st augment": "Augment ke-1",
+ "2nd augment": "Augment ke-2",
+ "3rd augment": "Augment ke-3",
+ "4th augment": "Augment ke-4"
 }

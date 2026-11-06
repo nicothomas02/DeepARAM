@@ -7,7 +7,9 @@ import { augmentBySlug, augmentPages } from "@/lib/augments";
 import { livePatch } from "@/lib/highlights";
 import { pageMeta } from "@/lib/meta";
 import { readRepoJson } from "@/lib/repo-data";
-import { augmentItems, augmentStages, rarityOdds } from "@/lib/estimates";
+import { augmentItems, augmentPartners, augmentStages, rarityOdds } from "@/lib/estimates";
+import augmentNames from "@/data/augment-names.json";
+import { augmentHref } from "@/lib/augments";
 import { item } from "@/lib/items";
 import { itemPages } from "@/lib/item-pages";
 import ShareButton from "@/components/ShareButton";
@@ -55,6 +57,7 @@ export default async function AugmentPage({ params }: { params: Promise<{ slug: 
   const patch = livePatch() && patchName(livePatch());
   const offer = odds(a.tier);
   const stages = augmentStages(a.id);
+  const partners = augmentPartners(a.id);
   const rarity = rarityOdds(a.tier);
   const pages = new Map(itemPages().map((i) => [i.id, i.slug]));
   // The live patch keeps the page's own numbers; other ranges come from saved patches.
@@ -251,6 +254,45 @@ export default async function AugmentPage({ params }: { params: Promise<{ slug: 
                 </RowLink>
               ))}
             </div>
+          </section>
+        )}
+        {partners.length > 0 && (
+          <section className="card span-6" data-accent="duo">
+            <div className="card-head">
+              <h2>
+                <T ns="augments">Best augments to pair it with</T>
+              </h2>
+              <span className="card-note">
+                <T ns="tables">Win rate</T> · <T ns="augments">Estimated</T>
+              </span>
+            </div>
+            <div className="rank plain">
+              {partners.map((p) => {
+                const href = augmentHref(p.id);
+                const body = (
+                  <>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img className="icon round" src={`/icons/augments/${p.id}.webp`} alt="" width={24} height={24} loading="lazy" />
+                    <span className="rank-name">
+                      <Name kind="augments" id={p.id}>
+                        {(augmentNames as Record<string, string>)[String(p.id)] ?? ""}
+                      </Name>
+                    </span>
+                    <span className="rank-v">{pct(p.winRate)}</span>
+                  </>
+                );
+                return href ? (
+                  <RowLink key={p.id} href={href}>
+                    {body}
+                  </RowLink>
+                ) : (
+                  <div key={p.id}>{body}</div>
+                );
+              })}
+            </div>
+            <p className="table-note">
+              <T ns="augments">Win rate when both are taken, across the champions that often pair them.</T>
+            </p>
           </section>
         )}
         {a.pickers.length > 0 && (

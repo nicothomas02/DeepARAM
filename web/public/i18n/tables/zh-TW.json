@@ -132,5 +132,7 @@
  "Estimated. How far the champion's win rate swings with the augments it gets. High means its augment picks matter a lot.": "估算。英雄的勝率隨拿到的強化相差多少。數值高表示強化選擇對它影響很大。",
  "Varies by champion and Augment reliance are typical swings in pts: how much an augment's boost changes between champions, and how much a champion's win rate changes between augments.": "「英雄差異」和「強化依賴度」是以百分點計的典型波動：一個強化的提升在不同英雄之間變化多少，以及一個英雄的勝率在不同強化之間變化多少。",
  "Best champ": "最佳英雄",
- "The champion with the highest estimated win rate boost from this augment.": "使用此強化時預估勝率提升最高的英雄。"
+ "The champion with the highest estimated win rate boost from this augment.": "使用此強化時預估勝率提升最高的英雄。",
+ "Augment pick": "強化輪次",
+ "Estimated: the augment picks (1st to 4th) where it usually shows up.": "估算：該強化通常出現的強化輪次（第1到第4次）。"
 }

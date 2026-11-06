@@ -93,5 +93,16 @@
  "Filter by tags": "Φιλτράρισμα κατά ετικέτες",
  "Recipe": "Συνταγή",
  "Built from": "Φτιάχνεται από",
- "Builds into": "Εξελίσσεται σε"
+ "Builds into": "Εξελίσσεται σε",
+ "Build slot": "Θέση στο build",
+ "Any slot": "Οποιαδήποτε θέση",
+ "1st item": "1ο αντικείμενο",
+ "2nd item": "2ο αντικείμενο",
+ "3rd item": "3ο αντικείμενο",
+ "Category": "Κατηγορία",
+ "All items": "Όλα τα αντικείμενα",
+ "Hide items augments can give": "Απόκρυψη αντικειμένων που δίνουν οι ενισχύσεις",
+ "Estimated: items often bought at this slot.": "Εκτίμηση: αντικείμενα που αγοράζονται συχνά σε αυτή τη θέση.",
+ "AD": "AD",
+ "AP": "AP"
 }

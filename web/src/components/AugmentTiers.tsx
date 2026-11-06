@@ -10,6 +10,15 @@ import { useT } from "./I18n";
 // for rarity and build style (under a "Filter by tags" fold) above one sortable table of every augment (rows and columns from the page).
 // Each row carries its rarity (`tier`) and its build styles (`styles`, comma-separated) for the filters.
 
+// Augment picks: an augment counts for a pick when at least a quarter of its picks happen there (estimated, `stages`).
+const PICKS: [string, string][] = [
+  ["", "Any pick"],
+  ["1", "1st augment"],
+  ["2", "2nd augment"],
+  ["3", "3rd augment"],
+  ["4", "4th augment"],
+];
+
 const RARITIES: [string, string][] = [
   ["", "All rarities"],
   ["prismatic", "Prismatic"],
@@ -34,21 +43,26 @@ export default function AugmentTiers({
   const t = useT("tier-list");
   const [rarity, setRarity] = useState("");
   const [style, setStyle] = useState("");
+  const [stage, setStage] = useState("");
   // Rarity and style sit under a closed "Filter by tags" fold, open when a shared link already picks one.
   const [filtersOpen, setFiltersOpen] = useState(false);
-  const picked = (rarity ? 1 : 0) + (style ? 1 : 0);
+  const picked = (rarity ? 1 : 0) + (style ? 1 : 0) + (stage ? 1 : 0);
 
   useEffect(() => {
     const r = getParam("rarity") ?? "";
     const s = getParam("style") ?? "";
+    const p = getParam("pick") ?? "";
     const okR = RARITIES.some(([k]) => k === r);
+    const okP = PICKS.some(([k]) => k === p);
     if (okR) setRarity(r);
     if (s in styles) setStyle(s);
-    if ((okR && r) || (s && s in styles)) setFiltersOpen(true);
+    if (okP) setStage(p);
+    if ((okR && r) || (s && s in styles) || (okP && p)) setFiltersOpen(true);
   }, [styles]);
 
-  const pick = (key: "rarity" | "style", v: string) => {
+  const pick = (key: "rarity" | "style" | "pick", v: string) => {
     if (key === "rarity") setRarity(v);
+    else if (key === "pick") setStage(v);
     else setStyle(v);
     setParams({ [key]: v || null });
   };
@@ -59,7 +73,11 @@ export default function AugmentTiers({
       (!style ||
         String(a.styles ?? "")
           .split(",")
-          .includes(style)),
+          .includes(style)) &&
+      (!stage ||
+        String(a.stages ?? "")
+          .split(",")
+          .includes(stage)),
   );
 
   return (
@@ -73,6 +91,13 @@ export default function AugmentTiers({
           <div className="helper-threats" role="group" aria-label={t("Rarity")}>
             {RARITIES.map(([k, l]) => (
               <button key={k || "all"} type="button" className="chip-toggle" aria-pressed={rarity === k} onClick={() => pick("rarity", k)}>
+                {t(l)}
+              </button>
+            ))}
+          </div>
+          <div className="helper-threats" role="group" aria-label={t("Augment pick")}>
+            {PICKS.map(([k, l]) => (
+              <button key={k || "any"} type="button" className="chip-toggle" aria-pressed={stage === k} onClick={() => pick("pick", k)}>
                 {t(l)}
               </button>
             ))}
@@ -99,14 +124,15 @@ export default function AugmentTiers({
               onClick={() => {
                 setRarity("");
                 setStyle("");
-                setParams({ rarity: null, style: null });
+                setStage("");
+                setParams({ rarity: null, style: null, pick: null });
               }}
             >
               {t("Show every augment")}
             </button>
           }
         >
-          {t("Try another rarity or style.")}
+          {t("Try another rarity, style or pick.")}
         </EmptyState>
       ) : (
         <DataTable

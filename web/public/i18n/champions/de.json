@@ -191,5 +191,16 @@
  "Core builds show the boots where the Simulator says to buy them: the first point where they add as much per gold as the next item.": "Kern-Builds zeigen die Stiefel dort, wo der Simulator sie zu kaufen empfiehlt: am ersten Punkt, an dem sie pro Gold so viel bringen wie der nächste Gegenstand.",
  "The biggest win rate boost of any augment on {champ}: +{n} pts.": "Der größte Siegquoten-Bonus aller Augments für {champ}: +{n} Pkt.",
  "Raises {champ}'s win rate by {n} pts.": "Erhöht die Siegquote von {champ} um {n} Pkt.",
- "Lowers {champ}'s win rate by {n} pts.": "Senkt die Siegquote von {champ} um {n} Pkt."
+ "Lowers {champ}'s win rate by {n} pts.": "Senkt die Siegquote von {champ} um {n} Pkt.",
+ "Build for your augments": "Build für deine Augments",
+ "The builds below are for any augments. Pick yours to see the best items with it.": "Die Builds unten passen zu beliebigen Augments. Wähle deins, um die besten Items damit zu sehen.",
+ "Simulated: the Simulator's best items with this augment taken, compared with its best items with no augment.": "Simuliert: die besten Items des Simulators mit diesem Augment, verglichen mit seinen besten Items ohne Augment.",
+ "Pick an augment to see the best items with it. ⇄ marks augments that change your build.": "Wähle ein Augment, um die besten Items damit zu sehen. ⇄ markiert Augments, die deinen Build ändern.",
+ "Highlighted augments can be added as a second pick.": "Hervorgehobene Augments kannst du als zweite Wahl hinzufügen.",
+ "Changes your build: {n} different items": "Ändert deinen Build: {n} andere Items",
+ "Your usual items still work": "Deine üblichen Items passen weiterhin",
+ "Changes your build": "Ändert deinen Build",
+ "The best items with this augment differ from your usual build.": "Die besten Items mit diesem Augment weichen von deinem üblichen Build ab.",
+ "Estimated: the augment picks (1st to 4th) where it usually shows up.": "Geschätzt: die Augment-Wahlen (1. bis 4.), bei denen es meist auftaucht.",
+ "Pick {n}": "Wahl {n}"
 }

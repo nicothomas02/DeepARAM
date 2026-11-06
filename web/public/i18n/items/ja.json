@@ -93,5 +93,16 @@
  "Filter by tags": "タグで絞り込む",
  "Recipe": "レシピ",
  "Built from": "素材",
- "Builds into": "派生先"
+ "Builds into": "派生先",
+ "Build slot": "ビルドの枠",
+ "Any slot": "すべての枠",
+ "1st item": "1つ目のアイテム",
+ "2nd item": "2つ目のアイテム",
+ "3rd item": "3つ目のアイテム",
+ "Category": "カテゴリー",
+ "All items": "すべてのアイテム",
+ "Hide items augments can give": "オーグメントでもらえるアイテムを隠す",
+ "Estimated: items often bought at this slot.": "推定：この枠でよく買われるアイテムです。",
+ "AD": "AD",
+ "AP": "AP"
 }

@@ -63,5 +63,12 @@
  "This set ({set})": "本赛季（{set}）",
  "Weapon of Destiny": "命运之武器",
  "Pentakill": "五杀摇滚",
- "Augments with no stats yet show a dash and sit at the bottom.": "暂无数据的强化以短横显示，排在最后。"
+ "Augments with no stats yet show a dash and sit at the bottom.": "暂无数据的强化以短横显示，排在最后。",
+ "Any pick": "任意轮次",
+ "Try another rarity, style or pick.": "试试其他稀有度、风格或轮次。",
+ "Augment pick": "强化轮次",
+ "1st augment": "第1个强化符文",
+ "2nd augment": "第2个强化符文",
+ "3rd augment": "第3个强化符文",
+ "4th augment": "第4个强化符文"
 }

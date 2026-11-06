@@ -63,5 +63,12 @@
  "This set ({set})": "Setul acesta ({set})",
  "Weapon of Destiny": "Arma destinului",
  "Pentakill": "Pentakill",
- "Augments with no stats yet show a dash and sit at the bottom.": "Augmentările fără statistici deocamdată au o liniuță și stau la final."
+ "Augments with no stats yet show a dash and sit at the bottom.": "Augmentările fără statistici deocamdată au o liniuță și stau la final.",
+ "Any pick": "Orice alegere",
+ "Try another rarity, style or pick.": "Încearcă altă raritate, alt stil sau altă alegere.",
+ "Augment pick": "Alegerea augmentării",
+ "1st augment": "Primul augment",
+ "2nd augment": "Al 2-lea augment",
+ "3rd augment": "Al 3-lea augment",
+ "4th augment": "Al 4-lea augment"
 }

@@ -93,5 +93,16 @@
  "Filter by tags": "Filtruj według tagów",
  "Recipe": "Przepis",
  "Built from": "Składa się z",
- "Builds into": "Ulepsza się w"
+ "Builds into": "Ulepsza się w",
+ "Build slot": "Miejsce w buildzie",
+ "Any slot": "Dowolne miejsce",
+ "1st item": "1. przedmiot",
+ "2nd item": "2. przedmiot",
+ "3rd item": "3. przedmiot",
+ "Category": "Kategoria",
+ "All items": "Wszystkie przedmioty",
+ "Hide items augments can give": "Ukryj przedmioty z ulepszeń",
+ "Estimated: items often bought at this slot.": "Szacunek: przedmioty często kupowane na tym miejscu.",
+ "AD": "AD",
+ "AP": "AP"
 }

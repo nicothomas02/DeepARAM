@@ -93,5 +93,16 @@
  "Filter by tags": "Фильтр по тегам",
  "Recipe": "Рецепт",
  "Built from": "Собирается из",
- "Builds into": "Используется в"
+ "Builds into": "Используется в",
+ "Build slot": "Место в сборке",
+ "Any slot": "Любое место",
+ "1st item": "1-й предмет",
+ "2nd item": "2-й предмет",
+ "3rd item": "3-й предмет",
+ "Category": "Категория",
+ "All items": "Все предметы",
+ "Hide items augments can give": "Скрыть предметы от аугментов",
+ "Estimated: items often bought at this slot.": "Оценка: предметы, которые часто покупают на этом месте.",
+ "AD": "AD",
+ "AP": "AP"
 }

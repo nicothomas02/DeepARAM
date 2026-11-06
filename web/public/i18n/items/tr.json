@@ -93,5 +93,16 @@
  "Filter by tags": "Etiketlere göre filtrele",
  "Recipe": "Tarif",
  "Built from": "Şunlardan yapılır",
- "Builds into": "Şunlara dönüşür"
+ "Builds into": "Şunlara dönüşür",
+ "Build slot": "Dizilim sırası",
+ "Any slot": "Her sıra",
+ "1st item": "1. eşya",
+ "2nd item": "2. eşya",
+ "3rd item": "3. eşya",
+ "Category": "Kategori",
+ "All items": "Tüm eşyalar",
+ "Hide items augments can give": "Güçlendirmelerin verdiği eşyaları gizle",
+ "Estimated: items often bought at this slot.": "Tahmini: bu sırada sık alınan eşyalar.",
+ "AD": "AD",
+ "AP": "AP"
 }

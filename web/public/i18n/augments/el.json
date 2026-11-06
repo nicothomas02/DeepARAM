@@ -60,5 +60,8 @@
  "{pct} of picks here are this rarity": "Το {pct} των επιλογών εδώ έχει αυτή τη σπανιότητα",
  "Share of this augment's picks at each augment selection, and how often a pick there is of its rarity.": "Μερίδιο επιλογών αυτού του augment σε κάθε επιλογή augment και πόσο συχνά μια επιλογή εκεί έχει τη σπανιότητά του.",
  "Items that go with it": "Αντικείμενα που ταιριάζουν",
- "Share of the champions who take this augment that build each item.": "Ποσοστό των champions με αυτό το augment που φτιάχνουν κάθε αντικείμενο."
+ "Share of the champions who take this augment that build each item.": "Ποσοστό των champions με αυτό το augment που φτιάχνουν κάθε αντικείμενο.",
+ "Best augments to pair it with": "Οι καλύτερες ενισχύσεις για συνδυασμό",
+ "Win rate when both are taken, across the champions that often pair them.": "Ποσοστό νίκης όταν παίρνονται και οι δύο, στους πρωταθλητές που τις συνδυάζουν συχνά.",
+ "Win rate": "Ποσοστό νικών"
 }

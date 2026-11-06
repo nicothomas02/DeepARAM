@@ -20,7 +20,7 @@ import Intro from "@/components/Intro";
 import { T } from "@/components/I18n";
 import HowRankings from "@/components/HowRankings";
 import ItemIndex from "@/components/ItemIndex";
-import { augmentSpread, championAugmentReliance, itemEstimate, powerCurveLists } from "@/lib/estimates";
+import { augmentSpread, augmentStages, championAugmentReliance, itemEstimate, powerCurveLists } from "@/lib/estimates";
 import { itemPages } from "@/lib/item-pages";
 import { text } from "@/lib/content";
 import Pending from "@/components/Pending";
@@ -111,6 +111,17 @@ export default function TierListPage() {
     const graded = new Map(augmentTiers().map((a) => [a.id, a]));
     const augName = (a: Record<string, unknown>) => names[String(a.augment_id)] ?? String(a.key).replace(/^ARAM_/, "");
     const bestById = new Map(augmentPages().map((p) => [p.id, p.best]));
+    // The augment picks (1st to 4th) where at least a fair share (a quarter) of an augment's picks happen (estimated).
+    const picksAt = (id: number) =>
+      (augmentStages(id)?.stages ?? []).flatMap((share, i) => (share >= 0.25 ? [String(i + 1)] : []));
+    const pickCol = {
+      key: "picks",
+      label: "Augment pick",
+      format: "text" as const,
+      sortable: false,
+      phone: "hide" as const,
+      hint: "Estimated: the augment picks (1st to 4th) where it usually shows up.",
+    };
     const augCols = [
       { key: "grade", label: "Tier", format: "tier" as const, sortKey: "deepScore", hint: AUGMENT_DEEPSCORE_HELP },
       { key: "name", label: "Augment", format: "augment" as const, iconKey: "id", hrefKey: "href" },
@@ -126,7 +137,7 @@ export default function TierListPage() {
         <>
           <AugmentTiers
             styles={STYLES}
-            columns={augCols}
+            columns={[...augCols, pickCol]}
             // Most useful on the left: rank, win rate and its boost, pick rate, then the finer numbers.
             advancedColumns={[
               ...augCols.slice(0, 3),
@@ -144,6 +155,7 @@ export default function TierListPage() {
                 hint: "Estimated. How far its win rate boost swings from one champion to another. High means great on some champions and weak on others.",
               },
               augCols[5],
+              pickCol,
               { key: "best", label: "Best champ", format: "champion-icon", sortable: false, hint: "The champion with the highest estimated win rate boost from this augment." },
               augCols[3],
             ]}
@@ -162,6 +174,8 @@ export default function TierListPage() {
                 win_rate: Number(a.win_rate),
                 pick_rate: Number(a.pick_rate),
                 best: bestById.get(Number(a.augment_id))?.[0]?.id ?? null,
+                picks: picksAt(Number(a.augment_id)).join(" · ") || null,
+                stages: picksAt(Number(a.augment_id)).join(","),
               }))
               // Live augments with no stats yet: listed at the bottom so every augment in the pool shows up.
               .concat(
@@ -180,6 +194,8 @@ export default function TierListPage() {
                     win_rate: null as unknown as number,
                     pick_rate: null as unknown as number,
                     best: null,
+                    picks: picksAt(a.augment_id).join(" · ") || null,
+                    stages: picksAt(a.augment_id).join(","),
                   })),
               )}
             note={
@@ -218,6 +234,7 @@ export default function TierListPage() {
       winRate: est?.winRate ?? null,
       buildShare: est?.buildShare ?? null,
       granted: est?.granted ?? false,
+      slots: est?.slots ?? [],
     };
   });
   if (items.length) {

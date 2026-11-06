@@ -63,5 +63,12 @@
  "This set ({set})": "هذه المجموعة ({set})",
  "Weapon of Destiny": "سلاح المصير",
  "Pentakill": "Pentakill",
- "Augments with no stats yet show a dash and sit at the bottom.": "التعزيزات التي لا توجد لها إحصاءات بعد تظهر بشرطة وتأتي في الأسفل."
+ "Augments with no stats yet show a dash and sit at the bottom.": "التعزيزات التي لا توجد لها إحصاءات بعد تظهر بشرطة وتأتي في الأسفل.",
+ "Any pick": "أي اختيار",
+ "Try another rarity, style or pick.": "جرّب ندرة أو أسلوبًا أو اختيارًا آخر.",
+ "Augment pick": "اختيار التعزيز",
+ "1st augment": "التعزيز الأول",
+ "2nd augment": "التعزيز الثاني",
+ "3rd augment": "التعزيز الثالث",
+ "4th augment": "التعزيز الرابع"
 }

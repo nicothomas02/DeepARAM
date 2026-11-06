@@ -191,5 +191,16 @@
  "Core builds show the boots where the Simulator says to buy them: the first point where they add as much per gold as the next item.": "Le build principali mostrano gli stivali dove il Simulatore consiglia di comprarli: il primo punto in cui rendono per oro quanto l'oggetto successivo.",
  "The biggest win rate boost of any augment on {champ}: +{n} pts.": "Il maggiore aumento del tasso di vittoria fra tutti gli augment su {champ}: +{n} punti.",
  "Raises {champ}'s win rate by {n} pts.": "Alza il tasso di vittoria di {champ} di {n} punti.",
- "Lowers {champ}'s win rate by {n} pts.": "Abbassa il tasso di vittoria di {champ} di {n} punti."
+ "Lowers {champ}'s win rate by {n} pts.": "Abbassa il tasso di vittoria di {champ} di {n} punti.",
+ "Build for your augments": "Build per i tuoi augment",
+ "The builds below are for any augments. Pick yours to see the best items with it.": "Le build qui sotto valgono per qualsiasi augment. Scegli il tuo per vedere gli oggetti migliori con esso.",
+ "Simulated: the Simulator's best items with this augment taken, compared with its best items with no augment.": "Simulato: gli oggetti migliori del simulatore con questo augment, confrontati con i migliori senza augment.",
+ "Pick an augment to see the best items with it. ⇄ marks augments that change your build.": "Scegli un augment per vedere gli oggetti migliori con esso. ⇄ indica gli augment che cambiano la tua build.",
+ "Highlighted augments can be added as a second pick.": "Gli augment evidenziati si possono aggiungere come seconda scelta.",
+ "Changes your build: {n} different items": "Cambia la tua build: {n} oggetti diversi",
+ "Your usual items still work": "I tuoi soliti oggetti vanno ancora bene",
+ "Changes your build": "Cambia la tua build",
+ "The best items with this augment differ from your usual build.": "Gli oggetti migliori con questo augment sono diversi dalla tua solita build.",
+ "Estimated: the augment picks (1st to 4th) where it usually shows up.": "Stimato: le scelte di augment (dalla 1ª alla 4ª) in cui compare di solito.",
+ "Pick {n}": "Scelta {n}"
 }

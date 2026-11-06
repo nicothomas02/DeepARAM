@@ -93,5 +93,16 @@
  "Filter by tags": "กรองตามแท็ก",
  "Recipe": "สูตรประกอบ",
  "Built from": "สร้างจาก",
- "Builds into": "ใช้สร้าง"
+ "Builds into": "ใช้สร้าง",
+ "Build slot": "ลำดับในบิลด์",
+ "Any slot": "ทุกลำดับ",
+ "1st item": "ไอเทมชิ้นที่ 1",
+ "2nd item": "ไอเทมชิ้นที่ 2",
+ "3rd item": "ไอเทมชิ้นที่ 3",
+ "Category": "หมวดหมู่",
+ "All items": "ไอเทมทั้งหมด",
+ "Hide items augments can give": "ซ่อนไอเทมที่ได้จากออคเมนต์",
+ "Estimated: items often bought at this slot.": "ประมาณการ: ไอเทมที่มักซื้อในลำดับนี้",
+ "AD": "AD",
+ "AP": "AP"
 }

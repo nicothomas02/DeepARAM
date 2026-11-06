@@ -93,5 +93,16 @@
  "Filter by tags": "Filter by tags",
  "Recipe": "Recipe",
  "Built from": "Built from",
- "Builds into": "Builds into"
+ "Builds into": "Builds into",
+ "Build slot": "Build slot",
+ "Any slot": "Any slot",
+ "1st item": "1st item",
+ "2nd item": "2nd item",
+ "3rd item": "3rd item",
+ "Category": "Category",
+ "All items": "All items",
+ "Hide items augments can give": "Hide items augments can give",
+ "Estimated: items often bought at this slot.": "Estimated: items often bought at this slot.",
+ "AD": "AD",
+ "AP": "AP"
 }

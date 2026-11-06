@@ -60,5 +60,8 @@
  "{pct} of picks here are this rarity": "Itt a választások {pct}-a ilyen ritkaságú",
  "Share of this augment's picks at each augment selection, and how often a pick there is of its rarity.": "Az augment választásainak aránya minden augmentválasztáskor, és hogy ott milyen gyakran ilyen ritkaságú a választás.",
  "Items that go with it": "Hozzá illő tárgyak",
- "Share of the champions who take this augment that build each item.": "Az augmentet választó hősök aránya, akik az adott tárgyat megveszik."
+ "Share of the champions who take this augment that build each item.": "Az augmentet választó hősök aránya, akik az adott tárgyat megveszik.",
+ "Best augments to pair it with": "A legjobb bővítések párnak",
+ "Win rate when both are taken, across the champions that often pair them.": "Győzelmi arány, ha mindkettőt felveszik, azoknál a hősöknél, akik gyakran párosítják őket.",
+ "Win rate": "Győzelmi arány"
 }

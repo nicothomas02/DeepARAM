@@ -60,5 +60,8 @@
  "{pct} of picks here are this rarity": "此處 {pct} 的選擇為該稀有度",
  "Share of this augment's picks at each augment selection, and how often a pick there is of its rarity.": "該強化在每次強化選擇中的占比，以及該處選擇為此稀有度的頻率。",
  "Items that go with it": "搭配裝備",
- "Share of the champions who take this augment that build each item.": "選擇該強化的英雄中出每件裝備的比例。"
+ "Share of the champions who take this augment that build each item.": "選擇該強化的英雄中出每件裝備的比例。",
+ "Best augments to pair it with": "最佳搭配強化",
+ "Win rate when both are taken, across the champions that often pair them.": "兩者都選時的勝率，統計常搭配它們的英雄。",
+ "Win rate": "勝率"
 }

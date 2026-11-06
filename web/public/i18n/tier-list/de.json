@@ -63,5 +63,12 @@
  "This set ({set})": "Dieses Set ({set})",
  "Weapon of Destiny": "Waffe des Schicksals",
  "Pentakill": "Pentakill",
- "Augments with no stats yet show a dash and sit at the bottom.": "Augments ohne Statistiken zeigen einen Strich und stehen ganz unten."
+ "Augments with no stats yet show a dash and sit at the bottom.": "Augments ohne Statistiken zeigen einen Strich und stehen ganz unten.",
+ "Any pick": "Jede Wahl",
+ "Try another rarity, style or pick.": "Probier eine andere Seltenheit, einen anderen Stil oder eine andere Wahl.",
+ "Augment pick": "Augment-Wahl",
+ "1st augment": "1. Augment",
+ "2nd augment": "2. Augment",
+ "3rd augment": "3. Augment",
+ "4th augment": "4. Augment"
 }

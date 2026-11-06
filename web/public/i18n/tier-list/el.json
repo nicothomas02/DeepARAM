@@ -63,5 +63,12 @@
  "This set ({set})": "Αυτό το σετ ({set})",
  "Weapon of Destiny": "Όπλο του Πεπρωμένου",
  "Pentakill": "Pentakill",
- "Augments with no stats yet show a dash and sit at the bottom.": "Οι ενισχύσεις χωρίς στατιστικά ακόμα δείχνουν παύλα και βρίσκονται στο τέλος."
+ "Augments with no stats yet show a dash and sit at the bottom.": "Οι ενισχύσεις χωρίς στατιστικά ακόμα δείχνουν παύλα και βρίσκονται στο τέλος.",
+ "Any pick": "Οποιαδήποτε επιλογή",
+ "Try another rarity, style or pick.": "Δοκίμασε άλλη σπανιότητα, στυλ ή επιλογή.",
+ "Augment pick": "Επιλογή ενίσχυσης",
+ "1st augment": "1η ενίσχυση",
+ "2nd augment": "2η ενίσχυση",
+ "3rd augment": "3η ενίσχυση",
+ "4th augment": "4η ενίσχυση"
 }

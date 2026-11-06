@@ -191,5 +191,16 @@
  "Core builds show the boots where the Simulator says to buy them: the first point where they add as much per gold as the next item.": "Les builds de base placent les bottes là où le Simulateur conseille de les acheter : au premier moment où elles rapportent autant par pièce d'or que l'objet suivant.",
  "The biggest win rate boost of any augment on {champ}: +{n} pts.": "Le plus gros gain de taux de victoire de tous les augments sur {champ} : +{n} pts.",
  "Raises {champ}'s win rate by {n} pts.": "Augmente le taux de victoire de {champ} de {n} pts.",
- "Lowers {champ}'s win rate by {n} pts.": "Baisse le taux de victoire de {champ} de {n} pts."
+ "Lowers {champ}'s win rate by {n} pts.": "Baisse le taux de victoire de {champ} de {n} pts.",
+ "Build for your augments": "Build selon tes augments",
+ "The builds below are for any augments. Pick yours to see the best items with it.": "Les builds ci-dessous valent pour n'importe quels augments. Choisis le tien pour voir les meilleurs objets avec.",
+ "Simulated: the Simulator's best items with this augment taken, compared with its best items with no augment.": "Simulé : les meilleurs objets du simulateur avec cet augment, comparés à ses meilleurs objets sans augment.",
+ "Pick an augment to see the best items with it. ⇄ marks augments that change your build.": "Choisis un augment pour voir les meilleurs objets avec. ⇄ signale les augments qui changent ton build.",
+ "Highlighted augments can be added as a second pick.": "Les augments mis en évidence peuvent être ajoutés comme second choix.",
+ "Changes your build: {n} different items": "Change ton build : {n} objets différents",
+ "Your usual items still work": "Tes objets habituels restent bons",
+ "Changes your build": "Change ton build",
+ "The best items with this augment differ from your usual build.": "Les meilleurs objets avec cet augment diffèrent de ton build habituel.",
+ "Estimated: the augment picks (1st to 4th) where it usually shows up.": "Estimé : les choix d'augment (1er au 4e) où il apparaît le plus souvent.",
+ "Pick {n}": "Choix {n}"
 }

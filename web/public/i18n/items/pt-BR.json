@@ -93,5 +93,16 @@
  "Filter by tags": "Filtrar por tags",
  "Recipe": "Receita",
  "Built from": "Feito com",
- "Builds into": "Evolui para"
+ "Builds into": "Evolui para",
+ "Build slot": "Posição na build",
+ "Any slot": "Qualquer posição",
+ "1st item": "1º item",
+ "2nd item": "2º item",
+ "3rd item": "3º item",
+ "Category": "Categoria",
+ "All items": "Todos os itens",
+ "Hide items augments can give": "Ocultar itens dados por aumentos",
+ "Estimated: items often bought at this slot.": "Estimado: itens comprados com frequência nesta posição.",
+ "AD": "AD",
+ "AP": "AP"
 }

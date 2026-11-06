@@ -60,5 +60,8 @@
  "{pct} of picks here are this rarity": "{pct} lượt chọn ở đây thuộc độ hiếm này",
  "Share of this augment's picks at each augment selection, and how often a pick there is of its rarity.": "Tỉ lệ chọn lõi này ở mỗi lượt chọn lõi, và tần suất lựa chọn ở đó thuộc độ hiếm của nó.",
  "Items that go with it": "Trang bị phù hợp",
- "Share of the champions who take this augment that build each item.": "Tỉ lệ tướng chọn lõi này có mua từng trang bị."
+ "Share of the champions who take this augment that build each item.": "Tỉ lệ tướng chọn lõi này có mua từng trang bị.",
+ "Best augments to pair it with": "Lõi kết hợp tốt nhất",
+ "Win rate when both are taken, across the champions that often pair them.": "Tỉ lệ thắng khi lấy cả hai, tính trên các tướng thường kết hợp chúng.",
+ "Win rate": "Tỉ lệ thắng"
 }

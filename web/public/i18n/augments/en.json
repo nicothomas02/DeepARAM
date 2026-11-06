@@ -60,5 +60,8 @@
  "{pct} of picks here are this rarity": "{pct} of picks here are this rarity",
  "Share of this augment's picks at each augment selection, and how often a pick there is of its rarity.": "Share of this augment's picks at each augment selection, and how often a pick there is of its rarity.",
  "Items that go with it": "Items that go with it",
- "Share of the champions who take this augment that build each item.": "Share of the champions who take this augment that build each item."
+ "Share of the champions who take this augment that build each item.": "Share of the champions who take this augment that build each item.",
+ "Best augments to pair it with": "Best augments to pair it with",
+ "Win rate when both are taken, across the champions that often pair them.": "Win rate when both are taken, across the champions that often pair them.",
+ "Win rate": "Win rate"
 }

@@ -60,5 +60,8 @@
  "{pct} of picks here are this rarity": "{pct} din alegerile de aici au această raritate",
  "Share of this augment's picks at each augment selection, and how often a pick there is of its rarity.": "Ponderea alegerilor acestei augmentări la fiecare selecție și cât de des o alegere acolo are raritatea ei.",
  "Items that go with it": "Obiecte potrivite",
- "Share of the champions who take this augment that build each item.": "Ponderea campionilor cu această augmentare care cumpără fiecare obiect."
+ "Share of the champions who take this augment that build each item.": "Ponderea campionilor cu această augmentare care cumpără fiecare obiect.",
+ "Best augments to pair it with": "Cele mai bune augmentări de asociat",
+ "Win rate when both are taken, across the champions that often pair them.": "Rata de victorie când sunt luate amândouă, la campionii care le asociază des.",
+ "Win rate": "Rată de victorie"
 }

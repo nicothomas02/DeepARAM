@@ -191,5 +191,16 @@
  "Core builds show the boots where the Simulator says to buy them: the first point where they add as much per gold as the next item.": "Podstawowe buildy pokazują buty tam, gdzie według Symulatora należy je kupić: w pierwszym momencie, gdy za złoto dają tyle co następny przedmiot.",
  "The biggest win rate boost of any augment on {champ}: +{n} pts.": "Największy wzrost współczynnika zwycięstw ze wszystkich ulepszeń dla {champ}: +{n} pkt.",
  "Raises {champ}'s win rate by {n} pts.": "Podnosi współczynnik zwycięstw {champ} o {n} pkt.",
- "Lowers {champ}'s win rate by {n} pts.": "Obniża współczynnik zwycięstw {champ} o {n} pkt."
+ "Lowers {champ}'s win rate by {n} pts.": "Obniża współczynnik zwycięstw {champ} o {n} pkt.",
+ "Build for your augments": "Build pod twoje ulepszenia",
+ "The builds below are for any augments. Pick yours to see the best items with it.": "Buildy poniżej pasują do dowolnych ulepszeń. Wybierz swoje, by zobaczyć najlepsze przedmioty z nim.",
+ "Simulated: the Simulator's best items with this augment taken, compared with its best items with no augment.": "Symulacja: najlepsze przedmioty symulatora z tym ulepszeniem w porównaniu z najlepszymi bez ulepszenia.",
+ "Pick an augment to see the best items with it. ⇄ marks augments that change your build.": "Wybierz ulepszenie, by zobaczyć najlepsze przedmioty z nim. ⇄ oznacza ulepszenia, które zmieniają build.",
+ "Highlighted augments can be added as a second pick.": "Wyróżnione ulepszenia możesz dodać jako drugi wybór.",
+ "Changes your build: {n} different items": "Zmienia twój build: {n} inne przedmioty",
+ "Your usual items still work": "Twoje zwykłe przedmioty nadal pasują",
+ "Changes your build": "Zmienia twój build",
+ "The best items with this augment differ from your usual build.": "Najlepsze przedmioty z tym ulepszeniem różnią się od twojego zwykłego buildu.",
+ "Estimated: the augment picks (1st to 4th) where it usually shows up.": "Szacunek: wybory ulepszeń (1.–4.), w których zwykle się pojawia.",
+ "Pick {n}": "Wybór {n}"
 }
