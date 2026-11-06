@@ -61,12 +61,14 @@ import { ITEM_TIERS, type ItemTier } from "@/lib/items";
 import { championAugmentStages, championEstimates } from "@/lib/estimates";
 import championIds from "@/data/champion-ids.json";
 import augmentNames from "@/data/augment-names.json";
+import descriptions from "@/data/descriptions.json";
 import "../champion-page.css";
 import { patchName } from "@/lib/patch-name";
 import BestUpgrades from "@/components/champion/BestUpgrades";
 import { championUpgrades } from "@/lib/champion-upgrades";
 
 const AUG_NAMES = augmentNames as Record<string, string>;
+const AUG_DESC = (descriptions as { augments: Record<string, string> }).augments;
 
 // A typical game's estimated numbers, in this order, with how each one is written.
 const PROFILE: [string, string, (v: number) => string][] = [
@@ -318,6 +320,7 @@ export default async function ChampionPage({
       stages: pickStages.get(a.id),
       deepScore: scores.get(a.id),
       href: augmentHref(a.id) ?? undefined,
+      desc: AUG_DESC[String(a.id)],
     }))
     .sort(
       (x, y) =>
@@ -661,7 +664,7 @@ export default async function ChampionPage({
                 ) : undefined
               }
             >
-              <AugmentTable rows={augRows} />
+              <AugmentTable rows={augRows} champion={c.alias} />
             </Panel>
           )}
           {est?.pairs.length ? (

@@ -118,6 +118,14 @@ export function Description({ kind, id, children }: { kind: "items" | "augments"
   );
 }
 
+/** An augment's or item's official description in the page's language as one plain line (bold markers dropped). */
+export function useDescription() {
+  const lang = useLang();
+  const d = (lang === DEFAULT_LANG ? null : dict(`/i18n/descriptions/${lang}.json`)) as Partial<Record<string, Dict>> | null;
+  return (kind: "items" | "augments", id: string | number, english: string) =>
+    (d?.[kind]?.[String(id)] || english).replace(/§([^§]+)§\s*/g, "$1: ").replace(/\s*\n\s*/g, " ");
+}
+
 /** The mode's official name in the page's language ("ARAM Mayhem" in English). */
 export function ModeName({ children = "ARAM Mayhem" }: { children?: string }) {
   return useNames()("mode", "", children);

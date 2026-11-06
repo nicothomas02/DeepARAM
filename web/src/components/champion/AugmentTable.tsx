@@ -4,7 +4,7 @@
 import RowLink from "@/components/RowLink";
 import { useRef } from "react";
 import { KEPT, useKept } from "@/lib/kept";
-import { Name, useT } from "@/components/I18n";
+import { Name, useDescription, useNames, useT } from "@/components/I18n";
 import DeepScore from "@/components/DeepScore";
 import { signedPts, tone } from "@/components/champion/Ranked";
 import type { AugmentRow } from "@/lib/champion-page";
@@ -30,8 +30,13 @@ type SortKey = "deepScore" | "winRate" | "pickRate";
 
 export default function AugmentTable({
   rows,
+  champion,
 }: {
+  /** The champion's id ("Kayle"), for the "why" lines. */
+  champion?: string;
   rows: (AugmentRow & {
+    /** The augment's official description in English, translated on the page. */
+    desc?: string;
     href?: string;
     deepScore?: number;
     winRate?: number;
@@ -43,6 +48,8 @@ export default function AugmentTable({
   const t = useT("champions");
   const tt = useT("tables");
   const ts = useT("tier-list");
+  const names = useNames();
+  const describe = useDescription();
   const box = useRef<HTMLDivElement>(null);
   const [rarity, setRarity] = useKept<(typeof RARITIES)[number]>(
     "all",
@@ -103,6 +110,20 @@ export default function AugmentTable({
   const pages = Math.ceil(shown.length / PAGE);
   const at = Math.min(page, Math.max(0, pages - 1));
   const hasPicks = rows.some((r) => r.stages);
+  // Why an augment ranks where it does (visitor feedback 2026-11-06): what it does, then how much it moves this
+  // champion's win rate, in plain words. The biggest boost on the champion says so.
+  const champ = champion ? names("champions", champion, champion.replace(/([a-z])([A-Z])/g, "$1 $2")) : "";
+  const topLift = Math.max(...rows.map((r) => r.lift ?? -Infinity));
+  const why = (a: (typeof rows)[number]) => {
+    const parts = [a.desc ? describe("augments", a.id, a.desc) : ""];
+    const n = Math.abs((a.lift ?? 0) * 100).toFixed(1);
+    if (champ && a.lift !== undefined) {
+      if (a.lift === topLift && a.lift >= 0.005) parts.push(t("The biggest win rate boost of any augment on {champ}: +{n} pts.", { champ, n }));
+      else if (a.lift >= 0.005) parts.push(t("Raises {champ}'s win rate by {n} pts.", { champ, n }));
+      else if (a.lift <= -0.005) parts.push(t("Lowers {champ}'s win rate by {n} pts.", { champ, n }));
+    }
+    return parts.filter(Boolean).join(" ");
+  };
   return (
     <>
       <div className="cp-filters" ref={box} {...KEPT}>
@@ -186,6 +207,7 @@ export default function AugmentTable({
               </span>
             </>
           );
+          const reason = why(a);
           return (
             <div key={a.id} className="cp-row cp-aug" data-cols={cols}>
               <span className="cp-rk">#{i + 1}</span>
@@ -232,6 +254,7 @@ export default function AugmentTable({
                 <b>{(a.pickRate * 100).toFixed(1)}%</b>
                 <small className="cp-wide">{t("Pick rate")}</small>
               </div>
+              {reason && <p className="cp-why">{reason}</p>}
             </div>
           );
         })}

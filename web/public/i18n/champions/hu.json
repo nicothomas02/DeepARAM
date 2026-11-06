@@ -188,5 +188,8 @@
  "Boots after the 2nd item": "Csizma a 2. tárgy után",
  "Boots after the 3rd item": "Csizma a 3. tárgy után",
  "Boots are shown where to buy them.": "A csizma ott látható, ahol meg kell venni.",
- "Core builds show the boots where the Simulator says to buy them: the first point where they add as much per gold as the next item.": "Az alap buildek ott mutatják a csizmát, ahol a Szimulátor szerint meg kell venni: az első ponton, ahol aranyonként annyit ad, mint a következő tárgy."
+ "Core builds show the boots where the Simulator says to buy them: the first point where they add as much per gold as the next item.": "Az alap buildek ott mutatják a csizmát, ahol a Szimulátor szerint meg kell venni: az első ponton, ahol aranyonként annyit ad, mint a következő tárgy.",
+ "The biggest win rate boost of any augment on {champ}: +{n} pts.": "A legnagyobb győzelmi arány-növelés az összes bővítés közül ezen a hősön: {champ}, +{n} pont.",
+ "Raises {champ}'s win rate by {n} pts.": "{champ} győzelmi arányát {n} ponttal növeli.",
+ "Lowers {champ}'s win rate by {n} pts.": "{champ} győzelmi arányát {n} ponttal csökkenti."
 }

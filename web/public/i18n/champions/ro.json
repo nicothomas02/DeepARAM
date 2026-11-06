@@ -188,5 +188,8 @@
  "Boots after the 2nd item": "Cizme după al 2-lea obiect",
  "Boots after the 3rd item": "Cizme după al 3-lea obiect",
  "Boots are shown where to buy them.": "Cizmele apar acolo unde trebuie cumpărate.",
- "Core builds show the boots where the Simulator says to buy them: the first point where they add as much per gold as the next item.": "Build-urile de bază arată cizmele acolo unde Simulatorul spune să le cumperi: primul moment în care aduc pe aur cât următorul obiect."
+ "Core builds show the boots where the Simulator says to buy them: the first point where they add as much per gold as the next item.": "Build-urile de bază arată cizmele acolo unde Simulatorul spune să le cumperi: primul moment în care aduc pe aur cât următorul obiect.",
+ "The biggest win rate boost of any augment on {champ}: +{n} pts.": "Cea mai mare creștere a ratei de victorie dintre toate augmentările pentru {champ}: +{n} pct.",
+ "Raises {champ}'s win rate by {n} pts.": "Crește rata de victorie a lui {champ} cu {n} pct.",
+ "Lowers {champ}'s win rate by {n} pts.": "Scade rata de victorie a lui {champ} cu {n} pct."
 }

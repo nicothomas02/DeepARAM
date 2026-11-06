@@ -41,3 +41,9 @@ export function augmentRows<T extends RawAugment = RawAugment>(): T[] {
   cache ??= fairAugments(readRepoJson<{ augments: RawAugment[] }>("data/cn/augments.json")?.augments ?? []);
   return cache as T[];
 }
+
+export type NoDataAugment = { augment_id: number; key: string; name: string; tier: string };
+/** Live augments with no stats yet (new to the pool, or too rarely seen), from data/cn/augments.json's `no_data`. */
+export function augmentsWithoutData(): NoDataAugment[] {
+  return readRepoJson<{ no_data?: NoDataAugment[] }>("data/cn/augments.json")?.no_data ?? [];
+}

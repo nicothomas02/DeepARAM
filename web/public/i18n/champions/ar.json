@@ -188,5 +188,8 @@
  "Boots after the 2nd item": "الحذاء بعد العنصر الثاني",
  "Boots after the 3rd item": "الحذاء بعد العنصر الثالث",
  "Boots are shown where to buy them.": "يظهر الحذاء في موضع شرائه.",
- "Core builds show the boots where the Simulator says to buy them: the first point where they add as much per gold as the next item.": "تعرض البنيات الأساسية الحذاء حيث يقول المحاكي إنه يجب شراؤه: أول نقطة يضيف فيها مقابل كل ذهب بقدر ما يضيفه العنصر التالي."
+ "Core builds show the boots where the Simulator says to buy them: the first point where they add as much per gold as the next item.": "تعرض البنيات الأساسية الحذاء حيث يقول المحاكي إنه يجب شراؤه: أول نقطة يضيف فيها مقابل كل ذهب بقدر ما يضيفه العنصر التالي.",
+ "The biggest win rate boost of any augment on {champ}: +{n} pts.": "أكبر زيادة في نسبة الفوز بين كل التعزيزات على {champ}: ‎+{n} نقطة.",
+ "Raises {champ}'s win rate by {n} pts.": "يرفع نسبة فوز {champ} بمقدار {n} نقطة.",
+ "Lowers {champ}'s win rate by {n} pts.": "يخفض نسبة فوز {champ} بمقدار {n} نقطة."
 }

@@ -18,8 +18,9 @@ describe("Weapon of Destiny ranking", () => {
   });
 
   it("gives each item only upgradeable stats, shared equally", () => {
-    // One takedown's worth of a single stat, from the augment's values (1,000 gold buys 30 AD, 375 Health ...).
-    const alone: Record<string, number> = { ad: 6, ap: 10, hp: 75, armor: 10, mr: 10, ah: 4, crit: 0.05, as: 0.08, lethality: 7, lifesteal: 0.05 };
+    // One takedown's worth of a single stat, from the augment's values (1,000 gold buys 30 AD, 375 Health ...;
+    // 26.22 cut Lethality from 35 to 20 per 1,000 gold).
+    const alone: Record<string, number> = { ad: 6, ap: 10, hp: 75, armor: 10, mr: 10, ah: 4, crit: 0.05, as: 0.08, lethality: 4, lifesteal: 0.05 };
     for (const r of data.rows) {
       const keys = Object.keys(r.perTakedown);
       expect(keys.length, r.name).toBeGreaterThan(0);

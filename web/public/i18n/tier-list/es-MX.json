@@ -62,5 +62,6 @@
  "Set 3": "Set 3",
  "This set ({set})": "Este set ({set})",
  "Weapon of Destiny": "Arma del Destino",
- "Pentakill": "Pentakill"
+ "Pentakill": "Pentakill",
+ "Augments with no stats yet show a dash and sit at the bottom.": "Los aumentos sin estadísticas todavía muestran un guion y van hasta abajo."
 }

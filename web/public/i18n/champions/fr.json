@@ -188,5 +188,8 @@
  "Boots after the 2nd item": "Bottes après le 2e objet",
  "Boots after the 3rd item": "Bottes après le 3e objet",
  "Boots are shown where to buy them.": "Les bottes sont placées là où les acheter.",
- "Core builds show the boots where the Simulator says to buy them: the first point where they add as much per gold as the next item.": "Les builds de base placent les bottes là où le Simulateur conseille de les acheter : au premier moment où elles rapportent autant par pièce d'or que l'objet suivant."
+ "Core builds show the boots where the Simulator says to buy them: the first point where they add as much per gold as the next item.": "Les builds de base placent les bottes là où le Simulateur conseille de les acheter : au premier moment où elles rapportent autant par pièce d'or que l'objet suivant.",
+ "The biggest win rate boost of any augment on {champ}: +{n} pts.": "Le plus gros gain de taux de victoire de tous les augments sur {champ} : +{n} pts.",
+ "Raises {champ}'s win rate by {n} pts.": "Augmente le taux de victoire de {champ} de {n} pts.",
+ "Lowers {champ}'s win rate by {n} pts.": "Baisse le taux de victoire de {champ} de {n} pts."
 }

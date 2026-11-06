@@ -35,7 +35,8 @@ ROOT = Path(common.REPO)
 OUT = Path(common.HERE) / "weapon_of_destiny.json"
 CACHE = Path(os.environ.get("XDG_CACHE_HOME", Path.home() / ".cache")) / "deeparam-sim"
 BASE = "https://raw.communitydragon.org/latest"
-AUGMENT = "{12154b4d}"  # Augment_WeaponOfDestiny's spell object in kiwi.bin
+AUGMENT = "{12154b4d}"  # Augment_WeaponOfDestiny's spell object in kiwi.bin (older builds)
+SCRIPT = "Augment_WeaponOfDestiny"
 AUGMENT_ID = 3081
 BEST = 3  # champions listed per item
 
@@ -71,21 +72,39 @@ UPGRADES = {
 }
 
 
+# The upgrade sizes VALUE was set against (patch 26.21). Each stat's weight scales with how much the augment
+# now gives of it, so a nerf (26.22 cut the penetration upgrades by about 40%) lowers the items that rely on it.
+REFERENCE = {
+    "ad": 30, "ap": 50, "as": 0.4, "crit": 0.25, "crit_damage": 0.06, "ah": 20, "hp": 375, "mana": 1000,
+    "armor": 50, "mr": 50, "lethality": 35, "magic_pen": 25, "armor_pen": 0.25, "magic_pen_pct": 0.15,
+    "lifesteal": 0.25, "omnivamp": 0.25, "ms_pct": 0.15, "heal_shield_power": 0.2,
+}
+
+
 def fetch(path):
     """A CommunityDragon file, cached like the simulator's own builders."""
     f = CACHE / "wod" / path.replace("/", "_")
     if not f.exists():
         f.parent.mkdir(parents=True, exist_ok=True)
-        with urllib.request.urlopen(f"{BASE}/{path}", timeout=120) as r:
+        req = urllib.request.Request(f"{BASE}/{path}", headers={"User-Agent": "DeepARAM-estimates"})
+        with urllib.request.urlopen(req, timeout=120) as r:
             f.write_bytes(r.read())
     return json.loads(f.read_text())
 
 
 def augment_values():
-    spell = fetch("game/maps/modespecificdata/kiwi.bin.json")[AUGMENT]["mSpell"]["DataValues"]
+    # The spell object's key is a hash in some builds and a path in others; its script name stays put.
+    kiwi = fetch("game/maps/modespecificdata/kiwi.bin.json")
+    obj = kiwi.get(AUGMENT) or next(v for v in kiwi.values() if isinstance(v, dict) and v.get("mScriptName") == SCRIPT)
+    spell = obj["mSpell"]["DataValues"]
     dv = {v["name"]: v["values"][0] for v in spell}
     share = dv["GoldValue"] / dv["BaselineGoldAmp"]
     return dv, {k: dv[name] * share for k, (name, _) in UPGRADES.items()}
+
+
+def strength(dv):
+    """{stat: the augment's upgrade now / the size VALUE was set against}; 1 when the reference is unknown."""
+    return {k: dv[name] / REFERENCE[k] if REFERENCE.get(k) else 1 for k, (name, _) in UPGRADES.items()}
 
 
 def first_legendary(build, legendary):
@@ -108,6 +127,7 @@ def taken(build):
 
 def main():
     dv, full = augment_values()
+    scale = strength(dv)
     bins = fetch("game/items.cdtb.bin.json")
     sim_items = common.load(os.path.join(common.REPO, "simulator", "data", "items.json"))["items"]
     # Legendary items: the simulator's, plus any other Legendary item Mayhem's shop sells (the game's own item
@@ -154,12 +174,13 @@ def main():
     out = {
         "patch": common.live_patch(),
         "gold_per_takedown": dv["GoldValue"],
+        "strength": {k: round(v, 3) for k, v in scale.items() if round(v, 3) != 1},
         "rarity": {k: round(v, 3) for k, v in sorted(rarity.items(), key=lambda kv: -kv[1])},
         "items": {
             str(gid): {
                 "per_takedown": {k: round(full[k] / len(s), 5) for k in s},
                 "share": round(share.get(gid, 0), 5),
-                "value": round(sum(rarity[k] * VALUE.get(k, 1) for k in s) / len(s), 3),
+                "value": round(sum(rarity[k] * VALUE.get(k, 1) * scale[k] for k in s) / len(s), 3),
                 "best": [names[n] for _, n in sorted(by.get(gid, []), reverse=True)[:BEST]],
             }
             for gid, s in sorted(stats.items())

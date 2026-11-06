@@ -188,5 +188,8 @@
  "Boots after the 2nd item": "2번째 아이템 후에 신발",
  "Boots after the 3rd item": "3번째 아이템 후에 신발",
  "Boots are shown where to buy them.": "신발은 구매할 시점에 표시됩니다.",
- "Core builds show the boots where the Simulator says to buy them: the first point where they add as much per gold as the next item.": "핵심 빌드는 시뮬레이터가 권하는 구매 시점에 신발을 표시합니다. 골드당 효과가 다음 아이템만큼 되는 첫 시점입니다."
+ "Core builds show the boots where the Simulator says to buy them: the first point where they add as much per gold as the next item.": "핵심 빌드는 시뮬레이터가 권하는 구매 시점에 신발을 표시합니다. 골드당 효과가 다음 아이템만큼 되는 첫 시점입니다.",
+ "The biggest win rate boost of any augment on {champ}: +{n} pts.": "{champ}에게 가장 큰 승률 상승을 주는 증강: +{n}%p.",
+ "Raises {champ}'s win rate by {n} pts.": "{champ}의 승률을 {n}%p 올립니다.",
+ "Lowers {champ}'s win rate by {n} pts.": "{champ}의 승률을 {n}%p 낮춥니다."
 }

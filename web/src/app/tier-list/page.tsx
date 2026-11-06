@@ -11,7 +11,7 @@ import { archetypeRows, duoVersion, hasDuos } from "@/lib/duos";
 import { augmentHref, augmentPages } from "@/lib/augments";
 import { augmentTiers, STYLES } from "@/lib/augment-tiers";
 import AugmentTiers from "@/components/AugmentTiers";
-import { augmentRows, type RawAugment } from "@/lib/augment-winrate";
+import { augmentRows, augmentsWithoutData, type RawAugment } from "@/lib/augment-winrate";
 import { AUGMENT_DEEPSCORE_HELP } from "@/lib/deepscore";
 import championIds from "@/data/champion-ids.json";
 import championNames from "@/data/champion-names.json";
@@ -162,7 +162,26 @@ export default function TierListPage() {
                 win_rate: Number(a.win_rate),
                 pick_rate: Number(a.pick_rate),
                 best: bestById.get(Number(a.augment_id))?.[0]?.id ?? null,
-              }))}
+              }))
+              // Live augments with no stats yet: listed at the bottom so every augment in the pool shows up.
+              .concat(
+                augmentsWithoutData()
+                  .filter((a) => names[String(a.augment_id)] || a.name)
+                  .map((a) => ({
+                    id: a.augment_id,
+                    href: augmentHref(a.augment_id),
+                    name: names[String(a.augment_id)] ?? a.name,
+                    tier: String(a.tier ?? ""),
+                    styles: "",
+                    grade: null,
+                    deepScore: null,
+                    lift: null,
+                    spread: null,
+                    win_rate: null as unknown as number,
+                    pick_rate: null as unknown as number,
+                    best: null,
+                  })),
+              )}
             note={
               <p className="patch-note">
                 <T ns="tier-list" v={{ patch: patchName(latest.patch) }}>
@@ -170,6 +189,12 @@ export default function TierListPage() {
                     "Live patch {patch}. Each augment gets a DeepScore against the others of its rarity: 50 is average, S is 70 and up, A 59, B 44, C 32 and D below."
                   }
                 </T>
+                {augmentsWithoutData().length > 0 && (
+                  <>
+                    {" "}
+                    <T ns="tier-list">Augments with no stats yet show a dash and sit at the bottom.</T>
+                  </>
+                )}
               </p>
             }
           />
