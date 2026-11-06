@@ -744,13 +744,15 @@ def helper(mi, monkeypatch, tmp_path):
             died.append(repr(e))
     threading.Thread(target=run_helper, daemon=True).start()
     import http.client
-    import time as _t
-    for _ in range(500):  # up to ~10 s: a busy CI runner can be slow to start the server thread
+    # up to ~10 s: a busy CI runner can be slow to start the server thread. The wait can't use time.sleep, which
+    # the autouse offline fixture turns into a no-op (it would make the 500 tries take no time at all).
+    pause = threading.Event()
+    for _ in range(500):
         try:
             socket.create_connection(("127.0.0.1", port), timeout=0.1).close()
             break
         except OSError:
-            _t.sleep(0.02)
+            pause.wait(0.02)
     else:
         raise RuntimeError(f"helper did not start listening: {died}")
 

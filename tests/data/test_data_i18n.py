@@ -118,3 +118,15 @@ def test_no_archive_or_augment_history_tabs():
     html, js = read("guide/index.html"), read("guide/app.js")
     assert not any(x in html for x in ('data-tab="history"', 'data-tab="archive"', 'src="history.js"'))
     assert "GUIDE_HISTORY" not in js and "set-list" not in js
+
+
+@pytest.mark.parametrize("lang", LANGS)
+def test_my_stats_text_in_every_language(lang):
+    """My Stats (dashboard/app.js) looks its text up in web/public/i18n/stats/<code>.json: every language has every
+    English string, with the same {placeholders}."""
+    en = load_json("web/public/i18n/stats/en.json")
+    other = load_json(f"web/public/i18n/stats/{lang}.json")
+    assert sorted(other) == sorted(en)
+    for k, v in other.items():
+        assert v.strip(), (lang, k)
+        assert sorted(PLACEHOLDER.findall(v)) == sorted(PLACEHOLDER.findall(k)), (lang, k, v)
