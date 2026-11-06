@@ -1,4 +1,3 @@
-#if !os(tvOS) // tvOS has no web view; the Apple TV app draws its own screens.
 import Foundation
 import WebKit
 #if os(iOS)
@@ -122,4 +121,3 @@ enum HapticsBridge {
         }
     }
 }
-#endif

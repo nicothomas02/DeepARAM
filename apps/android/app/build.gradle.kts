@@ -9,8 +9,6 @@ android {
     compileSdk = 35
 
     defaultConfig {
-        // Same id as the Wear OS (apps/wearos, versionCodes 1xxxxxx) and Android TV (apps/androidtv,
-        // 2xxxxxx) builds, so all three share one Google Play listing. Phone versionCodes stay below 1000000.
         applicationId = "com.deeparam.app"
         minSdk = 26
         targetSdk = 35

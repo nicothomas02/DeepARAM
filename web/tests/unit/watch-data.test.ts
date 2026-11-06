@@ -1,5 +1,5 @@
-// /data/watch.json feeds the Apple Watch app (apps/watchos). These checks keep its shape in step with
-// WatchData.swift and its picks in step with the champion page's quick build.
+// /data/watch.json feeds the Mac app's menu bar (QuickBuilds.swift in apps/shared). These checks keep its shape in step with
+// QuickBuilds.swift and its picks in step with the champion page's quick build.
 import { describe, expect, it } from "vitest";
 import { GET } from "@/app/data/watch.json/route";
 

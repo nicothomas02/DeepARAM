@@ -1,7 +1,7 @@
-// The Apple Watch app's data: live patch, today's Chef Special and the champion page's quick build for
+// Quick-build data for the Mac app's menu bar: live patch, today's Chef Special and the champion page's quick build for
 // every champion (skill order, summoner spells, boots, core and late items, top augments by DeepScore),
 // with names already resolved. Built once per deploy.
-// Shape is decoded by apps/watchos/DeepARAMWatchKit/Sources/DeepARAMWatchKit/WatchData.swift.
+// Shape is decoded by apps/shared/DeepARAMKit/Sources/DeepARAMKit/QuickBuilds.swift.
 import { augmentTiers } from "@/lib/augment-tiers";
 import { bestRow, championPage, scoreRows } from "@/lib/champion-page";
 import { champList } from "@/lib/champions";

@@ -22,19 +22,8 @@ tabs move to a side rail.
 
 | Module | What it is |
 | --- | --- |
-| `core` | Android library shared by every Android build: `Site` and `SiteTab` (links and tabs), `SitePage` (one tab's web view with offline copies), `AppChrome`, `AppBridge` and `Haptics`, `OfflineStore`, `PatchWatcher`, `Legal`. No Compose, minSdk 23. |
+| `core` | Android library shared code for the app: `Site` and `SiteTab` (links and tabs), `SitePage` (one tab's web view with offline copies), `AppChrome`, `AppBridge` and `Haptics`, `OfflineStore`, `PatchWatcher`, `Legal`. No Compose, minSdk 23. |
 | `app` | The phone, tablet and ChromeOS app (Jetpack Compose), `com.deeparam.app`. |
-
-The Wear OS (`apps/wearos`) and Android TV (`apps/androidtv`) projects are separate Gradle builds that use the
-same application id, so all three share one Google Play listing. They can use `core` with:
-
-```kotlin
-// settings.gradle.kts
-include(":core")
-project(":core").projectDir = file("../android/core")
-```
-
-Version codes: phone and tablet below 1000000, Wear OS 1xxxxxx, Android TV 2xxxxxx.
 
 ## Build it
 

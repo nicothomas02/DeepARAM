@@ -1,6 +1,4 @@
-// Shared by every Android build of DeepARAM (phone/tablet/ChromeOS app, and the Wear OS and Android TV
-// projects through include(":core") with projectDir = ../android/core). Plain Android views, no Compose,
-// so any of them can use it.
+// Shared code for the DeepARAM Android app (phone, tablet and ChromeOS). Plain Android views, no Compose.
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
