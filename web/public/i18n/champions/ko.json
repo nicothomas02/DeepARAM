@@ -202,5 +202,7 @@
  "Changes your build": "빌드가 바뀜",
  "The best items with this augment differ from your usual build.": "이 증강의 최고 아이템은 평소 빌드와 다릅니다.",
  "Estimated: the augment picks (1st to 4th) where it usually shows up.": "추정: 이 증강이 주로 나오는 증강 선택(1~4번째)입니다.",
- "Pick {n}": "{n}번째"
+ "Pick {n}": "{n}번째",
+ "From earlier games: skill orders are not updating right now.": "이전 게임 기준: 스킬 순서가 지금은 업데이트되지 않습니다.",
+ "From the most common full builds, most built items first.": "가장 흔한 완성 빌드에서 가져왔으며, 많이 만드는 아이템이 먼저입니다."
 }

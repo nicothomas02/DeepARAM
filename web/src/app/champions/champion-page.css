@@ -1399,3 +1399,11 @@ html[data-view="simple"] .cp-fold:not([data-open]) > .cp-fold-body {
   color: var(--accent);
   text-decoration: none;
 }
+
+/* Skill orders that stopped updating */
+.cp-best .cp-stale {
+  display: block;
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 0.85em;
+}

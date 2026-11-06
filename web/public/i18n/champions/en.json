@@ -202,5 +202,7 @@
  "Changes your build": "Changes your build",
  "The best items with this augment differ from your usual build.": "The best items with this augment differ from your usual build.",
  "Estimated: the augment picks (1st to 4th) where it usually shows up.": "Estimated: the augment picks (1st to 4th) where it usually shows up.",
- "Pick {n}": "Pick {n}"
+ "Pick {n}": "Pick {n}",
+ "From earlier games: skill orders are not updating right now.": "From earlier games: skill orders are not updating right now.",
+ "From the most common full builds, most built items first.": "From the most common full builds, most built items first."
 }

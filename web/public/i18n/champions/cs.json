@@ -202,5 +202,7 @@
  "Changes your build": "Mění sestavu",
  "The best items with this augment differ from your usual build.": "Nejlepší předměty s tímto vylepšením se liší od tvé obvyklé sestavy.",
  "Estimated: the augment picks (1st to 4th) where it usually shows up.": "Odhad: volby vylepšení (1. až 4.), ve kterých se obvykle objevuje.",
- "Pick {n}": "Volba {n}"
+ "Pick {n}": "Volba {n}",
+ "From earlier games: skill orders are not updating right now.": "Ze starších her: pořadí schopností se teď neaktualizuje.",
+ "From the most common full builds, most built items first.": "Z nejčastějších celých sestav, nejstavěnější předměty první."
 }

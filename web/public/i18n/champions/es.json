@@ -202,5 +202,7 @@
  "Changes your build": "Cambia tu build",
  "The best items with this augment differ from your usual build.": "Los mejores objetos con este aumento son distintos de tu build habitual.",
  "Estimated: the augment picks (1st to 4th) where it usually shows up.": "Estimado: las elecciones de aumento (1.ª a 4.ª) en las que suele aparecer.",
- "Pick {n}": "Elección {n}"
+ "Pick {n}": "Elección {n}",
+ "From earlier games: skill orders are not updating right now.": "De partidas anteriores: el orden de habilidades no se está actualizando ahora.",
+ "From the most common full builds, most built items first.": "De las builds completas más comunes, primero los objetos más construidos."
 }

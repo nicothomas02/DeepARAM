@@ -202,5 +202,7 @@
  "Changes your build": "Thay đổi lối lên đồ",
  "The best items with this augment differ from your usual build.": "Trang bị tốt nhất với lõi này khác với lối lên đồ quen thuộc của bạn.",
  "Estimated: the augment picks (1st to 4th) where it usually shows up.": "Ước tính: các lượt chọn lõi (thứ 1 đến thứ 4) mà lõi này thường xuất hiện.",
- "Pick {n}": "Lượt {n}"
+ "Pick {n}": "Lượt {n}",
+ "From earlier games: skill orders are not updating right now.": "Từ các trận trước: thứ tự kỹ năng hiện không được cập nhật.",
+ "From the most common full builds, most built items first.": "Từ các lối lên đồ đầy đủ phổ biến nhất, trang bị được lên nhiều nhất đứng trước."
 }

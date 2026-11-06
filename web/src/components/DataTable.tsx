@@ -19,10 +19,10 @@ import type { TagInfo } from "@/lib/tag-info";
 export type Column = {
   key: string;
   label: string;
-  format?: "pct" | "pts" | "spread" | "num" | "int" | "sec" | "text" | "champion" | "champion-icon" | "augment" | "item" | "ability" | "tier" | "deepscore" | "tags";
+  format?: "pct" | "pts" | "spread" | "num" | "int" | "sec" | "text" | "champion" | "champion-icon" | "augment" | "item" | "items" | "ability" | "tier" | "deepscore" | "tags";
   sortable?: boolean;
   /** For "augment" columns: the row key holding the augment id, for its icon; for "item" and "ability" columns, the
-   *  icon's address. */
+   *  icon's address. "items" columns hold several items: names, icons (iconKey) and pages (hrefKey), each joined by "|". */
   iconKey?: string;
   /** The row key holding a page to open from this cell (an augment's own page, a build's replay). */
   hrefKey?: string;
@@ -104,7 +104,7 @@ function TierChip({ tier, was }: { tier: string; was: Row[string] | undefined })
 
 // Numbers get a colour where it means something: win rates above or below an even 50%, and changes up or down.
 function cellClass(c: Column, v: Row[string]) {
-  if (!c.format || ["text", "champion", "champion-icon", "augment", "item", "ability", "tier", "tags"].includes(c.format)) return "";
+  if (!c.format || ["text", "champion", "champion-icon", "augment", "item", "items", "ability", "tier", "tags"].includes(c.format)) return "";
   const n = Number(v);
   if (v === null || v === "" || Number.isNaN(n)) return "num";
   if (c.format === "pct" && /win/.test(c.key)) return n >= 0.52 ? "num wr-high" : n <= 0.48 ? "num wr-low" : "num";
@@ -207,6 +207,37 @@ function Named({ src, name }: { src: string; name: string }) {
       <span className="nm" title={name}>
         {name}
       </span>
+    </span>
+  );
+}
+
+// Several items in one cell (a starting set, a full build): icons only, each opening its item page; a single item
+// keeps its name beside the icon.
+function ItemSet({ names, icons, hrefs }: { names: string; icons: string; hrefs: string }) {
+  const n = names.split("|");
+  const src = icons.split("|");
+  const href = hrefs.split("|");
+  if (n.length === 1)
+    return href[0] ? (
+      <RowLink className="cell-link" href={href[0]}>
+        <Named src={src[0]} name={n[0]} />
+      </RowLink>
+    ) : (
+      <Named src={src[0]} name={n[0]} />
+    );
+  return (
+    <span className="item-set">
+      {n.map((name, i) => {
+        // eslint-disable-next-line @next/next/no-img-element
+        const img = <img src={src[i]} alt={name} title={name} width={24} height={24} loading="lazy" />;
+        return href[i] ? (
+          <RowLink key={i} className="cell-link" href={href[i]}>
+            {img}
+          </RowLink>
+        ) : (
+          <span key={i}>{img}</span>
+        );
+      })}
     </span>
   );
 }
@@ -383,7 +414,7 @@ export default function DataTable({
               {columns.map((c) => (
                 <th
                   key={c.key}
-                  className={cls(c, c.format && !["text", "champion", "champion-icon", "augment", "item", "ability", "tier", "tags"].includes(c.format) ? "num" : "")}
+                  className={cls(c, c.format && !["text", "champion", "champion-icon", "augment", "item", "items", "ability", "tier", "tags"].includes(c.format) ? "num" : "")}
                   aria-sort={c.sortable !== false && sort.key === (c.sortKey ?? c.key) ? (sort.desc ? "descending" : "ascending") : undefined}
                 >
                   {c.sortable === false ? (
@@ -424,6 +455,8 @@ export default function DataTable({
                       ) : (
                         <Named key={String(r[c.iconKey ?? "icon"] ?? "")} src={String(r[c.iconKey ?? "icon"] ?? "")} name={String(r[c.key] ?? "")} />
                       )
+                    ) : c.format === "items" ? (
+                      <ItemSet names={String(r[c.key] ?? "")} icons={String(r[c.iconKey ?? "icon"] ?? "")} hrefs={String(r[c.hrefKey ?? "href"] ?? "")} />
                     ) : c.format === "ability" ? (
                       r[c.key] ? <Ability src={String(r[c.iconKey ?? "icon"] ?? "")} text={String(r[c.key])} /> : "–"
                     ) : c.format === "augment" ? (

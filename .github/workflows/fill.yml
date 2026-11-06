@@ -60,6 +60,9 @@ jobs:
       - name: Traps and Bug finder (The Kitchen)
         if: steps.fresh.outputs.run == 'true'
         run: python3 data/checks/findings.py || echo "::warning::Traps and Bug finder not refreshed"
+      - name: Hidden gems (rare picks that win more; checked in the Simulator built above; needs the full git history)
+        if: steps.fresh.outputs.run == 'true'
+        run: python3 data/estimates/synergies.py || echo "::warning::Hidden gems not refreshed"
       - name: Keep this patch's item numbers (Tier List set ranges combine them)
         if: steps.fresh.outputs.run == 'true'
         run: |
