@@ -11,7 +11,7 @@ const SITE = "https://deeparam.com";
 // Every page in the header, plus Home, the champion list, My Stats and each champion, augment, item and patch page. Rebuilt with each deploy.
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
-  const pages = ["/", ...navPages().map((t) => t.href), "/champions", "/info/region-teams", "/privacy", "/terms", "/answers", ...championAliases().map((a) => `/champions/${a}`), ...augmentPages().map((a) => `/augments/${a.slug}`), ...itemPages().map((i) => `/items/${i.slug}`), ...recapPatches().map((p) => `/patches/${patchName(p)}`)];
+  const pages = ["/", ...navPages().map((t) => t.href), "/champions", "/info/region-teams", "/privacy", "/terms", "/methodology", "/answers", ...championAliases().map((a) => `/champions/${a}`), ...augmentPages().map((a) => `/augments/${a.slug}`), ...itemPages().map((i) => `/items/${i.slug}`), ...recapPatches().map((p) => `/patches/${patchName(p)}`)];
   return [...new Set(pages)].map((path) => ({
     url: SITE + (path === "/" ? "" : path),
     lastModified: now,

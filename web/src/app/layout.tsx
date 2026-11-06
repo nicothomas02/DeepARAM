@@ -150,6 +150,9 @@ export default function RootLayout({
             <Link href="/terms">
               <T>Terms</T>
             </Link>
+            <Link href="/methodology">
+              <T>Methodology</T>
+            </Link>
           </nav>
           <p>
             <T>{text("footer")}</T>

@@ -16,6 +16,8 @@ The code behind [deeparam.com](https://deeparam.com): ARAM Mayhem tier lists, a 
 | `dashboard/`, `importer/` | My Stats: the personal stats page and the League client importer (below) |
 | `apps/` | iPhone/iPad and Mac apps ([iOS](apps/ios/README.md), [iPad](apps/ipados/README.md), [macOS](apps/macos/README.md)) |
 
+How the numbers are made (statistics, estimates, Simulator): [docs/methodology.md](docs/methodology.md).
+
 A folder with a `site-tab.json` is embedded into the site by `web/scripts/sync-embeds.mjs`.
 
 ## Stats dashboard
