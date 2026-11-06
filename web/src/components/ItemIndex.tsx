@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import { textMatches } from "@/lib/fold";
 import DataTable, { type Column, type Row } from "@/components/DataTable";
 import { EmptyState } from "@/components/EmptyState";
 import { ITEM_TAGS, TAG_GROUPS, itemTag } from "@/lib/item-tags";
@@ -70,7 +71,7 @@ export default function ItemIndex({ items }: { items: Item[] }) {
   // Only tags some item has; counts follow the tags already picked.
   const shown = useMemo(() => {
     const q = query.trim().toLowerCase();
-    return items.filter((i) => picked.every((t) => i.tags.includes(t)) && (!q || `${i.name} ${name(i)}`.toLowerCase().includes(q)));
+    return items.filter((i) => picked.every((t) => i.tags.includes(t)) && (!q || textMatches(`${i.name} ${name(i)}`.toLowerCase(), q)));
     // eslint-disable-next-line react-hooks/exhaustive-deps -- name follows names
   }, [items, picked, query, names]);
   const count = (key: string) => shown.filter((i) => i.tags.includes(key)).length;

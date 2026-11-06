@@ -1,4 +1,4 @@
-import { foldName } from "./fold";
+import { foldName, hangulInitials, isInitialsQuery } from "./fold";
 import type { SearchItem } from "@/components/SearchPalette";
 
 // With a query, champions come first, then augments, items and pages; inside each group a name equal to the
@@ -6,6 +6,12 @@ import type { SearchItem } from "@/components/SearchPalette";
 const GROUP_ORDER: Record<string, number> = { Champions: 0, Augments: 1, Items: 2, Pages: 3 };
 const groupRank = (g: string) => GROUP_ORDER[g] ?? 4;
 function matchRank(name: string, q: string, f: string) {
+  if (isInitialsQuery(q)) {
+    // "ㅋㅇㅌㄹ" finds 케이틀린 by its initial consonants.
+    const ini = hangulInitials(name).replace(/\s/g, "");
+    const want = q.replace(/\s/g, "");
+    return ini === want ? 0 : ini.startsWith(want) ? 1 : ini.includes(want) ? 3 : -1;
+  }
   const n = name.toLowerCase();
   const fn = foldName(name);
   if (n === q || (f !== "" && fn === f)) return 0;
