@@ -4702,6 +4702,29 @@ th > button[data-tip] {
   line-height: 1.45;
 }
 
+/* Hidden gems tab: a set of items in one table cell, and the tab's sections. */
+.item-set {
+  display: inline-flex;
+  gap: 0.2rem;
+  white-space: nowrap;
+}
+.item-set img {
+  display: block;
+  border-radius: 6px;
+  background: var(--raised);
+}
+.gems-section {
+  margin-top: 1.5rem;
+}
+.gems-section > h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.1rem;
+}
+.gems-how p {
+  margin: 0.6rem 0 0;
+  line-height: 1.45;
+}
+
 /* Empty and error states */
 .empty-state {
   display: flex;
