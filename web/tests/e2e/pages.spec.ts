@@ -340,7 +340,10 @@ test("patch history groups by set, recaps list added and removed augments only w
   const set = page.getByRole("button", { name: /This set/ });
   if (inSet.length > 1)
     await expect(async () => {
-      await set.click();
+      // The quick ranges live inside the patch dropdown, so open it first (picking one closes it again)
+      const pick = page.locator(".patch-pick");
+      if (!(await pick.evaluate((d) => (d as HTMLDetailsElement).open))) await pick.locator("> summary").click();
+      await set.click({ timeout: 1000 });
       await expect(page).toHaveURL(new RegExp(`patches=${inSet[0].replace(".", "\\.")}(,|%2C)`), { timeout: 1000 });
     }).toPass();
   await page.locator(".patch-pick > summary").click();
