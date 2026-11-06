@@ -197,6 +197,24 @@ def test_augment_pools_reference_real_champions_and_augments():
         assert not missing, (champ_nums[num], sorted(missing))
 
 
+def test_augment_pools_are_up_to_date():
+    # The pools are every modelled augment picked on each champion in data/cn/builds; a new patch's
+    # augments or new picks leave them stale until tools/build_augment_pools.py runs again.
+    import importlib.util
+    spec = importlib.util.spec_from_file_location("build_augment_pools", SIM_DIR / "tools" / "build_augment_pools.py")
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    key_of = mod.augment_keys()
+    want = mod.live_pools(key_of)
+    have = load_json(DATA_DIR / "augment_pools.json")["pools"]
+    stale = {num: sorted(set(want.get(num, [])) ^ set(have.get(num, []))) for num in set(want) | set(have)}
+    stale = {num: d for num, d in stale.items() if d}
+    assert not stale, f"run python3 simulator/tools/build_augment_pools.py: {len(stale)} champions differ, e.g. {sorted(stale.items())[:3]}"
+    pbe = mod.pbe_pools(want, set(key_of.values()))
+    if pbe is not None:
+        assert load_json(PBE_DIR / "augment_pools.json")["pools"] == pbe[0], "run python3 simulator/tools/build_augment_pools.py (PBE pools are stale)"
+
+
 # ---------------------------------------------------------------- builds reference real ids
 
 def check_build(where, build, item_keys, aug_keys, sizes=None):
@@ -242,10 +260,16 @@ def test_best_builds_reference_real_ids():
     pools = load_json(DATA_DIR / "augment_pools.json")["pools"]
     its, augs = set(items("live")), set(augments("live"))
     assert {b["champion"] for b in best} == set(champ_by_id)
+    # The pools follow the hourly stats, so an augment rarely picked on a champion can drop out of its pool
+    # between patches; many best builds using augments outside their pool means a patch took augments out
+    # of Mayhem and the best builds need `make replay`.
+    outside = {}
     for b in best:
         check_build(b["champion"], b["build"], its, augs, (6, 4))
         pool = set(pools[str(champ_by_id[b["champion"]]["champion_id"])])
-        assert set(b["build"]["augments"]) <= pool, (b["champion"], set(b["build"]["augments"]) - pool)
+        if set(b["build"]["augments"]) - pool:
+            outside[b["champion"]] = sorted(set(b["build"]["augments"]) - pool)
+    assert len(outside) <= len(best) // 10, f"{len(outside)} best builds use augments outside their pool: {sorted(outside.items())[:5]}"
 
 
 def test_dummy_dps_covers_every_best_build():

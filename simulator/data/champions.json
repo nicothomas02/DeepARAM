@@ -1,7 +1,7 @@
 {
  "meta": {
-  "built_at": "2026-10-21T17:43:49+00:00",
-  "game_version": "16.21",
+  "built_at": "2026-11-06T19:33:09+00:00",
+  "game_version": "16.22",
   "cdragon": "latest",
   "mayhem_balance_patch": "wiki read 2026-10-17",
   "level": 18,
@@ -2947,8 +2947,8 @@
        "type": "magic",
        "calc": "DamagePerSecond",
        "scaling": {
-        "const": 30.0,
-        "ap": 0.12
+        "const": 34.0,
+        "ap": 0.16
        },
        "target": "flat",
        "per_second": true,
@@ -6048,8 +6048,8 @@
        "type": "physical",
        "calc": "RSmallMissileDamage",
        "scaling": {
-        "const": 333.325,
-        "bonus_ad": 1.1333
+        "const": 373.324,
+        "bonus_ad": 1.2
        },
        "target": "flat",
        "per_second": false,
@@ -6059,8 +6059,8 @@
        "type": "physical",
        "calc": "RBigMissileDamage",
        "scaling": {
-        "const": 500.0,
-        "bonus_ad": 1.7
+        "const": 560.0,
+        "bonus_ad": 1.8
        },
        "target": "flat",
        "per_second": false,
@@ -17294,7 +17294,7 @@
      "cast_time": 0.0,
      "shield": {
       "scaling": {
-       "const": 80.0,
+       "const": 380.0,
        "ap": 0.8
       },
       "duration": 2.0
@@ -18203,7 +18203,7 @@
        "calc": "NailDamage",
        "scaling": {
         "ap": 0.35,
-        "const": 50.0
+        "const": 43.0
        },
        "target": "flat",
        "per_second": false,
@@ -18223,7 +18223,7 @@
      "cost": 50.0,
      "targeting": "Self",
      "area": "aoe",
-     "duration": 6.0,
+     "duration": 5.0,
      "geometry": {
       "shape": "circle",
       "range": 0.0,
@@ -19598,7 +19598,7 @@
        "type": "magic",
        "calc": "BasePercentHealth",
        "scaling": {
-        "const": 0.04
+        "const": 0.045
        },
        "target": "target_max_hp",
        "per_second": false,
@@ -20004,16 +20004,16 @@
    "role": "mage",
    "ranged": true,
    "stats": {
-    "hp": 630.0,
-    "hp_per_level": 99.0,
+    "hp": 590.0,
+    "hp_per_level": 107.0,
     "armor": 21.0,
-    "armor_per_level": 5.2,
+    "armor_per_level": 5.4,
     "mr": 30.0,
     "mr_per_level": 1.3,
-    "ad": 54.0,
+    "ad": 52.0,
     "ad_per_level": 3.3,
     "attack_speed": 0.625,
-    "attack_speed_per_level": 0.025,
+    "attack_speed_per_level": 0.0275,
     "attack_speed_ratio": 0.625,
     "attack_range": 550.0,
     "attack_windup": 0.156,
@@ -20032,8 +20032,8 @@
    },
    "resource": {
     "kind": "mana",
-    "pool": 480.0,
-    "pool_per_level": 28.0,
+    "pool": 455.0,
+    "pool_per_level": 38.0,
     "regen": 1.8,
     "regen_per_level": 0.18
    },
@@ -20053,13 +20053,13 @@
      "cooldown": 6.0,
      "cast_time": 0.35,
      "cost": 90.0,
-     "targeting": "Area",
+     "targeting": "Location",
      "area": "aoe",
-     "duration": 0.5,
+     "duration": 0.0,
      "geometry": {
       "shape": "circle",
-      "range": 900.0,
-      "radius": 225.0,
+      "range": 950.0,
+      "radius": 200.0,
       "width": 0.0,
       "angle": 0.0,
       "speed": 0,
@@ -20068,10 +20068,10 @@
      "hits": [
       {
        "type": "magic",
-       "calc": "InitialExplosionDamage",
+       "calc": "InitialDamage",
        "scaling": {
-        "const": 160.0,
-        "ap": 0.55
+        "const": 60.0,
+        "ap": 0.25
        },
        "target": "flat",
        "per_second": false,
@@ -20079,28 +20079,18 @@
       },
       {
        "type": "magic",
-       "calc": "TotalExplosionDamage",
+       "calc": "TotalDamageTT",
        "scaling": {
-        "const": 13.0,
-        "ap": 0.05
+        "const": 285.0,
+        "ap": 0.97
        },
-       "target": "flat",
-       "per_second": false,
-       "alt": false
-      },
-      {
-       "type": "magic",
-       "calc": "AllDamageHit",
-       "scaling": {},
        "target": "flat",
        "per_second": false,
        "alt": true
       }
      ],
      "mode_overrides": [],
-     "notes": [
-      "unsupported part {f3cbe7b2}"
-     ]
+     "notes": []
     },
     {
      "slot": "W",
@@ -20110,10 +20100,10 @@
      "cast_time": 0.0,
      "shield": {
       "scaling": {
-       "const": 200.0,
-       "ap": 0.7
+       "const": 170.0,
+       "ap": 0.5
       },
-      "duration": 0.75
+      "duration": 2.0
      },
      "targeting": "Self",
      "area": "aoe",
@@ -20121,13 +20111,25 @@
      "geometry": {
       "shape": "circle",
       "range": 0.0,
-      "radius": 250.0,
+      "radius": 460.0,
       "width": 0.0,
       "angle": 0.0,
       "speed": 0,
       "on_self": true
      },
-     "hits": [],
+     "hits": [
+      {
+       "type": "magic",
+       "calc": "InitialDamage",
+       "scaling": {
+        "const": 55.0,
+        "ap": 0.1
+       },
+       "target": "flat",
+       "per_second": false,
+       "alt": false
+      }
+     ],
      "mode_overrides": [],
      "notes": [
       "ARAM cooldown"
@@ -20141,12 +20143,12 @@
      "cast_time": 0.25,
      "cc": {
       "type": "root",
-      "duration": 1.5
+      "duration": 1.0
      },
      "cost": 90.0,
      "targeting": "Direction",
      "area": "line",
-     "duration": 1.5,
+     "duration": 1.0,
      "geometry": {
       "shape": "line",
       "range": 1000.0,
@@ -20231,7 +20233,7 @@
      "notes": []
     }
    ],
-   "parse_quality": "partial",
+   "parse_quality": "good",
    "notes": []
   },
   {
@@ -21271,8 +21273,8 @@
      "cast_time": 0.25,
      "heal": {
       "scaling": {
-       "const": 105.0,
-       "bonus_ad": 0.4
+       "const": 115.0,
+       "bonus_ad": 0.45
       }
      },
      "cost": 90.0,
@@ -23664,10 +23666,21 @@
      "hits": [
       {
        "type": "magic",
-       "calc": "TotalDamageTooltip",
+       "calc": "TotalDamage",
        "scaling": {
         "const": 180.0,
         "ap": 0.6
+       },
+       "target": "flat",
+       "per_second": false,
+       "alt": false
+      },
+      {
+       "type": "magic",
+       "calc": "ReducedDamage",
+       "scaling": {
+        "const": 126.0,
+        "ap": 0.42
        },
        "target": "flat",
        "per_second": false,
@@ -27352,7 +27365,7 @@
        "calc": "DamagePerSecond",
        "scaling": {
         "const": 280.0,
-        "ap": 0.35
+        "ap": 0.4
        },
        "target": "flat",
        "per_second": true,
@@ -30712,7 +30725,7 @@
        "type": "physical",
        "calc": "ExplosionDamage",
        "scaling": {
-        "const": 110.0,
+        "const": 125.0,
         "bonus_ad": 0.5,
         "ap": 0.8
        },
@@ -33212,7 +33225,7 @@
     "armor_per_level": 0.0,
     "mr": 30.0,
     "mr_per_level": 1.55,
-    "ad": 56.0,
+    "ad": 54.0,
     "ad_per_level": 2.2,
     "attack_speed": 0.625,
     "attack_speed_per_level": 0.035,
@@ -33356,7 +33369,7 @@
        "type": "magic",
        "calc": "PAttackDamageMax",
        "scaling": {
-        "const": 196.14,
+        "const": 191.94,
         "bonus_ad": 2.1
        },
        "target": "flat",
@@ -33410,7 +33423,7 @@
        "type": "magic",
        "calc": "TotalDamage",
        "scaling": {
-        "const": 550.0,
+        "const": 500.0,
         "ap": 1.0
        },
        "target": "flat",
@@ -35131,8 +35144,8 @@
        "type": "physical",
        "calc": "TotalDamageMax",
        "scaling": {
-        "const": 230.0,
-        "bonus_ad": 0.9
+        "const": 425.0,
+        "bonus_ad": 1.53
        },
        "target": "flat",
        "per_second": false,
@@ -35143,7 +35156,6 @@
       "Kiwi:tADRatioMin"
      ],
      "notes": [
-      "missing value {0508ccce}",
       "hand override: Piercing Arrow: min and max charge are alternatives; max was being added at half weight"
      ]
     },
@@ -36714,7 +36726,7 @@
    "ranged": true,
    "stats": {
     "hp": 600.0,
-    "hp_per_level": 100.0,
+    "hp_per_level": 105.0,
     "armor": 23.0,
     "armor_per_level": 4.4,
     "mr": 30.0,
@@ -38706,8 +38718,8 @@
        "type": "physical",
        "calc": "TotalDamage",
        "scaling": {
-        "const": 227.625,
-        "bonus_ad": 1.05
+        "const": 222.5,
+        "bonus_ad": 1.0
        },
        "target": "flat",
        "per_second": false,

@@ -54,6 +54,11 @@ jobs:
           TODAY: ${{ inputs.today && '1' || '' }}
       - name: Fetch each champion's builds
         run: python3 data/cn/builds.py
+      - name: Refresh the Simulator's augment pools from the new builds
+        continue-on-error: true
+        run: |
+          python3 simulator/tools/build_augment_pools.py
+          python3 simulator/tools/strip_notes.py simulator/viewer/replay-data/pbe simulator/data/pbe/augment_pools.json
       - name: Append new days and rebuild history
         run: python3 data/cn/history.py ${TODAY:+--today}
         env:
@@ -80,7 +85,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/cn champions/data.js champions/i18n web/public/assets
+          git add data/cn champions/data.js champions/i18n web/public/assets simulator/data/augment_pools.json simulator/data/pbe/augment_pools.json simulator/viewer/replay-data/pbe/augment_pools.json
           if git diff --cached --quiet; then
             echo "No new data"
           else
