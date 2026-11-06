@@ -65,11 +65,14 @@ def sample_kill_map(rng, kills, deaths, win):
     return sorted(events)
 
 
+FRIENDS = ["Duo Partner", "Late Night Larry", "Poro Snacker", "Bridge Troll", "Snowball Sam", "Tower Diver"]
+
+
 def sample_archive(champ_names, aug_names, aug_rarity, mayhem_ids, n=640, seed=7):
     """Example games in the League client's format. Not anyone's real history."""
     rng = random.Random(seed)
     me = {"puuid": "example-puuid", "gameName": "Example", "tagLine": "MHM"}
-    champs = rng.sample(sorted(champ_names, key=int), 40)
+    champs = rng.sample(sorted((c for c in champ_names if int(c) < 10000), key=int), 40)  # 6xxxx ids are mode copies
     champ_weight = {c: rng.paretovariate(1.2) for c in champs}
     champ_skill = {c: rng.gauss(0, 0.08) for c in champs}
     pool = {r: [a for a, rr in aug_rarity.items() if rr == r and a in aug_names and a in mayhem_ids] for r in ("kSilver", "kGold", "kPrismatic")}
@@ -77,7 +80,8 @@ def sample_archive(champ_names, aug_names, aug_rarity, mayhem_ids, n=640, seed=7
     t = 1792108800000  # 2026-10-16
     games = []
     for i in range(n):
-        t -= int(rng.expovariate(1 / (7 * 3600 * 1000)))
+        # games come in evening sessions: short gaps within one, a day or so between them
+        t -= int(rng.gauss(24, 3) * 60 * 1000) if rng.random() < 0.75 else int(rng.expovariate(1 / (20 * 3600 * 1000)))
         champ = rng.choices(champs, weights=[champ_weight[c] for c in champs])[0]
         augs = [rng.choice(pool[rng.choices(["kSilver", "kGold", "kPrismatic"], [5, 4, 2])[0]]) for _ in range(4)]
         if rng.random() < 0.2:
@@ -104,6 +108,7 @@ def sample_archive(champ_names, aug_names, aug_rarity, mayhem_ids, n=640, seed=7
             stats[f"item{k}"] = item
         for k in range(6):
             stats[f"playerAugment{k + 1}"] = int(augs[k]) if k < len(augs) else 0
+        team_rng = random.Random(seed * 7919 + i)
         games.append({
             "killMap": sample_kill_map(random.Random(seed * 1000 + i), stats["kills"], deaths, win),
             "gameId": 5_400_000_000 - i * 7919,
@@ -112,9 +117,17 @@ def sample_archive(champ_names, aug_names, aug_rarity, mayhem_ids, n=640, seed=7
             "gameVersion": f"16.{max(1, 20 - i // 40)}.1",
             "gameDuration": int(rng.gauss(1150, 160)),
             "participants": [{"participantId": 1, "championId": int(champ), "teamId": 100, "stats": stats}]
-            + [{"participantId": k + 2, "championId": int(c), "teamId": 100, "stats": {"win": win}}
-               for k, c in enumerate(random.Random(seed * 7919 + i).sample([c for c in champs if c != champ], 4))],
-            "participantIdentities": [{"participantId": 1, "player": me}],
+            + [{"participantId": k + 2, "championId": int(c), "teamId": 100,
+                "stats": {"win": win, "kills": max(0, int(team_rng.gauss(10 if win else 7, 5))),
+                          "deaths": team_rng.randint(3, 14), "assists": max(0, int(team_rng.gauss(22 if win else 16, 7))),
+                          "totalDamageDealtToChampions": max(5000, int(team_rng.gauss(42000, 13000)))}}
+               for k, c in enumerate(team_rng.sample([c for c in champs if c != champ], 4))]
+            + [{"participantId": k + 6, "championId": int(c), "teamId": 200, "stats": {"win": not win}}
+               for k, c in enumerate(team_rng.sample(sorted((c for c in champ_names if int(c) < 10000), key=int), 5))],
+            # a few made-up friends who queue with the example player now and then
+            "participantIdentities": [{"participantId": 1, "player": me}]
+            + [{"participantId": k + 2, "player": {"puuid": f"example-friend-{f}", "gameName": FRIENDS[f], "tagLine": "EX"}}
+               for k, f in enumerate(team_rng.sample(range(len(FRIENDS)), 4)) if team_rng.random() < 0.3],
         })
     return {"puuid": me["puuid"], "gameName": me["gameName"], "tagLine": me["tagLine"], "games": games}
 
