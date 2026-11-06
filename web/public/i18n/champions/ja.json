@@ -188,5 +188,8 @@
  "Boots after the 2nd item": "2つ目のアイテムの後にブーツ",
  "Boots after the 3rd item": "3つ目のアイテムの後にブーツ",
  "Boots are shown where to buy them.": "ブーツは買うタイミングの位置に表示されます。",
- "Core builds show the boots where the Simulator says to buy them: the first point where they add as much per gold as the next item.": "コアビルドでは、シミュレーターが勧める購入タイミングにブーツを表示します。ゴールドあたりの効果が次のアイテムと同等以上になる最初の時点です。"
+ "Core builds show the boots where the Simulator says to buy them: the first point where they add as much per gold as the next item.": "コアビルドでは、シミュレーターが勧める購入タイミングにブーツを表示します。ゴールドあたりの効果が次のアイテムと同等以上になる最初の時点です。",
+ "The biggest win rate boost of any augment on {champ}: +{n} pts.": "{champ}で最も勝率を上げるオーグメント：+{n}ポイント。",
+ "Raises {champ}'s win rate by {n} pts.": "{champ}の勝率を{n}ポイント上げます。",
+ "Lowers {champ}'s win rate by {n} pts.": "{champ}の勝率を{n}ポイント下げます。"
 }

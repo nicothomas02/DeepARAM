@@ -1319,3 +1319,19 @@ html[data-view="simple"] .cp-fold:not([data-open]) > .cp-fold-body {
 .cp-boots-note {
   padding: 0 1rem 0.4rem;
 }
+
+/* Why an augment ranks where it does: what it does and how much it moves this champion's win rate, under its row. */
+.cp-why {
+  grid-column: 1 / -1;
+  margin: -0.15rem 0 0.1rem;
+  padding-left: calc(2.6rem + 0.5rem + 36px + 0.5rem);
+  color: var(--muted);
+  font-size: 0.8rem;
+  line-height: 1.35;
+}
+@media (max-width: 560px) {
+  .cp-why {
+    padding-left: calc(28px + 0.45rem);
+    font-size: 0.76rem;
+  }
+}

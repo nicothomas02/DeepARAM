@@ -188,5 +188,8 @@
  "Boots after the 2nd item": "2. eşyadan sonra botlar",
  "Boots after the 3rd item": "3. eşyadan sonra botlar",
  "Boots are shown where to buy them.": "Botlar alınacakları yerde gösterilir.",
- "Core builds show the boots where the Simulator says to buy them: the first point where they add as much per gold as the next item.": "Temel dizilimler botları Simülatör'ün alınmasını önerdiği yerde gösterir: altın başına bir sonraki eşya kadar değer kattıkları ilk an."
+ "Core builds show the boots where the Simulator says to buy them: the first point where they add as much per gold as the next item.": "Temel dizilimler botları Simülatör'ün alınmasını önerdiği yerde gösterir: altın başına bir sonraki eşya kadar değer kattıkları ilk an.",
+ "The biggest win rate boost of any augment on {champ}: +{n} pts.": "{champ} için tüm güçlendirmeler arasında en büyük kazanma oranı artışı: +{n} puan.",
+ "Raises {champ}'s win rate by {n} pts.": "{champ} kazanma oranını {n} puan artırır.",
+ "Lowers {champ}'s win rate by {n} pts.": "{champ} kazanma oranını {n} puan düşürür."
 }

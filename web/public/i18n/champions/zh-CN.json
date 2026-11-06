@@ -188,5 +188,8 @@
  "Boots after the 2nd item": "第2件装备后买鞋",
  "Boots after the 3rd item": "第3件装备后买鞋",
  "Boots are shown where to buy them.": "鞋子显示在应购买的位置。",
- "Core builds show the boots where the Simulator says to buy them: the first point where they add as much per gold as the next item.": "核心出装把鞋子放在模拟器建议购买的位置：即每金币收益首次不低于下一件装备的时刻。"
+ "Core builds show the boots where the Simulator says to buy them: the first point where they add as much per gold as the next item.": "核心出装把鞋子放在模拟器建议购买的位置：即每金币收益首次不低于下一件装备的时刻。",
+ "The biggest win rate boost of any augment on {champ}: +{n} pts.": "{champ}所有强化中胜率提升最大：+{n}个百分点。",
+ "Raises {champ}'s win rate by {n} pts.": "使{champ}的胜率提高{n}个百分点。",
+ "Lowers {champ}'s win rate by {n} pts.": "使{champ}的胜率降低{n}个百分点。"
 }

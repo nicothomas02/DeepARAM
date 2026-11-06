@@ -188,5 +188,8 @@
  "Boots after the 2nd item": "Buty po 2. przedmiocie",
  "Boots after the 3rd item": "Buty po 3. przedmiocie",
  "Boots are shown where to buy them.": "Buty są pokazane tam, gdzie je kupić.",
- "Core builds show the boots where the Simulator says to buy them: the first point where they add as much per gold as the next item.": "Podstawowe buildy pokazują buty tam, gdzie według Symulatora należy je kupić: w pierwszym momencie, gdy za złoto dają tyle co następny przedmiot."
+ "Core builds show the boots where the Simulator says to buy them: the first point where they add as much per gold as the next item.": "Podstawowe buildy pokazują buty tam, gdzie według Symulatora należy je kupić: w pierwszym momencie, gdy za złoto dają tyle co następny przedmiot.",
+ "The biggest win rate boost of any augment on {champ}: +{n} pts.": "Największy wzrost współczynnika zwycięstw ze wszystkich ulepszeń dla {champ}: +{n} pkt.",
+ "Raises {champ}'s win rate by {n} pts.": "Podnosi współczynnik zwycięstw {champ} o {n} pkt.",
+ "Lowers {champ}'s win rate by {n} pts.": "Obniża współczynnik zwycięstw {champ} o {n} pkt."
 }
