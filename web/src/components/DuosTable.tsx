@@ -21,6 +21,8 @@ const DELTA: Column = {
   format: "pts",
   hint: BOOST_HINT,
 };
+// Pairs carry their estimated games together, for the boost's 95% range and a low-sample tag.
+const PAIR_DELTA: Column = { ...DELTA, gamesKey: "games" };
 const PICK: Column = {
   key: "pick_rate",
   label: "Pick rate",
@@ -110,7 +112,7 @@ export default function DuosTable({
       {view}
       <DataTable
         key="champions"
-        columns={[champion("a", "Champion"), champion("b", "With"), DELTA, PICK]}
+        columns={[champion("a", "Champion"), champion("b", "With"), PAIR_DELTA, PICK]}
         advancedColumns={[
           champion("a", "Champion"),
           champion("b", "With"),

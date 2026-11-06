@@ -134,5 +134,9 @@
  "Best champ": "Meilleur champion",
  "The champion with the highest estimated win rate boost from this augment.": "Le champion qui gagne le plus en taux de victoire estimé avec cet augment.",
  "Augment pick": "Choix d'augment",
- "Estimated: the augment picks (1st to 4th) where it usually shows up.": "Estimé : les choix d'augment (1er au 4e) où il apparaît le plus souvent."
+ "Estimated: the augment picks (1st to 4th) where it usually shows up.": "Estimé : les choix d'augment (1er au 4e) où il apparaît le plus souvent.",
+ "Few games": "Peu de parties",
+ "Too few games": "Trop peu de parties",
+ "Few games marks a win rate that could be off by more than 5 pts either way, so small differences there are likely noise. Under 10 games it says Too few games.": "Peu de parties signale un taux de victoire qui peut s'écarter de plus de 5 pts dans un sens ou dans l'autre : les petites différences y sont sans doute du bruit. Sous 10 parties, on affiche Trop peu de parties.",
+ "With Page detail set to Detailed, win rates show a ± range: the true rate is within it 95% of the time.": "Avec Détail des pages sur Détaillé, les taux de victoire affichent une plage ± : le vrai taux s'y trouve 95 % du temps."
 }

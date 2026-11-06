@@ -134,5 +134,9 @@
  "Best champ": "最佳英雄",
  "The champion with the highest estimated win rate boost from this augment.": "使用该强化符文时预计胜率提升最高的英雄。",
  "Augment pick": "强化轮次",
- "Estimated: the augment picks (1st to 4th) where it usually shows up.": "估算：该强化通常出现的强化轮次（第1到第4次）。"
+ "Estimated: the augment picks (1st to 4th) where it usually shows up.": "估算：该强化通常出现的强化轮次（第1到第4次）。",
+ "Few games": "场次少",
+ "Too few games": "场次过少",
+ "Few games marks a win rate that could be off by more than 5 pts either way, so small differences there are likely noise. Under 10 games it says Too few games.": "“场次少”表示该胜率上下可能偏差超过 5 个百分点，因此那里的小差异多半只是噪声。少于 10 场时显示“场次过少”。",
+ "With Page detail set to Detailed, win rates show a ± range: the true rate is within it 95% of the time.": "将“页面详细程度”设为“详细”后，胜率会显示 ± 范围：真实胜率有 95% 的概率落在其中。"
 }

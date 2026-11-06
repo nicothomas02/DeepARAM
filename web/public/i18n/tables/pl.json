@@ -134,5 +134,9 @@
  "Best champ": "Najlepszy bohater",
  "The champion with the highest estimated win rate boost from this augment.": "Bohater z najwyższym szacowanym wzrostem współczynnika zwycięstw dzięki temu ulepszeniu.",
  "Augment pick": "Wybór ulepszenia",
- "Estimated: the augment picks (1st to 4th) where it usually shows up.": "Szacunek: wybory ulepszeń (1.–4.), w których zwykle się pojawia."
+ "Estimated: the augment picks (1st to 4th) where it usually shows up.": "Szacunek: wybory ulepszeń (1.–4.), w których zwykle się pojawia.",
+ "Few games": "Mało gier",
+ "Too few games": "Za mało gier",
+ "Few games marks a win rate that could be off by more than 5 pts either way, so small differences there are likely noise. Under 10 games it says Too few games.": "Mało gier oznacza współczynnik zwycięstw, który może się mylić o ponad 5 pkt w każdą stronę, więc małe różnice są tam pewnie szumem. Poniżej 10 gier widać Za mało gier.",
+ "With Page detail set to Detailed, win rates show a ± range: the true rate is within it 95% of the time.": "Gdy Szczegółowość strony to Szczegółowy, współczynniki zwycięstw pokazują zakres ±: prawdziwa wartość mieści się w nim w 95% przypadków."
 }

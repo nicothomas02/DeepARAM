@@ -9,6 +9,7 @@ import { official } from "./dd-swap";
 import { readRepoCsv, readRepoJson } from "./repo-data";
 import { champStats, type ChampStats, type PatchRow } from "./tiers";
 import { statRanges, type RangeKey, type StatRange } from "./stat-ranges";
+import { matchesByPatch } from "./sample";
 
 // One summary per champion for its own page (/champions/<Alias>) and the home page's movers:
 // live-patch tier and rates, the change since the previous patch, top augments and best partners.
@@ -52,7 +53,7 @@ export function liveWithChange() {
   const prev = patches.length > 1 ? patches[patches.length - 2] : null;
   const before = new Map(prev ? champStats(rows, new Set([prev])).map((c) => [c.name, c.win_rate]) : []);
   const live = patch
-    ? champStats(rows, new Set([patch])).map((c, i) => {
+    ? champStats(rows, new Set([patch]), matchesByPatch()).map((c, i) => {
         const was = before.get(c.name);
         return { ...c, rank: i + 1, change: was === undefined ? null : c.win_rate - was };
       })
@@ -102,6 +103,8 @@ export type ChampionSummary = {
   of: number;
   winRate?: number;
   pickRate?: number;
+  /** Estimated live-patch games behind winRate (lib/sample.ts), for its 95% range. */
+  games?: number;
   change: number | null;
   augments: { id: string; name: string }[];
   partners: { id: string; name: string; winRate: number }[];
@@ -165,6 +168,7 @@ export function championSummary(alias: string): ChampionSummary | null {
     of: live.length,
     winRate: me?.win_rate,
     pickRate: me?.pick_rate,
+    games: me?.sample,
     change: me?.change ?? null,
     augments: (liveRow?.augs ?? "")
       .split(",")
@@ -189,6 +193,8 @@ export type ChampionRangeStats = {
   of: number;
   winRate: number;
   pickRate: number;
+  /** Estimated games behind winRate over the range. */
+  games?: number;
   radar: RadarAxis[];
 };
 
@@ -198,12 +204,12 @@ let rangeCache: { range: StatRange; stats: ChampStats[] }[] | null = null;
 export function championRanges(alias: string): ChampionRangeStats[] {
   if (!rangeCache) {
     const rows = patchRows();
-    rangeCache = statRanges(patchList()).map((range) => ({ range, stats: champStats(rows, new Set(range.patches)) }));
+    rangeCache = statRanges(patchList()).map((range) => ({ range, stats: champStats(rows, new Set(range.patches), matchesByPatch()) }));
   }
   return rangeCache.flatMap(({ range: r, stats }) => {
     const at = stats.findIndex((c) => c.name === alias);
     if (at < 0) return [];
     const me = stats[at];
-    return [{ ...r, tier: me.tier, rank: at + 1, of: stats.length, winRate: me.win_rate, pickRate: me.pick_rate, radar: radarFor(alias, stats) }];
+    return [{ ...r, tier: me.tier, rank: at + 1, of: stats.length, winRate: me.win_rate, pickRate: me.pick_rate, games: me.sample, radar: radarFor(alias, stats) }];
   });
 }
