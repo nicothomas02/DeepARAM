@@ -1,0 +1,22 @@
+{
+ "Builds and combos that look great on paper but don't hold up in real games. Check here before you try a theorycraft build.": "Builds e combos que parecem ótimos no papel, mas não funcionam em partidas reais. Confira aqui antes de testar uma build teórica.",
+ "Interactions that might be broken. Each one says what should happen on paper and how to test it in a game. If it really is broken, report it to Riot from the client so it gets fixed.": "Interações que podem estar bugadas. Cada uma diz o que deveria acontecer no papel e como testar numa partida. Se estiver mesmo bugada, reporte à Riot pelo cliente para que seja corrigida.",
+ "Show": "Mostrar",
+ "All": "Tudo",
+ "Stat loop": "Ciclo de atributos",
+ "Missing augment": "Aumento ausente",
+ "Simulator vs real games": "Simulador vs partidas reais",
+ "Does nothing": "Não faz nada",
+ "Find a champion or augment": "Procure um campeão ou aumento",
+ "Nothing matches": "Nada encontrado",
+ "No traps found this patch": "Nenhuma armadilha neste patch",
+ "Nothing to test this patch": "Nada para testar neste patch",
+ "Trap": "Armadilha",
+ "Confirmed bug": "Bug confirmado",
+ "Needs a test": "Precisa de teste",
+ "Show less": "Mostrar menos",
+ "+{n} more": "+{n} a mais",
+ "On paper": "No papel",
+ "In game": "Na partida",
+ "How to test": "Como testar"
+}

@@ -1,0 +1,22 @@
+{
+ "Builds and combos that look great on paper but don't hold up in real games. Check here before you try a theorycraft build.": "Builds and combos that look great on paper but don't hold up in real games. Check here before you try a theorycraft build.",
+ "Interactions that might be broken. Each one says what should happen on paper and how to test it in a game. If it really is broken, report it to Riot from the client so it gets fixed.": "Interactions that might be broken. Each one says what should happen on paper and how to test it in a game. If it really is broken, report it to Riot from the client so it gets fixed.",
+ "Show": "Show",
+ "All": "All",
+ "Stat loop": "Stat loop",
+ "Missing augment": "Missing augment",
+ "Simulator vs real games": "Simulator vs real games",
+ "Does nothing": "Does nothing",
+ "Find a champion or augment": "Find a champion or augment",
+ "Nothing matches": "Nothing matches",
+ "No traps found this patch": "No traps found this patch",
+ "Nothing to test this patch": "Nothing to test this patch",
+ "Trap": "Trap",
+ "Confirmed bug": "Confirmed bug",
+ "Needs a test": "Needs a test",
+ "Show less": "Show less",
+ "+{n} more": "+{n} more",
+ "On paper": "On paper",
+ "In game": "In game",
+ "How to test": "How to test"
+}

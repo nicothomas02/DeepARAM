@@ -1,0 +1,21 @@
+{
+  "_note": "Hand-written results for data/checks/findings.py. An entry whose id matches an automatic finding sets what happened when it was tried in game: status 'trap' (works on paper, not in game: moves it to Traps), 'bug' (confirmed broken in game: stays in Bug finder as confirmed, worth reporting), 'fine' (works as the game intends: hidden). 'practice' is the one-line in-game result shown on the site. An entry with 'manual': true is a whole finding written by hand (same fields as an automatic one). Ids: loop-<augment>+<augment>[-<Champion>], pool-<build id>, sim-<Champion>-<item>.",
+  "entries": [
+    {
+      "id": "loop-tickle_monster-Jhin",
+      "manual": true,
+      "kind": "loop",
+      "status": "trap",
+      "title": "Tickle Monster on Jhin",
+      "champions": [
+        "Jhin"
+      ],
+      "augments": [
+        3058
+      ],
+      "items": [],
+      "theory": "Tickle Monster turns Attack Damage into Attack Speed, and Jhin's Whisper turns Attack Speed into Attack Damage. On paper each one keeps raising the other, so Jhin's damage grows without end.",
+      "practice": "In game it doesn't run away. The two bonuses don't keep feeding each other, so Jhin ends up with a modest bump to Attack Damage instead of infinite damage. Jhin also hasn't been seen getting Tickle Monster this patch."
+    }
+  ]
+}
