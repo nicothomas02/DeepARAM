@@ -134,5 +134,9 @@
  "Best champ": "أفضل بطل",
  "The champion with the highest estimated win rate boost from this augment.": "البطل صاحب أعلى زيادة مقدّرة في نسبة الفوز من هذا التعزيز.",
  "Augment pick": "اختيار التعزيز",
- "Estimated: the augment picks (1st to 4th) where it usually shows up.": "تقديري: اختيارات التعزيز (من الأول إلى الرابع) التي يظهر فيها عادةً."
+ "Estimated: the augment picks (1st to 4th) where it usually shows up.": "تقديري: اختيارات التعزيز (من الأول إلى الرابع) التي يظهر فيها عادةً.",
+ "Few games": "مباريات قليلة",
+ "Too few games": "مباريات قليلة جدًا",
+ "Few games marks a win rate that could be off by more than 5 pts either way, so small differences there are likely noise. Under 10 games it says Too few games.": "تشير «مباريات قليلة» إلى نسبة فوز قد تبتعد بأكثر من 5 نقاط في أي اتجاه، لذا فالفروق الصغيرة هناك غالبًا مجرد ضجيج. وتحت 10 مباريات تظهر «مباريات قليلة جدًا».",
+ "With Page detail set to Detailed, win rates show a ± range: the true rate is within it 95% of the time.": "عند ضبط «تفاصيل الصفحة» على «مفصّل»، تظهر نسب الفوز مع نطاق ±: تقع النسبة الحقيقية داخله في 95% من الحالات."
 }

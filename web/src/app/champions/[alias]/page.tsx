@@ -5,6 +5,7 @@ import Link from "next/link";
 import RowLink from "@/components/RowLink";
 import SplashAccent from "@/components/SplashAccent";
 import WinRateChart from "@/components/WinRateChart";
+import WinRate, { Sampled } from "@/components/WinRate";
 import { augmentTiers } from "@/lib/augment-tiers";
 import DeepScore from "@/components/DeepScore";
 import { BUILD_DEEPSCORE_HELP, ITEM_DEEPSCORE_HELP } from "@/lib/deepscore";
@@ -150,7 +151,7 @@ function ScoredCells({ r }: { r: ItemRow }) {
           <b>–</b>
         )}
       </div>
-      <Cell value={pct(r.winRate)} label="Win rate" tone={tone(r.lift)} />
+      <Cell value={<WinRate p={r.winRate} n={r.games} />} label="Win rate" tone={tone(r.lift)} />
       <Cell value={pct(r.pickRate)} label="Pick rate" />
     </>
   );
@@ -469,7 +470,7 @@ export default async function ChampionPage({
               live: (
                 <div className="cp-strip">
                 <Cell
-                  value={pct(c.winRate)}
+                  value={<WinRate p={c.winRate} n={c.games} />}
                   label="Win rate"
                   tone={
                     c.winRate >= 0.52
@@ -512,7 +513,7 @@ export default async function ChampionPage({
                   .map((r) => [
                     r.key,
                     <div key={r.key} className="cp-strip">
-                      <Cell value={pct(r.winRate)} label="Win rate" tone={r.winRate >= 0.52 ? "up" : r.winRate <= 0.48 ? "down" : undefined} />
+                      <Cell value={<WinRate p={r.winRate} n={r.games} />} label="Win rate" tone={r.winRate >= 0.52 ? "up" : r.winRate <= 0.48 ? "down" : undefined} />
                       <Cell value={pct(r.pickRate)} label="Pick rate" />
                       <div className="cp-cell">
                         <b>#{r.rank}</b>
@@ -813,9 +814,11 @@ export default async function ChampionPage({
                         <span className="cp-late-what">
                           <ItemName id={r.items[0]} info={info} />
                           <small className={tone(r.lift)}>
-                            <T ns={NS} v={{ n: pct(r.winRate) }}>
-                              {"{n} win rate"}
-                            </T>
+                            <Sampled n={r.games} p={r.winRate}>
+                              <T ns={NS} v={{ n: pct(r.winRate) }}>
+                                {"{n} win rate"}
+                              </T>
+                            </Sampled>
                           </small>
                         </span>
                       </Row>
@@ -895,7 +898,7 @@ export default async function ChampionPage({
                               />
                             )}
                             <Cell
-                              value={pct(r.winRate)}
+                              value={<WinRate p={r.winRate} n={r.games} />}
                               label="Win rate"
                               tone={tone(r.lift)}
                             />
@@ -999,7 +1002,7 @@ export default async function ChampionPage({
                     cells={
                       <>
                         <Cell
-                          value={signed(m.synergy)}
+                          value={<Sampled n={m.games}>{signed(m.synergy)}</Sampled>}
                           label="Win rate boost"
                           tone={tone(m.synergy)}
                         />
@@ -1237,7 +1240,7 @@ export default async function ChampionPage({
                     rank={i + 1}
                     cells={
                       <>
-                        <Cell value={pct(s.winRate)} label="Win rate" />
+                        <Cell value={<WinRate p={s.winRate} n={s.games} />} label="Win rate" />
                         <Cell value={pct(s.share)} label="Build share" />
                         <Cell
                           value={signed(s.lift)}
