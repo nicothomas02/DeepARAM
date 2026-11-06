@@ -1,0 +1,22 @@
+{
+ "Builds and combos that look great on paper but don't hold up in real games. Check here before you try a theorycraft build.": "Builds και συνδυασμοί που φαίνονται τέλειοι στα χαρτιά, αλλά δεν αντέχουν στα πραγματικά παιχνίδια. Δες εδώ πριν δοκιμάσεις ένα θεωρητικό build.",
+ "Interactions that might be broken. Each one says what should happen on paper and how to test it in a game. If it really is broken, report it to Riot from the client so it gets fixed.": "Αλληλεπιδράσεις που μπορεί να είναι χαλασμένες. Η καθεμία λέει τι θα έπρεπε να γίνεται στα χαρτιά και πώς να το δοκιμάσεις σε παιχνίδι. Αν είναι όντως χαλασμένη, ανάφερέ τη στη Riot από το client για να διορθωθεί.",
+ "Show": "Εμφάνιση",
+ "All": "Όλα",
+ "Stat loop": "Βρόχος στατιστικών",
+ "Missing augment": "Augment που λείπει",
+ "Simulator vs real games": "Προσομοιωτής vs πραγματικά παιχνίδια",
+ "Does nothing": "Δεν κάνει τίποτα",
+ "Find a champion or augment": "Βρες champion ή augment",
+ "Nothing matches": "Κανένα αποτέλεσμα",
+ "No traps found this patch": "Καμία παγίδα σε αυτό το patch",
+ "Nothing to test this patch": "Τίποτα για δοκιμή σε αυτό το patch",
+ "Trap": "Παγίδα",
+ "Confirmed bug": "Επιβεβαιωμένο bug",
+ "Needs a test": "Θέλει δοκιμή",
+ "Show less": "Λιγότερα",
+ "+{n} more": "+{n} ακόμα",
+ "On paper": "Στα χαρτιά",
+ "In game": "Στο παιχνίδι",
+ "How to test": "Πώς να το δοκιμάσεις"
+}

@@ -1,0 +1,22 @@
+{
+ "Builds and combos that look great on paper but don't hold up in real games. Check here before you try a theorycraft build.": "理論上看起來很強、實戰中卻行不通的出裝和組合。嘗試理論出裝前先來這裡看看。",
+ "Interactions that might be broken. Each one says what should happen on paper and how to test it in a game. If it really is broken, report it to Riot from the client so it gets fixed.": "可能有問題的互動。每條都說明理論上應該發生什麼，以及如何在對戰中測試。如果真的有問題，請在用戶端向 Riot 回報以便修正。",
+ "Show": "顯示",
+ "All": "全部",
+ "Stat loop": "屬性循環",
+ "Missing augment": "缺少的強化",
+ "Simulator vs real games": "模擬器與實戰比較",
+ "Does nothing": "沒有效果",
+ "Find a champion or augment": "搜尋英雄或強化",
+ "Nothing matches": "沒有符合的結果",
+ "No traps found this patch": "本版本沒有發現陷阱",
+ "Nothing to test this patch": "本版本沒有需要測試的內容",
+ "Trap": "陷阱",
+ "Confirmed bug": "已確認的錯誤",
+ "Needs a test": "待測試",
+ "Show less": "收起",
+ "+{n} more": "還有 {n} 個",
+ "On paper": "理論上",
+ "In game": "實戰中",
+ "How to test": "測試方法"
+}

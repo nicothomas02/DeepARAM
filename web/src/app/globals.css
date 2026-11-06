@@ -5916,3 +5916,84 @@ html[data-view="simple"] [data-detailed] {
   font-size: 0.9rem;
   cursor: pointer;
 }
+
+/* The Kitchen's Traps and Bug finder tabs (components/BuildChecks.tsx). */
+.checks-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin: 0.75rem 0 1rem;
+}
+
+.checks-search {
+  flex: 1 1 14rem;
+  max-width: 22rem;
+  min-width: 0;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+  color: inherit;
+  font: inherit;
+}
+
+.checks-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 24rem), 1fr));
+  gap: 1rem;
+}
+
+.checks-card {
+  display: grid;
+  align-content: start;
+  gap: 0.6rem;
+}
+
+.checks-card p {
+  margin: 0;
+  line-height: 1.5;
+}
+
+.checks-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem 0.5rem;
+}
+
+.checks-head h3 {
+  flex: 1 1 100%;
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.checks-things,
+.checks-champs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.checks-thing {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.2rem 0.6rem 0.2rem 0.2rem;
+  border-radius: 999px;
+  background: var(--raised);
+  color: inherit;
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+.checks-thing img {
+  border-radius: 50%;
+}
+
+.checks-champs img {
+  display: block;
+  border-radius: 8px;
+}

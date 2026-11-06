@@ -1,0 +1,22 @@
+{
+ "Builds and combos that look great on paper but don't hold up in real games. Check here before you try a theorycraft build.": "Builduri și combinații care arată grozav pe hârtie, dar nu țin în meciurile reale. Verifică aici înainte să încerci un build teoretic.",
+ "Interactions that might be broken. Each one says what should happen on paper and how to test it in a game. If it really is broken, report it to Riot from the client so it gets fixed.": "Interacțiuni care ar putea fi stricate. Fiecare spune ce ar trebui să se întâmple pe hârtie și cum s-o testezi într-un meci. Dacă e chiar stricată, raporteaz-o la Riot din client ca să fie reparată.",
+ "Show": "Arată",
+ "All": "Toate",
+ "Stat loop": "Buclă de statistici",
+ "Missing augment": "Augment lipsă",
+ "Simulator vs real games": "Simulator vs meciuri reale",
+ "Does nothing": "Nu face nimic",
+ "Find a champion or augment": "Caută un campion sau un augment",
+ "Nothing matches": "Niciun rezultat",
+ "No traps found this patch": "Nicio capcană în acest patch",
+ "Nothing to test this patch": "Nimic de testat în acest patch",
+ "Trap": "Capcană",
+ "Confirmed bug": "Bug confirmat",
+ "Needs a test": "Trebuie testat",
+ "Show less": "Arată mai puțin",
+ "+{n} more": "Încă {n}",
+ "On paper": "Pe hârtie",
+ "In game": "În meci",
+ "How to test": "Cum testezi"
+}
