@@ -60,7 +60,11 @@ test("champion page: Simple view folds, section links open them, Detailed shows 
   const stats = page.locator("#stats");
   await expect(stats).toBeHidden();
   await expect(page.locator(".cp-side .cp-best").first()).toBeVisible();
-  const rows = page.locator("#builds ~ .cp-panel:not(#augment-builds)").first().locator(".cp-row");
+  // The first list long enough to be cut (which one depends on the champion's data).
+  const panels = page.locator(".cp-main .cp-panel:not([data-detailed])");
+  const long = await panels.evaluateAll((ps) => ps.findIndex((p) => !!p.querySelector(".cp-more") && p.querySelectorAll(".cp-row").length > 5));
+  expect(long).toBeGreaterThanOrEqual(0);
+  const rows = panels.nth(long).locator(".cp-row");
   await expect(rows.nth(4)).toBeVisible();
   await expect(rows.nth(5)).toBeHidden();
   await page.locator('.cp-rail a[href="#details"]').click();

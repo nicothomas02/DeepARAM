@@ -203,6 +203,8 @@
  "The best items with this augment differ from your usual build.": "이 증강의 최고 아이템은 평소 빌드와 다릅니다.",
  "Estimated: the augment picks (1st to 4th) where it usually shows up.": "추정: 이 증강이 주로 나오는 증강 선택(1~4번째)입니다.",
  "Pick {n}": "{n}번째",
+ "From earlier games: skill orders are not updating right now.": "이전 게임 기준: 스킬 순서가 지금은 업데이트되지 않습니다.",
+ "From the most common full builds, most built items first.": "가장 흔한 완성 빌드에서 가져왔으며, 많이 만드는 아이템이 먼저입니다.",
  "Playstyles": "플레이 스타일",
  "{k} groups from the last {n} patches": "최근 {n}개 패치 기준 {k}개 그룹",
  "Grouped by how their games actually go: share of the team's damage, damage soaked, kill participation, time dead and which augments they take. Classes are Riot's; a marked champion plays unlike its class.": "게임이 실제로 어떻게 흘러가는지로 묶었습니다: 팀 피해 비중, 받은 피해, 킬 관여율, 사망 시간, 선택하는 증강. 클래스는 라이엇 기준이며, 표시된 챔피언은 자기 클래스와 다르게 플레이됩니다.",

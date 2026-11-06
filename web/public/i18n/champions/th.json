@@ -203,6 +203,8 @@
  "The best items with this augment differ from your usual build.": "ไอเทมที่ดีที่สุดเมื่อมีออคเมนต์นี้ต่างจากบิลด์ที่คุณใช้ประจำ",
  "Estimated: the augment picks (1st to 4th) where it usually shows up.": "ประมาณการ: ครั้งที่เลือกออคเมนต์ (ครั้งที่ 1 ถึง 4) ที่มักจะเจอออคเมนต์นี้",
  "Pick {n}": "ครั้งที่ {n}",
+ "From earlier games: skill orders are not updating right now.": "จากเกมก่อนหน้า: ลำดับสกิลยังไม่อัปเดตในตอนนี้",
+ "From the most common full builds, most built items first.": "จากบิลด์เต็มที่พบบ่อยที่สุด ไอเทมที่สร้างบ่อยที่สุดมาก่อน",
  "Playstyles": "สไตล์การเล่น",
  "{k} groups from the last {n} patches": "{k} กลุ่มจาก {n} แพตช์ล่าสุด",
  "Grouped by how their games actually go: share of the team's damage, damage soaked, kill participation, time dead and which augments they take. Classes are Riot's; a marked champion plays unlike its class.": "จัดกลุ่มตามที่เกมของพวกเขาเป็นไปจริง: สัดส่วนดาเมจของทีม ดาเมจที่รับ การมีส่วนร่วมในการฆ่า เวลาที่ตาย และออกเมนต์ที่เลือก คลาสเป็นของ Riot แชมเปี้ยนที่ถูกทำเครื่องหมายเล่นไม่เหมือนคลาสของตัวเอง",

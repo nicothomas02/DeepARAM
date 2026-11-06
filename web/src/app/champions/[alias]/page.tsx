@@ -646,6 +646,11 @@ export default async function ChampionPage({
               <div className="cp-mini">
                 <RatedCells r={bestSkill} />
               </div>
+              {p.skillsStale && (
+                <small className="cp-stale">
+                  <T ns={NS}>From earlier games: skill orders are not updating right now.</T>
+                </small>
+              )}
             </div>
           )}
         </aside>
@@ -749,7 +754,11 @@ export default async function ChampionPage({
             </Panel>
           )}
           {p.core.length > 0 && (
-            <Panel title="Core item builds" count={p.core.length}>
+            <Panel
+              title="Core item builds"
+              count={p.core.length}
+              note={p.coreDerived ? <T ns={NS}>From the most common full builds, most built items first.</T> : undefined}
+            >
               <Head what="Core items" cols={SCORED_COLS} />
               <ShowMore total={p.core.length} limit={5}>
                 {itemRows(p.core, true)}
@@ -946,9 +955,17 @@ export default async function ChampionPage({
               title="Skill order"
               count={p.skills.length}
               note={
-                <T ns={NS}>
-                  Max order, then the most common level-by-level order.
-                </T>
+                <>
+                  <T ns={NS}>
+                    Max order, then the most common level-by-level order.
+                  </T>
+                  {p.skillsStale && (
+                    <>
+                      {" "}
+                      <T ns={NS}>From earlier games: skill orders are not updating right now.</T>
+                    </>
+                  )}
+                </>
               }
             >
               <Head what="Max order" />

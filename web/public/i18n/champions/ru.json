@@ -203,6 +203,8 @@
  "The best items with this augment differ from your usual build.": "Лучшие предметы с этим аугментом отличаются от твоей обычной сборки.",
  "Estimated: the augment picks (1st to 4th) where it usually shows up.": "Оценка: выборы аугментов (с 1-го по 4-й), где он обычно появляется.",
  "Pick {n}": "Выбор {n}",
+ "From earlier games: skill orders are not updating right now.": "Из прошлых игр: порядок умений сейчас не обновляется.",
+ "From the most common full builds, most built items first.": "Из самых частых полных сборок, самые популярные предметы первыми.",
  "Playstyles": "Стили игры",
  "{k} groups from the last {n} patches": "{k} групп по последним {n} патчам",
  "Grouped by how their games actually go: share of the team's damage, damage soaked, kill participation, time dead and which augments they take. Classes are Riot's; a marked champion plays unlike its class.": "Сгруппированы по тому, как на самом деле идут их игры: доля урона команды, поглощённый урон, участие в убийствах, время смерти и какие улучшения они берут. Классы — от Riot; отмеченный чемпион играет не так, как его класс.",

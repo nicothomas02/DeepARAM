@@ -203,6 +203,8 @@
  "The best items with this augment differ from your usual build.": "A legjobb tárgyak ezzel a bővítéssel eltérnek a szokásos felszerelésedtől.",
  "Estimated: the augment picks (1st to 4th) where it usually shows up.": "Becslés: a bővítésválasztások (1–4.), ahol általában felbukkan.",
  "Pick {n}": "{n}. választás",
+ "From earlier games: skill orders are not updating right now.": "Korábbi meccsekből: a képességsorrend most nem frissül.",
+ "From the most common full builds, most built items first.": "A leggyakoribb teljes felszerelésekből, a legtöbbet épített tárgyak elöl.",
  "Playstyles": "Játékstílusok",
  "{k} groups from the last {n} patches": "{k} csoport az utolsó {n} frissítésből",
  "Grouped by how their games actually go: share of the team's damage, damage soaked, kill participation, time dead and which augments they take. Classes are Riot's; a marked champion plays unlike its class.": "Aszerint csoportosítva, hogyan alakulnak valójában a meccseik: részesedés a csapat sebzéséből, elnyelt sebzés, részvétel az ölésekben, halottként töltött idő és melyik erősítéseket választják. Az osztályok a Riottól valók; a megjelölt hős nem az osztálya szerint játszik.",

@@ -1,0 +1,1663 @@
+{
+ "patch": "16.22",
+ "estimated": true,
+ "built": "2026-11-06T19:25:28Z",
+ "max_pick": 0.02,
+ "games": 3630000,
+ "stale": [
+  "core",
+  "other",
+  "skills"
+ ],
+ "calibrated_on": [
+  "16.20",
+  "16.21"
+ ],
+ "calibration": {
+  "starting": {
+   "alpha": -0.0072,
+   "beta": 0.5983,
+   "drift_sd": 0.0256,
+   "pairs": 139
+  },
+  "boots": {
+   "alpha": 0.009,
+   "beta": 0.5619,
+   "drift_sd": 0.0144,
+   "pairs": 131
+  },
+  "full_builds": {
+   "alpha": -0.0017,
+   "beta": 0.55,
+   "drift_sd": 0.0245,
+   "pairs": 904
+  }
+ },
+ "items": {
+  "starting": [
+   {
+    "champion": 78,
+    "items": [
+     1029
+    ],
+    "pick_rate": 0.005,
+    "win_rate": 0.7338,
+    "baseline": 0.5562,
+    "lift": 0.1776,
+    "lift_lo": 0.1429,
+    "lift_hi": 0.2097,
+    "forecast": 0.0991,
+    "forecast_lo": 0.0457,
+    "forecast_hi": 0.1524,
+    "sim": "not simulated",
+    "games": 670
+   },
+   {
+    "champion": 517,
+    "items": [
+     1029,
+     1031
+    ],
+    "pick_rate": 0.0176,
+    "win_rate": 0.7106,
+    "baseline": 0.5633,
+    "lift": 0.1473,
+    "lift_lo": 0.1351,
+    "lift_hi": 0.1591,
+    "forecast": 0.0809,
+    "forecast_lo": 0.0372,
+    "forecast_hi": 0.1246,
+    "sim": "not simulated",
+    "games": 5500
+   },
+   {
+    "champion": 64,
+    "items": [
+     1029,
+     1031
+    ],
+    "pick_rate": 0.0176,
+    "win_rate": 0.6538,
+    "baseline": 0.5115,
+    "lift": 0.1423,
+    "lift_lo": 0.1283,
+    "lift_hi": 0.1561,
+    "forecast": 0.078,
+    "forecast_lo": 0.0337,
+    "forecast_hi": 0.1222,
+    "sim": "not simulated",
+    "games": 4500
+   },
+   {
+    "champion": 78,
+    "items": [
+     1031
+    ],
+    "pick_rate": 0.0051,
+    "win_rate": 0.711,
+    "baseline": 0.5562,
+    "lift": 0.1548,
+    "lift_lo": 0.1197,
+    "lift_hi": 0.1876,
+    "forecast": 0.0854,
+    "forecast_lo": 0.0318,
+    "forecast_hi": 0.139,
+    "sim": "not simulated",
+    "games": 680
+   },
+   {
+    "champion": 54,
+    "items": [
+     1029
+    ],
+    "pick_rate": 0.0057,
+    "win_rate": 0.6923,
+    "baseline": 0.5644,
+    "lift": 0.1279,
+    "lift_lo": 0.1086,
+    "lift_hi": 0.1465,
+    "forecast": 0.0693,
+    "forecast_lo": 0.0233,
+    "forecast_hi": 0.1153,
+    "sim": "not simulated",
+    "games": 2270
+   },
+   {
+    "champion": 24,
+    "items": [
+     1029,
+     1031
+    ],
+    "pick_rate": 0.0189,
+    "win_rate": 0.7168,
+    "baseline": 0.593,
+    "lift": 0.1238,
+    "lift_lo": 0.1097,
+    "lift_hi": 0.1375,
+    "forecast": 0.0669,
+    "forecast_lo": 0.0226,
+    "forecast_hi": 0.1111,
+    "sim": "not simulated",
+    "games": 4030
+   },
+   {
+    "champion": 266,
+    "items": [
+     1029,
+     1031
+    ],
+    "pick_rate": 0.0185,
+    "win_rate": 0.6277,
+    "baseline": 0.5035,
+    "lift": 0.1242,
+    "lift_lo": 0.1089,
+    "lift_hi": 0.1391,
+    "forecast": 0.0671,
+    "forecast_lo": 0.0225,
+    "forecast_hi": 0.1117,
+    "sim": "not simulated",
+    "games": 3940
+   },
+   {
+    "champion": 62,
+    "items": [
+     1031
+    ],
+    "pick_rate": 0.0046,
+    "win_rate": 0.75,
+    "baseline": 0.6263,
+    "lift": 0.1237,
+    "lift_lo": 0.0975,
+    "lift_hi": 0.1481,
+    "forecast": 0.0668,
+    "forecast_lo": 0.018,
+    "forecast_hi": 0.1156,
+    "sim": "not simulated",
+    "games": 1120
+   },
+   {
+    "champion": 54,
+    "items": [
+     1031
+    ],
+    "pick_rate": 0.0053,
+    "win_rate": 0.6827,
+    "baseline": 0.5644,
+    "lift": 0.1183,
+    "lift_lo": 0.0981,
+    "lift_hi": 0.1378,
+    "forecast": 0.0635,
+    "forecast_lo": 0.0172,
+    "forecast_hi": 0.1099,
+    "sim": "not simulated",
+    "games": 2110
+   },
+   {
+    "champion": 50,
+    "items": [
+     1029,
+     1031
+    ],
+    "pick_rate": 0.0188,
+    "win_rate": 0.6326,
+    "baseline": 0.5275,
+    "lift": 0.1051,
+    "lift_lo": 0.0926,
+    "lift_hi": 0.1175,
+    "forecast": 0.0557,
+    "forecast_lo": 0.0119,
+    "forecast_hi": 0.0995,
+    "sim": "not simulated",
+    "games": 5770
+   }
+  ],
+  "boots": [
+   {
+    "champion": 223,
+    "items": [
+     3158
+    ],
+    "pick_rate": 0.0152,
+    "win_rate": 0.5659,
+    "baseline": 0.5184,
+    "lift": 0.0475,
+    "lift_lo": 0.0359,
+    "lift_hi": 0.0589,
+    "forecast": 0.0356,
+    "forecast_lo": 0.0095,
+    "forecast_hi": 0.0618,
+    "sim": "agrees",
+    "sim_gain": 0.006,
+    "games": 7100
+   },
+   {
+    "champion": 897,
+    "items": [
+     3008
+    ],
+    "pick_rate": 0.0129,
+    "win_rate": 0.4988,
+    "baseline": 0.4378,
+    "lift": 0.061,
+    "lift_lo": 0.0347,
+    "lift_hi": 0.0872,
+    "forecast": 0.0432,
+    "forecast_lo": 0.0086,
+    "forecast_hi": 0.0779,
+    "sim": "agrees",
+    "sim_gain": 0.045,
+    "games": 1390
+   },
+   {
+    "champion": 54,
+    "items": [
+     3009
+    ],
+    "pick_rate": 0.0034,
+    "win_rate": 0.5413,
+    "baseline": 0.486,
+    "lift": 0.0553,
+    "lift_lo": 0.0286,
+    "lift_hi": 0.0816,
+    "forecast": 0.04,
+    "forecast_lo": 0.0052,
+    "forecast_hi": 0.0748,
+    "sim": "agrees",
+    "sim_gain": -0.027,
+    "games": 1350
+   },
+   {
+    "champion": 12,
+    "items": [
+     3009
+    ],
+    "pick_rate": 0.0108,
+    "win_rate": 0.5667,
+    "baseline": 0.5205,
+    "lift": 0.0462,
+    "lift_lo": 0.0248,
+    "lift_hi": 0.0673,
+    "forecast": 0.0349,
+    "forecast_lo": 0.0037,
+    "forecast_hi": 0.0662,
+    "sim": "agrees",
+    "sim_gain": -0.011,
+    "games": 2090
+   },
+   {
+    "champion": 89,
+    "items": [
+     3008
+    ],
+    "pick_rate": 0.0077,
+    "win_rate": 0.5519,
+    "baseline": 0.5021,
+    "lift": 0.0498,
+    "lift_lo": 0.0242,
+    "lift_hi": 0.075,
+    "forecast": 0.0369,
+    "forecast_lo": 0.0029,
+    "forecast_hi": 0.071,
+    "sim": "agrees",
+    "sim_gain": 0.043,
+    "games": 1470
+   },
+   {
+    "champion": 266,
+    "items": [
+     3009
+    ],
+    "pick_rate": 0.0092,
+    "win_rate": 0.5144,
+    "baseline": 0.47,
+    "lift": 0.0444,
+    "lift_lo": 0.0223,
+    "lift_hi": 0.0665,
+    "forecast": 0.0339,
+    "forecast_lo": 0.0021,
+    "forecast_hi": 0.0657,
+    "sim": "not simulated",
+    "games": 1960
+   },
+   {
+    "champion": 23,
+    "items": [
+     3009
+    ],
+    "pick_rate": 0.0184,
+    "win_rate": 0.5598,
+    "baseline": 0.5237,
+    "lift": 0.0361,
+    "lift_lo": 0.0214,
+    "lift_hi": 0.0507,
+    "forecast": 0.0293,
+    "forecast_lo": 0.0018,
+    "forecast_hi": 0.0568,
+    "sim": "agrees",
+    "sim_gain": -0.079,
+    "games": 4410
+   },
+   {
+    "champion": 59,
+    "items": [
+     3009
+    ],
+    "pick_rate": 0.005,
+    "win_rate": 0.5159,
+    "baseline": 0.471,
+    "lift": 0.0449,
+    "lift_lo": 0.0214,
+    "lift_hi": 0.0684,
+    "forecast": 0.0342,
+    "forecast_lo": 0.0015,
+    "forecast_hi": 0.0669,
+    "sim": "not simulated",
+    "games": 1740
+   }
+  ],
+  "full_builds": [
+   {
+    "champion": 13,
+    "items": [
+     2522,
+     3003,
+     3089,
+     3121,
+     4633,
+     6657
+    ],
+    "pick_rate": 0.0038,
+    "win_rate": 0.6,
+    "baseline": 0.426,
+    "lift": 0.174,
+    "lift_lo": 0.1491,
+    "lift_hi": 0.1983,
+    "forecast": 0.094,
+    "forecast_lo": 0.0472,
+    "forecast_hi": 0.1407,
+    "sim": "not simulated",
+    "games": 1520
+   },
+   {
+    "champion": 75,
+    "items": [
+     3047,
+     3075,
+     3110,
+     3143,
+     6662,
+     6665
+    ],
+    "pick_rate": 0.0036,
+    "win_rate": 0.6416,
+    "baseline": 0.4946,
+    "lift": 0.147,
+    "lift_lo": 0.1125,
+    "lift_hi": 0.18,
+    "forecast": 0.0792,
+    "forecast_lo": 0.0274,
+    "forecast_hi": 0.1309,
+    "sim": "disagrees",
+    "sim_gain": -0.258,
+    "games": 770
+   },
+   {
+    "champion": 48,
+    "items": [
+     3075,
+     3110,
+     3143,
+     3742,
+     6662,
+     6665
+    ],
+    "pick_rate": 0.003,
+    "win_rate": 0.6704,
+    "baseline": 0.5327,
+    "lift": 0.1377,
+    "lift_lo": 0.1083,
+    "lift_hi": 0.1658,
+    "forecast": 0.0741,
+    "forecast_lo": 0.0252,
+    "forecast_hi": 0.1229,
+    "sim": "disagrees",
+    "sim_gain": -0.378,
+    "games": 1020
+   },
+   {
+    "champion": 75,
+    "items": [
+     3075,
+     3110,
+     3143,
+     3742,
+     6662,
+     6665
+    ],
+    "pick_rate": 0.0038,
+    "win_rate": 0.6333,
+    "baseline": 0.4946,
+    "lift": 0.1387,
+    "lift_lo": 0.105,
+    "lift_hi": 0.1711,
+    "forecast": 0.0746,
+    "forecast_lo": 0.0233,
+    "forecast_hi": 0.1259,
+    "sim": "disagrees",
+    "sim_gain": -0.266,
+    "games": 820
+   },
+   {
+    "champion": 13,
+    "items": [
+     3003,
+     3008,
+     3089,
+     3121,
+     3135,
+     6657
+    ],
+    "pick_rate": 0.0056,
+    "win_rate": 0.5455,
+    "baseline": 0.426,
+    "lift": 0.1195,
+    "lift_lo": 0.0988,
+    "lift_hi": 0.14,
+    "forecast": 0.064,
+    "forecast_lo": 0.0191,
+    "forecast_hi": 0.1089,
+    "sim": "not simulated",
+    "games": 2240
+   },
+   {
+    "champion": 42,
+    "items": [
+     2517,
+     3008,
+     3031,
+     3036,
+     6333,
+     6676
+    ],
+    "pick_rate": 0.0088,
+    "win_rate": 0.6055,
+    "baseline": 0.5136,
+    "lift": 0.0919,
+    "lift_lo": 0.071,
+    "lift_hi": 0.1124,
+    "forecast": 0.0489,
+    "forecast_lo": 0.0039,
+    "forecast_hi": 0.0939,
+    "sim": "agrees",
+    "sim_gain": -0.149,
+    "games": 2140
+   },
+   {
+    "champion": 13,
+    "items": [
+     2522,
+     3003,
+     3008,
+     3089,
+     3121,
+     6657
+    ],
+    "pick_rate": 0.0084,
+    "win_rate": 0.5152,
+    "baseline": 0.426,
+    "lift": 0.0892,
+    "lift_lo": 0.0722,
+    "lift_hi": 0.106,
+    "forecast": 0.0473,
+    "forecast_lo": 0.0039,
+    "forecast_hi": 0.0908,
+    "sim": "not simulated",
+    "games": 3360
+   },
+   {
+    "champion": 43,
+    "items": [
+     2530,
+     3158,
+     3504,
+     6616,
+     6617,
+     6621
+    ],
+    "pick_rate": 0.0189,
+    "win_rate": 0.5819,
+    "baseline": 0.4941,
+    "lift": 0.0878,
+    "lift_lo": 0.0687,
+    "lift_hi": 0.1067,
+    "forecast": 0.0466,
+    "forecast_lo": 0.0023,
+    "forecast_hi": 0.0909,
+    "sim": "not simulated",
+    "games": 2580
+   }
+  ]
+ },
+ "augments": [
+  {
+   "champion": 21,
+   "id": 1134,
+   "pick_rate": 0.0191,
+   "grade": "S",
+   "games": 9720,
+   "sim": "agrees",
+   "rank": 1
+  },
+  {
+   "champion": 497,
+   "id": 1095,
+   "pick_rate": 0.018,
+   "grade": "S",
+   "games": 920,
+   "sim": "not simulated",
+   "rank": 2
+  },
+  {
+   "champion": 145,
+   "id": 1134,
+   "pick_rate": 0.0181,
+   "grade": "A",
+   "games": 9310,
+   "sim": "agrees",
+   "rank": 3
+  },
+  {
+   "champion": 412,
+   "id": 1134,
+   "pick_rate": 0.014,
+   "grade": "A",
+   "games": 3460,
+   "sim": "agrees",
+   "rank": 4
+  },
+  {
+   "champion": 22,
+   "id": 1134,
+   "pick_rate": 0.0136,
+   "grade": "A",
+   "games": 7070,
+   "sim": "agrees",
+   "rank": 5
+  },
+  {
+   "champion": 53,
+   "id": 1361,
+   "pick_rate": 0.0194,
+   "grade": "S",
+   "games": 4890,
+   "sim": "not simulated",
+   "rank": 6
+  },
+  {
+   "champion": 131,
+   "id": 1361,
+   "pick_rate": 0.0171,
+   "grade": "S",
+   "games": 2000,
+   "sim": "not simulated",
+   "rank": 7
+  },
+  {
+   "champion": 122,
+   "id": 1361,
+   "pick_rate": 0.0186,
+   "grade": "S",
+   "games": 4880,
+   "sim": "not simulated",
+   "rank": 8
+  },
+  {
+   "champion": 875,
+   "id": 1361,
+   "pick_rate": 0.0193,
+   "grade": "S",
+   "games": 7130,
+   "sim": "not simulated",
+   "rank": 9
+  },
+  {
+   "champion": 235,
+   "id": 1095,
+   "pick_rate": 0.0084,
+   "grade": "A",
+   "games": 2860,
+   "sim": "not simulated",
+   "rank": 10
+  },
+  {
+   "champion": 147,
+   "id": 1095,
+   "pick_rate": 0.0138,
+   "grade": "A",
+   "games": 3390,
+   "sim": "not simulated",
+   "rank": 11
+  },
+  {
+   "champion": 498,
+   "id": 2141,
+   "pick_rate": 0.0156,
+   "grade": "S",
+   "games": 2840,
+   "sim": "not simulated",
+   "rank": 12
+  },
+  {
+   "champion": 432,
+   "id": 1420,
+   "pick_rate": 0.0198,
+   "grade": "S",
+   "games": 930,
+   "sim": "not simulated",
+   "rank": 13
+  },
+  {
+   "champion": 888,
+   "id": 3051,
+   "pick_rate": 0.0186,
+   "grade": "S",
+   "games": 1120,
+   "sim": "not simulated",
+   "rank": 14
+  },
+  {
+   "champion": 40,
+   "id": 3051,
+   "pick_rate": 0.017,
+   "grade": "S",
+   "games": 1340,
+   "sim": "not simulated",
+   "rank": 15
+  },
+  {
+   "champion": 27,
+   "id": 1375,
+   "pick_rate": 0.0181,
+   "grade": "S",
+   "games": 4070,
+   "sim": "agrees",
+   "rank": 16
+  },
+  {
+   "champion": 41,
+   "id": 3048,
+   "pick_rate": 0.0046,
+   "grade": "A",
+   "games": 1460,
+   "sim": "not simulated",
+   "rank": 17
+  },
+  {
+   "champion": 901,
+   "id": 3048,
+   "pick_rate": 0.0085,
+   "grade": "A",
+   "games": 3360,
+   "sim": "not simulated",
+   "rank": 18
+  },
+  {
+   "champion": 81,
+   "id": 3048,
+   "pick_rate": 0.0085,
+   "grade": "A",
+   "games": 3710,
+   "sim": "not simulated",
+   "rank": 19
+  },
+  {
+   "champion": 35,
+   "id": 3048,
+   "pick_rate": 0.0056,
+   "grade": "A",
+   "games": 2000,
+   "sim": "not simulated",
+   "rank": 20
+  },
+  {
+   "champion": 266,
+   "id": 3048,
+   "pick_rate": 0.0031,
+   "grade": "A",
+   "games": 660,
+   "sim": "not simulated",
+   "rank": 21
+  },
+  {
+   "champion": 56,
+   "id": 3048,
+   "pick_rate": 0.0068,
+   "grade": "A",
+   "games": 1100,
+   "sim": "not simulated",
+   "rank": 22
+  },
+  {
+   "champion": 15,
+   "id": 3048,
+   "pick_rate": 0.0114,
+   "grade": "A",
+   "games": 1930,
+   "sim": "not simulated",
+   "rank": 23
+  },
+  {
+   "champion": 19,
+   "id": 3048,
+   "pick_rate": 0.0077,
+   "grade": "A",
+   "games": 620,
+   "sim": "not simulated",
+   "rank": 24
+  },
+  {
+   "champion": 29,
+   "id": 3048,
+   "pick_rate": 0.0084,
+   "grade": "A",
+   "games": 2500,
+   "sim": "not simulated",
+   "rank": 25
+  },
+  {
+   "champion": 18,
+   "id": 3048,
+   "pick_rate": 0.0079,
+   "grade": "A",
+   "games": 2080,
+   "sim": "not simulated",
+   "rank": 26
+  },
+  {
+   "champion": 202,
+   "id": 3048,
+   "pick_rate": 0.0121,
+   "grade": "A",
+   "games": 5270,
+   "sim": "not simulated",
+   "rank": 27
+  },
+  {
+   "champion": 498,
+   "id": 3048,
+   "pick_rate": 0.0081,
+   "grade": "A",
+   "games": 1470,
+   "sim": "not simulated",
+   "rank": 28
+  },
+  {
+   "champion": 62,
+   "id": 3048,
+   "pick_rate": 0.0084,
+   "grade": "A",
+   "games": 2050,
+   "sim": "not simulated",
+   "rank": 29
+  },
+  {
+   "champion": 2,
+   "id": 3048,
+   "pick_rate": 0.006,
+   "grade": "A",
+   "games": 410,
+   "sim": "not simulated",
+   "rank": 30
+  },
+  {
+   "champion": 107,
+   "id": 3048,
+   "pick_rate": 0.0109,
+   "grade": "A",
+   "games": 2290,
+   "sim": "not simulated",
+   "rank": 31
+  },
+  {
+   "champion": 421,
+   "id": 3048,
+   "pick_rate": 0.0076,
+   "grade": "A",
+   "games": 180,
+   "sim": "not simulated",
+   "rank": 32
+  },
+  {
+   "champion": 233,
+   "id": 3048,
+   "pick_rate": 0.0091,
+   "grade": "A",
+   "games": 1080,
+   "sim": "not simulated",
+   "rank": 33
+  },
+  {
+   "champion": 133,
+   "id": 3048,
+   "pick_rate": 0.0093,
+   "grade": "A",
+   "games": 740,
+   "sim": "not simulated",
+   "rank": 34
+  },
+  {
+   "champion": 51,
+   "id": 3048,
+   "pick_rate": 0.008,
+   "grade": "A",
+   "games": 3890,
+   "sim": "not simulated",
+   "rank": 35
+  },
+  {
+   "champion": 420,
+   "id": 3048,
+   "pick_rate": 0.006,
+   "grade": "A",
+   "games": 730,
+   "sim": "not simulated",
+   "rank": 36
+  },
+  {
+   "champion": 254,
+   "id": 3048,
+   "pick_rate": 0.0075,
+   "grade": "A",
+   "games": 890,
+   "sim": "not simulated",
+   "rank": 37
+  },
+  {
+   "champion": 203,
+   "id": 3048,
+   "pick_rate": 0.01,
+   "grade": "A",
+   "games": 1100,
+   "sim": "not simulated",
+   "rank": 38
+  },
+  {
+   "champion": 164,
+   "id": 3048,
+   "pick_rate": 0.0096,
+   "grade": "A",
+   "games": 1060,
+   "sim": "not simulated",
+   "rank": 39
+  },
+  {
+   "champion": 360,
+   "id": 3048,
+   "pick_rate": 0.0051,
+   "grade": "A",
+   "games": 840,
+   "sim": "not simulated",
+   "rank": 40
+  },
+  {
+   "champion": 39,
+   "id": 3048,
+   "pick_rate": 0.009,
+   "grade": "A",
+   "games": 1940,
+   "sim": "not simulated",
+   "rank": 41
+  },
+  {
+   "champion": 122,
+   "id": 3048,
+   "pick_rate": 0.0054,
+   "grade": "A",
+   "games": 1420,
+   "sim": "not simulated",
+   "rank": 42
+  },
+  {
+   "champion": 67,
+   "id": 3048,
+   "pick_rate": 0.0093,
+   "grade": "A",
+   "games": 3110,
+   "sim": "not simulated",
+   "rank": 43
+  },
+  {
+   "champion": 23,
+   "id": 3048,
+   "pick_rate": 0.0069,
+   "grade": "A",
+   "games": 1660,
+   "sim": "not simulated",
+   "rank": 44
+  },
+  {
+   "champion": 48,
+   "id": 3048,
+   "pick_rate": 0.0082,
+   "grade": "A",
+   "games": 2800,
+   "sim": "not simulated",
+   "rank": 45
+  },
+  {
+   "champion": 75,
+   "id": 3048,
+   "pick_rate": 0.0064,
+   "grade": "A",
+   "games": 1370,
+   "sim": "not simulated",
+   "rank": 46
+  },
+  {
+   "champion": 83,
+   "id": 3048,
+   "pick_rate": 0.0083,
+   "grade": "A",
+   "games": 330,
+   "sim": "not simulated",
+   "rank": 47
+  },
+  {
+   "champion": 235,
+   "id": 3048,
+   "pick_rate": 0.0089,
+   "grade": "A",
+   "games": 3030,
+   "sim": "not simulated",
+   "rank": 48
+  },
+  {
+   "champion": 166,
+   "id": 3048,
+   "pick_rate": 0.0122,
+   "grade": "A",
+   "games": 1330,
+   "sim": "not simulated",
+   "rank": 49
+  },
+  {
+   "champion": 104,
+   "id": 3048,
+   "pick_rate": 0.0074,
+   "grade": "A",
+   "games": 3030,
+   "sim": "not simulated",
+   "rank": 50
+  },
+  {
+   "champion": 119,
+   "id": 3048,
+   "pick_rate": 0.0118,
+   "grade": "A",
+   "games": 2970,
+   "sim": "not simulated",
+   "rank": 51
+  },
+  {
+   "champion": 86,
+   "id": 3048,
+   "pick_rate": 0.0048,
+   "grade": "A",
+   "games": 1200,
+   "sim": "not simulated",
+   "rank": 52
+  },
+  {
+   "champion": 895,
+   "id": 3048,
+   "pick_rate": 0.0082,
+   "grade": "A",
+   "games": 250,
+   "sim": "not simulated",
+   "rank": 53
+  },
+  {
+   "champion": 234,
+   "id": 3048,
+   "pick_rate": 0.0091,
+   "grade": "A",
+   "games": 1560,
+   "sim": "not simulated",
+   "rank": 54
+  },
+  {
+   "champion": 236,
+   "id": 3048,
+   "pick_rate": 0.0081,
+   "grade": "A",
+   "games": 3960,
+   "sim": "not simulated",
+   "rank": 55
+  },
+  {
+   "champion": 102,
+   "id": 3048,
+   "pick_rate": 0.006,
+   "grade": "A",
+   "games": 770,
+   "sim": "not simulated",
+   "rank": 56
+  },
+  {
+   "champion": 24,
+   "id": 3048,
+   "pick_rate": 0.0071,
+   "grade": "A",
+   "games": 1520,
+   "sim": "not simulated",
+   "rank": 57
+  },
+  {
+   "champion": 904,
+   "id": 3048,
+   "pick_rate": 0.0077,
+   "grade": "A",
+   "games": 790,
+   "sim": "not simulated",
+   "rank": 58
+  },
+  {
+   "champion": 200,
+   "id": 3048,
+   "pick_rate": 0.0105,
+   "grade": "A",
+   "games": 1620,
+   "sim": "not simulated",
+   "rank": 59
+  },
+  {
+   "champion": 54,
+   "id": 1361,
+   "pick_rate": 0.0192,
+   "grade": "A",
+   "games": 7650,
+   "sim": "not simulated",
+   "rank": 60
+  },
+  {
+   "champion": 20,
+   "id": 1361,
+   "pick_rate": 0.0147,
+   "grade": "A",
+   "games": 1260,
+   "sim": "not simulated",
+   "rank": 61
+  },
+  {
+   "champion": 266,
+   "id": 1361,
+   "pick_rate": 0.0065,
+   "grade": "A",
+   "games": 1390,
+   "sim": "not simulated",
+   "rank": 62
+  },
+  {
+   "champion": 56,
+   "id": 1361,
+   "pick_rate": 0.0022,
+   "grade": "A",
+   "games": 360,
+   "sim": "not simulated",
+   "rank": 63
+  },
+  {
+   "champion": 19,
+   "id": 1361,
+   "pick_rate": 0.0119,
+   "grade": "A",
+   "games": 960,
+   "sim": "not simulated",
+   "rank": 64
+  },
+  {
+   "champion": 80,
+   "id": 1361,
+   "pick_rate": 0.0087,
+   "grade": "A",
+   "games": 2060,
+   "sim": "not simulated",
+   "rank": 65
+  },
+  {
+   "champion": 75,
+   "id": 1361,
+   "pick_rate": 0.0134,
+   "grade": "A",
+   "games": 2870,
+   "sim": "not simulated",
+   "rank": 66
+  },
+  {
+   "champion": 59,
+   "id": 1361,
+   "pick_rate": 0.0158,
+   "grade": "A",
+   "games": 5490,
+   "sim": "not simulated",
+   "rank": 67
+  },
+  {
+   "champion": 62,
+   "id": 1361,
+   "pick_rate": 0.0105,
+   "grade": "A",
+   "games": 2570,
+   "sim": "not simulated",
+   "rank": 68
+  },
+  {
+   "champion": 77,
+   "id": 1361,
+   "pick_rate": 0.0025,
+   "grade": "A",
+   "games": 480,
+   "sim": "not simulated",
+   "rank": 69
+  },
+  {
+   "champion": 9,
+   "id": 1361,
+   "pick_rate": 0.0019,
+   "grade": "A",
+   "games": 270,
+   "sim": "not simulated",
+   "rank": 70
+  },
+  {
+   "champion": 517,
+   "id": 1361,
+   "pick_rate": 0.006,
+   "grade": "A",
+   "games": 1880,
+   "sim": "not simulated",
+   "rank": 71
+  },
+  {
+   "champion": 150,
+   "id": 1361,
+   "pick_rate": 0.018,
+   "grade": "A",
+   "games": 2460,
+   "sim": "not simulated",
+   "rank": 72
+  },
+  {
+   "champion": 254,
+   "id": 1361,
+   "pick_rate": 0.0066,
+   "grade": "A",
+   "games": 780,
+   "sim": "not simulated",
+   "rank": 73
+  },
+  {
+   "champion": 79,
+   "id": 1361,
+   "pick_rate": 0.0111,
+   "grade": "A",
+   "games": 1740,
+   "sim": "not simulated",
+   "rank": 74
+  },
+  {
+   "champion": 5,
+   "id": 3048,
+   "pick_rate": 0.007,
+   "grade": "A",
+   "games": 2420,
+   "sim": "not simulated",
+   "rank": 75
+  },
+  {
+   "champion": 48,
+   "id": 1361,
+   "pick_rate": 0.0118,
+   "grade": "A",
+   "games": 4030,
+   "sim": "not simulated",
+   "rank": 76
+  },
+  {
+   "champion": 64,
+   "id": 1361,
+   "pick_rate": 0.005,
+   "grade": "A",
+   "games": 1280,
+   "sim": "not simulated",
+   "rank": 77
+  },
+  {
+   "champion": 106,
+   "id": 1361,
+   "pick_rate": 0.0124,
+   "grade": "A",
+   "games": 3140,
+   "sim": "not simulated",
+   "rank": 78
+  },
+  {
+   "champion": 777,
+   "id": 3048,
+   "pick_rate": 0.0099,
+   "grade": "A",
+   "games": 3390,
+   "sim": "not simulated",
+   "rank": 79
+  },
+  {
+   "champion": 114,
+   "id": 3048,
+   "pick_rate": 0.0086,
+   "grade": "A",
+   "games": 2040,
+   "sim": "not simulated",
+   "rank": 80
+  },
+  {
+   "champion": 86,
+   "id": 1361,
+   "pick_rate": 0.0139,
+   "grade": "A",
+   "games": 3470,
+   "sim": "not simulated",
+   "rank": 81
+  },
+  {
+   "champion": 102,
+   "id": 1361,
+   "pick_rate": 0.0166,
+   "grade": "A",
+   "games": 2140,
+   "sim": "not simulated",
+   "rank": 82
+  },
+  {
+   "champion": 157,
+   "id": 3048,
+   "pick_rate": 0.0112,
+   "grade": "A",
+   "games": 4660,
+   "sim": "not simulated",
+   "rank": 83
+  },
+  {
+   "champion": 201,
+   "id": 3078,
+   "pick_rate": 0.0168,
+   "grade": "S",
+   "games": 1120,
+   "sim": "not simulated",
+   "rank": 84
+  },
+  {
+   "champion": 111,
+   "id": 3078,
+   "pick_rate": 0.0188,
+   "grade": "S",
+   "games": 4480,
+   "sim": "not simulated",
+   "rank": 85
+  },
+  {
+   "champion": 412,
+   "id": 3078,
+   "pick_rate": 0.017,
+   "grade": "S",
+   "games": 4200,
+   "sim": "not simulated",
+   "rank": 86
+  },
+  {
+   "champion": 201,
+   "id": 1062,
+   "pick_rate": 0.0132,
+   "grade": "S",
+   "games": 880,
+   "sim": "agrees",
+   "rank": 87
+  },
+  {
+   "champion": 154,
+   "id": 1004,
+   "pick_rate": 0.0184,
+   "grade": "S",
+   "games": 1480,
+   "sim": "agrees",
+   "rank": 88
+  },
+  {
+   "champion": 12,
+   "id": 1015,
+   "pick_rate": 0.0163,
+   "grade": "S",
+   "games": 3150,
+   "sim": "no gain",
+   "rank": 89
+  },
+  {
+   "champion": 268,
+   "id": 1333,
+   "pick_rate": 0.0157,
+   "grade": "S",
+   "games": 1160,
+   "sim": "agrees",
+   "rank": 90
+  },
+  {
+   "champion": 200,
+   "id": 1315,
+   "pick_rate": 0.019,
+   "grade": "S",
+   "games": 2920,
+   "sim": "no gain",
+   "rank": 91
+  },
+  {
+   "champion": 12,
+   "id": 3163,
+   "pick_rate": 0.0089,
+   "grade": "A",
+   "games": 1720,
+   "sim": "not simulated",
+   "rank": 92
+  },
+  {
+   "champion": 14,
+   "id": 3121,
+   "pick_rate": 0.019,
+   "grade": "S",
+   "games": 3500,
+   "sim": "not simulated",
+   "rank": 93
+  },
+  {
+   "champion": 432,
+   "id": 1005,
+   "pick_rate": 0.0128,
+   "grade": "A",
+   "games": 600,
+   "sim": "not simulated",
+   "rank": 94
+  },
+  {
+   "champion": 235,
+   "id": 1005,
+   "pick_rate": 0.0115,
+   "grade": "A",
+   "games": 3920,
+   "sim": "not simulated",
+   "rank": 95
+  },
+  {
+   "champion": 147,
+   "id": 1005,
+   "pick_rate": 0.0129,
+   "grade": "A",
+   "games": 3170,
+   "sim": "not simulated",
+   "rank": 96
+  },
+  {
+   "champion": 98,
+   "id": 1005,
+   "pick_rate": 0.0076,
+   "grade": "A",
+   "games": 1110,
+   "sim": "not simulated",
+   "rank": 97
+  },
+  {
+   "champion": 236,
+   "id": 1310,
+   "pick_rate": 0.019,
+   "grade": "S",
+   "games": 9290,
+   "sim": "agrees",
+   "rank": 98
+  },
+  {
+   "champion": 15,
+   "id": 1053,
+   "pick_rate": 0.0162,
+   "grade": "S",
+   "games": 2750,
+   "sim": "not simulated",
+   "rank": 99
+  },
+  {
+   "champion": 498,
+   "id": 1053,
+   "pick_rate": 0.0179,
+   "grade": "S",
+   "games": 3260,
+   "sim": "not simulated",
+   "rank": 100
+  },
+  {
+   "champion": 222,
+   "id": 1053,
+   "pick_rate": 0.0183,
+   "grade": "S",
+   "games": 5850,
+   "sim": "not simulated",
+   "rank": 101
+  },
+  {
+   "champion": 523,
+   "id": 1053,
+   "pick_rate": 0.0182,
+   "grade": "S",
+   "games": 2660,
+   "sim": "not simulated",
+   "rank": 102
+  },
+  {
+   "champion": 9,
+   "id": 1020,
+   "pick_rate": 0.0154,
+   "grade": "S",
+   "games": 2180,
+   "sim": "agrees",
+   "rank": 103
+  },
+  {
+   "champion": 133,
+   "id": 1053,
+   "pick_rate": 0.0168,
+   "grade": "S",
+   "games": 1330,
+   "sim": "not simulated",
+   "rank": 104
+  },
+  {
+   "champion": 51,
+   "id": 1053,
+   "pick_rate": 0.0166,
+   "grade": "S",
+   "games": 8070,
+   "sim": "not simulated",
+   "rank": 105
+  },
+  {
+   "champion": 119,
+   "id": 1053,
+   "pick_rate": 0.0198,
+   "grade": "S",
+   "games": 4990,
+   "sim": "not simulated",
+   "rank": 106
+  },
+  {
+   "champion": 85,
+   "id": 1053,
+   "pick_rate": 0.0188,
+   "grade": "S",
+   "games": 1910,
+   "sim": "not simulated",
+   "rank": 107
+  },
+  {
+   "champion": 235,
+   "id": 1324,
+   "pick_rate": 0.0151,
+   "grade": "S",
+   "games": 5150,
+   "sim": "agrees",
+   "rank": 108
+  },
+  {
+   "champion": 4,
+   "id": 1180,
+   "pick_rate": 0.0179,
+   "grade": "S",
+   "games": 7120,
+   "sim": "agrees",
+   "rank": 109
+  },
+  {
+   "champion": 30,
+   "id": 1195,
+   "pick_rate": 0.0137,
+   "grade": "S",
+   "games": 6300,
+   "sim": "agrees",
+   "rank": 110
+  },
+  {
+   "champion": 77,
+   "id": 1195,
+   "pick_rate": 0.0196,
+   "grade": "S",
+   "games": 3760,
+   "sim": "agrees",
+   "rank": 111
+  },
+  {
+   "champion": 41,
+   "id": 1389,
+   "pick_rate": 0.0055,
+   "grade": "A",
+   "games": 1740,
+   "sim": "agrees",
+   "rank": 112
+  },
+  {
+   "champion": 45,
+   "id": 1389,
+   "pick_rate": 0.0063,
+   "grade": "A",
+   "games": 1560,
+   "sim": "agrees",
+   "rank": 113
+  },
+  {
+   "champion": 901,
+   "id": 1389,
+   "pick_rate": 0.0035,
+   "grade": "A",
+   "games": 1380,
+   "sim": "agrees",
+   "rank": 114
+  },
+  {
+   "champion": 201,
+   "id": 1389,
+   "pick_rate": 0.0019,
+   "grade": "A",
+   "games": 130,
+   "sim": "no gain",
+   "rank": 115
+  },
+  {
+   "champion": 145,
+   "id": 1389,
+   "pick_rate": 0.0039,
+   "grade": "A",
+   "games": 2010,
+   "sim": "agrees",
+   "rank": 116
+  },
+  {
+   "champion": 35,
+   "id": 1389,
+   "pick_rate": 0.0041,
+   "grade": "A",
+   "games": 1460,
+   "sim": "not simulated",
+   "rank": 117
+  },
+  {
+   "champion": 96,
+   "id": 1389,
+   "pick_rate": 0.0038,
+   "grade": "A",
+   "games": 780,
+   "sim": "agrees",
+   "rank": 118
+  },
+  {
+   "champion": 266,
+   "id": 1389,
+   "pick_rate": 0.0038,
+   "grade": "A",
+   "games": 810,
+   "sim": "not simulated",
+   "rank": 119
+  },
+  {
+   "champion": 56,
+   "id": 1389,
+   "pick_rate": 0.0026,
+   "grade": "A",
+   "games": 420,
+   "sim": "not simulated",
+   "rank": 120
+  }
+ ],
+ "checks": {
+  "simulator": true,
+  "dropped": {
+   "augments": {
+    "Simulator disagrees": 1
+   }
+  }
+ },
+ "backtest": {
+  "starting": {
+   "checked": 139,
+   "forecast_90_coverage": 0.921,
+   "sample_only_95_coverage": 0.309,
+   "gems_checked": 2,
+   "gems_still_ahead": 1.0,
+   "gems_mean_lift_next_patch": 0.0915,
+   "every_rare_still_ahead": 0.655,
+   "every_rare_mean_lift_next_patch": 0.0021
+  },
+  "boots": {
+   "checked": 131,
+   "forecast_90_coverage": 0.908,
+   "sample_only_95_coverage": 0.466,
+   "gems_checked": 29,
+   "gems_still_ahead": 1.0,
+   "gems_mean_lift_next_patch": 0.0352,
+   "every_rare_still_ahead": 0.863,
+   "every_rare_mean_lift_next_patch": 0.019
+  },
+  "full_builds": {
+   "checked": 904,
+   "forecast_90_coverage": 0.919,
+   "sample_only_95_coverage": 0.284,
+   "gems_checked": 8,
+   "gems_still_ahead": 0.875,
+   "gems_mean_lift_next_patch": 0.0494,
+   "every_rare_still_ahead": 0.478,
+   "every_rare_mean_lift_next_patch": -0.0011
+  }
+ }
+}

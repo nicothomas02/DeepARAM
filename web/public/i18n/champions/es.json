@@ -203,6 +203,8 @@
  "The best items with this augment differ from your usual build.": "Los mejores objetos con este aumento son distintos de tu build habitual.",
  "Estimated: the augment picks (1st to 4th) where it usually shows up.": "Estimado: las elecciones de aumento (1.ª a 4.ª) en las que suele aparecer.",
  "Pick {n}": "Elección {n}",
+ "From earlier games: skill orders are not updating right now.": "De partidas anteriores: el orden de habilidades no se está actualizando ahora.",
+ "From the most common full builds, most built items first.": "De las builds completas más comunes, primero los objetos más construidos.",
  "Playstyles": "Estilos de juego",
  "{k} groups from the last {n} patches": "{k} grupos de los últimos {n} parches",
  "Grouped by how their games actually go: share of the team's damage, damage soaked, kill participation, time dead and which augments they take. Classes are Riot's; a marked champion plays unlike its class.": "Agrupados según cómo van sus partidas de verdad: porcentaje del daño del equipo, daño absorbido, participación en asesinatos, tiempo muerto y qué aumentos eligen. Las clases son las de Riot; un campeón marcado no juega como su clase.",
