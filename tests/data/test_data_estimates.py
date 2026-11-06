@@ -119,3 +119,58 @@ def test_pentakill_picks_by_role():
         for slot, fx in slots.items():
             assert slot in "QWER" and fx.get("why"), (champ, slot)
             assert fx.get("allies", 0) > 0 or fx.get("util", 0) > 0, (champ, slot)
+
+
+# Hidden gems: data/estimates/synergies.py and synergies.json.
+syn = load_module("data/estimates/synergies.py", "estimates_synergies", extra_path=["data/estimates"])
+
+
+def test_wilson_interval():
+    lo, hi = syn.wilson(0.5, 100)
+    assert lo == pytest.approx(0.4038, abs=1e-3) and hi == pytest.approx(0.5962, abs=1e-3)
+    assert syn.wilson(0.6, 10_000)[0] < 0.6 < syn.wilson(0.6, 10_000)[1]
+
+
+def _opt(champion, items, lift, var=1e-5, pick=0.01):
+    return {"champion": champion, "items": items, "pick_rate": pick, "lift": lift, "var": var,
+            "lift_lo": lift - 0.01, "lift_hi": lift + 0.01, "win_rate": 0.5 + lift, "games": 1000}
+
+
+def test_calibration_recovers_carry_over():
+    # Next lift = 0.5 x this lift exactly: beta 0.5, alpha 0, no drift.
+    before = [_opt(c, [1], (c - 50) / 1000) for c in range(100)]
+    after = [_opt(c, [1], 0.5 * (c - 50) / 1000) for c in range(100)]
+    cal = syn.calibrate(before, after)
+    assert cal["beta"] == pytest.approx(0.5, abs=1e-6) and cal["alpha"] == pytest.approx(0, abs=1e-6)
+    assert cal["pairs"] == 100 and cal["drift_sd"] < 0.002
+
+
+def test_common_choices_are_never_gems():
+    cal = {"alpha": 0.0, "beta": 0.6, "drift_sd": 0.01, "pairs": 100}
+    scored = syn.score([_opt(1, [1], 0.2, pick=0.5), _opt(2, [2], 0.2), _opt(3, [3], 0.001)], cal)
+    assert [o["champion"] for o in syn.gems(scored)] == [2]
+
+
+def test_frozen_block():
+    old = {str(c): {"items": {"other": [c]}, "skills": [c]} for c in range(20)}
+    new = {str(c): {"items": {"other": [c]}, "skills": [c + 1]} for c in range(20)}
+    assert syn.frozen(old, new, "other") and not syn.frozen(old, new, "skills")
+
+
+def test_synergies_output():
+    d = load_json("data/estimates/synergies.json")
+    assert d["estimated"] is True and d["max_pick"] == 0.02
+    for fam, rows in d["items"].items():
+        assert fam not in d["stale"]
+        for r in rows:
+            assert r["pick_rate"] < d["max_pick"]
+            assert r["forecast_lo"] > 0 and r["forecast_lo"] <= r["forecast"] <= r["forecast_hi"]
+            assert r["lift_lo"] <= r["lift"] <= r["lift_hi"]
+        assert [r["forecast_lo"] for r in rows] == sorted((r["forecast_lo"] for r in rows), reverse=True)
+    for a in d["augments"]:
+        # No augment win rates: grade, pick rate and order only.
+        assert "win_rate" not in a and "lift" not in a
+        assert a["grade"] in ("S", "A") and a["pick_rate"] < d["max_pick"]
+    assert [a["rank"] for a in d["augments"]] == list(range(1, len(d["augments"]) + 1))
+    for fam, b in (d.get("backtest") or {}).items():
+        assert 0 <= b["forecast_90_coverage"] <= 1 and 0 <= b["sample_only_95_coverage"] <= 1

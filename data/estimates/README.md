@@ -86,6 +86,33 @@ Weapon of Destiny item and a theoretical best set of 4 augments. Method in the s
 About 37,000 sim runs, 2.5 hours on 4 cores; results are cached in `~/.cache/deeparam-sim/upgrades/`. Needs
 `make -C simulator mayhem_sim`. Not scheduled: rerun after patches.
 
+## Hidden gems (`synergies.json`, estimated)
+
+`synergies.py` (daily in `fill.yml`) lists choices fewer than 2% of a champion's players make that still win
+clearly more than the champion's usual ones: starting items, boots and full builds (plus single items and
+three-item cores whenever those feed blocks are live again). Shown on the Tier List's Hidden gems tab.
+
+- **Lift** = the choice's win rate minus the pick-weighted win rate of the champion's listed options for the
+  same slot. **Games** = pick rate x champion pick rate x the patch's estimated total (`data/fill`).
+- **Sample-only intervals don't work here.** With tens of thousands of games per choice, a 95% Wilson interval
+  is about +-0.5 points, but on 16.20 -> 16.21 rare choices' lifts moved by 1.5-2.6 points between patches.
+  Those intervals held next patch's lift only 28% (full builds), 31% (starting) and 47% (boots) of the time.
+- **Carry-over forecast** (out-of-time empirical Bayes): over rare options seen on both of the last two
+  complete patches, next lift = alpha + beta x lift. Fitted: beta 0.55 full builds, 0.56 boots, 0.60 starting
+  items (just over half a rare lead carries over), drift 1.4-2.6 points. Forecast range (90%) = +-1.645 x
+  sqrt(drift^2 + (1 + beta^2) x sample variance). A gem's whole range is above zero (>= 0.1 points).
+- **Check** (5-fold by champion, fit without the held-out champions): next patch's lift landed inside the
+  90% range 92% (starting), 91% (boots), 92% (full builds) of the time. Flagged gems still beat the usual
+  pick next patch 100% (2 starting), 100% (32 boots), 89% (9 full builds), against 66%, 86% and 48% of all
+  rare choices.
+- **Augments**: no augment win rates are shown (Riot's policy). Listed: augments graded S or A for the
+  champion by the feed, taken by under 2%, with a positive estimated lift (`augments` above), in that order.
+  No interval: there's no game-level augment data.
+- **Stale blocks**: a block identical for 90%+ of champions to the update 7 days earlier is skipped. The
+  feed's single items, three-item cores and skill orders have not changed since 2026-10-16 (every patch since
+  then shows the same numbers), so those are out until they move again.
+- Association, not cause: the players who choose a rare option may differ from the rest.
+
 ## Tried and dropped
 
 - **Counters and worst duos from class matchups**: a class synergy/counter model on the archive did

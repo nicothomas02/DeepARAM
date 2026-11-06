@@ -51,6 +51,9 @@ jobs:
         if: steps.fresh.outputs.run == 'true'
         # Downloads the augment and item data from CommunityDragon; keep yesterday's ranking if that fails.
         run: python3 data/estimates/weapon_of_destiny.py || echo "::warning::Weapon of Destiny ranking not refreshed"
+      - name: Hidden gems (rare picks that win more; needs the full git history checked out above)
+        if: steps.fresh.outputs.run == 'true'
+        run: python3 data/estimates/synergies.py || echo "::warning::Hidden gems not refreshed"
       - name: Simulated early/mid/late power curve
         if: steps.fresh.outputs.run == 'true'
         run: |
