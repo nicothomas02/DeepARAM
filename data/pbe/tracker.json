@@ -1,12 +1,13 @@
 {
  "builds": {
-  "pbe": "16.23.8359444",
+  "pbe": "16.23.8364504",
   "live": "16.22.8348910"
  },
  "dataAsOf": "2026-11-06",
  "counts": {
-  "buff": 2,
-  "new": 4
+  "buff": 4,
+  "new": 4,
+  "removed": 3
  },
  "entries": [
   {
@@ -28,6 +29,32 @@
    "lines": [
     {
      "text": "Range to find nearby allies: 500 → 600",
+     "tag": "buff"
+    }
+   ],
+   "tag": "buff"
+  },
+  {
+   "kind": "augment",
+   "name": "Salvation",
+   "tier": "gold",
+   "icon": "/assets/augments/pbe/salvation_large.png",
+   "lines": [
+    {
+     "text": "Cooldown (seconds): 90 → 70",
+     "tag": "buff"
+    }
+   ],
+   "tag": "buff"
+  },
+  {
+   "kind": "augment",
+   "name": "No Mana, No Problem",
+   "tier": "silver",
+   "icon": "/assets/augments/pbe/nomananoproblem_large.png",
+   "lines": [
+    {
+     "text": "Ability Power from every 10 Mana: 0.8 → 1",
      "tag": "buff"
     }
    ],
@@ -88,6 +115,45 @@
     }
    ],
    "tag": "new"
+  },
+  {
+   "kind": "augment",
+   "name": "Pat On The Back",
+   "tier": "gold",
+   "icon": "/assets/augments/live/patontheback_large.png",
+   "lines": [
+    {
+     "text": "Removed from the augment pool.",
+     "tag": "removed"
+    }
+   ],
+   "tag": "removed"
+  },
+  {
+   "kind": "augment",
+   "name": "Shark Tempest",
+   "tier": "gold",
+   "icon": "/assets/augments/live/sharktempest_large.png",
+   "lines": [
+    {
+     "text": "Removed from the augment pool.",
+     "tag": "removed"
+    }
+   ],
+   "tag": "removed"
+  },
+  {
+   "kind": "augment",
+   "name": "Surge Field",
+   "tier": "prismatic",
+   "icon": "/assets/augments/live/surgefield_large.png",
+   "lines": [
+    {
+     "text": "Removed from the augment pool.",
+     "tag": "removed"
+    }
+   ],
+   "tag": "removed"
   }
  ]
 }
