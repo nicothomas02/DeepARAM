@@ -191,5 +191,16 @@
  "Core builds show the boots where the Simulator says to buy them: the first point where they add as much per gold as the next item.": "บิลด์หลักแสดงรองเท้าตรงจุดที่ตัวจำลองแนะนำให้ซื้อ: จุดแรกที่รองเท้าให้ผลต่อทองเท่ากับไอเทมชิ้นถัดไป",
  "The biggest win rate boost of any augment on {champ}: +{n} pts.": "ออคเมนต์ที่เพิ่มอัตราชนะให้ {champ} มากที่สุด: +{n} แต้ม",
  "Raises {champ}'s win rate by {n} pts.": "เพิ่มอัตราชนะของ {champ} {n} แต้ม",
- "Lowers {champ}'s win rate by {n} pts.": "ลดอัตราชนะของ {champ} {n} แต้ม"
+ "Lowers {champ}'s win rate by {n} pts.": "ลดอัตราชนะของ {champ} {n} แต้ม",
+ "Build for your augments": "บิลด์ตามออคเมนต์ของคุณ",
+ "The builds below are for any augments. Pick yours to see the best items with it.": "บิลด์ด้านล่างใช้ได้กับทุกออคเมนต์ เลือกออคเมนต์ของคุณเพื่อดูไอเทมที่ดีที่สุดเมื่อมีออคเมนต์นั้น",
+ "Simulated: the Simulator's best items with this augment taken, compared with its best items with no augment.": "จำลอง: ไอเทมที่ดีที่สุดจากตัวจำลองเมื่อมีออคเมนต์นี้ เทียบกับไอเทมที่ดีที่สุดเมื่อไม่มีออคเมนต์",
+ "Pick an augment to see the best items with it. ⇄ marks augments that change your build.": "เลือกออคเมนต์เพื่อดูไอเทมที่ดีที่สุดเมื่อมีออคเมนต์นั้น ⇄ คือออคเมนต์ที่เปลี่ยนบิลด์ของคุณ",
+ "Highlighted augments can be added as a second pick.": "ออคเมนต์ที่ไฮไลต์เพิ่มเป็นตัวเลือกที่สองได้",
+ "Changes your build: {n} different items": "เปลี่ยนบิลด์ของคุณ: ไอเทมต่างกัน {n} ชิ้น",
+ "Your usual items still work": "ไอเทมที่ใช้ประจำยังใช้ได้อยู่",
+ "Changes your build": "เปลี่ยนบิลด์",
+ "The best items with this augment differ from your usual build.": "ไอเทมที่ดีที่สุดเมื่อมีออคเมนต์นี้ต่างจากบิลด์ที่คุณใช้ประจำ",
+ "Estimated: the augment picks (1st to 4th) where it usually shows up.": "ประมาณการ: ครั้งที่เลือกออคเมนต์ (ครั้งที่ 1 ถึง 4) ที่มักจะเจอออคเมนต์นี้",
+ "Pick {n}": "ครั้งที่ {n}"
 }

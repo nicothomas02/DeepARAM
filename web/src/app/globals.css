@@ -5878,3 +5878,18 @@ html[data-view="simple"] [data-detailed] {
     gap: 0.35rem;
   }
 }
+
+/* Items tab quick filters (components/ItemIndex.tsx): build slot, category and the augment-items switch. */
+.items-quick {
+  display: grid;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.items-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+}

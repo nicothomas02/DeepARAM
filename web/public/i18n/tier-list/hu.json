@@ -63,5 +63,12 @@
  "This set ({set})": "Ez a szett ({set})",
  "Weapon of Destiny": "A Végzet fegyvere",
  "Pentakill": "Pentakill",
- "Augments with no stats yet show a dash and sit at the bottom.": "A még statisztika nélküli bővítések kötőjelet mutatnak, és a lista alján vannak."
+ "Augments with no stats yet show a dash and sit at the bottom.": "A még statisztika nélküli bővítések kötőjelet mutatnak, és a lista alján vannak.",
+ "Any pick": "Bármelyik választás",
+ "Try another rarity, style or pick.": "Próbálj másik ritkaságot, stílust vagy választást.",
+ "Augment pick": "Bővítésválasztás",
+ "1st augment": "1. fejlesztés",
+ "2nd augment": "2. fejlesztés",
+ "3rd augment": "3. fejlesztés",
+ "4th augment": "4. fejlesztés"
 }

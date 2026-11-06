@@ -60,7 +60,7 @@ test("champion page: Simple view folds, section links open them, Detailed shows 
   const stats = page.locator("#stats");
   await expect(stats).toBeHidden();
   await expect(page.locator(".cp-side .cp-best").first()).toBeVisible();
-  const rows = page.locator("#builds ~ .cp-panel").first().locator(".cp-row");
+  const rows = page.locator("#builds ~ .cp-panel:not(#augment-builds)").first().locator(".cp-row");
   await expect(rows.nth(4)).toBeVisible();
   await expect(rows.nth(5)).toBeHidden();
   await page.locator('.cp-rail a[href="#details"]').click();

@@ -191,5 +191,16 @@
  "Core builds show the boots where the Simulator says to buy them: the first point where they add as much per gold as the next item.": "Las builds principales muestran las botas donde el Simulador dice que se compren: el primer momento en que aportan por oro tanto como el siguiente objeto.",
  "The biggest win rate boost of any augment on {champ}: +{n} pts.": "El mayor aumento de tasa de victorias de cualquier aumento con {champ}: +{n} pts.",
  "Raises {champ}'s win rate by {n} pts.": "Sube la tasa de victorias de {champ} en {n} pts.",
- "Lowers {champ}'s win rate by {n} pts.": "Baja la tasa de victorias de {champ} en {n} pts."
+ "Lowers {champ}'s win rate by {n} pts.": "Baja la tasa de victorias de {champ} en {n} pts.",
+ "Build for your augments": "Build para tus aumentos",
+ "The builds below are for any augments. Pick yours to see the best items with it.": "Las builds de abajo sirven para cualquier aumento. Elige el tuyo para ver los mejores objetos con él.",
+ "Simulated: the Simulator's best items with this augment taken, compared with its best items with no augment.": "Simulado: los mejores objetos del simulador con este aumento, comparados con sus mejores objetos sin aumento.",
+ "Pick an augment to see the best items with it. ⇄ marks augments that change your build.": "Elige un aumento para ver los mejores objetos con él. ⇄ marca los aumentos que cambian tu build.",
+ "Highlighted augments can be added as a second pick.": "Los aumentos resaltados se pueden añadir como segunda elección.",
+ "Changes your build: {n} different items": "Cambia tu build: {n} objetos distintos",
+ "Your usual items still work": "Tus objetos de siempre siguen sirviendo",
+ "Changes your build": "Cambia tu build",
+ "The best items with this augment differ from your usual build.": "Los mejores objetos con este aumento son distintos de tu build habitual.",
+ "Estimated: the augment picks (1st to 4th) where it usually shows up.": "Estimado: las elecciones de aumento (1.ª a 4.ª) en las que suele aparecer.",
+ "Pick {n}": "Elección {n}"
 }

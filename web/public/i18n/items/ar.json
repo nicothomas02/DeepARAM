@@ -93,5 +93,16 @@
  "Filter by tags": "التصفية حسب الوسوم",
  "Recipe": "الوصفة",
  "Built from": "يُصنع من",
- "Builds into": "يتطور إلى"
+ "Builds into": "يتطور إلى",
+ "Build slot": "خانة البناء",
+ "Any slot": "أي خانة",
+ "1st item": "العنصر الأول",
+ "2nd item": "العنصر الثاني",
+ "3rd item": "العنصر الثالث",
+ "Category": "الفئة",
+ "All items": "كل العناصر",
+ "Hide items augments can give": "إخفاء العناصر التي تمنحها التعزيزات",
+ "Estimated: items often bought at this slot.": "تقديري: عناصر تُشترى غالبًا في هذه الخانة.",
+ "AD": "AD",
+ "AP": "AP"
 }

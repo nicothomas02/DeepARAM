@@ -60,5 +60,8 @@
  "{pct} of picks here are this rarity": "ここでの選択の{pct}がこのレアリティ",
  "Share of this augment's picks at each augment selection, and how often a pick there is of its rarity.": "各オーグメント選択でのこのオーグメントの選択割合と、そこでの選択がこのレアリティである頻度。",
  "Items that go with it": "相性の良いアイテム",
- "Share of the champions who take this augment that build each item.": "このオーグメントを取るチャンピオンのうち各アイテムを作る割合。"
+ "Share of the champions who take this augment that build each item.": "このオーグメントを取るチャンピオンのうち各アイテムを作る割合。",
+ "Best augments to pair it with": "相性のいいオーグメント",
+ "Win rate when both are taken, across the champions that often pair them.": "両方を取ったときの勝率です。よく組み合わせるチャンピオン全体で集計しています。",
+ "Win rate": "勝率"
 }

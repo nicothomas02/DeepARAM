@@ -60,5 +60,8 @@
  "{pct} of picks here are this rarity": "{pct} voleb zde má tuto vzácnost",
  "Share of this augment's picks at each augment selection, and how often a pick there is of its rarity.": "Podíl voleb tohoto vylepšení při každém výběru vylepšení a jak často je volba v tu chvíli jeho vzácnosti.",
  "Items that go with it": "Předměty, které k němu sedí",
- "Share of the champions who take this augment that build each item.": "Podíl šampionů s tímto vylepšením, kteří staví daný předmět."
+ "Share of the champions who take this augment that build each item.": "Podíl šampionů s tímto vylepšením, kteří staví daný předmět.",
+ "Best augments to pair it with": "Nejlepší vylepšení do páru",
+ "Win rate when both are taken, across the champions that often pair them.": "Míra výher, když vezmeš obě, napříč šampiony, kteří je často kombinují.",
+ "Win rate": "Procento výher"
 }

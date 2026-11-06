@@ -60,5 +60,8 @@
  "{pct} of picks here are this rarity": "{pct} pilihan di sini berkelangkaan ini",
  "Share of this augment's picks at each augment selection, and how often a pick there is of its rarity.": "Porsi pilihan augment ini di tiap pemilihan augment, dan seberapa sering pilihan di sana berkelangkaan sama.",
  "Items that go with it": "Item yang cocok",
- "Share of the champions who take this augment that build each item.": "Porsi champion pengambil augment ini yang membeli tiap item."
+ "Share of the champions who take this augment that build each item.": "Porsi champion pengambil augment ini yang membeli tiap item.",
+ "Best augments to pair it with": "Augment terbaik untuk dipasangkan",
+ "Win rate when both are taken, across the champions that often pair them.": "Win rate saat keduanya diambil, pada champion yang sering memasangkannya.",
+ "Win rate": "Win rate"
 }

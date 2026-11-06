@@ -93,5 +93,16 @@
  "Filter by tags": "按标签筛选",
  "Recipe": "合成路线",
  "Built from": "合成材料",
- "Builds into": "可合成"
+ "Builds into": "可合成",
+ "Build slot": "出装顺位",
+ "Any slot": "任意顺位",
+ "1st item": "第1件装备",
+ "2nd item": "第2件装备",
+ "3rd item": "第3件装备",
+ "Category": "类别",
+ "All items": "全部装备",
+ "Hide items augments can give": "隐藏强化赠送的装备",
+ "Estimated: items often bought at this slot.": "估算：常在此顺位购买的装备。",
+ "AD": "AD",
+ "AP": "AP"
 }

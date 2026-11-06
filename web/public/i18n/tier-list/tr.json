@@ -63,5 +63,12 @@
  "This set ({set})": "Bu set ({set})",
  "Weapon of Destiny": "Kaderin Silahı",
  "Pentakill": "Pentakill",
- "Augments with no stats yet show a dash and sit at the bottom.": "Henüz istatistiği olmayan güçlendirmeler çizgiyle gösterilir ve en altta yer alır."
+ "Augments with no stats yet show a dash and sit at the bottom.": "Henüz istatistiği olmayan güçlendirmeler çizgiyle gösterilir ve en altta yer alır.",
+ "Any pick": "Her seçim",
+ "Try another rarity, style or pick.": "Başka bir nadirlik, tarz veya seçim dene.",
+ "Augment pick": "Güçlendirme seçimi",
+ "1st augment": "1. güçlendirme",
+ "2nd augment": "2. güçlendirme",
+ "3rd augment": "3. güçlendirme",
+ "4th augment": "4. güçlendirme"
 }

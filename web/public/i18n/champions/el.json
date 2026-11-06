@@ -191,5 +191,16 @@
  "Core builds show the boots where the Simulator says to buy them: the first point where they add as much per gold as the next item.": "Τα βασικά builds δείχνουν τις μπότες εκεί που ο Προσομοιωτής λέει να τις αγοράσεις: στο πρώτο σημείο όπου προσφέρουν ανά χρυσό όσο και το επόμενο αντικείμενο.",
  "The biggest win rate boost of any augment on {champ}: +{n} pts.": "Η μεγαλύτερη αύξηση ποσοστού νικών από κάθε ενίσχυση για {champ}: +{n} μον.",
  "Raises {champ}'s win rate by {n} pts.": "Αυξάνει το ποσοστό νικών του/της {champ} κατά {n} μον.",
- "Lowers {champ}'s win rate by {n} pts.": "Μειώνει το ποσοστό νικών του/της {champ} κατά {n} μον."
+ "Lowers {champ}'s win rate by {n} pts.": "Μειώνει το ποσοστό νικών του/της {champ} κατά {n} μον.",
+ "Build for your augments": "Build για τις ενισχύσεις σου",
+ "The builds below are for any augments. Pick yours to see the best items with it.": "Τα build παρακάτω ισχύουν για οποιεσδήποτε ενισχύσεις. Διάλεξε τη δική σου για να δεις τα καλύτερα αντικείμενα μαζί της.",
+ "Simulated: the Simulator's best items with this augment taken, compared with its best items with no augment.": "Προσομοίωση: τα καλύτερα αντικείμενα του προσομοιωτή με αυτή την ενίσχυση, σε σύγκριση με τα καλύτερα χωρίς ενίσχυση.",
+ "Pick an augment to see the best items with it. ⇄ marks augments that change your build.": "Διάλεξε μια ενίσχυση για να δεις τα καλύτερα αντικείμενα μαζί της. Το ⇄ σημαδεύει ενισχύσεις που αλλάζουν το build σου.",
+ "Highlighted augments can be added as a second pick.": "Οι επισημασμένες ενισχύσεις μπορούν να προστεθούν ως δεύτερη επιλογή.",
+ "Changes your build: {n} different items": "Αλλάζει το build σου: {n} διαφορετικά αντικείμενα",
+ "Your usual items still work": "Τα συνηθισμένα αντικείμενά σου κάνουν ακόμα",
+ "Changes your build": "Αλλάζει το build σου",
+ "The best items with this augment differ from your usual build.": "Τα καλύτερα αντικείμενα με αυτή την ενίσχυση διαφέρουν από το συνηθισμένο build σου.",
+ "Estimated: the augment picks (1st to 4th) where it usually shows up.": "Εκτίμηση: οι επιλογές ενίσχυσης (1η έως 4η) όπου εμφανίζεται συνήθως.",
+ "Pick {n}": "Επιλογή {n}"
 }

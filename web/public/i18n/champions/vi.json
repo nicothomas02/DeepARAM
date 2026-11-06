@@ -191,5 +191,16 @@
  "Core builds show the boots where the Simulator says to buy them: the first point where they add as much per gold as the next item.": "Build cốt lõi hiển thị giày ở thời điểm Trình mô phỏng khuyên nên mua: lúc đầu tiên giày mang lại giá trị trên mỗi vàng bằng trang bị tiếp theo.",
  "The biggest win rate boost of any augment on {champ}: +{n} pts.": "Lõi tăng tỉ lệ thắng nhiều nhất cho {champ}: +{n} điểm.",
  "Raises {champ}'s win rate by {n} pts.": "Tăng tỉ lệ thắng của {champ} thêm {n} điểm.",
- "Lowers {champ}'s win rate by {n} pts.": "Giảm tỉ lệ thắng của {champ} đi {n} điểm."
+ "Lowers {champ}'s win rate by {n} pts.": "Giảm tỉ lệ thắng của {champ} đi {n} điểm.",
+ "Build for your augments": "Lối lên đồ theo lõi của bạn",
+ "The builds below are for any augments. Pick yours to see the best items with it.": "Các lối lên đồ bên dưới dùng được với mọi lõi. Chọn lõi của bạn để xem trang bị tốt nhất đi kèm.",
+ "Simulated: the Simulator's best items with this augment taken, compared with its best items with no augment.": "Mô phỏng: trang bị tốt nhất của trình mô phỏng khi có lõi này, so với trang bị tốt nhất khi không có lõi.",
+ "Pick an augment to see the best items with it. ⇄ marks augments that change your build.": "Chọn một lõi để xem trang bị tốt nhất đi kèm. ⇄ đánh dấu các lõi làm thay đổi lối lên đồ.",
+ "Highlighted augments can be added as a second pick.": "Có thể thêm các lõi được tô sáng làm lựa chọn thứ hai.",
+ "Changes your build: {n} different items": "Thay đổi lối lên đồ: {n} trang bị khác",
+ "Your usual items still work": "Trang bị quen thuộc của bạn vẫn dùng tốt",
+ "Changes your build": "Thay đổi lối lên đồ",
+ "The best items with this augment differ from your usual build.": "Trang bị tốt nhất với lõi này khác với lối lên đồ quen thuộc của bạn.",
+ "Estimated: the augment picks (1st to 4th) where it usually shows up.": "Ước tính: các lượt chọn lõi (thứ 1 đến thứ 4) mà lõi này thường xuất hiện.",
+ "Pick {n}": "Lượt {n}"
 }

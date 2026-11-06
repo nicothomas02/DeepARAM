@@ -93,5 +93,16 @@
  "Filter by tags": "태그로 필터",
  "Recipe": "조합법",
  "Built from": "하위 아이템",
- "Builds into": "상위 아이템"
+ "Builds into": "상위 아이템",
+ "Build slot": "빌드 순서",
+ "Any slot": "모든 순서",
+ "1st item": "1번째 아이템",
+ "2nd item": "2번째 아이템",
+ "3rd item": "3번째 아이템",
+ "Category": "분류",
+ "All items": "모든 아이템",
+ "Hide items augments can give": "증강으로 받는 아이템 숨기기",
+ "Estimated: items often bought at this slot.": "추정: 이 순서에 자주 사는 아이템입니다.",
+ "AD": "AD",
+ "AP": "AP"
 }

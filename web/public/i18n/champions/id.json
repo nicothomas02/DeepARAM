@@ -191,5 +191,16 @@
  "Core builds show the boots where the Simulator says to buy them: the first point where they add as much per gold as the next item.": "Build inti menampilkan sepatu di saat Simulator menyarankan membelinya: titik pertama saat sepatu memberi nilai per gold sebanyak item berikutnya.",
  "The biggest win rate boost of any augment on {champ}: +{n} pts.": "Peningkatan win rate terbesar dari semua augment untuk {champ}: +{n} poin.",
  "Raises {champ}'s win rate by {n} pts.": "Menaikkan win rate {champ} sebesar {n} poin.",
- "Lowers {champ}'s win rate by {n} pts.": "Menurunkan win rate {champ} sebesar {n} poin."
+ "Lowers {champ}'s win rate by {n} pts.": "Menurunkan win rate {champ} sebesar {n} poin.",
+ "Build for your augments": "Build untuk augment-mu",
+ "The builds below are for any augments. Pick yours to see the best items with it.": "Build di bawah cocok untuk augment apa pun. Pilih augment-mu untuk melihat item terbaik dengannya.",
+ "Simulated: the Simulator's best items with this augment taken, compared with its best items with no augment.": "Simulasi: item terbaik dari simulator dengan augment ini, dibandingkan item terbaiknya tanpa augment.",
+ "Pick an augment to see the best items with it. ⇄ marks augments that change your build.": "Pilih augment untuk melihat item terbaik dengannya. ⇄ menandai augment yang mengubah build-mu.",
+ "Highlighted augments can be added as a second pick.": "Augment yang disorot bisa ditambahkan sebagai pilihan kedua.",
+ "Changes your build: {n} different items": "Mengubah build-mu: {n} item berbeda",
+ "Your usual items still work": "Item biasamu masih cocok",
+ "Changes your build": "Mengubah build-mu",
+ "The best items with this augment differ from your usual build.": "Item terbaik dengan augment ini berbeda dari build biasamu.",
+ "Estimated: the augment picks (1st to 4th) where it usually shows up.": "Perkiraan: pilihan augment (ke-1 sampai ke-4) tempat augment ini biasanya muncul.",
+ "Pick {n}": "Pilihan {n}"
 }

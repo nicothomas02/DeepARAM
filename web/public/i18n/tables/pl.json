@@ -132,5 +132,7 @@
  "Estimated. How far the champion's win rate swings with the augments it gets. High means its augment picks matter a lot.": "Szacunek. Jak bardzo odsetek zwycięstw bohatera zmienia się w zależności od zdobytych wzmocnień. Wysoka wartość oznacza, że wybór wzmocnień bardzo się liczy.",
  "Varies by champion and Augment reliance are typical swings in pts: how much an augment's boost changes between champions, and how much a champion's win rate changes between augments.": "Zależy od bohatera i Zależność od wzmocnień to typowe wahania w pkt: jak bardzo przyrost wzmocnienia zmienia się między bohaterami i jak bardzo odsetek zwycięstw bohatera zmienia się między wzmocnieniami.",
  "Best champ": "Najlepszy bohater",
- "The champion with the highest estimated win rate boost from this augment.": "Bohater z najwyższym szacowanym wzrostem współczynnika zwycięstw dzięki temu ulepszeniu."
+ "The champion with the highest estimated win rate boost from this augment.": "Bohater z najwyższym szacowanym wzrostem współczynnika zwycięstw dzięki temu ulepszeniu.",
+ "Augment pick": "Wybór ulepszenia",
+ "Estimated: the augment picks (1st to 4th) where it usually shows up.": "Szacunek: wybory ulepszeń (1.–4.), w których zwykle się pojawia."
 }

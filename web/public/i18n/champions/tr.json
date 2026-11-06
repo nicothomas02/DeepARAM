@@ -191,5 +191,16 @@
  "Core builds show the boots where the Simulator says to buy them: the first point where they add as much per gold as the next item.": "Temel dizilimler botları Simülatör'ün alınmasını önerdiği yerde gösterir: altın başına bir sonraki eşya kadar değer kattıkları ilk an.",
  "The biggest win rate boost of any augment on {champ}: +{n} pts.": "{champ} için tüm güçlendirmeler arasında en büyük kazanma oranı artışı: +{n} puan.",
  "Raises {champ}'s win rate by {n} pts.": "{champ} kazanma oranını {n} puan artırır.",
- "Lowers {champ}'s win rate by {n} pts.": "{champ} kazanma oranını {n} puan düşürür."
+ "Lowers {champ}'s win rate by {n} pts.": "{champ} kazanma oranını {n} puan düşürür.",
+ "Build for your augments": "Güçlendirmelerine göre dizilim",
+ "The builds below are for any augments. Pick yours to see the best items with it.": "Aşağıdaki dizilimler her güçlendirmeyle uyar. En iyi eşyaları görmek için kendi güçlendirmeni seç.",
+ "Simulated: the Simulator's best items with this augment taken, compared with its best items with no augment.": "Simülasyon: bu güçlendirme alındığında simülatörün en iyi eşyaları, güçlendirmesiz en iyi eşyalarıyla karşılaştırılarak.",
+ "Pick an augment to see the best items with it. ⇄ marks augments that change your build.": "En iyi eşyaları görmek için bir güçlendirme seç. ⇄ dizilimini değiştiren güçlendirmeleri gösterir.",
+ "Highlighted augments can be added as a second pick.": "Vurgulanan güçlendirmeler ikinci seçim olarak eklenebilir.",
+ "Changes your build: {n} different items": "Dizilimini değiştirir: {n} farklı eşya",
+ "Your usual items still work": "Her zamanki eşyaların hâlâ işe yarar",
+ "Changes your build": "Dizilimini değiştirir",
+ "The best items with this augment differ from your usual build.": "Bu güçlendirmeyle en iyi eşyalar her zamanki diziliminden farklı.",
+ "Estimated: the augment picks (1st to 4th) where it usually shows up.": "Tahmini: genellikle çıktığı güçlendirme seçimleri (1. ile 4.).",
+ "Pick {n}": "{n}. seçim"
 }

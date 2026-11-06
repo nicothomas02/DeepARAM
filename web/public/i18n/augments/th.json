@@ -60,5 +60,8 @@
  "{pct} of picks here are this rarity": "{pct} ของการเลือกตรงนี้เป็นระดับนี้",
  "Share of this augment's picks at each augment selection, and how often a pick there is of its rarity.": "สัดส่วนการเลือกออคเมนต์นี้ในการเลือกแต่ละครั้ง และความถี่ที่การเลือกตรงนั้นเป็นระดับเดียวกัน",
  "Items that go with it": "ไอเทมที่เข้ากัน",
- "Share of the champions who take this augment that build each item.": "สัดส่วนแชมเปี้ยนที่เลือกออคเมนต์นี้และซื้อไอเทมแต่ละชิ้น"
+ "Share of the champions who take this augment that build each item.": "สัดส่วนแชมเปี้ยนที่เลือกออคเมนต์นี้และซื้อไอเทมแต่ละชิ้น",
+ "Best augments to pair it with": "ออคเมนต์ที่เข้าคู่ได้ดีที่สุด",
+ "Win rate when both are taken, across the champions that often pair them.": "อัตราชนะเมื่อเลือกทั้งสองอย่าง จากแชมเปียนที่มักเลือกคู่กัน",
+ "Win rate": "อัตราชนะ"
 }

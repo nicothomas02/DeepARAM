@@ -60,5 +60,8 @@
  "{pct} of picks here are this rarity": "Buradaki seçimlerin {pct} kadarı bu nadirlikte",
  "Share of this augment's picks at each augment selection, and how often a pick there is of its rarity.": "Bu güçlendirmenin her güçlendirme seçimindeki payı ve orada bir seçimin ne sıklıkla bu nadirlikte olduğu.",
  "Items that go with it": "Uyumlu eşyalar",
- "Share of the champions who take this augment that build each item.": "Bu güçlendirmeyi alan şampiyonlardan her eşyayı yapanların payı."
+ "Share of the champions who take this augment that build each item.": "Bu güçlendirmeyi alan şampiyonlardan her eşyayı yapanların payı.",
+ "Best augments to pair it with": "Eşleştirilecek en iyi güçlendirmeler",
+ "Win rate when both are taken, across the champions that often pair them.": "İkisi birlikte alındığında kazanma oranı, onları sık eşleştiren şampiyonlar genelinde.",
+ "Win rate": "Kazanma oranı"
 }

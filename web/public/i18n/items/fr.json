@@ -93,5 +93,16 @@
  "Filter by tags": "Filtrer par tags",
  "Recipe": "Recette",
  "Built from": "Construit à partir de",
- "Builds into": "Sert à construire"
+ "Builds into": "Sert à construire",
+ "Build slot": "Place dans le build",
+ "Any slot": "Toute place",
+ "1st item": "1er objet",
+ "2nd item": "2e objet",
+ "3rd item": "3e objet",
+ "Category": "Catégorie",
+ "All items": "Tous les objets",
+ "Hide items augments can give": "Masquer les objets donnés par les augments",
+ "Estimated: items often bought at this slot.": "Estimé : objets souvent achetés à cette place.",
+ "AD": "AD",
+ "AP": "AP"
 }

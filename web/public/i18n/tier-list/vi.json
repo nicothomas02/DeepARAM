@@ -63,5 +63,12 @@
  "This set ({set})": "Bộ này ({set})",
  "Weapon of Destiny": "Vũ Khí Định Mệnh",
  "Pentakill": "Pentakill",
- "Augments with no stats yet show a dash and sit at the bottom.": "Các lõi chưa có số liệu hiển thị dấu gạch và nằm ở cuối."
+ "Augments with no stats yet show a dash and sit at the bottom.": "Các lõi chưa có số liệu hiển thị dấu gạch và nằm ở cuối.",
+ "Any pick": "Mọi lượt chọn",
+ "Try another rarity, style or pick.": "Thử độ hiếm, phong cách hoặc lượt chọn khác.",
+ "Augment pick": "Lượt chọn lõi",
+ "1st augment": "Lõi Nâng Cấp thứ 1",
+ "2nd augment": "Lõi Nâng Cấp thứ 2",
+ "3rd augment": "Lõi Nâng Cấp thứ 3",
+ "4th augment": "Lõi Nâng Cấp thứ 4"
 }

@@ -1335,3 +1335,67 @@ html[data-view="simple"] .cp-fold:not([data-open]) > .cp-fold-body {
     font-size: 0.76rem;
   }
 }
+
+/* "Build for your augments" (components/champion/AugmentBuildPicker.tsx) and the augment list's "Changes your build" pill. */
+.cp-ab {
+  display: grid;
+  gap: 0.6rem;
+  padding: 0 1rem 1rem;
+}
+.cp-ab-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+.cp-ab-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-height: 36px;
+  padding: 0.25rem 0.7rem 0.25rem 0.3rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--card);
+  color: inherit;
+  font: inherit;
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+.cp-ab-chip[aria-pressed="true"] {
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 18%, var(--card));
+}
+.cp-ab-chip.pairable {
+  border-style: dashed;
+  border-color: var(--accent);
+}
+.cp-ab-chip .cp-icon {
+  width: 24px;
+  height: 24px;
+}
+.cp-ab-flag {
+  color: var(--accent);
+  font-weight: 700;
+}
+.cp-ab-result {
+  display: grid;
+  gap: 0.4rem;
+}
+.cp-ab-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.cp-ab-items .cp-named {
+  color: inherit;
+  text-decoration: none;
+}
+.cp-ab-items .cp-ab-new .cp-icon {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+.cp-pill.cp-changes {
+  border-color: var(--accent);
+  color: var(--accent);
+  text-decoration: none;
+}

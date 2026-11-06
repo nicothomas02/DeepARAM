@@ -191,5 +191,16 @@
  "Core builds show the boots where the Simulator says to buy them: the first point where they add as much per gold as the next item.": "تعرض البنيات الأساسية الحذاء حيث يقول المحاكي إنه يجب شراؤه: أول نقطة يضيف فيها مقابل كل ذهب بقدر ما يضيفه العنصر التالي.",
  "The biggest win rate boost of any augment on {champ}: +{n} pts.": "أكبر زيادة في نسبة الفوز بين كل التعزيزات على {champ}: ‎+{n} نقطة.",
  "Raises {champ}'s win rate by {n} pts.": "يرفع نسبة فوز {champ} بمقدار {n} نقطة.",
- "Lowers {champ}'s win rate by {n} pts.": "يخفض نسبة فوز {champ} بمقدار {n} نقطة."
+ "Lowers {champ}'s win rate by {n} pts.": "يخفض نسبة فوز {champ} بمقدار {n} نقطة.",
+ "Build for your augments": "بناء حسب تعزيزاتك",
+ "The builds below are for any augments. Pick yours to see the best items with it.": "البناءات أدناه تناسب أي تعزيزات. اختر تعزيزك لترى أفضل العناصر معه.",
+ "Simulated: the Simulator's best items with this augment taken, compared with its best items with no augment.": "محاكاة: أفضل عناصر المحاكي مع هذا التعزيز، مقارنةً بأفضل عناصره بدون تعزيز.",
+ "Pick an augment to see the best items with it. ⇄ marks augments that change your build.": "اختر تعزيزًا لترى أفضل العناصر معه. الرمز ⇄ يميز التعزيزات التي تغيّر بناءك.",
+ "Highlighted augments can be added as a second pick.": "يمكن إضافة التعزيزات المميزة كاختيار ثانٍ.",
+ "Changes your build: {n} different items": "يغيّر بناءك: {n} عناصر مختلفة",
+ "Your usual items still work": "عناصرك المعتادة ما زالت مناسبة",
+ "Changes your build": "يغيّر بناءك",
+ "The best items with this augment differ from your usual build.": "أفضل العناصر مع هذا التعزيز تختلف عن بنائك المعتاد.",
+ "Estimated: the augment picks (1st to 4th) where it usually shows up.": "تقديري: اختيارات التعزيز (من الأول إلى الرابع) التي يظهر فيها عادةً.",
+ "Pick {n}": "الاختيار {n}"
 }

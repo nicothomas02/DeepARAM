@@ -63,5 +63,12 @@
  "This set ({set})": "今のセット（{set}）",
  "Weapon of Destiny": "運命の武器",
  "Pentakill": "ペンタキル",
- "Augments with no stats yet show a dash and sit at the bottom.": "まだ統計がないオーグメントはダッシュで表示され、一番下に並びます。"
+ "Augments with no stats yet show a dash and sit at the bottom.": "まだ統計がないオーグメントはダッシュで表示され、一番下に並びます。",
+ "Any pick": "すべての選択",
+ "Try another rarity, style or pick.": "別のレア度、スタイル、選択を試してください。",
+ "Augment pick": "オーグメント選択",
+ "1st augment": "1つ目のオーグメント",
+ "2nd augment": "2つ目のオーグメント",
+ "3rd augment": "3つ目のオーグメント",
+ "4th augment": "4つ目のオーグメント"
 }

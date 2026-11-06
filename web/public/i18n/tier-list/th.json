@@ -63,5 +63,12 @@
  "This set ({set})": "เซ็ตนี้ ({set})",
  "Weapon of Destiny": "Weapon of Destiny",
  "Pentakill": "Pentakill",
- "Augments with no stats yet show a dash and sit at the bottom.": "ออคเมนต์ที่ยังไม่มีสถิติจะแสดงเป็นขีดและอยู่ด้านล่างสุด"
+ "Augments with no stats yet show a dash and sit at the bottom.": "ออคเมนต์ที่ยังไม่มีสถิติจะแสดงเป็นขีดและอยู่ด้านล่างสุด",
+ "Any pick": "ทุกครั้งที่เลือก",
+ "Try another rarity, style or pick.": "ลองระดับความหายาก สไตล์ หรือครั้งที่เลือกอื่น",
+ "Augment pick": "ครั้งที่เลือกออคเมนต์",
+ "1st augment": "Augment ที่ 1",
+ "2nd augment": "Augment ที่ 2",
+ "3rd augment": "Augment ที่ 3",
+ "4th augment": "Augment ที่ 4"
 }

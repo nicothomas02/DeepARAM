@@ -43,6 +43,8 @@ export default function AugmentTable({
     lift?: number;
     /** Share of the augment's picks at each of the four augment picks. */
     stages?: number[];
+    /** The Simulator's best items with it differ from its best items without it (lib/augment-builds.ts). */
+    changesBuild?: boolean;
   })[];
 }) {
   const t = useT("champions");
@@ -199,6 +201,20 @@ export default function AugmentTable({
                   {t(LABEL[a.rarity])}
                 </span>
                 {/* The game's own build tags for the augment (lib/build-tags.ts). */}
+                {/* The augment picks (1st to 4th) where it usually shows up on this champion (estimated). */}
+                {(() => {
+                  const at = (a.stages ?? []).flatMap((share, k) => (share >= FAIR_SHARE ? [k + 1] : []));
+                  return at.length ? (
+                    <span className="cp-pill cp-tag" title={t("Estimated: the augment picks (1st to 4th) where it usually shows up.")}>
+                      {t("Pick {n}", { n: at.join(" · ") })}
+                    </span>
+                  ) : null;
+                })()}
+                {a.changesBuild && (
+                  <a className="cp-pill cp-changes" href="#augment-builds" title={t("The best items with this augment differ from your usual build.")}>
+                    {t("Changes your build")}
+                  </a>
+                )}
                 {(a.tags ?? []).map((tag) => (
                   <span key={tag} className="cp-pill cp-tag">
                     {ts(tag)}

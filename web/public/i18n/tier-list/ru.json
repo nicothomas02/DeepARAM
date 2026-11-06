@@ -63,5 +63,12 @@
  "This set ({set})": "Этот сет ({set})",
  "Weapon of Destiny": "Оружие судьбы",
  "Pentakill": "Pentakill",
- "Augments with no stats yet show a dash and sit at the bottom.": "Аугменты, по которым ещё нет статистики, показаны с прочерком и стоят внизу."
+ "Augments with no stats yet show a dash and sit at the bottom.": "Аугменты, по которым ещё нет статистики, показаны с прочерком и стоят внизу.",
+ "Any pick": "Любой выбор",
+ "Try another rarity, style or pick.": "Попробуй другую редкость, стиль или выбор.",
+ "Augment pick": "Выбор аугмента",
+ "1st augment": "1-й аугмент",
+ "2nd augment": "2-й аугмент",
+ "3rd augment": "3-й аугмент",
+ "4th augment": "4-й аугмент"
 }

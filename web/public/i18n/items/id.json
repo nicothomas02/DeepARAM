@@ -93,5 +93,16 @@
  "Filter by tags": "Filter menurut tag",
  "Recipe": "Resep",
  "Built from": "Dibuat dari",
- "Builds into": "Menjadi bagian dari"
+ "Builds into": "Menjadi bagian dari",
+ "Build slot": "Slot build",
+ "Any slot": "Slot apa pun",
+ "1st item": "Item ke-1",
+ "2nd item": "Item ke-2",
+ "3rd item": "Item ke-3",
+ "Category": "Kategori",
+ "All items": "Semua item",
+ "Hide items augments can give": "Sembunyikan item dari augment",
+ "Estimated: items often bought at this slot.": "Perkiraan: item yang sering dibeli di slot ini.",
+ "AD": "AD",
+ "AP": "AP"
 }

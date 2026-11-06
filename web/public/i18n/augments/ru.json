@@ -60,5 +60,8 @@
  "{pct} of picks here are this rarity": "{pct} выборов здесь этой редкости",
  "Share of this augment's picks at each augment selection, and how often a pick there is of its rarity.": "Доля выборов этого аугмента на каждом выборе аугментов и как часто выбор там этой редкости.",
  "Items that go with it": "Подходящие предметы",
- "Share of the champions who take this augment that build each item.": "Доля чемпионов с этим аугментом, собирающих каждый предмет."
+ "Share of the champions who take this augment that build each item.": "Доля чемпионов с этим аугментом, собирающих каждый предмет.",
+ "Best augments to pair it with": "Лучшие аугменты в пару",
+ "Win rate when both are taken, across the champions that often pair them.": "Процент побед, когда взяты оба, среди чемпионов, которые часто их сочетают.",
+ "Win rate": "Процент побед"
 }

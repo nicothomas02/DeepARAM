@@ -66,6 +66,8 @@ import "../champion-page.css";
 import { patchName } from "@/lib/patch-name";
 import BestUpgrades from "@/components/champion/BestUpgrades";
 import { championUpgrades } from "@/lib/champion-upgrades";
+import { augmentBuilds, buildChangers, CHANGES_BUILD } from "@/lib/augment-builds";
+import AugmentBuildPicker from "@/components/champion/AugmentBuildPicker";
 
 const AUG_NAMES = augmentNames as Record<string, string>;
 const AUG_DESC = (descriptions as { augments: Record<string, string> }).augments;
@@ -308,6 +310,8 @@ export default async function ChampionPage({
   const next = all[(at + 1) % all.length];
   const info = p.itemInfo;
   const upgrades = championUpgrades(c.alias);
+  const augBuilds = augmentBuilds(c.alias);
+  const changers = buildChangers(c.alias);
   const bestCore = p.core[0]; // the lists rank by DeepScore, which already trusts rare builds less
   // Augments rank by their DeepScore, the same rating the Tier List uses.
   const scores = new Map(augmentTiers().map((a) => [a.id, a.deepScore]));
@@ -321,6 +325,7 @@ export default async function ChampionPage({
       deepScore: scores.get(a.id),
       href: augmentHref(a.id) ?? undefined,
       desc: AUG_DESC[String(a.id)],
+      changesBuild: changers.has(a.id),
     }))
     .sort(
       (x, y) =>
@@ -727,6 +732,22 @@ export default async function ChampionPage({
           <h2 className="cp-group" id="builds">
             <T ns={NS}>Builds</T>
           </h2>
+          {augBuilds && (
+            <Panel
+              id="augment-builds"
+              title="Build for your augments"
+              note={
+                <>
+                  <T ns={NS}>
+                    {"The builds below are for any augments. Pick yours to see the best items with it."}
+                  </T>{" "}
+                  <SimTag title="Simulated: the Simulator's best items with this augment taken, compared with its best items with no augment." />
+                </>
+              }
+            >
+              <AugmentBuildPicker data={augBuilds} names={AUG_NAMES} changes={CHANGES_BUILD} />
+            </Panel>
+          )}
           {p.core.length > 0 && (
             <Panel title="Core item builds" count={p.core.length}>
               <Head what="Core items" cols={SCORED_COLS} />

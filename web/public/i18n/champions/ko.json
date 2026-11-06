@@ -191,5 +191,16 @@
  "Core builds show the boots where the Simulator says to buy them: the first point where they add as much per gold as the next item.": "핵심 빌드는 시뮬레이터가 권하는 구매 시점에 신발을 표시합니다. 골드당 효과가 다음 아이템만큼 되는 첫 시점입니다.",
  "The biggest win rate boost of any augment on {champ}: +{n} pts.": "{champ}에게 가장 큰 승률 상승을 주는 증강: +{n}%p.",
  "Raises {champ}'s win rate by {n} pts.": "{champ}의 승률을 {n}%p 올립니다.",
- "Lowers {champ}'s win rate by {n} pts.": "{champ}의 승률을 {n}%p 낮춥니다."
+ "Lowers {champ}'s win rate by {n} pts.": "{champ}의 승률을 {n}%p 낮춥니다.",
+ "Build for your augments": "증강별 빌드",
+ "The builds below are for any augments. Pick yours to see the best items with it.": "아래 빌드는 어떤 증강이든 쓸 수 있습니다. 내 증강을 고르면 함께 쓰기 좋은 아이템을 볼 수 있습니다.",
+ "Simulated: the Simulator's best items with this augment taken, compared with its best items with no augment.": "시뮬레이션: 이 증강을 골랐을 때 시뮬레이터가 찾은 최고의 아이템을, 증강 없이 찾은 최고의 아이템과 비교했습니다.",
+ "Pick an augment to see the best items with it. ⇄ marks augments that change your build.": "증강을 고르면 함께 쓰기 좋은 아이템이 나옵니다. ⇄ 표시는 빌드를 바꾸는 증강입니다.",
+ "Highlighted augments can be added as a second pick.": "강조된 증강은 두 번째로 추가할 수 있습니다.",
+ "Changes your build: {n} different items": "빌드가 바뀝니다: 아이템 {n}개가 다릅니다",
+ "Your usual items still work": "평소 아이템 그대로 괜찮습니다",
+ "Changes your build": "빌드가 바뀜",
+ "The best items with this augment differ from your usual build.": "이 증강의 최고 아이템은 평소 빌드와 다릅니다.",
+ "Estimated: the augment picks (1st to 4th) where it usually shows up.": "추정: 이 증강이 주로 나오는 증강 선택(1~4번째)입니다.",
+ "Pick {n}": "{n}번째"
 }

@@ -60,5 +60,8 @@
  "{pct} of picks here are this rarity": "{pct} des choix ici sont de cette rareté",
  "Share of this augment's picks at each augment selection, and how often a pick there is of its rarity.": "Part des choix de cet augment à chaque sélection d'augment, et fréquence à laquelle un choix à ce moment est de sa rareté.",
  "Items that go with it": "Objets qui vont avec",
- "Share of the champions who take this augment that build each item.": "Part des champions prenant cet augment qui achètent chaque objet."
+ "Share of the champions who take this augment that build each item.": "Part des champions prenant cet augment qui achètent chaque objet.",
+ "Best augments to pair it with": "Meilleurs augments à associer",
+ "Win rate when both are taken, across the champions that often pair them.": "Taux de victoire quand les deux sont pris, sur les champions qui les associent souvent.",
+ "Win rate": "Taux de victoire"
 }

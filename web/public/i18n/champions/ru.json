@@ -191,5 +191,16 @@
  "Core builds show the boots where the Simulator says to buy them: the first point where they add as much per gold as the next item.": "В основных сборках ботинки стоят там, где их советует покупать Симулятор: в первый момент, когда они дают за золото столько же, сколько следующий предмет.",
  "The biggest win rate boost of any augment on {champ}: +{n} pts.": "Самый большой прирост винрейта среди всех аугментов на {champ}: +{n} п.",
  "Raises {champ}'s win rate by {n} pts.": "Повышает винрейт {champ} на {n} п.",
- "Lowers {champ}'s win rate by {n} pts.": "Снижает винрейт {champ} на {n} п."
+ "Lowers {champ}'s win rate by {n} pts.": "Снижает винрейт {champ} на {n} п.",
+ "Build for your augments": "Сборка под твои аугменты",
+ "The builds below are for any augments. Pick yours to see the best items with it.": "Сборки ниже подходят для любых аугментов. Выбери свой, чтобы увидеть лучшие предметы с ним.",
+ "Simulated: the Simulator's best items with this augment taken, compared with its best items with no augment.": "Симуляция: лучшие предметы симулятора с этим аугментом в сравнении с лучшими предметами без аугмента.",
+ "Pick an augment to see the best items with it. ⇄ marks augments that change your build.": "Выбери аугмент, чтобы увидеть лучшие предметы с ним. ⇄ отмечает аугменты, которые меняют сборку.",
+ "Highlighted augments can be added as a second pick.": "Выделенные аугменты можно добавить вторым выбором.",
+ "Changes your build: {n} different items": "Меняет сборку: другие предметы — {n}",
+ "Your usual items still work": "Обычные предметы по-прежнему подходят",
+ "Changes your build": "Меняет сборку",
+ "The best items with this augment differ from your usual build.": "Лучшие предметы с этим аугментом отличаются от твоей обычной сборки.",
+ "Estimated: the augment picks (1st to 4th) where it usually shows up.": "Оценка: выборы аугментов (с 1-го по 4-й), где он обычно появляется.",
+ "Pick {n}": "Выбор {n}"
 }

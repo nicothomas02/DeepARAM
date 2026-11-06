@@ -93,5 +93,16 @@
  "Filter by tags": "Szűrés címkék szerint",
  "Recipe": "Recept",
  "Built from": "Összetevők",
- "Builds into": "Ebbe építhető"
+ "Builds into": "Ebbe építhető",
+ "Build slot": "Hely a felszerelésben",
+ "Any slot": "Bármelyik hely",
+ "1st item": "1. tárgy",
+ "2nd item": "2. tárgy",
+ "3rd item": "3. tárgy",
+ "Category": "Kategória",
+ "All items": "Minden tárgy",
+ "Hide items augments can give": "Bővítések által adott tárgyak elrejtése",
+ "Estimated: items often bought at this slot.": "Becslés: ezen a helyen gyakran vett tárgyak.",
+ "AD": "AD",
+ "AP": "AP"
 }

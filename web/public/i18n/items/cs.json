@@ -93,5 +93,16 @@
  "Filter by tags": "Filtrovat podle štítků",
  "Recipe": "Recept",
  "Built from": "Skládá se z",
- "Builds into": "Vylepšuje se na"
+ "Builds into": "Vylepšuje se na",
+ "Build slot": "Pozice v sestavě",
+ "Any slot": "Jakákoli pozice",
+ "1st item": "1. předmět",
+ "2nd item": "2. předmět",
+ "3rd item": "3. předmět",
+ "Category": "Kategorie",
+ "All items": "Všechny předměty",
+ "Hide items augments can give": "Skrýt předměty, které dávají vylepšení",
+ "Estimated: items often bought at this slot.": "Odhad: předměty často kupované na této pozici.",
+ "AD": "AD",
+ "AP": "AP"
 }

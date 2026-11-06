@@ -191,5 +191,16 @@
  "Core builds show the boots where the Simulator says to buy them: the first point where they add as much per gold as the next item.": "Core builds show the boots where the Simulator says to buy them: the first point where they add as much per gold as the next item.",
  "The biggest win rate boost of any augment on {champ}: +{n} pts.": "The biggest win rate boost of any augment on {champ}: +{n} pts.",
  "Raises {champ}'s win rate by {n} pts.": "Raises {champ}'s win rate by {n} pts.",
- "Lowers {champ}'s win rate by {n} pts.": "Lowers {champ}'s win rate by {n} pts."
+ "Lowers {champ}'s win rate by {n} pts.": "Lowers {champ}'s win rate by {n} pts.",
+ "Build for your augments": "Build for your augments",
+ "The builds below are for any augments. Pick yours to see the best items with it.": "The builds below are for any augments. Pick yours to see the best items with it.",
+ "Simulated: the Simulator's best items with this augment taken, compared with its best items with no augment.": "Simulated: the Simulator's best items with this augment taken, compared with its best items with no augment.",
+ "Pick an augment to see the best items with it. ⇄ marks augments that change your build.": "Pick an augment to see the best items with it. ⇄ marks augments that change your build.",
+ "Highlighted augments can be added as a second pick.": "Highlighted augments can be added as a second pick.",
+ "Changes your build: {n} different items": "Changes your build: {n} different items",
+ "Your usual items still work": "Your usual items still work",
+ "Changes your build": "Changes your build",
+ "The best items with this augment differ from your usual build.": "The best items with this augment differ from your usual build.",
+ "Estimated: the augment picks (1st to 4th) where it usually shows up.": "Estimated: the augment picks (1st to 4th) where it usually shows up.",
+ "Pick {n}": "Pick {n}"
 }

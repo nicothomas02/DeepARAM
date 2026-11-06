@@ -60,5 +60,8 @@
  "{pct} of picks here are this rarity": "{pct} من الاختيارات هنا بهذه الندرة",
  "Share of this augment's picks at each augment selection, and how often a pick there is of its rarity.": "حصة اختيارات هذا التعزيز في كل اختيار تعزيز، وكم مرة يكون الاختيار هناك بندرته.",
  "Items that go with it": "عناصر تناسبه",
- "Share of the champions who take this augment that build each item.": "نسبة الأبطال الذين يأخذون هذا التعزيز ويشترون كل عنصر."
+ "Share of the champions who take this augment that build each item.": "نسبة الأبطال الذين يأخذون هذا التعزيز ويشترون كل عنصر.",
+ "Best augments to pair it with": "أفضل التعزيزات للجمع معه",
+ "Win rate when both are taken, across the champions that often pair them.": "نسبة الفوز عند أخذ الاثنين معًا، عبر الأبطال الذين يجمعونهما غالبًا.",
+ "Win rate": "نسبة الفوز"
 }

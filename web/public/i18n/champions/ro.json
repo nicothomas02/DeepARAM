@@ -191,5 +191,16 @@
  "Core builds show the boots where the Simulator says to buy them: the first point where they add as much per gold as the next item.": "Build-urile de bază arată cizmele acolo unde Simulatorul spune să le cumperi: primul moment în care aduc pe aur cât următorul obiect.",
  "The biggest win rate boost of any augment on {champ}: +{n} pts.": "Cea mai mare creștere a ratei de victorie dintre toate augmentările pentru {champ}: +{n} pct.",
  "Raises {champ}'s win rate by {n} pts.": "Crește rata de victorie a lui {champ} cu {n} pct.",
- "Lowers {champ}'s win rate by {n} pts.": "Scade rata de victorie a lui {champ} cu {n} pct."
+ "Lowers {champ}'s win rate by {n} pts.": "Scade rata de victorie a lui {champ} cu {n} pct.",
+ "Build for your augments": "Build pentru augmentările tale",
+ "The builds below are for any augments. Pick yours to see the best items with it.": "Build-urile de mai jos merg cu orice augmentări. Alege-o pe a ta ca să vezi cele mai bune obiecte cu ea.",
+ "Simulated: the Simulator's best items with this augment taken, compared with its best items with no augment.": "Simulat: cele mai bune obiecte ale simulatorului cu această augmentare, comparate cu cele mai bune fără augmentare.",
+ "Pick an augment to see the best items with it. ⇄ marks augments that change your build.": "Alege o augmentare ca să vezi cele mai bune obiecte cu ea. ⇄ marchează augmentările care îți schimbă build-ul.",
+ "Highlighted augments can be added as a second pick.": "Augmentările evidențiate pot fi adăugate ca a doua alegere.",
+ "Changes your build: {n} different items": "Îți schimbă build-ul: {n} obiecte diferite",
+ "Your usual items still work": "Obiectele tale obișnuite merg în continuare",
+ "Changes your build": "Îți schimbă build-ul",
+ "The best items with this augment differ from your usual build.": "Cele mai bune obiecte cu această augmentare diferă de build-ul tău obișnuit.",
+ "Estimated: the augment picks (1st to 4th) where it usually shows up.": "Estimat: alegerile de augmentare (de la a 1-a la a 4-a) în care apare de obicei.",
+ "Pick {n}": "Alegerea {n}"
 }

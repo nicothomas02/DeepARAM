@@ -93,5 +93,16 @@
  "Filter by tags": "Lọc theo thẻ",
  "Recipe": "Công thức",
  "Built from": "Ghép từ",
- "Builds into": "Nâng cấp thành"
+ "Builds into": "Nâng cấp thành",
+ "Build slot": "Thứ tự lên đồ",
+ "Any slot": "Mọi thứ tự",
+ "1st item": "Món thứ 1",
+ "2nd item": "Món thứ 2",
+ "3rd item": "Món thứ 3",
+ "Category": "Loại",
+ "All items": "Tất cả trang bị",
+ "Hide items augments can give": "Ẩn trang bị do lõi tặng",
+ "Estimated: items often bought at this slot.": "Ước tính: trang bị thường được mua ở thứ tự này.",
+ "AD": "AD",
+ "AP": "AP"
 }

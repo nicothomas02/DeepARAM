@@ -191,5 +191,16 @@
  "Core builds show the boots where the Simulator says to buy them: the first point where they add as much per gold as the next item.": "核心出裝把鞋子放在模擬器建議購買的位置：即每金幣收益首次不低於下一件裝備的時刻。",
  "The biggest win rate boost of any augment on {champ}: +{n} pts.": "{champ}所有強化中勝率提升最大：+{n}個百分點。",
  "Raises {champ}'s win rate by {n} pts.": "使{champ}的勝率提高{n}個百分點。",
- "Lowers {champ}'s win rate by {n} pts.": "使{champ}的勝率降低{n}個百分點。"
+ "Lowers {champ}'s win rate by {n} pts.": "使{champ}的勝率降低{n}個百分點。",
+ "Build for your augments": "依強化選出裝",
+ "The builds below are for any augments. Pick yours to see the best items with it.": "下面的出裝適用於任何強化。選擇你的強化，查看搭配它的最佳裝備。",
+ "Simulated: the Simulator's best items with this augment taken, compared with its best items with no augment.": "模擬：取得該強化時模擬器算出的最佳裝備，與不帶強化時的最佳裝備比較。",
+ "Pick an augment to see the best items with it. ⇄ marks augments that change your build.": "選擇一個強化，查看搭配它的最佳裝備。⇄ 表示會改變出裝的強化。",
+ "Highlighted augments can be added as a second pick.": "強調的強化可以作為第二個選擇加入。",
+ "Changes your build: {n} different items": "改變出裝：{n}件裝備不同",
+ "Your usual items still work": "常用裝備依然適用",
+ "Changes your build": "改變出裝",
+ "The best items with this augment differ from your usual build.": "搭配該強化的最佳裝備與你的常用出裝不同。",
+ "Estimated: the augment picks (1st to 4th) where it usually shows up.": "估算：該強化通常出現的強化輪次（第1到第4次）。",
+ "Pick {n}": "第{n}次"
 }

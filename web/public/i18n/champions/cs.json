@@ -191,5 +191,16 @@
  "Core builds show the boots where the Simulator says to buy them: the first point where they add as much per gold as the next item.": "Základní buildy ukazují boty tam, kde je podle Simulátoru koupit: v prvním bodě, kdy za zlato přidají tolik jako další předmět.",
  "The biggest win rate boost of any augment on {champ}: +{n} pts.": "Největší zvýšení míry výher ze všech vylepšení na {champ}: +{n} b.",
  "Raises {champ}'s win rate by {n} pts.": "Zvyšuje míru výher {champ} o {n} b.",
- "Lowers {champ}'s win rate by {n} pts.": "Snižuje míru výher {champ} o {n} b."
+ "Lowers {champ}'s win rate by {n} pts.": "Snižuje míru výher {champ} o {n} b.",
+ "Build for your augments": "Sestava pro tvá vylepšení",
+ "The builds below are for any augments. Pick yours to see the best items with it.": "Sestavy níže platí pro jakákoli vylepšení. Vyber své a uvidíš nejlepší předměty s ním.",
+ "Simulated: the Simulator's best items with this augment taken, compared with its best items with no augment.": "Simulace: nejlepší předměty simulátoru s tímto vylepšením ve srovnání s nejlepšími předměty bez vylepšení.",
+ "Pick an augment to see the best items with it. ⇄ marks augments that change your build.": "Vyber vylepšení a uvidíš nejlepší předměty s ním. ⇄ označuje vylepšení, která mění sestavu.",
+ "Highlighted augments can be added as a second pick.": "Zvýrazněná vylepšení můžeš přidat jako druhou volbu.",
+ "Changes your build: {n} different items": "Mění sestavu: {n} jiné předměty",
+ "Your usual items still work": "Tvé obvyklé předměty pořád fungují",
+ "Changes your build": "Mění sestavu",
+ "The best items with this augment differ from your usual build.": "Nejlepší předměty s tímto vylepšením se liší od tvé obvyklé sestavy.",
+ "Estimated: the augment picks (1st to 4th) where it usually shows up.": "Odhad: volby vylepšení (1. až 4.), ve kterých se obvykle objevuje.",
+ "Pick {n}": "Volba {n}"
 }
