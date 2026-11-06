@@ -116,3 +116,60 @@ def test_patch_forecast_reports_baselines_and_ranges():
         for e in f["pbe"]["entries"]:
             assert e["range_pts"][0] <= e["predicted_pts"] <= e["range_pts"][1]
             assert e["parsed"] >= 1
+
+
+def test_item_lift_adjusts_against_finished_builds():
+    lift = load_json("data/analysis/item_lift.json")
+    assert lift["premium"]["champions"] >= 100
+    assert 0 <= lift["premium"]["share_positive"] <= 1
+    ranked = {i: v for i, v in lift["items"].items() if "rank_raw" in v}
+    assert len(ranked) == lift["ranked"] >= 60
+    assert sorted(v["rank_raw"] for v in ranked.values()) == list(range(1, len(ranked) + 1))
+    assert sorted(v["rank_adjusted"] for v in ranked.values()) == list(range(1, len(ranked) + 1))
+    for v in lift["items"].values():
+        # adjusted = raw - premium, up to rounding
+        assert abs(v["adjusted"] - (v["raw"] - v["premium"])) < 0.001
+        assert -0.5 < v["raw"] < 0.5 and v["weight"] > 0
+    for m in lift["moved"]:
+        assert m["from"] != m["to"] or len(lift["moved"]) < 2
+    if lift["archive"]:
+        assert sum(r["games"] for r in lift["archive"]["rows"]) == lift["archive"]["games"]
+        for r in lift["archive"]["rows"]:
+            assert r["ci"][0] <= r["win_rate"] <= r["ci"][1]
+
+
+def test_owner_archive_keeps_counts_only(monkeypatch):
+    archive = load_module("data/analysis/owner_archive.py", "analysis_owner_archive", extra_path=["data/analysis"])
+    monkeypatch.setattr(archive, "c", common)  # other test modules load their own `common`
+    rows = [
+        {"dur": 1200, "team": 100, "win": 1, "i0": 3089, "i1": 1001, "i2": 0, "i3": 0, "i4": 0, "i5": 0, "k": 9},
+        {"dur": 120, "team": 200, "win": 0, "i0": 0, "i1": 0, "i2": 0, "i3": 0, "i4": 0, "i5": 0},
+        {"dur": 1500, "team": 200, "win": 0, "i0": 3089, "i1": 4645, "i2": 3157, "i3": 3135, "i4": 3020, "i5": 3118},
+    ]
+    agg = archive.aggregate(rows)
+    assert agg["games"] == 3 and agg["remakes_excluded"] == 1
+    assert agg["ended_in_minute"]["all"] == {"20": 1, "25": 1}
+    assert agg["ended_in_minute"]["win"] == {"20": 1} and agg["ended_in_minute"]["red"] == {"25": 1}
+    assert agg["by_completed_legendary"]["1"] == {"games": 1, "wins": 1}
+    assert agg["by_completed_legendary"]["5"] == {"games": 1, "wins": 0}
+    assert agg["by_completed_legendary"]["0"] == {"games": 1, "wins": 0}
+    text = str(agg)
+    for key in ("k", "puuid", "champ", "3089"):
+        assert key not in agg and f"'{key}'" not in text
+
+
+def test_game_length_survival_is_monotone_and_tested():
+    gl = load_module("data/analysis/game_length.py", "analysis_game_length", extra_path=["data/analysis"])
+    c = gl.curve([0, 0, 2, 3, 5])
+    assert c["games"] == 10 and c["survival"] == [1.0, 1.0, 1.0, 0.8, 0.5] and c["hazard"][4] == 1.0
+    assert c["median"] == 4.0 and c["quartiles"][0] == 3.17  # 2.5 games in: a sixth of the way through minute 3
+    same = gl.log_rank([0, 5, 5, 5], [0, 5, 5, 5])
+    assert same["z"] == 0 and same["p"] == 1
+    longer = gl.log_rank([0, 0, 0, 20], [0, 20, 0, 0])
+    assert longer["z"] > 2 and longer["p"] < 0.05
+    data = load_json("data/analysis/game_length.json")
+    s = data["curves"]["all"]["survival"]
+    assert s[0] == 1.0 and all(a >= b for a, b in zip(s, s[1:]))
+    assert 10 < data["curves"]["all"]["median"] < 30
+    for k in ("win_vs_loss", "blue_vs_red"):
+        assert 0 <= data["compare"][k]["p"] <= 1

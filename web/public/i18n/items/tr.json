@@ -104,5 +104,7 @@
  "Hide items augments can give": "Güçlendirmelerin verdiği eşyaları gizle",
  "Estimated: items often bought at this slot.": "Tahmini: bu sırada sık alınan eşyalar.",
  "AD": "AD",
- "AP": "AP"
+ "AP": "AP",
+ "boost among finished builds": "tamamlanmış buildler arasındaki kazanç",
+ "The boost among finished builds compares the item with its champions' other completed builds, so a champion whose finished games simply go better or worse does not count for or against it. Ranked {n} of {total} legendary items on it.": "Tamamlanmış buildler arasındaki kazanç, eşyayı şampiyonlarının diğer tamamlanmış buildleriyle karşılaştırır; böylece tamamlanmış oyunları sadece daha iyi ya da kötü giden bir şampiyon eşyanın lehine ya da aleyhine sayılmaz. Bu ölçüte göre {total} efsanevi eşya arasında {n}. sırada."
 }

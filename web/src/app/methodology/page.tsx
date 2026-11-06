@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Intro from "@/components/Intro";
 import { T } from "@/components/I18n";
 import { pageMeta } from "@/lib/meta";
-import { damageDealtWorth, doseResponse, pbeForecast, playstyleClusters, typicalSettling } from "@/lib/analysis";
+import { damageDealtWorth, doseResponse, gameLength, itemLiftSummary, pbeForecast, playstyleClusters, typicalSettling } from "@/lib/analysis";
 
 export const metadata: Metadata = pageMeta(
   "/methodology",
@@ -21,6 +21,11 @@ export default function Methodology() {
   const settling = typicalSettling();
   const clusters = playstyleClusters();
   const model = pbeForecast()?.model;
+  const lift = itemLiftSummary();
+  const length = gameLength();
+  const five = lift?.archive?.rows.find((r) => r.completed === 5);
+  const three = lift?.archive?.rows.find((r) => r.completed === 3);
+  const pct = (x: number | null | undefined) => (x === null || x === undefined ? "" : Math.round(100 * x));
   return (
     <>
       <Intro eyebrow={<T ns={NS}>Methodology</T>} title={<T ns={NS}>How DeepARAM turns games into rankings.</T>}>
@@ -141,6 +146,55 @@ export default function Methodology() {
           <p>
             <T ns={NS} v={{ n: model.n, mae: model.cv_mae_pts.toFixed(1), base: model.baseline_no_change_mae_pts.toFixed(1) }}>
               {"Fitted on {n} changes; typical miss {mae} points, against {base} for assuming no change."}
+            </T>
+          </p>
+        )}
+        <h2>
+          <T ns={NS}>Item boosts without the long-game effect</T>
+        </h2>
+        <p>
+          <T ns={NS}>
+            Item win rates come from builds players finished, so each one carries the same effect of the game having run long enough to finish a build. The usual boost compares the item with the champion&apos;s overall win rate, which mixes that in. The item pages also show a boost measured against the same champion&apos;s other finished builds, so the item is judged against builds that were completed under the same conditions. Legendary items are ranked both ways and the ones that move far are the ones the finished-build effect flattered or hid.
+          </T>
+        </p>
+        {lift && lift.premium.share_positive !== null && (
+          <p>
+            <T ns={NS} v={{ n: lift.premium.champions, mean: lift.premium.mean.toFixed(1), sd: lift.premium.sd.toFixed(1), pos: pct(lift.premium.share_positive), moved: lift.moved, ranked: lift.ranked }}>
+              {"Across {n} champions a finished build wins {mean} points more than the champion overall on average, but that varies by {sd} points from champion to champion ({pos}% of them finish builds in better games), which is why the comparison matters per item: {moved} of {ranked} legendary items move ten places or more between the two rankings."}
+            </T>
+          </p>
+        )}
+        {lift?.archive && five && three && (
+          <p>
+            <T ns={NS} v={{ games: lift.archive.games, five: pct(five.win_rate), lo: pct(five.ci[0]), hi: pct(five.ci[1]), three: pct(three.win_rate) }}>
+              {"A check against one player's own archive of {games} games points the same way: games that ended with five completed legendary items were won {five}% of the time (likely range {lo} to {hi}), against {three}% with three, so finishing a build is not in itself a sign the game is going well."}
+            </T>
+          </p>
+        )}
+        <h2>
+          <T ns={NS}>How long games last</T>
+        </h2>
+        <p>
+          <T ns={NS}>
+            Game length is treated as a survival curve: the share of games still running at each minute, and from it the chance that a game still going at a given minute ends during it. Every game ends, so nothing is censored, and wins against losses and blue against red side are compared with a log-rank test. The numbers come from one player&apos;s own archive of games, not from every game played, so they describe a typical experience rather than the whole mode.
+          </T>
+        </p>
+        {length && length.curves.all.median !== null && (
+          <p>
+            <T
+              ns={NS}
+              v={{
+                games: length.games,
+                median: length.curves.all.median.toFixed(1),
+                q1: (length.curves.all.quartiles[0] ?? 0).toFixed(1),
+                q3: (length.curves.all.quartiles[1] ?? 0).toFixed(1),
+                h15: pct(length.curves.all.hazard[15]),
+                h20: pct(length.curves.all.hazard[20]),
+                h25: pct(length.curves.all.hazard[25]),
+                p: length.compare.win_vs_loss.p.toFixed(2),
+              }}
+            >
+              {"Over {games} games, half were over by minute {median} (the middle half ended between minutes {q1} and {q3}). A game still running at minute 15 has a {h15}% chance of ending in that minute, rising to {h20}% at minute 20 and {h25}% at 25: the longer a game runs, the sooner it tends to close. Wins and losses last the same (log-rank p = {p})."}
             </T>
           </p>
         )}

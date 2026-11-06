@@ -104,5 +104,7 @@
  "Hide items augments can give": "إخفاء العناصر التي تمنحها التعزيزات",
  "Estimated: items often bought at this slot.": "تقديري: عناصر تُشترى غالبًا في هذه الخانة.",
  "AD": "AD",
- "AP": "AP"
+ "AP": "AP",
+ "boost among finished builds": "الزيادة ضمن التجهيزات المكتملة",
+ "The boost among finished builds compares the item with its champions' other completed builds, so a champion whose finished games simply go better or worse does not count for or against it. Ranked {n} of {total} legendary items on it.": "تقارن الزيادة ضمن التجهيزات المكتملة العنصر بالتجهيزات المكتملة الأخرى للأبطال الذين يستخدمونه، فلا يُحسب لصالحه أو ضده بطل تسير مبارياته المكتملة أفضل أو أسوأ بطبيعتها. يحتل المرتبة {n} من {total} عنصراً أسطورياً وفق هذا المعيار."
 }

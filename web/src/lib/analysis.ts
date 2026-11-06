@@ -55,10 +55,31 @@ type Forecast = {
   pbe: { build: string | null; live: string | null; dataAsOf: string | null; entries: ForecastEntry[] } | null;
 };
 
+export type ItemLift = { raw: number; adjusted: number; premium: number; weight: number; rank_raw?: number; rank_adjusted?: number };
+type ItemLifts = {
+  built: string;
+  premium: { champions: number; mean: number; sd: number; share_positive: number | null };
+  ranked: number;
+  items: Record<string, ItemLift>;
+  moved: { id: number; from: number; to: number }[];
+  archive: { games: number; win_rate: number | null; rows: { completed: number; games: number; win_rate: number; ci: [number, number] }[] } | null;
+};
+export type LengthCurve = { games: number; median: number | null; quartiles: [number | null, number | null]; survival: number[]; hazard: number[] };
+export type GameLength = {
+  built: string;
+  games: number;
+  remakes_excluded: number;
+  curves: Record<"all" | "win" | "loss" | "blue" | "red", LengthCurve>;
+  peak_minute: number | null;
+  compare: Record<"win_vs_loss" | "blue_vs_red", { z: number; p: number; longer: string }>;
+};
+
 const impact = () => readRepoJson<Impact>("data/analysis/patch_impact.json");
 const settling = () => readRepoJson<Settling>("data/analysis/meta_settling.json");
 const clusters = () => readRepoJson<Clusters>("data/analysis/playstyle_clusters.json");
 const forecast = () => readRepoJson<Forecast>("data/analysis/patch_forecast.json");
+const lifts = () => readRepoJson<ItemLifts>("data/analysis/item_lift.json");
+const length = () => readRepoJson<GameLength>("data/analysis/game_length.json");
 
 /** The measured effect of every champion change the notes listed for a patch, biggest move first. */
 export const patchImpact = (patch: string): ImpactPatch | null => impact()?.patches.find((p) => p.patch === patch) ?? null;
@@ -95,3 +116,17 @@ export function playstyleOf(alias: string): { label: string; unlikeClass: boolea
 }
 
 export const pbeForecast = () => forecast();
+
+/** An item's lift measured against its champions' finished builds instead of their overall win rate (data/analysis/item_lift.py). */
+export const itemLift = (id: number): ItemLift | null => lifts()?.items[String(id)] ?? null;
+
+/** The finished-build premium across champions and how many legendary items changed rank, for the Methodology page. */
+export function itemLiftSummary() {
+  const l = lifts();
+  if (!l) return null;
+  const moved = l.moved.filter((m) => Math.abs(m.from - m.to) >= 10).length;
+  return { premium: l.premium, ranked: l.ranked, moved, archive: l.archive };
+}
+
+/** How long games last, from the survival analysis of the owner's archive; null until the archive aggregates exist. */
+export const gameLength = (): GameLength | null => length();

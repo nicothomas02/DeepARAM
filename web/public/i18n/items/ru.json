@@ -104,5 +104,7 @@
  "Hide items augments can give": "Скрыть предметы от аугментов",
  "Estimated: items often bought at this slot.": "Оценка: предметы, которые часто покупают на этом месте.",
  "AD": "AD",
- "AP": "AP"
+ "AP": "AP",
+ "boost among finished builds": "прирост среди завершённых сборок",
+ "The boost among finished builds compares the item with its champions' other completed builds, so a champion whose finished games simply go better or worse does not count for or against it. Ranked {n} of {total} legendary items on it.": "Прирост среди завершённых сборок сравнивает предмет с другими завершёнными сборками его чемпионов, поэтому чемпион, чьи завершённые игры просто идут лучше или хуже, не идёт ему в плюс или минус. По этому показателю {n}-й из {total} легендарных предметов."
 }

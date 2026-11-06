@@ -104,5 +104,7 @@
  "Hide items augments can give": "オーグメントでもらえるアイテムを隠す",
  "Estimated: items often bought at this slot.": "推定：この枠でよく買われるアイテムです。",
  "AD": "AD",
- "AP": "AP"
+ "AP": "AP",
+ "boost among finished builds": "完成ビルド内での上昇",
+ "The boost among finished builds compares the item with its champions' other completed builds, so a champion whose finished games simply go better or worse does not count for or against it. Ranked {n} of {total} legendary items on it.": "完成ビルド内での上昇は、そのアイテムを使うチャンピオンの他の完成ビルドと比較するため、完成した試合がたまたま良かったり悪かったりするチャンピオンの影響を受けません。この基準で伝説級アイテム{total}個中{n}位です。"
 }

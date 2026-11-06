@@ -104,5 +104,7 @@
  "Hide items augments can give": "隱藏強化贈送的裝備",
  "Estimated: items often bought at this slot.": "估算：常在此順位購買的裝備。",
  "AD": "AD",
- "AP": "AP"
+ "AP": "AP",
+ "boost among finished builds": "完整出裝內的提升",
+ "The boost among finished builds compares the item with its champions' other completed builds, so a champion whose finished games simply go better or worse does not count for or against it. Ranked {n} of {total} legendary items on it.": "完整出裝內的提升是把該裝備與使用它的英雄其他完整出裝相比，因此完整對局本身打得較好或較差的英雄不會對它有利或不利。依此標準在 {total} 件傳說裝備中排第 {n}。"
 }

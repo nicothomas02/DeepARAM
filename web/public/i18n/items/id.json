@@ -104,5 +104,7 @@
  "Hide items augments can give": "Sembunyikan item dari augment",
  "Estimated: items often bought at this slot.": "Perkiraan: item yang sering dibeli di slot ini.",
  "AD": "AD",
- "AP": "AP"
+ "AP": "AP",
+ "boost among finished builds": "peningkatan di antara build yang rampung",
+ "The boost among finished builds compares the item with its champions' other completed builds, so a champion whose finished games simply go better or worse does not count for or against it. Ranked {n} of {total} legendary items on it.": "Peningkatan di antara build yang rampung membandingkan item dengan build rampung lain dari champion yang memakainya, sehingga champion yang game rampungnya memang lebih baik atau lebih buruk tidak menguntungkan atau merugikan item itu. Peringkat {n} dari {total} item legendaris menurut ukuran ini."
 }
