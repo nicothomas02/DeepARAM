@@ -202,5 +202,7 @@
  "Changes your build": "Αλλάζει το build σου",
  "The best items with this augment differ from your usual build.": "Τα καλύτερα αντικείμενα με αυτή την ενίσχυση διαφέρουν από το συνηθισμένο build σου.",
  "Estimated: the augment picks (1st to 4th) where it usually shows up.": "Εκτίμηση: οι επιλογές ενίσχυσης (1η έως 4η) όπου εμφανίζεται συνήθως.",
- "Pick {n}": "Επιλογή {n}"
+ "Pick {n}": "Επιλογή {n}",
+ "From earlier games: skill orders are not updating right now.": "Από παλαιότερα παιχνίδια: οι σειρές ικανοτήτων δεν ενημερώνονται αυτή τη στιγμή.",
+ "From the most common full builds, most built items first.": "Από τα πιο συνηθισμένα πλήρη build, πρώτα τα αντικείμενα που φτιάχνονται πιο συχνά."
 }

@@ -43,6 +43,9 @@ type Builds = {
     string,
     { id: number; pick_rate: number; grade?: string }[]
   >;
+  /** Blocks that stopped updating (data/cn/builds.py), and ones rebuilt from the six-item builds. */
+  stale?: string[];
+  derived?: string[];
 };
 export type Rated = { winRate: number; pickRate: number; lift: number };
 export type ItemRow = Rated & {
@@ -118,6 +121,10 @@ export type ChampionPage = {
   changes: Change[];
   modifiers: Record<string, number>;
   stats: BaseStats | null;
+  /** The skill orders stopped updating: shown with a note. */
+  skillsStale: boolean;
+  /** Core builds come from the six-item builds, so their order is estimated. */
+  coreDerived: boolean;
   /** Names and icons of every item the tables show. */
   itemInfo: Record<number, { name: string; icon?: string }>;
 };
@@ -238,6 +245,8 @@ export function championPage(alias: string): ChampionPage | null {
     changes,
     modifiers,
     stats: client?.stats ?? null,
+    skillsStale: !!b?.stale?.includes("skills"),
+    coreDerived: !!b?.derived?.includes("items.core"),
   };
   const used = new Set(
     [page.starting, page.boots, page.core, page.full, page.items]
