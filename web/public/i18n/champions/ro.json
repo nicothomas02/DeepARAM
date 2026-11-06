@@ -202,5 +202,7 @@
  "Changes your build": "Îți schimbă build-ul",
  "The best items with this augment differ from your usual build.": "Cele mai bune obiecte cu această augmentare diferă de build-ul tău obișnuit.",
  "Estimated: the augment picks (1st to 4th) where it usually shows up.": "Estimat: alegerile de augmentare (de la a 1-a la a 4-a) în care apare de obicei.",
- "Pick {n}": "Alegerea {n}"
+ "Pick {n}": "Alegerea {n}",
+ "From earlier games: skill orders are not updating right now.": "Din meciuri mai vechi: ordinea abilităților nu se actualizează acum.",
+ "From the most common full builds, most built items first.": "Din cele mai comune build-uri complete, obiectele cele mai construite primele."
 }

@@ -202,5 +202,7 @@
  "Changes your build": "Dizilimini değiştirir",
  "The best items with this augment differ from your usual build.": "Bu güçlendirmeyle en iyi eşyalar her zamanki diziliminden farklı.",
  "Estimated: the augment picks (1st to 4th) where it usually shows up.": "Tahmini: genellikle çıktığı güçlendirme seçimleri (1. ile 4.).",
- "Pick {n}": "{n}. seçim"
+ "Pick {n}": "{n}. seçim",
+ "From earlier games: skill orders are not updating right now.": "Önceki oyunlardan: yetenek sıraları şu an güncellenmiyor.",
+ "From the most common full builds, most built items first.": "En yaygın tam dizilimlerden, en çok yapılan eşyalar önce."
 }

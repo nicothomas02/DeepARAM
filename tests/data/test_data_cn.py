@@ -445,3 +445,39 @@ def test_item_history_picks_the_patch_window():
     assert mod.patch_of("2026-10-01", windows) is None
     snap = mod.snapshot([{"id": 1, "items": {"boots": [{"items": [3020], "pick_rate": 0.5, "win_rate": 0.49}], "core": []}}])
     assert snap == {"1": {"starting": [], "boots": [[[3020], 0.5, 0.49]], "other": []}}
+
+
+# ---------- block freshness (builds.py freshen) ----------
+
+def test_build_blocks_are_fresh_or_flagged(builds):
+    """Core builds, single items and skill orders froze upstream in mid-October 2026 while the rest kept updating.
+    Every file records when each block last changed; a block older than a week is either rebuilt from the six-item
+    builds ("derived") or flagged ("stale") for the site to label."""
+    mod = load_module("data/cn/builds.py", "deeparam_cn_builds", extra_path=["data/cn"])
+    for cid, b in builds.items():
+        assert set(b["fresh"]) == set(mod.BLOCKS), cid
+        day = dt.date.fromisoformat(b["date"])
+        for key, f in b["fresh"].items():
+            old = (day - dt.date.fromisoformat(f["since"])).days >= mod.STALE_DAYS
+            assert old == (key in b["stale"] or key in b["derived"]), (cid, key)
+
+
+def test_freshen_rebuilds_stale_core_and_items():
+    mod = load_module("data/cn/builds.py", "deeparam_cn_builds", extra_path=["data/cn"])
+    full = [{"items": [3111, 6333, 3065, 2517, 3161, 6610], "pick_rate": 0.02, "win_rate": 0.5},
+            {"items": [3111, 6333, 3065, 2517, 3161, 3071], "pick_rate": 0.01, "win_rate": 0.4}]
+    frozen = [{"items": [1, 2, 3], "pick_rate": 0.5, "win_rate": 0.5}]
+    data = {"date": "2026-11-05", "augments": {}, "skills": [], "partners": [],
+            "items": {"starting": [], "boots": [], "core": frozen, "other": frozen, "full_builds": full}}
+    seed = {k: {"sig": mod.signature(mod.block(data, k)), "since": "2026-10-16"} for k in mod.BLOCKS}
+    seed["items.full_builds"]["since"] = "2026-11-05"
+    out = mod.freshen(data, {"fresh": seed}, {3111})
+    assert out["derived"] == ["items.core", "items.other"]
+    assert "skills" in out["stale"] and "items.full_builds" not in out["stale"]
+    assert all(3111 not in r["items"] for r in out["items"]["core"] + out["items"]["other"])
+    assert out["items"]["other"][0]["pick_rate"] == 1.0
+    assert len(out["items"]["core"][0]["items"]) == 3
+    # A block that changes again is fresh from that day.
+    data2 = dict(data, skills=[{"max_order": ["Q"]}])
+    out2 = mod.freshen(data2, out, {3111})
+    assert out2["fresh"]["skills"]["since"] == "2026-11-05" and "skills" not in out2["stale"]

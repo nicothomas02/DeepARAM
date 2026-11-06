@@ -202,5 +202,7 @@
  "Changes your build": "Mengubah build-mu",
  "The best items with this augment differ from your usual build.": "Item terbaik dengan augment ini berbeda dari build biasamu.",
  "Estimated: the augment picks (1st to 4th) where it usually shows up.": "Perkiraan: pilihan augment (ke-1 sampai ke-4) tempat augment ini biasanya muncul.",
- "Pick {n}": "Pilihan {n}"
+ "Pick {n}": "Pilihan {n}",
+ "From earlier games: skill orders are not updating right now.": "Dari game sebelumnya: urutan skill sedang tidak diperbarui.",
+ "From the most common full builds, most built items first.": "Dari full build paling umum, item yang paling sering dibuat lebih dulu."
 }
