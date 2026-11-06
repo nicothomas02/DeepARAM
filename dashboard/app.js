@@ -223,7 +223,17 @@ function normalize(g, owner) {
 async function loadItems() {
   try {
     const items = await (await fetch("/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/items.json")).json();
-    for (const it of items) if ((it.categories || []).includes("Boots") && !(it.id >= 550000 && it.id < 560000)) state.boots.add(it.id);
+    for (const it of items) {
+      const cats = it.categories || [];
+      if (cats.includes("Boots") && !(it.id >= 550000 && it.id < 560000)) state.boots.add(it.id);
+      ITEMS[it.id] = {
+        name: it.name,
+        // the client's icon path, as mirrored on the site (lower case)
+        icon: it.iconPath ? "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/" + it.iconPath.replace(/^\/lol-game-data\/assets\//i, "").toLowerCase() : "",
+        // finished items and boots: what the champion page lists, without potions, wards and components
+        full: !cats.includes("Consumable") && !cats.includes("Trinket") && (cats.includes("Boots") || !(it.to || []).length),
+      };
+    }
   } catch (e) { console.warn("item data unavailable", e); }
 }
 
@@ -338,6 +348,7 @@ function render() {
   renderTotals(state.games);
   renderBadges(state.games);
   if (state.live.length) renderLive();
+  renderDetail();
 }
 
 function sum(games, f) { return games.reduce((t, g) => t + f(g), 0); }
@@ -414,7 +425,7 @@ function renderForm(games) {
   $("form-note").textContent = last.length ? t("Latest {n} games, newest first", { n: last.length }) : "";
   $("form-strip").innerHTML = last.map((g) => {
     const tip = `${champName(g)} · ${t(g.win ? "Win" : "Loss")} · ${g.kills} / ${g.deaths} / ${g.assists} · ${fmtDate(new Date(g.time))}`;
-    return `<img class="${g.win ? "win" : "loss"}" src="${ICON(g.champId)}" alt="${esc(champName(g))}" title="${esc(tip)}" loading="lazy" width="44" height="44">`;
+    return `<a href="${champHref(g.champId)}"><img class="${g.win ? "win" : "loss"}" src="${ICON(g.champId)}" alt="${esc(champName(g))}" title="${esc(tip)}" loading="lazy" width="44" height="44"></a>`;
   }).join("");
   if (!games.length) { $("form-tiles").innerHTML = ""; return; }
   let run = 0;
@@ -464,9 +475,9 @@ function renderFacts(games) {
 
   const champs = group(games, (g) => g.champId).sort((a, b) => b.n - a.n || b.w - a.w);
   const comfort = champs[0];
-  add("Comfort pick", esc(champName(comfort.sample)), t("{games}, {wr} win rate", { games: games1(comfort), wr: pct(comfort.w / comfort.n) }), comfort.key);
+  add("Comfort pick", champLink(comfort.key, champName(comfort.sample)), t("{games}, {wr} win rate", { games: games1(comfort), wr: pct(comfort.w / comfort.n) }), comfort.key);
   const best = bestBy(champs, FACT_MIN);
-  if (best && best !== comfort) add("Best champion", esc(champName(best.sample)), t("{games}, {wr} win rate", { games: games1(best), wr: pct(best.w / best.n) }), best.key);
+  if (best && best !== comfort) add("Best champion", champLink(best.key, champName(best.sample)), t("{games}, {wr} win rate", { games: games1(best), wr: pct(best.w / best.n) }), best.key);
 
   const { info } = sessionInfo();
   const after = (won) => games.filter((g) => { const p = info.get(g).prev; return p && p.win === won; });
@@ -491,9 +502,9 @@ function renderFacts(games) {
   if (enemies.length >= 2) {
     enemies.sort((a, b) => a.w / a.n - b.w / b.n || b.n - a.n);
     const nem = enemies[0];
-    add("Nemesis", esc(champById(nem.key)), t("You win {wr} of {games} against them", { wr: pct(nem.w / nem.n), games: games1(nem) }), nem.key);
+    add("Nemesis", champLink(nem.key, champById(nem.key)), t("You win {wr} of {games} against them", { wr: pct(nem.w / nem.n), games: games1(nem) }), nem.key);
     const fav = enemies.slice(1).sort((a, b) => b.w / b.n - a.w / a.n || b.n - a.n)[0];
-    add("Favorite opponent", esc(champById(fav.key)), t("You win {wr} of {games} against them", { wr: pct(fav.w / fav.n), games: games1(fav) }), fav.key);
+    add("Favorite opponent", champLink(fav.key, champById(fav.key)), t("You win {wr} of {games} against them", { wr: pct(fav.w / fav.n), games: games1(fav) }), fav.key);
   }
 
   const days = group(games, (g) => new Date(g.time).toDateString()).sort((a, b) => b.n - a.n || b.w - a.w);
@@ -509,7 +520,7 @@ function renderFacts(games) {
   const augs = group(games, (g) => [...new Set(g.augs)]).sort((a, b) => b.n - a.n || b.w - a.w)[0];
   if (augs && augs.n > 2) add("Favorite augment", esc(augName(augs.key)), t("Picked in {games}, {wr} win rate", { games: games1(augs), wr: pct(augs.w / augs.n) }));
 
-  el.innerHTML = facts.map((f) => `<div class="fact">${f.icon != null ? champIcon(f.icon) : ""}<div>
+  el.innerHTML = facts.map((f) => `<div class="fact">${f.icon != null ? `<a href="${champHref(f.icon)}" tabindex="-1">${champIcon(f.icon)}</a>` : ""}<div>
     <div class="f-label">${esc(t(f.label))}</div><div class="f-v">${f.value}</div><div class="f-sub">${esc(f.sub)}</div></div></div>`).join("");
 }
 
@@ -558,7 +569,7 @@ function renderEnemies(games) {
   const min = +$("f-minenemy").value || 1;
   const rows = enemyRows(games).filter((r) => r.n >= min);
   table("t-enemies", [
-    { label: "Enemy", get: (r) => champById(r.key), fmt: (r) => esc(champById(r.key)) },
+    { label: "Enemy", get: (r) => champById(r.key), fmt: (r) => champLink(r.key, champById(r.key)) },
     { label: "Games", get: (r) => r.n },
     { label: "Win rate", get: (r) => r.w / r.n - r.n / 1e6, fmt: (r) => pct(r.w / r.n), cls: (r) => wrClass(r.w / r.n) },
   ], rows, 2);
@@ -822,7 +833,7 @@ function renderChamps(games) {
   const rows = group(games, (g) => g.champId);
   $("n-champs").textContent = t("{n} matches", { n: games.length.toLocaleString() });
   table("t-champs", [
-    { label: "Champion", get: (r) => champName(r.sample) },
+    { label: "Champion", get: (r) => champName(r.sample), fmt: (r) => champLink(r.key, champName(r.sample)) },
     { label: "Matches", get: (r) => r.n },
     { label: "Win rate", get: (r) => r.w / r.n, fmt: (r) => pct(r.w / r.n), cls: (r) => wrClass(r.w / r.n) },
     { label: "KDA", get: (r) => (r.k + r.a) / Math.max(1, r.d), fmt: (r) => kda(r.k, r.d, r.a) },
@@ -894,7 +905,11 @@ const RECORDS = [
 ];
 
 function renderRecords(G) {
-  $("records").innerHTML = RECORDS.map(([label, f, fmt]) => {
+  $("records").innerHTML = recordsHtml(G);
+}
+
+function recordsHtml(G) {
+  return RECORDS.map(([label, f, fmt]) => {
     let best = null, bv = -Infinity;
     for (const g of G) { const v = f(g); if (v > bv) { bv = v; best = g; } }
     if (!best || !Number.isFinite(bv) || bv <= 0 && !label.startsWith("Fastest")) return "";
@@ -924,7 +939,7 @@ function renderCurve(G) {
     cls: (r) => (r.b[i].length >= 3 ? wrClass(count(r.b[i], (g) => g.win) / r.b[i].length) : ""),
   });
   table("t-curve", [
-    { label: "Champion", get: (r) => champName(r.sample), fmt: (r) => esc(champName(r.sample)) },
+    { label: "Champion", get: (r) => champName(r.sample), fmt: (r) => champLink(r.sample.champId, champName(r.sample)) },
     { label: "Matches", get: (r) => r.n },
     cell(0), cell(1), cell(2), cell(3),
     { label: "Change", get: (r) => r.change, fmt: (r) => `${r.change > 0 ? "+" : ""}${(r.change * 100).toFixed(1)}`,
@@ -964,16 +979,14 @@ function renderAllies(games) {
   }
   const rows = [...map.values()].filter((r) => r.n >= min).sort((x, y) => y.w / y.n - x.w / x.n || y.n - x.n).slice(0, 100);
   table("t-allies", [
-    { label: "Teammate", get: (r) => champById(r.id), fmt: (r) => esc(champById(r.id)) },
+    { label: "Teammate", get: (r) => champById(r.id), fmt: (r) => champLink(r.id, champById(r.id)) },
     { label: "Games", get: (r) => r.n },
     { label: "Win rate", get: (r) => r.w / r.n + r.n / 1e6, fmt: (r) => pct(r.w / r.n), cls: (r) => wrClass(r.w / r.n) },
   ], rows, 2);
 }
 
-// Players you've teamed up with, by Riot ID, from your own games. Clicking a name opens their stats in those
-// games: nothing is looked up, it's all from games you played together.
-let mateOpen = null;
-
+// Players you've teamed up with, by Riot ID, from your own games. Clicking a name opens their page: nothing is
+// looked up, it's all from games you played together.
 function mateRows(games) {
   const map = new Map();
   for (const g of games) for (const m of g.mates || []) {
@@ -989,61 +1002,297 @@ function mateRows(games) {
   return map;
 }
 
+// Links to the champion and player pages below. They live in the address's #part, so Back returns to the overview.
+const champHref = (id) => `#champion/${Number(id)}`;
+const champLink = (id, name) => `<a class="name-link" href="${champHref(id)}">${esc(name)}</a>`;
+const playerLink = (key, name) => `<a class="name-link" href="#player/${encodeURIComponent(key)}">${esc(name)}</a>`;
+
 function renderMates(games) {
   const min = +$("f-minmate").value || 1;
   const map = mateRows(games);
   const rows = [...map.values()].filter((r) => r.n >= min);
   $("mates-card").hidden = !map.size;
   table("t-mates", [
-    { label: "Player", get: (r) => r.name.toLowerCase(), fmt: (r) => `<button type="button" class="name-btn" data-mate="${esc(r.key)}" aria-expanded="${r.key === mateOpen}">${esc(r.name)}</button>` },
+    { label: "Player", get: (r) => r.name.toLowerCase(), fmt: (r) => playerLink(r.key, r.name) },
     { label: "Games together", get: (r) => r.n },
     { label: "Win rate together", get: (r) => r.w / r.n + r.n / 1e6, fmt: (r) => pct(r.w / r.n), cls: (r) => wrClass(r.w / r.n) },
     { label: "Their KDA", get: (r) => (r.k + r.a) / Math.max(1, r.d), fmt: (r) => kda(r.k, r.d, r.a) },
+    { label: "Their damage", get: (r) => r.dmg / r.n, fmt: (r) => Math.round(r.dmg / r.n).toLocaleString() },
   ], rows.slice(0, 100), 1);
-  showMate(mateOpen && map.get(mateOpen));
 }
 
-function showMate(r) {
-  const box = $("mate-panel");
-  if (!r) { box.hidden = true; mateOpen = null; return; }
-  const champs = [...r.champs.values()].sort((x, y) => y.n - x.n).slice(0, 6);
-  const icon = (id) => `<img src="/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/${Number(id)}.png" alt="" loading="lazy">`;
-  box.innerHTML = `
-    <div class="mate-h"><h4>${esc(t("{name} with you", { name: r.name }))}</h4>
-      <button type="button" class="btn" data-mate-close>${esc(t("Close"))}</button></div>
-    <div class="mate-tiles">
-      <div><b>${r.n.toLocaleString()}</b><span>${esc(t("Games together"))}</span></div>
-      <div><b class="${wrClass(r.w / r.n)}">${pct(r.w / r.n)}</b><span>${esc(t("Win rate together"))}</span></div>
-      <div><b>${kda(r.k, r.d, r.a)}</b><span>${esc(t("Their KDA"))}</span></div>
-      <div><b>${Math.round(r.dmg / r.n).toLocaleString()}</b><span>${esc(t("Their damage per game"))}</span></div>
+// ---------- champion and player pages ----------
+// #champion/<id>: every game you played on that champion. #player/<name>: every game you played with that
+// teammate, and how they did in them. Both count all your games, whatever the overview's filters show, and
+// both come only from your own games: nothing is looked up.
+
+const ITEMS = {}; // item id -> {name, icon}
+const itemName = (id) => (ITEMS[id] && ITEMS[id].name) || t("Item {id}", { id });
+const itemCell = (id) => `<span class="with-icon">${ITEMS[id] && ITEMS[id].icon ? `<img src="${ITEMS[id].icon}" alt="" loading="lazy" width="28" height="28" onerror="this.remove()">` : ""}${esc(itemName(id))}</span>`;
+const SITE = ["127.0.0.1", "localhost"].includes(location.hostname) ? "https://deeparam.com/" : "/";
+
+function streakBest(G, won) {
+  let best = 0, run = 0;
+  for (const g of [...G].sort((a, b) => a.time - b.time)) { run = g.win === won ? run + 1 : 0; best = Math.max(best, run); }
+  return best;
+}
+
+function formStripHtml(G, icon) {
+  return G.slice(0, 20).map((x) => {
+    const g = x.g || x;
+    const id = icon(x);
+    const tip = `${champById(id)} · ${t(g.win ? "Win" : "Loss")} · ${fmtDate(new Date(g.time))}`;
+    return `<img class="${g.win ? "win" : "loss"}" src="${ICON(id)}" alt="${esc(champById(id))}" title="${esc(tip)}" loading="lazy" width="44" height="44">`;
+  }).join("");
+}
+
+function byMonth(G, getG = (x) => x) {
+  const months = new Map();
+  for (const x of [...G].reverse()) {
+    const g = getG(x);
+    const d = new Date(g.time);
+    const key = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}`;
+    const m = months.get(key) || { label: d.toLocaleDateString(LANG, { year: "numeric", month: "short" }), n: 0, w: 0 };
+    m.n++; m.w += g.win ? 1 : 0;
+    months.set(key, m);
+  }
+  return [...months.values()];
+}
+
+const detailCard = (title, body, foot = "", wide = false) =>
+  `<section class="card${wide ? " wide" : ""}"><div class="card-h"><h3>${esc(title)}</h3>${foot ? `<span class="foot">${esc(foot)}</span>` : ""}</div>${body}</section>`;
+const tableBox = (id) => `<div class="tbl-wrap"><table id="${id}"></table></div>`;
+const barsBox = (id) => `<div id="${id}" class="wrbars"></div>`;
+const vsAll = (rate) => t("{d} pts vs all your games", { d: ptsText((rate - winRate(state.games)) * 100) });
+
+function detailHead(icon, title, sub, link) {
+  return `<div class="d-top"><a class="btn" href="#">← ${esc(t("Back to My Stats"))}</a></div>
+    <header class="d-head">${icon}<div><h2>${esc(title)}</h2><p class="sub">${esc(sub)}</p>${link || ""}</div></header>`;
+}
+
+// How you do on, with and against a champion: the bars at the top of its page.
+function matchupBars(id, name) {
+  const rows = [
+    [t("Playing {name}", { name }), (g) => g.champId === id],
+    [t("With {name} on your team", { name }), (g) => (g.allies || []).includes(id)],
+    [t("Against {name}", { name }), (g) => (g.enemies || []).includes(id)],
+  ].map(([label, f]) => { const G = state.games.filter(f); return { label, n: G.length, w: count(G, (g) => g.win) }; });
+  return rows;
+}
+
+function renderChampionPage(id) {
+  const name = champById(id);
+  const matchups = matchupBars(id, name);
+  if (!matchups.some((r) => r.n)) return false;
+  const G = state.games.filter((g) => g.champId === id);
+  const alias = state.champAlias[id];
+  const link = alias ? `<a class="d-link" href="${SITE}champions/${encodeURIComponent(alias)}" target="_top">${esc(t("Builds and augments for {name}", { name }))} →</a>` : "";
+  const matchupCard = detailCard(t("Playing, with and against {name}", { name }), `<div id="d-matchups" class="wrbars"></div>`, t("Win rate in all your games"));
+  if (!G.length) {
+    const vs = state.games.filter((g) => (g.enemies || []).includes(id));
+    $("detail").innerHTML = detailHead(`<img class="d-icon" src="${ICON(id)}" alt="" width="72" height="72">`, name, t("You haven't played {name} yet", { name }), link) +
+      matchupCard + (vs.length ? detailCard(t("Games against {name}", { name }), tableBox("d-games"), t(vs.length === 1 ? "1 game" : "{n} games", { n: vs.length.toLocaleString() })) : "");
+    wrBars("d-matchups", matchups);
+    if (vs.length) table("d-games", [
+      { label: "Date", get: (r) => r.time, fmt: (r) => fmtDate(new Date(r.time)) },
+      { label: "Your champion", get: (r) => champName(r), fmt: (r) => champLink(r.champId, champName(r)) },
+      { label: "Result", get: (r) => +r.win, fmt: (r) => resultBanner(r.win), cls: (r) => (r.win ? "win" : "loss") },
+      { label: "K / D / A", get: (r) => (r.kills + r.assists) / Math.max(1, r.deaths), fmt: (r) => `${r.kills} / ${r.deaths} / ${r.assists}` },
+      { label: "Damage", get: (r) => r.damage, fmt: (r) => r.damage.toLocaleString() },
+    ], vs.slice(0, 300), 0);
+    return true;
+  }
+  const n = G.length, w = count(G, (g) => g.win), rate = w / n;
+  const sum3 = (f) => sum(G, f);
+  const kp = shareOf(G, (g) => g.kills + g.assists, (g) => g.teamKills);
+  const ds = shareOf(G, (g) => g.damage, (g) => g.teamDmg);
+  const rank = group(state.games, (g) => g.champId).sort((a, b) => b.n - a.n).findIndex((r) => r.key === id) + 1;
+  const tiles = [
+    [t("Win rate"), pct(rate), vsAll(rate), wrClass(rate)],
+    [t("KDA"), kda(sum3((g) => g.kills), sum3((g) => g.deaths), sum3((g) => g.assists)), `${(sum3((g) => g.kills) / n).toFixed(1)} / ${(sum3((g) => g.deaths) / n).toFixed(1)} / ${(sum3((g) => g.assists) / n).toFixed(1)}`],
+    [t("Damage to champions"), Math.round(sum3((g) => g.damage) / n).toLocaleString(), t("per game")],
+    [t("Kill participation"), kp ? pct(kp.v) : "–", kp ? t("average") : ""],
+    [t("Damage share"), ds ? pct(ds.v) : "–", ds ? t("of your team's damage") : ""],
+    [t("Game length"), mmss(sum3((g) => g.duration) / n), t("average")],
+    [t("Best win streak"), String(streakBest(G, true)), t("games in a row")],
+    [t("Pentakills"), String(sum3((g) => g.penta)), t("{n} quadra kills", { n: sum3((g) => g.quadra) })],
+  ];
+  $("detail").innerHTML = detailHead(`<img class="d-icon" src="${ICON(id)}" alt="" width="72" height="72">`, name,
+    `${t(n === 1 ? "1 game" : "{n} games", { n: n.toLocaleString() })} · ${t("{w} W · {l} L", { w, l: n - w })} · ${t("Your #{rank} most played", { rank })}`, link) + `
+    <div class="stats-row">${tiles.map(tileHtml).join("")}</div>
+    <div class="two-col">
+      ${detailCard(t("Recent form"), `<div class="form-strip">${formStripHtml(G, (g) => g.champId)}</div>`, t("Latest {n} games, newest first", { n: Math.min(20, n) }))}
+      ${matchupCard}
     </div>
-    <h5>${esc(t("Their champions"))}</h5>
-    <ul class="mate-champs">${champs.map((c) => `<li>${icon(c.id)}<span>${esc(champById(c.id))}</span><small>${esc(t(c.n === 1 ? "1 game" : "{n} games", { n: c.n }))} · ${pct(c.w / c.n)}</small></li>`).join("")}</ul>
-    <h5>${esc(t("Games together"))}</h5>
-    <div class="tbl-wrap"><table class="mate-games"><thead><tr><th>${esc(t("Date"))}</th><th>${esc(t("Their champion"))}</th><th>${esc(t("Your champion"))}</th><th>${esc(t("Result"))}</th><th>${esc(t("Their K / D / A"))}</th></tr></thead><tbody>${
-      r.games.slice(0, 20).map(({ g, m }) => `<tr><td>${fmtDate(new Date(g.time))}</td><td>${esc(champById(m.champ))}</td><td>${esc(champName(g))}</td><td class="${g.win ? "win" : "loss"}">${resultBanner(g.win)}</td><td>${m.k} / ${m.d} / ${m.a}</td></tr>`).join("")
-    }</tbody></table></div>`;
-  box.hidden = false;
+    <div class="two-col">
+      ${detailCard(t("Augments"), tableBox("d-augs"), t("Picked with {name}", { name }))}
+      ${detailCard(t("Items"), tableBox("d-items"), t("In your final items"))}
+    </div>
+    <div class="two-col">
+      ${detailCard(t("Enemy champions"), tableBox("d-enemies"), t("Toughest first"))}
+      ${detailCard(t("Best teammate champions"), tableBox("d-allies"))}
+    </div>
+    <div class="two-col">
+      ${detailCard(t("Win rate by month"), barsBox("d-month"))}
+      ${detailCard(t("Win rate by game length"), barsBox("d-length"))}
+    </div>
+    ${detailCard(t("Personal records"), `<div id="d-records" class="records"></div>`, t("On {name}", { name }))}
+    ${detailCard(t("Games"), tableBox("d-games"), t(n === 1 ? "1 game" : "{n} games", { n: n.toLocaleString() }))}`;
+
+  table("d-augs", [
+    { label: "Augment", get: (r) => augName(r.key), fmt: (r) => esc(augName(r.key)) },
+    { label: "Picks", get: (r) => r.n },
+    { label: "Win rate", get: (r) => r.w / r.n + r.n / 1e6, fmt: (r) => pct(r.w / r.n), cls: (r) => wrClass(r.w / r.n) },
+  ], group(G, (g) => [...new Set(g.augs)]), 1);
+  const builtItems = group(G, (g) => [...new Set(g.items)].filter((i) => !ITEMS[i] || ITEMS[i].full));
+  table("d-items", [
+    { label: "Item", get: (r) => itemName(r.key), fmt: (r) => itemCell(r.key) },
+    { label: "Games", get: (r) => r.n },
+    { label: "Win rate", get: (r) => r.w / r.n + r.n / 1e6, fmt: (r) => pct(r.w / r.n), cls: (r) => wrClass(r.w / r.n) },
+  ], builtItems, 1);
+  sortState["d-enemies"] ||= { col: 2, asc: true };
+  table("d-enemies", [
+    { label: "Enemy", get: (r) => champById(r.key), fmt: (r) => champLink(r.key, champById(r.key)) },
+    { label: "Games", get: (r) => r.n },
+    { label: "Win rate", get: (r) => r.w / r.n - r.n / 1e6, fmt: (r) => pct(r.w / r.n), cls: (r) => wrClass(r.w / r.n) },
+  ], enemyRows(G).filter((r) => r.n >= 2), 2);
+  table("d-allies", [
+    { label: "Teammate", get: (r) => champById(r.key), fmt: (r) => champLink(r.key, champById(r.key)) },
+    { label: "Games", get: (r) => r.n },
+    { label: "Win rate", get: (r) => r.w / r.n + r.n / 1e6, fmt: (r) => pct(r.w / r.n), cls: (r) => wrClass(r.w / r.n) },
+  ], group(G, (g) => [...new Set(g.allies)]).filter((r) => r.n >= 2), 2);
+  wrBars("d-month", byMonth(G));
+  wrBars("d-matchups", matchups);
+  const timed = G.filter((g) => g.duration > 0);
+  wrBars("d-length", LENGTHS.map(([lo, hi, label]) => {
+    const L = timed.filter((g) => g.duration >= lo && g.duration < hi);
+    return { label, n: L.length, w: count(L, (g) => g.win) };
+  }));
+  $("d-records").innerHTML = recordsHtml(G);
+  table("d-games", [
+    { label: "Date", get: (r) => r.time, fmt: (r) => fmtDate(new Date(r.time)) },
+    { label: "Result", get: (r) => +r.win, fmt: (r) => resultBanner(r.win), cls: (r) => (r.win ? "win" : "loss") },
+    { label: "K / D / A", get: (r) => (r.kills + r.assists) / Math.max(1, r.deaths), fmt: (r) => `${r.kills} / ${r.deaths} / ${r.assists}` },
+    { label: "Damage", get: (r) => r.damage, fmt: (r) => r.damage.toLocaleString() },
+    { label: "Length", get: (r) => r.duration, fmt: (r) => mmss(r.duration) },
+    { label: "Augments", get: (r) => r.augs.length, fmt: (r) => esc(r.augs.map(augName).join(", ")), cls: () => "augs" },
+  ], G.slice(0, 300), 0);
+  return true;
 }
 
-$("t-mates").addEventListener("click", (e) => {
-  const b = e.target.closest("[data-mate]");
-  if (!b) return;
-  mateOpen = mateOpen === b.dataset.mate ? null : b.dataset.mate;
-  render();
-  if (mateOpen) $("mate-panel").scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "nearest" });
+function renderPlayerPage(key) {
+  const r = mateRows(state.games).get(key);
+  if (!r) return false;
+  const X = r.games; // [{g, m}] newest first
+  const n = r.n, w = r.w, rate = w / n;
+  const mine = X.map((x) => x.g);
+  const other = state.games.filter((g) => !(g.mates || []).some((m) => m.key === key));
+  const kpX = X.filter((x) => x.g.teamKills > 0), dsX = X.filter((x) => x.g.teamDmg > 0);
+  const theirKp = kpX.length ? sum(kpX, (x) => (x.m.k + x.m.a) / x.g.teamKills) / kpX.length : null;
+  const theirDs = dsX.length ? sum(dsX, (x) => x.m.dmg / x.g.teamDmg) / dsX.length : null;
+  const first = X[X.length - 1].g, last = X[0].g;
+  const tiles = [
+    [t("Win rate together"), pct(rate), other.length ? t("{wr} in your other games", { wr: pct(winRate(other)) }) : "", wrClass(rate)],
+    [t("Their KDA"), kda(r.k, r.d, r.a), `${(r.k / n).toFixed(1)} / ${(r.d / n).toFixed(1)} / ${(r.a / n).toFixed(1)}`],
+    [t("Their damage per game"), Math.round(r.dmg / n).toLocaleString(), ""],
+    [t("Their kill participation"), theirKp != null ? pct(theirKp) : "–", ""],
+    [t("Their damage share"), theirDs != null ? pct(theirDs) : "–", theirDs != null ? t("of your team's damage") : ""],
+    [t("Your KDA with them"), kda(sum(mine, (g) => g.kills), sum(mine, (g) => g.deaths), sum(mine, (g) => g.assists)),
+      t("{kda} in all your games", { kda: kda(sum(state.games, (g) => g.kills), sum(state.games, (g) => g.deaths), sum(state.games, (g) => g.assists)) })],
+    [t("Best win streak together"), String(streakBest(mine, true)), t("games in a row")],
+    [t("Out-damaged you"), pct(count(X, (x) => x.m.dmg > x.g.damage) / n), t("of your games together")],
+  ];
+  $("detail").innerHTML = detailHead(`<span class="d-icon d-letter" aria-hidden="true">${esc((r.name || "?").charAt(0).toUpperCase())}</span>`, r.name,
+    `${t(n === 1 ? "1 game together" : "{n} games together", { n: n.toLocaleString() })} · ${t("{w} W · {l} L", { w, l: n - w })} · ${fmtDate(new Date(first.time))} – ${fmtDate(new Date(last.time))}`) + `
+    <p class="foot d-note">${esc(t("Only from games you played together, saved in your own history."))}</p>
+    <div class="stats-row">${tiles.map(tileHtml).join("")}</div>
+    ${detailCard(t("Recent games together"), `<div class="form-strip">${formStripHtml(X, (x) => x.m.champ)}</div>`, t("Their champions, newest first"))}
+    <div class="two-col">
+      ${detailCard(t("Their champions"), tableBox("d-their"))}
+      ${detailCard(t("Your champions with them"), tableBox("d-yours"))}
+    </div>
+    <div class="two-col">
+      ${detailCard(t("Duos"), tableBox("d-duos"), t("Your champion + theirs"))}
+      ${detailCard(t("Win rate together by month"), barsBox("d-month"))}
+    </div>
+    ${detailCard(t("Games together"), tableBox("d-games"), t(n === 1 ? "1 game together" : "{n} games together", { n: n.toLocaleString() }))}`;
+
+  const champTable = (id, rows) => table(id, [
+    { label: "Champion", get: (c) => champById(c.key), fmt: (c) => champLink(c.key, champById(c.key)) },
+    { label: "Games", get: (c) => c.n },
+    { label: "Win rate", get: (c) => c.w / c.n + c.n / 1e6, fmt: (c) => pct(c.w / c.n), cls: (c) => wrClass(c.w / c.n) },
+    { label: "KDA", get: (c) => (c.k + c.a) / Math.max(1, c.d), fmt: (c) => kda(c.k, c.d, c.a) },
+  ], rows, 1);
+  const theirs = new Map();
+  for (const { g, m } of X) {
+    const c = theirs.get(m.champ) || { key: m.champ, n: 0, w: 0, k: 0, d: 0, a: 0 };
+    c.n++; c.w += g.win ? 1 : 0; c.k += m.k; c.d += m.d; c.a += m.a;
+    theirs.set(m.champ, c);
+  }
+  champTable("d-their", [...theirs.values()]);
+  champTable("d-yours", group(mine, (g) => g.champId));
+  const duos = new Map();
+  for (const { g, m } of X) {
+    const k = g.champId + "-" + m.champ;
+    const d = duos.get(k) || { mine: g.champId, theirs: m.champ, n: 0, w: 0 };
+    d.n++; d.w += g.win ? 1 : 0;
+    duos.set(k, d);
+  }
+  table("d-duos", [
+    { label: "Duo", get: (d) => champById(d.mine) + champById(d.theirs), fmt: (d) => `${champLink(d.mine, champById(d.mine))} + ${champLink(d.theirs, champById(d.theirs))}` },
+    { label: "Games", get: (d) => d.n },
+    { label: "Win rate", get: (d) => d.w / d.n + d.n / 1e6, fmt: (d) => pct(d.w / d.n), cls: (d) => wrClass(d.w / d.n) },
+  ], [...duos.values()], 1);
+  wrBars("d-month", byMonth(X, (x) => x.g));
+  table("d-games", [
+    { label: "Date", get: (x) => x.g.time, fmt: (x) => fmtDate(new Date(x.g.time)) },
+    { label: "Result", get: (x) => +x.g.win, fmt: (x) => resultBanner(x.g.win), cls: (x) => (x.g.win ? "win" : "loss") },
+    { label: "Their champion", get: (x) => champById(x.m.champ), fmt: (x) => champLink(x.m.champ, champById(x.m.champ)) },
+    { label: "Their K / D / A", get: (x) => (x.m.k + x.m.a) / Math.max(1, x.m.d), fmt: (x) => `${x.m.k} / ${x.m.d} / ${x.m.a}` },
+    { label: "Their damage", get: (x) => x.m.dmg, fmt: (x) => x.m.dmg.toLocaleString() },
+    { label: "Your champion", get: (x) => champName(x.g), fmt: (x) => champLink(x.g.champId, champName(x.g)) },
+    { label: "Your K / D / A", get: (x) => (x.g.kills + x.g.assists) / Math.max(1, x.g.deaths), fmt: (x) => `${x.g.kills} / ${x.g.deaths} / ${x.g.assists}` },
+    { label: "Your damage", get: (x) => x.g.damage, fmt: (x) => x.g.damage.toLocaleString() },
+  ], X.slice(0, 300), 0);
+  return true;
+}
+
+let detailKey = "";
+function renderDetail() {
+  const m = location.hash.match(/^#(champion|player)\/(.+)$/);
+  let shown = false;
+  if (m && state.games.length) {
+    const arg = decodeURIComponent(m[2]);
+    shown = m[1] === "champion" ? renderChampionPage(Number(arg)) : renderPlayerPage(arg);
+  }
+  document.body.classList.toggle("in-detail", shown);
+  $("detail").hidden = !shown;
+  if (!shown) $("detail").innerHTML = "";
+  // A new page starts at its top; going back returns to the card the link was in.
+  const key = shown ? location.hash : "";
+  if (key !== detailKey) {
+    if (shown) document.body.scrollIntoView({ block: "start" });
+    else if (lastLink) lastLink.scrollIntoView({ block: "center" });
+    detailKey = key;
+  }
+}
+
+let lastLink = null;
+document.addEventListener("click", (e) => {
+  const a = e.target.closest('a.name-link, .form-strip a');
+  if (a && !a.closest("#detail")) lastLink = a.closest("section") || a;
 });
-$("mate-panel").addEventListener("click", (e) => {
-  if (!e.target.closest("[data-mate-close]")) return;
-  mateOpen = null;
-  render();
+addEventListener("hashchange", () => {
+  // Sorting a page's table re-renders it; a new page starts with each table's default order.
+  for (const k of Object.keys(sortState)) if (k.startsWith("d-")) delete sortState[k];
+  renderDetail();
 });
 
 function renderGames(games) {
   $("n-games").textContent = games.length > 200 ? t("Latest 200 of {n} matches", { n: games.length.toLocaleString() }) : t("{n} matches", { n: games.length.toLocaleString() });
   table("t-games", [
     { label: "Date", get: (r) => r.time, fmt: (r) => fmtDate(new Date(r.time)) },
-    { label: "Champion", get: (r) => champName(r), fmt: (r) => esc(champName(r)) },
+    { label: "Champion", get: (r) => champName(r), fmt: (r) => champLink(r.champId, champName(r)) },
     { label: "Result", get: (r) => +r.win, fmt: (r) => resultBanner(r.win), cls: (r) => (r.win ? "win" : "loss") },
     { label: "K / D / A", get: (r) => (r.kills + r.assists) / Math.max(1, r.deaths), fmt: (r) => `${r.kills} / ${r.deaths} / ${r.assists}` },
     { label: "Damage", get: (r) => r.damage, fmt: (r) => r.damage.toLocaleString() },

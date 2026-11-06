@@ -162,9 +162,8 @@
     <section class="card" id="mates-card" hidden>
       <div class="card-h"><h3>Teammates</h3>
         <span class="foot">Players you've teamed up with · at least <input type="number" id="f-minmate" value="2" min="1" class="tiny" aria-label="Minimum games"> games together</span></div>
-      <p class="sub mates-hint">Choose a name to see how they did in your games together.</p>
+      <p class="sub mates-hint">Choose a name to open your games together and how they did in them.</p>
       <div class="tbl-wrap"><table id="t-mates"></table></div>
-      <div id="mate-panel" class="mate-panel" hidden></div>
     </section>
 
     <section class="card">
@@ -255,6 +254,8 @@
       </div>
     </section>
   </main>
+
+  <section id="detail" class="detail" hidden></section>
 
   <div id="tooltip" class="tooltip" hidden></div>
   <script src="app.js"></script>

@@ -65,11 +65,14 @@ def sample_kill_map(rng, kills, deaths, win):
     return sorted(events)
 
 
+FRIENDS = ["Duo Partner", "Late Night Larry", "Poro Snacker", "Bridge Troll", "Snowball Sam", "Tower Diver"]
+
+
 def sample_archive(champ_names, aug_names, aug_rarity, mayhem_ids, n=640, seed=7):
     """Example games in the League client's format. Not anyone's real history."""
     rng = random.Random(seed)
     me = {"puuid": "example-puuid", "gameName": "Example", "tagLine": "MHM"}
-    champs = rng.sample(sorted(champ_names, key=int), 40)
+    champs = rng.sample(sorted((c for c in champ_names if int(c) < 10000), key=int), 40)  # 6xxxx ids are mode copies
     champ_weight = {c: rng.paretovariate(1.2) for c in champs}
     champ_skill = {c: rng.gauss(0, 0.08) for c in champs}
     pool = {r: [a for a, rr in aug_rarity.items() if rr == r and a in aug_names and a in mayhem_ids] for r in ("kSilver", "kGold", "kPrismatic")}
@@ -120,8 +123,11 @@ def sample_archive(champ_names, aug_names, aug_rarity, mayhem_ids, n=640, seed=7
                           "totalDamageDealtToChampions": max(5000, int(team_rng.gauss(42000, 13000)))}}
                for k, c in enumerate(team_rng.sample([c for c in champs if c != champ], 4))]
             + [{"participantId": k + 6, "championId": int(c), "teamId": 200, "stats": {"win": not win}}
-               for k, c in enumerate(team_rng.sample(sorted(champ_names, key=int), 5))],
-            "participantIdentities": [{"participantId": 1, "player": me}],
+               for k, c in enumerate(team_rng.sample(sorted((c for c in champ_names if int(c) < 10000), key=int), 5))],
+            # a few made-up friends who queue with the example player now and then
+            "participantIdentities": [{"participantId": 1, "player": me}]
+            + [{"participantId": k + 2, "player": {"puuid": f"example-friend-{f}", "gameName": FRIENDS[f], "tagLine": "EX"}}
+               for k, f in enumerate(team_rng.sample(range(len(FRIENDS)), 4)) if team_rng.random() < 0.3],
         })
     return {"puuid": me["puuid"], "gameName": me["gameName"], "tagLine": me["tagLine"], "games": games}
 

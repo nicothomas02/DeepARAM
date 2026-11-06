@@ -286,28 +286,36 @@ th:last-child, td:last-child { padding-right: 20px; }
 .tile .value { font-size: 1.6rem; font-weight: 700; }
 .tooltip { border-radius: var(--r-sm); }
 
-/* Teammates: names open how that player did in your games together */
+/* Teammates: names open that player's page */
 .mates-hint { margin: -6px 0 12px; font-size: 0.875rem; }
-.name-btn { border: 0; padding: 0; background: none; color: var(--accent); font: inherit; font-weight: 600; cursor: pointer; text-align: left; }
-.name-btn:hover { text-decoration: underline; }
-.name-btn[aria-expanded="true"] { color: var(--fg); }
-.mate-panel { margin: 20px -20px -20px; padding: 20px; border-top: 1px solid var(--line); display: grid; gap: 14px; animation: sl-in .3s ease-out; }
-.mate-h { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
-.mate-h h4 { font: 700 1.25rem/1.2 var(--display); letter-spacing: -0.01em; }
-.mate-tiles { display: flex; flex-wrap: wrap; gap: 12px 32px; }
-.mate-tiles div { display: grid; }
-.mate-tiles b { font: 700 1.5rem/1.2 var(--display); }
-.mate-tiles b.wr-high { color: var(--good); }
-.mate-tiles b.wr-low { color: var(--bad); }
-.mate-tiles span { font-size: 0.875rem; color: var(--muted); }
-.mate-panel h5 { font-size: 0.875rem; font-weight: 600; color: var(--muted); }
-.mate-champs { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; }
-.mate-champs li { display: grid; grid-template-columns: 40px 1fr; grid-template-rows: auto auto; column-gap: 10px; align-items: center;
-  padding: 8px 10px; border-radius: var(--r-sm); background: var(--surface); }
-.mate-champs img { grid-row: span 2; width: 40px; height: 40px; border-radius: 10px; }
-.mate-champs span { font-weight: 600; }
-.mate-champs small { color: var(--muted); font-size: 0.8125rem; }
-.mate-panel .tbl-wrap { margin: 0 -20px -20px; max-height: 360px; }
+
+/* Links to the champion and player pages */
+.name-link { color: inherit; font-weight: 600; text-decoration: none; }
+.name-link:hover { color: var(--accent); text-decoration: underline; }
+td .name-link { color: color-mix(in srgb, var(--accent) 72%, var(--fg)); }
+.form-strip a { display: block; border-radius: 12px; }
+.form-strip img { transition: transform .15s; }
+.form-strip a:hover img { transform: translateY(-2px); }
+
+/* Champion and player pages */
+.in-detail main#stats, .in-detail #banner-pick { display: none !important; }
+.detail { display: grid; gap: 20px; animation: sl-in .25s ease-out; }
+.d-top { display: flex; }
+.d-top .btn { text-decoration: none; color: var(--fg); }
+.d-head { display: flex; align-items: center; gap: 18px; }
+.d-head h2 { font: 700 clamp(26px, 4vw, 40px)/1.1 var(--display); letter-spacing: -.02em; overflow-wrap: anywhere; }
+.d-head .sub { margin-top: 4px; }
+.d-icon { flex: none; width: 72px; height: 72px; border-radius: 18px; }
+.d-letter { display: grid; place-items: center; background: var(--accent-soft); color: color-mix(in srgb, var(--accent) 72%, var(--fg)); font: 700 32px var(--display); }
+.d-link { display: inline-block; margin-top: 6px; color: color-mix(in srgb, var(--accent) 72%, var(--fg)); font-weight: 600; font-size: 0.9375rem; text-decoration: none; }
+.d-link:hover { text-decoration: underline; }
+.d-note { margin-top: -8px; }
+.with-icon { display: inline-flex; align-items: center; gap: 10px; }
+.with-icon img { width: 28px; height: 28px; border-radius: 6px; }
+@media (max-width: 640px) {
+  .d-icon { width: 56px; height: 56px; border-radius: 14px; }
+  .d-head { gap: 14px; }
+}
 
 /* Recent form: the latest games as champion icons ringed green for wins and red for losses */
 .form-strip { display: flex; flex-wrap: wrap; gap: 8px; }
@@ -339,3 +347,5 @@ th:last-child, td:last-child { padding-right: 20px; }
   .fact img { display: none; }
   .fact .f-v { font-size: 1.05rem; }
 }
+.detail .wrbar { grid-template-columns: minmax(0, 12em) 1fr 4.2em 3.5em; }
+@media (max-width: 640px) { .detail .wrbar { grid-template-columns: minmax(0, 8em) 1fr 4.2em 3em; } }
