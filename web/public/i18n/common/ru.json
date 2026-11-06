@@ -214,5 +214,12 @@
  "{ds} DeepScore · {wr} win · {pr} pick": "{ds} DeepScore · {wr} побед · {pr} выборов",
  "This page doesn't exist.": "Такой страницы нет.",
  "It may have moved, or the link has a typo. Search with / or ⌘K, or try one of these.": "Возможно, она переехала или в ссылке опечатка. Воспользуйтесь поиском (/ или ⌘K) или попробуйте один из этих вариантов.",
- "Did you mean": "Возможно, вы имели в виду"
+ "Did you mean": "Возможно, вы имели в виду",
+ "Answers": "Ответы",
+ "Questions players sent us, and our answers.": "Вопросы от игроков и наши ответы.",
+ "Write to us from the box at the bottom of any page. We answer here, without your name.": "Пишите нам через поле внизу любой страницы. Мы отвечаем здесь, без вашего имени.",
+ "In English": "На английском",
+ "We answered your message. See the answer": "Мы ответили на ваше сообщение. Посмотреть ответ",
+ "See answers to player questions": "Ответы на вопросы игроков",
+ "We answer on the Answers page, without your name. This box will show a link when yours is up.": "Мы отвечаем на странице «Ответы», без вашего имени. Когда ответ появится, здесь будет ссылка."
 }

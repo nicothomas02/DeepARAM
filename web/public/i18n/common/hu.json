@@ -214,5 +214,12 @@
  "{ds} DeepScore · {wr} win · {pr} pick": "{ds} DeepScore · {wr} győzelem · {pr} választás",
  "This page doesn't exist.": "Ez az oldal nem létezik.",
  "It may have moved, or the link has a typo. Search with / or ⌘K, or try one of these.": "Lehet, hogy áthelyezték, vagy elírás van a hivatkozásban. Keress a / vagy ⌘K billentyűvel, vagy próbáld ezek egyikét.",
- "Did you mean": "Erre gondoltál"
+ "Did you mean": "Erre gondoltál",
+ "Answers": "Válaszok",
+ "Questions players sent us, and our answers.": "Játékosok kérdései és a válaszaink.",
+ "Write to us from the box at the bottom of any page. We answer here, without your name.": "Írj nekünk bármelyik oldal alján lévő mezőből. Itt válaszolunk, a neved nélkül.",
+ "In English": "Angolul",
+ "We answered your message. See the answer": "Válaszoltunk az üzenetedre. Válasz megtekintése",
+ "See answers to player questions": "Válaszok a játékosok kérdéseire",
+ "We answer on the Answers page, without your name. This box will show a link when yours is up.": "A Válaszok oldalon válaszolunk, a neved nélkül. Itt megjelenik egy link, amikor a tiéd felkerül."
 }

@@ -214,5 +214,12 @@
  "{ds} DeepScore · {wr} win · {pr} pick": "{ds} DeepScore · {wr} de vitórias · {pr} de escolha",
  "This page doesn't exist.": "Esta página não existe.",
  "It may have moved, or the link has a typo. Search with / or ⌘K, or try one of these.": "Ela pode ter sido movida, ou o link tem um erro de digitação. Pesquise com / ou ⌘K, ou tente uma destas.",
- "Did you mean": "Você quis dizer"
+ "Did you mean": "Você quis dizer",
+ "Answers": "Respostas",
+ "Questions players sent us, and our answers.": "Perguntas que os jogadores nos enviaram, e nossas respostas.",
+ "Write to us from the box at the bottom of any page. We answer here, without your name.": "Escreva para nós pela caixa no fim de qualquer página. Respondemos aqui, sem o seu nome.",
+ "In English": "Em inglês",
+ "We answered your message. See the answer": "Respondemos sua mensagem. Ver a resposta",
+ "See answers to player questions": "Ver respostas às perguntas dos jogadores",
+ "We answer on the Answers page, without your name. This box will show a link when yours is up.": "Respondemos na página Respostas, sem o seu nome. Esta caixa mostra um link quando a sua estiver lá."
 }

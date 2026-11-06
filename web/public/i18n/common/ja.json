@@ -214,5 +214,12 @@
  "{ds} DeepScore · {wr} win · {pr} pick": "{ds} DeepScore · 勝率{wr} · ピック率{pr}",
  "This page doesn't exist.": "このページは存在しません。",
  "It may have moved, or the link has a typo. Search with / or ⌘K, or try one of these.": "移動したか、リンクに誤字がある可能性があります。/ または ⌘K で検索するか、次のいずれかをお試しください。",
- "Did you mean": "もしかして"
+ "Did you mean": "もしかして",
+ "Answers": "回答",
+ "Questions players sent us, and our answers.": "プレイヤーから届いた質問と、その回答。",
+ "Write to us from the box at the bottom of any page. We answer here, without your name.": "どのページでも下のボックスから送ってください。名前は出さずに、ここで回答します。",
+ "In English": "英語で",
+ "We answered your message. See the answer": "メッセージに回答しました。回答を見る",
+ "See answers to player questions": "プレイヤーの質問への回答を見る",
+ "We answer on the Answers page, without your name. This box will show a link when yours is up.": "回答は名前を出さずに「回答」ページに載せます。掲載されると、このボックスにリンクが表示されます。"
 }

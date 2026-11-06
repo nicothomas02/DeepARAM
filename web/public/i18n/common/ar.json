@@ -214,5 +214,12 @@
  "{ds} DeepScore · {wr} win · {pr} pick": "{ds} DeepScore · فوز {wr} · اختيار {pr}",
  "This page doesn't exist.": "هذه الصفحة غير موجودة.",
  "It may have moved, or the link has a typo. Search with / or ⌘K, or try one of these.": "ربما نُقلت، أو أن في الرابط خطأً مطبعيًا. ابحث بالضغط على / أو ⌘K، أو جرّب أحد هذه الروابط.",
- "Did you mean": "هل تقصد"
+ "Did you mean": "هل تقصد",
+ "Answers": "الإجابات",
+ "Questions players sent us, and our answers.": "أسئلة أرسلها لنا اللاعبون، وإجاباتنا.",
+ "Write to us from the box at the bottom of any page. We answer here, without your name.": "راسلنا من المربع أسفل أي صفحة. نجيب هنا، بدون اسمك.",
+ "In English": "بالإنجليزية",
+ "We answered your message. See the answer": "أجبنا على رسالتك. اطّلع على الإجابة",
+ "See answers to player questions": "اطّلع على إجابات أسئلة اللاعبين",
+ "We answer on the Answers page, without your name. This box will show a link when yours is up.": "نجيب في صفحة الإجابات، بدون اسمك. سيعرض هذا المربع رابطًا عندما تُنشر إجابتك."
 }

@@ -214,5 +214,12 @@
  "{ds} DeepScore · {wr} win · {pr} pick": "{ds} DeepScore · 勝率 {wr} · 選用率 {pr}",
  "This page doesn't exist.": "此頁面不存在。",
  "It may have moved, or the link has a typo. Search with / or ⌘K, or try one of these.": "頁面可能已移動，或連結有拼字錯誤。按 / 或 ⌘K 搜尋，或試試以下頁面。",
- "Did you mean": "你是不是要找"
+ "Did you mean": "你是不是要找",
+ "Answers": "回覆",
+ "Questions players sent us, and our answers.": "玩家寄給我們的問題，以及我們的回覆。",
+ "Write to us from the box at the bottom of any page. We answer here, without your name.": "在任何頁面底部的方框留言給我們。我們會在這裡回覆，不顯示你的名字。",
+ "In English": "英文",
+ "We answered your message. See the answer": "我們已回覆你的留言。查看回覆",
+ "See answers to player questions": "查看玩家問題的回覆",
+ "We answer on the Answers page, without your name. This box will show a link when yours is up.": "我們會在回覆頁面回應，不顯示你的名字。刊出後，這裡會顯示連結。"
 }

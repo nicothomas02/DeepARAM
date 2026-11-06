@@ -11,8 +11,8 @@ export const POST = handle(async (req) => {
   const b = await body(req);
   const m = cleanMessage(b);
   if (!(await passesBotCheck(b.check, clientIp(req)))) throw new AccountError("The bot check didn't pass. Try again.", 400);
-  await sendMessage(m, { account: await currentAccount().catch(() => null), ip: clientIp(req) });
-  return json({ ok: true }, 201);
+  const id = await sendMessage(m, { account: await currentAccount().catch(() => null), ip: clientIp(req) });
+  return json({ ok: true, id }, 201);
 });
 
 export const GET = handle(async () => json({ messages: await inbox(await requireAccount()) }));

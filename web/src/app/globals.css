@@ -5790,3 +5790,45 @@ html[data-view="simple"] [data-detailed] {
   color: var(--accent);
   font-size: 0.8125rem;
 }
+
+/* /answers: replies to visitor messages */
+.answers {
+  display: grid;
+  gap: 16px;
+}
+.answer-card {
+  display: grid;
+  gap: 10px;
+}
+.answer-card time {
+  color: var(--muted);
+  font-size: 0.85em;
+}
+.answer-card blockquote {
+  margin: 0;
+  padding-left: 12px;
+  border-left: 3px solid var(--line);
+  color: var(--muted);
+}
+.answer-card p {
+  margin: 0;
+}
+.answer-card details summary {
+  cursor: pointer;
+  color: var(--muted);
+}
+.answer-card details > * + * {
+  margin-top: 8px;
+}
+
+.feedback-answers,
+.feedback-answered {
+  justify-self: start;
+  margin-top: 4px;
+  color: var(--muted);
+  text-decoration: underline;
+}
+.feedback-answered {
+  color: var(--accent, inherit);
+  font-weight: 600;
+}

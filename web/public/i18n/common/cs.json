@@ -214,5 +214,12 @@
  "{ds} DeepScore · {wr} win · {pr} pick": "{ds} DeepScore · {wr} výher · {pr} výběrů",
  "This page doesn't exist.": "Tato stránka neexistuje.",
  "It may have moved, or the link has a typo. Search with / or ⌘K, or try one of these.": "Možná se přesunula nebo je v odkazu překlep. Hledejte pomocí / nebo ⌘K, nebo zkuste jednu z těchto možností.",
- "Did you mean": "Mysleli jste"
+ "Did you mean": "Mysleli jste",
+ "Answers": "Odpovědi",
+ "Questions players sent us, and our answers.": "Otázky, které nám poslali hráči, a naše odpovědi.",
+ "Write to us from the box at the bottom of any page. We answer here, without your name.": "Napište nám z pole dole na kterékoli stránce. Odpovídáme tady, bez vašeho jména.",
+ "In English": "Anglicky",
+ "We answered your message. See the answer": "Odpověděli jsme na vaši zprávu. Zobrazit odpověď",
+ "See answers to player questions": "Zobrazit odpovědi na otázky hráčů",
+ "We answer on the Answers page, without your name. This box will show a link when yours is up.": "Odpovídáme na stránce Odpovědi, bez vašeho jména. Až tam bude ta vaše, zobrazí se tu odkaz."
 }

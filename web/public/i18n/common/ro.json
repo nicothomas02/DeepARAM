@@ -214,5 +214,12 @@
  "{ds} DeepScore · {wr} win · {pr} pick": "{ds} DeepScore · {wr} victorii · {pr} alegeri",
  "This page doesn't exist.": "Această pagină nu există.",
  "It may have moved, or the link has a typo. Search with / or ⌘K, or try one of these.": "Poate a fost mutată sau linkul are o greșeală de tipar. Caută cu / sau ⌘K ori încearcă una dintre acestea.",
- "Did you mean": "Te referi la"
+ "Did you mean": "Te referi la",
+ "Answers": "Răspunsuri",
+ "Questions players sent us, and our answers.": "Întrebări trimise de jucători și răspunsurile noastre.",
+ "Write to us from the box at the bottom of any page. We answer here, without your name.": "Scrie-ne din caseta de jos de pe orice pagină. Răspundem aici, fără numele tău.",
+ "In English": "În engleză",
+ "We answered your message. See the answer": "Am răspuns la mesajul tău. Vezi răspunsul",
+ "See answers to player questions": "Vezi răspunsurile la întrebările jucătorilor",
+ "We answer on the Answers page, without your name. This box will show a link when yours is up.": "Răspundem pe pagina Răspunsuri, fără numele tău. Aici va apărea un link când al tău e publicat."
 }

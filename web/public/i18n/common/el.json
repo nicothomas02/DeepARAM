@@ -214,5 +214,12 @@
  "{ds} DeepScore · {wr} win · {pr} pick": "{ds} DeepScore · {wr} νίκες · {pr} επιλογές",
  "This page doesn't exist.": "Αυτή η σελίδα δεν υπάρχει.",
  "It may have moved, or the link has a typo. Search with / or ⌘K, or try one of these.": "Ίσως μετακινήθηκε ή ο σύνδεσμος έχει τυπογραφικό λάθος. Αναζήτησε με / ή ⌘K ή δοκίμασε ένα από αυτά.",
- "Did you mean": "Μήπως εννοούσες"
+ "Did you mean": "Μήπως εννοούσες",
+ "Answers": "Απαντήσεις",
+ "Questions players sent us, and our answers.": "Ερωτήσεις που μας έστειλαν παίκτες και οι απαντήσεις μας.",
+ "Write to us from the box at the bottom of any page. We answer here, without your name.": "Γράψε μας από το πλαίσιο στο κάτω μέρος κάθε σελίδας. Απαντάμε εδώ, χωρίς το όνομά σου.",
+ "In English": "Στα αγγλικά",
+ "We answered your message. See the answer": "Απαντήσαμε στο μήνυμά σου. Δες την απάντηση",
+ "See answers to player questions": "Δες απαντήσεις σε ερωτήσεις παικτών",
+ "We answer on the Answers page, without your name. This box will show a link when yours is up.": "Απαντάμε στη σελίδα Απαντήσεις, χωρίς το όνομά σου. Εδώ θα εμφανιστεί σύνδεσμος όταν δημοσιευτεί η δική σου."
 }

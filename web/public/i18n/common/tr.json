@@ -214,5 +214,12 @@
  "{ds} DeepScore · {wr} win · {pr} pick": "{ds} DeepScore · {wr} galibiyet · {pr} seçilme",
  "This page doesn't exist.": "Bu sayfa yok.",
  "It may have moved, or the link has a typo. Search with / or ⌘K, or try one of these.": "Taşınmış olabilir ya da bağlantıda yazım hatası var. / veya ⌘K ile ara ya da bunlardan birini dene.",
- "Did you mean": "Bunu mu demek istedin"
+ "Did you mean": "Bunu mu demek istedin",
+ "Answers": "Yanıtlar",
+ "Questions players sent us, and our answers.": "Oyunculardan gelen sorular ve yanıtlarımız.",
+ "Write to us from the box at the bottom of any page. We answer here, without your name.": "Herhangi bir sayfanın altındaki kutudan bize yaz. Burada, adın olmadan yanıtlıyoruz.",
+ "In English": "İngilizce",
+ "We answered your message. See the answer": "Mesajını yanıtladık. Yanıtı gör",
+ "See answers to player questions": "Oyuncu sorularının yanıtlarını gör",
+ "We answer on the Answers page, without your name. This box will show a link when yours is up.": "Yanıtlar sayfasında, adın olmadan yanıtlıyoruz. Seninki yayınlanınca bu kutuda bir bağlantı görünecek."
 }
