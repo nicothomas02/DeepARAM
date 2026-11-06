@@ -42,5 +42,8 @@
  "Not simulated": "시뮬레이션 안 함",
  "Checked in the Simulator against the champion's usual build: Agrees, or Disagrees when it scores more than 15% lower. Starting items and items it doesn't model aren't simulated.": "시뮬레이터에서 챔피언의 평소 빌드와 비교: 일치, 또는 15% 넘게 낮으면 불일치. 시작 아이템과 모델링되지 않은 아이템은 시뮬레이션하지 않습니다.",
  "Checked in the Simulator on the champion's usual build: Agrees when the augment helps, No gain when the fight can't show what it does. Augments that make the champion worse are left out.": "시뮬레이터에서 챔피언의 평소 빌드로 확인: 증강이 도움이 되면 일치, 전투로 효과를 보여 줄 수 없으면 효과 없음. 챔피언을 약하게 만드는 증강은 제외합니다.",
- "Before a gem is listed, every item must still be sold in the shop and not be one only an augment gives, and every augment must still be in the pool and not make the champion worse in the Simulator. The Simulator column shows whether a fight in the Simulator backs it up.": "표시하기 전에 모든 아이템이 아직 상점에서 팔리고 증강으로만 얻는 아이템이 아니어야 하며, 모든 증강이 아직 풀에 있고 시뮬레이터에서 챔피언을 약하게 만들지 않아야 합니다. 시뮬레이터 열은 시뮬레이터 전투가 이를 뒷받침하는지 보여 줍니다."
+ "Before a gem is listed, every item must still be sold in the shop and not be one only an augment gives, and every augment must still be in the pool and not make the champion worse in the Simulator. The Simulator column shows whether a fight in the Simulator backs it up.": "표시하기 전에 모든 아이템이 아직 상점에서 팔리고 증강으로만 얻는 아이템이 아니어야 하며, 모든 증강이 아직 풀에 있고 시뮬레이터에서 챔피언을 약하게 만들지 않아야 합니다. 시뮬레이터 열은 시뮬레이터 전투가 이를 뒷받침하는지 보여 줍니다.",
+ "check in game": "게임에서 확인",
+ "\"Check in game\" means the Bug finder flagged something worth testing first.": "\"게임에서 확인\"은 버그 찾기가 먼저 시험해 볼 만한 점을 찾았다는 뜻입니다.",
+ "Nothing on the Traps list, and no augment the champion can't be offered, is listed either.": "함정 목록에 있는 것과 챔피언에게 제시될 수 없는 증강도 올리지 않습니다."
 }

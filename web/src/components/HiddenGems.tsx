@@ -18,6 +18,9 @@ const TITLES: Record<GemFamily, string> = {
 
 const SIM: Record<SimCheck, string> = { agrees: "Agrees", disagrees: "Disagrees", "no gain": "No gain", "not simulated": "Not simulated" };
 
+const CAUTION = "check in game";
+const CAUTION_HINT = "\"Check in game\" means the Bug finder flagged something worth testing first.";
+
 const pct = (n: number) => `${Math.round(n * 1000) / 10}%`;
 
 function ItemTable({ family, rows }: { family: GemFamily; rows: ItemGemRow[] }) {
@@ -56,7 +59,9 @@ function ItemTable({ family, rows }: { family: GemFamily; rows: ItemGemRow[] }) 
       phone: "hide",
       hint: t(
         "Checked in the Simulator against the champion's usual build: Agrees, or Disagrees when it scores more than 15% lower. Starting items and items it doesn't model aren't simulated.",
-      ),
+      ) +
+        " " +
+        t(CAUTION_HINT),
     },
   ];
   const data: Row[] = rows.map((r) => ({
@@ -70,7 +75,7 @@ function ItemTable({ family, rows }: { family: GemFamily; rows: ItemGemRow[] }) 
     winRate: r.winRate,
     lift: r.lift,
     games: r.games,
-    sim: t(SIM[r.sim]),
+    sim: r.caution ? `${t(SIM[r.sim])} · ${t(CAUTION)}` : t(SIM[r.sim]),
   }));
   return (
     <section className="gems-section">
@@ -95,7 +100,9 @@ function AugmentTable({ rows }: { rows: AugmentGemRow[] }) {
       phone: "hide",
       hint: t(
         "Checked in the Simulator on the champion's usual build: Agrees when the augment helps, No gain when the fight can't show what it does. Augments that make the champion worse are left out.",
-      ),
+      ) +
+        " " +
+        t(CAUTION_HINT),
     },
   ];
   const data: Row[] = rows.map((r) => ({
@@ -107,7 +114,7 @@ function AugmentTable({ rows }: { rows: AugmentGemRow[] }) {
     gradeOrder: r.grade === "S" ? 2 : 1,
     pickRate: r.pickRate,
     rank: r.rank,
-    sim: t(SIM[r.sim]),
+    sim: r.caution ? `${t(SIM[r.sim])} · ${t(CAUTION)}` : t(SIM[r.sim]),
   }));
   return (
     <section className="gems-section">
@@ -162,7 +169,8 @@ function Checks({ checks, on }: { checks: GemCheck[]; on: string[] | null }) {
       <p>
         {t(
           "Before a gem is listed, every item must still be sold in the shop and not be one only an augment gives, and every augment must still be in the pool and not make the champion worse in the Simulator. The Simulator column shows whether a fight in the Simulator backs it up.",
-        )}
+        )}{" "}
+        {t("Nothing on the Traps list, and no augment the champion can't be offered, is listed either.")}
       </p>
       <p>{t("A hidden gem wins more in practice, which doesn't prove it causes the wins: the players who pick it may differ too.")}</p>
     </details>

@@ -1,12 +1,10 @@
 {
  "patch": "16.22",
  "estimated": true,
- "built": "2026-11-06T19:25:28Z",
+ "built": "2026-11-06T19:44:16Z",
  "max_pick": 0.02,
  "games": 3630000,
  "stale": [
-  "core",
-  "other",
   "skills"
  ],
  "calibrated_on": [
@@ -536,7 +534,9 @@
     "sim": "not simulated",
     "games": 2580
    }
-  ]
+  ],
+  "core": [],
+  "other": []
  },
  "augments": [
   {
