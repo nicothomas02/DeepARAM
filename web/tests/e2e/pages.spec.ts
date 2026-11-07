@@ -17,6 +17,8 @@ const PAGES = [
   "/info/region-teams",
   "/champions/Ahri",
   "/champions/Yunara",
+  // Its augment list tags augments that change the build ("Changes your build" inside the row's link).
+  "/champions/Braum",
   "/patches",
   "/tier-list?tab=items",
   "/tier-list?tab=items&itag=crit,as",
@@ -61,6 +63,8 @@ for (const path of PAGES) {
     expect(text, "data-origin or backend wording on the page").not.toMatch(FORBIDDEN);
     const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
     expect(overflow, "page scrolls sideways").toBeLessThanOrEqual(1);
+    // A link inside a link is invalid HTML, and React's hydration breaks on it.
+    expect(await page.locator("a a").count(), "links nested inside links").toBe(0);
     expect(problems).toEqual([]);
   });
 }
