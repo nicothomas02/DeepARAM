@@ -1,297 +1,297 @@
 {
-  "id": "anivia-overdraft-protection",
-  "title": "Overdraft Protection",
-  "champion": "Anivia",
-  "champion_name": "Anivia",
-  "chef": "2026-11-05",
-  "why": "Glacial Storm is a toggle that bills Anivia Mana every second it stays on, a running cost nobody thinks about beyond turning it off before she runs dry, and this build makes that bill the whole point. Blue Barrier hands her a share of every point of Mana she spends as a Shield for 1.5 seconds, so a storm that drains her every second re-shields her every second, and Overflow doubles all of her Mana costs, which doubles the Mana feeding Blue Barrier from the very same storm while making the storm's damage more effective too. Mighty Shield pays out Adaptive Force whenever she gains a Shield, which the ticking storm re-arms the moment its cooldown ends, and Ocean Soul grants Health and Mana Regen after damaging enemies, which the storm does nonstop, so the doubled drain keeps getting refilled. Rod of Ages gives Mana back when champions hit her and heals her for 25% of the Mana she spends, which Overflow just doubled, Seraph's Embrace and Malignance pile on Mana to burn, Malignance also scorches the ground under everyone her storm hits, and Spirit Visage makes every shield and heal on her 25% bigger. The fragile artillery mage becomes a frontline tank who walks into the enemy team, flips her storm on and simply stands in it, with Rebirth as the backup plan for when the bank finally closes.",
-  "play": "Build Mana first, then walk into the fight, toggle Glacial Storm on and stay inside it so the drain keeps re-shielding you every second. Only switch the storm off when you are truly out of Mana, and let the egg handle the rest.",
+  "id": "rammus-ok-im-a-mage-now",
+  "title": "OK, I'm a Mage Now",
+  "champion": "Rammus",
+  "champion_name": "Rammus",
+  "chef": "2026-11-06",
+  "why": "Spiked Shell quietly gives Rammus bonus Attack Damage that scales with his Armor and Magic Resist, a side effect nobody builds around because Rammus barely auto-attacks. ADAPt converts that bonus Attack Damage into Ability Power and adds 15% more, so every point of armor becomes AP for Powerball, Ball Curl's return damage and Soaring Slam. Marksmage then makes his attacks deal extra physical damage equal to 75% of that AP, so the armor comes back out through his autos on whoever he just Taunted. Titan's Resolve, Lonely Warrior and Defensive Ball Curl all add Armor and Magic Resist that flow through Spiked Shell into more AP, while Zhonya's Hourglass feeds both ends with Armor and AP, Thornmail and Jak'Sho stack raw resists, Rabadon's Deathcap multiplies the converted total and Nashor's Tooth speeds up the Marksmage autos. The armadillo tank becomes an auto-attacking battle mage whose armor is his Ability Power.",
+  "play": "Powerball in, Ball Curl for the armor-to-AP spike, then Taunt the squishiest target and right-click them down. Zhonya's when the whole team turns on you.",
   "items": [
-    "Rod of Ages",
-    "Seraph's Embrace",
-    "Malignance",
-    "Spirit Visage",
-    "Frozen Heart",
-    "Mercury's Treads"
+    "Plated Steelcaps",
+    "Zhonya's Hourglass",
+    "Thornmail",
+    "Jak'Sho, The Protean",
+    "Nashor's Tooth",
+    "Rabadon's Deathcap"
   ],
   "core": 4,
-  "champion_icon": "/embed/fun/cook-builds/icons/champions/34.png",
+  "champion_icon": "/embed/fun/cook-builds/icons/champions/33.png",
   "augments": [
     {
-      "name": "Overflow",
+      "name": "ADAPt",
+      "rarity": "Silver",
+      "core": true,
+      "text": "Convert Bonus Attack Damage to Ability Power. Gain 15% Ability Power.",
+      "icon": "/embed/fun/cook-builds/icons/augments/adapt.png",
+      "id": 1205
+    },
+    {
+      "name": "Marksmage",
       "rarity": "Gold",
       "core": true,
-      "text": "Your Mana costs double. Your Ability Heals, Shields, and damage are more effective.",
-      "icon": "/embed/fun/cook-builds/icons/augments/overflow.png",
-      "id": 1311
+      "text": "Your Attacks deal additional physical damage equal to 75% Ability Power.",
+      "icon": "/embed/fun/cook-builds/icons/augments/marksmage.png",
+      "id": 1129
     },
     {
-      "name": "Blue Barrier",
-      "rarity": "Silver",
+      "name": "Titan's Resolve",
+      "rarity": "Prismatic",
       "core": true,
-      "text": "Gain of the Mana you spend as a Shield for 1.5 seconds. Shields up to",
-      "icon": "/embed/fun/cook-builds/icons/augments/blue-barrier.png",
-      "id": 3051
+      "text": "Gain stacks when taking or dealing damage. For every 7 stacks, gain Adaptive Force, Armor, Magic Resist, Size, and Tenacity.",
+      "icon": "/embed/fun/cook-builds/icons/augments/titan-s-resolve.png",
+      "id": 1001
     },
     {
-      "name": "Mighty Shield",
+      "name": "Lonely Warrior",
       "rarity": "Silver",
       "core": true,
-      "text": "Gain Adaptive Force for 3 seconds when you gain a Shield (5 seconds Cooldown).",
-      "icon": "/embed/fun/cook-builds/icons/augments/mighty-shield.png",
-      "id": 1314
-    },
-    {
-      "name": "Ocean Soul",
-      "rarity": "Silver",
-      "core": true,
-      "text": "Gain the Ocean Soul, granting high Health and Mana Regen after damaging enemies.",
-      "icon": "/embed/fun/cook-builds/icons/augments/ocean-soul.png",
-      "id": 1060
+      "text": "Gain Attack Speed, 10 Armor, and 10 Magic Resist for each nearby enemy champion within 600 Range.",
+      "icon": "/embed/fun/cook-builds/icons/augments/lonely-warrior.png",
+      "id": 3134
     }
   ],
   "href": "/kitchen#chefs-special",
   "archive_href": "/kitchen#chef-archive",
-  "share_href": "/kitchen/2026-11-05",
-  "share_image": "/embed/fun/cook-builds/share/anivia-overdraft-protection.png",
+  "share_href": "/kitchen/2026-11-06",
+  "share_image": "/embed/fun/cook-builds/share/rammus-ok-im-a-mage-now.png",
   "item_ids": [
-    6657,
-    3040,
-    3118,
-    3065,
-    3110,
-    3111
+    3047,
+    3157,
+    3075,
+    6665,
+    3115,
+    3089
   ],
   "i18n": {
     "ar": {
-      "title": "حماية السحب على المكشوف",
-      "why": "عاصفة أنيفيا الجليدية قدرة بتبديل تسحب منها المانا كل ثانية تبقى فيها شغالة، وهذي تكلفة جارية ما يفكر فيها أحد غير إنه يطفيها قبل ما تنشف المانا، وهذا البناء يخلي هذي الفاتورة هي الفكرة كلها. الحاجز الأزرق يعطيها حصة من كل نقطة مانا تصرفها على شكل درع لمدة 1.5 ثانية، فالعاصفة اللي تستنزفها كل ثانية تعيد تدريعها كل ثانية، والفيض المتدفق يضاعف كل تكاليف المانا عندها، يعني يضاعف المانا اللي تغذي الحاجز الأزرق من نفس العاصفة، ويخلي ضرر العاصفة أكثر فعالية. الدرع الجبار يعطيها القوة التكيفية كل ما تكسب درع، والعاصفة النابضة تعيد تفعيله أول ما ينتهي وقت التهدئة، والروح البحرية تعطي تجديد الصحة والمانا بعد إلحاق الضرر بالأعداء، والعاصفة تسويها بلا توقف، فالاستنزاف المضاعف يتعبى من جديد. قصبة العصور ترجع المانا لما تضربها الأبطال وتشفيها بـ25% من المانا اللي تصرفها، واللي ضاعفها الفيض المتدفق للتو. عناق سيراف والخبث يضيفون مانا للحرق، والخبث يحرق كمان الأرض تحت كل من تضربه عاصفتها، ووجه الروح يخلي كل درع وشفاء عليها أكبر بـ25%. الساحرة المدفعية الهشة تصير دبابة خط أمامي تمشي وسط فريق الأعداء، تشغّل عاصفتها وتوقف فيها وبس، ومعها ميلاد جديد كخطة بديلة لما يسكر البنك أخيرًا.",
-      "play": "ابنِ المانا أول، بعدين ادخل القتال، شغّل العاصفة الجليدية وابقَ داخلها عشان الاستنزاف يعيد تدريعك كل ثانية. لا تطفي العاصفة إلا لما تخلص مانتك فعلًا، وخلّ البيضة تتولى الباقي.",
+      "title": "حسناً، أنا ساحر الآن",
+      "why": "السلبية (Spiked Shell) تعطي رامس بهدوء ضرر هجوم إضافي يتضاعف مع الدرع والمقاومة السحرية، وهو أثر جانبي ما أحد يبني عليه لأن رامس بالكاد يضرب هجمات عادية. التأقلم يحوّل ضرر الهجوم الإضافي هذا إلى قوة قدرة ويضيف 15% فوقه، فتصير كل نقطة درع قوة قدرة لـ Q (Powerball) وضرر الرجوع من W (Defensive Ball Curl) و R (Soaring Slam). بعدها الساحر القناص يخلي هجماته تسبب ضرراً فيزيائياً إضافياً يساوي 75% من قوة القدرة هذه، فيرجع الدرع يخرج من هجماته العادية على اللي استفزّه للتو. عزم العملاق والمحارب الوحيد و W (Defensive Ball Curl) كلها تعطي درعاً ومقاومة سحرية تمر عبر السلبية وتتحول إلى قوة قدرة أكثر، بينما ساعة زونيا الرملية تغذي الطرفين بالدرع وقوة القدرة، والدرع الشوكي وجاكشو، المتلون يكدّسان المقاومات الخام، وقبعة موت رابادون تضاعف المجموع المحوّل، وسن ناشور يسرّع هجمات الساحر القناص العادية. الأرماديلو المدرّع يصير ساحر قتال يضرب بالهجمات العادية ودرعه هو قوة قدرته.",
+      "play": "ادخل بـ Q (Powerball)، ثم W (Defensive Ball Curl) لقفزة الدرع إلى قوة القدرة، ثم E (Frenzying Taunt) على أضعف هدف واضربه بالنقر الأيمن حتى يسقط. ساعة زونيا لما الفريق كله ينقلب عليك.",
       "augments": [
-        "تكاليف المانا عندك تتضاعف. شفاء قدراتك ودروعها وضررها يصيرون أكثر فعالية.",
-        "تكسب من المانا اللي تصرفها درعًا لمدة 1.5 ثانية. الدرع حتى",
-        "تكسب القوة التكيفية لمدة 3 ثواني عند كسب درع (وقت التهدئة 5 ثواني).",
-        "تحصل على الروح البحرية، وتمنحك تجديدًا عاليًا للصحة والمانا بعد إلحاق الضرر بالأعداء."
+        "حوّل ضرر الهجوم الإضافي إلى قوة قدرة. اكتسب 15% قوة قدرة.",
+        "تُلحق هجماتك ضررًا جسديًا إضافيًا يساوي 75% من قوة القدرات.",
+        "اكتسب شحنات عند تلقي الضرر أو إلحاقه. مقابل كل 7 شحنات، اكتسب القوة التكيفية والدرع والمقاومة السحرية والحجم والثبات.",
+        "اكتسب سرعة هجوم و10 درع و10 مقاومة سحرية مقابل كل بطل عدو قريب ضمن مدى 600."
       ]
     },
     "cs": {
-      "title": "Ochrana proti přečerpání",
-      "why": "Ledová bouře je u Anivie přepínač, který jí každou sekundu, co běží, bere Manu. Je to průběžný účet, o kterém nikdo nepřemýšlí, kromě toho, že bouři vypne dřív, než Anivii dojde mana, a tahle sestava z toho účtu dělá celou podstatu. Modrá bariéra jí za každý bod utracené Many dá část jako Štít na 1.5 sekundy, takže bouře, která ji každou sekundu vyždímá, ji každou sekundu i obnoví štítem. Přebytek síly zdvojnásobí všechny její náklady na Manu, čímž zdvojnásobí Manu živící Modrou bariéru z téže bouře a zároveň zefektivní poškození bouře. Mocný štít dává Adaptivní sílu, kdykoli získá Štít, což tikající bouře znovu aktivuje, jakmile skončí cooldown, a Mořská duše dává regeneraci Zdraví a Many po zranění nepřátel, což bouře dělá nepřetržitě, takže se zdvojnásobený odliv pořád doplňuje. Hůl věků vrací Manu, když ji zasáhnou šampioni, a léčí ji za 25% utracené Many, kterou Přebytek právě zdvojnásobil. Andělská náruč a Zhoubnost přidávají Manu na spálení, Zhoubnost navíc zapaluje zem pod každým, koho bouře zasáhne, a Otisk duše zesiluje každý štít a léčení na ní o 25%. Křehká dělostřelecká mágyně se stane tankem v první linii, který vkráčí mezi nepřátele, zapne bouři a prostě v ní stojí, se Znovuzrozením jako záložním plánem na chvíli, kdy banka konečně zavře.",
-      "play": "Nejdřív nabuildi Manu, pak vkroč do bitvy, zapni Ledovou bouři a zůstaň v ní, aby tě odliv každou sekundu znovu štítoval. Bouři vypni, až když ti opravdu dojde Mana, a zbytek nech na vejci.",
+      "title": "Jo, jsem teď mág",
+      "why": "Pasivka (Spiked Shell) Rammusovi tiše dává bonusovou útočnou sílu, která škáluje s jeho zbrojí a magickou odolností. Je to vedlejší efekt, kolem kterého nikdo nestaví, protože Rammus skoro nikdy neútočí základními útoky. Síla útoků (ADAPt) přeměňuje tu bonusovou útočnou sílu na sílu schopností a přidává dalších 15 %, takže každý bod zbroje se mění v AP pro Q (Powerball), zpětné poškození W (Defensive Ball Curl) a R (Soaring Slam). Střelomág pak způsobí, že jeho útoky dávají bonusové fyzické poškození rovné 75 % těch AP, takže zbroj se vrací ven jeho autáky do toho, koho právě vyprovokoval. Titánské odhodlání, Osamělý válečník a W (Defensive Ball Curl) dávají zbroj a magickou odolnost, které přes pasivku tečou do ještě víc AP, zatímco Zhonyiny přesýpací hodiny krmí oba konce zbrojí a AP, Trnobrnění a Proměnlivý Jak'Sho skládají čisté odolnosti, Rabadonův smrtící klobouk znásobuje přeměněný součet a Nashorův tesák zrychluje autáky ze Střelomága. Z pásovcového tanka se stává mág, co mlátí základními útoky a jehož zbroj je jeho síla schopností.",
+      "play": "Naskoč Q (Powerball), W (Defensive Ball Curl) na skok ze zbroje do AP, pak E (Frenzying Taunt) na nejkřehčí cíl a pravým klikem ho sundej. Zhonya, když se na tebe vrhne celý tým.",
       "augments": [
-        "Tvoje náklady na Manu se zdvojnásobí. Léčení, Štíty a poškození tvých schopností jsou účinnější.",
-        "Získáš z utracené Many Štít na 1.5 sekundy. Štít až",
-        "Získáš Adaptivní sílu na 3 sekundy, když získáš Štít (cooldown 5 sekund).",
-        "Získáš Mořskou duši, která po zranění nepřátel dává vysokou regeneraci Zdraví a Many."
+        "Přemění bonusovou útočnou sílu na sílu schopností. Získáš 15 % síly schopností.",
+        "Tvé útoky způsobují dodatečné fyzické poškození ve výši 75 % síly schopností.",
+        "Získáváš stacky za přijaté nebo způsobené poškození. Za každých 7 stacků získáš adaptivní sílu, zbroj, magickou odolnost, velikost a houževnatost.",
+        "Získáš rychlost útoku, 10 zbroje a 10 magické odolnosti za každého blízkého nepřátelského šampiona v dosahu 600."
       ]
     },
     "de": {
-      "title": "Überziehungsschutz",
-      "why": "Gletschersturm ist ein Toggle, der Anivia jede Sekunde Mana abzieht, solange er läuft – laufende Kosten, über die sich keiner groß Gedanken macht, außer ihn auszuschalten, bevor ihr das Mana ausgeht. Dieser Build macht genau diese Rechnung zum Kern der Sache. Blaue Barriere gibt ihr für jeden ausgegebenen Mana-Punkt einen Anteil als Schild für 1.5 Sekunden zurück, also schildet ein Sturm, der sie jede Sekunde leersaugt, sie auch jede Sekunde neu auf. Überfluss verdoppelt alle ihre Manakosten, was das Mana für Blaue Barriere aus demselben Sturm verdoppelt und nebenbei den Schaden des Sturms effektiver macht. Mächtiger Schild schüttet Adaptive Kraft aus, wann immer sie einen Schild erhält, was der tickende Sturm sofort wieder auslöst, sobald die Abklingzeit rum ist, und Meeresdrachenseele gewährt Lebens- und Manaregeneration, nachdem sie Gegnern Schaden zugefügt hat – was der Sturm ununterbrochen tut, sodass der verdoppelte Verbrauch ständig aufgefüllt wird. Stab der Zeitalter gibt Mana zurück, wenn Champions sie treffen, und heilt sie um 25% des ausgegebenen Mana, das Überfluss gerade verdoppelt hat. Umarmung des Seraphen und Bösartigkeit packen noch mehr Mana zum Verbrennen drauf, Bösartigkeit versengt außerdem den Boden unter allen, die ihr Sturm trifft, und Geistessicht macht jeden Schild und jede Heilung auf ihr um 25% größer. Aus der zerbrechlichen Artillerie-Magierin wird eine Frontlinien-Tankin, die ins gegnerische Team marschiert, ihren Sturm anwirft und einfach drinsteht – mit Wiedergeburt als Notfallplan, wenn die Bank endgültig dichtmacht.",
-      "play": "Baut zuerst Mana, lauft dann in den Kampf, schaltet Gletschersturm an und bleibt drin, damit der Verbrauch euch jede Sekunde neu schildet. Schaltet den Sturm erst aus, wenn ihr wirklich kein Mana mehr habt, und lasst das Ei den Rest erledigen.",
+      "title": "Ok, ich bin jetzt Magier",
+      "why": "Der Passiv-Effekt (Spiked Shell) gibt Rammus ganz nebenbei Bonus-Angriffsschaden, der mit seiner Rüstung und Magieresistenz skaliert, ein Nebeneffekt, um den niemand baut, weil Rammus kaum Autoangriffe macht. ADAPtieren wandelt diesen Bonus-Angriffsschaden in Fähigkeitsstärke um und gibt 15% obendrauf, sodass jeder Punkt Rüstung zu AP für Q (Powerball), den Rückschaden von W (Defensive Ball Curl) und R (Soaring Slam) wird. Magierschütze lässt seine Angriffe zusätzlichen physischen Schaden in Höhe von 75% dieser AP verursachen, also kommt die Rüstung über seine Autoangriffe wieder raus, und zwar auf wen auch immer er gerade gespottet hat. Entschlossenheit des Titanen, Einsamer Krieger und W (Defensive Ball Curl) geben alle Rüstung und Magieresistenz, die durch den Passiv-Effekt zu noch mehr AP werden, während Zhonyas Stundenglas beide Enden mit Rüstung und AP füttert, Dornenpanzer und Jak'Sho, der Proteaner rohe Resistenzen stapeln, Rabadons Todeshaube die umgewandelte Summe multipliziert und Nashors Zahn die Magierschütze-Autoangriffe beschleunigt. Der Gürteltier-Tank wird zum autoangreifenden Kampfmagier, dessen Rüstung seine Fähigkeitsstärke ist.",
+      "play": "Mit Q (Powerball) rein, W (Defensive Ball Curl) für den Rüstung-zu-AP-Spike, dann E (Frenzying Taunt) auf das weichste Ziel und mit Rechtsklick umhauen. Zhonyas, wenn das ganze Team auf dich losgeht.",
       "augments": [
-        "Deine Manakosten verdoppeln sich. Deine Fähigkeitsheilungen, Schilde und dein Schaden sind effektiver.",
-        "Erhalte einen Teil des ausgegebenen Mana als Schild für 1.5 Sekunden. Schilde bis zu",
-        "Erhalte 3 Sekunden lang Adaptive Kraft, wenn du einen Schild erhältst (5 Sekunden Abklingzeit).",
-        "Erhalte die Meeresdrachenseele, die nach Schaden an Gegnern hohe Lebens- und Manaregeneration gewährt."
+        "Wandle Bonus-Angriffsschaden in Fähigkeitsstärke um. Erhalte 15% Fähigkeitsstärke.",
+        "Deine Angriffe verursachen zusätzlichen normalen Schaden in Höhe von 75% der Fähigkeitsstärke.",
+        "Erhalte Stapel, wenn du Schaden erleidest oder austeilst. Für je 7 Stapel erhältst du Adaptive Kraft, Rüstung, Magieresistenz, Größe und Zähigkeit.",
+        "Erhalte Angriffstempo, 10 Rüstung und 10 Magieresistenz für jeden nahen gegnerischen Champion innerhalb von 600 Reichweite."
       ]
     },
     "el": {
-      "title": "Προστασία από Υπερανάληψη",
-      "why": "Η Παγετώδης Καταιγίδα είναι ικανότητα με εναλλαγή που χρεώνει στην Ανίβια Μάνα κάθε δευτερόλεπτο που μένει ενεργή, ένα τρέχον κόστος που κανείς δεν σκέφτεται πέρα από το να την κλείσει πριν στεγνώσει, και αυτό το build κάνει αυτόν τον λογαριασμό όλο το νόημα. Το Μπλε Φράγμα της δίνει ένα μερίδιο από κάθε μονάδα Μάνας που ξοδεύει ως Ασπίδα για 1.5 δευτερόλεπτα, οπότε μια καταιγίδα που την αδειάζει κάθε δευτερόλεπτο την ξανασκεπάζει με ασπίδα κάθε δευτερόλεπτο, και η Υπερχείλιση διπλασιάζει όλα τα κόστη Μάνας της, κάτι που διπλασιάζει τη Μάνα που τροφοδοτεί το Μπλε Φράγμα από την ίδια καταιγίδα, ενώ κάνει και τη ζημιά της καταιγίδας πιο αποτελεσματική. Η Πανίσχυρη Ασπίδα δίνει Προσαρμοστική Δύναμη όποτε παίρνει Ασπίδα, κάτι που η καταιγίδα με τους παλμούς της οπλίζει ξανά μόλις τελειώσει ο χρόνος επαναφοράς, και η Ψυχή του Ωκεανού δίνει Αναπλήρωση Υγείας και Μάνας μετά από ζημιά σε εχθρούς, κάτι που η καταιγίδα κάνει ασταμάτητα, έτσι η διπλή αιμορραγία γεμίζει συνεχώς πίσω. Η Ράβδος των Αιώνων επιστρέφει Μάνα όταν την χτυπούν οι ήρωες και τη θεραπεύει για 25% της Μάνας που ξοδεύει, την οποία η Υπερχείλιση μόλις διπλασίασε. Η Προστασία των Σεραφείμ και η Κακοήθεια προσθέτουν Μάνα για κάψιμο, η Κακοήθεια καίει επιπλέον το έδαφος κάτω από όλους όσους χτυπά η καταιγίδα της, και η Όψη Πνευμάτων κάνει κάθε ασπίδα και θεραπεία πάνω της 25% μεγαλύτερη. Η εύθραυστη μάγισσα του πυροβολικού γίνεται tank πρώτης γραμμής που μπαίνει στην εχθρική ομάδα, ανάβει την καταιγίδα της και απλώς στέκεται μέσα της, με την Αναγέννηση ως εφεδρικό σχέδιο για όταν η τράπεζα κλείσει επιτέλους.",
-      "play": "Φτιάξε πρώτα Μάνα, μετά μπες στη μάχη, ενεργοποίησε την Παγετώδη Καταιγίδα και μείνε μέσα της ώστε η αιμορραγία να σε ξανασκεπάζει με ασπίδα κάθε δευτερόλεπτο. Κλείσε την καταιγίδα μόνο όταν έχεις πραγματικά μείνει από Μάνα, και άφησε το αυγό να τα καταφέρει.",
+      "title": "ΟΚ, είμαι μάγος τώρα",
+      "why": "Η παθητική (Spiked Shell) δίνει αθόρυβα στον Rammus bonus Ζημιά Επίθεσης που κλιμακώνεται με τη Θωράκιση και τη Μαγική Αντίσταση του, μια παρενέργεια γύρω από την οποία κανείς δεν φτιάχνει build, γιατί ο Rammus σχεδόν δεν κάνει βασικές επιθέσεις. Το ΠΡΟΣΑΡΜΟΓή μετατρέπει αυτή την bonus Ζημιά Επίθεσης σε Ισχύ Ικανοτήτων και προσθέτει 15% παραπάνω, οπότε κάθε πόντος θωράκισης γίνεται AP για το Q (Powerball), τη ζημιά επιστροφής του W (Defensive Ball Curl) και το R (Soaring Slam). Ο Μάγος Σκοπευτής κάνει μετά τις επιθέσεις του να προκαλούν επιπλέον φυσική ζημιά ίση με το 75% αυτής της AP, οπότε η θωράκιση βγαίνει πίσω μέσα από τα auto του πάνω σε όποιον μόλις προκάλεσε. Η Αποφασιστικότητα του Τιτάνα, ο Μοναχικός Πολεμιστής και το W (Defensive Ball Curl) δίνουν Θωράκιση και Μαγική Αντίσταση που περνούν από την παθητική σε ακόμα περισσότερη AP, ενώ η Κλεψύδρα της Ζόνια ταΐζει και τα δύο άκρα με Θωράκιση και AP, η Αγκαθωράκιση και ο Τζακ'Σο, Ο Πολυμορφικός στοιβάζουν ωμές αντιστάσεις, το Καπέλο του Ράμπαντον πολλαπλασιάζει το μετατραπέν σύνολο και το Δόντι του Νάσορ επιταχύνει τα auto του Μάγου Σκοπευτή. Ο τανκ αρμαδίλος γίνεται ένας μάγος μάχης που χτυπά με auto και του οποίου η θωράκιση είναι η Ισχύς Ικανοτήτων του.",
+      "play": "Μπες με Q (Powerball), W (Defensive Ball Curl) για το άλμα από θωράκιση σε AP, μετά E (Frenzying Taunt) στον πιο εύθραυστο στόχο και δεξί κλικ μέχρι να πέσει. Ζόνια όταν γυρίσει όλη η ομάδα πάνω σου.",
       "augments": [
-        "Τα κόστη Μάνας σου διπλασιάζονται. Οι Θεραπείες, οι Ασπίδες και η ζημιά των Ικανοτήτων σου είναι πιο αποτελεσματικές.",
-        "Κερδίζεις από τη Μάνα που ξοδεύεις ως Ασπίδα για 1.5 δευτερόλεπτα. Ασπίδα έως",
-        "Κερδίζεις Προσαρμοστική Δύναμη για 3 δευτερόλεπτα όταν παίρνεις Ασπίδα (5 δευτερόλεπτα Χρόνος Επαναφοράς).",
-        "Παίρνεις την Ψυχή του Ωκεανού, που δίνει υψηλή Αναπλήρωση Υγείας και Μάνας μετά από ζημιά σε εχθρούς."
+        "Μετατρέπει τη bonus Ζημιά Επίθεσης σε Ισχύ Ικανοτήτων. Κερδίζεις 15% Ισχύ Ικανοτήτων.",
+        "Οι επιθέσεις σας προκαλούν επιπλέον σωματική ζημιά ίση με το 75% της Δύναμης Ικανοτήτων.",
+        "Κερδίζεις στοίβες όταν δέχεσαι ή προκαλείς ζημιά. Για κάθε 7 στοίβες, κερδίζεις Προσαρμοστική Δύναμη, Θωράκιση, Μαγική Αντίσταση, Μέγεθος και Επιμονή.",
+        "Κερδίζεις Ταχύτητα Επίθεσης, 10 Θωράκιση και 10 Μαγική Αντίσταση για κάθε κοντινό εχθρικό ήρωα σε εμβέλεια 600."
       ]
     },
     "es-MX": {
-      "title": "Protección contra sobregiro",
-      "why": "Tormenta glacial es una habilidad de activar y desactivar que le cobra maná a Anivia cada segundo que sigue encendida, un costo constante en el que nadie piensa más allá de apagarla antes de quedarse sin maná, y esta build convierte esa cuenta en lo más importante. Barrera Azul le da una parte de cada punto de maná que gasta como escudo durante 1.5 segundos, así que una tormenta que la drena cada segundo la vuelve a proteger cada segundo. Sobrecarga duplica todos sus costos de maná, lo que duplica el maná que alimenta a Barrera Azul desde la misma tormenta y además vuelve más efectivo el daño de la tormenta. Escudo Poderoso otorga fuerza adaptativa cada vez que gana un escudo, algo que la tormenta, con sus pulsos, vuelve a activar en cuanto termina su enfriamiento, y Alma de los Océanos concede regeneración de salud y maná después de dañar enemigos, cosa que la tormenta hace sin parar, así que el drenaje duplicado se rellena todo el tiempo. Vara de las Edades devuelve maná cuando los campeones la golpean y la cura el 25% del maná que gasta, que Sobrecarga acaba de duplicar. Abrazo del Serafín y Maldad acumulan todavía más maná para quemar, Maldad además quema el suelo bajo todos los que toca su tormenta, y Apariencia Espiritual hace que cada escudo y cada curación sobre ella sea 25% más grande. La frágil maga de artillería se vuelve una tanque de primera línea que se mete al equipo enemigo, prende su tormenta y se queda parada ahí, con Renacimiento como plan B para cuando el banco por fin cierre.",
-      "play": "Compra maná primero, luego métete a la pelea, activa Tormenta glacial y quédate adentro para que el drenaje te vuelva a poner escudo cada segundo. Apaga la tormenta solo cuando de verdad te quedes sin maná, y deja que el huevo se encargue del resto.",
+      "title": "Ok, ahora soy mago",
+      "why": "La pasiva (Spiked Shell) le da a Rammus, sin hacer ruido, Daño de Ataque adicional que escala con su Armadura y Resistencia Mágica, un efecto secundario del que nadie arma su build porque Rammus casi no hace ataques básicos. ADAPt convierte ese Daño de Ataque adicional en Poder de Habilidad y suma 15% más, así que cada punto de armadura se vuelve AP para Q (Powerball), el daño de regreso de W (Defensive Ball Curl) y R (Soaring Slam). Tirador Mágico hace que sus ataques inflijan daño físico adicional igual al 75% de ese AP, así que la armadura sale de vuelta por sus básicos contra quien acaba de provocar. Valor del Titán, Guerrero Solitario y W (Defensive Ball Curl) dan Armadura y Resistencia Mágica que pasan por la pasiva y se vuelven más AP, mientras que Reloj de Arena de Zhonya alimenta ambos extremos con Armadura y AP, Cota de Espinas y Jak'Sho, el Proteico apilan resistencias puras, Sombrero Mortífero de Rabadon multiplica el total convertido y Diente de Nashor acelera los básicos de Tirador Mágico. El tanque armadillo se convierte en un mago de batalla que pega con básicos y cuya armadura es su Poder de Habilidad.",
+      "play": "Entra con Q (Powerball), usa W (Defensive Ball Curl) para el pico de armadura a AP, luego E (Frenzying Taunt) al objetivo más frágil y a clic derecho hasta que caiga. Zhonya cuando todo el equipo se te va encima.",
       "augments": [
-        "Tus costos de maná se duplican. Las curaciones, los escudos y el daño de tus habilidades son más efectivos.",
-        "Obtén parte del maná que gastas como escudo durante 1.5 segundos. Escudos de hasta",
-        "Obtén fuerza adaptativa durante 3 segundos cuando ganes un escudo (5 segundos de enfriamiento).",
-        "Obtén el Alma de los Océanos, que concede gran regeneración de salud y maná después de dañar enemigos."
+        "Convierte el Daño de Ataque adicional en Poder de Habilidad. Ganas 15% de Poder de Habilidad.",
+        "Tus ataques infligen daño físico adicional equivalente al 75% del poder de habilidad.",
+        "Ganas acumulaciones al recibir o infligir daño. Por cada 7 acumulaciones, ganas Fuerza Adaptable, Armadura, Resistencia Mágica, Tamaño y Tenacidad.",
+        "Ganas Velocidad de Ataque, 10 de Armadura y 10 de Resistencia Mágica por cada campeón enemigo cercano en un rango de 600."
       ]
     },
     "es": {
-      "title": "Protección contra descubiertos",
-      "why": "Tormenta glacial es una habilidad de activar y desactivar que le cobra maná a Anivia cada segundo que permanece activa, un coste continuo en el que nadie piensa más allá de apagarla antes de quedarse sin maná, y esta build convierte esa factura en el centro de todo. Barrera azul le da una parte de cada punto de maná que gasta como escudo durante 1.5 segundos, así que una tormenta que la drena cada segundo la reprotege cada segundo. Sobrecarga duplica todos sus costes de maná, lo que duplica el maná que alimenta Barrera azul desde esa misma tormenta y, de paso, hace más eficaz el daño de la tormenta. Escudo de fuerza otorga fuerza adaptable cada vez que gana un escudo, algo que la tormenta, con sus pulsos, vuelve a activar en cuanto termina su enfriamiento, y Alma de océano concede regeneración de salud y maná tras dañar a enemigos, cosa que la tormenta hace sin parar, así que el drenaje duplicado se rellena una y otra vez. Vara de las edades devuelve maná cuando los campeones la golpean y la cura el 25% del maná que gasta, que Sobrecarga acaba de duplicar. Abrazo del serafín y Malignidad apilan aún más maná que quemar, Malignidad además abrasa el suelo bajo todos los que toca su tormenta, y Rostro espiritual hace que cada escudo y cada curación sobre ella sea un 25% mayor. La frágil maga de artillería se convierte en una tanque de primera línea que se mete en el equipo enemigo, activa su tormenta y se queda ahí plantada, con Renacimiento como plan B para cuando el banco por fin cierre.",
-      "play": "Compra maná primero, luego métete en la pelea, activa Tormenta glacial y quédate dentro para que el drenaje te vuelva a poner escudo cada segundo. Apaga la tormenta solo cuando de verdad te quedes sin maná, y deja que el huevo se encargue del resto.",
+      "title": "Vale, ahora soy mago",
+      "why": "La pasiva (Spiked Shell) le da a Rammus, sin hacer ruido, daño de ataque adicional que escala con su armadura y resistencia mágica, un efecto secundario alrededor del cual nadie construye porque Rammus casi no hace ataques básicos. A-DA-PH-TARSE convierte ese daño de ataque adicional en poder de habilidad y añade un 15% más, así que cada punto de armadura se vuelve AP para Q (Powerball), el daño de retorno de W (Defensive Ball Curl) y R (Soaring Slam). Tirador mágico hace que sus ataques inflijan daño físico adicional igual al 75% de ese AP, así que la armadura vuelve a salir por sus ataques básicos contra quien acaba de provocar. Resolución titánica, Combatiente solitario y W (Defensive Ball Curl) dan armadura y resistencia mágica que pasan por la pasiva y se convierten en más AP, mientras que Reloj de arena de Zhonya alimenta ambos extremos con armadura y AP, Malla de espinas y Jak'Sho el Proteico apilan resistencias puras, Sombrero mortal de Rabadon multiplica el total convertido y Diente de Nashor acelera los ataques básicos de Tirador mágico. El tanque armadillo se convierte en un mago de combate que pega auto-ataques y cuya armadura es su poder de habilidad.",
+      "play": "Entra con Q (Powerball), usa W (Defensive Ball Curl) para el pico de armadura a AP, luego E (Frenzying Taunt) al objetivo más blandito y a clic derecho hasta que caiga. Zhonya cuando todo el equipo se te echa encima.",
       "augments": [
-        "Tus costes de maná se duplican. Las curaciones, los escudos y el daño de tus habilidades son más eficaces.",
-        "Obtén parte del maná que gastes como escudo durante 1.5 segundos. Escudos de hasta",
-        "Obtén fuerza adaptable durante 3 segundos cuando ganes un escudo (5 segundos de enfriamiento).",
-        "Obtén el Alma de océano, que concede gran regeneración de salud y maná tras dañar a enemigos."
+        "Convierte el daño de ataque adicional en poder de habilidad. Obtienes un 15% de poder de habilidad.",
+        "Tus ataques infligen daño físico adicional equivalente al 75% del poder de habilidad.",
+        "Obtienes acumulaciones al recibir o infligir daño. Por cada 7 acumulaciones, obtienes fuerza adaptativa, armadura, resistencia mágica, tamaño y tenacidad.",
+        "Obtienes velocidad de ataque, 10 de armadura y 10 de resistencia mágica por cada campeón enemigo cercano en un radio de 600."
       ]
     },
     "fr": {
-      "title": "Protection contre le découvert",
-      "why": "Tempête glaciale est une capacité à bascule qui facture du mana à Anivia chaque seconde où elle reste active, un coût permanent auquel personne ne pense à part l'éteindre avant d'être à sec, et ce build fait de cette facture le cœur du plan. Barrière bleue lui rend une part de chaque point de mana dépensé sous forme de bouclier pendant 1.5 seconde : une tempête qui la vide chaque seconde la reboucliérise donc chaque seconde. Surcharge double tous ses coûts en mana, ce qui double le mana alimentant Barrière bleue depuis la même tempête tout en rendant les dégâts de la tempête plus efficaces. Puissant bouclier octroie de la force adaptative chaque fois qu'elle gagne un bouclier, ce que la tempête qui tique réarme dès la fin de son délai de récupération, et Âme des océans accorde de la régénération de vie et de mana après avoir infligé des dégâts aux ennemis, ce que la tempête fait sans arrêt, si bien que la ponction doublée est constamment recomblée. Bâton séculaire rend du mana quand des champions la touchent et la soigne de 25% du mana dépensé, que Surcharge vient de doubler. Étreinte du séraphin et Malfaisance ajoutent encore du mana à brûler, Malfaisance brûle en plus le sol sous tous ceux touchés par sa tempête, et Visage spirituel rend chaque bouclier et chaque soin sur elle 25% plus gros. La mage d'artillerie fragile devient un tank de première ligne qui fonce dans l'équipe ennemie, active sa tempête et reste planté dedans, avec Renaissance en plan de secours pour quand la banque fermera enfin ses portes.",
-      "play": "Montez d'abord du mana, puis allez au combat, activez Tempête glaciale et restez dedans pour que la ponction vous remette un bouclier chaque seconde. Ne coupez la tempête que lorsque vous êtes vraiment à sec, et laissez l'œuf s'occuper du reste.",
+      "title": "OK, je suis mage maintenant",
+      "why": "La passive (Spiked Shell) donne discrètement à Rammus des dégâts d'attaque bonus qui évoluent avec son armure et sa résistance magique, un effet secondaire autour duquel personne ne build, vu que Rammus n'attaque presque jamais en auto. Adaptation convertit ces dégâts d'attaque bonus en puissance et en ajoute 15 % de plus, si bien que chaque point d'armure devient de la puissance pour Q (Powerball), les dégâts de retour de W (Defensive Ball Curl) et R (Soaring Slam). Tireur magique fait ensuite infliger à ses attaques des dégâts physiques supplémentaires égaux à 75 % de cette puissance : l'armure ressort donc par ses autos sur celui qu'il vient de provoquer. Détermination du titan, Dans la mêlée et W (Defensive Ball Curl) donnent tous de l'armure et de la résistance magique qui passent par la passive pour faire encore plus de puissance, tandis que Sablier de Zhonya alimente les deux bouts avec de l'armure et de la puissance, Cotte épineuse et Jak'Sho, le Protéiforme empilent les résistances brutes, Coiffe de Rabadon multiplie le total converti et Dent de Nashor accélère les autos de Tireur magique. Le tank tatou devient un mage de combat qui fait des autos et dont l'armure est sa puissance.",
+      "play": "Rentre avec Q (Powerball), W (Defensive Ball Curl) pour le pic armure vers puissance, puis E (Frenzying Taunt) sur la cible la plus fragile et clic droit jusqu'à ce qu'elle tombe. Zhonya quand toute l'équipe te saute dessus.",
       "augments": [
-        "Vos coûts en mana sont doublés. Les soins, boucliers et dégâts de vos capacités sont plus efficaces.",
-        "Gagnez une partie du mana dépensé sous forme de bouclier pendant 1.5 seconde. Boucliers jusqu'à",
-        "Gagnez de la force adaptative pendant 3 secondes quand vous gagnez un bouclier (5 secondes de délai de récupération).",
-        "Obtenez l'Âme des océans, qui accorde une forte régénération de vie et de mana après avoir infligé des dégâts aux ennemis."
+        "Convertit les dégâts d'attaque bonus en puissance. Octroie 15 % de puissance.",
+        "Vos attaques infligent des dégâts physiques supplémentaires égaux à 75% de votre puissance.",
+        "Octroie des cumuls quand vous subissez ou infligez des dégâts. Tous les 7 cumuls, octroie de la force adaptative, de l'armure, de la résistance magique, de la taille et de la ténacité.",
+        "Octroie de la vitesse d'attaque, 10 d'armure et 10 de résistance magique pour chaque champion ennemi proche dans un rayon de 600."
       ]
     },
     "hu": {
-      "title": "Folyószámla-védelem",
-      "why": "A Jégvihar Anivia esetében egy kapcsolható képesség, ami minden másodpercben Manát von le, amíg be van kapcsolva. Ez egy futó költség, amivel senki sem foglalkozik azon kívül, hogy kikapcsolja, mielőtt kifogy a mana, ez az összeállítás viszont az egész lényeget erre építi. A Kék pajzs minden elköltött Mana-pont egy részét Pajzsként adja vissza 1.5 másodpercre, így a vihar, ami másodpercenként lecsapolja, másodpercenként újra is pajzsolja. A Túlcsordulás megduplázza az összes Mana-költségét, ezzel megduplázza a Kék pajzsot tápláló Manát ugyanabból a viharból, miközben a vihar sebzését is hatékonyabbá teszi. A Hatalmas pajzs Adaptív erőt ad, valahányszor Pajzsot kap, amit a ketyegő vihar újra élesít, amint lejár a várakozási ideje, az Óceáni lélek pedig Életerő- és Mana-regenerációt ad az ellenségek megsebzése után, amit a vihar megállás nélkül csinál, így a duplázott lecsapolás folyamatosan pótlódik. A Korok pálcája Manát ad vissza, ha bajnokok ütik, és az elköltött Mana 25%-át gyógyítja, amit a Túlcsordulás épp megduplázott. A szeráf ölelése és a Rosszindulat még több elégetnivaló Manát ad, a Rosszindulat ráadásul megperzseli a talajt mindenki alatt, akit a vihar eltalál, a Szellemarc pedig minden rajta lévő pajzsot és gyógyítást 25%-kal erősebbé tesz. A törékeny tüzérmágusból frontvonalbeli tank lesz, aki besétál az ellenséges csapatba, bekapcsolja a viharát, és egyszerűen áll benne, az Újjászületés pedig a B-terv arra az esetre, ha a bank végre bezár.",
-      "play": "Előbb építs Manát, aztán sétálj be a harcba, kapcsold be a Jégvihart, és maradj benne, hogy a lecsapolás másodpercenként újra pajzsoljon. Csak akkor kapcsold ki a vihart, ha tényleg kifogytál a Manából, a többit pedig bízd a tojásra.",
+      "title": "Oké, mostantól mágus vagyok",
+      "why": "A Tüskés páncél csendben bónusz támadóerőt ad Rammusnak, ami a páncélja és a mágiaellenállása szerint nő – ezt senki nem építi rá, mert Rammus alig üt alaptámadással. Az Alkalmazkodás ezt a bónusz támadóerőt képességerővé alakítja, és még 15%-ot ad hozzá, így minden egyes páncélpont képességerőt jelent az Erőlabdának, a Védekező póz visszavert sebzésének és a Pörgő meteornak. A Mesterlövész mágus ezután úgy működik, hogy az alaptámadásai a képességerő 75%-ának megfelelő extra fizikai sebzést okoznak, vagyis a páncél az alaptámadásokon át jön vissza arra, akit épp felbőszített az Őrjöngő felbőszítéssel. A titán elszántsága, a Magányos harcos és a Védekező póz mind páncélt és mágiaellenállást ad, ami a Tüskés páncélon át még több képességerővé válik, Zhonya homokórája pedig mindkét végét táplálja páncéllal és képességerővel, a Tüskevért és Jak'Sho, a váltakozó nyers ellenállást halmoz, Rabadon halálsüvege megszorozza az átalakított összeget, Nashor foga meg gyorsítja a Mesterlövész mágus alaptámadásait. A páncélos tank csatamágussá válik, aki alaptámadásokkal püföl, és a páncélja a képességereje.",
+      "play": "Gurulj be az Erőlabdával, a Védekező pózzal húzd be a páncélból képességerőt csináló löketet, aztán Őrjöngő felbőszítés a legbüdösebb célpontra, és üsd le jobb klikkel. Zhonya, ha az egész csapat rád ugrik.",
       "augments": [
-        "A Mana-költségeid megduplázódnak. A képességeid gyógyítása, Pajzsai és sebzése hatékonyabb.",
-        "Az elköltött Mana-ból Pajzsot kapsz 1.5 másodpercre. A Pajzs legfeljebb",
-        "Adaptív erőt kapsz 3 másodpercre, amikor Pajzsot szerzel (5 másodperc várakozási idő).",
-        "Megkapod az Óceáni lelket, ami az ellenségek megsebzése után magas Életerő- és Mana-regenerációt ad."
+        "A bónusz támadóerő képességerővé alakul. 15% képességerőt kapsz.",
+        "Támadásaid a képességerő 75%-ának megfelelő további fizikai sebzést okoznak.",
+        "Sebzés elszenvedésekor vagy okozásakor töltetekre teszel szert. Minden 7 töltet után adaptív erőt, páncélt, mágiaellenállást, méretet és kitartást kapsz.",
+        "Támadási sebességet, 10 páncélt és 10 mágiaellenállást kapsz minden 600 hatótávon belüli közeli ellenséges hősért."
       ]
     },
     "id": {
-      "title": "Perlindungan Overdraft",
-      "why": "Glacial Storm adalah skill toggle yang menagih Mana Anivia setiap detik selama menyala, biaya berjalan yang tidak dipikirkan siapa pun selain mematikannya sebelum dia kehabisan Mana, dan build ini menjadikan tagihan itu inti permainannya. Blue Barrier memberinya sebagian dari setiap poin Mana yang dia pakai sebagai Shield selama 1.5 detik, jadi badai yang menguras Mana setiap detik juga memasang ulang Shield setiap detik, dan Overflow menggandakan semua biaya Mana-nya, yang menggandakan Mana yang masuk ke Blue Barrier dari badai yang sama sekaligus membuat damage badai lebih efektif. Mighty Shield memberi Adaptive Force setiap kali dia mendapat Shield, yang diaktifkan ulang oleh badai begitu cooldown-nya selesai, dan Ocean Soul memberi Health dan Mana Regen tinggi setelah memberi damage ke musuh, yang dilakukan badai tanpa henti, jadi Mana yang terkuras dua kali lipat terus terisi lagi. Rod of Ages mengembalikan Mana saat champion memukulnya dan menyembuhkannya 25% dari Mana yang dia pakai, yang baru saja digandakan Overflow, Seraph's Embrace dan Malignance menambah Mana untuk dibakar, Malignance juga membakar tanah di bawah semua yang terkena badainya, dan Spirit Visage membuat semua shield dan heal padanya 25% lebih besar. Mage artileri yang rapuh berubah jadi tank garis depan yang jalan ke tengah tim musuh, menyalakan badainya dan cukup berdiri di dalamnya, dengan Rebirth sebagai rencana cadangan saat bank akhirnya tutup.",
-      "play": "Bangun Mana dulu, lalu masuk ke teamfight, nyalakan Glacial Storm dan tetap di dalamnya supaya pengurasan Mana terus memasang ulang Shield setiap detik. Matikan badai hanya saat kamu benar-benar kehabisan Mana, dan biarkan telur yang mengurus sisanya.",
+      "title": "Oke, Sekarang Aku Mage",
+      "why": "Spiked Shell diam-diam memberi Rammus bonus Attack Damage yang naik sesuai Armor dan Magic Resist-nya, efek samping yang gak ada yang build karena Rammus hampir gak pernah auto-attack. ADAPt mengubah bonus Attack Damage itu jadi Ability Power dan nambah 15% lagi, jadi setiap poin armor berubah jadi AP buat Powerball, damage balik Ball Curl, dan Soaring Slam. Marksmage lalu bikin serangannya memberi physical damage tambahan sebesar 75% dari AP itu, jadi armornya keluar lagi lewat auto attack ke siapa pun yang baru dia Taunt. Titan's Resolve, Lonely Warrior, dan Defensive Ball Curl semuanya menambah Armor dan Magic Resist yang lewat Spiked Shell jadi lebih banyak AP, sementara Zhonya's Hourglass menyuplai kedua sisi dengan Armor dan AP, Thornmail dan Jak'Sho numpuk resist mentah, Rabadon's Deathcap melipatgandakan total hasil konversi, dan Nashor's Tooth mempercepat auto Marksmage. Tank armadillo berubah jadi battle mage yang auto-attack, dengan armor sebagai Ability Power-nya.",
+      "play": "Masuk pakai Powerball, Ball Curl buat lonjakan armor jadi AP, lalu Taunt target paling rapuh dan klik kanan sampai tumbang. Zhonya's kalau satu tim ngeroyok kamu.",
       "augments": [
-        "Biaya Mana kamu berlipat dua. Heal, Shield, dan damage Ability kamu lebih efektif.",
-        "Dapatkan sebagian dari Mana yang kamu pakai sebagai Shield selama 1.5 detik. Shield hingga",
-        "Dapatkan Adaptive Force selama 3 detik saat kamu mendapat Shield (cooldown 5 detik).",
-        "Dapatkan Ocean Soul, yang memberi Health dan Mana Regen tinggi setelah memberi damage ke musuh."
+        "Ubah bonus Attack Damage jadi Ability Power. Dapat 15% Ability Power.",
+        "Attack-mu memberikan physical damage tambahan sebesar 75% Ability Power.",
+        "Dapat stack saat menerima atau memberi damage. Tiap 7 stack, dapat Adaptive Force, Armor, Magic Resist, Size, dan Tenacity.",
+        "Dapat Attack Speed, 10 Armor, dan 10 Magic Resist untuk setiap champion musuh di dekat dalam jarak 600."
       ]
     },
     "it": {
-      "title": "Protezione scoperto",
-      "why": "Tempesta glaciale è un'abilità on/off che addebita mana ad Anivia ogni secondo in cui resta attiva, un costo continuo a cui nessuno pensa se non per spegnerla prima di restare a secco, e questa build rende quel conto il punto centrale. Barriera blu le dà una parte di ogni punto di mana speso sotto forma di scudo per 1.5 secondi, quindi una tempesta che la prosciuga ogni secondo la riscuda ogni secondo. Esubero raddoppia tutti i suoi costi in mana, il che raddoppia il mana che alimenta Barriera blu dalla stessa tempesta e rende anche più efficace il danno della tempesta. Scudo possente conferisce forza adattiva ogni volta che ottiene uno scudo, cosa che la tempesta, a ogni tick, riattiva appena finisce il suo tempo di ricarica, e Anima dell'oceano concede rigenerazione di salute e mana dopo aver inflitto danni ai nemici, cosa che la tempesta fa di continuo, così il consumo raddoppiato si riempie in continuazione. Bastone secolare restituisce mana quando i campioni la colpiscono e la cura del 25% del mana speso, che Esubero ha appena raddoppiato. Abbraccio serafico e Malignità aggiungono ancora più mana da bruciare, Malignità inoltre brucia il terreno sotto tutti quelli colpiti dalla sua tempesta, e Corazza spirituale rende ogni scudo e ogni cura su di lei più grande del 25%. La fragile maga d'artiglieria diventa una tank da prima linea che marcia dentro il team nemico, attiva la sua tempesta e ci sta semplicemente in mezzo, con Rinascita come piano B per quando la banca chiuderà finalmente i battenti.",
-      "play": "Prendi prima il mana, poi entra nello scontro, attiva Tempesta glaciale e resta dentro così il consumo ti riscuda ogni secondo. Spegni la tempesta solo quando sei davvero senza mana, e lascia che l'uovo faccia il resto.",
+      "title": "Ok, ora sono un mago",
+      "why": "Guscio spinato dà di nascosto a Rammus attacco fisico bonus che scala con la sua armatura e la sua resistenza magica, un effetto collaterale attorno a cui nessuno costruisce, perché Rammus fa quasi zero attacchi base. Da fisica a magia converte quell'attacco fisico bonus in potere magico e ne aggiunge un altro 15%, così ogni punto di armatura diventa potere magico per Ruota della distruzione, per il danno di ritorno di Posizione difensiva a riccio e per Schianto ascendente. Mago cecchino poi fa infliggere ai suoi attacchi danni fisici extra pari al 75% di quel potere magico, quindi l'armatura torna fuori dagli attacchi base su chi ha appena provocato con Provocazione furiosa. Determinazione titanica, Guerriero solitario e Posizione difensiva a riccio danno tutti armatura e resistenza magica che passano per Guscio spinato e diventano ancora più potere magico, mentre la Clessidra di Zhonya alimenta entrambi i lati con armatura e potere magico, Corazza spinata e Jak'Sho, il Mutevole accumulano resistenze pure, il Copricapo di Rabadon moltiplica il totale convertito e il Dente di Nashor velocizza gli attacchi base di Mago cecchino. Il tank armadillo diventa un mago da battaglia che fa auto-attacchi, con l'armatura come potere magico.",
+      "play": "Entra con Ruota della distruzione, Posizione difensiva a riccio per lo spike da armatura a potere magico, poi Provocazione furiosa sul bersaglio più fragile e giù di clic destro. Zhonya quando tutto il team ti salta addosso.",
       "augments": [
-        "I tuoi costi in mana raddoppiano. Cure, scudi e danni delle tue abilità sono più efficaci.",
-        "Ottieni una parte del mana che spendi sotto forma di scudo per 1.5 secondi. Scudi fino a",
-        "Ottieni forza adattiva per 3 secondi quando ottieni uno scudo (5 secondi di ricarica).",
-        "Ottieni Anima dell'oceano, che concede alta rigenerazione di salute e mana dopo aver inflitto danni ai nemici."
+        "Converte l'attacco fisico bonus in potere magico. Ottieni il 15% di potere magico.",
+        "I tuoi attacchi infliggono danni fisici aggiuntivi pari al 75% del potere magico.",
+        "Ottieni cariche quando subisci o infliggi danni. Ogni 7 cariche ottieni forza adattiva, armatura, resistenza magica, dimensioni e tenacia.",
+        "Ottieni velocità d'attacco, 10 armatura e 10 resistenza magica per ogni campione nemico vicino entro 600 di raggio."
       ]
     },
     "ja": {
-      "title": "マナ残高不足でも安心",
-      "why": "グレイシャルストームは、オンにしている間ずっと毎秒アニビアのマナを消費するトグルスキルです。普通は枯渇する前に切るだけのコストですが、このビルドではその請求こそが本命になります。ブルーバリアは消費したマナ1ポイントごとの一部を1.5秒間シールドに変えるので、毎秒マナを吸うストームが毎秒シールドを張り直します。さらにオーバーフローでマナコストが2倍になり、同じストームからブルーバリアに流れ込むマナも2倍、ストームのダメージもより強力になります。マイティシールドはシールド獲得のたびにアダプティブフォースをくれて、ストームはクールダウンが明けた瞬間にそれを再発動させます。オーシャンソウルは敵にダメージを与えた後にHPとマナのリジェネを与えてくれて、ストームは休みなく当て続けるので、倍になった消費もどんどん補充されます。ロッド オブ エイジスは被弾でマナを回復し、消費マナの25%ぶんHPも回復します。そのマナはオーバーフローで2倍になったばかりです。セラフ エンブレイスとマリグナンスでさらに燃やせるマナが増え、マリグナンスはストームに当たった全員の足元の地面まで焼き、スピリット ビサージュは彼女に対するシールドと回復をすべて25%強化します。脆い砲台メイジが、敵チームに歩いて突っ込み、ストームをオンにしてただ立っているだけの前線タンクに変身。銀行が閉まったときの保険はリバースです。",
-      "play": "まずマナを積んでから集団戦に突入し、グレイシャルストームをオンにしてその中に居座りましょう。毎秒の消費でシールドが張り直され続けます。ストームを切るのは本当にマナが尽きたときだけ。あとはタマゴにお任せです。",
+      "title": "よし、今日からメイジ",
+      "why": "「トゲトゲ」は、ラムスの物理防御と魔法防御に応じて増える攻撃力ボーナスを、こっそり与えてくれます。ラムスはほとんど通常攻撃をしないので、誰もこれを軸にビルドを組みません。「変力装置」はそのボーナス攻撃力をアビリティパワーに変換してさらに15%上乗せするので、物理防御1ポイントがそのまま「ころころ」、「かたくなる」の反射ダメージ、「どーんどーん」のAPになります。そこへ「マークスメイジ」が、そのAPの75%分の物理ダメージを通常攻撃に上乗せするので、「ぴりぴり」でタウントしたばかりの相手に、物理防御が通常攻撃となって返っていきます。「巨人の誓い」、「孤独な武人」、「かたくなる」は物理防御と魔法防御を増やし、「トゲトゲ」を通してさらにAPになります。「ゾーニャの砂時計」は物理防御とAPで両方を底上げし、「ソーンメイル」と「変幻自在のジャック＝ショー」は素の防御を積み、「ラバドン デスキャップ」は変換後の合計を増幅し、「ナッシャー トゥース」はマークスメイジの通常攻撃を速くします。アルマジロのタンクが、物理防御がそのままAPになる、通常攻撃で戦うバトルメイジに大変身。",
+      "play": "「ころころ」で突っ込み、「かたくなる」で物理防御→APのスパイクを作ったら、「ぴりぴり」で一番脆い相手をタウントして右クリックで倒そう。チーム全員に狙われたら「ゾーニャの砂時計」を。",
       "augments": [
-        "マナコストが2倍になる。アビリティのヒール、シールド、ダメージがより強力になる。",
-        "消費したマナの一部を1.5秒間シールドとして獲得する。シールドは最大",
-        "シールドを獲得すると3秒間アダプティブフォースを獲得する(クールダウン5秒)。",
-        "オーシャンソウルを獲得し、敵にダメージを与えた後に大幅なHPとマナのリジェネを得る。"
+        "ボーナス攻撃力をアビリティパワーに変換する。アビリティパワーを15%獲得。",
+        "通常攻撃が魔力の75%に相当する追加物理ダメージを与える。",
+        "ダメージを受けるか与えるとスタックを獲得。7スタックごとに、アダプティブフォース、物理防御、魔法防御、サイズ、行動妨害耐性を獲得。",
+        "範囲600以内の近くの敵チャンピオン1体につき、攻撃速度、物理防御10、魔法防御10を獲得。"
       ]
     },
     "ko": {
-      "title": "당좌 대월 방지",
-      "why": "눈보라는 켜 두는 동안 매초 애니비아의 마나를 소모하는 토글 스킬입니다. 마나가 바닥나기 전에 끄는 것 말고는 아무도 신경 안 쓰는 유지비인데, 이 빌드는 그 청구서가 핵심입니다. 푸른 방어막은 소모한 마나 1당 일부를 1.5초 동안 보호막으로 바꿔 주니까, 매초 마나를 빨아들이는 눈보라가 매초 보호막을 다시 씌워 줍니다. 거기에 범람이 마나 소모량을 2배로 만들어서 같은 눈보라에서 푸른 방어막으로 들어오는 마나도 2배가 되고, 눈보라의 피해량도 더 강해집니다. 강력한 방패는 보호막을 얻을 때마다 적응형 능력치를 주는데, 눈보라가 재사용 대기시간이 끝나는 즉시 다시 발동시켜 줍니다. 바다의 영혼은 적에게 피해를 입힌 뒤 체력 및 마나 재생을 크게 올려 주고, 눈보라는 쉬지 않고 피해를 주니 두 배가 된 소모량도 계속 채워집니다. 영겁의 지팡이는 챔피언에게 맞을 때 마나를 돌려주고 소모한 마나의 25%만큼 체력을 회복시켜 주는데, 그 마나가 방금 범람으로 2배가 됐죠. 대천사의 포옹과 악의는 태울 마나를 더 쌓아 주고, 악의는 눈보라에 맞은 모두의 발밑 땅까지 불태우며, 정령의 형상은 애니비아가 받는 모든 보호막과 회복량을 25% 늘려 줍니다. 연약한 포격 마법사가 적 팀 한복판으로 걸어 들어가 눈보라를 켜고 그냥 서 있기만 하는 전방 탱커로 변신합니다. 은행 문이 닫힐 때를 위한 보험은 환생이고요.",
-      "play": "마나부터 쌓고 한타에 들어가서 눈보라를 켜고 그 안에 계속 머무르세요. 매초 소모되는 마나가 보호막을 계속 다시 씌워 줍니다. 진짜 마나가 바닥났을 때만 눈보라를 끄고, 나머지는 알한테 맡기세요.",
+      "title": "좋아, 이제 나 마법사야",
+      "why": "가시박힌 껍질은 람머스에게 방어력과 마법 저항력에 비례하는 추가 공격력을 슬쩍 줍니다. 람머스는 평타를 거의 안 쳐서 아무도 이걸 중심으로 빌드를 짜지 않죠. 적응형 능력치는 그 추가 공격력을 주문력으로 바꿔 주고 15%를 더 얹어서, 방어력 1이 곧 대회전, 몸 말아 웅크리기의 반사 피해, 지진 폭격의 주문력이 됩니다. 마법 명사수는 평타에 그 주문력의 75%만큼 추가 물리 피해를 붙여 주니, 방어력이 평타로 되돌아와 광란의 도발로 방금 도발한 상대에게 꽂힙니다. 거인의 결의, 고독한 전사, 몸 말아 웅크리기는 전부 방어력과 마법 저항력을 올려 주고 이게 가시박힌 껍질을 거쳐 더 많은 주문력이 되며, 존야의 모래시계는 방어력과 주문력으로 양쪽을 다 챙겨 주고, 가시 갑옷과 해신 작쇼는 순수 방어 능력치를 쌓고, 라바돈의 죽음모자는 변환된 총합을 곱해 주고, 내셔의 이빨은 마법 명사수 평타를 빠르게 해 줍니다. 아르마딜로 탱커가 방어력이 곧 주문력인, 평타 치는 전투 마법사로 다시 태어납니다.",
+      "play": "대회전으로 진입하고, 몸 말아 웅크리기로 방어력 → 주문력 스파이크를 만든 다음, 광란의 도발로 제일 물렁한 적을 도발해서 우클릭으로 잡으세요. 팀 전체가 나한테 몰리면 존야.",
       "augments": [
-        "마나 소모량이 2배가 됩니다. 스킬의 회복, 보호막, 피해량이 더 강해집니다.",
-        "소모한 마나의 일부를 1.5초 동안 보호막으로 얻습니다. 보호막 최대",
-        "보호막을 얻으면 3초 동안 적응형 능력치를 얻습니다(재사용 대기시간 5초).",
-        "바다의 영혼을 얻어, 적에게 피해를 입힌 뒤 체력 및 마나 재생이 크게 증가합니다."
+        "추가 공격력을 주문력으로 전환합니다. 주문력을 15% 얻습니다.",
+        "기본 공격이 주문력의 75%만큼 추가 물리 피해를 입힙니다.",
+        "피해를 받거나 주면 중첩이 쌓입니다. 7중첩마다 적응형 능력치, 방어력, 마법 저항력, 크기, 강인함을 얻습니다.",
+        "사거리 600 이내의 근처 적 챔피언 하나당 공격 속도, 방어력 10, 마법 저항력 10을 얻습니다."
       ]
     },
     "pl": {
-      "title": "Ochrona przed debetem",
-      "why": "Lodowa Burza to zaklęcie włącz/wyłącz, które pobiera od Anivii manę co sekundę, dopóki jest aktywne, czyli stały koszt, o którym nikt nie myśli poza tym, żeby ją wyłączyć, zanim skończy się mana, a ten build robi z tego rachunku sedno sprawy. Niebieska Bariera daje jej część każdego punktu wydanej many jako tarczę na 1.5 sekundy, więc burza, która drenuje ją co sekundę, co sekundę też ją ponownie osłania. Przesyt podwaja wszystkie jej koszty many, co podwaja manę zasilającą Niebieską Barierę z tej samej burzy, a przy okazji zwiększa skuteczność obrażeń burzy. Potężna Tarcza daje siłę adaptacyjną za każdym razem, gdy zyskuje tarczę, co tykająca burza odnawia, gdy tylko skończy się jej czas odnowienia, a Oceaniczna Dusza daje regenerację zdrowia i many po zadaniu obrażeń wrogom, co burza robi bez przerwy, więc podwojony drenaż stale się uzupełnia. Różdżka Wieków zwraca manę, gdy bohaterowie w nią trafiają, i leczy ją z 25% wydanej many, którą Przesyt właśnie podwoił. Uścisk Serafina i Złowrogość dokładają jeszcze więcej many do spalenia, Złowrogość dodatkowo wypala ziemię pod każdym, kogo trafi jej burza, a Oblicze Ducha zwiększa każdą tarczę i każde leczenie na niej o 25%. Krucha maginia artyleryjska staje się czołowym tankiem, który wchodzi w drużynę wroga, włącza burzę i po prostu w niej stoi, z Odrodzeniem jako planem awaryjnym na moment, gdy bank w końcu się zamknie.",
-      "play": "Najpierw kup manę, potem wejdź w walkę, włącz Lodową Burzę i zostań w jej środku, żeby drenaż co sekundę dawał ci nową tarczę. Wyłączaj burzę dopiero wtedy, gdy naprawdę zabraknie ci many, a resztą niech zajmie się jajo.",
+      "title": "Dobra, jestem magiem",
+      "why": "Kolczasta Skorupa po cichu daje Rammusowi premię do obrażeń od ataku, skalującą się z jego pancerzem i odpornością na magię. To efekt uboczny, wokół którego nikt nie buduje, bo Rammus prawie nie atakuje podstawowo. AD-AP-tacja zamienia tę premię do obrażeń od ataku w moc umiejętności i dodaje jeszcze 15%, więc każdy punkt pancerza staje się mocą umiejętności dla Kuli Mocy, obrażeń zwrotnych Kuli Obronnej i Podniebnego Trzaśnięcia. Czarostrzelec sprawia potem, że jego ataki zadają dodatkowe obrażenia fizyczne równe 75% tej mocy umiejętności, więc pancerz wraca przez zwykłe ataki na każdego, kogo właśnie sprowokował Rozwścieczającą Prowokacją. Determinacja Kolosa, Samotny Wojownik i Kula Obronna dodają pancerz i odporność na magię, które przez Kolczastą Skorupę zamieniają się w jeszcze więcej mocy umiejętności, a Klepsydra Zhonyi zasila oba końce pancerzem i mocą umiejętności, Kolczasta Kolczuga i Jak'Sho Zmienny dokładają surowe odporności, Zabójczy Kapelusz Rabadona mnoży przeliczoną sumę, a Ząb Nashora przyspiesza ataki Czarostrzelca. Pancerny tank zamienia się w atakujący zwykłymi atakami maga bojowego, którego pancerz jest jego mocą umiejętności.",
+      "play": "Wskakuj Kulą Mocy, Kula Obronna na skok z pancerza w moc umiejętności, potem sprowokuj najkruchszy cel i dobij go prawym klikiem. Zhonya, gdy cała drużyna rzuci się na ciebie.",
       "augments": [
-        "Twoje koszty many są podwojone. Leczenie, tarcze i obrażenia twoich umiejętności są skuteczniejsze.",
-        "Zyskaj część wydanej many jako tarczę na 1.5 sekundy. Tarcze do",
-        "Zyskaj siłę adaptacyjną na 3 sekundy, gdy zyskasz tarczę (5 sekund czasu odnowienia).",
-        "Zyskaj Oceaniczną Duszę, która daje wysoką regenerację zdrowia i many po zadaniu obrażeń wrogom."
+        "Zamienia premię do obrażeń od ataku w moc umiejętności. Zyskujesz 15% mocy umiejętności.",
+        "Twoje ataki zadają dodatkowe obrażenia fizyczne równe 75% mocy umiejętności.",
+        "Zyskujesz ładunki za otrzymywanie lub zadawanie obrażeń. Za każde 7 ładunków zyskujesz siłę adaptacyjną, pancerz, odporność na magię, rozmiar i nieustępliwość.",
+        "Zyskujesz szybkość ataku, 10 pancerza i 10 odporności na magię za każdego pobliskiego wrogiego bohatera w zasięgu 600."
       ]
     },
     "pt-BR": {
-      "title": "Cheque Especial",
-      "why": "Tempestade Glacial é uma habilidade de ligar e desligar que cobra Mana da Anivia a cada segundo que fica ativa, um custo contínuo em que ninguém pensa além de desligar antes de ficar sem Mana, e essa build faz dessa conta o ponto principal. Barreira Azul dá a ela uma parte de cada ponto de Mana que gasta como Escudo por 1.5 segundo, então uma tempestade que a drena a cada segundo a protege de novo a cada segundo. Transbordamento dobra todos os custos de Mana dela, o que dobra o Mana que alimenta a Barreira Azul vindo da mesma tempestade e ainda deixa o dano da tempestade mais eficaz. Escudo Poderoso concede Força Adaptativa sempre que ela ganha um Escudo, algo que a tempestade, a cada pulso, rearma assim que o tempo de recarga acaba, e Alma do Oceano concede Regeneração de Vida e de Mana depois de causar dano a inimigos, o que a tempestade faz sem parar, então o gasto dobrado vive sendo reposto. Bastão das Eras devolve Mana quando campeões a atingem e a cura em 25% do Mana que ela gasta, que Transbordamento acabou de dobrar. Abraço de Seraph e Malevolência empilham ainda mais Mana para queimar, Malevolência ainda queima o chão sob todos que a tempestade atinge, e Semblante Espiritual deixa todo escudo e toda cura nela 25% maior. A frágil maga de artilharia vira uma tanque de linha de frente que entra no time inimigo, liga a tempestade e simplesmente fica parada nela, com Renascimento como plano B para quando o banco finalmente fechar.",
-      "play": "Compre Mana primeiro, depois entre na luta, ligue a Tempestade Glacial e fique dentro dela para o gasto te proteger de novo a cada segundo. Só desligue a tempestade quando estiver mesmo sem Mana, e deixe o ovo cuidar do resto.",
+      "title": "Beleza, Agora Sou Mago",
+      "why": "Casco Espetado dá, de fininho, Dano de Ataque adicional ao Rammus, que escala com a Armadura e a Resistência Mágica dele, um efeito colateral em que ninguém faz build, já que o Rammus quase não usa ataques básicos. ADAPte-se converte esse Dano de Ataque adicional em Poder de Habilidade e ainda soma 15%, então cada ponto de armadura vira AP para a Bola do Poder, o dano de retorno da Bola Curva Defensiva e a Colisão Ascendente. O Mago Atirador faz os ataques dele causarem dano físico extra igual a 75% desse AP, e a armadura volta pelos ataques básicos em quem ele acabou de provocar com a Provocação Enlouquecedora. Determinação Titânica, Combatente Só e Bola Curva Defensiva dão Armadura e Resistência Mágica que passam pelo Casco Espetado e viram mais AP, enquanto a Ampulheta de Zhonya alimenta os dois lados com Armadura e AP, a Armadura de Espinhos e o Jak'Sho, o Inconstante empilham resistência pura, o Capuz da Morte de Rabadon multiplica o total convertido e o Dente de Na'Shor acelera os ataques do Mago Atirador. O tanque tatu vira um mago de combate que ataca no básico, com a armadura como Poder de Habilidade.",
+      "play": "Entre com a Bola do Poder, use a Bola Curva Defensiva para o pico de armadura em AP, depois Provocação Enlouquecedora no alvo mais frágil e clique direito até ele cair. Zhonya quando o time inteiro virar em você.",
       "augments": [
-        "Seus custos de Mana dobram. As Curas, os Escudos e o dano das suas habilidades ficam mais eficazes.",
-        "Ganhe uma parte do Mana que você gasta como Escudo por 1.5 segundo. Escudos de até",
-        "Ganhe Força Adaptativa por 3 segundos ao ganhar um Escudo (5 segundos de recarga).",
-        "Ganhe a Alma do Oceano, que concede alta Regeneração de Vida e de Mana após causar dano a inimigos."
+        "Converte Dano de Ataque adicional em Poder de Habilidade. Ganhe 15% de Poder de Habilidade.",
+        "Seus ataques causam dano físico adicional igual a 75% do Poder de Habilidade.",
+        "Ganhe acúmulos ao receber ou causar dano. A cada 7 acúmulos, ganhe Força Adaptativa, Armadura, Resistência Mágica, Tamanho e Tenacidade.",
+        "Ganhe Velocidade de Ataque, 10 de Armadura e 10 de Resistência Mágica para cada campeão inimigo próximo em um alcance de 600."
       ]
     },
     "ro": {
-      "title": "Protecție la descoperit de cont",
-      "why": "Furtuna glaciară este o abilitate cu comutator care îi scade Mana Aniviei în fiecare secundă cât rămâne pornită, un cost continuu la care nimeni nu se gândește în afară de a o opri înainte să rămână fără mană, iar build-ul ăsta face din această factură tot rostul. Scutul albastru îi dă o parte din fiecare punct de Mană cheltuit sub formă de Scut timp de 1.5 secunde, așa că o furtună care o drenează în fiecare secundă o și re-scutește în fiecare secundă, iar Revărsarea îi dublează toate costurile de Mană, ceea ce dublează Mana care alimentează Scutul albastru din aceeași furtună, făcând totodată și daunele furtunii mai eficiente. Scutul strașnic oferă Forță adaptivă ori de câte ori primește un Scut, pe care furtuna ce pulsează îl rearmează imediat ce se termină timpul de reîncărcare, iar Sufletul Dragonului oceanelor oferă regenerare de Sănătate și Mană după ce lovește inamici, lucru pe care furtuna îl face non-stop, deci drenarea dublată se tot umple la loc. Sceptrul străvechi dă înapoi Mană când campionii o lovesc și o vindecă cu 25% din Mana cheltuită, pe care Revărsarea tocmai a dublat-o. Îmbrățișarea serafimului și Nocivitatea adaugă Mană de ars, Nocivitatea pârjolește în plus pământul de sub toți cei loviți de furtună, iar Înfățișarea sufletului face fiecare scut și vindecare asupra ei cu 25% mai mare. Magiciana fragilă de artilerie devine un tanc din prima linie, care intră în echipa inamică, pornește furtuna și pur și simplu stă în ea, cu Renașterea ca plan de rezervă pentru când banca se închide în sfârșit.",
-      "play": "Construiește întâi Mană, apoi intră în luptă, pornește Furtuna glaciară și rămâi în ea ca drenarea să te re-scuteze în fiecare secundă. Oprește furtuna doar când ești cu adevărat fără Mană și lasă oul să se ocupe de restul.",
+      "title": "Ok, acum sunt mag",
+      "why": "Spiked Shell (pasiva) îi dă lui Rammus în liniște Damage de Atac bonus, care scalează cu Armura și Rezistența Magică, un efect secundar pe care nu își construiește nimeni nimic, pentru că Rammus abia dacă dă auto-atacuri. ADAPtare transformă acel Damage de Atac bonus în Putere Abilități și mai adaugă 15%, deci fiecare punct de armură devine AP pentru Q (Powerball), damage-ul de întoarcere al lui W (Defensive Ball Curl) și R (Soaring Slam). Țintaș magic face apoi ca atacurile lui să dea damage fizic extra egal cu 75% din acel AP, așa că armura iese înapoi prin auto-atacuri în cel pe care tocmai l-a provocat cu E (Frenzying Taunt). Voința titanului, Războinic singuratic și W (Defensive Ball Curl) adaugă Armură și Rezistență Magică care trec prin Spiked Shell în mai mult AP, în timp ce Clepsidra Zhonyei hrănește ambele capete cu Armură și AP, Armura cu spini și Jak'Sho cel schimbător adună rezistențe brute, Pălăria malefică a lui Rabadon înmulțește totalul convertit, iar Dintele lui Nashor accelerează auto-atacurile din Țintaș magic. Tancul armadillo devine un mag de luptă care dă auto-atacuri și a cărui armură este Puterea lui de Abilități.",
+      "play": "Intri cu Q (Powerball), W (Defensive Ball Curl) pentru saltul de armură în AP, apoi dai Taunt pe cea mai fragilă țintă și o omori cu click dreapta. Zhonya când toată echipa se întoarce împotriva ta.",
       "augments": [
-        "Costurile tale de Mană se dublează. Vindecările, Scuturile și daunele abilităților tale sunt mai eficiente.",
-        "Primești din Mana cheltuită sub formă de Scut timp de 1.5 secunde. Scut de până la",
-        "Primești Forță adaptivă timp de 3 secunde când primești un Scut (5 secunde timp de reîncărcare).",
-        "Primești Sufletul Dragonului oceanelor, care oferă regenerare mare de Sănătate și Mană după ce lovești inamici."
+        "Convertește Damage-ul de Atac bonus în Putere Abilități. Primești 15% Putere Abilități.",
+        "Atacurile tale provoacă daune fizice suplimentare egale cu 75% din puterea abilităților.",
+        "Primești acumulări când primești sau provoci damage. La fiecare 7 acumulări primești Forță Adaptivă, Armură, Rezistență Magică, Mărime și Tenacitate.",
+        "Primești Viteză de Atac, 10 Armură și 10 Rezistență Magică pentru fiecare campion inamic din apropiere aflat în rază de 600."
       ]
     },
     "ru": {
-      "title": "Овердрафт-защита",
-      "why": "Ледяной шторм у Анивии — это переключаемая способность, которая каждую секунду списывает Ману, пока включена. Обычно об этой плате никто не думает, кроме как выключить шторм до того, как Мана кончится, а в этой сборке вся суть как раз в ней. Синий щит превращает долю каждой потраченной Маны в Щит на 1.5 секунды, так что шторм, который сливает её каждую секунду, и щитует её каждую секунду. Переполнение удваивает все её траты Маны, а значит удваивает Ману для Синего щита от того же самого шторма и усиливает урон шторма. Могучий щит даёт Адаптивную силу, когда она получает Щит, и тикающий шторм заряжает его заново, как только он откатился, а Морская душа даёт регенерацию Здоровья и Маны после нанесения урона врагам, чем шторм занимается без остановки, так что удвоенный слив постоянно восполняется. Жезл веков возвращает Ману, когда по ней бьют чемпионы, и лечит её на 25% от потраченной Маны, которую Переполнение только что удвоило. Объятья серафима и Пагубность добавляют Маны на сжигание, Пагубность вдобавок поджигает землю под каждым, кого задел шторм, а Облачение духов делает каждый щит и лечение на ней на 25% сильнее. Хрупкий маг-артиллерист превращается в танка с передовой: заходит в толпу врагов, включает шторм и просто стоит в нём, а Возрождение — запасной план на случай, когда банк наконец закроется.",
-      "play": "Сначала собери Ману, потом иди в замес, включи Ледяной шторм и стой внутри, чтобы слив каждую секунду щитовал тебя заново. Выключай шторм, только когда Мана реально на нуле, а дальше пусть разбирается яйцо.",
+      "title": "Так, теперь я маг",
+      "why": "Колючий панцирь (пассивка) незаметно дарит Раммусу бонусный урон от атак, который растёт от брони и сопротивления магии. Побочный эффект, под который никто не собирает, ведь Раммус почти не бьёт автоатаками. Адаптация превращает этот бонусный урон в силу умений и добавляет ещё 15%, так что каждая единица брони становится СУ для Q (Powerball), урона от возврата W (Defensive Ball Curl) и R (Soaring Slam). Маг-стрелок заставляет его атаки наносить дополнительный физический урон, равный 75% этой СУ, и броня возвращается через автоатаки в того, кого он только что спровоцировал E (Frenzying Taunt). Решимость титана, Одинокий воин и W (Defensive Ball Curl) дают броню и сопротивление магии, которые через Колючий панцирь превращаются в ещё больше СУ, а Песочные часы Жони кормят обе стороны бронёй и СУ, Шипованный доспех и Жак'Шо Многоликий копят чистые сопротивления, Смертельная шляпа Рабадона умножает итоговую сумму, а Зуб Нашора ускоряет автоатаки Мага-стрелка. Танк-броненосец становится боевым магом с автоатаками, у которого броня и есть сила умений.",
+      "play": "Заходим Q (Powerball), жмём W (Defensive Ball Curl) ради скачка брони в СУ, потом таунтим самую хрупкую цель и добиваем её правой кнопкой. Жони, когда вся команда сворачивается на тебя.",
       "augments": [
-        "Твои затраты Маны удваиваются. Исцеление, Щиты и урон от твоих способностей становятся эффективнее.",
-        "Получай от потраченной Маны в виде Щита на 1.5 секунды. Щит до",
-        "Получай Адаптивную силу на 3 секунды, когда получаешь Щит (перезарядка 5 секунд).",
-        "Получи Морскую душу: мощная регенерация Здоровья и Маны после нанесения урона врагам."
+        "Преобразует бонусный урон от атак в силу умений. Дает 15% силы умений.",
+        "Ваши атаки наносят дополнительный физический урон в размере 75% силы умений.",
+        "Вы получаете заряды, когда получаете или наносите урон. За каждые 7 зарядов вы получаете адаптивную силу, броню, сопротивление магии, размер и стойкость.",
+        "Вы получаете скорость атаки, 10 брони и 10 сопротивления магии за каждого находящегося рядом вражеского чемпиона в радиусе 600."
       ]
     },
     "th": {
-      "title": "ป้องกันเงินเกินบัญชี",
-      "why": "Glacial Storm เป็นสกิลแบบเปิด/ปิดที่หักมานาของ Anivia ทุกวินาทีที่เปิดไว้ เป็นต้นทุนที่ไม่มีใครสนใจนอกจากปิดมันก่อนมานาจะหมด แต่บิลด์นี้ทำให้บิลนั้นกลายเป็นหัวใจหลักเลย Blue Barrier แปลงมานาที่เธอใช้ทุกแต้มส่วนหนึ่งเป็นโล่นาน 1.5 วินาที พายุที่ดูดมานาทุกวินาทีจึงสร้างโล่ใหม่ให้ทุกวินาที ส่วน Overflow ทำให้ค่ามานาทั้งหมดของเธอเพิ่มเป็นสองเท่า มานาที่ไหลเข้า Blue Barrier จากพายุลูกเดียวกันก็เพิ่มเป็นสองเท่า แถมดาเมจของพายุยังแรงขึ้นด้วย Mighty Shield ให้ Adaptive Force ทุกครั้งที่เธอได้โล่ และพายุก็ทริกเกอร์มันใหม่ทันทีที่คูลดาวน์จบ Ocean Soul ให้การฟื้นฟูเลือดและมานาสูงหลังทำดาเมจศัตรู ซึ่งพายุทำไม่หยุด มานาที่ถูกดูดสองเท่าจึงถูกเติมกลับมาเรื่อย ๆ Rod of Ages คืนมานาเมื่อถูกแชมเปียนโจมตีและฮีลเธอ 25% ของมานาที่ใช้ ซึ่ง Overflow เพิ่งทำให้เป็นสองเท่า Seraph's Embrace กับ Malignance เติมมานาให้เผาเพิ่ม Malignance ยังเผาพื้นใต้เท้าทุกคนที่โดนพายุ และ Spirit Visage ทำให้โล่และฮีลทุกอย่างบนตัวเธอแรงขึ้น 25% จากนักเวทปืนใหญ่ที่เปราะบางกลายเป็นแทงค์แนวหน้าที่เดินเข้าทีมศัตรู เปิดพายุแล้วยืนอยู่ในนั้นเฉย ๆ โดยมี Rebirth เป็นแผนสำรองตอนที่ธนาคารปิดตัวลงในที่สุด",
-      "play": "สร้างมานาก่อน แล้วเดินเข้าไปปะทะ เปิด Glacial Storm แล้วอยู่ในนั้นเลย เพื่อให้การดูดมานาทุกวินาทีสร้างโล่ใหม่ให้คุณ ปิดพายุก็ต่อเมื่อมานาหมดจริง ๆ เท่านั้น ที่เหลือปล่อยให้ไข่จัดการ",
+      "title": "โอเค ตอนนี้ฉันเป็นเมจแล้ว",
+      "why": "Spiked Shell (พาสซีฟ) แอบให้ Rammus ได้ Attack Damage โบนัสที่สเกลตาม Armor และ Magic Resist ซึ่งเป็นผลข้างเคียงที่ไม่มีใครสร้างของรอบมัน เพราะ Rammus แทบไม่ตีธรรมดาเลย ADAPt แปลง Attack Damage โบนัสนั้นเป็น Ability Power แล้วเพิ่มให้อีก 15% ทำให้ Armor ทุกแต้มกลายเป็น AP สำหรับ Q (Powerball), ดาเมจตอนกลับของ W (Defensive Ball Curl) และ R (Soaring Slam) จากนั้น Marksmage ทำให้การโจมตีของเขาสร้างดาเมจกายภาพเพิ่มเท่ากับ 75% ของ AP นั้น Armor จึงไหลกลับออกมาทางการตีธรรมดาใส่คนที่เพิ่งโดน E (Frenzying Taunt) Titan's Resolve, Lonely Warrior และ W (Defensive Ball Curl) ล้วนเพิ่ม Armor และ Magic Resist ที่ไหลผ่าน Spiked Shell กลายเป็น AP มากขึ้น ขณะที่ Zhonya's Hourglass เสริมทั้งสองด้านด้วย Armor และ AP, Thornmail กับ Jak'Sho, The Protean สะสมค่าต้านทานล้วนๆ, Rabadon's Deathcap คูณยอดรวมที่แปลงแล้ว และ Nashor's Tooth เร่งการตีธรรมดาของ Marksmage แทงค์อาร์มาดิลโลกลายเป็นเมจสายตีธรรมดาที่เกราะคือ Ability Power ของเขา",
+      "play": "เข้าด้วย Q (Powerball) กด W (Defensive Ball Curl) เพื่อให้ Armor เปลี่ยนเป็น AP พุ่งขึ้น แล้ว Taunt เป้าหมายที่เปราะที่สุดและคลิกขวาจัดการให้ล้ม ใช้ Zhonya's ตอนทั้งทีมหันมารุมคุณ",
       "augments": [
-        "ค่ามานาของคุณเพิ่มเป็นสองเท่า การฮีล โล่ และดาเมจจากสกิลของคุณมีประสิทธิภาพมากขึ้น",
-        "ได้รับส่วนหนึ่งของมานาที่คุณใช้เป็นโล่นาน 1.5 วินาที โล่สูงสุด",
-        "ได้รับ Adaptive Force นาน 3 วินาทีเมื่อคุณได้รับโล่ (คูลดาวน์ 5 วินาที)",
-        "ได้รับ Ocean Soul ที่ให้การฟื้นฟูเลือดและมานาสูงหลังทำดาเมจศัตรู"
+        "แปลง Attack Damage โบนัสเป็น Ability Power และรับ Ability Power เพิ่ม 15%",
+        "การโจมตีของคุณสร้างความเสียหายกายภาพเพิ่มเท่ากับ 75% ของ Ability Power",
+        "ได้รับสแต็กเมื่อรับหรือสร้างดาเมจ ทุกๆ 7 สแต็กจะได้รับ Adaptive Force, Armor, Magic Resist, ขนาดตัว และ Tenacity",
+        "ได้รับ Attack Speed, 10 Armor และ 10 Magic Resist ต่อแชมเปี้ยนศัตรูแต่ละตัวที่อยู่ใกล้ในระยะ 600"
       ]
     },
     "tr": {
-      "title": "Hesap Koruması",
-      "why": "Anivia'nın Buzul Fırtınası, açık kaldığı her saniye Mana çeken bir aç-kapa yeteneğidir. Mana bitmeden kapatmaktan öte kimsenin düşünmediği sürekli bir maliyettir ve bu build o faturayı her şeyin merkezine koyuyor. Mavi Bariyer, harcadığı her Mana puanının bir kısmını 1.5 saniyeliğine Kalkan olarak verir; yani onu her saniye kurutan fırtına, onu her saniye yeniden kalkanlar. Taşkın tüm Mana maliyetlerini ikiye katlar, bu da aynı fırtınadan Mavi Bariyer'i besleyen Mana'yı ikiye katlarken fırtınanın hasarını da daha etkili yapar. Kudretli Kalkan, ne zaman Kalkan kazansa Uyarlanabilir Güç verir; tıkır tıkır işleyen fırtına bunu bekleme süresi biter bitmez yeniden kurar. Okyanus Ruhu ise düşmanlara hasar verdikten sonra Can ve Mana Yenilenmesi verir, fırtına bunu durmadan yapar, böylece ikiye katlanan kayıp sürekli geri dolar. Asırlık Sopa, şampiyonlar ona vurduğunda Mana geri verir ve harcadığı Mana'nın %25'i kadar iyileştirir; Taşkın bunu az önce ikiye katladı. Seraph'ın Şefkati ve Habaset yakacak Mana ekler, Habaset ayrıca fırtınasının vurduğu herkesin altındaki zemini kavurur, Ruh Gömleği de üzerindeki her kalkanı ve iyileştirmeyi %25 daha büyük yapar. Kırılgan topçu büyücü, düşman takımının içine yürüyen, fırtınasını açıp öylece içinde duran bir ön saf tankına dönüşür; banka sonunda kapandığında yedek plan ise Yeniden Doğuş.",
-      "play": "Önce Mana yap, sonra savaşa dal, Buzul Fırtınası'nı aç ve içinde kal ki kayıp seni her saniye yeniden kalkanlasın. Fırtınayı ancak gerçekten Mana'n bittiğinde kapat, gerisini yumurtaya bırak.",
+      "title": "Tamam, Artık Büyücüyüm",
+      "why": "Spiked Shell (pasif), Rammus'a sessizce Zırh ve Büyü Direncine göre artan bonus Saldırı Gücü verir. Rammus neredeyse hiç otomatik saldırı yapmadığı için kimsenin etrafına build kurmadığı bir yan etkidir bu. Yetenek Gücüne Güç Kat bu bonus Saldırı Gücünü Yetenek Gücüne çevirir ve üstüne %15 ekler; böylece her zırh puanı Q (Powerball), W (Defensive Ball Curl) dönüş hasarı ve R (Soaring Slam) için YG olur. Efsunlu Saldırılar da saldırılarına bu YG'nin %75'i kadar ekstra fiziksel hasar verdirir, yani zırh, az önce E (Frenzying Taunt) ile alay ettiği hedefe otomatik saldırılarla geri döner. Titanın Azmi, Yalnız Savaşçı ve W (Defensive Ball Curl) Spiked Shell üzerinden daha fazla YG'ye akan Zırh ve Büyü Direnci ekler. Zhonya'nın Kumsaati iki ucu da Zırh ve YG ile besler, Çivili Zırh ve Şahbaz Jak'Sho saf direnç yığar, Rabadon'un Şapkası dönüştürülmüş toplamı çarpar, Nashor'un Dişi de Efsunlu Saldırıların otomatik saldırılarını hızlandırır. Armadillo tankı, zırhı Yetenek Gücü olan, otomatik saldıran bir savaş büyücüsüne dönüşür.",
+      "play": "Q (Powerball) ile dal, zırhtan YG'ye sıçrama için W (Defensive Ball Curl) at, sonra en kırılgan hedefe alay et ve sağ tıkla indir. Bütün takım sana döndüğünde Zhonya'yı bas.",
       "augments": [
-        "Mana maliyetlerin ikiye katlanır. Yeteneklerinin İyileştirmeleri, Kalkanları ve hasarı daha etkili olur.",
-        "Harcadığın Mana'nın bir kısmını 1.5 saniyeliğine Kalkan olarak kazanırsın. Kalkan en fazla",
-        "Kalkan kazandığında 3 saniyeliğine Uyarlanabilir Güç kazanırsın (5 saniye Bekleme Süresi).",
-        "Düşmanlara hasar verdikten sonra yüksek Can ve Mana Yenilenmesi veren Okyanus Ruhu'nu kazanırsın."
+        "Bonus Saldırı Gücünü Yetenek Gücüne çevirir. %15 Yetenek Gücü kazandırır.",
+        "Saldırıların, Yetenek Gücünün %75'i kadar ek fiziksel hasar verir.",
+        "Hasar aldığında veya verdiğinde yığın kazanırsın. Her 7 yığın için Uyarlanabilir Güç, Zırh, Büyü Direnci, Boyut ve Direngenlik kazanırsın.",
+        "600 menzil içindeki her yakın düşman şampiyon için Saldırı Hızı, 10 Zırh ve 10 Büyü Direnci kazanırsın."
       ]
     },
     "vi": {
-      "title": "Bảo Hiểm Thấu Chi",
-      "why": "Glacial Storm là chiêu bật/tắt, cứ bật là tốn Năng Lượng của Anivia mỗi giây, một khoản phí duy trì mà chẳng ai để ý ngoài việc tắt đi trước khi cạn mana, và bản build này biến hóa đơn đó thành trọng tâm. Kết Giới Lam biến một phần mỗi điểm Năng Lượng cô tiêu thành Lá Chắn trong 1.5 giây, nên cơn bão hút mana mỗi giây sẽ tạo lại lá chắn mỗi giây; Tràn Trề nhân đôi toàn bộ chi phí Năng Lượng của cô, nghĩa là lượng mana đổ vào Kết Giới Lam từ chính cơn bão đó cũng gấp đôi, đồng thời sát thương của bão cũng hiệu quả hơn. Lá Chắn Hùng Mạnh cho Sức Mạnh Thích Ứng mỗi khi cô nhận Lá Chắn, và cơn bão sẽ kích hoạt lại ngay khi hết thời gian hồi; Linh Hồn Rồng Nước cho Hồi Máu và Hồi Năng Lượng cao sau khi gây sát thương lên kẻ địch, mà cơn bão thì gây sát thương không ngừng nghỉ, nên lượng mana bị hút gấp đôi vẫn liên tục được bù lại. Trượng Trường Sinh hoàn lại Năng Lượng khi cô bị tướng đánh trúng và hồi máu bằng 25% lượng Năng Lượng cô tiêu, mà lượng đó vừa được Tràn Trề nhân đôi; Quyền Trượng Đại Thiên Sứ và Hỏa Khuẩn chất thêm mana để đốt, Hỏa Khuẩn còn thiêu cháy mặt đất dưới chân mọi kẻ trúng bão, và Giáp Tâm Linh khiến mọi lá chắn và hồi máu lên cô mạnh hơn 25%. Pháp sư pháo đài mỏng manh hóa thành tanker tiên phong, cứ thế bước vào đội địch, bật bão rồi đứng yên trong đó, còn Rebirth là phương án dự phòng khi ngân hàng cuối cùng cũng đóng cửa.",
-      "play": "Lên đồ mana trước, rồi lao vào giao tranh, bật Glacial Storm và ở lại trong đó để mỗi giây lượng mana bị hút lại tạo lá chắn cho bạn. Chỉ tắt bão khi bạn thật sự hết mana, phần còn lại cứ để quả trứng lo.",
+      "title": "Ok, Giờ Tôi Là Pháp Sư",
+      "why": "Spiked Shell (nội tại) âm thầm cho Rammus thêm Sát Thương Vật Lý cộng thêm tăng theo Giáp và Kháng Phép, một hiệu ứng phụ chẳng ai build quanh vì Rammus hầu như không đánh thường. THÍCH ỨNG đổi Sát Thương Vật Lý cộng thêm đó thành Sức Mạnh Phép Thuật và cộng thêm 15%, nên mỗi điểm giáp đều thành AP cho Q (Powerball), sát thương hồi của W (Defensive Ball Curl) và R (Soaring Slam). Xạ Thủ Ma Pháp khiến đòn đánh của anh ta gây thêm sát thương vật lý bằng 75% lượng AP đó, nên giáp quay ngược ra qua đòn đánh thường vào kẻ vừa bị E (Frenzying Taunt) khiêu khích. Quyền Năng Khổng Lồ, Chiến Binh Độc Hành và W (Defensive Ball Curl) đều cộng Giáp và Kháng Phép chảy qua Spiked Shell thành thêm AP, trong khi Đồng Hồ Cát Zhonya nuôi cả hai đầu bằng Giáp và AP, Giáp Gai và Jak'Sho, Vỏ Bọc Thích Nghi chồng kháng tính thuần, Mũ Phù Thủy Rabadon nhân tổng đã quy đổi, còn Nanh Nashor tăng tốc đòn đánh thường của Xạ Thủ Ma Pháp. Chú tê tê tanker thành pháp sư giao tranh đánh thường, với giáp chính là Sức Mạnh Phép Thuật.",
+      "play": "Lao vào bằng Q (Powerball), bật W (Defensive Ball Curl) để giáp đổi sang AP, rồi khiêu khích mục tiêu mỏng máu nhất và chuột phải hạ gục. Bật Zhonya khi cả team quay sang đập bạn.",
       "augments": [
-        "Chi phí Năng Lượng của bạn tăng gấp đôi. Hồi máu, Lá Chắn và sát thương từ chiêu thức của bạn hiệu quả hơn.",
-        "Nhận một phần Năng Lượng bạn tiêu dưới dạng Lá Chắn trong 1.5 giây. Lá Chắn tối đa",
-        "Nhận Sức Mạnh Thích Ứng trong 3 giây khi bạn nhận Lá Chắn (thời gian hồi 5 giây).",
-        "Nhận Linh Hồn Rồng Nước, cho Hồi Máu và Hồi Năng Lượng cao sau khi gây sát thương lên kẻ địch."
+        "Chuyển Sát Thương Vật Lý cộng thêm thành Sức Mạnh Phép Thuật. Nhận thêm 15% Sức Mạnh Phép Thuật.",
+        "Đòn đánh của bạn gây thêm sát thương vật lý bằng 75% Sức Mạnh Phép Thuật.",
+        "Nhận cộng dồn khi nhận hoặc gây sát thương. Cứ mỗi 7 cộng dồn, nhận Sức Mạnh Thích Ứng, Giáp, Kháng Phép, Kích Cỡ và Kiên Cường.",
+        "Nhận Tốc Độ Đánh, 10 Giáp và 10 Kháng Phép cho mỗi tướng địch ở gần trong phạm vi 600."
       ]
     },
     "zh-CN": {
-      "title": "透支保护",
-      "why": "暴风雪是个开启后每秒都要消耗冰晶凤凰法力值的开关技能,大家平时只会在她蓝空之前记得关掉,这套build却把这笔账单当成了核心。蓝色屏障会把她每消耗1点法力值的一部分转化为持续1.5秒的护盾,所以每秒吸蓝的暴风雪就会每秒重新给她套盾;溢流让她所有法力消耗翻倍,于是同一场暴风雪流进蓝色屏障的法力也翻倍,暴风雪的伤害也变得更强。强力护盾会在她获得护盾时提供适应之力,暴风雪冷却一结束就会再次触发;海洋龙魂会在造成伤害后提供大量生命回复和法力回复,而暴风雪一直在打伤害,翻倍的消耗就一直有补给。时光之杖会在被英雄命中时返还法力值,并按她消耗法力值的25%为她回血,而这些法力刚刚被溢流翻倍;炽天使之拥和残疫再堆一波可以烧的法力,残疫还会灼烧被暴风雪命中的所有人脚下的地面,振奋盔甲让她身上的所有护盾和治疗效果提升25%。脆皮炮台法师摇身一变成了前排坦克,走进敌人堆里,开启暴风雪,往里面一站就行,而重生是银行倒闭时的后路。",
-      "play": "先出法力装,然后冲进团战,开启暴风雪并待在里面,这样每秒的消耗会一直给你重新套盾。只有真的蓝空了才关掉暴风雪,剩下的交给蛋。",
+      "title": "好吧，我现在是法师了",
+      "why": "被动尖刺外壳（Spiked Shell）会悄悄给拉姆斯提供随护甲和魔抗成长的额外攻击力，这个副作用没人会围绕它出装，因为披甲龙龟几乎不平A。物理转魔法会把这份额外攻击力转化为法术强度，并额外增加15%，于是每一点护甲都变成法强，加成Q（Powerball）、W（Defensive Ball Curl）的反弹伤害和R（Soaring Slam）。神射法师则让他的攻击额外造成相当于该法强75%的物理伤害，护甲就这样通过平A打回刚被E（Frenzying Taunt）嘲讽的目标身上。泰坦的坚决、孤勇者和W（Defensive Ball Curl）提供的护甲和魔抗会通过尖刺外壳转化成更多法强，中娅沙漏两头都能喂到护甲和法强，荆棘之甲和千变者贾修堆纯粹的防御，灭世者的死亡之帽放大转化后的总量，纳什之牙则加快神射法师的平A速度。装甲坦克变成了会平A的战斗法师，护甲就是他的法术强度。",
+      "play": "Q（Powerball）开团，开W（Defensive Ball Curl）吃护甲转法强的爆发，然后嘲讽最脆的目标，右键点死。全队都打你的时候开中娅。",
       "augments": [
-        "你的法力消耗翻倍。你的技能治疗、护盾和伤害更强。",
-        "获得你所消耗法力值的一部分,转化为持续1.5秒的护盾。护盾最多",
-        "获得护盾时,获得3秒适应之力(冷却时间5秒)。",
-        "获得海洋龙魂,在对敌人造成伤害后获得大量生命回复和法力回复。"
+        "将额外攻击力转化为法术强度，并获得15%法术强度。",
+        "你的攻击会造成相当于75%法术强度的额外物理伤害。",
+        "在承受或造成伤害时获得层数。每7层获得适应之力、护甲、魔法抗性、体型和韧性。",
+        "600范围内每有一名附近的敌方英雄，就获得攻击速度、10点护甲和10点魔法抗性。"
       ]
     },
     "zh-TW": {
-      "title": "透支保護",
-      "why": "暴風雪是個開啟後每秒都要消耗艾妮維亞法力的切換技能,大家平常只會在她魔力見底前記得關掉,但這套配裝卻把這筆帳單當成了重點。藍色屏障會把她每消耗1點法力的一部分轉換成持續1.5秒的護盾,所以每秒吸魔的暴風雪就會每秒幫她重新上盾;溢流讓她所有法力消耗翻倍,於是同一場暴風雪流進藍色屏障的法力也翻倍,暴風雪的傷害也變得更強。巨大盾牌會在她獲得護盾時給予適應之力,暴風雪冷卻一結束就會再次觸發;海洋之魂會在造成傷害後給予大量生命與法力回復,而暴風雪一直在打傷害,翻倍的消耗就一直有補給。時光之杖會在被英雄擊中時回復法力,並依她消耗法力的25%為她回血,而這些法力剛被溢流翻倍;熾天使的擁抱和惡意再多堆一波可以燒的法力,惡意還會灼燒被暴風雪打到的所有人腳下的地面,振奮盔甲讓她身上所有護盾與治療效果提升25%。脆皮砲台法師搖身一變成了前排坦克,走進敵隊裡,開啟暴風雪,往裡面一站就好,而重生則是銀行倒閉時的後路。",
-      "play": "先出法力裝,然後衝進團戰,開啟暴風雪並待在裡面,這樣每秒的消耗會一直幫你重新上盾。只有真的沒魔了才關掉暴風雪,剩下的交給蛋。",
+      "title": "好喔，我現在是法師了",
+      "why": "被動尖刺外殼（Spiked Shell）會默默給拉姆斯隨護甲和魔法防禦成長的額外攻擊力，這個副作用沒人會圍繞它出裝，因為拉姆斯幾乎不普攻。靈活轉換會把這份額外攻擊力轉換成技能強度，並再增加15%，所以每一點護甲都變成法強，加成Q（Powerball）、W（Defensive Ball Curl）的反彈傷害和R（Soaring Slam）。射手法師則讓他的攻擊額外造成相當於該法強75%的物理傷害，護甲就這樣透過普攻打回剛被E（Frenzying Taunt）嘲諷的目標身上。泰坦的決意、孤勇者和W（Defensive Ball Curl）提供的護甲和魔法防禦會透過尖刺外殼轉成更多法強，中婭沙漏兩頭都能餵到護甲和法強，荊棘之甲和千變萬化之賈克修堆純粹的防禦，死亡之帽放大轉換後的總量，納什之牙則加快射手法師的普攻速度。裝甲坦克變成會普攻的戰鬥法師，護甲就是他的技能強度。",
+      "play": "Q（Powerball）開團，開W（Defensive Ball Curl）吃護甲轉法強的爆發，然後嘲諷最脆的目標，右鍵點死。全隊都打你的時候開中婭。",
       "augments": [
-        "你的法力消耗翻倍。你的技能治療、護盾與傷害更強。",
-        "獲得你所消耗法力的一部分,轉換成持續1.5秒的護盾。護盾最多",
-        "獲得護盾時,獲得3秒適應之力(冷卻時間5秒)。",
-        "獲得海洋之魂,在對敵人造成傷害後獲得大量生命與法力回復。"
+        "將額外攻擊力轉換為技能強度，並獲得15%技能強度。",
+        "你的攻擊額外造成等同 75% 魔法攻擊的物理傷害。",
+        "在承受或造成傷害時獲得層數。每7層獲得適應之力、護甲、魔法防禦、體型和韌性。",
+        "600範圍內每有一名附近的敵方英雄，就獲得攻擊速度、10點護甲和10點魔法防禦。"
       ]
     }
   }

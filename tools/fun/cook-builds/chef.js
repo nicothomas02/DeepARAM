@@ -1,1 +1,1 @@
-window.COOK_CHEF = {"id": "anivia-overdraft-protection", "title": "Overdraft Protection", "champion": "Anivia", "champion_name": "Anivia", "chef": "2026-11-05", "count": 20};
+window.COOK_CHEF = {"id": "rammus-ok-im-a-mage-now", "title": "OK, I'm a Mage Now", "champion": "Rammus", "champion_name": "Rammus", "chef": "2026-11-06", "count": 21};
