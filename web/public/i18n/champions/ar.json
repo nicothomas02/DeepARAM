@@ -205,5 +205,11 @@
  "Pick {n}": "الاختيار {n}",
  "From earlier games: skill orders are not updating right now.": "من مباريات سابقة: ترتيب المهارات لا يتحدّث حاليًا.",
  "From the most common full builds, most built items first.": "من أكثر البناءات الكاملة شيوعًا، والعناصر الأكثر بناءً أولًا.",
- "Few games so far: estimated from earlier games and this patch's changes.": "عدد المباريات قليل حتى الآن: تقدير من مباريات سابقة ومن تغييرات هذا التحديث."
+ "Few games so far: estimated from earlier games and this patch's changes.": "عدد المباريات قليل حتى الآن: تقدير من مباريات سابقة ومن تغييرات هذا التحديث.",
+ "Synergies": "التآزرات",
+ "What fits this champion": "ما يناسب هذا البطل",
+ "Score: points of win rate over the usual choice. Choices with few games lean on the estimate.": "النتيجة: نقاط نسبة الفوز مقارنة بالاختيار المعتاد. الاختيارات ذات المباريات القليلة تعتمد على التقدير.",
+ "Expected": "المتوقع",
+ "Real": "الفعلي",
+ "Builds with few games lean on the estimate: how much of a rare build's lead usually holds up.": "البنيات ذات المباريات القليلة تعتمد على التقدير: مقدار ما يصمد عادةً من تقدّم البنية النادرة."
 }

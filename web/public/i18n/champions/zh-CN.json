@@ -205,5 +205,11 @@
  "Pick {n}": "第{n}次",
  "From earlier games: skill orders are not updating right now.": "来自较早的对局：技能加点暂时没有更新。",
  "From the most common full builds, most built items first.": "来自最常见的完整出装，最常做的装备排在前面。",
- "Few games so far: estimated from earlier games and this patch's changes.": "目前对局较少：根据较早的对局和本版本的改动估算。"
+ "Few games so far: estimated from earlier games and this patch's changes.": "目前对局较少：根据较早的对局和本版本的改动估算。",
+ "Synergies": "协同",
+ "What fits this champion": "适合该英雄的搭配",
+ "Score: points of win rate over the usual choice. Choices with few games lean on the estimate.": "得分:相比常规选择的胜率点数。场次少的选择依赖估计。",
+ "Expected": "预期",
+ "Real": "实际",
+ "Builds with few games lean on the estimate: how much of a rare build's lead usually holds up.": "场次少的出装依赖估计:罕见出装的领先优势通常能保持多少。"
 }

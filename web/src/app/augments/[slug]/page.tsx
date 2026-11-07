@@ -7,11 +7,9 @@ import { augmentBySlug, augmentPages } from "@/lib/augments";
 import { livePatch } from "@/lib/highlights";
 import { pageMeta } from "@/lib/meta";
 import { readRepoJson } from "@/lib/repo-data";
-import { augmentItems, augmentPartners, augmentStages, rarityOdds } from "@/lib/estimates";
-import augmentNames from "@/data/augment-names.json";
-import { augmentHref } from "@/lib/augments";
-import { item } from "@/lib/items";
-import { itemPages } from "@/lib/item-pages";
+import { augmentStages, rarityOdds } from "@/lib/estimates";
+import Synergies from "@/components/Synergies";
+import { augmentSynergies, fewGames } from "@/lib/synergies";
 import ShareButton from "@/components/ShareButton";
 import ShareCard from "@/components/ShareCard";
 import { Description, Name, T } from "@/components/I18n";
@@ -57,17 +55,12 @@ export default async function AugmentPage({ params }: { params: Promise<{ slug: 
   const patch = livePatch() && patchName(livePatch());
   const offer = odds(a.tier);
   const stages = augmentStages(a.id);
-  const partners = augmentPartners(a.id);
+  const synergies = augmentSynergies(a.id);
   const rarity = rarityOdds(a.tier);
-  const pages = new Map(itemPages().map((i) => [i.id, i.slug]));
   // The live patch keeps the page's own numbers; other ranges come from saved patches.
   const { ranges: allRanges, stats: rangeStats } = augmentRanges();
   const mine = rangeStats.get(a.id) ?? {};
   const ranges = allRanges.filter((r) => r.key === "live" || mine[r.key]);
-  const fits = augmentItems(a.id).flatMap((f) => {
-    const it = item(f.id);
-    return it ? [{ id: f.id, name: it.name, icon: it.icon, slug: pages.get(f.id), share: f.share }] : [];
-  });
   return (
     <>
       <Breadcrumbs
@@ -224,75 +217,17 @@ export default async function AugmentPage({ params }: { params: Promise<{ slug: 
         </p>
       </section>
       <div className="bento">
-        {a.best.length > 0 && (
-          <section className="card span-6" data-accent="tier">
+        {synergies.length > 0 && (
+          <section className="card span-all" data-accent="duo" id="synergies">
             <div className="card-head">
               <h2>
-                <T ns="augments">Best champions for it</T>
+                <T ns="augments">Synergies</T>
               </h2>
               <span className="card-note">
-                <T ns="tables">Win rate boost</T> · <T ns="augments">Estimated</T>
+                <T ns="augments">Estimated</T>
               </span>
             </div>
-            <div className="rank plain">
-              {a.best.map((c) => (
-                <RowLink key={c.id} href={`/champions/${c.id}`}>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img className="icon" src={`/icons/champions/${c.id}.webp`} alt="" width={24} height={24} loading="lazy" />
-                  <span className="rank-name">
-                    <Name kind="champions" id={c.id}>
-                      {c.name}
-                    </Name>
-                  </span>
-                  {c.boost !== null && (
-                    <span className={`rank-v ${c.boost >= 0 ? "delta-up" : "delta-down"}`}>
-                      <T ns="tables" v={{ n: `${c.boost >= 0 ? "+" : "−"}${Math.abs(c.boost * 100).toFixed(1)}` }}>
-                        {"{n} pts"}
-                      </T>
-                    </span>
-                  )}
-                </RowLink>
-              ))}
-            </div>
-          </section>
-        )}
-        {partners.length > 0 && (
-          <section className="card span-6" data-accent="duo">
-            <div className="card-head">
-              <h2>
-                <T ns="augments">Best augments to pair it with</T>
-              </h2>
-              <span className="card-note">
-                <T ns="tables">Win rate</T> · <T ns="augments">Estimated</T>
-              </span>
-            </div>
-            <div className="rank plain">
-              {partners.map((p) => {
-                const href = augmentHref(p.id);
-                const body = (
-                  <>
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img className="icon round" src={`/icons/augments/${p.id}.webp`} alt="" width={24} height={24} loading="lazy" />
-                    <span className="rank-name">
-                      <Name kind="augments" id={p.id}>
-                        {(augmentNames as Record<string, string>)[String(p.id)] ?? ""}
-                      </Name>
-                    </span>
-                    <span className="rank-v">{pct(p.winRate)}</span>
-                  </>
-                );
-                return href ? (
-                  <RowLink key={p.id} href={href}>
-                    {body}
-                  </RowLink>
-                ) : (
-                  <div key={p.id}>{body}</div>
-                );
-              })}
-            </div>
-            <p className="table-note">
-              <T ns="augments">Win rate when both are taken, across the champions that often pair them.</T>
-            </p>
+            <Synergies tabs={synergies} few={fewGames()} subject={{ kind: "augments", id: a.id, name: a.name }} />
           </section>
         )}
         {a.pickers.length > 0 && (
@@ -349,44 +284,6 @@ export default async function AugmentPage({ params }: { params: Promise<{ slug: 
             </div>
             <p className="table-note">
               <T ns="augments">Share of this augment&apos;s picks at each augment selection, and how often a pick there is of its rarity.</T>
-            </p>
-          </section>
-        )}
-        {fits.length > 0 && (
-          <section className="card span-6" data-accent="lab">
-            <div className="card-head">
-              <h2>
-                <T ns="augments">Items that go with it</T>
-              </h2>
-              <span className="card-note">
-                <T ns="augments">Estimated</T>
-              </span>
-            </div>
-            <div className="rank plain aug-fits">
-              {fits.map((f) => {
-                const body = (
-                  <>
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    {f.icon && <img className="icon" src={f.icon} alt="" width={24} height={24} loading="lazy" />}
-                    <span className="rank-name">
-                      <Name kind="items" id={f.id}>
-                        {f.name}
-                      </Name>
-                    </span>
-                    <span className="rank-v">{pct(f.share)}</span>
-                  </>
-                );
-                return f.slug ? (
-                  <RowLink key={f.id} href={`/items/${f.slug}`}>
-                    {body}
-                  </RowLink>
-                ) : (
-                  <div key={f.id}>{body}</div>
-                );
-              })}
-            </div>
-            <p className="table-note">
-              <T ns="augments">Share of the champions who take this augment that build each item.</T>
             </p>
           </section>
         )}

@@ -63,5 +63,6 @@
  "Share of the champions who take this augment that build each item.": "สัดส่วนแชมเปี้ยนที่เลือกออคเมนต์นี้และซื้อไอเทมแต่ละชิ้น",
  "Best augments to pair it with": "ออคเมนต์ที่เข้าคู่ได้ดีที่สุด",
  "Win rate when both are taken, across the champions that often pair them.": "อัตราชนะเมื่อเลือกทั้งสองอย่าง จากแชมเปียนที่มักเลือกคู่กัน",
- "Win rate": "อัตราชนะ"
+ "Win rate": "อัตราชนะ",
+ "Synergies": "ซินเนอร์จี"
 }

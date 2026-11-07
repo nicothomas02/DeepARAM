@@ -98,11 +98,30 @@ Weapon of Destiny item and a theoretical best set of 4 augments. Method in the s
 About 37,000 sim runs, 2.5 hours on 4 cores; results are cached in `~/.cache/deeparam-sim/upgrades/`. Needs
 `make -C simulator mayhem_sim`. Not scheduled: rerun after patches.
 
-## Hidden gems (`synergies.json`, estimated)
+## Synergies (`synergies.json`, estimated)
 
-`synergies.py` (daily in `fill.yml`) lists choices fewer than 2% of a champion's players make that still win
-clearly more than the champion's usual ones: starting items, boots and full builds (plus single items and
-three-item cores whenever those feed blocks are live again). Shown on the Tier List's Hidden gems tab.
+`synergies.py` (daily in `fill.yml`) scores how well every choice fits each champion: starting items, boots,
+full builds and augments, plus each champion's likely augment pairs. Shown in Synergies on champion and
+augment pages (`web/src/lib/synergies.ts`), and as the champion page's Expected switch on the build panels.
+It replaced the Tier List's Hidden gems tab (Nico 2026-11-07), which listed only rare choices whose whole
+next-patch range was above zero.
+
+- **Expected value** (shown on the site): lift x w + alpha x (1 - w), with w = games / (games + K). K is set so
+  w equals the fitted carry-over beta at the median rare option's games (about 1,800 to 2,700 games on 16.22),
+  so a choice with many games keeps its own lift and one with few leans on alpha. Rows with w < 0.8 are
+  labelled "expected", the rest "real". Back-test (5-fold by champion, next patch's lift of rare options,
+  RMSE): starting 3.02 raw -> 2.70 expected, boots 1.84 -> 1.71, full builds 2.88 -> 2.49 points.
+- **Augments**: the estimated lift per champion (`augments` above), shrunk by empirical Bayes:
+  w = tau^2 / (tau^2 + 0.25 / games), tau^2 the spread of lifts across champion and augment less sample noise
+  (tau about 2.5 points on 16.22). Written as a score in points; no augment win rates (Riot's policy).
+- **Augment combos**: each champion's likely pairs (`augment_pairs` above), scored by the two shrunk lifts
+  added up. There is no pair data, so the score is a model estimate and the site says so.
+- **Checks** drop a choice from Synergies (it keeps a `flag`; the build panels still show it): not sold, an
+  augment-only item, not in the live augment pool, blocked by the bug finder (both augments of a combo are
+  checked together, so Traps pairs never show). The best 60 rare choices per family and the top 120 augments
+  are run in the Simulator (below).
+
+What follows is the carry-over fit the expected value uses.
 
 - **Lift** = the choice's win rate minus the pick-weighted win rate of the champion's listed options for the
   same slot. **Games** = pick rate x champion pick rate x the patch's estimated total (`data/fill`).
@@ -112,7 +131,7 @@ three-item cores whenever those feed blocks are live again). Shown on the Tier L
 - **Carry-over forecast** (out-of-time empirical Bayes): over rare options seen on both of the last two
   complete patches, next lift = alpha + beta x lift. Fitted: beta 0.55 full builds, 0.56 boots, 0.60 starting
   items (just over half a rare lead carries over), drift 1.4-2.6 points. Forecast range (90%) = +-1.645 x
-  sqrt(drift^2 + (1 + beta^2) x sample variance). A gem's whole range is above zero (>= 0.1 points).
+  sqrt(drift^2 + (1 + beta^2) x sample variance). 
 - **Check** (5-fold by champion, fit without the held-out champions): next patch's lift landed inside the
   90% range 92% (starting), 91% (boots), 92% (full builds) of the time. Flagged gems still beat the usual
   pick next patch 100% (2 starting), 100% (32 boots), 89% (9 full builds), against 66%, 86% and 48% of all

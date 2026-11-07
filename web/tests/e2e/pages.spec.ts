@@ -244,7 +244,7 @@ test("the Tier List's Items tab filters items and links to item pages", async ({
   await expect(page).toHaveURL(new RegExp(`${href}$`));
 });
 
-test("augment and item pages show the official description under the name, and best champions their win rate boost and the list the best champ", async ({ page }) => {
+test("augment and item pages show the official description under the name, the list the best champ, and Synergies a score", async ({ page }) => {
   await page.goto("/items/zhonyas-hourglass");
   await expect(page.locator(".champ-hero .official-desc")).toContainText("Time Stop");
   await page.goto("/tier-list?tab=augments");
@@ -257,7 +257,23 @@ test("augment and item pages show the official description under the name, and b
   const aug = page.locator('a[href^="/augments/"]').first();
   await aug.click();
   await expect(page.locator(".champ-hero .official-desc")).not.toBeEmpty();
-  await expect(page.locator(".card", { hasText: "Best champions for it" }).locator(".card-note")).toContainText("Win rate boost");
+  // Synergies: champions it fits, scored in points (never an augment win rate).
+  await expect(page.locator("#synergies .syn-row").first()).toContainText("pts");
+});
+
+test("champion pages list Synergies and the Expected switch relabels build win rates", async ({ page }) => {
+  await page.goto("/champions/Jinx");
+  const syn = page.locator("#synergies + .cp-panel .syn");
+  await expect(syn.locator(".syn-row").first()).toContainText("pts");
+  await syn.getByRole("button", { name: /Items/ }).click();
+  await expect(syn.locator(".syn-row").first()).toBeVisible();
+  // Off: build panels show "Win rate" under each value; on: each row says Real or Expected.
+  const sw = page.getByRole("switch", { name: "Expected" });
+  await sw.click();
+  await expect(sw).toHaveAttribute("aria-checked", "true");
+  await expect(page.locator(".cp-panel").filter({ has: page.locator("h3", { hasText: /^Boots$/ }) }).locator(".cp-cell small.xp-exp").first()).toBeVisible();
+  await sw.click();
+  await expect(page.locator(".cp-panel").filter({ has: page.locator("h3", { hasText: /^Boots$/ }) }).locator(".cp-cell small.xp-exp").first()).toBeHidden();
 });
 
 test("share links for a Chef Special and a build give link previews their card", async ({ page, request }) => {

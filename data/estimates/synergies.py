@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""Hidden gems: rarely picked choices that win more than the champion's usual ones.
+"""Synergies: how well each choice fits each champion, with an expected value that leans on the estimate
+when a choice has few games (champion and augment pages, Synergies; champion page build panels, Expected).
 
-For every champion, each choice the feed lists (starting items, boots, full six-item builds, single
-items and three-item cores when those blocks are live) is compared with the champion's other options
-for the same slot. A choice is a hidden gem when fewer than 2% of the champion's players take it and
-its whole 90% range for next patch's lift is above zero.
+For every champion, each choice the feed lists (starting items, boots, full six-item builds) is compared
+with the champion's other options for the same slot, and each augment with the champion's own win rate.
+Rarely picked choices have few games, so their raw lead is shrunk toward what usually carries over.
 
 Method (per family of choices: starting, boots, full builds, ...):
 
@@ -23,20 +23,25 @@ Method (per family of choices: starting, boots, full builds, ...):
    fit next lift = alpha + beta x this lift (beta ~0.55-0.6: just over half a rare lead carries over)
    and take the leftover spread, less sample noise, as drift. Each choice's forecast is
    alpha + beta x lift with a 90% range of +-1.645 x sqrt(drift^2 + (1 + beta^2) x sample variance).
-   Gems are ranked by the low end of that range.
+   Expected (shown on the site): lift x w + alpha x (1 - w), with w = games / (games + K). K is set so
+   that at the median rare option's games w equals beta, the carry-over fitted above; a choice with many
+   games keeps its own lift (w near 1, shown as "real"), one with few leans on the estimate.
 5. Back-test, cross-validated by champion (fit on 4/5 of champions, check the other 1/5): how often
    the next patch's lift lands inside the 90% range (about 91-92%) against the 95% sample-only interval
    (28-47%), and how many flagged gems still beat their slot next patch against every rare choice.
    Written to `backtest` in the output.
 
-Augments are listed separately and without win rates (Riot's developer policy forbids showing augment
-win rates): each champion's augments taken by under 2% that the feed grades S or A for that champion,
-ordered by the estimated lift from estimates.json (`augments`, see README.md). There is no game-level
-augment data, so no interval; the order is a model estimate and labelled so.
+Augments are written without win rates (Riot's developer policy forbids showing augment win rates): each
+champion's augments with the estimated lift from estimates.json (`augments`, see README.md), shrunk by
+empirical Bayes (w = tau^2 / (tau^2 + 0.25 / games), tau^2 the spread of lifts beyond sample noise), as a
+score in points only. Augment combos are each champion's likely pairs (estimates.json `augment_pairs`),
+scored by the two shrunk lifts added up: no game data records a pair, so the score is a model estimate
+and labelled so.
 
-Every gem is then checked against the game data and the Simulator before it's listed (synergy_checks.py):
-still sold, not an augment-only item, augment in the live pool and the champion's pool, and not clearly worse
-than the usual build in the Simulator. Dropped gems are counted by reason in `checks`.
+Every choice is checked against the game data (synergy_checks.py): still sold, not an augment-only item,
+augment in the live pool, and not blocked by the bug finder (Traps, offers the champion can't get). A choice
+that fails gets a `flag` with the reason and is left out of Synergies (the build panels still show it). The
+best rare choices of each family and the top augments are also run in the Simulator. Counts in `checks`.
 
 Feed blocks that stop changing are left out: a block identical for 90%+ of champions to the stats
 update 7 days earlier, while the rest of the feed moves, is marked stale (core items, single items and
@@ -69,8 +74,6 @@ Z95 = 1.96
 Z90 = 1.645
 STALE_DAYS = 7
 FAMILIES = ["starting", "boots", "full_builds", "core", "other"]  # keys of builds.items
-TOP = 60  # gems kept per family
-AUGMENT_TOP = 120
 
 
 # --- intervals --------------------------------------------------------------------------------------
@@ -214,17 +217,145 @@ def score(opts, cal):
     return out
 
 
-def gems(scored):
-    """Options whose whole next-patch range is above zero (by more than the 0.1 point the site rounds to)."""
-    return sorted((o for o in scored if o["forecast_lo"] >= MIN_EDGE), key=lambda o: -o["forecast_lo"])
 
 
-def rounded(o):
-    keep = ("champion", "items", "pick_rate", "win_rate", "baseline", "lift", "lift_lo", "lift_hi",
-            "forecast", "forecast_lo", "forecast_hi", "sim", "sim_gain", "caution")
-    r = {k: (round(o[k], 4) if isinstance(o[k], float) else o[k]) for k in keep if k in o}
-    r["games"] = int(round(o["games"], -1))
-    return r
+
+# --- expected values (Synergies, Expected switch) ---------------------------------------------------
+
+REAL_W = 0.8  # a choice whose own games carry at least this weight is shown as "real"
+FEW_GAMES = 1000  # Synergies tags (and by default hides) choices with fewer estimated games
+SIM_TOP = 60  # rare choices per family, and augments overall, run in the Simulator
+
+
+def prior_games(opts, cal):
+    """K for w = games / (games + K): w equals the fitted carry-over beta at the median rare option."""
+    beta = min(max(cal["beta"], 0.2), 0.95)
+    games = sorted(o["games"] for o in rare(opts)) or [1000]
+    return games[len(games) // 2] * (1 - beta) / beta
+
+
+def expect(o, cal, k):
+    """Expected lift and its weight on the option's own games."""
+    w = o["games"] / (o["games"] + k)
+    return w * o["lift"] + (1 - w) * cal["alpha"], w
+
+
+def item_rows(checker, fam, opts, cal):
+    """Every option of one family with its expected lift, kind and checks, grouped by champion."""
+    k = prior_games(opts, cal)
+    rows = []
+    for o in opts:
+        e, w = expect(o, cal, k)
+        r = {"champion": o["champion"], "items": o["items"], "pick_rate": o["pick_rate"], "games": o["games"],
+             "baseline": o["baseline"], "lift": o["lift"], "expected": e, "kind": "real" if w >= REAL_W else "expected"}
+        if not all(checker.sold(i) for i in o["items"]):
+            r["flag"] = "not sold in the shop"
+        elif any(i in checker.granted for i in o["items"]):
+            r["flag"] = "item only an augment gives"
+        elif not checker.bug_check(fam, r, items=o["items"]):
+            r["flag"] = "flagged by the bug finder"
+        if "flag" in r:
+            checker.drop(fam, r["flag"])
+        rows.append(r)
+    # The Simulator for the best rare choices (the ones Synergies puts on top); the rest stay unchecked.
+    top = sorted((r for r in rows if "flag" not in r and r["pick_rate"] < MAX_PICK and r["expected"] > 0),
+                 key=lambda r: -r["expected"])[:SIM_TOP]
+    for r in checker.items(fam, top):
+        pass
+    for r in rows:
+        r.setdefault("sim", "not simulated")
+    return rows, k
+
+
+def shrink_weights(rows):
+    """Empirical Bayes weight per augment row: tau^2 / (tau^2 + 0.25 / games)."""
+    if not rows:
+        return 0.0
+    m = sum(r["lift"] for r in rows) / len(rows)
+    var = sum((r["lift"] - m) ** 2 for r in rows) / len(rows)
+    noise = sum(0.25 / r["games"] for r in rows) / len(rows)
+    return max(var - noise, 1e-6)
+
+
+def augment_rows(checker, stats, builds, est, total):
+    rows = []
+    for c, b in builds.items():
+        if c not in stats:
+            continue
+        lifts = {str(r["id"]): r["lift"] for r in est.get(c, [])}
+        champ_games = stats[c]["pick_rate"] * total
+        for a in (b.get("augments") or {}).get("all", []):
+            aid = str(a["id"])
+            games = a["pick_rate"] * champ_games
+            if aid not in lifts or games < MIN_GAMES:
+                continue
+            rows.append({"champion": int(c), "id": a["id"], "pick_rate": a["pick_rate"], "grade": a.get("grade"),
+                         "games": games, "lift": lifts[aid]})
+    tau2 = shrink_weights(rows)
+    for r in rows:
+        w = tau2 / (tau2 + 0.25 / r["games"])
+        r["score"] = w * r["lift"]
+        r["kind"] = "real" if w >= REAL_W else "expected"
+        if r["id"] not in checker.live_augments:
+            r["flag"] = "not in the live augment pool"
+        elif not checker.bug_check("augments", r, augments=[r["id"]]):
+            r["flag"] = "flagged by the bug finder"
+        if "flag" in r:
+            checker.drop("augments", r["flag"])
+    top = sorted((r for r in rows if "flag" not in r and r["score"] > 0), key=lambda r: -r["score"])[:SIM_TOP * 2]
+    kept = {id(r) for r in checker.augments(top)}
+    for r in top:
+        if id(r) not in kept:
+            r["flag"] = "Simulator disagrees"
+    for r in rows:
+        r.setdefault("sim", "not simulated")
+    return rows, tau2
+
+
+def combo_rows(checker, stats, pairs, augs, total):
+    """Each champion's likely augment pairs, scored by the two shrunk lifts added up (no pair data exists)."""
+    by = {(r["champion"], r["id"]): r for r in augs}
+    rows = []
+    for c, ps in pairs.items():
+        if c not in stats:
+            continue
+        champ_games = stats[c]["pick_rate"] * total
+        for p in ps:
+            a, b = (by.get((int(c), i)) for i in p["ids"])
+            if not a or not b:
+                continue
+            r = {"champion": int(c), "ids": p["ids"], "pick_rate": p["pick_rate"], "games": p["pick_rate"] * champ_games,
+                 "score": a["score"] + b["score"]}
+            bad = a.get("flag") or b.get("flag")
+            if bad:
+                r["flag"] = bad
+            elif not checker.bug_check("combos", r, augments=p["ids"]):
+                r["flag"] = "flagged by the bug finder"
+                checker.drop("combos", r["flag"])
+            rows.append(r)
+    return rows
+
+
+DEFAULTS = {"sim": "not simulated", "kind": "real"}  # left out of the output to keep it small
+
+
+def compact(r, keys):
+    out = {}
+    for k in keys:
+        if k not in r or DEFAULTS.get(k) == r[k]:
+            continue
+        v = r[k]
+        out[k] = int(round(v, -1)) if k == "games" else round(v, 4) if isinstance(v, float) else v
+    return out
+
+
+def by_champion(groups):
+    """{champion id: {family: [rows]}} with the champion key dropped from each row."""
+    out = {}
+    for fam, (rows, keys) in groups.items():
+        for r in rows:
+            out.setdefault(str(r["champion"]), {}).setdefault(fam, []).append(compact(r, keys))
+    return out
 
 
 # --- staleness --------------------------------------------------------------------------------------
@@ -260,35 +391,6 @@ def staleness(builds, today, previous=None):
     return still if len(still) < len(keys) else []
 
 
-# --- augments (no win rates shown) ------------------------------------------------------------------
-
-def augment_gems(stats, builds, est, total, checker=None):
-    out = []
-    for c, b in builds.items():
-        if c not in stats:
-            continue
-        lifts = {str(r["id"]): r["lift"] for r in est.get(c, [])}
-        champ_games = stats[c]["pick_rate"] * total
-        for a in b["augments"]["all"]:
-            aid = str(a["id"])
-            if a["pick_rate"] >= MAX_PICK or a.get("grade") not in ("S", "A") or aid not in lifts:
-                continue
-            games = a["pick_rate"] * champ_games
-            if games < MIN_GAMES or lifts[aid] <= 0:
-                continue
-            out.append({"champion": int(c), "id": a["id"], "pick_rate": a["pick_rate"], "grade": a["grade"],
-                        "games": int(round(games, -1)), "_score": lifts[aid]})
-    out.sort(key=lambda r: -r["_score"])
-    if checker:
-        # Check a few more than are kept, since some get dropped.
-        out = checker.augments(out[: AUGMENT_TOP * 2])
-    out = out[:AUGMENT_TOP]
-    for i, r in enumerate(out, 1):
-        r["rank"] = i
-        del r["_score"]
-    return out
-
-
 # --- back-test --------------------------------------------------------------------------------------
 
 def two_patches():
@@ -321,6 +423,7 @@ def backtest(data, folds=5):
         later = {key(o): o for o in after}
         champs = sorted({o["champion"] for o in before})
         inside = naive = seen = 0
+        err_raw = err_exp = 0.0
         flagged, hits, lifts = 0, 0, []
         every = [later[key(o)]["lift"] for o in rare(before) if key(o) in later]
         for k in range(folds):
@@ -329,11 +432,14 @@ def backtest(data, folds=5):
             if not cal:
                 continue
             held = [dict(o) for o in before if o["champion"] in test]
+            k_games = prior_games(before, cal)
             for o in score(held, cal):
                 if key(o) not in later:
                     continue
                 y = later[key(o)]["lift"]
                 seen += 1
+                err_raw += (o["lift"] - y) ** 2
+                err_exp += (expect(o, cal, k_games)[0] - y) ** 2
                 inside += o["forecast_lo"] <= y <= o["forecast_hi"]
                 naive += o["lift_lo"] <= y <= o["lift_hi"]
                 if o["forecast_lo"] >= MIN_EDGE:
@@ -346,6 +452,9 @@ def backtest(data, folds=5):
             "checked": seen,
             "forecast_90_coverage": round(inside / seen, 3),
             "sample_only_95_coverage": round(naive / seen, 3),
+            # Next patch's lift against this patch's raw lift and the expected value (rare options, RMSE in points).
+            "raw_rmse_pts": round(100 * math.sqrt(err_raw / seen), 2),
+            "expected_rmse_pts": round(100 * math.sqrt(err_exp / seen), 2),
             "gems_checked": flagged,
             "gems_still_ahead": round(hits / flagged, 3) if flagged else None,
             "gems_mean_lift_next_patch": round(sum(lifts) / len(lifts), 4) if lifts else None,
@@ -398,25 +507,34 @@ def main():
 
     out = {"patch": live["patch"], "estimated": True,
            "built": dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
-           "max_pick": MAX_PICK, "games": total, "stale": stale, "calibrated_on": fitted_on,
+           "max_pick": MAX_PICK, "few_games": FEW_GAMES, "games": total, "stale": stale, "calibrated_on": fitted_on,
            "calibration": {k: {kk: round(vv, 4) if isinstance(vv, float) else vv for kk, vv in v.items()}
                            for k, v in cals.items() if v},
-           "items": {}}
-    for fam in FAMILIES:
+           "prior_games": {}}
+    item_keys = ("items", "pick_rate", "games", "lift", "expected", "kind", "sim", "sim_gain", "flag", "caution")
+    groups = {}
+    for fam in ("starting", "boots", "full_builds"):
         if fam in stale:
             continue
-        found = gems(score(options(stats, builds, fam, total), cals.get(fam) or fallback))
-        out["items"][fam] = [rounded(o) for o in checker.items(fam, found)[:TOP]]
-    est = cm.load(os.path.join(cm.HERE, "estimates.json")).get("augments", {})
-    out["augments"] = [] if "augments" in stale else augment_gems(stats, builds, est, total, checker)
+        rows, k = item_rows(checker, fam, options(stats, builds, fam, total), cals.get(fam) or fallback)
+        groups[fam] = (rows, item_keys)
+        out["prior_games"][fam] = int(round(k, -1))
+    e = cm.load(os.path.join(cm.HERE, "estimates.json"))
+    if "augments" not in stale:
+        augs, tau2 = augment_rows(checker, stats, builds, e.get("augments", {}), total)
+        out["augment_spread_sd"] = round(math.sqrt(tau2), 4)
+        # Scores and pick rates only: no augment win rates (Riot's developer policy).
+        groups["augments"] = (augs, ("id", "pick_rate", "games", "grade", "score", "kind", "sim", "flag", "caution"))
+        groups["combos"] = (combo_rows(checker, stats, e.get("augment_pairs", {}), augs, total),
+                            ("ids", "pick_rate", "games", "score", "flag", "caution"))
+    out["champions"] = by_champion(groups)
     out["checks"] = {"simulator": checker.sim, "dropped": checker.dropped}
     out["backtest"] = bt or old.get("backtest")
     with open(OUT, "w", encoding="utf-8") as f:
-        json.dump(out, f, ensure_ascii=False, indent=1)
-    counts = ", ".join(f"{k} {len(v)}" for k, v in out["items"].items())
-    print(f"patch {live['patch']}: hidden gems {counts}; augments {len(out['augments'])}; stale {stale or 'none'}")
-    print(json.dumps({"calibration": out["calibration"], "backtest": out["backtest"]}, indent=1))
-
+        json.dump(out, f, ensure_ascii=False, separators=(",", ":"))
+    counts = ", ".join(f"{k} {len(v[0])}" for k, v in groups.items())
+    print(f"patch {live['patch']}: {counts}; stale {stale or 'none'}")
+    print(json.dumps({"calibration": out["calibration"], "prior_games": out["prior_games"], "backtest": out["backtest"]}, indent=1))
 
 if __name__ == "__main__":
     main()

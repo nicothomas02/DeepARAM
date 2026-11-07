@@ -205,5 +205,11 @@
  "Pick {n}": "Pilihan {n}",
  "From earlier games: skill orders are not updating right now.": "Dari game sebelumnya: urutan skill sedang tidak diperbarui.",
  "From the most common full builds, most built items first.": "Dari full build paling umum, item yang paling sering dibuat lebih dulu.",
- "Few games so far: estimated from earlier games and this patch's changes.": "Baru sedikit game: diperkirakan dari game sebelumnya dan perubahan patch ini."
+ "Few games so far: estimated from earlier games and this patch's changes.": "Baru sedikit game: diperkirakan dari game sebelumnya dan perubahan patch ini.",
+ "Synergies": "Sinergi",
+ "What fits this champion": "Apa yang cocok untuk champion ini",
+ "Score: points of win rate over the usual choice. Choices with few games lean on the estimate.": "Skor: poin win rate dibanding pilihan yang biasa. Pilihan dengan game sedikit bergantung pada perkiraan.",
+ "Expected": "Perkiraan",
+ "Real": "Nyata",
+ "Builds with few games lean on the estimate: how much of a rare build's lead usually holds up.": "Build dengan game sedikit bergantung pada perkiraan: seberapa besar keunggulan build langka biasanya bertahan."
 }
