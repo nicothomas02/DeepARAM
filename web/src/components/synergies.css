@@ -159,7 +159,7 @@ a.syn-what:hover .syn-name {
 }
 .syn-name {
   font-weight: 600;
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
 }
 .syn-tags {
   display: flex;
@@ -228,6 +228,11 @@ a.syn-what:hover .syn-name {
   }
   .syn-icons {
     max-width: 7.2rem;
+  }
+  .syn-what.syn-pair {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.3rem;
   }
   .syn-icon {
     width: 28px;

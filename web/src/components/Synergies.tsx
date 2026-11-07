@@ -135,6 +135,8 @@ export default function Synergies({ tabs, few, subject }: { tabs: SynTab[]; few:
         {rows.slice(0, shown).map((r, i) => {
           // A full build's six names don't fit: its icons carry the names (hover or screen readers) instead.
           const many = r.names.length > 2;
+          // Pairs stack their icons over the names on phones, so the names keep the row's width.
+          const cls = many ? "syn-what syn-many" : r.names.length === 2 ? "syn-what syn-pair" : "syn-what";
           const body = (
             <>
               <span className="syn-icons">
@@ -186,11 +188,11 @@ export default function Synergies({ tabs, few, subject }: { tabs: SynTab[]; few:
             <div key={`${r.slot ?? ""}${r.names.map((n) => n.id).join("-")}`} className="syn-row" data-share={share || undefined}>
               <span className="syn-rk">#{i + 1}</span>
               {r.href ? (
-                <RowLink className={many ? "syn-what syn-many" : "syn-what"} href={r.href}>
+                <RowLink className={cls} href={r.href}>
                   {body}
                 </RowLink>
               ) : (
-                <div className={many ? "syn-what syn-many" : "syn-what"}>{body}</div>
+                <div className={cls}>{body}</div>
               )}
               {share ? (
                 <span className="syn-cell">

@@ -211,9 +211,21 @@ export default function AugmentTable({
                   ) : null;
                 })()}
                 {a.changesBuild && (
-                  <a className="cp-pill cp-changes" href="#augment-builds" title={t("The best items with this augment differ from your usual build.")}>
+                  // Not an <a>: the whole row already links to the augment, and a link inside a link breaks the page's
+                  // hydration. A click here jumps to the augment build picker instead of opening the augment.
+                  <span
+                    className="cp-pill cp-changes"
+                    data-no-link
+                    title={t("The best items with this augment differ from your usual build.")}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      document.getElementById("augment-builds")?.scrollIntoView({ behavior: "smooth", block: "start" });
+                      history.replaceState(null, "", "#augment-builds");
+                    }}
+                  >
                     {t("Changes your build")}
-                  </a>
+                  </span>
                 )}
                 {(a.tags ?? []).map((tag) => (
                   <span key={tag} className="cp-pill cp-tag">

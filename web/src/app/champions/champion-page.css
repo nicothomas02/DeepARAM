@@ -1397,7 +1397,7 @@ html[data-view="simple"] .cp-fold:not([data-open]) > .cp-fold-body {
 .cp-pill.cp-changes {
   border-color: var(--accent);
   color: var(--accent);
-  text-decoration: none;
+  cursor: pointer;
 }
 
 /* Skill orders that stopped updating */
