@@ -204,5 +204,6 @@
  "Estimated: the augment picks (1st to 4th) where it usually shows up.": "Estimado: las elecciones de aumento (1.ª a 4.ª) en las que suele aparecer.",
  "Pick {n}": "Elección {n}",
  "From earlier games: skill orders are not updating right now.": "De partidas anteriores: el orden de habilidades no se está actualizando ahora.",
- "From the most common full builds, most built items first.": "De las builds completas más comunes, primero los objetos más construidos."
+ "From the most common full builds, most built items first.": "De las builds completas más comunes, primero los objetos más construidos.",
+ "Few games so far: estimated from earlier games and this patch's changes.": "Pocas partidas por ahora: estimado a partir de partidas anteriores y de los cambios de este parche."
 }

@@ -26,6 +26,18 @@ coefficients are stored. Refit after big changes:
 | `game_length`, `side` | Counted in the archive. | Blue 53.3% over 994 games (±1.6 pp). |
 | `fun` | Top 10s from the feed and `profiles`. | |
 
+## Early-window builds (`early_builds.json`)
+
+`early_builds.py` covers the first days after the builds feed restarts (every week or two, not on patch days),
+when a rare champion's six-item builds stand on a few hundred games. Each build's win rate is blended with the
+same build at the end of the previous window (up to 800 games of weight), moved by the champion's win-rate change
+between patches and by the pooled change of items the patch changed; builds with removed items are dropped.
+Champions whose builds are mostly under 400 games this window get the blended core, full builds and single
+items on their page, with a note. Backtest on the one finished window in the history so far (79 builds, the first
+three days after the 2026-10-28 restart, scored against the window's latest day): raw RMSE 6.6 pts, blended 5.2.
+The patch adjustments could not be checked yet (no patch fell between a window and the one before it); rerun
+`python3 data/estimates/early_builds.py --backtest` as more windows pass.
+
 ## Early vs late game (`power_curve.json`, simulated)
 
 `power_curve.py` runs the Simulator on each champion's best build at level 8 with 2 items, level 13 with
