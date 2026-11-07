@@ -5768,9 +5768,8 @@ html[data-view="simple"] [data-detailed] {
   display: none;
 }
 
-/* Estimated stats (lib/estimates.ts): augment stages and items, the home page's top 10s. */
-.rank.aug-stages > div,
-.rank.aug-fits > div {
+/* Estimated stats (lib/estimates.ts): augment stages, the home page's top 10s. */
+.rank.aug-stages > div {
   display: grid;
   align-items: center;
   gap: 0.75rem;
@@ -5778,7 +5777,6 @@ html[data-view="simple"] [data-detailed] {
   margin-inline: -0.5rem;
 }
 .rank.aug-stages > div { grid-template-columns: minmax(0, 1fr) 3.5rem auto; }
-.rank.aug-fits > div { grid-template-columns: 24px minmax(0, 1fr) 3.5rem; }
 .rank.aug-stages > .is-top .rank-name { font-weight: 600; color: var(--fg); }
 .fun-kinds { flex-wrap: wrap; margin-bottom: 0.75rem; }
 .fun-kinds button { flex: 1 0 auto; }
