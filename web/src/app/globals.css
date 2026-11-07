@@ -5846,6 +5846,18 @@ html[data-view="simple"] [data-detailed] {
   color: var(--accent, inherit);
   font-weight: 600;
 }
+.feedback-search {
+  justify-self: start;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--accent, inherit);
+  font: inherit;
+  font-weight: 600;
+  text-decoration: underline;
+  cursor: pointer;
+  text-align: start;
+}
 
 /* Stat range switch on champion, augment and item pages (components/StatRange.tsx). */
 .stat-range {

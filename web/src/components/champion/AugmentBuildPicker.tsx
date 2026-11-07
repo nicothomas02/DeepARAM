@@ -1,7 +1,7 @@
 "use client";
 /* eslint-disable @next/next/no-img-element -- small local icons */
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Name, T, useT } from "@/components/I18n";
 import type { AugmentBuilds, BuildItem } from "@/lib/augment-builds";
@@ -29,6 +29,9 @@ function Items({ items, base }: { items: BuildItem[]; base?: Set<number> }) {
   );
 }
 
+/** Window event that picks an augment in the picker: detail is the augment id. */
+export const PICK_EVENT = "deeparam:pick-augment";
+
 export default function AugmentBuildPicker({
   data,
   names,
@@ -50,6 +53,15 @@ export default function AugmentBuildPicker({
   const allowed = picked.length === 1 ? pairsWith(picked[0]) : null;
   const base = new Set(data.base);
   const full = (ids: number[]): BuildItem[] => ids.flatMap((id) => (data.items[id] ? [{ id, ...data.items[id] }] : []));
+  // The augment list's "Changes your build" tag (AugmentTable) asks for its augment here.
+  useEffect(() => {
+    const onPick = (e: Event) => {
+      const id = (e as CustomEvent<number>).detail;
+      if (data.builds.some((b) => b.augments.length === 1 && b.augments[0] === id)) setPicked([id]);
+    };
+    window.addEventListener(PICK_EVENT, onPick);
+    return () => window.removeEventListener(PICK_EVENT, onPick);
+  }, [data.builds]);
   const toggle = (id: number) =>
     setPicked((p) => (p.includes(id) ? p.filter((x) => x !== id) : p.length === 1 && allowed?.has(id) ? [...p, id] : [id]));
 

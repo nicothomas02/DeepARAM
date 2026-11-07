@@ -80,6 +80,8 @@ export default function Synergies({ tabs, few, subject }: { tabs: SynTab[]; few:
                 aria-pressed={x.id === tab.id}
                 onClick={() => {
                   setTab(x.id);
+                  // Each list opens on its best score first, whatever another list was sorted by.
+                  setSort({ key: "score", desc: true });
                   setShown(PAGE);
                 }}
               >
