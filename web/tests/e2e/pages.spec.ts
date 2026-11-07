@@ -319,6 +319,34 @@ test("Contact us sends a message and shows the email line", async ({ page }) => 
   expect(sent).toMatchObject({ message: "The Duos tab is great.", page: "/" });
 });
 
+test("a contact message of a few words offers the site search instead", async ({ page }) => {
+  await page.addInitScript(() => localStorage.setItem("deeparam-tour", "done"));
+  await page.goto("/");
+  const box = page.locator(".feedback-box");
+  await box.getByRole("button", { name: "Write to us" }).click();
+  await box.locator("textarea").fill("titanic hydra");
+  await box.getByRole("button", { name: /Search for “titanic hydra”/ }).click();
+  await expect(page.locator(".palette input")).toHaveValue("titanic hydra");
+  await page.keyboard.press("Escape");
+  // A sentence is a real message: no search offer.
+  await box.locator("textarea").fill("The Duos tab is great.");
+  await expect(box.getByRole("button", { name: /Search for/ })).toHaveCount(0);
+});
+
+test("Changes your build picks that augment in the build picker, and each Synergies list opens on its best score", async ({ page }) => {
+  await page.goto("/champions/Braum");
+  const tag = page.locator(".cp-changes").first();
+  await tag.click();
+  await expect(page).toHaveURL(/\/champions\/Braum#augment-builds$/);
+  await expect(page.locator(".cp-ab-chip[aria-pressed=true]")).toHaveCount(1);
+  const syn = page.locator("#synergies + .cp-panel .syn");
+  await syn.locator(".syn-sort").filter({ hasText: "Pick rate" }).click();
+  await expect(syn.locator(".syn-sort[aria-pressed=true]")).toContainText("Pick rate");
+  await syn.getByRole("button", { name: /Augment combos/ }).click();
+  await expect(syn.locator(".syn-sort[aria-pressed=true]")).toContainText("Score");
+  await expect(syn.locator(".syn-callout")).toBeVisible();
+});
+
 test("the Simulator opens in 3D even with the old owner switch's saved 2D pick", async ({ page }) => {
   await page.addInitScript(() => localStorage.setItem("deeparam-sim-view", "2d"));
   await page.goto("/simulator");

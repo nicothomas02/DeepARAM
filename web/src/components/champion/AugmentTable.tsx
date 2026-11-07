@@ -2,6 +2,7 @@
 /* eslint-disable @next/next/no-img-element -- small local icons */
 
 import RowLink from "@/components/RowLink";
+import { PICK_EVENT } from "@/components/champion/AugmentBuildPicker";
 import { useRef } from "react";
 import { KEPT, useKept } from "@/lib/kept";
 import { Name, useDescription, useNames, useT } from "@/components/I18n";
@@ -212,7 +213,7 @@ export default function AugmentTable({
                 })()}
                 {a.changesBuild && (
                   // Not an <a>: the whole row already links to the augment, and a link inside a link breaks the page's
-                  // hydration. A click here jumps to the augment build picker instead of opening the augment.
+                  // hydration. A click here picks the augment in the augment build picker and jumps there instead of opening it.
                   <span
                     className="cp-pill cp-changes"
                     data-no-link
@@ -220,6 +221,7 @@ export default function AugmentTable({
                     onClick={(e) => {
                       e.preventDefault();
                       e.stopPropagation();
+                      window.dispatchEvent(new CustomEvent(PICK_EVENT, { detail: a.id }));
                       document.getElementById("augment-builds")?.scrollIntoView({ behavior: "smooth", block: "start" });
                       history.replaceState(null, "", "#augment-builds");
                     }}
