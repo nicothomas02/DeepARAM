@@ -48,7 +48,8 @@ export default function AugmentBuildPicker({
   const shown = picked.length ? data.builds.find((b) => key(b.augments) === key(picked)) : undefined;
   const pairsWith = (id: number) => new Set(pairs.filter((p) => p.augments.includes(id)).flatMap((p) => p.augments));
   const allowed = picked.length === 1 ? pairsWith(picked[0]) : null;
-  const base = new Set(data.base.map((i) => i.id));
+  const base = new Set(data.base);
+  const full = (ids: number[]): BuildItem[] => ids.flatMap((id) => (data.items[id] ? [{ id, ...data.items[id] }] : []));
   const toggle = (id: number) =>
     setPicked((p) => (p.includes(id) ? p.filter((x) => x !== id) : p.length === 1 && allowed?.has(id) ? [...p, id] : [id]));
 
@@ -92,7 +93,7 @@ export default function AugmentBuildPicker({
               <T ns={NS}>{"Your usual items still work"}</T>
             )}
           </small>
-          <Items items={shown.items} base={base} />
+          <Items items={full(shown.items)} base={base} />
         </div>
       )}
     </div>

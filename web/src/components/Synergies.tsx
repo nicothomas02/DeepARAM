@@ -21,6 +21,9 @@ const pts = (v: number) => `${v > 0 ? "+" : v < 0 ? "−" : ""}${Math.abs(v * 10
 const pct = (v: number) => `${(v * 100).toFixed(v < 0.01 ? 2 : 1)}%`;
 const count = (n: number) => (n >= 1e6 ? `${(n / 1e6).toFixed(1)}M` : n >= 1e4 ? `${Math.round(n / 1e3)}k` : n >= 1e3 ? `${(n / 1e3).toFixed(1)}k` : String(Math.round(n)));
 
+const iconSrc = (n: SynName) =>
+  n.kind === "augments" ? `/icons/augments/${n.id}.webp` : n.kind === "champions" ? `/icons/champions/${n.id}.webp` : (n.icon ?? "");
+
 export default function Synergies({ tabs, few, subject }: { tabs: SynTab[]; few: number; subject: SynName }) {
   const t = useT(NS);
   const tt = useT("tables");
@@ -135,16 +138,16 @@ export default function Synergies({ tabs, few, subject }: { tabs: SynTab[]; few:
           const body = (
             <>
               <span className="syn-icons">
-                {r.icons.map((ic, k) => (
+                {r.names.map((n, k) => (
                   <span key={k} className="syn-icon-wrap">
-                    {k > 0 && r.names.length === r.icons.length && r.names[0].kind === "augments" && (
+                    {k > 0 && n.kind === "augments" && (
                       <span className="syn-plus" aria-hidden="true">
                         +
                       </span>
                     )}
                     <img
-                      className={ic.round ? "syn-icon round" : "syn-icon"}
-                      src={ic.src}
+                      className={n.kind === "augments" ? "syn-icon round" : "syn-icon"}
+                      src={iconSrc(n)}
                       alt={many ? names(r.names[k].kind, r.names[k].id, r.names[k].name) : ""}
                       title={many ? names(r.names[k].kind, r.names[k].id, r.names[k].name) : undefined}
                       width={32}
@@ -180,7 +183,7 @@ export default function Synergies({ tabs, few, subject }: { tabs: SynTab[]; few:
             </>
           );
           return (
-            <div key={r.key} className="syn-row" data-share={share || undefined}>
+            <div key={`${r.slot ?? ""}${r.names.map((n) => n.id).join("-")}`} className="syn-row" data-share={share || undefined}>
               <span className="syn-rk">#{i + 1}</span>
               {r.href ? (
                 <RowLink className={many ? "syn-what syn-many" : "syn-what"} href={r.href}>
