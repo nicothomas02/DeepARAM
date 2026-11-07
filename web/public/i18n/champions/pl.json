@@ -205,5 +205,11 @@
  "Pick {n}": "Wybór {n}",
  "From earlier games: skill orders are not updating right now.": "Z wcześniejszych gier: kolejność umiejętności nie aktualizuje się teraz.",
  "From the most common full builds, most built items first.": "Z najczęstszych pełnych buildów, najczęściej budowane przedmioty najpierw.",
- "Few games so far: estimated from earlier games and this patch's changes.": "Na razie mało gier: oszacowano na podstawie wcześniejszych gier i zmian w tym patchu."
+ "Few games so far: estimated from earlier games and this patch's changes.": "Na razie mało gier: oszacowano na podstawie wcześniejszych gier i zmian w tym patchu.",
+ "Synergies": "Synergie",
+ "What fits this champion": "Co pasuje do tego bohatera",
+ "Score: points of win rate over the usual choice. Choices with few games lean on the estimate.": "Wynik: punkty odsetka zwycięstw względem zwykłego wyboru. Wybory z małą liczbą gier opierają się na szacunku.",
+ "Expected": "Oczekiwane",
+ "Real": "Rzeczywiste",
+ "Builds with few games lean on the estimate: how much of a rare build's lead usually holds up.": "Buildy z małą liczbą gier opierają się na szacunku: ile z przewagi rzadkiego builda zwykle się utrzymuje."
 }

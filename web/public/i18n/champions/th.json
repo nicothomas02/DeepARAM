@@ -205,5 +205,11 @@
  "Pick {n}": "ครั้งที่ {n}",
  "From earlier games: skill orders are not updating right now.": "จากเกมก่อนหน้า: ลำดับสกิลยังไม่อัปเดตในตอนนี้",
  "From the most common full builds, most built items first.": "จากบิลด์เต็มที่พบบ่อยที่สุด ไอเทมที่สร้างบ่อยที่สุดมาก่อน",
- "Few games so far: estimated from earlier games and this patch's changes.": "ยังมีเกมไม่มาก: ประมาณจากเกมก่อนหน้าและการเปลี่ยนแปลงในแพตช์นี้"
+ "Few games so far: estimated from earlier games and this patch's changes.": "ยังมีเกมไม่มาก: ประมาณจากเกมก่อนหน้าและการเปลี่ยนแปลงในแพตช์นี้",
+ "Synergies": "ซินเนอร์จี",
+ "What fits this champion": "สิ่งที่เหมาะกับแชมเปี้ยนนี้",
+ "Score: points of win rate over the usual choice. Choices with few games lean on the estimate.": "คะแนน: แต้มอัตราชนะเทียบกับตัวเลือกปกติ ตัวเลือกที่มีเกมน้อยอิงค่าประมาณ",
+ "Expected": "คาดการณ์",
+ "Real": "เกมจริง",
+ "Builds with few games lean on the estimate: how much of a rare build's lead usually holds up.": "บิลด์ที่มีเกมน้อยอิงค่าประมาณ: ความได้เปรียบของบิลด์หายากมักคงอยู่เท่าไร"
 }

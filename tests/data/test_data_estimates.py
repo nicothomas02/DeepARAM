@@ -121,7 +121,7 @@ def test_pentakill_picks_by_role():
             assert fx.get("allies", 0) > 0 or fx.get("util", 0) > 0, (champ, slot)
 
 
-# Hidden gems: data/estimates/synergies.py and synergies.json.
+# Synergies: data/estimates/synergies.py and synergies.json.
 syn = load_module("data/estimates/synergies.py", "estimates_synergies", extra_path=["data/estimates"])
 
 
@@ -145,10 +145,22 @@ def test_calibration_recovers_carry_over():
     assert cal["pairs"] == 100 and cal["drift_sd"] < 0.002
 
 
-def test_common_choices_are_never_gems():
-    cal = {"alpha": 0.0, "beta": 0.6, "drift_sd": 0.01, "pairs": 100}
-    scored = syn.score([_opt(1, [1], 0.2, pick=0.5), _opt(2, [2], 0.2), _opt(3, [3], 0.001)], cal)
-    assert [o["champion"] for o in syn.gems(scored)] == [2]
+def test_expected_leans_on_the_estimate_with_few_games():
+    cal = {"alpha": 0.0, "beta": 0.5, "drift_sd": 0.01, "pairs": 100}
+    opts = [_opt(c, [c], 0.02) for c in range(9)]  # median rare option: 1000 games
+    k = syn.prior_games(opts, cal)
+    assert k == pytest.approx(1000)  # w = beta at the median rare option's games
+    few, w_few = syn.expect(dict(_opt(1, [1], 0.04), games=200), cal, k)
+    many, w_many = syn.expect(dict(_opt(1, [1], 0.04), games=200_000), cal, k)
+    assert w_few < 0.2 < 0.99 < w_many
+    assert few < 0.01 and many == pytest.approx(0.04, abs=1e-3)
+
+
+def test_augment_shrinkage_weights():
+    # Lifts spread +-0.03 with 10,000 games each: sample noise (0.25 / n) is small next to the spread.
+    rows = [{"lift": v, "games": 10_000} for v in (-0.03, 0.03) * 10]
+    tau2 = syn.shrink_weights(rows)
+    assert tau2 == pytest.approx(0.0009 - 0.25 / 10_000, rel=1e-6)
 
 
 def test_frozen_block():
@@ -159,27 +171,30 @@ def test_frozen_block():
 
 def test_synergies_output():
     d = load_json("data/estimates/synergies.json")
-    assert d["estimated"] is True and d["max_pick"] == 0.02
-    for fam, rows in d["items"].items():
-        assert fam not in d["stale"]
-        for r in rows:
-            assert r["pick_rate"] < d["max_pick"]
-            assert r["forecast_lo"] > 0 and r["forecast_lo"] <= r["forecast"] <= r["forecast_hi"]
-            assert r["lift_lo"] <= r["lift"] <= r["lift_hi"]
-        assert [r["forecast_lo"] for r in rows] == sorted((r["forecast_lo"] for r in rows), reverse=True)
-        assert all(r.get("sim") in ("agrees", "disagrees", "not simulated") for r in rows)
-        if fam == "starting":
-            assert all(r["sim"] == "not simulated" for r in rows)
-    for a in d["augments"]:
-        # No augment win rates: grade, pick rate and order only.
-        assert "win_rate" not in a and "lift" not in a
-        assert a["grade"] in ("S", "A") and a["pick_rate"] < d["max_pick"]
-        # An augment the Simulator says makes the champion worse is never listed.
-        assert a.get("sim") in ("agrees", "no gain", "not simulated")
+    assert d["estimated"] is True and d["max_pick"] == 0.02 and d["few_games"] > 0
+    assert d["champions"], "every champion with feed data gets synergies"
+    for cid, fams in d["champions"].items():
+        for fam, rows in fams.items():
+            assert fam in ("starting", "boots", "full_builds", "augments", "combos") and fam not in d["stale"]
+            for r in rows:
+                assert r["games"] >= 0 and 0 < r["pick_rate"] <= 1
+                assert r.get("kind", "real") in ("real", "expected")
+                if fam in ("starting", "boots", "full_builds"):
+                    # The expected lift sits between the real lift and the patch-to-patch prior (alpha).
+                    alpha = d["calibration"].get(fam, {}).get("alpha", 0)
+                    assert min(r["lift"], alpha) - 1e-3 <= r["expected"] <= max(r["lift"], alpha) + 1e-3
+                    assert r.get("sim", "not simulated") in ("agrees", "disagrees", "not simulated")
+                else:
+                    # No augment win rates anywhere: scores (points) and pick rates only.
+                    assert "win_rate" not in r and "lift" not in r and "score" in r
+                if fam == "starting":
+                    assert r.get("sim", "not simulated") == "not simulated"
     assert "dropped" in d["checks"]
-    assert [a["rank"] for a in d["augments"]] == list(range(1, len(d["augments"]) + 1))
     for fam, b in (d.get("backtest") or {}).items():
         assert 0 <= b["forecast_90_coverage"] <= 1 and 0 <= b["sample_only_95_coverage"] <= 1
+        # The expected value predicts next patch better than the raw lift.
+        if "expected_rmse_pts" in b:
+            assert b["expected_rmse_pts"] <= b["raw_rmse_pts"]
 
 
 def test_viability_checks_drop_unbuyable_items():
@@ -199,7 +214,7 @@ def test_viability_checks_use_the_bug_finder():
     check, d, f, alias, augs = c.bugs
     jhin = next(x["champion_id"] for x in d["champions"] if x["id"] == "Jhin")
     tickle = next(a["id"] for a in d["augments"].values() if a["name"] == "Tickle Monster")
-    # Tickle Monster on Jhin is on the Traps list, so it never shows up as a hidden gem.
+    # Tickle Monster on Jhin is on the Traps list, so it never shows up in Synergies.
     assert not c.bug_check("augments", {"champion": jhin}, augments=[tickle])
     assert c.dropped["augments"]["flagged by the bug finder"] == 1
     gem = {"champion": jhin}

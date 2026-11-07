@@ -205,5 +205,11 @@
  "Pick {n}": "{n}번째",
  "From earlier games: skill orders are not updating right now.": "이전 게임 기준: 스킬 순서가 지금은 업데이트되지 않습니다.",
  "From the most common full builds, most built items first.": "가장 흔한 완성 빌드에서 가져왔으며, 많이 만드는 아이템이 먼저입니다.",
- "Few games so far: estimated from earlier games and this patch's changes.": "아직 게임 수가 적어 이전 게임과 이번 패치의 변경 사항으로 추정했습니다."
+ "Few games so far: estimated from earlier games and this patch's changes.": "아직 게임 수가 적어 이전 게임과 이번 패치의 변경 사항으로 추정했습니다.",
+ "Synergies": "시너지",
+ "What fits this champion": "이 챔피언에게 어울리는 것",
+ "Score: points of win rate over the usual choice. Choices with few games lean on the estimate.": "점수: 일반적인 선택 대비 승률 포인트. 게임 수가 적은 선택은 추정치에 의존합니다.",
+ "Expected": "기대값",
+ "Real": "실제",
+ "Builds with few games lean on the estimate: how much of a rare build's lead usually holds up.": "게임 수가 적은 빌드는 추정치에 의존합니다. 희귀한 빌드의 우위가 보통 얼마나 유지되는지를 반영합니다."
 }
