@@ -24,17 +24,18 @@ describe("augment builds", () => {
         expect([1, 2], id).toContain(x.augments.length);
         for (const a of x.augments) expect((augmentNames as Record<string, string>)[String(a)], `${id} ${a}`).toBeTruthy();
         expect(x.items.length, `${id} ${x.augments}`).toBeGreaterThanOrEqual(5);
-        for (const it of x.items) expect(it.icon, `${id} ${it.id}`).toBeTruthy();
+        // Each item's details are sent once per page, in b.items.
+        for (const it of x.items) expect(b.items[it]?.icon, `${id} ${it}`).toBeTruthy();
       }
     }
   });
 
   it("marks only augments that change the build", () => {
     for (const [id, b] of all) {
-      const base = new Set(b.base.map((i) => i.id));
+      const base = new Set(b.base);
       for (const a of buildChangers(id)) {
         const x = b.builds.find((y) => y.augments.length === 1 && y.augments[0] === a)!;
-        expect(x.items.filter((i) => !base.has(i.id)).length, `${id} ${a}`).toBeGreaterThanOrEqual(CHANGES_BUILD);
+        expect(x.items.filter((i) => !base.has(i)).length, `${id} ${a}`).toBeGreaterThanOrEqual(CHANGES_BUILD);
       }
     }
   });

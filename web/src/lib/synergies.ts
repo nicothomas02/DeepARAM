@@ -39,12 +39,10 @@ const ALIAS = Object.fromEntries(Object.entries(IDS).map(([alias, id]) => [id, a
 const NAMES = augmentNames as Record<string, string>;
 const data = () => readRepoJson<Raw>("data/estimates/synergies.json");
 
-export type SynIcon = { src: string; round?: boolean };
-export type SynName = { kind: "champions" | "items" | "augments"; id: string | number; name: string };
+/** Augment and champion icons come from their id on the client; items carry their icon path. */
+export type SynName = { kind: "champions" | "items" | "augments"; id: string | number; name: string; icon?: string };
 /** One row of a Synergies list, ready for the client table (components/Synergies.tsx). */
 export type SynRow = {
-  key: string;
-  icons: SynIcon[];
   names: SynName[];
   href?: string;
   /** Win rate points over the champion's usual choice (a share: 0.02 is 2 pts). Absent on share-only lists. */
@@ -61,9 +59,15 @@ export type SynRow = {
 };
 export type SynTab = { id: string; label: string; what: string; rows: SynRow[]; note: string; share?: boolean };
 
-const augIcon = (id: number): SynIcon => ({ src: `/icons/augments/${id}.webp`, round: true });
 const augName = (id: number): SynName => ({ kind: "augments", id, name: NAMES[String(id)] ?? "" });
 const keep = (r: { flag?: string }) => !r.flag;
+/** Drops unset fields and rounds numbers, so each row costs the page as few bytes as possible. */
+const clean = (r: SynRow): SynRow =>
+  Object.fromEntries(
+    Object.entries(r)
+      .filter(([, v]) => v !== undefined)
+      .map(([k, v]) => [k, typeof v === "number" ? (k === "games" ? Math.round(v) : Math.round(v * 1e4) / 1e4) : v]),
+  ) as SynRow;
 const sim = (s?: string) => (s === "agrees" || s === "disagrees" ? s : undefined);
 
 let slugs: Map<number, string> | null = null;
@@ -77,9 +81,7 @@ function itemRow(r: ItemRaw, slot?: SynRow["slot"]): SynRow | null {
   const its = r.items.map((id) => ({ id, it: item(id) }));
   if (its.some((x) => !x.it?.icon)) return null;
   return {
-    key: `${slot ?? "b"}-${r.items.join("-")}`,
-    icons: its.map((x) => ({ src: x.it!.icon! })),
-    names: its.map((x) => ({ kind: "items", id: x.id, name: x.it!.name })),
+    names: its.map((x) => ({ kind: "items", id: x.id, name: x.it!.name, icon: x.it!.icon })),
     href: r.items.length === 1 ? itemHref(r.items[0]) : undefined,
     score: r.expected,
     pick: r.pick_rate,
@@ -98,8 +100,6 @@ export function championSynergies(id: number): SynTab[] {
   const c = data()?.champions?.[String(id)];
   if (!c) return [];
   const augs: SynRow[] = (c.augments ?? []).filter(keep).map((a) => ({
-    key: `a-${a.id}`,
-    icons: [augIcon(a.id)],
     names: [augName(a.id)],
     href: augmentHref(a.id) ?? undefined,
     score: a.score,
@@ -118,8 +118,6 @@ export function championSynergies(id: number): SynTab[] {
     .map((r) => itemRow(r))
     .filter((r): r is SynRow => !!r);
   const combos: SynRow[] = (c.combos ?? []).filter(keep).map((p) => ({
-    key: `c-${p.ids.join("-")}`,
-    icons: p.ids.map(augIcon),
     names: p.ids.map(augName),
     score: p.score,
     pick: p.pick_rate,
@@ -139,7 +137,7 @@ export function championSynergies(id: number): SynTab[] {
       note: "Estimated from each augment's own score: no games record the pair together.",
     },
   ];
-  return tabs.filter((t) => t.rows.length);
+  return tabs.filter((t) => t.rows.length).map((t) => ({ ...t, rows: t.rows.map(clean) }));
 }
 
 /** An augment's Synergies tabs: the champions it fits, the augments it pairs with, and the items built with it. */
@@ -153,8 +151,6 @@ export function augmentSynergies(id: number): SynTab[] {
     const a = c.augments?.find((x) => x.id === id);
     if (a && keep(a))
       fits.push({
-        key: `ch-${cid}`,
-        icons: [{ src: `/icons/champions/${alias}.webp` }],
         names: [{ kind: "champions", id: alias, name: champName(alias) }],
         href: `/champions/${alias}`,
         score: a.score,
@@ -181,8 +177,6 @@ export function augmentSynergies(id: number): SynTab[] {
   const combos: SynRow[] = [...partners]
     .filter(([, e]) => e.champs >= 2 && e.w > 0)
     .map(([other, e]) => ({
-      key: `p-${other}`,
-      icons: [augIcon(id), augIcon(other)],
       names: [augName(id), augName(other)],
       href: augmentHref(other) ?? undefined,
       score: e.s / e.w,
@@ -195,7 +189,7 @@ export function augmentSynergies(id: number): SynTab[] {
   const items: SynRow[] = augmentItems(id).flatMap((f) => {
     const it = item(f.id);
     if (!it?.icon) return [];
-    return [{ key: `i-${f.id}`, icons: [{ src: it.icon }], names: [{ kind: "items" as const, id: f.id, name: it.name }], href: itemHref(f.id), pick: f.share }];
+    return [{ names: [{ kind: "items" as const, id: f.id, name: it.name, icon: it.icon }], href: itemHref(f.id), pick: f.share }];
   });
   const tabs: SynTab[] = [
     { id: "champions", label: "Champions", what: "Champion", rows: fits, note: "Points of win rate this augment adds on each champion, estimated." },
@@ -208,7 +202,7 @@ export function augmentSynergies(id: number): SynTab[] {
     },
     { id: "items", label: "Items", what: "Item", rows: items, note: "Share of the champions who take this augment that build each item.", share: true },
   ];
-  return tabs.filter((t) => t.rows.length);
+  return tabs.filter((t) => t.rows.length).map((t) => ({ ...t, rows: t.rows.map(clean) }));
 }
 
 /** Expected win rate for a build panel row (the champion page's Expected switch), keyed by family and items. */

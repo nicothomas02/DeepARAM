@@ -793,7 +793,11 @@ export default async function ChampionPage({
                 </>
               }
             >
-              <AugmentBuildPicker data={augBuilds} names={AUG_NAMES} changes={CHANGES_BUILD} />
+              <AugmentBuildPicker
+                data={augBuilds}
+                names={Object.fromEntries(augBuilds.builds.flatMap((b) => b.augments).map((id) => [id, AUG_NAMES[id] ?? ""]))}
+                changes={CHANGES_BUILD}
+              />
             </Panel>
           )}
           {p.core.length > 0 && (
