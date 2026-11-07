@@ -204,5 +204,6 @@
  "Estimated: the augment picks (1st to 4th) where it usually shows up.": "Becslés: a bővítésválasztások (1–4.), ahol általában felbukkan.",
  "Pick {n}": "{n}. választás",
  "From earlier games: skill orders are not updating right now.": "Korábbi meccsekből: a képességsorrend most nem frissül.",
- "From the most common full builds, most built items first.": "A leggyakoribb teljes felszerelésekből, a legtöbbet épített tárgyak elöl."
+ "From the most common full builds, most built items first.": "A leggyakoribb teljes felszerelésekből, a legtöbbet épített tárgyak elöl.",
+ "Few games so far: estimated from earlier games and this patch's changes.": "Eddig kevés meccs: becslés korábbi meccsekből és a javítás változásaiból."
 }

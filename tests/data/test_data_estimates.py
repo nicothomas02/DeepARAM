@@ -206,3 +206,54 @@ def test_viability_checks_use_the_bug_finder():
     real = c.bugs
     c.bugs = (lambda *a: [{"level": "warn", "message": "untested loop"}],) + real[1:]
     assert c.bug_check("boots", gem, items=[3006]) and gem["caution"] == ["untested loop"]
+
+
+# ---------- early-window builds (early_builds.py) ----------
+
+eb = load_module("data/estimates/early_builds.py", "estimates_early_builds", extra_path=["data/cn"])
+
+
+def _champ(full, boots_wr=0.5):
+    return {"items": {"full_builds": [{"items": i, "pick_rate": p, "win_rate": w} for i, p, w in full],
+                      "boots": [{"items": [3020], "pick_rate": 1.0, "win_rate": boots_wr}]}}
+
+
+def test_early_blend_leans_on_the_prior_with_few_games():
+    prior = _champ([([3020, 1, 2, 3, 4, 5], 0.5, 0.56)])
+    cur = _champ([([3020, 1, 2, 3, 4, 5], 0.5, 0.40)])
+    few = eb.blend(cur, prior, 200, 100000, prior_weight=800)[0]
+    many = eb.blend(cur, prior, 200000, 100000, prior_weight=800)[0]
+    assert few["estimated"] and not many["estimated"]
+    assert few["games"] == 100
+    # 100 games at 40% against 800 prior games at 56%
+    assert few["win_rate"] == pytest.approx((100 * 0.40 + 800 * 0.56) / 900, abs=1e-4)
+    assert many["win_rate"] == pytest.approx(0.40, abs=0.005)
+
+
+def test_early_blend_moves_the_prior_for_patch_changes_and_drops_removed_items():
+    prior = _champ([([3020, 1, 2, 3, 4, 5], 0.5, 0.50), ([3020, 9, 2, 3, 4, 5], 0.5, 0.50)])
+    cur = _champ([])
+    rows = eb.blend(cur, prior, 0, 100000, shift=0.02, items={1: 0.01}, removed={9}, prior_weight=800)
+    assert [r["items"] for r in rows] == [[3020, 1, 2, 3, 4, 5]]
+    assert rows[0]["win_rate"] == pytest.approx(0.53, abs=1e-4)
+    assert rows[0]["estimated"] and rows[0]["games"] == 0
+
+
+def test_early_window_starts_at_a_pick_rate_jump():
+    def snap(p):
+        return {"1": _champ([([3020, 1, 2, 3, 4, 5], p, 0.5)])}
+    picks = [0.30, 0.301, 0.302, 0.303, 0.40, 0.42, 0.421, 0.422]
+    snaps = [(f"2026-10-{10 + i:02d}", snap(p)) for i, p in enumerate(picks)]
+    # The restart takes two days (0.303 -> 0.40 -> 0.42); the window starts on the first of them.
+    assert eb.window_starts(snaps) == [4]
+
+
+def test_early_builds_output():
+    d = load_json("data/estimates/early_builds.json")
+    assert "champions" in d
+    for cid, c in d["champions"].items():
+        assert cid.isdigit() and isinstance(c["estimated"], bool)
+        assert c["full_builds"] and any(r["estimated"] for r in c["full_builds"])
+        for r in c["full_builds"]:
+            assert 0 <= r["pick_rate"] <= 1 and 0 <= r["win_rate"] <= 1 and r["games"] >= 0
+        assert all(len(r["items"]) == 3 for r in c["core"])

@@ -44,6 +44,9 @@ jobs:
       - name: Estimate spells and game counts
         if: steps.fresh.outputs.run == 'true'
         run: python3 data/fill/build_estimates.py
+      - name: Early-window builds (blend in the previous window while builds have few games; needs the git history)
+        if: steps.fresh.outputs.run == 'true'
+        run: python3 data/estimates/early_builds.py || echo "::warning::Early-window builds not refreshed"
       - name: Estimate other stats (augments per champion, items, profiles, odds)
         if: steps.fresh.outputs.run == 'true'
         run: python3 data/estimates/build.py

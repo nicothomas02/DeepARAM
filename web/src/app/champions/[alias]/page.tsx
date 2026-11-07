@@ -614,6 +614,11 @@ export default async function ChampionPage({
               <div className="cp-mini">
                 <RatedCells r={bestCore} />
               </div>
+              {p.buildsEstimated && (
+                <small className="cp-stale">
+                  <T ns={NS}>{"Few games so far: estimated from earlier games and this patch's changes."}</T>
+                </small>
+              )}
               {p.late.length > 0 && (
                 <div className="cp-late-mini">
                   {p.late.map((s) => (
@@ -757,7 +762,13 @@ export default async function ChampionPage({
             <Panel
               title="Core item builds"
               count={p.core.length}
-              note={p.coreDerived ? <T ns={NS}>From the most common full builds, most built items first.</T> : undefined}
+              note={
+                p.buildsEstimated ? (
+                  <T ns={NS}>{"Few games so far: estimated from earlier games and this patch's changes."}</T>
+                ) : p.coreDerived ? (
+                  <T ns={NS}>From the most common full builds, most built items first.</T>
+                ) : undefined
+              }
             >
               <Head what="Core items" cols={SCORED_COLS} />
               <ShowMore total={p.core.length} limit={5}>
@@ -853,7 +864,12 @@ export default async function ChampionPage({
             )}
           </div>
           {p.full.length > 0 && (
-            <Panel title="Full builds" count={p.full.length} detailed>
+            <Panel
+              title="Full builds"
+              count={p.full.length}
+              detailed
+              note={p.buildsEstimated ? <T ns={NS}>{"Few games so far: estimated from earlier games and this patch's changes."}</T> : undefined}
+            >
               <Head what="Six items" cols={SCORED_COLS} />
               <ShowMore total={p.full.length} limit={5}>
                 {itemRows(p.full)}
