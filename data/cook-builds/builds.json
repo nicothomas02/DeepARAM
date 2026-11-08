@@ -484,6 +484,29 @@
       "why": "Spiked Shell quietly gives Rammus bonus Attack Damage that scales with his Armor and Magic Resist, a side effect nobody builds around because Rammus barely auto-attacks. ADAPt converts that bonus Attack Damage into Ability Power and adds 15% more, so every point of armor becomes AP for Powerball, Ball Curl's return damage and Soaring Slam. Marksmage then makes his attacks deal extra physical damage equal to 75% of that AP, so the armor comes back out through his autos on whoever he just Taunted. Titan's Resolve, Lonely Warrior and Defensive Ball Curl all add Armor and Magic Resist that flow through Spiked Shell into more AP, while Zhonya's Hourglass feeds both ends with Armor and AP, Thornmail and Jak'Sho stack raw resists, Rabadon's Deathcap multiplies the converted total and Nashor's Tooth speeds up the Marksmage autos. The armadillo tank becomes an auto-attacking battle mage whose armor is his Ability Power.",
       "play": "Powerball in, Ball Curl for the armor-to-AP spike, then Taunt the squishiest target and right-click them down. Zhonya's when the whole team turns on you.",
       "chef": "2026-11-06"
+    },
+    {
+      "id": "kennen-lightning-strikes-twice",
+      "champion": "Kennen",
+      "title": "Lightning Strikes Twice",
+      "augments": [
+        "Critical Rhythm",
+        "Double Tap",
+        "Zealot",
+        "Tickle Monster"
+      ],
+      "core": 4,
+      "items": [
+        "Berserker's Greaves",
+        "Nashor's Tooth",
+        "Wit's End",
+        "Runaan's Hurricane",
+        "Phantom Dancer",
+        "Navori Flickerblade"
+      ],
+      "why": "Lightning Rush has a clause nobody reads: the Attack Speed Kennen gains when the ball form ends is extended by a second every time he Critically Strikes, so a Kennen who crits on every attack simply never comes down from it. Critical Rhythm and Zealot hand him the crit chance and stack even more Attack Speed on each crit, and Tickle Monster converts his Attack Damage into Attack Speed and adds magic damage On-Hit, so his crits stop being about the physical hit and become a metronome that keeps the Rush running. Double Tap is the payoff: every crit applies On-Hit effects a second time, so Tickle Monster, Nashor's Tooth and Wit's End all land twice per attack, and so does Electrical Surge's every-fifth-attack lightning, which is On-Hit too. Nashor's Tooth pours Ability Power into all of that, Runaan's Hurricane carries the doubled On-Hits to two more enemies, Phantom Dancer and Navori Flickerblade fill out the crit chance, and Navori's attacks shave the cooldowns of Thundering Shuriken, Electrical Surge and Lightning Rush so the stun comes back faster. The burst mage who hides behind his ultimate becomes a zero-Attack-Damage crit marksman who never stops right-clicking.",
+      "play": "Open with Lightning Rush, then never stop right-clicking: as long as the crits keep coming the Attack Speed never ends. Weave Thundering Shuriken and Electrical Surge between attacks for the stun, and save Slicing Maelstrom for the teamfight.",
+      "chef": "2026-11-07"
     }
   ]
 }
