@@ -150,6 +150,19 @@ test("clicking a champion on the Tier List opens its page, with no favorites or 
   await expect(page.locator(".fav-star, .cmp-toggle")).toHaveCount(0);
 });
 
+test("a link to the Tier List's last tab shows that tab in the tab row", async ({ page }) => {
+  await page.goto("/tier-list?tab=pentakill");
+  const tab = page.getByRole("tab", { name: "Pentakill" });
+  await expect(tab).toHaveAttribute("aria-selected", "true");
+  // On phones the row scrolls sideways: the open tab must be inside its visible part.
+  await expect
+    .poll(async () => {
+      const [t, row] = await Promise.all([tab.boundingBox(), page.getByRole("tablist").first().boundingBox()]);
+      return !!t && !!row && t.x >= row.x - 1 && t.x + t.width <= row.x + row.width + 1;
+    })
+    .toBe(true);
+});
+
 test("the Tier List shows every stat in one table, with no separate advanced section", async ({ page }) => {
   await page.goto("/tier-list");
   const main = page.locator(".data-table").first();
