@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { buzz } from "@/lib/haptics";
 import { setParams } from "@/lib/url-state";
 import { useT } from "./I18n";
@@ -38,9 +38,20 @@ export default function SubTabs({
     window.addEventListener("popstate", sync);
     return () => window.removeEventListener("popstate", sync);
   }, [tabs]);
+  // On a phone the tab row scrolls sideways: keep the open tab in view (a deep link to the last tab used to land with
+  // it off screen). Only the row scrolls, never the page.
+  const list = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const row = list.current;
+    const tab = row?.querySelector<HTMLElement>(`#tab-${CSS.escape(active ?? "")}`);
+    if (!row || !tab || row.scrollWidth <= row.clientWidth) return;
+    const left = tab.getBoundingClientRect().left - row.getBoundingClientRect().left + row.scrollLeft;
+    if (left < row.scrollLeft || left + tab.offsetWidth > row.scrollLeft + row.clientWidth)
+      row.scrollTo({ left: Math.max(0, left - (row.clientWidth - tab.offsetWidth) / 2) });
+  }, [active]);
   return (
     <div className="subtabs">
-      <div className="subtab-list" role="tablist">
+      <div className="subtab-list" role="tablist" ref={list}>
         {tabs.map((t) => (
           <button
             key={t.id}
