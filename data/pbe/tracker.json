@@ -1,11 +1,12 @@
 {
  "builds": {
-  "pbe": "16.23.8364504",
+  "pbe": "16.23.8368918",
   "live": "16.22.8348910"
  },
- "dataAsOf": "2026-11-06",
+ "dataAsOf": "2026-11-09",
  "counts": {
-  "buff": 4,
+  "buff": 5,
+  "mixed": 1,
   "new": 4,
   "removed": 3
  },
@@ -16,6 +17,17 @@
    "lines": [
     {
      "text": "R total damage 450/700/925 → 450/700/950",
+     "tag": "buff"
+    }
+   ],
+   "tag": "buff"
+  },
+  {
+   "kind": "item",
+   "name": "Perplexity",
+   "lines": [
+    {
+     "text": "Base Mana Regen 0% → 500%",
      "tag": "buff"
     }
    ],
@@ -62,6 +74,19 @@
   },
   {
    "kind": "augment",
+   "name": "Bouncing Bees",
+   "tier": "prismatic",
+   "icon": "/assets/augments/pbe/kingme_large.png",
+   "lines": [
+    {
+     "text": "Bounce damage (% of the original attack): 50–100 (by level) → 60",
+     "tag": "mixed"
+    }
+   ],
+   "tag": "mixed"
+  },
+  {
+   "kind": "augment",
    "name": "Slime Time",
    "tier": "silver",
    "icon": "/assets/augments/pbe/slimetime_large.png",
@@ -104,7 +129,7 @@
   },
   {
    "kind": "augment",
-   "name": "Steadfast Presence",
+   "name": "Steadfaster Presence",
    "tier": "gold",
    "icon": "/assets/augments/pbe/steadfastpresence_large.png",
    "set": null,

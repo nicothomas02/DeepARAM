@@ -33,7 +33,7 @@ Usage (from the repo root):
   npm install --prefix /tmp/gltf @gltf-transform/cli@4 @gltf-transform/core@4 @gltf-transform/extensions@4 meshoptimizer
 and is run with GLTF_MODULES=/tmp/gltf/node_modules (default).
 """
-import argparse, concurrent.futures as cf, json, os, re, shutil, subprocess, sys, tempfile, time, urllib.parse, urllib.request
+import argparse, concurrent.futures as cf, hashlib, json, os, re, shutil, subprocess, sys, tempfile, time, urllib.parse, urllib.request
 from datetime import datetime, timezone
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -201,7 +201,12 @@ def fetch_fonts():
 
     def local(m):
         url = m.group(1)
-        name = re.sub(r"[^A-Za-z0-9._-]", "_", urllib.parse.urlsplit(url).path.strip("/").replace("/", "-"))
+        parts = urllib.parse.urlsplit(url)
+        name = re.sub(r"[^A-Za-z0-9._-]", "_", parts.path.strip("/").replace("/", "-"))
+        if parts.query:
+            # Google sometimes serves every subset from one path (/l/font?kit=...), told apart only by
+            # the query, so the query must be part of the file name or all subsets collapse into one file.
+            name += "-" + hashlib.sha1(parts.query.encode()).hexdigest()[:12] + ".woff2"
         dst = os.path.join(OUT, "fonts", name)
         if not os.path.exists(dst):
             with open(dst, "wb") as f:

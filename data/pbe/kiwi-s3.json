@@ -2,7 +2,7 @@
   "meta": {
     "mode": "ARAM: Mayhem",
     "label": "Patch 26.23",
-    "dataAsOf": "2026-11-06",
+    "dataAsOf": "2026-11-09",
     "caveat": "PBE content can change before release.",
     "augmentPool": {
       "live": 242,
@@ -17,10 +17,11 @@
       "Live is patch 26.22. This page lists what patch 26.23 changes.",
       "Update 2026-11-06: patch 26.22 is live, so its changes left this page. Patch 26.23 adds four augments (Slime Time, Fortified, Mystic Guard and Steadfast Presence), makes Group Hug reach farther, raises Vel'Koz's R damage and changes turret plating in Mayhem.",
       "Update 2026-11-06 (patch 26.23): Pat On The Back, Shark Tempest and Surge Field leave the augment pool. Salvation recharges faster (90 → 70 seconds) and No Mana, No Problem turns Mana into more Ability Power.",
+      "Update 2026-11-09 (patch 26.23): Steadfast Presence is renamed Steadfaster Presence, Bouncing Bees' bounce damage becomes a flat 60% at every level (was 50–100% by level), and Perplexity adds 500% base Mana Regen.",
       "Ability values are listed for ranks 1-5 (basic abilities) or 1-3 (ultimates)."
     ],
     "builds": {
-      "pbe": "16.23.8364504",
+      "pbe": "16.23.8368918",
       "live": "16.22.8348910"
     }
   },
@@ -58,7 +59,7 @@
         "icon": "/assets/augments/pbe/mysticguard_large.png"
       },
       {
-        "name": "Steadfast Presence",
+        "name": "Steadfaster Presence",
         "tier": "gold",
         "description": "Gain 16% bonus Armor and Magic Resist and 20% Tenacity. Below 40% max Health, this rises to 32% bonus Armor and Magic Resist and 40% Tenacity.",
         "icon": "/assets/augments/pbe/steadfastpresence_large.png"
@@ -120,6 +121,19 @@
         "direction": "buff",
         "tier": "silver",
         "icon": "/assets/augments/pbe/nomananoproblem_large.png"
+      },
+      {
+        "name": "Bouncing Bees",
+        "changes": [
+          {
+            "stat": "Bounce damage (% of the original attack)",
+            "live": "50–100 (by level)",
+            "pbe": "60"
+          }
+        ],
+        "direction": "mixed",
+        "tier": "prismatic",
+        "icon": "/assets/augments/pbe/kingme_large.png"
       }
     ]
   },
@@ -162,7 +176,14 @@
   },
   "itemChanges": {
     "summary": "Changes to items in the Mayhem shop. Runes are unchanged.",
-    "list": []
+    "list": [
+      {
+        "item": "Perplexity",
+        "changes": [
+          "Base Mana Regen 0% → 500%"
+        ]
+      }
+    ]
   },
   "modeChanges": [
     "Turret plating gets its own Mayhem values: 3 plates per turret worth 100 gold each (normally 5 worth 120), and a turret's defensive Armor and Magic Resist bonus is 60 (normally 30), plus 5 for each extra champion."
