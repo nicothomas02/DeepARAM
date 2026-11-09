@@ -1,7 +1,7 @@
 {
  "patch": "16.22",
  "estimated": true,
- "built": "2026-11-08T19:54:11Z",
+ "built": "2026-11-09T16:47:12Z",
  "daily_games": 3630000,
  "daily_games_from": [
   "16.21",
@@ -21,8 +21,8 @@
       4,
       6
      ],
-     "games": 1190000,
-     "pick_rate": 0.6987,
+     "games": 1180000,
+     "pick_rate": 0.6942,
      "win_rate": null
     },
     {
@@ -30,8 +30,8 @@
       4,
       32
      ],
-     "games": 291000,
-     "pick_rate": 0.1714,
+     "games": 294000,
+     "pick_rate": 0.1729,
      "win_rate": null
     },
     {
@@ -39,8 +39,8 @@
       4,
       21
      ],
-     "games": 66700,
-     "pick_rate": 0.0392,
+     "games": 69300,
+     "pick_rate": 0.0407,
      "win_rate": null
     },
     {
@@ -48,8 +48,8 @@
       4,
       7
      ],
-     "games": 53600,
-     "pick_rate": 0.0315,
+     "games": 54700,
+     "pick_rate": 0.0322,
      "win_rate": null
     },
     {
@@ -57,8 +57,8 @@
       1,
       4
      ],
-     "games": 41400,
-     "pick_rate": 0.0244,
+     "games": 42100,
+     "pick_rate": 0.0248,
      "win_rate": null
     },
     {
@@ -66,8 +66,8 @@
       4,
       13
      ],
-     "games": 31600,
-     "pick_rate": 0.0186,
+     "games": 31900,
+     "pick_rate": 0.0188,
      "win_rate": null
     },
     {
@@ -75,8 +75,8 @@
       4,
       14
      ],
-     "games": 27500,
-     "pick_rate": 0.0162,
+     "games": 28000,
+     "pick_rate": 0.0165,
      "win_rate": null
     }
    ]
@@ -89,8 +89,8 @@
       4,
       32
      ],
-     "games": 1410000,
-     "pick_rate": 0.8512,
+     "games": 1370000,
+     "pick_rate": 0.8235,
      "win_rate": null
     },
     {
@@ -98,8 +98,8 @@
       4,
       6
      ],
-     "games": 192000,
-     "pick_rate": 0.1158,
+     "games": 243000,
+     "pick_rate": 0.1462,
      "win_rate": null
     },
     {
@@ -107,8 +107,8 @@
       4,
       14
      ],
-     "games": 31400,
-     "pick_rate": 0.0189,
+     "games": 27700,
+     "pick_rate": 0.0167,
      "win_rate": null
     }
    ]
@@ -122,7 +122,7 @@
       32
      ],
      "games": 1740000,
-     "pick_rate": 0.8804,
+     "pick_rate": 0.8801,
      "win_rate": null
     },
     {
@@ -130,8 +130,8 @@
       4,
       6
      ],
-     "games": 214000,
-     "pick_rate": 0.1086,
+     "games": 215000,
+     "pick_rate": 0.1089,
      "win_rate": null
     }
    ]
@@ -145,7 +145,7 @@
       6
      ],
      "games": 1100000,
-     "pick_rate": 0.5481,
+     "pick_rate": 0.5489,
      "win_rate": null
     },
     {
@@ -153,8 +153,8 @@
       4,
       32
      ],
-     "games": 502000,
-     "pick_rate": 0.2511,
+     "games": 501000,
+     "pick_rate": 0.2505,
      "win_rate": null
     },
     {
@@ -163,7 +163,7 @@
       7
      ],
      "games": 111000,
-     "pick_rate": 0.0557,
+     "pick_rate": 0.0556,
      "win_rate": null
     },
     {
@@ -171,8 +171,8 @@
       4,
       14
      ],
-     "games": 91500,
-     "pick_rate": 0.0458,
+     "games": 91200,
+     "pick_rate": 0.0456,
      "win_rate": null
     },
     {
@@ -180,8 +180,8 @@
       4,
       21
      ],
-     "games": 82700,
-     "pick_rate": 0.0414,
+     "games": 82400,
+     "pick_rate": 0.0412,
      "win_rate": null
     },
     {
@@ -189,8 +189,8 @@
       1,
       4
      ],
-     "games": 71100,
-     "pick_rate": 0.0356,
+     "games": 71300,
+     "pick_rate": 0.0357,
      "win_rate": null
     },
     {
@@ -198,7 +198,7 @@
       4,
       13
      ],
-     "games": 44900,
+     "games": 44800,
      "pick_rate": 0.0224,
      "win_rate": null
     }
@@ -213,7 +213,7 @@
       32
      ],
      "games": 1320000,
-     "pick_rate": 0.8482,
+     "pick_rate": 0.8475,
      "win_rate": null
     },
     {
@@ -221,8 +221,8 @@
       4,
       6
      ],
-     "games": 205000,
-     "pick_rate": 0.1317,
+     "games": 206000,
+     "pick_rate": 0.1322,
      "win_rate": null
     },
     {
@@ -230,8 +230,8 @@
       4,
       14
      ],
-     "games": 19800,
-     "pick_rate": 0.0127,
+     "games": 19700,
+     "pick_rate": 0.0126,
      "win_rate": null
     }
    ]
@@ -245,7 +245,7 @@
       32
      ],
      "games": 1260000,
-     "pick_rate": 0.911,
+     "pick_rate": 0.9111,
      "win_rate": null
     },
     {
@@ -262,8 +262,8 @@
       4,
       14
      ],
-     "games": 23300,
-     "pick_rate": 0.0169,
+     "games": 23100,
+     "pick_rate": 0.0167,
      "win_rate": null
     },
     {
@@ -271,8 +271,8 @@
       4,
       21
      ],
-     "games": 16300,
-     "pick_rate": 0.0118,
+     "games": 16200,
+     "pick_rate": 0.0117,
      "win_rate": null
     }
    ]
@@ -286,7 +286,7 @@
       32
      ],
      "games": 1270000,
-     "pick_rate": 0.9184,
+     "pick_rate": 0.9182,
      "win_rate": null
     },
     {
@@ -295,7 +295,7 @@
       6
      ],
      "games": 102000,
-     "pick_rate": 0.0737,
+     "pick_rate": 0.0739,
      "win_rate": null
     }
    ]
@@ -308,8 +308,8 @@
       4,
       32
      ],
-     "games": 854000,
-     "pick_rate": 0.4368,
+     "games": 873000,
+     "pick_rate": 0.4464,
      "win_rate": null
     },
     {
@@ -317,8 +317,8 @@
       4,
       6
      ],
-     "games": 671000,
-     "pick_rate": 0.3431,
+     "games": 654000,
+     "pick_rate": 0.3347,
      "win_rate": null
     },
     {
@@ -326,8 +326,8 @@
       4,
       21
      ],
-     "games": 192000,
-     "pick_rate": 0.0982,
+     "games": 179000,
+     "pick_rate": 0.0916,
      "win_rate": null
     },
     {
@@ -335,8 +335,8 @@
       1,
       4
      ],
-     "games": 128000,
-     "pick_rate": 0.0655,
+     "games": 125000,
+     "pick_rate": 0.0642,
      "win_rate": null
     },
     {
@@ -344,8 +344,8 @@
       4,
       7
      ],
-     "games": 64800,
-     "pick_rate": 0.0332,
+     "games": 81000,
+     "pick_rate": 0.0414,
      "win_rate": null
     },
     {
@@ -353,8 +353,8 @@
       4,
       14
      ],
-     "games": 40400,
-     "pick_rate": 0.0206,
+     "games": 37300,
+     "pick_rate": 0.0191,
      "win_rate": null
     }
    ]
@@ -368,7 +368,7 @@
       6
      ],
      "games": 586000,
-     "pick_rate": 0.3978,
+     "pick_rate": 0.3977,
      "win_rate": null
     },
     {
@@ -376,8 +376,8 @@
       4,
       32
      ],
-     "games": 564000,
-     "pick_rate": 0.3825,
+     "games": 563000,
+     "pick_rate": 0.3822,
      "win_rate": null
     },
     {
@@ -386,7 +386,7 @@
       13
      ],
      "games": 140000,
-     "pick_rate": 0.0949,
+     "pick_rate": 0.0948,
      "win_rate": null
     },
     {
@@ -394,8 +394,8 @@
       4,
       7
      ],
-     "games": 79700,
-     "pick_rate": 0.0541,
+     "games": 79500,
+     "pick_rate": 0.0539,
      "win_rate": null
     },
     {
@@ -403,8 +403,8 @@
       4,
       14
      ],
-     "games": 53200,
-     "pick_rate": 0.0361,
+     "games": 53100,
+     "pick_rate": 0.036,
      "win_rate": null
     },
     {
@@ -412,8 +412,8 @@
       4,
       21
      ],
-     "games": 46100,
-     "pick_rate": 0.0313,
+     "games": 47200,
+     "pick_rate": 0.0321,
      "win_rate": null
     }
    ]
@@ -426,17 +426,8 @@
       4,
       32
      ],
-     "games": 980000,
-     "pick_rate": 0.8183,
-     "win_rate": null
-    },
-    {
-     "ids": [
-      4,
-      14
-     ],
-     "games": 99500,
-     "pick_rate": 0.083,
+     "games": 967000,
+     "pick_rate": 0.8071,
      "win_rate": null
     },
     {
@@ -444,8 +435,17 @@
       4,
       6
      ],
-     "games": 89300,
-     "pick_rate": 0.0746,
+     "games": 104000,
+     "pick_rate": 0.087,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 97900,
+     "pick_rate": 0.0817,
      "win_rate": null
     },
     {
@@ -453,8 +453,8 @@
       4,
       21
      ],
-     "games": 16600,
-     "pick_rate": 0.0138,
+     "games": 16900,
+     "pick_rate": 0.0141,
      "win_rate": null
     }
    ]
@@ -467,8 +467,8 @@
       4,
       32
      ],
-     "games": 810000,
-     "pick_rate": 0.5105,
+     "games": 807000,
+     "pick_rate": 0.5083,
      "win_rate": null
     },
     {
@@ -476,8 +476,8 @@
       4,
       6
      ],
-     "games": 672000,
-     "pick_rate": 0.4234,
+     "games": 679000,
+     "pick_rate": 0.4281,
      "win_rate": null
     },
     {
@@ -485,8 +485,8 @@
       4,
       21
      ],
-     "games": 47800,
-     "pick_rate": 0.0301,
+     "games": 44500,
+     "pick_rate": 0.0281,
      "win_rate": null
     },
     {
@@ -494,8 +494,8 @@
       4,
       13
      ],
-     "games": 20700,
-     "pick_rate": 0.0131,
+     "games": 20600,
+     "pick_rate": 0.013,
      "win_rate": null
     },
     {
@@ -517,8 +517,8 @@
       4,
       32
      ],
-     "games": 640000,
-     "pick_rate": 0.5398,
+     "games": 643000,
+     "pick_rate": 0.5423,
      "win_rate": null
     },
     {
@@ -526,8 +526,8 @@
       4,
       6
      ],
-     "games": 440000,
-     "pick_rate": 0.3711,
+     "games": 439000,
+     "pick_rate": 0.3699,
      "win_rate": null
     },
     {
@@ -535,8 +535,8 @@
       4,
       21
      ],
-     "games": 46600,
-     "pick_rate": 0.0393,
+     "games": 44900,
+     "pick_rate": 0.0378,
      "win_rate": null
     },
     {
@@ -544,8 +544,8 @@
       4,
       7
      ],
-     "games": 24500,
-     "pick_rate": 0.0207,
+     "games": 24400,
+     "pick_rate": 0.0206,
      "win_rate": null
     },
     {
@@ -553,8 +553,8 @@
       4,
       13
      ],
-     "games": 20300,
-     "pick_rate": 0.0171,
+     "games": 20400,
+     "pick_rate": 0.0172,
      "win_rate": null
     },
     {
@@ -562,8 +562,8 @@
       4,
       14
      ],
-     "games": 12400,
-     "pick_rate": 0.0105,
+     "games": 12600,
+     "pick_rate": 0.0107,
      "win_rate": null
     }
    ]
@@ -577,7 +577,7 @@
       6
      ],
      "games": 1150000,
-     "pick_rate": 0.566,
+     "pick_rate": 0.5664,
      "win_rate": null
     },
     {
@@ -586,7 +586,7 @@
       32
      ],
      "games": 383000,
-     "pick_rate": 0.1889,
+     "pick_rate": 0.1887,
      "win_rate": null
     },
     {
@@ -595,7 +595,7 @@
       21
      ],
      "games": 185000,
-     "pick_rate": 0.0912,
+     "pick_rate": 0.0911,
      "win_rate": null
     },
     {
@@ -603,8 +603,8 @@
       4,
       7
      ],
-     "games": 135000,
-     "pick_rate": 0.0667,
+     "games": 136000,
+     "pick_rate": 0.0669,
      "win_rate": null
     },
     {
@@ -612,8 +612,8 @@
       1,
       4
      ],
-     "games": 68700,
-     "pick_rate": 0.0338,
+     "games": 68500,
+     "pick_rate": 0.0337,
      "win_rate": null
     },
     {
@@ -630,8 +630,8 @@
       4,
       14
      ],
-     "games": 47000,
-     "pick_rate": 0.0232,
+     "games": 46700,
+     "pick_rate": 0.023,
      "win_rate": null
     }
    ]
@@ -644,8 +644,8 @@
       4,
       32
      ],
-     "games": 728000,
-     "pick_rate": 0.4447,
+     "games": 737000,
+     "pick_rate": 0.4502,
      "win_rate": null
     },
     {
@@ -653,8 +653,8 @@
       4,
       6
      ],
-     "games": 534000,
-     "pick_rate": 0.3262,
+     "games": 526000,
+     "pick_rate": 0.3214,
      "win_rate": null
     },
     {
@@ -662,8 +662,8 @@
       1,
       4
      ],
-     "games": 231000,
-     "pick_rate": 0.1413,
+     "games": 228000,
+     "pick_rate": 0.1396,
      "win_rate": null
     },
     {
@@ -671,8 +671,8 @@
       4,
       21
      ],
-     "games": 81700,
-     "pick_rate": 0.0499,
+     "games": 82700,
+     "pick_rate": 0.0505,
      "win_rate": null
     },
     {
@@ -680,8 +680,8 @@
       4,
       7
      ],
-     "games": 36400,
-     "pick_rate": 0.0223,
+     "games": 36700,
+     "pick_rate": 0.0225,
      "win_rate": null
     },
     {
@@ -689,8 +689,8 @@
       4,
       14
      ],
-     "games": 18100,
-     "pick_rate": 0.0111,
+     "games": 18400,
+     "pick_rate": 0.0113,
      "win_rate": null
     }
    ]
@@ -712,8 +712,8 @@
       4,
       6
      ],
-     "games": 113000,
-     "pick_rate": 0.0765,
+     "games": 114000,
+     "pick_rate": 0.0766,
      "win_rate": null
     }
    ]
@@ -726,8 +726,8 @@
       4,
       32
      ],
-     "games": 905000,
-     "pick_rate": 0.5428,
+     "games": 904000,
+     "pick_rate": 0.5423,
      "win_rate": null
     },
     {
@@ -736,7 +736,7 @@
       6
      ],
      "games": 422000,
-     "pick_rate": 0.2527,
+     "pick_rate": 0.2533,
      "win_rate": null
     },
     {
@@ -744,8 +744,8 @@
       4,
       21
      ],
-     "games": 138000,
-     "pick_rate": 0.0827,
+     "games": 139000,
+     "pick_rate": 0.0832,
      "win_rate": null
     },
     {
@@ -753,8 +753,8 @@
       4,
       7
      ],
-     "games": 80000,
-     "pick_rate": 0.048,
+     "games": 79500,
+     "pick_rate": 0.0477,
      "win_rate": null
     },
     {
@@ -762,7 +762,7 @@
       4,
       13
      ],
-     "games": 64900,
+     "games": 64800,
      "pick_rate": 0.0389,
      "win_rate": null
     },
@@ -771,8 +771,8 @@
       4,
       14
      ],
-     "games": 40200,
-     "pick_rate": 0.0241,
+     "games": 40400,
+     "pick_rate": 0.0242,
      "win_rate": null
     },
     {
@@ -780,8 +780,8 @@
       1,
       4
      ],
-     "games": 18000,
-     "pick_rate": 0.0108,
+     "games": 17400,
+     "pick_rate": 0.0105,
      "win_rate": null
     }
    ]
@@ -795,7 +795,7 @@
       32
      ],
      "games": 1200000,
-     "pick_rate": 0.8811,
+     "pick_rate": 0.8836,
      "win_rate": null
     },
     {
@@ -803,8 +803,8 @@
       4,
       6
      ],
-     "games": 136000,
-     "pick_rate": 0.1004,
+     "games": 132000,
+     "pick_rate": 0.0976,
      "win_rate": null
     }
    ]
@@ -817,8 +817,8 @@
       4,
       32
      ],
-     "games": 943000,
-     "pick_rate": 0.9205,
+     "games": 939000,
+     "pick_rate": 0.9159,
      "win_rate": null
     },
     {
@@ -826,17 +826,8 @@
       4,
       6
      ],
-     "games": 54800,
-     "pick_rate": 0.0535,
-     "win_rate": null
-    },
-    {
-     "ids": [
-      4,
-      14
-     ],
-     "games": 12500,
-     "pick_rate": 0.0122,
+     "games": 58300,
+     "pick_rate": 0.0569,
      "win_rate": null
     },
     {
@@ -844,8 +835,17 @@
       4,
       21
      ],
-     "games": 11500,
-     "pick_rate": 0.0112,
+     "games": 13000,
+     "pick_rate": 0.0127,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      14
+     ],
+     "games": 12300,
+     "pick_rate": 0.012,
      "win_rate": null
     }
    ]
@@ -859,7 +859,7 @@
       32
      ],
      "games": 800000,
-     "pick_rate": 0.8661,
+     "pick_rate": 0.8666,
      "win_rate": null
     },
     {
@@ -867,8 +867,8 @@
       4,
       6
      ],
-     "games": 110000,
-     "pick_rate": 0.1187,
+     "games": 109000,
+     "pick_rate": 0.1183,
      "win_rate": null
     }
    ]
@@ -882,7 +882,7 @@
       32
      ],
      "games": 1090000,
-     "pick_rate": 0.9036,
+     "pick_rate": 0.904,
      "win_rate": null
     },
     {
@@ -891,7 +891,7 @@
       6
      ],
      "games": 112000,
-     "pick_rate": 0.0931,
+     "pick_rate": 0.0927,
      "win_rate": null
     }
    ]
@@ -904,8 +904,8 @@
       4,
       32
      ],
-     "games": 428000,
-     "pick_rate": 0.4604,
+     "games": 429000,
+     "pick_rate": 0.4614,
      "win_rate": null
     },
     {
@@ -913,8 +913,8 @@
       4,
       6
      ],
-     "games": 382000,
-     "pick_rate": 0.4107,
+     "games": 381000,
+     "pick_rate": 0.4099,
      "win_rate": null
     },
     {
@@ -922,7 +922,7 @@
       4,
       14
      ],
-     "games": 32900,
+     "games": 32800,
      "pick_rate": 0.0354,
      "win_rate": null
     },
@@ -931,8 +931,8 @@
       4,
       21
      ],
-     "games": 29100,
-     "pick_rate": 0.0313,
+     "games": 29200,
+     "pick_rate": 0.0314,
      "win_rate": null
     },
     {
@@ -940,7 +940,7 @@
       4,
       13
      ],
-     "games": 20200,
+     "games": 20300,
      "pick_rate": 0.0218,
      "win_rate": null
     },
@@ -949,8 +949,8 @@
       4,
       7
      ],
-     "games": 19800,
-     "pick_rate": 0.0213,
+     "games": 19900,
+     "pick_rate": 0.0215,
      "win_rate": null
     },
     {
@@ -958,8 +958,8 @@
       1,
       4
      ],
-     "games": 17800,
-     "pick_rate": 0.0192,
+     "games": 17400,
+     "pick_rate": 0.0187,
      "win_rate": null
     }
    ]
@@ -972,8 +972,8 @@
       4,
       6
      ],
-     "games": 1130000,
-     "pick_rate": 0.5849,
+     "games": 1140000,
+     "pick_rate": 0.5857,
      "win_rate": null
     },
     {
@@ -982,7 +982,7 @@
       32
      ],
      "games": 342000,
-     "pick_rate": 0.1765,
+     "pick_rate": 0.1763,
      "win_rate": null
     },
     {
@@ -990,8 +990,8 @@
       4,
       21
      ],
-     "games": 208000,
-     "pick_rate": 0.107,
+     "games": 207000,
+     "pick_rate": 0.1065,
      "win_rate": null
     },
     {
@@ -1000,7 +1000,7 @@
       4
      ],
      "games": 178000,
-     "pick_rate": 0.0919,
+     "pick_rate": 0.0918,
      "win_rate": null
     },
     {
@@ -1008,8 +1008,8 @@
       4,
       7
      ],
-     "games": 60100,
-     "pick_rate": 0.031,
+     "games": 60400,
+     "pick_rate": 0.0311,
      "win_rate": null
     }
    ]
@@ -1022,8 +1022,8 @@
       4,
       32
      ],
-     "games": 908000,
-     "pick_rate": 0.8899,
+     "games": 909000,
+     "pick_rate": 0.8908,
      "win_rate": null
     },
     {
@@ -1031,8 +1031,8 @@
       4,
       6
      ],
-     "games": 97700,
-     "pick_rate": 0.0957,
+     "games": 97100,
+     "pick_rate": 0.0951,
      "win_rate": null
     }
    ]
@@ -1045,8 +1045,8 @@
       4,
       6
      ],
-     "games": 760000,
-     "pick_rate": 0.567,
+     "games": 759000,
+     "pick_rate": 0.5661,
      "win_rate": null
     },
     {
@@ -1054,8 +1054,8 @@
       4,
       32
      ],
-     "games": 396000,
-     "pick_rate": 0.2959,
+     "games": 397000,
+     "pick_rate": 0.296,
      "win_rate": null
     },
     {
@@ -1072,8 +1072,8 @@
       1,
       4
      ],
-     "games": 51100,
-     "pick_rate": 0.0381,
+     "games": 52000,
+     "pick_rate": 0.0388,
      "win_rate": null
     },
     {
@@ -1081,8 +1081,8 @@
       4,
       7
      ],
-     "games": 39900,
-     "pick_rate": 0.0298,
+     "games": 39800,
+     "pick_rate": 0.0297,
      "win_rate": null
     },
     {
@@ -1090,8 +1090,8 @@
       4,
       14
      ],
-     "games": 14300,
-     "pick_rate": 0.0106,
+     "games": 14400,
+     "pick_rate": 0.0108,
      "win_rate": null
     }
    ]
@@ -1105,7 +1105,7 @@
       32
      ],
      "games": 346000,
-     "pick_rate": 0.3553,
+     "pick_rate": 0.3554,
      "win_rate": null
     },
     {
@@ -1113,8 +1113,8 @@
       4,
       6
      ],
-     "games": 256000,
-     "pick_rate": 0.2633,
+     "games": 253000,
+     "pick_rate": 0.2604,
      "win_rate": null
     },
     {
@@ -1123,7 +1123,7 @@
       13
      ],
      "games": 149000,
-     "pick_rate": 0.153,
+     "pick_rate": 0.1531,
      "win_rate": null
     },
     {
@@ -1132,7 +1132,7 @@
       7
      ],
      "games": 115000,
-     "pick_rate": 0.1179,
+     "pick_rate": 0.1183,
      "win_rate": null
     },
     {
@@ -1140,8 +1140,8 @@
       4,
       21
      ],
-     "games": 69400,
-     "pick_rate": 0.0714,
+     "games": 72200,
+     "pick_rate": 0.0742,
      "win_rate": null
     },
     {
@@ -1149,8 +1149,8 @@
       4,
       14
      ],
-     "games": 33400,
-     "pick_rate": 0.0343,
+     "games": 32900,
+     "pick_rate": 0.0339,
      "win_rate": null
     }
    ]
@@ -1164,7 +1164,7 @@
       32
      ],
      "games": 768000,
-     "pick_rate": 0.8747,
+     "pick_rate": 0.8748,
      "win_rate": null
     },
     {
@@ -1186,8 +1186,8 @@
       4,
       6
      ],
-     "games": 388000,
-     "pick_rate": 0.3997,
+     "games": 393000,
+     "pick_rate": 0.4054,
      "win_rate": null
     },
     {
@@ -1195,8 +1195,8 @@
       4,
       32
      ],
-     "games": 343000,
-     "pick_rate": 0.3533,
+     "games": 347000,
+     "pick_rate": 0.3581,
      "win_rate": null
     },
     {
@@ -1204,8 +1204,8 @@
       4,
       21
      ],
-     "games": 122000,
-     "pick_rate": 0.126,
+     "games": 114000,
+     "pick_rate": 0.1176,
      "win_rate": null
     },
     {
@@ -1213,8 +1213,8 @@
       1,
       4
      ],
-     "games": 41700,
-     "pick_rate": 0.043,
+     "games": 39900,
+     "pick_rate": 0.0412,
      "win_rate": null
     },
     {
@@ -1222,8 +1222,8 @@
       4,
       7
      ],
-     "games": 39300,
-     "pick_rate": 0.0405,
+     "games": 36200,
+     "pick_rate": 0.0373,
      "win_rate": null
     },
     {
@@ -1231,8 +1231,8 @@
       4,
       13
      ],
-     "games": 20500,
-     "pick_rate": 0.0211,
+     "games": 20800,
+     "pick_rate": 0.0214,
      "win_rate": null
     },
     {
@@ -1240,8 +1240,8 @@
       4,
       14
      ],
-     "games": 15800,
-     "pick_rate": 0.0163,
+     "games": 18400,
+     "pick_rate": 0.019,
      "win_rate": null
     }
    ]
@@ -1254,8 +1254,8 @@
       4,
       32
      ],
-     "games": 499000,
-     "pick_rate": 0.5313,
+     "games": 515000,
+     "pick_rate": 0.5486,
      "win_rate": null
     },
     {
@@ -1263,8 +1263,8 @@
       4,
       6
      ],
-     "games": 231000,
-     "pick_rate": 0.2463,
+     "games": 215000,
+     "pick_rate": 0.2288,
      "win_rate": null
     },
     {
@@ -1272,8 +1272,8 @@
       4,
       14
      ],
-     "games": 103000,
-     "pick_rate": 0.1094,
+     "games": 108000,
+     "pick_rate": 0.1151,
      "win_rate": null
     },
     {
@@ -1281,8 +1281,8 @@
       4,
       21
      ],
-     "games": 58700,
-     "pick_rate": 0.0625,
+     "games": 54000,
+     "pick_rate": 0.0575,
      "win_rate": null
     },
     {
@@ -1290,8 +1290,8 @@
       4,
       7
      ],
-     "games": 27900,
-     "pick_rate": 0.0297,
+     "games": 26900,
+     "pick_rate": 0.0286,
      "win_rate": null
     },
     {
@@ -1299,8 +1299,8 @@
       4,
       13
      ],
-     "games": 17400,
-     "pick_rate": 0.0185,
+     "games": 17900,
+     "pick_rate": 0.0191,
      "win_rate": null
     }
    ]
@@ -1314,7 +1314,7 @@
       6
      ],
      "games": 498000,
-     "pick_rate": 0.5536,
+     "pick_rate": 0.5537,
      "win_rate": null
     },
     {
@@ -1323,7 +1323,7 @@
       32
      ],
      "games": 243000,
-     "pick_rate": 0.2701,
+     "pick_rate": 0.2698,
      "win_rate": null
     },
     {
@@ -1331,8 +1331,8 @@
       4,
       21
      ],
-     "games": 65300,
-     "pick_rate": 0.0726,
+     "games": 65600,
+     "pick_rate": 0.0729,
      "win_rate": null
     },
     {
@@ -1340,7 +1340,7 @@
       4,
       13
      ],
-     "games": 39900,
+     "games": 39800,
      "pick_rate": 0.0443,
      "win_rate": null
     },
@@ -1349,8 +1349,8 @@
       4,
       7
      ],
-     "games": 27900,
-     "pick_rate": 0.031,
+     "games": 28200,
+     "pick_rate": 0.0314,
      "win_rate": null
     },
     {
@@ -1358,8 +1358,8 @@
       4,
       14
      ],
-     "games": 18300,
-     "pick_rate": 0.0203,
+     "games": 17900,
+     "pick_rate": 0.0199,
      "win_rate": null
     }
    ]
@@ -1372,8 +1372,8 @@
       4,
       32
      ],
-     "games": 767000,
-     "pick_rate": 0.7818,
+     "games": 773000,
+     "pick_rate": 0.7876,
      "win_rate": null
     },
     {
@@ -1381,8 +1381,8 @@
       4,
       6
      ],
-     "games": 156000,
-     "pick_rate": 0.1586,
+     "games": 150000,
+     "pick_rate": 0.1525,
      "win_rate": null
     },
     {
@@ -1390,8 +1390,8 @@
       4,
       7
      ],
-     "games": 28300,
-     "pick_rate": 0.0288,
+     "games": 28000,
+     "pick_rate": 0.0285,
      "win_rate": null
     },
     {
@@ -1399,8 +1399,8 @@
       4,
       21
      ],
-     "games": 11900,
-     "pick_rate": 0.0121,
+     "games": 12300,
+     "pick_rate": 0.0125,
      "win_rate": null
     }
    ]
@@ -1413,8 +1413,8 @@
       4,
       32
      ],
-     "games": 1130000,
-     "pick_rate": 0.9111,
+     "games": 1120000,
+     "pick_rate": 0.9106,
      "win_rate": null
     },
     {
@@ -1422,8 +1422,8 @@
       4,
       6
      ],
-     "games": 59600,
-     "pick_rate": 0.0482,
+     "games": 60300,
+     "pick_rate": 0.0488,
      "win_rate": null
     },
     {
@@ -1440,8 +1440,8 @@
       4,
       21
      ],
-     "games": 13800,
-     "pick_rate": 0.0112,
+     "games": 13600,
+     "pick_rate": 0.011,
      "win_rate": null
     }
    ]
@@ -1455,7 +1455,7 @@
       32
      ],
      "games": 809000,
-     "pick_rate": 0.8589,
+     "pick_rate": 0.8583,
      "win_rate": null
     },
     {
@@ -1463,8 +1463,8 @@
       4,
       6
      ],
-     "games": 122000,
-     "pick_rate": 0.1293,
+     "games": 123000,
+     "pick_rate": 0.1301,
      "win_rate": null
     }
    ]
@@ -1477,8 +1477,8 @@
       4,
       32
      ],
-     "games": 1260000,
-     "pick_rate": 0.8813,
+     "games": 1270000,
+     "pick_rate": 0.8838,
      "win_rate": null
     },
     {
@@ -1486,8 +1486,8 @@
       4,
       6
      ],
-     "games": 157000,
-     "pick_rate": 0.1093,
+     "games": 152000,
+     "pick_rate": 0.1063,
      "win_rate": null
     }
    ]
@@ -1500,8 +1500,8 @@
       4,
       6
      ],
-     "games": 906000,
-     "pick_rate": 0.5768,
+     "games": 887000,
+     "pick_rate": 0.5649,
      "win_rate": null
     },
     {
@@ -1509,8 +1509,8 @@
       4,
       32
      ],
-     "games": 367000,
-     "pick_rate": 0.234,
+     "games": 376000,
+     "pick_rate": 0.2395,
      "win_rate": null
     },
     {
@@ -1518,8 +1518,8 @@
       4,
       21
      ],
-     "games": 137000,
-     "pick_rate": 0.0871,
+     "games": 143000,
+     "pick_rate": 0.0909,
      "win_rate": null
     },
     {
@@ -1527,8 +1527,8 @@
       1,
       4
      ],
-     "games": 61800,
-     "pick_rate": 0.0393,
+     "games": 63900,
+     "pick_rate": 0.0407,
      "win_rate": null
     },
     {
@@ -1536,8 +1536,8 @@
       4,
       7
      ],
-     "games": 52100,
-     "pick_rate": 0.0331,
+     "games": 52700,
+     "pick_rate": 0.0336,
      "win_rate": null
     },
     {
@@ -1545,8 +1545,8 @@
       4,
       13
      ],
-     "games": 29300,
-     "pick_rate": 0.0186,
+     "games": 30000,
+     "pick_rate": 0.0191,
      "win_rate": null
     },
     {
@@ -1554,8 +1554,8 @@
       4,
       14
      ],
-     "games": 17400,
-     "pick_rate": 0.0111,
+     "games": 17900,
+     "pick_rate": 0.0114,
      "win_rate": null
     }
    ]
@@ -1568,8 +1568,8 @@
       4,
       32
      ],
-     "games": 848000,
-     "pick_rate": 0.6956,
+     "games": 842000,
+     "pick_rate": 0.6906,
      "win_rate": null
     },
     {
@@ -1577,8 +1577,8 @@
       4,
       6
      ],
-     "games": 343000,
-     "pick_rate": 0.2814,
+     "games": 349000,
+     "pick_rate": 0.2865,
      "win_rate": null
     }
    ]
@@ -1592,7 +1592,7 @@
       6
      ],
      "games": 497000,
-     "pick_rate": 0.4906,
+     "pick_rate": 0.4908,
      "win_rate": null
     },
     {
@@ -1601,7 +1601,7 @@
       32
      ],
      "games": 237000,
-     "pick_rate": 0.2341,
+     "pick_rate": 0.234,
      "win_rate": null
     },
     {
@@ -1610,7 +1610,7 @@
       4
      ],
      "games": 160000,
-     "pick_rate": 0.1576,
+     "pick_rate": 0.1578,
      "win_rate": null
     },
     {
@@ -1618,8 +1618,8 @@
       4,
       21
      ],
-     "games": 94900,
-     "pick_rate": 0.0937,
+     "games": 94400,
+     "pick_rate": 0.0932,
      "win_rate": null
     },
     {
@@ -1627,8 +1627,8 @@
       4,
       7
      ],
-     "games": 18300,
-     "pick_rate": 0.018,
+     "games": 18400,
+     "pick_rate": 0.0182,
      "win_rate": null
     }
    ]
@@ -1641,8 +1641,8 @@
       4,
       32
      ],
-     "games": 525000,
-     "pick_rate": 0.8253,
+     "games": 526000,
+     "pick_rate": 0.8266,
      "win_rate": null
     },
     {
@@ -1650,8 +1650,8 @@
       4,
       6
      ],
-     "games": 93600,
-     "pick_rate": 0.1473,
+     "games": 93100,
+     "pick_rate": 0.1465,
      "win_rate": null
     },
     {
@@ -1659,8 +1659,8 @@
       4,
       21
      ],
-     "games": 11000,
-     "pick_rate": 0.0173,
+     "games": 10700,
+     "pick_rate": 0.0168,
      "win_rate": null
     }
    ]
@@ -1673,8 +1673,8 @@
       4,
       6
      ],
-     "games": 1000000,
-     "pick_rate": 0.548,
+     "games": 1100000,
+     "pick_rate": 0.601,
      "win_rate": null
     },
     {
@@ -1682,8 +1682,8 @@
       4,
       32
      ],
-     "games": 373000,
-     "pick_rate": 0.2039,
+     "games": 345000,
+     "pick_rate": 0.1885,
      "win_rate": null
     },
     {
@@ -1691,8 +1691,8 @@
       1,
       4
      ],
-     "games": 173000,
-     "pick_rate": 0.0946,
+     "games": 126000,
+     "pick_rate": 0.0688,
      "win_rate": null
     },
     {
@@ -1700,8 +1700,8 @@
       4,
       21
      ],
-     "games": 127000,
-     "pick_rate": 0.0695,
+     "games": 117000,
+     "pick_rate": 0.0642,
      "win_rate": null
     },
     {
@@ -1709,8 +1709,8 @@
       4,
       7
      ],
-     "games": 89900,
-     "pick_rate": 0.0492,
+     "games": 82800,
+     "pick_rate": 0.0453,
      "win_rate": null
     },
     {
@@ -1718,8 +1718,8 @@
       4,
       13
      ],
-     "games": 42200,
-     "pick_rate": 0.0231,
+     "games": 39000,
+     "pick_rate": 0.0213,
      "win_rate": null
     },
     {
@@ -1727,8 +1727,8 @@
       4,
       14
      ],
-     "games": 21500,
-     "pick_rate": 0.0117,
+     "games": 19700,
+     "pick_rate": 0.0108,
      "win_rate": null
     }
    ]
@@ -1742,7 +1742,7 @@
       32
      ],
      "games": 923000,
-     "pick_rate": 0.8768,
+     "pick_rate": 0.8766,
      "win_rate": null
     },
     {
@@ -1751,7 +1751,7 @@
       6
      ],
      "games": 122000,
-     "pick_rate": 0.1158,
+     "pick_rate": 0.116,
      "win_rate": null
     }
    ]
@@ -1787,8 +1787,8 @@
       4,
       32
      ],
-     "games": 916000,
-     "pick_rate": 0.8583,
+     "games": 917000,
+     "pick_rate": 0.8592,
      "win_rate": null
     },
     {
@@ -1796,8 +1796,8 @@
       4,
       6
      ],
-     "games": 119000,
-     "pick_rate": 0.1117,
+     "games": 118000,
+     "pick_rate": 0.1108,
      "win_rate": null
     },
     {
@@ -1805,7 +1805,7 @@
       4,
       14
      ],
-     "games": 13000,
+     "games": 13100,
      "pick_rate": 0.0122,
      "win_rate": null
     }
@@ -1829,7 +1829,7 @@
       6
      ],
      "games": 129000,
-     "pick_rate": 0.2176,
+     "pick_rate": 0.2177,
      "win_rate": null
     }
    ]
@@ -1842,8 +1842,8 @@
       4,
       6
      ],
-     "games": 1330000,
-     "pick_rate": 0.6732,
+     "games": 1320000,
+     "pick_rate": 0.6715,
      "win_rate": null
     },
     {
@@ -1851,8 +1851,8 @@
       4,
       32
      ],
-     "games": 306000,
-     "pick_rate": 0.1555,
+     "games": 308000,
+     "pick_rate": 0.1563,
      "win_rate": null
     },
     {
@@ -1860,8 +1860,8 @@
       4,
       21
      ],
-     "games": 120000,
-     "pick_rate": 0.0608,
+     "games": 121000,
+     "pick_rate": 0.0612,
      "win_rate": null
     },
     {
@@ -1869,8 +1869,8 @@
       1,
       4
      ],
-     "games": 84500,
-     "pick_rate": 0.0429,
+     "games": 84300,
+     "pick_rate": 0.0428,
      "win_rate": null
     },
     {
@@ -1878,8 +1878,8 @@
       4,
       7
      ],
-     "games": 69400,
-     "pick_rate": 0.0352,
+     "games": 70300,
+     "pick_rate": 0.0357,
      "win_rate": null
     },
     {
@@ -1887,8 +1887,8 @@
       4,
       13
      ],
-     "games": 40100,
-     "pick_rate": 0.0203,
+     "games": 40300,
+     "pick_rate": 0.0205,
      "win_rate": null
     },
     {
@@ -1896,8 +1896,8 @@
       4,
       14
      ],
-     "games": 23600,
-     "pick_rate": 0.012,
+     "games": 23900,
+     "pick_rate": 0.0121,
      "win_rate": null
     }
    ]
@@ -1929,7 +1929,7 @@
       14
      ],
      "games": 37900,
-     "pick_rate": 0.0328,
+     "pick_rate": 0.0327,
      "win_rate": null
     }
    ]
@@ -1942,8 +1942,8 @@
       4,
       6
      ],
-     "games": 419000,
-     "pick_rate": 0.4652,
+     "games": 418000,
+     "pick_rate": 0.4649,
      "win_rate": null
     },
     {
@@ -1952,7 +1952,7 @@
       32
      ],
      "games": 319000,
-     "pick_rate": 0.3549,
+     "pick_rate": 0.3547,
      "win_rate": null
     },
     {
@@ -1969,8 +1969,8 @@
       4,
       21
      ],
-     "games": 39700,
-     "pick_rate": 0.0441,
+     "games": 40600,
+     "pick_rate": 0.0451,
      "win_rate": null
     },
     {
@@ -1978,8 +1978,8 @@
       4,
       7
      ],
-     "games": 38900,
-     "pick_rate": 0.0432,
+     "games": 38600,
+     "pick_rate": 0.0429,
      "win_rate": null
     },
     {
@@ -1988,7 +1988,7 @@
       13
      ],
      "games": 34600,
-     "pick_rate": 0.0385,
+     "pick_rate": 0.0384,
      "win_rate": null
     }
    ]
@@ -2002,7 +2002,7 @@
       32
      ],
      "games": 650000,
-     "pick_rate": 0.9267,
+     "pick_rate": 0.9271,
      "win_rate": null
     },
     {
@@ -2019,17 +2019,8 @@
       4,
       14
      ],
-     "games": 9240,
-     "pick_rate": 0.0132,
-     "win_rate": null
-    },
-    {
-     "ids": [
-      4,
-      21
-     ],
-     "games": 7080,
-     "pick_rate": 0.0101,
+     "games": 9320,
+     "pick_rate": 0.0133,
      "win_rate": null
     }
    ]
@@ -2043,7 +2034,7 @@
       32
      ],
      "games": 1190000,
-     "pick_rate": 0.7759,
+     "pick_rate": 0.7754,
      "win_rate": null
     },
     {
@@ -2051,8 +2042,8 @@
       4,
       6
      ],
-     "games": 182000,
-     "pick_rate": 0.1182,
+     "games": 181000,
+     "pick_rate": 0.1178,
      "win_rate": null
     },
     {
@@ -2084,7 +2075,7 @@
       32
      ],
      "games": 897000,
-     "pick_rate": 0.5154,
+     "pick_rate": 0.5155,
      "win_rate": null
     },
     {
@@ -2093,7 +2084,7 @@
       6
      ],
      "games": 665000,
-     "pick_rate": 0.3818,
+     "pick_rate": 0.3819,
      "win_rate": null
     },
     {
@@ -2101,8 +2092,8 @@
       4,
       21
      ],
-     "games": 55100,
-     "pick_rate": 0.0317,
+     "games": 55000,
+     "pick_rate": 0.0316,
      "win_rate": null
     },
     {
@@ -2128,8 +2119,8 @@
       4,
       7
      ],
-     "games": 29100,
-     "pick_rate": 0.0167,
+     "games": 29200,
+     "pick_rate": 0.0168,
      "win_rate": null
     }
    ]
@@ -2143,7 +2134,7 @@
       6
      ],
      "games": 332000,
-     "pick_rate": 0.4867,
+     "pick_rate": 0.487,
      "win_rate": null
     },
     {
@@ -2152,7 +2143,7 @@
       32
      ],
      "games": 196000,
-     "pick_rate": 0.2877,
+     "pick_rate": 0.287,
      "win_rate": null
     },
     {
@@ -2160,8 +2151,8 @@
       4,
       13
      ],
-     "games": 62000,
-     "pick_rate": 0.0909,
+     "games": 61900,
+     "pick_rate": 0.0907,
      "win_rate": null
     },
     {
@@ -2169,8 +2160,8 @@
       4,
       21
      ],
-     "games": 44000,
-     "pick_rate": 0.0644,
+     "games": 44600,
+     "pick_rate": 0.0654,
      "win_rate": null
     },
     {
@@ -2178,7 +2169,7 @@
       4,
       7
      ],
-     "games": 34900,
+     "games": 34800,
      "pick_rate": 0.0511,
      "win_rate": null
     },
@@ -2187,8 +2178,8 @@
       4,
       14
      ],
-     "games": 10000,
-     "pick_rate": 0.0147,
+     "games": 9820,
+     "pick_rate": 0.0144,
      "win_rate": null
     }
    ]
@@ -2201,8 +2192,8 @@
       4,
       32
      ],
-     "games": 932000,
-     "pick_rate": 0.882,
+     "games": 933000,
+     "pick_rate": 0.883,
      "win_rate": null
     },
     {
@@ -2210,8 +2201,8 @@
       4,
       6
      ],
-     "games": 76200,
-     "pick_rate": 0.0721,
+     "games": 75600,
+     "pick_rate": 0.0716,
      "win_rate": null
     },
     {
@@ -2219,7 +2210,7 @@
       4,
       14
      ],
-     "games": 19800,
+     "games": 19900,
      "pick_rate": 0.0188,
      "win_rate": null
     },
@@ -2228,8 +2219,8 @@
       4,
       21
      ],
-     "games": 15900,
-     "pick_rate": 0.015,
+     "games": 15200,
+     "pick_rate": 0.0144,
      "win_rate": null
     }
    ]
@@ -2242,8 +2233,8 @@
       4,
       32
      ],
-     "games": 595000,
-     "pick_rate": 0.9123,
+     "games": 596000,
+     "pick_rate": 0.9145,
      "win_rate": null
     },
     {
@@ -2251,8 +2242,8 @@
       4,
       6
      ],
-     "games": 36400,
-     "pick_rate": 0.0558,
+     "games": 35200,
+     "pick_rate": 0.054,
      "win_rate": null
     },
     {
@@ -2260,8 +2251,8 @@
       4,
       21
      ],
-     "games": 9530,
-     "pick_rate": 0.0146,
+     "games": 9170,
+     "pick_rate": 0.0141,
      "win_rate": null
     },
     {
@@ -2269,8 +2260,8 @@
       4,
       14
      ],
-     "games": 9230,
-     "pick_rate": 0.0142,
+     "games": 9220,
+     "pick_rate": 0.0141,
      "win_rate": null
     }
    ]
@@ -2284,7 +2275,7 @@
       32
      ],
      "games": 664000,
-     "pick_rate": 0.839,
+     "pick_rate": 0.8393,
      "win_rate": null
     },
     {
@@ -2292,8 +2283,8 @@
       4,
       6
      ],
-     "games": 89900,
-     "pick_rate": 0.1136,
+     "games": 89700,
+     "pick_rate": 0.1134,
      "win_rate": null
     },
     {
@@ -2301,8 +2292,8 @@
       4,
       14
      ],
-     "games": 23700,
-     "pick_rate": 0.0299,
+     "games": 23800,
+     "pick_rate": 0.0301,
      "win_rate": null
     }
    ]
@@ -2315,8 +2306,8 @@
       4,
       32
      ],
-     "games": 938000,
-     "pick_rate": 0.7363,
+     "games": 940000,
+     "pick_rate": 0.7371,
      "win_rate": null
     },
     {
@@ -2324,8 +2315,8 @@
       4,
       6
      ],
-     "games": 290000,
-     "pick_rate": 0.2276,
+     "games": 289000,
+     "pick_rate": 0.2266,
      "win_rate": null
     },
     {
@@ -2333,8 +2324,8 @@
       4,
       21
      ],
-     "games": 18800,
-     "pick_rate": 0.0148,
+     "games": 19000,
+     "pick_rate": 0.0149,
      "win_rate": null
     },
     {
@@ -2357,7 +2348,7 @@
       32
      ],
      "games": 735000,
-     "pick_rate": 0.8358,
+     "pick_rate": 0.8356,
      "win_rate": null
     },
     {
@@ -2366,7 +2357,7 @@
       6
      ],
      "games": 111000,
-     "pick_rate": 0.1258,
+     "pick_rate": 0.1261,
      "win_rate": null
     },
     {
@@ -2374,8 +2365,8 @@
       4,
       14
      ],
-     "games": 21900,
-     "pick_rate": 0.0249,
+     "games": 22000,
+     "pick_rate": 0.0251,
      "win_rate": null
     }
    ]
@@ -2388,8 +2379,8 @@
       4,
       32
      ],
-     "games": 686000,
-     "pick_rate": 0.9306,
+     "games": 688000,
+     "pick_rate": 0.9328,
      "win_rate": null
     },
     {
@@ -2397,8 +2388,8 @@
       4,
       6
      ],
-     "games": 38400,
-     "pick_rate": 0.0521,
+     "games": 37100,
+     "pick_rate": 0.0503,
      "win_rate": null
     }
    ]
@@ -2411,8 +2402,8 @@
       4,
       32
      ],
-     "games": 1050000,
-     "pick_rate": 0.7916,
+     "games": 924000,
+     "pick_rate": 0.6976,
      "win_rate": null
     },
     {
@@ -2420,8 +2411,8 @@
       4,
       6
      ],
-     "games": 163000,
-     "pick_rate": 0.1231,
+     "games": 308000,
+     "pick_rate": 0.2329,
      "win_rate": null
     },
     {
@@ -2429,8 +2420,8 @@
       4,
       14
      ],
-     "games": 78700,
-     "pick_rate": 0.0594,
+     "games": 63000,
+     "pick_rate": 0.0476,
      "win_rate": null
     },
     {
@@ -2438,8 +2429,8 @@
       4,
       21
      ],
-     "games": 23600,
-     "pick_rate": 0.0178,
+     "games": 19800,
+     "pick_rate": 0.0149,
      "win_rate": null
     }
    ]
@@ -2452,8 +2443,8 @@
       4,
       32
      ],
-     "games": 880000,
-     "pick_rate": 0.9244,
+     "games": 881000,
+     "pick_rate": 0.9249,
      "win_rate": null
     },
     {
@@ -2461,8 +2452,8 @@
       4,
       6
      ],
-     "games": 47200,
-     "pick_rate": 0.0495,
+     "games": 46900,
+     "pick_rate": 0.0493,
      "win_rate": null
     },
     {
@@ -2471,7 +2462,7 @@
       14
      ],
      "games": 15500,
-     "pick_rate": 0.0162,
+     "pick_rate": 0.0163,
      "win_rate": null
     }
    ]
@@ -2484,8 +2475,8 @@
       4,
       32
      ],
-     "games": 836000,
-     "pick_rate": 0.8902,
+     "games": 883000,
+     "pick_rate": 0.9404,
      "win_rate": null
     },
     {
@@ -2493,8 +2484,8 @@
       4,
       6
      ],
-     "games": 83200,
-     "pick_rate": 0.0886,
+     "games": 33600,
+     "pick_rate": 0.0358,
      "win_rate": null
     },
     {
@@ -2502,8 +2493,8 @@
       4,
       14
      ],
-     "games": 10100,
-     "pick_rate": 0.0108,
+     "games": 11800,
+     "pick_rate": 0.0125,
      "win_rate": null
     }
    ]
@@ -2516,8 +2507,8 @@
       4,
       32
      ],
-     "games": 692000,
-     "pick_rate": 0.9482,
+     "games": 693000,
+     "pick_rate": 0.9485,
      "win_rate": null
     },
     {
@@ -2525,8 +2516,8 @@
       4,
       6
      ],
-     "games": 36500,
-     "pick_rate": 0.05,
+     "games": 36200,
+     "pick_rate": 0.0496,
      "win_rate": null
     }
    ]
@@ -2539,8 +2530,8 @@
       4,
       32
      ],
-     "games": 255000,
-     "pick_rate": 0.401,
+     "games": 257000,
+     "pick_rate": 0.4045,
      "win_rate": null
     },
     {
@@ -2548,8 +2539,8 @@
       4,
       6
      ],
-     "games": 209000,
-     "pick_rate": 0.3283,
+     "games": 205000,
+     "pick_rate": 0.3221,
      "win_rate": null
     },
     {
@@ -2566,8 +2557,8 @@
       4,
       13
      ],
-     "games": 54100,
-     "pick_rate": 0.0851,
+     "games": 54600,
+     "pick_rate": 0.0859,
      "win_rate": null
     },
     {
@@ -2575,8 +2566,8 @@
       4,
       14
      ],
-     "games": 24800,
-     "pick_rate": 0.039,
+     "games": 26000,
+     "pick_rate": 0.0408,
      "win_rate": null
     },
     {
@@ -2584,8 +2575,8 @@
       4,
       21
      ],
-     "games": 19900,
-     "pick_rate": 0.0313,
+     "games": 20100,
+     "pick_rate": 0.0317,
      "win_rate": null
     }
    ]
@@ -2598,8 +2589,8 @@
       4,
       32
      ],
-     "games": 213000,
-     "pick_rate": 0.36,
+     "games": 210000,
+     "pick_rate": 0.3546,
      "win_rate": null
     },
     {
@@ -2607,8 +2598,8 @@
       4,
       6
      ],
-     "games": 123000,
-     "pick_rate": 0.2071,
+     "games": 131000,
+     "pick_rate": 0.2216,
      "win_rate": null
     },
     {
@@ -2617,7 +2608,7 @@
       7
      ],
      "games": 111000,
-     "pick_rate": 0.1879,
+     "pick_rate": 0.1878,
      "win_rate": null
     },
     {
@@ -2625,8 +2616,8 @@
       4,
       13
      ],
-     "games": 91800,
-     "pick_rate": 0.1549,
+     "games": 90400,
+     "pick_rate": 0.1526,
      "win_rate": null
     },
     {
@@ -2634,8 +2625,8 @@
       4,
       21
      ],
-     "games": 28000,
-     "pick_rate": 0.0472,
+     "games": 24800,
+     "pick_rate": 0.0419,
      "win_rate": null
     },
     {
@@ -2643,8 +2634,8 @@
       4,
       14
      ],
-     "games": 23700,
-     "pick_rate": 0.04,
+     "games": 22800,
+     "pick_rate": 0.0385,
      "win_rate": null
     }
    ]
@@ -2657,8 +2648,8 @@
       4,
       6
      ],
-     "games": 407000,
-     "pick_rate": 0.3822,
+     "games": 411000,
+     "pick_rate": 0.3854,
      "win_rate": null
     },
     {
@@ -2666,8 +2657,8 @@
       4,
       32
      ],
-     "games": 276000,
-     "pick_rate": 0.2591,
+     "games": 274000,
+     "pick_rate": 0.2574,
      "win_rate": null
     },
     {
@@ -2675,8 +2666,8 @@
       1,
       4
      ],
-     "games": 176000,
-     "pick_rate": 0.1654,
+     "games": 177000,
+     "pick_rate": 0.1657,
      "win_rate": null
     },
     {
@@ -2684,8 +2675,8 @@
       4,
       21
      ],
-     "games": 156000,
-     "pick_rate": 0.1462,
+     "games": 153000,
+     "pick_rate": 0.1438,
      "win_rate": null
     },
     {
@@ -2693,8 +2684,8 @@
       4,
       7
      ],
-     "games": 39100,
-     "pick_rate": 0.0367,
+     "games": 39800,
+     "pick_rate": 0.0374,
      "win_rate": null
     }
    ]
@@ -2707,8 +2698,8 @@
       4,
       32
      ],
-     "games": 474000,
-     "pick_rate": 0.9303,
+     "games": 467000,
+     "pick_rate": 0.9161,
      "win_rate": null
     },
     {
@@ -2716,8 +2707,8 @@
       4,
       6
      ],
-     "games": 13300,
-     "pick_rate": 0.0261,
+     "games": 21400,
+     "pick_rate": 0.0421,
      "win_rate": null
     },
     {
@@ -2725,8 +2716,8 @@
       4,
       7
      ],
-     "games": 6950,
-     "pick_rate": 0.0136,
+     "games": 7160,
+     "pick_rate": 0.014,
      "win_rate": null
     },
     {
@@ -2734,8 +2725,8 @@
       4,
       21
      ],
-     "games": 6890,
-     "pick_rate": 0.0135,
+     "games": 6050,
+     "pick_rate": 0.0119,
      "win_rate": null
     }
    ]
@@ -2748,8 +2739,8 @@
       4,
       32
      ],
-     "games": 816000,
-     "pick_rate": 0.7521,
+     "games": 815000,
+     "pick_rate": 0.7512,
      "win_rate": null
     },
     {
@@ -2757,8 +2748,8 @@
       4,
       6
      ],
-     "games": 180000,
-     "pick_rate": 0.1661,
+     "games": 181000,
+     "pick_rate": 0.1671,
      "win_rate": null
     },
     {
@@ -2766,8 +2757,8 @@
       4,
       14
      ],
-     "games": 52800,
-     "pick_rate": 0.0487,
+     "games": 52700,
+     "pick_rate": 0.0486,
      "win_rate": null
     },
     {
@@ -2789,8 +2780,8 @@
       4,
       32
      ],
-     "games": 851000,
-     "pick_rate": 0.9038,
+     "games": 847000,
+     "pick_rate": 0.899,
      "win_rate": null
     },
     {
@@ -2798,8 +2789,8 @@
       4,
       6
      ],
-     "games": 61000,
-     "pick_rate": 0.0647,
+     "games": 66200,
+     "pick_rate": 0.0702,
      "win_rate": null
     },
     {
@@ -2807,8 +2798,8 @@
       4,
       14
      ],
-     "games": 10500,
-     "pick_rate": 0.0112,
+     "games": 10400,
+     "pick_rate": 0.011,
      "win_rate": null
     }
    ]
@@ -2821,8 +2812,8 @@
       4,
       6
      ],
-     "games": 435000,
-     "pick_rate": 0.4877,
+     "games": 441000,
+     "pick_rate": 0.4943,
      "win_rate": null
     },
     {
@@ -2830,8 +2821,8 @@
       4,
       32
      ],
-     "games": 273000,
-     "pick_rate": 0.3063,
+     "games": 270000,
+     "pick_rate": 0.3027,
      "win_rate": null
     },
     {
@@ -2839,8 +2830,8 @@
       4,
       21
      ],
-     "games": 68500,
-     "pick_rate": 0.0767,
+     "games": 67800,
+     "pick_rate": 0.076,
      "win_rate": null
     },
     {
@@ -2848,8 +2839,8 @@
       4,
       13
      ],
-     "games": 38800,
-     "pick_rate": 0.0435,
+     "games": 38300,
+     "pick_rate": 0.0429,
      "win_rate": null
     },
     {
@@ -2857,8 +2848,8 @@
       4,
       14
      ],
-     "games": 35600,
-     "pick_rate": 0.0399,
+     "games": 34400,
+     "pick_rate": 0.0385,
      "win_rate": null
     },
     {
@@ -2866,8 +2857,8 @@
       4,
       7
      ],
-     "games": 32700,
-     "pick_rate": 0.0366,
+     "games": 32400,
+     "pick_rate": 0.0363,
      "win_rate": null
     }
    ]
@@ -2881,7 +2872,7 @@
       32
      ],
      "games": 437000,
-     "pick_rate": 0.8624,
+     "pick_rate": 0.8617,
      "win_rate": null
     },
     {
@@ -2889,8 +2880,8 @@
       4,
       6
      ],
-     "games": 63900,
-     "pick_rate": 0.1262,
+     "games": 64500,
+     "pick_rate": 0.1272,
      "win_rate": null
     }
    ]
@@ -2903,8 +2894,8 @@
       4,
       32
      ],
-     "games": 444000,
-     "pick_rate": 0.8643,
+     "games": 439000,
+     "pick_rate": 0.8548,
      "win_rate": null
     },
     {
@@ -2912,8 +2903,8 @@
       4,
       6
      ],
-     "games": 60300,
-     "pick_rate": 0.1173,
+     "games": 65900,
+     "pick_rate": 0.1283,
      "win_rate": null
     }
    ]
@@ -2927,7 +2918,7 @@
       32
      ],
      "games": 1030000,
-     "pick_rate": 0.7232,
+     "pick_rate": 0.7253,
      "win_rate": null
     },
     {
@@ -2936,7 +2927,7 @@
       14
      ],
      "games": 189000,
-     "pick_rate": 0.1334,
+     "pick_rate": 0.1333,
      "win_rate": null
     },
     {
@@ -2944,8 +2935,8 @@
       4,
       6
      ],
-     "games": 147000,
-     "pick_rate": 0.1034,
+     "games": 144000,
+     "pick_rate": 0.1017,
      "win_rate": null
     },
     {
@@ -2953,8 +2944,8 @@
       4,
       21
      ],
-     "games": 32800,
-     "pick_rate": 0.0231,
+     "games": 31800,
+     "pick_rate": 0.0224,
      "win_rate": null
     }
    ]
@@ -2967,8 +2958,8 @@
       4,
       6
      ],
-     "games": 412000,
-     "pick_rate": 0.4199,
+     "games": 413000,
+     "pick_rate": 0.4211,
      "win_rate": null
     },
     {
@@ -2976,8 +2967,8 @@
       4,
       32
      ],
-     "games": 394000,
-     "pick_rate": 0.4013,
+     "games": 393000,
+     "pick_rate": 0.4004,
      "win_rate": null
     },
     {
@@ -2985,17 +2976,8 @@
       4,
       21
      ],
-     "games": 48200,
-     "pick_rate": 0.0491,
-     "win_rate": null
-    },
-    {
-     "ids": [
-      4,
-      14
-     ],
-     "games": 43400,
-     "pick_rate": 0.0442,
+     "games": 47800,
+     "pick_rate": 0.0487,
      "win_rate": null
     },
     {
@@ -3010,10 +2992,19 @@
     {
      "ids": [
       4,
+      14
+     ],
+     "games": 42900,
+     "pick_rate": 0.0438,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
       13
      ],
-     "games": 33100,
-     "pick_rate": 0.0338,
+     "games": 33000,
+     "pick_rate": 0.0337,
      "win_rate": null
     }
    ]
@@ -3026,8 +3017,8 @@
       4,
       32
      ],
-     "games": 318000,
-     "pick_rate": 0.4153,
+     "games": 317000,
+     "pick_rate": 0.4132,
      "win_rate": null
     },
     {
@@ -3035,8 +3026,8 @@
       4,
       6
      ],
-     "games": 281000,
-     "pick_rate": 0.366,
+     "games": 283000,
+     "pick_rate": 0.3693,
      "win_rate": null
     },
     {
@@ -3044,8 +3035,8 @@
       4,
       21
      ],
-     "games": 62300,
-     "pick_rate": 0.0812,
+     "games": 61900,
+     "pick_rate": 0.0808,
      "win_rate": null
     },
     {
@@ -3053,8 +3044,8 @@
       4,
       13
      ],
-     "games": 50900,
-     "pick_rate": 0.0664,
+     "games": 50600,
+     "pick_rate": 0.066,
      "win_rate": null
     },
     {
@@ -3062,8 +3053,8 @@
       4,
       7
      ],
-     "games": 32500,
-     "pick_rate": 0.0424,
+     "games": 32200,
+     "pick_rate": 0.0421,
      "win_rate": null
     },
     {
@@ -3071,8 +3062,8 @@
       4,
       14
      ],
-     "games": 17800,
-     "pick_rate": 0.0232,
+     "games": 17700,
+     "pick_rate": 0.023,
      "win_rate": null
     }
    ]
@@ -3085,8 +3076,8 @@
       4,
       32
      ],
-     "games": 722000,
-     "pick_rate": 0.8453,
+     "games": 721000,
+     "pick_rate": 0.8452,
      "win_rate": null
     },
     {
@@ -3095,7 +3086,7 @@
       6
      ],
      "games": 122000,
-     "pick_rate": 0.143,
+     "pick_rate": 0.1431,
      "win_rate": null
     }
    ]
@@ -3108,8 +3099,8 @@
       4,
       32
      ],
-     "games": 456000,
-     "pick_rate": 0.5696,
+     "games": 450000,
+     "pick_rate": 0.5612,
      "win_rate": null
     },
     {
@@ -3117,8 +3108,8 @@
       4,
       6
      ],
-     "games": 197000,
-     "pick_rate": 0.2461,
+     "games": 204000,
+     "pick_rate": 0.2546,
      "win_rate": null
     },
     {
@@ -3126,8 +3117,8 @@
       4,
       14
      ],
-     "games": 75000,
-     "pick_rate": 0.0936,
+     "games": 73600,
+     "pick_rate": 0.0919,
      "win_rate": null
     },
     {
@@ -3135,8 +3126,8 @@
       4,
       21
      ],
-     "games": 40700,
-     "pick_rate": 0.0507,
+     "games": 42500,
+     "pick_rate": 0.0531,
      "win_rate": null
     },
     {
@@ -3144,8 +3135,8 @@
       4,
       7
      ],
-     "games": 15900,
-     "pick_rate": 0.0198,
+     "games": 15500,
+     "pick_rate": 0.0193,
      "win_rate": null
     },
     {
@@ -3153,8 +3144,8 @@
       4,
       13
      ],
-     "games": 14100,
-     "pick_rate": 0.0176,
+     "games": 13900,
+     "pick_rate": 0.0174,
      "win_rate": null
     }
    ]
@@ -3168,7 +3159,7 @@
       32
      ],
      "games": 559000,
-     "pick_rate": 0.8649,
+     "pick_rate": 0.8654,
      "win_rate": null
     },
     {
@@ -3177,7 +3168,7 @@
       6
      ],
      "games": 69400,
-     "pick_rate": 0.1075,
+     "pick_rate": 0.1074,
      "win_rate": null
     },
     {
@@ -3185,8 +3176,8 @@
       4,
       14
      ],
-     "games": 7680,
-     "pick_rate": 0.0119,
+     "games": 7730,
+     "pick_rate": 0.012,
      "win_rate": null
     }
    ]
@@ -3199,8 +3190,8 @@
       4,
       32
      ],
-     "games": 449000,
-     "pick_rate": 0.9264,
+     "games": 451000,
+     "pick_rate": 0.9301,
      "win_rate": null
     },
     {
@@ -3208,8 +3199,8 @@
       4,
       6
      ],
-     "games": 30500,
-     "pick_rate": 0.0629,
+     "games": 28700,
+     "pick_rate": 0.0593,
      "win_rate": null
     }
    ]
@@ -3223,7 +3214,7 @@
       6
      ],
      "games": 473000,
-     "pick_rate": 0.4553,
+     "pick_rate": 0.4556,
      "win_rate": null
     },
     {
@@ -3232,7 +3223,7 @@
       32
      ],
      "games": 325000,
-     "pick_rate": 0.3135,
+     "pick_rate": 0.3134,
      "win_rate": null
     },
     {
@@ -3240,7 +3231,7 @@
       4,
       13
      ],
-     "games": 86300,
+     "games": 86200,
      "pick_rate": 0.0831,
      "win_rate": null
     },
@@ -3249,8 +3240,8 @@
       4,
       21
      ],
-     "games": 65000,
-     "pick_rate": 0.0626,
+     "games": 65200,
+     "pick_rate": 0.0628,
      "win_rate": null
     },
     {
@@ -3258,8 +3249,8 @@
       4,
       7
      ],
-     "games": 55900,
-     "pick_rate": 0.0538,
+     "games": 55700,
+     "pick_rate": 0.0537,
      "win_rate": null
     },
     {
@@ -3267,8 +3258,8 @@
       4,
       14
      ],
-     "games": 26100,
-     "pick_rate": 0.0251,
+     "games": 26200,
+     "pick_rate": 0.0253,
      "win_rate": null
     }
    ]
@@ -3281,8 +3272,8 @@
       4,
       6
      ],
-     "games": 662000,
-     "pick_rate": 0.4859,
+     "games": 667000,
+     "pick_rate": 0.4898,
      "win_rate": null
     },
     {
@@ -3290,8 +3281,8 @@
       4,
       32
      ],
-     "games": 288000,
-     "pick_rate": 0.2112,
+     "games": 285000,
+     "pick_rate": 0.2091,
      "win_rate": null
     },
     {
@@ -3299,8 +3290,8 @@
       1,
       4
      ],
-     "games": 164000,
-     "pick_rate": 0.1208,
+     "games": 166000,
+     "pick_rate": 0.1216,
      "win_rate": null
     },
     {
@@ -3308,8 +3299,8 @@
       4,
       21
      ],
-     "games": 162000,
-     "pick_rate": 0.119,
+     "games": 160000,
+     "pick_rate": 0.1175,
      "win_rate": null
     },
     {
@@ -3317,8 +3308,8 @@
       4,
       7
      ],
-     "games": 69500,
-     "pick_rate": 0.051,
+     "games": 68500,
+     "pick_rate": 0.0503,
      "win_rate": null
     }
    ]
@@ -3331,8 +3322,8 @@
       4,
       32
      ],
-     "games": 1160000,
-     "pick_rate": 0.6321,
+     "games": 1170000,
+     "pick_rate": 0.6385,
      "win_rate": null
     },
     {
@@ -3340,8 +3331,8 @@
       4,
       6
      ],
-     "games": 416000,
-     "pick_rate": 0.2273,
+     "games": 405000,
+     "pick_rate": 0.2214,
      "win_rate": null
     },
     {
@@ -3349,8 +3340,8 @@
       4,
       21
      ],
-     "games": 125000,
-     "pick_rate": 0.0681,
+     "games": 122000,
+     "pick_rate": 0.0668,
      "win_rate": null
     },
     {
@@ -3358,8 +3349,8 @@
       4,
       13
      ],
-     "games": 53100,
-     "pick_rate": 0.029,
+     "games": 53600,
+     "pick_rate": 0.0293,
      "win_rate": null
     },
     {
@@ -3367,8 +3358,8 @@
       4,
       7
      ],
-     "games": 38600,
-     "pick_rate": 0.0211,
+     "games": 39200,
+     "pick_rate": 0.0214,
      "win_rate": null
     },
     {
@@ -3376,8 +3367,8 @@
       4,
       14
      ],
-     "games": 27000,
-     "pick_rate": 0.0148,
+     "games": 27400,
+     "pick_rate": 0.0149,
      "win_rate": null
     }
    ]
@@ -3390,8 +3381,8 @@
       4,
       6
      ],
-     "games": 912000,
-     "pick_rate": 0.624,
+     "games": 849000,
+     "pick_rate": 0.5806,
      "win_rate": null
     },
     {
@@ -3399,8 +3390,8 @@
       4,
       32
      ],
-     "games": 289000,
-     "pick_rate": 0.1976,
+     "games": 317000,
+     "pick_rate": 0.2171,
      "win_rate": null
     },
     {
@@ -3408,8 +3399,8 @@
       4,
       21
      ],
-     "games": 98700,
-     "pick_rate": 0.0675,
+     "games": 109000,
+     "pick_rate": 0.0743,
      "win_rate": null
     },
     {
@@ -3417,8 +3408,8 @@
       4,
       7
      ],
-     "games": 58400,
-     "pick_rate": 0.0399,
+     "games": 72500,
+     "pick_rate": 0.0496,
      "win_rate": null
     },
     {
@@ -3426,8 +3417,8 @@
       1,
       4
      ],
-     "games": 57000,
-     "pick_rate": 0.039,
+     "games": 63400,
+     "pick_rate": 0.0433,
      "win_rate": null
     },
     {
@@ -3435,8 +3426,8 @@
       4,
       13
      ],
-     "games": 27700,
-     "pick_rate": 0.019,
+     "games": 30400,
+     "pick_rate": 0.0208,
      "win_rate": null
     },
     {
@@ -3444,8 +3435,8 @@
       4,
       14
      ],
-     "games": 19000,
-     "pick_rate": 0.013,
+     "games": 20900,
+     "pick_rate": 0.0143,
      "win_rate": null
     }
    ]
@@ -3458,8 +3449,8 @@
       4,
       32
      ],
-     "games": 766000,
-     "pick_rate": 0.9192,
+     "games": 767000,
+     "pick_rate": 0.92,
      "win_rate": null
     },
     {
@@ -3467,8 +3458,8 @@
       4,
       6
      ],
-     "games": 43500,
-     "pick_rate": 0.0522,
+     "games": 42700,
+     "pick_rate": 0.0512,
      "win_rate": null
     },
     {
@@ -3476,7 +3467,7 @@
       4,
       14
      ],
-     "games": 11300,
+     "games": 11400,
      "pick_rate": 0.0136,
      "win_rate": null
     },
@@ -3485,8 +3476,8 @@
       4,
       21
      ],
-     "games": 10400,
-     "pick_rate": 0.0124,
+     "games": 10500,
+     "pick_rate": 0.0126,
      "win_rate": null
     }
    ]
@@ -3499,8 +3490,8 @@
       4,
       32
      ],
-     "games": 678000,
-     "pick_rate": 0.9403,
+     "games": 679000,
+     "pick_rate": 0.9416,
      "win_rate": null
     },
     {
@@ -3508,8 +3499,8 @@
       4,
       6
      ],
-     "games": 27300,
-     "pick_rate": 0.0378,
+     "games": 26400,
+     "pick_rate": 0.0365,
      "win_rate": null
     },
     {
@@ -3517,8 +3508,8 @@
       4,
       21
      ],
-     "games": 8650,
-     "pick_rate": 0.012,
+     "games": 8610,
+     "pick_rate": 0.0119,
      "win_rate": null
     }
    ]
@@ -3531,8 +3522,8 @@
       4,
       32
      ],
-     "games": 970000,
-     "pick_rate": 0.6839,
+     "games": 975000,
+     "pick_rate": 0.6874,
      "win_rate": null
     },
     {
@@ -3540,8 +3531,8 @@
       4,
       6
      ],
-     "games": 305000,
-     "pick_rate": 0.2147,
+     "games": 299000,
+     "pick_rate": 0.2107,
      "win_rate": null
     },
     {
@@ -3549,8 +3540,8 @@
       4,
       21
      ],
-     "games": 51300,
-     "pick_rate": 0.0362,
+     "games": 52100,
+     "pick_rate": 0.0367,
      "win_rate": null
     },
     {
@@ -3558,8 +3549,8 @@
       1,
       4
      ],
-     "games": 33500,
-     "pick_rate": 0.0236,
+     "games": 33200,
+     "pick_rate": 0.0234,
      "win_rate": null
     },
     {
@@ -3567,8 +3558,8 @@
       4,
       14
      ],
-     "games": 31600,
-     "pick_rate": 0.0223,
+     "games": 31800,
+     "pick_rate": 0.0224,
      "win_rate": null
     },
     {
@@ -3590,8 +3581,8 @@
       4,
       6
      ],
-     "games": 995000,
-     "pick_rate": 0.5658,
+     "games": 1020000,
+     "pick_rate": 0.5823,
      "win_rate": null
     },
     {
@@ -3599,8 +3590,8 @@
       4,
       32
      ],
-     "games": 367000,
-     "pick_rate": 0.209,
+     "games": 354000,
+     "pick_rate": 0.2015,
      "win_rate": null
     },
     {
@@ -3608,8 +3599,8 @@
       4,
       21
      ],
-     "games": 184000,
-     "pick_rate": 0.1048,
+     "games": 177000,
+     "pick_rate": 0.1007,
      "win_rate": null
     },
     {
@@ -3617,8 +3608,8 @@
       4,
       7
      ],
-     "games": 83600,
-     "pick_rate": 0.0476,
+     "games": 79200,
+     "pick_rate": 0.0451,
      "win_rate": null
     },
     {
@@ -3626,8 +3617,8 @@
       1,
       4
      ],
-     "games": 58500,
-     "pick_rate": 0.0333,
+     "games": 57200,
+     "pick_rate": 0.0325,
      "win_rate": null
     },
     {
@@ -3635,8 +3626,8 @@
       4,
       13
      ],
-     "games": 38100,
-     "pick_rate": 0.0217,
+     "games": 36800,
+     "pick_rate": 0.0209,
      "win_rate": null
     },
     {
@@ -3644,8 +3635,8 @@
       4,
       14
      ],
-     "games": 31400,
-     "pick_rate": 0.0179,
+     "games": 29800,
+     "pick_rate": 0.017,
      "win_rate": null
     }
    ]
@@ -3658,8 +3649,8 @@
       4,
       32
      ],
-     "games": 336000,
-     "pick_rate": 0.5326,
+     "games": 335000,
+     "pick_rate": 0.5313,
      "win_rate": null
     },
     {
@@ -3667,8 +3658,8 @@
       4,
       6
      ],
-     "games": 148000,
-     "pick_rate": 0.2351,
+     "games": 149000,
+     "pick_rate": 0.2361,
      "win_rate": null
     },
     {
@@ -3676,8 +3667,8 @@
       4,
       13
      ],
-     "games": 47800,
-     "pick_rate": 0.0759,
+     "games": 47700,
+     "pick_rate": 0.0757,
      "win_rate": null
     },
     {
@@ -3685,8 +3676,8 @@
       4,
       14
      ],
-     "games": 34300,
-     "pick_rate": 0.0544,
+     "games": 34100,
+     "pick_rate": 0.0542,
      "win_rate": null
     },
     {
@@ -3694,8 +3685,8 @@
       4,
       7
      ],
-     "games": 33900,
-     "pick_rate": 0.0537,
+     "games": 33800,
+     "pick_rate": 0.0536,
      "win_rate": null
     },
     {
@@ -3703,8 +3694,8 @@
       4,
       21
      ],
-     "games": 26600,
-     "pick_rate": 0.0422,
+     "games": 27200,
+     "pick_rate": 0.0431,
      "win_rate": null
     }
    ]
@@ -3717,8 +3708,8 @@
       4,
       32
      ],
-     "games": 420000,
-     "pick_rate": 0.8271,
+     "games": 422000,
+     "pick_rate": 0.8305,
      "win_rate": null
     },
     {
@@ -3726,8 +3717,8 @@
       4,
       6
      ],
-     "games": 43500,
-     "pick_rate": 0.0857,
+     "games": 41300,
+     "pick_rate": 0.0813,
      "win_rate": null
     },
     {
@@ -3735,8 +3726,8 @@
       4,
       14
      ],
-     "games": 33600,
-     "pick_rate": 0.0661,
+     "games": 33900,
+     "pick_rate": 0.0668,
      "win_rate": null
     },
     {
@@ -3744,8 +3735,8 @@
       4,
       21
      ],
-     "games": 6630,
-     "pick_rate": 0.013,
+     "games": 6870,
+     "pick_rate": 0.0135,
      "win_rate": null
     }
    ]
@@ -3758,8 +3749,8 @@
       4,
       32
      ],
-     "games": 687000,
-     "pick_rate": 0.8437,
+     "games": 681000,
+     "pick_rate": 0.8359,
      "win_rate": null
     },
     {
@@ -3767,8 +3758,8 @@
       4,
       6
      ],
-     "games": 63300,
-     "pick_rate": 0.0778,
+     "games": 69400,
+     "pick_rate": 0.0852,
      "win_rate": null
     },
     {
@@ -3776,8 +3767,8 @@
       4,
       14
      ],
-     "games": 33500,
-     "pick_rate": 0.0411,
+     "games": 33400,
+     "pick_rate": 0.041,
      "win_rate": null
     },
     {
@@ -3785,8 +3776,8 @@
       4,
       21
      ],
-     "games": 23700,
-     "pick_rate": 0.0291,
+     "games": 24400,
+     "pick_rate": 0.03,
      "win_rate": null
     }
    ]
@@ -3799,8 +3790,8 @@
       4,
       6
      ],
-     "games": 1070000,
-     "pick_rate": 0.5161,
+     "games": 1060000,
+     "pick_rate": 0.5102,
      "win_rate": null
     },
     {
@@ -3808,8 +3799,8 @@
       4,
       32
      ],
-     "games": 390000,
-     "pick_rate": 0.1884,
+     "games": 395000,
+     "pick_rate": 0.1906,
      "win_rate": null
     },
     {
@@ -3818,7 +3809,7 @@
       7
      ],
      "games": 296000,
-     "pick_rate": 0.1429,
+     "pick_rate": 0.1428,
      "win_rate": null
     },
     {
@@ -3835,8 +3826,8 @@
       4,
       21
      ],
-     "games": 129000,
-     "pick_rate": 0.0622,
+     "games": 134000,
+     "pick_rate": 0.0645,
      "win_rate": null
     },
     {
@@ -3844,8 +3835,8 @@
       4,
       13
      ],
-     "games": 30600,
-     "pick_rate": 0.0148,
+     "games": 31000,
+     "pick_rate": 0.015,
      "win_rate": null
     }
    ]
@@ -3858,8 +3849,8 @@
       4,
       32
      ],
-     "games": 277000,
-     "pick_rate": 0.5533,
+     "games": 272000,
+     "pick_rate": 0.5436,
      "win_rate": null
     },
     {
@@ -3867,8 +3858,8 @@
       4,
       6
      ],
-     "games": 116000,
-     "pick_rate": 0.2317,
+     "games": 121000,
+     "pick_rate": 0.2424,
      "win_rate": null
     },
     {
@@ -3876,8 +3867,8 @@
       4,
       13
      ],
-     "games": 33000,
-     "pick_rate": 0.0659,
+     "games": 32400,
+     "pick_rate": 0.0647,
      "win_rate": null
     },
     {
@@ -3885,8 +3876,8 @@
       4,
       21
      ],
-     "games": 28800,
-     "pick_rate": 0.0575,
+     "games": 30100,
+     "pick_rate": 0.0602,
      "win_rate": null
     },
     {
@@ -3894,8 +3885,8 @@
       4,
       7
      ],
-     "games": 27300,
-     "pick_rate": 0.0546,
+     "games": 26600,
+     "pick_rate": 0.053,
      "win_rate": null
     },
     {
@@ -3903,8 +3894,8 @@
       4,
       14
      ],
-     "games": 16200,
-     "pick_rate": 0.0323,
+     "games": 15800,
+     "pick_rate": 0.0316,
      "win_rate": null
     }
    ]
@@ -3917,8 +3908,8 @@
       4,
       32
      ],
-     "games": 940000,
-     "pick_rate": 0.8626,
+     "games": 941000,
+     "pick_rate": 0.8631,
      "win_rate": null
     },
     {
@@ -3926,8 +3917,8 @@
       4,
       6
      ],
-     "games": 120000,
-     "pick_rate": 0.1098,
+     "games": 119000,
+     "pick_rate": 0.1092,
      "win_rate": null
     },
     {
@@ -3949,8 +3940,8 @@
       4,
       32
      ],
-     "games": 572000,
-     "pick_rate": 0.588,
+     "games": 571000,
+     "pick_rate": 0.5873,
      "win_rate": null
     },
     {
@@ -3958,8 +3949,8 @@
       4,
       6
      ],
-     "games": 381000,
-     "pick_rate": 0.392,
+     "games": 382000,
+     "pick_rate": 0.3931,
      "win_rate": null
     }
    ]
@@ -3972,8 +3963,8 @@
       4,
       32
      ],
-     "games": 364000,
-     "pick_rate": 0.3884,
+     "games": 365000,
+     "pick_rate": 0.3889,
      "win_rate": null
     },
     {
@@ -3990,8 +3981,8 @@
       4,
       21
      ],
-     "games": 89000,
-     "pick_rate": 0.0949,
+     "games": 88200,
+     "pick_rate": 0.0941,
      "win_rate": null
     },
     {
@@ -3999,8 +3990,8 @@
       4,
       13
      ],
-     "games": 71600,
-     "pick_rate": 0.0764,
+     "games": 71700,
+     "pick_rate": 0.0765,
      "win_rate": null
     },
     {
@@ -4008,8 +3999,8 @@
       4,
       7
      ],
-     "games": 49000,
-     "pick_rate": 0.0522,
+     "games": 49100,
+     "pick_rate": 0.0523,
      "win_rate": null
     },
     {
@@ -4017,8 +4008,8 @@
       4,
       14
      ],
-     "games": 28500,
-     "pick_rate": 0.0304,
+     "games": 28600,
+     "pick_rate": 0.0305,
      "win_rate": null
     }
    ]
@@ -4031,8 +4022,8 @@
       4,
       6
      ],
-     "games": 638000,
-     "pick_rate": 0.5407,
+     "games": 635000,
+     "pick_rate": 0.5383,
      "win_rate": null
     },
     {
@@ -4040,8 +4031,8 @@
       4,
       32
      ],
-     "games": 353000,
-     "pick_rate": 0.2993,
+     "games": 354000,
+     "pick_rate": 0.2999,
      "win_rate": null
     },
     {
@@ -4049,8 +4040,8 @@
       4,
       21
      ],
-     "games": 77100,
-     "pick_rate": 0.0653,
+     "games": 77500,
+     "pick_rate": 0.0657,
      "win_rate": null
     },
     {
@@ -4058,8 +4049,8 @@
       1,
       4
      ],
-     "games": 46000,
-     "pick_rate": 0.039,
+     "games": 47500,
+     "pick_rate": 0.0403,
      "win_rate": null
     },
     {
@@ -4067,8 +4058,8 @@
       4,
       7
      ],
-     "games": 37300,
-     "pick_rate": 0.0316,
+     "games": 37400,
+     "pick_rate": 0.0317,
      "win_rate": null
     },
     {
@@ -4076,7 +4067,7 @@
       4,
       14
      ],
-     "games": 25800,
+     "games": 25900,
      "pick_rate": 0.0219,
      "win_rate": null
     }
@@ -4090,8 +4081,8 @@
       4,
       7
      ],
-     "games": 103000,
-     "pick_rate": 0.33,
+     "games": 89400,
+     "pick_rate": 0.2877,
      "win_rate": null
     },
     {
@@ -4099,8 +4090,8 @@
       4,
       32
      ],
-     "games": 78500,
-     "pick_rate": 0.2526,
+     "games": 76400,
+     "pick_rate": 0.246,
      "win_rate": null
     },
     {
@@ -4108,8 +4099,8 @@
       4,
       6
      ],
-     "games": 54300,
-     "pick_rate": 0.1747,
+     "games": 71100,
+     "pick_rate": 0.229,
      "win_rate": null
     },
     {
@@ -4117,8 +4108,8 @@
       4,
       13
      ],
-     "games": 47100,
-     "pick_rate": 0.1517,
+     "games": 45900,
+     "pick_rate": 0.1477,
      "win_rate": null
     },
     {
@@ -4126,8 +4117,8 @@
       4,
       14
      ],
-     "games": 18300,
-     "pick_rate": 0.0588,
+     "games": 17500,
+     "pick_rate": 0.0563,
      "win_rate": null
     },
     {
@@ -4135,8 +4126,8 @@
       4,
       21
      ],
-     "games": 8600,
-     "pick_rate": 0.0277,
+     "games": 8920,
+     "pick_rate": 0.0287,
      "win_rate": null
     }
    ]
@@ -4150,7 +4141,7 @@
       32
      ],
      "games": 1260000,
-     "pick_rate": 0.9435,
+     "pick_rate": 0.9433,
      "win_rate": null
     },
     {
@@ -4182,7 +4173,7 @@
       32
      ],
      "games": 599000,
-     "pick_rate": 0.6922,
+     "pick_rate": 0.6918,
      "win_rate": null
     },
     {
@@ -4190,8 +4181,8 @@
       4,
       6
      ],
-     "games": 198000,
-     "pick_rate": 0.2284,
+     "games": 199000,
+     "pick_rate": 0.2295,
      "win_rate": null
     },
     {
@@ -4199,8 +4190,8 @@
       4,
       14
      ],
-     "games": 37200,
-     "pick_rate": 0.0431,
+     "games": 38000,
+     "pick_rate": 0.0439,
      "win_rate": null
     },
     {
@@ -4208,8 +4199,8 @@
       4,
       21
      ],
-     "games": 24100,
-     "pick_rate": 0.0279,
+     "games": 23100,
+     "pick_rate": 0.0267,
      "win_rate": null
     }
    ]
@@ -4223,7 +4214,7 @@
       32
      ],
      "games": 461000,
-     "pick_rate": 0.4413,
+     "pick_rate": 0.4415,
      "win_rate": null
     },
     {
@@ -4231,8 +4222,8 @@
       4,
       6
      ],
-     "games": 300000,
-     "pick_rate": 0.287,
+     "games": 302000,
+     "pick_rate": 0.2894,
      "win_rate": null
     },
     {
@@ -4241,7 +4232,7 @@
       14
      ],
      "games": 130000,
-     "pick_rate": 0.1245,
+     "pick_rate": 0.1247,
      "win_rate": null
     },
     {
@@ -4249,8 +4240,8 @@
       4,
       21
      ],
-     "games": 67900,
-     "pick_rate": 0.0651,
+     "games": 63700,
+     "pick_rate": 0.061,
      "win_rate": null
     },
     {
@@ -4258,8 +4249,8 @@
       4,
       7
      ],
-     "games": 49300,
-     "pick_rate": 0.0472,
+     "games": 50700,
+     "pick_rate": 0.0486,
      "win_rate": null
     },
     {
@@ -4291,7 +4282,7 @@
       32
      ],
      "games": 220000,
-     "pick_rate": 0.232,
+     "pick_rate": 0.2323,
      "win_rate": null
     },
     {
@@ -4299,8 +4290,8 @@
       4,
       21
      ],
-     "games": 137000,
-     "pick_rate": 0.145,
+     "games": 136000,
+     "pick_rate": 0.1439,
      "win_rate": null
     },
     {
@@ -4308,8 +4299,8 @@
       4,
       13
      ],
-     "games": 62300,
-     "pick_rate": 0.0658,
+     "games": 62400,
+     "pick_rate": 0.0659,
      "win_rate": null
     },
     {
@@ -4317,8 +4308,8 @@
       4,
       7
      ],
-     "games": 58600,
-     "pick_rate": 0.0618,
+     "games": 59200,
+     "pick_rate": 0.0625,
      "win_rate": null
     },
     {
@@ -4340,8 +4331,8 @@
       4,
       32
      ],
-     "games": 660000,
-     "pick_rate": 0.8614,
+     "games": 655000,
+     "pick_rate": 0.855,
      "win_rate": null
     },
     {
@@ -4349,8 +4340,8 @@
       4,
       6
      ],
-     "games": 88200,
-     "pick_rate": 0.115,
+     "games": 94700,
+     "pick_rate": 0.1235,
      "win_rate": null
     }
    ]
@@ -4364,7 +4355,7 @@
       32
      ],
      "games": 161000,
-     "pick_rate": 0.8847,
+     "pick_rate": 0.8854,
      "win_rate": null
     },
     {
@@ -4372,8 +4363,8 @@
       4,
       6
      ],
-     "games": 14700,
-     "pick_rate": 0.0811,
+     "games": 14500,
+     "pick_rate": 0.08,
      "win_rate": null
     },
     {
@@ -4381,7 +4372,7 @@
       4,
       14
      ],
-     "games": 2130,
+     "games": 2120,
      "pick_rate": 0.0117,
      "win_rate": null
     },
@@ -4390,8 +4381,8 @@
       4,
       7
      ],
-     "games": 1840,
-     "pick_rate": 0.0101,
+     "games": 1860,
+     "pick_rate": 0.0103,
      "win_rate": null
     }
    ]
@@ -4404,8 +4395,8 @@
       4,
       32
      ],
-     "games": 557000,
-     "pick_rate": 0.8755,
+     "games": 554000,
+     "pick_rate": 0.8717,
      "win_rate": null
     },
     {
@@ -4413,8 +4404,8 @@
       4,
       6
      ],
-     "games": 42300,
-     "pick_rate": 0.0665,
+     "games": 45500,
+     "pick_rate": 0.0715,
      "win_rate": null
     },
     {
@@ -4422,8 +4413,8 @@
       4,
       14
      ],
-     "games": 14300,
-     "pick_rate": 0.0225,
+     "games": 14200,
+     "pick_rate": 0.0223,
      "win_rate": null
     },
     {
@@ -4431,8 +4422,8 @@
       4,
       21
      ],
-     "games": 11000,
-     "pick_rate": 0.0173,
+     "games": 10300,
+     "pick_rate": 0.0163,
      "win_rate": null
     },
     {
@@ -4440,8 +4431,8 @@
       4,
       13
      ],
-     "games": 7990,
-     "pick_rate": 0.0126,
+     "games": 7960,
+     "pick_rate": 0.0125,
      "win_rate": null
     }
    ]
@@ -4454,8 +4445,8 @@
       4,
       6
      ],
-     "games": 689000,
-     "pick_rate": 0.5118,
+     "games": 687000,
+     "pick_rate": 0.5107,
      "win_rate": null
     },
     {
@@ -4463,8 +4454,8 @@
       4,
       32
      ],
-     "games": 328000,
-     "pick_rate": 0.2437,
+     "games": 326000,
+     "pick_rate": 0.2424,
      "win_rate": null
     },
     {
@@ -4473,7 +4464,7 @@
       7
      ],
      "games": 150000,
-     "pick_rate": 0.1112,
+     "pick_rate": 0.1115,
      "win_rate": null
     },
     {
@@ -4481,8 +4472,8 @@
       1,
       4
      ],
-     "games": 79100,
-     "pick_rate": 0.0588,
+     "games": 84200,
+     "pick_rate": 0.0626,
      "win_rate": null
     },
     {
@@ -4490,8 +4481,8 @@
       4,
       21
      ],
-     "games": 69800,
-     "pick_rate": 0.0519,
+     "games": 67800,
+     "pick_rate": 0.0503,
      "win_rate": null
     },
     {
@@ -4499,8 +4490,8 @@
       4,
       13
      ],
-     "games": 22600,
-     "pick_rate": 0.0168,
+     "games": 22400,
+     "pick_rate": 0.0167,
      "win_rate": null
     }
    ]
@@ -4513,8 +4504,8 @@
       4,
       7
      ],
-     "games": 158000,
-     "pick_rate": 0.3635,
+     "games": 162000,
+     "pick_rate": 0.3712,
      "win_rate": null
     },
     {
@@ -4523,7 +4514,7 @@
       13
      ],
      "games": 104000,
-     "pick_rate": 0.2388,
+     "pick_rate": 0.2391,
      "win_rate": null
     },
     {
@@ -4531,8 +4522,8 @@
       4,
       6
      ],
-     "games": 71100,
-     "pick_rate": 0.1632,
+     "games": 67900,
+     "pick_rate": 0.1559,
      "win_rate": null
     },
     {
@@ -4541,7 +4532,7 @@
       32
      ],
      "games": 53500,
-     "pick_rate": 0.1228,
+     "pick_rate": 0.1229,
      "win_rate": null
     },
     {
@@ -4549,8 +4540,8 @@
       4,
       14
      ],
-     "games": 34500,
-     "pick_rate": 0.0792,
+     "games": 34400,
+     "pick_rate": 0.079,
      "win_rate": null
     },
     {
@@ -4558,8 +4549,8 @@
       4,
       21
      ],
-     "games": 11500,
-     "pick_rate": 0.0264,
+     "games": 11400,
+     "pick_rate": 0.0261,
      "win_rate": null
     }
    ]
@@ -4572,8 +4563,8 @@
       4,
       32
      ],
-     "games": 419000,
-     "pick_rate": 0.4029,
+     "games": 470000,
+     "pick_rate": 0.4514,
      "win_rate": null
     },
     {
@@ -4581,8 +4572,8 @@
       4,
       6
      ],
-     "games": 364000,
-     "pick_rate": 0.35,
+     "games": 283000,
+     "pick_rate": 0.2717,
      "win_rate": null
     },
     {
@@ -4590,8 +4581,8 @@
       4,
       21
      ],
-     "games": 104000,
-     "pick_rate": 0.1003,
+     "games": 117000,
+     "pick_rate": 0.112,
      "win_rate": null
     },
     {
@@ -4599,8 +4590,8 @@
       4,
       7
      ],
-     "games": 71400,
-     "pick_rate": 0.0686,
+     "games": 76800,
+     "pick_rate": 0.0738,
      "win_rate": null
     },
     {
@@ -4608,8 +4599,8 @@
       1,
       4
      ],
-     "games": 50400,
-     "pick_rate": 0.0484,
+     "games": 56900,
+     "pick_rate": 0.0547,
      "win_rate": null
     },
     {
@@ -4617,8 +4608,8 @@
       4,
       14
      ],
-     "games": 28500,
-     "pick_rate": 0.0274,
+     "games": 35100,
+     "pick_rate": 0.0338,
      "win_rate": null
     }
    ]
@@ -4631,8 +4622,8 @@
       4,
       6
      ],
-     "games": 355000,
-     "pick_rate": 0.3677,
+     "games": 356000,
+     "pick_rate": 0.3689,
      "win_rate": null
     },
     {
@@ -4641,7 +4632,7 @@
       32
      ],
      "games": 282000,
-     "pick_rate": 0.2923,
+     "pick_rate": 0.2919,
      "win_rate": null
     },
     {
@@ -4650,7 +4641,7 @@
       13
      ],
      "games": 116000,
-     "pick_rate": 0.1205,
+     "pick_rate": 0.1204,
      "win_rate": null
     },
     {
@@ -4659,7 +4650,7 @@
       7
      ],
      "games": 91800,
-     "pick_rate": 0.095,
+     "pick_rate": 0.0951,
      "win_rate": null
     },
     {
@@ -4667,8 +4658,8 @@
       4,
       21
      ],
-     "games": 68200,
-     "pick_rate": 0.0707,
+     "games": 67700,
+     "pick_rate": 0.0701,
      "win_rate": null
     },
     {
@@ -4676,8 +4667,8 @@
       4,
       14
      ],
-     "games": 47600,
-     "pick_rate": 0.0493,
+     "games": 47400,
+     "pick_rate": 0.0491,
      "win_rate": null
     }
    ]
@@ -4690,8 +4681,8 @@
       4,
       32
      ],
-     "games": 875000,
-     "pick_rate": 0.8639,
+     "games": 885000,
+     "pick_rate": 0.8738,
      "win_rate": null
     },
     {
@@ -4699,8 +4690,8 @@
       4,
       6
      ],
-     "games": 73600,
-     "pick_rate": 0.0726,
+     "games": 62400,
+     "pick_rate": 0.0616,
      "win_rate": null
     },
     {
@@ -4708,8 +4699,8 @@
       4,
       14
      ],
-     "games": 29100,
-     "pick_rate": 0.0287,
+     "games": 30100,
+     "pick_rate": 0.0297,
      "win_rate": null
     },
     {
@@ -4717,8 +4708,8 @@
       4,
       7
      ],
-     "games": 14400,
-     "pick_rate": 0.0142,
+     "games": 14700,
+     "pick_rate": 0.0145,
      "win_rate": null
     },
     {
@@ -4726,8 +4717,8 @@
       4,
       21
      ],
-     "games": 12500,
-     "pick_rate": 0.0124,
+     "games": 12200,
+     "pick_rate": 0.0121,
      "win_rate": null
     }
    ]
@@ -4740,8 +4731,8 @@
       4,
       7
      ],
-     "games": 167000,
-     "pick_rate": 0.3248,
+     "games": 164000,
+     "pick_rate": 0.3185,
      "win_rate": null
     },
     {
@@ -4749,8 +4740,8 @@
       4,
       32
      ],
-     "games": 142000,
-     "pick_rate": 0.2754,
+     "games": 140000,
+     "pick_rate": 0.2709,
      "win_rate": null
     },
     {
@@ -4758,8 +4749,8 @@
       4,
       6
      ],
-     "games": 84900,
-     "pick_rate": 0.1647,
+     "games": 94000,
+     "pick_rate": 0.1824,
      "win_rate": null
     },
     {
@@ -4767,8 +4758,8 @@
       4,
       13
      ],
-     "games": 72600,
-     "pick_rate": 0.1409,
+     "games": 71400,
+     "pick_rate": 0.1386,
      "win_rate": null
     },
     {
@@ -4776,8 +4767,8 @@
       4,
       14
      ],
-     "games": 27800,
-     "pick_rate": 0.0539,
+     "games": 25400,
+     "pick_rate": 0.0493,
      "win_rate": null
     },
     {
@@ -4785,8 +4776,8 @@
       4,
       21
      ],
-     "games": 18900,
-     "pick_rate": 0.0366,
+     "games": 19000,
+     "pick_rate": 0.0369,
      "win_rate": null
     }
    ]
@@ -4799,8 +4790,8 @@
       4,
       32
      ],
-     "games": 587000,
-     "pick_rate": 0.9002,
+     "games": 588000,
+     "pick_rate": 0.9028,
      "win_rate": null
     },
     {
@@ -4808,8 +4799,8 @@
       4,
       6
      ],
-     "games": 43400,
-     "pick_rate": 0.0666,
+     "games": 42400,
+     "pick_rate": 0.065,
      "win_rate": null
     },
     {
@@ -4818,16 +4809,7 @@
       14
      ],
      "games": 12500,
-     "pick_rate": 0.0191,
-     "win_rate": null
-    },
-    {
-     "ids": [
-      4,
-      21
-     ],
-     "games": 6650,
-     "pick_rate": 0.0102,
+     "pick_rate": 0.0192,
      "win_rate": null
     }
    ]
@@ -4840,8 +4822,8 @@
       4,
       32
      ],
-     "games": 826000,
-     "pick_rate": 0.9465,
+     "games": 825000,
+     "pick_rate": 0.9461,
      "win_rate": null
     },
     {
@@ -4849,8 +4831,8 @@
       4,
       6
      ],
-     "games": 35100,
-     "pick_rate": 0.0403,
+     "games": 35800,
+     "pick_rate": 0.041,
      "win_rate": null
     }
    ]
@@ -4863,8 +4845,8 @@
       4,
       32
      ],
-     "games": 103000,
-     "pick_rate": 0.8167,
+     "games": 100000,
+     "pick_rate": 0.7937,
      "win_rate": null
     },
     {
@@ -4872,8 +4854,8 @@
       4,
       6
      ],
-     "games": 17400,
-     "pick_rate": 0.1379,
+     "games": 20500,
+     "pick_rate": 0.1626,
      "win_rate": null
     },
     {
@@ -4881,8 +4863,8 @@
       4,
       21
      ],
-     "games": 3520,
-     "pick_rate": 0.0279,
+     "games": 3410,
+     "pick_rate": 0.027,
      "win_rate": null
     },
     {
@@ -4890,8 +4872,8 @@
       4,
       14
      ],
-     "games": 1380,
-     "pick_rate": 0.0109,
+     "games": 1430,
+     "pick_rate": 0.0113,
      "win_rate": null
     }
    ]
@@ -4904,8 +4886,8 @@
       4,
       6
      ],
-     "games": 421000,
-     "pick_rate": 0.5808,
+     "games": 444000,
+     "pick_rate": 0.6126,
      "win_rate": null
     },
     {
@@ -4913,8 +4895,8 @@
       4,
       32
      ],
-     "games": 177000,
-     "pick_rate": 0.2445,
+     "games": 166000,
+     "pick_rate": 0.2286,
      "win_rate": null
     },
     {
@@ -4922,17 +4904,8 @@
       4,
       21
      ],
-     "games": 45600,
-     "pick_rate": 0.0629,
-     "win_rate": null
-    },
-    {
-     "ids": [
-      4,
-      7
-     ],
-     "games": 31100,
-     "pick_rate": 0.0429,
+     "games": 42600,
+     "pick_rate": 0.0589,
      "win_rate": null
     },
     {
@@ -4940,8 +4913,17 @@
       1,
       4
      ],
-     "games": 29800,
-     "pick_rate": 0.0411,
+     "games": 27300,
+     "pick_rate": 0.0376,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      7
+     ],
+     "games": 26200,
+     "pick_rate": 0.0361,
      "win_rate": null
     },
     {
@@ -4949,8 +4931,8 @@
       4,
       13
      ],
-     "games": 12400,
-     "pick_rate": 0.0171,
+     "games": 11600,
+     "pick_rate": 0.016,
      "win_rate": null
     },
     {
@@ -4958,8 +4940,8 @@
       4,
       14
      ],
-     "games": 7640,
-     "pick_rate": 0.0105,
+     "games": 7350,
+     "pick_rate": 0.0101,
      "win_rate": null
     }
    ]
@@ -4972,8 +4954,8 @@
       4,
       32
      ],
-     "games": 566000,
-     "pick_rate": 0.954,
+     "games": 568000,
+     "pick_rate": 0.956,
      "win_rate": null
     },
     {
@@ -4981,8 +4963,8 @@
       4,
       6
      ],
-     "games": 15600,
-     "pick_rate": 0.0262,
+     "games": 14200,
+     "pick_rate": 0.0239,
      "win_rate": null
     }
    ]
@@ -4995,8 +4977,8 @@
       4,
       6
      ],
-     "games": 326000,
-     "pick_rate": 0.4462,
+     "games": 328000,
+     "pick_rate": 0.4488,
      "win_rate": null
     },
     {
@@ -5004,8 +4986,8 @@
       4,
       32
      ],
-     "games": 176000,
-     "pick_rate": 0.2405,
+     "games": 175000,
+     "pick_rate": 0.2398,
      "win_rate": null
     },
     {
@@ -5013,8 +4995,8 @@
       1,
       4
      ],
-     "games": 117000,
-     "pick_rate": 0.1597,
+     "games": 115000,
+     "pick_rate": 0.1578,
      "win_rate": null
     },
     {
@@ -5022,8 +5004,8 @@
       4,
       21
      ],
-     "games": 77100,
-     "pick_rate": 0.1056,
+     "games": 78100,
+     "pick_rate": 0.107,
      "win_rate": null
     },
     {
@@ -5031,8 +5013,8 @@
       4,
       7
      ],
-     "games": 28300,
-     "pick_rate": 0.0387,
+     "games": 27200,
+     "pick_rate": 0.0373,
      "win_rate": null
     }
    ]
@@ -5045,8 +5027,8 @@
       4,
       32
      ],
-     "games": 383000,
-     "pick_rate": 0.9387,
+     "games": 384000,
+     "pick_rate": 0.9415,
      "win_rate": null
     },
     {
@@ -5054,8 +5036,8 @@
       4,
       6
      ],
-     "games": 16500,
-     "pick_rate": 0.0405,
+     "games": 15500,
+     "pick_rate": 0.0379,
      "win_rate": null
     },
     {
@@ -5063,8 +5045,8 @@
       4,
       21
      ],
-     "games": 4320,
-     "pick_rate": 0.0106,
+     "games": 4160,
+     "pick_rate": 0.0102,
      "win_rate": null
     }
    ]
@@ -5077,8 +5059,8 @@
       4,
       6
      ],
-     "games": 288000,
-     "pick_rate": 0.4818,
+     "games": 286000,
+     "pick_rate": 0.4785,
      "win_rate": null
     },
     {
@@ -5086,8 +5068,8 @@
       4,
       32
      ],
-     "games": 134000,
-     "pick_rate": 0.2235,
+     "games": 136000,
+     "pick_rate": 0.227,
      "win_rate": null
     },
     {
@@ -5095,8 +5077,8 @@
       1,
       4
      ],
-     "games": 81300,
-     "pick_rate": 0.1359,
+     "games": 78400,
+     "pick_rate": 0.1311,
      "win_rate": null
     },
     {
@@ -5104,8 +5086,8 @@
       4,
       21
      ],
-     "games": 67400,
-     "pick_rate": 0.1127,
+     "games": 69600,
+     "pick_rate": 0.1164,
      "win_rate": null
     },
     {
@@ -5113,8 +5095,8 @@
       4,
       7
      ],
-     "games": 23000,
-     "pick_rate": 0.0385,
+     "games": 23400,
+     "pick_rate": 0.0391,
      "win_rate": null
     }
    ]
@@ -5127,8 +5109,8 @@
       4,
       32
      ],
-     "games": 95900,
-     "pick_rate": 0.3862,
+     "games": 97000,
+     "pick_rate": 0.3907,
      "win_rate": null
     },
     {
@@ -5136,8 +5118,8 @@
       4,
       7
      ],
-     "games": 56700,
-     "pick_rate": 0.2283,
+     "games": 56400,
+     "pick_rate": 0.227,
      "win_rate": null
     },
     {
@@ -5145,8 +5127,8 @@
       4,
       6
      ],
-     "games": 48600,
-     "pick_rate": 0.1958,
+     "games": 46300,
+     "pick_rate": 0.1867,
      "win_rate": null
     },
     {
@@ -5154,8 +5136,8 @@
       4,
       13
      ],
-     "games": 26800,
-     "pick_rate": 0.1078,
+     "games": 27100,
+     "pick_rate": 0.1091,
      "win_rate": null
     },
     {
@@ -5163,8 +5145,8 @@
       4,
       14
      ],
-     "games": 15300,
-     "pick_rate": 0.0616,
+     "games": 15900,
+     "pick_rate": 0.064,
      "win_rate": null
     },
     {
@@ -5172,8 +5154,8 @@
       4,
       21
      ],
-     "games": 4060,
-     "pick_rate": 0.0163,
+     "games": 4110,
+     "pick_rate": 0.0165,
      "win_rate": null
     }
    ]
@@ -5186,8 +5168,8 @@
       4,
       32
      ],
-     "games": 585000,
-     "pick_rate": 0.78,
+     "games": 588000,
+     "pick_rate": 0.7834,
      "win_rate": null
     },
     {
@@ -5195,8 +5177,8 @@
       4,
       6
      ],
-     "games": 58200,
-     "pick_rate": 0.0776,
+     "games": 55000,
+     "pick_rate": 0.0733,
      "win_rate": null
     },
     {
@@ -5204,7 +5186,7 @@
       4,
       14
      ],
-     "games": 53000,
+     "games": 53100,
      "pick_rate": 0.0707,
      "win_rate": null
     },
@@ -5213,8 +5195,8 @@
       4,
       21
      ],
-     "games": 40900,
-     "pick_rate": 0.0544,
+     "games": 40800,
+     "pick_rate": 0.0543,
      "win_rate": null
     },
     {
@@ -5222,8 +5204,8 @@
       4,
       7
      ],
-     "games": 7940,
-     "pick_rate": 0.0106,
+     "games": 8650,
+     "pick_rate": 0.0115,
      "win_rate": null
     }
    ]
@@ -5236,8 +5218,8 @@
       4,
       32
      ],
-     "games": 929000,
-     "pick_rate": 0.9077,
+     "games": 932000,
+     "pick_rate": 0.9102,
      "win_rate": null
     },
     {
@@ -5245,8 +5227,8 @@
       4,
       6
      ],
-     "games": 60400,
-     "pick_rate": 0.0591,
+     "games": 57500,
+     "pick_rate": 0.0562,
      "win_rate": null
     },
     {
@@ -5268,8 +5250,8 @@
       4,
       32
      ],
-     "games": 876000,
-     "pick_rate": 0.8884,
+     "games": 874000,
+     "pick_rate": 0.8869,
      "win_rate": null
     },
     {
@@ -5277,8 +5259,8 @@
       4,
       6
      ],
-     "games": 90300,
-     "pick_rate": 0.0916,
+     "games": 92000,
+     "pick_rate": 0.0933,
      "win_rate": null
     },
     {
@@ -5286,8 +5268,8 @@
       4,
       14
      ],
-     "games": 11000,
-     "pick_rate": 0.0112,
+     "games": 10900,
+     "pick_rate": 0.0111,
      "win_rate": null
     }
    ]
@@ -5301,7 +5283,7 @@
       32
      ],
      "games": 771000,
-     "pick_rate": 0.8594,
+     "pick_rate": 0.8592,
      "win_rate": null
     },
     {
@@ -5310,7 +5292,7 @@
       6
      ],
      "games": 111000,
-     "pick_rate": 0.1236,
+     "pick_rate": 0.1238,
      "win_rate": null
     }
    ]
@@ -5323,8 +5305,8 @@
       4,
       32
      ],
-     "games": 365000,
-     "pick_rate": 0.553,
+     "games": 364000,
+     "pick_rate": 0.5517,
      "win_rate": null
     },
     {
@@ -5333,7 +5315,7 @@
       6
      ],
      "games": 185000,
-     "pick_rate": 0.2797,
+     "pick_rate": 0.2794,
      "win_rate": null
     },
     {
@@ -5341,8 +5323,8 @@
       4,
       21
      ],
-     "games": 51000,
-     "pick_rate": 0.0772,
+     "games": 51400,
+     "pick_rate": 0.0779,
      "win_rate": null
     },
     {
@@ -5350,8 +5332,8 @@
       1,
       4
      ],
-     "games": 34400,
-     "pick_rate": 0.0522,
+     "games": 35100,
+     "pick_rate": 0.0532,
      "win_rate": null
     },
     {
@@ -5359,8 +5341,8 @@
       4,
       7
      ],
-     "games": 13000,
-     "pick_rate": 0.0197,
+     "games": 13200,
+     "pick_rate": 0.02,
      "win_rate": null
     },
     {
@@ -5368,8 +5350,8 @@
       4,
       14
      ],
-     "games": 11000,
-     "pick_rate": 0.0166,
+     "games": 10700,
+     "pick_rate": 0.0162,
      "win_rate": null
     }
    ]
@@ -5382,8 +5364,8 @@
       4,
       6
      ],
-     "games": 238000,
-     "pick_rate": 0.3975,
+     "games": 239000,
+     "pick_rate": 0.399,
      "win_rate": null
     },
     {
@@ -5391,8 +5373,8 @@
       4,
       32
      ],
-     "games": 190000,
-     "pick_rate": 0.3168,
+     "games": 189000,
+     "pick_rate": 0.3152,
      "win_rate": null
     },
     {
@@ -5400,8 +5382,8 @@
       4,
       13
      ],
-     "games": 64400,
-     "pick_rate": 0.1074,
+     "games": 64000,
+     "pick_rate": 0.1068,
      "win_rate": null
     },
     {
@@ -5409,8 +5391,8 @@
       4,
       21
      ],
-     "games": 46000,
-     "pick_rate": 0.0768,
+     "games": 46300,
+     "pick_rate": 0.0773,
      "win_rate": null
     },
     {
@@ -5418,8 +5400,8 @@
       4,
       7
      ],
-     "games": 41900,
-     "pick_rate": 0.0699,
+     "games": 42600,
+     "pick_rate": 0.071,
      "win_rate": null
     },
     {
@@ -5427,8 +5409,8 @@
       4,
       14
      ],
-     "games": 16200,
-     "pick_rate": 0.027,
+     "games": 15700,
+     "pick_rate": 0.0262,
      "win_rate": null
     }
    ]
@@ -5441,8 +5423,8 @@
       4,
       32
      ],
-     "games": 176000,
-     "pick_rate": 0.4687,
+     "games": 178000,
+     "pick_rate": 0.4744,
      "win_rate": null
     },
     {
@@ -5450,8 +5432,8 @@
       4,
       6
      ],
-     "games": 103000,
-     "pick_rate": 0.2739,
+     "games": 101000,
+     "pick_rate": 0.2688,
      "win_rate": null
     },
     {
@@ -5459,8 +5441,8 @@
       4,
       21
      ],
-     "games": 29900,
-     "pick_rate": 0.0798,
+     "games": 29000,
+     "pick_rate": 0.0774,
      "win_rate": null
     },
     {
@@ -5468,8 +5450,8 @@
       4,
       14
      ],
-     "games": 26100,
-     "pick_rate": 0.0698,
+     "games": 26600,
+     "pick_rate": 0.0711,
      "win_rate": null
     },
     {
@@ -5477,8 +5459,8 @@
       4,
       13
      ],
-     "games": 22800,
-     "pick_rate": 0.061,
+     "games": 23100,
+     "pick_rate": 0.0617,
      "win_rate": null
     },
     {
@@ -5486,8 +5468,8 @@
       4,
       7
      ],
-     "games": 12800,
-     "pick_rate": 0.0341,
+     "games": 12600,
+     "pick_rate": 0.0337,
      "win_rate": null
     },
     {
@@ -5495,8 +5477,8 @@
       1,
       4
      ],
-     "games": 4730,
-     "pick_rate": 0.0126,
+     "games": 4830,
+     "pick_rate": 0.0129,
      "win_rate": null
     }
    ]
@@ -5509,8 +5491,8 @@
       4,
       32
      ],
-     "games": 30500,
-     "pick_rate": 0.3,
+     "games": 30400,
+     "pick_rate": 0.2994,
      "win_rate": null
     },
     {
@@ -5518,8 +5500,8 @@
       4,
       7
      ],
-     "games": 27100,
-     "pick_rate": 0.2665,
+     "games": 27500,
+     "pick_rate": 0.2711,
      "win_rate": null
     },
     {
@@ -5527,8 +5509,8 @@
       4,
       6
      ],
-     "games": 21200,
-     "pick_rate": 0.2084,
+     "games": 20800,
+     "pick_rate": 0.2049,
      "win_rate": null
     },
     {
@@ -5537,7 +5519,7 @@
       13
      ],
      "games": 12700,
-     "pick_rate": 0.1254,
+     "pick_rate": 0.1251,
      "win_rate": null
     },
     {
@@ -5545,8 +5527,8 @@
       4,
       14
      ],
-     "games": 6720,
-     "pick_rate": 0.0661,
+     "games": 6430,
+     "pick_rate": 0.0633,
      "win_rate": null
     },
     {
@@ -5554,8 +5536,8 @@
       4,
       21
      ],
-     "games": 2900,
-     "pick_rate": 0.0286,
+     "games": 3150,
+     "pick_rate": 0.031,
      "win_rate": null
     }
    ]
@@ -5569,7 +5551,7 @@
       32
      ],
      "games": 296000,
-     "pick_rate": 0.9109,
+     "pick_rate": 0.9105,
      "win_rate": null
     },
     {
@@ -5577,8 +5559,8 @@
       4,
       6
      ],
-     "games": 23300,
-     "pick_rate": 0.0716,
+     "games": 23400,
+     "pick_rate": 0.072,
      "win_rate": null
     },
     {
@@ -5586,7 +5568,7 @@
       4,
       21
      ],
-     "games": 3740,
+     "games": 3720,
      "pick_rate": 0.0115,
      "win_rate": null
     }
@@ -5600,8 +5582,8 @@
       4,
       32
      ],
-     "games": 410000,
-     "pick_rate": 0.8891,
+     "games": 430000,
+     "pick_rate": 0.9321,
      "win_rate": null
     },
     {
@@ -5609,8 +5591,8 @@
       4,
       6
      ],
-     "games": 42600,
-     "pick_rate": 0.0924,
+     "games": 21900,
+     "pick_rate": 0.0475,
      "win_rate": null
     }
    ]
@@ -5623,8 +5605,8 @@
       4,
       32
      ],
-     "games": 173000,
-     "pick_rate": 0.4533,
+     "games": 172000,
+     "pick_rate": 0.4504,
      "win_rate": null
     },
     {
@@ -5632,8 +5614,8 @@
       4,
       6
      ],
-     "games": 133000,
-     "pick_rate": 0.349,
+     "games": 136000,
+     "pick_rate": 0.3561,
      "win_rate": null
     },
     {
@@ -5641,8 +5623,8 @@
       4,
       21
      ],
-     "games": 29400,
-     "pick_rate": 0.0769,
+     "games": 28200,
+     "pick_rate": 0.0739,
      "win_rate": null
     },
     {
@@ -5650,8 +5632,8 @@
       4,
       13
      ],
-     "games": 20900,
-     "pick_rate": 0.0548,
+     "games": 20800,
+     "pick_rate": 0.0545,
      "win_rate": null
     },
     {
@@ -5659,8 +5641,8 @@
       4,
       7
      ],
-     "games": 14200,
-     "pick_rate": 0.0372,
+     "games": 14000,
+     "pick_rate": 0.0367,
      "win_rate": null
     },
     {
@@ -5668,8 +5650,8 @@
       4,
       14
      ],
-     "games": 8950,
-     "pick_rate": 0.0234,
+     "games": 8970,
+     "pick_rate": 0.0235,
      "win_rate": null
     }
    ]
@@ -5683,7 +5665,7 @@
       32
      ],
      "games": 204000,
-     "pick_rate": 0.373,
+     "pick_rate": 0.3726,
      "win_rate": null
     },
     {
@@ -5692,7 +5674,7 @@
       6
      ],
      "games": 189000,
-     "pick_rate": 0.3462,
+     "pick_rate": 0.3454,
      "win_rate": null
     },
     {
@@ -5710,7 +5692,7 @@
       13
      ],
      "games": 49900,
-     "pick_rate": 0.0912,
+     "pick_rate": 0.0911,
      "win_rate": null
     },
     {
@@ -5718,8 +5700,8 @@
       4,
       14
      ],
-     "games": 24800,
-     "pick_rate": 0.0453,
+     "games": 24600,
+     "pick_rate": 0.0449,
      "win_rate": null
     },
     {
@@ -5727,8 +5709,8 @@
       4,
       21
      ],
-     "games": 15400,
-     "pick_rate": 0.0281,
+     "games": 16400,
+     "pick_rate": 0.0299,
      "win_rate": null
     }
    ]
@@ -5741,8 +5723,8 @@
       4,
       32
      ],
-     "games": 409000,
-     "pick_rate": 0.926,
+     "games": 407000,
+     "pick_rate": 0.9215,
      "win_rate": null
     },
     {
@@ -5750,8 +5732,8 @@
       4,
       6
      ],
-     "games": 15500,
-     "pick_rate": 0.0351,
+     "games": 17700,
+     "pick_rate": 0.0401,
      "win_rate": null
     },
     {
@@ -5759,8 +5741,8 @@
       4,
       14
      ],
-     "games": 11800,
-     "pick_rate": 0.0267,
+     "games": 11700,
+     "pick_rate": 0.0266,
      "win_rate": null
     }
    ]
@@ -5773,8 +5755,8 @@
       4,
       32
      ],
-     "games": 416000,
-     "pick_rate": 0.7344,
+     "games": 421000,
+     "pick_rate": 0.7435,
      "win_rate": null
     },
     {
@@ -5782,8 +5764,8 @@
       4,
       6
      ],
-     "games": 85000,
-     "pick_rate": 0.1502,
+     "games": 81300,
+     "pick_rate": 0.1436,
      "win_rate": null
     },
     {
@@ -5791,8 +5773,8 @@
       4,
       21
      ],
-     "games": 23800,
-     "pick_rate": 0.042,
+     "games": 21400,
+     "pick_rate": 0.0377,
      "win_rate": null
     },
     {
@@ -5800,8 +5782,8 @@
       4,
       13
      ],
-     "games": 15900,
-     "pick_rate": 0.028,
+     "games": 16100,
+     "pick_rate": 0.0284,
      "win_rate": null
     },
     {
@@ -5809,8 +5791,8 @@
       4,
       14
      ],
-     "games": 13200,
-     "pick_rate": 0.0233,
+     "games": 13500,
+     "pick_rate": 0.0238,
      "win_rate": null
     },
     {
@@ -5818,8 +5800,8 @@
       4,
       7
      ],
-     "games": 11000,
-     "pick_rate": 0.0195,
+     "games": 11500,
+     "pick_rate": 0.0204,
      "win_rate": null
     }
    ]
@@ -5833,7 +5815,7 @@
       32
      ],
      "games": 564000,
-     "pick_rate": 0.9077,
+     "pick_rate": 0.9074,
      "win_rate": null
     },
     {
@@ -5841,8 +5823,8 @@
       4,
       6
      ],
-     "games": 42500,
-     "pick_rate": 0.0685,
+     "games": 43100,
+     "pick_rate": 0.0694,
      "win_rate": null
     },
     {
@@ -5850,8 +5832,8 @@
       4,
       14
      ],
-     "games": 6390,
-     "pick_rate": 0.0103,
+     "games": 6360,
+     "pick_rate": 0.0102,
      "win_rate": null
     }
    ]
@@ -5865,7 +5847,7 @@
       6
      ],
      "games": 178000,
-     "pick_rate": 0.4815,
+     "pick_rate": 0.4799,
      "win_rate": null
     },
     {
@@ -5873,8 +5855,8 @@
       4,
       32
      ],
-     "games": 89700,
-     "pick_rate": 0.2423,
+     "games": 89900,
+     "pick_rate": 0.2429,
      "win_rate": null
     },
     {
@@ -5882,8 +5864,8 @@
       1,
       4
      ],
-     "games": 55000,
-     "pick_rate": 0.1486,
+     "games": 55100,
+     "pick_rate": 0.1489,
      "win_rate": null
     },
     {
@@ -5891,8 +5873,8 @@
       4,
       21
      ],
-     "games": 29200,
-     "pick_rate": 0.0788,
+     "games": 29300,
+     "pick_rate": 0.0791,
      "win_rate": null
     },
     {
@@ -5900,8 +5882,8 @@
       4,
       7
      ],
-     "games": 14700,
-     "pick_rate": 0.0396,
+     "games": 14800,
+     "pick_rate": 0.04,
      "win_rate": null
     }
    ]
@@ -5914,8 +5896,8 @@
       4,
       32
      ],
-     "games": 205000,
-     "pick_rate": 0.587,
+     "games": 204000,
+     "pick_rate": 0.5819,
      "win_rate": null
     },
     {
@@ -5923,8 +5905,8 @@
       4,
       6
      ],
-     "games": 73900,
-     "pick_rate": 0.2112,
+     "games": 76200,
+     "pick_rate": 0.2177,
      "win_rate": null
     },
     {
@@ -5932,8 +5914,8 @@
       4,
       13
      ],
-     "games": 23600,
-     "pick_rate": 0.0673,
+     "games": 23400,
+     "pick_rate": 0.0667,
      "win_rate": null
     },
     {
@@ -5941,17 +5923,8 @@
       4,
       14
      ],
-     "games": 18200,
-     "pick_rate": 0.0521,
-     "win_rate": null
-    },
-    {
-     "ids": [
-      4,
-      21
-     ],
-     "games": 13800,
-     "pick_rate": 0.0396,
+     "games": 18000,
+     "pick_rate": 0.0514,
      "win_rate": null
     },
     {
@@ -5959,8 +5932,17 @@
       4,
       7
      ],
-     "games": 13300,
-     "pick_rate": 0.0381,
+     "games": 13600,
+     "pick_rate": 0.039,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      21
+     ],
+     "games": 13500,
+     "pick_rate": 0.0386,
      "win_rate": null
     }
    ]
@@ -5973,8 +5955,8 @@
       4,
       32
      ],
-     "games": 81400,
-     "pick_rate": 0.3339,
+     "games": 81900,
+     "pick_rate": 0.336,
      "win_rate": null
     },
     {
@@ -5982,8 +5964,8 @@
       4,
       7
      ],
-     "games": 69000,
-     "pick_rate": 0.2829,
+     "games": 68700,
+     "pick_rate": 0.2817,
      "win_rate": null
     },
     {
@@ -5991,8 +5973,8 @@
       4,
       13
      ],
-     "games": 40000,
-     "pick_rate": 0.1639,
+     "games": 40200,
+     "pick_rate": 0.1649,
      "win_rate": null
     },
     {
@@ -6000,8 +5982,8 @@
       4,
       6
      ],
-     "games": 29600,
-     "pick_rate": 0.1213,
+     "games": 28500,
+     "pick_rate": 0.1168,
      "win_rate": null
     },
     {
@@ -6009,8 +5991,8 @@
       4,
       14
      ],
-     "games": 14200,
-     "pick_rate": 0.0582,
+     "games": 14800,
+     "pick_rate": 0.0606,
      "win_rate": null
     },
     {
@@ -6018,8 +6000,8 @@
       4,
       21
      ],
-     "games": 8470,
-     "pick_rate": 0.0347,
+     "games": 8540,
+     "pick_rate": 0.035,
      "win_rate": null
     }
    ]
@@ -6032,8 +6014,8 @@
       4,
       32
      ],
-     "games": 269000,
-     "pick_rate": 0.6337,
+     "games": 259000,
+     "pick_rate": 0.6122,
      "win_rate": null
     },
     {
@@ -6041,8 +6023,8 @@
       4,
       6
      ],
-     "games": 58300,
-     "pick_rate": 0.1375,
+     "games": 71500,
+     "pick_rate": 0.1686,
      "win_rate": null
     },
     {
@@ -6050,8 +6032,8 @@
       4,
       21
      ],
-     "games": 36400,
-     "pick_rate": 0.0859,
+     "games": 34300,
+     "pick_rate": 0.0808,
      "win_rate": null
     },
     {
@@ -6059,8 +6041,8 @@
       4,
       13
      ],
-     "games": 19800,
-     "pick_rate": 0.0468,
+     "games": 19200,
+     "pick_rate": 0.0452,
      "win_rate": null
     },
     {
@@ -6068,8 +6050,8 @@
       4,
       14
      ],
-     "games": 19100,
-     "pick_rate": 0.045,
+     "games": 18300,
+     "pick_rate": 0.0432,
      "win_rate": null
     },
     {
@@ -6077,8 +6059,8 @@
       4,
       7
      ],
-     "games": 18000,
-     "pick_rate": 0.0424,
+     "games": 17600,
+     "pick_rate": 0.0416,
      "win_rate": null
     }
    ]
@@ -6091,8 +6073,8 @@
       4,
       32
      ],
-     "games": 414000,
-     "pick_rate": 0.9408,
+     "games": 413000,
+     "pick_rate": 0.9396,
      "win_rate": null
     },
     {
@@ -6100,8 +6082,8 @@
       4,
       6
      ],
-     "games": 15400,
-     "pick_rate": 0.035,
+     "games": 15900,
+     "pick_rate": 0.0361,
      "win_rate": null
     },
     {
@@ -6110,7 +6092,7 @@
       14
      ],
      "games": 6180,
-     "pick_rate": 0.0141,
+     "pick_rate": 0.014,
      "win_rate": null
     }
    ]
@@ -6123,8 +6105,8 @@
       4,
       7
      ],
-     "games": 86400,
-     "pick_rate": 0.2836,
+     "games": 84100,
+     "pick_rate": 0.2759,
      "win_rate": null
     },
     {
@@ -6132,17 +6114,8 @@
       4,
       32
      ],
-     "games": 77700,
-     "pick_rate": 0.2548,
-     "win_rate": null
-    },
-    {
-     "ids": [
-      4,
-      13
-     ],
-     "games": 55700,
-     "pick_rate": 0.1826,
+     "games": 77300,
+     "pick_rate": 0.2535,
      "win_rate": null
     },
     {
@@ -6150,8 +6123,17 @@
       4,
       6
      ],
-     "games": 55500,
-     "pick_rate": 0.182,
+     "games": 58100,
+     "pick_rate": 0.1907,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      4,
+      13
+     ],
+     "games": 55400,
+     "pick_rate": 0.1817,
      "win_rate": null
     },
     {
@@ -6159,8 +6141,8 @@
       4,
       14
      ],
-     "games": 14400,
-     "pick_rate": 0.0473,
+     "games": 15300,
+     "pick_rate": 0.0503,
      "win_rate": null
     },
     {
@@ -6168,8 +6150,8 @@
       4,
       21
      ],
-     "games": 13600,
-     "pick_rate": 0.0447,
+     "games": 13200,
+     "pick_rate": 0.0434,
      "win_rate": null
     }
    ]
@@ -6182,8 +6164,8 @@
       4,
       6
      ],
-     "games": 318000,
-     "pick_rate": 0.4708,
+     "games": 314000,
+     "pick_rate": 0.4655,
      "win_rate": null
     },
     {
@@ -6191,8 +6173,8 @@
       4,
       32
      ],
-     "games": 165000,
-     "pick_rate": 0.2441,
+     "games": 163000,
+     "pick_rate": 0.2418,
      "win_rate": null
     },
     {
@@ -6200,8 +6182,8 @@
       1,
       4
      ],
-     "games": 94400,
-     "pick_rate": 0.1399,
+     "games": 101000,
+     "pick_rate": 0.1492,
      "win_rate": null
     },
     {
@@ -6209,8 +6191,8 @@
       4,
       21
      ],
-     "games": 58900,
-     "pick_rate": 0.0873,
+     "games": 58200,
+     "pick_rate": 0.0862,
      "win_rate": null
     },
     {
@@ -6218,8 +6200,8 @@
       4,
       7
      ],
-     "games": 30400,
-     "pick_rate": 0.0451,
+     "games": 30000,
+     "pick_rate": 0.0444,
      "win_rate": null
     }
    ]
@@ -6232,8 +6214,8 @@
       4,
       32
      ],
-     "games": 522000,
-     "pick_rate": 0.9385,
+     "games": 528000,
+     "pick_rate": 0.9493,
      "win_rate": null
     },
     {
@@ -6241,8 +6223,8 @@
       4,
       6
      ],
-     "games": 30300,
-     "pick_rate": 0.0545,
+     "games": 24200,
+     "pick_rate": 0.0436,
      "win_rate": null
     }
    ]
@@ -6256,7 +6238,7 @@
       32
      ],
      "games": 174000,
-     "pick_rate": 0.9364,
+     "pick_rate": 0.9352,
      "win_rate": null
     },
     {
@@ -6264,8 +6246,8 @@
       4,
       6
      ],
-     "games": 9400,
-     "pick_rate": 0.0506,
+     "games": 9570,
+     "pick_rate": 0.0515,
      "win_rate": null
     }
    ]
@@ -6278,8 +6260,8 @@
       4,
       32
      ],
-     "games": 90900,
-     "pick_rate": 0.9634,
+     "games": 91000,
+     "pick_rate": 0.9649,
      "win_rate": null
     },
     {
@@ -6287,8 +6269,8 @@
       4,
       6
      ],
-     "games": 2190,
-     "pick_rate": 0.0232,
+     "games": 2050,
+     "pick_rate": 0.0218,
      "win_rate": null
     }
    ]
@@ -6301,8 +6283,8 @@
       4,
       32
      ],
-     "games": 437000,
-     "pick_rate": 0.9374,
+     "games": 438000,
+     "pick_rate": 0.9396,
      "win_rate": null
     },
     {
@@ -6310,8 +6292,8 @@
       4,
       6
      ],
-     "games": 19600,
-     "pick_rate": 0.042,
+     "games": 18600,
+     "pick_rate": 0.0399,
      "win_rate": null
     },
     {
@@ -6319,7 +6301,7 @@
       4,
       14
      ],
-     "games": 6050,
+     "games": 6080,
      "pick_rate": 0.013,
      "win_rate": null
     }
@@ -6333,8 +6315,8 @@
       4,
       32
      ],
-     "games": 487000,
-     "pick_rate": 0.8101,
+     "games": 486000,
+     "pick_rate": 0.808,
      "win_rate": null
     },
     {
@@ -6342,8 +6324,8 @@
       4,
       14
      ],
-     "games": 53100,
-     "pick_rate": 0.0883,
+     "games": 52800,
+     "pick_rate": 0.0879,
      "win_rate": null
     },
     {
@@ -6351,8 +6333,8 @@
       4,
       6
      ],
-     "games": 45300,
-     "pick_rate": 0.0754,
+     "games": 46200,
+     "pick_rate": 0.0769,
      "win_rate": null
     },
     {
@@ -6360,8 +6342,8 @@
       4,
       21
      ],
-     "games": 9900,
-     "pick_rate": 0.0165,
+     "games": 10500,
+     "pick_rate": 0.0175,
      "win_rate": null
     }
    ]
@@ -6374,8 +6356,8 @@
       4,
       32
      ],
-     "games": 435000,
-     "pick_rate": 0.9248,
+     "games": 434000,
+     "pick_rate": 0.9232,
      "win_rate": null
     },
     {
@@ -6383,8 +6365,8 @@
       4,
       6
      ],
-     "games": 20400,
-     "pick_rate": 0.0434,
+     "games": 21400,
+     "pick_rate": 0.0455,
      "win_rate": null
     },
     {
@@ -6392,8 +6374,8 @@
       4,
       14
      ],
-     "games": 8800,
-     "pick_rate": 0.0187,
+     "games": 8670,
+     "pick_rate": 0.0184,
      "win_rate": null
     }
    ]
@@ -6406,8 +6388,8 @@
       4,
       32
      ],
-     "games": 414000,
-     "pick_rate": 0.8156,
+     "games": 415000,
+     "pick_rate": 0.8168,
      "win_rate": null
     },
     {
@@ -6415,8 +6397,8 @@
       4,
       6
      ],
-     "games": 37000,
-     "pick_rate": 0.0729,
+     "games": 37100,
+     "pick_rate": 0.073,
      "win_rate": null
     },
     {
@@ -6424,8 +6406,8 @@
       4,
       14
      ],
-     "games": 31000,
-     "pick_rate": 0.0609,
+     "games": 31100,
+     "pick_rate": 0.0611,
      "win_rate": null
     },
     {
@@ -6433,8 +6415,8 @@
       4,
       21
      ],
-     "games": 20800,
-     "pick_rate": 0.0408,
+     "games": 20000,
+     "pick_rate": 0.0394,
      "win_rate": null
     }
    ]
@@ -6447,8 +6429,8 @@
       4,
       32
      ],
-     "games": 506000,
-     "pick_rate": 0.8978,
+     "games": 480000,
+     "pick_rate": 0.8528,
      "win_rate": null
     },
     {
@@ -6456,17 +6438,8 @@
       4,
       6
      ],
-     "games": 39700,
-     "pick_rate": 0.0705,
-     "win_rate": null
-    },
-    {
-     "ids": [
-      4,
-      14
-     ],
-     "games": 6430,
-     "pick_rate": 0.0114,
+     "games": 66900,
+     "pick_rate": 0.1188,
      "win_rate": null
     },
     {
@@ -6474,8 +6447,8 @@
       4,
       21
      ],
-     "games": 6300,
-     "pick_rate": 0.0112,
+     "games": 5860,
+     "pick_rate": 0.0104,
      "win_rate": null
     }
    ]
@@ -6488,8 +6461,8 @@
       4,
       32
      ],
-     "games": 222000,
-     "pick_rate": 0.9269,
+     "games": 224000,
+     "pick_rate": 0.9368,
      "win_rate": null
     },
     {
@@ -6497,8 +6470,8 @@
       4,
       6
      ],
-     "games": 13100,
-     "pick_rate": 0.0549,
+     "games": 10900,
+     "pick_rate": 0.0457,
      "win_rate": null
     }
    ]
@@ -6512,7 +6485,7 @@
       32
      ],
      "games": 161000,
-     "pick_rate": 0.4851,
+     "pick_rate": 0.485,
      "win_rate": null
     },
     {
@@ -6520,8 +6493,8 @@
       4,
       6
      ],
-     "games": 86200,
-     "pick_rate": 0.2595,
+     "games": 87600,
+     "pick_rate": 0.2634,
      "win_rate": null
     },
     {
@@ -6529,8 +6502,8 @@
       4,
       14
      ],
-     "games": 27900,
-     "pick_rate": 0.0841,
+     "games": 28000,
+     "pick_rate": 0.0842,
      "win_rate": null
     },
     {
@@ -6539,7 +6512,7 @@
       13
      ],
      "games": 21300,
-     "pick_rate": 0.0642,
+     "pick_rate": 0.0641,
      "win_rate": null
     },
     {
@@ -6547,8 +6520,8 @@
       4,
       21
      ],
-     "games": 18300,
-     "pick_rate": 0.055,
+     "games": 16900,
+     "pick_rate": 0.0508,
      "win_rate": null
     },
     {
@@ -6557,7 +6530,7 @@
       7
      ],
      "games": 12900,
-     "pick_rate": 0.0389,
+     "pick_rate": 0.0388,
      "win_rate": null
     },
     {
@@ -6565,8 +6538,8 @@
       1,
       4
      ],
-     "games": 4420,
-     "pick_rate": 0.0133,
+     "games": 4540,
+     "pick_rate": 0.0137,
      "win_rate": null
     }
    ]
@@ -6580,7 +6553,7 @@
       32
      ],
      "games": 245000,
-     "pick_rate": 0.8645,
+     "pick_rate": 0.8646,
      "win_rate": null
     },
     {
@@ -6602,8 +6575,8 @@
       4,
       32
      ],
-     "games": 439000,
-     "pick_rate": 0.8128,
+     "games": 438000,
+     "pick_rate": 0.8107,
      "win_rate": null
     },
     {
@@ -6611,8 +6584,8 @@
       4,
       6
      ],
-     "games": 88100,
-     "pick_rate": 0.1631,
+     "games": 89000,
+     "pick_rate": 0.1648,
      "win_rate": null
     }
    ]
@@ -6625,8 +6598,8 @@
       4,
       32
      ],
-     "games": 415000,
-     "pick_rate": 0.9343,
+     "games": 414000,
+     "pick_rate": 0.9327,
      "win_rate": null
     },
     {
@@ -6634,8 +6607,8 @@
       4,
       6
      ],
-     "games": 24100,
-     "pick_rate": 0.0543,
+     "games": 24800,
+     "pick_rate": 0.0559,
      "win_rate": null
     }
    ]
@@ -6648,8 +6621,8 @@
       4,
       32
      ],
-     "games": 253000,
-     "pick_rate": 0.9455,
+     "games": 241000,
+     "pick_rate": 0.9021,
      "win_rate": null
     },
     {
@@ -6657,8 +6630,8 @@
       4,
       6
      ],
-     "games": 5260,
-     "pick_rate": 0.0197,
+     "games": 17800,
+     "pick_rate": 0.0666,
      "win_rate": null
     },
     {
@@ -6666,8 +6639,8 @@
       4,
       7
      ],
-     "games": 3300,
-     "pick_rate": 0.0124,
+     "games": 2920,
+     "pick_rate": 0.0109,
      "win_rate": null
     },
     {
@@ -6675,8 +6648,8 @@
       4,
       14
      ],
-     "games": 3220,
-     "pick_rate": 0.0121,
+     "games": 2780,
+     "pick_rate": 0.0104,
      "win_rate": null
     }
    ]
@@ -6689,8 +6662,8 @@
       4,
       32
      ],
-     "games": 90500,
-     "pick_rate": 0.6359,
+     "games": 89700,
+     "pick_rate": 0.6304,
      "win_rate": null
     },
     {
@@ -6698,8 +6671,8 @@
       4,
       6
      ],
-     "games": 22400,
-     "pick_rate": 0.1572,
+     "games": 22200,
+     "pick_rate": 0.1559,
      "win_rate": null
     },
     {
@@ -6707,8 +6680,8 @@
       4,
       14
      ],
-     "games": 18400,
-     "pick_rate": 0.1294,
+     "games": 18100,
+     "pick_rate": 0.127,
      "win_rate": null
     },
     {
@@ -6716,8 +6689,8 @@
       4,
       21
      ],
-     "games": 4990,
-     "pick_rate": 0.0351,
+     "games": 5870,
+     "pick_rate": 0.0412,
      "win_rate": null
     },
     {
@@ -6725,8 +6698,8 @@
       4,
       7
      ],
-     "games": 3170,
-     "pick_rate": 0.0223,
+     "games": 3640,
+     "pick_rate": 0.0256,
      "win_rate": null
     },
     {
@@ -6734,8 +6707,8 @@
       4,
       13
      ],
-     "games": 2530,
-     "pick_rate": 0.0178,
+     "games": 2510,
+     "pick_rate": 0.0176,
      "win_rate": null
     }
    ]
@@ -6749,7 +6722,7 @@
       32
      ],
      "games": 164000,
-     "pick_rate": 0.3684,
+     "pick_rate": 0.3683,
      "win_rate": null
     },
     {
@@ -6757,17 +6730,8 @@
       4,
       6
      ],
-     "games": 131000,
-     "pick_rate": 0.2939,
-     "win_rate": null
-    },
-    {
-     "ids": [
-      1,
-      4
-     ],
-     "games": 56300,
-     "pick_rate": 0.1267,
+     "games": 129000,
+     "pick_rate": 0.2914,
      "win_rate": null
     },
     {
@@ -6775,8 +6739,17 @@
       4,
       21
      ],
-     "games": 55100,
-     "pick_rate": 0.1239,
+     "games": 56500,
+     "pick_rate": 0.1273,
+     "win_rate": null
+    },
+    {
+     "ids": [
+      1,
+      4
+     ],
+     "games": 56200,
+     "pick_rate": 0.1265,
      "win_rate": null
     },
     {
@@ -6784,8 +6757,8 @@
       4,
       7
      ],
-     "games": 28700,
-     "pick_rate": 0.0646,
+     "games": 28500,
+     "pick_rate": 0.0641,
      "win_rate": null
     },
     {
@@ -6793,8 +6766,8 @@
       4,
       14
      ],
-     "games": 6750,
-     "pick_rate": 0.0152,
+     "games": 6690,
+     "pick_rate": 0.0151,
      "win_rate": null
     }
    ]
@@ -6808,7 +6781,7 @@
       6
      ],
      "games": 166000,
-     "pick_rate": 0.5385,
+     "pick_rate": 0.5388,
      "win_rate": null
     },
     {
@@ -6816,8 +6789,8 @@
       4,
       32
      ],
-     "games": 91100,
-     "pick_rate": 0.296,
+     "games": 90900,
+     "pick_rate": 0.2953,
      "win_rate": null
     },
     {
@@ -6825,8 +6798,8 @@
       4,
       21
      ],
-     "games": 14800,
-     "pick_rate": 0.048,
+     "games": 15200,
+     "pick_rate": 0.0495,
      "win_rate": null
     },
     {
@@ -6834,8 +6807,8 @@
       4,
       7
      ],
-     "games": 13000,
-     "pick_rate": 0.0423,
+     "games": 13100,
+     "pick_rate": 0.0425,
      "win_rate": null
     },
     {
@@ -6843,8 +6816,8 @@
       1,
       4
      ],
-     "games": 11300,
-     "pick_rate": 0.0368,
+     "games": 11000,
+     "pick_rate": 0.0359,
      "win_rate": null
     },
     {
@@ -6852,8 +6825,8 @@
       4,
       14
      ],
-     "games": 7320,
-     "pick_rate": 0.0238,
+     "games": 7180,
+     "pick_rate": 0.0233,
      "win_rate": null
     },
     {
@@ -6861,7 +6834,7 @@
       4,
       13
      ],
-     "games": 4500,
+     "games": 4490,
      "pick_rate": 0.0146,
      "win_rate": null
     }
@@ -6875,8 +6848,8 @@
       4,
       6
      ],
-     "games": 154000,
-     "pick_rate": 0.4891,
+     "games": 151000,
+     "pick_rate": 0.4791,
      "win_rate": null
     },
     {
@@ -6885,7 +6858,7 @@
       32
      ],
      "games": 73200,
-     "pick_rate": 0.2322,
+     "pick_rate": 0.2325,
      "win_rate": null
     },
     {
@@ -6893,8 +6866,8 @@
       1,
       4
      ],
-     "games": 45900,
-     "pick_rate": 0.1456,
+     "games": 48700,
+     "pick_rate": 0.1547,
      "win_rate": null
     },
     {
@@ -6902,8 +6875,8 @@
       4,
       21
      ],
-     "games": 28300,
-     "pick_rate": 0.0897,
+     "games": 28900,
+     "pick_rate": 0.0916,
      "win_rate": null
     },
     {
@@ -6911,8 +6884,8 @@
       4,
       7
      ],
-     "games": 11100,
-     "pick_rate": 0.0352,
+     "games": 10500,
+     "pick_rate": 0.0334,
      "win_rate": null
     }
    ]
@@ -6925,8 +6898,8 @@
       4,
       32
      ],
-     "games": 348000,
-     "pick_rate": 0.6359,
+     "games": 349000,
+     "pick_rate": 0.6368,
      "win_rate": null
     },
     {
@@ -6934,8 +6907,8 @@
       4,
       6
      ],
-     "games": 89200,
-     "pick_rate": 0.163,
+     "games": 89800,
+     "pick_rate": 0.164,
      "win_rate": null
     },
     {
@@ -6943,8 +6916,8 @@
       4,
       14
      ],
-     "games": 67900,
-     "pick_rate": 0.1241,
+     "games": 68500,
+     "pick_rate": 0.1251,
      "win_rate": null
     },
     {
@@ -6952,8 +6925,8 @@
       4,
       21
      ],
-     "games": 22100,
-     "pick_rate": 0.0404,
+     "games": 21000,
+     "pick_rate": 0.0383,
      "win_rate": null
     },
     {
@@ -6961,8 +6934,8 @@
       4,
       7
      ],
-     "games": 10800,
-     "pick_rate": 0.0198,
+     "games": 10300,
+     "pick_rate": 0.0189,
      "win_rate": null
     },
     {
@@ -6970,7 +6943,7 @@
       4,
       13
      ],
-     "games": 7640,
+     "games": 7650,
      "pick_rate": 0.014,
      "win_rate": null
     }
@@ -6985,7 +6958,7 @@
       32
      ],
      "games": 400000,
-     "pick_rate": 0.8946,
+     "pick_rate": 0.895,
      "win_rate": null
     },
     {
@@ -6993,8 +6966,8 @@
       4,
       6
      ],
-     "games": 24600,
-     "pick_rate": 0.0551,
+     "games": 24500,
+     "pick_rate": 0.0549,
      "win_rate": null
     },
     {
@@ -7011,8 +6984,8 @@
       4,
       21
      ],
-     "games": 6190,
-     "pick_rate": 0.0138,
+     "games": 6070,
+     "pick_rate": 0.0136,
      "win_rate": null
     }
    ]
@@ -7026,7 +6999,7 @@
       32
      ],
      "games": 360000,
-     "pick_rate": 0.7487,
+     "pick_rate": 0.7488,
      "win_rate": null
     },
     {
@@ -7034,8 +7007,8 @@
       4,
       6
      ],
-     "games": 90800,
-     "pick_rate": 0.1889,
+     "games": 90900,
+     "pick_rate": 0.1891,
      "win_rate": null
     },
     {
@@ -7043,8 +7016,8 @@
       4,
       14
      ],
-     "games": 20900,
-     "pick_rate": 0.0435,
+     "games": 21000,
+     "pick_rate": 0.0436,
      "win_rate": null
     },
     {
@@ -7052,8 +7025,8 @@
       4,
       21
      ],
-     "games": 6360,
-     "pick_rate": 0.0132,
+     "games": 6210,
+     "pick_rate": 0.0129,
      "win_rate": null
     }
    ]
@@ -7066,8 +7039,8 @@
       4,
       32
      ],
-     "games": 89300,
-     "pick_rate": 0.3032,
+     "games": 92000,
+     "pick_rate": 0.3121,
      "win_rate": null
     },
     {
@@ -7075,8 +7048,8 @@
       4,
       7
      ],
-     "games": 82200,
-     "pick_rate": 0.279,
+     "games": 84700,
+     "pick_rate": 0.2875,
      "win_rate": null
     },
     {
@@ -7084,8 +7057,8 @@
       4,
       6
      ],
-     "games": 58200,
-     "pick_rate": 0.1975,
+     "games": 48600,
+     "pick_rate": 0.1651,
      "win_rate": null
     },
     {
@@ -7093,8 +7066,8 @@
       4,
       13
      ],
-     "games": 35200,
-     "pick_rate": 0.1194,
+     "games": 36200,
+     "pick_rate": 0.123,
      "win_rate": null
     },
     {
@@ -7102,8 +7075,8 @@
       4,
       14
      ],
-     "games": 20900,
-     "pick_rate": 0.0711,
+     "games": 23900,
+     "pick_rate": 0.0811,
      "win_rate": null
     },
     {
@@ -7111,8 +7084,8 @@
       4,
       21
      ],
-     "games": 7570,
-     "pick_rate": 0.0257,
+     "games": 8050,
+     "pick_rate": 0.0273,
      "win_rate": null
     }
    ]
@@ -7125,8 +7098,8 @@
       4,
       32
      ],
-     "games": 285000,
-     "pick_rate": 0.8789,
+     "games": 284000,
+     "pick_rate": 0.8788,
      "win_rate": null
     },
     {
@@ -7134,8 +7107,8 @@
       4,
       6
      ],
-     "games": 29400,
-     "pick_rate": 0.0907,
+     "games": 29000,
+     "pick_rate": 0.0895,
      "win_rate": null
     },
     {
@@ -7143,8 +7116,8 @@
       4,
       14
      ],
-     "games": 4420,
-     "pick_rate": 0.0137,
+     "games": 4370,
+     "pick_rate": 0.0135,
      "win_rate": null
     }
    ]
@@ -7157,8 +7130,8 @@
       4,
       32
      ],
-     "games": 271000,
-     "pick_rate": 0.7923,
+     "games": 272000,
+     "pick_rate": 0.7925,
      "win_rate": null
     },
     {
@@ -7166,8 +7139,8 @@
       4,
       6
      ],
-     "games": 44200,
-     "pick_rate": 0.1289,
+     "games": 43600,
+     "pick_rate": 0.1273,
      "win_rate": null
     },
     {
@@ -7175,8 +7148,8 @@
       4,
       14
      ],
-     "games": 17800,
-     "pick_rate": 0.052,
+     "games": 17900,
+     "pick_rate": 0.0523,
      "win_rate": null
     },
     {
@@ -7199,7 +7172,7 @@
       32
      ],
      "games": 194000,
-     "pick_rate": 0.4459,
+     "pick_rate": 0.446,
      "win_rate": null
     },
     {
@@ -7208,7 +7181,7 @@
       6
      ],
      "games": 124000,
-     "pick_rate": 0.2862,
+     "pick_rate": 0.2856,
      "win_rate": null
     },
     {
@@ -7217,7 +7190,7 @@
       7
      ],
      "games": 39300,
-     "pick_rate": 0.0905,
+     "pick_rate": 0.0906,
      "win_rate": null
     },
     {
@@ -7225,8 +7198,8 @@
       4,
       21
      ],
-     "games": 28300,
-     "pick_rate": 0.0653,
+     "games": 28000,
+     "pick_rate": 0.0646,
      "win_rate": null
     },
     {
@@ -7243,8 +7216,8 @@
       1,
       4
      ],
-     "games": 21500,
-     "pick_rate": 0.0495,
+     "games": 21900,
+     "pick_rate": 0.0506,
      "win_rate": null
     }
    ]
@@ -7257,8 +7230,8 @@
       4,
       32
      ],
-     "games": 164000,
-     "pick_rate": 0.7859,
+     "games": 162000,
+     "pick_rate": 0.7754,
      "win_rate": null
     },
     {
@@ -7266,8 +7239,8 @@
       4,
       6
      ],
-     "games": 27300,
-     "pick_rate": 0.1306,
+     "games": 30000,
+     "pick_rate": 0.1434,
      "win_rate": null
     },
     {
@@ -7275,8 +7248,8 @@
       4,
       7
      ],
-     "games": 10300,
-     "pick_rate": 0.0494,
+     "games": 9920,
+     "pick_rate": 0.0475,
      "win_rate": null
     },
     {
@@ -7284,8 +7257,8 @@
       4,
       13
      ],
-     "games": 2250,
-     "pick_rate": 0.0108,
+     "games": 2220,
+     "pick_rate": 0.0106,
      "win_rate": null
     }
    ]
@@ -7299,7 +7272,7 @@
       32
      ],
      "games": 195000,
-     "pick_rate": 0.6139,
+     "pick_rate": 0.6141,
      "win_rate": null
     },
     {
@@ -7307,8 +7280,8 @@
       4,
       6
      ],
-     "games": 59300,
-     "pick_rate": 0.1865,
+     "games": 59200,
+     "pick_rate": 0.1863,
      "win_rate": null
     },
     {
@@ -7316,7 +7289,7 @@
       4,
       13
      ],
-     "games": 18400,
+     "games": 18500,
      "pick_rate": 0.058,
      "win_rate": null
     },
@@ -7325,8 +7298,8 @@
       4,
       14
      ],
-     "games": 18200,
-     "pick_rate": 0.0571,
+     "games": 18100,
+     "pick_rate": 0.057,
      "win_rate": null
     },
     {
@@ -7334,8 +7307,8 @@
       4,
       7
      ],
-     "games": 13300,
-     "pick_rate": 0.0418,
+     "games": 13500,
+     "pick_rate": 0.0424,
      "win_rate": null
     },
     {
@@ -7343,8 +7316,8 @@
       4,
       21
      ],
-     "games": 11900,
-     "pick_rate": 0.0374,
+     "games": 11700,
+     "pick_rate": 0.0369,
      "win_rate": null
     }
    ]
@@ -7358,7 +7331,7 @@
       32
      ],
      "games": 247000,
-     "pick_rate": 0.5823,
+     "pick_rate": 0.582,
      "win_rate": null
     },
     {
@@ -7366,8 +7339,8 @@
       4,
       6
      ],
-     "games": 85100,
-     "pick_rate": 0.2008,
+     "games": 86900,
+     "pick_rate": 0.205,
      "win_rate": null
     },
     {
@@ -7375,8 +7348,8 @@
       4,
       21
      ],
-     "games": 31300,
-     "pick_rate": 0.0739,
+     "games": 28800,
+     "pick_rate": 0.0679,
      "win_rate": null
     },
     {
@@ -7402,8 +7375,8 @@
       4,
       7
      ],
-     "games": 13600,
-     "pick_rate": 0.032,
+     "games": 13800,
+     "pick_rate": 0.0327,
      "win_rate": null
     },
     {
@@ -7411,8 +7384,8 @@
       1,
       4
      ],
-     "games": 4640,
-     "pick_rate": 0.0109,
+     "games": 5300,
+     "pick_rate": 0.0125,
      "win_rate": null
     }
    ]
@@ -7426,7 +7399,7 @@
       32
      ],
      "games": 387000,
-     "pick_rate": 0.9071,
+     "pick_rate": 0.9061,
      "win_rate": null
     },
     {
@@ -7434,8 +7407,8 @@
       4,
       6
      ],
-     "games": 31600,
-     "pick_rate": 0.074,
+     "games": 31900,
+     "pick_rate": 0.0748,
      "win_rate": null
     }
    ]
@@ -7449,7 +7422,7 @@
       32
      ],
      "games": 144000,
-     "pick_rate": 0.4481,
+     "pick_rate": 0.4476,
      "win_rate": null
     },
     {
@@ -7458,7 +7431,7 @@
       6
      ],
      "games": 138000,
-     "pick_rate": 0.4284,
+     "pick_rate": 0.4287,
      "win_rate": null
     },
     {
@@ -7466,8 +7439,8 @@
       4,
       21
      ],
-     "games": 16100,
-     "pick_rate": 0.0501,
+     "games": 16200,
+     "pick_rate": 0.0504,
      "win_rate": null
     },
     {
@@ -7475,8 +7448,8 @@
       4,
       7
      ],
-     "games": 8030,
-     "pick_rate": 0.0249,
+     "games": 8050,
+     "pick_rate": 0.025,
      "win_rate": null
     },
     {
@@ -7484,7 +7457,7 @@
       4,
       13
      ],
-     "games": 7160,
+     "games": 7150,
      "pick_rate": 0.0222,
      "win_rate": null
     },
@@ -7493,8 +7466,8 @@
       4,
       14
      ],
-     "games": 5970,
-     "pick_rate": 0.0185,
+     "games": 5880,
+     "pick_rate": 0.0183,
      "win_rate": null
     }
    ]
@@ -7505,19 +7478,19 @@
     {
      "ids": [
       4,
-      32
+      6
      ],
-     "games": 147000,
-     "pick_rate": 0.424,
+     "games": 140000,
+     "pick_rate": 0.405,
      "win_rate": null
     },
     {
      "ids": [
       4,
-      6
+      32
      ],
-     "games": 123000,
-     "pick_rate": 0.3562,
+     "games": 138000,
+     "pick_rate": 0.4002,
      "win_rate": null
     },
     {
@@ -7525,8 +7498,8 @@
       4,
       7
      ],
-     "games": 25200,
-     "pick_rate": 0.0729,
+     "games": 19600,
+     "pick_rate": 0.0567,
      "win_rate": null
     },
     {
@@ -7534,8 +7507,8 @@
       4,
       21
      ],
-     "games": 18800,
-     "pick_rate": 0.0544,
+     "games": 17400,
+     "pick_rate": 0.0502,
      "win_rate": null
     },
     {
@@ -7543,8 +7516,8 @@
       4,
       14
      ],
-     "games": 15800,
-     "pick_rate": 0.0458,
+     "games": 14900,
+     "pick_rate": 0.0432,
      "win_rate": null
     },
     {
@@ -7552,8 +7525,8 @@
       4,
       13
      ],
-     "games": 14400,
-     "pick_rate": 0.0418,
+     "games": 13600,
+     "pick_rate": 0.0395,
      "win_rate": null
     }
    ]
@@ -7566,8 +7539,8 @@
       4,
       32
      ],
-     "games": 136000,
-     "pick_rate": 0.4394,
+     "games": 138000,
+     "pick_rate": 0.4448,
      "win_rate": null
     },
     {
@@ -7575,8 +7548,8 @@
       4,
       6
      ],
-     "games": 109000,
-     "pick_rate": 0.3523,
+     "games": 107000,
+     "pick_rate": 0.3471,
      "win_rate": null
     },
     {
@@ -7584,8 +7557,8 @@
       4,
       21
      ],
-     "games": 18900,
-     "pick_rate": 0.0612,
+     "games": 18700,
+     "pick_rate": 0.0603,
      "win_rate": null
     },
     {
@@ -7593,8 +7566,8 @@
       4,
       7
      ],
-     "games": 16400,
-     "pick_rate": 0.053,
+     "games": 16800,
+     "pick_rate": 0.0543,
      "win_rate": null
     },
     {
@@ -7602,8 +7575,8 @@
       1,
       4
      ],
-     "games": 14600,
-     "pick_rate": 0.0474,
+     "games": 14200,
+     "pick_rate": 0.0461,
      "win_rate": null
     },
     {
@@ -7611,8 +7584,8 @@
       4,
       14
      ],
-     "games": 13600,
-     "pick_rate": 0.0441,
+     "games": 13900,
+     "pick_rate": 0.0448,
      "win_rate": null
     }
    ]
@@ -7648,8 +7621,8 @@
       4,
       32
      ],
-     "games": 97000,
-     "pick_rate": 0.6426,
+     "games": 99200,
+     "pick_rate": 0.6571,
      "win_rate": null
     },
     {
@@ -7657,8 +7630,8 @@
       4,
       6
      ],
-     "games": 27400,
-     "pick_rate": 0.1815,
+     "games": 24300,
+     "pick_rate": 0.1608,
      "win_rate": null
     },
     {
@@ -7666,8 +7639,8 @@
       4,
       14
      ],
-     "games": 19300,
-     "pick_rate": 0.1279,
+     "games": 19000,
+     "pick_rate": 0.1257,
      "win_rate": null
     },
     {
@@ -7675,8 +7648,8 @@
       4,
       21
      ],
-     "games": 5100,
-     "pick_rate": 0.0338,
+     "games": 6120,
+     "pick_rate": 0.0405,
      "win_rate": null
     }
    ]
@@ -7689,8 +7662,8 @@
       4,
       32
      ],
-     "games": 107000,
-     "pick_rate": 0.5591,
+     "games": 110000,
+     "pick_rate": 0.5729,
      "win_rate": null
     },
     {
@@ -7698,8 +7671,8 @@
       4,
       6
      ],
-     "games": 41500,
-     "pick_rate": 0.2167,
+     "games": 38300,
+     "pick_rate": 0.1997,
      "win_rate": null
     },
     {
@@ -7707,8 +7680,8 @@
       4,
       13
      ],
-     "games": 13700,
-     "pick_rate": 0.0714,
+     "games": 14000,
+     "pick_rate": 0.0731,
      "win_rate": null
     },
     {
@@ -7716,8 +7689,8 @@
       4,
       7
      ],
-     "games": 9790,
-     "pick_rate": 0.0511,
+     "games": 10300,
+     "pick_rate": 0.0536,
      "win_rate": null
     },
     {
@@ -7725,8 +7698,8 @@
       4,
       21
      ],
-     "games": 9240,
-     "pick_rate": 0.0482,
+     "games": 8590,
+     "pick_rate": 0.0448,
      "win_rate": null
     },
     {
@@ -7734,8 +7707,8 @@
       4,
       14
      ],
-     "games": 7820,
-     "pick_rate": 0.0408,
+     "games": 8190,
+     "pick_rate": 0.0428,
      "win_rate": null
     },
     {
@@ -7743,8 +7716,8 @@
       1,
       4
      ],
-     "games": 2450,
-     "pick_rate": 0.0128,
+     "games": 2490,
+     "pick_rate": 0.013,
      "win_rate": null
     }
    ]
@@ -7757,8 +7730,8 @@
       4,
       32
      ],
-     "games": 141000,
-     "pick_rate": 0.8859,
+     "games": 142000,
+     "pick_rate": 0.8873,
      "win_rate": null
     },
     {
@@ -7766,8 +7739,8 @@
       4,
       6
      ],
-     "games": 15100,
-     "pick_rate": 0.0944,
+     "games": 14900,
+     "pick_rate": 0.093,
      "win_rate": null
     }
    ]
