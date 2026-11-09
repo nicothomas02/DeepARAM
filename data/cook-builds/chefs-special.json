@@ -1,297 +1,297 @@
 {
-  "id": "kennen-lightning-strikes-twice",
-  "title": "Lightning Strikes Twice",
-  "champion": "Kennen",
-  "champion_name": "Kennen",
-  "chef": "2026-11-07",
-  "why": "Lightning Rush has a clause nobody reads: the Attack Speed Kennen gains when the ball form ends is extended by a second every time he Critically Strikes, so a Kennen who crits on every attack simply never comes down from it. Critical Rhythm and Zealot hand him the crit chance and stack even more Attack Speed on each crit, and Tickle Monster converts his Attack Damage into Attack Speed and adds magic damage On-Hit, so his crits stop being about the physical hit and become a metronome that keeps the Rush running. Double Tap is the payoff: every crit applies On-Hit effects a second time, so Tickle Monster, Nashor's Tooth and Wit's End all land twice per attack, and so does Electrical Surge's every-fifth-attack lightning, which is On-Hit too. Nashor's Tooth pours Ability Power into all of that, Runaan's Hurricane carries the doubled On-Hits to two more enemies, Phantom Dancer and Navori Flickerblade fill out the crit chance, and Navori's attacks shave the cooldowns of Thundering Shuriken, Electrical Surge and Lightning Rush so the stun comes back faster. The burst mage who hides behind his ultimate becomes a zero-Attack-Damage crit marksman who never stops right-clicking.",
-  "play": "Open with Lightning Rush, then never stop right-clicking: as long as the crits keep coming the Attack Speed never ends. Weave Thundering Shuriken and Electrical Surge between attacks for the stun, and save Slicing Maelstrom for the teamfight.",
+  "id": "rakan-hits-the-gym",
+  "title": "Rakan Hits The Gym",
+  "champion": "Rakan",
+  "champion_name": "Rakan",
+  "chef": "2026-11-08",
+  "why": "Rakan's Gleaming Quill heals Rakan himself as well as his allies, and his Fey Feathers passive hands him a free shield every so often. Protein Shake turns bonus Armor and Magic Resist into Heal and Shield Power, and Windspeaker's Blessing makes every heal and shield he lands raise the target's Armor and Magic Resist for 3 seconds, so each self-heal buys him resists that make his next Quill heal and Battle Dance shield bigger. Grand Entrance knocks people up, which pops a Courage of the Colossus shield, and every shield he gains (his own passive included) triggers Mighty Shield for a burst of Adaptive Force into the next Quill. Jak'Sho, Frozen Heart and Force of Nature are pure resists that Protein Shake reads as healing stats, with Jak'Sho even growing them mid-fight, while Spirit Visage makes the heals and shields on him bigger and Locket adds another shield to inflate. The flashy feathered playmaker becomes a six-item gym rat whose heals grow with his armor instead of his Ability Power.",
+  "play": "Open with Grand Entrance into the pile for the shield, Quill yourself mid-fight, then Battle Dance out and watch the shields grow with your armor. Against a team of mages, swap Frozen Heart for Kaenic Rookern.",
   "items": [
-    "Berserker's Greaves",
-    "Nashor's Tooth",
-    "Wit's End",
-    "Runaan's Hurricane",
-    "Phantom Dancer",
-    "Navori Flickerblade"
+    "Jak'Sho, The Protean",
+    "Spirit Visage",
+    "Locket of the Iron Solari",
+    "Frozen Heart",
+    "Force of Nature",
+    "Mercury's Treads"
   ],
   "core": 4,
-  "champion_icon": "/embed/fun/cook-builds/icons/champions/85.png",
+  "champion_icon": "/embed/fun/cook-builds/icons/champions/497.png",
   "augments": [
     {
-      "name": "Critical Rhythm",
-      "rarity": "Gold",
-      "core": true,
-      "text": "Your basic Attack stacks 6% Attack Speed on Critical Strikes up to 10 stacks. Gain 25% Crit chance.",
-      "icon": "/embed/fun/cook-builds/icons/augments/critical-rhythm.png",
-      "id": 1328
-    },
-    {
-      "name": "Double Tap",
+      "name": "Protein Shake",
       "rarity": "Prismatic",
       "core": true,
-      "text": "Your Critical Strikes apply On-Hit effects an additional time. Gain Crit chance.",
-      "icon": "/embed/fun/cook-builds/icons/augments/double-tap.png",
-      "id": 2010
+      "text": "Gain % Heal and Shield Power based on bonus Armor and Magic Resist.",
+      "icon": "/embed/fun/cook-builds/icons/augments/protein-shake.png",
+      "id": 1324
     },
     {
-      "name": "Zealot",
+      "name": "Windspeaker's Blessing",
+      "rarity": "Prismatic",
+      "core": true,
+      "text": "Your Healing and Shielding also increases the target's Armor and Magic Resist by for 3 seconds.",
+      "icon": "/embed/fun/cook-builds/icons/augments/windspeaker-s-blessing.png",
+      "id": 1095
+    },
+    {
+      "name": "Courage of the Colossus",
+      "rarity": "Prismatic",
+      "core": true,
+      "text": "Gain Shield after Immobilizing or Grounding an enemy champion.",
+      "icon": "/embed/fun/cook-builds/icons/augments/courage-of-the-colossus.png",
+      "id": 1018
+    },
+    {
+      "name": "Mighty Shield",
       "rarity": "Silver",
       "core": true,
-      "text": "Gain Critical Strike Chance and Attack Speed.",
-      "icon": "/embed/fun/cook-builds/icons/augments/zealot.png",
-      "id": 2009
-    },
-    {
-      "name": "Tickle Monster",
-      "rarity": "Gold",
-      "core": true,
-      "text": "Attack Damage is convertedinto Attack Speed. Attacks deal bonus magic damage On-Hit.",
-      "icon": "/embed/fun/cook-builds/icons/augments/tickle-monster.png",
-      "id": 3058
+      "text": "Gain Adaptive Force for 3 seconds when you gain a Shield (5 seconds Cooldown).",
+      "icon": "/embed/fun/cook-builds/icons/augments/mighty-shield.png",
+      "id": 1314
     }
   ],
   "href": "/kitchen#chefs-special",
   "archive_href": "/kitchen#chef-archive",
-  "share_href": "/kitchen/2026-11-07",
-  "share_image": "/embed/fun/cook-builds/share/kennen-lightning-strikes-twice.png",
+  "share_href": "/kitchen/2026-11-08",
+  "share_image": "/embed/fun/cook-builds/share/rakan-hits-the-gym.png",
   "item_ids": [
-    3006,
-    3115,
-    3091,
-    3085,
-    3046,
-    6675
+    6665,
+    3065,
+    3190,
+    3110,
+    4401,
+    3111
   ],
   "i18n": {
     "ar": {
-      "title": "البرق يضرب مرتين",
-      "why": "في مهارة E لدى كينين بند لا يقرأه أحد: سرعة الهجوم التي يحصل عليها عند انتهاء هيئة الكرة تمتد ثانية واحدة مع كل ضربة حرجة، لذا فكينين الذي يضرب ضربة حرجة مع كل هجوم لا يفقدها أبدًا. تمنحه الوتيرة الحرجة والمتعصّب فرصة الضربة الحرجة وتكدّسان المزيد من سرعة الهجوم مع كل ضربة حرجة، ويحوّل وحش الدغدغة ضرر الهجوم لديه إلى سرعة هجوم ويضيف ضررًا سحريًا عند الإصابة، فلا تعود ضرباته الحرجة مهمة للضربة الجسدية بل تصبح بندولًا يُبقي مهارة E تعمل. الإصابة المزدوجة هي الجائزة الكبرى: كل ضربة حرجة تطبق تأثيرات عند الإصابة مرة ثانية، لذا يضرب وحش الدغدغة وسن ناشور والموقف الحرج مرتين في كل هجوم، وكذلك برق مهارة W كل خامس هجوم لأنه تأثير عند الإصابة أيضًا. يضخ سن ناشور قوة القدرات في كل ذلك، وينقل إعصار رونان التأثيرات المضاعفة إلى عدوين آخرين، ويكمل الراقص الشبح ونصال نافوري الخاطفة فرصة الضربة الحرجة، وتقلّص هجمات النصال فترات تهدئة Q وW وE فيعود الصعق أسرع. يتحول ساحر الانفجار الذي يختبئ خلف قدرته القصوى إلى رامٍ للضربات الحرجة بلا ضرر هجوم لا يتوقف عن النقر الأيمن أبدًا.",
-      "play": "ابدأ بمهارة E ثم لا تتوقف عن النقر الأيمن: ما دامت الضربات الحرجة مستمرة فلن تنتهي سرعة الهجوم. أدخل Q وW بين الهجمات من أجل الصعق، واحتفظ بـR لمعركة الفريق.",
+      "title": "راكان في النادي الرياضي",
+      "why": "مهارة Q عند راكان تشفي راكان نفسه وحلفاءه، وقدرته السلبية تمنحه درعًا مجانيًا بين فترة وأخرى. مشروب البروتين يحوّل الدرع والمقاومة السحرية الإضافيين إلى قوة الشفاء والدروع، وبركة مناجي الرياح تجعل كل شفاء ودرع يطبقهما يرفعان درع الهدف ومقاومته السحرية لمدة 3 ثوانٍ، فكل شفاء ذاتي يمنحه مقاومات تكبّر شفاء Q التالي ودرع E. مهارة W ترفع الأعداء في الهواء فتفعّل درع شجاعة العملاق، وكل درع يكتسبه (بما فيه الدرع من قدرته السلبية) يفعّل الدرع الجبار لدفعة من القوة التكيفية في Q التالية. جاكشو، المتلون والقلب المتجمد وقوة الطبيعة مقاومات خالصة يقرؤها مشروب البروتين كإحصائيات شفاء، وجاكشو يزيدها حتى أثناء القتال، بينما وجه الروح يكبّر الشفاء والدروع الواقعة عليه وقلادة سولاري الحديدي تضيف درعًا آخر لتضخيمه. اللاعب المبهرج المريّش يتحول إلى مدمن نادٍ رياضي بستة عناصر، يكبر شفاؤه مع درعه بدلًا من قوة القدرات.",
+      "play": "ابدأ بـ W داخل التجمع للحصول على الدرع، اشفِ نفسك بـ Q وسط القتال، ثم اخرج بـ E وشاهد الدروع تكبر مع درعك. ضد فريق سحرة، بدّل القلب المتجمد بـ الخداع الملتهب.",
       "augments": [
-        "يكدّس هجومك الأساسي 6% من سرعة الهجوم عند الضربات الحرجة، حتى 10 تكديسات. تحصل على 25% فرصة ضربة حرجة.",
-        "تطبّق ضرباتك الحرجة تأثيرات عند الإصابة مرة إضافية. تحصل على فرصة ضربة حرجة.",
-        "تحصل على فرصة ضربة حرجة وسرعة هجوم.",
-        "تتحول قوة الهجوم إلى سرعة هجوم. تُلحق الهجمات ضررًا سحريًا إضافيًا عند الضرب."
+        "اكتسب  % من قوة الشفاء والدروع بناءً على الدرع والمقاومة السحرية الإضافيين.",
+        "شفاؤك ودروعك يزيدان أيضًا درع الهدف ومقاومته السحرية بمقدار  لمدة 3 ثوانٍ.",
+        "اكتسب درعًا بقيمة  بعد تثبيت أو رفع بطل عدو في الهواء.",
+        "تكسب القوة التكيفية لمدة 3 ثواني عند كسب درع (وقت التهدئة 5 ثواني)."
       ]
     },
     "cs": {
-      "title": "Blesk udeří dvakrát",
-      "why": "Kennenovo E má klauzuli, kterou nikdo nečte: rychlost útoků, kterou získá po skončení podoby koule, se prodlouží o sekundu s každým kritickým zásahem, takže Kennen, který kritne každým útokem, o ni prostě nikdy nepřijde. Kritický rytmus a Fanatik mu dají šanci na kritický zásah a s každým kritem nakupí ještě víc rychlosti útoků, a Lechtavá příšera přemění jeho útočné poškození na rychlost útoků a přidá magické poškození při zásahu, takže jeho krity už nejsou o fyzickém úderu, ale stanou se metronomem, který udržuje jeho E v chodu. Dvojitý zásah je třešnička: každý krit použije efekty při zásahu podruhé, takže Lechtavá příšera, Nashorův tesák a Nouzová zasáhnou dvakrát za útok, a stejně tak blesk z jeho W každý pátý útok, který je také efektem při zásahu. Nashorův tesák do toho všeho nalévá sílu schopností, Runaanin hurikán nese zdvojené efekty na dva další nepřátele, Tančící přízrak a Blikavá čepel Navori doplní šanci na krit a útoky Blikavé čepele zkracují přebíjení Q, W a E, takže omráčení se vrací rychleji. Burst mág, který se schovává za svou superschopnost, se stane kritovým střelcem bez útočného poškození, který nikdy nepřestane klikat pravým.",
-      "play": "Začni s E a pak nepřestávej klikat pravým: dokud padají krity, rychlost útoků nikdy neskončí. Mezi útoky vkládej Q a W kvůli omráčení a R si nech na týmový boj.",
+      "title": "Rakan v posilovně",
+      "why": "Rakanovo Q léčí Rakana samotného i jeho spojence a jeho pasivka mu čas od času dá štít zdarma. Proteinový koktejl mění bonusovou zbroj a magickou odolnost na sílu léčení a štítů a Požehnání zaříkávače větru způsobí, že každé léčení a štít, které udělí, zvýší cíli zbroj a magickou odolnost na 3 sekundy, takže každé vlastní léčení mu dá odolnosti, které zvětší jeho další léčení Q i štít E. W vyhazuje nepřátele do vzduchu, což spustí štít z Kolosovy odvahy, a každý získaný štít (včetně pasivky) aktivuje Mocný štít pro nárůst Adaptivní síly do dalšího Q. Proměnlivý Jak'Sho, Ledové srdce a Síla přírody jsou čisté odolnosti, které Proteinový koktejl čte jako léčebné staty, přičemž Jak'Sho je dokonce zvyšuje uprostřed boje, zatímco Otisk duše zvětšuje léčení a štíty na něj a Medailónek železných Solari přidává další štít k nafouknutí. Okázalý opeřený playmaker se tak mění na šestipředmětového gymráka, jehož léčení roste se zbrojí místo se Silou schopností.",
+      "play": "Začni W do hloučku pro štít, během boje se Qčkem vyléč, pak se E vytáhni ven a sleduj, jak štíty rostou s tvou zbrojí. Proti týmu mágů vyměň Ledové srdce za Kaenic Rookern.",
       "augments": [
-        "Tvůj základní útok při kritických zásazích přidává 6 % rychlosti útoků, až do 10 účinků. Získáš 25% šanci na kritický zásah.",
-        "Tvé kritické zásahy použijí efekty při zásahu ještě jednou. Získáš šanci na kritický zásah.",
-        "Získáš šanci na kritický zásah a rychlost útoků.",
-        "Síla útoku se mění na rychlost útoku. Útoky způsobují bonusové magické poškození při zásahu."
+        "Získáš  % síly léčení a štítů podle bonusové zbroje a magické odolnosti.",
+        "Tvé léčení a štíty také zvyšují zbroj a magickou odolnost cíle o  na 3 sekundy.",
+        "Získáš štít o síle  po znehybnění nebo vyhození nepřátelského šampiona do vzduchu.",
+        "Získáš Adaptivní sílu na 3 sekundy, když získáš Štít (cooldown 5 sekund)."
       ]
     },
     "de": {
-      "title": "Der Blitz schlägt zweimal ein",
-      "why": "Kennens E hat eine Klausel, die niemand liest: Das Angriffstempo, das er nach der Kugelform erhält, verlängert sich mit jedem kritischen Treffer um eine Sekunde, also hört ein Kennen, der bei jedem Angriff kritisch trifft, einfach nie damit auf. Kritischer Rhythmus und Eiferer geben ihm die kritische Trefferchance und stapeln mit jedem Krit noch mehr Angriffstempo, und Kitzelmonster wandelt seinen Angriffsschaden in Angriffstempo um und fügt Magieschaden bei Treffer hinzu, sodass seine Krits nicht mehr wegen des normalen Treffers zählen, sondern zum Metronom werden, das sein E am Laufen hält. Doppeltreffer ist der Clou: Jeder Krit löst Treffereffekte ein zweites Mal aus, also landen Kitzelmonster, Nashors Zahn und Ende der Weisheit zweimal pro Angriff, und genauso der Blitz seines W bei jedem fünften Angriff, denn der ist ebenfalls ein Treffereffekt. Nashors Zahn pumpt Fähigkeitsstärke in all das, Runaans Wirbelsturm trägt die doppelten Treffereffekte zu zwei weiteren Gegnern, Phantomtänzer und Flimmerklinge der Navori füllen die Krit-Chance auf, und die Angriffe mit der Flimmerklinge verkürzen die Abklingzeiten von Q, W und E, damit die Betäubung schneller zurückkommt. Der Burst-Magier, der sich hinter seiner Ulti versteckt, wird zum Krit-Schützen ohne Angriffsschaden, der nie aufhört zu rechtsklicken.",
-      "play": "Eröffne mit E und hör dann nie auf zu rechtsklicken: Solange die Krits kommen, endet das Angriffstempo nie. Webe Q und W zwischen die Angriffe für die Betäubung ein und heb dir R für den Teamfight auf.",
+      "title": "Rakan im Fitnessstudio",
+      "why": "Rakans Q heilt Rakan selbst und seine Verbündeten, und seine Passive gibt ihm hin und wieder einen kostenlosen Schild. Protein-Shake macht aus zusätzlicher Rüstung und Magieresistenz Heil- und Schildstärke, und Segen des Windflüsterers lässt jede Heilung und jeden Schild, den er verteilt, Rüstung und Magieresistenz des Ziels für 3 Sekunden erhöhen. Jede Selbstheilung bringt ihm also Resistenzen, die seine nächste Q-Heilung und seinen E-Schild größer machen. W schleudert Gegner in die Luft, was einen Schild von Mut des Kolosses auslöst, und jeder Schild, den er erhält (auch seine Passive), aktiviert Mächtiger Schild für einen Schub Adaptive Kraft auf das nächste Q. Jak'Sho, der Proteaner, Gefrorenes Herz und Naturgewalt sind reine Resistenzen, die Protein-Shake als Heilwerte liest, wobei Jak'Sho sie mitten im Kampf sogar wachsen lässt, während Geistessicht die Heilungen und Schilde auf ihn verstärkt und Amulett der eisernen Solari einen weiteren Schild zum Aufblasen liefert. Der schillernde, gefiederte Playmaker wird zur Gym-Ratte mit sechs Items, deren Heilungen mit seiner Rüstung wachsen statt mit seiner Fähigkeitsstärke.",
+      "play": "Eröffne mit W mitten ins Getümmel für den Schild, heil dich im Kampf per Q selbst, dann mit E raus und schau zu, wie die Schilde mit deiner Rüstung wachsen. Gegen ein Magier-Team tauschst du Gefrorenes Herz gegen Kaenischer Rookern.",
       "augments": [
-        "Dein normaler Angriff stapelt bei kritischen Treffern 6 % Angriffstempo, bis zu 10 Steigerungen. Erhalte 25 % kritische Trefferchance.",
-        "Deine kritischen Treffer lösen Treffereffekte ein weiteres Mal aus. Erhalte kritische Trefferchance.",
-        "Erhalte kritische Trefferchance und Angriffstempo.",
-        "Angriffsschaden wird in Angriffstempo umgewandelt. Angriffe verursachen bei Treffer zusätzlichen magischen Schaden."
+        "Erhalte  % Heil- und Schildstärke basierend auf zusätzlicher Rüstung und Magieresistenz.",
+        "Deine Heilung und Schilde erhöhen außerdem Rüstung und Magieresistenz des Ziels um  für 3 Sekunden.",
+        "Erhalte einen Schild von  nach dem Festsetzen oder Hochschleudern eines gegnerischen Champions.",
+        "Erhalte 3 Sekunden lang Adaptive Kraft, wenn du einen Schild erhältst (5 Sekunden Abklingzeit)."
       ]
     },
     "el": {
-      "title": "Ο κεραυνός χτυπάει δύο φορές",
-      "why": "Το E του Κένεν έχει μια ρήτρα που δεν διαβάζει κανείς: η Ταχύτητα Επίθεσης που παίρνει όταν τελειώνει η μορφή σφαίρας παρατείνεται κατά ένα δευτερόλεπτο σε κάθε Καίριο Πλήγμα, οπότε ένας Κένεν που κάνει καίριο σε κάθε επίθεση απλώς δεν τη χάνει ποτέ. Το Καίριος Ρυθμός και ο Ζηλωτής του δίνουν πιθανότητα καίριου και στοιβάζουν ακόμα περισσότερη Ταχύτητα Επίθεσης σε κάθε καίριο, και το Γαργαλοτέρας μετατρέπει τη Ζημιά Επίθεσής του σε Ταχύτητα Επίθεσης και προσθέτει μαγική ζημιά κατά το χτύπημα, οπότε τα καίριά του δεν μετράνε πια για το φυσικό χτύπημα αλλά γίνονται μετρονόμος που κρατάει το E σε λειτουργία. Το Διπλό Άγγιγμα είναι το μεγάλο έπαθλο: κάθε καίριο εφαρμόζει τα εφέ κατά το χτύπημα δεύτερη φορά, οπότε το Γαργαλοτέρας, το Δόντι του Νάσορ και το Παρανοϊκό Ξίφος χτυπάνε δύο φορές ανά επίθεση, όπως και ο κεραυνός του W κάθε πέμπτη επίθεση, που είναι κι αυτός εφέ κατά το χτύπημα. Το Δόντι του Νάσορ ρίχνει Δύναμη Ικανότητας σε όλα αυτά, ο Τυφώνας του Ρουνάαν πάει τα διπλά εφέ σε δύο ακόμα εχθρούς, ο Χορευτής Φαντασμάτων και η Τρεμολεπίδα των Ναβόρι συμπληρώνουν την πιθανότητα καίριου, και οι επιθέσεις της Τρεμολεπίδας μειώνουν τους χρόνους επαναφόρτισης των Q, W και E ώστε η ακινητοποίηση να επιστρέφει πιο γρήγορα. Ο μάγος έκρηξης που κρύβεται πίσω από την υπέρτατη ικανότητά του γίνεται σκοπευτής καίριων χωρίς Ζημιά Επίθεσης που δεν σταματάει ποτέ το δεξί κλικ.",
-      "play": "Άνοιξε με E και μετά μη σταματήσεις ποτέ το δεξί κλικ: όσο έρχονται τα καίρια, η Ταχύτητα Επίθεσης δεν τελειώνει ποτέ. Βάλε Q και W ανάμεσα στις επιθέσεις για την ακινητοποίηση και κράτα το R για τη μάχη της ομάδας.",
+      "title": "Ο Ρακάν στο Γυμναστήριο",
+      "why": "Το Q του Ρακάν γιατρεύει τον ίδιο τον Ρακάν εκτός από τους συμμάχους του, και το παθητικό του του δίνει κάθε τόσο μια δωρεάν ασπίδα. Το Πρωτεϊνούχο Ρόφημα μετατρέπει τη bonus Πανοπλία και Μαγική Αντίσταση σε Ισχύ Θεραπείας και Ασπίδας, και η Ευλογία του Γητευτή των Ανέμων κάνει κάθε θεραπεία και ασπίδα που εφαρμόζει να αυξάνει την Πανοπλία και τη Μαγική Αντίσταση του στόχου για 3 δευτερόλεπτα, οπότε κάθε αυτο-θεραπεία του δίνει αντιστάσεις που μεγαλώνουν την επόμενη θεραπεία του με Q και την ασπίδα του με E. Το W εκτοξεύει τους εχθρούς στον αέρα, κάτι που ενεργοποιεί την ασπίδα του Κουράγιου του Κολοσσού, και κάθε ασπίδα που παίρνει (και το παθητικό του) ενεργοποιεί την Πανίσχυρη Ασπίδα για μια έκρηξη Προσαρμοστικής Δύναμης στο επόμενο Q. Ο Τζακ'Σο, Ο Πολυμορφικός, η Παγωμένη Καρδιά και η Δύναμη της Φύσης είναι καθαρές αντιστάσεις που το Πρωτεϊνούχο Ρόφημα διαβάζει ως στατιστικά θεραπείας, με τον Τζακ'Σο να τις μεγαλώνει ακόμα και μέσα στη μάχη, ενώ η Όψη Πνευμάτων μεγαλώνει τις θεραπείες και τις ασπίδες που δέχεται και το Έμβλημα των Σιδηρών Σολάρι προσθέτει άλλη μια ασπίδα να φουσκώσει. Ο εντυπωσιακός φτερωτός playmaker γίνεται γυμναστηριακός με έξι αντικείμενα, με θεραπείες που μεγαλώνουν με την πανοπλία του και όχι με την Ισχύ Ικανοτήτων του.",
+      "play": "Άνοιξε με W μέσα στο σωρό για την ασπίδα, γιάτρεψε τον εαυτό σου με Q στη μέση της μάχης, μετά φύγε με E και δες τις ασπίδες να μεγαλώνουν με την πανοπλία σου. Απέναντι σε ομάδα με μάγους, αντάλλαξε την Παγωμένη Καρδιά με Κυνικός Ρυθμός.",
       "augments": [
-        "Η βασική Επίθεσή σου στοιβάζει 6% Ταχύτητα Επίθεσης στα Καίρια Πλήγματα, έως 10 στοίβες. Κερδίζεις 25% πιθανότητα καίριου.",
-        "Τα Καίρια Πλήγματά σου εφαρμόζουν τα εφέ κατά το χτύπημα μία επιπλέον φορά. Κερδίζεις πιθανότητα καίριου.",
-        "Κερδίζεις πιθανότητα Καίριου Πλήγματος και Ταχύτητα Επίθεσης.",
-        "Η Ζημιά Επίθεσης μετατρέπεται σε Ταχύτητα Επίθεσης. Οι επιθέσεις προκαλούν επιπλέον μαγική ζημιά On-Hit."
+        "Κερδίζεις  % Ισχύ Θεραπείας και Ασπίδας βάσει της bonus Πανοπλίας και Μαγικής Αντίστασης.",
+        "Οι θεραπείες και οι ασπίδες σου αυξάνουν επίσης την Πανοπλία και τη Μαγική Αντίσταση του στόχου κατά  για 3 δευτερόλεπτα.",
+        "Κερδίζεις ασπίδα  αφού ακινητοποιήσεις ή εκτοξεύσεις στον αέρα έναν εχθρικό ήρωα.",
+        "Κερδίζεις Προσαρμοστική Δύναμη για 3 δευτερόλεπτα όταν παίρνεις Ασπίδα (5 δευτερόλεπτα Χρόνος Επαναφοράς)."
       ]
     },
     "es-MX": {
-      "title": "El rayo cae dos veces",
-      "why": "La E de Kennen tiene una cláusula que nadie lee: la velocidad de ataque que gana al terminar la forma de bola se alarga un segundo cada vez que conecta un golpe crítico, así que un Kennen que hace crítico en cada ataque simplemente nunca la pierde. Ritmo Crítico y Fanático le dan la probabilidad de crítico y acumulan todavía más velocidad de ataque con cada crítico, y Monstruo de las Cosquillas convierte su daño de ataque en velocidad de ataque y agrega daño mágico al impactar, así que sus críticos ya no importan por el golpe físico y se vuelven un metrónomo que mantiene su E andando. Toque Doble es la cereza del pastel: cada crítico aplica los efectos al impactar una segunda vez, así que Monstruo de las Cosquillas, Diente de Nashor y Al Filo de la Cordura pegan dos veces por ataque, igual que el rayo de su W cada cinco ataques, que también es un efecto al impactar. Diente de Nashor le mete poder de habilidad a todo eso, Huracán de Runaan lleva los efectos dobles a dos enemigos más, Bailarín Espectral y Cuchilla Rauda de Navori completan la probabilidad de crítico, y los ataques de la Cuchilla Rauda reducen los enfriamientos de Q, W y E para que el aturdimiento regrese más rápido. El mago de ráfaga que se esconde detrás de su definitiva se vuelve un tirador de críticos sin daño de ataque que nunca suelta el clic derecho.",
-      "play": "Abre con la E y no sueltes el clic derecho: mientras sigan saliendo críticos, la velocidad de ataque nunca se acaba. Mete Q y W entre ataques para el aturdimiento y guarda la R para la pelea de equipo.",
+      "title": "Rakan va al gym",
+      "why": "La Q de Rakan cura a Rakan mismo además de a sus aliados, y su pasiva le da un escudo gratis cada cierto tiempo. Batido de Proteínas convierte la Armadura y la Resistencia Mágica adicionales en Poder de Curación y Escudo, y Bendición del Portavientos hace que cada curación y escudo que aplica aumente la Armadura y la Resistencia Mágica del objetivo durante 3 segundos, así que cada autocuración le da resistencias que hacen más grandes su siguiente curación con Q y su escudo con E. W lanza a los enemigos por los aires, lo que activa el escudo de Valor del Coloso, y cada escudo que gana (incluida su pasiva) activa Escudo Poderoso para un estallido de Fuerza Adaptable en la siguiente Q. Jak'Sho, el Proteico, Corazón de Hielo y Fuerza de la Naturaleza son pura resistencia que Batido de Proteínas lee como estadísticas de curación, y Jak'Sho hasta las hace crecer en plena pelea, mientras que Apariencia Espiritual agranda las curaciones y los escudos que recibe y Relicario de los Solari de Hierro suma otro escudo para inflar. El llamativo jugador emplumado se vuelve un rata de gym de seis objetos cuyas curaciones crecen con su armadura en lugar de con su Poder de Habilidad.",
+      "play": "Abre con W en el montón para el escudo, cúrate con Q en plena pelea y sal con E viendo cómo los escudos crecen con tu armadura. Contra un equipo de magos, cambia Corazón de Hielo por Rukerno Kaénico.",
       "augments": [
-        "Tu ataque básico acumula 6% de velocidad de ataque con los golpes críticos, hasta 10 acumulaciones. Obtienes 25% de probabilidad de crítico.",
-        "Tus golpes críticos aplican los efectos al impactar una vez más. Obtienes probabilidad de crítico.",
-        "Obtienes probabilidad de golpe crítico y velocidad de ataque.",
-        "El Daño de Ataque se convierte en Velocidad de Ataque. Los ataques infligen daño mágico adicional Al Impactar."
+        "Obtén  % de Poder de Curación y Escudo según la Armadura y la Resistencia Mágica adicionales.",
+        "Tus curaciones y escudos también aumentan la Armadura y la Resistencia Mágica del objetivo en  durante 3 segundos.",
+        "Obtén un escudo de  tras inmovilizar o lanzar por los aires a un campeón enemigo.",
+        "Obtén fuerza adaptativa durante 3 segundos cuando ganes un escudo (5 segundos de enfriamiento)."
       ]
     },
     "es": {
-      "title": "El rayo cae dos veces",
-      "why": "La E de Kennen tiene una cláusula que nadie lee: la velocidad de ataque que gana al terminar la forma de bola se alarga un segundo cada vez que asesta un golpe crítico, así que un Kennen que hace crítico en cada ataque simplemente nunca la pierde. Ritmo crítico y Fanático le dan la probabilidad de crítico y acumulan aún más velocidad de ataque con cada crítico, y Monstruo de las cosquillas convierte su daño de ataque en velocidad de ataque y añade daño mágico al impactar, así que sus críticos dejan de importar por el golpe físico y se vuelven un metrónomo que mantiene su E en marcha. Redoble es el premio gordo: cada crítico aplica los efectos al impactar una segunda vez, así que Monstruo de las cosquillas, Diente de Nashor y Final del ingenio golpean dos veces por ataque, igual que el rayo de su W cada cinco ataques, que también es un efecto al impactar. Diente de Nashor mete poder de habilidad a todo eso, Huracán de Runaan lleva los efectos dobles a dos enemigos más, Bailarín espectral y Filofugaz de Navori completan la probabilidad de crítico, y los ataques de Filofugaz reducen los enfriamientos de Q, W y E para que el aturdimiento vuelva antes. El mago de ráfaga que se esconde tras su definitiva se convierte en un tirador de críticos sin daño de ataque que nunca deja de hacer clic derecho.",
-      "play": "Abre con la E y no dejes de hacer clic derecho: mientras sigan saliendo críticos, la velocidad de ataque no se acaba. Mete Q y W entre ataques para el aturdimiento y guarda la R para la pelea en equipo.",
+      "title": "Rakan va al gimnasio",
+      "why": "El Q de Rakan cura a Rakan además de a sus aliados, y su pasiva le da un escudo gratis cada cierto tiempo. Batido de proteína convierte la Armadura y la Resistencia mágica adicionales en Poder de curación y escudo, y Bendición de hablavientos hace que cada curación y escudo que aplica aumente la Armadura y la Resistencia mágica del objetivo durante 3 segundos, así que cada autocuración le da resistencias que hacen más grandes su siguiente curación Q y su escudo E. W lanza a los enemigos por los aires, lo que activa el escudo de Coraje del coloso, y cada escudo que gana (incluida su pasiva) activa Escudo de fuerza para un estallido de Fuerza adaptativa en el siguiente Q. Jak'Sho el Proteico, Corazón de hielo y Fuerza de la naturaleza son resistencias puras que Batido de proteína lee como estadísticas de curación, e incluso Jak'Sho las hace crecer en pleno combate, mientras que Rostro espiritual agranda las curaciones y los escudos que recibe y Medallón de los Solari de Hierro añade otro escudo que inflar. El llamativo jugón emplumado se convierte en un ratón de gimnasio de seis objetos cuyas curaciones crecen con su armadura en vez de con su Poder de habilidad.",
+      "play": "Abre con W en el montón para el escudo, cúrrate con Q en mitad del combate y sal con E viendo cómo los escudos crecen con tu armadura. Contra un equipo de magos, cambia Corazón de hielo por Rookern kaénico.",
       "augments": [
-        "Tu ataque básico acumula un 6 % de velocidad de ataque con los golpes críticos, hasta 10 acumulaciones. Obtienes un 25 % de probabilidad de crítico.",
-        "Tus golpes críticos aplican los efectos al impactar una vez más. Obtienes probabilidad de crítico.",
-        "Obtienes probabilidad de golpe crítico y velocidad de ataque.",
-        "El daño de ataque se convierte en velocidad de ataque. Los ataques infligen daño mágico adicional al impactar."
+        "Obtén  % de Poder de curación y escudo según la Armadura y la Resistencia mágica adicionales.",
+        "Tus curaciones y escudos también aumentan la Armadura y la Resistencia mágica del objetivo en  durante 3 segundos.",
+        "Obtén un escudo de  tras inmovilizar o lanzar por los aires a un campeón enemigo.",
+        "Obtén fuerza adaptable durante 3 segundos cuando ganes un escudo (5 segundos de enfriamiento)."
       ]
     },
     "fr": {
-      "title": "La foudre frappe deux fois",
-      "why": "Le E de Kennen cache une clause que personne ne lit : la vitesse d'attaque qu'il gagne à la fin de sa forme de boule est prolongée d'une seconde à chaque coup critique, donc un Kennen qui crit à chaque attaque n'en redescend tout simplement jamais. Rythme critique et Zélote lui donnent les chances de coup critique et empilent encore plus de vitesse d'attaque à chaque crit, et Monstre à chatouilles convertit ses dégâts d'attaque en vitesse d'attaque et ajoute des dégâts magiques à l'impact, si bien que ses crits ne servent plus au coup physique mais deviennent un métronome qui fait tourner son E. Maléfices de zone, c'est le jackpot : chaque crit applique les effets à l'impact une seconde fois, donc Monstre à chatouilles, Dent de Nashor et Au bout du rouleau frappent deux fois par attaque, tout comme l'éclair de son W toutes les cinq attaques, qui est lui aussi un effet à l'impact. Dent de Nashor injecte de la puissance dans tout ça, Ouragan de Runaan envoie les effets doublés sur deux ennemis de plus, Danseur fantôme et Tremblelame navori complètent les chances de critique, et les attaques de la Tremblelame réduisent les délais de Q, W et E pour que l'étourdissement revienne plus vite. Le mage burst qui se cache derrière son ulti devient un tireur crit sans dégâts d'attaque qui ne lâche jamais le clic droit.",
-      "play": "Ouvre avec E, puis ne lâche plus le clic droit : tant que les crits tombent, la vitesse d'attaque ne s'arrête jamais. Glisse Q et W entre les attaques pour l'étourdissement et garde R pour le teamfight.",
+      "title": "Rakan à la salle de sport",
+      "why": "Le Q de Rakan soigne Rakan lui-même en plus de ses alliés, et son passif lui offre régulièrement un bouclier gratuit. Boisson énergisante transforme l'Armure et la Résistance magique bonus en Puissance des soins et des boucliers, et Bénédiction de l'aéromancien fait que chaque soin et bouclier qu'il applique augmente l'Armure et la Résistance magique de la cible pendant 3 secondes : chaque auto-soin lui offre donc des résistances qui renforcent son prochain soin Q et son bouclier E. W projette les ennemis en l'air, ce qui déclenche le bouclier de Courage du colosse, et chaque bouclier gagné (passif compris) active Puissant bouclier pour un gain de Force adaptative sur le prochain Q. Jak'Sho, le Protéiforme, Cœur gelé et Force de la nature sont de pures résistances que Boisson énergisante lit comme des stats de soins, Jak'Sho les faisant même grandir en plein combat, tandis que Visage spirituel gonfle les soins et boucliers reçus et que Médaillon de l'Iron Solari ajoute un bouclier de plus à faire gonfler. Le play-maker flamboyant et plumé devient un rat de salle de sport à six objets, dont les soins grossissent avec son armure plutôt qu'avec sa Puissance des sorts.",
+      "play": "Ouvre avec W dans le tas pour le bouclier, soigne-toi avec Q en plein combat, puis repars avec E et regarde les boucliers grossir avec ton armure. Contre une équipe de mages, remplace Cœur gelé par Rookern kaénique.",
       "augments": [
-        "Votre attaque de base cumule 6 % de vitesse d'attaque sur les coups critiques, jusqu'à 10 cumuls. Octroie 25 % de chances de coup critique.",
-        "Vos coups critiques appliquent les effets à l'impact une fois de plus. Octroie des chances de coup critique.",
-        "Octroie des chances de coup critique et de la vitesse d'attaque.",
-        "Les dégâts d'attaque sont convertis en vitesse d'attaque. Les attaques infligent des dégâts magiques bonus à l'impact."
+        "Gagnez  % de Puissance des soins et des boucliers selon l'Armure et la Résistance magique bonus.",
+        "Vos soins et boucliers augmentent aussi l'Armure et la Résistance magique de la cible de  pendant 3 secondes.",
+        "Gagnez un bouclier après avoir immobilisé ou projeté en l'air un champion ennemi.",
+        "Gagnez de la force adaptative pendant 3 secondes quand vous gagnez un bouclier (5 secondes de délai de récupération)."
       ]
     },
     "hu": {
-      "title": "A villám kétszer csap le",
-      "why": "Kennen E-jének van egy záradéka, amit senki sem olvas el: a támadási sebesség, amit a gömb forma végén kap, minden kritikus találattal egy másodperccel tovább tart, így az a Kennen, aki minden támadással kritet üt, egyszerűen soha nem veszíti el. A Kritikus ritmus és a Fanatikus adja neki a kritikus esélyt, és minden krittel még több támadási sebességet halmoz, a Csikiszörny pedig a támadóerejét támadási sebességgé alakítja, és találatkor mágikus sebzést ad hozzá, így a kritjei már nem a fizikai ütés miatt számítanak, hanem metronómmá válnak, ami életben tartja az E-t. A Dupla lövés a nagy durranás: minden krit másodszor is kiváltja a találatkori hatásokat, így a Csikiszörny, a Nashor foga és az Utolsó esély támadásonként kétszer talál, ahogy a W villáma is minden ötödik támadásnál, ami szintén találatkori hatás. A Nashor foga képességerőt pumpál mindebbe, a Runaan hurrikánja még két ellenfélre viszi a duplázott hatásokat, a Fantomtáncos és a Navori villanópenge feltölti a krit esélyt, a Villanópenge támadásai pedig csökkentik a Q, W és E töltési idejét, így a kábítás gyorsabban visszajön. Az ultija mögé bújó burst mágusból nulla támadóerős kritlövész lesz, aki soha nem hagyja abba a jobbklikket.",
-      "play": "Nyiss E-vel, aztán soha ne hagyd abba a jobbklikket: amíg jönnek a kritek, a támadási sebesség sosem ér véget. Szőj Q-t és W-t a támadások közé a kábításért, az R-t pedig tartsd meg a csapatharcra.",
+      "title": "Rakan edzőterembe megy",
+      "why": "Rakan Q-ja saját magát is gyógyítja a szövetségesei mellett, a passzívja pedig időnként ingyen pajzsot ad neki. A Fehérjeital a bónusz Páncélt és Varázsellenállást Gyógyítási és pajzserővé alakítja, A szélharcos áldása pedig minden általa adott gyógyítás és pajzs után 3 másodpercre megnöveli a célpont Páncélját és Varázsellenállását, így minden önmagára adott gyógyítás olyan ellenállásokat hoz, amitől a következő Q-gyógyítás és E-pajzs nagyobb lesz. A W felrepíti az ellenfeleket, ami kiváltja A kolosszus kurázsija pajzsát, és minden megszerzett pajzs (a passzívja is) beindítja a Hatalmas pajzs bónuszát, ami Adaptív erő löketet ad a következő Q-ra. Jak'Sho, a váltakozó, Fagyos szív és A természet ereje tiszta ellenállás, amit a Fehérjeital gyógyító statként kezel, Jak'Sho ráadásul menet közben még növeli is; a Szellemarc nagyobbra növeli a rá kerülő gyógyítást és pajzsot, Az iron solarik medálja pedig újabb pajzsot ad, amit fel lehet fújni. A látványos, tollas játékmester hatitemes edzőtermi patkánnyá válik, akinek a gyógyításai a páncéljával nőnek, nem a Képességerejével.",
+      "play": "Nyiss W-vel a tömegbe a pajzsért, használd a Q-t magadra a harc közepén, aztán E-vel lépj ki, és nézd, ahogy a pajzsok nőnek a páncélod mellett. Varázslós csapat ellen cseréld a Fagyos szívet Kenikus védelemre.",
       "augments": [
-        "Az alaptámadásod kritikus találatkor 6% támadási sebességet halmoz, legfeljebb 10 halomig. 25% kritikus esélyt kapsz.",
-        "A kritikus találataid még egyszer kiváltják a találatkori hatásokat. Kritikus esélyt kapsz.",
-        "Kritikus találati esélyt és támadási sebességet kapsz.",
-        "A Támadóerő Támadási sebességgé alakul. A támadások találatkor plusz mágikus sebzést okoznak."
+        "Nyerj % Gyógyítási és pajzserőt a bónusz Páncél és Varázsellenállás alapján.",
+        "A gyógyításod és pajzsod a célpont Páncélját és Varázsellenállását is megnöveli értékkel 3 másodpercig.",
+        "Nyerj pajzsot, miután mozgásképtelenné teszel vagy a földre kényszerítesz egy ellenséges bajnokot.",
+        "Adaptív erőt kapsz 3 másodpercre, amikor Pajzsot szerzel (5 másodperc várakozási idő)."
       ]
     },
     "id": {
-      "title": "Petir Menyambar Dua Kali",
-      "why": "E milik Kennen punya klausul yang tidak pernah dibaca siapa pun: Attack Speed yang dia dapat saat wujud bola berakhir diperpanjang satu detik setiap kali dia Critical Strike, jadi Kennen yang crit di setiap serangan tidak akan pernah kehilangannya. Critical Rhythm dan Zealot memberinya crit chance dan menumpuk lebih banyak Attack Speed di setiap crit, sementara Tickle Monster mengubah Attack Damage-nya menjadi Attack Speed dan menambahkan magic damage On-Hit, sehingga crit-nya tidak lagi soal pukulan fisik tapi jadi metronom yang menjaga E-nya tetap jalan. Double Tap adalah hadiah utamanya: setiap crit menerapkan efek On-Hit sekali lagi, jadi Tickle Monster, Nashor's Tooth, dan Wit's End mengenai dua kali per serangan, begitu juga petir W di setiap serangan kelima, karena itu juga efek On-Hit. Nashor's Tooth menuangkan Ability Power ke semua itu, Runaan's Hurricane membawa efek ganda ke dua musuh lagi, Phantom Dancer dan Navori Flickerblade melengkapi crit chance, dan serangan Flickerblade memangkas cooldown Q, W, dan E supaya stun cepat kembali. Mage burst yang biasanya bersembunyi di balik ult-nya berubah jadi marksman crit tanpa Attack Damage yang tidak pernah berhenti klik kanan.",
-      "play": "Buka dengan E, lalu jangan pernah berhenti klik kanan: selama crit terus keluar, Attack Speed tidak pernah habis. Selipkan Q dan W di antara serangan untuk stun, dan simpan R untuk teamfight.",
+      "title": "Rakan Ngegym",
+      "why": "Q Rakan menyembuhkan Rakan sendiri selain sekutunya, dan pasif-nya ngasih shield gratis tiap beberapa saat. Protein Shake mengubah bonus Armor dan Magic Resist jadi Heal and Shield Power, dan Windspeaker's Blessing bikin setiap heal dan shield yang dia berikan menaikkan Armor dan Magic Resist target selama 3 detik, jadi tiap self-heal memberi resist yang bikin heal Q dan shield E berikutnya makin gede. W menerbangkan musuh, yang memicu shield Courage of the Colossus, dan setiap shield yang dia dapat (termasuk dari pasif) memicu Mighty Shield untuk lonjakan Adaptive Force ke Q berikutnya. Jak'Sho, The Protean, Frozen Heart, dan Force of Nature adalah resist murni yang dibaca Protein Shake sebagai stat heal, bahkan Jak'Sho bisa menumbuhkannya di tengah pertarungan, sementara Spirit Visage bikin heal dan shield yang masuk ke dia makin besar dan Locket of the Iron Solari menambah satu shield lagi untuk digedein. Si playmaker berbulu yang flamboyan ini jadi gym rat enam item yang heal-nya naik bareng armor, bukan Ability Power.",
+      "play": "Buka dengan W ke tengah kerumunan buat dapat shield, Q diri sendiri di tengah war, lalu E keluar dan lihat shield-nya makin gede bareng armor kamu. Lawan tim penuh mage, ganti Frozen Heart dengan Kaenic Rookern.",
       "augments": [
-        "Basic Attack-mu menumpuk 6% Attack Speed saat Critical Strike, hingga 10 tumpukan. Dapatkan 25% crit chance.",
-        "Critical Strike-mu menerapkan efek On-Hit sekali lagi. Dapatkan crit chance.",
-        "Dapatkan Critical Strike Chance dan Attack Speed.",
-        "Attack Damage diubah menjadi Attack Speed. Serangan memberi bonus magic damage On-Hit."
+        "Dapatkan % Heal and Shield Power berdasarkan bonus Armor dan Magic Resist.",
+        "Healing dan Shielding kamu juga menambah Armor dan Magic Resist target sebesar selama 3 detik.",
+        "Dapatkan Shield setelah melumpuhkan atau menjatuhkan champion musuh ke tanah.",
+        "Dapatkan Adaptive Force selama 3 detik saat kamu mendapat Shield (cooldown 5 detik)."
       ]
     },
     "it": {
-      "title": "Il fulmine colpisce due volte",
-      "why": "La E di Kennen ha una clausola che nessuno legge: la velocità d'attacco che ottiene quando finisce la forma a sfera si allunga di un secondo a ogni colpo critico, quindi un Kennen che critta a ogni attacco semplicemente non la perde mai. Ritmo critico e Fanatico gli danno la probabilità di critico e accumulano ancora più velocità d'attacco a ogni critico, e Mostro del solletico converte il suo attacco fisico in velocità d'attacco e aggiunge danni magici sul colpo, così i suoi critici non contano più per il colpo fisico ma diventano un metronomo che tiene viva la sua E. Doppio colpo è il gran finale: ogni critico applica gli effetti sul colpo una seconda volta, quindi Mostro del solletico, Dente di Nashor e Speranza perduta colpiscono due volte per attacco, e lo stesso vale per il fulmine della sua W ogni quinto attacco, che è anch'esso un effetto sul colpo. Dente di Nashor riversa potere magico in tutto questo, Uragano di Runaan porta gli effetti raddoppiati su altri due nemici, Danzatore fantasma e Lama rotante Navori completano la probabilità di critico, e gli attacchi della Lama riducono le ricariche di Q, W ed E così lo stordimento torna prima. Il mago burst che si nasconde dietro la sua suprema diventa un tiratore da critico senza attacco fisico che non smette mai di cliccare col destro.",
-      "play": "Apri con la E e poi non smettere mai di cliccare col destro: finché arrivano i critici, la velocità d'attacco non finisce mai. Infila Q e W tra un attacco e l'altro per lo stordimento e tieni la R per lo scontro di squadra.",
+      "title": "Rakan va in palestra",
+      "why": "La Q di Rakan cura sia lui che gli alleati, e la sua passiva gli regala ogni tanto uno scudo gratis. Frullato proteico trasforma Armatura e Resistenza magica bonus in Potenza di cure e scudi, e Benedizione del cantore del vento fa sì che ogni cura e scudo che applica aumenti Armatura e Resistenza magica del bersaglio per 3 secondi: così ogni auto-cura gli dà resistenze che rendono più grosse la prossima cura della Q e il prossimo scudo della E. La W lancia in aria i nemici, e questo fa scattare lo scudo di Coraggio del Colosso, mentre ogni scudo che ottiene (passiva compresa) attiva Scudo possente per uno scoppio di Forza adattiva sulla Q successiva. Jak'Sho, il Mutevole, Fulcro dei geli e Forza della natura sono pure resistenze che Frullato proteico legge come statistiche di cura, con Jak'Sho che le fa pure crescere a battaglia in corso, mentre Corazza spirituale potenzia cure e scudi che riceve e Medaglione dei Solari di ferro aggiunge un altro scudo da gonfiare. Il vistoso giocatore piumato diventa un fanatico della palestra con sei oggetti, le cui cure crescono con l'armatura invece che con il Potere Abilità.",
+      "play": "Apri con la W in mezzo al gruppo per lo scudo, usa la Q su te stesso a metà scontro, poi esci con la E e guarda gli scudi crescere con la tua armatura. Contro una squadra di maghi, sostituisci Fulcro dei geli con Rookern kaenico.",
       "augments": [
-        "Il tuo attacco base accumula il 6% di velocità d'attacco sui colpi critici, fino a 10 cariche. Ottieni il 25% di probabilità di critico.",
-        "I tuoi colpi critici applicano gli effetti sul colpo un'altra volta. Ottieni probabilità di critico.",
-        "Ottieni probabilità di colpo critico e velocità d'attacco.",
-        "I Danni da attacco vengono convertiti in Velocità d'attacco. Gli attacchi infliggono danni magici bonus al colpo."
+        "Ottieni % di Potenza di cure e scudi in base ad Armatura e Resistenza magica bonus.",
+        "Le tue cure e i tuoi scudi aumentano anche Armatura e Resistenza magica del bersaglio di per 3 secondi.",
+        "Ottieni uno scudo dopo aver immobilizzato o scagliato a terra un campione nemico.",
+        "Ottieni forza adattiva per 3 secondi quando ottieni uno scudo (5 secondi di ricarica)."
       ]
     },
     "ja": {
-      "title": "雷は二度落ちる",
-      "why": "ケネンのEには誰も読まない一文がある。ボール形態が終わったあとに得る攻撃速度は、クリティカルが出るたびに1秒延長される。つまり毎回クリティカルを出すケネンは、いつまでたってもその効果が切れない。クリティカルの律動と狂信的でクリティカル率を確保し、クリティカルのたびにさらに攻撃速度をスタックさせる。コチョコチョ モンスターは攻撃力を攻撃速度に変換し、通常攻撃時効果の魔法ダメージを追加するので、クリティカルは物理ダメージのためではなく、Eを回し続けるメトロノームになる。決め手はダブルタップだ。クリティカルのたびに通常攻撃時効果がもう一度発動するので、コチョコチョ モンスター、ナッシャー トゥース、ウィッツ エンドが1回の攻撃で2回ずつ発動し、5回目の攻撃ごとに出るWの雷も通常攻撃時効果なので同じく2回入る。ナッシャー トゥースがそのすべてに魔力を注ぎ、ルナーン ハリケーンが2倍になった効果をさらに2体の敵に運び、ファントム ダンサーとナヴォリ フリッカーブレードがクリティカル率を埋め、フリッカーブレードの攻撃がQ、W、Eのクールダウンを縮めてスタンを早く戻してくる。アルティメットの陰に隠れるバーストメイジが、攻撃力ゼロで右クリックをやめないクリティカルADCに変わる。",
-      "play": "Eで仕掛けたら、あとはひたすら右クリック。クリティカルが出続ける限り攻撃速度は終わらない。攻撃の合間にQとWを挟んでスタンを狙い、Rは集団戦まで取っておこう。",
+      "title": "ラカン、ジムに通う",
+      "why": "ラカンのQは味方だけでなく自分自身も回復し、パッシブでときどきシールドをタダでもらえます。プロテインシェイクは追加アーマーと追加魔法防御を回復とシールド量に変換し、風詠みの祝福は自分が与えた回復とシールドのたびに対象のアーマーと魔法防御を3秒間上げてくれるので、自己回復するほど次のQの回復とEのシールドが大きくなる好循環に。Wで敵を打ち上げれば巨人の勇気のシールドが発動し、獲得したシールド(パッシブ含む)はすべてマイティシールドを発動させて、次のQに適応力のバーストを乗せます。変幻自在のジャック＝ショー、フローズン ハート、自然の力は純粋な防御で、プロテインシェイクはこれを回復ステータスとして扱います。ジャック＝ショーなら戦闘中にさらに伸びていきます。スピリット ビサージュは自分が受ける回復とシールドを強化し、ソラリのロケットは膨らませられるシールドをもう1つ追加。派手な羽根つきプレイメーカーが、アビリティパワーではなくアーマーで回復が伸びる6アイテムのジム通いガチ勢に大変身です。",
+      "play": "まずWで敵の群れに突っ込んでシールドをもらい、戦闘中は自分にQを使い、Eで離脱。アーマーに合わせてシールドが育っていくのを眺めましょう。メイジだらけの相手には、フローズン ハートをケイニック ルーケルンに替えてください。",
       "augments": [
-        "通常攻撃がクリティカルになると攻撃速度6%をスタック（最大10スタック）。クリティカル率25%を獲得。",
-        "クリティカルが通常攻撃時効果をもう一度発動する。クリティカル率を獲得。",
-        "クリティカル率と攻撃速度を獲得。",
-        "攻撃力が攻撃速度に変換される。通常攻撃がヒット時に追加の魔法ダメージを与える。"
+        "追加アーマーと追加魔法防御に応じて、回復とシールド量を％獲得。",
+        "回復とシールドで、対象のアーマーと魔法防御も 3秒間上昇する。",
+        "敵チャンピオンを行動不能にするか打ち上げた後、シールドを獲得。",
+        "シールドを獲得すると3秒間アダプティブフォースを獲得する(クールダウン5秒)。"
       ]
     },
     "ko": {
-      "title": "번개는 두 번 친다",
-      "why": "케넨의 E에는 아무도 읽지 않는 조항이 있습니다. 공 형태가 끝난 뒤 얻는 공격 속도가 치명타가 터질 때마다 1초씩 늘어나서, 매 공격마다 치명타를 띄우는 케넨은 그 효과가 절대 끝나지 않습니다. 치명적 리듬과 광신자가 치명타 확률을 주고 치명타마다 공격 속도를 더 쌓아 주며, 간지럼 괴물은 공격력을 공격 속도로 바꾸고 적중 시 마법 피해를 더해 주니, 치명타는 물리 피해가 아니라 E를 계속 돌리는 메트로놈이 됩니다. 핵심은 한 발에 두 놈입니다. 치명타마다 적중 시 효과가 한 번 더 적용되니 간지럼 괴물, 내셔의 이빨, 마법사의 최후가 공격마다 두 번씩 들어가고, 다섯 번째 공격마다 나가는 W 번개도 적중 시 효과라서 똑같이 두 번 들어갑니다. 내셔의 이빨이 그 모든 것에 주문력을 붓고, 루난의 허리케인이 두 배가 된 효과를 적 두 명에게 더 옮기며, 유령 무희와 나보리 명멸검이 치명타 확률을 채우고, 명멸검의 공격이 Q, W, E의 재사용 대기시간을 줄여 기절이 더 빨리 돌아옵니다. 궁극기 뒤에 숨던 폭딜 메이지가 공격력 0의 치명타 원딜이 되어 우클릭을 절대 멈추지 않습니다.",
-      "play": "E로 진입한 뒤 우클릭을 절대 멈추지 마세요. 치명타가 계속 터지는 한 공격 속도는 끝나지 않습니다. 기절을 위해 공격 사이사이 Q와 W를 섞고, R은 한타용으로 아껴 두세요.",
+      "title": "라칸의 헬스장 출석",
+      "why": "라칸의 Q는 아군뿐 아니라 라칸 자신도 치유하고, 패시브로 가끔 공짜 보호막을 얻습니다. 프로틴 음료는 추가 방어력과 마법 저항력을 치유 및 보호막 효과로 바꿔 주고, 바람전달자의 축복은 라칸이 건 치유와 보호막마다 대상의 방어력과 마법 저항력을 3초 동안 올려 줘서, 자힐할수록 다음 Q 치유와 E 보호막이 더 커지는 저항력이 쌓입니다. W로 적을 띄우면 거석상의 용기 보호막이 터지고, 얻는 보호막마다(패시브 포함) 강력한 방패가 발동해 다음 Q에 적응형 능력치 폭발을 얹어 줍니다. 작쇼, 얼어붙은 심장, 대자연의 힘은 순수 저항력 아이템인데 프로틴 음료가 이걸 치유 스탯으로 쳐 주고, 해신 작쇼는 전투 중에 그 수치가 더 자라기까지 합니다. 정령의 형상은 라칸이 받는 치유와 보호막을 더 키워 주고, 강철의 솔라리 펜던트는 부풀릴 보호막을 하나 더 추가합니다. 화려한 깃털 플레이메이커가 주문력 대신 방어력으로 치유량이 커지는 6코어 헬창으로 다시 태어납니다.",
+      "play": "W로 적 무리 속에 뛰어들어 보호막을 챙기고, 교전 중에는 Q를 자신에게 쓰고, E로 빠지면서 방어력에 맞춰 커지는 보호막을 구경하세요. 상대가 마법사 위주라면 얼어붙은 심장을 케이닉 루컨으로 바꿔 보세요.",
       "augments": [
-        "치명타 시 기본 공격이 공격 속도 6%를 중첩합니다(최대 10회). 치명타 확률 25%를 얻습니다.",
-        "치명타가 적중 시 효과를 한 번 더 적용합니다. 치명타 확률을 얻습니다.",
-        "치명타 확률과 공격 속도를 얻습니다.",
-        "공격력이 공격 속도로 전환됩니다. 공격이 적중 시 추가 마법 피해를 입힙니다."
+        "추가 방어력과 마법 저항력에 비례해 치유 및 보호막 효과 %를 얻습니다.",
+        "치유와 보호막이 대상의 방어력과 마법 저항력도 3초 동안 증가시킵니다.",
+        "적 챔피언을 속박하거나 띄운 후 보호막을 얻습니다.",
+        "보호막을 얻으면 3초 동안 적응형 능력치를 얻습니다(재사용 대기시간 5초)."
       ]
     },
     "pl": {
-      "title": "Piorun uderza dwa razy",
-      "why": "E Kennena ma klauzulę, której nikt nie czyta: prędkość ataku, którą zyskuje po zakończeniu formy kuli, wydłuża się o sekundę przy każdym trafieniu krytycznym, więc Kennen, który kryci przy każdym ataku, po prostu nigdy jej nie traci. Krytyczny Rytm i Gorliwiec dają mu szansę na trafienie krytyczne i kumulują jeszcze więcej prędkości ataku z każdym krytem, a Łaskotkowy Potwór zamienia jego obrażenia od ataku w prędkość ataku i dodaje obrażenia magiczne przy trafieniu, więc jego kryty przestają liczyć się dla fizycznego ciosu i stają się metronomem, który podtrzymuje jego E. Podwójne Klepnięcie to wisienka na torcie: każdy kryt nakłada efekty przy trafieniu drugi raz, więc Łaskotkowy Potwór, Ząb Nashora i Koniec Rozumu trafiają dwa razy na atak, tak samo jak piorun z jego W co piąty atak, który też jest efektem przy trafieniu. Ząb Nashora pompuje w to wszystko moc umiejętności, Huragan Runaana niesie podwójne efekty do dwóch kolejnych wrogów, Widmowy Tancerz i Migoczące Ostrze Navori dopełniają szansę na kryt, a ataki Migoczącego Ostrza skracają czasy odnowienia Q, W i E, więc ogłuszenie wraca szybciej. Mag od burstu, który chowa się za swoją superumiejętnością, staje się strzelcem od krytów bez obrażeń od ataku, który nigdy nie przestaje klikać prawym.",
-      "play": "Zacznij od E, a potem nie przestawaj klikać prawym: dopóki lecą kryty, prędkość ataku się nie kończy. Wplataj Q i W między ataki dla ogłuszenia, a R zostaw na walkę drużynową.",
+      "title": "Rakan na siłowni",
+      "why": "Q Rakana leczy zarówno samego Rakana, jak i jego sojuszników, a jego pasywka co jakiś czas daje mu darmową tarczę. Shake Proteinowy zamienia dodatkowy Pancerz i Odporność na magię w Moc leczenia i tarcz, a Błogosławieństwo Piewcy Wiatrów sprawia, że każde jego leczenie i każda tarcza zwiększa Pancerz i Odporność na magię celu na 3 sekundy, więc każde samoleczenie daje mu odporności, które powiększają jego następne leczenie z Q i tarczę z E. W podrzuca wrogów, co aktywuje tarczę Odwagi Kolosa, a każda zdobyta tarcza (pasywka też) uruchamia Potężną Tarczę, dając zastrzyk Siły adaptacyjnej do następnego Q. Jak'Sho Zmienny, Mroźne Serce i Siła Natury to czyste odporności, które Shake Proteinowy traktuje jak statystyki leczenia, a Jak'Sho jeszcze je zwiększa w trakcie walki. Oblicze Ducha powiększa leczenie i tarcze nakładane na niego, a Naszyjnik Żelaznych Solari dodaje kolejną tarczę do rozdmuchania. Efektowny, pierzasty playmaker staje się sześcioprzedmiotowym siłownianym ryjem, którego leczenie rośnie od pancerza, a nie od Mocy umiejętności.",
+      "play": "Otwórz W w sam tłum po tarczę, użyj Q na sobie w środku walki, wyjdź E i patrz, jak tarcze rosną razem z pancerzem. Przeciwko drużynie magów zamień Mroźne Serce na Kaeniczną Powłokę.",
       "augments": [
-        "Twój podstawowy atak kumuluje 6% prędkości ataku przy trafieniach krytycznych, do 10 ładunków. Zyskujesz 25% szansy na trafienie krytyczne.",
-        "Twoje trafienia krytyczne nakładają efekty przy trafieniu jeszcze raz. Zyskujesz szansę na trafienie krytyczne.",
-        "Zyskujesz szansę na trafienie krytyczne i prędkość ataku.",
-        "Obrażenia od ataku zostają zamienione w Szybkość ataku. Ataki zadają dodatkowe obrażenia magiczne Przy trafieniu."
+        "Zyskujesz % Mocy leczenia i tarcz na podstawie dodatkowego Pancerza i Odporności na magię.",
+        "Twoje leczenie i tarcze zwiększają też Pancerz i Odporność na magię celu o na 3 sekundy.",
+        "Zyskujesz tarczę po unieruchomieniu lub podrzuceniu wrogiego bohatera.",
+        "Zyskaj siłę adaptacyjną na 3 sekundy, gdy zyskasz tarczę (5 sekund czasu odnowienia)."
       ]
     },
     "pt-BR": {
-      "title": "O raio cai duas vezes",
-      "why": "O E do Kennen tem uma cláusula que ninguém lê: a velocidade de ataque que ele ganha quando a forma de bola termina é estendida em um segundo a cada Acerto Crítico, então um Kennen que acerta crítico em todo ataque simplesmente nunca perde ela. Ritmo Crítico e Zelote dão a chance de crítico e acumulam ainda mais velocidade de ataque a cada crítico, e Monstro das Cócegas converte o Dano de Ataque dele em velocidade de ataque e adiciona dano mágico ao atingir, então os críticos dele deixam de importar pelo golpe físico e viram um metrônomo que mantém o E rodando. Enfeitiçamento Coletivo é o grande prêmio: cada crítico aplica os efeitos ao atingir uma segunda vez, então Monstro das Cócegas, Dente de Na'Shor e Limite da Razão acertam duas vezes por ataque, assim como o raio do W a cada quinto ataque, que também é um efeito ao atingir. Dente de Na'Shor joga Poder de Habilidade em tudo isso, Furacão de Runaan leva os efeitos dobrados para mais dois inimigos, Dançarina Fantasma e Adaga Oscilante Navori completam a chance de crítico, e os ataques da Adaga reduzem os tempos de recarga de Q, W e E para o atordoamento voltar mais rápido. O mago de burst que se esconde atrás da ultimate vira um atirador de crítico sem Dano de Ataque que nunca para de clicar com o botão direito.",
-      "play": "Abra com o E e nunca pare de clicar com o direito: enquanto os críticos saírem, a velocidade de ataque nunca acaba. Encaixe Q e W entre os ataques para o atordoamento e guarde o R para a luta em equipe.",
+      "title": "Rakan Vai pra Academia",
+      "why": "O Q do Rakan cura ele mesmo além dos aliados, e a passiva dele dá um escudo de graça de vez em quando. Shake Proteico transforma Armadura e Resistência Mágica bônus em Poder de Cura e Escudo, e Bênção da Voz do Vento faz cada cura e escudo que ele aplica aumentar a Armadura e a Resistência Mágica do alvo por 3 segundos, então cada autocura rende resistências que deixam a próxima cura do Q e o próximo escudo do E maiores. O W arremessa os inimigos pro alto, o que ativa o escudo de Coragem do Colosso, e todo escudo que ele ganha (inclusive o da passiva) ativa Escudo Poderoso para um surto de Força Adaptativa no próximo Q. Jak'Sho, o Inconstante, Coração Congelado e Força da Natureza são resistência pura que o Shake Proteico lê como status de cura, e o Jak'Sho ainda faz isso crescer no meio da luta, enquanto Semblante Espiritual aumenta as curas e escudos que ele recebe e Medalhão dos Solari de Ferro adiciona mais um escudo pra inflar. O playmaker emplumado e chamativo vira um rato de academia de seis itens, cujas curas crescem com a armadura em vez do Poder de Habilidade.",
+      "play": "Abra com o W no meio da muvuca pelo escudo, use o Q em si mesmo durante a luta, saia com o E e veja os escudos crescerem junto com a sua armadura. Contra um time de magos, troque Coração Congelado por Rookern Lamúrico.",
       "augments": [
-        "Seu Ataque básico acumula 6% de velocidade de ataque em Acertos Críticos, até 10 acúmulos. Receba 25% de chance de crítico.",
-        "Seus Acertos Críticos aplicam efeitos ao atingir mais uma vez. Receba chance de crítico.",
-        "Receba chance de Acerto Crítico e velocidade de ataque.",
-        "O Dano de Ataque é convertido em Velocidade de Ataque. Os Ataques causam dano mágico bônus Ao Acertar."
+        "Ganhe % de Poder de Cura e Escudo com base na Armadura e Resistência Mágica bônus.",
+        "Sua cura e seu escudo também aumentam a Armadura e a Resistência Mágica do alvo em por 3 segundos.",
+        "Ganhe Escudo depois de imobilizar ou derrubar um campeão inimigo.",
+        "Ganhe Força Adaptativa por 3 segundos ao ganhar um Escudo (5 segundos de recarga)."
       ]
     },
     "ro": {
-      "title": "Fulgerul lovește de două ori",
-      "why": "E-ul lui Kennen are o clauză pe care n-o citește nimeni: viteza de atac pe care o primește când se termină forma de minge se prelungește cu o secundă la fiecare lovitură critică, așa că un Kennen care dă critic la fiecare atac pur și simplu nu o pierde niciodată. Ritm critic și Zealot îi dau șansa de critic și adună și mai multă viteză de atac la fiecare critic, iar Monstrul gâdilelii îi transformă daunele de atac în viteză de atac și adaugă daune magice la impact, așa că criticele lui nu mai contează pentru lovitura fizică, ci devin un metronom care îi ține E-ul pornit. Lovitură dublă e marea lovitură: fiecare critic aplică efectele la impact a doua oară, așa că Monstrul gâdilelii, Dintele lui Nashor și Sfârșitul rațiunii lovesc de două ori pe atac, la fel și fulgerul W-ului la fiecare al cincilea atac, care e tot un efect la impact. Dintele lui Nashor pompează putere a abilităților în toate astea, Uraganul lui Runaan duce efectele dublate la încă doi inamici, Dansatorul-fantomă și Tăișul sclipitor din Navori completează șansa de critic, iar atacurile Tăișului reduc timpii de reîncărcare pentru Q, W și E, ca amețirea să revină mai repede. Magul de burst care se ascunde după ultimate devine un trăgător de critice fără daune de atac care nu se oprește niciodată din click dreapta.",
-      "play": "Deschide cu E, apoi nu te opri din click dreapta: cât timp vin criticele, viteza de atac nu se termină. Strecoară Q și W între atacuri pentru amețire și păstrează R pentru luptă.",
+      "title": "Rakan face sală",
+      "why": "Q-ul lui Rakan îl vindecă și pe el, nu doar pe aliați, iar pasivul îi dă din când în când un scut gratis. Shake proteic transformă Armura și Rezistența magică bonus în Putere de vindecare și scut, iar Binecuvântarea vântului face ca fiecare vindecare și scut aplicate să crească Armura și Rezistența magică țintei timp de 3 secunde, așa că fiecare auto-vindecare îi aduce rezistențe care îi fac următorul Q și scutul de la E mai mari. W-ul aruncă inamicii în aer, ceea ce activează scutul de la Curajul uriașului, iar fiecare scut primit (inclusiv pasivul) declanșează Scut strașnic pentru o explozie de Forță adaptativă în următorul Q. Jak'Sho cel schimbător, Inimă înghețată și Forța naturii sunt rezistențe pure pe care Shake proteic le citește ca statistici de vindecare, iar Jak'Sho le crește chiar și în timpul luptei, în timp ce Înfățișarea sufletului face vindecările și scuturile primite mai mari, iar Blazonul solarilor de fier mai adaugă un scut de umflat. Jucătorul spectaculos cu pene devine un gym rat cu șase iteme, ale cărui vindecări cresc cu armura, nu cu Puterea abilităților.",
+      "play": "Deschide cu W în mijlocul grămezii pentru scut, dă-ți Q singur în toiul luptei, apoi ieși cu E și privește cum scuturile cresc odată cu armura. Contra unei echipe de magicieni, schimbă Inimă înghețată cu Kaenic Rookern.",
       "augments": [
-        "Atacul tău de bază acumulează 6% viteză de atac la loviturile critice, până la 10 cumuluri. Primești 25% șansă de critic.",
-        "Loviturile tale critice aplică efectele la impact încă o dată. Primești șansă de critic.",
-        "Primești șansă de lovitură critică și viteză de atac.",
-        "Puterea de atac este convertită în viteză de atac. Atacurile provoacă daune magice bonus la lovire."
+        "Primești % Putere de vindecare și scut în funcție de Armura și Rezistența magică bonus.",
+        "Vindecarea și scuturile tale cresc și Armura și Rezistența magică ale țintei cu timp de 3 secunde.",
+        "Primești Scut după ce imobilizezi sau arunci în aer un campion inamic.",
+        "Primești Forță adaptivă timp de 3 secunde când primești un Scut (5 secunde timp de reîncărcare)."
       ]
     },
     "ru": {
-      "title": "Молния бьёт дважды",
-      "why": "У E Кеннена есть пункт, который никто не читает: скорость атаки, которую он получает после окончания формы шара, продлевается на секунду за каждый критический удар, так что Кеннен, который критует каждой атакой, просто никогда её не теряет. Критический ритм и Фанатизм дают ему шанс крита и накапливают ещё больше скорости атаки с каждым критом, а Щекотальный монстр превращает его силу атаки в скорость атаки и добавляет магический урон при попадании, так что криты больше не важны ради физического удара, а становятся метрономом, который держит его E включённым. Два по цене одного — главный козырь: каждый крит применяет эффекты при попадании второй раз, поэтому Щекотальный монстр, Зуб Нашора и Смерть Разума бьют дважды за атаку, как и молния его W каждую пятую атаку, ведь это тоже эффект при попадании. Зуб Нашора вливает во всё это силу умений, Ураган Рунаан разносит удвоенные эффекты ещё на двух врагов, Призрачный Танцор и Летающий нож Навори добирают шанс крита, а атаки Летающего ножа сокращают перезарядку Q, W и E, чтобы оглушение возвращалось быстрее. Бёрст-маг, который прячется за своим ультом, становится крит-стрелком без силы атаки, который никогда не перестаёт кликать правой кнопкой.",
-      "play": "Начинай с E и потом никогда не переставай кликать правой: пока идут криты, скорость атаки не заканчивается. Вставляй Q и W между атаками ради оглушения, а R прибереги для командного боя.",
+      "title": "Рэйкан идёт в качалку",
+      "why": "Q Рэйкана лечит и самого Рэйкана, а не только союзников, а пассивка время от времени даёт ему бесплатный щит. Протеиновый коктейль превращает бонусную Броню и Сопротивление магии в силу лечения и щитов, а Благословение ветра заставляет каждое лечение и щит повышать Броню и Сопротивление магии цели на 3 секунды: каждое самолечение даёт ему сопротивления, от которых следующее лечение Q и щит от E становятся больше. W подбрасывает врагов, что активирует щит Мужества колосса, а каждый полученный щит (включая пассивку) запускает Могучий щит и даёт всплеск Адаптивной силы для следующего Q. Жак'Шо Многоликий, Ледяное сердце и Сила природы дают чистые сопротивления, которые Протеиновый коктейль считает характеристиками лечения, причём Жак'Шо даже увеличивает их прямо посреди боя, а Облачение духов усиливает лечение и щиты на нём, и Медальон Железных Солари добавляет ещё один щит, который можно раздуть. Эффектный пернатый плеймейкер превращается в качка с шестью предметами, чьё лечение растёт от брони, а не от Силы умений.",
+      "play": "Начинай с W в самую гущу, чтобы получить щит, лечи себя Q прямо посреди драки, а потом уходи на E и смотри, как щиты растут вместе с бронёй. Против команды магов смени Ледяное сердце на Кейниковый рукерн.",
       "augments": [
-        "Ваша обычная атака при критических ударах накапливает 6% скорости атаки, до 10 зарядов. Вы получаете 25% шанса критического удара.",
-        "Ваши критические удары применяют эффекты при попадании ещё раз. Вы получаете шанс критического удара.",
-        "Вы получаете шанс критического удара и скорость атаки.",
-        "Сила атаки преобразуется в скорость атаки. Атаки наносят дополнительный магический урон при попадании."
+        "Вы получаете % к силе лечения и щитов в зависимости от бонусной Брони и Сопротивления магии.",
+        "Ваше лечение и щиты также повышают Броню и Сопротивление магии цели на 3 секунды.",
+        "Вы получаете щит после обездвиживания или подбрасывания вражеского чемпиона.",
+        "Получай Адаптивную силу на 3 секунды, когда получаешь Щит (перезарядка 5 секунд)."
       ]
     },
     "th": {
-      "title": "สายฟ้าฟาดสองครั้ง",
-      "why": "สกิล E ของ Kennen มีเงื่อนไขที่ไม่มีใครอ่าน: Attack Speed ที่ได้หลังจบร่างลูกบอลจะยืดออกไปอีกหนึ่งวินาทีทุกครั้งที่ติดคริติคอล ดังนั้น Kennen ที่คริทุกการโจมตีจะไม่มีวันหมดบัฟนี้ Critical Rhythm และ Zealot ให้โอกาสคริติคอลและสะสม Attack Speed เพิ่มทุกครั้งที่คริ ส่วน Tickle Monster แปลง Attack Damage เป็น Attack Speed และเพิ่มดาเมจเวทแบบ On-Hit ทำให้คริของเขาไม่ได้มีไว้เพื่อดาเมจกายภาพอีกต่อไป แต่กลายเป็นเครื่องเคาะจังหวะที่ทำให้ E ทำงานตลอด Double Tap คือของรางวัลใหญ่: ทุกครั้งที่คริจะใช้เอฟเฟกต์ On-Hit ซ้ำอีกครั้ง ดังนั้น Tickle Monster, Nashor's Tooth และ Wit's End จะติดสองครั้งต่อการโจมตี รวมถึงสายฟ้าจาก W ทุกการโจมตีครั้งที่ห้าด้วย เพราะมันก็เป็น On-Hit เหมือนกัน Nashor's Tooth อัด Ability Power ใส่ทั้งหมดนั้น Runaan's Hurricane พาเอฟเฟกต์สองเท่าไปยังศัตรูอีกสองตัว Phantom Dancer และ Navori Flickerblade เติมโอกาสคริให้เต็ม และการโจมตีของ Flickerblade ลดคูลดาวน์ของ Q, W และ E ให้สตันกลับมาเร็วขึ้น เมจสายระเบิดที่หลบอยู่หลังอัลติเมทกลายเป็นมือปืนสายคริที่ไม่มี Attack Damage และไม่เคยหยุดคลิกขวา",
-      "play": "เปิดด้วย E แล้วอย่าหยุดคลิกขวาเด็ดขาด: ตราบใดที่ยังคริอยู่ Attack Speed ก็ไม่มีวันหมด แทรก Q และ W ระหว่างการโจมตีเพื่อสตัน แล้วเก็บ R ไว้ใช้ตอนไฟต์ทีม",
+      "title": "Rakan ลงยิม",
+      "why": "Q ของ Rakan ฮีลตัว Rakan เองได้ด้วยไม่ใช่แค่พวกพ้อง และพาสซีฟก็แจกโล่ฟรีให้เป็นระยะ Protein Shake เปลี่ยนเกราะและต้านทานเวทโบนัสให้เป็นพลังฮีลและโล่ ส่วน Windspeaker's Blessing ทำให้ทุกฮีลและโล่ที่ใส่ไปเพิ่มเกราะและต้านทานเวทให้เป้าหมาย 3 วินาที ฮีลตัวเองแต่ละครั้งจึงได้ค่าต้านทานที่ทำให้ฮีล Q ครั้งต่อไปและโล่จาก E แรงขึ้น W ดีดศัตรูลอยซึ่งจะทำให้โล่ของ Courage of the Colossus ขึ้น และทุกโล่ที่ได้ (รวมพาสซีฟด้วย) จะจุด Mighty Shield ให้ได้พลังปรับตัวพุ่งเข้า Q ครั้งต่อไป Jak'Sho, The Protean, Frozen Heart และ Force of Nature คือค่าต้านทานล้วนที่ Protein Shake นับเป็นสเตตัสฮีล โดย Jak'Sho ยังเพิ่มค่าให้ระหว่างปะทะอีกด้วย ส่วน Spirit Visage ทำให้ฮีลและโล่ที่ใส่บนตัวเขาแรงขึ้น และ Locket of the Iron Solari ก็เพิ่มโล่อีกก้อนให้ปั๊ม นักเล่นเกมสวยปีกสวยเลยกลายเป็นหนุ่มฟิตหกชิ้นที่ฮีลโตตามเกราะ ไม่ใช่พลังเวท",
+      "play": "เปิดด้วย W เข้ากลางกลุ่มเพื่อเอาโล่ ใช้ Q ฮีลตัวเองกลางไฟต์ แล้วถอยออกด้วย E แล้วดูโล่โตตามเกราะ ถ้าเจอทีมเมจให้เปลี่ยน Frozen Heart เป็น Kaenic Rookern",
       "augments": [
-        "การโจมตีปกติของคุณสะสม Attack Speed 6% เมื่อติดคริติคอล สูงสุด 10 สแต็ก ได้รับโอกาสคริ 25%",
-        "คริติคอลของคุณใช้เอฟเฟกต์ On-Hit ซ้ำอีกหนึ่งครั้ง ได้รับโอกาสคริ",
-        "ได้รับโอกาสคริติคอลและ Attack Speed",
-        "พลังโจมตีถูกแปลงเป็นความเร็วโจมตี การโจมตีสร้างความเสียหายเวทเพิ่มเติมแบบ On-Hit"
+        "ได้ % พลังฮีลและโล่ตามเกราะและต้านทานเวทโบนัส",
+        "ฮีลและโล่ของคุณยังเพิ่มเกราะและต้านทานเวทของเป้าหมายเป็น เป็นเวลา 3 วินาที",
+        "ได้ โล่ หลังจากตรึงหรือดีดศัตรูลอย",
+        "ได้รับ Adaptive Force นาน 3 วินาทีเมื่อคุณได้รับโล่ (คูลดาวน์ 5 วินาที)"
       ]
     },
     "tr": {
-      "title": "Yıldırım İki Kez Düşer",
-      "why": "Kennen'ın E'sinde kimsenin okumadığı bir madde var: Top formu bittiğinde kazandığı saldırı hızı her kritik vuruşta bir saniye uzar, yani her saldırısında kritik vuran bir Kennen ondan asla inmez. Kritik Ritim ve Gözü Dönmüş ona kritik vuruş ihtimalini verir ve her kritikte daha da fazla saldırı hızı biriktirir, Gıdık Gıdık ise saldırı gücünü saldırı hızına çevirip isabette büyü hasarı ekler, böylece kritikleri artık fiziksel vuruş için değil, E'sini çalışır tutan bir metronom olur. Çifte İsabet asıl ödül: Her kritik isabet etkilerini ikinci kez uygular, yani Gıdık Gıdık, Nashor'un Dişi ve Aklın Sonu saldırı başına iki kez vurur, her beşinci saldırıdaki W yıldırımı da öyle, çünkü o da bir isabet etkisi. Nashor'un Dişi tüm bunlara yetenek gücü pompalar, Runaan'ın Kasırgası ikiye katlanan etkileri iki rakibe daha taşır, Hayalet Dansçı ve Navori Tezbıçağı kritik ihtimalini tamamlar, Tezbıçağı'nın saldırıları da Q, W ve E'nin bekleme sürelerini kısaltır, böylece sersemletme daha hızlı geri gelir. Ultisinin arkasına saklanan patlama büyücüsü, sağ tıkı asla bırakmayan, saldırı gücü sıfır bir kritik nişancıya dönüşür.",
-      "play": "E ile aç, sonra sağ tıkı asla bırakma: Kritikler geldikçe saldırı hızı hiç bitmez. Sersemletme için saldırıların arasına Q ve W sıkıştır, R'yi de takım savaşına sakla.",
+      "title": "Rakan Spor Salonunda",
+      "why": "Rakan'ın Q'su yalnızca müttefiklerini değil Rakan'ın kendisini de iyileştirir, pasifi de ara sıra bedavaya kalkan verir. Protein İçeceği bonus Zırh ve Büyü Direncini Şifa ve Kalkan Gücüne çevirir, Rüzgâra Fısıldayan'ın Lütfu ise attığı her şifa ve kalkanın hedefin Zırh ve Büyü Direncini 3 saniyeliğine artırmasını sağlar; yani her kendini iyileştirişi ona bir sonraki Q şifasını ve E kalkanını büyüten dirençler kazandırır. W havaya savurur, bu da Heyulanın Cesareti kalkanını patlatır; kazandığı her kalkan da (kendi pasifi dahil) Kudretli Kalkan'ı tetikleyip bir sonraki Q'ya Uyarlanabilir Güç patlaması verir. Şahbaz Jak'Sho, Donmuş Yürek ve Doğanın Kudreti saf direnç verir, Protein İçeceği bunları şifa statı gibi okur; Jak'Sho hatta savaşın ortasında bunları büyütür. Ruh Gömleği üzerindeki şifa ve kalkanları büyütür, Demir Solari'nin Broşu da şişirebileceği bir kalkan daha ekler. Gösterişli tüylü oyun kurucu, şifaları Yetenek Gücüyle değil zırhıyla büyüyen altı eşyalı bir salon faresine dönüşür.",
+      "play": "W ile kalabalığın ortasına dalıp kalkanı kap, kavganın ortasında kendine Q at, sonra E ile çık ve kalkanların zırhınla büyümesini izle. Büyücü dolu bir takıma karşı Donmuş Yürek yerine Kutluyas Rukern al.",
       "augments": [
-        "Temel saldırın kritik vuruşlarda %6 saldırı hızı biriktirir, en fazla 10 yük. %25 kritik ihtimali kazanırsın.",
-        "Kritik vuruşların isabet etkilerini bir kez daha uygular. Kritik ihtimali kazanırsın.",
-        "Kritik vuruş ihtimali ve saldırı hızı kazanırsın.",
-        "Saldırı Hasarı, Saldırı Hızı'na çevrilir. Saldırılar isabette ek büyü hasarı verir."
+        "Bonus Zırh ve Büyü Direncine göre % Şifa ve Kalkan Gücü kazanırsın.",
+        "Şifan ve kalkanların hedefin Zırh ve Büyü Direncini de kadar 3 saniye boyunca artırır.",
+        "Düşman şampiyonu hareketsiz bırakınca veya havaya savurunca Kalkan kazanırsın.",
+        "Kalkan kazandığında 3 saniyeliğine Uyarlanabilir Güç kazanırsın (5 saniye Bekleme Süresi)."
       ]
     },
     "vi": {
-      "title": "Sét đánh hai lần",
-      "why": "E của Kennen có một điều khoản chẳng ai đọc: Tốc độ đánh hắn nhận được khi kết thúc dạng quả cầu sẽ được kéo dài thêm một giây mỗi lần chí mạng, nên một Kennen chí mạng mọi đòn đánh thì đơn giản là không bao giờ mất nó. Nhịp Điệu Chí Mạng và Cuồng Tín cho hắn tỉ lệ chí mạng và cộng dồn thêm tốc độ đánh mỗi lần chí mạng, còn Quái Cù Lét chuyển Sức mạnh công kích thành tốc độ đánh và thêm sát thương phép theo đòn đánh, nên các đòn chí mạng của hắn không còn để gây sát thương vật lý nữa mà trở thành chiếc máy đếm nhịp giữ cho E luôn chạy. Bắn Một Được Hai là phần thưởng: mỗi đòn chí mạng áp dụng hiệu ứng trên đòn đánh thêm một lần, nên Quái Cù Lét, Nanh Nashor và Đao Tím đều đánh hai lần mỗi đòn, và tia sét của W mỗi đòn đánh thứ năm cũng vậy, vì nó cũng là hiệu ứng trên đòn đánh. Nanh Nashor đổ Sức mạnh phép thuật vào tất cả, Cuồng Cung Runaan mang hiệu ứng nhân đôi tới thêm hai kẻ địch, Ma Vũ Song Kiếm và Đao Chớp Navori lấp đầy tỉ lệ chí mạng, và đòn đánh của Đao Chớp giảm thời gian hồi chiêu của Q, W và E để choáng quay lại nhanh hơn. Pháp sư dồn sát thương vốn núp sau chiêu cuối trở thành một xạ thủ chí mạng không có Sức mạnh công kích, không bao giờ ngừng click chuột phải.",
-      "play": "Mở giao tranh bằng E, rồi đừng bao giờ ngừng click chuột phải: chừng nào chí mạng còn ra, tốc độ đánh không bao giờ hết. Chèn Q và W giữa các đòn đánh để gây choáng, và giữ R cho giao tranh tổng.",
+      "title": "Rakan Đi Tập Gym",
+      "why": "Q của Rakan hồi máu cho cả bản thân Rakan lẫn đồng minh, còn nội tại thì thỉnh thoảng tặng anh một lá chắn miễn phí. Tăng Cường Thể Lực biến Giáp và Kháng Phép cộng thêm thành Sức Mạnh Hồi Máu và Lá Chắn, còn Phong Ngôn Chúc Phúc khiến mỗi lần hồi máu hay tạo lá chắn đều tăng Giáp và Kháng Phép của mục tiêu trong 3 giây, nên mỗi lần tự hồi máu lại cho anh thêm kháng tính để lần hồi máu Q tiếp theo và lá chắn E to hơn. W hất tung kẻ địch, kích hoạt lá chắn của Khổng Nhân Can Đảm, và mọi lá chắn anh nhận (cả nội tại) đều kích hoạt Lá Chắn Hùng Mạnh để tung một đợt Sức Mạnh Thích Ứng vào Q kế tiếp. Jak'Sho, Vỏ Bọc Thích Nghi, Tim Băng và Giáp Thiên Nhiên toàn là kháng tính mà Tăng Cường Thể Lực tính như chỉ số hồi máu, riêng Jak'Sho còn tăng chúng ngay giữa giao tranh, trong khi Giáp Tâm Linh làm hồi máu và lá chắn lên người anh to hơn, và Dây Chuyền Iron Solari thêm một lá chắn nữa để thổi phồng. Anh chàng cánh lông bóng bẩy thành gym thủ sáu món, hồi máu to theo giáp chứ không theo Sức Mạnh Phép Thuật.",
+      "play": "Mở màn bằng W vào giữa đám đông để lấy lá chắn, Q chính mình giữa giao tranh, rồi E thoát ra và xem lá chắn to dần theo giáp. Gặp đội toàn pháp sư thì đổi Tim Băng lấy Vòng Sắt Cổ Tự.",
       "augments": [
-        "Đòn đánh thường của bạn cộng dồn 6% tốc độ đánh khi chí mạng, tối đa 10 cộng dồn. Nhận 25% tỉ lệ chí mạng.",
-        "Đòn chí mạng của bạn áp dụng hiệu ứng trên đòn đánh thêm một lần. Nhận tỉ lệ chí mạng.",
-        "Nhận tỉ lệ chí mạng và tốc độ đánh.",
-        "Sát Thương được chuyển thành Tốc Độ Đánh. Đòn đánh gây thêm sát thương phép theo đòn đánh."
+        "Nhận % Sức Mạnh Hồi Máu và Lá Chắn dựa trên Giáp và Kháng Phép cộng thêm.",
+        "Hồi máu và lá chắn của bạn cũng tăng Giáp và Kháng Phép của mục tiêu thêm trong 3 giây.",
+        "Nhận Lá Chắn sau khi khống chế hoặc hất tung tướng địch.",
+        "Nhận Sức Mạnh Thích Ứng trong 3 giây khi bạn nhận Lá Chắn (thời gian hồi 5 giây)."
       ]
     },
     "zh-CN": {
-      "title": "雷劈两回",
-      "why": "凯南的E里有一句没人看的话：球形态结束后获得的攻击速度，每次暴击都会延长1秒，所以每下都暴击的凯南根本不会掉这个攻速。暴击律动和狂热者给他暴击几率，并且每次暴击都叠更多攻速；嗡嗡怪兽把他的攻击力转化为攻击速度，并附加命中时魔法伤害，于是他的暴击不再是为了物理伤害，而是变成了让E一直续上的节拍器。双发快射才是真正的大招：每次暴击都会再触发一次命中时效果，所以嗡嗡怪兽、纳什之牙和智慧末刃每下攻击都打两次，W每第五次攻击的雷电也是命中时效果，同样打两次。纳什之牙给这一切灌法强，卢安娜的飓风把翻倍的效果带给另外两名敌人，幻影之舞和纳沃利烁刃补满暴击几率，烁刃的攻击还会缩短Q、W、E的冷却，让眩晕更快回来。躲在大招后面的爆发法师，变成了零攻击力、右键停不下来的暴击射手。",
-      "play": "用E开团，然后一直右键别停：只要暴击不断，攻速就永远不会结束。攻击间隙穿插Q和W打出眩晕，R留到团战再放。",
+      "title": "幻翎开始撸铁",
+      "why": "幻翎的Q不光治疗盟友，也会治疗他自己，被动还时不时白送他一个护盾。蛋白粉奶昔把额外护甲和魔法抗性转化为治疗和护盾强度，而风语者的祝福让他每次治疗和护盾都为目标提供3秒额外护甲和魔法抗性，所以每次自疗都能换来抗性，让下一次Q的治疗和E的护盾更大。W击飞敌人会触发巨像的勇气的护盾，而他获得的每个护盾（包括被动）都会触发强力护盾，把一波自适应属性爆发打进下一次Q。千变者贾修、冰霜之心和自然之力都是纯抗性装，蛋白粉奶昔会把它们当成治疗属性来算，贾修甚至还能在战斗中越叠越高；振奋盔甲让他受到的治疗和护盾更强，钢铁烈阳之匣再给他多一个可以放大的护盾。华丽的羽翼playmaker就这样变成了六件套健身狂人，治疗随护甲增长，而不是靠法术强度。",
+      "play": "开团先W进人堆拿护盾，团战中途给自己来个Q，然后E撤出来，看着护盾随护甲越长越大。面对法师阵容时，把冰霜之心换成败魔。",
       "augments": [
-        "你的普通攻击暴击时叠加6%攻击速度，最多10层。获得25%暴击几率。",
-        "你的暴击会额外再触发一次命中时效果。获得暴击几率。",
-        "获得暴击几率和攻击速度。",
-        "攻击力会转化为攻击速度。攻击会在命中时造成额外魔法伤害。"
+        "根据额外护甲和魔法抗性获得 % 治疗和护盾强度。",
+        "你的治疗和护盾还会使目标的护甲和魔法抗性提高 ，持续3秒。",
+        "控制或击飞敌方英雄后获得 护盾。",
+        "获得护盾时,获得3秒适应之力(冷却时间5秒)。"
       ]
     },
     "zh-TW": {
-      "title": "雷劈兩次",
-      "why": "凱能的E有一句沒人在看的話：球形態結束後獲得的攻擊速度，每次暴擊都會延長1秒，所以每下都暴擊的凱能根本不會掉這個攻速。暴擊節奏和狂戰士給他暴擊機率，而且每次暴擊都疊更多攻速；搔癢怪獸把他的攻擊力轉換成攻擊速度，並附加命中時魔法傷害，於是他的暴擊不再是為了物理傷害，而是變成讓E一直續下去的節拍器。雙重命中才是重頭戲：每次暴擊都會再觸發一次命中時效果，所以搔癢怪獸、納什之牙和智慧末刃每下攻擊都打兩次，W每第五次攻擊的雷電也是命中時效果，同樣打兩次。納什之牙替這一切灌法力，芮蘭颶風箭把加倍的效果帶給另外兩名敵人，幻影之舞和那歐閃刃補滿暴擊機率，閃刃的攻擊還會縮短Q、W、E的冷卻，讓暈眩更快回來。躲在大招後面的爆發法師，變成零攻擊力、右鍵停不下來的暴擊射手。",
-      "play": "用E開戰，然後右鍵別停：只要暴擊不斷，攻速就永遠不會結束。在攻擊之間穿插Q和W打出暈眩，R留到團戰再放。",
+      "title": "銳空去健身房練肌肉",
+      "why": "銳空的Q不只治療隊友，也會治療他自己，被動還會時不時白送他一個護盾。蛋白飲把額外護甲和魔法防禦轉換成治癒與護盾強度，而風語者的祝福讓他每次治療和護盾都為目標提供3秒額外護甲和魔法防禦，所以每次自我治療都能換來抗性，讓下一次Q的治療和E的護盾更大。W擊飛敵人會觸發巨像之勇氣的護盾，而他獲得的每個護盾（包括被動）都會觸發巨大盾牌，把一波適應之力爆發打進下一次Q。千變萬化之賈克修、冰霜之心和自然之力都是純抗性裝，蛋白飲會把它們當成治療屬性來算，賈克修甚至還能在戰鬥中越疊越高；振奮盔甲讓他受到的治療和護盾更強，日輪的加冕再給他多一個可以放大的護盾。華麗的羽翼playmaker就這樣變成了六件套健身狂人，治療隨護甲成長，而不是靠技能強度。",
+      "play": "開團先W進人堆拿護盾，團戰中途對自己來個Q，然後E撤出來，看著護盾隨護甲越長越大。面對法師陣容時，把冰霜之心換成凱尼克欺瞞者。",
       "augments": [
-        "你的普通攻擊暴擊時疊加6%攻擊速度，最多10層。獲得25%暴擊機率。",
-        "你的暴擊會額外再觸發一次命中時效果。獲得暴擊機率。",
-        "獲得暴擊機率和攻擊速度。",
-        "物理攻擊會轉化為攻擊速度。攻擊會在命中時造成額外魔法傷害。"
+        "根據額外護甲和魔法防禦獲得 % 治癒與護盾強度。",
+        "你的治療和護盾還會使目標的護甲和魔法防禦提高 ，持續3秒。",
+        "控制或擊飛敵方英雄後獲得 護盾。",
+        "獲得護盾時,獲得3秒適應之力(冷卻時間5秒)。"
       ]
     }
   }

@@ -507,6 +507,29 @@
       "why": "Lightning Rush has a clause nobody reads: the Attack Speed Kennen gains when the ball form ends is extended by a second every time he Critically Strikes, so a Kennen who crits on every attack simply never comes down from it. Critical Rhythm and Zealot hand him the crit chance and stack even more Attack Speed on each crit, and Tickle Monster converts his Attack Damage into Attack Speed and adds magic damage On-Hit, so his crits stop being about the physical hit and become a metronome that keeps the Rush running. Double Tap is the payoff: every crit applies On-Hit effects a second time, so Tickle Monster, Nashor's Tooth and Wit's End all land twice per attack, and so does Electrical Surge's every-fifth-attack lightning, which is On-Hit too. Nashor's Tooth pours Ability Power into all of that, Runaan's Hurricane carries the doubled On-Hits to two more enemies, Phantom Dancer and Navori Flickerblade fill out the crit chance, and Navori's attacks shave the cooldowns of Thundering Shuriken, Electrical Surge and Lightning Rush so the stun comes back faster. The burst mage who hides behind his ultimate becomes a zero-Attack-Damage crit marksman who never stops right-clicking.",
       "play": "Open with Lightning Rush, then never stop right-clicking: as long as the crits keep coming the Attack Speed never ends. Weave Thundering Shuriken and Electrical Surge between attacks for the stun, and save Slicing Maelstrom for the teamfight.",
       "chef": "2026-11-07"
+    },
+    {
+      "id": "rakan-hits-the-gym",
+      "champion": "Rakan",
+      "title": "Rakan Hits The Gym",
+      "augments": [
+        "Protein Shake",
+        "Windspeaker's Blessing",
+        "Courage of the Colossus",
+        "Mighty Shield"
+      ],
+      "core": 4,
+      "items": [
+        "Jak'Sho, The Protean",
+        "Spirit Visage",
+        "Locket of the Iron Solari",
+        "Frozen Heart",
+        "Force of Nature",
+        "Mercury's Treads"
+      ],
+      "why": "Rakan's Gleaming Quill heals Rakan himself as well as his allies, and his Fey Feathers passive hands him a free shield every so often. Protein Shake turns bonus Armor and Magic Resist into Heal and Shield Power, and Windspeaker's Blessing makes every heal and shield he lands raise the target's Armor and Magic Resist for 3 seconds, so each self-heal buys him resists that make his next Quill heal and Battle Dance shield bigger. Grand Entrance knocks people up, which pops a Courage of the Colossus shield, and every shield he gains (his own passive included) triggers Mighty Shield for a burst of Adaptive Force into the next Quill. Jak'Sho, Frozen Heart and Force of Nature are pure resists that Protein Shake reads as healing stats, with Jak'Sho even growing them mid-fight, while Spirit Visage makes the heals and shields on him bigger and Locket adds another shield to inflate. The flashy feathered playmaker becomes a six-item gym rat whose heals grow with his armor instead of his Ability Power.",
+      "play": "Open with Grand Entrance into the pile for the shield, Quill yourself mid-fight, then Battle Dance out and watch the shields grow with your armor. Against a team of mages, swap Frozen Heart for Kaenic Rookern.",
+      "chef": "2026-11-08"
     }
   ]
 }
