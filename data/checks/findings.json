@@ -36,9 +36,9 @@
     3006
    ],
    "theory": "The Simulator puts Berserker's Greaves in Draven's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Draven's builds with Berserker's Greaves win 4.0 points less often than their builds without it.",
-   "gap": -0.0403,
-   "share": 0.061,
+   "practice": "In real games, Draven's builds with Berserker's Greaves win 4.1 points less often than their builds without it.",
+   "gap": -0.0414,
+   "share": 0.0605,
    "status": "trap"
   },
   {
@@ -54,8 +54,8 @@
    ],
    "theory": "The Simulator puts Berserker's Greaves in Lucian's best build: in a fight it adds more than the items it beats.",
    "practice": "In real games, Lucian's builds with Berserker's Greaves win 7.3 points less often than their builds without it.",
-   "gap": -0.0728,
-   "share": 0.0467,
+   "gap": -0.0725,
+   "share": 0.0466,
    "status": "trap"
   },
   {
@@ -70,8 +70,8 @@
     3006
    ],
    "theory": "The Simulator puts Berserker's Greaves in Zeri's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Zeri's builds with Berserker's Greaves win 3.5 points less often than their builds without it.",
-   "gap": -0.0346,
+   "practice": "In real games, Zeri's builds with Berserker's Greaves win 3.7 points less often than their builds without it.",
+   "gap": -0.037,
    "share": 0.1089,
    "status": "trap"
   },
@@ -87,9 +87,9 @@
     3153
    ],
    "theory": "The Simulator puts Blade of The Ruined King in Kayle's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Kayle's builds with Blade of The Ruined King win 5.9 points less often than their builds without it.",
-   "gap": -0.0587,
-   "share": 0.0529,
+   "practice": "In real games, Kayle's builds with Blade of The Ruined King win 5.8 points less often than their builds without it.",
+   "gap": -0.0578,
+   "share": 0.0528,
    "status": "trap"
   },
   {
@@ -104,9 +104,9 @@
     3153
    ],
    "theory": "The Simulator puts Blade of The Ruined King in Lucian's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Lucian's builds with Blade of The Ruined King win 8.6 points less often than their builds without it.",
-   "gap": -0.0861,
-   "share": 0.033,
+   "practice": "In real games, Lucian's builds with Blade of The Ruined King win 8.8 points less often than their builds without it.",
+   "gap": -0.0877,
+   "share": 0.0329,
    "status": "trap"
   },
   {
@@ -121,9 +121,9 @@
     3153
    ],
    "theory": "The Simulator puts Blade of The Ruined King in Yunara's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Yunara's builds with Blade of The Ruined King win 3.3 points less often than their builds without it.",
-   "gap": -0.0326,
-   "share": 0.0989,
+   "practice": "In real games, Yunara's builds with Blade of The Ruined King win 3.1 points less often than their builds without it.",
+   "gap": -0.0314,
+   "share": 0.0986,
    "status": "trap"
   },
   {
@@ -138,9 +138,9 @@
     3124
    ],
    "theory": "The Simulator puts Guinsoo's Rageblade in Kayle's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Kayle's builds with Guinsoo's Rageblade win 5.1 points less often than their builds without it.",
-   "gap": -0.0507,
-   "share": 0.0631,
+   "practice": "In real games, Kayle's builds with Guinsoo's Rageblade win 5.0 points less often than their builds without it.",
+   "gap": -0.0497,
+   "share": 0.0629,
    "status": "trap"
   },
   {
@@ -155,9 +155,9 @@
     3111
    ],
    "theory": "The Simulator puts Mercury's Treads in K'Sante's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, K'Sante's builds with Mercury's Treads win 3.4 points less often than their builds without it.",
-   "gap": -0.0337,
-   "share": 0.0579,
+   "practice": "In real games, K'Sante's builds with Mercury's Treads win 3.2 points less often than their builds without it.",
+   "gap": -0.0322,
+   "share": 0.0581,
    "status": "trap"
   },
   {
@@ -172,9 +172,9 @@
     3089
    ],
    "theory": "The Simulator puts Rabadon's Deathcap in Karma's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Karma's builds with Rabadon's Deathcap win 10.5 points less often than their builds without it.",
-   "gap": -0.1046,
-   "share": 0.1064,
+   "practice": "In real games, Karma's builds with Rabadon's Deathcap win 10.3 points less often than their builds without it.",
+   "gap": -0.1031,
+   "share": 0.1061,
    "status": "trap"
   },
   {
@@ -189,9 +189,9 @@
     6694
    ],
    "theory": "The Simulator puts Serylda's Grudge in Jayce's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Jayce's builds with Serylda's Grudge win 4.5 points less often than their builds without it.",
-   "gap": -0.0449,
-   "share": 0.0333,
+   "practice": "In real games, Jayce's builds with Serylda's Grudge win 4.6 points less often than their builds without it.",
+   "gap": -0.0456,
+   "share": 0.0337,
    "status": "trap"
   },
   {
@@ -207,8 +207,8 @@
    ],
    "theory": "The Simulator puts Serylda's Grudge in Talon's best build: in a fight it adds more than the items it beats.",
    "practice": "In real games, Talon's builds with Serylda's Grudge win 3.1 points less often than their builds without it.",
-   "gap": -0.0314,
-   "share": 0.06,
+   "gap": -0.0311,
+   "share": 0.0599,
    "status": "trap"
   },
   {
@@ -223,9 +223,9 @@
     4645
    ],
    "theory": "The Simulator puts Shadowflame in Karma's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Karma's builds with Shadowflame win 10.5 points less often than their builds without it.",
-   "gap": -0.1046,
-   "share": 0.1064,
+   "practice": "In real games, Karma's builds with Shadowflame win 10.3 points less often than their builds without it.",
+   "gap": -0.1031,
+   "share": 0.1061,
    "status": "trap"
   },
   {
@@ -240,9 +240,9 @@
     3020
    ],
    "theory": "The Simulator puts Sorcerer's Shoes in Gwen's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Gwen's builds with Sorcerer's Shoes win 3.7 points less often than their builds without it.",
-   "gap": -0.0371,
-   "share": 0.0578,
+   "practice": "In real games, Gwen's builds with Sorcerer's Shoes win 3.5 points less often than their builds without it.",
+   "gap": -0.0354,
+   "share": 0.0575,
    "status": "trap"
   },
   {
@@ -257,9 +257,9 @@
     3020
    ],
    "theory": "The Simulator puts Sorcerer's Shoes in Karma's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Karma's builds with Sorcerer's Shoes win 7.4 points less often than their builds without it.",
-   "gap": -0.0737,
-   "share": 0.0858,
+   "practice": "In real games, Karma's builds with Sorcerer's Shoes win 7.2 points less often than their builds without it.",
+   "gap": -0.0717,
+   "share": 0.0856,
    "status": "trap"
   },
   {
@@ -274,9 +274,9 @@
     3020
    ],
    "theory": "The Simulator puts Sorcerer's Shoes in Lillia's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Lillia's builds with Sorcerer's Shoes win 5.1 points less often than their builds without it.",
-   "gap": -0.0509,
-   "share": 0.0566,
+   "practice": "In real games, Lillia's builds with Sorcerer's Shoes win 4.9 points less often than their builds without it.",
+   "gap": -0.0494,
+   "share": 0.0564,
    "status": "trap"
   },
   {
@@ -291,9 +291,9 @@
     4646
    ],
    "theory": "The Simulator puts Stormsurge in Karma's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Karma's builds with Stormsurge win 7.2 points less often than their builds without it.",
-   "gap": -0.0721,
-   "share": 0.0928,
+   "practice": "In real games, Karma's builds with Stormsurge win 7.0 points less often than their builds without it.",
+   "gap": -0.0697,
+   "share": 0.0925,
    "status": "trap"
   }
  ],
