@@ -1,297 +1,297 @@
 {
-  "id": "rakan-hits-the-gym",
-  "title": "Rakan Hits The Gym",
-  "champion": "Rakan",
-  "champion_name": "Rakan",
-  "chef": "2026-11-08",
-  "why": "Rakan's Gleaming Quill heals Rakan himself as well as his allies, and his Fey Feathers passive hands him a free shield every so often. Protein Shake turns bonus Armor and Magic Resist into Heal and Shield Power, and Windspeaker's Blessing makes every heal and shield he lands raise the target's Armor and Magic Resist for 3 seconds, so each self-heal buys him resists that make his next Quill heal and Battle Dance shield bigger. Grand Entrance knocks people up, which pops a Courage of the Colossus shield, and every shield he gains (his own passive included) triggers Mighty Shield for a burst of Adaptive Force into the next Quill. Jak'Sho, Frozen Heart and Force of Nature are pure resists that Protein Shake reads as healing stats, with Jak'Sho even growing them mid-fight, while Spirit Visage makes the heals and shields on him bigger and Locket adds another shield to inflate. The flashy feathered playmaker becomes a six-item gym rat whose heals grow with his armor instead of his Ability Power.",
-  "play": "Open with Grand Entrance into the pile for the shield, Quill yourself mid-fight, then Battle Dance out and watch the shields grow with your armor. Against a team of mages, swap Frozen Heart for Kaenic Rookern.",
+  "id": "nunu-minion-buffet",
+  "title": "The Minion Buffet",
+  "champion": "Nunu",
+  "champion_name": "Nunu & Willump",
+  "chef": "2026-11-09",
+  "why": "Consume is Nunu's snack button: Willump bites a minion and restores a big chunk of Health. Circle of Death turns 70% of all his healing and Health Regen into magic damage on the nearest enemy champion, and Overflow makes his ability heals stronger, so every minion he eats punches someone on the other team. Ocean Soul then hands him high Health Regen, which is more Circle of Death damage, plus the Mana Regen that pays for Overflow's doubled costs, while Goredrink heals him off his hits and feeds the circle again. Spirit Visage makes each heal bigger, Warmog's Armor adds regen, Unending Despair adds a heal every few seconds in a fight, and Riftmaker and Rod of Ages add the Health, Ability Power and Mana to keep eating. The snowball tank becomes a poke mage who hurts people by having lunch.",
+  "play": "Stand near the enemy you want hit and Consume a minion every time it is up; bite a champion instead when one is in reach. Use Absolute Zero and Snowball Barrage to keep Ocean Soul and Goredrink running.",
   "items": [
-    "Jak'Sho, The Protean",
+    "Ionian Boots of Lucidity",
+    "Riftmaker",
     "Spirit Visage",
-    "Locket of the Iron Solari",
-    "Frozen Heart",
-    "Force of Nature",
-    "Mercury's Treads"
+    "Warmog's Armor",
+    "Unending Despair",
+    "Rod of Ages"
   ],
   "core": 4,
-  "champion_icon": "/embed/fun/cook-builds/icons/champions/497.png",
+  "champion_icon": "/embed/fun/cook-builds/icons/champions/20.png",
   "augments": [
     {
-      "name": "Protein Shake",
+      "name": "Circle of Death",
       "rarity": "Prismatic",
       "core": true,
-      "text": "Gain % Heal and Shield Power based on bonus Armor and Magic Resist.",
-      "icon": "/embed/fun/cook-builds/icons/augments/protein-shake.png",
-      "id": 1324
+      "text": "Your healing and Health Regen deal 70% of the value magic damage to the nearest enemy champion.",
+      "icon": "/embed/fun/cook-builds/icons/augments/circle-of-death.png",
+      "id": 1015
     },
     {
-      "name": "Windspeaker's Blessing",
-      "rarity": "Prismatic",
+      "name": "Overflow",
+      "rarity": "Gold",
       "core": true,
-      "text": "Your Healing and Shielding also increases the target's Armor and Magic Resist by for 3 seconds.",
-      "icon": "/embed/fun/cook-builds/icons/augments/windspeaker-s-blessing.png",
-      "id": 1095
+      "text": "Your Mana costs double. Your Ability Heals, Shields, and damage are more effective.",
+      "icon": "/embed/fun/cook-builds/icons/augments/overflow.png",
+      "id": 1311
     },
     {
-      "name": "Courage of the Colossus",
-      "rarity": "Prismatic",
-      "core": true,
-      "text": "Gain Shield after Immobilizing or Grounding an enemy champion.",
-      "icon": "/embed/fun/cook-builds/icons/augments/courage-of-the-colossus.png",
-      "id": 1018
-    },
-    {
-      "name": "Mighty Shield",
+      "name": "Ocean Soul",
       "rarity": "Silver",
       "core": true,
-      "text": "Gain Adaptive Force for 3 seconds when you gain a Shield (5 seconds Cooldown).",
-      "icon": "/embed/fun/cook-builds/icons/augments/mighty-shield.png",
-      "id": 1314
+      "text": "Gain the Ocean Soul, granting high Health and Mana Regen after damaging enemies.",
+      "icon": "/embed/fun/cook-builds/icons/augments/ocean-soul.png",
+      "id": 1060
+    },
+    {
+      "name": "Goredrink",
+      "rarity": "Silver",
+      "core": true,
+      "text": "Gain 15% Omnivamp.",
+      "icon": "/embed/fun/cook-builds/icons/augments/goredrink.png",
+      "id": 1138
     }
   ],
   "href": "/kitchen#chefs-special",
   "archive_href": "/kitchen#chef-archive",
-  "share_href": "/kitchen/2026-11-08",
-  "share_image": "/embed/fun/cook-builds/share/rakan-hits-the-gym.png",
+  "share_href": "/kitchen/2026-11-09",
+  "share_image": "/embed/fun/cook-builds/share/nunu-minion-buffet.png",
   "item_ids": [
-    6665,
+    3158,
+    4633,
     3065,
-    3190,
-    3110,
-    4401,
-    3111
+    3083,
+    2502,
+    6657
   ],
   "i18n": {
     "ar": {
-      "title": "راكان في النادي الرياضي",
-      "why": "مهارة Q عند راكان تشفي راكان نفسه وحلفاءه، وقدرته السلبية تمنحه درعًا مجانيًا بين فترة وأخرى. مشروب البروتين يحوّل الدرع والمقاومة السحرية الإضافيين إلى قوة الشفاء والدروع، وبركة مناجي الرياح تجعل كل شفاء ودرع يطبقهما يرفعان درع الهدف ومقاومته السحرية لمدة 3 ثوانٍ، فكل شفاء ذاتي يمنحه مقاومات تكبّر شفاء Q التالي ودرع E. مهارة W ترفع الأعداء في الهواء فتفعّل درع شجاعة العملاق، وكل درع يكتسبه (بما فيه الدرع من قدرته السلبية) يفعّل الدرع الجبار لدفعة من القوة التكيفية في Q التالية. جاكشو، المتلون والقلب المتجمد وقوة الطبيعة مقاومات خالصة يقرؤها مشروب البروتين كإحصائيات شفاء، وجاكشو يزيدها حتى أثناء القتال، بينما وجه الروح يكبّر الشفاء والدروع الواقعة عليه وقلادة سولاري الحديدي تضيف درعًا آخر لتضخيمه. اللاعب المبهرج المريّش يتحول إلى مدمن نادٍ رياضي بستة عناصر، يكبر شفاؤه مع درعه بدلًا من قوة القدرات.",
-      "play": "ابدأ بـ W داخل التجمع للحصول على الدرع، اشفِ نفسك بـ Q وسط القتال، ثم اخرج بـ E وشاهد الدروع تكبر مع درعك. ضد فريق سحرة، بدّل القلب المتجمد بـ الخداع الملتهب.",
+      "title": "بوفيه التوابع",
+      "why": "حرف Q عند نونو وويلامب هو زر الوجبة الخفيفة: يعضّ Willump تابعًا ويستعيد قدرًا كبيرًا من الصحة. حلقة الموت تحوّل 70% من كل علاجه وتجدد صحته إلى ضرر سحري على أقرب بطل عدو، والفيض المتدفق يقوّي علاج قدراته، فكل تابع يأكله يضرب أحدًا في الفريق الآخر. ثم تمنحه الروح البحرية تجدد صحة عاليًا، وهذا يعني ضررًا أكبر من حلقة الموت، إضافة إلى تجدد المانا الذي يغطي تكاليف الفيض المتدفق المضاعفة، بينما يعالجه شرب الدماء من ضرباته ويغذّي الحلقة من جديد. وجه الروح يجعل كل علاج أكبر، ودرع وارموغ يضيف تجددًا، ويأسٌ بلا نهاية يضيف علاجًا كل بضع ثوانٍ في القتال، وصانع الصدوع وقصبة العصور يضيفان الصحة وقوة القدرات والمانا ليواصل الأكل. يتحول الدبابة كرة الثلج إلى ساحر بوك يؤذي الناس وهو يتناول غداءه.",
+      "play": "قف قرب العدو الذي تريد ضربه واستخدم Q على تابع كلما كانت جاهزة، واعضّ بطلًا بدلًا من ذلك إذا كان في المتناول. استخدم R وE لإبقاء الروح البحرية وشرب الدماء شغّالين.",
       "augments": [
-        "اكتسب  % من قوة الشفاء والدروع بناءً على الدرع والمقاومة السحرية الإضافيين.",
-        "شفاؤك ودروعك يزيدان أيضًا درع الهدف ومقاومته السحرية بمقدار  لمدة 3 ثوانٍ.",
-        "اكتسب درعًا بقيمة  بعد تثبيت أو رفع بطل عدو في الهواء.",
-        "تكسب القوة التكيفية لمدة 3 ثواني عند كسب درع (وقت التهدئة 5 ثواني)."
+        "علاجك وتجدد صحتك يُلحقان ضررًا سحريًا بنسبة 70% من القيمة بأقرب بطل عدو.",
+        "تكاليف المانا عندك تتضاعف. شفاء قدراتك ودروعها وضررها يصيرون أكثر فعالية.",
+        "تحصل على الروح البحرية، وتمنحك تجديدًا عاليًا للصحة والمانا بعد إلحاق الضرر بالأعداء.",
+        "تحصل على 15% مص حياة شامل."
       ]
     },
     "cs": {
-      "title": "Rakan v posilovně",
-      "why": "Rakanovo Q léčí Rakana samotného i jeho spojence a jeho pasivka mu čas od času dá štít zdarma. Proteinový koktejl mění bonusovou zbroj a magickou odolnost na sílu léčení a štítů a Požehnání zaříkávače větru způsobí, že každé léčení a štít, které udělí, zvýší cíli zbroj a magickou odolnost na 3 sekundy, takže každé vlastní léčení mu dá odolnosti, které zvětší jeho další léčení Q i štít E. W vyhazuje nepřátele do vzduchu, což spustí štít z Kolosovy odvahy, a každý získaný štít (včetně pasivky) aktivuje Mocný štít pro nárůst Adaptivní síly do dalšího Q. Proměnlivý Jak'Sho, Ledové srdce a Síla přírody jsou čisté odolnosti, které Proteinový koktejl čte jako léčebné staty, přičemž Jak'Sho je dokonce zvyšuje uprostřed boje, zatímco Otisk duše zvětšuje léčení a štíty na něj a Medailónek železných Solari přidává další štít k nafouknutí. Okázalý opeřený playmaker se tak mění na šestipředmětového gymráka, jehož léčení roste se zbrojí místo se Silou schopností.",
-      "play": "Začni W do hloučku pro štít, během boje se Qčkem vyléč, pak se E vytáhni ven a sleduj, jak štíty rostou s tvou zbrojí. Proti týmu mágů vyměň Ledové srdce za Kaenic Rookern.",
+      "title": "Bufet z poskoků",
+      "why": "Q Nunua a Willumpa je jeho svačinové tlačítko: Willump zakousne poskoka a obnoví velký kus zdraví. Kruh smrti mění 70 % veškerého jeho léčení a regenerace zdraví na magické poškození nejbližšího nepřátelského šampiona a Přebytek síly zesiluje léčení jeho schopností, takže každý snědený poskok někoho z druhého týmu praští. Mořská duše mu pak dá vysokou regeneraci zdraví, což je další poškození od Kruhu smrti, plus regeneraci many, která platí zdvojené náklady Přebytku síly, zatímco Krvavá lázeň ho léčí z jeho zásahů a zase krmí kruh. Otisk duše zvětšuje každé léčení, Warmogova zbroj přidává regeneraci, Nekonečné zoufalství přidá v boji léčení každých pár sekund a Tvůrce Žlebu s Holí věků dodají zdraví, sílu schopností a manu, aby mohl dál jíst. Z tanka-sněhové koule se stane poke mág, který ubližuje tím, že obědvá.",
+      "play": "Postav se k nepříteli, kterého chceš zasáhnout, a použij Q na poskoka pokaždé, když je připravené; když je v dosahu šampion, kousni radši toho. Používej R a E, ať Mořská duše a Krvavá lázeň pořád jedou.",
       "augments": [
-        "Získáš  % síly léčení a štítů podle bonusové zbroje a magické odolnosti.",
-        "Tvé léčení a štíty také zvyšují zbroj a magickou odolnost cíle o  na 3 sekundy.",
-        "Získáš štít o síle  po znehybnění nebo vyhození nepřátelského šampiona do vzduchu.",
-        "Získáš Adaptivní sílu na 3 sekundy, když získáš Štít (cooldown 5 sekund)."
+        "Tvé léčení a regenerace zdraví udělí nejbližšímu nepřátelskému šampionovi magické poškození ve výši 70 % své hodnoty.",
+        "Tvoje náklady na Manu se zdvojnásobí. Léčení, Štíty a poškození tvých schopností jsou účinnější.",
+        "Získáš Mořskou duši, která po zranění nepřátel dává vysokou regeneraci Zdraví a Many.",
+        "Získáš 15 % všestranného vampirismu."
       ]
     },
     "de": {
-      "title": "Rakan im Fitnessstudio",
-      "why": "Rakans Q heilt Rakan selbst und seine Verbündeten, und seine Passive gibt ihm hin und wieder einen kostenlosen Schild. Protein-Shake macht aus zusätzlicher Rüstung und Magieresistenz Heil- und Schildstärke, und Segen des Windflüsterers lässt jede Heilung und jeden Schild, den er verteilt, Rüstung und Magieresistenz des Ziels für 3 Sekunden erhöhen. Jede Selbstheilung bringt ihm also Resistenzen, die seine nächste Q-Heilung und seinen E-Schild größer machen. W schleudert Gegner in die Luft, was einen Schild von Mut des Kolosses auslöst, und jeder Schild, den er erhält (auch seine Passive), aktiviert Mächtiger Schild für einen Schub Adaptive Kraft auf das nächste Q. Jak'Sho, der Proteaner, Gefrorenes Herz und Naturgewalt sind reine Resistenzen, die Protein-Shake als Heilwerte liest, wobei Jak'Sho sie mitten im Kampf sogar wachsen lässt, während Geistessicht die Heilungen und Schilde auf ihn verstärkt und Amulett der eisernen Solari einen weiteren Schild zum Aufblasen liefert. Der schillernde, gefiederte Playmaker wird zur Gym-Ratte mit sechs Items, deren Heilungen mit seiner Rüstung wachsen statt mit seiner Fähigkeitsstärke.",
-      "play": "Eröffne mit W mitten ins Getümmel für den Schild, heil dich im Kampf per Q selbst, dann mit E raus und schau zu, wie die Schilde mit deiner Rüstung wachsen. Gegen ein Magier-Team tauschst du Gefrorenes Herz gegen Kaenischer Rookern.",
+      "title": "Das Vasallen-Buffet",
+      "why": "Das Q von Nunu ist sein Snack-Knopf: Willump beißt einen Vasallen und stellt eine Menge Leben wieder her. Kreis des Todes verwandelt 70 % seiner gesamten Heilung und Lebensregeneration in magischen Schaden am nächsten gegnerischen Champion, und Überfluss macht die Heilung seiner Fähigkeiten stärker, sodass jeder gefressene Vasall jemanden im anderen Team trifft. Meeresdrachenseele liefert ihm dann hohe Lebensregeneration, also noch mehr Kreis-des-Todes-Schaden, plus die Manaregeneration, die Überflusses verdoppelte Kosten bezahlt, während Blutgierig ihn mit seinen Treffern heilt und den Kreis wieder füttert. Geistessicht macht jede Heilung größer, Warmogs Rüstung gibt Regeneration, Endlose Verzweiflung bringt im Kampf alle paar Sekunden eine Heilung dazu, und Kluftformer und Stab der Zeitalter liefern Leben, Fähigkeitsstärke und Mana, damit er weiterfuttern kann. Der Schneeball-Tank wird zum Poke-Magier, der anderen wehtut, indem er zu Mittag isst.",
+      "play": "Stell dich in die Nähe des Gegners, den du treffen willst, und nutze Q auf einen Vasallen, sobald es bereit ist; beiß stattdessen einen Champion, wenn einer in Reichweite ist. Nutze R und E, um Meeresdrachenseele und Blutgierig am Laufen zu halten.",
       "augments": [
-        "Erhalte  % Heil- und Schildstärke basierend auf zusätzlicher Rüstung und Magieresistenz.",
-        "Deine Heilung und Schilde erhöhen außerdem Rüstung und Magieresistenz des Ziels um  für 3 Sekunden.",
-        "Erhalte einen Schild von  nach dem Festsetzen oder Hochschleudern eines gegnerischen Champions.",
-        "Erhalte 3 Sekunden lang Adaptive Kraft, wenn du einen Schild erhältst (5 Sekunden Abklingzeit)."
+        "Deine Heilung und Lebensregeneration fügen dem nächsten gegnerischen Champion 70 % des Werts als magischen Schaden zu.",
+        "Deine Manakosten verdoppeln sich. Deine Fähigkeitsheilungen, Schilde und dein Schaden sind effektiver.",
+        "Erhalte die Meeresdrachenseele, die nach Schaden an Gegnern hohe Lebens- und Manaregeneration gewährt.",
+        "Erhalte 15 % Omnivampirismus."
       ]
     },
     "el": {
-      "title": "Ο Ρακάν στο Γυμναστήριο",
-      "why": "Το Q του Ρακάν γιατρεύει τον ίδιο τον Ρακάν εκτός από τους συμμάχους του, και το παθητικό του του δίνει κάθε τόσο μια δωρεάν ασπίδα. Το Πρωτεϊνούχο Ρόφημα μετατρέπει τη bonus Πανοπλία και Μαγική Αντίσταση σε Ισχύ Θεραπείας και Ασπίδας, και η Ευλογία του Γητευτή των Ανέμων κάνει κάθε θεραπεία και ασπίδα που εφαρμόζει να αυξάνει την Πανοπλία και τη Μαγική Αντίσταση του στόχου για 3 δευτερόλεπτα, οπότε κάθε αυτο-θεραπεία του δίνει αντιστάσεις που μεγαλώνουν την επόμενη θεραπεία του με Q και την ασπίδα του με E. Το W εκτοξεύει τους εχθρούς στον αέρα, κάτι που ενεργοποιεί την ασπίδα του Κουράγιου του Κολοσσού, και κάθε ασπίδα που παίρνει (και το παθητικό του) ενεργοποιεί την Πανίσχυρη Ασπίδα για μια έκρηξη Προσαρμοστικής Δύναμης στο επόμενο Q. Ο Τζακ'Σο, Ο Πολυμορφικός, η Παγωμένη Καρδιά και η Δύναμη της Φύσης είναι καθαρές αντιστάσεις που το Πρωτεϊνούχο Ρόφημα διαβάζει ως στατιστικά θεραπείας, με τον Τζακ'Σο να τις μεγαλώνει ακόμα και μέσα στη μάχη, ενώ η Όψη Πνευμάτων μεγαλώνει τις θεραπείες και τις ασπίδες που δέχεται και το Έμβλημα των Σιδηρών Σολάρι προσθέτει άλλη μια ασπίδα να φουσκώσει. Ο εντυπωσιακός φτερωτός playmaker γίνεται γυμναστηριακός με έξι αντικείμενα, με θεραπείες που μεγαλώνουν με την πανοπλία του και όχι με την Ισχύ Ικανοτήτων του.",
-      "play": "Άνοιξε με W μέσα στο σωρό για την ασπίδα, γιάτρεψε τον εαυτό σου με Q στη μέση της μάχης, μετά φύγε με E και δες τις ασπίδες να μεγαλώνουν με την πανοπλία σου. Απέναντι σε ομάδα με μάγους, αντάλλαξε την Παγωμένη Καρδιά με Κυνικός Ρυθμός.",
+      "title": "Ο μπουφές των τσιράκιων",
+      "why": "Το Q του Νούνου και Γουίλαμπ είναι το κουμπί για σνακ: ο Willump δαγκώνει ένα τσιράκι και επαναφέρει μεγάλο κομμάτι Ζωής. Ο Κύκλος Θανάτου μετατρέπει το 70% όλης της θεραπείας και της Ανανέωσης Ζωής του σε μαγική ζημιά στον πλησιέστερο εχθρικό ήρωα, και η Υπερχείλιση δυναμώνει τις θεραπείες των ικανοτήτων του, οπότε κάθε τσιράκι που τρώει χτυπάει κάποιον από την άλλη ομάδα. Η Ψυχή του Ωκεανού του δίνει μετά πολλή Ανανέωση Ζωής, δηλαδή ακόμα περισσότερη ζημιά από τον Κύκλο Θανάτου, μαζί με την Ανανέωση Μάνα που πληρώνει τα διπλάσια κόστη της Υπερχείλισης, ενώ ο Αιμοπότης τον θεραπεύει από τα χτυπήματά του και τροφοδοτεί ξανά τον κύκλο. Η Όψη Πνευμάτων μεγαλώνει κάθε θεραπεία, η Πανοπλία του Γόρμογκ προσθέτει ανανέωση, η Απέραντη Απόγνωση προσθέτει μια θεραπεία κάθε λίγα δευτερόλεπτα στη μάχη, και ο Διχαστής με τη Ράβδο των Αιώνων δίνουν τη Ζωή, τη Δύναμη Ικανοτήτων και το Μάνα για να συνεχίσει να τρώει. Το τανκ-χιονόμπαλα γίνεται poke μάγος που πονάει τους άλλους ενώ τρώει μεσημεριανό.",
+      "play": "Στάσου κοντά στον εχθρό που θες να χτυπήσεις και χρησιμοποίησε το Q σε ένα τσιράκι κάθε φορά που είναι έτοιμο· δάγκωσε έναν ήρωα αντί για τσιράκι όταν υπάρχει κάποιος εντός εμβέλειας. Χρησιμοποίησε το R και το E για να δουλεύουν συνέχεια η Ψυχή του Ωκεανού και ο Αιμοπότης.",
       "augments": [
-        "Κερδίζεις  % Ισχύ Θεραπείας και Ασπίδας βάσει της bonus Πανοπλίας και Μαγικής Αντίστασης.",
-        "Οι θεραπείες και οι ασπίδες σου αυξάνουν επίσης την Πανοπλία και τη Μαγική Αντίσταση του στόχου κατά  για 3 δευτερόλεπτα.",
-        "Κερδίζεις ασπίδα  αφού ακινητοποιήσεις ή εκτοξεύσεις στον αέρα έναν εχθρικό ήρωα.",
-        "Κερδίζεις Προσαρμοστική Δύναμη για 3 δευτερόλεπτα όταν παίρνεις Ασπίδα (5 δευτερόλεπτα Χρόνος Επαναφοράς)."
+        "Οι θεραπείες και η Ανανέωση Ζωής σου προκαλούν το 70% της τιμής τους ως μαγική ζημιά στον πλησιέστερο εχθρικό ήρωα.",
+        "Τα κόστη Μάνας σου διπλασιάζονται. Οι Θεραπείες, οι Ασπίδες και η ζημιά των Ικανοτήτων σου είναι πιο αποτελεσματικές.",
+        "Παίρνεις την Ψυχή του Ωκεανού, που δίνει υψηλή Αναπλήρωση Υγείας και Μάνας μετά από ζημιά σε εχθρούς.",
+        "Κερδίζεις 15% Παντοβαμπιρισμό."
       ]
     },
     "es-MX": {
-      "title": "Rakan va al gym",
-      "why": "La Q de Rakan cura a Rakan mismo además de a sus aliados, y su pasiva le da un escudo gratis cada cierto tiempo. Batido de Proteínas convierte la Armadura y la Resistencia Mágica adicionales en Poder de Curación y Escudo, y Bendición del Portavientos hace que cada curación y escudo que aplica aumente la Armadura y la Resistencia Mágica del objetivo durante 3 segundos, así que cada autocuración le da resistencias que hacen más grandes su siguiente curación con Q y su escudo con E. W lanza a los enemigos por los aires, lo que activa el escudo de Valor del Coloso, y cada escudo que gana (incluida su pasiva) activa Escudo Poderoso para un estallido de Fuerza Adaptable en la siguiente Q. Jak'Sho, el Proteico, Corazón de Hielo y Fuerza de la Naturaleza son pura resistencia que Batido de Proteínas lee como estadísticas de curación, y Jak'Sho hasta las hace crecer en plena pelea, mientras que Apariencia Espiritual agranda las curaciones y los escudos que recibe y Relicario de los Solari de Hierro suma otro escudo para inflar. El llamativo jugador emplumado se vuelve un rata de gym de seis objetos cuyas curaciones crecen con su armadura en lugar de con su Poder de Habilidad.",
-      "play": "Abre con W en el montón para el escudo, cúrate con Q en plena pelea y sal con E viendo cómo los escudos crecen con tu armadura. Contra un equipo de magos, cambia Corazón de Hielo por Rukerno Kaénico.",
+      "title": "El buffet de súbditos",
+      "why": "La Q de Nunu y Willump es su botón de botana: Willump muerde a un súbdito y restaura un buen pedazo de Vida. Círculo de la Muerte convierte el 70% de toda su curación y Regeneración de Vida en daño mágico al campeón enemigo más cercano, y Sobrecarga hace más fuertes las curaciones de sus habilidades, así que cada súbdito que se come le pega a alguien del otro equipo. Alma de los Océanos le da mucha Regeneración de Vida, que es más daño de Círculo de la Muerte, además de la Regeneración de Maná que paga los costos duplicados de Sobrecarga, mientras que Beber Sangre lo cura con sus golpes y vuelve a alimentar el círculo. Apariencia Espiritual hace más grande cada curación, Armadura de Warmog agrega regeneración, Desesperación Eterna agrega una curación cada pocos segundos en combate, y Agrietador y Vara de las Edades aportan la Vida, el Poder de Habilidad y el Maná para seguir comiendo. El tanque bola de nieve se vuelve un mago de poke que lastima a todos con solo almorzar.",
+      "play": "Párate cerca del enemigo al que quieres pegarle y usa la Q en un súbdito cada vez que esté lista; muerde a un campeón si tienes uno al alcance. Usa la R y la E para mantener funcionando Alma de los Océanos y Beber Sangre.",
       "augments": [
-        "Obtén  % de Poder de Curación y Escudo según la Armadura y la Resistencia Mágica adicionales.",
-        "Tus curaciones y escudos también aumentan la Armadura y la Resistencia Mágica del objetivo en  durante 3 segundos.",
-        "Obtén un escudo de  tras inmovilizar o lanzar por los aires a un campeón enemigo.",
-        "Obtén fuerza adaptativa durante 3 segundos cuando ganes un escudo (5 segundos de enfriamiento)."
+        "Tus curaciones y Regeneración de Vida infligen el 70% del valor como daño mágico al campeón enemigo más cercano.",
+        "Tus costos de maná se duplican. Las curaciones, los escudos y el daño de tus habilidades son más efectivos.",
+        "Obtén el Alma de los Océanos, que concede gran regeneración de salud y maná después de dañar enemigos.",
+        "Obtienes 15% de omnivampirismo."
       ]
     },
     "es": {
-      "title": "Rakan va al gimnasio",
-      "why": "El Q de Rakan cura a Rakan además de a sus aliados, y su pasiva le da un escudo gratis cada cierto tiempo. Batido de proteína convierte la Armadura y la Resistencia mágica adicionales en Poder de curación y escudo, y Bendición de hablavientos hace que cada curación y escudo que aplica aumente la Armadura y la Resistencia mágica del objetivo durante 3 segundos, así que cada autocuración le da resistencias que hacen más grandes su siguiente curación Q y su escudo E. W lanza a los enemigos por los aires, lo que activa el escudo de Coraje del coloso, y cada escudo que gana (incluida su pasiva) activa Escudo de fuerza para un estallido de Fuerza adaptativa en el siguiente Q. Jak'Sho el Proteico, Corazón de hielo y Fuerza de la naturaleza son resistencias puras que Batido de proteína lee como estadísticas de curación, e incluso Jak'Sho las hace crecer en pleno combate, mientras que Rostro espiritual agranda las curaciones y los escudos que recibe y Medallón de los Solari de Hierro añade otro escudo que inflar. El llamativo jugón emplumado se convierte en un ratón de gimnasio de seis objetos cuyas curaciones crecen con su armadura en vez de con su Poder de habilidad.",
-      "play": "Abre con W en el montón para el escudo, cúrrate con Q en mitad del combate y sal con E viendo cómo los escudos crecen con tu armadura. Contra un equipo de magos, cambia Corazón de hielo por Rookern kaénico.",
+      "title": "El bufé de súbditos",
+      "why": "La Q de Nunu y Willump es su botón de merienda: Willump muerde a un súbdito y recupera un buen pedazo de vida. Círculo de muerte convierte el 70 % de toda su curación y regeneración de vida en daño mágico al campeón enemigo más cercano, y Sobrecarga hace más potentes las curaciones de sus habilidades, así que cada súbdito que se zampa le pega a alguien del otro equipo. Alma de océano le da mucha regeneración de vida, que es más daño de Círculo de muerte, y la regeneración de maná que paga los costes duplicados de Sobrecarga, mientras que Chupasangre lo cura con sus golpes y vuelve a alimentar el círculo. Rostro espiritual hace cada curación más grande, Armadura de Warmog añade regeneración, Desesperanza eterna añade una curación cada pocos segundos en combate, y Creagrietas y Vara de las edades aportan la vida, el poder de habilidad y el maná para seguir comiendo. El tanque bola de nieve se convierte en un mago de poke que hace daño a base de almorzar.",
+      "play": "Colócate cerca del enemigo al que quieres dañar y usa la Q en un súbdito cada vez que esté disponible; muerde a un campeón si tienes uno al alcance. Usa la R y la E para mantener en marcha Alma de océano y Chupasangre.",
       "augments": [
-        "Obtén  % de Poder de curación y escudo según la Armadura y la Resistencia mágica adicionales.",
-        "Tus curaciones y escudos también aumentan la Armadura y la Resistencia mágica del objetivo en  durante 3 segundos.",
-        "Obtén un escudo de  tras inmovilizar o lanzar por los aires a un campeón enemigo.",
-        "Obtén fuerza adaptable durante 3 segundos cuando ganes un escudo (5 segundos de enfriamiento)."
+        "Tu curación y regeneración de vida infligen un 70 % de su valor como daño mágico al campeón enemigo más cercano.",
+        "Tus costes de maná se duplican. Las curaciones, los escudos y el daño de tus habilidades son más eficaces.",
+        "Obtén el Alma de océano, que concede gran regeneración de salud y maná tras dañar a enemigos.",
+        "Obtienes un 15 % de omnivampirismo."
       ]
     },
     "fr": {
-      "title": "Rakan à la salle de sport",
-      "why": "Le Q de Rakan soigne Rakan lui-même en plus de ses alliés, et son passif lui offre régulièrement un bouclier gratuit. Boisson énergisante transforme l'Armure et la Résistance magique bonus en Puissance des soins et des boucliers, et Bénédiction de l'aéromancien fait que chaque soin et bouclier qu'il applique augmente l'Armure et la Résistance magique de la cible pendant 3 secondes : chaque auto-soin lui offre donc des résistances qui renforcent son prochain soin Q et son bouclier E. W projette les ennemis en l'air, ce qui déclenche le bouclier de Courage du colosse, et chaque bouclier gagné (passif compris) active Puissant bouclier pour un gain de Force adaptative sur le prochain Q. Jak'Sho, le Protéiforme, Cœur gelé et Force de la nature sont de pures résistances que Boisson énergisante lit comme des stats de soins, Jak'Sho les faisant même grandir en plein combat, tandis que Visage spirituel gonfle les soins et boucliers reçus et que Médaillon de l'Iron Solari ajoute un bouclier de plus à faire gonfler. Le play-maker flamboyant et plumé devient un rat de salle de sport à six objets, dont les soins grossissent avec son armure plutôt qu'avec sa Puissance des sorts.",
-      "play": "Ouvre avec W dans le tas pour le bouclier, soigne-toi avec Q en plein combat, puis repars avec E et regarde les boucliers grossir avec ton armure. Contre une équipe de mages, remplace Cœur gelé par Rookern kaénique.",
+      "title": "Le buffet de sbires",
+      "why": "Le Q de Nunu et Willump est leur bouton goûter : Willump croque un sbire et rend une grosse part de PV. Soins meurtriers transforme 70 % de tous ses soins et de sa régénération de PV en dégâts magiques sur le champion ennemi le plus proche, et Surcharge renforce les soins de ses compétences, donc chaque sbire avalé fait mal à quelqu'un dans l'autre équipe. Âme des océans lui donne ensuite beaucoup de régénération de PV, soit encore plus de dégâts de Soins meurtriers, plus la régénération de mana qui paie les coûts doublés de Surcharge, pendant qu'Éviscération le soigne avec ses coups et alimente encore le cercle. Visage spirituel gonfle chaque soin, l'Armure de Warmog ajoute de la régénération, Désespoir infini ajoute un soin toutes les quelques secondes en combat, et Créateur de failles et Bâton séculaire apportent les PV, la puissance et le mana pour continuer à manger. Le tank boule de neige devient un mage de poke qui fait mal en déjeunant.",
+      "play": "Placez-vous près de l'ennemi que vous voulez toucher et lancez le Q sur un sbire à chaque fois qu'il est disponible ; croquez plutôt un champion quand il est à portée. Utilisez le R et le E pour garder Âme des océans et Éviscération actifs.",
       "augments": [
-        "Gagnez  % de Puissance des soins et des boucliers selon l'Armure et la Résistance magique bonus.",
-        "Vos soins et boucliers augmentent aussi l'Armure et la Résistance magique de la cible de  pendant 3 secondes.",
-        "Gagnez un bouclier après avoir immobilisé ou projeté en l'air un champion ennemi.",
-        "Gagnez de la force adaptative pendant 3 secondes quand vous gagnez un bouclier (5 secondes de délai de récupération)."
+        "Vos soins et votre régénération de PV infligent 70 % de leur valeur en dégâts magiques au champion ennemi le plus proche.",
+        "Vos coûts en mana sont doublés. Les soins, boucliers et dégâts de vos capacités sont plus efficaces.",
+        "Obtenez l'Âme des océans, qui accorde une forte régénération de vie et de mana après avoir infligé des dégâts aux ennemis.",
+        "Vous gagnez 15 % d'omnivampirisme."
       ]
     },
     "hu": {
-      "title": "Rakan edzőterembe megy",
-      "why": "Rakan Q-ja saját magát is gyógyítja a szövetségesei mellett, a passzívja pedig időnként ingyen pajzsot ad neki. A Fehérjeital a bónusz Páncélt és Varázsellenállást Gyógyítási és pajzserővé alakítja, A szélharcos áldása pedig minden általa adott gyógyítás és pajzs után 3 másodpercre megnöveli a célpont Páncélját és Varázsellenállását, így minden önmagára adott gyógyítás olyan ellenállásokat hoz, amitől a következő Q-gyógyítás és E-pajzs nagyobb lesz. A W felrepíti az ellenfeleket, ami kiváltja A kolosszus kurázsija pajzsát, és minden megszerzett pajzs (a passzívja is) beindítja a Hatalmas pajzs bónuszát, ami Adaptív erő löketet ad a következő Q-ra. Jak'Sho, a váltakozó, Fagyos szív és A természet ereje tiszta ellenállás, amit a Fehérjeital gyógyító statként kezel, Jak'Sho ráadásul menet közben még növeli is; a Szellemarc nagyobbra növeli a rá kerülő gyógyítást és pajzsot, Az iron solarik medálja pedig újabb pajzsot ad, amit fel lehet fújni. A látványos, tollas játékmester hatitemes edzőtermi patkánnyá válik, akinek a gyógyításai a páncéljával nőnek, nem a Képességerejével.",
-      "play": "Nyiss W-vel a tömegbe a pajzsért, használd a Q-t magadra a harc közepén, aztán E-vel lépj ki, és nézd, ahogy a pajzsok nőnek a páncélod mellett. Varázslós csapat ellen cseréld a Fagyos szívet Kenikus védelemre.",
+      "title": "A minyon-svédasztal",
+      "why": "A Q a Nunu és Willump nasigombja: Willump beleharap egy minyonba, és rengeteg életerőt gyógyít. A halál körforgása a teljes gyógyulása és életerő-regenerációja 70%-át mágikus sebzéssé alakítja a legközelebbi ellenséges hősön, a Túlcsordulás pedig erősebbé teszi a képességgyógyításait, így minden megevett minyon behúz valakinek az ellenséges csapatból. Az Óceáni lélek aztán magas életerő-regenerációt ad neki, ami még több A halál körforgása-sebzést jelent, plusz mana-regenerációt, ami fedezi a Túlcsordulás megduplázott költségét, a Vérivás pedig a találataiból gyógyítja, és újra táplálja a kört. A Szellemarc minden gyógyítást nagyobbá tesz, Warmog vértje regenerációt ad, a Végtelen kétségbeesés harc közben pár másodpercenként gyógyít, a Szurdokhasító és a Korok pálcája pedig életerőt, képességerőt és manát ad, hogy tovább ehessen. A hógolyós tank így pokerező mágussá válik, aki úgy fájdalmat okoz, hogy közben ebédel.",
+      "play": "Állj az ellenség közelébe, akit meg akarsz ütni, és Q-zz egy minyont, valahányszor elérhető; ha egy hős a közelben van, inkább abba harapj bele. Az R-rel és az E-vel tartsd működésben az Óceáni lelket és a Vérivást.",
       "augments": [
-        "Nyerj % Gyógyítási és pajzserőt a bónusz Páncél és Varázsellenállás alapján.",
-        "A gyógyításod és pajzsod a célpont Páncélját és Varázsellenállását is megnöveli értékkel 3 másodpercig.",
-        "Nyerj pajzsot, miután mozgásképtelenné teszel vagy a földre kényszerítesz egy ellenséges bajnokot.",
-        "Adaptív erőt kapsz 3 másodpercre, amikor Pajzsot szerzel (5 másodperc várakozási idő)."
+        "A gyógyulásod és életerő-regenerációd az érték 70%-ának megfelelő mágikus sebzést okoz a legközelebbi ellenséges hősnek.",
+        "A Mana-költségeid megduplázódnak. A képességeid gyógyítása, Pajzsai és sebzése hatékonyabb.",
+        "Megkapod az Óceáni lelket, ami az ellenségek megsebzése után magas Életerő- és Mana-regenerációt ad.",
+        "Kapsz 15% mindenvámpírságot."
       ]
     },
     "id": {
-      "title": "Rakan Ngegym",
-      "why": "Q Rakan menyembuhkan Rakan sendiri selain sekutunya, dan pasif-nya ngasih shield gratis tiap beberapa saat. Protein Shake mengubah bonus Armor dan Magic Resist jadi Heal and Shield Power, dan Windspeaker's Blessing bikin setiap heal dan shield yang dia berikan menaikkan Armor dan Magic Resist target selama 3 detik, jadi tiap self-heal memberi resist yang bikin heal Q dan shield E berikutnya makin gede. W menerbangkan musuh, yang memicu shield Courage of the Colossus, dan setiap shield yang dia dapat (termasuk dari pasif) memicu Mighty Shield untuk lonjakan Adaptive Force ke Q berikutnya. Jak'Sho, The Protean, Frozen Heart, dan Force of Nature adalah resist murni yang dibaca Protein Shake sebagai stat heal, bahkan Jak'Sho bisa menumbuhkannya di tengah pertarungan, sementara Spirit Visage bikin heal dan shield yang masuk ke dia makin besar dan Locket of the Iron Solari menambah satu shield lagi untuk digedein. Si playmaker berbulu yang flamboyan ini jadi gym rat enam item yang heal-nya naik bareng armor, bukan Ability Power.",
-      "play": "Buka dengan W ke tengah kerumunan buat dapat shield, Q diri sendiri di tengah war, lalu E keluar dan lihat shield-nya makin gede bareng armor kamu. Lawan tim penuh mage, ganti Frozen Heart dengan Kaenic Rookern.",
+      "title": "Prasmanan Minion",
+      "why": "Q adalah tombol camilan Nunu: Willump menggigit minion dan memulihkan Health dalam jumlah besar. Circle of Death mengubah 70% dari semua healing dan Health Regen-nya jadi magic damage ke champion musuh terdekat, dan Overflow bikin heal dari skill-nya lebih kuat, jadi tiap minion yang dia makan jadi pukulan buat tim lawan. Lalu Ocean Soul memberinya Health Regen tinggi, yang berarti lebih banyak damage Circle of Death, plus Mana Regen untuk membayar biaya Overflow yang berlipat ganda, sementara Goredrink menyembuhkannya dari setiap serangan dan mengisi ulang lingkaran itu lagi. Spirit Visage memperbesar setiap heal, Warmog's Armor menambah regen, Unending Despair memberi heal tiap beberapa detik saat bertarung, dan Riftmaker serta Rod of Ages menambah Health, Ability Power, dan Mana supaya dia terus makan. Tank snowball ini berubah jadi mage poke yang menyakiti orang hanya dengan makan siang.",
+      "play": "Berdiri dekat musuh yang mau kamu hajar dan pakai Q ke minion setiap kali sudah siap; kalau ada champion dalam jangkauan, gigit champion-nya saja. Pakai R dan E untuk menjaga Ocean Soul dan Goredrink tetap menyala.",
       "augments": [
-        "Dapatkan % Heal and Shield Power berdasarkan bonus Armor dan Magic Resist.",
-        "Healing dan Shielding kamu juga menambah Armor dan Magic Resist target sebesar selama 3 detik.",
-        "Dapatkan Shield setelah melumpuhkan atau menjatuhkan champion musuh ke tanah.",
-        "Dapatkan Adaptive Force selama 3 detik saat kamu mendapat Shield (cooldown 5 detik)."
+        "Healing dan Health Regen-mu memberikan 70% nilainya sebagai magic damage ke champion musuh terdekat.",
+        "Biaya Mana kamu berlipat dua. Heal, Shield, dan damage Ability kamu lebih efektif.",
+        "Dapatkan Ocean Soul, yang memberi Health dan Mana Regen tinggi setelah memberi damage ke musuh.",
+        "Dapatkan 15% Omnivamp."
       ]
     },
     "it": {
-      "title": "Rakan va in palestra",
-      "why": "La Q di Rakan cura sia lui che gli alleati, e la sua passiva gli regala ogni tanto uno scudo gratis. Frullato proteico trasforma Armatura e Resistenza magica bonus in Potenza di cure e scudi, e Benedizione del cantore del vento fa sì che ogni cura e scudo che applica aumenti Armatura e Resistenza magica del bersaglio per 3 secondi: così ogni auto-cura gli dà resistenze che rendono più grosse la prossima cura della Q e il prossimo scudo della E. La W lancia in aria i nemici, e questo fa scattare lo scudo di Coraggio del Colosso, mentre ogni scudo che ottiene (passiva compresa) attiva Scudo possente per uno scoppio di Forza adattiva sulla Q successiva. Jak'Sho, il Mutevole, Fulcro dei geli e Forza della natura sono pure resistenze che Frullato proteico legge come statistiche di cura, con Jak'Sho che le fa pure crescere a battaglia in corso, mentre Corazza spirituale potenzia cure e scudi che riceve e Medaglione dei Solari di ferro aggiunge un altro scudo da gonfiare. Il vistoso giocatore piumato diventa un fanatico della palestra con sei oggetti, le cui cure crescono con l'armatura invece che con il Potere Abilità.",
-      "play": "Apri con la W in mezzo al gruppo per lo scudo, usa la Q su te stesso a metà scontro, poi esci con la E e guarda gli scudi crescere con la tua armatura. Contro una squadra di maghi, sostituisci Fulcro dei geli con Rookern kaenico.",
+      "title": "Il buffet di minion",
+      "why": "La Q è il tasto spuntino di Nunu e Willump: Willump morde un minion e recupera un bel po' di salute. Cerchio della morte trasforma il 70% di tutte le sue cure e della rigenerazione salute in danni magici sul campione nemico più vicino, ed Esubero potenzia le cure delle sue abilità, quindi ogni minion che mangia colpisce qualcuno dell'altra squadra. Anima dell'oceano gli dà poi un'alta rigenerazione salute, cioè più danni di Cerchio della morte, più la rigenerazione mana che paga i costi raddoppiati di Esubero, mentre Succhiasangue lo cura con i suoi colpi e alimenta di nuovo il cerchio. Corazza spirituale rende ogni cura più grande, Armatura di Warmog aggiunge rigenerazione, Disperazione eterna aggiunge una cura ogni pochi secondi in battaglia, e Araldo del Vuoto e Bastone secolare aggiungono salute, potere magico e mana per continuare a mangiare. Il tank palla di neve diventa un mago da poke che fa male alla gente facendo pranzo.",
+      "play": "Stai vicino al nemico che vuoi colpire e usa la Q su un minion ogni volta che è pronta; se hai un campione a tiro, morsica lui. Usa la R e la E per tenere attivi Anima dell'oceano e Succhiasangue.",
       "augments": [
-        "Ottieni % di Potenza di cure e scudi in base ad Armatura e Resistenza magica bonus.",
-        "Le tue cure e i tuoi scudi aumentano anche Armatura e Resistenza magica del bersaglio di per 3 secondi.",
-        "Ottieni uno scudo dopo aver immobilizzato o scagliato a terra un campione nemico.",
-        "Ottieni forza adattiva per 3 secondi quando ottieni uno scudo (5 secondi di ricarica)."
+        "Le tue cure e la rigenerazione salute infliggono il 70% del valore in danni magici al campione nemico più vicino.",
+        "I tuoi costi in mana raddoppiano. Cure, scudi e danni delle tue abilità sono più efficaci.",
+        "Ottieni Anima dell'oceano, che concede alta rigenerazione di salute e mana dopo aver inflitto danni ai nemici.",
+        "Ottieni il 15% di omnivampirismo."
       ]
     },
     "ja": {
-      "title": "ラカン、ジムに通う",
-      "why": "ラカンのQは味方だけでなく自分自身も回復し、パッシブでときどきシールドをタダでもらえます。プロテインシェイクは追加アーマーと追加魔法防御を回復とシールド量に変換し、風詠みの祝福は自分が与えた回復とシールドのたびに対象のアーマーと魔法防御を3秒間上げてくれるので、自己回復するほど次のQの回復とEのシールドが大きくなる好循環に。Wで敵を打ち上げれば巨人の勇気のシールドが発動し、獲得したシールド(パッシブ含む)はすべてマイティシールドを発動させて、次のQに適応力のバーストを乗せます。変幻自在のジャック＝ショー、フローズン ハート、自然の力は純粋な防御で、プロテインシェイクはこれを回復ステータスとして扱います。ジャック＝ショーなら戦闘中にさらに伸びていきます。スピリット ビサージュは自分が受ける回復とシールドを強化し、ソラリのロケットは膨らませられるシールドをもう1つ追加。派手な羽根つきプレイメーカーが、アビリティパワーではなくアーマーで回復が伸びる6アイテムのジム通いガチ勢に大変身です。",
-      "play": "まずWで敵の群れに突っ込んでシールドをもらい、戦闘中は自分にQを使い、Eで離脱。アーマーに合わせてシールドが育っていくのを眺めましょう。メイジだらけの相手には、フローズン ハートをケイニック ルーケルンに替えてください。",
+      "title": "ミニオンビュッフェ",
+      "why": "Qはヌヌ＆ウィルンプのおやつボタン。ウィルンプがミニオンにかじりつき、体力を大きく回復します。死者の集いは回復量と体力自動回復の70%を最寄りの敵チャンピオンへの魔法ダメージに変換し、オーバーフローはスキルの回復量を強化するので、ミニオンを食べるたびに敵チームの誰かを殴れます。さらにオーシャンソウルが高い体力自動回復(=死者の集いのダメージ増)と、オーバーフローの倍増したコストを賄うマナ自動回復をくれて、ゴアドリンクは攻撃で回復しながらまた死者の集いに燃料を注ぎます。スピリット ビサージュは回復量を底上げし、ワーモグ アーマーは自動回復を足し、終わりなき絶望は戦闘中数秒ごとに回復を追加、リフトメーカーとロッド オブ エイジスは体力・魔力・マナを足して食べ続けられるようにします。雪玉タンクが、ランチを食べるだけで相手を痛めつけるポークメイジに早変わりです。",
+      "play": "殴りたい敵の近くに立って、Qが使えるたびにミニオンを食べましょう。チャンピオンが射程内にいるときは、代わりにそっちをかじります。RとEでオーシャンソウルとゴアドリンクを回し続けましょう。",
       "augments": [
-        "追加アーマーと追加魔法防御に応じて、回復とシールド量を％獲得。",
-        "回復とシールドで、対象のアーマーと魔法防御も 3秒間上昇する。",
-        "敵チャンピオンを行動不能にするか打ち上げた後、シールドを獲得。",
-        "シールドを獲得すると3秒間アダプティブフォースを獲得する(クールダウン5秒)。"
+        "回復と体力自動回復の量の70%を、最寄りの敵チャンピオンに魔法ダメージとして与える。",
+        "マナコストが2倍になる。アビリティのヒール、シールド、ダメージがより強力になる。",
+        "オーシャンソウルを獲得し、敵にダメージを与えた後に大幅なHPとマナのリジェネを得る。",
+        "オムニヴァンプ15%を獲得。"
       ]
     },
     "ko": {
-      "title": "라칸의 헬스장 출석",
-      "why": "라칸의 Q는 아군뿐 아니라 라칸 자신도 치유하고, 패시브로 가끔 공짜 보호막을 얻습니다. 프로틴 음료는 추가 방어력과 마법 저항력을 치유 및 보호막 효과로 바꿔 주고, 바람전달자의 축복은 라칸이 건 치유와 보호막마다 대상의 방어력과 마법 저항력을 3초 동안 올려 줘서, 자힐할수록 다음 Q 치유와 E 보호막이 더 커지는 저항력이 쌓입니다. W로 적을 띄우면 거석상의 용기 보호막이 터지고, 얻는 보호막마다(패시브 포함) 강력한 방패가 발동해 다음 Q에 적응형 능력치 폭발을 얹어 줍니다. 작쇼, 얼어붙은 심장, 대자연의 힘은 순수 저항력 아이템인데 프로틴 음료가 이걸 치유 스탯으로 쳐 주고, 해신 작쇼는 전투 중에 그 수치가 더 자라기까지 합니다. 정령의 형상은 라칸이 받는 치유와 보호막을 더 키워 주고, 강철의 솔라리 펜던트는 부풀릴 보호막을 하나 더 추가합니다. 화려한 깃털 플레이메이커가 주문력 대신 방어력으로 치유량이 커지는 6코어 헬창으로 다시 태어납니다.",
-      "play": "W로 적 무리 속에 뛰어들어 보호막을 챙기고, 교전 중에는 Q를 자신에게 쓰고, E로 빠지면서 방어력에 맞춰 커지는 보호막을 구경하세요. 상대가 마법사 위주라면 얼어붙은 심장을 케이닉 루컨으로 바꿔 보세요.",
+      "title": "미니언 뷔페",
+      "why": "Q는 누누와 윌럼프의 간식 버튼입니다. 윌럼프가 미니언을 물어 체력을 크게 회복하죠. 죽음의 순환은 모든 회복량과 체력 재생의 70%를 가장 가까운 적 챔피언에게 주는 마법 피해로 바꿔 주고, 범람은 스킬 회복량을 키워 주니까 미니언을 먹을 때마다 상대 팀 누군가가 얻어맞습니다. 그다음 바다의 영혼이 높은 체력 재생(곧 죽음의 순환 피해 증가)과 범람의 두 배가 된 소모값을 감당할 마나 재생을 주고, 선혈포식은 공격으로 회복시키면서 순환에 다시 연료를 댑니다. 정령의 형상은 모든 회복을 더 크게 만들고, 워모그의 갑옷은 재생을 더하고, 끝없는 절망은 교전 중 몇 초마다 회복을 추가하며, 균열 생성기와 영겁의 지팡이는 체력, 주문력, 마나를 더해 계속 먹을 수 있게 해 줍니다. 눈덩이 탱커가 점심만 먹었는데 상대를 아프게 하는 견제 마법사로 변신합니다.",
+      "play": "때리고 싶은 적 근처에 서서 Q가 돌아올 때마다 미니언을 먹으세요. 사거리 안에 챔피언이 있으면 대신 챔피언을 깨물면 됩니다. R과 E로 바다의 영혼과 선혈포식이 계속 돌아가게 하세요.",
       "augments": [
-        "추가 방어력과 마법 저항력에 비례해 치유 및 보호막 효과 %를 얻습니다.",
-        "치유와 보호막이 대상의 방어력과 마법 저항력도 3초 동안 증가시킵니다.",
-        "적 챔피언을 속박하거나 띄운 후 보호막을 얻습니다.",
-        "보호막을 얻으면 3초 동안 적응형 능력치를 얻습니다(재사용 대기시간 5초)."
+        "회복량과 체력 재생량의 70%만큼 가장 가까운 적 챔피언에게 마법 피해를 입힙니다.",
+        "마나 소모량이 2배가 됩니다. 스킬의 회복, 보호막, 피해량이 더 강해집니다.",
+        "바다의 영혼을 얻어, 적에게 피해를 입힌 뒤 체력 및 마나 재생이 크게 증가합니다.",
+        "모든 피해 흡혈 15%를 얻습니다."
       ]
     },
     "pl": {
-      "title": "Rakan na siłowni",
-      "why": "Q Rakana leczy zarówno samego Rakana, jak i jego sojuszników, a jego pasywka co jakiś czas daje mu darmową tarczę. Shake Proteinowy zamienia dodatkowy Pancerz i Odporność na magię w Moc leczenia i tarcz, a Błogosławieństwo Piewcy Wiatrów sprawia, że każde jego leczenie i każda tarcza zwiększa Pancerz i Odporność na magię celu na 3 sekundy, więc każde samoleczenie daje mu odporności, które powiększają jego następne leczenie z Q i tarczę z E. W podrzuca wrogów, co aktywuje tarczę Odwagi Kolosa, a każda zdobyta tarcza (pasywka też) uruchamia Potężną Tarczę, dając zastrzyk Siły adaptacyjnej do następnego Q. Jak'Sho Zmienny, Mroźne Serce i Siła Natury to czyste odporności, które Shake Proteinowy traktuje jak statystyki leczenia, a Jak'Sho jeszcze je zwiększa w trakcie walki. Oblicze Ducha powiększa leczenie i tarcze nakładane na niego, a Naszyjnik Żelaznych Solari dodaje kolejną tarczę do rozdmuchania. Efektowny, pierzasty playmaker staje się sześcioprzedmiotowym siłownianym ryjem, którego leczenie rośnie od pancerza, a nie od Mocy umiejętności.",
-      "play": "Otwórz W w sam tłum po tarczę, użyj Q na sobie w środku walki, wyjdź E i patrz, jak tarcze rosną razem z pancerzem. Przeciwko drużynie magów zamień Mroźne Serce na Kaeniczną Powłokę.",
+      "title": "Bufet z minionami",
+      "why": "Q to przycisk przekąski Nunu i Willumpa: Willump gryzie miniona i leczy sporą porcję zdrowia. Krąg Śmierci zamienia 70% całego jego leczenia i regeneracji zdrowia na obrażenia magiczne zadawane najbliższemu wrogiemu bohaterowi, a Przesyt wzmacnia leczenie z jego umiejętności, więc każdy zjedzony minion uderza kogoś z drużyny przeciwnej. Oceaniczna Dusza daje mu potem wysoką regenerację zdrowia, czyli więcej obrażeń Kręgu Śmierci, plus regenerację many, która opłaca podwojone koszty Przesytu, a Chłeptanie Posoki leczy go z trafień i znów zasila krąg. Oblicze Ducha zwiększa każde leczenie, Plemienna Zbroja dodaje regenerację, Nieskończona Rozpacz dodaje leczenie co kilka sekund w walce, a Szczelinotwórca i Różdżka Wieków dorzucają zdrowie, moc umiejętności i manę, żeby mógł jeść dalej. Śnieżkowy tank staje się magiem do poke'owania, który robi krzywdę, po prostu jedząc obiad.",
+      "play": "Stań blisko wroga, którego chcesz trafić, i zjadaj miniona Q za każdym razem, gdy jest gotowe; jeśli bohater jest w zasięgu, ugryź go zamiast miniona. Używaj R i E, żeby Oceaniczna Dusza i Chłeptanie Posoki cały czas działały.",
       "augments": [
-        "Zyskujesz % Mocy leczenia i tarcz na podstawie dodatkowego Pancerza i Odporności na magię.",
-        "Twoje leczenie i tarcze zwiększają też Pancerz i Odporność na magię celu o na 3 sekundy.",
-        "Zyskujesz tarczę po unieruchomieniu lub podrzuceniu wrogiego bohatera.",
-        "Zyskaj siłę adaptacyjną na 3 sekundy, gdy zyskasz tarczę (5 sekund czasu odnowienia)."
+        "Twoje leczenie i regeneracja zdrowia zadają najbliższemu wrogiemu bohaterowi obrażenia magiczne równe 70% ich wartości.",
+        "Twoje koszty many są podwojone. Leczenie, tarcze i obrażenia twoich umiejętności są skuteczniejsze.",
+        "Zyskaj Oceaniczną Duszę, która daje wysoką regenerację zdrowia i many po zadaniu obrażeń wrogom.",
+        "Zyskujesz 15% wszechwampiryzmu."
       ]
     },
     "pt-BR": {
-      "title": "Rakan Vai pra Academia",
-      "why": "O Q do Rakan cura ele mesmo além dos aliados, e a passiva dele dá um escudo de graça de vez em quando. Shake Proteico transforma Armadura e Resistência Mágica bônus em Poder de Cura e Escudo, e Bênção da Voz do Vento faz cada cura e escudo que ele aplica aumentar a Armadura e a Resistência Mágica do alvo por 3 segundos, então cada autocura rende resistências que deixam a próxima cura do Q e o próximo escudo do E maiores. O W arremessa os inimigos pro alto, o que ativa o escudo de Coragem do Colosso, e todo escudo que ele ganha (inclusive o da passiva) ativa Escudo Poderoso para um surto de Força Adaptativa no próximo Q. Jak'Sho, o Inconstante, Coração Congelado e Força da Natureza são resistência pura que o Shake Proteico lê como status de cura, e o Jak'Sho ainda faz isso crescer no meio da luta, enquanto Semblante Espiritual aumenta as curas e escudos que ele recebe e Medalhão dos Solari de Ferro adiciona mais um escudo pra inflar. O playmaker emplumado e chamativo vira um rato de academia de seis itens, cujas curas crescem com a armadura em vez do Poder de Habilidade.",
-      "play": "Abra com o W no meio da muvuca pelo escudo, use o Q em si mesmo durante a luta, saia com o E e veja os escudos crescerem junto com a sua armadura. Contra um time de magos, troque Coração Congelado por Rookern Lamúrico.",
+      "title": "O Bufê de Tropas",
+      "why": "O Q é o botão de lanchinho do Nunu e Willump: Willump morde uma tropa e recupera um bom tanto de Vida. Círculo da Morte transforma 70% de toda a cura e Regeneração de Vida dele em dano mágico no campeão inimigo mais próximo, e Transbordamento deixa as curas das habilidades mais fortes, então cada tropa que ele come soca alguém do time adversário. Alma do Oceano dá a ele muita Regeneração de Vida, que vira mais dano do Círculo da Morte, além da Regeneração de Mana que paga os custos dobrados de Transbordamento, enquanto Hemodrenagem cura ele com os golpes e alimenta o círculo de novo. Semblante Espiritual deixa cada cura maior, Armadura de Warmog soma regeneração, Desespero Eterno adiciona uma cura a cada poucos segundos em combate, e Criafendas e Bastão das Eras dão Vida, Poder de Habilidade e Mana para ele continuar comendo. O tanque bola de neve vira um mago de poke que machuca os outros só de almoçar.",
+      "play": "Fique perto do inimigo que você quer acertar e use o Q em uma tropa toda vez que ele estiver disponível; se um campeão estiver ao alcance, morda ele no lugar. Use R e E para manter Alma do Oceano e Hemodrenagem funcionando.",
       "augments": [
-        "Ganhe % de Poder de Cura e Escudo com base na Armadura e Resistência Mágica bônus.",
-        "Sua cura e seu escudo também aumentam a Armadura e a Resistência Mágica do alvo em por 3 segundos.",
-        "Ganhe Escudo depois de imobilizar ou derrubar um campeão inimigo.",
-        "Ganhe Força Adaptativa por 3 segundos ao ganhar um Escudo (5 segundos de recarga)."
+        "Suas curas e Regeneração de Vida causam 70% do valor como dano mágico no campeão inimigo mais próximo.",
+        "Seus custos de Mana dobram. As Curas, os Escudos e o dano das suas habilidades ficam mais eficazes.",
+        "Ganhe a Alma do Oceano, que concede alta Regeneração de Vida e de Mana após causar dano a inimigos.",
+        "Receba 15% de Onivampirismo."
       ]
     },
     "ro": {
-      "title": "Rakan face sală",
-      "why": "Q-ul lui Rakan îl vindecă și pe el, nu doar pe aliați, iar pasivul îi dă din când în când un scut gratis. Shake proteic transformă Armura și Rezistența magică bonus în Putere de vindecare și scut, iar Binecuvântarea vântului face ca fiecare vindecare și scut aplicate să crească Armura și Rezistența magică țintei timp de 3 secunde, așa că fiecare auto-vindecare îi aduce rezistențe care îi fac următorul Q și scutul de la E mai mari. W-ul aruncă inamicii în aer, ceea ce activează scutul de la Curajul uriașului, iar fiecare scut primit (inclusiv pasivul) declanșează Scut strașnic pentru o explozie de Forță adaptativă în următorul Q. Jak'Sho cel schimbător, Inimă înghețată și Forța naturii sunt rezistențe pure pe care Shake proteic le citește ca statistici de vindecare, iar Jak'Sho le crește chiar și în timpul luptei, în timp ce Înfățișarea sufletului face vindecările și scuturile primite mai mari, iar Blazonul solarilor de fier mai adaugă un scut de umflat. Jucătorul spectaculos cu pene devine un gym rat cu șase iteme, ale cărui vindecări cresc cu armura, nu cu Puterea abilităților.",
-      "play": "Deschide cu W în mijlocul grămezii pentru scut, dă-ți Q singur în toiul luptei, apoi ieși cu E și privește cum scuturile cresc odată cu armura. Contra unei echipe de magicieni, schimbă Inimă înghețată cu Kaenic Rookern.",
+      "title": "Bufetul de minioni",
+      "why": "Q este butonul de gustări al lui Nunu: Willump mușcă un minion și își recuperează o bucată mare de viață. Cercul morții transformă 70% din toată vindecarea și regenerarea de viață în daune magice asupra celui mai apropiat campion inamic, iar Revărsare întărește vindecările abilităților, așa că fiecare minion mâncat lovește pe cineva din echipa adversă. Sufletul Dragonului oceanelor îi dă apoi regenerare mare de viață, adică mai multe daune de la Cercul morții, plus regenerarea de mană care plătește costurile dublate ale Revărsării, în timp ce Băutor de sânge îl vindecă din lovituri și hrănește iar cercul. Înfățișarea sufletului mărește fiecare vindecare, Armura lui Warmog adaugă regenerare, Disperare nemărginită adaugă o vindecare la câteva secunde într-o luptă, iar Creator de rifturi și Sceptrul străvechi aduc viața, puterea abilității și mana ca să poată mânca mai departe. Tancul-bulgăre de zăpadă devine un mag de poke care îi doare pe alții doar luându-și prânzul.",
+      "play": "Stai lângă inamicul pe care vrei să-l lovești și dă Q pe un minion de fiecare dată când e disponibil; mușcă un campion dacă unul e la îndemână. Folosește R și E ca să ții în funcțiune Sufletul Dragonului oceanelor și Băutor de sânge.",
       "augments": [
-        "Primești % Putere de vindecare și scut în funcție de Armura și Rezistența magică bonus.",
-        "Vindecarea și scuturile tale cresc și Armura și Rezistența magică ale țintei cu timp de 3 secunde.",
-        "Primești Scut după ce imobilizezi sau arunci în aer un campion inamic.",
-        "Primești Forță adaptivă timp de 3 secunde când primești un Scut (5 secunde timp de reîncărcare)."
+        "Vindecările și regenerarea ta de viață provoacă 70% din valoare ca daune magice celui mai apropiat campion inamic.",
+        "Costurile tale de Mană se dublează. Vindecările, Scuturile și daunele abilităților tale sunt mai eficiente.",
+        "Primești Sufletul Dragonului oceanelor, care oferă regenerare mare de Sănătate și Mană după ce lovești inamici.",
+        "Primești 15% Omnivamp."
       ]
     },
     "ru": {
-      "title": "Рэйкан идёт в качалку",
-      "why": "Q Рэйкана лечит и самого Рэйкана, а не только союзников, а пассивка время от времени даёт ему бесплатный щит. Протеиновый коктейль превращает бонусную Броню и Сопротивление магии в силу лечения и щитов, а Благословение ветра заставляет каждое лечение и щит повышать Броню и Сопротивление магии цели на 3 секунды: каждое самолечение даёт ему сопротивления, от которых следующее лечение Q и щит от E становятся больше. W подбрасывает врагов, что активирует щит Мужества колосса, а каждый полученный щит (включая пассивку) запускает Могучий щит и даёт всплеск Адаптивной силы для следующего Q. Жак'Шо Многоликий, Ледяное сердце и Сила природы дают чистые сопротивления, которые Протеиновый коктейль считает характеристиками лечения, причём Жак'Шо даже увеличивает их прямо посреди боя, а Облачение духов усиливает лечение и щиты на нём, и Медальон Железных Солари добавляет ещё один щит, который можно раздуть. Эффектный пернатый плеймейкер превращается в качка с шестью предметами, чьё лечение растёт от брони, а не от Силы умений.",
-      "play": "Начинай с W в самую гущу, чтобы получить щит, лечи себя Q прямо посреди драки, а потом уходи на E и смотри, как щиты растут вместе с бронёй. Против команды магов смени Ледяное сердце на Кейниковый рукерн.",
+      "title": "Шведский стол из миньонов",
+      "why": "Q это кнопка перекуса Нуну: Виллумп грызёт миньона и восстанавливает большую порцию здоровья. Цикл смерти превращает 70% всего его лечения и регенерации здоровья в магический урон по ближайшему вражескому чемпиону, а Переполнение усиливает лечение от умений, так что каждый съеденный миньон бьёт кого-то из вражеской команды. Морская душа даёт ему высокую регенерацию здоровья, а это ещё больше урона от Цикла смерти, плюс регенерацию маны, которая оплачивает удвоенную стоимость от Переполнения, а Потрошение лечит его с ударов и снова подпитывает цикл. Облачение духов усиливает каждое лечение, Доспех Вармога добавляет регенерацию, Бесконечное отчаяние добавляет лечение раз в несколько секунд в бою, а Творец разломов и Жезл веков дают здоровье, силу умений и ману, чтобы есть дальше. Танк-снежок становится поук-магом, который причиняет боль, просто обедая.",
+      "play": "Встаньте рядом с врагом, которого хотите ударить, и жмите Q по миньону каждый раз, когда умение готово; если в зоне досягаемости чемпион, кусайте его. Используйте R и E, чтобы Морская душа и Потрошение не останавливались.",
       "augments": [
-        "Вы получаете % к силе лечения и щитов в зависимости от бонусной Брони и Сопротивления магии.",
-        "Ваше лечение и щиты также повышают Броню и Сопротивление магии цели на 3 секунды.",
-        "Вы получаете щит после обездвиживания или подбрасывания вражеского чемпиона.",
-        "Получай Адаптивную силу на 3 секунды, когда получаешь Щит (перезарядка 5 секунд)."
+        "Ваше лечение и регенерация здоровья наносят ближайшему вражескому чемпиону магический урон, равный 70% восстановленного.",
+        "Твои затраты Маны удваиваются. Исцеление, Щиты и урон от твоих способностей становятся эффективнее.",
+        "Получи Морскую душу: мощная регенерация Здоровья и Маны после нанесения урона врагам.",
+        "Вы получаете 15% всеобщего вампиризма."
       ]
     },
     "th": {
-      "title": "Rakan ลงยิม",
-      "why": "Q ของ Rakan ฮีลตัว Rakan เองได้ด้วยไม่ใช่แค่พวกพ้อง และพาสซีฟก็แจกโล่ฟรีให้เป็นระยะ Protein Shake เปลี่ยนเกราะและต้านทานเวทโบนัสให้เป็นพลังฮีลและโล่ ส่วน Windspeaker's Blessing ทำให้ทุกฮีลและโล่ที่ใส่ไปเพิ่มเกราะและต้านทานเวทให้เป้าหมาย 3 วินาที ฮีลตัวเองแต่ละครั้งจึงได้ค่าต้านทานที่ทำให้ฮีล Q ครั้งต่อไปและโล่จาก E แรงขึ้น W ดีดศัตรูลอยซึ่งจะทำให้โล่ของ Courage of the Colossus ขึ้น และทุกโล่ที่ได้ (รวมพาสซีฟด้วย) จะจุด Mighty Shield ให้ได้พลังปรับตัวพุ่งเข้า Q ครั้งต่อไป Jak'Sho, The Protean, Frozen Heart และ Force of Nature คือค่าต้านทานล้วนที่ Protein Shake นับเป็นสเตตัสฮีล โดย Jak'Sho ยังเพิ่มค่าให้ระหว่างปะทะอีกด้วย ส่วน Spirit Visage ทำให้ฮีลและโล่ที่ใส่บนตัวเขาแรงขึ้น และ Locket of the Iron Solari ก็เพิ่มโล่อีกก้อนให้ปั๊ม นักเล่นเกมสวยปีกสวยเลยกลายเป็นหนุ่มฟิตหกชิ้นที่ฮีลโตตามเกราะ ไม่ใช่พลังเวท",
-      "play": "เปิดด้วย W เข้ากลางกลุ่มเพื่อเอาโล่ ใช้ Q ฮีลตัวเองกลางไฟต์ แล้วถอยออกด้วย E แล้วดูโล่โตตามเกราะ ถ้าเจอทีมเมจให้เปลี่ยน Frozen Heart เป็น Kaenic Rookern",
+      "title": "บุฟเฟต์มินเนียน",
+      "why": "Q คือปุ่มกดของว่างของ Nunu: Willump งับมินเนียนแล้วฟื้นเลือดก้อนใหญ่ Circle of Death เปลี่ยน 70% ของการฮีลและการฟื้นฟูเลือดทั้งหมดให้เป็นดาเมจเวทใส่แชมเปี้ยนศัตรูที่อยู่ใกล้ที่สุด ส่วน Overflow ทำให้ฮีลจากสกิลแรงขึ้น ดังนั้นมินเนียนทุกตัวที่กินเข้าไปก็จะต่อยใส่ฝั่งตรงข้ามด้วย จากนั้น Ocean Soul ให้การฟื้นฟูเลือดสูง ซึ่งก็คือดาเมจ Circle of Death ที่มากขึ้น บวกการฟื้นฟูมานาที่จ่ายค่าสกิลที่แพงขึ้นสองเท่าจาก Overflow ขณะที่ Goredrink ฮีลจากการโจมตีและป้อนให้วงนั้นต่ออีกรอบ Spirit Visage ทำให้ทุกฮีลแรงขึ้น Warmog's Armor เพิ่มการฟื้นฟู Unending Despair เพิ่มฮีลทุกไม่กี่วินาทีในการสู้ และ Riftmaker กับ Rod of Ages เพิ่มเลือด พลังเวท และมานาให้กินต่อได้เรื่อย ๆ แทงค์ก้อนหิมะกลายเป็นเมจพอคที่ทำให้คนเจ็บได้แค่ด้วยการกินข้าวเที่ยง",
+      "play": "ยืนใกล้ศัตรูที่อยากให้โดนดาเมจ แล้วกด Q ใส่มินเนียนทุกครั้งที่สกิลพร้อม ถ้ามีแชมเปี้ยนอยู่ในระยะก็งับแชมเปี้ยนแทน ใช้ R กับ E เพื่อให้ Ocean Soul และ Goredrink ทำงานต่อเนื่อง",
       "augments": [
-        "ได้ % พลังฮีลและโล่ตามเกราะและต้านทานเวทโบนัส",
-        "ฮีลและโล่ของคุณยังเพิ่มเกราะและต้านทานเวทของเป้าหมายเป็น เป็นเวลา 3 วินาที",
-        "ได้ โล่ หลังจากตรึงหรือดีดศัตรูลอย",
-        "ได้รับ Adaptive Force นาน 3 วินาทีเมื่อคุณได้รับโล่ (คูลดาวน์ 5 วินาที)"
+        "การฮีลและการฟื้นฟูพลังชีวิตของคุณสร้างความเสียหายเวท 70% ของค่านั้นใส่แชมเปี้ยนศัตรูที่ใกล้ที่สุด",
+        "ค่ามานาของคุณเพิ่มเป็นสองเท่า การฮีล โล่ และดาเมจจากสกิลของคุณมีประสิทธิภาพมากขึ้น",
+        "ได้รับ Ocean Soul ที่ให้การฟื้นฟูเลือดและมานาสูงหลังทำดาเมจศัตรู",
+        "ได้ Omnivamp 15%"
       ]
     },
     "tr": {
-      "title": "Rakan Spor Salonunda",
-      "why": "Rakan'ın Q'su yalnızca müttefiklerini değil Rakan'ın kendisini de iyileştirir, pasifi de ara sıra bedavaya kalkan verir. Protein İçeceği bonus Zırh ve Büyü Direncini Şifa ve Kalkan Gücüne çevirir, Rüzgâra Fısıldayan'ın Lütfu ise attığı her şifa ve kalkanın hedefin Zırh ve Büyü Direncini 3 saniyeliğine artırmasını sağlar; yani her kendini iyileştirişi ona bir sonraki Q şifasını ve E kalkanını büyüten dirençler kazandırır. W havaya savurur, bu da Heyulanın Cesareti kalkanını patlatır; kazandığı her kalkan da (kendi pasifi dahil) Kudretli Kalkan'ı tetikleyip bir sonraki Q'ya Uyarlanabilir Güç patlaması verir. Şahbaz Jak'Sho, Donmuş Yürek ve Doğanın Kudreti saf direnç verir, Protein İçeceği bunları şifa statı gibi okur; Jak'Sho hatta savaşın ortasında bunları büyütür. Ruh Gömleği üzerindeki şifa ve kalkanları büyütür, Demir Solari'nin Broşu da şişirebileceği bir kalkan daha ekler. Gösterişli tüylü oyun kurucu, şifaları Yetenek Gücüyle değil zırhıyla büyüyen altı eşyalı bir salon faresine dönüşür.",
-      "play": "W ile kalabalığın ortasına dalıp kalkanı kap, kavganın ortasında kendine Q at, sonra E ile çık ve kalkanların zırhınla büyümesini izle. Büyücü dolu bir takıma karşı Donmuş Yürek yerine Kutluyas Rukern al.",
+      "title": "Minyon Büfesi",
+      "why": "Q, Nunu'nun atıştırma tuşu: Willump bir minyonu ısırıp büyük bir parça Can yeniler. Ölüm Döngüsü, tüm iyileşmesinin ve Can Yenilenmesinin %70'ini en yakın düşman şampiyona büyü hasarı olarak çevirir, Taşkın ise yetenek iyileşmelerini güçlendirir; yani yediği her minyon karşı takımdan birine yumruk atar. Okyanus Ruhu da ona yüksek Can Yenilenmesi verir, bu da daha fazla Ölüm Döngüsü hasarı demek, ayrıca Taşkın'ın ikiye katlanan maliyetlerini ödeyen Mana Yenilenmesi sağlar; Kana Kana ise vuruşlarından iyileştirir ve çemberi yine besler. Ruh Gömleği her iyileşmeyi büyütür, Warmog'un Zırhı yenilenme ekler, Sonsuz Çaresizlik savaşta birkaç saniyede bir iyileşme ekler, Vadiyaran ile Asırlık Sopa da yemeye devam etmek için Can, Yetenek Gücü ve Mana ekler. Kartopu tankı, öğle yemeği yiyerek insanlara zarar veren bir poke büyücüsüne dönüşür.",
+      "play": "Vurulmasını istediğin düşmanın yanında dur ve Q hazır olduğu her seferde bir minyona kullan; menzilde şampiyon varsa onu ısır. Okyanus Ruhu ve Kana Kana çalışmaya devam etsin diye R ve E'yi kullan.",
       "augments": [
-        "Bonus Zırh ve Büyü Direncine göre % Şifa ve Kalkan Gücü kazanırsın.",
-        "Şifan ve kalkanların hedefin Zırh ve Büyü Direncini de kadar 3 saniye boyunca artırır.",
-        "Düşman şampiyonu hareketsiz bırakınca veya havaya savurunca Kalkan kazanırsın.",
-        "Kalkan kazandığında 3 saniyeliğine Uyarlanabilir Güç kazanırsın (5 saniye Bekleme Süresi)."
+        "İyileştirmelerin ve Can Yenilemen, değerin %70'i kadar büyü hasarını en yakın rakip şampiyona verir.",
+        "Mana maliyetlerin ikiye katlanır. Yeteneklerinin İyileştirmeleri, Kalkanları ve hasarı daha etkili olur.",
+        "Düşmanlara hasar verdikten sonra yüksek Can ve Mana Yenilenmesi veren Okyanus Ruhu'nu kazanırsın.",
+        "%15 Omnivamp kazanırsın."
       ]
     },
     "vi": {
-      "title": "Rakan Đi Tập Gym",
-      "why": "Q của Rakan hồi máu cho cả bản thân Rakan lẫn đồng minh, còn nội tại thì thỉnh thoảng tặng anh một lá chắn miễn phí. Tăng Cường Thể Lực biến Giáp và Kháng Phép cộng thêm thành Sức Mạnh Hồi Máu và Lá Chắn, còn Phong Ngôn Chúc Phúc khiến mỗi lần hồi máu hay tạo lá chắn đều tăng Giáp và Kháng Phép của mục tiêu trong 3 giây, nên mỗi lần tự hồi máu lại cho anh thêm kháng tính để lần hồi máu Q tiếp theo và lá chắn E to hơn. W hất tung kẻ địch, kích hoạt lá chắn của Khổng Nhân Can Đảm, và mọi lá chắn anh nhận (cả nội tại) đều kích hoạt Lá Chắn Hùng Mạnh để tung một đợt Sức Mạnh Thích Ứng vào Q kế tiếp. Jak'Sho, Vỏ Bọc Thích Nghi, Tim Băng và Giáp Thiên Nhiên toàn là kháng tính mà Tăng Cường Thể Lực tính như chỉ số hồi máu, riêng Jak'Sho còn tăng chúng ngay giữa giao tranh, trong khi Giáp Tâm Linh làm hồi máu và lá chắn lên người anh to hơn, và Dây Chuyền Iron Solari thêm một lá chắn nữa để thổi phồng. Anh chàng cánh lông bóng bẩy thành gym thủ sáu món, hồi máu to theo giáp chứ không theo Sức Mạnh Phép Thuật.",
-      "play": "Mở màn bằng W vào giữa đám đông để lấy lá chắn, Q chính mình giữa giao tranh, rồi E thoát ra và xem lá chắn to dần theo giáp. Gặp đội toàn pháp sư thì đổi Tim Băng lấy Vòng Sắt Cổ Tự.",
+      "title": "Tiệc Buffet Lính",
+      "why": "Q là nút ăn vặt của Nunu: Willump cắn một con lính và hồi lại một lượng Máu lớn. Vòng Tròn Tử Thần biến 70% toàn bộ lượng hồi máu và Hồi Máu của cậu ấy thành sát thương phép lên tướng địch gần nhất, còn Tràn Trề làm các chiêu hồi máu mạnh hơn, nên mỗi con lính ăn vào lại đấm ai đó bên đội kia. Linh Hồn Rồng Nước cho cậu ấy Hồi Máu cao, tức là thêm sát thương Vòng Tròn Tử Thần, cộng với Hồi Năng Lượng để trả chi phí nhân đôi của Tràn Trề, trong khi Chùy Hấp Huyết hồi máu từ đòn đánh và lại tiếp lửa cho vòng tròn. Giáp Tâm Linh làm mỗi lần hồi máu lớn hơn, Giáp Máu Warmog thêm hồi máu, Áo Choàng Diệt Vong thêm một lần hồi máu mỗi vài giây trong giao tranh, còn Quyền Trượng Ác Thần và Trượng Trường Sinh thêm Máu, Sức Mạnh Phép Thuật và Năng Lượng để ăn tiếp. Xe tăng cầu tuyết biến thành pháp sư poke làm người ta đau chỉ bằng cách ăn trưa.",
+      "play": "Đứng gần kẻ địch muốn đánh trúng và dùng Q lên một con lính mỗi khi chiêu sẵn sàng; nếu có tướng địch trong tầm thì cắn tướng đó. Dùng R và E để Linh Hồn Rồng Nước và Chùy Hấp Huyết luôn chạy.",
       "augments": [
-        "Nhận % Sức Mạnh Hồi Máu và Lá Chắn dựa trên Giáp và Kháng Phép cộng thêm.",
-        "Hồi máu và lá chắn của bạn cũng tăng Giáp và Kháng Phép của mục tiêu thêm trong 3 giây.",
-        "Nhận Lá Chắn sau khi khống chế hoặc hất tung tướng địch.",
-        "Nhận Sức Mạnh Thích Ứng trong 3 giây khi bạn nhận Lá Chắn (thời gian hồi 5 giây)."
+        "Lượng hồi máu và Hồi Máu của bạn gây sát thương phép bằng 70% giá trị lên tướng địch gần nhất.",
+        "Chi phí Năng Lượng của bạn tăng gấp đôi. Hồi máu, Lá Chắn và sát thương từ chiêu thức của bạn hiệu quả hơn.",
+        "Nhận Linh Hồn Rồng Nước, cho Hồi Máu và Hồi Năng Lượng cao sau khi gây sát thương lên kẻ địch.",
+        "Nhận 15% Hút Máu Toàn Phần."
       ]
     },
     "zh-CN": {
-      "title": "幻翎开始撸铁",
-      "why": "幻翎的Q不光治疗盟友，也会治疗他自己，被动还时不时白送他一个护盾。蛋白粉奶昔把额外护甲和魔法抗性转化为治疗和护盾强度，而风语者的祝福让他每次治疗和护盾都为目标提供3秒额外护甲和魔法抗性，所以每次自疗都能换来抗性，让下一次Q的治疗和E的护盾更大。W击飞敌人会触发巨像的勇气的护盾，而他获得的每个护盾（包括被动）都会触发强力护盾，把一波自适应属性爆发打进下一次Q。千变者贾修、冰霜之心和自然之力都是纯抗性装，蛋白粉奶昔会把它们当成治疗属性来算，贾修甚至还能在战斗中越叠越高；振奋盔甲让他受到的治疗和护盾更强，钢铁烈阳之匣再给他多一个可以放大的护盾。华丽的羽翼playmaker就这样变成了六件套健身狂人，治疗随护甲增长，而不是靠法术强度。",
-      "play": "开团先W进人堆拿护盾，团战中途给自己来个Q，然后E撤出来，看着护盾随护甲越长越大。面对法师阵容时，把冰霜之心换成败魔。",
+      "title": "小兵自助餐",
+      "why": "Q是雪原双子的零食键:威朗普咬一口小兵,回复大量生命值。死亡之环会把他全部治疗和生命回复的70%转化为对最近敌方英雄的魔法伤害,溢流则让他技能的治疗更强,所以他吃掉的每个小兵都会打到对面某个人。海洋龙魂随后给他高额生命回复,也就是更多死亡之环伤害,外加支付溢流双倍消耗的法力回复,而渴血让他靠命中回血,又继续喂饱这个环。振奋盔甲让每次治疗更大,狂徒铠甲增加回复,无终恨意在战斗中每隔几秒追加一次治疗,裂隙制造者和时光之杖补充生命值、法术强度和法力值,让他一直吃下去。雪球坦克变成了一个靠吃午饭伤人的消耗型法师。",
+      "play": "站在你想打到的敌人附近,Q每次冷却好就对小兵使用;射程内有英雄的话就改咬英雄。用R和E让海洋龙魂和渴血一直转起来。",
       "augments": [
-        "根据额外护甲和魔法抗性获得 % 治疗和护盾强度。",
-        "你的治疗和护盾还会使目标的护甲和魔法抗性提高 ，持续3秒。",
-        "控制或击飞敌方英雄后获得 护盾。",
-        "获得护盾时,获得3秒适应之力(冷却时间5秒)。"
+        "你的治疗和生命回复会对最近的敌方英雄造成相当于该数值70%的魔法伤害。",
+        "你的法力消耗翻倍。你的技能治疗、护盾和伤害更强。",
+        "获得海洋龙魂,在对敌人造成伤害后获得大量生命回复和法力回复。",
+        "获得15%全能吸血。"
       ]
     },
     "zh-TW": {
-      "title": "銳空去健身房練肌肉",
-      "why": "銳空的Q不只治療隊友，也會治療他自己，被動還會時不時白送他一個護盾。蛋白飲把額外護甲和魔法防禦轉換成治癒與護盾強度，而風語者的祝福讓他每次治療和護盾都為目標提供3秒額外護甲和魔法防禦，所以每次自我治療都能換來抗性，讓下一次Q的治療和E的護盾更大。W擊飛敵人會觸發巨像之勇氣的護盾，而他獲得的每個護盾（包括被動）都會觸發巨大盾牌，把一波適應之力爆發打進下一次Q。千變萬化之賈克修、冰霜之心和自然之力都是純抗性裝，蛋白飲會把它們當成治療屬性來算，賈克修甚至還能在戰鬥中越疊越高；振奮盔甲讓他受到的治療和護盾更強，日輪的加冕再給他多一個可以放大的護盾。華麗的羽翼playmaker就這樣變成了六件套健身狂人，治療隨護甲成長，而不是靠技能強度。",
-      "play": "開團先W進人堆拿護盾，團戰中途對自己來個Q，然後E撤出來，看著護盾隨護甲越長越大。面對法師陣容時，把冰霜之心換成凱尼克欺瞞者。",
+      "title": "小兵自助餐",
+      "why": "Q是努努和威朗普的點心鍵:威朗普咬一口小兵,回復大量生命值。死亡循環會把他全部治療和生命回復的70%轉化為對最近敵方英雄的魔法傷害,溢流則讓他技能的治療更強,所以他吃掉的每隻小兵都會打到對面某個人。海洋之魂接著給他高額生命回復,也就是更多死亡循環傷害,再加上支付溢流雙倍消耗的法力回復,而飲血讓他靠命中回血,又繼續餵飽這個循環。振奮盔甲讓每次治療更大,好戰者鎧甲增加回復,無盡絕望在戰鬥中每隔幾秒追加一次治療,峽谷製造者和時光之杖補充生命值、法術強度和法力,讓他一直吃下去。雪球坦克變成了一個靠吃午餐傷人的消耗型法師。",
+      "play": "站在你想打到的敵人附近,Q每次冷卻好就對小兵使用;射程內有英雄的話就改咬英雄。用R和E讓海洋之魂和飲血一直轉起來。",
       "augments": [
-        "根據額外護甲和魔法防禦獲得 % 治癒與護盾強度。",
-        "你的治療和護盾還會使目標的護甲和魔法防禦提高 ，持續3秒。",
-        "控制或擊飛敵方英雄後獲得 護盾。",
-        "獲得護盾時,獲得3秒適應之力(冷卻時間5秒)。"
+        "你的治療和生命回復會對最近的敵方英雄造成相當於該數值70%的魔法傷害。",
+        "你的法力消耗翻倍。你的技能治療、護盾與傷害更強。",
+        "獲得海洋之魂,在對敵人造成傷害後獲得大量生命與法力回復。",
+        "獲得15%全能吸血。"
       ]
     }
   }
