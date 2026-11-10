@@ -4,7 +4,7 @@ window.COOK_DATA = {
   "cn_champion_date": "20261108",
   "champion_count": 173,
   "augment_count": 220,
-  "generated": "2026-11-09",
+  "generated": "2026-11-10",
   "item_icons": {
    "1001": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/assets/items/icons2d/1001_class_t1_bootsofspeed.png",
    "1004": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/assets/items/icons2d/1004_class_t1_faeriecharm.png",
@@ -3413,6 +3413,145 @@ window.COOK_DATA = {
      "Dive Bomber",
      "Mystic Punch",
      "Giant Slayer"
+    ],
+    "items_not_modeled": [],
+    "whole_build": true
+   }
+  },
+  {
+   "id": "nunu-minion-buffet",
+   "champion": "Nunu",
+   "title": "The Minion Buffet",
+   "augments": [
+    {
+     "name": "Circle of Death",
+     "id": 1015,
+     "rarity": "Prismatic",
+     "text": "Your healing and Health Regen deal 70% of the value magic damage to the nearest enemy champion.",
+     "core": true,
+     "icon": "icons/augments/circle-of-death.png",
+     "win_rate": 0.5338,
+     "pick_rate": 0.0886,
+     "win_rank": 73,
+     "best_champions": [
+      "DrMundo",
+      "Swain",
+      "Vladimir",
+      "Soraka",
+      "Trundle",
+      "Yuumi"
+     ],
+     "champion_is_best": false
+    },
+    {
+     "name": "Overflow",
+     "id": 1311,
+     "rarity": "Gold",
+     "text": "Your Mana costs double. Your Ability Heals, Shields, and damage are more effective.",
+     "core": true,
+     "icon": "icons/augments/overflow.png",
+     "win_rate": 0.5138,
+     "pick_rate": 0.1011,
+     "win_rank": 124,
+     "best_champions": [
+      "Ryze",
+      "Ezreal",
+      "Karthus",
+      "Gangplank",
+      "Jayce",
+      "Kassadin"
+     ],
+     "champion_is_best": false
+    },
+    {
+     "name": "Ocean Soul",
+     "id": 1060,
+     "rarity": "Silver",
+     "text": "Gain the Ocean Soul, granting high Health and Mana Regen after damaging enemies.",
+     "core": true,
+     "icon": "icons/augments/ocean-soul.png",
+     "win_rate": 0.5295,
+     "pick_rate": 0.1637,
+     "win_rank": 81,
+     "best_champions": [
+      "TahmKench",
+      "Morgana",
+      "TwistedFate",
+      "Brand",
+      "Swain",
+      "Xerath"
+     ],
+     "champion_is_best": false
+    },
+    {
+     "name": "Goredrink",
+     "id": 1138,
+     "rarity": "Silver",
+     "text": "Gain 15% Omnivamp.",
+     "core": true,
+     "icon": "icons/augments/goredrink.png",
+     "win_rate": 0.5559,
+     "pick_rate": 0.3477,
+     "win_rank": 36,
+     "best_champions": [
+      "Graves",
+      "Lucian",
+      "Ryze",
+      "Swain",
+      "Kayn",
+      "Rumble"
+     ],
+     "champion_is_best": false
+    }
+   ],
+   "core": 4,
+   "items": [
+    "Ionian Boots of Lucidity",
+    "Riftmaker",
+    "Spirit Visage",
+    "Warmog's Armor",
+    "Unending Despair",
+    "Rod of Ages"
+   ],
+   "why": "Consume is Nunu's snack button: Willump bites a minion and restores a big chunk of Health. Circle of Death turns 70% of all his healing and Health Regen into magic damage on the nearest enemy champion, and Overflow makes his ability heals stronger, so every minion he eats punches someone on the other team. Ocean Soul then hands him high Health Regen, which is more Circle of Death damage, plus the Mana Regen that pays for Overflow's doubled costs, while Goredrink heals him off his hits and feeds the circle again. Spirit Visage makes each heal bigger, Warmog's Armor adds regen, Unending Despair adds a heal every few seconds in a fight, and Riftmaker and Rod of Ages add the Health, Ability Power and Mana to keep eating. The snowball tank becomes a poke mage who hurts people by having lunch.",
+   "play": "Stand near the enemy you want hit and Consume a minion every time it is up; bite a champion instead when one is in reach. Use Absolute Zero and Snowball Barrage to keep Ocean Soul and Goredrink running.",
+   "chef": "2026-11-09",
+   "champion_name": "Nunu & Willump",
+   "item_ids": [
+    3158,
+    4633,
+    3065,
+    3083,
+    2502,
+    6657
+   ],
+   "champion_icon": "icons/champions/20.png",
+   "champion_win_rate": 0.4619,
+   "champion_pick_rate": 0.0236,
+   "champion_win_rank": 157,
+   "core_win_rate": 0.5333,
+   "tier": "Holds up",
+   "core_usual": 0,
+   "core_pick_rate": 0.1753,
+   "sim": {
+    "dps": 194,
+    "survival": 0.222,
+    "best_dps": 971,
+    "best_survival": 0.086,
+    "pct_of_best": 0.2,
+    "best_items": [
+     "Sorcerer's Shoes",
+     "Blackfire Torch",
+     "Liandry's Torment",
+     "Shadowflame",
+     "Stormsurge",
+     "Void Staff"
+    ],
+    "best_augments": [
+     "Upgrade Stormsurge",
+     "Cruelty",
+     "En Passant",
+     "Dive Bomber"
     ],
     "items_not_modeled": [],
     "whole_build": true
