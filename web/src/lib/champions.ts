@@ -71,7 +71,7 @@ export function movers(n = 4): { up: Mover[]; down: Mover[]; prev: string | null
   return { up: sorted.slice(0, n), down: sorted.slice(-n).reverse(), prev };
 }
 
-type ClientChampion = { title?: string; shortBio?: string; skins?: { splashPath?: string; uncenteredSplashPath?: string }[] };
+type ClientChampion = { title?: string; shortBio?: string; skins?: { splashPath?: string; uncenteredSplashPath?: string; tilePath?: string }[] };
 const GAME_DATA = "plugins/rcp-be-lol-game-data/global/default";
 
 // The client's own champion file, mirrored in public/assets/ (title, bio, splash).
@@ -95,6 +95,8 @@ export type ChampionSummary = {
   title: string;
   bio: string;
   splash?: string;
+  /** The same art as a small square tile (about a third of the splash's size), for phones. */
+  splashSmall?: string;
   patch: string | null;
   prev: string | null;
   tier?: string;
@@ -158,6 +160,7 @@ export function championSummary(alias: string): ChampionSummary | null {
     title: client?.title ?? "",
     bio: client?.shortBio ?? "",
     splash: clientAsset(skin?.uncenteredSplashPath || skin?.splashPath),
+    splashSmall: clientAsset(skin?.tilePath),
     patch,
     prev,
     tier: me?.tier,
