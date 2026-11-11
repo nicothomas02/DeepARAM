@@ -75,7 +75,7 @@
  "Some augments are quests: hit a goal during the game and they turn into something bigger, including items you can't buy anywhere else.": "Unele augmentări sunt misiuni: atinge un obiectiv în timpul meciului și se transformă în ceva mai mare, inclusiv obiecte pe care nu le poți cumpăra nicăieri altundeva.",
  "One augment at levels {levels}.": "O augmentare la nivelurile {levels}.",
  "Everyone picks from the same rarity at each selection.": "Toți aleg din aceeași raritate la fiecare selecție.",
- "You choose augments while your champion is dead.": "Alegi augmentări cât timp campionul tău e mort.",
+ "You choose augments whenever you can shop: while your champion is dead or back at your fountain.": "Alegi augmentele oricând poți cumpăra: cât timp campionul tău e mort sau înapoi la fântână.",
  "Each selection shows {cards} augments of one rarity, and each of the {cards} can be rerolled once, so you can see up to {max}.": "Fiecare selecție arată {cards} augmentări de o singură raritate, iar fiecare dintre cele {cards} poate fi reîncărcată o dată, așa că poți vedea până la {max}.",
  "Each selection shows {cards} augments of one rarity, and each of the {cards} can be rerolled {n} times, so you can see up to {max}.": "Fiecare selecție arată {cards} augmentări de o singură raritate, iar fiecare dintre cele {cards} poate fi reîncărcată de {n} ori, așa că poți vedea până la {max}.",
  "Attack speed can go up to {cap} attacks per second ({aram} in regular ARAM).": "Viteza de atac poate ajunge la {cap} atacuri pe secundă ({aram} în ARAM obișnuit).",

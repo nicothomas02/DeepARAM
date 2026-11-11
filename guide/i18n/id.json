@@ -75,7 +75,7 @@
  "Some augments are quests: hit a goal during the game and they turn into something bigger, including items you can't buy anywhere else.": "Beberapa augment adalah quest: capai targetnya selama game dan augment itu berubah menjadi sesuatu yang lebih besar, termasuk item yang tidak bisa dibeli di mana pun.",
  "One augment at levels {levels}.": "Satu augment di level {levels}.",
  "Everyone picks from the same rarity at each selection.": "Semua pemain memilih dari kelangkaan yang sama di tiap pilihan.",
- "You choose augments while your champion is dead.": "Kamu memilih augment saat champion-mu mati.",
+ "You choose augments whenever you can shop: while your champion is dead or back at your fountain.": "Kamu memilih augment kapan pun bisa belanja: saat champion-mu mati atau kembali ke fountain.",
  "Each selection shows {cards} augments of one rarity, and each of the {cards} can be rerolled once, so you can see up to {max}.": "Tiap pilihan menampilkan {cards} augment dengan satu kelangkaan, dan masing-masing dari {cards} itu bisa di-reroll sekali, jadi kamu bisa melihat hingga {max}.",
  "Each selection shows {cards} augments of one rarity, and each of the {cards} can be rerolled {n} times, so you can see up to {max}.": "Tiap pilihan menampilkan {cards} augment dengan satu kelangkaan, dan masing-masing dari {cards} itu bisa di-reroll {n} kali, jadi kamu bisa melihat hingga {max}.",
  "Attack speed can go up to {cap} attacks per second ({aram} in regular ARAM).": "Attack Speed bisa naik hingga {cap} serangan per detik ({aram} di ARAM biasa).",

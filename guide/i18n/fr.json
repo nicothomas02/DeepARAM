@@ -75,7 +75,7 @@
  "Some augments are quests: hit a goal during the game and they turn into something bigger, including items you can't buy anywhere else.": "Certains augments sont des quêtes : atteignez un objectif pendant la partie et ils se transforment en quelque chose de plus fort, y compris des objets introuvables ailleurs.",
  "One augment at levels {levels}.": "Un augment aux niveaux {levels}.",
  "Everyone picks from the same rarity at each selection.": "À chaque sélection, tout le monde choisit dans la même rareté.",
- "You choose augments while your champion is dead.": "Vous choisissez vos augments pendant que votre champion est mort.",
+ "You choose augments whenever you can shop: while your champion is dead or back at your fountain.": "Tu choisis tes augments dès que tu peux acheter : quand ton champion est mort ou de retour à la fontaine.",
  "Each selection shows {cards} augments of one rarity, and each of the {cards} can be rerolled once, so you can see up to {max}.": "Chaque sélection montre {cards} augments d'une même rareté, et chacun des {cards} peut être relancé une fois : vous pouvez donc en voir jusqu'à {max}.",
  "Each selection shows {cards} augments of one rarity, and each of the {cards} can be rerolled {n} times, so you can see up to {max}.": "Chaque sélection montre {cards} augments d'une même rareté, et chacun des {cards} peut être relancé {n} fois : vous pouvez donc en voir jusqu'à {max}.",
  "Attack speed can go up to {cap} attacks per second ({aram} in regular ARAM).": "La vitesse d'attaque peut monter jusqu'à {cap} attaques par seconde ({aram} en ARAM normal).",

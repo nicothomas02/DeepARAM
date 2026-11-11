@@ -75,7 +75,7 @@
  "Some augments are quests: hit a goal during the game and they turn into something bigger, including items you can't buy anywhere else.": "بعض التعزيزات مهام: حقّق هدفًا خلال المباراة ليتحول التعزيز إلى شيء أكبر، بما في ذلك عناصر لا يمكن شراؤها في أي مكان آخر.",
  "One augment at levels {levels}.": "تعزيز واحد في المستويات {levels}.",
  "Everyone picks from the same rarity at each selection.": "يختار الجميع من الندرة نفسها في كل اختيار.",
- "You choose augments while your champion is dead.": "تختار التعزيزات بينما بطلك ميت.",
+ "You choose augments whenever you can shop: while your champion is dead or back at your fountain.": "تختار التعزيزات متى أمكنك الشراء: أثناء موت بطلك أو عند عودتك إلى النافورة.",
  "Each selection shows {cards} augments of one rarity, and each of the {cards} can be rerolled once, so you can see up to {max}.": "يعرض كل اختيار {cards} من التعزيزات بندرة واحدة، ويمكن استبدال كل واحد من هذه التعزيزات ({cards}) مرة واحدة، فترى ما يصل إلى {max}.",
  "Each selection shows {cards} augments of one rarity, and each of the {cards} can be rerolled {n} times, so you can see up to {max}.": "يعرض كل اختيار {cards} من التعزيزات بندرة واحدة، ويمكن استبدال كل واحد من هذه التعزيزات ({cards}) {n} مرات، فترى ما يصل إلى {max}.",
  "Attack speed can go up to {cap} attacks per second ({aram} in regular ARAM).": "يمكن أن تصل سرعة الهجوم إلى {cap} هجمة في الثانية ({aram} في آرام العادي).",

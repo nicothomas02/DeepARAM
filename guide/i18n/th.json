@@ -75,7 +75,7 @@
  "Some augments are quests: hit a goal during the game and they turn into something bigger, including items you can't buy anywhere else.": "Augment บางอันเป็นเควส: ทำเป้าหมายให้สำเร็จระหว่างเกมแล้วมันจะกลายเป็นสิ่งที่ยิ่งใหญ่กว่า รวมถึงไอเทมที่ซื้อที่ไหนไม่ได้",
  "One augment at levels {levels}.": "Augment หนึ่งอันที่เลเวล {levels}",
  "Everyone picks from the same rarity at each selection.": "ในแต่ละรอบ ทุกคนเลือกจากความหายากระดับเดียวกัน",
- "You choose augments while your champion is dead.": "คุณเลือก Augment ได้ระหว่างที่แชมเปี้ยนตาย",
+ "You choose augments whenever you can shop: while your champion is dead or back at your fountain.": "คุณเลือกออคเมนต์ได้ทุกครั้งที่ซื้อของได้: ตอนที่แชมเปียนตาย หรือกลับมาที่น้ำพุ",
  "Each selection shows {cards} augments of one rarity, and each of the {cards} can be rerolled once, so you can see up to {max}.": "แต่ละรอบแสดง Augment {cards} อันที่มีความหายากเดียวกัน และแต่ละอันจาก {cards} อันสุ่มใหม่ได้หนึ่งครั้ง จึงเห็นได้สูงสุด {max} อัน",
  "Each selection shows {cards} augments of one rarity, and each of the {cards} can be rerolled {n} times, so you can see up to {max}.": "แต่ละรอบแสดง Augment {cards} อันที่มีความหายากเดียวกัน และแต่ละอันจาก {cards} อันสุ่มใหม่ได้ {n} ครั้ง จึงเห็นได้สูงสุด {max} อัน",
  "Attack speed can go up to {cap} attacks per second ({aram} in regular ARAM).": "ความเร็วโจมตีขึ้นได้สูงสุด {cap} ครั้งต่อวินาที ({aram} ใน ARAM ปกติ)",

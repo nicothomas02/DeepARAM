@@ -62,7 +62,7 @@ I18N.ready.then(() => {
     ["Augments", [
       t("One augment at levels {levels}.", { levels: R.augmentLevels.join(t(", ")) }),
       t("Everyone picks from the same rarity at each selection."),
-      t("You choose augments while your champion is dead."),
+      t("You choose augments whenever you can shop: while your champion is dead or back at your fountain."),
       R.rerolls != null ? t(R.rerolls === 1
         ? "Each selection shows {cards} augments of one rarity, and each of the {cards} can be rerolled once, so you can see up to {max}."
         : "Each selection shows {cards} augments of one rarity, and each of the {cards} can be rerolled {n} times, so you can see up to {max}.",

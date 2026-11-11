@@ -75,7 +75,7 @@
  "Some augments are quests: hit a goal during the game and they turn into something bigger, including items you can't buy anywhere else.": "一部のオーグメントはクエストです。試合中に目標を達成するとより強力なものに変化し、他では買えないアイテムが手に入ることもあります。",
  "One augment at levels {levels}.": "レベル{levels}でオーグメントを1つ。",
  "Everyone picks from the same rarity at each selection.": "各選択では全員が同じレアリティから選びます。",
- "You choose augments while your champion is dead.": "オーグメントはチャンピオンが倒されている間に選びます。",
+ "You choose augments whenever you can shop: while your champion is dead or back at your fountain.": "オーグメントはショップを使えるときに選べます：チャンピオンがデス中か、泉に戻っているときです。",
  "Each selection shows {cards} augments of one rarity, and each of the {cards} can be rerolled once, so you can see up to {max}.": "各選択では1つのレアリティのオーグメントが{cards}個提示され、{cards}個それぞれを1回リロールできるので、最大{max}個まで見られます。",
  "Each selection shows {cards} augments of one rarity, and each of the {cards} can be rerolled {n} times, so you can see up to {max}.": "各選択では1つのレアリティのオーグメントが{cards}個提示され、{cards}個それぞれを{n}回リロールできるので、最大{max}個まで見られます。",
  "Attack speed can go up to {cap} attacks per second ({aram} in regular ARAM).": "攻撃速度は毎秒{cap}回まで上がります（通常のランダムミッドでは{aram}）。",

@@ -75,7 +75,7 @@
  "Some augments are quests: hit a goal during the game and they turn into something bigger, including items you can't buy anywhere else.": "Néhány bővítés küldetés: teljesíts egy célt a meccs során, és valami nagyobbá válik, akár olyan tárgyakká is, amelyeket máshol nem vehetsz meg.",
  "One augment at levels {levels}.": "Egy bővítés a következő szinteken: {levels}.",
  "Everyone picks from the same rarity at each selection.": "Minden választásnál mindenki ugyanabból a ritkaságból választ.",
- "You choose augments while your champion is dead.": "Akkor választasz bővítést, amikor a hősöd halott.",
+ "You choose augments whenever you can shop: while your champion is dead or back at your fountain.": "Fejlesztést akkor választhatsz, amikor vásárolni tudsz: amíg a hősöd halott, vagy vissza a szökőkútnál.",
  "Each selection shows {cards} augments of one rarity, and each of the {cards} can be rerolled once, so you can see up to {max}.": "Minden választás {cards} bővítést mutat egy ritkaságból, és mind a(z) {cards} egyszer újrasorsolható, így legfeljebb {max} bővítést láthatsz.",
  "Each selection shows {cards} augments of one rarity, and each of the {cards} can be rerolled {n} times, so you can see up to {max}.": "Minden választás {cards} bővítést mutat egy ritkaságból, és mind a(z) {cards} {n} alkalommal újrasorsolható, így legfeljebb {max} bővítést láthatsz.",
  "Attack speed can go up to {cap} attacks per second ({aram} in regular ARAM).": "A támadási sebesség másodpercenként legfeljebb {cap} támadásig nőhet (a sima ARAM-ban {aram}).",

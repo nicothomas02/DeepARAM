@@ -75,7 +75,7 @@
  "Some augments are quests: hit a goal during the game and they turn into something bigger, including items you can't buy anywhere else.": "Một số Lõi Nâng Cấp là nhiệm vụ: đạt mục tiêu trong trận và chúng sẽ biến thành thứ mạnh hơn, kể cả trang bị không thể mua ở đâu khác.",
  "One augment at levels {levels}.": "Một Lõi Nâng Cấp ở cấp {levels}.",
  "Everyone picks from the same rarity at each selection.": "Ở mỗi lượt chọn, mọi người đều chọn từ cùng một độ hiếm.",
- "You choose augments while your champion is dead.": "Bạn chọn Lõi Nâng Cấp trong lúc tướng đang chết.",
+ "You choose augments whenever you can shop: while your champion is dead or back at your fountain.": "Bạn chọn lõi nâng cấp bất cứ khi nào có thể mua đồ: khi tướng của bạn đã chết hoặc đã về bệ đá cổ.",
  "Each selection shows {cards} augments of one rarity, and each of the {cards} can be rerolled once, so you can see up to {max}.": "Mỗi lượt chọn hiện {cards} Lõi Nâng Cấp cùng độ hiếm, và mỗi thẻ trong {cards} thẻ được đổi lại một lần, nên bạn có thể thấy tối đa {max}.",
  "Each selection shows {cards} augments of one rarity, and each of the {cards} can be rerolled {n} times, so you can see up to {max}.": "Mỗi lượt chọn hiện {cards} Lõi Nâng Cấp cùng độ hiếm, và mỗi thẻ trong {cards} thẻ được đổi lại {n} lần, nên bạn có thể thấy tối đa {max}.",
  "Attack speed can go up to {cap} attacks per second ({aram} in regular ARAM).": "Tốc Độ Đánh có thể lên tới {cap} đòn mỗi giây ({aram} ở ARAM thường).",

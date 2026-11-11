@@ -75,7 +75,7 @@
  "Some augments are quests: hit a goal during the game and they turn into something bigger, including items you can't buy anywhere else.": "Niektóre wzmocnienia to zadania: osiągnij cel w trakcie gry, a zmienią się w coś większego, w tym w przedmioty, których nie kupisz nigdzie indziej.",
  "One augment at levels {levels}.": "Jedno wzmocnienie na poziomach {levels}.",
  "Everyone picks from the same rarity at each selection.": "Przy każdym wyborze wszyscy wybierają z tej samej rzadkości.",
- "You choose augments while your champion is dead.": "Wzmocnienia wybierasz, gdy twój bohater nie żyje.",
+ "You choose augments whenever you can shop: while your champion is dead or back at your fountain.": "Augmenty wybierasz zawsze, gdy możesz robić zakupy: gdy twój bohater nie żyje albo wrócił do fontanny.",
  "Each selection shows {cards} augments of one rarity, and each of the {cards} can be rerolled once, so you can see up to {max}.": "Każdy wybór pokazuje wzmocnienia jednej rzadkości (kart: {cards}), a każdą z {cards} kart możesz wymienić raz, więc zobaczysz ich maksymalnie {max}.",
  "Each selection shows {cards} augments of one rarity, and each of the {cards} can be rerolled {n} times, so you can see up to {max}.": "Każdy wybór pokazuje wzmocnienia jednej rzadkości (kart: {cards}), a każdą z {cards} kart możesz wymienić {n} razy, więc zobaczysz ich maksymalnie {max}.",
  "Attack speed can go up to {cap} attacks per second ({aram} in regular ARAM).": "Prędkość ataku może dojść do {cap} ataków na sekundę (w zwykłym ARAM: {aram}).",

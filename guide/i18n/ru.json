@@ -75,7 +75,7 @@
  "Some augments are quests: hit a goal during the game and they turn into something bigger, including items you can't buy anywhere else.": "Некоторые аугментации — это задания: выполните цель во время игры, и они превратятся в нечто большее, вплоть до предметов, которые больше нигде не купить.",
  "One augment at levels {levels}.": "Одна аугментация на уровнях {levels}.",
  "Everyone picks from the same rarity at each selection.": "В каждом выборе все игроки выбирают из одной и той же редкости.",
- "You choose augments while your champion is dead.": "Аугментации выбираются, пока ваш чемпион мёртв.",
+ "You choose augments whenever you can shop: while your champion is dead or back at your fountain.": "Аугменты выбираются, когда можно делать покупки: пока ваш чемпион мёртв или вернулся к фонтану.",
  "Each selection shows {cards} augments of one rarity, and each of the {cards} can be rerolled once, so you can see up to {max}.": "В каждом выборе показываются аугментации одной редкости ({cards} шт.). Каждую из карт ({cards} шт.) можно перевыбрать один раз, так что всего можно увидеть до {max}.",
  "Each selection shows {cards} augments of one rarity, and each of the {cards} can be rerolled {n} times, so you can see up to {max}.": "В каждом выборе показываются аугментации одной редкости ({cards} шт.). Каждую из карт ({cards} шт.) можно перевыбрать несколько раз (перевыборов: {n}), так что всего можно увидеть до {max}.",
  "Attack speed can go up to {cap} attacks per second ({aram} in regular ARAM).": "Предел скорости атаки: {cap} ({aram} в обычном ARAM).",
