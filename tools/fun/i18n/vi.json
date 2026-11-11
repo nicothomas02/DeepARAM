@@ -337,5 +337,7 @@
  "Wait for a wounded enemy, pop Youmuu's Ghostblade and leap in from far outside the fight. After the takedown, aim the next Infinite Duress at the next low target while the speed lasts.": "Chờ một kẻ địch bị thương, bật Kiếm Ma Youmuu rồi nhảy vào từ xa ngoài giao tranh. Sau khi hạ gục, nhắm Áp Chế Vô Tận tiếp theo vào mục tiêu ít máu kế tiếp khi tốc độ còn duy trì.",
  "When a champion that you damaged within 3 seconds dies, refund of your Ultimate Ability's total cooldown.": "Khi một tướng mà bạn đã gây sát thương trong vòng 3 giây chết, hoàn lại một phần tổng thời gian hồi chiêu của Chiêu Cuối.",
  "Takedowns against enemy champions within 3 seconds of damaging them grants you 40% Move Speed and renders you invisible for 1.5 seconds.": "Hạ gục tướng địch trong vòng 3 giây sau khi gây sát thương cho chúng sẽ cho bạn 40% Tốc Độ Di Chuyển và tàng hình trong 1,5 giây.",
- "Gain 60% Movement Speed towards enemies below 40% health.": "Nhận 60% Tốc Độ Di Chuyển khi di chuyển về phía kẻ địch có dưới 40% máu."
+ "Gain 60% Movement Speed towards enemies below 40% health.": "Nhận 60% Tốc Độ Di Chuyển khi di chuyển về phía kẻ địch có dưới 40% máu.",
+ "May not work in a real game": "Có thể không thành trong trận thật",
+ "{champion} may not be offered {augments} this patch, so this build might not come together. Try it if they show up.": "{champion} có thể không được đề xuất {augments} ở phiên bản này, nên bản build này có thể không hoàn thành. Hãy thử nếu chúng xuất hiện."
 }

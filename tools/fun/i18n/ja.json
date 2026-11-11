@@ -337,5 +337,7 @@
  "Wait for a wounded enemy, pop Youmuu's Ghostblade and leap in from far outside the fight. After the takedown, aim the next Infinite Duress at the next low target while the speed lasts.": "負傷した敵を待ち、妖夢の霊剣を発動して、戦場のはるか外から飛び込もう。キルしたら、速度が続いている間に次のインフィニット デュレス(R)を次の瀕死のターゲットへ。",
  "When a champion that you damaged within 3 seconds dies, refund of your Ultimate Ability's total cooldown.": "3秒以内にダメージを与えたチャンピオンが死亡すると、アルティメットスキルの総クールダウンの一部が戻る。",
  "Takedowns against enemy champions within 3 seconds of damaging them grants you 40% Move Speed and renders you invisible for 1.5 seconds.": "ダメージを与えてから3秒以内に敵チャンピオンをキルすると、移動速度+40%を獲得し、1.5秒間透明になる。",
- "Gain 60% Movement Speed towards enemies below 40% health.": "体力40%未満の敵に向かう際、移動速度+60%を獲得する。"
+ "Gain 60% Movement Speed towards enemies below 40% health.": "体力40%未満の敵に向かう際、移動速度+60%を獲得する。",
+ "May not work in a real game": "実戦では成立しないかもしれません",
+ "{champion} may not be offered {augments} this patch, so this build might not come together. Try it if they show up.": "このパッチでは{champion}に{augments}が提示されない可能性があるため、このビルドは完成しないかもしれません。出てきたら試してみてください。"
 }

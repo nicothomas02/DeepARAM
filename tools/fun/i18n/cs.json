@@ -337,5 +337,7 @@
  "Wait for a wounded enemy, pop Youmuu's Ghostblade and leap in from far outside the fight. After the takedown, aim the next Infinite Duress at the next low target while the speed lasts.": "Počkej na zraněného nepřítele, aktivuj Youmuuinu přízračnou čepel a skoč do boje z velké dálky. Po zabití zamiř další Nekonečný nátlak na další nízký cíl, dokud trvá rychlost.",
  "When a champion that you damaged within 3 seconds dies, refund of your Ultimate Ability's total cooldown.": "Když zemře šampion, kterému jsi v posledních 3 sekundách ublížil, vrátí se část celkového cooldownu tvé ultimátní schopnosti.",
  "Takedowns against enemy champions within 3 seconds of damaging them grants you 40% Move Speed and renders you invisible for 1.5 seconds.": "Zabití nepřátelských šampionů do 3 sekund po jejich zranění ti dá 40 % rychlosti pohybu a učiní tě na 1,5 sekundy neviditelným.",
- "Gain 60% Movement Speed towards enemies below 40% health.": "Získáš 60 % rychlosti pohybu směrem k nepřátelům s méně než 40 % zdraví."
+ "Gain 60% Movement Speed towards enemies below 40% health.": "Získáš 60 % rychlosti pohybu směrem k nepřátelům s méně než 40 % zdraví.",
+ "May not work in a real game": "Ve skutečné hře nemusí fungovat",
+ "{champion} may not be offered {augments} this patch, so this build might not come together. Try it if they show up.": "{champion} nemusí v tomto patchi dostat nabídku {augments}, takže se tento build nemusí poskládat. Zkus ho, pokud se objeví."
 }

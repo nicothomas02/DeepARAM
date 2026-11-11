@@ -337,5 +337,7 @@
  "Wait for a wounded enemy, pop Youmuu's Ghostblade and leap in from far outside the fight. After the takedown, aim the next Infinite Duress at the next low target while the speed lasts.": "รอศัตรูที่เลือดน้อย กด Youmuu's Ghostblade แล้วพุ่งเข้าไปจากนอกวงต่อสู้ หลังได้คิล ให้เล็ง Infinite Duress ครั้งต่อไปไปที่เป้าหมายเลือดน้อยคนถัดไปตราบที่ความเร็วยังอยู่",
  "When a champion that you damaged within 3 seconds dies, refund of your Ultimate Ability's total cooldown.": "เมื่อแชมเปี้ยนที่คุณทำดาเมจภายใน 3 วินาทีตาย จะคืนคูลดาวน์ทั้งหมดของอัลติเมทของคุณบางส่วน",
  "Takedowns against enemy champions within 3 seconds of damaging them grants you 40% Move Speed and renders you invisible for 1.5 seconds.": "การฆ่าแชมเปี้ยนศัตรูภายใน 3 วินาทีหลังทำดาเมจให้ความเร็วเคลื่อนที่ 40% และทำให้คุณล่องหน 1.5 วินาที",
- "Gain 60% Movement Speed towards enemies below 40% health.": "ได้รับความเร็วเคลื่อนที่ 60% เมื่อเคลื่อนที่เข้าหาศัตรูที่มีเลือดต่ำกว่า 40%"
+ "Gain 60% Movement Speed towards enemies below 40% health.": "ได้รับความเร็วเคลื่อนที่ 60% เมื่อเคลื่อนที่เข้าหาศัตรูที่มีเลือดต่ำกว่า 40%",
+ "May not work in a real game": "อาจใช้ไม่ได้ในเกมจริง",
+ "{champion} may not be offered {augments} this patch, so this build might not come together. Try it if they show up.": "{champion} อาจไม่ได้รับข้อเสนอ {augments} ในแพตช์นี้ บิลด์นี้จึงอาจไม่ครบ ลองดูถ้ามันโผล่มา"
 }

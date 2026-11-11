@@ -58,6 +58,16 @@ LabI18n.ready(function () {
     </li>`;
   }
 
+  // Builds that may not come together in a real game: the champion has never been seen taking one of its augments,
+  // can't be offered it, or it left Mayhem (data/checks/findings.py, served by the site at /data/kitchen-checks.json).
+  let doubts = {};
+  function doubtNote(b) {
+    const d = doubts[b.id];
+    if (!d || !d.augments || !d.augments.length) return "";
+    const names = d.augments.map((a) => augName(a)).join(", ");
+    return `<p class="doubt"><b>${T("May not work in a real game")}</b> ${esc(T("{champion} may not be offered {augments} this patch, so this build might not come together. Try it if they show up.", { champion: champ(b), augments: names }))}</p>`;
+  }
+
   function card(b) {
     return `<article class="card" id="${esc(b.id)}">
       <div class="card-head">
@@ -68,7 +78,7 @@ LabI18n.ready(function () {
         </div>
         ${shareButton(b)}
       </div>
-      <p class="why">${esc(T(b.why))}</p>
+      <p class="why">${esc(T(b.why))}</p>${doubtNote(b)}
       <p class="play muted"><b>${T("How to play:")}</b> ${esc(T(b.play))}</p>
       <div class="cols">
         <div><h3>${T("Augments")}</h3><ul class="augs">${b.augments.map(augRow).join("")}</ul></div>
@@ -166,6 +176,21 @@ LabI18n.ready(function () {
         </div>`;
         document.getElementById("community").hidden = false;
         if (location.hash === "#community") document.getElementById("community").scrollIntoView();
+      })
+      .catch(() => {});
+  }
+
+  if (/^https?:$/.test(location.protocol)) {
+    fetch("/data/kitchen-checks.json")
+      .then((r) => (r.ok ? r.json() : null))
+      .then((j) => {
+        if (!j || !j.builds) return;
+        doubts = j.builds;
+        for (const el of document.querySelectorAll("article.card[id]")) {
+          const b = data.builds.find((x) => x.id === el.id);
+          const why = b && el.querySelector(".why");
+          if (why && !el.querySelector(".doubt")) why.insertAdjacentHTML("afterend", doubtNote(b));
+        }
       })
       .catch(() => {});
   }

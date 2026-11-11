@@ -277,6 +277,9 @@ def find_pool(d):
                          else f"{champ['name']} has never been seen taking {name}, so it may not be in their augment pool. "
                               f"Check whether it's ever offered on {champ['name']}."),
                 "build": b["id"],
+                # For the Kitchen's own build cards (web/src/app/data/kitchen-checks.json): which augment, and why.
+                "augment": name,
+                "why": why,
             })
     return out
 

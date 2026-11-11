@@ -337,5 +337,7 @@
  "Wait for a wounded enemy, pop Youmuu's Ghostblade and leap in from far outside the fight. After the takedown, aim the next Infinite Duress at the next low target while the speed lasts.": "Așteaptă un inamic rănit, activează Sabia-fantomă a lui Youmuu și sari în luptă de departe. După eliminare, țintește următoarea Constrângere infinită spre următorul inamic cu viață puțină cât ține viteza.",
  "When a champion that you damaged within 3 seconds dies, refund of your Ultimate Ability's total cooldown.": "Când moare un campion pe care l-ai lovit în ultimele 3 secunde, primești înapoi o parte din cooldown-ul total al abilității tale ultimate.",
  "Takedowns against enemy champions within 3 seconds of damaging them grants you 40% Move Speed and renders you invisible for 1.5 seconds.": "Eliminările asupra campionilor inamici în 3 secunde de la lovirea lor îți dau 40% viteză de mișcare și te fac invizibil timp de 1,5 secunde.",
- "Gain 60% Movement Speed towards enemies below 40% health.": "Primești 60% viteză de mișcare spre inamicii cu sub 40% viață."
+ "Gain 60% Movement Speed towards enemies below 40% health.": "Primești 60% viteză de mișcare spre inamicii cu sub 40% viață.",
+ "May not work in a real game": "S-ar putea să nu meargă într-un meci real",
+ "{champion} may not be offered {augments} this patch, so this build might not come together. Try it if they show up.": "Lui {champion} s-ar putea să nu i se ofere {augments} în acest patch, așa că build-ul s-ar putea să nu iasă. Încearcă-l dacă apar."
 }

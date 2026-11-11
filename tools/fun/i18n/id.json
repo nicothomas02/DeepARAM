@@ -337,5 +337,7 @@
  "Wait for a wounded enemy, pop Youmuu's Ghostblade and leap in from far outside the fight. After the takedown, aim the next Infinite Duress at the next low target while the speed lasts.": "Tunggu musuh yang terluka, aktifkan Youmuu's Ghostblade, lalu lompat dari jauh di luar teamfight. Setelah takedown, arahkan Infinite Duress berikutnya ke target low HP selanjutnya selagi speed-nya masih jalan.",
  "When a champion that you damaged within 3 seconds dies, refund of your Ultimate Ability's total cooldown.": "Saat champion yang kamu damage dalam 3 detik terakhir mati, sebagian dari total cooldown Ultimate Ability-mu dikembalikan.",
  "Takedowns against enemy champions within 3 seconds of damaging them grants you 40% Move Speed and renders you invisible for 1.5 seconds.": "Takedown terhadap champion musuh dalam 3 detik setelah kamu damage mereka memberimu 40% Move Speed dan membuatmu invisible selama 1,5 detik.",
- "Gain 60% Movement Speed towards enemies below 40% health.": "Dapatkan 60% Movement Speed menuju musuh dengan health di bawah 40%."
+ "Gain 60% Movement Speed towards enemies below 40% health.": "Dapatkan 60% Movement Speed menuju musuh dengan health di bawah 40%.",
+ "May not work in a real game": "Mungkin tidak berhasil di game sungguhan",
+ "{champion} may not be offered {augments} this patch, so this build might not come together. Try it if they show up.": "{champion} mungkin tidak ditawari {augments} di patch ini, jadi build ini mungkin tidak terbentuk. Coba kalau muncul."
 }

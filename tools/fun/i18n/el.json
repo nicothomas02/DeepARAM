@@ -337,5 +337,7 @@
  "Wait for a wounded enemy, pop Youmuu's Ghostblade and leap in from far outside the fight. After the takedown, aim the next Infinite Duress at the next low target while the speed lasts.": "Περίμενε έναν τραυματισμένο εχθρό, ενεργοποίησε την Αιθεριολεπίδα της Γιόμου και πήδα μέσα από μακριά έξω από τη μάχη. Μετά το takedown, στόχευσε τον επόμενο Άπειρο Εξαναγκασμό στον επόμενο χαμηλό στόχο όσο διαρκεί η ταχύτητα.",
  "When a champion that you damaged within 3 seconds dies, refund of your Ultimate Ability's total cooldown.": "Όταν πεθάνει ένας πρωταθλητής που έβλαψες μέσα σε 3 δευτερόλεπτα, επιστρέφεται μέρος του συνολικού cooldown του ultimate σου.",
  "Takedowns against enemy champions within 3 seconds of damaging them grants you 40% Move Speed and renders you invisible for 1.5 seconds.": "Τα takedown εναντίον εχθρικών πρωταθλητών μέσα σε 3 δευτερόλεπτα από τη στιγμή που τους έβλαψες σου δίνουν 40% Move Speed και σε κάνουν αόρατο για 1,5 δευτερόλεπτο.",
- "Gain 60% Movement Speed towards enemies below 40% health.": "Κερδίζεις 60% Move Speed προς εχθρούς με λιγότερο από 40% ζωή."
+ "Gain 60% Movement Speed towards enemies below 40% health.": "Κερδίζεις 60% Move Speed προς εχθρούς με λιγότερο από 40% ζωή.",
+ "May not work in a real game": "Ίσως να μη λειτουργεί σε πραγματικό παιχνίδι",
+ "{champion} may not be offered {augments} this patch, so this build might not come together. Try it if they show up.": "Ο/Η {champion} ίσως να μη λάβει {augments} σε αυτό το patch, οπότε αυτό το build ίσως να μη στηθεί. Δοκίμασέ το αν εμφανιστούν."
 }

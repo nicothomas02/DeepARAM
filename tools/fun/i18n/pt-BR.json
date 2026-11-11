@@ -337,5 +337,7 @@
  "Wait for a wounded enemy, pop Youmuu's Ghostblade and leap in from far outside the fight. After the takedown, aim the next Infinite Duress at the next low target while the speed lasts.": "Espere um inimigo ferido, ative a Lâmina Fantasma de Youmuu e pule de bem longe da luta. Depois do abate, mire a próxima Coerção Infinita (R) no próximo alvo com pouca vida enquanto a velocidade durar.",
  "When a champion that you damaged within 3 seconds dies, refund of your Ultimate Ability's total cooldown.": "Quando um campeão que você causou dano nos últimos 3 segundos morre, parte do tempo de recarga total da sua Habilidade Suprema é devolvida.",
  "Takedowns against enemy champions within 3 seconds of damaging them grants you 40% Move Speed and renders you invisible for 1.5 seconds.": "Abates contra campeões inimigos até 3 segundos depois de causar dano a eles concedem 40% de Velocidade de Movimento e deixam você invisível por 1,5 segundo.",
- "Gain 60% Movement Speed towards enemies below 40% health.": "Receba 60% de Velocidade de Movimento ao se mover em direção a inimigos com menos de 40% de vida."
+ "Gain 60% Movement Speed towards enemies below 40% health.": "Receba 60% de Velocidade de Movimento ao se mover em direção a inimigos com menos de 40% de vida.",
+ "May not work in a real game": "Pode não funcionar numa partida de verdade",
+ "{champion} may not be offered {augments} this patch, so this build might not come together. Try it if they show up.": "{champion} pode não receber {augments} neste patch, então esta build pode não se formar. Tente se aparecerem."
 }

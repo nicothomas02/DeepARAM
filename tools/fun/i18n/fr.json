@@ -337,5 +337,7 @@
  "Wait for a wounded enemy, pop Youmuu's Ghostblade and leap in from far outside the fight. After the takedown, aim the next Infinite Duress at the next low target while the speed lasts.": "Attends qu'un ennemi soit blessé, active la Lame spectre de Youmuu et bondis de très loin hors du combat. Après l'élimination, vise avec la prochaine Contrainte infinie la prochaine cible presque morte tant que la vitesse dure.",
  "When a champion that you damaged within 3 seconds dies, refund of your Ultimate Ability's total cooldown.": "Quand un champion que tu as blessé dans les 3 dernières secondes meurt, une partie du délai de récupération total de ton ultime est remboursée.",
  "Takedowns against enemy champions within 3 seconds of damaging them grants you 40% Move Speed and renders you invisible for 1.5 seconds.": "Les éliminations de champions ennemis dans les 3 secondes suivant les dégâts que tu leur as infligés te donnent 40 % de vitesse de déplacement et t'rendent invisible pendant 1,5 seconde.",
- "Gain 60% Movement Speed towards enemies below 40% health.": "Tu gagnes 60 % de vitesse de déplacement vers les ennemis ayant moins de 40 % de leurs PV."
+ "Gain 60% Movement Speed towards enemies below 40% health.": "Tu gagnes 60 % de vitesse de déplacement vers les ennemis ayant moins de 40 % de leurs PV.",
+ "May not work in a real game": "Peut ne pas marcher en vraie partie",
+ "{champion} may not be offered {augments} this patch, so this build might not come together. Try it if they show up.": "{champion} risque de ne pas se voir proposer {augments} sur ce patch, donc ce build pourrait ne pas se monter. Essaie-le s'ils apparaissent."
 }

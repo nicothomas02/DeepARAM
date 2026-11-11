@@ -36,6 +36,8 @@
  "Link copied": "Link copied",
  "Copy this link": "Copy this link",
  "flex": "flex",
+ "May not work in a real game": "May not work in a real game",
+ "{champion} may not be offered {augments} this patch, so this build might not come together. Try it if they show up.": "{champion} may not be offered {augments} this patch, so this build might not come together. Try it if they show up.",
  "How to play:": "How to play:",
  "Next special at {time}, your time.": "Next special at {time}, your time.",
  "The next special is on its way.": "The next special is on its way.",

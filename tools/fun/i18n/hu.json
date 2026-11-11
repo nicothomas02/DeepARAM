@@ -337,5 +337,7 @@
  "Wait for a wounded enemy, pop Youmuu's Ghostblade and leap in from far outside the fight. After the takedown, aim the next Infinite Duress at the next low target while the speed lasts.": "Várj meg egy sebzett ellenfelet, aktiváld a Youmuu szellemkardját, és ugorj be a harc messzi széléről. A leszámolás után célozd a következő Végtelen kényszert (R) a következő gyenge célpontra, amíg tart a sebesség.",
  "When a champion that you damaged within 3 seconds dies, refund of your Ultimate Ability's total cooldown.": "Ha egy hős, akit az elmúlt 3 másodpercben megsebztél, meghal, visszakapod a végső képességed teljes hűtésidejének egy részét.",
  "Takedowns against enemy champions within 3 seconds of damaging them grants you 40% Move Speed and renders you invisible for 1.5 seconds.": "Ha leszámolsz egy ellenséges hőssel, miután az elmúlt 3 másodpercben megsebezted, 40% mozgási sebességet kapsz, és 1,5 másodpercre láthatatlanná válsz.",
- "Gain 60% Movement Speed towards enemies below 40% health.": "60% mozgási sebességet kapsz a 40% életerő alatti ellenfelek felé."
+ "Gain 60% Movement Speed towards enemies below 40% health.": "60% mozgási sebességet kapsz a 40% életerő alatti ellenfelek felé.",
+ "May not work in a real game": "Valódi meccsen talán nem működik",
+ "{champion} may not be offered {augments} this patch, so this build might not come together. Try it if they show up.": "{champion} ebben a patchben talán nem kapja meg ezeket: {augments}, így ez a build lehet, hogy nem jön össze. Próbáld ki, ha felbukkannak."
 }

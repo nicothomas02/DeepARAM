@@ -79,6 +79,8 @@ select:hover { border-color: var(--muted); }
 
 .why { max-width: 72ch; }
 .play { max-width: 72ch; font-size: 14px; }
+.doubt { max-width: 72ch; font-size: 14px; padding: 8px 12px; border-left: 3px solid var(--warn, #d9a441); background: color-mix(in srgb, var(--warn, #d9a441) 10%, transparent); border-radius: 6px; }
+.doubt b { font-weight: 600; color: var(--fg); margin-right: 4px; }
 .play b { font-weight: 600; color: var(--fg); }
 
 .cols { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 20px; }

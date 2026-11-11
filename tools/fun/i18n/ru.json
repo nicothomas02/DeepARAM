@@ -337,5 +337,7 @@
  "Wait for a wounded enemy, pop Youmuu's Ghostblade and leap in from far outside the fight. After the takedown, aim the next Infinite Duress at the next low target while the speed lasts.": "Дождись раненого врага, врубай «Призрачный клинок Йомуу» и прыгай в бой издалека. После убийства целься следующим «Бесконечным принуждением» в следующего слабого противника, пока действует скорость.",
  "When a champion that you damaged within 3 seconds dies, refund of your Ultimate Ability's total cooldown.": "Когда погибает чемпион, которому вы нанесли урон за последние 3 секунды, возвращается часть общего времени перезарядки вашего ультимейта.",
  "Takedowns against enemy champions within 3 seconds of damaging them grants you 40% Move Speed and renders you invisible for 1.5 seconds.": "Убийство вражеских чемпионов в течение 3 секунд после нанесения им урона даёт вам 40% скорости передвижения и делает невидимым на 1,5 секунды.",
- "Gain 60% Movement Speed towards enemies below 40% health.": "Вы получаете 60% скорости передвижения при движении к врагам с менее чем 40% здоровья."
+ "Gain 60% Movement Speed towards enemies below 40% health.": "Вы получаете 60% скорости передвижения при движении к врагам с менее чем 40% здоровья.",
+ "May not work in a real game": "В реальной игре может не сработать",
+ "{champion} may not be offered {augments} this patch, so this build might not come together. Try it if they show up.": "{champion} может не получить {augments} в этом патче, так что сборка может не сложиться. Попробуйте, если они выпадут."
 }

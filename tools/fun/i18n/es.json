@@ -337,5 +337,7 @@
  "Wait for a wounded enemy, pop Youmuu's Ghostblade and leap in from far outside the fight. After the takedown, aim the next Infinite Duress at the next low target while the speed lasts.": "Espera a que un enemigo esté herido, activa el Filo fantasmal de Youmuu y salta desde muy lejos de la pelea. Tras el derribo, apunta la siguiente Coacción infinita al siguiente objetivo con poca vida mientras dure la velocidad.",
  "When a champion that you damaged within 3 seconds dies, refund of your Ultimate Ability's total cooldown.": "Cuando muere un campeón al que has dañado en los últimos 3 segundos, se devuelve parte del enfriamiento total de tu habilidad definitiva.",
  "Takedowns against enemy champions within 3 seconds of damaging them grants you 40% Move Speed and renders you invisible for 1.5 seconds.": "Los derribos a campeones enemigos en los 3 segundos posteriores a dañarlos te dan un 40 % de velocidad de movimiento y te vuelven invisible durante 1,5 segundos.",
- "Gain 60% Movement Speed towards enemies below 40% health.": "Ganas un 60 % de velocidad de movimiento hacia los enemigos con menos del 40 % de vida."
+ "Gain 60% Movement Speed towards enemies below 40% health.": "Ganas un 60 % de velocidad de movimiento hacia los enemigos con menos del 40 % de vida.",
+ "May not work in a real game": "Puede que no funcione en una partida real",
+ "{champion} may not be offered {augments} this patch, so this build might not come together. Try it if they show up.": "Puede que a {champion} no le ofrezcan {augments} en este parche, así que esta build podría no salir. Pruébala si aparecen."
 }

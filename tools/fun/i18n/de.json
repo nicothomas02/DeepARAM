@@ -337,5 +337,7 @@
  "Wait for a wounded enemy, pop Youmuu's Ghostblade and leap in from far outside the fight. After the takedown, aim the next Infinite Duress at the next low target while the speed lasts.": "Warte auf einen angeschlagenen Gegner, zünde Youmus Geistklinge und spring von weit außerhalb des Kampfes rein. Nach dem Takedown zielst du mit dem nächsten Unendlichen Zwang auf das nächste fast tote Ziel, solange das Tempo anhält.",
  "When a champion that you damaged within 3 seconds dies, refund of your Ultimate Ability's total cooldown.": "Wenn ein Champion stirbt, den du innerhalb von 3 Sekunden beschädigt hast, wird ein Teil der gesamten Abklingzeit deiner Ultimate erstattet.",
  "Takedowns against enemy champions within 3 seconds of damaging them grants you 40% Move Speed and renders you invisible for 1.5 seconds.": "Takedowns gegen gegnerische Champions innerhalb von 3 Sekunden nach dem Schaden an ihnen geben dir 40 % Lauftempo und machen dich 1,5 Sekunden lang unsichtbar.",
- "Gain 60% Movement Speed towards enemies below 40% health.": "Du erhältst 60 % Lauftempo in Richtung von Gegnern mit weniger als 40 % Leben."
+ "Gain 60% Movement Speed towards enemies below 40% health.": "Du erhältst 60 % Lauftempo in Richtung von Gegnern mit weniger als 40 % Leben.",
+ "May not work in a real game": "Klappt im echten Spiel vielleicht nicht",
+ "{champion} may not be offered {augments} this patch, so this build might not come together. Try it if they show up.": "{champion} bekommt {augments} in diesem Patch vielleicht nicht angeboten, daher kommt dieser Build eventuell nicht zustande. Probier ihn, wenn sie auftauchen."
 }

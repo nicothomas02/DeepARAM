@@ -337,5 +337,7 @@
  "Wait for a wounded enemy, pop Youmuu's Ghostblade and leap in from far outside the fight. After the takedown, aim the next Infinite Duress at the next low target while the speed lasts.": "Yaralı bir düşmanı bekle, Youmuu'nun Hayaletkılıcı'nı bas ve savaşın çok uzağından atla. İndirmeden sonra hız sürerken bir sonraki Sonsuz Baskı'yı canı en az olan sıradaki hedefe at.",
  "When a champion that you damaged within 3 seconds dies, refund of your Ultimate Ability's total cooldown.": "Son 3 saniye içinde hasar verdiğin bir şampiyon öldüğünde, ulti yeteneğinin toplam bekleme süresinin bir kısmı geri verilir.",
  "Takedowns against enemy champions within 3 seconds of damaging them grants you 40% Move Speed and renders you invisible for 1.5 seconds.": "Düşman şampiyonlara hasar verdikten sonraki 3 saniye içinde yapılan indirmeler sana %40 Hareket Hızı verir ve seni 1,5 saniye görünmez yapar.",
- "Gain 60% Movement Speed towards enemies below 40% health.": "Canı %40'ın altındaki düşmanlara doğru giderken %60 Hareket Hızı kazanırsın."
+ "Gain 60% Movement Speed towards enemies below 40% health.": "Canı %40'ın altındaki düşmanlara doğru giderken %60 Hareket Hızı kazanırsın.",
+ "May not work in a real game": "Gerçek maçta işe yaramayabilir",
+ "{champion} may not be offered {augments} this patch, so this build might not come together. Try it if they show up.": "{champion} bu yamada {augments} teklifini alamayabilir, bu yüzden bu build tamamlanmayabilir. Çıkarlarsa dene."
 }

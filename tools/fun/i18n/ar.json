@@ -337,5 +337,7 @@
  "Wait for a wounded enemy, pop Youmuu's Ghostblade and leap in from far outside the fight. After the takedown, aim the next Infinite Duress at the next low target while the speed lasts.": "انتظر عدوًا مصابًا، فعّل \"نصل يومو الشبحي\" واقفز من بعيد خارج المعركة. بعد الإسقاط، وجّه \"الإكراه اللانهائي\" التالي إلى الهدف الضعيف التالي طالما السرعة مستمرة.",
  "When a champion that you damaged within 3 seconds dies, refund of your Ultimate Ability's total cooldown.": "عندما يموت بطل ألحقت به ضررًا خلال 3 ثوانٍ، يُعاد جزء من وقت التهدئة الكلي لقدرتك القصوى.",
  "Takedowns against enemy champions within 3 seconds of damaging them grants you 40% Move Speed and renders you invisible for 1.5 seconds.": "عمليات الإسقاط ضد أبطال الأعداء خلال 3 ثوانٍ من إلحاق الضرر بهم تمنحك 40% سرعة حركة وتجعلك غير مرئي لمدة 1.5 ثانية.",
- "Gain 60% Movement Speed towards enemies below 40% health.": "تكسب 60% سرعة حركة باتجاه الأعداء الذين تقل صحتهم عن 40%."
+ "Gain 60% Movement Speed towards enemies below 40% health.": "تكسب 60% سرعة حركة باتجاه الأعداء الذين تقل صحتهم عن 40%.",
+ "May not work in a real game": "قد لا تنجح في مباراة حقيقية",
+ "{champion} may not be offered {augments} this patch, so this build might not come together. Try it if they show up.": "قد لا يُعرض على {champion} {augments} في هذا التحديث، لذا قد لا تكتمل هذه البنية. جرّبها إن ظهرت."
 }

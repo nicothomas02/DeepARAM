@@ -337,5 +337,7 @@
  "Wait for a wounded enemy, pop Youmuu's Ghostblade and leap in from far outside the fight. After the takedown, aim the next Infinite Duress at the next low target while the speed lasts.": "다친 적을 기다렸다가 요우무의 유령검을 켜고 전투 바깥 먼 곳에서 뛰어드세요. 처치 후 속도가 유지되는 동안 다음 무한의 구속(R)을 체력이 낮은 다음 대상에게 꽂으면 됩니다.",
  "When a champion that you damaged within 3 seconds dies, refund of your Ultimate Ability's total cooldown.": "3초 안에 피해를 입힌 챔피언이 죽으면 궁극기 총 재사용 대기시간의 일부를 돌려받습니다.",
  "Takedowns against enemy champions within 3 seconds of damaging them grants you 40% Move Speed and renders you invisible for 1.5 seconds.": "피해를 입히고 3초 안에 적 챔피언을 처치하면 이동 속도가 40% 증가하고 1.5초 동안 투명 상태가 됩니다.",
- "Gain 60% Movement Speed towards enemies below 40% health.": "체력이 40% 미만인 적을 향해 이동할 때 이동 속도가 60% 증가합니다."
+ "Gain 60% Movement Speed towards enemies below 40% health.": "체력이 40% 미만인 적을 향해 이동할 때 이동 속도가 60% 증가합니다.",
+ "May not work in a real game": "실제 게임에서는 안 될 수도 있어요",
+ "{champion} may not be offered {augments} this patch, so this build might not come together. Try it if they show up.": "이번 패치에서 {champion}에게 {augments}이(가) 나오지 않을 수 있어 이 빌드가 완성되지 않을 수 있습니다. 나오면 시도해 보세요."
 }

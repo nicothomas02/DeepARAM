@@ -337,5 +337,7 @@
  "Wait for a wounded enemy, pop Youmuu's Ghostblade and leap in from far outside the fight. After the takedown, aim the next Infinite Duress at the next low target while the speed lasts.": "等一个残血敌人出现，开幽梦之灵，从战场外远远跳进去。拿下人头后，趁加速还在，把下一个无限压制瞄准下一个残血目标。",
  "When a champion that you damaged within 3 seconds dies, refund of your Ultimate Ability's total cooldown.": "当你在3秒内造成过伤害的英雄死亡时，返还大招总冷却时间的一部分。",
  "Takedowns against enemy champions within 3 seconds of damaging them grants you 40% Move Speed and renders you invisible for 1.5 seconds.": "在对敌方英雄造成伤害后3秒内完成击杀，会获得40%移动速度并隐身1.5秒。",
- "Gain 60% Movement Speed towards enemies below 40% health.": "朝生命值低于40%的敌人移动时，获得60%移动速度。"
+ "Gain 60% Movement Speed towards enemies below 40% health.": "朝生命值低于40%的敌人移动时，获得60%移动速度。",
+ "May not work in a real game": "实战中可能凑不齐",
+ "{champion} may not be offered {augments} this patch, so this build might not come together. Try it if they show up.": "本版本中{champion}可能不会被提供{augments}，所以这套出装可能凑不齐。如果出现了就试试吧。"
 }

@@ -337,5 +337,7 @@
  "Wait for a wounded enemy, pop Youmuu's Ghostblade and leap in from far outside the fight. After the takedown, aim the next Infinite Duress at the next low target while the speed lasts.": "Poczekaj na rannego wroga, odpal Widmowe Ostrze Youmuu i skocz z daleka poza walką. Po zabójstwie wyceluj kolejny Nieskończony Przymus (R) w następny słaby cel, póki trwa szybkość.",
  "When a champion that you damaged within 3 seconds dies, refund of your Ultimate Ability's total cooldown.": "Gdy zginie bohater, któremu zadałeś obrażenia w ciągu 3 sekund, zwracana jest część całkowitego czasu odnowienia twojej superumiejętności.",
  "Takedowns against enemy champions within 3 seconds of damaging them grants you 40% Move Speed and renders you invisible for 1.5 seconds.": "Udział w zabójstwie wrogich bohaterów w ciągu 3 sekund od zadania im obrażeń daje ci 40% prędkości ruchu i czyni cię niewidzialnym na 1,5 sekundy.",
- "Gain 60% Movement Speed towards enemies below 40% health.": "Zyskujesz 60% prędkości ruchu w stronę wrogów z mniej niż 40% zdrowia."
+ "Gain 60% Movement Speed towards enemies below 40% health.": "Zyskujesz 60% prędkości ruchu w stronę wrogów z mniej niż 40% zdrowia.",
+ "May not work in a real game": "W prawdziwej grze może nie zadziałać",
+ "{champion} may not be offered {augments} this patch, so this build might not come together. Try it if they show up.": "{champion} może nie dostać w tym patchu propozycji {augments}, więc ten build może się nie złożyć. Spróbuj, jeśli się pojawią."
 }
