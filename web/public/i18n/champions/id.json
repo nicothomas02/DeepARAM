@@ -211,5 +211,9 @@
  "Score: points of win rate over the usual choice. Choices with few games lean on the estimate.": "Skor: poin win rate dibanding pilihan yang biasa. Pilihan dengan game sedikit bergantung pada perkiraan.",
  "Expected": "Perkiraan",
  "Real": "Nyata",
- "Builds with few games lean on the estimate: how much of a rare build's lead usually holds up.": "Build dengan game sedikit bergantung pada perkiraan: seberapa besar keunggulan build langka biasanya bertahan."
+ "Builds with few games lean on the estimate: how much of a rare build's lead usually holds up.": "Build dengan game sedikit bergantung pada perkiraan: seberapa besar keunggulan build langka biasanya bertahan.",
+ "Boost": "Dorongan",
+ "Boost is estimated: how many points of win rate the augment adds to this champion.": "Dorongan adalah perkiraan: berapa poin win rate yang ditambahkan augment ini pada champion ini.",
+ "Estimated: augments that pair well on this champion, best first.": "Perkiraan: augment yang cocok dipasangkan pada champion ini, yang terbaik lebih dulu.",
+ "Augment pairs appear here once enough games are in. Each pair needs a minimum number of games before it shows.": "Pasangan augment muncul di sini setelah cukup banyak game. Setiap pasangan butuh jumlah game minimum sebelum ditampilkan."
 }

@@ -211,5 +211,9 @@
  "Score: points of win rate over the usual choice. Choices with few games lean on the estimate.": "Skor: olağan seçime göre kazanma oranı puanı. Az maçlı seçimler tahmine dayanır.",
  "Expected": "Beklenen",
  "Real": "Gerçek",
- "Builds with few games lean on the estimate: how much of a rare build's lead usually holds up.": "Az maçlı dizilimler tahmine dayanır: nadir bir dizilimin önceliğinin ne kadarı genelde korunur."
+ "Builds with few games lean on the estimate: how much of a rare build's lead usually holds up.": "Az maçlı dizilimler tahmine dayanır: nadir bir dizilimin önceliğinin ne kadarı genelde korunur.",
+ "Boost": "Artış",
+ "Boost is estimated: how many points of win rate the augment adds to this champion.": "Artış tahminidir: güçlendirmenin bu şampiyonun kazanma oranına kaç puan eklediği.",
+ "Estimated: augments that pair well on this champion, best first.": "Tahmini: bu şampiyonda iyi eşleşen güçlendirmeler, en iyiler önce.",
+ "Augment pairs appear here once enough games are in. Each pair needs a minimum number of games before it shows.": "Güçlendirme çiftleri yeterli maç toplandığında burada görünür. Her çiftin görünmesi için en az belirli sayıda maç gerekir."
 }

@@ -37,7 +37,7 @@ import BackToTop from "@/components/BackToTop";
 // Mona Sans for headlines, text and numbers; next/font serves it from deeparam.com.
 const sans = Mona_Sans({ subsets: ["latin", "latin-ext", "vietnamese"], variable: "--font-sans" });
 
-const DESCRIPTION = "ARAM Mayhem tier list, augment win rates and a teamfight simulator for the current patch.";
+const DESCRIPTION = "ARAM Mayhem tier list, augment rankings and a teamfight simulator for the current patch.";
 // Home's title in search results; other pages set their own with pageMeta.
 const TITLE = "DeepARAM: ARAM Mayhem Tier List, Augments & Builds";
 

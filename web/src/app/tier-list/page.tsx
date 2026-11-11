@@ -12,6 +12,7 @@ import { augmentHref, augmentPages } from "@/lib/augments";
 import { augmentTiers, STYLES } from "@/lib/augment-tiers";
 import AugmentTiers from "@/components/AugmentTiers";
 import { augmentRows, augmentsWithoutData, type RawAugment } from "@/lib/augment-winrate";
+import { SHOW_AUGMENT_WIN_RATES } from "@/lib/augment-policy";
 import { AUGMENT_DEEPSCORE_HELP } from "@/lib/deepscore";
 import championIds from "@/data/champion-ids.json";
 import championNames from "@/data/champion-names.json";
@@ -37,7 +38,7 @@ import { pentakill } from "@/lib/pentakill";
 export const metadata: Metadata = pageMeta(
   "/tier-list",
   `ARAM Mayhem Tier List${livePatch() ? `, Patch ${patchName(livePatch())}` : ""}`,
-  "ARAM Mayhem champion tier list for the current patch, with augment win rates and duo synergy.",
+  "ARAM Mayhem champion tier list for the current patch, with augment rankings and duo synergy.",
 );
 
 const num = (v: string | undefined) => (v === undefined || v === "" ? null : Number(v));
@@ -130,6 +131,8 @@ export default function TierListPage() {
       { key: "win_rate", label: "Win rate", format: "pct" as const },
       { key: "pick_rate", label: "Pick rate", format: "pct" as const, phone: "hide" as const },
     ];
+    // No augment win rate column while Riot's policy rules them out (lib/augment-policy.ts).
+    const shownAugCols = augCols.filter((c) => SHOW_AUGMENT_WIN_RATES || c.key !== "win_rate");
     tabs.push({
       id: "augments",
       label: "Augments",
@@ -137,11 +140,11 @@ export default function TierListPage() {
         <>
           <AugmentTiers
             styles={STYLES}
-            columns={[...augCols, pickCol]}
-            // Most useful on the left: rank, win rate and its boost, pick rate, then the finer numbers.
+            columns={[...shownAugCols, pickCol]}
+            // Most useful on the left: rank, DeepScore, the boost, pick rate, then the finer numbers.
             advancedColumns={[
               ...augCols.slice(0, 3),
-              augCols[4],
+              ...(SHOW_AUGMENT_WIN_RATES ? [augCols[4]] : []),
               {
                 key: "lift",
                 label: "Win rate boost",
@@ -171,7 +174,7 @@ export default function TierListPage() {
                 deepScore: graded.get(Number(a.augment_id))?.deepScore ?? null,
                 lift: graded.get(Number(a.augment_id))?.lift ?? null,
                 spread: augmentSpread(Number(a.augment_id)),
-                win_rate: Number(a.win_rate),
+                win_rate: SHOW_AUGMENT_WIN_RATES ? Number(a.win_rate) : (null as unknown as number),
                 pick_rate: Number(a.pick_rate),
                 best: bestById.get(Number(a.augment_id))?.[0]?.id ?? null,
                 picks: picksAt(Number(a.augment_id)).join(" · ") || null,

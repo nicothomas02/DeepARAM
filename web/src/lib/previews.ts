@@ -1,5 +1,6 @@
 import "server-only";
 import { augmentPages } from "./augments";
+import { SHOW_AUGMENT_WIN_RATES } from "./augment-policy";
 import { liveTiers } from "./highlights";
 import { itemPages } from "./item-pages";
 
@@ -28,7 +29,7 @@ export function previews(): Record<string, Preview> {
       name: a.name,
       icon: `/icons/augments/${a.id}.webp`,
       tier: a.tier,
-      winRate: a.winRate,
+      ...(SHOW_AUGMENT_WIN_RATES ? { winRate: a.winRate } : {}),
       pickRate: a.pickRate,
       lines: a.best.length ? [`Best on ${a.best.slice(0, 3).map((b) => b.name).join(", ")}`] : [],
     };

@@ -211,5 +211,9 @@
  "Score: points of win rate over the usual choice. Choices with few games lean on the estimate.": "Pontszám: győzelmi arány pontok a szokásos választáshoz képest. A kevés meccses választások a becslésre támaszkodnak.",
  "Expected": "Várt",
  "Real": "Valós",
- "Builds with few games lean on the estimate: how much of a rare build's lead usually holds up.": "A kevés meccses buildek a becslésre támaszkodnak: egy ritka build előnyéből általában mennyi marad meg."
+ "Builds with few games lean on the estimate: how much of a rare build's lead usually holds up.": "A kevés meccses buildek a becslésre támaszkodnak: egy ritka build előnyéből általában mennyi marad meg.",
+ "Boost": "Növelés",
+ "Boost is estimated: how many points of win rate the augment adds to this champion.": "A növelés becsült: hány százalékponttal emeli a fejlesztés ennek a hősnek a győzelmi arányát.",
+ "Estimated: augments that pair well on this champion, best first.": "Becsült: fejlesztések, amelyek jól illenek egymáshoz ezen a hősön, a legjobbak elöl.",
+ "Augment pairs appear here once enough games are in. Each pair needs a minimum number of games before it shows.": "A fejlesztéspárok itt jelennek meg, amint elég meccs gyűlik össze. Minden párnak el kell érnie egy minimális meccsszámot, mielőtt megjelenik."
 }

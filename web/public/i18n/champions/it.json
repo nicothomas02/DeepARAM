@@ -211,5 +211,9 @@
  "Score: points of win rate over the usual choice. Choices with few games lean on the estimate.": "Punteggio: punti di percentuale di vittorie rispetto alla scelta abituale. Le scelte con poche partite si basano sulla stima.",
  "Expected": "Atteso",
  "Real": "Reale",
- "Builds with few games lean on the estimate: how much of a rare build's lead usually holds up.": "Le build con poche partite si basano sulla stima: quanto del vantaggio di una build rara di solito regge."
+ "Builds with few games lean on the estimate: how much of a rare build's lead usually holds up.": "Le build con poche partite si basano sulla stima: quanto del vantaggio di una build rara di solito regge.",
+ "Boost": "Bonus",
+ "Boost is estimated: how many points of win rate the augment adds to this champion.": "Il bonus è stimato: quanti punti di percentuale di vittoria l'augment aggiunge a questo campione.",
+ "Estimated: augments that pair well on this champion, best first.": "Stimato: augment che si abbinano bene su questo campione, i migliori per primi.",
+ "Augment pairs appear here once enough games are in. Each pair needs a minimum number of games before it shows.": "Le coppie di augment compaiono qui quando ci sono abbastanza partite. Ogni coppia richiede un numero minimo di partite prima di essere mostrata."
 }

@@ -211,5 +211,9 @@
  "Score: points of win rate over the usual choice. Choices with few games lean on the estimate.": "Βαθμολογία: μονάδες ποσοστού νικών σε σχέση με τη συνήθη επιλογή. Οι επιλογές με λίγα παιχνίδια βασίζονται στην εκτίμηση.",
  "Expected": "Αναμενόμενο",
  "Real": "Πραγματικό",
- "Builds with few games lean on the estimate: how much of a rare build's lead usually holds up.": "Τα builds με λίγα παιχνίδια βασίζονται στην εκτίμηση: πόσο από το προβάδισμα ενός σπάνιου build συνήθως ισχύει."
+ "Builds with few games lean on the estimate: how much of a rare build's lead usually holds up.": "Τα builds με λίγα παιχνίδια βασίζονται στην εκτίμηση: πόσο από το προβάδισμα ενός σπάνιου build συνήθως ισχύει.",
+ "Boost": "Ώθηση",
+ "Boost is estimated: how many points of win rate the augment adds to this champion.": "Η ώθηση είναι εκτίμηση: πόσες μονάδες ποσοστού νίκης προσθέτει το augment σε αυτόν τον champion.",
+ "Estimated: augments that pair well on this champion, best first.": "Εκτίμηση: augments που ταιριάζουν καλά σε αυτόν τον champion, τα καλύτερα πρώτα.",
+ "Augment pairs appear here once enough games are in. Each pair needs a minimum number of games before it shows.": "Τα ζεύγη augments εμφανίζονται εδώ μόλις συγκεντρωθούν αρκετά παιχνίδια. Κάθε ζεύγος χρειάζεται έναν ελάχιστο αριθμό παιχνιδιών για να εμφανιστεί."
 }

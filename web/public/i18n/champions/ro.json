@@ -211,5 +211,9 @@
  "Score: points of win rate over the usual choice. Choices with few games lean on the estimate.": "Scor: puncte de rată de victorie față de alegerea obișnuită. Alegerile cu puține meciuri se bazează pe estimare.",
  "Expected": "Estimat",
  "Real": "Real",
- "Builds with few games lean on the estimate: how much of a rare build's lead usually holds up.": "Buildurile cu puține meciuri se bazează pe estimare: cât din avansul unui build rar se menține de obicei."
+ "Builds with few games lean on the estimate: how much of a rare build's lead usually holds up.": "Buildurile cu puține meciuri se bazează pe estimare: cât din avansul unui build rar se menține de obicei.",
+ "Boost": "Bonus",
+ "Boost is estimated: how many points of win rate the augment adds to this champion.": "Bonusul este estimat: câte puncte de rată de victorie adaugă augmentul acestui campion.",
+ "Estimated: augments that pair well on this champion, best first.": "Estimat: augmente care se potrivesc bine pe acest campion, cele mai bune primele.",
+ "Augment pairs appear here once enough games are in. Each pair needs a minimum number of games before it shows.": "Perechile de augmente apar aici după ce se adună destule meciuri. Fiecare pereche are nevoie de un număr minim de meciuri înainte să apară."
 }

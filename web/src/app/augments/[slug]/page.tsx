@@ -17,6 +17,10 @@ import descriptions from "@/data/descriptions.json";
 import { patchName } from "@/lib/patch-name";
 import { augmentRanges } from "@/lib/stat-ranges";
 import { RangePicker, RangeView } from "@/components/StatRange";
+import DeepScore from "@/components/DeepScore";
+import { augmentTiers } from "@/lib/augment-tiers";
+import { AUGMENT_DEEPSCORE_HELP } from "@/lib/deepscore";
+import { SHOW_AUGMENT_WIN_RATES } from "@/lib/augment-policy";
 
 // One page per augment, so each can be found in search (lib/augments.ts).
 
@@ -45,7 +49,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return pageMeta(
     `/augments/${a.slug}`,
     `${a.name} ARAM Mayhem Augment`,
-    `${a.name} is a ${RARITY[a.tier] ?? a.tier} ARAM Mayhem augment with a ${pct(a.winRate)} win rate on patch ${patchName(livePatch())}.${best}`,
+    SHOW_AUGMENT_WIN_RATES
+      ? `${a.name} is a ${RARITY[a.tier] ?? a.tier} ARAM Mayhem augment with a ${pct(a.winRate)} win rate on patch ${patchName(livePatch())}.${best}`
+      : `${a.name} is a ${RARITY[a.tier] ?? a.tier} ARAM Mayhem augment, picked ${pct(a.pickRate)} of the time it's offered on patch ${patchName(livePatch())}.${best}`,
   );
 }
 
@@ -57,6 +63,7 @@ export default async function AugmentPage({ params }: { params: Promise<{ slug: 
   const stages = augmentStages(a.id);
   const synergies = augmentSynergies(a.id);
   const rarity = rarityOdds(a.tier);
+  const score = augmentTiers().find((x) => x.id === a.id);
   // The live patch keeps the page's own numbers; other ranges come from saved patches.
   const { ranges: allRanges, stats: rangeStats } = augmentRanges();
   const mine = rangeStats.get(a.id) ?? {};
@@ -113,18 +120,31 @@ export default async function AugmentPage({ params }: { params: Promise<{ slug: 
             views={{
               live: (
                 <>
-                  <div>
-                    <b className={a.winRate >= 0.52 ? "wr-high" : a.winRate <= 0.48 ? "wr-low" : ""}>{pct(a.winRate)}</b>
-                    <span>
-                      {a.winRank ? (
-                        <T ns="augments" v={{ rank: a.winRank, of: a.of }}>
-                          {"win rate, #{rank} of {of}"}
-                        </T>
-                      ) : (
-                        <T ns="augments">win rate</T>
-                      )}
-                    </span>
-                  </div>
+                  {SHOW_AUGMENT_WIN_RATES ? (
+                    <div>
+                      <b className={a.winRate >= 0.52 ? "wr-high" : a.winRate <= 0.48 ? "wr-low" : ""}>{pct(a.winRate)}</b>
+                      <span>
+                        {a.winRank ? (
+                          <T ns="augments" v={{ rank: a.winRank, of: a.of }}>
+                            {"win rate, #{rank} of {of}"}
+                          </T>
+                        ) : (
+                          <T ns="augments">win rate</T>
+                        )}
+                      </span>
+                    </div>
+                  ) : (
+                    score && (
+                      <div>
+                        <b>
+                          <DeepScore value={score.deepScore} help={AUGMENT_DEEPSCORE_HELP} />
+                        </b>
+                        <span>
+                          <T ns="augments">DeepScore</T>
+                        </span>
+                      </div>
+                    )
+                  )}
                   <div>
                     <b>{pct(a.pickRate)}</b>
                     <span>
@@ -147,14 +167,16 @@ export default async function AugmentPage({ params }: { params: Promise<{ slug: 
                     [
                       r.key,
                       <>
-                        <div>
-                          <b className={x.winRate >= 0.52 ? "wr-high" : x.winRate <= 0.48 ? "wr-low" : ""}>{pct(x.winRate)}</b>
-                          <span>
-                            <T ns="augments" v={{ rank: x.winRank, of: x.of }}>
-                              {"win rate, #{rank} of {of}"}
-                            </T>
-                          </span>
-                        </div>
+                        {SHOW_AUGMENT_WIN_RATES && (
+                          <div>
+                            <b className={x.winRate >= 0.52 ? "wr-high" : x.winRate <= 0.48 ? "wr-low" : ""}>{pct(x.winRate)}</b>
+                            <span>
+                              <T ns="augments" v={{ rank: x.winRank, of: x.of }}>
+                                {"win rate, #{rank} of {of}"}
+                              </T>
+                            </span>
+                          </div>
+                        )}
                         <div>
                           <b>{pct(x.pickRate)}</b>
                           <span>
@@ -196,15 +218,21 @@ export default async function AugmentPage({ params }: { params: Promise<{ slug: 
               title: a.name,
               subtitle: `${RARITY[a.tier] ?? a.tier} augment · Patch ${patch ?? ""}`,
               icon: `/icons/augments/${a.id}.webp`,
-              stats: [
-                {
-                  label: "Win rate",
-                  value: pct(a.winRate),
-                  tone: a.winRate >= 0.52 ? "good" : a.winRate <= 0.48 ? "bad" : undefined,
-                },
-                { label: "Pick rate", value: pct(a.pickRate) },
-                ...(a.winRank ? [{ label: "Win rank", value: `#${a.winRank} of ${a.of}` }] : []),
-              ],
+              stats: SHOW_AUGMENT_WIN_RATES
+                ? [
+                    {
+                      label: "Win rate",
+                      value: pct(a.winRate),
+                      tone: a.winRate >= 0.52 ? "good" : a.winRate <= 0.48 ? "bad" : undefined,
+                    },
+                    { label: "Pick rate", value: pct(a.pickRate) },
+                    ...(a.winRank ? [{ label: "Win rank", value: `#${a.winRank} of ${a.of}` }] : []),
+                  ]
+                : [
+                    ...(score ? [{ label: "DeepScore", value: `${Math.round(score.deepScore)} · ${score.tier}` }] : []),
+                    { label: "Pick rate", value: pct(a.pickRate) },
+                    ...(a.pickRank ? [{ label: "Pick rank", value: `#${a.pickRank} of ${a.of}` }] : []),
+                  ],
               row: a.best.length
                 ? {
                     label: "Best on",

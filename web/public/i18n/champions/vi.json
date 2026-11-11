@@ -211,5 +211,9 @@
  "Score: points of win rate over the usual choice. Choices with few games lean on the estimate.": "Điểm: điểm tỉ lệ thắng so với lựa chọn thường dùng. Lựa chọn ít trận dựa vào ước tính.",
  "Expected": "Kỳ vọng",
  "Real": "Thực tế",
- "Builds with few games lean on the estimate: how much of a rare build's lead usually holds up.": "Lối lên đồ ít trận dựa vào ước tính: phần lợi thế của một lối lên đồ hiếm thường giữ được bao nhiêu."
+ "Builds with few games lean on the estimate: how much of a rare build's lead usually holds up.": "Lối lên đồ ít trận dựa vào ước tính: phần lợi thế của một lối lên đồ hiếm thường giữ được bao nhiêu.",
+ "Boost": "Mức tăng",
+ "Boost is estimated: how many points of win rate the augment adds to this champion.": "Mức tăng là ước tính: lõi nâng cấp cộng thêm bao nhiêu điểm tỉ lệ thắng cho tướng này.",
+ "Estimated: augments that pair well on this champion, best first.": "Ước tính: các lõi nâng cấp hợp nhau trên tướng này, tốt nhất trước.",
+ "Augment pairs appear here once enough games are in. Each pair needs a minimum number of games before it shows.": "Các cặp lõi nâng cấp sẽ hiện ở đây khi có đủ trận. Mỗi cặp cần số trận tối thiểu trước khi hiện."
 }

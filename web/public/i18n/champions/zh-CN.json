@@ -211,5 +211,9 @@
  "Score: points of win rate over the usual choice. Choices with few games lean on the estimate.": "得分:相比常规选择的胜率点数。场次少的选择依赖估计。",
  "Expected": "预期",
  "Real": "实际",
- "Builds with few games lean on the estimate: how much of a rare build's lead usually holds up.": "场次少的出装依赖估计:罕见出装的领先优势通常能保持多少。"
+ "Builds with few games lean on the estimate: how much of a rare build's lead usually holds up.": "场次少的出装依赖估计:罕见出装的领先优势通常能保持多少。",
+ "Boost": "提升",
+ "Boost is estimated: how many points of win rate the augment adds to this champion.": "提升为估算值：该强化符文为这位英雄增加多少个百分点的胜率。",
+ "Estimated: augments that pair well on this champion, best first.": "估算：在这位英雄身上搭配良好的强化符文组合，按优劣排序。",
+ "Augment pairs appear here once enough games are in. Each pair needs a minimum number of games before it shows.": "当对局数足够时，强化符文组合会显示在这里。每个组合需要达到最低对局数才会显示。"
 }

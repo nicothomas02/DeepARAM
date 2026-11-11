@@ -211,5 +211,9 @@
  "Score: points of win rate over the usual choice. Choices with few games lean on the estimate.": "점수: 일반적인 선택 대비 승률 포인트. 게임 수가 적은 선택은 추정치에 의존합니다.",
  "Expected": "기대값",
  "Real": "실제",
- "Builds with few games lean on the estimate: how much of a rare build's lead usually holds up.": "게임 수가 적은 빌드는 추정치에 의존합니다. 희귀한 빌드의 우위가 보통 얼마나 유지되는지를 반영합니다."
+ "Builds with few games lean on the estimate: how much of a rare build's lead usually holds up.": "게임 수가 적은 빌드는 추정치에 의존합니다. 희귀한 빌드의 우위가 보통 얼마나 유지되는지를 반영합니다.",
+ "Boost": "상승폭",
+ "Boost is estimated: how many points of win rate the augment adds to this champion.": "상승폭은 추정치입니다: 이 증강이 이 챔피언의 승률을 몇 포인트 올리는지.",
+ "Estimated: augments that pair well on this champion, best first.": "추정: 이 챔피언에게 잘 어울리는 증강 조합, 좋은 순서대로.",
+ "Augment pairs appear here once enough games are in. Each pair needs a minimum number of games before it shows.": "충분한 게임이 쌓이면 증강 조합이 여기에 표시됩니다. 각 조합은 최소 게임 수를 채워야 표시됩니다."
 }
