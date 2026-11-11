@@ -1,297 +1,297 @@
 {
-  "id": "nunu-minion-buffet",
-  "title": "The Minion Buffet",
-  "champion": "Nunu",
-  "champion_name": "Nunu & Willump",
-  "chef": "2026-11-09",
-  "why": "Consume is Nunu's snack button: Willump bites a minion and restores a big chunk of Health. Circle of Death turns 70% of all his healing and Health Regen into magic damage on the nearest enemy champion, and Overflow makes his ability heals stronger, so every minion he eats punches someone on the other team. Ocean Soul then hands him high Health Regen, which is more Circle of Death damage, plus the Mana Regen that pays for Overflow's doubled costs, while Goredrink heals him off his hits and feeds the circle again. Spirit Visage makes each heal bigger, Warmog's Armor adds regen, Unending Despair adds a heal every few seconds in a fight, and Riftmaker and Rod of Ages add the Health, Ability Power and Mana to keep eating. The snowball tank becomes a poke mage who hurts people by having lunch.",
-  "play": "Stand near the enemy you want hit and Consume a minion every time it is up; bite a champion instead when one is in reach. Use Absolute Zero and Snowball Barrage to keep Ocean Soul and Goredrink running.",
+  "id": "warwick-frequent-flyer",
+  "title": "Frequent Flyer",
+  "champion": "Warwick",
+  "champion_name": "Warwick",
+  "chef": "2026-11-10",
+  "why": "Warwick's Infinite Duress leaps a distance that scales with his bonus Move Speed, a detail that normally adds only a few steps. Get Excited! gives a huge burst of Move Speed on every takedown, and Arcane Axiom refunds part of his ultimate's cooldown when a champion he damaged dies, so each kill hands him both the fuel and the next launch. Nightstalking adds more Move Speed and a moment of invisibility on the same takedown, and Kill Secured speeds him toward low enemies on top of Blood Hunt, which already does the same. Axiom Arc refunds even more of the ultimate on kills and Experimental Hexplate adds ultimate haste plus Move Speed after each cast, while Youmuu's Ghostblade, Dead Man's Plate, Stridebreaker and Boots of Swiftness pile on more speed. The melee brawler becomes a cross-map reset assassin who launches from off screen onto whoever is lowest.",
+  "play": "Wait for a wounded enemy, pop Youmuu's Ghostblade and leap in from far outside the fight. After the takedown, aim the next Infinite Duress at the next low target while the speed lasts.",
   "items": [
-    "Ionian Boots of Lucidity",
-    "Riftmaker",
-    "Spirit Visage",
-    "Warmog's Armor",
-    "Unending Despair",
-    "Rod of Ages"
+    "Axiom Arc",
+    "Experimental Hexplate",
+    "Youmuu's Ghostblade",
+    "Dead Man's Plate",
+    "Stridebreaker",
+    "Boots of Swiftness"
   ],
   "core": 4,
-  "champion_icon": "/embed/fun/cook-builds/icons/champions/20.png",
+  "champion_icon": "/embed/fun/cook-builds/icons/champions/19.png",
   "augments": [
     {
-      "name": "Circle of Death",
-      "rarity": "Prismatic",
-      "core": true,
-      "text": "Your healing and Health Regen deal 70% of the value magic damage to the nearest enemy champion.",
-      "icon": "/embed/fun/cook-builds/icons/augments/circle-of-death.png",
-      "id": 1015
-    },
-    {
-      "name": "Overflow",
+      "name": "Get Excited!",
       "rarity": "Gold",
       "core": true,
-      "text": "Your Mana costs double. Your Ability Heals, Shields, and damage are more effective.",
-      "icon": "/embed/fun/cook-builds/icons/augments/overflow.png",
-      "id": 1311
+      "text": "Gain 100% Movement Speed and 15% Attack Speed for 4 seconds on takedown.",
+      "icon": "/embed/fun/cook-builds/icons/augments/get-excited.png",
+      "id": 1322
     },
     {
-      "name": "Ocean Soul",
-      "rarity": "Silver",
+      "name": "Arcane Axiom",
+      "rarity": "Gold",
       "core": true,
-      "text": "Gain the Ocean Soul, granting high Health and Mana Regen after damaging enemies.",
-      "icon": "/embed/fun/cook-builds/icons/augments/ocean-soul.png",
-      "id": 1060
+      "text": "When a champion that you damaged within 3 seconds dies, refund of your Ultimate Ability's total cooldown.",
+      "icon": "/embed/fun/cook-builds/icons/augments/arcane-axiom.png",
+      "id": 3118
     },
     {
-      "name": "Goredrink",
+      "name": "Nightstalking",
+      "rarity": "Gold",
+      "core": true,
+      "text": "Takedowns against enemy champions within 3 seconds of damaging them grants you 40% Move Speed and renders you invisible for 1.5 seconds.",
+      "icon": "/embed/fun/cook-builds/icons/augments/nightstalking.png",
+      "id": 1326
+    },
+    {
+      "name": "Kill Secured",
       "rarity": "Silver",
       "core": true,
-      "text": "Gain 15% Omnivamp.",
-      "icon": "/embed/fun/cook-builds/icons/augments/goredrink.png",
-      "id": 1138
+      "text": "Gain 60% Movement Speed towards enemies below 40% health.",
+      "icon": "/embed/fun/cook-builds/icons/augments/kill-secured.png",
+      "id": 2026
     }
   ],
   "href": "/kitchen#chefs-special",
   "archive_href": "/kitchen#chef-archive",
-  "share_href": "/kitchen/2026-11-09",
-  "share_image": "/embed/fun/cook-builds/share/nunu-minion-buffet.png",
+  "share_href": "/kitchen/2026-11-10",
+  "share_image": "/embed/fun/cook-builds/share/warwick-frequent-flyer.png",
   "item_ids": [
-    3158,
-    4633,
-    3065,
-    3083,
-    2502,
-    6657
+    6696,
+    3073,
+    3142,
+    3742,
+    6631,
+    3009
   ],
   "i18n": {
     "ar": {
-      "title": "بوفيه التوابع",
-      "why": "حرف Q عند نونو وويلامب هو زر الوجبة الخفيفة: يعضّ Willump تابعًا ويستعيد قدرًا كبيرًا من الصحة. حلقة الموت تحوّل 70% من كل علاجه وتجدد صحته إلى ضرر سحري على أقرب بطل عدو، والفيض المتدفق يقوّي علاج قدراته، فكل تابع يأكله يضرب أحدًا في الفريق الآخر. ثم تمنحه الروح البحرية تجدد صحة عاليًا، وهذا يعني ضررًا أكبر من حلقة الموت، إضافة إلى تجدد المانا الذي يغطي تكاليف الفيض المتدفق المضاعفة، بينما يعالجه شرب الدماء من ضرباته ويغذّي الحلقة من جديد. وجه الروح يجعل كل علاج أكبر، ودرع وارموغ يضيف تجددًا، ويأسٌ بلا نهاية يضيف علاجًا كل بضع ثوانٍ في القتال، وصانع الصدوع وقصبة العصور يضيفان الصحة وقوة القدرات والمانا ليواصل الأكل. يتحول الدبابة كرة الثلج إلى ساحر بوك يؤذي الناس وهو يتناول غداءه.",
-      "play": "قف قرب العدو الذي تريد ضربه واستخدم Q على تابع كلما كانت جاهزة، واعضّ بطلًا بدلًا من ذلك إذا كان في المتناول. استخدم R وE لإبقاء الروح البحرية وشرب الدماء شغّالين.",
+      "title": "مسافر دائم",
+      "why": "قفزة وارويك القصوى R (الإكراه اللانهائي) تقطع مسافة تتناسب مع سرعة الحركة الإضافية لديه، وهي تفصيلة تضيف عادةً بضع خطوات فقط. \"ليشتعل حماسك!\" يعطيه دفعة هائلة من سرعة الحركة مع كل إسقاط، و\"مبدأ السحر\" يعيد جزءًا من وقت التهدئة لقدرته القصوى عندما يموت بطل ألحق به ضررًا، فكل قتلة تمنحه الوقود والقفزة التالية معًا. \"التربص الليلي\" يضيف سرعة حركة أكثر ولحظة من الاختفاء عند الإسقاط نفسه، و\"تنفيذ القتل\" يسرّعه نحو الأعداء ضعيفي الصحة بالإضافة إلى W (مطاردة الدم) الذي يفعل ذلك أصلًا. \"القوس المبدئي\" يعيد المزيد من القدرة القصوى عند القتلات، و\"صفيحة الهيكستيك التجريبية\" تعطي تسريع القدرة القصوى مع سرعة حركة بعد كل استخدام، بينما \"نصل يومو الشبحي\" و\"درع صدر الرجل الميت\" و\"معيق الخطوات\" و\"حذاء العجلة\" تضيف المزيد من السرعة. يتحول المقاتل القريب إلى قاتل متسلسل بإعادة تعيين عبر الخريطة كلها، يقفز من خارج الشاشة على أضعف هدف.",
+      "play": "انتظر عدوًا مصابًا، فعّل \"نصل يومو الشبحي\" واقفز من بعيد خارج المعركة. بعد الإسقاط، وجّه \"الإكراه اللانهائي\" التالي إلى الهدف الضعيف التالي طالما السرعة مستمرة.",
       "augments": [
-        "علاجك وتجدد صحتك يُلحقان ضررًا سحريًا بنسبة 70% من القيمة بأقرب بطل عدو.",
-        "تكاليف المانا عندك تتضاعف. شفاء قدراتك ودروعها وضررها يصيرون أكثر فعالية.",
-        "تحصل على الروح البحرية، وتمنحك تجديدًا عاليًا للصحة والمانا بعد إلحاق الضرر بالأعداء.",
-        "تحصل على 15% مص حياة شامل."
+        "عند المشاركة في قتل، تكتسب 100% سرعة حركة و15% سرعة هجوم لمدة 4 ثوانٍ.",
+        "عندما يموت بطل ألحقت به ضررًا خلال 3 ثوانٍ، يُعاد جزء من وقت التهدئة الكلي لقدرتك القصوى.",
+        "عمليات الإسقاط ضد أبطال الأعداء خلال 3 ثوانٍ من إلحاق الضرر بهم تمنحك 40% سرعة حركة وتجعلك غير مرئي لمدة 1.5 ثانية.",
+        "تكسب 60% سرعة حركة باتجاه الأعداء الذين تقل صحتهم عن 40%."
       ]
     },
     "cs": {
-      "title": "Bufet z poskoků",
-      "why": "Q Nunua a Willumpa je jeho svačinové tlačítko: Willump zakousne poskoka a obnoví velký kus zdraví. Kruh smrti mění 70 % veškerého jeho léčení a regenerace zdraví na magické poškození nejbližšího nepřátelského šampiona a Přebytek síly zesiluje léčení jeho schopností, takže každý snědený poskok někoho z druhého týmu praští. Mořská duše mu pak dá vysokou regeneraci zdraví, což je další poškození od Kruhu smrti, plus regeneraci many, která platí zdvojené náklady Přebytku síly, zatímco Krvavá lázeň ho léčí z jeho zásahů a zase krmí kruh. Otisk duše zvětšuje každé léčení, Warmogova zbroj přidává regeneraci, Nekonečné zoufalství přidá v boji léčení každých pár sekund a Tvůrce Žlebu s Holí věků dodají zdraví, sílu schopností a manu, aby mohl dál jíst. Z tanka-sněhové koule se stane poke mág, který ubližuje tím, že obědvá.",
-      "play": "Postav se k nepříteli, kterého chceš zasáhnout, a použij Q na poskoka pokaždé, když je připravené; když je v dosahu šampion, kousni radši toho. Používej R a E, ať Mořská duše a Krvavá lázeň pořád jedou.",
+      "title": "Častý cestovatel",
+      "why": "Warwickův ultimát R (Nekonečný nátlak) skáče na vzdálenost, která se škáluje s jeho bonusovou rychlostí pohybu, což normálně přidá jen pár kroků. Rozjeď to! dává při každém zabití obrovský nával rychlosti pohybu a Axiom magie vrací část cooldownu jeho ultimátu, když zemře šampion, kterému ublížil, takže každý kill mu dá palivo i další skok. Noční lov přidává při stejném zabití další rychlost pohybu a chvilku neviditelnosti a Zaříznuto ho zrychluje směrem k nepřátelům s nízkým zdravím, navíc k W (Krvavý hon), které dělá to samé. Axiomatický oblouk vrací z ultimátu při zabitích ještě víc a Experimentální magiplát přidává po každém seslání zrychlení schopností ultimátu a rychlost pohybu, zatímco Youmuuina přízračná čepel, Kyrys mrtvého muže, Krokolam a Spěšné boty přidávají další rychlost. Z bojovníka na blízko se stane assassin s resety přes celou mapu, který se vrhá z obrazovky na toho, kdo má nejméně životů.",
+      "play": "Počkej na zraněného nepřítele, aktivuj Youmuuinu přízračnou čepel a skoč do boje z velké dálky. Po zabití zamiř další Nekonečný nátlak na další nízký cíl, dokud trvá rychlost.",
       "augments": [
-        "Tvé léčení a regenerace zdraví udělí nejbližšímu nepřátelskému šampionovi magické poškození ve výši 70 % své hodnoty.",
-        "Tvoje náklady na Manu se zdvojnásobí. Léčení, Štíty a poškození tvých schopností jsou účinnější.",
-        "Získáš Mořskou duši, která po zranění nepřátel dává vysokou regeneraci Zdraví a Many.",
-        "Získáš 15 % všestranného vampirismu."
+        "Při takedownu získáš na 4 sekundy 100 % rychlosti pohybu a 15 % rychlosti útoku.",
+        "Když zemře šampion, kterému jsi v posledních 3 sekundách ublížil, vrátí se část celkového cooldownu tvé ultimátní schopnosti.",
+        "Zabití nepřátelských šampionů do 3 sekund po jejich zranění ti dá 40 % rychlosti pohybu a učiní tě na 1,5 sekundy neviditelným.",
+        "Získáš 60 % rychlosti pohybu směrem k nepřátelům s méně než 40 % zdraví."
       ]
     },
     "de": {
-      "title": "Das Vasallen-Buffet",
-      "why": "Das Q von Nunu ist sein Snack-Knopf: Willump beißt einen Vasallen und stellt eine Menge Leben wieder her. Kreis des Todes verwandelt 70 % seiner gesamten Heilung und Lebensregeneration in magischen Schaden am nächsten gegnerischen Champion, und Überfluss macht die Heilung seiner Fähigkeiten stärker, sodass jeder gefressene Vasall jemanden im anderen Team trifft. Meeresdrachenseele liefert ihm dann hohe Lebensregeneration, also noch mehr Kreis-des-Todes-Schaden, plus die Manaregeneration, die Überflusses verdoppelte Kosten bezahlt, während Blutgierig ihn mit seinen Treffern heilt und den Kreis wieder füttert. Geistessicht macht jede Heilung größer, Warmogs Rüstung gibt Regeneration, Endlose Verzweiflung bringt im Kampf alle paar Sekunden eine Heilung dazu, und Kluftformer und Stab der Zeitalter liefern Leben, Fähigkeitsstärke und Mana, damit er weiterfuttern kann. Der Schneeball-Tank wird zum Poke-Magier, der anderen wehtut, indem er zu Mittag isst.",
-      "play": "Stell dich in die Nähe des Gegners, den du treffen willst, und nutze Q auf einen Vasallen, sobald es bereit ist; beiß stattdessen einen Champion, wenn einer in Reichweite ist. Nutze R und E, um Meeresdrachenseele und Blutgierig am Laufen zu halten.",
+      "title": "Vielflieger",
+      "why": "Warwicks Unendlicher Zwang (R) springt eine Distanz, die mit seinem Bonus-Lauftempo skaliert, ein Detail, das normalerweise nur ein paar Schritte ausmacht. Ich werd' verrückt! gibt bei jedem Takedown einen riesigen Schub an Lauftempo, und Arkanes Axiom erstattet einen Teil der Abklingzeit seiner Ultimate, wenn ein von ihm beschädigter Champion stirbt, sodass jeder Kill ihm Treibstoff und den nächsten Sprung liefert. Nachtwandler gibt beim selben Takedown mehr Lauftempo und einen Moment Unsichtbarkeit, und Kill gesichert macht ihn schneller in Richtung fast toter Gegner, zusätzlich zu Blutjagd (W), das genau das schon tut. Axiombogen erstattet bei Kills noch mehr von der Ultimate und Experimentelle Hexpanzerung gibt nach jedem Einsatz Ultimate-Beschleunigung plus Lauftempo, während Youmus Geistklinge, Panzer des toten Mannes, Schikane und Stiefel der Wendigkeit noch mehr Tempo draufpacken. Aus dem Nahkampf-Brawler wird ein Assassine mit Resets über die ganze Map, der von außerhalb des Bildschirms auf den Schwächsten springt.",
+      "play": "Warte auf einen angeschlagenen Gegner, zünde Youmus Geistklinge und spring von weit außerhalb des Kampfes rein. Nach dem Takedown zielst du mit dem nächsten Unendlichen Zwang auf das nächste fast tote Ziel, solange das Tempo anhält.",
       "augments": [
-        "Deine Heilung und Lebensregeneration fügen dem nächsten gegnerischen Champion 70 % des Werts als magischen Schaden zu.",
-        "Deine Manakosten verdoppeln sich. Deine Fähigkeitsheilungen, Schilde und dein Schaden sind effektiver.",
-        "Erhalte die Meeresdrachenseele, die nach Schaden an Gegnern hohe Lebens- und Manaregeneration gewährt.",
-        "Erhalte 15 % Omnivampirismus."
+        "Erhalte bei einem Takedown 4 Sekunden lang 100 % Lauftempo und 15 % Angriffstempo.",
+        "Wenn ein Champion stirbt, den du innerhalb von 3 Sekunden beschädigt hast, wird ein Teil der gesamten Abklingzeit deiner Ultimate erstattet.",
+        "Takedowns gegen gegnerische Champions innerhalb von 3 Sekunden nach dem Schaden an ihnen geben dir 40 % Lauftempo und machen dich 1,5 Sekunden lang unsichtbar.",
+        "Du erhältst 60 % Lauftempo in Richtung von Gegnern mit weniger als 40 % Leben."
       ]
     },
     "el": {
-      "title": "Ο μπουφές των τσιράκιων",
-      "why": "Το Q του Νούνου και Γουίλαμπ είναι το κουμπί για σνακ: ο Willump δαγκώνει ένα τσιράκι και επαναφέρει μεγάλο κομμάτι Ζωής. Ο Κύκλος Θανάτου μετατρέπει το 70% όλης της θεραπείας και της Ανανέωσης Ζωής του σε μαγική ζημιά στον πλησιέστερο εχθρικό ήρωα, και η Υπερχείλιση δυναμώνει τις θεραπείες των ικανοτήτων του, οπότε κάθε τσιράκι που τρώει χτυπάει κάποιον από την άλλη ομάδα. Η Ψυχή του Ωκεανού του δίνει μετά πολλή Ανανέωση Ζωής, δηλαδή ακόμα περισσότερη ζημιά από τον Κύκλο Θανάτου, μαζί με την Ανανέωση Μάνα που πληρώνει τα διπλάσια κόστη της Υπερχείλισης, ενώ ο Αιμοπότης τον θεραπεύει από τα χτυπήματά του και τροφοδοτεί ξανά τον κύκλο. Η Όψη Πνευμάτων μεγαλώνει κάθε θεραπεία, η Πανοπλία του Γόρμογκ προσθέτει ανανέωση, η Απέραντη Απόγνωση προσθέτει μια θεραπεία κάθε λίγα δευτερόλεπτα στη μάχη, και ο Διχαστής με τη Ράβδο των Αιώνων δίνουν τη Ζωή, τη Δύναμη Ικανοτήτων και το Μάνα για να συνεχίσει να τρώει. Το τανκ-χιονόμπαλα γίνεται poke μάγος που πονάει τους άλλους ενώ τρώει μεσημεριανό.",
-      "play": "Στάσου κοντά στον εχθρό που θες να χτυπήσεις και χρησιμοποίησε το Q σε ένα τσιράκι κάθε φορά που είναι έτοιμο· δάγκωσε έναν ήρωα αντί για τσιράκι όταν υπάρχει κάποιος εντός εμβέλειας. Χρησιμοποίησε το R και το E για να δουλεύουν συνέχεια η Ψυχή του Ωκεανού και ο Αιμοπότης.",
+      "title": "Συχνός Ταξιδιώτης",
+      "why": "Το R (Άπειρος Εξαναγκασμός) του Γουόργουικ πηδά σε απόσταση που κλιμακώνεται με το επιπλέον Move Speed του, λεπτομέρεια που κανονικά προσθέτει μόνο λίγα βήματα. Το Τρελός Ενθουσιασμός! δίνει τεράστια έκρηξη Move Speed σε κάθε takedown και το Απόκρυφο Αξίωμα επιστρέφει μέρος του cooldown του ultimate όταν πεθάνει ένας πρωταθλητής που έχει βλάψει, οπότε κάθε kill του δίνει και καύσιμο και την επόμενη εκτόξευση. Η Νυχτερινή Καταδίωξη προσθέτει περισσότερο Move Speed και μια στιγμή αορατότητας στο ίδιο takedown, και Η εξόντωση διασφαλίστηκε τον επιταχύνει προς τους εχθρούς με χαμηλό HP, επιπλέον του W (Κυνήγι Αίματος), που ήδη το κάνει αυτό. Η Αξιωματική Καμπή επιστρέφει ακόμα περισσότερο ultimate στα kills και η Πειραματική Μαγοτεχνική Πανοπλία δίνει ultimate haste συν Move Speed μετά από κάθε χρήση, ενώ η Αιθεριολεπίδα της Γιόμου, ο Θώρακας του Νεκρού, ο Δρασκελοθραύστης και οι Μπότες Γρηγοράδας προσθέτουν ακόμα περισσότερη ταχύτητα. Ο μάχιμος του σώμα με σώμα γίνεται assassin με resets σε όλο τον χάρτη, που εκτοξεύεται από εκτός οθόνης πάνω σε όποιον έχει τη λιγότερη ζωή.",
+      "play": "Περίμενε έναν τραυματισμένο εχθρό, ενεργοποίησε την Αιθεριολεπίδα της Γιόμου και πήδα μέσα από μακριά έξω από τη μάχη. Μετά το takedown, στόχευσε τον επόμενο Άπειρο Εξαναγκασμό στον επόμενο χαμηλό στόχο όσο διαρκεί η ταχύτητα.",
       "augments": [
-        "Οι θεραπείες και η Ανανέωση Ζωής σου προκαλούν το 70% της τιμής τους ως μαγική ζημιά στον πλησιέστερο εχθρικό ήρωα.",
-        "Τα κόστη Μάνας σου διπλασιάζονται. Οι Θεραπείες, οι Ασπίδες και η ζημιά των Ικανοτήτων σου είναι πιο αποτελεσματικές.",
-        "Παίρνεις την Ψυχή του Ωκεανού, που δίνει υψηλή Αναπλήρωση Υγείας και Μάνας μετά από ζημιά σε εχθρούς.",
-        "Κερδίζεις 15% Παντοβαμπιρισμό."
+        "Με κάθε εξόντωση αποκτάς 100% ταχύτητα κίνησης και 15% ταχύτητα επίθεσης για 4 δευτερόλεπτα.",
+        "Όταν πεθάνει ένας πρωταθλητής που έβλαψες μέσα σε 3 δευτερόλεπτα, επιστρέφεται μέρος του συνολικού cooldown του ultimate σου.",
+        "Τα takedown εναντίον εχθρικών πρωταθλητών μέσα σε 3 δευτερόλεπτα από τη στιγμή που τους έβλαψες σου δίνουν 40% Move Speed και σε κάνουν αόρατο για 1,5 δευτερόλεπτο.",
+        "Κερδίζεις 60% Move Speed προς εχθρούς με λιγότερο από 40% ζωή."
       ]
     },
     "es-MX": {
-      "title": "El buffet de súbditos",
-      "why": "La Q de Nunu y Willump es su botón de botana: Willump muerde a un súbdito y restaura un buen pedazo de Vida. Círculo de la Muerte convierte el 70% de toda su curación y Regeneración de Vida en daño mágico al campeón enemigo más cercano, y Sobrecarga hace más fuertes las curaciones de sus habilidades, así que cada súbdito que se come le pega a alguien del otro equipo. Alma de los Océanos le da mucha Regeneración de Vida, que es más daño de Círculo de la Muerte, además de la Regeneración de Maná que paga los costos duplicados de Sobrecarga, mientras que Beber Sangre lo cura con sus golpes y vuelve a alimentar el círculo. Apariencia Espiritual hace más grande cada curación, Armadura de Warmog agrega regeneración, Desesperación Eterna agrega una curación cada pocos segundos en combate, y Agrietador y Vara de las Edades aportan la Vida, el Poder de Habilidad y el Maná para seguir comiendo. El tanque bola de nieve se vuelve un mago de poke que lastima a todos con solo almorzar.",
-      "play": "Párate cerca del enemigo al que quieres pegarle y usa la Q en un súbdito cada vez que esté lista; muerde a un campeón si tienes uno al alcance. Usa la R y la E para mantener funcionando Alma de los Océanos y Beber Sangre.",
+      "title": "Viajero frecuente",
+      "why": "La Coacción infinita (R) de Warwick salta una distancia que escala con su velocidad de movimiento adicional, un detalle que normalmente solo suma unos cuantos pasos. ¡Comienza a Emocionarte! da una enorme ráfaga de velocidad de movimiento con cada eliminación, y Axioma Arcano devuelve parte del tiempo de reutilización de su definitiva cuando muere un campeón al que dañó, así que cada asesinato le da tanto el combustible como el siguiente salto. Acecho Nocturno agrega más velocidad de movimiento y un instante de invisibilidad con la misma eliminación, y Asesinato Asegurado lo acelera hacia los enemigos con poca vida, además de Cacería de sangre (W), que ya hace lo mismo. Arco Axiomático devuelve todavía más de la definitiva con los asesinatos y Placa Hexperimental da aceleración de habilidad definitiva más velocidad de movimiento después de cada lanzamiento, mientras que Espada Fantasma de Youmuu, Placa del Hombre Muerto, Rompeavances y Botas de Rapidez suman más velocidad. El peleador cuerpo a cuerpo se convierte en un asesino de resets por todo el mapa que se lanza desde fuera de la pantalla sobre el que tenga menos vida.",
+      "play": "Espera a que un enemigo esté herido, activa la Espada Fantasma de Youmuu y salta desde muy lejos de la pelea. Después de la eliminación, apunta la siguiente Coacción infinita al siguiente objetivo con poca vida mientras dure la velocidad.",
       "augments": [
-        "Tus curaciones y Regeneración de Vida infligen el 70% del valor como daño mágico al campeón enemigo más cercano.",
-        "Tus costos de maná se duplican. Las curaciones, los escudos y el daño de tus habilidades son más efectivos.",
-        "Obtén el Alma de los Océanos, que concede gran regeneración de salud y maná después de dañar enemigos.",
-        "Obtienes 15% de omnivampirismo."
+        "Obtienes 100% de velocidad de movimiento y 15% de velocidad de ataque por 4 segundos al conseguir una eliminación.",
+        "Cuando muere un campeón al que dañaste en los últimos 3 segundos, se devuelve parte del tiempo de reutilización total de tu habilidad definitiva.",
+        "Las eliminaciones de campeones enemigos en los 3 segundos posteriores a dañarlos te dan 40 % de velocidad de movimiento y te vuelven invisible durante 1.5 segundos.",
+        "Ganas 60 % de velocidad de movimiento hacia los enemigos con menos de 40 % de vida."
       ]
     },
     "es": {
-      "title": "El bufé de súbditos",
-      "why": "La Q de Nunu y Willump es su botón de merienda: Willump muerde a un súbdito y recupera un buen pedazo de vida. Círculo de muerte convierte el 70 % de toda su curación y regeneración de vida en daño mágico al campeón enemigo más cercano, y Sobrecarga hace más potentes las curaciones de sus habilidades, así que cada súbdito que se zampa le pega a alguien del otro equipo. Alma de océano le da mucha regeneración de vida, que es más daño de Círculo de muerte, y la regeneración de maná que paga los costes duplicados de Sobrecarga, mientras que Chupasangre lo cura con sus golpes y vuelve a alimentar el círculo. Rostro espiritual hace cada curación más grande, Armadura de Warmog añade regeneración, Desesperanza eterna añade una curación cada pocos segundos en combate, y Creagrietas y Vara de las edades aportan la vida, el poder de habilidad y el maná para seguir comiendo. El tanque bola de nieve se convierte en un mago de poke que hace daño a base de almorzar.",
-      "play": "Colócate cerca del enemigo al que quieres dañar y usa la Q en un súbdito cada vez que esté disponible; muerde a un campeón si tienes uno al alcance. Usa la R y la E para mantener en marcha Alma de océano y Chupasangre.",
+      "title": "Viajero frecuente",
+      "why": "La Coacción infinita (R) de Warwick salta una distancia que escala con su velocidad de movimiento adicional, un detalle que normalmente solo suma unos pocos pasos. ¡A tope! da una enorme ráfaga de velocidad de movimiento con cada derribo, y Axioma arcano devuelve parte del enfriamiento de su definitiva cuando muere un campeón al que ha dañado, así que cada muerte le da tanto el combustible como el siguiente salto. Acecho nocturno añade más velocidad de movimiento y un instante de invisibilidad con el mismo derribo, y Asesinato asegurado lo acelera hacia los enemigos con poca vida, además de Cacería de sangre (W), que ya hace lo mismo. Arco axiomático devuelve aún más de la definitiva con las muertes y Experimento de hexarmadura da aceleración de habilidad definitiva más velocidad de movimiento tras cada lanzamiento, mientras que Filo fantasmal de Youmuu, Coraza del muerto, Cortasendas y Botas de rapidez suman más velocidad. El luchador cuerpo a cuerpo se convierte en un asesino de resets por todo el mapa que se lanza desde fuera de pantalla sobre el que tenga menos vida.",
+      "play": "Espera a que un enemigo esté herido, activa el Filo fantasmal de Youmuu y salta desde muy lejos de la pelea. Tras el derribo, apunta la siguiente Coacción infinita al siguiente objetivo con poca vida mientras dure la velocidad.",
       "augments": [
-        "Tu curación y regeneración de vida infligen un 70 % de su valor como daño mágico al campeón enemigo más cercano.",
-        "Tus costes de maná se duplican. Las curaciones, los escudos y el daño de tus habilidades son más eficaces.",
-        "Obtén el Alma de océano, que concede gran regeneración de salud y maná tras dañar a enemigos.",
-        "Obtienes un 15 % de omnivampirismo."
+        "Obtienes un 100 % de velocidad de movimiento y un 15 % de velocidad de ataque durante 4 segundos al conseguir una eliminación.",
+        "Cuando muere un campeón al que has dañado en los últimos 3 segundos, se devuelve parte del enfriamiento total de tu habilidad definitiva.",
+        "Los derribos a campeones enemigos en los 3 segundos posteriores a dañarlos te dan un 40 % de velocidad de movimiento y te vuelven invisible durante 1,5 segundos.",
+        "Ganas un 60 % de velocidad de movimiento hacia los enemigos con menos del 40 % de vida."
       ]
     },
     "fr": {
-      "title": "Le buffet de sbires",
-      "why": "Le Q de Nunu et Willump est leur bouton goûter : Willump croque un sbire et rend une grosse part de PV. Soins meurtriers transforme 70 % de tous ses soins et de sa régénération de PV en dégâts magiques sur le champion ennemi le plus proche, et Surcharge renforce les soins de ses compétences, donc chaque sbire avalé fait mal à quelqu'un dans l'autre équipe. Âme des océans lui donne ensuite beaucoup de régénération de PV, soit encore plus de dégâts de Soins meurtriers, plus la régénération de mana qui paie les coûts doublés de Surcharge, pendant qu'Éviscération le soigne avec ses coups et alimente encore le cercle. Visage spirituel gonfle chaque soin, l'Armure de Warmog ajoute de la régénération, Désespoir infini ajoute un soin toutes les quelques secondes en combat, et Créateur de failles et Bâton séculaire apportent les PV, la puissance et le mana pour continuer à manger. Le tank boule de neige devient un mage de poke qui fait mal en déjeunant.",
-      "play": "Placez-vous près de l'ennemi que vous voulez toucher et lancez le Q sur un sbire à chaque fois qu'il est disponible ; croquez plutôt un champion quand il est à portée. Utilisez le R et le E pour garder Âme des océans et Éviscération actifs.",
+      "title": "Grand voyageur",
+      "why": "La Contrainte infinie (R) de Warwick bondit sur une distance qui dépend de sa vitesse de déplacement bonus, un détail qui n'ajoute normalement que quelques pas. Enthousiasme ! donne un énorme boost de vitesse de déplacement à chaque élimination, et Axiome arcanique rembourse une partie du délai de récupération de son ultime quand un champion qu'il a blessé meurt, si bien que chaque kill lui offre à la fois le carburant et le prochain saut. Traque nocturne ajoute de la vitesse de déplacement et un instant d'invisibilité sur la même élimination, et Élimination réussie le fait foncer vers les ennemis presque morts, en plus de Chasse au sang (W), qui fait déjà pareil. Arc axiomatique rembourse encore plus l'ultime sur les kills et Hexplaque expérimentale donne de l'accélération de compétence ultime plus de la vitesse de déplacement après chaque lancer, pendant que Lame spectre de Youmuu, Plaque du mort, Estropieur et Bottes de célérité ajoutent encore de la vitesse. Le bagarreur au corps à corps devient un assassin à resets qui traverse toute la map et se jette depuis hors de l'écran sur le plus faible.",
+      "play": "Attends qu'un ennemi soit blessé, active la Lame spectre de Youmuu et bondis de très loin hors du combat. Après l'élimination, vise avec la prochaine Contrainte infinie la prochaine cible presque morte tant que la vitesse dure.",
       "augments": [
-        "Vos soins et votre régénération de PV infligent 70 % de leur valeur en dégâts magiques au champion ennemi le plus proche.",
-        "Vos coûts en mana sont doublés. Les soins, boucliers et dégâts de vos capacités sont plus efficaces.",
-        "Obtenez l'Âme des océans, qui accorde une forte régénération de vie et de mana après avoir infligé des dégâts aux ennemis.",
-        "Vous gagnez 15 % d'omnivampirisme."
+        "Gagnez 100 % de vitesse de déplacement et 15 % de vitesse d'attaque pendant 4 secondes lors d'une mise à mort.",
+        "Quand un champion que tu as blessé dans les 3 dernières secondes meurt, une partie du délai de récupération total de ton ultime est remboursée.",
+        "Les éliminations de champions ennemis dans les 3 secondes suivant les dégâts que tu leur as infligés te donnent 40 % de vitesse de déplacement et t'rendent invisible pendant 1,5 seconde.",
+        "Tu gagnes 60 % de vitesse de déplacement vers les ennemis ayant moins de 40 % de leurs PV."
       ]
     },
     "hu": {
-      "title": "A minyon-svédasztal",
-      "why": "A Q a Nunu és Willump nasigombja: Willump beleharap egy minyonba, és rengeteg életerőt gyógyít. A halál körforgása a teljes gyógyulása és életerő-regenerációja 70%-át mágikus sebzéssé alakítja a legközelebbi ellenséges hősön, a Túlcsordulás pedig erősebbé teszi a képességgyógyításait, így minden megevett minyon behúz valakinek az ellenséges csapatból. Az Óceáni lélek aztán magas életerő-regenerációt ad neki, ami még több A halál körforgása-sebzést jelent, plusz mana-regenerációt, ami fedezi a Túlcsordulás megduplázott költségét, a Vérivás pedig a találataiból gyógyítja, és újra táplálja a kört. A Szellemarc minden gyógyítást nagyobbá tesz, Warmog vértje regenerációt ad, a Végtelen kétségbeesés harc közben pár másodpercenként gyógyít, a Szurdokhasító és a Korok pálcája pedig életerőt, képességerőt és manát ad, hogy tovább ehessen. A hógolyós tank így pokerező mágussá válik, aki úgy fájdalmat okoz, hogy közben ebédel.",
-      "play": "Állj az ellenség közelébe, akit meg akarsz ütni, és Q-zz egy minyont, valahányszor elérhető; ha egy hős a közelben van, inkább abba harapj bele. Az R-rel és az E-vel tartsd működésben az Óceáni lelket és a Vérivást.",
+      "title": "Törzsutas",
+      "why": "Warwick Végtelen kényszer képessége (R) a bónusz mozgási sebességével arányos távolságra ugrik, ami általában csak pár lépésnyi különbség. A Micsoda izgalom! minden leszámolásnál hatalmas mozgási sebesség-löketet ad, a Misztikus axióma pedig visszaad a végső képessége hűtésidejéből, ha egy általa megsebzett hős meghal, így minden kill egyszerre ad neki üzemanyagot és a következő ugrást. Az Éji vadász még több mozgási sebességet és egy pillanatnyi láthatatlanságot ad ugyanarra a leszámolásra, a Kiiktatva pedig a Vérvadászat (W) mellett még tovább gyorsítja a sebzett ellenfelek felé. Az Axiómaív killeknél még több hűtésidőt ad vissza a végső képességéből, a Kísérleti hexpáncél minden használat után végső képesség-gyorsítást és mozgási sebességet ad, a Youmuu szellemkardja, a Holtak vértje, a Megtorpantó és A fürgeség cipője pedig még több sebességet pakol rá. A közelharci verekedőből így egész pályás resetelő bérgyilkos lesz, aki a képernyőn kívülről ugrik rá a leggyengébb ellenfélre.",
+      "play": "Várj meg egy sebzett ellenfelet, aktiváld a Youmuu szellemkardját, és ugorj be a harc messzi széléről. A leszámolás után célozd a következő Végtelen kényszert (R) a következő gyenge célpontra, amíg tart a sebesség.",
       "augments": [
-        "A gyógyulásod és életerő-regenerációd az érték 70%-ának megfelelő mágikus sebzést okoz a legközelebbi ellenséges hősnek.",
-        "A Mana-költségeid megduplázódnak. A képességeid gyógyítása, Pajzsai és sebzése hatékonyabb.",
-        "Megkapod az Óceáni lelket, ami az ellenségek megsebzése után magas Életerő- és Mana-regenerációt ad.",
-        "Kapsz 15% mindenvámpírságot."
+        "Leszedéskor 4 másodpercre 100% mozgási sebességet és 15% támadási sebességet kapsz.",
+        "Ha egy hős, akit az elmúlt 3 másodpercben megsebztél, meghal, visszakapod a végső képességed teljes hűtésidejének egy részét.",
+        "Ha leszámolsz egy ellenséges hőssel, miután az elmúlt 3 másodpercben megsebezted, 40% mozgási sebességet kapsz, és 1,5 másodpercre láthatatlanná válsz.",
+        "60% mozgási sebességet kapsz a 40% életerő alatti ellenfelek felé."
       ]
     },
     "id": {
-      "title": "Prasmanan Minion",
-      "why": "Q adalah tombol camilan Nunu: Willump menggigit minion dan memulihkan Health dalam jumlah besar. Circle of Death mengubah 70% dari semua healing dan Health Regen-nya jadi magic damage ke champion musuh terdekat, dan Overflow bikin heal dari skill-nya lebih kuat, jadi tiap minion yang dia makan jadi pukulan buat tim lawan. Lalu Ocean Soul memberinya Health Regen tinggi, yang berarti lebih banyak damage Circle of Death, plus Mana Regen untuk membayar biaya Overflow yang berlipat ganda, sementara Goredrink menyembuhkannya dari setiap serangan dan mengisi ulang lingkaran itu lagi. Spirit Visage memperbesar setiap heal, Warmog's Armor menambah regen, Unending Despair memberi heal tiap beberapa detik saat bertarung, dan Riftmaker serta Rod of Ages menambah Health, Ability Power, dan Mana supaya dia terus makan. Tank snowball ini berubah jadi mage poke yang menyakiti orang hanya dengan makan siang.",
-      "play": "Berdiri dekat musuh yang mau kamu hajar dan pakai Q ke minion setiap kali sudah siap; kalau ada champion dalam jangkauan, gigit champion-nya saja. Pakai R dan E untuk menjaga Ocean Soul dan Goredrink tetap menyala.",
+      "title": "Frequent Flyer",
+      "why": "Infinite Duress milik Warwick melompat dengan jarak yang mengikuti bonus Move Speed-nya, detail yang biasanya cuma nambah beberapa langkah. Get Excited! memberi lonjakan Move Speed besar di setiap takedown, dan Arcane Axiom mengembalikan sebagian cooldown ultimate-nya saat champion yang dia damage mati, jadi tiap kill memberinya bahan bakar sekaligus lompatan berikutnya. Nightstalking menambah Move Speed dan sesaat invisible di takedown yang sama, dan Kill Secured membuatnya makin ngebut ke arah musuh yang sekarat di atas Blood Hunt, yang sudah punya efek serupa. Axiom Arc mengembalikan lebih banyak lagi cooldown ultimate saat kill, dan Experimental Hexplate memberi ultimate haste plus Move Speed setelah tiap cast, sementara Youmuu's Ghostblade, Dead Man's Plate, Stridebreaker, dan Boots of Swiftness menumpuk lebih banyak speed lagi. Brawler jarak dekat ini jadi assassin reset lintas map yang melompat dari luar layar ke musuh dengan HP paling tipis.",
+      "play": "Tunggu musuh yang terluka, aktifkan Youmuu's Ghostblade, lalu lompat dari jauh di luar teamfight. Setelah takedown, arahkan Infinite Duress berikutnya ke target low HP selanjutnya selagi speed-nya masih jalan.",
       "augments": [
-        "Healing dan Health Regen-mu memberikan 70% nilainya sebagai magic damage ke champion musuh terdekat.",
-        "Biaya Mana kamu berlipat dua. Heal, Shield, dan damage Ability kamu lebih efektif.",
-        "Dapatkan Ocean Soul, yang memberi Health dan Mana Regen tinggi setelah memberi damage ke musuh.",
-        "Dapatkan 15% Omnivamp."
+        "Dapatkan 100% Move Speed dan 15% Attack Speed selama 4 detik saat takedown.",
+        "Saat champion yang kamu damage dalam 3 detik terakhir mati, sebagian dari total cooldown Ultimate Ability-mu dikembalikan.",
+        "Takedown terhadap champion musuh dalam 3 detik setelah kamu damage mereka memberimu 40% Move Speed dan membuatmu invisible selama 1,5 detik.",
+        "Dapatkan 60% Movement Speed menuju musuh dengan health di bawah 40%."
       ]
     },
     "it": {
-      "title": "Il buffet di minion",
-      "why": "La Q è il tasto spuntino di Nunu e Willump: Willump morde un minion e recupera un bel po' di salute. Cerchio della morte trasforma il 70% di tutte le sue cure e della rigenerazione salute in danni magici sul campione nemico più vicino, ed Esubero potenzia le cure delle sue abilità, quindi ogni minion che mangia colpisce qualcuno dell'altra squadra. Anima dell'oceano gli dà poi un'alta rigenerazione salute, cioè più danni di Cerchio della morte, più la rigenerazione mana che paga i costi raddoppiati di Esubero, mentre Succhiasangue lo cura con i suoi colpi e alimenta di nuovo il cerchio. Corazza spirituale rende ogni cura più grande, Armatura di Warmog aggiunge rigenerazione, Disperazione eterna aggiunge una cura ogni pochi secondi in battaglia, e Araldo del Vuoto e Bastone secolare aggiungono salute, potere magico e mana per continuare a mangiare. Il tank palla di neve diventa un mago da poke che fa male alla gente facendo pranzo.",
-      "play": "Stai vicino al nemico che vuoi colpire e usa la Q su un minion ogni volta che è pronta; se hai un campione a tiro, morsica lui. Usa la R e la E per tenere attivi Anima dell'oceano e Succhiasangue.",
+      "title": "Frequent Flyer",
+      "why": "La Costrizione infinita (R) di Warwick salta a una distanza che scala con la sua velocità di movimento bonus, un dettaglio che di solito aggiunge solo qualche passo. Che emozione! dà un enorme scatto di velocità di movimento a ogni uccisione, e Assioma arcano rimborsa parte del tempo di ricarica della sua suprema quando muore un campione che ha danneggiato: ogni kill gli dà sia il carburante sia il lancio successivo. Caccia notturna aggiunge altra velocità di movimento e un attimo di invisibilità sulla stessa uccisione, e Uccisione assicurata lo rende più rapido verso i nemici a poca salute, in aggiunta a Caccia al sangue (W), che fa già lo stesso. Arco di Assioma rimborsa ancora più suprema con le kill e Hexcorazza sperimentale dà velocità suprema più velocità di movimento dopo ogni lancio, mentre Lama di Youmuu, Corazza dell'uomo morto, Spezzapassi e Stivali della rapidità aggiungono ancora più velocità. Il bruiser in mischia diventa un assassino con reset che attraversa la mappa e si lancia da fuori schermo su chi ha meno salute.",
+      "play": "Aspetta un nemico ferito, attiva la Lama di Youmuu e salta dentro da lontano, fuori dallo scontro. Dopo l'uccisione, mira la prossima Costrizione infinita (R) al prossimo bersaglio a poca salute finché dura la velocità.",
       "augments": [
-        "Le tue cure e la rigenerazione salute infliggono il 70% del valore in danni magici al campione nemico più vicino.",
-        "I tuoi costi in mana raddoppiano. Cure, scudi e danni delle tue abilità sono più efficaci.",
-        "Ottieni Anima dell'oceano, che concede alta rigenerazione di salute e mana dopo aver inflitto danni ai nemici.",
-        "Ottieni il 15% di omnivampirismo."
+        "Ottieni il 100% di velocità di movimento e il 15% di velocità d'attacco per 4 secondi a ogni uccisione.",
+        "Quando muore un campione che hai danneggiato nei 3 secondi precedenti, ottieni il rimborso di parte del tempo di ricarica totale della tua abilità suprema.",
+        "Le uccisioni contro campioni nemici entro 3 secondi dall'averli danneggiati ti conferiscono il 40% di velocità di movimento e ti rendono invisibile per 1,5 secondi.",
+        "Ottieni il 60% di velocità di movimento verso i nemici con meno del 40% di salute."
       ]
     },
     "ja": {
-      "title": "ミニオンビュッフェ",
-      "why": "Qはヌヌ＆ウィルンプのおやつボタン。ウィルンプがミニオンにかじりつき、体力を大きく回復します。死者の集いは回復量と体力自動回復の70%を最寄りの敵チャンピオンへの魔法ダメージに変換し、オーバーフローはスキルの回復量を強化するので、ミニオンを食べるたびに敵チームの誰かを殴れます。さらにオーシャンソウルが高い体力自動回復(=死者の集いのダメージ増)と、オーバーフローの倍増したコストを賄うマナ自動回復をくれて、ゴアドリンクは攻撃で回復しながらまた死者の集いに燃料を注ぎます。スピリット ビサージュは回復量を底上げし、ワーモグ アーマーは自動回復を足し、終わりなき絶望は戦闘中数秒ごとに回復を追加、リフトメーカーとロッド オブ エイジスは体力・魔力・マナを足して食べ続けられるようにします。雪玉タンクが、ランチを食べるだけで相手を痛めつけるポークメイジに早変わりです。",
-      "play": "殴りたい敵の近くに立って、Qが使えるたびにミニオンを食べましょう。チャンピオンが射程内にいるときは、代わりにそっちをかじります。RとEでオーシャンソウルとゴアドリンクを回し続けましょう。",
+      "title": "フリークエントフライヤー",
+      "why": "ワーウィックのインフィニット デュレス(R)は、ボーナス移動速度に応じて跳躍距離が伸びる。普段はほんの数歩分の差だが、超エキサイティン！ならキルのたびに大幅な移動速度を得られ、アーケイン アクシオムなら自分がダメージを与えたチャンピオンが死ぬとアルティメットスキルのクールダウンが一部短縮されるので、キルするたびに燃料と次の跳躍が手に入る。ナイトストークは同じキルで移動速度とわずかな不可視化を追加し、キルを確認はブラッドハント(W)に加えて、体力の低い敵へさらに速く迫れるようになる。アクシオム アークはキルでアルティメットのクールダウンをさらに短縮し、実験的ヘクスプレートは発動のたびにアルティメットスキルヘイストと移動速度を与え、妖夢の霊剣、デッド マン プレート、ストライドブレイカー、スイフトネス ブーツでさらに速度を積める。近接ブロウラーが、画面外から最も体力の低い相手へ飛びかかるマップ横断リセット型アサシンに変身する。",
+      "play": "負傷した敵を待ち、妖夢の霊剣を発動して、戦場のはるか外から飛び込もう。キルしたら、速度が続いている間に次のインフィニット デュレス(R)を次の瀕死のターゲットへ。",
       "augments": [
-        "回復と体力自動回復の量の70%を、最寄りの敵チャンピオンに魔法ダメージとして与える。",
-        "マナコストが2倍になる。アビリティのヒール、シールド、ダメージがより強力になる。",
-        "オーシャンソウルを獲得し、敵にダメージを与えた後に大幅なHPとマナのリジェネを得る。",
-        "オムニヴァンプ15%を獲得。"
+        "キル関与時に4秒間、移動速度が100%、攻撃速度が15%増加する。",
+        "3秒以内にダメージを与えたチャンピオンが死亡すると、アルティメットスキルの総クールダウンの一部が戻る。",
+        "ダメージを与えてから3秒以内に敵チャンピオンをキルすると、移動速度+40%を獲得し、1.5秒間透明になる。",
+        "体力40%未満の敵に向かう際、移動速度+60%を獲得する。"
       ]
     },
     "ko": {
-      "title": "미니언 뷔페",
-      "why": "Q는 누누와 윌럼프의 간식 버튼입니다. 윌럼프가 미니언을 물어 체력을 크게 회복하죠. 죽음의 순환은 모든 회복량과 체력 재생의 70%를 가장 가까운 적 챔피언에게 주는 마법 피해로 바꿔 주고, 범람은 스킬 회복량을 키워 주니까 미니언을 먹을 때마다 상대 팀 누군가가 얻어맞습니다. 그다음 바다의 영혼이 높은 체력 재생(곧 죽음의 순환 피해 증가)과 범람의 두 배가 된 소모값을 감당할 마나 재생을 주고, 선혈포식은 공격으로 회복시키면서 순환에 다시 연료를 댑니다. 정령의 형상은 모든 회복을 더 크게 만들고, 워모그의 갑옷은 재생을 더하고, 끝없는 절망은 교전 중 몇 초마다 회복을 추가하며, 균열 생성기와 영겁의 지팡이는 체력, 주문력, 마나를 더해 계속 먹을 수 있게 해 줍니다. 눈덩이 탱커가 점심만 먹었는데 상대를 아프게 하는 견제 마법사로 변신합니다.",
-      "play": "때리고 싶은 적 근처에 서서 Q가 돌아올 때마다 미니언을 먹으세요. 사거리 안에 챔피언이 있으면 대신 챔피언을 깨물면 됩니다. R과 E로 바다의 영혼과 선혈포식이 계속 돌아가게 하세요.",
+      "title": "단골 비행사",
+      "why": "워윅의 무한의 구속(R)은 추가 이동 속도에 비례해 도약 거리가 늘어납니다. 평소엔 몇 걸음 차이밖에 안 나는 부분이죠. 신난다!는 처치 관여할 때마다 엄청난 이동 속도를 주고, 비전 원칙은 자신이 피해를 입힌 챔피언이 죽으면 궁극기 재사용 대기시간을 일부 돌려줘서, 킬 한 번이 연료와 다음 도약을 동시에 챙겨줍니다. 밤의 추적은 같은 처치에 이동 속도와 짧은 투명화를 더하고, 확보된 킬은 이미 같은 효과가 있는 피의 사냥(W)에 더해 체력이 낮은 적에게 더 빠르게 달려들게 해줍니다. 원칙의 원형낫은 킬 시 궁극기를 더 많이 돌려주고, 실험적 마공학판은 시전할 때마다 궁극기 가속과 이동 속도를 주며, 요우무의 유령검, 망자의 갑옷, 발걸음 분쇄기, 신속의 장화로 속도를 더 쌓을 수 있습니다. 근접 난동꾼이 화면 밖에서 가장 체력이 낮은 적에게 날아드는 맵 횡단 리셋 암살자로 변신합니다.",
+      "play": "다친 적을 기다렸다가 요우무의 유령검을 켜고 전투 바깥 먼 곳에서 뛰어드세요. 처치 후 속도가 유지되는 동안 다음 무한의 구속(R)을 체력이 낮은 다음 대상에게 꽂으면 됩니다.",
       "augments": [
-        "회복량과 체력 재생량의 70%만큼 가장 가까운 적 챔피언에게 마법 피해를 입힙니다.",
-        "마나 소모량이 2배가 됩니다. 스킬의 회복, 보호막, 피해량이 더 강해집니다.",
-        "바다의 영혼을 얻어, 적에게 피해를 입힌 뒤 체력 및 마나 재생이 크게 증가합니다.",
-        "모든 피해 흡혈 15%를 얻습니다."
+        "처치 관여 시 4초 동안 이동 속도 100%와 공격 속도 15%를 얻습니다.",
+        "3초 안에 피해를 입힌 챔피언이 죽으면 궁극기 총 재사용 대기시간의 일부를 돌려받습니다.",
+        "피해를 입히고 3초 안에 적 챔피언을 처치하면 이동 속도가 40% 증가하고 1.5초 동안 투명 상태가 됩니다.",
+        "체력이 40% 미만인 적을 향해 이동할 때 이동 속도가 60% 증가합니다."
       ]
     },
     "pl": {
-      "title": "Bufet z minionami",
-      "why": "Q to przycisk przekąski Nunu i Willumpa: Willump gryzie miniona i leczy sporą porcję zdrowia. Krąg Śmierci zamienia 70% całego jego leczenia i regeneracji zdrowia na obrażenia magiczne zadawane najbliższemu wrogiemu bohaterowi, a Przesyt wzmacnia leczenie z jego umiejętności, więc każdy zjedzony minion uderza kogoś z drużyny przeciwnej. Oceaniczna Dusza daje mu potem wysoką regenerację zdrowia, czyli więcej obrażeń Kręgu Śmierci, plus regenerację many, która opłaca podwojone koszty Przesytu, a Chłeptanie Posoki leczy go z trafień i znów zasila krąg. Oblicze Ducha zwiększa każde leczenie, Plemienna Zbroja dodaje regenerację, Nieskończona Rozpacz dodaje leczenie co kilka sekund w walce, a Szczelinotwórca i Różdżka Wieków dorzucają zdrowie, moc umiejętności i manę, żeby mógł jeść dalej. Śnieżkowy tank staje się magiem do poke'owania, który robi krzywdę, po prostu jedząc obiad.",
-      "play": "Stań blisko wroga, którego chcesz trafić, i zjadaj miniona Q za każdym razem, gdy jest gotowe; jeśli bohater jest w zasięgu, ugryź go zamiast miniona. Używaj R i E, żeby Oceaniczna Dusza i Chłeptanie Posoki cały czas działały.",
+      "title": "Stały Bywalec Przestworzy",
+      "why": "Nieskończony Przymus Warwicka (R) skacze na odległość zależną od jego bonusowej prędkości ruchu, co normalnie dodaje tylko kilka kroków. Zabawmy Się! daje ogromny zastrzyk prędkości ruchu przy każdym udziale w zabójstwie, a Aksjomat Arkanów zwraca część czasu odnowienia superumiejętności, gdy zginie bohater, któremu zadał obrażenia, więc każdy kill daje mu i paliwo, i kolejny skok. Nocne Grasowanie dodaje jeszcze więcej prędkości ruchu i chwilę niewidzialności przy tym samym zabójstwie, a Zabójstwo Zaklepane przyspiesza go w stronę osłabionych wrogów, ponad to, co już robią Krwawe Łowy (W). Aksjomatyczny Łuk zwraca jeszcze więcej superumiejętności za zabójstwa, Eksperymentalny Hexpierśnik daje przyspieszenie superumiejętności i prędkość ruchu po każdym użyciu, a Widmowe Ostrze Youmuu, Pancerz Umrzyka, Łamacz Falangi i Buty Prędkości dokładają jeszcze więcej szybkości. Bijatyk walczący wręcz zmienia się w zabójcę z resetami, który przecina całą mapę i spada spoza ekranu na tego, kto ma najmniej zdrowia.",
+      "play": "Poczekaj na rannego wroga, odpal Widmowe Ostrze Youmuu i skocz z daleka poza walką. Po zabójstwie wyceluj kolejny Nieskończony Przymus (R) w następny słaby cel, póki trwa szybkość.",
       "augments": [
-        "Twoje leczenie i regeneracja zdrowia zadają najbliższemu wrogiemu bohaterowi obrażenia magiczne równe 70% ich wartości.",
-        "Twoje koszty many są podwojone. Leczenie, tarcze i obrażenia twoich umiejętności są skuteczniejsze.",
-        "Zyskaj Oceaniczną Duszę, która daje wysoką regenerację zdrowia i many po zadaniu obrażeń wrogom.",
-        "Zyskujesz 15% wszechwampiryzmu."
+        "Po likwidacji zyskujesz 100% prędkości ruchu i 15% prędkości ataku na 4 sekundy.",
+        "Gdy zginie bohater, któremu zadałeś obrażenia w ciągu 3 sekund, zwracana jest część całkowitego czasu odnowienia twojej superumiejętności.",
+        "Udział w zabójstwie wrogich bohaterów w ciągu 3 sekund od zadania im obrażeń daje ci 40% prędkości ruchu i czyni cię niewidzialnym na 1,5 sekundy.",
+        "Zyskujesz 60% prędkości ruchu w stronę wrogów z mniej niż 40% zdrowia."
       ]
     },
     "pt-BR": {
-      "title": "O Bufê de Tropas",
-      "why": "O Q é o botão de lanchinho do Nunu e Willump: Willump morde uma tropa e recupera um bom tanto de Vida. Círculo da Morte transforma 70% de toda a cura e Regeneração de Vida dele em dano mágico no campeão inimigo mais próximo, e Transbordamento deixa as curas das habilidades mais fortes, então cada tropa que ele come soca alguém do time adversário. Alma do Oceano dá a ele muita Regeneração de Vida, que vira mais dano do Círculo da Morte, além da Regeneração de Mana que paga os custos dobrados de Transbordamento, enquanto Hemodrenagem cura ele com os golpes e alimenta o círculo de novo. Semblante Espiritual deixa cada cura maior, Armadura de Warmog soma regeneração, Desespero Eterno adiciona uma cura a cada poucos segundos em combate, e Criafendas e Bastão das Eras dão Vida, Poder de Habilidade e Mana para ele continuar comendo. O tanque bola de neve vira um mago de poke que machuca os outros só de almoçar.",
-      "play": "Fique perto do inimigo que você quer acertar e use o Q em uma tropa toda vez que ele estiver disponível; se um campeão estiver ao alcance, morda ele no lugar. Use R e E para manter Alma do Oceano e Hemodrenagem funcionando.",
+      "title": "Cliente Frequente",
+      "why": "A Coerção Infinita (R) do Warwick pula uma distância que escala com a Velocidade de Movimento bônus dele, um detalhe que normalmente adiciona só alguns passos. Anime-se! dá um surto enorme de Velocidade de Movimento a cada abate, e Axioma Arcano devolve parte do tempo de recarga da suprema quando um campeão que ele causou dano morre, então cada kill entrega o combustível e o próximo pulo. Caçada Noturna adiciona mais Velocidade de Movimento e um instante de invisibilidade no mesmo abate, e Abate Garantido o deixa mais rápido em direção a inimigos com pouca vida, além da Caça de Sangue (W), que já faz o mesmo. Arco do Axioma devolve ainda mais da suprema nos abates, a Hexoplaca Experimental dá aceleração de suprema e Velocidade de Movimento após cada uso, e Lâmina Fantasma de Youmuu, Couraça do Defunto, Quebrapassos e Botas da Rapidez acumulam ainda mais velocidade. O lutador corpo a corpo vira um assassino de reset que cruza o mapa e pula de fora da tela em cima de quem estiver com menos vida.",
+      "play": "Espere um inimigo ferido, ative a Lâmina Fantasma de Youmuu e pule de bem longe da luta. Depois do abate, mire a próxima Coerção Infinita (R) no próximo alvo com pouca vida enquanto a velocidade durar.",
       "augments": [
-        "Suas curas e Regeneração de Vida causam 70% do valor como dano mágico no campeão inimigo mais próximo.",
-        "Seus custos de Mana dobram. As Curas, os Escudos e o dano das suas habilidades ficam mais eficazes.",
-        "Ganhe a Alma do Oceano, que concede alta Regeneração de Vida e de Mana após causar dano a inimigos.",
-        "Receba 15% de Onivampirismo."
+        "Ganhe 100% de Velocidade de Movimento e 15% de Velocidade de Ataque por 4 segundos ao conseguir um abate.",
+        "Quando um campeão que você causou dano nos últimos 3 segundos morre, parte do tempo de recarga total da sua Habilidade Suprema é devolvida.",
+        "Abates contra campeões inimigos até 3 segundos depois de causar dano a eles concedem 40% de Velocidade de Movimento e deixam você invisível por 1,5 segundo.",
+        "Receba 60% de Velocidade de Movimento ao se mover em direção a inimigos com menos de 40% de vida."
       ]
     },
     "ro": {
-      "title": "Bufetul de minioni",
-      "why": "Q este butonul de gustări al lui Nunu: Willump mușcă un minion și își recuperează o bucată mare de viață. Cercul morții transformă 70% din toată vindecarea și regenerarea de viață în daune magice asupra celui mai apropiat campion inamic, iar Revărsare întărește vindecările abilităților, așa că fiecare minion mâncat lovește pe cineva din echipa adversă. Sufletul Dragonului oceanelor îi dă apoi regenerare mare de viață, adică mai multe daune de la Cercul morții, plus regenerarea de mană care plătește costurile dublate ale Revărsării, în timp ce Băutor de sânge îl vindecă din lovituri și hrănește iar cercul. Înfățișarea sufletului mărește fiecare vindecare, Armura lui Warmog adaugă regenerare, Disperare nemărginită adaugă o vindecare la câteva secunde într-o luptă, iar Creator de rifturi și Sceptrul străvechi aduc viața, puterea abilității și mana ca să poată mânca mai departe. Tancul-bulgăre de zăpadă devine un mag de poke care îi doare pe alții doar luându-și prânzul.",
-      "play": "Stai lângă inamicul pe care vrei să-l lovești și dă Q pe un minion de fiecare dată când e disponibil; mușcă un campion dacă unul e la îndemână. Folosește R și E ca să ții în funcțiune Sufletul Dragonului oceanelor și Băutor de sânge.",
+      "title": "Pasager frecvent",
+      "why": "Constrângerea infinită (R) a lui Warwick sare o distanță care scalează cu viteza lui de mișcare bonus, detaliu care de obicei adaugă doar câțiva pași. Entuziasmează-te! dă un boost uriaș de viteză de mișcare la fiecare eliminare, iar Axioma ocultă returnează o parte din cooldown-ul ultimate-ului când moare un campion pe care l-a lovit, așa că fiecare kill îi dă și combustibilul, și următorul salt. Pânda de noapte adaugă mai multă viteză de mișcare și un moment de invizibilitate la aceeași eliminare, iar Asasinat asigurat îl grăbește spre inamicii cu viață puțină, peste Vânătoarea de sânge (W), care face deja asta. Arcul axiomei returnează și mai mult din ultimate la kill-uri, iar Hexarmura experimentală dă haste de ultimate plus viteză de mișcare după fiecare folosire, în timp ce Sabia-fantomă a lui Youmuu, Platoșa ostașului ucis, Spărgătorul de ritm și Cizmele agilității adaugă și mai multă viteză. Bruiserul de corp la corp devine un asasin cu reset pe toată harta, care se aruncă din afara ecranului pe cel mai rănit inamic.",
+      "play": "Așteaptă un inamic rănit, activează Sabia-fantomă a lui Youmuu și sari în luptă de departe. După eliminare, țintește următoarea Constrângere infinită spre următorul inamic cu viață puțină cât ține viteza.",
       "augments": [
-        "Vindecările și regenerarea ta de viață provoacă 70% din valoare ca daune magice celui mai apropiat campion inamic.",
-        "Costurile tale de Mană se dublează. Vindecările, Scuturile și daunele abilităților tale sunt mai eficiente.",
-        "Primești Sufletul Dragonului oceanelor, care oferă regenerare mare de Sănătate și Mană după ce lovești inamici.",
-        "Primești 15% Omnivamp."
+        "La o eliminare primești 100% viteză de mișcare și 15% viteză de atac timp de 4 secunde.",
+        "Când moare un campion pe care l-ai lovit în ultimele 3 secunde, primești înapoi o parte din cooldown-ul total al abilității tale ultimate.",
+        "Eliminările asupra campionilor inamici în 3 secunde de la lovirea lor îți dau 40% viteză de mișcare și te fac invizibil timp de 1,5 secunde.",
+        "Primești 60% viteză de mișcare spre inamicii cu sub 40% viață."
       ]
     },
     "ru": {
-      "title": "Шведский стол из миньонов",
-      "why": "Q это кнопка перекуса Нуну: Виллумп грызёт миньона и восстанавливает большую порцию здоровья. Цикл смерти превращает 70% всего его лечения и регенерации здоровья в магический урон по ближайшему вражескому чемпиону, а Переполнение усиливает лечение от умений, так что каждый съеденный миньон бьёт кого-то из вражеской команды. Морская душа даёт ему высокую регенерацию здоровья, а это ещё больше урона от Цикла смерти, плюс регенерацию маны, которая оплачивает удвоенную стоимость от Переполнения, а Потрошение лечит его с ударов и снова подпитывает цикл. Облачение духов усиливает каждое лечение, Доспех Вармога добавляет регенерацию, Бесконечное отчаяние добавляет лечение раз в несколько секунд в бою, а Творец разломов и Жезл веков дают здоровье, силу умений и ману, чтобы есть дальше. Танк-снежок становится поук-магом, который причиняет боль, просто обедая.",
-      "play": "Встаньте рядом с врагом, которого хотите ударить, и жмите Q по миньону каждый раз, когда умение готово; если в зоне досягаемости чемпион, кусайте его. Используйте R и E, чтобы Морская душа и Потрошение не останавливались.",
+      "title": "Частый гость",
+      "why": "Бесконечное принуждение (R) Варвика прыгает на расстояние, которое зависит от его бонусной скорости передвижения, хотя обычно это прибавляет лишь пару шагов. «Бодрячком!» даёт огромный всплеск скорости передвижения за каждое убийство, а «Мистическая аксиома» возвращает часть перезарядки ультимейта, когда погибает чемпион, которому он нанёс урон, так что каждое убийство даёт и топливо, и следующий прыжок. «Ночная охота» добавляет ещё скорости и мгновение невидимости за то же убийство, а «Стремление добить» разгоняет его к раненым врагам поверх «Кровавой охоты» (W), которая и так это делает. «Шакрам Аксиом» возвращает ещё больше ультимейта за убийства, «Экспериментальная хекстековая броня» даёт ускорение умений и скорость передвижения после каждого каста, а «Призрачный клинок Йомуу», «Броня мертвеца», «Костолом» и «Ботинки стремительности» добавляют ещё скорости. Ближний боец превращается в ассасина с ресетами через всю карту, который прыгает из-за экрана на самого побитого врага.",
+      "play": "Дождись раненого врага, врубай «Призрачный клинок Йомуу» и прыгай в бой издалека. После убийства целься следующим «Бесконечным принуждением» в следующего слабого противника, пока действует скорость.",
       "augments": [
-        "Ваше лечение и регенерация здоровья наносят ближайшему вражескому чемпиону магический урон, равный 70% восстановленного.",
-        "Твои затраты Маны удваиваются. Исцеление, Щиты и урон от твоих способностей становятся эффективнее.",
-        "Получи Морскую душу: мощная регенерация Здоровья и Маны после нанесения урона врагам.",
-        "Вы получаете 15% всеобщего вампиризма."
+        "При участии в убийстве вы получаете 100% скорости передвижения и 15% скорости атаки на 4 секунды.",
+        "Когда погибает чемпион, которому вы нанесли урон за последние 3 секунды, возвращается часть общего времени перезарядки вашего ультимейта.",
+        "Убийство вражеских чемпионов в течение 3 секунд после нанесения им урона даёт вам 40% скорости передвижения и делает невидимым на 1,5 секунды.",
+        "Вы получаете 60% скорости передвижения при движении к врагам с менее чем 40% здоровья."
       ]
     },
     "th": {
-      "title": "บุฟเฟต์มินเนียน",
-      "why": "Q คือปุ่มกดของว่างของ Nunu: Willump งับมินเนียนแล้วฟื้นเลือดก้อนใหญ่ Circle of Death เปลี่ยน 70% ของการฮีลและการฟื้นฟูเลือดทั้งหมดให้เป็นดาเมจเวทใส่แชมเปี้ยนศัตรูที่อยู่ใกล้ที่สุด ส่วน Overflow ทำให้ฮีลจากสกิลแรงขึ้น ดังนั้นมินเนียนทุกตัวที่กินเข้าไปก็จะต่อยใส่ฝั่งตรงข้ามด้วย จากนั้น Ocean Soul ให้การฟื้นฟูเลือดสูง ซึ่งก็คือดาเมจ Circle of Death ที่มากขึ้น บวกการฟื้นฟูมานาที่จ่ายค่าสกิลที่แพงขึ้นสองเท่าจาก Overflow ขณะที่ Goredrink ฮีลจากการโจมตีและป้อนให้วงนั้นต่ออีกรอบ Spirit Visage ทำให้ทุกฮีลแรงขึ้น Warmog's Armor เพิ่มการฟื้นฟู Unending Despair เพิ่มฮีลทุกไม่กี่วินาทีในการสู้ และ Riftmaker กับ Rod of Ages เพิ่มเลือด พลังเวท และมานาให้กินต่อได้เรื่อย ๆ แทงค์ก้อนหิมะกลายเป็นเมจพอคที่ทำให้คนเจ็บได้แค่ด้วยการกินข้าวเที่ยง",
-      "play": "ยืนใกล้ศัตรูที่อยากให้โดนดาเมจ แล้วกด Q ใส่มินเนียนทุกครั้งที่สกิลพร้อม ถ้ามีแชมเปี้ยนอยู่ในระยะก็งับแชมเปี้ยนแทน ใช้ R กับ E เพื่อให้ Ocean Soul และ Goredrink ทำงานต่อเนื่อง",
+      "title": "Frequent Flyer",
+      "why": "Infinite Duress (R) ของ Warwick กระโดดได้ไกลตามความเร็วเคลื่อนที่โบนัสของเขา ซึ่งปกติเพิ่มได้แค่ไม่กี่ก้าว Get Excited! ให้ความเร็วเคลื่อนที่พุ่งมหาศาลทุกครั้งที่ได้ฆ่า ส่วน Arcane Axiom คืนคูลดาวน์อัลติบางส่วนเมื่อแชมเปี้ยนที่เขาทำดาเมจตาย ทุกคิลจึงให้ทั้งเชื้อเพลิงและการพุ่งครั้งต่อไป Nightstalking เพิ่มความเร็วเคลื่อนที่และล่องหนช่วงสั้นๆ จากคิลเดียวกัน และ Kill Secured ทำให้เขาวิ่งเข้าหาศัตรูเลือดน้อยเร็วขึ้นซ้อนกับ Blood Hunt (W) ที่ทำแบบเดียวกันอยู่แล้ว Axiom Arc คืนอัลติมากขึ้นอีกเมื่อได้คิล และ Experimental Hexplate ให้ Ultimate Haste พร้อมความเร็วเคลื่อนที่หลังใช้สกิลทุกครั้ง ส่วน Youmuu's Ghostblade, Dead Man's Plate, Stridebreaker และ Boots of Swiftness เสริมความเร็วให้อีก สายสู้ประชิดกลายเป็นนักลอบสังหารรีเซ็ตข้ามแมพ ที่พุ่งออกมาจากนอกจอใส่คนที่เลือดน้อยที่สุด",
+      "play": "รอศัตรูที่เลือดน้อย กด Youmuu's Ghostblade แล้วพุ่งเข้าไปจากนอกวงต่อสู้ หลังได้คิล ให้เล็ง Infinite Duress ครั้งต่อไปไปที่เป้าหมายเลือดน้อยคนถัดไปตราบที่ความเร็วยังอยู่",
       "augments": [
-        "การฮีลและการฟื้นฟูพลังชีวิตของคุณสร้างความเสียหายเวท 70% ของค่านั้นใส่แชมเปี้ยนศัตรูที่ใกล้ที่สุด",
-        "ค่ามานาของคุณเพิ่มเป็นสองเท่า การฮีล โล่ และดาเมจจากสกิลของคุณมีประสิทธิภาพมากขึ้น",
-        "ได้รับ Ocean Soul ที่ให้การฟื้นฟูเลือดและมานาสูงหลังทำดาเมจศัตรู",
-        "ได้ Omnivamp 15%"
+        "ได้รับความเร็วเคลื่อนที่ 100% และความเร็วโจมตี 15% เป็นเวลา 4 วินาทีเมื่อมีส่วนร่วมในการสังหาร",
+        "เมื่อแชมเปี้ยนที่คุณทำดาเมจภายใน 3 วินาทีตาย จะคืนคูลดาวน์ทั้งหมดของอัลติเมทของคุณบางส่วน",
+        "การฆ่าแชมเปี้ยนศัตรูภายใน 3 วินาทีหลังทำดาเมจให้ความเร็วเคลื่อนที่ 40% และทำให้คุณล่องหน 1.5 วินาที",
+        "ได้รับความเร็วเคลื่อนที่ 60% เมื่อเคลื่อนที่เข้าหาศัตรูที่มีเลือดต่ำกว่า 40%"
       ]
     },
     "tr": {
-      "title": "Minyon Büfesi",
-      "why": "Q, Nunu'nun atıştırma tuşu: Willump bir minyonu ısırıp büyük bir parça Can yeniler. Ölüm Döngüsü, tüm iyileşmesinin ve Can Yenilenmesinin %70'ini en yakın düşman şampiyona büyü hasarı olarak çevirir, Taşkın ise yetenek iyileşmelerini güçlendirir; yani yediği her minyon karşı takımdan birine yumruk atar. Okyanus Ruhu da ona yüksek Can Yenilenmesi verir, bu da daha fazla Ölüm Döngüsü hasarı demek, ayrıca Taşkın'ın ikiye katlanan maliyetlerini ödeyen Mana Yenilenmesi sağlar; Kana Kana ise vuruşlarından iyileştirir ve çemberi yine besler. Ruh Gömleği her iyileşmeyi büyütür, Warmog'un Zırhı yenilenme ekler, Sonsuz Çaresizlik savaşta birkaç saniyede bir iyileşme ekler, Vadiyaran ile Asırlık Sopa da yemeye devam etmek için Can, Yetenek Gücü ve Mana ekler. Kartopu tankı, öğle yemeği yiyerek insanlara zarar veren bir poke büyücüsüne dönüşür.",
-      "play": "Vurulmasını istediğin düşmanın yanında dur ve Q hazır olduğu her seferde bir minyona kullan; menzilde şampiyon varsa onu ısır. Okyanus Ruhu ve Kana Kana çalışmaya devam etsin diye R ve E'yi kullan.",
+      "title": "Sık Uçan",
+      "why": "Warwick'in Sonsuz Baskı (R) yeteneği, bonus Hareket Hızı'yla artan bir mesafeye zıplar; bu detay normalde yalnızca birkaç adım ekler. Ay Çok Heyecanlı! her indirmede devasa bir Hareket Hızı patlaması verir, Sihirli Aksiyom ise hasar verdiği bir şampiyon öldüğünde ulti bekleme süresinin bir kısmını geri verir; yani her öldürme hem yakıtı hem de bir sonraki atılışı getirir. Görünmez Avcılık aynı indirmede daha fazla Hareket Hızı ve kısa süreli görünmezlik ekler, Skor Cepte ise zaten aynısını yapan Kan Avı (W) üstüne canı azalmış düşmanlara doğru onu hızlandırır. Aksiyom Akımı öldürmelerde ultinin daha da fazlasını geri verir, Deneysel Hexzırh her kullanımdan sonra ulti hızlandırması ve Hareket Hızı ekler; Youmuu'nun Hayaletkılıcı, Ölü Adamın Zırhı, Hızkesen ve Atiklik Çizmeleri de hıza hız katar. Yakın dövüşçü, ekran dışından en düşük canlı hedefin üstüne atlayan, haritanın her yerinde reset atan bir suikastçıya dönüşür.",
+      "play": "Yaralı bir düşmanı bekle, Youmuu'nun Hayaletkılıcı'nı bas ve savaşın çok uzağından atla. İndirmeden sonra hız sürerken bir sonraki Sonsuz Baskı'yı canı en az olan sıradaki hedefe at.",
       "augments": [
-        "İyileştirmelerin ve Can Yenilemen, değerin %70'i kadar büyü hasarını en yakın rakip şampiyona verir.",
-        "Mana maliyetlerin ikiye katlanır. Yeteneklerinin İyileştirmeleri, Kalkanları ve hasarı daha etkili olur.",
-        "Düşmanlara hasar verdikten sonra yüksek Can ve Mana Yenilenmesi veren Okyanus Ruhu'nu kazanırsın.",
-        "%15 Omnivamp kazanırsın."
+        "Alaşağı etmede 4 saniyeliğine %100 hareket hızı ve %15 saldırı hızı kazanırsın.",
+        "Son 3 saniye içinde hasar verdiğin bir şampiyon öldüğünde, ulti yeteneğinin toplam bekleme süresinin bir kısmı geri verilir.",
+        "Düşman şampiyonlara hasar verdikten sonraki 3 saniye içinde yapılan indirmeler sana %40 Hareket Hızı verir ve seni 1,5 saniye görünmez yapar.",
+        "Canı %40'ın altındaki düşmanlara doğru giderken %60 Hareket Hızı kazanırsın."
       ]
     },
     "vi": {
-      "title": "Tiệc Buffet Lính",
-      "why": "Q là nút ăn vặt của Nunu: Willump cắn một con lính và hồi lại một lượng Máu lớn. Vòng Tròn Tử Thần biến 70% toàn bộ lượng hồi máu và Hồi Máu của cậu ấy thành sát thương phép lên tướng địch gần nhất, còn Tràn Trề làm các chiêu hồi máu mạnh hơn, nên mỗi con lính ăn vào lại đấm ai đó bên đội kia. Linh Hồn Rồng Nước cho cậu ấy Hồi Máu cao, tức là thêm sát thương Vòng Tròn Tử Thần, cộng với Hồi Năng Lượng để trả chi phí nhân đôi của Tràn Trề, trong khi Chùy Hấp Huyết hồi máu từ đòn đánh và lại tiếp lửa cho vòng tròn. Giáp Tâm Linh làm mỗi lần hồi máu lớn hơn, Giáp Máu Warmog thêm hồi máu, Áo Choàng Diệt Vong thêm một lần hồi máu mỗi vài giây trong giao tranh, còn Quyền Trượng Ác Thần và Trượng Trường Sinh thêm Máu, Sức Mạnh Phép Thuật và Năng Lượng để ăn tiếp. Xe tăng cầu tuyết biến thành pháp sư poke làm người ta đau chỉ bằng cách ăn trưa.",
-      "play": "Đứng gần kẻ địch muốn đánh trúng và dùng Q lên một con lính mỗi khi chiêu sẵn sàng; nếu có tướng địch trong tầm thì cắn tướng đó. Dùng R và E để Linh Hồn Rồng Nước và Chùy Hấp Huyết luôn chạy.",
+      "title": "Phi Công Thường Xuyên",
+      "why": "Áp Chế Vô Tận (R) của Warwick nhảy xa hơn dựa trên Tốc Độ Di Chuyển cộng thêm, một chi tiết thường chỉ thêm vài bước chân. Hưng Phấn! cho một đợt Tốc Độ Di Chuyển khổng lồ mỗi lần hạ gục, còn Chân Lý Huyền Thuật hoàn lại một phần hồi chiêu chiêu cuối khi tướng bị hắn gây sát thương chết, nên mỗi mạng hạ vừa là nhiên liệu vừa là cú nhảy tiếp theo. Săn Đêm cho thêm Tốc Độ Di Chuyển và tàng hình trong chốc lát ở cùng pha hạ gục đó, còn Tự Tay Hạ Gục giúp hắn lao nhanh hơn về phía kẻ địch sắp chết, cộng dồn với Săn Máu (W) vốn đã làm điều tương tự. Nguyên Tố Luân hoàn lại nhiều chiêu cuối hơn khi hạ gục, Khiên Hextech Thử Nghiệm cho Tăng Tốc Chiêu Cuối cùng Tốc Độ Di Chuyển sau mỗi lần dùng chiêu, trong khi Kiếm Ma Youmuu, Giáp Liệt Sĩ, Chùy Phản Kích và Giày Bạc cho thêm tốc độ. Đấu sĩ cận chiến hóa thành sát thủ reset khắp bản đồ, lao từ ngoài màn hình xuống kẻ ít máu nhất.",
+      "play": "Chờ một kẻ địch bị thương, bật Kiếm Ma Youmuu rồi nhảy vào từ xa ngoài giao tranh. Sau khi hạ gục, nhắm Áp Chế Vô Tận tiếp theo vào mục tiêu ít máu kế tiếp khi tốc độ còn duy trì.",
       "augments": [
-        "Lượng hồi máu và Hồi Máu của bạn gây sát thương phép bằng 70% giá trị lên tướng địch gần nhất.",
-        "Chi phí Năng Lượng của bạn tăng gấp đôi. Hồi máu, Lá Chắn và sát thương từ chiêu thức của bạn hiệu quả hơn.",
-        "Nhận Linh Hồn Rồng Nước, cho Hồi Máu và Hồi Năng Lượng cao sau khi gây sát thương lên kẻ địch.",
-        "Nhận 15% Hút Máu Toàn Phần."
+        "Nhận 100% tốc độ di chuyển và 15% tốc độ đánh trong 4 giây khi hạ gục.",
+        "Khi một tướng mà bạn đã gây sát thương trong vòng 3 giây chết, hoàn lại một phần tổng thời gian hồi chiêu của Chiêu Cuối.",
+        "Hạ gục tướng địch trong vòng 3 giây sau khi gây sát thương cho chúng sẽ cho bạn 40% Tốc Độ Di Chuyển và tàng hình trong 1,5 giây.",
+        "Nhận 60% Tốc Độ Di Chuyển khi di chuyển về phía kẻ địch có dưới 40% máu."
       ]
     },
     "zh-CN": {
-      "title": "小兵自助餐",
-      "why": "Q是雪原双子的零食键:威朗普咬一口小兵,回复大量生命值。死亡之环会把他全部治疗和生命回复的70%转化为对最近敌方英雄的魔法伤害,溢流则让他技能的治疗更强,所以他吃掉的每个小兵都会打到对面某个人。海洋龙魂随后给他高额生命回复,也就是更多死亡之环伤害,外加支付溢流双倍消耗的法力回复,而渴血让他靠命中回血,又继续喂饱这个环。振奋盔甲让每次治疗更大,狂徒铠甲增加回复,无终恨意在战斗中每隔几秒追加一次治疗,裂隙制造者和时光之杖补充生命值、法术强度和法力值,让他一直吃下去。雪球坦克变成了一个靠吃午饭伤人的消耗型法师。",
-      "play": "站在你想打到的敌人附近,Q每次冷却好就对小兵使用;射程内有英雄的话就改咬英雄。用R和E让海洋龙魂和渴血一直转起来。",
+      "title": "空中飞人",
+      "why": "祖安怒兽的无限压制（R）跳跃距离会随额外移动速度提升，平时这点加成只多出几步。罪恶快感每次击杀都会给一大波移动速度，奥术公理则会在他造成过伤害的英雄死亡时返还部分大招冷却，所以每个人头既是燃料，也是下一次起跳。夜狩在同一次击杀上再加移动速度和短暂隐身，杀意翻涌让他追残血敌人更快，还能叠在本来就有这效果的血之猎捕（W）上。公理圆弧击杀时返还更多大招冷却，海克斯注力刚壁每次施法后提供终极技能急速和移动速度，再加上幽梦之灵、亡者的板甲、挺进破坏者和轻灵之靴继续堆速度。近战斗士摇身一变，成了全图重置的刺客，从屏幕外直接飞扑血量最低的人。",
+      "play": "等一个残血敌人出现，开幽梦之灵，从战场外远远跳进去。拿下人头后，趁加速还在，把下一个无限压制瞄准下一个残血目标。",
       "augments": [
-        "你的治疗和生命回复会对最近的敌方英雄造成相当于该数值70%的魔法伤害。",
-        "你的法力消耗翻倍。你的技能治疗、护盾和伤害更强。",
-        "获得海洋龙魂,在对敌人造成伤害后获得大量生命回复和法力回复。",
-        "获得15%全能吸血。"
+        "击杀参与时获得100%移动速度和15%攻击速度，持续4秒。",
+        "当你在3秒内造成过伤害的英雄死亡时，返还大招总冷却时间的一部分。",
+        "在对敌方英雄造成伤害后3秒内完成击杀，会获得40%移动速度并隐身1.5秒。",
+        "朝生命值低于40%的敌人移动时，获得60%移动速度。"
       ]
     },
     "zh-TW": {
-      "title": "小兵自助餐",
-      "why": "Q是努努和威朗普的點心鍵:威朗普咬一口小兵,回復大量生命值。死亡循環會把他全部治療和生命回復的70%轉化為對最近敵方英雄的魔法傷害,溢流則讓他技能的治療更強,所以他吃掉的每隻小兵都會打到對面某個人。海洋之魂接著給他高額生命回復,也就是更多死亡循環傷害,再加上支付溢流雙倍消耗的法力回復,而飲血讓他靠命中回血,又繼續餵飽這個循環。振奮盔甲讓每次治療更大,好戰者鎧甲增加回復,無盡絕望在戰鬥中每隔幾秒追加一次治療,峽谷製造者和時光之杖補充生命值、法術強度和法力,讓他一直吃下去。雪球坦克變成了一個靠吃午餐傷人的消耗型法師。",
-      "play": "站在你想打到的敵人附近,Q每次冷卻好就對小兵使用;射程內有英雄的話就改咬英雄。用R和E讓海洋之魂和飲血一直轉起來。",
+      "title": "空中飛人",
+      "why": "沃維克的無盡壓制（R）跳躍距離會隨額外移動速度提升，平常這點加成只多出幾步。狂躁！每次擊殺都會給一大波移動速度，奧術公理則會在他造成過傷害的英雄死亡時返還部分大招冷卻，所以每顆人頭既是燃料，也是下一次起跳。暗夜潛行在同一次擊殺上再加移動速度和短暫隱形，收頭好手讓他追殘血敵人更快，還能疊在本來就有這效果的血獵（W）上。公理弧刃擊殺時返還更多大招冷卻，實驗型海克斯板甲每次施法後提供終極技能加速和移動速度，再加上妖夢鬼刀、死者肩甲、步履破壞者和輕靈之靴繼續堆速度。近戰鬥士搖身一變，成了全圖重置的刺客，從螢幕外直接飛撲血量最低的人。",
+      "play": "等一個殘血敵人出現，開妖夢鬼刀，從戰場外遠遠跳進去。拿下人頭後，趁加速還在，把下一個無盡壓制瞄準下一個殘血目標。",
       "augments": [
-        "你的治療和生命回復會對最近的敵方英雄造成相當於該數值70%的魔法傷害。",
-        "你的法力消耗翻倍。你的技能治療、護盾與傷害更強。",
-        "獲得海洋之魂,在對敵人造成傷害後獲得大量生命與法力回復。",
-        "獲得15%全能吸血。"
+        "擊殺參與時獲得100%移動速度和15%攻擊速度，持續4秒。",
+        "當你在3秒內造成過傷害的英雄死亡時，返還大招總冷卻時間的一部分。",
+        "在對敵方英雄造成傷害後3秒內完成擊殺，會獲得40%移動速度並隱形1.5秒。",
+        "朝生命值低於40%的敵人移動時，獲得60%移動速度。"
       ]
     }
   }
