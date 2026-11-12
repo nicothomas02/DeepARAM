@@ -4,10 +4,13 @@ import Link from "next/link";
 import RowLink from "@/components/RowLink";
 import { notFound } from "next/navigation";
 import { livePatch } from "@/lib/highlights";
+import { liveWithChange } from "@/lib/champions";
+import { Sampled } from "@/components/WinRate";
 import { itemBuilderRanges, itemBySlug, itemPages, type ItemPage } from "@/lib/item-pages";
 import { RangePicker, RangeView } from "@/components/StatRange";
 import { itemSim } from "@/lib/item-sim";
 import { itemEstimate } from "@/lib/estimates";
+import { itemLift, itemLiftSummary } from "@/lib/analysis";
 import { itemTag } from "@/lib/item-tags";
 import { pageMeta } from "@/lib/meta";
 import { Description, Name, T } from "@/components/I18n";
@@ -45,7 +48,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return pageMeta(`/items/${i.slug}`, `${i.name} in ARAM Mayhem`, full);
 }
 
-function builderList(list: ItemPage["builders"]) {
+// Live-patch builders carry the champion's estimated games (lib/sample.ts), for a low-sample tag on rarely built pairs.
+function builderList(list: ItemPage["builders"], games?: Map<string, number>) {
   return (
     <div className="rank builders">
       {list.map((b) => (
@@ -64,9 +68,11 @@ function builderList(list: ItemPage["builders"]) {
           </span>
           <span className={`rank-v ${b.winRate !== null && b.winRate >= 0.52 ? "wr-good" : ""}`}>
             {b.winRate !== null ? (
-              <T ns="items" v={{ pct: pct(b.winRate) }}>
-                {"{pct} win"}
-              </T>
+              <Sampled n={games?.has(b.id) ? games.get(b.id)! * b.pickRate : undefined} p={b.winRate}>
+                <T ns="items" v={{ pct: pct(b.winRate) }}>
+                  {"{pct} win"}
+                </T>
+              </Sampled>
             ) : (
               ""
             )}
@@ -82,6 +88,8 @@ export default async function ItemPage({ params }: { params: Promise<{ slug: str
   if (!i) notFound();
   const sim = itemSim(i.id);
   const est = itemEstimate(i.id);
+  const lift = itemLift(i.id);
+  const adjusted = lift && est ? { ...lift, rankTotal: itemLiftSummary()?.ranked ?? 0 } : null;
   // Who builds it over other ranges, from saved patches; the live patch keeps the page's own list.
   const { ranges: allRanges, builders: rangeBuilders } = itemBuilderRanges();
   const byRange = rangeBuilders.get(i.id) ?? {};
@@ -227,6 +235,16 @@ export default async function ItemPage({ params }: { params: Promise<{ slug: str
                 <T ns="items">win rate boost</T>
               </span>
             </div>
+            {adjusted && (
+              <div>
+                <b className={adjusted.adjusted >= 0.005 ? "delta-up" : adjusted.adjusted <= -0.005 ? "delta-down" : ""}>
+                  <T ns="tables" v={{ n: signedPts(adjusted.adjusted) }}>{"{n} pts"}</T>
+                </b>
+                <span>
+                  <T ns="items">boost among finished builds</T>
+                </span>
+              </div>
+            )}
             <div>
               <b>{pct(est.buildShare)}</b>
               <span>
@@ -242,6 +260,13 @@ export default async function ItemPage({ params }: { params: Promise<{ slug: str
               </div>
             )}
           </div>
+          {adjusted && adjusted.rank_adjusted !== undefined && (
+            <p className="table-note">
+              <T ns="items" v={{ n: adjusted.rank_adjusted, total: adjusted.rankTotal }}>
+                {"The boost among finished builds compares the item with its champions' other completed builds, so a champion whose finished games simply go better or worse does not count for or against it. Ranked {n} of {total} legendary items on it."}
+              </T>
+            </p>
+          )}
           {est.granted && (
             <p className="table-note">
               <T ns="items">Some augments also grant this item.</T>
@@ -259,7 +284,7 @@ export default async function ItemPage({ params }: { params: Promise<{ slug: str
           <RangePicker ranges={ranges} />
           <RangeView
             views={{
-              live: builderList(i.builders),
+              live: builderList(i.builders, new Map(liveWithChange().live.flatMap((c) => (c.sample ? [[c.name, c.sample]] : [])))),
               ...Object.fromEntries(ranges.flatMap((r) => (r.key !== "live" && byRange[r.key]?.length ? [[r.key, builderList(byRange[r.key]!)]] : []))),
             }}
           />

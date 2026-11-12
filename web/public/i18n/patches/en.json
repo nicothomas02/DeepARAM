@@ -33,5 +33,21 @@
  "{n} augments changed": "{n} augments changed",
  "augments changed": "augments changed",
  "now": "now",
- "win rate so far": "win rate so far"
+ "win rate so far": "win rate so far",
+ "Did the champion changes work?": "Did the champion changes work?",
+ "vs the {n} champions the notes left alone (they drift ±{sd} pts)": "vs the {n} champions the notes left alone (they drift ±{sd} pts)",
+ "Each change is judged against every champion the patch did not touch, so a shift the whole list made does not count. Within noise means the champion moved no more than an unchanged one typically does.": "Each change is judged against every champion the patch did not touch, so a shift the whole list made does not count. Within noise means the champion moved no more than an unchanged one typically does.",
+ "pts": "pts",
+ "How fast the rankings settled": "How fast the rankings settled",
+ "of the final order on day one": "of the final order on day one",
+ "pts average gap to the final win rates": "pts average gap to the final win rates",
+ "days to 95% settled": "days to 95% settled",
+ "A typical patch is {pct}% of its final order after one day, {pts} pts off on average. So many games are played that rankings barely move after the first day; only mid-patch changes do.": "A typical patch is {pct}% of its final order after one day, {pts} pts off on average. So many games are played that rankings barely move after the first day; only mid-patch changes do.",
+ "Shifted mid-patch": "Shifted mid-patch",
+ "candidates for a hotfix or a new trick": "candidates for a hotfix or a new trick",
+ "From that day on, the champion's games went this much better or worse than before it, far beyond what the rest of the list did the same day.": "From that day on, the champion's games went this much better or worse than before it, far beyond what the rest of the list did the same day.",
+ "Worked": "Worked",
+ "Backfired": "Backfired",
+ "Within noise": "Within noise",
+ "Moved": "Moved"
 }

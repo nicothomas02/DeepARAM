@@ -11,6 +11,8 @@ import { augmentPages } from "@/lib/augments";
 import descriptions from "@/data/descriptions.json";
 import { patchName, patchVersion } from "@/lib/patch-name";
 import { setOf } from "@/lib/sets";
+import { patchImpact, settlingOf, shiftsOf, typicalSettling } from "@/lib/analysis";
+import PatchImpact from "./PatchImpact";
 
 // One recap per patch: augment changes and the champions that rose and fell most (lib/patches.ts).
 
@@ -237,6 +239,7 @@ export default async function PatchPage({ params }: { params: Promise<{ patch: s
             </div>
           </section>
         )}
+        <PatchImpact impact={patchImpact(r.patch)} settling={settlingOf(r.patch)} typical={typicalSettling()} shifts={shiftsOf(r.patch)} />
         {r.changed.length > 0 && (
           <section className="card span-all" data-accent="sim">
             <div className="card-head">

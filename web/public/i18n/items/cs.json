@@ -104,5 +104,7 @@
  "Hide items augments can give": "Skrýt předměty, které dávají vylepšení",
  "Estimated: items often bought at this slot.": "Odhad: předměty často kupované na této pozici.",
  "AD": "AD",
- "AP": "AP"
+ "AP": "AP",
+ "boost among finished builds": "přínos mezi dokončenými buildy",
+ "The boost among finished builds compares the item with its champions' other completed builds, so a champion whose finished games simply go better or worse does not count for or against it. Ranked {n} of {total} legendary items on it.": "Přínos mezi dokončenými buildy porovnává předmět s ostatními dokončenými buildy jeho šampionů, takže šampion, jehož dokončené hry prostě jdou lépe nebo hůře, nehraje pro ani proti němu. Podle toho {n}. z {total} legendárních předmětů."
 }

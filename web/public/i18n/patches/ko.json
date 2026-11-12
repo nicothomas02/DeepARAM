@@ -35,5 +35,21 @@
  "{n} added": "{n}개 추가",
  "{n} removed": "{n}개 삭제",
  "now": "이제",
- "win rate so far": "현재까지 승률"
+ "win rate so far": "현재까지 승률",
+ "Did the champion changes work?": "챔피언 변경이 효과가 있었나?",
+ "vs the {n} champions the notes left alone (they drift ±{sd} pts)": "패치 노트가 건드리지 않은 {n}명의 챔피언 대비 (이들은 ±{sd}포인트 흔들림)",
+ "Each change is judged against every champion the patch did not touch, so a shift the whole list made does not count. Within noise means the champion moved no more than an unchanged one typically does.": "각 변경은 패치가 건드리지 않은 모든 챔피언과 비교해 판단하므로 목록 전체가 움직인 만큼은 세지 않습니다. \"노이즈 범위\"는 변경되지 않은 챔피언이 보통 움직이는 것 이상으로 움직이지 않았다는 뜻입니다.",
+ "pts": "pt",
+ "How fast the rankings settled": "순위가 얼마나 빨리 자리 잡았나",
+ "of the final order on day one": "첫날에 이미 최종 순위와 일치",
+ "pts average gap to the final win rates": "pt 최종 승률과의 평균 차이",
+ "days to 95% settled": "일 만에 95% 안정",
+ "A typical patch is {pct}% of its final order after one day, {pts} pts off on average. So many games are played that rankings barely move after the first day; only mid-patch changes do.": "일반적인 패치는 하루 뒤 최종 순위의 {pct}%에 도달하며 평균 {pts}pt 차이가 납니다. 게임 수가 워낙 많아 첫날 이후 순위는 거의 움직이지 않고, 패치 중간 변경만 순위를 움직입니다.",
+ "Shifted mid-patch": "패치 중간에 변동",
+ "candidates for a hotfix or a new trick": "핫픽스 또는 새로운 공략의 후보",
+ "From that day on, the champion's games went this much better or worse than before it, far beyond what the rest of the list did the same day.": "그날부터 이 챔피언의 게임은 이전보다 이만큼 더 좋아지거나 나빠졌으며, 같은 날 나머지 목록의 움직임을 훨씬 넘어섰습니다.",
+ "Worked": "효과 있음",
+ "Backfired": "역효과",
+ "Within noise": "노이즈 범위",
+ "Moved": "움직임"
 }

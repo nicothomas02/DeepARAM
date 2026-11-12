@@ -104,5 +104,7 @@
  "Hide items augments can give": "ซ่อนไอเทมที่ได้จากออคเมนต์",
  "Estimated: items often bought at this slot.": "ประมาณการ: ไอเทมที่มักซื้อในลำดับนี้",
  "AD": "AD",
- "AP": "AP"
+ "AP": "AP",
+ "boost among finished builds": "ผลดีภายในบิลด์ที่ทำครบ",
+ "The boost among finished builds compares the item with its champions' other completed builds, so a champion whose finished games simply go better or worse does not count for or against it. Ranked {n} of {total} legendary items on it.": "ผลดีภายในบิลด์ที่ทำครบจะเทียบไอเทมกับบิลด์ที่ทำครบอื่น ๆ ของแชมเปี้ยนที่ใช้มัน แชมเปี้ยนที่เกมซึ่งทำบิลด์ครบมักไปได้ดีหรือแย่กว่าอยู่แล้วจึงไม่ส่งผลดีหรือผลเสียต่อไอเทม อยู่อันดับ {n} จาก {total} ไอเทมระดับตำนานตามเกณฑ์นี้"
 }

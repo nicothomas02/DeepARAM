@@ -104,5 +104,7 @@
  "Hide items augments can give": "Ascunde obiectele date de augmentări",
  "Estimated: items often bought at this slot.": "Estimat: obiecte cumpărate des pe acest loc.",
  "AD": "AD",
- "AP": "AP"
+ "AP": "AP",
+ "boost among finished builds": "avantaj între build-urile terminate",
+ "The boost among finished builds compares the item with its champions' other completed builds, so a champion whose finished games simply go better or worse does not count for or against it. Ranked {n} of {total} legendary items on it.": "Avantajul între build-urile terminate compară obiectul cu celelalte build-uri complete ale campionilor săi, astfel încât un campion ale cărui meciuri terminate merg pur și simplu mai bine sau mai rău nu contează pentru sau împotriva lui. Locul {n} din {total} obiecte legendare după acest criteriu."
 }

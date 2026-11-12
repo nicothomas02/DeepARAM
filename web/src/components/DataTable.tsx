@@ -11,6 +11,7 @@ import { hintFor } from "@/lib/glossary";
 import { useNames, useT } from "./I18n";
 import { EmptyState } from "@/components/EmptyState";
 import DeepScore from "./DeepScore";
+import WinRate, { Sampled } from "./WinRate";
 import { useAdvanced } from "./Advanced";
 import ArchetypeTags from "./ArchetypeTags";
 import { openRankings, RANKINGS_ID } from "./HowRankings";
@@ -19,7 +20,7 @@ import type { TagInfo } from "@/lib/tag-info";
 export type Column = {
   key: string;
   label: string;
-  format?: "pct" | "pts" | "spread" | "num" | "int" | "sec" | "text" | "champion" | "champion-icon" | "augment" | "item" | "items" | "ability" | "tier" | "deepscore" | "tags";
+  format?: "pct" | "pts" | "spread" | "num" | "num2" | "int" | "sec" | "text" | "champion" | "champion-icon" | "augment" | "item" | "items" | "ability" | "tier" | "deepscore" | "tags";
   sortable?: boolean;
   /** For "augment" columns: the row key holding the augment id, for its icon; for "item" and "ability" columns, the
    *  icon's address. "items" columns hold several items: names, icons (iconKey) and pages (hrefKey), each joined by "|". */
@@ -30,6 +31,9 @@ export type Column = {
   sortKey?: string;
   /** Explains the column; shown on hover and to screen readers. */
   hint?: string;
+  /** For "pct" win-rate and "pts" win-rate-boost columns: the row key holding the estimated games behind it, for
+   *  its 95% range and a low-sample tag (components/WinRate.tsx). */
+  gamesKey?: string;
   /** For "tags" columns: the colour and meaning of each tag (the cell holds them comma-separated). */
   tags?: TagInfo;
   /** Phones (globals.css): "hide" drops the column below 640px, "wide" only below 360px, so the main numbers fit
@@ -73,6 +77,9 @@ function show(v: Row[string], format: Column["format"], pts: (n: string) => stri
       return pts(tenths(n));
     case "num":
       return n.toFixed(1);
+    case "num2":
+      // Two decimals, for elasticities and correlations; −0.00 shows as 0.00.
+      return (Math.round(n * 100) / 100 || 0).toFixed(2);
     case "int":
       // A fixed locale: the browser's own would differ from the server render and break hydration.
       return Math.round(n).toLocaleString("en-US");
@@ -488,6 +495,10 @@ export default function DataTable({
                       <ArchetypeTags names={String(r[c.key] ?? "").split(",")} info={c.tags} compact />
                     ) : c.format === "tier" && r[c.key] ? (
                       <TierChip tier={String(r[c.key])} was={r[`${c.key}_was`]} />
+                    ) : c.format === "pct" && c.gamesKey && typeof r[c.key] === "number" && typeof r[c.gamesKey] === "number" ? (
+                      <WinRate p={r[c.key] as number} n={r[c.gamesKey] as number} />
+                    ) : c.format === "pts" && c.gamesKey && typeof r[c.gamesKey] === "number" ? (
+                      <Sampled n={r[c.gamesKey] as number}>{show(r[c.key], c.format, pts)}</Sampled>
                     ) : (
                       show(r[c.key], c.format, pts)
                     )}

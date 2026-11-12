@@ -104,5 +104,7 @@
  "Hide items augments can give": "증강으로 받는 아이템 숨기기",
  "Estimated: items often bought at this slot.": "추정: 이 순서에 자주 사는 아이템입니다.",
  "AD": "AD",
- "AP": "AP"
+ "AP": "AP",
+ "boost among finished builds": "완성 빌드 내 상승폭",
+ "The boost among finished builds compares the item with its champions' other completed builds, so a champion whose finished games simply go better or worse does not count for or against it. Ranked {n} of {total} legendary items on it.": "완성 빌드 내 상승폭은 아이템을 해당 챔피언들의 다른 완성 빌드와 비교하므로, 완성한 게임이 단순히 더 잘 풀리거나 안 풀리는 챔피언이 아이템에 유리하거나 불리하게 작용하지 않습니다. 이 기준으로 전설 아이템 {total}개 중 {n}위입니다."
 }

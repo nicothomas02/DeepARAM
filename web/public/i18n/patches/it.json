@@ -35,5 +35,21 @@
  "{n} added": "{n} aggiunti",
  "{n} removed": "{n} rimossi",
  "now": "ora",
- "win rate so far": "percentuale di vittorie finora"
+ "win rate so far": "percentuale di vittorie finora",
+ "Did the champion changes work?": "Le modifiche ai campioni hanno funzionato?",
+ "vs the {n} champions the notes left alone (they drift ±{sd} pts)": "rispetto ai {n} campioni che le note non hanno toccato (oscillano di ±{sd} pt)",
+ "Each change is judged against every champion the patch did not touch, so a shift the whole list made does not count. Within noise means the champion moved no more than an unchanged one typically does.": "Ogni modifica è giudicata rispetto a tutti i campioni che la patch non ha toccato, quindi uno spostamento di tutta la lista non conta. «Nel rumore» significa che il campione non si è mosso più di quanto faccia di solito uno non modificato.",
+ "pts": "pt",
+ "How fast the rankings settled": "Quanto in fretta si è assestata la classifica",
+ "of the final order on day one": "dell'ordine finale già il primo giorno",
+ "pts average gap to the final win rates": "pt di scarto medio dalle percentuali di vittoria finali",
+ "days to 95% settled": "giorni per assestarsi al 95%",
+ "A typical patch is {pct}% of its final order after one day, {pts} pts off on average. So many games are played that rankings barely move after the first day; only mid-patch changes do.": "Una patch tipica è al {pct}% del suo ordine finale dopo un giorno, con {pts} pt di scarto in media. Si giocano così tante partite che la classifica si muove appena dopo il primo giorno; lo fanno solo le modifiche a metà patch.",
+ "Shifted mid-patch": "Cambiato a metà patch",
+ "candidates for a hotfix or a new trick": "candidati a un hotfix o a un nuovo trucco",
+ "From that day on, the champion's games went this much better or worse than before it, far beyond what the rest of the list did the same day.": "Da quel giorno le partite del campione sono andate tanto meglio o peggio di prima, ben oltre quanto ha fatto il resto della lista nello stesso giorno.",
+ "Worked": "Ha funzionato",
+ "Backfired": "Effetto contrario",
+ "Within noise": "Nel rumore",
+ "Moved": "Si è mosso"
 }

@@ -7,7 +7,7 @@ HDR := src/sim.hpp src/json.hpp src/rng.hpp
 CHAMP_SRC := src/sim.cpp src/champ.cpp src/champ_main.cpp
 CHAMP_HDR := $(HDR) src/champ.hpp
 
-.PHONY: all run test wasm wasm-mayhem clean replay
+.PHONY: all run test wasm wasm-mayhem clean replay analysis
 
 all: yunara_sim mayhem_sim
 
@@ -69,9 +69,17 @@ replay: mayhem_sim
 	python3 tools/build_dummy_dps.py
 	python3 tools/build_item_icons.py
 	python3 ../web/scripts/build_item_sim.py
+	$(MAKE) analysis
 	python3 tools/build_sounds.py --index viewer/replay-data/index.json
 	$(if $(LOCAL),python3 tools/build_anim_data.py --index viewer/replay-data/index.json --out viewer/replay-data/anims.json)
 	$(if $(SOUNDS),python3 tools/build_game_sounds.py --index viewer/replay-data/index.json --out viewer/replay-data/sounds)
+
+# The Simulator page's Accuracy and Tuning tabs: the validation report (accuracy with 95% intervals, calibration,
+# residuals by role) and tuning-sensitivity curves (every champion lever and item stat line nudged -10%..+10%,
+# about 21,000 runs, 15-20 minutes on 4 cores). History of past versions: tools/validation.py history.
+analysis: mayhem_sim
+	python3 tools/validation.py report ./mayhem_sim analysis/validation.json 300
+	python3 tools/sensitivity.py ./mayhem_sim analysis/tuning-sensitivity.json 300 3
 
 clean:
 	rm -rf yunara_sim mayhem_sim sanity_test champ_test dist

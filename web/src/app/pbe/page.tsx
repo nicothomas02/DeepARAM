@@ -10,6 +10,8 @@ import PhoneMore from "@/components/PhoneMore";
 import { items } from "@/lib/items";
 import type { PatchSchedule } from "@/lib/patch-schedule";
 import { readRepoJson } from "@/lib/repo-data";
+import { pbeForecast } from "@/lib/analysis";
+import PbeForecast from "./PbeForecast";
 import { livePatch } from "@/lib/highlights";
 import { patchName } from "@/lib/patch-name";
 import championNames from "@/data/champion-names.json";
@@ -191,6 +193,7 @@ export default function PbePage() {
               than the final word.
             </P>
           </p>
+          <PbeForecast forecast={pbeForecast()} />
           <ChangeTracker entries={tracker} />
         </Section>
       )}

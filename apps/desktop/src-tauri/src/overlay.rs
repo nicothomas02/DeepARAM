@@ -136,7 +136,9 @@ fn on_right(app: &AppHandle) -> bool {
     app.state::<Store>().saved.lock().unwrap().overlay_right
 }
 
-pub fn build_window(app: &AppHandle) -> tauri::Result<WebviewWindow> {
+/// Made when a Mayhem game starts and destroyed when it ends, so no web view runs for it the rest of the time.
+/// The page fills itself from `State::script` once loaded.
+fn build_window(app: &AppHandle) -> tauri::Result<WebviewWindow> {
     let loaded = app.clone();
     WebviewWindowBuilder::new(app, LABEL, WebviewUrl::App("overlay.html".into()))
         .title("DeepARAM overlay")
@@ -202,15 +204,23 @@ fn start(app: &AppHandle, agent: &ureq::Agent) -> bool {
     let Some(data) = builds(app) else { return false };
     let Some(build) = find_build(&data, &alias) else { return false };
     let script = format!("window.showBuild({})", json!({ "site": SITE, "patch": data.get("patch"), "build": build }));
-    if let Some(win) = window(app) {
-        let _ = win.eval(&script);
-    }
     {
         let state = app.state::<Shared>();
         let mut s = state.lock().unwrap();
-        s.script = Some(script);
+        s.script = Some(script.clone());
         s.in_game = true;
         s.user_hidden = false;
+    }
+    match window(app) {
+        Some(win) => {
+            let _ = win.eval(&script);
+        }
+        None => {
+            if build_window(app).is_err() {
+                app.state::<Shared>().lock().unwrap().in_game = false;
+                return false;
+            }
+        }
     }
     // The shortcut is only held during the game, so the keys stay free for other apps the rest of the time.
     let _ = app.global_shortcut().register(toggle_shortcut());
@@ -232,7 +242,10 @@ pub fn stop(app: &AppHandle) {
     if was {
         let _ = app.global_shortcut().unregister(toggle_shortcut());
     }
-    hide(app);
+    // Closing the panel's web view frees its memory until the next game.
+    if let Some(win) = window(app) {
+        let _ = win.destroy();
+    }
 }
 
 /// Ctrl+Shift+O during a game.

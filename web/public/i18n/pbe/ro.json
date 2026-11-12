@@ -47,5 +47,9 @@
  "Unnamed": "Fără nume",
  "What's changing from live patch {live} to test server build {pbe} (updated {date}). The augment pool goes from {from} to {to}.": "Ce se schimbă de la patchul live {live} la versiunea de pe serverul de test {pbe} (actualizat {date}). Rezerva de augmentări trece de la {from} la {to}.",
  "{added} new · {changed} changed · {removed} removed": "{added} noi · {changed} modificate · {removed} eliminate",
- "{n} Fame": "{n} Faimă"
+ "{n} Fame": "{n} Faimă",
+ "Expected win-rate shift": "Schimbare așteptată a ratei de victorie",
+ "predicted": "prezis",
+ "From how {n} past patch-note changes moved win rates. Typical miss {mae} pts, against {base} pts for assuming no change; the range is where the real shift usually lands.": "Din felul în care {n} schimbări anterioare din notele de patch au mișcat ratele de victorie. Eroare tipică {mae} pct, față de {base} pct dacă presupunem că nu se schimbă nimic; intervalul este locul unde ajunge de obicei schimbarea reală.",
+ "pts": "pct"
 }

@@ -35,5 +35,21 @@
  "{n} added": "新增 {n}",
  "{n} removed": "移除 {n}",
  "now": "现为",
- "win rate so far": "目前胜率"
+ "win rate so far": "目前胜率",
+ "Did the champion changes work?": "英雄改动起作用了吗？",
+ "vs the {n} champions the notes left alone (they drift ±{sd} pts)": "相对于更新公告未改动的 {n} 位英雄（他们的波动为 ±{sd} 个点）",
+ "Each change is judged against every champion the patch did not touch, so a shift the whole list made does not count. Within noise means the champion moved no more than an unchanged one typically does.": "每项改动都与本版本未改动的所有英雄相比较，因此整个榜单的共同变化不计入。“在噪声范围内”表示该英雄的变化不超过未改动英雄通常的波动。",
+ "pts": "点",
+ "How fast the rankings settled": "排名多快稳定下来",
+ "of the final order on day one": "第一天就已符合最终排序",
+ "pts average gap to the final win rates": "点 与最终胜率的平均差距",
+ "days to 95% settled": "天达到 95% 稳定",
+ "A typical patch is {pct}% of its final order after one day, {pts} pts off on average. So many games are played that rankings barely move after the first day; only mid-patch changes do.": "典型版本在一天后就达到最终排序的 {pct}%，平均偏差 {pts} 个点。对局数量太多，第一天之后排名几乎不动；只有版本中途的改动才会让它变化。",
+ "Shifted mid-patch": "版本中途发生变化",
+ "candidates for a hotfix or a new trick": "可能是热修复或新打法",
+ "From that day on, the champion's games went this much better or worse than before it, far beyond what the rest of the list did the same day.": "从那天起，该英雄的对局比之前好或差了这么多，远超当天榜单其他英雄的变化。",
+ "Worked": "起作用",
+ "Backfired": "适得其反",
+ "Within noise": "在噪声范围内",
+ "Moved": "有变化"
 }

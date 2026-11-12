@@ -35,5 +35,21 @@
  "{n} added": "{n} ditambahkan",
  "{n} removed": "{n} dihapus",
  "now": "kini",
- "win rate so far": "tingkat menang sejauh ini"
+ "win rate so far": "tingkat menang sejauh ini",
+ "Did the champion changes work?": "Apakah perubahan champion berhasil?",
+ "vs the {n} champions the notes left alone (they drift ±{sd} pts)": "dibandingkan {n} champion yang tidak disentuh catatan patch (mereka bergeser ±{sd} poin)",
+ "Each change is judged against every champion the patch did not touch, so a shift the whole list made does not count. Within noise means the champion moved no more than an unchanged one typically does.": "Setiap perubahan dinilai terhadap semua champion yang tidak disentuh patch, jadi pergeseran seluruh daftar tidak dihitung. \"Dalam batas noise\" berarti champion tidak bergerak lebih dari yang biasanya dilakukan champion tanpa perubahan.",
+ "pts": "poin",
+ "How fast the rankings settled": "Seberapa cepat peringkat stabil",
+ "of the final order on day one": "dari urutan akhir sejak hari pertama",
+ "pts average gap to the final win rates": "poin selisih rata-rata dari win rate akhir",
+ "days to 95% settled": "hari hingga 95% stabil",
+ "A typical patch is {pct}% of its final order after one day, {pts} pts off on average. So many games are played that rankings barely move after the first day; only mid-patch changes do.": "Patch pada umumnya mencapai {pct}% dari urutan akhirnya setelah satu hari, dengan selisih rata-rata {pts} poin. Begitu banyak game dimainkan sehingga peringkat hampir tidak bergerak setelah hari pertama; hanya perubahan di tengah patch yang menggerakkannya.",
+ "Shifted mid-patch": "Bergeser di tengah patch",
+ "candidates for a hotfix or a new trick": "kandidat hotfix atau trik baru",
+ "From that day on, the champion's games went this much better or worse than before it, far beyond what the rest of the list did the same day.": "Sejak hari itu, game champion ini berjalan sebanyak ini lebih baik atau lebih buruk daripada sebelumnya, jauh melampaui yang dilakukan sisa daftar pada hari yang sama.",
+ "Worked": "Berhasil",
+ "Backfired": "Berbalik arah",
+ "Within noise": "Dalam batas noise",
+ "Moved": "Bergerak"
 }
