@@ -47,5 +47,9 @@
  "Unnamed": "Χωρίς όνομα",
  "What's changing from live patch {live} to test server build {pbe} (updated {date}). The augment pool goes from {from} to {to}.": "Τι αλλάζει από την τρέχουσα ενημέρωση {live} στην έκδοση {pbe} του δοκιμαστικού διακομιστή (ενημερώθηκε {date}). Οι διαθέσιμες βελτιώσεις αλλάζουν από {from} σε {to}.",
  "{added} new · {changed} changed · {removed} removed": "{added} νέες · {changed} άλλαξαν · {removed} αφαιρέθηκαν",
- "{n} Fame": "{n} Φήμη"
+ "{n} Fame": "{n} Φήμη",
+ "Expected win-rate shift": "Αναμενόμενη μεταβολή ποσοστού νίκης",
+ "predicted": "πρόβλεψη",
+ "From how {n} past patch-note changes moved win rates. Typical miss {mae} pts, against {base} pts for assuming no change; the range is where the real shift usually lands.": "Από το πώς {n} προηγούμενες αλλαγές των σημειώσεων ενημέρωσης μετακίνησαν τα ποσοστά νίκης. Τυπικό σφάλμα {mae} μον., έναντι {base} μον. αν υποθέσουμε καμία αλλαγή· το εύρος είναι εκεί που συνήθως πέφτει η πραγματική μεταβολή.",
+ "pts": "μον."
 }

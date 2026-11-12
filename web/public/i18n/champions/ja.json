@@ -211,5 +211,14 @@
  "Score: points of win rate over the usual choice. Choices with few games lean on the estimate.": "スコア: 通常の選択と比べた勝率のポイント。試合数が少ない選択は推定値に頼っています。",
  "Expected": "期待値",
  "Real": "実績",
- "Builds with few games lean on the estimate: how much of a rare build's lead usually holds up.": "試合数が少ないビルドは推定値に頼っています。珍しいビルドのリードがどれだけ維持されるかを示します。"
+ "Builds with few games lean on the estimate: how much of a rare build's lead usually holds up.": "試合数が少ないビルドは推定値に頼っています。珍しいビルドのリードがどれだけ維持されるかを示します。",
+ "Playstyles": "プレイスタイル",
+ "{k} groups from the last {n} patches": "直近{n}パッチからの{k}グループ",
+ "Grouped by how their games actually go: share of the team's damage, damage soaked, kill participation, time dead and which augments they take. Classes are Riot's; a marked champion plays unlike its class.": "試合が実際にどう進むかでグループ分け：チームダメージの割合、受けたダメージ、キル関与率、死亡時間、選ぶオーグメント。クラスはRiotのもので、印の付いたチャンピオンはクラスとは異なる動きをします。",
+ "mostly": "主に",
+ "Plays unlike its class:": "クラスとは異なる動きをする：",
+ "damage share": "ダメージ割合",
+ "damage soaked": "受けたダメージ",
+ "kill participation": "キル関与率",
+ "time dead": "死亡時間"
 }

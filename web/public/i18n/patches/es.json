@@ -35,5 +35,21 @@
  "{n} added": "{n} añadidos",
  "{n} removed": "{n} eliminados",
  "now": "ahora",
- "win rate so far": "tasa de victorias hasta ahora"
+ "win rate so far": "tasa de victorias hasta ahora",
+ "Did the champion changes work?": "¿Funcionaron los cambios de campeones?",
+ "vs the {n} champions the notes left alone (they drift ±{sd} pts)": "frente a los {n} campeones que las notas no tocaron (varían ±{sd} pts)",
+ "Each change is judged against every champion the patch did not touch, so a shift the whole list made does not count. Within noise means the champion moved no more than an unchanged one typically does.": "Cada cambio se juzga frente a todos los campeones que el parche no tocó, así que un movimiento de toda la lista no cuenta. «Dentro del ruido» significa que el campeón no se movió más de lo que suele moverse uno sin cambios.",
+ "pts": "pts",
+ "How fast the rankings settled": "Qué tan rápido se asentó la clasificación",
+ "of the final order on day one": "del orden final ya el primer día",
+ "pts average gap to the final win rates": "pts de diferencia media con las tasas de victoria finales",
+ "days to 95% settled": "días hasta asentarse al 95 %",
+ "A typical patch is {pct}% of its final order after one day, {pts} pts off on average. So many games are played that rankings barely move after the first day; only mid-patch changes do.": "Un parche típico está al {pct} % de su orden final tras un día, con {pts} pts de desvío medio. Se juegan tantas partidas que la clasificación apenas se mueve después del primer día; solo lo hacen los cambios a mitad de parche.",
+ "Shifted mid-patch": "Cambió a mitad de parche",
+ "candidates for a hotfix or a new trick": "candidatos a un hotfix o a un truco nuevo",
+ "From that day on, the champion's games went this much better or worse than before it, far beyond what the rest of the list did the same day.": "Desde ese día, las partidas del campeón fueron mucho mejor o peor que antes, bastante más allá de lo que hizo el resto de la lista ese mismo día.",
+ "Worked": "Funcionó",
+ "Backfired": "Salió al revés",
+ "Within noise": "Dentro del ruido",
+ "Moved": "Se movió"
 }

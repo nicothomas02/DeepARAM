@@ -226,3 +226,6 @@ __marimo__/
 dashboard/data/
 !web/public/assets/lib/
 !web/public/assets/lib/three-0.160.0/build/
+# Aggregates of the owner's private game archive stay out of the repo (owner_archive.py, game_length.py)
+data/analysis/archive_aggregates.json
+data/analysis/game_length.json

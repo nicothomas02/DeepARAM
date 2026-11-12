@@ -104,5 +104,7 @@
  "Hide items augments can give": "Ocultar objetos que dan los aumentos",
  "Estimated: items often bought at this slot.": "Estimado: objetos que se suelen comprar en este puesto.",
  "AD": "AD",
- "AP": "AP"
+ "AP": "AP",
+ "boost among finished builds": "mejora entre builds terminadas",
+ "The boost among finished builds compares the item with its champions' other completed builds, so a champion whose finished games simply go better or worse does not count for or against it. Ranked {n} of {total} legendary items on it.": "La mejora entre builds terminadas compara el objeto con las otras builds completadas de sus campeones, así que un campeón cuyas partidas terminadas simplemente van mejor o peor no cuenta a favor ni en contra. Puesto {n} de {total} objetos legendarios según esto."
 }

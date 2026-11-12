@@ -104,5 +104,7 @@
  "Hide items augments can give": "Απόκρυψη αντικειμένων που δίνουν οι ενισχύσεις",
  "Estimated: items often bought at this slot.": "Εκτίμηση: αντικείμενα που αγοράζονται συχνά σε αυτή τη θέση.",
  "AD": "AD",
- "AP": "AP"
+ "AP": "AP",
+ "boost among finished builds": "όφελος ανάμεσα σε ολοκληρωμένα build",
+ "The boost among finished builds compares the item with its champions' other completed builds, so a champion whose finished games simply go better or worse does not count for or against it. Ranked {n} of {total} legendary items on it.": "Το όφελος ανάμεσα σε ολοκληρωμένα build συγκρίνει το αντικείμενο με τα άλλα ολοκληρωμένα build των ηρώων του, ώστε ένας ήρωας του οποίου τα ολοκληρωμένα παιχνίδια απλώς πάνε καλύτερα ή χειρότερα να μη μετρά υπέρ ή κατά του. Κατατάσσεται {n} από {total} θρυλικά αντικείμενα με αυτό το κριτήριο."
 }

@@ -35,5 +35,21 @@
  "{n} added": "{n} přidáno",
  "{n} removed": "{n} odebráno",
  "now": "nově",
- "win rate so far": "dosavadní míra výher"
+ "win rate so far": "dosavadní míra výher",
+ "Did the champion changes work?": "Zabraly změny šampionů?",
+ "vs the {n} champions the notes left alone (they drift ±{sd} pts)": "oproti {n} šampionům, kterých se poznámky nedotkly (kolísají o ±{sd} b.)",
+ "Each change is judged against every champion the patch did not touch, so a shift the whole list made does not count. Within noise means the champion moved no more than an unchanged one typically does.": "Každá změna se posuzuje vůči všem šampionům, kterých se patch nedotkl, takže posun celého seznamu se nepočítá. „V mezích šumu“ znamená, že se šampion neposunul víc, než se obvykle posune nezměněný.",
+ "pts": "b.",
+ "How fast the rankings settled": "Jak rychle se žebříček ustálil",
+ "of the final order on day one": "konečného pořadí už první den",
+ "pts average gap to the final win rates": "b. průměrný rozdíl od konečných winrate",
+ "days to 95% settled": "dní do ustálení na 95 %",
+ "A typical patch is {pct}% of its final order after one day, {pts} pts off on average. So many games are played that rankings barely move after the first day; only mid-patch changes do.": "Typický patch je po jednom dni na {pct} % svého konečného pořadí, v průměru o {pts} b. vedle. Hraje se tolik her, že se žebříček po prvním dni skoro nehýbe; hýbou s ním jen změny uprostřed patche.",
+ "Shifted mid-patch": "Posun uprostřed patche",
+ "candidates for a hotfix or a new trick": "kandidáti na hotfix nebo nový trik",
+ "From that day on, the champion's games went this much better or worse than before it, far beyond what the rest of the list did the same day.": "Od toho dne šly hry šampiona o tolik lépe nebo hůř než předtím, daleko víc, než co udělal zbytek seznamu tentýž den.",
+ "Worked": "Zabralo",
+ "Backfired": "Opačný účinek",
+ "Within noise": "V mezích šumu",
+ "Moved": "Posunul se"
 }
