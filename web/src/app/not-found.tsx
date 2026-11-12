@@ -1,6 +1,10 @@
 import Link from "next/link";
 import { T } from "@/components/I18n";
 import NotFoundSuggestions from "@/components/NotFoundSuggestions";
+import type { Metadata } from "next";
+
+// The browser tab said the home page's title on every missing page; say what happened instead.
+export const metadata: Metadata = { title: "Page not found · DeepARAM", robots: { index: false } };
 
 export default function NotFound() {
   return (
