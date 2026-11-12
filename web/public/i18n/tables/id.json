@@ -138,5 +138,21 @@
  "Few games": "Sedikit game",
  "Too few games": "Terlalu sedikit game",
  "Few games marks a win rate that could be off by more than 5 pts either way, so small differences there are likely noise. Under 10 games it says Too few games.": "Sedikit game menandai win rate yang bisa meleset lebih dari 5 poin ke arah mana pun, jadi selisih kecil di sana kemungkinan hanya noise. Di bawah 10 game tertulis Terlalu sedikit game.",
- "With Page detail set to Detailed, win rates show a ± range: the true rate is within it 95% of the time.": "Jika Detail halaman diatur ke Terperinci, win rate menampilkan rentang ±: nilai sebenarnya ada di dalamnya 95% dari waktu."
+ "With Page detail set to Detailed, win rates show a ± range: the true rate is within it 95% of the time.": "Jika Detail halaman diatur ke Terperinci, win rate menampilkan rentang ±: nilai sebenarnya ada di dalamnya 95% dari waktu.",
+ "Damage dealt modifier": "Pengubah damage yang diberikan",
+ "Damage taken modifier": "Pengubah damage yang diterima",
+ "Ability damage": "Damage ability",
+ "Base attack damage": "Attack damage dasar",
+ "Base attack speed": "Attack speed dasar",
+ "Base health": "Health dasar",
+ "Base armor and magic resist": "Armor dan magic resist dasar",
+ "Damage per fight": "Damage per pertarungan",
+ "Damage per second": "Damage per detik",
+ "Time alive": "Waktu hidup",
+ "Low": "Rendah",
+ "High": "Tinggi",
+ "Bias %": "Bias %",
+ "Order within role": "Urutan dalam peran",
+ "Real ÷ predicted": "Asli ÷ prediksi",
+ "Find an item": "Cari item"
 }

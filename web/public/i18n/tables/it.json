@@ -138,5 +138,21 @@
  "Few games": "Poche partite",
  "Too few games": "Troppo poche partite",
  "Few games marks a win rate that could be off by more than 5 pts either way, so small differences there are likely noise. Under 10 games it says Too few games.": "Poche partite segnala una percentuale di vittoria che potrebbe sbagliare di oltre 5 pt in entrambe le direzioni, quindi lì le piccole differenze sono probabilmente rumore. Sotto le 10 partite compare Troppo poche partite.",
- "With Page detail set to Detailed, win rates show a ± range: the true rate is within it 95% of the time.": "Con Dettaglio pagina su Dettagliato, le percentuali di vittoria mostrano un intervallo ±: il valore reale vi rientra il 95% delle volte."
+ "With Page detail set to Detailed, win rates show a ± range: the true rate is within it 95% of the time.": "Con Dettaglio pagina su Dettagliato, le percentuali di vittoria mostrano un intervallo ±: il valore reale vi rientra il 95% delle volte.",
+ "Damage dealt modifier": "Modificatore danni inflitti",
+ "Damage taken modifier": "Modificatore danni subiti",
+ "Ability damage": "Danni delle abilità",
+ "Base attack damage": "Attacco fisico base",
+ "Base attack speed": "Velocità d'attacco base",
+ "Base health": "Salute base",
+ "Base armor and magic resist": "Armatura e resistenza magica base",
+ "Damage per fight": "Danni per scontro",
+ "Damage per second": "Danni al secondo",
+ "Time alive": "Tempo in vita",
+ "Low": "Basso",
+ "High": "Alto",
+ "Bias %": "Distorsione %",
+ "Order within role": "Ordine nel ruolo",
+ "Real ÷ predicted": "Reale ÷ previsto",
+ "Find an item": "Cerca un oggetto"
 }

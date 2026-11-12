@@ -138,5 +138,21 @@
  "Few games": "Málo her",
  "Too few games": "Příliš málo her",
  "Few games marks a win rate that could be off by more than 5 pts either way, so small differences there are likely noise. Under 10 games it says Too few games.": "Málo her označuje míru výher, která se může lišit o víc než 5 b. oběma směry, takže malé rozdíly jsou tam nejspíš šum. Pod 10 hrami se zobrazí Příliš málo her.",
- "With Page detail set to Detailed, win rates show a ± range: the true rate is within it 95% of the time.": "Když je Podrobnosti stránky nastaveno na Podrobné, míry výher ukazují rozsah ±: skutečná hodnota v něm leží v 95 % případů."
+ "With Page detail set to Detailed, win rates show a ± range: the true rate is within it 95% of the time.": "Když je Podrobnosti stránky nastaveno na Podrobné, míry výher ukazují rozsah ±: skutečná hodnota v něm leží v 95 % případů.",
+ "Damage dealt modifier": "Modifikátor způsobeného poškození",
+ "Damage taken modifier": "Modifikátor přijatého poškození",
+ "Ability damage": "Poškození schopností",
+ "Base attack damage": "Základní útočné poškození",
+ "Base attack speed": "Základní rychlost útoku",
+ "Base health": "Základní zdraví",
+ "Base armor and magic resist": "Základní brnění a magická odolnost",
+ "Damage per fight": "Poškození za boj",
+ "Damage per second": "Poškození za sekundu",
+ "Time alive": "Doba přežití",
+ "Low": "Nízko",
+ "High": "Vysoko",
+ "Bias %": "Zkreslení %",
+ "Order within role": "Pořadí v roli",
+ "Real ÷ predicted": "Skutečné ÷ předpověď",
+ "Find an item": "Najít předmět"
 }

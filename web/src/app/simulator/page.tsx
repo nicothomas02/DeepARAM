@@ -9,6 +9,9 @@ import Pending from "@/components/Pending";
 import SimBuildsTable, { type SimBuild } from "@/components/SimBuildsTable";
 import SimReplayEmbed from "@/components/SimReplayEmbed";
 import SubTabs from "@/components/SubTabs";
+import { AccuracyTab, TuningTab } from "@/components/SimAnalysisTabs";
+import { itemPages } from "@/lib/item-pages";
+import type { Tuning, Validation } from "@/lib/sim-analysis";
 import { readRepoJson, repoHas } from "@/lib/repo-data";
 
 export const metadata: Metadata = pageMeta("/simulator", "ARAM Mayhem Teamfight Simulator", "Simulated ARAM Mayhem teamfights, simulated builds and fight replays for every champion.");
@@ -78,6 +81,16 @@ export default function SimulatorPage() {
     });
   }
 
+
+  // Tuning-sensitivity curves and the accuracy report (simulator/tools/sensitivity.py and validation.py).
+  const tuning = readRepoJson<Tuning>("simulator/analysis/tuning-sensitivity.json");
+  if (tuning) {
+    const champions = tuning.champions.map((c) => ({ id: c.champion, name: c.name })).sort((a, b) => a.name.localeCompare(b.name));
+    const itemInfo = Object.fromEntries(itemPages().map((i) => [i.id, { icon: i.icon ?? "", slug: i.slug }]));
+    tabs.push({ id: "tuning", label: "Tuning", lazy: true, content: <TuningTab tuning={tuning} champions={champions} itemInfo={itemInfo} /> });
+  }
+  const validation = readRepoJson<Validation>("simulator/analysis/validation.json");
+  if (validation) tabs.push({ id: "accuracy", label: "Accuracy", content: <AccuracyTab v={validation} /> });
 
   return (
     <>

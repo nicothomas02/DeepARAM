@@ -5916,6 +5916,107 @@ html[data-view="simple"] [data-detailed] {
   cursor: pointer;
 }
 
+/* Simulator Tuning and Accuracy tabs (components/SimTuning.tsx, components/SimAnalysisTabs.tsx) */
+.sim-analysis {
+  display: grid;
+  gap: 1rem;
+}
+
+.tune-tools {
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.tune-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(13.5rem, 1fr));
+  gap: 0.75rem;
+}
+
+.tune-card {
+  min-width: 0;
+  margin: 0;
+  padding: 0.65rem 0.75rem;
+  border-radius: var(--r-sm);
+  background: var(--raised);
+  box-shadow: var(--depth-tile);
+}
+
+.tune-card figcaption {
+  display: grid;
+  gap: 0.1rem;
+  font-size: 0.875rem;
+}
+
+.tune-card figcaption span {
+  font: 600 0.9375rem var(--mono);
+}
+
+.tune-card small {
+  font-weight: 400;
+  font-size: 0.75rem;
+}
+
+.tune-spark {
+  display: block;
+  margin-top: 0.25rem;
+}
+
+.tune-up {
+  color: var(--good);
+}
+
+.tune-down {
+  color: var(--bad);
+}
+
+.tune-flat,
+.tune-note {
+  color: var(--muted);
+}
+
+.tune-note {
+  font-size: 0.875rem;
+}
+
+.tune-exchange {
+  margin: 0.75rem 0 0;
+  font-size: 0.9375rem;
+}
+
+.acc-tiles {
+  grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+}
+
+.acc-tiles b {
+  font: 700 1.5rem/1.2 var(--mono);
+}
+
+.acc-tiles b small {
+  display: block;
+  color: var(--muted);
+  font-size: 0.75rem;
+  font-weight: 400;
+}
+
+.acc-split {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: 1rem;
+  align-items: start;
+}
+
+.acc-cal {
+  width: 100%;
+  max-width: 300px;
+  justify-self: center;
+}
+
+.acc-hist {
+  display: block;
+  max-width: 760px;
+}
+
 /* Patch recap: did the champion changes work (data/analysis) */
 .impact-list {
   list-style: none;
@@ -6001,6 +6102,7 @@ html[data-view="simple"] [data-detailed] {
 .playstyle-unlike {
   margin-top: 1rem;
 }
+
 /* The Kitchen's Traps and Bug finder tabs (components/BuildChecks.tsx). */
 .checks-bar {
   display: flex;

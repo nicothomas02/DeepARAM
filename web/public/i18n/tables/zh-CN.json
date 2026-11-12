@@ -138,5 +138,21 @@
  "Few games": "场次少",
  "Too few games": "场次过少",
  "Few games marks a win rate that could be off by more than 5 pts either way, so small differences there are likely noise. Under 10 games it says Too few games.": "“场次少”表示该胜率上下可能偏差超过 5 个百分点，因此那里的小差异多半只是噪声。少于 10 场时显示“场次过少”。",
- "With Page detail set to Detailed, win rates show a ± range: the true rate is within it 95% of the time.": "将“页面详细程度”设为“详细”后，胜率会显示 ± 范围：真实胜率有 95% 的概率落在其中。"
+ "With Page detail set to Detailed, win rates show a ± range: the true rate is within it 95% of the time.": "将“页面详细程度”设为“详细”后，胜率会显示 ± 范围：真实胜率有 95% 的概率落在其中。",
+ "Damage dealt modifier": "造成伤害修正",
+ "Damage taken modifier": "承受伤害修正",
+ "Ability damage": "技能伤害",
+ "Base attack damage": "基础攻击力",
+ "Base attack speed": "基础攻击速度",
+ "Base health": "基础生命值",
+ "Base armor and magic resist": "基础护甲和魔法抗性",
+ "Damage per fight": "每场伤害",
+ "Damage per second": "每秒伤害",
+ "Time alive": "存活时间",
+ "Low": "下限",
+ "High": "上限",
+ "Bias %": "偏差 %",
+ "Order within role": "定位内排名",
+ "Real ÷ predicted": "实际 ÷ 预测",
+ "Find an item": "查找装备"
 }

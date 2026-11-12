@@ -138,5 +138,21 @@
  "Few games": "Peu de parties",
  "Too few games": "Trop peu de parties",
  "Few games marks a win rate that could be off by more than 5 pts either way, so small differences there are likely noise. Under 10 games it says Too few games.": "Peu de parties signale un taux de victoire qui peut s'écarter de plus de 5 pts dans un sens ou dans l'autre : les petites différences y sont sans doute du bruit. Sous 10 parties, on affiche Trop peu de parties.",
- "With Page detail set to Detailed, win rates show a ± range: the true rate is within it 95% of the time.": "Avec Détail des pages sur Détaillé, les taux de victoire affichent une plage ± : le vrai taux s'y trouve 95 % du temps."
+ "With Page detail set to Detailed, win rates show a ± range: the true rate is within it 95% of the time.": "Avec Détail des pages sur Détaillé, les taux de victoire affichent une plage ± : le vrai taux s'y trouve 95 % du temps.",
+ "Damage dealt modifier": "Modificateur de dégâts infligés",
+ "Damage taken modifier": "Modificateur de dégâts subis",
+ "Ability damage": "Dégâts des compétences",
+ "Base attack damage": "Dégâts d'attaque de base",
+ "Base attack speed": "Vitesse d'attaque de base",
+ "Base health": "PV de base",
+ "Base armor and magic resist": "Armure et résistance magique de base",
+ "Damage per fight": "Dégâts par combat",
+ "Damage per second": "Dégâts par seconde",
+ "Time alive": "Temps en vie",
+ "Low": "Bas",
+ "High": "Haut",
+ "Bias %": "Biais %",
+ "Order within role": "Ordre dans le rôle",
+ "Real ÷ predicted": "Réel ÷ prédit",
+ "Find an item": "Chercher un objet"
 }

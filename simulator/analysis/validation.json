@@ -1,0 +1,574 @@
+{
+ "n": 173,
+ "dps_vs_damage_share": {
+  "rho": 0.478,
+  "n": 173,
+  "ci95": [
+   0.337,
+   0.6
+  ]
+ },
+ "taken_vs_tank_share": {
+  "rho": 0.739,
+  "n": 173,
+  "ci95": [
+   0.645,
+   0.803
+  ]
+ },
+ "role_adjusted": {
+  "spearman": {
+   "rho": 0.573,
+   "n": 173,
+   "ci95": [
+    0.445,
+    0.673
+   ]
+  },
+  "r2_log": 0.722,
+  "calibration_slope": 0.981,
+  "mae_points": 1.85,
+  "dps_coefficient": 0.242,
+  "bins": [
+   {
+    "n": 34,
+    "predicted": 13.52,
+    "real": 13.89,
+    "real_ci95": [
+     12.54,
+     15.24
+    ]
+   },
+   {
+    "n": 35,
+    "predicted": 18.52,
+    "real": 19.46,
+    "real_ci95": [
+     18.73,
+     20.19
+    ]
+   },
+   {
+    "n": 34,
+    "predicted": 20.01,
+    "real": 20.67,
+    "real_ci95": [
+     19.88,
+     21.46
+    ]
+   },
+   {
+    "n": 35,
+    "predicted": 21.06,
+    "real": 20.88,
+    "real_ci95": [
+     20.2,
+     21.56
+    ]
+   },
+   {
+    "n": 35,
+    "predicted": 22.41,
+    "real": 21.18,
+    "real_ci95": [
+     20.72,
+     21.65
+    ]
+   }
+  ]
+ },
+ "role_only": {
+  "spearman": {
+   "rho": 0.452,
+   "n": 173,
+   "ci95": [
+    0.311,
+    0.571
+   ]
+  },
+  "r2_log": 0.585,
+  "mae_points": 1.84
+ },
+ "roles": [
+  {
+   "role": "assassin",
+   "n": 17,
+   "within": {
+    "rho": -0.069,
+    "n": 17,
+    "ci95": [
+     -0.637,
+     0.518
+    ]
+   },
+   "raw_bias": -0.013,
+   "raw_bias_se": 0.055,
+   "resid_sd": 0.089
+  },
+  {
+   "role": "fighter",
+   "n": 50,
+   "within": {
+    "rho": 0.071,
+    "n": 50,
+    "ci95": [
+     -0.199,
+     0.322
+    ]
+   },
+   "raw_bias": -0.006,
+   "raw_bias_se": 0.041,
+   "resid_sd": 0.117
+  },
+  {
+   "role": "mage",
+   "n": 35,
+   "within": {
+    "rho": 0.129,
+    "n": 35,
+    "ci95": [
+     -0.203,
+     0.453
+    ]
+   },
+   "raw_bias": 0.076,
+   "raw_bias_se": 0.041,
+   "resid_sd": 0.128
+  },
+  {
+   "role": "marksman",
+   "n": 29,
+   "within": {
+    "rho": 0.002,
+    "n": 29,
+    "ci95": [
+     -0.423,
+     0.415
+    ]
+   },
+   "raw_bias": 0.143,
+   "raw_bias_se": 0.053,
+   "resid_sd": 0.093
+  },
+  {
+   "role": "support",
+   "n": 18,
+   "within": {
+    "rho": 0.839,
+    "n": 18,
+    "ci95": [
+     0.562,
+     0.95
+    ]
+   },
+   "raw_bias": -0.282,
+   "raw_bias_se": 0.113,
+   "resid_sd": 0.227
+  },
+  {
+   "role": "tank",
+   "n": 24,
+   "within": {
+    "rho": 0.595,
+    "n": 24,
+    "ci95": [
+     0.235,
+     0.839
+    ]
+   },
+   "raw_bias": -0.288,
+   "raw_bias_se": 0.063,
+   "resid_sd": 0.124
+  }
+ ],
+ "underrated": [
+  {
+   "champion": "Morgana",
+   "role": "support",
+   "residual": 0.35,
+   "factor": 1.42,
+   "real_share": 17.9,
+   "sim_dps": 402
+  },
+  {
+   "champion": "Ambessa",
+   "role": "fighter",
+   "residual": 0.25,
+   "factor": 1.29,
+   "real_share": 23.6,
+   "sim_dps": 346
+  },
+  {
+   "champion": "Milio",
+   "role": "support",
+   "residual": 0.24,
+   "factor": 1.27,
+   "real_share": 10.1,
+   "sim_dps": 61
+  },
+  {
+   "champion": "Senna",
+   "role": "support",
+   "residual": 0.23,
+   "factor": 1.26,
+   "real_share": 17.4,
+   "sim_dps": 583
+  },
+  {
+   "champion": "Thresh",
+   "role": "support",
+   "residual": 0.23,
+   "factor": 1.26,
+   "real_share": 15.5,
+   "sim_dps": 351
+  },
+  {
+   "champion": "Seraphine",
+   "role": "support",
+   "residual": 0.23,
+   "factor": 1.26,
+   "real_share": 18.1,
+   "sim_dps": 699
+  },
+  {
+   "champion": "Singed",
+   "role": "tank",
+   "residual": 0.22,
+   "factor": 1.25,
+   "real_share": 18.1,
+   "sim_dps": 189
+  },
+  {
+   "champion": "Swain",
+   "role": "mage",
+   "residual": 0.21,
+   "factor": 1.24,
+   "real_share": 21.2,
+   "sim_dps": 331
+  },
+  {
+   "champion": "Mordekaiser",
+   "role": "fighter",
+   "residual": 0.21,
+   "factor": 1.23,
+   "real_share": 21.3,
+   "sim_dps": 275
+  },
+  {
+   "champion": "Karthus",
+   "role": "mage",
+   "residual": 0.21,
+   "factor": 1.23,
+   "real_share": 26.6,
+   "sim_dps": 860
+  }
+ ],
+ "overrated": [
+  {
+   "champion": "Lulu",
+   "role": "support",
+   "residual": -0.38,
+   "factor": 0.68,
+   "real_share": 6.9,
+   "sim_dps": 129
+  },
+  {
+   "champion": "Karma",
+   "role": "mage",
+   "residual": -0.37,
+   "factor": 0.69,
+   "real_share": 12.8,
+   "sim_dps": 416
+  },
+  {
+   "champion": "Soraka",
+   "role": "support",
+   "residual": -0.36,
+   "factor": 0.7,
+   "real_share": 6.7,
+   "sim_dps": 105
+  },
+  {
+   "champion": "Ivern",
+   "role": "support",
+   "residual": -0.3,
+   "factor": 0.74,
+   "real_share": 7.8,
+   "sim_dps": 160
+  },
+  {
+   "champion": "Blitzcrank",
+   "role": "tank",
+   "residual": -0.25,
+   "factor": 0.78,
+   "real_share": 13.2,
+   "sim_dps": 324
+  },
+  {
+   "champion": "Yuumi",
+   "role": "support",
+   "residual": -0.24,
+   "factor": 0.79,
+   "real_share": 7.2,
+   "sim_dps": 89
+  },
+  {
+   "champion": "Janna",
+   "role": "support",
+   "residual": -0.22,
+   "factor": 0.8,
+   "real_share": 8.1,
+   "sim_dps": 136
+  },
+  {
+   "champion": "Trundle",
+   "role": "fighter",
+   "residual": -0.22,
+   "factor": 0.8,
+   "real_share": 16.2,
+   "sim_dps": 492
+  },
+  {
+   "champion": "Braum",
+   "role": "tank",
+   "residual": -0.22,
+   "factor": 0.8,
+   "real_share": 11.8,
+   "sim_dps": 178
+  },
+  {
+   "champion": "Kayle",
+   "role": "marksman",
+   "residual": -0.22,
+   "factor": 0.8,
+   "real_share": 18.8,
+   "sim_dps": 927
+  }
+ ],
+ "patch": "16.22",
+ "date": "2026-11-12",
+ "trials": 300,
+ "bootstrap": 2000,
+ "history": [
+  {
+   "commit": "0c2d746c",
+   "date": "2026-10-16",
+   "pr": 109,
+   "title": "Simulator: enemy damage follows their build and level; shields",
+   "spearman": 0.374,
+   "ci95": [
+    0.234,
+    0.502
+   ],
+   "role_adjusted": 0.566,
+   "taken": null,
+   "n": 173
+  },
+  {
+   "commit": "0f77831d",
+   "date": "2026-10-16",
+   "pr": 105,
+   "title": "Simulator: more accurate combat, one enemy by default, fights until death, enemy dance, purple accent",
+   "spearman": 0.404,
+   "ci95": [
+    0.266,
+    0.531
+   ],
+   "role_adjusted": 0.59,
+   "taken": null,
+   "n": 173
+  },
+  {
+   "commit": "378cfd6b",
+   "date": "2026-10-16",
+   "pr": 106,
+   "title": "Simulator: real cast times, attack wind-ups, channels and attack resets",
+   "spearman": 0.395,
+   "ci95": [
+    0.26,
+    0.519
+   ],
+   "role_adjusted": 0.575,
+   "taken": null,
+   "n": 173
+  },
+  {
+   "commit": "397c228c",
+   "date": "2026-10-17",
+   "pr": 292,
+   "title": "Simulator: kit fixes for champions far from real games",
+   "spearman": 0.445,
+   "ci95": [
+    0.3,
+    0.566
+   ],
+   "role_adjusted": 0.56,
+   "taken": 0.675,
+   "n": 173
+  },
+  {
+   "commit": "598ce192",
+   "date": "2026-10-17",
+   "pr": 110,
+   "title": "Simulator: champion passives deal damage",
+   "spearman": 0.403,
+   "ci95": [
+    0.264,
+    0.527
+   ],
+   "role_adjusted": 0.58,
+   "taken": null,
+   "n": 173
+  },
+  {
+   "commit": "7c1afa8c",
+   "date": "2026-10-17",
+   "pr": 291,
+   "title": "Simulator: enemy damage builds up over a fight's first 3 seconds",
+   "spearman": 0.411,
+   "ci95": [
+    0.262,
+    0.537
+   ],
+   "role_adjusted": 0.558,
+   "taken": 0.657,
+   "n": 173
+  },
+  {
+   "commit": "f1d9139b",
+   "date": "2026-10-17",
+   "pr": 121,
+   "title": "Simulator: passives, crit, self-heals, mana, enemy abilities, and a 5v5 tab",
+   "spearman": 0.399,
+   "ci95": [
+    0.254,
+    0.53
+   ],
+   "role_adjusted": 0.56,
+   "taken": null,
+   "n": 173
+  },
+  {
+   "commit": "4be94a36",
+   "date": "2026-10-18",
+   "pr": 293,
+   "title": "Simulator: round 2 kit fixes, Thornmail and Vulnerability",
+   "spearman": 0.443,
+   "ci95": [
+    0.296,
+    0.568
+   ],
+   "role_adjusted": 0.559,
+   "taken": 0.671,
+   "n": 173
+  },
+  {
+   "commit": "5e71f86c",
+   "date": "2026-10-18",
+   "pr": 328,
+   "title": "Simulator: model every Howling Abyss shop item and augment reward item",
+   "spearman": 0.475,
+   "ci95": [
+    0.332,
+    0.599
+   ],
+   "role_adjusted": 0.576,
+   "taken": 0.708,
+   "n": 173
+  },
+  {
+   "commit": "b57dfd39",
+   "date": "2026-10-18",
+   "pr": 309,
+   "title": "Simulator: make every pool augment take effect where the kit allows",
+   "spearman": 0.449,
+   "ci95": [
+    0.303,
+    0.576
+   ],
+   "role_adjusted": 0.567,
+   "taken": 0.68,
+   "n": 173
+  },
+  {
+   "commit": "38e72538",
+   "date": "2026-10-20",
+   "pr": 353,
+   "title": "Simulator: kit fixes from the client's spell data (Karthus, Ryze, Kassadin, Morgana) and a better accuracy check",
+   "spearman": 0.493,
+   "ci95": [
+    0.355,
+    0.611
+   ],
+   "role_adjusted": 0.587,
+   "taken": 0.707,
+   "n": 173
+  },
+  {
+   "commit": "89fb3ef5",
+   "date": "2026-10-20",
+   "pr": 367,
+   "title": "Simulator: Tier 1 kit fixes and Tier 6 engine features (Viego, Sylas, Aphelios, Hwei, Yuumi, Renata, Ivern)",
+   "spearman": 0.51,
+   "ci95": [
+    0.373,
+    0.625
+   ],
+   "role_adjusted": 0.601,
+   "taken": 0.702,
+   "n": 173
+  },
+  {
+   "commit": "d220978b",
+   "date": "2026-10-20",
+   "pr": 352,
+   "title": "Simulator: random enemy after each kill, cooldowns under the arena, enemy dashes, PBE best builds",
+   "spearman": 0.481,
+   "ci95": [
+    0.342,
+    0.603
+   ],
+   "role_adjusted": 0.575,
+   "taken": 0.707,
+   "n": 173
+  },
+  {
+   "commit": "bfb7b8d1",
+   "date": "2026-10-21",
+   "pr": 395,
+   "title": "Simulator on live patch 26.21: data, best builds, traces and PBE 26.22",
+   "spearman": 0.485,
+   "ci95": [
+    0.348,
+    0.603
+   ],
+   "role_adjusted": 0.576,
+   "taken": 0.717,
+   "n": 173
+  },
+  {
+   "commit": "be0a5787",
+   "date": "2026-10-27",
+   "pr": 459,
+   "title": "Pentakill picks judged by role; Simulated label on augment sets without real games",
+   "spearman": 0.485,
+   "ci95": [
+    0.348,
+    0.603
+   ],
+   "role_adjusted": 0.576,
+   "taken": 0.717,
+   "n": 173
+  }
+ ],
+ "history_current": {
+  "spearman": 0.478,
+  "ci95": [
+   0.337,
+   0.6
+  ],
+  "role_adjusted": 0.573,
+  "taken": 0.739,
+  "n": 173
+ }
+}

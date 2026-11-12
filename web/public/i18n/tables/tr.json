@@ -138,5 +138,21 @@
  "Few games": "Az oyun",
  "Too few games": "Çok az oyun",
  "Few games marks a win rate that could be off by more than 5 pts either way, so small differences there are likely noise. Under 10 games it says Too few games.": "Az oyun, her iki yönde de 5 puandan fazla sapabilecek bir kazanma oranını işaretler; bu yüzden oradaki küçük farklar büyük olasılıkla rastlantıdır. 10 oyunun altında Çok az oyun yazar.",
- "With Page detail set to Detailed, win rates show a ± range: the true rate is within it 95% of the time.": "Sayfa ayrıntısı Ayrıntılı olarak ayarlandığında kazanma oranları ± aralığı gösterir: gerçek oran zamanın %95'inde bu aralıktadır."
+ "With Page detail set to Detailed, win rates show a ± range: the true rate is within it 95% of the time.": "Sayfa ayrıntısı Ayrıntılı olarak ayarlandığında kazanma oranları ± aralığı gösterir: gerçek oran zamanın %95'inde bu aralıktadır.",
+ "Damage dealt modifier": "Verilen hasar çarpanı",
+ "Damage taken modifier": "Alınan hasar çarpanı",
+ "Ability damage": "Yetenek hasarı",
+ "Base attack damage": "Temel saldırı gücü",
+ "Base attack speed": "Temel saldırı hızı",
+ "Base health": "Temel can",
+ "Base armor and magic resist": "Temel zırh ve büyü direnci",
+ "Damage per fight": "Dövüş başına hasar",
+ "Damage per second": "Saniye başına hasar",
+ "Time alive": "Hayatta kalma süresi",
+ "Low": "Alt",
+ "High": "Üst",
+ "Bias %": "Sapma %",
+ "Order within role": "Rol içi sıra",
+ "Real ÷ predicted": "Gerçek ÷ tahmin",
+ "Find an item": "Eşya bul"
 }
