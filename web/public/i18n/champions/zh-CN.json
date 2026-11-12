@@ -220,5 +220,9 @@
  "damage share": "伤害占比",
  "damage soaked": "承受伤害",
  "kill participation": "击杀参与率",
- "time dead": "死亡时间"
+ "time dead": "死亡时间",
+ "Boost": "提升",
+ "Boost is estimated: how many points of win rate the augment adds to this champion.": "提升为估算值：该强化符文为这位英雄增加多少个百分点的胜率。",
+ "Estimated: augments that pair well on this champion, best first.": "估算：在这位英雄身上搭配良好的强化符文组合，按优劣排序。",
+ "Augment pairs appear here once enough games are in. Each pair needs a minimum number of games before it shows.": "当对局数足够时，强化符文组合会显示在这里。每个组合需要达到最低对局数才会显示。"
 }

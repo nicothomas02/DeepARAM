@@ -220,5 +220,9 @@
  "damage share": "tỉ lệ sát thương",
  "damage soaked": "sát thương hứng chịu",
  "kill participation": "tham gia hạ gục",
- "time dead": "thời gian chết"
+ "time dead": "thời gian chết",
+ "Boost": "Mức tăng",
+ "Boost is estimated: how many points of win rate the augment adds to this champion.": "Mức tăng là ước tính: lõi nâng cấp cộng thêm bao nhiêu điểm tỉ lệ thắng cho tướng này.",
+ "Estimated: augments that pair well on this champion, best first.": "Ước tính: các lõi nâng cấp hợp nhau trên tướng này, tốt nhất trước.",
+ "Augment pairs appear here once enough games are in. Each pair needs a minimum number of games before it shows.": "Các cặp lõi nâng cấp sẽ hiện ở đây khi có đủ trận. Mỗi cặp cần số trận tối thiểu trước khi hiện."
 }

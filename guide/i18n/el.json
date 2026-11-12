@@ -75,7 +75,7 @@
  "Some augments are quests: hit a goal during the game and they turn into something bigger, including items you can't buy anywhere else.": "Ορισμένες βελτιώσεις είναι αποστολές: πέτυχε έναν στόχο μέσα στο παιχνίδι και γίνονται κάτι μεγαλύτερο, ακόμα και αντικείμενα που δεν αγοράζεις πουθενά αλλού.",
  "One augment at levels {levels}.": "Μία βελτίωση στα επίπεδα {levels}.",
  "Everyone picks from the same rarity at each selection.": "Σε κάθε επιλογή όλοι διαλέγουν από την ίδια σπανιότητα.",
- "You choose augments while your champion is dead.": "Διαλέγεις βελτιώσεις όσο ο ήρωάς σου είναι νεκρός.",
+ "You choose augments whenever you can shop: while your champion is dead or back at your fountain.": "Διαλέγεις βελτιώσεις όποτε μπορείς να ψωνίσεις: όσο ο ήρωάς σου είναι νεκρός ή πίσω στη βάση σου.",
  "Each selection shows {cards} augments of one rarity, and each of the {cards} can be rerolled once, so you can see up to {max}.": "Κάθε επιλογή δείχνει {cards} βελτιώσεις μίας σπανιότητας και καθεμία από τις {cards} μπορεί να ανανεωθεί μία φορά, οπότε βλέπεις έως {max}.",
  "Each selection shows {cards} augments of one rarity, and each of the {cards} can be rerolled {n} times, so you can see up to {max}.": "Κάθε επιλογή δείχνει {cards} βελτιώσεις μίας σπανιότητας και καθεμία από τις {cards} μπορεί να ανανεωθεί {n} φορές, οπότε βλέπεις έως {max}.",
  "Attack speed can go up to {cap} attacks per second ({aram} in regular ARAM).": "Η ταχύτητα επίθεσης φτάνει έως {cap} επιθέσεις το δευτερόλεπτο ({aram} στο κανονικό ARAM).",

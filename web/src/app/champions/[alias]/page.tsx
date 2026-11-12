@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element -- small local icons */
 import type { Metadata } from "next";
+import { SHOW_AUGMENT_WIN_RATES } from "@/lib/augment-policy";
 import { Breadcrumbs } from "@/components/JsonLd";
 import Link from "next/link";
 import RowLink from "@/components/RowLink";
@@ -342,6 +343,8 @@ export default async function ChampionPage({
     .map((a) => ({
       ...a,
       ...est?.augments.get(a.id),
+      // Augment win rates stay off the page while Riot's policy rules them out (lib/augment-policy.ts).
+      ...(SHOW_AUGMENT_WIN_RATES ? {} : { winRate: undefined }),
       stages: pickStages.get(a.id),
       deepScore: scores.get(a.id),
       href: augmentHref(a.id) ?? undefined,
@@ -404,12 +407,17 @@ export default async function ChampionPage({
           [c.name, `/champions/${c.alias}`],
         ]}
       />
-      <SplashAccent src={c.splash} />
+      {/* The colour sample only needs a few pixels, so it reads the small tile when there is one. */}
+      <SplashAccent src={c.splashSmall ?? c.splash} />
       <section
         className="champ-hero cp-hero"
         style={
           c.splash
-            ? ({ "--splash": `url("${c.splash}")` } as React.CSSProperties)
+            ? ({
+                "--splash": `url("${c.splash}")`,
+                // Phones get the small tile: the full splash was a quarter of the page's weight (site idea 2026-11-05).
+                ...(c.splashSmall ? { "--splash-small": `url("${c.splashSmall}")` } : {}),
+              } as React.CSSProperties)
             : undefined
         }
       >
@@ -695,11 +703,15 @@ export default async function ChampionPage({
               count={p.augments.length}
               note={
                 est?.augments.size ? (
-                  <T ns={NS}>
-                    {
-                      "Win rates are estimated. The boost below each is how much the augment adds to this champion's win rate."
-                    }
-                  </T>
+                  SHOW_AUGMENT_WIN_RATES ? (
+                    <T ns={NS}>
+                      {
+                        "Win rates are estimated. The boost below each is how much the augment adds to this champion's win rate."
+                      }
+                    </T>
+                  ) : (
+                    <T ns={NS}>{"Boost is estimated: how many points of win rate the augment adds to this champion."}</T>
+                  )
                 ) : undefined
               }
             >
@@ -712,23 +724,27 @@ export default async function ChampionPage({
               title="Augment combinations"
               count={est.pairs.length}
               note={
-                <T ns={NS}>
-                  {
-                    "Estimated: augments that pair well on this champion, with their win rate together."
-                  }
-                </T>
+                SHOW_AUGMENT_WIN_RATES ? (
+                  <T ns={NS}>
+                    {
+                      "Estimated: augments that pair well on this champion, with their win rate together."
+                    }
+                  </T>
+                ) : (
+                  <T ns={NS}>{"Estimated: augments that pair well on this champion, best first."}</T>
+                )
               }
             >
-              <Head what="Augment pair" cols={["Est. win rate", "Pick rate"]} />
+              <Head what="Augment pair" cols={SHOW_AUGMENT_WIN_RATES ? ["Est. win rate", "Pick rate"] : ["Pick rate"]} />
               <ShowMore total={est.pairs.length} limit={5}>
                 {est.pairs.map((r, i) => (
                   <Row
                     key={r.ids.join("-")}
                     rank={i + 1}
-                    cols={2}
+                    cols={SHOW_AUGMENT_WIN_RATES ? 2 : 1}
                     cells={
                       <>
-                        <Cell value={pct(r.winRate)} label="Est. win rate" />
+                        {SHOW_AUGMENT_WIN_RATES && <Cell value={pct(r.winRate)} label="Est. win rate" />}
                         <Cell value={pct(r.pickRate)} label="Pick rate" />
                       </>
                     }
@@ -758,7 +774,7 @@ export default async function ChampionPage({
             </Panel>
           ) : (
             <Panel id="combos" title="Augment combinations">
-              <NotYet text="Augment pairs and their win rates appear here once enough games are in. Each pair needs a minimum number of games before it shows." />
+              <NotYet text="Augment pairs appear here once enough games are in. Each pair needs a minimum number of games before it shows." />
             </Panel>
           )}
           {upgrades && <BestUpgrades u={upgrades} />}

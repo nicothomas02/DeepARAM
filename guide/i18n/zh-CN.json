@@ -75,7 +75,7 @@
  "Some augments are quests: hit a goal during the game and they turn into something bigger, including items you can't buy anywhere else.": "部分强化符文是任务：在对局中达成目标后会变得更强，还可能获得其他地方买不到的装备。",
  "One augment at levels {levels}.": "在 {levels} 级各获得一个强化符文。",
  "Everyone picks from the same rarity at each selection.": "每次选择时所有人都从同一稀有度中挑选。",
- "You choose augments while your champion is dead.": "你会在英雄阵亡期间选择强化符文。",
+ "You choose augments whenever you can shop: while your champion is dead or back at your fountain.": "只要能购物就能选择强化：英雄阵亡时或回到泉水时。",
  "Each selection shows {cards} augments of one rarity, and each of the {cards} can be rerolled once, so you can see up to {max}.": "每次选择会展示 {cards} 个同一稀有度的强化符文，{cards} 个都可以各刷新一次，因此最多能看到 {max} 个。",
  "Each selection shows {cards} augments of one rarity, and each of the {cards} can be rerolled {n} times, so you can see up to {max}.": "每次选择会展示 {cards} 个同一稀有度的强化符文，{cards} 个都可以各刷新 {n} 次，因此最多能看到 {max} 个。",
  "Attack speed can go up to {cap} attacks per second ({aram} in regular ARAM).": "攻击速度最高可达每秒 {cap} 次（普通极地大乱斗为 {aram}）。",

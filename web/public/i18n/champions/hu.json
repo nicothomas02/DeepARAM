@@ -220,5 +220,9 @@
  "damage share": "sebzésrészesedés",
  "damage soaked": "elnyelt sebzés",
  "kill participation": "részvétel az ölésekben",
- "time dead": "halottként töltött idő"
+ "time dead": "halottként töltött idő",
+ "Boost": "Növelés",
+ "Boost is estimated: how many points of win rate the augment adds to this champion.": "A növelés becsült: hány százalékponttal emeli a fejlesztés ennek a hősnek a győzelmi arányát.",
+ "Estimated: augments that pair well on this champion, best first.": "Becsült: fejlesztések, amelyek jól illenek egymáshoz ezen a hősön, a legjobbak elöl.",
+ "Augment pairs appear here once enough games are in. Each pair needs a minimum number of games before it shows.": "A fejlesztéspárok itt jelennek meg, amint elég meccs gyűlik össze. Minden párnak el kell érnie egy minimális meccsszámot, mielőtt megjelenik."
 }

@@ -1208,7 +1208,9 @@
    "items": [],
    "theory": "The build leans on Critical Healing.",
    "test": "Tryndamere has never been seen taking Critical Healing, so it may not be in their augment pool. Check whether it's ever offered on Tryndamere.",
-   "build": "tryndamere-bloodlust-doctor"
+   "build": "tryndamere-bloodlust-doctor",
+   "augment": "Critical Healing",
+   "why": "unseen"
   },
   {
    "id": "pool-janna-speeding-ticket-tap_dancer",
@@ -1223,7 +1225,9 @@
    "items": [],
    "theory": "The build leans on Tap Dancer.",
    "test": "Janna has never been seen taking Tap Dancer, so it may not be in their augment pool. Check whether it's ever offered on Janna.",
-   "build": "janna-speeding-ticket"
+   "build": "janna-speeding-ticket",
+   "augment": "Tap Dancer",
+   "why": "unseen"
   },
   {
    "id": "pool-janna-speeding-ticket-get_excited",
@@ -1238,7 +1242,9 @@
    "items": [],
    "theory": "The build leans on Get Excited!.",
    "test": "Janna has never been seen taking Get Excited!, so it may not be in their augment pool. Check whether it's ever offered on Janna.",
-   "build": "janna-speeding-ticket"
+   "build": "janna-speeding-ticket",
+   "augment": "Get Excited!",
+   "why": "unseen"
   },
   {
    "id": "pool-ivern-hedge-fund-hide_on_bush",
@@ -1251,7 +1257,9 @@
    "items": [],
    "theory": "The build leans on Hide on Bush.",
    "test": "Hide on Bush isn't in Mayhem on this patch.",
-   "build": "ivern-hedge-fund"
+   "build": "ivern-hedge-fund",
+   "augment": "Hide on Bush",
+   "why": "gone"
   },
   {
    "id": "pool-ivern-hedge-fund-nature_is_healing",
@@ -1266,7 +1274,9 @@
    "items": [],
    "theory": "The build leans on Nature is Healing.",
    "test": "There are no stats on Nature is Healing yet this patch. Check that Ivern can still be offered it.",
-   "build": "ivern-hedge-fund"
+   "build": "ivern-hedge-fund",
+   "augment": "Nature is Healing",
+   "why": "no_data"
   },
   {
    "id": "pool-ivern-hedge-fund-lil_extra_help",
@@ -1281,7 +1291,9 @@
    "items": [],
    "theory": "The build leans on Lil' Extra Help.",
    "test": "Ivern has never been seen taking Lil' Extra Help, so it may not be in their augment pool. Check whether it's ever offered on Ivern.",
-   "build": "ivern-hedge-fund"
+   "build": "ivern-hedge-fund",
+   "augment": "Lil' Extra Help",
+   "why": "unseen"
   },
   {
    "id": "pool-quinn-wall-street-bouncer-chain_reaction",
@@ -1296,7 +1308,9 @@
    "items": [],
    "theory": "The build leans on Chain Reaction.",
    "test": "Quinn has never been seen taking Chain Reaction, so it may not be in their augment pool. Check whether it's ever offered on Quinn.",
-   "build": "quinn-wall-street-bouncer"
+   "build": "quinn-wall-street-bouncer",
+   "augment": "Chain Reaction",
+   "why": "unseen"
   },
   {
    "id": "pool-quinn-wall-street-bouncer-ravenous_bind",
@@ -1311,7 +1325,9 @@
    "items": [],
    "theory": "The build leans on Ravenous Bind.",
    "test": "Quinn has never been seen taking Ravenous Bind, so it may not be in their augment pool. Check whether it's ever offered on Quinn.",
-   "build": "quinn-wall-street-bouncer"
+   "build": "quinn-wall-street-bouncer",
+   "augment": "Ravenous Bind",
+   "why": "unseen"
   },
   {
    "id": "pool-quinn-wall-street-bouncer-soul_eater",
@@ -1326,7 +1342,9 @@
    "items": [],
    "theory": "The build leans on Soul Eater.",
    "test": "Quinn has never been seen taking Soul Eater, so it may not be in their augment pool. Check whether it's ever offered on Quinn.",
-   "build": "quinn-wall-street-bouncer"
+   "build": "quinn-wall-street-bouncer",
+   "augment": "Soul Eater",
+   "why": "unseen"
   },
   {
    "id": "pool-zoe-flash-photography-flashbang",
@@ -1341,7 +1359,9 @@
    "items": [],
    "theory": "The build leans on Flashbang.",
    "test": "Zoe has never been seen taking Flashbang, so it may not be in their augment pool. Check whether it's ever offered on Zoe.",
-   "build": "zoe-flash-photography"
+   "build": "zoe-flash-photography",
+   "augment": "Flashbang",
+   "why": "unseen"
   },
   {
    "id": "pool-zoe-flash-photography-flash_2",
@@ -1356,7 +1376,9 @@
    "items": [],
    "theory": "The build leans on Flash 2.",
    "test": "Zoe has never been seen taking Flash 2, so it may not be in their augment pool. Check whether it's ever offered on Zoe.",
-   "build": "zoe-flash-photography"
+   "build": "zoe-flash-photography",
+   "augment": "Flash 2",
+   "why": "unseen"
   },
   {
    "id": "pool-zoe-flash-photography-poltergeist",
@@ -1371,7 +1393,9 @@
    "items": [],
    "theory": "The build leans on Poltergeist.",
    "test": "Zoe has never been seen taking Poltergeist, so it may not be in their augment pool. Check whether it's ever offered on Zoe.",
-   "build": "zoe-flash-photography"
+   "build": "zoe-flash-photography",
+   "augment": "Poltergeist",
+   "why": "unseen"
   },
   {
    "id": "pool-olaf-health-is-mana-ominous_pact",
@@ -1386,7 +1410,9 @@
    "items": [],
    "theory": "The build leans on Ominous Pact.",
    "test": "Olaf has never been seen taking Ominous Pact, so it may not be in their augment pool. Check whether it's ever offered on Olaf.",
-   "build": "olaf-health-is-mana"
+   "build": "olaf-health-is-mana",
+   "augment": "Ominous Pact",
+   "why": "unseen"
   },
   {
    "id": "pool-olaf-health-is-mana-escapade",
@@ -1401,7 +1427,9 @@
    "items": [],
    "theory": "The build leans on escAPADe.",
    "test": "Olaf has never been seen taking escAPADe, so it may not be in their augment pool. Check whether it's ever offered on Olaf.",
-   "build": "olaf-health-is-mana"
+   "build": "olaf-health-is-mana",
+   "augment": "escAPADe",
+   "why": "unseen"
   },
   {
    "id": "pool-olaf-health-is-mana-skilled_sniper",
@@ -1416,7 +1444,9 @@
    "items": [],
    "theory": "The build leans on Skilled Sniper.",
    "test": "Skilled Sniper is only seen on ranged champions, so Olaf can't be offered it. ",
-   "build": "olaf-health-is-mana"
+   "build": "olaf-health-is-mana",
+   "augment": "Skilled Sniper",
+   "why": "range"
   },
   {
    "id": "pool-nilah-whip-blade-nurse-spirit_bomb",
@@ -1431,7 +1461,9 @@
    "items": [],
    "theory": "The build leans on Spirit Bomb.",
    "test": "There are no stats on Spirit Bomb yet this patch. Check that Nilah can still be offered it.",
-   "build": "nilah-whip-blade-nurse"
+   "build": "nilah-whip-blade-nurse",
+   "augment": "Spirit Bomb",
+   "why": "no_data"
   },
   {
    "id": "pool-nilah-whip-blade-nurse-support_main",
@@ -1444,7 +1476,9 @@
    "items": [],
    "theory": "The build leans on Support Main.",
    "test": "Support Main isn't in Mayhem on this patch.",
-   "build": "nilah-whip-blade-nurse"
+   "build": "nilah-whip-blade-nurse",
+   "augment": "Support Main",
+   "why": "gone"
   },
   {
    "id": "pool-reksai-mole-artillery-skilled_sniper",
@@ -1459,7 +1493,9 @@
    "items": [],
    "theory": "The build leans on Skilled Sniper.",
    "test": "Skilled Sniper is only seen on ranged champions, so Rek'Sai can't be offered it. ",
-   "build": "reksai-mole-artillery"
+   "build": "reksai-mole-artillery",
+   "augment": "Skilled Sniper",
+   "why": "range"
   },
   {
    "id": "pool-reksai-mole-artillery-multishot",
@@ -1474,7 +1510,9 @@
    "items": [],
    "theory": "The build leans on Multishot.",
    "test": "Rek'Sai has never been seen taking Multishot, so it may not be in their augment pool. Check whether it's ever offered on Rek'Sai.",
-   "build": "reksai-mole-artillery"
+   "build": "reksai-mole-artillery",
+   "augment": "Multishot",
+   "why": "unseen"
   },
   {
    "id": "pool-reksai-mole-artillery-spell_split",
@@ -1489,7 +1527,9 @@
    "items": [],
    "theory": "The build leans on Spell Split.",
    "test": "Rek'Sai has never been seen taking Spell Split, so it may not be in their augment pool. Check whether it's ever offered on Rek'Sai.",
-   "build": "reksai-mole-artillery"
+   "build": "reksai-mole-artillery",
+   "augment": "Spell Split",
+   "why": "unseen"
   },
   {
    "id": "pool-reksai-mole-artillery-magic_missile",
@@ -1504,7 +1544,9 @@
    "items": [],
    "theory": "The build leans on Magic Missile.",
    "test": "Magic Missile is only seen on ranged champions, so Rek'Sai can't be offered it. ",
-   "build": "reksai-mole-artillery"
+   "build": "reksai-mole-artillery",
+   "augment": "Magic Missile",
+   "why": "range"
   },
   {
    "id": "pool-skarner-crit-happens-vulnerability",
@@ -1519,7 +1561,9 @@
    "items": [],
    "theory": "The build leans on Vulnerability.",
    "test": "Skarner has never been seen taking Vulnerability, so it may not be in their augment pool. Check whether it's ever offered on Skarner.",
-   "build": "skarner-crit-happens"
+   "build": "skarner-crit-happens",
+   "augment": "Vulnerability",
+   "why": "unseen"
   },
   {
    "id": "pool-skarner-crit-happens-tank_it_or_leave_it",
@@ -1534,7 +1578,9 @@
    "items": [],
    "theory": "The build leans on Tank It Or Leave It.",
    "test": "Skarner has never been seen taking Tank It Or Leave It, so it may not be in their augment pool. Check whether it's ever offered on Skarner.",
-   "build": "skarner-crit-happens"
+   "build": "skarner-crit-happens",
+   "augment": "Tank It Or Leave It",
+   "why": "unseen"
   },
   {
    "id": "pool-skarner-crit-happens-infernal_conduit",
@@ -1549,7 +1595,9 @@
    "items": [],
    "theory": "The build leans on Infernal Conduit.",
    "test": "Skarner has never been seen taking Infernal Conduit, so it may not be in their augment pool. Check whether it's ever offered on Skarner.",
-   "build": "skarner-crit-happens"
+   "build": "skarner-crit-happens",
+   "augment": "Infernal Conduit",
+   "why": "unseen"
   },
   {
    "id": "pool-irelia-forgot-how-to-auto-purist_caster",
@@ -1564,7 +1612,9 @@
    "items": [],
    "theory": "The build leans on Purist - Caster.",
    "test": "Irelia has never been seen taking Purist - Caster, so it may not be in their augment pool. Check whether it's ever offered on Irelia.",
-   "build": "irelia-forgot-how-to-auto"
+   "build": "irelia-forgot-how-to-auto",
+   "augment": "Purist - Caster",
+   "why": "unseen"
   },
   {
    "id": "pool-irelia-forgot-how-to-auto-double_strike",
@@ -1577,7 +1627,9 @@
    "items": [],
    "theory": "The build leans on Double Strike.",
    "test": "Double Strike isn't in Mayhem on this patch.",
-   "build": "irelia-forgot-how-to-auto"
+   "build": "irelia-forgot-how-to-auto",
+   "augment": "Double Strike",
+   "why": "gone"
   },
   {
    "id": "pool-kled-nail-gun-salesman-reload",
@@ -1592,7 +1644,9 @@
    "items": [],
    "theory": "The build leans on Reload.",
    "test": "There are no stats on Reload yet this patch. Check that Kled can still be offered it.",
-   "build": "kled-nail-gun-salesman"
+   "build": "kled-nail-gun-salesman",
+   "augment": "Reload",
+   "why": "no_data"
   },
   {
    "id": "pool-kled-nail-gun-salesman-lil_extra_help",
@@ -1607,7 +1661,9 @@
    "items": [],
    "theory": "The build leans on Lil' Extra Help.",
    "test": "Kled has never been seen taking Lil' Extra Help, so it may not be in their augment pool. Check whether it's ever offered on Kled.",
-   "build": "kled-nail-gun-salesman"
+   "build": "kled-nail-gun-salesman",
+   "augment": "Lil' Extra Help",
+   "why": "unseen"
   },
   {
    "id": "pool-kled-nail-gun-salesman-pin_cushion",
@@ -1622,7 +1678,9 @@
    "items": [],
    "theory": "The build leans on Pin Cushion.",
    "test": "Kled has never been seen taking Pin Cushion, so it may not be in their augment pool. Check whether it's ever offered on Kled.",
-   "build": "kled-nail-gun-salesman"
+   "build": "kled-nail-gun-salesman",
+   "augment": "Pin Cushion",
+   "why": "unseen"
   },
   {
    "id": "pool-annie-daycare-director-enchanting_butterflies",
@@ -1637,7 +1695,9 @@
    "items": [],
    "theory": "The build leans on Enchanting Butterflies.",
    "test": "Annie has never been seen taking Enchanting Butterflies, so it may not be in their augment pool. Check whether it's ever offered on Annie.",
-   "build": "annie-daycare-director"
+   "build": "annie-daycare-director",
+   "augment": "Enchanting Butterflies",
+   "why": "unseen"
   },
   {
    "id": "pool-annie-daycare-director-sonic_boom",
@@ -1652,7 +1712,9 @@
    "items": [],
    "theory": "The build leans on Sonic Boom.",
    "test": "Annie has never been seen taking Sonic Boom, so it may not be in their augment pool. Check whether it's ever offered on Annie.",
-   "build": "annie-daycare-director"
+   "build": "annie-daycare-director",
+   "augment": "Sonic Boom",
+   "why": "unseen"
   },
   {
    "id": "pool-zac-deceased-repeatedly-hellbent",
@@ -1667,7 +1729,9 @@
    "items": [],
    "theory": "The build leans on Hellbent.",
    "test": "There are no stats on Hellbent yet this patch. Check that Zac can still be offered it.",
-   "build": "zac-deceased-repeatedly"
+   "build": "zac-deceased-repeatedly",
+   "augment": "Hellbent",
+   "why": "no_data"
   },
   {
    "id": "pool-zeri-right-click-veigar-twin_fire",
@@ -1682,7 +1746,9 @@
    "items": [],
    "theory": "The build leans on Twin Fire.",
    "test": "Zeri has never been seen taking Twin Fire, so it may not be in their augment pool. Check whether it's ever offered on Zeri.",
-   "build": "zeri-right-click-veigar"
+   "build": "zeri-right-click-veigar",
+   "augment": "Twin Fire",
+   "why": "unseen"
   },
   {
    "id": "pool-elise-revolving-door-stuck_in_here_with_me",
@@ -1697,7 +1763,9 @@
    "items": [],
    "theory": "The build leans on Stuck In Here With Me.",
    "test": "Elise has never been seen taking Stuck In Here With Me, so it may not be in their augment pool. Check whether it's ever offered on Elise.",
-   "build": "elise-revolving-door"
+   "build": "elise-revolving-door",
+   "augment": "Stuck In Here With Me",
+   "why": "unseen"
   },
   {
    "id": "pool-elise-revolving-door-ultimate_unstoppable",
@@ -1712,7 +1780,9 @@
    "items": [],
    "theory": "The build leans on Ultimate Unstoppable.",
    "test": "Elise has never been seen taking Ultimate Unstoppable, so it may not be in their augment pool. Check whether it's ever offered on Elise.",
-   "build": "elise-revolving-door"
+   "build": "elise-revolving-door",
+   "augment": "Ultimate Unstoppable",
+   "why": "unseen"
   },
   {
    "id": "pool-cassiopeia-drive-by-serpent-quickstep",
@@ -1727,7 +1797,9 @@
    "items": [],
    "theory": "The build leans on Quickstep.",
    "test": "Cassiopeia has never been seen taking Quickstep, so it may not be in their augment pool. Check whether it's ever offered on Cassiopeia.",
-   "build": "cassiopeia-drive-by-serpent"
+   "build": "cassiopeia-drive-by-serpent",
+   "augment": "Quickstep",
+   "why": "unseen"
   },
   {
    "id": "pool-cassiopeia-drive-by-serpent-shadow_runner",
@@ -1742,7 +1814,9 @@
    "items": [],
    "theory": "The build leans on Shadow Runner.",
    "test": "Cassiopeia has never been seen taking Shadow Runner, so it may not be in their augment pool. Check whether it's ever offered on Cassiopeia.",
-   "build": "cassiopeia-drive-by-serpent"
+   "build": "cassiopeia-drive-by-serpent",
+   "augment": "Shadow Runner",
+   "why": "unseen"
   },
   {
    "id": "pool-cassiopeia-drive-by-serpent-earthwake",
@@ -1757,7 +1831,9 @@
    "items": [],
    "theory": "The build leans on Earthwake.",
    "test": "Cassiopeia has never been seen taking Earthwake, so it may not be in their augment pool. Check whether it's ever offered on Cassiopeia.",
-   "build": "cassiopeia-drive-by-serpent"
+   "build": "cassiopeia-drive-by-serpent",
+   "augment": "Earthwake",
+   "why": "unseen"
   },
   {
    "id": "pool-azir-melee-by-proxy-draw_your_sword",
@@ -1772,7 +1848,9 @@
    "items": [],
    "theory": "The build leans on Draw Your Sword.",
    "test": "Azir has never been seen taking Draw Your Sword, so it may not be in their augment pool. Check whether it's ever offered on Azir.",
-   "build": "azir-melee-by-proxy"
+   "build": "azir-melee-by-proxy",
+   "augment": "Draw Your Sword",
+   "why": "unseen"
   },
   {
    "id": "pool-anivia-overdraft-protection-mighty_shield",
@@ -1787,7 +1865,9 @@
    "items": [],
    "theory": "The build leans on Mighty Shield.",
    "test": "Anivia has never been seen taking Mighty Shield, so it may not be in their augment pool. Check whether it's ever offered on Anivia.",
-   "build": "anivia-overdraft-protection"
+   "build": "anivia-overdraft-protection",
+   "augment": "Mighty Shield",
+   "why": "unseen"
   }
  ]
 }

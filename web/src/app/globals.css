@@ -2948,6 +2948,13 @@ html[data-motion="reduce"] .btn:hover {
   mask-image: linear-gradient(90deg, transparent 15%, #000 75%);
 }
 
+@media (max-width: 640px) {
+  .champ-hero::before {
+    background-image: var(--splash-small, var(--splash));
+    background-position: 50% 20%;
+  }
+}
+
 .champ-hero .eyebrow a {
   color: inherit;
 }
@@ -3327,6 +3334,18 @@ html[data-motion="reduce"] .btn:hover {
 
 .recap-top .delta-up {
   color: var(--good);
+}
+
+.recap-top .delta-down {
+  color: var(--bad);
+}
+
+/* Riser and faller stacked in the row's last column. */
+.recap-tops {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.25rem;
 }
 
 .rank-v.wr-high {

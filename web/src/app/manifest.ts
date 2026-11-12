@@ -6,7 +6,7 @@ export default function manifest(): MetadataRoute.Manifest {
   return {
     name: "DeepARAM",
     short_name: "DeepARAM",
-    description: "ARAM Mayhem tier list, augment win rates and a teamfight simulator.",
+    description: "ARAM Mayhem tier list, augment rankings and a teamfight simulator.",
     start_url: "/",
     display: "standalone",
     background_color: THEME_COLORS.dark,

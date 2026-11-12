@@ -10,6 +10,7 @@ import DeepScore from "@/components/DeepScore";
 import { signedPts, tone } from "@/components/champion/Ranked";
 import type { AugmentRow } from "@/lib/champion-page";
 import { AUGMENT_DEEPSCORE_HELP } from "@/lib/deepscore";
+import { SHOW_AUGMENT_WIN_RATES } from "@/lib/augment-policy";
 
 // A champion's augments as one ranked table with rarity and augment pick filters, best DeepScore first, each with the game's
 // build tags, ten to a page. The number columns' headers re-sort it (highest first; a second click flips it).
@@ -27,7 +28,7 @@ const PAGE = 10;
 const PICKS = ["any", 0, 1, 2, 3] as const;
 const PICK_LABEL = ["1st augment", "2nd augment", "3rd augment", "4th augment"];
 const FAIR_SHARE = 0.25;
-type SortKey = "deepScore" | "winRate" | "pickRate";
+type SortKey = "deepScore" | "winRate" | "lift" | "pickRate";
 
 export default function AugmentTable({
   rows,
@@ -108,7 +109,7 @@ export default function AugmentTable({
     </span>
   );
   // Estimated win rates, when there are any: an extra column with each augment's win rate boost below it.
-  const est = rows.some((r) => r.winRate !== undefined);
+  const est = rows.some((r) => r.winRate !== undefined || r.lift !== undefined);
   const cols = est ? 3 : 2;
   const pages = Math.ceil(shown.length / PAGE);
   const at = Math.min(page, Math.max(0, pages - 1));
@@ -176,7 +177,7 @@ export default function AugmentTable({
         <span>{t("Rank")}</span>
         <span>{t("Augment")}</span>
         {head("deepScore", "DeepScore")}
-        {est && head("winRate", "Est. win rate")}
+        {est && (SHOW_AUGMENT_WIN_RATES ? head("winRate", "Est. win rate") : head("lift", "Boost"))}
         {head("pickRate", "Pick rate")}
       </div>
       <div className="cp-rows">
@@ -260,7 +261,10 @@ export default function AugmentTable({
               </div>
               {est && (
                 <div className="cp-cell">
-                  {a.winRate !== undefined ? (
+                  {!SHOW_AUGMENT_WIN_RATES && a.lift !== undefined ? (
+                    // Riot's policy rules out augment win rates (lib/augment-policy.ts): just the boost, in points.
+                    <b className={tone(a.lift ?? 0)}>{tt("{n} pts", { n: signedPts(a.lift ?? 0) })}</b>
+                  ) : SHOW_AUGMENT_WIN_RATES && a.winRate !== undefined ? (
                     <>
                       <b className={tone(a.lift ?? 0)}>
                         {(a.winRate * 100).toFixed(1)}%

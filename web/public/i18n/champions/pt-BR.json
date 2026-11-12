@@ -220,5 +220,9 @@
  "damage share": "parcela de dano",
  "damage soaked": "dano absorvido",
  "kill participation": "participação em abates",
- "time dead": "tempo morto"
+ "time dead": "tempo morto",
+ "Boost": "Bônus",
+ "Boost is estimated: how many points of win rate the augment adds to this champion.": "O bônus é estimado: quantos pontos de taxa de vitória o aprimoramento adiciona a este campeão.",
+ "Estimated: augments that pair well on this champion, best first.": "Estimado: aprimoramentos que combinam bem neste campeão, os melhores primeiro.",
+ "Augment pairs appear here once enough games are in. Each pair needs a minimum number of games before it shows.": "Os pares de aprimoramentos aparecem aqui quando houver partidas suficientes. Cada par precisa de um número mínimo de partidas antes de aparecer."
 }

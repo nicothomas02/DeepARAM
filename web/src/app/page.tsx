@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { SHOW_AUGMENT_WIN_RATES } from "@/lib/augment-policy";
 import RowLink from "@/components/RowLink";
 import { text } from "@/lib/content";
 import { chefsSpecial, statsDate, counts, kitchenBuilds, livePatch, liveTiers, topAugments, topDps, topItems } from "@/lib/highlights";
@@ -369,7 +370,7 @@ export default function Home() {
                   ))}
               </div>
             )}
-            {special.winRate !== null && (
+            {SHOW_AUGMENT_WIN_RATES && special.winRate !== null && (
               <p className="table-note">
                 <T v={{ wr: pct(special.winRate) }}>{"Won {wr} of games with this core."}</T>
               </p>

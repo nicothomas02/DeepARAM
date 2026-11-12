@@ -75,7 +75,7 @@
  "Some augments are quests: hit a goal during the game and they turn into something bigger, including items you can't buy anywhere else.": "Some augments are quests: hit a goal during the game and they turn into something bigger, including items you can't buy anywhere else.",
  "One augment at levels {levels}.": "One augment at levels {levels}.",
  "Everyone picks from the same rarity at each selection.": "Everyone picks from the same rarity at each selection.",
- "You choose augments while your champion is dead.": "You choose augments while your champion is dead.",
+ "You choose augments whenever you can shop: while your champion is dead or back at your fountain.": "You choose augments whenever you can shop: while your champion is dead or back at your fountain.",
  "Each selection shows {cards} augments of one rarity, and each of the {cards} can be rerolled once, so you can see up to {max}.": "Each selection shows {cards} augments of one rarity, and each of the {cards} can be rerolled once, so you can see up to {max}.",
  "Each selection shows {cards} augments of one rarity, and each of the {cards} can be rerolled {n} times, so you can see up to {max}.": "Each selection shows {cards} augments of one rarity, and each of the {cards} can be rerolled {n} times, so you can see up to {max}.",
  "Attack speed can go up to {cap} attacks per second ({aram} in regular ARAM).": "Attack speed can go up to {cap} attacks per second ({aram} in regular ARAM).",

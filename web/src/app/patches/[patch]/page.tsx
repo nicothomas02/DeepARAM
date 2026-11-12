@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SHOW_AUGMENT_WIN_RATES } from "@/lib/augment-policy";
 import { Breadcrumbs } from "@/components/JsonLd";
 import Link from "next/link";
 import RowLink from "@/components/RowLink";
@@ -33,7 +34,7 @@ export async function generateMetadata({ params }: { params: Promise<{ patch: st
 }
 
 const EFFECT = (descriptions as { augments: Record<string, string> }).augments;
-// Today's rarity and win rate for augments still in the pool (new ones keep no rarity in the patch history).
+// Today's rarity (and win rate, if lib/augment-policy.ts allows it) for augments still in the pool (new ones keep no rarity in the patch history).
 const live = () => new Map(augmentPages().map((p) => [String(p.id), p]));
 
 function Aug({ a, info }: { a: AugRef; info?: { tier: string; winRate: number } }) {
@@ -79,7 +80,7 @@ function Aug({ a, info }: { a: AugRef; info?: { tier: string; winRate: number } 
           <T ns="patches">{tier[0].toUpperCase() + tier.slice(1)}</T>
         </span>
       )}
-      {info && (
+      {info && SHOW_AUGMENT_WIN_RATES && (
         <span className={`rank-v ${info.winRate >= 0.52 ? "wr-good" : ""}`}>
           {pct(info.winRate)}
         </span>

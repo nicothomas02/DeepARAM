@@ -220,5 +220,9 @@
  "damage share": "porsi damage",
  "damage soaked": "damage yang diserap",
  "kill participation": "partisipasi kill",
- "time dead": "waktu mati"
+ "time dead": "waktu mati",
+ "Boost": "Dorongan",
+ "Boost is estimated: how many points of win rate the augment adds to this champion.": "Dorongan adalah perkiraan: berapa poin win rate yang ditambahkan augment ini pada champion ini.",
+ "Estimated: augments that pair well on this champion, best first.": "Perkiraan: augment yang cocok dipasangkan pada champion ini, yang terbaik lebih dulu.",
+ "Augment pairs appear here once enough games are in. Each pair needs a minimum number of games before it shows.": "Pasangan augment muncul di sini setelah cukup banyak game. Setiap pasangan butuh jumlah game minimum sebelum ditampilkan."
 }

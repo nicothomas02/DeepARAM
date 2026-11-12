@@ -220,5 +220,9 @@
  "damage share": "Schadensanteil",
  "damage soaked": "eingesteckter Schaden",
  "kill participation": "Kill-Beteiligung",
- "time dead": "Zeit tot"
+ "time dead": "Zeit tot",
+ "Boost": "Plus",
+ "Boost is estimated: how many points of win rate the augment adds to this champion.": "Das Plus ist geschätzt: wie viele Punkte Siegrate das Augment diesem Champion bringt.",
+ "Estimated: augments that pair well on this champion, best first.": "Geschätzt: Augments, die auf diesem Champion gut zusammenpassen, die besten zuerst.",
+ "Augment pairs appear here once enough games are in. Each pair needs a minimum number of games before it shows.": "Augment-Paare erscheinen hier, sobald genug Spiele vorliegen. Jedes Paar braucht eine Mindestzahl an Spielen, bevor es angezeigt wird."
 }

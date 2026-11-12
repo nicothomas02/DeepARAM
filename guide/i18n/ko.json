@@ -75,7 +75,7 @@
  "Some augments are quests: hit a goal during the game and they turn into something bigger, including items you can't buy anywhere else.": "일부 증강은 퀘스트입니다. 게임 중 목표를 달성하면 더 강력한 효과로 바뀌며, 다른 곳에서는 살 수 없는 아이템을 얻기도 합니다.",
  "One augment at levels {levels}.": "레벨 {levels}에서 증강 하나.",
  "Everyone picks from the same rarity at each selection.": "각 선택마다 모두가 같은 등급에서 고릅니다.",
- "You choose augments while your champion is dead.": "증강은 챔피언이 죽어 있는 동안 고릅니다.",
+ "You choose augments whenever you can shop: while your champion is dead or back at your fountain.": "증강은 상점을 이용할 수 있을 때 고릅니다: 챔피언이 죽어 있거나 우물로 돌아왔을 때입니다.",
  "Each selection shows {cards} augments of one rarity, and each of the {cards} can be rerolled once, so you can see up to {max}.": "각 선택에서는 한 등급의 증강 {cards}개가 제시되고, {cards}개를 각각 한 번씩 새로고침할 수 있어 최대 {max}개까지 볼 수 있습니다.",
  "Each selection shows {cards} augments of one rarity, and each of the {cards} can be rerolled {n} times, so you can see up to {max}.": "각 선택에서는 한 등급의 증강 {cards}개가 제시되고, {cards}개를 각각 {n}번씩 새로고침할 수 있어 최대 {max}개까지 볼 수 있습니다.",
  "Attack speed can go up to {cap} attacks per second ({aram} in regular ARAM).": "공격 속도는 초당 최대 {cap}회까지 올라갑니다(일반 무작위 총력전은 {aram}).",

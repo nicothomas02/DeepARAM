@@ -75,7 +75,7 @@
  "Some augments are quests: hit a goal during the game and they turn into something bigger, including items you can't buy anywhere else.": "Některé augmenty jsou úkoly: splň během hry cíl a promění se v něco většího, včetně předmětů, které jinde nekoupíš.",
  "One augment at levels {levels}.": "Jeden augment na úrovních {levels}.",
  "Everyone picks from the same rarity at each selection.": "V každém výběru volí všichni ze stejné vzácnosti.",
- "You choose augments while your champion is dead.": "Augmenty si vybíráš, zatímco je tvůj šampion mrtvý.",
+ "You choose augments whenever you can shop: while your champion is dead or back at your fountain.": "Augmenty si vybíráš, kdykoli můžeš nakupovat: když je tvůj šampion mrtvý nebo zpátky u fontány.",
  "Each selection shows {cards} augments of one rarity, and each of the {cards} can be rerolled once, so you can see up to {max}.": "Každý výběr nabídne augmenty jedné vzácnosti (karet: {cards}) a každou z {cards} karet můžeš jednou přehodit, takže jich uvidíš až {max}.",
  "Each selection shows {cards} augments of one rarity, and each of the {cards} can be rerolled {n} times, so you can see up to {max}.": "Každý výběr nabídne augmenty jedné vzácnosti (karet: {cards}) a každou z {cards} karet můžeš přehodit {n}×, takže jich uvidíš až {max}.",
  "Attack speed can go up to {cap} attacks per second ({aram} in regular ARAM).": "Rychlost útoků může dosáhnout až {cap} útoků za sekundu (v běžném ARAM {aram}).",

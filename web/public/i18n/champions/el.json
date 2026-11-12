@@ -220,5 +220,9 @@
  "damage share": "μερίδιο ζημιάς",
  "damage soaked": "ζημιά που απορροφά",
  "kill participation": "συμμετοχή σε kills",
- "time dead": "χρόνος νεκρός"
+ "time dead": "χρόνος νεκρός",
+ "Boost": "Ώθηση",
+ "Boost is estimated: how many points of win rate the augment adds to this champion.": "Η ώθηση είναι εκτίμηση: πόσες μονάδες ποσοστού νίκης προσθέτει το augment σε αυτόν τον champion.",
+ "Estimated: augments that pair well on this champion, best first.": "Εκτίμηση: augments που ταιριάζουν καλά σε αυτόν τον champion, τα καλύτερα πρώτα.",
+ "Augment pairs appear here once enough games are in. Each pair needs a minimum number of games before it shows.": "Τα ζεύγη augments εμφανίζονται εδώ μόλις συγκεντρωθούν αρκετά παιχνίδια. Κάθε ζεύγος χρειάζεται έναν ελάχιστο αριθμό παιχνιδιών για να εμφανιστεί."
 }

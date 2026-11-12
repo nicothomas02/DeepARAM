@@ -75,7 +75,7 @@
  "Some augments are quests: hit a goal during the game and they turn into something bigger, including items you can't buy anywhere else.": "部分強化是任務：在對戰中達成目標後會變得更強，還可能獲得其他地方買不到的裝備。",
  "One augment at levels {levels}.": "在 {levels} 級各獲得一個強化。",
  "Everyone picks from the same rarity at each selection.": "每次選擇時所有人都從同一稀有度中挑選。",
- "You choose augments while your champion is dead.": "你會在英雄陣亡期間選擇強化。",
+ "You choose augments whenever you can shop: while your champion is dead or back at your fountain.": "只要能購物就能選擇強化：英雄陣亡時或回到泉水時。",
  "Each selection shows {cards} augments of one rarity, and each of the {cards} can be rerolled once, so you can see up to {max}.": "每次選擇會顯示 {cards} 個同一稀有度的強化，{cards} 個都能各重抽一次，因此最多可看到 {max} 個。",
  "Each selection shows {cards} augments of one rarity, and each of the {cards} can be rerolled {n} times, so you can see up to {max}.": "每次選擇會顯示 {cards} 個同一稀有度的強化，{cards} 個都能各重抽 {n} 次，因此最多可看到 {max} 個。",
  "Attack speed can go up to {cap} attacks per second ({aram} in regular ARAM).": "攻速最高可達每秒 {cap} 次（一般隨機單中為 {aram}）。",

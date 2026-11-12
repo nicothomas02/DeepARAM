@@ -75,7 +75,7 @@
  "Some augments are quests: hit a goal during the game and they turn into something bigger, including items you can't buy anywhere else.": "Bazı güçlendirmeler görevdir: maç sırasında bir hedefe ulaş, daha büyük bir şeye dönüşsünler; başka hiçbir yerden alınamayan eşyalar da dahil.",
  "One augment at levels {levels}.": "{levels} seviyelerinde birer güçlendirme.",
  "Everyone picks from the same rarity at each selection.": "Her seçimde herkes aynı nadirlikten seçer.",
- "You choose augments while your champion is dead.": "Güçlendirmeleri şampiyonun ölüyken seçersin.",
+ "You choose augments whenever you can shop: while your champion is dead or back at your fountain.": "Güçlendirmeleri alışveriş yapabildiğin her an seçersin: şampiyonun ölüyken ya da çeşmene döndüğünde.",
  "Each selection shows {cards} augments of one rarity, and each of the {cards} can be rerolled once, so you can see up to {max}.": "Her seçim tek bir nadirlikten {cards} güçlendirme gösterir ve {cards} kartın her biri bir kez yenilenebilir; böylece en fazla {max} tane görebilirsin.",
  "Each selection shows {cards} augments of one rarity, and each of the {cards} can be rerolled {n} times, so you can see up to {max}.": "Her seçim tek bir nadirlikten {cards} güçlendirme gösterir ve {cards} kartın her biri {n} kez yenilenebilir; böylece en fazla {max} tane görebilirsin.",
  "Attack speed can go up to {cap} attacks per second ({aram} in regular ARAM).": "Saldırı hızı saniyede en fazla {cap} saldırıya çıkabilir (normal ARAM'da {aram}).",

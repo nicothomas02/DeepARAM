@@ -64,5 +64,6 @@
  "Best augments to pair it with": "相性のいいオーグメント",
  "Win rate when both are taken, across the champions that often pair them.": "両方を取ったときの勝率です。よく組み合わせるチャンピオン全体で集計しています。",
  "Win rate": "勝率",
- "Synergies": "シナジー"
+ "Synergies": "シナジー",
+ "DeepScore": "DeepScore"
 }
