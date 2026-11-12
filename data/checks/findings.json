@@ -3,8 +3,8 @@
  "built": "2026-11-12",
  "checks": {
   "loops": 3,
-  "gap": 46,
-  "sim": 16,
+  "gap": 45,
+  "sim": 15,
   "wasted": 0,
   "kitchen": 40
  },
@@ -37,8 +37,8 @@
    ],
    "theory": "The Simulator puts Berserker's Greaves in Draven's best build: in a fight it adds more than the items it beats.",
    "practice": "In real games, Draven's builds with Berserker's Greaves win 4.1 points less often than their builds without it.",
-   "gap": -0.0414,
-   "share": 0.0605,
+   "gap": -0.0412,
+   "share": 0.06,
    "status": "trap"
   },
   {
@@ -54,8 +54,8 @@
    ],
    "theory": "The Simulator puts Berserker's Greaves in Lucian's best build: in a fight it adds more than the items it beats.",
    "practice": "In real games, Lucian's builds with Berserker's Greaves win 7.3 points less often than their builds without it.",
-   "gap": -0.0725,
-   "share": 0.0466,
+   "gap": -0.0731,
+   "share": 0.0467,
    "status": "trap"
   },
   {
@@ -72,7 +72,7 @@
    "theory": "The Simulator puts Berserker's Greaves in Zeri's best build: in a fight it adds more than the items it beats.",
    "practice": "In real games, Zeri's builds with Berserker's Greaves win 3.7 points less often than their builds without it.",
    "gap": -0.037,
-   "share": 0.1089,
+   "share": 0.1093,
    "status": "trap"
   },
   {
@@ -87,9 +87,9 @@
     3153
    ],
    "theory": "The Simulator puts Blade of The Ruined King in Kayle's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Kayle's builds with Blade of The Ruined King win 5.8 points less often than their builds without it.",
-   "gap": -0.0578,
-   "share": 0.0528,
+   "practice": "In real games, Kayle's builds with Blade of The Ruined King win 5.9 points less often than their builds without it.",
+   "gap": -0.0586,
+   "share": 0.053,
    "status": "trap"
   },
   {
@@ -105,8 +105,8 @@
    ],
    "theory": "The Simulator puts Blade of The Ruined King in Lucian's best build: in a fight it adds more than the items it beats.",
    "practice": "In real games, Lucian's builds with Blade of The Ruined King win 8.8 points less often than their builds without it.",
-   "gap": -0.0877,
-   "share": 0.0329,
+   "gap": -0.0879,
+   "share": 0.033,
    "status": "trap"
   },
   {
@@ -121,9 +121,9 @@
     3153
    ],
    "theory": "The Simulator puts Blade of The Ruined King in Yunara's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Yunara's builds with Blade of The Ruined King win 3.1 points less often than their builds without it.",
-   "gap": -0.0314,
-   "share": 0.0986,
+   "practice": "In real games, Yunara's builds with Blade of The Ruined King win 3.2 points less often than their builds without it.",
+   "gap": -0.0322,
+   "share": 0.0987,
    "status": "trap"
   },
   {
@@ -138,26 +138,9 @@
     3124
    ],
    "theory": "The Simulator puts Guinsoo's Rageblade in Kayle's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Kayle's builds with Guinsoo's Rageblade win 5.0 points less often than their builds without it.",
-   "gap": -0.0497,
-   "share": 0.0629,
-   "status": "trap"
-  },
-  {
-   "id": "sim-KSante-mercurys",
-   "kind": "sim",
-   "title": "Mercury's Treads on K'Sante",
-   "champions": [
-    "KSante"
-   ],
-   "augments": [],
-   "items": [
-    3111
-   ],
-   "theory": "The Simulator puts Mercury's Treads in K'Sante's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, K'Sante's builds with Mercury's Treads win 3.2 points less often than their builds without it.",
-   "gap": -0.0322,
-   "share": 0.0581,
+   "practice": "In real games, Kayle's builds with Guinsoo's Rageblade win 5.1 points less often than their builds without it.",
+   "gap": -0.0507,
+   "share": 0.0632,
    "status": "trap"
   },
   {
@@ -172,9 +155,9 @@
     3089
    ],
    "theory": "The Simulator puts Rabadon's Deathcap in Karma's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Karma's builds with Rabadon's Deathcap win 10.3 points less often than their builds without it.",
-   "gap": -0.1031,
-   "share": 0.1061,
+   "practice": "In real games, Karma's builds with Rabadon's Deathcap win 10.2 points less often than their builds without it.",
+   "gap": -0.1024,
+   "share": 0.1063,
    "status": "trap"
   },
   {
@@ -189,9 +172,9 @@
     6694
    ],
    "theory": "The Simulator puts Serylda's Grudge in Jayce's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Jayce's builds with Serylda's Grudge win 4.6 points less often than their builds without it.",
-   "gap": -0.0456,
-   "share": 0.0337,
+   "practice": "In real games, Jayce's builds with Serylda's Grudge win 4.7 points less often than their builds without it.",
+   "gap": -0.0465,
+   "share": 0.0344,
    "status": "trap"
   },
   {
@@ -206,8 +189,8 @@
     6694
    ],
    "theory": "The Simulator puts Serylda's Grudge in Talon's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Talon's builds with Serylda's Grudge win 3.1 points less often than their builds without it.",
-   "gap": -0.0311,
+   "practice": "In real games, Talon's builds with Serylda's Grudge win 3.0 points less often than their builds without it.",
+   "gap": -0.0301,
    "share": 0.0599,
    "status": "trap"
   },
@@ -223,9 +206,9 @@
     4645
    ],
    "theory": "The Simulator puts Shadowflame in Karma's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Karma's builds with Shadowflame win 10.3 points less often than their builds without it.",
-   "gap": -0.1031,
-   "share": 0.1061,
+   "practice": "In real games, Karma's builds with Shadowflame win 10.2 points less often than their builds without it.",
+   "gap": -0.1024,
+   "share": 0.1063,
    "status": "trap"
   },
   {
@@ -240,9 +223,9 @@
     3020
    ],
    "theory": "The Simulator puts Sorcerer's Shoes in Gwen's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Gwen's builds with Sorcerer's Shoes win 3.5 points less often than their builds without it.",
-   "gap": -0.0354,
-   "share": 0.0575,
+   "practice": "In real games, Gwen's builds with Sorcerer's Shoes win 3.4 points less often than their builds without it.",
+   "gap": -0.034,
+   "share": 0.0572,
    "status": "trap"
   },
   {
@@ -257,9 +240,9 @@
     3020
    ],
    "theory": "The Simulator puts Sorcerer's Shoes in Karma's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Karma's builds with Sorcerer's Shoes win 7.2 points less often than their builds without it.",
-   "gap": -0.0717,
-   "share": 0.0856,
+   "practice": "In real games, Karma's builds with Sorcerer's Shoes win 7.0 points less often than their builds without it.",
+   "gap": -0.0705,
+   "share": 0.0857,
    "status": "trap"
   },
   {
@@ -275,8 +258,8 @@
    ],
    "theory": "The Simulator puts Sorcerer's Shoes in Lillia's best build: in a fight it adds more than the items it beats.",
    "practice": "In real games, Lillia's builds with Sorcerer's Shoes win 4.9 points less often than their builds without it.",
-   "gap": -0.0494,
-   "share": 0.0564,
+   "gap": -0.0493,
+   "share": 0.0563,
    "status": "trap"
   },
   {
@@ -292,8 +275,8 @@
    ],
    "theory": "The Simulator puts Stormsurge in Karma's best build: in a fight it adds more than the items it beats.",
    "practice": "In real games, Karma's builds with Stormsurge win 7.0 points less often than their builds without it.",
-   "gap": -0.0697,
-   "share": 0.0925,
+   "gap": -0.0701,
+   "share": 0.0927,
    "status": "trap"
   }
  ],
@@ -903,21 +886,6 @@
    "items": [],
    "theory": "At least 93% of champions get Bread And Butter, but Singed has never been seen taking it, even though Singed is picked often.",
    "test": "Play Singed and watch your augment choices. If it never shows up, Riot has left it out for Singed. If that doesn't look like it's on purpose, it's worth reporting.",
-   "status": "to_test"
-  },
-  {
-   "id": "gap-Sion",
-   "kind": "gap",
-   "title": "Sion never gets Take'em Down Down Down",
-   "champions": [
-    "Sion"
-   ],
-   "augments": [
-    3116
-   ],
-   "items": [],
-   "theory": "At least 91% of champions get Take'em Down Down Down, but Sion has never been seen taking it, even though Sion is picked often.",
-   "test": "Play Sion and watch your augment choices. If it never shows up, Riot has left it out for Sion. If that doesn't look like it's on purpose, it's worth reporting.",
    "status": "to_test"
   },
   {
