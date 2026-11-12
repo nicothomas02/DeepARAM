@@ -6097,3 +6097,69 @@ html[data-view="simple"] [data-detailed] {
   display: block;
   border-radius: 8px;
 }
+
+/* Win rates with their trust (components/WinRate.tsx, lib/stats.ts): the 95% range only in Detailed view,
+   a quiet tag on small samples in both views. */
+.wr {
+  white-space: nowrap;
+}
+
+.wr-ci {
+  display: none;
+  margin-left: 0.3em;
+  font-size: 0.78em;
+  font-weight: 400;
+  color: var(--muted);
+}
+
+html[data-view="detailed"] .wr-ci {
+  display: inline;
+}
+
+.wr-few {
+  display: inline-block;
+  margin-left: 0.4em;
+  padding: 0.05em 0.45em;
+  border-radius: 999px;
+  background: var(--raised);
+  color: var(--muted);
+  font-size: 0.68em;
+  font-weight: 500;
+  line-height: 1.5;
+  vertical-align: 0.15em;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.wr[data-sample="none"] {
+  color: var(--muted);
+}
+
+/* Champion page cells are narrow fixed columns: the tag goes on its own line under the number. */
+.cp-cell .wr-few,
+.cp-late-what .wr-few {
+  display: table;
+  margin: 0.2em 0 0 auto;
+}
+
+.cp-late-what .wr-few {
+  margin-left: 0;
+}
+
+.cp-strip .cp-cell .wr-few,
+.cp-mini .cp-cell .wr-few {
+  margin-left: 0;
+}
+
+/* Phones: a table's ± range goes under the number, so it doesn't squeeze the name column. */
+@media (max-width: 640px) {
+  html[data-view="detailed"] td .wr-ci {
+    display: block;
+    margin-left: 0;
+  }
+
+  td .wr-few {
+    display: table;
+    margin: 0.15em 0 0 auto;
+  }
+}

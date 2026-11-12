@@ -5,7 +5,7 @@ import { useT } from "./I18n";
 import { TIER_Z } from "@/lib/deepscore";
 
 // "How rankings work": a few plain lines on the numbers the Tier List and champion pages show (DeepScore and
-// tiers, win rate boost, estimates, game counts). Starts closed (Nico, 2026-10-27). A link to #how-rankings,
+// tiers, win rate boost, estimates, game counts, small-sample tags and ± ranges). Starts closed (Nico, 2026-10-27). A link to #how-rankings,
 // like the one under each table's column hints, opens it.
 
 export const RANKINGS_ID = "how-rankings";
@@ -57,6 +57,12 @@ export default function HowRankings() {
           )}
         </li>
         <li>{t("Numbers marked estimated are worked out from the stats we have, not counted game by game.")}</li>
+        <li>
+          {t(
+            "Few games marks a win rate that could be off by more than 5 pts either way, so small differences there are likely noise. Under 10 games it says Too few games.",
+          )}
+        </li>
+        <li>{t("With Page detail set to Detailed, win rates show a ± range: the true rate is within it 95% of the time.")}</li>
         <li>{t("Game counts are approximate.")}</li>
       </ul>
     </details>

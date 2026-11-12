@@ -41,6 +41,9 @@ export type ChampStats = {
   patches: number;
   /** Est. share of all games (pick rate × days, normalised to the chosen range). */
   share: number;
+  /** Effective games behind win_rate, for its 95% range (lib/stats.ts); only when matches per patch are given.
+   *  With older patches weighted down, it's (Σ games × weight)² / Σ games × weight², a little under the raw total. */
+  sample?: number;
   top_augments: string;
 };
 
@@ -64,7 +67,8 @@ const weighted = (pairs: [number | null, number][]) => {
   return w > 0 ? sum / w : null;
 };
 
-export function champStats(rows: PatchRow[], patches: Set<string>): ChampStats[] {
+/** `matches`: estimated matches behind each patch's numbers (lib/sample.ts), to give each champion's `sample`. */
+export function champStats(rows: PatchRow[], patches: Set<string>, matches?: Record<string, number>): ChampStats[] {
   const picked = rows.filter((r) => patches.has(r.patch));
   const totalDays = [...new Set(picked.map((r) => `${r.patch}:${r.days}`))].reduce((d, k) => d + Number(k.split(":")[1]), 0);
   // Patches newest first, to weigh older ones down.
@@ -78,9 +82,19 @@ export function champStats(rows: PatchRow[], patches: Set<string>): ChampStats[]
     const w = rs.map((r, i) => g[i] * (recency.get(r.patch) ?? 1));
     const latest = rs[rs.length - 1]; // rows arrive oldest patch first (no .at(): older Safari lacks it)
     const games = g.reduce((a, b) => a + b, 0);
+    // Real games per patch (pick rate × matches), weighted like the win rate.
+    let sw = 0;
+    let sw2 = 0;
+    for (const r of rs) {
+      const real = r.pick_rate * (matches?.[r.patch] ?? NaN);
+      const rec = recency.get(r.patch) ?? 1;
+      sw += real * rec;
+      sw2 += real * rec * rec;
+    }
     return {
       name,
       games,
+      ...(matches && sw2 > 0 ? { sample: (sw * sw) / sw2 } : {}),
       win_rate: weighted(rs.map((r, i) => [r.win_rate, w[i]]))!,
       pick_rate: totalDays ? games / totalDays : 0,
       damage: weighted(rs.map((r, i) => [r.damage, w[i]])),

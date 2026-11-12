@@ -4,6 +4,8 @@ import Link from "next/link";
 import RowLink from "@/components/RowLink";
 import { notFound } from "next/navigation";
 import { livePatch } from "@/lib/highlights";
+import { liveWithChange } from "@/lib/champions";
+import { Sampled } from "@/components/WinRate";
 import { itemBuilderRanges, itemBySlug, itemPages, type ItemPage } from "@/lib/item-pages";
 import { RangePicker, RangeView } from "@/components/StatRange";
 import { itemSim } from "@/lib/item-sim";
@@ -45,7 +47,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return pageMeta(`/items/${i.slug}`, `${i.name} in ARAM Mayhem`, full);
 }
 
-function builderList(list: ItemPage["builders"]) {
+// Live-patch builders carry the champion's estimated games (lib/sample.ts), for a low-sample tag on rarely built pairs.
+function builderList(list: ItemPage["builders"], games?: Map<string, number>) {
   return (
     <div className="rank builders">
       {list.map((b) => (
@@ -64,9 +67,11 @@ function builderList(list: ItemPage["builders"]) {
           </span>
           <span className={`rank-v ${b.winRate !== null && b.winRate >= 0.52 ? "wr-good" : ""}`}>
             {b.winRate !== null ? (
-              <T ns="items" v={{ pct: pct(b.winRate) }}>
-                {"{pct} win"}
-              </T>
+              <Sampled n={games?.has(b.id) ? games.get(b.id)! * b.pickRate : undefined} p={b.winRate}>
+                <T ns="items" v={{ pct: pct(b.winRate) }}>
+                  {"{pct} win"}
+                </T>
+              </Sampled>
             ) : (
               ""
             )}
@@ -259,7 +264,7 @@ export default async function ItemPage({ params }: { params: Promise<{ slug: str
           <RangePicker ranges={ranges} />
           <RangeView
             views={{
-              live: builderList(i.builders),
+              live: builderList(i.builders, new Map(liveWithChange().live.flatMap((c) => (c.sample ? [[c.name, c.sample]] : [])))),
               ...Object.fromEntries(ranges.flatMap((r) => (r.key !== "live" && byRange[r.key]?.length ? [[r.key, builderList(byRange[r.key]!)]] : []))),
             }}
           />
