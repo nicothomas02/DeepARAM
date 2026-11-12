@@ -211,5 +211,14 @@
  "Score: points of win rate over the usual choice. Choices with few games lean on the estimate.": "Puntuación: puntos de tasa de victorias sobre la opción habitual. Las opciones con pocas partidas se apoyan en la estimación.",
  "Expected": "Esperado",
  "Real": "Real",
- "Builds with few games lean on the estimate: how much of a rare build's lead usually holds up.": "Las builds con pocas partidas se apoyan en la estimación: cuánto de la ventaja de una build rara suele mantenerse."
+ "Builds with few games lean on the estimate: how much of a rare build's lead usually holds up.": "Las builds con pocas partidas se apoyan en la estimación: cuánto de la ventaja de una build rara suele mantenerse.",
+ "Playstyles": "Estilos de juego",
+ "{k} groups from the last {n} patches": "{k} grupos de los últimos {n} parches",
+ "Grouped by how their games actually go: share of the team's damage, damage soaked, kill participation, time dead and which augments they take. Classes are Riot's; a marked champion plays unlike its class.": "Agrupados según cómo van sus partidas de verdad: porcentaje del daño del equipo, daño absorbido, participación en asesinatos, tiempo muerto y qué aumentos eligen. Las clases son las de Riot; un campeón marcado no juega como su clase.",
+ "mostly": "sobre todo",
+ "Plays unlike its class:": "No juega como su clase:",
+ "damage share": "porcentaje de daño",
+ "damage soaked": "daño absorbido",
+ "kill participation": "participación en asesinatos",
+ "time dead": "tiempo muerto"
 }

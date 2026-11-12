@@ -104,5 +104,7 @@
  "Hide items augments can give": "Hide items augments can give",
  "Estimated: items often bought at this slot.": "Estimated: items often bought at this slot.",
  "AD": "AD",
- "AP": "AP"
+ "AP": "AP",
+ "boost among finished builds": "boost among finished builds",
+ "The boost among finished builds compares the item with its champions' other completed builds, so a champion whose finished games simply go better or worse does not count for or against it. Ranked {n} of {total} legendary items on it.": "The boost among finished builds compares the item with its champions' other completed builds, so a champion whose finished games simply go better or worse does not count for or against it. Ranked {n} of {total} legendary items on it."
 }

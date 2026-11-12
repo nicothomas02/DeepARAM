@@ -35,5 +35,21 @@
  "{n} added": "เพิ่ม {n}",
  "{n} removed": "นำออก {n}",
  "now": "ตอนนี้",
- "win rate so far": "อัตราชนะจนถึงตอนนี้"
+ "win rate so far": "อัตราชนะจนถึงตอนนี้",
+ "Did the champion changes work?": "การเปลี่ยนแปลงแชมเปี้ยนได้ผลหรือไม่",
+ "vs the {n} champions the notes left alone (they drift ±{sd} pts)": "เทียบกับแชมเปี้ยน {n} ตัวที่โน้ตแพตช์ไม่ได้แตะ (พวกเขาแกว่ง ±{sd} จุด)",
+ "Each change is judged against every champion the patch did not touch, so a shift the whole list made does not count. Within noise means the champion moved no more than an unchanged one typically does.": "การเปลี่ยนแปลงแต่ละอย่างถูกตัดสินเทียบกับแชมเปี้ยนทุกตัวที่แพตช์ไม่ได้แตะ ดังนั้นการขยับของทั้งรายการจะไม่ถูกนับ \"อยู่ในระดับสัญญาณรบกวน\" หมายความว่าแชมเปี้ยนขยับไม่มากไปกว่าที่แชมเปี้ยนที่ไม่ถูกเปลี่ยนมักจะขยับ",
+ "pts": "จุด",
+ "How fast the rankings settled": "อันดับนิ่งเร็วแค่ไหน",
+ "of the final order on day one": "ของลำดับสุดท้ายตั้งแต่วันแรก",
+ "pts average gap to the final win rates": "จุด ส่วนต่างเฉลี่ยจากอัตราชนะสุดท้าย",
+ "days to 95% settled": "วันจนนิ่ง 95%",
+ "A typical patch is {pct}% of its final order after one day, {pts} pts off on average. So many games are played that rankings barely move after the first day; only mid-patch changes do.": "แพตช์ทั่วไปอยู่ที่ {pct}% ของลำดับสุดท้ายหลังผ่านไปหนึ่งวัน คลาดเคลื่อนเฉลี่ย {pts} จุด มีเกมถูกเล่นมากจนอันดับแทบไม่ขยับหลังวันแรก มีเพียงการเปลี่ยนแปลงกลางแพตช์เท่านั้นที่ทำให้ขยับ",
+ "Shifted mid-patch": "เปลี่ยนกลางแพตช์",
+ "candidates for a hotfix or a new trick": "อาจเป็นฮอตฟิกซ์หรือวิธีเล่นใหม่",
+ "From that day on, the champion's games went this much better or worse than before it, far beyond what the rest of the list did the same day.": "ตั้งแต่วันนั้น เกมของแชมเปี้ยนตัวนี้ดีขึ้นหรือแย่ลงกว่าก่อนหน้าเท่านี้ มากเกินกว่าที่แชมเปี้ยนที่เหลือในรายการทำในวันเดียวกัน",
+ "Worked": "ได้ผล",
+ "Backfired": "ผลตรงข้าม",
+ "Within noise": "อยู่ในระดับสัญญาณรบกวน",
+ "Moved": "ขยับ"
 }

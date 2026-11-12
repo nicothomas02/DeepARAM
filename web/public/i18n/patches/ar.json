@@ -35,5 +35,21 @@
  "{n} added": "أُضيف {n}",
  "{n} removed": "أُزيل {n}",
  "now": "الآن",
- "win rate so far": "نسبة الفوز حتى الآن"
+ "win rate so far": "نسبة الفوز حتى الآن",
+ "Did the champion changes work?": "هل نجحت تعديلات الأبطال؟",
+ "vs the {n} champions the notes left alone (they drift ±{sd} pts)": "مقارنةً بالأبطال الـ{n} الذين لم تمسّهم الملاحظات (يتذبذبون بمقدار ±{sd} نقطة)",
+ "Each change is judged against every champion the patch did not touch, so a shift the whole list made does not count. Within noise means the champion moved no more than an unchanged one typically does.": "يُحكم على كل تعديل مقارنةً بكل بطل لم يمسّه التحديث، لذا لا يُحتسب تحرّك القائمة كلها. «ضمن الضوضاء» تعني أن البطل لم يتحرك أكثر مما يتحرك عادةً بطل لم يُعدَّل.",
+ "pts": "نقطة",
+ "How fast the rankings settled": "ما مدى سرعة استقرار الترتيب",
+ "of the final order on day one": "من الترتيب النهائي منذ اليوم الأول",
+ "pts average gap to the final win rates": "نقطة متوسط الفارق عن نسب الفوز النهائية",
+ "days to 95% settled": "أيام حتى الاستقرار بنسبة 95%",
+ "A typical patch is {pct}% of its final order after one day, {pts} pts off on average. So many games are played that rankings barely move after the first day; only mid-patch changes do.": "التحديث النموذجي يبلغ {pct}% من ترتيبه النهائي بعد يوم واحد، بفارق {pts} نقطة في المتوسط. تُلعب مباريات كثيرة جدًا لدرجة أن الترتيب لا يكاد يتحرك بعد اليوم الأول؛ التعديلات في منتصف التحديث وحدها تحرّكه.",
+ "Shifted mid-patch": "تغيّر في منتصف التحديث",
+ "candidates for a hotfix or a new trick": "مرشّحون لإصلاح عاجل أو حيلة جديدة",
+ "From that day on, the champion's games went this much better or worse than before it, far beyond what the rest of the list did the same day.": "منذ ذلك اليوم، سارت مباريات البطل أفضل أو أسوأ من قبله بهذا القدر، بما يتجاوز كثيرًا ما فعلته بقية القائمة في اليوم نفسه.",
+ "Worked": "نجح",
+ "Backfired": "جاء بنتيجة عكسية",
+ "Within noise": "ضمن الضوضاء",
+ "Moved": "تحرّك"
 }

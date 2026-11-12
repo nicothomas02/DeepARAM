@@ -35,5 +35,21 @@
  "{n} added": "{n}個追加",
  "{n} removed": "{n}個削除",
  "now": "新たに",
- "win rate so far": "現時点の勝率"
+ "win rate so far": "現時点の勝率",
+ "Did the champion changes work?": "チャンピオンの変更は効いたか？",
+ "vs the {n} champions the notes left alone (they drift ±{sd} pts)": "ノートで触れられなかった{n}体のチャンピオンとの比較（それらは±{sd}ポイント揺れる）",
+ "Each change is judged against every champion the patch did not touch, so a shift the whole list made does not count. Within noise means the champion moved no more than an unchanged one typically does.": "各変更は、パッチで触れられなかったすべてのチャンピオンと比べて判定されるため、リスト全体の動きは数えません。「ノイズの範囲内」とは、変更のないチャンピオンが通常動く以上には動かなかったという意味です。",
+ "pts": "pt",
+ "How fast the rankings settled": "ランキングはどれだけ早く落ち着いたか",
+ "of the final order on day one": "初日の時点で最終順位と一致",
+ "pts average gap to the final win rates": "pt 最終勝率との平均差",
+ "days to 95% settled": "日で95%落ち着いた",
+ "A typical patch is {pct}% of its final order after one day, {pts} pts off on average. So many games are played that rankings barely move after the first day; only mid-patch changes do.": "典型的なパッチは1日後に最終順位の{pct}%に達し、平均で{pts}ptのずれです。プレイされる試合数が非常に多いため、初日以降ランキングはほとんど動きません。動かすのはパッチ途中の変更だけです。",
+ "Shifted mid-patch": "パッチ途中で変動",
+ "candidates for a hotfix or a new trick": "ホットフィックスか新しい戦法の候補",
+ "From that day on, the champion's games went this much better or worse than before it, far beyond what the rest of the list did the same day.": "その日以降、このチャンピオンの試合はそれ以前よりこれだけ良く、または悪くなり、同じ日のリストの他のチャンピオンの動きをはるかに超えました。",
+ "Worked": "効いた",
+ "Backfired": "逆効果",
+ "Within noise": "ノイズの範囲内",
+ "Moved": "動いた"
 }

@@ -211,5 +211,14 @@
  "Score: points of win rate over the usual choice. Choices with few games lean on the estimate.": "점수: 일반적인 선택 대비 승률 포인트. 게임 수가 적은 선택은 추정치에 의존합니다.",
  "Expected": "기대값",
  "Real": "실제",
- "Builds with few games lean on the estimate: how much of a rare build's lead usually holds up.": "게임 수가 적은 빌드는 추정치에 의존합니다. 희귀한 빌드의 우위가 보통 얼마나 유지되는지를 반영합니다."
+ "Builds with few games lean on the estimate: how much of a rare build's lead usually holds up.": "게임 수가 적은 빌드는 추정치에 의존합니다. 희귀한 빌드의 우위가 보통 얼마나 유지되는지를 반영합니다.",
+ "Playstyles": "플레이 스타일",
+ "{k} groups from the last {n} patches": "최근 {n}개 패치 기준 {k}개 그룹",
+ "Grouped by how their games actually go: share of the team's damage, damage soaked, kill participation, time dead and which augments they take. Classes are Riot's; a marked champion plays unlike its class.": "게임이 실제로 어떻게 흘러가는지로 묶었습니다: 팀 피해 비중, 받은 피해, 킬 관여율, 사망 시간, 선택하는 증강. 클래스는 라이엇 기준이며, 표시된 챔피언은 자기 클래스와 다르게 플레이됩니다.",
+ "mostly": "주로",
+ "Plays unlike its class:": "클래스와 다르게 플레이됨:",
+ "damage share": "피해 비중",
+ "damage soaked": "받은 피해",
+ "kill participation": "킬 관여율",
+ "time dead": "사망 시간"
 }

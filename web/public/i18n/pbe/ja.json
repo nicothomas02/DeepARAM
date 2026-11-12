@@ -47,5 +47,9 @@
  "Unnamed": "名称未設定",
  "What's changing from live patch {live} to test server build {pbe} (updated {date}). The augment pool goes from {from} to {to}.": "本サーバーのパッチ{live}からテストサーバーのビルド{pbe}への変更点 ({date}更新)。オーグメントの総数は{from}から{to}になります。",
  "{added} new · {changed} changed · {removed} removed": "新規 {added} · 変更 {changed} · 削除 {removed}",
- "{n} Fame": "名声{n}"
+ "{n} Fame": "名声{n}",
+ "Expected win-rate shift": "予想される勝率の変化",
+ "predicted": "予測",
+ "From how {n} past patch-note changes moved win rates. Typical miss {mae} pts, against {base} pts for assuming no change; the range is where the real shift usually lands.": "過去{n}件のパッチノートの変更が勝率をどう動かしたかに基づきます。典型的な誤差は{mae}pt、変化なしと仮定した場合は{base}pt。範囲は実際の変化が通常収まるところです。",
+ "pts": "pt"
 }

@@ -211,5 +211,14 @@
  "Score: points of win rate over the usual choice. Choices with few games lean on the estimate.": "得分:相較常規選擇的勝率點數。場次少的選擇依賴估計。",
  "Expected": "預期",
  "Real": "實際",
- "Builds with few games lean on the estimate: how much of a rare build's lead usually holds up.": "場次少的出裝依賴估計:罕見出裝的領先優勢通常能維持多少。"
+ "Builds with few games lean on the estimate: how much of a rare build's lead usually holds up.": "場次少的出裝依賴估計:罕見出裝的領先優勢通常能維持多少。",
+ "Playstyles": "打法風格",
+ "{k} groups from the last {n} patches": "基於最近 {n} 個版本的 {k} 個分組",
+ "Grouped by how their games actually go: share of the team's damage, damage soaked, kill participation, time dead and which augments they take. Classes are Riot's; a marked champion plays unlike its class.": "按對局的實際表現分組：團隊傷害占比、承受傷害、擊殺參與率、死亡時間以及所選強化。職業分類來自 Riot；帶標記的英雄打法與其職業不同。",
+ "mostly": "主要是",
+ "Plays unlike its class:": "打法與職業不同：",
+ "damage share": "傷害占比",
+ "damage soaked": "承受傷害",
+ "kill participation": "擊殺參與率",
+ "time dead": "死亡時間"
 }

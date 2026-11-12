@@ -104,5 +104,7 @@
  "Hide items augments can give": "Bővítések által adott tárgyak elrejtése",
  "Estimated: items often bought at this slot.": "Becslés: ezen a helyen gyakran vett tárgyak.",
  "AD": "AD",
- "AP": "AP"
+ "AP": "AP",
+ "boost among finished builds": "előny a befejezett buildek között",
+ "The boost among finished builds compares the item with its champions' other completed builds, so a champion whose finished games simply go better or worse does not count for or against it. Ranked {n} of {total} legendary items on it.": "A befejezett buildek közötti előny a tárgyat a hőseinek többi befejezett buildjével veti össze, így egy hős, akinek a befejezett meccsei egyszerűen jobban vagy rosszabbul mennek, nem számít mellette vagy ellene. Eszerint {n}. a {total} legendás tárgy közül."
 }

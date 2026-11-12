@@ -211,5 +211,14 @@
  "Score: points of win rate over the usual choice. Choices with few games lean on the estimate.": "Skor: poin win rate dibanding pilihan yang biasa. Pilihan dengan game sedikit bergantung pada perkiraan.",
  "Expected": "Perkiraan",
  "Real": "Nyata",
- "Builds with few games lean on the estimate: how much of a rare build's lead usually holds up.": "Build dengan game sedikit bergantung pada perkiraan: seberapa besar keunggulan build langka biasanya bertahan."
+ "Builds with few games lean on the estimate: how much of a rare build's lead usually holds up.": "Build dengan game sedikit bergantung pada perkiraan: seberapa besar keunggulan build langka biasanya bertahan.",
+ "Playstyles": "Gaya bermain",
+ "{k} groups from the last {n} patches": "{k} kelompok dari {n} patch terakhir",
+ "Grouped by how their games actually go: share of the team's damage, damage soaked, kill participation, time dead and which augments they take. Classes are Riot's; a marked champion plays unlike its class.": "Dikelompokkan berdasarkan bagaimana game mereka sebenarnya berjalan: porsi damage tim, damage yang diserap, partisipasi kill, waktu mati, dan augment yang diambil. Kelas berasal dari Riot; champion yang ditandai bermain tidak seperti kelasnya.",
+ "mostly": "sebagian besar",
+ "Plays unlike its class:": "Bermain tidak seperti kelasnya:",
+ "damage share": "porsi damage",
+ "damage soaked": "damage yang diserap",
+ "kill participation": "partisipasi kill",
+ "time dead": "waktu mati"
 }

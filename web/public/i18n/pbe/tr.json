@@ -47,5 +47,9 @@
  "Unnamed": "Adsız",
  "What's changing from live patch {live} to test server build {pbe} (updated {date}). The augment pool goes from {from} to {to}.": "Canlı sunucu yaması {live} ile test sunucusu sürümü {pbe} arasındaki değişiklikler (güncelleme: {date}). Güçlendirme havuzu {from} seçenekten {to} seçeneğe değişiyor.",
  "{added} new · {changed} changed · {removed} removed": "{added} yeni · {changed} değişen · {removed} kaldırılan",
- "{n} Fame": "{n} Şöhret"
+ "{n} Fame": "{n} Şöhret",
+ "Expected win-rate shift": "Beklenen kazanma oranı değişimi",
+ "predicted": "tahmin",
+ "From how {n} past patch-note changes moved win rates. Typical miss {mae} pts, against {base} pts for assuming no change; the range is where the real shift usually lands.": "Geçmiş {n} yama notu değişikliğinin kazanma oranlarını nasıl oynattığından. Tipik sapma {mae} puan; değişiklik yok varsayımında {base} puan. Aralık, gerçek değişimin genellikle düştüğü yerdir.",
+ "pts": "puan"
 }

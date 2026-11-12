@@ -35,5 +35,21 @@
  "{n} added": "Thêm {n}",
  "{n} removed": "Gỡ {n}",
  "now": "nay là",
- "win rate so far": "tỉ lệ thắng tới nay"
+ "win rate so far": "tỉ lệ thắng tới nay",
+ "Did the champion changes work?": "Các thay đổi tướng có hiệu quả không?",
+ "vs the {n} champions the notes left alone (they drift ±{sd} pts)": "so với {n} tướng mà ghi chú không động đến (họ dao động ±{sd} điểm)",
+ "Each change is judged against every champion the patch did not touch, so a shift the whole list made does not count. Within noise means the champion moved no more than an unchanged one typically does.": "Mỗi thay đổi được đánh giá so với mọi tướng mà bản cập nhật không động đến, nên biến động của cả danh sách không được tính. \"Trong mức nhiễu\" nghĩa là tướng không dịch chuyển nhiều hơn mức một tướng không thay đổi thường dịch chuyển.",
+ "pts": "điểm",
+ "How fast the rankings settled": "Bảng xếp hạng ổn định nhanh đến đâu",
+ "of the final order on day one": "của thứ tự cuối cùng ngay ngày đầu",
+ "pts average gap to the final win rates": "điểm chênh lệch trung bình so với tỉ lệ thắng cuối cùng",
+ "days to 95% settled": "ngày để ổn định 95%",
+ "A typical patch is {pct}% of its final order after one day, {pts} pts off on average. So many games are played that rankings barely move after the first day; only mid-patch changes do.": "Một bản cập nhật điển hình đạt {pct}% thứ tự cuối cùng sau một ngày, lệch trung bình {pts} điểm. Số trận quá nhiều nên bảng xếp hạng hầu như không đổi sau ngày đầu; chỉ các thay đổi giữa bản cập nhật mới làm nó dịch chuyển.",
+ "Shifted mid-patch": "Dịch chuyển giữa bản cập nhật",
+ "candidates for a hotfix or a new trick": "có thể là hotfix hoặc một lối chơi mới",
+ "From that day on, the champion's games went this much better or worse than before it, far beyond what the rest of the list did the same day.": "Từ ngày đó, các trận của tướng này tốt hơn hoặc tệ hơn trước chừng này, vượt xa những gì phần còn lại của danh sách làm trong cùng ngày.",
+ "Worked": "Hiệu quả",
+ "Backfired": "Phản tác dụng",
+ "Within noise": "Trong mức nhiễu",
+ "Moved": "Có dịch chuyển"
 }

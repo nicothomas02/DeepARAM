@@ -47,5 +47,9 @@
  "Unnamed": "Chưa đặt tên",
  "What's changing from live patch {live} to test server build {pbe} (updated {date}). The augment pool goes from {from} to {to}.": "Những gì thay đổi từ phiên bản chính thức {live} đến bản dựng máy chủ thử nghiệm {pbe} (cập nhật {date}). Số Lõi Nâng Cấp thay đổi từ {from} thành {to}.",
  "{added} new · {changed} changed · {removed} removed": "{added} mới · {changed} thay đổi · {removed} đã xóa",
- "{n} Fame": "{n} Danh Tiếng"
+ "{n} Fame": "{n} Danh Tiếng",
+ "Expected win-rate shift": "Thay đổi tỉ lệ thắng dự kiến",
+ "predicted": "dự đoán",
+ "From how {n} past patch-note changes moved win rates. Typical miss {mae} pts, against {base} pts for assuming no change; the range is where the real shift usually lands.": "Dựa trên cách {n} thay đổi trong ghi chú cập nhật trước đây làm dịch chuyển tỉ lệ thắng. Sai số điển hình {mae} điểm, so với {base} điểm nếu giả định không thay đổi; khoảng là nơi thay đổi thực tế thường rơi vào.",
+ "pts": "điểm"
 }

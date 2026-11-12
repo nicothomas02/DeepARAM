@@ -104,5 +104,7 @@
  "Hide items augments can give": "Ẩn trang bị do lõi tặng",
  "Estimated: items often bought at this slot.": "Ước tính: trang bị thường được mua ở thứ tự này.",
  "AD": "AD",
- "AP": "AP"
+ "AP": "AP",
+ "boost among finished builds": "mức tăng trong các lối lên đồ hoàn chỉnh",
+ "The boost among finished builds compares the item with its champions' other completed builds, so a champion whose finished games simply go better or worse does not count for or against it. Ranked {n} of {total} legendary items on it.": "Mức tăng trong các lối lên đồ hoàn chỉnh so sánh trang bị với các lối lên đồ hoàn chỉnh khác của những tướng dùng nó, nên một tướng mà các trận hoàn thành đồ vốn tốt hơn hay tệ hơn sẽ không làm lợi hay hại cho trang bị. Xếp hạng {n} trên {total} trang bị huyền thoại theo tiêu chí này."
 }

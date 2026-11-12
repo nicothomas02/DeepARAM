@@ -35,5 +35,21 @@
  "{n} added": "{n} új",
  "{n} removed": "{n} eltávolítva",
  "now": "most",
- "win rate so far": "eddigi győzelmi arány"
+ "win rate so far": "eddigi győzelmi arány",
+ "Did the champion changes work?": "Beváltak a hősváltoztatások?",
+ "vs the {n} champions the notes left alone (they drift ±{sd} pts)": "a {n} hőshöz képest, amelyekhez a jegyzetek nem nyúltak (ők ±{sd} ponttal ingadoznak)",
+ "Each change is judged against every champion the patch did not touch, so a shift the whole list made does not count. Within noise means the champion moved no more than an unchanged one typically does.": "Minden változtatást az összes olyan hőshöz mérünk, amelyhez a frissítés nem nyúlt, így az egész lista elmozdulása nem számít. A „zajon belül” azt jelenti, hogy a hős nem mozdult jobban, mint egy változatlan hős szokott.",
+ "pts": "pont",
+ "How fast the rankings settled": "Milyen gyorsan állt be a rangsor",
+ "of the final order on day one": "a végső sorrendből már az első napon",
+ "pts average gap to the final win rates": "pont átlagos eltérés a végső győzelmi arányoktól",
+ "days to 95% settled": "nap a 95%-os beállásig",
+ "A typical patch is {pct}% of its final order after one day, {pts} pts off on average. So many games are played that rankings barely move after the first day; only mid-patch changes do.": "Egy tipikus frissítés egy nap után a végső sorrend {pct}%-ánál jár, átlagosan {pts} pont eltéréssel. Annyi meccset játszanak, hogy a rangsor az első nap után alig mozdul; csak a frissítés közbeni változtatások mozdítják.",
+ "Shifted mid-patch": "Frissítés közben elmozdult",
+ "candidates for a hotfix or a new trick": "hotfix vagy új trükk jelöltjei",
+ "From that day on, the champion's games went this much better or worse than before it, far beyond what the rest of the list did the same day.": "Attól a naptól a hős meccsei ennyivel jobban vagy rosszabbul mentek, mint előtte, messze túl azon, amit a lista többi része ugyanazon a napon tett.",
+ "Worked": "Bevált",
+ "Backfired": "Visszafelé sült el",
+ "Within noise": "Zajon belül",
+ "Moved": "Elmozdult"
 }
