@@ -109,6 +109,8 @@ struct Saved {
     overlay_off: bool,
     /// The overlay sits on the right edge of the screen instead of the left.
     overlay_right: bool,
+    /// The overlay shows only when useful (game start, while dead, augment picks) instead of all game.
+    overlay_smart: bool,
     overlay_hint_shown: bool,
 }
 
@@ -303,9 +305,17 @@ fn build_tray(app: &AppHandle) -> tauri::Result<()> {
     let overlay_right = app.state::<Store>().saved.lock().unwrap().overlay_right;
     let ov_on =
         CheckMenuItem::with_id(app, "ov_on", "Show during Mayhem games", true, overlay::enabled(app), None::<&str>)?;
+    let saved_smart = app.state::<Store>().saved.lock().unwrap().overlay_smart;
+    let smart_label = if overlay::AUGMENT_LEVELS.is_empty() {
+        "Only at game start and while dead"
+    } else {
+        "Only at game start, while dead and at augment picks"
+    };
+    let ov_smart = CheckMenuItem::with_id(app, "ov_smart", smart_label, true, saved_smart, None::<&str>)?;
     let ov_left = CheckMenuItem::with_id(app, "ov_left", "Left side", true, !overlay_right, None::<&str>)?;
     let ov_right = CheckMenuItem::with_id(app, "ov_right", "Right side", true, overlay_right, None::<&str>)?;
-    let overlay_menu = Submenu::with_items(app, "In-game overlay", true, &[&ov_on, &sep()?, &ov_left, &ov_right])?;
+    let overlay_menu =
+        Submenu::with_items(app, "In-game overlay", true, &[&ov_on, &ov_smart, &sep()?, &ov_left, &ov_right])?;
     let menu = Menu::with_items(
         app,
         &[&open, &sep()?, &tier, &sim, &patches, &pbe, &sep()?, &overlay_menu, &sep()?, &check, &notes],
@@ -344,6 +354,10 @@ fn build_tray(app: &AppHandle) -> tauri::Result<()> {
                 if !on {
                     overlay::stop(app);
                 }
+            }
+            "ov_smart" => {
+                let on = ov_smart.is_checked().unwrap_or(false);
+                app.state::<Store>().update(|s| s.overlay_smart = on);
             }
             "ov_left" => side(app, false),
             "ov_right" => side(app, true),
