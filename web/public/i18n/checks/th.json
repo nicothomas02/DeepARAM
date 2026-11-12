@@ -1,0 +1,22 @@
+{
+ "Builds and combos that look great on paper but don't hold up in real games. Check here before you try a theorycraft build.": "บิลด์และคอมโบที่ดูดีบนกระดาษ แต่ใช้ไม่ได้จริงในเกม ดูที่นี่ก่อนลองบิลด์ตามทฤษฎี",
+ "Interactions that might be broken. Each one says what should happen on paper and how to test it in a game. If it really is broken, report it to Riot from the client so it gets fixed.": "ปฏิสัมพันธ์ที่อาจมีบั๊ก แต่ละรายการบอกว่าบนกระดาษควรเกิดอะไรขึ้นและทดสอบในเกมอย่างไร ถ้าพังจริง ให้รายงาน Riot จากไคลเอนต์เพื่อให้แก้ไข",
+ "Show": "แสดง",
+ "All": "ทั้งหมด",
+ "Stat loop": "ลูปค่าสถานะ",
+ "Missing augment": "ออคเมนต์ที่ไม่มี",
+ "Simulator vs real games": "ซิมูเลเตอร์เทียบเกมจริง",
+ "Does nothing": "ไม่มีผลอะไร",
+ "Find a champion or augment": "ค้นหาแชมเปี้ยนหรือออคเมนต์",
+ "Nothing matches": "ไม่พบผลลัพธ์",
+ "No traps found this patch": "แพตช์นี้ไม่พบกับดัก",
+ "Nothing to test this patch": "แพตช์นี้ไม่มีอะไรต้องทดสอบ",
+ "Trap": "กับดัก",
+ "Confirmed bug": "บั๊กที่ยืนยันแล้ว",
+ "Needs a test": "ต้องทดสอบ",
+ "Show less": "แสดงน้อยลง",
+ "+{n} more": "อีก {n}",
+ "On paper": "บนกระดาษ",
+ "In game": "ในเกม",
+ "How to test": "วิธีทดสอบ"
+}

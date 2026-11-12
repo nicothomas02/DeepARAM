@@ -44,6 +44,9 @@ jobs:
       - name: Estimate spells and game counts
         if: steps.fresh.outputs.run == 'true'
         run: python3 data/fill/build_estimates.py
+      - name: Early-window builds (blend in the previous window while builds have few games; needs the git history)
+        if: steps.fresh.outputs.run == 'true'
+        run: python3 data/estimates/early_builds.py || echo "::warning::Early-window builds not refreshed"
       - name: Estimate other stats (augments per champion, items, profiles, odds)
         if: steps.fresh.outputs.run == 'true'
         run: python3 data/estimates/build.py
@@ -57,10 +60,13 @@ jobs:
           make -C simulator mayhem_sim
           python3 data/estimates/power_curve.py
           python3 data/estimates/boots_timing.py || echo "::warning::Boots timing not refreshed"
-      - name: Hidden gems (rare picks that win more; checked in the Simulator built above; needs the full git history)
+      - name: Traps and Bug finder (The Kitchen)
         if: steps.fresh.outputs.run == 'true'
-        run: python3 data/estimates/synergies.py || echo "::warning::Hidden gems not refreshed"
-      - name: Analyses (patch-change impact, settling, playstyles, pre-patch forecast)
+        run: python3 data/checks/findings.py || echo "::warning::Traps and Bug finder not refreshed"
+      - name: Synergies (expected values and checks for every choice; Simulator built above; needs the full git history)
+        if: steps.fresh.outputs.run == 'true'
+        run: python3 data/estimates/synergies.py || echo "::warning::Synergies not refreshed"
+      - name: Analyses (patch-change impact, settling, playstyles, pre-patch forecast, item lift)
         if: steps.fresh.outputs.run == 'true'
         run: python3 data/analysis/build.py
       - name: Keep this patch's item numbers (Tier List set ranges combine them)
@@ -79,7 +85,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/fill data/estimates data/analysis
+          git add data/fill data/estimates data/checks data/analysis
           if git diff --cached --quiet; then
             echo "No new data"
           else

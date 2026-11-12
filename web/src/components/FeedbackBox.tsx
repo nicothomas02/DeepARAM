@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useBotCheck } from "@/lib/bot-check-client";
 import { useT } from "./I18n";
+import { OPEN_SEARCH } from "./SearchPalette";
 
 const EMAIL = "admin@deeparam.com";
 // Ids of messages sent from this browser, so the box can say when one has an answer on /answers.
@@ -74,6 +75,12 @@ export default function FeedbackBox() {
   );
 }
 
+/** One to three words and no sentence punctuation: likely a champion, augment or item name. */
+export const looksLikeSearch = (m: string) => {
+  const v = m.trim();
+  return v.length >= 2 && v.length <= 40 && v.split(/\s+/).length <= 3 && !/[?!.]/.test(v);
+};
+
 function FeedbackForm({ onDone }: { onDone: () => void }) {
   const t = useT();
   const bot = useBotCheck();
@@ -119,6 +126,12 @@ function FeedbackForm({ onDone }: { onDone: () => void }) {
         <span>{t("Your message")}</span>
         <textarea value={message} onChange={(e) => setMessage(e.target.value)} required minLength={5} maxLength={2000} rows={4} />
       </label>
+      {/* A message of a word or three is usually a search typed in the wrong box: offer the site search. */}
+      {looksLikeSearch(message) && (
+        <button type="button" className="feedback-search" onClick={() => dispatchEvent(new CustomEvent(OPEN_SEARCH, { detail: message.trim() }))}>
+          {t("Looking for a page? Search for “{q}”", { q: message.trim() })}
+        </button>
+      )}
       <label>
         <span>{t("Your email, if you'd like a reply (optional)")}</span>
         <input type="email" value={replyTo} onChange={(e) => setReplyTo(e.target.value)} maxLength={200} autoComplete="email" />

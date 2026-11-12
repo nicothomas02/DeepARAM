@@ -370,7 +370,10 @@ export default function DataTable({
   }, [rows, searchKey, columns]);
 
   const toggle = (key: string) => {
-    const next = sort.key === key ? { key, desc: !sort.desc } : { key, desc: key !== searchKey };
+    // Names and other text open A to Z; numbers open biggest first.
+    const col = columns.find((c) => !c.sortKey && c.key === key);
+    const byName = key === searchKey || (!!col && ["text", "champion", "augment", "item", "ability"].includes(col.format ?? ""));
+    const next = sort.key === key ? { key, desc: !sort.desc } : { key, desc: !byName };
     setSort(next);
     share({ sort: `${next.key}.${next.desc ? "desc" : "asc"}` });
   };

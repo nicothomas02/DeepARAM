@@ -139,6 +139,11 @@ def log(msg):
     print(msg, file=sys.stderr, flush=True)
 
 
+# Under pythonw (the hidden helper on Windows) every console program would open its own
+# terminal window, so curl and PowerShell run with CREATE_NO_WINDOW there.
+NO_WINDOW = {"creationflags": getattr(subprocess, "CREATE_NO_WINDOW", 0)} if os.name == "nt" else {}
+
+
 # ---------- HTTP via curl ----------
 # curl uses the macOS keychain for Riot's public hosts, which python.org builds
 # of Python don't. Secrets go in through stdin, never on the command line where
@@ -151,7 +156,7 @@ def curl_json(url, *, auth_header=None, cacert=None, timeout=30):
         cmd += ["--cacert", cacert]
         if IS_WINDOWS:
             cmd.append("--ssl-no-revoke")  # Windows' TLS can't check revocation for Riot's local certificate
-    res = subprocess.run(cmd, input=config, capture_output=True, text=True)
+    res = subprocess.run(cmd, input=config, capture_output=True, text=True, **NO_WINDOW)
     if res.returncode != 0:
         raise ConnectionError(f"{url}: {res.stderr.strip() or 'curl exit ' + str(res.returncode)}")
     body, _, status = res.stdout.rpartition("\n")
@@ -199,7 +204,7 @@ def running_commands():
     else:
         cmd = ["ps", "-A", "-o", "args="]
     try:
-        return subprocess.run(cmd, capture_output=True, text=True).stdout or ""
+        return subprocess.run(cmd, capture_output=True, text=True, **NO_WINDOW).stdout or ""
     except OSError:
         return ""
 
@@ -598,7 +603,7 @@ def site_asset(path):
     if os.path.exists(cached) and not rel.startswith("i18n/"):
         with open(cached, "rb") as f:
             return f.read()
-    res = subprocess.run(["curl", "-sSf", "--max-time", "30", f"{SITE}/{rel}"], capture_output=True)
+    res = subprocess.run(["curl", "-sSf", "--max-time", "30", f"{SITE}/{rel}"], capture_output=True, **NO_WINDOW)
     if res.returncode != 0:
         if not os.path.exists(cached):
             return None
@@ -629,7 +634,7 @@ def site_post(lcu, path, payload):
     body = json.dumps({**payload, "token": sgp_token(lcu), "platform": platform})
     res = subprocess.run(["curl", "-sS", "--max-time", "60", "-X", "POST", "-H", "Content-Type: application/json",
                           "--data-binary", "@-", "-w", "\n%{http_code}", f"{SITE}{path}"],
-                         input=body, capture_output=True, text=True)
+                         input=body, capture_output=True, text=True, **NO_WINDOW)
     if res.returncode != 0:
         raise ImportFailed("Couldn't reach the site. Check your connection and try again.")
     out, _, status = res.stdout.rpartition("\n")

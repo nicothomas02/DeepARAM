@@ -1,0 +1,22 @@
+{
+ "Builds and combos that look great on paper but don't hold up in real games. Check here before you try a theorycraft build.": "Сборки и комбинации, которые отлично выглядят на бумаге, но не работают в настоящих играх. Загляните сюда, прежде чем пробовать теоретическую сборку.",
+ "Interactions that might be broken. Each one says what should happen on paper and how to test it in a game. If it really is broken, report it to Riot from the client so it gets fixed.": "Взаимодействия, которые могут быть сломаны. Для каждого указано, что должно происходить на бумаге и как проверить это в игре. Если оно действительно сломано, сообщите Riot через клиент, чтобы это исправили.",
+ "Show": "Показать",
+ "All": "Все",
+ "Stat loop": "Петля характеристик",
+ "Missing augment": "Недоступное усиление",
+ "Simulator vs real games": "Симулятор и реальные игры",
+ "Does nothing": "Ничего не даёт",
+ "Find a champion or augment": "Найти чемпиона или усиление",
+ "Nothing matches": "Ничего не найдено",
+ "No traps found this patch": "В этом патче ловушек нет",
+ "Nothing to test this patch": "В этом патче нечего проверять",
+ "Trap": "Ловушка",
+ "Confirmed bug": "Подтверждённая ошибка",
+ "Needs a test": "Нужна проверка",
+ "Show less": "Свернуть",
+ "+{n} more": "Ещё {n}",
+ "On paper": "На бумаге",
+ "In game": "В игре",
+ "How to test": "Как проверить"
+}

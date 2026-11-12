@@ -17,6 +17,8 @@ const PAGES = [
   "/info/region-teams",
   "/champions/Ahri",
   "/champions/Yunara",
+  // Its augment list tags augments that change the build ("Changes your build" inside the row's link).
+  "/champions/Braum",
   "/patches",
   "/tier-list?tab=items",
   "/tier-list?tab=items&itag=crit,as",
@@ -61,6 +63,8 @@ for (const path of PAGES) {
     expect(text, "data-origin or backend wording on the page").not.toMatch(FORBIDDEN);
     const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
     expect(overflow, "page scrolls sideways").toBeLessThanOrEqual(1);
+    // A link inside a link is invalid HTML, and React's hydration breaks on it.
+    expect(await page.locator("a a").count(), "links nested inside links").toBe(0);
     expect(problems).toEqual([]);
   });
 }
@@ -144,6 +148,19 @@ test("clicking a champion on the Tier List opens its page, with no favorites or 
   await expect(page).toHaveURL(new RegExp(`${href}$`));
   await expect(page.locator("h1").first()).toBeVisible();
   await expect(page.locator(".fav-star, .cmp-toggle")).toHaveCount(0);
+});
+
+test("a link to the Tier List's last tab shows that tab in the tab row", async ({ page }) => {
+  await page.goto("/tier-list?tab=pentakill");
+  const tab = page.getByRole("tab", { name: "Pentakill" });
+  await expect(tab).toHaveAttribute("aria-selected", "true");
+  // On phones the row scrolls sideways: the open tab must be inside its visible part.
+  await expect
+    .poll(async () => {
+      const [t, row] = await Promise.all([tab.boundingBox(), page.getByRole("tablist").first().boundingBox()]);
+      return !!t && !!row && t.x >= row.x - 1 && t.x + t.width <= row.x + row.width + 1;
+    })
+    .toBe(true);
 });
 
 test("the Tier List shows every stat in one table, with no separate advanced section", async ({ page }) => {
@@ -244,7 +261,7 @@ test("the Tier List's Items tab filters items and links to item pages", async ({
   await expect(page).toHaveURL(new RegExp(`${href}$`));
 });
 
-test("augment and item pages show the official description under the name, and best champions their win rate boost and the list the best champ", async ({ page }) => {
+test("augment and item pages show the official description under the name, the list the best champ, and Synergies a score", async ({ page }) => {
   await page.goto("/items/zhonyas-hourglass");
   await expect(page.locator(".champ-hero .official-desc")).toContainText("Time Stop");
   await page.goto("/tier-list?tab=augments");
@@ -257,7 +274,23 @@ test("augment and item pages show the official description under the name, and b
   const aug = page.locator('a[href^="/augments/"]').first();
   await aug.click();
   await expect(page.locator(".champ-hero .official-desc")).not.toBeEmpty();
-  await expect(page.locator(".card", { hasText: "Best champions for it" }).locator(".card-note")).toContainText("Win rate boost");
+  // Synergies: champions it fits, scored in points (never an augment win rate).
+  await expect(page.locator("#synergies .syn-row").first()).toContainText("pts");
+});
+
+test("champion pages list Synergies and the Expected switch relabels build win rates", async ({ page }) => {
+  await page.goto("/champions/Jinx");
+  const syn = page.locator("#synergies + .cp-panel .syn");
+  await expect(syn.locator(".syn-row").first()).toContainText("pts");
+  await syn.getByRole("button", { name: /Items/ }).click();
+  await expect(syn.locator(".syn-row").first()).toBeVisible();
+  // Off: build panels show "Win rate" under each value; on: each row says Real or Expected.
+  const sw = page.getByRole("switch", { name: "Expected" });
+  await sw.click();
+  await expect(sw).toHaveAttribute("aria-checked", "true");
+  await expect(page.locator(".cp-panel").filter({ has: page.locator("h3", { hasText: /^Boots$/ }) }).locator(".cp-cell small.xp-exp").first()).toBeVisible();
+  await sw.click();
+  await expect(page.locator(".cp-panel").filter({ has: page.locator("h3", { hasText: /^Boots$/ }) }).locator(".cp-cell small.xp-exp").first()).toBeHidden();
 });
 
 test("share links for a Chef Special and a build give link previews their card", async ({ page, request }) => {
@@ -297,6 +330,34 @@ test("Contact us sends a message and shows the email line", async ({ page }) => 
   await box.getByRole("button", { name: "Send" }).click();
   await expect(box.getByRole("status")).toContainText("Thanks!");
   expect(sent).toMatchObject({ message: "The Duos tab is great.", page: "/" });
+});
+
+test("a contact message of a few words offers the site search instead", async ({ page }) => {
+  await page.addInitScript(() => localStorage.setItem("deeparam-tour", "done"));
+  await page.goto("/");
+  const box = page.locator(".feedback-box");
+  await box.getByRole("button", { name: "Write to us" }).click();
+  await box.locator("textarea").fill("titanic hydra");
+  await box.getByRole("button", { name: /Search for “titanic hydra”/ }).click();
+  await expect(page.locator(".palette input")).toHaveValue("titanic hydra");
+  await page.keyboard.press("Escape");
+  // A sentence is a real message: no search offer.
+  await box.locator("textarea").fill("The Duos tab is great.");
+  await expect(box.getByRole("button", { name: /Search for/ })).toHaveCount(0);
+});
+
+test("Changes your build picks that augment in the build picker, and each Synergies list opens on its best score", async ({ page }) => {
+  await page.goto("/champions/Braum");
+  const tag = page.locator(".cp-changes").first();
+  await tag.click();
+  await expect(page).toHaveURL(/\/champions\/Braum#augment-builds$/);
+  await expect(page.locator(".cp-ab-chip[aria-pressed=true]")).toHaveCount(1);
+  const syn = page.locator("#synergies + .cp-panel .syn");
+  await syn.locator(".syn-sort").filter({ hasText: "Pick rate" }).click();
+  await expect(syn.locator(".syn-sort[aria-pressed=true]")).toContainText("Pick rate");
+  await syn.getByRole("button", { name: /Augment combos/ }).click();
+  await expect(syn.locator(".syn-sort[aria-pressed=true]")).toContainText("Score");
+  await expect(syn.locator(".syn-callout")).toBeVisible();
 });
 
 test("the Simulator opens in 3D even with the old owner switch's saved 2D pick", async ({ page }) => {

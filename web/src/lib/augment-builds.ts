@@ -20,11 +20,12 @@ export type BuildItem = { id: number; name: string; icon: string; slug: string }
 export type AugmentBuild = {
   /** Augment ids, one or two. */
   augments: number[];
-  items: BuildItem[];
+  /** Item ids, looked up in AugmentBuilds.items (each item's details are sent once per page). */
+  items: number[];
   /** How many of the items differ from the no-augment build. */
   changed: number;
 };
-export type AugmentBuilds = { base: BuildItem[]; builds: AugmentBuild[] };
+export type AugmentBuilds = { items: Record<number, Omit<BuildItem, "id">>; base: number[]; builds: AugmentBuild[] };
 
 /** At least this many different items make an augment "build-changing" on a champion. */
 export const CHANGES_BUILD = 2;
@@ -45,16 +46,19 @@ export function augmentBuilds(alias: string): AugmentBuilds | null {
   if (!c) return null;
   const k = simKeys();
   const pages = new Map(itemPages().map((p) => [p.id, p]));
+  const info: AugmentBuilds["items"] = {};
   const items = (list: string[]) =>
     list.flatMap((key) => {
       const p = pages.get(k.items[key]);
-      return p?.icon ? [{ id: p.id, name: p.name, icon: p.icon, slug: p.slug }] : [];
+      if (!p?.icon) return [];
+      info[p.id] = { name: p.name, icon: p.icon, slug: p.slug };
+      return [p.id];
     });
   const builds = c.builds.flatMap((b) => {
     const ids = b.augments.map((a) => k.augments[a]);
     return ids.every((x) => x !== undefined) ? [{ augments: ids, items: items(b.items), changed: b.changed }] : [];
   });
-  return builds.length ? { base: items(c.base.items), builds } : null;
+  return builds.length ? { items: info, base: items(c.base.items), builds } : null;
 }
 
 /** Augment ids that change this champion's build (for the augment list's "Changes your build" mark). */

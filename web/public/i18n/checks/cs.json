@@ -1,0 +1,22 @@
+{
+ "Builds and combos that look great on paper but don't hold up in real games. Check here before you try a theorycraft build.": "Buildy a kombinace, které na papíře vypadají skvěle, ale ve skutečných hrách nefungují. Podívej se sem, než zkusíš teoretický build.",
+ "Interactions that might be broken. Each one says what should happen on paper and how to test it in a game. If it really is broken, report it to Riot from the client so it gets fixed.": "Interakce, které můžou být rozbité. U každé je, co by se mělo dít na papíře a jak to vyzkoušet ve hře. Pokud je opravdu rozbitá, nahlas ji Riotu z klienta, aby ji opravili.",
+ "Show": "Zobrazit",
+ "All": "Vše",
+ "Stat loop": "Smyčka statistik",
+ "Missing augment": "Chybějící augment",
+ "Simulator vs real games": "Simulátor vs skutečné hry",
+ "Does nothing": "Nic nedělá",
+ "Find a champion or augment": "Najdi šampiona nebo augment",
+ "Nothing matches": "Nic nenalezeno",
+ "No traps found this patch": "V tomto patchi žádné pasti",
+ "Nothing to test this patch": "V tomto patchi není co testovat",
+ "Trap": "Past",
+ "Confirmed bug": "Potvrzená chyba",
+ "Needs a test": "Potřebuje test",
+ "Show less": "Zobrazit méně",
+ "+{n} more": "+{n} dalších",
+ "On paper": "Na papíře",
+ "In game": "Ve hře",
+ "How to test": "Jak to otestovat"
+}

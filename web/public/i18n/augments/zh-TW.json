@@ -63,5 +63,6 @@
  "Share of the champions who take this augment that build each item.": "選擇該強化的英雄中出每件裝備的比例。",
  "Best augments to pair it with": "最佳搭配強化",
  "Win rate when both are taken, across the champions that often pair them.": "兩者都選時的勝率，統計常搭配它們的英雄。",
- "Win rate": "勝率"
+ "Win rate": "勝率",
+ "Synergies": "協同"
 }

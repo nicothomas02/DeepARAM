@@ -38,7 +38,9 @@ jobs:
       - name: Unit tests
         run: npm test
       - name: Install the test browser
-        run: npx playwright install --with-deps chromium
+        # The runner image already has Chromium's system libraries; when Ubuntu's package
+        # servers can't be reached, install just the browser instead of failing the job.
+        run: npx playwright install --with-deps chromium || npx playwright install chromium
       - name: Page checks at desktop and phone sizes
         run: npm run test:e2e
       - uses: actions/upload-artifact@v4
