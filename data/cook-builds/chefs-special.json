@@ -1,297 +1,297 @@
 {
-  "id": "warwick-frequent-flyer",
-  "title": "Frequent Flyer",
-  "champion": "Warwick",
-  "champion_name": "Warwick",
-  "chef": "2026-11-10",
-  "why": "Warwick's Infinite Duress leaps a distance that scales with his bonus Move Speed, a detail that normally adds only a few steps. Get Excited! gives a huge burst of Move Speed on every takedown, and Arcane Axiom refunds part of his ultimate's cooldown when a champion he damaged dies, so each kill hands him both the fuel and the next launch. Nightstalking adds more Move Speed and a moment of invisibility on the same takedown, and Kill Secured speeds him toward low enemies on top of Blood Hunt, which already does the same. Axiom Arc refunds even more of the ultimate on kills and Experimental Hexplate adds ultimate haste plus Move Speed after each cast, while Youmuu's Ghostblade, Dead Man's Plate, Stridebreaker and Boots of Swiftness pile on more speed. The melee brawler becomes a cross-map reset assassin who launches from off screen onto whoever is lowest.",
-  "play": "Wait for a wounded enemy, pop Youmuu's Ghostblade and leap in from far outside the fight. After the takedown, aim the next Infinite Duress at the next low target while the speed lasts.",
+  "id": "kalista-the-floor-is-spears",
+  "title": "The Floor Is Spears",
+  "champion": "Kalista",
+  "champion_name": "Kalista",
+  "chef": "2026-11-11",
+  "why": "Kalista's passive, Martial Poise, lets her lunge a short distance every time she launches an attack, and her own Pierce text calls that lunge a dash. Earthwake makes every dash leave a trail that detonates after 0.75 seconds, but on a ranged Kalista those trails sit a full attack range away from anyone. Draw Your Sword fixes that: she becomes melee, is paid in Attack Damage, Health, Attack Speed, Lifesteal and Move Speed for the range she gave up, and now every hop draws its trail straight through the enemy she is hitting. Shadow Runner gives 300 Movement Speed for 2 seconds after each dash and Swift and Safe adds a Shield after one, so a champion who hops on every attack stays fast and protected in the middle of the fight. Guinsoo's Rageblade stacks Attack Speed with every Attack, which means more attacks, more lunges and more exploding trails, turning the backline marksman into a melee skirmisher who wins by where she steps.",
+  "play": "Walk into melee and give a move command during every attack so each lunge crosses the enemy and drops a trail under them. Hop sideways through the group rather than away from it, and use Rend to slow anyone trying to leave.",
   "items": [
-    "Axiom Arc",
-    "Experimental Hexplate",
-    "Youmuu's Ghostblade",
-    "Dead Man's Plate",
-    "Stridebreaker",
-    "Boots of Swiftness"
+    "Berserker's Greaves",
+    "Guinsoo's Rageblade",
+    "Blade of The Ruined King",
+    "Ravenous Hydra",
+    "Sterak's Gage",
+    "Death's Dance"
   ],
   "core": 4,
-  "champion_icon": "/embed/fun/cook-builds/icons/champions/19.png",
+  "champion_icon": "/embed/fun/cook-builds/icons/champions/429.png",
   "augments": [
     {
-      "name": "Get Excited!",
-      "rarity": "Gold",
+      "name": "Draw Your Sword",
+      "rarity": "Prismatic",
       "core": true,
-      "text": "Gain 100% Movement Speed and 15% Attack Speed for 4 seconds on takedown.",
-      "icon": "/embed/fun/cook-builds/icons/augments/get-excited.png",
-      "id": 1322
+      "text": "You are now melee. Gain 24% Attack Damage, 24% Health, 20% Attack Speed, 20% Lifesteal, and 20% Move Speed (each further increased based on Attack Range lost).",
+      "icon": "/embed/fun/cook-builds/icons/augments/draw-your-sword.png",
+      "id": 1134
     },
     {
-      "name": "Arcane Axiom",
-      "rarity": "Gold",
+      "name": "Earthwake",
+      "rarity": "Prismatic",
       "core": true,
-      "text": "When a champion that you damaged within 3 seconds dies, refund of your Ultimate Ability's total cooldown.",
-      "icon": "/embed/fun/cook-builds/icons/augments/arcane-axiom.png",
-      "id": 3118
+      "text": "Your dash, blink, or teleport Abilities leave behind a trail that detonates after 0.75 second.",
+      "icon": "/embed/fun/cook-builds/icons/augments/earthwake.png",
+      "id": 1027
     },
     {
-      "name": "Nightstalking",
-      "rarity": "Gold",
-      "core": true,
-      "text": "Takedowns against enemy champions within 3 seconds of damaging them grants you 40% Move Speed and renders you invisible for 1.5 seconds.",
-      "icon": "/embed/fun/cook-builds/icons/augments/nightstalking.png",
-      "id": 1326
-    },
-    {
-      "name": "Kill Secured",
+      "name": "Shadow Runner",
       "rarity": "Silver",
       "core": true,
-      "text": "Gain 60% Movement Speed towards enemies below 40% health.",
-      "icon": "/embed/fun/cook-builds/icons/augments/kill-secured.png",
-      "id": 2026
+      "text": "After using a Dash, Blink, or Teleport Ability or exiting Stealth, gain 300 Movement Speed for 2 seconds.",
+      "icon": "/embed/fun/cook-builds/icons/augments/shadow-runner.png",
+      "id": 1073
+    },
+    {
+      "name": "Swift and Safe",
+      "rarity": "Silver",
+      "core": true,
+      "text": "Gain a Shield for 2 seconds after a Dash or Blink (5 seconds Cooldown).",
+      "icon": "/embed/fun/cook-builds/icons/augments/swift-and-safe.png",
+      "id": 1315
     }
   ],
   "href": "/kitchen#chefs-special",
   "archive_href": "/kitchen#chef-archive",
-  "share_href": "/kitchen/2026-11-10",
-  "share_image": "/embed/fun/cook-builds/share/warwick-frequent-flyer.png",
+  "share_href": "/kitchen/2026-11-11",
+  "share_image": "/embed/fun/cook-builds/share/kalista-the-floor-is-spears.png",
   "item_ids": [
-    6696,
-    3073,
-    3142,
-    3742,
-    6631,
-    3009
+    3006,
+    3124,
+    3153,
+    3074,
+    3053,
+    6333
   ],
   "i18n": {
     "ar": {
-      "title": "مسافر دائم",
-      "why": "قفزة وارويك القصوى R (الإكراه اللانهائي) تقطع مسافة تتناسب مع سرعة الحركة الإضافية لديه، وهي تفصيلة تضيف عادةً بضع خطوات فقط. \"ليشتعل حماسك!\" يعطيه دفعة هائلة من سرعة الحركة مع كل إسقاط، و\"مبدأ السحر\" يعيد جزءًا من وقت التهدئة لقدرته القصوى عندما يموت بطل ألحق به ضررًا، فكل قتلة تمنحه الوقود والقفزة التالية معًا. \"التربص الليلي\" يضيف سرعة حركة أكثر ولحظة من الاختفاء عند الإسقاط نفسه، و\"تنفيذ القتل\" يسرّعه نحو الأعداء ضعيفي الصحة بالإضافة إلى W (مطاردة الدم) الذي يفعل ذلك أصلًا. \"القوس المبدئي\" يعيد المزيد من القدرة القصوى عند القتلات، و\"صفيحة الهيكستيك التجريبية\" تعطي تسريع القدرة القصوى مع سرعة حركة بعد كل استخدام، بينما \"نصل يومو الشبحي\" و\"درع صدر الرجل الميت\" و\"معيق الخطوات\" و\"حذاء العجلة\" تضيف المزيد من السرعة. يتحول المقاتل القريب إلى قاتل متسلسل بإعادة تعيين عبر الخريطة كلها، يقفز من خارج الشاشة على أضعف هدف.",
-      "play": "انتظر عدوًا مصابًا، فعّل \"نصل يومو الشبحي\" واقفز من بعيد خارج المعركة. بعد الإسقاط، وجّه \"الإكراه اللانهائي\" التالي إلى الهدف الضعيف التالي طالما السرعة مستمرة.",
+      "title": "الأرض هي رماح",
+      "why": "سلبية كاليستا، التوازن القتالي، تخليها تندفع مسافة قصيرة مع كل هجوم، وحتى نص اختراق عندها يسمّي هذا الاندفاع داش. صحوة الأرض تخلي كل داش يترك أثراً ينفجر بعد 0.75 ثانية، لكن كاليستا بعيدة المدى تترك هذه الآثار على بعد مدى هجوم كامل من أي أحد. استلَّ سيفك يحل المشكلة: تصير قتال قريب، وتحصل على ضرر الهجوم والصحة وسرعة الهجوم وسرقة الحياة وسرعة الحركة مقابل المدى اللي تخلّت عنه، وكل قفزة ترسم أثرها مباشرة عبر العدو اللي تضربه. عدَّاء الظلال يعطي 300 سرعة حركة لمدة ثانيتين بعد كل داش، والسرعة والأمان يضيف درعاً بعده، فالبطلة اللي تقفز مع كل هجوم تبقى سريعة ومحمية في قلب المعركة. نصل غضب غينسو يكدّس سرعة الهجوم مع كل هجوم، يعني هجمات أكثر واندفاعات أكثر وآثار تنفجر أكثر، فتتحول الرامية في الخلف إلى مناوِشة قتال قريب تفوز بمكان وقوفها.",
+      "play": "ادخلي القتال القريب وأعطي أمر حركة أثناء كل هجوم حتى يعبر كل اندفاع العدو ويترك الأثر تحته. اقفزي جانبياً عبر المجموعة بدل الابتعاد عنها، واستخدمي تمزيق لإبطاء أي أحد يحاول الهرب.",
       "augments": [
-        "عند المشاركة في قتل، تكتسب 100% سرعة حركة و15% سرعة هجوم لمدة 4 ثوانٍ.",
-        "عندما يموت بطل ألحقت به ضررًا خلال 3 ثوانٍ، يُعاد جزء من وقت التهدئة الكلي لقدرتك القصوى.",
-        "عمليات الإسقاط ضد أبطال الأعداء خلال 3 ثوانٍ من إلحاق الضرر بهم تمنحك 40% سرعة حركة وتجعلك غير مرئي لمدة 1.5 ثانية.",
-        "تكسب 60% سرعة حركة باتجاه الأعداء الذين تقل صحتهم عن 40%."
+        "أصبحت الآن مقاتلًا قريب المدى. تكتسب 24% قوة هجوم و24% صحة و20% سرعة هجوم و20% سرقة حياة و20% سرعة حركة (وتزداد كلها بحسب مدى الهجوم المفقود).",
+        "تترك قدرات الاندفاع أو الانتقال الخاطف أو الانتقال الآني أثرًا ينفجر بعد 0.75 ثانية.",
+        "بعد استخدام قدرة اندفاع أو انتقال خاطف أو انتقال آني أو الخروج من التخفي، تحصل على 300 سرعة حركة لمدة ثانيتين.",
+        "احصل على درع لمدة ثانيتين بعد داش أو وميض (5 ثوانٍ فترة التهدئة)."
       ]
     },
     "cs": {
-      "title": "Častý cestovatel",
-      "why": "Warwickův ultimát R (Nekonečný nátlak) skáče na vzdálenost, která se škáluje s jeho bonusovou rychlostí pohybu, což normálně přidá jen pár kroků. Rozjeď to! dává při každém zabití obrovský nával rychlosti pohybu a Axiom magie vrací část cooldownu jeho ultimátu, když zemře šampion, kterému ublížil, takže každý kill mu dá palivo i další skok. Noční lov přidává při stejném zabití další rychlost pohybu a chvilku neviditelnosti a Zaříznuto ho zrychluje směrem k nepřátelům s nízkým zdravím, navíc k W (Krvavý hon), které dělá to samé. Axiomatický oblouk vrací z ultimátu při zabitích ještě víc a Experimentální magiplát přidává po každém seslání zrychlení schopností ultimátu a rychlost pohybu, zatímco Youmuuina přízračná čepel, Kyrys mrtvého muže, Krokolam a Spěšné boty přidávají další rychlost. Z bojovníka na blízko se stane assassin s resety přes celou mapu, který se vrhá z obrazovky na toho, kdo má nejméně životů.",
-      "play": "Počkej na zraněného nepřítele, aktivuj Youmuuinu přízračnou čepel a skoč do boje z velké dálky. Po zabití zamiř další Nekonečný nátlak na další nízký cíl, dokud trvá rychlost.",
+      "title": "Podlaha je kopí",
+      "why": "Kalistina pasivka, Bojová pohotovost, jí dovoluje při každém útoku udělat krátký výpad a text jejího Probodnutí tomu sám říká dash. Earthwake (Výbušná brázda) nechává po každém dashi stopu, která vybuchne po 0,75 sekundy, jenže u Kalisty na dálku jsou ty stopy celý dosah útoku daleko od všech. Draw Your Sword (Tas meč) to spraví: z Kalisty se stane melee, za vzdaný dosah dostane Attack Damage, Health, Attack Speed, Lifesteal a Move Speed a každý skok teď vede stopu rovnou skrz nepřítele, kterého mlátí. Nepolapitelný stín dává 300 Movement Speed na 2 sekundy po každém dashi a Rychle a bezpečně přidá po něm Shield, takže šampionka, která skáče při každém útoku, zůstává uprostřed boje rychlá a chráněná. Guinsoova zuřivá čepel skládá Attack Speed s každým útokem, což znamená víc útoků, víc výpadů a víc vybuchujících stop, a z backline střelkyně je melee skirmisherka, která vyhrává tím, kam šlápne.",
+      "play": "Vběhni do melee a během každého útoku zadej příkaz k pohybu, aby každý výpad prošel skrz nepřítele a nechal pod ním stopu. Skákej do stran skrz skupinu, ne pryč od ní, a Roztrhnutím zpomal každého, kdo se snaží utéct.",
       "augments": [
-        "Při takedownu získáš na 4 sekundy 100 % rychlosti pohybu a 15 % rychlosti útoku.",
-        "Když zemře šampion, kterému jsi v posledních 3 sekundách ublížil, vrátí se část celkového cooldownu tvé ultimátní schopnosti.",
-        "Zabití nepřátelských šampionů do 3 sekund po jejich zranění ti dá 40 % rychlosti pohybu a učiní tě na 1,5 sekundy neviditelným.",
-        "Získáš 60 % rychlosti pohybu směrem k nepřátelům s méně než 40 % zdraví."
+        "Teď jsi bojovník na blízko. Získáš 24 % síly útoku, 24 % zdraví, 20 % rychlosti útoku, 20 % vysávání života a 20 % rychlosti pohybu (každé se dál zvyšuje podle ztraceného dosahu útoku).",
+        "Tvé schopnosti s výpadem, přesunem nebo teleportem za sebou nechají stopu, která po 0,75 sekundy vybuchne.",
+        "Po použití schopnosti s výpadem, přesunem nebo teleportem nebo po opuštění neviditelnosti získáš na 2 sekundy 300 rychlosti pohybu.",
+        "Získej Shield na 2 sekundy po Dashi nebo Blinku (Cooldown 5 sekund)."
       ]
     },
     "de": {
-      "title": "Vielflieger",
-      "why": "Warwicks Unendlicher Zwang (R) springt eine Distanz, die mit seinem Bonus-Lauftempo skaliert, ein Detail, das normalerweise nur ein paar Schritte ausmacht. Ich werd' verrückt! gibt bei jedem Takedown einen riesigen Schub an Lauftempo, und Arkanes Axiom erstattet einen Teil der Abklingzeit seiner Ultimate, wenn ein von ihm beschädigter Champion stirbt, sodass jeder Kill ihm Treibstoff und den nächsten Sprung liefert. Nachtwandler gibt beim selben Takedown mehr Lauftempo und einen Moment Unsichtbarkeit, und Kill gesichert macht ihn schneller in Richtung fast toter Gegner, zusätzlich zu Blutjagd (W), das genau das schon tut. Axiombogen erstattet bei Kills noch mehr von der Ultimate und Experimentelle Hexpanzerung gibt nach jedem Einsatz Ultimate-Beschleunigung plus Lauftempo, während Youmus Geistklinge, Panzer des toten Mannes, Schikane und Stiefel der Wendigkeit noch mehr Tempo draufpacken. Aus dem Nahkampf-Brawler wird ein Assassine mit Resets über die ganze Map, der von außerhalb des Bildschirms auf den Schwächsten springt.",
-      "play": "Warte auf einen angeschlagenen Gegner, zünde Youmus Geistklinge und spring von weit außerhalb des Kampfes rein. Nach dem Takedown zielst du mit dem nächsten Unendlichen Zwang auf das nächste fast tote Ziel, solange das Tempo anhält.",
+      "title": "Der Boden ist Speer",
+      "why": "Kalistas Passive, Kampfhaltung, lässt sie bei jedem Angriff ein Stück nach vorn springen, und selbst der Text ihres Durchbohrens nennt das einen Dash. Erdschneise lässt jeden Dash eine Spur hinterlassen, die nach 0,75 Sekunden explodiert, aber bei einer Fernkampf-Kalista liegen diese Spuren eine volle Angriffsreichweite von jedem entfernt. Zieh dein Schwert löst das: Sie wird zur Nahkämpferin, bekommt für die aufgegebene Reichweite Angriffsschaden, Leben, Angriffstempo, Lebensraub und Lauftempo, und jeder Hüpfer zieht seine Spur direkt durch den Gegner, den sie gerade haut. Schattenläufer gibt 300 Lauftempo für 2 Sekunden nach jedem Dash und Flink und sicher legt danach noch einen Schild drauf, sodass eine Championin, die bei jedem Angriff hüpft, mitten im Kampf schnell und geschützt bleibt. Guinsoos Wutklinge stapelt mit jedem Angriff Angriffstempo, also mehr Angriffe, mehr Sprünge und mehr explodierende Spuren, und aus der Marksman in der Backline wird eine Nahkampf-Skirmisherin, die durch ihre Schritte gewinnt.",
+      "play": "Lauf in den Nahkampf und gib bei jedem Angriff einen Bewegungsbefehl, damit jeder Sprung durch den Gegner geht und eine Spur unter ihm hinterlässt. Hüpf seitlich durch die Gruppe statt von ihr weg, und bremse mit Aufreißen jeden, der abhauen will.",
       "augments": [
-        "Erhalte bei einem Takedown 4 Sekunden lang 100 % Lauftempo und 15 % Angriffstempo.",
-        "Wenn ein Champion stirbt, den du innerhalb von 3 Sekunden beschädigt hast, wird ein Teil der gesamten Abklingzeit deiner Ultimate erstattet.",
-        "Takedowns gegen gegnerische Champions innerhalb von 3 Sekunden nach dem Schaden an ihnen geben dir 40 % Lauftempo und machen dich 1,5 Sekunden lang unsichtbar.",
-        "Du erhältst 60 % Lauftempo in Richtung von Gegnern mit weniger als 40 % Leben."
+        "Du bist jetzt ein Nahkämpfer. Erhalte 24 % Angriffsschaden, 24 % Leben, 20 % Angriffstempo, 20 % Lebensraub und 20 % Lauftempo (jeweils zusätzlich erhöht je nach verlorener Angriffsreichweite).",
+        "Deine Sprint-, Blink- oder Teleport-Fähigkeiten hinterlassen eine Spur, die nach 0,75 Sekunden explodiert.",
+        "Nachdem du eine Sprint-, Blink- oder Teleport-Fähigkeit eingesetzt oder die Tarnung verlassen hast, erhältst du 2 Sekunden lang 300 Lauftempo.",
+        "Erhalte 2 Sekunden lang einen Schild nach einem Dash oder Blink (5 Sekunden Abklingzeit)."
       ]
     },
     "el": {
-      "title": "Συχνός Ταξιδιώτης",
-      "why": "Το R (Άπειρος Εξαναγκασμός) του Γουόργουικ πηδά σε απόσταση που κλιμακώνεται με το επιπλέον Move Speed του, λεπτομέρεια που κανονικά προσθέτει μόνο λίγα βήματα. Το Τρελός Ενθουσιασμός! δίνει τεράστια έκρηξη Move Speed σε κάθε takedown και το Απόκρυφο Αξίωμα επιστρέφει μέρος του cooldown του ultimate όταν πεθάνει ένας πρωταθλητής που έχει βλάψει, οπότε κάθε kill του δίνει και καύσιμο και την επόμενη εκτόξευση. Η Νυχτερινή Καταδίωξη προσθέτει περισσότερο Move Speed και μια στιγμή αορατότητας στο ίδιο takedown, και Η εξόντωση διασφαλίστηκε τον επιταχύνει προς τους εχθρούς με χαμηλό HP, επιπλέον του W (Κυνήγι Αίματος), που ήδη το κάνει αυτό. Η Αξιωματική Καμπή επιστρέφει ακόμα περισσότερο ultimate στα kills και η Πειραματική Μαγοτεχνική Πανοπλία δίνει ultimate haste συν Move Speed μετά από κάθε χρήση, ενώ η Αιθεριολεπίδα της Γιόμου, ο Θώρακας του Νεκρού, ο Δρασκελοθραύστης και οι Μπότες Γρηγοράδας προσθέτουν ακόμα περισσότερη ταχύτητα. Ο μάχιμος του σώμα με σώμα γίνεται assassin με resets σε όλο τον χάρτη, που εκτοξεύεται από εκτός οθόνης πάνω σε όποιον έχει τη λιγότερη ζωή.",
-      "play": "Περίμενε έναν τραυματισμένο εχθρό, ενεργοποίησε την Αιθεριολεπίδα της Γιόμου και πήδα μέσα από μακριά έξω από τη μάχη. Μετά το takedown, στόχευσε τον επόμενο Άπειρο Εξαναγκασμό στον επόμενο χαμηλό στόχο όσο διαρκεί η ταχύτητα.",
+      "title": "Το Πάτωμα Είναι Δόρατα",
+      "why": "Η παθητική της Καλίστα, Πολεμική Στάση, τη βάζει να κάνει μια μικρή ορμή σε κάθε επίθεση, και το ίδιο το κείμενο της Διάτρησης την αποκαλεί dash. Ο Σεισμός κάνει κάθε dash να αφήνει ένα ίχνος που εκρήγνυται μετά από 0,75 δευτερόλεπτα, αλλά στην Καλίστα από απόσταση τα ίχνη μένουν ένα ολόκληρο εύρος επίθεσης μακριά από όλους. Το Τράβα Το Σπαθί Σου το λύνει: γίνεται melee, παίρνει Attack Damage, Health, Attack Speed, Lifesteal και Move Speed για το εύρος που παράτησε, και κάθε πήδημα τραβά το ίχνος του ακριβώς μέσα από τον εχθρό που χτυπά. Ο Δρομέας της Σκιάς δίνει 300 Ταχύτητα Κίνησης για 2 δευτερόλεπτα μετά από κάθε dash και το Ταχύτητα και Ασφάλεια προσθέτει Ασπίδα μετά, οπότε ένας champion που πηδά σε κάθε επίθεση μένει γρήγορος και προστατευμένος μέσα στη μάχη. Το Οργισμένο Σπαθί του Γκουίνσου στοιβάζει Attack Speed με κάθε επίθεση, δηλαδή περισσότερες επιθέσεις, περισσότερες ορμές και περισσότερα εκρηκτικά ίχνη, και η τοξότρια της πίσω γραμμής γίνεται melee skirmisher που κερδίζει από το πού πατάει.",
+      "play": "Μπες σε melee και δώσε εντολή κίνησης σε κάθε επίθεση, ώστε κάθε ορμή να περνά μέσα από τον εχθρό και να αφήνει ίχνος από κάτω του. Πήδα στο πλάι μέσα από την ομάδα και όχι μακριά της, και χρησιμοποίησε το Σκίσιμο για να επιβραδύνεις όποιον προσπαθεί να φύγει.",
       "augments": [
-        "Με κάθε εξόντωση αποκτάς 100% ταχύτητα κίνησης και 15% ταχύτητα επίθεσης για 4 δευτερόλεπτα.",
-        "Όταν πεθάνει ένας πρωταθλητής που έβλαψες μέσα σε 3 δευτερόλεπτα, επιστρέφεται μέρος του συνολικού cooldown του ultimate σου.",
-        "Τα takedown εναντίον εχθρικών πρωταθλητών μέσα σε 3 δευτερόλεπτα από τη στιγμή που τους έβλαψες σου δίνουν 40% Move Speed και σε κάνουν αόρατο για 1,5 δευτερόλεπτο.",
-        "Κερδίζεις 60% Move Speed προς εχθρούς με λιγότερο από 40% ζωή."
+        "Είσαι πλέον μάχιμος εκ του σύνεγγυς. Κερδίζεις 24% Ζημιά Επίθεσης, 24% Ζωή, 20% Ταχύτητα Επίθεσης, 20% Κλοπή Ζωής και 20% Ταχύτητα Κίνησης (το καθένα αυξάνεται περαιτέρω ανάλογα με την Εμβέλεια Επίθεσης που χάνεται).",
+        "Οι ικανότητες εφόρμησης, αστραπιαίας μετακίνησης ή τηλεμεταφοράς σου αφήνουν ίχνος που εκρήγνυται μετά από 0,75 δευτερόλεπτα.",
+        "Αφού χρησιμοποιήσεις ικανότητα Εφόρμησης, Αστραπιαίας Μετακίνησης ή Τηλεμεταφοράς ή βγεις από την Αφάνεια, κερδίζεις 300 Ταχύτητα Κίνησης για 2 δευτερόλεπτα.",
+        "Απόκτησε Ασπίδα για 2 δευτερόλεπτα μετά από Dash ή Blink (5 δευτερόλεπτα Cooldown)."
       ]
     },
     "es-MX": {
-      "title": "Viajero frecuente",
-      "why": "La Coacción infinita (R) de Warwick salta una distancia que escala con su velocidad de movimiento adicional, un detalle que normalmente solo suma unos cuantos pasos. ¡Comienza a Emocionarte! da una enorme ráfaga de velocidad de movimiento con cada eliminación, y Axioma Arcano devuelve parte del tiempo de reutilización de su definitiva cuando muere un campeón al que dañó, así que cada asesinato le da tanto el combustible como el siguiente salto. Acecho Nocturno agrega más velocidad de movimiento y un instante de invisibilidad con la misma eliminación, y Asesinato Asegurado lo acelera hacia los enemigos con poca vida, además de Cacería de sangre (W), que ya hace lo mismo. Arco Axiomático devuelve todavía más de la definitiva con los asesinatos y Placa Hexperimental da aceleración de habilidad definitiva más velocidad de movimiento después de cada lanzamiento, mientras que Espada Fantasma de Youmuu, Placa del Hombre Muerto, Rompeavances y Botas de Rapidez suman más velocidad. El peleador cuerpo a cuerpo se convierte en un asesino de resets por todo el mapa que se lanza desde fuera de la pantalla sobre el que tenga menos vida.",
-      "play": "Espera a que un enemigo esté herido, activa la Espada Fantasma de Youmuu y salta desde muy lejos de la pelea. Después de la eliminación, apunta la siguiente Coacción infinita al siguiente objetivo con poca vida mientras dure la velocidad.",
+      "title": "El piso es lanzas",
+      "why": "La pasiva de Kalista, Postura marcial, la hace lanzarse una corta distancia cada que ataca, y hasta el texto de su Perforar llama dash a ese impulso. Estela Terrestre hace que cada dash deje un rastro que explota a los 0.75 segundos, pero con una Kalista a distancia esos rastros quedan a todo un rango de ataque de cualquiera. Desenvaina tu Espada lo arregla: se vuelve cuerpo a cuerpo, le pagan en Daño de ataque, Salud, Velocidad de ataque, Robo de vida y Velocidad de movimiento por el rango que soltó, y ahora cada salto traza su rastro directo a través del enemigo al que está golpeando. Movimiento Sombrío da 300 de Velocidad de movimiento por 2 segundos después de cada dash y Sano y salvo agrega un Escudo después, así que una campeona que brinca en cada ataque se mantiene rápida y protegida en medio de la pelea. Espadafuria de Guinsoo acumula Velocidad de ataque con cada ataque, o sea más ataques, más saltos y más rastros explosivos, y la tiradora de retaguardia se convierte en una escaramuzadora cuerpo a cuerpo que gana por dónde pisa.",
+      "play": "Métete cuerpo a cuerpo y da una orden de movimiento durante cada ataque para que cada salto cruce al enemigo y deje un rastro debajo de él. Brinca de lado a través del grupo en vez de alejarte, y usa Desgarrar para frenar a quien intente huir.",
       "augments": [
-        "Obtienes 100% de velocidad de movimiento y 15% de velocidad de ataque por 4 segundos al conseguir una eliminación.",
-        "Cuando muere un campeón al que dañaste en los últimos 3 segundos, se devuelve parte del tiempo de reutilización total de tu habilidad definitiva.",
-        "Las eliminaciones de campeones enemigos en los 3 segundos posteriores a dañarlos te dan 40 % de velocidad de movimiento y te vuelven invisible durante 1.5 segundos.",
-        "Ganas 60 % de velocidad de movimiento hacia los enemigos con menos de 40 % de vida."
+        "Ahora eres cuerpo a cuerpo. Obtienes 24% de Daño de Ataque, 24% de Vida, 20% de Velocidad de Ataque, 20% de Robo de Vida y 20% de Velocidad de Movimiento (cada uno aumenta aún más según el Alcance de Ataque perdido).",
+        "Tus habilidades de impulso, traslación o teletransportación dejan un rastro que explota después de 0.75 segundos.",
+        "Después de usar una habilidad de impulso, traslación o teletransportación o salir del sigilo, obtienes 300 de Velocidad de movimiento durante 2 segundos.",
+        "Gana un Escudo durante 2 segundos después de un Dash o Blink (5 segundos de reutilización)."
       ]
     },
     "es": {
-      "title": "Viajero frecuente",
-      "why": "La Coacción infinita (R) de Warwick salta una distancia que escala con su velocidad de movimiento adicional, un detalle que normalmente solo suma unos pocos pasos. ¡A tope! da una enorme ráfaga de velocidad de movimiento con cada derribo, y Axioma arcano devuelve parte del enfriamiento de su definitiva cuando muere un campeón al que ha dañado, así que cada muerte le da tanto el combustible como el siguiente salto. Acecho nocturno añade más velocidad de movimiento y un instante de invisibilidad con el mismo derribo, y Asesinato asegurado lo acelera hacia los enemigos con poca vida, además de Cacería de sangre (W), que ya hace lo mismo. Arco axiomático devuelve aún más de la definitiva con las muertes y Experimento de hexarmadura da aceleración de habilidad definitiva más velocidad de movimiento tras cada lanzamiento, mientras que Filo fantasmal de Youmuu, Coraza del muerto, Cortasendas y Botas de rapidez suman más velocidad. El luchador cuerpo a cuerpo se convierte en un asesino de resets por todo el mapa que se lanza desde fuera de pantalla sobre el que tenga menos vida.",
-      "play": "Espera a que un enemigo esté herido, activa el Filo fantasmal de Youmuu y salta desde muy lejos de la pelea. Tras el derribo, apunta la siguiente Coacción infinita al siguiente objetivo con poca vida mientras dure la velocidad.",
+      "title": "El suelo es lanzas",
+      "why": "La pasiva de Kalista, Equilibrio marcial, la hace lanzarse una corta distancia cada vez que ataca, y hasta el texto de su Perforar llama dash a ese impulso. Terremoto hace que cada dash deje un rastro que detona a los 0,75 segundos, pero con una Kalista a distancia esos rastros quedan a todo un alcance de ataque de cualquiera. ¡Desenvaina la espada! lo arregla: pasa a ser cuerpo a cuerpo, le pagan con Daño de ataque, Salud, Velocidad de ataque, Robo de vida y Velocidad de movimiento por el alcance al que renuncia, y ahora cada salto traza su rastro justo a través del enemigo al que está golpeando. Corredor de la penumbra da 300 de Velocidad de movimiento durante 2 segundos tras cada dash y Ágil e invulnerable añade un Escudo después, así que una campeona que salta en cada ataque se mantiene rápida y protegida en mitad de la pelea. Hoja de furia de Guinsoo acumula Velocidad de ataque con cada ataque, o sea más ataques, más saltos y más rastros explosivos, y la tiradora de la retaguardia se convierte en una hostigadora cuerpo a cuerpo que gana por dónde pisa.",
+      "play": "Métete cuerpo a cuerpo y da una orden de movimiento durante cada ataque para que cada salto cruce al enemigo y deje un rastro bajo sus pies. Salta de lado a través del grupo en vez de alejarte, y usa Desgarrar para ralentizar a quien intente largarse.",
       "augments": [
-        "Obtienes un 100 % de velocidad de movimiento y un 15 % de velocidad de ataque durante 4 segundos al conseguir una eliminación.",
-        "Cuando muere un campeón al que has dañado en los últimos 3 segundos, se devuelve parte del enfriamiento total de tu habilidad definitiva.",
-        "Los derribos a campeones enemigos en los 3 segundos posteriores a dañarlos te dan un 40 % de velocidad de movimiento y te vuelven invisible durante 1,5 segundos.",
-        "Ganas un 60 % de velocidad de movimiento hacia los enemigos con menos del 40 % de vida."
+        "Ahora eres cuerpo a cuerpo. Obtienes un 24 % de daño de ataque, un 24 % de vida, un 20 % de velocidad de ataque, un 20 % de robo de vida y un 20 % de velocidad de movimiento (cada uno aumenta aún más según el alcance de ataque perdido).",
+        "Tus habilidades de desplazamiento, traslación o teletransporte dejan un rastro que explota tras 0,75 segundos.",
+        "Tras usar una habilidad de desplazamiento, traslación o teletransporte o salir del camuflaje, obtienes 300 de velocidad de movimiento durante 2 segundos.",
+        "Obtén un Escudo durante 2 segundos tras un Dash o Blink (5 segundos de enfriamiento)."
       ]
     },
     "fr": {
-      "title": "Grand voyageur",
-      "why": "La Contrainte infinie (R) de Warwick bondit sur une distance qui dépend de sa vitesse de déplacement bonus, un détail qui n'ajoute normalement que quelques pas. Enthousiasme ! donne un énorme boost de vitesse de déplacement à chaque élimination, et Axiome arcanique rembourse une partie du délai de récupération de son ultime quand un champion qu'il a blessé meurt, si bien que chaque kill lui offre à la fois le carburant et le prochain saut. Traque nocturne ajoute de la vitesse de déplacement et un instant d'invisibilité sur la même élimination, et Élimination réussie le fait foncer vers les ennemis presque morts, en plus de Chasse au sang (W), qui fait déjà pareil. Arc axiomatique rembourse encore plus l'ultime sur les kills et Hexplaque expérimentale donne de l'accélération de compétence ultime plus de la vitesse de déplacement après chaque lancer, pendant que Lame spectre de Youmuu, Plaque du mort, Estropieur et Bottes de célérité ajoutent encore de la vitesse. Le bagarreur au corps à corps devient un assassin à resets qui traverse toute la map et se jette depuis hors de l'écran sur le plus faible.",
-      "play": "Attends qu'un ennemi soit blessé, active la Lame spectre de Youmuu et bondis de très loin hors du combat. Après l'élimination, vise avec la prochaine Contrainte infinie la prochaine cible presque morte tant que la vitesse dure.",
+      "title": "Le sol, c'est des lances",
+      "why": "La passive de Kalista, Équilibre martial, lui fait faire un petit bond à chaque attaque, et le texte de son Transpercer appelle lui-même ça un dash. Traînée tellurique fait laisser à chaque dash une traînée qui explose après 0,75 seconde, mais avec une Kalista à distance, ces traînées se retrouvent à une portée d'attaque entière de tout le monde. Combat rapproché règle ça : elle passe au corps à corps, reçoit des Dégâts d'attaque, de la Santé, de la Vitesse d'attaque, du Vol de vie et de la Vitesse de déplacement pour la portée abandonnée, et chaque saut tire désormais sa traînée en plein dans l'ennemi qu'elle frappe. Plus rapide que son ombre donne 300 de Vitesse de déplacement pendant 2 secondes après chaque dash et Mobilité et sécurité ajoute un Bouclier derrière, donc une championne qui saute à chaque attaque reste rapide et protégée au cœur du combat. Lame enragée de Guinsoo cumule de la Vitesse d'attaque à chaque attaque, donc plus d'attaques, plus de bonds et plus de traînées qui explosent, et la tireuse de backline devient une skirmisheuse au corps à corps qui gagne grâce à l'endroit où elle pose les pieds.",
+      "play": "Fonce au corps à corps et donne un ordre de déplacement pendant chaque attaque pour que chaque bond traverse l'ennemi et laisse une traînée sous lui. Saute sur le côté à travers le groupe plutôt qu'en t'éloignant, et utilise Déchirer pour ralentir ceux qui veulent filer.",
       "augments": [
-        "Gagnez 100 % de vitesse de déplacement et 15 % de vitesse d'attaque pendant 4 secondes lors d'une mise à mort.",
-        "Quand un champion que tu as blessé dans les 3 dernières secondes meurt, une partie du délai de récupération total de ton ultime est remboursée.",
-        "Les éliminations de champions ennemis dans les 3 secondes suivant les dégâts que tu leur as infligés te donnent 40 % de vitesse de déplacement et t'rendent invisible pendant 1,5 seconde.",
-        "Tu gagnes 60 % de vitesse de déplacement vers les ennemis ayant moins de 40 % de leurs PV."
+        "Vous êtes maintenant au corps à corps. Vous gagnez 24 % de dégâts d'attaque, 24 % de PV, 20 % de vitesse d'attaque, 20 % de vol de vie et 20 % de vitesse de déplacement (chacun étant encore augmenté selon la portée d'attaque perdue).",
+        "Vos compétences de ruée, de blink ou de téléportation laissent une traînée qui explose après 0,75 seconde.",
+        "Après avoir utilisé une compétence de ruée, de blink ou de téléportation ou être sorti du camouflage, vous gagnez 300 vitesse de déplacement pendant 2 secondes.",
+        "Gagne un Bouclier pendant 2 secondes après un Dash ou un Blink (5 secondes de délai de récupération)."
       ]
     },
     "hu": {
-      "title": "Törzsutas",
-      "why": "Warwick Végtelen kényszer képessége (R) a bónusz mozgási sebességével arányos távolságra ugrik, ami általában csak pár lépésnyi különbség. A Micsoda izgalom! minden leszámolásnál hatalmas mozgási sebesség-löketet ad, a Misztikus axióma pedig visszaad a végső képessége hűtésidejéből, ha egy általa megsebzett hős meghal, így minden kill egyszerre ad neki üzemanyagot és a következő ugrást. Az Éji vadász még több mozgási sebességet és egy pillanatnyi láthatatlanságot ad ugyanarra a leszámolásra, a Kiiktatva pedig a Vérvadászat (W) mellett még tovább gyorsítja a sebzett ellenfelek felé. Az Axiómaív killeknél még több hűtésidőt ad vissza a végső képességéből, a Kísérleti hexpáncél minden használat után végső képesség-gyorsítást és mozgási sebességet ad, a Youmuu szellemkardja, a Holtak vértje, a Megtorpantó és A fürgeség cipője pedig még több sebességet pakol rá. A közelharci verekedőből így egész pályás resetelő bérgyilkos lesz, aki a képernyőn kívülről ugrik rá a leggyengébb ellenfélre.",
-      "play": "Várj meg egy sebzett ellenfelet, aktiváld a Youmuu szellemkardját, és ugorj be a harc messzi széléről. A leszámolás után célozd a következő Végtelen kényszert (R) a következő gyenge célpontra, amíg tart a sebesség.",
+      "title": "Lándzsa a padló!",
+      "why": "Kalista passzívája, a Harci higgadtság, minden támadásnál előrelendíti őt egy kicsit, és a saját Átszúrás leírása is dash-nek hívja ezt a lendületet. A Földmunka minden dash után nyomvonalat hagy, ami 0,75 másodperc múlva felrobban, de távolsági Kalistánál ezek a nyomok egy teljes támadótávolságnyira vannak mindenkitől. A Ránts kardot ezt orvosolja: közelharcos lesz, és az elvesztett távolságért Támadóerőt, Életerőt, Támadási sebességet, Életszívást és Mozgási sebességet kap, minden ugrás nyomvonala pedig egyenesen az ellenségen húzódik át, akit éppen ütöget. Az Árnyfutó 2 másodpercig 300 Mozgási sebességet ad minden dash után, a Fürgén, épen pedig Pajzsot ad utána, így aki minden támadásnál ugrik, az gyors és védett marad a harc közepén. Guinsoo dühpengéje minden támadással halmozza a Támadási sebességet, vagyis több támadás, több lendület és több felrobbanó nyom jön: a hátsó sorból lövöldöző mesterlövész közelharcos csetepatézóvá válik, aki azzal nyer, hova lép.",
+      "play": "Sétálj be közelharcba, és minden támadás alatt adj mozgásparancsot, hogy minden lendület átvágjon az ellenségen, és nyomot hagyjon alatta. Oldalra ugrálj át a csapaton, ne elfelé tőlük, és a Szétszaggatással lassítsd azt, aki le akar lépni.",
       "augments": [
-        "Leszedéskor 4 másodpercre 100% mozgási sebességet és 15% támadási sebességet kapsz.",
-        "Ha egy hős, akit az elmúlt 3 másodpercben megsebztél, meghal, visszakapod a végső képességed teljes hűtésidejének egy részét.",
-        "Ha leszámolsz egy ellenséges hőssel, miután az elmúlt 3 másodpercben megsebezted, 40% mozgási sebességet kapsz, és 1,5 másodpercre láthatatlanná válsz.",
-        "60% mozgási sebességet kapsz a 40% életerő alatti ellenfelek felé."
+        "Mostantól közelharci vagy. Kapsz 24% Támadóerőt, 24% Életerőt, 20% Támadási sebességet, 20% Életerő-lopást és 20% Mozgási sebességet (mindegyik tovább nő az elvesztett Támadási hatótáv alapján).",
+        "A roham-, villanás- és teleport-képességeid nyomot hagynak maguk után, ami 0,75 másodperc után felrobban.",
+        "Roham-, villanás- vagy teleport-képesség használata, illetve a lopakodásból való kilépés után 2 másodpercig 300 mozgási sebességet kapsz.",
+        "Pajzsot kapsz 2 másodpercre egy dash vagy Blink után (5 másodperc visszatöltés)."
       ]
     },
     "id": {
-      "title": "Frequent Flyer",
-      "why": "Infinite Duress milik Warwick melompat dengan jarak yang mengikuti bonus Move Speed-nya, detail yang biasanya cuma nambah beberapa langkah. Get Excited! memberi lonjakan Move Speed besar di setiap takedown, dan Arcane Axiom mengembalikan sebagian cooldown ultimate-nya saat champion yang dia damage mati, jadi tiap kill memberinya bahan bakar sekaligus lompatan berikutnya. Nightstalking menambah Move Speed dan sesaat invisible di takedown yang sama, dan Kill Secured membuatnya makin ngebut ke arah musuh yang sekarat di atas Blood Hunt, yang sudah punya efek serupa. Axiom Arc mengembalikan lebih banyak lagi cooldown ultimate saat kill, dan Experimental Hexplate memberi ultimate haste plus Move Speed setelah tiap cast, sementara Youmuu's Ghostblade, Dead Man's Plate, Stridebreaker, dan Boots of Swiftness menumpuk lebih banyak speed lagi. Brawler jarak dekat ini jadi assassin reset lintas map yang melompat dari luar layar ke musuh dengan HP paling tipis.",
-      "play": "Tunggu musuh yang terluka, aktifkan Youmuu's Ghostblade, lalu lompat dari jauh di luar teamfight. Setelah takedown, arahkan Infinite Duress berikutnya ke target low HP selanjutnya selagi speed-nya masih jalan.",
+      "title": "Lantai adalah Tombak",
+      "why": "Passive Kalista, Martial Poise, bikin dia melesat sedikit tiap kali menyerang, dan teks Pierce miliknya sendiri menyebut lesatan itu dash. Earthwake bikin setiap dash meninggalkan jejak yang meledak setelah 0,75 detik, tapi pada Kalista jarak jauh jejak itu terpasang sejauh satu Attack Range penuh dari musuh. Draw Your Sword memperbaikinya: dia jadi melee, dan sebagai ganti jangkauan yang hilang dia dapat Attack Damage, Health, Attack Speed, Lifesteal dan Move Speed, lalu tiap lompatan menarik jejaknya langsung lewat musuh yang sedang dia pukul. Shadow Runner memberi 300 Move Speed selama 2 detik setelah tiap dash dan Swift and Safe menambah Shield setelahnya, jadi champion yang melompat di tiap serangan tetap cepat dan terlindungi di tengah teamfight. Guinsoo's Rageblade menumpuk Attack Speed di setiap serangan, artinya lebih banyak serangan, lebih banyak lesatan, dan lebih banyak jejak meledak, mengubah marksman barisan belakang jadi skirmisher melee yang menang lewat posisi langkahnya.",
+      "play": "Masuk ke melee dan beri perintah gerak di tiap serangan supaya setiap lesatan melewati musuh dan meninggalkan jejak di bawahnya. Lompat menyamping menembus kerumunan, bukan menjauh darinya, dan pakai Rend untuk memperlambat siapa pun yang mau kabur.",
       "augments": [
-        "Dapatkan 100% Move Speed dan 15% Attack Speed selama 4 detik saat takedown.",
-        "Saat champion yang kamu damage dalam 3 detik terakhir mati, sebagian dari total cooldown Ultimate Ability-mu dikembalikan.",
-        "Takedown terhadap champion musuh dalam 3 detik setelah kamu damage mereka memberimu 40% Move Speed dan membuatmu invisible selama 1,5 detik.",
-        "Dapatkan 60% Movement Speed menuju musuh dengan health di bawah 40%."
+        "Kamu sekarang melee. Dapatkan 24% Attack Damage, 24% Health, 20% Attack Speed, 20% Lifesteal, dan 20% Move Speed (masing-masing meningkat lagi berdasarkan Attack Range yang hilang).",
+        "Ability dash, blink, atau teleport-mu meninggalkan jejak yang meledak setelah 0,75 detik.",
+        "Setelah menggunakan Ability Dash, Blink, atau Teleport atau keluar dari Stealth, dapatkan 300 Move Speed selama 2 detik.",
+        "Dapatkan Shield selama 2 detik setelah Dash atau Blink (Cooldown 5 detik)."
       ]
     },
     "it": {
-      "title": "Frequent Flyer",
-      "why": "La Costrizione infinita (R) di Warwick salta a una distanza che scala con la sua velocità di movimento bonus, un dettaglio che di solito aggiunge solo qualche passo. Che emozione! dà un enorme scatto di velocità di movimento a ogni uccisione, e Assioma arcano rimborsa parte del tempo di ricarica della sua suprema quando muore un campione che ha danneggiato: ogni kill gli dà sia il carburante sia il lancio successivo. Caccia notturna aggiunge altra velocità di movimento e un attimo di invisibilità sulla stessa uccisione, e Uccisione assicurata lo rende più rapido verso i nemici a poca salute, in aggiunta a Caccia al sangue (W), che fa già lo stesso. Arco di Assioma rimborsa ancora più suprema con le kill e Hexcorazza sperimentale dà velocità suprema più velocità di movimento dopo ogni lancio, mentre Lama di Youmuu, Corazza dell'uomo morto, Spezzapassi e Stivali della rapidità aggiungono ancora più velocità. Il bruiser in mischia diventa un assassino con reset che attraversa la mappa e si lancia da fuori schermo su chi ha meno salute.",
-      "play": "Aspetta un nemico ferito, attiva la Lama di Youmuu e salta dentro da lontano, fuori dallo scontro. Dopo l'uccisione, mira la prossima Costrizione infinita (R) al prossimo bersaglio a poca salute finché dura la velocità.",
+      "title": "Il pavimento è lancia",
+      "why": "La passiva di Kalista, Equilibrio marziale, le fa compiere un breve scatto a ogni attacco, e il testo della sua Trafiggere chiama proprio dash quello scatto. Scia distruttiva fa lasciare a ogni dash una scia che esplode dopo 0,75 secondi, ma con Kalista a distanza quelle scie finiscono a un'intera gittata d'attacco da chiunque. Sguaina la spada risolve il problema: diventa corpo a corpo e in cambio della gittata persa ottiene Danni attacco, Salute, Velocità d'attacco, Furto vita e Velocità di movimento, e ogni balzo traccia la scia dritta attraverso il nemico che sta colpendo. Scatto d'ombra dà 300 Velocità di movimento per 2 secondi dopo ogni dash e Agile e prudente aggiunge uno Scudo, così una campionessa che salta a ogni attacco resta veloce e protetta in mezzo alla mischia. Furia di Guinsoo accumula Velocità d'attacco a ogni attacco: più attacchi, più scatti e più scie esplosive, e la tiratrice da retrovia diventa una schermitrice corpo a corpo che vince grazie a dove mette i piedi.",
+      "play": "Entra in mischia e dai un comando di movimento durante ogni attacco, così ogni scatto attraversa il nemico e gli lascia una scia sotto i piedi. Salta di lato attraverso il gruppo invece di allontanartene, e usa Squarciare per rallentare chi prova a scappare.",
       "augments": [
-        "Ottieni il 100% di velocità di movimento e il 15% di velocità d'attacco per 4 secondi a ogni uccisione.",
-        "Quando muore un campione che hai danneggiato nei 3 secondi precedenti, ottieni il rimborso di parte del tempo di ricarica totale della tua abilità suprema.",
-        "Le uccisioni contro campioni nemici entro 3 secondi dall'averli danneggiati ti conferiscono il 40% di velocità di movimento e ti rendono invisibile per 1,5 secondi.",
-        "Ottieni il 60% di velocità di movimento verso i nemici con meno del 40% di salute."
+        "Ora sei un campione da mischia. Ottieni il 24% di Danni da attacco, il 24% di Salute, il 20% di Velocità d'attacco, il 20% di Furto di vita e il 20% di Velocità di movimento (ognuno ulteriormente aumentato in base alla Gittata d'attacco persa).",
+        "Le tue abilità di scatto, traslazione o teletrasporto lasciano una scia che esplode dopo 0,75 secondi.",
+        "Dopo aver usato un'abilità di scatto, traslazione o teletrasporto o essere uscito dal camuffamento, ottieni 300 velocità di movimento per 2 secondi.",
+        "Ottieni uno Scudo per 2 secondi dopo uno Scatto o un Blink (5 secondi di ricarica)."
       ]
     },
     "ja": {
-      "title": "フリークエントフライヤー",
-      "why": "ワーウィックのインフィニット デュレス(R)は、ボーナス移動速度に応じて跳躍距離が伸びる。普段はほんの数歩分の差だが、超エキサイティン！ならキルのたびに大幅な移動速度を得られ、アーケイン アクシオムなら自分がダメージを与えたチャンピオンが死ぬとアルティメットスキルのクールダウンが一部短縮されるので、キルするたびに燃料と次の跳躍が手に入る。ナイトストークは同じキルで移動速度とわずかな不可視化を追加し、キルを確認はブラッドハント(W)に加えて、体力の低い敵へさらに速く迫れるようになる。アクシオム アークはキルでアルティメットのクールダウンをさらに短縮し、実験的ヘクスプレートは発動のたびにアルティメットスキルヘイストと移動速度を与え、妖夢の霊剣、デッド マン プレート、ストライドブレイカー、スイフトネス ブーツでさらに速度を積める。近接ブロウラーが、画面外から最も体力の低い相手へ飛びかかるマップ横断リセット型アサシンに変身する。",
-      "play": "負傷した敵を待ち、妖夢の霊剣を発動して、戦場のはるか外から飛び込もう。キルしたら、速度が続いている間に次のインフィニット デュレス(R)を次の瀕死のターゲットへ。",
+      "title": "床はやりだ",
+      "why": "カリスタのパッシブ「マーシャル ポイズ」は、攻撃のたびに少しだけ前方へ跳び込み、「ピアース」の説明文でもこの跳躍をダッシュと呼んでいます。「アースウェイク」はダッシュのたびに0.75秒後に爆発する軌跡を残しますが、遠距離のカリスタだと軌跡は敵から攻撃射程ぶん丸ごと離れた場所にできてしまいます。「剣を構えよ」ならそれを解決できます。近接になる代わりに、失った射程のぶん攻撃力、体力、攻撃速度、ライフスティール、移動速度を得て、跳ぶたびに殴っている敵のど真ん中を軌跡が通るようになります。「影走り」はダッシュ後2秒間移動速度+300、「迅速に安全に」はダッシュ後にシールドを付与するので、攻撃のたびに跳ぶチャンピオンは集団戦の真ん中でも速く、守られたままです。「グインソー レイジブレード」は攻撃のたびに攻撃速度が重なり、攻撃も跳躍も爆発する軌跡も増えて、後衛のマークスマンが立ち位置で勝つ近接スカーミッシャーに早変わりします。",
+      "play": "近接に突っ込んで、攻撃のたびに移動コマンドを入れ、跳躍が敵を貫通して足元に軌跡を残すようにしましょう。集団からは離れず、横に跳んで中を抜け、逃げようとする相手には「レンド」でスローをかけます。",
       "augments": [
-        "キル関与時に4秒間、移動速度が100%、攻撃速度が15%増加する。",
-        "3秒以内にダメージを与えたチャンピオンが死亡すると、アルティメットスキルの総クールダウンの一部が戻る。",
-        "ダメージを与えてから3秒以内に敵チャンピオンをキルすると、移動速度+40%を獲得し、1.5秒間透明になる。",
-        "体力40%未満の敵に向かう際、移動速度+60%を獲得する。"
+        "あなたは近接になる。攻撃力24%、体力24%、攻撃速度20%、ライフスティール20%、移動速度20%を獲得(それぞれ失った攻撃範囲に応じてさらに増加)。",
+        "ダッシュ、ブリンク、テレポートのスキルが軌跡を残し、0.75秒後に爆発する。",
+        "ダッシュ、ブリンク、テレポートのスキルを使用するかステルス状態を解除した後、2秒間移動速度が300増加する。",
+        "ダッシュまたはブリンク後2秒間シールドを獲得（クールダウン5秒）。"
       ]
     },
     "ko": {
-      "title": "단골 비행사",
-      "why": "워윅의 무한의 구속(R)은 추가 이동 속도에 비례해 도약 거리가 늘어납니다. 평소엔 몇 걸음 차이밖에 안 나는 부분이죠. 신난다!는 처치 관여할 때마다 엄청난 이동 속도를 주고, 비전 원칙은 자신이 피해를 입힌 챔피언이 죽으면 궁극기 재사용 대기시간을 일부 돌려줘서, 킬 한 번이 연료와 다음 도약을 동시에 챙겨줍니다. 밤의 추적은 같은 처치에 이동 속도와 짧은 투명화를 더하고, 확보된 킬은 이미 같은 효과가 있는 피의 사냥(W)에 더해 체력이 낮은 적에게 더 빠르게 달려들게 해줍니다. 원칙의 원형낫은 킬 시 궁극기를 더 많이 돌려주고, 실험적 마공학판은 시전할 때마다 궁극기 가속과 이동 속도를 주며, 요우무의 유령검, 망자의 갑옷, 발걸음 분쇄기, 신속의 장화로 속도를 더 쌓을 수 있습니다. 근접 난동꾼이 화면 밖에서 가장 체력이 낮은 적에게 날아드는 맵 횡단 리셋 암살자로 변신합니다.",
-      "play": "다친 적을 기다렸다가 요우무의 유령검을 켜고 전투 바깥 먼 곳에서 뛰어드세요. 처치 후 속도가 유지되는 동안 다음 무한의 구속(R)을 체력이 낮은 다음 대상에게 꽂으면 됩니다.",
+      "title": "바닥이 창이다",
+      "why": "칼리스타의 패시브 무예의 균형은 공격할 때마다 짧게 도약하게 하고, 꿰뚫기 설명에서도 이 도약을 돌진이라고 부릅니다. 대지의 각성은 돌진할 때마다 0.75초 뒤에 폭발하는 흔적을 남기지만, 원거리 칼리스타는 그 흔적이 적에게서 공격 사거리만큼 떨어진 곳에 생깁니다. 검을 뽑아라가 이걸 해결해 줍니다. 근접 챔피언이 되는 대신 잃은 사거리만큼 공격력, 체력, 공격 속도, 생명력 흡수, 이동 속도를 얻고, 뛸 때마다 때리고 있는 적의 한가운데로 흔적이 지나갑니다. 그림자 질주는 돌진 후 2초 동안 이동 속도 300을 주고, 빠르고 안전하게는 돌진 후 보호막을 더해 주니, 공격마다 뛰는 챔피언은 한타 한복판에서도 빠르고 단단하게 버팁니다. 구인수의 격노검은 공격할 때마다 공격 속도가 쌓여서 공격도, 도약도, 폭발하는 흔적도 늘어나고, 후방 원거리 딜러가 발 디디는 위치로 이기는 근접 난동꾼으로 변신합니다.",
+      "play": "근접으로 뛰어들어 매 공격마다 이동 명령을 내려서 도약이 적을 가로질러 발밑에 흔적을 남기게 하세요. 무리에서 멀어지지 말고 옆으로 뛰어 통과하고, 도망가려는 상대는 찢어발기기로 둔화시키세요.",
       "augments": [
-        "처치 관여 시 4초 동안 이동 속도 100%와 공격 속도 15%를 얻습니다.",
-        "3초 안에 피해를 입힌 챔피언이 죽으면 궁극기 총 재사용 대기시간의 일부를 돌려받습니다.",
-        "피해를 입히고 3초 안에 적 챔피언을 처치하면 이동 속도가 40% 증가하고 1.5초 동안 투명 상태가 됩니다.",
-        "체력이 40% 미만인 적을 향해 이동할 때 이동 속도가 60% 증가합니다."
+        "당신은 이제 근접입니다. 공격력 24%, 체력 24%, 공격 속도 20%, 생명력 흡수 20%, 이동 속도 20%를 얻습니다 (각각 잃은 사거리에 따라 추가로 증가).",
+        "돌진, 점멸, 순간이동 스킬이 자국을 남기고, 이 자국은 0.75초 후 폭발합니다.",
+        "돌진, 점멸, 순간이동 스킬을 사용하거나 은신에서 벗어나면 2초 동안 이동 속도가 300 증가합니다.",
+        "돌진 또는 점멸 후 2초 동안 보호막을 얻습니다. (재사용 대기시간 5초)"
       ]
     },
     "pl": {
-      "title": "Stały Bywalec Przestworzy",
-      "why": "Nieskończony Przymus Warwicka (R) skacze na odległość zależną od jego bonusowej prędkości ruchu, co normalnie dodaje tylko kilka kroków. Zabawmy Się! daje ogromny zastrzyk prędkości ruchu przy każdym udziale w zabójstwie, a Aksjomat Arkanów zwraca część czasu odnowienia superumiejętności, gdy zginie bohater, któremu zadał obrażenia, więc każdy kill daje mu i paliwo, i kolejny skok. Nocne Grasowanie dodaje jeszcze więcej prędkości ruchu i chwilę niewidzialności przy tym samym zabójstwie, a Zabójstwo Zaklepane przyspiesza go w stronę osłabionych wrogów, ponad to, co już robią Krwawe Łowy (W). Aksjomatyczny Łuk zwraca jeszcze więcej superumiejętności za zabójstwa, Eksperymentalny Hexpierśnik daje przyspieszenie superumiejętności i prędkość ruchu po każdym użyciu, a Widmowe Ostrze Youmuu, Pancerz Umrzyka, Łamacz Falangi i Buty Prędkości dokładają jeszcze więcej szybkości. Bijatyk walczący wręcz zmienia się w zabójcę z resetami, który przecina całą mapę i spada spoza ekranu na tego, kto ma najmniej zdrowia.",
-      "play": "Poczekaj na rannego wroga, odpal Widmowe Ostrze Youmuu i skocz z daleka poza walką. Po zabójstwie wyceluj kolejny Nieskończony Przymus (R) w następny słaby cel, póki trwa szybkość.",
+      "title": "Podłoga to włócznie",
+      "why": "Pasywka Kalisty, Wojownicza Równowaga, pozwala jej wyskoczyć na krótki dystans przy każdym ataku, a opis jej Przebicia sam nazywa ten skok dashem. Znaczenie Ziemi sprawia, że każdy dash zostawia ślad, który wybucha po 0,75 sekundy, ale u dystansowej Kalisty te ślady lądują o cały zasięg ataku od wrogów. Dobądź Miecza to naprawia: zostaje wojowniczką walczącą w zwarciu i w zamian za utracony zasięg dostaje Obrażenia od ataku, Zdrowie, Szybkość ataku, Kradzież życia i Szybkość ruchu, a każdy skok ciągnie ślad prosto przez wroga, którego bije. Cieniobieżca daje 300 Szybkości ruchu na 2 sekundy po każdym dashu, a Szybcy i Bezpieczni dorzucają Tarczę, więc bohaterka skacząca przy każdym ataku jest szybka i chroniona w środku walki. Ostrze Gniewu Guinsoo stackuje Szybkość ataku z każdym atakiem, czyli więcej ataków, skoków i wybuchających śladów, a strzelec z tylnej linii zmienia się w harcownika, który wygrywa tym, gdzie staje.",
+      "play": "Wejdź w zwarcie i wydawaj komendę ruchu przy każdym ataku, żeby każdy skok przecinał wroga i zostawiał ślad pod nim. Skacz na boki przez grupę, a nie od niej, i używaj Rozdarcia, żeby spowolnić tych, którzy chcą uciec.",
       "augments": [
-        "Po likwidacji zyskujesz 100% prędkości ruchu i 15% prędkości ataku na 4 sekundy.",
-        "Gdy zginie bohater, któremu zadałeś obrażenia w ciągu 3 sekund, zwracana jest część całkowitego czasu odnowienia twojej superumiejętności.",
-        "Udział w zabójstwie wrogich bohaterów w ciągu 3 sekund od zadania im obrażeń daje ci 40% prędkości ruchu i czyni cię niewidzialnym na 1,5 sekundy.",
-        "Zyskujesz 60% prędkości ruchu w stronę wrogów z mniej niż 40% zdrowia."
+        "Teraz walczysz wręcz. Zyskujesz 24% Obrażeń od ataku, 24% Zdrowia, 20% Szybkości ataku, 20% Kradzieży życia i 20% Prędkości ruchu (każde dodatkowo zwiększone w zależności od utraconego Zasięgu ataku).",
+        "Twoje umiejętności doskoku, mignięcia lub teleportacji zostawiają ślad, który wybucha po 0,75 sekundy.",
+        "Po użyciu umiejętności doskoku, mignięcia lub teleportacji albo wyjściu z kamuflażu zyskujesz 300 prędkości ruchu na 2 sekundy.",
+        "Zyskaj Tarczę na 2 sekundy po Dashu lub Blinku (5 sekund odnowienia)."
       ]
     },
     "pt-BR": {
-      "title": "Cliente Frequente",
-      "why": "A Coerção Infinita (R) do Warwick pula uma distância que escala com a Velocidade de Movimento bônus dele, um detalhe que normalmente adiciona só alguns passos. Anime-se! dá um surto enorme de Velocidade de Movimento a cada abate, e Axioma Arcano devolve parte do tempo de recarga da suprema quando um campeão que ele causou dano morre, então cada kill entrega o combustível e o próximo pulo. Caçada Noturna adiciona mais Velocidade de Movimento e um instante de invisibilidade no mesmo abate, e Abate Garantido o deixa mais rápido em direção a inimigos com pouca vida, além da Caça de Sangue (W), que já faz o mesmo. Arco do Axioma devolve ainda mais da suprema nos abates, a Hexoplaca Experimental dá aceleração de suprema e Velocidade de Movimento após cada uso, e Lâmina Fantasma de Youmuu, Couraça do Defunto, Quebrapassos e Botas da Rapidez acumulam ainda mais velocidade. O lutador corpo a corpo vira um assassino de reset que cruza o mapa e pula de fora da tela em cima de quem estiver com menos vida.",
-      "play": "Espere um inimigo ferido, ative a Lâmina Fantasma de Youmuu e pule de bem longe da luta. Depois do abate, mire a próxima Coerção Infinita (R) no próximo alvo com pouca vida enquanto a velocidade durar.",
+      "title": "O Chão É Lança",
+      "why": "A passiva da Kalista, Postura Marcial, faz ela dar um pequeno salto a cada ataque, e o texto do próprio Perfurar chama esse salto de dash. Abalos Sísmicos faz todo dash deixar um rastro que explode depois de 0,75 segundo, mas com a Kalista à distância esses rastros ficam a um alcance de ataque inteiro de qualquer um. Saque sua Espada resolve isso: ela vira corpo a corpo e, pelo alcance perdido, ganha Dano de Ataque, Vida, Velocidade de Ataque, Roubo de Vida e Velocidade de Movimento, e agora cada pulo puxa o rastro direto por dentro do inimigo que ela está batendo. Corrida das Sombras dá 300 de Velocidade de Movimento por 2 segundos depois de cada dash e Seguro e Veloz adiciona um Escudo depois dele, então quem pula a cada ataque continua rápida e protegida no meio da luta. A Lâmina da Fúria de Guinsoo acumula Velocidade de Ataque a cada ataque, o que significa mais ataques, mais saltos e mais rastros explosivos, transformando a atiradora da retaguarda numa skirmisher corpo a corpo que vence por onde pisa.",
+      "play": "Entre no corpo a corpo e dê um comando de movimento durante cada ataque para que cada salto atravesse o inimigo e deixe um rastro embaixo dele. Pule de lado pelo meio do grupo em vez de se afastar dele, e use Dilacerar para desacelerar quem tentar fugir.",
       "augments": [
-        "Ganhe 100% de Velocidade de Movimento e 15% de Velocidade de Ataque por 4 segundos ao conseguir um abate.",
-        "Quando um campeão que você causou dano nos últimos 3 segundos morre, parte do tempo de recarga total da sua Habilidade Suprema é devolvida.",
-        "Abates contra campeões inimigos até 3 segundos depois de causar dano a eles concedem 40% de Velocidade de Movimento e deixam você invisível por 1,5 segundo.",
-        "Receba 60% de Velocidade de Movimento ao se mover em direção a inimigos com menos de 40% de vida."
+        "Você agora é corpo a corpo. Ganhe 24% de Dano de Ataque, 24% de Vida, 20% de Velocidade de Ataque, 20% de Roubo de Vida e 20% de Velocidade de Movimento (cada um ainda aumentado com base no Alcance de Ataque perdido).",
+        "Suas habilidades de avanço, salto ou teleporte deixam um rastro que explode após 0,75 segundo.",
+        "Depois de usar uma habilidade de Avanço, Salto ou Teleporte ou sair da Furtividade, ganhe 300 de Velocidade de Movimento por 2 segundos.",
+        "Ganhe um Escudo por 2 segundos depois de um Dash ou Blink (5 segundos de Tempo de Recarga)."
       ]
     },
     "ro": {
-      "title": "Pasager frecvent",
-      "why": "Constrângerea infinită (R) a lui Warwick sare o distanță care scalează cu viteza lui de mișcare bonus, detaliu care de obicei adaugă doar câțiva pași. Entuziasmează-te! dă un boost uriaș de viteză de mișcare la fiecare eliminare, iar Axioma ocultă returnează o parte din cooldown-ul ultimate-ului când moare un campion pe care l-a lovit, așa că fiecare kill îi dă și combustibilul, și următorul salt. Pânda de noapte adaugă mai multă viteză de mișcare și un moment de invizibilitate la aceeași eliminare, iar Asasinat asigurat îl grăbește spre inamicii cu viață puțină, peste Vânătoarea de sânge (W), care face deja asta. Arcul axiomei returnează și mai mult din ultimate la kill-uri, iar Hexarmura experimentală dă haste de ultimate plus viteză de mișcare după fiecare folosire, în timp ce Sabia-fantomă a lui Youmuu, Platoșa ostașului ucis, Spărgătorul de ritm și Cizmele agilității adaugă și mai multă viteză. Bruiserul de corp la corp devine un asasin cu reset pe toată harta, care se aruncă din afara ecranului pe cel mai rănit inamic.",
-      "play": "Așteaptă un inamic rănit, activează Sabia-fantomă a lui Youmuu și sari în luptă de departe. După eliminare, țintește următoarea Constrângere infinită spre următorul inamic cu viață puțină cât ține viteza.",
+      "title": "Podeaua e lance",
+      "why": "Pasivul Kalistei, Echilibru marțial, o face să se arunce puțin înainte la fiecare atac, iar textul propriului ei Străpungere numește asta dash. Cutremur face ca fiecare dash să lase o dâră care explodează după 0,75 secunde, dar la o Kalista cu rază dâra rămâne la o rază de atac întreagă de oricine. Scoate-ți sabia rezolvă asta: devine corp la corp și primește Atac fizic, Viață, Viteză de atac, Furt de viață și Viteză de mișcare pentru raza pierdută, iar acum fiecare săritură trage dâra direct prin inamicul pe care îl lovește. Alergătorul umbrei dă 300 Viteză de mișcare timp de 2 secunde după fiecare dash, iar Iute și sigur adaugă un Scut după el, așa că o campioană care sare la fiecare atac rămâne rapidă și protejată în mijlocul luptei. Spada furiei lui Guinsoo adună Viteză de atac la fiecare Atac, adică mai multe atacuri, mai multe salturi și mai multe dâre explozive, transformând trăgătoarea din backline într-o skirmisher corp la corp care câștigă prin locul în care calcă.",
+      "play": "Intră în corp la corp și dă o comandă de mișcare în timpul fiecărui atac, ca fiecare săritură să treacă prin inamic și să lase o dâră sub el. Sari lateral prin grup, nu departe de el, și folosește Sfâșiere ca să încetinești pe oricine încearcă să fugă.",
       "augments": [
-        "La o eliminare primești 100% viteză de mișcare și 15% viteză de atac timp de 4 secunde.",
-        "Când moare un campion pe care l-ai lovit în ultimele 3 secunde, primești înapoi o parte din cooldown-ul total al abilității tale ultimate.",
-        "Eliminările asupra campionilor inamici în 3 secunde de la lovirea lor îți dau 40% viteză de mișcare și te fac invizibil timp de 1,5 secunde.",
-        "Primești 60% viteză de mișcare spre inamicii cu sub 40% viață."
+        "Acum ești corp la corp. Primești 24% Putere de atac, 24% viață, 20% viteză de atac, 20% vampirism și 20% viteză de mișcare (fiecare crescută în plus în funcție de raza de atac pierdută).",
+        "Abilitățile tale de salt, teleportare scurtă sau teleportare lasă în urmă o dâră care explodează după 0,75 secunde.",
+        "După ce folosești o abilitate de salt, teleportare scurtă sau teleportare ori ieși din camuflaj, primești 300 viteză de mișcare timp de 2 secunde.",
+        "Primești un Scut timp de 2 secunde după un Dash sau Blink (Cooldown de 5 secunde)."
       ]
     },
     "ru": {
-      "title": "Частый гость",
-      "why": "Бесконечное принуждение (R) Варвика прыгает на расстояние, которое зависит от его бонусной скорости передвижения, хотя обычно это прибавляет лишь пару шагов. «Бодрячком!» даёт огромный всплеск скорости передвижения за каждое убийство, а «Мистическая аксиома» возвращает часть перезарядки ультимейта, когда погибает чемпион, которому он нанёс урон, так что каждое убийство даёт и топливо, и следующий прыжок. «Ночная охота» добавляет ещё скорости и мгновение невидимости за то же убийство, а «Стремление добить» разгоняет его к раненым врагам поверх «Кровавой охоты» (W), которая и так это делает. «Шакрам Аксиом» возвращает ещё больше ультимейта за убийства, «Экспериментальная хекстековая броня» даёт ускорение умений и скорость передвижения после каждого каста, а «Призрачный клинок Йомуу», «Броня мертвеца», «Костолом» и «Ботинки стремительности» добавляют ещё скорости. Ближний боец превращается в ассасина с ресетами через всю карту, который прыгает из-за экрана на самого побитого врага.",
-      "play": "Дождись раненого врага, врубай «Призрачный клинок Йомуу» и прыгай в бой издалека. После убийства целься следующим «Бесконечным принуждением» в следующего слабого противника, пока действует скорость.",
+      "title": "Пол — это копья",
+      "why": "Пассивка Калисты, Боевая стойка, заставляет её делать короткий рывок при каждой атаке, а в описании её же Прокалывания этот рывок назван дэшем. Борозда оставляет после каждого дэша след, который взрывается через 0,75 секунды, но у дальнобойной Калисты эти следы лежат на целую дальность атаки от врагов. Меч к бою решает проблему: она становится ближницей, получает Силу атаки, Здоровье, Скорость атаки, Вампиризм и Скорость движения за потерянную дальность, и теперь каждый прыжок проводит след прямо через цель, которую она бьёт. Бег в тени даёт 300 Скорости движения на 2 секунды после каждого дэша, а Стремительность и безопасность добавляет Щит, так что чемпионка, прыгающая с каждой атакой, остаётся быстрой и защищённой посреди драки. Клинок ярости Гинсу копит Скорость атаки с каждой Атакой — а значит, больше атак, больше рывков и больше взрывающихся следов, и стрелок из тыла превращается в ближнего скирмишера, который побеждает тем, куда ступает.",
+      "play": "Лезь в ближний бой и отдавай команду движения во время каждой атаки, чтобы каждый рывок пересекал врага и оставлял под ним след. Прыгай вбок через группу, а не прочь от неё, и используй Разрыв, чтобы замедлить тех, кто пытается уйти.",
       "augments": [
-        "При участии в убийстве вы получаете 100% скорости передвижения и 15% скорости атаки на 4 секунды.",
-        "Когда погибает чемпион, которому вы нанесли урон за последние 3 секунды, возвращается часть общего времени перезарядки вашего ультимейта.",
-        "Убийство вражеских чемпионов в течение 3 секунд после нанесения им урона даёт вам 40% скорости передвижения и делает невидимым на 1,5 секунды.",
-        "Вы получаете 60% скорости передвижения при движении к врагам с менее чем 40% здоровья."
+        "Теперь вы боец ближнего боя. Вы получаете 24% силы атаки, 24% здоровья, 20% скорости атаки, 20% вампиризма и 20% скорости передвижения (каждый бонус дополнительно растёт в зависимости от потерянной дальности атаки).",
+        "Ваши умения с рывком, скачком или телепортацией оставляют след, который взрывается через 0,75 секунды.",
+        "После применения умения с рывком, скачком или телепортацией или выхода из невидимости вы получаете 300 скорости передвижения на 2 секунды.",
+        "Получите Щит на 2 секунды после Рывка или Блинка (перезарядка 5 секунд)."
       ]
     },
     "th": {
-      "title": "Frequent Flyer",
-      "why": "Infinite Duress (R) ของ Warwick กระโดดได้ไกลตามความเร็วเคลื่อนที่โบนัสของเขา ซึ่งปกติเพิ่มได้แค่ไม่กี่ก้าว Get Excited! ให้ความเร็วเคลื่อนที่พุ่งมหาศาลทุกครั้งที่ได้ฆ่า ส่วน Arcane Axiom คืนคูลดาวน์อัลติบางส่วนเมื่อแชมเปี้ยนที่เขาทำดาเมจตาย ทุกคิลจึงให้ทั้งเชื้อเพลิงและการพุ่งครั้งต่อไป Nightstalking เพิ่มความเร็วเคลื่อนที่และล่องหนช่วงสั้นๆ จากคิลเดียวกัน และ Kill Secured ทำให้เขาวิ่งเข้าหาศัตรูเลือดน้อยเร็วขึ้นซ้อนกับ Blood Hunt (W) ที่ทำแบบเดียวกันอยู่แล้ว Axiom Arc คืนอัลติมากขึ้นอีกเมื่อได้คิล และ Experimental Hexplate ให้ Ultimate Haste พร้อมความเร็วเคลื่อนที่หลังใช้สกิลทุกครั้ง ส่วน Youmuu's Ghostblade, Dead Man's Plate, Stridebreaker และ Boots of Swiftness เสริมความเร็วให้อีก สายสู้ประชิดกลายเป็นนักลอบสังหารรีเซ็ตข้ามแมพ ที่พุ่งออกมาจากนอกจอใส่คนที่เลือดน้อยที่สุด",
-      "play": "รอศัตรูที่เลือดน้อย กด Youmuu's Ghostblade แล้วพุ่งเข้าไปจากนอกวงต่อสู้ หลังได้คิล ให้เล็ง Infinite Duress ครั้งต่อไปไปที่เป้าหมายเลือดน้อยคนถัดไปตราบที่ความเร็วยังอยู่",
+      "title": "พื้นนี้มีแต่หอก",
+      "why": " passive ของ Kalista ที่ชื่อ Martial Poise ทำให้เธอพุ่งไปข้างหน้าเล็กน้อยทุกครั้งที่โจมตี และข้อความของ Pierce เองก็เรียกการพุ่งนี้ว่า dash Earthwake ทำให้ทุก dash ทิ้งรอยที่ระเบิดหลังจาก 0.75 วินาที แต่ถ้า Kalista ตีระยะไกล รอยพวกนั้นจะอยู่ห่างจากศัตรูเต็มระยะโจมตี Draw Your Sword แก้ปัญหานี้ เธอกลายเป็นสายประชิด และได้ Attack Damage, Health, Attack Speed, Lifesteal และ Move Speed ชดเชยระยะที่เสียไป ตอนนี้ทุกการกระโดดจะลากรอยผ่านตัวศัตรูที่กำลังตีอยู่เลย Shadow Runner ให้ Movement Speed 300 เป็นเวลา 2 วินาทีหลังทุก dash และ Swift and Safe เพิ่ม Shield หลัง dash ทำให้แชมป์ที่กระโดดทุกครั้งที่ตียังคงเร็วและมีเกราะป้องกันกลางวงต่อสู้ Guinsoo's Rageblade สะสม Attack Speed ทุกครั้งที่โจมตี แปลว่าโจมตีมากขึ้น พุ่งมากขึ้น และรอยระเบิดมากขึ้น เปลี่ยนมาร์คแมนแบ็กไลน์ให้เป็นสกิร์มิชเชอร์สายประชิดที่ชนะด้วยตำแหน่งที่ก้าวไป",
+      "play": "เดินเข้าไปประชิดแล้วสั่งเดินระหว่างการโจมตีทุกครั้ง เพื่อให้ทุกการพุ่งทะลุศัตรูและทิ้งรอยไว้ใต้ตัวมัน กระโดดข้างผ่านกลุ่มศัตรูแทนที่จะถอยหนี และใช้ Rend สโลว์คนที่พยายามหนี",
       "augments": [
-        "ได้รับความเร็วเคลื่อนที่ 100% และความเร็วโจมตี 15% เป็นเวลา 4 วินาทีเมื่อมีส่วนร่วมในการสังหาร",
-        "เมื่อแชมเปี้ยนที่คุณทำดาเมจภายใน 3 วินาทีตาย จะคืนคูลดาวน์ทั้งหมดของอัลติเมทของคุณบางส่วน",
-        "การฆ่าแชมเปี้ยนศัตรูภายใน 3 วินาทีหลังทำดาเมจให้ความเร็วเคลื่อนที่ 40% และทำให้คุณล่องหน 1.5 วินาที",
-        "ได้รับความเร็วเคลื่อนที่ 60% เมื่อเคลื่อนที่เข้าหาศัตรูที่มีเลือดต่ำกว่า 40%"
+        "ตอนนี้คุณเป็นสายประชิด ได้รับพลังโจมตี 24% เลือด 24% ความเร็วโจมตี 20% ดูดเลือด 20% และความเร็วเคลื่อนที่ 20% (แต่ละอย่างเพิ่มขึ้นอีกตามระยะโจมตีที่เสียไป)",
+        "สกิล Dash, Blink หรือ Teleport ของคุณจะทิ้งรอยที่ระเบิดหลังผ่านไป 0.75 วินาที",
+        "หลังใช้สกิล Dash, Blink หรือ Teleport หรือออกจากการล่องหน จะได้รับ Move Speed 300 เป็นเวลา 2 วินาที",
+        "รับ Shield เป็นเวลา 2 วินาทีหลังใช้ Dash หรือ Blink (Cooldown 5 วินาที)"
       ]
     },
     "tr": {
-      "title": "Sık Uçan",
-      "why": "Warwick'in Sonsuz Baskı (R) yeteneği, bonus Hareket Hızı'yla artan bir mesafeye zıplar; bu detay normalde yalnızca birkaç adım ekler. Ay Çok Heyecanlı! her indirmede devasa bir Hareket Hızı patlaması verir, Sihirli Aksiyom ise hasar verdiği bir şampiyon öldüğünde ulti bekleme süresinin bir kısmını geri verir; yani her öldürme hem yakıtı hem de bir sonraki atılışı getirir. Görünmez Avcılık aynı indirmede daha fazla Hareket Hızı ve kısa süreli görünmezlik ekler, Skor Cepte ise zaten aynısını yapan Kan Avı (W) üstüne canı azalmış düşmanlara doğru onu hızlandırır. Aksiyom Akımı öldürmelerde ultinin daha da fazlasını geri verir, Deneysel Hexzırh her kullanımdan sonra ulti hızlandırması ve Hareket Hızı ekler; Youmuu'nun Hayaletkılıcı, Ölü Adamın Zırhı, Hızkesen ve Atiklik Çizmeleri de hıza hız katar. Yakın dövüşçü, ekran dışından en düşük canlı hedefin üstüne atlayan, haritanın her yerinde reset atan bir suikastçıya dönüşür.",
-      "play": "Yaralı bir düşmanı bekle, Youmuu'nun Hayaletkılıcı'nı bas ve savaşın çok uzağından atla. İndirmeden sonra hız sürerken bir sonraki Sonsuz Baskı'yı canı en az olan sıradaki hedefe at.",
+      "title": "Zemin Mızrak Dolu",
+      "why": "Kalista'nın pasifi Dövüşçü Duruşu, her saldırı başlattığında onu kısa bir mesafe öne atılmasını sağlar ve kendi Delme yeteneğinin metni bu atılmaya dash der. Toprağın Uyanışı her dash'in arkasında 0,75 saniye sonra patlayan bir iz bırakmasını sağlar, ama menzilli Kalista'da bu izler kimseye tam bir saldırı menzili kadar uzakta kalır. Çek Kılıcını! bunu çözer: yakın dövüşçü olur, kaybettiği menzil karşılığında Saldırı Gücü, Can, Saldırı Hızı, Can Çalma ve Hareket Hızı kazanır ve artık her sıçrama izi doğrudan vurduğu düşmanın içinden geçirir. Gölge Koşucu her dash'ten sonra 2 saniye boyunca 300 Hareket Hızı verir, Çevik ve Dayanıklı ise sonrasında Kalkan ekler; böylece her saldırıda sıçrayan şampiyon dövüşün ortasında hızlı ve korumalı kalır. Guinsoo'nun Hiddeti her Saldırıda Saldırı Hızı biriktirir, yani daha çok saldırı, daha çok atılma ve daha çok patlayan iz demek; arka hat nişancısı, bastığı yerle kazanan yakın dövüş bir akıncıya dönüşür.",
+      "play": "Yakın dövüşe gir ve her saldırı sırasında hareket komutu ver; böylece her atılma düşmanı geçip altına bir iz bıraksın. Gruptan uzaklaşmak yerine yan yana sıçrayarak içinden geç ve kaçmaya çalışanları yavaşlatmak için Parçalama'yı kullan.",
       "augments": [
-        "Alaşağı etmede 4 saniyeliğine %100 hareket hızı ve %15 saldırı hızı kazanırsın.",
-        "Son 3 saniye içinde hasar verdiğin bir şampiyon öldüğünde, ulti yeteneğinin toplam bekleme süresinin bir kısmı geri verilir.",
-        "Düşman şampiyonlara hasar verdikten sonraki 3 saniye içinde yapılan indirmeler sana %40 Hareket Hızı verir ve seni 1,5 saniye görünmez yapar.",
-        "Canı %40'ın altındaki düşmanlara doğru giderken %60 Hareket Hızı kazanırsın."
+        "Artık yakın dövüşçüsün. %24 Saldırı Hasarı, %24 Can, %20 Saldırı Hızı, %20 Can Çalma ve %20 Hareket Hızı kazanırsın (her biri kaybedilen Saldırı Menziline göre ayrıca artar).",
+        "Atılma, ışınlanma veya teleport yeteneklerin arkanda 0,75 saniye sonra patlayan bir iz bırakır.",
+        "Atılma, Işınlanma veya Teleport yeteneği kullandıktan ya da Gizlilikten çıktıktan sonra 2 saniyeliğine 300 Hareket Hızı kazanırsın.",
+        "Bir Dash veya Blink sonrası 2 saniye boyunca Kalkan kazan (5 saniye Bekleme Süresi)."
       ]
     },
     "vi": {
-      "title": "Phi Công Thường Xuyên",
-      "why": "Áp Chế Vô Tận (R) của Warwick nhảy xa hơn dựa trên Tốc Độ Di Chuyển cộng thêm, một chi tiết thường chỉ thêm vài bước chân. Hưng Phấn! cho một đợt Tốc Độ Di Chuyển khổng lồ mỗi lần hạ gục, còn Chân Lý Huyền Thuật hoàn lại một phần hồi chiêu chiêu cuối khi tướng bị hắn gây sát thương chết, nên mỗi mạng hạ vừa là nhiên liệu vừa là cú nhảy tiếp theo. Săn Đêm cho thêm Tốc Độ Di Chuyển và tàng hình trong chốc lát ở cùng pha hạ gục đó, còn Tự Tay Hạ Gục giúp hắn lao nhanh hơn về phía kẻ địch sắp chết, cộng dồn với Săn Máu (W) vốn đã làm điều tương tự. Nguyên Tố Luân hoàn lại nhiều chiêu cuối hơn khi hạ gục, Khiên Hextech Thử Nghiệm cho Tăng Tốc Chiêu Cuối cùng Tốc Độ Di Chuyển sau mỗi lần dùng chiêu, trong khi Kiếm Ma Youmuu, Giáp Liệt Sĩ, Chùy Phản Kích và Giày Bạc cho thêm tốc độ. Đấu sĩ cận chiến hóa thành sát thủ reset khắp bản đồ, lao từ ngoài màn hình xuống kẻ ít máu nhất.",
-      "play": "Chờ một kẻ địch bị thương, bật Kiếm Ma Youmuu rồi nhảy vào từ xa ngoài giao tranh. Sau khi hạ gục, nhắm Áp Chế Vô Tận tiếp theo vào mục tiêu ít máu kế tiếp khi tốc độ còn duy trì.",
+      "title": "Sàn Nhà Toàn Giáo",
+      "why": "Nội tại của Kalista, Tư Thế Võ Sĩ, cho cô lao nhẹ về phía trước mỗi lần tung đòn đánh, và chính mô tả Xuyên Thấu của cô gọi cú lao đó là dash. Chấn Động khiến mỗi dash để lại một vệt nổ sau 0,75 giây, nhưng với Kalista đánh xa thì vệt này nằm cách địch đúng một tầm đánh. Rút Kiếm Ra giải quyết chuyện đó: cô thành cận chiến, được bù Sát Thương, Máu, Tốc Độ Đánh, Hút Máu và Tốc Độ Di Chuyển cho phần tầm đánh đã mất, và giờ mỗi cú nhảy kéo vệt thẳng qua đúng tên địch đang bị đánh. Bóng Đen Tốc Độ cho 300 Tốc Độ Di Chuyển trong 2 giây sau mỗi dash, còn Nhanh & An Toàn thêm Khiên sau đó, nên tướng nhảy theo từng đòn đánh vẫn nhanh và được bảo vệ giữa giao tranh. Cuồng Đao Guinsoo cộng dồn Tốc Độ Đánh mỗi đòn đánh, nghĩa là đánh nhiều hơn, lao nhiều hơn và nhiều vệt nổ hơn, biến xạ thủ hàng sau thành đấu sĩ cận chiến thắng nhờ vị trí mình bước tới.",
+      "play": "Lao vào cận chiến và ra lệnh di chuyển trong mỗi đòn đánh để mỗi cú lao xuyên qua địch và để vệt dưới chân chúng. Nhảy ngang qua cả nhóm thay vì chạy ra xa, và dùng Xé Toạc để làm chậm ai định bỏ chạy.",
       "augments": [
-        "Nhận 100% tốc độ di chuyển và 15% tốc độ đánh trong 4 giây khi hạ gục.",
-        "Khi một tướng mà bạn đã gây sát thương trong vòng 3 giây chết, hoàn lại một phần tổng thời gian hồi chiêu của Chiêu Cuối.",
-        "Hạ gục tướng địch trong vòng 3 giây sau khi gây sát thương cho chúng sẽ cho bạn 40% Tốc Độ Di Chuyển và tàng hình trong 1,5 giây.",
-        "Nhận 60% Tốc Độ Di Chuyển khi di chuyển về phía kẻ địch có dưới 40% máu."
+        "Bạn giờ là cận chiến. Nhận 24% Sát Thương, 24% Máu, 20% Tốc Độ Đánh, 20% Hút Máu và 20% Tốc Độ Di Chuyển (mỗi chỉ số còn tăng thêm theo Tầm Đánh bị mất).",
+        "Các kỹ năng lướt, dịch chuyển tức thời hoặc dịch chuyển của bạn để lại một vệt phát nổ sau 0,75 giây.",
+        "Sau khi dùng kỹ năng Lướt, Dịch Chuyển Tức Thời hoặc Dịch Chuyển hoặc thoát khỏi Tàng Hình, nhận 300 Tốc độ Di chuyển trong 2 giây.",
+        "Nhận Khiên trong 2 giây sau khi Dash hoặc Blink (Hồi chiêu 5 giây)."
       ]
     },
     "zh-CN": {
-      "title": "空中飞人",
-      "why": "祖安怒兽的无限压制（R）跳跃距离会随额外移动速度提升，平时这点加成只多出几步。罪恶快感每次击杀都会给一大波移动速度，奥术公理则会在他造成过伤害的英雄死亡时返还部分大招冷却，所以每个人头既是燃料，也是下一次起跳。夜狩在同一次击杀上再加移动速度和短暂隐身，杀意翻涌让他追残血敌人更快，还能叠在本来就有这效果的血之猎捕（W）上。公理圆弧击杀时返还更多大招冷却，海克斯注力刚壁每次施法后提供终极技能急速和移动速度，再加上幽梦之灵、亡者的板甲、挺进破坏者和轻灵之靴继续堆速度。近战斗士摇身一变，成了全图重置的刺客，从屏幕外直接飞扑血量最低的人。",
-      "play": "等一个残血敌人出现，开幽梦之灵，从战场外远远跳进去。拿下人头后，趁加速还在，把下一个无限压制瞄准下一个残血目标。",
+      "title": "地板是长矛",
+      "why": "复仇之矛的被动「战斗姿态」让她每次出手攻击都会向前突进一小段，而她自己的「贯穿」技能描述里也把这段突进叫作位移。「大地苏醒」让每次位移都留下一道0.75秒后引爆的轨迹，但远程复仇之矛的轨迹离敌人整整隔着一个攻击距离。「亮出你的剑」解决了这个问题：她变成近战，为损失的射程换来攻击力、生命值、攻击速度、生命偷取和移动速度，现在每次跳跃的轨迹都直接穿过她正在打的敌人。「暗影疾奔」在每次位移后提供2秒300点移动速度，「快中求稳」则在位移后附加护盾，每次攻击都在跳的英雄在团战中又快又肉。「鬼索的狂暴之刃」每次攻击叠加攻击速度，意味着更多攻击、更多突进、更多爆炸轨迹，把后排射手变成靠走位取胜的近战游击手。",
+      "play": "冲进近战，每次攻击时都下达一次移动指令，让每次突进都穿过敌人并在其脚下留下轨迹。要横向跳穿人群，而不是往外跳，并用「撕裂」减速想逃跑的人。",
       "augments": [
-        "击杀参与时获得100%移动速度和15%攻击速度，持续4秒。",
-        "当你在3秒内造成过伤害的英雄死亡时，返还大招总冷却时间的一部分。",
-        "在对敌方英雄造成伤害后3秒内完成击杀，会获得40%移动速度并隐身1.5秒。",
-        "朝生命值低于40%的敌人移动时，获得60%移动速度。"
+        "你现在是近战。获得24%攻击力、24%生命值、20%攻击速度、20%生命偷取和20%移动速度（每一项还会根据损失的攻击距离进一步提升）。",
+        "你的冲刺、闪烁或传送类技能会留下一条轨迹，在0.75秒后引爆。",
+        "使用冲刺、闪烁或传送类技能或脱离隐身后，获得300移动速度，持续2秒。",
+        "位移或闪现后获得2秒护盾（5秒冷却时间）。"
       ]
     },
     "zh-TW": {
-      "title": "空中飛人",
-      "why": "沃維克的無盡壓制（R）跳躍距離會隨額外移動速度提升，平常這點加成只多出幾步。狂躁！每次擊殺都會給一大波移動速度，奧術公理則會在他造成過傷害的英雄死亡時返還部分大招冷卻，所以每顆人頭既是燃料，也是下一次起跳。暗夜潛行在同一次擊殺上再加移動速度和短暫隱形，收頭好手讓他追殘血敵人更快，還能疊在本來就有這效果的血獵（W）上。公理弧刃擊殺時返還更多大招冷卻，實驗型海克斯板甲每次施法後提供終極技能加速和移動速度，再加上妖夢鬼刀、死者肩甲、步履破壞者和輕靈之靴繼續堆速度。近戰鬥士搖身一變，成了全圖重置的刺客，從螢幕外直接飛撲血量最低的人。",
-      "play": "等一個殘血敵人出現，開妖夢鬼刀，從戰場外遠遠跳進去。拿下人頭後，趁加速還在，把下一個無盡壓制瞄準下一個殘血目標。",
+      "title": "地板是長矛",
+      "why": "克黎思妲的被動「戰鬥姿態」讓她每次出手攻擊都會向前突進一小段，而她自己的「穿刺」技能說明也把這段突進稱為位移。「大地覺醒」讓每次位移都留下一道0.75秒後引爆的軌跡，但遠程克黎思妲的軌跡離敵人整整隔著一個攻擊距離。「拔劍吧」解決了這個問題：她變成近戰，為損失的射程換來攻擊力、生命值、攻擊速度、生命偷取和移動速度，現在每次跳躍的軌跡都直接穿過她正在打的敵人。「飛影跑法」在每次位移後提供2秒300點移動速度，「又快又穩」則在位移後附加護盾，每次攻擊都在跳的英雄在團戰中又快又肉。「鬼索的狂暴之刃」每次攻擊疊加攻擊速度，代表更多攻擊、更多突進、更多爆炸軌跡，把後排射手變成靠走位取勝的近戰游擊手。",
+      "play": "衝進近戰，每次攻擊時都下達一次移動指令，讓每次突進都穿過敵人並在其腳下留下軌跡。要橫向跳穿人群，而不是往外跳，並用「撕裂」減速想逃跑的人。",
       "augments": [
-        "擊殺參與時獲得100%移動速度和15%攻擊速度，持續4秒。",
-        "當你在3秒內造成過傷害的英雄死亡時，返還大招總冷卻時間的一部分。",
-        "在對敵方英雄造成傷害後3秒內完成擊殺，會獲得40%移動速度並隱形1.5秒。",
-        "朝生命值低於40%的敵人移動時，獲得60%移動速度。"
+        "你現在是近戰。獲得24%物理攻擊、24%生命值、20%攻擊速度、20%生命偷取和20%移動速度（每一項還會根據損失的攻擊距離進一步提升）。",
+        "你的衝刺、閃現或傳送類技能會留下一道軌跡，在0.75秒後引爆。",
+        "使用衝刺、閃現或傳送類技能或脫離隱形後，獲得300跑速，持續2秒。",
+        "位移或閃現後獲得2秒護盾（5秒冷卻時間）。"
       ]
     }
   }
