@@ -43,7 +43,12 @@ jobs:
         run: |
           sleep 20
           for path in / /tier-list /simulator /pbe /data/version.json; do
-            code=$(curl -s -o /dev/null -w '%{http_code}' --retry 3 --retry-delay 10 "https://deeparam.com$path")
+            code=$(curl -s -o /dev/null -D headers.txt -w '%{http_code}' --retry 3 --retry-delay 10 "https://deeparam.com$path")
             echo "$path $code"
-            [ "$code" = 200 ] || { echo "::error::https://deeparam.com$path answered $code after the deploy."; exit 1; }
+            # The site's bot protection challenges GitHub's runners (403 with a cf-mitigated header) while visitors get
+            # the page, so that answer says nothing about the deploy: skip the check rather than fail every run.
+            if [ "$code" = 403 ] && grep -qi '^cf-mitigated:' headers.txt; then
+              echo "::notice::The site's bot protection challenged this runner; skipping the live check."; exit 0
+            fi
+            [ "$code" = 200 ] || { grep -i -E '^(server|cf-)' headers.txt; echo "::error::https://deeparam.com$path answered $code after the deploy."; exit 1; }
           done

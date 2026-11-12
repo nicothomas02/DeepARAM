@@ -1,0 +1,22 @@
+{
+ "Builds and combos that look great on paper but don't hold up in real games. Check here before you try a theorycraft build.": "이론상으로는 좋아 보이지만 실제 게임에서는 통하지 않는 빌드와 조합입니다. 이론 빌드를 시도하기 전에 여기서 확인하세요.",
+ "Interactions that might be broken. Each one says what should happen on paper and how to test it in a game. If it really is broken, report it to Riot from the client so it gets fixed.": "버그일 수도 있는 상호작용입니다. 각각 이론상 어떻게 되어야 하는지와 게임에서 시험하는 방법을 알려줍니다. 정말 버그라면 고쳐지도록 클라이언트에서 Riot에 신고하세요.",
+ "Show": "보기",
+ "All": "전체",
+ "Stat loop": "스탯 순환",
+ "Missing augment": "나오지 않는 증강",
+ "Simulator vs real games": "시뮬레이터 vs 실제 게임",
+ "Does nothing": "효과 없음",
+ "Find a champion or augment": "챔피언 또는 증강 찾기",
+ "Nothing matches": "결과 없음",
+ "No traps found this patch": "이번 패치에는 함정이 없습니다",
+ "Nothing to test this patch": "이번 패치에는 시험할 것이 없습니다",
+ "Trap": "함정",
+ "Confirmed bug": "확인된 버그",
+ "Needs a test": "시험 필요",
+ "Show less": "접기",
+ "+{n} more": "{n}개 더",
+ "On paper": "이론상",
+ "In game": "게임에서",
+ "How to test": "시험 방법"
+}

@@ -1,0 +1,22 @@
+{
+ "Builds and combos that look great on paper but don't hold up in real games. Check here before you try a theorycraft build.": "Build dan kombo yang terlihat hebat di atas kertas tetapi tidak berhasil di game sungguhan. Cek di sini sebelum mencoba build teori.",
+ "Interactions that might be broken. Each one says what should happen on paper and how to test it in a game. If it really is broken, report it to Riot from the client so it gets fixed.": "Interaksi yang mungkin rusak. Masing-masing menjelaskan apa yang seharusnya terjadi di atas kertas dan cara mengujinya di game. Kalau memang rusak, laporkan ke Riot dari client agar diperbaiki.",
+ "Show": "Tampilkan",
+ "All": "Semua",
+ "Stat loop": "Loop stat",
+ "Missing augment": "Augment yang hilang",
+ "Simulator vs real games": "Simulator vs game sungguhan",
+ "Does nothing": "Tidak berefek",
+ "Find a champion or augment": "Cari champion atau augment",
+ "Nothing matches": "Tidak ada hasil",
+ "No traps found this patch": "Tidak ada jebakan di patch ini",
+ "Nothing to test this patch": "Tidak ada yang perlu diuji di patch ini",
+ "Trap": "Jebakan",
+ "Confirmed bug": "Bug terkonfirmasi",
+ "Needs a test": "Perlu diuji",
+ "Show less": "Tampilkan lebih sedikit",
+ "+{n} more": "+{n} lagi",
+ "On paper": "Di atas kertas",
+ "In game": "Di game",
+ "How to test": "Cara menguji"
+}

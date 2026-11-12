@@ -202,5 +202,14 @@
  "Changes your build": "Mění sestavu",
  "The best items with this augment differ from your usual build.": "Nejlepší předměty s tímto vylepšením se liší od tvé obvyklé sestavy.",
  "Estimated: the augment picks (1st to 4th) where it usually shows up.": "Odhad: volby vylepšení (1. až 4.), ve kterých se obvykle objevuje.",
- "Pick {n}": "Volba {n}"
+ "Pick {n}": "Volba {n}",
+ "From earlier games: skill orders are not updating right now.": "Ze starších her: pořadí schopností se teď neaktualizuje.",
+ "From the most common full builds, most built items first.": "Z nejčastějších celých sestav, nejstavěnější předměty první.",
+ "Few games so far: estimated from earlier games and this patch's changes.": "Zatím málo her: odhad ze starších her a ze změn v tomto patchi.",
+ "Synergies": "Synergie",
+ "What fits this champion": "Co se k tomuto šampionovi hodí",
+ "Score: points of win rate over the usual choice. Choices with few games lean on the estimate.": "Skóre: body procenta výher oproti obvyklé volbě. Volby s málo hrami se opírají o odhad.",
+ "Expected": "Očekávané",
+ "Real": "Skutečné",
+ "Builds with few games lean on the estimate: how much of a rare build's lead usually holds up.": "Buildy s málo hrami se opírají o odhad: kolik z náskoku vzácného buildu obvykle platí."
 }

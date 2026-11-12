@@ -10,8 +10,8 @@ import { patchName } from "@/lib/patch-name";
 // open on the live patch; ?range= in a shared link opens another, and the pick carries over to the next
 // stat page opened in the same tab.
 
-export type RangeKey = "live" | "prev" | "set" | "all";
-export type RangeOption = { key: RangeKey; label: string; patches: string[] };
+type RangeKey = "live" | "prev" | "set" | "all";
+type RangeOption = { key: RangeKey; label: string; patches: string[] };
 
 const KEYS: RangeKey[] = ["live", "prev", "set", "all"];
 const STORE = "deeparam-stat-range";

@@ -63,5 +63,6 @@
  "Share of the champions who take this augment that build each item.": "このオーグメントを取るチャンピオンのうち各アイテムを作る割合。",
  "Best augments to pair it with": "相性のいいオーグメント",
  "Win rate when both are taken, across the champions that often pair them.": "両方を取ったときの勝率です。よく組み合わせるチャンピオン全体で集計しています。",
- "Win rate": "勝率"
+ "Win rate": "勝率",
+ "Synergies": "シナジー"
 }

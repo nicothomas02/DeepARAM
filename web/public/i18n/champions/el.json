@@ -202,5 +202,14 @@
  "Changes your build": "Αλλάζει το build σου",
  "The best items with this augment differ from your usual build.": "Τα καλύτερα αντικείμενα με αυτή την ενίσχυση διαφέρουν από το συνηθισμένο build σου.",
  "Estimated: the augment picks (1st to 4th) where it usually shows up.": "Εκτίμηση: οι επιλογές ενίσχυσης (1η έως 4η) όπου εμφανίζεται συνήθως.",
- "Pick {n}": "Επιλογή {n}"
+ "Pick {n}": "Επιλογή {n}",
+ "From earlier games: skill orders are not updating right now.": "Από παλαιότερα παιχνίδια: οι σειρές ικανοτήτων δεν ενημερώνονται αυτή τη στιγμή.",
+ "From the most common full builds, most built items first.": "Από τα πιο συνηθισμένα πλήρη build, πρώτα τα αντικείμενα που φτιάχνονται πιο συχνά.",
+ "Few games so far: estimated from earlier games and this patch's changes.": "Λίγα παιχνίδια μέχρι στιγμής: εκτίμηση από παλαιότερα παιχνίδια και τις αλλαγές αυτού του patch.",
+ "Synergies": "Συνέργειες",
+ "What fits this champion": "Τι ταιριάζει σε αυτόν τον ήρωα",
+ "Score: points of win rate over the usual choice. Choices with few games lean on the estimate.": "Βαθμολογία: μονάδες ποσοστού νικών σε σχέση με τη συνήθη επιλογή. Οι επιλογές με λίγα παιχνίδια βασίζονται στην εκτίμηση.",
+ "Expected": "Αναμενόμενο",
+ "Real": "Πραγματικό",
+ "Builds with few games lean on the estimate: how much of a rare build's lead usually holds up.": "Τα builds με λίγα παιχνίδια βασίζονται στην εκτίμηση: πόσο από το προβάδισμα ενός σπάνιου build συνήθως ισχύει."
 }

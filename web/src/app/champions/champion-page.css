@@ -1397,5 +1397,41 @@ html[data-view="simple"] .cp-fold:not([data-open]) > .cp-fold-body {
 .cp-pill.cp-changes {
   border-color: var(--accent);
   color: var(--accent);
-  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Skill orders that stopped updating */
+.cp-best .cp-stale {
+  display: block;
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 0.85em;
+}
+
+/* Expected switch (components/champion/ExpectedSwitch.tsx): build panels show the real win rate by default and the
+   expected one, with its Real or Expected label, when it's on. */
+html:not([data-expected]) .xp-exp,
+html[data-expected] .xp-real {
+  display: none;
+}
+.cp-cell small.xp-tag {
+  color: var(--gold);
+  font-weight: 600;
+}
+.cp-xp {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem 0.75rem;
+  margin: -0.25rem 0 0.75rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+.cp-xp label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--fg);
+  font-weight: 600;
+  cursor: pointer;
 }

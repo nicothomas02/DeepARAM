@@ -68,6 +68,9 @@ import BestUpgrades from "@/components/champion/BestUpgrades";
 import { championUpgrades } from "@/lib/champion-upgrades";
 import { augmentBuilds, buildChangers, CHANGES_BUILD } from "@/lib/augment-builds";
 import AugmentBuildPicker from "@/components/champion/AugmentBuildPicker";
+import Synergies from "@/components/Synergies";
+import ExpectedSwitch from "@/components/champion/ExpectedSwitch";
+import { championSynergies, expectedBuilds, expectedKey, fewGames } from "@/lib/synergies";
 
 const AUG_NAMES = augmentNames as Record<string, string>;
 const AUG_DESC = (descriptions as { augments: Record<string, string> }).augments;
@@ -140,7 +143,10 @@ const vsAvg = (key: string, d: number) =>
 
 // Build lists rank by DeepScore against the champion's other builds in the same list.
 const SCORED_COLS = ["DeepScore", "Win rate", "Pick rate"];
-function ScoredCells({ r }: { r: ItemRow }) {
+// With the Expected switch on (components/champion/ExpectedSwitch.tsx), a row with few games of its own shows its
+// expected win rate, leaning on the estimate (lib/synergies.ts), labelled "Expected"; the rest show "Real".
+type Expected = { delta: number; expected: boolean };
+function ScoredCells({ r, x }: { r: ItemRow; x?: Expected }) {
   return (
     <>
       <div className="cp-cell">
@@ -150,7 +156,20 @@ function ScoredCells({ r }: { r: ItemRow }) {
           <b>–</b>
         )}
       </div>
-      <Cell value={pct(r.winRate)} label="Win rate" tone={tone(r.lift)} />
+      {x ? (
+        <div className="cp-cell">
+          <b className={`xp-real ${tone(r.lift) ?? ""}`}>{pct(r.winRate)}</b>
+          <b className={`xp-exp ${tone(r.lift + x.delta) ?? ""}`}>{pct(r.winRate + (x.expected ? x.delta : 0))}</b>
+          <small className="xp-real">
+            <T ns={NS}>Win rate</T>
+          </small>
+          <small className={x.expected ? "xp-exp xp-tag" : "xp-exp"}>
+            <T ns={NS}>{x.expected ? "Expected" : "Real"}</T>
+          </small>
+        </div>
+      ) : (
+        <Cell value={pct(r.winRate)} label="Win rate" tone={tone(r.lift)} />
+      )}
       <Cell value={pct(r.pickRate)} label="Pick rate" />
     </>
   );
@@ -236,6 +255,7 @@ const SPOTS = [
   { id: "augments", label: "Augments" },
   { id: "combos", label: "Augment combinations" },
   { id: "upgrades", label: "Best upgrades" },
+  { id: "synergies", label: "Synergies" },
   { id: "builds", label: "Builds" },
   { id: "playstyle", label: "Playstyle" },
   { id: "teammates", label: "Teammates" },
@@ -349,9 +369,12 @@ export default async function ChampionPage({
     ).flatMap((k) => (radar.get(k) ? [radar.get(k)!] : []));
   };
   const perf = perfOf(c.radar);
-  const itemRows = (rows: typeof p.core, sep = false) =>
+  const expected = expectedBuilds((championIds as Record<string, number>)[alias] ?? -1);
+  const synergies = championSynergies((championIds as Record<string, number>)[alias] ?? -1);
+  const xp = (fam: "starting" | "boots" | "full_builds" | null, r: ItemRow) => (fam ? expected.get(expectedKey(fam, r.items)) : undefined);
+  const itemRows = (rows: typeof p.core, sep = false, fam: "starting" | "full_builds" | null = null) =>
     rows.map((r, i) => (
-      <Row key={i} rank={i + 1} cells={<ScoredCells r={r} />}>
+      <Row key={i} rank={i + 1} cells={<ScoredCells r={r} x={xp(fam, r)} />}>
         {buildOrder(r).map((id, j) => (
           <span key={j} className="cp-chain">
             {sep && j > 0 && (
@@ -364,9 +387,9 @@ export default async function ChampionPage({
         ))}
       </Row>
     ));
-  const singleRows = (rows: typeof p.core) =>
+  const singleRows = (rows: typeof p.core, fam: "boots" | null = null) =>
     rows.map((r, i) => (
-      <Row key={i} rank={i + 1} cells={<ScoredCells r={r} />}>
+      <Row key={i} rank={i + 1} cells={<ScoredCells r={r} x={xp(fam, r)} />}>
         <ItemIcon id={r.items[0]} info={info} />
         <ItemName id={r.items[0]} info={info} />
       </Row>
@@ -614,6 +637,11 @@ export default async function ChampionPage({
               <div className="cp-mini">
                 <RatedCells r={bestCore} />
               </div>
+              {p.buildsEstimated && (
+                <small className="cp-stale">
+                  <T ns={NS}>{"Few games so far: estimated from earlier games and this patch's changes."}</T>
+                </small>
+              )}
               {p.late.length > 0 && (
                 <div className="cp-late-mini">
                   {p.late.map((s) => (
@@ -646,6 +674,11 @@ export default async function ChampionPage({
               <div className="cp-mini">
                 <RatedCells r={bestSkill} />
               </div>
+              {p.skillsStale && (
+                <small className="cp-stale">
+                  <T ns={NS}>From earlier games: skill orders are not updating right now.</T>
+                </small>
+              )}
             </div>
           )}
         </aside>
@@ -729,9 +762,24 @@ export default async function ChampionPage({
           )}
           {upgrades && <BestUpgrades u={upgrades} />}
 
+          {synergies.length > 0 && (
+            <>
+              <h2 className="cp-group" id="synergies">
+                <T ns={NS}>Synergies</T>
+              </h2>
+              <Panel
+                title="What fits this champion"
+                note={<T ns={NS}>{"Score: points of win rate over the usual choice. Choices with few games lean on the estimate."}</T>}
+              >
+                <Synergies tabs={synergies} few={fewGames()} subject={{ kind: "champions", id: c.alias, name: c.name }} />
+              </Panel>
+            </>
+          )}
+
           <h2 className="cp-group" id="builds">
             <T ns={NS}>Builds</T>
           </h2>
+          {expected.size > 0 && <ExpectedSwitch />}
           {augBuilds && (
             <Panel
               id="augment-builds"
@@ -745,11 +793,25 @@ export default async function ChampionPage({
                 </>
               }
             >
-              <AugmentBuildPicker data={augBuilds} names={AUG_NAMES} changes={CHANGES_BUILD} />
+              <AugmentBuildPicker
+                data={augBuilds}
+                names={Object.fromEntries(augBuilds.builds.flatMap((b) => b.augments).map((id) => [id, AUG_NAMES[id] ?? ""]))}
+                changes={CHANGES_BUILD}
+              />
             </Panel>
           )}
           {p.core.length > 0 && (
-            <Panel title="Core item builds" count={p.core.length}>
+            <Panel
+              title="Core item builds"
+              count={p.core.length}
+              note={
+                p.buildsEstimated ? (
+                  <T ns={NS}>{"Few games so far: estimated from earlier games and this patch's changes."}</T>
+                ) : p.coreDerived ? (
+                  <T ns={NS}>From the most common full builds, most built items first.</T>
+                ) : undefined
+              }
+            >
               <Head what="Core items" cols={SCORED_COLS} />
               <ShowMore total={p.core.length} limit={5}>
                 {itemRows(p.core, true)}
@@ -830,7 +892,7 @@ export default async function ChampionPage({
               <Panel title="Starter items" count={p.starting.length}>
                 <Head what="Starter items" cols={SCORED_COLS} />
                 <ShowMore total={p.starting.length} limit={null}>
-                  {itemRows(p.starting)}
+                  {itemRows(p.starting, false, "starting")}
                 </ShowMore>
               </Panel>
             )}
@@ -838,16 +900,21 @@ export default async function ChampionPage({
               <Panel title="Boots" count={p.boots.length}>
                 <Head what="Boots" cols={SCORED_COLS} />
                 <ShowMore total={p.boots.length} limit={null}>
-                  {singleRows(p.boots)}
+                  {singleRows(p.boots, "boots")}
                 </ShowMore>
               </Panel>
             )}
           </div>
           {p.full.length > 0 && (
-            <Panel title="Full builds" count={p.full.length} detailed>
+            <Panel
+              title="Full builds"
+              count={p.full.length}
+              detailed
+              note={p.buildsEstimated ? <T ns={NS}>{"Few games so far: estimated from earlier games and this patch's changes."}</T> : undefined}
+            >
               <Head what="Six items" cols={SCORED_COLS} />
               <ShowMore total={p.full.length} limit={5}>
-                {itemRows(p.full)}
+                {itemRows(p.full, false, "full_builds")}
               </ShowMore>
             </Panel>
           )}
@@ -946,9 +1013,17 @@ export default async function ChampionPage({
               title="Skill order"
               count={p.skills.length}
               note={
-                <T ns={NS}>
-                  Max order, then the most common level-by-level order.
-                </T>
+                <>
+                  <T ns={NS}>
+                    Max order, then the most common level-by-level order.
+                  </T>
+                  {p.skillsStale && (
+                    <>
+                      {" "}
+                      <T ns={NS}>From earlier games: skill orders are not updating right now.</T>
+                    </>
+                  )}
+                </>
               }
             >
               <Head what="Max order" />

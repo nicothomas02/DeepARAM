@@ -23,6 +23,9 @@ function hintText(hint: string, t: (s: string, v?: Record<string, string | numbe
 // Embedded tools pass those keys up too (Embed.tsx), so search opens from anywhere on the site.
 // The page only carries the page links; champions and augments load from /data/search.json the first
 // time search is hovered, focused or opened, which keeps every page's first load small.
+/** Window event that opens the site search: detail is the query to start with. */
+export const OPEN_SEARCH = "deeparam:open-search";
+
 export default function SearchPalette({ pages }: { pages: SearchItem[] }) {
   const router = useRouter();
   const [items, setItems] = useState(pages);
@@ -76,8 +79,18 @@ export default function SearchPalette({ pages }: { pages: SearchItem[] }) {
         show();
       }
     };
+    // Other parts of the page can open the search with a query (FeedbackBox does for short messages).
+    const onOpen = (e: Event) => {
+      setQuery(String((e as CustomEvent<string>).detail ?? ""));
+      setSel(0);
+      setOpen(true);
+    };
     addEventListener("keydown", onKey);
-    return () => removeEventListener("keydown", onKey);
+    addEventListener(OPEN_SEARCH, onOpen);
+    return () => {
+      removeEventListener("keydown", onKey);
+      removeEventListener(OPEN_SEARCH, onOpen);
+    };
   }, [show]);
 
   useEffect(() => {

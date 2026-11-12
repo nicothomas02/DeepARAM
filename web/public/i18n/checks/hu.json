@@ -1,0 +1,22 @@
+{
+ "Builds and combos that look great on paper but don't hold up in real games. Check here before you try a theorycraft build.": "Buildek és kombók, amik papíron remeknek tűnnek, de valódi meccsen nem működnek. Nézz ide, mielőtt kipróbálsz egy elméleti buildet.",
+ "Interactions that might be broken. Each one says what should happen on paper and how to test it in a game. If it really is broken, report it to Riot from the client so it gets fixed.": "Interakciók, amik hibásak lehetnek. Mindegyiknél ott van, minek kellene történnie papíron, és hogyan próbáld ki meccsen. Ha tényleg hibás, jelentsd a Riotnak a kliensből, hogy kijavítsák.",
+ "Show": "Mutasd",
+ "All": "Mind",
+ "Stat loop": "Statisztika-hurok",
+ "Missing augment": "Hiányzó képesség",
+ "Simulator vs real games": "Szimulátor vs valódi meccsek",
+ "Does nothing": "Nem csinál semmit",
+ "Find a champion or augment": "Keress bajnokot vagy képességet",
+ "Nothing matches": "Nincs találat",
+ "No traps found this patch": "Ebben a patchben nincs csapda",
+ "Nothing to test this patch": "Ebben a patchben nincs mit tesztelni",
+ "Trap": "Csapda",
+ "Confirmed bug": "Megerősített hiba",
+ "Needs a test": "Tesztelni kell",
+ "Show less": "Kevesebb",
+ "+{n} more": "+{n} további",
+ "On paper": "Papíron",
+ "In game": "Meccsen",
+ "How to test": "Hogyan teszteld"
+}

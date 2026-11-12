@@ -43,6 +43,9 @@ type Builds = {
     string,
     { id: number; pick_rate: number; grade?: string }[]
   >;
+  /** Blocks that stopped updating (data/cn/builds.py), and ones rebuilt from the six-item builds. */
+  stale?: string[];
+  derived?: string[];
 };
 export type Rated = { winRate: number; pickRate: number; lift: number };
 export type ItemRow = Rated & {
@@ -118,6 +121,15 @@ export type ChampionPage = {
   changes: Change[];
   modifiers: Record<string, number>;
   stats: BaseStats | null;
+  /** The skill orders stopped updating: shown with a note. */
+  skillsStale: boolean;
+  /** Core builds come from the six-item builds, so their order is estimated. */
+  coreDerived: boolean;
+  /**
+   * Too few games so far in the builds' window: core, full builds and single items blend in the previous
+   * window's builds, moved for the patch's changes (data/estimates/early_builds.json).
+   */
+  buildsEstimated: boolean;
   /** Names and icons of every item the tables show. */
   itemInfo: Record<number, { name: string; icon?: string }>;
 };
@@ -163,7 +175,9 @@ export function championPage(alias: string): ChampionPage | null {
     lift: (win ?? 0) - base,
   });
 
-  const b = readRepoJson<Builds>(`data/cn/builds/${id}.json`);
+  const raw = readRepoJson<Builds>(`data/cn/builds/${id}.json`);
+  const early = earlyBuilds(id);
+  const b: Builds | null = raw && early ? { ...raw, items: { ...raw.items, ...early } } : raw;
   const rewards = rewardItems();
   const all = items();
   const rows = (list: Raw[] | undefined) =>
@@ -238,6 +252,9 @@ export function championPage(alias: string): ChampionPage | null {
     changes,
     modifiers,
     stats: client?.stats ?? null,
+    skillsStale: !!b?.stale?.includes("skills"),
+    coreDerived: !early && !!b?.derived?.includes("items.core"),
+    buildsEstimated: !!early,
   };
   const used = new Set(
     [page.starting, page.boots, page.core, page.full, page.items]
@@ -251,6 +268,17 @@ export function championPage(alias: string): ChampionPage | null {
     ]),
   );
   return { ...page, itemInfo };
+}
+
+type EarlyBuilds = {
+  champions?: Record<string, { estimated: boolean; full_builds: Raw[]; core: Raw[]; other: Raw[] }>;
+};
+
+/** The champion's estimated core, full builds and single items while its builds have too few games, else null. */
+function earlyBuilds(id: number): Pick<Required<Builds>["items"], "core" | "full_builds" | "other"> | null {
+  const c = readRepoJson<EarlyBuilds>("data/estimates/early_builds.json")?.champions?.[String(id)];
+  if (!c?.estimated || !c.full_builds.length) return null;
+  return { core: c.core, full_builds: c.full_builds, other: c.other };
 }
 
 const MEDIAN_GAMES = 1000; // pseudo-games for an item of median popularity, as on the Tier List

@@ -461,6 +461,144 @@
       "why": "Glacial Storm is a toggle that bills Anivia Mana every second it stays on, a running cost nobody thinks about beyond turning it off before she runs dry, and this build makes that bill the whole point. Blue Barrier hands her a share of every point of Mana she spends as a Shield for 1.5 seconds, so a storm that drains her every second re-shields her every second, and Overflow doubles all of her Mana costs, which doubles the Mana feeding Blue Barrier from the very same storm while making the storm's damage more effective too. Mighty Shield pays out Adaptive Force whenever she gains a Shield, which the ticking storm re-arms the moment its cooldown ends, and Ocean Soul grants Health and Mana Regen after damaging enemies, which the storm does nonstop, so the doubled drain keeps getting refilled. Rod of Ages gives Mana back when champions hit her and heals her for 25% of the Mana she spends, which Overflow just doubled, Seraph's Embrace and Malignance pile on Mana to burn, Malignance also scorches the ground under everyone her storm hits, and Spirit Visage makes every shield and heal on her 25% bigger. The fragile artillery mage becomes a frontline tank who walks into the enemy team, flips her storm on and simply stands in it, with Rebirth as the backup plan for when the bank finally closes.",
       "play": "Build Mana first, then walk into the fight, toggle Glacial Storm on and stay inside it so the drain keeps re-shielding you every second. Only switch the storm off when you are truly out of Mana, and let the egg handle the rest.",
       "chef": "2026-11-05"
+    },
+    {
+      "id": "rammus-ok-im-a-mage-now",
+      "champion": "Rammus",
+      "title": "OK, I'm a Mage Now",
+      "augments": [
+        "ADAPt",
+        "Marksmage",
+        "Titan's Resolve",
+        "Lonely Warrior"
+      ],
+      "core": 4,
+      "items": [
+        "Plated Steelcaps",
+        "Zhonya's Hourglass",
+        "Thornmail",
+        "Jak'Sho, The Protean",
+        "Nashor's Tooth",
+        "Rabadon's Deathcap"
+      ],
+      "why": "Spiked Shell quietly gives Rammus bonus Attack Damage that scales with his Armor and Magic Resist, a side effect nobody builds around because Rammus barely auto-attacks. ADAPt converts that bonus Attack Damage into Ability Power and adds 15% more, so every point of armor becomes AP for Powerball, Ball Curl's return damage and Soaring Slam. Marksmage then makes his attacks deal extra physical damage equal to 75% of that AP, so the armor comes back out through his autos on whoever he just Taunted. Titan's Resolve, Lonely Warrior and Defensive Ball Curl all add Armor and Magic Resist that flow through Spiked Shell into more AP, while Zhonya's Hourglass feeds both ends with Armor and AP, Thornmail and Jak'Sho stack raw resists, Rabadon's Deathcap multiplies the converted total and Nashor's Tooth speeds up the Marksmage autos. The armadillo tank becomes an auto-attacking battle mage whose armor is his Ability Power.",
+      "play": "Powerball in, Ball Curl for the armor-to-AP spike, then Taunt the squishiest target and right-click them down. Zhonya's when the whole team turns on you.",
+      "chef": "2026-11-06"
+    },
+    {
+      "id": "kennen-lightning-strikes-twice",
+      "champion": "Kennen",
+      "title": "Lightning Strikes Twice",
+      "augments": [
+        "Critical Rhythm",
+        "Double Tap",
+        "Zealot",
+        "Tickle Monster"
+      ],
+      "core": 4,
+      "items": [
+        "Berserker's Greaves",
+        "Nashor's Tooth",
+        "Wit's End",
+        "Runaan's Hurricane",
+        "Phantom Dancer",
+        "Navori Flickerblade"
+      ],
+      "why": "Lightning Rush has a clause nobody reads: the Attack Speed Kennen gains when the ball form ends is extended by a second every time he Critically Strikes, so a Kennen who crits on every attack simply never comes down from it. Critical Rhythm and Zealot hand him the crit chance and stack even more Attack Speed on each crit, and Tickle Monster converts his Attack Damage into Attack Speed and adds magic damage On-Hit, so his crits stop being about the physical hit and become a metronome that keeps the Rush running. Double Tap is the payoff: every crit applies On-Hit effects a second time, so Tickle Monster, Nashor's Tooth and Wit's End all land twice per attack, and so does Electrical Surge's every-fifth-attack lightning, which is On-Hit too. Nashor's Tooth pours Ability Power into all of that, Runaan's Hurricane carries the doubled On-Hits to two more enemies, Phantom Dancer and Navori Flickerblade fill out the crit chance, and Navori's attacks shave the cooldowns of Thundering Shuriken, Electrical Surge and Lightning Rush so the stun comes back faster. The burst mage who hides behind his ultimate becomes a zero-Attack-Damage crit marksman who never stops right-clicking.",
+      "play": "Open with Lightning Rush, then never stop right-clicking: as long as the crits keep coming the Attack Speed never ends. Weave Thundering Shuriken and Electrical Surge between attacks for the stun, and save Slicing Maelstrom for the teamfight.",
+      "chef": "2026-11-07"
+    },
+    {
+      "id": "rakan-hits-the-gym",
+      "champion": "Rakan",
+      "title": "Rakan Hits The Gym",
+      "augments": [
+        "Protein Shake",
+        "Windspeaker's Blessing",
+        "Courage of the Colossus",
+        "Mighty Shield"
+      ],
+      "core": 4,
+      "items": [
+        "Jak'Sho, The Protean",
+        "Spirit Visage",
+        "Locket of the Iron Solari",
+        "Frozen Heart",
+        "Force of Nature",
+        "Mercury's Treads"
+      ],
+      "why": "Rakan's Gleaming Quill heals Rakan himself as well as his allies, and his Fey Feathers passive hands him a free shield every so often. Protein Shake turns bonus Armor and Magic Resist into Heal and Shield Power, and Windspeaker's Blessing makes every heal and shield he lands raise the target's Armor and Magic Resist for 3 seconds, so each self-heal buys him resists that make his next Quill heal and Battle Dance shield bigger. Grand Entrance knocks people up, which pops a Courage of the Colossus shield, and every shield he gains (his own passive included) triggers Mighty Shield for a burst of Adaptive Force into the next Quill. Jak'Sho, Frozen Heart and Force of Nature are pure resists that Protein Shake reads as healing stats, with Jak'Sho even growing them mid-fight, while Spirit Visage makes the heals and shields on him bigger and Locket adds another shield to inflate. The flashy feathered playmaker becomes a six-item gym rat whose heals grow with his armor instead of his Ability Power.",
+      "play": "Open with Grand Entrance into the pile for the shield, Quill yourself mid-fight, then Battle Dance out and watch the shields grow with your armor. Against a team of mages, swap Frozen Heart for Kaenic Rookern.",
+      "chef": "2026-11-08"
+    },
+    {
+      "id": "nunu-minion-buffet",
+      "champion": "Nunu",
+      "title": "The Minion Buffet",
+      "augments": [
+        "Circle of Death",
+        "Overflow",
+        "Ocean Soul",
+        "Goredrink"
+      ],
+      "core": 4,
+      "items": [
+        "Ionian Boots of Lucidity",
+        "Riftmaker",
+        "Spirit Visage",
+        "Warmog's Armor",
+        "Unending Despair",
+        "Rod of Ages"
+      ],
+      "why": "Consume is Nunu's snack button: Willump bites a minion and restores a big chunk of Health. Circle of Death turns 70% of all his healing and Health Regen into magic damage on the nearest enemy champion, and Overflow makes his ability heals stronger, so every minion he eats punches someone on the other team. Ocean Soul then hands him high Health Regen, which is more Circle of Death damage, plus the Mana Regen that pays for Overflow's doubled costs, while Goredrink heals him off his hits and feeds the circle again. Spirit Visage makes each heal bigger, Warmog's Armor adds regen, Unending Despair adds a heal every few seconds in a fight, and Riftmaker and Rod of Ages add the Health, Ability Power and Mana to keep eating. The snowball tank becomes a poke mage who hurts people by having lunch.",
+      "play": "Stand near the enemy you want hit and Consume a minion every time it is up; bite a champion instead when one is in reach. Use Absolute Zero and Snowball Barrage to keep Ocean Soul and Goredrink running.",
+      "chef": "2026-11-09"
+    },
+    {
+      "id": "warwick-frequent-flyer",
+      "champion": "Warwick",
+      "title": "Frequent Flyer",
+      "augments": [
+        "Get Excited!",
+        "Arcane Axiom",
+        "Nightstalking",
+        "Kill Secured"
+      ],
+      "core": 4,
+      "items": [
+        "Axiom Arc",
+        "Experimental Hexplate",
+        "Youmuu's Ghostblade",
+        "Dead Man's Plate",
+        "Stridebreaker",
+        "Boots of Swiftness"
+      ],
+      "why": "Warwick's Infinite Duress leaps a distance that scales with his bonus Move Speed, a detail that normally adds only a few steps. Get Excited! gives a huge burst of Move Speed on every takedown, and Arcane Axiom refunds part of his ultimate's cooldown when a champion he damaged dies, so each kill hands him both the fuel and the next launch. Nightstalking adds more Move Speed and a moment of invisibility on the same takedown, and Kill Secured speeds him toward low enemies on top of Blood Hunt, which already does the same. Axiom Arc refunds even more of the ultimate on kills and Experimental Hexplate adds ultimate haste plus Move Speed after each cast, while Youmuu's Ghostblade, Dead Man's Plate, Stridebreaker and Boots of Swiftness pile on more speed. The melee brawler becomes a cross-map reset assassin who launches from off screen onto whoever is lowest.",
+      "play": "Wait for a wounded enemy, pop Youmuu's Ghostblade and leap in from far outside the fight. After the takedown, aim the next Infinite Duress at the next low target while the speed lasts.",
+      "chef": "2026-11-10"
+    },
+    {
+      "id": "kalista-the-floor-is-spears",
+      "champion": "Kalista",
+      "title": "The Floor Is Spears",
+      "augments": [
+        "Draw Your Sword",
+        "Earthwake",
+        "Shadow Runner",
+        "Swift and Safe"
+      ],
+      "core": 4,
+      "items": [
+        "Berserker's Greaves",
+        "Guinsoo's Rageblade",
+        "Blade of The Ruined King",
+        "Ravenous Hydra",
+        "Sterak's Gage",
+        "Death's Dance"
+      ],
+      "why": "Kalista's passive, Martial Poise, lets her lunge a short distance every time she launches an attack, and her own Pierce text calls that lunge a dash. Earthwake makes every dash leave a trail that detonates after 0.75 seconds, but on a ranged Kalista those trails sit a full attack range away from anyone. Draw Your Sword fixes that: she becomes melee, is paid in Attack Damage, Health, Attack Speed, Lifesteal and Move Speed for the range she gave up, and now every hop draws its trail straight through the enemy she is hitting. Shadow Runner gives 300 Movement Speed for 2 seconds after each dash and Swift and Safe adds a Shield after one, so a champion who hops on every attack stays fast and protected in the middle of the fight. Guinsoo's Rageblade stacks Attack Speed with every Attack, which means more attacks, more lunges and more exploding trails, turning the backline marksman into a melee skirmisher who wins by where she steps.",
+      "play": "Walk into melee and give a move command during every attack so each lunge crosses the enemy and drops a trail under them. Hop sideways through the group rather than away from it, and use Rend to slow anyone trying to leave.",
+      "chef": "2026-11-11"
     }
   ]
 }

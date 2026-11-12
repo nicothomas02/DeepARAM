@@ -202,5 +202,14 @@
  "Changes your build": "Ändert deinen Build",
  "The best items with this augment differ from your usual build.": "Die besten Items mit diesem Augment weichen von deinem üblichen Build ab.",
  "Estimated: the augment picks (1st to 4th) where it usually shows up.": "Geschätzt: die Augment-Wahlen (1. bis 4.), bei denen es meist auftaucht.",
- "Pick {n}": "Wahl {n}"
+ "Pick {n}": "Wahl {n}",
+ "From earlier games: skill orders are not updating right now.": "Aus früheren Spielen: Fähigkeitsreihenfolgen werden gerade nicht aktualisiert.",
+ "From the most common full builds, most built items first.": "Aus den häufigsten vollständigen Builds, meistgebaute Gegenstände zuerst.",
+ "Few games so far: estimated from earlier games and this patch's changes.": "Bisher wenige Spiele: geschätzt aus früheren Spielen und den Änderungen dieses Patches.",
+ "Synergies": "Synergien",
+ "What fits this champion": "Was zu diesem Champion passt",
+ "Score: points of win rate over the usual choice. Choices with few games lean on the estimate.": "Wertung: Siegrate-Punkte gegenüber der üblichen Wahl. Wahlen mit wenigen Spielen stützen sich auf die Schätzung.",
+ "Expected": "Erwartet",
+ "Real": "Echt",
+ "Builds with few games lean on the estimate: how much of a rare build's lead usually holds up.": "Builds mit wenigen Spielen stützen sich auf die Schätzung: wie viel vom Vorsprung eines seltenen Builds meist bleibt."
 }

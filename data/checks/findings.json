@@ -1,0 +1,1793 @@
+{
+ "patch": "16.22",
+ "built": "2026-11-11",
+ "checks": {
+  "loops": 3,
+  "gap": 46,
+  "sim": 16,
+  "wasted": 0,
+  "kitchen": 40
+ },
+ "traps": [
+  {
+   "id": "loop-tickle_monster-Jhin",
+   "kind": "loop",
+   "status": "trap",
+   "title": "Tickle Monster on Jhin",
+   "champions": [
+    "Jhin"
+   ],
+   "augments": [
+    3058
+   ],
+   "items": [],
+   "theory": "Tickle Monster turns Attack Damage into Attack Speed, and Jhin's Whisper turns Attack Speed into Attack Damage. On paper each one keeps raising the other, so Jhin's damage grows without end.",
+   "practice": "It doesn't run away. The two bonuses don't keep feeding each other, so Jhin ends up with a modest bump to Attack Damage instead of infinite damage. Jhin also hasn't been seen getting Tickle Monster this patch."
+  },
+  {
+   "id": "sim-Draven-berserkers",
+   "kind": "sim",
+   "title": "Berserker's Greaves on Draven",
+   "champions": [
+    "Draven"
+   ],
+   "augments": [],
+   "items": [
+    3006
+   ],
+   "theory": "The Simulator puts Berserker's Greaves in Draven's best build: in a fight it adds more than the items it beats.",
+   "practice": "In real games, Draven's builds with Berserker's Greaves win 4.1 points less often than their builds without it.",
+   "gap": -0.0414,
+   "share": 0.0605,
+   "status": "trap"
+  },
+  {
+   "id": "sim-Lucian-berserkers",
+   "kind": "sim",
+   "title": "Berserker's Greaves on Lucian",
+   "champions": [
+    "Lucian"
+   ],
+   "augments": [],
+   "items": [
+    3006
+   ],
+   "theory": "The Simulator puts Berserker's Greaves in Lucian's best build: in a fight it adds more than the items it beats.",
+   "practice": "In real games, Lucian's builds with Berserker's Greaves win 7.3 points less often than their builds without it.",
+   "gap": -0.0725,
+   "share": 0.0466,
+   "status": "trap"
+  },
+  {
+   "id": "sim-Zeri-berserkers",
+   "kind": "sim",
+   "title": "Berserker's Greaves on Zeri",
+   "champions": [
+    "Zeri"
+   ],
+   "augments": [],
+   "items": [
+    3006
+   ],
+   "theory": "The Simulator puts Berserker's Greaves in Zeri's best build: in a fight it adds more than the items it beats.",
+   "practice": "In real games, Zeri's builds with Berserker's Greaves win 3.7 points less often than their builds without it.",
+   "gap": -0.037,
+   "share": 0.1089,
+   "status": "trap"
+  },
+  {
+   "id": "sim-Kayle-botrk",
+   "kind": "sim",
+   "title": "Blade of The Ruined King on Kayle",
+   "champions": [
+    "Kayle"
+   ],
+   "augments": [],
+   "items": [
+    3153
+   ],
+   "theory": "The Simulator puts Blade of The Ruined King in Kayle's best build: in a fight it adds more than the items it beats.",
+   "practice": "In real games, Kayle's builds with Blade of The Ruined King win 5.8 points less often than their builds without it.",
+   "gap": -0.0578,
+   "share": 0.0528,
+   "status": "trap"
+  },
+  {
+   "id": "sim-Lucian-botrk",
+   "kind": "sim",
+   "title": "Blade of The Ruined King on Lucian",
+   "champions": [
+    "Lucian"
+   ],
+   "augments": [],
+   "items": [
+    3153
+   ],
+   "theory": "The Simulator puts Blade of The Ruined King in Lucian's best build: in a fight it adds more than the items it beats.",
+   "practice": "In real games, Lucian's builds with Blade of The Ruined King win 8.8 points less often than their builds without it.",
+   "gap": -0.0877,
+   "share": 0.0329,
+   "status": "trap"
+  },
+  {
+   "id": "sim-Yunara-botrk",
+   "kind": "sim",
+   "title": "Blade of The Ruined King on Yunara",
+   "champions": [
+    "Yunara"
+   ],
+   "augments": [],
+   "items": [
+    3153
+   ],
+   "theory": "The Simulator puts Blade of The Ruined King in Yunara's best build: in a fight it adds more than the items it beats.",
+   "practice": "In real games, Yunara's builds with Blade of The Ruined King win 3.1 points less often than their builds without it.",
+   "gap": -0.0314,
+   "share": 0.0986,
+   "status": "trap"
+  },
+  {
+   "id": "sim-Kayle-rageblade",
+   "kind": "sim",
+   "title": "Guinsoo's Rageblade on Kayle",
+   "champions": [
+    "Kayle"
+   ],
+   "augments": [],
+   "items": [
+    3124
+   ],
+   "theory": "The Simulator puts Guinsoo's Rageblade in Kayle's best build: in a fight it adds more than the items it beats.",
+   "practice": "In real games, Kayle's builds with Guinsoo's Rageblade win 5.0 points less often than their builds without it.",
+   "gap": -0.0497,
+   "share": 0.0629,
+   "status": "trap"
+  },
+  {
+   "id": "sim-KSante-mercurys",
+   "kind": "sim",
+   "title": "Mercury's Treads on K'Sante",
+   "champions": [
+    "KSante"
+   ],
+   "augments": [],
+   "items": [
+    3111
+   ],
+   "theory": "The Simulator puts Mercury's Treads in K'Sante's best build: in a fight it adds more than the items it beats.",
+   "practice": "In real games, K'Sante's builds with Mercury's Treads win 3.2 points less often than their builds without it.",
+   "gap": -0.0322,
+   "share": 0.0581,
+   "status": "trap"
+  },
+  {
+   "id": "sim-Karma-rabadons",
+   "kind": "sim",
+   "title": "Rabadon's Deathcap on Karma",
+   "champions": [
+    "Karma"
+   ],
+   "augments": [],
+   "items": [
+    3089
+   ],
+   "theory": "The Simulator puts Rabadon's Deathcap in Karma's best build: in a fight it adds more than the items it beats.",
+   "practice": "In real games, Karma's builds with Rabadon's Deathcap win 10.3 points less often than their builds without it.",
+   "gap": -0.1031,
+   "share": 0.1061,
+   "status": "trap"
+  },
+  {
+   "id": "sim-Jayce-seryldas",
+   "kind": "sim",
+   "title": "Serylda's Grudge on Jayce",
+   "champions": [
+    "Jayce"
+   ],
+   "augments": [],
+   "items": [
+    6694
+   ],
+   "theory": "The Simulator puts Serylda's Grudge in Jayce's best build: in a fight it adds more than the items it beats.",
+   "practice": "In real games, Jayce's builds with Serylda's Grudge win 4.6 points less often than their builds without it.",
+   "gap": -0.0456,
+   "share": 0.0337,
+   "status": "trap"
+  },
+  {
+   "id": "sim-Talon-seryldas",
+   "kind": "sim",
+   "title": "Serylda's Grudge on Talon",
+   "champions": [
+    "Talon"
+   ],
+   "augments": [],
+   "items": [
+    6694
+   ],
+   "theory": "The Simulator puts Serylda's Grudge in Talon's best build: in a fight it adds more than the items it beats.",
+   "practice": "In real games, Talon's builds with Serylda's Grudge win 3.1 points less often than their builds without it.",
+   "gap": -0.0311,
+   "share": 0.0599,
+   "status": "trap"
+  },
+  {
+   "id": "sim-Karma-shadowflame",
+   "kind": "sim",
+   "title": "Shadowflame on Karma",
+   "champions": [
+    "Karma"
+   ],
+   "augments": [],
+   "items": [
+    4645
+   ],
+   "theory": "The Simulator puts Shadowflame in Karma's best build: in a fight it adds more than the items it beats.",
+   "practice": "In real games, Karma's builds with Shadowflame win 10.3 points less often than their builds without it.",
+   "gap": -0.1031,
+   "share": 0.1061,
+   "status": "trap"
+  },
+  {
+   "id": "sim-Gwen-sorcerers",
+   "kind": "sim",
+   "title": "Sorcerer's Shoes on Gwen",
+   "champions": [
+    "Gwen"
+   ],
+   "augments": [],
+   "items": [
+    3020
+   ],
+   "theory": "The Simulator puts Sorcerer's Shoes in Gwen's best build: in a fight it adds more than the items it beats.",
+   "practice": "In real games, Gwen's builds with Sorcerer's Shoes win 3.5 points less often than their builds without it.",
+   "gap": -0.0354,
+   "share": 0.0575,
+   "status": "trap"
+  },
+  {
+   "id": "sim-Karma-sorcerers",
+   "kind": "sim",
+   "title": "Sorcerer's Shoes on Karma",
+   "champions": [
+    "Karma"
+   ],
+   "augments": [],
+   "items": [
+    3020
+   ],
+   "theory": "The Simulator puts Sorcerer's Shoes in Karma's best build: in a fight it adds more than the items it beats.",
+   "practice": "In real games, Karma's builds with Sorcerer's Shoes win 7.2 points less often than their builds without it.",
+   "gap": -0.0717,
+   "share": 0.0856,
+   "status": "trap"
+  },
+  {
+   "id": "sim-Lillia-sorcerers",
+   "kind": "sim",
+   "title": "Sorcerer's Shoes on Lillia",
+   "champions": [
+    "Lillia"
+   ],
+   "augments": [],
+   "items": [
+    3020
+   ],
+   "theory": "The Simulator puts Sorcerer's Shoes in Lillia's best build: in a fight it adds more than the items it beats.",
+   "practice": "In real games, Lillia's builds with Sorcerer's Shoes win 4.9 points less often than their builds without it.",
+   "gap": -0.0494,
+   "share": 0.0564,
+   "status": "trap"
+  },
+  {
+   "id": "sim-Karma-stormsurge",
+   "kind": "sim",
+   "title": "Stormsurge on Karma",
+   "champions": [
+    "Karma"
+   ],
+   "augments": [],
+   "items": [
+    4646
+   ],
+   "theory": "The Simulator puts Stormsurge in Karma's best build: in a fight it adds more than the items it beats.",
+   "practice": "In real games, Karma's builds with Stormsurge win 7.0 points less often than their builds without it.",
+   "gap": -0.0697,
+   "share": 0.0925,
+   "status": "trap"
+  }
+ ],
+ "bugs": [
+  {
+   "id": "loop-adapt+escapade",
+   "kind": "loop",
+   "title": "ADAPt + escAPADe",
+   "champions": [
+    "Ashe",
+    "Ezreal",
+    "Gangplank",
+    "Jax",
+    "Kaisa",
+    "Kalista",
+    "Katarina",
+    "KogMaw",
+    "MissFortune",
+    "Nasus",
+    "Nidalee",
+    "Senna",
+    "Shaco",
+    "Shen",
+    "Shyvana",
+    "Thresh",
+    "Trundle",
+    "Tryndamere",
+    "TwistedFate",
+    "Twitch",
+    "Udyr",
+    "Varus",
+    "Volibear",
+    "XinZhao",
+    "Yunara",
+    "Zeri"
+   ],
+   "augments": [
+    1205,
+    1206
+   ],
+   "items": [],
+   "theory": "ADAPt turns Attack Damage into Ability Power, and escAPADe turns Ability Power into Attack Damage. On paper each one keeps raising the other, so Attack Damage grows without end.",
+   "test": "Take ADAPt and escAPADe, then open your stats after each item. If Attack Damage keeps climbing on its own, it's a bug worth reporting. If it settles after one step, it's a trap.",
+   "status": "to_test"
+  },
+  {
+   "id": "loop-lich_brain-Vladimir",
+   "kind": "loop",
+   "title": "Lich Brain on Vladimir",
+   "champions": [
+    "Vladimir"
+   ],
+   "augments": [
+    3094
+   ],
+   "items": [],
+   "theory": "Vladimir's Crimson Pact turns Ability Power into Health, and Lich Brain turns Health into Ability Power. On paper each one keeps raising the other, so Ability Power grows without end.",
+   "test": "Take Lich Brain on Vladimir, then open your stats after each item. If Ability Power keeps climbing on its own, it's a bug worth reporting. If it settles after one step, it's a trap.",
+   "status": "to_test"
+  },
+  {
+   "id": "loop-purist_caster+tap_dancer+with_haste",
+   "kind": "loop",
+   "title": "Purist - Caster + Tap Dancer + With Haste",
+   "champions": [
+    "Ahri",
+    "Ashe",
+    "Azir",
+    "Bard",
+    "Belveth",
+    "Briar",
+    "Caitlyn",
+    "Camille",
+    "Chogath",
+    "Corki",
+    "Diana",
+    "Ezreal",
+    "Fiora",
+    "Garen",
+    "Graves",
+    "Gwen",
+    "Ivern",
+    "JarvanIV",
+    "Jax",
+    "Jayce",
+    "Jhin",
+    "Jinx",
+    "Kaisa",
+    "Kalista",
+    "Kennen",
+    "Kled",
+    "KogMaw",
+    "Lucian",
+    "Lulu",
+    "Mel",
+    "MissFortune",
+    "MonkeyKing",
+    "Mordekaiser",
+    "Neeko",
+    "Nidalee",
+    "Nocturne",
+    "Olaf",
+    "Orianna",
+    "RekSai",
+    "Renata",
+    "Samira",
+    "Senna",
+    "Sett",
+    "Shen",
+    "Shyvana",
+    "Sivir",
+    "Smolder",
+    "Taric",
+    "Teemo",
+    "Thresh",
+    "Trundle",
+    "Tryndamere",
+    "TwistedFate",
+    "Udyr",
+    "Urgot",
+    "Varus",
+    "Vi",
+    "XinZhao",
+    "Yorick",
+    "Zaahen"
+   ],
+   "augments": [
+    2018,
+    1081,
+    1098
+   ],
+   "items": [],
+   "theory": "With Haste turns Ability Haste into Move Speed, Tap Dancer turns Move Speed into Attack Speed, and Purist - Caster turns Attack Speed into Ability Haste. On paper each one keeps raising the other, so Ability Haste grows without end.",
+   "test": "Take Purist - Caster and Tap Dancer and With Haste, then open your stats after each item. If Ability Haste keeps climbing on its own, it's a bug worth reporting. If it settles after one step, it's a trap.",
+   "status": "to_test"
+  },
+  {
+   "id": "gap-Alistar",
+   "kind": "gap",
+   "title": "Alistar never gets Get Jinxed",
+   "champions": [
+    "Alistar"
+   ],
+   "augments": [
+    3004
+   ],
+   "items": [],
+   "theory": "At least 93% of champions get Get Jinxed, but Alistar has never been seen taking it, even though Alistar is picked often.",
+   "test": "Play Alistar and watch your augment choices. If it never shows up, Riot has left it out for Alistar. If that doesn't look like it's on purpose, it's worth reporting.",
+   "status": "to_test"
+  },
+  {
+   "id": "gap-Ashe",
+   "kind": "gap",
+   "title": "Ashe never gets Bread And Butter",
+   "champions": [
+    "Ashe"
+   ],
+   "augments": [
+    1103
+   ],
+   "items": [],
+   "theory": "At least 93% of champions get Bread And Butter, but Ashe has never been seen taking it, even though Ashe is picked often.",
+   "test": "Play Ashe and watch your augment choices. If it never shows up, Riot has left it out for Ashe. If that doesn't look like it's on purpose, it's worth reporting.",
+   "status": "to_test"
+  },
+  {
+   "id": "gap-AurelionSol",
+   "kind": "gap",
+   "title": "Aurelion Sol never gets The Boom and the Bass and 3 more",
+   "champions": [
+    "AurelionSol"
+   ],
+   "augments": [
+    3078,
+    1103,
+    3079,
+    1098
+   ],
+   "items": [],
+   "theory": "At least 93% of champions get The Boom and the Bass, Bread And Butter, Totentanz and With Haste, but Aurelion Sol has never been seen taking them, even though Aurelion Sol is picked often.",
+   "test": "Play Aurelion Sol and watch your augment choices. If they never show up, Riot has left them out for Aurelion Sol. If that doesn't look like it's on purpose, it's worth reporting.",
+   "status": "to_test"
+  },
+  {
+   "id": "gap-Blitzcrank",
+   "kind": "gap",
+   "title": "Blitzcrank never gets Mystic Punch and 1 more",
+   "champions": [
+    "Blitzcrank"
+   ],
+   "augments": [
+    1058,
+    3116
+   ],
+   "items": [],
+   "theory": "At least 91% of champions get Mystic Punch and Take'em Down Down Down, but Blitzcrank has never been seen taking them, even though Blitzcrank is picked often.",
+   "test": "Play Blitzcrank and watch your augment choices. If they never show up, Riot has left them out for Blitzcrank. If that doesn't look like it's on purpose, it's worth reporting.",
+   "status": "to_test"
+  },
+  {
+   "id": "gap-Caitlyn",
+   "kind": "gap",
+   "title": "Caitlyn never gets Rite of Ascension",
+   "champions": [
+    "Caitlyn"
+   ],
+   "augments": [
+    2099
+   ],
+   "items": [],
+   "theory": "At least 91% of champions get Rite of Ascension, but Caitlyn has never been seen taking it, even though Caitlyn is picked often.",
+   "test": "Play Caitlyn and watch your augment choices. If it never shows up, Riot has left it out for Caitlyn. If that doesn't look like it's on purpose, it's worth reporting.",
+   "status": "to_test"
+  },
+  {
+   "id": "gap-Chogath",
+   "kind": "gap",
+   "title": "Cho'Gath never gets It's Killing Time",
+   "champions": [
+    "Chogath"
+   ],
+   "augments": [
+    1211
+   ],
+   "items": [],
+   "theory": "At least 93% of champions get It's Killing Time, but Cho'Gath has never been seen taking it, even though Cho'Gath is picked often.",
+   "test": "Play Cho'Gath and watch your augment choices. If it never shows up, Riot has left it out for Cho'Gath. If that doesn't look like it's on purpose, it's worth reporting.",
+   "status": "to_test"
+  },
+  {
+   "id": "gap-Darius",
+   "kind": "gap",
+   "title": "Darius never gets Get Jinxed",
+   "champions": [
+    "Darius"
+   ],
+   "augments": [
+    3004
+   ],
+   "items": [],
+   "theory": "At least 93% of champions get Get Jinxed, but Darius has never been seen taking it, even though Darius is picked often.",
+   "test": "Play Darius and watch your augment choices. If it never shows up, Riot has left it out for Darius. If that doesn't look like it's on purpose, it's worth reporting.",
+   "status": "to_test"
+  },
+  {
+   "id": "gap-DrMundo",
+   "kind": "gap",
+   "title": "Dr. Mundo never gets It's Killing Time and 1 more",
+   "champions": [
+    "DrMundo"
+   ],
+   "augments": [
+    1211,
+    3118
+   ],
+   "items": [],
+   "theory": "At least 90% of champions get It's Killing Time and Arcane Axiom, but Dr. Mundo has never been seen taking them, even though Dr. Mundo is picked often.",
+   "test": "Play Dr. Mundo and watch your augment choices. If they never show up, Riot has left them out for Dr. Mundo. If that doesn't look like it's on purpose, it's worth reporting.",
+   "status": "to_test"
+  },
+  {
+   "id": "gap-Draven",
+   "kind": "gap",
+   "title": "Draven never gets Infinite Recursion and 5 more",
+   "champions": [
+    "Draven"
+   ],
+   "augments": [
+    1388,
+    1068,
+    1415,
+    3004,
+    2087,
+    1996
+   ],
+   "items": [],
+   "theory": "At least 91% of champions get Infinite Recursion, Recursion, Twin Fire, Get Jinxed, Archmage and Upgrade Sheen, but Draven has never been seen taking them, even though Draven is picked often.",
+   "test": "Play Draven and watch your augment choices. If they never show up, Riot has left them out for Draven. If that doesn't look like it's on purpose, it's worth reporting.",
+   "status": "to_test"
+  },
+  {
+   "id": "gap-Fiora",
+   "kind": "gap",
+   "title": "Fiora never gets Triggered Inferno",
+   "champions": [
+    "Fiora"
+   ],
+   "augments": [
+    2005
+   ],
+   "items": [],
+   "theory": "At least 93% of champions get Triggered Inferno, but Fiora has never been seen taking it, even though Fiora is picked often.",
+   "test": "Play Fiora and watch your augment choices. If it never shows up, Riot has left it out for Fiora. If that doesn't look like it's on purpose, it's worth reporting.",
+   "status": "to_test"
+  },
+  {
+   "id": "gap-Gangplank",
+   "kind": "gap",
+   "title": "Gangplank never gets Ultimate Awakening and 3 more",
+   "champions": [
+    "Gangplank"
+   ],
+   "augments": [
+    1349,
+    1028,
+    2087,
+    1058
+   ],
+   "items": [],
+   "theory": "At least 92% of champions get Ultimate Awakening, Erosion, Archmage and Mystic Punch, but Gangplank has never been seen taking them, even though Gangplank is picked often.",
+   "test": "Play Gangplank and watch your augment choices. If they never show up, Riot has left them out for Gangplank. If that doesn't look like it's on purpose, it's worth reporting.",
+   "status": "to_test"
+  },
+  {
+   "id": "gap-Graves",
+   "kind": "gap",
+   "title": "Graves never gets Upgrade Sheen",
+   "champions": [
+    "Graves"
+   ],
+   "augments": [
+    1996
+   ],
+   "items": [],
+   "theory": "At least 91% of champions get Upgrade Sheen, but Graves has never been seen taking it, even though Graves is picked often.",
+   "test": "Play Graves and watch your augment choices. If it never shows up, Riot has left it out for Graves. If that doesn't look like it's on purpose, it's worth reporting.",
+   "status": "to_test"
+  },
+  {
+   "id": "gap-Jayce",
+   "kind": "gap",
+   "title": "Jayce never gets Ultimate Awakening and 6 more",
+   "champions": [
+    "Jayce"
+   ],
+   "augments": [
+    1349,
+    1004,
+    1028,
+    1211,
+    1058,
+    3116,
+    3118
+   ],
+   "items": [],
+   "theory": "At least 90% of champions get Ultimate Awakening, Back To Basics, Erosion, It's Killing Time, Mystic Punch, Take'em Down Down Down and Arcane Axiom, but Jayce has never been seen taking them, even though Jayce is picked often.",
+   "test": "Play Jayce and watch your augment choices. If they never show up, Riot has left them out for Jayce. If that doesn't look like it's on purpose, it's worth reporting.",
+   "status": "to_test"
+  },
+  {
+   "id": "gap-Jhin",
+   "kind": "gap",
+   "title": "Jhin never gets Erosion and 2 more",
+   "champions": [
+    "Jhin"
+   ],
+   "augments": [
+    1028,
+    1058,
+    3116
+   ],
+   "items": [],
+   "theory": "At least 91% of champions get Erosion, Mystic Punch and Take'em Down Down Down, but Jhin has never been seen taking them, even though Jhin is picked often.",
+   "test": "Play Jhin and watch your augment choices. If they never show up, Riot has left them out for Jhin. If that doesn't look like it's on purpose, it's worth reporting.",
+   "status": "to_test"
+  },
+  {
+   "id": "gap-Jinx",
+   "kind": "gap",
+   "title": "Jinx never gets Bread And Butter",
+   "champions": [
+    "Jinx"
+   ],
+   "augments": [
+    1103
+   ],
+   "items": [],
+   "theory": "At least 93% of champions get Bread And Butter, but Jinx has never been seen taking it, even though Jinx is picked often.",
+   "test": "Play Jinx and watch your augment choices. If it never shows up, Riot has left it out for Jinx. If that doesn't look like it's on purpose, it's worth reporting.",
+   "status": "to_test"
+  },
+  {
+   "id": "gap-Karthus",
+   "kind": "gap",
+   "title": "Karthus never gets Bread and Cheese and 2 more",
+   "champions": [
+    "Karthus"
+   ],
+   "augments": [
+    1151,
+    1103,
+    2087
+   ],
+   "items": [],
+   "theory": "At least 93% of champions get Bread and Cheese, Bread And Butter and Archmage, but Karthus has never been seen taking them, even though Karthus is picked often.",
+   "test": "Play Karthus and watch your augment choices. If they never show up, Riot has left them out for Karthus. If that doesn't look like it's on purpose, it's worth reporting.",
+   "status": "to_test"
+  },
+  {
+   "id": "gap-Katarina",
+   "kind": "gap",
+   "title": "Katarina never gets With Haste",
+   "champions": [
+    "Katarina"
+   ],
+   "augments": [
+    1098
+   ],
+   "items": [],
+   "theory": "At least 93% of champions get With Haste, but Katarina has never been seen taking it, even though Katarina is picked often.",
+   "test": "Play Katarina and watch your augment choices. If it never shows up, Riot has left it out for Katarina. If that doesn't look like it's on purpose, it's worth reporting.",
+   "status": "to_test"
+  },
+  {
+   "id": "gap-Leona",
+   "kind": "gap",
+   "title": "Leona never gets Giant Slayer and 4 more",
+   "champions": [
+    "Leona"
+   ],
+   "augments": [
+    1195,
+    3086,
+    1211,
+    2005,
+    1996
+   ],
+   "items": [],
+   "theory": "At least 91% of champions get Giant Slayer, BEES!!!, It's Killing Time, Triggered Inferno and Upgrade Sheen, but Leona has never been seen taking them, even though Leona is picked often.",
+   "test": "Play Leona and watch your augment choices. If they never show up, Riot has left them out for Leona. If that doesn't look like it's on purpose, it's worth reporting.",
+   "status": "to_test"
+  },
+  {
+   "id": "gap-Lux",
+   "kind": "gap",
+   "title": "Lux never gets Erosion and 4 more",
+   "champions": [
+    "Lux"
+   ],
+   "augments": [
+    1028,
+    3079,
+    1058,
+    2099,
+    3116
+   ],
+   "items": [],
+   "theory": "At least 91% of champions get Erosion, Totentanz, Mystic Punch, Rite of Ascension and Take'em Down Down Down, but Lux has never been seen taking them, even though Lux is picked often.",
+   "test": "Play Lux and watch your augment choices. If they never show up, Riot has left them out for Lux. If that doesn't look like it's on purpose, it's worth reporting.",
+   "status": "to_test"
+  },
+  {
+   "id": "gap-Malzahar",
+   "kind": "gap",
+   "title": "Malzahar never gets Triggered Inferno",
+   "champions": [
+    "Malzahar"
+   ],
+   "augments": [
+    2005
+   ],
+   "items": [],
+   "theory": "At least 93% of champions get Triggered Inferno, but Malzahar has never been seen taking it, even though Malzahar is picked often.",
+   "test": "Play Malzahar and watch your augment choices. If it never shows up, Riot has left it out for Malzahar. If that doesn't look like it's on purpose, it's worth reporting.",
+   "status": "to_test"
+  },
+  {
+   "id": "gap-MasterYi",
+   "kind": "gap",
+   "title": "Master Yi never gets Jeweled Gauntlet and 1 more",
+   "champions": [
+    "MasterYi"
+   ],
+   "augments": [
+    1048,
+    2005
+   ],
+   "items": [],
+   "theory": "At least 93% of champions get Jeweled Gauntlet and Triggered Inferno, but Master Yi has never been seen taking them, even though Master Yi is picked often.",
+   "test": "Play Master Yi and watch your augment choices. If they never show up, Riot has left them out for Master Yi. If that doesn't look like it's on purpose, it's worth reporting.",
+   "status": "to_test"
+  },
+  {
+   "id": "gap-Morgana",
+   "kind": "gap",
+   "title": "Morgana never gets Rite of Ascension",
+   "champions": [
+    "Morgana"
+   ],
+   "augments": [
+    2099
+   ],
+   "items": [],
+   "theory": "At least 91% of champions get Rite of Ascension, but Morgana has never been seen taking it, even though Morgana is picked often.",
+   "test": "Play Morgana and watch your augment choices. If it never shows up, Riot has left it out for Morgana. If that doesn't look like it's on purpose, it's worth reporting.",
+   "status": "to_test"
+  },
+  {
+   "id": "gap-Nautilus",
+   "kind": "gap",
+   "title": "Nautilus never gets Mystic Punch and 2 more",
+   "champions": [
+    "Nautilus"
+   ],
+   "augments": [
+    1058,
+    1996,
+    3116
+   ],
+   "items": [],
+   "theory": "At least 91% of champions get Mystic Punch, Upgrade Sheen and Take'em Down Down Down, but Nautilus has never been seen taking them, even though Nautilus is picked often.",
+   "test": "Play Nautilus and watch your augment choices. If they never show up, Riot has left them out for Nautilus. If that doesn't look like it's on purpose, it's worth reporting.",
+   "status": "to_test"
+  },
+  {
+   "id": "gap-Nidalee",
+   "kind": "gap",
+   "title": "Nidalee never gets Ultimate Awakening and 4 more",
+   "champions": [
+    "Nidalee"
+   ],
+   "augments": [
+    1349,
+    1004,
+    3004,
+    1211,
+    3118
+   ],
+   "items": [],
+   "theory": "At least 90% of champions get Ultimate Awakening, Back To Basics, Get Jinxed, It's Killing Time and Arcane Axiom, but Nidalee has never been seen taking them, even though Nidalee is picked often.",
+   "test": "Play Nidalee and watch your augment choices. If they never show up, Riot has left them out for Nidalee. If that doesn't look like it's on purpose, it's worth reporting.",
+   "status": "to_test"
+  },
+  {
+   "id": "gap-Pantheon",
+   "kind": "gap",
+   "title": "Pantheon never gets Arcane Axiom",
+   "champions": [
+    "Pantheon"
+   ],
+   "augments": [
+    3118
+   ],
+   "items": [],
+   "theory": "At least 90% of champions get Arcane Axiom, but Pantheon has never been seen taking it, even though Pantheon is picked often.",
+   "test": "Play Pantheon and watch your augment choices. If it never shows up, Riot has left it out for Pantheon. If that doesn't look like it's on purpose, it's worth reporting.",
+   "status": "to_test"
+  },
+  {
+   "id": "gap-Rengar",
+   "kind": "gap",
+   "title": "Rengar never gets Get Jinxed",
+   "champions": [
+    "Rengar"
+   ],
+   "augments": [
+    3004
+   ],
+   "items": [],
+   "theory": "At least 93% of champions get Get Jinxed, but Rengar has never been seen taking it, even though Rengar is picked often.",
+   "test": "Play Rengar and watch your augment choices. If it never shows up, Riot has left it out for Rengar. If that doesn't look like it's on purpose, it's worth reporting.",
+   "status": "to_test"
+  },
+  {
+   "id": "gap-Ryze",
+   "kind": "gap",
+   "title": "Ryze never gets Heavy Is The Crown and 2 more",
+   "champions": [
+    "Ryze"
+   ],
+   "augments": [
+    3132,
+    1011,
+    3118
+   ],
+   "items": [],
+   "theory": "At least 90% of champions get Heavy Is The Crown, Can't Touch This and Arcane Axiom, but Ryze has never been seen taking them, even though Ryze is picked often.",
+   "test": "Play Ryze and watch your augment choices. If they never show up, Riot has left them out for Ryze. If that doesn't look like it's on purpose, it's worth reporting.",
+   "status": "to_test"
+  },
+  {
+   "id": "gap-Seraphine",
+   "kind": "gap",
+   "title": "Seraphine never gets Rite of Ascension",
+   "champions": [
+    "Seraphine"
+   ],
+   "augments": [
+    2099
+   ],
+   "items": [],
+   "theory": "At least 91% of champions get Rite of Ascension, but Seraphine has never been seen taking it, even though Seraphine is picked often.",
+   "test": "Play Seraphine and watch your augment choices. If it never shows up, Riot has left it out for Seraphine. If that doesn't look like it's on purpose, it's worth reporting.",
+   "status": "to_test"
+  },
+  {
+   "id": "gap-Singed",
+   "kind": "gap",
+   "title": "Singed never gets Bread And Butter",
+   "champions": [
+    "Singed"
+   ],
+   "augments": [
+    1103
+   ],
+   "items": [],
+   "theory": "At least 93% of champions get Bread And Butter, but Singed has never been seen taking it, even though Singed is picked often.",
+   "test": "Play Singed and watch your augment choices. If it never shows up, Riot has left it out for Singed. If that doesn't look like it's on purpose, it's worth reporting.",
+   "status": "to_test"
+  },
+  {
+   "id": "gap-Sion",
+   "kind": "gap",
+   "title": "Sion never gets Take'em Down Down Down",
+   "champions": [
+    "Sion"
+   ],
+   "augments": [
+    3116
+   ],
+   "items": [],
+   "theory": "At least 91% of champions get Take'em Down Down Down, but Sion has never been seen taking it, even though Sion is picked often.",
+   "test": "Play Sion and watch your augment choices. If it never shows up, Riot has left it out for Sion. If that doesn't look like it's on purpose, it's worth reporting.",
+   "status": "to_test"
+  },
+  {
+   "id": "gap-Swain",
+   "kind": "gap",
+   "title": "Swain never gets Upgrade Sheen",
+   "champions": [
+    "Swain"
+   ],
+   "augments": [
+    1996
+   ],
+   "items": [],
+   "theory": "At least 91% of champions get Upgrade Sheen, but Swain has never been seen taking it, even though Swain is picked often.",
+   "test": "Play Swain and watch your augment choices. If it never shows up, Riot has left it out for Swain. If that doesn't look like it's on purpose, it's worth reporting.",
+   "status": "to_test"
+  },
+  {
+   "id": "gap-Syndra",
+   "kind": "gap",
+   "title": "Syndra never gets Get Jinxed",
+   "champions": [
+    "Syndra"
+   ],
+   "augments": [
+    3004
+   ],
+   "items": [],
+   "theory": "At least 93% of champions get Get Jinxed, but Syndra has never been seen taking it, even though Syndra is picked often.",
+   "test": "Play Syndra and watch your augment choices. If it never shows up, Riot has left it out for Syndra. If that doesn't look like it's on purpose, it's worth reporting.",
+   "status": "to_test"
+  },
+  {
+   "id": "gap-Talon",
+   "kind": "gap",
+   "title": "Talon never gets Bread and Cheese and 3 more",
+   "champions": [
+    "Talon"
+   ],
+   "augments": [
+    1151,
+    1028,
+    1058,
+    3116
+   ],
+   "items": [],
+   "theory": "At least 91% of champions get Bread and Cheese, Erosion, Mystic Punch and Take'em Down Down Down, but Talon has never been seen taking them, even though Talon is picked often.",
+   "test": "Play Talon and watch your augment choices. If they never show up, Riot has left them out for Talon. If that doesn't look like it's on purpose, it's worth reporting.",
+   "status": "to_test"
+  },
+  {
+   "id": "gap-Teemo",
+   "kind": "gap",
+   "title": "Teemo never gets Bread and Cheese and 1 more",
+   "champions": [
+    "Teemo"
+   ],
+   "augments": [
+    1151,
+    3079
+   ],
+   "items": [],
+   "theory": "At least 93% of champions get Bread and Cheese and Totentanz, but Teemo has never been seen taking them, even though Teemo is picked often.",
+   "test": "Play Teemo and watch your augment choices. If they never show up, Riot has left them out for Teemo. If that doesn't look like it's on purpose, it's worth reporting.",
+   "status": "to_test"
+  },
+  {
+   "id": "gap-Thresh",
+   "kind": "gap",
+   "title": "Thresh never gets Mystic Punch and 1 more",
+   "champions": [
+    "Thresh"
+   ],
+   "augments": [
+    1058,
+    3116
+   ],
+   "items": [],
+   "theory": "At least 91% of champions get Mystic Punch and Take'em Down Down Down, but Thresh has never been seen taking them, even though Thresh is picked often.",
+   "test": "Play Thresh and watch your augment choices. If they never show up, Riot has left them out for Thresh. If that doesn't look like it's on purpose, it's worth reporting.",
+   "status": "to_test"
+  },
+  {
+   "id": "gap-Tristana",
+   "kind": "gap",
+   "title": "Tristana never gets Final Form and 2 more",
+   "champions": [
+    "Tristana"
+   ],
+   "augments": [
+    1344,
+    1011,
+    3118
+   ],
+   "items": [],
+   "theory": "At least 90% of champions get Final Form, Can't Touch This and Arcane Axiom, but Tristana has never been seen taking them, even though Tristana is picked often.",
+   "test": "Play Tristana and watch your augment choices. If they never show up, Riot has left them out for Tristana. If that doesn't look like it's on purpose, it's worth reporting.",
+   "status": "to_test"
+  },
+  {
+   "id": "gap-Tryndamere",
+   "kind": "gap",
+   "title": "Tryndamere never gets Can't Touch This",
+   "champions": [
+    "Tryndamere"
+   ],
+   "augments": [
+    1011
+   ],
+   "items": [],
+   "theory": "At least 97% of champions get Can't Touch This, but Tryndamere has never been seen taking it, even though Tryndamere is picked often.",
+   "test": "Play Tryndamere and watch your augment choices. If it never shows up, Riot has left it out for Tryndamere. If that doesn't look like it's on purpose, it's worth reporting.",
+   "status": "to_test"
+  },
+  {
+   "id": "gap-TwistedFate",
+   "kind": "gap",
+   "title": "Twisted Fate never gets Final Form and 3 more",
+   "champions": [
+    "TwistedFate"
+   ],
+   "augments": [
+    1344,
+    1011,
+    1151,
+    3118
+   ],
+   "items": [],
+   "theory": "At least 90% of champions get Final Form, Can't Touch This, Bread and Cheese and Arcane Axiom, but Twisted Fate has never been seen taking them, even though Twisted Fate is picked often.",
+   "test": "Play Twisted Fate and watch your augment choices. If they never show up, Riot has left them out for Twisted Fate. If that doesn't look like it's on purpose, it's worth reporting.",
+   "status": "to_test"
+  },
+  {
+   "id": "gap-Twitch",
+   "kind": "gap",
+   "title": "Twitch never gets Triggered Inferno",
+   "champions": [
+    "Twitch"
+   ],
+   "augments": [
+    2005
+   ],
+   "items": [],
+   "theory": "At least 93% of champions get Triggered Inferno, but Twitch has never been seen taking it, even though Twitch is picked often.",
+   "test": "Play Twitch and watch your augment choices. If it never shows up, Riot has left it out for Twitch. If that doesn't look like it's on purpose, it's worth reporting.",
+   "status": "to_test"
+  },
+  {
+   "id": "gap-Udyr",
+   "kind": "gap",
+   "title": "Udyr never gets Arcane Axiom",
+   "champions": [
+    "Udyr"
+   ],
+   "augments": [
+    3118
+   ],
+   "items": [],
+   "theory": "At least 90% of champions get Arcane Axiom, but Udyr has never been seen taking it, even though Udyr is picked often.",
+   "test": "Play Udyr and watch your augment choices. If it never shows up, Riot has left it out for Udyr. If that doesn't look like it's on purpose, it's worth reporting.",
+   "status": "to_test"
+  },
+  {
+   "id": "gap-Vayne",
+   "kind": "gap",
+   "title": "Vayne never gets Back To Basics and 4 more",
+   "champions": [
+    "Vayne"
+   ],
+   "augments": [
+    1004,
+    1415,
+    1028,
+    1098,
+    1150
+   ],
+   "items": [],
+   "theory": "At least 93% of champions get Back To Basics, Twin Fire, Erosion, With Haste and Bread And Jam, but Vayne has never been seen taking them, even though Vayne is picked often.",
+   "test": "Play Vayne and watch your augment choices. If they never show up, Riot has left them out for Vayne. If that doesn't look like it's on purpose, it's worth reporting.",
+   "status": "to_test"
+  },
+  {
+   "id": "gap-Velkoz",
+   "kind": "gap",
+   "title": "Vel'Koz never gets Brass Blast",
+   "champions": [
+    "Velkoz"
+   ],
+   "augments": [
+    3071
+   ],
+   "items": [],
+   "theory": "At least 98% of champions get Brass Blast, but Vel'Koz has never been seen taking it, even though Vel'Koz is picked often.",
+   "test": "Play Vel'Koz and watch your augment choices. If it never shows up, Riot has left it out for Vel'Koz. If that doesn't look like it's on purpose, it's worth reporting.",
+   "status": "to_test"
+  },
+  {
+   "id": "gap-Xerath",
+   "kind": "gap",
+   "title": "Xerath never gets Triggered Inferno and 1 more",
+   "champions": [
+    "Xerath"
+   ],
+   "augments": [
+    2005,
+    2099
+   ],
+   "items": [],
+   "theory": "At least 91% of champions get Triggered Inferno and Rite of Ascension, but Xerath has never been seen taking them, even though Xerath is picked often.",
+   "test": "Play Xerath and watch your augment choices. If they never show up, Riot has left them out for Xerath. If that doesn't look like it's on purpose, it's worth reporting.",
+   "status": "to_test"
+  },
+  {
+   "id": "gap-Yasuo",
+   "kind": "gap",
+   "title": "Yasuo never gets Recursion and 7 more",
+   "champions": [
+    "Yasuo"
+   ],
+   "augments": [
+    1068,
+    1151,
+    1415,
+    1103,
+    2005,
+    1098,
+    2087,
+    1996
+   ],
+   "items": [],
+   "theory": "At least 91% of champions get Recursion, Bread and Cheese, Twin Fire, Bread And Butter, Triggered Inferno, With Haste, Archmage and Upgrade Sheen, but Yasuo has never been seen taking them, even though Yasuo is picked often.",
+   "test": "Play Yasuo and watch your augment choices. If they never show up, Riot has left them out for Yasuo. If that doesn't look like it's on purpose, it's worth reporting.",
+   "status": "to_test"
+  },
+  {
+   "id": "gap-Yone",
+   "kind": "gap",
+   "title": "Yone never gets Twin Fire and 3 more",
+   "champions": [
+    "Yone"
+   ],
+   "augments": [
+    1415,
+    1103,
+    1098,
+    1150
+   ],
+   "items": [],
+   "theory": "At least 93% of champions get Twin Fire, Bread And Butter, With Haste and Bread And Jam, but Yone has never been seen taking them, even though Yone is picked often.",
+   "test": "Play Yone and watch your augment choices. If they never show up, Riot has left them out for Yone. If that doesn't look like it's on purpose, it's worth reporting.",
+   "status": "to_test"
+  },
+  {
+   "id": "gap-Yunara",
+   "kind": "gap",
+   "title": "Yunara never gets Recursion and 8 more",
+   "champions": [
+    "Yunara"
+   ],
+   "augments": [
+    1068,
+    1349,
+    1004,
+    1415,
+    1103,
+    2005,
+    1098,
+    2087,
+    1996
+   ],
+   "items": [],
+   "theory": "At least 91% of champions get Recursion, Ultimate Awakening, Back To Basics, Twin Fire, Bread And Butter, Triggered Inferno, With Haste, Archmage and Upgrade Sheen, but Yunara has never been seen taking them, even though Yunara is picked often.",
+   "test": "Play Yunara and watch your augment choices. If they never show up, Riot has left them out for Yunara. If that doesn't look like it's on purpose, it's worth reporting.",
+   "status": "to_test"
+  }
+ ],
+ "kitchen": [
+  {
+   "id": "pool-tryndamere-bloodlust-doctor-critical_healing",
+   "kind": "pool",
+   "title": "The Bloodlust Doctor: Critical Healing on Tryndamere",
+   "champions": [
+    "Tryndamere"
+   ],
+   "augments": [
+    1118
+   ],
+   "items": [],
+   "theory": "The build leans on Critical Healing.",
+   "test": "Tryndamere has never been seen taking Critical Healing, so it may not be in their augment pool. Check whether it's ever offered on Tryndamere.",
+   "build": "tryndamere-bloodlust-doctor"
+  },
+  {
+   "id": "pool-janna-speeding-ticket-tap_dancer",
+   "kind": "pool",
+   "title": "Speeding Ticket: Tap Dancer on Janna",
+   "champions": [
+    "Janna"
+   ],
+   "augments": [
+    1081
+   ],
+   "items": [],
+   "theory": "The build leans on Tap Dancer.",
+   "test": "Janna has never been seen taking Tap Dancer, so it may not be in their augment pool. Check whether it's ever offered on Janna.",
+   "build": "janna-speeding-ticket"
+  },
+  {
+   "id": "pool-janna-speeding-ticket-get_excited",
+   "kind": "pool",
+   "title": "Speeding Ticket: Get Excited! on Janna",
+   "champions": [
+    "Janna"
+   ],
+   "augments": [
+    1322
+   ],
+   "items": [],
+   "theory": "The build leans on Get Excited!.",
+   "test": "Janna has never been seen taking Get Excited!, so it may not be in their augment pool. Check whether it's ever offered on Janna.",
+   "build": "janna-speeding-ticket"
+  },
+  {
+   "id": "pool-ivern-hedge-fund-hide_on_bush",
+   "kind": "pool",
+   "title": "Hedge Fund: Hide on Bush on Ivern",
+   "champions": [
+    "Ivern"
+   ],
+   "augments": [],
+   "items": [],
+   "theory": "The build leans on Hide on Bush.",
+   "test": "Hide on Bush isn't in Mayhem on this patch.",
+   "build": "ivern-hedge-fund"
+  },
+  {
+   "id": "pool-ivern-hedge-fund-nature_is_healing",
+   "kind": "pool",
+   "title": "Hedge Fund: Nature is Healing on Ivern",
+   "champions": [
+    "Ivern"
+   ],
+   "augments": [
+    2043
+   ],
+   "items": [],
+   "theory": "The build leans on Nature is Healing.",
+   "test": "There are no stats on Nature is Healing yet this patch. Check that Ivern can still be offered it.",
+   "build": "ivern-hedge-fund"
+  },
+  {
+   "id": "pool-ivern-hedge-fund-lil_extra_help",
+   "kind": "pool",
+   "title": "Hedge Fund: Lil' Extra Help on Ivern",
+   "champions": [
+    "Ivern"
+   ],
+   "augments": [
+    2096
+   ],
+   "items": [],
+   "theory": "The build leans on Lil' Extra Help.",
+   "test": "Ivern has never been seen taking Lil' Extra Help, so it may not be in their augment pool. Check whether it's ever offered on Ivern.",
+   "build": "ivern-hedge-fund"
+  },
+  {
+   "id": "pool-quinn-wall-street-bouncer-chain_reaction",
+   "kind": "pool",
+   "title": "Wall Street Bouncer: Chain Reaction on Quinn",
+   "champions": [
+    "Quinn"
+   ],
+   "augments": [
+    2078
+   ],
+   "items": [],
+   "theory": "The build leans on Chain Reaction.",
+   "test": "Quinn has never been seen taking Chain Reaction, so it may not be in their augment pool. Check whether it's ever offered on Quinn.",
+   "build": "quinn-wall-street-bouncer"
+  },
+  {
+   "id": "pool-quinn-wall-street-bouncer-ravenous_bind",
+   "kind": "pool",
+   "title": "Wall Street Bouncer: Ravenous Bind on Quinn",
+   "champions": [
+    "Quinn"
+   ],
+   "augments": [
+    2077
+   ],
+   "items": [],
+   "theory": "The build leans on Ravenous Bind.",
+   "test": "Quinn has never been seen taking Ravenous Bind, so it may not be in their augment pool. Check whether it's ever offered on Quinn.",
+   "build": "quinn-wall-street-bouncer"
+  },
+  {
+   "id": "pool-quinn-wall-street-bouncer-soul_eater",
+   "kind": "pool",
+   "title": "Wall Street Bouncer: Soul Eater on Quinn",
+   "champions": [
+    "Quinn"
+   ],
+   "augments": [
+    1375
+   ],
+   "items": [],
+   "theory": "The build leans on Soul Eater.",
+   "test": "Quinn has never been seen taking Soul Eater, so it may not be in their augment pool. Check whether it's ever offered on Quinn.",
+   "build": "quinn-wall-street-bouncer"
+  },
+  {
+   "id": "pool-zoe-flash-photography-flashbang",
+   "kind": "pool",
+   "title": "Flash Photography: Flashbang on Zoe",
+   "champions": [
+    "Zoe"
+   ],
+   "augments": [
+    1187
+   ],
+   "items": [],
+   "theory": "The build leans on Flashbang.",
+   "test": "Zoe has never been seen taking Flashbang, so it may not be in their augment pool. Check whether it's ever offered on Zoe.",
+   "build": "zoe-flash-photography"
+  },
+  {
+   "id": "pool-zoe-flash-photography-flash_2",
+   "kind": "pool",
+   "title": "Flash Photography: Flash 2 on Zoe",
+   "champions": [
+    "Zoe"
+   ],
+   "augments": [
+    1348
+   ],
+   "items": [],
+   "theory": "The build leans on Flash 2.",
+   "test": "Zoe has never been seen taking Flash 2, so it may not be in their augment pool. Check whether it's ever offered on Zoe.",
+   "build": "zoe-flash-photography"
+  },
+  {
+   "id": "pool-zoe-flash-photography-poltergeist",
+   "kind": "pool",
+   "title": "Flash Photography: Poltergeist on Zoe",
+   "champions": [
+    "Zoe"
+   ],
+   "augments": [
+    1347
+   ],
+   "items": [],
+   "theory": "The build leans on Poltergeist.",
+   "test": "Zoe has never been seen taking Poltergeist, so it may not be in their augment pool. Check whether it's ever offered on Zoe.",
+   "build": "zoe-flash-photography"
+  },
+  {
+   "id": "pool-olaf-health-is-mana-ominous_pact",
+   "kind": "pool",
+   "title": "Health Is Mana: Ominous Pact on Olaf",
+   "champions": [
+    "Olaf"
+   ],
+   "augments": [
+    1332
+   ],
+   "items": [],
+   "theory": "The build leans on Ominous Pact.",
+   "test": "Olaf has never been seen taking Ominous Pact, so it may not be in their augment pool. Check whether it's ever offered on Olaf.",
+   "build": "olaf-health-is-mana"
+  },
+  {
+   "id": "pool-olaf-health-is-mana-escapade",
+   "kind": "pool",
+   "title": "Health Is Mana: escAPADe on Olaf",
+   "champions": [
+    "Olaf"
+   ],
+   "augments": [
+    1206
+   ],
+   "items": [],
+   "theory": "The build leans on escAPADe.",
+   "test": "Olaf has never been seen taking escAPADe, so it may not be in their augment pool. Check whether it's ever offered on Olaf.",
+   "build": "olaf-health-is-mana"
+  },
+  {
+   "id": "pool-olaf-health-is-mana-skilled_sniper",
+   "kind": "pool",
+   "title": "Health Is Mana: Skilled Sniper on Olaf",
+   "champions": [
+    "Olaf"
+   ],
+   "augments": [
+    1113
+   ],
+   "items": [],
+   "theory": "The build leans on Skilled Sniper.",
+   "test": "Skilled Sniper is only seen on ranged champions, so Olaf can't be offered it. ",
+   "build": "olaf-health-is-mana"
+  },
+  {
+   "id": "pool-nilah-whip-blade-nurse-spirit_bomb",
+   "kind": "pool",
+   "title": "Whip-Blade Nurse: Spirit Bomb on Nilah",
+   "champions": [
+    "Nilah"
+   ],
+   "augments": [
+    2104
+   ],
+   "items": [],
+   "theory": "The build leans on Spirit Bomb.",
+   "test": "There are no stats on Spirit Bomb yet this patch. Check that Nilah can still be offered it.",
+   "build": "nilah-whip-blade-nurse"
+  },
+  {
+   "id": "pool-nilah-whip-blade-nurse-support_main",
+   "kind": "pool",
+   "title": "Whip-Blade Nurse: Support Main on Nilah",
+   "champions": [
+    "Nilah"
+   ],
+   "augments": [],
+   "items": [],
+   "theory": "The build leans on Support Main.",
+   "test": "Support Main isn't in Mayhem on this patch.",
+   "build": "nilah-whip-blade-nurse"
+  },
+  {
+   "id": "pool-reksai-mole-artillery-skilled_sniper",
+   "kind": "pool",
+   "title": "Mole Artillery: Skilled Sniper on Rek'Sai",
+   "champions": [
+    "RekSai"
+   ],
+   "augments": [
+    1113
+   ],
+   "items": [],
+   "theory": "The build leans on Skilled Sniper.",
+   "test": "Skilled Sniper is only seen on ranged champions, so Rek'Sai can't be offered it. ",
+   "build": "reksai-mole-artillery"
+  },
+  {
+   "id": "pool-reksai-mole-artillery-multishot",
+   "kind": "pool",
+   "title": "Mole Artillery: Multishot on Rek'Sai",
+   "champions": [
+    "RekSai"
+   ],
+   "augments": [
+    2055
+   ],
+   "items": [],
+   "theory": "The build leans on Multishot.",
+   "test": "Rek'Sai has never been seen taking Multishot, so it may not be in their augment pool. Check whether it's ever offered on Rek'Sai.",
+   "build": "reksai-mole-artillery"
+  },
+  {
+   "id": "pool-reksai-mole-artillery-spell_split",
+   "kind": "pool",
+   "title": "Mole Artillery: Spell Split on Rek'Sai",
+   "champions": [
+    "RekSai"
+   ],
+   "augments": [
+    2072
+   ],
+   "items": [],
+   "theory": "The build leans on Spell Split.",
+   "test": "Rek'Sai has never been seen taking Spell Split, so it may not be in their augment pool. Check whether it's ever offered on Rek'Sai.",
+   "build": "reksai-mole-artillery"
+  },
+  {
+   "id": "pool-reksai-mole-artillery-magic_missile",
+   "kind": "pool",
+   "title": "Mole Artillery: Magic Missile on Rek'Sai",
+   "champions": [
+    "RekSai"
+   ],
+   "augments": [
+    1133
+   ],
+   "items": [],
+   "theory": "The build leans on Magic Missile.",
+   "test": "Magic Missile is only seen on ranged champions, so Rek'Sai can't be offered it. ",
+   "build": "reksai-mole-artillery"
+  },
+  {
+   "id": "pool-skarner-crit-happens-vulnerability",
+   "kind": "pool",
+   "title": "Crit Happens: Vulnerability on Skarner",
+   "champions": [
+    "Skarner"
+   ],
+   "augments": [
+    1092
+   ],
+   "items": [],
+   "theory": "The build leans on Vulnerability.",
+   "test": "Skarner has never been seen taking Vulnerability, so it may not be in their augment pool. Check whether it's ever offered on Skarner.",
+   "build": "skarner-crit-happens"
+  },
+  {
+   "id": "pool-skarner-crit-happens-tank_it_or_leave_it",
+   "kind": "pool",
+   "title": "Crit Happens: Tank It Or Leave It on Skarner",
+   "champions": [
+    "Skarner"
+   ],
+   "augments": [
+    1080
+   ],
+   "items": [],
+   "theory": "The build leans on Tank It Or Leave It.",
+   "test": "Skarner has never been seen taking Tank It Or Leave It, so it may not be in their augment pool. Check whether it's ever offered on Skarner.",
+   "build": "skarner-crit-happens"
+  },
+  {
+   "id": "pool-skarner-crit-happens-infernal_conduit",
+   "kind": "pool",
+   "title": "Crit Happens: Infernal Conduit on Skarner",
+   "champions": [
+    "Skarner"
+   ],
+   "augments": [
+    1045
+   ],
+   "items": [],
+   "theory": "The build leans on Infernal Conduit.",
+   "test": "Skarner has never been seen taking Infernal Conduit, so it may not be in their augment pool. Check whether it's ever offered on Skarner.",
+   "build": "skarner-crit-happens"
+  },
+  {
+   "id": "pool-irelia-forgot-how-to-auto-purist_caster",
+   "kind": "pool",
+   "title": "Forgot How To Auto: Purist - Caster on Irelia",
+   "champions": [
+    "Irelia"
+   ],
+   "augments": [
+    2018
+   ],
+   "items": [],
+   "theory": "The build leans on Purist - Caster.",
+   "test": "Irelia has never been seen taking Purist - Caster, so it may not be in their augment pool. Check whether it's ever offered on Irelia.",
+   "build": "irelia-forgot-how-to-auto"
+  },
+  {
+   "id": "pool-irelia-forgot-how-to-auto-double_strike",
+   "kind": "pool",
+   "title": "Forgot How To Auto: Double Strike on Irelia",
+   "champions": [
+    "Irelia"
+   ],
+   "augments": [],
+   "items": [],
+   "theory": "The build leans on Double Strike.",
+   "test": "Double Strike isn't in Mayhem on this patch.",
+   "build": "irelia-forgot-how-to-auto"
+  },
+  {
+   "id": "pool-kled-nail-gun-salesman-reload",
+   "kind": "pool",
+   "title": "The Nail Gun Salesman: Reload on Kled",
+   "champions": [
+    "Kled"
+   ],
+   "augments": [
+    2126
+   ],
+   "items": [],
+   "theory": "The build leans on Reload.",
+   "test": "There are no stats on Reload yet this patch. Check that Kled can still be offered it.",
+   "build": "kled-nail-gun-salesman"
+  },
+  {
+   "id": "pool-kled-nail-gun-salesman-lil_extra_help",
+   "kind": "pool",
+   "title": "The Nail Gun Salesman: Lil' Extra Help on Kled",
+   "champions": [
+    "Kled"
+   ],
+   "augments": [
+    2096
+   ],
+   "items": [],
+   "theory": "The build leans on Lil' Extra Help.",
+   "test": "Kled has never been seen taking Lil' Extra Help, so it may not be in their augment pool. Check whether it's ever offered on Kled.",
+   "build": "kled-nail-gun-salesman"
+  },
+  {
+   "id": "pool-kled-nail-gun-salesman-pin_cushion",
+   "kind": "pool",
+   "title": "The Nail Gun Salesman: Pin Cushion on Kled",
+   "champions": [
+    "Kled"
+   ],
+   "augments": [
+    2135
+   ],
+   "items": [],
+   "theory": "The build leans on Pin Cushion.",
+   "test": "Kled has never been seen taking Pin Cushion, so it may not be in their augment pool. Check whether it's ever offered on Kled.",
+   "build": "kled-nail-gun-salesman"
+  },
+  {
+   "id": "pool-annie-daycare-director-enchanting_butterflies",
+   "kind": "pool",
+   "title": "Daycare Director: Enchanting Butterflies on Annie",
+   "champions": [
+    "Annie"
+   ],
+   "augments": [
+    3163
+   ],
+   "items": [],
+   "theory": "The build leans on Enchanting Butterflies.",
+   "test": "Annie has never been seen taking Enchanting Butterflies, so it may not be in their augment pool. Check whether it's ever offered on Annie.",
+   "build": "annie-daycare-director"
+  },
+  {
+   "id": "pool-annie-daycare-director-sonic_boom",
+   "kind": "pool",
+   "title": "Daycare Director: Sonic Boom on Annie",
+   "champions": [
+    "Annie"
+   ],
+   "augments": [
+    1076
+   ],
+   "items": [],
+   "theory": "The build leans on Sonic Boom.",
+   "test": "Annie has never been seen taking Sonic Boom, so it may not be in their augment pool. Check whether it's ever offered on Annie.",
+   "build": "annie-daycare-director"
+  },
+  {
+   "id": "pool-zac-deceased-repeatedly-hellbent",
+   "kind": "pool",
+   "title": "Deceased, Repeatedly: Hellbent on Zac",
+   "champions": [
+    "Zac"
+   ],
+   "augments": [
+    2107
+   ],
+   "items": [],
+   "theory": "The build leans on Hellbent.",
+   "test": "There are no stats on Hellbent yet this patch. Check that Zac can still be offered it.",
+   "build": "zac-deceased-repeatedly"
+  },
+  {
+   "id": "pool-zeri-right-click-veigar-twin_fire",
+   "kind": "pool",
+   "title": "Right-Click Veigar: Twin Fire on Zeri",
+   "champions": [
+    "Zeri"
+   ],
+   "augments": [
+    1415
+   ],
+   "items": [],
+   "theory": "The build leans on Twin Fire.",
+   "test": "Zeri has never been seen taking Twin Fire, so it may not be in their augment pool. Check whether it's ever offered on Zeri.",
+   "build": "zeri-right-click-veigar"
+  },
+  {
+   "id": "pool-elise-revolving-door-stuck_in_here_with_me",
+   "kind": "pool",
+   "title": "The Revolving Door: Stuck In Here With Me on Elise",
+   "champions": [
+    "Elise"
+   ],
+   "augments": [
+    1413
+   ],
+   "items": [],
+   "theory": "The build leans on Stuck In Here With Me.",
+   "test": "Elise has never been seen taking Stuck In Here With Me, so it may not be in their augment pool. Check whether it's ever offered on Elise.",
+   "build": "elise-revolving-door"
+  },
+  {
+   "id": "pool-elise-revolving-door-ultimate_unstoppable",
+   "kind": "pool",
+   "title": "The Revolving Door: Ultimate Unstoppable on Elise",
+   "champions": [
+    "Elise"
+   ],
+   "augments": [
+    1112
+   ],
+   "items": [],
+   "theory": "The build leans on Ultimate Unstoppable.",
+   "test": "Elise has never been seen taking Ultimate Unstoppable, so it may not be in their augment pool. Check whether it's ever offered on Elise.",
+   "build": "elise-revolving-door"
+  },
+  {
+   "id": "pool-cassiopeia-drive-by-serpent-quickstep",
+   "kind": "pool",
+   "title": "The Drive-By Serpent: Quickstep on Cassiopeia",
+   "champions": [
+    "Cassiopeia"
+   ],
+   "augments": [
+    2064
+   ],
+   "items": [],
+   "theory": "The build leans on Quickstep.",
+   "test": "Cassiopeia has never been seen taking Quickstep, so it may not be in their augment pool. Check whether it's ever offered on Cassiopeia.",
+   "build": "cassiopeia-drive-by-serpent"
+  },
+  {
+   "id": "pool-cassiopeia-drive-by-serpent-shadow_runner",
+   "kind": "pool",
+   "title": "The Drive-By Serpent: Shadow Runner on Cassiopeia",
+   "champions": [
+    "Cassiopeia"
+   ],
+   "augments": [
+    1073
+   ],
+   "items": [],
+   "theory": "The build leans on Shadow Runner.",
+   "test": "Cassiopeia has never been seen taking Shadow Runner, so it may not be in their augment pool. Check whether it's ever offered on Cassiopeia.",
+   "build": "cassiopeia-drive-by-serpent"
+  },
+  {
+   "id": "pool-cassiopeia-drive-by-serpent-earthwake",
+   "kind": "pool",
+   "title": "The Drive-By Serpent: Earthwake on Cassiopeia",
+   "champions": [
+    "Cassiopeia"
+   ],
+   "augments": [
+    1027
+   ],
+   "items": [],
+   "theory": "The build leans on Earthwake.",
+   "test": "Cassiopeia has never been seen taking Earthwake, so it may not be in their augment pool. Check whether it's ever offered on Cassiopeia.",
+   "build": "cassiopeia-drive-by-serpent"
+  },
+  {
+   "id": "pool-azir-melee-by-proxy-draw_your_sword",
+   "kind": "pool",
+   "title": "Melee By Proxy: Draw Your Sword on Azir",
+   "champions": [
+    "Azir"
+   ],
+   "augments": [
+    1134
+   ],
+   "items": [],
+   "theory": "The build leans on Draw Your Sword.",
+   "test": "Azir has never been seen taking Draw Your Sword, so it may not be in their augment pool. Check whether it's ever offered on Azir.",
+   "build": "azir-melee-by-proxy"
+  },
+  {
+   "id": "pool-anivia-overdraft-protection-mighty_shield",
+   "kind": "pool",
+   "title": "Overdraft Protection: Mighty Shield on Anivia",
+   "champions": [
+    "Anivia"
+   ],
+   "augments": [
+    1314
+   ],
+   "items": [],
+   "theory": "The build leans on Mighty Shield.",
+   "test": "Anivia has never been seen taking Mighty Shield, so it may not be in their augment pool. Check whether it's ever offered on Anivia.",
+   "build": "anivia-overdraft-protection"
+  }
+ ]
+}

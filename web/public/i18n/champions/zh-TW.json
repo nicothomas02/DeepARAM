@@ -202,5 +202,14 @@
  "Changes your build": "改變出裝",
  "The best items with this augment differ from your usual build.": "搭配該強化的最佳裝備與你的常用出裝不同。",
  "Estimated: the augment picks (1st to 4th) where it usually shows up.": "估算：該強化通常出現的強化輪次（第1到第4次）。",
- "Pick {n}": "第{n}次"
+ "Pick {n}": "第{n}次",
+ "From earlier games: skill orders are not updating right now.": "來自較早的對局：技能加點暫時沒有更新。",
+ "From the most common full builds, most built items first.": "來自最常見的完整出裝，最常做的裝備排在前面。",
+ "Few games so far: estimated from earlier games and this patch's changes.": "目前對局較少：根據較早的對局和本版本的改動估算。",
+ "Synergies": "協同",
+ "What fits this champion": "適合此英雄的搭配",
+ "Score: points of win rate over the usual choice. Choices with few games lean on the estimate.": "得分:相較常規選擇的勝率點數。場次少的選擇依賴估計。",
+ "Expected": "預期",
+ "Real": "實際",
+ "Builds with few games lean on the estimate: how much of a rare build's lead usually holds up.": "場次少的出裝依賴估計:罕見出裝的領先優勢通常能維持多少。"
 }

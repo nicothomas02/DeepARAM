@@ -1,0 +1,241 @@
+/* Synergies table (components/Synergies.tsx) on champion and augment pages. Uses the site's colour tokens only. */
+.syn {
+  display: grid;
+  gap: 0.6rem;
+}
+.syn-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.75rem;
+}
+.syn-seg {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  padding: 3px;
+  border-radius: 999px;
+  background: var(--raised);
+}
+.syn-seg button {
+  padding: 0.35rem 0.85rem;
+  border: 0;
+  border-radius: 999px;
+  background: none;
+  color: var(--muted);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+.syn-seg button[aria-pressed="true"] {
+  background: var(--surface);
+  color: var(--fg);
+}
+.syn-n {
+  font-weight: 500;
+  font-size: 0.85em;
+  color: var(--muted);
+}
+.syn-search {
+  flex: 1 1 10rem;
+  min-width: 0;
+  max-width: 16rem;
+  padding: 0.4rem 0.75rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--fg);
+  font: inherit;
+}
+.syn-few {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+.syn-callout {
+  margin: 0;
+  padding: 0.6rem 0.9rem;
+  border-radius: var(--r-sm);
+  background: var(--accent-soft);
+  color: var(--fg);
+  font-weight: 600;
+}
+.syn-th,
+.syn-row {
+  display: grid;
+  grid-template-columns: 2.4rem minmax(0, 1fr) 5.4rem 4.6rem 4.2rem;
+  gap: 0.5rem;
+  align-items: center;
+  padding: 0.45rem 0.75rem;
+  border-bottom: 1px solid var(--line);
+}
+.syn-th[data-share],
+.syn-row[data-share] {
+  grid-template-columns: 2.4rem minmax(0, 1fr) 5.4rem;
+}
+.syn-th {
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+.syn-th span:nth-child(n + 3),
+.syn-cell {
+  text-align: right;
+}
+.syn-rows > .syn-row:last-child {
+  border-bottom: 0;
+}
+.syn-row:hover {
+  background: var(--hover);
+}
+.syn-sort {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+.syn-sort[aria-pressed="true"] {
+  color: var(--fg);
+}
+.syn-sort:disabled {
+  cursor: default;
+}
+.syn-rk {
+  color: var(--muted);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+.syn-what {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  min-width: 0;
+  color: inherit;
+  text-decoration: none;
+}
+/* Full builds: no names, so the tags sit under the icons. */
+.syn-what.syn-many {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.3rem;
+}
+a.syn-what:hover .syn-name {
+  text-decoration: underline;
+}
+.syn-icons {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.2rem;
+  flex: none;
+  max-width: 13rem;
+}
+.syn-icon-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+}
+.syn-icon {
+  display: block;
+  border-radius: 6px;
+  background: var(--raised);
+}
+.syn-icon.round {
+  border-radius: 50%;
+}
+.syn-plus {
+  color: var(--muted);
+  font-weight: 700;
+}
+.syn-text {
+  display: grid;
+  gap: 0.15rem;
+  min-width: 0;
+}
+.syn-name {
+  font-weight: 600;
+  overflow-wrap: break-word;
+}
+.syn-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+.syn-tags:empty {
+  display: none;
+}
+.syn-pill {
+  padding: 0.05rem 0.5rem;
+  border-radius: 999px;
+  background: var(--raised);
+  color: var(--muted);
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+.syn-few-tag {
+  color: var(--gold);
+}
+.syn-sim {
+  color: var(--good);
+}
+.syn-caution {
+  color: var(--bad);
+}
+.syn-cell b {
+  font-weight: 700;
+}
+.syn-cell b.delta-up {
+  color: var(--good);
+}
+.syn-cell b.delta-down {
+  color: var(--bad);
+}
+.syn-more {
+  justify-self: center;
+  padding: 0.4rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--fg);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+.syn-note {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+/* Full builds: six icons wrap to two rows of three so the name keeps room. */
+@media (max-width: 560px) {
+  .syn-th,
+  .syn-row {
+    grid-template-columns: 1.8rem minmax(0, 1fr) 4.4rem 3.8rem;
+    padding-inline: 0.4rem;
+  }
+  .syn-th > :nth-child(5),
+  .syn-row > :nth-child(5) {
+    display: none;
+  }
+  .syn-th[data-share],
+  .syn-row[data-share] {
+    grid-template-columns: 1.8rem minmax(0, 1fr) 4.4rem;
+  }
+  .syn-icons {
+    max-width: 7.2rem;
+  }
+  .syn-what.syn-pair {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.3rem;
+  }
+  .syn-icon {
+    width: 28px;
+    height: 28px;
+  }
+}

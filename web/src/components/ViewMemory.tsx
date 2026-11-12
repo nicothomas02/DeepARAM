@@ -12,6 +12,8 @@ export default function ViewMemory() {
   useEffect(() => {
     const click = (e: MouseEvent) => {
       if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+      // A control inside a row link that handles its own click (data-no-link) doesn't open the link.
+      if ((e.target as Element | null)?.closest?.("[data-no-link]")) return;
       const a = (e.target as Element | null)?.closest?.("a[href]") as HTMLAnchorElement | null;
       if (!a || a.target === "_blank") return;
       const url = new URL(a.href);

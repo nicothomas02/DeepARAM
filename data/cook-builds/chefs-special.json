@@ -1,297 +1,297 @@
 {
-  "id": "anivia-overdraft-protection",
-  "title": "Overdraft Protection",
-  "champion": "Anivia",
-  "champion_name": "Anivia",
-  "chef": "2026-11-05",
-  "why": "Glacial Storm is a toggle that bills Anivia Mana every second it stays on, a running cost nobody thinks about beyond turning it off before she runs dry, and this build makes that bill the whole point. Blue Barrier hands her a share of every point of Mana she spends as a Shield for 1.5 seconds, so a storm that drains her every second re-shields her every second, and Overflow doubles all of her Mana costs, which doubles the Mana feeding Blue Barrier from the very same storm while making the storm's damage more effective too. Mighty Shield pays out Adaptive Force whenever she gains a Shield, which the ticking storm re-arms the moment its cooldown ends, and Ocean Soul grants Health and Mana Regen after damaging enemies, which the storm does nonstop, so the doubled drain keeps getting refilled. Rod of Ages gives Mana back when champions hit her and heals her for 25% of the Mana she spends, which Overflow just doubled, Seraph's Embrace and Malignance pile on Mana to burn, Malignance also scorches the ground under everyone her storm hits, and Spirit Visage makes every shield and heal on her 25% bigger. The fragile artillery mage becomes a frontline tank who walks into the enemy team, flips her storm on and simply stands in it, with Rebirth as the backup plan for when the bank finally closes.",
-  "play": "Build Mana first, then walk into the fight, toggle Glacial Storm on and stay inside it so the drain keeps re-shielding you every second. Only switch the storm off when you are truly out of Mana, and let the egg handle the rest.",
+  "id": "kalista-the-floor-is-spears",
+  "title": "The Floor Is Spears",
+  "champion": "Kalista",
+  "champion_name": "Kalista",
+  "chef": "2026-11-11",
+  "why": "Kalista's passive, Martial Poise, lets her lunge a short distance every time she launches an attack, and her own Pierce text calls that lunge a dash. Earthwake makes every dash leave a trail that detonates after 0.75 seconds, but on a ranged Kalista those trails sit a full attack range away from anyone. Draw Your Sword fixes that: she becomes melee, is paid in Attack Damage, Health, Attack Speed, Lifesteal and Move Speed for the range she gave up, and now every hop draws its trail straight through the enemy she is hitting. Shadow Runner gives 300 Movement Speed for 2 seconds after each dash and Swift and Safe adds a Shield after one, so a champion who hops on every attack stays fast and protected in the middle of the fight. Guinsoo's Rageblade stacks Attack Speed with every Attack, which means more attacks, more lunges and more exploding trails, turning the backline marksman into a melee skirmisher who wins by where she steps.",
+  "play": "Walk into melee and give a move command during every attack so each lunge crosses the enemy and drops a trail under them. Hop sideways through the group rather than away from it, and use Rend to slow anyone trying to leave.",
   "items": [
-    "Rod of Ages",
-    "Seraph's Embrace",
-    "Malignance",
-    "Spirit Visage",
-    "Frozen Heart",
-    "Mercury's Treads"
+    "Berserker's Greaves",
+    "Guinsoo's Rageblade",
+    "Blade of The Ruined King",
+    "Ravenous Hydra",
+    "Sterak's Gage",
+    "Death's Dance"
   ],
   "core": 4,
-  "champion_icon": "/embed/fun/cook-builds/icons/champions/34.png",
+  "champion_icon": "/embed/fun/cook-builds/icons/champions/429.png",
   "augments": [
     {
-      "name": "Overflow",
-      "rarity": "Gold",
+      "name": "Draw Your Sword",
+      "rarity": "Prismatic",
       "core": true,
-      "text": "Your Mana costs double. Your Ability Heals, Shields, and damage are more effective.",
-      "icon": "/embed/fun/cook-builds/icons/augments/overflow.png",
-      "id": 1311
+      "text": "You are now melee. Gain 24% Attack Damage, 24% Health, 20% Attack Speed, 20% Lifesteal, and 20% Move Speed (each further increased based on Attack Range lost).",
+      "icon": "/embed/fun/cook-builds/icons/augments/draw-your-sword.png",
+      "id": 1134
     },
     {
-      "name": "Blue Barrier",
-      "rarity": "Silver",
+      "name": "Earthwake",
+      "rarity": "Prismatic",
       "core": true,
-      "text": "Gain of the Mana you spend as a Shield for 1.5 seconds. Shields up to",
-      "icon": "/embed/fun/cook-builds/icons/augments/blue-barrier.png",
-      "id": 3051
+      "text": "Your dash, blink, or teleport Abilities leave behind a trail that detonates after 0.75 second.",
+      "icon": "/embed/fun/cook-builds/icons/augments/earthwake.png",
+      "id": 1027
     },
     {
-      "name": "Mighty Shield",
+      "name": "Shadow Runner",
       "rarity": "Silver",
       "core": true,
-      "text": "Gain Adaptive Force for 3 seconds when you gain a Shield (5 seconds Cooldown).",
-      "icon": "/embed/fun/cook-builds/icons/augments/mighty-shield.png",
-      "id": 1314
+      "text": "After using a Dash, Blink, or Teleport Ability or exiting Stealth, gain 300 Movement Speed for 2 seconds.",
+      "icon": "/embed/fun/cook-builds/icons/augments/shadow-runner.png",
+      "id": 1073
     },
     {
-      "name": "Ocean Soul",
+      "name": "Swift and Safe",
       "rarity": "Silver",
       "core": true,
-      "text": "Gain the Ocean Soul, granting high Health and Mana Regen after damaging enemies.",
-      "icon": "/embed/fun/cook-builds/icons/augments/ocean-soul.png",
-      "id": 1060
+      "text": "Gain a Shield for 2 seconds after a Dash or Blink (5 seconds Cooldown).",
+      "icon": "/embed/fun/cook-builds/icons/augments/swift-and-safe.png",
+      "id": 1315
     }
   ],
   "href": "/kitchen#chefs-special",
   "archive_href": "/kitchen#chef-archive",
-  "share_href": "/kitchen/2026-11-05",
-  "share_image": "/embed/fun/cook-builds/share/anivia-overdraft-protection.png",
+  "share_href": "/kitchen/2026-11-11",
+  "share_image": "/embed/fun/cook-builds/share/kalista-the-floor-is-spears.png",
   "item_ids": [
-    6657,
-    3040,
-    3118,
-    3065,
-    3110,
-    3111
+    3006,
+    3124,
+    3153,
+    3074,
+    3053,
+    6333
   ],
   "i18n": {
     "ar": {
-      "title": "حماية السحب على المكشوف",
-      "why": "عاصفة أنيفيا الجليدية قدرة بتبديل تسحب منها المانا كل ثانية تبقى فيها شغالة، وهذي تكلفة جارية ما يفكر فيها أحد غير إنه يطفيها قبل ما تنشف المانا، وهذا البناء يخلي هذي الفاتورة هي الفكرة كلها. الحاجز الأزرق يعطيها حصة من كل نقطة مانا تصرفها على شكل درع لمدة 1.5 ثانية، فالعاصفة اللي تستنزفها كل ثانية تعيد تدريعها كل ثانية، والفيض المتدفق يضاعف كل تكاليف المانا عندها، يعني يضاعف المانا اللي تغذي الحاجز الأزرق من نفس العاصفة، ويخلي ضرر العاصفة أكثر فعالية. الدرع الجبار يعطيها القوة التكيفية كل ما تكسب درع، والعاصفة النابضة تعيد تفعيله أول ما ينتهي وقت التهدئة، والروح البحرية تعطي تجديد الصحة والمانا بعد إلحاق الضرر بالأعداء، والعاصفة تسويها بلا توقف، فالاستنزاف المضاعف يتعبى من جديد. قصبة العصور ترجع المانا لما تضربها الأبطال وتشفيها بـ25% من المانا اللي تصرفها، واللي ضاعفها الفيض المتدفق للتو. عناق سيراف والخبث يضيفون مانا للحرق، والخبث يحرق كمان الأرض تحت كل من تضربه عاصفتها، ووجه الروح يخلي كل درع وشفاء عليها أكبر بـ25%. الساحرة المدفعية الهشة تصير دبابة خط أمامي تمشي وسط فريق الأعداء، تشغّل عاصفتها وتوقف فيها وبس، ومعها ميلاد جديد كخطة بديلة لما يسكر البنك أخيرًا.",
-      "play": "ابنِ المانا أول، بعدين ادخل القتال، شغّل العاصفة الجليدية وابقَ داخلها عشان الاستنزاف يعيد تدريعك كل ثانية. لا تطفي العاصفة إلا لما تخلص مانتك فعلًا، وخلّ البيضة تتولى الباقي.",
+      "title": "الأرض هي رماح",
+      "why": "سلبية كاليستا، التوازن القتالي، تخليها تندفع مسافة قصيرة مع كل هجوم، وحتى نص اختراق عندها يسمّي هذا الاندفاع داش. صحوة الأرض تخلي كل داش يترك أثراً ينفجر بعد 0.75 ثانية، لكن كاليستا بعيدة المدى تترك هذه الآثار على بعد مدى هجوم كامل من أي أحد. استلَّ سيفك يحل المشكلة: تصير قتال قريب، وتحصل على ضرر الهجوم والصحة وسرعة الهجوم وسرقة الحياة وسرعة الحركة مقابل المدى اللي تخلّت عنه، وكل قفزة ترسم أثرها مباشرة عبر العدو اللي تضربه. عدَّاء الظلال يعطي 300 سرعة حركة لمدة ثانيتين بعد كل داش، والسرعة والأمان يضيف درعاً بعده، فالبطلة اللي تقفز مع كل هجوم تبقى سريعة ومحمية في قلب المعركة. نصل غضب غينسو يكدّس سرعة الهجوم مع كل هجوم، يعني هجمات أكثر واندفاعات أكثر وآثار تنفجر أكثر، فتتحول الرامية في الخلف إلى مناوِشة قتال قريب تفوز بمكان وقوفها.",
+      "play": "ادخلي القتال القريب وأعطي أمر حركة أثناء كل هجوم حتى يعبر كل اندفاع العدو ويترك الأثر تحته. اقفزي جانبياً عبر المجموعة بدل الابتعاد عنها، واستخدمي تمزيق لإبطاء أي أحد يحاول الهرب.",
       "augments": [
-        "تكاليف المانا عندك تتضاعف. شفاء قدراتك ودروعها وضررها يصيرون أكثر فعالية.",
-        "تكسب من المانا اللي تصرفها درعًا لمدة 1.5 ثانية. الدرع حتى",
-        "تكسب القوة التكيفية لمدة 3 ثواني عند كسب درع (وقت التهدئة 5 ثواني).",
-        "تحصل على الروح البحرية، وتمنحك تجديدًا عاليًا للصحة والمانا بعد إلحاق الضرر بالأعداء."
+        "أصبحت الآن مقاتلًا قريب المدى. تكتسب 24% قوة هجوم و24% صحة و20% سرعة هجوم و20% سرقة حياة و20% سرعة حركة (وتزداد كلها بحسب مدى الهجوم المفقود).",
+        "تترك قدرات الاندفاع أو الانتقال الخاطف أو الانتقال الآني أثرًا ينفجر بعد 0.75 ثانية.",
+        "بعد استخدام قدرة اندفاع أو انتقال خاطف أو انتقال آني أو الخروج من التخفي، تحصل على 300 سرعة حركة لمدة ثانيتين.",
+        "احصل على درع لمدة ثانيتين بعد داش أو وميض (5 ثوانٍ فترة التهدئة)."
       ]
     },
     "cs": {
-      "title": "Ochrana proti přečerpání",
-      "why": "Ledová bouře je u Anivie přepínač, který jí každou sekundu, co běží, bere Manu. Je to průběžný účet, o kterém nikdo nepřemýšlí, kromě toho, že bouři vypne dřív, než Anivii dojde mana, a tahle sestava z toho účtu dělá celou podstatu. Modrá bariéra jí za každý bod utracené Many dá část jako Štít na 1.5 sekundy, takže bouře, která ji každou sekundu vyždímá, ji každou sekundu i obnoví štítem. Přebytek síly zdvojnásobí všechny její náklady na Manu, čímž zdvojnásobí Manu živící Modrou bariéru z téže bouře a zároveň zefektivní poškození bouře. Mocný štít dává Adaptivní sílu, kdykoli získá Štít, což tikající bouře znovu aktivuje, jakmile skončí cooldown, a Mořská duše dává regeneraci Zdraví a Many po zranění nepřátel, což bouře dělá nepřetržitě, takže se zdvojnásobený odliv pořád doplňuje. Hůl věků vrací Manu, když ji zasáhnou šampioni, a léčí ji za 25% utracené Many, kterou Přebytek právě zdvojnásobil. Andělská náruč a Zhoubnost přidávají Manu na spálení, Zhoubnost navíc zapaluje zem pod každým, koho bouře zasáhne, a Otisk duše zesiluje každý štít a léčení na ní o 25%. Křehká dělostřelecká mágyně se stane tankem v první linii, který vkráčí mezi nepřátele, zapne bouři a prostě v ní stojí, se Znovuzrozením jako záložním plánem na chvíli, kdy banka konečně zavře.",
-      "play": "Nejdřív nabuildi Manu, pak vkroč do bitvy, zapni Ledovou bouři a zůstaň v ní, aby tě odliv každou sekundu znovu štítoval. Bouři vypni, až když ti opravdu dojde Mana, a zbytek nech na vejci.",
+      "title": "Podlaha je kopí",
+      "why": "Kalistina pasivka, Bojová pohotovost, jí dovoluje při každém útoku udělat krátký výpad a text jejího Probodnutí tomu sám říká dash. Earthwake (Výbušná brázda) nechává po každém dashi stopu, která vybuchne po 0,75 sekundy, jenže u Kalisty na dálku jsou ty stopy celý dosah útoku daleko od všech. Draw Your Sword (Tas meč) to spraví: z Kalisty se stane melee, za vzdaný dosah dostane Attack Damage, Health, Attack Speed, Lifesteal a Move Speed a každý skok teď vede stopu rovnou skrz nepřítele, kterého mlátí. Nepolapitelný stín dává 300 Movement Speed na 2 sekundy po každém dashi a Rychle a bezpečně přidá po něm Shield, takže šampionka, která skáče při každém útoku, zůstává uprostřed boje rychlá a chráněná. Guinsoova zuřivá čepel skládá Attack Speed s každým útokem, což znamená víc útoků, víc výpadů a víc vybuchujících stop, a z backline střelkyně je melee skirmisherka, která vyhrává tím, kam šlápne.",
+      "play": "Vběhni do melee a během každého útoku zadej příkaz k pohybu, aby každý výpad prošel skrz nepřítele a nechal pod ním stopu. Skákej do stran skrz skupinu, ne pryč od ní, a Roztrhnutím zpomal každého, kdo se snaží utéct.",
       "augments": [
-        "Tvoje náklady na Manu se zdvojnásobí. Léčení, Štíty a poškození tvých schopností jsou účinnější.",
-        "Získáš z utracené Many Štít na 1.5 sekundy. Štít až",
-        "Získáš Adaptivní sílu na 3 sekundy, když získáš Štít (cooldown 5 sekund).",
-        "Získáš Mořskou duši, která po zranění nepřátel dává vysokou regeneraci Zdraví a Many."
+        "Teď jsi bojovník na blízko. Získáš 24 % síly útoku, 24 % zdraví, 20 % rychlosti útoku, 20 % vysávání života a 20 % rychlosti pohybu (každé se dál zvyšuje podle ztraceného dosahu útoku).",
+        "Tvé schopnosti s výpadem, přesunem nebo teleportem za sebou nechají stopu, která po 0,75 sekundy vybuchne.",
+        "Po použití schopnosti s výpadem, přesunem nebo teleportem nebo po opuštění neviditelnosti získáš na 2 sekundy 300 rychlosti pohybu.",
+        "Získej Shield na 2 sekundy po Dashi nebo Blinku (Cooldown 5 sekund)."
       ]
     },
     "de": {
-      "title": "Überziehungsschutz",
-      "why": "Gletschersturm ist ein Toggle, der Anivia jede Sekunde Mana abzieht, solange er läuft – laufende Kosten, über die sich keiner groß Gedanken macht, außer ihn auszuschalten, bevor ihr das Mana ausgeht. Dieser Build macht genau diese Rechnung zum Kern der Sache. Blaue Barriere gibt ihr für jeden ausgegebenen Mana-Punkt einen Anteil als Schild für 1.5 Sekunden zurück, also schildet ein Sturm, der sie jede Sekunde leersaugt, sie auch jede Sekunde neu auf. Überfluss verdoppelt alle ihre Manakosten, was das Mana für Blaue Barriere aus demselben Sturm verdoppelt und nebenbei den Schaden des Sturms effektiver macht. Mächtiger Schild schüttet Adaptive Kraft aus, wann immer sie einen Schild erhält, was der tickende Sturm sofort wieder auslöst, sobald die Abklingzeit rum ist, und Meeresdrachenseele gewährt Lebens- und Manaregeneration, nachdem sie Gegnern Schaden zugefügt hat – was der Sturm ununterbrochen tut, sodass der verdoppelte Verbrauch ständig aufgefüllt wird. Stab der Zeitalter gibt Mana zurück, wenn Champions sie treffen, und heilt sie um 25% des ausgegebenen Mana, das Überfluss gerade verdoppelt hat. Umarmung des Seraphen und Bösartigkeit packen noch mehr Mana zum Verbrennen drauf, Bösartigkeit versengt außerdem den Boden unter allen, die ihr Sturm trifft, und Geistessicht macht jeden Schild und jede Heilung auf ihr um 25% größer. Aus der zerbrechlichen Artillerie-Magierin wird eine Frontlinien-Tankin, die ins gegnerische Team marschiert, ihren Sturm anwirft und einfach drinsteht – mit Wiedergeburt als Notfallplan, wenn die Bank endgültig dichtmacht.",
-      "play": "Baut zuerst Mana, lauft dann in den Kampf, schaltet Gletschersturm an und bleibt drin, damit der Verbrauch euch jede Sekunde neu schildet. Schaltet den Sturm erst aus, wenn ihr wirklich kein Mana mehr habt, und lasst das Ei den Rest erledigen.",
+      "title": "Der Boden ist Speer",
+      "why": "Kalistas Passive, Kampfhaltung, lässt sie bei jedem Angriff ein Stück nach vorn springen, und selbst der Text ihres Durchbohrens nennt das einen Dash. Erdschneise lässt jeden Dash eine Spur hinterlassen, die nach 0,75 Sekunden explodiert, aber bei einer Fernkampf-Kalista liegen diese Spuren eine volle Angriffsreichweite von jedem entfernt. Zieh dein Schwert löst das: Sie wird zur Nahkämpferin, bekommt für die aufgegebene Reichweite Angriffsschaden, Leben, Angriffstempo, Lebensraub und Lauftempo, und jeder Hüpfer zieht seine Spur direkt durch den Gegner, den sie gerade haut. Schattenläufer gibt 300 Lauftempo für 2 Sekunden nach jedem Dash und Flink und sicher legt danach noch einen Schild drauf, sodass eine Championin, die bei jedem Angriff hüpft, mitten im Kampf schnell und geschützt bleibt. Guinsoos Wutklinge stapelt mit jedem Angriff Angriffstempo, also mehr Angriffe, mehr Sprünge und mehr explodierende Spuren, und aus der Marksman in der Backline wird eine Nahkampf-Skirmisherin, die durch ihre Schritte gewinnt.",
+      "play": "Lauf in den Nahkampf und gib bei jedem Angriff einen Bewegungsbefehl, damit jeder Sprung durch den Gegner geht und eine Spur unter ihm hinterlässt. Hüpf seitlich durch die Gruppe statt von ihr weg, und bremse mit Aufreißen jeden, der abhauen will.",
       "augments": [
-        "Deine Manakosten verdoppeln sich. Deine Fähigkeitsheilungen, Schilde und dein Schaden sind effektiver.",
-        "Erhalte einen Teil des ausgegebenen Mana als Schild für 1.5 Sekunden. Schilde bis zu",
-        "Erhalte 3 Sekunden lang Adaptive Kraft, wenn du einen Schild erhältst (5 Sekunden Abklingzeit).",
-        "Erhalte die Meeresdrachenseele, die nach Schaden an Gegnern hohe Lebens- und Manaregeneration gewährt."
+        "Du bist jetzt ein Nahkämpfer. Erhalte 24 % Angriffsschaden, 24 % Leben, 20 % Angriffstempo, 20 % Lebensraub und 20 % Lauftempo (jeweils zusätzlich erhöht je nach verlorener Angriffsreichweite).",
+        "Deine Sprint-, Blink- oder Teleport-Fähigkeiten hinterlassen eine Spur, die nach 0,75 Sekunden explodiert.",
+        "Nachdem du eine Sprint-, Blink- oder Teleport-Fähigkeit eingesetzt oder die Tarnung verlassen hast, erhältst du 2 Sekunden lang 300 Lauftempo.",
+        "Erhalte 2 Sekunden lang einen Schild nach einem Dash oder Blink (5 Sekunden Abklingzeit)."
       ]
     },
     "el": {
-      "title": "Προστασία από Υπερανάληψη",
-      "why": "Η Παγετώδης Καταιγίδα είναι ικανότητα με εναλλαγή που χρεώνει στην Ανίβια Μάνα κάθε δευτερόλεπτο που μένει ενεργή, ένα τρέχον κόστος που κανείς δεν σκέφτεται πέρα από το να την κλείσει πριν στεγνώσει, και αυτό το build κάνει αυτόν τον λογαριασμό όλο το νόημα. Το Μπλε Φράγμα της δίνει ένα μερίδιο από κάθε μονάδα Μάνας που ξοδεύει ως Ασπίδα για 1.5 δευτερόλεπτα, οπότε μια καταιγίδα που την αδειάζει κάθε δευτερόλεπτο την ξανασκεπάζει με ασπίδα κάθε δευτερόλεπτο, και η Υπερχείλιση διπλασιάζει όλα τα κόστη Μάνας της, κάτι που διπλασιάζει τη Μάνα που τροφοδοτεί το Μπλε Φράγμα από την ίδια καταιγίδα, ενώ κάνει και τη ζημιά της καταιγίδας πιο αποτελεσματική. Η Πανίσχυρη Ασπίδα δίνει Προσαρμοστική Δύναμη όποτε παίρνει Ασπίδα, κάτι που η καταιγίδα με τους παλμούς της οπλίζει ξανά μόλις τελειώσει ο χρόνος επαναφοράς, και η Ψυχή του Ωκεανού δίνει Αναπλήρωση Υγείας και Μάνας μετά από ζημιά σε εχθρούς, κάτι που η καταιγίδα κάνει ασταμάτητα, έτσι η διπλή αιμορραγία γεμίζει συνεχώς πίσω. Η Ράβδος των Αιώνων επιστρέφει Μάνα όταν την χτυπούν οι ήρωες και τη θεραπεύει για 25% της Μάνας που ξοδεύει, την οποία η Υπερχείλιση μόλις διπλασίασε. Η Προστασία των Σεραφείμ και η Κακοήθεια προσθέτουν Μάνα για κάψιμο, η Κακοήθεια καίει επιπλέον το έδαφος κάτω από όλους όσους χτυπά η καταιγίδα της, και η Όψη Πνευμάτων κάνει κάθε ασπίδα και θεραπεία πάνω της 25% μεγαλύτερη. Η εύθραυστη μάγισσα του πυροβολικού γίνεται tank πρώτης γραμμής που μπαίνει στην εχθρική ομάδα, ανάβει την καταιγίδα της και απλώς στέκεται μέσα της, με την Αναγέννηση ως εφεδρικό σχέδιο για όταν η τράπεζα κλείσει επιτέλους.",
-      "play": "Φτιάξε πρώτα Μάνα, μετά μπες στη μάχη, ενεργοποίησε την Παγετώδη Καταιγίδα και μείνε μέσα της ώστε η αιμορραγία να σε ξανασκεπάζει με ασπίδα κάθε δευτερόλεπτο. Κλείσε την καταιγίδα μόνο όταν έχεις πραγματικά μείνει από Μάνα, και άφησε το αυγό να τα καταφέρει.",
+      "title": "Το Πάτωμα Είναι Δόρατα",
+      "why": "Η παθητική της Καλίστα, Πολεμική Στάση, τη βάζει να κάνει μια μικρή ορμή σε κάθε επίθεση, και το ίδιο το κείμενο της Διάτρησης την αποκαλεί dash. Ο Σεισμός κάνει κάθε dash να αφήνει ένα ίχνος που εκρήγνυται μετά από 0,75 δευτερόλεπτα, αλλά στην Καλίστα από απόσταση τα ίχνη μένουν ένα ολόκληρο εύρος επίθεσης μακριά από όλους. Το Τράβα Το Σπαθί Σου το λύνει: γίνεται melee, παίρνει Attack Damage, Health, Attack Speed, Lifesteal και Move Speed για το εύρος που παράτησε, και κάθε πήδημα τραβά το ίχνος του ακριβώς μέσα από τον εχθρό που χτυπά. Ο Δρομέας της Σκιάς δίνει 300 Ταχύτητα Κίνησης για 2 δευτερόλεπτα μετά από κάθε dash και το Ταχύτητα και Ασφάλεια προσθέτει Ασπίδα μετά, οπότε ένας champion που πηδά σε κάθε επίθεση μένει γρήγορος και προστατευμένος μέσα στη μάχη. Το Οργισμένο Σπαθί του Γκουίνσου στοιβάζει Attack Speed με κάθε επίθεση, δηλαδή περισσότερες επιθέσεις, περισσότερες ορμές και περισσότερα εκρηκτικά ίχνη, και η τοξότρια της πίσω γραμμής γίνεται melee skirmisher που κερδίζει από το πού πατάει.",
+      "play": "Μπες σε melee και δώσε εντολή κίνησης σε κάθε επίθεση, ώστε κάθε ορμή να περνά μέσα από τον εχθρό και να αφήνει ίχνος από κάτω του. Πήδα στο πλάι μέσα από την ομάδα και όχι μακριά της, και χρησιμοποίησε το Σκίσιμο για να επιβραδύνεις όποιον προσπαθεί να φύγει.",
       "augments": [
-        "Τα κόστη Μάνας σου διπλασιάζονται. Οι Θεραπείες, οι Ασπίδες και η ζημιά των Ικανοτήτων σου είναι πιο αποτελεσματικές.",
-        "Κερδίζεις από τη Μάνα που ξοδεύεις ως Ασπίδα για 1.5 δευτερόλεπτα. Ασπίδα έως",
-        "Κερδίζεις Προσαρμοστική Δύναμη για 3 δευτερόλεπτα όταν παίρνεις Ασπίδα (5 δευτερόλεπτα Χρόνος Επαναφοράς).",
-        "Παίρνεις την Ψυχή του Ωκεανού, που δίνει υψηλή Αναπλήρωση Υγείας και Μάνας μετά από ζημιά σε εχθρούς."
+        "Είσαι πλέον μάχιμος εκ του σύνεγγυς. Κερδίζεις 24% Ζημιά Επίθεσης, 24% Ζωή, 20% Ταχύτητα Επίθεσης, 20% Κλοπή Ζωής και 20% Ταχύτητα Κίνησης (το καθένα αυξάνεται περαιτέρω ανάλογα με την Εμβέλεια Επίθεσης που χάνεται).",
+        "Οι ικανότητες εφόρμησης, αστραπιαίας μετακίνησης ή τηλεμεταφοράς σου αφήνουν ίχνος που εκρήγνυται μετά από 0,75 δευτερόλεπτα.",
+        "Αφού χρησιμοποιήσεις ικανότητα Εφόρμησης, Αστραπιαίας Μετακίνησης ή Τηλεμεταφοράς ή βγεις από την Αφάνεια, κερδίζεις 300 Ταχύτητα Κίνησης για 2 δευτερόλεπτα.",
+        "Απόκτησε Ασπίδα για 2 δευτερόλεπτα μετά από Dash ή Blink (5 δευτερόλεπτα Cooldown)."
       ]
     },
     "es-MX": {
-      "title": "Protección contra sobregiro",
-      "why": "Tormenta glacial es una habilidad de activar y desactivar que le cobra maná a Anivia cada segundo que sigue encendida, un costo constante en el que nadie piensa más allá de apagarla antes de quedarse sin maná, y esta build convierte esa cuenta en lo más importante. Barrera Azul le da una parte de cada punto de maná que gasta como escudo durante 1.5 segundos, así que una tormenta que la drena cada segundo la vuelve a proteger cada segundo. Sobrecarga duplica todos sus costos de maná, lo que duplica el maná que alimenta a Barrera Azul desde la misma tormenta y además vuelve más efectivo el daño de la tormenta. Escudo Poderoso otorga fuerza adaptativa cada vez que gana un escudo, algo que la tormenta, con sus pulsos, vuelve a activar en cuanto termina su enfriamiento, y Alma de los Océanos concede regeneración de salud y maná después de dañar enemigos, cosa que la tormenta hace sin parar, así que el drenaje duplicado se rellena todo el tiempo. Vara de las Edades devuelve maná cuando los campeones la golpean y la cura el 25% del maná que gasta, que Sobrecarga acaba de duplicar. Abrazo del Serafín y Maldad acumulan todavía más maná para quemar, Maldad además quema el suelo bajo todos los que toca su tormenta, y Apariencia Espiritual hace que cada escudo y cada curación sobre ella sea 25% más grande. La frágil maga de artillería se vuelve una tanque de primera línea que se mete al equipo enemigo, prende su tormenta y se queda parada ahí, con Renacimiento como plan B para cuando el banco por fin cierre.",
-      "play": "Compra maná primero, luego métete a la pelea, activa Tormenta glacial y quédate adentro para que el drenaje te vuelva a poner escudo cada segundo. Apaga la tormenta solo cuando de verdad te quedes sin maná, y deja que el huevo se encargue del resto.",
+      "title": "El piso es lanzas",
+      "why": "La pasiva de Kalista, Postura marcial, la hace lanzarse una corta distancia cada que ataca, y hasta el texto de su Perforar llama dash a ese impulso. Estela Terrestre hace que cada dash deje un rastro que explota a los 0.75 segundos, pero con una Kalista a distancia esos rastros quedan a todo un rango de ataque de cualquiera. Desenvaina tu Espada lo arregla: se vuelve cuerpo a cuerpo, le pagan en Daño de ataque, Salud, Velocidad de ataque, Robo de vida y Velocidad de movimiento por el rango que soltó, y ahora cada salto traza su rastro directo a través del enemigo al que está golpeando. Movimiento Sombrío da 300 de Velocidad de movimiento por 2 segundos después de cada dash y Sano y salvo agrega un Escudo después, así que una campeona que brinca en cada ataque se mantiene rápida y protegida en medio de la pelea. Espadafuria de Guinsoo acumula Velocidad de ataque con cada ataque, o sea más ataques, más saltos y más rastros explosivos, y la tiradora de retaguardia se convierte en una escaramuzadora cuerpo a cuerpo que gana por dónde pisa.",
+      "play": "Métete cuerpo a cuerpo y da una orden de movimiento durante cada ataque para que cada salto cruce al enemigo y deje un rastro debajo de él. Brinca de lado a través del grupo en vez de alejarte, y usa Desgarrar para frenar a quien intente huir.",
       "augments": [
-        "Tus costos de maná se duplican. Las curaciones, los escudos y el daño de tus habilidades son más efectivos.",
-        "Obtén parte del maná que gastas como escudo durante 1.5 segundos. Escudos de hasta",
-        "Obtén fuerza adaptativa durante 3 segundos cuando ganes un escudo (5 segundos de enfriamiento).",
-        "Obtén el Alma de los Océanos, que concede gran regeneración de salud y maná después de dañar enemigos."
+        "Ahora eres cuerpo a cuerpo. Obtienes 24% de Daño de Ataque, 24% de Vida, 20% de Velocidad de Ataque, 20% de Robo de Vida y 20% de Velocidad de Movimiento (cada uno aumenta aún más según el Alcance de Ataque perdido).",
+        "Tus habilidades de impulso, traslación o teletransportación dejan un rastro que explota después de 0.75 segundos.",
+        "Después de usar una habilidad de impulso, traslación o teletransportación o salir del sigilo, obtienes 300 de Velocidad de movimiento durante 2 segundos.",
+        "Gana un Escudo durante 2 segundos después de un Dash o Blink (5 segundos de reutilización)."
       ]
     },
     "es": {
-      "title": "Protección contra descubiertos",
-      "why": "Tormenta glacial es una habilidad de activar y desactivar que le cobra maná a Anivia cada segundo que permanece activa, un coste continuo en el que nadie piensa más allá de apagarla antes de quedarse sin maná, y esta build convierte esa factura en el centro de todo. Barrera azul le da una parte de cada punto de maná que gasta como escudo durante 1.5 segundos, así que una tormenta que la drena cada segundo la reprotege cada segundo. Sobrecarga duplica todos sus costes de maná, lo que duplica el maná que alimenta Barrera azul desde esa misma tormenta y, de paso, hace más eficaz el daño de la tormenta. Escudo de fuerza otorga fuerza adaptable cada vez que gana un escudo, algo que la tormenta, con sus pulsos, vuelve a activar en cuanto termina su enfriamiento, y Alma de océano concede regeneración de salud y maná tras dañar a enemigos, cosa que la tormenta hace sin parar, así que el drenaje duplicado se rellena una y otra vez. Vara de las edades devuelve maná cuando los campeones la golpean y la cura el 25% del maná que gasta, que Sobrecarga acaba de duplicar. Abrazo del serafín y Malignidad apilan aún más maná que quemar, Malignidad además abrasa el suelo bajo todos los que toca su tormenta, y Rostro espiritual hace que cada escudo y cada curación sobre ella sea un 25% mayor. La frágil maga de artillería se convierte en una tanque de primera línea que se mete en el equipo enemigo, activa su tormenta y se queda ahí plantada, con Renacimiento como plan B para cuando el banco por fin cierre.",
-      "play": "Compra maná primero, luego métete en la pelea, activa Tormenta glacial y quédate dentro para que el drenaje te vuelva a poner escudo cada segundo. Apaga la tormenta solo cuando de verdad te quedes sin maná, y deja que el huevo se encargue del resto.",
+      "title": "El suelo es lanzas",
+      "why": "La pasiva de Kalista, Equilibrio marcial, la hace lanzarse una corta distancia cada vez que ataca, y hasta el texto de su Perforar llama dash a ese impulso. Terremoto hace que cada dash deje un rastro que detona a los 0,75 segundos, pero con una Kalista a distancia esos rastros quedan a todo un alcance de ataque de cualquiera. ¡Desenvaina la espada! lo arregla: pasa a ser cuerpo a cuerpo, le pagan con Daño de ataque, Salud, Velocidad de ataque, Robo de vida y Velocidad de movimiento por el alcance al que renuncia, y ahora cada salto traza su rastro justo a través del enemigo al que está golpeando. Corredor de la penumbra da 300 de Velocidad de movimiento durante 2 segundos tras cada dash y Ágil e invulnerable añade un Escudo después, así que una campeona que salta en cada ataque se mantiene rápida y protegida en mitad de la pelea. Hoja de furia de Guinsoo acumula Velocidad de ataque con cada ataque, o sea más ataques, más saltos y más rastros explosivos, y la tiradora de la retaguardia se convierte en una hostigadora cuerpo a cuerpo que gana por dónde pisa.",
+      "play": "Métete cuerpo a cuerpo y da una orden de movimiento durante cada ataque para que cada salto cruce al enemigo y deje un rastro bajo sus pies. Salta de lado a través del grupo en vez de alejarte, y usa Desgarrar para ralentizar a quien intente largarse.",
       "augments": [
-        "Tus costes de maná se duplican. Las curaciones, los escudos y el daño de tus habilidades son más eficaces.",
-        "Obtén parte del maná que gastes como escudo durante 1.5 segundos. Escudos de hasta",
-        "Obtén fuerza adaptable durante 3 segundos cuando ganes un escudo (5 segundos de enfriamiento).",
-        "Obtén el Alma de océano, que concede gran regeneración de salud y maná tras dañar a enemigos."
+        "Ahora eres cuerpo a cuerpo. Obtienes un 24 % de daño de ataque, un 24 % de vida, un 20 % de velocidad de ataque, un 20 % de robo de vida y un 20 % de velocidad de movimiento (cada uno aumenta aún más según el alcance de ataque perdido).",
+        "Tus habilidades de desplazamiento, traslación o teletransporte dejan un rastro que explota tras 0,75 segundos.",
+        "Tras usar una habilidad de desplazamiento, traslación o teletransporte o salir del camuflaje, obtienes 300 de velocidad de movimiento durante 2 segundos.",
+        "Obtén un Escudo durante 2 segundos tras un Dash o Blink (5 segundos de enfriamiento)."
       ]
     },
     "fr": {
-      "title": "Protection contre le découvert",
-      "why": "Tempête glaciale est une capacité à bascule qui facture du mana à Anivia chaque seconde où elle reste active, un coût permanent auquel personne ne pense à part l'éteindre avant d'être à sec, et ce build fait de cette facture le cœur du plan. Barrière bleue lui rend une part de chaque point de mana dépensé sous forme de bouclier pendant 1.5 seconde : une tempête qui la vide chaque seconde la reboucliérise donc chaque seconde. Surcharge double tous ses coûts en mana, ce qui double le mana alimentant Barrière bleue depuis la même tempête tout en rendant les dégâts de la tempête plus efficaces. Puissant bouclier octroie de la force adaptative chaque fois qu'elle gagne un bouclier, ce que la tempête qui tique réarme dès la fin de son délai de récupération, et Âme des océans accorde de la régénération de vie et de mana après avoir infligé des dégâts aux ennemis, ce que la tempête fait sans arrêt, si bien que la ponction doublée est constamment recomblée. Bâton séculaire rend du mana quand des champions la touchent et la soigne de 25% du mana dépensé, que Surcharge vient de doubler. Étreinte du séraphin et Malfaisance ajoutent encore du mana à brûler, Malfaisance brûle en plus le sol sous tous ceux touchés par sa tempête, et Visage spirituel rend chaque bouclier et chaque soin sur elle 25% plus gros. La mage d'artillerie fragile devient un tank de première ligne qui fonce dans l'équipe ennemie, active sa tempête et reste planté dedans, avec Renaissance en plan de secours pour quand la banque fermera enfin ses portes.",
-      "play": "Montez d'abord du mana, puis allez au combat, activez Tempête glaciale et restez dedans pour que la ponction vous remette un bouclier chaque seconde. Ne coupez la tempête que lorsque vous êtes vraiment à sec, et laissez l'œuf s'occuper du reste.",
+      "title": "Le sol, c'est des lances",
+      "why": "La passive de Kalista, Équilibre martial, lui fait faire un petit bond à chaque attaque, et le texte de son Transpercer appelle lui-même ça un dash. Traînée tellurique fait laisser à chaque dash une traînée qui explose après 0,75 seconde, mais avec une Kalista à distance, ces traînées se retrouvent à une portée d'attaque entière de tout le monde. Combat rapproché règle ça : elle passe au corps à corps, reçoit des Dégâts d'attaque, de la Santé, de la Vitesse d'attaque, du Vol de vie et de la Vitesse de déplacement pour la portée abandonnée, et chaque saut tire désormais sa traînée en plein dans l'ennemi qu'elle frappe. Plus rapide que son ombre donne 300 de Vitesse de déplacement pendant 2 secondes après chaque dash et Mobilité et sécurité ajoute un Bouclier derrière, donc une championne qui saute à chaque attaque reste rapide et protégée au cœur du combat. Lame enragée de Guinsoo cumule de la Vitesse d'attaque à chaque attaque, donc plus d'attaques, plus de bonds et plus de traînées qui explosent, et la tireuse de backline devient une skirmisheuse au corps à corps qui gagne grâce à l'endroit où elle pose les pieds.",
+      "play": "Fonce au corps à corps et donne un ordre de déplacement pendant chaque attaque pour que chaque bond traverse l'ennemi et laisse une traînée sous lui. Saute sur le côté à travers le groupe plutôt qu'en t'éloignant, et utilise Déchirer pour ralentir ceux qui veulent filer.",
       "augments": [
-        "Vos coûts en mana sont doublés. Les soins, boucliers et dégâts de vos capacités sont plus efficaces.",
-        "Gagnez une partie du mana dépensé sous forme de bouclier pendant 1.5 seconde. Boucliers jusqu'à",
-        "Gagnez de la force adaptative pendant 3 secondes quand vous gagnez un bouclier (5 secondes de délai de récupération).",
-        "Obtenez l'Âme des océans, qui accorde une forte régénération de vie et de mana après avoir infligé des dégâts aux ennemis."
+        "Vous êtes maintenant au corps à corps. Vous gagnez 24 % de dégâts d'attaque, 24 % de PV, 20 % de vitesse d'attaque, 20 % de vol de vie et 20 % de vitesse de déplacement (chacun étant encore augmenté selon la portée d'attaque perdue).",
+        "Vos compétences de ruée, de blink ou de téléportation laissent une traînée qui explose après 0,75 seconde.",
+        "Après avoir utilisé une compétence de ruée, de blink ou de téléportation ou être sorti du camouflage, vous gagnez 300 vitesse de déplacement pendant 2 secondes.",
+        "Gagne un Bouclier pendant 2 secondes après un Dash ou un Blink (5 secondes de délai de récupération)."
       ]
     },
     "hu": {
-      "title": "Folyószámla-védelem",
-      "why": "A Jégvihar Anivia esetében egy kapcsolható képesség, ami minden másodpercben Manát von le, amíg be van kapcsolva. Ez egy futó költség, amivel senki sem foglalkozik azon kívül, hogy kikapcsolja, mielőtt kifogy a mana, ez az összeállítás viszont az egész lényeget erre építi. A Kék pajzs minden elköltött Mana-pont egy részét Pajzsként adja vissza 1.5 másodpercre, így a vihar, ami másodpercenként lecsapolja, másodpercenként újra is pajzsolja. A Túlcsordulás megduplázza az összes Mana-költségét, ezzel megduplázza a Kék pajzsot tápláló Manát ugyanabból a viharból, miközben a vihar sebzését is hatékonyabbá teszi. A Hatalmas pajzs Adaptív erőt ad, valahányszor Pajzsot kap, amit a ketyegő vihar újra élesít, amint lejár a várakozási ideje, az Óceáni lélek pedig Életerő- és Mana-regenerációt ad az ellenségek megsebzése után, amit a vihar megállás nélkül csinál, így a duplázott lecsapolás folyamatosan pótlódik. A Korok pálcája Manát ad vissza, ha bajnokok ütik, és az elköltött Mana 25%-át gyógyítja, amit a Túlcsordulás épp megduplázott. A szeráf ölelése és a Rosszindulat még több elégetnivaló Manát ad, a Rosszindulat ráadásul megperzseli a talajt mindenki alatt, akit a vihar eltalál, a Szellemarc pedig minden rajta lévő pajzsot és gyógyítást 25%-kal erősebbé tesz. A törékeny tüzérmágusból frontvonalbeli tank lesz, aki besétál az ellenséges csapatba, bekapcsolja a viharát, és egyszerűen áll benne, az Újjászületés pedig a B-terv arra az esetre, ha a bank végre bezár.",
-      "play": "Előbb építs Manát, aztán sétálj be a harcba, kapcsold be a Jégvihart, és maradj benne, hogy a lecsapolás másodpercenként újra pajzsoljon. Csak akkor kapcsold ki a vihart, ha tényleg kifogytál a Manából, a többit pedig bízd a tojásra.",
+      "title": "Lándzsa a padló!",
+      "why": "Kalista passzívája, a Harci higgadtság, minden támadásnál előrelendíti őt egy kicsit, és a saját Átszúrás leírása is dash-nek hívja ezt a lendületet. A Földmunka minden dash után nyomvonalat hagy, ami 0,75 másodperc múlva felrobban, de távolsági Kalistánál ezek a nyomok egy teljes támadótávolságnyira vannak mindenkitől. A Ránts kardot ezt orvosolja: közelharcos lesz, és az elvesztett távolságért Támadóerőt, Életerőt, Támadási sebességet, Életszívást és Mozgási sebességet kap, minden ugrás nyomvonala pedig egyenesen az ellenségen húzódik át, akit éppen ütöget. Az Árnyfutó 2 másodpercig 300 Mozgási sebességet ad minden dash után, a Fürgén, épen pedig Pajzsot ad utána, így aki minden támadásnál ugrik, az gyors és védett marad a harc közepén. Guinsoo dühpengéje minden támadással halmozza a Támadási sebességet, vagyis több támadás, több lendület és több felrobbanó nyom jön: a hátsó sorból lövöldöző mesterlövész közelharcos csetepatézóvá válik, aki azzal nyer, hova lép.",
+      "play": "Sétálj be közelharcba, és minden támadás alatt adj mozgásparancsot, hogy minden lendület átvágjon az ellenségen, és nyomot hagyjon alatta. Oldalra ugrálj át a csapaton, ne elfelé tőlük, és a Szétszaggatással lassítsd azt, aki le akar lépni.",
       "augments": [
-        "A Mana-költségeid megduplázódnak. A képességeid gyógyítása, Pajzsai és sebzése hatékonyabb.",
-        "Az elköltött Mana-ból Pajzsot kapsz 1.5 másodpercre. A Pajzs legfeljebb",
-        "Adaptív erőt kapsz 3 másodpercre, amikor Pajzsot szerzel (5 másodperc várakozási idő).",
-        "Megkapod az Óceáni lelket, ami az ellenségek megsebzése után magas Életerő- és Mana-regenerációt ad."
+        "Mostantól közelharci vagy. Kapsz 24% Támadóerőt, 24% Életerőt, 20% Támadási sebességet, 20% Életerő-lopást és 20% Mozgási sebességet (mindegyik tovább nő az elvesztett Támadási hatótáv alapján).",
+        "A roham-, villanás- és teleport-képességeid nyomot hagynak maguk után, ami 0,75 másodperc után felrobban.",
+        "Roham-, villanás- vagy teleport-képesség használata, illetve a lopakodásból való kilépés után 2 másodpercig 300 mozgási sebességet kapsz.",
+        "Pajzsot kapsz 2 másodpercre egy dash vagy Blink után (5 másodperc visszatöltés)."
       ]
     },
     "id": {
-      "title": "Perlindungan Overdraft",
-      "why": "Glacial Storm adalah skill toggle yang menagih Mana Anivia setiap detik selama menyala, biaya berjalan yang tidak dipikirkan siapa pun selain mematikannya sebelum dia kehabisan Mana, dan build ini menjadikan tagihan itu inti permainannya. Blue Barrier memberinya sebagian dari setiap poin Mana yang dia pakai sebagai Shield selama 1.5 detik, jadi badai yang menguras Mana setiap detik juga memasang ulang Shield setiap detik, dan Overflow menggandakan semua biaya Mana-nya, yang menggandakan Mana yang masuk ke Blue Barrier dari badai yang sama sekaligus membuat damage badai lebih efektif. Mighty Shield memberi Adaptive Force setiap kali dia mendapat Shield, yang diaktifkan ulang oleh badai begitu cooldown-nya selesai, dan Ocean Soul memberi Health dan Mana Regen tinggi setelah memberi damage ke musuh, yang dilakukan badai tanpa henti, jadi Mana yang terkuras dua kali lipat terus terisi lagi. Rod of Ages mengembalikan Mana saat champion memukulnya dan menyembuhkannya 25% dari Mana yang dia pakai, yang baru saja digandakan Overflow, Seraph's Embrace dan Malignance menambah Mana untuk dibakar, Malignance juga membakar tanah di bawah semua yang terkena badainya, dan Spirit Visage membuat semua shield dan heal padanya 25% lebih besar. Mage artileri yang rapuh berubah jadi tank garis depan yang jalan ke tengah tim musuh, menyalakan badainya dan cukup berdiri di dalamnya, dengan Rebirth sebagai rencana cadangan saat bank akhirnya tutup.",
-      "play": "Bangun Mana dulu, lalu masuk ke teamfight, nyalakan Glacial Storm dan tetap di dalamnya supaya pengurasan Mana terus memasang ulang Shield setiap detik. Matikan badai hanya saat kamu benar-benar kehabisan Mana, dan biarkan telur yang mengurus sisanya.",
+      "title": "Lantai adalah Tombak",
+      "why": "Passive Kalista, Martial Poise, bikin dia melesat sedikit tiap kali menyerang, dan teks Pierce miliknya sendiri menyebut lesatan itu dash. Earthwake bikin setiap dash meninggalkan jejak yang meledak setelah 0,75 detik, tapi pada Kalista jarak jauh jejak itu terpasang sejauh satu Attack Range penuh dari musuh. Draw Your Sword memperbaikinya: dia jadi melee, dan sebagai ganti jangkauan yang hilang dia dapat Attack Damage, Health, Attack Speed, Lifesteal dan Move Speed, lalu tiap lompatan menarik jejaknya langsung lewat musuh yang sedang dia pukul. Shadow Runner memberi 300 Move Speed selama 2 detik setelah tiap dash dan Swift and Safe menambah Shield setelahnya, jadi champion yang melompat di tiap serangan tetap cepat dan terlindungi di tengah teamfight. Guinsoo's Rageblade menumpuk Attack Speed di setiap serangan, artinya lebih banyak serangan, lebih banyak lesatan, dan lebih banyak jejak meledak, mengubah marksman barisan belakang jadi skirmisher melee yang menang lewat posisi langkahnya.",
+      "play": "Masuk ke melee dan beri perintah gerak di tiap serangan supaya setiap lesatan melewati musuh dan meninggalkan jejak di bawahnya. Lompat menyamping menembus kerumunan, bukan menjauh darinya, dan pakai Rend untuk memperlambat siapa pun yang mau kabur.",
       "augments": [
-        "Biaya Mana kamu berlipat dua. Heal, Shield, dan damage Ability kamu lebih efektif.",
-        "Dapatkan sebagian dari Mana yang kamu pakai sebagai Shield selama 1.5 detik. Shield hingga",
-        "Dapatkan Adaptive Force selama 3 detik saat kamu mendapat Shield (cooldown 5 detik).",
-        "Dapatkan Ocean Soul, yang memberi Health dan Mana Regen tinggi setelah memberi damage ke musuh."
+        "Kamu sekarang melee. Dapatkan 24% Attack Damage, 24% Health, 20% Attack Speed, 20% Lifesteal, dan 20% Move Speed (masing-masing meningkat lagi berdasarkan Attack Range yang hilang).",
+        "Ability dash, blink, atau teleport-mu meninggalkan jejak yang meledak setelah 0,75 detik.",
+        "Setelah menggunakan Ability Dash, Blink, atau Teleport atau keluar dari Stealth, dapatkan 300 Move Speed selama 2 detik.",
+        "Dapatkan Shield selama 2 detik setelah Dash atau Blink (Cooldown 5 detik)."
       ]
     },
     "it": {
-      "title": "Protezione scoperto",
-      "why": "Tempesta glaciale è un'abilità on/off che addebita mana ad Anivia ogni secondo in cui resta attiva, un costo continuo a cui nessuno pensa se non per spegnerla prima di restare a secco, e questa build rende quel conto il punto centrale. Barriera blu le dà una parte di ogni punto di mana speso sotto forma di scudo per 1.5 secondi, quindi una tempesta che la prosciuga ogni secondo la riscuda ogni secondo. Esubero raddoppia tutti i suoi costi in mana, il che raddoppia il mana che alimenta Barriera blu dalla stessa tempesta e rende anche più efficace il danno della tempesta. Scudo possente conferisce forza adattiva ogni volta che ottiene uno scudo, cosa che la tempesta, a ogni tick, riattiva appena finisce il suo tempo di ricarica, e Anima dell'oceano concede rigenerazione di salute e mana dopo aver inflitto danni ai nemici, cosa che la tempesta fa di continuo, così il consumo raddoppiato si riempie in continuazione. Bastone secolare restituisce mana quando i campioni la colpiscono e la cura del 25% del mana speso, che Esubero ha appena raddoppiato. Abbraccio serafico e Malignità aggiungono ancora più mana da bruciare, Malignità inoltre brucia il terreno sotto tutti quelli colpiti dalla sua tempesta, e Corazza spirituale rende ogni scudo e ogni cura su di lei più grande del 25%. La fragile maga d'artiglieria diventa una tank da prima linea che marcia dentro il team nemico, attiva la sua tempesta e ci sta semplicemente in mezzo, con Rinascita come piano B per quando la banca chiuderà finalmente i battenti.",
-      "play": "Prendi prima il mana, poi entra nello scontro, attiva Tempesta glaciale e resta dentro così il consumo ti riscuda ogni secondo. Spegni la tempesta solo quando sei davvero senza mana, e lascia che l'uovo faccia il resto.",
+      "title": "Il pavimento è lancia",
+      "why": "La passiva di Kalista, Equilibrio marziale, le fa compiere un breve scatto a ogni attacco, e il testo della sua Trafiggere chiama proprio dash quello scatto. Scia distruttiva fa lasciare a ogni dash una scia che esplode dopo 0,75 secondi, ma con Kalista a distanza quelle scie finiscono a un'intera gittata d'attacco da chiunque. Sguaina la spada risolve il problema: diventa corpo a corpo e in cambio della gittata persa ottiene Danni attacco, Salute, Velocità d'attacco, Furto vita e Velocità di movimento, e ogni balzo traccia la scia dritta attraverso il nemico che sta colpendo. Scatto d'ombra dà 300 Velocità di movimento per 2 secondi dopo ogni dash e Agile e prudente aggiunge uno Scudo, così una campionessa che salta a ogni attacco resta veloce e protetta in mezzo alla mischia. Furia di Guinsoo accumula Velocità d'attacco a ogni attacco: più attacchi, più scatti e più scie esplosive, e la tiratrice da retrovia diventa una schermitrice corpo a corpo che vince grazie a dove mette i piedi.",
+      "play": "Entra in mischia e dai un comando di movimento durante ogni attacco, così ogni scatto attraversa il nemico e gli lascia una scia sotto i piedi. Salta di lato attraverso il gruppo invece di allontanartene, e usa Squarciare per rallentare chi prova a scappare.",
       "augments": [
-        "I tuoi costi in mana raddoppiano. Cure, scudi e danni delle tue abilità sono più efficaci.",
-        "Ottieni una parte del mana che spendi sotto forma di scudo per 1.5 secondi. Scudi fino a",
-        "Ottieni forza adattiva per 3 secondi quando ottieni uno scudo (5 secondi di ricarica).",
-        "Ottieni Anima dell'oceano, che concede alta rigenerazione di salute e mana dopo aver inflitto danni ai nemici."
+        "Ora sei un campione da mischia. Ottieni il 24% di Danni da attacco, il 24% di Salute, il 20% di Velocità d'attacco, il 20% di Furto di vita e il 20% di Velocità di movimento (ognuno ulteriormente aumentato in base alla Gittata d'attacco persa).",
+        "Le tue abilità di scatto, traslazione o teletrasporto lasciano una scia che esplode dopo 0,75 secondi.",
+        "Dopo aver usato un'abilità di scatto, traslazione o teletrasporto o essere uscito dal camuffamento, ottieni 300 velocità di movimento per 2 secondi.",
+        "Ottieni uno Scudo per 2 secondi dopo uno Scatto o un Blink (5 secondi di ricarica)."
       ]
     },
     "ja": {
-      "title": "マナ残高不足でも安心",
-      "why": "グレイシャルストームは、オンにしている間ずっと毎秒アニビアのマナを消費するトグルスキルです。普通は枯渇する前に切るだけのコストですが、このビルドではその請求こそが本命になります。ブルーバリアは消費したマナ1ポイントごとの一部を1.5秒間シールドに変えるので、毎秒マナを吸うストームが毎秒シールドを張り直します。さらにオーバーフローでマナコストが2倍になり、同じストームからブルーバリアに流れ込むマナも2倍、ストームのダメージもより強力になります。マイティシールドはシールド獲得のたびにアダプティブフォースをくれて、ストームはクールダウンが明けた瞬間にそれを再発動させます。オーシャンソウルは敵にダメージを与えた後にHPとマナのリジェネを与えてくれて、ストームは休みなく当て続けるので、倍になった消費もどんどん補充されます。ロッド オブ エイジスは被弾でマナを回復し、消費マナの25%ぶんHPも回復します。そのマナはオーバーフローで2倍になったばかりです。セラフ エンブレイスとマリグナンスでさらに燃やせるマナが増え、マリグナンスはストームに当たった全員の足元の地面まで焼き、スピリット ビサージュは彼女に対するシールドと回復をすべて25%強化します。脆い砲台メイジが、敵チームに歩いて突っ込み、ストームをオンにしてただ立っているだけの前線タンクに変身。銀行が閉まったときの保険はリバースです。",
-      "play": "まずマナを積んでから集団戦に突入し、グレイシャルストームをオンにしてその中に居座りましょう。毎秒の消費でシールドが張り直され続けます。ストームを切るのは本当にマナが尽きたときだけ。あとはタマゴにお任せです。",
+      "title": "床はやりだ",
+      "why": "カリスタのパッシブ「マーシャル ポイズ」は、攻撃のたびに少しだけ前方へ跳び込み、「ピアース」の説明文でもこの跳躍をダッシュと呼んでいます。「アースウェイク」はダッシュのたびに0.75秒後に爆発する軌跡を残しますが、遠距離のカリスタだと軌跡は敵から攻撃射程ぶん丸ごと離れた場所にできてしまいます。「剣を構えよ」ならそれを解決できます。近接になる代わりに、失った射程のぶん攻撃力、体力、攻撃速度、ライフスティール、移動速度を得て、跳ぶたびに殴っている敵のど真ん中を軌跡が通るようになります。「影走り」はダッシュ後2秒間移動速度+300、「迅速に安全に」はダッシュ後にシールドを付与するので、攻撃のたびに跳ぶチャンピオンは集団戦の真ん中でも速く、守られたままです。「グインソー レイジブレード」は攻撃のたびに攻撃速度が重なり、攻撃も跳躍も爆発する軌跡も増えて、後衛のマークスマンが立ち位置で勝つ近接スカーミッシャーに早変わりします。",
+      "play": "近接に突っ込んで、攻撃のたびに移動コマンドを入れ、跳躍が敵を貫通して足元に軌跡を残すようにしましょう。集団からは離れず、横に跳んで中を抜け、逃げようとする相手には「レンド」でスローをかけます。",
       "augments": [
-        "マナコストが2倍になる。アビリティのヒール、シールド、ダメージがより強力になる。",
-        "消費したマナの一部を1.5秒間シールドとして獲得する。シールドは最大",
-        "シールドを獲得すると3秒間アダプティブフォースを獲得する(クールダウン5秒)。",
-        "オーシャンソウルを獲得し、敵にダメージを与えた後に大幅なHPとマナのリジェネを得る。"
+        "あなたは近接になる。攻撃力24%、体力24%、攻撃速度20%、ライフスティール20%、移動速度20%を獲得(それぞれ失った攻撃範囲に応じてさらに増加)。",
+        "ダッシュ、ブリンク、テレポートのスキルが軌跡を残し、0.75秒後に爆発する。",
+        "ダッシュ、ブリンク、テレポートのスキルを使用するかステルス状態を解除した後、2秒間移動速度が300増加する。",
+        "ダッシュまたはブリンク後2秒間シールドを獲得（クールダウン5秒）。"
       ]
     },
     "ko": {
-      "title": "당좌 대월 방지",
-      "why": "눈보라는 켜 두는 동안 매초 애니비아의 마나를 소모하는 토글 스킬입니다. 마나가 바닥나기 전에 끄는 것 말고는 아무도 신경 안 쓰는 유지비인데, 이 빌드는 그 청구서가 핵심입니다. 푸른 방어막은 소모한 마나 1당 일부를 1.5초 동안 보호막으로 바꿔 주니까, 매초 마나를 빨아들이는 눈보라가 매초 보호막을 다시 씌워 줍니다. 거기에 범람이 마나 소모량을 2배로 만들어서 같은 눈보라에서 푸른 방어막으로 들어오는 마나도 2배가 되고, 눈보라의 피해량도 더 강해집니다. 강력한 방패는 보호막을 얻을 때마다 적응형 능력치를 주는데, 눈보라가 재사용 대기시간이 끝나는 즉시 다시 발동시켜 줍니다. 바다의 영혼은 적에게 피해를 입힌 뒤 체력 및 마나 재생을 크게 올려 주고, 눈보라는 쉬지 않고 피해를 주니 두 배가 된 소모량도 계속 채워집니다. 영겁의 지팡이는 챔피언에게 맞을 때 마나를 돌려주고 소모한 마나의 25%만큼 체력을 회복시켜 주는데, 그 마나가 방금 범람으로 2배가 됐죠. 대천사의 포옹과 악의는 태울 마나를 더 쌓아 주고, 악의는 눈보라에 맞은 모두의 발밑 땅까지 불태우며, 정령의 형상은 애니비아가 받는 모든 보호막과 회복량을 25% 늘려 줍니다. 연약한 포격 마법사가 적 팀 한복판으로 걸어 들어가 눈보라를 켜고 그냥 서 있기만 하는 전방 탱커로 변신합니다. 은행 문이 닫힐 때를 위한 보험은 환생이고요.",
-      "play": "마나부터 쌓고 한타에 들어가서 눈보라를 켜고 그 안에 계속 머무르세요. 매초 소모되는 마나가 보호막을 계속 다시 씌워 줍니다. 진짜 마나가 바닥났을 때만 눈보라를 끄고, 나머지는 알한테 맡기세요.",
+      "title": "바닥이 창이다",
+      "why": "칼리스타의 패시브 무예의 균형은 공격할 때마다 짧게 도약하게 하고, 꿰뚫기 설명에서도 이 도약을 돌진이라고 부릅니다. 대지의 각성은 돌진할 때마다 0.75초 뒤에 폭발하는 흔적을 남기지만, 원거리 칼리스타는 그 흔적이 적에게서 공격 사거리만큼 떨어진 곳에 생깁니다. 검을 뽑아라가 이걸 해결해 줍니다. 근접 챔피언이 되는 대신 잃은 사거리만큼 공격력, 체력, 공격 속도, 생명력 흡수, 이동 속도를 얻고, 뛸 때마다 때리고 있는 적의 한가운데로 흔적이 지나갑니다. 그림자 질주는 돌진 후 2초 동안 이동 속도 300을 주고, 빠르고 안전하게는 돌진 후 보호막을 더해 주니, 공격마다 뛰는 챔피언은 한타 한복판에서도 빠르고 단단하게 버팁니다. 구인수의 격노검은 공격할 때마다 공격 속도가 쌓여서 공격도, 도약도, 폭발하는 흔적도 늘어나고, 후방 원거리 딜러가 발 디디는 위치로 이기는 근접 난동꾼으로 변신합니다.",
+      "play": "근접으로 뛰어들어 매 공격마다 이동 명령을 내려서 도약이 적을 가로질러 발밑에 흔적을 남기게 하세요. 무리에서 멀어지지 말고 옆으로 뛰어 통과하고, 도망가려는 상대는 찢어발기기로 둔화시키세요.",
       "augments": [
-        "마나 소모량이 2배가 됩니다. 스킬의 회복, 보호막, 피해량이 더 강해집니다.",
-        "소모한 마나의 일부를 1.5초 동안 보호막으로 얻습니다. 보호막 최대",
-        "보호막을 얻으면 3초 동안 적응형 능력치를 얻습니다(재사용 대기시간 5초).",
-        "바다의 영혼을 얻어, 적에게 피해를 입힌 뒤 체력 및 마나 재생이 크게 증가합니다."
+        "당신은 이제 근접입니다. 공격력 24%, 체력 24%, 공격 속도 20%, 생명력 흡수 20%, 이동 속도 20%를 얻습니다 (각각 잃은 사거리에 따라 추가로 증가).",
+        "돌진, 점멸, 순간이동 스킬이 자국을 남기고, 이 자국은 0.75초 후 폭발합니다.",
+        "돌진, 점멸, 순간이동 스킬을 사용하거나 은신에서 벗어나면 2초 동안 이동 속도가 300 증가합니다.",
+        "돌진 또는 점멸 후 2초 동안 보호막을 얻습니다. (재사용 대기시간 5초)"
       ]
     },
     "pl": {
-      "title": "Ochrona przed debetem",
-      "why": "Lodowa Burza to zaklęcie włącz/wyłącz, które pobiera od Anivii manę co sekundę, dopóki jest aktywne, czyli stały koszt, o którym nikt nie myśli poza tym, żeby ją wyłączyć, zanim skończy się mana, a ten build robi z tego rachunku sedno sprawy. Niebieska Bariera daje jej część każdego punktu wydanej many jako tarczę na 1.5 sekundy, więc burza, która drenuje ją co sekundę, co sekundę też ją ponownie osłania. Przesyt podwaja wszystkie jej koszty many, co podwaja manę zasilającą Niebieską Barierę z tej samej burzy, a przy okazji zwiększa skuteczność obrażeń burzy. Potężna Tarcza daje siłę adaptacyjną za każdym razem, gdy zyskuje tarczę, co tykająca burza odnawia, gdy tylko skończy się jej czas odnowienia, a Oceaniczna Dusza daje regenerację zdrowia i many po zadaniu obrażeń wrogom, co burza robi bez przerwy, więc podwojony drenaż stale się uzupełnia. Różdżka Wieków zwraca manę, gdy bohaterowie w nią trafiają, i leczy ją z 25% wydanej many, którą Przesyt właśnie podwoił. Uścisk Serafina i Złowrogość dokładają jeszcze więcej many do spalenia, Złowrogość dodatkowo wypala ziemię pod każdym, kogo trafi jej burza, a Oblicze Ducha zwiększa każdą tarczę i każde leczenie na niej o 25%. Krucha maginia artyleryjska staje się czołowym tankiem, który wchodzi w drużynę wroga, włącza burzę i po prostu w niej stoi, z Odrodzeniem jako planem awaryjnym na moment, gdy bank w końcu się zamknie.",
-      "play": "Najpierw kup manę, potem wejdź w walkę, włącz Lodową Burzę i zostań w jej środku, żeby drenaż co sekundę dawał ci nową tarczę. Wyłączaj burzę dopiero wtedy, gdy naprawdę zabraknie ci many, a resztą niech zajmie się jajo.",
+      "title": "Podłoga to włócznie",
+      "why": "Pasywka Kalisty, Wojownicza Równowaga, pozwala jej wyskoczyć na krótki dystans przy każdym ataku, a opis jej Przebicia sam nazywa ten skok dashem. Znaczenie Ziemi sprawia, że każdy dash zostawia ślad, który wybucha po 0,75 sekundy, ale u dystansowej Kalisty te ślady lądują o cały zasięg ataku od wrogów. Dobądź Miecza to naprawia: zostaje wojowniczką walczącą w zwarciu i w zamian za utracony zasięg dostaje Obrażenia od ataku, Zdrowie, Szybkość ataku, Kradzież życia i Szybkość ruchu, a każdy skok ciągnie ślad prosto przez wroga, którego bije. Cieniobieżca daje 300 Szybkości ruchu na 2 sekundy po każdym dashu, a Szybcy i Bezpieczni dorzucają Tarczę, więc bohaterka skacząca przy każdym ataku jest szybka i chroniona w środku walki. Ostrze Gniewu Guinsoo stackuje Szybkość ataku z każdym atakiem, czyli więcej ataków, skoków i wybuchających śladów, a strzelec z tylnej linii zmienia się w harcownika, który wygrywa tym, gdzie staje.",
+      "play": "Wejdź w zwarcie i wydawaj komendę ruchu przy każdym ataku, żeby każdy skok przecinał wroga i zostawiał ślad pod nim. Skacz na boki przez grupę, a nie od niej, i używaj Rozdarcia, żeby spowolnić tych, którzy chcą uciec.",
       "augments": [
-        "Twoje koszty many są podwojone. Leczenie, tarcze i obrażenia twoich umiejętności są skuteczniejsze.",
-        "Zyskaj część wydanej many jako tarczę na 1.5 sekundy. Tarcze do",
-        "Zyskaj siłę adaptacyjną na 3 sekundy, gdy zyskasz tarczę (5 sekund czasu odnowienia).",
-        "Zyskaj Oceaniczną Duszę, która daje wysoką regenerację zdrowia i many po zadaniu obrażeń wrogom."
+        "Teraz walczysz wręcz. Zyskujesz 24% Obrażeń od ataku, 24% Zdrowia, 20% Szybkości ataku, 20% Kradzieży życia i 20% Prędkości ruchu (każde dodatkowo zwiększone w zależności od utraconego Zasięgu ataku).",
+        "Twoje umiejętności doskoku, mignięcia lub teleportacji zostawiają ślad, który wybucha po 0,75 sekundy.",
+        "Po użyciu umiejętności doskoku, mignięcia lub teleportacji albo wyjściu z kamuflażu zyskujesz 300 prędkości ruchu na 2 sekundy.",
+        "Zyskaj Tarczę na 2 sekundy po Dashu lub Blinku (5 sekund odnowienia)."
       ]
     },
     "pt-BR": {
-      "title": "Cheque Especial",
-      "why": "Tempestade Glacial é uma habilidade de ligar e desligar que cobra Mana da Anivia a cada segundo que fica ativa, um custo contínuo em que ninguém pensa além de desligar antes de ficar sem Mana, e essa build faz dessa conta o ponto principal. Barreira Azul dá a ela uma parte de cada ponto de Mana que gasta como Escudo por 1.5 segundo, então uma tempestade que a drena a cada segundo a protege de novo a cada segundo. Transbordamento dobra todos os custos de Mana dela, o que dobra o Mana que alimenta a Barreira Azul vindo da mesma tempestade e ainda deixa o dano da tempestade mais eficaz. Escudo Poderoso concede Força Adaptativa sempre que ela ganha um Escudo, algo que a tempestade, a cada pulso, rearma assim que o tempo de recarga acaba, e Alma do Oceano concede Regeneração de Vida e de Mana depois de causar dano a inimigos, o que a tempestade faz sem parar, então o gasto dobrado vive sendo reposto. Bastão das Eras devolve Mana quando campeões a atingem e a cura em 25% do Mana que ela gasta, que Transbordamento acabou de dobrar. Abraço de Seraph e Malevolência empilham ainda mais Mana para queimar, Malevolência ainda queima o chão sob todos que a tempestade atinge, e Semblante Espiritual deixa todo escudo e toda cura nela 25% maior. A frágil maga de artilharia vira uma tanque de linha de frente que entra no time inimigo, liga a tempestade e simplesmente fica parada nela, com Renascimento como plano B para quando o banco finalmente fechar.",
-      "play": "Compre Mana primeiro, depois entre na luta, ligue a Tempestade Glacial e fique dentro dela para o gasto te proteger de novo a cada segundo. Só desligue a tempestade quando estiver mesmo sem Mana, e deixe o ovo cuidar do resto.",
+      "title": "O Chão É Lança",
+      "why": "A passiva da Kalista, Postura Marcial, faz ela dar um pequeno salto a cada ataque, e o texto do próprio Perfurar chama esse salto de dash. Abalos Sísmicos faz todo dash deixar um rastro que explode depois de 0,75 segundo, mas com a Kalista à distância esses rastros ficam a um alcance de ataque inteiro de qualquer um. Saque sua Espada resolve isso: ela vira corpo a corpo e, pelo alcance perdido, ganha Dano de Ataque, Vida, Velocidade de Ataque, Roubo de Vida e Velocidade de Movimento, e agora cada pulo puxa o rastro direto por dentro do inimigo que ela está batendo. Corrida das Sombras dá 300 de Velocidade de Movimento por 2 segundos depois de cada dash e Seguro e Veloz adiciona um Escudo depois dele, então quem pula a cada ataque continua rápida e protegida no meio da luta. A Lâmina da Fúria de Guinsoo acumula Velocidade de Ataque a cada ataque, o que significa mais ataques, mais saltos e mais rastros explosivos, transformando a atiradora da retaguarda numa skirmisher corpo a corpo que vence por onde pisa.",
+      "play": "Entre no corpo a corpo e dê um comando de movimento durante cada ataque para que cada salto atravesse o inimigo e deixe um rastro embaixo dele. Pule de lado pelo meio do grupo em vez de se afastar dele, e use Dilacerar para desacelerar quem tentar fugir.",
       "augments": [
-        "Seus custos de Mana dobram. As Curas, os Escudos e o dano das suas habilidades ficam mais eficazes.",
-        "Ganhe uma parte do Mana que você gasta como Escudo por 1.5 segundo. Escudos de até",
-        "Ganhe Força Adaptativa por 3 segundos ao ganhar um Escudo (5 segundos de recarga).",
-        "Ganhe a Alma do Oceano, que concede alta Regeneração de Vida e de Mana após causar dano a inimigos."
+        "Você agora é corpo a corpo. Ganhe 24% de Dano de Ataque, 24% de Vida, 20% de Velocidade de Ataque, 20% de Roubo de Vida e 20% de Velocidade de Movimento (cada um ainda aumentado com base no Alcance de Ataque perdido).",
+        "Suas habilidades de avanço, salto ou teleporte deixam um rastro que explode após 0,75 segundo.",
+        "Depois de usar uma habilidade de Avanço, Salto ou Teleporte ou sair da Furtividade, ganhe 300 de Velocidade de Movimento por 2 segundos.",
+        "Ganhe um Escudo por 2 segundos depois de um Dash ou Blink (5 segundos de Tempo de Recarga)."
       ]
     },
     "ro": {
-      "title": "Protecție la descoperit de cont",
-      "why": "Furtuna glaciară este o abilitate cu comutator care îi scade Mana Aniviei în fiecare secundă cât rămâne pornită, un cost continuu la care nimeni nu se gândește în afară de a o opri înainte să rămână fără mană, iar build-ul ăsta face din această factură tot rostul. Scutul albastru îi dă o parte din fiecare punct de Mană cheltuit sub formă de Scut timp de 1.5 secunde, așa că o furtună care o drenează în fiecare secundă o și re-scutește în fiecare secundă, iar Revărsarea îi dublează toate costurile de Mană, ceea ce dublează Mana care alimentează Scutul albastru din aceeași furtună, făcând totodată și daunele furtunii mai eficiente. Scutul strașnic oferă Forță adaptivă ori de câte ori primește un Scut, pe care furtuna ce pulsează îl rearmează imediat ce se termină timpul de reîncărcare, iar Sufletul Dragonului oceanelor oferă regenerare de Sănătate și Mană după ce lovește inamici, lucru pe care furtuna îl face non-stop, deci drenarea dublată se tot umple la loc. Sceptrul străvechi dă înapoi Mană când campionii o lovesc și o vindecă cu 25% din Mana cheltuită, pe care Revărsarea tocmai a dublat-o. Îmbrățișarea serafimului și Nocivitatea adaugă Mană de ars, Nocivitatea pârjolește în plus pământul de sub toți cei loviți de furtună, iar Înfățișarea sufletului face fiecare scut și vindecare asupra ei cu 25% mai mare. Magiciana fragilă de artilerie devine un tanc din prima linie, care intră în echipa inamică, pornește furtuna și pur și simplu stă în ea, cu Renașterea ca plan de rezervă pentru când banca se închide în sfârșit.",
-      "play": "Construiește întâi Mană, apoi intră în luptă, pornește Furtuna glaciară și rămâi în ea ca drenarea să te re-scuteze în fiecare secundă. Oprește furtuna doar când ești cu adevărat fără Mană și lasă oul să se ocupe de restul.",
+      "title": "Podeaua e lance",
+      "why": "Pasivul Kalistei, Echilibru marțial, o face să se arunce puțin înainte la fiecare atac, iar textul propriului ei Străpungere numește asta dash. Cutremur face ca fiecare dash să lase o dâră care explodează după 0,75 secunde, dar la o Kalista cu rază dâra rămâne la o rază de atac întreagă de oricine. Scoate-ți sabia rezolvă asta: devine corp la corp și primește Atac fizic, Viață, Viteză de atac, Furt de viață și Viteză de mișcare pentru raza pierdută, iar acum fiecare săritură trage dâra direct prin inamicul pe care îl lovește. Alergătorul umbrei dă 300 Viteză de mișcare timp de 2 secunde după fiecare dash, iar Iute și sigur adaugă un Scut după el, așa că o campioană care sare la fiecare atac rămâne rapidă și protejată în mijlocul luptei. Spada furiei lui Guinsoo adună Viteză de atac la fiecare Atac, adică mai multe atacuri, mai multe salturi și mai multe dâre explozive, transformând trăgătoarea din backline într-o skirmisher corp la corp care câștigă prin locul în care calcă.",
+      "play": "Intră în corp la corp și dă o comandă de mișcare în timpul fiecărui atac, ca fiecare săritură să treacă prin inamic și să lase o dâră sub el. Sari lateral prin grup, nu departe de el, și folosește Sfâșiere ca să încetinești pe oricine încearcă să fugă.",
       "augments": [
-        "Costurile tale de Mană se dublează. Vindecările, Scuturile și daunele abilităților tale sunt mai eficiente.",
-        "Primești din Mana cheltuită sub formă de Scut timp de 1.5 secunde. Scut de până la",
-        "Primești Forță adaptivă timp de 3 secunde când primești un Scut (5 secunde timp de reîncărcare).",
-        "Primești Sufletul Dragonului oceanelor, care oferă regenerare mare de Sănătate și Mană după ce lovești inamici."
+        "Acum ești corp la corp. Primești 24% Putere de atac, 24% viață, 20% viteză de atac, 20% vampirism și 20% viteză de mișcare (fiecare crescută în plus în funcție de raza de atac pierdută).",
+        "Abilitățile tale de salt, teleportare scurtă sau teleportare lasă în urmă o dâră care explodează după 0,75 secunde.",
+        "După ce folosești o abilitate de salt, teleportare scurtă sau teleportare ori ieși din camuflaj, primești 300 viteză de mișcare timp de 2 secunde.",
+        "Primești un Scut timp de 2 secunde după un Dash sau Blink (Cooldown de 5 secunde)."
       ]
     },
     "ru": {
-      "title": "Овердрафт-защита",
-      "why": "Ледяной шторм у Анивии — это переключаемая способность, которая каждую секунду списывает Ману, пока включена. Обычно об этой плате никто не думает, кроме как выключить шторм до того, как Мана кончится, а в этой сборке вся суть как раз в ней. Синий щит превращает долю каждой потраченной Маны в Щит на 1.5 секунды, так что шторм, который сливает её каждую секунду, и щитует её каждую секунду. Переполнение удваивает все её траты Маны, а значит удваивает Ману для Синего щита от того же самого шторма и усиливает урон шторма. Могучий щит даёт Адаптивную силу, когда она получает Щит, и тикающий шторм заряжает его заново, как только он откатился, а Морская душа даёт регенерацию Здоровья и Маны после нанесения урона врагам, чем шторм занимается без остановки, так что удвоенный слив постоянно восполняется. Жезл веков возвращает Ману, когда по ней бьют чемпионы, и лечит её на 25% от потраченной Маны, которую Переполнение только что удвоило. Объятья серафима и Пагубность добавляют Маны на сжигание, Пагубность вдобавок поджигает землю под каждым, кого задел шторм, а Облачение духов делает каждый щит и лечение на ней на 25% сильнее. Хрупкий маг-артиллерист превращается в танка с передовой: заходит в толпу врагов, включает шторм и просто стоит в нём, а Возрождение — запасной план на случай, когда банк наконец закроется.",
-      "play": "Сначала собери Ману, потом иди в замес, включи Ледяной шторм и стой внутри, чтобы слив каждую секунду щитовал тебя заново. Выключай шторм, только когда Мана реально на нуле, а дальше пусть разбирается яйцо.",
+      "title": "Пол — это копья",
+      "why": "Пассивка Калисты, Боевая стойка, заставляет её делать короткий рывок при каждой атаке, а в описании её же Прокалывания этот рывок назван дэшем. Борозда оставляет после каждого дэша след, который взрывается через 0,75 секунды, но у дальнобойной Калисты эти следы лежат на целую дальность атаки от врагов. Меч к бою решает проблему: она становится ближницей, получает Силу атаки, Здоровье, Скорость атаки, Вампиризм и Скорость движения за потерянную дальность, и теперь каждый прыжок проводит след прямо через цель, которую она бьёт. Бег в тени даёт 300 Скорости движения на 2 секунды после каждого дэша, а Стремительность и безопасность добавляет Щит, так что чемпионка, прыгающая с каждой атакой, остаётся быстрой и защищённой посреди драки. Клинок ярости Гинсу копит Скорость атаки с каждой Атакой — а значит, больше атак, больше рывков и больше взрывающихся следов, и стрелок из тыла превращается в ближнего скирмишера, который побеждает тем, куда ступает.",
+      "play": "Лезь в ближний бой и отдавай команду движения во время каждой атаки, чтобы каждый рывок пересекал врага и оставлял под ним след. Прыгай вбок через группу, а не прочь от неё, и используй Разрыв, чтобы замедлить тех, кто пытается уйти.",
       "augments": [
-        "Твои затраты Маны удваиваются. Исцеление, Щиты и урон от твоих способностей становятся эффективнее.",
-        "Получай от потраченной Маны в виде Щита на 1.5 секунды. Щит до",
-        "Получай Адаптивную силу на 3 секунды, когда получаешь Щит (перезарядка 5 секунд).",
-        "Получи Морскую душу: мощная регенерация Здоровья и Маны после нанесения урона врагам."
+        "Теперь вы боец ближнего боя. Вы получаете 24% силы атаки, 24% здоровья, 20% скорости атаки, 20% вампиризма и 20% скорости передвижения (каждый бонус дополнительно растёт в зависимости от потерянной дальности атаки).",
+        "Ваши умения с рывком, скачком или телепортацией оставляют след, который взрывается через 0,75 секунды.",
+        "После применения умения с рывком, скачком или телепортацией или выхода из невидимости вы получаете 300 скорости передвижения на 2 секунды.",
+        "Получите Щит на 2 секунды после Рывка или Блинка (перезарядка 5 секунд)."
       ]
     },
     "th": {
-      "title": "ป้องกันเงินเกินบัญชี",
-      "why": "Glacial Storm เป็นสกิลแบบเปิด/ปิดที่หักมานาของ Anivia ทุกวินาทีที่เปิดไว้ เป็นต้นทุนที่ไม่มีใครสนใจนอกจากปิดมันก่อนมานาจะหมด แต่บิลด์นี้ทำให้บิลนั้นกลายเป็นหัวใจหลักเลย Blue Barrier แปลงมานาที่เธอใช้ทุกแต้มส่วนหนึ่งเป็นโล่นาน 1.5 วินาที พายุที่ดูดมานาทุกวินาทีจึงสร้างโล่ใหม่ให้ทุกวินาที ส่วน Overflow ทำให้ค่ามานาทั้งหมดของเธอเพิ่มเป็นสองเท่า มานาที่ไหลเข้า Blue Barrier จากพายุลูกเดียวกันก็เพิ่มเป็นสองเท่า แถมดาเมจของพายุยังแรงขึ้นด้วย Mighty Shield ให้ Adaptive Force ทุกครั้งที่เธอได้โล่ และพายุก็ทริกเกอร์มันใหม่ทันทีที่คูลดาวน์จบ Ocean Soul ให้การฟื้นฟูเลือดและมานาสูงหลังทำดาเมจศัตรู ซึ่งพายุทำไม่หยุด มานาที่ถูกดูดสองเท่าจึงถูกเติมกลับมาเรื่อย ๆ Rod of Ages คืนมานาเมื่อถูกแชมเปียนโจมตีและฮีลเธอ 25% ของมานาที่ใช้ ซึ่ง Overflow เพิ่งทำให้เป็นสองเท่า Seraph's Embrace กับ Malignance เติมมานาให้เผาเพิ่ม Malignance ยังเผาพื้นใต้เท้าทุกคนที่โดนพายุ และ Spirit Visage ทำให้โล่และฮีลทุกอย่างบนตัวเธอแรงขึ้น 25% จากนักเวทปืนใหญ่ที่เปราะบางกลายเป็นแทงค์แนวหน้าที่เดินเข้าทีมศัตรู เปิดพายุแล้วยืนอยู่ในนั้นเฉย ๆ โดยมี Rebirth เป็นแผนสำรองตอนที่ธนาคารปิดตัวลงในที่สุด",
-      "play": "สร้างมานาก่อน แล้วเดินเข้าไปปะทะ เปิด Glacial Storm แล้วอยู่ในนั้นเลย เพื่อให้การดูดมานาทุกวินาทีสร้างโล่ใหม่ให้คุณ ปิดพายุก็ต่อเมื่อมานาหมดจริง ๆ เท่านั้น ที่เหลือปล่อยให้ไข่จัดการ",
+      "title": "พื้นนี้มีแต่หอก",
+      "why": " passive ของ Kalista ที่ชื่อ Martial Poise ทำให้เธอพุ่งไปข้างหน้าเล็กน้อยทุกครั้งที่โจมตี และข้อความของ Pierce เองก็เรียกการพุ่งนี้ว่า dash Earthwake ทำให้ทุก dash ทิ้งรอยที่ระเบิดหลังจาก 0.75 วินาที แต่ถ้า Kalista ตีระยะไกล รอยพวกนั้นจะอยู่ห่างจากศัตรูเต็มระยะโจมตี Draw Your Sword แก้ปัญหานี้ เธอกลายเป็นสายประชิด และได้ Attack Damage, Health, Attack Speed, Lifesteal และ Move Speed ชดเชยระยะที่เสียไป ตอนนี้ทุกการกระโดดจะลากรอยผ่านตัวศัตรูที่กำลังตีอยู่เลย Shadow Runner ให้ Movement Speed 300 เป็นเวลา 2 วินาทีหลังทุก dash และ Swift and Safe เพิ่ม Shield หลัง dash ทำให้แชมป์ที่กระโดดทุกครั้งที่ตียังคงเร็วและมีเกราะป้องกันกลางวงต่อสู้ Guinsoo's Rageblade สะสม Attack Speed ทุกครั้งที่โจมตี แปลว่าโจมตีมากขึ้น พุ่งมากขึ้น และรอยระเบิดมากขึ้น เปลี่ยนมาร์คแมนแบ็กไลน์ให้เป็นสกิร์มิชเชอร์สายประชิดที่ชนะด้วยตำแหน่งที่ก้าวไป",
+      "play": "เดินเข้าไปประชิดแล้วสั่งเดินระหว่างการโจมตีทุกครั้ง เพื่อให้ทุกการพุ่งทะลุศัตรูและทิ้งรอยไว้ใต้ตัวมัน กระโดดข้างผ่านกลุ่มศัตรูแทนที่จะถอยหนี และใช้ Rend สโลว์คนที่พยายามหนี",
       "augments": [
-        "ค่ามานาของคุณเพิ่มเป็นสองเท่า การฮีล โล่ และดาเมจจากสกิลของคุณมีประสิทธิภาพมากขึ้น",
-        "ได้รับส่วนหนึ่งของมานาที่คุณใช้เป็นโล่นาน 1.5 วินาที โล่สูงสุด",
-        "ได้รับ Adaptive Force นาน 3 วินาทีเมื่อคุณได้รับโล่ (คูลดาวน์ 5 วินาที)",
-        "ได้รับ Ocean Soul ที่ให้การฟื้นฟูเลือดและมานาสูงหลังทำดาเมจศัตรู"
+        "ตอนนี้คุณเป็นสายประชิด ได้รับพลังโจมตี 24% เลือด 24% ความเร็วโจมตี 20% ดูดเลือด 20% และความเร็วเคลื่อนที่ 20% (แต่ละอย่างเพิ่มขึ้นอีกตามระยะโจมตีที่เสียไป)",
+        "สกิล Dash, Blink หรือ Teleport ของคุณจะทิ้งรอยที่ระเบิดหลังผ่านไป 0.75 วินาที",
+        "หลังใช้สกิล Dash, Blink หรือ Teleport หรือออกจากการล่องหน จะได้รับ Move Speed 300 เป็นเวลา 2 วินาที",
+        "รับ Shield เป็นเวลา 2 วินาทีหลังใช้ Dash หรือ Blink (Cooldown 5 วินาที)"
       ]
     },
     "tr": {
-      "title": "Hesap Koruması",
-      "why": "Anivia'nın Buzul Fırtınası, açık kaldığı her saniye Mana çeken bir aç-kapa yeteneğidir. Mana bitmeden kapatmaktan öte kimsenin düşünmediği sürekli bir maliyettir ve bu build o faturayı her şeyin merkezine koyuyor. Mavi Bariyer, harcadığı her Mana puanının bir kısmını 1.5 saniyeliğine Kalkan olarak verir; yani onu her saniye kurutan fırtına, onu her saniye yeniden kalkanlar. Taşkın tüm Mana maliyetlerini ikiye katlar, bu da aynı fırtınadan Mavi Bariyer'i besleyen Mana'yı ikiye katlarken fırtınanın hasarını da daha etkili yapar. Kudretli Kalkan, ne zaman Kalkan kazansa Uyarlanabilir Güç verir; tıkır tıkır işleyen fırtına bunu bekleme süresi biter bitmez yeniden kurar. Okyanus Ruhu ise düşmanlara hasar verdikten sonra Can ve Mana Yenilenmesi verir, fırtına bunu durmadan yapar, böylece ikiye katlanan kayıp sürekli geri dolar. Asırlık Sopa, şampiyonlar ona vurduğunda Mana geri verir ve harcadığı Mana'nın %25'i kadar iyileştirir; Taşkın bunu az önce ikiye katladı. Seraph'ın Şefkati ve Habaset yakacak Mana ekler, Habaset ayrıca fırtınasının vurduğu herkesin altındaki zemini kavurur, Ruh Gömleği de üzerindeki her kalkanı ve iyileştirmeyi %25 daha büyük yapar. Kırılgan topçu büyücü, düşman takımının içine yürüyen, fırtınasını açıp öylece içinde duran bir ön saf tankına dönüşür; banka sonunda kapandığında yedek plan ise Yeniden Doğuş.",
-      "play": "Önce Mana yap, sonra savaşa dal, Buzul Fırtınası'nı aç ve içinde kal ki kayıp seni her saniye yeniden kalkanlasın. Fırtınayı ancak gerçekten Mana'n bittiğinde kapat, gerisini yumurtaya bırak.",
+      "title": "Zemin Mızrak Dolu",
+      "why": "Kalista'nın pasifi Dövüşçü Duruşu, her saldırı başlattığında onu kısa bir mesafe öne atılmasını sağlar ve kendi Delme yeteneğinin metni bu atılmaya dash der. Toprağın Uyanışı her dash'in arkasında 0,75 saniye sonra patlayan bir iz bırakmasını sağlar, ama menzilli Kalista'da bu izler kimseye tam bir saldırı menzili kadar uzakta kalır. Çek Kılıcını! bunu çözer: yakın dövüşçü olur, kaybettiği menzil karşılığında Saldırı Gücü, Can, Saldırı Hızı, Can Çalma ve Hareket Hızı kazanır ve artık her sıçrama izi doğrudan vurduğu düşmanın içinden geçirir. Gölge Koşucu her dash'ten sonra 2 saniye boyunca 300 Hareket Hızı verir, Çevik ve Dayanıklı ise sonrasında Kalkan ekler; böylece her saldırıda sıçrayan şampiyon dövüşün ortasında hızlı ve korumalı kalır. Guinsoo'nun Hiddeti her Saldırıda Saldırı Hızı biriktirir, yani daha çok saldırı, daha çok atılma ve daha çok patlayan iz demek; arka hat nişancısı, bastığı yerle kazanan yakın dövüş bir akıncıya dönüşür.",
+      "play": "Yakın dövüşe gir ve her saldırı sırasında hareket komutu ver; böylece her atılma düşmanı geçip altına bir iz bıraksın. Gruptan uzaklaşmak yerine yan yana sıçrayarak içinden geç ve kaçmaya çalışanları yavaşlatmak için Parçalama'yı kullan.",
       "augments": [
-        "Mana maliyetlerin ikiye katlanır. Yeteneklerinin İyileştirmeleri, Kalkanları ve hasarı daha etkili olur.",
-        "Harcadığın Mana'nın bir kısmını 1.5 saniyeliğine Kalkan olarak kazanırsın. Kalkan en fazla",
-        "Kalkan kazandığında 3 saniyeliğine Uyarlanabilir Güç kazanırsın (5 saniye Bekleme Süresi).",
-        "Düşmanlara hasar verdikten sonra yüksek Can ve Mana Yenilenmesi veren Okyanus Ruhu'nu kazanırsın."
+        "Artık yakın dövüşçüsün. %24 Saldırı Hasarı, %24 Can, %20 Saldırı Hızı, %20 Can Çalma ve %20 Hareket Hızı kazanırsın (her biri kaybedilen Saldırı Menziline göre ayrıca artar).",
+        "Atılma, ışınlanma veya teleport yeteneklerin arkanda 0,75 saniye sonra patlayan bir iz bırakır.",
+        "Atılma, Işınlanma veya Teleport yeteneği kullandıktan ya da Gizlilikten çıktıktan sonra 2 saniyeliğine 300 Hareket Hızı kazanırsın.",
+        "Bir Dash veya Blink sonrası 2 saniye boyunca Kalkan kazan (5 saniye Bekleme Süresi)."
       ]
     },
     "vi": {
-      "title": "Bảo Hiểm Thấu Chi",
-      "why": "Glacial Storm là chiêu bật/tắt, cứ bật là tốn Năng Lượng của Anivia mỗi giây, một khoản phí duy trì mà chẳng ai để ý ngoài việc tắt đi trước khi cạn mana, và bản build này biến hóa đơn đó thành trọng tâm. Kết Giới Lam biến một phần mỗi điểm Năng Lượng cô tiêu thành Lá Chắn trong 1.5 giây, nên cơn bão hút mana mỗi giây sẽ tạo lại lá chắn mỗi giây; Tràn Trề nhân đôi toàn bộ chi phí Năng Lượng của cô, nghĩa là lượng mana đổ vào Kết Giới Lam từ chính cơn bão đó cũng gấp đôi, đồng thời sát thương của bão cũng hiệu quả hơn. Lá Chắn Hùng Mạnh cho Sức Mạnh Thích Ứng mỗi khi cô nhận Lá Chắn, và cơn bão sẽ kích hoạt lại ngay khi hết thời gian hồi; Linh Hồn Rồng Nước cho Hồi Máu và Hồi Năng Lượng cao sau khi gây sát thương lên kẻ địch, mà cơn bão thì gây sát thương không ngừng nghỉ, nên lượng mana bị hút gấp đôi vẫn liên tục được bù lại. Trượng Trường Sinh hoàn lại Năng Lượng khi cô bị tướng đánh trúng và hồi máu bằng 25% lượng Năng Lượng cô tiêu, mà lượng đó vừa được Tràn Trề nhân đôi; Quyền Trượng Đại Thiên Sứ và Hỏa Khuẩn chất thêm mana để đốt, Hỏa Khuẩn còn thiêu cháy mặt đất dưới chân mọi kẻ trúng bão, và Giáp Tâm Linh khiến mọi lá chắn và hồi máu lên cô mạnh hơn 25%. Pháp sư pháo đài mỏng manh hóa thành tanker tiên phong, cứ thế bước vào đội địch, bật bão rồi đứng yên trong đó, còn Rebirth là phương án dự phòng khi ngân hàng cuối cùng cũng đóng cửa.",
-      "play": "Lên đồ mana trước, rồi lao vào giao tranh, bật Glacial Storm và ở lại trong đó để mỗi giây lượng mana bị hút lại tạo lá chắn cho bạn. Chỉ tắt bão khi bạn thật sự hết mana, phần còn lại cứ để quả trứng lo.",
+      "title": "Sàn Nhà Toàn Giáo",
+      "why": "Nội tại của Kalista, Tư Thế Võ Sĩ, cho cô lao nhẹ về phía trước mỗi lần tung đòn đánh, và chính mô tả Xuyên Thấu của cô gọi cú lao đó là dash. Chấn Động khiến mỗi dash để lại một vệt nổ sau 0,75 giây, nhưng với Kalista đánh xa thì vệt này nằm cách địch đúng một tầm đánh. Rút Kiếm Ra giải quyết chuyện đó: cô thành cận chiến, được bù Sát Thương, Máu, Tốc Độ Đánh, Hút Máu và Tốc Độ Di Chuyển cho phần tầm đánh đã mất, và giờ mỗi cú nhảy kéo vệt thẳng qua đúng tên địch đang bị đánh. Bóng Đen Tốc Độ cho 300 Tốc Độ Di Chuyển trong 2 giây sau mỗi dash, còn Nhanh & An Toàn thêm Khiên sau đó, nên tướng nhảy theo từng đòn đánh vẫn nhanh và được bảo vệ giữa giao tranh. Cuồng Đao Guinsoo cộng dồn Tốc Độ Đánh mỗi đòn đánh, nghĩa là đánh nhiều hơn, lao nhiều hơn và nhiều vệt nổ hơn, biến xạ thủ hàng sau thành đấu sĩ cận chiến thắng nhờ vị trí mình bước tới.",
+      "play": "Lao vào cận chiến và ra lệnh di chuyển trong mỗi đòn đánh để mỗi cú lao xuyên qua địch và để vệt dưới chân chúng. Nhảy ngang qua cả nhóm thay vì chạy ra xa, và dùng Xé Toạc để làm chậm ai định bỏ chạy.",
       "augments": [
-        "Chi phí Năng Lượng của bạn tăng gấp đôi. Hồi máu, Lá Chắn và sát thương từ chiêu thức của bạn hiệu quả hơn.",
-        "Nhận một phần Năng Lượng bạn tiêu dưới dạng Lá Chắn trong 1.5 giây. Lá Chắn tối đa",
-        "Nhận Sức Mạnh Thích Ứng trong 3 giây khi bạn nhận Lá Chắn (thời gian hồi 5 giây).",
-        "Nhận Linh Hồn Rồng Nước, cho Hồi Máu và Hồi Năng Lượng cao sau khi gây sát thương lên kẻ địch."
+        "Bạn giờ là cận chiến. Nhận 24% Sát Thương, 24% Máu, 20% Tốc Độ Đánh, 20% Hút Máu và 20% Tốc Độ Di Chuyển (mỗi chỉ số còn tăng thêm theo Tầm Đánh bị mất).",
+        "Các kỹ năng lướt, dịch chuyển tức thời hoặc dịch chuyển của bạn để lại một vệt phát nổ sau 0,75 giây.",
+        "Sau khi dùng kỹ năng Lướt, Dịch Chuyển Tức Thời hoặc Dịch Chuyển hoặc thoát khỏi Tàng Hình, nhận 300 Tốc độ Di chuyển trong 2 giây.",
+        "Nhận Khiên trong 2 giây sau khi Dash hoặc Blink (Hồi chiêu 5 giây)."
       ]
     },
     "zh-CN": {
-      "title": "透支保护",
-      "why": "暴风雪是个开启后每秒都要消耗冰晶凤凰法力值的开关技能,大家平时只会在她蓝空之前记得关掉,这套build却把这笔账单当成了核心。蓝色屏障会把她每消耗1点法力值的一部分转化为持续1.5秒的护盾,所以每秒吸蓝的暴风雪就会每秒重新给她套盾;溢流让她所有法力消耗翻倍,于是同一场暴风雪流进蓝色屏障的法力也翻倍,暴风雪的伤害也变得更强。强力护盾会在她获得护盾时提供适应之力,暴风雪冷却一结束就会再次触发;海洋龙魂会在造成伤害后提供大量生命回复和法力回复,而暴风雪一直在打伤害,翻倍的消耗就一直有补给。时光之杖会在被英雄命中时返还法力值,并按她消耗法力值的25%为她回血,而这些法力刚刚被溢流翻倍;炽天使之拥和残疫再堆一波可以烧的法力,残疫还会灼烧被暴风雪命中的所有人脚下的地面,振奋盔甲让她身上的所有护盾和治疗效果提升25%。脆皮炮台法师摇身一变成了前排坦克,走进敌人堆里,开启暴风雪,往里面一站就行,而重生是银行倒闭时的后路。",
-      "play": "先出法力装,然后冲进团战,开启暴风雪并待在里面,这样每秒的消耗会一直给你重新套盾。只有真的蓝空了才关掉暴风雪,剩下的交给蛋。",
+      "title": "地板是长矛",
+      "why": "复仇之矛的被动「战斗姿态」让她每次出手攻击都会向前突进一小段，而她自己的「贯穿」技能描述里也把这段突进叫作位移。「大地苏醒」让每次位移都留下一道0.75秒后引爆的轨迹，但远程复仇之矛的轨迹离敌人整整隔着一个攻击距离。「亮出你的剑」解决了这个问题：她变成近战，为损失的射程换来攻击力、生命值、攻击速度、生命偷取和移动速度，现在每次跳跃的轨迹都直接穿过她正在打的敌人。「暗影疾奔」在每次位移后提供2秒300点移动速度，「快中求稳」则在位移后附加护盾，每次攻击都在跳的英雄在团战中又快又肉。「鬼索的狂暴之刃」每次攻击叠加攻击速度，意味着更多攻击、更多突进、更多爆炸轨迹，把后排射手变成靠走位取胜的近战游击手。",
+      "play": "冲进近战，每次攻击时都下达一次移动指令，让每次突进都穿过敌人并在其脚下留下轨迹。要横向跳穿人群，而不是往外跳，并用「撕裂」减速想逃跑的人。",
       "augments": [
-        "你的法力消耗翻倍。你的技能治疗、护盾和伤害更强。",
-        "获得你所消耗法力值的一部分,转化为持续1.5秒的护盾。护盾最多",
-        "获得护盾时,获得3秒适应之力(冷却时间5秒)。",
-        "获得海洋龙魂,在对敌人造成伤害后获得大量生命回复和法力回复。"
+        "你现在是近战。获得24%攻击力、24%生命值、20%攻击速度、20%生命偷取和20%移动速度（每一项还会根据损失的攻击距离进一步提升）。",
+        "你的冲刺、闪烁或传送类技能会留下一条轨迹，在0.75秒后引爆。",
+        "使用冲刺、闪烁或传送类技能或脱离隐身后，获得300移动速度，持续2秒。",
+        "位移或闪现后获得2秒护盾（5秒冷却时间）。"
       ]
     },
     "zh-TW": {
-      "title": "透支保護",
-      "why": "暴風雪是個開啟後每秒都要消耗艾妮維亞法力的切換技能,大家平常只會在她魔力見底前記得關掉,但這套配裝卻把這筆帳單當成了重點。藍色屏障會把她每消耗1點法力的一部分轉換成持續1.5秒的護盾,所以每秒吸魔的暴風雪就會每秒幫她重新上盾;溢流讓她所有法力消耗翻倍,於是同一場暴風雪流進藍色屏障的法力也翻倍,暴風雪的傷害也變得更強。巨大盾牌會在她獲得護盾時給予適應之力,暴風雪冷卻一結束就會再次觸發;海洋之魂會在造成傷害後給予大量生命與法力回復,而暴風雪一直在打傷害,翻倍的消耗就一直有補給。時光之杖會在被英雄擊中時回復法力,並依她消耗法力的25%為她回血,而這些法力剛被溢流翻倍;熾天使的擁抱和惡意再多堆一波可以燒的法力,惡意還會灼燒被暴風雪打到的所有人腳下的地面,振奮盔甲讓她身上所有護盾與治療效果提升25%。脆皮砲台法師搖身一變成了前排坦克,走進敵隊裡,開啟暴風雪,往裡面一站就好,而重生則是銀行倒閉時的後路。",
-      "play": "先出法力裝,然後衝進團戰,開啟暴風雪並待在裡面,這樣每秒的消耗會一直幫你重新上盾。只有真的沒魔了才關掉暴風雪,剩下的交給蛋。",
+      "title": "地板是長矛",
+      "why": "克黎思妲的被動「戰鬥姿態」讓她每次出手攻擊都會向前突進一小段，而她自己的「穿刺」技能說明也把這段突進稱為位移。「大地覺醒」讓每次位移都留下一道0.75秒後引爆的軌跡，但遠程克黎思妲的軌跡離敵人整整隔著一個攻擊距離。「拔劍吧」解決了這個問題：她變成近戰，為損失的射程換來攻擊力、生命值、攻擊速度、生命偷取和移動速度，現在每次跳躍的軌跡都直接穿過她正在打的敵人。「飛影跑法」在每次位移後提供2秒300點移動速度，「又快又穩」則在位移後附加護盾，每次攻擊都在跳的英雄在團戰中又快又肉。「鬼索的狂暴之刃」每次攻擊疊加攻擊速度，代表更多攻擊、更多突進、更多爆炸軌跡，把後排射手變成靠走位取勝的近戰游擊手。",
+      "play": "衝進近戰，每次攻擊時都下達一次移動指令，讓每次突進都穿過敵人並在其腳下留下軌跡。要橫向跳穿人群，而不是往外跳，並用「撕裂」減速想逃跑的人。",
       "augments": [
-        "你的法力消耗翻倍。你的技能治療、護盾與傷害更強。",
-        "獲得你所消耗法力的一部分,轉換成持續1.5秒的護盾。護盾最多",
-        "獲得護盾時,獲得3秒適應之力(冷卻時間5秒)。",
-        "獲得海洋之魂,在對敵人造成傷害後獲得大量生命與法力回復。"
+        "你現在是近戰。獲得24%物理攻擊、24%生命值、20%攻擊速度、20%生命偷取和20%移動速度（每一項還會根據損失的攻擊距離進一步提升）。",
+        "你的衝刺、閃現或傳送類技能會留下一道軌跡，在0.75秒後引爆。",
+        "使用衝刺、閃現或傳送類技能或脫離隱形後，獲得300跑速，持續2秒。",
+        "位移或閃現後獲得2秒護盾（5秒冷卻時間）。"
       ]
     }
   }

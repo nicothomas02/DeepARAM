@@ -1,0 +1,22 @@
+{
+ "Builds and combos that look great on paper but don't hold up in real games. Check here before you try a theorycraft build.": "理論上は強そうでも実戦では通用しないビルドやコンボ。理論ビルドを試す前にここで確認しましょう。",
+ "Interactions that might be broken. Each one says what should happen on paper and how to test it in a game. If it really is broken, report it to Riot from the client so it gets fixed.": "バグっているかもしれない相互作用。理論上どうなるはずか、ゲーム内でどう試すかをそれぞれ載せています。本当にバグなら、修正されるようクライアントからRiotに報告しましょう。",
+ "Show": "表示",
+ "All": "すべて",
+ "Stat loop": "ステータスループ",
+ "Missing augment": "出ないオーグメント",
+ "Simulator vs real games": "シミュレーターと実戦の差",
+ "Does nothing": "効果なし",
+ "Find a champion or augment": "チャンピオンやオーグメントを検索",
+ "Nothing matches": "該当なし",
+ "No traps found this patch": "このパッチの罠はありません",
+ "Nothing to test this patch": "このパッチで試すものはありません",
+ "Trap": "罠",
+ "Confirmed bug": "確認済みバグ",
+ "Needs a test": "要検証",
+ "Show less": "表示を減らす",
+ "+{n} more": "ほか{n}件",
+ "On paper": "理論上",
+ "In game": "ゲーム内",
+ "How to test": "試し方"
+}

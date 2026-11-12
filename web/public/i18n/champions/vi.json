@@ -202,5 +202,14 @@
  "Changes your build": "Thay đổi lối lên đồ",
  "The best items with this augment differ from your usual build.": "Trang bị tốt nhất với lõi này khác với lối lên đồ quen thuộc của bạn.",
  "Estimated: the augment picks (1st to 4th) where it usually shows up.": "Ước tính: các lượt chọn lõi (thứ 1 đến thứ 4) mà lõi này thường xuất hiện.",
- "Pick {n}": "Lượt {n}"
+ "Pick {n}": "Lượt {n}",
+ "From earlier games: skill orders are not updating right now.": "Từ các trận trước: thứ tự kỹ năng hiện không được cập nhật.",
+ "From the most common full builds, most built items first.": "Từ các lối lên đồ đầy đủ phổ biến nhất, trang bị được lên nhiều nhất đứng trước.",
+ "Few games so far: estimated from earlier games and this patch's changes.": "Hiện còn ít trận: ước tính từ các trận trước và các thay đổi của bản cập nhật này.",
+ "Synergies": "Tương hợp",
+ "What fits this champion": "Điều phù hợp với tướng này",
+ "Score: points of win rate over the usual choice. Choices with few games lean on the estimate.": "Điểm: điểm tỉ lệ thắng so với lựa chọn thường dùng. Lựa chọn ít trận dựa vào ước tính.",
+ "Expected": "Kỳ vọng",
+ "Real": "Thực tế",
+ "Builds with few games lean on the estimate: how much of a rare build's lead usually holds up.": "Lối lên đồ ít trận dựa vào ước tính: phần lợi thế của một lối lên đồ hiếm thường giữ được bao nhiêu."
 }

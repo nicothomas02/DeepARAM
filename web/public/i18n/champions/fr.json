@@ -202,5 +202,14 @@
  "Changes your build": "Change ton build",
  "The best items with this augment differ from your usual build.": "Les meilleurs objets avec cet augment diffèrent de ton build habituel.",
  "Estimated: the augment picks (1st to 4th) where it usually shows up.": "Estimé : les choix d'augment (1er au 4e) où il apparaît le plus souvent.",
- "Pick {n}": "Choix {n}"
+ "Pick {n}": "Choix {n}",
+ "From earlier games: skill orders are not updating right now.": "Parties plus anciennes : l'ordre des compétences n'est pas mis à jour en ce moment.",
+ "From the most common full builds, most built items first.": "D'après les builds complets les plus courants, objets les plus construits en premier.",
+ "Few games so far: estimated from earlier games and this patch's changes.": "Peu de parties pour l'instant : estimation d'après des parties plus anciennes et les changements de ce patch.",
+ "Synergies": "Synergies",
+ "What fits this champion": "Ce qui va avec ce champion",
+ "Score: points of win rate over the usual choice. Choices with few games lean on the estimate.": "Score : points de taux de victoire par rapport au choix habituel. Les choix avec peu de parties s'appuient sur l'estimation.",
+ "Expected": "Attendu",
+ "Real": "Réel",
+ "Builds with few games lean on the estimate: how much of a rare build's lead usually holds up.": "Les builds avec peu de parties s'appuient sur l'estimation : la part de l'avance d'un build rare qui tient d'ordinaire."
 }

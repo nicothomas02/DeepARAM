@@ -1,0 +1,22 @@
+{
+ "Builds and combos that look great on paper but don't hold up in real games. Check here before you try a theorycraft build.": "بنايات وتركيبات تبدو رائعة على الورق لكنها لا تصمد في المباريات الحقيقية. تحقق من هنا قبل تجربة بناء نظري.",
+ "Interactions that might be broken. Each one says what should happen on paper and how to test it in a game. If it really is broken, report it to Riot from the client so it gets fixed.": "تفاعلات قد تكون معطلة. يوضح كل منها ما يجب أن يحدث على الورق وكيف تختبره في مباراة. إذا كان معطلًا فعلًا، أبلغ Riot عنه من العميل ليتم إصلاحه.",
+ "Show": "عرض",
+ "All": "الكل",
+ "Stat loop": "حلقة إحصائيات",
+ "Missing augment": "تعزيز مفقود",
+ "Simulator vs real games": "المحاكي مقابل المباريات الحقيقية",
+ "Does nothing": "لا يفعل شيئًا",
+ "Find a champion or augment": "ابحث عن بطل أو تعزيز",
+ "Nothing matches": "لا نتائج",
+ "No traps found this patch": "لا فخاخ في هذا التحديث",
+ "Nothing to test this patch": "لا شيء لاختباره في هذا التحديث",
+ "Trap": "فخ",
+ "Confirmed bug": "خطأ مؤكد",
+ "Needs a test": "يحتاج اختبارًا",
+ "Show less": "عرض أقل",
+ "+{n} more": "+{n} أخرى",
+ "On paper": "على الورق",
+ "In game": "في المباراة",
+ "How to test": "كيف تختبره"
+}
