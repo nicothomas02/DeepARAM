@@ -41,7 +41,7 @@ const STANDARD: Column[] = [
   TIER,
   NAME,
   DEEP,
-  { key: "win_rate", label: "Win rate", format: "pct" },
+  { key: "win_rate", label: "Win rate", format: "pct", gamesKey: "sample" },
   { key: "pick_rate", label: "Pick rate", format: "pct", phone: "wide" },
 ];
 
@@ -50,7 +50,7 @@ const ADVANCED: Column[] = [
   TIER,
   NAME,
   DEEP,
-  { key: "win_rate", label: "Raw win rate", format: "pct" },
+  { key: "win_rate", label: "Raw win rate", format: "pct", gamesKey: "sample" },
   { key: "pick_rate", label: "Pick rate", format: "pct" },
   {
     key: "score",
@@ -104,6 +104,8 @@ type Props = {
   tags: Record<string, string[]>;
   tagInfo: TagInfo;
   games?: Record<string, number> | null;
+  /** Estimated matches per patch (lib/sample.ts), for each win rate's 95% range. */
+  matches?: Record<string, number>;
   scaling?: Record<string, number>;
   reliance?: Record<string, number>;
 };
@@ -114,6 +116,7 @@ export default function ChampionTiers({
   tags,
   tagInfo,
   games,
+  matches,
   scaling = {},
   reliance = {},
 }: Props) {
@@ -167,7 +170,7 @@ export default function ChampionTiers({
       before && have.has(before)
         ? new Map(champStats(rows, new Set([before])).map((c) => [c.name, c]))
         : null;
-    return champStats(rows, picked).map((c) => {
+    return champStats(rows, picked, matches).map((c) => {
       const was = prev?.get(c.name);
       // tier_was lets the table slide a changed tier in from the previous patch's (DataTable).
       return {
@@ -193,6 +196,7 @@ export default function ChampionTiers({
     tags,
     tagInfo,
     games,
+    matches,
     one,
     live,
     scaling,

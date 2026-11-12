@@ -47,7 +47,8 @@ type Builds = {
   stale?: string[];
   derived?: string[];
 };
-export type Rated = { winRate: number; pickRate: number; lift: number };
+/** games: estimated live-patch games behind winRate (the champion's games × pickRate), for its 95% range. */
+export type Rated = { winRate: number; pickRate: number; lift: number; games?: number };
 export type ItemRow = Rated & {
   items: number[];
   deepScore?: number;
@@ -103,6 +104,7 @@ export type Style = {
   share: number;
   winRate: number;
   lift: number;
+  games?: number;
 };
 
 export type ChampionPage = {
@@ -169,10 +171,12 @@ export function championPage(alias: string): ChampionPage | null {
   const { live } = liveWithChange();
   const rates = new Map(live.map((c) => [c.name, c.win_rate]));
   const base = rates.get(alias) ?? 0.5;
+  const champGames = live.find((c) => c.name === alias)?.sample;
   const rated = (win: number | undefined, pick: number): Rated => ({
     winRate: win ?? 0,
     pickRate: pick,
     lift: (win ?? 0) - base,
+    ...(champGames ? { games: champGames * pick } : {}),
   });
 
   const raw = readRepoJson<Builds>(`data/cn/builds/${id}.json`);
