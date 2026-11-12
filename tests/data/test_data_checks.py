@@ -145,3 +145,13 @@ def test_curated_ids_are_well_formed():
     for e in cur["entries"]:
         assert re.match(r"^(loop|sim|wasted|gap|pool)-", e["id"]), e["id"]
         assert e["status"] in ("trap", "bug", "fine"), e["id"]
+
+
+def test_fun_builds_only_note_unseen_augments():
+    """Chef Specials are for fun (Nico, 2026-11-12): an augment the champion never takes is a note, not a block,
+    while practical builds still block it."""
+    d = tiny({"202": ["skilled_sniper"], "22": ["skilled_sniper"], "86": ["adapt"]})
+    none = {"traps": [], "bugs": []}
+    assert C.check("Garen", ["Skilled Sniper"], d=d, findings=none)[0]["level"] == "block"
+    assert [p["level"] for p in C.check("Garen", ["Skilled Sniper"], d=d, findings=none, fun=True)] == ["note"]
+    assert C.check("Garen", ["Not An Augment"], d=d, findings=none, fun=True)[0]["level"] == "block"

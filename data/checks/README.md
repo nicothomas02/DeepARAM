@@ -26,6 +26,10 @@ melee-only on the wrong champion), an augment not in Mayhem this patch, or a com
 **warn** means post only after looking: a stat loop nobody has tested in game, an augment with no stats yet this
 patch, or an item the Simulator likes that loses in real games.
 
+**Chef Specials are for fun** (Nico, 2026-11-12): they may use augments the champion never takes. Check them
+with `--fun` (and `--chef` / `--kitchen` do this already), which turns those into a **note**; the Chef Specials tab
+says so. Practical builds (synergy finder, community builds) must not use them.
+
 ## Moving a finding
 
 When someone tries a Bug finder entry in game, add its id to `curated.json` with what happened:

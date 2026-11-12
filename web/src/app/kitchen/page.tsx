@@ -13,6 +13,9 @@ import { discoverToolTabs } from "@/lib/tabs";
 // The Kitchen: the daily Chef Special and its archive (/kitchen#chefs-special-YYYY-MM-DD), Infinite Ryze
 // (/kitchen?tab=infinite-ryze), Traps (?tab=traps: builds that work on paper but not in real games) and the Bug
 // finder (?tab=bug-finder: interactions that might be broken, to test in game). Formerly The Lab.
+// Chef Specials are for fun (Nico, 2026-11-12): they may lean on augments players rarely or never get on that champion.
+const FOR_FUN = "Chef Specials are just for fun. Some use augments that rarely or never show up on that champion, so don't count on getting them.";
+
 export const metadata: Metadata = toolMetadata("/kitchen");
 
 export default function KitchenPage() {
@@ -26,7 +29,18 @@ export default function KitchenPage() {
       <SubTabs
         ns="tool-pages"
         tabs={[
-          { id: "chef-specials", label: "Chef Specials", content: <Embed src={`/embed/${tab.slug}/${tab.entry}`} title={tab.label} ownTitle /> },
+          {
+            id: "chef-specials",
+            label: "Chef Specials",
+            content: (
+              <>
+                <p className="subtab-note">
+                  <T ns="tool-pages">{FOR_FUN}</T>
+                </p>
+                <Embed src={`/embed/${tab.slug}/${tab.entry}`} title={tab.label} ownTitle />
+              </>
+            ),
+          },
           {
             id: "infinite-ryze",
             label: "Infinite Ryze",

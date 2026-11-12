@@ -11,8 +11,13 @@ Catches the ways a build can work on paper and fail in the game:
 
 Usage (from the repo root):
     python3 data/checks/check_build.py Jhin "Tickle Monster" "Big Shot" --items "Infinity Edge"
+    python3 data/checks/check_build.py Rammus "Tickle Monster" --fun   # a Chef Special idea
     python3 data/checks/check_build.py --chef            # today's Chef Special
     python3 data/checks/check_build.py --kitchen         # every Kitchen build
+Chef Specials are for fun (Nico, 2026-11-12): with --fun (and always with --chef / --kitchen) an augment the
+champion has never been seen taking is only a "note", since the build may never come together in a real game.
+Practical builds (the synergy finder, community builds) keep it as a block.
+
 Exits 1 when anything blocks. From Python: check(champion, augments, items) -> list of problems.
 """
 
@@ -39,8 +44,10 @@ def _name(x):
     return x["name"] if isinstance(x, dict) else str(x)
 
 
-def check(champion, augments=(), items=(), d=None, findings=None):
-    """Problems with a build: [{"level": "block" | "warn", "message": str}]."""
+def check(champion, augments=(), items=(), d=None, findings=None, fun=False):
+    """Problems with a build: [{"level": "block" | "warn" | "note", "message": str}]. fun=True (Chef Specials)
+    turns "never seen on this champion" into a note."""
+    unseen = "note" if fun else "block"
     if d is None or findings is None:
         d, findings = _state()
     out = []
@@ -55,9 +62,9 @@ def check(champion, augments=(), items=(), d=None, findings=None):
             out.append({"level": "warn", "message": f"There are no stats on {name} yet this patch: check that {champ['name']} can still be offered it."})
         elif why == "range":
             kind = "melee" if champ["ranged"] else "ranged"
-            out.append({"level": "block", "message": f"{name} is only seen on {kind} champions, so {champ['name']} almost certainly can't be offered it."})
+            out.append({"level": unseen, "message": f"{name} is only seen on {kind} champions, so {champ['name']} almost certainly can't be offered it."})
         elif why == "unseen":
-            out.append({"level": "block", "message": f"{champ['name']} has never been seen taking {name}, so it may not be in their augment pool."})
+            out.append({"level": unseen, "message": f"{champ['name']} has never been seen taking {name}, so it may not be in their augment pool."})
     for a in augments:
         k = F.augment_key(d, _name(a))
         if k:
@@ -99,15 +106,16 @@ def main():
     ap.add_argument("--items", nargs="*", default=[])
     ap.add_argument("--chef", action="store_true", help="check today's Chef Special")
     ap.add_argument("--kitchen", action="store_true", help="check every Kitchen build")
+    ap.add_argument("--fun", action="store_true", help="a just-for-fun build (Chef Special): unseen augments are only a note")
     a = ap.parse_args()
     d, _ = _state()
     blocked = False
     if a.chef or a.kitchen:
         builds = [b for b in d["kitchen"] if a.kitchen or b["source"] == "chef"]
         for b in {b["id"]: b for b in builds}.values():
-            blocked |= _report(b["id"], check(b.get("champion_name") or b["champion"], b.get("augments", []), b.get("items", [])))
+            blocked |= _report(b["id"], check(b.get("champion_name") or b["champion"], b.get("augments", []), b.get("items", []), fun=True))
     elif a.champion:
-        blocked = _report(a.champion, check(a.champion, a.augments, a.items))
+        blocked = _report(a.champion, check(a.champion, a.augments, a.items, fun=a.fun))
     else:
         ap.error("give a champion and augments, or --chef / --kitchen")
     sys.exit(1 if blocked else 0)
