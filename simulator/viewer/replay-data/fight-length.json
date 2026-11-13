@@ -3,1561 +3,1561 @@
  "long_seconds": 20,
  "champions": [
   {
-   "champion": "Jinx",
-   "name": "Jinx",
+   "champion": "MissFortune",
+   "name": "Miss Fortune",
    "role": "marksman",
-   "dps_short": 741.9,
-   "dps_long": 873.4,
-   "ratio": 1.177,
-   "edge": 1.281
-  },
-  {
-   "champion": "Draven",
-   "name": "Draven",
-   "role": "marksman",
-   "dps_short": 1118.9,
-   "dps_long": 1218.9,
-   "ratio": 1.089,
-   "edge": 1.11
-  },
-  {
-   "champion": "TwistedFate",
-   "name": "Twisted Fate",
-   "role": "mage",
-   "dps_short": 906.3,
-   "dps_long": 934.1,
-   "ratio": 1.031,
-   "edge": 0.998
-  },
-  {
-   "champion": "Caitlyn",
-   "name": "Caitlyn",
-   "role": "marksman",
-   "dps_short": 1218.5,
-   "dps_long": 1149.7,
-   "ratio": 0.944,
-   "edge": 0.829
-  },
-  {
-   "champion": "Zaahen",
-   "name": "Zaahen",
-   "role": "fighter",
-   "dps_short": 959.7,
-   "dps_long": 889.2,
-   "ratio": 0.927,
+   "dps_short": 625.1,
+   "dps_long": 676.2,
+   "ratio": 1.082,
    "edge": 0.797
-  },
-  {
-   "champion": "Xayah",
-   "name": "Xayah",
-   "role": "marksman",
-   "dps_short": 1012.2,
-   "dps_long": 919.9,
-   "ratio": 0.909,
-   "edge": 0.762
-  },
-  {
-   "champion": "Azir",
-   "name": "Azir",
-   "role": "mage",
-   "dps_short": 1411.6,
-   "dps_long": 1263.9,
-   "ratio": 0.895,
-   "edge": 0.734
-  },
-  {
-   "champion": "Kayle",
-   "name": "Kayle",
-   "role": "marksman",
-   "dps_short": 1050.0,
-   "dps_long": 935.4,
-   "ratio": 0.891,
-   "edge": 0.727
-  },
-  {
-   "champion": "Shyvana",
-   "name": "Shyvana",
-   "role": "fighter",
-   "dps_short": 1500.9,
-   "dps_long": 1301.4,
-   "ratio": 0.867,
-   "edge": 0.68
-  },
-  {
-   "champion": "Ashe",
-   "name": "Ashe",
-   "role": "marksman",
-   "dps_short": 1427.3,
-   "dps_long": 1219.4,
-   "ratio": 0.854,
-   "edge": 0.655
   },
   {
    "champion": "Kaisa",
    "name": "Kai'Sa",
    "role": "marksman",
-   "dps_short": 1245.5,
-   "dps_long": 1052.1,
-   "ratio": 0.845,
-   "edge": 0.638
+   "dps_short": 1224.1,
+   "dps_long": 1160.0,
+   "ratio": 0.948,
+   "edge": 0.575
   },
   {
-   "champion": "Quinn",
-   "name": "Quinn",
+   "champion": "Mel",
+   "name": "Mel",
+   "role": "mage",
+   "dps_short": 711.4,
+   "dps_long": 672.3,
+   "ratio": 0.945,
+   "edge": 0.57
+  },
+  {
+   "champion": "Xayah",
+   "name": "Xayah",
    "role": "marksman",
-   "dps_short": 1326.8,
-   "dps_long": 1115.6,
-   "ratio": 0.841,
-   "edge": 0.63
-  },
-  {
-   "champion": "Corki",
-   "name": "Corki",
-   "role": "marksman",
-   "dps_short": 1049.7,
-   "dps_long": 873.9,
-   "ratio": 0.833,
-   "edge": 0.614
-  },
-  {
-   "champion": "Kalista",
-   "name": "Kalista",
-   "role": "marksman",
-   "dps_short": 1230.4,
-   "dps_long": 1020.6,
-   "ratio": 0.829,
-   "edge": 0.607
-  },
-  {
-   "champion": "Nautilus",
-   "name": "Nautilus",
-   "role": "tank",
-   "dps_short": 1579.9,
-   "dps_long": 1255.8,
-   "ratio": 0.795,
-   "edge": 0.541
+   "dps_short": 927.5,
+   "dps_long": 863.7,
+   "ratio": 0.931,
+   "edge": 0.547
   },
   {
    "champion": "Ivern",
    "name": "Ivern",
    "role": "support",
-   "dps_short": 813.7,
-   "dps_long": 645.7,
-   "ratio": 0.794,
-   "edge": 0.539
+   "dps_short": 583.7,
+   "dps_long": 541.9,
+   "ratio": 0.928,
+   "edge": 0.542
   },
   {
-   "champion": "Vayne",
-   "name": "Vayne",
-   "role": "marksman",
-   "dps_short": 1101.8,
-   "dps_long": 866.1,
-   "ratio": 0.786,
-   "edge": 0.523
-  },
-  {
-   "champion": "Aatrox",
-   "name": "Aatrox",
-   "role": "fighter",
-   "dps_short": 1751.7,
-   "dps_long": 1365.3,
-   "ratio": 0.779,
-   "edge": 0.51
-  },
-  {
-   "champion": "Orianna",
-   "name": "Orianna",
-   "role": "mage",
-   "dps_short": 965.2,
-   "dps_long": 750.8,
-   "ratio": 0.778,
-   "edge": 0.508
-  },
-  {
-   "champion": "Sivir",
-   "name": "Sivir",
-   "role": "marksman",
-   "dps_short": 970.9,
-   "dps_long": 746.7,
-   "ratio": 0.769,
-   "edge": 0.49
-  },
-  {
-   "champion": "Yasuo",
-   "name": "Yasuo",
-   "role": "fighter",
-   "dps_short": 1073.8,
-   "dps_long": 814.3,
-   "ratio": 0.758,
-   "edge": 0.469
-  },
-  {
-   "champion": "Zac",
-   "name": "Zac",
-   "role": "tank",
-   "dps_short": 1505.3,
-   "dps_long": 1139.6,
-   "ratio": 0.757,
-   "edge": 0.467
-  },
-  {
-   "champion": "Olaf",
-   "name": "Olaf",
-   "role": "fighter",
-   "dps_short": 1089.5,
-   "dps_long": 821.4,
-   "ratio": 0.754,
-   "edge": 0.461
-  },
-  {
-   "champion": "Sion",
-   "name": "Sion",
-   "role": "tank",
-   "dps_short": 635.2,
-   "dps_long": 474.9,
-   "ratio": 0.748,
-   "edge": 0.45
-  },
-  {
-   "champion": "Tryndamere",
-   "name": "Tryndamere",
-   "role": "fighter",
-   "dps_short": 1315.7,
-   "dps_long": 981.5,
-   "ratio": 0.746,
-   "edge": 0.446
-  },
-  {
-   "champion": "Milio",
-   "name": "Milio",
+   "champion": "Lulu",
+   "name": "Lulu",
    "role": "support",
-   "dps_short": 934.1,
-   "dps_long": 688.7,
-   "ratio": 0.737,
-   "edge": 0.428
-  },
-  {
-   "champion": "Varus",
-   "name": "Varus",
-   "role": "marksman",
-   "dps_short": 964.0,
-   "dps_long": 704.0,
-   "ratio": 0.73,
-   "edge": 0.415
-  },
-  {
-   "champion": "Katarina",
-   "name": "Katarina",
-   "role": "assassin",
-   "dps_short": 1323.6,
-   "dps_long": 959.1,
-   "ratio": 0.725,
-   "edge": 0.405
-  },
-  {
-   "champion": "Nocturne",
-   "name": "Nocturne",
-   "role": "fighter",
-   "dps_short": 917.1,
-   "dps_long": 661.5,
-   "ratio": 0.721,
-   "edge": 0.397
-  },
-  {
-   "champion": "Yunara",
-   "name": "Yunara",
-   "role": "marksman",
-   "dps_short": 1020.7,
-   "dps_long": 731.3,
-   "ratio": 0.716,
-   "edge": 0.388
-  },
-  {
-   "champion": "Riven",
-   "name": "Riven",
-   "role": "fighter",
-   "dps_short": 1307.0,
-   "dps_long": 934.5,
-   "ratio": 0.715,
-   "edge": 0.386
-  },
-  {
-   "champion": "Udyr",
-   "name": "Udyr",
-   "role": "fighter",
-   "dps_short": 959.6,
-   "dps_long": 682.9,
-   "ratio": 0.712,
-   "edge": 0.38
+   "dps_short": 952.1,
+   "dps_long": 879.9,
+   "ratio": 0.924,
+   "edge": 0.535
   },
   {
    "champion": "Smolder",
    "name": "Smolder",
    "role": "marksman",
-   "dps_short": 1407.7,
-   "dps_long": 992.0,
-   "ratio": 0.705,
-   "edge": 0.366
+   "dps_short": 1078.5,
+   "dps_long": 994.5,
+   "ratio": 0.922,
+   "edge": 0.532
   },
   {
-   "champion": "Anivia",
-   "name": "Anivia",
+   "champion": "Azir",
+   "name": "Azir",
    "role": "mage",
-   "dps_short": 1363.3,
-   "dps_long": 940.6,
-   "ratio": 0.69,
-   "edge": 0.337
+   "dps_short": 1442.7,
+   "dps_long": 1324.7,
+   "ratio": 0.918,
+   "edge": 0.525
   },
   {
-   "champion": "Kindred",
-   "name": "Kindred",
+   "champion": "Ashe",
+   "name": "Ashe",
    "role": "marksman",
-   "dps_short": 932.8,
-   "dps_long": 628.3,
-   "ratio": 0.674,
-   "edge": 0.306
+   "dps_short": 1438.2,
+   "dps_long": 1316.6,
+   "ratio": 0.915,
+   "edge": 0.52
   },
   {
-   "champion": "MissFortune",
-   "name": "Miss Fortune",
-   "role": "marksman",
-   "dps_short": 908.6,
-   "dps_long": 604.8,
-   "ratio": 0.666,
-   "edge": 0.291
-  },
-  {
-   "champion": "Teemo",
-   "name": "Teemo",
-   "role": "marksman",
-   "dps_short": 953.3,
-   "dps_long": 629.6,
-   "ratio": 0.66,
-   "edge": 0.279
-  },
-  {
-   "champion": "Twitch",
-   "name": "Twitch",
-   "role": "marksman",
-   "dps_short": 1216.2,
-   "dps_long": 780.2,
-   "ratio": 0.642,
-   "edge": 0.244
-  },
-  {
-   "champion": "Cassiopeia",
-   "name": "Cassiopeia",
-   "role": "mage",
-   "dps_short": 1352.6,
-   "dps_long": 856.4,
-   "ratio": 0.633,
-   "edge": 0.227
-  },
-  {
-   "champion": "Soraka",
-   "name": "Soraka",
-   "role": "support",
-   "dps_short": 862.2,
-   "dps_long": 545.3,
-   "ratio": 0.632,
-   "edge": 0.225
-  },
-  {
-   "champion": "Garen",
-   "name": "Garen",
+   "champion": "Zaahen",
+   "name": "Zaahen",
    "role": "fighter",
-   "dps_short": 1096.7,
-   "dps_long": 692.6,
-   "ratio": 0.632,
-   "edge": 0.225
+   "dps_short": 947.4,
+   "dps_long": 865.4,
+   "ratio": 0.913,
+   "edge": 0.517
   },
   {
-   "champion": "Rakan",
-   "name": "Rakan",
+   "champion": "Yunara",
+   "name": "Yunara",
+   "role": "marksman",
+   "dps_short": 1078.7,
+   "dps_long": 981.1,
+   "ratio": 0.91,
+   "edge": 0.512
+  },
+  {
+   "champion": "Renata",
+   "name": "Renata Glasc",
    "role": "support",
-   "dps_short": 1203.4,
-   "dps_long": 758.6,
-   "ratio": 0.63,
-   "edge": 0.221
+   "dps_short": 1227.5,
+   "dps_long": 1111.8,
+   "ratio": 0.906,
+   "edge": 0.505
   },
   {
-   "champion": "Kassadin",
-   "name": "Kassadin",
-   "role": "assassin",
-   "dps_short": 1207.1,
-   "dps_long": 756.9,
-   "ratio": 0.627,
-   "edge": 0.215
+   "champion": "Kayle",
+   "name": "Kayle",
+   "role": "marksman",
+   "dps_short": 1146.9,
+   "dps_long": 1031.0,
+   "ratio": 0.899,
+   "edge": 0.493
   },
   {
    "champion": "Tristana",
    "name": "Tristana",
    "role": "marksman",
-   "dps_short": 1277.3,
-   "dps_long": 797.1,
-   "ratio": 0.624,
-   "edge": 0.209
+   "dps_short": 1405.4,
+   "dps_long": 1241.1,
+   "ratio": 0.883,
+   "edge": 0.467
   },
   {
-   "champion": "Yone",
-   "name": "Yone",
+   "champion": "Quinn",
+   "name": "Quinn",
+   "role": "marksman",
+   "dps_short": 1342.4,
+   "dps_long": 1174.0,
+   "ratio": 0.875,
+   "edge": 0.453
+  },
+  {
+   "champion": "Varus",
+   "name": "Varus",
+   "role": "marksman",
+   "dps_short": 956.0,
+   "dps_long": 833.2,
+   "ratio": 0.872,
+   "edge": 0.449
+  },
+  {
+   "champion": "Riven",
+   "name": "Riven",
    "role": "fighter",
-   "dps_short": 1088.9,
-   "dps_long": 678.1,
-   "ratio": 0.623,
-   "edge": 0.207
+   "dps_short": 1643.3,
+   "dps_long": 1425.1,
+   "ratio": 0.867,
+   "edge": 0.44
+  },
+  {
+   "champion": "Jinx",
+   "name": "Jinx",
+   "role": "marksman",
+   "dps_short": 656.6,
+   "dps_long": 567.9,
+   "ratio": 0.865,
+   "edge": 0.437
+  },
+  {
+   "champion": "Twitch",
+   "name": "Twitch",
+   "role": "marksman",
+   "dps_short": 1364.2,
+   "dps_long": 1178.4,
+   "ratio": 0.864,
+   "edge": 0.435
+  },
+  {
+   "champion": "Corki",
+   "name": "Corki",
+   "role": "marksman",
+   "dps_short": 1107.0,
+   "dps_long": 956.6,
+   "ratio": 0.864,
+   "edge": 0.435
+  },
+  {
+   "champion": "Kindred",
+   "name": "Kindred",
+   "role": "marksman",
+   "dps_short": 1064.7,
+   "dps_long": 905.4,
+   "ratio": 0.85,
+   "edge": 0.412
+  },
+  {
+   "champion": "Kalista",
+   "name": "Kalista",
+   "role": "marksman",
+   "dps_short": 1277.8,
+   "dps_long": 1082.8,
+   "ratio": 0.847,
+   "edge": 0.407
+  },
+  {
+   "champion": "Neeko",
+   "name": "Neeko",
+   "role": "mage",
+   "dps_short": 798.0,
+   "dps_long": 670.9,
+   "ratio": 0.841,
+   "edge": 0.397
+  },
+  {
+   "champion": "Draven",
+   "name": "Draven",
+   "role": "marksman",
+   "dps_short": 1271.2,
+   "dps_long": 1063.3,
+   "ratio": 0.836,
+   "edge": 0.389
+  },
+  {
+   "champion": "Akshan",
+   "name": "Akshan",
+   "role": "marksman",
+   "dps_short": 866.3,
+   "dps_long": 723.6,
+   "ratio": 0.835,
+   "edge": 0.387
+  },
+  {
+   "champion": "Teemo",
+   "name": "Teemo",
+   "role": "marksman",
+   "dps_short": 991.7,
+   "dps_long": 824.9,
+   "ratio": 0.832,
+   "edge": 0.382
+  },
+  {
+   "champion": "Bard",
+   "name": "Bard",
+   "role": "support",
+   "dps_short": 690.4,
+   "dps_long": 570.6,
+   "ratio": 0.826,
+   "edge": 0.372
+  },
+  {
+   "champion": "Orianna",
+   "name": "Orianna",
+   "role": "mage",
+   "dps_short": 973.7,
+   "dps_long": 798.4,
+   "ratio": 0.82,
+   "edge": 0.362
+  },
+  {
+   "champion": "Lux",
+   "name": "Lux",
+   "role": "mage",
+   "dps_short": 495.6,
+   "dps_long": 400.7,
+   "ratio": 0.809,
+   "edge": 0.344
+  },
+  {
+   "champion": "Janna",
+   "name": "Janna",
+   "role": "support",
+   "dps_short": 817.0,
+   "dps_long": 659.7,
+   "ratio": 0.807,
+   "edge": 0.341
+  },
+  {
+   "champion": "Aatrox",
+   "name": "Aatrox",
+   "role": "fighter",
+   "dps_short": 1785.0,
+   "dps_long": 1425.5,
+   "ratio": 0.799,
+   "edge": 0.327
+  },
+  {
+   "champion": "Ezreal",
+   "name": "Ezreal",
+   "role": "marksman",
+   "dps_short": 717.5,
+   "dps_long": 566.6,
+   "ratio": 0.79,
+   "edge": 0.312
+  },
+  {
+   "champion": "Vayne",
+   "name": "Vayne",
+   "role": "marksman",
+   "dps_short": 1257.4,
+   "dps_long": 985.2,
+   "ratio": 0.784,
+   "edge": 0.302
+  },
+  {
+   "champion": "Lucian",
+   "name": "Lucian",
+   "role": "marksman",
+   "dps_short": 736.1,
+   "dps_long": 574.8,
+   "ratio": 0.781,
+   "edge": 0.297
+  },
+  {
+   "champion": "Tryndamere",
+   "name": "Tryndamere",
+   "role": "fighter",
+   "dps_short": 1442.8,
+   "dps_long": 1122.3,
+   "ratio": 0.778,
+   "edge": 0.292
+  },
+  {
+   "champion": "Zac",
+   "name": "Zac",
+   "role": "tank",
+   "dps_short": 1563.3,
+   "dps_long": 1216.6,
+   "ratio": 0.778,
+   "edge": 0.292
+  },
+  {
+   "champion": "Milio",
+   "name": "Milio",
+   "role": "support",
+   "dps_short": 760.7,
+   "dps_long": 590.7,
+   "ratio": 0.777,
+   "edge": 0.291
+  },
+  {
+   "champion": "Caitlyn",
+   "name": "Caitlyn",
+   "role": "marksman",
+   "dps_short": 1016.8,
+   "dps_long": 789.0,
+   "ratio": 0.776,
+   "edge": 0.289
+  },
+  {
+   "champion": "Sivir",
+   "name": "Sivir",
+   "role": "marksman",
+   "dps_short": 895.0,
+   "dps_long": 692.4,
+   "ratio": 0.774,
+   "edge": 0.286
+  },
+  {
+   "champion": "Karma",
+   "name": "Karma",
+   "role": "mage",
+   "dps_short": 788.4,
+   "dps_long": 604.9,
+   "ratio": 0.767,
+   "edge": 0.274
+  },
+  {
+   "champion": "TwistedFate",
+   "name": "Twisted Fate",
+   "role": "mage",
+   "dps_short": 921.4,
+   "dps_long": 701.8,
+   "ratio": 0.762,
+   "edge": 0.266
+  },
+  {
+   "champion": "Olaf",
+   "name": "Olaf",
+   "role": "fighter",
+   "dps_short": 969.7,
+   "dps_long": 738.5,
+   "ratio": 0.762,
+   "edge": 0.266
+  },
+  {
+   "champion": "Nautilus",
+   "name": "Nautilus",
+   "role": "tank",
+   "dps_short": 1660.1,
+   "dps_long": 1259.1,
+   "ratio": 0.758,
+   "edge": 0.259
+  },
+  {
+   "champion": "Udyr",
+   "name": "Udyr",
+   "role": "fighter",
+   "dps_short": 1076.7,
+   "dps_long": 807.0,
+   "ratio": 0.75,
+   "edge": 0.246
   },
   {
    "champion": "Zilean",
    "name": "Zilean",
    "role": "support",
-   "dps_short": 1246.1,
-   "dps_long": 769.4,
-   "ratio": 0.617,
-   "edge": 0.196
+   "dps_short": 695.7,
+   "dps_long": 520.4,
+   "ratio": 0.748,
+   "edge": 0.243
   },
   {
-   "champion": "Qiyana",
-   "name": "Qiyana",
-   "role": "assassin",
-   "dps_short": 1304.9,
-   "dps_long": 801.9,
-   "ratio": 0.615,
-   "edge": 0.192
+   "champion": "Viego",
+   "name": "Viego",
+   "role": "fighter",
+   "dps_short": 1078.2,
+   "dps_long": 802.3,
+   "ratio": 0.744,
+   "edge": 0.236
   },
   {
-   "champion": "Chogath",
-   "name": "Cho'Gath",
-   "role": "tank",
-   "dps_short": 1357.6,
-   "dps_long": 832.0,
-   "ratio": 0.613,
-   "edge": 0.188
-  },
-  {
-   "champion": "Sylas",
-   "name": "Sylas",
+   "champion": "Syndra",
+   "name": "Syndra",
    "role": "mage",
-   "dps_short": 1159.7,
-   "dps_long": 703.6,
-   "ratio": 0.607,
-   "edge": 0.176
+   "dps_short": 852.9,
+   "dps_long": 633.6,
+   "ratio": 0.743,
+   "edge": 0.234
   },
   {
-   "champion": "MasterYi",
-   "name": "Master Yi",
+   "champion": "Viktor",
+   "name": "Viktor",
+   "role": "mage",
+   "dps_short": 908.7,
+   "dps_long": 670.9,
+   "ratio": 0.738,
+   "edge": 0.226
+  },
+  {
+   "champion": "Xerath",
+   "name": "Xerath",
+   "role": "mage",
+   "dps_short": 519.3,
+   "dps_long": 383.2,
+   "ratio": 0.738,
+   "edge": 0.226
+  },
+  {
+   "champion": "Aurora",
+   "name": "Aurora",
+   "role": "mage",
+   "dps_short": 1113.9,
+   "dps_long": 820.8,
+   "ratio": 0.737,
+   "edge": 0.224
+  },
+  {
+   "champion": "Yasuo",
+   "name": "Yasuo",
    "role": "fighter",
-   "dps_short": 919.3,
-   "dps_long": 556.0,
-   "ratio": 0.605,
-   "edge": 0.172
+   "dps_short": 1165.2,
+   "dps_long": 847.7,
+   "ratio": 0.728,
+   "edge": 0.209
   },
   {
-   "champion": "Hecarim",
-   "name": "Hecarim",
-   "role": "fighter",
-   "dps_short": 1054.9,
-   "dps_long": 636.1,
-   "ratio": 0.603,
-   "edge": 0.169
+   "champion": "Nami",
+   "name": "Nami",
+   "role": "support",
+   "dps_short": 639.5,
+   "dps_long": 459.5,
+   "ratio": 0.719,
+   "edge": 0.194
   },
   {
-   "champion": "Jhin",
-   "name": "Jhin",
+   "champion": "KogMaw",
+   "name": "Kog'Maw",
    "role": "marksman",
-   "dps_short": 1050.8,
-   "dps_long": 633.2,
-   "ratio": 0.603,
-   "edge": 0.169
+   "dps_short": 1213.8,
+   "dps_long": 869.7,
+   "ratio": 0.717,
+   "edge": 0.191
   },
   {
-   "champion": "Leblanc",
-   "name": "LeBlanc",
+   "champion": "Urgot",
+   "name": "Urgot",
+   "role": "fighter",
+   "dps_short": 973.2,
+   "dps_long": 695.2,
+   "ratio": 0.714,
+   "edge": 0.186
+  },
+  {
+   "champion": "Skarner",
+   "name": "Skarner",
+   "role": "tank",
+   "dps_short": 1081.0,
+   "dps_long": 769.4,
+   "ratio": 0.712,
+   "edge": 0.183
+  },
+  {
+   "champion": "Shyvana",
+   "name": "Shyvana",
+   "role": "fighter",
+   "dps_short": 1385.7,
+   "dps_long": 979.4,
+   "ratio": 0.707,
+   "edge": 0.174
+  },
+  {
+   "champion": "Talon",
+   "name": "Talon",
    "role": "assassin",
-   "dps_short": 1344.0,
-   "dps_long": 792.3,
-   "ratio": 0.59,
-   "edge": 0.143
+   "dps_short": 972.1,
+   "dps_long": 686.4,
+   "ratio": 0.706,
+   "edge": 0.173
+  },
+  {
+   "champion": "Zeri",
+   "name": "Zeri",
+   "role": "marksman",
+   "dps_short": 816.6,
+   "dps_long": 575.4,
+   "ratio": 0.705,
+   "edge": 0.171
+  },
+  {
+   "champion": "Soraka",
+   "name": "Soraka",
+   "role": "support",
+   "dps_short": 665.5,
+   "dps_long": 465.1,
+   "ratio": 0.699,
+   "edge": 0.161
+  },
+  {
+   "champion": "Anivia",
+   "name": "Anivia",
+   "role": "mage",
+   "dps_short": 1432.2,
+   "dps_long": 999.0,
+   "ratio": 0.698,
+   "edge": 0.159
+  },
+  {
+   "champion": "Morgana",
+   "name": "Morgana",
+   "role": "support",
+   "dps_short": 729.8,
+   "dps_long": 508.6,
+   "ratio": 0.697,
+   "edge": 0.158
+  },
+  {
+   "champion": "Vex",
+   "name": "Vex",
+   "role": "mage",
+   "dps_short": 833.3,
+   "dps_long": 579.3,
+   "ratio": 0.695,
+   "edge": 0.154
+  },
+  {
+   "champion": "Fiora",
+   "name": "Fiora",
+   "role": "fighter",
+   "dps_short": 918.1,
+   "dps_long": 633.0,
+   "ratio": 0.689,
+   "edge": 0.145
+  },
+  {
+   "champion": "Aphelios",
+   "name": "Aphelios",
+   "role": "marksman",
+   "dps_short": 851.0,
+   "dps_long": 579.9,
+   "ratio": 0.681,
+   "edge": 0.131
+  },
+  {
+   "champion": "Yone",
+   "name": "Yone",
+   "role": "fighter",
+   "dps_short": 1049.0,
+   "dps_long": 714.2,
+   "ratio": 0.681,
+   "edge": 0.131
   },
   {
    "champion": "Nidalee",
    "name": "Nidalee",
    "role": "assassin",
-   "dps_short": 1112.3,
-   "dps_long": 651.5,
-   "ratio": 0.586,
-   "edge": 0.136
+   "dps_short": 931.3,
+   "dps_long": 629.0,
+   "ratio": 0.675,
+   "edge": 0.121
   },
   {
-   "champion": "Graves",
-   "name": "Graves",
-   "role": "marksman",
-   "dps_short": 865.9,
-   "dps_long": 505.3,
-   "ratio": 0.584,
-   "edge": 0.132
+   "champion": "Zyra",
+   "name": "Zyra",
+   "role": "mage",
+   "dps_short": 672.5,
+   "dps_long": 454.1,
+   "ratio": 0.675,
+   "edge": 0.121
   },
   {
-   "champion": "Gangplank",
-   "name": "Gangplank",
+   "champion": "Garen",
+   "name": "Garen",
    "role": "fighter",
-   "dps_short": 720.0,
-   "dps_long": 418.7,
-   "ratio": 0.582,
-   "edge": 0.128
+   "dps_short": 1208.6,
+   "dps_long": 813.7,
+   "ratio": 0.673,
+   "edge": 0.118
   },
   {
-   "champion": "Khazix",
-   "name": "Kha'Zix",
-   "role": "assassin",
-   "dps_short": 1071.7,
-   "dps_long": 618.1,
-   "ratio": 0.577,
+   "champion": "Nocturne",
+   "name": "Nocturne",
+   "role": "fighter",
+   "dps_short": 1183.4,
+   "dps_long": 796.9,
+   "ratio": 0.673,
    "edge": 0.118
   },
   {
    "champion": "Mordekaiser",
    "name": "Mordekaiser",
    "role": "fighter",
-   "dps_short": 837.3,
-   "dps_long": 481.2,
-   "ratio": 0.575,
-   "edge": 0.114
-  },
-  {
-   "champion": "Janna",
-   "name": "Janna",
-   "role": "support",
-   "dps_short": 1003.0,
-   "dps_long": 574.9,
-   "ratio": 0.573,
-   "edge": 0.11
-  },
-  {
-   "champion": "LeeSin",
-   "name": "Lee Sin",
-   "role": "fighter",
-   "dps_short": 1289.5,
-   "dps_long": 733.4,
-   "ratio": 0.569,
-   "edge": 0.103
-  },
-  {
-   "champion": "Karthus",
-   "name": "Karthus",
-   "role": "mage",
-   "dps_short": 1075.8,
-   "dps_long": 611.0,
-   "ratio": 0.568,
-   "edge": 0.101
-  },
-  {
-   "champion": "Viktor",
-   "name": "Viktor",
-   "role": "mage",
-   "dps_short": 1044.8,
-   "dps_long": 590.2,
-   "ratio": 0.565,
-   "edge": 0.095
-  },
-  {
-   "champion": "Galio",
-   "name": "Galio",
-   "role": "tank",
-   "dps_short": 1530.2,
-   "dps_long": 863.1,
-   "ratio": 0.564,
-   "edge": 0.093
-  },
-  {
-   "champion": "Renata",
-   "name": "Renata Glasc",
-   "role": "support",
-   "dps_short": 977.4,
-   "dps_long": 549.4,
-   "ratio": 0.562,
-   "edge": 0.089
-  },
-  {
-   "champion": "KogMaw",
-   "name": "Kog'Maw",
-   "role": "marksman",
-   "dps_short": 1272.1,
-   "dps_long": 709.0,
-   "ratio": 0.557,
-   "edge": 0.079
-  },
-  {
-   "champion": "Yuumi",
-   "name": "Yuumi",
-   "role": "support",
-   "dps_short": 719.3,
-   "dps_long": 398.5,
-   "ratio": 0.554,
-   "edge": 0.074
-  },
-  {
-   "champion": "Zoe",
-   "name": "Zoe",
-   "role": "mage",
-   "dps_short": 856.5,
-   "dps_long": 473.7,
-   "ratio": 0.553,
-   "edge": 0.072
-  },
-  {
-   "champion": "Zeri",
-   "name": "Zeri",
-   "role": "marksman",
-   "dps_short": 981.4,
-   "dps_long": 540.5,
-   "ratio": 0.551,
-   "edge": 0.068
-  },
-  {
-   "champion": "Vi",
-   "name": "Vi",
-   "role": "fighter",
-   "dps_short": 967.0,
-   "dps_long": 531.6,
-   "ratio": 0.55,
-   "edge": 0.066
-  },
-  {
-   "champion": "Pyke",
-   "name": "Pyke",
-   "role": "support",
-   "dps_short": 1020.3,
-   "dps_long": 559.8,
-   "ratio": 0.549,
-   "edge": 0.064
-  },
-  {
-   "champion": "Naafiri",
-   "name": "Naafiri",
-   "role": "assassin",
-   "dps_short": 804.2,
-   "dps_long": 440.6,
-   "ratio": 0.548,
-   "edge": 0.062
-  },
-  {
-   "champion": "Alistar",
-   "name": "Alistar",
-   "role": "tank",
-   "dps_short": 1112.6,
-   "dps_long": 609.1,
-   "ratio": 0.547,
-   "edge": 0.06
-  },
-  {
-   "champion": "Pantheon",
-   "name": "Pantheon",
-   "role": "fighter",
-   "dps_short": 1074.0,
-   "dps_long": 587.6,
-   "ratio": 0.547,
-   "edge": 0.06
-  },
-  {
-   "champion": "Briar",
-   "name": "Briar",
-   "role": "fighter",
-   "dps_short": 1022.4,
-   "dps_long": 549.4,
-   "ratio": 0.537,
-   "edge": 0.041
-  },
-  {
-   "champion": "Renekton",
-   "name": "Renekton",
-   "role": "fighter",
-   "dps_short": 989.7,
-   "dps_long": 529.2,
-   "ratio": 0.535,
-   "edge": 0.037
-  },
-  {
-   "champion": "Akali",
-   "name": "Akali",
-   "role": "assassin",
-   "dps_short": 1173.2,
-   "dps_long": 625.4,
-   "ratio": 0.533,
-   "edge": 0.033
-  },
-  {
-   "champion": "Bard",
-   "name": "Bard",
-   "role": "support",
-   "dps_short": 1032.8,
-   "dps_long": 549.5,
-   "ratio": 0.532,
-   "edge": 0.031
-  },
-  {
-   "champion": "Ambessa",
-   "name": "Ambessa",
-   "role": "fighter",
-   "dps_short": 1206.3,
-   "dps_long": 634.3,
-   "ratio": 0.526,
-   "edge": 0.019
-  },
-  {
-   "champion": "Lulu",
-   "name": "Lulu",
-   "role": "support",
-   "dps_short": 894.2,
-   "dps_long": 470.1,
-   "ratio": 0.526,
-   "edge": 0.019
-  },
-  {
-   "champion": "Lux",
-   "name": "Lux",
-   "role": "mage",
-   "dps_short": 702.3,
-   "dps_long": 369.0,
-   "ratio": 0.525,
-   "edge": 0.017
-  },
-  {
-   "champion": "Sett",
-   "name": "Sett",
-   "role": "fighter",
-   "dps_short": 944.3,
-   "dps_long": 491.7,
-   "ratio": 0.521,
-   "edge": 0.01
-  },
-  {
-   "champion": "Malphite",
-   "name": "Malphite",
-   "role": "tank",
-   "dps_short": 1090.4,
-   "dps_long": 566.6,
-   "ratio": 0.52,
-   "edge": 0.008
-  },
-  {
-   "champion": "Gwen",
-   "name": "Gwen",
-   "role": "fighter",
-   "dps_short": 896.2,
-   "dps_long": 465.6,
-   "ratio": 0.52,
-   "edge": 0.008
-  },
-  {
-   "champion": "Skarner",
-   "name": "Skarner",
-   "role": "tank",
-   "dps_short": 818.6,
-   "dps_long": 425.1,
-   "ratio": 0.519,
-   "edge": 0.006
-  },
-  {
-   "champion": "Lucian",
-   "name": "Lucian",
-   "role": "marksman",
-   "dps_short": 964.4,
-   "dps_long": 499.8,
-   "ratio": 0.518,
-   "edge": 0.004
-  },
-  {
-   "champion": "Talon",
-   "name": "Talon",
-   "role": "assassin",
-   "dps_short": 1190.5,
-   "dps_long": 616.4,
-   "ratio": 0.518,
-   "edge": 0.004
-  },
-  {
-   "champion": "Ryze",
-   "name": "Ryze",
-   "role": "mage",
-   "dps_short": 1229.0,
-   "dps_long": 634.5,
-   "ratio": 0.516,
-   "edge": 0.0
-  },
-  {
-   "champion": "Illaoi",
-   "name": "Illaoi",
-   "role": "fighter",
-   "dps_short": 827.2,
-   "dps_long": 426.7,
-   "ratio": 0.516,
-   "edge": 0.0
-  },
-  {
-   "champion": "Mel",
-   "name": "Mel",
-   "role": "mage",
-   "dps_short": 870.9,
-   "dps_long": 447.8,
-   "ratio": 0.514,
-   "edge": -0.004
-  },
-  {
-   "champion": "Ekko",
-   "name": "Ekko",
-   "role": "assassin",
-   "dps_short": 830.7,
-   "dps_long": 422.8,
-   "ratio": 0.509,
-   "edge": -0.014
-  },
-  {
-   "champion": "Sejuani",
-   "name": "Sejuani",
-   "role": "tank",
-   "dps_short": 1200.2,
-   "dps_long": 610.2,
-   "ratio": 0.508,
-   "edge": -0.016
-  },
-  {
-   "champion": "Camille",
-   "name": "Camille",
-   "role": "fighter",
-   "dps_short": 1139.4,
-   "dps_long": 578.9,
-   "ratio": 0.508,
-   "edge": -0.016
-  },
-  {
-   "champion": "Rengar",
-   "name": "Rengar",
-   "role": "assassin",
-   "dps_short": 969.1,
-   "dps_long": 492.4,
-   "ratio": 0.508,
-   "edge": -0.016
-  },
-  {
-   "champion": "Shaco",
-   "name": "Shaco",
-   "role": "assassin",
-   "dps_short": 909.8,
-   "dps_long": 462.1,
-   "ratio": 0.508,
-   "edge": -0.016
-  },
-  {
-   "champion": "MonkeyKing",
-   "name": "Wukong",
-   "role": "fighter",
-   "dps_short": 1129.6,
-   "dps_long": 570.6,
-   "ratio": 0.505,
-   "edge": -0.021
-  },
-  {
-   "champion": "Urgot",
-   "name": "Urgot",
-   "role": "fighter",
-   "dps_short": 859.6,
-   "dps_long": 431.2,
-   "ratio": 0.502,
-   "edge": -0.027
-  },
-  {
-   "champion": "Jayce",
-   "name": "Jayce",
-   "role": "fighter",
-   "dps_short": 1127.7,
-   "dps_long": 565.2,
-   "ratio": 0.501,
-   "edge": -0.029
-  },
-  {
-   "champion": "Zed",
-   "name": "Zed",
-   "role": "assassin",
-   "dps_short": 1166.7,
-   "dps_long": 585.0,
-   "ratio": 0.501,
-   "edge": -0.029
-  },
-  {
-   "champion": "Veigar",
-   "name": "Veigar",
-   "role": "mage",
-   "dps_short": 1030.5,
-   "dps_long": 514.9,
-   "ratio": 0.5,
-   "edge": -0.031
-  },
-  {
-   "champion": "Neeko",
-   "name": "Neeko",
-   "role": "mage",
-   "dps_short": 827.3,
-   "dps_long": 413.9,
-   "ratio": 0.5,
-   "edge": -0.031
-  },
-  {
-   "champion": "Poppy",
-   "name": "Poppy",
-   "role": "tank",
-   "dps_short": 953.3,
-   "dps_long": 476.7,
-   "ratio": 0.5,
-   "edge": -0.031
-  },
-  {
-   "champion": "Morgana",
-   "name": "Morgana",
-   "role": "support",
-   "dps_short": 688.1,
-   "dps_long": 344.3,
-   "ratio": 0.5,
-   "edge": -0.031
-  },
-  {
-   "champion": "Amumu",
-   "name": "Amumu",
-   "role": "tank",
-   "dps_short": 1272.1,
-   "dps_long": 633.3,
-   "ratio": 0.498,
-   "edge": -0.035
-  },
-  {
-   "champion": "Rumble",
-   "name": "Rumble",
-   "role": "fighter",
-   "dps_short": 961.1,
-   "dps_long": 476.9,
-   "ratio": 0.496,
-   "edge": -0.039
+   "dps_short": 1106.9,
+   "dps_long": 742.8,
+   "ratio": 0.671,
+   "edge": 0.115
   },
   {
    "champion": "Sona",
    "name": "Sona",
    "role": "support",
-   "dps_short": 766.8,
-   "dps_long": 380.6,
-   "ratio": 0.496,
-   "edge": -0.039
+   "dps_short": 698.9,
+   "dps_long": 467.8,
+   "ratio": 0.669,
+   "edge": 0.111
   },
   {
-   "champion": "Fizz",
-   "name": "Fizz",
-   "role": "assassin",
-   "dps_short": 969.4,
-   "dps_long": 478.4,
-   "ratio": 0.494,
-   "edge": -0.043
-  },
-  {
-   "champion": "Vladimir",
-   "name": "Vladimir",
-   "role": "mage",
-   "dps_short": 997.1,
-   "dps_long": 492.9,
-   "ratio": 0.494,
-   "edge": -0.043
-  },
-  {
-   "champion": "Kayn",
-   "name": "Kayn",
+   "champion": "Vi",
+   "name": "Vi",
    "role": "fighter",
-   "dps_short": 1118.8,
-   "dps_long": 549.9,
-   "ratio": 0.492,
-   "edge": -0.047
+   "dps_short": 901.0,
+   "dps_long": 582.9,
+   "ratio": 0.647,
+   "edge": 0.075
   },
   {
-   "champion": "Viego",
-   "name": "Viego",
-   "role": "fighter",
-   "dps_short": 963.3,
-   "dps_long": 471.6,
-   "ratio": 0.49,
-   "edge": -0.05
-  },
-  {
-   "champion": "Karma",
-   "name": "Karma",
-   "role": "mage",
-   "dps_short": 888.0,
-   "dps_long": 435.0,
-   "ratio": 0.49,
-   "edge": -0.05
-  },
-  {
-   "champion": "AurelionSol",
-   "name": "Aurelion Sol",
-   "role": "mage",
-   "dps_short": 972.1,
-   "dps_long": 475.6,
-   "ratio": 0.489,
-   "edge": -0.052
-  },
-  {
-   "champion": "Gragas",
-   "name": "Gragas",
-   "role": "fighter",
-   "dps_short": 1150.1,
-   "dps_long": 562.1,
-   "ratio": 0.489,
-   "edge": -0.052
-  },
-  {
-   "champion": "Aphelios",
-   "name": "Aphelios",
-   "role": "marksman",
-   "dps_short": 776.5,
-   "dps_long": 378.9,
-   "ratio": 0.488,
-   "edge": -0.054
-  },
-  {
-   "champion": "Jax",
-   "name": "Jax",
-   "role": "fighter",
-   "dps_short": 1470.4,
-   "dps_long": 715.9,
-   "ratio": 0.487,
-   "edge": -0.056
-  },
-  {
-   "champion": "JarvanIV",
-   "name": "Jarvan IV",
-   "role": "fighter",
-   "dps_short": 916.6,
-   "dps_long": 445.2,
-   "ratio": 0.486,
-   "edge": -0.058
-  },
-  {
-   "champion": "Nilah",
-   "name": "Nilah",
-   "role": "fighter",
-   "dps_short": 854.9,
-   "dps_long": 415.7,
-   "ratio": 0.486,
-   "edge": -0.058
-  },
-  {
-   "champion": "Evelynn",
-   "name": "Evelynn",
-   "role": "assassin",
-   "dps_short": 1015.4,
-   "dps_long": 493.8,
-   "ratio": 0.486,
-   "edge": -0.058
-  },
-  {
-   "champion": "XinZhao",
-   "name": "Xin Zhao",
-   "role": "fighter",
-   "dps_short": 893.7,
-   "dps_long": 433.1,
-   "ratio": 0.485,
-   "edge": -0.06
-  },
-  {
-   "champion": "Akshan",
-   "name": "Akshan",
-   "role": "marksman",
-   "dps_short": 1168.8,
-   "dps_long": 564.1,
-   "ratio": 0.483,
-   "edge": -0.064
-  },
-  {
-   "champion": "Taliyah",
-   "name": "Taliyah",
-   "role": "mage",
-   "dps_short": 1262.0,
-   "dps_long": 609.8,
-   "ratio": 0.483,
-   "edge": -0.064
-  },
-  {
-   "champion": "Volibear",
-   "name": "Volibear",
-   "role": "fighter",
-   "dps_short": 1026.7,
-   "dps_long": 493.5,
-   "ratio": 0.481,
-   "edge": -0.068
-  },
-  {
-   "champion": "Trundle",
-   "name": "Trundle",
-   "role": "fighter",
-   "dps_short": 768.7,
-   "dps_long": 368.8,
-   "ratio": 0.48,
-   "edge": -0.07
-  },
-  {
-   "champion": "Vex",
-   "name": "Vex",
-   "role": "mage",
-   "dps_short": 962.8,
-   "dps_long": 460.8,
-   "ratio": 0.479,
-   "edge": -0.072
-  },
-  {
-   "champion": "Aurora",
-   "name": "Aurora",
-   "role": "mage",
-   "dps_short": 1133.4,
-   "dps_long": 541.4,
-   "ratio": 0.478,
-   "edge": -0.074
-  },
-  {
-   "champion": "Belveth",
-   "name": "Bel'Veth",
-   "role": "fighter",
-   "dps_short": 842.4,
-   "dps_long": 397.2,
-   "ratio": 0.472,
-   "edge": -0.085
-  },
-  {
-   "champion": "Heimerdinger",
-   "name": "Heimerdinger",
-   "role": "mage",
-   "dps_short": 866.0,
-   "dps_long": 407.4,
-   "ratio": 0.47,
-   "edge": -0.089
-  },
-  {
-   "champion": "Warwick",
-   "name": "Warwick",
-   "role": "fighter",
-   "dps_short": 946.1,
-   "dps_long": 444.1,
-   "ratio": 0.469,
-   "edge": -0.091
-  },
-  {
-   "champion": "Fiora",
-   "name": "Fiora",
-   "role": "fighter",
-   "dps_short": 958.6,
-   "dps_long": 446.4,
-   "ratio": 0.466,
-   "edge": -0.097
-  },
-  {
-   "champion": "TahmKench",
-   "name": "Tahm Kench",
-   "role": "tank",
-   "dps_short": 1329.5,
-   "dps_long": 618.4,
-   "ratio": 0.465,
-   "edge": -0.099
-  },
-  {
-   "champion": "Nami",
-   "name": "Nami",
-   "role": "support",
-   "dps_short": 1472.9,
-   "dps_long": 684.1,
-   "ratio": 0.464,
-   "edge": -0.101
-  },
-  {
-   "champion": "Kennen",
-   "name": "Kennen",
-   "role": "mage",
-   "dps_short": 1010.1,
-   "dps_long": 466.5,
-   "ratio": 0.462,
-   "edge": -0.105
-  },
-  {
-   "champion": "Maokai",
-   "name": "Maokai",
-   "role": "tank",
-   "dps_short": 705.9,
-   "dps_long": 326.4,
-   "ratio": 0.462,
-   "edge": -0.105
-  },
-  {
-   "champion": "Syndra",
-   "name": "Syndra",
-   "role": "mage",
-   "dps_short": 1016.1,
-   "dps_long": 466.6,
-   "ratio": 0.459,
-   "edge": -0.11
-  },
-  {
-   "champion": "Singed",
-   "name": "Singed",
-   "role": "tank",
-   "dps_short": 817.2,
-   "dps_long": 374.2,
-   "ratio": 0.458,
-   "edge": -0.112
-  },
-  {
-   "champion": "Yorick",
-   "name": "Yorick",
-   "role": "fighter",
-   "dps_short": 818.3,
-   "dps_long": 373.2,
-   "ratio": 0.456,
-   "edge": -0.116
-  },
-  {
-   "champion": "Rell",
-   "name": "Rell",
-   "role": "tank",
-   "dps_short": 860.0,
-   "dps_long": 392.1,
-   "ratio": 0.456,
-   "edge": -0.116
-  },
-  {
-   "champion": "Diana",
-   "name": "Diana",
-   "role": "fighter",
-   "dps_short": 960.5,
-   "dps_long": 435.9,
-   "ratio": 0.454,
-   "edge": -0.12
-  },
-  {
-   "champion": "Lillia",
-   "name": "Lillia",
-   "role": "fighter",
-   "dps_short": 947.7,
-   "dps_long": 429.4,
-   "ratio": 0.453,
-   "edge": -0.122
-  },
-  {
-   "champion": "Elise",
-   "name": "Elise",
+   "champion": "Kassadin",
+   "name": "Kassadin",
    "role": "assassin",
    "dps_short": 1173.6,
-   "dps_long": 529.2,
-   "ratio": 0.451,
-   "edge": -0.126
+   "dps_long": 756.8,
+   "ratio": 0.645,
+   "edge": 0.071
   },
   {
-   "champion": "Locke",
-   "name": "Locke",
+   "champion": "Gangplank",
+   "name": "Gangplank",
+   "role": "fighter",
+   "dps_short": 835.8,
+   "dps_long": 539.2,
+   "ratio": 0.645,
+   "edge": 0.071
+  },
+  {
+   "champion": "Qiyana",
+   "name": "Qiyana",
    "role": "assassin",
-   "dps_short": 772.8,
-   "dps_long": 348.4,
-   "ratio": 0.451,
-   "edge": -0.126
-  },
-  {
-   "champion": "KSante",
-   "name": "K'Sante",
-   "role": "tank",
-   "dps_short": 522.5,
-   "dps_long": 235.5,
-   "ratio": 0.451,
-   "edge": -0.126
-  },
-  {
-   "champion": "Kled",
-   "name": "Kled",
-   "role": "fighter",
-   "dps_short": 943.2,
-   "dps_long": 422.3,
-   "ratio": 0.448,
-   "edge": -0.132
-  },
-  {
-   "champion": "Nasus",
-   "name": "Nasus",
-   "role": "fighter",
-   "dps_short": 941.6,
-   "dps_long": 420.4,
-   "ratio": 0.446,
-   "edge": -0.136
-  },
-  {
-   "champion": "Nunu",
-   "name": "Nunu & Willump",
-   "role": "tank",
-   "dps_short": 633.0,
-   "dps_long": 282.2,
-   "ratio": 0.446,
-   "edge": -0.136
-  },
-  {
-   "champion": "Irelia",
-   "name": "Irelia",
-   "role": "fighter",
-   "dps_short": 792.7,
-   "dps_long": 352.2,
-   "ratio": 0.444,
-   "edge": -0.14
-  },
-  {
-   "champion": "Hwei",
-   "name": "Hwei",
-   "role": "mage",
-   "dps_short": 1076.6,
-   "dps_long": 478.2,
-   "ratio": 0.444,
-   "edge": -0.14
-  },
-  {
-   "champion": "Annie",
-   "name": "Annie",
-   "role": "mage",
-   "dps_short": 1165.7,
-   "dps_long": 512.8,
-   "ratio": 0.44,
-   "edge": -0.147
+   "dps_short": 1259.0,
+   "dps_long": 803.2,
+   "ratio": 0.638,
+   "edge": 0.06
   },
   {
    "champion": "Senna",
    "name": "Senna",
    "role": "support",
-   "dps_short": 715.2,
-   "dps_long": 314.2,
-   "ratio": 0.439,
-   "edge": -0.149
+   "dps_short": 814.0,
+   "dps_long": 518.6,
+   "ratio": 0.637,
+   "edge": 0.058
   },
   {
-   "champion": "DrMundo",
-   "name": "Dr. Mundo",
-   "role": "tank",
-   "dps_short": 577.8,
-   "dps_long": 253.8,
-   "ratio": 0.439,
-   "edge": -0.149
-  },
-  {
-   "champion": "Gnar",
-   "name": "Gnar",
+   "champion": "Kayn",
+   "name": "Kayn",
    "role": "fighter",
-   "dps_short": 822.7,
-   "dps_long": 357.1,
-   "ratio": 0.434,
-   "edge": -0.159
+   "dps_short": 963.1,
+   "dps_long": 609.1,
+   "ratio": 0.632,
+   "edge": 0.05
   },
   {
-   "champion": "Lissandra",
-   "name": "Lissandra",
+   "champion": "Rumble",
+   "name": "Rumble",
+   "role": "fighter",
+   "dps_short": 990.1,
+   "dps_long": 624.4,
+   "ratio": 0.631,
+   "edge": 0.048
+  },
+  {
+   "champion": "Khazix",
+   "name": "Kha'Zix",
+   "role": "assassin",
+   "dps_short": 1085.0,
+   "dps_long": 679.8,
+   "ratio": 0.627,
+   "edge": 0.042
+  },
+  {
+   "champion": "Ekko",
+   "name": "Ekko",
+   "role": "assassin",
+   "dps_short": 1024.9,
+   "dps_long": 640.1,
+   "ratio": 0.625,
+   "edge": 0.038
+  },
+  {
+   "champion": "Taliyah",
+   "name": "Taliyah",
    "role": "mage",
-   "dps_short": 948.9,
-   "dps_long": 411.1,
-   "ratio": 0.433,
-   "edge": -0.161
+   "dps_short": 1341.5,
+   "dps_long": 832.2,
+   "ratio": 0.62,
+   "edge": 0.03
   },
   {
-   "champion": "Darius",
-   "name": "Darius",
+   "champion": "Renekton",
+   "name": "Renekton",
    "role": "fighter",
-   "dps_short": 774.0,
-   "dps_long": 331.9,
-   "ratio": 0.429,
-   "edge": -0.169
+   "dps_short": 834.4,
+   "dps_long": 515.8,
+   "ratio": 0.618,
+   "edge": 0.027
+  },
+  {
+   "champion": "LeeSin",
+   "name": "Lee Sin",
+   "role": "fighter",
+   "dps_short": 1128.3,
+   "dps_long": 695.6,
+   "ratio": 0.617,
+   "edge": 0.025
+  },
+  {
+   "champion": "Graves",
+   "name": "Graves",
+   "role": "marksman",
+   "dps_short": 683.9,
+   "dps_long": 419.2,
+   "ratio": 0.613,
+   "edge": 0.018
   },
   {
    "champion": "Samira",
    "name": "Samira",
    "role": "marksman",
-   "dps_short": 984.5,
-   "dps_long": 415.3,
-   "ratio": 0.422,
-   "edge": -0.182
+   "dps_short": 814.1,
+   "dps_long": 498.2,
+   "ratio": 0.612,
+   "edge": 0.017
   },
   {
-   "champion": "Zyra",
-   "name": "Zyra",
+   "champion": "Karthus",
+   "name": "Karthus",
    "role": "mage",
-   "dps_short": 945.5,
-   "dps_long": 398.4,
-   "ratio": 0.421,
-   "edge": -0.184
+   "dps_short": 1465.8,
+   "dps_long": 895.9,
+   "ratio": 0.611,
+   "edge": 0.015
   },
   {
-   "champion": "RekSai",
-   "name": "Rek'Sai",
+   "champion": "Pantheon",
+   "name": "Pantheon",
    "role": "fighter",
-   "dps_short": 701.6,
-   "dps_long": 293.4,
-   "ratio": 0.418,
-   "edge": -0.19
+   "dps_short": 1098.4,
+   "dps_long": 661.6,
+   "ratio": 0.602,
+   "edge": 0.0
   },
   {
-   "champion": "Velkoz",
-   "name": "Vel'Koz",
-   "role": "mage",
-   "dps_short": 593.1,
-   "dps_long": 247.1,
-   "ratio": 0.417,
-   "edge": -0.192
-  },
-  {
-   "champion": "Leona",
-   "name": "Leona",
+   "champion": "Chogath",
+   "name": "Cho'Gath",
    "role": "tank",
-   "dps_short": 963.2,
-   "dps_long": 393.8,
-   "ratio": 0.409,
-   "edge": -0.207
+   "dps_short": 1415.5,
+   "dps_long": 851.0,
+   "ratio": 0.601,
+   "edge": -0.002
   },
   {
-   "champion": "Ornn",
-   "name": "Ornn",
-   "role": "tank",
-   "dps_short": 752.3,
-   "dps_long": 307.1,
-   "ratio": 0.408,
-   "edge": -0.209
+   "champion": "Rengar",
+   "name": "Rengar",
+   "role": "assassin",
+   "dps_short": 911.6,
+   "dps_long": 548.2,
+   "ratio": 0.601,
+   "edge": -0.002
   },
   {
-   "champion": "Seraphine",
-   "name": "Seraphine",
-   "role": "support",
-   "dps_short": 1488.7,
-   "dps_long": 603.8,
-   "ratio": 0.406,
-   "edge": -0.213
+   "champion": "MasterYi",
+   "name": "Master Yi",
+   "role": "fighter",
+   "dps_short": 1156.9,
+   "dps_long": 692.9,
+   "ratio": 0.599,
+   "edge": -0.005
   },
   {
-   "champion": "Ahri",
-   "name": "Ahri",
+   "champion": "Ryze",
+   "name": "Ryze",
    "role": "mage",
-   "dps_short": 875.7,
-   "dps_long": 351.1,
-   "ratio": 0.401,
-   "edge": -0.223
+   "dps_short": 1590.2,
+   "dps_long": 944.3,
+   "ratio": 0.594,
+   "edge": -0.013
   },
   {
-   "champion": "Swain",
-   "name": "Swain",
+   "champion": "Naafiri",
+   "name": "Naafiri",
+   "role": "assassin",
+   "dps_short": 800.7,
+   "dps_long": 473.8,
+   "ratio": 0.592,
+   "edge": -0.017
+  },
+  {
+   "champion": "Gnar",
+   "name": "Gnar",
+   "role": "fighter",
+   "dps_short": 638.8,
+   "dps_long": 377.7,
+   "ratio": 0.591,
+   "edge": -0.018
+  },
+  {
+   "champion": "Briar",
+   "name": "Briar",
+   "role": "fighter",
+   "dps_short": 771.2,
+   "dps_long": 455.6,
+   "ratio": 0.591,
+   "edge": -0.018
+  },
+  {
+   "champion": "Cassiopeia",
+   "name": "Cassiopeia",
    "role": "mage",
-   "dps_short": 837.1,
-   "dps_long": 335.0,
-   "ratio": 0.4,
-   "edge": -0.225
+   "dps_short": 1428.0,
+   "dps_long": 840.9,
+   "ratio": 0.589,
+   "edge": -0.022
   },
   {
-   "champion": "Ezreal",
-   "name": "Ezreal",
-   "role": "marksman",
-   "dps_short": 644.5,
-   "dps_long": 257.1,
-   "ratio": 0.399,
-   "edge": -0.227
-  },
-  {
-   "champion": "Xerath",
-   "name": "Xerath",
+   "champion": "Kennen",
+   "name": "Kennen",
    "role": "mage",
-   "dps_short": 987.0,
-   "dps_long": 392.5,
-   "ratio": 0.398,
-   "edge": -0.229
-  },
-  {
-   "champion": "Blitzcrank",
-   "name": "Blitzcrank",
-   "role": "tank",
-   "dps_short": 601.6,
-   "dps_long": 239.2,
-   "ratio": 0.398,
-   "edge": -0.229
+   "dps_short": 1065.3,
+   "dps_long": 626.9,
+   "ratio": 0.588,
+   "edge": -0.023
   },
   {
    "champion": "Ziggs",
    "name": "Ziggs",
    "role": "mage",
-   "dps_short": 813.9,
-   "dps_long": 322.5,
-   "ratio": 0.396,
-   "edge": -0.233
+   "dps_short": 648.1,
+   "dps_long": 381.0,
+   "ratio": 0.588,
+   "edge": -0.023
   },
   {
-   "champion": "Fiddlesticks",
-   "name": "Fiddlesticks",
+   "champion": "Hwei",
+   "name": "Hwei",
    "role": "mage",
-   "dps_short": 991.1,
-   "dps_long": 388.5,
-   "ratio": 0.392,
-   "edge": -0.24
+   "dps_short": 955.2,
+   "dps_long": 559.7,
+   "ratio": 0.586,
+   "edge": -0.027
   },
   {
-   "champion": "Thresh",
-   "name": "Thresh",
-   "role": "support",
-   "dps_short": 801.0,
-   "dps_long": 312.6,
-   "ratio": 0.39,
-   "edge": -0.244
+   "champion": "Hecarim",
+   "name": "Hecarim",
+   "role": "fighter",
+   "dps_short": 1063.5,
+   "dps_long": 623.4,
+   "ratio": 0.586,
+   "edge": -0.027
   },
   {
-   "champion": "Malzahar",
-   "name": "Malzahar",
+   "champion": "Volibear",
+   "name": "Volibear",
+   "role": "fighter",
+   "dps_short": 908.3,
+   "dps_long": 529.3,
+   "ratio": 0.583,
+   "edge": -0.032
+  },
+  {
+   "champion": "Ambessa",
+   "name": "Ambessa",
+   "role": "fighter",
+   "dps_short": 1279.1,
+   "dps_long": 743.1,
+   "ratio": 0.581,
+   "edge": -0.035
+  },
+  {
+   "champion": "JarvanIV",
+   "name": "Jarvan IV",
+   "role": "fighter",
+   "dps_short": 827.3,
+   "dps_long": 479.9,
+   "ratio": 0.58,
+   "edge": -0.037
+  },
+  {
+   "champion": "Galio",
+   "name": "Galio",
+   "role": "tank",
+   "dps_short": 1433.3,
+   "dps_long": 830.5,
+   "ratio": 0.579,
+   "edge": -0.038
+  },
+  {
+   "champion": "Jhin",
+   "name": "Jhin",
+   "role": "marksman",
+   "dps_short": 1180.2,
+   "dps_long": 681.2,
+   "ratio": 0.577,
+   "edge": -0.042
+  },
+  {
+   "champion": "Ahri",
+   "name": "Ahri",
    "role": "mage",
-   "dps_short": 652.9,
-   "dps_long": 243.4,
-   "ratio": 0.373,
-   "edge": -0.277
+   "dps_short": 915.9,
+   "dps_long": 528.0,
+   "ratio": 0.576,
+   "edge": -0.043
   },
   {
    "champion": "Brand",
    "name": "Brand",
    "role": "mage",
-   "dps_short": 1357.5,
-   "dps_long": 494.9,
-   "ratio": 0.365,
-   "edge": -0.293
+   "dps_short": 1533.8,
+   "dps_long": 881.9,
+   "ratio": 0.575,
+   "edge": -0.045
   },
   {
-   "champion": "Taric",
-   "name": "Taric",
+   "champion": "Nasus",
+   "name": "Nasus",
+   "role": "fighter",
+   "dps_short": 855.4,
+   "dps_long": 491.1,
+   "ratio": 0.574,
+   "edge": -0.047
+  },
+  {
+   "champion": "Sion",
+   "name": "Sion",
+   "role": "tank",
+   "dps_short": 1102.7,
+   "dps_long": 632.6,
+   "ratio": 0.574,
+   "edge": -0.047
+  },
+  {
+   "champion": "Pyke",
+   "name": "Pyke",
    "role": "support",
-   "dps_short": 409.9,
-   "dps_long": 148.9,
-   "ratio": 0.363,
-   "edge": -0.297
+   "dps_short": 912.1,
+   "dps_long": 522.8,
+   "ratio": 0.573,
+   "edge": -0.048
   },
   {
-   "champion": "Braum",
-   "name": "Braum",
-   "role": "tank",
-   "dps_short": 388.0,
-   "dps_long": 132.1,
-   "ratio": 0.34,
-   "edge": -0.341
+   "champion": "Sylas",
+   "name": "Sylas",
+   "role": "mage",
+   "dps_short": 1019.3,
+   "dps_long": 572.6,
+   "ratio": 0.562,
+   "edge": -0.066
   },
   {
-   "champion": "Rammus",
-   "name": "Rammus",
+   "champion": "Nilah",
+   "name": "Nilah",
+   "role": "fighter",
+   "dps_short": 942.5,
+   "dps_long": 529.2,
+   "ratio": 0.561,
+   "edge": -0.068
+  },
+  {
+   "champion": "Zed",
+   "name": "Zed",
+   "role": "assassin",
+   "dps_short": 1265.0,
+   "dps_long": 707.7,
+   "ratio": 0.559,
+   "edge": -0.071
+  },
+  {
+   "champion": "Yorick",
+   "name": "Yorick",
+   "role": "fighter",
+   "dps_short": 785.0,
+   "dps_long": 433.8,
+   "ratio": 0.553,
+   "edge": -0.081
+  },
+  {
+   "champion": "Diana",
+   "name": "Diana",
+   "role": "fighter",
+   "dps_short": 902.0,
+   "dps_long": 496.4,
+   "ratio": 0.55,
+   "edge": -0.086
+  },
+  {
+   "champion": "Jayce",
+   "name": "Jayce",
+   "role": "fighter",
+   "dps_short": 1427.6,
+   "dps_long": 781.2,
+   "ratio": 0.547,
+   "edge": -0.091
+  },
+  {
+   "champion": "Leblanc",
+   "name": "LeBlanc",
+   "role": "assassin",
+   "dps_short": 1372.3,
+   "dps_long": 740.9,
+   "ratio": 0.54,
+   "edge": -0.103
+  },
+  {
+   "champion": "Camille",
+   "name": "Camille",
+   "role": "fighter",
+   "dps_short": 937.0,
+   "dps_long": 506.1,
+   "ratio": 0.54,
+   "edge": -0.103
+  },
+  {
+   "champion": "Katarina",
+   "name": "Katarina",
+   "role": "assassin",
+   "dps_short": 1196.3,
+   "dps_long": 644.2,
+   "ratio": 0.538,
+   "edge": -0.106
+  },
+  {
+   "champion": "Zoe",
+   "name": "Zoe",
+   "role": "mage",
+   "dps_short": 821.8,
+   "dps_long": 441.7,
+   "ratio": 0.537,
+   "edge": -0.108
+  },
+  {
+   "champion": "Annie",
+   "name": "Annie",
+   "role": "mage",
+   "dps_short": 1162.2,
+   "dps_long": 621.7,
+   "ratio": 0.535,
+   "edge": -0.111
+  },
+  {
+   "champion": "Jax",
+   "name": "Jax",
+   "role": "fighter",
+   "dps_short": 1437.5,
+   "dps_long": 765.4,
+   "ratio": 0.532,
+   "edge": -0.116
+  },
+  {
+   "champion": "MonkeyKing",
+   "name": "Wukong",
+   "role": "fighter",
+   "dps_short": 1068.3,
+   "dps_long": 566.9,
+   "ratio": 0.531,
+   "edge": -0.118
+  },
+  {
+   "champion": "Trundle",
+   "name": "Trundle",
+   "role": "fighter",
+   "dps_short": 589.2,
+   "dps_long": 311.2,
+   "ratio": 0.528,
+   "edge": -0.123
+  },
+  {
+   "champion": "Akali",
+   "name": "Akali",
+   "role": "assassin",
+   "dps_short": 1197.6,
+   "dps_long": 619.5,
+   "ratio": 0.517,
+   "edge": -0.141
+  },
+  {
+   "champion": "Gragas",
+   "name": "Gragas",
+   "role": "fighter",
+   "dps_short": 1012.2,
+   "dps_long": 519.9,
+   "ratio": 0.514,
+   "edge": -0.146
+  },
+  {
+   "champion": "Fizz",
+   "name": "Fizz",
+   "role": "assassin",
+   "dps_short": 1090.1,
+   "dps_long": 556.6,
+   "ratio": 0.511,
+   "edge": -0.151
+  },
+  {
+   "champion": "XinZhao",
+   "name": "Xin Zhao",
+   "role": "fighter",
+   "dps_short": 1019.5,
+   "dps_long": 516.0,
+   "ratio": 0.506,
+   "edge": -0.159
+  },
+  {
+   "champion": "Belveth",
+   "name": "Bel'Veth",
+   "role": "fighter",
+   "dps_short": 858.4,
+   "dps_long": 434.7,
+   "ratio": 0.506,
+   "edge": -0.159
+  },
+  {
+   "champion": "Malphite",
+   "name": "Malphite",
    "role": "tank",
-   "dps_short": 522.1,
-   "dps_long": 174.6,
-   "ratio": 0.334,
-   "edge": -0.353
+   "dps_short": 1089.5,
+   "dps_long": 549.4,
+   "ratio": 0.504,
+   "edge": -0.163
+  },
+  {
+   "champion": "Vladimir",
+   "name": "Vladimir",
+   "role": "mage",
+   "dps_short": 606.2,
+   "dps_long": 304.4,
+   "ratio": 0.502,
+   "edge": -0.166
+  },
+  {
+   "champion": "Locke",
+   "name": "Locke",
+   "role": "assassin",
+   "dps_short": 722.0,
+   "dps_long": 361.5,
+   "ratio": 0.501,
+   "edge": -0.168
+  },
+  {
+   "champion": "Evelynn",
+   "name": "Evelynn",
+   "role": "assassin",
+   "dps_short": 945.8,
+   "dps_long": 473.0,
+   "ratio": 0.5,
+   "edge": -0.169
+  },
+  {
+   "champion": "DrMundo",
+   "name": "Dr. Mundo",
+   "role": "tank",
+   "dps_short": 762.7,
+   "dps_long": 380.3,
+   "ratio": 0.499,
+   "edge": -0.171
+  },
+  {
+   "champion": "TahmKench",
+   "name": "Tahm Kench",
+   "role": "tank",
+   "dps_short": 1277.0,
+   "dps_long": 632.1,
+   "ratio": 0.495,
+   "edge": -0.178
+  },
+  {
+   "champion": "Veigar",
+   "name": "Veigar",
+   "role": "mage",
+   "dps_short": 1044.0,
+   "dps_long": 517.3,
+   "ratio": 0.495,
+   "edge": -0.178
+  },
+  {
+   "champion": "Seraphine",
+   "name": "Seraphine",
+   "role": "support",
+   "dps_short": 886.3,
+   "dps_long": 437.9,
+   "ratio": 0.494,
+   "edge": -0.179
+  },
+  {
+   "champion": "Warwick",
+   "name": "Warwick",
+   "role": "fighter",
+   "dps_short": 1104.0,
+   "dps_long": 541.1,
+   "ratio": 0.49,
+   "edge": -0.186
+  },
+  {
+   "champion": "Amumu",
+   "name": "Amumu",
+   "role": "tank",
+   "dps_short": 1295.0,
+   "dps_long": 630.9,
+   "ratio": 0.487,
+   "edge": -0.191
+  },
+  {
+   "champion": "Sett",
+   "name": "Sett",
+   "role": "fighter",
+   "dps_short": 671.7,
+   "dps_long": 325.5,
+   "ratio": 0.485,
+   "edge": -0.194
+  },
+  {
+   "champion": "Elise",
+   "name": "Elise",
+   "role": "assassin",
+   "dps_short": 1048.8,
+   "dps_long": 507.1,
+   "ratio": 0.484,
+   "edge": -0.196
+  },
+  {
+   "champion": "KSante",
+   "name": "K'Sante",
+   "role": "tank",
+   "dps_short": 437.7,
+   "dps_long": 211.3,
+   "ratio": 0.483,
+   "edge": -0.198
+  },
+  {
+   "champion": "Illaoi",
+   "name": "Illaoi",
+   "role": "fighter",
+   "dps_short": 798.4,
+   "dps_long": 381.4,
+   "ratio": 0.478,
+   "edge": -0.206
+  },
+  {
+   "champion": "Rell",
+   "name": "Rell",
+   "role": "tank",
+   "dps_short": 926.2,
+   "dps_long": 441.9,
+   "ratio": 0.477,
+   "edge": -0.208
+  },
+  {
+   "champion": "Shaco",
+   "name": "Shaco",
+   "role": "assassin",
+   "dps_short": 776.8,
+   "dps_long": 370.2,
+   "ratio": 0.477,
+   "edge": -0.208
+  },
+  {
+   "champion": "Rakan",
+   "name": "Rakan",
+   "role": "support",
+   "dps_short": 721.3,
+   "dps_long": 341.6,
+   "ratio": 0.474,
+   "edge": -0.213
+  },
+  {
+   "champion": "Heimerdinger",
+   "name": "Heimerdinger",
+   "role": "mage",
+   "dps_short": 884.4,
+   "dps_long": 416.8,
+   "ratio": 0.471,
+   "edge": -0.218
+  },
+  {
+   "champion": "Nunu",
+   "name": "Nunu & Willump",
+   "role": "tank",
+   "dps_short": 570.5,
+   "dps_long": 263.0,
+   "ratio": 0.461,
+   "edge": -0.234
+  },
+  {
+   "champion": "AurelionSol",
+   "name": "Aurelion Sol",
+   "role": "mage",
+   "dps_short": 1150.1,
+   "dps_long": 528.3,
+   "ratio": 0.459,
+   "edge": -0.238
+  },
+  {
+   "champion": "Poppy",
+   "name": "Poppy",
+   "role": "tank",
+   "dps_short": 1081.0,
+   "dps_long": 495.2,
+   "ratio": 0.458,
+   "edge": -0.239
+  },
+  {
+   "champion": "Kled",
+   "name": "Kled",
+   "role": "fighter",
+   "dps_short": 1108.3,
+   "dps_long": 507.4,
+   "ratio": 0.458,
+   "edge": -0.239
+  },
+  {
+   "champion": "Ornn",
+   "name": "Ornn",
+   "role": "tank",
+   "dps_short": 958.4,
+   "dps_long": 437.9,
+   "ratio": 0.457,
+   "edge": -0.241
+  },
+  {
+   "champion": "Irelia",
+   "name": "Irelia",
+   "role": "fighter",
+   "dps_short": 881.5,
+   "dps_long": 401.5,
+   "ratio": 0.455,
+   "edge": -0.244
+  },
+  {
+   "champion": "Sejuani",
+   "name": "Sejuani",
+   "role": "tank",
+   "dps_short": 1181.9,
+   "dps_long": 535.9,
+   "ratio": 0.453,
+   "edge": -0.248
+  },
+  {
+   "champion": "Thresh",
+   "name": "Thresh",
+   "role": "support",
+   "dps_short": 714.1,
+   "dps_long": 320.3,
+   "ratio": 0.449,
+   "edge": -0.254
+  },
+  {
+   "champion": "Singed",
+   "name": "Singed",
+   "role": "tank",
+   "dps_short": 643.6,
+   "dps_long": 287.0,
+   "ratio": 0.446,
+   "edge": -0.259
+  },
+  {
+   "champion": "Lillia",
+   "name": "Lillia",
+   "role": "fighter",
+   "dps_short": 821.3,
+   "dps_long": 361.2,
+   "ratio": 0.44,
+   "edge": -0.269
+  },
+  {
+   "champion": "Maokai",
+   "name": "Maokai",
+   "role": "tank",
+   "dps_short": 667.8,
+   "dps_long": 293.1,
+   "ratio": 0.439,
+   "edge": -0.271
+  },
+  {
+   "champion": "Darius",
+   "name": "Darius",
+   "role": "fighter",
+   "dps_short": 739.2,
+   "dps_long": 320.9,
+   "ratio": 0.434,
+   "edge": -0.279
+  },
+  {
+   "champion": "RekSai",
+   "name": "Rek'Sai",
+   "role": "fighter",
+   "dps_short": 730.6,
+   "dps_long": 316.7,
+   "ratio": 0.433,
+   "edge": -0.281
+  },
+  {
+   "champion": "Alistar",
+   "name": "Alistar",
+   "role": "tank",
+   "dps_short": 760.9,
+   "dps_long": 329.1,
+   "ratio": 0.433,
+   "edge": -0.281
+  },
+  {
+   "champion": "Velkoz",
+   "name": "Vel'Koz",
+   "role": "mage",
+   "dps_short": 565.0,
+   "dps_long": 244.7,
+   "ratio": 0.433,
+   "edge": -0.281
+  },
+  {
+   "champion": "Yuumi",
+   "name": "Yuumi",
+   "role": "support",
+   "dps_short": 493.7,
+   "dps_long": 207.2,
+   "ratio": 0.42,
+   "edge": -0.302
+  },
+  {
+   "champion": "Fiddlesticks",
+   "name": "Fiddlesticks",
+   "role": "mage",
+   "dps_short": 864.5,
+   "dps_long": 353.5,
+   "ratio": 0.409,
+   "edge": -0.321
+  },
+  {
+   "champion": "Gwen",
+   "name": "Gwen",
+   "role": "fighter",
+   "dps_short": 780.2,
+   "dps_long": 318.8,
+   "ratio": 0.409,
+   "edge": -0.321
+  },
+  {
+   "champion": "Lissandra",
+   "name": "Lissandra",
+   "role": "mage",
+   "dps_short": 778.4,
+   "dps_long": 314.6,
+   "ratio": 0.404,
+   "edge": -0.329
+  },
+  {
+   "champion": "Malzahar",
+   "name": "Malzahar",
+   "role": "mage",
+   "dps_short": 735.7,
+   "dps_long": 289.9,
+   "ratio": 0.394,
+   "edge": -0.346
+  },
+  {
+   "champion": "Swain",
+   "name": "Swain",
+   "role": "mage",
+   "dps_short": 651.1,
+   "dps_long": 251.8,
+   "ratio": 0.387,
+   "edge": -0.357
+  },
+  {
+   "champion": "Leona",
+   "name": "Leona",
+   "role": "tank",
+   "dps_short": 893.2,
+   "dps_long": 346.1,
+   "ratio": 0.387,
+   "edge": -0.357
+  },
+  {
+   "champion": "Blitzcrank",
+   "name": "Blitzcrank",
+   "role": "tank",
+   "dps_short": 537.0,
+   "dps_long": 197.6,
+   "ratio": 0.368,
+   "edge": -0.389
   },
   {
    "champion": "Shen",
    "name": "Shen",
    "role": "tank",
-   "dps_short": 651.2,
-   "dps_long": 206.8,
+   "dps_short": 1357.3,
+   "dps_long": 495.5,
+   "ratio": 0.365,
+   "edge": -0.394
+  },
+  {
+   "champion": "Rammus",
+   "name": "Rammus",
+   "role": "tank",
+   "dps_short": 502.3,
+   "dps_long": 175.6,
+   "ratio": 0.35,
+   "edge": -0.419
+  },
+  {
+   "champion": "Taric",
+   "name": "Taric",
+   "role": "support",
+   "dps_short": 435.0,
+   "dps_long": 149.6,
+   "ratio": 0.344,
+   "edge": -0.429
+  },
+  {
+   "champion": "Braum",
+   "name": "Braum",
+   "role": "tank",
+   "dps_short": 444.4,
+   "dps_long": 141.2,
    "ratio": 0.318,
-   "edge": -0.384
+   "edge": -0.472
   }
  ]
 }
