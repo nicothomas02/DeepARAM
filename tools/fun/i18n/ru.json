@@ -354,5 +354,15 @@
  "Spirit Visage makes every heal bigger, so every hit gets bigger too. Warmog's, Unending Despair and Jak'Sho keep him seated.": "Облачение духов усиливает любое лечение, а значит, и каждый удар становится сильнее. Доспех Вармога, Бесконечное отчаяние и Жак'Шо Многоликий не дают ему встать.",
  "Gain a Shield for every second you spend Channeling.": "Вы получаете щит за каждую секунду подготовки заклинания.",
  "Casting the chosen ability grants bonus Health and Slows nearby enemies for the duration of the chosen abilityGetting a takedown permanently increases this effect.": "Применение выбранного умения даёт бонусное здоровье и замедляет ближайших противников на время действия выбранного умения. Получение убийства или содействия навсегда усиливает этот эффект.",
- "Your chosen ability gains 100 Ability Haste.": "Выбранное умение получает 100 ед. ускорения умений."
+ "Your chosen ability gains 100 Ability Haste.": "Выбранное умение получает 100 ед. ускорения умений.",
+ "Certified Crashout": "Сертифицированный тильтанутый",
+ "Spells are just the warm-up. The real Rumble starts when he's silenced.": "Заклинания — лишь разминка. Настоящий Рамбл начинается, когда его заглушили.",
+ "Rumble overheats on purpose, locks himself out of his spells and punches everyone instead.": "Рамбл нарочно перегревается, лишает себя заклинаний и просто лупит всех.",
+ "Spam spells until you Overheat, then walk up and right-click. When it cools down, do it again.": "Спамь заклинаниями до Перегрева, потом подходи и бей ПКМ. Остыл — и по новой.",
+ "Overheat": "Перегрев",
+ "At full Heat Rumble can't cast, but his attacks hit harder and come faster. He's the only champion whose kit pays him for silencing himself.": "При полном Жаре Рамбл не может колдовать, зато бьёт сильнее и чаще. Единственный чемпион, чей набор умений награждает за самозаглушение.",
+ "Deft and Tap Dancer pile on Attack Speed, Dual Wield fires a second bolt with every attack, and Firebrand stacks a Burn on each one.": "Проворство и Чечетка добавляют скорость атаки, Парное оружие выпускает второй снаряд с каждой атакой, а Тавро накладывает на каждую Горение.",
+ "Nashor's Tooth, Guinsoo's Rageblade, Wit's End and Terminus are all on-hit, so every punch and every Dual Wield bolt carries them.": "Зуб Нашора, Клинок ярости Гинсу, Смерть Разума и Светотень срабатывают при атаке, так что каждый удар и каждый снаряд Парного оружия несёт их эффекты.",
+ "Gain 60% Attack Speed.": "Вы получаете 60% скорости атаки.",
+ "When you Attack, fire a bolt that deals 40% damage and applies your On-Hit effects at 40% effectiveness. Gain 10% total Attack Speed.": "При атаке вы выпускаете снаряд, который наносит 40% урона и применяет ваши эффекты при атаке с 40% эффективности. Вы получаете 10% общей скорости атаки."
 }

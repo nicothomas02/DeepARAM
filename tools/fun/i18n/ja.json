@@ -354,5 +354,15 @@
  "Spirit Visage makes every heal bigger, so every hit gets bigger too. Warmog's, Unending Despair and Jak'Sho keep him seated.": "スピリット ビサージュで回復量が増え、攻撃のダメージも増える。ワーモグ アーマー、終わりなき絶望、変幻自在のジャック＝ショーで座り続けられる。",
  "Gain a Shield for every second you spend Channeling.": "チャネリングしている間、毎秒シールドを獲得する。",
  "Casting the chosen ability grants bonus Health and Slows nearby enemies for the duration of the chosen abilityGetting a takedown permanently increases this effect.": "選択したアビリティを使用すると、ボーナス体力を獲得し、選択したアビリティの持続時間中、周囲の敵をスローにする。テイクダウンを獲得すると、この効果が永続的に増加する。",
- "Your chosen ability gains 100 Ability Haste.": "選択したアビリティのアビリティヘイストが100増加する。"
+ "Your chosen ability gains 100 Ability Haste.": "選択したアビリティのアビリティヘイストが100増加する。",
+ "Certified Crashout": "暴走確定",
+ "Spells are just the warm-up. The real Rumble starts when he's silenced.": "スペルはただのウォームアップ。本当のランブルはサイレンスされてからが本番。",
+ "Rumble overheats on purpose, locks himself out of his spells and punches everyone instead.": "ランブルはわざとオーバーヒートしてスペルを封印し、全員を殴りに行く。",
+ "Spam spells until you Overheat, then walk up and right-click. When it cools down, do it again.": "オーバーヒートするまでスペルを連打して、近づいて右クリック。冷めたらまた繰り返そう。",
+ "Overheat": "オーバーヒート",
+ "At full Heat Rumble can't cast, but his attacks hit harder and come faster. He's the only champion whose kit pays him for silencing himself.": "ヒートが満タンになるとランブルはスペルを使えないが、攻撃が強く、速くなる。自分でサイレンスして強くなる唯一のチャンピオン。",
+ "Deft and Tap Dancer pile on Attack Speed, Dual Wield fires a second bolt with every attack, and Firebrand stacks a Burn on each one.": "技巧とタップダンサーでアタックスピードが積み上がり、二刀流は攻撃のたびに2発目のボルトを放ち、火付け役はそのすべてにバーンを付与する。",
+ "Nashor's Tooth, Guinsoo's Rageblade, Wit's End and Terminus are all on-hit, so every punch and every Dual Wield bolt carries them.": "ナッシャー トゥース、グインソー レイジブレード、ウィッツ エンド、テルミヌスはすべてオンヒット効果。パンチも二刀流のボルトも全部に乗る。",
+ "Gain 60% Attack Speed.": "アタックスピード+60%。",
+ "When you Attack, fire a bolt that deals 40% damage and applies your On-Hit effects at 40% effectiveness. Gain 10% total Attack Speed.": "攻撃時、ダメージ40%のボルトを発射し、オンヒット効果を40%の効果で適用する。総アタックスピード+10%。"
 }

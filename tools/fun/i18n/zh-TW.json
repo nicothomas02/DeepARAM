@@ -354,5 +354,15 @@
  "Spirit Visage makes every heal bigger, so every hit gets bigger too. Warmog's, Unending Despair and Jak'Sho keep him seated.": "振奮盔甲讓每次治療都更強，所以每次攻擊也更強。好戰者鎧甲、無盡絕望和千變萬化之賈克修讓他穩穩坐著。",
  "Gain a Shield for every second you spend Channeling.": "每引導1秒，獲得一層護盾。",
  "Casting the chosen ability grants bonus Health and Slows nearby enemies for the duration of the chosen abilityGetting a takedown permanently increases this effect.": "施放所選技能時獲得額外生命值，並在所選技能持續期間緩速附近的敵人。獲得擊殺或助攻會永久提升此效果。",
- "Your chosen ability gains 100 Ability Haste.": "你所選的技能獲得100技能加速。"
+ "Your chosen ability gains 100 Ability Haste.": "你所選的技能獲得100技能加速。",
+ "Certified Crashout": "官方認證・心態炸裂",
+ "Spells are just the warm-up. The real Rumble starts when he's silenced.": "技能只是熱身，被沉默的藍寶才是真正的藍寶。",
+ "Rumble overheats on purpose, locks himself out of his spells and punches everyone instead.": "藍寶故意讓自己過熱，把技能鎖死，然後用拳頭招呼所有人。",
+ "Spam spells until you Overheat, then walk up and right-click. When it cools down, do it again.": "一直放技能放到過熱，然後衝上去右鍵普攻。冷卻完再來一輪。",
+ "Overheat": "過熱",
+ "At full Heat Rumble can't cast, but his attacks hit harder and come faster. He's the only champion whose kit pays him for silencing himself.": "熱能全滿時藍寶放不了技能，但攻擊更痛、攻速更快。他是唯一一個自我沉默還能拿獎勵的英雄。",
+ "Deft and Tap Dancer pile on Attack Speed, Dual Wield fires a second bolt with every attack, and Firebrand stacks a Burn on each one.": "手腳麻利和輕舞飛揚疊加攻擊速度，雙刀流每次攻擊多射出一發彈矢，煽風點火則替每一發都疊上一層燃燒。",
+ "Nashor's Tooth, Guinsoo's Rageblade, Wit's End and Terminus are all on-hit, so every punch and every Dual Wield bolt carries them.": "納什之牙、鬼索的狂暴之刃、智慧末刃和臨界點全都是攻擊特效，所以每一拳、每一發雙刀流彈矢都會帶上它們。",
+ "Gain 60% Attack Speed.": "獲得60%攻擊速度。",
+ "When you Attack, fire a bolt that deals 40% damage and applies your On-Hit effects at 40% effectiveness. Gain 10% total Attack Speed.": "攻擊時，發射一枚造成40%傷害的彈矢，並以40%的效果觸發你的攻擊特效。獲得10%總攻擊速度。"
 }

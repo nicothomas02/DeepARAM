@@ -637,6 +637,44 @@
       ],
       "play": "Walk into the middle of the fight and press W. Repeat. Never right-click a champion.",
       "chef": "2026-11-12"
+    },
+    {
+      "id": "rumble-certified-crashout",
+      "champion": "Rumble",
+      "title": "Certified Crashout",
+      "tagline": "Spells are just the warm-up. The real Rumble starts when he's silenced.",
+      "augments": [
+        "Deft",
+        "Tap Dancer",
+        "Dual Wield",
+        "Firebrand"
+      ],
+      "core": 4,
+      "items": [
+        "Nashor's Tooth",
+        "Guinsoo's Rageblade",
+        "Wit's End",
+        "Terminus",
+        "Phantom Dancer",
+        "Berserker's Greaves"
+      ],
+      "why": "Rumble overheats on purpose, locks himself out of his spells and punches everyone instead.",
+      "how": [
+        [
+          "Overheat",
+          "At full Heat Rumble can't cast, but his attacks hit harder and come faster. He's the only champion whose kit pays him for silencing himself."
+        ],
+        [
+          "Augments",
+          "Deft and Tap Dancer pile on Attack Speed, Dual Wield fires a second bolt with every attack, and Firebrand stacks a Burn on each one."
+        ],
+        [
+          "Items",
+          "Nashor's Tooth, Guinsoo's Rageblade, Wit's End and Terminus are all on-hit, so every punch and every Dual Wield bolt carries them."
+        ]
+      ],
+      "play": "Spam spells until you Overheat, then walk up and right-click. When it cools down, do it again.",
+      "chef": "2026-11-13"
     }
   ]
 }

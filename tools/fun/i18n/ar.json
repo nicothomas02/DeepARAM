@@ -354,5 +354,15 @@
  "Spirit Visage makes every heal bigger, so every hit gets bigger too. Warmog's, Unending Despair and Jak'Sho keep him seated.": "وجه الروح يضخم كل علاج، فتكبر كل ضربة أيضًا. درع وارموغ ويأسٌ بلا نهاية وجاكشو، المتلون تبقيه جالسًا.",
  "Gain a Shield for every second you spend Channeling.": "اكتسب درعًا عن كل ثانية تقضيها في التوجيه.",
  "Casting the chosen ability grants bonus Health and Slows nearby enemies for the duration of the chosen abilityGetting a takedown permanently increases this effect.": "استخدام القدرة المختارة يمنح صحة إضافية ويبطئ الأعداء القريبين طوال مدة القدرة المختارة. تحقيق قتل يزيد هذا التأثير بشكل دائم.",
- "Your chosen ability gains 100 Ability Haste.": "تكتسب قدرتك المختارة 100 من تسريع القدرة."
+ "Your chosen ability gains 100 Ability Haste.": "تكتسب قدرتك المختارة 100 من تسريع القدرة.",
+ "Certified Crashout": "مجنون معتمد",
+ "Spells are just the warm-up. The real Rumble starts when he's silenced.": "التعاويذ مجرد إحماء. رامبل الحقيقي يبدأ لما يُسكَت.",
+ "Rumble overheats on purpose, locks himself out of his spells and punches everyone instead.": "رامبل يسخّن نفسه عمدًا، ويقفل تعاويذه، ويضرب الجميع بقبضتيه.",
+ "Spam spells until you Overheat, then walk up and right-click. When it cools down, do it again.": "اسبام التعاويذ لين تصل فرط السخونة، بعدها اقترب واضغط كليك يمين. لما يبرد، كرر من جديد.",
+ "Overheat": "فرط السخونة",
+ "At full Heat Rumble can't cast, but his attacks hit harder and come faster. He's the only champion whose kit pays him for silencing himself.": "عند اكتمال الحرارة لا يستطيع رامبل إلقاء التعاويذ، لكن هجماته تضرب أقوى وأسرع. هو البطل الوحيد الذي تكافئه قدراته على إسكات نفسه.",
+ "Deft and Tap Dancer pile on Attack Speed, Dual Wield fires a second bolt with every attack, and Firebrand stacks a Burn on each one.": "الماهر وراقص إيقاعي يكدسان سرعة الهجوم، وثنائي القبضة يطلق سهمًا ثانيًا مع كل هجوم، والجمرة تضيف حرقًا على كل واحد.",
+ "Nashor's Tooth, Guinsoo's Rageblade, Wit's End and Terminus are all on-hit, so every punch and every Dual Wield bolt carries them.": "سن ناشور ونصل غضب غينسو والموقف الحرج ومحطة النهاية كلها عند الضربة، فكل لكمة وكل سهم من ثنائي القبضة يحملها.",
+ "Gain 60% Attack Speed.": "اكتسب 60% سرعة هجوم.",
+ "When you Attack, fire a bolt that deals 40% damage and applies your On-Hit effects at 40% effectiveness. Gain 10% total Attack Speed.": "عند الهجوم، تطلق سهمًا يُلحق 40% من الضرر ويطبق تأثيرات الضربة لديك بفعالية 40%. اكتسب 10% من سرعة الهجوم الإجمالية."
 }

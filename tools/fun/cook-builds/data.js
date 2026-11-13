@@ -3988,6 +3988,160 @@ window.COOK_DATA = {
     "items_not_modeled": [],
     "whole_build": true
    }
+  },
+  {
+   "id": "rumble-certified-crashout",
+   "champion": "Rumble",
+   "title": "Certified Crashout",
+   "tagline": "Spells are just the warm-up. The real Rumble starts when he's silenced.",
+   "augments": [
+    {
+     "name": "Deft",
+     "id": 1022,
+     "rarity": "Silver",
+     "text": "Gain 60% Attack Speed.",
+     "core": true,
+     "icon": "icons/augments/deft.png",
+     "win_rate": 0.5491,
+     "pick_rate": 0.2782,
+     "win_rank": 47,
+     "best_champions": [
+      "Jinx",
+      "Yone",
+      "Vayne",
+      "Caitlyn",
+      "Yunara",
+      "Tristana"
+     ],
+     "champion_is_best": false
+    },
+    {
+     "name": "Tap Dancer",
+     "id": 1081,
+     "rarity": "Prismatic",
+     "text": "Your Attacks grant you 10 Movement Speed. Gain Attack Speed. The buff stacks and refreshes infinitely but lasts 5 seconds.",
+     "core": true,
+     "icon": "icons/augments/tap-dancer.png",
+     "win_rate": 0.5089,
+     "pick_rate": 0.1205,
+     "win_rank": 138,
+     "best_champions": [
+      "Jinx",
+      "Yunara",
+      "Senna",
+      "Caitlyn",
+      "Jhin",
+      "Vayne"
+     ],
+     "champion_is_best": false
+    },
+    {
+     "name": "Dual Wield",
+     "id": 1225,
+     "rarity": "Prismatic",
+     "text": "When you Attack, fire a bolt that deals 40% damage and applies your On-Hit effects at 40% effectiveness. Gain 10% total Attack Speed.",
+     "core": true,
+     "icon": "icons/augments/dual-wield.png",
+     "win_rate": 0.5547,
+     "pick_rate": 0.264,
+     "win_rank": 38,
+     "best_champions": [
+      "Vayne",
+      "Jinx",
+      "Caitlyn",
+      "Yunara",
+      "Twitch",
+      "Tristana"
+     ],
+     "champion_is_best": false
+    },
+    {
+     "name": "Firebrand",
+     "id": 1036,
+     "rarity": "Gold",
+     "text": "Your Attacks also Burn enemies, dealing 0.4% max Health magic damage per second over 5 seconds. This Burn stacks infinitely.",
+     "core": true,
+     "icon": "icons/augments/firebrand.png",
+     "win_rate": 0.4915,
+     "pick_rate": 0.1039,
+     "win_rank": 178,
+     "best_champions": [
+      "Teemo",
+      "Ashe",
+      "Katarina",
+      "Jinx",
+      "Kayle",
+      "Twitch"
+     ],
+     "champion_is_best": false
+    }
+   ],
+   "core": 4,
+   "items": [
+    "Nashor's Tooth",
+    "Guinsoo's Rageblade",
+    "Wit's End",
+    "Terminus",
+    "Phantom Dancer",
+    "Berserker's Greaves"
+   ],
+   "why": "Rumble overheats on purpose, locks himself out of his spells and punches everyone instead.",
+   "how": [
+    [
+     "Overheat",
+     "At full Heat Rumble can't cast, but his attacks hit harder and come faster. He's the only champion whose kit pays him for silencing himself."
+    ],
+    [
+     "Augments",
+     "Deft and Tap Dancer pile on Attack Speed, Dual Wield fires a second bolt with every attack, and Firebrand stacks a Burn on each one."
+    ],
+    [
+     "Items",
+     "Nashor's Tooth, Guinsoo's Rageblade, Wit's End and Terminus are all on-hit, so every punch and every Dual Wield bolt carries them."
+    ]
+   ],
+   "play": "Spam spells until you Overheat, then walk up and right-click. When it cools down, do it again.",
+   "chef": "2026-11-13",
+   "champion_name": "Rumble",
+   "item_ids": [
+    3115,
+    3124,
+    3091,
+    3302,
+    3046,
+    3006
+   ],
+   "champion_icon": "icons/champions/68.png",
+   "champion_win_rate": 0.4963,
+   "champion_pick_rate": 0.0717,
+   "champion_win_rank": 78,
+   "core_win_rate": 0.5261,
+   "tier": "Holds up",
+   "core_usual": 0,
+   "core_pick_rate": 0.1917,
+   "sim": {
+    "dps": 442,
+    "survival": 0.017,
+    "best_dps": 1024,
+    "best_survival": 0.019,
+    "pct_of_best": 0.432,
+    "best_items": [
+     "Sorcerer's Shoes",
+     "Horizon Focus",
+     "Rabadon's Deathcap",
+     "Shadowflame",
+     "Stormsurge",
+     "Void Staff"
+    ],
+    "best_augments": [
+     "Upgrade Stormsurge",
+     "Eureka",
+     "Giant Slayer",
+     "Dive Bomber"
+    ],
+    "items_not_modeled": [],
+    "whole_build": true
+   }
   }
  ]
 };

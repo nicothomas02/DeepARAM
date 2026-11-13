@@ -354,5 +354,15 @@
  "Spirit Visage makes every heal bigger, so every hit gets bigger too. Warmog's, Unending Despair and Jak'Sho keep him seated.": "정령의 형상은 모든 회복량을 늘려서 공격도 더 세진다. 워모그의 갑옷, 끝없는 절망, 해신 작쇼는 계속 앉아 있게 해준다.",
  "Gain a Shield for every second you spend Channeling.": "정신 집중하는 매 초마다 보호막을 얻습니다.",
  "Casting the chosen ability grants bonus Health and Slows nearby enemies for the duration of the chosen abilityGetting a takedown permanently increases this effect.": "선택한 스킬을 사용하면 추가 체력을 얻고 선택한 스킬의 지속시간 동안 주변 적을 둔화시킵니다. 처치 관여 시 이 효과가 영구적으로 증가합니다.",
- "Your chosen ability gains 100 Ability Haste.": "선택한 스킬의 스킬 가속이 100 증가합니다."
+ "Your chosen ability gains 100 Ability Haste.": "선택한 스킬의 스킬 가속이 100 증가합니다.",
+ "Certified Crashout": "폭주 인증 완료",
+ "Spells are just the warm-up. The real Rumble starts when he's silenced.": "스킬은 그냥 준비운동. 진짜 럼블은 침묵당한 뒤부터.",
+ "Rumble overheats on purpose, locks himself out of his spells and punches everyone instead.": "럼블은 일부러 과열돼서 스킬을 잠그고 대신 다 때려잡는다.",
+ "Spam spells until you Overheat, then walk up and right-click. When it cools down, do it again.": "과열될 때까지 스킬 난사하고, 다가가서 우클릭. 식으면 또 반복.",
+ "Overheat": "과열",
+ "At full Heat Rumble can't cast, but his attacks hit harder and come faster. He's the only champion whose kit pays him for silencing himself.": "열기가 가득 차면 럼블은 스킬을 못 쓰지만 공격이 더 아프고 더 빨라진다. 스스로 침묵해야 강해지는 유일한 챔피언.",
+ "Deft and Tap Dancer pile on Attack Speed, Dual Wield fires a second bolt with every attack, and Firebrand stacks a Burn on each one.": "능수능란과 탭 댄서로 공격 속도가 쌓이고, 양손잡이는 공격마다 볼트를 하나 더 쏘고, 화염 낙인은 거기에 전부 화상을 건다.",
+ "Nashor's Tooth, Guinsoo's Rageblade, Wit's End and Terminus are all on-hit, so every punch and every Dual Wield bolt carries them.": "내셔의 이빨, 구인수의 격노검, 마법사의 최후, 경계는 전부 적중 시 효과라서 주먹질이든 양손잡이 볼트든 다 묻어난다.",
+ "Gain 60% Attack Speed.": "공격 속도 60%를 얻습니다.",
+ "When you Attack, fire a bolt that deals 40% damage and applies your On-Hit effects at 40% effectiveness. Gain 10% total Attack Speed.": "공격 시 피해량 40%의 볼트를 발사하고 적중 시 효과를 40% 효율로 적용합니다. 총 공격 속도 10%를 얻습니다."
 }

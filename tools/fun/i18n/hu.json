@@ -354,5 +354,15 @@
  "Spirit Visage makes every heal bigger, so every hit gets bigger too. Warmog's, Unending Despair and Jak'Sho keep him seated.": "A Szellemarc minden gyógyítást megnövel, így minden ütés is nagyobb lesz. Warmog vértje, a Végtelen kétségbeesés és Jak'Sho, a váltakozó ülve tartják.",
  "Gain a Shield for every second you spend Channeling.": "Minden csatornázással töltött másodpercért pajzsot kapsz.",
  "Casting the chosen ability grants bonus Health and Slows nearby enemies for the duration of the chosen abilityGetting a takedown permanently increases this effect.": "A kiválasztott képesség használata bónusz életerőt ad, és lelassítja a közelben lévő ellenségeket a kiválasztott képesség időtartamára. Leterítés szerzése véglegesen növeli ezt a hatást.",
- "Your chosen ability gains 100 Ability Haste.": "A kiválasztott képességed 100 képességgyorsítást kap."
+ "Your chosen ability gains 100 Ability Haste.": "A kiválasztott képességed 100 képességgyorsítást kap.",
+ "Certified Crashout": "Hivatalos Idegbeteg",
+ "Spells are just the warm-up. The real Rumble starts when he's silenced.": "A varázslatok csak a bemelegítés. Az igazi Rumble akkor jön, ha elnémítják.",
+ "Rumble overheats on purpose, locks himself out of his spells and punches everyone instead.": "Rumble direkt túlhevíti magát, kizárja magát a varázslatokból, és mindenkit helyette pofozgat.",
+ "Spam spells until you Overheat, then walk up and right-click. When it cools down, do it again.": "Spameld a varázslatokat, amíg Túlhevülsz, aztán sétálj oda és jobb klikk. Ha lehűlt, kezdd elölről.",
+ "Overheat": "Túlhevülés",
+ "At full Heat Rumble can't cast, but his attacks hit harder and come faster. He's the only champion whose kit pays him for silencing himself.": "Teljes Hőnél Rumble nem tud varázsolni, de az ütései keményebbek és gyorsabbak. Ő az egyetlen bajnok, akit megjutalmaz a saját magát elnémító készlete.",
+ "Deft and Tap Dancer pile on Attack Speed, Dual Wield fires a second bolt with every attack, and Firebrand stacks a Burn on each one.": "Az Iparkodás és a Sztepptáncos tolja a Támadási Sebességet, a Dupla csapás minden támadással egy második lövedéket lő, a Lázító pedig mindegyikre Égést rak.",
+ "Nashor's Tooth, Guinsoo's Rageblade, Wit's End and Terminus are all on-hit, so every punch and every Dual Wield bolt carries them.": "Nashor foga, Guinsoo dühpengéje, Utolsó esély és Vég mind találatkor hatnak, így minden ütés és minden Dupla csapás-lövedék viszi őket.",
+ "Gain 60% Attack Speed.": "60% Támadási Sebességet kapsz.",
+ "When you Attack, fire a bolt that deals 40% damage and applies your On-Hit effects at 40% effectiveness. Gain 10% total Attack Speed.": "Támadáskor egy lövedéket lősz, amely 40% sebzést okoz, és a találatkor hatásaidat 40%-os hatékonysággal alkalmazza. 10% összes Támadási Sebességet kapsz."
 }

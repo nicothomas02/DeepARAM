@@ -354,5 +354,15 @@
  "Spirit Visage makes every heal bigger, so every hit gets bigger too. Warmog's, Unending Despair and Jak'Sho keep him seated.": "Spirit Visage ทำให้ทุกฮีลแรงขึ้น ทุกการโจมตีเลยแรงขึ้นตาม Warmog's Armor, Unending Despair และ Jak'Sho, The Protean ช่วยให้เขานั่งต่อได้",
  "Gain a Shield for every second you spend Channeling.": "ได้รับโล่ทุกวินาทีที่แชนเนล",
  "Casting the chosen ability grants bonus Health and Slows nearby enemies for the duration of the chosen abilityGetting a takedown permanently increases this effect.": "เมื่อใช้สกิลที่เลือก จะได้รับเลือดโบนัสและสโลว์ศัตรูใกล้เคียงตลอดระยะเวลาของสกิลที่เลือก การได้ Takedown จะเพิ่มผลนี้อย่างถาวร",
- "Your chosen ability gains 100 Ability Haste.": "สกิลที่เลือกได้รับ Ability Haste 100"
+ "Your chosen ability gains 100 Ability Haste.": "สกิลที่เลือกได้รับ Ability Haste 100",
+ "Certified Crashout": "สติหลุดระดับมีใบเซอร์",
+ "Spells are just the warm-up. The real Rumble starts when he's silenced.": "สกิลแค่วอร์มอัป Rumble ตัวจริงเริ่มตอนโดนไซเลนซ์",
+ "Rumble overheats on purpose, locks himself out of his spells and punches everyone instead.": "Rumble จงใจโอเวอร์ฮีตจนใช้สกิลไม่ได้ แล้วเดินเข้าไปต่อยทุกคนแทน",
+ "Spam spells until you Overheat, then walk up and right-click. When it cools down, do it again.": "สแปมสกิลจนโอเวอร์ฮีต แล้วเดินเข้าไปคลิกขวาใส่ พอเย็นลงก็ทำซ้ำ",
+ "Overheat": "โอเวอร์ฮีต",
+ "At full Heat Rumble can't cast, but his attacks hit harder and come faster. He's the only champion whose kit pays him for silencing himself.": "ตอนความร้อนเต็ม Rumble ใช้สกิลไม่ได้ แต่ตีแรงขึ้นและเร็วขึ้น เป็นแชมป์เปี้ยนคนเดียวที่ชุดสกิลให้รางวัลกับการไซเลนซ์ตัวเอง",
+ "Deft and Tap Dancer pile on Attack Speed, Dual Wield fires a second bolt with every attack, and Firebrand stacks a Burn on each one.": "Deft และ Tap Dancer เพิ่มความเร็วโจมตี Dual Wield ยิงลูกศรที่สองทุกครั้งที่โจมตี ส่วน Firebrand ใส่สถานะ Burn สะสมให้ทุกครั้ง",
+ "Nashor's Tooth, Guinsoo's Rageblade, Wit's End and Terminus are all on-hit, so every punch and every Dual Wield bolt carries them.": "Nashor's Tooth, Guinsoo's Rageblade, Wit's End และ Terminus เป็นเอฟเฟกต์ On-Hit ทั้งหมด ทุกหมัดและทุกลูกศรของ Dual Wield จึงติดไปด้วย",
+ "Gain 60% Attack Speed.": "ได้รับความเร็วโจมตี 60%",
+ "When you Attack, fire a bolt that deals 40% damage and applies your On-Hit effects at 40% effectiveness. Gain 10% total Attack Speed.": "เมื่อโจมตี ยิงลูกศรที่สร้างความเสียหาย 40% และใช้เอฟเฟกต์ On-Hit ของคุณที่ประสิทธิภาพ 40% ได้รับความเร็วโจมตีรวม 10%"
 }
