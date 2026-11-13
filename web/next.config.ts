@@ -96,6 +96,8 @@ const nextConfig: NextConfig = {
         { source: "/draft", destination: "/tier-list?tab=augments", permanent: false },
         // Pages that once existed for another mode's stand-ins of a champion.
         { source: "/champions/Jade_:alias", destination: "/champions/:alias", permanent: true },
+        // Common guesses for the sign-in page; accounts live at /account.
+        ...["/signin", "/sign-in", "/login", "/log-in", "/signup", "/sign-up", "/register"].map((source) => ({ source, destination: "/account", permanent: false })),
         // Patch pages moved from client version numbers (16.20) to Riot's patch numbers (26.20).
         ...[15, 16, 17, 18, 19].map((v) => ({ source: `/patches/${v}.:minor(\\d{1,2})`, destination: `/patches/${v + 10}.:minor`, permanent: true })),
       ]);

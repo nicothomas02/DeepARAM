@@ -90,6 +90,12 @@ export function championSplash(alias: string): string | undefined {
   return clientAsset(skin?.uncenteredSplashPath || skin?.splashPath);
 }
 
+/** The small square crop of a champion's splash: about a fifth of the bytes, enough for phones. */
+export function championTile(alias: string): string | undefined {
+  const skin = IDS[alias] ? clientChampion(IDS[alias])?.skins?.[0] : undefined;
+  return clientAsset(skin?.tilePath);
+}
+
 export type ChampionSummary = {
   alias: string;
   name: string;

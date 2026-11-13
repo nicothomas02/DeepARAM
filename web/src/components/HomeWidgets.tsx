@@ -9,7 +9,7 @@ import { useNames, useT } from "./I18n";
 // The home page's interactive pieces: the live tier snapshot,
 // an augment offer to roll, and a Kitchen build to reroll.
 
-type Champ = { id: string; name: string; tier: string; winRate: number; pickRate: number; deepScore: number; splash?: string };
+type Champ = { id: string; name: string; tier: string; winRate: number; pickRate: number; deepScore: number; splash?: string; splashSmall?: string };
 type Build = { champion: string; title: string; augments: string[]; why: string };
 
 const pct = (v: number) => `${(v * 100).toFixed(1)}%`;
@@ -59,7 +59,11 @@ export function TierSnapshot({ champs }: { champs: Champ[] }) {
           aria-live="polite"
           data-tilt="soft"
           data-parallax
-          style={shown.splash ? ({ "--splash": `url("${shown.splash}")` } as React.CSSProperties) : undefined}
+          style={
+            shown.splash
+              ? ({ "--splash": `url("${shown.splash}")`, ...(shown.splashSmall ? { "--splash-small": `url("${shown.splashSmall}")` } : {}) } as React.CSSProperties)
+              : undefined
+          }
         >
           <img src={champIcon(shown.id)} alt="" width={44} height={44} />
           <div>
