@@ -343,5 +343,16 @@
  "Walk into melee and give a move command during every attack so each lunge crosses the enemy and drops a trail under them. Hop sideways through the group rather than away from it, and use Rend to slow anyone trying to leave.": "Μπες σε melee και δώσε εντολή κίνησης σε κάθε επίθεση, ώστε κάθε ορμή να περνά μέσα από τον εχθρό και να αφήνει ίχνος από κάτω του. Πήδα στο πλάι μέσα από την ομάδα και όχι μακριά της, και χρησιμοποίησε το Σκίσιμο για να επιβραδύνεις όποιον προσπαθεί να φύγει.",
  "Gain a Shield for 2 seconds after a Dash or Blink (5 seconds Cooldown).": "Απόκτησε Ασπίδα για 2 δευτερόλεπτα μετά από Dash ή Blink (5 δευτερόλεπτα Cooldown).",
  "May not work in a real game": "Ίσως να μη λειτουργεί σε πραγματικό παιχνίδι",
- "{champion} may not be offered {augments} this patch, so this build might not come together. Try it if they show up.": "Ο/Η {champion} ίσως να μη λάβει {augments} σε αυτό το patch, οπότε αυτό το build ίσως να μη στηθεί. Δοκίμασέ το αν εμφανιστούν."
+ "{champion} may not be offered {augments} this patch, so this build might not come together. Try it if they show up.": "Ο/Η {champion} ίσως να μη λάβει {augments} σε αυτό το patch, οπότε αυτό το build ίσως να μη στηθεί. Δοκίμασέ το αν εμφανιστούν.",
+ "Aura Farming": "Aura Farming",
+ "He sits down. He closes his eyes. The enemy team dies.": "Κάθεται. Κλείνει τα μάτια. Η ομάδα του εχθρού πεθαίνει.",
+ "Master Yi never attacks. He sits in the middle of the enemy team and Meditates until they're gone.": "Ο Μάστερ Γι δεν επιτίθεται ποτέ. Κάθεται στη μέση της εχθρικής ομάδας και διαλογίζεται μέχρι να εξαφανιστούν.",
+ "Walk into the middle of the fight and press W. Repeat. Never right-click a champion.": "Μπες στη μέση της μάχης και πάτα W. Επανάλαβε. Ποτέ δεξί κλικ σε πρωταθλητή.",
+ "Meditate": "Διαλογισμός",
+ "A self-heal, a channel and damage reduction in one button. Every piece below hooks into one of those.": "Αυτοϊατρεία, διοχέτευση και μείωση ζημιάς σε ένα κουμπί. Κάθε κομμάτι παρακάτω δένει με ένα από αυτά.",
+ "Circle of Death turns his healing into damage, Don't Change the Channel shields him every second he sits, and Mosh Monster and Bread And Butter, rolled on Meditate, slow everyone around him and let him sit again almost right away.": "Ο Κύκλος Θανάτου μετατρέπει την ανάρρωσή του σε ζημιά, το Μην Αλλάζεις το Κανάλι του δίνει ασπίδα κάθε δευτερόλεπτο που κάθεται, και το Τέρας του Ροκαρίσματος με το Βούτυρο στο Ψωμί, πάνω στον Διαλογισμό, επιβραδύνουν όλους γύρω του και τον αφήνουν να ξανακαθίσει σχεδόν αμέσως.",
+ "Spirit Visage makes every heal bigger, so every hit gets bigger too. Warmog's, Unending Despair and Jak'Sho keep him seated.": "Η Όψη Πνευμάτων μεγαλώνει κάθε θεραπεία, άρα μεγαλώνει και κάθε χτύπημα. Η Πανοπλία του Γόρμογκ, η Απέραντη Απόγνωση και ο Τζακ'Σο, Ο Πολυμορφικός τον κρατούν καθιστό.",
+ "Gain a Shield for every second you spend Channeling.": "Κερδίζεις Ασπίδα για κάθε δευτερόλεπτο που διοχετεύεις.",
+ "Casting the chosen ability grants bonus Health and Slows nearby enemies for the duration of the chosen abilityGetting a takedown permanently increases this effect.": "Η χρήση της επιλεγμένης ικανότητας δίνει επιπλέον Υγεία και Επιβραδύνει τους κοντινούς εχθρούς για τη διάρκεια της επιλεγμένης ικανότητας. Η εξόντωση ή η συμμετοχή σε εξόντωση αυξάνει μόνιμα αυτό το αποτέλεσμα.",
+ "Your chosen ability gains 100 Ability Haste.": "Η επιλεγμένη ικανότητά σου κερδίζει 100 Επιτάχυνση Ικανοτήτων."
 }

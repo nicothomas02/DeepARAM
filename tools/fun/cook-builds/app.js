@@ -68,6 +68,13 @@ LabI18n.ready(function () {
     return `<p class="doubt"><b>${T("May not work in a real game")}</b> ${esc(T("{champion} may not be offered {augments} this patch, so this build might not come together. Try it if they show up.", { champion: champ(b), augments: names }))}</p>`;
   }
 
+  // Short format (from 2026-11-13): a one-line tagline, the joke in one sentence, then one short line per piece.
+  function shortText(b) {
+    return `${b.tagline ? `<p class="tagline">${esc(T(b.tagline))}</p>` : ""}
+      <p class="why">${esc(T(b.why))}</p>
+      <ul class="how">${b.how.map(([k, t]) => `<li><b>${esc(T(k))}</b> ${esc(T(t))}</li>`).join("")}</ul>`;
+  }
+
   function card(b) {
     return `<article class="card" id="${esc(b.id)}">
       <div class="card-head">
@@ -78,7 +85,7 @@ LabI18n.ready(function () {
         </div>
         ${shareButton(b)}
       </div>
-      <p class="why">${esc(T(b.why))}</p>${doubtNote(b)}
+      ${b.how ? shortText(b) : `<p class="why">${esc(T(b.why))}</p>`}${doubtNote(b)}
       <p class="play muted"><b>${T("How to play:")}</b> ${esc(T(b.play))}</p>
       <div class="cols">
         <div><h3>${T("Augments")}</h3><ul class="augs">${b.augments.map(augRow).join("")}</ul></div>

@@ -343,5 +343,16 @@
  "Walk into melee and give a move command during every attack so each lunge crosses the enemy and drops a trail under them. Hop sideways through the group rather than away from it, and use Rend to slow anyone trying to leave.": "Intră în corp la corp și dă o comandă de mișcare în timpul fiecărui atac, ca fiecare săritură să treacă prin inamic și să lase o dâră sub el. Sari lateral prin grup, nu departe de el, și folosește Sfâșiere ca să încetinești pe oricine încearcă să fugă.",
  "Gain a Shield for 2 seconds after a Dash or Blink (5 seconds Cooldown).": "Primești un Scut timp de 2 secunde după un Dash sau Blink (Cooldown de 5 secunde).",
  "May not work in a real game": "S-ar putea să nu meargă într-un meci real",
- "{champion} may not be offered {augments} this patch, so this build might not come together. Try it if they show up.": "Lui {champion} s-ar putea să nu i se ofere {augments} în acest patch, așa că build-ul s-ar putea să nu iasă. Încearcă-l dacă apar."
+ "{champion} may not be offered {augments} this patch, so this build might not come together. Try it if they show up.": "Lui {champion} s-ar putea să nu i se ofere {augments} în acest patch, așa că build-ul s-ar putea să nu iasă. Încearcă-l dacă apar.",
+ "Aura Farming": "Aură la maxim",
+ "He sits down. He closes his eyes. The enemy team dies.": "Se așază. Închide ochii. Echipa inamică moare.",
+ "Master Yi never attacks. He sits in the middle of the enemy team and Meditates until they're gone.": "Master Yi nu atacă niciodată. Stă în mijlocul echipei inamice și Meditează până nu mai rămâne nimeni.",
+ "Walk into the middle of the fight and press W. Repeat. Never right-click a champion.": "Intră în mijlocul luptei și apasă W. Repetă. Nu da niciodată click-dreapta pe un campion.",
+ "Meditate": "Meditație",
+ "A self-heal, a channel and damage reduction in one button. Every piece below hooks into one of those.": "Vindecare proprie, canalizare și reducere de daune într-un singur buton. Fiecare piesă de mai jos se leagă de una dintre ele.",
+ "Circle of Death turns his healing into damage, Don't Change the Channel shields him every second he sits, and Mosh Monster and Bread And Butter, rolled on Meditate, slow everyone around him and let him sit again almost right away.": "Cercul morții îi transformă vindecarea în daune, Nu schimba canalul îl protejează cu un scut în fiecare secundă cât stă jos, iar Monstru energic și În primul rând, obținute pe Meditație, încetinesc pe toți din jur și îl lasă să se așeze din nou aproape imediat.",
+ "Spirit Visage makes every heal bigger, so every hit gets bigger too. Warmog's, Unending Despair and Jak'Sho keep him seated.": "Înfățișarea sufletului face fiecare vindecare mai mare, deci și fiecare lovitură devine mai mare. Armura lui Warmog, Disperare nemărginită și Jak'Sho cel schimbător îl țin așezat.",
+ "Gain a Shield for every second you spend Channeling.": "Primești un Scut pentru fiecare secundă petrecută Canalizând.",
+ "Casting the chosen ability grants bonus Health and Slows nearby enemies for the duration of the chosen abilityGetting a takedown permanently increases this effect.": "Lansarea abilității alese oferă Viață bonus și Încetinește inamicii din apropiere pe durata abilității alese. Obținerea unui asist sau a unei eliminări crește permanent acest efect.",
+ "Your chosen ability gains 100 Ability Haste.": "Abilitatea ta aleasă primește 100 Viteză de Abilitate."
 }

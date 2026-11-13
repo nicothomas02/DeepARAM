@@ -343,5 +343,16 @@
  "Walk into melee and give a move command during every attack so each lunge crosses the enemy and drops a trail under them. Hop sideways through the group rather than away from it, and use Rend to slow anyone trying to leave.": "ادخلي القتال القريب وأعطي أمر حركة أثناء كل هجوم حتى يعبر كل اندفاع العدو ويترك الأثر تحته. اقفزي جانبياً عبر المجموعة بدل الابتعاد عنها، واستخدمي تمزيق لإبطاء أي أحد يحاول الهرب.",
  "Gain a Shield for 2 seconds after a Dash or Blink (5 seconds Cooldown).": "احصل على درع لمدة ثانيتين بعد داش أو وميض (5 ثوانٍ فترة التهدئة).",
  "May not work in a real game": "قد لا تنجح في مباراة حقيقية",
- "{champion} may not be offered {augments} this patch, so this build might not come together. Try it if they show up.": "قد لا يُعرض على {champion} {augments} في هذا التحديث، لذا قد لا تكتمل هذه البنية. جرّبها إن ظهرت."
+ "{champion} may not be offered {augments} this patch, so this build might not come together. Try it if they show up.": "قد لا يُعرض على {champion} {augments} في هذا التحديث، لذا قد لا تكتمل هذه البنية. جرّبها إن ظهرت.",
+ "Aura Farming": "تجميع الأورا",
+ "He sits down. He closes his eyes. The enemy team dies.": "يجلس. يغمض عينيه. يموت الفريق المعادي.",
+ "Master Yi never attacks. He sits in the middle of the enemy team and Meditates until they're gone.": "ماستر يي لا يهاجم أبدًا. يجلس في وسط الفريق المعادي ويتأمل حتى يختفوا جميعًا.",
+ "Walk into the middle of the fight and press W. Repeat. Never right-click a champion.": "ادخل وسط المعركة واضغط W. كرر. لا تضغط بالزر الأيمن على أي بطل أبدًا.",
+ "Meditate": "تأمل",
+ "A self-heal, a channel and damage reduction in one button. Every piece below hooks into one of those.": "علاج ذاتي وقناة وتقليل ضرر في زر واحد. كل قطعة بالأسفل ترتبط بأحدها.",
+ "Circle of Death turns his healing into damage, Don't Change the Channel shields him every second he sits, and Mosh Monster and Bread And Butter, rolled on Meditate, slow everyone around him and let him sit again almost right away.": "حلقة الموت تحول علاجه إلى ضرر، ولا تتوقف عن التحضير تمنحه درعًا كل ثانية يجلس فيها، ووحش التدافع وخبز وزبدة، عند تفعيلهما على تأمل، يبطئان كل من حوله ويتيحان له الجلوس مجددًا بعد وقت قصير.",
+ "Spirit Visage makes every heal bigger, so every hit gets bigger too. Warmog's, Unending Despair and Jak'Sho keep him seated.": "وجه الروح يضخم كل علاج، فتكبر كل ضربة أيضًا. درع وارموغ ويأسٌ بلا نهاية وجاكشو، المتلون تبقيه جالسًا.",
+ "Gain a Shield for every second you spend Channeling.": "اكتسب درعًا عن كل ثانية تقضيها في التوجيه.",
+ "Casting the chosen ability grants bonus Health and Slows nearby enemies for the duration of the chosen abilityGetting a takedown permanently increases this effect.": "استخدام القدرة المختارة يمنح صحة إضافية ويبطئ الأعداء القريبين طوال مدة القدرة المختارة. تحقيق قتل يزيد هذا التأثير بشكل دائم.",
+ "Your chosen ability gains 100 Ability Haste.": "تكتسب قدرتك المختارة 100 من تسريع القدرة."
 }

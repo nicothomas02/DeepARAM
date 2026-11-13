@@ -343,5 +343,16 @@
  "Walk into melee and give a move command during every attack so each lunge crosses the enemy and drops a trail under them. Hop sideways through the group rather than away from it, and use Rend to slow anyone trying to leave.": "Entre no corpo a corpo e dê um comando de movimento durante cada ataque para que cada salto atravesse o inimigo e deixe um rastro embaixo dele. Pule de lado pelo meio do grupo em vez de se afastar dele, e use Dilacerar para desacelerar quem tentar fugir.",
  "Gain a Shield for 2 seconds after a Dash or Blink (5 seconds Cooldown).": "Ganhe um Escudo por 2 segundos depois de um Dash ou Blink (5 segundos de Tempo de Recarga).",
  "May not work in a real game": "Pode não funcionar numa partida de verdade",
- "{champion} may not be offered {augments} this patch, so this build might not come together. Try it if they show up.": "{champion} pode não receber {augments} neste patch, então esta build pode não se formar. Tente se aparecerem."
+ "{champion} may not be offered {augments} this patch, so this build might not come together. Try it if they show up.": "{champion} pode não receber {augments} neste patch, então esta build pode não se formar. Tente se aparecerem.",
+ "Aura Farming": "Farm de Aura",
+ "He sits down. He closes his eyes. The enemy team dies.": "Ele senta. Ele fecha os olhos. O time inimigo morre.",
+ "Master Yi never attacks. He sits in the middle of the enemy team and Meditates until they're gone.": "Master Yi nunca ataca. Ele senta no meio do time inimigo e Medita até não sobrar ninguém.",
+ "Walk into the middle of the fight and press W. Repeat. Never right-click a champion.": "Entre no meio da luta e aperte W. Repita. Nunca clique com o botão direito num campeão.",
+ "Meditate": "Meditar",
+ "A self-heal, a channel and damage reduction in one button. Every piece below hooks into one of those.": "Autocura, canalização e redução de dano em um botão só. Cada peça abaixo se conecta a uma delas.",
+ "Circle of Death turns his healing into damage, Don't Change the Channel shields him every second he sits, and Mosh Monster and Bread And Butter, rolled on Meditate, slow everyone around him and let him sit again almost right away.": "Círculo da Morte transforma a cura dele em dano, Não Mude de Canal dá um escudo a cada segundo que ele fica sentado, e Monstro da Roda Punk e Pão com Manteiga, sorteados em Meditar, atrasam todo mundo em volta e deixam ele sentar de novo quase na hora.",
+ "Spirit Visage makes every heal bigger, so every hit gets bigger too. Warmog's, Unending Despair and Jak'Sho keep him seated.": "Semblante Espiritual aumenta toda cura, então todo golpe também fica maior. Armadura de Warmog, Desespero Eterno e Jak'Sho, o Inconstante mantêm ele sentado.",
+ "Gain a Shield for every second you spend Channeling.": "Ganhe um Escudo a cada segundo que passar Canalizando.",
+ "Casting the chosen ability grants bonus Health and Slows nearby enemies for the duration of the chosen abilityGetting a takedown permanently increases this effect.": "Lançar a habilidade escolhida concede Vida bônus e Lentidão aos inimigos próximos pela duração da habilidade escolhida. Conseguir um abate aumenta permanentemente esse efeito.",
+ "Your chosen ability gains 100 Ability Haste.": "Sua habilidade escolhida ganha 100 de Aceleração de Habilidade."
 }

@@ -343,5 +343,16 @@
  "Walk into melee and give a move command during every attack so each lunge crosses the enemy and drops a trail under them. Hop sideways through the group rather than away from it, and use Rend to slow anyone trying to leave.": "Fonce au corps à corps et donne un ordre de déplacement pendant chaque attaque pour que chaque bond traverse l'ennemi et laisse une traînée sous lui. Saute sur le côté à travers le groupe plutôt qu'en t'éloignant, et utilise Déchirer pour ralentir ceux qui veulent filer.",
  "Gain a Shield for 2 seconds after a Dash or Blink (5 seconds Cooldown).": "Gagne un Bouclier pendant 2 secondes après un Dash ou un Blink (5 secondes de délai de récupération).",
  "May not work in a real game": "Peut ne pas marcher en vraie partie",
- "{champion} may not be offered {augments} this patch, so this build might not come together. Try it if they show up.": "{champion} risque de ne pas se voir proposer {augments} sur ce patch, donc ce build pourrait ne pas se monter. Essaie-le s'ils apparaissent."
+ "{champion} may not be offered {augments} this patch, so this build might not come together. Try it if they show up.": "{champion} risque de ne pas se voir proposer {augments} sur ce patch, donc ce build pourrait ne pas se monter. Essaie-le s'ils apparaissent.",
+ "Aura Farming": "Farm d'aura",
+ "He sits down. He closes his eyes. The enemy team dies.": "Il s'assoit. Il ferme les yeux. L'équipe ennemie meurt.",
+ "Master Yi never attacks. He sits in the middle of the enemy team and Meditates until they're gone.": "Maître Yi n'attaque jamais. Il s'assoit au milieu de l'équipe ennemie et médite jusqu'à ce qu'il n'y ait plus personne.",
+ "Walk into the middle of the fight and press W. Repeat. Never right-click a champion.": "Fonce au milieu du combat et appuie sur W. Recommence. Ne fais jamais de clic droit sur un champion.",
+ "Meditate": "Méditation",
+ "A self-heal, a channel and damage reduction in one button. Every piece below hooks into one of those.": "Un soin, une canalisation et une réduction de dégâts sur un seul bouton. Chaque pièce ci-dessous se greffe sur l'un des trois.",
+ "Circle of Death turns his healing into damage, Don't Change the Channel shields him every second he sits, and Mosh Monster and Bread And Butter, rolled on Meditate, slow everyone around him and let him sit again almost right away.": "Soins meurtriers transforme ses soins en dégâts, Ne changez pas de chaîne lui donne un bouclier chaque seconde où il reste assis, et Monstre de foire et Maîtrise du A, tirés sur Méditation, ralentissent tous ceux autour de lui et le laissent se rasseoir presque aussitôt.",
+ "Spirit Visage makes every heal bigger, so every hit gets bigger too. Warmog's, Unending Despair and Jak'Sho keep him seated.": "Visage spirituel renforce chaque soin, donc chaque coup frappe aussi plus fort. Armure de Warmog, Désespoir infini et Jak'Sho, le Protéiforme le gardent assis.",
+ "Gain a Shield for every second you spend Channeling.": "Gagnez un bouclier pour chaque seconde passée à canaliser.",
+ "Casting the chosen ability grants bonus Health and Slows nearby enemies for the duration of the chosen abilityGetting a takedown permanently increases this effect.": "Lancer la capacité choisie octroie des PV bonus et ralentit les ennemis proches pendant la durée de la capacité choisie. Obtenir une élimination augmente cet effet de façon permanente.",
+ "Your chosen ability gains 100 Ability Haste.": "Votre capacité choisie gagne 100 d'accélération de compétence."
 }

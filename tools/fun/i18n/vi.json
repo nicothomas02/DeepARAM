@@ -343,5 +343,16 @@
  "Walk into melee and give a move command during every attack so each lunge crosses the enemy and drops a trail under them. Hop sideways through the group rather than away from it, and use Rend to slow anyone trying to leave.": "Lao vào cận chiến và ra lệnh di chuyển trong mỗi đòn đánh để mỗi cú lao xuyên qua địch và để vệt dưới chân chúng. Nhảy ngang qua cả nhóm thay vì chạy ra xa, và dùng Xé Toạc để làm chậm ai định bỏ chạy.",
  "Gain a Shield for 2 seconds after a Dash or Blink (5 seconds Cooldown).": "Nhận Khiên trong 2 giây sau khi Dash hoặc Blink (Hồi chiêu 5 giây).",
  "May not work in a real game": "Có thể không thành trong trận thật",
- "{champion} may not be offered {augments} this patch, so this build might not come together. Try it if they show up.": "{champion} có thể không được đề xuất {augments} ở phiên bản này, nên bản build này có thể không hoàn thành. Hãy thử nếu chúng xuất hiện."
+ "{champion} may not be offered {augments} this patch, so this build might not come together. Try it if they show up.": "{champion} có thể không được đề xuất {augments} ở phiên bản này, nên bản build này có thể không hoàn thành. Hãy thử nếu chúng xuất hiện.",
+ "Aura Farming": "Cày Aura",
+ "He sits down. He closes his eyes. The enemy team dies.": "Ngồi xuống. Nhắm mắt lại. Cả team địch ngã xuống.",
+ "Master Yi never attacks. He sits in the middle of the enemy team and Meditates until they're gone.": "Master Yi không bao giờ đánh thường. Hắn ngồi giữa team địch và Thiền Định cho đến khi chúng biến mất.",
+ "Walk into the middle of the fight and press W. Repeat. Never right-click a champion.": "Lao vào giữa giao tranh rồi bấm W. Lặp lại. Đừng bao giờ click chuột phải vào tướng.",
+ "Meditate": "Thiền Định",
+ "A self-heal, a channel and damage reduction in one button. Every piece below hooks into one of those.": "Tự hồi máu, kênh phép và giảm sát thương trong một nút bấm. Mọi món bên dưới đều móc vào một trong số đó.",
+ "Circle of Death turns his healing into damage, Don't Change the Channel shields him every second he sits, and Mosh Monster and Bread And Butter, rolled on Meditate, slow everyone around him and let him sit again almost right away.": "Vòng Tròn Tử Thần biến hồi máu thành sát thương, Đừng Chuyển Kênh cho hắn lá chắn mỗi giây ngồi thiền, còn Quái Quẩy và Bánh Mỳ & Bơ, roll vào Thiền Định, làm chậm mọi kẻ xung quanh và giúp hắn ngồi lại gần như ngay lập tức.",
+ "Spirit Visage makes every heal bigger, so every hit gets bigger too. Warmog's, Unending Despair and Jak'Sho keep him seated.": "Giáp Tâm Linh làm mọi lượng hồi máu lớn hơn, nên mỗi đòn đánh cũng mạnh hơn. Giáp Máu Warmog, Áo Choàng Diệt Vong và Jak'Sho, Vỏ Bọc Thích Nghi giữ hắn ngồi vững.",
+ "Gain a Shield for every second you spend Channeling.": "Nhận Lá Chắn cho mỗi giây bạn Kênh phép.",
+ "Casting the chosen ability grants bonus Health and Slows nearby enemies for the duration of the chosen abilityGetting a takedown permanently increases this effect.": "Sử dụng kỹ năng được chọn sẽ nhận thêm Máu và Làm Chậm kẻ địch lân cận trong suốt thời gian của kỹ năng được chọn. Hạ gục hoặc hỗ trợ sẽ tăng vĩnh viễn hiệu ứng này.",
+ "Your chosen ability gains 100 Ability Haste.": "Kỹ năng được chọn nhận 100 Tốc Độ Hồi Chiêu."
 }

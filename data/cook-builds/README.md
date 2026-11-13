@@ -67,6 +67,30 @@ adds a new one every day at 7:50 PM New York, next to the PBE update: it appends
 removing or redating earlier ones, so the archive grows), reruns `build_data.py` and merges the PR once
 Tests pass.
 
+### Style v2 (Nico, 2026-11-12; applies to every new Chef Special)
+
+- **Absurd, not plausible.** A build practically nobody builds or would consider, funny to play and to watch,
+  and allowed to be bad. Push one silly thing to the extreme (a heal as the only damage, all-in on a minor
+  ability, wild speed). Plausible off-meta builds (like The Floor Is Spears) are out.
+- **Champion-specific.** The joke must hinge on a piece of THAT champion's kit, ideally an overlooked one
+  (a passive line nobody reads, a side effect of an ability), combined with certain augments and/or items.
+  Test: swap in a random champion; if the joke still works, drop it (a size-stacking build any champion could do
+  was rejected). The model is Aura Farming (Master Yi, 2026-11-12): Meditate is a heal, a channel and damage
+  reduction in one button, and Circle of Death, Don't Change the Channel, Mosh Monster and Bread And Butter each
+  hook into one of those.
+- **Any champion**, popular ones included (replaces the old "rarely picked champion" rule). Never repeat a
+  champion or core-augment combo already in `builds.json`.
+- **Rare items too.** Items should be almost never built on that champion (`data/cn/builds/<champion id>.json`);
+  a couple of exceptions (boots, one enabler) are fine.
+- **Augments the champion is never seen taking are allowed** (the card notes it); `check_build.py --fun` must
+  show no BLOCK.
+- **Meme / brainrot humour** is welcome in titles and taglines (Aura Farming, Certified Crashout, Skibidi Pillar),
+  kept PG.
+- **Short text.** Fields: `title` (2-5 words), `tagline` (one punchy line), `why` (ONE sentence: the joke),
+  `how` (exactly 3 `[label, text]` pairs: the kit piece, the augments, the items; each text 1-2 short
+  sentences), `play` (1-2 short sentences). The card renders `tagline` + `why` + three boxes + How to play.
+  Translate `tagline` and every `how` label and text like the other fields.
+
 ## Sharing
 
 Every card has a Share button: phones open the share sheet, other devices copy the link. A Chef Special

@@ -343,5 +343,16 @@
  "Walk into melee and give a move command during every attack so each lunge crosses the enemy and drops a trail under them. Hop sideways through the group rather than away from it, and use Rend to slow anyone trying to leave.": "Wejdź w zwarcie i wydawaj komendę ruchu przy każdym ataku, żeby każdy skok przecinał wroga i zostawiał ślad pod nim. Skacz na boki przez grupę, a nie od niej, i używaj Rozdarcia, żeby spowolnić tych, którzy chcą uciec.",
  "Gain a Shield for 2 seconds after a Dash or Blink (5 seconds Cooldown).": "Zyskaj Tarczę na 2 sekundy po Dashu lub Blinku (5 sekund odnowienia).",
  "May not work in a real game": "W prawdziwej grze może nie zadziałać",
- "{champion} may not be offered {augments} this patch, so this build might not come together. Try it if they show up.": "{champion} może nie dostać w tym patchu propozycji {augments}, więc ten build może się nie złożyć. Spróbuj, jeśli się pojawią."
+ "{champion} may not be offered {augments} this patch, so this build might not come together. Try it if they show up.": "{champion} może nie dostać w tym patchu propozycji {augments}, więc ten build może się nie złożyć. Spróbuj, jeśli się pojawią.",
+ "Aura Farming": "Aura Farming",
+ "He sits down. He closes his eyes. The enemy team dies.": "Siada. Zamyka oczy. Wrogi zespół ginie.",
+ "Master Yi never attacks. He sits in the middle of the enemy team and Meditates until they're gone.": "Master Yi nigdy nie atakuje. Siada w środku wrogiej drużyny i używa Medytacji, aż wszyscy znikną.",
+ "Walk into the middle of the fight and press W. Repeat. Never right-click a champion.": "Wejdź w sam środek walki i wciśnij W. Powtórz. Nigdy nie klikaj prawym na bohatera.",
+ "Meditate": "Medytacja",
+ "A self-heal, a channel and damage reduction in one button. Every piece below hooks into one of those.": "Leczenie siebie, channeling i redukcja obrażeń w jednym przycisku. Każdy element poniżej podpina się pod jedno z tych.",
+ "Circle of Death turns his healing into damage, Don't Change the Channel shields him every second he sits, and Mosh Monster and Bread And Butter, rolled on Meditate, slow everyone around him and let him sit again almost right away.": "Krąg Śmierci zamienia jego leczenie w obrażenia, Solidne Przygotowanie daje mu tarczę za każdą sekundę siedzenia, a Tańczący Potwór i Bułka z Masłem, wylosowane na Medytację, spowalniają wszystkich wokół i pozwalają mu usiąść znowu niemal od razu.",
+ "Spirit Visage makes every heal bigger, so every hit gets bigger too. Warmog's, Unending Despair and Jak'Sho keep him seated.": "Oblicze Ducha wzmacnia każde leczenie, więc każde uderzenie też jest mocniejsze. Plemienna Zbroja, Nieskończona Rozpacz i Jak'Sho Zmienny trzymają go w pozycji siedzącej.",
+ "Gain a Shield for every second you spend Channeling.": "Zyskujesz Tarczę za każdą sekundę Channelingu.",
+ "Casting the chosen ability grants bonus Health and Slows nearby enemies for the duration of the chosen abilityGetting a takedown permanently increases this effect.": "Użycie wybranej umiejętności daje dodatkowe Zdrowie i Spowalnia pobliskich wrogów na czas trwania wybranej umiejętności. Zdobycie asysty lub zabójstwa trwale zwiększa ten efekt.",
+ "Your chosen ability gains 100 Ability Haste.": "Twoja wybrana umiejętność zyskuje 100 Przyspieszenia umiejętności."
 }

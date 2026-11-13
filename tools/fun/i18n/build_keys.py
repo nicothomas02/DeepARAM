@@ -75,6 +75,8 @@ def main():
     cook = js_data("cook-builds/data.js", "COOK_DATA")
     for b in cook["builds"]:
         keys += [b["title"], b["why"], b["play"]]
+        keys += [b["tagline"]] if b.get("tagline") else []
+        keys += [x for pair in b.get("how", []) for x in pair]
         for a in b["augments"]:
             keys += [a["text"], a["rarity"]]
     regions = js_data("region-teams/data.js", "REGION_DATA")

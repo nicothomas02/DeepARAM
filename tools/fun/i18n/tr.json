@@ -343,5 +343,16 @@
  "Walk into melee and give a move command during every attack so each lunge crosses the enemy and drops a trail under them. Hop sideways through the group rather than away from it, and use Rend to slow anyone trying to leave.": "Yakın dövüşe gir ve her saldırı sırasında hareket komutu ver; böylece her atılma düşmanı geçip altına bir iz bıraksın. Gruptan uzaklaşmak yerine yan yana sıçrayarak içinden geç ve kaçmaya çalışanları yavaşlatmak için Parçalama'yı kullan.",
  "Gain a Shield for 2 seconds after a Dash or Blink (5 seconds Cooldown).": "Bir Dash veya Blink sonrası 2 saniye boyunca Kalkan kazan (5 saniye Bekleme Süresi).",
  "May not work in a real game": "Gerçek maçta işe yaramayabilir",
- "{champion} may not be offered {augments} this patch, so this build might not come together. Try it if they show up.": "{champion} bu yamada {augments} teklifini alamayabilir, bu yüzden bu build tamamlanmayabilir. Çıkarlarsa dene."
+ "{champion} may not be offered {augments} this patch, so this build might not come together. Try it if they show up.": "{champion} bu yamada {augments} teklifini alamayabilir, bu yüzden bu build tamamlanmayabilir. Çıkarlarsa dene.",
+ "Aura Farming": "Aura Kasma",
+ "He sits down. He closes his eyes. The enemy team dies.": "Oturuyor. Gözlerini kapatıyor. Düşman takım ölüyor.",
+ "Master Yi never attacks. He sits in the middle of the enemy team and Meditates until they're gone.": "Master Yi asla saldırmaz. Düşman takımın ortasına oturur ve onlar bitene kadar Meditasyon yapar.",
+ "Walk into the middle of the fight and press W. Repeat. Never right-click a champion.": "Savaşın ortasına dalıp W'ye bas. Tekrarla. Hiçbir şampiyona sağ tık atma.",
+ "Meditate": "Meditasyon",
+ "A self-heal, a channel and damage reduction in one button. Every piece below hooks into one of those.": "Tek tuşta kendini iyileştirme, kanal ve hasar azaltma. Aşağıdaki her parça bunlardan birine bağlanıyor.",
+ "Circle of Death turns his healing into damage, Don't Change the Channel shields him every second he sits, and Mosh Monster and Bread And Butter, rolled on Meditate, slow everyone around him and let him sit again almost right away.": "Ölüm Döngüsü iyileşmesini hasara çeviriyor, Kesintisiz Yoğunlaşma oturduğu her saniye ona kalkan veriyor, Meditasyon'a denk gelen Yık Geç ve Yağlı Ekmek ise etrafındaki herkesi yavaşlatıp neredeyse anında tekrar oturmasını sağlıyor.",
+ "Spirit Visage makes every heal bigger, so every hit gets bigger too. Warmog's, Unending Despair and Jak'Sho keep him seated.": "Ruh Gömleği her iyileşmeyi büyütüyor, yani her vuruş da büyüyor. Warmog'un Zırhı, Sonsuz Çaresizlik ve Şahbaz Jak'Sho onu oturur halde tutuyor.",
+ "Gain a Shield for every second you spend Channeling.": "Yoğunlaşırken geçirdiğin her saniye için Kalkan kazan.",
+ "Casting the chosen ability grants bonus Health and Slows nearby enemies for the duration of the chosen abilityGetting a takedown permanently increases this effect.": "Seçilen yeteneği kullanmak, seçilen yeteneğin süresi boyunca bonus Can verir ve yakındaki düşmanları Yavaşlatır. Öldürme veya yardım almak bu etkiyi kalıcı olarak artırır.",
+ "Your chosen ability gains 100 Ability Haste.": "Seçtiğin yetenek 100 Yetenek Hızı kazanır."
 }
