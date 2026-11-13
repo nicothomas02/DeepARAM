@@ -416,3 +416,69 @@ def test_dummy_held_at_half_health_counts_missing_health_damage(run_json):
     assert half["share_by_source"]["R"] > 1.5 * full["share_by_source"]["R"]
     assert half["mean_dps"] > full["mean_dps"]
     assert half["kills_per_minute"] == 0 and half["survival_rate"] == 1
+
+
+# ---------------------------------------------------------------- Damage per second over all the time fought (2026-11-13)
+
+def test_damage_per_second_is_all_damage_over_all_time(run_json):
+    """mean_dps is the damage of every fight over the seconds of every fight, not the average of each fight's
+    own rate. Averaging rates counted a fight that ended two seconds after one big combo like a long one, so
+    burst builds that die fast were overrated (the match with real games' damage shares went from 0.47 to 0.54
+    when this changed). AP Malphite bursts and nearly always dies: his rate must equal damage per fight over time
+    alive (a fight he survives counts its full length as time alive)."""
+    s = summary(run_json("mayhem_sim", ["--champ", "Malphite", "--items", "sorcerers,rabadons,malignance,void_staff,shadowflame,stormsurge",
+                                        "--augs", "recursion,arcane_axiom", "--trials", "300", "--seed", "3", "--json"]))
+    assert s["survival_rate"] < 0.05 and s["time_alive"] > 1
+    assert s["mean_dps"] == pytest.approx(s["damage_per_fight"] / s["time_alive"], rel=0.01)
+    # The fights' own rates are skewed by the short ones, so their middle sits above the pooled rate here.
+    assert s["p5"] <= s["mean_dps"] < s["median"] <= s["p95"]
+
+
+def test_build_search_ranks_by_the_same_damage_per_second(run_json):
+    """The search's ranking and the summary use one definition, so the best build's summary leads the list."""
+    out = run_json("mayhem_sim", ["--champ", "Annie", "--trials", "200", "--seed", "2", "--json"])
+    dps = [b["summary"]["mean_dps"] for b in out["builds"]]
+    assert dps == sorted(dps, reverse=True)
+
+
+# ---------------------------------------------------------------- Kit fixes checked against the wiki (2026-11-13)
+
+def kit_of(name, path=None):
+    champ = next(c for c in load_json(path or DATA_DIR / "champions.json")["champions"] if c["id"] == name)
+    return champ, {a["slot"]: a for a in champ["abilities"]}
+
+
+@pytest.mark.parametrize("path", [DATA_DIR / "champions.json", PBE_DIR / "champions.json"], ids=["live", "pbe"])
+def test_kit_fixes_are_in_the_data(path):
+    morde, m = kit_of("Mordekaiser", path)
+    assert morde["kit"]["effects"]["magic_pen_pct_kit"] == 0.15      # Death's Grasp passive
+    assert m["Q"]["solo_mult"] == 1.5                                # Obliterate on an isolated enemy
+    assert m["W"]["shield"]["scaling"] == {"max_hp": 0.2}            # Indestructible
+    _, s = kit_of("Swain", path)
+    pet = s["R"]["pet"]
+    assert s["R"]["hits"] == [] and pet["around"] == 650 and pet["sustain"] > 0 and pet["heal"]["bonus_hp"] > 0
+    assert pet["slam_cooldown"] == 8 and pet["slam"][0]["calc"] == "DemonflareDamageTotal"
+    _, b = kit_of("Belveth", path)
+    assert b["E"]["missing_amp"] == 1.0
+    _, a = kit_of("Ashe", path)
+    assert a["R"]["cc"] == {"type": "stun", "duration": 1.5}
+
+
+def test_swain_ultimate_drains_for_as_long_as_he_fights(run_json):
+    """Demonic Ascension was one cast of six ticks and one Demonflare. It now drains (damage and healing) for as
+    long as an enemy is in its reach, with a Demonflare every 8 s, so it heals far more over a long fight."""
+    def run(r_chance):
+        return summary(run_json("mayhem_sim", ["--champ", "Swain", "--items", "spirit_visage,mercurys,rylais,riftmaker,liandrys,rod_of_ages",
+                                               "--set", f"r_ready_chance={r_chance},enemy_damage_scale=0.5",
+                                               "--trials", "100", "--seed", "4", "--json"]))
+    with_r, without = run(1), run(0)
+    assert with_r["share_by_source"]["R"] > 0.1 and without["share_by_source"]["R"] == 0
+    assert with_r["healing"] > without["healing"] + 800
+    assert with_r["time_alive"] > without["time_alive"]
+
+
+def test_mordekaiser_shield_scales_with_max_health(run_json):
+    """Indestructible's shield is a share of his max Health (it was the 5% floor): more Health, more shielding."""
+    def run(items):
+        return summary(run_json("mayhem_sim", ["--champ", "Mordekaiser", "--items", items, "--trials", "100", "--seed", "4", "--json"]))
+    assert run("riftmaker,liandrys,warmogs")["shielding"] > 1.2 * run("riftmaker,liandrys")["shielding"] > 0

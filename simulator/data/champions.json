@@ -1,6 +1,6 @@
 {
  "meta": {
-  "built_at": "2026-11-06T19:33:09+00:00",
+  "built_at": "2026-11-13T19:04:30+00:00",
   "game_version": "16.22",
   "cdragon": "latest",
   "mayhem_balance_patch": "wiki read 2026-10-17",
@@ -2754,7 +2754,7 @@
      "cast_time": 0.25,
      "cc": {
       "type": "stun",
-      "duration": 1.0
+      "duration": 1.5
      },
      "cost": 100.0,
      "targeting": "Location",
@@ -2784,7 +2784,9 @@
       }
      ],
      "mode_overrides": [],
-     "notes": []
+     "notes": [
+      "hand override: Enchanted Crystal Arrow stuns for 1 s plus 0.25 s per 200 units flown past 800 (up to 3.5 s); a typical ARAM arrow flies about 1,200 units"
+     ]
     }
    ],
    "parse_quality": "good",
@@ -3865,9 +3867,10 @@
      ],
      "mode_overrides": [],
      "notes": [
-      "hand override: Royal Maelstrom is a 1.5s channel of about 8 strikes; the max-per-strike number is the low-health variant"
+      "hand override: Royal Maelstrom is a 1.5s channel of about 8 strikes; the max-per-strike number is the low-health variant; each strike deals 1% more per 1% of the target's missing Health"
      ],
-     "lock": 1.5
+     "lock": 1.5,
+     "missing_amp": 1.0
     },
     {
      "slot": "R",
@@ -20827,7 +20830,10 @@
       }
      ],
      "mode_overrides": [],
-     "notes": []
+     "notes": [
+      "hand override: Obliterate deals 50% more damage (rank 5) when it hits only one enemy (the tooltip's EmpoweredDamageTooltip number)"
+     ],
+     "solo_mult": 1.5
     },
     {
      "slot": "W",
@@ -20837,10 +20843,9 @@
      "cast_time": 0.0,
      "shield": {
       "scaling": {
-       "const": 120.65,
-       "bonus_hp": 0.05
+       "max_hp": 0.2
       },
-      "duration": 2.5
+      "duration": 4
      },
      "targeting": "Self",
      "area": "aoe",
@@ -20857,7 +20862,9 @@
      },
      "hits": [],
      "mode_overrides": [],
-     "notes": []
+     "notes": [
+      "hand override: Indestructible stores 45% of the damage he deals and 7.5% of the damage he takes as a shield, up to 30% of his max Health, which is full again well inside its 8 s cooldown in a fight; the shield decays over 4 s, so about 20% of max Health is counted. The parser read only the 5% floor"
+     ]
     },
     {
      "slot": "E",
@@ -20978,7 +20985,12 @@
    "parse_quality": "good",
    "notes": [
     "no Mayhem damage dealt/taken modifiers listed"
-   ]
+   ],
+   "kit": {
+    "effects": {
+     "magic_pen_pct_kit": 0.15
+    }
+   }
   },
   {
    "id": "Morgana",
@@ -31505,13 +31517,7 @@
       "duration": 1.5,
       "amount": 0.3
      },
-     "heal": {
-      "scaling": {
-       "const": 45.0,
-       "ap": 0.05,
-       "bonus_hp": 0.015
-      }
-     },
+     "heal": null,
      "cost": 100.0,
      "targeting": "Self",
      "area": "aoe",
@@ -31525,34 +31531,50 @@
       "speed": 0,
       "on_self": true
      },
-     "hits": [
-      {
-       "type": "magic",
-       "calc": "DamageCalc",
-       "scaling": {
-        "const": 210.0,
-        "ap": 0.24
-       },
-       "target": "flat",
-       "per_second": false,
-       "alt": false
-      },
-      {
-       "type": "magic",
-       "calc": "DemonflareDamageTotal",
-       "scaling": {
-        "const": 700.0,
-        "ap": 0.8
-       },
-       "target": "flat",
-       "per_second": false,
-       "alt": false
-      }
-     ],
+     "hits": [],
      "mode_overrides": [],
      "notes": [
-      "hand override: Demonic Ascension drains every second; parsed as one tick (~6s in a duel); Demonflare is always cast once (manually after 2s or automatically at the end): full weight"
-     ]
+      "hand override: Demonic Ascension drains every enemy within 650 twice a second (35 + 4% AP damage and 45 + 5% AP + 1.5% bonus Health healing per second each, rank 3) and lasts as long as he is draining a champion (its Demonic Energy runs out about 3.5 s after the last drain); Demonflare (350 + 40% AP) comes 2 s in and again every 8 s. It was one cast of six ticks and one Demonflare"
+     ],
+     "pet": {
+      "duration": 5,
+      "sustain": 3.5,
+      "attack_speed": 2,
+      "around": 650,
+      "hits": [
+       {
+        "calc": "DamageCalc",
+        "type": "magic",
+        "scaling": {
+         "const": 17.5,
+         "ap": 0.02
+        },
+        "target": "flat",
+        "per_second": false,
+        "alt": false
+       }
+      ],
+      "heal": {
+       "const": 22.5,
+       "ap": 0.025,
+       "bonus_hp": 0.0075
+      },
+      "slam_every": 4,
+      "slam_cooldown": 8,
+      "slam": [
+       {
+        "calc": "DemonflareDamageTotal",
+        "type": "magic",
+        "scaling": {
+         "const": 350.0,
+         "ap": 0.4
+        },
+        "target": "flat",
+        "per_second": false,
+        "alt": false
+       }
+      ]
+     }
     }
    ],
    "parse_quality": "good",

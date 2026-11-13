@@ -258,6 +258,9 @@ ChampionKit loadChampion(const json::Value& c, const Rules& rules) {
             ab.petSlamEvery = static_cast<int>(pet["slam_every"].asNumber(0));
             ab.petSlamCd = pet["slam_cooldown"].asNumber(0);
             ab.petSlamCc = pet["slam_cc"].asNumber(0);
+            ab.petAround = std::max(0.0, pet["around"].asNumber(0));
+            ab.petSustain = std::max(0.0, pet["sustain"].asNumber(0));
+            if (pet["heal"].isObject()) ab.petHeal = bagOf(pet["heal"]);
             for (const auto& h : pet["hits"].arr) ab.petHits.push_back(hitOf(h));
             for (const auto& h : pet["slam"].arr) ab.petSlam.push_back(hitOf(h));
         }
@@ -1318,6 +1321,7 @@ private:
             else if (k == "ap") v += c * ap_;
             else if (k == "bonus_ad") v += c * bonusAd_;
             else if (k == "bonus_hp") v += c * bonusHp_;
+            else if (k == "max_hp") v += c * maxHp_;
             else if (k == "bonus_armor") v += c * bonusArmor_;
             else if (k == "bonus_mr") v += c * bonusMr_;
             else if (k == "bonus_mana") v += c * bonusMana_;
@@ -3317,6 +3321,24 @@ private:
         while (petNext_ <= until && petNext_ < petUntil_) {
             const double at = petNext_;
             petNext_ += 1.0 / a.petAs;
+            if (a.petAround > 0) {
+                // A drain around you: every enemy in its radius is hit and heals you; while it keeps
+                // landing it keeps going, and the slam (a nova around you) comes on its own cooldown.
+                const std::vector<Enemy*> in = near(me_, a.petAround);
+                if (in.empty()) continue;
+                if (a.petSustain > 0) petUntil_ = std::max(petUntil_, at + a.petSustain);
+                for (Enemy* o : in) {
+                    for (const auto& h : a.petHits) deal(o, hitRaw(h, *o) * abilityAmp_, h.type, src);
+                    if (!a.petHeal.empty()) heal(scaled(a.petHeal) * hsp_);
+                }
+                if (a.petSlamEvery > 0 && ++petStreak_ >= a.petSlamEvery && at >= petSlamAt_) {
+                    petStreak_ = 0;
+                    petSlamAt_ = at + a.petSlamCd;
+                    for (Enemy* o : near(me_, a.petAround))
+                        for (const auto& h : a.petSlam) deal(o, hitRaw(h, *o) * abilityAmp_, h.type, src);
+                }
+                continue;
+            }
             if (!hasPrimary()) { petStreak_ = 0; continue; }
             Enemy& e = P();
             if (!e.alive) continue;
@@ -3574,13 +3596,14 @@ Summary summarize(const std::vector<Result>& results) {
     if (results.empty()) return s;
     std::vector<double> dps;
     dps.reserve(results.size());
-    double single = 0, kpm = 0, total = 0;
+    double single = 0, kills = 0, total = 0, time = 0;
     for (const auto& r : results) {
         s.shortDps += r.inShort / kShortFight;
         s.longDps += r.inLong / kLongFight;
         dps.push_back(r.totalDamage / r.duration);
-        single += r.primaryDamage / r.duration;
-        kpm += r.kills / r.duration * 60.0;
+        single += r.primaryDamage;
+        kills += r.kills;
+        time += r.duration;
         s.survivalRate += r.died ? 0.0 : 1.0;
         s.meanTimeAlive += r.timeAlive;
         s.damageTakenPerSec += r.timeAlive > 0 ? r.damageTaken / r.timeAlive : 0.0;
@@ -3594,21 +3617,28 @@ Summary summarize(const std::vector<Result>& results) {
         for (int i = 0; i < SrcCount; ++i) s.shareBySource[i] += r.bySource[i];
     }
     const double n = static_cast<double>(dps.size());
-    s.meanDps = std::accumulate(dps.begin(), dps.end(), 0.0) / n;
+    // Damage per second is all the damage over all the seconds fought, not the average of each
+    // fight's own rate: a fight that ends two seconds after one big combo has a huge rate but is
+    // only two seconds of the champion's time, and averaging rates counted it like a long fight.
+    s.meanDps = time > 0 ? total / time : 0.0;
     double var = 0;
-    for (double x : dps) var += (x - s.meanDps) * (x - s.meanDps);
+    for (const auto& r : results) {
+        const double off = r.totalDamage - s.meanDps * r.duration;
+        var += off * off;
+    }
     var /= std::max(1.0, n - 1.0);
-    s.ci95 = 1.96 * std::sqrt(var / n);
+    s.ci95 = time > 0 ? 1.96 * std::sqrt(var / n) / (time / n) : 0.0;
     std::sort(dps.begin(), dps.end());
     auto pct = [&](double p) { return dps[static_cast<size_t>(std::min(n - 1.0, std::floor(p * (n - 1.0))))]; };
     s.p5 = pct(0.05);
     s.median = pct(0.5);
     s.p95 = pct(0.95);
-    s.singleTargetDps = single / n;
-    s.killsPerMinute = kpm / n;
+    s.singleTargetDps = time > 0 ? single / time : 0.0;
+    s.killsPerMinute = time > 0 ? kills / time * 60.0 : 0.0;
     s.survivalRate /= n;
     s.meanTimeAlive /= n;
     s.damageTakenPerSec /= n;
+    s.damagePerFight = total / n;
     s.damageTaken /= n;
     s.damageMitigated /= n;
     s.healing /= n;
@@ -3677,11 +3707,22 @@ std::vector<std::string> fittingRoles(const ChampionKit& c) {
 
 namespace {
 
+// A build's score over some fights: damage per second is all the damage over all the seconds
+// fought (as in summarize), the other metrics the average per fight.
+struct Tally {
+    double sum = 0, over = 0;
+    void add(const Result& r, Metric m) {
+        if (m == Metric::Damage) { sum += r.totalDamage; over += r.duration; }
+        else { sum += metricOf(r, m); over += 1; }
+    }
+    double value() const { return over > 0 ? sum / over : -1; }
+};
+
 double score(const Library& lib, const ChampionKit& c, const Build& b, const Scenario& sc, int trials,
              Metric m = Metric::Damage) {
-    double sum = 0;
-    for (const auto& r : runTrials(lib, c, b, sc, 0, trials)) sum += metricOf(r, m);
-    return sum / trials;
+    Tally t;
+    for (const auto& r : runTrials(lib, c, b, sc, 0, trials)) t.add(r, m);
+    return t.value();
 }
 
 // Runs fn(i) for i in [0, n) on up to `threads` threads.
@@ -3802,9 +3843,9 @@ namespace {
 // One build in the smart search, with its running total over fights [0, n).
 struct Arm {
     Build build;
-    double sum = 0;
+    Tally tally;
     int n = 0;
-    double mean() const { return n ? sum / n : -1; }
+    double mean() const { return n ? tally.value() : -1; }
 };
 
 // Plays each arm's fights up to `trials` (only the ones it hasn't played yet), then sorts best first.
@@ -3813,7 +3854,7 @@ void race(const Library& lib, const ChampionKit& c, const Scenario& sc, std::vec
     parallelFor(static_cast<int>(arms.size()), threads, [&](int i) {
         Arm& a = arms[i];
         if (a.n >= trials) return;
-        for (const auto& r : runTrials(lib, c, a.build, sc, static_cast<uint64_t>(a.n), trials - a.n)) a.sum += metricOf(r, metric);
+        for (const auto& r : runTrials(lib, c, a.build, sc, static_cast<uint64_t>(a.n), trials - a.n)) a.tally.add(r, metric);
         a.n = trials;
     });
     std::stable_sort(arms.begin(), arms.end(), [](const Arm& a, const Arm& b) { return a.mean() > b.mean(); });
@@ -3863,7 +3904,7 @@ std::vector<Ranked> smartOptimize(const Library& lib, const ChampionKit& c, cons
             if (clashes(lib, b.items, sl.pool[j])) { ok = false; break; }
             b.items.push_back(sl.pool[j]);
         }
-        if (ok) itemSets.push_back({b});
+        if (ok) itemSets.push_back(Arm{b, {}, 0});
     }
     race(lib, c, sc, itemSets, os.screenTrials, threads, metric);
     if (static_cast<int>(itemSets.size()) > os.smartItemSets) itemSets.resize(static_cast<size_t>(os.smartItemSets));
@@ -3877,7 +3918,7 @@ std::vector<Ranked> smartOptimize(const Library& lib, const ChampionKit& c, cons
         Build b = itemSets.front().build;
         b.augments.clear();
         for (int j : combo) b.augments.push_back(augPool[j]);
-        augSets.push_back({b});
+        augSets.push_back(Arm{b, {}, 0});
     }
     race(lib, c, sc, augSets, os.screenTrials, threads, metric);
     if (static_cast<int>(augSets.size()) > os.smartAugSets) augSets.resize(static_cast<size_t>(os.smartAugSets));
@@ -3886,7 +3927,7 @@ std::vector<Ranked> smartOptimize(const Library& lib, const ChampionKit& c, cons
     // leading items, raced with successive halving. Fights 0..n are shared, so each round only adds new ones.
     std::vector<Arm> arms;
     std::set<std::pair<std::vector<std::string>, std::vector<std::string>>> seen;
-    auto add = [&](const Build& b) { if (seen.insert({b.items, b.augments}).second) arms.push_back({b}); };
+    auto add = [&](const Build& b) { if (seen.insert({b.items, b.augments}).second) arms.push_back(Arm{b, {}, 0}); };
     for (const auto& is : itemSets)
         for (const auto& as : augSets) add(Build{is.build.items, as.build.augments});
     for (const auto& bt : sl.allBoots)

@@ -304,5 +304,11 @@
    "attached": 1
   },
   "why": "You and Me!: attached to an ally she doesn't attack; the fight lasts as long as her ally's, so her damage taken stays as it is"
+ },
+ "Mordekaiser": {
+  "effects": {
+   "magic_pen_pct_kit": 0.15
+  },
+  "why": "Death's Grasp passive: 15% magic penetration at rank 5"
  }
 }
