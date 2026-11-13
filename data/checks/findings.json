@@ -1,12 +1,12 @@
 {
  "patch": "16.22",
- "built": "2026-11-12",
+ "built": "2026-11-13",
  "checks": {
   "loops": 3,
   "gap": 45,
   "sim": 15,
   "wasted": 0,
-  "kitchen": 40
+  "kitchen": 42
  },
  "traps": [
   {
@@ -1835,6 +1835,40 @@
    "test": "Anivia has never been seen taking Mighty Shield, so it may not be in their augment pool. Check whether it's ever offered on Anivia.",
    "build": "anivia-overdraft-protection",
    "augment": "Mighty Shield",
+   "why": "unseen"
+  },
+  {
+   "id": "pool-masteryi-aura-farming-circle_of_death",
+   "kind": "pool",
+   "title": "Aura Farming: Circle of Death on Master Yi",
+   "champions": [
+    "MasterYi"
+   ],
+   "augments": [
+    1015
+   ],
+   "items": [],
+   "theory": "The build leans on Circle of Death.",
+   "test": "Master Yi has never been seen taking Circle of Death, so it may not be in their augment pool. Check whether it's ever offered on Master Yi.",
+   "build": "masteryi-aura-farming",
+   "augment": "Circle of Death",
+   "why": "unseen"
+  },
+  {
+   "id": "pool-masteryi-aura-farming-mosh_monster",
+   "kind": "pool",
+   "title": "Aura Farming: Mosh Monster on Master Yi",
+   "champions": [
+    "MasterYi"
+   ],
+   "augments": [
+    3053
+   ],
+   "items": [],
+   "theory": "The build leans on Mosh Monster.",
+   "test": "Master Yi has never been seen taking Mosh Monster, so it may not be in their augment pool. Check whether it's ever offered on Master Yi.",
+   "build": "masteryi-aura-farming",
+   "augment": "Mosh Monster",
    "why": "unseen"
   }
  ]
