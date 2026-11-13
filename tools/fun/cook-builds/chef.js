@@ -1,1 +1,1 @@
-window.COOK_CHEF = {"id": "masteryi-aura-farming", "title": "Aura Farming", "champion": "MasterYi", "champion_name": "Master Yi", "chef": "2026-11-12", "count": 27};
+window.COOK_CHEF = {"id": "rumble-certified-crashout", "title": "Certified Crashout", "champion": "Rumble", "champion_name": "Rumble", "chef": "2026-11-13", "count": 28};

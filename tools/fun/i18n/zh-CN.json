@@ -354,5 +354,15 @@
  "Spirit Visage makes every heal bigger, so every hit gets bigger too. Warmog's, Unending Despair and Jak'Sho keep him seated.": "振奋盔甲让每次治疗都更强，所以每次攻击也更强。狂徒铠甲、无终恨意和千变者贾修让他稳稳坐着。",
  "Gain a Shield for every second you spend Channeling.": "每引导1秒，获得一层护盾。",
  "Casting the chosen ability grants bonus Health and Slows nearby enemies for the duration of the chosen abilityGetting a takedown permanently increases this effect.": "施放所选技能时获得额外生命值，并在所选技能持续期间减速附近的敌人。获得击杀或助攻会永久提升此效果。",
- "Your chosen ability gains 100 Ability Haste.": "你所选的技能获得100技能急速。"
+ "Your chosen ability gains 100 Ability Haste.": "你所选的技能获得100技能急速。",
+ "Certified Crashout": "官方认证破防王",
+ "Spells are just the warm-up. The real Rumble starts when he's silenced.": "技能只是热身，被沉默的机械公敌才是真正的机械公敌。",
+ "Rumble overheats on purpose, locks himself out of his spells and punches everyone instead.": "机械公敌故意让自己过热，把技能锁死，然后用拳头招呼所有人。",
+ "Spam spells until you Overheat, then walk up and right-click. When it cools down, do it again.": "一直放技能放到过热，然后冲上去右键平A。冷却完了再来一轮。",
+ "Overheat": "过热",
+ "At full Heat Rumble can't cast, but his attacks hit harder and come faster. He's the only champion whose kit pays him for silencing himself.": "热度满的时候机械公敌放不了技能，但攻击更疼、攻速更快。他是唯一一个自我沉默还能拿奖励的英雄。",
+ "Deft and Tap Dancer pile on Attack Speed, Dual Wield fires a second bolt with every attack, and Firebrand stacks a Burn on each one.": "灵巧和踢踏舞叠加攻击速度，双刀流每次攻击多射出一发弹矢，火上浇油则给每一发都叠上一层灼烧。",
+ "Nashor's Tooth, Guinsoo's Rageblade, Wit's End and Terminus are all on-hit, so every punch and every Dual Wield bolt carries them.": "纳什之牙、鬼索的狂暴之刃、智慧末刃和界弓全都是攻击特效，所以每一拳、每一发双刀流弹矢都会带上它们。",
+ "Gain 60% Attack Speed.": "获得60%攻击速度。",
+ "When you Attack, fire a bolt that deals 40% damage and applies your On-Hit effects at 40% effectiveness. Gain 10% total Attack Speed.": "攻击时，发射一枚造成40%伤害的弹矢，并以40%的效果触发你的攻击特效。获得10%总攻击速度。"
 }

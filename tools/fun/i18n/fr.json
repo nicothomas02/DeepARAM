@@ -354,5 +354,15 @@
  "Spirit Visage makes every heal bigger, so every hit gets bigger too. Warmog's, Unending Despair and Jak'Sho keep him seated.": "Visage spirituel renforce chaque soin, donc chaque coup frappe aussi plus fort. Armure de Warmog, Désespoir infini et Jak'Sho, le Protéiforme le gardent assis.",
  "Gain a Shield for every second you spend Channeling.": "Gagnez un bouclier pour chaque seconde passée à canaliser.",
  "Casting the chosen ability grants bonus Health and Slows nearby enemies for the duration of the chosen abilityGetting a takedown permanently increases this effect.": "Lancer la capacité choisie octroie des PV bonus et ralentit les ennemis proches pendant la durée de la capacité choisie. Obtenir une élimination augmente cet effet de façon permanente.",
- "Your chosen ability gains 100 Ability Haste.": "Votre capacité choisie gagne 100 d'accélération de compétence."
+ "Your chosen ability gains 100 Ability Haste.": "Votre capacité choisie gagne 100 d'accélération de compétence.",
+ "Certified Crashout": "Pétage de câble certifié",
+ "Spells are just the warm-up. The real Rumble starts when he's silenced.": "Les sorts, c'est juste l'échauffement. Le vrai Rumble commence quand il est réduit au silence.",
+ "Rumble overheats on purpose, locks himself out of his spells and punches everyone instead.": "Rumble surchauffe exprès, se bloque ses propres sorts et frappe tout le monde à la place.",
+ "Spam spells until you Overheat, then walk up and right-click. When it cools down, do it again.": "Spamme tes sorts jusqu'à la Surchauffe, puis fonce et clic droit. Quand ça refroidit, recommence.",
+ "Overheat": "Surchauffe",
+ "At full Heat Rumble can't cast, but his attacks hit harder and come faster. He's the only champion whose kit pays him for silencing himself.": "À pleine Chaleur, Rumble ne peut plus lancer de sorts, mais ses attaques frappent plus fort et plus vite. C'est le seul champion dont le kit le récompense de se réduire au silence.",
+ "Deft and Tap Dancer pile on Attack Speed, Dual Wield fires a second bolt with every attack, and Firebrand stacks a Burn on each one.": "Zèle et Danse effrénée empilent de la vitesse d'attaque, Ambidextrie tire un second projectile à chaque attaque, et Brasier ajoute une brûlure à chacun.",
+ "Nashor's Tooth, Guinsoo's Rageblade, Wit's End and Terminus are all on-hit, so every punch and every Dual Wield bolt carries them.": "La Dent de Nashor, la Lame enragée de Guinsoo, Au bout du rouleau et Terminus sont tous à l'impact, donc chaque coup et chaque projectile d'Ambidextrie les applique.",
+ "Gain 60% Attack Speed.": "Vous gagnez 60 % de vitesse d'attaque.",
+ "When you Attack, fire a bolt that deals 40% damage and applies your On-Hit effects at 40% effectiveness. Gain 10% total Attack Speed.": "Quand vous attaquez, vous tirez un projectile qui inflige 40 % des dégâts et applique vos effets à l'impact à 40 % d'efficacité. Vous gagnez 10 % de vitesse d'attaque totale."
 }

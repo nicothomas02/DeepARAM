@@ -354,5 +354,15 @@
  "Spirit Visage makes every heal bigger, so every hit gets bigger too. Warmog's, Unending Despair and Jak'Sho keep him seated.": "Geistessicht verstärkt jede Heilung, also wird auch jeder Treffer stärker. Warmogs Rüstung, Endlose Verzweiflung und Jak'Sho, der Proteaner halten ihn sitzend.",
  "Gain a Shield for every second you spend Channeling.": "Erhalte einen Schild für jede Sekunde, die du kanalisierst.",
  "Casting the chosen ability grants bonus Health and Slows nearby enemies for the duration of the chosen abilityGetting a takedown permanently increases this effect.": "Das Wirken der gewählten Fähigkeit gewährt Bonus-Leben und verlangsamt nahe Gegner für die Dauer der gewählten Fähigkeit. Ein Kill oder Assist verstärkt diesen Effekt dauerhaft.",
- "Your chosen ability gains 100 Ability Haste.": "Deine gewählte Fähigkeit erhält 100 Fähigkeitstempo."
+ "Your chosen ability gains 100 Ability Haste.": "Deine gewählte Fähigkeit erhält 100 Fähigkeitstempo.",
+ "Certified Crashout": "Zertifizierter Ausraster",
+ "Spells are just the warm-up. The real Rumble starts when he's silenced.": "Zauber sind nur das Warm-up. Das echte Rumble-Spiel beginnt, wenn er stummgeschaltet ist.",
+ "Rumble overheats on purpose, locks himself out of his spells and punches everyone instead.": "Rumble überhitzt absichtlich, sperrt sich selbst seine Zauber und prügelt stattdessen auf alle ein.",
+ "Spam spells until you Overheat, then walk up and right-click. When it cools down, do it again.": "Spam Zauber, bis du Überhitzt bist, lauf dann hin und Rechtsklick. Wenn er abgekühlt ist, wieder von vorn.",
+ "Overheat": "Überhitzung",
+ "At full Heat Rumble can't cast, but his attacks hit harder and come faster. He's the only champion whose kit pays him for silencing himself.": "Bei voller Hitze kann Rumble nicht zaubern, aber seine Angriffe treffen härter und kommen schneller. Er ist der einzige Champion, dessen Kit ihn fürs Selbst-Stummschalten belohnt.",
+ "Deft and Tap Dancer pile on Attack Speed, Dual Wield fires a second bolt with every attack, and Firebrand stacks a Burn on each one.": "Flink und Stepptänzer stapeln Angriffstempo, Dauerfeuer feuert mit jedem Angriff einen zweiten Bolzen ab, und Feuerbrand legt auf jeden einen Brand.",
+ "Nashor's Tooth, Guinsoo's Rageblade, Wit's End and Terminus are all on-hit, so every punch and every Dual Wield bolt carries them.": "Nashors Zahn, Guinsoos Wutklinge, Ende der Weisheit und Terminus wirken alle bei Treffer, also tragen sie jeder Schlag und jeder Dauerfeuer-Bolzen.",
+ "Gain 60% Attack Speed.": "Du erhältst 60 % Angriffstempo.",
+ "When you Attack, fire a bolt that deals 40% damage and applies your On-Hit effects at 40% effectiveness. Gain 10% total Attack Speed.": "Wenn du angreifst, feuerst du einen Bolzen ab, der 40 % Schaden verursacht und deine Treffereffekte mit 40 % Wirksamkeit anwendet. Du erhältst 10 % Gesamtangriffstempo."
 }

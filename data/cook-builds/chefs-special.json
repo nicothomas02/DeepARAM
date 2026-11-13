@@ -1,627 +1,627 @@
 {
-  "id": "masteryi-aura-farming",
-  "title": "Aura Farming",
-  "champion": "MasterYi",
-  "champion_name": "Master Yi",
-  "chef": "2026-11-12",
-  "why": "Master Yi never attacks. He sits in the middle of the enemy team and Meditates until they're gone.",
-  "play": "Walk into the middle of the fight and press W. Repeat. Never right-click a champion.",
+  "id": "rumble-certified-crashout",
+  "title": "Certified Crashout",
+  "champion": "Rumble",
+  "champion_name": "Rumble",
+  "chef": "2026-11-13",
+  "why": "Rumble overheats on purpose, locks himself out of his spells and punches everyone instead.",
+  "play": "Spam spells until you Overheat, then walk up and right-click. When it cools down, do it again.",
   "items": [
-    "Spirit Visage",
-    "Unending Despair",
-    "Warmog's Armor",
-    "Riftmaker",
-    "Jak'Sho, The Protean",
-    "Mercury's Treads"
+    "Nashor's Tooth",
+    "Guinsoo's Rageblade",
+    "Wit's End",
+    "Terminus",
+    "Phantom Dancer",
+    "Berserker's Greaves"
   ],
   "core": 4,
-  "tagline": "He sits down. He closes his eyes. The enemy team dies.",
+  "tagline": "Spells are just the warm-up. The real Rumble starts when he's silenced.",
   "how": [
     [
-      "Meditate",
-      "A self-heal, a channel and damage reduction in one button. Every piece below hooks into one of those."
+      "Overheat",
+      "At full Heat Rumble can't cast, but his attacks hit harder and come faster. He's the only champion whose kit pays him for silencing himself."
     ],
     [
       "Augments",
-      "Circle of Death turns his healing into damage, Don't Change the Channel shields him every second he sits, and Mosh Monster and Bread And Butter, rolled on Meditate, slow everyone around him and let him sit again almost right away."
+      "Deft and Tap Dancer pile on Attack Speed, Dual Wield fires a second bolt with every attack, and Firebrand stacks a Burn on each one."
     ],
     [
       "Items",
-      "Spirit Visage makes every heal bigger, so every hit gets bigger too. Warmog's, Unending Despair and Jak'Sho keep him seated."
+      "Nashor's Tooth, Guinsoo's Rageblade, Wit's End and Terminus are all on-hit, so every punch and every Dual Wield bolt carries them."
     ]
   ],
-  "champion_icon": "/embed/fun/cook-builds/icons/champions/11.png",
+  "champion_icon": "/embed/fun/cook-builds/icons/champions/68.png",
   "augments": [
     {
-      "name": "Circle of Death",
-      "rarity": "Prismatic",
-      "core": true,
-      "text": "Your healing and Health Regen deal 70% of the value magic damage to the nearest enemy champion.",
-      "icon": "/embed/fun/cook-builds/icons/augments/circle-of-death.png",
-      "id": 1015
-    },
-    {
-      "name": "Don't Change the Channel",
+      "name": "Deft",
       "rarity": "Silver",
       "core": true,
-      "text": "Gain a Shield for every second you spend Channeling.",
-      "icon": "/embed/fun/cook-builds/icons/augments/don-t-change-the-channel.png",
-      "id": 2131
+      "text": "Gain 60% Attack Speed.",
+      "icon": "/embed/fun/cook-builds/icons/augments/deft.png",
+      "id": 1022
     },
     {
-      "name": "Mosh Monster",
+      "name": "Tap Dancer",
       "rarity": "Prismatic",
       "core": true,
-      "text": "Casting the chosen ability grants bonus Health and Slows nearby enemies for the duration of the chosen abilityGetting a takedown permanently increases this effect.",
-      "icon": "/embed/fun/cook-builds/icons/augments/mosh-monster.png",
-      "id": 3053
+      "text": "Your Attacks grant you 10 Movement Speed. Gain Attack Speed. The buff stacks and refreshes infinitely but lasts 5 seconds.",
+      "icon": "/embed/fun/cook-builds/icons/augments/tap-dancer.png",
+      "id": 1081
     },
     {
-      "name": "Bread And Butter",
+      "name": "Dual Wield",
+      "rarity": "Prismatic",
+      "core": true,
+      "text": "When you Attack, fire a bolt that deals 40% damage and applies your On-Hit effects at 40% effectiveness. Gain 10% total Attack Speed.",
+      "icon": "/embed/fun/cook-builds/icons/augments/dual-wield.png",
+      "id": 1225
+    },
+    {
+      "name": "Firebrand",
       "rarity": "Gold",
       "core": true,
-      "text": "Your chosen ability gains 100 Ability Haste.",
-      "icon": "/embed/fun/cook-builds/icons/augments/bread-and-butter.png",
-      "id": 1103
+      "text": "Your Attacks also Burn enemies, dealing 0.4% max Health magic damage per second over 5 seconds. This Burn stacks infinitely.",
+      "icon": "/embed/fun/cook-builds/icons/augments/firebrand.png",
+      "id": 1036
     }
   ],
   "href": "/kitchen#chefs-special",
   "archive_href": "/kitchen#chef-archive",
-  "share_href": "/kitchen/2026-11-12",
-  "share_image": "/embed/fun/cook-builds/share/masteryi-aura-farming.png",
+  "share_href": "/kitchen/2026-11-13",
+  "share_image": "/embed/fun/cook-builds/share/rumble-certified-crashout.png",
   "item_ids": [
-    3065,
-    2502,
-    3083,
-    4633,
-    6665,
-    3111
+    3115,
+    3124,
+    3091,
+    3302,
+    3046,
+    3006
   ],
   "i18n": {
     "ar": {
-      "title": "تجميع الأورا",
-      "why": "ماستر يي لا يهاجم أبدًا. يجلس في وسط الفريق المعادي ويتأمل حتى يختفوا جميعًا.",
-      "play": "ادخل وسط المعركة واضغط W. كرر. لا تضغط بالزر الأيمن على أي بطل أبدًا.",
-      "tagline": "يجلس. يغمض عينيه. يموت الفريق المعادي.",
+      "title": "مجنون معتمد",
+      "why": "رامبل يسخّن نفسه عمدًا، ويقفل تعاويذه، ويضرب الجميع بقبضتيه.",
+      "play": "اسبام التعاويذ لين تصل فرط السخونة، بعدها اقترب واضغط كليك يمين. لما يبرد، كرر من جديد.",
+      "tagline": "التعاويذ مجرد إحماء. رامبل الحقيقي يبدأ لما يُسكَت.",
       "how": [
         [
-          "تأمل",
-          "علاج ذاتي وقناة وتقليل ضرر في زر واحد. كل قطعة بالأسفل ترتبط بأحدها."
+          "فرط السخونة",
+          "عند اكتمال الحرارة لا يستطيع رامبل إلقاء التعاويذ، لكن هجماته تضرب أقوى وأسرع. هو البطل الوحيد الذي تكافئه قدراته على إسكات نفسه."
         ],
         [
           "التعزيزات",
-          "حلقة الموت تحول علاجه إلى ضرر، ولا تتوقف عن التحضير تمنحه درعًا كل ثانية يجلس فيها، ووحش التدافع وخبز وزبدة، عند تفعيلهما على تأمل، يبطئان كل من حوله ويتيحان له الجلوس مجددًا بعد وقت قصير."
+          "الماهر وراقص إيقاعي يكدسان سرعة الهجوم، وثنائي القبضة يطلق سهمًا ثانيًا مع كل هجوم، والجمرة تضيف حرقًا على كل واحد."
         ],
         [
           "العتاد",
-          "وجه الروح يضخم كل علاج، فتكبر كل ضربة أيضًا. درع وارموغ ويأسٌ بلا نهاية وجاكشو، المتلون تبقيه جالسًا."
+          "سن ناشور ونصل غضب غينسو والموقف الحرج ومحطة النهاية كلها عند الضربة، فكل لكمة وكل سهم من ثنائي القبضة يحملها."
         ]
       ],
       "augments": [
-        "علاجك وتجدد صحتك يُلحقان ضررًا سحريًا بنسبة 70% من القيمة بأقرب بطل عدو.",
-        "اكتسب درعًا عن كل ثانية تقضيها في التوجيه.",
-        "استخدام القدرة المختارة يمنح صحة إضافية ويبطئ الأعداء القريبين طوال مدة القدرة المختارة. تحقيق قتل يزيد هذا التأثير بشكل دائم.",
-        "تكتسب قدرتك المختارة 100 من تسريع القدرة."
+        "اكتسب 60% سرعة هجوم.",
+        "هجماتك تمنحك 10 سرعة حركة. تكتسب سرعة هجوم. يتراكم التأثير ويتجدد بلا حدود لكنه يدوم 5 ثوانٍ.",
+        "عند الهجوم، تطلق سهمًا يُلحق 40% من الضرر ويطبق تأثيرات الضربة لديك بفعالية 40%. اكتسب 10% من سرعة الهجوم الإجمالية.",
+        "تحرق هجماتك الأعداء أيضًا، فتلحق ضررًا سحريًا يعادل 0.4% من أقصى صحتهم كل ثانية لمدة 5 ثوانٍ. يتراكم هذا الحرق بلا حدود."
       ]
     },
     "cs": {
-      "title": "Farmení aury",
-      "why": "Mistr Yi nikdy neútočí. Sedne si doprostřed nepřátelského týmu a medituje, dokud nezmizí.",
-      "play": "Vlez doprostřed bitvy a mačkej W. Opakuj. Na šampiony nikdy neklikej pravým.",
-      "tagline": "Sedne si. Zavře oči. Nepřátelský tým umírá.",
+      "title": "Certifikovaný šílenec",
+      "why": "Rumble se schválně přehřeje, zamkne si kouzla a místo nich mlátí všechny pěstmi.",
+      "play": "Spamuj kouzla, dokud se nepřehřeješ, pak dojdi k cíli a klikej pravým. Až vychladne, zopakuj to.",
+      "tagline": "Kouzla jsou jen rozcvička. Pravý Rumble začíná, když ho umlčí.",
       "how": [
         [
-          "Meditace",
-          "Léčení sebe sama, usměrňování a snížení poškození v jednom tlačítku. Každý předmět níže na něco z toho navazuje."
+          "Přehřátí",
+          "Při plném Žáru Rumble nemůže sesílat, ale jeho útoky bolí víc a přicházejí rychleji. Je to jediný šampion, jehož sada ho odměňuje za umlčení sama sebe."
         ],
         [
           "Augmenty",
-          "Kruh smrti mění jeho léčení v poškození, Nepřestávej se soustředit mu dává štít každou sekundu sezení a Postrach kotle s Denním chlebem, vylosované na Meditaci, zpomalí všechny kolem něj a umožní mu si znovu sednout skoro hned."
+          "Obratnost a Stepař hromadí rychlost útoku, Dvojice zbraní vystřelí s každým útokem druhý šíp a Ohnivý cejch na každý přidá popálení."
         ],
         [
           "Předměty",
-          "Otisk duše zvětšuje každé léčení, takže se zvětší i každý zásah. Warmogova zbroj, Nekonečné zoufalství a Proměnlivý Jak'Sho ho udrží vsedě."
+          "Nashorův tesák, Guinsoova zuřivá čepel, Nouzová a Terminus jsou všechno efekty při zásahu, takže je nese každá rána i každý šíp z Dvojice zbraní."
         ]
       ],
       "augments": [
-        "Tvé léčení a regenerace zdraví udělí nejbližšímu nepřátelskému šampionovi magické poškození ve výši 70 % své hodnoty.",
-        "Získáš štít za každou sekundu, kterou strávíš usměrňováním.",
-        "Seslání vybrané schopnosti poskytne bonusové zdraví a zpomalí okolní nepřátele po dobu trvání vybrané schopnosti. Získání asistence nebo zabití tento efekt trvale zvyšuje.",
-        "Tvá vybraná schopnost získá 100 urychlení schopností."
+        "Získáš 60 % rychlosti útoku.",
+        "Tvoje útoky ti dávají 10 rychlosti pohybu. Získáš rychlost útoku. Efekt se stackuje a obnovuje donekonečna, ale trvá 5 sekund.",
+        "Když zaútočíš, vystřelíš šíp, který způsobí 40 % poškození a aplikuje tvé efekty při zásahu se 40% účinností. Získáš 10 % celkové rychlosti útoku.",
+        "Tvé útoky navíc zapalují nepřátele a způsobují jim magické poškození ve výši 0,4 % maximálního zdraví za sekundu po dobu 5 sekund. Toto hoření se kumuluje donekonečna."
       ]
     },
     "de": {
-      "title": "Aura farmen",
-      "why": "Master Yi greift nie an. Er sitzt mitten im gegnerischen Team und meditiert, bis keiner mehr da ist.",
-      "play": "Lauf mitten in den Kampf und drück W. Wiederholen. Nie einen Champion rechtsklicken.",
-      "tagline": "Er setzt sich. Er schließt die Augen. Das gegnerische Team stirbt.",
+      "title": "Zertifizierter Ausraster",
+      "why": "Rumble überhitzt absichtlich, sperrt sich selbst seine Zauber und prügelt stattdessen auf alle ein.",
+      "play": "Spam Zauber, bis du Überhitzt bist, lauf dann hin und Rechtsklick. Wenn er abgekühlt ist, wieder von vorn.",
+      "tagline": "Zauber sind nur das Warm-up. Das echte Rumble-Spiel beginnt, wenn er stummgeschaltet ist.",
       "how": [
         [
-          "Meditieren",
-          "Selbstheilung, Kanalisierung und Schadensreduktion auf einer Taste. Jedes Teil unten hängt an einem davon."
+          "Überhitzung",
+          "Bei voller Hitze kann Rumble nicht zaubern, aber seine Angriffe treffen härter und kommen schneller. Er ist der einzige Champion, dessen Kit ihn fürs Selbst-Stummschalten belohnt."
         ],
         [
           "Augments",
-          "Kreis des Todes macht aus seiner Heilung Schaden, Nicht den Kanal wechseln gibt ihm jede Sekunde im Sitzen einen Schild, und Mosh-Monster und Das A und Q, auf Meditieren gewürfelt, verlangsamen alle um ihn herum und lassen ihn fast sofort wieder sitzen."
+          "Flink und Stepptänzer stapeln Angriffstempo, Dauerfeuer feuert mit jedem Angriff einen zweiten Bolzen ab, und Feuerbrand legt auf jeden einen Brand."
         ],
         [
           "Gegenstände",
-          "Geistessicht verstärkt jede Heilung, also wird auch jeder Treffer stärker. Warmogs Rüstung, Endlose Verzweiflung und Jak'Sho, der Proteaner halten ihn sitzend."
+          "Nashors Zahn, Guinsoos Wutklinge, Ende der Weisheit und Terminus wirken alle bei Treffer, also tragen sie jeder Schlag und jeder Dauerfeuer-Bolzen."
         ]
       ],
       "augments": [
-        "Deine Heilung und Lebensregeneration fügen dem nächsten gegnerischen Champion 70 % des Werts als magischen Schaden zu.",
-        "Erhalte einen Schild für jede Sekunde, die du kanalisierst.",
-        "Das Wirken der gewählten Fähigkeit gewährt Bonus-Leben und verlangsamt nahe Gegner für die Dauer der gewählten Fähigkeit. Ein Kill oder Assist verstärkt diesen Effekt dauerhaft.",
-        "Deine gewählte Fähigkeit erhält 100 Fähigkeitstempo."
+        "Du erhältst 60 % Angriffstempo.",
+        "Deine Angriffe gewähren dir 10 Lauftempo. Erhalte Angriffstempo. Der Effekt stapelt sich und erneuert sich unbegrenzt, hält aber 5 Sekunden.",
+        "Wenn du angreifst, feuerst du einen Bolzen ab, der 40 % Schaden verursacht und deine Treffereffekte mit 40 % Wirksamkeit anwendet. Du erhältst 10 % Gesamtangriffstempo.",
+        "Deine Angriffe verbrennen Gegner zusätzlich und verursachen 5 Sek. lang pro Sekunde magischen Schaden in Höhe von 0,4 % ihres maximalen Lebens. Dieser Brand ist unendlich stapelbar."
       ]
     },
     "el": {
-      "title": "Aura Farming",
-      "why": "Ο Μάστερ Γι δεν επιτίθεται ποτέ. Κάθεται στη μέση της εχθρικής ομάδας και διαλογίζεται μέχρι να εξαφανιστούν.",
-      "play": "Μπες στη μέση της μάχης και πάτα W. Επανάλαβε. Ποτέ δεξί κλικ σε πρωταθλητή.",
-      "tagline": "Κάθεται. Κλείνει τα μάτια. Η ομάδα του εχθρού πεθαίνει.",
+      "title": "Πιστοποιημένος Τρελαμένος",
+      "why": "Ο Ραμπλ υπερθερμαίνεται επίτηδες, κλειδώνει τα ξόρκια του και χτυπάει όλους με γροθιές.",
+      "play": "Σπαμάρισε ξόρκια μέχρι να έρθει η Υπερθέρμανση, μετά πήγαινε κοντά και δεξί κλικ. Όταν κρυώσει, ξανά από την αρχή.",
+      "tagline": "Τα ξόρκια είναι απλώς ζέσταμα. Ο πραγματικός Ραμπλ ξεκινά όταν τον φιμώσουν.",
       "how": [
         [
-          "Διαλογισμός",
-          "Αυτοϊατρεία, διοχέτευση και μείωση ζημιάς σε ένα κουμπί. Κάθε κομμάτι παρακάτω δένει με ένα από αυτά."
+          "Υπερθέρμανση",
+          "Με πλήρη Θερμότητα ο Ραμπλ δεν μπορεί να κάνει ξόρκια, αλλά οι επιθέσεις του χτυπούν δυνατότερα και πιο γρήγορα. Είναι ο μοναδικός ήρωας του οποίου το σετ τον ανταμείβει που φιμώνει τον εαυτό του."
         ],
         [
           "Ενισχύσεις",
-          "Ο Κύκλος Θανάτου μετατρέπει την ανάρρωσή του σε ζημιά, το Μην Αλλάζεις το Κανάλι του δίνει ασπίδα κάθε δευτερόλεπτο που κάθεται, και το Τέρας του Ροκαρίσματος με το Βούτυρο στο Ψωμί, πάνω στον Διαλογισμό, επιβραδύνουν όλους γύρω του και τον αφήνουν να ξανακαθίσει σχεδόν αμέσως."
+          "Η Επιδεξιότητα και τα Φτερά στα Πόδια στοιβάζουν Ταχύτητα Επίθεσης, οι Δύο Όπλα εκτοξεύουν δεύτερο βλήμα με κάθε επίθεση και το Πυροσφράγισμα προσθέτει Έγκαυμα σε κάθε ένα."
         ],
         [
           "Αντικείμενα",
-          "Η Όψη Πνευμάτων μεγαλώνει κάθε θεραπεία, άρα μεγαλώνει και κάθε χτύπημα. Η Πανοπλία του Γόρμογκ, η Απέραντη Απόγνωση και ο Τζακ'Σο, Ο Πολυμορφικός τον κρατούν καθιστό."
+          "Το Δόντι του Νάσορ, το Οργισμένο Σπαθί του Γκουίνσου, το Παρανοϊκό Ξίφος και ο Τέρμινους δρουν όλα με το χτύπημα, οπότε κάθε γροθιά και κάθε βλήμα των Δύο Όπλων τα μεταφέρει."
         ]
       ],
       "augments": [
-        "Οι θεραπείες και η Ανανέωση Ζωής σου προκαλούν το 70% της τιμής τους ως μαγική ζημιά στον πλησιέστερο εχθρικό ήρωα.",
-        "Κερδίζεις Ασπίδα για κάθε δευτερόλεπτο που διοχετεύεις.",
-        "Η χρήση της επιλεγμένης ικανότητας δίνει επιπλέον Υγεία και Επιβραδύνει τους κοντινούς εχθρούς για τη διάρκεια της επιλεγμένης ικανότητας. Η εξόντωση ή η συμμετοχή σε εξόντωση αυξάνει μόνιμα αυτό το αποτέλεσμα.",
-        "Η επιλεγμένη ικανότητά σου κερδίζει 100 Επιτάχυνση Ικανοτήτων."
+        "Αποκτάς 60% Ταχύτητα Επίθεσης.",
+        "Οι επιθέσεις σου σού δίνουν 10 ταχύτητα κίνησης. Αποκτάς ταχύτητα επίθεσης. Το buff στοιβάζεται και ανανεώνεται επ' άπειρον, αλλά διαρκεί 5 δευτερόλεπτα.",
+        "Όταν επιτίθεσαι, εκτοξεύεις ένα βλήμα που προκαλεί 40% ζημιά και εφαρμόζει τα εφέ πρόσκρουσής σου με 40% αποτελεσματικότητα. Αποκτάς 10% συνολική Ταχύτητα Επίθεσης.",
+        "Οι Επιθέσεις σας καίνε επίσης τους εχθρούς, προκαλώντας μαγική ζημιά ίση με το 0,4% της μέγιστης Ζωής τους ανά δευτερόλεπτο για 5 δευτερόλεπτα. Αυτό το Κάψιμο αθροίζεται απεριόριστα."
       ]
     },
     "es-MX": {
-      "title": "Farmeando aura",
-      "why": "Maestro Yi nunca ataca. Se sienta en medio del equipo enemigo y medita hasta que ya no queda nadie.",
-      "play": "Métete en medio de la pelea y presiona W. Repite. Nunca le des clic derecho a un campeón.",
-      "tagline": "Se sienta. Cierra los ojos. El equipo enemigo muere.",
+      "title": "Berrinche certificado",
+      "why": "Rumble se sobrecalienta a propósito, se bloquea sus hechizos y mejor se pone a madrear a todos.",
+      "play": "Spamea hechizos hasta Sobrecalentarte, acércate y dale clic derecho. Cuando se enfríe, repite.",
+      "tagline": "Los hechizos son puro calentamiento. El Rumble de verdad empieza cuando lo silencian.",
       "how": [
         [
-          "Meditación",
-          "Autocuración, canalización y reducción de daño en un solo botón. Cada pieza de abajo se engancha a una de esas."
+          "Sobrecalentamiento",
+          "Con el Calor al máximo, Rumble no puede lanzar hechizos, pero sus ataques pegan más fuerte y más rápido. Es el único campeón cuyo kit lo premia por silenciarse a sí mismo."
         ],
         [
           "Aumentos",
-          "Círculo de la Muerte convierte su curación en daño, No Cambies de Canal le da un escudo cada segundo que está sentado, y Monstruo del Pogo y Pan y mantequilla, sacados en Meditación, ralentizan a todos a su alrededor y lo dejan volver a sentarse casi de inmediato."
+          "Hábil y Bailarín de Tap acumulan velocidad de ataque, Doble Empuñadura dispara un segundo proyectil con cada ataque y Espada de Fuego le pone una quemadura a cada uno."
         ],
         [
           "Objetos",
-          "Apariencia Espiritual aumenta toda la curación, así que cada golpe también pega más fuerte. Armadura de Warmog, Desesperación Eterna y Jak'Sho, el Proteico lo mantienen sentado."
+          "Diente de Nashor, Espadafuria de Guinsoo, Al Filo de la Cordura y Terminus son todos al impactar, así que cada golpe y cada proyectil de Doble Empuñadura los aplica."
         ]
       ],
       "augments": [
-        "Tus curaciones y Regeneración de Vida infligen el 70% del valor como daño mágico al campeón enemigo más cercano.",
-        "Obtén un escudo por cada segundo que pases canalizando.",
-        "Lanzar la habilidad elegida otorga salud adicional y ralentiza a los enemigos cercanos mientras dure la habilidad elegida. Conseguir una eliminación aumenta este efecto de forma permanente.",
-        "Tu habilidad elegida obtiene 100 de celeridad de habilidad."
+        "Obtienes 60% de velocidad de ataque.",
+        "Tus ataques te otorgan 10 de velocidad de movimiento. Obtienes velocidad de ataque. El efecto se acumula y se renueva infinitamente, pero dura 5 segundos.",
+        "Cuando atacas, disparas un proyectil que inflige 40% del daño y aplica tus efectos al impactar con 40% de efectividad. Obtienes 10% de velocidad de ataque total.",
+        "Tus ataques también queman a los enemigos e infligen daño mágico equivalente al 0.4% de su vida máxima por segundo durante 5 s. Esta quemadura se acumula sin límite."
       ]
     },
     "es": {
-      "title": "Farmeando aura",
-      "why": "Maestro Yi nunca ataca. Se sienta en medio del equipo enemigo y medita hasta que no queda nadie.",
-      "play": "Métete en medio de la pelea y pulsa W. Repite. Nunca hagas clic derecho a un campeón.",
-      "tagline": "Se sienta. Cierra los ojos. El equipo enemigo muere.",
+      "title": "Descontrol certificado",
+      "why": "Rumble se sobrecalienta a propósito, se bloquea los hechizos y se pone a repartir puñetazos a todos.",
+      "play": "Spamea hechizos hasta Sobrecalentarte, acércate y haz clic derecho. Cuando se enfríe, repite.",
+      "tagline": "Los hechizos son solo el calentamiento. El verdadero Rumble empieza cuando lo silencian.",
       "how": [
         [
-          "Meditación",
-          "Autocuración, canalización y reducción de daño en un solo botón. Cada pieza de abajo engancha con una de ellas."
+          "Sobrecalentamiento",
+          "Con el Calor al máximo, Rumble no puede lanzar hechizos, pero sus ataques pegan más fuerte y más rápido. Es el único campeón cuyo kit lo premia por silenciarse a sí mismo."
         ],
         [
           "Aumentos",
-          "Círculo de muerte convierte su curación en daño, No cambies de canal le da un escudo cada segundo que está sentado, y Monstruo del pogo y Pan con queso, tirados en Meditación, ralentizan a todos a su alrededor y le dejan volver a sentarse casi al instante."
+          "Destreza y Taconeo acumulan velocidad de ataque, A dos manos dispara un segundo virote con cada ataque y Quemazón añade una quemadura a cada uno."
         ],
         [
           "Objetos",
-          "Rostro espiritual aumenta toda curación, así que cada golpe también pega más. Armadura de Warmog, Desesperanza eterna y Jak'Sho el Proteico lo mantienen sentado."
+          "Diente de Nashor, Hoja de furia de Guinsoo, Final del ingenio y El final son todos al impactar, así que cada puñetazo y cada virote de A dos manos los aplica."
         ]
       ],
       "augments": [
-        "Tu curación y regeneración de vida infligen un 70 % de su valor como daño mágico al campeón enemigo más cercano.",
-        "Obtienes un escudo por cada segundo que pasas canalizando.",
-        "Lanzar la habilidad elegida otorga salud adicional y ralentiza a los enemigos cercanos mientras dure la habilidad elegida. Conseguir una eliminación aumenta este efecto de forma permanente.",
-        "Tu habilidad elegida obtiene 100 de aceleración de habilidades."
+        "Obtienes un 60 % de velocidad de ataque.",
+        "Tus ataques te otorgan 10 de velocidad de movimiento. Obtienes velocidad de ataque. El efecto se acumula y se renueva infinitamente, pero dura 5 segundos.",
+        "Cuando atacas, disparas un virote que inflige un 40 % del daño y aplica tus efectos al impactar con un 40 % de efectividad. Obtienes un 10 % de velocidad de ataque total.",
+        "Tus ataques también queman a los enemigos e infligen daño mágico equivalente al 0,4 % de su vida máxima por segundo durante 5 s. Esta quemadura se acumula sin límite."
       ]
     },
     "fr": {
-      "title": "Farm d'aura",
-      "why": "Maître Yi n'attaque jamais. Il s'assoit au milieu de l'équipe ennemie et médite jusqu'à ce qu'il n'y ait plus personne.",
-      "play": "Fonce au milieu du combat et appuie sur W. Recommence. Ne fais jamais de clic droit sur un champion.",
-      "tagline": "Il s'assoit. Il ferme les yeux. L'équipe ennemie meurt.",
+      "title": "Pétage de câble certifié",
+      "why": "Rumble surchauffe exprès, se bloque ses propres sorts et frappe tout le monde à la place.",
+      "play": "Spamme tes sorts jusqu'à la Surchauffe, puis fonce et clic droit. Quand ça refroidit, recommence.",
+      "tagline": "Les sorts, c'est juste l'échauffement. Le vrai Rumble commence quand il est réduit au silence.",
       "how": [
         [
-          "Méditation",
-          "Un soin, une canalisation et une réduction de dégâts sur un seul bouton. Chaque pièce ci-dessous se greffe sur l'un des trois."
+          "Surchauffe",
+          "À pleine Chaleur, Rumble ne peut plus lancer de sorts, mais ses attaques frappent plus fort et plus vite. C'est le seul champion dont le kit le récompense de se réduire au silence."
         ],
         [
           "Augments",
-          "Soins meurtriers transforme ses soins en dégâts, Ne changez pas de chaîne lui donne un bouclier chaque seconde où il reste assis, et Monstre de foire et Maîtrise du A, tirés sur Méditation, ralentissent tous ceux autour de lui et le laissent se rasseoir presque aussitôt."
+          "Zèle et Danse effrénée empilent de la vitesse d'attaque, Ambidextrie tire un second projectile à chaque attaque, et Brasier ajoute une brûlure à chacun."
         ],
         [
           "Objets",
-          "Visage spirituel renforce chaque soin, donc chaque coup frappe aussi plus fort. Armure de Warmog, Désespoir infini et Jak'Sho, le Protéiforme le gardent assis."
+          "La Dent de Nashor, la Lame enragée de Guinsoo, Au bout du rouleau et Terminus sont tous à l'impact, donc chaque coup et chaque projectile d'Ambidextrie les applique."
         ]
       ],
       "augments": [
-        "Vos soins et votre régénération de PV infligent 70 % de leur valeur en dégâts magiques au champion ennemi le plus proche.",
-        "Gagnez un bouclier pour chaque seconde passée à canaliser.",
-        "Lancer la capacité choisie octroie des PV bonus et ralentit les ennemis proches pendant la durée de la capacité choisie. Obtenir une élimination augmente cet effet de façon permanente.",
-        "Votre capacité choisie gagne 100 d'accélération de compétence."
+        "Vous gagnez 60 % de vitesse d'attaque.",
+        "Vos attaques vous confèrent 10 de vitesse de déplacement. Gagnez de la vitesse d'attaque. L'effet se cumule et se rafraîchit à l'infini, mais dure 5 secondes.",
+        "Quand vous attaquez, vous tirez un projectile qui inflige 40 % des dégâts et applique vos effets à l'impact à 40 % d'efficacité. Vous gagnez 10 % de vitesse d'attaque totale.",
+        "Vos attaques brûlent également les ennemis, infligeant des dégâts magiques à hauteur de 0,4 % de leurs PV max par seconde pendant 5 sec. Cette brûlure se cumule à l'infini."
       ]
     },
     "hu": {
-      "title": "Aura-farmolás",
-      "why": "Master Yi sosem üt. Leül az ellenség közepére, és Meditáció közben vár, amíg mind el nem tűnik.",
-      "play": "Sétálj a harc közepébe, és nyomd a W-t. Ismételd. Soha ne kattints jobb gombbal bajnokra.",
-      "tagline": "Leül. Lehunyja a szemét. Az ellenséges csapat meghal.",
+      "title": "Hivatalos Idegbeteg",
+      "why": "Rumble direkt túlhevíti magát, kizárja magát a varázslatokból, és mindenkit helyette pofozgat.",
+      "play": "Spameld a varázslatokat, amíg Túlhevülsz, aztán sétálj oda és jobb klikk. Ha lehűlt, kezdd elölről.",
+      "tagline": "A varázslatok csak a bemelegítés. Az igazi Rumble akkor jön, ha elnémítják.",
       "how": [
         [
-          "Meditáció",
-          "Öngyógyítás, csatornázás és sebzéscsökkentés egyetlen gombon. Minden alábbi elem ezek valamelyikére épít."
+          "Túlhevülés",
+          "Teljes Hőnél Rumble nem tud varázsolni, de az ütései keményebbek és gyorsabbak. Ő az egyetlen bajnok, akit megjutalmaz a saját magát elnémító készlete."
         ],
         [
           "Bővítések",
-          "A halál körforgása a gyógyulását sebzéssé alakítja, a Maradj velünk minden ülve töltött másodpercben pajzsot ad neki, a Pogószörny és a Vajas kenyér pedig, Meditációra téve, lelassít mindenkit körülötte, és szinte azonnal újra leülhet."
+          "Az Iparkodás és a Sztepptáncos tolja a Támadási Sebességet, a Dupla csapás minden támadással egy második lövedéket lő, a Lázító pedig mindegyikre Égést rak."
         ],
         [
           "Tárgyak",
-          "A Szellemarc minden gyógyítást megnövel, így minden ütés is nagyobb lesz. Warmog vértje, a Végtelen kétségbeesés és Jak'Sho, a váltakozó ülve tartják."
+          "Nashor foga, Guinsoo dühpengéje, Utolsó esély és Vég mind találatkor hatnak, így minden ütés és minden Dupla csapás-lövedék viszi őket."
         ]
       ],
       "augments": [
-        "A gyógyulásod és életerő-regenerációd az érték 70%-ának megfelelő mágikus sebzést okoz a legközelebbi ellenséges hősnek.",
-        "Minden csatornázással töltött másodpercért pajzsot kapsz.",
-        "A kiválasztott képesség használata bónusz életerőt ad, és lelassítja a közelben lévő ellenségeket a kiválasztott képesség időtartamára. Leterítés szerzése véglegesen növeli ezt a hatást.",
-        "A kiválasztott képességed 100 képességgyorsítást kap."
+        "60% Támadási Sebességet kapsz.",
+        "A támadásaid 10 mozgási sebességet adnak. Támadási sebességet kapsz. A hatás végtelenül halmozódik és frissül, de 5 másodpercig tart.",
+        "Támadáskor egy lövedéket lősz, amely 40% sebzést okoz, és a találatkor hatásaidat 40%-os hatékonysággal alkalmazza. 10% összes Támadási Sebességet kapsz.",
+        "A támadásaid az ellenfeleket is meggyújtják, 5 mp-en át másodpercenként a maximális életerejük 0,4%-ának megfelelő mágikus sebzést okozva. Ez az égés végtelenül halmozódik."
       ]
     },
     "id": {
-      "title": "Aura Farming",
-      "why": "Master Yi nggak pernah menyerang. Dia duduk di tengah tim musuh dan Meditate sampai semuanya habis.",
-      "play": "Jalan ke tengah pertarungan dan tekan W. Ulangi. Jangan pernah klik kanan champion.",
-      "tagline": "Dia duduk. Dia memejamkan mata. Tim musuh mati.",
+      "title": "Certified Crashout (Raja Emosi)",
+      "why": "Rumble sengaja overheat, ngunci spell-nya sendiri, terus nonjok semua orang.",
+      "play": "Spam spell sampai Overheat, lalu jalan ke musuh dan klik kanan. Pas udah dingin, ulangi.",
+      "tagline": "Spell itu cuma pemanasan. Rumble yang asli baru muncul pas dia di-silence.",
       "how": [
         [
-          "Meditate",
-          "Heal diri, channel, dan pengurang damage dalam satu tombol. Semua item di bawah ini nyambung ke salah satunya."
+          "Overheat",
+          "Pas Heat penuh, Rumble nggak bisa cast, tapi serangannya lebih sakit dan lebih cepat. Dia satu-satunya champion yang dapat bayaran karena nge-silence dirinya sendiri."
         ],
         [
           "Augment",
-          "Circle of Death mengubah healing-nya jadi damage, Don't Change the Channel memberinya shield setiap detik dia duduk, dan Mosh Monster serta Bread And Butter, kalau di-roll di Meditate, memperlambat semua orang di sekitarnya dan bikin dia bisa duduk lagi hampir langsung."
+          "Deft dan Tap Dancer numpuk Attack Speed, Dual Wield nembak satu bolt tambahan di tiap serangan, dan Firebrand numpuk Burn di tiap serangan."
         ],
         [
           "Item",
-          "Spirit Visage bikin setiap heal lebih besar, jadi setiap hit juga makin besar. Warmog's, Unending Despair, dan Jak'Sho bikin dia tetap duduk."
+          "Nashor's Tooth, Guinsoo's Rageblade, Wit's End, dan Terminus semuanya on-hit, jadi tiap pukulan dan tiap bolt Dual Wield ikut bawa efeknya."
         ]
       ],
       "augments": [
-        "Healing dan Health Regen-mu memberikan 70% nilainya sebagai magic damage ke champion musuh terdekat.",
-        "Dapatkan Shield untuk setiap detik yang kamu habiskan untuk Channeling.",
-        "Menggunakan kemampuan terpilih memberi bonus Health dan memperlambat musuh di sekitar selama durasi kemampuan terpilih. Mendapatkan takedown meningkatkan efek ini secara permanen.",
-        "Kemampuan terpilihmu mendapat 100 Ability Haste."
+        "Dapat 60% Attack Speed.",
+        "Serangan kamu memberi 10 Move Speed. Dapatkan Attack Speed. Buff ini menumpuk dan diperbarui tanpa batas, tapi bertahan 5 detik.",
+        "Saat menyerang, tembakkan bolt yang memberi 40% damage dan menerapkan efek On-Hit dengan efektivitas 40%. Dapat 10% total Attack Speed.",
+        "Serangan juga membakar musuh, memberikan magic damage sebesar 0,4% max Health per detik selama 5 detik. Burn ini bertumpuk tanpa batas."
       ]
     },
     "it": {
-      "title": "Aura Farming",
-      "why": "Master Yi non attacca mai. Si siede in mezzo alla squadra nemica e fa Meditazione finché non sono tutti morti.",
-      "play": "Entra nel mezzo dello scontro e premi W. Ripeti. Non fare mai clic destro su un campione.",
-      "tagline": "Si siede. Chiude gli occhi. La squadra nemica muore.",
+      "title": "Pazzo Certificato",
+      "why": "Rumble si surriscalda apposta, si blocca gli incantesimi e prende a pugni tutti.",
+      "play": "Spamma incantesimi finché non vai in Surriscaldamento, poi avvicinati e clic destro. Quando si raffredda, ripeti.",
+      "tagline": "Gli incantesimi sono solo il riscaldamento. Il vero Rumble inizia quando viene silenziato.",
       "how": [
         [
-          "Meditazione",
-          "Una cura su se stessi, un incanalamento e riduzione dei danni in un solo tasto. Ogni pezzo qui sotto si aggancia a uno di questi."
+          "Surriscaldamento",
+          "A Calore massimo Rumble non può lanciare incantesimi, ma i suoi attacchi colpiscono più forte e più veloci. È l'unico campione il cui corredo lo premia per essersi silenziato da solo."
         ],
         [
           "Potenziamenti",
-          "Cerchio della morte trasforma le sue cure in danni, Non cambiare canale gli dà uno scudo per ogni secondo che resta seduto, e Mostro da pogo e Pane e burro, applicati a Meditazione, rallentano tutti intorno a lui e gli permettono di sedersi di nuovo quasi subito."
+          "Agilità e Tip tap accumulano Velocità d'attacco, A due mani lancia un secondo dardo a ogni attacco e Tizzone applica una Bruciatura a ciascuno."
         ],
         [
           "Oggetti",
-          "Corazza spirituale potenzia ogni cura, quindi anche ogni colpo diventa più forte. Armatura di Warmog, Disperazione eterna e Jak'Sho, il Mutevole lo tengono seduto."
+          "Dente di Nashor, Furia di Guinsoo, Speranza perduta e Terminus sono tutti on-hit, quindi ogni pugno e ogni dardo di A due mani li porta con sé."
         ]
       ],
       "augments": [
-        "Le tue cure e la rigenerazione salute infliggono il 70% del valore in danni magici al campione nemico più vicino.",
-        "Ottieni uno Scudo per ogni secondo che passi a Incanalare.",
-        "Lanciare l'abilità scelta conferisce Salute bonus e Rallenta i nemici vicini per la durata dell'abilità scelta. Ottenere un'eliminazione aumenta permanentemente questo effetto.",
-        "La tua abilità scelta ottiene 100 di Velocità abilità."
+        "Ottieni il 60% di Velocità d'attacco.",
+        "I tuoi attacchi ti conferiscono 10 di velocità di movimento. Ottieni velocità d'attacco. L'effetto si accumula e si rinnova all'infinito, ma dura 5 secondi.",
+        "Quando attacchi, lanci un dardo che infligge il 40% dei danni e applica i tuoi effetti on-hit con il 40% di efficacia. Ottieni il 10% di Velocità d'attacco totale.",
+        "I tuoi attacchi bruciano anche i nemici, infliggendo danni magici pari allo 0,4% della loro salute massima al secondo per 5 secondi. Questa ustione è cumulabile all'infinito."
       ]
     },
     "ja": {
-      "title": "オーラ稼ぎ",
-      "why": "マスター・イーは攻撃しない。敵チームのど真ん中に座って、全員いなくなるまで明鏡止水するだけ。",
-      "play": "戦闘のど真ん中に突っ込んでWを押す。繰り返す。チャンピオンへの右クリックは禁止。",
-      "tagline": "座る。目を閉じる。敵チームが死ぬ。",
+      "title": "暴走確定",
+      "why": "ランブルはわざとオーバーヒートしてスペルを封印し、全員を殴りに行く。",
+      "play": "オーバーヒートするまでスペルを連打して、近づいて右クリック。冷めたらまた繰り返そう。",
+      "tagline": "スペルはただのウォームアップ。本当のランブルはサイレンスされてからが本番。",
       "how": [
         [
-          "明鏡止水",
-          "自己回復、チャネリング、ダメージ軽減がワンボタンに。下のパーツはすべてこのどれかに繋がってる。"
+          "オーバーヒート",
+          "ヒートが満タンになるとランブルはスペルを使えないが、攻撃が強く、速くなる。自分でサイレンスして強くなる唯一のチャンピオン。"
         ],
         [
           "オーグメント",
-          "死者の集いで回復がダメージに変わり、チャンネルはそのままで座っている間は毎秒シールドを獲得。さらに明鏡止水に乗せたモッシュモンスターとパンとバターで周囲全員をスローにして、ほぼ即座にまた座れる。"
+          "技巧とタップダンサーでアタックスピードが積み上がり、二刀流は攻撃のたびに2発目のボルトを放ち、火付け役はそのすべてにバーンを付与する。"
         ],
         [
           "アイテム",
-          "スピリット ビサージュで回復量が増え、攻撃のダメージも増える。ワーモグ アーマー、終わりなき絶望、変幻自在のジャック＝ショーで座り続けられる。"
+          "ナッシャー トゥース、グインソー レイジブレード、ウィッツ エンド、テルミヌスはすべてオンヒット効果。パンチも二刀流のボルトも全部に乗る。"
         ]
       ],
       "augments": [
-        "回復と体力自動回復の量の70%を、最寄りの敵チャンピオンに魔法ダメージとして与える。",
-        "チャネリングしている間、毎秒シールドを獲得する。",
-        "選択したアビリティを使用すると、ボーナス体力を獲得し、選択したアビリティの持続時間中、周囲の敵をスローにする。テイクダウンを獲得すると、この効果が永続的に増加する。",
-        "選択したアビリティのアビリティヘイストが100増加する。"
+        "アタックスピード+60%。",
+        "通常攻撃で移動速度が10増加する。攻撃速度を獲得。この効果は無限にスタックして更新されるが、持続時間は5秒。",
+        "攻撃時、ダメージ40%のボルトを発射し、オンヒット効果を40%の効果で適用する。総アタックスピード+10%。",
+        "通常攻撃が敵を燃焼させ、5秒かけて毎秒最大体力の0.4%の魔法ダメージを与える。この燃焼は無限にスタックする。"
       ]
     },
     "ko": {
-      "title": "아우라 파밍",
-      "why": "마스터 이는 절대 공격하지 않는다. 적 팀 한가운데 앉아서 다 사라질 때까지 명상만 한다.",
-      "play": "한타 한가운데로 걸어 들어가서 W를 누른다. 반복. 챔피언에게 우클릭 금지.",
-      "tagline": "앉는다. 눈을 감는다. 적 팀이 죽는다.",
+      "title": "폭주 인증 완료",
+      "why": "럼블은 일부러 과열돼서 스킬을 잠그고 대신 다 때려잡는다.",
+      "play": "과열될 때까지 스킬 난사하고, 다가가서 우클릭. 식으면 또 반복.",
+      "tagline": "스킬은 그냥 준비운동. 진짜 럼블은 침묵당한 뒤부터.",
       "how": [
         [
-          "명상",
-          "자가 회복, 정신 집중, 피해 감소를 버튼 하나로. 아래 조각들은 전부 이 중 하나에 연결된다."
+          "과열",
+          "열기가 가득 차면 럼블은 스킬을 못 쓰지만 공격이 더 아프고 더 빨라진다. 스스로 침묵해야 강해지는 유일한 챔피언."
         ],
         [
           "증강",
-          "죽음의 순환은 회복을 피해로 바꿔주고, 채널 고정은 앉아 있는 매 초마다 보호막을 주며, 명상에 붙은 모시핏 괴물과 빵과 버터는 주변 모두를 둔화시키고 거의 곧바로 다시 앉을 수 있게 해준다."
+          "능수능란과 탭 댄서로 공격 속도가 쌓이고, 양손잡이는 공격마다 볼트를 하나 더 쏘고, 화염 낙인은 거기에 전부 화상을 건다."
         ],
         [
           "아이템",
-          "정령의 형상은 모든 회복량을 늘려서 공격도 더 세진다. 워모그의 갑옷, 끝없는 절망, 해신 작쇼는 계속 앉아 있게 해준다."
+          "내셔의 이빨, 구인수의 격노검, 마법사의 최후, 경계는 전부 적중 시 효과라서 주먹질이든 양손잡이 볼트든 다 묻어난다."
         ]
       ],
       "augments": [
-        "회복량과 체력 재생량의 70%만큼 가장 가까운 적 챔피언에게 마법 피해를 입힙니다.",
-        "정신 집중하는 매 초마다 보호막을 얻습니다.",
-        "선택한 스킬을 사용하면 추가 체력을 얻고 선택한 스킬의 지속시간 동안 주변 적을 둔화시킵니다. 처치 관여 시 이 효과가 영구적으로 증가합니다.",
-        "선택한 스킬의 스킬 가속이 100 증가합니다."
+        "공격 속도 60%를 얻습니다.",
+        "기본 공격 시 이동 속도가 10 증가합니다. 공격 속도를 얻습니다. 이 효과는 무한히 중첩되고 갱신되지만 5초 동안만 지속됩니다.",
+        "공격 시 피해량 40%의 볼트를 발사하고 적중 시 효과를 40% 효율로 적용합니다. 총 공격 속도 10%를 얻습니다.",
+        "기본 공격 시 적을 불태워 5초 동안 매초 최대 체력의 0.4%에 해당하는 마법 피해를 입힙니다. 이 화상은 무한히 중첩됩니다."
       ]
     },
     "pl": {
-      "title": "Aura Farming",
-      "why": "Master Yi nigdy nie atakuje. Siada w środku wrogiej drużyny i używa Medytacji, aż wszyscy znikną.",
-      "play": "Wejdź w sam środek walki i wciśnij W. Powtórz. Nigdy nie klikaj prawym na bohatera.",
-      "tagline": "Siada. Zamyka oczy. Wrogi zespół ginie.",
+      "title": "Certyfikowany Wariat",
+      "why": "Rumble przegrzewa się celowo, blokuje sobie czary i zamiast tego leje wszystkich po twarzy.",
+      "play": "Spamuj czary aż do Przegrzania, potem podejdź i kliknij prawym. Jak ostygnie, powtórz.",
+      "tagline": "Czary to tylko rozgrzewka. Prawdziwy Rumble zaczyna się, gdy ktoś go uciszy.",
       "how": [
         [
-          "Medytacja",
-          "Leczenie siebie, channeling i redukcja obrażeń w jednym przycisku. Każdy element poniżej podpina się pod jedno z tych."
+          "Przegrzanie",
+          "Przy pełnym Cieple Rumble nie może rzucać czarów, ale jego ataki biją mocniej i szybciej. To jedyny bohater, którego zestaw nagradza za uciszanie samego siebie."
         ],
         [
           "Wzmocnienia",
-          "Krąg Śmierci zamienia jego leczenie w obrażenia, Solidne Przygotowanie daje mu tarczę za każdą sekundę siedzenia, a Tańczący Potwór i Bułka z Masłem, wylosowane na Medytację, spowalniają wszystkich wokół i pozwalają mu usiąść znowu niemal od razu."
+          "Chyżość i Szalone Tańcowanie kumulują Szybkość Ataku, Obie Ręce Zajęte wystrzeliwuje drugi pocisk z każdym atakiem, a Znamię Ognia nakłada na każdy Podpalenie."
         ],
         [
           "Przedmioty",
-          "Oblicze Ducha wzmacnia każde leczenie, więc każde uderzenie też jest mocniejsze. Plemienna Zbroja, Nieskończona Rozpacz i Jak'Sho Zmienny trzymają go w pozycji siedzącej."
+          "Ząb Nashora, Ostrze Gniewu Guinsoo, Koniec Rozumu i Ostatni Przystanek działają przy trafieniu, więc każdy cios i każdy pocisk Obie Ręce Zajęte je niesie."
         ]
       ],
       "augments": [
-        "Twoje leczenie i regeneracja zdrowia zadają najbliższemu wrogiemu bohaterowi obrażenia magiczne równe 70% ich wartości.",
-        "Zyskujesz Tarczę za każdą sekundę Channelingu.",
-        "Użycie wybranej umiejętności daje dodatkowe Zdrowie i Spowalnia pobliskich wrogów na czas trwania wybranej umiejętności. Zdobycie asysty lub zabójstwa trwale zwiększa ten efekt.",
-        "Twoja wybrana umiejętność zyskuje 100 Przyspieszenia umiejętności."
+        "Zdobywasz 60% Szybkości Ataku.",
+        "Twoje ataki zapewniają ci 10 prędkości ruchu. Zyskujesz prędkość ataku. Wzmocnienie kumuluje się i odnawia bez końca, ale trwa 5 sekund.",
+        "Gdy atakujesz, wystrzeliwujesz pocisk zadający 40% obrażeń i nakładający efekty przy trafieniu ze skutecznością 40%. Zdobywasz 10% łącznej Szybkości Ataku.",
+        "Twoje ataki dodatkowo podpalają wrogów, zadając co sekundę przez 5 sek. obrażenia magiczne równe 0,4% ich maksymalnego zdrowia. To podpalenie kumuluje się w nieskończoność."
       ]
     },
     "pt-BR": {
-      "title": "Farm de Aura",
-      "why": "Master Yi nunca ataca. Ele senta no meio do time inimigo e Medita até não sobrar ninguém.",
-      "play": "Entre no meio da luta e aperte W. Repita. Nunca clique com o botão direito num campeão.",
-      "tagline": "Ele senta. Ele fecha os olhos. O time inimigo morre.",
+      "title": "Surtado Certificado",
+      "why": "O Rumble superaquece de propósito, se tranca fora das magias e soca todo mundo.",
+      "play": "Spamma magias até Superaquecer, aí chega perto e clica com o direito. Quando esfriar, repete.",
+      "tagline": "Magias são só o aquecimento. O Rumble de verdade começa quando ele é silenciado.",
       "how": [
         [
-          "Meditar",
-          "Autocura, canalização e redução de dano em um botão só. Cada peça abaixo se conecta a uma delas."
+          "Superaquecimento",
+          "Com o Calor no máximo, o Rumble não pode usar magias, mas os ataques batem mais forte e mais rápido. É o único campeão cujo kit o recompensa por se silenciar."
         ],
         [
           "Aumentos",
-          "Círculo da Morte transforma a cura dele em dano, Não Mude de Canal dá um escudo a cada segundo que ele fica sentado, e Monstro da Roda Punk e Pão com Manteiga, sorteados em Meditar, atrasam todo mundo em volta e deixam ele sentar de novo quase na hora."
+          "Especialista e Sapateado empilham Velocidade de Ataque, Ataque Duplo dispara um segundo projétil a cada ataque e Incendiário empilha uma Queimadura em cada um."
         ],
         [
           "Itens",
-          "Semblante Espiritual aumenta toda cura, então todo golpe também fica maior. Armadura de Warmog, Desespero Eterno e Jak'Sho, o Inconstante mantêm ele sentado."
+          "Dente de Na'Shor, Lâmina da Fúria de Guinsoo, Limite da Razão e Terminus são todos de ataque, então cada soco e cada projétil de Ataque Duplo carrega os efeitos."
         ]
       ],
       "augments": [
-        "Suas curas e Regeneração de Vida causam 70% do valor como dano mágico no campeão inimigo mais próximo.",
-        "Ganhe um Escudo a cada segundo que passar Canalizando.",
-        "Lançar a habilidade escolhida concede Vida bônus e Lentidão aos inimigos próximos pela duração da habilidade escolhida. Conseguir um abate aumenta permanentemente esse efeito.",
-        "Sua habilidade escolhida ganha 100 de Aceleração de Habilidade."
+        "Ganha 60% de Velocidade de Ataque.",
+        "Seus ataques concedem 10 de Velocidade de Movimento. Ganhe Velocidade de Ataque. O efeito acumula e se renova infinitamente, mas dura 5 segundos.",
+        "Ao atacar, dispara um projétil que causa 40% de dano e aplica seus efeitos de ataque com 40% de eficácia. Ganha 10% de Velocidade de Ataque total.",
+        "Seus Ataques também queimam inimigos, causando dano mágico igual a 0,4% da Vida máxima por segundo ao longo de 5 segundos. Essa Queimadura acumula infinitamente."
       ]
     },
     "ro": {
-      "title": "Aură la maxim",
-      "why": "Master Yi nu atacă niciodată. Stă în mijlocul echipei inamice și Meditează până nu mai rămâne nimeni.",
-      "play": "Intră în mijlocul luptei și apasă W. Repetă. Nu da niciodată click-dreapta pe un campion.",
-      "tagline": "Se așază. Închide ochii. Echipa inamică moare.",
+      "title": "Certificat Ieșit din Minți",
+      "why": "Rumble se supraîncălzește intenționat, își blochează vrăjile și îi pocnește pe toți.",
+      "play": "Spamează vrăji până te Supraîncălzești, apoi du-te la ei și dă click dreapta. Când se răcește, repetă.",
+      "tagline": "Vrăjile sunt doar încălzirea. Adevăratul Rumble începe când e redus la tăcere.",
       "how": [
         [
-          "Meditație",
-          "Vindecare proprie, canalizare și reducere de daune într-un singur buton. Fiecare piesă de mai jos se leagă de una dintre ele."
+          "Supraîncălzire",
+          "La Căldură maximă Rumble nu poate lansa vrăji, dar atacurile lui lovesc mai tare și mai des. E singurul campion al cărui kit îl recompensează că se reduce singur la tăcere."
         ],
         [
           "Augmentări",
-          "Cercul morții îi transformă vindecarea în daune, Nu schimba canalul îl protejează cu un scut în fiecare secundă cât stă jos, iar Monstru energic și În primul rând, obținute pe Meditație, încetinesc pe toți din jur și îl lasă să se așeze din nou aproape imediat."
+          "Agil și Dansator de step adaugă Viteză de atac, Lupt cu două arme trage o a doua rază la fiecare atac, iar Foc și pară aplică un Efect de arsură la fiecare."
         ],
         [
           "Obiecte",
-          "Înfățișarea sufletului face fiecare vindecare mai mare, deci și fiecare lovitură devine mai mare. Armura lui Warmog, Disperare nemărginită și Jak'Sho cel schimbător îl țin așezat."
+          "Dintele lui Nashor, Spada furiei lui Guinsoo, Sfârșitul rațiunii și Terminus sunt toate la lovitură, așa că fiecare pumn și fiecare rază de la Lupt cu două arme le poartă."
         ]
       ],
       "augments": [
-        "Vindecările și regenerarea ta de viață provoacă 70% din valoare ca daune magice celui mai apropiat campion inamic.",
-        "Primești un Scut pentru fiecare secundă petrecută Canalizând.",
-        "Lansarea abilității alese oferă Viață bonus și Încetinește inamicii din apropiere pe durata abilității alese. Obținerea unui asist sau a unei eliminări crește permanent acest efect.",
-        "Abilitatea ta aleasă primește 100 Viteză de Abilitate."
+        "Primești 60% Viteză de atac.",
+        "Atacurile tale îți oferă 10 viteză de mișcare. Primești viteză de atac. Efectul se acumulează și se reîmprospătează la infinit, dar durează 5 secunde.",
+        "Când atacezi, tragi o rază care provoacă 40% din daune și aplică efectele tale la lovitură cu 40% eficiență. Primești 10% Viteză de atac totală.",
+        "Atacurile tale ard și ele inamicii, provocând daune magice egale cu 0,4% din viața maximă pe secundă timp de 5 secunde. Această arsură se cumulează la infinit."
       ]
     },
     "ru": {
-      "title": "Фарм ауры",
-      "why": "Мастер Йи никогда не атакует. Он садится посреди вражеской команды и медитирует, пока все не умрут.",
-      "play": "Заходи в самую гущу драки и жми W. Повтори. Никогда не кликай правой кнопкой по чемпиону.",
-      "tagline": "Он садится. Закрывает глаза. Вражеская команда умирает.",
+      "title": "Сертифицированный тильтанутый",
+      "why": "Рамбл нарочно перегревается, лишает себя заклинаний и просто лупит всех.",
+      "play": "Спамь заклинаниями до Перегрева, потом подходи и бей ПКМ. Остыл — и по новой.",
+      "tagline": "Заклинания — лишь разминка. Настоящий Рамбл начинается, когда его заглушили.",
       "how": [
         [
-          "Медитация",
-          "Самолечение, подготовка заклинания и снижение урона на одной кнопке. Каждый предмет ниже завязан на что-то из этого."
+          "Перегрев",
+          "При полном Жаре Рамбл не может колдовать, зато бьёт сильнее и чаще. Единственный чемпион, чей набор умений награждает за самозаглушение."
         ],
         [
           "Аугменты",
-          "Цикл смерти превращает его лечение в урон, Не переключайтесь даёт ему щит за каждую секунду сидения, а Мошпит и Хлеб с маслом, выпавшие на Медитацию, замедляют всех вокруг и позволяют ему снова сесть почти сразу."
+          "Проворство и Чечетка добавляют скорость атаки, Парное оружие выпускает второй снаряд с каждой атакой, а Тавро накладывает на каждую Горение."
         ],
         [
           "Предметы",
-          "Облачение духов усиливает любое лечение, а значит, и каждый удар становится сильнее. Доспех Вармога, Бесконечное отчаяние и Жак'Шо Многоликий не дают ему встать."
+          "Зуб Нашора, Клинок ярости Гинсу, Смерть Разума и Светотень срабатывают при атаке, так что каждый удар и каждый снаряд Парного оружия несёт их эффекты."
         ]
       ],
       "augments": [
-        "Ваше лечение и регенерация здоровья наносят ближайшему вражескому чемпиону магический урон, равный 70% восстановленного.",
-        "Вы получаете щит за каждую секунду подготовки заклинания.",
-        "Применение выбранного умения даёт бонусное здоровье и замедляет ближайших противников на время действия выбранного умения. Получение убийства или содействия навсегда усиливает этот эффект.",
-        "Выбранное умение получает 100 ед. ускорения умений."
+        "Вы получаете 60% скорости атаки.",
+        "Ваши атаки дают вам 10 скорости передвижения. Вы получаете скорость атаки. Эффект складывается и обновляется бесконечно, но длится 5 секунд.",
+        "При атаке вы выпускаете снаряд, который наносит 40% урона и применяет ваши эффекты при атаке с 40% эффективности. Вы получаете 10% общей скорости атаки.",
+        "Ваши автоатаки также поджигают врагов, нанося магический урон в размере 0,4% от их максимального запаса здоровья в секунду в течение 5 сек. Это горение суммируется бесконечно."
       ]
     },
     "th": {
-      "title": "Aura Farming",
-      "why": "Master Yi ไม่เคยโจมตี เขานั่งอยู่กลางทีมศัตรูแล้วทำสมาธิจนไม่เหลือใคร",
-      "play": "เดินเข้ากลางทีมไฟต์แล้วกด W ทำซ้ำ ห้ามคลิกขวาใส่แชมเปี้ยนเด็ดขาด",
-      "tagline": "เขานั่งลง หลับตา ทีมศัตรูก็ตายเรียบ",
+      "title": "สติหลุดระดับมีใบเซอร์",
+      "why": "Rumble จงใจโอเวอร์ฮีตจนใช้สกิลไม่ได้ แล้วเดินเข้าไปต่อยทุกคนแทน",
+      "play": "สแปมสกิลจนโอเวอร์ฮีต แล้วเดินเข้าไปคลิกขวาใส่ พอเย็นลงก็ทำซ้ำ",
+      "tagline": "สกิลแค่วอร์มอัป Rumble ตัวจริงเริ่มตอนโดนไซเลนซ์",
       "how": [
         [
-          "ทำสมาธิ",
-          "ฮีลตัวเอง แชนเนล และลดดาเมจในปุ่มเดียว ของทุกชิ้นด้านล่างเกี่ยวกับสามอย่างนี้"
+          "โอเวอร์ฮีต",
+          "ตอนความร้อนเต็ม Rumble ใช้สกิลไม่ได้ แต่ตีแรงขึ้นและเร็วขึ้น เป็นแชมป์เปี้ยนคนเดียวที่ชุดสกิลให้รางวัลกับการไซเลนซ์ตัวเอง"
         ],
         [
           "Augment",
-          "Circle of Death เปลี่ยนการฮีลของเขาเป็นดาเมจ Don't Change the Channel ให้โล่ทุกวินาทีที่เขานั่ง ส่วน Mosh Monster กับ Bread And Butter ที่สุ่มได้บนสกิลทำสมาธิ จะสโลว์ทุกคนรอบตัวและทำให้เขากลับมานั่งได้เกือบทันที"
+          "Deft และ Tap Dancer เพิ่มความเร็วโจมตี Dual Wield ยิงลูกศรที่สองทุกครั้งที่โจมตี ส่วน Firebrand ใส่สถานะ Burn สะสมให้ทุกครั้ง"
         ],
         [
           "ไอเทม",
-          "Spirit Visage ทำให้ทุกฮีลแรงขึ้น ทุกการโจมตีเลยแรงขึ้นตาม Warmog's Armor, Unending Despair และ Jak'Sho, The Protean ช่วยให้เขานั่งต่อได้"
+          "Nashor's Tooth, Guinsoo's Rageblade, Wit's End และ Terminus เป็นเอฟเฟกต์ On-Hit ทั้งหมด ทุกหมัดและทุกลูกศรของ Dual Wield จึงติดไปด้วย"
         ]
       ],
       "augments": [
-        "การฮีลและการฟื้นฟูพลังชีวิตของคุณสร้างความเสียหายเวท 70% ของค่านั้นใส่แชมเปี้ยนศัตรูที่ใกล้ที่สุด",
-        "ได้รับโล่ทุกวินาทีที่แชนเนล",
-        "เมื่อใช้สกิลที่เลือก จะได้รับเลือดโบนัสและสโลว์ศัตรูใกล้เคียงตลอดระยะเวลาของสกิลที่เลือก การได้ Takedown จะเพิ่มผลนี้อย่างถาวร",
-        "สกิลที่เลือกได้รับ Ability Haste 100"
+        "ได้รับความเร็วโจมตี 60%",
+        "การโจมตีของคุณให้ความเร็วเคลื่อนที่ 10 ได้รับความเร็วโจมตี บัฟนี้ซ้อนและรีเฟรชได้ไม่จำกัด แต่คงอยู่ 5 วินาที",
+        "เมื่อโจมตี ยิงลูกศรที่สร้างความเสียหาย 40% และใช้เอฟเฟกต์ On-Hit ของคุณที่ประสิทธิภาพ 40% ได้รับความเร็วโจมตีรวม 10%",
+        "การโจมตีของคุณเผาศัตรูด้วย สร้างความเสียหายเวท 0.4% ของพลังชีวิตสูงสุดต่อวินาทีเป็นเวลา 5 วินาที Burn นี้สะสมได้ไม่จำกัด"
       ]
     },
     "tr": {
-      "title": "Aura Kasma",
-      "why": "Master Yi asla saldırmaz. Düşman takımın ortasına oturur ve onlar bitene kadar Meditasyon yapar.",
-      "play": "Savaşın ortasına dalıp W'ye bas. Tekrarla. Hiçbir şampiyona sağ tık atma.",
-      "tagline": "Oturuyor. Gözlerini kapatıyor. Düşman takım ölüyor.",
+      "title": "Sertifikalı Sinir Küpü",
+      "why": "Rumble bile bile aşırı ısınır, büyülerini kilitler ve onun yerine herkese yumruk atar.",
+      "play": "Aşırı Isınana kadar büyü spamla, sonra yürü ve sağ tıkla. Soğuyunca tekrarla.",
+      "tagline": "Büyüler sadece ısınma. Gerçek Rumble, susturulunca başlar.",
       "how": [
         [
-          "Meditasyon",
-          "Tek tuşta kendini iyileştirme, kanal ve hasar azaltma. Aşağıdaki her parça bunlardan birine bağlanıyor."
+          "Aşırı Isınma",
+          "Isı tamamen dolunca Rumble büyü yapamaz ama saldırıları daha sert vurur ve daha hızlı gelir. Kendini susturmanın ödüllendirildiği tek şampiyon."
         ],
         [
           "Güçlendirmeler",
-          "Ölüm Döngüsü iyileşmesini hasara çeviriyor, Kesintisiz Yoğunlaşma oturduğu her saniye ona kalkan veriyor, Meditasyon'a denk gelen Yık Geç ve Yağlı Ekmek ise etrafındaki herkesi yavaşlatıp neredeyse anında tekrar oturmasını sağlıyor."
+          "Eli Çabuk ve Step Dansı Saldırı Hızı yığar, Çifte Silah her saldırıyla ikinci bir ok atar, Yakıcı Damga da her birine bir Yanma ekler."
         ],
         [
           "Eşyalar",
-          "Ruh Gömleği her iyileşmeyi büyütüyor, yani her vuruş da büyüyor. Warmog'un Zırhı, Sonsuz Çaresizlik ve Şahbaz Jak'Sho onu oturur halde tutuyor."
+          "Nashor'un Dişi, Guinsoo'nun Hiddeti, Aklın Sonu ve Son Durak vuruş efektli, yani her yumruk ve her Çifte Silah oku bunları taşır."
         ]
       ],
       "augments": [
-        "İyileştirmelerin ve Can Yenilemen, değerin %70'i kadar büyü hasarını en yakın rakip şampiyona verir.",
-        "Yoğunlaşırken geçirdiğin her saniye için Kalkan kazan.",
-        "Seçilen yeteneği kullanmak, seçilen yeteneğin süresi boyunca bonus Can verir ve yakındaki düşmanları Yavaşlatır. Öldürme veya yardım almak bu etkiyi kalıcı olarak artırır.",
-        "Seçtiğin yetenek 100 Yetenek Hızı kazanır."
+        "%60 Saldırı Hızı kazanırsın.",
+        "Saldırıların sana 10 hareket hızı verir. Saldırı hızı kazanırsın. Etki sınırsız birikir ve yenilenir ama 5 saniye sürer.",
+        "Saldırdığında, %40 hasar veren ve vuruş efektlerini %40 etkililikle uygulayan bir ok atarsın. Toplamda %10 Saldırı Hızı kazanırsın.",
+        "Saldırıların rakipleri de yakar ve 5 saniye boyunca saniyede azami Can'larının %0,4'ü kadar büyü hasarı verir. Bu yanma sonsuz kez birikebilir."
       ]
     },
     "vi": {
-      "title": "Cày Aura",
-      "why": "Master Yi không bao giờ đánh thường. Hắn ngồi giữa team địch và Thiền Định cho đến khi chúng biến mất.",
-      "play": "Lao vào giữa giao tranh rồi bấm W. Lặp lại. Đừng bao giờ click chuột phải vào tướng.",
-      "tagline": "Ngồi xuống. Nhắm mắt lại. Cả team địch ngã xuống.",
+      "title": "Đạt Chuẩn Lên Cơn",
+      "why": "Rumble cố tình quá nhiệt, tự khóa chiêu rồi đấm mọi người thay thế.",
+      "play": "Spam chiêu đến khi Quá Nhiệt, rồi tiến lên và chuột phải. Nguội xong thì lặp lại.",
+      "tagline": "Chiêu thức chỉ là khởi động. Rumble thật sự bắt đầu khi bị câm lặng.",
       "how": [
         [
-          "Thiền Định",
-          "Tự hồi máu, kênh phép và giảm sát thương trong một nút bấm. Mọi món bên dưới đều móc vào một trong số đó."
+          "Quá Nhiệt",
+          "Khi Nhiệt đầy, Rumble không thể dùng chiêu, nhưng đòn đánh mạnh hơn và nhanh hơn. Tướng duy nhất được bộ kỹ năng thưởng vì tự câm lặng."
         ],
         [
           "Lõi nâng cấp",
-          "Vòng Tròn Tử Thần biến hồi máu thành sát thương, Đừng Chuyển Kênh cho hắn lá chắn mỗi giây ngồi thiền, còn Quái Quẩy và Bánh Mỳ & Bơ, roll vào Thiền Định, làm chậm mọi kẻ xung quanh và giúp hắn ngồi lại gần như ngay lập tức."
+          "Khéo Léo và Vũ Công Thiết Hài cộng Tốc Độ Đánh, Vũ Khí Hạng Nhẹ bắn thêm một mũi tên mỗi đòn đánh, còn Hỏa Tinh chồng một hiệu ứng Thiêu Đốt lên từng đòn."
         ],
         [
           "Trang bị",
-          "Giáp Tâm Linh làm mọi lượng hồi máu lớn hơn, nên mỗi đòn đánh cũng mạnh hơn. Giáp Máu Warmog, Áo Choàng Diệt Vong và Jak'Sho, Vỏ Bọc Thích Nghi giữ hắn ngồi vững."
+          "Nanh Nashor, Cuồng Đao Guinsoo, Đao Tím và Terminus đều là hiệu ứng khi đánh, nên mỗi cú đấm và mỗi mũi tên Vũ Khí Hạng Nhẹ đều mang theo chúng."
         ]
       ],
       "augments": [
-        "Lượng hồi máu và Hồi Máu của bạn gây sát thương phép bằng 70% giá trị lên tướng địch gần nhất.",
-        "Nhận Lá Chắn cho mỗi giây bạn Kênh phép.",
-        "Sử dụng kỹ năng được chọn sẽ nhận thêm Máu và Làm Chậm kẻ địch lân cận trong suốt thời gian của kỹ năng được chọn. Hạ gục hoặc hỗ trợ sẽ tăng vĩnh viễn hiệu ứng này.",
-        "Kỹ năng được chọn nhận 100 Tốc Độ Hồi Chiêu."
+        "Nhận 60% Tốc Độ Đánh.",
+        "Đòn đánh của bạn cho bạn 10 tốc độ di chuyển. Nhận tốc độ đánh. Hiệu ứng cộng dồn và làm mới vô hạn nhưng kéo dài 5 giây.",
+        "Khi Tấn Công, bắn một mũi tên gây 40% sát thương và áp dụng hiệu ứng khi đánh của bạn với 40% hiệu quả. Nhận 10% tổng Tốc Độ Đánh.",
+        "Đòn đánh của bạn còn thiêu đốt kẻ địch, gây sát thương phép bằng 0,4% Máu tối đa mỗi giây trong 5 giây. Thiêu đốt này cộng dồn vô hạn."
       ]
     },
     "zh-CN": {
-      "title": "刷Aura",
-      "why": "无极剑圣从不平A。他往敌人堆里一坐，冥想到对面全没了。",
-      "play": "冲进团战中间，按W。重复。永远别右键点英雄。",
-      "tagline": "他坐下了。闭上眼。敌方团灭。",
+      "title": "官方认证破防王",
+      "why": "机械公敌故意让自己过热，把技能锁死，然后用拳头招呼所有人。",
+      "play": "一直放技能放到过热，然后冲上去右键平A。冷却完了再来一轮。",
+      "tagline": "技能只是热身，被沉默的机械公敌才是真正的机械公敌。",
       "how": [
         [
-          "冥想",
-          "一个按键里有自我治疗、引导和伤害减免。下面每件装备都围绕其中之一。"
+          "过热",
+          "热度满的时候机械公敌放不了技能，但攻击更疼、攻速更快。他是唯一一个自我沉默还能拿奖励的英雄。"
         ],
         [
           "海克斯强化",
-          "死亡之环把他的治疗变成伤害，别停止引导让他每坐一秒就获得护盾，而冥想上抽到的热舞怪兽和面包和黄油会减速周围所有人，让他几乎立刻又能坐下。"
+          "灵巧和踢踏舞叠加攻击速度，双刀流每次攻击多射出一发弹矢，火上浇油则给每一发都叠上一层灼烧。"
         ],
         [
           "装备",
-          "振奋盔甲让每次治疗都更强，所以每次攻击也更强。狂徒铠甲、无终恨意和千变者贾修让他稳稳坐着。"
+          "纳什之牙、鬼索的狂暴之刃、智慧末刃和界弓全都是攻击特效，所以每一拳、每一发双刀流弹矢都会带上它们。"
         ]
       ],
       "augments": [
-        "你的治疗和生命回复会对最近的敌方英雄造成相当于该数值70%的魔法伤害。",
-        "每引导1秒，获得一层护盾。",
-        "施放所选技能时获得额外生命值，并在所选技能持续期间减速附近的敌人。获得击杀或助攻会永久提升此效果。",
-        "你所选的技能获得100技能急速。"
+        "获得60%攻击速度。",
+        "你的普攻为你提供10移动速度。获得攻击速度。该增益可无限叠加并刷新，但持续5秒。",
+        "攻击时，发射一枚造成40%伤害的弹矢，并以40%的效果触发你的攻击特效。获得10%总攻击速度。",
+        "你的攻击还会灼烧敌人，在5秒内每秒造成相当于其0.4%最大生命值的魔法伤害。该灼烧可无限叠加。"
       ]
     },
     "zh-TW": {
-      "title": "刷Aura",
-      "why": "易大師從不普攻。他往敵人堆裡一坐，冥想到對面全沒了。",
-      "play": "衝進團戰中間，按W。重複。永遠別右鍵點英雄。",
-      "tagline": "他坐下了。閉上眼。敵方團滅。",
+      "title": "官方認證・心態炸裂",
+      "why": "藍寶故意讓自己過熱，把技能鎖死，然後用拳頭招呼所有人。",
+      "play": "一直放技能放到過熱，然後衝上去右鍵普攻。冷卻完再來一輪。",
+      "tagline": "技能只是熱身，被沉默的藍寶才是真正的藍寶。",
       "how": [
         [
-          "冥想",
-          "一個按鍵裡有自我治療、引導和傷害減免。下面每件裝備都圍繞其中之一。"
+          "過熱",
+          "熱能全滿時藍寶放不了技能，但攻擊更痛、攻速更快。他是唯一一個自我沉默還能拿獎勵的英雄。"
         ],
         [
           "強化",
-          "死亡循環把他的治療變成傷害，別轉台讓他每坐一秒就獲得護盾，而冥想上抽到的衝撞怪獸和土司和奶油會緩速周圍所有人，讓他幾乎立刻又能坐下。"
+          "手腳麻利和輕舞飛揚疊加攻擊速度，雙刀流每次攻擊多射出一發彈矢，煽風點火則替每一發都疊上一層燃燒。"
         ],
         [
           "裝備",
-          "振奮盔甲讓每次治療都更強，所以每次攻擊也更強。好戰者鎧甲、無盡絕望和千變萬化之賈克修讓他穩穩坐著。"
+          "納什之牙、鬼索的狂暴之刃、智慧末刃和臨界點全都是攻擊特效，所以每一拳、每一發雙刀流彈矢都會帶上它們。"
         ]
       ],
       "augments": [
-        "你的治療和生命回復會對最近的敵方英雄造成相當於該數值70%的魔法傷害。",
-        "每引導1秒，獲得一層護盾。",
-        "施放所選技能時獲得額外生命值，並在所選技能持續期間緩速附近的敵人。獲得擊殺或助攻會永久提升此效果。",
-        "你所選的技能獲得100技能加速。"
+        "獲得60%攻擊速度。",
+        "你的普攻為你提供10移動速度。獲得攻擊速度。此增益可無限疊加並刷新，但持續5秒。",
+        "攻擊時，發射一枚造成40%傷害的彈矢，並以40%的效果觸發你的攻擊特效。獲得10%總攻擊速度。",
+        "你的攻擊還會燃燒敵人，在5秒內每秒造成相當於其0.4%最大生命的魔法傷害。此燃燒可無限疊加。"
       ]
     }
   }
