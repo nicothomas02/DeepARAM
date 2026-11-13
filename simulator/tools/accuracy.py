@@ -35,7 +35,7 @@ def run(c):
     except Exception: print(c["id"], r.stderr[:200], file=sys.stderr); return None
     bb = best.get(c["id"], {})
     return dict(champ=c["id"], role=bb.get("role"), cn=bb.get("cn_damage_share"), dps=s["mean_dps"], st=s["single_target_dps"],
-                surv=s["survival_rate"], alive=s["time_alive"], taken=s.get("damage_taken"), healing=s.get("healing"),
+                surv=s["survival_rate"], alive=s["time_alive"], dmg=s.get("damage_per_fight"), short=s.get("dps_short_fight"), long=s.get("dps_long_fight"), kpm=s.get("kills_per_minute"), src=s.get("share_by_source"), taken=s.get("damage_taken"), healing=s.get("healing"),
                 cc=s.get("cc_seconds"), tank=real.get(c["champion_id"], {}).get("avg_tank_ratio"), items=it, augs=a)
 with cf.ThreadPoolExecutor(8) as ex: res = [r for r in ex.map(run, champs) if r]
 json.dump(res, open(OUT, "w"))

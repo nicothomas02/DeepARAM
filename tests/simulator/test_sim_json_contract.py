@@ -20,7 +20,8 @@ import pytest
 from sim_paths import DATA_DIR, VIEWER_DIR, load_json
 
 SUMMARY_KEYS = {"mean_dps", "ci95", "p5", "median", "p95", "single_target_dps", "kills_per_minute", "survival_rate",
-                "time_alive", "damage_taken_per_s", "dps_short_fight", "dps_long_fight", "share_by_source"}
+                "time_alive", "damage_per_fight", "damage_taken_per_s", "dps_short_fight", "dps_long_fight",
+                "share_by_source"}
 
 
 def finite_number(x):

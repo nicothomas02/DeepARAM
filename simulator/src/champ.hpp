@@ -103,6 +103,11 @@ struct Ability {
     double petDuration = 0, petAs = 1, petSlamCd = 0, petSlamCc = 0;
     int petSlamEvery = 0;
     std::vector<Hit> petHits, petSlam;
+    // A drain around you rather than a summon (Swain's Demonic Ascension): with petAround its hits and
+    // slams land on every enemy within that radius of you, each hit heals you for petHeal, and every
+    // hit that lands keeps it going for at least petSustain more seconds.
+    double petAround = 0, petSustain = 0;
+    Bag petHeal;
     std::vector<Hit> hits;
     // Versions of this ability the kit swaps in mid-fight: Hwei's three spells per slot, Aphelios' weapons.
     std::vector<Ability> variants;
@@ -345,6 +350,7 @@ struct Summary {
     double meanDps = 0, ci95 = 0, p5 = 0, median = 0, p95 = 0;
     double singleTargetDps = 0, killsPerMinute = 0, survivalRate = 0, meanTimeAlive = 0;
     double damageTakenPerSec = 0;  // damage you take per second alive, after your resists
+    double damagePerFight = 0;     // damage you deal in one fight (one life in fights that last until you die)
     // Per fight, on average: Health lost, damage mitigated, Health restored, seconds of crowd control dealt.
     double damageTaken = 0, damageMitigated = 0, healing = 0, ccSeconds = 0, shielding = 0;
     double ccHardSeconds = 0;  // crowd control seconds weighted by strength (Result::ccHard)

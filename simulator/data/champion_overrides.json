@@ -277,6 +277,13 @@
     "speed": 2000
    },
    "why": "Volley is a 9-arrow cone, not a 20-wide line; it almost never hit"
+  },
+  "R": {
+   "cc": {
+    "type": "stun",
+    "duration": 1.5
+   },
+   "why": "Enchanted Crystal Arrow stuns for 1 s plus 0.25 s per 200 units flown past 800 (up to 3.5 s); a typical ARAM arrow flies about 1,200 units"
   }
  },
  "Aatrox": {
@@ -1339,7 +1346,8 @@
     "MaxDamagePerStrikeTooltip": 0
    },
    "lock": 1.5,
-   "why": "Royal Maelstrom is a 1.5s channel of about 8 strikes; the max-per-strike number is the low-health variant"
+   "why": "Royal Maelstrom is a 1.5s channel of about 8 strikes; the max-per-strike number is the low-health variant; each strike deals 1% more per 1% of the target's missing Health",
+   "missing_amp": 1.0
   },
   "R": {
    "cooldown": 60,
@@ -2168,11 +2176,35 @@
    }
   },
   "R": {
-   "hit_mults": {
-    "DamageCalc": 6,
-    "DemonflareDamageTotal": 2
+   "hits": [],
+   "heal": null,
+   "pet": {
+    "duration": 5,
+    "sustain": 3.5,
+    "attack_speed": 2,
+    "around": 650,
+    "hits": [
+     {
+      "calc": "DamageCalc",
+      "type": "magic",
+      "mult": 0.5
+     }
+    ],
+    "heal": {
+     "const": 22.5,
+     "ap": 0.025,
+     "bonus_hp": 0.0075
+    },
+    "slam_every": 4,
+    "slam_cooldown": 8,
+    "slam": [
+     {
+      "calc": "DemonflareDamageTotal",
+      "type": "magic"
+     }
+    ]
    },
-   "why": "Demonic Ascension drains every second; parsed as one tick (~6s in a duel); Demonflare is always cast once (manually after 2s or automatically at the end): full weight"
+   "why": "Demonic Ascension drains every enemy within 650 twice a second (35 + 4% AP damage and 45 + 5% AP + 1.5% bonus Health healing per second each, rank 3) and lasts as long as he is draining a champion (its Demonic Energy runs out about 3.5 s after the last drain); Demonflare (350 + 40% AP) comes 2 s in and again every 8 s. It was one cast of six ticks and one Demonflare"
   }
  },
  "Sylas": {
@@ -2940,6 +2972,21 @@
   "W": {
    "placeholder": true,
    "why": "holds the off-hand weapon's ability (see Q)"
+  }
+ },
+ "Mordekaiser": {
+  "Q": {
+   "solo_mult": 1.5,
+   "why": "Obliterate deals 50% more damage (rank 5) when it hits only one enemy (the tooltip's EmpoweredDamageTooltip number)"
+  },
+  "W": {
+   "shield": {
+    "scaling": {
+     "max_hp": 0.2
+    },
+    "duration": 4
+   },
+   "why": "Indestructible stores 45% of the damage he deals and 7.5% of the damage he takes as a shield, up to 30% of his max Health, which is full again well inside its 8 s cooldown in a fight; the shield decays over 4 s, so about 20% of max Health is counted. The parser read only the 5% floor"
   }
  }
 }
