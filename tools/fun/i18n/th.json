@@ -343,5 +343,16 @@
  "Walk into melee and give a move command during every attack so each lunge crosses the enemy and drops a trail under them. Hop sideways through the group rather than away from it, and use Rend to slow anyone trying to leave.": "เดินเข้าไปประชิดแล้วสั่งเดินระหว่างการโจมตีทุกครั้ง เพื่อให้ทุกการพุ่งทะลุศัตรูและทิ้งรอยไว้ใต้ตัวมัน กระโดดข้างผ่านกลุ่มศัตรูแทนที่จะถอยหนี และใช้ Rend สโลว์คนที่พยายามหนี",
  "Gain a Shield for 2 seconds after a Dash or Blink (5 seconds Cooldown).": "รับ Shield เป็นเวลา 2 วินาทีหลังใช้ Dash หรือ Blink (Cooldown 5 วินาที)",
  "May not work in a real game": "อาจใช้ไม่ได้ในเกมจริง",
- "{champion} may not be offered {augments} this patch, so this build might not come together. Try it if they show up.": "{champion} อาจไม่ได้รับข้อเสนอ {augments} ในแพตช์นี้ บิลด์นี้จึงอาจไม่ครบ ลองดูถ้ามันโผล่มา"
+ "{champion} may not be offered {augments} this patch, so this build might not come together. Try it if they show up.": "{champion} อาจไม่ได้รับข้อเสนอ {augments} ในแพตช์นี้ บิลด์นี้จึงอาจไม่ครบ ลองดูถ้ามันโผล่มา",
+ "Aura Farming": "Aura Farming",
+ "He sits down. He closes his eyes. The enemy team dies.": "เขานั่งลง หลับตา ทีมศัตรูก็ตายเรียบ",
+ "Master Yi never attacks. He sits in the middle of the enemy team and Meditates until they're gone.": "Master Yi ไม่เคยโจมตี เขานั่งอยู่กลางทีมศัตรูแล้วทำสมาธิจนไม่เหลือใคร",
+ "Walk into the middle of the fight and press W. Repeat. Never right-click a champion.": "เดินเข้ากลางทีมไฟต์แล้วกด W ทำซ้ำ ห้ามคลิกขวาใส่แชมเปี้ยนเด็ดขาด",
+ "Meditate": "ทำสมาธิ",
+ "A self-heal, a channel and damage reduction in one button. Every piece below hooks into one of those.": "ฮีลตัวเอง แชนเนล และลดดาเมจในปุ่มเดียว ของทุกชิ้นด้านล่างเกี่ยวกับสามอย่างนี้",
+ "Circle of Death turns his healing into damage, Don't Change the Channel shields him every second he sits, and Mosh Monster and Bread And Butter, rolled on Meditate, slow everyone around him and let him sit again almost right away.": "Circle of Death เปลี่ยนการฮีลของเขาเป็นดาเมจ Don't Change the Channel ให้โล่ทุกวินาทีที่เขานั่ง ส่วน Mosh Monster กับ Bread And Butter ที่สุ่มได้บนสกิลทำสมาธิ จะสโลว์ทุกคนรอบตัวและทำให้เขากลับมานั่งได้เกือบทันที",
+ "Spirit Visage makes every heal bigger, so every hit gets bigger too. Warmog's, Unending Despair and Jak'Sho keep him seated.": "Spirit Visage ทำให้ทุกฮีลแรงขึ้น ทุกการโจมตีเลยแรงขึ้นตาม Warmog's Armor, Unending Despair และ Jak'Sho, The Protean ช่วยให้เขานั่งต่อได้",
+ "Gain a Shield for every second you spend Channeling.": "ได้รับโล่ทุกวินาทีที่แชนเนล",
+ "Casting the chosen ability grants bonus Health and Slows nearby enemies for the duration of the chosen abilityGetting a takedown permanently increases this effect.": "เมื่อใช้สกิลที่เลือก จะได้รับเลือดโบนัสและสโลว์ศัตรูใกล้เคียงตลอดระยะเวลาของสกิลที่เลือก การได้ Takedown จะเพิ่มผลนี้อย่างถาวร",
+ "Your chosen ability gains 100 Ability Haste.": "สกิลที่เลือกได้รับ Ability Haste 100"
 }

@@ -141,3 +141,7 @@ a.chef-chip { text-decoration: none; }
 .community .empty-title { font: 700 18px/1.2 var(--display); letter-spacing: -.02em; }
 .community .empty-cta { margin-top: 6px; display: inline-flex; align-items: center; min-height: 40px; padding: 0 16px; border-radius: 10px; background: var(--accent); color: var(--accent-ink); font-weight: 600; font-size: 14px; text-decoration: none; }
 .community .empty-cta:hover { filter: brightness(1.06); }
+.tagline { max-width: 72ch; font-size: 17px; font-weight: 600; color: var(--fg); font-style: italic; }
+.how { list-style: none; padding: 0; margin: 0; display: grid; gap: 6px; max-width: 72ch; }
+.how li { padding: 6px 12px; border-left: 3px solid var(--chef, #e0a83c); background: color-mix(in srgb, var(--chef, #e0a83c) 7%, transparent); border-radius: 6px; font-size: 14.5px; }
+.how li b { display: block; font-weight: 600; color: var(--fg); font-size: 13px; letter-spacing: .02em; }

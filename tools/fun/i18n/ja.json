@@ -343,5 +343,16 @@
  "Walk into melee and give a move command during every attack so each lunge crosses the enemy and drops a trail under them. Hop sideways through the group rather than away from it, and use Rend to slow anyone trying to leave.": "近接に突っ込んで、攻撃のたびに移動コマンドを入れ、跳躍が敵を貫通して足元に軌跡を残すようにしましょう。集団からは離れず、横に跳んで中を抜け、逃げようとする相手には「レンド」でスローをかけます。",
  "Gain a Shield for 2 seconds after a Dash or Blink (5 seconds Cooldown).": "ダッシュまたはブリンク後2秒間シールドを獲得（クールダウン5秒）。",
  "May not work in a real game": "実戦では成立しないかもしれません",
- "{champion} may not be offered {augments} this patch, so this build might not come together. Try it if they show up.": "このパッチでは{champion}に{augments}が提示されない可能性があるため、このビルドは完成しないかもしれません。出てきたら試してみてください。"
+ "{champion} may not be offered {augments} this patch, so this build might not come together. Try it if they show up.": "このパッチでは{champion}に{augments}が提示されない可能性があるため、このビルドは完成しないかもしれません。出てきたら試してみてください。",
+ "Aura Farming": "オーラ稼ぎ",
+ "He sits down. He closes his eyes. The enemy team dies.": "座る。目を閉じる。敵チームが死ぬ。",
+ "Master Yi never attacks. He sits in the middle of the enemy team and Meditates until they're gone.": "マスター・イーは攻撃しない。敵チームのど真ん中に座って、全員いなくなるまで明鏡止水するだけ。",
+ "Walk into the middle of the fight and press W. Repeat. Never right-click a champion.": "戦闘のど真ん中に突っ込んでWを押す。繰り返す。チャンピオンへの右クリックは禁止。",
+ "Meditate": "明鏡止水",
+ "A self-heal, a channel and damage reduction in one button. Every piece below hooks into one of those.": "自己回復、チャネリング、ダメージ軽減がワンボタンに。下のパーツはすべてこのどれかに繋がってる。",
+ "Circle of Death turns his healing into damage, Don't Change the Channel shields him every second he sits, and Mosh Monster and Bread And Butter, rolled on Meditate, slow everyone around him and let him sit again almost right away.": "死者の集いで回復がダメージに変わり、チャンネルはそのままで座っている間は毎秒シールドを獲得。さらに明鏡止水に乗せたモッシュモンスターとパンとバターで周囲全員をスローにして、ほぼ即座にまた座れる。",
+ "Spirit Visage makes every heal bigger, so every hit gets bigger too. Warmog's, Unending Despair and Jak'Sho keep him seated.": "スピリット ビサージュで回復量が増え、攻撃のダメージも増える。ワーモグ アーマー、終わりなき絶望、変幻自在のジャック＝ショーで座り続けられる。",
+ "Gain a Shield for every second you spend Channeling.": "チャネリングしている間、毎秒シールドを獲得する。",
+ "Casting the chosen ability grants bonus Health and Slows nearby enemies for the duration of the chosen abilityGetting a takedown permanently increases this effect.": "選択したアビリティを使用すると、ボーナス体力を獲得し、選択したアビリティの持続時間中、周囲の敵をスローにする。テイクダウンを獲得すると、この効果が永続的に増加する。",
+ "Your chosen ability gains 100 Ability Haste.": "選択したアビリティのアビリティヘイストが100増加する。"
 }

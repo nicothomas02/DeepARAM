@@ -343,5 +343,16 @@
  "Walk into melee and give a move command during every attack so each lunge crosses the enemy and drops a trail under them. Hop sideways through the group rather than away from it, and use Rend to slow anyone trying to leave.": "冲进近战，每次攻击时都下达一次移动指令，让每次突进都穿过敌人并在其脚下留下轨迹。要横向跳穿人群，而不是往外跳，并用「撕裂」减速想逃跑的人。",
  "Gain a Shield for 2 seconds after a Dash or Blink (5 seconds Cooldown).": "位移或闪现后获得2秒护盾（5秒冷却时间）。",
  "May not work in a real game": "实战中可能凑不齐",
- "{champion} may not be offered {augments} this patch, so this build might not come together. Try it if they show up.": "本版本中{champion}可能不会被提供{augments}，所以这套出装可能凑不齐。如果出现了就试试吧。"
+ "{champion} may not be offered {augments} this patch, so this build might not come together. Try it if they show up.": "本版本中{champion}可能不会被提供{augments}，所以这套出装可能凑不齐。如果出现了就试试吧。",
+ "Aura Farming": "刷Aura",
+ "He sits down. He closes his eyes. The enemy team dies.": "他坐下了。闭上眼。敌方团灭。",
+ "Master Yi never attacks. He sits in the middle of the enemy team and Meditates until they're gone.": "无极剑圣从不平A。他往敌人堆里一坐，冥想到对面全没了。",
+ "Walk into the middle of the fight and press W. Repeat. Never right-click a champion.": "冲进团战中间，按W。重复。永远别右键点英雄。",
+ "Meditate": "冥想",
+ "A self-heal, a channel and damage reduction in one button. Every piece below hooks into one of those.": "一个按键里有自我治疗、引导和伤害减免。下面每件装备都围绕其中之一。",
+ "Circle of Death turns his healing into damage, Don't Change the Channel shields him every second he sits, and Mosh Monster and Bread And Butter, rolled on Meditate, slow everyone around him and let him sit again almost right away.": "死亡之环把他的治疗变成伤害，别停止引导让他每坐一秒就获得护盾，而冥想上抽到的热舞怪兽和面包和黄油会减速周围所有人，让他几乎立刻又能坐下。",
+ "Spirit Visage makes every heal bigger, so every hit gets bigger too. Warmog's, Unending Despair and Jak'Sho keep him seated.": "振奋盔甲让每次治疗都更强，所以每次攻击也更强。狂徒铠甲、无终恨意和千变者贾修让他稳稳坐着。",
+ "Gain a Shield for every second you spend Channeling.": "每引导1秒，获得一层护盾。",
+ "Casting the chosen ability grants bonus Health and Slows nearby enemies for the duration of the chosen abilityGetting a takedown permanently increases this effect.": "施放所选技能时获得额外生命值，并在所选技能持续期间减速附近的敌人。获得击杀或助攻会永久提升此效果。",
+ "Your chosen ability gains 100 Ability Haste.": "你所选的技能获得100技能急速。"
 }

@@ -343,5 +343,16 @@
  "Walk into melee and give a move command during every attack so each lunge crosses the enemy and drops a trail under them. Hop sideways through the group rather than away from it, and use Rend to slow anyone trying to leave.": "Лезь в ближний бой и отдавай команду движения во время каждой атаки, чтобы каждый рывок пересекал врага и оставлял под ним след. Прыгай вбок через группу, а не прочь от неё, и используй Разрыв, чтобы замедлить тех, кто пытается уйти.",
  "Gain a Shield for 2 seconds after a Dash or Blink (5 seconds Cooldown).": "Получите Щит на 2 секунды после Рывка или Блинка (перезарядка 5 секунд).",
  "May not work in a real game": "В реальной игре может не сработать",
- "{champion} may not be offered {augments} this patch, so this build might not come together. Try it if they show up.": "{champion} может не получить {augments} в этом патче, так что сборка может не сложиться. Попробуйте, если они выпадут."
+ "{champion} may not be offered {augments} this patch, so this build might not come together. Try it if they show up.": "{champion} может не получить {augments} в этом патче, так что сборка может не сложиться. Попробуйте, если они выпадут.",
+ "Aura Farming": "Фарм ауры",
+ "He sits down. He closes his eyes. The enemy team dies.": "Он садится. Закрывает глаза. Вражеская команда умирает.",
+ "Master Yi never attacks. He sits in the middle of the enemy team and Meditates until they're gone.": "Мастер Йи никогда не атакует. Он садится посреди вражеской команды и медитирует, пока все не умрут.",
+ "Walk into the middle of the fight and press W. Repeat. Never right-click a champion.": "Заходи в самую гущу драки и жми W. Повтори. Никогда не кликай правой кнопкой по чемпиону.",
+ "Meditate": "Медитация",
+ "A self-heal, a channel and damage reduction in one button. Every piece below hooks into one of those.": "Самолечение, подготовка заклинания и снижение урона на одной кнопке. Каждый предмет ниже завязан на что-то из этого.",
+ "Circle of Death turns his healing into damage, Don't Change the Channel shields him every second he sits, and Mosh Monster and Bread And Butter, rolled on Meditate, slow everyone around him and let him sit again almost right away.": "Цикл смерти превращает его лечение в урон, Не переключайтесь даёт ему щит за каждую секунду сидения, а Мошпит и Хлеб с маслом, выпавшие на Медитацию, замедляют всех вокруг и позволяют ему снова сесть почти сразу.",
+ "Spirit Visage makes every heal bigger, so every hit gets bigger too. Warmog's, Unending Despair and Jak'Sho keep him seated.": "Облачение духов усиливает любое лечение, а значит, и каждый удар становится сильнее. Доспех Вармога, Бесконечное отчаяние и Жак'Шо Многоликий не дают ему встать.",
+ "Gain a Shield for every second you spend Channeling.": "Вы получаете щит за каждую секунду подготовки заклинания.",
+ "Casting the chosen ability grants bonus Health and Slows nearby enemies for the duration of the chosen abilityGetting a takedown permanently increases this effect.": "Применение выбранного умения даёт бонусное здоровье и замедляет ближайших противников на время действия выбранного умения. Получение убийства или содействия навсегда усиливает этот эффект.",
+ "Your chosen ability gains 100 Ability Haste.": "Выбранное умение получает 100 ед. ускорения умений."
 }

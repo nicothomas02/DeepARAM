@@ -343,5 +343,16 @@
  "Walk into melee and give a move command during every attack so each lunge crosses the enemy and drops a trail under them. Hop sideways through the group rather than away from it, and use Rend to slow anyone trying to leave.": "Vběhni do melee a během každého útoku zadej příkaz k pohybu, aby každý výpad prošel skrz nepřítele a nechal pod ním stopu. Skákej do stran skrz skupinu, ne pryč od ní, a Roztrhnutím zpomal každého, kdo se snaží utéct.",
  "Gain a Shield for 2 seconds after a Dash or Blink (5 seconds Cooldown).": "Získej Shield na 2 sekundy po Dashi nebo Blinku (Cooldown 5 sekund).",
  "May not work in a real game": "Ve skutečné hře nemusí fungovat",
- "{champion} may not be offered {augments} this patch, so this build might not come together. Try it if they show up.": "{champion} nemusí v tomto patchi dostat nabídku {augments}, takže se tento build nemusí poskládat. Zkus ho, pokud se objeví."
+ "{champion} may not be offered {augments} this patch, so this build might not come together. Try it if they show up.": "{champion} nemusí v tomto patchi dostat nabídku {augments}, takže se tento build nemusí poskládat. Zkus ho, pokud se objeví.",
+ "Aura Farming": "Farmení aury",
+ "He sits down. He closes his eyes. The enemy team dies.": "Sedne si. Zavře oči. Nepřátelský tým umírá.",
+ "Master Yi never attacks. He sits in the middle of the enemy team and Meditates until they're gone.": "Mistr Yi nikdy neútočí. Sedne si doprostřed nepřátelského týmu a medituje, dokud nezmizí.",
+ "Walk into the middle of the fight and press W. Repeat. Never right-click a champion.": "Vlez doprostřed bitvy a mačkej W. Opakuj. Na šampiony nikdy neklikej pravým.",
+ "Meditate": "Meditace",
+ "A self-heal, a channel and damage reduction in one button. Every piece below hooks into one of those.": "Léčení sebe sama, usměrňování a snížení poškození v jednom tlačítku. Každý předmět níže na něco z toho navazuje.",
+ "Circle of Death turns his healing into damage, Don't Change the Channel shields him every second he sits, and Mosh Monster and Bread And Butter, rolled on Meditate, slow everyone around him and let him sit again almost right away.": "Kruh smrti mění jeho léčení v poškození, Nepřestávej se soustředit mu dává štít každou sekundu sezení a Postrach kotle s Denním chlebem, vylosované na Meditaci, zpomalí všechny kolem něj a umožní mu si znovu sednout skoro hned.",
+ "Spirit Visage makes every heal bigger, so every hit gets bigger too. Warmog's, Unending Despair and Jak'Sho keep him seated.": "Otisk duše zvětšuje každé léčení, takže se zvětší i každý zásah. Warmogova zbroj, Nekonečné zoufalství a Proměnlivý Jak'Sho ho udrží vsedě.",
+ "Gain a Shield for every second you spend Channeling.": "Získáš štít za každou sekundu, kterou strávíš usměrňováním.",
+ "Casting the chosen ability grants bonus Health and Slows nearby enemies for the duration of the chosen abilityGetting a takedown permanently increases this effect.": "Seslání vybrané schopnosti poskytne bonusové zdraví a zpomalí okolní nepřátele po dobu trvání vybrané schopnosti. Získání asistence nebo zabití tento efekt trvale zvyšuje.",
+ "Your chosen ability gains 100 Ability Haste.": "Tvá vybraná schopnost získá 100 urychlení schopností."
 }

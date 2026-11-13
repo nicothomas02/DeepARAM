@@ -343,5 +343,16 @@
  "Walk into melee and give a move command during every attack so each lunge crosses the enemy and drops a trail under them. Hop sideways through the group rather than away from it, and use Rend to slow anyone trying to leave.": "Masuk ke melee dan beri perintah gerak di tiap serangan supaya setiap lesatan melewati musuh dan meninggalkan jejak di bawahnya. Lompat menyamping menembus kerumunan, bukan menjauh darinya, dan pakai Rend untuk memperlambat siapa pun yang mau kabur.",
  "Gain a Shield for 2 seconds after a Dash or Blink (5 seconds Cooldown).": "Dapatkan Shield selama 2 detik setelah Dash atau Blink (Cooldown 5 detik).",
  "May not work in a real game": "Mungkin tidak berhasil di game sungguhan",
- "{champion} may not be offered {augments} this patch, so this build might not come together. Try it if they show up.": "{champion} mungkin tidak ditawari {augments} di patch ini, jadi build ini mungkin tidak terbentuk. Coba kalau muncul."
+ "{champion} may not be offered {augments} this patch, so this build might not come together. Try it if they show up.": "{champion} mungkin tidak ditawari {augments} di patch ini, jadi build ini mungkin tidak terbentuk. Coba kalau muncul.",
+ "Aura Farming": "Aura Farming",
+ "He sits down. He closes his eyes. The enemy team dies.": "Dia duduk. Dia memejamkan mata. Tim musuh mati.",
+ "Master Yi never attacks. He sits in the middle of the enemy team and Meditates until they're gone.": "Master Yi nggak pernah menyerang. Dia duduk di tengah tim musuh dan Meditate sampai semuanya habis.",
+ "Walk into the middle of the fight and press W. Repeat. Never right-click a champion.": "Jalan ke tengah pertarungan dan tekan W. Ulangi. Jangan pernah klik kanan champion.",
+ "Meditate": "Meditate",
+ "A self-heal, a channel and damage reduction in one button. Every piece below hooks into one of those.": "Heal diri, channel, dan pengurang damage dalam satu tombol. Semua item di bawah ini nyambung ke salah satunya.",
+ "Circle of Death turns his healing into damage, Don't Change the Channel shields him every second he sits, and Mosh Monster and Bread And Butter, rolled on Meditate, slow everyone around him and let him sit again almost right away.": "Circle of Death mengubah healing-nya jadi damage, Don't Change the Channel memberinya shield setiap detik dia duduk, dan Mosh Monster serta Bread And Butter, kalau di-roll di Meditate, memperlambat semua orang di sekitarnya dan bikin dia bisa duduk lagi hampir langsung.",
+ "Spirit Visage makes every heal bigger, so every hit gets bigger too. Warmog's, Unending Despair and Jak'Sho keep him seated.": "Spirit Visage bikin setiap heal lebih besar, jadi setiap hit juga makin besar. Warmog's, Unending Despair, dan Jak'Sho bikin dia tetap duduk.",
+ "Gain a Shield for every second you spend Channeling.": "Dapatkan Shield untuk setiap detik yang kamu habiskan untuk Channeling.",
+ "Casting the chosen ability grants bonus Health and Slows nearby enemies for the duration of the chosen abilityGetting a takedown permanently increases this effect.": "Menggunakan kemampuan terpilih memberi bonus Health dan memperlambat musuh di sekitar selama durasi kemampuan terpilih. Mendapatkan takedown meningkatkan efek ini secara permanen.",
+ "Your chosen ability gains 100 Ability Haste.": "Kemampuan terpilihmu mendapat 100 Ability Haste."
 }

@@ -343,5 +343,16 @@
  "Walk into melee and give a move command during every attack so each lunge crosses the enemy and drops a trail under them. Hop sideways through the group rather than away from it, and use Rend to slow anyone trying to leave.": "Sétálj be közelharcba, és minden támadás alatt adj mozgásparancsot, hogy minden lendület átvágjon az ellenségen, és nyomot hagyjon alatta. Oldalra ugrálj át a csapaton, ne elfelé tőlük, és a Szétszaggatással lassítsd azt, aki le akar lépni.",
  "Gain a Shield for 2 seconds after a Dash or Blink (5 seconds Cooldown).": "Pajzsot kapsz 2 másodpercre egy dash vagy Blink után (5 másodperc visszatöltés).",
  "May not work in a real game": "Valódi meccsen talán nem működik",
- "{champion} may not be offered {augments} this patch, so this build might not come together. Try it if they show up.": "{champion} ebben a patchben talán nem kapja meg ezeket: {augments}, így ez a build lehet, hogy nem jön össze. Próbáld ki, ha felbukkannak."
+ "{champion} may not be offered {augments} this patch, so this build might not come together. Try it if they show up.": "{champion} ebben a patchben talán nem kapja meg ezeket: {augments}, így ez a build lehet, hogy nem jön össze. Próbáld ki, ha felbukkannak.",
+ "Aura Farming": "Aura-farmolás",
+ "He sits down. He closes his eyes. The enemy team dies.": "Leül. Lehunyja a szemét. Az ellenséges csapat meghal.",
+ "Master Yi never attacks. He sits in the middle of the enemy team and Meditates until they're gone.": "Master Yi sosem üt. Leül az ellenség közepére, és Meditáció közben vár, amíg mind el nem tűnik.",
+ "Walk into the middle of the fight and press W. Repeat. Never right-click a champion.": "Sétálj a harc közepébe, és nyomd a W-t. Ismételd. Soha ne kattints jobb gombbal bajnokra.",
+ "Meditate": "Meditáció",
+ "A self-heal, a channel and damage reduction in one button. Every piece below hooks into one of those.": "Öngyógyítás, csatornázás és sebzéscsökkentés egyetlen gombon. Minden alábbi elem ezek valamelyikére épít.",
+ "Circle of Death turns his healing into damage, Don't Change the Channel shields him every second he sits, and Mosh Monster and Bread And Butter, rolled on Meditate, slow everyone around him and let him sit again almost right away.": "A halál körforgása a gyógyulását sebzéssé alakítja, a Maradj velünk minden ülve töltött másodpercben pajzsot ad neki, a Pogószörny és a Vajas kenyér pedig, Meditációra téve, lelassít mindenkit körülötte, és szinte azonnal újra leülhet.",
+ "Spirit Visage makes every heal bigger, so every hit gets bigger too. Warmog's, Unending Despair and Jak'Sho keep him seated.": "A Szellemarc minden gyógyítást megnövel, így minden ütés is nagyobb lesz. Warmog vértje, a Végtelen kétségbeesés és Jak'Sho, a váltakozó ülve tartják.",
+ "Gain a Shield for every second you spend Channeling.": "Minden csatornázással töltött másodpercért pajzsot kapsz.",
+ "Casting the chosen ability grants bonus Health and Slows nearby enemies for the duration of the chosen abilityGetting a takedown permanently increases this effect.": "A kiválasztott képesség használata bónusz életerőt ad, és lelassítja a közelben lévő ellenségeket a kiválasztott képesség időtartamára. Leterítés szerzése véglegesen növeli ezt a hatást.",
+ "Your chosen ability gains 100 Ability Haste.": "A kiválasztott képességed 100 képességgyorsítást kap."
 }

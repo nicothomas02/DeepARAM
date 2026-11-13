@@ -181,6 +181,8 @@ def chef_i18n(chef):
             "title": d.get(chef["title"], chef["title"]),
             "why": d.get(chef["why"], chef["why"]),
             "play": d.get(chef["play"], chef["play"]),
+            **({"tagline": d.get(chef["tagline"], chef["tagline"])} if chef.get("tagline") else {}),
+            **({"how": [[d.get(k, k), d.get(t, t)] for k, t in chef["how"]]} if chef.get("how") else {}),
             "augments": [d.get(a["text"], a["text"]) for a in chef["augments"]],
         }
     return out
@@ -299,7 +301,7 @@ def main():
     special = None
     if chef:
         # No stats: a Chef Special is picked for the idea, not its win rate.
-        special = {k: chef[k] for k in ("id", "title", "champion", "champion_name", "chef", "why", "play", "items", "core")}
+        special = {k: chef[k] for k in ("id", "title", "champion", "champion_name", "chef", "why", "play", "items", "core", "tagline", "how") if k in chef}
         special.update({
             "champion_icon": site + chef["champion_icon"],
             "augments": [{"name": r["name"], "rarity": r["rarity"], "core": r["core"], "text": r["text"],
