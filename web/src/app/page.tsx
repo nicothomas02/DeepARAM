@@ -8,7 +8,7 @@ import { recap, recapPatches } from "@/lib/patches";
 import { readRepoJson } from "@/lib/repo-data";
 import type { PatchSchedule } from "@/lib/patch-schedule";
 import PatchCountdown from "@/components/PatchCountdown";
-import { championSplash } from "@/lib/champions";
+import { championSplash, championTile } from "@/lib/champions";
 import { FunLists, KitchenPick, TierSnapshot } from "@/components/HomeWidgets";
 import { funLists, powerCurveLists, profileValue, typicalGame } from "@/lib/estimates";
 import { liveWithChange } from "@/lib/champions";
@@ -198,7 +198,7 @@ export default function Home() {
                 <T v={{ n: n.champions }}>{"All {n} →"}</T>
               </Link>
             </div>
-            <TierSnapshot champs={tiers.map((c) => ({ ...c, splash: championSplash(c.id) }))} />
+            <TierSnapshot champs={tiers.map((c) => ({ ...c, splash: championSplash(c.id), splashSmall: championTile(c.id) }))} />
           </section>
         )}
         {augs.length > 0 && (

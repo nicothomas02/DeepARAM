@@ -5137,6 +5137,12 @@ td > button.deepscore:focus::after {
   translate: calc(var(--px, 0) * -18px) calc(var(--py, 0) * -10px);
   transition: translate 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
+/* Phones get the small square crop: the card is narrow and faint, and the full splash is five times the bytes. */
+@media (max-width: 640px) {
+  .snap-card[style*="--splash"]::before {
+    background-image: var(--splash-small, var(--splash));
+  }
+}
 
 /* First visit after a new patch (components/CountUp.tsx): what the patch moved pulses in its colour. */
 html[data-patch-new] :is(td.delta-up, td.delta-down, .stat-row b.delta-up, .stat-row b.delta-down) {
