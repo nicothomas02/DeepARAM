@@ -1,12 +1,12 @@
 {
  "patch": "16.22",
- "built": "2026-11-13",
+ "built": "2026-11-14",
  "checks": {
   "loops": 3,
   "gap": 45,
-  "sim": 15,
+  "sim": 16,
   "wasted": 0,
-  "kitchen": 42
+  "kitchen": 46
  },
  "traps": [
   {
@@ -25,6 +25,23 @@
    "practice": "It doesn't run away. The two bonuses don't keep feeding each other, so Jhin ends up with a modest bump to Attack Damage instead of infinite damage. Jhin also hasn't been seen getting Tickle Monster this patch."
   },
   {
+   "id": "sim-Corki-berserkers",
+   "kind": "sim",
+   "title": "Berserker's Greaves on Corki",
+   "champions": [
+    "Corki"
+   ],
+   "augments": [],
+   "items": [
+    3006
+   ],
+   "theory": "The Simulator puts Berserker's Greaves in Corki's best build: in a fight it adds more than the items it beats.",
+   "practice": "In real games, Corki's builds with Berserker's Greaves win 3.4 points less often than their builds without it.",
+   "gap": -0.0343,
+   "share": 0.0528,
+   "status": "trap"
+  },
+  {
    "id": "sim-Draven-berserkers",
    "kind": "sim",
    "title": "Berserker's Greaves on Draven",
@@ -36,9 +53,26 @@
     3006
    ],
    "theory": "The Simulator puts Berserker's Greaves in Draven's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Draven's builds with Berserker's Greaves win 4.1 points less often than their builds without it.",
-   "gap": -0.0412,
-   "share": 0.06,
+   "practice": "In real games, Draven's builds with Berserker's Greaves win 4.2 points less often than their builds without it.",
+   "gap": -0.0423,
+   "share": 0.0633,
+   "status": "trap"
+  },
+  {
+   "id": "sim-Kalista-berserkers",
+   "kind": "sim",
+   "title": "Berserker's Greaves on Kalista",
+   "champions": [
+    "Kalista"
+   ],
+   "augments": [],
+   "items": [
+    3006
+   ],
+   "theory": "The Simulator puts Berserker's Greaves in Kalista's best build: in a fight it adds more than the items it beats.",
+   "practice": "In real games, Kalista's builds with Berserker's Greaves win 3.9 points less often than their builds without it.",
+   "gap": -0.0392,
+   "share": 0.1373,
    "status": "trap"
   },
   {
@@ -53,26 +87,9 @@
     3006
    ],
    "theory": "The Simulator puts Berserker's Greaves in Lucian's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Lucian's builds with Berserker's Greaves win 7.3 points less often than their builds without it.",
-   "gap": -0.0731,
-   "share": 0.0467,
-   "status": "trap"
-  },
-  {
-   "id": "sim-Zeri-berserkers",
-   "kind": "sim",
-   "title": "Berserker's Greaves on Zeri",
-   "champions": [
-    "Zeri"
-   ],
-   "augments": [],
-   "items": [
-    3006
-   ],
-   "theory": "The Simulator puts Berserker's Greaves in Zeri's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Zeri's builds with Berserker's Greaves win 3.7 points less often than their builds without it.",
-   "gap": -0.037,
-   "share": 0.1093,
+   "practice": "In real games, Lucian's builds with Berserker's Greaves win 6.0 points less often than their builds without it.",
+   "gap": -0.0597,
+   "share": 0.057,
    "status": "trap"
   },
   {
@@ -87,9 +104,9 @@
     3153
    ],
    "theory": "The Simulator puts Blade of The Ruined King in Kayle's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Kayle's builds with Blade of The Ruined King win 5.9 points less often than their builds without it.",
-   "gap": -0.0586,
-   "share": 0.053,
+   "practice": "In real games, Kayle's builds with Blade of The Ruined King win 3.6 points less often than their builds without it.",
+   "gap": -0.0357,
+   "share": 0.0524,
    "status": "trap"
   },
   {
@@ -104,26 +121,43 @@
     3153
    ],
    "theory": "The Simulator puts Blade of The Ruined King in Lucian's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Lucian's builds with Blade of The Ruined King win 8.8 points less often than their builds without it.",
-   "gap": -0.0879,
-   "share": 0.033,
+   "practice": "In real games, Lucian's builds with Blade of The Ruined King win 7.1 points less often than their builds without it.",
+   "gap": -0.0706,
+   "share": 0.0335,
    "status": "trap"
   },
   {
-   "id": "sim-Yunara-botrk",
+   "id": "sim-Viego-botrk",
    "kind": "sim",
-   "title": "Blade of The Ruined King on Yunara",
+   "title": "Blade of The Ruined King on Viego",
    "champions": [
-    "Yunara"
+    "Viego"
    ],
    "augments": [],
    "items": [
     3153
    ],
-   "theory": "The Simulator puts Blade of The Ruined King in Yunara's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Yunara's builds with Blade of The Ruined King win 3.2 points less often than their builds without it.",
-   "gap": -0.0322,
-   "share": 0.0987,
+   "theory": "The Simulator puts Blade of The Ruined King in Viego's best build: in a fight it adds more than the items it beats.",
+   "practice": "In real games, Viego's builds with Blade of The Ruined King win 3.1 points less often than their builds without it.",
+   "gap": -0.0314,
+   "share": 0.0839,
+   "status": "trap"
+  },
+  {
+   "id": "sim-Xayah-botrk",
+   "kind": "sim",
+   "title": "Blade of The Ruined King on Xayah",
+   "champions": [
+    "Xayah"
+   ],
+   "augments": [],
+   "items": [
+    3153
+   ],
+   "theory": "The Simulator puts Blade of The Ruined King in Xayah's best build: in a fight it adds more than the items it beats.",
+   "practice": "In real games, Xayah's builds with Blade of The Ruined King win 3.8 points less often than their builds without it.",
+   "gap": -0.0378,
+   "share": 0.1331,
    "status": "trap"
   },
   {
@@ -138,26 +172,9 @@
     3124
    ],
    "theory": "The Simulator puts Guinsoo's Rageblade in Kayle's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Kayle's builds with Guinsoo's Rageblade win 5.1 points less often than their builds without it.",
-   "gap": -0.0507,
-   "share": 0.0632,
-   "status": "trap"
-  },
-  {
-   "id": "sim-Karma-rabadons",
-   "kind": "sim",
-   "title": "Rabadon's Deathcap on Karma",
-   "champions": [
-    "Karma"
-   ],
-   "augments": [],
-   "items": [
-    3089
-   ],
-   "theory": "The Simulator puts Rabadon's Deathcap in Karma's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Karma's builds with Rabadon's Deathcap win 10.2 points less often than their builds without it.",
-   "gap": -0.1024,
-   "share": 0.1063,
+   "practice": "In real games, Kayle's builds with Guinsoo's Rageblade win 3.4 points less often than their builds without it.",
+   "gap": -0.0339,
+   "share": 0.0629,
    "status": "trap"
   },
   {
@@ -172,9 +189,9 @@
     6694
    ],
    "theory": "The Simulator puts Serylda's Grudge in Jayce's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Jayce's builds with Serylda's Grudge win 4.7 points less often than their builds without it.",
-   "gap": -0.0465,
-   "share": 0.0344,
+   "practice": "In real games, Jayce's builds with Serylda's Grudge win 8.9 points less often than their builds without it.",
+   "gap": -0.0891,
+   "share": 0.0404,
    "status": "trap"
   },
   {
@@ -189,43 +206,9 @@
     6694
    ],
    "theory": "The Simulator puts Serylda's Grudge in Talon's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Talon's builds with Serylda's Grudge win 3.0 points less often than their builds without it.",
-   "gap": -0.0301,
-   "share": 0.0599,
-   "status": "trap"
-  },
-  {
-   "id": "sim-Karma-shadowflame",
-   "kind": "sim",
-   "title": "Shadowflame on Karma",
-   "champions": [
-    "Karma"
-   ],
-   "augments": [],
-   "items": [
-    4645
-   ],
-   "theory": "The Simulator puts Shadowflame in Karma's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Karma's builds with Shadowflame win 10.2 points less often than their builds without it.",
-   "gap": -0.1024,
-   "share": 0.1063,
-   "status": "trap"
-  },
-  {
-   "id": "sim-Gwen-sorcerers",
-   "kind": "sim",
-   "title": "Sorcerer's Shoes on Gwen",
-   "champions": [
-    "Gwen"
-   ],
-   "augments": [],
-   "items": [
-    3020
-   ],
-   "theory": "The Simulator puts Sorcerer's Shoes in Gwen's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Gwen's builds with Sorcerer's Shoes win 3.4 points less often than their builds without it.",
-   "gap": -0.034,
-   "share": 0.0572,
+   "practice": "In real games, Talon's builds with Serylda's Grudge win 5.4 points less often than their builds without it.",
+   "gap": -0.0538,
+   "share": 0.052,
    "status": "trap"
   },
   {
@@ -240,9 +223,9 @@
     3020
    ],
    "theory": "The Simulator puts Sorcerer's Shoes in Karma's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Karma's builds with Sorcerer's Shoes win 7.0 points less often than their builds without it.",
-   "gap": -0.0705,
-   "share": 0.0857,
+   "practice": "In real games, Karma's builds with Sorcerer's Shoes win 5.6 points less often than their builds without it.",
+   "gap": -0.0563,
+   "share": 0.0833,
    "status": "trap"
   },
   {
@@ -257,26 +240,60 @@
     3020
    ],
    "theory": "The Simulator puts Sorcerer's Shoes in Lillia's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Lillia's builds with Sorcerer's Shoes win 4.9 points less often than their builds without it.",
-   "gap": -0.0493,
-   "share": 0.0563,
+   "practice": "In real games, Lillia's builds with Sorcerer's Shoes win 6.0 points less often than their builds without it.",
+   "gap": -0.0595,
+   "share": 0.0591,
    "status": "trap"
   },
   {
-   "id": "sim-Karma-stormsurge",
+   "id": "sim-Nunu-sorcerers",
    "kind": "sim",
-   "title": "Stormsurge on Karma",
+   "title": "Sorcerer's Shoes on Nunu & Willump",
+   "champions": [
+    "Nunu"
+   ],
+   "augments": [],
+   "items": [
+    3020
+   ],
+   "theory": "The Simulator puts Sorcerer's Shoes in Nunu & Willump's best build: in a fight it adds more than the items it beats.",
+   "practice": "In real games, Nunu & Willump's builds with Sorcerer's Shoes win 3.7 points less often than their builds without it.",
+   "gap": -0.0365,
+   "share": 0.2508,
+   "status": "trap"
+  },
+  {
+   "id": "sim-Karma-void_staff",
+   "kind": "sim",
+   "title": "Void Staff on Karma",
    "champions": [
     "Karma"
    ],
    "augments": [],
    "items": [
-    4646
+    3135
    ],
-   "theory": "The Simulator puts Stormsurge in Karma's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Karma's builds with Stormsurge win 7.0 points less often than their builds without it.",
-   "gap": -0.0701,
-   "share": 0.0927,
+   "theory": "The Simulator puts Void Staff in Karma's best build: in a fight it adds more than the items it beats.",
+   "practice": "In real games, Karma's builds with Void Staff win 5.9 points less often than their builds without it.",
+   "gap": -0.0586,
+   "share": 0.0672,
+   "status": "trap"
+  },
+  {
+   "id": "sim-Ryze-void_staff",
+   "kind": "sim",
+   "title": "Void Staff on Ryze",
+   "champions": [
+    "Ryze"
+   ],
+   "augments": [],
+   "items": [
+    3135
+   ],
+   "theory": "The Simulator puts Void Staff in Ryze's best build: in a fight it adds more than the items it beats.",
+   "practice": "In real games, Ryze's builds with Void Staff win 6.5 points less often than their builds without it.",
+   "gap": -0.0655,
+   "share": 0.0303,
    "status": "trap"
   }
  ],
@@ -1869,6 +1886,74 @@
    "test": "Master Yi has never been seen taking Mosh Monster, so it may not be in their augment pool. Check whether it's ever offered on Master Yi.",
    "build": "masteryi-aura-farming",
    "augment": "Mosh Monster",
+   "why": "unseen"
+  },
+  {
+   "id": "pool-rumble-certified-crashout-deft",
+   "kind": "pool",
+   "title": "Certified Crashout: Deft on Rumble",
+   "champions": [
+    "Rumble"
+   ],
+   "augments": [
+    1022
+   ],
+   "items": [],
+   "theory": "The build leans on Deft.",
+   "test": "Rumble has never been seen taking Deft, so it may not be in their augment pool. Check whether it's ever offered on Rumble.",
+   "build": "rumble-certified-crashout",
+   "augment": "Deft",
+   "why": "unseen"
+  },
+  {
+   "id": "pool-rumble-certified-crashout-tap_dancer",
+   "kind": "pool",
+   "title": "Certified Crashout: Tap Dancer on Rumble",
+   "champions": [
+    "Rumble"
+   ],
+   "augments": [
+    1081
+   ],
+   "items": [],
+   "theory": "The build leans on Tap Dancer.",
+   "test": "Rumble has never been seen taking Tap Dancer, so it may not be in their augment pool. Check whether it's ever offered on Rumble.",
+   "build": "rumble-certified-crashout",
+   "augment": "Tap Dancer",
+   "why": "unseen"
+  },
+  {
+   "id": "pool-rumble-certified-crashout-dual_wield",
+   "kind": "pool",
+   "title": "Certified Crashout: Dual Wield on Rumble",
+   "champions": [
+    "Rumble"
+   ],
+   "augments": [
+    1225
+   ],
+   "items": [],
+   "theory": "The build leans on Dual Wield.",
+   "test": "Rumble has never been seen taking Dual Wield, so it may not be in their augment pool. Check whether it's ever offered on Rumble.",
+   "build": "rumble-certified-crashout",
+   "augment": "Dual Wield",
+   "why": "unseen"
+  },
+  {
+   "id": "pool-rumble-certified-crashout-firebrand",
+   "kind": "pool",
+   "title": "Certified Crashout: Firebrand on Rumble",
+   "champions": [
+    "Rumble"
+   ],
+   "augments": [
+    1036
+   ],
+   "items": [],
+   "theory": "The build leans on Firebrand.",
+   "test": "Rumble has never been seen taking Firebrand, so it may not be in their augment pool. Check whether it's ever offered on Rumble.",
+   "build": "rumble-certified-crashout",
+   "augment": "Firebrand",
    "why": "unseen"
   }
  ]
