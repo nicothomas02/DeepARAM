@@ -2,6 +2,8 @@
 ability names and text, item and augment names).
 
 Usage: python3 champions/build_i18n.py   (run after build_data.py; it reads data.js for the English)
+       python3 champions/build_i18n.py --prune   (offline: only drop champions, abilities, items and augments that
+                                                 data.js no longer has; also the fallback when a download fails)
 
 What it reads, for each language in web/src/i18n/languages.json:
   Data Dragon data/<locale>/championFull.json        names, titles, passive and ability names and text
@@ -110,6 +112,40 @@ def main():
             print(f"{code}: {len(champs)} champions, {len(out['items'])} items, {len(out['augments'])} augments")
 
 
+def prune():
+    """Drop translations for anything data.js no longer lists, so the files keep matching the pages without a download."""
+    data = load_js("data.js")
+    slots = {c["alias"]: {a["slot"] for a in c["abilities"]} for c in data["champions"]}
+    folder = os.path.join(HERE, "i18n", "data")
+    for name in sorted(os.listdir(folder)):
+        path = os.path.join(folder, name)
+        with open(path, encoding="utf-8") as f:
+            tr = json.load(f)
+        champs = {}
+        for alias, x in (tr.get("champions") or {}).items():
+            if alias not in slots:
+                continue
+            if "abilities" in x:
+                x = {**x, "abilities": {k: v for k, v in x["abilities"].items() if k in slots[alias]}}
+            champs[alias] = x
+        out = {**tr, "champions": champs,
+               "items": {k: v for k, v in (tr.get("items") or {}).items() if k in data["items"]},
+               "augments": {k: v for k, v in (tr.get("augments") or {}).items() if k in data["augments"]}}
+        if out != tr:
+            write_json(path, out)
+            print(f"{name}: pruned")
+
+
+def run():
+    """Rebuild every language; if a download fails, keep the old text but drop what the pages no longer have."""
+    try:
+        main()
+    except Exception as e:  # noqa: BLE001 - any download failure falls back to the offline prune
+        print(f"download failed ({e}); pruning instead", file=sys.stderr)
+        prune()
+        return 1
+
+
 def tag_names():
     sys.path.insert(0, HERE)
     from build_data import PLAYSTYLES, tag_key
@@ -131,4 +167,4 @@ def tag_names():
 
 
 if __name__ == "__main__":
-    sys.exit(tag_names() if "--tags" in sys.argv else main())
+    sys.exit(tag_names() if "--tags" in sys.argv else prune() if "--prune" in sys.argv else run())

@@ -72,7 +72,13 @@ jobs:
         run: python3 champions/build_data.py
       - name: Translate the champion pages' new items and augments
         continue-on-error: true
+        # if a download fails it still drops items and augments the pages no longer have (and exits non-zero)
         run: python3 champions/build_i18n.py
+      - name: Refresh the champion pages' English page text
+        continue-on-error: true
+        run: |
+          python3 -m pip install -q xxhash
+          python3 guide/i18n_keys.py
       - name: Host icons for augments and items the new builds use
         continue-on-error: true
         run: |
