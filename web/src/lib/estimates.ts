@@ -229,26 +229,3 @@ export const augmentSpread = (id: number) => augmentSpreads().augments.get(id) ?
  * High: the champion leans on getting the right augments. */
 export const championAugmentReliance = () => augmentSpreads().champions;
 
-/**
- * The augments that pair best with this one, across every champion (augment page): each champion's likely pairs
- * (estimated) that include it, merged per partner. Win rate is averaged by how often each champion takes the pair;
- * a partner needs the pair on at least two champions so one champion can't carry it.
- */
-export function augmentPartners(id: number, limit = 8): { id: number; winRate: number; champions: number }[] {
-  const by = new Map<number, { w: number; wr: number; champs: number }>();
-  for (const pairs of Object.values(data()?.augment_pairs ?? {}))
-    for (const p of pairs) {
-      if (!p.ids.includes(id)) continue;
-      const other = p.ids[0] === id ? p.ids[1] : p.ids[0];
-      const e = by.get(other) ?? { w: 0, wr: 0, champs: 0 };
-      e.w += p.pick_rate;
-      e.wr += p.win_rate * p.pick_rate;
-      e.champs += 1;
-      by.set(other, e);
-    }
-  return [...by]
-    .filter(([, e]) => e.champs >= 2 && e.w > 0)
-    .map(([other, e]) => ({ id: other, winRate: e.wr / e.w, champions: e.champs }))
-    .sort((a, b) => b.winRate - a.winRate)
-    .slice(0, limit);
-}
