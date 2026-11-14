@@ -26,8 +26,8 @@ jobs:
         run: |
           echo "Run this on a work branch, not main." >&2
           exit 1
-      - uses: actions/checkout@v4
-      - uses: mymindstorm/setup-emsdk@v14
+      - uses: actions/checkout@v7
+      - uses: mymindstorm/setup-emsdk@v16
         with:
           version: 4.0.12
           actions-cache-folder: emsdk-cache
