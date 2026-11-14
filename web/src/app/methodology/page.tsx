@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Intro from "@/components/Intro";
+import Link from "next/link";
 import { T } from "@/components/I18n";
 import { pageMeta } from "@/lib/meta";
 import { damageDealtWorth, doseResponse, itemLiftSummary, pbeForecast, playstyleClusters, typicalSettling } from "@/lib/analysis";
@@ -162,6 +163,22 @@ export default function Methodology() {
           </p>
         )}
         <h2>
+          <T ns={NS}>Few games and ranges</T>
+        </h2>
+        <p>
+          <T ns={NS}>
+            Every win rate counted from games carries a 95% range: the true rate is inside it 95% of the time. When that range is wider than 5 points either way, the page tags the win rate Few games, and under 10 games Too few games. In the Detailed view the ± range is shown next to the number.
+          </T>
+        </p>
+        <h2>
+          <T ns={NS}>Synergies</T>
+        </h2>
+        <p>
+          <T ns={NS}>
+            Synergies score how well starting items, boots, builds and augments fit each champion. Rare choices that beat a champion&apos;s usual picks look like finds, but only about 55 to 60% of a rare lead carries over to the next patch, so the expected value leans on that carry-over when games are few. In a check on champions the model hadn&apos;t seen, it predicted next patch&apos;s lead better than the raw lead did. Augments get a score in points, never a win rate.
+          </T>
+        </p>
+        <h2>
           <T ns={NS}>What the numbers can&apos;t tell you</T>
         </h2>
         <p>
@@ -172,6 +189,11 @@ export default function Methodology() {
         </h2>
         <p>
           <T ns={NS}>New methods are added here as they ship.</T>
+        </p>
+        <p>
+          <Link href="/research">
+            <T ns={NS}>See the Research page for worked examples.</T>
+          </Link>
         </p>
       </article>
     </>

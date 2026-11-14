@@ -27,6 +27,7 @@ const PAGES = [
   "/privacy",
   "/terms",
   "/methodology",
+  "/research",
 ];
 
 // Data-origin and backend names that must never show on a page (site rule), and the mode's internal name.

@@ -84,6 +84,16 @@ const length = () => readRepoJson<GameLength>("data/analysis/game_length.json");
 /** The measured effect of every champion change the notes listed for a patch, biggest move first. */
 export const patchImpact = (patch: string): ImpactPatch | null => impact()?.patches.find((p) => p.patch === patch) ?? null;
 
+/** How many champion changes were judged, in how many patches, and how they came out (for the Research page). */
+export function impactTally() {
+  const i = impact();
+  if (!i) return null;
+  const rows = i.patches.flatMap((p) => p.champions);
+  const worked = rows.filter((r) => r.verdict === "worked").length;
+  const opposite = rows.filter((r) => r.verdict === "opposite").length;
+  return { changes: rows.length, patches: i.patches.length, worked, opposite, rest: rows.length - worked - opposite };
+}
+
 export const doseResponse = (): DoseResponse | null => impact()?.dose_response ?? null;
 
 /** Win-rate points a +5% Mayhem damage-dealt modifier is worth, with its interval, when the fit has one. */
