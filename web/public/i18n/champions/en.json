@@ -224,5 +224,7 @@
  "Boost": "Boost",
  "Boost is estimated: how many points of win rate the augment adds to this champion.": "Boost is estimated: how many points of win rate the augment adds to this champion.",
  "Estimated: augments that pair well on this champion, best first.": "Estimated: augments that pair well on this champion, best first.",
- "Augment pairs appear here once enough games are in. Each pair needs a minimum number of games before it shows.": "Augment pairs appear here once enough games are in. Each pair needs a minimum number of games before it shows."
+ "Augment pairs appear here once enough games are in. Each pair needs a minimum number of games before it shows.": "Augment pairs appear here once enough games are in. Each pair needs a minimum number of games before it shows.",
+ "Kit interactions": "Kit interactions",
+ "Augments that work with this champion's own abilities, and why.": "Augments that work with this champion's own abilities, and why."
 }

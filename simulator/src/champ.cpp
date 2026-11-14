@@ -244,6 +244,8 @@ ChampionKit loadChampion(const json::Value& c, const Rules& rules) {
         ab.linger = std::max(0.0, a["linger"].asNumber(0));
         ab.ramp = a["ramp"].asNumber(0);
         ab.noHaste = a["no_haste"].asBool(false);
+        ab.refundOnly = a["cast_for_refund"].asBool(false);
+        ab.spinning = a["spinning"].asBool(false);
         ab.appliesOnHit = a["applies_onhit"].asBool(false);
         ab.invuln = a["invuln"].asNumber(0);
         ab.refund = a["refund"].asNumber(0);
@@ -334,8 +336,15 @@ ChampionKit loadChampion(const json::Value& c, const Rules& rules) {
         // and a slow only when marked (Singed W's slowing glue keeps a kiting target in his poison).
         const bool hardCc = !ab.cc.empty() && ab.cc != "slow" && ab.cc != "silence";
         const bool ccOnly = ab.hits.empty() && !ab.cc.empty() && (hardCc || a["cast_for_cc"].asBool(false));
+        // An ability with no modelled effect that is cheap to cast (Ashe E): kept only so Archmage can
+        // turn its long cooldown into refunds; never cast without Archmage.
+        ab.refundOnly = ab.refundOnly && ab.hits.empty();
+        if (ab.refundOnly && ab.geo.move == Move::None) {
+            ab.geo.selfBuff = true;
+            ab.geo.range = k.attackRange;
+        }
         keep = !ab.hits.empty() || !ab.shield.empty() || ccOnly || healCast || ab.buffDuration > 0 || bareUlt || bareDash ||
-               ab.placeholder || ab.petDuration > 0;
+               ab.placeholder || ab.petDuration > 0 || ab.refundOnly;
         return ab;
     };
     for (const auto& a : c["abilities"].arr) {
@@ -1276,6 +1285,7 @@ private:
             for (const auto& h : a.hits) raw += h.weight * scaled(h.scaling) * (h.target == HitTarget::Flat ? 1 : 3000);
             byDamage.push_back({(a.slot == 'R' ? 1e12 : 0) + raw, i});
             if (a.placeholder) readyAt_[i] = 1e18;
+            if (a.refundOnly && get(fx_, "archmage") <= 0) readyAt_[i] = 1e18;
             if (a.slot == 'R' && (!rUp_ || noUlt_)) readyAt_[i] = 1e18;
         }
         for (auto& bd : bound_) bd.idx = bindAbility(bd.kind);
@@ -2320,6 +2330,7 @@ private:
             fear = std::max(fear, std::min(get(f, "spell_fear"), a.cooldown / 20.0));
             fearRadius = std::max(fearRadius, get(f, "spell_fear_radius"));
         }
+        if (a.spinning) spellAmp += get(fx_, a.slot == 'R' ? "spin_amp_r" : "spin_amp");  // Spin To Win
         // Jeweled Bracelet: the bound ability can crit, for spell_crit more damage.
         const double amp = abilityAmp_ * abilityCritFactor() * spellAmp * (1.0 + crit_ * spellCrit);
         if (trace_) {
@@ -2688,7 +2699,8 @@ private:
                 r.second = t_;
                 stacks = r.first;
             }
-            for (const auto& h : a->hits) deal(e, hitRaw(h, *e) * abilityAmp_ * stacks, h.type, src);
+            const double spin = a->spinning ? 1 + get(fx_, a->slot == 'R' ? "spin_amp_r" : "spin_amp") : 1;  // Spin To Win
+            for (const auto& h : a->hits) deal(e, hitRaw(h, *e) * abilityAmp_ * stacks * spin, h.type, src);
         }
     }
 
@@ -2830,6 +2842,7 @@ private:
         double h = ah_;
         h += a.slot == 'Q' ? get(fx_, "ah_q") : a.slot == 'W' ? get(fx_, "ah_w") : a.slot == 'E' ? get(fx_, "ah_e") : get(fx_, "ah_r");
         if (a.geo.move != Move::None) h += get(fx_, "ah_dash");
+        if (a.spinning) h += get(fx_, "spin_ah");  // Spin To Win
         for (const auto& bd : bound_)
             if (bd.idx < ch_.abilities.size() && &ch_.abilities[bd.idx] == &a) h += get(*bd.fx, "spell_ah");
         if (a.slot != 'R' && t_ < rBasicAhUntil_) h += get(fx_, "r_basic_ah");
@@ -3357,6 +3370,13 @@ private:
         if (petNext_ >= petUntil_) petUntil_ = -1;
     }
 
+    // A refund-only cast (Ashe E with Archmage) is worth it once another ability is on cooldown.
+    bool refundWanted(size_t i) const {
+        for (size_t j = 0; j < readyAt_.size(); ++j)
+            if (j != i && !ch_.abilities[j].noHaste && readyAt_[j] > t_ && readyAt_[j] < 1e17) return true;
+        return false;
+    }
+
     void afterCast(size_t i) {
         const Ability& a = ch_.abilities[i];
         if (readyAt_[i] < 1e17) refundFloor_[i] = t_ + (readyAt_[i] - t_) * get(fx_, "attack_cdr_min");  // Mystic Punch: 50% at least
@@ -3367,14 +3387,16 @@ private:
         if (snipeHit_ && a.slot != 'R' && get(fx_, "snipe_refund") > 0)  // Skilled Sniper
             readyAt_[i] = t_ + (readyAt_[i] - t_) * (1.0 - get(fx_, "snipe_refund"));
         if (a.readyDelay > 0 && readyAt_[i] < 1e17) readyAt_[i] += a.readyDelay;
-        if (get(fx_, "archmage") > 0) {  // Archmage: another ability's cooldown comes down
-            size_t pick = readyAt_.size();
+        if (get(fx_, "archmage") > 0) {  // Archmage: another, randomly picked ability's cooldown comes down
+            // by a share of the cast one's cooldown. The ultimate can be picked; abilities without a
+            // real cooldown (Ashe Q runs on Focus) can't. Picked among those on cooldown.
+            std::vector<size_t> pool;
             for (size_t j = 0; j < readyAt_.size(); ++j)
-                if (j != i && ch_.abilities[j].slot != 'R' && readyAt_[j] > t_ && readyAt_[j] < 1e17 &&
-                    (pick == readyAt_.size() || readyAt_[j] > readyAt_[pick]))
-                    pick = j;
-            if (pick < readyAt_.size())
+                if (j != i && !ch_.abilities[j].noHaste && readyAt_[j] > t_ && readyAt_[j] < 1e17) pool.push_back(j);
+            if (!pool.empty()) {
+                const size_t pick = pool[static_cast<size_t>(abilityRng_.uniform() * static_cast<double>(pool.size())) % pool.size()];
                 readyAt_[pick] = std::max(t_, readyAt_[pick] - get(fx_, "archmage") * cooldownOf(a));
+            }
         }
         for (const auto& bd : bound_)  // Overloaded: casting another ability resets the chosen one
             if (get(*bd.fx, "bound_reset_on_cast") > 0 && bd.idx < readyAt_.size() && bd.idx != i && readyAt_[bd.idx] < 1e17)
@@ -3453,6 +3475,7 @@ Result Fight::run() {
             const Ability& a = ch_.abilities[i];
             if (!affordable(a, t_)) continue;  // out of mana or energy: wait for it to come back
             if (a.afterAttacks > 0 && stacksFor(i) < a.afterAttacks) continue;  // its stacks aren't built yet
+            if (a.refundOnly && !refundWanted(i)) continue;  // nothing on cooldown for Archmage to bring back
             const double need = needRange(a);
             if (distTo(P()) > need) {
                 wantRange_ = std::min(wantRange_, need);

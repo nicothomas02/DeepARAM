@@ -1,0 +1,664 @@
+{
+ "_about": "Champion and augment interactions, checked by hand against each kit and the augment's own text. Only shown on a champion page while that champion's players take the augment.",
+ "interactions": [
+  {
+   "champion": "Ashe",
+   "augment": 2087,
+   "keys": [
+    "E"
+   ],
+   "text": "Her E costs nothing and has a long recharge, so each cast takes a big chunk off her W or R cooldown."
+  },
+  {
+   "champion": "Ashe",
+   "augment": 1077,
+   "keys": [
+    "W"
+   ],
+   "text": "Her W can crit, and those crits heal too, so a crit build heals off every W."
+  },
+  {
+   "champion": "Jayce",
+   "augment": 1113,
+   "keys": [
+    "Q"
+   ],
+   "text": "Cannon Q lands from beyond 600 range, so most hits refund 80% of its cooldown."
+  },
+  {
+   "champion": "Nidalee",
+   "augment": 1113,
+   "keys": [
+    "Q"
+   ],
+   "text": "Her spear is thrown from far away and hits harder with distance, and long hits refund 80% of its cooldown."
+  },
+  {
+   "champion": "Nidalee",
+   "augment": 2072,
+   "keys": [
+    "Q"
+   ],
+   "text": "The spear splits at max range or on recast, so near misses can still land."
+  },
+  {
+   "champion": "Trundle",
+   "augment": 2129,
+   "keys": [
+    "E"
+   ],
+   "text": "His E pillar is terrain, so it also blasts enemies around it."
+  },
+  {
+   "champion": "Anivia",
+   "augment": 2129,
+   "keys": [
+    "W"
+   ],
+   "text": "Her W wall is terrain, so it also damages enemies next to it."
+  },
+  {
+   "champion": "JarvanIV",
+   "augment": 2129,
+   "keys": [
+    "R"
+   ],
+   "text": "His R arena is terrain and an ultimate, so it deals triple the extra damage."
+  },
+  {
+   "champion": "Ornn",
+   "augment": 2129,
+   "keys": [
+    "Q"
+   ],
+   "text": "His Q pillar is terrain, so it also damages enemies around it."
+  },
+  {
+   "champion": "Yorick",
+   "augment": 1104,
+   "keys": [
+    "P",
+    "R"
+   ],
+   "text": "His ghouls and the Maiden are pets, so all of them hit harder and last longer."
+  },
+  {
+   "champion": "Heimerdinger",
+   "augment": 1104,
+   "keys": [
+    "Q"
+   ],
+   "text": "His turrets count as pets, so each one gets more damage and health."
+  },
+  {
+   "champion": "Zyra",
+   "augment": 1104,
+   "keys": [
+    "P"
+   ],
+   "text": "Her plants count as pets, so they hit harder and survive longer."
+  },
+  {
+   "champion": "Annie",
+   "augment": 1104,
+   "keys": [
+    "R"
+   ],
+   "text": "Her bear from R is a pet, so he hits harder and has more health."
+  },
+  {
+   "champion": "Azir",
+   "augment": 1104,
+   "keys": [
+    "W"
+   ],
+   "text": "His soldiers count as pets, so their strikes deal more damage."
+  },
+  {
+   "champion": "Naafiri",
+   "augment": 1104,
+   "keys": [
+    "P"
+   ],
+   "text": "Her packmates count as pets, so the whole pack hits harder."
+  },
+  {
+   "champion": "Vayne",
+   "augment": 2111,
+   "keys": [
+    "Q"
+   ],
+   "text": "Her Q empowers her next attack, so that attack hits harder and splashes nearby enemies."
+  },
+  {
+   "champion": "MonkeyKing",
+   "augment": 2111,
+   "keys": [
+    "Q"
+   ],
+   "text": "His Q empowers his next attack, so it hits harder and splashes nearby enemies."
+  },
+  {
+   "champion": "Nasus",
+   "augment": 2111,
+   "keys": [
+    "Q"
+   ],
+   "text": "His Q is an empowered attack, so it hits harder and splashes nearby enemies."
+  },
+  {
+   "champion": "Nasus",
+   "augment": 1204,
+   "keys": [
+    "Q"
+   ],
+   "text": "Kills with his Q give twice the permanent stacks."
+  },
+  {
+   "champion": "Jax",
+   "augment": 2111,
+   "keys": [
+    "W"
+   ],
+   "text": "His W empowers his next attack, so it hits harder and splashes nearby enemies."
+  },
+  {
+   "champion": "DrMundo",
+   "augment": 2111,
+   "keys": [
+    "E"
+   ],
+   "text": "His E is an empowered attack, so it hits harder and splashes nearby enemies."
+  },
+  {
+   "champion": "Blitzcrank",
+   "augment": 2111,
+   "keys": [
+    "E"
+   ],
+   "text": "His E empowers his next attack, so the knock-up punch hits harder and splashes."
+  },
+  {
+   "champion": "Blitzcrank",
+   "augment": 2072,
+   "keys": [
+    "Q"
+   ],
+   "text": "His Q splits at max range or on recast, giving two more chances to grab."
+  },
+  {
+   "champion": "AurelionSol",
+   "augment": 2131,
+   "keys": [
+    "Q"
+   ],
+   "text": "His Q is a channel, so holding it builds a shield every second."
+  },
+  {
+   "champion": "AurelionSol",
+   "augment": 1204,
+   "keys": [
+    "P"
+   ],
+   "text": "His abilities give twice the passive stacks, so every ability grows twice as fast."
+  },
+  {
+   "champion": "Nunu",
+   "augment": 2131,
+   "keys": [
+    "R"
+   ],
+   "text": "His R is a long channel, so he gets a big shield while charging it."
+  },
+  {
+   "champion": "FiddleSticks",
+   "augment": 2131,
+   "keys": [
+    "W"
+   ],
+   "text": "His W is a channel, so he gets a shield while draining."
+  },
+  {
+   "champion": "Veigar",
+   "augment": 1204,
+   "keys": [
+    "P"
+   ],
+   "text": "Hitting champions with abilities gives twice the permanent ability power stacks."
+  },
+  {
+   "champion": "Smolder",
+   "augment": 1204,
+   "keys": [
+    "Q"
+   ],
+   "text": "His Q gives twice the stacks, so he reaches his stack goals much sooner."
+  },
+  {
+   "champion": "Chogath",
+   "augment": 1204,
+   "keys": [
+    "R"
+   ],
+   "text": "Each R kill gives twice the stacks, so he grows twice as fast."
+  },
+  {
+   "champion": "Ryze",
+   "augment": 1311,
+   "keys": [
+    "P"
+   ],
+   "text": "His abilities already scale with mana, and this adds more damage for each 100 maximum mana."
+  },
+  {
+   "champion": "Ryze",
+   "augment": 1056,
+   "keys": [
+    "P"
+   ],
+   "text": "He builds a lot of mana, so half of it as health makes him much harder to kill."
+  },
+  {
+   "champion": "Kassadin",
+   "augment": 1056,
+   "keys": [
+    "R"
+   ],
+   "text": "He builds a lot of mana, so half of it as health makes him much harder to kill."
+  },
+  {
+   "champion": "Kassadin",
+   "augment": 3051,
+   "keys": [
+    "R"
+   ],
+   "text": "Each R in a row costs more mana, so chained casts give bigger shields."
+  },
+  {
+   "champion": "Cassiopeia",
+   "augment": 2054,
+   "keys": [
+    "E"
+   ],
+   "text": "Her E is a targeted missile with a tiny cooldown, so it hits three enemies at once."
+  },
+  {
+   "champion": "Leblanc",
+   "augment": 2054,
+   "keys": [
+    "Q"
+   ],
+   "text": "Her Q is a targeted missile, so it marks three enemies at once."
+  },
+  {
+   "champion": "Annie",
+   "augment": 2054,
+   "keys": [
+    "Q"
+   ],
+   "text": "Her Q is a targeted missile, so it hits three enemies at once."
+  },
+  {
+   "champion": "Anivia",
+   "augment": 2054,
+   "keys": [
+    "E"
+   ],
+   "text": "Her E is a targeted missile, so it hits three enemies at once."
+  },
+  {
+   "champion": "Gragas",
+   "augment": 2078,
+   "keys": [],
+   "text": "His knock-backs send enemies crashing into each other or walls for extra damage and a stun."
+  },
+  {
+   "champion": "Syndra",
+   "augment": 2078,
+   "keys": [
+    "E"
+   ],
+   "text": "Her E knocks enemies back, so they crash into each other or walls for extra damage and a stun."
+  },
+  {
+   "champion": "Gnar",
+   "augment": 2078,
+   "keys": [
+    "R"
+   ],
+   "text": "Mega Gnar's R throws enemies, so they crash into each other or walls for extra damage."
+  },
+  {
+   "champion": "Qiyana",
+   "augment": 2078,
+   "keys": [
+    "R"
+   ],
+   "text": "Her R pushes enemies back, so they crash into each other or walls for extra damage."
+  },
+  {
+   "champion": "Kayn",
+   "augment": 1214,
+   "keys": [
+    "Q"
+   ],
+   "text": "His Q is a spinning ability, so it deals more damage and comes back sooner."
+  },
+  {
+   "champion": "Katarina",
+   "augment": 1214,
+   "keys": [
+    "R"
+   ],
+   "text": "Her R and her dagger pickups count as spinning, so they deal more damage and her R comes back sooner."
+  },
+  {
+   "champion": "Draven",
+   "augment": 1214,
+   "keys": [
+    "Q",
+    "R"
+   ],
+   "text": "His Q axes and R count as spinning, so they deal more damage and come back sooner."
+  },
+  {
+   "champion": "Samira",
+   "augment": 1214,
+   "keys": [
+    "W",
+    "R"
+   ],
+   "text": "Her W and R are spinning abilities, so they deal more damage and come back sooner."
+  },
+  {
+   "champion": "Sylas",
+   "augment": 1214,
+   "keys": [
+    "P"
+   ],
+   "text": "His passive spin counts as spinning, so it deals more damage."
+  },
+  {
+   "champion": "Garen",
+   "augment": 1214,
+   "keys": [
+    "E"
+   ],
+   "text": "His E is a spinning ability, so it deals more damage and comes back sooner."
+  },
+  {
+   "champion": "Hecarim",
+   "augment": 1214,
+   "keys": [
+    "Q"
+   ],
+   "text": "His Q is a spinning ability, so it deals more damage and comes back sooner."
+  },
+  {
+   "champion": "Lillia",
+   "augment": 1214,
+   "keys": [
+    "Q"
+   ],
+   "text": "Her Q is a spinning ability, so it deals more damage and comes back sooner."
+  },
+  {
+   "champion": "Renekton",
+   "augment": 1214,
+   "keys": [
+    "Q",
+    "E"
+   ],
+   "text": "His Q and E are spinning abilities, so they deal more damage and come back sooner."
+  },
+  {
+   "champion": "Darius",
+   "augment": 1214,
+   "keys": [
+    "Q"
+   ],
+   "text": "His Q is a spinning ability, so it deals more damage and comes back sooner."
+  },
+  {
+   "champion": "Ambessa",
+   "augment": 1214,
+   "keys": [
+    "E"
+   ],
+   "text": "Her E is a spinning ability, so it deals more damage and comes back sooner."
+  },
+  {
+   "champion": "MonkeyKing",
+   "augment": 1214,
+   "keys": [
+    "R"
+   ],
+   "text": "His R is a spinning ability, so it deals more damage and comes back sooner."
+  },
+  {
+   "champion": "Zed",
+   "augment": 1214,
+   "keys": [
+    "E"
+   ],
+   "text": "His E is a spinning ability, so it deals more damage and comes back sooner."
+  },
+  {
+   "champion": "Riven",
+   "augment": 1214,
+   "keys": [
+    "Q"
+   ],
+   "text": "Her Q is a spinning ability, so it deals more damage and comes back sooner."
+  },
+  {
+   "champion": "RekSai",
+   "augment": 1214,
+   "keys": [
+    "Q"
+   ],
+   "text": "Her Q is a spinning ability, so it deals more damage and comes back sooner."
+  },
+  {
+   "champion": "Jax",
+   "augment": 1214,
+   "keys": [
+    "E"
+   ],
+   "text": "His E is a spinning ability, so it deals more damage and comes back sooner."
+  },
+  {
+   "champion": "Tryndamere",
+   "augment": 1214,
+   "keys": [
+    "E"
+   ],
+   "text": "His E is a spinning ability, so it deals more damage and comes back sooner."
+  },
+  {
+   "champion": "Nocturne",
+   "augment": 1214,
+   "keys": [
+    "P"
+   ],
+   "text": "His passive spin counts as spinning, so it deals more damage."
+  },
+  {
+   "champion": "Ahri",
+   "augment": 1214,
+   "keys": [
+    "W",
+    "R"
+   ],
+   "text": "Her W and R are spinning abilities, so they deal more damage and come back sooner."
+  },
+  {
+   "champion": "Naafiri",
+   "augment": 1214,
+   "keys": [
+    "E"
+   ],
+   "text": "Her E is a spinning ability, so it deals more damage and comes back sooner."
+  },
+  {
+   "champion": "Amumu",
+   "augment": 1214,
+   "keys": [
+    "E"
+   ],
+   "text": "His E is a spinning ability, so it deals more damage and comes back sooner."
+  },
+  {
+   "champion": "Rammus",
+   "augment": 1214,
+   "keys": [
+    "Q"
+   ],
+   "text": "His Q is a spinning ability, so it deals more damage and comes back sooner."
+  },
+  {
+   "champion": "Gangplank",
+   "augment": 3018,
+   "keys": [
+    "Q"
+   ],
+   "text": "His Q can crit, so the extra crit damage makes it hit much harder."
+  },
+  {
+   "champion": "Tristana",
+   "augment": 2096,
+   "keys": [
+    "Q"
+   ],
+   "text": "While her Q is up she also gets 150 attack range and 75% attack speed."
+  },
+  {
+   "champion": "Kayle",
+   "augment": 1129,
+   "keys": [],
+   "text": "She is an AP champion who attacks all game, so every attack gets 75% of her AP."
+  },
+  {
+   "champion": "Azir",
+   "augment": 1022,
+   "keys": [
+    "W"
+   ],
+   "text": "His soldiers strike at his attack speed, so attack speed makes them hit faster."
+  },
+  {
+   "champion": "Lillia",
+   "augment": 1026,
+   "keys": [
+    "Q"
+   ],
+   "text": "Her Q makes her very fast, so she deals more damage than slower enemies."
+  },
+  {
+   "champion": "Singed",
+   "augment": 1045,
+   "keys": [
+    "Q"
+   ],
+   "text": "His Q poison ticks all the time, and each tick takes time off his other cooldowns."
+  },
+  {
+   "champion": "Teemo",
+   "augment": 1045,
+   "keys": [
+    "E",
+    "R"
+   ],
+   "text": "His E poison and R mushrooms count as burns, so each tick takes time off his cooldowns."
+  },
+  {
+   "champion": "Lillia",
+   "augment": 1045,
+   "keys": [
+    "P"
+   ],
+   "text": "Her passive damage over time counts as a burn, so each tick takes time off her cooldowns."
+  },
+  {
+   "champion": "Morgana",
+   "augment": 1045,
+   "keys": [
+    "W"
+   ],
+   "text": "Her W ticks damage over time, so each tick takes time off her other cooldowns."
+  },
+  {
+   "champion": "Rumble",
+   "augment": 1045,
+   "keys": [
+    "Q",
+    "R"
+   ],
+   "text": "His Q and R deal damage over time, so each tick takes time off his cooldowns."
+  },
+  {
+   "champion": "Graves",
+   "augment": 1134,
+   "keys": [
+    "P"
+   ],
+   "text": "In melee range all of his shotgun pellets hit the same target."
+  },
+  {
+   "champion": "Samira",
+   "augment": 1134,
+   "keys": [
+    "P"
+   ],
+   "text": "Her attacks in melee range deal extra magic damage, so staying melee helps her."
+  },
+  {
+   "champion": "Kalista",
+   "augment": 1063,
+   "keys": [
+    "P"
+   ],
+   "text": "She hops after every attack, so she keeps the full resistance stacks up."
+  },
+  {
+   "champion": "Swain",
+   "augment": 1015,
+   "keys": [
+    "R"
+   ],
+   "text": "His R heals him all the time, and that healing also damages the nearest enemy."
+  },
+  {
+   "champion": "DrMundo",
+   "augment": 1015,
+   "keys": [
+    "R"
+   ],
+   "text": "His R gives huge health regeneration, which also damages the nearest enemy."
+  },
+  {
+   "champion": "Vladimir",
+   "augment": 1015,
+   "keys": [
+    "Q"
+   ],
+   "text": "His Q and other abilities heal him, and that healing also damages the nearest enemy."
+  },
+  {
+   "champion": "Karthus",
+   "augment": 1025,
+   "keys": [
+    "P"
+   ],
+   "text": "He keeps casting after he dies, so dying in the middle of enemies costs him little."
+  },
+  {
+   "champion": "KogMaw",
+   "augment": 1025,
+   "keys": [
+    "P"
+   ],
+   "text": "He explodes on death anyway, so this adds a second big blast."
+  }
+ ]
+}

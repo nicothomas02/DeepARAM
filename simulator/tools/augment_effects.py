@@ -145,6 +145,9 @@ SPEC = {
     1211: {"effects": {"r_window": dv("MarkDuration"), "r_window_amp": dv("DamageStorePercentage"),
                        "r_window_cd": dv("Cooldown")},
            "note": "the stored damage is dealt as it builds rather than all at the end"},
+    1214: {"effects": {"spin_amp": lvl("SpinDamageAmp"), "spin_amp_r": lvl("{90a024ae}"), "spin_ah": dv("SpinHaste")},
+           "note": "spinning abilities from the League wiki's list (flagged spinning in champion_overrides.json); "
+                   "spinning passives (Katarina, Nocturne, Sylas) are left out"},
     1220: {"effects": {"trig_on": ATTACK, "trig_cd": 2, "trig_count": 3, "trig_scale": 1.25, "trig_type": PHYS,
                        "trig_can_crit": 1, "trig_onhit": dv("OnHitRatio"), "trig_": calc("DamagePerBolt")},
            "note": "an 8 s cooldown per direction, so about one volley every 2 s; 3 of the 5 bolts hitting, "
@@ -378,5 +381,5 @@ NOT_MODELED = {
     "dying, reviving or takedowns": [3081, 3118, 3121, 1053, 1326, 2026, 2031, 2032],
     "movement or brush": [1044, 1073, 1105, 2042, 2043, 2119, 2125],
     "doubles permanent stacks, which the simulator assumes at a fixed count": [1204],
-    "abilities the simulator can't tell apart": [1214, 1154, 2055, 2064, 2078, 2096, 2102, 2126, 2129, 2135, 2148],
+    "abilities the simulator can't tell apart": [1154, 2055, 2064, 2078, 2096, 2102, 2126, 2129, 2135, 2148],
 }

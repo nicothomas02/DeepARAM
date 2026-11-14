@@ -224,5 +224,7 @@
  "Boost": "ค่าเพิ่ม",
  "Boost is estimated: how many points of win rate the augment adds to this champion.": "ค่าเพิ่มเป็นค่าประมาณ: ออคเมนต์นี้เพิ่มอัตราชนะให้แชมเปียนนี้กี่จุด",
  "Estimated: augments that pair well on this champion, best first.": "ประมาณการ: ออคเมนต์ที่เข้ากันดีบนแชมเปียนนี้ เรียงจากดีที่สุด",
- "Augment pairs appear here once enough games are in. Each pair needs a minimum number of games before it shows.": "คู่ออคเมนต์จะแสดงที่นี่เมื่อมีเกมมากพอ แต่ละคู่ต้องมีจำนวนเกมขั้นต่ำก่อนจึงจะแสดง"
+ "Augment pairs appear here once enough games are in. Each pair needs a minimum number of games before it shows.": "คู่ออคเมนต์จะแสดงที่นี่เมื่อมีเกมมากพอ แต่ละคู่ต้องมีจำนวนเกมขั้นต่ำก่อนจึงจะแสดง",
+ "Kit interactions": "การทำงานร่วมกับสกิล",
+ "Augments that work with this champion's own abilities, and why.": "ออคเมนต์ที่เข้ากับสกิลของแชมเปี้ยนตัวนี้ และเหตุผล"
 }

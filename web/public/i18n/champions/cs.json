@@ -224,5 +224,7 @@
  "Boost": "Přínos",
  "Boost is estimated: how many points of win rate the augment adds to this champion.": "Přínos je odhad: kolik bodů výherní míry augment tomuto šampionovi přidá.",
  "Estimated: augments that pair well on this champion, best first.": "Odhad: augmenty, které se k tomuto šampionovi dobře hodí, nejlepší první.",
- "Augment pairs appear here once enough games are in. Each pair needs a minimum number of games before it shows.": "Dvojice augmentů se tu objeví, jakmile bude dost her. Každá dvojice potřebuje minimální počet her, než se zobrazí."
+ "Augment pairs appear here once enough games are in. Each pair needs a minimum number of games before it shows.": "Dvojice augmentů se tu objeví, jakmile bude dost her. Každá dvojice potřebuje minimální počet her, než se zobrazí.",
+ "Kit interactions": "Interakce sady",
+ "Augments that work with this champion's own abilities, and why.": "Vylepšení, která fungují se schopnostmi tohoto šampiona, a proč."
 }

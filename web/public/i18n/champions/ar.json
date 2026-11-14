@@ -224,5 +224,7 @@
  "Boost": "التعزيز",
  "Boost is estimated: how many points of win rate the augment adds to this champion.": "التعزيز تقديري: كم نقطة من نسبة الفوز يضيفها التعزيز لهذا البطل.",
  "Estimated: augments that pair well on this champion, best first.": "تقديري: تعزيزات تتناسب جيدًا مع هذا البطل، الأفضل أولًا.",
- "Augment pairs appear here once enough games are in. Each pair needs a minimum number of games before it shows.": "تظهر أزواج التعزيزات هنا عند توفر عدد كافٍ من المباريات. يحتاج كل زوج إلى حد أدنى من المباريات قبل أن يظهر."
+ "Augment pairs appear here once enough games are in. Each pair needs a minimum number of games before it shows.": "تظهر أزواج التعزيزات هنا عند توفر عدد كافٍ من المباريات. يحتاج كل زوج إلى حد أدنى من المباريات قبل أن يظهر.",
+ "Kit interactions": "تفاعلات المهارات",
+ "Augments that work with this champion's own abilities, and why.": "التعزيزات التي تعمل مع مهارات هذا البطل نفسه، ولماذا."
 }

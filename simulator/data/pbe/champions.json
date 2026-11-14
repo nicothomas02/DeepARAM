@@ -389,7 +389,8 @@
      "mode_overrides": [],
      "notes": [
       "hand override: Fox-Fire: all three fires hit a lone target; the two follow-up fires each deal the reduced amount"
-     ]
+     ],
+     "spinning": true
     },
     {
      "slot": "E",
@@ -466,7 +467,8 @@
      "mode_overrides": [],
      "notes": [
       "hand override: Spirit Rush is three dashes per cooldown, each firing a bolt at the target"
-     ]
+     ],
+     "spinning": true
     }
    ],
    "parse_quality": "good",
@@ -1422,7 +1424,8 @@
      "mode_overrides": [],
      "notes": [
       "hand override: Lacerate spins around Ambessa (325 radius) and spins again at the end of the Drakehound's Step dash she always follows it with"
-     ]
+     ],
+     "spinning": true
     },
     {
      "slot": "R",
@@ -1671,7 +1674,10 @@
       }
      ],
      "mode_overrides": [],
-     "notes": []
+     "notes": [
+      "hand override: a spinning ability, so Spin To Win applies (League wiki list)"
+     ],
+     "spinning": true
     },
     {
      "slot": "R",
@@ -2743,8 +2749,10 @@
      "hits": [],
      "mode_overrides": [],
      "notes": [
-      "cooldown is the ammo recharge time"
-     ]
+      "cooldown is the ammo recharge time",
+      "hand override: Hawkshot has no damage but is free to cast and has a long recharge, so with Archmage it is cast just for the cooldown refund"
+     ],
+     "cast_for_refund": true
     },
     {
      "slot": "R",
@@ -6206,7 +6214,8 @@
      "mode_overrides": [],
      "notes": [
       "hand override: Decimate spins 0.75s before it hits; blade and handle damage are alternatives by distance, not both"
-     ]
+     ],
+     "spinning": true
     },
     {
      "slot": "W",
@@ -6929,7 +6938,8 @@
      "notes": [
       "hand override: Spinning Axe is juggled onto every basic attack, not a 210-radius self circle a ranged champion never reaches"
      ],
-     "onhit_every": 1
+     "onhit_every": 1,
+     "spinning": true
     },
     {
      "slot": "W",
@@ -6993,7 +7003,8 @@
      "mode_overrides": [],
      "notes": [
       "hand override: Stand Aside knocks aside briefly; the 2 s was its slow"
-     ]
+     ],
+     "spinning": true
     },
     {
      "slot": "R",
@@ -7031,7 +7042,8 @@
      "mode_overrides": [],
      "notes": [
       "hand override: Whirling Death hits on the way out and on the way back"
-     ]
+     ],
+     "spinning": true
     }
    ],
    "parse_quality": "good",
@@ -9362,7 +9374,8 @@
      "notes": [
       "multi-hit x7",
       "hand override: Judgment deals 25% more to the nearest enemy, which in a 1v1 is every spin"
-     ]
+     ],
+     "spinning": true
     },
     {
      "slot": "R",
@@ -10452,7 +10465,8 @@
      "mode_overrides": [],
      "notes": [
       "hand override: Rampage at its usual 3 stacks (8s, refreshed by every hit): base cooldown 4 - 3 x 0.75 = 1.75s and +9% (+9% per 100 bonus AD) damage, linearised at ~105 bonus AD"
-     ]
+     ],
+     "spinning": true
     },
     {
      "slot": "W",
@@ -12896,7 +12910,10 @@
       }
      ],
      "mode_overrides": [],
-     "notes": []
+     "notes": [
+      "hand override: a spinning ability, so Spin To Win applies (League wiki list)"
+     ],
+     "spinning": true
     },
     {
      "slot": "R",
@@ -15199,7 +15216,8 @@
      "notes": [
       "hand override: Death Lotus channels for 2.5 seconds; the totals are the whole channel; per-dagger numbers are part of them"
      ],
-     "lock": 2.5
+     "lock": 2.5,
+     "spinning": true
     }
    ],
    "passives": [
@@ -15623,7 +15641,8 @@
      ],
      "notes": [
       "hand override: Reaping Slash hits twice: the dash and the following sweep each deal the full damage"
-     ]
+     ],
+     "spinning": true
     },
     {
      "slot": "W",
@@ -17739,7 +17758,10 @@
       }
      ],
      "mode_overrides": [],
-     "notes": []
+     "notes": [
+      "hand override: a spinning ability, so Spin To Win applies (League wiki list)"
+     ],
+     "spinning": true
     },
     {
      "slot": "W",
@@ -21436,7 +21458,10 @@
       }
      ],
      "mode_overrides": [],
-     "notes": []
+     "notes": [
+      "hand override: a spinning ability, so Spin To Win applies (League wiki list)"
+     ],
+     "spinning": true
     },
     {
      "slot": "R",
@@ -25595,7 +25620,8 @@
      "mode_overrides": [],
      "notes": [
       "hand override: Powerball rolls about 1.5 seconds before it hits"
-     ]
+     ],
+     "spinning": true
     },
     {
      "slot": "W",
@@ -25798,7 +25824,8 @@
      "notes": [
       "hand override: resets the basic attack timer"
      ],
-     "attack_reset": true
+     "attack_reset": true,
+     "spinning": true
     },
     {
      "slot": "W",
@@ -26492,7 +26519,10 @@
       }
      ],
      "mode_overrides": [],
-     "notes": []
+     "notes": [
+      "hand override: a spinning ability, so Spin To Win applies (League wiki list)"
+     ],
+     "spinning": true
     },
     {
      "slot": "W",
@@ -26592,7 +26622,8 @@
      "mode_overrides": [],
      "notes": [
       "hand override: Slice and Dice is two dashes, each dealing the damage"
-     ]
+     ],
+     "spinning": true
     },
     {
      "slot": "R",
@@ -26987,7 +27018,8 @@
       "hand override: resets the basic attack timer; Broken Wings is three casts per cooldown (listed twice, so x1.5); real AoE radius ~150; each of the three casts grants a Runic Blade charge"
      ],
      "attack_reset": true,
-     "casts": 3
+     "casts": 3,
+     "spinning": true
     },
     {
      "slot": "W",
@@ -27723,7 +27755,8 @@
      "mode_overrides": [],
      "notes": [
       "hand override: Blade Whirl slashes twice"
-     ]
+     ],
+     "spinning": true
     },
     {
      "slot": "E",
@@ -27796,7 +27829,8 @@
      "notes": [
       "hand override: Inferno Trigger: 2 seconds of shooting, no attacks; ten waves of shots; needs an S style rank, about once per 15 seconds of fighting"
      ],
-     "lock": 2
+     "lock": 2,
+     "spinning": true
     }
    ],
    "passives": [
@@ -34066,7 +34100,8 @@
      "notes": [
       "hand override: Spinning Slash: 1.5 s off its cooldown whenever Tryndamere crits a champion (ChampCDRefund)"
      ],
-     "crit_refund": 1.5
+     "crit_refund": 1.5,
+     "spinning": true
     },
     {
      "slot": "R",
@@ -37932,8 +37967,10 @@
      ],
      "mode_overrides": [],
      "notes": [
-      "ARAM cooldown"
-     ]
+      "ARAM cooldown",
+      "hand override: a spinning ability, so Spin To Win applies (League wiki list)"
+     ],
+     "spinning": true
     }
    ],
    "parse_quality": "good",
@@ -38630,7 +38667,10 @@
       }
      ],
      "mode_overrides": [],
-     "notes": []
+     "notes": [
+      "hand override: a spinning ability, so Spin To Win applies (League wiki list)"
+     ],
+     "spinning": true
     }
    ],
    "passives": [
@@ -40483,7 +40523,8 @@
      "notes": [
       "hand override: Shadow Slash is instant (cast time none) with a 315 radius around Zed; 50 energy back when a shadow's slash hits the target too"
      ],
-     "refund": 50
+     "refund": 50,
+     "spinning": true
     },
     {
      "slot": "R",

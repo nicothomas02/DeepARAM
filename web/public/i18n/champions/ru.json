@@ -224,5 +224,7 @@
  "Boost": "Прибавка",
  "Boost is estimated: how many points of win rate the augment adds to this champion.": "Прибавка — оценка: на сколько пунктов аугмент повышает процент побед этого чемпиона.",
  "Estimated: augments that pair well on this champion, best first.": "Оценка: аугменты, которые хорошо сочетаются на этом чемпионе, лучшие сначала.",
- "Augment pairs appear here once enough games are in. Each pair needs a minimum number of games before it shows.": "Пары аугментов появятся здесь, когда наберётся достаточно игр. Каждой паре нужно минимальное число игр, чтобы появиться."
+ "Augment pairs appear here once enough games are in. Each pair needs a minimum number of games before it shows.": "Пары аугментов появятся здесь, когда наберётся достаточно игр. Каждой паре нужно минимальное число игр, чтобы появиться.",
+ "Kit interactions": "Взаимодействия с набором умений",
+ "Augments that work with this champion's own abilities, and why.": "Усиления, которые работают с умениями этого чемпиона, и почему."
 }

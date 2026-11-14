@@ -224,5 +224,7 @@
  "Boost": "Mejora",
  "Boost is estimated: how many points of win rate the augment adds to this champion.": "La mejora es estimada: cuántos puntos de tasa de victoria añade el aumento a este campeón.",
  "Estimated: augments that pair well on this champion, best first.": "Estimado: aumentos que combinan bien en este campeón, los mejores primero.",
- "Augment pairs appear here once enough games are in. Each pair needs a minimum number of games before it shows.": "Las parejas de aumentos aparecen aquí cuando haya suficientes partidas. Cada pareja necesita un número mínimo de partidas para mostrarse."
+ "Augment pairs appear here once enough games are in. Each pair needs a minimum number of games before it shows.": "Las parejas de aumentos aparecen aquí cuando haya suficientes partidas. Cada pareja necesita un número mínimo de partidas para mostrarse.",
+ "Kit interactions": "Interacciones del kit",
+ "Augments that work with this champion's own abilities, and why.": "Aumentos que funcionan con las habilidades de este campeón, y por qué."
 }

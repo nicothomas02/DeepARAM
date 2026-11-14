@@ -224,5 +224,7 @@
  "Boost": "Premia",
  "Boost is estimated: how many points of win rate the augment adds to this champion.": "Premia jest szacowana: o ile punktów współczynnika zwycięstw augment podnosi go temu bohaterowi.",
  "Estimated: augments that pair well on this champion, best first.": "Szacunek: augmenty, które dobrze do siebie pasują na tym bohaterze, najlepsze najpierw.",
- "Augment pairs appear here once enough games are in. Each pair needs a minimum number of games before it shows.": "Pary augmentów pojawią się tutaj, gdy będzie dość gier. Każda para potrzebuje minimalnej liczby gier, zanim się pokaże."
+ "Augment pairs appear here once enough games are in. Each pair needs a minimum number of games before it shows.": "Pary augmentów pojawią się tutaj, gdy będzie dość gier. Każda para potrzebuje minimalnej liczby gier, zanim się pokaże.",
+ "Kit interactions": "Interakcje zestawu",
+ "Augments that work with this champion's own abilities, and why.": "Ulepszenia, które współgrają z umiejętnościami tego bohatera, i dlaczego."
 }
