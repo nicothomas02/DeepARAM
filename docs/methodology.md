@@ -40,6 +40,13 @@ fails if any language misses a key.
   numbers. Its builds and upgrade picks are labelled simulated; accuracy is tracked against known
   in-game values ([`simulator/README.md`](../simulator/README.md)).
 
+## Worked examples
+
+The public Research page (`web/src/app/research/page.tsx`) walks through three tests of the site's own
+numbers: how much the draft decides (`analysis/win-prediction/`), whether patch changes work
+(`data/analysis/patch_impact.py`) and whether the Simulator matches real games
+(`simulator/tools/validation.py`). The last two read their JSON live, so the page follows the daily runs.
+
 ## Limits
 
 - Feeds expose aggregates, not per-game rows, so some effects can't be separated (for example,
