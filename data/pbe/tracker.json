@@ -1,12 +1,12 @@
 {
  "builds": {
-  "pbe": "16.23.8373184",
+  "pbe": "16.23.8384656",
   "live": "16.22.8348910"
  },
- "dataAsOf": "2026-11-10",
+ "dataAsOf": "2026-11-14",
  "counts": {
   "buff": 15,
-  "nerf": 3,
+  "nerf": 5,
   "mixed": 1,
   "new": 4,
   "removed": 3
@@ -123,11 +123,30 @@
    "name": "K'Sante",
    "lines": [
     {
-     "text": "W damage reduction 25/25/25/25/25% → 25/27.5/30/32.5/35%",
+     "text": "W damage 45/75/105/135/165 → 45/85/125/165/205",
      "tag": "buff"
+    },
+    {
+     "text": "W Mana cost 45/50/55/60/65 → 45/45/45/45/45",
+     "tag": "buff"
+    },
+    {
+     "text": "W bonus damage in All Out (max) 80% → 75%",
+     "tag": "nerf"
     }
    ],
    "tag": "buff"
+  },
+  {
+   "kind": "champion",
+   "name": "LeBlanc",
+   "lines": [
+    {
+     "text": "Q AP ratio 40% → 35%",
+     "tag": "nerf"
+    }
+   ],
+   "tag": "nerf"
   },
   {
    "kind": "champion",
@@ -162,6 +181,21 @@
     }
    ],
    "tag": "buff"
+  },
+  {
+   "kind": "champion",
+   "name": "Syndra",
+   "lines": [
+    {
+     "text": "E Mana cost 50 → 60",
+     "tag": "nerf"
+    },
+    {
+     "text": "E cooldown 15/15/15/15/15s → 17/16.5/16/15.5/15s",
+     "tag": "nerf"
+    }
+   ],
+   "tag": "nerf"
   },
   {
    "kind": "champion",

@@ -1,6 +1,6 @@
 {
  "meta": {
-  "built_at": "2026-11-10T23:27:46+00:00",
+  "built_at": "2026-11-14T23:27:01+00:00",
   "game_version": "16.23",
   "cdragon": "pbe",
   "mayhem_balance_patch": "wiki read 2026-10-17",
@@ -2170,7 +2170,7 @@
        "type": "magic",
        "calc": "TibbersAuraDamage",
        "scaling": {
-        "const": 76.0,
+        "const": 80.0,
         "ap": 0.14
        },
        "target": "flat",
@@ -3295,7 +3295,7 @@
     "attack_speed": 0.625,
     "attack_speed_per_level": 0.05,
     "attack_speed_ratio": 0.694,
-    "attack_range": 525.0,
+    "attack_range": 550.0,
     "attack_windup": 0.1562,
     "attack_windup_mod": 1.0,
     "move_speed": 330.0,
@@ -3578,8 +3578,8 @@
        "type": "magic",
        "calc": "TotalDamage",
        "scaling": {
-        "const": 240.0,
-        "ap": 0.8
+        "const": 260.0,
+        "ap": 1.0
        },
        "target": "flat",
        "per_second": false,
@@ -7870,8 +7870,8 @@
        "calc": "Damage",
        "scaling": {
         "const": 300.0,
-        "bonus_ad": 1.0,
-        "ap": 0.9
+        "bonus_ad": 1.15,
+        "ap": 1.0
        },
        "target": "flat",
        "per_second": false,
@@ -7943,9 +7943,9 @@
        "type": "magic",
        "calc": "Damage",
        "scaling": {
-        "const": 750.0,
-        "bonus_ad": 1.0,
-        "ap": 1.1
+        "const": 850.0,
+        "bonus_ad": 1.1,
+        "ap": 1.2
        },
        "target": "flat",
        "per_second": false,
@@ -8805,8 +8805,8 @@
      },
      "shield": {
       "scaling": {
-       "const": 370.17,
-       "bonus_hp": 0.135
+       "const": 548.4,
+       "bonus_hp": 0.2
       },
       "duration": 8.0
      },
@@ -9508,8 +9508,8 @@
        "type": "physical",
        "calc": "MiniTotalDamage",
        "scaling": {
-        "const": 308.0,
-        "bonus_ad": 1.25
+        "const": 319.44,
+        "bonus_ad": 1.35
        },
        "target": "flat",
        "per_second": false,
@@ -13763,7 +13763,7 @@
        "type": "physical",
        "calc": "BaseDamage",
        "scaling": {
-        "const": 165.0
+        "const": 205.0
        },
        "target": "flat",
        "per_second": false,
@@ -17011,7 +17011,7 @@
        "calc": "Damage",
        "scaling": {
         "const": 165.0,
-        "ap": 0.4
+        "ap": 0.35
        },
        "target": "flat",
        "per_second": false,
@@ -17022,7 +17022,7 @@
        "calc": "MarkDamage",
        "scaling": {
         "const": 330.0,
-        "ap": 0.8
+        "ap": 0.7
        },
        "target": "flat",
        "per_second": false,
@@ -19854,8 +19854,8 @@
        "type": "physical",
        "calc": "TotalDamage",
        "scaling": {
-        "const": 175.25,
-        "bonus_ad": 0.7
+        "const": 164.5,
+        "bonus_ad": 0.6
        },
        "target": "flat",
        "per_second": false,
@@ -19865,8 +19865,8 @@
        "type": "physical",
        "calc": "SubesquentDamage",
        "scaling": {
-        "const": 43.8125,
-        "bonus_ad": 0.175
+        "const": 41.125,
+        "bonus_ad": 0.15
        },
        "target": "flat",
        "per_second": false,
@@ -19876,8 +19876,8 @@
        "type": "physical",
        "calc": "SingleTotalDamage",
        "scaling": {
-        "const": 306.6875,
-        "bonus_ad": 1.225
+        "const": 287.875,
+        "bonus_ad": 1.05
        },
        "target": "flat",
        "per_second": false,
@@ -20106,8 +20106,8 @@
        "type": "magic",
        "calc": "TotalDamageTT",
        "scaling": {
-        "const": 285.0,
-        "ap": 0.97
+        "const": 294.0,
+        "ap": 1.06
        },
        "target": "flat",
        "per_second": false,
@@ -20125,7 +20125,7 @@
      "cast_time": 0.0,
      "shield": {
       "scaling": {
-       "const": 170.0,
+       "const": 210.0,
        "ap": 0.5
       },
       "duration": 2.0
@@ -20147,7 +20147,7 @@
        "type": "magic",
        "calc": "InitialDamage",
        "scaling": {
-        "const": 55.0,
+        "const": 75.0,
         "ap": 0.1
        },
        "target": "flat",
@@ -36436,7 +36436,7 @@
        "type": "physical",
        "calc": "TotalDamageTooltip",
        "scaling": {
-        "const": 230.03,
+        "const": 250.03,
         "bonus_ad": 1.1,
         "ap": 1.0
        },
