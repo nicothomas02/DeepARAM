@@ -78,6 +78,8 @@ struct Ability {
     double ramp = 0;    // on-hit passives: each proc on the same target adds a stack that multiplies the damage,
                         // lost after this many seconds without a hit (Bel'Veth R)
     bool noHaste = false;
+    bool refundOnly = false;
+    bool spinning = false;    // a spinning ability (Spin To Win: more damage and haste)  // no effect of its own; cast only to feed Archmage refunds (Ashe E)
     bool appliesOnHit = false;
     double invuln = 0;
     double refund = 0;

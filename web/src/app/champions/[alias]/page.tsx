@@ -67,6 +67,8 @@ import descriptions from "@/data/descriptions.json";
 import "../champion-page.css";
 import { patchName } from "@/lib/patch-name";
 import BestUpgrades from "@/components/champion/BestUpgrades";
+import KitInteractions from "@/components/champion/KitInteractions";
+import { kitInteractions } from "@/lib/kit-interactions";
 import { championUpgrades } from "@/lib/champion-upgrades";
 import { augmentBuilds, buildChangers, CHANGES_BUILD } from "@/lib/augment-builds";
 import AugmentBuildPicker from "@/components/champion/AugmentBuildPicker";
@@ -256,6 +258,7 @@ export async function generateMetadata({
 const SPOTS = [
   { id: "augments", label: "Augments" },
   { id: "combos", label: "Augment combinations" },
+  { id: "interactions", label: "Kit interactions" },
   { id: "upgrades", label: "Best upgrades" },
   { id: "synergies", label: "Synergies" },
   { id: "builds", label: "Builds" },
@@ -355,6 +358,7 @@ export default async function ChampionPage({
       (x, y) =>
         (y.deepScore ?? -1) - (x.deepScore ?? -1) || y.pickRate - x.pickRate,
     );
+  const interactions = kitInteractions(c.alias, p.augments);
   const bestStart = p.starting[0];
   const bestSkill = bestRow(p.skills, 0.1);
   const rawSpells = fillSpells(c.alias, c.winRate ?? 0.5);
@@ -777,6 +781,7 @@ export default async function ChampionPage({
               <NotYet text="Augment pairs appear here once enough games are in. Each pair needs a minimum number of games before it shows." />
             </Panel>
           )}
+          {interactions.length > 0 && <KitInteractions rows={interactions} />}
           {upgrades && <BestUpgrades u={upgrades} />}
 
           {synergies.length > 0 && (
@@ -1361,7 +1366,7 @@ export default async function ChampionPage({
           )}
         </div>
 
-        <SectionRail spots={SPOTS} />
+        <SectionRail spots={interactions.length ? SPOTS : SPOTS.filter((s) => s.id !== "interactions")} />
       </div>
     </>
   );

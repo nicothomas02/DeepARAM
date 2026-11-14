@@ -284,6 +284,10 @@
     "duration": 1.5
    },
    "why": "Enchanted Crystal Arrow stuns for 1 s plus 0.25 s per 200 units flown past 800 (up to 3.5 s); a typical ARAM arrow flies about 1,200 units"
+  },
+  "E": {
+   "why": "Hawkshot has no damage but is free to cast and has a long recharge, so with Archmage it is cast just for the cooldown refund",
+   "cast_for_refund": true
   }
  },
  "Aatrox": {
@@ -348,7 +352,8 @@
      "bonus_ad": 0.247
     }
    },
-   "why": "Rampage at its usual 3 stacks (8s, refreshed by every hit): base cooldown 4 - 3 x 0.75 = 1.75s and +9% (+9% per 100 bonus AD) damage, linearised at ~105 bonus AD"
+   "why": "Rampage at its usual 3 stacks (8s, refreshed by every hit): base cooldown 4 - 3 x 0.75 = 1.75s and +9% (+9% per 100 bonus AD) damage, linearised at ~105 bonus AD",
+   "spinning": true
   }
  },
  "Karthus": {
@@ -493,7 +498,8 @@
   },
   "E": {
    "crit_refund": 1.5,
-   "why": "Spinning Slash: 1.5 s off its cooldown whenever Tryndamere crits a champion (ChampCDRefund)"
+   "why": "Spinning Slash: 1.5 s off its cooldown whenever Tryndamere crits a champion (ChampCDRefund)",
+   "spinning": true
   }
  },
  "Kindred": {
@@ -582,7 +588,8 @@
    "hit_mults": {
     "HandleDamage": 0
    },
-   "why": "Decimate spins 0.75s before it hits; blade and handle damage are alternatives by distance, not both"
+   "why": "Decimate spins 0.75s before it hits; blade and handle damage are alternatives by distance, not both",
+   "spinning": true
   },
   "R": {
    "hit_mults": {
@@ -639,7 +646,8 @@
    "hit_mults": {
     "TotalDamage": 1.25
    },
-   "why": "Judgment deals 25% more to the nearest enemy, which in a 1v1 is every spin"
+   "why": "Judgment deals 25% more to the nearest enemy, which in a 1v1 is every spin",
+   "spinning": true
   }
  },
  "Graves": {
@@ -716,6 +724,10 @@
   "W": {
    "attack_reset": true,
    "why": "resets the basic attack timer"
+  },
+  "E": {
+   "why": "a spinning ability, so Spin To Win applies (League wiki list)",
+   "spinning": true
   }
  },
  "Jayce": {
@@ -819,7 +831,12 @@
    "hit_mults": {
     "BasicDamage": 2
    },
-   "why": "Slice and Dice is two dashes, each dealing the damage"
+   "why": "Slice and Dice is two dashes, each dealing the damage",
+   "spinning": true
+  },
+  "Q": {
+   "why": "a spinning ability, so Spin To Win applies (League wiki list)",
+   "spinning": true
   }
  },
  "Rengar": {
@@ -853,7 +870,8 @@
     "radius": 150
    },
    "why": "resets the basic attack timer; Broken Wings is three casts per cooldown (listed twice, so x1.5); real AoE radius ~150; each of the three casts grants a Runic Blade charge",
-   "casts": 3
+   "casts": 3,
+   "spinning": true
   },
   "R": {
    "hit_mults": {
@@ -906,6 +924,10 @@
   "Q": {
    "attack_reset": true,
    "why": "resets the basic attack timer"
+  },
+  "R": {
+   "why": "a spinning ability, so Spin To Win applies (League wiki list)",
+   "spinning": true
   }
  },
  "Yorick": {
@@ -925,7 +947,8 @@
  "RekSai": {
   "Q": {
    "attack_reset": true,
-   "why": "resets the basic attack timer"
+   "why": "resets the basic attack timer",
+   "spinning": true
   },
   "R": {
    "hit_mults": {
@@ -980,7 +1003,8 @@
    "hit_mults": {
     "TotalADDamageCalc": 2
    },
-   "why": "Death Lotus channels for 2.5 seconds; the totals are the whole channel; per-dagger numbers are part of them"
+   "why": "Death Lotus channels for 2.5 seconds; the totals are the whole channel; per-dagger numbers are part of them",
+   "spinning": true
   }
  },
  "Malzahar": {
@@ -1023,7 +1047,8 @@
  "Rammus": {
   "Q": {
    "lock": 1.5,
-   "why": "Powerball rolls about 1.5 seconds before it hits"
+   "why": "Powerball rolls about 1.5 seconds before it hits",
+   "spinning": true
   }
  },
  "Nunu": {
@@ -1042,7 +1067,8 @@
     "DamageCalc": 10
    },
    "cooldown": 15,
-   "why": "Inferno Trigger: 2 seconds of shooting, no attacks; ten waves of shots; needs an S style rank, about once per 15 seconds of fighting"
+   "why": "Inferno Trigger: 2 seconds of shooting, no attacks; ten waves of shots; needs an S style rank, about once per 15 seconds of fighting",
+   "spinning": true
   },
   "Q": {
    "hit_mults": {
@@ -1054,7 +1080,8 @@
    "hit_mults": {
     "DamageCalc": 2
    },
-   "why": "Blade Whirl slashes twice"
+   "why": "Blade Whirl slashes twice",
+   "spinning": true
   }
  },
  "Jhin": {
@@ -1272,13 +1299,15 @@
    "hit_mults": {
     "MultiFireDamage": 4
    },
-   "why": "Fox-Fire: all three fires hit a lone target; the two follow-up fires each deal the reduced amount"
+   "why": "Fox-Fire: all three fires hit a lone target; the two follow-up fires each deal the reduced amount",
+   "spinning": true
   },
   "R": {
    "hit_mults": {
     "RCalculatedDamage": 3
    },
-   "why": "Spirit Rush is three dashes per cooldown, each firing a bolt at the target"
+   "why": "Spirit Rush is three dashes per cooldown, each firing a bolt at the target",
+   "spinning": true
   }
  },
  "Akali": {
@@ -1319,7 +1348,8 @@
     "range": 0,
     "radius": 325
    },
-   "why": "Lacerate spins around Ambessa (325 radius) and spins again at the end of the Drakehound's Step dash she always follows it with"
+   "why": "Lacerate spins around Ambessa (325 radius) and spins again at the end of the Drakehound's Step dash she always follows it with",
+   "spinning": true
   }
  },
  "AurelionSol": {
@@ -1434,20 +1464,23 @@
  "Draven": {
   "Q": {
    "onhit_every": 1,
-   "why": "Spinning Axe is juggled onto every basic attack, not a 210-radius self circle a ranged champion never reaches"
+   "why": "Spinning Axe is juggled onto every basic attack, not a 210-radius self circle a ranged champion never reaches",
+   "spinning": true
   },
   "R": {
    "hit_mults": {
     "RCalculatedDamage": 2
    },
-   "why": "Whirling Death hits on the way out and on the way back"
+   "why": "Whirling Death hits on the way out and on the way back",
+   "spinning": true
   },
   "E": {
    "cc": {
     "type": "knockup",
     "duration": 0.75
    },
-   "why": "Stand Aside knocks aside briefly; the 2 s was its slow"
+   "why": "Stand Aside knocks aside briefly; the 2 s was its slow",
+   "spinning": true
   }
  },
  "Evelynn": {
@@ -1823,6 +1856,10 @@
     "TotalMaxDamageSecondCast": 0
    },
    "why": "one cast = first dagger + bleed + one recast; the max second-cast number is the missing-health cap of the same hit"
+  },
+  "E": {
+   "why": "a spinning ability, so Spin To Win applies (League wiki list)",
+   "spinning": true
   }
  },
  "Nami": {
@@ -2417,6 +2454,10 @@
     "as": 0.7
    },
    "why": "Audacious Charge: +70% attack speed for 5s (rank 5)"
+  },
+  "R": {
+   "why": "a spinning ability, so Spin To Win applies (League wiki list)",
+   "spinning": true
   }
  },
  "Yone": {
@@ -2484,7 +2525,8 @@
     "range": 315
    },
    "why": "Shadow Slash is instant (cast time none) with a 315 radius around Zed; 50 energy back when a shadow's slash hits the target too",
-   "refund": 50
+   "refund": 50,
+   "spinning": true
   },
   "R": {
    "mark": {
@@ -2579,7 +2621,8 @@
    "hit_mults": {
     "TotalDamage": 2
    },
-   "why": "Reaping Slash hits twice: the dash and the following sweep each deal the full damage"
+   "why": "Reaping Slash hits twice: the dash and the following sweep each deal the full damage",
+   "spinning": true
   }
  },
  "JarvanIV": {
@@ -2610,6 +2653,10 @@
   "W": {
    "toggle": true,
    "why": "Despair is a toggle: its tooltip numbers are per second, on whenever enemies are in reach"
+  },
+  "E": {
+   "why": "a spinning ability, so Spin To Win applies (League wiki list)",
+   "spinning": true
   }
  },
  "Alistar": {
@@ -2987,6 +3034,12 @@
     "duration": 4
    },
    "why": "Indestructible stores 45% of the damage he deals and 7.5% of the damage he takes as a shield, up to 30% of his max Health, which is full again well inside its 8 s cooldown in a fight; the shield decays over 4 s, so about 20% of max Health is counted. The parser read only the 5% floor"
+  }
+ },
+ "Lillia": {
+  "Q": {
+   "why": "a spinning ability, so Spin To Win applies (League wiki list)",
+   "spinning": true
   }
  }
 }

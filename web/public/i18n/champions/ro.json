@@ -224,5 +224,7 @@
  "Boost": "Bonus",
  "Boost is estimated: how many points of win rate the augment adds to this champion.": "Bonusul este estimat: câte puncte de rată de victorie adaugă augmentul acestui campion.",
  "Estimated: augments that pair well on this champion, best first.": "Estimat: augmente care se potrivesc bine pe acest campion, cele mai bune primele.",
- "Augment pairs appear here once enough games are in. Each pair needs a minimum number of games before it shows.": "Perechile de augmente apar aici după ce se adună destule meciuri. Fiecare pereche are nevoie de un număr minim de meciuri înainte să apară."
+ "Augment pairs appear here once enough games are in. Each pair needs a minimum number of games before it shows.": "Perechile de augmente apar aici după ce se adună destule meciuri. Fiecare pereche are nevoie de un număr minim de meciuri înainte să apară.",
+ "Kit interactions": "Interacțiuni de kit",
+ "Augments that work with this champion's own abilities, and why.": "Augmentările care funcționează cu abilitățile acestui campion și de ce."
 }

@@ -882,6 +882,45 @@ html[data-view="simple"] .cp-fold:not([data-open]) > .cp-fold-body {
   display: table;
   margin-top: 0.3rem;
 }
+/* Kit interactions: the augment and the abilities it works with, one line on why, and how often it's taken. */
+.cp-kit {
+  display: grid;
+  grid-template-columns: minmax(12rem, 16rem) minmax(0, 1fr) 5.4rem;
+  gap: 0.5rem 1rem;
+  align-items: center;
+  padding: 0.6rem 1rem;
+  border-bottom: 1px solid var(--line);
+}
+.cp-rows > .cp-kit:last-child {
+  border-bottom: 0;
+}
+.cp-kit-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  min-width: 0;
+}
+.cp-kit-head .cp-key {
+  min-width: 1.6rem;
+  height: 1.6rem;
+  font-size: 0.85rem;
+}
+.cp-kit-why {
+  margin: 0;
+  line-height: 1.45;
+}
+@media (max-width: 560px) {
+  .cp-kit {
+    grid-template-columns: minmax(0, 1fr) 3.9rem;
+    gap: 0.35rem 0.6rem;
+    padding: 0.55rem 0.7rem;
+  }
+  .cp-kit-why {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+}
 .cp-quad {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));

@@ -224,5 +224,7 @@
  "Boost": "Artış",
  "Boost is estimated: how many points of win rate the augment adds to this champion.": "Artış tahminidir: güçlendirmenin bu şampiyonun kazanma oranına kaç puan eklediği.",
  "Estimated: augments that pair well on this champion, best first.": "Tahmini: bu şampiyonda iyi eşleşen güçlendirmeler, en iyiler önce.",
- "Augment pairs appear here once enough games are in. Each pair needs a minimum number of games before it shows.": "Güçlendirme çiftleri yeterli maç toplandığında burada görünür. Her çiftin görünmesi için en az belirli sayıda maç gerekir."
+ "Augment pairs appear here once enough games are in. Each pair needs a minimum number of games before it shows.": "Güçlendirme çiftleri yeterli maç toplandığında burada görünür. Her çiftin görünmesi için en az belirli sayıda maç gerekir.",
+ "Kit interactions": "Kit etkileşimleri",
+ "Augments that work with this champion's own abilities, and why.": "Bu şampiyonun kendi yetenekleriyle çalışan güçlendirmeler ve nedenleri."
 }
