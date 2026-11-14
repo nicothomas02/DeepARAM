@@ -630,21 +630,6 @@ h1 {
   justify-self: start;
 }
 
-.meter {
-  display: block;
-  height: 6px;
-  overflow: hidden;
-  border-radius: 999px;
-  background: var(--raised);
-}
-
-.meter i {
-  display: block;
-  height: 100%;
-  border-radius: inherit;
-  background: var(--accent);
-}
-
 .tiles {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1376,7 +1361,6 @@ h1 {
   .rank a {
     grid-template-columns: 1.4rem 24px minmax(0, 1fr) 3.5rem;
   }
-  .rank .meter,
   .rank .chip {
     display: none;
   }

@@ -102,7 +102,6 @@ export const typicalSettling = () => {
 };
 
 export const shiftsOf = (patch: string): Shift[] => settling()?.shifts.filter((s) => s.patch === patch) ?? [];
-export const shiftEvents = () => settling()?.events ?? [];
 
 export const playstyleClusters = (): Clusters | null => clusters();
 
