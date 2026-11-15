@@ -47,6 +47,15 @@ jobs:
           python3 champions/build_data.py
           python3 champions/build_i18n.py
           python3 web/scripts/fetch_descriptions.py
+      - name: Refresh The Kitchen's Infinite Ryze and Region Teams for the new patch
+        if: steps.check.outputs.status == 'ready'
+        run: |
+          # Kept only when the Kitchen tests still pass (new text could need translating first)
+          (cd tools/fun/ryze-calculator && python3 build_data.py) \
+            && (cd tools/fun/region-teams && python3 build_data.py) \
+            && python3 tools/fun/i18n/build_keys.py \
+            && python -m pytest tests/data/test_data_lab_tools.py -q \
+            || { echo "::warning::Kitchen tools kept on the old patch"; git checkout -- tools/fun; }
       - uses: actions/setup-node@v4
         if: steps.check.outputs.status == 'ready'
         with:
@@ -64,7 +73,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add web/public/assets web/public/icons web/public/i18n web/src/data guide champions data/official
+          git add web/public/assets web/public/icons web/public/i18n web/src/data guide champions data/official tools/fun
           if git diff --cached --quiet; then
             echo "Nothing changed"
           else
