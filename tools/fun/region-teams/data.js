@@ -1,21 +1,39 @@
 window.REGION_DATA = {
- "patch": "16.20.8248524",
+ "patch": "16.22.8348910",
  "channel": "latest",
- "stat_date": "20261016",
+ "stat_date": "20261114",
  "regions": [
   {
    "key": "ionia",
    "name": "Ionia",
    "size": 23,
    "frontline": true,
-   "score": 1.3074,
-   "win_rate": 0.5526,
+   "score": 1.2334,
+   "win_rate": 0.5507,
    "champions": [
     {
      "alias": "Yasuo",
      "name": "Yasuo",
      "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/157.png",
-     "win_rate": 0.5737,
+     "win_rate": 0.5904,
+     "classes": [
+      "Slayer"
+     ]
+    },
+    {
+     "alias": "Yone",
+     "name": "Yone",
+     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/777.png",
+     "win_rate": 0.5649,
+     "classes": [
+      "Slayer"
+     ]
+    },
+    {
+     "alias": "MasterYi",
+     "name": "Master Yi",
+     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/11.png",
+     "win_rate": 0.5492,
      "classes": [
       "Slayer"
      ]
@@ -24,89 +42,71 @@ window.REGION_DATA = {
      "alias": "Lillia",
      "name": "Lillia",
      "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/876.png",
-     "win_rate": 0.5654,
+     "win_rate": 0.5372,
      "classes": [
       "Specialist"
      ]
     },
     {
-     "alias": "Yone",
-     "name": "Yone",
-     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/777.png",
-     "win_rate": 0.5608,
+     "alias": "Shen",
+     "name": "Shen",
+     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/98.png",
+     "win_rate": 0.5117,
      "classes": [
-      "Slayer"
-     ]
-    },
-    {
-     "alias": "Hwei",
-     "name": "Hwei",
-     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/910.png",
-     "win_rate": 0.5451,
-     "classes": [
-      "Mage"
-     ]
-    },
-    {
-     "alias": "Sett",
-     "name": "Sett",
-     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/875.png",
-     "win_rate": 0.5179,
-     "classes": [
-      "Fighter"
+      "Tank"
      ]
     }
    ],
    "pairs": [
     {
      "a": "Yasuo",
-     "b": "Hwei",
-     "win_rate": 0.6429
+     "b": "Yone",
+     "win_rate": 0.63
     },
     {
      "a": "Yasuo",
      "b": "Lillia",
-     "win_rate": 0.6423
-    },
-    {
-     "a": "Yone",
-     "b": "Hwei",
-     "win_rate": 0.6221
-    },
-    {
-     "a": "Lillia",
-     "b": "Yone",
-     "win_rate": 0.6187
+     "win_rate": 0.6257
     },
     {
      "a": "Yasuo",
-     "b": "Yone",
-     "win_rate": 0.6166
+     "b": "MasterYi",
+     "win_rate": 0.6192
     },
     {
-     "a": "Lillia",
-     "b": "Sett",
+     "a": "Yasuo",
+     "b": "Shen",
+     "win_rate": 0.6
+    },
+    {
+     "a": "Yone",
+     "b": "Lillia",
+     "win_rate": 0.5979
+    },
+    {
+     "a": "MasterYi",
+     "b": "Lillia",
+     "win_rate": 0.5936
+    },
+    {
+     "a": "Yone",
+     "b": "Shen",
+     "win_rate": 0.5932
+    },
+    {
+     "a": "Yone",
+     "b": "MasterYi",
      "win_rate": 0.5893
     },
     {
-     "a": "Yasuo",
-     "b": "Sett",
-     "win_rate": 0.5867
-    },
-    {
      "a": "Lillia",
-     "b": "Hwei",
-     "win_rate": 0.5865
+     "b": "Shen",
+     "win_rate": 0.5811
     },
     {
-     "a": "Yone",
-     "b": "Sett",
-     "win_rate": 0.5766
-    },
-    {
-     "a": "Hwei",
-     "b": "Sett",
-     "win_rate": 0.5628
+     "a": "MasterYi",
+     "b": "Shen",
+     "win_rate": 0.55
     }
    ]
   },
@@ -115,32 +115,14 @@ window.REGION_DATA = {
    "name": "Demacia",
    "size": 15,
    "frontline": true,
-   "score": 0.9796,
-   "win_rate": 0.5394,
+   "score": 1.1564,
+   "win_rate": 0.5459,
    "champions": [
-    {
-     "alias": "Morgana",
-     "name": "Morgana",
-     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/25.png",
-     "win_rate": 0.5517,
-     "classes": [
-      "Controller"
-     ]
-    },
-    {
-     "alias": "Kayle",
-     "name": "Kayle",
-     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/10.png",
-     "win_rate": 0.5503,
-     "classes": [
-      "Specialist"
-     ]
-    },
     {
      "alias": "Fiora",
      "name": "Fiora",
      "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/114.png",
-     "win_rate": 0.541,
+     "win_rate": 0.5605,
      "classes": [
       "Slayer"
      ]
@@ -149,71 +131,89 @@ window.REGION_DATA = {
      "alias": "XinZhao",
      "name": "Xin Zhao",
      "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/5.png",
-     "win_rate": 0.5308,
+     "win_rate": 0.5553,
      "classes": [
       "Fighter"
      ]
     },
     {
-     "alias": "Sona",
-     "name": "Sona",
-     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/37.png",
-     "win_rate": 0.5232,
+     "alias": "Kayle",
+     "name": "Kayle",
+     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/10.png",
+     "win_rate": 0.5487,
+     "classes": [
+      "Specialist"
+     ]
+    },
+    {
+     "alias": "Morgana",
+     "name": "Morgana",
+     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/25.png",
+     "win_rate": 0.5348,
      "classes": [
       "Controller"
+     ]
+    },
+    {
+     "alias": "Poppy",
+     "name": "Poppy",
+     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/78.png",
+     "win_rate": 0.53,
+     "classes": [
+      "Tank"
      ]
     }
    ],
    "pairs": [
     {
-     "a": "Morgana",
-     "b": "Fiora",
-     "win_rate": 0.6088
+     "a": "Fiora",
+     "b": "Morgana",
+     "win_rate": 0.6131
     },
     {
-     "a": "Morgana",
+     "a": "Fiora",
      "b": "Kayle",
-     "win_rate": 0.5997
-    },
-    {
-     "a": "Kayle",
-     "b": "Fiora",
-     "win_rate": 0.5992
-    },
-    {
-     "a": "Morgana",
-     "b": "XinZhao",
-     "win_rate": 0.5959
-    },
-    {
-     "a": "Kayle",
-     "b": "XinZhao",
-     "win_rate": 0.5838
-    },
-    {
-     "a": "Kayle",
-     "b": "Sona",
-     "win_rate": 0.5712
-    },
-    {
-     "a": "Morgana",
-     "b": "Sona",
-     "win_rate": 0.5698
-    },
-    {
-     "a": "Fiora",
-     "b": "Sona",
-     "win_rate": 0.5616
-    },
-    {
-     "a": "Fiora",
-     "b": "XinZhao",
-     "win_rate": 0.5471
+     "win_rate": 0.6082
     },
     {
      "a": "XinZhao",
-     "b": "Sona",
-     "win_rate": 0.5455
+     "b": "Morgana",
+     "win_rate": 0.6062
+    },
+    {
+     "a": "XinZhao",
+     "b": "Kayle",
+     "win_rate": 0.6039
+    },
+    {
+     "a": "Kayle",
+     "b": "Poppy",
+     "win_rate": 0.5993
+    },
+    {
+     "a": "Kayle",
+     "b": "Morgana",
+     "win_rate": 0.5892
+    },
+    {
+     "a": "Fiora",
+     "b": "XinZhao",
+     "win_rate": 0.5841
+    },
+    {
+     "a": "Morgana",
+     "b": "Poppy",
+     "win_rate": 0.5775
+    },
+    {
+     "a": "Fiora",
+     "b": "Poppy",
+     "win_rate": 0.5749
+    },
+    {
+     "a": "XinZhao",
+     "b": "Poppy",
+     "win_rate": 0.5707
     }
    ]
   },
@@ -222,41 +222,41 @@ window.REGION_DATA = {
    "name": "Runeterra",
    "size": 21,
    "frontline": true,
-   "score": 0.7475,
-   "win_rate": 0.5292,
+   "score": 0.8352,
+   "win_rate": 0.5324,
    "champions": [
     {
-     "alias": "AurelionSol",
-     "name": "Aurelion Sol",
-     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/136.png",
-     "win_rate": 0.5475,
+     "alias": "Zaahen",
+     "name": "Zaahen",
+     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/904.png",
+     "win_rate": 0.5477,
      "classes": [
-      "Mage"
+      "Fighter"
      ]
     },
     {
      "alias": "TahmKench",
      "name": "Tahm Kench",
      "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/223.png",
-     "win_rate": 0.5306,
+     "win_rate": 0.5381,
      "classes": [
       "Tank"
      ]
     },
     {
-     "alias": "Zaahen",
-     "name": "Zaahen",
-     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/904.png",
-     "win_rate": 0.5233,
+     "alias": "Jax",
+     "name": "Jax",
+     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/24.png",
+     "win_rate": 0.534,
      "classes": [
-      "Fighter"
+      "Slayer"
      ]
     },
     {
      "alias": "Zilean",
      "name": "Zilean",
      "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/26.png",
-     "win_rate": 0.5228,
+     "win_rate": 0.5224,
      "classes": [
       "Specialist"
      ]
@@ -265,7 +265,7 @@ window.REGION_DATA = {
      "alias": "Ryze",
      "name": "Ryze",
      "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/13.png",
-     "win_rate": 0.522,
+     "win_rate": 0.5198,
      "classes": [
       "Mage"
      ]
@@ -273,355 +273,54 @@ window.REGION_DATA = {
    ],
    "pairs": [
     {
-     "a": "AurelionSol",
+     "a": "Zaahen",
+     "b": "Zilean",
+     "win_rate": 0.5784
+    },
+    {
+     "a": "TahmKench",
+     "b": "Zilean",
+     "win_rate": 0.5783
+    },
+    {
+     "a": "Zaahen",
+     "b": "Ryze",
+     "win_rate": 0.576
+    },
+    {
+     "a": "Zaahen",
      "b": "TahmKench",
-     "win_rate": 0.5925
+     "win_rate": 0.5739
     },
     {
-     "a": "AurelionSol",
-     "b": "Zaahen",
-     "win_rate": 0.584
-    },
-    {
-     "a": "TahmKench",
+     "a": "Jax",
      "b": "Zilean",
-     "win_rate": 0.5748
-    },
-    {
-     "a": "AurelionSol",
-     "b": "Ryze",
-     "win_rate": 0.5647
-    },
-    {
-     "a": "Zaahen",
-     "b": "Zilean",
-     "win_rate": 0.5551
-    },
-    {
-     "a": "AurelionSol",
-     "b": "Zilean",
-     "win_rate": 0.5537
-    },
-    {
-     "a": "TahmKench",
-     "b": "Ryze",
-     "win_rate": 0.5484
-    },
-    {
-     "a": "Zaahen",
-     "b": "Ryze",
-     "win_rate": 0.5477
+     "win_rate": 0.5697
     },
     {
      "a": "Zilean",
      "b": "Ryze",
-     "win_rate": 0.5423
+     "win_rate": 0.5685
+    },
+    {
+     "a": "Zaahen",
+     "b": "Jax",
+     "win_rate": 0.5663
     },
     {
      "a": "TahmKench",
-     "b": "Zaahen",
-     "win_rate": 0.5381
-    }
-   ]
-  },
-  {
-   "key": "shadow-isles",
-   "name": "Shadow Isles",
-   "size": 10,
-   "frontline": true,
-   "score": 0.5736,
-   "win_rate": 0.5222,
-   "champions": [
-    {
-     "alias": "Gwen",
-     "name": "Gwen",
-     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/887.png",
-     "win_rate": 0.5612,
-     "classes": [
-      "Slayer"
-     ]
+     "b": "Ryze",
+     "win_rate": 0.5613
     },
     {
-     "alias": "Hecarim",
-     "name": "Hecarim",
-     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/120.png",
-     "win_rate": 0.5577,
-     "classes": [
-      "Fighter"
-     ]
-    },
-    {
-     "alias": "Kalista",
-     "name": "Kalista",
-     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/429.png",
-     "win_rate": 0.4998,
-     "classes": [
-      "Marksman"
-     ]
-    },
-    {
-     "alias": "Thresh",
-     "name": "Thresh",
-     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/412.png",
-     "win_rate": 0.4988,
-     "classes": [
-      "Controller"
-     ]
-    },
-    {
-     "alias": "Vex",
-     "name": "Vex",
-     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/711.png",
-     "win_rate": 0.4934,
-     "classes": [
-      "Mage"
-     ]
-    }
-   ],
-   "pairs": [
-    {
-     "a": "Gwen",
-     "b": "Hecarim",
-     "win_rate": 0.608
-    },
-    {
-     "a": "Gwen",
-     "b": "Vex",
-     "win_rate": 0.5693
-    },
-    {
-     "a": "Hecarim",
-     "b": "Vex",
-     "win_rate": 0.5642
-    },
-    {
-     "a": "Gwen",
-     "b": "Thresh",
-     "win_rate": 0.5602
-    },
-    {
-     "a": "Hecarim",
-     "b": "Kalista",
-     "win_rate": 0.5539
-    },
-    {
-     "a": "Gwen",
-     "b": "Kalista",
+     "a": "Jax",
+     "b": "Ryze",
      "win_rate": 0.551
     },
     {
-     "a": "Hecarim",
-     "b": "Thresh",
-     "win_rate": 0.5446
-    },
-    {
-     "a": "Kalista",
-     "b": "Thresh",
-     "win_rate": 0.5148
-    },
-    {
-     "a": "Thresh",
-     "b": "Vex",
-     "win_rate": 0.4967
-    }
-   ]
-  },
-  {
-   "key": "zaun",
-   "name": "Zaun",
-   "size": 14,
-   "frontline": true,
-   "score": 0.5551,
-   "win_rate": 0.5202,
-   "champions": [
-    {
-     "alias": "Viktor",
-     "name": "Viktor",
-     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/112.png",
-     "win_rate": 0.5371,
-     "classes": [
-      "Mage"
-     ]
-    },
-    {
-     "alias": "Ekko",
-     "name": "Ekko",
-     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/245.png",
-     "win_rate": 0.5336,
-     "classes": [
-      "Slayer"
-     ]
-    },
-    {
-     "alias": "Janna",
-     "name": "Janna",
-     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/40.png",
-     "win_rate": 0.5229,
-     "classes": [
-      "Controller"
-     ]
-    },
-    {
-     "alias": "Jinx",
-     "name": "Jinx",
-     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/222.png",
-     "win_rate": 0.5143,
-     "classes": [
-      "Marksman"
-     ]
-    },
-    {
-     "alias": "DrMundo",
-     "name": "Dr. Mundo",
-     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/36.png",
-     "win_rate": 0.4933,
-     "classes": [
-      "Fighter"
-     ]
-    }
-   ],
-   "pairs": [
-    {
-     "a": "Viktor",
-     "b": "Ekko",
-     "win_rate": 0.5719
-    },
-    {
-     "a": "Ekko",
-     "b": "Janna",
-     "win_rate": 0.5684
-    },
-    {
-     "a": "Viktor",
-     "b": "Janna",
-     "win_rate": 0.5677
-    },
-    {
-     "a": "Ekko",
-     "b": "Jinx",
-     "win_rate": 0.5623
-    },
-    {
-     "a": "Janna",
-     "b": "Jinx",
-     "win_rate": 0.5559
-    },
-    {
-     "a": "Viktor",
-     "b": "Jinx",
-     "win_rate": 0.5522
-    },
-    {
-     "a": "Viktor",
-     "b": "DrMundo",
-     "win_rate": 0.5432
-    },
-    {
-     "a": "Ekko",
-     "b": "DrMundo",
-     "win_rate": 0.5207
-    },
-    {
-     "a": "Jinx",
-     "b": "DrMundo",
-     "win_rate": 0.5116
-    }
-   ]
-  },
-  {
-   "key": "void",
-   "name": "Void",
-   "size": 9,
-   "frontline": true,
-   "score": 0.4688,
-   "win_rate": 0.5166,
-   "champions": [
-    {
-     "alias": "Belveth",
-     "name": "Bel'Veth",
-     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/200.png",
-     "win_rate": 0.565,
-     "classes": [
-      "Slayer"
-     ]
-    },
-    {
-     "alias": "Malzahar",
-     "name": "Malzahar",
-     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/90.png",
-     "win_rate": 0.5155,
-     "classes": [
-      "Mage"
-     ]
-    },
-    {
-     "alias": "Velkoz",
-     "name": "Vel'Koz",
-     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/161.png",
-     "win_rate": 0.5053,
-     "classes": [
-      "Mage"
-     ]
-    },
-    {
-     "alias": "Kassadin",
-     "name": "Kassadin",
-     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/38.png",
-     "win_rate": 0.5007,
-     "classes": [
-      "Slayer"
-     ]
-    },
-    {
-     "alias": "RekSai",
-     "name": "Rek'Sai",
-     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/421.png",
-     "win_rate": 0.4965,
-     "classes": [
-      "Fighter"
-     ]
-    }
-   ],
-   "pairs": [
-    {
-     "a": "Belveth",
-     "b": "Malzahar",
-     "win_rate": 0.5951
-    },
-    {
-     "a": "Belveth",
-     "b": "Velkoz",
-     "win_rate": 0.59
-    },
-    {
-     "a": "Belveth",
-     "b": "Kassadin",
-     "win_rate": 0.5642
-    },
-    {
-     "a": "Belveth",
-     "b": "RekSai",
-     "win_rate": 0.5591
-    },
-    {
-     "a": "Malzahar",
-     "b": "Kassadin",
-     "win_rate": 0.5301
-    },
-    {
-     "a": "Malzahar",
-     "b": "RekSai",
-     "win_rate": 0.5231
-    },
-    {
-     "a": "Velkoz",
-     "b": "Kassadin",
-     "win_rate": 0.5177
-    },
-    {
-     "a": "Velkoz",
-     "b": "RekSai",
-     "win_rate": 0.5065
+     "a": "TahmKench",
+     "b": "Jax",
+     "win_rate": 0.5498
     }
    ]
   },
@@ -630,23 +329,32 @@ window.REGION_DATA = {
    "name": "Bilgewater",
    "size": 8,
    "frontline": true,
-   "score": 0.4433,
-   "win_rate": 0.5155,
+   "score": 0.5615,
+   "win_rate": 0.5201,
    "champions": [
     {
      "alias": "TwistedFate",
      "name": "Twisted Fate",
      "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/4.png",
-     "win_rate": 0.5606,
+     "win_rate": 0.5663,
      "classes": [
       "Mage"
+     ]
+    },
+    {
+     "alias": "Nilah",
+     "name": "Nilah",
+     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/895.png",
+     "win_rate": 0.5165,
+     "classes": [
+      "Slayer"
      ]
     },
     {
      "alias": "Graves",
      "name": "Graves",
      "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/104.png",
-     "win_rate": 0.5188,
+     "win_rate": 0.5113,
      "classes": [
       "Specialist"
      ]
@@ -655,25 +363,16 @@ window.REGION_DATA = {
      "alias": "MissFortune",
      "name": "Miss Fortune",
      "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/21.png",
-     "win_rate": 0.5097,
+     "win_rate": 0.5058,
      "classes": [
       "Marksman"
-     ]
-    },
-    {
-     "alias": "Gangplank",
-     "name": "Gangplank",
-     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/41.png",
-     "win_rate": 0.5043,
-     "classes": [
-      "Specialist"
      ]
     },
     {
      "alias": "Nautilus",
      "name": "Nautilus",
      "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/111.png",
-     "win_rate": 0.4839,
+     "win_rate": 0.5005,
      "classes": [
       "Tank"
      ]
@@ -683,105 +382,201 @@ window.REGION_DATA = {
     {
      "a": "TwistedFate",
      "b": "Graves",
-     "win_rate": 0.5978
+     "win_rate": 0.5929
     },
     {
      "a": "TwistedFate",
-     "b": "Gangplank",
-     "win_rate": 0.573
+     "b": "Nilah",
+     "win_rate": 0.5906
+    },
+    {
+     "a": "TwistedFate",
+     "b": "Nautilus",
+     "win_rate": 0.5684
     },
     {
      "a": "TwistedFate",
      "b": "MissFortune",
-     "win_rate": 0.5586
+     "win_rate": 0.5633
     },
     {
-     "a": "TwistedFate",
+     "a": "Nilah",
      "b": "Nautilus",
-     "win_rate": 0.5454
+     "win_rate": 0.5423
+    },
+    {
+     "a": "Graves",
+     "b": "Nautilus",
+     "win_rate": 0.5345
+    },
+    {
+     "a": "Nilah",
+     "b": "MissFortune",
+     "win_rate": 0.5304
     },
     {
      "a": "Graves",
      "b": "MissFortune",
-     "win_rate": 0.5433
-    },
-    {
-     "a": "Graves",
-     "b": "Nautilus",
-     "win_rate": 0.5219
-    },
-    {
-     "a": "MissFortune",
-     "b": "Gangplank",
-     "win_rate": 0.5163
-    },
-    {
-     "a": "Graves",
-     "b": "Gangplank",
-     "win_rate": 0.5152
+     "win_rate": 0.5206
     },
     {
      "a": "MissFortune",
      "b": "Nautilus",
-     "win_rate": 0.5018
-    },
-    {
-     "a": "Gangplank",
-     "b": "Nautilus",
-     "win_rate": 0.4927
+     "win_rate": 0.5181
     }
    ]
   },
   {
-   "key": "bandle-city",
-   "name": "Bandle City",
-   "size": 7,
-   "frontline": false,
-   "score": 0.3151,
-   "win_rate": 0.5125,
+   "key": "zaun",
+   "name": "Zaun",
+   "size": 14,
+   "frontline": true,
+   "score": 0.4653,
+   "win_rate": 0.522,
    "champions": [
     {
-     "alias": "Teemo",
-     "name": "Teemo",
-     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/17.png",
-     "win_rate": 0.5357,
+     "alias": "Ekko",
+     "name": "Ekko",
+     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/245.png",
+     "win_rate": 0.5475,
      "classes": [
-      "Specialist"
+      "Slayer"
      ]
     },
     {
-     "alias": "Yuumi",
-     "name": "Yuumi",
-     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/350.png",
-     "win_rate": 0.5134,
+     "alias": "Viktor",
+     "name": "Viktor",
+     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/112.png",
+     "win_rate": 0.5223,
+     "classes": [
+      "Mage"
+     ]
+    },
+    {
+     "alias": "Janna",
+     "name": "Janna",
+     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/40.png",
+     "win_rate": 0.5212,
      "classes": [
       "Controller"
      ]
     },
     {
-     "alias": "Corki",
-     "name": "Corki",
-     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/42.png",
-     "win_rate": 0.5111,
+     "alias": "DrMundo",
+     "name": "Dr. Mundo",
+     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/36.png",
+     "win_rate": 0.5125,
      "classes": [
-      "Marksman",
-      "Mage"
+      "Fighter"
      ]
     },
     {
-     "alias": "Veigar",
-     "name": "Veigar",
-     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/45.png",
-     "win_rate": 0.5023,
+     "alias": "Renata",
+     "name": "Renata Glasc",
+     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/888.png",
+     "win_rate": 0.5063,
      "classes": [
-      "Mage"
+      "Controller"
+     ]
+    }
+   ],
+   "pairs": [
+    {
+     "a": "Ekko",
+     "b": "Viktor",
+     "win_rate": 0.576
+    },
+    {
+     "a": "Ekko",
+     "b": "DrMundo",
+     "win_rate": 0.5568
+    },
+    {
+     "a": "Ekko",
+     "b": "Renata",
+     "win_rate": 0.5558
+    },
+    {
+     "a": "Viktor",
+     "b": "DrMundo",
+     "win_rate": 0.5473
+    },
+    {
+     "a": "Ekko",
+     "b": "Janna",
+     "win_rate": 0.529
+    },
+    {
+     "a": "DrMundo",
+     "b": "Renata",
+     "win_rate": 0.5241
+    },
+    {
+     "a": "Viktor",
+     "b": "Renata",
+     "win_rate": 0.5236
+    },
+    {
+     "a": "Viktor",
+     "b": "Janna",
+     "win_rate": 0.5219
+    },
+    {
+     "a": "Janna",
+     "b": "DrMundo",
+     "win_rate": 0.521
+    }
+   ]
+  },
+  {
+   "key": "shadow-isles",
+   "name": "Shadow Isles",
+   "size": 10,
+   "frontline": true,
+   "score": 0.4393,
+   "win_rate": 0.5197,
+   "champions": [
+    {
+     "alias": "Gwen",
+     "name": "Gwen",
+     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/887.png",
+     "win_rate": 0.564,
+     "classes": [
+      "Slayer"
      ]
     },
     {
-     "alias": "Rumble",
-     "name": "Rumble",
-     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/68.png",
-     "win_rate": 0.5,
+     "alias": "Viego",
+     "name": "Viego",
+     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/234.png",
+     "win_rate": 0.5266,
+     "classes": [
+      "Slayer"
+     ]
+    },
+    {
+     "alias": "Thresh",
+     "name": "Thresh",
+     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/412.png",
+     "win_rate": 0.5119,
+     "classes": [
+      "Controller"
+     ]
+    },
+    {
+     "alias": "Maokai",
+     "name": "Maokai",
+     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/57.png",
+     "win_rate": 0.4994,
+     "classes": [
+      "Tank"
+     ]
+    },
+    {
+     "alias": "Vex",
+     "name": "Vex",
+     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/711.png",
+     "win_rate": 0.4964,
      "classes": [
       "Mage"
      ]
@@ -789,44 +584,44 @@ window.REGION_DATA = {
    ],
    "pairs": [
     {
-     "a": "Teemo",
-     "b": "Corki",
-     "win_rate": 0.5517
+     "a": "Gwen",
+     "b": "Vex",
+     "win_rate": 0.5875
     },
     {
-     "a": "Yuumi",
-     "b": "Corki",
-     "win_rate": 0.5458
+     "a": "Gwen",
+     "b": "Maokai",
+     "win_rate": 0.5744
     },
     {
-     "a": "Teemo",
-     "b": "Yuumi",
-     "win_rate": 0.5411
+     "a": "Gwen",
+     "b": "Thresh",
+     "win_rate": 0.5728
     },
     {
-     "a": "Teemo",
-     "b": "Veigar",
-     "win_rate": 0.5323
+     "a": "Viego",
+     "b": "Vex",
+     "win_rate": 0.5386
     },
     {
-     "a": "Teemo",
-     "b": "Rumble",
+     "a": "Viego",
+     "b": "Thresh",
      "win_rate": 0.5318
     },
     {
-     "a": "Yuumi",
-     "b": "Veigar",
-     "win_rate": 0.5187
+     "a": "Viego",
+     "b": "Maokai",
+     "win_rate": 0.5248
     },
     {
-     "a": "Corki",
-     "b": "Veigar",
-     "win_rate": 0.5175
+     "a": "Thresh",
+     "b": "Vex",
+     "win_rate": 0.5138
     },
     {
-     "a": "Corki",
-     "b": "Rumble",
-     "win_rate": 0.5137
+     "a": "Maokai",
+     "b": "Vex",
+     "win_rate": 0.4973
     }
    ]
   },
@@ -835,50 +630,50 @@ window.REGION_DATA = {
    "name": "Noxus",
    "size": 17,
    "frontline": true,
-   "score": 0.2845,
-   "win_rate": 0.5162,
+   "score": 0.3738,
+   "win_rate": 0.5181,
    "champions": [
-    {
-     "alias": "Ambessa",
-     "name": "Ambessa",
-     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/799.png",
-     "win_rate": 0.5268,
-     "classes": [
-      "Fighter"
-     ]
-    },
-    {
-     "alias": "Briar",
-     "name": "Briar",
-     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/233.png",
-     "win_rate": 0.5259,
-     "classes": [
-      "Fighter"
-     ]
-    },
     {
      "alias": "Rell",
      "name": "Rell",
      "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/526.png",
-     "win_rate": 0.5183,
+     "win_rate": 0.5447,
      "classes": [
       "Tank"
+     ]
+    },
+    {
+     "alias": "Ambessa",
+     "name": "Ambessa",
+     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/799.png",
+     "win_rate": 0.5251,
+     "classes": [
+      "Fighter"
      ]
     },
     {
      "alias": "Sion",
      "name": "Sion",
      "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/14.png",
-     "win_rate": 0.5068,
+     "win_rate": 0.5121,
      "classes": [
       "Tank"
+     ]
+    },
+    {
+     "alias": "Draven",
+     "name": "Draven",
+     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/119.png",
+     "win_rate": 0.5095,
+     "classes": [
+      "Marksman"
      ]
     },
     {
      "alias": "Swain",
      "name": "Swain",
      "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/50.png",
-     "win_rate": 0.5034,
+     "win_rate": 0.4993,
      "classes": [
       "Mage"
      ]
@@ -886,96 +681,91 @@ window.REGION_DATA = {
    ],
    "pairs": [
     {
-     "a": "Ambessa",
-     "b": "Rell",
-     "win_rate": 0.5517
-    },
-    {
-     "a": "Ambessa",
-     "b": "Sion",
-     "win_rate": 0.536
-    },
-    {
-     "a": "Briar",
-     "b": "Sion",
-     "win_rate": 0.5323
-    },
-    {
-     "a": "Ambessa",
-     "b": "Swain",
-     "win_rate": 0.5298
+     "a": "Rell",
+     "b": "Ambessa",
+     "win_rate": 0.5765
     },
     {
      "a": "Rell",
-     "b": "Swain",
-     "win_rate": 0.5193
+     "b": "Draven",
+     "win_rate": 0.5638
     },
     {
-     "a": "Briar",
-     "b": "Swain",
-     "win_rate": 0.5156
-    },
-    {
-     "a": "Rell",
+     "a": "Ambessa",
      "b": "Sion",
-     "win_rate": 0.5137
+     "win_rate": 0.5424
+    },
+    {
+     "a": "Ambessa",
+     "b": "Swain",
+     "win_rate": 0.5322
+    },
+    {
+     "a": "Ambessa",
+     "b": "Draven",
+     "win_rate": 0.5307
     },
     {
      "a": "Sion",
+     "b": "Draven",
+     "win_rate": 0.5283
+    },
+    {
+     "a": "Draven",
      "b": "Swain",
-     "win_rate": 0.5049
+     "win_rate": 0.5092
     }
    ]
   },
   {
-   "key": "piltover",
-   "name": "Piltover",
-   "size": 8,
+   "key": "void",
+   "name": "Void",
+   "size": 9,
    "frontline": true,
-   "score": 0.1444,
-   "win_rate": 0.5011,
+   "score": 0.3561,
+   "win_rate": 0.515,
    "champions": [
     {
-     "alias": "Seraphine",
-     "name": "Seraphine",
-     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/147.png",
-     "win_rate": 0.5351,
+     "alias": "Belveth",
+     "name": "Bel'Veth",
+     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/200.png",
+     "win_rate": 0.5503,
      "classes": [
-      "Controller"
+      "Slayer"
      ]
     },
     {
-     "alias": "Caitlyn",
-     "name": "Caitlyn",
-     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/51.png",
-     "win_rate": 0.5286,
-     "classes": [
-      "Marksman"
-     ]
-    },
-    {
-     "alias": "Heimerdinger",
-     "name": "Heimerdinger",
-     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/74.png",
-     "win_rate": 0.507,
-     "classes": [
-      "Specialist"
-     ]
-    },
-    {
-     "alias": "Orianna",
-     "name": "Orianna",
-     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/61.png",
-     "win_rate": 0.4727,
+     "alias": "Malzahar",
+     "name": "Malzahar",
+     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/90.png",
+     "win_rate": 0.5129,
      "classes": [
       "Mage"
      ]
     },
     {
-     "alias": "Camille",
-     "name": "Camille",
-     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/164.png",
-     "win_rate": 0.4621,
+     "alias": "Kassadin",
+     "name": "Kassadin",
+     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/38.png",
+     "win_rate": 0.5087,
+     "classes": [
+      "Slayer"
+     ]
+    },
+    {
+     "alias": "Velkoz",
+     "name": "Vel'Koz",
+     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/161.png",
+     "win_rate": 0.507,
+     "classes": [
+      "Mage"
+     ]
+    },
+    {
+     "alias": "RekSai",
+     "name": "Rek'Sai",
+     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/421.png",
+     "win_rate": 0.4963,
      "classes": [
       "Fighter"
      ]
@@ -983,39 +773,127 @@ window.REGION_DATA = {
    ],
    "pairs": [
     {
-     "a": "Seraphine",
-     "b": "Caitlyn",
-     "win_rate": 0.5673
+     "a": "Belveth",
+     "b": "Velkoz",
+     "win_rate": 0.579
     },
     {
-     "a": "Caitlyn",
-     "b": "Heimerdinger",
-     "win_rate": 0.5445
+     "a": "Belveth",
+     "b": "Malzahar",
+     "win_rate": 0.5651
     },
     {
-     "a": "Seraphine",
-     "b": "Heimerdinger",
-     "win_rate": 0.5295
+     "a": "Belveth",
+     "b": "Kassadin",
+     "win_rate": 0.5549
     },
     {
-     "a": "Seraphine",
-     "b": "Camille",
-     "win_rate": 0.5126
+     "a": "Belveth",
+     "b": "RekSai",
+     "win_rate": 0.5352
     },
     {
-     "a": "Caitlyn",
-     "b": "Orianna",
-     "win_rate": 0.5028
+     "a": "Malzahar",
+     "b": "Kassadin",
+     "win_rate": 0.5304
     },
     {
-     "a": "Caitlyn",
-     "b": "Camille",
-     "win_rate": 0.4943
+     "a": "Malzahar",
+     "b": "RekSai",
+     "win_rate": 0.5163
+    }
+   ]
+  },
+  {
+   "key": "bandle-city",
+   "name": "Bandle City",
+   "size": 7,
+   "frontline": false,
+   "score": 0.2656,
+   "win_rate": 0.5107,
+   "champions": [
+    {
+     "alias": "Teemo",
+     "name": "Teemo",
+     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/17.png",
+     "win_rate": 0.5353,
+     "classes": [
+      "Specialist"
+     ]
     },
     {
-     "a": "Seraphine",
-     "b": "Orianna",
-     "win_rate": 0.4879
+     "alias": "Corki",
+     "name": "Corki",
+     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/42.png",
+     "win_rate": 0.5169,
+     "classes": [
+      "Marksman",
+      "Mage"
+     ]
+    },
+    {
+     "alias": "Yuumi",
+     "name": "Yuumi",
+     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/350.png",
+     "win_rate": 0.5088,
+     "classes": [
+      "Controller"
+     ]
+    },
+    {
+     "alias": "Rumble",
+     "name": "Rumble",
+     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/68.png",
+     "win_rate": 0.4966,
+     "classes": [
+      "Mage"
+     ]
+    },
+    {
+     "alias": "Veigar",
+     "name": "Veigar",
+     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/45.png",
+     "win_rate": 0.496,
+     "classes": [
+      "Mage"
+     ]
+    }
+   ],
+   "pairs": [
+    {
+     "a": "Teemo",
+     "b": "Corki",
+     "win_rate": 0.5569
+    },
+    {
+     "a": "Corki",
+     "b": "Yuumi",
+     "win_rate": 0.5487
+    },
+    {
+     "a": "Teemo",
+     "b": "Yuumi",
+     "win_rate": 0.5384
+    },
+    {
+     "a": "Teemo",
+     "b": "Rumble",
+     "win_rate": 0.5228
+    },
+    {
+     "a": "Corki",
+     "b": "Rumble",
+     "win_rate": 0.518
+    },
+    {
+     "a": "Teemo",
+     "b": "Veigar",
+     "win_rate": 0.5159
+    },
+    {
+     "a": "Corki",
+     "b": "Veigar",
+     "win_rate": 0.5113
     }
    ]
   },
@@ -1024,32 +902,14 @@ window.REGION_DATA = {
    "name": "Freljord",
    "size": 15,
    "frontline": true,
-   "score": 0.0566,
-   "win_rate": 0.4995,
+   "score": 0.2604,
+   "win_rate": 0.5093,
    "champions": [
-    {
-     "alias": "Aurora",
-     "name": "Aurora",
-     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/893.png",
-     "win_rate": 0.516,
-     "classes": [
-      "Mage"
-     ]
-    },
-    {
-     "alias": "Trundle",
-     "name": "Trundle",
-     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/48.png",
-     "win_rate": 0.5045,
-     "classes": [
-      "Fighter"
-     ]
-    },
     {
      "alias": "Volibear",
      "name": "Volibear",
      "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/106.png",
-     "win_rate": 0.4978,
+     "win_rate": 0.5212,
      "classes": [
       "Fighter"
      ]
@@ -1058,16 +918,34 @@ window.REGION_DATA = {
      "alias": "Tryndamere",
      "name": "Tryndamere",
      "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/23.png",
-     "win_rate": 0.4952,
+     "win_rate": 0.5175,
      "classes": [
       "Slayer"
      ]
     },
     {
-     "alias": "Ornn",
-     "name": "Ornn",
-     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/516.png",
-     "win_rate": 0.4841,
+     "alias": "Trundle",
+     "name": "Trundle",
+     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/48.png",
+     "win_rate": 0.5098,
+     "classes": [
+      "Fighter"
+     ]
+    },
+    {
+     "alias": "Aurora",
+     "name": "Aurora",
+     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/893.png",
+     "win_rate": 0.5046,
+     "classes": [
+      "Mage"
+     ]
+    },
+    {
+     "alias": "Gragas",
+     "name": "Gragas",
+     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/79.png",
+     "win_rate": 0.4935,
      "classes": [
       "Tank"
      ]
@@ -1075,39 +953,49 @@ window.REGION_DATA = {
    ],
    "pairs": [
     {
-     "a": "Aurora",
+     "a": "Volibear",
+     "b": "Tryndamere",
+     "win_rate": 0.5415
+    },
+    {
+     "a": "Volibear",
      "b": "Trundle",
-     "win_rate": 0.536
+     "win_rate": 0.5343
     },
     {
-     "a": "Aurora",
-     "b": "Tryndamere",
-     "win_rate": 0.5228
-    },
-    {
-     "a": "Aurora",
-     "b": "Volibear",
-     "win_rate": 0.5164
-    },
-    {
-     "a": "Aurora",
-     "b": "Ornn",
-     "win_rate": 0.5095
+     "a": "Tryndamere",
+     "b": "Aurora",
+     "win_rate": 0.5314
     },
     {
      "a": "Trundle",
-     "b": "Volibear",
-     "win_rate": 0.4989
+     "b": "Aurora",
+     "win_rate": 0.5275
+    },
+    {
+     "a": "Volibear",
+     "b": "Aurora",
+     "win_rate": 0.5257
+    },
+    {
+     "a": "Tryndamere",
+     "b": "Gragas",
+     "win_rate": 0.521
+    },
+    {
+     "a": "Tryndamere",
+     "b": "Trundle",
+     "win_rate": 0.5189
+    },
+    {
+     "a": "Volibear",
+     "b": "Gragas",
+     "win_rate": 0.5086
     },
     {
      "a": "Trundle",
-     "b": "Tryndamere",
-     "win_rate": 0.4942
-    },
-    {
-     "a": "Trundle",
-     "b": "Ornn",
-     "win_rate": 0.4812
+     "b": "Gragas",
+     "win_rate": 0.5049
     }
    ]
   },
@@ -1116,32 +1004,23 @@ window.REGION_DATA = {
    "name": "Targon",
    "size": 7,
    "frontline": true,
-   "score": 0.0469,
-   "win_rate": 0.496,
+   "score": 0.0533,
+   "win_rate": 0.5058,
    "champions": [
-    {
-     "alias": "Aphelios",
-     "name": "Aphelios",
-     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/523.png",
-     "win_rate": 0.5143,
-     "classes": [
-      "Marksman"
-     ]
-    },
-    {
-     "alias": "Soraka",
-     "name": "Soraka",
-     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/16.png",
-     "win_rate": 0.4949,
-     "classes": [
-      "Controller"
-     ]
-    },
     {
      "alias": "Taric",
      "name": "Taric",
      "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/44.png",
-     "win_rate": 0.4925,
+     "win_rate": 0.5266,
+     "classes": [
+      "Tank"
+     ]
+    },
+    {
+     "alias": "Leona",
+     "name": "Leona",
+     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/89.png",
+     "win_rate": 0.514,
      "classes": [
       "Tank"
      ]
@@ -1150,36 +1029,122 @@ window.REGION_DATA = {
      "alias": "Pantheon",
      "name": "Pantheon",
      "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/80.png",
-     "win_rate": 0.492,
+     "win_rate": 0.5033,
      "classes": [
       "Fighter"
      ]
     },
     {
-     "alias": "Leona",
-     "name": "Leona",
-     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/89.png",
-     "win_rate": 0.4862,
+     "alias": "Soraka",
+     "name": "Soraka",
+     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/16.png",
+     "win_rate": 0.497,
      "classes": [
-      "Tank"
+      "Controller"
+     ]
+    },
+    {
+     "alias": "Aphelios",
+     "name": "Aphelios",
+     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/523.png",
+     "win_rate": 0.4882,
+     "classes": [
+      "Marksman"
      ]
     }
    ],
    "pairs": [
     {
-     "a": "Aphelios",
-     "b": "Taric",
-     "win_rate": 0.5252
+     "a": "Leona",
+     "b": "Aphelios",
+     "win_rate": 0.5187
     },
     {
-     "a": "Aphelios",
+     "a": "Pantheon",
      "b": "Soraka",
-     "win_rate": 0.5246
+     "win_rate": 0.5055
+    }
+   ]
+  },
+  {
+   "key": "piltover",
+   "name": "Piltover",
+   "size": 8,
+   "frontline": true,
+   "score": 0.0335,
+   "win_rate": 0.4997,
+   "champions": [
+    {
+     "alias": "Seraphine",
+     "name": "Seraphine",
+     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/147.png",
+     "win_rate": 0.5192,
+     "classes": [
+      "Controller"
+     ]
     },
     {
-     "a": "Aphelios",
-     "b": "Leona",
-     "win_rate": 0.5172
+     "alias": "Heimerdinger",
+     "name": "Heimerdinger",
+     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/74.png",
+     "win_rate": 0.5077,
+     "classes": [
+      "Specialist"
+     ]
+    },
+    {
+     "alias": "Caitlyn",
+     "name": "Caitlyn",
+     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/51.png",
+     "win_rate": 0.498,
+     "classes": [
+      "Marksman"
+     ]
+    },
+    {
+     "alias": "Camille",
+     "name": "Camille",
+     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/164.png",
+     "win_rate": 0.4879,
+     "classes": [
+      "Fighter"
+     ]
+    },
+    {
+     "alias": "Orianna",
+     "name": "Orianna",
+     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/61.png",
+     "win_rate": 0.4859,
+     "classes": [
+      "Mage"
+     ]
+    }
+   ],
+   "pairs": [
+    {
+     "a": "Seraphine",
+     "b": "Camille",
+     "win_rate": 0.5282
+    },
+    {
+     "a": "Seraphine",
+     "b": "Caitlyn",
+     "win_rate": 0.5193
+    },
+    {
+     "a": "Heimerdinger",
+     "b": "Caitlyn",
+     "win_rate": 0.514
+    },
+    {
+     "a": "Caitlyn",
+     "b": "Orianna",
+     "win_rate": 0.4869
+    },
+    {
+     "a": "Caitlyn",
+     "b": "Camille",
+     "win_rate": 0.4864
     }
    ]
   },
@@ -1188,23 +1153,14 @@ window.REGION_DATA = {
    "name": "Ixtal",
    "size": 8,
    "frontline": true,
-   "score": -0.0509,
-   "win_rate": 0.4898,
+   "score": -0.0168,
+   "win_rate": 0.4943,
    "champions": [
-    {
-     "alias": "Milio",
-     "name": "Milio",
-     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/902.png",
-     "win_rate": 0.5095,
-     "classes": [
-      "Controller"
-     ]
-    },
     {
      "alias": "Zyra",
      "name": "Zyra",
      "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/143.png",
-     "win_rate": 0.504,
+     "win_rate": 0.5033,
      "classes": [
       "Controller"
      ]
@@ -1213,87 +1169,113 @@ window.REGION_DATA = {
      "alias": "Rengar",
      "name": "Rengar",
      "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/107.png",
-     "win_rate": 0.4829,
+     "win_rate": 0.4992,
      "classes": [
       "Slayer"
      ]
     },
     {
-     "alias": "Skarner",
-     "name": "Skarner",
-     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/72.png",
-     "win_rate": 0.4812,
+     "alias": "Milio",
+     "name": "Milio",
+     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/902.png",
+     "win_rate": 0.4945,
      "classes": [
-      "Tank"
+      "Controller"
      ]
     },
     {
      "alias": "Malphite",
      "name": "Malphite",
      "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/54.png",
-     "win_rate": 0.4715,
+     "win_rate": 0.4891,
+     "classes": [
+      "Tank"
+     ]
+    },
+    {
+     "alias": "Skarner",
+     "name": "Skarner",
+     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/72.png",
+     "win_rate": 0.4853,
      "classes": [
       "Tank"
      ]
     }
    ],
-   "pairs": []
+   "pairs": [
+    {
+     "a": "Zyra",
+     "b": "Rengar",
+     "win_rate": 0.5216
+    },
+    {
+     "a": "Rengar",
+     "b": "Malphite",
+     "win_rate": 0.4902
+    }
+   ]
   },
   {
    "key": "shurima",
    "name": "Shurima",
    "size": 11,
    "frontline": true,
-   "score": -0.0782,
-   "win_rate": 0.4844,
+   "score": -0.0353,
+   "win_rate": 0.4912,
    "champions": [
-    {
-     "alias": "Xerath",
-     "name": "Xerath",
-     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/101.png",
-     "win_rate": 0.4876,
-     "classes": [
-      "Mage"
-     ]
-    },
     {
      "alias": "Nasus",
      "name": "Nasus",
      "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/75.png",
-     "win_rate": 0.4871,
+     "win_rate": 0.5049,
      "classes": [
       "Fighter"
-     ]
-    },
-    {
-     "alias": "Amumu",
-     "name": "Amumu",
-     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/32.png",
-     "win_rate": 0.4868,
-     "classes": [
-      "Tank"
      ]
     },
     {
      "alias": "Taliyah",
      "name": "Taliyah",
      "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/163.png",
-     "win_rate": 0.4823,
+     "win_rate": 0.495,
      "classes": [
       "Mage"
+     ]
+    },
+    {
+     "alias": "Xerath",
+     "name": "Xerath",
+     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/101.png",
+     "win_rate": 0.4904,
+     "classes": [
+      "Mage"
+     ]
+    },
+    {
+     "alias": "Amumu",
+     "name": "Amumu",
+     "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/32.png",
+     "win_rate": 0.4883,
+     "classes": [
+      "Tank"
      ]
     },
     {
      "alias": "Azir",
      "name": "Azir",
      "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/268.png",
-     "win_rate": 0.478,
+     "win_rate": 0.4775,
      "classes": [
       "Specialist"
      ]
     }
    ],
-   "pairs": []
+   "pairs": [
+    {
+     "a": "Nasus",
+     "b": "Xerath",
+     "win_rate": 0.5086
+    }
+   ]
   }
  ]
 };

@@ -1,5 +1,5 @@
 window.RYZE_DATA = {
- "patch": "16.20.8248524",
+ "patch": "16.22.8348910",
  "channel": "latest",
  "champion": {
   "name": "Ryze",
@@ -30,7 +30,7 @@ window.RYZE_DATA = {
      150.0,
      180.0
     ],
-    "apRatio": 0.6,
+    "apRatio": 0.7,
     "bonusManaRatio": 0.03
    },
    "E": {
@@ -930,7 +930,7 @@ window.RYZE_DATA = {
    "tier": "Prismatic",
    "icon": "/assets/cd/latest/game/assets/ux/kiwi/augments/icons/iamthejuggernaut_small.png",
    "values": {
-    "Stacks_Max": 10.0,
+    "Stacks_Max": 7.0,
     "Stack_Duration": 6.0,
     "StacksPerHit": 1.0,
     "MaxLevel": 2.0
