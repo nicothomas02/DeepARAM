@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { damageDealtWorth, gameLength, itemLift, itemLiftSummary, patchImpact, pbeForecast, playstyleClusters, playstyleOf, settlingOf, shiftsOf, typicalSettling } from "@/lib/analysis";
+import { damageDealtWorth, forecastScorecard, gameLength, itemLift, itemLiftSummary, patchImpact, pbeForecast, playstyleClusters, playstyleOf, settlingOf, shiftsOf, typicalSettling } from "@/lib/analysis";
 import { readRepoJson } from "@/lib/repo-data";
 
 // Readers for data/analysis (lib/analysis.ts): every page that uses them must get consistent, in-range values.
@@ -88,5 +88,19 @@ describe("item lift and game length", () => {
     const s = g.curves.all.survival;
     for (let i = 1; i < s.length; i++) expect(s[i]).toBeLessThanOrEqual(s[i - 1]);
     expect(g.curves.all.median).toBeGreaterThan(10);
+  });
+});
+
+describe("forecast scorecard", () => {
+  it("scores only patches with a week of games and keeps misses consistent", () => {
+    const s = forecastScorecard()!;
+    expect(s).toBeTruthy();
+    expect(s.patches.length + s.waiting.length).toBeGreaterThan(0);
+    for (const p of s.patches) {
+      expect(p.days).toBeGreaterThanOrEqual(s.min_days);
+      expect(p.summary.n).toBe(p.champions.length);
+      expect(p.summary.in50).toBeLessThanOrEqual(p.summary.in95);
+      for (const r of p.champions) expect(Math.abs(r.miss_pts - Math.abs(r.measured_pts - r.predicted_pts))).toBeLessThan(0.02);
+    }
   });
 });

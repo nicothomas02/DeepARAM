@@ -8,6 +8,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 import common as c  # noqa: E402
+import forecast_scorecard  # noqa: E402
 import game_length  # noqa: E402
 import item_lift  # noqa: E402
 import meta_settling  # noqa: E402
@@ -20,8 +21,10 @@ if __name__ == "__main__":
     c.write_json(c.OUT / "meta_settling.json", meta_settling.build())
     c.write_json(c.OUT / "playstyle_clusters.json", playstyle_clusters.build())
     c.write_json(c.OUT / "patch_forecast.json", patch_forecast.build())
+    forecast_scorecard.snapshot()  # freezes the forecast for the patch still on the test server
+    c.write_json(c.OUT / "forecast_scorecard.json", forecast_scorecard.build())
     c.write_json(c.OUT / "item_lift.json", item_lift.build())
     length = game_length.build()  # needs archive_aggregates.json, written by hand with owner_archive.py
     if length:
         c.write_json(c.OUT / "game_length.json", length)
-    print("data/analysis: patch_impact, meta_settling, playstyle_clusters, patch_forecast, item_lift" + (", game_length" if length else "") + " written")
+    print("data/analysis: patch_impact, meta_settling, playstyle_clusters, patch_forecast, forecast_scorecard, item_lift" + (", game_length" if length else "") + " written")

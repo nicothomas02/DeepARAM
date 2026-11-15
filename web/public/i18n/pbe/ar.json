@@ -51,5 +51,20 @@
  "Expected win-rate shift": "التغيّر المتوقع في نسبة الفوز",
  "predicted": "متوقع",
  "From how {n} past patch-note changes moved win rates. Typical miss {mae} pts, against {base} pts for assuming no change; the range is where the real shift usually lands.": "استنادًا إلى كيفية تحريك {n} تعديلًا سابقًا من ملاحظات التحديثات لنسب الفوز. الخطأ النموذجي {mae} نقطة، مقابل {base} نقطة عند افتراض عدم التغيير؛ النطاق هو حيث يقع التغيّر الحقيقي عادةً.",
- "pts": "نقطة"
+ "pts": "نقطة",
+ "Did we call it?": "هل أصبنا التوقّع؟",
+ "Beat no change": "أفضل من «بلا تغيير»",
+ "Missed more than no change": "أسوأ من «بلا تغيير»",
+ "After each patch goes live, the forecast saved before it shipped is checked against how each champion really moved.": "بعد صدور كل تحديث، نقارن التوقّع المحفوظ قبل صدوره بكيفية تحرّك كل بطل فعلًا.",
+ "Patch {patch}: the forecast for {n} champions is saved. The score comes after a week of games (day {day} of {of}).": "التحديث {patch}: حُفظ التوقّع لـ {n} بطلًا. تظهر النتيجة بعد أسبوع من المباريات (اليوم {day} من {of}).",
+ "Patch {patch}: typical miss {mae} pts, against {base} pts for assuming no change.": "التحديث {patch}: الخطأ النموذجي {mae} نقطة، مقابل {base} نقطة عند افتراض عدم التغيير.",
+ "Right direction for {right} of {of} champions.": "اتجاه صحيح لـ {right} من أصل {of} بطلًا.",
+ "{in95}% landed inside the range (95% expected) and {in50}% inside its middle half (50% expected).": "وقع {in95}% داخل النطاق (المتوقّع 95%) و{in50}% داخل نصفه الأوسط (المتوقّع 50%).",
+ "Still counting: day {days} of the patch.": "ما زال العدّ جاريًا: اليوم {days} من التحديث.",
+ "measured": "المقيس",
+ "in range": "داخل النطاق",
+ "outside": "خارجه",
+ "Patch {patch}": "التحديث {patch}",
+ "{n} champions, miss {mae} pts against {base}, {in95}% in range": "{n} بطلًا، خطأ {mae} نقطة مقابل {base}، و{in95}% داخل النطاق",
+ "All patches": "كل التحديثات"
 }

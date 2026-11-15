@@ -51,5 +51,20 @@
  "Expected win-rate shift": "Mudança esperada na taxa de vitória",
  "predicted": "previsto",
  "From how {n} past patch-note changes moved win rates. Typical miss {mae} pts, against {base} pts for assuming no change; the range is where the real shift usually lands.": "A partir de como {n} mudanças anteriores das notas de patch moveram as taxas de vitória. Erro típico {mae} pts, contra {base} pts se supuser nenhuma mudança; a faixa é onde a mudança real costuma cair.",
- "pts": "pts"
+ "pts": "pts",
+ "Did we call it?": "Acertamos?",
+ "Beat no change": "Melhor que \"sem mudança\"",
+ "Missed more than no change": "Pior que \"sem mudança\"",
+ "After each patch goes live, the forecast saved before it shipped is checked against how each champion really moved.": "Quando cada patch entra no ar, a previsão salva antes do lançamento é comparada com como cada campeão realmente mudou.",
+ "Patch {patch}: the forecast for {n} champions is saved. The score comes after a week of games (day {day} of {of}).": "Patch {patch}: a previsão para {n} campeões está salva. O resultado sai depois de uma semana de partidas (dia {day} de {of}).",
+ "Patch {patch}: typical miss {mae} pts, against {base} pts for assuming no change.": "Patch {patch}: erro típico de {mae} pts, contra {base} pts supondo nenhuma mudança.",
+ "Right direction for {right} of {of} champions.": "Direção certa para {right} de {of} campeões.",
+ "{in95}% landed inside the range (95% expected) and {in50}% inside its middle half (50% expected).": "{in95}% ficaram dentro da faixa (95% esperado) e {in50}% na metade central (50% esperado).",
+ "Still counting: day {days} of the patch.": "Ainda contando: dia {days} do patch.",
+ "measured": "medido",
+ "in range": "na faixa",
+ "outside": "fora",
+ "Patch {patch}": "Patch {patch}",
+ "{n} champions, miss {mae} pts against {base}, {in95}% in range": "{n} campeões, erro de {mae} pts contra {base}, {in95}% na faixa",
+ "All patches": "Todos os patches"
 }

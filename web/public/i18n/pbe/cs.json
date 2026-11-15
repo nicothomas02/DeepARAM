@@ -51,5 +51,20 @@
  "Expected win-rate shift": "Očekávaný posun winrate",
  "predicted": "předpověď",
  "From how {n} past patch-note changes moved win rates. Typical miss {mae} pts, against {base} pts for assuming no change; the range is where the real shift usually lands.": "Podle toho, jak {n} dřívějších změn z poznámek k patchi pohnulo s winrate. Typická chyba {mae} b., oproti {base} b. při předpokladu žádné změny; rozsah je místo, kam skutečný posun obvykle padne.",
- "pts": "b."
+ "pts": "b.",
+ "Did we call it?": "Trefili jsme se?",
+ "Beat no change": "Lepší než „beze změny“",
+ "Missed more than no change": "Horší než „beze změny“",
+ "After each patch goes live, the forecast saved before it shipped is checked against how each champion really moved.": "Po vydání každého patche se předpověď uložená před vydáním porovná s tím, jak se každý šampion skutečně pohnul.",
+ "Patch {patch}: the forecast for {n} champions is saved. The score comes after a week of games (day {day} of {of}).": "Patch {patch}: předpověď pro {n} šampionů je uložená. Vyhodnocení přijde po týdnu her (den {day} z {of}).",
+ "Patch {patch}: typical miss {mae} pts, against {base} pts for assuming no change.": "Patch {patch}: typická odchylka {mae} b., oproti {base} b. při předpokladu beze změny.",
+ "Right direction for {right} of {of} champions.": "Správný směr u {right} z {of} šampionů.",
+ "{in95}% landed inside the range (95% expected) and {in50}% inside its middle half (50% expected).": "{in95} % padlo do rozsahu (očekáváno 95 %) a {in50} % do jeho střední poloviny (očekáváno 50 %).",
+ "Still counting: day {days} of the patch.": "Stále se počítá: den {days} patche.",
+ "measured": "naměřeno",
+ "in range": "v rozsahu",
+ "outside": "mimo",
+ "Patch {patch}": "Patch {patch}",
+ "{n} champions, miss {mae} pts against {base}, {in95}% in range": "{n} šampionů, odchylka {mae} b. oproti {base}, {in95} % v rozsahu",
+ "All patches": "Všechny patche"
 }

@@ -51,5 +51,20 @@
  "Expected win-rate shift": "预期胜率变化",
  "predicted": "预测",
  "From how {n} past patch-note changes moved win rates. Typical miss {mae} pts, against {base} pts for assuming no change; the range is where the real shift usually lands.": "基于过去 {n} 项更新公告改动对胜率的影响。典型误差 {mae} 个点，假设无变化则为 {base} 个点；区间是真实变化通常落在的范围。",
- "pts": "点"
+ "pts": "点",
+ "Did we call it?": "我们猜中了吗？",
+ "Beat no change": "优于“无变化”",
+ "Missed more than no change": "不如“无变化”",
+ "After each patch goes live, the forecast saved before it shipped is checked against how each champion really moved.": "每个版本上线后，都会把上线前保存的预测与每位英雄的实际变化进行对比。",
+ "Patch {patch}: the forecast for {n} champions is saved. The score comes after a week of games (day {day} of {of}).": "{patch} 版本：已保存 {n} 位英雄的预测。一周对局后给出结果（第 {day} 天，共 {of} 天）。",
+ "Patch {patch}: typical miss {mae} pts, against {base} pts for assuming no change.": "{patch} 版本：典型误差 {mae} 个百分点，假设无变化时为 {base} 个百分点。",
+ "Right direction for {right} of {of} champions.": "{of} 位英雄中有 {right} 位方向正确。",
+ "{in95}% landed inside the range (95% expected) and {in50}% inside its middle half (50% expected).": "{in95}% 落在范围内（预期 95%），{in50}% 落在范围的中间一半（预期 50%）。",
+ "Still counting: day {days} of the patch.": "仍在统计：版本第 {days} 天。",
+ "measured": "实测",
+ "in range": "范围内",
+ "outside": "范围外",
+ "Patch {patch}": "{patch} 版本",
+ "{n} champions, miss {mae} pts against {base}, {in95}% in range": "{n} 位英雄，误差 {mae} 个百分点（对比 {base}），{in95}% 在范围内",
+ "All patches": "所有版本"
 }

@@ -51,5 +51,20 @@
  "Expected win-rate shift": "Thay đổi tỉ lệ thắng dự kiến",
  "predicted": "dự đoán",
  "From how {n} past patch-note changes moved win rates. Typical miss {mae} pts, against {base} pts for assuming no change; the range is where the real shift usually lands.": "Dựa trên cách {n} thay đổi trong ghi chú cập nhật trước đây làm dịch chuyển tỉ lệ thắng. Sai số điển hình {mae} điểm, so với {base} điểm nếu giả định không thay đổi; khoảng là nơi thay đổi thực tế thường rơi vào.",
- "pts": "điểm"
+ "pts": "điểm",
+ "Did we call it?": "Chúng tôi có đoán đúng không?",
+ "Beat no change": "Tốt hơn \"không đổi\"",
+ "Missed more than no change": "Kém hơn \"không đổi\"",
+ "After each patch goes live, the forecast saved before it shipped is checked against how each champion really moved.": "Sau khi mỗi bản cập nhật ra mắt, dự báo đã lưu trước khi phát hành được so với mức thay đổi thực tế của từng tướng.",
+ "Patch {patch}: the forecast for {n} champions is saved. The score comes after a week of games (day {day} of {of}).": "Bản {patch}: đã lưu dự báo cho {n} tướng. Kết quả có sau một tuần chơi (ngày {day}/{of}).",
+ "Patch {patch}: typical miss {mae} pts, against {base} pts for assuming no change.": "Bản {patch}: sai lệch điển hình {mae} điểm, so với {base} điểm nếu coi như không đổi.",
+ "Right direction for {right} of {of} champions.": "Đúng chiều với {right}/{of} tướng.",
+ "{in95}% landed inside the range (95% expected) and {in50}% inside its middle half (50% expected).": "{in95}% rơi vào khoảng dự báo (kỳ vọng 95%) và {in50}% rơi vào nửa giữa của nó (kỳ vọng 50%).",
+ "Still counting: day {days} of the patch.": "Vẫn đang đếm: ngày {days} của bản cập nhật.",
+ "measured": "đo được",
+ "in range": "trong khoảng",
+ "outside": "ngoài khoảng",
+ "Patch {patch}": "Bản {patch}",
+ "{n} champions, miss {mae} pts against {base}, {in95}% in range": "{n} tướng, sai lệch {mae} điểm so với {base}, {in95}% trong khoảng",
+ "All patches": "Mọi bản cập nhật"
 }

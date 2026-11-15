@@ -51,5 +51,20 @@
  "Expected win-rate shift": "การเปลี่ยนแปลงอัตราชนะที่คาดไว้",
  "predicted": "คาดการณ์",
  "From how {n} past patch-note changes moved win rates. Typical miss {mae} pts, against {base} pts for assuming no change; the range is where the real shift usually lands.": "จากการที่การเปลี่ยนแปลงในโน้ตแพตช์ที่ผ่านมา {n} รายการขยับอัตราชนะอย่างไร ความคลาดเคลื่อนทั่วไป {mae} จุด เทียบกับ {base} จุดหากสมมติว่าไม่มีการเปลี่ยนแปลง ช่วงคือจุดที่การเปลี่ยนแปลงจริงมักจะตกอยู่",
- "pts": "จุด"
+ "pts": "จุด",
+ "Did we call it?": "เราทายถูกไหม?",
+ "Beat no change": "ดีกว่า \"ไม่เปลี่ยนแปลง\"",
+ "Missed more than no change": "แย่กว่า \"ไม่เปลี่ยนแปลง\"",
+ "After each patch goes live, the forecast saved before it shipped is checked against how each champion really moved.": "หลังแต่ละแพตช์ออก จะนำการคาดการณ์ที่บันทึกไว้ก่อนออกมาเทียบกับการเปลี่ยนแปลงจริงของแชมเปี้ยนแต่ละตัว",
+ "Patch {patch}: the forecast for {n} champions is saved. The score comes after a week of games (day {day} of {of}).": "แพตช์ {patch}: บันทึกการคาดการณ์ของแชมเปี้ยน {n} ตัวแล้ว ผลจะออกหลังเล่นครบหนึ่งสัปดาห์ (วันที่ {day} จาก {of})",
+ "Patch {patch}: typical miss {mae} pts, against {base} pts for assuming no change.": "แพตช์ {patch}: คลาดเคลื่อนโดยทั่วไป {mae} แต้ม เทียบกับ {base} แต้มหากถือว่าไม่เปลี่ยนแปลง",
+ "Right direction for {right} of {of} champions.": "ทิศทางถูกต้อง {right} จาก {of} แชมเปี้ยน",
+ "{in95}% landed inside the range (95% expected) and {in50}% inside its middle half (50% expected).": "{in95}% อยู่ในช่วง (คาดไว้ 95%) และ {in50}% อยู่ในครึ่งกลางของช่วง (คาดไว้ 50%)",
+ "Still counting: day {days} of the patch.": "ยังนับอยู่: วันที่ {days} ของแพตช์",
+ "measured": "วัดได้",
+ "in range": "อยู่ในช่วง",
+ "outside": "นอกช่วง",
+ "Patch {patch}": "แพตช์ {patch}",
+ "{n} champions, miss {mae} pts against {base}, {in95}% in range": "{n} แชมเปี้ยน คลาดเคลื่อน {mae} แต้ม เทียบกับ {base} อยู่ในช่วง {in95}%",
+ "All patches": "ทุกแพตช์"
 }

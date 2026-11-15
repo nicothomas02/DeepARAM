@@ -55,6 +55,11 @@ type Forecast = {
   pbe: { build: string | null; live: string | null; dataAsOf: string | null; entries: ForecastEntry[] } | null;
 };
 
+export type ScoreRow = { alias: string; name: string; tag: string; predicted_pts: number; measured_pts: number; miss_pts: number; in50: boolean; in95: boolean; direction: boolean | null; shipped: boolean | null };
+export type ScoreSummary = { n: number; mae_pts: number; no_change_mae_pts: number; skill: number | null; beat_no_change: boolean; direction: { right: number; of: number }; in50: number; in95: number };
+export type ScoredPatch = { patch: string; prev: string; days: number; final: boolean; taken: string; rmse_pts: number; champions: ScoreRow[]; summary: ScoreSummary };
+type Scorecard = { built: string; min_days: number; patches: ScoredPatch[]; pooled: ScoreSummary | null; waiting: { patch: string; day: number; of: number; champions: number }[] };
+
 export type ItemLift = { raw: number; adjusted: number; premium: number; weight: number; rank_raw?: number; rank_adjusted?: number };
 type ItemLifts = {
   built: string;
@@ -78,6 +83,7 @@ const impact = () => readRepoJson<Impact>("data/analysis/patch_impact.json");
 const settling = () => readRepoJson<Settling>("data/analysis/meta_settling.json");
 const clusters = () => readRepoJson<Clusters>("data/analysis/playstyle_clusters.json");
 const forecast = () => readRepoJson<Forecast>("data/analysis/patch_forecast.json");
+const scorecard = () => readRepoJson<Scorecard>("data/analysis/forecast_scorecard.json");
 const lifts = () => readRepoJson<ItemLifts>("data/analysis/item_lift.json");
 const length = () => readRepoJson<GameLength>("data/analysis/game_length.json");
 
@@ -125,6 +131,9 @@ export function playstyleOf(alias: string): { label: string; unlikeClass: boolea
 }
 
 export const pbeForecast = () => forecast();
+
+/** "Did we call it?": each live patch's saved forecast against the measured shifts, newest first (data/analysis/forecast_scorecard.py). */
+export const forecastScorecard = (): Scorecard | null => scorecard();
 
 /** An item's lift measured against its champions' finished builds instead of their overall win rate (data/analysis/item_lift.py). */
 export const itemLift = (id: number): ItemLift | null => lifts()?.items[String(id)] ?? null;

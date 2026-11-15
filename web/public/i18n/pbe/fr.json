@@ -51,5 +51,20 @@
  "Expected win-rate shift": "Variation attendue du taux de victoire",
  "predicted": "prédit",
  "From how {n} past patch-note changes moved win rates. Typical miss {mae} pts, against {base} pts for assuming no change; the range is where the real shift usually lands.": "D'après la façon dont {n} changements de notes de patch passés ont fait bouger les taux de victoire. Erreur typique {mae} pts, contre {base} pts en supposant aucun changement ; la fourchette est là où la vraie variation tombe d'habitude.",
- "pts": "pts"
+ "pts": "pts",
+ "Did we call it?": "Avions-nous vu juste ?",
+ "Beat no change": "Mieux que « aucun changement »",
+ "Missed more than no change": "Moins bien que « aucun changement »",
+ "After each patch goes live, the forecast saved before it shipped is checked against how each champion really moved.": "Après la sortie de chaque patch, la prévision enregistrée avant sa sortie est comparée à l'évolution réelle de chaque champion.",
+ "Patch {patch}: the forecast for {n} champions is saved. The score comes after a week of games (day {day} of {of}).": "Patch {patch} : la prévision pour {n} champions est enregistrée. Le bilan arrive après une semaine de parties (jour {day} sur {of}).",
+ "Patch {patch}: typical miss {mae} pts, against {base} pts for assuming no change.": "Patch {patch} : erreur typique {mae} pts, contre {base} pts en supposant aucun changement.",
+ "Right direction for {right} of {of} champions.": "Bonne direction pour {right} champions sur {of}.",
+ "{in95}% landed inside the range (95% expected) and {in50}% inside its middle half (50% expected).": "{in95} % sont tombés dans la fourchette (95 % attendus) et {in50} % dans sa moitié centrale (50 % attendus).",
+ "Still counting: day {days} of the patch.": "Décompte en cours : jour {days} du patch.",
+ "measured": "mesuré",
+ "in range": "dans la fourchette",
+ "outside": "hors fourchette",
+ "Patch {patch}": "Patch {patch}",
+ "{n} champions, miss {mae} pts against {base}, {in95}% in range": "{n} champions, erreur {mae} pts contre {base}, {in95} % dans la fourchette",
+ "All patches": "Tous les patchs"
 }

@@ -51,5 +51,20 @@
  "Expected win-rate shift": "預期勝率變化",
  "predicted": "預測",
  "From how {n} past patch-note changes moved win rates. Typical miss {mae} pts, against {base} pts for assuming no change; the range is where the real shift usually lands.": "基於過去 {n} 項更新說明改動對勝率的影響。典型誤差 {mae} 點，假設無變化則為 {base} 點；區間是真實變化通常落在的範圍。",
- "pts": "點"
+ "pts": "點",
+ "Did we call it?": "我們猜中了嗎？",
+ "Beat no change": "優於「無變化」",
+ "Missed more than no change": "不如「無變化」",
+ "After each patch goes live, the forecast saved before it shipped is checked against how each champion really moved.": "每個版本上線後，都會把上線前儲存的預測與每位英雄的實際變化進行比較。",
+ "Patch {patch}: the forecast for {n} champions is saved. The score comes after a week of games (day {day} of {of}).": "{patch} 版本：已儲存 {n} 位英雄的預測。一週對戰後公布結果（第 {day} 天，共 {of} 天）。",
+ "Patch {patch}: typical miss {mae} pts, against {base} pts for assuming no change.": "{patch} 版本：典型誤差 {mae} 個百分點，假設無變化時為 {base} 個百分點。",
+ "Right direction for {right} of {of} champions.": "{of} 位英雄中有 {right} 位方向正確。",
+ "{in95}% landed inside the range (95% expected) and {in50}% inside its middle half (50% expected).": "{in95}% 落在範圍內（預期 95%），{in50}% 落在範圍的中間一半（預期 50%）。",
+ "Still counting: day {days} of the patch.": "仍在統計：版本第 {days} 天。",
+ "measured": "實測",
+ "in range": "範圍內",
+ "outside": "範圍外",
+ "Patch {patch}": "{patch} 版本",
+ "{n} champions, miss {mae} pts against {base}, {in95}% in range": "{n} 位英雄，誤差 {mae} 個百分點（對比 {base}），{in95}% 在範圍內",
+ "All patches": "所有版本"
 }

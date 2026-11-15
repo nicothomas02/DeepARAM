@@ -51,5 +51,20 @@
  "Expected win-rate shift": "Schimbare așteptată a ratei de victorie",
  "predicted": "prezis",
  "From how {n} past patch-note changes moved win rates. Typical miss {mae} pts, against {base} pts for assuming no change; the range is where the real shift usually lands.": "Din felul în care {n} schimbări anterioare din notele de patch au mișcat ratele de victorie. Eroare tipică {mae} pct, față de {base} pct dacă presupunem că nu se schimbă nimic; intervalul este locul unde ajunge de obicei schimbarea reală.",
- "pts": "pct"
+ "pts": "pct",
+ "Did we call it?": "Am nimerit?",
+ "Beat no change": "Mai bine decât „nicio schimbare”",
+ "Missed more than no change": "Mai rău decât „nicio schimbare”",
+ "After each patch goes live, the forecast saved before it shipped is checked against how each champion really moved.": "După lansarea fiecărui patch, prognoza salvată înainte de lansare este comparată cu felul în care s-a mișcat de fapt fiecare campion.",
+ "Patch {patch}: the forecast for {n} champions is saved. The score comes after a week of games (day {day} of {of}).": "Patch {patch}: prognoza pentru {n} campioni este salvată. Rezultatul vine după o săptămână de meciuri (ziua {day} din {of}).",
+ "Patch {patch}: typical miss {mae} pts, against {base} pts for assuming no change.": "Patch {patch}: abatere tipică {mae} pct., față de {base} pct. presupunând nicio schimbare.",
+ "Right direction for {right} of {of} champions.": "Direcție corectă pentru {right} din {of} campioni.",
+ "{in95}% landed inside the range (95% expected) and {in50}% inside its middle half (50% expected).": "{in95}% au căzut în interval (95% așteptat) și {in50}% în jumătatea lui de mijloc (50% așteptat).",
+ "Still counting: day {days} of the patch.": "Încă se numără: ziua {days} a patch-ului.",
+ "measured": "măsurat",
+ "in range": "în interval",
+ "outside": "în afara",
+ "Patch {patch}": "Patch {patch}",
+ "{n} champions, miss {mae} pts against {base}, {in95}% in range": "{n} campioni, abatere {mae} pct. față de {base}, {in95}% în interval",
+ "All patches": "Toate patch-urile"
 }
