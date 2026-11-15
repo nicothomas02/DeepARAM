@@ -29,8 +29,8 @@ jobs:
       status: ${{ steps.check.outputs.status }}
       version: ${{ steps.check.outputs.version }}
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
         with:
           python-version: "3.12"
       - name: Is a new patch out?
@@ -56,7 +56,7 @@ jobs:
             && python3 tools/fun/i18n/build_keys.py \
             && python -m pytest tests/data/test_data_lab_tools.py -q \
             || { echo "::warning::Kitchen tools kept on the old patch"; git checkout -- tools/fun; }
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         if: steps.check.outputs.status == 'ready'
         with:
           node-version: 22
