@@ -6280,3 +6280,38 @@ html[data-view="detailed"] .wr-ci {
     margin: 0.15em 0 0 auto;
   }
 }
+
+/* Open foldable (iPhone Duo unfolded, about 890 x 626) and phones held sideways: the screen is wide but
+   short, so the floating bottom bar would cover a sixth of it. The tabs move up into the header like on
+   a computer, and the bottom bar goes away. Tall screens (phones upright, iPads upright) keep the bar. */
+@media (orientation: landscape) and (min-width: 740px) and (max-height: 760px) {
+  html[data-device="mobile"] {
+    --tabbar-h: 0px;
+    --tabbar-gap: 0px;
+  }
+
+  html[data-device="mobile"] .tabbar {
+    display: none;
+  }
+
+  html[data-device="mobile"] .site-header .nav {
+    display: flex;
+  }
+
+  html[data-device="mobile"] .site-header .nav a,
+  html[data-device="mobile"] .site-header .nav button {
+    display: inline-flex;
+    align-items: center;
+    min-height: 40px;
+    padding-inline: 0.9rem;
+    font-size: 0.9375rem;
+  }
+
+  html[data-device="mobile"] .search-btn {
+    margin-left: 0;
+  }
+
+  html[data-device="mobile"] main {
+    padding-top: 1rem;
+  }
+}
