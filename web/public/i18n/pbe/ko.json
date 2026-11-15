@@ -51,5 +51,20 @@
  "Expected win-rate shift": "예상 승률 변화",
  "predicted": "예측",
  "From how {n} past patch-note changes moved win rates. Typical miss {mae} pts, against {base} pts for assuming no change; the range is where the real shift usually lands.": "과거 패치 노트 변경 {n}건이 승률을 어떻게 움직였는지에 기반합니다. 일반적인 오차는 {mae}pt, 변화 없음을 가정하면 {base}pt입니다. 범위는 실제 변화가 보통 들어가는 구간입니다.",
- "pts": "pt"
+ "pts": "pt",
+ "Did we call it?": "예측이 맞았을까?",
+ "Beat no change": "'변화 없음'보다 정확",
+ "Missed more than no change": "'변화 없음'보다 부정확",
+ "After each patch goes live, the forecast saved before it shipped is checked against how each champion really moved.": "각 패치가 적용된 뒤, 출시 전에 저장한 예측을 챔피언별 실제 변화와 비교합니다.",
+ "Patch {patch}: the forecast for {n} champions is saved. The score comes after a week of games (day {day} of {of}).": "{patch} 패치: 챔피언 {n}명의 예측을 저장했습니다. 결과는 일주일간의 게임 후에 나옵니다({of}일 중 {day}일째).",
+ "Patch {patch}: typical miss {mae} pts, against {base} pts for assuming no change.": "{patch} 패치: 일반적인 오차 {mae}점, '변화 없음' 가정 시 {base}점.",
+ "Right direction for {right} of {of} champions.": "챔피언 {of}명 중 {right}명의 방향을 맞혔습니다.",
+ "{in95}% landed inside the range (95% expected) and {in50}% inside its middle half (50% expected).": "{in95}%가 범위 안에(기대치 95%), {in50}%가 범위의 가운데 절반에(기대치 50%) 들어왔습니다.",
+ "Still counting: day {days} of the patch.": "집계 중: 패치 {days}일째.",
+ "measured": "실측",
+ "in range": "범위 안",
+ "outside": "범위 밖",
+ "Patch {patch}": "{patch} 패치",
+ "{n} champions, miss {mae} pts against {base}, {in95}% in range": "챔피언 {n}명, 오차 {mae}점(비교 {base}), 범위 안 {in95}%",
+ "All patches": "모든 패치"
 }

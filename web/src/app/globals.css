@@ -6070,6 +6070,24 @@ html[data-view="simple"] [data-detailed] {
 .pbe-forecast .rank.plain.recap-movers a {
   grid-template-columns: 24px minmax(0, 1fr) 4.5rem 6.5rem;
 }
+.pbe-scorecard {
+  margin: 0 0 2rem;
+}
+.pbe-scorecard .rank.plain.recap-movers a,
+.pbe-scorecard .rank-head {
+  display: grid;
+  gap: 0.75rem;
+  align-items: center;
+  grid-template-columns: 24px minmax(0, 1fr) 4.5rem 4.5rem 5.5rem;
+}
+.pbe-scorecard .rank-head {
+  padding: 0 0.5rem;
+  margin-inline: -0.5rem;
+  font-size: 0.8125rem;
+}
+.scorecard-history {
+  margin-top: 1rem;
+}
 @media (max-width: 640px) {
   .impact-nums {
     flex-direction: column;
@@ -6078,6 +6096,10 @@ html[data-view="simple"] [data-detailed] {
   }
   .pbe-forecast .rank.plain.recap-movers a {
     grid-template-columns: 24px minmax(0, 1fr) 4rem 5.5rem;
+  }
+  .pbe-scorecard .rank.plain.recap-movers a,
+  .pbe-scorecard .rank-head {
+    grid-template-columns: 24px minmax(0, 1fr) 3.5rem 3.5rem 4.5rem;
   }
 }
 

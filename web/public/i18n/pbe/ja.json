@@ -51,5 +51,20 @@
  "Expected win-rate shift": "予想される勝率の変化",
  "predicted": "予測",
  "From how {n} past patch-note changes moved win rates. Typical miss {mae} pts, against {base} pts for assuming no change; the range is where the real shift usually lands.": "過去{n}件のパッチノートの変更が勝率をどう動かしたかに基づきます。典型的な誤差は{mae}pt、変化なしと仮定した場合は{base}pt。範囲は実際の変化が通常収まるところです。",
- "pts": "pt"
+ "pts": "pt",
+ "Did we call it?": "予測は当たった？",
+ "Beat no change": "「変化なし」より正確",
+ "Missed more than no change": "「変化なし」より不正確",
+ "After each patch goes live, the forecast saved before it shipped is checked against how each champion really moved.": "各パッチの公開後、公開前に保存した予測と各チャンピオンの実際の変化を比べます。",
+ "Patch {patch}: the forecast for {n} champions is saved. The score comes after a week of games (day {day} of {of}).": "パッチ{patch}：{n}体のチャンピオンの予測を保存済みです。結果は1週間分の試合の後に出ます（{of}日中{day}日目）。",
+ "Patch {patch}: typical miss {mae} pts, against {base} pts for assuming no change.": "パッチ{patch}：典型的な誤差は{mae}ポイント、「変化なし」と仮定した場合は{base}ポイント。",
+ "Right direction for {right} of {of} champions.": "{of}体中{right}体で方向が的中。",
+ "{in95}% landed inside the range (95% expected) and {in50}% inside its middle half (50% expected).": "{in95}%が範囲内（期待値95%）、{in50}%が範囲の中央半分（期待値50%）に収まりました。",
+ "Still counting: day {days} of the patch.": "集計中：パッチ{days}日目。",
+ "measured": "実測",
+ "in range": "範囲内",
+ "outside": "範囲外",
+ "Patch {patch}": "パッチ{patch}",
+ "{n} champions, miss {mae} pts against {base}, {in95}% in range": "{n}体、誤差{mae}ポイント（比較{base}）、範囲内{in95}%",
+ "All patches": "全パッチ"
 }

@@ -51,5 +51,20 @@
  "Expected win-rate shift": "Várható győzelmiarány-változás",
  "predicted": "előrejelzés",
  "From how {n} past patch-note changes moved win rates. Typical miss {mae} pts, against {base} pts for assuming no change; the range is where the real shift usually lands.": "Abból, ahogy {n} korábbi frissítési jegyzetbeli változtatás mozgatta a győzelmi arányokat. Tipikus hiba {mae} pont, szemben {base} ponttal, ha nem feltételezünk változást; a tartomány az, ahová a valódi elmozdulás általában esik.",
- "pts": "pont"
+ "pts": "pont",
+ "Did we call it?": "Eltaláltuk?",
+ "Beat no change": "Jobb a „nincs változás”-nál",
+ "Missed more than no change": "Rosszabb a „nincs változás”-nál",
+ "After each patch goes live, the forecast saved before it shipped is checked against how each champion really moved.": "Minden frissítés megjelenése után a megjelenés előtt elmentett előrejelzést összevetjük azzal, ahogy az egyes bajnokok valóban elmozdultak.",
+ "Patch {patch}: the forecast for {n} champions is saved. The score comes after a week of games (day {day} of {of}).": "{patch} frissítés: {n} bajnok előrejelzése elmentve. Az eredmény egy hét játék után jön ({of} napból a {day}.).",
+ "Patch {patch}: typical miss {mae} pts, against {base} pts for assuming no change.": "{patch} frissítés: jellemző eltérés {mae} pont, szemben a „nincs változás” feltevés {base} pontjával.",
+ "Right direction for {right} of {of} champions.": "Helyes irány {of} bajnokból {right} esetén.",
+ "{in95}% landed inside the range (95% expected) and {in50}% inside its middle half (50% expected).": "{in95}% esett a tartományba (95% várható), {in50}% a középső felébe (50% várható).",
+ "Still counting: day {days} of the patch.": "Még számolunk: a frissítés {days}. napja.",
+ "measured": "mért",
+ "in range": "tartományon belül",
+ "outside": "kívül",
+ "Patch {patch}": "{patch} frissítés",
+ "{n} champions, miss {mae} pts against {base}, {in95}% in range": "{n} bajnok, eltérés {mae} pont ({base} helyett), {in95}% a tartományban",
+ "All patches": "Minden frissítés"
 }

@@ -51,5 +51,20 @@
  "Expected win-rate shift": "Ожидаемый сдвиг процента побед",
  "predicted": "прогноз",
  "From how {n} past patch-note changes moved win rates. Typical miss {mae} pts, against {base} pts for assuming no change; the range is where the real shift usually lands.": "По тому, как {n} прошлых изменений из заметок к патчам сдвинули проценты побед. Типичная ошибка {mae} п. против {base} п., если считать, что ничего не изменится; диапазон — где обычно оказывается реальный сдвиг.",
- "pts": "п."
+ "pts": "п.",
+ "Did we call it?": "Угадали ли мы?",
+ "Beat no change": "Лучше, чем «без изменений»",
+ "Missed more than no change": "Хуже, чем «без изменений»",
+ "After each patch goes live, the forecast saved before it shipped is checked against how each champion really moved.": "После выхода каждого патча прогноз, сохранённый до релиза, сравнивается с тем, как на самом деле изменился каждый чемпион.",
+ "Patch {patch}: the forecast for {n} champions is saved. The score comes after a week of games (day {day} of {of}).": "Патч {patch}: прогноз для {n} чемпионов сохранён. Итог появится после недели игр (день {day} из {of}).",
+ "Patch {patch}: typical miss {mae} pts, against {base} pts for assuming no change.": "Патч {patch}: типичная ошибка {mae} п., против {base} п. при допущении «без изменений».",
+ "Right direction for {right} of {of} champions.": "Верное направление у {right} из {of} чемпионов.",
+ "{in95}% landed inside the range (95% expected) and {in50}% inside its middle half (50% expected).": "{in95}% попали в диапазон (ожидалось 95%), а {in50}% — в его среднюю половину (ожидалось 50%).",
+ "Still counting: day {days} of the patch.": "Подсчёт идёт: день {days} патча.",
+ "measured": "измерено",
+ "in range": "в диапазоне",
+ "outside": "вне",
+ "Patch {patch}": "Патч {patch}",
+ "{n} champions, miss {mae} pts against {base}, {in95}% in range": "{n} чемпионов, ошибка {mae} п. против {base}, {in95}% в диапазоне",
+ "All patches": "Все патчи"
 }

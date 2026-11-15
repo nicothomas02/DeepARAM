@@ -1,4 +1,5 @@
 """Analyses in data/analysis/ (common.py and the four JSON outputs read by the site)."""
+import json
 import math
 
 import pytest
@@ -116,6 +117,64 @@ def test_patch_forecast_reports_baselines_and_ranges():
         for e in f["pbe"]["entries"]:
             assert e["range_pts"][0] <= e["predicted_pts"] <= e["range_pts"][1]
             assert e["parsed"] >= 1
+
+
+def test_forecast_scorecard_measures_like_patch_impact(monkeypatch, tmp_path):
+    """A saved forecast for a past patch is scored against the same difference in differences as patch_impact."""
+    sc = load_module("data/analysis/forecast_scorecard.py", "analysis_forecast_scorecard", extra_path=["data/analysis"])
+    monkeypatch.setattr(sc, "c", common)
+    impact = load_json("data/analysis/patch_impact.json")
+    past = max(impact["patches"], key=lambda p: len(p["champions"]))
+    entries = [
+        {"name": r["name"], "alias": r["alias"], "display": r["name"], "tag": r["dose"]["intent"], "predicted_pts": round(50 * r["effect"], 2), "range_pts": [0, 0]}
+        for r in past["champions"]
+    ]
+    (tmp_path / f"{past['patch']}.json").write_text(json.dumps({"taken": "t", "patch": past["patch"], "model": {"cv_rmse_pts": 1.9}, "entries": entries}))
+    monkeypatch.setattr(sc, "SNAPSHOTS", tmp_path)
+    out = sc.build()
+    scored = out["patches"][0]
+    assert scored["patch"] == past["patch"] and scored["final"]
+    measured = {r["alias"]: r["measured_pts"] for r in scored["champions"]}
+    for r in past["champions"]:
+        assert abs(measured[r["alias"]] - 100 * r["effect"]) < 0.01
+    s = scored["summary"]
+    # half of every true effect: the miss is exactly half the no-change miss and every direction is right
+    assert abs(s["mae_pts"] - s["no_change_mae_pts"] / 2) < 0.02 and s["beat_no_change"]
+    assert s["direction"]["right"] == s["direction"]["of"]
+    assert 0 <= s["in50"] <= s["in95"] <= 1
+    assert out["pooled"]["n"] == s["n"]
+
+
+def test_forecast_scorecard_snapshot_freezes_once_live(monkeypatch, tmp_path):
+    sc = load_module("data/analysis/forecast_scorecard.py", "analysis_forecast_scorecard", extra_path=["data/analysis"])
+    monkeypatch.setattr(sc, "c", common)
+    monkeypatch.setattr(sc, "SNAPSHOTS", tmp_path / "snaps")
+    monkeypatch.setattr(common, "OUT", tmp_path)
+    fc = {"model": {"n": 60, "cv_mae_pts": 1.6, "cv_rmse_pts": 1.9, "baseline_no_change_mae_pts": 1.9}, "pbe": {"build": "99.1.1", "live": "99.0.1", "entries": [{"name": "Annie", "alias": "Annie", "display": "Annie", "tag": "buff", "predicted_pts": 2.0, "range_pts": [-1.7, 5.7]}]}}
+    save = lambda: (tmp_path / "patch_forecast.json").write_text(json.dumps(fc))
+    save()
+    assert sc.patch_of("16.23.8384656") == "16.23"
+    assert sc.snapshot() == "99.1"
+    assert sc.snapshot() is None  # unchanged forecast: the file is left alone
+    fc["pbe"]["entries"][0]["predicted_pts"] = 3.0
+    save()
+    assert sc.snapshot() == "99.1"  # still on the test server: the forecast follows the changes
+    fc["pbe"]["entries"][0]["predicted_pts"] = 4.0
+    fc["pbe"]["live"] = "99.1.2"  # the patch went live: its forecast stays as it was
+    save()
+    assert sc.snapshot() is None
+    assert json.loads((tmp_path / "snaps" / "99.1.json").read_text())["entries"][0]["predicted_pts"] == 3.0
+
+
+def test_forecast_scorecard_output():
+    s = load_json("data/analysis/forecast_scorecard.json")
+    assert s["min_days"] >= 7
+    for p in s["patches"]:
+        assert p["days"] >= s["min_days"] and p["summary"]["n"] == len(p["champions"]) > 0
+        for r in p["champions"]:
+            assert abs(r["miss_pts"] - abs(r["measured_pts"] - r["predicted_pts"])) < 0.02
+    for w in s["waiting"]:
+        assert 0 <= w["day"] < w["of"] and w["champions"] > 0
 
 
 def test_item_lift_adjusts_against_finished_builds():

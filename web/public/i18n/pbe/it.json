@@ -51,5 +51,20 @@
  "Expected win-rate shift": "Variazione attesa della percentuale di vittoria",
  "predicted": "previsto",
  "From how {n} past patch-note changes moved win rates. Typical miss {mae} pts, against {base} pts for assuming no change; the range is where the real shift usually lands.": "Da come {n} modifiche passate delle note di patch hanno mosso le percentuali di vittoria. Errore tipico {mae} pt, contro {base} pt ipotizzando nessun cambiamento; l'intervallo è dove di solito cade la variazione reale.",
- "pts": "pt"
+ "pts": "pt",
+ "Did we call it?": "Ci abbiamo preso?",
+ "Beat no change": "Meglio di «nessun cambiamento»",
+ "Missed more than no change": "Peggio di «nessun cambiamento»",
+ "After each patch goes live, the forecast saved before it shipped is checked against how each champion really moved.": "Quando esce ogni patch, la previsione salvata prima del rilascio viene confrontata con come si è mosso davvero ogni campione.",
+ "Patch {patch}: the forecast for {n} champions is saved. The score comes after a week of games (day {day} of {of}).": "Patch {patch}: la previsione per {n} campioni è salvata. Il risultato arriva dopo una settimana di partite (giorno {day} di {of}).",
+ "Patch {patch}: typical miss {mae} pts, against {base} pts for assuming no change.": "Patch {patch}: errore tipico di {mae} pti, contro {base} pti supponendo nessun cambiamento.",
+ "Right direction for {right} of {of} champions.": "Direzione giusta per {right} campioni su {of}.",
+ "{in95}% landed inside the range (95% expected) and {in50}% inside its middle half (50% expected).": "Il {in95}% è finito dentro l'intervallo (atteso il 95%) e il {in50}% nella sua metà centrale (atteso il 50%).",
+ "Still counting: day {days} of the patch.": "Conteggio in corso: giorno {days} della patch.",
+ "measured": "misurato",
+ "in range": "nell'intervallo",
+ "outside": "fuori",
+ "Patch {patch}": "Patch {patch}",
+ "{n} champions, miss {mae} pts against {base}, {in95}% in range": "{n} campioni, errore di {mae} pti contro {base}, {in95}% nell'intervallo",
+ "All patches": "Tutte le patch"
 }

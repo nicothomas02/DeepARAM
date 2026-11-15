@@ -51,5 +51,20 @@
  "Expected win-rate shift": "Erwartete Änderung der Siegquote",
  "predicted": "vorhergesagt",
  "From how {n} past patch-note changes moved win rates. Typical miss {mae} pts, against {base} pts for assuming no change; the range is where the real shift usually lands.": "Daraus, wie {n} frühere Änderungen aus Patch-Notes die Siegquoten bewegt haben. Typische Abweichung {mae} Pkt., gegenüber {base} Pkt. bei der Annahme „keine Änderung“; im Bereich landet die echte Verschiebung meistens.",
- "pts": "Pkt."
+ "pts": "Pkt.",
+ "Did we call it?": "Lagen wir richtig?",
+ "Beat no change": "Besser als „keine Änderung“",
+ "Missed more than no change": "Schlechter als „keine Änderung“",
+ "After each patch goes live, the forecast saved before it shipped is checked against how each champion really moved.": "Nach jedem Patch wird die vorher gespeicherte Prognose mit der tatsächlichen Entwicklung jedes Champions verglichen.",
+ "Patch {patch}: the forecast for {n} champions is saved. The score comes after a week of games (day {day} of {of}).": "Patch {patch}: Die Prognose für {n} Champions ist gespeichert. Die Auswertung folgt nach einer Woche Spiele (Tag {day} von {of}).",
+ "Patch {patch}: typical miss {mae} pts, against {base} pts for assuming no change.": "Patch {patch}: typische Abweichung {mae} Pkt., gegenüber {base} Pkt. bei der Annahme „keine Änderung“.",
+ "Right direction for {right} of {of} champions.": "Richtige Richtung bei {right} von {of} Champions.",
+ "{in95}% landed inside the range (95% expected) and {in50}% inside its middle half (50% expected).": "{in95} % lagen im Bereich (95 % erwartet) und {in50} % in seiner mittleren Hälfte (50 % erwartet).",
+ "Still counting: day {days} of the patch.": "Wird noch gezählt: Tag {days} des Patches.",
+ "measured": "gemessen",
+ "in range": "im Bereich",
+ "outside": "außerhalb",
+ "Patch {patch}": "Patch {patch}",
+ "{n} champions, miss {mae} pts against {base}, {in95}% in range": "{n} Champions, Abweichung {mae} Pkt. gegenüber {base}, {in95} % im Bereich",
+ "All patches": "Alle Patches"
 }

@@ -51,5 +51,20 @@
  "Expected win-rate shift": "Beklenen kazanma oranı değişimi",
  "predicted": "tahmin",
  "From how {n} past patch-note changes moved win rates. Typical miss {mae} pts, against {base} pts for assuming no change; the range is where the real shift usually lands.": "Geçmiş {n} yama notu değişikliğinin kazanma oranlarını nasıl oynattığından. Tipik sapma {mae} puan; değişiklik yok varsayımında {base} puan. Aralık, gerçek değişimin genellikle düştüğü yerdir.",
- "pts": "puan"
+ "pts": "puan",
+ "Did we call it?": "Tutturabildik mi?",
+ "Beat no change": "\"Değişiklik yok\"tan iyi",
+ "Missed more than no change": "\"Değişiklik yok\"tan kötü",
+ "After each patch goes live, the forecast saved before it shipped is checked against how each champion really moved.": "Her yama yayına girdikten sonra, çıkmadan önce kaydedilen tahmin her şampiyonun gerçekte nasıl değiştiğiyle karşılaştırılır.",
+ "Patch {patch}: the forecast for {n} champions is saved. The score comes after a week of games (day {day} of {of}).": "Yama {patch}: {n} şampiyonun tahmini kaydedildi. Sonuç bir haftalık oyunun ardından gelir ({of} günün {day}. günü).",
+ "Patch {patch}: typical miss {mae} pts, against {base} pts for assuming no change.": "Yama {patch}: tipik sapma {mae} puan, değişiklik olmadığı varsayımında {base} puan.",
+ "Right direction for {right} of {of} champions.": "{of} şampiyondan {right} tanesinde yön doğru.",
+ "{in95}% landed inside the range (95% expected) and {in50}% inside its middle half (50% expected).": "%{in95} aralığın içine düştü (%95 beklenir), %{in50} orta yarısına düştü (%50 beklenir).",
+ "Still counting: day {days} of the patch.": "Sayım sürüyor: yamanın {days}. günü.",
+ "measured": "ölçülen",
+ "in range": "aralıkta",
+ "outside": "dışında",
+ "Patch {patch}": "Yama {patch}",
+ "{n} champions, miss {mae} pts against {base}, {in95}% in range": "{n} şampiyon, sapma {mae} puan ({base} karşısında), %{in95} aralıkta",
+ "All patches": "Tüm yamalar"
 }

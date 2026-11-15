@@ -51,5 +51,20 @@
  "Expected win-rate shift": "Αναμενόμενη μεταβολή ποσοστού νίκης",
  "predicted": "πρόβλεψη",
  "From how {n} past patch-note changes moved win rates. Typical miss {mae} pts, against {base} pts for assuming no change; the range is where the real shift usually lands.": "Από το πώς {n} προηγούμενες αλλαγές των σημειώσεων ενημέρωσης μετακίνησαν τα ποσοστά νίκης. Τυπικό σφάλμα {mae} μον., έναντι {base} μον. αν υποθέσουμε καμία αλλαγή· το εύρος είναι εκεί που συνήθως πέφτει η πραγματική μεταβολή.",
- "pts": "μον."
+ "pts": "μον.",
+ "Did we call it?": "Το πετύχαμε;",
+ "Beat no change": "Καλύτερα από το «καμία αλλαγή»",
+ "Missed more than no change": "Χειρότερα από το «καμία αλλαγή»",
+ "After each patch goes live, the forecast saved before it shipped is checked against how each champion really moved.": "Μόλις κυκλοφορήσει κάθε patch, η πρόβλεψη που αποθηκεύτηκε πριν από την κυκλοφορία του συγκρίνεται με το πώς κινήθηκε πραγματικά κάθε champion.",
+ "Patch {patch}: the forecast for {n} champions is saved. The score comes after a week of games (day {day} of {of}).": "Patch {patch}: η πρόβλεψη για {n} champions αποθηκεύτηκε. Το αποτέλεσμα έρχεται μετά από μια εβδομάδα παιχνιδιών (ημέρα {day} από {of}).",
+ "Patch {patch}: typical miss {mae} pts, against {base} pts for assuming no change.": "Patch {patch}: τυπική απόκλιση {mae} μον., έναντι {base} μον. αν υποθέσουμε καμία αλλαγή.",
+ "Right direction for {right} of {of} champions.": "Σωστή κατεύθυνση για {right} από {of} champions.",
+ "{in95}% landed inside the range (95% expected) and {in50}% inside its middle half (50% expected).": "Το {in95}% έπεσε μέσα στο εύρος (αναμένεται 95%) και το {in50}% στο μεσαίο μισό του (αναμένεται 50%).",
+ "Still counting: day {days} of the patch.": "Η μέτρηση συνεχίζεται: ημέρα {days} του patch.",
+ "measured": "μετρημένο",
+ "in range": "εντός",
+ "outside": "εκτός",
+ "Patch {patch}": "Patch {patch}",
+ "{n} champions, miss {mae} pts against {base}, {in95}% in range": "{n} champions, απόκλιση {mae} μον. έναντι {base}, {in95}% εντός εύρους",
+ "All patches": "Όλα τα patches"
 }

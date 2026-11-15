@@ -51,5 +51,20 @@
  "Expected win-rate shift": "Expected win-rate shift",
  "predicted": "predicted",
  "From how {n} past patch-note changes moved win rates. Typical miss {mae} pts, against {base} pts for assuming no change; the range is where the real shift usually lands.": "From how {n} past patch-note changes moved win rates. Typical miss {mae} pts, against {base} pts for assuming no change; the range is where the real shift usually lands.",
- "pts": "pts"
+ "pts": "pts",
+ "Did we call it?": "Did we call it?",
+ "Beat no change": "Beat no change",
+ "Missed more than no change": "Missed more than no change",
+ "After each patch goes live, the forecast saved before it shipped is checked against how each champion really moved.": "After each patch goes live, the forecast saved before it shipped is checked against how each champion really moved.",
+ "Patch {patch}: the forecast for {n} champions is saved. The score comes after a week of games (day {day} of {of}).": "Patch {patch}: the forecast for {n} champions is saved. The score comes after a week of games (day {day} of {of}).",
+ "Patch {patch}: typical miss {mae} pts, against {base} pts for assuming no change.": "Patch {patch}: typical miss {mae} pts, against {base} pts for assuming no change.",
+ "Right direction for {right} of {of} champions.": "Right direction for {right} of {of} champions.",
+ "{in95}% landed inside the range (95% expected) and {in50}% inside its middle half (50% expected).": "{in95}% landed inside the range (95% expected) and {in50}% inside its middle half (50% expected).",
+ "Still counting: day {days} of the patch.": "Still counting: day {days} of the patch.",
+ "measured": "measured",
+ "in range": "in range",
+ "outside": "outside",
+ "Patch {patch}": "Patch {patch}",
+ "{n} champions, miss {mae} pts against {base}, {in95}% in range": "{n} champions, miss {mae} pts against {base}, {in95}% in range",
+ "All patches": "All patches"
 }

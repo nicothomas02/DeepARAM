@@ -51,5 +51,20 @@
  "Expected win-rate shift": "Cambio esperado en la tasa de victoria",
  "predicted": "predicción",
  "From how {n} past patch-note changes moved win rates. Typical miss {mae} pts, against {base} pts for assuming no change; the range is where the real shift usually lands.": "A partir de cómo {n} cambios anteriores de las notas del parche movieron las tasas de victoria. Error típico {mae} pts, contra {base} pts si se asume que no hay cambio; el rango es donde normalmente cae el cambio real.",
- "pts": "pts"
+ "pts": "pts",
+ "Did we call it?": "¿Le atinamos?",
+ "Beat no change": "Mejor que «sin cambios»",
+ "Missed more than no change": "Peor que «sin cambios»",
+ "After each patch goes live, the forecast saved before it shipped is checked against how each champion really moved.": "Cuando sale cada parche, el pronóstico guardado antes de su lanzamiento se compara con cómo se movió de verdad cada campeón.",
+ "Patch {patch}: the forecast for {n} champions is saved. The score comes after a week of games (day {day} of {of}).": "Parche {patch}: el pronóstico para {n} campeones está guardado. El resultado llega después de una semana de partidas (día {day} de {of}).",
+ "Patch {patch}: typical miss {mae} pts, against {base} pts for assuming no change.": "Parche {patch}: error típico de {mae} pts, contra {base} pts suponiendo que nada cambia.",
+ "Right direction for {right} of {of} champions.": "Dirección correcta en {right} de {of} campeones.",
+ "{in95}% landed inside the range (95% expected) and {in50}% inside its middle half (50% expected).": "El {in95} % cayó dentro del rango (se esperaba el 95 %) y el {in50} % en su mitad central (se esperaba el 50 %).",
+ "Still counting: day {days} of the patch.": "Todavía contando: día {days} del parche.",
+ "measured": "medido",
+ "in range": "dentro",
+ "outside": "fuera",
+ "Patch {patch}": "Parche {patch}",
+ "{n} champions, miss {mae} pts against {base}, {in95}% in range": "{n} campeones, error de {mae} pts contra {base}, {in95} % dentro del rango",
+ "All patches": "Todos los parches"
 }

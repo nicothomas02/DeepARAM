@@ -51,5 +51,20 @@
  "Expected win-rate shift": "Perkiraan perubahan win rate",
  "predicted": "prediksi",
  "From how {n} past patch-note changes moved win rates. Typical miss {mae} pts, against {base} pts for assuming no change; the range is where the real shift usually lands.": "Dari cara {n} perubahan catatan patch sebelumnya menggerakkan win rate. Kesalahan tipikal {mae} poin, dibandingkan {base} poin jika mengasumsikan tidak ada perubahan; rentangnya adalah tempat perubahan sebenarnya biasanya jatuh.",
- "pts": "poin"
+ "pts": "poin",
+ "Did we call it?": "Apakah tebakan kami tepat?",
+ "Beat no change": "Lebih baik dari \"tanpa perubahan\"",
+ "Missed more than no change": "Lebih buruk dari \"tanpa perubahan\"",
+ "After each patch goes live, the forecast saved before it shipped is checked against how each champion really moved.": "Setelah setiap patch rilis, prakiraan yang disimpan sebelum rilis dibandingkan dengan pergerakan nyata setiap champion.",
+ "Patch {patch}: the forecast for {n} champions is saved. The score comes after a week of games (day {day} of {of}).": "Patch {patch}: prakiraan untuk {n} champion sudah disimpan. Hasilnya muncul setelah seminggu permainan (hari {day} dari {of}).",
+ "Patch {patch}: typical miss {mae} pts, against {base} pts for assuming no change.": "Patch {patch}: meleset rata-rata {mae} poin, dibanding {base} poin jika dianggap tanpa perubahan.",
+ "Right direction for {right} of {of} champions.": "Arah tepat untuk {right} dari {of} champion.",
+ "{in95}% landed inside the range (95% expected) and {in50}% inside its middle half (50% expected).": "{in95}% jatuh di dalam rentang (diharapkan 95%) dan {in50}% di separuh tengahnya (diharapkan 50%).",
+ "Still counting: day {days} of the patch.": "Masih dihitung: hari ke-{days} patch.",
+ "measured": "terukur",
+ "in range": "dalam rentang",
+ "outside": "di luar",
+ "Patch {patch}": "Patch {patch}",
+ "{n} champions, miss {mae} pts against {base}, {in95}% in range": "{n} champion, meleset {mae} poin dibanding {base}, {in95}% dalam rentang",
+ "All patches": "Semua patch"
 }
