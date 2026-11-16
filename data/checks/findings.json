@@ -1,10 +1,10 @@
 {
  "patch": "16.22",
- "built": "2026-11-15",
+ "built": "2026-11-16",
  "checks": {
   "loops": 3,
   "gap": 45,
-  "sim": 16,
+  "sim": 15,
   "wasted": 0,
   "kitchen": 46
  },
@@ -25,23 +25,6 @@
    "practice": "It doesn't run away. The two bonuses don't keep feeding each other, so Jhin ends up with a modest bump to Attack Damage instead of infinite damage. Jhin also hasn't been seen getting Tickle Monster this patch."
   },
   {
-   "id": "sim-Corki-berserkers",
-   "kind": "sim",
-   "title": "Berserker's Greaves on Corki",
-   "champions": [
-    "Corki"
-   ],
-   "augments": [],
-   "items": [
-    3006
-   ],
-   "theory": "The Simulator puts Berserker's Greaves in Corki's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Corki's builds with Berserker's Greaves win 3.4 points less often than their builds without it.",
-   "gap": -0.0343,
-   "share": 0.0528,
-   "status": "trap"
-  },
-  {
    "id": "sim-Draven-berserkers",
    "kind": "sim",
    "title": "Berserker's Greaves on Draven",
@@ -54,8 +37,8 @@
    ],
    "theory": "The Simulator puts Berserker's Greaves in Draven's best build: in a fight it adds more than the items it beats.",
    "practice": "In real games, Draven's builds with Berserker's Greaves win 4.2 points less often than their builds without it.",
-   "gap": -0.0423,
-   "share": 0.0633,
+   "gap": -0.0424,
+   "share": 0.0538,
    "status": "trap"
   },
   {
@@ -70,9 +53,9 @@
     3006
    ],
    "theory": "The Simulator puts Berserker's Greaves in Kalista's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Kalista's builds with Berserker's Greaves win 3.9 points less often than their builds without it.",
-   "gap": -0.0392,
-   "share": 0.1373,
+   "practice": "In real games, Kalista's builds with Berserker's Greaves win 3.0 points less often than their builds without it.",
+   "gap": -0.0304,
+   "share": 0.1378,
    "status": "trap"
   },
   {
@@ -87,9 +70,26 @@
     3006
    ],
    "theory": "The Simulator puts Berserker's Greaves in Lucian's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Lucian's builds with Berserker's Greaves win 6.0 points less often than their builds without it.",
-   "gap": -0.0597,
-   "share": 0.057,
+   "practice": "In real games, Lucian's builds with Berserker's Greaves win 6.9 points less often than their builds without it.",
+   "gap": -0.0691,
+   "share": 0.0473,
+   "status": "trap"
+  },
+  {
+   "id": "sim-Riven-black_cleaver",
+   "kind": "sim",
+   "title": "Black Cleaver on Riven",
+   "champions": [
+    "Riven"
+   ],
+   "augments": [],
+   "items": [
+    3071
+   ],
+   "theory": "The Simulator puts Black Cleaver in Riven's best build: in a fight it adds more than the items it beats.",
+   "practice": "In real games, Riven's builds with Black Cleaver win 4.3 points less often than their builds without it.",
+   "gap": -0.0426,
+   "share": 0.0321,
    "status": "trap"
   },
   {
@@ -104,60 +104,26 @@
     3153
    ],
    "theory": "The Simulator puts Blade of The Ruined King in Kayle's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Kayle's builds with Blade of The Ruined King win 3.6 points less often than their builds without it.",
-   "gap": -0.0357,
-   "share": 0.0524,
+   "practice": "In real games, Kayle's builds with Blade of The Ruined King win 3.3 points less often than their builds without it.",
+   "gap": -0.0331,
+   "share": 0.0533,
    "status": "trap"
   },
   {
-   "id": "sim-Lucian-botrk",
+   "id": "sim-Yunara-botrk",
    "kind": "sim",
-   "title": "Blade of The Ruined King on Lucian",
+   "title": "Blade of The Ruined King on Yunara",
    "champions": [
-    "Lucian"
+    "Yunara"
    ],
    "augments": [],
    "items": [
     3153
    ],
-   "theory": "The Simulator puts Blade of The Ruined King in Lucian's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Lucian's builds with Blade of The Ruined King win 7.1 points less often than their builds without it.",
-   "gap": -0.0706,
-   "share": 0.0335,
-   "status": "trap"
-  },
-  {
-   "id": "sim-Viego-botrk",
-   "kind": "sim",
-   "title": "Blade of The Ruined King on Viego",
-   "champions": [
-    "Viego"
-   ],
-   "augments": [],
-   "items": [
-    3153
-   ],
-   "theory": "The Simulator puts Blade of The Ruined King in Viego's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Viego's builds with Blade of The Ruined King win 3.1 points less often than their builds without it.",
-   "gap": -0.0314,
-   "share": 0.0839,
-   "status": "trap"
-  },
-  {
-   "id": "sim-Xayah-botrk",
-   "kind": "sim",
-   "title": "Blade of The Ruined King on Xayah",
-   "champions": [
-    "Xayah"
-   ],
-   "augments": [],
-   "items": [
-    3153
-   ],
-   "theory": "The Simulator puts Blade of The Ruined King in Xayah's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Xayah's builds with Blade of The Ruined King win 3.8 points less often than their builds without it.",
-   "gap": -0.0378,
-   "share": 0.1331,
+   "theory": "The Simulator puts Blade of The Ruined King in Yunara's best build: in a fight it adds more than the items it beats.",
+   "practice": "In real games, Yunara's builds with Blade of The Ruined King win 3.2 points less often than their builds without it.",
+   "gap": -0.0322,
+   "share": 0.106,
    "status": "trap"
   },
   {
@@ -172,9 +138,9 @@
     3124
    ],
    "theory": "The Simulator puts Guinsoo's Rageblade in Kayle's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Kayle's builds with Guinsoo's Rageblade win 3.4 points less often than their builds without it.",
-   "gap": -0.0339,
-   "share": 0.0629,
+   "practice": "In real games, Kayle's builds with Guinsoo's Rageblade win 3.1 points less often than their builds without it.",
+   "gap": -0.0307,
+   "share": 0.0636,
    "status": "trap"
   },
   {
@@ -189,9 +155,9 @@
     6694
    ],
    "theory": "The Simulator puts Serylda's Grudge in Jayce's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Jayce's builds with Serylda's Grudge win 8.9 points less often than their builds without it.",
-   "gap": -0.0891,
-   "share": 0.0404,
+   "practice": "In real games, Jayce's builds with Serylda's Grudge win 7.6 points less often than their builds without it.",
+   "gap": -0.0764,
+   "share": 0.0451,
    "status": "trap"
   },
   {
@@ -206,9 +172,9 @@
     6694
    ],
    "theory": "The Simulator puts Serylda's Grudge in Talon's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Talon's builds with Serylda's Grudge win 5.4 points less often than their builds without it.",
-   "gap": -0.0538,
-   "share": 0.052,
+   "practice": "In real games, Talon's builds with Serylda's Grudge win 4.6 points less often than their builds without it.",
+   "gap": -0.0458,
+   "share": 0.0575,
    "status": "trap"
   },
   {
@@ -223,9 +189,9 @@
     3020
    ],
    "theory": "The Simulator puts Sorcerer's Shoes in Karma's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Karma's builds with Sorcerer's Shoes win 5.6 points less often than their builds without it.",
-   "gap": -0.0563,
-   "share": 0.0833,
+   "practice": "In real games, Karma's builds with Sorcerer's Shoes win 4.7 points less often than their builds without it.",
+   "gap": -0.0471,
+   "share": 0.0842,
    "status": "trap"
   },
   {
@@ -240,9 +206,9 @@
     3020
    ],
    "theory": "The Simulator puts Sorcerer's Shoes in Lillia's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Lillia's builds with Sorcerer's Shoes win 6.0 points less often than their builds without it.",
-   "gap": -0.0595,
-   "share": 0.0591,
+   "practice": "In real games, Lillia's builds with Sorcerer's Shoes win 5.7 points less often than their builds without it.",
+   "gap": -0.0573,
+   "share": 0.0597,
    "status": "trap"
   },
   {
@@ -257,9 +223,26 @@
     3020
    ],
    "theory": "The Simulator puts Sorcerer's Shoes in Nunu & Willump's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Nunu & Willump's builds with Sorcerer's Shoes win 3.7 points less often than their builds without it.",
-   "gap": -0.0365,
-   "share": 0.2508,
+   "practice": "In real games, Nunu & Willump's builds with Sorcerer's Shoes win 3.0 points less often than their builds without it.",
+   "gap": -0.0303,
+   "share": 0.254,
+   "status": "trap"
+  },
+  {
+   "id": "sim-Pyke-collector",
+   "kind": "sim",
+   "title": "The Collector on Pyke",
+   "champions": [
+    "Pyke"
+   ],
+   "augments": [],
+   "items": [
+    6676
+   ],
+   "theory": "The Simulator puts The Collector in Pyke's best build: in a fight it adds more than the items it beats.",
+   "practice": "In real games, Pyke's builds with The Collector win 3.4 points less often than their builds without it.",
+   "gap": -0.0335,
+   "share": 0.0693,
    "status": "trap"
   },
   {
@@ -274,9 +257,9 @@
     3135
    ],
    "theory": "The Simulator puts Void Staff in Karma's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Karma's builds with Void Staff win 5.9 points less often than their builds without it.",
-   "gap": -0.0586,
-   "share": 0.0672,
+   "practice": "In real games, Karma's builds with Void Staff win 5.6 points less often than their builds without it.",
+   "gap": -0.0562,
+   "share": 0.0678,
    "status": "trap"
   },
   {
@@ -291,9 +274,9 @@
     3135
    ],
    "theory": "The Simulator puts Void Staff in Ryze's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Ryze's builds with Void Staff win 6.5 points less often than their builds without it.",
-   "gap": -0.0655,
-   "share": 0.0303,
+   "practice": "In real games, Ryze's builds with Void Staff win 7.3 points less often than their builds without it.",
+   "gap": -0.073,
+   "share": 0.0347,
    "status": "trap"
   }
  ],
