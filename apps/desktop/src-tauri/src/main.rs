@@ -109,8 +109,8 @@ struct Saved {
     overlay_off: bool,
     /// The overlay sits on the right edge of the screen instead of the left.
     overlay_right: bool,
-    /// The overlay shows only when useful (game start, while dead, augment picks) instead of all game.
-    overlay_smart: bool,
+    /// The overlay shows all game instead of only when useful (game start, while dead, augment picks).
+    overlay_all_game: bool,
     overlay_hint_shown: bool,
 }
 
@@ -305,13 +305,15 @@ fn build_tray(app: &AppHandle) -> tauri::Result<()> {
     let overlay_right = app.state::<Store>().saved.lock().unwrap().overlay_right;
     let ov_on =
         CheckMenuItem::with_id(app, "ov_on", "Show during Mayhem games", true, overlay::enabled(app), None::<&str>)?;
-    let saved_smart = app.state::<Store>().saved.lock().unwrap().overlay_smart;
-    let smart_label = if overlay::AUGMENT_LEVELS.is_empty() {
-        "Only at game start and while dead"
-    } else {
-        "Only at game start, while dead and at augment picks"
-    };
-    let ov_smart = CheckMenuItem::with_id(app, "ov_smart", smart_label, true, saved_smart, None::<&str>)?;
+    let all_game = app.state::<Store>().saved.lock().unwrap().overlay_all_game;
+    let ov_smart = CheckMenuItem::with_id(
+        app,
+        "ov_smart",
+        "Only at game start, while dead and at augment picks",
+        true,
+        !all_game,
+        None::<&str>,
+    )?;
     let ov_left = CheckMenuItem::with_id(app, "ov_left", "Left side", true, !overlay_right, None::<&str>)?;
     let ov_right = CheckMenuItem::with_id(app, "ov_right", "Right side", true, overlay_right, None::<&str>)?;
     let overlay_menu =
@@ -356,8 +358,8 @@ fn build_tray(app: &AppHandle) -> tauri::Result<()> {
                 }
             }
             "ov_smart" => {
-                let on = ov_smart.is_checked().unwrap_or(false);
-                app.state::<Store>().update(|s| s.overlay_smart = on);
+                let on = ov_smart.is_checked().unwrap_or(true);
+                app.state::<Store>().update(|s| s.overlay_all_game = !on);
             }
             "ov_left" => side(app, false),
             "ov_right" => side(app, true),

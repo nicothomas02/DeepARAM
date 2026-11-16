@@ -42,9 +42,10 @@ const CHECK_IN_GAME: Duration = Duration::from_secs(2);
 /// "Only when useful" mode: the panel shows for the first part of the game (first buy, first augment)...
 pub const START_FOR: f64 = 90.0;
 /// ...while the player is dead (the time to shop in ARAM)...
-/// ...and for a while after reaching a level that offers an augment. Empty until the levels are confirmed:
-/// Live Client Data doesn't report Mayhem augments (27 of 27 recorded games had none).
-pub const AUGMENT_LEVELS: &[u64] = &[];
+/// ...and for a while after reaching a level that offers an augment (Mayhem: 1, 7, 11 and 15, from Nico).
+/// Live Client Data doesn't report the augments themselves (27 of 27 recorded games had none), so the
+/// level is the only signal.
+pub const AUGMENT_LEVELS: &[u64] = &[1, 7, 11, 15];
 pub const POPUP_FOR: f64 = 30.0;
 /// How long a downloaded copy of the builds is reused before fetching it again.
 const DATA_FOR: Duration = Duration::from_secs(60 * 60);
@@ -91,6 +92,12 @@ pub fn my_row<'a>(me: &str, players: &'a [Value]) -> Option<&'a Value> {
 /// The champion the player is on, from /activeplayername and /playerlist.
 pub fn my_champion(me: &str, players: &[Value]) -> Option<String> {
     my_row(me, players).and_then(|p| p.get("rawChampionName")?.as_str().and_then(champion_alias).map(str::to_owned))
+}
+
+/// Whether going from level `prev` to `level` passed an augment level. The first reading of a game
+/// (`prev` 0) only records the level, so opening the app mid-game doesn't pop the panel up.
+pub fn reached_augment_level(prev: u64, level: u64) -> bool {
+    prev > 0 && AUGMENT_LEVELS.iter().any(|l| *l > prev && *l <= level)
 }
 
 /// "Only when useful" mode: whether the panel shows by itself at this moment of the game.
@@ -152,7 +159,7 @@ pub fn enabled(app: &AppHandle) -> bool {
 }
 
 fn smart(app: &AppHandle) -> bool {
-    app.state::<Store>().saved.lock().unwrap().overlay_smart
+    !app.state::<Store>().saved.lock().unwrap().overlay_all_game
 }
 
 fn on_right(app: &AppHandle) -> bool {
@@ -317,7 +324,7 @@ fn tick(app: &AppHandle, agent: &ureq::Agent, game_time: f64) {
         let state = app.state::<Shared>();
         let mut s = state.lock().unwrap();
         if level > s.level {
-            if AUGMENT_LEVELS.iter().any(|l| *l > s.level && *l <= level) {
+            if reached_augment_level(s.level, level) {
                 s.popup_until = game_time + POPUP_FOR;
             }
             s.level = level;
@@ -397,6 +404,15 @@ mod tests {
         assert!(smart_wants(600.0, true, 0.0));
         assert!(smart_wants(600.0, false, 610.0));
         assert!(!smart_wants(611.0, false, 610.0));
+    }
+
+    #[test]
+    fn augment_levels_pop_the_panel_up() {
+        assert!(reached_augment_level(6, 7));
+        assert!(reached_augment_level(10, 12)); // two levels at once still counts 11
+        assert!(!reached_augment_level(7, 8));
+        assert!(!reached_augment_level(15, 18));
+        assert!(!reached_augment_level(0, 9)); // first reading of the game
     }
 
     #[test]
