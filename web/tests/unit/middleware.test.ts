@@ -85,6 +85,18 @@ describe("near-miss page addresses", () => {
     expect((await get("/items/Infinity-Edge")).status).toBe(308);
   });
 
+  it("sends item and augment names typed with spaces and apostrophes to their page", async () => {
+    for (const [from, to] of [
+      ["/items/Infinity%20Edge", "/items/infinity-edge"],
+      ["/items/rabadon's%20deathcap", "/items/rabadons-deathcap"],
+      ["/augments/Titan's%20Resolve", "/augments/titans-resolve"],
+    ]) {
+      const r = await get(from);
+      expect(r.status, from).toBe(308);
+      expect(new URL(r.headers.get("location")!).pathname, from).toBe(to);
+    }
+  });
+
   it("leaves real pages and unknown names alone", async () => {
     for (const p of ["/champions/Ahri", "/champions/MonkeyKing", "/champions/Nobody", "/augments/titans-resolve", "/items/nope"])
       expect((await get(p)).status, p).toBe(200);
