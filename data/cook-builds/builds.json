@@ -675,6 +675,44 @@
       ],
       "play": "Spam spells until you Overheat, then walk up and right-click. When it cools down, do it again.",
       "chef": "2026-11-13"
+    },
+    {
+      "id": "kindred-healing-the-opps",
+      "champion": "Kindred",
+      "title": "Healing The Opps",
+      "tagline": "Nobody dies on Kindred's watch. Not even the enemy team.",
+      "augments": [
+        "Ultimate Revolution",
+        "Stuck In Here With Me",
+        "First-Aid Kit",
+        "Ultimate Recursion"
+      ],
+      "core": 4,
+      "items": [
+        "Redemption",
+        "Moonstone Renewer",
+        "Dawncore",
+        "Malignance",
+        "Spirit Visage",
+        "Ionian Boots of Lucidity"
+      ],
+      "why": "Kindred plays full support, drops Lamb's Respite on everyone twice per fight and heals the enemies right along with their own team.",
+      "how": [
+        [
+          "Lamb's Respite",
+          "No unit inside can die, ally or enemy, and everyone inside heals when it ends. It's the only ult that blesses both teams at once."
+        ],
+        [
+          "Augments",
+          "Ultimate Revolution casts it twice, Stuck In Here With Me Taunts the enemies so they stay in the zone, and Ultimate Recursion brings it back fast. First-Aid Kit makes every heal bigger."
+        ],
+        [
+          "Items",
+          "Redemption, Moonstone Renewer and Dawncore are pure support healing. Malignance adds more Ultimate Haste, so the zone is up all the time."
+        ]
+      ],
+      "play": "Wait for a big fight, press R in the middle of all ten champions, then press it again. Nobody leaves, nobody dies, everybody heals.",
+      "chef": "2026-11-16"
     }
   ]
 }

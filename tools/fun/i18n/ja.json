@@ -364,5 +364,16 @@
  "Deft and Tap Dancer pile on Attack Speed, Dual Wield fires a second bolt with every attack, and Firebrand stacks a Burn on each one.": "技巧とタップダンサーでアタックスピードが積み上がり、二刀流は攻撃のたびに2発目のボルトを放ち、火付け役はそのすべてにバーンを付与する。",
  "Nashor's Tooth, Guinsoo's Rageblade, Wit's End and Terminus are all on-hit, so every punch and every Dual Wield bolt carries them.": "ナッシャー トゥース、グインソー レイジブレード、ウィッツ エンド、テルミヌスはすべてオンヒット効果。パンチも二刀流のボルトも全部に乗る。",
  "Gain 60% Attack Speed.": "アタックスピード+60%。",
- "When you Attack, fire a bolt that deals 40% damage and applies your On-Hit effects at 40% effectiveness. Gain 10% total Attack Speed.": "攻撃時、ダメージ40%のボルトを発射し、オンヒット効果を40%の効果で適用する。総アタックスピード+10%。"
+ "When you Attack, fire a bolt that deals 40% damage and applies your On-Hit effects at 40% effectiveness. Gain 10% total Attack Speed.": "攻撃時、ダメージ40%のボルトを発射し、オンヒット効果を40%の効果で適用する。総アタックスピード+10%。",
+ "Healing The Opps": "敵もまとめて回復",
+ "Kindred plays full support, drops Lamb's Respite on everyone twice per fight and heals the enemies right along with their own team.": "キンドレッドはフルサポートで、1回の戦闘で子羊の安らぎを2回みんなに投げ、味方と一緒に敵も回復します。",
+ "Wait for a big fight, press R in the middle of all ten champions, then press it again. Nobody leaves, nobody dies, everybody heals.": "大きな集団戦を待って、10人全員の真ん中でRを押し、もう一度押すだけ。誰も逃げず、誰も死なず、全員回復します。",
+ "Nobody dies on Kindred's watch. Not even the enemy team.": "キンドレッドがいる限り誰も死なない。敵チームでさえも。",
+ "Lamb's Respite": "子羊の安らぎ",
+ "No unit inside can die, ally or enemy, and everyone inside heals when it ends. It's the only ult that blesses both teams at once.": "範囲内のユニットは味方も敵も死亡せず、終了時に全員が回復します。両チームを同時に祝福する唯一のアルティメットです。",
+ "Ultimate Revolution casts it twice, Stuck In Here With Me Taunts the enemies so they stay in the zone, and Ultimate Recursion brings it back fast. First-Aid Kit makes every heal bigger.": "究極進化で2回発動し、一緒に閉じ込められたで敵を挑発してゾーンに留め、究極再帰ですぐに再使用できます。救急セットはすべての回復を強化します。",
+ "Redemption, Moonstone Renewer and Dawncore are pure support healing. Malignance adds more Ultimate Haste, so the zone is up all the time.": "リデンプション、ムーンストーンの再生、ドーンコアは純粋なサポート向け回復アイテムです。マリグナンスはさらにアルティメット スキルヘイストを加え、ゾーンが常に展開されます。",
+ "Refresh your Ultimate after casting it (75 seconds Cooldown or reset on death).": "アルティメットを使用後にリフレッシュする(クールダウン75秒、または死亡時にリセット)。",
+ "Gain 20% Heal and Shield Power.": "回復・シールド量が20%増加する。",
+ "Gain Ultimate Ability Haste.": "アルティメット スキルヘイストを獲得する。"
 }

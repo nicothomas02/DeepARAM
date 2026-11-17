@@ -364,5 +364,16 @@
  "Deft and Tap Dancer pile on Attack Speed, Dual Wield fires a second bolt with every attack, and Firebrand stacks a Burn on each one.": "Az Iparkodás és a Sztepptáncos tolja a Támadási Sebességet, a Dupla csapás minden támadással egy második lövedéket lő, a Lázító pedig mindegyikre Égést rak.",
  "Nashor's Tooth, Guinsoo's Rageblade, Wit's End and Terminus are all on-hit, so every punch and every Dual Wield bolt carries them.": "Nashor foga, Guinsoo dühpengéje, Utolsó esély és Vég mind találatkor hatnak, így minden ütés és minden Dupla csapás-lövedék viszi őket.",
  "Gain 60% Attack Speed.": "60% Támadási Sebességet kapsz.",
- "When you Attack, fire a bolt that deals 40% damage and applies your On-Hit effects at 40% effectiveness. Gain 10% total Attack Speed.": "Támadáskor egy lövedéket lősz, amely 40% sebzést okoz, és a találatkor hatásaidat 40%-os hatékonysággal alkalmazza. 10% összes Támadási Sebességet kapsz."
+ "When you Attack, fire a bolt that deals 40% damage and applies your On-Hit effects at 40% effectiveness. Gain 10% total Attack Speed.": "Támadáskor egy lövedéket lősz, amely 40% sebzést okoz, és a találatkor hatásaidat 40%-os hatékonysággal alkalmazza. 10% összes Támadási Sebességet kapsz.",
+ "Healing The Opps": "Az ellenfelek gyógyítása",
+ "Kindred plays full support, drops Lamb's Respite on everyone twice per fight and heals the enemies right along with their own team.": "Kindred full supportot játszik, harconként kétszer rádobja mindenkire a Bárány Nyugalmát, és az ellenséget is meggyógyítja a saját csapatával együtt.",
+ "Wait for a big fight, press R in the middle of all ten champions, then press it again. Nobody leaves, nobody dies, everybody heals.": "Várj egy nagy csatára, nyomd meg az R-t mind a tíz bajnok közepén, aztán nyomd meg újra. Senki nem megy sehova, senki nem hal meg, mindenki gyógyul.",
+ "Nobody dies on Kindred's watch. Not even the enemy team.": "Kindred árnyékában senki nem hal meg. Még az ellenség sem.",
+ "Lamb's Respite": "Bárány Nyugalma",
+ "No unit inside can die, ally or enemy, and everyone inside heals when it ends. It's the only ult that blesses both teams at once.": "A területen belül egyetlen egység sem halhat meg, se szövetséges, se ellenség, és a végén mindenki gyógyul. Ez az egyetlen ulti, ami mindkét csapatot egyszerre áldja meg.",
+ "Ultimate Revolution casts it twice, Stuck In Here With Me Taunts the enemies so they stay in the zone, and Ultimate Recursion brings it back fast. First-Aid Kit makes every heal bigger.": "A Végső lázadás kétszer elsüti, az Itt ragadtál velem Provokálja az ellenséget, hogy a zónában maradjanak, a Végső visszatérés pedig gyorsan visszahozza. Az Elsősegélykészlet minden gyógyítást megnövel.",
+ "Redemption, Moonstone Renewer and Dawncore are pure support healing. Malignance adds more Ultimate Haste, so the zone is up all the time.": "A Megváltás, a Holdkőmegújító és a Hajnalmag tiszta support gyógyítás. A Rosszindulat még több Végső képességgyorsítást ad, így a zóna folyamatosan fent van.",
+ "Refresh your Ultimate after casting it (75 seconds Cooldown or reset on death).": "Frissítsd az Ultidat a használat után (75 másodperces hűlési idő, vagy halálkor visszaáll).",
+ "Gain 20% Heal and Shield Power.": "20% Gyógyítás és Pajzs Erőt kapsz.",
+ "Gain Ultimate Ability Haste.": "Végső képességgyorsítást kapsz."
 }

@@ -364,5 +364,16 @@
  "Deft and Tap Dancer pile on Attack Speed, Dual Wield fires a second bolt with every attack, and Firebrand stacks a Burn on each one.": "Obratnost a Stepař hromadí rychlost útoku, Dvojice zbraní vystřelí s každým útokem druhý šíp a Ohnivý cejch na každý přidá popálení.",
  "Nashor's Tooth, Guinsoo's Rageblade, Wit's End and Terminus are all on-hit, so every punch and every Dual Wield bolt carries them.": "Nashorův tesák, Guinsoova zuřivá čepel, Nouzová a Terminus jsou všechno efekty při zásahu, takže je nese každá rána i každý šíp z Dvojice zbraní.",
  "Gain 60% Attack Speed.": "Získáš 60 % rychlosti útoku.",
- "When you Attack, fire a bolt that deals 40% damage and applies your On-Hit effects at 40% effectiveness. Gain 10% total Attack Speed.": "Když zaútočíš, vystřelíš šíp, který způsobí 40 % poškození a aplikuje tvé efekty při zásahu se 40% účinností. Získáš 10 % celkové rychlosti útoku."
+ "When you Attack, fire a bolt that deals 40% damage and applies your On-Hit effects at 40% effectiveness. Gain 10% total Attack Speed.": "Když zaútočíš, vystřelíš šíp, který způsobí 40 % poškození a aplikuje tvé efekty při zásahu se 40% účinností. Získáš 10 % celkové rychlosti útoku.",
+ "Healing The Opps": "Léčíme protivníky",
+ "Kindred plays full support, drops Lamb's Respite on everyone twice per fight and heals the enemies right along with their own team.": "Kindred hraje čistého supporta, hodí Odpočinek beránka na všechny dvakrát za souboj a léčí nepřátele spolu s vlastním týmem.",
+ "Wait for a big fight, press R in the middle of all ten champions, then press it again. Nobody leaves, nobody dies, everybody heals.": "Počkej na velký souboj, zmáčkni R doprostřed všech deseti šampionů a pak ji zmáčkni znovu. Nikdo neodchází, nikdo neumírá, všichni se léčí.",
+ "Nobody dies on Kindred's watch. Not even the enemy team.": "Za Kindredova dohledu nikdo neumírá. Ani nepřátelský tým.",
+ "Lamb's Respite": "Odpočinek beránka",
+ "No unit inside can die, ally or enemy, and everyone inside heals when it ends. It's the only ult that blesses both teams at once.": "Žádná jednotka uvnitř nemůže zemřít, spojenec ani nepřítel, a všichni uvnitř se na konci vyléčí. Je to jediná ultimátka, která žehná oběma týmům najednou.",
+ "Ultimate Revolution casts it twice, Stuck In Here With Me Taunts the enemies so they stay in the zone, and Ultimate Recursion brings it back fast. First-Aid Kit makes every heal bigger.": "Ultimátní revoluce ji sesílá dvakrát, Zůstaneš tu se mnou nepřátele provokuje, aby zůstali v zóně, a Ultimátní rekurze ji rychle vrací. Lékárnička zvětšuje každé léčení.",
+ "Redemption, Moonstone Renewer and Dawncore are pure support healing. Malignance adds more Ultimate Haste, so the zone is up all the time.": "Odplata, Měsíční obnovovač a Jádro úsvitu jsou čisté supportí léčení. Zhoubnost přidává další zrychlení ultimátních schopností, takže zóna běží pořád.",
+ "Refresh your Ultimate after casting it (75 seconds Cooldown or reset on death).": "Obnov svou ultimátku po jejím seslání (doba obnovení 75 sekund, nebo se obnoví při smrti).",
+ "Gain 20% Heal and Shield Power.": "Získáš 20 % síly léčení a štítů.",
+ "Gain Ultimate Ability Haste.": "Získáš zrychlení ultimátních schopností."
 }

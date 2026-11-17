@@ -364,5 +364,16 @@
  "Deft and Tap Dancer pile on Attack Speed, Dual Wield fires a second bolt with every attack, and Firebrand stacks a Burn on each one.": "Eli Çabuk ve Step Dansı Saldırı Hızı yığar, Çifte Silah her saldırıyla ikinci bir ok atar, Yakıcı Damga da her birine bir Yanma ekler.",
  "Nashor's Tooth, Guinsoo's Rageblade, Wit's End and Terminus are all on-hit, so every punch and every Dual Wield bolt carries them.": "Nashor'un Dişi, Guinsoo'nun Hiddeti, Aklın Sonu ve Son Durak vuruş efektli, yani her yumruk ve her Çifte Silah oku bunları taşır.",
  "Gain 60% Attack Speed.": "%60 Saldırı Hızı kazanırsın.",
- "When you Attack, fire a bolt that deals 40% damage and applies your On-Hit effects at 40% effectiveness. Gain 10% total Attack Speed.": "Saldırdığında, %40 hasar veren ve vuruş efektlerini %40 etkililikle uygulayan bir ok atarsın. Toplamda %10 Saldırı Hızı kazanırsın."
+ "When you Attack, fire a bolt that deals 40% damage and applies your On-Hit effects at 40% effectiveness. Gain 10% total Attack Speed.": "Saldırdığında, %40 hasar veren ve vuruş efektlerini %40 etkililikle uygulayan bir ok atarsın. Toplamda %10 Saldırı Hızı kazanırsın.",
+ "Healing The Opps": "Rakipleri İyileştiriyoruz",
+ "Kindred plays full support, drops Lamb's Respite on everyone twice per fight and heals the enemies right along with their own team.": "Kindred tam destek oynar, her çatışmada herkesin üstüne iki kez Kuzunun Dinlenmesi bırakır ve kendi takımıyla birlikte düşmanları da iyileştirir.",
+ "Wait for a big fight, press R in the middle of all ten champions, then press it again. Nobody leaves, nobody dies, everybody heals.": "Büyük bir savaşı bekle, on şampiyonun tam ortasında R'ye bas, sonra tekrar bas. Kimse gitmez, kimse ölmez, herkes iyileşir.",
+ "Nobody dies on Kindred's watch. Not even the enemy team.": "Kindred'in nöbetinde kimse ölmez. Düşman takım bile.",
+ "Lamb's Respite": "Kuzunun Dinlenmesi",
+ "No unit inside can die, ally or enemy, and everyone inside heals when it ends. It's the only ult that blesses both teams at once.": "İçerideki hiçbir birim ölemez, müttefik de olsa düşman da olsa, ve bittiğinde içerideki herkes iyileşir. İki takımı birden kutsayan tek ulti bu.",
+ "Ultimate Revolution casts it twice, Stuck In Here With Me Taunts the enemies so they stay in the zone, and Ultimate Recursion brings it back fast. First-Aid Kit makes every heal bigger.": "Ulti Devrimi onu iki kez kullandırır, Biz Bizeyiz düşmanları Kışkırtıp bölgede tutar, Ulti Yinelemesi de onu hızla geri getirir. İlk Yardım Seti her iyileştirmeyi büyütür.",
+ "Redemption, Moonstone Renewer and Dawncore are pure support healing. Malignance adds more Ultimate Haste, so the zone is up all the time.": "Kefaret, Dinçleştirici Aytaşı ve Şafağın Özü saf destek iyileştirmesidir. Habaset daha fazla Ulti Hızı ekler, böylece bölge hep açık kalır.",
+ "Refresh your Ultimate after casting it (75 seconds Cooldown or reset on death).": "Kullandıktan sonra Ultini yeniler (75 saniye Bekleme Süresi ya da ölünce sıfırlanır).",
+ "Gain 20% Heal and Shield Power.": "%20 İyileştirme ve Kalkan Gücü kazanırsın.",
+ "Gain Ultimate Ability Haste.": "Ulti Yetenek Hızı kazanırsın."
 }
