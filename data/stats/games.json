@@ -1,6 +1,6 @@
 {
  "about": "Effective matches behind each patch's stats (data/stats/games.py). A champion's games = pick_rate x matches; an item's or a teammate pair's = its share x the champion's games.",
- "updated": "2026-11-17",
+ "updated": "2026-11-18",
  "median_per_day": 3629126,
  "patches": {
   "15.21": {
@@ -148,9 +148,9 @@
    "estimated": true
   },
   "16.22": {
-   "days": 12,
+   "days": 13,
    "per_day": 3629126,
-   "matches": 43549512,
+   "matches": 47178638,
    "estimated": false
   }
  }
