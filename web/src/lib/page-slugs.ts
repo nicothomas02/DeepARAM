@@ -26,6 +26,15 @@ export function canonicalPath(pathname: string): string | null {
     const alias = CHAMPIONS.get(foldName(seg));
     return alias ? `/champions/${alias}` : null;
   }
-  const lower = seg.toLowerCase();
-  return lower !== seg ? `/${section}/${encodeURIComponent(lower)}` : null;
+  // Item and augment slugs are the name in lower case with words joined by hyphens (augmentSlug in
+  // lib/augments.ts), so "Infinity Edge" or "Titan's Resolve" typed as an address lands on its page too.
+  const slug = pageSlug(seg);
+  return slug && slug !== seg ? `/${section}/${slug}` : null;
 }
+
+const pageSlug = (name: string) =>
+  name
+    .toLowerCase()
+    .replace(/['’]/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
