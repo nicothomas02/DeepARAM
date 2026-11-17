@@ -364,5 +364,16 @@
  "Deft and Tap Dancer pile on Attack Speed, Dual Wield fires a second bolt with every attack, and Firebrand stacks a Burn on each one.": "Flink und Stepptänzer stapeln Angriffstempo, Dauerfeuer feuert mit jedem Angriff einen zweiten Bolzen ab, und Feuerbrand legt auf jeden einen Brand.",
  "Nashor's Tooth, Guinsoo's Rageblade, Wit's End and Terminus are all on-hit, so every punch and every Dual Wield bolt carries them.": "Nashors Zahn, Guinsoos Wutklinge, Ende der Weisheit und Terminus wirken alle bei Treffer, also tragen sie jeder Schlag und jeder Dauerfeuer-Bolzen.",
  "Gain 60% Attack Speed.": "Du erhältst 60 % Angriffstempo.",
- "When you Attack, fire a bolt that deals 40% damage and applies your On-Hit effects at 40% effectiveness. Gain 10% total Attack Speed.": "Wenn du angreifst, feuerst du einen Bolzen ab, der 40 % Schaden verursacht und deine Treffereffekte mit 40 % Wirksamkeit anwendet. Du erhältst 10 % Gesamtangriffstempo."
+ "When you Attack, fire a bolt that deals 40% damage and applies your On-Hit effects at 40% effectiveness. Gain 10% total Attack Speed.": "Wenn du angreifst, feuerst du einen Bolzen ab, der 40 % Schaden verursacht und deine Treffereffekte mit 40 % Wirksamkeit anwendet. Du erhältst 10 % Gesamtangriffstempo.",
+ "Healing The Opps": "Die Gegner heilen",
+ "Kindred plays full support, drops Lamb's Respite on everyone twice per fight and heals the enemies right along with their own team.": "Kindred spielt vollen Support, wirft Ruhe des Lamms zweimal pro Kampf auf alle und heilt die Gegner gleich mit dem eigenen Team.",
+ "Wait for a big fight, press R in the middle of all ten champions, then press it again. Nobody leaves, nobody dies, everybody heals.": "Warte auf einen großen Kampf, drück R mitten in alle zehn Champions und dann gleich nochmal. Keiner geht, keiner stirbt, alle werden geheilt.",
+ "Nobody dies on Kindred's watch. Not even the enemy team.": "Unter Kindreds Aufsicht stirbt keiner. Nicht mal das Gegnerteam.",
+ "Lamb's Respite": "Ruhe des Lamms",
+ "No unit inside can die, ally or enemy, and everyone inside heals when it ends. It's the only ult that blesses both teams at once.": "Keine Einheit darin kann sterben, ob Verbündeter oder Gegner, und alle darin werden geheilt, wenn es endet. Es ist die einzige Ult, die beide Teams gleichzeitig segnet.",
+ "Ultimate Revolution casts it twice, Stuck In Here With Me Taunts the enemies so they stay in the zone, and Ultimate Recursion brings it back fast. First-Aid Kit makes every heal bigger.": "Ultimative Revolution wirkt sie zweimal, Du kommst hier nicht weg spottet die Gegner, damit sie in der Zone bleiben, und Ultimative Rekursion bringt sie schnell zurück. Erste-Hilfe-Kasten macht jede Heilung größer.",
+ "Redemption, Moonstone Renewer and Dawncore are pure support healing. Malignance adds more Ultimate Haste, so the zone is up all the time.": "Befreiungsschlag, Mondstein-Erneuerer und Dämmerkern sind pure Support-Heilung. Bösartigkeit gibt mehr Ultimative Fähigkeitseile, damit die Zone ständig steht.",
+ "Refresh your Ultimate after casting it (75 seconds Cooldown or reset on death).": "Setze deine Ultimative nach dem Wirken zurück (75 Sekunden Abklingzeit oder Reset beim Tod).",
+ "Gain 20% Heal and Shield Power.": "Du erhältst 20 % Heil- und Schildstärke.",
+ "Gain Ultimate Ability Haste.": "Du erhältst Ultimative Fähigkeitseile."
 }

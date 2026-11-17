@@ -364,5 +364,16 @@
  "Deft and Tap Dancer pile on Attack Speed, Dual Wield fires a second bolt with every attack, and Firebrand stacks a Burn on each one.": "Проворство и Чечетка добавляют скорость атаки, Парное оружие выпускает второй снаряд с каждой атакой, а Тавро накладывает на каждую Горение.",
  "Nashor's Tooth, Guinsoo's Rageblade, Wit's End and Terminus are all on-hit, so every punch and every Dual Wield bolt carries them.": "Зуб Нашора, Клинок ярости Гинсу, Смерть Разума и Светотень срабатывают при атаке, так что каждый удар и каждый снаряд Парного оружия несёт их эффекты.",
  "Gain 60% Attack Speed.": "Вы получаете 60% скорости атаки.",
- "When you Attack, fire a bolt that deals 40% damage and applies your On-Hit effects at 40% effectiveness. Gain 10% total Attack Speed.": "При атаке вы выпускаете снаряд, который наносит 40% урона и применяет ваши эффекты при атаке с 40% эффективности. Вы получаете 10% общей скорости атаки."
+ "When you Attack, fire a bolt that deals 40% damage and applies your On-Hit effects at 40% effectiveness. Gain 10% total Attack Speed.": "При атаке вы выпускаете снаряд, который наносит 40% урона и применяет ваши эффекты при атаке с 40% эффективности. Вы получаете 10% общей скорости атаки.",
+ "Healing The Opps": "Лечим оппов",
+ "Kindred plays full support, drops Lamb's Respite on everyone twice per fight and heals the enemies right along with their own team.": "Киндред играют фулл саппорта: дважды за бой кидают Покой агнца на всех и лечат врагов вместе со своей командой.",
+ "Wait for a big fight, press R in the middle of all ten champions, then press it again. Nobody leaves, nobody dies, everybody heals.": "Дождитесь большой драки, нажмите R посреди всех десяти чемпионов, а потом нажмите ещё раз. Никто не уходит, никто не умирает, все лечатся.",
+ "Nobody dies on Kindred's watch. Not even the enemy team.": "На страже Киндред никто не умирает. Даже вражеская команда.",
+ "Lamb's Respite": "Покой агнца",
+ "No unit inside can die, ally or enemy, and everyone inside heals when it ends. It's the only ult that blesses both teams at once.": "Ни один юнит внутри не может умереть, ни союзник, ни враг, а когда зона исчезает, все внутри лечатся. Единственная ультимативка, которая благословляет обе команды сразу.",
+ "Ultimate Revolution casts it twice, Stuck In Here With Me Taunts the enemies so they stay in the zone, and Ultimate Recursion brings it back fast. First-Aid Kit makes every heal bigger.": "Абсолютный сброс применяет её дважды, Вас заперли со мной Провоцирует врагов, чтобы они оставались в зоне, а Абсолютная рекурсия быстро возвращает её. Аптечка усиливает любое лечение.",
+ "Redemption, Moonstone Renewer and Dawncore are pure support healing. Malignance adds more Ultimate Haste, so the zone is up all the time.": "Искупление, Исцеляющий лунный камень и Ядро рассвета — чистое лечение для саппорта. Пагубность добавляет ещё больше ускорения ультимативных умений, так что зона почти всегда активна.",
+ "Refresh your Ultimate after casting it (75 seconds Cooldown or reset on death).": "Обновляет вашу ультимативную способность после применения (перезарядка 75 секунд или сброс при смерти).",
+ "Gain 20% Heal and Shield Power.": "Вы получаете 20% силы лечения и щитов.",
+ "Gain Ultimate Ability Haste.": "Вы получаете ускорение ультимативных умений."
 }

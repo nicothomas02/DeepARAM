@@ -364,5 +364,16 @@
  "Deft and Tap Dancer pile on Attack Speed, Dual Wield fires a second bolt with every attack, and Firebrand stacks a Burn on each one.": "الماهر وراقص إيقاعي يكدسان سرعة الهجوم، وثنائي القبضة يطلق سهمًا ثانيًا مع كل هجوم، والجمرة تضيف حرقًا على كل واحد.",
  "Nashor's Tooth, Guinsoo's Rageblade, Wit's End and Terminus are all on-hit, so every punch and every Dual Wield bolt carries them.": "سن ناشور ونصل غضب غينسو والموقف الحرج ومحطة النهاية كلها عند الضربة، فكل لكمة وكل سهم من ثنائي القبضة يحملها.",
  "Gain 60% Attack Speed.": "اكتسب 60% سرعة هجوم.",
- "When you Attack, fire a bolt that deals 40% damage and applies your On-Hit effects at 40% effectiveness. Gain 10% total Attack Speed.": "عند الهجوم، تطلق سهمًا يُلحق 40% من الضرر ويطبق تأثيرات الضربة لديك بفعالية 40%. اكتسب 10% من سرعة الهجوم الإجمالية."
+ "When you Attack, fire a bolt that deals 40% damage and applies your On-Hit effects at 40% effectiveness. Gain 10% total Attack Speed.": "عند الهجوم، تطلق سهمًا يُلحق 40% من الضرر ويطبق تأثيرات الضربة لديك بفعالية 40%. اكتسب 10% من سرعة الهجوم الإجمالية.",
+ "Healing The Opps": "علاج الأعداء",
+ "Kindred plays full support, drops Lamb's Respite on everyone twice per fight and heals the enemies right along with their own team.": "كيندريد يلعب دعم كامل، يرمي راحة الحمل على الجميع مرتين في كل معركة، ويعالج الأعداء مع فريقهم.",
+ "Wait for a big fight, press R in the middle of all ten champions, then press it again. Nobody leaves, nobody dies, everybody heals.": "انتظر معركة كبيرة، اضغط R وسط الأبطال العشرة كلهم، ثم اضغطها مرة ثانية. ما أحد يطلع، ما أحد يموت، والكل يتعالج.",
+ "Nobody dies on Kindred's watch. Not even the enemy team.": "ما أحد يموت تحت حراسة كيندريد. حتى الفريق المعادي.",
+ "Lamb's Respite": "راحة الحمل",
+ "No unit inside can die, ally or enemy, and everyone inside heals when it ends. It's the only ult that blesses both teams at once.": "لا يمكن لأي وحدة بداخلها أن تموت، حليفة كانت أو عدوة، ويُشفى الجميع بداخلها عند انتهائها. إنها الخارقة الوحيدة التي تبارك الفريقين معًا.",
+ "Ultimate Revolution casts it twice, Stuck In Here With Me Taunts the enemies so they stay in the zone, and Ultimate Recursion brings it back fast. First-Aid Kit makes every heal bigger.": "ثورة خارقة تلقيها مرتين، وعالقٌ هنا معي يفرض الاستفزاز على الأعداء ليبقوا في المنطقة، والتكرار الخارق يعيدها بسرعة. وحقيبة الإسعافات الأولية تكبّر كل شفاء.",
+ "Redemption, Moonstone Renewer and Dawncore are pure support healing. Malignance adds more Ultimate Haste, so the zone is up all the time.": "الافتداء وحجر القمر المنعش وجوهر الفجر كلها شفاء دعم خالص. والخبث يضيف المزيد من تسريع القدرة الخارقة، فتبقى المنطقة جاهزة طوال الوقت.",
+ "Refresh your Ultimate after casting it (75 seconds Cooldown or reset on death).": "جدّد قدرتك الخارقة بعد إلقائها (فترة تبريد 75 ثانية أو تُعاد عند الموت).",
+ "Gain 20% Heal and Shield Power.": "اكتسب 20% من قوة الشفاء والدرع.",
+ "Gain Ultimate Ability Haste.": "اكتسب تسريع القدرة الخارقة."
 }

@@ -364,5 +364,16 @@
  "Deft and Tap Dancer pile on Attack Speed, Dual Wield fires a second bolt with every attack, and Firebrand stacks a Burn on each one.": "Deft และ Tap Dancer เพิ่มความเร็วโจมตี Dual Wield ยิงลูกศรที่สองทุกครั้งที่โจมตี ส่วน Firebrand ใส่สถานะ Burn สะสมให้ทุกครั้ง",
  "Nashor's Tooth, Guinsoo's Rageblade, Wit's End and Terminus are all on-hit, so every punch and every Dual Wield bolt carries them.": "Nashor's Tooth, Guinsoo's Rageblade, Wit's End และ Terminus เป็นเอฟเฟกต์ On-Hit ทั้งหมด ทุกหมัดและทุกลูกศรของ Dual Wield จึงติดไปด้วย",
  "Gain 60% Attack Speed.": "ได้รับความเร็วโจมตี 60%",
- "When you Attack, fire a bolt that deals 40% damage and applies your On-Hit effects at 40% effectiveness. Gain 10% total Attack Speed.": "เมื่อโจมตี ยิงลูกศรที่สร้างความเสียหาย 40% และใช้เอฟเฟกต์ On-Hit ของคุณที่ประสิทธิภาพ 40% ได้รับความเร็วโจมตีรวม 10%"
+ "When you Attack, fire a bolt that deals 40% damage and applies your On-Hit effects at 40% effectiveness. Gain 10% total Attack Speed.": "เมื่อโจมตี ยิงลูกศรที่สร้างความเสียหาย 40% และใช้เอฟเฟกต์ On-Hit ของคุณที่ประสิทธิภาพ 40% ได้รับความเร็วโจมตีรวม 10%",
+ "Healing The Opps": "Healing The Opps",
+ "Kindred plays full support, drops Lamb's Respite on everyone twice per fight and heals the enemies right along with their own team.": "Kindred เล่นซัพเต็มตัว ปล่อย Lamb's Respite ใส่ทุกคนสองรอบต่อการปะทะ แล้วฮีลศัตรูพร้อมกับทีมตัวเองเลย",
+ "Wait for a big fight, press R in the middle of all ten champions, then press it again. Nobody leaves, nobody dies, everybody heals.": "รอการปะทะใหญ่ กด R กลางวงระหว่างแชมเปี้ยนทั้งสิบ แล้วกดอีกรอบ ไม่มีใครออก ไม่มีใครตาย ทุกคนได้ฮีล",
+ "Nobody dies on Kindred's watch. Not even the enemy team.": "ไม่มีใครตายในสายตาของ Kindred แม้แต่ทีมศัตรู",
+ "Lamb's Respite": "Lamb's Respite",
+ "No unit inside can die, ally or enemy, and everyone inside heals when it ends. It's the only ult that blesses both teams at once.": "ยูนิตที่อยู่ข้างในจะตายไม่ได้ ไม่ว่าพันธมิตรหรือศัตรู และทุกคนข้างในจะได้รับการฮีลเมื่อสกิลจบ เป็นอัลติเมทเดียวที่อวยพรทั้งสองทีมพร้อมกัน",
+ "Ultimate Revolution casts it twice, Stuck In Here With Me Taunts the enemies so they stay in the zone, and Ultimate Recursion brings it back fast. First-Aid Kit makes every heal bigger.": "Ultimate Revolution ใช้ได้สองครั้ง Stuck In Here With Me Taunt ศัตรูให้อยู่ในโซน และ Ultimate Recursion เรียกกลับมาไวๆ First-Aid Kit ทำให้ฮีลทุกอย่างแรงขึ้น",
+ "Redemption, Moonstone Renewer and Dawncore are pure support healing. Malignance adds more Ultimate Haste, so the zone is up all the time.": "Redemption, Moonstone Renewer และ Dawncore คือไอเทมฮีลสายซัพล้วนๆ ส่วน Malignance เพิ่ม Ultimate Haste ให้โซนติดแทบตลอดเวลา",
+ "Refresh your Ultimate after casting it (75 seconds Cooldown or reset on death).": "รีเฟรชอัลติเมทของคุณหลังใช้ (คูลดาวน์ 75 วินาที หรือรีเซ็ตเมื่อตาย)",
+ "Gain 20% Heal and Shield Power.": "ได้รับพลังฮีลและโล่ 20%",
+ "Gain Ultimate Ability Haste.": "ได้รับ Ultimate Ability Haste"
 }

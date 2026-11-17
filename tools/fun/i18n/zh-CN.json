@@ -364,5 +364,16 @@
  "Deft and Tap Dancer pile on Attack Speed, Dual Wield fires a second bolt with every attack, and Firebrand stacks a Burn on each one.": "灵巧和踢踏舞叠加攻击速度，双刀流每次攻击多射出一发弹矢，火上浇油则给每一发都叠上一层灼烧。",
  "Nashor's Tooth, Guinsoo's Rageblade, Wit's End and Terminus are all on-hit, so every punch and every Dual Wield bolt carries them.": "纳什之牙、鬼索的狂暴之刃、智慧末刃和界弓全都是攻击特效，所以每一拳、每一发双刀流弹矢都会带上它们。",
  "Gain 60% Attack Speed.": "获得60%攻击速度。",
- "When you Attack, fire a bolt that deals 40% damage and applies your On-Hit effects at 40% effectiveness. Gain 10% total Attack Speed.": "攻击时，发射一枚造成40%伤害的弹矢，并以40%的效果触发你的攻击特效。获得10%总攻击速度。"
+ "When you Attack, fire a bolt that deals 40% damage and applies your On-Hit effects at 40% effectiveness. Gain 10% total Attack Speed.": "攻击时，发射一枚造成40%伤害的弹矢，并以40%的效果触发你的攻击特效。获得10%总攻击速度。",
+ "Healing The Opps": "奶爆对面",
+ "Kindred plays full support, drops Lamb's Respite on everyone twice per fight and heals the enemies right along with their own team.": "永猎双子打纯辅助，每场团战对所有人放两次羔羊的安息，敌人和自家队友一起奶。",
+ "Wait for a big fight, press R in the middle of all ten champions, then press it again. Nobody leaves, nobody dies, everybody heals.": "等一场大团战，在十个英雄中间按下R，然后再按一次。没人离开，没人死亡，所有人都被治疗。",
+ "Nobody dies on Kindred's watch. Not even the enemy team.": "有永猎双子在，谁都死不了。敌方也一样。",
+ "Lamb's Respite": "羔羊的安息",
+ "No unit inside can die, ally or enemy, and everyone inside heals when it ends. It's the only ult that blesses both teams at once.": "范围内的任何单位都不会死亡，无论敌我，结束时范围内所有人都会受到治疗。这是唯一能同时庇佑两支队伍的大招。",
+ "Ultimate Revolution casts it twice, Stuck In Here With Me Taunts the enemies so they stay in the zone, and Ultimate Recursion brings it back fast. First-Aid Kit makes every heal bigger.": "终极刷新让它放两次，和我一起困在这里嘲讽敌人让他们留在区域内，终极循环往复让它快速回来。急救用具让每次治疗都更强。",
+ "Redemption, Moonstone Renewer and Dawncore are pure support healing. Malignance adds more Ultimate Haste, so the zone is up all the time.": "救赎、月石再生器和黎明核心都是纯辅助治疗装备。残疫提供更多终极技能急速，让区域几乎一直都在。",
+ "Refresh your Ultimate after casting it (75 seconds Cooldown or reset on death).": "施放后刷新你的终极技能（冷却时间75秒，或死亡时重置）。",
+ "Gain 20% Heal and Shield Power.": "获得20%治疗和护盾强度。",
+ "Gain Ultimate Ability Haste.": "获得终极技能急速。"
 }

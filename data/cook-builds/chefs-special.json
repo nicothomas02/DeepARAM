@@ -1,627 +1,627 @@
 {
-  "id": "rumble-certified-crashout",
-  "title": "Certified Crashout",
-  "champion": "Rumble",
-  "champion_name": "Rumble",
-  "chef": "2026-11-13",
-  "why": "Rumble overheats on purpose, locks himself out of his spells and punches everyone instead.",
-  "play": "Spam spells until you Overheat, then walk up and right-click. When it cools down, do it again.",
+  "id": "kindred-healing-the-opps",
+  "title": "Healing The Opps",
+  "champion": "Kindred",
+  "champion_name": "Kindred",
+  "chef": "2026-11-16",
+  "why": "Kindred plays full support, drops Lamb's Respite on everyone twice per fight and heals the enemies right along with their own team.",
+  "play": "Wait for a big fight, press R in the middle of all ten champions, then press it again. Nobody leaves, nobody dies, everybody heals.",
   "items": [
-    "Nashor's Tooth",
-    "Guinsoo's Rageblade",
-    "Wit's End",
-    "Terminus",
-    "Phantom Dancer",
-    "Berserker's Greaves"
+    "Redemption",
+    "Moonstone Renewer",
+    "Dawncore",
+    "Malignance",
+    "Spirit Visage",
+    "Ionian Boots of Lucidity"
   ],
   "core": 4,
-  "tagline": "Spells are just the warm-up. The real Rumble starts when he's silenced.",
+  "tagline": "Nobody dies on Kindred's watch. Not even the enemy team.",
   "how": [
     [
-      "Overheat",
-      "At full Heat Rumble can't cast, but his attacks hit harder and come faster. He's the only champion whose kit pays him for silencing himself."
+      "Lamb's Respite",
+      "No unit inside can die, ally or enemy, and everyone inside heals when it ends. It's the only ult that blesses both teams at once."
     ],
     [
       "Augments",
-      "Deft and Tap Dancer pile on Attack Speed, Dual Wield fires a second bolt with every attack, and Firebrand stacks a Burn on each one."
+      "Ultimate Revolution casts it twice, Stuck In Here With Me Taunts the enemies so they stay in the zone, and Ultimate Recursion brings it back fast. First-Aid Kit makes every heal bigger."
     ],
     [
       "Items",
-      "Nashor's Tooth, Guinsoo's Rageblade, Wit's End and Terminus are all on-hit, so every punch and every Dual Wield bolt carries them."
+      "Redemption, Moonstone Renewer and Dawncore are pure support healing. Malignance adds more Ultimate Haste, so the zone is up all the time."
     ]
   ],
-  "champion_icon": "/embed/fun/cook-builds/icons/champions/68.png",
+  "champion_icon": "/embed/fun/cook-builds/icons/champions/203.png",
   "augments": [
     {
-      "name": "Deft",
+      "name": "Ultimate Revolution",
+      "rarity": "Prismatic",
+      "core": true,
+      "text": "Refresh your Ultimate after casting it (75 seconds Cooldown or reset on death).",
+      "icon": "/embed/fun/cook-builds/icons/augments/ultimate-revolution.png",
+      "id": 1088
+    },
+    {
+      "name": "Stuck In Here With Me",
+      "rarity": "Prismatic",
+      "core": true,
+      "text": "After using your Ultimate, gain damage reduction for 2 seconds, after which you Taunt enemies inside for 2 seconds. Gain 30 Ultimate Ability Haste.",
+      "icon": "/embed/fun/cook-builds/icons/augments/stuck-in-here-with-me.png",
+      "id": 1413
+    },
+    {
+      "name": "First-Aid Kit",
       "rarity": "Silver",
       "core": true,
-      "text": "Gain 60% Attack Speed.",
-      "icon": "/embed/fun/cook-builds/icons/augments/deft.png",
-      "id": 1022
+      "text": "Gain 20% Heal and Shield Power.",
+      "icon": "/embed/fun/cook-builds/icons/augments/first-aid-kit.png",
+      "id": 1037
     },
     {
-      "name": "Tap Dancer",
-      "rarity": "Prismatic",
+      "name": "Ultimate Recursion",
+      "rarity": "Silver",
       "core": true,
-      "text": "Your Attacks grant you 10 Movement Speed. Gain Attack Speed. The buff stacks and refreshes infinitely but lasts 5 seconds.",
-      "icon": "/embed/fun/cook-builds/icons/augments/tap-dancer.png",
-      "id": 1081
-    },
-    {
-      "name": "Dual Wield",
-      "rarity": "Prismatic",
-      "core": true,
-      "text": "When you Attack, fire a bolt that deals 40% damage and applies your On-Hit effects at 40% effectiveness. Gain 10% total Attack Speed.",
-      "icon": "/embed/fun/cook-builds/icons/augments/dual-wield.png",
-      "id": 1225
-    },
-    {
-      "name": "Firebrand",
-      "rarity": "Gold",
-      "core": true,
-      "text": "Your Attacks also Burn enemies, dealing 0.4% max Health magic damage per second over 5 seconds. This Burn stacks infinitely.",
-      "icon": "/embed/fun/cook-builds/icons/augments/firebrand.png",
-      "id": 1036
+      "text": "Gain Ultimate Ability Haste.",
+      "icon": "/embed/fun/cook-builds/icons/augments/ultimate-recursion.png",
+      "id": 3055
     }
   ],
   "href": "/kitchen#chefs-special",
   "archive_href": "/kitchen#chef-archive",
-  "share_href": "/kitchen/2026-11-13",
-  "share_image": "/embed/fun/cook-builds/share/rumble-certified-crashout.png",
+  "share_href": "/kitchen/2026-11-16",
+  "share_image": "/embed/fun/cook-builds/share/kindred-healing-the-opps.png",
   "item_ids": [
-    3115,
-    3124,
-    3091,
-    3302,
-    3046,
-    3006
+    3107,
+    6617,
+    6621,
+    3118,
+    3065,
+    3158
   ],
   "i18n": {
     "ar": {
-      "title": "مجنون معتمد",
-      "why": "رامبل يسخّن نفسه عمدًا، ويقفل تعاويذه، ويضرب الجميع بقبضتيه.",
-      "play": "اسبام التعاويذ لين تصل فرط السخونة، بعدها اقترب واضغط كليك يمين. لما يبرد، كرر من جديد.",
-      "tagline": "التعاويذ مجرد إحماء. رامبل الحقيقي يبدأ لما يُسكَت.",
+      "title": "علاج الأعداء",
+      "why": "كيندريد يلعب دعم كامل، يرمي راحة الحمل على الجميع مرتين في كل معركة، ويعالج الأعداء مع فريقهم.",
+      "play": "انتظر معركة كبيرة، اضغط R وسط الأبطال العشرة كلهم، ثم اضغطها مرة ثانية. ما أحد يطلع، ما أحد يموت، والكل يتعالج.",
+      "tagline": "ما أحد يموت تحت حراسة كيندريد. حتى الفريق المعادي.",
       "how": [
         [
-          "فرط السخونة",
-          "عند اكتمال الحرارة لا يستطيع رامبل إلقاء التعاويذ، لكن هجماته تضرب أقوى وأسرع. هو البطل الوحيد الذي تكافئه قدراته على إسكات نفسه."
+          "راحة الحمل",
+          "لا يمكن لأي وحدة بداخلها أن تموت، حليفة كانت أو عدوة، ويُشفى الجميع بداخلها عند انتهائها. إنها الخارقة الوحيدة التي تبارك الفريقين معًا."
         ],
         [
           "التعزيزات",
-          "الماهر وراقص إيقاعي يكدسان سرعة الهجوم، وثنائي القبضة يطلق سهمًا ثانيًا مع كل هجوم، والجمرة تضيف حرقًا على كل واحد."
+          "ثورة خارقة تلقيها مرتين، وعالقٌ هنا معي يفرض الاستفزاز على الأعداء ليبقوا في المنطقة، والتكرار الخارق يعيدها بسرعة. وحقيبة الإسعافات الأولية تكبّر كل شفاء."
         ],
         [
           "العتاد",
-          "سن ناشور ونصل غضب غينسو والموقف الحرج ومحطة النهاية كلها عند الضربة، فكل لكمة وكل سهم من ثنائي القبضة يحملها."
+          "الافتداء وحجر القمر المنعش وجوهر الفجر كلها شفاء دعم خالص. والخبث يضيف المزيد من تسريع القدرة الخارقة، فتبقى المنطقة جاهزة طوال الوقت."
         ]
       ],
       "augments": [
-        "اكتسب 60% سرعة هجوم.",
-        "هجماتك تمنحك 10 سرعة حركة. تكتسب سرعة هجوم. يتراكم التأثير ويتجدد بلا حدود لكنه يدوم 5 ثوانٍ.",
-        "عند الهجوم، تطلق سهمًا يُلحق 40% من الضرر ويطبق تأثيرات الضربة لديك بفعالية 40%. اكتسب 10% من سرعة الهجوم الإجمالية.",
-        "تحرق هجماتك الأعداء أيضًا، فتلحق ضررًا سحريًا يعادل 0.4% من أقصى صحتهم كل ثانية لمدة 5 ثوانٍ. يتراكم هذا الحرق بلا حدود."
+        "جدّد قدرتك الخارقة بعد إلقائها (فترة تبريد 75 ثانية أو تُعاد عند الموت).",
+        "بعد استخدام ضربتك القاضية، احصل على تقليل للضرر لمدة ثانيتين، وبعدها تستفز الأعداء في الداخل لمدة ثانيتين. احصل على 30 من تسريع الضربة القاضية.",
+        "اكتسب 20% من قوة الشفاء والدرع.",
+        "اكتسب تسريع القدرة الخارقة."
       ]
     },
     "cs": {
-      "title": "Certifikovaný šílenec",
-      "why": "Rumble se schválně přehřeje, zamkne si kouzla a místo nich mlátí všechny pěstmi.",
-      "play": "Spamuj kouzla, dokud se nepřehřeješ, pak dojdi k cíli a klikej pravým. Až vychladne, zopakuj to.",
-      "tagline": "Kouzla jsou jen rozcvička. Pravý Rumble začíná, když ho umlčí.",
+      "title": "Léčíme protivníky",
+      "why": "Kindred hraje čistého supporta, hodí Odpočinek beránka na všechny dvakrát za souboj a léčí nepřátele spolu s vlastním týmem.",
+      "play": "Počkej na velký souboj, zmáčkni R doprostřed všech deseti šampionů a pak ji zmáčkni znovu. Nikdo neodchází, nikdo neumírá, všichni se léčí.",
+      "tagline": "Za Kindredova dohledu nikdo neumírá. Ani nepřátelský tým.",
       "how": [
         [
-          "Přehřátí",
-          "Při plném Žáru Rumble nemůže sesílat, ale jeho útoky bolí víc a přicházejí rychleji. Je to jediný šampion, jehož sada ho odměňuje za umlčení sama sebe."
+          "Odpočinek beránka",
+          "Žádná jednotka uvnitř nemůže zemřít, spojenec ani nepřítel, a všichni uvnitř se na konci vyléčí. Je to jediná ultimátka, která žehná oběma týmům najednou."
         ],
         [
           "Augmenty",
-          "Obratnost a Stepař hromadí rychlost útoku, Dvojice zbraní vystřelí s každým útokem druhý šíp a Ohnivý cejch na každý přidá popálení."
+          "Ultimátní revoluce ji sesílá dvakrát, Zůstaneš tu se mnou nepřátele provokuje, aby zůstali v zóně, a Ultimátní rekurze ji rychle vrací. Lékárnička zvětšuje každé léčení."
         ],
         [
           "Předměty",
-          "Nashorův tesák, Guinsoova zuřivá čepel, Nouzová a Terminus jsou všechno efekty při zásahu, takže je nese každá rána i každý šíp z Dvojice zbraní."
+          "Odplata, Měsíční obnovovač a Jádro úsvitu jsou čisté supportí léčení. Zhoubnost přidává další zrychlení ultimátních schopností, takže zóna běží pořád."
         ]
       ],
       "augments": [
-        "Získáš 60 % rychlosti útoku.",
-        "Tvoje útoky ti dávají 10 rychlosti pohybu. Získáš rychlost útoku. Efekt se stackuje a obnovuje donekonečna, ale trvá 5 sekund.",
-        "Když zaútočíš, vystřelíš šíp, který způsobí 40 % poškození a aplikuje tvé efekty při zásahu se 40% účinností. Získáš 10 % celkové rychlosti útoku.",
-        "Tvé útoky navíc zapalují nepřátele a způsobují jim magické poškození ve výši 0,4 % maximálního zdraví za sekundu po dobu 5 sekund. Toto hoření se kumuluje donekonečna."
+        "Obnov svou ultimátku po jejím seslání (doba obnovení 75 sekund, nebo se obnoví při smrti).",
+        "Po použití ultimátní schopnosti získáš na 2 sekundy snížení poškození, poté na 2 sekundy vyprovokuješ nepřátele uvnitř. Získáš 30 bodů zrychlení ultimátní schopnosti.",
+        "Získáš 20 % síly léčení a štítů.",
+        "Získáš zrychlení ultimátních schopností."
       ]
     },
     "de": {
-      "title": "Zertifizierter Ausraster",
-      "why": "Rumble überhitzt absichtlich, sperrt sich selbst seine Zauber und prügelt stattdessen auf alle ein.",
-      "play": "Spam Zauber, bis du Überhitzt bist, lauf dann hin und Rechtsklick. Wenn er abgekühlt ist, wieder von vorn.",
-      "tagline": "Zauber sind nur das Warm-up. Das echte Rumble-Spiel beginnt, wenn er stummgeschaltet ist.",
+      "title": "Die Gegner heilen",
+      "why": "Kindred spielt vollen Support, wirft Ruhe des Lamms zweimal pro Kampf auf alle und heilt die Gegner gleich mit dem eigenen Team.",
+      "play": "Warte auf einen großen Kampf, drück R mitten in alle zehn Champions und dann gleich nochmal. Keiner geht, keiner stirbt, alle werden geheilt.",
+      "tagline": "Unter Kindreds Aufsicht stirbt keiner. Nicht mal das Gegnerteam.",
       "how": [
         [
-          "Überhitzung",
-          "Bei voller Hitze kann Rumble nicht zaubern, aber seine Angriffe treffen härter und kommen schneller. Er ist der einzige Champion, dessen Kit ihn fürs Selbst-Stummschalten belohnt."
+          "Ruhe des Lamms",
+          "Keine Einheit darin kann sterben, ob Verbündeter oder Gegner, und alle darin werden geheilt, wenn es endet. Es ist die einzige Ult, die beide Teams gleichzeitig segnet."
         ],
         [
           "Augments",
-          "Flink und Stepptänzer stapeln Angriffstempo, Dauerfeuer feuert mit jedem Angriff einen zweiten Bolzen ab, und Feuerbrand legt auf jeden einen Brand."
+          "Ultimative Revolution wirkt sie zweimal, Du kommst hier nicht weg spottet die Gegner, damit sie in der Zone bleiben, und Ultimative Rekursion bringt sie schnell zurück. Erste-Hilfe-Kasten macht jede Heilung größer."
         ],
         [
           "Gegenstände",
-          "Nashors Zahn, Guinsoos Wutklinge, Ende der Weisheit und Terminus wirken alle bei Treffer, also tragen sie jeder Schlag und jeder Dauerfeuer-Bolzen."
+          "Befreiungsschlag, Mondstein-Erneuerer und Dämmerkern sind pure Support-Heilung. Bösartigkeit gibt mehr Ultimative Fähigkeitseile, damit die Zone ständig steht."
         ]
       ],
       "augments": [
-        "Du erhältst 60 % Angriffstempo.",
-        "Deine Angriffe gewähren dir 10 Lauftempo. Erhalte Angriffstempo. Der Effekt stapelt sich und erneuert sich unbegrenzt, hält aber 5 Sekunden.",
-        "Wenn du angreifst, feuerst du einen Bolzen ab, der 40 % Schaden verursacht und deine Treffereffekte mit 40 % Wirksamkeit anwendet. Du erhältst 10 % Gesamtangriffstempo.",
-        "Deine Angriffe verbrennen Gegner zusätzlich und verursachen 5 Sek. lang pro Sekunde magischen Schaden in Höhe von 0,4 % ihres maximalen Lebens. Dieser Brand ist unendlich stapelbar."
+        "Setze deine Ultimative nach dem Wirken zurück (75 Sekunden Abklingzeit oder Reset beim Tod).",
+        "Erhalte nach dem Einsatz deiner ultimativen Fähigkeit 2 Sekunden lang Schadensverringerung, danach verspottest du Gegner darin 2 Sekunden lang. Erhalte 30 ultimative Fähigkeitsbeschleunigung.",
+        "Du erhältst 20 % Heil- und Schildstärke.",
+        "Du erhältst Ultimative Fähigkeitseile."
       ]
     },
     "el": {
-      "title": "Πιστοποιημένος Τρελαμένος",
-      "why": "Ο Ραμπλ υπερθερμαίνεται επίτηδες, κλειδώνει τα ξόρκια του και χτυπάει όλους με γροθιές.",
-      "play": "Σπαμάρισε ξόρκια μέχρι να έρθει η Υπερθέρμανση, μετά πήγαινε κοντά και δεξί κλικ. Όταν κρυώσει, ξανά από την αρχή.",
-      "tagline": "Τα ξόρκια είναι απλώς ζέσταμα. Ο πραγματικός Ραμπλ ξεκινά όταν τον φιμώσουν.",
+      "title": "Θεραπεύοντας τους Αντιπάλους",
+      "why": "Ο Κίντρεντ παίζει πλήρη υποστήριξη, ρίχνει την Ανάπαυλα του Αρνιού σε όλους δύο φορές ανά μάχη και θεραπεύει τους εχθρούς μαζί με τη δική του ομάδα.",
+      "play": "Περίμενε μια μεγάλη μάχη, πάτα R στη μέση και των δέκα ηρώων και μετά πάτα το ξανά. Κανείς δεν φεύγει, κανείς δεν πεθαίνει, όλοι θεραπεύονται.",
+      "tagline": "Κανείς δεν πεθαίνει όσο φυλάει ο Κίντρεντ. Ούτε καν η εχθρική ομάδα.",
       "how": [
         [
-          "Υπερθέρμανση",
-          "Με πλήρη Θερμότητα ο Ραμπλ δεν μπορεί να κάνει ξόρκια, αλλά οι επιθέσεις του χτυπούν δυνατότερα και πιο γρήγορα. Είναι ο μοναδικός ήρωας του οποίου το σετ τον ανταμείβει που φιμώνει τον εαυτό του."
+          "Ανάπαυλα του Αρνιού",
+          "Καμία μονάδα εντός δεν μπορεί να πεθάνει, σύμμαχος ή εχθρός, και όλοι εντός θεραπεύονται όταν λήξει. Είναι το μοναδικό ult που ευλογεί και τις δύο ομάδες μαζί."
         ],
         [
           "Ενισχύσεις",
-          "Η Επιδεξιότητα και τα Φτερά στα Πόδια στοιβάζουν Ταχύτητα Επίθεσης, οι Δύο Όπλα εκτοξεύουν δεύτερο βλήμα με κάθε επίθεση και το Πυροσφράγισμα προσθέτει Έγκαυμα σε κάθε ένα."
+          "Η Υπέρτατη Εξέγερση το ρίχνει δύο φορές, το Κολλημένος εδώ μαζί μου προκαλεί τους εχθρούς ώστε να μένουν στη ζώνη και η Υπέρτατη Αναδρομή το φέρνει πίσω γρήγορα. Το Κιτ πρώτων βοηθειών κάνει κάθε θεραπεία μεγαλύτερη."
         ],
         [
           "Αντικείμενα",
-          "Το Δόντι του Νάσορ, το Οργισμένο Σπαθί του Γκουίνσου, το Παρανοϊκό Ξίφος και ο Τέρμινους δρουν όλα με το χτύπημα, οπότε κάθε γροθιά και κάθε βλήμα των Δύο Όπλων τα μεταφέρει."
+          "Η Λύτρωση, ο Ανανεωτής Φεγγαρόπετρας και Το Χαρντκόρ Της Αυγής είναι καθαρή θεραπεία υποστήριξης. Η Κακοήθεια προσθέτει περισσότερη Επιτάχυνση Υπέρτατης Ικανότητας, ώστε η ζώνη να είναι πάντα ενεργή."
         ]
       ],
       "augments": [
-        "Αποκτάς 60% Ταχύτητα Επίθεσης.",
-        "Οι επιθέσεις σου σού δίνουν 10 ταχύτητα κίνησης. Αποκτάς ταχύτητα επίθεσης. Το buff στοιβάζεται και ανανεώνεται επ' άπειρον, αλλά διαρκεί 5 δευτερόλεπτα.",
-        "Όταν επιτίθεσαι, εκτοξεύεις ένα βλήμα που προκαλεί 40% ζημιά και εφαρμόζει τα εφέ πρόσκρουσής σου με 40% αποτελεσματικότητα. Αποκτάς 10% συνολική Ταχύτητα Επίθεσης.",
-        "Οι Επιθέσεις σας καίνε επίσης τους εχθρούς, προκαλώντας μαγική ζημιά ίση με το 0,4% της μέγιστης Ζωής τους ανά δευτερόλεπτο για 5 δευτερόλεπτα. Αυτό το Κάψιμο αθροίζεται απεριόριστα."
+        "Ανανέωσε το Υπέρτατό σου μετά την εκτέλεσή του (75 δευτερόλεπτα Επαναφόρτιση ή επαναφορά με θάνατο).",
+        "Αφού χρησιμοποιήσεις την Υπέρτατη Ικανότητά σου, αποκτάς μείωση ζημιάς για 2 δευτερόλεπτα, μετά την οποία προκαλείς τους εχθρούς μέσα για 2 δευτερόλεπτα. Αποκτάς 30 Επιτάχυνση Υπέρτατης Ικανότητας.",
+        "Αποκτάς 20% Ισχύ Θεραπείας και Ασπίδας.",
+        "Αποκτάς Επιτάχυνση Υπέρτατης Ικανότητας."
       ]
     },
     "es-MX": {
-      "title": "Berrinche certificado",
-      "why": "Rumble se sobrecalienta a propósito, se bloquea sus hechizos y mejor se pone a madrear a todos.",
-      "play": "Spamea hechizos hasta Sobrecalentarte, acércate y dale clic derecho. Cuando se enfríe, repite.",
-      "tagline": "Los hechizos son puro calentamiento. El Rumble de verdad empieza cuando lo silencian.",
+      "title": "Curando a los Rivales",
+      "why": "Kindred juega full support, suelta Respiro del Cordero sobre todos dos veces por pelea y cura a los enemigos junto con su propio equipo.",
+      "play": "Espera una gran pelea, presiona R en medio de los diez campeones y luego presiónala otra vez. Nadie se va, nadie muere, todos se curan.",
+      "tagline": "Nadie muere bajo la vigilancia de Kindred. Ni siquiera el equipo enemigo.",
       "how": [
         [
-          "Sobrecalentamiento",
-          "Con el Calor al máximo, Rumble no puede lanzar hechizos, pero sus ataques pegan más fuerte y más rápido. Es el único campeón cuyo kit lo premia por silenciarse a sí mismo."
+          "Respiro del Cordero",
+          "Ninguna unidad dentro puede morir, aliada o enemiga, y todos adentro se curan cuando termina. Es la única definitiva que bendice a ambos equipos a la vez."
         ],
         [
           "Aumentos",
-          "Hábil y Bailarín de Tap acumulan velocidad de ataque, Doble Empuñadura dispara un segundo proyectil con cada ataque y Espada de Fuego le pone una quemadura a cada uno."
+          "Revolución Definitiva la lanza dos veces, Juntos por Desgracia Provoca a los enemigos para que se queden en la zona, y Recursividad Definitiva la regresa rápido. Botiquín hace más grande cada curación."
         ],
         [
           "Objetos",
-          "Diente de Nashor, Espadafuria de Guinsoo, Al Filo de la Cordura y Terminus son todos al impactar, así que cada golpe y cada proyectil de Doble Empuñadura los aplica."
+          "Redención, Renovador de Piedra Lunar y Esfera del Amanecer son pura curación de support. Maldad agrega más celeridad de habilidad definitiva, así la zona está activa todo el tiempo."
         ]
       ],
       "augments": [
-        "Obtienes 60% de velocidad de ataque.",
-        "Tus ataques te otorgan 10 de velocidad de movimiento. Obtienes velocidad de ataque. El efecto se acumula y se renueva infinitamente, pero dura 5 segundos.",
-        "Cuando atacas, disparas un proyectil que inflige 40% del daño y aplica tus efectos al impactar con 40% de efectividad. Obtienes 10% de velocidad de ataque total.",
-        "Tus ataques también queman a los enemigos e infligen daño mágico equivalente al 0.4% de su vida máxima por segundo durante 5 s. Esta quemadura se acumula sin límite."
+        "Reinicia tu definitiva después de lanzarla (75 segundos de enfriamiento o se reinicia al morir).",
+        "Después de usar tu definitiva, obtienes reducción de daño durante 2 segundos, después de lo cual provocas a los enemigos que estén dentro durante 2 segundos. Obtienes 30 de velocidad de habilidad definitiva.",
+        "Obtienes 20% de poder de curación y escudo.",
+        "Obtienes celeridad de habilidad definitiva."
       ]
     },
     "es": {
-      "title": "Descontrol certificado",
-      "why": "Rumble se sobrecalienta a propósito, se bloquea los hechizos y se pone a repartir puñetazos a todos.",
-      "play": "Spamea hechizos hasta Sobrecalentarte, acércate y haz clic derecho. Cuando se enfríe, repite.",
-      "tagline": "Los hechizos son solo el calentamiento. El verdadero Rumble empieza cuando lo silencian.",
+      "title": "Curando a los rivales",
+      "why": "Kindred juega de apoyo total, suelta Respiro del Cordero sobre todos dos veces por pelea y cura a los enemigos junto con su propio equipo.",
+      "play": "Espera a una gran pelea, pulsa R en medio de los diez campeones y vuelve a pulsarla. Nadie se va, nadie muere, todos se curan.",
+      "tagline": "Nadie muere bajo la vigilancia de Kindred. Ni siquiera el equipo enemigo.",
       "how": [
         [
-          "Sobrecalentamiento",
-          "Con el Calor al máximo, Rumble no puede lanzar hechizos, pero sus ataques pegan más fuerte y más rápido. Es el único campeón cuyo kit lo premia por silenciarse a sí mismo."
+          "Respiro del Cordero",
+          "Ninguna unidad en su interior puede morir, aliada o enemiga, y todas se curan cuando termina. Es la única definitiva que bendice a ambos equipos a la vez."
         ],
         [
           "Aumentos",
-          "Destreza y Taconeo acumulan velocidad de ataque, A dos manos dispara un segundo virote con cada ataque y Quemazón añade una quemadura a cada uno."
+          "Revolución definitiva la lanza dos veces, ¡Que nadie se mueva! provoca a los enemigos para que se queden en la zona, y Recursión definitiva la devuelve rápido. Botiquín hace más grande cada curación."
         ],
         [
           "Objetos",
-          "Diente de Nashor, Hoja de furia de Guinsoo, Final del ingenio y El final son todos al impactar, así que cada puñetazo y cada virote de A dos manos los aplica."
+          "Redención, Renovación de piedra lunar y Núcleo albar son curación de apoyo pura. Malignidad añade más celeridad de habilidad definitiva, así la zona está activa todo el rato."
         ]
       ],
       "augments": [
-        "Obtienes un 60 % de velocidad de ataque.",
-        "Tus ataques te otorgan 10 de velocidad de movimiento. Obtienes velocidad de ataque. El efecto se acumula y se renueva infinitamente, pero dura 5 segundos.",
-        "Cuando atacas, disparas un virote que inflige un 40 % del daño y aplica tus efectos al impactar con un 40 % de efectividad. Obtienes un 10 % de velocidad de ataque total.",
-        "Tus ataques también queman a los enemigos e infligen daño mágico equivalente al 0,4 % de su vida máxima por segundo durante 5 s. Esta quemadura se acumula sin límite."
+        "Reinicia tu definitiva después de lanzarla (75 segundos de enfriamiento o se reinicia al morir).",
+        "Tras usar tu definitiva, obtienes reducción de daño durante 2 segundos, tras lo cual provocas a los enemigos que haya dentro durante 2 segundos. Obtienes 30 de celeridad de definitiva.",
+        "Obtienes un 20 % de poder de curación y escudo.",
+        "Obtienes celeridad de habilidad definitiva."
       ]
     },
     "fr": {
-      "title": "Pétage de câble certifié",
-      "why": "Rumble surchauffe exprès, se bloque ses propres sorts et frappe tout le monde à la place.",
-      "play": "Spamme tes sorts jusqu'à la Surchauffe, puis fonce et clic droit. Quand ça refroidit, recommence.",
-      "tagline": "Les sorts, c'est juste l'échauffement. Le vrai Rumble commence quand il est réduit au silence.",
+      "title": "Soigner les ennemis",
+      "why": "Kindred joue support à fond, lance Répit de l'agneau sur tout le monde deux fois par combat et soigne les ennemis en même temps que sa propre équipe.",
+      "play": "Attends un gros combat, appuie sur R au milieu des dix champions, puis appuie dessus une deuxième fois. Personne ne part, personne ne meurt, tout le monde est soigné.",
+      "tagline": "Personne ne meurt sous la garde de Kindred. Pas même l'équipe adverse.",
       "how": [
         [
-          "Surchauffe",
-          "À pleine Chaleur, Rumble ne peut plus lancer de sorts, mais ses attaques frappent plus fort et plus vite. C'est le seul champion dont le kit le récompense de se réduire au silence."
+          "Répit de l'agneau",
+          "Aucune unité à l'intérieur ne peut mourir, alliée ou ennemie, et tout le monde à l'intérieur est soigné à la fin. C'est la seule ultime qui bénit les deux équipes en même temps."
         ],
         [
           "Augments",
-          "Zèle et Danse effrénée empilent de la vitesse d'attaque, Ambidextrie tire un second projectile à chaque attaque, et Brasier ajoute une brûlure à chacun."
+          "Révolution ultime la lance deux fois, Provocation ultime provoque les ennemis pour qu'ils restent dans la zone, et Récursivité ultime la ramène vite. Trousse de secours agrandit chaque soin."
         ],
         [
           "Objets",
-          "La Dent de Nashor, la Lame enragée de Guinsoo, Au bout du rouleau et Terminus sont tous à l'impact, donc chaque coup et chaque projectile d'Ambidextrie les applique."
+          "Rédemption, Régénérateur de pierre de lune et Cœur de l'aube sont du pur soin de support. Malfaisance ajoute plus d'accélération de compétence ultime, donc la zone est active en permanence."
         ]
       ],
       "augments": [
-        "Vous gagnez 60 % de vitesse d'attaque.",
-        "Vos attaques vous confèrent 10 de vitesse de déplacement. Gagnez de la vitesse d'attaque. L'effet se cumule et se rafraîchit à l'infini, mais dure 5 secondes.",
-        "Quand vous attaquez, vous tirez un projectile qui inflige 40 % des dégâts et applique vos effets à l'impact à 40 % d'efficacité. Vous gagnez 10 % de vitesse d'attaque totale.",
-        "Vos attaques brûlent également les ennemis, infligeant des dégâts magiques à hauteur de 0,4 % de leurs PV max par seconde pendant 5 sec. Cette brûlure se cumule à l'infini."
+        "Réinitialise ton ultime après l'avoir lancée (75 secondes de délai de récupération ou réinitialisation à la mort).",
+        "Après avoir utilisé votre ultime, vous gagnez une réduction des dégâts pendant 2 secondes, puis vous provoquez les ennemis à l'intérieur pendant 2 secondes. Vous gagnez 30 accélération de compétence ultime.",
+        "Vous gagnez 20 % de puissance des soins et des boucliers.",
+        "Vous gagnez de l'accélération de compétence ultime."
       ]
     },
     "hu": {
-      "title": "Hivatalos Idegbeteg",
-      "why": "Rumble direkt túlhevíti magát, kizárja magát a varázslatokból, és mindenkit helyette pofozgat.",
-      "play": "Spameld a varázslatokat, amíg Túlhevülsz, aztán sétálj oda és jobb klikk. Ha lehűlt, kezdd elölről.",
-      "tagline": "A varázslatok csak a bemelegítés. Az igazi Rumble akkor jön, ha elnémítják.",
+      "title": "Az ellenfelek gyógyítása",
+      "why": "Kindred full supportot játszik, harconként kétszer rádobja mindenkire a Bárány Nyugalmát, és az ellenséget is meggyógyítja a saját csapatával együtt.",
+      "play": "Várj egy nagy csatára, nyomd meg az R-t mind a tíz bajnok közepén, aztán nyomd meg újra. Senki nem megy sehova, senki nem hal meg, mindenki gyógyul.",
+      "tagline": "Kindred árnyékában senki nem hal meg. Még az ellenség sem.",
       "how": [
         [
-          "Túlhevülés",
-          "Teljes Hőnél Rumble nem tud varázsolni, de az ütései keményebbek és gyorsabbak. Ő az egyetlen bajnok, akit megjutalmaz a saját magát elnémító készlete."
+          "Bárány Nyugalma",
+          "A területen belül egyetlen egység sem halhat meg, se szövetséges, se ellenség, és a végén mindenki gyógyul. Ez az egyetlen ulti, ami mindkét csapatot egyszerre áldja meg."
         ],
         [
           "Bővítések",
-          "Az Iparkodás és a Sztepptáncos tolja a Támadási Sebességet, a Dupla csapás minden támadással egy második lövedéket lő, a Lázító pedig mindegyikre Égést rak."
+          "A Végső lázadás kétszer elsüti, az Itt ragadtál velem Provokálja az ellenséget, hogy a zónában maradjanak, a Végső visszatérés pedig gyorsan visszahozza. Az Elsősegélykészlet minden gyógyítást megnövel."
         ],
         [
           "Tárgyak",
-          "Nashor foga, Guinsoo dühpengéje, Utolsó esély és Vég mind találatkor hatnak, így minden ütés és minden Dupla csapás-lövedék viszi őket."
+          "A Megváltás, a Holdkőmegújító és a Hajnalmag tiszta support gyógyítás. A Rosszindulat még több Végső képességgyorsítást ad, így a zóna folyamatosan fent van."
         ]
       ],
       "augments": [
-        "60% Támadási Sebességet kapsz.",
-        "A támadásaid 10 mozgási sebességet adnak. Támadási sebességet kapsz. A hatás végtelenül halmozódik és frissül, de 5 másodpercig tart.",
-        "Támadáskor egy lövedéket lősz, amely 40% sebzést okoz, és a találatkor hatásaidat 40%-os hatékonysággal alkalmazza. 10% összes Támadási Sebességet kapsz.",
-        "A támadásaid az ellenfeleket is meggyújtják, 5 mp-en át másodpercenként a maximális életerejük 0,4%-ának megfelelő mágikus sebzést okozva. Ez az égés végtelenül halmozódik."
+        "Frissítsd az Ultidat a használat után (75 másodperces hűlési idő, vagy halálkor visszaáll).",
+        "Az ultid használata után 2 másodpercig sebzéscsökkentést kapsz, majd 2 másodpercre provokálod a benne lévő ellenfeleket. 30 ulti-képességgyorsítást kapsz.",
+        "20% Gyógyítás és Pajzs Erőt kapsz.",
+        "Végső képességgyorsítást kapsz."
       ]
     },
     "id": {
-      "title": "Certified Crashout (Raja Emosi)",
-      "why": "Rumble sengaja overheat, ngunci spell-nya sendiri, terus nonjok semua orang.",
-      "play": "Spam spell sampai Overheat, lalu jalan ke musuh dan klik kanan. Pas udah dingin, ulangi.",
-      "tagline": "Spell itu cuma pemanasan. Rumble yang asli baru muncul pas dia di-silence.",
+      "title": "Menyembuhkan Lawan",
+      "why": "Kindred main full support, menjatuhkan Lamb's Respite ke semua orang dua kali per teamfight dan menyembuhkan musuh bareng tim sendiri.",
+      "play": "Tunggu teamfight besar, tekan R di tengah kesepuluh champion, lalu tekan lagi. Nggak ada yang kabur, nggak ada yang mati, semuanya sembuh.",
+      "tagline": "Nggak ada yang mati selama Kindred di sini. Musuh pun nggak.",
       "how": [
         [
-          "Overheat",
-          "Pas Heat penuh, Rumble nggak bisa cast, tapi serangannya lebih sakit dan lebih cepat. Dia satu-satunya champion yang dapat bayaran karena nge-silence dirinya sendiri."
+          "Lamb's Respite",
+          "Tidak ada unit di dalam area yang bisa mati, baik teman maupun musuh, dan semua yang di dalam disembuhkan saat selesai. Ini satu-satunya ult yang memberkati kedua tim sekaligus."
         ],
         [
           "Augment",
-          "Deft dan Tap Dancer numpuk Attack Speed, Dual Wield nembak satu bolt tambahan di tiap serangan, dan Firebrand numpuk Burn di tiap serangan."
+          "Ultimate Revolution memakainya dua kali, Stuck In Here With Me melakukan Ejek ke musuh supaya tetap di dalam zona, dan Ultimate Recursion membuatnya cepat kembali. First-Aid Kit membuat setiap heal lebih besar."
         ],
         [
           "Item",
-          "Nashor's Tooth, Guinsoo's Rageblade, Wit's End, dan Terminus semuanya on-hit, jadi tiap pukulan dan tiap bolt Dual Wield ikut bawa efeknya."
+          "Redemption, Moonstone Renewer, dan Dawncore adalah heal support murni. Malignance menambah Ultimate Haste, jadi zonanya aktif terus."
         ]
       ],
       "augments": [
-        "Dapat 60% Attack Speed.",
-        "Serangan kamu memberi 10 Move Speed. Dapatkan Attack Speed. Buff ini menumpuk dan diperbarui tanpa batas, tapi bertahan 5 detik.",
-        "Saat menyerang, tembakkan bolt yang memberi 40% damage dan menerapkan efek On-Hit dengan efektivitas 40%. Dapat 10% total Attack Speed.",
-        "Serangan juga membakar musuh, memberikan magic damage sebesar 0,4% max Health per detik selama 5 detik. Burn ini bertumpuk tanpa batas."
+        "Segarkan Ultimate-mu setelah dipakai (cooldown 75 detik atau reset saat mati).",
+        "Setelah memakai Ultimate, dapatkan damage reduction selama 2 detik, setelah itu kamu men-Taunt musuh di dalam selama 2 detik. Dapatkan 30 Ultimate Ability Haste.",
+        "Dapatkan 20% Kekuatan Penyembuhan dan Perisai.",
+        "Dapatkan Ultimate Ability Haste."
       ]
     },
     "it": {
-      "title": "Pazzo Certificato",
-      "why": "Rumble si surriscalda apposta, si blocca gli incantesimi e prende a pugni tutti.",
-      "play": "Spamma incantesimi finché non vai in Surriscaldamento, poi avvicinati e clic destro. Quando si raffredda, ripeti.",
-      "tagline": "Gli incantesimi sono solo il riscaldamento. Il vero Rumble inizia quando viene silenziato.",
+      "title": "Curare i Nemici",
+      "why": "Kindred gioca full support, lancia Riposo dell'Agnello su tutti due volte per scontro e cura i nemici insieme alla propria squadra.",
+      "play": "Aspetta uno scontro enorme, premi R in mezzo a tutti e dieci i campioni, poi premilo di nuovo. Nessuno se ne va, nessuno muore, tutti si curano.",
+      "tagline": "Con Kindred nessuno muore. Nemmeno la squadra avversaria.",
       "how": [
         [
-          "Surriscaldamento",
-          "A Calore massimo Rumble non può lanciare incantesimi, ma i suoi attacchi colpiscono più forte e più veloci. È l'unico campione il cui corredo lo premia per essersi silenziato da solo."
+          "Riposo dell'Agnello",
+          "Nessuna unità all'interno può morire, alleata o nemica, e tutti all'interno vengono curati alla fine. È l'unica ultimate che benedice entrambe le squadre insieme."
         ],
         [
           "Potenziamenti",
-          "Agilità e Tip tap accumulano Velocità d'attacco, A due mani lancia un secondo dardo a ogni attacco e Tizzone applica una Bruciatura a ciascuno."
+          "Rivoluzione suprema la lancia due volte, Stai qui con me Provoca i nemici così restano nella zona e Ricorsività suprema la fa tornare in fretta. Kit di pronto soccorso potenzia ogni cura."
         ],
         [
           "Oggetti",
-          "Dente di Nashor, Furia di Guinsoo, Speranza perduta e Terminus sono tutti on-hit, quindi ogni pugno e ogni dardo di A due mani li porta con sé."
+          "Redenzione, Pietra di luna rinnovata e Nucleo dell'alba sono pura cura da support. Malignità aggiunge altra Accelerazione abilità suprema, così la zona è sempre attiva."
         ]
       ],
       "augments": [
-        "Ottieni il 60% di Velocità d'attacco.",
-        "I tuoi attacchi ti conferiscono 10 di velocità di movimento. Ottieni velocità d'attacco. L'effetto si accumula e si rinnova all'infinito, ma dura 5 secondi.",
-        "Quando attacchi, lanci un dardo che infligge il 40% dei danni e applica i tuoi effetti on-hit con il 40% di efficacia. Ottieni il 10% di Velocità d'attacco totale.",
-        "I tuoi attacchi bruciano anche i nemici, infliggendo danni magici pari allo 0,4% della loro salute massima al secondo per 5 secondi. Questa ustione è cumulabile all'infinito."
+        "Ricarica la tua ultimate dopo averla lanciata (75 secondi di ricarica o azzeramento alla morte).",
+        "Dopo aver usato la tua suprema, ottieni riduzione danni per 2 secondi, dopodiché provochi i nemici all'interno per 2 secondi. Ottieni 30 velocità abilità suprema.",
+        "Ottieni il 20% di Potenziamento di cure e scudi.",
+        "Ottieni Accelerazione abilità suprema."
       ]
     },
     "ja": {
-      "title": "暴走確定",
-      "why": "ランブルはわざとオーバーヒートしてスペルを封印し、全員を殴りに行く。",
-      "play": "オーバーヒートするまでスペルを連打して、近づいて右クリック。冷めたらまた繰り返そう。",
-      "tagline": "スペルはただのウォームアップ。本当のランブルはサイレンスされてからが本番。",
+      "title": "敵もまとめて回復",
+      "why": "キンドレッドはフルサポートで、1回の戦闘で子羊の安らぎを2回みんなに投げ、味方と一緒に敵も回復します。",
+      "play": "大きな集団戦を待って、10人全員の真ん中でRを押し、もう一度押すだけ。誰も逃げず、誰も死なず、全員回復します。",
+      "tagline": "キンドレッドがいる限り誰も死なない。敵チームでさえも。",
       "how": [
         [
-          "オーバーヒート",
-          "ヒートが満タンになるとランブルはスペルを使えないが、攻撃が強く、速くなる。自分でサイレンスして強くなる唯一のチャンピオン。"
+          "子羊の安らぎ",
+          "範囲内のユニットは味方も敵も死亡せず、終了時に全員が回復します。両チームを同時に祝福する唯一のアルティメットです。"
         ],
         [
           "オーグメント",
-          "技巧とタップダンサーでアタックスピードが積み上がり、二刀流は攻撃のたびに2発目のボルトを放ち、火付け役はそのすべてにバーンを付与する。"
+          "究極進化で2回発動し、一緒に閉じ込められたで敵を挑発してゾーンに留め、究極再帰ですぐに再使用できます。救急セットはすべての回復を強化します。"
         ],
         [
           "アイテム",
-          "ナッシャー トゥース、グインソー レイジブレード、ウィッツ エンド、テルミヌスはすべてオンヒット効果。パンチも二刀流のボルトも全部に乗る。"
+          "リデンプション、ムーンストーンの再生、ドーンコアは純粋なサポート向け回復アイテムです。マリグナンスはさらにアルティメット スキルヘイストを加え、ゾーンが常に展開されます。"
         ]
       ],
       "augments": [
-        "アタックスピード+60%。",
-        "通常攻撃で移動速度が10増加する。攻撃速度を獲得。この効果は無限にスタックして更新されるが、持続時間は5秒。",
-        "攻撃時、ダメージ40%のボルトを発射し、オンヒット効果を40%の効果で適用する。総アタックスピード+10%。",
-        "通常攻撃が敵を燃焼させ、5秒かけて毎秒最大体力の0.4%の魔法ダメージを与える。この燃焼は無限にスタックする。"
+        "アルティメットを使用後にリフレッシュする(クールダウン75秒、または死亡時にリセット)。",
+        "アルティメットスキルを使用した後、2秒間ダメージ軽減を獲得し、その後、内側にいる敵を2秒間挑発する。アルティメットスキルヘイスト+30。",
+        "回復・シールド量が20%増加する。",
+        "アルティメット スキルヘイストを獲得する。"
       ]
     },
     "ko": {
-      "title": "폭주 인증 완료",
-      "why": "럼블은 일부러 과열돼서 스킬을 잠그고 대신 다 때려잡는다.",
-      "play": "과열될 때까지 스킬 난사하고, 다가가서 우클릭. 식으면 또 반복.",
-      "tagline": "스킬은 그냥 준비운동. 진짜 럼블은 침묵당한 뒤부터.",
+      "title": "적도 힐해주기",
+      "why": "킨드레드는 풀 서포터로 한타마다 어린 양의 안식을 두 번씩 모두에게 뿌려서 아군과 함께 적도 치유합니다.",
+      "play": "큰 한타를 기다렸다가 열 명 한가운데서 R을 누르고, 한 번 더 누르세요. 아무도 안 떠나고, 아무도 안 죽고, 다 같이 회복됩니다.",
+      "tagline": "킨드레드가 있는 한 아무도 죽지 않습니다. 적 팀도요.",
       "how": [
         [
-          "과열",
-          "열기가 가득 차면 럼블은 스킬을 못 쓰지만 공격이 더 아프고 더 빨라진다. 스스로 침묵해야 강해지는 유일한 챔피언."
+          "어린 양의 안식",
+          "범위 안의 유닛은 아군이든 적이든 죽지 않고, 끝날 때 모두 회복됩니다. 양 팀을 동시에 축복하는 유일한 궁극기입니다."
         ],
         [
           "증강",
-          "능수능란과 탭 댄서로 공격 속도가 쌓이고, 양손잡이는 공격마다 볼트를 하나 더 쏘고, 화염 낙인은 거기에 전부 화상을 건다."
+          "궁극기 대변혁으로 두 번 시전하고, 도망갈 수 없어로 적을 도발해서 범위 안에 가두고, 궁극의 반복으로 빠르게 다시 씁니다. 응급처치 키트는 모든 회복량을 키워줍니다."
         ],
         [
           "아이템",
-          "내셔의 이빨, 구인수의 격노검, 마법사의 최후, 경계는 전부 적중 시 효과라서 주먹질이든 양손잡이 볼트든 다 묻어난다."
+          "구원, 월석 재생기, 새벽심장은 순수 서포터 회복 아이템입니다. 악의는 궁극기 스킬 가속을 더해 줘서 범위가 계속 유지됩니다."
         ]
       ],
       "augments": [
-        "공격 속도 60%를 얻습니다.",
-        "기본 공격 시 이동 속도가 10 증가합니다. 공격 속도를 얻습니다. 이 효과는 무한히 중첩되고 갱신되지만 5초 동안만 지속됩니다.",
-        "공격 시 피해량 40%의 볼트를 발사하고 적중 시 효과를 40% 효율로 적용합니다. 총 공격 속도 10%를 얻습니다.",
-        "기본 공격 시 적을 불태워 5초 동안 매초 최대 체력의 0.4%에 해당하는 마법 피해를 입힙니다. 이 화상은 무한히 중첩됩니다."
+        "궁극기 사용 후 궁극기를 갱신합니다(재사용 대기시간 75초, 또는 죽으면 초기화).",
+        "궁극기를 사용한 후 2초 동안 피해 감소를 얻고, 그 후 안에 있는 적을 2초 동안 도발합니다. 궁극기 가속이 30 증가합니다.",
+        "회복 및 보호막 효과가 20% 증가합니다.",
+        "궁극기 스킬 가속을 얻습니다."
       ]
     },
     "pl": {
-      "title": "Certyfikowany Wariat",
-      "why": "Rumble przegrzewa się celowo, blokuje sobie czary i zamiast tego leje wszystkich po twarzy.",
-      "play": "Spamuj czary aż do Przegrzania, potem podejdź i kliknij prawym. Jak ostygnie, powtórz.",
-      "tagline": "Czary to tylko rozgrzewka. Prawdziwy Rumble zaczyna się, gdy ktoś go uciszy.",
+      "title": "Leczenie Wrogów",
+      "why": "Kindred gra full supporta, rzuca Odpoczynek Baranka na wszystkich dwa razy na walkę i leczy wrogów razem z własną drużyną.",
+      "play": "Poczekaj na wielką walkę, wciśnij R na środku wszystkich dziesięciu bohaterów, a potem wciśnij jeszcze raz. Nikt nie ucieka, nikt nie ginie, wszyscy się leczą.",
+      "tagline": "Nikt nie ginie, kiedy Kindred pilnuje. Nawet wrogia drużyna.",
       "how": [
         [
-          "Przegrzanie",
-          "Przy pełnym Cieple Rumble nie może rzucać czarów, ale jego ataki biją mocniej i szybciej. To jedyny bohater, którego zestaw nagradza za uciszanie samego siebie."
+          "Odpoczynek Baranka",
+          "Żadna jednostka w środku nie może zginąć, sojusznik czy wróg, a po zakończeniu wszyscy w środku się leczą. To jedyne ulti, które błogosławi obie drużyny naraz."
         ],
         [
           "Wzmocnienia",
-          "Chyżość i Szalone Tańcowanie kumulują Szybkość Ataku, Obie Ręce Zajęte wystrzeliwuje drugi pocisk z każdym atakiem, a Znamię Ognia nakłada na każdy Podpalenie."
+          "Superrewolucja rzuca je dwa razy, Tkwisz Tu ze Mną Prowokuje wrogów, żeby zostali w strefie, a Superrekurencja szybko je przywraca. Apteczka zwiększa każde leczenie."
         ],
         [
           "Przedmioty",
-          "Ząb Nashora, Ostrze Gniewu Guinsoo, Koniec Rozumu i Ostatni Przystanek działają przy trafieniu, więc każdy cios i każdy pocisk Obie Ręce Zajęte je niesie."
+          "Odkupienie, Odnowienie Kamienia Księżycowego i Rdzeń Świtu to czyste wsparcie leczące. Złowrogość dodaje jeszcze więcej przyspieszenia superumiejętności, więc strefa jest aktywna cały czas."
         ]
       ],
       "augments": [
-        "Zdobywasz 60% Szybkości Ataku.",
-        "Twoje ataki zapewniają ci 10 prędkości ruchu. Zyskujesz prędkość ataku. Wzmocnienie kumuluje się i odnawia bez końca, ale trwa 5 sekund.",
-        "Gdy atakujesz, wystrzeliwujesz pocisk zadający 40% obrażeń i nakładający efekty przy trafieniu ze skutecznością 40%. Zdobywasz 10% łącznej Szybkości Ataku.",
-        "Twoje ataki dodatkowo podpalają wrogów, zadając co sekundę przez 5 sek. obrażenia magiczne równe 0,4% ich maksymalnego zdrowia. To podpalenie kumuluje się w nieskończoność."
+        "Odśwież swoje ulti po użyciu (odnowienie 75 sekund lub reset po śmierci).",
+        "Po użyciu superumiejętności zyskujesz redukcję obrażeń na 2 sek., po czym prowokujesz wrogów w środku na 2 sek. Zyskujesz 30 pkt. przyspieszenia superumiejętności.",
+        "Zyskujesz 20% mocy leczenia i tarcz.",
+        "Zyskujesz przyspieszenie superumiejętności."
       ]
     },
     "pt-BR": {
-      "title": "Surtado Certificado",
-      "why": "O Rumble superaquece de propósito, se tranca fora das magias e soca todo mundo.",
-      "play": "Spamma magias até Superaquecer, aí chega perto e clica com o direito. Quando esfriar, repete.",
-      "tagline": "Magias são só o aquecimento. O Rumble de verdade começa quando ele é silenciado.",
+      "title": "Curando os Oponentes",
+      "why": "Kindred joga de full suporte, solta Sossego do Cordeiro em todo mundo duas vezes por luta e cura os inimigos junto com o próprio time.",
+      "play": "Espere uma luta grande, aperte R no meio dos dez campeões e aperte de novo. Ninguém sai, ninguém morre, todo mundo cura.",
+      "tagline": "Ninguém morre com Kindred por perto. Nem o time inimigo.",
       "how": [
         [
-          "Superaquecimento",
-          "Com o Calor no máximo, o Rumble não pode usar magias, mas os ataques batem mais forte e mais rápido. É o único campeão cujo kit o recompensa por se silenciar."
+          "Sossego do Cordeiro",
+          "Nenhuma unidade lá dentro pode morrer, aliada ou inimiga, e todo mundo lá dentro é curado quando acaba. É a única ultimate que abençoa os dois times ao mesmo tempo."
         ],
         [
           "Aumentos",
-          "Especialista e Sapateado empilham Velocidade de Ataque, Ataque Duplo dispara um segundo projétil a cada ataque e Incendiário empilha uma Queimadura em cada um."
+          "Revolução Suprema lança duas vezes, Fica Aqui Comigo Provoca os inimigos para eles ficarem na zona, e Recursão da Ultimate traz de volta rapidinho. Primeiros Socorros deixa toda cura maior."
         ],
         [
           "Itens",
-          "Dente de Na'Shor, Lâmina da Fúria de Guinsoo, Limite da Razão e Terminus são todos de ataque, então cada soco e cada projétil de Ataque Duplo carrega os efeitos."
+          "Redenção, Regenerador de Pedra Lunar e Auronúcleo são pura cura de suporte. Malevolência dá mais Aceleração de Habilidade da Ultimate, então a zona fica ativa o tempo todo."
         ]
       ],
       "augments": [
-        "Ganha 60% de Velocidade de Ataque.",
-        "Seus ataques concedem 10 de Velocidade de Movimento. Ganhe Velocidade de Ataque. O efeito acumula e se renova infinitamente, mas dura 5 segundos.",
-        "Ao atacar, dispara um projétil que causa 40% de dano e aplica seus efeitos de ataque com 40% de eficácia. Ganha 10% de Velocidade de Ataque total.",
-        "Seus Ataques também queimam inimigos, causando dano mágico igual a 0,4% da Vida máxima por segundo ao longo de 5 segundos. Essa Queimadura acumula infinitamente."
+        "Reinicie sua ultimate depois de usá-la (75 segundos de tempo de recarga ou reinicia ao morrer).",
+        "Depois de usar sua Ultimate, receba redução de dano por 2 segundos, depois disso você provoca os inimigos dentro por 2 segundos. Receba 30 de Aceleração de Habilidade Suprema.",
+        "Ganhe 20% de Poder de Cura e Escudo.",
+        "Ganhe Aceleração de Habilidade da Ultimate."
       ]
     },
     "ro": {
-      "title": "Certificat Ieșit din Minți",
-      "why": "Rumble se supraîncălzește intenționat, își blochează vrăjile și îi pocnește pe toți.",
-      "play": "Spamează vrăji până te Supraîncălzești, apoi du-te la ei și dă click dreapta. Când se răcește, repetă.",
-      "tagline": "Vrăjile sunt doar încălzirea. Adevăratul Rumble începe când e redus la tăcere.",
+      "title": "Vindecăm dușmanii",
+      "why": "Kindred joacă full support, aruncă Răgazul Mielului peste toți de două ori pe luptă și îi vindecă pe inamici odată cu echipa proprie.",
+      "play": "Așteaptă o luptă mare, apasă R în mijlocul tuturor celor zece campioni, apoi apas-o din nou. Nimeni nu pleacă, nimeni nu moare, toți se vindecă.",
+      "tagline": "Nimeni nu moare sub privirea lui Kindred. Nici măcar echipa inamică.",
       "how": [
         [
-          "Supraîncălzire",
-          "La Căldură maximă Rumble nu poate lansa vrăji, dar atacurile lui lovesc mai tare și mai des. E singurul campion al cărui kit îl recompensează că se reduce singur la tăcere."
+          "Răgazul Mielului",
+          "Nicio unitate dinăuntru nu poate muri, aliat sau inamic, iar toți dinăuntru se vindecă la final. E singura ultimă care binecuvântează ambele echipe deodată."
         ],
         [
           "Augmentări",
-          "Agil și Dansator de step adaugă Viteză de atac, Lupt cu două arme trage o a doua rază la fiecare atac, iar Foc și pară aplică un Efect de arsură la fiecare."
+          "Revoluție supremă o lansează de două ori, Împreună la ananghie Provoacă inamicii ca să rămână în zonă, iar Recursiune supremă o aduce înapoi rapid. Trusa de prim ajutor face fiecare vindecare mai mare."
         ],
         [
           "Obiecte",
-          "Dintele lui Nashor, Spada furiei lui Guinsoo, Sfârșitul rațiunii și Terminus sunt toate la lovitură, așa că fiecare pumn și fiecare rază de la Lupt cu două arme le poartă."
+          "Izbăvire, Reînnoirea pietrei lunii și Miezul zorilor sunt vindecare de support pură. Nocivitate adaugă mai multă Grăbire a ultimei, așa că zona e activă non-stop."
         ]
       ],
       "augments": [
-        "Primești 60% Viteză de atac.",
-        "Atacurile tale îți oferă 10 viteză de mișcare. Primești viteză de atac. Efectul se acumulează și se reîmprospătează la infinit, dar durează 5 secunde.",
-        "Când atacezi, tragi o rază care provoacă 40% din daune și aplică efectele tale la lovitură cu 40% eficiență. Primești 10% Viteză de atac totală.",
-        "Atacurile tale ard și ele inamicii, provocând daune magice egale cu 0,4% din viața maximă pe secundă timp de 5 secunde. Această arsură se cumulează la infinit."
+        "Îți reîmprospătezi Ultimul după ce îl lansezi (75 de secunde Reîncărcare sau resetare la moarte).",
+        "După ce îți folosești abilitatea supremă, primești reducere de daune timp de 2 secunde, după care provoci inamicii din interior timp de 2 secunde. Primești 30 de grăbire a abilității supreme.",
+        "Primești 20% Putere de vindecare și scuturi.",
+        "Primești Grăbire a abilității supreme."
       ]
     },
     "ru": {
-      "title": "Сертифицированный тильтанутый",
-      "why": "Рамбл нарочно перегревается, лишает себя заклинаний и просто лупит всех.",
-      "play": "Спамь заклинаниями до Перегрева, потом подходи и бей ПКМ. Остыл — и по новой.",
-      "tagline": "Заклинания — лишь разминка. Настоящий Рамбл начинается, когда его заглушили.",
+      "title": "Лечим оппов",
+      "why": "Киндред играют фулл саппорта: дважды за бой кидают Покой агнца на всех и лечат врагов вместе со своей командой.",
+      "play": "Дождитесь большой драки, нажмите R посреди всех десяти чемпионов, а потом нажмите ещё раз. Никто не уходит, никто не умирает, все лечатся.",
+      "tagline": "На страже Киндред никто не умирает. Даже вражеская команда.",
       "how": [
         [
-          "Перегрев",
-          "При полном Жаре Рамбл не может колдовать, зато бьёт сильнее и чаще. Единственный чемпион, чей набор умений награждает за самозаглушение."
+          "Покой агнца",
+          "Ни один юнит внутри не может умереть, ни союзник, ни враг, а когда зона исчезает, все внутри лечатся. Единственная ультимативка, которая благословляет обе команды сразу."
         ],
         [
           "Аугменты",
-          "Проворство и Чечетка добавляют скорость атаки, Парное оружие выпускает второй снаряд с каждой атакой, а Тавро накладывает на каждую Горение."
+          "Абсолютный сброс применяет её дважды, Вас заперли со мной Провоцирует врагов, чтобы они оставались в зоне, а Абсолютная рекурсия быстро возвращает её. Аптечка усиливает любое лечение."
         ],
         [
           "Предметы",
-          "Зуб Нашора, Клинок ярости Гинсу, Смерть Разума и Светотень срабатывают при атаке, так что каждый удар и каждый снаряд Парного оружия несёт их эффекты."
+          "Искупление, Исцеляющий лунный камень и Ядро рассвета — чистое лечение для саппорта. Пагубность добавляет ещё больше ускорения ультимативных умений, так что зона почти всегда активна."
         ]
       ],
       "augments": [
-        "Вы получаете 60% скорости атаки.",
-        "Ваши атаки дают вам 10 скорости передвижения. Вы получаете скорость атаки. Эффект складывается и обновляется бесконечно, но длится 5 секунд.",
-        "При атаке вы выпускаете снаряд, который наносит 40% урона и применяет ваши эффекты при атаке с 40% эффективности. Вы получаете 10% общей скорости атаки.",
-        "Ваши автоатаки также поджигают врагов, нанося магический урон в размере 0,4% от их максимального запаса здоровья в секунду в течение 5 сек. Это горение суммируется бесконечно."
+        "Обновляет вашу ультимативную способность после применения (перезарядка 75 секунд или сброс при смерти).",
+        "После применения абсолютного умения вы получаете снижение урона на 2 сек., после чего провоцируете врагов внутри на 2 сек. Вы получаете 30 ед. ускорения абсолютного умения.",
+        "Вы получаете 20% силы лечения и щитов.",
+        "Вы получаете ускорение ультимативных умений."
       ]
     },
     "th": {
-      "title": "สติหลุดระดับมีใบเซอร์",
-      "why": "Rumble จงใจโอเวอร์ฮีตจนใช้สกิลไม่ได้ แล้วเดินเข้าไปต่อยทุกคนแทน",
-      "play": "สแปมสกิลจนโอเวอร์ฮีต แล้วเดินเข้าไปคลิกขวาใส่ พอเย็นลงก็ทำซ้ำ",
-      "tagline": "สกิลแค่วอร์มอัป Rumble ตัวจริงเริ่มตอนโดนไซเลนซ์",
+      "title": "Healing The Opps",
+      "why": "Kindred เล่นซัพเต็มตัว ปล่อย Lamb's Respite ใส่ทุกคนสองรอบต่อการปะทะ แล้วฮีลศัตรูพร้อมกับทีมตัวเองเลย",
+      "play": "รอการปะทะใหญ่ กด R กลางวงระหว่างแชมเปี้ยนทั้งสิบ แล้วกดอีกรอบ ไม่มีใครออก ไม่มีใครตาย ทุกคนได้ฮีล",
+      "tagline": "ไม่มีใครตายในสายตาของ Kindred แม้แต่ทีมศัตรู",
       "how": [
         [
-          "โอเวอร์ฮีต",
-          "ตอนความร้อนเต็ม Rumble ใช้สกิลไม่ได้ แต่ตีแรงขึ้นและเร็วขึ้น เป็นแชมป์เปี้ยนคนเดียวที่ชุดสกิลให้รางวัลกับการไซเลนซ์ตัวเอง"
+          "Lamb's Respite",
+          "ยูนิตที่อยู่ข้างในจะตายไม่ได้ ไม่ว่าพันธมิตรหรือศัตรู และทุกคนข้างในจะได้รับการฮีลเมื่อสกิลจบ เป็นอัลติเมทเดียวที่อวยพรทั้งสองทีมพร้อมกัน"
         ],
         [
           "Augment",
-          "Deft และ Tap Dancer เพิ่มความเร็วโจมตี Dual Wield ยิงลูกศรที่สองทุกครั้งที่โจมตี ส่วน Firebrand ใส่สถานะ Burn สะสมให้ทุกครั้ง"
+          "Ultimate Revolution ใช้ได้สองครั้ง Stuck In Here With Me Taunt ศัตรูให้อยู่ในโซน และ Ultimate Recursion เรียกกลับมาไวๆ First-Aid Kit ทำให้ฮีลทุกอย่างแรงขึ้น"
         ],
         [
           "ไอเทม",
-          "Nashor's Tooth, Guinsoo's Rageblade, Wit's End และ Terminus เป็นเอฟเฟกต์ On-Hit ทั้งหมด ทุกหมัดและทุกลูกศรของ Dual Wield จึงติดไปด้วย"
+          "Redemption, Moonstone Renewer และ Dawncore คือไอเทมฮีลสายซัพล้วนๆ ส่วน Malignance เพิ่ม Ultimate Haste ให้โซนติดแทบตลอดเวลา"
         ]
       ],
       "augments": [
-        "ได้รับความเร็วโจมตี 60%",
-        "การโจมตีของคุณให้ความเร็วเคลื่อนที่ 10 ได้รับความเร็วโจมตี บัฟนี้ซ้อนและรีเฟรชได้ไม่จำกัด แต่คงอยู่ 5 วินาที",
-        "เมื่อโจมตี ยิงลูกศรที่สร้างความเสียหาย 40% และใช้เอฟเฟกต์ On-Hit ของคุณที่ประสิทธิภาพ 40% ได้รับความเร็วโจมตีรวม 10%",
-        "การโจมตีของคุณเผาศัตรูด้วย สร้างความเสียหายเวท 0.4% ของพลังชีวิตสูงสุดต่อวินาทีเป็นเวลา 5 วินาที Burn นี้สะสมได้ไม่จำกัด"
+        "รีเฟรชอัลติเมทของคุณหลังใช้ (คูลดาวน์ 75 วินาที หรือรีเซ็ตเมื่อตาย)",
+        "หลังใช้อัลติเมท ได้รับการลดความเสียหาย 2 วินาที หลังจากนั้นยั่วยุศัตรูที่อยู่ข้างใน 2 วินาที ได้รับ Ultimate Ability Haste 30",
+        "ได้รับพลังฮีลและโล่ 20%",
+        "ได้รับ Ultimate Ability Haste"
       ]
     },
     "tr": {
-      "title": "Sertifikalı Sinir Küpü",
-      "why": "Rumble bile bile aşırı ısınır, büyülerini kilitler ve onun yerine herkese yumruk atar.",
-      "play": "Aşırı Isınana kadar büyü spamla, sonra yürü ve sağ tıkla. Soğuyunca tekrarla.",
-      "tagline": "Büyüler sadece ısınma. Gerçek Rumble, susturulunca başlar.",
+      "title": "Rakipleri İyileştiriyoruz",
+      "why": "Kindred tam destek oynar, her çatışmada herkesin üstüne iki kez Kuzunun Dinlenmesi bırakır ve kendi takımıyla birlikte düşmanları da iyileştirir.",
+      "play": "Büyük bir savaşı bekle, on şampiyonun tam ortasında R'ye bas, sonra tekrar bas. Kimse gitmez, kimse ölmez, herkes iyileşir.",
+      "tagline": "Kindred'in nöbetinde kimse ölmez. Düşman takım bile.",
       "how": [
         [
-          "Aşırı Isınma",
-          "Isı tamamen dolunca Rumble büyü yapamaz ama saldırıları daha sert vurur ve daha hızlı gelir. Kendini susturmanın ödüllendirildiği tek şampiyon."
+          "Kuzunun Dinlenmesi",
+          "İçerideki hiçbir birim ölemez, müttefik de olsa düşman da olsa, ve bittiğinde içerideki herkes iyileşir. İki takımı birden kutsayan tek ulti bu."
         ],
         [
           "Güçlendirmeler",
-          "Eli Çabuk ve Step Dansı Saldırı Hızı yığar, Çifte Silah her saldırıyla ikinci bir ok atar, Yakıcı Damga da her birine bir Yanma ekler."
+          "Ulti Devrimi onu iki kez kullandırır, Biz Bizeyiz düşmanları Kışkırtıp bölgede tutar, Ulti Yinelemesi de onu hızla geri getirir. İlk Yardım Seti her iyileştirmeyi büyütür."
         ],
         [
           "Eşyalar",
-          "Nashor'un Dişi, Guinsoo'nun Hiddeti, Aklın Sonu ve Son Durak vuruş efektli, yani her yumruk ve her Çifte Silah oku bunları taşır."
+          "Kefaret, Dinçleştirici Aytaşı ve Şafağın Özü saf destek iyileştirmesidir. Habaset daha fazla Ulti Hızı ekler, böylece bölge hep açık kalır."
         ]
       ],
       "augments": [
-        "%60 Saldırı Hızı kazanırsın.",
-        "Saldırıların sana 10 hareket hızı verir. Saldırı hızı kazanırsın. Etki sınırsız birikir ve yenilenir ama 5 saniye sürer.",
-        "Saldırdığında, %40 hasar veren ve vuruş efektlerini %40 etkililikle uygulayan bir ok atarsın. Toplamda %10 Saldırı Hızı kazanırsın.",
-        "Saldırıların rakipleri de yakar ve 5 saniye boyunca saniyede azami Can'larının %0,4'ü kadar büyü hasarı verir. Bu yanma sonsuz kez birikebilir."
+        "Kullandıktan sonra Ultini yeniler (75 saniye Bekleme Süresi ya da ölünce sıfırlanır).",
+        "Ultini kullandıktan sonra 2 saniyeliğine hasar azaltma kazan, ardından içerideki rakipleri 2 saniyeliğine kışkırt. 30 Ulti Beceri Hızı kazan.",
+        "%20 İyileştirme ve Kalkan Gücü kazanırsın.",
+        "Ulti Yetenek Hızı kazanırsın."
       ]
     },
     "vi": {
-      "title": "Đạt Chuẩn Lên Cơn",
-      "why": "Rumble cố tình quá nhiệt, tự khóa chiêu rồi đấm mọi người thay thế.",
-      "play": "Spam chiêu đến khi Quá Nhiệt, rồi tiến lên và chuột phải. Nguội xong thì lặp lại.",
-      "tagline": "Chiêu thức chỉ là khởi động. Rumble thật sự bắt đầu khi bị câm lặng.",
+      "title": "Hồi Máu Cho Kẻ Địch",
+      "why": "Kindred chơi support full, thả Ân Huệ Của Cừu lên mọi người hai lần mỗi giao tranh và hồi máu cả địch lẫn đồng đội.",
+      "play": "Chờ một giao tranh lớn, bấm R giữa cả mười tướng, rồi bấm lần nữa. Không ai rời đi, không ai chết, ai cũng được hồi máu.",
+      "tagline": "Có Kindred ở đây thì không ai chết. Kể cả đội địch.",
       "how": [
         [
-          "Quá Nhiệt",
-          "Khi Nhiệt đầy, Rumble không thể dùng chiêu, nhưng đòn đánh mạnh hơn và nhanh hơn. Tướng duy nhất được bộ kỹ năng thưởng vì tự câm lặng."
+          "Ân Huệ Của Cừu",
+          "Không đơn vị nào bên trong có thể chết, dù là đồng minh hay kẻ địch, và mọi người bên trong được hồi máu khi kết thúc. Đây là tuyệt chiêu duy nhất ban phước cho cả hai đội cùng lúc."
         ],
         [
           "Lõi nâng cấp",
-          "Khéo Léo và Vũ Công Thiết Hài cộng Tốc Độ Đánh, Vũ Khí Hạng Nhẹ bắn thêm một mũi tên mỗi đòn đánh, còn Hỏa Tinh chồng một hiệu ứng Thiêu Đốt lên từng đòn."
+          "Tái Tạo Tuyệt Chiêu thi triển nó hai lần, Bơi Hết Vào Đây Khiêu Khích kẻ địch để chúng ở lại vùng, còn Hồi Quy Chiêu Cuối đưa nó trở lại nhanh. Túi Cứu Thương làm mọi lượng hồi máu lớn hơn."
         ],
         [
           "Trang bị",
-          "Nanh Nashor, Cuồng Đao Guinsoo, Đao Tím và Terminus đều là hiệu ứng khi đánh, nên mỗi cú đấm và mỗi mũi tên Vũ Khí Hạng Nhẹ đều mang theo chúng."
+          "Dây Chuyền Chuộc Tội, Bùa Nguyệt Thạch và Lõi Bình Minh là đồ hồi máu thuần support. Hỏa Khuẩn thêm Tốc Độ Hồi Chiêu Cuối, nên vùng này lúc nào cũng sẵn sàng."
         ]
       ],
       "augments": [
-        "Nhận 60% Tốc Độ Đánh.",
-        "Đòn đánh của bạn cho bạn 10 tốc độ di chuyển. Nhận tốc độ đánh. Hiệu ứng cộng dồn và làm mới vô hạn nhưng kéo dài 5 giây.",
-        "Khi Tấn Công, bắn một mũi tên gây 40% sát thương và áp dụng hiệu ứng khi đánh của bạn với 40% hiệu quả. Nhận 10% tổng Tốc Độ Đánh.",
-        "Đòn đánh của bạn còn thiêu đốt kẻ địch, gây sát thương phép bằng 0,4% Máu tối đa mỗi giây trong 5 giây. Thiêu đốt này cộng dồn vô hạn."
+        "Làm mới Tuyệt Chiêu sau khi thi triển (Thời Gian Hồi 75 giây hoặc đặt lại khi chết).",
+        "Sau khi dùng Chiêu Cuối, nhận giảm sát thương trong 2 giây, sau đó Khiêu Khích kẻ địch bên trong trong 2 giây. Nhận 30 Điểm Hồi Kỹ Năng Chiêu Cuối.",
+        "Nhận 20% Sức Mạnh Hồi Máu và Lá Chắn.",
+        "Nhận Tốc Độ Hồi Chiêu Cuối."
       ]
     },
     "zh-CN": {
-      "title": "官方认证破防王",
-      "why": "机械公敌故意让自己过热，把技能锁死，然后用拳头招呼所有人。",
-      "play": "一直放技能放到过热，然后冲上去右键平A。冷却完了再来一轮。",
-      "tagline": "技能只是热身，被沉默的机械公敌才是真正的机械公敌。",
+      "title": "奶爆对面",
+      "why": "永猎双子打纯辅助，每场团战对所有人放两次羔羊的安息，敌人和自家队友一起奶。",
+      "play": "等一场大团战，在十个英雄中间按下R，然后再按一次。没人离开，没人死亡，所有人都被治疗。",
+      "tagline": "有永猎双子在，谁都死不了。敌方也一样。",
       "how": [
         [
-          "过热",
-          "热度满的时候机械公敌放不了技能，但攻击更疼、攻速更快。他是唯一一个自我沉默还能拿奖励的英雄。"
+          "羔羊的安息",
+          "范围内的任何单位都不会死亡，无论敌我，结束时范围内所有人都会受到治疗。这是唯一能同时庇佑两支队伍的大招。"
         ],
         [
           "海克斯强化",
-          "灵巧和踢踏舞叠加攻击速度，双刀流每次攻击多射出一发弹矢，火上浇油则给每一发都叠上一层灼烧。"
+          "终极刷新让它放两次，和我一起困在这里嘲讽敌人让他们留在区域内，终极循环往复让它快速回来。急救用具让每次治疗都更强。"
         ],
         [
           "装备",
-          "纳什之牙、鬼索的狂暴之刃、智慧末刃和界弓全都是攻击特效，所以每一拳、每一发双刀流弹矢都会带上它们。"
+          "救赎、月石再生器和黎明核心都是纯辅助治疗装备。残疫提供更多终极技能急速，让区域几乎一直都在。"
         ]
       ],
       "augments": [
-        "获得60%攻击速度。",
-        "你的普攻为你提供10移动速度。获得攻击速度。该增益可无限叠加并刷新，但持续5秒。",
-        "攻击时，发射一枚造成40%伤害的弹矢，并以40%的效果触发你的攻击特效。获得10%总攻击速度。",
-        "你的攻击还会灼烧敌人，在5秒内每秒造成相当于其0.4%最大生命值的魔法伤害。该灼烧可无限叠加。"
+        "施放后刷新你的终极技能（冷却时间75秒，或死亡时重置）。",
+        "使用你的终极技能后，获得持续2秒的伤害减免，之后嘲讽范围内的敌人2秒。获得30终极技能急速。",
+        "获得20%治疗和护盾强度。",
+        "获得终极技能急速。"
       ]
     },
     "zh-TW": {
-      "title": "官方認證・心態炸裂",
-      "why": "藍寶故意讓自己過熱，把技能鎖死，然後用拳頭招呼所有人。",
-      "play": "一直放技能放到過熱，然後衝上去右鍵普攻。冷卻完再來一輪。",
-      "tagline": "技能只是熱身，被沉默的藍寶才是真正的藍寶。",
+      "title": "奶爆對面",
+      "why": "鏡爪打純輔助，每場團戰對所有人放兩次羔羊的安息，敵人和自家隊友一起補。",
+      "play": "等一場大團戰，在十位英雄中間按下R，然後再按一次。沒人離開，沒人死亡，所有人都被治療。",
+      "tagline": "有鏡爪在，誰都死不了。敵方也一樣。",
       "how": [
         [
-          "過熱",
-          "熱能全滿時藍寶放不了技能，但攻擊更痛、攻速更快。他是唯一一個自我沉默還能拿獎勵的英雄。"
+          "羔羊的安息",
+          "範圍內的任何單位都不會死亡，不分敵我，結束時範圍內所有人都會受到治療。這是唯一能同時庇佑兩支隊伍的大絕。"
         ],
         [
           "強化",
-          "手腳麻利和輕舞飛揚疊加攻擊速度，雙刀流每次攻擊多射出一發彈矢，煽風點火則替每一發都疊上一層燃燒。"
+          "終極革新讓它放兩次，隨我同困嘲諷敵人讓他們留在區域內，大絕循環讓它快速回來。急救箱讓每次治療都更強。"
         ],
         [
           "裝備",
-          "納什之牙、鬼索的狂暴之刃、智慧末刃和臨界點全都是攻擊特效，所以每一拳、每一發雙刀流彈矢都會帶上它們。"
+          "贖罪神石、月之石再生裝置和破曉之核都是純輔助治療裝備。惡意提供更多大絕技能加速，讓區域幾乎一直都在。"
         ]
       ],
       "augments": [
-        "獲得60%攻擊速度。",
-        "你的普攻為你提供10移動速度。獲得攻擊速度。此增益可無限疊加並刷新，但持續5秒。",
-        "攻擊時，發射一枚造成40%傷害的彈矢，並以40%的效果觸發你的攻擊特效。獲得10%總攻擊速度。",
-        "你的攻擊還會燃燒敵人，在5秒內每秒造成相當於其0.4%最大生命的魔法傷害。此燃燒可無限疊加。"
+        "施放後刷新你的大絕（冷卻時間75秒，或死亡時重置）。",
+        "使用大絕招後，獲得持續2秒的傷害減免，之後嘲諷範圍內的敵人2秒。獲得30大絕招技能加速。",
+        "獲得20%治療與護盾強度。",
+        "獲得大絕技能加速。"
       ]
     }
   }

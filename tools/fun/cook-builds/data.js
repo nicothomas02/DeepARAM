@@ -1,10 +1,10 @@
 window.COOK_DATA = {
  "meta": {
-  "cn_augment_date": "20261112",
-  "cn_champion_date": "20261112",
+  "cn_augment_date": "20261115",
+  "cn_champion_date": "20261115",
   "champion_count": 173,
   "augment_count": 220,
-  "generated": "2026-11-13",
+  "generated": "2026-11-17",
   "item_icons": {
    "1001": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/assets/items/icons2d/1001_class_t1_bootsofspeed.png",
    "1004": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/assets/items/icons2d/1004_class_t1_faeriecharm.png",
@@ -334,14 +334,14 @@ window.COOK_DATA = {
      "text": "Your healing and Shields can Critically Strike for 40% bonus amount. Gain 25% Crit Chance.",
      "core": true,
      "icon": "icons/augments/critical-healing.png",
-     "win_rate": 0.4909,
-     "pick_rate": 0.0287,
-     "win_rank": 180,
+     "win_rate": 0.4925,
+     "pick_rate": 0.0284,
+     "win_rank": 177,
      "best_champions": [
       "Senna",
       "Sona",
-      "Yuumi",
       "Soraka",
+      "Yuumi",
       "Lulu",
       "Milio"
      ],
@@ -354,9 +354,9 @@ window.COOK_DATA = {
      "text": "Your healing and Health Regen deal 70% of the value magic damage to the nearest enemy champion.",
      "core": true,
      "icon": "icons/augments/circle-of-death.png",
-     "win_rate": 0.532,
-     "pick_rate": 0.0889,
-     "win_rank": 76,
+     "win_rate": 0.5328,
+     "pick_rate": 0.0854,
+     "win_rank": 75,
      "best_champions": [
       "DrMundo",
       "Swain",
@@ -374,8 +374,8 @@ window.COOK_DATA = {
      "text": "You can Critically Defend using your Crit Chance (max 50% chance), giving you a chance to reduce damage taken by 20%. Gain 25% Crit Chance.",
      "core": false,
      "icon": "icons/augments/tank-it-or-leave-it.png",
-     "win_rate": 0.5475,
-     "pick_rate": 0.1806,
+     "win_rate": 0.5484,
+     "pick_rate": 0.1815,
      "win_rank": 50,
      "best_champions": [
       "Yone",
@@ -410,32 +410,32 @@ window.COOK_DATA = {
     3089
    ],
    "champion_icon": "icons/champions/23.png",
-   "champion_win_rate": 0.5178,
-   "champion_pick_rate": 0.0649,
-   "champion_win_rank": 36,
-   "core_win_rate": 0.5114,
+   "champion_win_rate": 0.5175,
+   "champion_pick_rate": 0.066,
+   "champion_win_rank": 35,
+   "core_win_rate": 0.5127,
    "tier": "Pure troll",
    "core_usual": 0,
-   "core_pick_rate": 0.0588,
+   "core_pick_rate": 0.0569,
    "sim": {
-    "dps": 247,
+    "dps": 234,
     "survival": 0.014,
-    "best_dps": 1461,
-    "best_survival": 0.164,
-    "pct_of_best": 0.169,
+    "best_dps": 1488,
+    "best_survival": 0.411,
+    "pct_of_best": 0.157,
     "best_items": [
      "Berserker's Greaves",
      "Blade of The Ruined King",
-     "Essence Reaver",
+     "The Collector",
      "Kraken Slayer",
      "Navori Flickerblade",
      "Serylda's Grudge"
     ],
     "best_augments": [
+     "Symphony of War",
      "Dual Wield",
-     "Heavy Is The Crown",
-     "Giant Slayer",
-     "Double Tap"
+     "Critical Rhythm",
+     "Tap Dancer"
     ],
     "items_not_modeled": [
      "Rite of Ruin"
@@ -455,16 +455,16 @@ window.COOK_DATA = {
      "text": "Your Attacks grant you 10 Movement Speed. Gain Attack Speed. The buff stacks and refreshes infinitely but lasts 5 seconds.",
      "core": true,
      "icon": "icons/augments/tap-dancer.png",
-     "win_rate": 0.5089,
-     "pick_rate": 0.1205,
-     "win_rank": 138,
+     "win_rate": 0.5075,
+     "pick_rate": 0.1208,
+     "win_rank": 142,
      "best_champions": [
       "Jinx",
       "Yunara",
-      "Senna",
-      "Caitlyn",
       "Jhin",
-      "Vayne"
+      "Caitlyn",
+      "Vayne",
+      "Senna"
      ],
      "champion_is_best": false
     },
@@ -475,9 +475,9 @@ window.COOK_DATA = {
      "text": "Gain 1% bonus damage per 10 Movement Speed more you have than the target.",
      "core": true,
      "icon": "icons/augments/don-t-blink.png",
-     "win_rate": 0.5236,
-     "pick_rate": 0.0656,
-     "win_rank": 95,
+     "win_rate": 0.5204,
+     "pick_rate": 0.0666,
+     "win_rank": 104,
      "best_champions": [
       "Lillia",
       "Jhin",
@@ -495,15 +495,15 @@ window.COOK_DATA = {
      "text": "Your Slowing effects reduce Movement Speed by an extra 75.",
      "core": true,
      "icon": "icons/augments/ice-cold.png",
-     "win_rate": 0.5154,
+     "win_rate": 0.5145,
      "pick_rate": 0.2076,
-     "win_rank": 115,
+     "win_rank": 117,
      "best_champions": [
       "AurelionSol",
       "Brand",
       "Morgana",
       "Malzahar",
-      "Singed",
+      "Teemo",
       "Zyra"
      ],
      "champion_is_best": false
@@ -515,9 +515,9 @@ window.COOK_DATA = {
      "text": "Gain 100% Movement Speed and 15% Attack Speed for 4 seconds on takedown.",
      "core": false,
      "icon": "icons/augments/get-excited.png",
-     "win_rate": 0.5114,
-     "pick_rate": 0.1654,
-     "win_rank": 129,
+     "win_rate": 0.5117,
+     "pick_rate": 0.1659,
+     "win_rank": 130,
      "best_champions": [
       "Jinx",
       "Jhin",
@@ -551,32 +551,32 @@ window.COOK_DATA = {
     3009
    ],
    "champion_icon": "icons/champions/40.png",
-   "champion_win_rate": 0.5215,
-   "champion_pick_rate": 0.0213,
-   "champion_win_rank": 28,
-   "core_win_rate": 0.516,
-   "tier": "Holds up",
+   "champion_win_rate": 0.521,
+   "champion_pick_rate": 0.0211,
+   "champion_win_rank": 30,
+   "core_win_rate": 0.5141,
+   "tier": "Pure troll",
    "core_usual": 0,
-   "core_pick_rate": 0.1312,
+   "core_pick_rate": 0.1317,
    "sim": {
-    "dps": 257,
+    "dps": 245,
     "survival": 0.021,
-    "best_dps": 983,
-    "best_survival": 0.015,
-    "pct_of_best": 0.262,
+    "best_dps": 1193,
+    "best_survival": 0.6,
+    "pct_of_best": 0.206,
     "best_items": [
      "Sorcerer's Shoes",
-     "Lich Bane",
      "Nashor's Tooth",
      "Rabadon's Deathcap",
-     "Shadowflame",
-     "Void Staff"
+     "Guinsoo's Rageblade",
+     "Void Staff",
+     "Wit's End"
     ],
     "best_augments": [
      "Marksmage",
      "Heavy Is The Crown",
-     "Glass Cannon",
-     "Back To Basics"
+     "Master of Duality",
+     "Ominous Pact"
     ],
     "items_not_modeled": [],
     "whole_build": true
@@ -620,16 +620,16 @@ window.COOK_DATA = {
      "text": "After healing or shielding your ally with the chosen ability, your next basic attack gains attack range, attack speed and deals bonus max Health magic damage.",
      "core": true,
      "icon": "icons/augments/mercy-s-strike.png",
-     "win_rate": 0.4902,
-     "pick_rate": 0.0206,
-     "win_rank": 184,
+     "win_rate": 0.4966,
+     "pick_rate": 0.0202,
+     "win_rank": 168,
      "best_champions": [
       "Senna",
       "Sona",
       "Nami",
       "Lulu",
-      "Soraka",
-      "Renata"
+      "Renata",
+      "Soraka"
      ],
      "champion_is_best": false
     },
@@ -640,16 +640,16 @@ window.COOK_DATA = {
      "text": "Gain Attack Range and Attack Speed during Your chosen ability duration.",
      "core": true,
      "icon": "icons/augments/lil-extra-help.png",
-     "win_rate": 0.5058,
-     "pick_rate": 0.1283,
-     "win_rank": 145,
+     "win_rate": 0.5067,
+     "pick_rate": 0.1332,
+     "win_rank": 144,
      "best_champions": [
       "Tristana",
       "Twitch",
       "Vayne",
       "Yunara",
       "MasterYi",
-      "Ashe"
+      "Xayah"
      ],
      "champion_is_best": false
     }
@@ -676,31 +676,31 @@ window.COOK_DATA = {
     3006
    ],
    "champion_icon": "icons/champions/427.png",
-   "champion_win_rate": 0.5089,
+   "champion_win_rate": 0.5087,
    "champion_pick_rate": 0.007,
-   "champion_win_rank": 48,
-   "core_win_rate": 0.498,
+   "champion_win_rank": 50,
+   "core_win_rate": 0.5017,
    "tier": "Pure troll",
    "core_usual": 0,
-   "core_pick_rate": 0.0745,
+   "core_pick_rate": 0.0767,
    "sim": {
-    "dps": 1101,
-    "survival": 0.633,
-    "best_dps": 1091,
-    "best_survival": 0.61,
-    "pct_of_best": 1.009,
+    "dps": 1293,
+    "survival": 0.48,
+    "best_dps": 1317,
+    "best_survival": 0.425,
+    "pct_of_best": 0.981,
     "best_items": [
      "Sorcerer's Shoes",
      "Lich Bane",
      "Nashor's Tooth",
      "Rabadon's Deathcap",
-     "Shadowflame",
+     "Guinsoo's Rageblade",
      "Void Staff"
     ],
     "best_augments": [
      "Marksmage",
      "Heavy Is The Crown",
-     "Ominous Pact",
+     "Symphony of War",
      "Master of Duality"
     ],
     "items_not_modeled": [],
@@ -719,16 +719,16 @@ window.COOK_DATA = {
      "text": "Gain 100% Attack Speed. Increase Sword of Blossoming Dawn's healing to 250% when you attack enemy champions.",
      "core": true,
      "icon": "icons/augments/upgrade-sword-of-blossoming-dawn.png",
-     "win_rate": 0.4858,
-     "pick_rate": 0.0142,
-     "win_rank": 197,
+     "win_rate": 0.4868,
+     "pick_rate": 0.0132,
+     "win_rank": 193,
      "best_champions": [
       "Senna",
       "Sona",
       "Soraka",
       "Lulu",
       "Milio",
-      "Seraphine"
+      "Renata"
      ],
      "champion_is_best": false
     },
@@ -739,12 +739,12 @@ window.COOK_DATA = {
      "text": "Buffing, Healing, or Shielding your ally deals damage and Slows enemies surrounding them.",
      "core": true,
      "icon": "icons/augments/sonic-boom.png",
-     "win_rate": 0.5096,
-     "pick_rate": 0.0406,
-     "win_rank": 136,
+     "win_rate": 0.5086,
+     "pick_rate": 0.0405,
+     "win_rank": 139,
      "best_champions": [
-      "Soraka",
       "Sona",
+      "Soraka",
       "Yuumi",
       "Seraphine",
       "Milio",
@@ -759,9 +759,9 @@ window.COOK_DATA = {
      "text": "Healing or Shielding allies blesses them, causing their damage to fill you with devotion. When you have enough devotion, unleash a shockwave dealing magic damage and executes low health enemies.",
      "core": true,
      "icon": "icons/augments/empowered-by-the-faithful.png",
-     "win_rate": 0.4916,
-     "pick_rate": 0.0347,
-     "win_rank": 177,
+     "win_rate": 0.4914,
+     "pick_rate": 0.0342,
+     "win_rank": 180,
      "best_champions": [
       "Sona",
       "Soraka",
@@ -795,32 +795,32 @@ window.COOK_DATA = {
     3006
    ],
    "champion_icon": "icons/champions/44.png",
-   "champion_win_rate": 0.5269,
-   "champion_pick_rate": 0.0122,
-   "champion_win_rank": 20,
-   "core_win_rate": 0.4957,
+   "champion_win_rate": 0.5261,
+   "champion_pick_rate": 0.0117,
+   "champion_win_rank": 22,
+   "core_win_rate": 0.4956,
    "tier": "Pure troll",
    "core_usual": 0,
-   "core_pick_rate": 0.0298,
+   "core_pick_rate": 0.0293,
    "sim": {
-    "dps": 63,
+    "dps": 75,
     "survival": 0.01,
-    "best_dps": 658,
-    "best_survival": 0.037,
-    "pct_of_best": 0.096,
+    "best_dps": 505,
+    "best_survival": 0.021,
+    "pct_of_best": 0.148,
     "best_items": [
      "Sorcerer's Shoes",
      "Hextech Gunblade",
-     "Lich Bane",
-     "Shadowflame",
+     "Nashor's Tooth",
+     "Rabadon's Deathcap",
      "Stormsurge",
      "Void Staff"
     ],
     "best_augments": [
      "Salvation",
-     "Circle of Death",
      "Upgrade Stormsurge",
-     "En Passant"
+     "Marksmage",
+     "Circle of Death"
     ],
     "items_not_modeled": [
      "Sword of Blossoming Dawn"
@@ -841,15 +841,15 @@ window.COOK_DATA = {
      "core": true,
      "icon": "icons/augments/cruelty.png",
      "win_rate": 0.5086,
-     "pick_rate": 0.0953,
-     "win_rank": 141,
+     "pick_rate": 0.0963,
+     "win_rank": 138,
      "best_champions": [
       "Alistar",
       "Nautilus",
-      "Maokai",
-      "Leona",
+      "Thresh",
       "Galio",
-      "Rell"
+      "Maokai",
+      "Leona"
      ],
      "champion_is_best": false
     },
@@ -860,16 +860,16 @@ window.COOK_DATA = {
      "text": "Each time you Immobilize or Ground an enemy, gain a stack granting 10 Adaptive Force. Lose 50% stacks on death.",
      "core": true,
      "icon": "icons/augments/slap-around.png",
-     "win_rate": 0.523,
-     "pick_rate": 0.1352,
-     "win_rank": 98,
+     "win_rate": 0.5224,
+     "pick_rate": 0.1361,
+     "win_rank": 99,
      "best_champions": [
       "Morgana",
-      "Maokai",
       "Thresh",
-      "Leona",
+      "Maokai",
+      "Alistar",
       "Nautilus",
-      "Alistar"
+      "Leona"
      ],
      "champion_is_best": false
     },
@@ -880,16 +880,16 @@ window.COOK_DATA = {
      "text": "Gain the Aftershock and Glacial Augment Keystone Runes. Aftershock: After Immobilizing an enemy champion, gain defenses and later deal a burst of magic damage around you. Glacial Augment: Immobilizing an enemy champion will spawn 3 glacial rays that Slow nearby enemies and reduce their damage to your allies.",
      "core": true,
      "icon": "icons/augments/impassable.png",
-     "win_rate": 0.4895,
-     "pick_rate": 0.0475,
-     "win_rank": 186,
+     "win_rate": 0.4911,
+     "pick_rate": 0.0498,
+     "win_rank": 181,
      "best_champions": [
       "Nautilus",
       "Thresh",
       "Galio",
       "Alistar",
       "Leona",
-      "Maokai"
+      "Chogath"
      ],
      "champion_is_best": false
     }
@@ -916,32 +916,32 @@ window.COOK_DATA = {
     3111
    ],
    "champion_icon": "icons/champions/201.png",
-   "champion_win_rate": 0.4802,
-   "champion_pick_rate": 0.0179,
+   "champion_win_rate": 0.4803,
+   "champion_pick_rate": 0.0175,
    "champion_win_rank": 121,
-   "core_win_rate": 0.507,
+   "core_win_rate": 0.5074,
    "tier": "Pure troll",
    "core_usual": 0,
-   "core_pick_rate": 0.0927,
+   "core_pick_rate": 0.0941,
    "sim": {
-    "dps": 154,
+    "dps": 158,
     "survival": 0.009,
-    "best_dps": 878,
-    "best_survival": 0.011,
-    "pct_of_best": 0.175,
+    "best_dps": 679,
+    "best_survival": 0.01,
+    "pct_of_best": 0.232,
     "best_items": [
      "Sorcerer's Shoes",
      "Blackfire Torch",
-     "Hextech Gunblade",
      "Liandry's Torment",
+     "Lich Bane",
      "Stormsurge",
      "Void Staff"
     ],
     "best_augments": [
      "Upgrade Stormsurge",
      "Giant Slayer",
-     "It's Killing Time",
-     "Dive Bomber"
+     "Dive Bomber",
+     "It's Killing Time"
     ],
     "items_not_modeled": [],
     "whole_build": true
@@ -959,15 +959,15 @@ window.COOK_DATA = {
      "text": "If a target Knocked Back by the chosen ability hits another champion, they are Knocked Up and dealt damage. When colliding with terrain, the Knock Up duration is extended and they are dealt bonus damage.",
      "core": true,
      "icon": "icons/augments/chain-reaction.png",
-     "win_rate": 0.4684,
-     "pick_rate": 0.0683,
-     "win_rank": 213,
+     "win_rate": 0.4696,
+     "pick_rate": 0.0716,
+     "win_rank": 211,
      "best_champions": [
-      "LeeSin",
       "Gragas",
+      "LeeSin",
       "Syndra",
-      "Qiyana",
       "Gnar",
+      "Qiyana",
       "Alistar"
      ],
      "champion_is_best": false
@@ -979,15 +979,15 @@ window.COOK_DATA = {
      "text": "Immobilizing or Grounding enemy champions with the chosen ability deals extra damage and heals you.",
      "core": true,
      "icon": "icons/augments/ravenous-bind.png",
-     "win_rate": 0.5248,
-     "pick_rate": 0.1741,
-     "win_rank": 93,
+     "win_rate": 0.5246,
+     "pick_rate": 0.177,
+     "win_rank": 94,
      "best_champions": [
       "Trundle",
       "Aatrox",
       "Swain",
       "Chogath",
-      "Maokai",
+      "Thresh",
       "Nautilus"
      ],
      "champion_is_best": false
@@ -999,16 +999,16 @@ window.COOK_DATA = {
      "text": "Immobilizing an enemy champion grants 30 max Health. If taken as your second Augment, starts with Health.",
      "core": true,
      "icon": "icons/augments/soul-eater.png",
-     "win_rate": 0.5368,
-     "pick_rate": 0.0787,
-     "win_rank": 67,
+     "win_rate": 0.5382,
+     "pick_rate": 0.0802,
+     "win_rank": 61,
      "best_champions": [
       "Nautilus",
       "Thresh",
       "Leona",
       "Alistar",
-      "Swain",
-      "Chogath"
+      "Chogath",
+      "Swain"
      ],
      "champion_is_best": false
     },
@@ -1019,13 +1019,13 @@ window.COOK_DATA = {
      "text": "Your dash, leap, blink, or teleport Abilities gain 175 Ability Haste.",
      "core": true,
      "icon": "icons/augments/dashing.png",
-     "win_rate": 0.5104,
-     "pick_rate": 0.1708,
-     "win_rank": 133,
+     "win_rate": 0.5097,
+     "pick_rate": 0.1706,
+     "win_rank": 134,
      "best_champions": [
       "Fizz",
-      "MasterYi",
       "Kayn",
+      "MasterYi",
       "Sylas",
       "Fiora",
       "Zed"
@@ -1055,32 +1055,32 @@ window.COOK_DATA = {
     3111
    ],
    "champion_icon": "icons/champions/133.png",
-   "champion_win_rate": 0.4662,
-   "champion_pick_rate": 0.0211,
+   "champion_win_rate": 0.4663,
+   "champion_pick_rate": 0.0209,
    "champion_win_rank": 147,
-   "core_win_rate": 0.5101,
+   "core_win_rate": 0.5105,
    "tier": "Pure troll",
    "core_usual": 0,
-   "core_pick_rate": 0.123,
+   "core_pick_rate": 0.1248,
    "sim": {
-    "dps": 294,
+    "dps": 270,
     "survival": 0.148,
-    "best_dps": 1428,
-    "best_survival": 0.753,
-    "pct_of_best": 0.206,
+    "best_dps": 1530,
+    "best_survival": 0.675,
+    "pct_of_best": 0.176,
     "best_items": [
      "Berserker's Greaves",
      "Blade of The Ruined King",
      "Infinity Edge",
      "Lord Dominik's Regards",
-     "Stormrazor",
+     "Serylda's Grudge",
      "Yun Tal Wildarrows"
     ],
     "best_augments": [
      "Dual Wield",
      "Heavy Is The Crown",
      "Symphony of War",
-     "Scopiest Weapons"
+     "Tap Dancer"
     ],
     "items_not_modeled": [],
     "whole_build": true
@@ -1098,16 +1098,16 @@ window.COOK_DATA = {
      "text": "Your Flash has 3 charges. After 120 seconds, regain all charges.",
      "core": true,
      "icon": "icons/augments/flashy.png",
-     "win_rate": 0.5104,
-     "pick_rate": 0.1382,
-     "win_rank": 134,
+     "win_rate": 0.5107,
+     "pick_rate": 0.141,
+     "win_rank": 131,
      "best_champions": [
       "Sett",
       "LeeSin",
       "Darius",
       "Malphite",
-      "Lucian",
-      "Shaco"
+      "Kayn",
+      "Lucian"
      ],
      "champion_is_best": false
     },
@@ -1118,16 +1118,16 @@ window.COOK_DATA = {
      "text": "Your Flash causes an explosion that damages and Slows (resets on death).",
      "core": true,
      "icon": "icons/augments/flashbang.png",
-     "win_rate": 0.4838,
-     "pick_rate": 0.0052,
-     "win_rank": 200,
+     "win_rate": 0.4823,
+     "pick_rate": 0.0054,
+     "win_rank": 202,
      "best_champions": [
       "Sett",
       "LeeSin",
       "Pyke",
       "Blitzcrank",
       "Darius",
-      "Malphite"
+      "Pantheon"
      ],
      "champion_is_best": false
     },
@@ -1138,15 +1138,15 @@ window.COOK_DATA = {
      "text": "Gain a second Flash Summoner Spell and 70 Summoner Haste.",
      "core": true,
      "icon": "icons/augments/flash-2.png",
-     "win_rate": 0.4698,
-     "pick_rate": 0.0047,
-     "win_rank": 209,
+     "win_rate": 0.4795,
+     "pick_rate": 0.0049,
+     "win_rank": 205,
      "best_champions": [
       "Sett",
       "LeeSin",
-      "Pyke",
       "Blitzcrank",
       "Darius",
+      "Pyke",
       "Malphite"
      ],
      "champion_is_best": false
@@ -1158,9 +1158,9 @@ window.COOK_DATA = {
      "text": "Gain Poltergeist as a Summoner Spell. Poltergeist casts both Barrier and Ghost.",
      "core": true,
      "icon": "icons/augments/poltergeist.png",
-     "win_rate": 0.4731,
-     "pick_rate": 0.0285,
-     "win_rank": 208,
+     "win_rate": 0.4742,
+     "pick_rate": 0.0291,
+     "win_rank": 209,
      "best_champions": [
       "Ashe",
       "Jhin",
@@ -1194,32 +1194,32 @@ window.COOK_DATA = {
     3135
    ],
    "champion_icon": "icons/champions/142.png",
-   "champion_win_rate": 0.4797,
-   "champion_pick_rate": 0.0226,
-   "champion_win_rank": 122,
-   "core_win_rate": 0.4843,
+   "champion_win_rate": 0.4783,
+   "champion_pick_rate": 0.0238,
+   "champion_win_rank": 124,
+   "core_win_rate": 0.4867,
    "tier": "Pure troll",
    "core_usual": 0,
-   "core_pick_rate": 0.0441,
+   "core_pick_rate": 0.0451,
    "sim": {
-    "dps": 488,
+    "dps": 391,
     "survival": 0.012,
-    "best_dps": 922,
-    "best_survival": 0.012,
-    "pct_of_best": 0.529,
+    "best_dps": 830,
+    "best_survival": 0.013,
+    "pct_of_best": 0.471,
     "best_items": [
      "Sorcerer's Shoes",
+     "Blackfire Torch",
+     "Liandry's Torment",
      "Lich Bane",
-     "Rabadon's Deathcap",
      "Shadowflame",
-     "Stormsurge",
      "Void Staff"
     ],
     "best_augments": [
      "Glass Cannon",
-     "Upgrade Stormsurge",
-     "Eureka",
-     "Giant Slayer"
+     "Ultimate Awakening",
+     "Giant Slayer",
+     "It's Killing Time"
     ],
     "items_not_modeled": [],
     "whole_build": true
@@ -1237,16 +1237,16 @@ window.COOK_DATA = {
      "text": "Gain percent cooldown reduction and convert all of your Attack Speed into Ability Haste.",
      "core": true,
      "icon": "icons/augments/purist-caster.png",
-     "win_rate": 0.5372,
-     "pick_rate": 0.3666,
-     "win_rank": 65,
+     "win_rate": 0.5367,
+     "pick_rate": 0.362,
+     "win_rank": 66,
      "best_champions": [
       "Teemo",
       "Karthus",
-      "MissFortune",
       "Jayce",
+      "MissFortune",
       "Ashe",
-      "Ezreal"
+      "TwistedFate"
      ],
      "champion_is_best": false
     },
@@ -1257,16 +1257,16 @@ window.COOK_DATA = {
      "text": "Gain Ability Power, 50% Movement Speed, and 20% Omnivamp based on missing Health. Spell casts cost 5% of your current Health. Max benefit at 30% Health.",
      "core": true,
      "icon": "icons/augments/ominous-pact.png",
-     "win_rate": 0.5023,
-     "pick_rate": 0.0917,
+     "win_rate": 0.5016,
+     "pick_rate": 0.0919,
      "win_rank": 158,
      "best_champions": [
       "Vladimir",
       "AurelionSol",
-      "Singed",
       "Lillia",
       "Ryze",
-      "Swain"
+      "Singed",
+      "Gwen"
      ],
      "champion_is_best": false
     },
@@ -1277,8 +1277,8 @@ window.COOK_DATA = {
      "text": "Convert Ability Power to Bonus Attack Damage. Gain 15% Attack Damage.",
      "core": true,
      "icon": "icons/augments/escapade.png",
-     "win_rate": 0.5426,
-     "pick_rate": 0.2087,
+     "win_rate": 0.5428,
+     "pick_rate": 0.2082,
      "win_rank": 57,
      "best_champions": [
       "Jhin",
@@ -1298,7 +1298,7 @@ window.COOK_DATA = {
      "core": true,
      "icon": "icons/augments/skilled-sniper.png",
      "win_rate": 0.5196,
-     "pick_rate": 0.2344,
+     "pick_rate": 0.2346,
      "win_rank": 105,
      "best_champions": [
       "MissFortune",
@@ -1306,7 +1306,7 @@ window.COOK_DATA = {
       "Morgana",
       "TwistedFate",
       "Kaisa",
-      "Varus"
+      "Seraphine"
      ],
      "champion_is_best": false
     }
@@ -1333,32 +1333,32 @@ window.COOK_DATA = {
     6672
    ],
    "champion_icon": "icons/champions/2.png",
-   "champion_win_rate": 0.4837,
-   "champion_pick_rate": 0.0207,
+   "champion_win_rate": 0.4827,
+   "champion_pick_rate": 0.0223,
    "champion_win_rank": 116,
-   "core_win_rate": 0.5254,
+   "core_win_rate": 0.5252,
    "tier": "Holds up",
    "core_usual": 0,
-   "core_pick_rate": 0.2253,
+   "core_pick_rate": 0.2242,
    "sim": {
-    "dps": 413,
-    "survival": 0.072,
-    "best_dps": 1083,
-    "best_survival": 0.345,
-    "pct_of_best": 0.381,
+    "dps": 509,
+    "survival": 0.071,
+    "best_dps": 1231,
+    "best_survival": 0.392,
+    "pct_of_best": 0.413,
     "best_items": [
      "Berserker's Greaves",
      "Blade of The Ruined King",
+     "The Collector",
      "Essence Reaver",
-     "Heartsteel",
      "Kraken Slayer",
      "Serylda's Grudge"
     ],
     "best_augments": [
      "Scopiest Weapons",
-     "Gift of the Drowned",
-     "Giant Slayer",
-     "Dual Wield"
+     "Dual Wield",
+     "Tap Dancer",
+     "Don't Blink"
     ],
     "items_not_modeled": [],
     "whole_build": true
@@ -1376,14 +1376,14 @@ window.COOK_DATA = {
      "text": "Your healing and Shields can Critically Strike for 40% bonus amount. Gain 25% Crit Chance.",
      "core": true,
      "icon": "icons/augments/critical-healing.png",
-     "win_rate": 0.4909,
-     "pick_rate": 0.0287,
-     "win_rank": 180,
+     "win_rate": 0.4925,
+     "pick_rate": 0.0284,
+     "win_rank": 177,
      "best_champions": [
       "Senna",
       "Sona",
-      "Yuumi",
       "Soraka",
+      "Yuumi",
       "Lulu",
       "Milio"
      ],
@@ -1409,9 +1409,9 @@ window.COOK_DATA = {
      "text": "Healing or Shielding allies blesses them, causing their damage to fill you with devotion. When you have enough devotion, unleash a shockwave dealing magic damage and executes low health enemies.",
      "core": true,
      "icon": "icons/augments/empowered-by-the-faithful.png",
-     "win_rate": 0.4916,
-     "pick_rate": 0.0347,
-     "win_rank": 177,
+     "win_rate": 0.4914,
+     "pick_rate": 0.0342,
+     "win_rank": 180,
      "best_champions": [
       "Sona",
       "Soraka",
@@ -1458,31 +1458,31 @@ window.COOK_DATA = {
     6675
    ],
    "champion_icon": "icons/champions/895.png",
-   "champion_win_rate": 0.5182,
-   "champion_pick_rate": 0.0087,
-   "champion_win_rank": 35,
-   "core_win_rate": 0.4912,
+   "champion_win_rate": 0.5155,
+   "champion_pick_rate": 0.0097,
+   "champion_win_rank": 37,
+   "core_win_rate": 0.4919,
    "tier": "Pure troll",
    "core_usual": 0,
-   "core_pick_rate": 0.0317,
+   "core_pick_rate": 0.0313,
    "sim": {
-    "dps": 428,
+    "dps": 472,
     "survival": 0.013,
-    "best_dps": 981,
-    "best_survival": 0.062,
-    "pct_of_best": 0.436,
+    "best_dps": 1102,
+    "best_survival": 0.051,
+    "pct_of_best": 0.428,
     "best_items": [
      "Berserker's Greaves",
-     "Black Cleaver",
      "Blade of The Ruined King",
+     "The Collector",
      "Kraken Slayer",
-     "Serylda's Grudge",
-     "Trinity Force"
+     "Guinsoo's Rageblade",
+     "Serylda's Grudge"
     ],
     "best_augments": [
-     "Gift of the Drowned",
-     "Bouncing Bees",
-     "Goliath",
+     "Tickle Monster",
+     "Third Times the Harm",
+     "Giant Slayer",
      "Scopiest Weapons"
     ],
     "items_not_modeled": [
@@ -1504,7 +1504,7 @@ window.COOK_DATA = {
      "core": true,
      "icon": "icons/augments/skilled-sniper.png",
      "win_rate": 0.5196,
-     "pick_rate": 0.2344,
+     "pick_rate": 0.2346,
      "win_rank": 105,
      "best_champions": [
       "MissFortune",
@@ -1512,7 +1512,7 @@ window.COOK_DATA = {
       "Morgana",
       "TwistedFate",
       "Kaisa",
-      "Varus"
+      "Seraphine"
      ],
      "champion_is_best": false
     },
@@ -1523,12 +1523,12 @@ window.COOK_DATA = {
      "text": "QUEST: Hit enemy Champions with the chosen ability times. REWARD: Fire additional missiles per Quest Level.",
      "core": true,
      "icon": "icons/augments/multishot.png",
-     "win_rate": 0.4589,
-     "pick_rate": 0.0664,
-     "win_rank": 216,
+     "win_rate": 0.4569,
+     "pick_rate": 0.0656,
+     "win_rank": 218,
      "best_champions": [
-      "Ashe",
       "Smolder",
+      "Ashe",
       "Velkoz",
       "Ezreal",
       "Nidalee",
@@ -1543,12 +1543,12 @@ window.COOK_DATA = {
      "text": "Your chosen ability missile splits into two on hit, at max Range, or when Recast. Additional target hit: Enemies take less damage if hit by the same spell.",
      "core": true,
      "icon": "icons/augments/spell-split.png",
-     "win_rate": 0.4861,
-     "pick_rate": 0.0916,
-     "win_rank": 194,
+     "win_rate": 0.486,
+     "pick_rate": 0.092,
+     "win_rank": 198,
      "best_champions": [
-      "Nidalee",
       "Morgana",
+      "Nidalee",
       "Ashe",
       "Blitzcrank",
       "Ezreal",
@@ -1563,9 +1563,9 @@ window.COOK_DATA = {
      "text": "Dealing Ability damage fires 3 missiles at each enemy hit, each dealing up to 1% max Health true damage based on distance traveled.",
      "core": true,
      "icon": "icons/augments/magic-missile.png",
-     "win_rate": 0.5284,
-     "pick_rate": 0.2362,
-     "win_rank": 85,
+     "win_rate": 0.5277,
+     "pick_rate": 0.2393,
+     "win_rank": 86,
      "best_champions": [
       "Brand",
       "MissFortune",
@@ -1599,32 +1599,32 @@ window.COOK_DATA = {
     3020
    ],
    "champion_icon": "icons/champions/421.png",
-   "champion_win_rate": 0.4965,
+   "champion_win_rate": 0.4968,
    "champion_pick_rate": 0.0065,
    "champion_win_rank": 77,
-   "core_win_rate": 0.4982,
+   "core_win_rate": 0.4975,
    "tier": "Pure troll",
    "core_usual": 0,
-   "core_pick_rate": 0.1572,
+   "core_pick_rate": 0.1579,
    "sim": {
-    "dps": 331,
+    "dps": 247,
     "survival": 0.008,
-    "best_dps": 1036,
-    "best_survival": 0.049,
-    "pct_of_best": 0.32,
+    "best_dps": 818,
+    "best_survival": 0.021,
+    "pct_of_best": 0.302,
     "best_items": [
      "Berserker's Greaves",
+     "Axiom Arc",
      "Blade of The Ruined King",
-     "Essence Reaver",
      "Serylda's Grudge",
      "Umbral Glaive",
      "Youmuu's Ghostblade"
     ],
     "best_augments": [
-     "En Passant",
-     "Giant Slayer",
      "Dive Bomber",
-     "Scopiest Weapons"
+     "Scopiest Weapons",
+     "Bouncing Bees",
+     "Triggered Inferno"
     ],
     "items_not_modeled": [],
     "whole_build": true
@@ -1642,16 +1642,16 @@ window.COOK_DATA = {
      "text": "Your Item and damage over time effects can Critically Strike for 145% extra damage. Gain 25% Crit chance.",
      "core": true,
      "icon": "icons/augments/vulnerability.png",
-     "win_rate": 0.5423,
-     "pick_rate": 0.2697,
+     "win_rate": 0.5421,
+     "pick_rate": 0.2661,
      "win_rank": 58,
      "best_champions": [
       "Lucian",
-      "MissFortune",
       "Smolder",
+      "MissFortune",
       "Gangplank",
-      "Caitlyn",
-      "Corki"
+      "Corki",
+      "Caitlyn"
      ],
      "champion_is_best": false
     },
@@ -1662,8 +1662,8 @@ window.COOK_DATA = {
      "text": "You can Critically Defend using your Crit Chance (max 50% chance), giving you a chance to reduce damage taken by 20%. Gain 25% Crit Chance.",
      "core": true,
      "icon": "icons/augments/tank-it-or-leave-it.png",
-     "win_rate": 0.5475,
-     "pick_rate": 0.1806,
+     "win_rate": 0.5484,
+     "pick_rate": 0.1815,
      "win_rank": 50,
      "best_champions": [
       "Yone",
@@ -1682,9 +1682,9 @@ window.COOK_DATA = {
      "text": "Your Abilities apply stacking Burn that deals damage over time. Your Burn effects reduce your basic Ability Cooldowns.",
      "core": true,
      "icon": "icons/augments/infernal-conduit.png",
-     "win_rate": 0.552,
-     "pick_rate": 0.2156,
-     "win_rank": 44,
+     "win_rate": 0.5517,
+     "pick_rate": 0.2117,
+     "win_rank": 43,
      "best_champions": [
       "Brand",
       "AurelionSol",
@@ -1702,9 +1702,9 @@ window.COOK_DATA = {
      "text": "Your Attacks also Burn enemies, dealing 0.4% max Health magic damage per second over 5 seconds. This Burn stacks infinitely.",
      "core": true,
      "icon": "icons/augments/firebrand.png",
-     "win_rate": 0.4915,
-     "pick_rate": 0.1039,
-     "win_rank": 178,
+     "win_rate": 0.49,
+     "pick_rate": 0.1025,
+     "win_rank": 185,
      "best_champions": [
       "Teemo",
       "Ashe",
@@ -1738,32 +1738,32 @@ window.COOK_DATA = {
     3047
    ],
    "champion_icon": "icons/champions/72.png",
-   "champion_win_rate": 0.4859,
-   "champion_pick_rate": 0.0181,
-   "champion_win_rank": 109,
-   "core_win_rate": 0.5333,
+   "champion_win_rate": 0.4852,
+   "champion_pick_rate": 0.0198,
+   "champion_win_rank": 112,
+   "core_win_rate": 0.5331,
    "tier": "Holds up",
    "core_usual": 0,
-   "core_pick_rate": 0.1925,
+   "core_pick_rate": 0.1905,
    "sim": {
-    "dps": 408,
+    "dps": 410,
     "survival": 0.028,
-    "best_dps": 1167,
-    "best_survival": 0.06,
-    "pct_of_best": 0.35,
+    "best_dps": 1055,
+    "best_survival": 0.018,
+    "pct_of_best": 0.388,
     "best_items": [
-     "Sorcerer's Shoes",
+     "Boots of Swiftness",
+     "Black Cleaver",
      "Blackfire Torch",
+     "Horizon Focus",
      "Liandry's Torment",
-     "Shadowflame",
-     "Stormsurge",
-     "Void Staff"
+     "Shadowflame"
     ],
     "best_augments": [
-     "Giant Slayer",
-     "En Passant",
      "Back To Basics",
-     "Cruelty"
+     "Giant Slayer",
+     "Scopiest Weapons",
+     "escAPADe"
     ],
     "items_not_modeled": [],
     "whole_build": true
@@ -1781,16 +1781,16 @@ window.COOK_DATA = {
      "text": "Gain percent cooldown reduction and convert all of your Attack Speed into Ability Haste.",
      "core": true,
      "icon": "icons/augments/purist-caster.png",
-     "win_rate": 0.5372,
-     "pick_rate": 0.3666,
-     "win_rank": 65,
+     "win_rate": 0.5367,
+     "pick_rate": 0.362,
+     "win_rank": 66,
      "best_champions": [
       "Teemo",
       "Karthus",
-      "MissFortune",
       "Jayce",
+      "MissFortune",
       "Ashe",
-      "Ezreal"
+      "TwistedFate"
      ],
      "champion_is_best": false
     },
@@ -1801,9 +1801,9 @@ window.COOK_DATA = {
      "text": "Your Abilities apply On-Hit effects. 1 second Cooldown per target.",
      "core": true,
      "icon": "icons/augments/ethereal-weapon.png",
-     "win_rate": 0.5781,
-     "pick_rate": 0.4012,
-     "win_rank": 19,
+     "win_rate": 0.577,
+     "pick_rate": 0.3967,
+     "win_rank": 20,
      "best_champions": [
       "Kaisa",
       "Hecarim",
@@ -1821,8 +1821,8 @@ window.COOK_DATA = {
      "text": "On-Hit reduce the cooldown of your abilities by 1.25 seconds.",
      "core": true,
      "icon": "icons/augments/mystic-punch.png",
-     "win_rate": 0.5676,
-     "pick_rate": 0.3155,
+     "win_rate": 0.5678,
+     "pick_rate": 0.3115,
      "win_rank": 26,
      "best_champions": [
       "Yasuo",
@@ -1870,32 +1870,32 @@ window.COOK_DATA = {
     3158
    ],
    "champion_icon": "icons/champions/39.png",
-   "champion_win_rate": 0.5049,
-   "champion_pick_rate": 0.0445,
-   "champion_win_rank": 60,
-   "core_win_rate": 0.561,
+   "champion_win_rate": 0.5057,
+   "champion_pick_rate": 0.0419,
+   "champion_win_rank": 59,
+   "core_win_rate": 0.5605,
    "tier": "Secretly strong",
    "core_usual": 0,
-   "core_pick_rate": 0.3611,
+   "core_pick_rate": 0.3567,
    "sim": {
-    "dps": 698,
-    "survival": 0.013,
-    "best_dps": 1113,
-    "best_survival": 0.011,
-    "pct_of_best": 0.628,
+    "dps": 865,
+    "survival": 0.069,
+    "best_dps": 942,
+    "best_survival": 0.051,
+    "pct_of_best": 0.918,
     "best_items": [
      "Sorcerer's Shoes",
+     "Blackfire Torch",
+     "Liandry's Torment",
      "Lich Bane",
-     "Rabadon's Deathcap",
-     "Shadowflame",
-     "Stormsurge",
+     "Nashor's Tooth",
      "Void Staff"
     ],
     "best_augments": [
-     "BEES!!!",
-     "Ultimate Awakening",
-     "Take'em Down Down Down",
-     "Heavy Is The Crown"
+     "Third Times the Harm",
+     "Giant Slayer",
+     "Heavy Is The Crown",
+     "En Passant"
     ],
     "items_not_modeled": [],
     "whole_build": false
@@ -1926,8 +1926,8 @@ window.COOK_DATA = {
      "text": "On-Hit reduce the cooldown of your abilities by 1.25 seconds.",
      "core": true,
      "icon": "icons/augments/mystic-punch.png",
-     "win_rate": 0.5676,
-     "pick_rate": 0.3155,
+     "win_rate": 0.5678,
+     "pick_rate": 0.3115,
      "win_rank": 26,
      "best_champions": [
       "Yasuo",
@@ -1946,16 +1946,16 @@ window.COOK_DATA = {
      "text": "Gain Attack Range and Attack Speed during Your chosen ability duration.",
      "core": true,
      "icon": "icons/augments/lil-extra-help.png",
-     "win_rate": 0.5058,
-     "pick_rate": 0.1283,
-     "win_rank": 145,
+     "win_rate": 0.5067,
+     "pick_rate": 0.1332,
+     "win_rank": 144,
      "best_champions": [
       "Tristana",
       "Twitch",
       "Vayne",
       "Yunara",
       "MasterYi",
-      "Ashe"
+      "Xayah"
      ],
      "champion_is_best": false
     },
@@ -1966,14 +1966,14 @@ window.COOK_DATA = {
      "text": "Attacks during the chosen ability gouge your target with Nails. Nails accumulate damage, execute, and grant Movement Speed upon expiration.",
      "core": true,
      "icon": "icons/augments/pin-cushion.png",
-     "win_rate": 0.4628,
-     "pick_rate": 0.0522,
+     "win_rate": 0.4624,
+     "pick_rate": 0.0535,
      "win_rank": 214,
      "best_champions": [
       "Ashe",
+      "Yunara",
       "Twitch",
       "Tristana",
-      "Yunara",
       "Xayah",
       "Vayne"
      ],
@@ -2002,32 +2002,32 @@ window.COOK_DATA = {
     3006
    ],
    "champion_icon": "icons/champions/240.png",
-   "champion_win_rate": 0.493,
-   "champion_pick_rate": 0.0125,
-   "champion_win_rank": 88,
-   "core_win_rate": 0.5121,
+   "champion_win_rate": 0.494,
+   "champion_pick_rate": 0.0122,
+   "champion_win_rank": 87,
+   "core_win_rate": 0.5123,
    "tier": "Pure troll",
    "core_usual": 0,
-   "core_pick_rate": 0.1653,
+   "core_pick_rate": 0.1661,
    "sim": {
-    "dps": 919,
+    "dps": 724,
     "survival": 0.015,
-    "best_dps": 1274,
-    "best_survival": 0.043,
-    "pct_of_best": 0.721,
+    "best_dps": 1124,
+    "best_survival": 0.017,
+    "pct_of_best": 0.644,
     "best_items": [
      "Berserker's Greaves",
+     "Axiom Arc",
      "Blade of The Ruined King",
-     "Essence Reaver",
      "Kraken Slayer",
      "Navori Flickerblade",
      "Serylda's Grudge"
     ],
     "best_augments": [
-     "Dive Bomber",
+     "Tickle Monster",
+     "Third Times the Harm",
      "Giant Slayer",
-     "En Passant",
-     "It's Killing Time"
+     "Dive Bomber"
     ],
     "items_not_modeled": [],
     "whole_build": true
@@ -2045,9 +2045,9 @@ window.COOK_DATA = {
      "text": "Healing or Shielding an allied champion with the chosen ability casts that spell again on 2 other nearby allied champions. Heals and Shields are effective. The power of friendship!",
      "core": true,
      "icon": "icons/augments/group-hug.png",
-     "win_rate": 0.5162,
-     "pick_rate": 0.0176,
-     "win_rank": 113,
+     "win_rate": 0.5157,
+     "pick_rate": 0.0179,
+     "win_rank": 111,
      "best_champions": [
       "Morgana",
       "Yuumi",
@@ -2065,16 +2065,16 @@ window.COOK_DATA = {
      "text": "Healing or Shielding allied champions gathers Butterflies. After collecting Butterflies, damaging an enemy champion fires all of them to deal Magic damage.",
      "core": true,
      "icon": "icons/augments/enchanting-butterflies.png",
-     "win_rate": 0.5446,
-     "pick_rate": 0.0652,
-     "win_rank": 52,
+     "win_rate": 0.5454,
+     "pick_rate": 0.0639,
+     "win_rank": 51,
      "best_champions": [
       "Sona",
       "Yuumi",
       "Seraphine",
       "Soraka",
       "Milio",
-      "Senna"
+      "Karma"
      ],
      "champion_is_best": false
     },
@@ -2085,12 +2085,12 @@ window.COOK_DATA = {
      "text": "Buffing, Healing, or Shielding your ally deals damage and Slows enemies surrounding them.",
      "core": true,
      "icon": "icons/augments/sonic-boom.png",
-     "win_rate": 0.5096,
-     "pick_rate": 0.0406,
-     "win_rank": 136,
+     "win_rate": 0.5086,
+     "pick_rate": 0.0405,
+     "win_rank": 139,
      "best_champions": [
-      "Soraka",
       "Sona",
+      "Soraka",
       "Yuumi",
       "Seraphine",
       "Milio",
@@ -2105,9 +2105,9 @@ window.COOK_DATA = {
      "text": "Shielding an ally grants Move Speed and Ghost decaying over 1.5 seconds. Cooldown per target: 1.5 seconds.",
      "core": true,
      "icon": "icons/augments/sound-barrier.png",
-     "win_rate": 0.5121,
+     "win_rate": 0.5107,
      "pick_rate": 0.0192,
-     "win_rank": 126,
+     "win_rank": 132,
      "best_champions": [
       "Sona",
       "Yuumi",
@@ -2141,31 +2141,31 @@ window.COOK_DATA = {
     3158
    ],
    "champion_icon": "icons/champions/1.png",
-   "champion_win_rate": 0.4912,
-   "champion_pick_rate": 0.0235,
+   "champion_win_rate": 0.4917,
+   "champion_pick_rate": 0.0233,
    "champion_win_rank": 91,
-   "core_win_rate": 0.5206,
+   "core_win_rate": 0.5201,
    "tier": "Holds up",
    "core_usual": 0,
-   "core_pick_rate": 0.0357,
+   "core_pick_rate": 0.0354,
    "sim": {
-    "dps": 275,
+    "dps": 216,
     "survival": 0.012,
-    "best_dps": 1070,
+    "best_dps": 1079,
     "best_survival": 0.013,
-    "pct_of_best": 0.257,
+    "pct_of_best": 0.2,
     "best_items": [
      "Sorcerer's Shoes",
-     "Lich Bane",
      "Nashor's Tooth",
      "Rabadon's Deathcap",
+     "Guinsoo's Rageblade",
      "Shadowflame",
      "Void Staff"
     ],
     "best_augments": [
      "Glass Cannon",
-     "Skilled Sniper",
      "Marksmage",
+     "Heavy Is The Crown",
      "Giant Slayer"
     ],
     "items_not_modeled": [],
@@ -2184,16 +2184,16 @@ window.COOK_DATA = {
      "text": "On each Revive, you grow large (gaining 30% Adaptive Force and 20% Health) or tiny (gaining 70 Ability Haste and 40% Movement Speed).",
      "core": true,
      "icon": "icons/augments/mad-scientist.png",
-     "win_rate": 0.5794,
-     "pick_rate": 0.3637,
-     "win_rank": 18,
+     "win_rate": 0.5799,
+     "pick_rate": 0.3613,
+     "win_rank": 16,
      "best_champions": [
       "TahmKench",
       "Ashe",
       "Teemo",
       "Sett",
       "DrMundo",
-      "Trundle"
+      "Jayce"
      ],
      "champion_is_best": false
     },
@@ -2217,8 +2217,8 @@ window.COOK_DATA = {
      "text": "Gain Deceive Summoner Spell. Gain Backstab Passive. When you die, deal a large amount of true damage and Fear nearby enemies.",
      "core": true,
      "icon": "icons/augments/clown-college.png",
-     "win_rate": 0.5588,
-     "pick_rate": 0.2768,
+     "win_rate": 0.5593,
+     "pick_rate": 0.2749,
      "win_rank": 33,
      "best_champions": [
       "Shaco",
@@ -2226,7 +2226,7 @@ window.COOK_DATA = {
       "JarvanIV",
       "Talon",
       "Khazix",
-      "Rengar"
+      "LeeSin"
      ],
      "champion_is_best": false
     },
@@ -2237,16 +2237,16 @@ window.COOK_DATA = {
      "text": "Explodes when you die, dealing 20% of the target's max Health as true damage to nearby enemies.",
      "core": true,
      "icon": "icons/augments/dive-bomber.png",
-     "win_rate": 0.5184,
-     "pick_rate": 0.2153,
-     "win_rank": 109,
+     "win_rate": 0.5181,
+     "pick_rate": 0.2145,
+     "win_rank": 108,
      "best_champions": [
       "Karthus",
       "Malphite",
       "JarvanIV",
       "Sion",
-      "Shaco",
-      "Blitzcrank"
+      "Blitzcrank",
+      "Shaco"
      ],
      "champion_is_best": false
     }
@@ -2273,19 +2273,19 @@ window.COOK_DATA = {
     3111
    ],
    "champion_icon": "icons/champions/154.png",
-   "champion_win_rate": 0.4518,
-   "champion_pick_rate": 0.022,
+   "champion_win_rate": 0.4538,
+   "champion_pick_rate": 0.0203,
    "champion_win_rank": 166,
-   "core_win_rate": 0.5522,
+   "core_win_rate": 0.5524,
    "tier": "Holds up",
    "core_usual": 0,
-   "core_pick_rate": 0.2853,
+   "core_pick_rate": 0.2836,
    "sim": {
-    "dps": 290,
-    "survival": 0.122,
-    "best_dps": 1489,
-    "best_survival": 0.017,
-    "pct_of_best": 0.195,
+    "dps": 276,
+    "survival": 0.121,
+    "best_dps": 1456,
+    "best_survival": 0.256,
+    "pct_of_best": 0.189,
     "best_items": [
      "Sorcerer's Shoes",
      "Horizon Focus",
@@ -2296,9 +2296,9 @@ window.COOK_DATA = {
     ],
     "best_augments": [
      "Eureka",
-     "Heavy Is The Crown",
-     "Cruelty",
-     "Hand of Baron"
+     "Ominous Pact",
+     "Echo Cast",
+     "Cruelty"
     ],
     "items_not_modeled": [],
     "whole_build": true
@@ -2316,16 +2316,16 @@ window.COOK_DATA = {
      "text": "Permanently gain 1 Ability Power when you damage enemy champions with Abilities. If taken as your second Augment, starts with 40 Ability Power. You have gained AP. Veigar would be proud!",
      "core": true,
      "icon": "icons/augments/phenomenal-evil.png",
-     "win_rate": 0.5562,
-     "pick_rate": 0.2837,
+     "win_rate": 0.5557,
+     "pick_rate": 0.284,
      "win_rank": 36,
      "best_champions": [
       "AurelionSol",
       "Karthus",
       "Brand",
       "Ryze",
-      "Lillia",
-      "Morgana"
+      "Morgana",
+      "TwistedFate"
      ],
      "champion_is_best": false
     },
@@ -2336,16 +2336,16 @@ window.COOK_DATA = {
      "text": "Your Attacks deal additional physical damage equal to 75% Ability Power.",
      "core": true,
      "icon": "icons/augments/marksmage.png",
-     "win_rate": 0.525,
-     "pick_rate": 0.1855,
-     "win_rank": 92,
+     "win_rate": 0.5249,
+     "pick_rate": 0.1859,
+     "win_rank": 93,
      "best_champions": [
       "Sylas",
       "Kayle",
       "Ekko",
       "Fizz",
       "Kaisa",
-      "TwistedFate"
+      "Gwen"
      ],
      "champion_is_best": false
     },
@@ -2356,9 +2356,9 @@ window.COOK_DATA = {
      "text": "On ability damage, fire missiles that deal magic damage each. Gain 25% Critical Strike Chance.",
      "core": true,
      "icon": "icons/augments/twin-fire.png",
-     "win_rate": 0.537,
-     "pick_rate": 0.3256,
-     "win_rank": 66,
+     "win_rate": 0.5368,
+     "pick_rate": 0.3236,
+     "win_rank": 65,
      "best_champions": [
       "MissFortune",
       "Smolder",
@@ -2376,9 +2376,9 @@ window.COOK_DATA = {
      "text": "Dealing Ability damage fires 3 missiles at each enemy hit, each dealing up to 1% max Health true damage based on distance traveled.",
      "core": true,
      "icon": "icons/augments/magic-missile.png",
-     "win_rate": 0.5284,
-     "pick_rate": 0.2362,
-     "win_rank": 85,
+     "win_rate": 0.5277,
+     "pick_rate": 0.2393,
+     "win_rank": 86,
      "best_champions": [
       "Brand",
       "MissFortune",
@@ -2412,32 +2412,32 @@ window.COOK_DATA = {
     3020
    ],
    "champion_icon": "icons/champions/221.png",
-   "champion_win_rate": 0.4733,
-   "champion_pick_rate": 0.0213,
-   "champion_win_rank": 134,
-   "core_win_rate": 0.5367,
+   "champion_win_rate": 0.4731,
+   "champion_pick_rate": 0.0212,
+   "champion_win_rank": 137,
+   "core_win_rate": 0.5363,
    "tier": "Holds up",
    "core_usual": 0,
-   "core_pick_rate": 0.2577,
+   "core_pick_rate": 0.2582,
    "sim": {
-    "dps": 549,
+    "dps": 472,
     "survival": 0.015,
-    "best_dps": 1255,
-    "best_survival": 0.123,
-    "pct_of_best": 0.437,
+    "best_dps": 1381,
+    "best_survival": 0.294,
+    "pct_of_best": 0.342,
     "best_items": [
      "Berserker's Greaves",
      "Blade of The Ruined King",
+     "The Collector",
      "Infinity Edge",
      "Lord Dominik's Regards",
-     "Phantom Dancer",
      "Yun Tal Wildarrows"
     ],
     "best_augments": [
      "Heavy Is The Crown",
-     "Bouncing Bees",
+     "Symphony of War",
      "Glass Cannon",
-     "Scopiest Weapons"
+     "Tap Dancer"
     ],
     "items_not_modeled": [],
     "whole_build": true
@@ -2455,16 +2455,16 @@ window.COOK_DATA = {
      "text": "After using your Ultimate, gain damage reduction for 2 seconds, after which you Taunt enemies inside for 2 seconds. Gain 30 Ultimate Ability Haste.",
      "core": true,
      "icon": "icons/augments/stuck-in-here-with-me.png",
-     "win_rate": 0.4882,
-     "pick_rate": 0.0608,
-     "win_rank": 190,
+     "win_rate": 0.4895,
+     "pick_rate": 0.0633,
+     "win_rank": 187,
      "best_champions": [
       "Malphite",
       "JarvanIV",
       "Swain",
       "DrMundo",
-      "Blitzcrank",
-      "FiddleSticks"
+      "Thresh",
+      "Blitzcrank"
      ],
      "champion_is_best": false
     },
@@ -2476,14 +2476,14 @@ window.COOK_DATA = {
      "core": true,
      "icon": "icons/augments/final-form.png",
      "win_rate": 0.5363,
-     "pick_rate": 0.2357,
-     "win_rank": 68,
+     "pick_rate": 0.2383,
+     "win_rank": 69,
      "best_champions": [
       "Katarina",
-      "Zed",
       "Viego",
-      "Swain",
       "Aatrox",
+      "Swain",
+      "Zed",
       "Jayce"
      ],
      "champion_is_best": false
@@ -2495,8 +2495,8 @@ window.COOK_DATA = {
      "text": "Casting your Ultimate makes you Invulnerable for 2 seconds (8s Cooldown).",
      "core": true,
      "icon": "icons/augments/can-t-touch-this.png",
-     "win_rate": 0.4917,
-     "pick_rate": 0.1344,
+     "win_rate": 0.4929,
+     "pick_rate": 0.1363,
      "win_rank": 176,
      "best_champions": [
       "Katarina",
@@ -2515,9 +2515,9 @@ window.COOK_DATA = {
      "text": "After using your Ultimate, you become immune to crowd control for 3 seconds. (8 second Cooldown).",
      "core": true,
      "icon": "icons/augments/ultimate-unstoppable.png",
-     "win_rate": 0.4901,
-     "pick_rate": 0.1812,
-     "win_rank": 185,
+     "win_rate": 0.4908,
+     "pick_rate": 0.1835,
+     "win_rank": 182,
      "best_champions": [
       "Katarina",
       "Samira",
@@ -2551,19 +2551,19 @@ window.COOK_DATA = {
     3047
    ],
    "champion_icon": "icons/champions/60.png",
-   "champion_win_rate": 0.4859,
-   "champion_pick_rate": 0.0097,
-   "champion_win_rank": 109,
-   "core_win_rate": 0.5016,
+   "champion_win_rate": 0.4852,
+   "champion_pick_rate": 0.0096,
+   "champion_win_rank": 112,
+   "core_win_rate": 0.5024,
    "tier": "Pure troll",
    "core_usual": 0,
-   "core_pick_rate": 0.153,
+   "core_pick_rate": 0.1553,
    "sim": {
-    "dps": 108,
+    "dps": 90,
     "survival": 0.108,
-    "best_dps": 1347,
-    "best_survival": 0.014,
-    "pct_of_best": 0.08,
+    "best_dps": 1054,
+    "best_survival": 0.015,
+    "pct_of_best": 0.086,
     "best_items": [
      "Sorcerer's Shoes",
      "Blackfire Torch",
@@ -2573,10 +2573,10 @@ window.COOK_DATA = {
      "Void Staff"
     ],
     "best_augments": [
-     "Overloaded",
-     "Skilled Sniper",
      "Glass Cannon",
-     "Giant Slayer"
+     "Skilled Sniper",
+     "Marksmage",
+     "Heavy Is The Crown"
     ],
     "items_not_modeled": [],
     "whole_build": true
@@ -2594,9 +2594,9 @@ window.COOK_DATA = {
      "text": "When you use the chosen ability, dash towards your cursor.",
      "core": true,
      "icon": "icons/augments/quickstep.png",
-     "win_rate": 0.4761,
-     "pick_rate": 0.0746,
-     "win_rank": 206,
+     "win_rate": 0.4765,
+     "pick_rate": 0.0773,
+     "win_rank": 207,
      "best_champions": [
       "Sett",
       "Hecarim",
@@ -2614,16 +2614,16 @@ window.COOK_DATA = {
      "text": "After using a Dash, Blink, or Teleport Ability or exiting Stealth, gain 300 Movement Speed for 2 seconds.",
      "core": true,
      "icon": "icons/augments/shadow-runner.png",
-     "win_rate": 0.5604,
-     "pick_rate": 0.2271,
+     "win_rate": 0.5601,
+     "pick_rate": 0.23,
      "win_rank": 32,
      "best_champions": [
       "Shaco",
-      "Fizz",
       "Vayne",
+      "Fizz",
       "Yasuo",
       "Ekko",
-      "Pyke"
+      "Fiora"
      ],
      "champion_is_best": false
     },
@@ -2634,9 +2634,9 @@ window.COOK_DATA = {
      "text": "Gain 1% bonus damage per 10 Movement Speed more you have than the target.",
      "core": true,
      "icon": "icons/augments/don-t-blink.png",
-     "win_rate": 0.5236,
-     "pick_rate": 0.0656,
-     "win_rank": 95,
+     "win_rate": 0.5204,
+     "pick_rate": 0.0666,
+     "win_rank": 104,
      "best_champions": [
       "Lillia",
       "Jhin",
@@ -2654,16 +2654,16 @@ window.COOK_DATA = {
      "text": "Your dash, blink, or teleport Abilities leave behind a trail that detonates after 0.75 second.",
      "core": true,
      "icon": "icons/augments/earthwake.png",
-     "win_rate": 0.5027,
-     "pick_rate": 0.0338,
-     "win_rank": 156,
+     "win_rate": 0.5,
+     "pick_rate": 0.0345,
+     "win_rank": 162,
      "best_champions": [
       "Yasuo",
       "Ambessa",
       "LeeSin",
       "Pyke",
       "JarvanIV",
-      "Zed"
+      "Fiora"
      ],
      "champion_is_best": false
     }
@@ -2690,32 +2690,32 @@ window.COOK_DATA = {
     4401
    ],
    "champion_icon": "icons/champions/69.png",
-   "champion_win_rate": 0.4609,
-   "champion_pick_rate": 0.0235,
+   "champion_win_rate": 0.4605,
+   "champion_pick_rate": 0.0256,
    "champion_win_rank": 160,
-   "core_win_rate": 0.5157,
-   "tier": "Holds up",
+   "core_win_rate": 0.5142,
+   "tier": "Pure troll",
    "core_usual": 0,
-   "core_pick_rate": 0.1003,
+   "core_pick_rate": 0.1021,
    "sim": {
-    "dps": 498,
+    "dps": 367,
     "survival": 0.018,
-    "best_dps": 1555,
+    "best_dps": 1424,
     "best_survival": 0.011,
-    "pct_of_best": 0.32,
+    "pct_of_best": 0.258,
     "best_items": [
      "Sorcerer's Shoes",
      "Blackfire Torch",
+     "Lich Bane",
      "Rabadon's Deathcap",
      "Shadowflame",
-     "Stormsurge",
      "Void Staff"
     ],
     "best_augments": [
      "Back To Basics",
      "Glass Cannon",
      "Giant Slayer",
-     "Hand of Baron"
+     "Heavy Is The Crown"
     ],
     "items_not_modeled": [],
     "whole_build": true
@@ -2733,8 +2733,8 @@ window.COOK_DATA = {
      "text": "You are now melee. Gain 24% Attack Damage, 24% Health, 20% Attack Speed, 20% Lifesteal, and 20% Move Speed (each further increased based on Attack Range lost).",
      "core": true,
      "icon": "icons/augments/draw-your-sword.png",
-     "win_rate": 0.603,
-     "pick_rate": 0.1536,
+     "win_rate": 0.6029,
+     "pick_rate": 0.1506,
      "win_rank": 5,
      "best_champions": [
       "Graves",
@@ -2753,16 +2753,16 @@ window.COOK_DATA = {
      "text": "Attack Damage is convertedinto Attack Speed. Attacks deal bonus magic damage On-Hit.",
      "core": true,
      "icon": "icons/augments/tickle-monster.png",
-     "win_rate": 0.4568,
-     "pick_rate": 0.0655,
-     "win_rank": 217,
+     "win_rate": 0.4598,
+     "pick_rate": 0.0662,
+     "win_rank": 215,
      "best_champions": [
       "Vayne",
       "Kayle",
       "XinZhao",
       "KogMaw",
-      "Ashe",
-      "Belveth"
+      "Belveth",
+      "Ashe"
      ],
      "champion_is_best": false
     },
@@ -2773,9 +2773,9 @@ window.COOK_DATA = {
      "text": "Your Abilities apply On-Hit effects. 1 second Cooldown per target.",
      "core": true,
      "icon": "icons/augments/ethereal-weapon.png",
-     "win_rate": 0.5781,
-     "pick_rate": 0.4012,
-     "win_rank": 19,
+     "win_rate": 0.577,
+     "pick_rate": 0.3967,
+     "win_rank": 20,
      "best_champions": [
       "Kaisa",
       "Hecarim",
@@ -2793,16 +2793,16 @@ window.COOK_DATA = {
      "text": "Your Attacks grant you stacking Ability Power and your Abilities that damage enemies grant you Attack Damage.",
      "core": true,
      "icon": "icons/augments/master-of-duality.png",
-     "win_rate": 0.5068,
-     "pick_rate": 0.1145,
-     "win_rank": 143,
+     "win_rate": 0.5067,
+     "pick_rate": 0.1134,
+     "win_rank": 145,
      "best_champions": [
       "XinZhao",
       "Kayle",
       "Katarina",
       "Kaisa",
       "Yunara",
-      "Varus"
+      "Volibear"
      ],
      "champion_is_best": false
     }
@@ -2829,32 +2829,32 @@ window.COOK_DATA = {
     3302
    ],
    "champion_icon": "icons/champions/268.png",
-   "champion_win_rate": 0.4771,
-   "champion_pick_rate": 0.0209,
-   "champion_win_rank": 129,
-   "core_win_rate": 0.5362,
+   "champion_win_rate": 0.4776,
+   "champion_pick_rate": 0.021,
+   "champion_win_rank": 128,
+   "core_win_rate": 0.5366,
    "tier": "Holds up",
    "core_usual": 0,
-   "core_pick_rate": 0.1837,
+   "core_pick_rate": 0.1817,
    "sim": {
-    "dps": 1109,
+    "dps": 1192,
     "survival": 0.097,
-    "best_dps": 1742,
-    "best_survival": 0.019,
-    "pct_of_best": 0.637,
+    "best_dps": 1784,
+    "best_survival": 0.7,
+    "pct_of_best": 0.668,
     "best_items": [
      "Sorcerer's Shoes",
-     "Lich Bane",
      "Nashor's Tooth",
      "Rabadon's Deathcap",
      "Shadowflame",
+     "Stormsurge",
      "Void Staff"
     ],
     "best_augments": [
      "Heavy Is The Crown",
      "Back To Basics",
-     "Glass Cannon",
-     "Rite of Ascension"
+     "Master of Duality",
+     "Symphony of War"
     ],
     "items_not_modeled": [],
     "whole_build": true
@@ -2872,9 +2872,9 @@ window.COOK_DATA = {
      "text": "Your Mana costs double. Your Ability Heals, Shields, and damage are more effective.",
      "core": true,
      "icon": "icons/augments/overflow.png",
-     "win_rate": 0.5117,
+     "win_rate": 0.513,
      "pick_rate": 0.0988,
-     "win_rank": 127,
+     "win_rank": 124,
      "best_champions": [
       "Ryze",
       "Ezreal",
@@ -2892,14 +2892,14 @@ window.COOK_DATA = {
      "text": "Gain of the Mana you spend as a Shield for 1.5 seconds. Shields up to",
      "core": true,
      "icon": "icons/augments/blue-barrier.png",
-     "win_rate": 0.554,
-     "pick_rate": 0.1215,
-     "win_rank": 39,
+     "win_rate": 0.5533,
+     "pick_rate": 0.1202,
+     "win_rank": 41,
      "best_champions": [
       "Ryze",
       "AurelionSol",
-      "Ezreal",
       "Kassadin",
+      "Ezreal",
       "Viktor",
       "Karthus"
      ],
@@ -2912,16 +2912,16 @@ window.COOK_DATA = {
      "text": "Gain Adaptive Force for 3 seconds when you gain a Shield (5 seconds Cooldown).",
      "core": true,
      "icon": "icons/augments/mighty-shield.png",
-     "win_rate": 0.5012,
-     "pick_rate": 0.0315,
-     "win_rank": 159,
+     "win_rate": 0.4992,
+     "pick_rate": 0.0316,
+     "win_rank": 164,
      "best_champions": [
       "Yasuo",
-      "Nautilus",
       "Yone",
-      "Rumble",
+      "Nautilus",
       "Shen",
-      "Mordekaiser"
+      "Mordekaiser",
+      "Rumble"
      ],
      "champion_is_best": false
     },
@@ -2932,8 +2932,8 @@ window.COOK_DATA = {
      "text": "Gain the Ocean Soul, granting high Health and Mana Regen after damaging enemies.",
      "core": true,
      "icon": "icons/augments/ocean-soul.png",
-     "win_rate": 0.5292,
-     "pick_rate": 0.162,
+     "win_rate": 0.5296,
+     "pick_rate": 0.1647,
      "win_rank": 82,
      "best_champions": [
       "TahmKench",
@@ -2968,31 +2968,31 @@ window.COOK_DATA = {
     3111
    ],
    "champion_icon": "icons/champions/34.png",
-   "champion_win_rate": 0.4542,
-   "champion_pick_rate": 0.0236,
+   "champion_win_rate": 0.4541,
+   "champion_pick_rate": 0.0234,
    "champion_win_rank": 165,
-   "core_win_rate": 0.524,
+   "core_win_rate": 0.5238,
    "tier": "Holds up",
    "core_usual": 0,
-   "core_pick_rate": 0.1035,
+   "core_pick_rate": 0.1038,
    "sim": {
-    "dps": 263,
+    "dps": 239,
     "survival": 0.137,
-    "best_dps": 1284,
-    "best_survival": 0.019,
-    "pct_of_best": 0.205,
+    "best_dps": 1286,
+    "best_survival": 0.025,
+    "pct_of_best": 0.186,
     "best_items": [
      "Sorcerer's Shoes",
-     "Lich Bane",
-     "Nashor's Tooth",
+     "Blackfire Torch",
+     "Liandry's Torment",
      "Rabadon's Deathcap",
      "Shadowflame",
      "Void Staff"
     ],
     "best_augments": [
      "Back To Basics",
-     "Heavy Is The Crown",
      "Giant Slayer",
+     "Heavy Is The Crown",
      "Glass Cannon"
     ],
     "items_not_modeled": [
@@ -3013,15 +3013,15 @@ window.COOK_DATA = {
      "text": "Convert Bonus Attack Damage to Ability Power. Gain 15% Ability Power.",
      "core": true,
      "icon": "icons/augments/adapt.png",
-     "win_rate": 0.5486,
-     "pick_rate": 0.3733,
+     "win_rate": 0.5485,
+     "pick_rate": 0.3726,
      "win_rank": 48,
      "best_champions": [
       "Karthus",
       "TwistedFate",
       "Kaisa",
-      "Brand",
       "Teemo",
+      "Brand",
       "Vladimir"
      ],
      "champion_is_best": false
@@ -3033,16 +3033,16 @@ window.COOK_DATA = {
      "text": "Your Attacks deal additional physical damage equal to 75% Ability Power.",
      "core": true,
      "icon": "icons/augments/marksmage.png",
-     "win_rate": 0.525,
-     "pick_rate": 0.1855,
-     "win_rank": 92,
+     "win_rate": 0.5249,
+     "pick_rate": 0.1859,
+     "win_rank": 93,
      "best_champions": [
       "Sylas",
       "Kayle",
       "Ekko",
       "Fizz",
       "Kaisa",
-      "TwistedFate"
+      "Gwen"
      ],
      "champion_is_best": false
     },
@@ -3053,16 +3053,16 @@ window.COOK_DATA = {
      "text": "Gain stacks when taking or dealing damage. For every 7 stacks, gain Adaptive Force, Armor, Magic Resist, Size, and Tenacity.",
      "core": true,
      "icon": "icons/augments/titan-s-resolve.png",
-     "win_rate": 0.5088,
-     "pick_rate": 0.1763,
-     "win_rank": 139,
+     "win_rate": 0.5083,
+     "pick_rate": 0.1767,
+     "win_rank": 140,
      "best_champions": [
       "TahmKench",
       "DrMundo",
       "Swain",
       "Nautilus",
       "Thresh",
-      "Leona"
+      "Sion"
      ],
      "champion_is_best": false
     },
@@ -3073,15 +3073,15 @@ window.COOK_DATA = {
      "text": "Gain Attack Speed, 10 Armor, and 10 Magic Resist for each nearby enemy champion within 600 Range.",
      "core": true,
      "icon": "icons/augments/lonely-warrior.png",
-     "win_rate": 0.5284,
-     "pick_rate": 0.1845,
-     "win_rank": 86,
+     "win_rate": 0.5283,
+     "pick_rate": 0.1808,
+     "win_rank": 83,
      "best_champions": [
       "TahmKench",
       "XinZhao",
       "Yone",
-      "DrMundo",
       "Thresh",
+      "DrMundo",
       "Yasuo"
      ],
      "champion_is_best": false
@@ -3109,32 +3109,32 @@ window.COOK_DATA = {
     3089
    ],
    "champion_icon": "icons/champions/33.png",
-   "champion_win_rate": 0.4653,
-   "champion_pick_rate": 0.0212,
-   "champion_win_rank": 151,
-   "core_win_rate": 0.5277,
+   "champion_win_rate": 0.4644,
+   "champion_pick_rate": 0.0204,
+   "champion_win_rank": 153,
+   "core_win_rate": 0.5275,
    "tier": "Holds up",
    "core_usual": 0,
-   "core_pick_rate": 0.2299,
+   "core_pick_rate": 0.229,
    "sim": {
-    "dps": 343,
+    "dps": 332,
     "survival": 0.013,
-    "best_dps": 961,
-    "best_survival": 0.019,
-    "pct_of_best": 0.357,
+    "best_dps": 671,
+    "best_survival": 0.009,
+    "pct_of_best": 0.494,
     "best_items": [
      "Sorcerer's Shoes",
-     "Horizon Focus",
+     "Luden's Echo",
      "Rabadon's Deathcap",
      "Shadowflame",
      "Stormsurge",
      "Void Staff"
     ],
     "best_augments": [
-     "En Passant",
      "Dive Bomber",
      "Erosion",
-     "Infernal Soul"
+     "Firebrand",
+     "Take'em Down Down Down"
     ],
     "items_not_modeled": [],
     "whole_build": true
@@ -3152,8 +3152,8 @@ window.COOK_DATA = {
      "text": "Your basic Attack stacks 6% Attack Speed on Critical Strikes up to 10 stacks. Gain 25% Crit chance.",
      "core": true,
      "icon": "icons/augments/critical-rhythm.png",
-     "win_rate": 0.5212,
-     "pick_rate": 0.2061,
+     "win_rate": 0.5215,
+     "pick_rate": 0.2076,
      "win_rank": 103,
      "best_champions": [
       "Jinx",
@@ -3161,7 +3161,7 @@ window.COOK_DATA = {
       "Yasuo",
       "Yone",
       "Yunara",
-      "Tristana"
+      "Jhin"
      ],
      "champion_is_best": false
     },
@@ -3172,16 +3172,16 @@ window.COOK_DATA = {
      "text": "Your Critical Strikes apply On-Hit effects an additional time. Gain Crit chance.",
      "core": true,
      "icon": "icons/augments/double-tap.png",
-     "win_rate": 0.4932,
-     "pick_rate": 0.1383,
-     "win_rank": 172,
+     "win_rate": 0.4929,
+     "pick_rate": 0.1379,
+     "win_rank": 175,
      "best_champions": [
       "Vayne",
       "Jinx",
       "Caitlyn",
       "Yunara",
-      "Senna",
-      "Twitch"
+      "Twitch",
+      "Jhin"
      ],
      "champion_is_best": false
     },
@@ -3192,15 +3192,15 @@ window.COOK_DATA = {
      "text": "Gain Critical Strike Chance and Attack Speed.",
      "core": true,
      "icon": "icons/augments/zealot.png",
-     "win_rate": 0.5533,
-     "pick_rate": 0.2898,
-     "win_rank": 41,
+     "win_rate": 0.552,
+     "pick_rate": 0.2862,
+     "win_rank": 42,
      "best_champions": [
       "Kaisa",
       "Kayle",
       "XinZhao",
-      "Ashe",
       "Yone",
+      "Ashe",
       "MissFortune"
      ],
      "champion_is_best": false
@@ -3212,16 +3212,16 @@ window.COOK_DATA = {
      "text": "Attack Damage is convertedinto Attack Speed. Attacks deal bonus magic damage On-Hit.",
      "core": true,
      "icon": "icons/augments/tickle-monster.png",
-     "win_rate": 0.4568,
-     "pick_rate": 0.0655,
-     "win_rank": 217,
+     "win_rate": 0.4598,
+     "pick_rate": 0.0662,
+     "win_rank": 215,
      "best_champions": [
       "Vayne",
       "Kayle",
       "XinZhao",
       "KogMaw",
-      "Ashe",
-      "Belveth"
+      "Belveth",
+      "Ashe"
      ],
      "champion_is_best": false
     }
@@ -3248,31 +3248,31 @@ window.COOK_DATA = {
     6675
    ],
    "champion_icon": "icons/champions/85.png",
-   "champion_win_rate": 0.4481,
-   "champion_pick_rate": 0.0289,
+   "champion_win_rate": 0.4496,
+   "champion_pick_rate": 0.0272,
    "champion_win_rank": 168,
-   "core_win_rate": 0.5061,
+   "core_win_rate": 0.5066,
    "tier": "Pure troll",
    "core_usual": 0,
-   "core_pick_rate": 0.1749,
+   "core_pick_rate": 0.1745,
    "sim": {
-    "dps": 627,
+    "dps": 591,
     "survival": 0.015,
-    "best_dps": 1289,
-    "best_survival": 0.013,
-    "pct_of_best": 0.486,
+    "best_dps": 1219,
+    "best_survival": 0.014,
+    "pct_of_best": 0.485,
     "best_items": [
      "Sorcerer's Shoes",
      "Lich Bane",
      "Nashor's Tooth",
      "Rabadon's Deathcap",
-     "Shadowflame",
-     "Void Staff"
+     "Guinsoo's Rageblade",
+     "Shadowflame"
     ],
     "best_augments": [
-     "Glass Cannon",
      "Marksmage",
      "Heavy Is The Crown",
+     "Glass Cannon",
      "Giant Slayer"
     ],
     "items_not_modeled": [],
@@ -3291,9 +3291,9 @@ window.COOK_DATA = {
      "text": "Gain % Heal and Shield Power based on bonus Armor and Magic Resist.",
      "core": true,
      "icon": "icons/augments/protein-shake.png",
-     "win_rate": 0.5094,
-     "pick_rate": 0.0325,
-     "win_rank": 137,
+     "win_rate": 0.5122,
+     "pick_rate": 0.032,
+     "win_rank": 127,
      "best_champions": [
       "Sona",
       "Soraka",
@@ -3311,12 +3311,12 @@ window.COOK_DATA = {
      "text": "Your Healing and Shielding also increases the target's Armor and Magic Resist by for 3 seconds.",
      "core": true,
      "icon": "icons/augments/windspeaker-s-blessing.png",
-     "win_rate": 0.5745,
-     "pick_rate": 0.0228,
-     "win_rank": 22,
+     "win_rate": 0.5753,
+     "pick_rate": 0.023,
+     "win_rank": 21,
      "best_champions": [
-      "Soraka",
       "Sona",
+      "Soraka",
       "Yuumi",
       "Milio",
       "Lulu",
@@ -3331,16 +3331,16 @@ window.COOK_DATA = {
      "text": "Gain Shield after Immobilizing or Grounding an enemy champion.",
      "core": true,
      "icon": "icons/augments/courage-of-the-colossus.png",
-     "win_rate": 0.5143,
-     "pick_rate": 0.0942,
-     "win_rank": 118,
+     "win_rate": 0.5133,
+     "pick_rate": 0.0951,
+     "win_rank": 121,
      "best_champions": [
       "Nautilus",
-      "Leona",
       "Thresh",
+      "Leona",
       "Alistar",
-      "Maokai",
-      "Galio"
+      "Galio",
+      "Maokai"
      ],
      "champion_is_best": false
     },
@@ -3351,16 +3351,16 @@ window.COOK_DATA = {
      "text": "Gain Adaptive Force for 3 seconds when you gain a Shield (5 seconds Cooldown).",
      "core": true,
      "icon": "icons/augments/mighty-shield.png",
-     "win_rate": 0.5012,
-     "pick_rate": 0.0315,
-     "win_rank": 159,
+     "win_rate": 0.4992,
+     "pick_rate": 0.0316,
+     "win_rank": 164,
      "best_champions": [
       "Yasuo",
-      "Nautilus",
       "Yone",
-      "Rumble",
+      "Nautilus",
       "Shen",
-      "Mordekaiser"
+      "Mordekaiser",
+      "Rumble"
      ],
      "champion_is_best": false
     }
@@ -3387,31 +3387,31 @@ window.COOK_DATA = {
     3111
    ],
    "champion_icon": "icons/champions/497.png",
-   "champion_win_rate": 0.4701,
-   "champion_pick_rate": 0.0144,
-   "champion_win_rank": 141,
-   "core_win_rate": 0.5249,
+   "champion_win_rate": 0.4721,
+   "champion_pick_rate": 0.0143,
+   "champion_win_rank": 138,
+   "core_win_rate": 0.525,
    "tier": "Holds up",
    "core_usual": 0,
-   "core_pick_rate": 0.0452,
+   "core_pick_rate": 0.0454,
    "sim": {
-    "dps": 135,
+    "dps": 107,
     "survival": 0.073,
-    "best_dps": 1088,
-    "best_survival": 0.022,
-    "pct_of_best": 0.124,
+    "best_dps": 709,
+    "best_survival": 0.021,
+    "pct_of_best": 0.151,
     "best_items": [
      "Sorcerer's Shoes",
+     "Liandry's Torment",
      "Lich Bane",
-     "Nashor's Tooth",
-     "Rabadon's Deathcap",
      "Shadowflame",
+     "Stormsurge",
      "Void Staff"
     ],
     "best_augments": [
-     "Ultimate Awakening",
      "Dive Bomber",
-     "Mystic Punch",
+     "Impassable",
+     "Ultimate Awakening",
      "Giant Slayer"
     ],
     "items_not_modeled": [],
@@ -3430,9 +3430,9 @@ window.COOK_DATA = {
      "text": "Your healing and Health Regen deal 70% of the value magic damage to the nearest enemy champion.",
      "core": true,
      "icon": "icons/augments/circle-of-death.png",
-     "win_rate": 0.532,
-     "pick_rate": 0.0889,
-     "win_rank": 76,
+     "win_rate": 0.5328,
+     "pick_rate": 0.0854,
+     "win_rank": 75,
      "best_champions": [
       "DrMundo",
       "Swain",
@@ -3450,9 +3450,9 @@ window.COOK_DATA = {
      "text": "Your Mana costs double. Your Ability Heals, Shields, and damage are more effective.",
      "core": true,
      "icon": "icons/augments/overflow.png",
-     "win_rate": 0.5117,
+     "win_rate": 0.513,
      "pick_rate": 0.0988,
-     "win_rank": 127,
+     "win_rank": 124,
      "best_champions": [
       "Ryze",
       "Ezreal",
@@ -3470,8 +3470,8 @@ window.COOK_DATA = {
      "text": "Gain the Ocean Soul, granting high Health and Mana Regen after damaging enemies.",
      "core": true,
      "icon": "icons/augments/ocean-soul.png",
-     "win_rate": 0.5292,
-     "pick_rate": 0.162,
+     "win_rate": 0.5296,
+     "pick_rate": 0.1647,
      "win_rank": 82,
      "best_champions": [
       "TahmKench",
@@ -3490,15 +3490,15 @@ window.COOK_DATA = {
      "text": "Gain 15% Omnivamp.",
      "core": true,
      "icon": "icons/augments/goredrink.png",
-     "win_rate": 0.5564,
-     "pick_rate": 0.3488,
+     "win_rate": 0.5569,
+     "pick_rate": 0.3497,
      "win_rank": 35,
      "best_champions": [
       "Graves",
       "Lucian",
-      "Ryze",
-      "Swain",
       "Kayn",
+      "Swain",
+      "Ryze",
       "Sylas"
      ],
      "champion_is_best": false
@@ -3526,19 +3526,19 @@ window.COOK_DATA = {
     6657
    ],
    "champion_icon": "icons/champions/20.png",
-   "champion_win_rate": 0.462,
-   "champion_pick_rate": 0.0236,
+   "champion_win_rate": 0.4624,
+   "champion_pick_rate": 0.0235,
    "champion_win_rank": 158,
-   "core_win_rate": 0.5323,
+   "core_win_rate": 0.5331,
    "tier": "Holds up",
    "core_usual": 0,
    "core_pick_rate": 0.1746,
    "sim": {
-    "dps": 194,
+    "dps": 203,
     "survival": 0.222,
-    "best_dps": 971,
-    "best_survival": 0.086,
-    "pct_of_best": 0.2,
+    "best_dps": 621,
+    "best_survival": 0.052,
+    "pct_of_best": 0.327,
     "best_items": [
      "Sorcerer's Shoes",
      "Blackfire Torch",
@@ -3550,8 +3550,8 @@ window.COOK_DATA = {
     "best_augments": [
      "Upgrade Stormsurge",
      "Cruelty",
-     "En Passant",
-     "Dive Bomber"
+     "Giant Slayer",
+     "Triggered Inferno"
     ],
     "items_not_modeled": [],
     "whole_build": true
@@ -3569,9 +3569,9 @@ window.COOK_DATA = {
      "text": "Gain 100% Movement Speed and 15% Attack Speed for 4 seconds on takedown.",
      "core": true,
      "icon": "icons/augments/get-excited.png",
-     "win_rate": 0.5114,
-     "pick_rate": 0.1654,
-     "win_rank": 129,
+     "win_rate": 0.5117,
+     "pick_rate": 0.1659,
+     "win_rank": 130,
      "best_champions": [
       "Jinx",
       "Jhin",
@@ -3589,14 +3589,14 @@ window.COOK_DATA = {
      "text": "When a champion that you damaged within 3 seconds dies, refund of your Ultimate Ability's total cooldown.",
      "core": true,
      "icon": "icons/augments/arcane-axiom.png",
-     "win_rate": 0.522,
-     "pick_rate": 0.3141,
-     "win_rank": 101,
+     "win_rate": 0.5221,
+     "pick_rate": 0.3123,
+     "win_rank": 100,
      "best_champions": [
       "Karthus",
       "Ashe",
-      "Zed",
       "Lucian",
+      "Zed",
       "Teemo",
       "Malphite"
      ],
@@ -3609,15 +3609,15 @@ window.COOK_DATA = {
      "text": "Takedowns against enemy champions within 3 seconds of damaging them grants you 40% Move Speed and renders you invisible for 1.5 seconds.",
      "core": true,
      "icon": "icons/augments/nightstalking.png",
-     "win_rate": 0.4905,
-     "pick_rate": 0.1511,
-     "win_rank": 181,
+     "win_rate": 0.4907,
+     "pick_rate": 0.1522,
+     "win_rank": 183,
      "best_champions": [
       "Shaco",
       "Khazix",
-      "Zed",
       "Pyke",
-      "Rengar",
+      "Zed",
+      "Kayn",
       "MasterYi"
      ],
      "champion_is_best": false
@@ -3629,16 +3629,16 @@ window.COOK_DATA = {
      "text": "Gain 60% Movement Speed towards enemies below 40% health.",
      "core": true,
      "icon": "icons/augments/kill-secured.png",
-     "win_rate": 0.5045,
-     "pick_rate": 0.0915,
-     "win_rank": 150,
+     "win_rate": 0.5044,
+     "pick_rate": 0.0917,
+     "win_rank": 151,
      "best_champions": [
       "Darius",
-      "Jhin",
       "Pyke",
+      "Jhin",
       "Hecarim",
       "MasterYi",
-      "TahmKench"
+      "Sett"
      ],
      "champion_is_best": false
     }
@@ -3665,19 +3665,19 @@ window.COOK_DATA = {
     3009
    ],
    "champion_icon": "icons/champions/19.png",
-   "champion_win_rate": 0.4967,
-   "champion_pick_rate": 0.0223,
-   "champion_win_rank": 76,
-   "core_win_rate": 0.5071,
+   "champion_win_rate": 0.4966,
+   "champion_pick_rate": 0.0221,
+   "champion_win_rank": 78,
+   "core_win_rate": 0.5072,
    "tier": "Pure troll",
    "core_usual": 0,
    "core_pick_rate": 0.1805,
    "sim": {
-    "dps": 475,
+    "dps": 380,
     "survival": 0.011,
-    "best_dps": 1323,
-    "best_survival": 0.025,
-    "pct_of_best": 0.359,
+    "best_dps": 1205,
+    "best_survival": 0.024,
+    "pct_of_best": 0.315,
     "best_items": [
      "Berserker's Greaves",
      "Blade of The Ruined King",
@@ -3689,8 +3689,8 @@ window.COOK_DATA = {
     "best_augments": [
      "Tickle Monster",
      "Third Times the Harm",
-     "Giant Slayer",
-     "Scopiest Weapons"
+     "Scopiest Weapons",
+     "Giant Slayer"
     ],
     "items_not_modeled": [],
     "whole_build": true
@@ -3708,8 +3708,8 @@ window.COOK_DATA = {
      "text": "You are now melee. Gain 24% Attack Damage, 24% Health, 20% Attack Speed, 20% Lifesteal, and 20% Move Speed (each further increased based on Attack Range lost).",
      "core": true,
      "icon": "icons/augments/draw-your-sword.png",
-     "win_rate": 0.603,
-     "pick_rate": 0.1536,
+     "win_rate": 0.6029,
+     "pick_rate": 0.1506,
      "win_rank": 5,
      "best_champions": [
       "Graves",
@@ -3728,16 +3728,16 @@ window.COOK_DATA = {
      "text": "Your dash, blink, or teleport Abilities leave behind a trail that detonates after 0.75 second.",
      "core": true,
      "icon": "icons/augments/earthwake.png",
-     "win_rate": 0.5027,
-     "pick_rate": 0.0338,
-     "win_rank": 156,
+     "win_rate": 0.5,
+     "pick_rate": 0.0345,
+     "win_rank": 162,
      "best_champions": [
       "Yasuo",
       "Ambessa",
       "LeeSin",
       "Pyke",
       "JarvanIV",
-      "Zed"
+      "Fiora"
      ],
      "champion_is_best": false
     },
@@ -3748,16 +3748,16 @@ window.COOK_DATA = {
      "text": "After using a Dash, Blink, or Teleport Ability or exiting Stealth, gain 300 Movement Speed for 2 seconds.",
      "core": true,
      "icon": "icons/augments/shadow-runner.png",
-     "win_rate": 0.5604,
-     "pick_rate": 0.2271,
+     "win_rate": 0.5601,
+     "pick_rate": 0.23,
      "win_rank": 32,
      "best_champions": [
       "Shaco",
-      "Fizz",
       "Vayne",
+      "Fizz",
       "Yasuo",
       "Ekko",
-      "Pyke"
+      "Fiora"
      ],
      "champion_is_best": false
     },
@@ -3768,14 +3768,14 @@ window.COOK_DATA = {
      "text": "Gain a Shield for 2 seconds after a Dash or Blink (5 seconds Cooldown).",
      "core": true,
      "icon": "icons/augments/swift-and-safe.png",
-     "win_rate": 0.5429,
-     "pick_rate": 0.1189,
+     "win_rate": 0.5431,
+     "pick_rate": 0.1229,
      "win_rank": 56,
      "best_champions": [
       "Yasuo",
+      "Fiora",
       "Ambessa",
       "Fizz",
-      "Fiora",
       "Sylas",
       "LeeSin"
      ],
@@ -3804,32 +3804,32 @@ window.COOK_DATA = {
     6333
    ],
    "champion_icon": "icons/champions/429.png",
-   "champion_win_rate": 0.4901,
-   "champion_pick_rate": 0.0268,
-   "champion_win_rank": 95,
-   "core_win_rate": 0.5523,
+   "champion_win_rate": 0.4888,
+   "champion_pick_rate": 0.029,
+   "champion_win_rank": 98,
+   "core_win_rate": 0.5515,
    "tier": "Holds up",
    "core_usual": 0,
-   "core_pick_rate": 0.1333,
+   "core_pick_rate": 0.1345,
    "sim": {
-    "dps": 444,
+    "dps": 483,
     "survival": 0.232,
-    "best_dps": 1412,
-    "best_survival": 0.682,
-    "pct_of_best": 0.314,
+    "best_dps": 1497,
+    "best_survival": 0.596,
+    "pct_of_best": 0.323,
     "best_items": [
      "Berserker's Greaves",
      "Blade of The Ruined King",
      "Infinity Edge",
      "Lord Dominik's Regards",
-     "Phantom Dancer",
+     "Stormrazor",
      "Yun Tal Wildarrows"
     ],
     "best_augments": [
      "Dual Wield",
      "Heavy Is The Crown",
-     "Scopiest Weapons",
-     "Symphony of War"
+     "Symphony of War",
+     "Tap Dancer"
     ],
     "items_not_modeled": [],
     "whole_build": true
@@ -3848,9 +3848,9 @@ window.COOK_DATA = {
      "text": "Your healing and Health Regen deal 70% of the value magic damage to the nearest enemy champion.",
      "core": true,
      "icon": "icons/augments/circle-of-death.png",
-     "win_rate": 0.532,
-     "pick_rate": 0.0889,
-     "win_rank": 76,
+     "win_rate": 0.5328,
+     "pick_rate": 0.0854,
+     "win_rank": 75,
      "best_champions": [
       "DrMundo",
       "Swain",
@@ -3868,15 +3868,15 @@ window.COOK_DATA = {
      "text": "Gain a Shield for every second you spend Channeling.",
      "core": true,
      "icon": "icons/augments/don-t-change-the-channel.png",
-     "win_rate": 0.5147,
-     "pick_rate": 0.0626,
-     "win_rank": 116,
+     "win_rate": 0.5139,
+     "pick_rate": 0.0613,
+     "win_rank": 120,
      "best_champions": [
       "AurelionSol",
       "Katarina",
       "Galio",
-      "Vladimir",
       "FiddleSticks",
+      "Vladimir",
       "Varus"
      ],
      "champion_is_best": false
@@ -3888,16 +3888,16 @@ window.COOK_DATA = {
      "text": "Casting the chosen ability grants bonus Health and Slows nearby enemies for the duration of the chosen abilityGetting a takedown permanently increases this effect.",
      "core": true,
      "icon": "icons/augments/mosh-monster.png",
-     "win_rate": 0.4905,
-     "pick_rate": 0.027,
-     "win_rank": 182,
+     "win_rate": 0.4977,
+     "pick_rate": 0.0267,
+     "win_rank": 165,
      "best_champions": [
       "DrMundo",
       "Aatrox",
       "Singed",
       "FiddleSticks",
       "Nasus",
-      "Illaoi"
+      "Renekton"
      ],
      "champion_is_best": false
     },
@@ -3908,16 +3908,16 @@ window.COOK_DATA = {
      "text": "Your chosen ability gains 100 Ability Haste.",
      "core": true,
      "icon": "icons/augments/bread-and-butter.png",
-     "win_rate": 0.5186,
-     "pick_rate": 0.2565,
-     "win_rank": 107,
+     "win_rate": 0.5192,
+     "pick_rate": 0.2595,
+     "win_rank": 106,
      "best_champions": [
       "Hecarim",
       "MasterYi",
       "TwistedFate",
       "Kayn",
-      "TahmKench",
-      "Jayce"
+      "Jayce",
+      "TahmKench"
      ],
      "champion_is_best": true
     }
@@ -3958,32 +3958,32 @@ window.COOK_DATA = {
     3111
    ],
    "champion_icon": "icons/champions/11.png",
-   "champion_win_rate": 0.5496,
-   "champion_pick_rate": 0.107,
+   "champion_win_rate": 0.5492,
+   "champion_pick_rate": 0.106,
    "champion_win_rank": 8,
-   "core_win_rate": 0.514,
-   "tier": "Pure troll",
+   "core_win_rate": 0.5159,
+   "tier": "Holds up",
    "core_usual": 1,
-   "core_pick_rate": 0.1087,
+   "core_pick_rate": 0.1082,
    "sim": {
-    "dps": 99,
+    "dps": 95,
     "survival": 0.015,
-    "best_dps": 1277,
-    "best_survival": 0.061,
-    "pct_of_best": 0.077,
+    "best_dps": 1265,
+    "best_survival": 0.059,
+    "pct_of_best": 0.075,
     "best_items": [
      "Berserker's Greaves",
      "Blade of The Ruined King",
      "The Collector",
      "Kraken Slayer",
-     "Serylda's Grudge",
-     "Umbral Glaive"
+     "Guinsoo's Rageblade",
+     "Serylda's Grudge"
     ],
     "best_augments": [
-     "Dual Wield",
-     "Tickle Monster",
      "Third Times the Harm",
-     "Rite of Ascension"
+     "Tickle Monster",
+     "Rite of Ascension",
+     "Dual Wield"
     ],
     "items_not_modeled": [],
     "whole_build": true
@@ -4002,16 +4002,16 @@ window.COOK_DATA = {
      "text": "Gain 60% Attack Speed.",
      "core": true,
      "icon": "icons/augments/deft.png",
-     "win_rate": 0.5491,
-     "pick_rate": 0.2782,
-     "win_rank": 47,
+     "win_rate": 0.5485,
+     "pick_rate": 0.2736,
+     "win_rank": 49,
      "best_champions": [
       "Jinx",
       "Yone",
       "Vayne",
       "Caitlyn",
       "Yunara",
-      "Tristana"
+      "Yasuo"
      ],
      "champion_is_best": false
     },
@@ -4022,16 +4022,16 @@ window.COOK_DATA = {
      "text": "Your Attacks grant you 10 Movement Speed. Gain Attack Speed. The buff stacks and refreshes infinitely but lasts 5 seconds.",
      "core": true,
      "icon": "icons/augments/tap-dancer.png",
-     "win_rate": 0.5089,
-     "pick_rate": 0.1205,
-     "win_rank": 138,
+     "win_rate": 0.5075,
+     "pick_rate": 0.1208,
+     "win_rank": 142,
      "best_champions": [
       "Jinx",
       "Yunara",
-      "Senna",
-      "Caitlyn",
       "Jhin",
-      "Vayne"
+      "Caitlyn",
+      "Vayne",
+      "Senna"
      ],
      "champion_is_best": false
     },
@@ -4042,8 +4042,8 @@ window.COOK_DATA = {
      "text": "When you Attack, fire a bolt that deals 40% damage and applies your On-Hit effects at 40% effectiveness. Gain 10% total Attack Speed.",
      "core": true,
      "icon": "icons/augments/dual-wield.png",
-     "win_rate": 0.5547,
-     "pick_rate": 0.264,
+     "win_rate": 0.5545,
+     "pick_rate": 0.261,
      "win_rank": 38,
      "best_champions": [
       "Vayne",
@@ -4062,9 +4062,9 @@ window.COOK_DATA = {
      "text": "Your Attacks also Burn enemies, dealing 0.4% max Health magic damage per second over 5 seconds. This Burn stacks infinitely.",
      "core": true,
      "icon": "icons/augments/firebrand.png",
-     "win_rate": 0.4915,
-     "pick_rate": 0.1039,
-     "win_rank": 178,
+     "win_rate": 0.49,
+     "pick_rate": 0.1025,
+     "win_rank": 185,
      "best_champions": [
       "Teemo",
       "Ashe",
@@ -4112,32 +4112,186 @@ window.COOK_DATA = {
     3006
    ],
    "champion_icon": "icons/champions/68.png",
-   "champion_win_rate": 0.4963,
-   "champion_pick_rate": 0.0717,
-   "champion_win_rank": 78,
-   "core_win_rate": 0.5261,
+   "champion_win_rate": 0.4969,
+   "champion_pick_rate": 0.0681,
+   "champion_win_rank": 75,
+   "core_win_rate": 0.5251,
    "tier": "Holds up",
    "core_usual": 0,
-   "core_pick_rate": 0.1917,
+   "core_pick_rate": 0.1895,
    "sim": {
-    "dps": 442,
+    "dps": 589,
     "survival": 0.017,
-    "best_dps": 1024,
-    "best_survival": 0.019,
-    "pct_of_best": 0.432,
+    "best_dps": 1060,
+    "best_survival": 0.19,
+    "pct_of_best": 0.555,
     "best_items": [
      "Sorcerer's Shoes",
-     "Horizon Focus",
+     "Lich Bane",
      "Rabadon's Deathcap",
      "Shadowflame",
      "Stormsurge",
      "Void Staff"
     ],
     "best_augments": [
-     "Upgrade Stormsurge",
      "Eureka",
-     "Giant Slayer",
-     "Dive Bomber"
+     "Ominous Pact",
+     "Back To Basics",
+     "Giant Slayer"
+    ],
+    "items_not_modeled": [],
+    "whole_build": true
+   }
+  },
+  {
+   "id": "kindred-healing-the-opps",
+   "champion": "Kindred",
+   "title": "Healing The Opps",
+   "tagline": "Nobody dies on Kindred's watch. Not even the enemy team.",
+   "augments": [
+    {
+     "name": "Ultimate Revolution",
+     "id": 1088,
+     "rarity": "Prismatic",
+     "text": "Refresh your Ultimate after casting it (75 seconds Cooldown or reset on death).",
+     "core": true,
+     "icon": "icons/augments/ultimate-revolution.png",
+     "win_rate": 0.493,
+     "pick_rate": 0.2174,
+     "win_rank": 174,
+     "best_champions": [
+      "Karthus",
+      "Malphite",
+      "Ashe",
+      "Lucian",
+      "Chogath",
+      "JarvanIV"
+     ],
+     "champion_is_best": false
+    },
+    {
+     "name": "Stuck In Here With Me",
+     "id": 1413,
+     "rarity": "Prismatic",
+     "text": "After using your Ultimate, gain damage reduction for 2 seconds, after which you Taunt enemies inside for 2 seconds. Gain 30 Ultimate Ability Haste.",
+     "core": true,
+     "icon": "icons/augments/stuck-in-here-with-me.png",
+     "win_rate": 0.4895,
+     "pick_rate": 0.0633,
+     "win_rank": 187,
+     "best_champions": [
+      "Malphite",
+      "JarvanIV",
+      "Swain",
+      "DrMundo",
+      "Thresh",
+      "Blitzcrank"
+     ],
+     "champion_is_best": false
+    },
+    {
+     "name": "First-Aid Kit",
+     "id": 1037,
+     "rarity": "Silver",
+     "text": "Gain 20% Heal and Shield Power.",
+     "core": true,
+     "icon": "icons/augments/first-aid-kit.png",
+     "win_rate": 0.5153,
+     "pick_rate": 0.0473,
+     "win_rank": 114,
+     "best_champions": [
+      "Soraka",
+      "Sona",
+      "Yuumi",
+      "Milio",
+      "Nami",
+      "Lulu"
+     ],
+     "champion_is_best": false
+    },
+    {
+     "name": "Ultimate Recursion",
+     "id": 3055,
+     "rarity": "Silver",
+     "text": "Gain Ultimate Ability Haste.",
+     "core": true,
+     "icon": "icons/augments/ultimate-recursion.png",
+     "win_rate": 0.5336,
+     "pick_rate": 0.4473,
+     "win_rank": 73,
+     "best_champions": [
+      "Teemo",
+      "Karthus",
+      "Ashe",
+      "Malphite",
+      "Lucian",
+      "Brand"
+     ],
+     "champion_is_best": false
+    }
+   ],
+   "core": 4,
+   "items": [
+    "Redemption",
+    "Moonstone Renewer",
+    "Dawncore",
+    "Malignance",
+    "Spirit Visage",
+    "Ionian Boots of Lucidity"
+   ],
+   "why": "Kindred plays full support, drops Lamb's Respite on everyone twice per fight and heals the enemies right along with their own team.",
+   "how": [
+    [
+     "Lamb's Respite",
+     "No unit inside can die, ally or enemy, and everyone inside heals when it ends. It's the only ult that blesses both teams at once."
+    ],
+    [
+     "Augments",
+     "Ultimate Revolution casts it twice, Stuck In Here With Me Taunts the enemies so they stay in the zone, and Ultimate Recursion brings it back fast. First-Aid Kit makes every heal bigger."
+    ],
+    [
+     "Items",
+     "Redemption, Moonstone Renewer and Dawncore are pure support healing. Malignance adds more Ultimate Haste, so the zone is up all the time."
+    ]
+   ],
+   "play": "Wait for a big fight, press R in the middle of all ten champions, then press it again. Nobody leaves, nobody dies, everybody heals.",
+   "chef": "2026-11-16",
+   "champion_name": "Kindred",
+   "item_ids": [
+    3107,
+    6617,
+    6621,
+    3118,
+    3065,
+    3158
+   ],
+   "champion_icon": "icons/champions/203.png",
+   "champion_win_rate": 0.466,
+   "champion_pick_rate": 0.0304,
+   "champion_win_rank": 148,
+   "core_win_rate": 0.5079,
+   "tier": "Pure troll",
+   "core_usual": 0,
+   "core_pick_rate": 0.1938,
+   "sim": {
+    "dps": 73,
+    "survival": 0.011,
+    "best_dps": 1413,
+    "best_survival": 0.516,
+    "pct_of_best": 0.052,
+    "best_items": [
+     "Berserker's Greaves",
+     "Blade of The Ruined King",
+     "The Collector",
+     "Infinity Edge",
+     "Lord Dominik's Regards",
+     "Yun Tal Wildarrows"
+    ],
+    "best_augments": [
+     "Dual Wield",
+     "Symphony of War",
+     "Heavy Is The Crown",
+     "Tap Dancer"
     ],
     "items_not_modeled": [],
     "whole_build": true

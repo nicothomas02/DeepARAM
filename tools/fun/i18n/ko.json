@@ -364,5 +364,16 @@
  "Deft and Tap Dancer pile on Attack Speed, Dual Wield fires a second bolt with every attack, and Firebrand stacks a Burn on each one.": "능수능란과 탭 댄서로 공격 속도가 쌓이고, 양손잡이는 공격마다 볼트를 하나 더 쏘고, 화염 낙인은 거기에 전부 화상을 건다.",
  "Nashor's Tooth, Guinsoo's Rageblade, Wit's End and Terminus are all on-hit, so every punch and every Dual Wield bolt carries them.": "내셔의 이빨, 구인수의 격노검, 마법사의 최후, 경계는 전부 적중 시 효과라서 주먹질이든 양손잡이 볼트든 다 묻어난다.",
  "Gain 60% Attack Speed.": "공격 속도 60%를 얻습니다.",
- "When you Attack, fire a bolt that deals 40% damage and applies your On-Hit effects at 40% effectiveness. Gain 10% total Attack Speed.": "공격 시 피해량 40%의 볼트를 발사하고 적중 시 효과를 40% 효율로 적용합니다. 총 공격 속도 10%를 얻습니다."
+ "When you Attack, fire a bolt that deals 40% damage and applies your On-Hit effects at 40% effectiveness. Gain 10% total Attack Speed.": "공격 시 피해량 40%의 볼트를 발사하고 적중 시 효과를 40% 효율로 적용합니다. 총 공격 속도 10%를 얻습니다.",
+ "Healing The Opps": "적도 힐해주기",
+ "Kindred plays full support, drops Lamb's Respite on everyone twice per fight and heals the enemies right along with their own team.": "킨드레드는 풀 서포터로 한타마다 어린 양의 안식을 두 번씩 모두에게 뿌려서 아군과 함께 적도 치유합니다.",
+ "Wait for a big fight, press R in the middle of all ten champions, then press it again. Nobody leaves, nobody dies, everybody heals.": "큰 한타를 기다렸다가 열 명 한가운데서 R을 누르고, 한 번 더 누르세요. 아무도 안 떠나고, 아무도 안 죽고, 다 같이 회복됩니다.",
+ "Nobody dies on Kindred's watch. Not even the enemy team.": "킨드레드가 있는 한 아무도 죽지 않습니다. 적 팀도요.",
+ "Lamb's Respite": "어린 양의 안식",
+ "No unit inside can die, ally or enemy, and everyone inside heals when it ends. It's the only ult that blesses both teams at once.": "범위 안의 유닛은 아군이든 적이든 죽지 않고, 끝날 때 모두 회복됩니다. 양 팀을 동시에 축복하는 유일한 궁극기입니다.",
+ "Ultimate Revolution casts it twice, Stuck In Here With Me Taunts the enemies so they stay in the zone, and Ultimate Recursion brings it back fast. First-Aid Kit makes every heal bigger.": "궁극기 대변혁으로 두 번 시전하고, 도망갈 수 없어로 적을 도발해서 범위 안에 가두고, 궁극의 반복으로 빠르게 다시 씁니다. 응급처치 키트는 모든 회복량을 키워줍니다.",
+ "Redemption, Moonstone Renewer and Dawncore are pure support healing. Malignance adds more Ultimate Haste, so the zone is up all the time.": "구원, 월석 재생기, 새벽심장은 순수 서포터 회복 아이템입니다. 악의는 궁극기 스킬 가속을 더해 줘서 범위가 계속 유지됩니다.",
+ "Refresh your Ultimate after casting it (75 seconds Cooldown or reset on death).": "궁극기 사용 후 궁극기를 갱신합니다(재사용 대기시간 75초, 또는 죽으면 초기화).",
+ "Gain 20% Heal and Shield Power.": "회복 및 보호막 효과가 20% 증가합니다.",
+ "Gain Ultimate Ability Haste.": "궁극기 스킬 가속을 얻습니다."
 }
