@@ -1,12 +1,12 @@
 {
  "patch": "16.22",
- "built": "2026-11-16",
+ "built": "2026-11-17",
  "checks": {
   "loops": 3,
   "gap": 45,
-  "sim": 15,
+  "sim": 14,
   "wasted": 0,
-  "kitchen": 46
+  "kitchen": 48
  },
  "traps": [
   {
@@ -37,7 +37,7 @@
    ],
    "theory": "The Simulator puts Berserker's Greaves in Draven's best build: in a fight it adds more than the items it beats.",
    "practice": "In real games, Draven's builds with Berserker's Greaves win 4.2 points less often than their builds without it.",
-   "gap": -0.0424,
+   "gap": -0.0422,
    "share": 0.0538,
    "status": "trap"
   },
@@ -53,9 +53,9 @@
     3006
    ],
    "theory": "The Simulator puts Berserker's Greaves in Kalista's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Kalista's builds with Berserker's Greaves win 3.0 points less often than their builds without it.",
-   "gap": -0.0304,
-   "share": 0.1378,
+   "practice": "In real games, Kalista's builds with Berserker's Greaves win 3.4 points less often than their builds without it.",
+   "gap": -0.0335,
+   "share": 0.1368,
    "status": "trap"
   },
   {
@@ -70,9 +70,9 @@
     3006
    ],
    "theory": "The Simulator puts Berserker's Greaves in Lucian's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Lucian's builds with Berserker's Greaves win 6.9 points less often than their builds without it.",
-   "gap": -0.0691,
-   "share": 0.0473,
+   "practice": "In real games, Lucian's builds with Berserker's Greaves win 6.4 points less often than their builds without it.",
+   "gap": -0.0643,
+   "share": 0.0373,
    "status": "trap"
   },
   {
@@ -87,9 +87,9 @@
     3071
    ],
    "theory": "The Simulator puts Black Cleaver in Riven's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Riven's builds with Black Cleaver win 4.3 points less often than their builds without it.",
-   "gap": -0.0426,
-   "share": 0.0321,
+   "practice": "In real games, Riven's builds with Black Cleaver win 4.7 points less often than their builds without it.",
+   "gap": -0.0471,
+   "share": 0.0322,
    "status": "trap"
   },
   {
@@ -104,9 +104,9 @@
     3153
    ],
    "theory": "The Simulator puts Blade of The Ruined King in Kayle's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Kayle's builds with Blade of The Ruined King win 3.3 points less often than their builds without it.",
-   "gap": -0.0331,
-   "share": 0.0533,
+   "practice": "In real games, Kayle's builds with Blade of The Ruined King win 3.7 points less often than their builds without it.",
+   "gap": -0.0366,
+   "share": 0.0528,
    "status": "trap"
   },
   {
@@ -121,9 +121,9 @@
     3153
    ],
    "theory": "The Simulator puts Blade of The Ruined King in Yunara's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Yunara's builds with Blade of The Ruined King win 3.2 points less often than their builds without it.",
-   "gap": -0.0322,
-   "share": 0.106,
+   "practice": "In real games, Yunara's builds with Blade of The Ruined King win 3.0 points less often than their builds without it.",
+   "gap": -0.0302,
+   "share": 0.1068,
    "status": "trap"
   },
   {
@@ -138,9 +138,9 @@
     3124
    ],
    "theory": "The Simulator puts Guinsoo's Rageblade in Kayle's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Kayle's builds with Guinsoo's Rageblade win 3.1 points less often than their builds without it.",
-   "gap": -0.0307,
-   "share": 0.0636,
+   "practice": "In real games, Kayle's builds with Guinsoo's Rageblade win 3.2 points less often than their builds without it.",
+   "gap": -0.032,
+   "share": 0.0631,
    "status": "trap"
   },
   {
@@ -155,9 +155,9 @@
     6694
    ],
    "theory": "The Simulator puts Serylda's Grudge in Jayce's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Jayce's builds with Serylda's Grudge win 7.6 points less often than their builds without it.",
-   "gap": -0.0764,
-   "share": 0.0451,
+   "practice": "In real games, Jayce's builds with Serylda's Grudge win 7.5 points less often than their builds without it.",
+   "gap": -0.0754,
+   "share": 0.0453,
    "status": "trap"
   },
   {
@@ -172,9 +172,9 @@
     6694
    ],
    "theory": "The Simulator puts Serylda's Grudge in Talon's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Talon's builds with Serylda's Grudge win 4.6 points less often than their builds without it.",
-   "gap": -0.0458,
-   "share": 0.0575,
+   "practice": "In real games, Talon's builds with Serylda's Grudge win 6.5 points less often than their builds without it.",
+   "gap": -0.0652,
+   "share": 0.0576,
    "status": "trap"
   },
   {
@@ -189,9 +189,9 @@
     3020
    ],
    "theory": "The Simulator puts Sorcerer's Shoes in Karma's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Karma's builds with Sorcerer's Shoes win 4.7 points less often than their builds without it.",
-   "gap": -0.0471,
-   "share": 0.0842,
+   "practice": "In real games, Karma's builds with Sorcerer's Shoes win 5.2 points less often than their builds without it.",
+   "gap": -0.0518,
+   "share": 0.0833,
    "status": "trap"
   },
   {
@@ -206,26 +206,26 @@
     3020
    ],
    "theory": "The Simulator puts Sorcerer's Shoes in Lillia's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Lillia's builds with Sorcerer's Shoes win 5.7 points less often than their builds without it.",
-   "gap": -0.0573,
-   "share": 0.0597,
+   "practice": "In real games, Lillia's builds with Sorcerer's Shoes win 6.1 points less often than their builds without it.",
+   "gap": -0.0607,
+   "share": 0.0607,
    "status": "trap"
   },
   {
-   "id": "sim-Nunu-sorcerers",
+   "id": "sim-Lissandra-sorcerers",
    "kind": "sim",
-   "title": "Sorcerer's Shoes on Nunu & Willump",
+   "title": "Sorcerer's Shoes on Lissandra",
    "champions": [
-    "Nunu"
+    "Lissandra"
    ],
    "augments": [],
    "items": [
     3020
    ],
-   "theory": "The Simulator puts Sorcerer's Shoes in Nunu & Willump's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Nunu & Willump's builds with Sorcerer's Shoes win 3.0 points less often than their builds without it.",
-   "gap": -0.0303,
-   "share": 0.254,
+   "theory": "The Simulator puts Sorcerer's Shoes in Lissandra's best build: in a fight it adds more than the items it beats.",
+   "practice": "In real games, Lissandra's builds with Sorcerer's Shoes win 3.2 points less often than their builds without it.",
+   "gap": -0.0322,
+   "share": 0.1987,
    "status": "trap"
   },
   {
@@ -241,8 +241,8 @@
    ],
    "theory": "The Simulator puts The Collector in Pyke's best build: in a fight it adds more than the items it beats.",
    "practice": "In real games, Pyke's builds with The Collector win 3.4 points less often than their builds without it.",
-   "gap": -0.0335,
-   "share": 0.0693,
+   "gap": -0.0345,
+   "share": 0.0694,
    "status": "trap"
   },
   {
@@ -258,25 +258,8 @@
    ],
    "theory": "The Simulator puts Void Staff in Karma's best build: in a fight it adds more than the items it beats.",
    "practice": "In real games, Karma's builds with Void Staff win 5.6 points less often than their builds without it.",
-   "gap": -0.0562,
-   "share": 0.0678,
-   "status": "trap"
-  },
-  {
-   "id": "sim-Ryze-void_staff",
-   "kind": "sim",
-   "title": "Void Staff on Ryze",
-   "champions": [
-    "Ryze"
-   ],
-   "augments": [],
-   "items": [
-    3135
-   ],
-   "theory": "The Simulator puts Void Staff in Ryze's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Ryze's builds with Void Staff win 7.3 points less often than their builds without it.",
-   "gap": -0.073,
-   "share": 0.0347,
+   "gap": -0.0564,
+   "share": 0.0672,
    "status": "trap"
   }
  ],
@@ -1937,6 +1920,40 @@
    "test": "Rumble has never been seen taking Firebrand, so it may not be in their augment pool. Check whether it's ever offered on Rumble.",
    "build": "rumble-certified-crashout",
    "augment": "Firebrand",
+   "why": "unseen"
+  },
+  {
+   "id": "pool-kindred-healing-the-opps-stuck_in_here_with_me",
+   "kind": "pool",
+   "title": "Healing The Opps: Stuck In Here With Me on Kindred",
+   "champions": [
+    "Kindred"
+   ],
+   "augments": [
+    1413
+   ],
+   "items": [],
+   "theory": "The build leans on Stuck In Here With Me.",
+   "test": "Kindred has never been seen taking Stuck In Here With Me, so it may not be in their augment pool. Check whether it's ever offered on Kindred.",
+   "build": "kindred-healing-the-opps",
+   "augment": "Stuck In Here With Me",
+   "why": "unseen"
+  },
+  {
+   "id": "pool-kindred-healing-the-opps-first_aid_kit",
+   "kind": "pool",
+   "title": "Healing The Opps: First-Aid Kit on Kindred",
+   "champions": [
+    "Kindred"
+   ],
+   "augments": [
+    1037
+   ],
+   "items": [],
+   "theory": "The build leans on First-Aid Kit.",
+   "test": "Kindred has never been seen taking First-Aid Kit, so it may not be in their augment pool. Check whether it's ever offered on Kindred.",
+   "build": "kindred-healing-the-opps",
+   "augment": "First-Aid Kit",
    "why": "unseen"
   }
  ]
