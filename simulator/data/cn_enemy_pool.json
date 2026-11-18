@@ -79,17 +79,17 @@
    "build": {
     "items": [
      "endless_hunger",
-     "gluttonous",
      "spirit_visage",
+     "mercurys",
      "shojin",
      "deaths_dance",
-     "thornmail"
+     "manamune"
     ],
     "augments": [
      "ethereal_weapon",
      "mystic_punch",
-     "the_boom_and_the_bass",
-     "takeem_down_down_down"
+     "spin_to_win",
+     "the_boom_and_the_bass"
     ]
    }
   },
@@ -122,7 +122,7 @@
      "warlock_juicebox",
      "dont_change_the_channel",
      "infernal_conduit",
-     "bees"
+     "phenomenal_evil"
     ]
    }
   },
@@ -153,9 +153,9 @@
     ],
     "augments": [
      "echo_cast",
+     "recoil",
      "skilled_sniper",
-     "back_to_basics",
-     "recoil"
+     "back_to_basics"
     ]
    }
   },
@@ -178,9 +178,9 @@
    "build": {
     "items": [
      "blackfire",
+     "sorcerers",
      "rabadons",
      "malignance",
-     "void_staff",
      "shadowflame",
      "liandrys"
     ],
@@ -218,10 +218,10 @@
      "bloodthirster"
     ],
     "augments": [
-     "soul_siphon",
      "the_boom_and_the_bass",
-     "upgrade_infinity_edge",
-     "still_here"
+     "soul_siphon",
+     "still_here",
+     "upgrade_infinity_edge"
     ]
    }
   },
@@ -251,8 +251,8 @@
      "collector"
     ],
     "augments": [
-     "upgrade_infinity_edge",
      "jeweled_bracelet",
+     "upgrade_infinity_edge",
      "big_shot",
      "scopier_weapons"
     ]
@@ -385,8 +385,8 @@
     "augments": [
      "infernal_conduit",
      "warlock_juicebox",
-     "bees",
-     "shrink_engine"
+     "shrink_engine",
+     "recursion"
     ]
    }
   },
@@ -417,9 +417,9 @@
     ],
     "augments": [
      "mystic_punch",
-     "ethereal_weapon",
      "still_here",
-     "dashing"
+     "ethereal_weapon",
+     "pursuit_of_haste"
     ]
    }
   },
@@ -451,8 +451,8 @@
     "augments": [
      "soul_siphon",
      "still_here",
-     "upgrade_infinity_edge",
-     "the_boom_and_the_bass"
+     "the_boom_and_the_bass",
+     "upgrade_infinity_edge"
     ]
    }
   },
@@ -482,10 +482,10 @@
      "shieldbow"
     ],
     "augments": [
+     "jeweled_bracelet",
      "upgrade_infinity_edge",
      "soul_siphon",
-     "draw_your_sword",
-     "jeweled_bracelet"
+     "draw_your_sword"
     ]
    }
   },
@@ -617,7 +617,7 @@
      "tank_engine",
      "heavy_hitter",
      "goliath",
-     "steel_your_heart"
+     "blunt_force"
     ]
    }
   },
@@ -649,8 +649,8 @@
     "augments": [
      "still_here",
      "ethereal_weapon",
-     "takeem_down_down_down",
-     "the_boom_and_the_bass"
+     "the_boom_and_the_bass",
+     "takeem_down_down_down"
     ]
    }
   },
@@ -680,10 +680,10 @@
      "collector"
     ],
     "augments": [
-     "dashing",
+     "spin_to_win",
      "recursion",
-     "jeweled_bracelet",
-     "blunt_force"
+     "dashing",
+     "jeweled_bracelet"
     ]
    }
   },
@@ -749,7 +749,7 @@
      "jeweled_bracelet",
      "vulnerability",
      "upgrade_infinity_edge",
-     "jeweled_gauntlet"
+     "big_shot"
     ]
    }
   },
@@ -846,9 +846,9 @@
     ],
     "augments": [
      "ethereal_weapon",
+     "the_boom_and_the_bass",
      "marksmage",
-     "bees",
-     "the_boom_and_the_bass"
+     "bees"
     ]
    }
   },
@@ -913,8 +913,8 @@
     "augments": [
      "ethereal_weapon",
      "infernal_conduit",
-     "warlock_juicebox",
-     "tank_engine"
+     "tank_engine",
+     "warlock_juicebox"
     ]
    }
   },
@@ -947,7 +947,7 @@
      "ravenous_bind",
      "still_here",
      "bonk",
-     "mystic_punch"
+     "the_boom_and_the_bass"
     ]
    }
   },
@@ -1011,9 +1011,9 @@
     ],
     "augments": [
      "jeweled_bracelet",
-     "upgrade_infinity_edge",
+     "vulnerability",
      "big_shot",
-     "vulnerability"
+     "upgrade_infinity_edge"
     ]
    }
   },
@@ -1039,13 +1039,13 @@
      "thornmail",
      "warmogs",
      "heartsteel",
-     "hollow_radiance",
-     "jaksho"
+     "mercurys",
+     "hollow_radiance"
     ],
     "augments": [
      "tank_engine",
-     "armored_impact",
      "goliath",
+     "armored_impact",
      "heavy_hitter"
     ]
    }
@@ -1142,8 +1142,8 @@
      "deaths_dance"
     ],
     "augments": [
-     "mystic_punch",
      "the_boom_and_the_bass",
+     "mystic_punch",
      "still_here",
      "dashing"
     ]
@@ -1309,8 +1309,8 @@
     "augments": [
      "eureka",
      "warlock_juicebox",
-     "bees",
-     "jeweled_gauntlet"
+     "jeweled_gauntlet",
+     "bees"
     ]
    }
   },
@@ -1409,7 +1409,7 @@
      "tank_engine",
      "armored_impact",
      "steel_your_heart",
-     "goliath"
+     "celestial_body"
     ]
    }
   },
@@ -1469,7 +1469,7 @@
      "seryldas",
      "axiom_arc",
      "voltaic",
-     "edge_of_night"
+     "lord_dominiks"
     ],
     "augments": [
      "jeweled_bracelet",
@@ -1506,8 +1506,8 @@
     ],
     "augments": [
      "tank_engine",
-     "armored_impact",
      "recursion",
+     "armored_impact",
      "shrink_engine"
     ]
    }
@@ -1539,9 +1539,9 @@
     ],
     "augments": [
      "upgrade_infinity_edge",
-     "dual_wield",
      "soul_siphon",
-     "deft"
+     "dual_wield",
+     "scopier_weapons"
     ]
    }
   },
@@ -1573,8 +1573,8 @@
     "augments": [
      "tank_engine",
      "armored_impact",
-     "steel_your_heart",
-     "goliath"
+     "goliath",
+     "steel_your_heart"
     ]
    }
   },
@@ -1607,7 +1607,7 @@
      "warlock_juicebox",
      "eureka",
      "recursion",
-     "bees"
+     "upgrade_stormsurge"
     ]
    }
   },
@@ -1637,8 +1637,8 @@
      "mercurys"
     ],
     "augments": [
-     "armored_impact",
      "tank_engine",
+     "armored_impact",
      "steel_your_heart",
      "heavy_hitter"
     ]
@@ -1673,7 +1673,7 @@
      "warlock_juicebox",
      "marksmage",
      "ethereal_weapon",
-     "zealot"
+     "takeem_down_down_down"
     ]
    }
   },
@@ -1695,18 +1695,18 @@
    "win_rate": 0.5056,
    "build": {
     "items": [
-     "blackfire",
      "sorcerers",
      "rabadons",
      "void_staff",
      "shadowflame",
-     "liandrys"
+     "stormsurge",
+     "ludens"
     ],
     "augments": [
      "eureka",
      "shrink_engine",
-     "bees",
-     "skilled_sniper"
+     "skilled_sniper",
+     "bees"
     ]
    }
   },
@@ -1763,8 +1763,8 @@
     "items": [
      "berserkers",
      "infinity_edge",
-     "lord_dominiks",
      "phantom_dancer",
+     "heartsteel",
      "botrk",
      "navori"
     ],
@@ -1803,9 +1803,9 @@
     ],
     "augments": [
      "eureka",
+     "upgrade_stormsurge",
      "recursion",
-     "shrink_engine",
-     "warlock_juicebox"
+     "shrink_engine"
     ]
    }
   },
@@ -1838,7 +1838,7 @@
      "dashing",
      "recursion",
      "marksmage",
-     "warlock_juicebox"
+     "upgrade_stormsurge"
     ]
    }
   },
@@ -1870,8 +1870,8 @@
     "augments": [
      "ethereal_weapon",
      "ultimate_unstoppable",
-     "fey_magic",
-     "takeem_down_down_down"
+     "spin_to_win",
+     "fey_magic"
     ]
    }
   },
@@ -1904,7 +1904,7 @@
      "the_boom_and_the_bass",
      "outlaws_grit",
      "back_to_basics",
-     "recursion"
+     "blunt_force"
     ]
    }
   },
@@ -1934,10 +1934,10 @@
      "sundered_sky"
     ],
     "augments": [
-     "bonk",
      "still_here",
-     "mystic_punch",
-     "the_boom_and_the_bass"
+     "bonk",
+     "the_boom_and_the_bass",
+     "mystic_punch"
     ]
    }
   },
@@ -2000,8 +2000,8 @@
      "mercurys"
     ],
     "augments": [
-     "armored_impact",
      "tank_engine",
+     "armored_impact",
      "heavy_hitter",
      "steel_your_heart"
     ]
@@ -2036,7 +2036,7 @@
      "scopier_weapons",
      "upgrade_infinity_edge",
      "dual_wield",
-     "soul_siphon"
+     "scopiest_weapons"
     ]
    }
   },
@@ -2198,8 +2198,8 @@
      "rapid_firecannon"
     ],
     "augments": [
-     "upgrade_infinity_edge",
      "jeweled_bracelet",
+     "upgrade_infinity_edge",
      "big_shot",
      "soul_siphon"
     ]
@@ -2294,7 +2294,7 @@
      "flowing_water",
      "moonstone",
      "dawncore",
-     "rabadons"
+     "redemption"
     ],
     "augments": [
      "first_aid_kit",
@@ -2332,8 +2332,8 @@
     "augments": [
      "still_here",
      "bonk",
-     "mystic_punch",
-     "soul_siphon"
+     "the_boom_and_the_bass",
+     "mystic_punch"
     ]
    }
   },
@@ -2359,8 +2359,8 @@
      "rabadons",
      "lich_bane",
      "void_staff",
-     "zhonyas",
-     "shadowflame"
+     "shadowflame",
+     "stormsurge"
     ],
     "augments": [
      "marksmage",
@@ -2398,8 +2398,8 @@
     "augments": [
      "bonk",
      "armored_impact",
-     "recursion",
-     "tank_engine"
+     "tank_engine",
+     "recursion"
     ]
    }
   },
@@ -2464,8 +2464,8 @@
     "augments": [
      "armored_impact",
      "recursion",
-     "ultimate_revolution",
-     "upgrade_stormsurge"
+     "upgrade_stormsurge",
+     "ultimate_revolution"
     ]
    }
   },
@@ -2498,7 +2498,7 @@
      "eureka",
      "jeweled_gauntlet",
      "shrink_engine",
-     "bees"
+     "skilled_sniper"
     ]
    }
   },
@@ -2522,8 +2522,8 @@
     "items": [
      "blackfire",
      "sorcerers",
-     "rabadons",
      "rylais",
+     "morellonomicon",
      "shadowflame",
      "liandrys"
     ],
@@ -2553,18 +2553,18 @@
    "win_rate": 0.4631,
    "build": {
     "items": [
-     "sorcerers",
      "rabadons",
      "void_staff",
      "horizon_focus",
      "shadowflame",
+     "stormsurge",
      "ludens"
     ],
     "augments": [
      "ethereal_weapon",
      "bees",
-     "zealot",
-     "eureka"
+     "eureka",
+     "jeweled_gauntlet"
     ]
    }
   },
@@ -2589,14 +2589,14 @@
      "sorcerers",
      "rabadons",
      "void_staff",
-     "zhonyas",
      "shadowflame",
+     "liandrys",
      "ludens"
     ],
     "augments": [
      "eureka",
-     "skilled_sniper",
      "shrink_engine",
+     "skilled_sniper",
      "bees"
     ]
    }
@@ -2629,8 +2629,8 @@
     "augments": [
      "tank_engine",
      "goliath",
-     "armored_impact",
-     "steel_your_heart"
+     "steel_your_heart",
+     "heavy_hitter"
     ]
    }
   },
@@ -2694,8 +2694,8 @@
     ],
     "augments": [
      "ethereal_weapon",
-     "its_killing_time",
      "upgrade_stormsurge",
+     "its_killing_time",
      "jeweled_gauntlet"
     ]
    }
@@ -2761,8 +2761,8 @@
     "augments": [
      "infernal_conduit",
      "eureka",
-     "bees",
-     "shrink_engine"
+     "shrink_engine",
+     "bees"
     ]
    }
   },
@@ -2792,9 +2792,9 @@
      "mercurys"
     ],
     "augments": [
-     "armored_impact",
      "tank_engine",
-     "steel_your_heart",
+     "spin_to_win",
+     "armored_impact",
      "goliath"
     ]
    }
@@ -2827,8 +2827,8 @@
     "augments": [
      "blunt_force",
      "back_to_basics",
-     "recursion",
-     "jeweled_gauntlet"
+     "the_boom_and_the_bass",
+     "recursion"
     ]
    }
   },
@@ -2853,14 +2853,14 @@
      "redemption",
      "ionian",
      "ardent_censer",
+     "imperial_mandate",
      "moonstone",
-     "dawncore",
-     "imperial_mandate"
+     "dawncore"
     ],
     "augments": [
      "shrink_engine",
-     "recursion",
      "first_aid_kit",
+     "recursion",
      "bolstered"
     ]
    }
@@ -2924,10 +2924,10 @@
      "ludens"
     ],
     "augments": [
-     "eureka",
      "shrink_engine",
-     "recursion",
-     "skilled_sniper"
+     "eureka",
+     "skilled_sniper",
+     "recursion"
     ]
    }
   },
@@ -2954,13 +2954,13 @@
      "seryldas",
      "axiom_arc",
      "voltaic",
-     "infinity_edge"
+     "lord_dominiks"
     ],
     "augments": [
      "jeweled_bracelet",
      "blunt_force",
-     "clown_college",
-     "jeweled_gauntlet"
+     "jeweled_gauntlet",
+     "clown_college"
     ]
    }
   },
@@ -3023,10 +3023,10 @@
      "stormsurge"
     ],
     "augments": [
-     "armored_impact",
      "tank_engine",
+     "armored_impact",
      "steel_your_heart",
-     "stay_resolute"
+     "goliath"
     ]
    }
   },
@@ -3090,8 +3090,8 @@
     ],
     "augments": [
      "ethereal_weapon",
-     "armored_impact",
      "still_here",
+     "mystic_punch",
      "bees"
     ]
    }
@@ -3188,8 +3188,8 @@
      "jaksho"
     ],
     "augments": [
-     "warlock_juicebox",
      "tank_engine",
+     "warlock_juicebox",
      "ethereal_weapon",
      "goliath"
     ]
@@ -3222,9 +3222,9 @@
     ],
     "augments": [
      "upgrade_infinity_edge",
+     "the_boom_and_the_bass",
      "big_shot",
-     "blunt_force",
-     "the_boom_and_the_bass"
+     "blunt_force"
     ]
    }
   },
@@ -3289,8 +3289,8 @@
     "augments": [
      "upgrade_infinity_edge",
      "soul_siphon",
-     "dual_wield",
-     "critical_rhythm"
+     "scopier_weapons",
+     "dual_wield"
     ]
    }
   },
@@ -3313,11 +3313,11 @@
    "build": {
     "items": [
      "berserkers",
-     "infinity_edge",
-     "lord_dominiks",
      "runaans",
+     "wits_end",
+     "rageblade",
      "botrk",
-     "collector"
+     "terminus"
     ],
     "augments": [
      "bees",
@@ -3353,10 +3353,10 @@
      "shadowflame"
     ],
     "augments": [
-     "warlock_juicebox",
-     "eureka",
      "tank_engine",
-     "recursion"
+     "eureka",
+     "warlock_juicebox",
+     "adapt"
     ]
    }
   },
@@ -3388,8 +3388,8 @@
     "augments": [
      "eureka",
      "shrink_engine",
-     "bees",
-     "magic_missile"
+     "magic_missile",
+     "bees"
     ]
    }
   },
@@ -3453,9 +3453,9 @@
     ],
     "augments": [
      "bees",
-     "ethereal_weapon",
      "scopier_weapons",
-     "marksmage"
+     "ethereal_weapon",
+     "dual_wield"
     ]
    }
   },
@@ -3515,13 +3515,13 @@
      "collector",
      "seryldas",
      "voltaic",
-     "serpents_fang"
+     "endless_hunger"
     ],
     "augments": [
      "blunt_force",
      "jeweled_gauntlet",
      "clown_college",
-     "bees"
+     "recursion"
     ]
    }
   },
@@ -3617,9 +3617,9 @@
      "stormsurge"
     ],
     "augments": [
-     "armored_impact",
      "recursion",
      "tank_engine",
+     "armored_impact",
      "spell_split"
     ]
    }
@@ -3650,9 +3650,9 @@
      "ludens"
     ],
     "augments": [
-     "bees",
-     "skilled_sniper",
      "upgrade_stormsurge",
+     "skilled_sniper",
+     "bees",
      "shrink_engine"
     ]
    }
@@ -3675,16 +3675,16 @@
    "win_rate": 0.4768,
    "build": {
     "items": [
-     "gluttonous",
      "infinity_edge",
      "lord_dominiks",
      "bloodthirster",
      "deaths_dance",
+     "shieldbow",
      "collector"
     ],
     "augments": [
-     "upgrade_infinity_edge",
      "soul_siphon",
+     "upgrade_infinity_edge",
      "draw_your_sword",
      "still_here"
     ]
@@ -3716,10 +3716,10 @@
      "ludens"
     ],
     "augments": [
-     "recursion",
      "upgrade_stormsurge",
-     "bees",
-     "eureka"
+     "recursion",
+     "eureka",
+     "bees"
     ]
    }
   },
@@ -3749,10 +3749,10 @@
      "collector"
     ],
     "augments": [
-     "vulnerability",
-     "upgrade_infinity_edge",
+     "spin_to_win",
      "bonk",
-     "armored_impact"
+     "vulnerability",
+     "upgrade_infinity_edge"
     ]
    }
   },
@@ -3817,8 +3817,8 @@
     "augments": [
      "warlock_juicebox",
      "its_killing_time",
-     "recursion",
-     "upgrade_stormsurge"
+     "upgrade_stormsurge",
+     "recursion"
     ]
    }
   },
@@ -3848,8 +3848,8 @@
      "jaksho"
     ],
     "augments": [
-     "scopier_weapons",
      "still_here",
+     "scopier_weapons",
      "dual_wield",
      "tap_dancer"
     ]
@@ -3884,7 +3884,7 @@
      "shrink_engine",
      "first_aid_kit",
      "recursion",
-     "bees"
+     "purist_caster"
     ]
    }
   },
@@ -3914,10 +3914,10 @@
      "locket"
     ],
     "augments": [
-     "shrink_engine",
      "recursion",
+     "shrink_engine",
      "ultimate_revolution",
-     "bees"
+     "archmage"
     ]
    }
   },
@@ -3948,9 +3948,9 @@
     ],
     "augments": [
      "tank_engine",
-     "armored_impact",
      "heavy_hitter",
-     "goliath"
+     "goliath",
+     "steel_your_heart"
     ]
    }
   },
@@ -3982,8 +3982,8 @@
     "augments": [
      "tank_engine",
      "armored_impact",
-     "heavy_hitter",
-     "steel_your_heart"
+     "steel_your_heart",
+     "heavy_hitter"
     ]
    }
   },
@@ -4081,8 +4081,8 @@
     "augments": [
      "blunt_force",
      "jeweled_gauntlet",
-     "clown_college",
-     "the_boom_and_the_bass"
+     "the_boom_and_the_bass",
+     "clown_college"
     ]
    }
   },
@@ -4115,7 +4115,7 @@
      "eureka",
      "bees",
      "warlock_juicebox",
-     "jeweled_gauntlet"
+     "upgrade_stormsurge"
     ]
    }
   },
@@ -4244,8 +4244,8 @@
      "stormsurge"
     ],
     "augments": [
-     "recursion",
      "upgrade_stormsurge",
+     "recursion",
      "eureka",
      "bees"
     ]
@@ -4280,7 +4280,7 @@
      "first_aid_kit",
      "shrink_engine",
      "recursion",
-     "bees"
+     "critical_healing"
     ]
    }
   },
@@ -4311,8 +4311,8 @@
     ],
     "augments": [
      "shrink_engine",
-     "bolstered",
      "first_aid_kit",
+     "bolstered",
      "recursion"
     ]
    }
@@ -4345,8 +4345,8 @@
     "augments": [
      "upgrade_infinity_edge",
      "scopier_weapons",
-     "soul_siphon",
-     "dual_wield"
+     "still_here",
+     "soul_siphon"
     ]
    }
   },
@@ -4410,9 +4410,9 @@
     ],
     "augments": [
      "tank_engine",
-     "steel_your_heart",
      "heavy_hitter",
-     "still_here"
+     "steel_your_heart",
+     "goliath"
     ]
    }
   },
@@ -4443,9 +4443,9 @@
     ],
     "augments": [
      "eureka",
+     "upgrade_stormsurge",
      "recursion",
-     "jeweled_gauntlet",
-     "upgrade_stormsurge"
+     "jeweled_gauntlet"
     ]
    }
   },
@@ -4470,9 +4470,9 @@
      "unending_despair",
      "spirit_visage",
      "thornmail",
-     "warmogs",
      "heartsteel",
-     "mercurys"
+     "mercurys",
+     "warmogs"
     ],
     "augments": [
      "armored_impact",
@@ -4533,18 +4533,18 @@
    "win_rate": 0.4705,
    "build": {
     "items": [
-     "dusk_and_dawn",
-     "rabadons",
-     "nashors",
-     "void_staff",
-     "shadowflame",
-     "stormsurge"
+     "steraks",
+     "black_cleaver",
+     "trinity",
+     "wits_end",
+     "mercurys",
+     "deaths_dance"
     ],
     "augments": [
-     "armored_impact",
-     "bees",
      "tank_engine",
-     "heavy_hitter"
+     "heavy_hitter",
+     "armored_impact",
+     "still_here"
     ]
    }
   },
@@ -4609,8 +4609,8 @@
     "augments": [
      "upgrade_infinity_edge",
      "soul_siphon",
-     "vulnerability",
-     "critical_rhythm"
+     "critical_rhythm",
+     "vulnerability"
     ]
    }
   },
@@ -4675,8 +4675,8 @@
     "augments": [
      "back_to_basics",
      "warlock_juicebox",
-     "bees",
-     "eureka"
+     "eureka",
+     "jeweled_gauntlet"
     ]
    }
   },
@@ -4741,8 +4741,8 @@
     "augments": [
      "upgrade_infinity_edge",
      "soul_siphon",
-     "vulnerability",
-     "still_here"
+     "still_here",
+     "vulnerability"
     ]
    }
   },
@@ -4772,8 +4772,8 @@
      "mercurys"
     ],
     "augments": [
-     "armored_impact",
      "tank_engine",
+     "armored_impact",
      "goliath",
      "heavy_hitter"
     ]
@@ -4805,8 +4805,8 @@
      "collector"
     ],
     "augments": [
-     "upgrade_infinity_edge",
      "jeweled_bracelet",
+     "upgrade_infinity_edge",
      "vulnerability",
      "big_shot"
     ]
@@ -4871,8 +4871,8 @@
      "eclipse"
     ],
     "augments": [
-     "dashing",
      "the_boom_and_the_bass",
+     "dashing",
      "recursion",
      "outlaws_grit"
     ]
@@ -4897,7 +4897,7 @@
    "build": {
     "items": [
      "overlords_bloodmail",
-     "black_cleaver",
+     "warmogs",
      "heartsteel",
      "mercurys",
      "titanic",
@@ -4938,9 +4938,9 @@
     ],
     "augments": [
      "still_here",
+     "the_boom_and_the_bass",
      "siphon",
-     "armored_impact",
-     "the_boom_and_the_bass"
+     "mystic_punch"
     ]
    }
   },
@@ -4970,8 +4970,8 @@
      "mercurys"
     ],
     "augments": [
-     "blunt_force",
      "the_boom_and_the_bass",
+     "blunt_force",
      "still_here",
      "jeweled_bracelet"
     ]
@@ -5072,7 +5072,7 @@
      "upgrade_stormsurge",
      "warlock_juicebox",
      "jeweled_gauntlet",
-     "recursion"
+     "eureka"
     ]
    }
   },
@@ -5103,8 +5103,8 @@
     ],
     "augments": [
      "fey_magic",
-     "bees",
      "warlock_juicebox",
+     "bees",
      "magic_missile"
     ]
    }
@@ -5135,9 +5135,9 @@
      "ludens"
     ],
     "augments": [
-     "bees",
      "recursion",
      "upgrade_stormsurge",
+     "bees",
      "eureka"
     ]
    }
@@ -5201,10 +5201,10 @@
      "shadowflame"
     ],
     "augments": [
+     "upgrade_stormsurge",
      "recursion",
      "eureka",
-     "upgrade_stormsurge",
-     "bees"
+     "warlock_juicebox"
     ]
    }
   },
@@ -5236,8 +5236,8 @@
     "augments": [
      "upgrade_stormsurge",
      "warlock_juicebox",
-     "bees",
-     "jeweled_gauntlet"
+     "jeweled_gauntlet",
+     "marksmage"
     ]
    }
   },
@@ -5270,7 +5270,7 @@
      "warlock_juicebox",
      "tripleshot",
      "magic_missile",
-     "takeem_down_down_down"
+     "infernal_conduit"
     ]
    }
   },
@@ -5333,9 +5333,9 @@
      "stormsurge"
     ],
     "augments": [
-     "warlock_juicebox",
      "upgrade_stormsurge",
-     "marksmage",
+     "warlock_juicebox",
+     "the_boom_and_the_bass",
      "jeweled_gauntlet"
     ]
    }
@@ -5367,8 +5367,8 @@
     ],
     "augments": [
      "tank_engine",
-     "armored_impact",
      "steel_your_heart",
+     "armored_impact",
      "goliath"
     ]
    }
@@ -5468,7 +5468,7 @@
      "warlock_juicebox",
      "upgrade_stormsurge",
      "the_boom_and_the_bass",
-     "marksmage"
+     "jeweled_gauntlet"
     ]
    }
   },
@@ -5498,10 +5498,10 @@
      "eclipse"
     ],
     "augments": [
+     "spin_to_win",
      "crimson_cobalt",
      "still_here",
-     "stay_resolute",
-     "recursion"
+     "stay_resolute"
     ]
    }
   },
@@ -5534,7 +5534,7 @@
      "upgrade_stormsurge",
      "its_killing_time",
      "recursion",
-     "bees"
+     "fey_magic"
     ]
    }
   },
@@ -5590,15 +5590,15 @@
    "build": {
     "items": [
      "unending_despair",
+     "kaenic",
      "thornmail",
      "warmogs",
      "heartsteel",
-     "mercurys",
-     "jaksho"
+     "mercurys"
     ],
     "augments": [
-     "armored_impact",
      "tank_engine",
+     "armored_impact",
      "steel_your_heart",
      "celestial_body"
     ]
@@ -5665,8 +5665,8 @@
     "augments": [
      "marksmage",
      "zealot",
-     "bees",
-     "the_boom_and_the_bass"
+     "the_boom_and_the_bass",
+     "bees"
     ]
    }
   },

@@ -98,8 +98,9 @@ def test_fame_bands(pbe):
 
 
 def test_headliners(pbe):
+    # A test build can add no Headliners (26.24's first); then the section still explains itself.
     ids = [h["id"] for h in pbe["headliners"]["list"]]
-    assert ids and len(ids) == len(set(ids))
+    assert pbe["headliners"]["summary"] and len(ids) == len(set(ids))
     assert all(h["name"] and h["effect"] for h in pbe["headliners"]["list"])
 
 

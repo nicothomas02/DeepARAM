@@ -1,9 +1,9 @@
 {
  "meta": {
-  "built_at": "2026-11-14T23:27:01+00:00",
-  "game_version": "16.23",
+  "built_at": "2026-11-18T16:34:48+00:00",
+  "game_version": "16.24",
   "cdragon": "pbe",
-  "mayhem_balance_patch": "wiki read 2026-10-17",
+  "mayhem_balance_patch": "wiki read 2026-11-18",
   "level": 18,
   "ranks": {
    "Q": 5,
@@ -815,7 +815,7 @@
        "calc": "FinalDamage",
        "scaling": {
         "const": 330.0,
-        "bonus_ad": 1.4
+        "bonus_ad": 1.6
        },
        "target": "flat",
        "per_second": false,
@@ -4199,7 +4199,7 @@
    },
    "mayhem": {
     "damage_dealt": 0.95,
-    "damage_taken": 1.1,
+    "damage_taken": 1.05,
     "ability_haste": -10.0,
     "attack_speed": 0.0,
     "healing": 1.0,
@@ -7084,7 +7084,7 @@
     "attack_speed": 0.0,
     "healing": 1.0,
     "shielding": 1.0,
-    "tenacity": 0.2
+    "tenacity": 0.1
    },
    "resource": {
     "kind": "mana",
@@ -10150,7 +10150,7 @@
    },
    "mayhem": {
     "damage_dealt": 1.0,
-    "damage_taken": 1.0,
+    "damage_taken": 1.05,
     "ability_haste": 0.0,
     "attack_speed": 0.0,
     "healing": 1.0,
@@ -10408,7 +10408,7 @@
    "mayhem": {
     "damage_dealt": 1.05,
     "damage_taken": 0.9,
-    "ability_haste": 10.0,
+    "ability_haste": 0.0,
     "attack_speed": 0.0,
     "healing": 1.2,
     "shielding": 1.0,
@@ -12744,8 +12744,8 @@
     "gameplay_radius": 65.0
    },
    "mayhem": {
-    "damage_dealt": 1.05,
-    "damage_taken": 0.97,
+    "damage_dealt": 1.0,
+    "damage_taken": 1.0,
     "ability_haste": 0.0,
     "attack_speed": 0.0,
     "healing": 1.0,
@@ -18891,7 +18891,7 @@
     "ability_haste": 0.0,
     "attack_speed": 0.0,
     "healing": 1.0,
-    "shielding": 0.9,
+    "shielding": 1.0,
     "tenacity": 0.0
    },
    "resource": {
@@ -30178,8 +30178,8 @@
     "gameplay_radius": 65.0
    },
    "mayhem": {
-    "damage_dealt": 0.93,
-    "damage_taken": 1.05,
+    "damage_dealt": 0.95,
+    "damage_taken": 1.0,
     "ability_haste": 0.0,
     "attack_speed": 0.0,
     "healing": 1.0,
@@ -38735,7 +38735,7 @@
     "damage_dealt": 1.0,
     "damage_taken": 1.0,
     "ability_haste": 0.0,
-    "attack_speed": 0.025,
+    "attack_speed": 0.0,
     "healing": 1.0,
     "shielding": 1.0,
     "tenacity": 0.0
@@ -38946,8 +38946,8 @@
     "gameplay_radius": 65.0
    },
    "mayhem": {
-    "damage_dealt": 1.05,
-    "damage_taken": 0.97,
+    "damage_dealt": 1.0,
+    "damage_taken": 1.0,
     "ability_haste": 0.0,
     "attack_speed": 0.025,
     "healing": 1.0,
@@ -39852,7 +39852,7 @@
    },
    "mayhem": {
     "damage_dealt": 1.0,
-    "damage_taken": 1.0,
+    "damage_taken": 1.05,
     "ability_haste": 0.0,
     "attack_speed": 0.0,
     "healing": 1.0,
@@ -40864,7 +40864,7 @@
    },
    "mayhem": {
     "damage_dealt": 0.9,
-    "damage_taken": 1.2,
+    "damage_taken": 1.1,
     "ability_haste": -20.0,
     "attack_speed": 0.0,
     "healing": 1.0,

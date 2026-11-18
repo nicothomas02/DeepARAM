@@ -195,12 +195,15 @@ def test_game_data_dir_is_what_gets_loaded(run_json, tmp_path):
     merged = dict(pbe_augs["augments"])
     for k, v in live_augs.items():
         merged.setdefault(k, v)
+    # An augment only this folder has, so the check holds on patches where PBE adds none (26.24)
+    sample = next(iter(live_augs.values()))
+    merged["DirOnlyTestAugment"] = {**sample, "name": "Dir Only Test Augment"}
     (tmp_path / "augments.json").write_text(json.dumps({"augments": merged}))
     out = run_json("mayhem_sim", ["--list", "--json", "--game-data", tmp_path])
     keys = {a["key"] for a in out["augments"]}
     assert keys == set(merged)
     pbe_only = set(pbe_augs["augments"]) - set(live_augs)
-    assert pbe_only and pbe_only <= keys
+    assert pbe_only <= keys and "DirOnlyTestAugment" in keys
     live = run_json("mayhem_sim", ["--list", "--json"])
     assert {a["key"] for a in live["augments"]} == set(live_augs)
 
@@ -246,8 +249,9 @@ def test_pbe_switch_uses_pbe_pools(run_json):
     jinx = {c["id"]: set(c["augments"]) for c in pbe["champions"]}["Jinx"]
     live_keys, pbe_keys = {a["key"] for a in live["augments"]}, {a["key"] for a in pbe["augments"]}
     # Augments new on the PBE patch (26.22: One Hit Wonder, RISE) are offered there and not on live.
+    # Some PBE patches add none (26.24); then the PBE pools still come from the PBE folder.
     new = pbe_keys - live_keys
-    assert new and new <= jinx, new - jinx
+    assert jinx and new <= jinx, new - jinx
     assert not new & {a for c in live["champions"] for a in c["augments"]}
     assert not (live_keys - pbe_keys) & jinx
 
@@ -257,7 +261,7 @@ def test_most_new_pbe_augments_are_modeled():
     pbe = load_json(PBE_DIR / "augments.json")["augments"]
     new = [a for k, a in pbe.items() if k not in load_json(DATA_DIR / "augments.json")["augments"]]
     modeled = [a for a in new if a.get("stats") or a.get("effects")]
-    assert new, "the PBE patch should add augments over live"
+    # Some PBE patches add no augments (26.24), so this only checks the ones there are.
     for a in new:
         assert a in modeled or a.get("note", "").startswith("No effect in the simulator"), a["name"]
 

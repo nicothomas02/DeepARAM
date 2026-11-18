@@ -94,8 +94,10 @@ def test_large_augment_icon_list():
 
 def test_pbe_icons_exist():
     pbe = load_json("data/pbe/kiwi-s3.json")
-    icons = [x["icon"] for k in ("added", "removed", "changed") for x in pbe["augments"][k] if x.get("icon")]
-    assert icons and all(asset_exists(i) for i in icons)
+    listed = [x for k in ("added", "removed", "changed") for x in pbe["augments"][k]]
+    icons = [x["icon"] for x in listed if x.get("icon")]
+    # every listed augment has its icon (a test build can list none, like 26.24's first)
+    assert len(icons) == len(listed) and all(asset_exists(i) for i in icons)
 
 
 def test_mirror_has_no_internal_name_in_paths():

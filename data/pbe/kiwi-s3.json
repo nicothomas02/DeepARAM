@@ -1,30 +1,26 @@
 {
   "meta": {
     "mode": "ARAM: Mayhem",
-    "label": "Patch 26.23",
-    "dataAsOf": "2026-11-14",
+    "label": "Patch 26.24",
+    "dataAsOf": "2026-11-18",
     "caveat": "PBE content can change before release.",
     "augmentPool": {
-      "live": 242,
+      "live": 243,
       "pbe": 243
     },
     "augmentCounts": {
-      "added": 4,
-      "removed": 3
+      "added": 0,
+      "removed": 0
     },
     "chinaPoolChanged": false,
     "notes": [
-      "Live is patch 26.22. This page lists what patch 26.23 changes.",
-      "Update 2026-11-06: patch 26.22 is live, so its changes left this page. Patch 26.23 adds four augments (Slime Time, Fortified, Mystic Guard and Steadfast Presence), makes Group Hug reach farther, raises Vel'Koz's R damage and changes turret plating in Mayhem.",
-      "Update 2026-11-06 (patch 26.23): Pat On The Back, Shark Tempest and Surge Field leave the augment pool. Salvation recharges faster (90 → 70 seconds) and No Mana, No Problem turns Mana into more Ability Power.",
-      "Update 2026-11-09 (patch 26.23): Steadfast Presence is renamed Steadfaster Presence, Bouncing Bees' bounce damage becomes a flat 60% at every level (was 50–100% by level), and Perplexity adds 500% base Mana Regen.",
-      "Update 2026-11-10 (patch 26.23): a batch of champion changes (Annie's Tibbers, Azir, Bard, Ezreal, Galio, Gnar, K'Sante and Mel stronger; Master Yi's Q weaker; Vi's E stronger), FireFox deals more damage, The Boom and the Bass deals less, and Voltaic Cyclosword's Energized attack deals a bit less.",
-      "Update 2026-11-14 (patch 26.23): K'Sante's change is reworked (his W now deals more damage and always costs 45 Mana, but its bonus damage in All Out drops; the extra damage reduction is gone), LeBlanc's Q scales a bit less with AP, and Syndra's E costs more and has a longer cooldown at low ranks.",
+      "Live is patch 26.23. This page lists what patch 26.24 changes.",
+      "Update 2026-11-18: patch 26.23 is live, so its changes left this page. The first patch 26.24 test build changes no Mayhem augments, Headliners or items. Akshan's Q scales more with AD (70% → 80%), and Goliath gets an extra effect for clones.",
       "Ability values are listed for ranks 1-5 (basic abilities) or 1-3 (ultimates)."
     ],
     "builds": {
-      "pbe": "16.23.8384656",
-      "live": "16.22.8348910"
+      "pbe": "16.24.8394663",
+      "live": "16.23.8396405"
     }
   },
   "fame": {
@@ -41,289 +37,29 @@
     }
   },
   "augments": {
-    "added": [
-      {
-        "name": "Slime Time",
-        "tier": "silver",
-        "description": "Every 6 seconds, automatically release a burst of slime that deals 40–80 (by level) plus 3–8% max Health magic damage to nearby enemies. Hitting a champion leaves a slime blob: walk over it to heal 6–15% (by level). Enemies can destroy the blob.",
-        "icon": "/assets/augments/pbe/slimetime_large.png"
-      },
-      {
-        "name": "Fortified",
-        "tier": "silver",
-        "description": "Gain 20 Armor, then increase your bonus Armor by 25%.",
-        "icon": "/assets/augments/pbe/fortified_large.png"
-      },
-      {
-        "name": "Mystic Guard",
-        "tier": "silver",
-        "description": "Gain 20 Magic Resist, then increase your bonus Magic Resist by 25%.",
-        "icon": "/assets/augments/pbe/mysticguard_large.png"
-      },
-      {
-        "name": "Steadfaster Presence",
-        "tier": "gold",
-        "description": "Gain 16% bonus Armor and Magic Resist and 20% Tenacity. Below 40% max Health, this rises to 32% bonus Armor and Magic Resist and 40% Tenacity.",
-        "icon": "/assets/augments/pbe/steadfastpresence_large.png"
-      }
-    ],
-    "removed": [
-      {
-        "name": "Pat On The Back",
-        "tier": "gold",
-        "icon": "/assets/augments/live/patontheback_large.png"
-      },
-      {
-        "name": "Shark Tempest",
-        "tier": "gold",
-        "icon": "/assets/augments/live/sharktempest_large.png"
-      },
-      {
-        "name": "Surge Field",
-        "tier": "prismatic",
-        "icon": "/assets/augments/live/surgefield_large.png"
-      }
-    ],
-    "changed": [
-      {
-        "name": "Group Hug",
-        "changes": [
-          {
-            "stat": "Range to find nearby allies",
-            "live": "500",
-            "pbe": "600"
-          }
-        ],
-        "direction": "buff",
-        "tier": "prismatic",
-        "icon": "/assets/augments/pbe/empyreampromise_large.png"
-      },
-      {
-        "name": "Salvation",
-        "changes": [
-          {
-            "stat": "Cooldown (seconds)",
-            "live": "90",
-            "pbe": "70"
-          }
-        ],
-        "direction": "buff",
-        "tier": "gold",
-        "icon": "/assets/augments/pbe/salvation_large.png"
-      },
-      {
-        "name": "No Mana, No Problem",
-        "changes": [
-          {
-            "stat": "Ability Power from every 10 Mana",
-            "live": "0.8",
-            "pbe": "1"
-          }
-        ],
-        "direction": "buff",
-        "tier": "silver",
-        "icon": "/assets/augments/pbe/nomananoproblem_large.png"
-      },
-      {
-        "name": "Bouncing Bees",
-        "changes": [
-          {
-            "stat": "Bounce damage (% of the original attack)",
-            "live": "50–100 (by level)",
-            "pbe": "60"
-          }
-        ],
-        "direction": "mixed",
-        "tier": "prismatic",
-        "icon": "/assets/augments/pbe/kingme_large.png"
-      },
-      {
-        "name": "FireFox",
-        "changes": [
-          {
-            "stat": "Damage per fire (by level)",
-            "live": "35–160",
-            "pbe": "45–200"
-          },
-          {
-            "stat": "AP ratio",
-            "live": "25%",
-            "pbe": "40%"
-          }
-        ],
-        "direction": "buff",
-        "tier": "silver",
-        "icon": "/assets/augments/pbe/firfox_large.png"
-      },
-      {
-        "name": "The Boom and the Bass",
-        "changes": [
-          {
-            "stat": "Bonus damage (by level)",
-            "live": "50–200",
-            "pbe": "50–175"
-          },
-          {
-            "stat": "Bonus AD ratio",
-            "live": "50%",
-            "pbe": "40%"
-          },
-          {
-            "stat": "AP ratio",
-            "live": "30%",
-            "pbe": "25%"
-          }
-        ],
-        "direction": "nerf",
-        "tier": "gold",
-        "icon": "/assets/augments/pbe/theboomandthebass_large.png"
-      }
-    ]
+    "added": [],
+    "removed": [],
+    "changed": []
   },
   "championOverrides": [],
   "headliners": {
-    "summary": "New on the test server. Each Mayhem match has one Headliner that adds game-wide bonuses.",
-    "list": [
-      {
-        "id": "Arcade",
-        "name": "Bit Rush",
-        "effect": "Takedowns earn Tokens. While dead, spend 4 Tokens to revive at your fountain with 125% bonus Move Speed that fades over 10 seconds."
-      },
-      {
-        "id": "Debonair",
-        "name": "Debonair Zed",
-        "effect": "Every augment you pick also gives gold (200, 350, 500 or 750), and some also give a hat."
-      },
-      {
-        "id": "LaIlusion",
-        "name": "La Ilusión",
-        "effect": "Allies drop a candle when they die. Picking it up within 10 seconds shields you and allies within 1500 range for 4 seconds: 250 + 35% max Health (smaller candles: 150 + 15%)."
-      },
-      {
-        "id": "Maestro",
-        "name": "Maestro Jhin",
-        "effect": "Augment offers show 4 choices instead of 3."
-      }
-    ]
+    "summary": "No new Headliners on the test server yet.",
+    "list": []
   },
   "championChanges": {
     "summary": "Base-game champion changes on the test server. They also apply in Mayhem.",
     "list": [
       {
-        "champion": "Annie",
+        "champion": "Akshan",
         "changes": [
-          "R aura damage 8/12/16 → 10/15/20",
-          "Tibbers attack bonus damage 30/45/60 → 30/60/90",
-          "Tibbers base Health 1150 → 1275",
-          "Tibbers Health from Annie's bonus Health 0% → 150%"
-        ]
-      },
-      {
-        "champion": "Azir",
-        "changes": [
-          "Attack range 525 → 550",
-          "W soldier on-hit effects 50% → 67%"
-        ]
-      },
-      {
-        "champion": "Bard",
-        "changes": [
-          "Q damage 80/120/160/200/240 → 80/125/170/215/260",
-          "Q AP ratio 80% → 100%"
-        ]
-      },
-      {
-        "champion": "Ezreal",
-        "changes": [
-          "W bonus AD ratio 100% → 115%",
-          "W AP ratio 90% → 100%",
-          "R damage 350/550/750 → 350/600/850",
-          "R bonus AD ratio 100% → 110%",
-          "R AP ratio 110% → 120%"
-        ]
-      },
-      {
-        "champion": "Galio",
-        "changes": [
-          "W passive shield (% max Health) 7.5/9/10.5/12/13.5% → 8/11/14/17/20%"
-        ]
-      },
-      {
-        "champion": "Gnar",
-        "changes": [
-          "Mini Q AD ratio 125% → 135%",
-          "Mega Q AD ratio 140% → 150%"
-        ]
-      },
-      {
-        "champion": "K'Sante",
-        "changes": [
-          "W damage 45/75/105/135/165 → 45/85/125/165/205",
-          "W Mana cost 45/50/55/60/65 → 45/45/45/45/45",
-          "W bonus damage in All Out (max) 80% → 75%"
-        ]
-      },
-      {
-        "champion": "LeBlanc",
-        "changes": [
-          "Q AP ratio 40% → 35%"
-        ]
-      },
-      {
-        "champion": "Master Yi",
-        "changes": [
-          "Q AD ratio 70% → 60%"
-        ]
-      },
-      {
-        "champion": "Mel",
-        "changes": [
-          "Q damage per extra bolt 5/10/15/20/25 → 6/11/16/21/26",
-          "Q AP ratio per extra bolt 8% → 9%",
-          "W shield 50/80/110/140/170 → 50/90/130/170/210",
-          "W damage 35/40/45/50/55 → 35/45/55/65/75"
-        ]
-      },
-      {
-        "champion": "Syndra",
-        "changes": [
-          "E Mana cost 50 → 60",
-          "E cooldown 15/15/15/15/15s → 17/16.5/16/15.5/15s"
-        ]
-      },
-      {
-        "champion": "Vel'Koz",
-        "changes": [
-          "R total damage 450/700/925 → 450/700/950"
-        ]
-      },
-      {
-        "champion": "Vi",
-        "changes": [
-          "E damage 10/30/50/70/90 → 10/35/60/85/110"
+          "Q AD ratio 70% → 80%"
         ]
       }
     ]
   },
   "itemChanges": {
     "summary": "Changes to items in the Mayhem shop. Runes are unchanged.",
-    "list": [
-      {
-        "item": "Perplexity",
-        "changes": [
-          "Base Mana Regen 0% → 500%"
-        ]
-      },
-      {
-        "item": "Voltaic Cyclosword",
-        "changes": [
-          "Energized attack damage (melee, % current Health) 9% → 8%",
-          "Energized attack damage (ranged, % current Health) 7% → 6%"
-        ]
-      }
-    ]
+    "list": []
   },
-  "modeChanges": [
-    "Turret plating gets its own Mayhem values: 3 plates per turret worth 100 gold each (normally 5 worth 120), and a turret's defensive Armor and Magic Resist bonus is 60 (normally 30), plus 5 for each extra champion."
-  ]
+  "modeChanges": []
 }
