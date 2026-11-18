@@ -1,5 +1,5 @@
 {
- "patch": "16.22.8348910",
+ "patch": "16.23.8396405",
  "augments": {
   "1205": {
    "name": "ADAPt",
@@ -223,6 +223,18 @@
    "values": {},
    "unlockLevel": null
   },
+  "3265": {
+   "name": "Fortified",
+   "tier": "Silver",
+   "text": "",
+   "tooltip": "",
+   "grants": [],
+   "values": {
+    "BonusArmorPercent": 0.25,
+    "FlatArmor": 20.0
+   },
+   "unlockLevel": null
+  },
   "3121": {
    "name": "Fruitify",
    "tier": "Silver",
@@ -432,6 +444,18 @@
    "values": {},
    "unlockLevel": null
   },
+  "3264": {
+   "name": "Mystic Guard",
+   "tier": "Silver",
+   "text": "",
+   "tooltip": "",
+   "grants": [],
+   "values": {
+    "BonusMRPercent": 0.25,
+    "FlatMR": 20.0
+   },
+   "unlockLevel": null
+  },
   "3059": {
    "name": "No Mana, No Problem",
    "tier": "Silver",
@@ -522,6 +546,27 @@
     "AdaptiveForce": 10.0,
     "SpellIDCD": 5.0,
     "PercentOfStacksLost": 0.5
+   },
+   "unlockLevel": null
+  },
+  "3262": {
+   "name": "Slime Time",
+   "tier": "Silver",
+   "text": "Every few seconds, Autocast a burst of slime from your body, dealing magic damage to nearby enemies. If you hit a champion, secrete a blob that heals you when walked over.",
+   "tooltip": "If you hit a champion, secrete a blob nearby.",
+   "grants": [],
+   "values": {
+    "Cooldown": 6.0,
+    "Radius": 450.0,
+    "SlimeSpawns": [
+     1.0,
+     1.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0,
+     2.0
+    ]
    },
    "unlockLevel": null
   },
@@ -1490,7 +1535,7 @@
   "1061": {
    "name": "Ok Boomerang",
    "tier": "Gold",
-   "text": "",
+   "text": "Autocast throw a boomerang at a nearby enemy every 7 seconds.",
    "tooltip": "",
    "grants": [],
    "values": {
@@ -1540,18 +1585,6 @@
    "grants": [],
    "values": {
     "InitialAmpPercent": 10.0
-   },
-   "unlockLevel": null
-  },
-  "2137": {
-   "name": "Pat On The Back",
-   "tier": "Gold",
-   "text": "Allies encourage you when you walk past, granting you a Shield and Movement Speed.",
-   "tooltip": "This effect can stack.",
-   "grants": [],
-   "values": {
-    "Trigger_Radius": 200.0,
-    "Buff_Duration": 3.0
    },
    "unlockLevel": null
   },
@@ -1748,7 +1781,7 @@
     "HealRange": 1200.0,
     "MaxRangeHealPercent": 0.5,
     "HealthPercentTrigger": 0.5,
-    "AuraCooldown": 90.0
+    "AuraCooldown": 70.0
    },
    "unlockLevel": null
   },
@@ -1797,23 +1830,6 @@
     "Slow": 0.4,
     "MaxLevel": 2.0,
     "MissingHealthPercent": 0.3
-   },
-   "unlockLevel": null
-  },
-  "2034": {
-   "name": "Shark Tempest",
-   "tier": "Gold",
-   "text": "Sharks circle your Snowball, slowing and damaging nearby enemies. When your Snowball hits a Champion, they become trapped in a shark storm!",
-   "tooltip": "",
-   "grants": [],
-   "values": {
-    "Range": 300.0,
-    "AttachedAOESize": 425.0,
-    "SlowDuration": 1.5,
-    "AttachedSlowDuration": 3.0,
-    "SlowStrengthTT": 0.4,
-    "SlowStrength": -0.4,
-    "AttachDuration": 3.0
    },
    "unlockLevel": null
   },
@@ -1917,6 +1933,21 @@
    "grants": [],
    "values": {
     "AmountOfStatAnvils": 3.0
+   },
+   "unlockLevel": null
+  },
+  "3263": {
+   "name": "Steadfaster Presence",
+   "tier": "Gold",
+   "text": "Gain bonus Armor, Magic Resist, and Tenacity.",
+   "tooltip": "",
+   "grants": [],
+   "values": {
+    "PassiveResistPercent": 0.16,
+    "EmpoweredResistPercent": 0.32,
+    "EmpoweredHealthPercent": 0.4,
+    "PassiveTenacity": 0.2,
+    "EmpoweredTenacity": 0.4
    },
    "unlockLevel": null
   },
@@ -2606,7 +2637,7 @@
    "grants": [],
    "values": {
     "TargetToPick": 2.0,
-    "MinRange": 500.0
+    "MinRange": 600.0
    },
    "unlockLevel": null
   },
@@ -2981,22 +3012,6 @@
     "TauntChannelTime": 2.0,
     "AugmentCooldown": 30.0,
     "UltimateHaste": 30.0,
-    "MaxLevel": 1.0
-   },
-   "unlockLevel": null
-  },
-  "2134": {
-   "name": "Surge Field",
-   "tier": "Prismatic",
-   "text": "On Ultimate cast, spawn a Zone that grants Ability Haste and Movement Speed. While inside, it fires missiles that deal 20% of your damage.",
-   "tooltip": "On ultimate cast, spawn a Zone around you. While in it, gain 50 Ability Haste, 40% Movement Speed, and fire missiles that deal 20% of damage dealt to enemies.\n\nThe Zone follows you the first time you leave it and expires after a short duration the second time you do so.",
-   "grants": [],
-   "values": {
-    "Buff_Duration": 6.0,
-    "Radius": 300.0,
-    "MissileDamagePercent": 0.2,
-    "ZoneMovementSpeed": 0.4,
-    "ZoneAbilityHaste": 50.0,
     "MaxLevel": 1.0
    },
    "unlockLevel": null

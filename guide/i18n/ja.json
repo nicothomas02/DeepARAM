@@ -235,6 +235,8 @@
  "Fortification Timer": "要塞化タイマー",
  "Damage To Max Health Ratio": "ダメージの最大体力換算率",
  "Buff Duration": "バフ効果時間",
+ "AD Per Statue Melee": "像ごとの攻撃力（近接）",
+ "AD Per Statue Ranged Mult": "像ごとの攻撃力倍率（遠隔）",
  "Ranged Damage Multiplier": "遠距離ダメージ倍率",
  "Burn Percent Health Damage": "炎上の体力割合ダメージ",
  "AP Ratio": "魔力反映率",
@@ -247,12 +249,15 @@
  "Base Shield Ratio": "基本シールド率",
  "AD Ratio": "攻撃力反映率",
  "Active MS": "発動効果の移動速度",
+ "Bulwark Resists": "防壁の耐性",
+ "Tier1SR Palisade Count": "外側タワーのプレート数",
+ "Tier2Palisade Count": "内側タワーのプレート数",
+ "Tier1Palisade Gold": "外側タワーのプレートのゴールド",
+ "Tier2Palisade Value": "内側タワーのプレートのゴールド",
  "True Sight Radius": "看破範囲",
  "OOC Timer": "非戦闘タイマー",
  "Melee Item Calc Value B": "近接アイテム計算値B",
  "Ranged Item Calc Value B": "遠距離アイテム計算値B",
  "Base OOCMS": "非戦闘時の基本移動速度",
- "Crit Per Stack Melee": "スタックごとのクリティカル率（近接）",
- "AD Per Statue Melee": "像ごとの攻撃力（近接）",
- "AD Per Statue Ranged Mult": "像ごとの攻撃力倍率（遠隔）"
+ "Crit Per Stack Melee": "スタックごとのクリティカル率（近接）"
 }

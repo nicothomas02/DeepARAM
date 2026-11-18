@@ -235,6 +235,8 @@
  "Fortification Timer": "Czas fortyfikacji",
  "Damage To Max Health Ratio": "Stosunek obrażeń do maks. zdrowia",
  "Buff Duration": "Czas działania wzmocnienia",
+ "AD Per Statue Melee": "AD za posąg (walka wręcz)",
+ "AD Per Statue Ranged Mult": "Mnożnik AD za posąg (dystansowy)",
  "Ranged Damage Multiplier": "Mnożnik obrażeń (dystansowi)",
  "Burn Percent Health Damage": "Obrażenia od podpalenia w % zdrowia",
  "AP Ratio": "Przelicznik AP",
@@ -247,12 +249,15 @@
  "Base Shield Ratio": "Podstawowy przelicznik tarczy",
  "AD Ratio": "Przelicznik AD",
  "Active MS": "Prędkość ruchu (aktywne)",
+ "Bulwark Resists": "Odporności bastionu",
+ "Tier1SR Palisade Count": "Płyty zewnętrznej wieży",
+ "Tier2Palisade Count": "Płyty wewnętrznej wieży",
+ "Tier1Palisade Gold": "Złoto za płytę (zewnętrzna wieża)",
+ "Tier2Palisade Value": "Złoto za płytę (wewnętrzna wieża)",
  "True Sight Radius": "Promień prawdziwego widzenia",
  "OOC Timer": "Czas poza walką",
  "Melee Item Calc Value B": "Wartość przedmiotu B (walka wręcz)",
  "Ranged Item Calc Value B": "Wartość przedmiotu B (dystansowi)",
  "Base OOCMS": "Podstawowa prędkość ruchu poza walką",
- "Crit Per Stack Melee": "Kryt. za ładunek (walka wręcz)",
- "AD Per Statue Melee": "AD za posąg (walka wręcz)",
- "AD Per Statue Ranged Mult": "Mnożnik AD za posąg (dystansowy)"
+ "Crit Per Stack Melee": "Kryt. za ładunek (walka wręcz)"
 }

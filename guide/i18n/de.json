@@ -235,6 +235,8 @@
  "Fortification Timer": "Befestigungsdauer",
  "Damage To Max Health Ratio": "Schaden im Verhältnis zu max. Leben",
  "Buff Duration": "Buff-Dauer",
+ "AD Per Statue Melee": "AD pro Statue (Nahkampf)",
+ "AD Per Statue Ranged Mult": "AD pro Statue, Multiplikator (Fernkampf)",
  "Ranged Damage Multiplier": "Schadensmultiplikator (Fernkampf)",
  "Burn Percent Health Damage": "Brandschaden in % des Lebens",
  "AP Ratio": "AP-Skalierung",
@@ -247,12 +249,15 @@
  "Base Shield Ratio": "Grund-Schildskalierung",
  "AD Ratio": "AD-Skalierung",
  "Active MS": "Lauftempo (aktiv)",
+ "Bulwark Resists": "Bollwerk-Resistenzen",
+ "Tier1SR Palisade Count": "Platten (äußerer Turm)",
+ "Tier2Palisade Count": "Platten (innerer Turm)",
+ "Tier1Palisade Gold": "Gold pro Platte (äußerer Turm)",
+ "Tier2Palisade Value": "Gold pro Platte (innerer Turm)",
  "True Sight Radius": "Radius der echten Sicht",
  "OOC Timer": "Zeit außerhalb des Kampfes",
  "Melee Item Calc Value B": "Gegenstandswert B (Nahkampf)",
  "Ranged Item Calc Value B": "Gegenstandswert B (Fernkampf)",
  "Base OOCMS": "Grund-Lauftempo außerhalb des Kampfes",
- "Crit Per Stack Melee": "Krit pro Steigerung (Nahkampf)",
- "AD Per Statue Melee": "AD pro Statue (Nahkampf)",
- "AD Per Statue Ranged Mult": "AD pro Statue, Multiplikator (Fernkampf)"
+ "Crit Per Stack Melee": "Krit pro Steigerung (Nahkampf)"
 }

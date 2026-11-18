@@ -47,6 +47,10 @@ jobs:
           python3 champions/build_data.py
           python3 champions/build_i18n.py
           python3 web/scripts/fetch_descriptions.py
+          # The builders above can name new icons (new augments, items): fetch what's still missing,
+          # and refresh the Guide's English keys (new labels still need translating before tests pass)
+          python3 web/scripts/fetch_assets.py
+          python3 guide/i18n_keys.py
       - name: Refresh The Kitchen's Infinite Ryze and Region Teams for the new patch
         if: steps.check.outputs.status == 'ready'
         run: |

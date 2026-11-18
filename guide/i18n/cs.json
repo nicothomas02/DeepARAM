@@ -235,6 +235,8 @@
  "Fortification Timer": "Doba opevnění",
  "Damage To Max Health Ratio": "Poměr poškození k maximálnímu zdraví",
  "Buff Duration": "Trvání buffu",
+ "AD Per Statue Melee": "AD za sochu (na blízko)",
+ "AD Per Statue Ranged Mult": "Násobitel AD za sochu (na dálku)",
  "Ranged Damage Multiplier": "Násobič poškození (na dálku)",
  "Burn Percent Health Damage": "Poškození hořením v % zdraví",
  "AP Ratio": "Škálování AP",
@@ -247,12 +249,15 @@
  "Base Shield Ratio": "Základní škálování štítu",
  "AD Ratio": "Škálování AD",
  "Active MS": "Rychlost pohybu (aktivní)",
+ "Bulwark Resists": "Odolnosti opevnění",
+ "Tier1SR Palisade Count": "Počet plátů vnější věže",
+ "Tier2Palisade Count": "Počet plátů vnitřní věže",
+ "Tier1Palisade Gold": "Zlato za plát vnější věže",
+ "Tier2Palisade Value": "Zlato za plát vnitřní věže",
  "True Sight Radius": "Okruh pravého vidění",
  "OOC Timer": "Čas mimo boj",
  "Melee Item Calc Value B": "Hodnota předmětu B (na blízko)",
  "Ranged Item Calc Value B": "Hodnota předmětu B (na dálku)",
  "Base OOCMS": "Základní rychlost pohybu mimo boj",
- "Crit Per Stack Melee": "Krit. zásah za stupeň (na blízko)",
- "AD Per Statue Melee": "AD za sochu (na blízko)",
- "AD Per Statue Ranged Mult": "Násobitel AD za sochu (na dálku)"
+ "Crit Per Stack Melee": "Krit. zásah za stupeň (na blízko)"
 }
