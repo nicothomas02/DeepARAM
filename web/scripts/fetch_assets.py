@@ -362,6 +362,14 @@ def prune_swapped(swap, keep_client, used):
     print(f"official versions: {len(swap)} client files have one; removed {gone} client copies")
 
 
+def site_ddragon_version():
+    try:
+        with open(os.path.join(OUT, "manifest.json")) as f:
+            return json.load(f).get("ddragon_version")
+    except (OSError, ValueError):
+        return None
+
+
 def replay_index():
     with open(os.path.join(REPO, "simulator", "viewer", "replay-data", "index.json")) as f:
         return json.load(f)
@@ -445,7 +453,11 @@ def main():
     cd_urls = {u for u in literal | runtime_sets(summary, champ_json) if u and local_path(u)}
 
     index = replay_index()
-    ver = index.get("ddragon_version") or json.loads(fetch(f"{DD}/api/versions.json"))[0]
+    # Stay on the site's Data Dragon version unless this is a patch refresh: on patch day Data Dragon
+    # publishes the new version hours before the site moves, and the hourly stats run must not switch
+    # (and delete) the image folder pages still point at.
+    ver = index.get("ddragon_version") or (None if args.refresh else site_ddragon_version()) \
+        or json.loads(fetch(f"{DD}/api/versions.json"))[0]
     base = index.get("icon_base", "")
     icons = [rel for c in index["champions"] for rel in c.get("icons", [])]
     if base.startswith("/assets/"):  # the replay names the mirrored client files directly

@@ -235,6 +235,8 @@
  "Fortification Timer": "Thời gian củng cố",
  "Damage To Max Health Ratio": "Tỉ lệ sát thương theo Máu tối đa",
  "Buff Duration": "Thời gian hiệu ứng",
+ "AD Per Statue Melee": "SMCK mỗi bức tượng (cận chiến)",
+ "AD Per Statue Ranged Mult": "Hệ số SMCK mỗi bức tượng (đánh xa)",
  "Ranged Damage Multiplier": "Hệ số sát thương đánh xa",
  "Burn Percent Health Damage": "Sát thương thiêu đốt theo % Máu",
  "AP Ratio": "Tỉ lệ SMPT",
@@ -247,12 +249,15 @@
  "Base Shield Ratio": "Tỉ lệ lá chắn cơ bản",
  "AD Ratio": "Tỉ lệ SMCK",
  "Active MS": "Tốc Độ Di Chuyển kích hoạt",
+ "Bulwark Resists": "Kháng của thành lũy",
+ "Tier1SR Palisade Count": "Số giáp trụ ngoài",
+ "Tier2Palisade Count": "Số giáp trụ trong",
+ "Tier1Palisade Gold": "Vàng mỗi giáp trụ ngoài",
+ "Tier2Palisade Value": "Vàng mỗi giáp trụ trong",
  "True Sight Radius": "Bán kính Chân Thị",
  "OOC Timer": "Thời gian thoát giao tranh",
  "Melee Item Calc Value B": "Giá trị tính trang bị cận chiến B",
  "Ranged Item Calc Value B": "Giá trị tính trang bị đánh xa B",
  "Base OOCMS": "Tốc Độ Di Chuyển cơ bản ngoài giao tranh",
- "Crit Per Stack Melee": "Chí mạng mỗi điểm cộng dồn (cận chiến)",
- "AD Per Statue Melee": "SMCK mỗi bức tượng (cận chiến)",
- "AD Per Statue Ranged Mult": "Hệ số SMCK mỗi bức tượng (đánh xa)"
+ "Crit Per Stack Melee": "Chí mạng mỗi điểm cộng dồn (cận chiến)"
 }

@@ -1,5 +1,5 @@
 {
- "patch": "16.22.8348910",
+ "patch": "16.23.8396405",
  "colors": {
   "Controller": "#3fb6a8",
   "Enchanter": "#57c7b2",
@@ -5287,6 +5287,9 @@
    "ap",
    "tank",
    "enchanter"
+  ],
+  "3262": [
+   "tank"
   ]
  }
 }

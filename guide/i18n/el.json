@@ -235,6 +235,8 @@
  "Fortification Timer": "Χρόνος οχύρωσης",
  "Damage To Max Health Ratio": "Αναλογία ζημιάς προς μέγιστη ζωή",
  "Buff Duration": "Διάρκεια ενίσχυσης",
+ "AD Per Statue Melee": "Ζημιά Επίθεσης ανά άγαλμα (κοντινής εμβέλειας)",
+ "AD Per Statue Ranged Mult": "Πολλαπλασιαστής Ζημιάς Επίθεσης ανά άγαλμα (μακρινής εμβέλειας)",
  "Ranged Damage Multiplier": "Πολλαπλασιαστής ζημιάς (εξ αποστάσεως)",
  "Burn Percent Health Damage": "Ζημιά καψίματος (% ζωής)",
  "AP Ratio": "Αναλογία Ισχύος Ικανότητας",
@@ -247,12 +249,15 @@
  "Base Shield Ratio": "Βασική αναλογία ασπίδας",
  "AD Ratio": "Αναλογία Ζημιάς Επίθεσης",
  "Active MS": "Ταχύτητα Κίνησης (ενεργή)",
+ "Bulwark Resists": "Αντιστάσεις οχύρωσης",
+ "Tier1SR Palisade Count": "Πλάκες εξωτερικού πύργου",
+ "Tier2Palisade Count": "Πλάκες εσωτερικού πύργου",
+ "Tier1Palisade Gold": "Χρυσός ανά πλάκα εξωτερικού πύργου",
+ "Tier2Palisade Value": "Χρυσός ανά πλάκα εσωτερικού πύργου",
  "True Sight Radius": "Ακτίνα αληθινής όρασης",
  "OOC Timer": "Χρόνος εκτός μάχης",
  "Melee Item Calc Value B": "Τιμή Β (σώμα με σώμα)",
  "Ranged Item Calc Value B": "Τιμή Β (εξ αποστάσεως)",
  "Base OOCMS": "Βασική Ταχύτητα Κίνησης εκτός μάχης",
- "Crit Per Stack Melee": "Καίριο ανά στοίβα (σώμα με σώμα)",
- "AD Per Statue Melee": "Ζημιά Επίθεσης ανά άγαλμα (κοντινής εμβέλειας)",
- "AD Per Statue Ranged Mult": "Πολλαπλασιαστής Ζημιάς Επίθεσης ανά άγαλμα (μακρινής εμβέλειας)"
+ "Crit Per Stack Melee": "Καίριο ανά στοίβα (σώμα με σώμα)"
 }

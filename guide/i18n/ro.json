@@ -235,6 +235,8 @@
  "Fortification Timer": "Timp de fortificare",
  "Damage To Max Health Ratio": "Raport daune/viață maximă",
  "Buff Duration": "Durata bonusului",
+ "AD Per Statue Melee": "AD per statuie (corp la corp)",
+ "AD Per Statue Ranged Mult": "Multiplicator AD per statuie (la distanță)",
  "Ranged Damage Multiplier": "Multiplicator daune la distanță",
  "Burn Percent Health Damage": "Daune de ardere (% din viață)",
  "AP Ratio": "Coeficient AP",
@@ -247,12 +249,15 @@
  "Base Shield Ratio": "Coeficient scut de bază",
  "AD Ratio": "Coeficient AD",
  "Active MS": "Viteză de mișcare (activ)",
+ "Bulwark Resists": "Rezistențele bastionului",
+ "Tier1SR Palisade Count": "Plăci turn exterior",
+ "Tier2Palisade Count": "Plăci turn interior",
+ "Tier1Palisade Gold": "Aur per placă (turn exterior)",
+ "Tier2Palisade Value": "Aur per placă (turn interior)",
  "True Sight Radius": "Rază de vedere adevărată",
  "OOC Timer": "Timp în afara luptei",
  "Melee Item Calc Value B": "Valoare de calcul B (corp la corp)",
  "Ranged Item Calc Value B": "Valoare de calcul B (distanță)",
  "Base OOCMS": "Viteză de mișcare de bază în afara luptei",
- "Crit Per Stack Melee": "Critic per cumul (corp la corp)",
- "AD Per Statue Melee": "AD per statuie (corp la corp)",
- "AD Per Statue Ranged Mult": "Multiplicator AD per statuie (la distanță)"
+ "Crit Per Stack Melee": "Critic per cumul (corp la corp)"
 }

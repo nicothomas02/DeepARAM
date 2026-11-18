@@ -235,6 +235,8 @@
  "Fortification Timer": "مؤقت التحصين",
  "Damage To Max Health Ratio": "نسبة الضرر إلى الصحة القصوى",
  "Buff Duration": "مدة التأثير",
+ "AD Per Statue Melee": "ضرر الهجوم لكل تمثال (قريب المدى)",
+ "AD Per Statue Ranged Mult": "مضاعف ضرر الهجوم لكل تمثال (بعيد المدى)",
  "Ranged Damage Multiplier": "مضاعف ضرر المدى البعيد",
  "Burn Percent Health Damage": "ضرر الحرق بنسبة من الصحة",
  "AP Ratio": "نسبة قوة القدرة",
@@ -247,12 +249,15 @@
  "Base Shield Ratio": "نسبة الدرع الأساسية",
  "AD Ratio": "نسبة ضرر الهجوم",
  "Active MS": "سرعة الحركة عند التفعيل",
+ "Bulwark Resists": "مقاومات التحصين",
+ "Tier1SR Palisade Count": "عدد صفائح البرج الخارجي",
+ "Tier2Palisade Count": "عدد صفائح البرج الداخلي",
+ "Tier1Palisade Gold": "ذهب صفيحة البرج الخارجي",
+ "Tier2Palisade Value": "ذهب صفيحة البرج الداخلي",
  "True Sight Radius": "نطاق الرؤية الحقيقية",
  "OOC Timer": "مؤقت الخروج من القتال",
  "Melee Item Calc Value B": "قيمة حساب العنصر (مدى قريب) B",
  "Ranged Item Calc Value B": "قيمة حساب العنصر (مدى بعيد) B",
  "Base OOCMS": "سرعة الحركة الأساسية خارج القتال",
- "Crit Per Stack Melee": "الضربة الحرجة لكل تكديس (مدى قريب)",
- "AD Per Statue Melee": "ضرر الهجوم لكل تمثال (قريب المدى)",
- "AD Per Statue Ranged Mult": "مضاعف ضرر الهجوم لكل تمثال (بعيد المدى)"
+ "Crit Per Stack Melee": "الضربة الحرجة لكل تكديس (مدى قريب)"
 }

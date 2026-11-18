@@ -235,6 +235,8 @@
  "Fortification Timer": "Erődítés időzítője",
  "Damage To Max Health Ratio": "Sebzés és maximális életerő aránya",
  "Buff Duration": "Erősítés időtartama",
+ "AD Per Statue Melee": "AD szobronként (közelharci)",
+ "AD Per Statue Ranged Mult": "AD-szorzó szobronként (távolsági)",
  "Ranged Damage Multiplier": "Sebzésszorzó (távolsági)",
  "Burn Percent Health Damage": "Égési sebzés az életerő %-ában",
  "AP Ratio": "AP-skálázás",
@@ -247,12 +249,15 @@
  "Base Shield Ratio": "Alap pajzsskálázás",
  "AD Ratio": "AD-skálázás",
  "Active MS": "Mozgási sebesség (aktív)",
+ "Bulwark Resists": "Bástya-ellenállások",
+ "Tier1SR Palisade Count": "Külső torony páncéllemezei",
+ "Tier2Palisade Count": "Belső torony páncéllemezei",
+ "Tier1Palisade Gold": "Arany lemezenként (külső torony)",
+ "Tier2Palisade Value": "Arany lemezenként (belső torony)",
  "True Sight Radius": "Igaz látás sugara",
  "OOC Timer": "Harcon kívüli időzítő",
  "Melee Item Calc Value B": "Tárgyérték B (közelharci)",
  "Ranged Item Calc Value B": "Tárgyérték B (távolsági)",
  "Base OOCMS": "Alap mozgási sebesség harcon kívül",
- "Crit Per Stack Melee": "Krit halmonként (közelharci)",
- "AD Per Statue Melee": "AD szobronként (közelharci)",
- "AD Per Statue Ranged Mult": "AD-szorzó szobronként (távolsági)"
+ "Crit Per Stack Melee": "Krit halmonként (közelharci)"
 }

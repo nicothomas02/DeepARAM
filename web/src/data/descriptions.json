@@ -35,6 +35,7 @@
 "1057": "You gain the Mountain Soul, gaining a Shield after being out of combat for a short time.",
 "1058": "On-Hit reduce the cooldown of your abilities by 1.25 seconds .",
 "1060": "Gain the Ocean Soul, granting high Health and Mana regen after damaging enemies.",
+"1061": "Autocast throw a boomerang at a nearby enemy every 7 seconds.",
 "1062": "Gain 3 random Dragon Souls.",
 "1063": "After using a Dash, Blink, or Teleport Ability you gain 12 Armor and Magic Resist up to 5 stacks.",
 "1067": "Using your chosen ability restores Health.",
@@ -139,7 +140,6 @@
 "2018": "Gain percent cooldown reduction and convert all of your Attack Speed into Ability Haste.",
 "2026": "Gain increased Movement Speed towards enemies at low Health.",
 "2032": "A few seconds after death, a shark chomps all nearby enemies. You can move after death to aim the shark attack.",
-"2034": "Sharks circle your Snowball, slowing and damaging nearby enemies. When your Snowball hits a Champion, they become trapped in a shark storm!",
 "2043": "Entering Brush regenerates a large amount of Health.",
 "2054": "Your your chosen ability targets 2 additional enemies in front of you.",
 "2055": "REWARD: Fire additional missiles per Quest Level.",
@@ -171,10 +171,8 @@
 "2129": "Your your chosen ability deals damage in an area around it.",
 "2131": "Gain a Shield for every second you spend Channeling.",
 "2133": "After healing or shielding your ally with your chosen ability, your next basic attack gains attack range, attack speed and deals bonus max Health magic damage.",
-"2134": "On Ultimate cast, spawn a Zone that grants Ability Haste and Movement Speed. While inside, it fires missiles that deal 20% of your damage.",
 "2135": "Attacks during your chosen ability gouge your target with Nails. Nails accumulate damage, execute, and grant Movement Speed upon expiration.",
 "2136": "Striking enemy champions with your chosen ability forges a bond of Friendship. your chosen ability gains temporarily increased damage based on your level of Friendship.",
-"2137": "Allies encourage you when you walk past, granting you a Shield and Movement Speed.",
 "2138": "This effect can stack.",
 "2139": "Taking damage from champions builds up a burst of needles that fly out of you, dealing damage and slowing nearby enemies.",
 "2140": "Your spell hits trigger Cleave against enemies.",
@@ -209,7 +207,9 @@
 "3149": "Healing or Shielding an allied champion with your chosen ability casts that spell again on 2 other nearby allied champions.",
 "3150": "Stormsurge's Squall now always detonates in an area, dealing max Health magic damage. Enemy champions caught in the initial blast are marked by Squall.",
 "3159": "If you use your chosen ability to kill an enemy champion, you may Recast it. Each subsequentRecast deals additional damage.",
-"3163": "Healing or Shielding allied champions gathers Butterflies."
+"3163": "Healing or Shielding allied champions gathers Butterflies.",
+"3262": "Every few seconds, Autocast a burst of slime from your body, dealing magic damage to nearby enemies. If you hit a champion, secrete a blob that heals you when walked over.",
+"3263": "Gain bonus Armor, Magic Resist, and Tenacity."
 },
 "items": {
 "1001": "Slightly increases Move Speed",

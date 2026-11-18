@@ -235,6 +235,8 @@
  "Fortification Timer": "Durée de fortification",
  "Damage To Max Health Ratio": "Ratio de dégâts selon les PV max",
  "Buff Duration": "Durée de l'effet",
+ "AD Per Statue Melee": "AD par statue (mêlée)",
+ "AD Per Statue Ranged Mult": "Multiplicateur d'AD par statue (distance)",
  "Ranged Damage Multiplier": "Multiplicateur de dégâts (distance)",
  "Burn Percent Health Damage": "Dégâts de brûlure en % des PV",
  "AP Ratio": "Ratio AP",
@@ -247,12 +249,15 @@
  "Base Shield Ratio": "Ratio de bouclier de base",
  "AD Ratio": "Ratio AD",
  "Active MS": "VD de l'actif",
+ "Bulwark Resists": "Résistances du rempart",
+ "Tier1SR Palisade Count": "Plaques de tourelle extérieure",
+ "Tier2Palisade Count": "Plaques de tourelle intérieure",
+ "Tier1Palisade Gold": "Or par plaque (tourelle extérieure)",
+ "Tier2Palisade Value": "Or par plaque (tourelle intérieure)",
  "True Sight Radius": "Rayon de vision pure",
  "OOC Timer": "Délai hors combat",
  "Melee Item Calc Value B": "Valeur de calcul B de l'objet (mêlée)",
  "Ranged Item Calc Value B": "Valeur de calcul B de l'objet (distance)",
  "Base OOCMS": "VD hors combat de base",
- "Crit Per Stack Melee": "Critique par cumul (mêlée)",
- "AD Per Statue Melee": "AD par statue (mêlée)",
- "AD Per Statue Ranged Mult": "Multiplicateur d'AD par statue (distance)"
+ "Crit Per Stack Melee": "Critique par cumul (mêlée)"
 }

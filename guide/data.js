@@ -1,5 +1,5 @@
 window.GUIDE_DATA = {
- "patch": "16.22.8348910",
+ "patch": "16.23.8396405",
  "hero": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/assets/leagueclient/gamemodeassets/kiwi/kiwi-tutorial-set2.png",
  "queues": [
   {
@@ -40,9 +40,9 @@ window.GUIDE_DATA = {
   }
  ],
  "augmentCounts": {
-  "Silver": 68,
-  "Gold": 95,
-  "Prismatic": 72
+  "Silver": 71,
+  "Gold": 94,
+  "Prismatic": 71
  },
  "maps": [
   {
@@ -2042,6 +2042,38 @@ window.GUIDE_DATA = {
    ]
   },
   {
+   "id": 1515,
+   "name": "Turret Plating",
+   "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/assets/items/icons2d/1504_turretshielder.png",
+   "changes": [
+    {
+     "name": "BulwarkResists",
+     "rift": 30.0,
+     "mayhem": 60.0
+    },
+    {
+     "name": "Tier1SRPalisadeCount",
+     "rift": 5.0,
+     "mayhem": 3.0
+    },
+    {
+     "name": "Tier2PalisadeCount",
+     "rift": 5.0,
+     "mayhem": 3.0
+    },
+    {
+     "name": "Tier1PalisadeGold",
+     "rift": 120.0,
+     "mayhem": 100.0
+    },
+    {
+     "name": "Tier2PalisadeValue",
+     "rift": 120.0,
+     "mayhem": 100.0
+    }
+   ]
+  },
+  {
    "id": 1503,
    "name": "Warden's Eye",
    "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/assets/items/icons2d/096_eye_of_the_observer.png",
@@ -2151,7 +2183,7 @@ window.GUIDE_DATA = {
   }
  ],
  "augmentRules": {
-  "patch": "16.22.8348910",
+  "patch": "16.23.8396405",
   "levels": [
    3,
    7,
@@ -2162,19 +2194,19 @@ window.GUIDE_DATA = {
   "rerollsPerSlot": 1,
   "odds": {
    "Silver": {
-    "pool": 68,
-    "offer": 0.0441,
-    "withRerolls": 0.0882
+    "pool": 71,
+    "offer": 0.0423,
+    "withRerolls": 0.0845
    },
    "Gold": {
-    "pool": 95,
-    "offer": 0.0316,
-    "withRerolls": 0.0632
+    "pool": 94,
+    "offer": 0.0319,
+    "withRerolls": 0.0638
    },
    "Prismatic": {
-    "pool": 72,
-    "offer": 0.0417,
-    "withRerolls": 0.0833
+    "pool": 71,
+    "offer": 0.0423,
+    "withRerolls": 0.0845
    }
   },
   "grantedItems": [

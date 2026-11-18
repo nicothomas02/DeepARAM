@@ -235,6 +235,8 @@
  "Fortification Timer": "Timer Fortifikasi",
  "Damage To Max Health Ratio": "Rasio Damage ke Health Maksimum",
  "Buff Duration": "Durasi Buff",
+ "AD Per Statue Melee": "AD per Patung (Melee)",
+ "AD Per Statue Ranged Mult": "Pengali AD per Patung (Ranged)",
  "Ranged Damage Multiplier": "Pengali Damage Ranged",
  "Burn Percent Health Damage": "Damage Burn % Health",
  "AP Ratio": "Rasio AP",
@@ -247,12 +249,15 @@
  "Base Shield Ratio": "Rasio Shield Dasar",
  "AD Ratio": "Rasio AD",
  "Active MS": "Move Speed Aktif",
+ "Bulwark Resists": "Resistansi benteng",
+ "Tier1SR Palisade Count": "Jumlah pelat turret luar",
+ "Tier2Palisade Count": "Jumlah pelat turret dalam",
+ "Tier1Palisade Gold": "Gold per pelat turret luar",
+ "Tier2Palisade Value": "Gold per pelat turret dalam",
  "True Sight Radius": "Radius True Sight",
  "OOC Timer": "Timer di Luar Pertarungan",
  "Melee Item Calc Value B": "Nilai Hitung Item Melee B",
  "Ranged Item Calc Value B": "Nilai Hitung Item Ranged B",
  "Base OOCMS": "Move Speed Dasar di Luar Pertarungan",
- "Crit Per Stack Melee": "Crit per Stack (Melee)",
- "AD Per Statue Melee": "AD per Patung (Melee)",
- "AD Per Statue Ranged Mult": "Pengali AD per Patung (Ranged)"
+ "Crit Per Stack Melee": "Crit per Stack (Melee)"
 }

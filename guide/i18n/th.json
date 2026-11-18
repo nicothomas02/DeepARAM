@@ -235,6 +235,8 @@
  "Fortification Timer": "ตัวจับเวลาเสริมป้อม",
  "Damage To Max Health Ratio": "อัตราส่วนความเสียหายต่อพลังชีวิตสูงสุด",
  "Buff Duration": "ระยะเวลาบัฟ",
+ "AD Per Statue Melee": "AD ต่อรูปปั้น (ระยะประชิด)",
+ "AD Per Statue Ranged Mult": "ตัวคูณ AD ต่อรูปปั้น (ระยะไกล)",
  "Ranged Damage Multiplier": "ตัวคูณความเสียหายระยะไกล",
  "Burn Percent Health Damage": "ความเสียหายเผาไหม้ตาม % พลังชีวิต",
  "AP Ratio": "อัตราส่วน AP",
@@ -247,12 +249,15 @@
  "Base Shield Ratio": "อัตราส่วน Shield พื้นฐาน",
  "AD Ratio": "อัตราส่วน AD",
  "Active MS": "ความเร็วเคลื่อนที่ของสกิลกดใช้",
+ "Bulwark Resists": "ค่าต้านทานป้อมปราการ",
+ "Tier1SR Palisade Count": "จำนวนเกราะป้อมด้านนอก",
+ "Tier2Palisade Count": "จำนวนเกราะป้อมด้านใน",
+ "Tier1Palisade Gold": "ทองต่อเกราะป้อมด้านนอก",
+ "Tier2Palisade Value": "ทองต่อเกราะป้อมด้านใน",
  "True Sight Radius": "รัศมี True Sight",
  "OOC Timer": "ตัวจับเวลานอกการต่อสู้",
  "Melee Item Calc Value B": "ค่าคำนวณไอเทมระยะประชิด B",
  "Ranged Item Calc Value B": "ค่าคำนวณไอเทมระยะไกล B",
  "Base OOCMS": "ความเร็วเคลื่อนที่พื้นฐานนอกการต่อสู้",
- "Crit Per Stack Melee": "คริติคอลต่อสแต็ก (ระยะประชิด)",
- "AD Per Statue Melee": "AD ต่อรูปปั้น (ระยะประชิด)",
- "AD Per Statue Ranged Mult": "ตัวคูณ AD ต่อรูปปั้น (ระยะไกล)"
+ "Crit Per Stack Melee": "คริติคอลต่อสแต็ก (ระยะประชิด)"
 }

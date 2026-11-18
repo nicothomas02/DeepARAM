@@ -235,6 +235,8 @@
  "Fortification Timer": "Duración de la fortificación",
  "Damage To Max Health Ratio": "Proporción de daño según la vida máxima",
  "Buff Duration": "Duración de la mejora",
+ "AD Per Statue Melee": "AD por estatua (cuerpo a cuerpo)",
+ "AD Per Statue Ranged Mult": "Multiplicador de AD por estatua (a distancia)",
  "Ranged Damage Multiplier": "Multiplicador de daño (a distancia)",
  "Burn Percent Health Damage": "Daño de quemadura en % de vida",
  "AP Ratio": "Escalado de AP",
@@ -247,12 +249,15 @@
  "Base Shield Ratio": "Proporción de escudo básica",
  "AD Ratio": "Escalado de AD",
  "Active MS": "Velocidad de movimiento de la activa",
+ "Bulwark Resists": "Resistencias de baluarte",
+ "Tier1SR Palisade Count": "Placas de torreta exterior",
+ "Tier2Palisade Count": "Placas de torreta interior",
+ "Tier1Palisade Gold": "Oro por placa de torreta exterior",
+ "Tier2Palisade Value": "Oro por placa de torreta interior",
  "True Sight Radius": "Radio de visión verdadera",
  "OOC Timer": "Tiempo fuera de combate",
  "Melee Item Calc Value B": "Valor de cálculo B del objeto (cuerpo a cuerpo)",
  "Ranged Item Calc Value B": "Valor de cálculo B del objeto (a distancia)",
  "Base OOCMS": "Velocidad de movimiento básica fuera de combate",
- "Crit Per Stack Melee": "Crítico por acumulación (cuerpo a cuerpo)",
- "AD Per Statue Melee": "AD por estatua (cuerpo a cuerpo)",
- "AD Per Statue Ranged Mult": "Multiplicador de AD por estatua (a distancia)"
+ "Crit Per Stack Melee": "Crítico por acumulación (cuerpo a cuerpo)"
 }

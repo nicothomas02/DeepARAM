@@ -235,6 +235,8 @@
  "Fortification Timer": "Tahkimat süresi",
  "Damage To Max Health Ratio": "Azami cana göre hasar oranı",
  "Buff Duration": "Etki süresi",
+ "AD Per Statue Melee": "Heykel başına SG (yakın dövüş)",
+ "AD Per Statue Ranged Mult": "Heykel başına SG çarpanı (menzilli)",
  "Ranged Damage Multiplier": "Menzilli hasar çarpanı",
  "Burn Percent Health Damage": "Yanma hasarı (% can)",
  "AP Ratio": "YG oranı",
@@ -247,12 +249,15 @@
  "Base Shield Ratio": "Taban kalkan oranı",
  "AD Ratio": "SG oranı",
  "Active MS": "Aktif Hareket Hızı",
+ "Bulwark Resists": "Siper dirençleri",
+ "Tier1SR Palisade Count": "Dış kule plaka sayısı",
+ "Tier2Palisade Count": "İç kule plaka sayısı",
+ "Tier1Palisade Gold": "Dış kule plaka altını",
+ "Tier2Palisade Value": "İç kule plaka altını",
  "True Sight Radius": "Gerçek görüş yarıçapı",
  "OOC Timer": "Savaş dışı süresi",
  "Melee Item Calc Value B": "B değeri (yakın dövüş)",
  "Ranged Item Calc Value B": "B değeri (menzilli)",
  "Base OOCMS": "Taban savaş dışı Hareket Hızı",
- "Crit Per Stack Melee": "Yük başına kritik (yakın dövüş)",
- "AD Per Statue Melee": "Heykel başına SG (yakın dövüş)",
- "AD Per Statue Ranged Mult": "Heykel başına SG çarpanı (menzilli)"
+ "Crit Per Stack Melee": "Yük başına kritik (yakın dövüş)"
 }

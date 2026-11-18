@@ -235,6 +235,8 @@
  "Fortification Timer": "Таймер укрепления",
  "Damage To Max Health Ratio": "Коэф. урона от макс. здоровья",
  "Buff Duration": "Длительность усиления",
+ "AD Per Statue Melee": "Сила атаки за статую (ближний бой)",
+ "AD Per Statue Ranged Mult": "Множитель силы атаки за статую (дальний бой)",
  "Ranged Damage Multiplier": "Множитель урона (дальн. бой)",
  "Burn Percent Health Damage": "Урон от горения (% здоровья)",
  "AP Ratio": "Коэф. силы умений",
@@ -247,12 +249,15 @@
  "Base Shield Ratio": "Базовый коэф. щита",
  "AD Ratio": "Коэф. силы атаки",
  "Active MS": "Скорость передвижения (активно)",
+ "Bulwark Resists": "Сопротивления бастиона",
+ "Tier1SR Palisade Count": "Пластины внешней башни",
+ "Tier2Palisade Count": "Пластины внутренней башни",
+ "Tier1Palisade Gold": "Золото за пластину внешней башни",
+ "Tier2Palisade Value": "Золото за пластину внутренней башни",
  "True Sight Radius": "Радиус истинного зрения",
  "OOC Timer": "Таймер вне боя",
  "Melee Item Calc Value B": "Значение B (ближ. бой)",
  "Ranged Item Calc Value B": "Значение B (дальн. бой)",
  "Base OOCMS": "Базовая скорость вне боя",
- "Crit Per Stack Melee": "Крит за заряд (ближ. бой)",
- "AD Per Statue Melee": "Сила атаки за статую (ближний бой)",
- "AD Per Statue Ranged Mult": "Множитель силы атаки за статую (дальний бой)"
+ "Crit Per Stack Melee": "Крит за заряд (ближ. бой)"
 }

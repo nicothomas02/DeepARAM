@@ -235,6 +235,8 @@
  "Fortification Timer": "強化計時",
  "Damage To Max Health Ratio": "傷害轉最大生命比例",
  "Buff Duration": "增益持續時間",
+ "AD Per Statue Melee": "每座雕像物理攻擊（近戰）",
+ "AD Per Statue Ranged Mult": "每座雕像物理攻擊倍率（遠程）",
  "Ranged Damage Multiplier": "遠程傷害倍率",
  "Burn Percent Health Damage": "灼燒百分比生命傷害",
  "AP Ratio": "魔攻係數",
@@ -247,12 +249,15 @@
  "Base Shield Ratio": "基礎護盾係數",
  "AD Ratio": "物攻係數",
  "Active MS": "主動跑速",
+ "Bulwark Resists": "堡壘抗性",
+ "Tier1SR Palisade Count": "外塔護甲片數量",
+ "Tier2Palisade Count": "內塔護甲片數量",
+ "Tier1Palisade Gold": "外塔護甲片金幣",
+ "Tier2Palisade Value": "內塔護甲片金幣",
  "True Sight Radius": "真實視野半徑",
  "OOC Timer": "脫戰計時",
  "Melee Item Calc Value B": "近戰裝備計算值 B",
  "Ranged Item Calc Value B": "遠程裝備計算值 B",
  "Base OOCMS": "脫戰基礎跑速",
- "Crit Per Stack Melee": "每層暴擊率（近戰）",
- "AD Per Statue Melee": "每座雕像物理攻擊（近戰）",
- "AD Per Statue Ranged Mult": "每座雕像物理攻擊倍率（遠程）"
+ "Crit Per Stack Melee": "每層暴擊率（近戰）"
 }
