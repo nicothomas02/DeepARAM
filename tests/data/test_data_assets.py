@@ -130,3 +130,18 @@ def test_no_mirrored_file_over_host_limit():
             if os.path.getsize(p) > cap:
                 big.append(os.path.relpath(p, ASSETS))
     assert not big
+
+
+def test_hourly_asset_run_keeps_the_sites_data_dragon_version(tmp_path, monkeypatch):
+    """Without --refresh, fetch_assets stays on manifest.json's Data Dragon version, so an hourly stats run on
+    patch day can't move (and delete) the image folder pages still point at (26.23: 16.22.1 images went 404)."""
+    import importlib.util
+    import json
+    spec = importlib.util.spec_from_file_location("fetch_assets", repo("web/scripts/fetch_assets.py"))
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    (tmp_path / "manifest.json").write_text(json.dumps({"ddragon_version": "16.22.1"}))
+    monkeypatch.setattr(mod, "OUT", str(tmp_path))
+    assert mod.site_ddragon_version() == "16.22.1"
+    (tmp_path / "manifest.json").unlink()
+    assert mod.site_ddragon_version() is None
