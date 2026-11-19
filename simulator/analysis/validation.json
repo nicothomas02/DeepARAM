@@ -345,8 +345,8 @@
    "sim_dps": 109
   }
  ],
- "patch": "16.22",
- "date": "2026-11-18",
+ "patch": "16.23",
+ "date": "2026-11-19",
  "trials": 300,
  "bootstrap": 2000,
  "history": [
