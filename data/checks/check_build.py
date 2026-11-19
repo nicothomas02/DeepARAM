@@ -8,6 +8,9 @@ Catches the ways a build can work on paper and fail in the game:
   - a combination on the Traps list (data/checks/findings.json, data/checks/curated.json)      (block)
   - a stat loop still waiting for an in-game test (Bug finder)                                 (warn)
   - an item the Simulator likes on the champion while real builds with it win clearly less     (warn)
+  - a slot-fixed augment (Bread And Butter = Q, Bread And Jam = W, Bread And Cheese = E) whose card text
+    ties it to another ability of the champion                                                  (block)
+    (and always a note naming the one ability it affects, so a designer can't mix the slots up)
 
 Usage (from the repo root):
     python3 data/checks/check_build.py Jhin "Tickle Monster" "Big Shot" --items "Infinity Edge"
@@ -23,6 +26,7 @@ Exits 1 when anything blocks. From Python: check(champion, augments, items) -> l
 
 import argparse
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -30,6 +34,68 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import findings as F  # noqa: E402
 
 _cache = {}
+ROOT = Path(__file__).resolve().parents[2]
+CD = ROOT / "web/public/assets/cd/latest"
+SLOTS = "QWER"
+
+
+def _norm(s):
+    return re.sub(r"[^a-z0-9]", "", s.lower())
+
+
+def slot_augments():
+    """{normalized augment name: "Q" | "W" | "E" | "R"} for augments that only ever affect one ability slot.
+    The Mayhem tooltip hides the slot behind {{SpellName}}, so read it from the Arena text (@spell1KeyBind@ = Q)."""
+    if "slots" not in _cache:
+        out = {}
+        f = CD / "cdragon/arena/en_us.json"
+        if f.exists():
+            for a in json.loads(f.read_text(encoding="utf-8")).get("augments", []):
+                keys = set(re.findall(r"@spell([1-4])KeyBind@", (a.get("desc") or "") + (a.get("tooltip") or "")))
+                if len(keys) == 1:
+                    out[_norm(a.get("name", ""))] = SLOTS[int(keys.pop()) - 1]
+        _cache["slots"] = out
+    return _cache["slots"]
+
+
+def abilities(champion_id):
+    """{"Q": "Chomp", ...} from the champion's own ability data, or {} when it isn't there."""
+    f = CD / f"plugins/rcp-be-lol-game-data/global/default/v1/champions/{champion_id}.json"
+    if not f.exists():
+        return {}
+    spells = json.loads(f.read_text(encoding="utf-8")).get("spells", [])
+    return {s["spellKey"].upper(): s["name"] for s in spells if s.get("spellKey", "").upper() in SLOTS}
+
+
+def slot_problems(champ_name, champion_id, augments, text=""):
+    """A note per slot-fixed augment (which ability it affects); a block when the card text puts it on another one.
+    The text check reads each sentence that names the augment: if it names one of the champion's other abilities
+    and not the right one, the card is wrong (Skibidi Pillar put Bread And Butter, a Q augment, on Trundle's E)."""
+    slots, kit = slot_augments(), abilities(champion_id)
+    out = []
+    sentences = re.split(r"(?<=[.!?])\s+|\n", text or "")
+    for a in augments:
+        slot = slots.get(_norm(a))
+        if not slot:
+            continue
+        right = kit.get(slot, slot)
+        out.append({"level": "note", "message": f"{a} only affects {champ_name}'s {slot} ({right}), never a rolled ability."})
+        others = {n for k, n in kit.items() if k != slot}
+        for s in sentences:
+            if a.lower() not in s.lower() or right.lower() in s.lower():
+                continue
+            wrong = sorted(n for n in others if n.lower() in s.lower())
+            if wrong:
+                out.append({"level": "block", "message": f"The card ties {a} to {', '.join(wrong)}, but it only affects {slot} ({right}): \"{s.strip()}\""})
+    return out
+
+
+def card_text(b):
+    """Everything a build card says, for the slot check."""
+    parts = [b.get("tagline", ""), b.get("why", ""), b.get("play", "")]
+    for h in b.get("how") or []:
+        parts += [str(x) for x in h]
+    return "\n".join(p for p in parts if p)
 
 
 def _state():
@@ -44,9 +110,9 @@ def _name(x):
     return x["name"] if isinstance(x, dict) else str(x)
 
 
-def check(champion, augments=(), items=(), d=None, findings=None, fun=False):
+def check(champion, augments=(), items=(), d=None, findings=None, fun=False, text=""):
     """Problems with a build: [{"level": "block" | "warn" | "note", "message": str}]. fun=True (Chef Specials)
-    turns "never seen on this champion" into a note."""
+    turns "never seen on this champion" into a note. text = the card's words, checked against slot-fixed augments."""
     unseen = "note" if fun else "block"
     if d is None or findings is None:
         d, findings = _state()
@@ -88,6 +154,8 @@ def check(champion, augments=(), items=(), d=None, findings=None, fun=False):
                 msg += " " + f["practice"]
             # The Simulator vs real games gap is a warning: the build can still be fun, it just underperforms.
             out.append({"level": "warn" if f["kind"] == "sim" else level, "message": msg})
+    if champ.get("champion_id") is not None:
+        out += slot_problems(champ["name"], champ["champion_id"], [_name(a) for a in augments], text)
     return out
 
 
@@ -106,6 +174,7 @@ def main():
     ap.add_argument("--items", nargs="*", default=[])
     ap.add_argument("--chef", action="store_true", help="check today's Chef Special")
     ap.add_argument("--kitchen", action="store_true", help="check every Kitchen build")
+    ap.add_argument("--text", default="", help="the card's text (why, how boxes, play), to check slot-fixed augments")
     ap.add_argument("--fun", action="store_true", help="a just-for-fun build (Chef Special): unseen augments are only a note")
     a = ap.parse_args()
     d, _ = _state()
@@ -113,9 +182,10 @@ def main():
     if a.chef or a.kitchen:
         builds = [b for b in d["kitchen"] if a.kitchen or b["source"] == "chef"]
         for b in {b["id"]: b for b in builds}.values():
-            blocked |= _report(b["id"], check(b.get("champion_name") or b["champion"], b.get("augments", []), b.get("items", []), fun=True))
+            blocked |= _report(b["id"], check(b.get("champion_name") or b["champion"], b.get("augments", []), b.get("items", []), fun=True,
+                                                 text=card_text(b)))
     elif a.champion:
-        blocked = _report(a.champion, check(a.champion, a.augments, a.items, fun=a.fun))
+        blocked = _report(a.champion, check(a.champion, a.augments, a.items, fun=a.fun, text=a.text))
     else:
         ap.error("give a champion and augments, or --chef / --kitchen")
     sys.exit(1 if blocked else 0)

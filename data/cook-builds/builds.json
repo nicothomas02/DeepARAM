@@ -609,7 +609,7 @@
         "Circle of Death",
         "Don't Change the Channel",
         "Mosh Monster",
-        "Bread And Butter"
+        "Bread And Jam"
       ],
       "core": 4,
       "items": [
@@ -628,7 +628,7 @@
         ],
         [
           "Augments",
-          "Circle of Death turns his healing into damage, Don't Change the Channel shields him every second he sits, and Mosh Monster and Bread And Butter, rolled on Meditate, slow everyone around him and let him sit again almost right away."
+          "Circle of Death turns his healing into damage and Don't Change the Channel shields him every second he sits. Mosh Monster, rolled on Meditate, slows everyone around him, and Bread And Jam (his W) lets him sit again almost right away."
         ],
         [
           "Items",

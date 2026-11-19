@@ -81,7 +81,7 @@
     "ar": {
       "title": "عمود سكيبيدي",
       "why": "ترندل لا يستخدم العضة أبدًا. يكرر عمود الجليد حتى يتحول فريق الخصم إلى آلة بينبول.",
-      "play": "Drop the pillar right under the enemy carry, aim them into a teammate, repeat. Never press Q, never right-click.",
+      "play": "ضع العمود تحت حامل الضرر الخصم مباشرة، وارمِه على زميله، وكرر. لا تضغط Q أبدًا، ولا تنقر بالزر الأيمن أبدًا.",
       "tagline": "توقف عن عض الناس. العمود هو من يتكلم الآن.",
       "how": [
         [
@@ -90,11 +90,11 @@
         ],
         [
           "التعزيزات",
-          "Rolled on Pillar of Ice: Terrain'd makes it hit everything around it and Chain Reaction bounces the knocked-back enemy into their friends. Ice Cold makes the slow brutal, and Purist - Caster turns the attack speed he never uses into more pillars."
+          "على عمود الجليد: سلاح التضاريس يجعله يضرب كل ما حوله، وسلسلة التفاعلات ترمي الخصم المدفوع على أصدقائه. بارد كالثلج يجعل الإبطاء وحشيًا، والنقيّ - ملقي التعويذات يحوّل سرعة الهجوم التي لا يستخدمها أبدًا إلى أعمدة أكثر."
         ],
         [
           "العتاد",
-          "Rylai's and Frozen Heart pile on more slow, Imperial Mandate marks everyone the pillar knocks back, and Cosmic Drive and Shurelya's make every pillar come back faster."
+          "صولجان كريستال رايلاي والقلب المتجمد يضيفان المزيد من الإبطاء، والوصاية الإمبراطورية تَسِم كل من يدفعه العمود، والحافز الكوني ونشيد معركة شوريليا يعيدان كل عمود أسرع."
         ]
       ],
       "augments": [
@@ -107,7 +107,7 @@
     "cs": {
       "title": "Skibidi sloup",
       "why": "Trundle nikdy nepoužívá Kousance. Spamuje Sloup ledu, dokud z nepřátelského týmu není pinballový automat.",
-      "play": "Drop the pillar right under the enemy carry, aim them into a teammate, repeat. Never press Q, never right-click.",
+      "play": "Postav sloup přímo pod nepřátelského carryho, napal ho do jeho spoluhráče a opakuj. Nikdy nemačkej Q, nikdy neklikej pravým.",
       "tagline": "Přestal kousat lidi. Teď za něj mluví sloup.",
       "how": [
         [
@@ -116,11 +116,11 @@
         ],
         [
           "Augmenty",
-          "Rolled on Pillar of Ice: Terrain'd makes it hit everything around it and Chain Reaction bounces the knocked-back enemy into their friends. Ice Cold makes the slow brutal, and Purist - Caster turns the attack speed he never uses into more pillars."
+          "Padlé na Sloup ledu: Nebezpečný terén ho nechá zasáhnout všechno kolem a Řetězová reakce napálí odhozeného nepřítele do jeho kamarádů. Kostimráz udělá zpomalení brutálním a Ryzí sesilatel promění rychlost útoku, kterou nikdy nepoužije, v další sloupy."
         ],
         [
           "Předměty",
-          "Rylai's and Frozen Heart pile on more slow, Imperial Mandate marks everyone the pillar knocks back, and Cosmic Drive and Shurelya's make every pillar come back faster."
+          "Rylaino křišťálové žezlo a Ledové srdce přidají ještě víc zpomalení, Říšský rozkaz označí každého, koho sloup odhodí, a Kosmický pohon se Shurelyinou bitevní písní vrátí každý sloup rychleji."
         ]
       ],
       "augments": [
@@ -133,7 +133,7 @@
     "de": {
       "title": "Skibidi-Säule",
       "why": "Trundle benutzt nie Mampfen. Er spammt Eissäule, bis das Gegnerteam ein Flipperautomat ist.",
-      "play": "Drop the pillar right under the enemy carry, aim them into a teammate, repeat. Never press Q, never right-click.",
+      "play": "Setz die Säule direkt unter den gegnerischen Carry, schieß ihn in einen Teamkollegen, wiederholen. Niemals Q drücken, niemals rechtsklicken.",
       "tagline": "Er beißt keine Leute mehr. Jetzt redet nur noch die Säule.",
       "how": [
         [
@@ -142,11 +142,11 @@
         ],
         [
           "Augments",
-          "Rolled on Pillar of Ice: Terrain'd makes it hit everything around it and Chain Reaction bounces the knocked-back enemy into their friends. Ice Cold makes the slow brutal, and Purist - Caster turns the attack speed he never uses into more pillars."
+          "Auf Eissäule gerollt: Terrainiert lässt sie alles drumherum treffen und Kettenreaktion schleudert den zurückgestoßenen Gegner in seine Freunde. Eiskalt macht die Verlangsamung brutal, und Purist – Zauberer macht aus dem Angriffstempo, das er nie benutzt, noch mehr Säulen."
         ],
         [
           "Gegenstände",
-          "Rylai's and Frozen Heart pile on more slow, Imperial Mandate marks everyone the pillar knocks back, and Cosmic Drive and Shurelya's make every pillar come back faster."
+          "Rylais Kristallzepter und Gefrorenes Herz stapeln noch mehr Verlangsamung, Imperiale Verfügung markiert jeden, den die Säule zurückstößt, und Kosmischer Antrieb und Shurelyas Kampfhymne lassen jede Säule schneller zurückkommen."
         ]
       ],
       "augments": [
@@ -159,7 +159,7 @@
     "el": {
       "title": "Skibidi Βράχος",
       "why": "Ο Τράντλ δεν χρησιμοποιεί ποτέ το Δάγκωμα. Κάνει spam τον Παγωμένο Βράχο μέχρι η αντίπαλη ομάδα να γίνει φλίπερ.",
-      "play": "Drop the pillar right under the enemy carry, aim them into a teammate, repeat. Never press Q, never right-click.",
+      "play": "Ρίξε τον βράχο ακριβώς κάτω από τον αντίπαλο carry, στείλ' τον πάνω σε σύμμαχό του, επανάλαβε. Μην πατήσεις ποτέ Q, μην κάνεις ποτέ δεξί κλικ.",
       "tagline": "Σταμάτησε να δαγκώνει κόσμο. Τώρα μιλάει μόνο ο βράχος.",
       "how": [
         [
@@ -168,11 +168,11 @@
         ],
         [
           "Ενισχύσεις",
-          "Rolled on Pillar of Ice: Terrain'd makes it hit everything around it and Chain Reaction bounces the knocked-back enemy into their friends. Ice Cold makes the slow brutal, and Purist - Caster turns the attack speed he never uses into more pillars."
+          "Στον Παγωμένο Βράχο: το Ένα με το Έδαφος τον κάνει να χτυπά τα πάντα γύρω του και η Αλυσιδωτή Αντίδραση εκτοξεύει τον αντίπαλο πάνω στους φίλους του. Το Παγωμένος κάνει την επιβράδυνση βάναυση, και το Καθαρολόγος - Μάγος κάνει την ταχύτητα επίθεσης που δεν χρησιμοποιεί ποτέ περισσότερους βράχους."
         ],
         [
           "Αντικείμενα",
-          "Rylai's and Frozen Heart pile on more slow, Imperial Mandate marks everyone the pillar knocks back, and Cosmic Drive and Shurelya's make every pillar come back faster."
+          "Το Σκήπτρο της Ριλάι και η Παγωμένη Καρδιά προσθέτουν κι άλλη επιβράδυνση, η Αυτοκρατορική Διαταγή σημαδεύει όποιον απωθεί ο βράχος, και η Κοσμική Ενέργεια με το Πολεμικό Άσμα της Σουρέλια φέρνουν κάθε βράχο πιο γρήγορα."
         ]
       ],
       "augments": [
@@ -185,7 +185,7 @@
     "es-MX": {
       "title": "Pilar Skibidi",
       "why": "Trundle nunca usa Mascar. Spamea Pilar de Hielo hasta que el equipo enemigo parece una máquina de pinball.",
-      "play": "Drop the pillar right under the enemy carry, aim them into a teammate, repeat. Never press Q, never right-click.",
+      "play": "Pon el pilar justo debajo del carry enemigo, mándalo contra un compañero suyo y repite. Nunca presiones Q, nunca hagas clic derecho.",
       "tagline": "Ya no muerde a nadie. Ahora el pilar habla por él.",
       "how": [
         [
@@ -194,11 +194,11 @@
         ],
         [
           "Aumentos",
-          "Rolled on Pillar of Ice: Terrain'd makes it hit everything around it and Chain Reaction bounces the knocked-back enemy into their friends. Ice Cold makes the slow brutal, and Purist - Caster turns the attack speed he never uses into more pillars."
+          "Asignados a Pilar de Hielo: Terraneitor hace que golpee todo a su alrededor y Reacción en Cadena lanza al enemigo empujado contra sus amigos. Frío como el Hielo hace que la ralentización sea brutal, y Purista: Hechicero convierte la velocidad de ataque que nunca usa en más pilares."
         ],
         [
           "Objetos",
-          "Rylai's and Frozen Heart pile on more slow, Imperial Mandate marks everyone the pillar knocks back, and Cosmic Drive and Shurelya's make every pillar come back faster."
+          "Cetro de Cristal de Rylai y Corazón de Hielo acumulan aún más ralentización, Mandato Imperial marca a todos los que el pilar empuja, e Impulso Cósmico y Canto de Guerra de Shurelya hacen que cada pilar vuelva más rápido."
         ]
       ],
       "augments": [
@@ -211,7 +211,7 @@
     "es": {
       "title": "Pilar Skibidi",
       "why": "Trundle nunca usa Mascar. Spamea Pilar de hielo hasta que el equipo enemigo parece una máquina de pinball.",
-      "play": "Drop the pillar right under the enemy carry, aim them into a teammate, repeat. Never press Q, never right-click.",
+      "play": "Pon el pilar justo debajo del carry enemigo, mándalo contra un compañero suyo y repite. Nunca pulses Q, nunca hagas clic derecho.",
       "tagline": "Ya no muerde a nadie. Ahora el pilar habla por él.",
       "how": [
         [
@@ -220,11 +220,11 @@
         ],
         [
           "Aumentos",
-          "Rolled on Pillar of Ice: Terrain'd makes it hit everything around it and Chain Reaction bounces the knocked-back enemy into their friends. Ice Cold makes the slow brutal, and Purist - Caster turns the attack speed he never uses into more pillars."
+          "Asignados a Pilar de hielo: Terrinator hace que golpee todo a su alrededor y Reacción en cadena lanza al enemigo empujado contra sus amigos. Algidez hace que la ralentización sea brutal, y Purista - Lanzador convierte la velocidad de ataque que nunca usa en más pilares."
         ],
         [
           "Objetos",
-          "Rylai's and Frozen Heart pile on more slow, Imperial Mandate marks everyone the pillar knocks back, and Cosmic Drive and Shurelya's make every pillar come back faster."
+          "Cetro de cristal de Rylai y Corazón de hielo apilan aún más ralentización, Mandato imperial marca a todos los que el pilar empuja, e Impulso cósmico y Canción de batalla de Shurelya hacen que cada pilar vuelva antes."
         ]
       ],
       "augments": [
@@ -237,7 +237,7 @@
     "fr": {
       "title": "Pilier Skibidi",
       "why": "Trundle n'utilise jamais Morsure. Il spamme Montagne de glace jusqu'à transformer l'équipe adverse en flipper.",
-      "play": "Drop the pillar right under the enemy carry, aim them into a teammate, repeat. Never press Q, never right-click.",
+      "play": "Pose le pilier pile sous le carry ennemi, envoie-le dans un de ses coéquipiers, recommence. N'appuie jamais sur Q, ne fais jamais de clic droit.",
       "tagline": "Il ne mord plus personne. C'est le pilier qui parle maintenant.",
       "how": [
         [
@@ -246,11 +246,11 @@
         ],
         [
           "Augments",
-          "Rolled on Pillar of Ice: Terrain'd makes it hit everything around it and Chain Reaction bounces the knocked-back enemy into their friends. Ice Cold makes the slow brutal, and Purist - Caster turns the attack speed he never uses into more pillars."
+          "Obtenus sur Montagne de glace : Terrain la fait toucher tout ce qui l'entoure et Réaction en chaîne envoie l'ennemi repoussé dans ses alliés. Froid glacial rend le ralentissement brutal, et Puriste - Lanceur de compétence transforme la vitesse d'attaque qu'il n'utilise jamais en encore plus de piliers."
         ],
         [
           "Objets",
-          "Rylai's and Frozen Heart pile on more slow, Imperial Mandate marks everyone the pillar knocks back, and Cosmic Drive and Shurelya's make every pillar come back faster."
+          "Sceptre de Rylai et Cœur gelé empilent encore plus de ralentissement, Mandat impérial marque tous ceux que le pilier repousse, et Volonté cosmique et Chant de guerre de Shurelya font revenir chaque pilier plus vite."
         ]
       ],
       "augments": [
@@ -263,7 +263,7 @@
     "hu": {
       "title": "Skibidi oszlop",
       "why": "Trundle soha nem használja a Veszett harapást. Addig spammeli a Jégoszlopot, amíg az ellenfél csapata flipperré nem válik.",
-      "play": "Drop the pillar right under the enemy carry, aim them into a teammate, repeat. Never press Q, never right-click.",
+      "play": "Tedd az oszlopot pont az ellenséges carry alá, lődd bele egy csapattársába, ismételd. Soha ne nyomd meg a Q-t, soha ne kattints jobb gombbal.",
       "tagline": "Már nem harap meg senkit. Most az oszlop beszél helyette.",
       "how": [
         [
@@ -272,11 +272,11 @@
         ],
         [
           "Bővítések",
-          "Rolled on Pillar of Ice: Terrain'd makes it hit everything around it and Chain Reaction bounces the knocked-back enemy into their friends. Ice Cold makes the slow brutal, and Purist - Caster turns the attack speed he never uses into more pillars."
+          "A Jégoszlopra dobva: a Tereplés miatt mindent eltalál maga körül, a Láncreakció pedig a visszalökött ellenfelet a barátaiba csapja. A Jéghideg brutálissá teszi a lassítást, a Purista – Varázsló pedig a sosem használt támadási sebességét még több oszloppá alakítja."
         ],
         [
           "Tárgyak",
-          "Rylai's and Frozen Heart pile on more slow, Imperial Mandate marks everyone the pillar knocks back, and Cosmic Drive and Shurelya's make every pillar come back faster."
+          "Rylai kristálybotja és a Fagyos szív még több lassítást halmoz, a Birodalmi parancs megjelöl mindenkit, akit az oszlop visszalök, a Kozmikus hajtómű és Shurelia csatadala pedig minden oszlopot gyorsabban hoz vissza."
         ]
       ],
       "augments": [
@@ -289,7 +289,7 @@
     "id": {
       "title": "Pilar Skibidi",
       "why": "Trundle nggak pernah pakai Chomp. Dia spam Pillar of Ice sampai tim musuh jadi mesin pinball.",
-      "play": "Drop the pillar right under the enemy carry, aim them into a teammate, repeat. Never press Q, never right-click.",
+      "play": "Taruh pilar tepat di bawah carry musuh, lempar dia ke rekan setimnya, ulangi. Jangan pernah tekan Q, jangan pernah klik kanan.",
       "tagline": "Dia sudah berhenti menggigit orang. Sekarang pilarnya yang bicara.",
       "how": [
         [
@@ -298,11 +298,11 @@
         ],
         [
           "Augment",
-          "Rolled on Pillar of Ice: Terrain'd makes it hit everything around it and Chain Reaction bounces the knocked-back enemy into their friends. Ice Cold makes the slow brutal, and Purist - Caster turns the attack speed he never uses into more pillars."
+          "Didapat di Pillar of Ice: Terrain'd membuatnya mengenai semua di sekitarnya dan Chain Reaction melempar musuh yang terhempas ke teman-temannya. Ice Cold bikin slow-nya brutal, dan Purist - Caster mengubah attack speed yang nggak pernah dia pakai jadi lebih banyak pilar."
         ],
         [
           "Item",
-          "Rylai's and Frozen Heart pile on more slow, Imperial Mandate marks everyone the pillar knocks back, and Cosmic Drive and Shurelya's make every pillar come back faster."
+          "Rylai's Crystal Scepter dan Frozen Heart menumpuk slow lebih banyak, Imperial Mandate menandai semua yang dihempas pilar, dan Cosmic Drive serta Shurelya's Battlesong bikin tiap pilar kembali lebih cepat."
         ]
       ],
       "augments": [
@@ -315,7 +315,7 @@
     "it": {
       "title": "Pilastro Skibidi",
       "why": "Trundle non usa mai Morso. Spamma Pilastro di ghiaccio finché la squadra nemica non diventa un flipper.",
-      "play": "Drop the pillar right under the enemy carry, aim them into a teammate, repeat. Never press Q, never right-click.",
+      "play": "Piazza il pilastro proprio sotto il carry nemico, sparalo contro un suo compagno, ripeti. Non premere mai Q, non cliccare mai col destro.",
       "tagline": "Non morde più nessuno. Adesso parla solo il pilastro.",
       "how": [
         [
@@ -324,11 +324,11 @@
         ],
         [
           "Potenziamenti",
-          "Rolled on Pillar of Ice: Terrain'd makes it hit everything around it and Chain Reaction bounces the knocked-back enemy into their friends. Ice Cold makes the slow brutal, and Purist - Caster turns the attack speed he never uses into more pillars."
+          "Ottenuti su Pilastro di ghiaccio: Colpa del terreno lo fa colpire tutto intorno e Reazione a catena scaraventa il nemico respinto contro i suoi amici. Freddo come il ghiaccio rende il rallentamento brutale, e Purista - Mago trasforma la velocità d'attacco che non usa mai in altri pilastri."
         ],
         [
           "Oggetti",
-          "Rylai's and Frozen Heart pile on more slow, Imperial Mandate marks everyone the pillar knocks back, and Cosmic Drive and Shurelya's make every pillar come back faster."
+          "Scettro di cristallo di Rylai e Fulcro dei geli accumulano ancora più rallentamento, Mandato imperiale marchia tutti quelli che il pilastro respinge, e Spirito cosmico e Canto di guerra di Shurelya fanno tornare ogni pilastro più in fretta."
         ]
       ],
       "augments": [
@@ -341,7 +341,7 @@
     "ja": {
       "title": "スキビディ柱",
       "why": "トランドルは咬み付きを絶対に使わない。敵チームがピンボール台になるまで氷冷の柱を連打する。",
-      "play": "Drop the pillar right under the enemy carry, aim them into a teammate, repeat. Never press Q, never right-click.",
+      "play": "敵キャリーの真下に柱を立てて味方側へ吹っ飛ばし、繰り返す。Qも右クリックも絶対に押さないこと。",
       "tagline": "もう誰も噛まない。これからは柱が語る。",
       "how": [
         [
@@ -350,11 +350,11 @@
         ],
         [
           "オーグメント",
-          "Rolled on Pillar of Ice: Terrain'd makes it hit everything around it and Chain Reaction bounces the knocked-back enemy into their friends. Ice Cold makes the slow brutal, and Purist - Caster turns the attack speed he never uses into more pillars."
+          "氷冷の柱に付与：地形でドンで周囲すべてにダメージ、連鎖反応でノックバックした敵を仲間にぶつける。結氷でスロウがえげつなくなり、純粋なるキャスターで使わない攻撃速度がさらなる柱に変わる。"
         ],
         [
           "アイテム",
-          "Rylai's and Frozen Heart pile on more slow, Imperial Mandate marks everyone the pillar knocks back, and Cosmic Drive and Shurelya's make every pillar come back faster."
+          "リーライ クリスタル セプターとフローズン ハートでさらにスロウを重ね、帝国の指令で柱が吹き飛ばした全員にマーク。コズミック ドライブとシュレリアの戦歌で柱がどんどん戻ってくる。"
         ]
       ],
       "augments": [
@@ -367,7 +367,7 @@
     "ko": {
       "title": "스키비디 기둥",
       "why": "트런들은 깨물기를 절대 쓰지 않습니다. 적 팀이 핀볼 기계가 될 때까지 얼음 기둥만 난사합니다.",
-      "play": "Drop the pillar right under the enemy carry, aim them into a teammate, repeat. Never press Q, never right-click.",
+      "play": "적 원딜 바로 밑에 기둥을 세우고 그 팀원 쪽으로 날려 보낸 뒤 반복하세요. Q도 우클릭도 절대 누르지 마세요.",
       "tagline": "이제 아무도 안 깨뭅니다. 말은 기둥이 다 합니다.",
       "how": [
         [
@@ -376,11 +376,11 @@
         ],
         [
           "증강",
-          "Rolled on Pillar of Ice: Terrain'd makes it hit everything around it and Chain Reaction bounces the knocked-back enemy into their friends. Ice Cold makes the slow brutal, and Purist - Caster turns the attack speed he never uses into more pillars."
+          "얼음 기둥에 붙이면: 지형 생성됨으로 주변 모두를 때리고, 연쇄 반응으로 밀려난 적을 친구들에게 꽂습니다. 차가운 냉기로 둔화가 잔인해지고, 순수주의자 - 마법사가 한 번도 안 쓰는 공격 속도를 더 많은 기둥으로 바꿉니다."
         ],
         [
           "아이템",
-          "Rylai's and Frozen Heart pile on more slow, Imperial Mandate marks everyone the pillar knocks back, and Cosmic Drive and Shurelya's make every pillar come back faster."
+          "라일라이의 수정홀과 얼어붙은 심장이 둔화를 더 쌓고, 제국의 명령이 기둥에 밀려난 모두에게 표식을 남기며, 우주의 추진력과 슈렐리아의 군가가 기둥을 더 빨리 돌려줍니다."
         ]
       ],
       "augments": [
@@ -393,7 +393,7 @@
     "pl": {
       "title": "Skibidi Kolumna",
       "why": "Trundle nigdy nie używa Chapsa. Spamuje Kolumnę Lodu, aż drużyna wroga zamieni się w automat do pinballa.",
-      "play": "Drop the pillar right under the enemy carry, aim them into a teammate, repeat. Never press Q, never right-click.",
+      "play": "Postaw kolumnę prosto pod wrogim carry, wbij go w jego sojusznika, powtórz. Nigdy nie wciskaj Q, nigdy nie klikaj prawym.",
       "tagline": "Przestał gryźć ludzi. Teraz gada tylko kolumna.",
       "how": [
         [
@@ -402,11 +402,11 @@
         ],
         [
           "Wzmocnienia",
-          "Rolled on Pillar of Ice: Terrain'd makes it hit everything around it and Chain Reaction bounces the knocked-back enemy into their friends. Ice Cold makes the slow brutal, and Purist - Caster turns the attack speed he never uses into more pillars."
+          "Wylosowane na Kolumnie Lodu: Terenowość sprawia, że trafia wszystko dookoła, a Reakcja Łańcuchowa wbija odrzuconego wroga w jego kumpli. Zimny jak Lód sprawia, że spowolnienie jest brutalne, a Purysta — mag zamienia prędkość ataku, której nigdy nie używa, w kolejne kolumny."
         ],
         [
           "Przedmioty",
-          "Rylai's and Frozen Heart pile on more slow, Imperial Mandate marks everyone the pillar knocks back, and Cosmic Drive and Shurelya's make every pillar come back faster."
+          "Kryształowy Kostur Rylai i Mroźne Serce dokładają jeszcze więcej spowolnienia, Imperialny Mandat oznacza każdego, kogo kolumna odrzuci, a Kosmiczny Impuls i Pieśń Bitewna Shurelyi sprawiają, że każda kolumna wraca szybciej."
         ]
       ],
       "augments": [
@@ -419,7 +419,7 @@
     "pt-BR": {
       "title": "Pilar Skibidi",
       "why": "Trundle nunca usa Mordida. Ele spamma Pilar de Gelo até o time inimigo virar uma máquina de pinball.",
-      "play": "Drop the pillar right under the enemy carry, aim them into a teammate, repeat. Never press Q, never right-click.",
+      "play": "Solte o pilar bem embaixo do carry inimigo, jogue ele num aliado dele e repita. Nunca aperte Q, nunca clique com o botão direito.",
       "tagline": "Ele parou de morder os outros. Agora quem fala é o pilar.",
       "how": [
         [
@@ -428,11 +428,11 @@
         ],
         [
           "Aumentos",
-          "Rolled on Pillar of Ice: Terrain'd makes it hit everything around it and Chain Reaction bounces the knocked-back enemy into their friends. Ice Cold makes the slow brutal, and Purist - Caster turns the attack speed he never uses into more pillars."
+          "Sorteados no Pilar de Gelo: Aterramento faz ele acertar tudo em volta e Reação em Cadeia arremessa o inimigo empurrado nos amigos dele. Geladinho deixa a lentidão brutal, e Purista - Conjurador transforma a velocidade de ataque que ele nunca usa em mais pilares."
         ],
         [
           "Itens",
-          "Rylai's and Frozen Heart pile on more slow, Imperial Mandate marks everyone the pillar knocks back, and Cosmic Drive and Shurelya's make every pillar come back faster."
+          "Cetro de Cristal de Rylai e Coração Congelado acumulam ainda mais lentidão, Mandato Imperial marca todo mundo que o pilar empurra, e Ímpeto Cósmico e Hino Bélico de Shurelya fazem cada pilar voltar mais rápido."
         ]
       ],
       "augments": [
@@ -445,7 +445,7 @@
     "ro": {
       "title": "Stâlpul Skibidi",
       "why": "Trundle nu folosește niciodată Mușcătură. Dă spam cu Stâlp de gheață până când echipa inamică devine un flipper.",
-      "play": "Drop the pillar right under the enemy carry, aim them into a teammate, repeat. Never press Q, never right-click.",
+      "play": "Pune stâlpul fix sub carry-ul inamic, trimite-l într-un coechipier de-al lui, repetă. Nu apăsa niciodată Q, nu da niciodată click dreapta.",
       "tagline": "Nu mai mușcă pe nimeni. Acum vorbește doar stâlpul.",
       "how": [
         [
@@ -454,11 +454,11 @@
         ],
         [
           "Augmentări",
-          "Rolled on Pillar of Ice: Terrain'd makes it hit everything around it and Chain Reaction bounces the knocked-back enemy into their friends. Ice Cold makes the slow brutal, and Purist - Caster turns the attack speed he never uses into more pillars."
+          "Primite pe Stâlp de gheață: Teren special îl face să lovească tot ce e în jur, iar Reacție în lanț aruncă inamicul respins în prietenii lui. Rece ca gheața face încetinirea brutală, iar Purist – Mag transformă viteza de atac pe care nu o folosește niciodată în și mai mulți stâlpi."
         ],
         [
           "Obiecte",
-          "Rylai's and Frozen Heart pile on more slow, Imperial Mandate marks everyone the pillar knocks back, and Cosmic Drive and Shurelya's make every pillar come back faster."
+          "Sceptrul de cristal al lui Rylai și Inimă înghețată adaugă și mai multă încetinire, Decret imperial marchează pe toți cei respinși de stâlp, iar Avânt cosmic și Cântecul de luptă al Shurelyei aduc fiecare stâlp înapoi mai repede."
         ]
       ],
       "augments": [
@@ -471,7 +471,7 @@
     "ru": {
       "title": "Скибиди-столп",
       "why": "Трандл никогда не использует Укус. Он спамит Ледяной столп, пока вражеская команда не превратится в пинбол.",
-      "play": "Drop the pillar right under the enemy carry, aim them into a teammate, repeat. Never press Q, never right-click.",
+      "play": "Ставь столп прямо под вражеского керри, отправь его в союзника, повторяй. Никогда не жми Q и не кликай правой кнопкой.",
       "tagline": "Он больше никого не кусает. Теперь за него говорит столп.",
       "how": [
         [
@@ -480,11 +480,11 @@
         ],
         [
           "Аугменты",
-          "Rolled on Pillar of Ice: Terrain'd makes it hit everything around it and Chain Reaction bounces the knocked-back enemy into their friends. Ice Cold makes the slow brutal, and Purist - Caster turns the attack speed he never uses into more pillars."
+          "Выпавшие на Ледяной столп: Угроза снизу заставляет его бить всё вокруг, а Цепная реакция швыряет отброшенного врага в его друзей. Дикий холод делает замедление жестоким, а Принципиальность – умения превращает скорость атаки, которой он не пользуется, в новые столпы."
         ],
         [
           "Предметы",
-          "Rylai's and Frozen Heart pile on more slow, Imperial Mandate marks everyone the pillar knocks back, and Cosmic Drive and Shurelya's make every pillar come back faster."
+          "Хрустальный скипетр Рилай и Ледяное сердце добавляют ещё больше замедления, Имперский мандат помечает всех, кого отбросил столп, а Космический ускоритель и Боевая песнь Шурелии быстрее возвращают каждый столп."
         ]
       ],
       "augments": [
@@ -497,7 +497,7 @@
     "th": {
       "title": "เสาสกิบิดี้",
       "why": "Trundle ไม่เคยใช้ Chomp เลย เขากด Pillar of Ice รัว ๆ จนทีมศัตรูกลายเป็นเครื่องพินบอล",
-      "play": "Drop the pillar right under the enemy carry, aim them into a teammate, repeat. Never press Q, never right-click.",
+      "play": "วางเสาใต้ตัวแครี่ศัตรูพอดี ดีดมันไปชนเพื่อนตัวเอง แล้วทำซ้ำ ห้ามกด Q และห้ามคลิกขวาเด็ดขาด",
       "tagline": "เขาเลิกกัดคนแล้ว ตอนนี้เสาพูดแทนทุกอย่าง",
       "how": [
         [
@@ -506,11 +506,11 @@
         ],
         [
           "Augment",
-          "Rolled on Pillar of Ice: Terrain'd makes it hit everything around it and Chain Reaction bounces the knocked-back enemy into their friends. Ice Cold makes the slow brutal, and Purist - Caster turns the attack speed he never uses into more pillars."
+          "สุ่มได้บน Pillar of Ice: Terrain'd ทำให้มันโดนทุกอย่างรอบตัว และ Chain Reaction ดีดศัตรูที่ถูกผลักไปชนเพื่อน Ice Cold ทำให้สโลว์โหดสุด ๆ และ Purist - Caster เปลี่ยนความเร็วโจมตีที่เขาไม่เคยใช้เป็นเสาเพิ่มอีก"
         ],
         [
           "ไอเทม",
-          "Rylai's and Frozen Heart pile on more slow, Imperial Mandate marks everyone the pillar knocks back, and Cosmic Drive and Shurelya's make every pillar come back faster."
+          "Rylai's Crystal Scepter กับ Frozen Heart เพิ่มสโลว์อีก Imperial Mandate มาร์กทุกคนที่โดนเสาผลัก ส่วน Cosmic Drive กับ Shurelya's Battlesong ทำให้เสาแต่ละอันกลับมาเร็วขึ้น"
         ]
       ],
       "augments": [
@@ -523,7 +523,7 @@
     "tr": {
       "title": "Skibidi Sütun",
       "why": "Trundle asla Kopar kullanmaz. Rakip takım tilt makinesine dönene kadar Buzdan Sütun spamlar.",
-      "play": "Drop the pillar right under the enemy carry, aim them into a teammate, repeat. Never press Q, never right-click.",
+      "play": "Sütunu tam rakip carry'nin altına koy, onu takım arkadaşının üstüne fırlat, tekrarla. Asla Q'ya basma, asla sağ tıklama.",
       "tagline": "Artık kimseyi ısırmıyor. Konuşmayı sütun yapıyor.",
       "how": [
         [
@@ -532,11 +532,11 @@
         ],
         [
           "Güçlendirmeler",
-          "Rolled on Pillar of Ice: Terrain'd makes it hit everything around it and Chain Reaction bounces the knocked-back enemy into their friends. Ice Cold makes the slow brutal, and Purist - Caster turns the attack speed he never uses into more pillars."
+          "Buzdan Sütun'a gelirse: Yüzey Şeklinç etrafındaki her şeye vurmasını sağlar, Zincirleme Reaksiyon da geri itilen rakibi arkadaşlarına çarptırır. Buz Gibi yavaşlatmayı acımasız yapar, Saf Yetenek de hiç kullanmadığı saldırı hızını daha çok sütuna çevirir."
         ],
         [
           "Eşyalar",
-          "Rylai's and Frozen Heart pile on more slow, Imperial Mandate marks everyone the pillar knocks back, and Cosmic Drive and Shurelya's make every pillar come back faster."
+          "Rylai'nin Kristal Asası ve Donmuş Yürek daha da fazla yavaşlatma ekler, İmparatorun Fermanı sütunun geri ittiği herkesi işaretler, Kozmik Hızlandırıcı ve Shurelya'nın Savaş Şarkısı da her sütunu daha hızlı geri getirir."
         ]
       ],
       "augments": [
@@ -549,7 +549,7 @@
     "vi": {
       "title": "Cột Skibidi",
       "why": "Trundle không bao giờ dùng Nhai Nuốt. Anh spam Cột Băng đến khi đội địch thành cái máy pinball.",
-      "play": "Drop the pillar right under the enemy carry, aim them into a teammate, repeat. Never press Q, never right-click.",
+      "play": "Dựng cột ngay dưới chân carry địch, hất nó vào đồng đội của nó, lặp lại. Đừng bao giờ bấm Q, đừng bao giờ click chuột phải.",
       "tagline": "Anh không cắn ai nữa. Giờ cái cột lo hết.",
       "how": [
         [
@@ -558,11 +558,11 @@
         ],
         [
           "Lõi nâng cấp",
-          "Rolled on Pillar of Ice: Terrain'd makes it hit everything around it and Chain Reaction bounces the knocked-back enemy into their friends. Ice Cold makes the slow brutal, and Purist - Caster turns the attack speed he never uses into more pillars."
+          "Đặt vào Cột Băng: Kiến Tạo Địa Hình cho nó đánh mọi thứ xung quanh và Phản Ứng Dây Chuyền hất kẻ địch bị đẩy lùi vào bạn bè của nó. Băng Lạnh khiến hiệu ứng làm chậm cực gắt, còn Thuần Pháp - Thuật Sư biến tốc độ đánh anh không bao giờ dùng thành thêm cột."
         ],
         [
           "Trang bị",
-          "Rylai's and Frozen Heart pile on more slow, Imperial Mandate marks everyone the pillar knocks back, and Cosmic Drive and Shurelya's make every pillar come back faster."
+          "Trượng Pha Lê Rylai và Tim Băng chồng thêm làm chậm, Trát Lệnh Đế Vương đánh dấu mọi kẻ bị cột hất lùi, còn Động Cơ Vũ Trụ và Vương Miện Shurelya giúp mỗi cột hồi lại nhanh hơn."
         ]
       ],
       "augments": [
@@ -575,7 +575,7 @@
     "zh-CN": {
       "title": "斯奇必迪冰柱",
       "why": "特朗德尔从不用利齿撕咬。他狂按寒冰之柱，直到敌方全队变成一台弹球机。",
-      "play": "Drop the pillar right under the enemy carry, aim them into a teammate, repeat. Never press Q, never right-click.",
+      "play": "把冰柱直接放在敌方C位脚下，把他撞向自己的队友，重复。永远别按Q，永远别点右键。",
       "tagline": "他不咬人了。现在全靠冰柱说话。",
       "how": [
         [
@@ -584,11 +584,11 @@
         ],
         [
           "海克斯强化",
-          "Rolled on Pillar of Ice: Terrain'd makes it hit everything around it and Chain Reaction bounces the knocked-back enemy into their friends. Ice Cold makes the slow brutal, and Purist - Caster turns the attack speed he never uses into more pillars."
+          "随机到寒冰之柱上：地形专家让它打到周围所有东西，连锁反应把被击退的敌人撞向队友。冰寒让减速变得残暴，纯粹主义者 - 术师把他从不使用的攻击速度变成更多柱子。"
         ],
         [
           "装备",
-          "Rylai's and Frozen Heart pile on more slow, Imperial Mandate marks everyone the pillar knocks back, and Cosmic Drive and Shurelya's make every pillar come back faster."
+          "瑞莱的冰晶节杖和冰霜之心叠加更多减速，帝国指令标记每一个被冰柱击退的人，星界驱驰和舒瑞娅的战歌让每根柱子更快回来。"
         ]
       ],
       "augments": [
@@ -601,7 +601,7 @@
     "zh-TW": {
       "title": "斯奇必迪冰柱",
       "why": "特朗德從不用狂野撕咬。他狂按狡詰冰柱，直到敵方全隊變成一台彈珠台。",
-      "play": "Drop the pillar right under the enemy carry, aim them into a teammate, repeat. Never press Q, never right-click.",
+      "play": "把冰柱直接放在敵方核心腳下，把他撞向自己的隊友，重複。永遠別按Q，永遠別點右鍵。",
       "tagline": "他不咬人了。現在全靠冰柱說話。",
       "how": [
         [
@@ -610,11 +610,11 @@
         ],
         [
           "強化",
-          "Rolled on Pillar of Ice: Terrain'd makes it hit everything around it and Chain Reaction bounces the knocked-back enemy into their friends. Ice Cold makes the slow brutal, and Purist - Caster turns the attack speed he never uses into more pillars."
+          "隨機到狡詰冰柱上：劃地為王讓它打到周圍所有東西，連鎖反應把被擊退的敵人撞向隊友。雪地踱步讓緩速變得殘暴，純粹 - 法師把他從不使用的攻擊速度變成更多柱子。"
         ],
         [
           "裝備",
-          "Rylai's and Frozen Heart pile on more slow, Imperial Mandate marks everyone the pillar knocks back, and Cosmic Drive and Shurelya's make every pillar come back faster."
+          "瑞萊的冰晶節杖和冰霜之心疊加更多緩速，帝王命令標記每一個被冰柱擊退的人，星河馳騁和蘇瑞亞的戰歌讓每根柱子更快回來。"
         ]
       ],
       "augments": [

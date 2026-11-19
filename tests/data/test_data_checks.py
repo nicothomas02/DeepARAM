@@ -155,3 +155,30 @@ def test_fun_builds_only_note_unseen_augments():
     assert C.check("Garen", ["Skilled Sniper"], d=d, findings=none)[0]["level"] == "block"
     assert [p["level"] for p in C.check("Garen", ["Skilled Sniper"], d=d, findings=none, fun=True)] == ["note"]
     assert C.check("Garen", ["Not An Augment"], d=d, findings=none, fun=True)[0]["level"] == "block"
+
+
+def test_slot_fixed_augments_must_match_the_ability_the_card_names():
+    """Bread And Butter is always Q: Skibidi Pillar put it on Trundle's E (Pillar of Ice) and Aura Farming on
+    Master Yi's W (Meditate). The checker reads the slot from the client text and blocks such a card."""
+    slots = C.slot_augments()
+    assert (slots.get("breadandbutter"), slots.get("breadandjam"), slots.get("breadandcheese")) == ("Q", "W", "E")
+    assert "terraind" not in slots  # rolled per champion, any slot
+    wrong = C.slot_problems("Trundle", 48, ["Terrain'd", "Bread And Butter"],
+                            "Rolled on Pillar of Ice: Terrain'd hits everything and Bread And Butter brings the pillar back.")
+    assert [p["level"] for p in wrong] == ["note", "block"]
+    assert "Q (Chomp)" in wrong[1]["message"]
+    right = C.slot_problems("Trundle", 48, ["Bread and Cheese"], "Bread and Cheese brings Pillar of Ice back.")
+    assert [p["level"] for p in right] == ["note"]
+    assert "E (Pillar of Ice)" in right[0]["message"]
+
+
+def test_no_kitchen_card_puts_a_slot_augment_on_the_wrong_ability():
+    builds = load_json("data/cook-builds/builds.json")["builds"]
+    names = {c["id"]: c for c in F.data()["champions"]}
+    bad = []
+    for b in builds:
+        c = names.get(b["champion"])
+        if c:
+            bad += [b["id"] + ": " + p["message"] for p in C.slot_problems(c["name"], c["champion_id"], b["augments"], C.card_text(b))
+                    if p["level"] == "block"]
+    assert not bad, bad

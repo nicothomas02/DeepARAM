@@ -3902,24 +3902,24 @@ window.COOK_DATA = {
      "champion_is_best": false
     },
     {
-     "name": "Bread And Butter",
-     "id": 1103,
+     "name": "Bread And Jam",
+     "id": 1150,
      "rarity": "Gold",
-     "text": "Your chosen ability gains 100 Ability Haste.",
+     "text": "Your W gains 100 Ability Haste.",
      "core": true,
-     "icon": "icons/augments/bread-and-butter.png",
-     "win_rate": 0.5198,
-     "pick_rate": 0.2592,
-     "win_rank": 106,
+     "icon": "icons/augments/bread-and-jam.png",
+     "win_rate": 0.4942,
+     "pick_rate": 0.16,
+     "win_rank": 173,
      "best_champions": [
-      "Hecarim",
-      "MasterYi",
-      "TwistedFate",
-      "Kayn",
-      "Jayce",
-      "TahmKench"
+      "Kaisa",
+      "Morgana",
+      "Sett",
+      "Khazix",
+      "Vladimir",
+      "Shaco"
      ],
-     "champion_is_best": true
+     "champion_is_best": false
     }
    ],
    "core": 4,
@@ -3939,7 +3939,7 @@ window.COOK_DATA = {
     ],
     [
      "Augments",
-     "Circle of Death turns his healing into damage, Don't Change the Channel shields him every second he sits, and Mosh Monster and Bread And Butter, rolled on Meditate, slow everyone around him and let him sit again almost right away."
+     "Circle of Death turns his healing into damage and Don't Change the Channel shields him every second he sits. Mosh Monster, rolled on Meditate, slows everyone around him, and Bread And Jam (his W) lets him sit again almost right away."
     ],
     [
      "Items",
@@ -3961,16 +3961,16 @@ window.COOK_DATA = {
    "champion_win_rate": 0.5493,
    "champion_pick_rate": 0.1063,
    "champion_win_rank": 8,
-   "core_win_rate": 0.515,
-   "tier": "Holds up",
-   "core_usual": 1,
-   "core_pick_rate": 0.109,
+   "core_win_rate": 0.5086,
+   "tier": "Pure troll",
+   "core_usual": 0,
+   "core_pick_rate": 0.0842,
    "sim": {
-    "dps": 95,
+    "dps": 90,
     "survival": 0.015,
     "best_dps": 1265,
     "best_survival": 0.059,
-    "pct_of_best": 0.075,
+    "pct_of_best": 0.071,
     "best_items": [
      "Berserker's Greaves",
      "Blade of The Ruined King",
