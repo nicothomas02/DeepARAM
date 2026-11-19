@@ -3,10 +3,10 @@
  "built": "2026-11-19",
  "checks": {
   "loops": 3,
-  "gap": 45,
-  "sim": 12,
+  "gap": 44,
+  "sim": 13,
   "wasted": 0,
-  "kitchen": 48
+  "kitchen": 46
  },
  "traps": [
   {
@@ -25,6 +25,23 @@
    "practice": "It doesn't run away. The two bonuses don't keep feeding each other, so Jhin ends up with a modest bump to Attack Damage instead of infinite damage. Jhin also hasn't been seen getting Tickle Monster this patch."
   },
   {
+   "id": "sim-Corki-berserkers",
+   "kind": "sim",
+   "title": "Berserker's Greaves on Corki",
+   "champions": [
+    "Corki"
+   ],
+   "augments": [],
+   "items": [
+    3006
+   ],
+   "theory": "The Simulator puts Berserker's Greaves in Corki's best build: in a fight it adds more than the items it beats.",
+   "practice": "In real games, Corki's builds with Berserker's Greaves win 3.2 points less often than their builds without it.",
+   "gap": -0.0321,
+   "share": 0.0378,
+   "status": "trap"
+  },
+  {
    "id": "sim-Draven-berserkers",
    "kind": "sim",
    "title": "Berserker's Greaves on Draven",
@@ -36,9 +53,9 @@
     3006
    ],
    "theory": "The Simulator puts Berserker's Greaves in Draven's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Draven's builds with Berserker's Greaves win 4.1 points less often than their builds without it.",
-   "gap": -0.0411,
-   "share": 0.0528,
+   "practice": "In real games, Draven's builds with Berserker's Greaves win 4.3 points less often than their builds without it.",
+   "gap": -0.0426,
+   "share": 0.0518,
    "status": "trap"
   },
   {
@@ -53,9 +70,9 @@
     3006
    ],
    "theory": "The Simulator puts Berserker's Greaves in Lucian's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Lucian's builds with Berserker's Greaves win 6.3 points less often than their builds without it.",
-   "gap": -0.0633,
-   "share": 0.0357,
+   "practice": "In real games, Lucian's builds with Berserker's Greaves win 6.4 points less often than their builds without it.",
+   "gap": -0.0639,
+   "share": 0.0347,
    "status": "trap"
   },
   {
@@ -71,8 +88,8 @@
    ],
    "theory": "The Simulator puts Berserker's Greaves in Zeri's best build: in a fight it adds more than the items it beats.",
    "practice": "In real games, Zeri's builds with Berserker's Greaves win 3.1 points less often than their builds without it.",
-   "gap": -0.0308,
-   "share": 0.1092,
+   "gap": -0.0307,
+   "share": 0.1071,
    "status": "trap"
   },
   {
@@ -87,9 +104,9 @@
     3071
    ],
    "theory": "The Simulator puts Black Cleaver in Riven's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Riven's builds with Black Cleaver win 4.5 points less often than their builds without it.",
-   "gap": -0.0452,
-   "share": 0.0328,
+   "practice": "In real games, Riven's builds with Black Cleaver win 3.0 points less often than their builds without it.",
+   "gap": -0.0304,
+   "share": 0.033,
    "status": "trap"
   },
   {
@@ -104,8 +121,8 @@
     3153
    ],
    "theory": "The Simulator puts Blade of The Ruined King in Kayle's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Kayle's builds with Blade of The Ruined King win 3.6 points less often than their builds without it.",
-   "gap": -0.036,
+   "practice": "In real games, Kayle's builds with Blade of The Ruined King win 3.4 points less often than their builds without it.",
+   "gap": -0.0338,
    "share": 0.0521,
    "status": "trap"
   },
@@ -121,9 +138,9 @@
     3153
    ],
    "theory": "The Simulator puts Blade of The Ruined King in Yunara's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Yunara's builds with Blade of The Ruined King win 3.3 points less often than their builds without it.",
-   "gap": -0.0331,
-   "share": 0.1081,
+   "practice": "In real games, Yunara's builds with Blade of The Ruined King win 3.6 points less often than their builds without it.",
+   "gap": -0.0356,
+   "share": 0.1089,
    "status": "trap"
   },
   {
@@ -138,8 +155,8 @@
     6694
    ],
    "theory": "The Simulator puts Serylda's Grudge in Jayce's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Jayce's builds with Serylda's Grudge win 8.0 points less often than their builds without it.",
-   "gap": -0.0797,
+   "practice": "In real games, Jayce's builds with Serylda's Grudge win 8.2 points less often than their builds without it.",
+   "gap": -0.0817,
    "share": 0.0443,
    "status": "trap"
   },
@@ -155,9 +172,26 @@
     6694
    ],
    "theory": "The Simulator puts Serylda's Grudge in Talon's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Talon's builds with Serylda's Grudge win 6.0 points less often than their builds without it.",
-   "gap": -0.0596,
-   "share": 0.0587,
+   "practice": "In real games, Talon's builds with Serylda's Grudge win 4.2 points less often than their builds without it.",
+   "gap": -0.0423,
+   "share": 0.0586,
+   "status": "trap"
+  },
+  {
+   "id": "sim-Zed-seryldas",
+   "kind": "sim",
+   "title": "Serylda's Grudge on Zed",
+   "champions": [
+    "Zed"
+   ],
+   "augments": [],
+   "items": [
+    6694
+   ],
+   "theory": "The Simulator puts Serylda's Grudge in Zed's best build: in a fight it adds more than the items it beats.",
+   "practice": "In real games, Zed's builds with Serylda's Grudge win 4.8 points less often than their builds without it.",
+   "gap": -0.0482,
+   "share": 0.0754,
    "status": "trap"
   },
   {
@@ -172,9 +206,9 @@
     4645
    ],
    "theory": "The Simulator puts Shadowflame in Milio's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Milio's builds with Shadowflame win 5.8 points less often than their builds without it.",
-   "gap": -0.0578,
-   "share": 0.0331,
+   "practice": "In real games, Milio's builds with Shadowflame win 6.1 points less often than their builds without it.",
+   "gap": -0.0612,
+   "share": 0.0356,
    "status": "trap"
   },
   {
@@ -189,26 +223,9 @@
     3020
    ],
    "theory": "The Simulator puts Sorcerer's Shoes in Lillia's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Lillia's builds with Sorcerer's Shoes win 6.6 points less often than their builds without it.",
-   "gap": -0.0661,
-   "share": 0.0592,
-   "status": "trap"
-  },
-  {
-   "id": "sim-Pyke-collector",
-   "kind": "sim",
-   "title": "The Collector on Pyke",
-   "champions": [
-    "Pyke"
-   ],
-   "augments": [],
-   "items": [
-    6676
-   ],
-   "theory": "The Simulator puts The Collector in Pyke's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Pyke's builds with The Collector win 3.0 points less often than their builds without it.",
-   "gap": -0.0305,
-   "share": 0.0777,
+   "practice": "In real games, Lillia's builds with Sorcerer's Shoes win 7.2 points less often than their builds without it.",
+   "gap": -0.0716,
+   "share": 0.0584,
    "status": "trap"
   },
   {
@@ -223,9 +240,9 @@
     3135
    ],
    "theory": "The Simulator puts Void Staff in Karma's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Karma's builds with Void Staff win 6.2 points less often than their builds without it.",
-   "gap": -0.0618,
-   "share": 0.0676,
+   "practice": "In real games, Karma's builds with Void Staff win 6.1 points less often than their builds without it.",
+   "gap": -0.0609,
+   "share": 0.0678,
    "status": "trap"
   }
  ],
@@ -556,6 +573,21 @@
    "status": "to_test"
   },
   {
+   "id": "gap-Gwen",
+   "kind": "gap",
+   "title": "Gwen never gets Bread And Jam",
+   "champions": [
+    "Gwen"
+   ],
+   "augments": [
+    1150
+   ],
+   "items": [],
+   "theory": "At least 93% of champions get Bread And Jam, but Gwen has never been seen taking it, even though Gwen is picked often.",
+   "test": "Play Gwen and watch your augment choices. If it never shows up, Riot has left it out for Gwen. If that doesn't look like it's on purpose, it's worth reporting.",
+   "status": "to_test"
+  },
+  {
    "id": "gap-Jayce",
    "kind": "gap",
    "title": "Jayce never gets Ultimate Awakening and 6 more",
@@ -641,28 +673,9 @@
    "status": "to_test"
   },
   {
-   "id": "gap-Leona",
-   "kind": "gap",
-   "title": "Leona never gets Giant Slayer and 4 more",
-   "champions": [
-    "Leona"
-   ],
-   "augments": [
-    1195,
-    3086,
-    1211,
-    2005,
-    1996
-   ],
-   "items": [],
-   "theory": "At least 91% of champions get Giant Slayer, BEES!!!, It's Killing Time, Triggered Inferno and Upgrade Sheen, but Leona has never been seen taking them, even though Leona is picked often.",
-   "test": "Play Leona and watch your augment choices. If they never show up, Riot has left them out for Leona. If that doesn't look like it's on purpose, it's worth reporting.",
-   "status": "to_test"
-  },
-  {
    "id": "gap-Lux",
    "kind": "gap",
-   "title": "Lux never gets Erosion and 4 more",
+   "title": "Lux never gets Erosion and 5 more",
    "champions": [
     "Lux"
    ],
@@ -670,11 +683,12 @@
     1028,
     3079,
     1058,
+    2107,
     2099,
     3116
    ],
    "items": [],
-   "theory": "At least 91% of champions get Erosion, Totentanz, Mystic Punch, Rite of Ascension and Take'em Down Down Down, but Lux has never been seen taking them, even though Lux is picked often.",
+   "theory": "At least 91% of champions get Erosion, Totentanz, Mystic Punch, Hellbent, Rite of Ascension and Take'em Down Down Down, but Lux has never been seen taking them, even though Lux is picked often.",
    "test": "Play Lux and watch your augment choices. If they never show up, Riot has left them out for Lux. If that doesn't look like it's on purpose, it's worth reporting.",
    "status": "to_test"
   },
@@ -712,16 +726,17 @@
   {
    "id": "gap-Morgana",
    "kind": "gap",
-   "title": "Morgana never gets Rite of Ascension",
+   "title": "Morgana never gets Hellbent and 1 more",
    "champions": [
     "Morgana"
    ],
    "augments": [
+    2107,
     2099
    ],
    "items": [],
-   "theory": "At least 91% of champions get Rite of Ascension, but Morgana has never been seen taking it, even though Morgana is picked often.",
-   "test": "Play Morgana and watch your augment choices. If it never shows up, Riot has left it out for Morgana. If that doesn't look like it's on purpose, it's worth reporting.",
+   "theory": "At least 91% of champions get Hellbent and Rite of Ascension, but Morgana has never been seen taking them, even though Morgana is picked often.",
+   "test": "Play Morgana and watch your augment choices. If they never show up, Riot has left them out for Morgana. If that doesn't look like it's on purpose, it's worth reporting.",
    "status": "to_test"
   },
   {
@@ -810,16 +825,17 @@
   {
    "id": "gap-Seraphine",
    "kind": "gap",
-   "title": "Seraphine never gets Rite of Ascension",
+   "title": "Seraphine never gets Hellbent and 1 more",
    "champions": [
     "Seraphine"
    ],
    "augments": [
+    2107,
     2099
    ],
    "items": [],
-   "theory": "At least 91% of champions get Rite of Ascension, but Seraphine has never been seen taking it, even though Seraphine is picked often.",
-   "test": "Play Seraphine and watch your augment choices. If it never shows up, Riot has left it out for Seraphine. If that doesn't look like it's on purpose, it's worth reporting.",
+   "theory": "At least 91% of champions get Hellbent and Rite of Ascension, but Seraphine has never been seen taking them, even though Seraphine is picked often.",
+   "test": "Play Seraphine and watch your augment choices. If they never show up, Riot has left them out for Seraphine. If that doesn't look like it's on purpose, it's worth reporting.",
    "status": "to_test"
   },
   {
@@ -983,21 +999,6 @@
    "status": "to_test"
   },
   {
-   "id": "gap-Udyr",
-   "kind": "gap",
-   "title": "Udyr never gets Arcane Axiom",
-   "champions": [
-    "Udyr"
-   ],
-   "augments": [
-    3118
-   ],
-   "items": [],
-   "theory": "At least 90% of champions get Arcane Axiom, but Udyr has never been seen taking it, even though Udyr is picked often.",
-   "test": "Play Udyr and watch your augment choices. If it never shows up, Riot has left it out for Udyr. If that doesn't look like it's on purpose, it's worth reporting.",
-   "status": "to_test"
-  },
-  {
    "id": "gap-Vayne",
    "kind": "gap",
    "title": "Vayne never gets Back To Basics and 4 more",
@@ -1017,18 +1018,20 @@
    "status": "to_test"
   },
   {
-   "id": "gap-Velkoz",
+   "id": "gap-Viego",
    "kind": "gap",
-   "title": "Vel'Koz never gets Brass Blast",
+   "title": "Viego never gets Weapon of Destiny and 2 more",
    "champions": [
-    "Velkoz"
+    "Viego"
    ],
    "augments": [
-    3071
+    3081,
+    1386,
+    1098
    ],
    "items": [],
-   "theory": "At least 98% of champions get Brass Blast, but Vel'Koz has never been seen taking it, even though Vel'Koz is picked often.",
-   "test": "Play Vel'Koz and watch your augment choices. If it never shows up, Riot has left it out for Vel'Koz. If that doesn't look like it's on purpose, it's worth reporting.",
+   "theory": "At least 93% of champions get Weapon of Destiny, Spin Me Right Round and With Haste, but Viego has never been seen taking them, even though Viego is picked often.",
+   "test": "Play Viego and watch your augment choices. If they never show up, Riot has left them out for Viego. If that doesn't look like it's on purpose, it's worth reporting.",
    "status": "to_test"
   },
   {
@@ -1190,10 +1193,10 @@
    ],
    "items": [],
    "theory": "The build leans on Nature is Healing.",
-   "test": "There are no stats on Nature is Healing yet this patch. Check that Ivern can still be offered it.",
+   "test": "Ivern has never been seen taking Nature is Healing, so it may not be in their augment pool. Check whether it's ever offered on Ivern.",
    "build": "ivern-hedge-fund",
    "augment": "Nature is Healing",
-   "why": "no_data"
+   "why": "unseen"
   },
   {
    "id": "pool-ivern-hedge-fund-lil_extra_help",
@@ -1364,23 +1367,6 @@
    "build": "olaf-health-is-mana",
    "augment": "Skilled Sniper",
    "why": "range"
-  },
-  {
-   "id": "pool-nilah-whip-blade-nurse-spirit_bomb",
-   "kind": "pool",
-   "title": "Whip-Blade Nurse: Spirit Bomb on Nilah",
-   "champions": [
-    "Nilah"
-   ],
-   "augments": [
-    2104
-   ],
-   "items": [],
-   "theory": "The build leans on Spirit Bomb.",
-   "test": "There are no stats on Spirit Bomb yet this patch. Check that Nilah can still be offered it.",
-   "build": "nilah-whip-blade-nurse",
-   "augment": "Spirit Bomb",
-   "why": "no_data"
   },
   {
    "id": "pool-nilah-whip-blade-nurse-support_main",
@@ -1632,23 +1618,6 @@
    "build": "annie-daycare-director",
    "augment": "Sonic Boom",
    "why": "unseen"
-  },
-  {
-   "id": "pool-zac-deceased-repeatedly-hellbent",
-   "kind": "pool",
-   "title": "Deceased, Repeatedly: Hellbent on Zac",
-   "champions": [
-    "Zac"
-   ],
-   "augments": [
-    2107
-   ],
-   "items": [],
-   "theory": "The build leans on Hellbent.",
-   "test": "There are no stats on Hellbent yet this patch. Check that Zac can still be offered it.",
-   "build": "zac-deceased-repeatedly",
-   "augment": "Hellbent",
-   "why": "no_data"
   },
   {
    "id": "pool-zeri-right-click-veigar-twin_fire",
