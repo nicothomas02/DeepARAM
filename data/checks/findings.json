@@ -1,10 +1,10 @@
 {
- "patch": "16.22",
- "built": "2026-11-18",
+ "patch": "16.23",
+ "built": "2026-11-19",
  "checks": {
   "loops": 3,
   "gap": 45,
-  "sim": 15,
+  "sim": 12,
   "wasted": 0,
   "kitchen": 48
  },
@@ -178,23 +178,6 @@
    "status": "trap"
   },
   {
-   "id": "sim-Karma-sorcerers",
-   "kind": "sim",
-   "title": "Sorcerer's Shoes on Karma",
-   "champions": [
-    "Karma"
-   ],
-   "augments": [],
-   "items": [
-    3020
-   ],
-   "theory": "The Simulator puts Sorcerer's Shoes in Karma's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Karma's builds with Sorcerer's Shoes win 5.9 points less often than their builds without it.",
-   "gap": -0.0591,
-   "share": 0.0833,
-   "status": "trap"
-  },
-  {
    "id": "sim-Lillia-sorcerers",
    "kind": "sim",
    "title": "Sorcerer's Shoes on Lillia",
@@ -209,23 +192,6 @@
    "practice": "In real games, Lillia's builds with Sorcerer's Shoes win 6.6 points less often than their builds without it.",
    "gap": -0.0661,
    "share": 0.0592,
-   "status": "trap"
-  },
-  {
-   "id": "sim-Milio-sorcerers",
-   "kind": "sim",
-   "title": "Sorcerer's Shoes on Milio",
-   "champions": [
-    "Milio"
-   ],
-   "augments": [],
-   "items": [
-    3020
-   ],
-   "theory": "The Simulator puts Sorcerer's Shoes in Milio's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Milio's builds with Sorcerer's Shoes win 5.8 points less often than their builds without it.",
-   "gap": -0.0578,
-   "share": 0.0331,
    "status": "trap"
   },
   {
@@ -260,23 +226,6 @@
    "practice": "In real games, Karma's builds with Void Staff win 6.2 points less often than their builds without it.",
    "gap": -0.0618,
    "share": 0.0676,
-   "status": "trap"
-  },
-  {
-   "id": "sim-Milio-void_staff",
-   "kind": "sim",
-   "title": "Void Staff on Milio",
-   "champions": [
-    "Milio"
-   ],
-   "augments": [],
-   "items": [
-    3135
-   ],
-   "theory": "The Simulator puts Void Staff in Milio's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Milio's builds with Void Staff win 5.8 points less often than their builds without it.",
-   "gap": -0.0578,
-   "share": 0.0331,
    "status": "trap"
   }
  ],
