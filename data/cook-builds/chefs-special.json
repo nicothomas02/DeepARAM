@@ -1,627 +1,627 @@
 {
-  "id": "kindred-healing-the-opps",
-  "title": "Healing The Opps",
-  "champion": "Kindred",
-  "champion_name": "Kindred",
-  "chef": "2026-11-16",
-  "why": "Kindred plays full support, drops Lamb's Respite on everyone twice per fight and heals the enemies right along with their own team.",
-  "play": "Wait for a big fight, press R in the middle of all ten champions, then press it again. Nobody leaves, nobody dies, everybody heals.",
+  "id": "trundle-skibidi-pillar",
+  "title": "Skibidi Pillar",
+  "champion": "Trundle",
+  "champion_name": "Trundle",
+  "chef": "2026-11-18",
+  "why": "Trundle never uses Chomp. He spams Pillar of Ice until the enemy team is a pinball machine.",
+  "play": "Drop the pillar right under the enemy carry, aim them into a teammate, repeat. Never press Q.",
   "items": [
-    "Redemption",
-    "Moonstone Renewer",
-    "Dawncore",
-    "Malignance",
-    "Spirit Visage",
+    "Rylai's Crystal Scepter",
+    "Cosmic Drive",
+    "Shurelya's Battlesong",
+    "Frozen Heart",
+    "Luden's Echo",
     "Ionian Boots of Lucidity"
   ],
   "core": 4,
-  "tagline": "Nobody dies on Kindred's watch. Not even the enemy team.",
+  "tagline": "He stopped biting people. The pillar does all the talking now.",
   "how": [
     [
-      "Lamb's Respite",
-      "No unit inside can die, ally or enemy, and everyone inside heals when it ends. It's the only ult that blesses both teams at once."
+      "Pillar of Ice",
+      "A button that knocks back whoever stands on it and slows everyone nearby. It normally deals no damage at all."
     ],
     [
       "Augments",
-      "Ultimate Revolution casts it twice, Stuck In Here With Me Taunts the enemies so they stay in the zone, and Ultimate Recursion brings it back fast. First-Aid Kit makes every heal bigger."
+      "Rolled on Pillar of Ice: Terrain'd makes it hit everything around it, Chain Reaction bounces the knocked-back enemy into their friends, and Bread And Butter lets him drop a new pillar almost right away. Ice Cold makes the slow brutal."
     ],
     [
       "Items",
-      "Redemption, Moonstone Renewer and Dawncore are pure support healing. Malignance adds more Ultimate Haste, so the zone is up all the time."
+      "Rylai's and Frozen Heart pile on more slow, Luden's adds a spell hit, and Cosmic Drive and Shurelya's make every pillar come back faster."
     ]
   ],
-  "champion_icon": "/embed/fun/cook-builds/icons/champions/203.png",
+  "champion_icon": "/embed/fun/cook-builds/icons/champions/48.png",
   "augments": [
     {
-      "name": "Ultimate Revolution",
-      "rarity": "Prismatic",
+      "name": "Terrain'd",
+      "rarity": "Gold",
       "core": true,
-      "text": "Refresh your Ultimate after casting it (75 seconds Cooldown or reset on death).",
-      "icon": "/embed/fun/cook-builds/icons/augments/ultimate-revolution.png",
-      "id": 1088
+      "text": "Your chosen ability deals damage in an area around it.",
+      "icon": "/embed/fun/cook-builds/icons/augments/terrain-d.png",
+      "id": 2129
     },
     {
-      "name": "Stuck In Here With Me",
-      "rarity": "Prismatic",
+      "name": "Chain Reaction",
+      "rarity": "Gold",
       "core": true,
-      "text": "After using your Ultimate, gain damage reduction for 2 seconds, after which you Taunt enemies inside for 2 seconds. Gain 30 Ultimate Ability Haste.",
-      "icon": "/embed/fun/cook-builds/icons/augments/stuck-in-here-with-me.png",
-      "id": 1413
+      "text": "If a target Knocked Back by the chosen ability hits another champion, they are Knocked Up and dealt damage. When colliding with terrain, the Knock Up duration is extended and they are dealt bonus damage.",
+      "icon": "/embed/fun/cook-builds/icons/augments/chain-reaction.png",
+      "id": 2078
     },
     {
-      "name": "First-Aid Kit",
+      "name": "Ice Cold",
       "rarity": "Silver",
       "core": true,
-      "text": "Gain 20% Heal and Shield Power.",
-      "icon": "/embed/fun/cook-builds/icons/augments/first-aid-kit.png",
-      "id": 1037
+      "text": "Your Slowing effects reduce Movement Speed by an extra 75.",
+      "icon": "/embed/fun/cook-builds/icons/augments/ice-cold.png",
+      "id": 1044
     },
     {
-      "name": "Ultimate Recursion",
-      "rarity": "Silver",
+      "name": "Bread And Butter",
+      "rarity": "Gold",
       "core": true,
-      "text": "Gain Ultimate Ability Haste.",
-      "icon": "/embed/fun/cook-builds/icons/augments/ultimate-recursion.png",
-      "id": 3055
+      "text": "Your chosen ability gains 100 Ability Haste.",
+      "icon": "/embed/fun/cook-builds/icons/augments/bread-and-butter.png",
+      "id": 1103
     }
   ],
   "href": "/kitchen#chefs-special",
   "archive_href": "/kitchen#chef-archive",
-  "share_href": "/kitchen/2026-11-16",
-  "share_image": "/embed/fun/cook-builds/share/kindred-healing-the-opps.png",
+  "share_href": "/kitchen/2026-11-18",
+  "share_image": "/embed/fun/cook-builds/share/trundle-skibidi-pillar.png",
   "item_ids": [
-    3107,
-    6617,
-    6621,
-    3118,
-    3065,
+    3116,
+    4629,
+    2065,
+    3110,
+    6655,
     3158
   ],
   "i18n": {
     "ar": {
-      "title": "علاج الأعداء",
-      "why": "كيندريد يلعب دعم كامل، يرمي راحة الحمل على الجميع مرتين في كل معركة، ويعالج الأعداء مع فريقهم.",
-      "play": "انتظر معركة كبيرة، اضغط R وسط الأبطال العشرة كلهم، ثم اضغطها مرة ثانية. ما أحد يطلع، ما أحد يموت، والكل يتعالج.",
-      "tagline": "ما أحد يموت تحت حراسة كيندريد. حتى الفريق المعادي.",
+      "title": "عمود سكيبيدي",
+      "why": "ترندل لا يستخدم العضة أبدًا. يكرر عمود الجليد حتى يتحول فريق الخصم إلى آلة بينبول.",
+      "play": "ضع العمود تحت حامل الضرر الخصم مباشرة، وارمِه على زميله، وكرر. لا تضغط Q أبدًا.",
+      "tagline": "توقف عن عض الناس. العمود هو من يتكلم الآن.",
       "how": [
         [
-          "راحة الحمل",
-          "لا يمكن لأي وحدة بداخلها أن تموت، حليفة كانت أو عدوة، ويُشفى الجميع بداخلها عند انتهائها. إنها الخارقة الوحيدة التي تبارك الفريقين معًا."
+          "عمود الجليد",
+          "زر يدفع كل من يقف فوقه ويبطئ كل من حوله. في العادة لا يسبب أي ضرر إطلاقًا."
         ],
         [
           "التعزيزات",
-          "ثورة خارقة تلقيها مرتين، وعالقٌ هنا معي يفرض الاستفزاز على الأعداء ليبقوا في المنطقة، والتكرار الخارق يعيدها بسرعة. وحقيبة الإسعافات الأولية تكبّر كل شفاء."
+          "على عمود الجليد: سلاح التضاريس يجعله يضرب كل ما حوله، وسلسلة التفاعلات ترمي الخصم المدفوع على أصدقائه، وخبز وزبدة يتيح له وضع عمود جديد فورًا تقريبًا. بارد كالثلج يجعل الإبطاء وحشيًا."
         ],
         [
           "العتاد",
-          "الافتداء وحجر القمر المنعش وجوهر الفجر كلها شفاء دعم خالص. والخبث يضيف المزيد من تسريع القدرة الخارقة، فتبقى المنطقة جاهزة طوال الوقت."
+          "صولجان كريستال رايلاي والقلب المتجمد يضيفان المزيد من الإبطاء، وصدى لودن يضيف ضربة سحرية، والحافز الكوني ونشيد معركة شوريليا يعيدان كل عمود أسرع."
         ]
       ],
       "augments": [
-        "جدّد قدرتك الخارقة بعد إلقائها (فترة تبريد 75 ثانية أو تُعاد عند الموت).",
-        "بعد استخدام ضربتك القاضية، احصل على تقليل للضرر لمدة ثانيتين، وبعدها تستفز الأعداء في الداخل لمدة ثانيتين. احصل على 30 من تسريع الضربة القاضية.",
-        "اكتسب 20% من قوة الشفاء والدرع.",
-        "اكتسب تسريع القدرة الخارقة."
+        "القدرة التي اخترتها تسبب ضررًا في منطقة حولها.",
+        "إذا اصطدم هدف دفعته القدرة المختارة ببطل آخر، يُقذف في الهواء ويتلقى ضررًا. عند الاصطدام بالتضاريس تطول مدة القذف ويتلقى ضررًا إضافيًا.",
+        "تأثيرات الإبطاء لديك تقلل سرعة الحركة بمقدار 75 إضافية.",
+        "تكتسب قدرتك المختارة 100 من تسريع القدرة."
       ]
     },
     "cs": {
-      "title": "Léčíme protivníky",
-      "why": "Kindred hraje čistého supporta, hodí Odpočinek beránka na všechny dvakrát za souboj a léčí nepřátele spolu s vlastním týmem.",
-      "play": "Počkej na velký souboj, zmáčkni R doprostřed všech deseti šampionů a pak ji zmáčkni znovu. Nikdo neodchází, nikdo neumírá, všichni se léčí.",
-      "tagline": "Za Kindredova dohledu nikdo neumírá. Ani nepřátelský tým.",
+      "title": "Skibidi sloup",
+      "why": "Trundle nikdy nepoužívá Kousance. Spamuje Sloup ledu, dokud z nepřátelského týmu není pinballový automat.",
+      "play": "Postav sloup přímo pod nepřátelského carryho, napal ho do jeho spoluhráče a opakuj. Nikdy nemačkej Q.",
+      "tagline": "Přestal kousat lidi. Teď za něj mluví sloup.",
       "how": [
         [
-          "Odpočinek beránka",
-          "Žádná jednotka uvnitř nemůže zemřít, spojenec ani nepřítel, a všichni uvnitř se na konci vyléčí. Je to jediná ultimátka, která žehná oběma týmům najednou."
+          "Sloup ledu",
+          "Tlačítko, které odhodí každého, kdo na něm stojí, a zpomalí všechny okolo. Normálně nezpůsobuje vůbec žádné poškození."
         ],
         [
           "Augmenty",
-          "Ultimátní revoluce ji sesílá dvakrát, Zůstaneš tu se mnou nepřátele provokuje, aby zůstali v zóně, a Ultimátní rekurze ji rychle vrací. Lékárnička zvětšuje každé léčení."
+          "Padlé na Sloup ledu: Nebezpečný terén ho nechá zasáhnout všechno kolem, Řetězová reakce napálí odhozeného nepřítele do jeho kamarádů a Denní chléb mu umožní postavit nový sloup skoro hned. Kostimráz udělá zpomalení brutálním."
         ],
         [
           "Předměty",
-          "Odplata, Měsíční obnovovač a Jádro úsvitu jsou čisté supportí léčení. Zhoubnost přidává další zrychlení ultimátních schopností, takže zóna běží pořád."
+          "Rylaino křišťálové žezlo a Ledové srdce přidají ještě víc zpomalení, Ludenova ozvěna přidá zásah kouzlem a Kosmický pohon se Shurelyinou bitevní písní vrátí každý sloup rychleji."
         ]
       ],
       "augments": [
-        "Obnov svou ultimátku po jejím seslání (doba obnovení 75 sekund, nebo se obnoví při smrti).",
-        "Po použití ultimátní schopnosti získáš na 2 sekundy snížení poškození, poté na 2 sekundy vyprovokuješ nepřátele uvnitř. Získáš 30 bodů zrychlení ultimátní schopnosti.",
-        "Získáš 20 % síly léčení a štítů.",
-        "Získáš zrychlení ultimátních schopností."
+        "Zvolená schopnost způsobí poškození v oblasti kolem sebe.",
+        "Pokud cíl odhozený zvolenou schopností narazí do jiného šampiona, je vyhozen do vzduchu a utrpí poškození. Při nárazu do terénu se doba vyhození prodlouží a cíl utrpí bonusové poškození.",
+        "Tvoje zpomalení snižují rychlost pohybu o dalších 75.",
+        "Tvá vybraná schopnost získá 100 urychlení schopností."
       ]
     },
     "de": {
-      "title": "Die Gegner heilen",
-      "why": "Kindred spielt vollen Support, wirft Ruhe des Lamms zweimal pro Kampf auf alle und heilt die Gegner gleich mit dem eigenen Team.",
-      "play": "Warte auf einen großen Kampf, drück R mitten in alle zehn Champions und dann gleich nochmal. Keiner geht, keiner stirbt, alle werden geheilt.",
-      "tagline": "Unter Kindreds Aufsicht stirbt keiner. Nicht mal das Gegnerteam.",
+      "title": "Skibidi-Säule",
+      "why": "Trundle benutzt nie Mampfen. Er spammt Eissäule, bis das Gegnerteam ein Flipperautomat ist.",
+      "play": "Setz die Säule direkt unter den gegnerischen Carry, schieß ihn in einen Teamkollegen, wiederholen. Niemals Q drücken.",
+      "tagline": "Er beißt keine Leute mehr. Jetzt redet nur noch die Säule.",
       "how": [
         [
-          "Ruhe des Lamms",
-          "Keine Einheit darin kann sterben, ob Verbündeter oder Gegner, und alle darin werden geheilt, wenn es endet. Es ist die einzige Ult, die beide Teams gleichzeitig segnet."
+          "Eissäule",
+          "Ein Knopf, der jeden zurückstößt, der draufsteht, und alle in der Nähe verlangsamt. Normalerweise macht er gar keinen Schaden."
         ],
         [
           "Augments",
-          "Ultimative Revolution wirkt sie zweimal, Du kommst hier nicht weg spottet die Gegner, damit sie in der Zone bleiben, und Ultimative Rekursion bringt sie schnell zurück. Erste-Hilfe-Kasten macht jede Heilung größer."
+          "Auf Eissäule gerollt: Terrainiert lässt sie alles drumherum treffen, Kettenreaktion schleudert den zurückgestoßenen Gegner in seine Freunde und Das A und Q lässt ihn fast sofort eine neue Säule setzen. Eiskalt macht die Verlangsamung brutal."
         ],
         [
           "Gegenstände",
-          "Befreiungsschlag, Mondstein-Erneuerer und Dämmerkern sind pure Support-Heilung. Bösartigkeit gibt mehr Ultimative Fähigkeitseile, damit die Zone ständig steht."
+          "Rylais Kristallzepter und Gefrorenes Herz stapeln noch mehr Verlangsamung, Ludens Echo bringt einen Zaubertreffer, und Kosmischer Antrieb und Shurelyas Kampfhymne lassen jede Säule schneller zurückkommen."
         ]
       ],
       "augments": [
-        "Setze deine Ultimative nach dem Wirken zurück (75 Sekunden Abklingzeit oder Reset beim Tod).",
-        "Erhalte nach dem Einsatz deiner ultimativen Fähigkeit 2 Sekunden lang Schadensverringerung, danach verspottest du Gegner darin 2 Sekunden lang. Erhalte 30 ultimative Fähigkeitsbeschleunigung.",
-        "Du erhältst 20 % Heil- und Schildstärke.",
-        "Du erhältst Ultimative Fähigkeitseile."
+        "Deine gewählte Fähigkeit verursacht Schaden in einem Bereich um sie herum.",
+        "Wenn ein Ziel, das von der gewählten Fähigkeit zurückgestoßen wurde, mit einem anderen Champion kollidiert, wird es hochgeschleudert und erleidet Schaden. Bei einer Kollision mit Terrain wird die Dauer verlängert und es erleidet Bonusschaden.",
+        "Deine Verlangsamungen verringern das Lauftempo um zusätzliche 75.",
+        "Deine gewählte Fähigkeit erhält 100 Fähigkeitstempo."
       ]
     },
     "el": {
-      "title": "Θεραπεύοντας τους Αντιπάλους",
-      "why": "Ο Κίντρεντ παίζει πλήρη υποστήριξη, ρίχνει την Ανάπαυλα του Αρνιού σε όλους δύο φορές ανά μάχη και θεραπεύει τους εχθρούς μαζί με τη δική του ομάδα.",
-      "play": "Περίμενε μια μεγάλη μάχη, πάτα R στη μέση και των δέκα ηρώων και μετά πάτα το ξανά. Κανείς δεν φεύγει, κανείς δεν πεθαίνει, όλοι θεραπεύονται.",
-      "tagline": "Κανείς δεν πεθαίνει όσο φυλάει ο Κίντρεντ. Ούτε καν η εχθρική ομάδα.",
+      "title": "Skibidi Βράχος",
+      "why": "Ο Τράντλ δεν χρησιμοποιεί ποτέ το Δάγκωμα. Κάνει spam τον Παγωμένο Βράχο μέχρι η αντίπαλη ομάδα να γίνει φλίπερ.",
+      "play": "Ρίξε τον βράχο ακριβώς κάτω από τον αντίπαλο carry, στείλ' τον πάνω σε σύμμαχό του, επανάλαβε. Μην πατήσεις ποτέ Q.",
+      "tagline": "Σταμάτησε να δαγκώνει κόσμο. Τώρα μιλάει μόνο ο βράχος.",
       "how": [
         [
-          "Ανάπαυλα του Αρνιού",
-          "Καμία μονάδα εντός δεν μπορεί να πεθάνει, σύμμαχος ή εχθρός, και όλοι εντός θεραπεύονται όταν λήξει. Είναι το μοναδικό ult που ευλογεί και τις δύο ομάδες μαζί."
+          "Παγωμένος Βράχος",
+          "Ένα κουμπί που απωθεί όποιον στέκεται πάνω του και επιβραδύνει όλους γύρω. Κανονικά δεν κάνει καθόλου ζημιά."
         ],
         [
           "Ενισχύσεις",
-          "Η Υπέρτατη Εξέγερση το ρίχνει δύο φορές, το Κολλημένος εδώ μαζί μου προκαλεί τους εχθρούς ώστε να μένουν στη ζώνη και η Υπέρτατη Αναδρομή το φέρνει πίσω γρήγορα. Το Κιτ πρώτων βοηθειών κάνει κάθε θεραπεία μεγαλύτερη."
+          "Στον Παγωμένο Βράχο: το Ένα με το Έδαφος τον κάνει να χτυπά τα πάντα γύρω του, η Αλυσιδωτή Αντίδραση εκτοξεύει τον αντίπαλο πάνω στους φίλους του και το Βούτυρο στο Ψωμί του δίνει νέο βράχο σχεδόν αμέσως. Το Παγωμένος κάνει την επιβράδυνση βάναυση."
         ],
         [
           "Αντικείμενα",
-          "Η Λύτρωση, ο Ανανεωτής Φεγγαρόπετρας και Το Χαρντκόρ Της Αυγής είναι καθαρή θεραπεία υποστήριξης. Η Κακοήθεια προσθέτει περισσότερη Επιτάχυνση Υπέρτατης Ικανότητας, ώστε η ζώνη να είναι πάντα ενεργή."
+          "Το Σκήπτρο της Ριλάι και η Παγωμένη Καρδιά προσθέτουν κι άλλη επιβράδυνση, ο Απόηχος του Λούντεν βάζει ένα χτύπημα ξορκιού, και η Κοσμική Ενέργεια με το Πολεμικό Άσμα της Σουρέλια φέρνουν κάθε βράχο πιο γρήγορα."
         ]
       ],
       "augments": [
-        "Ανανέωσε το Υπέρτατό σου μετά την εκτέλεσή του (75 δευτερόλεπτα Επαναφόρτιση ή επαναφορά με θάνατο).",
-        "Αφού χρησιμοποιήσεις την Υπέρτατη Ικανότητά σου, αποκτάς μείωση ζημιάς για 2 δευτερόλεπτα, μετά την οποία προκαλείς τους εχθρούς μέσα για 2 δευτερόλεπτα. Αποκτάς 30 Επιτάχυνση Υπέρτατης Ικανότητας.",
-        "Αποκτάς 20% Ισχύ Θεραπείας και Ασπίδας.",
-        "Αποκτάς Επιτάχυνση Υπέρτατης Ικανότητας."
+        "Η επιλεγμένη ικανότητα προκαλεί ζημιά σε μια περιοχή γύρω της.",
+        "Αν ένας στόχος που απωθείται από την επιλεγμένη ικανότητα χτυπήσει άλλον ήρωα, εκτινάσσεται στον αέρα και δέχεται ζημιά. Όταν συγκρούεται με το έδαφος, η διάρκεια της εκτίναξης αυξάνεται και δέχεται επιπλέον ζημιά.",
+        "Οι επιβραδύνσεις σου μειώνουν την ταχύτητα κίνησης κατά επιπλέον 75.",
+        "Η επιλεγμένη ικανότητά σου κερδίζει 100 Επιτάχυνση Ικανοτήτων."
       ]
     },
     "es-MX": {
-      "title": "Curando a los Rivales",
-      "why": "Kindred juega full support, suelta Respiro del Cordero sobre todos dos veces por pelea y cura a los enemigos junto con su propio equipo.",
-      "play": "Espera una gran pelea, presiona R en medio de los diez campeones y luego presiónala otra vez. Nadie se va, nadie muere, todos se curan.",
-      "tagline": "Nadie muere bajo la vigilancia de Kindred. Ni siquiera el equipo enemigo.",
+      "title": "Pilar Skibidi",
+      "why": "Trundle nunca usa Mascar. Spamea Pilar de Hielo hasta que el equipo enemigo parece una máquina de pinball.",
+      "play": "Pon el pilar justo debajo del carry enemigo, mándalo contra un compañero suyo y repite. Nunca presiones Q.",
+      "tagline": "Ya no muerde a nadie. Ahora el pilar habla por él.",
       "how": [
         [
-          "Respiro del Cordero",
-          "Ninguna unidad dentro puede morir, aliada o enemiga, y todos adentro se curan cuando termina. Es la única definitiva que bendice a ambos equipos a la vez."
+          "Pilar de Hielo",
+          "Un botón que empuja a quien esté encima y ralentiza a todos los que estén cerca. Normalmente no hace nada de daño."
         ],
         [
           "Aumentos",
-          "Revolución Definitiva la lanza dos veces, Juntos por Desgracia Provoca a los enemigos para que se queden en la zona, y Recursividad Definitiva la regresa rápido. Botiquín hace más grande cada curación."
+          "Asignados a Pilar de Hielo: Terraneitor hace que golpee todo a su alrededor, Reacción en Cadena lanza al enemigo empujado contra sus amigos y Pan y mantequilla le deja poner otro pilar casi al instante. Frío como el Hielo hace que la ralentización sea brutal."
         ],
         [
           "Objetos",
-          "Redención, Renovador de Piedra Lunar y Esfera del Amanecer son pura curación de support. Maldad agrega más celeridad de habilidad definitiva, así la zona está activa todo el tiempo."
+          "Cetro de Cristal de Rylai y Corazón de Hielo acumulan aún más ralentización, Eco de Luden agrega un golpe de hechizo, e Impulso Cósmico y Canto de Guerra de Shurelya hacen que cada pilar vuelva más rápido."
         ]
       ],
       "augments": [
-        "Reinicia tu definitiva después de lanzarla (75 segundos de enfriamiento o se reinicia al morir).",
-        "Después de usar tu definitiva, obtienes reducción de daño durante 2 segundos, después de lo cual provocas a los enemigos que estén dentro durante 2 segundos. Obtienes 30 de velocidad de habilidad definitiva.",
-        "Obtienes 20% de poder de curación y escudo.",
-        "Obtienes celeridad de habilidad definitiva."
+        "Tu habilidad elegida inflige daño en un área a su alrededor.",
+        "Si un objetivo empujado por la habilidad elegida choca con otro campeón, queda derribado y recibe daño. Al chocar con el terreno, el derribo dura más y recibe daño adicional.",
+        "Tus ralentizaciones reducen la velocidad de movimiento en 75 adicionales.",
+        "Tu habilidad elegida obtiene 100 de celeridad de habilidad."
       ]
     },
     "es": {
-      "title": "Curando a los rivales",
-      "why": "Kindred juega de apoyo total, suelta Respiro del Cordero sobre todos dos veces por pelea y cura a los enemigos junto con su propio equipo.",
-      "play": "Espera a una gran pelea, pulsa R en medio de los diez campeones y vuelve a pulsarla. Nadie se va, nadie muere, todos se curan.",
-      "tagline": "Nadie muere bajo la vigilancia de Kindred. Ni siquiera el equipo enemigo.",
+      "title": "Pilar Skibidi",
+      "why": "Trundle nunca usa Mascar. Spamea Pilar de hielo hasta que el equipo enemigo parece una máquina de pinball.",
+      "play": "Pon el pilar justo debajo del carry enemigo, mándalo contra un compañero suyo y repite. Nunca pulses Q.",
+      "tagline": "Ya no muerde a nadie. Ahora el pilar habla por él.",
       "how": [
         [
-          "Respiro del Cordero",
-          "Ninguna unidad en su interior puede morir, aliada o enemiga, y todas se curan cuando termina. Es la única definitiva que bendice a ambos equipos a la vez."
+          "Pilar de hielo",
+          "Un botón que empuja a quien esté encima y ralentiza a todos los que estén cerca. Normalmente no hace nada de daño."
         ],
         [
           "Aumentos",
-          "Revolución definitiva la lanza dos veces, ¡Que nadie se mueva! provoca a los enemigos para que se queden en la zona, y Recursión definitiva la devuelve rápido. Botiquín hace más grande cada curación."
+          "Asignados a Pilar de hielo: Terrinator hace que golpee todo a su alrededor, Reacción en cadena lanza al enemigo empujado contra sus amigos y Pan con queso le deja poner otro pilar casi al instante. Algidez hace que la ralentización sea brutal."
         ],
         [
           "Objetos",
-          "Redención, Renovación de piedra lunar y Núcleo albar son curación de apoyo pura. Malignidad añade más celeridad de habilidad definitiva, así la zona está activa todo el rato."
+          "Cetro de cristal de Rylai y Corazón de hielo apilan aún más ralentización, Eco de Luden añade un golpe de hechizo, e Impulso cósmico y Canción de batalla de Shurelya hacen que cada pilar vuelva antes."
         ]
       ],
       "augments": [
-        "Reinicia tu definitiva después de lanzarla (75 segundos de enfriamiento o se reinicia al morir).",
-        "Tras usar tu definitiva, obtienes reducción de daño durante 2 segundos, tras lo cual provocas a los enemigos que haya dentro durante 2 segundos. Obtienes 30 de celeridad de definitiva.",
-        "Obtienes un 20 % de poder de curación y escudo.",
-        "Obtienes celeridad de habilidad definitiva."
+        "Tu habilidad elegida inflige daño en un área a su alrededor.",
+        "Si un objetivo empujado por la habilidad elegida choca con otro campeón, queda derribado y recibe daño. Al chocar con el terreno, el derribo dura más y recibe daño adicional.",
+        "Tus ralentizaciones reducen la velocidad de movimiento en 75 adicionales.",
+        "Tu habilidad elegida obtiene 100 de aceleración de habilidades."
       ]
     },
     "fr": {
-      "title": "Soigner les ennemis",
-      "why": "Kindred joue support à fond, lance Répit de l'agneau sur tout le monde deux fois par combat et soigne les ennemis en même temps que sa propre équipe.",
-      "play": "Attends un gros combat, appuie sur R au milieu des dix champions, puis appuie dessus une deuxième fois. Personne ne part, personne ne meurt, tout le monde est soigné.",
-      "tagline": "Personne ne meurt sous la garde de Kindred. Pas même l'équipe adverse.",
+      "title": "Pilier Skibidi",
+      "why": "Trundle n'utilise jamais Morsure. Il spamme Montagne de glace jusqu'à transformer l'équipe adverse en flipper.",
+      "play": "Pose le pilier pile sous le carry ennemi, envoie-le dans un de ses coéquipiers, recommence. N'appuie jamais sur Q.",
+      "tagline": "Il ne mord plus personne. C'est le pilier qui parle maintenant.",
       "how": [
         [
-          "Répit de l'agneau",
-          "Aucune unité à l'intérieur ne peut mourir, alliée ou ennemie, et tout le monde à l'intérieur est soigné à la fin. C'est la seule ultime qui bénit les deux équipes en même temps."
+          "Montagne de glace",
+          "Un bouton qui repousse quiconque se tient dessus et ralentit tout le monde autour. Normalement, il n'inflige aucun dégât."
         ],
         [
           "Augments",
-          "Révolution ultime la lance deux fois, Provocation ultime provoque les ennemis pour qu'ils restent dans la zone, et Récursivité ultime la ramène vite. Trousse de secours agrandit chaque soin."
+          "Obtenus sur Montagne de glace : Terrain la fait toucher tout ce qui l'entoure, Réaction en chaîne envoie l'ennemi repoussé dans ses alliés et Maîtrise du A lui permet de poser un nouveau pilier presque aussitôt. Froid glacial rend le ralentissement brutal."
         ],
         [
           "Objets",
-          "Rédemption, Régénérateur de pierre de lune et Cœur de l'aube sont du pur soin de support. Malfaisance ajoute plus d'accélération de compétence ultime, donc la zone est active en permanence."
+          "Sceptre de Rylai et Cœur gelé empilent encore plus de ralentissement, Écho de Luden ajoute un coup de sort, et Volonté cosmique et Chant de guerre de Shurelya font revenir chaque pilier plus vite."
         ]
       ],
       "augments": [
-        "Réinitialise ton ultime après l'avoir lancée (75 secondes de délai de récupération ou réinitialisation à la mort).",
-        "Après avoir utilisé votre ultime, vous gagnez une réduction des dégâts pendant 2 secondes, puis vous provoquez les ennemis à l'intérieur pendant 2 secondes. Vous gagnez 30 accélération de compétence ultime.",
-        "Vous gagnez 20 % de puissance des soins et des boucliers.",
-        "Vous gagnez de l'accélération de compétence ultime."
+        "Votre compétence choisie inflige des dégâts dans une zone autour d'elle.",
+        "Si une cible repoussée par la compétence choisie percute un autre champion, elle est projetée dans les airs et subit des dégâts. En cas de collision avec le terrain, la durée de projection est prolongée et elle subit des dégâts bonus.",
+        "Vos ralentissements réduisent la vitesse de déplacement de 75 supplémentaires.",
+        "Votre capacité choisie gagne 100 d'accélération de compétence."
       ]
     },
     "hu": {
-      "title": "Az ellenfelek gyógyítása",
-      "why": "Kindred full supportot játszik, harconként kétszer rádobja mindenkire a Bárány Nyugalmát, és az ellenséget is meggyógyítja a saját csapatával együtt.",
-      "play": "Várj egy nagy csatára, nyomd meg az R-t mind a tíz bajnok közepén, aztán nyomd meg újra. Senki nem megy sehova, senki nem hal meg, mindenki gyógyul.",
-      "tagline": "Kindred árnyékában senki nem hal meg. Még az ellenség sem.",
+      "title": "Skibidi oszlop",
+      "why": "Trundle soha nem használja a Veszett harapást. Addig spammeli a Jégoszlopot, amíg az ellenfél csapata flipperré nem válik.",
+      "play": "Tedd az oszlopot pont az ellenséges carry alá, lődd bele egy csapattársába, ismételd. Soha ne nyomd meg a Q-t.",
+      "tagline": "Már nem harap meg senkit. Most az oszlop beszél helyette.",
       "how": [
         [
-          "Bárány Nyugalma",
-          "A területen belül egyetlen egység sem halhat meg, se szövetséges, se ellenség, és a végén mindenki gyógyul. Ez az egyetlen ulti, ami mindkét csapatot egyszerre áldja meg."
+          "Jégoszlop",
+          "Egy gomb, ami visszalöki azt, aki rajta áll, és lelassít mindenkit a közelben. Alapból egyáltalán nem sebez."
         ],
         [
           "Bővítések",
-          "A Végső lázadás kétszer elsüti, az Itt ragadtál velem Provokálja az ellenséget, hogy a zónában maradjanak, a Végső visszatérés pedig gyorsan visszahozza. Az Elsősegélykészlet minden gyógyítást megnövel."
+          "A Jégoszlopra dobva: a Tereplés miatt mindent eltalál maga körül, a Láncreakció a visszalökött ellenfelet a barátaiba csapja, a Vajas kenyér pedig szinte azonnal új oszlopot ad. A Jéghideg brutálissá teszi a lassítást."
         ],
         [
           "Tárgyak",
-          "A Megváltás, a Holdkőmegújító és a Hajnalmag tiszta support gyógyítás. A Rosszindulat még több Végső képességgyorsítást ad, így a zóna folyamatosan fent van."
+          "Rylai kristálybotja és a Fagyos szív még több lassítást halmoz, Luden visszhangja egy varázsütést ad, a Kozmikus hajtómű és Shurelia csatadala pedig minden oszlopot gyorsabban hoz vissza."
         ]
       ],
       "augments": [
-        "Frissítsd az Ultidat a használat után (75 másodperces hűlési idő, vagy halálkor visszaáll).",
-        "Az ultid használata után 2 másodpercig sebzéscsökkentést kapsz, majd 2 másodpercre provokálod a benne lévő ellenfeleket. 30 ulti-képességgyorsítást kapsz.",
-        "20% Gyógyítás és Pajzs Erőt kapsz.",
-        "Végső képességgyorsítást kapsz."
+        "A választott képességed sebzést okoz egy körülötte lévő területen.",
+        "Ha a választott képességgel hátralökött célpont egy másik hősnek ütközik, felröppen és sebzést szenved. Terepnek ütközve a felröpítés tovább tart, és bónuszsebzést szenved.",
+        "A lassításaid további 75-tel csökkentik a mozgási sebességet.",
+        "A kiválasztott képességed 100 képességgyorsítást kap."
       ]
     },
     "id": {
-      "title": "Menyembuhkan Lawan",
-      "why": "Kindred main full support, menjatuhkan Lamb's Respite ke semua orang dua kali per teamfight dan menyembuhkan musuh bareng tim sendiri.",
-      "play": "Tunggu teamfight besar, tekan R di tengah kesepuluh champion, lalu tekan lagi. Nggak ada yang kabur, nggak ada yang mati, semuanya sembuh.",
-      "tagline": "Nggak ada yang mati selama Kindred di sini. Musuh pun nggak.",
+      "title": "Pilar Skibidi",
+      "why": "Trundle nggak pernah pakai Chomp. Dia spam Pillar of Ice sampai tim musuh jadi mesin pinball.",
+      "play": "Taruh pilar tepat di bawah carry musuh, lempar dia ke rekan setimnya, ulangi. Jangan pernah tekan Q.",
+      "tagline": "Dia sudah berhenti menggigit orang. Sekarang pilarnya yang bicara.",
       "how": [
         [
-          "Lamb's Respite",
-          "Tidak ada unit di dalam area yang bisa mati, baik teman maupun musuh, dan semua yang di dalam disembuhkan saat selesai. Ini satu-satunya ult yang memberkati kedua tim sekaligus."
+          "Pillar of Ice",
+          "Tombol yang menghempas siapa pun yang berdiri di atasnya dan memperlambat semua orang di dekatnya. Biasanya sama sekali nggak memberi damage."
         ],
         [
           "Augment",
-          "Ultimate Revolution memakainya dua kali, Stuck In Here With Me melakukan Ejek ke musuh supaya tetap di dalam zona, dan Ultimate Recursion membuatnya cepat kembali. First-Aid Kit membuat setiap heal lebih besar."
+          "Didapat di Pillar of Ice: Terrain'd membuatnya mengenai semua di sekitarnya, Chain Reaction melempar musuh yang terhempas ke teman-temannya, dan Bread And Butter bikin dia bisa pasang pilar baru hampir langsung. Ice Cold bikin slow-nya brutal."
         ],
         [
           "Item",
-          "Redemption, Moonstone Renewer, dan Dawncore adalah heal support murni. Malignance menambah Ultimate Haste, jadi zonanya aktif terus."
+          "Rylai's Crystal Scepter dan Frozen Heart menumpuk slow lebih banyak, Luden's Echo menambah satu hit spell, dan Cosmic Drive serta Shurelya's Battlesong bikin tiap pilar kembali lebih cepat."
         ]
       ],
       "augments": [
-        "Segarkan Ultimate-mu setelah dipakai (cooldown 75 detik atau reset saat mati).",
-        "Setelah memakai Ultimate, dapatkan damage reduction selama 2 detik, setelah itu kamu men-Taunt musuh di dalam selama 2 detik. Dapatkan 30 Ultimate Ability Haste.",
-        "Dapatkan 20% Kekuatan Penyembuhan dan Perisai.",
-        "Dapatkan Ultimate Ability Haste."
+        "Ability pilihanmu memberi damage di area sekitarnya.",
+        "Jika target yang terkena Knock Back oleh ability pilihan menabrak champion lain, mereka terkena Knock Up dan menerima damage. Saat menabrak terrain, durasi Knock Up diperpanjang dan mereka menerima damage bonus.",
+        "Efek slow kamu mengurangi Move Speed sebesar 75 tambahan.",
+        "Kemampuan terpilihmu mendapat 100 Ability Haste."
       ]
     },
     "it": {
-      "title": "Curare i Nemici",
-      "why": "Kindred gioca full support, lancia Riposo dell'Agnello su tutti due volte per scontro e cura i nemici insieme alla propria squadra.",
-      "play": "Aspetta uno scontro enorme, premi R in mezzo a tutti e dieci i campioni, poi premilo di nuovo. Nessuno se ne va, nessuno muore, tutti si curano.",
-      "tagline": "Con Kindred nessuno muore. Nemmeno la squadra avversaria.",
+      "title": "Pilastro Skibidi",
+      "why": "Trundle non usa mai Morso. Spamma Pilastro di ghiaccio finché la squadra nemica non diventa un flipper.",
+      "play": "Piazza il pilastro proprio sotto il carry nemico, sparalo contro un suo compagno, ripeti. Non premere mai Q.",
+      "tagline": "Non morde più nessuno. Adesso parla solo il pilastro.",
       "how": [
         [
-          "Riposo dell'Agnello",
-          "Nessuna unità all'interno può morire, alleata o nemica, e tutti all'interno vengono curati alla fine. È l'unica ultimate che benedice entrambe le squadre insieme."
+          "Pilastro di ghiaccio",
+          "Un tasto che respinge chiunque ci stia sopra e rallenta tutti quelli vicini. Di solito non infligge alcun danno."
         ],
         [
           "Potenziamenti",
-          "Rivoluzione suprema la lancia due volte, Stai qui con me Provoca i nemici così restano nella zona e Ricorsività suprema la fa tornare in fretta. Kit di pronto soccorso potenzia ogni cura."
+          "Ottenuti su Pilastro di ghiaccio: Colpa del terreno lo fa colpire tutto intorno, Reazione a catena scaraventa il nemico respinto contro i suoi amici e Pane e burro gli fa piazzare un nuovo pilastro quasi subito. Freddo come il ghiaccio rende il rallentamento brutale."
         ],
         [
           "Oggetti",
-          "Redenzione, Pietra di luna rinnovata e Nucleo dell'alba sono pura cura da support. Malignità aggiunge altra Accelerazione abilità suprema, così la zona è sempre attiva."
+          "Scettro di cristallo di Rylai e Fulcro dei geli accumulano ancora più rallentamento, Eco di Luden aggiunge un colpo magico, e Spirito cosmico e Canto di guerra di Shurelya fanno tornare ogni pilastro più in fretta."
         ]
       ],
       "augments": [
-        "Ricarica la tua ultimate dopo averla lanciata (75 secondi di ricarica o azzeramento alla morte).",
-        "Dopo aver usato la tua suprema, ottieni riduzione danni per 2 secondi, dopodiché provochi i nemici all'interno per 2 secondi. Ottieni 30 velocità abilità suprema.",
-        "Ottieni il 20% di Potenziamento di cure e scudi.",
-        "Ottieni Accelerazione abilità suprema."
+        "L'abilità scelta infligge danni in un'area intorno a sé.",
+        "Se un bersaglio respinto dall'abilità scelta urta un altro campione, viene lanciato in aria e subisce danni. Quando urta il terreno, la durata del lancio aumenta e subisce danni bonus.",
+        "I tuoi rallentamenti riducono la velocità di movimento di altri 75.",
+        "La tua abilità scelta ottiene 100 di Velocità abilità."
       ]
     },
     "ja": {
-      "title": "敵もまとめて回復",
-      "why": "キンドレッドはフルサポートで、1回の戦闘で子羊の安らぎを2回みんなに投げ、味方と一緒に敵も回復します。",
-      "play": "大きな集団戦を待って、10人全員の真ん中でRを押し、もう一度押すだけ。誰も逃げず、誰も死なず、全員回復します。",
-      "tagline": "キンドレッドがいる限り誰も死なない。敵チームでさえも。",
+      "title": "スキビディ柱",
+      "why": "トランドルは咬み付きを絶対に使わない。敵チームがピンボール台になるまで氷冷の柱を連打する。",
+      "play": "敵キャリーの真下に柱を立てて味方側へ吹っ飛ばし、繰り返す。Qは絶対に押さないこと。",
+      "tagline": "もう誰も噛まない。これからは柱が語る。",
       "how": [
         [
-          "子羊の安らぎ",
-          "範囲内のユニットは味方も敵も死亡せず、終了時に全員が回復します。両チームを同時に祝福する唯一のアルティメットです。"
+          "氷冷の柱",
+          "上に立っている敵をノックバックし、周りの全員にスロウを与えるボタン。本来はダメージを一切与えない。"
         ],
         [
           "オーグメント",
-          "究極進化で2回発動し、一緒に閉じ込められたで敵を挑発してゾーンに留め、究極再帰ですぐに再使用できます。救急セットはすべての回復を強化します。"
+          "氷冷の柱に付与：地形でドンで周囲すべてにダメージ、連鎖反応でノックバックした敵を仲間にぶつけ、パンとバターでほぼすぐ次の柱が立てられる。結氷でスロウがえげつなくなる。"
         ],
         [
           "アイテム",
-          "リデンプション、ムーンストーンの再生、ドーンコアは純粋なサポート向け回復アイテムです。マリグナンスはさらにアルティメット スキルヘイストを加え、ゾーンが常に展開されます。"
+          "リーライ クリスタル セプターとフローズン ハートでさらにスロウを重ね、ルーデン エコーで魔法の一撃を追加。コズミック ドライブとシュレリアの戦歌で柱がどんどん戻ってくる。"
         ]
       ],
       "augments": [
-        "アルティメットを使用後にリフレッシュする(クールダウン75秒、または死亡時にリセット)。",
-        "アルティメットスキルを使用した後、2秒間ダメージ軽減を獲得し、その後、内側にいる敵を2秒間挑発する。アルティメットスキルヘイスト+30。",
-        "回復・シールド量が20%増加する。",
-        "アルティメット スキルヘイストを獲得する。"
+        "選択したスキルが周囲の範囲にダメージを与える。",
+        "選択したスキルでノックバックされた対象が別のチャンピオンに衝突すると、ノックアップされてダメージを受ける。地形に衝突した場合、ノックアップ効果時間が延長され、追加ダメージを受ける。",
+        "自身のスロウ効果が移動速度をさらに75低下させる。",
+        "選択したアビリティのアビリティヘイストが100増加する。"
       ]
     },
     "ko": {
-      "title": "적도 힐해주기",
-      "why": "킨드레드는 풀 서포터로 한타마다 어린 양의 안식을 두 번씩 모두에게 뿌려서 아군과 함께 적도 치유합니다.",
-      "play": "큰 한타를 기다렸다가 열 명 한가운데서 R을 누르고, 한 번 더 누르세요. 아무도 안 떠나고, 아무도 안 죽고, 다 같이 회복됩니다.",
-      "tagline": "킨드레드가 있는 한 아무도 죽지 않습니다. 적 팀도요.",
+      "title": "스키비디 기둥",
+      "why": "트런들은 깨물기를 절대 쓰지 않습니다. 적 팀이 핀볼 기계가 될 때까지 얼음 기둥만 난사합니다.",
+      "play": "적 원딜 바로 밑에 기둥을 세우고 그 팀원 쪽으로 날려 보낸 뒤 반복하세요. Q는 절대 누르지 마세요.",
+      "tagline": "이제 아무도 안 깨뭅니다. 말은 기둥이 다 합니다.",
       "how": [
         [
-          "어린 양의 안식",
-          "범위 안의 유닛은 아군이든 적이든 죽지 않고, 끝날 때 모두 회복됩니다. 양 팀을 동시에 축복하는 유일한 궁극기입니다."
+          "얼음 기둥",
+          "위에 선 적을 밀쳐내고 주변 모두를 둔화시키는 버튼. 원래는 피해를 전혀 주지 않습니다."
         ],
         [
           "증강",
-          "궁극기 대변혁으로 두 번 시전하고, 도망갈 수 없어로 적을 도발해서 범위 안에 가두고, 궁극의 반복으로 빠르게 다시 씁니다. 응급처치 키트는 모든 회복량을 키워줍니다."
+          "얼음 기둥에 붙이면: 지형 생성됨으로 주변 모두를 때리고, 연쇄 반응으로 밀려난 적을 친구들에게 꽂고, 빵과 버터로 거의 바로 새 기둥을 세웁니다. 차가운 냉기로 둔화가 잔인해집니다."
         ],
         [
           "아이템",
-          "구원, 월석 재생기, 새벽심장은 순수 서포터 회복 아이템입니다. 악의는 궁극기 스킬 가속을 더해 줘서 범위가 계속 유지됩니다."
+          "라일라이의 수정홀과 얼어붙은 심장이 둔화를 더 쌓고, 루덴의 메아리가 스킬 한 방을 더하며, 우주의 추진력과 슈렐리아의 군가가 기둥을 더 빨리 돌려줍니다."
         ]
       ],
       "augments": [
-        "궁극기 사용 후 궁극기를 갱신합니다(재사용 대기시간 75초, 또는 죽으면 초기화).",
-        "궁극기를 사용한 후 2초 동안 피해 감소를 얻고, 그 후 안에 있는 적을 2초 동안 도발합니다. 궁극기 가속이 30 증가합니다.",
-        "회복 및 보호막 효과가 20% 증가합니다.",
-        "궁극기 스킬 가속을 얻습니다."
+        "선택한 스킬이 주변 범위에 피해를 입힙니다.",
+        "선택한 스킬로 밀려난 대상이 다른 챔피언과 충돌하면 공중으로 띄워지고 피해를 입습니다. 지형과 충돌하면 공중에 뜨는 시간이 늘어나고 추가 피해를 입습니다.",
+        "둔화 효과가 이동 속도를 75 추가로 감소시킵니다.",
+        "선택한 스킬의 스킬 가속이 100 증가합니다."
       ]
     },
     "pl": {
-      "title": "Leczenie Wrogów",
-      "why": "Kindred gra full supporta, rzuca Odpoczynek Baranka na wszystkich dwa razy na walkę i leczy wrogów razem z własną drużyną.",
-      "play": "Poczekaj na wielką walkę, wciśnij R na środku wszystkich dziesięciu bohaterów, a potem wciśnij jeszcze raz. Nikt nie ucieka, nikt nie ginie, wszyscy się leczą.",
-      "tagline": "Nikt nie ginie, kiedy Kindred pilnuje. Nawet wrogia drużyna.",
+      "title": "Skibidi Kolumna",
+      "why": "Trundle nigdy nie używa Chapsa. Spamuje Kolumnę Lodu, aż drużyna wroga zamieni się w automat do pinballa.",
+      "play": "Postaw kolumnę prosto pod wrogim carry, wbij go w jego sojusznika, powtórz. Nigdy nie wciskaj Q.",
+      "tagline": "Przestał gryźć ludzi. Teraz gada tylko kolumna.",
       "how": [
         [
-          "Odpoczynek Baranka",
-          "Żadna jednostka w środku nie może zginąć, sojusznik czy wróg, a po zakończeniu wszyscy w środku się leczą. To jedyne ulti, które błogosławi obie drużyny naraz."
+          "Kolumna Lodu",
+          "Przycisk, który odrzuca każdego, kto na nim stoi, i spowalnia wszystkich w pobliżu. Normalnie nie zadaje żadnych obrażeń."
         ],
         [
           "Wzmocnienia",
-          "Superrewolucja rzuca je dwa razy, Tkwisz Tu ze Mną Prowokuje wrogów, żeby zostali w strefie, a Superrekurencja szybko je przywraca. Apteczka zwiększa każde leczenie."
+          "Wylosowane na Kolumnie Lodu: Terenowość sprawia, że trafia wszystko dookoła, Reakcja Łańcuchowa wbija odrzuconego wroga w jego kumpli, a Bułka z Masłem pozwala postawić nową kolumnę niemal od razu. Zimny jak Lód sprawia, że spowolnienie jest brutalne."
         ],
         [
           "Przedmioty",
-          "Odkupienie, Odnowienie Kamienia Księżycowego i Rdzeń Świtu to czyste wsparcie leczące. Złowrogość dodaje jeszcze więcej przyspieszenia superumiejętności, więc strefa jest aktywna cały czas."
+          "Kryształowy Kostur Rylai i Mroźne Serce dokładają jeszcze więcej spowolnienia, Echo Luden dodaje trafienie czarem, a Kosmiczny Impuls i Pieśń Bitewna Shurelyi sprawiają, że każda kolumna wraca szybciej."
         ]
       ],
       "augments": [
-        "Odśwież swoje ulti po użyciu (odnowienie 75 sekund lub reset po śmierci).",
-        "Po użyciu superumiejętności zyskujesz redukcję obrażeń na 2 sek., po czym prowokujesz wrogów w środku na 2 sek. Zyskujesz 30 pkt. przyspieszenia superumiejętności.",
-        "Zyskujesz 20% mocy leczenia i tarcz.",
-        "Zyskujesz przyspieszenie superumiejętności."
+        "Wybrana umiejętność zadaje obrażenia na obszarze wokół siebie.",
+        "Jeśli cel odepchnięty przez wybraną umiejętność uderzy w innego bohatera, zostaje podrzucony i otrzymuje obrażenia. Przy zderzeniu z terenem podrzucenie trwa dłużej i cel otrzymuje dodatkowe obrażenia.",
+        "Twoje spowolnienia zmniejszają prędkość ruchu o dodatkowe 75.",
+        "Twoja wybrana umiejętność zyskuje 100 Przyspieszenia umiejętności."
       ]
     },
     "pt-BR": {
-      "title": "Curando os Oponentes",
-      "why": "Kindred joga de full suporte, solta Sossego do Cordeiro em todo mundo duas vezes por luta e cura os inimigos junto com o próprio time.",
-      "play": "Espere uma luta grande, aperte R no meio dos dez campeões e aperte de novo. Ninguém sai, ninguém morre, todo mundo cura.",
-      "tagline": "Ninguém morre com Kindred por perto. Nem o time inimigo.",
+      "title": "Pilar Skibidi",
+      "why": "Trundle nunca usa Mordida. Ele spamma Pilar de Gelo até o time inimigo virar uma máquina de pinball.",
+      "play": "Solte o pilar bem embaixo do carry inimigo, jogue ele num aliado dele e repita. Nunca aperte Q.",
+      "tagline": "Ele parou de morder os outros. Agora quem fala é o pilar.",
       "how": [
         [
-          "Sossego do Cordeiro",
-          "Nenhuma unidade lá dentro pode morrer, aliada ou inimiga, e todo mundo lá dentro é curado quando acaba. É a única ultimate que abençoa os dois times ao mesmo tempo."
+          "Pilar de Gelo",
+          "Um botão que empurra quem estiver em cima e deixa todo mundo por perto mais lento. Normalmente não causa dano nenhum."
         ],
         [
           "Aumentos",
-          "Revolução Suprema lança duas vezes, Fica Aqui Comigo Provoca os inimigos para eles ficarem na zona, e Recursão da Ultimate traz de volta rapidinho. Primeiros Socorros deixa toda cura maior."
+          "Sorteados no Pilar de Gelo: Aterramento faz ele acertar tudo em volta, Reação em Cadeia arremessa o inimigo empurrado nos amigos dele e Pão com Manteiga deixa ele soltar outro pilar quase na hora. Geladinho deixa a lentidão brutal."
         ],
         [
           "Itens",
-          "Redenção, Regenerador de Pedra Lunar e Auronúcleo são pura cura de suporte. Malevolência dá mais Aceleração de Habilidade da Ultimate, então a zona fica ativa o tempo todo."
+          "Cetro de Cristal de Rylai e Coração Congelado acumulam ainda mais lentidão, Eco de Luden adiciona um golpe de magia, e Ímpeto Cósmico e Hino Bélico de Shurelya fazem cada pilar voltar mais rápido."
         ]
       ],
       "augments": [
-        "Reinicie sua ultimate depois de usá-la (75 segundos de tempo de recarga ou reinicia ao morrer).",
-        "Depois de usar sua Ultimate, receba redução de dano por 2 segundos, depois disso você provoca os inimigos dentro por 2 segundos. Receba 30 de Aceleração de Habilidade Suprema.",
-        "Ganhe 20% de Poder de Cura e Escudo.",
-        "Ganhe Aceleração de Habilidade da Ultimate."
+        "Sua habilidade escolhida causa dano em uma área ao redor dela.",
+        "Se um alvo empurrado pela habilidade escolhida colidir com outro campeão, ele é arremessado ao ar e sofre dano. Ao colidir com o terreno, a duração do arremesso aumenta e ele sofre dano bônus.",
+        "Suas lentidões reduzem a Velocidade de Movimento em 75 adicionais.",
+        "Sua habilidade escolhida ganha 100 de Aceleração de Habilidade."
       ]
     },
     "ro": {
-      "title": "Vindecăm dușmanii",
-      "why": "Kindred joacă full support, aruncă Răgazul Mielului peste toți de două ori pe luptă și îi vindecă pe inamici odată cu echipa proprie.",
-      "play": "Așteaptă o luptă mare, apasă R în mijlocul tuturor celor zece campioni, apoi apas-o din nou. Nimeni nu pleacă, nimeni nu moare, toți se vindecă.",
-      "tagline": "Nimeni nu moare sub privirea lui Kindred. Nici măcar echipa inamică.",
+      "title": "Stâlpul Skibidi",
+      "why": "Trundle nu folosește niciodată Mușcătură. Dă spam cu Stâlp de gheață până când echipa inamică devine un flipper.",
+      "play": "Pune stâlpul fix sub carry-ul inamic, trimite-l într-un coechipier de-al lui, repetă. Nu apăsa niciodată Q.",
+      "tagline": "Nu mai mușcă pe nimeni. Acum vorbește doar stâlpul.",
       "how": [
         [
-          "Răgazul Mielului",
-          "Nicio unitate dinăuntru nu poate muri, aliat sau inamic, iar toți dinăuntru se vindecă la final. E singura ultimă care binecuvântează ambele echipe deodată."
+          "Stâlp de gheață",
+          "Un buton care respinge pe oricine stă pe el și încetinește pe toată lumea din jur. În mod normal nu provoacă deloc daune."
         ],
         [
           "Augmentări",
-          "Revoluție supremă o lansează de două ori, Împreună la ananghie Provoacă inamicii ca să rămână în zonă, iar Recursiune supremă o aduce înapoi rapid. Trusa de prim ajutor face fiecare vindecare mai mare."
+          "Primite pe Stâlp de gheață: Teren special îl face să lovească tot ce e în jur, Reacție în lanț aruncă inamicul respins în prietenii lui, iar În primul rând îl lasă să pună un stâlp nou aproape imediat. Rece ca gheața face încetinirea brutală."
         ],
         [
           "Obiecte",
-          "Izbăvire, Reînnoirea pietrei lunii și Miezul zorilor sunt vindecare de support pură. Nocivitate adaugă mai multă Grăbire a ultimei, așa că zona e activă non-stop."
+          "Sceptrul de cristal al lui Rylai și Inimă înghețată adaugă și mai multă încetinire, Ecoul lui Luden adaugă o lovitură magică, iar Avânt cosmic și Cântecul de luptă al Shurelyei aduc fiecare stâlp înapoi mai repede."
         ]
       ],
       "augments": [
-        "Îți reîmprospătezi Ultimul după ce îl lansezi (75 de secunde Reîncărcare sau resetare la moarte).",
-        "După ce îți folosești abilitatea supremă, primești reducere de daune timp de 2 secunde, după care provoci inamicii din interior timp de 2 secunde. Primești 30 de grăbire a abilității supreme.",
-        "Primești 20% Putere de vindecare și scuturi.",
-        "Primești Grăbire a abilității supreme."
+        "Abilitatea aleasă provoacă daune într-o zonă din jurul ei.",
+        "Dacă o țintă împinsă de abilitatea aleasă lovește alt campion, este aruncată în aer și suferă daune. La coliziunea cu terenul, aruncarea durează mai mult și suferă daune bonus.",
+        "Încetinirile tale reduc viteza de mișcare cu încă 75.",
+        "Abilitatea ta aleasă primește 100 Viteză de Abilitate."
       ]
     },
     "ru": {
-      "title": "Лечим оппов",
-      "why": "Киндред играют фулл саппорта: дважды за бой кидают Покой агнца на всех и лечат врагов вместе со своей командой.",
-      "play": "Дождитесь большой драки, нажмите R посреди всех десяти чемпионов, а потом нажмите ещё раз. Никто не уходит, никто не умирает, все лечатся.",
-      "tagline": "На страже Киндред никто не умирает. Даже вражеская команда.",
+      "title": "Скибиди-столп",
+      "why": "Трандл никогда не использует Укус. Он спамит Ледяной столп, пока вражеская команда не превратится в пинбол.",
+      "play": "Ставь столп прямо под вражеского керри, отправь его в союзника, повторяй. Никогда не жми Q.",
+      "tagline": "Он больше никого не кусает. Теперь за него говорит столп.",
       "how": [
         [
-          "Покой агнца",
-          "Ни один юнит внутри не может умереть, ни союзник, ни враг, а когда зона исчезает, все внутри лечатся. Единственная ультимативка, которая благословляет обе команды сразу."
+          "Ледяной столп",
+          "Кнопка, которая отбрасывает всех, кто стоит сверху, и замедляет всех рядом. Обычно она вообще не наносит урона."
         ],
         [
           "Аугменты",
-          "Абсолютный сброс применяет её дважды, Вас заперли со мной Провоцирует врагов, чтобы они оставались в зоне, а Абсолютная рекурсия быстро возвращает её. Аптечка усиливает любое лечение."
+          "Выпавшие на Ледяной столп: Угроза снизу заставляет его бить всё вокруг, Цепная реакция швыряет отброшенного врага в его друзей, а Хлеб с маслом позволяет ставить новый столп почти сразу. Дикий холод делает замедление жестоким."
         ],
         [
           "Предметы",
-          "Искупление, Исцеляющий лунный камень и Ядро рассвета — чистое лечение для саппорта. Пагубность добавляет ещё больше ускорения ультимативных умений, так что зона почти всегда активна."
+          "Хрустальный скипетр Рилай и Ледяное сердце добавляют ещё больше замедления, Эхо Людена даёт удар заклинанием, а Космический ускоритель и Боевая песнь Шурелии быстрее возвращают каждый столп."
         ]
       ],
       "augments": [
-        "Обновляет вашу ультимативную способность после применения (перезарядка 75 секунд или сброс при смерти).",
-        "После применения абсолютного умения вы получаете снижение урона на 2 сек., после чего провоцируете врагов внутри на 2 сек. Вы получаете 30 ед. ускорения абсолютного умения.",
-        "Вы получаете 20% силы лечения и щитов.",
-        "Вы получаете ускорение ультимативных умений."
+        "Выбранное умение наносит урон в области вокруг себя.",
+        "Если цель, отброшенная выбранным умением, сталкивается с другим чемпионом, она подбрасывается и получает урон. При столкновении с рельефом подбрасывание длится дольше и цель получает дополнительный урон.",
+        "Ваши замедления снижают скорость передвижения еще на 75.",
+        "Выбранное умение получает 100 ед. ускорения умений."
       ]
     },
     "th": {
-      "title": "Healing The Opps",
-      "why": "Kindred เล่นซัพเต็มตัว ปล่อย Lamb's Respite ใส่ทุกคนสองรอบต่อการปะทะ แล้วฮีลศัตรูพร้อมกับทีมตัวเองเลย",
-      "play": "รอการปะทะใหญ่ กด R กลางวงระหว่างแชมเปี้ยนทั้งสิบ แล้วกดอีกรอบ ไม่มีใครออก ไม่มีใครตาย ทุกคนได้ฮีล",
-      "tagline": "ไม่มีใครตายในสายตาของ Kindred แม้แต่ทีมศัตรู",
+      "title": "เสาสกิบิดี้",
+      "why": "Trundle ไม่เคยใช้ Chomp เลย เขากด Pillar of Ice รัว ๆ จนทีมศัตรูกลายเป็นเครื่องพินบอล",
+      "play": "วางเสาใต้ตัวแครี่ศัตรูพอดี ดีดมันไปชนเพื่อนตัวเอง แล้วทำซ้ำ ห้ามกด Q เด็ดขาด",
+      "tagline": "เขาเลิกกัดคนแล้ว ตอนนี้เสาพูดแทนทุกอย่าง",
       "how": [
         [
-          "Lamb's Respite",
-          "ยูนิตที่อยู่ข้างในจะตายไม่ได้ ไม่ว่าพันธมิตรหรือศัตรู และทุกคนข้างในจะได้รับการฮีลเมื่อสกิลจบ เป็นอัลติเมทเดียวที่อวยพรทั้งสองทีมพร้อมกัน"
+          "Pillar of Ice",
+          "ปุ่มที่ผลักคนที่ยืนอยู่บนมันกระเด็นและทำให้ทุกคนรอบ ๆ ช้าลง ปกติแล้วไม่สร้างดาเมจเลยสักนิด"
         ],
         [
           "Augment",
-          "Ultimate Revolution ใช้ได้สองครั้ง Stuck In Here With Me Taunt ศัตรูให้อยู่ในโซน และ Ultimate Recursion เรียกกลับมาไวๆ First-Aid Kit ทำให้ฮีลทุกอย่างแรงขึ้น"
+          "สุ่มได้บน Pillar of Ice: Terrain'd ทำให้มันโดนทุกอย่างรอบตัว Chain Reaction ดีดศัตรูที่ถูกผลักไปชนเพื่อน และ Bread And Butter ทำให้วางเสาใหม่ได้แทบทันที Ice Cold ทำให้สโลว์โหดสุด ๆ"
         ],
         [
           "ไอเทม",
-          "Redemption, Moonstone Renewer และ Dawncore คือไอเทมฮีลสายซัพล้วนๆ ส่วน Malignance เพิ่ม Ultimate Haste ให้โซนติดแทบตลอดเวลา"
+          "Rylai's Crystal Scepter กับ Frozen Heart เพิ่มสโลว์อีก Luden's Echo เพิ่มสกิลอีกหนึ่งฮิต ส่วน Cosmic Drive กับ Shurelya's Battlesong ทำให้เสาแต่ละอันกลับมาเร็วขึ้น"
         ]
       ],
       "augments": [
-        "รีเฟรชอัลติเมทของคุณหลังใช้ (คูลดาวน์ 75 วินาที หรือรีเซ็ตเมื่อตาย)",
-        "หลังใช้อัลติเมท ได้รับการลดความเสียหาย 2 วินาที หลังจากนั้นยั่วยุศัตรูที่อยู่ข้างใน 2 วินาที ได้รับ Ultimate Ability Haste 30",
-        "ได้รับพลังฮีลและโล่ 20%",
-        "ได้รับ Ultimate Ability Haste"
+        "สกิลที่คุณเลือกสร้างดาเมจเป็นวงรอบตัวมัน",
+        "หากเป้าหมายที่ถูก Knock Back จากสกิลที่เลือกชนแชมเปี้ยนอีกตัว จะถูก Knock Up และได้รับดาเมจ เมื่อชนกับภูมิประเทศ ระยะเวลา Knock Up จะนานขึ้นและได้รับดาเมจโบนัส",
+        "เอฟเฟกต์สโลว์ของคุณลดความเร็วเคลื่อนที่เพิ่มอีก 75",
+        "สกิลที่เลือกได้รับ Ability Haste 100"
       ]
     },
     "tr": {
-      "title": "Rakipleri İyileştiriyoruz",
-      "why": "Kindred tam destek oynar, her çatışmada herkesin üstüne iki kez Kuzunun Dinlenmesi bırakır ve kendi takımıyla birlikte düşmanları da iyileştirir.",
-      "play": "Büyük bir savaşı bekle, on şampiyonun tam ortasında R'ye bas, sonra tekrar bas. Kimse gitmez, kimse ölmez, herkes iyileşir.",
-      "tagline": "Kindred'in nöbetinde kimse ölmez. Düşman takım bile.",
+      "title": "Skibidi Sütun",
+      "why": "Trundle asla Kopar kullanmaz. Rakip takım tilt makinesine dönene kadar Buzdan Sütun spamlar.",
+      "play": "Sütunu tam rakip carry'nin altına koy, onu takım arkadaşının üstüne fırlat, tekrarla. Asla Q'ya basma.",
+      "tagline": "Artık kimseyi ısırmıyor. Konuşmayı sütun yapıyor.",
       "how": [
         [
-          "Kuzunun Dinlenmesi",
-          "İçerideki hiçbir birim ölemez, müttefik de olsa düşman da olsa, ve bittiğinde içerideki herkes iyileşir. İki takımı birden kutsayan tek ulti bu."
+          "Buzdan Sütun",
+          "Üstünde durana geri itme uygulayan ve yakındaki herkesi yavaşlatan bir tuş. Normalde hiç hasar vermez."
         ],
         [
           "Güçlendirmeler",
-          "Ulti Devrimi onu iki kez kullandırır, Biz Bizeyiz düşmanları Kışkırtıp bölgede tutar, Ulti Yinelemesi de onu hızla geri getirir. İlk Yardım Seti her iyileştirmeyi büyütür."
+          "Buzdan Sütun'a gelirse: Yüzey Şeklinç etrafındaki her şeye vurmasını sağlar, Zincirleme Reaksiyon geri itilen rakibi arkadaşlarına çarptırır, Yağlı Ekmek de neredeyse anında yeni sütun koydurur. Buz Gibi yavaşlatmayı acımasız yapar."
         ],
         [
           "Eşyalar",
-          "Kefaret, Dinçleştirici Aytaşı ve Şafağın Özü saf destek iyileştirmesidir. Habaset daha fazla Ulti Hızı ekler, böylece bölge hep açık kalır."
+          "Rylai'nin Kristal Asası ve Donmuş Yürek daha da fazla yavaşlatma ekler, Luden'in Feryadı bir büyü vuruşu katar, Kozmik Hızlandırıcı ve Shurelya'nın Savaş Şarkısı da her sütunu daha hızlı geri getirir."
         ]
       ],
       "augments": [
-        "Kullandıktan sonra Ultini yeniler (75 saniye Bekleme Süresi ya da ölünce sıfırlanır).",
-        "Ultini kullandıktan sonra 2 saniyeliğine hasar azaltma kazan, ardından içerideki rakipleri 2 saniyeliğine kışkırt. 30 Ulti Beceri Hızı kazan.",
-        "%20 İyileştirme ve Kalkan Gücü kazanırsın.",
-        "Ulti Yetenek Hızı kazanırsın."
+        "Seçtiğin yetenek etrafındaki bir alana hasar verir.",
+        "Seçilen yetenekle geri itilen bir hedef başka bir şampiyona çarparsa havaya savrulur ve hasar alır. Araziye çarptığında savrulma süresi uzar ve ek hasar alır.",
+        "Yavaşlatma etkilerin hareket hızını 75 daha azaltır.",
+        "Seçtiğin yetenek 100 Yetenek Hızı kazanır."
       ]
     },
     "vi": {
-      "title": "Hồi Máu Cho Kẻ Địch",
-      "why": "Kindred chơi support full, thả Ân Huệ Của Cừu lên mọi người hai lần mỗi giao tranh và hồi máu cả địch lẫn đồng đội.",
-      "play": "Chờ một giao tranh lớn, bấm R giữa cả mười tướng, rồi bấm lần nữa. Không ai rời đi, không ai chết, ai cũng được hồi máu.",
-      "tagline": "Có Kindred ở đây thì không ai chết. Kể cả đội địch.",
+      "title": "Cột Skibidi",
+      "why": "Trundle không bao giờ dùng Nhai Nuốt. Anh spam Cột Băng đến khi đội địch thành cái máy pinball.",
+      "play": "Dựng cột ngay dưới chân carry địch, hất nó vào đồng đội của nó, lặp lại. Đừng bao giờ bấm Q.",
+      "tagline": "Anh không cắn ai nữa. Giờ cái cột lo hết.",
       "how": [
         [
-          "Ân Huệ Của Cừu",
-          "Không đơn vị nào bên trong có thể chết, dù là đồng minh hay kẻ địch, và mọi người bên trong được hồi máu khi kết thúc. Đây là tuyệt chiêu duy nhất ban phước cho cả hai đội cùng lúc."
+          "Cột Băng",
+          "Một nút hất lùi bất kỳ ai đứng trên nó và làm chậm mọi người xung quanh. Bình thường nó không gây chút sát thương nào."
         ],
         [
           "Lõi nâng cấp",
-          "Tái Tạo Tuyệt Chiêu thi triển nó hai lần, Bơi Hết Vào Đây Khiêu Khích kẻ địch để chúng ở lại vùng, còn Hồi Quy Chiêu Cuối đưa nó trở lại nhanh. Túi Cứu Thương làm mọi lượng hồi máu lớn hơn."
+          "Đặt vào Cột Băng: Kiến Tạo Địa Hình cho nó đánh mọi thứ xung quanh, Phản Ứng Dây Chuyền hất kẻ địch bị đẩy lùi vào bạn bè của nó, và Bánh Mỳ & Bơ cho anh dựng cột mới gần như ngay lập tức. Băng Lạnh khiến hiệu ứng làm chậm cực gắt."
         ],
         [
           "Trang bị",
-          "Dây Chuyền Chuộc Tội, Bùa Nguyệt Thạch và Lõi Bình Minh là đồ hồi máu thuần support. Hỏa Khuẩn thêm Tốc Độ Hồi Chiêu Cuối, nên vùng này lúc nào cũng sẵn sàng."
+          "Trượng Pha Lê Rylai và Tim Băng chồng thêm làm chậm, Vọng Âm Luden thêm một đòn phép, còn Động Cơ Vũ Trụ và Vương Miện Shurelya giúp mỗi cột hồi lại nhanh hơn."
         ]
       ],
       "augments": [
-        "Làm mới Tuyệt Chiêu sau khi thi triển (Thời Gian Hồi 75 giây hoặc đặt lại khi chết).",
-        "Sau khi dùng Chiêu Cuối, nhận giảm sát thương trong 2 giây, sau đó Khiêu Khích kẻ địch bên trong trong 2 giây. Nhận 30 Điểm Hồi Kỹ Năng Chiêu Cuối.",
-        "Nhận 20% Sức Mạnh Hồi Máu và Lá Chắn.",
-        "Nhận Tốc Độ Hồi Chiêu Cuối."
+        "Kỹ năng bạn chọn gây sát thương trong một vùng xung quanh nó.",
+        "Nếu mục tiêu bị đẩy lùi bởi kỹ năng đã chọn va vào tướng khác, chúng bị hất tung và chịu sát thương. Khi va vào địa hình, thời gian hất tung được kéo dài và chúng chịu thêm sát thương.",
+        "Hiệu ứng làm chậm của bạn giảm thêm 75 tốc độ di chuyển.",
+        "Kỹ năng được chọn nhận 100 Tốc Độ Hồi Chiêu."
       ]
     },
     "zh-CN": {
-      "title": "奶爆对面",
-      "why": "永猎双子打纯辅助，每场团战对所有人放两次羔羊的安息，敌人和自家队友一起奶。",
-      "play": "等一场大团战，在十个英雄中间按下R，然后再按一次。没人离开，没人死亡，所有人都被治疗。",
-      "tagline": "有永猎双子在，谁都死不了。敌方也一样。",
+      "title": "斯奇必迪冰柱",
+      "why": "特朗德尔从不用利齿撕咬。他狂按寒冰之柱，直到敌方全队变成一台弹球机。",
+      "play": "把冰柱直接放在敌方C位脚下，把他撞向自己的队友，重复。永远别按Q。",
+      "tagline": "他不咬人了。现在全靠冰柱说话。",
       "how": [
         [
-          "羔羊的安息",
-          "范围内的任何单位都不会死亡，无论敌我，结束时范围内所有人都会受到治疗。这是唯一能同时庇佑两支队伍的大招。"
+          "寒冰之柱",
+          "一个能击退站在上面的人、并减速附近所有人的按键。平时完全不造成伤害。"
         ],
         [
           "海克斯强化",
-          "终极刷新让它放两次，和我一起困在这里嘲讽敌人让他们留在区域内，终极循环往复让它快速回来。急救用具让每次治疗都更强。"
+          "随机到寒冰之柱上：地形专家让它打到周围所有东西，连锁反应把被击退的敌人撞向队友，面包和黄油让他几乎马上就能再放一根柱子。冰寒让减速变得残暴。"
         ],
         [
           "装备",
-          "救赎、月石再生器和黎明核心都是纯辅助治疗装备。残疫提供更多终极技能急速，让区域几乎一直都在。"
+          "瑞莱的冰晶节杖和冰霜之心叠加更多减速，卢登的回声补一发法术伤害，星界驱驰和舒瑞娅的战歌让每根柱子更快回来。"
         ]
       ],
       "augments": [
-        "施放后刷新你的终极技能（冷却时间75秒，或死亡时重置）。",
-        "使用你的终极技能后，获得持续2秒的伤害减免，之后嘲讽范围内的敌人2秒。获得30终极技能急速。",
-        "获得20%治疗和护盾强度。",
-        "获得终极技能急速。"
+        "你选择的技能会对其周围区域造成伤害。",
+        "如果被所选技能击退的目标撞到另一名英雄，他们会被击飞并受到伤害。撞到地形时，击飞持续时间会延长，并受到额外伤害。",
+        "你的减速效果额外降低75移动速度。",
+        "你所选的技能获得100技能急速。"
       ]
     },
     "zh-TW": {
-      "title": "奶爆對面",
-      "why": "鏡爪打純輔助，每場團戰對所有人放兩次羔羊的安息，敵人和自家隊友一起補。",
-      "play": "等一場大團戰，在十位英雄中間按下R，然後再按一次。沒人離開，沒人死亡，所有人都被治療。",
-      "tagline": "有鏡爪在，誰都死不了。敵方也一樣。",
+      "title": "斯奇必迪冰柱",
+      "why": "特朗德從不用狂野撕咬。他狂按狡詰冰柱，直到敵方全隊變成一台彈珠台。",
+      "play": "把冰柱直接放在敵方核心腳下，把他撞向自己的隊友，重複。永遠別按Q。",
+      "tagline": "他不咬人了。現在全靠冰柱說話。",
       "how": [
         [
-          "羔羊的安息",
-          "範圍內的任何單位都不會死亡，不分敵我，結束時範圍內所有人都會受到治療。這是唯一能同時庇佑兩支隊伍的大絕。"
+          "狡詰冰柱",
+          "一個能擊退站在上面的人、並緩速附近所有人的按鍵。平常完全不造成傷害。"
         ],
         [
           "強化",
-          "終極革新讓它放兩次，隨我同困嘲諷敵人讓他們留在區域內，大絕循環讓它快速回來。急救箱讓每次治療都更強。"
+          "隨機到狡詰冰柱上：劃地為王讓它打到周圍所有東西，連鎖反應把被擊退的敵人撞向隊友，土司和奶油讓他幾乎馬上就能再放一根柱子。雪地踱步讓緩速變得殘暴。"
         ],
         [
           "裝備",
-          "贖罪神石、月之石再生裝置和破曉之核都是純輔助治療裝備。惡意提供更多大絕技能加速，讓區域幾乎一直都在。"
+          "瑞萊的冰晶節杖和冰霜之心疊加更多緩速，盧登回音補一發法術傷害，星河馳騁和蘇瑞亞的戰歌讓每根柱子更快回來。"
         ]
       ],
       "augments": [
-        "施放後刷新你的大絕（冷卻時間75秒，或死亡時重置）。",
-        "使用大絕招後，獲得持續2秒的傷害減免，之後嘲諷範圍內的敵人2秒。獲得30大絕招技能加速。",
-        "獲得20%治療與護盾強度。",
-        "獲得大絕技能加速。"
+        "你選擇的技能會對其周圍區域造成傷害。",
+        "如果被所選技能擊退的目標撞上另一名英雄，他們會被擊飛並受到傷害。撞上地形時，擊飛持續時間會延長，並受到額外傷害。",
+        "你的減速效果額外降低75移動速度。",
+        "你所選的技能獲得100技能加速。"
       ]
     }
   }
