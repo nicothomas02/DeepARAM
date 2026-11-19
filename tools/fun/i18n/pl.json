@@ -377,12 +377,16 @@
  "Gain 20% Heal and Shield Power.": "Zyskujesz 20% mocy leczenia i tarcz.",
  "Gain Ultimate Ability Haste.": "Zyskujesz przyspieszenie superumiejętności.",
  "Skibidi Pillar": "Skibidi Kolumna",
- "Trundle never uses Chomp. He spams Pillar of Ice until the enemy team is a pinball machine.": "Trundle nigdy nie używa Chapsa. Spamuje Kolumnę Lodu, aż drużyna wroga zamieni się w automat do pinballa.",
- "Drop the pillar right under the enemy carry, aim them into a teammate, repeat. Never press Q, never right-click.": "Postaw kolumnę prosto pod wrogim carry, wbij go w jego sojusznika, powtórz. Nigdy nie wciskaj Q, nigdy nie klikaj prawym.",
+ "Trundle never uses Chomp. He spams Pillar of Ice until there is never a moment without one standing.": "Trundle nigdy nie używa Chapsa. Spamuje Kolumnę Lodu, aż zawsze jakaś stoi.",
+ "Max E first. Drop the pillar right under the enemy carry and have the next one down before it melts. Never press Q, never right-click.": "Najpierw maksuj E. Postaw kolumnę prosto pod wrogim carry, a następną, zanim stara się stopi. Nigdy nie wciskaj Q, nigdy nie klikaj prawym.",
  "He stopped biting people. The pillar does all the talking now.": "Przestał gryźć ludzi. Teraz gada tylko kolumna.",
  "Pillar of Ice": "Kolumna Lodu",
- "A button that knocks back whoever stands on it and slows everyone nearby. It normally deals no damage at all.": "Przycisk, który odrzuca każdego, kto na nim stoi, i spowalnia wszystkich w pobliżu. Normalnie nie zadaje żadnych obrażeń.",
- "Rolled on Pillar of Ice: Terrain'd makes it hit everything around it and Chain Reaction bounces the knocked-back enemy into their friends. Ice Cold makes the slow brutal, and Purist - Caster turns the attack speed he never uses into more pillars.": "Wylosowane na Kolumnie Lodu: Terenowość sprawia, że trafia wszystko dookoła, a Reakcja Łańcuchowa wbija odrzuconego wroga w jego kumpli. Zimny jak Lód sprawia, że spowolnienie jest brutalne, a Purysta — mag zamienia prędkość ataku, której nigdy nie używa, w kolejne kolumny.",
- "Rylai's and Frozen Heart pile on more slow, Imperial Mandate marks everyone the pillar knocks back, and Cosmic Drive and Shurelya's make every pillar come back faster.": "Kryształowy Kostur Rylai i Mroźne Serce dokładają jeszcze więcej spowolnienia, Imperialny Mandat oznacza każdego, kogo kolumna odrzuci, a Kosmiczny Impuls i Pieśń Bitewna Shurelyi sprawiają, że każda kolumna wraca szybciej.",
- "Your chosen ability deals damage in an area around it.": "Wybrana umiejętność zadaje obrażenia na obszarze wokół siebie."
+ "A button that knocks back whoever stands on it and slows everyone nearby for 6 seconds. It normally deals no damage at all.": "Przycisk, który odrzuca każdego, kto na nim stoi, i spowalnia wszystkich w pobliżu przez 6 sekund. Normalnie nie zadaje żadnych obrażeń.",
+ "Terrain'd, rolled on Pillar of Ice, makes the pillar hurt everything around it. Bread and Cheese gives Pillar of Ice 100 ability haste and Purist - Caster turns the attack speed he never uses into even more, so the next pillar lands before the last one melts. Ice Cold makes the slow brutal.": "Terenowość, wylosowana na Kolumnie Lodu, sprawia, że kolumna rani wszystko dookoła. Bułka z Serem daje Kolumnie Lodu 100 jedn. przyspieszenia umiejętności, a Purysta — mag zamienia prędkość ataku, której nigdy nie używa, w jeszcze więcej, więc następna kolumna staje, zanim stara się stopi. Zimny jak Lód sprawia, że spowolnienie jest brutalne.",
+ "Imperial Mandate speeds up the pillar and marks everyone it knocks back, Rylai's adds more slow, and Cosmic Drive, Shurelya's and Frozen Heart make every pillar come back faster.": "Imperialny Mandat przyspiesza kolumnę i oznacza każdego, kogo odrzuci, Kryształowy Kostur Rylai dokłada spowolnienia, a Kosmiczny Impuls, Pieśń Bitewna Shurelyi i Mroźne Serce sprawiają, że każda kolumna wraca szybciej.",
+ "Your chosen ability deals damage in an area around it.": "Wybrana umiejętność zadaje obrażenia na obszarze wokół siebie.",
+ "Off-menu": "Spoza menu",
+ "Uses augments {champion} isn't normally offered. Just for fun: it may never come together in a real game.": "Używa ulepszeń, których {champion} normalnie nie dostaje. Dla zabawy: ten build może nigdy nie wyjść w prawdziwej grze.",
+ "On the menu": "W menu",
+ "Your E gains 100 Ability Haste.": "Twoje E zyskuje 100 jedn. przyspieszenia umiejętności."
 }

@@ -400,6 +400,7 @@ window.COOK_DATA = {
    "why": "Tryndamere already crits for free: his Fury raises his crit chance as he fights, and Bloodlust spends it to heal him. Critical Healing lets heals crit for 40% more off that same crit chance, and Circle of Death turns 70% of all his healing and Health Regen into magic damage on the nearest enemy champion, so every Bloodlust is a crit roll that blasts someone. Rite of Ruin adds crit chance on every spell cast and Spirit Visage makes his heals 25% bigger. Bloodlust's heal grows with Ability Power, so the crit carry becomes an AP healer whose heals do the killing.",
    "play": "Fill your Fury, then Bloodlust next to the enemy you want hit. Undying Rage keeps you alive long enough to cast it again. Tank It Or Leave It is the flex pick.",
    "chef": "2026-10-17",
+   "menu": "off",
    "champion_name": "Tryndamere",
    "item_ids": [
     123430,
@@ -418,24 +419,24 @@ window.COOK_DATA = {
    "core_usual": 0,
    "core_pick_rate": 0.0584,
    "sim": {
-    "dps": 234,
+    "dps": 235,
     "survival": 0.014,
-    "best_dps": 1488,
-    "best_survival": 0.411,
-    "pct_of_best": 0.157,
+    "best_dps": 1490,
+    "best_survival": 0.395,
+    "pct_of_best": 0.158,
     "best_items": [
      "Berserker's Greaves",
      "Blade of The Ruined King",
      "The Collector",
+     "Essence Reaver",
      "Kraken Slayer",
-     "Navori Flickerblade",
      "Serylda's Grudge"
     ],
     "best_augments": [
+     "Heavy Is The Crown",
      "Symphony of War",
-     "Dual Wield",
-     "Critical Rhythm",
-     "Tap Dancer"
+     "Tap Dancer",
+     "Critical Rhythm"
     ],
     "items_not_modeled": [
      "Rite of Ruin"
@@ -541,6 +542,7 @@ window.COOK_DATA = {
    "why": "Janna's Tailwind has a line nobody reads: a portion of her bonus Move Speed becomes bonus magic damage on hit and on Zephyr, and Zephyr's passive hands her free Move Speed just for existing. Tap Dancer gives her 10 Move Speed per attack, stacking for as long as she keeps hitting, and Don't Blink adds 1% damage for every 10 Move Speed she has over her target, so every attack makes the next one faster, harder on hit, and stronger on top. Zephyr's active slows the target and Ice Cold takes another 75 Move Speed off every slow, which widens the Don't Blink gap from the other side. Phantom Dancer, Lich Bane and Boots of Swiftness pile on raw speed, Dead Man's Plate stores speed while she runs and dumps it into her next attack, and Cosmic Drive gives her more Move Speed every time that on-hit magic damage lands. The enchanter stops shielding anyone and becomes an on-hit carry whose only real stat is Move Speed.",
    "play": "Zephyr the squishiest target, then keep attacking: the longer the chase, the harder you hit. Get Excited! is the flex pick, since a takedown gives 100% Move Speed for 4 seconds and Don't Blink reads that as free damage.",
    "chef": "2026-10-18",
+   "menu": "off",
    "champion_name": "Janna",
    "item_ids": [
     3046,
@@ -559,24 +561,24 @@ window.COOK_DATA = {
    "core_usual": 0,
    "core_pick_rate": 0.1315,
    "sim": {
-    "dps": 245,
+    "dps": 246,
     "survival": 0.021,
-    "best_dps": 1193,
-    "best_survival": 0.6,
-    "pct_of_best": 0.206,
+    "best_dps": 992,
+    "best_survival": 0.018,
+    "pct_of_best": 0.248,
     "best_items": [
      "Sorcerer's Shoes",
      "Nashor's Tooth",
      "Rabadon's Deathcap",
      "Guinsoo's Rageblade",
-     "Void Staff",
-     "Wit's End"
+     "Shadowflame",
+     "Void Staff"
     ],
     "best_augments": [
      "Marksmage",
      "Heavy Is The Crown",
-     "Master of Duality",
-     "Ominous Pact"
+     "Glass Cannon",
+     "Giant Slayer"
     ],
     "items_not_modeled": [],
     "whole_build": true
@@ -666,6 +668,7 @@ window.COOK_DATA = {
    "why": "Ivern's Brushmaker has a passive almost nobody builds around: while he stands in brush, and for a moment after leaving it, his attacks deal bonus magic damage, and its active grows a fresh patch of brush anywhere he likes. Hide on Bush makes him deal 20% more damage for as long as he stays in brush, and Nature is Healing regenerates a large amount of Health every time he enters one, so every Brushmaker cast is a new entrance: a heal, a damage buff and a round of empowered attacks, on demand. Triggerseed feeds the other half: Mercy's Strike turns its shield into a next attack with extra range, Attack Speed and max Health magic damage, and Lil' Extra Help adds Attack Range and Attack Speed for as long as that shield lasts, so one shield from inside the brush is a short burst of long-range, fast, empowered attacks. Nashor's Tooth and Guinsoo's Rageblade stack more on-hit magic damage onto every one of those attacks, Rabadon's Deathcap grows all of it, and Cosmic Drive gives him the Move Speed to hop from one hedge to the next. The forest's gentlest support turns into an on-hit carry who plants his own ambush wherever he stands.",
    "play": "Grow a brush on top of the fight, shield whoever is closest, and attack from inside it while the shield lasts; when the fight moves, grow another one and step in for the heal.",
    "chef": "2026-10-19",
+   "menu": "off",
    "champion_name": "Ivern",
    "item_ids": [
     3115,
@@ -684,11 +687,11 @@ window.COOK_DATA = {
    "core_usual": 0,
    "core_pick_rate": 0.0754,
    "sim": {
-    "dps": 1293,
-    "survival": 0.48,
+    "dps": 1295,
+    "survival": 0.475,
     "best_dps": 1317,
-    "best_survival": 0.425,
-    "pct_of_best": 0.981,
+    "best_survival": 0.426,
+    "pct_of_best": 0.983,
     "best_items": [
      "Sorcerer's Shoes",
      "Lich Bane",
@@ -805,9 +808,9 @@ window.COOK_DATA = {
    "sim": {
     "dps": 75,
     "survival": 0.01,
-    "best_dps": 505,
+    "best_dps": 574,
     "best_survival": 0.021,
-    "pct_of_best": 0.148,
+    "pct_of_best": 0.13,
     "best_items": [
      "Sorcerer's Shoes",
      "Hextech Gunblade",
@@ -817,10 +820,10 @@ window.COOK_DATA = {
      "Void Staff"
     ],
     "best_augments": [
-     "Salvation",
+     "FireFox",
      "Upgrade Stormsurge",
-     "Marksmage",
-     "Circle of Death"
+     "Giant Slayer",
+     "Marksmage"
     ],
     "items_not_modeled": [
      "Sword of Blossoming Dawn"
@@ -926,22 +929,22 @@ window.COOK_DATA = {
    "sim": {
     "dps": 158,
     "survival": 0.009,
-    "best_dps": 679,
-    "best_survival": 0.01,
-    "pct_of_best": 0.232,
+    "best_dps": 686,
+    "best_survival": 0.011,
+    "pct_of_best": 0.23,
     "best_items": [
      "Sorcerer's Shoes",
      "Blackfire Torch",
      "Liandry's Torment",
-     "Lich Bane",
+     "Shadowflame",
      "Stormsurge",
      "Void Staff"
     ],
     "best_augments": [
      "Upgrade Stormsurge",
-     "Giant Slayer",
+     "FireFox",
      "Dive Bomber",
-     "It's Killing Time"
+     "Giant Slayer"
     ],
     "items_not_modeled": [],
     "whole_build": true
@@ -1045,6 +1048,7 @@ window.COOK_DATA = {
    "why": "Vault has a side effect nobody plays around: after Quinn dashes in she leaps backwards and slightly Knocks the target Back. Chain Reaction on Vault turns that polite nudge into a Knock Up whenever the shoved enemy hits another champion or a wall, with a longer Knock Up and bonus damage against terrain, and the bridge is one long corridor of walls. Every Vault is now an immobilize, so Ravenous Bind makes it heal her and hit harder, Soul Eater hands her permanent max Health for each one, and Dashing gives the dash 175 Ability Haste so it comes back almost at once. Navori Flickerblade closes the loop: Vault marks its target with Harrier, Heightened Senses gives Attack Speed for hitting Harrier targets, and each of those Attacks cuts the remaining Vault cooldown by 15%, while Spear of Shojin adds Basic Ability Haste on top. Heartsteel and Soul Eater stack Health that Overlord's Bloodmail turns into Attack Damage, so the ranged scout ends up a walking shoulder-check who throws people into walls and tanks off the bounce.",
    "play": "Stand with your back to open ground and Vault enemies toward a wall or into their own teammate, then hit the Harrier mark so Vault is ready again. Behind Enemy Lines is just a bus to the next wall.",
    "chef": "2026-10-22",
+   "menu": "off",
    "champion_name": "Quinn",
    "item_ids": [
     6675,
@@ -1063,17 +1067,17 @@ window.COOK_DATA = {
    "core_usual": 0,
    "core_pick_rate": 0.123,
    "sim": {
-    "dps": 270,
-    "survival": 0.148,
-    "best_dps": 1530,
-    "best_survival": 0.675,
-    "pct_of_best": 0.176,
+    "dps": 272,
+    "survival": 0.145,
+    "best_dps": 1531,
+    "best_survival": 0.688,
+    "pct_of_best": 0.177,
     "best_items": [
      "Berserker's Greaves",
      "Blade of The Ruined King",
      "Infinity Edge",
      "Lord Dominik's Regards",
-     "Serylda's Grudge",
+     "Stormrazor",
      "Yun Tal Wildarrows"
     ],
     "best_augments": [
@@ -1184,6 +1188,7 @@ window.COOK_DATA = {
    "why": "Zoe's Spell Thief hides a second passive line under the one everyone reads: whenever she casts that Ability or any Summoner Spell, she tosses 3 missiles at the target she Attacked most recently. Flashy gives her Flash three charges and Flashbang makes every one of those Flashes explode for damage and a Slow, so a single blink is now an area nuke plus a volley, and Flash 2 hands her a second Flash plus 70 Summoner Haste so the whole bar reloads sooner. Poltergeist bolts on one more Summoner Spell that casts Barrier and Ghost together, so even her panic button is three more missiles. Ionian Boots of Lucidity feed the loop with Summoner Spell Haste, Lich Bane turns the Attack she throws after an Ability into a bonus magic hit while it also marks who the next volley chases, and Rabadon's Deathcap, Shadowflame, Stormsurge and Void Staff make each small magic hit land like a real one. The long-range Paddle Star sniper stops waiting on her star and becomes a machine gun whose trigger is the Summoner bar.",
    "play": "Attack whoever you want dead first, because the missiles follow the last target you hit. Then empty the bar on top of them, and Flash sideways, not away.",
    "chef": "2026-10-23",
+   "menu": "off",
    "champion_name": "Zoe",
    "item_ids": [
     3158,
@@ -1202,11 +1207,11 @@ window.COOK_DATA = {
    "core_usual": 0,
    "core_pick_rate": 0.0438,
    "sim": {
-    "dps": 391,
-    "survival": 0.012,
-    "best_dps": 830,
-    "best_survival": 0.013,
-    "pct_of_best": 0.471,
+    "dps": 392,
+    "survival": 0.013,
+    "best_dps": 828,
+    "best_survival": 0.014,
+    "pct_of_best": 0.473,
     "best_items": [
      "Sorcerer's Shoes",
      "Blackfire Torch",
@@ -1218,8 +1223,8 @@ window.COOK_DATA = {
     "best_augments": [
      "Glass Cannon",
      "Ultimate Awakening",
-     "Giant Slayer",
-     "It's Killing Time"
+     "It's Killing Time",
+     "Giant Slayer"
     ],
     "items_not_modeled": [],
     "whole_build": true
@@ -1323,6 +1328,7 @@ window.COOK_DATA = {
    "why": "Olaf's Berserker Rage hands him Attack Speed for every point of Health he is missing, and Tough It Out stacks even more Attack Speed on top; Purist - Caster converts all of that Attack Speed into Ability Haste, so the lower his Health bar, the faster his cooldowns run. Ominous Pact makes every spell cast cost a slice of his current Health and pays him back with Ability Power, Movement Speed and Omnivamp based on missing Health, so casting Undertow drains him, the drain feeds Berserker Rage, and the Attack Speed comes back out as more Haste for the next axe. escAPADe turns that Ability Power into bonus Attack Damage for his physical damage axes, and Skilled Sniper refunds most of Undertow's cooldown whenever the axe lands on someone more than 600 units away, so he never has to walk up and pick it up. Nashor's Tooth, Wit's End, Kraken Slayer and Berserker's Greaves are bought purely as Attack Speed to be converted into Haste (the Nashor's Ability Power also becomes Attack Damage through escAPADe), while Spear of Shojin and Experimental Hexplate add Attack Damage, Haste and the Health pool he deliberately burns. The melee berserker who has to run at people becomes a long-range artillery piece that lobs axes from max range and plays better the closer he is to dead.",
    "play": "Sit at max Undertow range, throw axes until your Health sits near the bottom third, then keep throwing instead of chasing the axe. Reckless Swing is your emergency self-damage if you are too healthy; Ragnarok is for walking out, not in.",
    "chef": "2026-10-24",
+   "menu": "off",
    "champion_name": "Olaf",
    "item_ids": [
     3006,
@@ -1341,11 +1347,11 @@ window.COOK_DATA = {
    "core_usual": 0,
    "core_pick_rate": 0.2296,
    "sim": {
-    "dps": 509,
-    "survival": 0.071,
-    "best_dps": 1231,
-    "best_survival": 0.392,
-    "pct_of_best": 0.413,
+    "dps": 511,
+    "survival": 0.072,
+    "best_dps": 1230,
+    "best_survival": 0.427,
+    "pct_of_best": 0.415,
     "best_items": [
      "Berserker's Greaves",
      "Blade of The Ruined King",
@@ -1358,7 +1364,7 @@ window.COOK_DATA = {
      "Scopiest Weapons",
      "Dual Wield",
      "Tap Dancer",
-     "Don't Blink"
+     "Heavy Is The Crown"
     ],
     "items_not_modeled": [],
     "whole_build": true
@@ -1448,6 +1454,7 @@ window.COOK_DATA = {
    "why": "Nilah's kit already leaks healing everywhere: Formless Blade turns her crit chance into lifesteal that overflows into shields, and Apotheosis heals every nearby ally for a cut of its damage. Critical Healing hands her the crit chance that Formless Blade wants while letting all of those heals and shields crit, and Spirit Bomb, Empowered By The Faithful and Support Main all trigger off the same thing: healing allies, which her ultimate does on its own. Sword of Blossoming Dawn is the missing piece, because its Peppermint on-hit makes every single auto attack heal the lowest ally, so each basic attack now charges a Spirit Bomb, blesses teammates for an executing shockwave and leaves a heal-over-time behind, while Ardent Censer, Moonstone Renewer and Echoes of Helia reward each of those ally heals with attack speed, chained heals and stored damage turned into healing. Infinity Edge and Navori Flickerblade keep her crit chance high so the whip-blade still hurts and Formless Blade keeps her own health topped. A melee crit carry turns into a frontline medic whose auto attacks are the healing spell.",
    "play": "Glue yourself to your tankiest ally and keep auto-attacking anything in range; every hit heals the team and fills the bomb. Hold Apotheosis for a brawl where the whole team is hurt so one ultimate dumps a flood of crit heals and sets off the Faithful shockwave.",
    "chef": "2026-10-25",
+   "menu": "off",
    "champion_name": "Nilah",
    "item_ids": [
     124011,
@@ -1466,11 +1473,11 @@ window.COOK_DATA = {
    "core_usual": 0,
    "core_pick_rate": 0.0306,
    "sim": {
-    "dps": 472,
+    "dps": 470,
     "survival": 0.013,
-    "best_dps": 1102,
-    "best_survival": 0.051,
-    "pct_of_best": 0.428,
+    "best_dps": 1092,
+    "best_survival": 0.058,
+    "pct_of_best": 0.43,
     "best_items": [
      "Berserker's Greaves",
      "Blade of The Ruined King",
@@ -1480,9 +1487,9 @@ window.COOK_DATA = {
      "Serylda's Grudge"
     ],
     "best_augments": [
-     "Tickle Monster",
      "Third Times the Harm",
-     "Giant Slayer",
+     "Tickle Monster",
+     "Dual Wield",
      "Scopiest Weapons"
     ],
     "items_not_modeled": [
@@ -1589,6 +1596,7 @@ window.COOK_DATA = {
    "why": "Everyone uses Rek'Sai's Burrow to tunnel in and bite, but while burrowed her Q turns into Prey Seeker, a long-range burst of earth that damages and reveals whatever it hits, and most players only use it to poke before diving. Skilled Sniper refunds 80% of its cooldown whenever it lands from over 600 range, so Prey Seeker is nearly always up, which races through Multishot's quest of hitting champions with it for extra missiles, and Spell Split splits each of those missiles in two on hit or at max range. Magic Missile fires three more true-damage missiles at every enemy the ability hits, stronger the farther they travel, so a volley from across the lane rains down on the whole team. Horizon Focus feeds the same loop by revealing every champion you hit from 600 range or more plus the enemies around them, and Rabadon's Deathcap, Shadowflame, Stormsurge and Luden's Echo pile on Ability Power, so a melee jungle diver becomes an AP artillery mage who never comes up for air.",
    "play": "Burrow early and stay under, park at max range and keep firing Prey Seeker at anything in sight. Only Unburrow to knock up a diver, then dig back in and keep shelling.",
    "chef": "2026-10-26",
+   "menu": "off",
    "champion_name": "Rek'Sai",
    "item_ids": [
     4628,
@@ -1607,24 +1615,24 @@ window.COOK_DATA = {
    "core_usual": 0,
    "core_pick_rate": 0.158,
    "sim": {
-    "dps": 247,
+    "dps": 248,
     "survival": 0.008,
-    "best_dps": 818,
-    "best_survival": 0.021,
-    "pct_of_best": 0.302,
+    "best_dps": 831,
+    "best_survival": 0.032,
+    "pct_of_best": 0.299,
     "best_items": [
      "Berserker's Greaves",
-     "Axiom Arc",
      "Blade of The Ruined King",
+     "Essence Reaver",
+     "Serpent's Fang",
      "Serylda's Grudge",
-     "Umbral Glaive",
      "Youmuu's Ghostblade"
     ],
     "best_augments": [
      "Dive Bomber",
      "Scopiest Weapons",
-     "Bouncing Bees",
-     "Triggered Inferno"
+     "Dual Wield",
+     "Heavy Is The Crown"
     ],
     "items_not_modeled": [],
     "whole_build": true
@@ -1728,6 +1736,7 @@ window.COOK_DATA = {
    "why": "Skarner's passive Threads of Vibration is mostly an afterthought: his attacks, boulder and ult stack Quaking, and at max stacks the target takes max Health magic damage over time, which is a damage-over-time effect. Vulnerability lets damage-over-time and item effects critically strike for 145% extra damage and hands him 25% crit chance, and Tank It Or Leave It adds another 25% so that same crit chance also rolls a 20% damage reduction every time he gets hit, so a tank who never crits suddenly wants crit for both offence and defence. Infernal Conduit makes every ability stack a burn that crits too and cuts his basic cooldowns, so he throws more boulders and quakes to re-stack Quaking, while Firebrand piles an infinitely stacking burn onto the three empowered attacks from Shattered Earth. Liandry's Torment, Sunfire Aegis, Hollow Radiance, Thornmail and Heartsteel are all item damage, so their burns, Immolate ticks, thorns and charged slam roll crits off the same 50% chance. The scorpion ends up a walking crit-chance bonfire whose tank items are his damage.",
    "play": "Build full tank, walk into the enemy team and just keep stacking: Q three attacks, throw the boulder, quake, ult whoever is closest. You are not the one who crits, your burns are.",
    "chef": "2026-10-27",
+   "menu": "off",
    "champion_name": "Skarner",
    "item_ids": [
     6653,
@@ -1746,24 +1755,24 @@ window.COOK_DATA = {
    "core_usual": 0,
    "core_pick_rate": 0.1917,
    "sim": {
-    "dps": 410,
+    "dps": 409,
     "survival": 0.028,
-    "best_dps": 1055,
-    "best_survival": 0.018,
-    "pct_of_best": 0.388,
+    "best_dps": 1215,
+    "best_survival": 0.013,
+    "pct_of_best": 0.337,
     "best_items": [
-     "Boots of Swiftness",
+     "Sorcerer's Shoes",
      "Black Cleaver",
      "Blackfire Torch",
      "Horizon Focus",
      "Liandry's Torment",
-     "Shadowflame"
+     "Trinity Force"
     ],
     "best_augments": [
      "Back To Basics",
-     "Giant Slayer",
      "Scopiest Weapons",
-     "escAPADe"
+     "Gift of the Drowned",
+     "Tank Engine"
     ],
     "items_not_modeled": [],
     "whole_build": true
@@ -1860,6 +1869,7 @@ window.COOK_DATA = {
    "why": "Irelia's Ionian Fervor gives her stacking Attack Speed every time a spell hits, and at full stacks it adds bonus damage on hit. Purist - Caster converts all of that Attack Speed into Ability Haste, so the stacks she earns by casting come back as more casts. Ethereal Weapon makes her abilities apply On-Hit effects, so every Bladesurge, Flawless Duet and Vanguard's Edge carries her Fervor bonus and Mystic Punch, which cuts 1.25 seconds off all her cooldowns per On-Hit; Double Strike on Bladesurge applies those On-Hits a second time. Nashor's Tooth and Wit's End are bought for Attack Speed that Purist turns into Haste and for On-Hit magic damage that her spells now deliver, while Rabadon's Deathcap and Riftmaker bring the Ability Power. The auto-attack duelist never right-clicks again and becomes an AP caster whose spells are the on-hits.",
    "play": "Mark targets with Flawless Duet or Vanguard's Edge, then chain Bladesurge through them and the minions. Every hit refunds cooldowns, so just keep dashing and forget your attack button exists.",
    "chef": "2026-10-28",
+   "menu": "off",
    "champion_name": "Irelia",
    "item_ids": [
     3115,
@@ -1878,11 +1888,11 @@ window.COOK_DATA = {
    "core_usual": 0,
    "core_pick_rate": 0.3656,
    "sim": {
-    "dps": 865,
-    "survival": 0.069,
-    "best_dps": 942,
-    "best_survival": 0.051,
-    "pct_of_best": 0.918,
+    "dps": 836,
+    "survival": 0.015,
+    "best_dps": 938,
+    "best_survival": 0.013,
+    "pct_of_best": 0.892,
     "best_items": [
      "Sorcerer's Shoes",
      "Blackfire Torch",
@@ -1892,10 +1902,10 @@ window.COOK_DATA = {
      "Void Staff"
     ],
     "best_augments": [
+     "Take'em Down Down Down",
      "Third Times the Harm",
      "Giant Slayer",
-     "Heavy Is The Crown",
-     "En Passant"
+     "Heavy Is The Crown"
     ],
     "items_not_modeled": [],
     "whole_build": false
@@ -1992,6 +2002,7 @@ window.COOK_DATA = {
    "why": "Kled's Violent Tendencies is a side effect most players barely think about: his next attack grants a big burst of Attack Speed for four attacks, then it sits on cooldown. With these augments rolled on Violent Tendencies, Reload makes every on-hit attack during it cut its cooldown, and Mystic Punch cuts all of his ability cooldowns on every on-hit, so the four fast attacks plus every attack in between bring it back far sooner. While it is up, Lil' Extra Help hands Kled bonus Attack Range and even more Attack Speed, and Pin Cushion turns each of those attacks into Nails that pile up damage and then execute. Guinsoo's Rageblade feeds the same loop, because when fully stacked every third attack applies on-hit effects twice, doubling the Reload and Mystic Punch cooldown cuts, while Blade of The Ruined King, Wit's End, Kraken Slayer and Terminus make every nailed attack hurt. The bear-trap brawler turns into a long-range nail gun that lives in Violent Tendencies.",
    "play": "Start Violent Tendencies on whoever is closest, stay at max range so the Nails keep stacking, and let Reload and Mystic Punch hand it right back. Save Jousting to get back onto a target whose Nails are about to pop.",
    "chef": "2026-10-29",
+   "menu": "off",
    "champion_name": "Kled",
    "item_ids": [
     3124,
@@ -2010,24 +2021,24 @@ window.COOK_DATA = {
    "core_usual": 0,
    "core_pick_rate": 0.1661,
    "sim": {
-    "dps": 724,
+    "dps": 725,
     "survival": 0.015,
-    "best_dps": 1124,
-    "best_survival": 0.017,
-    "pct_of_best": 0.644,
+    "best_dps": 1114,
+    "best_survival": 0.018,
+    "pct_of_best": 0.651,
     "best_items": [
-     "Berserker's Greaves",
-     "Axiom Arc",
+     "Boots of Swiftness",
      "Blade of The Ruined King",
      "Kraken Slayer",
      "Navori Flickerblade",
+     "Guinsoo's Rageblade",
      "Serylda's Grudge"
     ],
     "best_augments": [
      "Tickle Monster",
      "Third Times the Harm",
-     "Giant Slayer",
-     "Dive Bomber"
+     "Dive Bomber",
+     "Heavy Is The Crown"
     ],
     "items_not_modeled": [],
     "whole_build": true
@@ -2131,6 +2142,7 @@ window.COOK_DATA = {
    "why": "Molten Shield has a target nobody uses: Annie can cast it on an ally, handing them a shield, a burst of Move Speed and thorns that damage anyone who hits them, and Tibbers spawns wearing one too. With Group Hug rolled on Molten Shield, every cast shields two more allies, so one button is three shields, three speed boosts and three sets of thorns. Enchanting Butterflies gathers a Butterfly for every ally she shields, Sonic Boom makes each shield explode for damage and a Slow around that ally, and Sound Barrier hands every shielded teammate Move Speed and Ghost, so the moment Annie damages an enemy all the Butterflies fly out as magic damage. Moonstone Renewer chains each shield to yet another ally for one more Butterfly and boom, Staff of Flowing Water and Ardent Censer pay her and every shielded ally in Ability Power, Haste and Attack Speed, and Shurelya's Battlesong buffs the whole team for another round of booms. The point-and-click burst mage stops casting at enemies and becomes a shield bot whose damage comes out of her teammates.",
    "play": "Stand behind the team and cast Molten Shield on whoever is about to get hit, then tag an enemy with Disintegrate or Incinerate to release the Butterflies. Save the Pyromania stun your shield casts build up for Tibbers.",
    "chef": "2026-10-30",
+   "menu": "off",
    "champion_name": "Annie",
    "item_ids": [
     6617,
@@ -2149,9 +2161,9 @@ window.COOK_DATA = {
    "core_usual": 0,
    "core_pick_rate": 0.0349,
    "sim": {
-    "dps": 216,
+    "dps": 217,
     "survival": 0.012,
-    "best_dps": 1079,
+    "best_dps": 1081,
     "best_survival": 0.013,
     "pct_of_best": 0.2,
     "best_items": [
@@ -2281,11 +2293,11 @@ window.COOK_DATA = {
    "core_usual": 0,
    "core_pick_rate": 0.2828,
    "sim": {
-    "dps": 276,
-    "survival": 0.121,
-    "best_dps": 1456,
-    "best_survival": 0.256,
-    "pct_of_best": 0.189,
+    "dps": 275,
+    "survival": 0.122,
+    "best_dps": 1458,
+    "best_survival": 0.448,
+    "pct_of_best": 0.188,
     "best_items": [
      "Sorcerer's Shoes",
      "Horizon Focus",
@@ -2296,9 +2308,9 @@ window.COOK_DATA = {
     ],
     "best_augments": [
      "Eureka",
-     "Ominous Pact",
-     "Echo Cast",
-     "Cruelty"
+     "Heavy Is The Crown",
+     "Ravenous Bind",
+     "Back To Basics"
     ],
     "items_not_modeled": [],
     "whole_build": true
@@ -2402,6 +2414,7 @@ window.COOK_DATA = {
    "why": "Living Battery has a throwaway line everyone ignores: Zeri's Attacks deal magic damage and are treated as Abilities. Phenomenal Evil reads that literally, so every right-click on a champion permanently stacks Ability Power, turning Zeri into a Veigar who farms stacks by auto-attacking. Marksmage closes the loop by making her Attacks deal extra damage based on that Ability Power, so the stacks go straight back into the autos. Twin Fire and Magic Missile both trigger on ability damage, so every auto also sprays missiles, and her long range lets Magic Missile's shots travel far. The items are pure mage items that key off Abilities: Rylai's slows, Liandry's burns and Luden's echoes all fire off her autos, while Rabadon's multiplies the stacks and Nashor's gives the attack speed to cast her 'spell' faster.",
    "play": "Build like a mage, play like a marksman: stand at max range and right-click champions nonstop to farm stacks and launch missiles. Take Phenomenal Evil early so the stacks have the whole game to grow.",
    "chef": "2026-11-01",
+   "menu": "off",
    "champion_name": "Zeri",
    "item_ids": [
     3115,
@@ -2420,17 +2433,17 @@ window.COOK_DATA = {
    "core_usual": 0,
    "core_pick_rate": 0.2579,
    "sim": {
-    "dps": 472,
+    "dps": 473,
     "survival": 0.015,
-    "best_dps": 1381,
-    "best_survival": 0.294,
-    "pct_of_best": 0.342,
+    "best_dps": 1377,
+    "best_survival": 0.293,
+    "pct_of_best": 0.344,
     "best_items": [
      "Berserker's Greaves",
      "Blade of The Ruined King",
-     "The Collector",
      "Infinity Edge",
      "Lord Dominik's Regards",
+     "Stormrazor",
      "Yun Tal Wildarrows"
     ],
     "best_augments": [
@@ -2541,6 +2554,7 @@ window.COOK_DATA = {
    "why": "Elise's ultimate is Spider Form, a form swap on a tiny cooldown, so every flip between spider and human counts as casting her ultimate, and that is the whole trick. Stuck In Here With Me gives her damage reduction after each ultimate and then taunts the enemies stuck with her, Final Form hands her a shield worth half her max Health plus omnivamp and move speed, Can't Touch This makes her briefly invulnerable, and Ultimate Unstoppable makes her immune to crowd control, so each swap fires whichever of them is off cooldown. Spider Form's own passive heals her on every bite, so with omnivamp on top she sustains while the enemy team is forced to stand on her. Warmog's Armor and Heartsteel make the max Health shield enormous, Spirit Visage makes that shield and her spider heals bigger, and Thornmail punishes every taunted enemy forced to attack her while Sunfire Aegis burns the crowd. The AP assassin becomes a taunting front-line tank whose only button is pressing R over and over.",
    "play": "Cocoon an enemy, go spider and walk into their team, then keep swapping forms to chain damage reduction, taunts, invulnerability and shields while biting whoever is stuck on you. Build pure Health and Armor and never Rappel out.",
    "chef": "2026-11-02",
+   "menu": "off",
    "champion_name": "Elise",
    "item_ids": [
     3075,
@@ -2561,13 +2575,13 @@ window.COOK_DATA = {
    "sim": {
     "dps": 90,
     "survival": 0.108,
-    "best_dps": 1054,
+    "best_dps": 1126,
     "best_survival": 0.015,
-    "pct_of_best": 0.086,
+    "pct_of_best": 0.08,
     "best_items": [
      "Sorcerer's Shoes",
-     "Blackfire Torch",
      "Lich Bane",
+     "Nashor's Tooth",
      "Rabadon's Deathcap",
      "Shadowflame",
      "Void Staff"
@@ -2575,8 +2589,8 @@ window.COOK_DATA = {
     "best_augments": [
      "Glass Cannon",
      "Skilled Sniper",
-     "Marksmage",
-     "Heavy Is The Crown"
+     "Heavy Is The Crown",
+     "Marksmage"
     ],
     "items_not_modeled": [],
     "whole_build": true
@@ -2680,6 +2694,7 @@ window.COOK_DATA = {
    "why": "Cassiopeia's passive, Serpentine Grace, quietly makes every Move Speed bonus bigger on her, and Twin Fang is a 0.75-second cooldown spell she casts nonstop. With Quickstep rolled on Twin Fang, every cast now dashes her toward her cursor, so she lunges at whoever she is biting every 0.75 seconds; Shadow Runner hands out 300 Move Speed after each dash, which her passive inflates and which never expires because the next dash arrives before the 2 seconds are up. Don't Blink turns that speed lead into 1% bonus damage per 10 Move Speed over the target, and her own Miasma slow and ground plus Petrifying Gaze's slow widen the gap, while Earthwake makes every dash leave a trail that detonates after 0.75 seconds, exactly as the next Twin Fang comes off cooldown. Rylai's slows the target on every fang so the gap grows further, and Cosmic Drive, Lich Bane, Stormsurge, Dead Man's Plate and Force of Nature all carry percent Move Speed that her passive multiplies, with Dead Man's Plate blunting slows and Force of Nature keeping her alive in melee. The stationary poison artillery mage becomes a hyper-mobile drifter who runs rings around the enemy, mining the ground behind her with every bite.",
    "play": "Poison with Q or W, then hold E and let Quickstep drag you through the target so each dash lays an Earthwake trail and refreshes Shadow Runner. Save R to stun or slow anyone who tries to match your speed.",
    "chef": "2026-11-03",
+   "menu": "off",
    "champion_name": "Cassiopeia",
    "item_ids": [
     3116,
@@ -2698,15 +2713,15 @@ window.COOK_DATA = {
    "core_usual": 0,
    "core_pick_rate": 0.1007,
    "sim": {
-    "dps": 367,
+    "dps": 366,
     "survival": 0.018,
-    "best_dps": 1424,
+    "best_dps": 1435,
     "best_survival": 0.011,
-    "pct_of_best": 0.258,
+    "pct_of_best": 0.255,
     "best_items": [
      "Sorcerer's Shoes",
      "Blackfire Torch",
-     "Lich Bane",
+     "Liandry's Torment",
      "Rabadon's Deathcap",
      "Shadowflame",
      "Void Staff"
@@ -2819,6 +2834,7 @@ window.COOK_DATA = {
    "why": "Azir never swings his own weapon: Arise! says that when he Attacks an enemy near a Sand Soldier, the soldiers stab instead and deal magic damage in a line, so his real reach is wherever his soldiers are standing. Draw Your Sword makes him melee and pays out Attack Damage, Health, Attack Speed, Lifesteal and Move Speed that grow with every point of Attack Range lost, and Azir gives up a huge chunk of range on paper while giving up none in practice, because the soldiers keep stabbing from their own range. Tickle Monster converts all that Attack Damage, which his soldiers never used anyway, into Attack Speed and adds magic damage On-Hit, and Ethereal Weapon makes his Abilities apply On-Hit effects, so every soldier stab carries Tickle Monster plus Nashor's Tooth, Guinsoo's Rageblade, Wit's End, Blade of The Ruined King and Terminus down the whole line. Master of Duality closes the loop: soldier stabs are Ability damage, so they grant Attack Damage, which Tickle Monster turns into more Attack Speed, which means more stabs, which means more Attack Damage. The ranged control mage becomes a melee on-hit bruiser who collects every melee bonus without ever standing within sword's reach of anyone.",
    "play": "Drop a soldier between you and the target, right-click, and let the soldiers do the on-hit work; use Shifting Sands only to reposition onto a soldier, never to go in yourself. Your own sword does nothing, so never fight where a soldier isn't.",
    "chef": "2026-11-04",
+   "menu": "off",
    "champion_name": "Azir",
    "item_ids": [
     3006,
@@ -2837,11 +2853,11 @@ window.COOK_DATA = {
    "core_usual": 0,
    "core_pick_rate": 0.1852,
    "sim": {
-    "dps": 1192,
-    "survival": 0.097,
-    "best_dps": 1784,
-    "best_survival": 0.7,
-    "pct_of_best": 0.668,
+    "dps": 1209,
+    "survival": 0.108,
+    "best_dps": 1817,
+    "best_survival": 0.726,
+    "pct_of_best": 0.665,
     "best_items": [
      "Sorcerer's Shoes",
      "Nashor's Tooth",
@@ -2958,6 +2974,7 @@ window.COOK_DATA = {
    "why": "Glacial Storm is a toggle that bills Anivia Mana every second it stays on, a running cost nobody thinks about beyond turning it off before she runs dry, and this build makes that bill the whole point. Blue Barrier hands her a share of every point of Mana she spends as a Shield for 1.5 seconds, so a storm that drains her every second re-shields her every second, and Overflow doubles all of her Mana costs, which doubles the Mana feeding Blue Barrier from the very same storm while making the storm's damage more effective too. Mighty Shield pays out Adaptive Force whenever she gains a Shield, which the ticking storm re-arms the moment its cooldown ends, and Ocean Soul grants Health and Mana Regen after damaging enemies, which the storm does nonstop, so the doubled drain keeps getting refilled. Rod of Ages gives Mana back when champions hit her and heals her for 25% of the Mana she spends, which Overflow just doubled, Seraph's Embrace and Malignance pile on Mana to burn, Malignance also scorches the ground under everyone her storm hits, and Spirit Visage makes every shield and heal on her 25% bigger. The fragile artillery mage becomes a frontline tank who walks into the enemy team, flips her storm on and simply stands in it, with Rebirth as the backup plan for when the bank finally closes.",
    "play": "Build Mana first, then walk into the fight, toggle Glacial Storm on and stay inside it so the drain keeps re-shielding you every second. Only switch the storm off when you are truly out of Mana, and let the egg handle the rest.",
    "chef": "2026-11-05",
+   "menu": "off",
    "champion_name": "Anivia",
    "item_ids": [
     6657,
@@ -2977,10 +2994,10 @@ window.COOK_DATA = {
    "core_pick_rate": 0.103,
    "sim": {
     "dps": 239,
-    "survival": 0.137,
-    "best_dps": 1286,
+    "survival": 0.135,
+    "best_dps": 1283,
     "best_survival": 0.025,
-    "pct_of_best": 0.186,
+    "pct_of_best": 0.187,
     "best_items": [
      "Sorcerer's Shoes",
      "Blackfire Torch",
@@ -2991,8 +3008,8 @@ window.COOK_DATA = {
     ],
     "best_augments": [
      "Back To Basics",
-     "Giant Slayer",
      "Heavy Is The Crown",
+     "Giant Slayer",
      "Glass Cannon"
     ],
     "items_not_modeled": [
@@ -3119,9 +3136,9 @@ window.COOK_DATA = {
    "sim": {
     "dps": 332,
     "survival": 0.013,
-    "best_dps": 671,
-    "best_survival": 0.009,
-    "pct_of_best": 0.494,
+    "best_dps": 670,
+    "best_survival": 0.01,
+    "pct_of_best": 0.496,
     "best_items": [
      "Sorcerer's Shoes",
      "Luden's Echo",
@@ -3256,10 +3273,10 @@ window.COOK_DATA = {
    "core_usual": 0,
    "core_pick_rate": 0.1764,
    "sim": {
-    "dps": 591,
+    "dps": 593,
     "survival": 0.015,
-    "best_dps": 1219,
-    "best_survival": 0.014,
+    "best_dps": 1221,
+    "best_survival": 0.015,
     "pct_of_best": 0.485,
     "best_items": [
      "Sorcerer's Shoes",
@@ -3395,24 +3412,24 @@ window.COOK_DATA = {
    "core_usual": 0,
    "core_pick_rate": 0.0443,
    "sim": {
-    "dps": 107,
-    "survival": 0.073,
-    "best_dps": 709,
-    "best_survival": 0.021,
-    "pct_of_best": 0.151,
+    "dps": 108,
+    "survival": 0.074,
+    "best_dps": 748,
+    "best_survival": 0.024,
+    "pct_of_best": 0.144,
     "best_items": [
      "Sorcerer's Shoes",
      "Liandry's Torment",
-     "Lich Bane",
+     "Rabadon's Deathcap",
      "Shadowflame",
      "Stormsurge",
      "Void Staff"
     ],
     "best_augments": [
      "Dive Bomber",
-     "Impassable",
+     "Erosion",
      "Ultimate Awakening",
-     "Giant Slayer"
+     "Marksmage"
     ],
     "items_not_modeled": [],
     "whole_build": true
@@ -3534,11 +3551,11 @@ window.COOK_DATA = {
    "core_usual": 0,
    "core_pick_rate": 0.1747,
    "sim": {
-    "dps": 203,
-    "survival": 0.222,
-    "best_dps": 621,
-    "best_survival": 0.052,
-    "pct_of_best": 0.327,
+    "dps": 204,
+    "survival": 0.226,
+    "best_dps": 611,
+    "best_survival": 0.049,
+    "pct_of_best": 0.334,
     "best_items": [
      "Sorcerer's Shoes",
      "Blackfire Torch",
@@ -3549,9 +3566,9 @@ window.COOK_DATA = {
     ],
     "best_augments": [
      "Upgrade Stormsurge",
-     "Cruelty",
+     "FireFox",
      "Giant Slayer",
-     "Triggered Inferno"
+     "Dive Bomber"
     ],
     "items_not_modeled": [],
     "whole_build": true
@@ -3675,9 +3692,9 @@ window.COOK_DATA = {
    "sim": {
     "dps": 380,
     "survival": 0.011,
-    "best_dps": 1205,
-    "best_survival": 0.024,
-    "pct_of_best": 0.315,
+    "best_dps": 1203,
+    "best_survival": 0.025,
+    "pct_of_best": 0.316,
     "best_items": [
      "Berserker's Greaves",
      "Blade of The Ruined King",
@@ -3812,10 +3829,10 @@ window.COOK_DATA = {
    "core_usual": 0,
    "core_pick_rate": 0.1326,
    "sim": {
-    "dps": 483,
-    "survival": 0.232,
-    "best_dps": 1497,
-    "best_survival": 0.596,
+    "dps": 484,
+    "survival": 0.24,
+    "best_dps": 1498,
+    "best_survival": 0.591,
     "pct_of_best": 0.323,
     "best_items": [
      "Berserker's Greaves",
@@ -3948,6 +3965,7 @@ window.COOK_DATA = {
    ],
    "play": "Walk into the middle of the fight and press W. Repeat. Never right-click a champion.",
    "chef": "2026-11-12",
+   "menu": "off",
    "champion_name": "Master Yi",
    "item_ids": [
     3065,
@@ -3966,11 +3984,11 @@ window.COOK_DATA = {
    "core_usual": 0,
    "core_pick_rate": 0.0842,
    "sim": {
-    "dps": 90,
-    "survival": 0.015,
-    "best_dps": 1265,
-    "best_survival": 0.059,
-    "pct_of_best": 0.071,
+    "dps": 89,
+    "survival": 0.014,
+    "best_dps": 1267,
+    "best_survival": 0.061,
+    "pct_of_best": 0.07,
     "best_items": [
      "Berserker's Greaves",
      "Blade of The Ruined King",
@@ -4102,6 +4120,7 @@ window.COOK_DATA = {
    ],
    "play": "Spam spells until you Overheat, then walk up and right-click. When it cools down, do it again.",
    "chef": "2026-11-13",
+   "menu": "off",
    "champion_name": "Rumble",
    "item_ids": [
     3115,
@@ -4121,10 +4140,10 @@ window.COOK_DATA = {
    "core_pick_rate": 0.1895,
    "sim": {
     "dps": 589,
-    "survival": 0.017,
-    "best_dps": 1060,
-    "best_survival": 0.19,
-    "pct_of_best": 0.555,
+    "survival": 0.018,
+    "best_dps": 1057,
+    "best_survival": 0.195,
+    "pct_of_best": 0.558,
     "best_items": [
      "Sorcerer's Shoes",
      "Lich Bane",
@@ -4256,6 +4275,7 @@ window.COOK_DATA = {
    ],
    "play": "Wait for a big fight, press R in the middle of all ten champions, then press it again. Nobody leaves, nobody dies, everybody heals.",
    "chef": "2026-11-16",
+   "menu": "off",
    "champion_name": "Kindred",
    "item_ids": [
     3107,
@@ -4274,10 +4294,10 @@ window.COOK_DATA = {
    "core_usual": 0,
    "core_pick_rate": 0.1926,
    "sim": {
-    "dps": 73,
+    "dps": 74,
     "survival": 0.011,
-    "best_dps": 1413,
-    "best_survival": 0.516,
+    "best_dps": 1416,
+    "best_survival": 0.524,
     "pct_of_best": 0.052,
     "best_items": [
      "Berserker's Greaves",
@@ -4324,42 +4344,22 @@ window.COOK_DATA = {
      "champion_is_best": true
     },
     {
-     "name": "Chain Reaction",
-     "id": 2078,
+     "name": "Bread and Cheese",
+     "id": 1151,
      "rarity": "Gold",
-     "text": "If a target Knocked Back by the chosen ability hits another champion, they are Knocked Up and dealt damage. When colliding with terrain, the Knock Up duration is extended and they are dealt bonus damage.",
+     "text": "Your E gains 100 Ability Haste.",
      "core": true,
-     "icon": "icons/augments/chain-reaction.png",
-     "win_rate": 0.4683,
-     "pick_rate": 0.0667,
-     "win_rank": 214,
-     "best_champions": [
-      "Gragas",
-      "LeeSin",
-      "Syndra",
-      "Thresh",
-      "Alistar",
-      "Qiyana"
-     ],
-     "champion_is_best": false
-    },
-    {
-     "name": "Ice Cold",
-     "id": 1044,
-     "rarity": "Silver",
-     "text": "Your Slowing effects reduce Movement Speed by an extra 75.",
-     "core": true,
-     "icon": "icons/augments/ice-cold.png",
-     "win_rate": 0.5139,
-     "pick_rate": 0.2076,
-     "win_rank": 117,
+     "icon": "icons/augments/bread-and-cheese.png",
+     "win_rate": 0.5071,
+     "pick_rate": 0.1944,
+     "win_rank": 144,
      "best_champions": [
       "AurelionSol",
-      "Brand",
-      "Morgana",
-      "Malzahar",
-      "Singed",
-      "Teemo"
+      "MissFortune",
+      "Fizz",
+      "Lillia",
+      "Viktor",
+      "Ryze"
      ],
      "champion_is_best": false
     },
@@ -4382,6 +4382,26 @@ window.COOK_DATA = {
       "TwistedFate"
      ],
      "champion_is_best": false
+    },
+    {
+     "name": "Ice Cold",
+     "id": 1044,
+     "rarity": "Silver",
+     "text": "Your Slowing effects reduce Movement Speed by an extra 75.",
+     "core": true,
+     "icon": "icons/augments/ice-cold.png",
+     "win_rate": 0.5139,
+     "pick_rate": 0.2076,
+     "win_rank": 117,
+     "best_champions": [
+      "AurelionSol",
+      "Brand",
+      "Morgana",
+      "Malzahar",
+      "Singed",
+      "Teemo"
+     ],
+     "champion_is_best": false
     }
    ],
    "core": 4,
@@ -4393,22 +4413,22 @@ window.COOK_DATA = {
     "Frozen Heart",
     "Ionian Boots of Lucidity"
    ],
-   "why": "Trundle never uses Chomp. He spams Pillar of Ice until the enemy team is a pinball machine.",
+   "why": "Trundle never uses Chomp. He spams Pillar of Ice until there is never a moment without one standing.",
    "how": [
     [
      "Pillar of Ice",
-     "A button that knocks back whoever stands on it and slows everyone nearby. It normally deals no damage at all."
+     "A button that knocks back whoever stands on it and slows everyone nearby for 6 seconds. It normally deals no damage at all."
     ],
     [
      "Augments",
-     "Rolled on Pillar of Ice: Terrain'd makes it hit everything around it and Chain Reaction bounces the knocked-back enemy into their friends. Ice Cold makes the slow brutal, and Purist - Caster turns the attack speed he never uses into more pillars."
+     "Terrain'd, rolled on Pillar of Ice, makes the pillar hurt everything around it. Bread and Cheese gives Pillar of Ice 100 ability haste and Purist - Caster turns the attack speed he never uses into even more, so the next pillar lands before the last one melts. Ice Cold makes the slow brutal."
     ],
     [
      "Items",
-     "Rylai's and Frozen Heart pile on more slow, Imperial Mandate marks everyone the pillar knocks back, and Cosmic Drive and Shurelya's make every pillar come back faster."
+     "Imperial Mandate speeds up the pillar and marks everyone it knocks back, Rylai's adds more slow, and Cosmic Drive, Shurelya's and Frozen Heart make every pillar come back faster."
     ]
    ],
-   "play": "Drop the pillar right under the enemy carry, aim them into a teammate, repeat. Never press Q, never right-click.",
+   "play": "Max E first. Drop the pillar right under the enemy carry and have the next one down before it melts. Never press Q, never right-click.",
    "chef": "2026-11-18",
    "champion_name": "Trundle",
    "item_ids": [
@@ -4423,16 +4443,16 @@ window.COOK_DATA = {
    "champion_win_rate": 0.5101,
    "champion_pick_rate": 0.0977,
    "champion_win_rank": 48,
-   "core_win_rate": 0.5071,
-   "tier": "Pure troll",
+   "core_win_rate": 0.5168,
+   "tier": "Holds up",
    "core_usual": 1,
-   "core_pick_rate": 0.173,
+   "core_pick_rate": 0.2049,
    "sim": {
     "dps": 215,
     "survival": 0.01,
-    "best_dps": 1151,
-    "best_survival": 0.157,
-    "pct_of_best": 0.187,
+    "best_dps": 1156,
+    "best_survival": 0.163,
+    "pct_of_best": 0.186,
     "best_items": [
      "Berserker's Greaves",
      "Black Cleaver",

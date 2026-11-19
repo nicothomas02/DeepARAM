@@ -377,12 +377,16 @@
  "Gain 20% Heal and Shield Power.": "Získáš 20 % síly léčení a štítů.",
  "Gain Ultimate Ability Haste.": "Získáš zrychlení ultimátních schopností.",
  "Skibidi Pillar": "Skibidi sloup",
- "Trundle never uses Chomp. He spams Pillar of Ice until the enemy team is a pinball machine.": "Trundle nikdy nepoužívá Kousance. Spamuje Sloup ledu, dokud z nepřátelského týmu není pinballový automat.",
- "Drop the pillar right under the enemy carry, aim them into a teammate, repeat. Never press Q, never right-click.": "Postav sloup přímo pod nepřátelského carryho, napal ho do jeho spoluhráče a opakuj. Nikdy nemačkej Q, nikdy neklikej pravým.",
+ "Trundle never uses Chomp. He spams Pillar of Ice until there is never a moment without one standing.": "Trundle nikdy nepoužívá Kousance. Spamuje Sloup ledu, dokud nějaký pořád nestojí.",
+ "Max E first. Drop the pillar right under the enemy carry and have the next one down before it melts. Never press Q, never right-click.": "Nejdřív maxuj E. Postav sloup přímo pod nepřátelského carryho a další dřív, než starý roztaje. Nikdy nemačkej Q, nikdy neklikej pravým.",
  "He stopped biting people. The pillar does all the talking now.": "Přestal kousat lidi. Teď za něj mluví sloup.",
  "Pillar of Ice": "Sloup ledu",
- "A button that knocks back whoever stands on it and slows everyone nearby. It normally deals no damage at all.": "Tlačítko, které odhodí každého, kdo na něm stojí, a zpomalí všechny okolo. Normálně nezpůsobuje vůbec žádné poškození.",
- "Rolled on Pillar of Ice: Terrain'd makes it hit everything around it and Chain Reaction bounces the knocked-back enemy into their friends. Ice Cold makes the slow brutal, and Purist - Caster turns the attack speed he never uses into more pillars.": "Padlé na Sloup ledu: Nebezpečný terén ho nechá zasáhnout všechno kolem a Řetězová reakce napálí odhozeného nepřítele do jeho kamarádů. Kostimráz udělá zpomalení brutálním a Ryzí sesilatel promění rychlost útoku, kterou nikdy nepoužije, v další sloupy.",
- "Rylai's and Frozen Heart pile on more slow, Imperial Mandate marks everyone the pillar knocks back, and Cosmic Drive and Shurelya's make every pillar come back faster.": "Rylaino křišťálové žezlo a Ledové srdce přidají ještě víc zpomalení, Říšský rozkaz označí každého, koho sloup odhodí, a Kosmický pohon se Shurelyinou bitevní písní vrátí každý sloup rychleji.",
- "Your chosen ability deals damage in an area around it.": "Zvolená schopnost způsobí poškození v oblasti kolem sebe."
+ "A button that knocks back whoever stands on it and slows everyone nearby for 6 seconds. It normally deals no damage at all.": "Tlačítko, které odhodí každého, kdo na něm stojí, a na 6 sekund zpomalí všechny okolo. Normálně nezpůsobuje vůbec žádné poškození.",
+ "Terrain'd, rolled on Pillar of Ice, makes the pillar hurt everything around it. Bread and Cheese gives Pillar of Ice 100 ability haste and Purist - Caster turns the attack speed he never uses into even more, so the next pillar lands before the last one melts. Ice Cold makes the slow brutal.": "Nebezpečný terén, padlý na Sloup ledu, nechá sloup zraňovat všechno kolem. Všední chléb dá Sloupu ledu 100 zrychlení schopností a Ryzí sesilatel promění rychlost útoku, kterou nikdy nepoužije, v ještě víc, takže další sloup stojí dřív, než starý roztaje. Kostimráz udělá zpomalení brutálním.",
+ "Imperial Mandate speeds up the pillar and marks everyone it knocks back, Rylai's adds more slow, and Cosmic Drive, Shurelya's and Frozen Heart make every pillar come back faster.": "Říšský rozkaz zrychlí sloup a označí každého, koho odhodí, Rylaino křišťálové žezlo přidá zpomalení a Kosmický pohon, Shurelyina bitevní píseň a Ledové srdce vrátí každý sloup rychleji.",
+ "Your chosen ability deals damage in an area around it.": "Zvolená schopnost způsobí poškození v oblasti kolem sebe.",
+ "Off-menu": "Mimo menu",
+ "Uses augments {champion} isn't normally offered. Just for fun: it may never come together in a real game.": "Používá vylepšení, která {champion} normálně nedostává. Jen pro zábavu: ve skutečné hře se to možná nikdy nesejde.",
+ "On the menu": "V menu",
+ "Your E gains 100 Ability Haste.": "Tvoje E získá 100 zrychlení schopností."
 }

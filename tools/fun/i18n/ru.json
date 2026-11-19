@@ -377,12 +377,16 @@
  "Gain 20% Heal and Shield Power.": "Вы получаете 20% силы лечения и щитов.",
  "Gain Ultimate Ability Haste.": "Вы получаете ускорение ультимативных умений.",
  "Skibidi Pillar": "Скибиди-столп",
- "Trundle never uses Chomp. He spams Pillar of Ice until the enemy team is a pinball machine.": "Трандл никогда не использует Укус. Он спамит Ледяной столп, пока вражеская команда не превратится в пинбол.",
- "Drop the pillar right under the enemy carry, aim them into a teammate, repeat. Never press Q, never right-click.": "Ставь столп прямо под вражеского керри, отправь его в союзника, повторяй. Никогда не жми Q и не кликай правой кнопкой.",
+ "Trundle never uses Chomp. He spams Pillar of Ice until there is never a moment without one standing.": "Трандл никогда не использует Укус. Он спамит Ледяной столп, пока хоть один всегда стоит.",
+ "Max E first. Drop the pillar right under the enemy carry and have the next one down before it melts. Never press Q, never right-click.": "Сначала прокачай E. Ставь столп прямо под вражеского керри, а следующий — до того, как растает старый. Никогда не жми Q и не кликай правой кнопкой.",
  "He stopped biting people. The pillar does all the talking now.": "Он больше никого не кусает. Теперь за него говорит столп.",
  "Pillar of Ice": "Ледяной столп",
- "A button that knocks back whoever stands on it and slows everyone nearby. It normally deals no damage at all.": "Кнопка, которая отбрасывает всех, кто стоит сверху, и замедляет всех рядом. Обычно она вообще не наносит урона.",
- "Rolled on Pillar of Ice: Terrain'd makes it hit everything around it and Chain Reaction bounces the knocked-back enemy into their friends. Ice Cold makes the slow brutal, and Purist - Caster turns the attack speed he never uses into more pillars.": "Выпавшие на Ледяной столп: Угроза снизу заставляет его бить всё вокруг, а Цепная реакция швыряет отброшенного врага в его друзей. Дикий холод делает замедление жестоким, а Принципиальность – умения превращает скорость атаки, которой он не пользуется, в новые столпы.",
- "Rylai's and Frozen Heart pile on more slow, Imperial Mandate marks everyone the pillar knocks back, and Cosmic Drive and Shurelya's make every pillar come back faster.": "Хрустальный скипетр Рилай и Ледяное сердце добавляют ещё больше замедления, Имперский мандат помечает всех, кого отбросил столп, а Космический ускоритель и Боевая песнь Шурелии быстрее возвращают каждый столп.",
- "Your chosen ability deals damage in an area around it.": "Выбранное умение наносит урон в области вокруг себя."
+ "A button that knocks back whoever stands on it and slows everyone nearby for 6 seconds. It normally deals no damage at all.": "Кнопка, которая отбрасывает всех, кто стоит сверху, и замедляет всех рядом на 6 секунд. Обычно она вообще не наносит урона.",
+ "Terrain'd, rolled on Pillar of Ice, makes the pillar hurt everything around it. Bread and Cheese gives Pillar of Ice 100 ability haste and Purist - Caster turns the attack speed he never uses into even more, so the next pillar lands before the last one melts. Ice Cold makes the slow brutal.": "Угроза снизу, выпавшая на Ледяной столп, заставляет столп ранить всё вокруг. Хлеб с сыром даёт Ледяному столпу 100 ед. ускорения умений, а Принципиальность – умения превращает скорость атаки, которой он не пользуется, в ещё большее, так что новый столп встаёт до того, как растает старый. Дикий холод делает замедление жестоким.",
+ "Imperial Mandate speeds up the pillar and marks everyone it knocks back, Rylai's adds more slow, and Cosmic Drive, Shurelya's and Frozen Heart make every pillar come back faster.": "Имперский мандат ускоряет столп и помечает всех, кого он отбросил, Хрустальный скипетр Рилай добавляет замедление, а Космический ускоритель, Боевая песнь Шурелии и Ледяное сердце быстрее возвращают каждый столп.",
+ "Your chosen ability deals damage in an area around it.": "Выбранное умение наносит урон в области вокруг себя.",
+ "Off-menu": "Вне меню",
+ "Uses augments {champion} isn't normally offered. Just for fun: it may never come together in a real game.": "Использует аугменты, которые {champion} обычно не предлагают. Просто ради веселья: в реальной игре сборка может так и не сложиться.",
+ "On the menu": "В меню",
+ "Your E gains 100 Ability Haste.": "Ваше E получает 100 ед. ускорения умений."
 }

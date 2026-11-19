@@ -377,12 +377,16 @@
  "Gain 20% Heal and Shield Power.": "Du erhältst 20 % Heil- und Schildstärke.",
  "Gain Ultimate Ability Haste.": "Du erhältst Ultimative Fähigkeitseile.",
  "Skibidi Pillar": "Skibidi-Säule",
- "Trundle never uses Chomp. He spams Pillar of Ice until the enemy team is a pinball machine.": "Trundle benutzt nie Mampfen. Er spammt Eissäule, bis das Gegnerteam ein Flipperautomat ist.",
- "Drop the pillar right under the enemy carry, aim them into a teammate, repeat. Never press Q, never right-click.": "Setz die Säule direkt unter den gegnerischen Carry, schieß ihn in einen Teamkollegen, wiederholen. Niemals Q drücken, niemals rechtsklicken.",
+ "Trundle never uses Chomp. He spams Pillar of Ice until there is never a moment without one standing.": "Trundle benutzt nie Mampfen. Er spammt Eissäule, bis es keinen Moment mehr ohne Säule gibt.",
+ "Max E first. Drop the pillar right under the enemy carry and have the next one down before it melts. Never press Q, never right-click.": "Zuerst E maximieren. Setz die Säule direkt unter den gegnerischen Carry und die nächste, bevor die alte schmilzt. Niemals Q drücken, niemals rechtsklicken.",
  "He stopped biting people. The pillar does all the talking now.": "Er beißt keine Leute mehr. Jetzt redet nur noch die Säule.",
  "Pillar of Ice": "Eissäule",
- "A button that knocks back whoever stands on it and slows everyone nearby. It normally deals no damage at all.": "Ein Knopf, der jeden zurückstößt, der draufsteht, und alle in der Nähe verlangsamt. Normalerweise macht er gar keinen Schaden.",
- "Rolled on Pillar of Ice: Terrain'd makes it hit everything around it and Chain Reaction bounces the knocked-back enemy into their friends. Ice Cold makes the slow brutal, and Purist - Caster turns the attack speed he never uses into more pillars.": "Auf Eissäule gerollt: Terrainiert lässt sie alles drumherum treffen und Kettenreaktion schleudert den zurückgestoßenen Gegner in seine Freunde. Eiskalt macht die Verlangsamung brutal, und Purist – Zauberer macht aus dem Angriffstempo, das er nie benutzt, noch mehr Säulen.",
- "Rylai's and Frozen Heart pile on more slow, Imperial Mandate marks everyone the pillar knocks back, and Cosmic Drive and Shurelya's make every pillar come back faster.": "Rylais Kristallzepter und Gefrorenes Herz stapeln noch mehr Verlangsamung, Imperiale Verfügung markiert jeden, den die Säule zurückstößt, und Kosmischer Antrieb und Shurelyas Kampfhymne lassen jede Säule schneller zurückkommen.",
- "Your chosen ability deals damage in an area around it.": "Deine gewählte Fähigkeit verursacht Schaden in einem Bereich um sie herum."
+ "A button that knocks back whoever stands on it and slows everyone nearby for 6 seconds. It normally deals no damage at all.": "Ein Knopf, der jeden zurückstößt, der draufsteht, und alle in der Nähe 6 Sekunden lang verlangsamt. Normalerweise macht er gar keinen Schaden.",
+ "Terrain'd, rolled on Pillar of Ice, makes the pillar hurt everything around it. Bread and Cheese gives Pillar of Ice 100 ability haste and Purist - Caster turns the attack speed he never uses into even more, so the next pillar lands before the last one melts. Ice Cold makes the slow brutal.": "Terrainiert, auf Eissäule gerollt, lässt die Säule alles drumherum verletzen. Das A und E gibt Eissäule 100 Fähigkeitstempo, und Purist – Zauberer macht aus dem Angriffstempo, das er nie benutzt, noch mehr, sodass die nächste Säule steht, bevor die alte schmilzt. Eiskalt macht die Verlangsamung brutal.",
+ "Imperial Mandate speeds up the pillar and marks everyone it knocks back, Rylai's adds more slow, and Cosmic Drive, Shurelya's and Frozen Heart make every pillar come back faster.": "Imperiale Verfügung beschleunigt die Säule und markiert jeden, den sie zurückstößt, Rylais Kristallzepter bringt mehr Verlangsamung, und Kosmischer Antrieb, Shurelyas Kampfhymne und Gefrorenes Herz lassen jede Säule schneller zurückkommen.",
+ "Your chosen ability deals damage in an area around it.": "Deine gewählte Fähigkeit verursacht Schaden in einem Bereich um sie herum.",
+ "Off-menu": "Abseits der Karte",
+ "Uses augments {champion} isn't normally offered. Just for fun: it may never come together in a real game.": "Nutzt Augments, die {champion} normalerweise nicht angeboten werden. Nur zum Spaß: Der Build kommt in einem echten Spiel vielleicht nie zustande.",
+ "On the menu": "Auf der Karte",
+ "Your E gains 100 Ability Haste.": "Dein E erhält 100 Fähigkeitstempo."
 }

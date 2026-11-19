@@ -91,6 +91,9 @@ Tests pass.
 - **In-pool augments only** (Nico, 2026-11-19; replaces the 2026-11-12 allowance). Every augment must be in the
   champion's Mayhem pool: `python3 data/checks/champion_pool.py <Champion>` lists it with each augment's text and
   the champion's Q/W/E/R names. `check_build.py` (no `--fun`) must show no BLOCK.
+- **Two menus** (Nico, 2026-11-19). Main Chef Specials use in-pool augments only. A build that needs augments
+  outside the champion's pool goes on the **Off-menu** list: add `"menu": "off"` to its entry, and the Kitchen files
+  it under Off-menu with a short note. Fill both lists over time, one build per champion on each.
 - **Precise interactions** (Nico, 2026-11-19). Aim for a real number breakpoint from the kit, augment and item
   values, like "Ashe with Archmage casts R most often with 4 points in E instead of 5": rank thresholds, cooldown
   breakpoints, refund and stack math. Put the skill order in `play` when it matters.

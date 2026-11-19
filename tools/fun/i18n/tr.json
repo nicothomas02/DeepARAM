@@ -377,12 +377,16 @@
  "Gain 20% Heal and Shield Power.": "%20 İyileştirme ve Kalkan Gücü kazanırsın.",
  "Gain Ultimate Ability Haste.": "Ulti Yetenek Hızı kazanırsın.",
  "Skibidi Pillar": "Skibidi Sütun",
- "Trundle never uses Chomp. He spams Pillar of Ice until the enemy team is a pinball machine.": "Trundle asla Kopar kullanmaz. Rakip takım tilt makinesine dönene kadar Buzdan Sütun spamlar.",
- "Drop the pillar right under the enemy carry, aim them into a teammate, repeat. Never press Q, never right-click.": "Sütunu tam rakip carry'nin altına koy, onu takım arkadaşının üstüne fırlat, tekrarla. Asla Q'ya basma, asla sağ tıklama.",
+ "Trundle never uses Chomp. He spams Pillar of Ice until there is never a moment without one standing.": "Trundle asla Kopar kullanmaz. Hep bir tane ayakta kalana kadar Buzdan Sütun spamlar.",
+ "Max E first. Drop the pillar right under the enemy carry and have the next one down before it melts. Never press Q, never right-click.": "Önce E'yi maksla. Sütunu tam rakip carry'nin altına koy, eskisi erimeden yenisini dik. Asla Q'ya basma, asla sağ tıklama.",
  "He stopped biting people. The pillar does all the talking now.": "Artık kimseyi ısırmıyor. Konuşmayı sütun yapıyor.",
  "Pillar of Ice": "Buzdan Sütun",
- "A button that knocks back whoever stands on it and slows everyone nearby. It normally deals no damage at all.": "Üstünde durana geri itme uygulayan ve yakındaki herkesi yavaşlatan bir tuş. Normalde hiç hasar vermez.",
- "Rolled on Pillar of Ice: Terrain'd makes it hit everything around it and Chain Reaction bounces the knocked-back enemy into their friends. Ice Cold makes the slow brutal, and Purist - Caster turns the attack speed he never uses into more pillars.": "Buzdan Sütun'a gelirse: Yüzey Şeklinç etrafındaki her şeye vurmasını sağlar, Zincirleme Reaksiyon da geri itilen rakibi arkadaşlarına çarptırır. Buz Gibi yavaşlatmayı acımasız yapar, Saf Yetenek de hiç kullanmadığı saldırı hızını daha çok sütuna çevirir.",
- "Rylai's and Frozen Heart pile on more slow, Imperial Mandate marks everyone the pillar knocks back, and Cosmic Drive and Shurelya's make every pillar come back faster.": "Rylai'nin Kristal Asası ve Donmuş Yürek daha da fazla yavaşlatma ekler, İmparatorun Fermanı sütunun geri ittiği herkesi işaretler, Kozmik Hızlandırıcı ve Shurelya'nın Savaş Şarkısı da her sütunu daha hızlı geri getirir.",
- "Your chosen ability deals damage in an area around it.": "Seçtiğin yetenek etrafındaki bir alana hasar verir."
+ "A button that knocks back whoever stands on it and slows everyone nearby for 6 seconds. It normally deals no damage at all.": "Üstünde durana geri itme uygulayan ve yakındaki herkesi 6 saniye yavaşlatan bir tuş. Normalde hiç hasar vermez.",
+ "Terrain'd, rolled on Pillar of Ice, makes the pillar hurt everything around it. Bread and Cheese gives Pillar of Ice 100 ability haste and Purist - Caster turns the attack speed he never uses into even more, so the next pillar lands before the last one melts. Ice Cold makes the slow brutal.": "Buzdan Sütun'a gelen Yüzey Şeklinç, sütunun etrafındaki her şeye hasar vermesini sağlar. Peynirli Ekmek Buzdan Sütun'a 100 Yetenek Hızı verir, Saf Yetenek de hiç kullanmadığı saldırı hızını daha fazlasına çevirir; böylece eskisi erimeden yeni sütun iner. Buz Gibi yavaşlatmayı acımasız yapar.",
+ "Imperial Mandate speeds up the pillar and marks everyone it knocks back, Rylai's adds more slow, and Cosmic Drive, Shurelya's and Frozen Heart make every pillar come back faster.": "İmparatorun Fermanı sütunu hızlandırır ve geri ittiği herkesi işaretler, Rylai'nin Kristal Asası daha çok yavaşlatma ekler, Kozmik Hızlandırıcı, Shurelya'nın Savaş Şarkısı ve Donmuş Yürek de her sütunu daha hızlı geri getirir.",
+ "Your chosen ability deals damage in an area around it.": "Seçtiğin yetenek etrafındaki bir alana hasar verir.",
+ "Off-menu": "Menü dışı",
+ "Uses augments {champion} isn't normally offered. Just for fun: it may never come together in a real game.": "{champion} karakterine normalde sunulmayan güçlendirmeler kullanır. Sadece eğlence için: gerçek bir maçta hiç bir araya gelmeyebilir.",
+ "On the menu": "Menüde",
+ "Your E gains 100 Ability Haste.": "E yeteneğin 100 Yetenek Hızı kazanır."
 }

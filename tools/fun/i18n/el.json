@@ -377,12 +377,16 @@
  "Gain 20% Heal and Shield Power.": "Αποκτάς 20% Ισχύ Θεραπείας και Ασπίδας.",
  "Gain Ultimate Ability Haste.": "Αποκτάς Επιτάχυνση Υπέρτατης Ικανότητας.",
  "Skibidi Pillar": "Skibidi Βράχος",
- "Trundle never uses Chomp. He spams Pillar of Ice until the enemy team is a pinball machine.": "Ο Τράντλ δεν χρησιμοποιεί ποτέ το Δάγκωμα. Κάνει spam τον Παγωμένο Βράχο μέχρι η αντίπαλη ομάδα να γίνει φλίπερ.",
- "Drop the pillar right under the enemy carry, aim them into a teammate, repeat. Never press Q, never right-click.": "Ρίξε τον βράχο ακριβώς κάτω από τον αντίπαλο carry, στείλ' τον πάνω σε σύμμαχό του, επανάλαβε. Μην πατήσεις ποτέ Q, μην κάνεις ποτέ δεξί κλικ.",
+ "Trundle never uses Chomp. He spams Pillar of Ice until there is never a moment without one standing.": "Ο Τράντλ δεν χρησιμοποιεί ποτέ το Δάγκωμα. Κάνει spam τον Παγωμένο Βράχο μέχρι να στέκεται πάντα ένας.",
+ "Max E first. Drop the pillar right under the enemy carry and have the next one down before it melts. Never press Q, never right-click.": "Ανέβασε πρώτα το E. Ρίξε τον βράχο ακριβώς κάτω από τον αντίπαλο carry και τον επόμενο πριν λιώσει ο παλιός. Μην πατήσεις ποτέ Q, μην κάνεις ποτέ δεξί κλικ.",
  "He stopped biting people. The pillar does all the talking now.": "Σταμάτησε να δαγκώνει κόσμο. Τώρα μιλάει μόνο ο βράχος.",
  "Pillar of Ice": "Παγωμένος Βράχος",
- "A button that knocks back whoever stands on it and slows everyone nearby. It normally deals no damage at all.": "Ένα κουμπί που απωθεί όποιον στέκεται πάνω του και επιβραδύνει όλους γύρω. Κανονικά δεν κάνει καθόλου ζημιά.",
- "Rolled on Pillar of Ice: Terrain'd makes it hit everything around it and Chain Reaction bounces the knocked-back enemy into their friends. Ice Cold makes the slow brutal, and Purist - Caster turns the attack speed he never uses into more pillars.": "Στον Παγωμένο Βράχο: το Ένα με το Έδαφος τον κάνει να χτυπά τα πάντα γύρω του και η Αλυσιδωτή Αντίδραση εκτοξεύει τον αντίπαλο πάνω στους φίλους του. Το Παγωμένος κάνει την επιβράδυνση βάναυση, και το Καθαρολόγος - Μάγος κάνει την ταχύτητα επίθεσης που δεν χρησιμοποιεί ποτέ περισσότερους βράχους.",
- "Rylai's and Frozen Heart pile on more slow, Imperial Mandate marks everyone the pillar knocks back, and Cosmic Drive and Shurelya's make every pillar come back faster.": "Το Σκήπτρο της Ριλάι και η Παγωμένη Καρδιά προσθέτουν κι άλλη επιβράδυνση, η Αυτοκρατορική Διαταγή σημαδεύει όποιον απωθεί ο βράχος, και η Κοσμική Ενέργεια με το Πολεμικό Άσμα της Σουρέλια φέρνουν κάθε βράχο πιο γρήγορα.",
- "Your chosen ability deals damage in an area around it.": "Η επιλεγμένη ικανότητα προκαλεί ζημιά σε μια περιοχή γύρω της."
+ "A button that knocks back whoever stands on it and slows everyone nearby for 6 seconds. It normally deals no damage at all.": "Ένα κουμπί που απωθεί όποιον στέκεται πάνω του και επιβραδύνει όλους γύρω για 6 δευτερόλεπτα. Κανονικά δεν κάνει καθόλου ζημιά.",
+ "Terrain'd, rolled on Pillar of Ice, makes the pillar hurt everything around it. Bread and Cheese gives Pillar of Ice 100 ability haste and Purist - Caster turns the attack speed he never uses into even more, so the next pillar lands before the last one melts. Ice Cold makes the slow brutal.": "Το Ένα με το Έδαφος, στον Παγωμένο Βράχο, κάνει τον βράχο να πληγώνει τα πάντα γύρω του. Το Ψωμοτύρι δίνει 100 Επιτάχυνση Ικανοτήτων στον Παγωμένο Βράχο και το Καθαρολόγος - Μάγος κάνει την ταχύτητα επίθεσης που δεν χρησιμοποιεί ποτέ ακόμα περισσότερη, οπότε ο επόμενος βράχος πέφτει πριν λιώσει ο παλιός. Το Παγωμένος κάνει την επιβράδυνση βάναυση.",
+ "Imperial Mandate speeds up the pillar and marks everyone it knocks back, Rylai's adds more slow, and Cosmic Drive, Shurelya's and Frozen Heart make every pillar come back faster.": "Η Αυτοκρατορική Διαταγή επιταχύνει τον βράχο και σημαδεύει όποιον απωθεί, το Σκήπτρο της Ριλάι προσθέτει επιβράδυνση, και η Κοσμική Ενέργεια, το Πολεμικό Άσμα της Σουρέλια και η Παγωμένη Καρδιά φέρνουν κάθε βράχο πιο γρήγορα.",
+ "Your chosen ability deals damage in an area around it.": "Η επιλεγμένη ικανότητα προκαλεί ζημιά σε μια περιοχή γύρω της.",
+ "Off-menu": "Εκτός μενού",
+ "Uses augments {champion} isn't normally offered. Just for fun: it may never come together in a real game.": "Χρησιμοποιεί augments που ο/η {champion} κανονικά δεν παίρνει. Μόνο για πλάκα: μπορεί να μη βγει ποτέ σε πραγματικό παιχνίδι.",
+ "On the menu": "Στο μενού",
+ "Your E gains 100 Ability Haste.": "Το E σου κερδίζει 100 Επιτάχυνση Ικανοτήτων."
 }

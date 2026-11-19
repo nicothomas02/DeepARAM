@@ -4,8 +4,8 @@
   "champion": "Trundle",
   "champion_name": "Trundle",
   "chef": "2026-11-18",
-  "why": "Trundle never uses Chomp. He spams Pillar of Ice until the enemy team is a pinball machine.",
-  "play": "Drop the pillar right under the enemy carry, aim them into a teammate, repeat. Never press Q, never right-click.",
+  "why": "Trundle never uses Chomp. He spams Pillar of Ice until there is never a moment without one standing.",
+  "play": "Max E first. Drop the pillar right under the enemy carry and have the next one down before it melts. Never press Q, never right-click.",
   "items": [
     "Rylai's Crystal Scepter",
     "Imperial Mandate",
@@ -19,15 +19,15 @@
   "how": [
     [
       "Pillar of Ice",
-      "A button that knocks back whoever stands on it and slows everyone nearby. It normally deals no damage at all."
+      "A button that knocks back whoever stands on it and slows everyone nearby for 6 seconds. It normally deals no damage at all."
     ],
     [
       "Augments",
-      "Rolled on Pillar of Ice: Terrain'd makes it hit everything around it and Chain Reaction bounces the knocked-back enemy into their friends. Ice Cold makes the slow brutal, and Purist - Caster turns the attack speed he never uses into more pillars."
+      "Terrain'd, rolled on Pillar of Ice, makes the pillar hurt everything around it. Bread and Cheese gives Pillar of Ice 100 ability haste and Purist - Caster turns the attack speed he never uses into even more, so the next pillar lands before the last one melts. Ice Cold makes the slow brutal."
     ],
     [
       "Items",
-      "Rylai's and Frozen Heart pile on more slow, Imperial Mandate marks everyone the pillar knocks back, and Cosmic Drive and Shurelya's make every pillar come back faster."
+      "Imperial Mandate speeds up the pillar and marks everyone it knocks back, Rylai's adds more slow, and Cosmic Drive, Shurelya's and Frozen Heart make every pillar come back faster."
     ]
   ],
   "champion_icon": "/embed/fun/cook-builds/icons/champions/48.png",
@@ -41,20 +41,12 @@
       "id": 2129
     },
     {
-      "name": "Chain Reaction",
+      "name": "Bread and Cheese",
       "rarity": "Gold",
       "core": true,
-      "text": "If a target Knocked Back by the chosen ability hits another champion, they are Knocked Up and dealt damage. When colliding with terrain, the Knock Up duration is extended and they are dealt bonus damage.",
-      "icon": "/embed/fun/cook-builds/icons/augments/chain-reaction.png",
-      "id": 2078
-    },
-    {
-      "name": "Ice Cold",
-      "rarity": "Silver",
-      "core": true,
-      "text": "Your Slowing effects reduce Movement Speed by an extra 75.",
-      "icon": "/embed/fun/cook-builds/icons/augments/ice-cold.png",
-      "id": 1044
+      "text": "Your E gains 100 Ability Haste.",
+      "icon": "/embed/fun/cook-builds/icons/augments/bread-and-cheese.png",
+      "id": 1151
     },
     {
       "name": "Purist - Caster",
@@ -63,6 +55,14 @@
       "text": "Gain percent cooldown reduction and convert all of your Attack Speed into Ability Haste.",
       "icon": "/embed/fun/cook-builds/icons/augments/purist-caster.png",
       "id": 2018
+    },
+    {
+      "name": "Ice Cold",
+      "rarity": "Silver",
+      "core": true,
+      "text": "Your Slowing effects reduce Movement Speed by an extra 75.",
+      "icon": "/embed/fun/cook-builds/icons/augments/ice-cold.png",
+      "id": 1044
     }
   ],
   "href": "/kitchen#chefs-special",
@@ -80,548 +80,548 @@
   "i18n": {
     "ar": {
       "title": "عمود سكيبيدي",
-      "why": "ترندل لا يستخدم العضة أبدًا. يكرر عمود الجليد حتى يتحول فريق الخصم إلى آلة بينبول.",
-      "play": "ضع العمود تحت حامل الضرر الخصم مباشرة، وارمِه على زميله، وكرر. لا تضغط Q أبدًا، ولا تنقر بالزر الأيمن أبدًا.",
+      "why": "ترندل لا يستخدم العضة أبدًا. يكرر عمود الجليد حتى يبقى عمود قائمًا دائمًا.",
+      "play": "طوّر E أولًا. ضع العمود تحت حامل الضرر الخصم مباشرة، والتالي قبل أن يذوب القديم. لا تضغط Q أبدًا، ولا تنقر بالزر الأيمن أبدًا.",
       "tagline": "توقف عن عض الناس. العمود هو من يتكلم الآن.",
       "how": [
         [
           "عمود الجليد",
-          "زر يدفع كل من يقف فوقه ويبطئ كل من حوله. في العادة لا يسبب أي ضرر إطلاقًا."
+          "زر يدفع كل من يقف فوقه ويبطئ كل من حوله لمدة 6 ثوانٍ. في العادة لا يسبب أي ضرر إطلاقًا."
         ],
         [
           "التعزيزات",
-          "على عمود الجليد: سلاح التضاريس يجعله يضرب كل ما حوله، وسلسلة التفاعلات ترمي الخصم المدفوع على أصدقائه. بارد كالثلج يجعل الإبطاء وحشيًا، والنقيّ - ملقي التعويذات يحوّل سرعة الهجوم التي لا يستخدمها أبدًا إلى أعمدة أكثر."
+          "سلاح التضاريس على عمود الجليد يجعل العمود يؤذي كل ما حوله. خبز وجبنة يمنح عمود الجليد 100 تسارع مهارات، والنقيّ - ملقي التعويذات يحوّل سرعة الهجوم التي لا يستخدمها أبدًا إلى المزيد، فيسقط العمود التالي قبل أن يذوب القديم. بارد كالثلج يجعل الإبطاء وحشيًا."
         ],
         [
           "العتاد",
-          "صولجان كريستال رايلاي والقلب المتجمد يضيفان المزيد من الإبطاء، والوصاية الإمبراطورية تَسِم كل من يدفعه العمود، والحافز الكوني ونشيد معركة شوريليا يعيدان كل عمود أسرع."
+          "الوصاية الإمبراطورية تسرّع العمود وتَسِم كل من يدفعه، وصولجان كريستال رايلاي يضيف إبطاءً، والحافز الكوني ونشيد معركة شوريليا والقلب المتجمد تعيد كل عمود أسرع."
         ]
       ],
       "augments": [
         "القدرة التي اخترتها تسبب ضررًا في منطقة حولها.",
-        "إذا اصطدم هدف دفعته القدرة المختارة ببطل آخر، يُقذف في الهواء ويتلقى ضررًا. عند الاصطدام بالتضاريس تطول مدة القذف ويتلقى ضررًا إضافيًا.",
-        "تأثيرات الإبطاء لديك تقلل سرعة الحركة بمقدار 75 إضافية.",
-        "احصل على تقليل نسبي لفترة التهدئة وحوّل كل سرعة هجومك إلى تسريع قدرات."
+        "تحصل مهارة E على 100 تسارع مهارات.",
+        "احصل على تقليل نسبي لفترة التهدئة وحوّل كل سرعة هجومك إلى تسريع قدرات.",
+        "تأثيرات الإبطاء لديك تقلل سرعة الحركة بمقدار 75 إضافية."
       ]
     },
     "cs": {
       "title": "Skibidi sloup",
-      "why": "Trundle nikdy nepoužívá Kousance. Spamuje Sloup ledu, dokud z nepřátelského týmu není pinballový automat.",
-      "play": "Postav sloup přímo pod nepřátelského carryho, napal ho do jeho spoluhráče a opakuj. Nikdy nemačkej Q, nikdy neklikej pravým.",
+      "why": "Trundle nikdy nepoužívá Kousance. Spamuje Sloup ledu, dokud nějaký pořád nestojí.",
+      "play": "Nejdřív maxuj E. Postav sloup přímo pod nepřátelského carryho a další dřív, než starý roztaje. Nikdy nemačkej Q, nikdy neklikej pravým.",
       "tagline": "Přestal kousat lidi. Teď za něj mluví sloup.",
       "how": [
         [
           "Sloup ledu",
-          "Tlačítko, které odhodí každého, kdo na něm stojí, a zpomalí všechny okolo. Normálně nezpůsobuje vůbec žádné poškození."
+          "Tlačítko, které odhodí každého, kdo na něm stojí, a na 6 sekund zpomalí všechny okolo. Normálně nezpůsobuje vůbec žádné poškození."
         ],
         [
           "Augmenty",
-          "Padlé na Sloup ledu: Nebezpečný terén ho nechá zasáhnout všechno kolem a Řetězová reakce napálí odhozeného nepřítele do jeho kamarádů. Kostimráz udělá zpomalení brutálním a Ryzí sesilatel promění rychlost útoku, kterou nikdy nepoužije, v další sloupy."
+          "Nebezpečný terén, padlý na Sloup ledu, nechá sloup zraňovat všechno kolem. Všední chléb dá Sloupu ledu 100 zrychlení schopností a Ryzí sesilatel promění rychlost útoku, kterou nikdy nepoužije, v ještě víc, takže další sloup stojí dřív, než starý roztaje. Kostimráz udělá zpomalení brutálním."
         ],
         [
           "Předměty",
-          "Rylaino křišťálové žezlo a Ledové srdce přidají ještě víc zpomalení, Říšský rozkaz označí každého, koho sloup odhodí, a Kosmický pohon se Shurelyinou bitevní písní vrátí každý sloup rychleji."
+          "Říšský rozkaz zrychlí sloup a označí každého, koho odhodí, Rylaino křišťálové žezlo přidá zpomalení a Kosmický pohon, Shurelyina bitevní píseň a Ledové srdce vrátí každý sloup rychleji."
         ]
       ],
       "augments": [
         "Zvolená schopnost způsobí poškození v oblasti kolem sebe.",
-        "Pokud cíl odhozený zvolenou schopností narazí do jiného šampiona, je vyhozen do vzduchu a utrpí poškození. Při nárazu do terénu se doba vyhození prodlouží a cíl utrpí bonusové poškození.",
-        "Tvoje zpomalení snižují rychlost pohybu o dalších 75.",
-        "Získáš procentuální zkrácení přebíjení a přeměníš veškerou rychlost útoků na zrychlení schopností."
+        "Tvoje E získá 100 zrychlení schopností.",
+        "Získáš procentuální zkrácení přebíjení a přeměníš veškerou rychlost útoků na zrychlení schopností.",
+        "Tvoje zpomalení snižují rychlost pohybu o dalších 75."
       ]
     },
     "de": {
       "title": "Skibidi-Säule",
-      "why": "Trundle benutzt nie Mampfen. Er spammt Eissäule, bis das Gegnerteam ein Flipperautomat ist.",
-      "play": "Setz die Säule direkt unter den gegnerischen Carry, schieß ihn in einen Teamkollegen, wiederholen. Niemals Q drücken, niemals rechtsklicken.",
+      "why": "Trundle benutzt nie Mampfen. Er spammt Eissäule, bis es keinen Moment mehr ohne Säule gibt.",
+      "play": "Zuerst E maximieren. Setz die Säule direkt unter den gegnerischen Carry und die nächste, bevor die alte schmilzt. Niemals Q drücken, niemals rechtsklicken.",
       "tagline": "Er beißt keine Leute mehr. Jetzt redet nur noch die Säule.",
       "how": [
         [
           "Eissäule",
-          "Ein Knopf, der jeden zurückstößt, der draufsteht, und alle in der Nähe verlangsamt. Normalerweise macht er gar keinen Schaden."
+          "Ein Knopf, der jeden zurückstößt, der draufsteht, und alle in der Nähe 6 Sekunden lang verlangsamt. Normalerweise macht er gar keinen Schaden."
         ],
         [
           "Augments",
-          "Auf Eissäule gerollt: Terrainiert lässt sie alles drumherum treffen und Kettenreaktion schleudert den zurückgestoßenen Gegner in seine Freunde. Eiskalt macht die Verlangsamung brutal, und Purist – Zauberer macht aus dem Angriffstempo, das er nie benutzt, noch mehr Säulen."
+          "Terrainiert, auf Eissäule gerollt, lässt die Säule alles drumherum verletzen. Das A und E gibt Eissäule 100 Fähigkeitstempo, und Purist – Zauberer macht aus dem Angriffstempo, das er nie benutzt, noch mehr, sodass die nächste Säule steht, bevor die alte schmilzt. Eiskalt macht die Verlangsamung brutal."
         ],
         [
           "Gegenstände",
-          "Rylais Kristallzepter und Gefrorenes Herz stapeln noch mehr Verlangsamung, Imperiale Verfügung markiert jeden, den die Säule zurückstößt, und Kosmischer Antrieb und Shurelyas Kampfhymne lassen jede Säule schneller zurückkommen."
+          "Imperiale Verfügung beschleunigt die Säule und markiert jeden, den sie zurückstößt, Rylais Kristallzepter bringt mehr Verlangsamung, und Kosmischer Antrieb, Shurelyas Kampfhymne und Gefrorenes Herz lassen jede Säule schneller zurückkommen."
         ]
       ],
       "augments": [
         "Deine gewählte Fähigkeit verursacht Schaden in einem Bereich um sie herum.",
-        "Wenn ein Ziel, das von der gewählten Fähigkeit zurückgestoßen wurde, mit einem anderen Champion kollidiert, wird es hochgeschleudert und erleidet Schaden. Bei einer Kollision mit Terrain wird die Dauer verlängert und es erleidet Bonusschaden.",
-        "Deine Verlangsamungen verringern das Lauftempo um zusätzliche 75.",
-        "Erhalte prozentuale Abklingzeitverringerung und wandle dein gesamtes Angriffstempo in Fähigkeitstempo um."
+        "Dein E erhält 100 Fähigkeitstempo.",
+        "Erhalte prozentuale Abklingzeitverringerung und wandle dein gesamtes Angriffstempo in Fähigkeitstempo um.",
+        "Deine Verlangsamungen verringern das Lauftempo um zusätzliche 75."
       ]
     },
     "el": {
       "title": "Skibidi Βράχος",
-      "why": "Ο Τράντλ δεν χρησιμοποιεί ποτέ το Δάγκωμα. Κάνει spam τον Παγωμένο Βράχο μέχρι η αντίπαλη ομάδα να γίνει φλίπερ.",
-      "play": "Ρίξε τον βράχο ακριβώς κάτω από τον αντίπαλο carry, στείλ' τον πάνω σε σύμμαχό του, επανάλαβε. Μην πατήσεις ποτέ Q, μην κάνεις ποτέ δεξί κλικ.",
+      "why": "Ο Τράντλ δεν χρησιμοποιεί ποτέ το Δάγκωμα. Κάνει spam τον Παγωμένο Βράχο μέχρι να στέκεται πάντα ένας.",
+      "play": "Ανέβασε πρώτα το E. Ρίξε τον βράχο ακριβώς κάτω από τον αντίπαλο carry και τον επόμενο πριν λιώσει ο παλιός. Μην πατήσεις ποτέ Q, μην κάνεις ποτέ δεξί κλικ.",
       "tagline": "Σταμάτησε να δαγκώνει κόσμο. Τώρα μιλάει μόνο ο βράχος.",
       "how": [
         [
           "Παγωμένος Βράχος",
-          "Ένα κουμπί που απωθεί όποιον στέκεται πάνω του και επιβραδύνει όλους γύρω. Κανονικά δεν κάνει καθόλου ζημιά."
+          "Ένα κουμπί που απωθεί όποιον στέκεται πάνω του και επιβραδύνει όλους γύρω για 6 δευτερόλεπτα. Κανονικά δεν κάνει καθόλου ζημιά."
         ],
         [
           "Ενισχύσεις",
-          "Στον Παγωμένο Βράχο: το Ένα με το Έδαφος τον κάνει να χτυπά τα πάντα γύρω του και η Αλυσιδωτή Αντίδραση εκτοξεύει τον αντίπαλο πάνω στους φίλους του. Το Παγωμένος κάνει την επιβράδυνση βάναυση, και το Καθαρολόγος - Μάγος κάνει την ταχύτητα επίθεσης που δεν χρησιμοποιεί ποτέ περισσότερους βράχους."
+          "Το Ένα με το Έδαφος, στον Παγωμένο Βράχο, κάνει τον βράχο να πληγώνει τα πάντα γύρω του. Το Ψωμοτύρι δίνει 100 Επιτάχυνση Ικανοτήτων στον Παγωμένο Βράχο και το Καθαρολόγος - Μάγος κάνει την ταχύτητα επίθεσης που δεν χρησιμοποιεί ποτέ ακόμα περισσότερη, οπότε ο επόμενος βράχος πέφτει πριν λιώσει ο παλιός. Το Παγωμένος κάνει την επιβράδυνση βάναυση."
         ],
         [
           "Αντικείμενα",
-          "Το Σκήπτρο της Ριλάι και η Παγωμένη Καρδιά προσθέτουν κι άλλη επιβράδυνση, η Αυτοκρατορική Διαταγή σημαδεύει όποιον απωθεί ο βράχος, και η Κοσμική Ενέργεια με το Πολεμικό Άσμα της Σουρέλια φέρνουν κάθε βράχο πιο γρήγορα."
+          "Η Αυτοκρατορική Διαταγή επιταχύνει τον βράχο και σημαδεύει όποιον απωθεί, το Σκήπτρο της Ριλάι προσθέτει επιβράδυνση, και η Κοσμική Ενέργεια, το Πολεμικό Άσμα της Σουρέλια και η Παγωμένη Καρδιά φέρνουν κάθε βράχο πιο γρήγορα."
         ]
       ],
       "augments": [
         "Η επιλεγμένη ικανότητα προκαλεί ζημιά σε μια περιοχή γύρω της.",
-        "Αν ένας στόχος που απωθείται από την επιλεγμένη ικανότητα χτυπήσει άλλον ήρωα, εκτινάσσεται στον αέρα και δέχεται ζημιά. Όταν συγκρούεται με το έδαφος, η διάρκεια της εκτίναξης αυξάνεται και δέχεται επιπλέον ζημιά.",
-        "Οι επιβραδύνσεις σου μειώνουν την ταχύτητα κίνησης κατά επιπλέον 75.",
-        "Αποκτάτε ποσοστιαία μείωση χρόνου επαναφόρτισης και μετατρέπετε όλη την Ταχύτητα Επίθεσης σε Επιτάχυνση Ικανοτήτων."
+        "Το E σου κερδίζει 100 Επιτάχυνση Ικανοτήτων.",
+        "Αποκτάτε ποσοστιαία μείωση χρόνου επαναφόρτισης και μετατρέπετε όλη την Ταχύτητα Επίθεσης σε Επιτάχυνση Ικανοτήτων.",
+        "Οι επιβραδύνσεις σου μειώνουν την ταχύτητα κίνησης κατά επιπλέον 75."
       ]
     },
     "es-MX": {
       "title": "Pilar Skibidi",
-      "why": "Trundle nunca usa Mascar. Spamea Pilar de Hielo hasta que el equipo enemigo parece una máquina de pinball.",
-      "play": "Pon el pilar justo debajo del carry enemigo, mándalo contra un compañero suyo y repite. Nunca presiones Q, nunca hagas clic derecho.",
+      "why": "Trundle nunca usa Mascar. Spamea Pilar de Hielo hasta que siempre hay uno en pie.",
+      "play": "Sube E primero. Pon el pilar justo debajo del carry enemigo y el siguiente antes de que se derrita el anterior. Nunca presiones Q, nunca hagas clic derecho.",
       "tagline": "Ya no muerde a nadie. Ahora el pilar habla por él.",
       "how": [
         [
           "Pilar de Hielo",
-          "Un botón que empuja a quien esté encima y ralentiza a todos los que estén cerca. Normalmente no hace nada de daño."
+          "Un botón que empuja a quien esté encima y ralentiza a todos los que estén cerca durante 6 segundos. Normalmente no hace nada de daño."
         ],
         [
           "Aumentos",
-          "Asignados a Pilar de Hielo: Terraneitor hace que golpee todo a su alrededor y Reacción en Cadena lanza al enemigo empujado contra sus amigos. Frío como el Hielo hace que la ralentización sea brutal, y Purista: Hechicero convierte la velocidad de ataque que nunca usa en más pilares."
+          "Terraneitor, asignado a Pilar de Hielo, hace que el pilar dañe todo a su alrededor. Pan y Queso le da 100 de velocidad de habilidades a Pilar de Hielo y Purista: Hechicero convierte la velocidad de ataque que nunca usa en aún más, así que el siguiente pilar cae antes de que se derrita el anterior. Frío como el Hielo hace que la ralentización sea brutal."
         ],
         [
           "Objetos",
-          "Cetro de Cristal de Rylai y Corazón de Hielo acumulan aún más ralentización, Mandato Imperial marca a todos los que el pilar empuja, e Impulso Cósmico y Canto de Guerra de Shurelya hacen que cada pilar vuelva más rápido."
+          "Mandato Imperial acelera el pilar y marca a todos los que empuja, Cetro de Cristal de Rylai agrega más ralentización, e Impulso Cósmico, Canto de Guerra de Shurelya y Corazón de Hielo hacen que cada pilar vuelva más rápido."
         ]
       ],
       "augments": [
         "Tu habilidad elegida inflige daño en un área a su alrededor.",
-        "Si un objetivo empujado por la habilidad elegida choca con otro campeón, queda derribado y recibe daño. Al chocar con el terreno, el derribo dura más y recibe daño adicional.",
-        "Tus ralentizaciones reducen la velocidad de movimiento en 75 adicionales.",
-        "Obtienes reducción porcentual de enfriamiento y conviertes toda tu velocidad de ataque en velocidad de habilidades."
+        "Tu E obtiene 100 de velocidad de habilidades.",
+        "Obtienes reducción porcentual de enfriamiento y conviertes toda tu velocidad de ataque en velocidad de habilidades.",
+        "Tus ralentizaciones reducen la velocidad de movimiento en 75 adicionales."
       ]
     },
     "es": {
       "title": "Pilar Skibidi",
-      "why": "Trundle nunca usa Mascar. Spamea Pilar de hielo hasta que el equipo enemigo parece una máquina de pinball.",
-      "play": "Pon el pilar justo debajo del carry enemigo, mándalo contra un compañero suyo y repite. Nunca pulses Q, nunca hagas clic derecho.",
+      "why": "Trundle nunca usa Mascar. Spamea Pilar de hielo hasta que siempre hay uno en pie.",
+      "play": "Sube E primero. Pon el pilar justo debajo del carry enemigo y el siguiente antes de que se derrita el anterior. Nunca pulses Q, nunca hagas clic derecho.",
       "tagline": "Ya no muerde a nadie. Ahora el pilar habla por él.",
       "how": [
         [
           "Pilar de hielo",
-          "Un botón que empuja a quien esté encima y ralentiza a todos los que estén cerca. Normalmente no hace nada de daño."
+          "Un botón que empuja a quien esté encima y ralentiza a todos los que estén cerca durante 6 segundos. Normalmente no hace nada de daño."
         ],
         [
           "Aumentos",
-          "Asignados a Pilar de hielo: Terrinator hace que golpee todo a su alrededor y Reacción en cadena lanza al enemigo empujado contra sus amigos. Algidez hace que la ralentización sea brutal, y Purista - Lanzador convierte la velocidad de ataque que nunca usa en más pilares."
+          "Terrinator, asignado a Pilar de hielo, hace que el pilar dañe todo a su alrededor. Pan con aceite le da 100 de aceleración de habilidades a Pilar de hielo y Purista - Lanzador convierte la velocidad de ataque que nunca usa en aún más, así que el siguiente pilar cae antes de que se derrita el anterior. Algidez hace que la ralentización sea brutal."
         ],
         [
           "Objetos",
-          "Cetro de cristal de Rylai y Corazón de hielo apilan aún más ralentización, Mandato imperial marca a todos los que el pilar empuja, e Impulso cósmico y Canción de batalla de Shurelya hacen que cada pilar vuelva antes."
+          "Mandato imperial acelera el pilar y marca a todos los que empuja, Cetro de cristal de Rylai añade más ralentización, e Impulso cósmico, Canción de batalla de Shurelya y Corazón de hielo hacen que cada pilar vuelva antes."
         ]
       ],
       "augments": [
         "Tu habilidad elegida inflige daño en un área a su alrededor.",
-        "Si un objetivo empujado por la habilidad elegida choca con otro campeón, queda derribado y recibe daño. Al chocar con el terreno, el derribo dura más y recibe daño adicional.",
-        "Tus ralentizaciones reducen la velocidad de movimiento en 75 adicionales.",
-        "Obtienes reducción porcentual de enfriamiento y conviertes toda tu velocidad de ataque en aceleración de habilidades."
+        "Tu E obtiene 100 de aceleración de habilidades.",
+        "Obtienes reducción porcentual de enfriamiento y conviertes toda tu velocidad de ataque en aceleración de habilidades.",
+        "Tus ralentizaciones reducen la velocidad de movimiento en 75 adicionales."
       ]
     },
     "fr": {
       "title": "Pilier Skibidi",
-      "why": "Trundle n'utilise jamais Morsure. Il spamme Montagne de glace jusqu'à transformer l'équipe adverse en flipper.",
-      "play": "Pose le pilier pile sous le carry ennemi, envoie-le dans un de ses coéquipiers, recommence. N'appuie jamais sur Q, ne fais jamais de clic droit.",
+      "why": "Trundle n'utilise jamais Morsure. Il spamme Montagne de glace jusqu'à ce qu'il y ait toujours un pilier debout.",
+      "play": "Monte E en premier. Pose le pilier pile sous le carry ennemi et le suivant avant que l'ancien ne fonde. N'appuie jamais sur Q, ne fais jamais de clic droit.",
       "tagline": "Il ne mord plus personne. C'est le pilier qui parle maintenant.",
       "how": [
         [
           "Montagne de glace",
-          "Un bouton qui repousse quiconque se tient dessus et ralentit tout le monde autour. Normalement, il n'inflige aucun dégât."
+          "Un bouton qui repousse quiconque se tient dessus et ralentit tout le monde autour pendant 6 secondes. Normalement, il n'inflige aucun dégât."
         ],
         [
           "Augments",
-          "Obtenus sur Montagne de glace : Terrain la fait toucher tout ce qui l'entoure et Réaction en chaîne envoie l'ennemi repoussé dans ses alliés. Froid glacial rend le ralentissement brutal, et Puriste - Lanceur de compétence transforme la vitesse d'attaque qu'il n'utilise jamais en encore plus de piliers."
+          "Terrain, obtenu sur Montagne de glace, fait blesser tout ce qui l'entoure. Maîtrise du E donne 100 accélération de compétence à Montagne de glace et Puriste - Lanceur de compétence transforme la vitesse d'attaque qu'il n'utilise jamais en encore plus, pour que le pilier suivant tombe avant que l'ancien ne fonde. Froid glacial rend le ralentissement brutal."
         ],
         [
           "Objets",
-          "Sceptre de Rylai et Cœur gelé empilent encore plus de ralentissement, Mandat impérial marque tous ceux que le pilier repousse, et Volonté cosmique et Chant de guerre de Shurelya font revenir chaque pilier plus vite."
+          "Mandat impérial accélère le pilier et marque tous ceux qu'il repousse, Sceptre de Rylai ajoute du ralentissement, et Volonté cosmique, Chant de guerre de Shurelya et Cœur gelé font revenir chaque pilier plus vite."
         ]
       ],
       "augments": [
         "Votre compétence choisie inflige des dégâts dans une zone autour d'elle.",
-        "Si une cible repoussée par la compétence choisie percute un autre champion, elle est projetée dans les airs et subit des dégâts. En cas de collision avec le terrain, la durée de projection est prolongée et elle subit des dégâts bonus.",
-        "Vos ralentissements réduisent la vitesse de déplacement de 75 supplémentaires.",
-        "Obtenez de la réduction de délai de récupération en pourcentage et convertissez toute votre vitesse d'attaque en accélération de compétence."
+        "Votre E gagne 100 accélération de compétence.",
+        "Obtenez de la réduction de délai de récupération en pourcentage et convertissez toute votre vitesse d'attaque en accélération de compétence.",
+        "Vos ralentissements réduisent la vitesse de déplacement de 75 supplémentaires."
       ]
     },
     "hu": {
       "title": "Skibidi oszlop",
-      "why": "Trundle soha nem használja a Veszett harapást. Addig spammeli a Jégoszlopot, amíg az ellenfél csapata flipperré nem válik.",
-      "play": "Tedd az oszlopot pont az ellenséges carry alá, lődd bele egy csapattársába, ismételd. Soha ne nyomd meg a Q-t, soha ne kattints jobb gombbal.",
+      "why": "Trundle soha nem használja a Veszett harapást. Addig spammeli a Jégoszlopot, amíg mindig áll egy.",
+      "play": "Először az E-t maxold. Tedd az oszlopot pont az ellenséges carry alá, a következőt pedig mielőtt a régi elolvad. Soha ne nyomd meg a Q-t, soha ne kattints jobb gombbal.",
       "tagline": "Már nem harap meg senkit. Most az oszlop beszél helyette.",
       "how": [
         [
           "Jégoszlop",
-          "Egy gomb, ami visszalöki azt, aki rajta áll, és lelassít mindenkit a közelben. Alapból egyáltalán nem sebez."
+          "Egy gomb, ami visszalöki azt, aki rajta áll, és 6 másodpercre lelassít mindenkit a közelben. Alapból egyáltalán nem sebez."
         ],
         [
           "Bővítések",
-          "A Jégoszlopra dobva: a Tereplés miatt mindent eltalál maga körül, a Láncreakció pedig a visszalökött ellenfelet a barátaiba csapja. A Jéghideg brutálissá teszi a lassítást, a Purista – Varázsló pedig a sosem használt támadási sebességét még több oszloppá alakítja."
+          "A Jégoszlopra dobott Tereplés miatt az oszlop mindent megsebez maga körül. A Sajtos kenyér 100 képességgyorsítást ad a Jégoszlopnak, a Purista – Varázsló pedig a sosem használt támadási sebességét még többé alakítja, így a következő oszlop még a régi elolvadása előtt áll. A Jéghideg brutálissá teszi a lassítást."
         ],
         [
           "Tárgyak",
-          "Rylai kristálybotja és a Fagyos szív még több lassítást halmoz, a Birodalmi parancs megjelöl mindenkit, akit az oszlop visszalök, a Kozmikus hajtómű és Shurelia csatadala pedig minden oszlopot gyorsabban hoz vissza."
+          "A Birodalmi parancs gyorsítja az oszlopot és megjelöl mindenkit, akit visszalök, Rylai kristálybotja több lassítást ad, a Kozmikus hajtómű, Shurelia csatadala és a Fagyos szív pedig minden oszlopot gyorsabban hoz vissza."
         ]
       ],
       "augments": [
         "A választott képességed sebzést okoz egy körülötte lévő területen.",
-        "Ha a választott képességgel hátralökött célpont egy másik hősnek ütközik, felröppen és sebzést szenved. Terepnek ütközve a felröpítés tovább tart, és bónuszsebzést szenved.",
-        "A lassításaid további 75-tel csökkentik a mozgási sebességet.",
-        "Százalékos töltésiidő-csökkentést kapsz, és az összes támadási sebességed képességsiettetéssé alakul."
+        "Az E-d 100 képességgyorsítást kap.",
+        "Százalékos töltésiidő-csökkentést kapsz, és az összes támadási sebességed képességsiettetéssé alakul.",
+        "A lassításaid további 75-tel csökkentik a mozgási sebességet."
       ]
     },
     "id": {
       "title": "Pilar Skibidi",
-      "why": "Trundle nggak pernah pakai Chomp. Dia spam Pillar of Ice sampai tim musuh jadi mesin pinball.",
-      "play": "Taruh pilar tepat di bawah carry musuh, lempar dia ke rekan setimnya, ulangi. Jangan pernah tekan Q, jangan pernah klik kanan.",
+      "why": "Trundle nggak pernah pakai Chomp. Dia spam Pillar of Ice sampai selalu ada satu pilar berdiri.",
+      "play": "Maksimalkan E dulu. Taruh pilar tepat di bawah carry musuh dan pilar berikutnya sebelum yang lama meleleh. Jangan pernah tekan Q, jangan pernah klik kanan.",
       "tagline": "Dia sudah berhenti menggigit orang. Sekarang pilarnya yang bicara.",
       "how": [
         [
           "Pillar of Ice",
-          "Tombol yang menghempas siapa pun yang berdiri di atasnya dan memperlambat semua orang di dekatnya. Biasanya sama sekali nggak memberi damage."
+          "Tombol yang menghempas siapa pun yang berdiri di atasnya dan memperlambat semua orang di dekatnya selama 6 detik. Biasanya sama sekali nggak memberi damage."
         ],
         [
           "Augment",
-          "Didapat di Pillar of Ice: Terrain'd membuatnya mengenai semua di sekitarnya dan Chain Reaction melempar musuh yang terhempas ke teman-temannya. Ice Cold bikin slow-nya brutal, dan Purist - Caster mengubah attack speed yang nggak pernah dia pakai jadi lebih banyak pilar."
+          "Terrain'd, didapat di Pillar of Ice, bikin pilar melukai semua di sekitarnya. Bread and Cheese memberi Pillar of Ice 100 Ability Haste dan Purist - Caster mengubah attack speed yang nggak pernah dia pakai jadi lebih banyak lagi, jadi pilar berikutnya turun sebelum yang lama meleleh. Ice Cold bikin slow-nya brutal."
         ],
         [
           "Item",
-          "Rylai's Crystal Scepter dan Frozen Heart menumpuk slow lebih banyak, Imperial Mandate menandai semua yang dihempas pilar, dan Cosmic Drive serta Shurelya's Battlesong bikin tiap pilar kembali lebih cepat."
+          "Imperial Mandate mempercepat pilar dan menandai semua yang dihempasnya, Rylai's Crystal Scepter menambah slow, dan Cosmic Drive, Shurelya's Battlesong serta Frozen Heart bikin tiap pilar kembali lebih cepat."
         ]
       ],
       "augments": [
         "Ability pilihanmu memberi damage di area sekitarnya.",
-        "Jika target yang terkena Knock Back oleh ability pilihan menabrak champion lain, mereka terkena Knock Up dan menerima damage. Saat menabrak terrain, durasi Knock Up diperpanjang dan mereka menerima damage bonus.",
-        "Efek slow kamu mengurangi Move Speed sebesar 75 tambahan.",
-        "Dapatkan pengurangan cooldown persentase dan ubah semua Attack Speed-mu menjadi Ability Haste."
+        "E kamu mendapat 100 Ability Haste.",
+        "Dapatkan pengurangan cooldown persentase dan ubah semua Attack Speed-mu menjadi Ability Haste.",
+        "Efek slow kamu mengurangi Move Speed sebesar 75 tambahan."
       ]
     },
     "it": {
       "title": "Pilastro Skibidi",
-      "why": "Trundle non usa mai Morso. Spamma Pilastro di ghiaccio finché la squadra nemica non diventa un flipper.",
-      "play": "Piazza il pilastro proprio sotto il carry nemico, sparalo contro un suo compagno, ripeti. Non premere mai Q, non cliccare mai col destro.",
+      "why": "Trundle non usa mai Morso. Spamma Pilastro di ghiaccio finché non c'è sempre un pilastro in piedi.",
+      "play": "Massimizza prima la E. Piazza il pilastro proprio sotto il carry nemico e il successivo prima che il vecchio si sciolga. Non premere mai Q, non cliccare mai col destro.",
       "tagline": "Non morde più nessuno. Adesso parla solo il pilastro.",
       "how": [
         [
           "Pilastro di ghiaccio",
-          "Un tasto che respinge chiunque ci stia sopra e rallenta tutti quelli vicini. Di solito non infligge alcun danno."
+          "Un tasto che respinge chiunque ci stia sopra e rallenta tutti quelli vicini per 6 secondi. Di solito non infligge alcun danno."
         ],
         [
           "Potenziamenti",
-          "Ottenuti su Pilastro di ghiaccio: Colpa del terreno lo fa colpire tutto intorno e Reazione a catena scaraventa il nemico respinto contro i suoi amici. Freddo come il ghiaccio rende il rallentamento brutale, e Purista - Mago trasforma la velocità d'attacco che non usa mai in altri pilastri."
+          "Colpa del terreno, ottenuto su Pilastro di ghiaccio, fa ferire al pilastro tutto ciò che ha intorno. Pane e formaggio dà a Pilastro di ghiaccio 100 velocità abilità e Purista - Mago trasforma la velocità d'attacco che non usa mai in ancora di più, così il pilastro successivo arriva prima che il vecchio si sciolga. Freddo come il ghiaccio rende il rallentamento brutale."
         ],
         [
           "Oggetti",
-          "Scettro di cristallo di Rylai e Fulcro dei geli accumulano ancora più rallentamento, Mandato imperiale marchia tutti quelli che il pilastro respinge, e Spirito cosmico e Canto di guerra di Shurelya fanno tornare ogni pilastro più in fretta."
+          "Mandato imperiale velocizza il pilastro e marchia tutti quelli che respinge, Scettro di cristallo di Rylai aggiunge rallentamento, e Spirito cosmico, Canto di guerra di Shurelya e Fulcro dei geli fanno tornare ogni pilastro più in fretta."
         ]
       ],
       "augments": [
         "L'abilità scelta infligge danni in un'area intorno a sé.",
-        "Se un bersaglio respinto dall'abilità scelta urta un altro campione, viene lanciato in aria e subisce danni. Quando urta il terreno, la durata del lancio aumenta e subisce danni bonus.",
-        "I tuoi rallentamenti riducono la velocità di movimento di altri 75.",
-        "Ottieni riduzione ricarica percentuale e converti tutta la tua velocità d'attacco in velocità abilità."
+        "La tua E ottiene 100 velocità abilità.",
+        "Ottieni riduzione ricarica percentuale e converti tutta la tua velocità d'attacco in velocità abilità.",
+        "I tuoi rallentamenti riducono la velocità di movimento di altri 75."
       ]
     },
     "ja": {
       "title": "スキビディ柱",
-      "why": "トランドルは咬み付きを絶対に使わない。敵チームがピンボール台になるまで氷冷の柱を連打する。",
-      "play": "敵キャリーの真下に柱を立てて味方側へ吹っ飛ばし、繰り返す。Qも右クリックも絶対に押さないこと。",
+      "why": "トランドルは咬み付きを絶対に使わない。常に柱が1本立っている状態になるまで氷冷の柱を連打する。",
+      "play": "Eを最優先で上げる。敵キャリーの真下に柱を立て、前の柱が溶ける前に次を立てる。Qも右クリックも絶対に押さないこと。",
       "tagline": "もう誰も噛まない。これからは柱が語る。",
       "how": [
         [
           "氷冷の柱",
-          "上に立っている敵をノックバックし、周りの全員にスロウを与えるボタン。本来はダメージを一切与えない。"
+          "上に立っている敵をノックバックし、周りの全員に6秒間スロウを与えるボタン。本来はダメージを一切与えない。"
         ],
         [
           "オーグメント",
-          "氷冷の柱に付与：地形でドンで周囲すべてにダメージ、連鎖反応でノックバックした敵を仲間にぶつける。結氷でスロウがえげつなくなり、純粋なるキャスターで使わない攻撃速度がさらなる柱に変わる。"
+          "地形でドン（氷冷の柱に付与）で柱が周囲すべてにダメージ。パンとチーズで氷冷の柱にスキルヘイスト100、純粋なるキャスターで使わない攻撃速度がさらにヘイストに変わり、前の柱が溶ける前に次が立つ。結氷でスロウがえげつなくなる。"
         ],
         [
           "アイテム",
-          "リーライ クリスタル セプターとフローズン ハートでさらにスロウを重ね、帝国の指令で柱が吹き飛ばした全員にマーク。コズミック ドライブとシュレリアの戦歌で柱がどんどん戻ってくる。"
+          "帝国の指令で柱が速くなり、吹き飛ばした全員にマーク。リーライ クリスタル セプターでスロウを追加し、コズミック ドライブ、シュレリアの戦歌、フローズン ハートで柱がどんどん戻ってくる。"
         ]
       ],
       "augments": [
         "選択したスキルが周囲の範囲にダメージを与える。",
-        "選択したスキルでノックバックされた対象が別のチャンピオンに衝突すると、ノックアップされてダメージを受ける。地形に衝突した場合、ノックアップ効果時間が延長され、追加ダメージを受ける。",
-        "自身のスロウ効果が移動速度をさらに75低下させる。",
-        "割合クールダウン短縮を獲得し、すべての攻撃速度をスキルヘイストに変換する。"
+        "Eのスキルヘイストが100増加する。",
+        "割合クールダウン短縮を獲得し、すべての攻撃速度をスキルヘイストに変換する。",
+        "自身のスロウ効果が移動速度をさらに75低下させる。"
       ]
     },
     "ko": {
       "title": "스키비디 기둥",
-      "why": "트런들은 깨물기를 절대 쓰지 않습니다. 적 팀이 핀볼 기계가 될 때까지 얼음 기둥만 난사합니다.",
-      "play": "적 원딜 바로 밑에 기둥을 세우고 그 팀원 쪽으로 날려 보낸 뒤 반복하세요. Q도 우클릭도 절대 누르지 마세요.",
+      "why": "트런들은 깨물기를 절대 쓰지 않습니다. 기둥이 항상 하나는 서 있을 때까지 얼음 기둥만 난사합니다.",
+      "play": "E 선마. 적 원딜 바로 밑에 기둥을 세우고, 이전 기둥이 녹기 전에 다음 기둥을 세우세요. Q도 우클릭도 절대 누르지 마세요.",
       "tagline": "이제 아무도 안 깨뭅니다. 말은 기둥이 다 합니다.",
       "how": [
         [
           "얼음 기둥",
-          "위에 선 적을 밀쳐내고 주변 모두를 둔화시키는 버튼. 원래는 피해를 전혀 주지 않습니다."
+          "위에 선 적을 밀쳐내고 주변 모두를 6초 동안 둔화시키는 버튼. 원래는 피해를 전혀 주지 않습니다."
         ],
         [
           "증강",
-          "얼음 기둥에 붙이면: 지형 생성됨으로 주변 모두를 때리고, 연쇄 반응으로 밀려난 적을 친구들에게 꽂습니다. 차가운 냉기로 둔화가 잔인해지고, 순수주의자 - 마법사가 한 번도 안 쓰는 공격 속도를 더 많은 기둥으로 바꿉니다."
+          "얼음 기둥에 붙은 지형 생성됨으로 기둥이 주변 모두에게 피해를 줍니다. 빵과 치즈가 얼음 기둥에 스킬 가속 100을 주고, 순수주의자 - 마법사가 한 번도 안 쓰는 공격 속도를 더 많은 가속으로 바꿔 이전 기둥이 녹기 전에 다음 기둥이 섭니다. 차가운 냉기로 둔화가 잔인해집니다."
         ],
         [
           "아이템",
-          "라일라이의 수정홀과 얼어붙은 심장이 둔화를 더 쌓고, 제국의 명령이 기둥에 밀려난 모두에게 표식을 남기며, 우주의 추진력과 슈렐리아의 군가가 기둥을 더 빨리 돌려줍니다."
+          "제국의 명령이 기둥을 빠르게 하고 밀려난 모두에게 표식을 남기며, 라일라이의 수정홀이 둔화를 더하고, 우주의 추진력, 슈렐리아의 군가, 얼어붙은 심장이 기둥을 더 빨리 돌려줍니다."
         ]
       ],
       "augments": [
         "선택한 스킬이 주변 범위에 피해를 입힙니다.",
-        "선택한 스킬로 밀려난 대상이 다른 챔피언과 충돌하면 공중으로 띄워지고 피해를 입습니다. 지형과 충돌하면 공중에 뜨는 시간이 늘어나고 추가 피해를 입습니다.",
-        "둔화 효과가 이동 속도를 75 추가로 감소시킵니다.",
-        "재사용 대기시간이 일정 비율 감소하고 모든 공격 속도가 스킬 가속으로 전환됩니다."
+        "E가 스킬 가속 100을 얻습니다.",
+        "재사용 대기시간이 일정 비율 감소하고 모든 공격 속도가 스킬 가속으로 전환됩니다.",
+        "둔화 효과가 이동 속도를 75 추가로 감소시킵니다."
       ]
     },
     "pl": {
       "title": "Skibidi Kolumna",
-      "why": "Trundle nigdy nie używa Chapsa. Spamuje Kolumnę Lodu, aż drużyna wroga zamieni się w automat do pinballa.",
-      "play": "Postaw kolumnę prosto pod wrogim carry, wbij go w jego sojusznika, powtórz. Nigdy nie wciskaj Q, nigdy nie klikaj prawym.",
+      "why": "Trundle nigdy nie używa Chapsa. Spamuje Kolumnę Lodu, aż zawsze jakaś stoi.",
+      "play": "Najpierw maksuj E. Postaw kolumnę prosto pod wrogim carry, a następną, zanim stara się stopi. Nigdy nie wciskaj Q, nigdy nie klikaj prawym.",
       "tagline": "Przestał gryźć ludzi. Teraz gada tylko kolumna.",
       "how": [
         [
           "Kolumna Lodu",
-          "Przycisk, który odrzuca każdego, kto na nim stoi, i spowalnia wszystkich w pobliżu. Normalnie nie zadaje żadnych obrażeń."
+          "Przycisk, który odrzuca każdego, kto na nim stoi, i spowalnia wszystkich w pobliżu przez 6 sekund. Normalnie nie zadaje żadnych obrażeń."
         ],
         [
           "Wzmocnienia",
-          "Wylosowane na Kolumnie Lodu: Terenowość sprawia, że trafia wszystko dookoła, a Reakcja Łańcuchowa wbija odrzuconego wroga w jego kumpli. Zimny jak Lód sprawia, że spowolnienie jest brutalne, a Purysta — mag zamienia prędkość ataku, której nigdy nie używa, w kolejne kolumny."
+          "Terenowość, wylosowana na Kolumnie Lodu, sprawia, że kolumna rani wszystko dookoła. Bułka z Serem daje Kolumnie Lodu 100 jedn. przyspieszenia umiejętności, a Purysta — mag zamienia prędkość ataku, której nigdy nie używa, w jeszcze więcej, więc następna kolumna staje, zanim stara się stopi. Zimny jak Lód sprawia, że spowolnienie jest brutalne."
         ],
         [
           "Przedmioty",
-          "Kryształowy Kostur Rylai i Mroźne Serce dokładają jeszcze więcej spowolnienia, Imperialny Mandat oznacza każdego, kogo kolumna odrzuci, a Kosmiczny Impuls i Pieśń Bitewna Shurelyi sprawiają, że każda kolumna wraca szybciej."
+          "Imperialny Mandat przyspiesza kolumnę i oznacza każdego, kogo odrzuci, Kryształowy Kostur Rylai dokłada spowolnienia, a Kosmiczny Impuls, Pieśń Bitewna Shurelyi i Mroźne Serce sprawiają, że każda kolumna wraca szybciej."
         ]
       ],
       "augments": [
         "Wybrana umiejętność zadaje obrażenia na obszarze wokół siebie.",
-        "Jeśli cel odepchnięty przez wybraną umiejętność uderzy w innego bohatera, zostaje podrzucony i otrzymuje obrażenia. Przy zderzeniu z terenem podrzucenie trwa dłużej i cel otrzymuje dodatkowe obrażenia.",
-        "Twoje spowolnienia zmniejszają prędkość ruchu o dodatkowe 75.",
-        "Zyskaj procentowe skrócenie czasu odnowienia i zamień całą swoją prędkość ataku na przyspieszenie umiejętności."
+        "Twoje E zyskuje 100 jedn. przyspieszenia umiejętności.",
+        "Zyskaj procentowe skrócenie czasu odnowienia i zamień całą swoją prędkość ataku na przyspieszenie umiejętności.",
+        "Twoje spowolnienia zmniejszają prędkość ruchu o dodatkowe 75."
       ]
     },
     "pt-BR": {
       "title": "Pilar Skibidi",
-      "why": "Trundle nunca usa Mordida. Ele spamma Pilar de Gelo até o time inimigo virar uma máquina de pinball.",
-      "play": "Solte o pilar bem embaixo do carry inimigo, jogue ele num aliado dele e repita. Nunca aperte Q, nunca clique com o botão direito.",
+      "why": "Trundle nunca usa Mordida. Ele spamma Pilar de Gelo até sempre ter um de pé.",
+      "play": "Upe E primeiro. Solte o pilar bem embaixo do carry inimigo e o próximo antes do antigo derreter. Nunca aperte Q, nunca clique com o botão direito.",
       "tagline": "Ele parou de morder os outros. Agora quem fala é o pilar.",
       "how": [
         [
           "Pilar de Gelo",
-          "Um botão que empurra quem estiver em cima e deixa todo mundo por perto mais lento. Normalmente não causa dano nenhum."
+          "Um botão que empurra quem estiver em cima e deixa todo mundo por perto mais lento por 6 segundos. Normalmente não causa dano nenhum."
         ],
         [
           "Aumentos",
-          "Sorteados no Pilar de Gelo: Aterramento faz ele acertar tudo em volta e Reação em Cadeia arremessa o inimigo empurrado nos amigos dele. Geladinho deixa a lentidão brutal, e Purista - Conjurador transforma a velocidade de ataque que ele nunca usa em mais pilares."
+          "Aterramento, sorteado no Pilar de Gelo, faz o pilar machucar tudo em volta. Pão com Queijo dá 100 de Aceleração de Habilidade ao Pilar de Gelo e Purista - Conjurador transforma a velocidade de ataque que ele nunca usa em ainda mais, então o próximo pilar cai antes do antigo derreter. Geladinho deixa a lentidão brutal."
         ],
         [
           "Itens",
-          "Cetro de Cristal de Rylai e Coração Congelado acumulam ainda mais lentidão, Mandato Imperial marca todo mundo que o pilar empurra, e Ímpeto Cósmico e Hino Bélico de Shurelya fazem cada pilar voltar mais rápido."
+          "Mandato Imperial acelera o pilar e marca todo mundo que ele empurra, Cetro de Cristal de Rylai adiciona mais lentidão, e Ímpeto Cósmico, Hino Bélico de Shurelya e Coração Congelado fazem cada pilar voltar mais rápido."
         ]
       ],
       "augments": [
         "Sua habilidade escolhida causa dano em uma área ao redor dela.",
-        "Se um alvo empurrado pela habilidade escolhida colidir com outro campeão, ele é arremessado ao ar e sofre dano. Ao colidir com o terreno, a duração do arremesso aumenta e ele sofre dano bônus.",
-        "Suas lentidões reduzem a Velocidade de Movimento em 75 adicionais.",
-        "Receba redução percentual de recarga e converta toda a sua Velocidade de Ataque em Aceleração de Habilidade."
+        "Seu E recebe 100 de Aceleração de Habilidade.",
+        "Receba redução percentual de recarga e converta toda a sua Velocidade de Ataque em Aceleração de Habilidade.",
+        "Suas lentidões reduzem a Velocidade de Movimento em 75 adicionais."
       ]
     },
     "ro": {
       "title": "Stâlpul Skibidi",
-      "why": "Trundle nu folosește niciodată Mușcătură. Dă spam cu Stâlp de gheață până când echipa inamică devine un flipper.",
-      "play": "Pune stâlpul fix sub carry-ul inamic, trimite-l într-un coechipier de-al lui, repetă. Nu apăsa niciodată Q, nu da niciodată click dreapta.",
+      "why": "Trundle nu folosește niciodată Mușcătură. Dă spam cu Stâlp de gheață până când există mereu unul în picioare.",
+      "play": "Maximizează E primul. Pune stâlpul fix sub carry-ul inamic și pe următorul înainte să se topească cel vechi. Nu apăsa niciodată Q, nu da niciodată click dreapta.",
       "tagline": "Nu mai mușcă pe nimeni. Acum vorbește doar stâlpul.",
       "how": [
         [
           "Stâlp de gheață",
-          "Un buton care respinge pe oricine stă pe el și încetinește pe toată lumea din jur. În mod normal nu provoacă deloc daune."
+          "Un buton care respinge pe oricine stă pe el și încetinește pe toată lumea din jur timp de 6 secunde. În mod normal nu provoacă deloc daune."
         ],
         [
           "Augmentări",
-          "Primite pe Stâlp de gheață: Teren special îl face să lovească tot ce e în jur, iar Reacție în lanț aruncă inamicul respins în prietenii lui. Rece ca gheața face încetinirea brutală, iar Purist – Mag transformă viteza de atac pe care nu o folosește niciodată în și mai mulți stâlpi."
+          "Teren special, primit pe Stâlp de gheață, face stâlpul să rănească tot ce e în jur. În al doilea rând îi dă Stâlpului de gheață 100 grabă abilități, iar Purist – Mag transformă viteza de atac pe care nu o folosește niciodată în și mai mult, așa că următorul stâlp apare înainte să se topească cel vechi. Rece ca gheața face încetinirea brutală."
         ],
         [
           "Obiecte",
-          "Sceptrul de cristal al lui Rylai și Inimă înghețată adaugă și mai multă încetinire, Decret imperial marchează pe toți cei respinși de stâlp, iar Avânt cosmic și Cântecul de luptă al Shurelyei aduc fiecare stâlp înapoi mai repede."
+          "Decret imperial grăbește stâlpul și marchează pe toți cei respinși, Sceptrul de cristal al lui Rylai adaugă încetinire, iar Avânt cosmic, Cântecul de luptă al Shurelyei și Inimă înghețată aduc fiecare stâlp înapoi mai repede."
         ]
       ],
       "augments": [
         "Abilitatea aleasă provoacă daune într-o zonă din jurul ei.",
-        "Dacă o țintă împinsă de abilitatea aleasă lovește alt campion, este aruncată în aer și suferă daune. La coliziunea cu terenul, aruncarea durează mai mult și suferă daune bonus.",
-        "Încetinirile tale reduc viteza de mișcare cu încă 75.",
-        "Primești reducere procentuală a timpului de reactivare și îți transformi toată viteza de atac în accelerare a abilităților."
+        "E-ul tău primește 100 grabă abilități.",
+        "Primești reducere procentuală a timpului de reactivare și îți transformi toată viteza de atac în accelerare a abilităților.",
+        "Încetinirile tale reduc viteza de mișcare cu încă 75."
       ]
     },
     "ru": {
       "title": "Скибиди-столп",
-      "why": "Трандл никогда не использует Укус. Он спамит Ледяной столп, пока вражеская команда не превратится в пинбол.",
-      "play": "Ставь столп прямо под вражеского керри, отправь его в союзника, повторяй. Никогда не жми Q и не кликай правой кнопкой.",
+      "why": "Трандл никогда не использует Укус. Он спамит Ледяной столп, пока хоть один всегда стоит.",
+      "play": "Сначала прокачай E. Ставь столп прямо под вражеского керри, а следующий — до того, как растает старый. Никогда не жми Q и не кликай правой кнопкой.",
       "tagline": "Он больше никого не кусает. Теперь за него говорит столп.",
       "how": [
         [
           "Ледяной столп",
-          "Кнопка, которая отбрасывает всех, кто стоит сверху, и замедляет всех рядом. Обычно она вообще не наносит урона."
+          "Кнопка, которая отбрасывает всех, кто стоит сверху, и замедляет всех рядом на 6 секунд. Обычно она вообще не наносит урона."
         ],
         [
           "Аугменты",
-          "Выпавшие на Ледяной столп: Угроза снизу заставляет его бить всё вокруг, а Цепная реакция швыряет отброшенного врага в его друзей. Дикий холод делает замедление жестоким, а Принципиальность – умения превращает скорость атаки, которой он не пользуется, в новые столпы."
+          "Угроза снизу, выпавшая на Ледяной столп, заставляет столп ранить всё вокруг. Хлеб с сыром даёт Ледяному столпу 100 ед. ускорения умений, а Принципиальность – умения превращает скорость атаки, которой он не пользуется, в ещё большее, так что новый столп встаёт до того, как растает старый. Дикий холод делает замедление жестоким."
         ],
         [
           "Предметы",
-          "Хрустальный скипетр Рилай и Ледяное сердце добавляют ещё больше замедления, Имперский мандат помечает всех, кого отбросил столп, а Космический ускоритель и Боевая песнь Шурелии быстрее возвращают каждый столп."
+          "Имперский мандат ускоряет столп и помечает всех, кого он отбросил, Хрустальный скипетр Рилай добавляет замедление, а Космический ускоритель, Боевая песнь Шурелии и Ледяное сердце быстрее возвращают каждый столп."
         ]
       ],
       "augments": [
         "Выбранное умение наносит урон в области вокруг себя.",
-        "Если цель, отброшенная выбранным умением, сталкивается с другим чемпионом, она подбрасывается и получает урон. При столкновении с рельефом подбрасывание длится дольше и цель получает дополнительный урон.",
-        "Ваши замедления снижают скорость передвижения еще на 75.",
-        "Получите процентное сокращение перезарядки и преобразуйте всю скорость атаки в ускорение умений."
+        "Ваше E получает 100 ед. ускорения умений.",
+        "Получите процентное сокращение перезарядки и преобразуйте всю скорость атаки в ускорение умений.",
+        "Ваши замедления снижают скорость передвижения еще на 75."
       ]
     },
     "th": {
       "title": "เสาสกิบิดี้",
-      "why": "Trundle ไม่เคยใช้ Chomp เลย เขากด Pillar of Ice รัว ๆ จนทีมศัตรูกลายเป็นเครื่องพินบอล",
-      "play": "วางเสาใต้ตัวแครี่ศัตรูพอดี ดีดมันไปชนเพื่อนตัวเอง แล้วทำซ้ำ ห้ามกด Q และห้ามคลิกขวาเด็ดขาด",
+      "why": "Trundle ไม่เคยใช้ Chomp เลย เขากด Pillar of Ice รัว ๆ จนมีเสาตั้งอยู่ตลอดเวลา",
+      "play": "อัป E ก่อน วางเสาใต้ตัวแครี่ศัตรูพอดี แล้ววางเสาต่อไปก่อนเสาเก่าละลาย ห้ามกด Q และห้ามคลิกขวาเด็ดขาด",
       "tagline": "เขาเลิกกัดคนแล้ว ตอนนี้เสาพูดแทนทุกอย่าง",
       "how": [
         [
           "Pillar of Ice",
-          "ปุ่มที่ผลักคนที่ยืนอยู่บนมันกระเด็นและทำให้ทุกคนรอบ ๆ ช้าลง ปกติแล้วไม่สร้างดาเมจเลยสักนิด"
+          "ปุ่มที่ผลักคนที่ยืนอยู่บนมันกระเด็นและทำให้ทุกคนรอบ ๆ ช้าลง 6 วินาที ปกติแล้วไม่สร้างดาเมจเลยสักนิด"
         ],
         [
           "Augment",
-          "สุ่มได้บน Pillar of Ice: Terrain'd ทำให้มันโดนทุกอย่างรอบตัว และ Chain Reaction ดีดศัตรูที่ถูกผลักไปชนเพื่อน Ice Cold ทำให้สโลว์โหดสุด ๆ และ Purist - Caster เปลี่ยนความเร็วโจมตีที่เขาไม่เคยใช้เป็นเสาเพิ่มอีก"
+          "Terrain'd ที่สุ่มได้บน Pillar of Ice ทำให้เสาทำดาเมจทุกอย่างรอบตัว Bread and Cheese ให้ Pillar of Ice 100 Ability Haste และ Purist - Caster เปลี่ยนความเร็วโจมตีที่เขาไม่เคยใช้เป็นฮาสต์เพิ่มอีก เสาใหม่จึงลงก่อนเสาเก่าละลาย Ice Cold ทำให้สโลว์โหดสุด ๆ"
         ],
         [
           "ไอเทม",
-          "Rylai's Crystal Scepter กับ Frozen Heart เพิ่มสโลว์อีก Imperial Mandate มาร์กทุกคนที่โดนเสาผลัก ส่วน Cosmic Drive กับ Shurelya's Battlesong ทำให้เสาแต่ละอันกลับมาเร็วขึ้น"
+          "Imperial Mandate ทำให้เสาเร็วขึ้นและมาร์กทุกคนที่โดนผลัก Rylai's Crystal Scepter เพิ่มสโลว์ ส่วน Cosmic Drive, Shurelya's Battlesong และ Frozen Heart ทำให้เสาแต่ละอันกลับมาเร็วขึ้น"
         ]
       ],
       "augments": [
         "สกิลที่คุณเลือกสร้างดาเมจเป็นวงรอบตัวมัน",
-        "หากเป้าหมายที่ถูก Knock Back จากสกิลที่เลือกชนแชมเปี้ยนอีกตัว จะถูก Knock Up และได้รับดาเมจ เมื่อชนกับภูมิประเทศ ระยะเวลา Knock Up จะนานขึ้นและได้รับดาเมจโบนัส",
-        "เอฟเฟกต์สโลว์ของคุณลดความเร็วเคลื่อนที่เพิ่มอีก 75",
-        "รับการลดคูลดาวน์เป็นเปอร์เซ็นต์ และแปลง Attack Speed ทั้งหมดเป็น Ability Haste"
+        "E ของคุณได้รับ Ability Haste 100",
+        "รับการลดคูลดาวน์เป็นเปอร์เซ็นต์ และแปลง Attack Speed ทั้งหมดเป็น Ability Haste",
+        "เอฟเฟกต์สโลว์ของคุณลดความเร็วเคลื่อนที่เพิ่มอีก 75"
       ]
     },
     "tr": {
       "title": "Skibidi Sütun",
-      "why": "Trundle asla Kopar kullanmaz. Rakip takım tilt makinesine dönene kadar Buzdan Sütun spamlar.",
-      "play": "Sütunu tam rakip carry'nin altına koy, onu takım arkadaşının üstüne fırlat, tekrarla. Asla Q'ya basma, asla sağ tıklama.",
+      "why": "Trundle asla Kopar kullanmaz. Hep bir tane ayakta kalana kadar Buzdan Sütun spamlar.",
+      "play": "Önce E'yi maksla. Sütunu tam rakip carry'nin altına koy, eskisi erimeden yenisini dik. Asla Q'ya basma, asla sağ tıklama.",
       "tagline": "Artık kimseyi ısırmıyor. Konuşmayı sütun yapıyor.",
       "how": [
         [
           "Buzdan Sütun",
-          "Üstünde durana geri itme uygulayan ve yakındaki herkesi yavaşlatan bir tuş. Normalde hiç hasar vermez."
+          "Üstünde durana geri itme uygulayan ve yakındaki herkesi 6 saniye yavaşlatan bir tuş. Normalde hiç hasar vermez."
         ],
         [
           "Güçlendirmeler",
-          "Buzdan Sütun'a gelirse: Yüzey Şeklinç etrafındaki her şeye vurmasını sağlar, Zincirleme Reaksiyon da geri itilen rakibi arkadaşlarına çarptırır. Buz Gibi yavaşlatmayı acımasız yapar, Saf Yetenek de hiç kullanmadığı saldırı hızını daha çok sütuna çevirir."
+          "Buzdan Sütun'a gelen Yüzey Şeklinç, sütunun etrafındaki her şeye hasar vermesini sağlar. Peynirli Ekmek Buzdan Sütun'a 100 Yetenek Hızı verir, Saf Yetenek de hiç kullanmadığı saldırı hızını daha fazlasına çevirir; böylece eskisi erimeden yeni sütun iner. Buz Gibi yavaşlatmayı acımasız yapar."
         ],
         [
           "Eşyalar",
-          "Rylai'nin Kristal Asası ve Donmuş Yürek daha da fazla yavaşlatma ekler, İmparatorun Fermanı sütunun geri ittiği herkesi işaretler, Kozmik Hızlandırıcı ve Shurelya'nın Savaş Şarkısı da her sütunu daha hızlı geri getirir."
+          "İmparatorun Fermanı sütunu hızlandırır ve geri ittiği herkesi işaretler, Rylai'nin Kristal Asası daha çok yavaşlatma ekler, Kozmik Hızlandırıcı, Shurelya'nın Savaş Şarkısı ve Donmuş Yürek de her sütunu daha hızlı geri getirir."
         ]
       ],
       "augments": [
         "Seçtiğin yetenek etrafındaki bir alana hasar verir.",
-        "Seçilen yetenekle geri itilen bir hedef başka bir şampiyona çarparsa havaya savrulur ve hasar alır. Araziye çarptığında savrulma süresi uzar ve ek hasar alır.",
-        "Yavaşlatma etkilerin hareket hızını 75 daha azaltır.",
-        "Yüzdesel bekleme süresi azaltma kazan ve tüm saldırı hızını yetenek hızına çevir."
+        "E yeteneğin 100 Yetenek Hızı kazanır.",
+        "Yüzdesel bekleme süresi azaltma kazan ve tüm saldırı hızını yetenek hızına çevir.",
+        "Yavaşlatma etkilerin hareket hızını 75 daha azaltır."
       ]
     },
     "vi": {
       "title": "Cột Skibidi",
-      "why": "Trundle không bao giờ dùng Nhai Nuốt. Anh spam Cột Băng đến khi đội địch thành cái máy pinball.",
-      "play": "Dựng cột ngay dưới chân carry địch, hất nó vào đồng đội của nó, lặp lại. Đừng bao giờ bấm Q, đừng bao giờ click chuột phải.",
+      "why": "Trundle không bao giờ dùng Nhai Nuốt. Anh spam Cột Băng đến khi lúc nào cũng có một cột đứng.",
+      "play": "Nâng E trước. Dựng cột ngay dưới chân carry địch và cột tiếp theo trước khi cột cũ tan. Đừng bao giờ bấm Q, đừng bao giờ click chuột phải.",
       "tagline": "Anh không cắn ai nữa. Giờ cái cột lo hết.",
       "how": [
         [
           "Cột Băng",
-          "Một nút hất lùi bất kỳ ai đứng trên nó và làm chậm mọi người xung quanh. Bình thường nó không gây chút sát thương nào."
+          "Một nút hất lùi bất kỳ ai đứng trên nó và làm chậm mọi người xung quanh trong 6 giây. Bình thường nó không gây chút sát thương nào."
         ],
         [
           "Lõi nâng cấp",
-          "Đặt vào Cột Băng: Kiến Tạo Địa Hình cho nó đánh mọi thứ xung quanh và Phản Ứng Dây Chuyền hất kẻ địch bị đẩy lùi vào bạn bè của nó. Băng Lạnh khiến hiệu ứng làm chậm cực gắt, còn Thuần Pháp - Thuật Sư biến tốc độ đánh anh không bao giờ dùng thành thêm cột."
+          "Kiến Tạo Địa Hình, đặt vào Cột Băng, khiến cột gây sát thương mọi thứ xung quanh. Bánh Mỳ & Phô-mai cho Cột Băng 100 Điểm Hồi Kỹ Năng và Thuần Pháp - Thuật Sư biến tốc độ đánh anh không bao giờ dùng thành nhiều hơn nữa, nên cột mới đã xuống trước khi cột cũ tan. Băng Lạnh khiến hiệu ứng làm chậm cực gắt."
         ],
         [
           "Trang bị",
-          "Trượng Pha Lê Rylai và Tim Băng chồng thêm làm chậm, Trát Lệnh Đế Vương đánh dấu mọi kẻ bị cột hất lùi, còn Động Cơ Vũ Trụ và Vương Miện Shurelya giúp mỗi cột hồi lại nhanh hơn."
+          "Trát Lệnh Đế Vương làm cột nhanh hơn và đánh dấu mọi kẻ bị hất lùi, Trượng Pha Lê Rylai thêm làm chậm, còn Động Cơ Vũ Trụ, Vương Miện Shurelya và Tim Băng giúp mỗi cột hồi lại nhanh hơn."
         ]
       ],
       "augments": [
         "Kỹ năng bạn chọn gây sát thương trong một vùng xung quanh nó.",
-        "Nếu mục tiêu bị đẩy lùi bởi kỹ năng đã chọn va vào tướng khác, chúng bị hất tung và chịu sát thương. Khi va vào địa hình, thời gian hất tung được kéo dài và chúng chịu thêm sát thương.",
-        "Hiệu ứng làm chậm của bạn giảm thêm 75 tốc độ di chuyển.",
-        "Nhận giảm thời gian hồi chiêu theo phần trăm và chuyển toàn bộ tốc độ đánh thành điểm hồi kỹ năng."
+        "E của bạn nhận 100 Điểm Hồi Kỹ Năng.",
+        "Nhận giảm thời gian hồi chiêu theo phần trăm và chuyển toàn bộ tốc độ đánh thành điểm hồi kỹ năng.",
+        "Hiệu ứng làm chậm của bạn giảm thêm 75 tốc độ di chuyển."
       ]
     },
     "zh-CN": {
       "title": "斯奇必迪冰柱",
-      "why": "特朗德尔从不用利齿撕咬。他狂按寒冰之柱，直到敌方全队变成一台弹球机。",
-      "play": "把冰柱直接放在敌方C位脚下，把他撞向自己的队友，重复。永远别按Q，永远别点右键。",
+      "why": "特朗德尔从不用利齿撕咬。他狂按寒冰之柱，直到场上永远立着一根柱子。",
+      "play": "主升E。把冰柱直接放在敌方C位脚下，在旧柱子融化前放下一根。永远别按Q，永远别点右键。",
       "tagline": "他不咬人了。现在全靠冰柱说话。",
       "how": [
         [
           "寒冰之柱",
-          "一个能击退站在上面的人、并减速附近所有人的按键。平时完全不造成伤害。"
+          "一个能击退站在上面的人、并减速附近所有人6秒的按键。平时完全不造成伤害。"
         ],
         [
           "海克斯强化",
-          "随机到寒冰之柱上：地形专家让它打到周围所有东西，连锁反应把被击退的敌人撞向队友。冰寒让减速变得残暴，纯粹主义者 - 术师把他从不使用的攻击速度变成更多柱子。"
+          "随机到寒冰之柱上的地形专家让柱子伤害周围的一切。面包和奶酪给寒冰之柱100技能急速，纯粹主义者 - 术师把他从不使用的攻击速度变成更多急速，所以旧柱子融化前新柱子就到了。冰寒让减速变得残暴。"
         ],
         [
           "装备",
-          "瑞莱的冰晶节杖和冰霜之心叠加更多减速，帝国指令标记每一个被冰柱击退的人，星界驱驰和舒瑞娅的战歌让每根柱子更快回来。"
+          "帝国指令让冰柱更快，并标记每一个被击退的人，瑞莱的冰晶节杖增加减速，星界驱驰、舒瑞娅的战歌和冰霜之心让每根柱子更快回来。"
         ]
       ],
       "augments": [
         "你选择的技能会对其周围区域造成伤害。",
-        "如果被所选技能击退的目标撞到另一名英雄，他们会被击飞并受到伤害。撞到地形时，击飞持续时间会延长，并受到额外伤害。",
-        "你的减速效果额外降低75移动速度。",
-        "获得百分比冷却缩减，并将你的全部攻击速度转化为技能急速。"
+        "你的E获得100技能急速。",
+        "获得百分比冷却缩减，并将你的全部攻击速度转化为技能急速。",
+        "你的减速效果额外降低75移动速度。"
       ]
     },
     "zh-TW": {
       "title": "斯奇必迪冰柱",
-      "why": "特朗德從不用狂野撕咬。他狂按狡詰冰柱，直到敵方全隊變成一台彈珠台。",
-      "play": "把冰柱直接放在敵方核心腳下，把他撞向自己的隊友，重複。永遠別按Q，永遠別點右鍵。",
+      "why": "特朗德從不用狂野撕咬。他狂按狡詰冰柱，直到場上永遠立著一根柱子。",
+      "play": "主升E。把冰柱直接放在敵方核心腳下，在舊柱子融化前放下一根。永遠別按Q，永遠別點右鍵。",
       "tagline": "他不咬人了。現在全靠冰柱說話。",
       "how": [
         [
           "狡詰冰柱",
-          "一個能擊退站在上面的人、並緩速附近所有人的按鍵。平常完全不造成傷害。"
+          "一個能擊退站在上面的人、並緩速附近所有人6秒的按鍵。平常完全不造成傷害。"
         ],
         [
           "強化",
-          "隨機到狡詰冰柱上：劃地為王讓它打到周圍所有東西，連鎖反應把被擊退的敵人撞向隊友。雪地踱步讓緩速變得殘暴，純粹 - 法師把他從不使用的攻擊速度變成更多柱子。"
+          "隨機到狡詰冰柱上的劃地為王讓柱子傷害周圍的一切。土司和起司給狡詰冰柱100技能加速，純粹 - 法師把他從不使用的攻擊速度變成更多加速，所以舊柱子融化前新柱子就到了。雪地踱步讓緩速變得殘暴。"
         ],
         [
           "裝備",
-          "瑞萊的冰晶節杖和冰霜之心疊加更多緩速，帝王命令標記每一個被冰柱擊退的人，星河馳騁和蘇瑞亞的戰歌讓每根柱子更快回來。"
+          "帝王命令讓冰柱更快，並標記每一個被擊退的人，瑞萊的冰晶節杖增加緩速，星河馳騁、蘇瑞亞的戰歌和冰霜之心讓每根柱子更快回來。"
         ]
       ],
       "augments": [
         "你選擇的技能會對其周圍區域造成傷害。",
-        "如果被所選技能擊退的目標撞上另一名英雄，他們會被擊飛並受到傷害。撞上地形時，擊飛持續時間會延長，並受到額外傷害。",
-        "你的減速效果額外降低75移動速度。",
-        "獲得百分比冷卻縮減，並將所有攻擊速度轉換為技能急速。"
+        "你的E獲得100技能加速。",
+        "獲得百分比冷卻縮減，並將所有攻擊速度轉換為技能急速。",
+        "你的減速效果額外降低75移動速度。"
       ]
     }
   }

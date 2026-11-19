@@ -377,12 +377,16 @@
  "Gain 20% Heal and Shield Power.": "Ottieni il 20% di Potenziamento di cure e scudi.",
  "Gain Ultimate Ability Haste.": "Ottieni Accelerazione abilità suprema.",
  "Skibidi Pillar": "Pilastro Skibidi",
- "Trundle never uses Chomp. He spams Pillar of Ice until the enemy team is a pinball machine.": "Trundle non usa mai Morso. Spamma Pilastro di ghiaccio finché la squadra nemica non diventa un flipper.",
- "Drop the pillar right under the enemy carry, aim them into a teammate, repeat. Never press Q, never right-click.": "Piazza il pilastro proprio sotto il carry nemico, sparalo contro un suo compagno, ripeti. Non premere mai Q, non cliccare mai col destro.",
+ "Trundle never uses Chomp. He spams Pillar of Ice until there is never a moment without one standing.": "Trundle non usa mai Morso. Spamma Pilastro di ghiaccio finché non c'è sempre un pilastro in piedi.",
+ "Max E first. Drop the pillar right under the enemy carry and have the next one down before it melts. Never press Q, never right-click.": "Massimizza prima la E. Piazza il pilastro proprio sotto il carry nemico e il successivo prima che il vecchio si sciolga. Non premere mai Q, non cliccare mai col destro.",
  "He stopped biting people. The pillar does all the talking now.": "Non morde più nessuno. Adesso parla solo il pilastro.",
  "Pillar of Ice": "Pilastro di ghiaccio",
- "A button that knocks back whoever stands on it and slows everyone nearby. It normally deals no damage at all.": "Un tasto che respinge chiunque ci stia sopra e rallenta tutti quelli vicini. Di solito non infligge alcun danno.",
- "Rolled on Pillar of Ice: Terrain'd makes it hit everything around it and Chain Reaction bounces the knocked-back enemy into their friends. Ice Cold makes the slow brutal, and Purist - Caster turns the attack speed he never uses into more pillars.": "Ottenuti su Pilastro di ghiaccio: Colpa del terreno lo fa colpire tutto intorno e Reazione a catena scaraventa il nemico respinto contro i suoi amici. Freddo come il ghiaccio rende il rallentamento brutale, e Purista - Mago trasforma la velocità d'attacco che non usa mai in altri pilastri.",
- "Rylai's and Frozen Heart pile on more slow, Imperial Mandate marks everyone the pillar knocks back, and Cosmic Drive and Shurelya's make every pillar come back faster.": "Scettro di cristallo di Rylai e Fulcro dei geli accumulano ancora più rallentamento, Mandato imperiale marchia tutti quelli che il pilastro respinge, e Spirito cosmico e Canto di guerra di Shurelya fanno tornare ogni pilastro più in fretta.",
- "Your chosen ability deals damage in an area around it.": "L'abilità scelta infligge danni in un'area intorno a sé."
+ "A button that knocks back whoever stands on it and slows everyone nearby for 6 seconds. It normally deals no damage at all.": "Un tasto che respinge chiunque ci stia sopra e rallenta tutti quelli vicini per 6 secondi. Di solito non infligge alcun danno.",
+ "Terrain'd, rolled on Pillar of Ice, makes the pillar hurt everything around it. Bread and Cheese gives Pillar of Ice 100 ability haste and Purist - Caster turns the attack speed he never uses into even more, so the next pillar lands before the last one melts. Ice Cold makes the slow brutal.": "Colpa del terreno, ottenuto su Pilastro di ghiaccio, fa ferire al pilastro tutto ciò che ha intorno. Pane e formaggio dà a Pilastro di ghiaccio 100 velocità abilità e Purista - Mago trasforma la velocità d'attacco che non usa mai in ancora di più, così il pilastro successivo arriva prima che il vecchio si sciolga. Freddo come il ghiaccio rende il rallentamento brutale.",
+ "Imperial Mandate speeds up the pillar and marks everyone it knocks back, Rylai's adds more slow, and Cosmic Drive, Shurelya's and Frozen Heart make every pillar come back faster.": "Mandato imperiale velocizza il pilastro e marchia tutti quelli che respinge, Scettro di cristallo di Rylai aggiunge rallentamento, e Spirito cosmico, Canto di guerra di Shurelya e Fulcro dei geli fanno tornare ogni pilastro più in fretta.",
+ "Your chosen ability deals damage in an area around it.": "L'abilità scelta infligge danni in un'area intorno a sé.",
+ "Off-menu": "Fuori menu",
+ "Uses augments {champion} isn't normally offered. Just for fun: it may never come together in a real game.": "Usa potenziamenti che a {champion} di solito non vengono offerti. Solo per divertimento: potrebbe non riuscire mai in una partita vera.",
+ "On the menu": "Nel menu",
+ "Your E gains 100 Ability Haste.": "La tua E ottiene 100 velocità abilità."
 }
