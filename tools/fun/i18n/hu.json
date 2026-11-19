@@ -377,12 +377,16 @@
  "Gain 20% Heal and Shield Power.": "20% Gyógyítás és Pajzs Erőt kapsz.",
  "Gain Ultimate Ability Haste.": "Végső képességgyorsítást kapsz.",
  "Skibidi Pillar": "Skibidi oszlop",
- "Trundle never uses Chomp. He spams Pillar of Ice until the enemy team is a pinball machine.": "Trundle soha nem használja a Veszett harapást. Addig spammeli a Jégoszlopot, amíg az ellenfél csapata flipperré nem válik.",
- "Drop the pillar right under the enemy carry, aim them into a teammate, repeat. Never press Q, never right-click.": "Tedd az oszlopot pont az ellenséges carry alá, lődd bele egy csapattársába, ismételd. Soha ne nyomd meg a Q-t, soha ne kattints jobb gombbal.",
+ "Trundle never uses Chomp. He spams Pillar of Ice until there is never a moment without one standing.": "Trundle soha nem használja a Veszett harapást. Addig spammeli a Jégoszlopot, amíg mindig áll egy.",
+ "Max E first. Drop the pillar right under the enemy carry and have the next one down before it melts. Never press Q, never right-click.": "Először az E-t maxold. Tedd az oszlopot pont az ellenséges carry alá, a következőt pedig mielőtt a régi elolvad. Soha ne nyomd meg a Q-t, soha ne kattints jobb gombbal.",
  "He stopped biting people. The pillar does all the talking now.": "Már nem harap meg senkit. Most az oszlop beszél helyette.",
  "Pillar of Ice": "Jégoszlop",
- "A button that knocks back whoever stands on it and slows everyone nearby. It normally deals no damage at all.": "Egy gomb, ami visszalöki azt, aki rajta áll, és lelassít mindenkit a közelben. Alapból egyáltalán nem sebez.",
- "Rolled on Pillar of Ice: Terrain'd makes it hit everything around it and Chain Reaction bounces the knocked-back enemy into their friends. Ice Cold makes the slow brutal, and Purist - Caster turns the attack speed he never uses into more pillars.": "A Jégoszlopra dobva: a Tereplés miatt mindent eltalál maga körül, a Láncreakció pedig a visszalökött ellenfelet a barátaiba csapja. A Jéghideg brutálissá teszi a lassítást, a Purista – Varázsló pedig a sosem használt támadási sebességét még több oszloppá alakítja.",
- "Rylai's and Frozen Heart pile on more slow, Imperial Mandate marks everyone the pillar knocks back, and Cosmic Drive and Shurelya's make every pillar come back faster.": "Rylai kristálybotja és a Fagyos szív még több lassítást halmoz, a Birodalmi parancs megjelöl mindenkit, akit az oszlop visszalök, a Kozmikus hajtómű és Shurelia csatadala pedig minden oszlopot gyorsabban hoz vissza.",
- "Your chosen ability deals damage in an area around it.": "A választott képességed sebzést okoz egy körülötte lévő területen."
+ "A button that knocks back whoever stands on it and slows everyone nearby for 6 seconds. It normally deals no damage at all.": "Egy gomb, ami visszalöki azt, aki rajta áll, és 6 másodpercre lelassít mindenkit a közelben. Alapból egyáltalán nem sebez.",
+ "Terrain'd, rolled on Pillar of Ice, makes the pillar hurt everything around it. Bread and Cheese gives Pillar of Ice 100 ability haste and Purist - Caster turns the attack speed he never uses into even more, so the next pillar lands before the last one melts. Ice Cold makes the slow brutal.": "A Jégoszlopra dobott Tereplés miatt az oszlop mindent megsebez maga körül. A Sajtos kenyér 100 képességgyorsítást ad a Jégoszlopnak, a Purista – Varázsló pedig a sosem használt támadási sebességét még többé alakítja, így a következő oszlop még a régi elolvadása előtt áll. A Jéghideg brutálissá teszi a lassítást.",
+ "Imperial Mandate speeds up the pillar and marks everyone it knocks back, Rylai's adds more slow, and Cosmic Drive, Shurelya's and Frozen Heart make every pillar come back faster.": "A Birodalmi parancs gyorsítja az oszlopot és megjelöl mindenkit, akit visszalök, Rylai kristálybotja több lassítást ad, a Kozmikus hajtómű, Shurelia csatadala és a Fagyos szív pedig minden oszlopot gyorsabban hoz vissza.",
+ "Your chosen ability deals damage in an area around it.": "A választott képességed sebzést okoz egy körülötte lévő területen.",
+ "Off-menu": "Étlapon kívül",
+ "Uses augments {champion} isn't normally offered. Just for fun: it may never come together in a real game.": "Olyan fejlesztéseket használ, amelyeket {champion} általában nem kap meg. Csak szórakozásból: lehet, hogy valódi meccsen sosem jön össze.",
+ "On the menu": "Az étlapon",
+ "Your E gains 100 Ability Haste.": "Az E-d 100 képességgyorsítást kap."
 }

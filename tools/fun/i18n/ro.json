@@ -377,12 +377,16 @@
  "Gain 20% Heal and Shield Power.": "Primești 20% Putere de vindecare și scuturi.",
  "Gain Ultimate Ability Haste.": "Primești Grăbire a abilității supreme.",
  "Skibidi Pillar": "Stâlpul Skibidi",
- "Trundle never uses Chomp. He spams Pillar of Ice until the enemy team is a pinball machine.": "Trundle nu folosește niciodată Mușcătură. Dă spam cu Stâlp de gheață până când echipa inamică devine un flipper.",
- "Drop the pillar right under the enemy carry, aim them into a teammate, repeat. Never press Q, never right-click.": "Pune stâlpul fix sub carry-ul inamic, trimite-l într-un coechipier de-al lui, repetă. Nu apăsa niciodată Q, nu da niciodată click dreapta.",
+ "Trundle never uses Chomp. He spams Pillar of Ice until there is never a moment without one standing.": "Trundle nu folosește niciodată Mușcătură. Dă spam cu Stâlp de gheață până când există mereu unul în picioare.",
+ "Max E first. Drop the pillar right under the enemy carry and have the next one down before it melts. Never press Q, never right-click.": "Maximizează E primul. Pune stâlpul fix sub carry-ul inamic și pe următorul înainte să se topească cel vechi. Nu apăsa niciodată Q, nu da niciodată click dreapta.",
  "He stopped biting people. The pillar does all the talking now.": "Nu mai mușcă pe nimeni. Acum vorbește doar stâlpul.",
  "Pillar of Ice": "Stâlp de gheață",
- "A button that knocks back whoever stands on it and slows everyone nearby. It normally deals no damage at all.": "Un buton care respinge pe oricine stă pe el și încetinește pe toată lumea din jur. În mod normal nu provoacă deloc daune.",
- "Rolled on Pillar of Ice: Terrain'd makes it hit everything around it and Chain Reaction bounces the knocked-back enemy into their friends. Ice Cold makes the slow brutal, and Purist - Caster turns the attack speed he never uses into more pillars.": "Primite pe Stâlp de gheață: Teren special îl face să lovească tot ce e în jur, iar Reacție în lanț aruncă inamicul respins în prietenii lui. Rece ca gheața face încetinirea brutală, iar Purist – Mag transformă viteza de atac pe care nu o folosește niciodată în și mai mulți stâlpi.",
- "Rylai's and Frozen Heart pile on more slow, Imperial Mandate marks everyone the pillar knocks back, and Cosmic Drive and Shurelya's make every pillar come back faster.": "Sceptrul de cristal al lui Rylai și Inimă înghețată adaugă și mai multă încetinire, Decret imperial marchează pe toți cei respinși de stâlp, iar Avânt cosmic și Cântecul de luptă al Shurelyei aduc fiecare stâlp înapoi mai repede.",
- "Your chosen ability deals damage in an area around it.": "Abilitatea aleasă provoacă daune într-o zonă din jurul ei."
+ "A button that knocks back whoever stands on it and slows everyone nearby for 6 seconds. It normally deals no damage at all.": "Un buton care respinge pe oricine stă pe el și încetinește pe toată lumea din jur timp de 6 secunde. În mod normal nu provoacă deloc daune.",
+ "Terrain'd, rolled on Pillar of Ice, makes the pillar hurt everything around it. Bread and Cheese gives Pillar of Ice 100 ability haste and Purist - Caster turns the attack speed he never uses into even more, so the next pillar lands before the last one melts. Ice Cold makes the slow brutal.": "Teren special, primit pe Stâlp de gheață, face stâlpul să rănească tot ce e în jur. În al doilea rând îi dă Stâlpului de gheață 100 grabă abilități, iar Purist – Mag transformă viteza de atac pe care nu o folosește niciodată în și mai mult, așa că următorul stâlp apare înainte să se topească cel vechi. Rece ca gheața face încetinirea brutală.",
+ "Imperial Mandate speeds up the pillar and marks everyone it knocks back, Rylai's adds more slow, and Cosmic Drive, Shurelya's and Frozen Heart make every pillar come back faster.": "Decret imperial grăbește stâlpul și marchează pe toți cei respinși, Sceptrul de cristal al lui Rylai adaugă încetinire, iar Avânt cosmic, Cântecul de luptă al Shurelyei și Inimă înghețată aduc fiecare stâlp înapoi mai repede.",
+ "Your chosen ability deals damage in an area around it.": "Abilitatea aleasă provoacă daune într-o zonă din jurul ei.",
+ "Off-menu": "În afara meniului",
+ "Uses augments {champion} isn't normally offered. Just for fun: it may never come together in a real game.": "Folosește augmentări pe care {champion} nu le primește de obicei. Doar pentru distracție: s-ar putea să nu iasă niciodată într-un meci real.",
+ "On the menu": "În meniu",
+ "Your E gains 100 Ability Haste.": "E-ul tău primește 100 grabă abilități."
 }

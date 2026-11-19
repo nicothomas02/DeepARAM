@@ -377,12 +377,16 @@
  "Gain 20% Heal and Shield Power.": "اكتسب 20% من قوة الشفاء والدرع.",
  "Gain Ultimate Ability Haste.": "اكتسب تسريع القدرة الخارقة.",
  "Skibidi Pillar": "عمود سكيبيدي",
- "Trundle never uses Chomp. He spams Pillar of Ice until the enemy team is a pinball machine.": "ترندل لا يستخدم العضة أبدًا. يكرر عمود الجليد حتى يتحول فريق الخصم إلى آلة بينبول.",
- "Drop the pillar right under the enemy carry, aim them into a teammate, repeat. Never press Q, never right-click.": "ضع العمود تحت حامل الضرر الخصم مباشرة، وارمِه على زميله، وكرر. لا تضغط Q أبدًا، ولا تنقر بالزر الأيمن أبدًا.",
+ "Trundle never uses Chomp. He spams Pillar of Ice until there is never a moment without one standing.": "ترندل لا يستخدم العضة أبدًا. يكرر عمود الجليد حتى يبقى عمود قائمًا دائمًا.",
+ "Max E first. Drop the pillar right under the enemy carry and have the next one down before it melts. Never press Q, never right-click.": "طوّر E أولًا. ضع العمود تحت حامل الضرر الخصم مباشرة، والتالي قبل أن يذوب القديم. لا تضغط Q أبدًا، ولا تنقر بالزر الأيمن أبدًا.",
  "He stopped biting people. The pillar does all the talking now.": "توقف عن عض الناس. العمود هو من يتكلم الآن.",
  "Pillar of Ice": "عمود الجليد",
- "A button that knocks back whoever stands on it and slows everyone nearby. It normally deals no damage at all.": "زر يدفع كل من يقف فوقه ويبطئ كل من حوله. في العادة لا يسبب أي ضرر إطلاقًا.",
- "Rolled on Pillar of Ice: Terrain'd makes it hit everything around it and Chain Reaction bounces the knocked-back enemy into their friends. Ice Cold makes the slow brutal, and Purist - Caster turns the attack speed he never uses into more pillars.": "على عمود الجليد: سلاح التضاريس يجعله يضرب كل ما حوله، وسلسلة التفاعلات ترمي الخصم المدفوع على أصدقائه. بارد كالثلج يجعل الإبطاء وحشيًا، والنقيّ - ملقي التعويذات يحوّل سرعة الهجوم التي لا يستخدمها أبدًا إلى أعمدة أكثر.",
- "Rylai's and Frozen Heart pile on more slow, Imperial Mandate marks everyone the pillar knocks back, and Cosmic Drive and Shurelya's make every pillar come back faster.": "صولجان كريستال رايلاي والقلب المتجمد يضيفان المزيد من الإبطاء، والوصاية الإمبراطورية تَسِم كل من يدفعه العمود، والحافز الكوني ونشيد معركة شوريليا يعيدان كل عمود أسرع.",
- "Your chosen ability deals damage in an area around it.": "القدرة التي اخترتها تسبب ضررًا في منطقة حولها."
+ "A button that knocks back whoever stands on it and slows everyone nearby for 6 seconds. It normally deals no damage at all.": "زر يدفع كل من يقف فوقه ويبطئ كل من حوله لمدة 6 ثوانٍ. في العادة لا يسبب أي ضرر إطلاقًا.",
+ "Terrain'd, rolled on Pillar of Ice, makes the pillar hurt everything around it. Bread and Cheese gives Pillar of Ice 100 ability haste and Purist - Caster turns the attack speed he never uses into even more, so the next pillar lands before the last one melts. Ice Cold makes the slow brutal.": "سلاح التضاريس على عمود الجليد يجعل العمود يؤذي كل ما حوله. خبز وجبنة يمنح عمود الجليد 100 تسارع مهارات، والنقيّ - ملقي التعويذات يحوّل سرعة الهجوم التي لا يستخدمها أبدًا إلى المزيد، فيسقط العمود التالي قبل أن يذوب القديم. بارد كالثلج يجعل الإبطاء وحشيًا.",
+ "Imperial Mandate speeds up the pillar and marks everyone it knocks back, Rylai's adds more slow, and Cosmic Drive, Shurelya's and Frozen Heart make every pillar come back faster.": "الوصاية الإمبراطورية تسرّع العمود وتَسِم كل من يدفعه، وصولجان كريستال رايلاي يضيف إبطاءً، والحافز الكوني ونشيد معركة شوريليا والقلب المتجمد تعيد كل عمود أسرع.",
+ "Your chosen ability deals damage in an area around it.": "القدرة التي اخترتها تسبب ضررًا في منطقة حولها.",
+ "Off-menu": "خارج القائمة",
+ "Uses augments {champion} isn't normally offered. Just for fun: it may never come together in a real game.": "يستخدم معززات لا تُعرض عادةً على {champion}. للمتعة فقط: قد لا تكتمل هذه البنية أبدًا في مباراة حقيقية.",
+ "On the menu": "على القائمة",
+ "Your E gains 100 Ability Haste.": "تحصل مهارة E على 100 تسارع مهارات."
 }

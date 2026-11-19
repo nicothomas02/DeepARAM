@@ -62,6 +62,8 @@ LabI18n.ready(function () {
   // can't be offered it, or it left Mayhem (data/checks/findings.py, served by the site at /data/kitchen-checks.json).
   let doubts = {};
   function doubtNote(b) {
+    // Off-menu specials (menu: "off", Nico 2026-11-19) use augments outside the champion's pool on purpose.
+    if (b.menu === "off") return `<p class="doubt offmenu"><b>${T("Off-menu")}</b> ${esc(T("Uses augments {champion} isn't normally offered. Just for fun: it may never come together in a real game.", { champion: champ(b) }))}</p>`;
     const d = doubts[b.id];
     if (!d || !d.augments || !d.augments.length) return "";
     const names = d.augments.map((a) => augName(a)).join(", ");
@@ -124,7 +126,12 @@ LabI18n.ready(function () {
     const f = today ? freshness(b) : null;
     const date = { date: day(b.chef) };
     const label = esc(!today ? T("Chef Special · {date}", date) : f.fresh ? T("Today's Chef Special · {date}", date) : T("Latest Chef Special · {date}", date));
-    const opts = specials.map((s) => `<option value="${esc(s.chef)}"${s === b ? " selected" : ""}>${esc(day(s.chef))} · ${esc(T(s.title))} (${esc(champ(s))})</option>`).join("");
+    // Two menus: in-pool specials, and Off-menu ones that use augments the champion isn't normally offered.
+    const opt = (s) => `<option value="${esc(s.chef)}"${s === b ? " selected" : ""}>${esc(day(s.chef))} · ${esc(T(s.title))} (${esc(champ(s))})</option>`;
+    const onMenu = specials.filter((s) => s.menu !== "off"), offMenu = specials.filter((s) => s.menu === "off");
+    const opts = offMenu.length
+      ? `<optgroup label="${esc(T("On the menu"))}">${onMenu.map(opt).join("")}</optgroup><optgroup label="${esc(T("Off-menu"))}">${offMenu.map(opt).join("")}</optgroup>`
+      : specials.map(opt).join("");
     box.innerHTML = `<div class="chef-head"><p class="eyebrow" id="chef-label">${label}</p>
       <p class="muted small">${today ? `${T("A new unconventional build every day, built on augments that work together.")}${f.next ? ` ${esc(f.next)}` : ""}` : `${esc(T("Served {date}.", { date: fullDay(b.chef) }))} <a href="#chefs-special">${T("Back to today's")}</a>`}</p></div>
       <div class="chef-archive" id="chef-archive" role="group" aria-label="${T("Chef Special archive")}">

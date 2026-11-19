@@ -377,12 +377,16 @@
  "Gain 20% Heal and Shield Power.": "ได้รับพลังฮีลและโล่ 20%",
  "Gain Ultimate Ability Haste.": "ได้รับ Ultimate Ability Haste",
  "Skibidi Pillar": "เสาสกิบิดี้",
- "Trundle never uses Chomp. He spams Pillar of Ice until the enemy team is a pinball machine.": "Trundle ไม่เคยใช้ Chomp เลย เขากด Pillar of Ice รัว ๆ จนทีมศัตรูกลายเป็นเครื่องพินบอล",
- "Drop the pillar right under the enemy carry, aim them into a teammate, repeat. Never press Q, never right-click.": "วางเสาใต้ตัวแครี่ศัตรูพอดี ดีดมันไปชนเพื่อนตัวเอง แล้วทำซ้ำ ห้ามกด Q และห้ามคลิกขวาเด็ดขาด",
+ "Trundle never uses Chomp. He spams Pillar of Ice until there is never a moment without one standing.": "Trundle ไม่เคยใช้ Chomp เลย เขากด Pillar of Ice รัว ๆ จนมีเสาตั้งอยู่ตลอดเวลา",
+ "Max E first. Drop the pillar right under the enemy carry and have the next one down before it melts. Never press Q, never right-click.": "อัป E ก่อน วางเสาใต้ตัวแครี่ศัตรูพอดี แล้ววางเสาต่อไปก่อนเสาเก่าละลาย ห้ามกด Q และห้ามคลิกขวาเด็ดขาด",
  "He stopped biting people. The pillar does all the talking now.": "เขาเลิกกัดคนแล้ว ตอนนี้เสาพูดแทนทุกอย่าง",
  "Pillar of Ice": "Pillar of Ice",
- "A button that knocks back whoever stands on it and slows everyone nearby. It normally deals no damage at all.": "ปุ่มที่ผลักคนที่ยืนอยู่บนมันกระเด็นและทำให้ทุกคนรอบ ๆ ช้าลง ปกติแล้วไม่สร้างดาเมจเลยสักนิด",
- "Rolled on Pillar of Ice: Terrain'd makes it hit everything around it and Chain Reaction bounces the knocked-back enemy into their friends. Ice Cold makes the slow brutal, and Purist - Caster turns the attack speed he never uses into more pillars.": "สุ่มได้บน Pillar of Ice: Terrain'd ทำให้มันโดนทุกอย่างรอบตัว และ Chain Reaction ดีดศัตรูที่ถูกผลักไปชนเพื่อน Ice Cold ทำให้สโลว์โหดสุด ๆ และ Purist - Caster เปลี่ยนความเร็วโจมตีที่เขาไม่เคยใช้เป็นเสาเพิ่มอีก",
- "Rylai's and Frozen Heart pile on more slow, Imperial Mandate marks everyone the pillar knocks back, and Cosmic Drive and Shurelya's make every pillar come back faster.": "Rylai's Crystal Scepter กับ Frozen Heart เพิ่มสโลว์อีก Imperial Mandate มาร์กทุกคนที่โดนเสาผลัก ส่วน Cosmic Drive กับ Shurelya's Battlesong ทำให้เสาแต่ละอันกลับมาเร็วขึ้น",
- "Your chosen ability deals damage in an area around it.": "สกิลที่คุณเลือกสร้างดาเมจเป็นวงรอบตัวมัน"
+ "A button that knocks back whoever stands on it and slows everyone nearby for 6 seconds. It normally deals no damage at all.": "ปุ่มที่ผลักคนที่ยืนอยู่บนมันกระเด็นและทำให้ทุกคนรอบ ๆ ช้าลง 6 วินาที ปกติแล้วไม่สร้างดาเมจเลยสักนิด",
+ "Terrain'd, rolled on Pillar of Ice, makes the pillar hurt everything around it. Bread and Cheese gives Pillar of Ice 100 ability haste and Purist - Caster turns the attack speed he never uses into even more, so the next pillar lands before the last one melts. Ice Cold makes the slow brutal.": "Terrain'd ที่สุ่มได้บน Pillar of Ice ทำให้เสาทำดาเมจทุกอย่างรอบตัว Bread and Cheese ให้ Pillar of Ice 100 Ability Haste และ Purist - Caster เปลี่ยนความเร็วโจมตีที่เขาไม่เคยใช้เป็นฮาสต์เพิ่มอีก เสาใหม่จึงลงก่อนเสาเก่าละลาย Ice Cold ทำให้สโลว์โหดสุด ๆ",
+ "Imperial Mandate speeds up the pillar and marks everyone it knocks back, Rylai's adds more slow, and Cosmic Drive, Shurelya's and Frozen Heart make every pillar come back faster.": "Imperial Mandate ทำให้เสาเร็วขึ้นและมาร์กทุกคนที่โดนผลัก Rylai's Crystal Scepter เพิ่มสโลว์ ส่วน Cosmic Drive, Shurelya's Battlesong และ Frozen Heart ทำให้เสาแต่ละอันกลับมาเร็วขึ้น",
+ "Your chosen ability deals damage in an area around it.": "สกิลที่คุณเลือกสร้างดาเมจเป็นวงรอบตัวมัน",
+ "Off-menu": "นอกเมนู",
+ "Uses augments {champion} isn't normally offered. Just for fun: it may never come together in a real game.": "ใช้ออคเมนต์ที่ {champion} ปกติไม่ได้รับ เล่นขำ ๆ เท่านั้น อาจไม่มีวันได้ครบในเกมจริง",
+ "On the menu": "ในเมนู",
+ "Your E gains 100 Ability Haste.": "E ของคุณได้รับ Ability Haste 100"
 }

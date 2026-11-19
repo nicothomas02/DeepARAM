@@ -377,12 +377,16 @@
  "Gain 20% Heal and Shield Power.": "Nhận 20% Sức Mạnh Hồi Máu và Lá Chắn.",
  "Gain Ultimate Ability Haste.": "Nhận Tốc Độ Hồi Chiêu Cuối.",
  "Skibidi Pillar": "Cột Skibidi",
- "Trundle never uses Chomp. He spams Pillar of Ice until the enemy team is a pinball machine.": "Trundle không bao giờ dùng Nhai Nuốt. Anh spam Cột Băng đến khi đội địch thành cái máy pinball.",
- "Drop the pillar right under the enemy carry, aim them into a teammate, repeat. Never press Q, never right-click.": "Dựng cột ngay dưới chân carry địch, hất nó vào đồng đội của nó, lặp lại. Đừng bao giờ bấm Q, đừng bao giờ click chuột phải.",
+ "Trundle never uses Chomp. He spams Pillar of Ice until there is never a moment without one standing.": "Trundle không bao giờ dùng Nhai Nuốt. Anh spam Cột Băng đến khi lúc nào cũng có một cột đứng.",
+ "Max E first. Drop the pillar right under the enemy carry and have the next one down before it melts. Never press Q, never right-click.": "Nâng E trước. Dựng cột ngay dưới chân carry địch và cột tiếp theo trước khi cột cũ tan. Đừng bao giờ bấm Q, đừng bao giờ click chuột phải.",
  "He stopped biting people. The pillar does all the talking now.": "Anh không cắn ai nữa. Giờ cái cột lo hết.",
  "Pillar of Ice": "Cột Băng",
- "A button that knocks back whoever stands on it and slows everyone nearby. It normally deals no damage at all.": "Một nút hất lùi bất kỳ ai đứng trên nó và làm chậm mọi người xung quanh. Bình thường nó không gây chút sát thương nào.",
- "Rolled on Pillar of Ice: Terrain'd makes it hit everything around it and Chain Reaction bounces the knocked-back enemy into their friends. Ice Cold makes the slow brutal, and Purist - Caster turns the attack speed he never uses into more pillars.": "Đặt vào Cột Băng: Kiến Tạo Địa Hình cho nó đánh mọi thứ xung quanh và Phản Ứng Dây Chuyền hất kẻ địch bị đẩy lùi vào bạn bè của nó. Băng Lạnh khiến hiệu ứng làm chậm cực gắt, còn Thuần Pháp - Thuật Sư biến tốc độ đánh anh không bao giờ dùng thành thêm cột.",
- "Rylai's and Frozen Heart pile on more slow, Imperial Mandate marks everyone the pillar knocks back, and Cosmic Drive and Shurelya's make every pillar come back faster.": "Trượng Pha Lê Rylai và Tim Băng chồng thêm làm chậm, Trát Lệnh Đế Vương đánh dấu mọi kẻ bị cột hất lùi, còn Động Cơ Vũ Trụ và Vương Miện Shurelya giúp mỗi cột hồi lại nhanh hơn.",
- "Your chosen ability deals damage in an area around it.": "Kỹ năng bạn chọn gây sát thương trong một vùng xung quanh nó."
+ "A button that knocks back whoever stands on it and slows everyone nearby for 6 seconds. It normally deals no damage at all.": "Một nút hất lùi bất kỳ ai đứng trên nó và làm chậm mọi người xung quanh trong 6 giây. Bình thường nó không gây chút sát thương nào.",
+ "Terrain'd, rolled on Pillar of Ice, makes the pillar hurt everything around it. Bread and Cheese gives Pillar of Ice 100 ability haste and Purist - Caster turns the attack speed he never uses into even more, so the next pillar lands before the last one melts. Ice Cold makes the slow brutal.": "Kiến Tạo Địa Hình, đặt vào Cột Băng, khiến cột gây sát thương mọi thứ xung quanh. Bánh Mỳ & Phô-mai cho Cột Băng 100 Điểm Hồi Kỹ Năng và Thuần Pháp - Thuật Sư biến tốc độ đánh anh không bao giờ dùng thành nhiều hơn nữa, nên cột mới đã xuống trước khi cột cũ tan. Băng Lạnh khiến hiệu ứng làm chậm cực gắt.",
+ "Imperial Mandate speeds up the pillar and marks everyone it knocks back, Rylai's adds more slow, and Cosmic Drive, Shurelya's and Frozen Heart make every pillar come back faster.": "Trát Lệnh Đế Vương làm cột nhanh hơn và đánh dấu mọi kẻ bị hất lùi, Trượng Pha Lê Rylai thêm làm chậm, còn Động Cơ Vũ Trụ, Vương Miện Shurelya và Tim Băng giúp mỗi cột hồi lại nhanh hơn.",
+ "Your chosen ability deals damage in an area around it.": "Kỹ năng bạn chọn gây sát thương trong một vùng xung quanh nó.",
+ "Off-menu": "Ngoài thực đơn",
+ "Uses augments {champion} isn't normally offered. Just for fun: it may never come together in a real game.": "Dùng các lõi nâng cấp mà {champion} thường không được nhận. Chỉ để vui: có thể không bao giờ ghép được trong trận thật.",
+ "On the menu": "Trong thực đơn",
+ "Your E gains 100 Ability Haste.": "E của bạn nhận 100 Điểm Hồi Kỹ Năng."
 }

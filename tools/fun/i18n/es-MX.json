@@ -377,12 +377,16 @@
  "Gain 20% Heal and Shield Power.": "Obtienes 20% de poder de curación y escudo.",
  "Gain Ultimate Ability Haste.": "Obtienes celeridad de habilidad definitiva.",
  "Skibidi Pillar": "Pilar Skibidi",
- "Trundle never uses Chomp. He spams Pillar of Ice until the enemy team is a pinball machine.": "Trundle nunca usa Mascar. Spamea Pilar de Hielo hasta que el equipo enemigo parece una máquina de pinball.",
- "Drop the pillar right under the enemy carry, aim them into a teammate, repeat. Never press Q, never right-click.": "Pon el pilar justo debajo del carry enemigo, mándalo contra un compañero suyo y repite. Nunca presiones Q, nunca hagas clic derecho.",
+ "Trundle never uses Chomp. He spams Pillar of Ice until there is never a moment without one standing.": "Trundle nunca usa Mascar. Spamea Pilar de Hielo hasta que siempre hay uno en pie.",
+ "Max E first. Drop the pillar right under the enemy carry and have the next one down before it melts. Never press Q, never right-click.": "Sube E primero. Pon el pilar justo debajo del carry enemigo y el siguiente antes de que se derrita el anterior. Nunca presiones Q, nunca hagas clic derecho.",
  "He stopped biting people. The pillar does all the talking now.": "Ya no muerde a nadie. Ahora el pilar habla por él.",
  "Pillar of Ice": "Pilar de Hielo",
- "A button that knocks back whoever stands on it and slows everyone nearby. It normally deals no damage at all.": "Un botón que empuja a quien esté encima y ralentiza a todos los que estén cerca. Normalmente no hace nada de daño.",
- "Rolled on Pillar of Ice: Terrain'd makes it hit everything around it and Chain Reaction bounces the knocked-back enemy into their friends. Ice Cold makes the slow brutal, and Purist - Caster turns the attack speed he never uses into more pillars.": "Asignados a Pilar de Hielo: Terraneitor hace que golpee todo a su alrededor y Reacción en Cadena lanza al enemigo empujado contra sus amigos. Frío como el Hielo hace que la ralentización sea brutal, y Purista: Hechicero convierte la velocidad de ataque que nunca usa en más pilares.",
- "Rylai's and Frozen Heart pile on more slow, Imperial Mandate marks everyone the pillar knocks back, and Cosmic Drive and Shurelya's make every pillar come back faster.": "Cetro de Cristal de Rylai y Corazón de Hielo acumulan aún más ralentización, Mandato Imperial marca a todos los que el pilar empuja, e Impulso Cósmico y Canto de Guerra de Shurelya hacen que cada pilar vuelva más rápido.",
- "Your chosen ability deals damage in an area around it.": "Tu habilidad elegida inflige daño en un área a su alrededor."
+ "A button that knocks back whoever stands on it and slows everyone nearby for 6 seconds. It normally deals no damage at all.": "Un botón que empuja a quien esté encima y ralentiza a todos los que estén cerca durante 6 segundos. Normalmente no hace nada de daño.",
+ "Terrain'd, rolled on Pillar of Ice, makes the pillar hurt everything around it. Bread and Cheese gives Pillar of Ice 100 ability haste and Purist - Caster turns the attack speed he never uses into even more, so the next pillar lands before the last one melts. Ice Cold makes the slow brutal.": "Terraneitor, asignado a Pilar de Hielo, hace que el pilar dañe todo a su alrededor. Pan y Queso le da 100 de velocidad de habilidades a Pilar de Hielo y Purista: Hechicero convierte la velocidad de ataque que nunca usa en aún más, así que el siguiente pilar cae antes de que se derrita el anterior. Frío como el Hielo hace que la ralentización sea brutal.",
+ "Imperial Mandate speeds up the pillar and marks everyone it knocks back, Rylai's adds more slow, and Cosmic Drive, Shurelya's and Frozen Heart make every pillar come back faster.": "Mandato Imperial acelera el pilar y marca a todos los que empuja, Cetro de Cristal de Rylai agrega más ralentización, e Impulso Cósmico, Canto de Guerra de Shurelya y Corazón de Hielo hacen que cada pilar vuelva más rápido.",
+ "Your chosen ability deals damage in an area around it.": "Tu habilidad elegida inflige daño en un área a su alrededor.",
+ "Off-menu": "Fuera del menú",
+ "Uses augments {champion} isn't normally offered. Just for fun: it may never come together in a real game.": "Usa aumentos que a {champion} normalmente no le ofrecen. Solo por diversión: puede que nunca salga en una partida real.",
+ "On the menu": "En el menú",
+ "Your E gains 100 Ability Haste.": "Tu E obtiene 100 de velocidad de habilidades."
 }

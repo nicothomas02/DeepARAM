@@ -377,12 +377,16 @@
  "Gain 20% Heal and Shield Power.": "Dapatkan 20% Kekuatan Penyembuhan dan Perisai.",
  "Gain Ultimate Ability Haste.": "Dapatkan Ultimate Ability Haste.",
  "Skibidi Pillar": "Pilar Skibidi",
- "Trundle never uses Chomp. He spams Pillar of Ice until the enemy team is a pinball machine.": "Trundle nggak pernah pakai Chomp. Dia spam Pillar of Ice sampai tim musuh jadi mesin pinball.",
- "Drop the pillar right under the enemy carry, aim them into a teammate, repeat. Never press Q, never right-click.": "Taruh pilar tepat di bawah carry musuh, lempar dia ke rekan setimnya, ulangi. Jangan pernah tekan Q, jangan pernah klik kanan.",
+ "Trundle never uses Chomp. He spams Pillar of Ice until there is never a moment without one standing.": "Trundle nggak pernah pakai Chomp. Dia spam Pillar of Ice sampai selalu ada satu pilar berdiri.",
+ "Max E first. Drop the pillar right under the enemy carry and have the next one down before it melts. Never press Q, never right-click.": "Maksimalkan E dulu. Taruh pilar tepat di bawah carry musuh dan pilar berikutnya sebelum yang lama meleleh. Jangan pernah tekan Q, jangan pernah klik kanan.",
  "He stopped biting people. The pillar does all the talking now.": "Dia sudah berhenti menggigit orang. Sekarang pilarnya yang bicara.",
  "Pillar of Ice": "Pillar of Ice",
- "A button that knocks back whoever stands on it and slows everyone nearby. It normally deals no damage at all.": "Tombol yang menghempas siapa pun yang berdiri di atasnya dan memperlambat semua orang di dekatnya. Biasanya sama sekali nggak memberi damage.",
- "Rolled on Pillar of Ice: Terrain'd makes it hit everything around it and Chain Reaction bounces the knocked-back enemy into their friends. Ice Cold makes the slow brutal, and Purist - Caster turns the attack speed he never uses into more pillars.": "Didapat di Pillar of Ice: Terrain'd membuatnya mengenai semua di sekitarnya dan Chain Reaction melempar musuh yang terhempas ke teman-temannya. Ice Cold bikin slow-nya brutal, dan Purist - Caster mengubah attack speed yang nggak pernah dia pakai jadi lebih banyak pilar.",
- "Rylai's and Frozen Heart pile on more slow, Imperial Mandate marks everyone the pillar knocks back, and Cosmic Drive and Shurelya's make every pillar come back faster.": "Rylai's Crystal Scepter dan Frozen Heart menumpuk slow lebih banyak, Imperial Mandate menandai semua yang dihempas pilar, dan Cosmic Drive serta Shurelya's Battlesong bikin tiap pilar kembali lebih cepat.",
- "Your chosen ability deals damage in an area around it.": "Ability pilihanmu memberi damage di area sekitarnya."
+ "A button that knocks back whoever stands on it and slows everyone nearby for 6 seconds. It normally deals no damage at all.": "Tombol yang menghempas siapa pun yang berdiri di atasnya dan memperlambat semua orang di dekatnya selama 6 detik. Biasanya sama sekali nggak memberi damage.",
+ "Terrain'd, rolled on Pillar of Ice, makes the pillar hurt everything around it. Bread and Cheese gives Pillar of Ice 100 ability haste and Purist - Caster turns the attack speed he never uses into even more, so the next pillar lands before the last one melts. Ice Cold makes the slow brutal.": "Terrain'd, didapat di Pillar of Ice, bikin pilar melukai semua di sekitarnya. Bread and Cheese memberi Pillar of Ice 100 Ability Haste dan Purist - Caster mengubah attack speed yang nggak pernah dia pakai jadi lebih banyak lagi, jadi pilar berikutnya turun sebelum yang lama meleleh. Ice Cold bikin slow-nya brutal.",
+ "Imperial Mandate speeds up the pillar and marks everyone it knocks back, Rylai's adds more slow, and Cosmic Drive, Shurelya's and Frozen Heart make every pillar come back faster.": "Imperial Mandate mempercepat pilar dan menandai semua yang dihempasnya, Rylai's Crystal Scepter menambah slow, dan Cosmic Drive, Shurelya's Battlesong serta Frozen Heart bikin tiap pilar kembali lebih cepat.",
+ "Your chosen ability deals damage in an area around it.": "Ability pilihanmu memberi damage di area sekitarnya.",
+ "Off-menu": "Di luar menu",
+ "Uses augments {champion} isn't normally offered. Just for fun: it may never come together in a real game.": "Memakai augment yang biasanya tidak ditawarkan ke {champion}. Cuma buat seru: mungkin nggak pernah lengkap di game sungguhan.",
+ "On the menu": "Di menu",
+ "Your E gains 100 Ability Haste.": "E kamu mendapat 100 Ability Haste."
 }

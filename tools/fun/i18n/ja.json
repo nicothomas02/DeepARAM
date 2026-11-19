@@ -377,12 +377,16 @@
  "Gain 20% Heal and Shield Power.": "回復・シールド量が20%増加する。",
  "Gain Ultimate Ability Haste.": "アルティメット スキルヘイストを獲得する。",
  "Skibidi Pillar": "スキビディ柱",
- "Trundle never uses Chomp. He spams Pillar of Ice until the enemy team is a pinball machine.": "トランドルは咬み付きを絶対に使わない。敵チームがピンボール台になるまで氷冷の柱を連打する。",
- "Drop the pillar right under the enemy carry, aim them into a teammate, repeat. Never press Q, never right-click.": "敵キャリーの真下に柱を立てて味方側へ吹っ飛ばし、繰り返す。Qも右クリックも絶対に押さないこと。",
+ "Trundle never uses Chomp. He spams Pillar of Ice until there is never a moment without one standing.": "トランドルは咬み付きを絶対に使わない。常に柱が1本立っている状態になるまで氷冷の柱を連打する。",
+ "Max E first. Drop the pillar right under the enemy carry and have the next one down before it melts. Never press Q, never right-click.": "Eを最優先で上げる。敵キャリーの真下に柱を立て、前の柱が溶ける前に次を立てる。Qも右クリックも絶対に押さないこと。",
  "He stopped biting people. The pillar does all the talking now.": "もう誰も噛まない。これからは柱が語る。",
  "Pillar of Ice": "氷冷の柱",
- "A button that knocks back whoever stands on it and slows everyone nearby. It normally deals no damage at all.": "上に立っている敵をノックバックし、周りの全員にスロウを与えるボタン。本来はダメージを一切与えない。",
- "Rolled on Pillar of Ice: Terrain'd makes it hit everything around it and Chain Reaction bounces the knocked-back enemy into their friends. Ice Cold makes the slow brutal, and Purist - Caster turns the attack speed he never uses into more pillars.": "氷冷の柱に付与：地形でドンで周囲すべてにダメージ、連鎖反応でノックバックした敵を仲間にぶつける。結氷でスロウがえげつなくなり、純粋なるキャスターで使わない攻撃速度がさらなる柱に変わる。",
- "Rylai's and Frozen Heart pile on more slow, Imperial Mandate marks everyone the pillar knocks back, and Cosmic Drive and Shurelya's make every pillar come back faster.": "リーライ クリスタル セプターとフローズン ハートでさらにスロウを重ね、帝国の指令で柱が吹き飛ばした全員にマーク。コズミック ドライブとシュレリアの戦歌で柱がどんどん戻ってくる。",
- "Your chosen ability deals damage in an area around it.": "選択したスキルが周囲の範囲にダメージを与える。"
+ "A button that knocks back whoever stands on it and slows everyone nearby for 6 seconds. It normally deals no damage at all.": "上に立っている敵をノックバックし、周りの全員に6秒間スロウを与えるボタン。本来はダメージを一切与えない。",
+ "Terrain'd, rolled on Pillar of Ice, makes the pillar hurt everything around it. Bread and Cheese gives Pillar of Ice 100 ability haste and Purist - Caster turns the attack speed he never uses into even more, so the next pillar lands before the last one melts. Ice Cold makes the slow brutal.": "地形でドン（氷冷の柱に付与）で柱が周囲すべてにダメージ。パンとチーズで氷冷の柱にスキルヘイスト100、純粋なるキャスターで使わない攻撃速度がさらにヘイストに変わり、前の柱が溶ける前に次が立つ。結氷でスロウがえげつなくなる。",
+ "Imperial Mandate speeds up the pillar and marks everyone it knocks back, Rylai's adds more slow, and Cosmic Drive, Shurelya's and Frozen Heart make every pillar come back faster.": "帝国の指令で柱が速くなり、吹き飛ばした全員にマーク。リーライ クリスタル セプターでスロウを追加し、コズミック ドライブ、シュレリアの戦歌、フローズン ハートで柱がどんどん戻ってくる。",
+ "Your chosen ability deals damage in an area around it.": "選択したスキルが周囲の範囲にダメージを与える。",
+ "Off-menu": "裏メニュー",
+ "Uses augments {champion} isn't normally offered. Just for fun: it may never come together in a real game.": "{champion}には通常出ないオーグメントを使用。お遊び用なので、実際の試合では揃わないかも。",
+ "On the menu": "表メニュー",
+ "Your E gains 100 Ability Haste.": "Eのスキルヘイストが100増加する。"
 }

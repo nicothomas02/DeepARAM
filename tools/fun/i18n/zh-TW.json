@@ -377,12 +377,16 @@
  "Gain 20% Heal and Shield Power.": "獲得20%治療與護盾強度。",
  "Gain Ultimate Ability Haste.": "獲得大絕技能加速。",
  "Skibidi Pillar": "斯奇必迪冰柱",
- "Trundle never uses Chomp. He spams Pillar of Ice until the enemy team is a pinball machine.": "特朗德從不用狂野撕咬。他狂按狡詰冰柱，直到敵方全隊變成一台彈珠台。",
- "Drop the pillar right under the enemy carry, aim them into a teammate, repeat. Never press Q, never right-click.": "把冰柱直接放在敵方核心腳下，把他撞向自己的隊友，重複。永遠別按Q，永遠別點右鍵。",
+ "Trundle never uses Chomp. He spams Pillar of Ice until there is never a moment without one standing.": "特朗德從不用狂野撕咬。他狂按狡詰冰柱，直到場上永遠立著一根柱子。",
+ "Max E first. Drop the pillar right under the enemy carry and have the next one down before it melts. Never press Q, never right-click.": "主升E。把冰柱直接放在敵方核心腳下，在舊柱子融化前放下一根。永遠別按Q，永遠別點右鍵。",
  "He stopped biting people. The pillar does all the talking now.": "他不咬人了。現在全靠冰柱說話。",
  "Pillar of Ice": "狡詰冰柱",
- "A button that knocks back whoever stands on it and slows everyone nearby. It normally deals no damage at all.": "一個能擊退站在上面的人、並緩速附近所有人的按鍵。平常完全不造成傷害。",
- "Rolled on Pillar of Ice: Terrain'd makes it hit everything around it and Chain Reaction bounces the knocked-back enemy into their friends. Ice Cold makes the slow brutal, and Purist - Caster turns the attack speed he never uses into more pillars.": "隨機到狡詰冰柱上：劃地為王讓它打到周圍所有東西，連鎖反應把被擊退的敵人撞向隊友。雪地踱步讓緩速變得殘暴，純粹 - 法師把他從不使用的攻擊速度變成更多柱子。",
- "Rylai's and Frozen Heart pile on more slow, Imperial Mandate marks everyone the pillar knocks back, and Cosmic Drive and Shurelya's make every pillar come back faster.": "瑞萊的冰晶節杖和冰霜之心疊加更多緩速，帝王命令標記每一個被冰柱擊退的人，星河馳騁和蘇瑞亞的戰歌讓每根柱子更快回來。",
- "Your chosen ability deals damage in an area around it.": "你選擇的技能會對其周圍區域造成傷害。"
+ "A button that knocks back whoever stands on it and slows everyone nearby for 6 seconds. It normally deals no damage at all.": "一個能擊退站在上面的人、並緩速附近所有人6秒的按鍵。平常完全不造成傷害。",
+ "Terrain'd, rolled on Pillar of Ice, makes the pillar hurt everything around it. Bread and Cheese gives Pillar of Ice 100 ability haste and Purist - Caster turns the attack speed he never uses into even more, so the next pillar lands before the last one melts. Ice Cold makes the slow brutal.": "隨機到狡詰冰柱上的劃地為王讓柱子傷害周圍的一切。土司和起司給狡詰冰柱100技能加速，純粹 - 法師把他從不使用的攻擊速度變成更多加速，所以舊柱子融化前新柱子就到了。雪地踱步讓緩速變得殘暴。",
+ "Imperial Mandate speeds up the pillar and marks everyone it knocks back, Rylai's adds more slow, and Cosmic Drive, Shurelya's and Frozen Heart make every pillar come back faster.": "帝王命令讓冰柱更快，並標記每一個被擊退的人，瑞萊的冰晶節杖增加緩速，星河馳騁、蘇瑞亞的戰歌和冰霜之心讓每根柱子更快回來。",
+ "Your chosen ability deals damage in an area around it.": "你選擇的技能會對其周圍區域造成傷害。",
+ "Off-menu": "菜單外",
+ "Uses augments {champion} isn't normally offered. Just for fun: it may never come together in a real game.": "使用了{champion}通常不會抽到的強化。純屬娛樂：實戰中可能永遠湊不齊。",
+ "On the menu": "菜單內",
+ "Your E gains 100 Ability Haste.": "你的E獲得100技能加速。"
 }
