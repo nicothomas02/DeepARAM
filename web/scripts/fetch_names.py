@@ -6,6 +6,8 @@ For each language in web/src/i18n/languages.json (English is the site's own text
   items      the client's items.json (live), keyed by item id
   augments   the client's Mayhem augment list (live), keyed by augment id
   mode       the mode's own name in that language, from the client's queue list (queue 2400)
+  abilities  each champion's ability names, keyed "<champion id>.<P|Q|W|E|R>", from champions/i18n/data/<code>.json
+             (champions/build_i18n.py, built from the same client files as the Champions tool)
 Only names that differ from English are kept; pages fall back to the English name.
 
 Usage (from the repo root):
@@ -57,6 +59,28 @@ def names(riot, version):
     }
 
 
+def english_abilities():
+    """{"Akshan.Q": "Avengerang", ...} from champions/data.js, the English the pages show without a translation."""
+    text = open(os.path.join(WEB, "..", "champions", "data.js"), encoding="utf-8").read()
+    data = json.loads(text[text.index("{"):text.rindex("}") + 1])
+    return {f"{c['alias']}.{a['slot']}": a["name"] for c in data["champions"] for a in c.get("abilities", [])}
+
+
+def ability_names(code, en):
+    """Translated ability names that differ from English, or {} when the Champions tool has no file for `code`."""
+    path = os.path.join(WEB, "..", "champions", "i18n", "data", f"{code}.json")
+    if not os.path.exists(path):
+        return {}
+    champs = json.load(open(path, encoding="utf-8")).get("champions", {})
+    out = {}
+    for alias, c in champs.items():
+        for slot, a in (c.get("abilities") or {}).items():
+            k, v = f"{alias}.{slot}", clean(a.get("name"))
+            if v and v != en.get(k):
+                out[k] = v
+    return dict(sorted(out.items()))
+
+
 def add_english_augments(augs):
     """Adds the English name of every augment new this patch to src/data/augment-names.json, which the pages read.
     Existing names stay as they are, so ids the client has since dropped keep theirs for older patches."""
@@ -76,12 +100,14 @@ def main():
     en = names("en_US", version)
     os.makedirs(OUT, exist_ok=True)
     add_english_augments(en["augments"])
+    en_abilities = english_abilities()
 
     def one(lang):
         local = names(lang["riot"], version)
         out = {"version": version, "mode": local["mode"] if local["mode"] != en["mode"] else ""}
         for kind in ("champions", "titles", "items", "augments"):
             out[kind] = {k: v for k, v in sorted(local[kind].items()) if v and v != en[kind].get(k)}
+        out["abilities"] = ability_names(lang["code"], en_abilities)
         with open(os.path.join(OUT, f"{lang['code']}.json"), "w", encoding="utf-8") as f:
             json.dump(out, f, ensure_ascii=False, separators=(",", ":"), sort_keys=True)
         return lang["code"], sum(len(out[k]) for k in ("champions", "items", "augments"))

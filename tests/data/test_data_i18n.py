@@ -130,3 +130,13 @@ def test_my_stats_text_in_every_language(lang):
     for k, v in other.items():
         assert v.strip(), (lang, k)
         assert sorted(PLACEHOLDER.findall(v)) == sorted(PLACEHOLDER.findall(k)), (lang, k, v)
+
+
+@pytest.mark.parametrize("lang", ["ko", "zh-CN", "de"])
+def test_names_have_ability_names(lang):
+    """Champion pages and the Pentakill tab show ability names in the page's language from i18n/names/<code>.json
+    ("abilities", keyed "<champion id>.<slot>"; fetch_names.py fills it from champions/i18n/data)."""
+    abilities = load_json(f"web/public/i18n/names/{lang}.json").get("abilities", {})
+    assert len(abilities) > 500, lang
+    assert all(re.fullmatch(r"[A-Za-z]+\.[PQWER]", k) for k in abilities), lang
+    assert abilities.get("Akshan.Q") and abilities["Akshan.Q"] != "Avengerang", lang

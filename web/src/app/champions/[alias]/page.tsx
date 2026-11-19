@@ -1355,6 +1355,7 @@ export default async function ChampionPage({
             </Panel>
           )}
           <MayhemChanges
+            alias={c.alias}
             name={c.name}
             changes={p.changes}
             modifiers={p.modifiers}

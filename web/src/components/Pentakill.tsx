@@ -14,7 +14,8 @@ const CLOSE = 0.01;
 export default function Pentakill({ rows }: { rows: PentakillRow[] }) {
   const t = useT("pentakill");
   const names = useNames();
-  const ability = (slot: string, name: string) => (name ? `${slot} · ${name}` : slot);
+  const ability = (champion: string, slot: string, name: string) =>
+    name ? `${slot} · ${names("abilities", `${champion}.${slot}`, name)}` : slot;
 
   const columns: Column[] = [
     { key: "champion", label: t("Champion"), format: "champion" },
@@ -65,8 +66,8 @@ export default function Pentakill({ rows }: { rows: PentakillRow[] }) {
   ];
   const data: Row[] = rows.map((r) => ({
     champion: r.champion,
-    start: ability(r.start, r.startName),
-    level18: ability(r.level18, r.level18Name),
+    start: ability(r.champion, r.start, r.startName),
+    level18: ability(r.champion, r.level18, r.level18Name),
     startIcon: r.startIcon,
     level18Icon: r.level18Icon,
     boost: r.boost,
