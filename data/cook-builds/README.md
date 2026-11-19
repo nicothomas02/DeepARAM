@@ -88,8 +88,12 @@ Tests pass.
 - **Ability slots.** Bread And Butter / Jam / Cheese always affect Q / W / E; other ability augments
   (Terrain'd, Chain Reaction, Mosh Monster...) are rolled on one ability. Name the right ability on the card:
   `check_build.py --text "<card text>"` blocks a slot-fixed augment tied to the wrong ability.
-- **Augments the champion is never seen taking are allowed** (the card notes it); `check_build.py --fun` must
-  show no BLOCK.
+- **In-pool augments only** (Nico, 2026-11-19; replaces the 2026-11-12 allowance). Every augment must be in the
+  champion's Mayhem pool: `python3 data/checks/champion_pool.py <Champion>` lists it with each augment's text and
+  the champion's Q/W/E/R names. `check_build.py` (no `--fun`) must show no BLOCK.
+- **Precise interactions** (Nico, 2026-11-19). Aim for a real number breakpoint from the kit, augment and item
+  values, like "Ashe with Archmage casts R most often with 4 points in E instead of 5": rank thresholds, cooldown
+  breakpoints, refund and stack math. Put the skill order in `play` when it matters.
 - **Meme / brainrot humour** is welcome in titles and taglines (Aura Farming, Certified Crashout, Skibidi Pillar),
   kept PG.
 - **Short text.** Fields: `title` (2-5 words), `tagline` (one punchy line), `why` (ONE sentence: the joke),

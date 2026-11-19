@@ -17,9 +17,8 @@ Usage (from the repo root):
     python3 data/checks/check_build.py Rammus "Tickle Monster" --fun   # a Chef Special idea
     python3 data/checks/check_build.py --chef            # today's Chef Special
     python3 data/checks/check_build.py --kitchen         # every Kitchen build
-Chef Specials are for fun (Nico, 2026-11-12): with --fun (and always with --chef / --kitchen) an augment the
-champion has never been seen taking is only a "note", since the build may never come together in a real game.
-Practical builds (the synergy finder, community builds) keep it as a block.
+Since 2026-11-19 (Nico) Chef Specials must use in-pool augments too, so --chef blocks an augment the champion has
+never been seen taking. --fun (and --kitchen, which covers the older archive) only notes it.
 
 Exits 1 when anything blocks. From Python: check(champion, augments, items) -> list of problems.
 """
@@ -182,7 +181,8 @@ def main():
     if a.chef or a.kitchen:
         builds = [b for b in d["kitchen"] if a.kitchen or b["source"] == "chef"]
         for b in {b["id"]: b for b in builds}.values():
-            blocked |= _report(b["id"], check(b.get("champion_name") or b["champion"], b.get("augments", []), b.get("items", []), fun=True,
+            blocked |= _report(b["id"], check(b.get("champion_name") or b["champion"], b.get("augments", []), b.get("items", []),
+                                                 fun=a.fun or a.kitchen,
                                                  text=card_text(b)))
     elif a.champion:
         blocked = _report(a.champion, check(a.champion, a.augments, a.items, fun=a.fun, text=a.text))
