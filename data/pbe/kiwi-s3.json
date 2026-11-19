@@ -2,7 +2,7 @@
   "meta": {
     "mode": "ARAM: Mayhem",
     "label": "Patch 26.24",
-    "dataAsOf": "2026-11-18",
+    "dataAsOf": "2026-11-19",
     "caveat": "PBE content can change before release.",
     "augmentPool": {
       "live": 243,
@@ -19,8 +19,8 @@
       "Ability values are listed for ranks 1-5 (basic abilities) or 1-3 (ultimates)."
     ],
     "builds": {
-      "pbe": "16.24.8394663",
-      "live": "16.23.8396405"
+      "pbe": "16.24.8398832",
+      "live": "16.23.8399929"
     }
   },
   "fame": {
