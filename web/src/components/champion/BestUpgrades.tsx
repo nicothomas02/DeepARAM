@@ -26,7 +26,7 @@ function Line({ label, tag, children, cells }: { label: string; tag?: React.Reac
   );
 }
 
-function Ability({ when, slot, name, icon }: { when: string; slot: string; name: string; icon: string }) {
+function Ability({ when, champion, slot, name, icon }: { when: string; champion: string; slot: string; name: string; icon: string }) {
   return (
     <span className="cp-pair-one">
       <small className="cp-upg-when">
@@ -36,7 +36,14 @@ function Ability({ when, slot, name, icon }: { when: string; slot: string; name:
       {icon && <img className="cp-icon" src={icon} alt="" width={32} height={32} loading="lazy" />}
       <span className="cp-name">
         {slot}
-        {name && ` · ${name}`}
+        {name && (
+          <>
+            {" · "}
+            <Name kind="abilities" id={`${champion}.${slot}`}>
+              {name}
+            </Name>
+          </>
+        )}
       </span>
     </span>
   );
@@ -126,8 +133,8 @@ export default function BestUpgrades({ u }: { u: ChampionUpgrades }) {
             }
           >
             <span className="cp-quad">
-              <Ability when="Start" slot={u.pentakill.start} name={u.pentakill.startName} icon={u.pentakill.startIcon} />
-              <Ability when="Level 18" slot={u.pentakill.level18} name={u.pentakill.level18Name} icon={u.pentakill.level18Icon} />
+              <Ability when="Start" champion={u.pentakill.champion} slot={u.pentakill.start} name={u.pentakill.startName} icon={u.pentakill.startIcon} />
+              <Ability when="Level 18" champion={u.pentakill.champion} slot={u.pentakill.level18} name={u.pentakill.level18Name} icon={u.pentakill.level18Icon} />
             </span>
           </Line>
         )}

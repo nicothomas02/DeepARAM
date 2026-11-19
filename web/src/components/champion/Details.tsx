@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element -- small local icons */
-import { T } from "@/components/I18n";
+import { Name, T } from "@/components/I18n";
 import type { BaseStats, Change } from "@/lib/champion-page";
 import ChangeName from "./ChangeName";
 import { Panel } from "./Ranked";
@@ -46,10 +46,12 @@ const MODS: Record<string, string> = {
 };
 
 export function MayhemChanges({
+  alias,
   name,
   changes,
   modifiers,
 }: {
+  alias: string;
   name: string;
   changes: Change[];
   modifiers: Record<string, number>;
@@ -115,7 +117,11 @@ export function MayhemChanges({
                         <b className="cp-key" data-k={m.slot}>
                           {m.slot}
                         </b>
-                        {m.ability}
+                        {m.ability && (
+                          <Name kind="abilities" id={`${alias}.${m.slot}`}>
+                            {m.ability}
+                          </Name>
+                        )}
                       </span>
                     </td>
                     <td>
