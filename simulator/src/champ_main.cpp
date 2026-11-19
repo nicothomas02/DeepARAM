@@ -606,12 +606,19 @@ int main(int argc, char** argv) {
         if (all) {
             struct Row { const ChampionKit* c; Ranked best; };
             std::vector<Row> rows(lib.champions.size());
-            std::atomic<size_t> nextIdx{0};
+            // MAYHEM_ALL_SLICE=FROM:TO runs only champions FROM..TO-1 (pool order), so a long --all can be split
+            // across runs and merged (tools/merge_best_builds.py); every champion's search is seeded on its own.
+            size_t sliceFrom = 0, sliceTo = lib.champions.size();
+            if (const char* sl = std::getenv("MAYHEM_ALL_SLICE")) {
+                std::sscanf(sl, "%zu:%zu", &sliceFrom, &sliceTo);
+                sliceTo = std::min(sliceTo, lib.champions.size());
+            }
+            std::atomic<size_t> nextIdx{sliceFrom};
             std::mutex logMu;
             std::vector<std::thread> pool;
             for (int w = 0; w < threads; ++w)
                 pool.emplace_back([&] {
-                    for (size_t i; (i = nextIdx++) < lib.champions.size();) {
+                    for (size_t i; (i = nextIdx++) < sliceTo;) {
                         const ChampionKit& c = lib.champions[i];
                         const auto ranked = optimize(lib, c, lib.scenarioFor(c), 1, 1);
                         rows[i] = {&c, ranked.front()};
@@ -624,6 +631,7 @@ int main(int argc, char** argv) {
                 });
             for (auto& th : pool) th.join();
             std::fprintf(stderr, "\n");
+            rows.erase(std::remove_if(rows.begin(), rows.end(), [](const Row& r) { return !r.c; }), rows.end());
             std::sort(rows.begin(), rows.end(),
                       [](const Row& a, const Row& b) { return a.best.summary.meanDps > b.best.summary.meanDps; });
 

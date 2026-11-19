@@ -1,5 +1,5 @@
 {
- "read": "2026-10-17",
+ "read": "2026-11-18",
  "pages": {
   "aram": "https://wiki.leagueoflegends.com/en-us/ARAM",
   "mayhem": "https://wiki.leagueoflegends.com/en-us/ARAM:_Mayhem"
@@ -8,7 +8,10 @@
   "Annie damage_taken: ARAM page 0.05, Mayhem page says from -0.05",
   "Ivern shielding: ARAM page -0.1, Mayhem page says from -0.2",
   "Janna shielding: ARAM page 0, Mayhem page says from -0.05",
+  "Kalista damage_dealt: ARAM page 0.05, Mayhem page says from 0.1",
+  "Kalista damage_taken: ARAM page 0, Mayhem page says from -0.1",
   "Locke damage_dealt: ARAM page 0.15, Mayhem page says from 0.0",
+  "Lux shielding: ARAM page -0.1, Mayhem page says from -0.2",
   "Mordekaiser damage_taken: ARAM page 0, Mayhem page says from 0.02",
   "Renata Glasc shielding: ARAM page 0, Mayhem page says from -0.2",
   "Samira damage_taken: ARAM page 0, Mayhem page says from 0.05",
@@ -20,6 +23,7 @@
   "Vladimir damage_dealt: ARAM page 0, Mayhem page says from -0.05",
   "Vladimir damage_taken: ARAM page 0, Mayhem page says from 0.05",
   "Vladimir healing: ARAM page 0, Mayhem page says from -0.1",
+  "Zaahen damage_taken: ARAM page 0.05, Mayhem page says from 0.0",
   "Ziggs damage_dealt: ARAM page -0.08, Mayhem page says from -0.13"
  ],
  "champions": {
@@ -148,10 +152,10 @@
    },
    "mayhem": {
     "damage_dealt": -0.05,
-    "damage_taken": 0.1,
+    "damage_taken": 0.05,
     "ability_haste": -10.0
    },
-   "source": "https://wiki.leagueoflegends.com/en-us/ARAM"
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM:_Mayhem"
   },
   "Briar": {
    "aram": {
@@ -241,7 +245,7 @@
    },
    "mayhem": {
     "damage_dealt": 0.05,
-    "tenacity": 0.2
+    "tenacity": 0.1
    },
    "source": "https://wiki.leagueoflegends.com/en-us/ARAM:_Mayhem"
   },
@@ -352,7 +356,9 @@
    "aram": {
     "damage_dealt": 0.02
    },
-   "mayhem": {},
+   "mayhem": {
+    "damage_taken": 0.05
+   },
    "source": "https://wiki.leagueoflegends.com/en-us/ARAM:_Mayhem"
   },
   "Hecarim": {
@@ -365,10 +371,9 @@
    "mayhem": {
     "damage_dealt": 0.05,
     "damage_taken": -0.1,
-    "healing": 0.2,
-    "ability_haste": 10.0
+    "healing": 0.2
    },
-   "source": "https://wiki.leagueoflegends.com/en-us/ARAM"
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM:_Mayhem"
   },
   "Heimerdinger": {
    "aram": {
@@ -435,11 +440,8 @@
     "damage_dealt": 0.05,
     "damage_taken": -0.03
    },
-   "mayhem": {
-    "damage_dealt": 0.05,
-    "damage_taken": -0.03
-   },
-   "source": "https://wiki.leagueoflegends.com/en-us/ARAM"
+   "mayhem": {},
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM:_Mayhem"
   },
   "Jayce": {
    "aram": {
@@ -492,8 +494,7 @@
   },
   "Kalista": {
    "aram": {
-    "damage_dealt": 0.1,
-    "damage_taken": -0.1
+    "damage_dealt": 0.05
    },
    "mayhem": {
     "damage_dealt": 0.05,
@@ -706,10 +707,9 @@
    },
    "mayhem": {
     "damage_dealt": -0.1,
-    "damage_taken": 0.1,
-    "shielding": -0.1
+    "damage_taken": 0.1
    },
-   "source": "https://wiki.leagueoflegends.com/en-us/ARAM"
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM:_Mayhem"
   },
   "Malzahar": {
    "aram": {
@@ -1074,10 +1074,9 @@
     "damage_taken": 0.05
    },
    "mayhem": {
-    "damage_dealt": -0.07,
-    "damage_taken": 0.05
+    "damage_dealt": -0.05
    },
-   "source": "https://wiki.leagueoflegends.com/en-us/ARAM"
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM:_Mayhem"
   },
   "Skarner": {
    "aram": {},
@@ -1322,10 +1321,8 @@
    "aram": {
     "attack_speed": 0.025
    },
-   "mayhem": {
-    "attack_speed": 0.025
-   },
-   "source": "https://wiki.leagueoflegends.com/en-us/ARAM"
+   "mayhem": {},
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM:_Mayhem"
   },
   "Yone": {
    "aram": {
@@ -1334,18 +1331,18 @@
     "attack_speed": 0.025
    },
    "mayhem": {
-    "damage_dealt": 0.05,
-    "damage_taken": -0.03,
     "attack_speed": 0.025
    },
-   "source": "https://wiki.leagueoflegends.com/en-us/ARAM"
+   "source": "https://wiki.leagueoflegends.com/en-us/ARAM:_Mayhem"
   },
   "Zaahen": {
    "aram": {
     "damage_dealt": -0.05,
     "damage_taken": 0.05
    },
-   "mayhem": {},
+   "mayhem": {
+    "damage_taken": 0.05
+   },
    "source": "https://wiki.leagueoflegends.com/en-us/ARAM:_Mayhem"
   },
   "Zac": {
@@ -1393,7 +1390,7 @@
    },
    "mayhem": {
     "damage_dealt": -0.1,
-    "damage_taken": 0.2,
+    "damage_taken": 0.1,
     "ability_haste": -20.0
    },
    "source": "https://wiki.leagueoflegends.com/en-us/ARAM:_Mayhem"
@@ -1430,5 +1427,8 @@
    },
    "source": "https://wiki.leagueoflegends.com/en-us/ARAM"
   }
+ },
+ "patch_notes_overrides": {
+  "Yasuo": "Patch 26.23 notes remove Yasuo's 2.5% Mayhem attack speed bonus; the wiki page hadn't caught up on 2026-11-18."
  }
 }

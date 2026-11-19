@@ -209,6 +209,20 @@
    "role_adjusted": 0.576,
    "taken": 0.717,
    "n": 173
+  },
+  {
+   "commit": "8dc32901",
+   "date": "2026-11-14",
+   "pr": 564,
+   "title": "PBE 26.23 update (Nov 14): K'Sante change reworked, LeBlanc Q and Syndra E nerfs",
+   "spearman": 0.574,
+   "ci95": [
+    0.446,
+    0.68
+   ],
+   "role_adjusted": 0.608,
+   "taken": 0.727,
+   "n": 173
   }
  ],
  "note": "Each simulator version scored with the same yardstick: today's most-played real builds and real damage shares."
