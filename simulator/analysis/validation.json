@@ -1,78 +1,78 @@
 {
  "n": 173,
  "dps_vs_damage_share": {
-  "rho": 0.574,
+  "rho": 0.591,
   "n": 173,
   "ci95": [
-   0.446,
-   0.681
+   0.467,
+   0.694
   ]
  },
  "taken_vs_tank_share": {
-  "rho": 0.72,
+  "rho": 0.796,
   "n": 173,
   "ci95": [
-   0.625,
-   0.792
+   0.719,
+   0.851
   ]
  },
  "role_adjusted": {
   "spearman": {
-   "rho": 0.609,
+   "rho": 0.624,
    "n": 173,
    "ci95": [
-    0.486,
-    0.707
+    0.504,
+    0.72
    ]
   },
-  "r2_log": 0.729,
+  "r2_log": 0.73,
   "calibration_slope": 0.983,
-  "mae_points": 1.77,
-  "dps_coefficient": 0.243,
+  "mae_points": 1.76,
+  "dps_coefficient": 0.249,
   "bins": [
    {
     "n": 34,
-    "predicted": 13.53,
-    "real": 13.78,
+    "predicted": 13.5,
+    "real": 13.81,
     "real_ci95": [
-     12.49,
-     15.08
+     12.5,
+     15.11
     ]
    },
    {
     "n": 35,
-    "predicted": 18.51,
-    "real": 19.48,
+    "predicted": 18.49,
+    "real": 19.17,
     "real_ci95": [
-     18.7,
-     20.27
+     18.42,
+     19.92
     ]
    },
    {
     "n": 34,
-    "predicted": 19.82,
-    "real": 20.25,
+    "predicted": 19.85,
+    "real": 20.37,
     "real_ci95": [
-     19.58,
-     20.92
+     19.71,
+     21.03
     ]
    },
    {
     "n": 35,
-    "predicted": 21.16,
-    "real": 21.51,
+    "predicted": 21.19,
+    "real": 21.64,
     "real_ci95": [
-     20.9,
-     22.12
+     21.15,
+     22.13
     ]
    },
    {
     "n": 35,
-    "predicted": 22.53,
-    "real": 21.04,
+    "predicted": 22.51,
+    "real": 21.09,
     "real_ci95": [
-     20.51,
-     21.56
+     20.48,
+     21.7
     ]
    }
   ]
@@ -94,101 +94,101 @@
    "role": "assassin",
    "n": 17,
    "within": {
-    "rho": 0.104,
+    "rho": 0.141,
     "n": 17,
     "ci95": [
-     -0.45,
-     0.598
+     -0.465,
+     0.68
     ]
    },
-   "raw_bias": 0.073,
-   "raw_bias_se": 0.051,
-   "resid_sd": 0.084
+   "raw_bias": 0.056,
+   "raw_bias_se": 0.052,
+   "resid_sd": 0.087
   },
   {
    "role": "fighter",
    "n": 50,
    "within": {
-    "rho": 0.153,
+    "rho": 0.172,
     "n": 50,
     "ci95": [
-     -0.148,
-     0.426
+     -0.14,
+     0.448
     ]
    },
-   "raw_bias": 0.1,
-   "raw_bias_se": 0.038,
-   "resid_sd": 0.109
+   "raw_bias": 0.049,
+   "raw_bias_se": 0.036,
+   "resid_sd": 0.107
   },
   {
    "role": "mage",
    "n": 35,
    "within": {
-    "rho": 0.145,
+    "rho": 0.232,
     "n": 35,
     "ci95": [
-     -0.196,
-     0.461
+     -0.097,
+     0.533
     ]
    },
-   "raw_bias": -0.012,
-   "raw_bias_se": 0.049,
-   "resid_sd": 0.131
+   "raw_bias": 0.006,
+   "raw_bias_se": 0.048,
+   "resid_sd": 0.129
   },
   {
    "role": "marksman",
    "n": 29,
    "within": {
-    "rho": -0.083,
+    "rho": -0.032,
     "n": 29,
     "ci95": [
-     -0.509,
-     0.343
+     -0.46,
+     0.387
     ]
    },
-   "raw_bias": 0.332,
-   "raw_bias_se": 0.059,
-   "resid_sd": 0.095
+   "raw_bias": 0.286,
+   "raw_bias_se": 0.057,
+   "resid_sd": 0.093
   },
   {
    "role": "support",
    "n": 18,
    "within": {
-    "rho": 0.781,
+    "rho": 0.777,
     "n": 18,
     "ci95": [
-     0.503,
-     0.9
+     0.476,
+     0.901
     ]
    },
-   "raw_bias": -0.212,
-   "raw_bias_se": 0.114,
-   "resid_sd": 0.234
+   "raw_bias": -0.24,
+   "raw_bias_se": 0.111,
+   "resid_sd": 0.237
   },
   {
    "role": "tank",
    "n": 24,
    "within": {
-    "rho": 0.705,
+    "rho": 0.65,
     "n": 24,
     "ci95": [
-     0.396,
-     0.888
+     0.306,
+     0.869
     ]
    },
-   "raw_bias": -0.243,
-   "raw_bias_se": 0.057,
-   "resid_sd": 0.111
+   "raw_bias": -0.284,
+   "raw_bias_se": 0.055,
+   "resid_sd": 0.112
   }
  ],
  "underrated": [
   {
    "champion": "Morgana",
    "role": "support",
-   "residual": 0.43,
-   "factor": 1.53,
+   "residual": 0.42,
+   "factor": 1.52,
    "real_share": 17.9,
-   "sim_dps": 265
+   "sim_dps": 277
   },
   {
    "champion": "Seraphine",
@@ -196,15 +196,15 @@
    "residual": 0.27,
    "factor": 1.31,
    "real_share": 18.1,
-   "sim_dps": 529
+   "sim_dps": 525
   },
   {
    "champion": "Ambessa",
    "role": "fighter",
    "residual": 0.26,
-   "factor": 1.29,
+   "factor": 1.3,
    "real_share": 23.6,
-   "sim_dps": 318
+   "sim_dps": 314
   },
   {
    "champion": "Thresh",
@@ -215,36 +215,20 @@
    "sim_dps": 318
   },
   {
+   "champion": "Swain",
+   "role": "mage",
+   "residual": 0.23,
+   "factor": 1.26,
+   "real_share": 21.2,
+   "sim_dps": 256
+  },
+  {
    "champion": "Hecarim",
    "role": "fighter",
    "residual": 0.22,
    "factor": 1.24,
    "real_share": 23.2,
-   "sim_dps": 344
-  },
-  {
-   "champion": "Swain",
-   "role": "mage",
-   "residual": 0.21,
-   "factor": 1.24,
-   "real_share": 21.2,
-   "sim_dps": 253
-  },
-  {
-   "champion": "Rumble",
-   "role": "fighter",
-   "residual": 0.21,
-   "factor": 1.23,
-   "real_share": 24.1,
-   "sim_dps": 415
-  },
-  {
-   "champion": "Milio",
-   "role": "support",
-   "residual": 0.2,
-   "factor": 1.22,
-   "real_share": 10.1,
-   "sim_dps": 64
+   "sim_dps": 345
   },
   {
    "champion": "Singed",
@@ -252,15 +236,31 @@
    "residual": 0.2,
    "factor": 1.22,
    "real_share": 18.1,
-   "sim_dps": 184
+   "sim_dps": 183
+  },
+  {
+   "champion": "Rumble",
+   "role": "fighter",
+   "residual": 0.2,
+   "factor": 1.22,
+   "real_share": 24.1,
+   "sim_dps": 428
   },
   {
    "champion": "Lillia",
    "role": "fighter",
-   "residual": 0.2,
-   "factor": 1.22,
+   "residual": 0.19,
+   "factor": 1.21,
    "real_share": 23.3,
-   "sim_dps": 387
+   "sim_dps": 397
+  },
+  {
+   "champion": "Milio",
+   "role": "support",
+   "residual": 0.19,
+   "factor": 1.21,
+   "real_share": 10.1,
+   "sim_dps": 68
   }
  ],
  "overrated": [
@@ -270,7 +270,7 @@
    "residual": -0.4,
    "factor": 0.67,
    "real_share": 6.9,
-   "sim_dps": 126
+   "sim_dps": 133
   },
   {
    "champion": "Karma",
@@ -278,39 +278,47 @@
    "residual": -0.37,
    "factor": 0.69,
    "real_share": 12.8,
-   "sim_dps": 325
+   "sim_dps": 342
   },
   {
    "champion": "Ivern",
    "role": "support",
-   "residual": -0.35,
-   "factor": 0.71,
+   "residual": -0.37,
+   "factor": 0.69,
    "real_share": 7.8,
-   "sim_dps": 176
+   "sim_dps": 192
   },
   {
    "champion": "Soraka",
    "role": "support",
-   "residual": -0.34,
-   "factor": 0.71,
+   "residual": -0.36,
+   "factor": 0.7,
    "real_share": 6.7,
-   "sim_dps": 89
+   "sim_dps": 99
   },
   {
    "champion": "Blitzcrank",
    "role": "tank",
-   "residual": -0.25,
-   "factor": 0.78,
+   "residual": -0.24,
+   "factor": 0.79,
    "real_share": 13.2,
-   "sim_dps": 286
+   "sim_dps": 280
   },
   {
    "champion": "Anivia",
    "role": "mage",
    "residual": -0.23,
-   "factor": 0.8,
+   "factor": 0.79,
    "real_share": 15.8,
-   "sim_dps": 444
+   "sim_dps": 482
+  },
+  {
+   "champion": "Janna",
+   "role": "support",
+   "residual": -0.23,
+   "factor": 0.8,
+   "real_share": 8.1,
+   "sim_dps": 128
   },
   {
    "champion": "Braum",
@@ -318,7 +326,7 @@
    "residual": -0.22,
    "factor": 0.81,
    "real_share": 11.8,
-   "sim_dps": 154
+   "sim_dps": 157
   },
   {
    "champion": "Kayle",
@@ -326,23 +334,15 @@
    "residual": -0.21,
    "factor": 0.81,
    "real_share": 18.8,
-   "sim_dps": 899
+   "sim_dps": 896
   },
   {
-   "champion": "Yuumi",
-   "role": "support",
+   "champion": "Garen",
+   "role": "fighter",
    "residual": -0.2,
    "factor": 0.82,
-   "real_share": 7.2,
-   "sim_dps": 69
-  },
-  {
-   "champion": "Janna",
-   "role": "support",
-   "residual": -0.19,
-   "factor": 0.82,
-   "real_share": 8.1,
-   "sim_dps": 109
+   "real_share": 18.6,
+   "sim_dps": 722
   }
  ],
  "patch": "16.23",
@@ -576,13 +576,13 @@
   }
  ],
  "history_current": {
-  "spearman": 0.574,
+  "spearman": 0.591,
   "ci95": [
-   0.446,
-   0.681
+   0.467,
+   0.694
   ],
-  "role_adjusted": 0.609,
-  "taken": 0.72,
+  "role_adjusted": 0.624,
+  "taken": 0.796,
   "n": 173
  }
 }
