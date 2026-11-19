@@ -713,6 +713,44 @@
       ],
       "play": "Wait for a big fight, press R in the middle of all ten champions, then press it again. Nobody leaves, nobody dies, everybody heals.",
       "chef": "2026-11-16"
+    },
+    {
+      "id": "trundle-skibidi-pillar",
+      "champion": "Trundle",
+      "title": "Skibidi Pillar",
+      "tagline": "He stopped biting people. The pillar does all the talking now.",
+      "augments": [
+        "Terrain'd",
+        "Chain Reaction",
+        "Ice Cold",
+        "Bread And Butter"
+      ],
+      "core": 4,
+      "items": [
+        "Rylai's Crystal Scepter",
+        "Cosmic Drive",
+        "Shurelya's Battlesong",
+        "Frozen Heart",
+        "Luden's Echo",
+        "Ionian Boots of Lucidity"
+      ],
+      "why": "Trundle never uses Chomp. He spams Pillar of Ice until the enemy team is a pinball machine.",
+      "how": [
+        [
+          "Pillar of Ice",
+          "A button that knocks back whoever stands on it and slows everyone nearby. It normally deals no damage at all."
+        ],
+        [
+          "Augments",
+          "Rolled on Pillar of Ice: Terrain'd makes it hit everything around it, Chain Reaction bounces the knocked-back enemy into their friends, and Bread And Butter lets him drop a new pillar almost right away. Ice Cold makes the slow brutal."
+        ],
+        [
+          "Items",
+          "Rylai's and Frozen Heart pile on more slow, Luden's adds a spell hit, and Cosmic Drive and Shurelya's make every pillar come back faster."
+        ]
+      ],
+      "play": "Drop the pillar right under the enemy carry, aim them into a teammate, repeat. Never press Q.",
+      "chef": "2026-11-18"
     }
   ]
 }
