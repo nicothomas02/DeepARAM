@@ -124,5 +124,8 @@
  "Your settings, like motion, sound and page detail, follow you to every browser you sign in on.": "إعداداتك، مثل الحركة والصوت وتفاصيل الصفحة، تتبعك إلى كل متصفح تسجّل الدخول منه.",
  "Your name and icon": "اسمك وأيقونتك",
  "Pick a display name and a champion icon for your account.": "اختر اسمًا معروضًا وأيقونة بطل لحسابك.",
- "Free, and you never need your Riot password.": "مجاني، ولن تحتاج أبدًا إلى كلمة مرور Riot."
+ "Free, and you never need your Riot password.": "مجاني، ولن تحتاج أبدًا إلى كلمة مرور Riot.",
+ "Most played": "الأكثر لعبًا",
+ "Most played picks your most played champion from the games saved to your account, and changes when that does.": "يختار «الأكثر لعبًا» البطل الذي لعبت به أكثر من غيره في المباريات المحفوظة في حسابك، ويتغير عندما يتغير ذلك.",
+ "Most played picks your most played champion once games are saved to your account.": "يختار «الأكثر لعبًا» البطل الذي لعبت به أكثر من غيره بعد حفظ مبارياتك في حسابك."
 }

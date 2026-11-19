@@ -124,5 +124,8 @@
  "Your settings, like motion, sound and page detail, follow you to every browser you sign in on.": "Deine Einstellungen wie Bewegung, Ton und Seitendetails folgen dir in jeden Browser, in dem du angemeldet bist.",
  "Your name and icon": "Dein Name und Symbol",
  "Pick a display name and a champion icon for your account.": "Wähle einen Anzeigenamen und ein Champion-Symbol für dein Konto.",
- "Free, and you never need your Riot password.": "Kostenlos, und dein Riot-Passwort brauchst du nie."
+ "Free, and you never need your Riot password.": "Kostenlos, und dein Riot-Passwort brauchst du nie.",
+ "Most played": "Meistgespielt",
+ "Most played picks your most played champion from the games saved to your account, and changes when that does.": "Meistgespielt zeigt den Champion, den du in den in deinem Konto gespeicherten Spielen am meisten spielst, und wechselt mit ihm.",
+ "Most played picks your most played champion once games are saved to your account.": "Meistgespielt zeigt deinen meistgespielten Champion, sobald Spiele in deinem Konto gespeichert sind."
 }

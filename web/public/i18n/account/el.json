@@ -124,5 +124,8 @@
  "Your settings, like motion, sound and page detail, follow you to every browser you sign in on.": "Οι ρυθμίσεις σου, όπως κίνηση, ήχος και λεπτομέρεια σελίδας, σε ακολουθούν σε κάθε πρόγραμμα περιήγησης όπου συνδέεσαι.",
  "Your name and icon": "Το όνομα και το εικονίδιό σου",
  "Pick a display name and a champion icon for your account.": "Διάλεξε όνομα εμφάνισης και εικονίδιο champion για τον λογαριασμό σου.",
- "Free, and you never need your Riot password.": "Δωρεάν, και δεν χρειάζεσαι ποτέ τον κωδικό σου στη Riot."
+ "Free, and you never need your Riot password.": "Δωρεάν, και δεν χρειάζεσαι ποτέ τον κωδικό σου στη Riot.",
+ "Most played": "Πιο συχνός",
+ "Most played picks your most played champion from the games saved to your account, and changes when that does.": "Το «Πιο συχνός» διαλέγει τον champion που παίζεις περισσότερο στα παιχνίδια που είναι αποθηκευμένα στον λογαριασμό σου και αλλάζει όταν αλλάξει αυτός.",
+ "Most played picks your most played champion once games are saved to your account.": "Το «Πιο συχνός» διαλέγει τον champion που παίζεις περισσότερο μόλις αποθηκευτούν παιχνίδια στον λογαριασμό σου."
 }

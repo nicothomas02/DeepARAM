@@ -124,5 +124,8 @@
  "Your settings, like motion, sound and page detail, follow you to every browser you sign in on.": "Tvoje nastavení, třeba pohyb, zvuk a podrobnosti stránky, tě následují do každého prohlížeče, kde se přihlásíš.",
  "Your name and icon": "Tvoje jméno a ikona",
  "Pick a display name and a champion icon for your account.": "Vyber si zobrazované jméno a ikonu šampiona pro svůj účet.",
- "Free, and you never need your Riot password.": "Zdarma a heslo k Riotu nikdy nepotřebuješ."
+ "Free, and you never need your Riot password.": "Zdarma a heslo k Riotu nikdy nepotřebuješ.",
+ "Most played": "Nejhranější",
+ "Most played picks your most played champion from the games saved to your account, and changes when that does.": "Nejhranější vybere šampiona, kterého v hrách uložených na tvém účtu hraješ nejvíc, a změní se, když se změní on.",
+ "Most played picks your most played champion once games are saved to your account.": "Nejhranější vybere šampiona, kterého hraješ nejvíc, jakmile budou na tvém účtu uložené hry."
 }

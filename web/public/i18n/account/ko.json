@@ -124,5 +124,8 @@
  "Your settings, like motion, sound and page detail, follow you to every browser you sign in on.": "움직임, 소리, 페이지 상세도 같은 설정이 로그인한 모든 브라우저로 따라옵니다.",
  "Your name and icon": "내 이름과 아이콘",
  "Pick a display name and a champion icon for your account.": "계정에 쓸 표시 이름과 챔피언 아이콘을 고르세요.",
- "Free, and you never need your Riot password.": "무료이며, Riot 비밀번호는 전혀 필요 없습니다."
+ "Free, and you never need your Riot password.": "무료이며, Riot 비밀번호는 전혀 필요 없습니다.",
+ "Most played": "가장 많이 플레이",
+ "Most played picks your most played champion from the games saved to your account, and changes when that does.": "'가장 많이 플레이'는 계정에 저장된 게임에서 가장 많이 플레이한 챔피언을 보여 주며, 바뀌면 함께 바뀝니다.",
+ "Most played picks your most played champion once games are saved to your account.": "'가장 많이 플레이'는 계정에 게임이 저장되면 가장 많이 플레이한 챔피언을 보여 줍니다."
 }

@@ -124,5 +124,8 @@
  "Your settings, like motion, sound and page detail, follow you to every browser you sign in on.": "動き、サウンド、ページの詳細度などの設定が、サインインしたすべてのブラウザに引き継がれます。",
  "Your name and icon": "名前とアイコン",
  "Pick a display name and a champion icon for your account.": "アカウントの表示名とチャンピオンアイコンを選べます。",
- "Free, and you never need your Riot password.": "無料で、Riotのパスワードは一切不要です。"
+ "Free, and you never need your Riot password.": "無料で、Riotのパスワードは一切不要です。",
+ "Most played": "最多プレイ",
+ "Most played picks your most played champion from the games saved to your account, and changes when that does.": "「最多プレイ」はアカウントに保存された試合で最も多くプレイしたチャンピオンを表示し、それが変わると切り替わります。",
+ "Most played picks your most played champion once games are saved to your account.": "「最多プレイ」はアカウントに試合が保存されると、最も多くプレイしたチャンピオンを表示します。"
 }

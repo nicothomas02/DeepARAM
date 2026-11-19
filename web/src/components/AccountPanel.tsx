@@ -19,6 +19,10 @@ type Account = {
   /** Display name and champion icon, shown on this page. */
   name: string | null;
   icon: string | null;
+  /** "auto" (follow the most played champion, the default), "none", or a picked champion. */
+  iconChoice: string;
+  /** The most played champion in games saved to this account. */
+  mostPlayed: string | null;
   hasPassword: boolean;
   owner: boolean;
   data: { settings: Record<string, unknown> };
@@ -436,7 +440,8 @@ function ProfileCard({ account, refresh }: { account: Account; refresh: () => Pr
   const t = useT("account");
   const names = useNames();
   const [name, setName] = useState(account.name ?? "");
-  const [icon, setIcon] = useState(account.icon);
+  const [icon, setIcon] = useState(account.iconChoice ?? "auto");
+  const shownIcon = icon === "auto" ? account.mostPlayed : icon === "none" ? null : icon;
   const [search, setSearch] = useState("");
   const [msg, setMsg] = useState<Msg>(null);
   const q = search.trim().toLowerCase();
@@ -465,15 +470,27 @@ function ProfileCard({ account, refresh }: { account: Account; refresh: () => Pr
         <p className="acct-hint">{t("Your name and icon show on your account page. Your name also appears on builds you share in The Kitchen.")}</p>
         <details className="acct-icons">
           <summary>
-            {icon ? (
+            {shownIcon ? (
               // eslint-disable-next-line @next/next/no-img-element
-              <img src={`/icons/champions/${icon}.webp`} alt="" width={32} height={32} />
+              <img src={`/icons/champions/${shownIcon}.webp`} alt="" width={32} height={32} />
             ) : null}
             {t("Choose an icon")}
           </summary>
+          <p className="acct-hint">
+            {account.mostPlayed
+              ? t("Most played picks your most played champion from the games saved to your account, and changes when that does.")
+              : t("Most played picks your most played champion once games are saved to your account.")}
+          </p>
           <input type="search" placeholder={t("Search champions")} aria-label={t("Search champions")} value={search} onChange={(e) => setSearch(e.target.value)} />
           <div className="acct-icon-grid" role="radiogroup" aria-label={t("Icon")}>
-            <button type="button" role="radio" aria-checked={!icon} className={!icon ? "picked" : ""} onClick={() => setIcon(null)}>
+            <button type="button" role="radio" aria-checked={icon === "auto"} className={`wide${icon === "auto" ? " picked" : ""}`} onClick={() => setIcon("auto")}>
+              {account.mostPlayed ? (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img src={`/icons/champions/${account.mostPlayed}.webp`} alt="" width={28} height={28} />
+              ) : null}
+              {t("Most played")}
+            </button>
+            <button type="button" role="radio" aria-checked={icon === "none"} className={icon === "none" ? "picked" : ""} onClick={() => setIcon("none")}>
               {t("None")}
             </button>
             {shown.map(([id, n]) => (

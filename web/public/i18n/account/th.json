@@ -124,5 +124,8 @@
  "Your settings, like motion, sound and page detail, follow you to every browser you sign in on.": "การตั้งค่าของคุณ เช่น การเคลื่อนไหว เสียง และรายละเอียดหน้า จะตามคุณไปทุกเบราว์เซอร์ที่ลงชื่อเข้าใช้",
  "Your name and icon": "ชื่อและไอคอนของคุณ",
  "Pick a display name and a champion icon for your account.": "เลือกชื่อที่แสดงและไอคอนแชมเปียนสำหรับบัญชีของคุณ",
- "Free, and you never need your Riot password.": "ฟรี และไม่ต้องใช้รหัสผ่าน Riot เลย"
+ "Free, and you never need your Riot password.": "ฟรี และไม่ต้องใช้รหัสผ่าน Riot เลย",
+ "Most played": "เล่นบ่อยที่สุด",
+ "Most played picks your most played champion from the games saved to your account, and changes when that does.": "\"เล่นบ่อยที่สุด\" จะเลือกแชมเปี้ยนที่คุณเล่นบ่อยที่สุดจากเกมที่บันทึกไว้ในบัญชี และจะเปลี่ยนตามเมื่อแชมเปี้ยนนั้นเปลี่ยน",
+ "Most played picks your most played champion once games are saved to your account.": "\"เล่นบ่อยที่สุด\" จะเลือกแชมเปี้ยนที่คุณเล่นบ่อยที่สุดเมื่อมีเกมบันทึกไว้ในบัญชีแล้ว"
 }

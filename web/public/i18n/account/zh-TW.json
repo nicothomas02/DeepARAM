@@ -124,5 +124,8 @@
  "Your settings, like motion, sound and page detail, follow you to every browser you sign in on.": "你的設定（如動畫、聲音和頁面詳細程度）會同步到你登入的每個瀏覽器。",
  "Your name and icon": "你的暱稱和頭像",
  "Pick a display name and a champion icon for your account.": "為你的帳號選擇一個暱稱和英雄頭像。",
- "Free, and you never need your Riot password.": "免費，而且永遠不需要你的 Riot 密碼。"
+ "Free, and you never need your Riot password.": "免費，而且永遠不需要你的 Riot 密碼。",
+ "Most played": "最常使用",
+ "Most played picks your most played champion from the games saved to your account, and changes when that does.": "「最常使用」會選出你帳號中已儲存對戰裡玩得最多的英雄，並隨之變化。",
+ "Most played picks your most played champion once games are saved to your account.": "帳號中儲存對戰後，「最常使用」會選出你玩得最多的英雄。"
 }

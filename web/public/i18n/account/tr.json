@@ -124,5 +124,8 @@
  "Your settings, like motion, sound and page detail, follow you to every browser you sign in on.": "Hareket, ses ve sayfa ayrıntısı gibi ayarların giriş yaptığın her tarayıcıda seninle olur.",
  "Your name and icon": "Adın ve simgen",
  "Pick a display name and a champion icon for your account.": "Hesabın için bir görünen ad ve şampiyon simgesi seç.",
- "Free, and you never need your Riot password.": "Ücretsiz ve Riot şifrene asla gerek yok."
+ "Free, and you never need your Riot password.": "Ücretsiz ve Riot şifrene asla gerek yok.",
+ "Most played": "En çok oynanan",
+ "Most played picks your most played champion from the games saved to your account, and changes when that does.": "En çok oynanan, hesabına kaydedilen oyunlarda en çok oynadığın şampiyonu seçer ve o değişince değişir.",
+ "Most played picks your most played champion once games are saved to your account.": "En çok oynanan, hesabına oyunlar kaydedildiğinde en çok oynadığın şampiyonu seçer."
 }

@@ -124,5 +124,8 @@
  "Your settings, like motion, sound and page detail, follow you to every browser you sign in on.": "Setările tale, precum mișcarea, sunetul și detaliul paginii, te urmează în fiecare browser în care te conectezi.",
  "Your name and icon": "Numele și pictograma ta",
  "Pick a display name and a champion icon for your account.": "Alege un nume afișat și o pictogramă de campion pentru contul tău.",
- "Free, and you never need your Riot password.": "Gratuit, și nu ai nevoie niciodată de parola Riot."
+ "Free, and you never need your Riot password.": "Gratuit, și nu ai nevoie niciodată de parola Riot.",
+ "Most played": "Cel mai jucat",
+ "Most played picks your most played champion from the games saved to your account, and changes when that does.": "Cel mai jucat alege campionul pe care îl joci cel mai des în meciurile salvate în contul tău și se schimbă odată cu el.",
+ "Most played picks your most played champion once games are saved to your account.": "Cel mai jucat alege campionul pe care îl joci cel mai des după ce sunt salvate meciuri în contul tău."
 }
