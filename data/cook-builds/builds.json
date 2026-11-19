@@ -609,7 +609,7 @@
         "Circle of Death",
         "Don't Change the Channel",
         "Mosh Monster",
-        "Bread And Butter"
+        "Bread And Jam"
       ],
       "core": 4,
       "items": [
@@ -628,7 +628,7 @@
         ],
         [
           "Augments",
-          "Circle of Death turns his healing into damage, Don't Change the Channel shields him every second he sits, and Mosh Monster and Bread And Butter, rolled on Meditate, slow everyone around him and let him sit again almost right away."
+          "Circle of Death turns his healing into damage and Don't Change the Channel shields him every second he sits. Mosh Monster, rolled on Meditate, slows everyone around him, and Bread And Jam (his W) lets him sit again almost right away."
         ],
         [
           "Items",
@@ -723,15 +723,15 @@
         "Terrain'd",
         "Chain Reaction",
         "Ice Cold",
-        "Bread And Butter"
+        "Purist - Caster"
       ],
       "core": 4,
       "items": [
         "Rylai's Crystal Scepter",
+        "Imperial Mandate",
         "Cosmic Drive",
         "Shurelya's Battlesong",
         "Frozen Heart",
-        "Luden's Echo",
         "Ionian Boots of Lucidity"
       ],
       "why": "Trundle never uses Chomp. He spams Pillar of Ice until the enemy team is a pinball machine.",
@@ -742,14 +742,14 @@
         ],
         [
           "Augments",
-          "Rolled on Pillar of Ice: Terrain'd makes it hit everything around it, Chain Reaction bounces the knocked-back enemy into their friends, and Bread And Butter lets him drop a new pillar almost right away. Ice Cold makes the slow brutal."
+          "Rolled on Pillar of Ice: Terrain'd makes it hit everything around it and Chain Reaction bounces the knocked-back enemy into their friends. Ice Cold makes the slow brutal, and Purist - Caster turns the attack speed he never uses into more pillars."
         ],
         [
           "Items",
-          "Rylai's and Frozen Heart pile on more slow, Luden's adds a spell hit, and Cosmic Drive and Shurelya's make every pillar come back faster."
+          "Rylai's and Frozen Heart pile on more slow, Imperial Mandate marks everyone the pillar knocks back, and Cosmic Drive and Shurelya's make every pillar come back faster."
         ]
       ],
-      "play": "Drop the pillar right under the enemy carry, aim them into a teammate, repeat. Never press Q.",
+      "play": "Drop the pillar right under the enemy carry, aim them into a teammate, repeat. Never press Q, never right-click.",
       "chef": "2026-11-18"
     }
   ]

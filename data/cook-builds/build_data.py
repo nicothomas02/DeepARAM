@@ -84,6 +84,16 @@ def best_text(candidates, dv, s):
     return augment_text(pick, dv, s)
 
 
+def slot_text(text, dv):
+    """Bread And Butter / Jam / Cheese always affect Q / W / E, but their Mayhem tooltip says {{SpellName}} like the
+    rolled ability augments, which read as "chosen ability". Their data names the slot (QAbilityHaste), so say it."""
+    slots = {m.group(1) for k in dv for m in [re.match(r"([QWER])(?:Reduced)?AbilityHaste$", k)] if m}
+    if len(slots) == 1:
+        slot = slots.pop()
+        text = text.replace("Your chosen ability", "Your " + slot).replace("the chosen ability", "your " + slot)
+    return text
+
+
 def mayhem_augments():
     kiwi = json.loads(fetch(CD + "/game/maps/modespecificdata/kiwi.bin.json"))
     pool = {x["modeName"]: x["augmentList"] for x in json.loads(fetch(GD + "/augment-lists.json"))}["KIWI"]
@@ -104,7 +114,7 @@ def mayhem_augments():
             "id": e.get("AugmentPlatformId"),
             "name": name,
             "rarity": RARITY.get(e.get("rarity", 0), "Silver"),
-            "text": best_text([s(e.get("AugmentTooltipTra")), s(e.get("DescriptionTra"))], dv, s),
+            "text": slot_text(best_text([s(e.get("AugmentTooltipTra")), s(e.get("DescriptionTra"))], dv, s), dv),
             "icon_url": CD + "/game/" + re.sub(r"\.(tex|dds)$", ".png", e["AugmentSmallIconPath"].lower()),
         }
     return out

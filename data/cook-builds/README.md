@@ -80,8 +80,14 @@ Tests pass.
   hook into one of those.
 - **Any champion**, popular ones included (replaces the old "rarely picked champion" rule). Never repeat a
   champion or core-augment combo already in `builds.json`.
+- **Min-max one thing** (Nico, 2026-11-19). The build can be bad overall, but it must push one specific goal
+  as far as it goes, with the strongest augments and items for that goal (Purist - Caster or Infinite Recursion
+  over a weaker themed pick like a Bread augment). Every slot should serve the goal.
 - **Rare items too.** Items should be almost never built on that champion (`data/cn/builds/<champion id>.json`);
-  a couple of exceptions (boots, one enabler) are fine.
+  at most ONE item the champion already builds often (boots don't count).
+- **Ability slots.** Bread And Butter / Jam / Cheese always affect Q / W / E; other ability augments
+  (Terrain'd, Chain Reaction, Mosh Monster...) are rolled on one ability. Name the right ability on the card:
+  `check_build.py --text "<card text>"` blocks a slot-fixed augment tied to the wrong ability.
 - **Augments the champion is never seen taking are allowed** (the card notes it); `check_build.py --fun` must
   show no BLOCK.
 - **Meme / brainrot humour** is welcome in titles and taglines (Aura Farming, Certified Crashout, Skibidi Pillar),
