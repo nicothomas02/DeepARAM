@@ -4,9 +4,11 @@
 //   champion select   best picks for your team from your bench and your own champion (public data: each
 //                     champion's strength plus how it pairs with your allies, /data/team-fit.json). It only
 //                     suggests; it never picks, and it shows no player names.
-//   in game           the site owner only: the live chance to win and when a surrender pays off. Riot's rules
-//                     don't let apps draw conclusions for players during a game, so for everyone else the window
-//                     stays closed until the game is over. Owner = this Riot account is connected to the site
+//   in game           everyone: the augment panel (your champion's augments in ranking order, re-ranked by synergy
+//                     with the ones you mark as taken, plus a search) and the next item for your build. Build
+//                     suggestions are allowed; augment win rates are not, so the panel shows a ranking only.
+//                     The site owner only: also the live chance to win and when a surrender pays off. Riot's rules
+//                     don't let apps draw conclusions for players during a game, so nobody else gets that. Owner = this Riot account is connected to the site
 //                     owner's account (the site's /api/history "available" answer, as the My Stats helper asks).
 //   after the game    everyone: the predicted chance over the game, its turning points and from when a surrender
 //                     would have paid off (overlay.rs samples the game, review.rs works it out).
@@ -284,7 +286,9 @@ fn champ_select(app: &AppHandle, client: &Client) {
     }
 }
 
-fn live_game(app: &AppHandle, agent: &ureq::Agent, fit: &HashMap<String, f64>) {
+/// During a game, for everyone: the player's champion, level, items and whether they're dead, for the augment panel
+/// and the next item (build suggestions, which Riot allows). For the owner only, also the live chance to win.
+fn live_game(app: &AppHandle, agent: &ureq::Agent, fit: &HashMap<String, f64>, owner: bool) {
     let Some(data) = agent.get(LIVE).call().ok().and_then(|mut r| r.body_mut().read_json::<Value>().ok()) else {
         return;
     };
@@ -299,40 +303,49 @@ fn live_game(app: &AppHandle, agent: &ureq::Agent, fit: &HashMap<String, f64>) {
     }
     let me = data.get("activePlayer").and_then(|p| p.get("riotId")?.as_str().map(str::to_owned)).unwrap_or_default();
     let players = data.get("allPlayers").and_then(Value::as_array).cloned().unwrap_or_default();
-    let Some(team) = players
-        .iter()
-        .find(|p| p.get("riotId").and_then(Value::as_str) == Some(me.as_str()))
-        .and_then(|p| p.get("team")?.as_str().map(str::to_owned))
-    else {
+    let Some(row) = players.iter().find(|p| p.get("riotId").and_then(Value::as_str) == Some(me.as_str())) else {
         return;
     };
-    let events = data.get("events").and_then(|e| e.get("Events")?.as_array().cloned()).unwrap_or_default();
-    let p = review::chance(&sample_from(t, &team, &players, &events, fit));
-    let line = review::ff_line(t / 60.0);
-    let (hint, history) = {
-        let state = app.state::<Shared>();
-        let mut s = state.lock().unwrap();
-        if s.history.last().is_none_or(|(lt, _)| t - lt >= 15.0) {
-            s.history.push((t, p));
-        }
-        match line {
-            Some(l) if p < l => {
-                let since = *s.under_since.get_or_insert(t);
-                (t - since >= review::FF_HOLD, s.history.clone())
+    let team = row.get("team").and_then(Value::as_str).unwrap_or_default().to_owned();
+    let champ = row.get("rawChampionName").and_then(Value::as_str).and_then(champion_alias).unwrap_or_default();
+    let items: Vec<i64> = row
+        .get("items")
+        .and_then(Value::as_array)
+        .map(|a| a.iter().filter_map(|i| i.get("itemID")?.as_i64()).collect())
+        .unwrap_or_default();
+    let mut game = json!({
+        "t": t,
+        "champ": champ,
+        "level": row.get("level").and_then(Value::as_u64).unwrap_or(0),
+        "dead": row.get("isDead").and_then(Value::as_bool).unwrap_or(false),
+        "items": items,
+        "live": null,
+    });
+    if owner {
+        let events = data.get("events").and_then(|e| e.get("Events")?.as_array().cloned()).unwrap_or_default();
+        let p = review::chance(&sample_from(t, &team, &players, &events, fit));
+        let line = review::ff_line(t / 60.0);
+        let (hint, history) = {
+            let state = app.state::<Shared>();
+            let mut s = state.lock().unwrap();
+            if s.history.last().is_none_or(|(lt, _)| t - lt >= 15.0) {
+                s.history.push((t, p));
             }
-            _ => {
-                s.under_since = None;
-                (false, s.history.clone())
+            match line {
+                Some(l) if p < l => {
+                    let since = *s.under_since.get_or_insert(t);
+                    (t - since >= review::FF_HOLD, s.history.clone())
+                }
+                _ => {
+                    s.under_since = None;
+                    (false, s.history.clone())
+                }
             }
-        }
-    };
-    send(
-        app,
-        format!(
-            "window.showLive({})",
-            json!({ "t": t, "win": p, "ffLine": line, "ffHint": hint, "history": history.iter().map(|(a, b)| json!([a, b])).collect::<Vec<_>>() })
-        ),
-    );
+        };
+        let history: Vec<Value> = history.iter().map(|(a, b)| json!([a, b])).collect();
+        game["live"] = json!({ "win": p, "ffLine": line, "ffHint": hint, "history": history });
+    }
+    send(app, format!("window.showGame({game})"));
 }
 
 fn strengths() -> HashMap<String, f64> {
@@ -376,11 +389,10 @@ pub fn watch(app: AppHandle) {
                 .get("/lol-gameflow/v1/session")
                 .and_then(|s| s.get("gameData")?.get("queue")?.get("gameMode")?.as_str().map(str::to_owned));
             let mayhem = mode.as_deref() == Some(MAYHEM_MODE);
-            let changed = {
+            {
                 let state = app.state::<Shared>();
                 let mut s = state.lock().unwrap();
-                let changed = s.phase != phase;
-                if changed {
+                if s.phase != phase {
                     s.phase = phase.clone();
                     if phase == "ChampSelect" {
                         s.dismissed = false;
@@ -389,8 +401,7 @@ pub fn watch(app: AppHandle) {
                         s.last_live = 0.0;
                     }
                 }
-                changed
-            };
+            }
             let dismissed = app.state::<Shared>().lock().unwrap().dismissed;
             match phase.as_str() {
                 "ChampSelect" if mayhem && !dismissed => champ_select(&app, c),
@@ -406,13 +417,11 @@ pub fn watch(app: AppHandle) {
                             }
                         }
                     };
-                    if owner && !dismissed {
-                        if fit.0.is_none_or(|at| at.elapsed() > Duration::from_secs(3600)) {
+                    if !dismissed {
+                        if owner && fit.0.is_none_or(|at| at.elapsed() > Duration::from_secs(3600)) {
                             fit = (Some(Instant::now()), strengths());
                         }
-                        live_game(&app, &game_agent, &fit.1);
-                    } else if changed {
-                        close(&app); // everyone else sees the game's review once it's over
+                        live_game(&app, &game_agent, &fit.1, owner);
                     }
                 }
                 _ => {}
@@ -456,7 +465,7 @@ mod tests {
     #[test]
     fn companion_page_has_the_entry_points() {
         let page = include_str!("../../ui/companion.html");
-        for f in ["window.showPick", "window.showLive", "window.showReview", "Predicted"] {
+        for f in ["window.showPick", "window.showGame", "window.showReview", "Predicted"] {
             assert!(page.contains(f), "{f}");
         }
     }
