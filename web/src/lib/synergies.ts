@@ -137,7 +137,9 @@ export function championSynergies(id: number): SynTab[] {
       note: "Estimated from each augment's own score: no games record the pair together.",
     },
   ];
-  return tabs.filter((t) => t.rows.length).map((t) => ({ ...t, rows: t.rows.map(clean) }));
+  // "Augment combos" added two augments' own scores, which lists pairs that are just two strong augments; pairs that
+  // feed each other are on the champion page's Augment synergies panel instead (Nico, 2026-11-20).
+  return tabs.filter((t) => t.rows.length && t.id !== "combos").map((t) => ({ ...t, rows: t.rows.map(clean) }));
 }
 
 /** An augment's Synergies tabs: the champions it fits, the augments it pairs with, and the items built with it. */
@@ -202,7 +204,9 @@ export function augmentSynergies(id: number): SynTab[] {
     },
     { id: "items", label: "Items", what: "Item", rows: items, note: "Share of the champions who take this augment that build each item.", share: true },
   ];
-  return tabs.filter((t) => t.rows.length).map((t) => ({ ...t, rows: t.rows.map(clean) }));
+  // "Augment combos" added two augments' own scores, which lists pairs that are just two strong augments; pairs that
+  // feed each other are on the champion page's Augment synergies panel instead (Nico, 2026-11-20).
+  return tabs.filter((t) => t.rows.length && t.id !== "combos").map((t) => ({ ...t, rows: t.rows.map(clean) }));
 }
 
 /** Expected win rate for a build panel row (the champion page's Expected switch), keyed by family and items. */

@@ -258,7 +258,7 @@ export async function generateMetadata({
 // What a player checks mid-match comes first; stats and graphs follow, and More details sits last.
 const SPOTS = [
   { id: "augments", label: "Augments" },
-  { id: "combos", label: "Augment combinations" },
+  { id: "combos", label: "Augment synergies" },
   { id: "interactions", label: "Kit interactions" },
   { id: "upgrades", label: "Best upgrades" },
   { id: "synergies", label: "Synergies" },
@@ -370,6 +370,10 @@ export default async function ChampionPage({
         (y.deepScore ?? -1) - (x.deepScore ?? -1) || y.pickRate - x.pickRate,
     );
   const synergyPairs = augmentSynergy(c.alias, augRows.map((a) => a.id));
+  // Confirmed-mechanic pairs that add to each other, strongest first (the Augment synergies panel).
+  const gains = synergyPairs
+    .filter((r) => r.rule && (r.order ? Math.max(...r.order) : r.points) > 0)
+    .sort((x, y) => (y.order ? Math.max(...y.order) : y.points) - (x.order ? Math.max(...x.order) : x.points));
   const interactions = kitInteractions(c.alias, p.augments);
   const bestStart = p.starting[0];
   const bestSkill = bestRow(p.skills, 0.1);
@@ -734,48 +738,23 @@ export default async function ChampionPage({
               <AugmentTable rows={augRows} champion={c.alias} synergy={synergyPairs} />
             </Panel>
           )}
-          {est?.pairs.length ? (
+          {/* Augment synergies (Nico, 2026-11-20): pairs worth more than the sum of their parts, from confirmed
+              mechanics only (augment_synergy_rules.json). Pairs of two augments that are simply strong on their own
+              aren't listed, and nothing here comes from the Simulator. */}
+          {gains.length ? (
             <Panel
               id="combos"
-              title="Augment combinations"
-              count={est.pairs.length}
-              note={
-                SHOW_AUGMENT_WIN_RATES ? (
-                  <T ns={NS}>
-                    {
-                      "Estimated: augments that pair well on this champion, with their win rate together."
-                    }
-                  </T>
-                ) : (
-                  <T ns={NS}>{"Estimated: augments that pair well on this champion, best first."}</T>
-                )
-              }
+              title="Augment synergies"
+              count={gains.length}
+              note={<T ns={NS}>{"Augments that make each other stronger on this champion: worth more together than apart."}</T>}
             >
-              <Head what="Augment pair" cols={SHOW_AUGMENT_WIN_RATES ? ["Est. win rate", "Pick rate"] : ["Pick rate"]} />
-              <ShowMore total={est.pairs.length} limit={5}>
-                {est.pairs.map((r, i) => (
-                  <Row
-                    key={r.ids.join("-")}
-                    rank={i + 1}
-                    cols={SHOW_AUGMENT_WIN_RATES ? 2 : 1}
-                    cells={
-                      <>
-                        {SHOW_AUGMENT_WIN_RATES && <Cell value={pct(r.winRate)} label="Est. win rate" />}
-                        <Cell value={pct(r.pickRate)} label="Pick rate" />
-                      </>
-                    }
-                  >
+              <ShowMore total={gains.length} limit={5}>
+                {gains.map((r, i) => (
+                  <Row key={`${r.a}-${r.b}`} rank={i + 1} cols={1} cells={null}>
                     <span className="cp-pair">
-                      {r.ids.map((id) => (
+                      {[r.a, r.b].map((id) => (
                         <span key={id} className="cp-pair-one">
-                          <img
-                            className="cp-icon round"
-                            src={`/icons/augments/${id}.webp`}
-                            alt=""
-                            width={32}
-                            height={32}
-                            loading="lazy"
-                          />
+                          <img className="cp-icon round" src={`/icons/augments/${id}.webp`} alt="" width={32} height={32} loading="lazy" />
                           <span className="cp-name">
                             <Name kind="augments" id={id}>
                               {AUG_NAMES[id] ?? ""}
@@ -784,13 +763,18 @@ export default async function ChampionPage({
                         </span>
                       ))}
                     </span>
+                    {r.why && (
+                      <small className="cp-pair-why">
+                        {r.why}
+                      </small>
+                    )}
                   </Row>
                 ))}
               </ShowMore>
             </Panel>
           ) : (
-            <Panel id="combos" title="Augment combinations">
-              <NotYet text="Augment pairs appear here once enough games are in. Each pair needs a minimum number of games before it shows." />
+            <Panel id="combos" title="Augment synergies">
+              <NotYet text="No confirmed augment synergies for this champion yet." />
             </Panel>
           )}
           {interactions.length > 0 && <KitInteractions rows={interactions} />}
