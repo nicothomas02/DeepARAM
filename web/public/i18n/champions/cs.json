@@ -264,5 +264,10 @@
  "Vs mixed damage": "Proti smíšenému poškození",
  "Vs magic damage": "Proti magickému poškození",
  "Vs physical damage": "Proti fyzickému poškození",
- "After the core, swap in what the game calls for. Each situation comes from the item's own effect; its options are the ones bought with this core first, then best DeepScore.": "Po hlavním buildu kupujte, co hra vyžaduje. Situace vychází z efektu předmětu; nejdřív ty kupované s tímto buildem, pak nejlepší DeepScore."
+ "After the core, swap in what the game calls for. Each situation comes from the item's own effect; its options are the ones bought with this core first, then best DeepScore.": "Po hlavním buildu kupujte, co hra vyžaduje. Situace vychází z efektu předmětu; nejdřív ty kupované s tímto buildem, pak nejlepší DeepScore.",
+ "AD": "AD",
+ "Support": "Podpora",
+ "Tied": "Nerozhodně",
+ "Rush": "Nejdřív",
+ "With {augment}: buy {item} first": "S {augment}: kupte nejdřív {item}"
 }

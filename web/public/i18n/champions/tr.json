@@ -264,5 +264,10 @@
  "Vs mixed damage": "Karma hasara karşı",
  "Vs magic damage": "Büyü hasarına karşı",
  "Vs physical damage": "Fiziksel hasara karşı",
- "After the core, swap in what the game calls for. Each situation comes from the item's own effect; its options are the ones bought with this core first, then best DeepScore.": "Ana dizilimden sonra oyunun gerektirdiğini alın. Durum eşyanın kendi etkisinden gelir; önce bu dizilimle alınanlar, sonra en iyi DeepScore."
+ "After the core, swap in what the game calls for. Each situation comes from the item's own effect; its options are the ones bought with this core first, then best DeepScore.": "Ana dizilimden sonra oyunun gerektirdiğini alın. Durum eşyanın kendi etkisinden gelir; önce bu dizilimle alınanlar, sonra en iyi DeepScore.",
+ "AD": "AD",
+ "Support": "Destek",
+ "Tied": "Berabere",
+ "Rush": "Önce",
+ "With {augment}: buy {item} first": "{augment} ile: önce {item} alın"
 }

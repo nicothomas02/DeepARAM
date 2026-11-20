@@ -264,5 +264,10 @@
  "Vs mixed damage": "Chống sát thương hỗn hợp",
  "Vs magic damage": "Chống sát thương phép",
  "Vs physical damage": "Chống sát thương vật lý",
- "After the core, swap in what the game calls for. Each situation comes from the item's own effect; its options are the ones bought with this core first, then best DeepScore.": "Sau bộ lõi, mua thứ trận đấu cần. Mỗi tình huống dựa trên hiệu ứng của trang bị; ưu tiên món mua cùng bộ lõi này, rồi DeepScore cao nhất."
+ "After the core, swap in what the game calls for. Each situation comes from the item's own effect; its options are the ones bought with this core first, then best DeepScore.": "Sau bộ lõi, mua thứ trận đấu cần. Mỗi tình huống dựa trên hiệu ứng của trang bị; ưu tiên món mua cùng bộ lõi này, rồi DeepScore cao nhất.",
+ "AD": "AD",
+ "Support": "Hỗ trợ",
+ "Tied": "Ngang nhau",
+ "Rush": "Ưu tiên",
+ "With {augment}: buy {item} first": "Có {augment}: mua {item} trước"
 }

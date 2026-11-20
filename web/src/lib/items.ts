@@ -82,6 +82,12 @@ function recipeMap(): Map<number, Recipe> {
   return recipes;
 }
 
+/** An item's recipe parts and total price, from the client's item list. */
+export const itemRecipe = (id: number): { from: number[]; price: number } | undefined => {
+  const r = recipeMap().get(id);
+  return r ? { from: r.from ?? [], price: r.priceTotal ?? 0 } : undefined;
+};
+
 /** When to buy this item, from its shop text (lib/situations.ts), or null for a general item. */
 export const itemSituation = (id: number): Situation | null => {
   const r = recipeMap().get(id);

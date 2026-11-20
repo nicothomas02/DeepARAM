@@ -9,9 +9,11 @@ import { alongCore, bestRow, buildOrder, followed, scoreRows, sameStyle, situati
 export { bestRow, buildOrder, scoreRows, type ItemRow, type Rated };
 import { SIMULATOR_IN_STATS } from "./sim-policy";
 import type { Situation } from "./situations";
+import { rushParts, styleCores, upgradeSwaps } from "./build-plan";
 import {
   ITEM_TIERS,
   itemClasses,
+  itemRecipe,
   itemSituation,
   itemTier,
   ranked,
@@ -111,6 +113,12 @@ export type ChampionPage = {
   items: ItemRow[];
   /** Items to swap in after the core, by situation (vs healing, vs burst...). */
   situational: SituationRow[];
+  /** One entry per real build style when the champion has two (lib/build-plan.ts styleCores), else empty. */
+  buildStyles: { style: string; core: ItemRow; situational: SituationRow[]; rush: number[] }[];
+  /** Components to rush for the best core's first item. */
+  rush: number[];
+  /** Augments the champion takes that upgrade one of its items: with it, buy that item first. */
+  swaps: { augment: number; item: number }[];
   augments: AugmentRow[];
   mates: Mate[];
   styles: Style[];
@@ -248,6 +256,15 @@ export function championPage(alias: string): ChampionPage | null {
     full,
     items: noBoots ? single.filter((r) => r.tier !== "boots") : single,
     situational: situationalItems(core[0], single, full),
+    // A tab per real build style (tank and AP Alistar), each with its own situational items.
+    buildStyles: styleCores(core, itemClasses).map((s) => ({ ...s, situational: situationalItems(s.core, single, full), rush: rushParts(s.core.items[0], itemRecipe) })),
+    rush: core[0] ? rushParts(core[0].items[0], itemRecipe) : [],
+    swaps: upgradeSwaps(
+      [...augments].sort((x, y) => y.pickRate - x.pickRate),
+      [...(core[0]?.items ?? []), ...(core[0] ? sameStyle(single.filter((r) => r.tier === "legendary"), core[0].items, itemClasses) : []).map((r) => r.items[0])]
+        .filter((i, k, a) => a.indexOf(i) === k)
+        .flatMap((i) => (all.get(i) ? [{ id: i, name: all.get(i)!.name }] : [])),
+    ),
     augments,
     mates,
     styles,
@@ -261,7 +278,8 @@ export function championPage(alias: string): ChampionPage | null {
   const used = new Set(
     [page.starting, page.boots, page.core, page.full, page.items]
       .flat()
-      .flatMap((r) => (r.boots ? [r.boots, ...r.items] : r.items)),
+      .flatMap((r) => (r.boots ? [r.boots, ...r.items] : r.items))
+      .concat(page.rush, page.swaps.map((s) => s.item), page.buildStyles.flatMap((s) => s.rush)),
   );
   const itemInfo = Object.fromEntries(
     [...used].map((i) => [
@@ -343,9 +361,13 @@ function afterCore(core: ItemRow, single: ItemRow[], full: ItemRow[]): ItemRow[]
   );
 }
 
-/** Situational items after the best core: one row per situation with its best items (lib/situations.ts). */
+/** Situational items after a core: one row per situation with its best items (lib/situations.ts), the swaps
+ *  players make most often first (by the best option's pick rate). */
 function situationalItems(core: ItemRow | undefined, single: ItemRow[], full: ItemRow[]): SituationRow[] {
-  return core ? situational(sameStyle(afterCore(core, single, full), core.items, itemClasses), itemSituation) : [];
+  if (!core) return [];
+  return situational(sameStyle(afterCore(core, single, full), core.items, itemClasses), itemSituation).sort(
+    (x, y) => y.options[0].pickRate - x.options[0].pickRate,
+  );
 }
 
 // Starting items and boots use the fitted settings, which were backtested on them; builds and single items keep

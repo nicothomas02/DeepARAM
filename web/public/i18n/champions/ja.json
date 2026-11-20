@@ -264,5 +264,10 @@
  "Vs mixed damage": "混合ダメージ対策",
  "Vs magic damage": "魔法ダメージ対策",
  "Vs physical damage": "物理ダメージ対策",
- "After the core, swap in what the game calls for. Each situation comes from the item's own effect; its options are the ones bought with this core first, then best DeepScore.": "コアビルドの後は試合に合わせて買いましょう。状況はアイテム自体の効果から判断し、このコアと一緒に買われるものを優先し、次にDeepScore順です。"
+ "After the core, swap in what the game calls for. Each situation comes from the item's own effect; its options are the ones bought with this core first, then best DeepScore.": "コアビルドの後は試合に合わせて買いましょう。状況はアイテム自体の効果から判断し、このコアと一緒に買われるものを優先し、次にDeepScore順です。",
+ "AD": "AD",
+ "Support": "サポート",
+ "Tied": "互角",
+ "Rush": "先行",
+ "With {augment}: buy {item} first": "{augment}があれば：{item}を最初に"
 }

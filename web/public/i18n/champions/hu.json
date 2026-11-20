@@ -264,5 +264,10 @@
  "Vs mixed damage": "Vegyes sebzés ellen",
  "Vs magic damage": "Varázssebzés ellen",
  "Vs physical damage": "Fizikai sebzés ellen",
- "After the core, swap in what the game calls for. Each situation comes from the item's own effect; its options are the ones bought with this core first, then best DeepScore.": "Az alap build után vedd azt, amit a meccs kíván. A helyzet a tárgy hatásából jön; előbb az ezzel a builddel vett tárgyak, aztán a legjobb DeepScore."
+ "After the core, swap in what the game calls for. Each situation comes from the item's own effect; its options are the ones bought with this core first, then best DeepScore.": "Az alap build után vedd azt, amit a meccs kíván. A helyzet a tárgy hatásából jön; előbb az ezzel a builddel vett tárgyak, aztán a legjobb DeepScore.",
+ "AD": "AD",
+ "Support": "Support",
+ "Tied": "Holtverseny",
+ "Rush": "Először",
+ "With {augment}: buy {item} first": "{augment} mellett: először {item}"
 }

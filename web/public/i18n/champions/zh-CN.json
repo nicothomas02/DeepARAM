@@ -264,5 +264,10 @@
  "Vs mixed damage": "针对混合伤害",
  "Vs magic damage": "针对魔法伤害",
  "Vs physical damage": "针对物理伤害",
- "After the core, swap in what the game calls for. Each situation comes from the item's own effect; its options are the ones bought with this core first, then best DeepScore.": "核心出装后，按对局需要购买。情况由装备本身效果判断；先列出与此核心一起购买的装备，再按 DeepScore 排序。"
+ "After the core, swap in what the game calls for. Each situation comes from the item's own effect; its options are the ones bought with this core first, then best DeepScore.": "核心出装后，按对局需要购买。情况由装备本身效果判断；先列出与此核心一起购买的装备，再按 DeepScore 排序。",
+ "AD": "AD",
+ "Support": "辅助",
+ "Tied": "持平",
+ "Rush": "优先",
+ "With {augment}: buy {item} first": "有 {augment} 时：先买 {item}"
 }

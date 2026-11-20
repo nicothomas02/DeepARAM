@@ -24,6 +24,10 @@ export type QuickBuild = {
   items: Named[];
   /** Items to swap in after the core, each with when to buy it ("Vs healing"), as on the champion page's card. */
   situational: (Named & { when: string })[];
+  /** Components to rush for the first core item. */
+  rush: Named[];
+  /** "With this augment, buy this item first", as on the champion page's card. */
+  swaps: { augment: Named; item: Named }[];
   augments: Record<Rarity, Named[]>;
 };
 
@@ -45,6 +49,12 @@ export function quickBuilds(): QuickBuild[] {
     });
     const rawSpells = fillSpells(id, t?.winRate ?? p.winRate ?? 0.5);
     const spells = (rawSpells.some((r) => r.estimated) ? rawSpells : scoreRows(rawSpells))[0];
+    const rush = p.rush.flatMap((i) => named(i) ?? []);
+    const swaps = p.swaps.flatMap((sw) => {
+      const item = named(sw.item);
+      const a = p.augments.find((x) => x.id === sw.augment);
+      return item && a ? [{ augment: { name: a.name, icon: `/icons/augments/${a.id}.webp` }, item }] : [];
+    });
     // The site's one augment ranking for this champion (lib/champion-augments.ts), as on its page.
     const byScore = [...p.augments].sort(augmentOrder(augmentScores(id)));
     const augments = Object.fromEntries(
@@ -67,6 +77,8 @@ export function quickBuilds(): QuickBuild[] {
         spells: spells?.spells.map((s) => ({ name: s.name, icon: s.icon ?? null })) ?? [],
         items,
         situational,
+        rush,
+        swaps,
         augments,
       },
     ];

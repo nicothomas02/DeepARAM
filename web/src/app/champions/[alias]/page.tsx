@@ -64,6 +64,8 @@ import { ITEM_TIERS, rewardItems, type ItemTier } from "@/lib/items";
 import { championAugmentStages, championEstimates } from "@/lib/estimates";
 import { augmentScores, byScore, rankedAugments } from "@/lib/champion-augments";
 import { SITUATIONS } from "@/lib/situations";
+import StyleTabs from "@/components/champion/StyleTabs";
+import { tiedWith } from "@/lib/build-plan";
 import championIds from "@/data/champion-ids.json";
 import augmentNames from "@/data/augment-names.json";
 import descriptions from "@/data/descriptions.json";
@@ -191,6 +193,8 @@ const BOOTS_WHEN: Record<number, string> = {
   2: "Boots after the 2nd item",
   3: "Boots after the 3rd item",
 };
+// Build style tabs (lib/build-plan.ts buildStyle).
+const STYLE_LABEL: Record<string, string> = { ap: "AP", ad: "AD", tank: "Tank", support: "Support" };
 const BOOTS_HELP =
   "Core builds show the boots where the Simulator says to buy them: the first point where they add as much per gold as the next item.";
 // The slots after the core are narrow: win rate sits under the item's name, DeepScore on the right.
@@ -340,6 +344,80 @@ export default async function ChampionPage({
   const augBuilds = SIMULATOR_IN_STATS ? augmentBuilds(c.alias) : null;
   const changers = SIMULATOR_IN_STATS ? buildChangers(c.alias) : new Set<number>();
   const bestCore = p.core[0]; // the lists rank by DeepScore, which already trusts rare builds less
+  // The card's build plan for one core: the core in buying order with the parts to rush, augment swaps, then
+  // situational items (Nico, 2026-11-20). One per style tab when the champion has two real styles.
+  const buildPlan = (core: ItemRow, situ: typeof p.situational, rush: number[], swaps: typeof p.swaps) => (
+    <>
+      <div className="cp-best cp-best-wide">
+        <h4>
+          <T ns={NS}>Best core build</T>
+        </h4>
+        <ol className="cp-icons cp-buy-order">
+          {buildOrder(core).map((id) => (
+            <li key={id}>
+              <ItemIcon id={id} info={info} named />
+            </li>
+          ))}
+        </ol>
+        {rush.length > 0 && (
+          <p className="cp-rush">
+            <small>
+              <T ns={NS}>Rush</T>
+            </small>
+            {rush.map((id) => (
+              <ItemIcon key={id} id={id} info={info} named />
+            ))}
+          </p>
+        )}
+        {core.boots !== undefined && core.bootsAt !== undefined && (
+          <p className="cp-boots-when">
+            <T ns={NS}>{BOOTS_WHEN[core.bootsAt]}</T> <SimTag title={BOOTS_HELP} />
+          </p>
+        )}
+        <div className="cp-mini">
+          <RatedCells r={core} />
+        </div>
+        {swaps.length > 0 && (
+          <ul className="cp-swaps">
+            {swaps.map((sw) => (
+              <li key={sw.augment}>
+                <img className="cp-icon round" src={`/icons/augments/${sw.augment}.webp`} alt="" width={24} height={24} />
+                <T ns={NS} v={{ augment: AUG_NAMES[sw.augment] ?? "", item: info[sw.item]?.name ?? "" }}>
+                  {"With {augment}: buy {item} first"}
+                </T>
+              </li>
+            ))}
+          </ul>
+        )}
+        {p.buildsEstimated && (
+          <small className="cp-stale">
+            <T ns={NS}>{"Few games so far: estimated from earlier games and this patch's changes."}</T>
+          </small>
+        )}
+      </div>
+      {situ.length > 0 && (
+        <div className="cp-best cp-best-wide cp-best-sit">
+          <h4>
+            <T ns={NS}>Situational items</T>
+          </h4>
+          <ul className="cp-sit-mini">
+            {situ.map((st) => (
+              <li key={st.situation}>
+                <small>
+                  <T ns={NS}>{SITUATIONS[st.situation]}</T>
+                </small>
+                <span className="cp-icons">
+                  {st.options.slice(0, 2).map((r, i) => (
+                    <ItemIcon key={r.items[0]} id={r.items[0]} info={info} named={i === 0} />
+                  ))}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </>
+  );
   // Augments rank by their DeepScore on this champion, the same ranking the rest of the site uses (lib/champion-augments.ts).
   const scores = augmentScores(c.alias);
   // Each augment's share of this champion's picks at the 1st to 4th augment pick (estimated).
@@ -565,13 +643,37 @@ export default async function ChampionPage({
               </div>
           </TfStrip>
         )}
+        {/* One glance: the core, the best augments and the skill order; the card below has the detail. */}
+        {(bestCore || augRows.length > 0 || bestSkill) && (
+          <a className="cp-glance" href="#build" aria-label="Build at a glance">
+            {bestCore && (
+              <span className="cp-glance-part">
+                {buildOrder(bestCore).map((id) => (
+                  <ItemIcon key={id} id={id} info={info} />
+                ))}
+              </span>
+            )}
+            {augRows.length > 0 && (
+              <span className="cp-glance-part">
+                {augRows.slice(0, 3).map((a) => (
+                  <img key={a.id} className={`cp-icon round rarity-${a.rarity}`} src={`/icons/augments/${a.id}.webp`} alt={a.name} title={a.name} width={28} height={28} />
+                ))}
+              </span>
+            )}
+            {bestSkill && (
+              <span className="cp-glance-part">
+                <Keys keys={bestSkill.max} />
+              </span>
+            )}
+          </a>
+        )}
         <TimeframePicker patches={c.patches} buildPatches={historyPatches()} />
       </section>
 
       {/* Game card: everything needed for a game on one screen, in the order it comes up from champion select to
           late game (Nico, 2026-11-20). The taken-augments row (drag to replace) is planned to sit at its end. */}
       <TfCard alias={c.alias} patches={c.patches} matches={matches} spells={spellsTile}>
-      <section className="cp-game" aria-label="Build for your game">
+      <section className="cp-game" id="build" aria-label="Build for your game">
           {spellsTile}
           {bestStart && (
             <div className="cp-best">
@@ -624,53 +726,17 @@ export default async function ChampionPage({
               )}
             </div>
           )}
-          {bestCore && (
-            <div className="cp-best cp-best-wide">
-              <h4>
-                <T ns={NS}>Best core build</T>
-              </h4>
-              <div className="cp-icons">
-                {buildOrder(bestCore).map((id) => (
-                  <ItemIcon key={id} id={id} info={info} named />
-                ))}
-              </div>
-              {bestCore.boots !== undefined &&
-                bestCore.bootsAt !== undefined && (
-                  <p className="cp-boots-when">
-                    <T ns={NS}>{BOOTS_WHEN[bestCore.bootsAt]}</T>{" "}
-                    <SimTag title={BOOTS_HELP} />
-                  </p>
-                )}
-              <div className="cp-mini">
-                <RatedCells r={bestCore} />
-              </div>
-              {p.buildsEstimated && (
-                <small className="cp-stale">
-                  <T ns={NS}>{"Few games so far: estimated from earlier games and this patch's changes."}</T>
-                </small>
-              )}
-            </div>
-          )}
-          {p.situational.length > 0 && (
-            <div className="cp-best cp-best-wide cp-best-sit">
-              <h4>
-                <T ns={NS}>Situational items</T>
-              </h4>
-              <ul className="cp-sit-mini">
-                {p.situational.map((s) => (
-                  <li key={s.situation}>
-                    <small>
-                      <T ns={NS}>{SITUATIONS[s.situation]}</T>
-                    </small>
-                    <span className="cp-icons">
-                      {s.options.slice(0, 2).map((r, i) => (
-                        <ItemIcon key={r.items[0]} id={r.items[0]} info={info} named={i === 0} />
-                      ))}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+          {p.buildStyles.length > 1 ? (
+            <StyleTabs
+              tabs={p.buildStyles.map((st, i) => ({
+                key: st.style,
+                label: STYLE_LABEL[st.style] ?? st.style,
+                share: pct(st.core.pickRate),
+                panel: buildPlan(st.core, st.situational, st.rush, i === 0 ? p.swaps : []),
+              }))}
+            />
+          ) : (
+            bestCore && buildPlan(bestCore, p.situational, p.rush, p.swaps)
           )}
       </section>
       </TfCard>
@@ -843,6 +909,11 @@ export default async function ChampionPage({
                         <ItemIcon id={r.items[0]} info={info} />
                         <span className="cp-late-what">
                           <ItemName id={r.items[0]} info={info} />
+                          {i > 0 && tiedWith(s.options[0], r) && (
+                            <small className="cp-tied" title="Within noise of the top pick: either is fine.">
+                              <T ns={NS}>Tied</T>
+                            </small>
+                          )}
                           <small className={tone(r.lift)}>
                             <Sampled n={r.games} p={r.winRate}>
                               <T ns={NS} v={{ n: pct(r.winRate) }}>

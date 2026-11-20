@@ -264,5 +264,10 @@
  "Vs mixed damage": "Vs mixed damage",
  "Vs magic damage": "Vs magic damage",
  "Vs physical damage": "Vs physical damage",
- "After the core, swap in what the game calls for. Each situation comes from the item's own effect; its options are the ones bought with this core first, then best DeepScore.": "After the core, swap in what the game calls for. Each situation comes from the item's own effect; its options are the ones bought with this core first, then best DeepScore."
+ "After the core, swap in what the game calls for. Each situation comes from the item's own effect; its options are the ones bought with this core first, then best DeepScore.": "After the core, swap in what the game calls for. Each situation comes from the item's own effect; its options are the ones bought with this core first, then best DeepScore.",
+ "AD": "AD",
+ "Support": "Support",
+ "Tied": "Tied",
+ "Rush": "Rush",
+ "With {augment}: buy {item} first": "With {augment}: buy {item} first"
 }

@@ -264,5 +264,10 @@
  "Vs mixed damage": "Contra daño mixto",
  "Vs magic damage": "Contra daño mágico",
  "Vs physical damage": "Contra daño físico",
- "After the core, swap in what the game calls for. Each situation comes from the item's own effect; its options are the ones bought with this core first, then best DeepScore.": "Después de la build principal, compra lo que pida la partida. Cada situación sale del efecto del objeto; primero van los que se compran con esta build y luego el mejor DeepScore."
+ "After the core, swap in what the game calls for. Each situation comes from the item's own effect; its options are the ones bought with this core first, then best DeepScore.": "Después de la build principal, compra lo que pida la partida. Cada situación sale del efecto del objeto; primero van los que se compran con esta build y luego el mejor DeepScore.",
+ "AD": "AD",
+ "Support": "Soporte",
+ "Tied": "Empate",
+ "Rush": "Prioriza",
+ "With {augment}: buy {item} first": "Con {augment}: compra {item} primero"
 }

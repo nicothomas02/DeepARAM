@@ -1783,3 +1783,137 @@ html:not([data-raw]) .cp-row.aug-item {
 .cp-panel:has(.cp-th) .cp-row {
   align-items: center;
 }
+
+/* Build at a glance in the header: core, best augments, skill order (links to the card below). */
+.cp-glance {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 1rem;
+  margin-top: 0.6rem;
+  color: inherit;
+  text-decoration: none;
+}
+.cp-glance-part {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+.cp-glance-part + .cp-glance-part {
+  padding-left: 1rem;
+  border-left: 1px solid var(--line, rgba(127, 127, 127, 0.3));
+}
+.cp-glance .cp-icon {
+  width: 28px;
+  height: 28px;
+}
+.cp-glance .rarity-prismatic {
+  box-shadow: 0 0 0 2px #c9b8ff;
+}
+.cp-glance .rarity-gold {
+  box-shadow: 0 0 0 2px var(--gold, #e9b949);
+}
+.cp-glance .rarity-silver {
+  box-shadow: 0 0 0 2px var(--silver, #9aa3ad);
+}
+/* The core in buying order: 1 > 2 > 3. */
+.cp-game ol.cp-buy-order {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.cp-game ol.cp-buy-order > li {
+  display: inline-flex;
+  align-items: center;
+}
+.cp-game ol.cp-buy-order > li + li::before {
+  content: "›";
+  margin: 0 0.3rem;
+  color: var(--muted);
+  font-size: 18px;
+}
+.cp-rush {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0.4rem 0 0;
+  font-size: 14px;
+}
+.cp-rush small {
+  color: var(--muted);
+  font-size: 14px;
+}
+.cp-rush .cp-icon {
+  width: 24px;
+  height: 24px;
+}
+.cp-rush .cp-named {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  width: auto;
+}
+.cp-rush .cp-named > small {
+  display: inline;
+  color: inherit;
+}
+/* Augment-aware swaps under the core. */
+.cp-swaps {
+  list-style: none;
+  margin: 0.5rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0.3rem;
+  font-size: 14px;
+}
+.cp-swaps li {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.cp-swaps .cp-icon {
+  width: 24px;
+  height: 24px;
+}
+/* Build style tabs (AP / Tank...) on the card. */
+.cp-style-tabs {
+  grid-column: 1 / -1;
+  display: grid;
+  gap: 0.6rem;
+}
+.cp-style-tablist {
+  display: flex;
+  gap: 0.4rem;
+}
+.cp-style-tablist button {
+  font: inherit;
+  font-size: 14px;
+  padding: 0.35rem 0.8rem;
+  border-radius: 999px;
+  border: 1px solid var(--line, rgba(127, 127, 127, 0.35));
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+.cp-style-tablist button.on {
+  background: var(--accent-soft, rgba(127, 127, 255, 0.18));
+  border-color: var(--accent, #7f7fff);
+}
+.cp-style-tablist small {
+  color: var(--muted);
+  font-size: 14px;
+}
+.cp-style-panel {
+  display: grid;
+  gap: var(--cp-gap, 1rem);
+}
+.cp-tied {
+  margin-left: 0.4rem;
+  padding: 0 0.4rem;
+  border-radius: 6px;
+  font-size: 14px;
+  background: rgba(127, 127, 127, 0.18);
+}
+.cp-style-panel[hidden] {
+  display: none;
+}
