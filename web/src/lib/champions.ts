@@ -2,7 +2,6 @@ import "server-only";
 import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import championIds from "@/data/champion-ids.json";
-import augmentNames from "@/data/augment-names.json";
 import { champName, livePatch } from "./highlights";
 import { localAsset } from "./assets";
 import { official } from "./dd-swap";
@@ -19,7 +18,6 @@ export type { RadarAxis };
 
 const IDS = championIds as Record<string, number>;
 const ALIAS = Object.fromEntries(Object.entries(IDS).map(([alias, id]) => [id, alias]));
-const AUGS = augmentNames as Record<string, string>;
 
 // champion-ids.json also lists another mode's "Jade_<Alias>" stand-ins (ids 60000+); they aren't champions of their own.
 export const championAliases = () => Object.keys(IDS).filter((a) => !a.includes("_"));
@@ -117,7 +115,6 @@ export type ChampionSummary = {
   /** Estimated live-patch games behind winRate (lib/sample.ts), for its 95% range. */
   games?: number;
   change: number | null;
-  augments: { id: string; name: string }[];
   partners: { id: string; name: string; winRate: number }[];
   patches: string[];
   history: { patch: string; winRate: number; pickRate: number }[];
@@ -137,7 +134,6 @@ export function championSummary(alias: string): ChampionSummary | null {
   const me = live.find((c) => c.name === alias);
   const client = clientChampion(id);
   const skin = client?.skins?.[0];
-  const liveRow = patchRows().find((r) => r.patch === patch && r.name === alias);
   const partners = (readRepoJson<Champs>("data/cn/champions.json")?.champions.find((c) => c.name === alias)?.best_partners ?? [])
     .slice(0, 3)
     .map((p) => ({ id: ALIAS[p.champion_id], name: champName(ALIAS[p.champion_id] ?? ""), winRate: p.win_rate }))
@@ -158,11 +154,6 @@ export function championSummary(alias: string): ChampionSummary | null {
     pickRate: me?.pick_rate,
     games: me?.sample,
     change: me?.change ?? null,
-    augments: (liveRow?.augs ?? "")
-      .split(",")
-      .map((a) => a.trim())
-      .filter((a) => AUGS[a])
-      .map((a) => ({ id: a, name: AUGS[a] })),
     partners,
     patches: patchList(),
     history: patchRows()

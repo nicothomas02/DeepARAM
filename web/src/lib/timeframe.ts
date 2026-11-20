@@ -1,5 +1,5 @@
 import { FIT } from "./deepscore";
-import { bestRow, scoreRows, type ItemRow, type Rated } from "./card-score";
+import { alongCore, bestRow, followed, scoreRows, type ItemRow, type Rated } from "./card-score";
 import type { ItemTier } from "./items";
 
 // The champion page's top card over picked patches (Nico, 2026-11-20: patch, set or all time, several at once).
@@ -93,7 +93,7 @@ export function cardFor(file: HistFile, picked: string[], weight: Record<string,
 
   const boots = scoreRows(lists("boots"), FIT.items);
   const full = lists("full_builds");
-  const core = scoreRows(lists("core"))[0] ?? null;
+  const core = followed(scoreRows(lists("core")))[0] ?? null;
   let coreRow: ItemRow | null = core;
   if (core) {
     // The boots most bought alongside this core in six-item builds, else the best boots; bought last.
@@ -107,11 +107,15 @@ export function cardFor(file: HistFile, picked: string[], weight: Record<string,
   }
   const singles = [...lists("other"), ...lists("boots"), ...lists("starting")].filter((r) => r.items.length === 1);
   const taken = new Set(core?.items ?? []);
-  const pool = scoreRows(
-    singles.filter((r, i, all) => {
-      const id = r.items[0];
-      return file.items[id]?.tier === "legendary" && file.items[id].ranked && !taken.has(id) && all.findIndex((x) => x.items[0] === id) === i;
-    }),
+  const pool = alongCore(
+    scoreRows(
+      singles.filter((r, i, all) => {
+        const id = r.items[0];
+        return file.items[id]?.tier === "legendary" && file.items[id].ranked && !taken.has(id) && all.findIndex((x) => x.items[0] === id) === i;
+      }),
+    ),
+    core?.items ?? [],
+    full,
   );
   const late: Card["late"] = [];
   if (core)

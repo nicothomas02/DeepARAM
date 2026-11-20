@@ -4,7 +4,7 @@ import championIds from "@/data/champion-ids.json";
 import augmentNames from "@/data/augment-names.json";
 import { liveWithChange } from "./champions";
 import { FIT, type Fit } from "./deepscore";
-import { bestRow, buildOrder, scoreRows, type ItemRow, type Rated } from "./card-score";
+import { alongCore, bestRow, buildOrder, followed, scoreRows, type ItemRow, type Rated } from "./card-score";
 
 export { bestRow, buildOrder, scoreRows, type ItemRow, type Rated };
 import { SIMULATOR_IN_STATS } from "./sim-policy";
@@ -63,6 +63,8 @@ export type AugmentRow = {
   name: string;
   rarity: "prismatic" | "gold" | "silver";
   pickRate: number;
+  /** The feed's letter grade for this augment on this champion (S, A, B, C), when it has one. */
+  grade?: string;
   /** The game's own build tags, as style names (lib/build-tags.ts). */
   tags: string[];
 };
@@ -193,6 +195,7 @@ export function championPage(alias: string): ChampionPage | null {
       tags: officialStyleLabels(a.id),
       rarity: rarity.get(a.id) ?? "silver",
       pickRate: a.pick_rate,
+      grade: a.grade,
     }));
 
   // Win rate boost: the Duos list's numbers (lib/duos.ts), the synergy adjusted for how often a pair is played,
@@ -227,7 +230,7 @@ export function championPage(alias: string): ChampionPage | null {
   ]);
   const timing =
     (SIMULATOR_IN_STATS ? readRepoJson<BootsTiming>("data/estimates/boots_timing.json")?.champions[String(id)] : undefined) ?? {};
-  const core = withBoots(scoreItems(rows(b?.items?.core)), full, boots[0], timing);
+  const core = withBoots(followed(scoreItems(rows(b?.items?.core))), full, boots[0], timing);
   const page = {
     winRate: base,
     skills,
@@ -236,7 +239,7 @@ export function championPage(alias: string): ChampionPage | null {
     core,
     full,
     items: single,
-    late: lateSlots(core[0], single),
+    late: lateSlots(core[0], single, full),
     augments,
     mates,
     styles,
@@ -326,16 +329,19 @@ const LATE_SLOTS = [4, 5, 6];
 const LATE_OPTIONS = 4;
 
 /**
- * The 4th, 5th and 6th item after the best core: the champion's other legendary items, by DeepScore among
- * themselves. Each slot
+ * The 4th, 5th and 6th item after the best core: the champion's other legendary items, those bought with this core
+ * first, by DeepScore among themselves. Each slot
  * assumes the best pick of the slots before it was bought, so it drops out of the later slots' options.
  */
-function lateSlots(core: ItemRow | undefined, single: ItemRow[]): LateSlot[] {
+function lateSlots(core: ItemRow | undefined, single: ItemRow[], full: ItemRow[]): LateSlot[] {
   if (!core) return [];
   const taken = new Set(core.items);
   // Scored against each other: the core items would otherwise crowd every option to the bottom of the scale.
-  const pool = scoreItems(
-    single.filter((r) => r.tier === "legendary" && ranked(r.items[0]) && !taken.has(r.items[0])),
+  // Items bought with this core come first (lib/card-score.ts alongCore).
+  const pool = alongCore(
+    scoreItems(single.filter((r) => r.tier === "legendary" && ranked(r.items[0]) && !taken.has(r.items[0]))),
+    core.items,
+    full,
   );
   const slots: LateSlot[] = [];
   for (const slot of LATE_SLOTS) {

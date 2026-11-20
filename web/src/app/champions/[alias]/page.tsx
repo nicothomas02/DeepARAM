@@ -62,6 +62,7 @@ import {
 } from "@/lib/fill";
 import { ITEM_TIERS, rewardItems, type ItemTier } from "@/lib/items";
 import { championAugmentStages, championEstimates } from "@/lib/estimates";
+import { augmentScores, byScore, rankedAugments } from "@/lib/champion-augments";
 import championIds from "@/data/champion-ids.json";
 import augmentNames from "@/data/augment-names.json";
 import descriptions from "@/data/descriptions.json";
@@ -240,8 +241,9 @@ export async function generateMetadata({
     c.winRate !== undefined
       ? ` ${c.tier} tier, ${pct(c.winRate)} win rate on patch ${patchName(c.patch)}.`
       : "";
-  const augs = c.augments.length
-    ? ` Best augments: ${c.augments.map((a) => a.name).join(", ")}.`
+  const best = rankedAugments(c.alias).slice(0, 3);
+  const augs = best.length
+    ? ` Best augments: ${best.map((a) => a.name).join(", ")}.`
     : "";
   const meta = pageMeta(
     `/champions/${c.alias}`,
@@ -342,17 +344,8 @@ export default async function ChampionPage({
   const augBuilds = SIMULATOR_IN_STATS ? augmentBuilds(c.alias) : null;
   const changers = SIMULATOR_IN_STATS ? buildChangers(c.alias) : new Set<number>();
   const bestCore = p.core[0]; // the lists rank by DeepScore, which already trusts rare builds less
-  // Augments rank by their DeepScore on this champion: the estimated win rate with it here, trusted less when the
-  // champion rarely takes it (Nico, 2026-11-20: the Tier List's overall rating put Icathia's Fall, taken in 0.3% of
-  // Yasuo games for +0.2 pts, at the top of Yasuo's list).
-  const scores = new Map(
-    scoreRows(
-      p.augments.flatMap((a) => {
-        const e = est?.augments.get(a.id);
-        return e ? [{ id: a.id, winRate: e.winRate, pickRate: a.pickRate }] : [];
-      }),
-    ).map((r) => [r.id, r.deepScore]),
-  );
+  // Augments rank by their DeepScore on this champion, the same ranking the rest of the site uses (lib/champion-augments.ts).
+  const scores = augmentScores(c.alias);
   // Each augment's share of this champion's picks at the 1st to 4th augment pick (estimated).
   const pickStages = championAugmentStages(p.augments);
   const augRows = p.augments
@@ -367,10 +360,7 @@ export default async function ChampionPage({
       desc: AUG_DESC[String(a.id)],
       changesBuild: changers.has(a.id),
     }))
-    .sort(
-      (x, y) =>
-        (y.deepScore ?? -1) - (x.deepScore ?? -1) || y.pickRate - x.pickRate,
-    );
+    .sort(byScore(scores));
   const synergyPairs = augmentSynergy(c.alias, augRows.map((a) => a.id));
   // Confirmed-mechanic pairs that add to each other, strongest first (the Augment synergies panel).
   const gains = synergyPairs

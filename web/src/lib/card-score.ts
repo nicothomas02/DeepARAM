@@ -51,6 +51,34 @@ export function scoreRows<T extends { winRate: number; pickRate: number }>(list:
     .sort((x, y) => y.deepScore! - x.deepScore! || y.pickRate - x.pickRate);
 }
 
+/** Share of the most common row's pick rate a row needs to lead a list (FOLLOWED). */
+export const MIN_FOLLOWING = 0.25;
+
+/**
+ * The same rows with those that have a real following first (at least MIN_FOLLOWING of the most common row's pick
+ * rate), each group keeping its order. Builds are cut from the six-item builds players finish, so a build taken in
+ * 0.5% of games often shows a high win rate from a handful of long or lucky games; it stays in the list but can't
+ * lead it (Nico, 2026-11-20: the card showed rare builds over the strong common ones, e.g. AP over tank Alistar).
+ */
+export function followed<T extends { pickRate: number }>(rows: T[], share = MIN_FOLLOWING): T[] {
+  const top = Math.max(0, ...rows.map((r) => r.pickRate));
+  const ok = (r: T) => r.pickRate >= share * top;
+  return [...rows.filter(ok), ...rows.filter((r) => !ok(r))];
+}
+
+/**
+ * Single items with those bought alongside this core first: items in the six-item builds that share at least two
+ * of its three items, each group keeping its order. Without it a tank core could be followed by mage items that
+ * only the champion's AP players buy (Nico, 2026-11-20: make every champion's card read like a real build).
+ */
+export function alongCore<T extends { items: number[] }>(pool: T[], core: number[], full: { items: number[] }[]): T[] {
+  const along = new Set<number>();
+  for (const f of full) if (core.filter((i) => f.items.includes(i)).length >= Math.min(2, core.length)) f.items.forEach((i) => along.add(i));
+  if (!along.size) return pool;
+  const ok = (r: T) => along.has(r.items[0]);
+  return [...pool.filter(ok), ...pool.filter((r) => !ok(r))];
+}
+
 /** The row players should copy: most wins among rows with a real following (2% of games, or the top three). */
 export function bestRow<T extends Rated>(rows: T[], min = 0.02): T | null {
   const common = rows.filter((r, i) => r.pickRate >= min || i < 3);
