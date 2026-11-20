@@ -53,8 +53,15 @@ def slot_augments():
                 keys = set(re.findall(r"@spell([1-4])KeyBind@", (a.get("desc") or "") + (a.get("tooltip") or "")))
                 if len(keys) == 1:
                     out[_norm(a.get("name", ""))] = SLOTS[int(keys.pop()) - 1]
+        out.update(KNOWN_SLOTS)
         _cache["slots"] = out
     return _cache["slots"]
+
+
+# Slot-fixed augments whose game text doesn't show it, confirmed in game (data/cook-builds/MECHANICS.md).
+KNOWN_SLOTS = {
+    "terror": "R",  # always rolls on the ultimate (Nico 2026-11-20)
+}
 
 
 def abilities(champion_id):

@@ -131,6 +131,15 @@ damage over time), check the League wiki first.
 - **Volibear passive + BEES!!! + Statikk Shiv:** at full passive stacks his attacks chain lightning. BEES on-hit
   ticks and Statikk Shiv procs trigger that chain on every enemy hit, so the lightning spreads through the whole
   swarm (Nico).
+- **Terror:** always on R for every champion, never a rolled basic ability (Nico). check_build.py blocks it on
+  any other ability. Terror on Vayne's Tumble, Xin Zhao's E or Renekton's E is impossible.
+- **Vayne:** Tumble counts as a dash for Earthwake. Chain Reaction on Condemn likely stacks the rebound stun with
+  Condemn's own stun (Nico, guessing).
+- **Xin Zhao:** Chain Reaction goes on R (Crescent Guard) (Nico).
+- **Renekton:** both Slice and Dice dashes trigger Earthwake (Nico).
+- **Sion:** Stackosaurus Rex doubles his W Health stacks, and charging Q counts as a channel (Nico).
+- **Akshan:** RISE works with his R (each recast is a full R), and the R charge-up counts as a channel (Nico).
+- **Gragas:** Ravenous Bind heals off Chain Reaction knock-ups (Nico).
 - **Pin Cushion:** very weak damage for a prismatic, worse still on melee champions with few attacks (Nico).
 - **Pin Cushion on Ashe:** each arrow of her empowered Q volley counts as a separate hit (Nico). Zeri's Q (Burst Fire)
   likely works the same (Nico). Data check: Ashe is first on Pin Cushion's best-champions list and grades A
