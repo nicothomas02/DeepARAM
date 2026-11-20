@@ -7,7 +7,7 @@ import { pageMeta } from "@/lib/meta";
 export const metadata: Metadata = pageMeta(
   "/download",
   "Desktop app",
-  "Get the free DeepARAM app for Windows and Mac: champ select picks, your build and augment rankings in game, and patch alerts.",
+  "Get the free DeepARAM app for Windows: champ select picks, your build and augment rankings in game, and patch alerts.",
 );
 
 // The public desktop app (apps/desktop). Sharing games is opt-in: the app asks once on first launch, off unless the
@@ -16,7 +16,7 @@ export default function Download() {
   return (
     <>
       <Intro eyebrow="Desktop app" title="DeepARAM on your computer." art="habackground">
-        Free for Windows and Mac. Builds and augment picks for ARAM Mayhem, right when you need them.
+        Free for Windows. Builds and augment picks for ARAM Mayhem, right when you need them.
       </Intro>
 
       <DownloadButtons />
@@ -78,13 +78,6 @@ export default function Download() {
               <span>
                 Run the installer. The first time, Windows may say &quot;Windows protected your PC&quot;: choose More info, then Run anyway. Use Borderless or
                 Windowed mode in League to see the in-game panel.
-              </span>
-            </li>
-            <li>
-              <b>Mac (Apple silicon or Intel, macOS 11 or newer)</b>
-              <span>
-                Open the file and drag DeepARAM to Applications. The first time, macOS blocks it: open System Settings, then Privacy &amp; Security, and choose
-                Open Anyway.
               </span>
             </li>
           </ul>

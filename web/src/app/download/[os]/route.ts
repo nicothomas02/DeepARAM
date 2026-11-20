@@ -1,6 +1,6 @@
 import { APP_DOWNLOADS, isAppOs } from "@/lib/app-downloads";
 
-// GET /download/windows, /download/mac: streams the newest release's installer from deeparam.com itself, so the
+// GET /download/windows: streams the newest release's installer from deeparam.com itself, so the
 // download never points visitors anywhere else. Before the first release, it sends them back to /download.
 const RELEASES = "https://github.com/nicothomas02/DeepARAM/releases/latest/download/";
 

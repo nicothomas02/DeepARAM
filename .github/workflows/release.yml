@@ -1,6 +1,6 @@
 name: Release apps
 
-# Builds the Mac app, the Windows installers and the Linux packages and attaches them to one GitHub release, so every
+# Builds the Windows installers and the Linux packages and attaches them to one GitHub release, so every
 # download has one home. Start one by pushing a tag (git tag v0.2.0 && git push origin v0.2.0), or
 # from the Actions tab with "Run workflow" and a version.
 on:
@@ -23,58 +23,6 @@ env:
   VERSION: ${{ inputs.version || github.ref_name }}
 
 jobs:
-  mac:
-    name: Mac app
-    runs-on: macos-15
-    timeout-minutes: 30
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-      - name: Use the newest Xcode
-        run: sudo xcode-select -s "$(ls -d /Applications/Xcode_16*.app | sort -V | tail -1)" && xcodebuild -version
-      - name: Build DeepARAM.app for Apple silicon and Intel
-        run: VERSION="${VERSION#v}" UNIVERSAL=1 apps/macos/scripts/build-app.sh
-      - name: Zip it
-        # ditto keeps the app's signature and permissions, which a plain zip would lose.
-        run: ditto -c -k --keepParent apps/macos/build/DeepARAM.app "DeepARAM-mac-${VERSION#v}.zip"
-      - uses: actions/upload-artifact@v4
-        with:
-          name: release-mac
-          path: DeepARAM-mac-*.zip
-          if-no-files-found: error
-
-  mac-desktop:
-    name: Mac desktop app
-    runs-on: macos-15
-    timeout-minutes: 45
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-          cache: npm
-          cache-dependency-path: apps/desktop/package-lock.json
-      - uses: dtolnay/rust-toolchain@stable
-        with:
-          targets: aarch64-apple-darwin, x86_64-apple-darwin
-      - uses: Swatinem/rust-cache@v2
-        with:
-          workspaces: apps/desktop/src-tauri
-      - name: Build the .dmg for Apple silicon and Intel
-        working-directory: apps/desktop
-        run: |
-          npm ci
-          npx tauri build --target universal-apple-darwin
-      # A fixed name as well, so deeparam.com/download/mac always finds the newest one.
-      - name: Name it for the download page
-        run: cp apps/desktop/src-tauri/target/universal-apple-darwin/release/bundle/dmg/*.dmg DeepARAM-Mac.dmg
-      - uses: actions/upload-artifact@v4
-        with:
-          name: release-mac-desktop
-          path: DeepARAM-Mac.dmg
-          if-no-files-found: error
-
   windows:
     name: Windows installers
     runs-on: windows-latest
@@ -152,7 +100,7 @@ jobs:
 
   publish:
     name: Publish the release
-    needs: [mac, mac-desktop, windows, linux]
+    needs: [windows, linux]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/download-artifact@v4
@@ -169,8 +117,6 @@ jobs:
           ls -l files
           notes="DeepARAM apps $v.
 
-          - **Mac desktop app** (DeepARAM-Mac.dmg, Apple silicon and Intel): open it and drag DeepARAM to Applications. It isn't notarized yet, so the first time macOS blocks it: open System Settings > Privacy & Security and choose Open Anyway.
-          - **Mac site app** (DeepARAM-mac-$v.zip): the older Mac app that shows the site in a window.
           - **Windows** (DeepARAM-Windows-Setup.exe, or .msi): Windows may say \"Windows protected your PC\" the first time. Choose More info, then Run anyway.
           - **Linux** (.AppImage, .deb or .rpm, x86_64): the AppImage runs on most distributions after chmod +x; the .deb is for Debian and Ubuntu, the .rpm for Fedora and openSUSE."
           if gh release view "$tag" >/dev/null 2>&1; then

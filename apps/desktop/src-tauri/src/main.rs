@@ -66,9 +66,7 @@ const PAGE_SCRIPT: &str = r#"
 // What the page script tags the site with, and what the tray calls launching at sign-in.
 #[cfg(windows)]
 const PLATFORM: &str = "windows";
-#[cfg(target_os = "macos")]
-const PLATFORM: &str = "mac";
-#[cfg(not(any(windows, target_os = "macos")))]
+#[cfg(not(windows))]
 const PLATFORM: &str = "linux";
 #[cfg(windows)]
 const AUTOSTART_LABEL: &str = "Start with Windows";
