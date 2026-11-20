@@ -89,6 +89,12 @@ damage over time), check the League wiki first.
 - **Master of Duality:** Katarina's daggers count as ability hits, and all stacks fall off together after 5s
   without a hit (Nico).
 - **Multishot:** goes on Q for Vel'Koz, Ekko and Lux (Nico).
+- **Chain Reaction on Qiyana and Lee Sin:** Qiyana gets it on R (terrain shockwave, 250% damage). On Lee Sin's R
+  kick it possibly stacks with the kick's own hit on champions behind (Nico, not sure).
+- **Can't Touch This on Udyr:** only his R stance counts as an ultimate cast (Nico).
+- **One Hit Wonder + Purist - Caster:** pick order matters. Whichever is taken first decides how the ability's
+  cooldown works (reported online, per Nico; untested). One Hit Wonder ignores haste and scales damage with it,
+  while Purist - Caster also cuts total cooldowns by 10%.
 - **Pin Cushion:** very weak damage for a prismatic, worse still on melee champions with few attacks (Nico).
 - **Terrain'd:** the AP Trundle items (Horizon Focus, Bloodletter's, Cryptbloom, Imperial Mandate) likely center
   on it (Nico, probably).
