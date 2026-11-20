@@ -253,5 +253,16 @@
  "Items": "ไอเท็ม",
  "Win rate boosts": "อัตราชนะที่เพิ่มขึ้น",
  "Spells and skills": "สเปลและสกิล",
- "Stats": "สถิติ"
+ "Stats": "สถิติ",
+ "Situational items": "ไอเท็มตามสถานการณ์",
+ "Vs healing": "สู้การฮีล",
+ "Vs shields": "สู้โล่",
+ "Vs heavy crowd control": "สู้การควบคุมหนัก",
+ "Vs burst": "สู้ดาเมจระเบิด",
+ "Vs crit carries": "สู้แครี่คริติคอล",
+ "Vs tanks": "สู้แทงค์",
+ "Vs mixed damage": "สู้ดาเมจผสม",
+ "Vs magic damage": "สู้ดาเมจเวท",
+ "Vs physical damage": "สู้ดาเมจกายภาพ",
+ "After the core, swap in what the game calls for. Each situation comes from the item's own effect; its options are the ones bought with this core first, then best DeepScore.": "หลังบิลด์หลัก ให้ซื้อสิ่งที่เกมต้องการ สถานการณ์มาจากเอฟเฟกต์ของไอเท็มเอง โดยเรียงไอเท็มที่ซื้อคู่กับบิลด์นี้ก่อน แล้วตาม DeepScore"
 }

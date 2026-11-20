@@ -253,5 +253,16 @@
  "Items": "Obiecte",
  "Win rate boosts": "Creșteri ale ratei de victorie",
  "Spells and skills": "Vrăji și abilități",
- "Stats": "Statistici"
+ "Stats": "Statistici",
+ "Situational items": "Obiecte situaționale",
+ "Vs healing": "Contra vindecării",
+ "Vs shields": "Contra scuturilor",
+ "Vs heavy crowd control": "Contra mult control",
+ "Vs burst": "Contra burst",
+ "Vs crit carries": "Contra carry pe critic",
+ "Vs tanks": "Contra tancurilor",
+ "Vs mixed damage": "Contra daunelor mixte",
+ "Vs magic damage": "Contra daunelor magice",
+ "Vs physical damage": "Contra daunelor fizice",
+ "After the core, swap in what the game calls for. Each situation comes from the item's own effect; its options are the ones bought with this core first, then best DeepScore.": "După build-ul de bază, cumpără ce cere meciul. Situația vine din efectul obiectului; întâi cele cumpărate cu acest build, apoi cel mai bun DeepScore."
 }

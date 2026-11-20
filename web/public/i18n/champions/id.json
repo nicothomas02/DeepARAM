@@ -253,5 +253,16 @@
  "Items": "Item",
  "Win rate boosts": "Peningkatan win rate",
  "Spells and skills": "Spell dan skill",
- "Stats": "Statistik"
+ "Stats": "Statistik",
+ "Situational items": "Item situasional",
+ "Vs healing": "Lawan penyembuhan",
+ "Vs shields": "Lawan perisai",
+ "Vs heavy crowd control": "Lawan banyak crowd control",
+ "Vs burst": "Lawan burst",
+ "Vs crit carries": "Lawan carry kritikal",
+ "Vs tanks": "Lawan tank",
+ "Vs mixed damage": "Lawan damage campuran",
+ "Vs magic damage": "Lawan magic damage",
+ "Vs physical damage": "Lawan physical damage",
+ "After the core, swap in what the game calls for. Each situation comes from the item's own effect; its options are the ones bought with this core first, then best DeepScore.": "Setelah build inti, beli yang dibutuhkan pertandingan. Situasi berasal dari efek item itu sendiri; yang dibeli bersama build ini didahulukan, lalu DeepScore terbaik."
 }

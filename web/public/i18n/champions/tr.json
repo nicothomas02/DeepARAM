@@ -253,5 +253,16 @@
  "Items": "Eşyalar",
  "Win rate boosts": "Kazanma oranı artışları",
  "Spells and skills": "Büyüler ve yetenekler",
- "Stats": "İstatistikler"
+ "Stats": "İstatistikler",
+ "Situational items": "Duruma göre eşyalar",
+ "Vs healing": "İyileşmeye karşı",
+ "Vs shields": "Kalkanlara karşı",
+ "Vs heavy crowd control": "Yoğun kitle kontrolüne karşı",
+ "Vs burst": "Ani hasara karşı",
+ "Vs crit carries": "Kritik taşıyıcılara karşı",
+ "Vs tanks": "Tanklara karşı",
+ "Vs mixed damage": "Karma hasara karşı",
+ "Vs magic damage": "Büyü hasarına karşı",
+ "Vs physical damage": "Fiziksel hasara karşı",
+ "After the core, swap in what the game calls for. Each situation comes from the item's own effect; its options are the ones bought with this core first, then best DeepScore.": "Ana dizilimden sonra oyunun gerektirdiğini alın. Durum eşyanın kendi etkisinden gelir; önce bu dizilimle alınanlar, sonra en iyi DeepScore."
 }

@@ -253,5 +253,16 @@
  "Items": "Předměty",
  "Win rate boosts": "Zvýšení win rate",
  "Spells and skills": "Kouzla a schopnosti",
- "Stats": "Statistiky"
+ "Stats": "Statistiky",
+ "Situational items": "Situační předměty",
+ "Vs healing": "Proti léčení",
+ "Vs shields": "Proti štítům",
+ "Vs heavy crowd control": "Proti silnému CC",
+ "Vs burst": "Proti burstu",
+ "Vs crit carries": "Proti kritovým carry",
+ "Vs tanks": "Proti tankům",
+ "Vs mixed damage": "Proti smíšenému poškození",
+ "Vs magic damage": "Proti magickému poškození",
+ "Vs physical damage": "Proti fyzickému poškození",
+ "After the core, swap in what the game calls for. Each situation comes from the item's own effect; its options are the ones bought with this core first, then best DeepScore.": "Po hlavním buildu kupujte, co hra vyžaduje. Situace vychází z efektu předmětu; nejdřív ty kupované s tímto buildem, pak nejlepší DeepScore."
 }

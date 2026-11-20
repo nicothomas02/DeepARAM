@@ -253,5 +253,16 @@
  "Items": "Items",
  "Win rate boosts": "Siegquoten-Boni",
  "Spells and skills": "Zauber und Fähigkeiten",
- "Stats": "Statistiken"
+ "Stats": "Statistiken",
+ "Situational items": "Situative Items",
+ "Vs healing": "Gegen Heilung",
+ "Vs shields": "Gegen Schilde",
+ "Vs heavy crowd control": "Gegen viel Crowd Control",
+ "Vs burst": "Gegen Burst",
+ "Vs crit carries": "Gegen Krit-Carrys",
+ "Vs tanks": "Gegen Tanks",
+ "Vs mixed damage": "Gegen gemischten Schaden",
+ "Vs magic damage": "Gegen magischen Schaden",
+ "Vs physical damage": "Gegen normalen Schaden",
+ "After the core, swap in what the game calls for. Each situation comes from the item's own effect; its options are the ones bought with this core first, then best DeepScore.": "Nach dem Kern-Build kauft ihr, was das Spiel verlangt. Jede Situation ergibt sich aus dem Effekt des Items; zuerst kommen Items, die mit diesem Kern gekauft werden, dann der beste DeepScore."
 }

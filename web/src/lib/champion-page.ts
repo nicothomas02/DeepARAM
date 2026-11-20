@@ -4,12 +4,15 @@ import championIds from "@/data/champion-ids.json";
 import augmentNames from "@/data/augment-names.json";
 import { liveWithChange } from "./champions";
 import { FIT, type Fit } from "./deepscore";
-import { alongCore, bestRow, buildOrder, followed, scoreRows, skipsBoots, type ItemRow, type Rated } from "./card-score";
+import { alongCore, bestRow, buildOrder, followed, scoreRows, sameStyle, situational, skipsBoots, type ItemRow, type Rated } from "./card-score";
 
 export { bestRow, buildOrder, scoreRows, type ItemRow, type Rated };
 import { SIMULATOR_IN_STATS } from "./sim-policy";
+import type { Situation } from "./situations";
 import {
   ITEM_TIERS,
+  itemClasses,
+  itemSituation,
   itemTier,
   ranked,
   items,
@@ -56,7 +59,8 @@ type Builds = {
 /** Per champion id: core build ("id,id,id") -> boots id -> core items bought before the boots. */
 type BootsTiming = { champions: Record<string, Record<string, Record<string, number>>> };
 /** The options for one item slot after the core (4th, 5th, 6th), best DeepScore first. */
-export type LateSlot = { slot: number; options: ItemRow[] };
+/** A situation the champion's items answer, with its best items (lib/card-score.ts situational). */
+export type SituationRow = { situation: Situation; options: ItemRow[] };
 export type SkillRow = Rated & { max: string[]; levels: string[] };
 export type AugmentRow = {
   id: number;
@@ -105,8 +109,8 @@ export type ChampionPage = {
   core: ItemRow[];
   full: ItemRow[];
   items: ItemRow[];
-  /** What to buy after the best core: the 4th, 5th and 6th item. */
-  late: LateSlot[];
+  /** Items to swap in after the core, by situation (vs healing, vs burst...). */
+  situational: SituationRow[];
   augments: AugmentRow[];
   mates: Mate[];
   styles: Style[];
@@ -243,7 +247,7 @@ export function championPage(alias: string): ChampionPage | null {
     core,
     full,
     items: noBoots ? single.filter((r) => r.tier !== "boots") : single,
-    late: lateSlots(core[0], single, full),
+    situational: situationalItems(core[0], single, full),
     augments,
     mates,
     styles,
@@ -329,34 +333,19 @@ function withBoots(
   });
 }
 
-const LATE_SLOTS = [4, 5, 6];
-const LATE_OPTIONS = 4;
-
-/**
- * The 4th, 5th and 6th item after the best core: the champion's other legendary items, those bought with this core
- * first, by DeepScore among themselves. Each slot
- * assumes the best pick of the slots before it was bought, so it drops out of the later slots' options.
- */
-function lateSlots(core: ItemRow | undefined, single: ItemRow[], full: ItemRow[]): LateSlot[] {
-  if (!core) return [];
-  const taken = new Set(core.items);
-  // Scored against each other: the core items would otherwise crowd every option to the bottom of the scale.
-  // Items bought with this core come first (lib/card-score.ts alongCore).
-  const pool = alongCore(
-    scoreItems(single.filter((r) => r.tier === "legendary" && ranked(r.items[0]) && !taken.has(r.items[0]))),
+/** The legendary items to pick from after this core: scored against each other (the core items would otherwise
+ *  crowd every option to the bottom of the scale), items bought with this core first (lib/card-score.ts alongCore). */
+function afterCore(core: ItemRow, single: ItemRow[], full: ItemRow[]): ItemRow[] {
+  return alongCore(
+    scoreItems(single.filter((r) => r.tier === "legendary" && ranked(r.items[0]) && !core.items.includes(r.items[0]))),
     core.items,
     full,
   );
-  const slots: LateSlot[] = [];
-  for (const slot of LATE_SLOTS) {
-    const options = pool
-      .filter((r) => !taken.has(r.items[0]))
-      .slice(0, LATE_OPTIONS);
-    if (!options.length) break;
-    slots.push({ slot, options });
-    taken.add(options[0].items[0]);
-  }
-  return slots;
+}
+
+/** Situational items after the best core: one row per situation with its best items (lib/situations.ts). */
+function situationalItems(core: ItemRow | undefined, single: ItemRow[], full: ItemRow[]): SituationRow[] {
+  return core ? situational(sameStyle(afterCore(core, single, full), core.items, itemClasses), itemSituation) : [];
 }
 
 // Starting items and boots use the fitted settings, which were backtested on them; builds and single items keep

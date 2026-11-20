@@ -174,30 +174,47 @@
 .cp-best-augs .cp-named.rarity-silver .cp-icon {
   box-shadow: 0 0 0 2px var(--silver, #9aa3ad);
 }
-/* Items 4 to 6 on the game card: a column per slot, its top three picks listed as small icon and name. */
-.cp-game .cp-best-late .cp-late-mini {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-.cp-game .cp-best-late .cp-late-mini > div,
-.cp-game .cp-best-late .cp-icons {
+/* Situational items on the game card: one line per situation (vs healing, vs burst...), its best item named and
+   the runner-up as an icon. Two columns where there's room. */
+.cp-game .cp-sit-mini {
+  list-style: none;
+  margin: 0;
+  padding: 0;
   display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  align-items: start;
-  gap: 0.3rem;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  gap: 0.4rem 1rem;
 }
-.cp-game .cp-best-late .cp-named {
+.cp-game .cp-sit-mini li {
+  display: grid;
+  grid-template-columns: 9.5rem minmax(0, 1fr);
+  align-items: center;
+  gap: 0.5rem;
+}
+.cp-game .cp-sit-mini small {
+  font-size: 14px;
+  color: var(--muted, inherit);
+}
+.cp-game .cp-sit-mini .cp-icons {
   display: flex;
   align-items: center;
-  justify-items: start;
+  gap: 0.4rem;
+  flex-wrap: nowrap;
+}
+.cp-game .cp-sit-mini .cp-named {
+  display: flex;
+  align-items: center;
   gap: 0.4rem;
   width: auto;
   text-align: left;
 }
-.cp-game .cp-best-late .cp-named small {
+.cp-game .cp-sit-mini .cp-named > small {
+  display: inline;
+  color: inherit;
+  font-size: 14px;
   text-align: left;
   hyphens: none;
 }
-.cp-game .cp-best-late .cp-icon {
+.cp-game .cp-sit-mini .cp-icon {
   width: 30px;
   height: 30px;
 }
@@ -1325,24 +1342,6 @@ html[data-view="simple"] .cp-fold:not([data-open]) > .cp-fold-body {
     border-left: 0;
   }
 }
-/* Quick build: the top options for each slot after the core. */
-.cp-late-mini {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0.5rem;
-}
-.cp-late-mini > div {
-  display: grid;
-  gap: 0.3rem;
-}
-.cp-late-mini small {
-  color: var(--muted);
-  font-size: 0.875rem;
-}
-.cp-late-mini .cp-icon {
-  width: 28px;
-  height: 28px;
-}
 .cp-late .cp-what {
   flex-wrap: nowrap;
 }
@@ -1380,20 +1379,6 @@ html[data-view="simple"] .cp-fold:not([data-open]) > .cp-fold-body {
     text-align: center;
     overflow-wrap: break-word;
     hyphens: auto;
-  }
-  /* Later items: one slot per line, its label beside the two most common picks. */
-  .cp-late-mini {
-    grid-template-columns: minmax(0, 1fr);
-  }
-  .cp-late-mini > div {
-    grid-template-columns: 4.5rem minmax(0, 1fr);
-    align-items: start;
-  }
-  .cp-late-mini > div > small {
-    padding-top: 0.4rem;
-  }
-  .cp-late-mini .cp-icons {
-    flex-wrap: nowrap;
   }
 }
 

@@ -1,11 +1,12 @@
 // The champion page's quick build for every champion, with names and icons resolved: skill order, summoner
-// spells, boots, core and late items, and the top augments by DeepScore. Feeds /data/watch.json (Apple Watch)
+// spells, boots, core and situational items, and the top augments as ranked on the page. Feeds /data/watch.json (Apple Watch)
 // and /data/overlay.json (the desktop app's in-game overlay).
-import { augmentTiers } from "@/lib/augment-tiers";
+import { augmentScores, byScore as augmentOrder } from "@/lib/champion-augments";
 import { bestRow, buildOrder, championPage, scoreRows } from "@/lib/champion-page";
 import { champList } from "@/lib/champions";
 import { fillSpells } from "@/lib/fill";
 import { liveTiers } from "@/lib/highlights";
+import { SITUATIONS } from "@/lib/situations";
 
 export const RARITIES = ["prismatic", "gold", "silver"] as const;
 export type Rarity = (typeof RARITIES)[number];
@@ -19,29 +20,33 @@ export type QuickBuild = {
   deepScore: number | null;
   skills: string[];
   spells: Named[];
+  /** Boots (when the champion buys them) and the best core, in buying order. */
   items: Named[];
+  /** Items to swap in after the core, each with when to buy it ("Vs healing"), as on the champion page's card. */
+  situational: (Named & { when: string })[];
   augments: Record<Rarity, Named[]>;
 };
 
 export function quickBuilds(): QuickBuild[] {
   const tiers = new Map(liveTiers().map((t) => [t.id, t]));
-  const scores = new Map(augmentTiers().map((a) => [a.id, a.deepScore]));
   return champList().flatMap(({ id, name }) => {
     const p = championPage(id);
     if (!p) return [];
     const t = tiers.get(id);
-    // Same picks as the champion page's "Best" column: boots, the best core, then the top pick for the
-    // 4th, 5th and 6th slot.
+    // Same picks as the champion page's card: the best core (with boots when the champion buys them), then the
+    // best item for each situation.
     const core = p.core[0];
-    const itemIds = core ? [...buildOrder(core), ...p.late.map((s) => s.options[0]?.items[0])] : [];
-    const items = [...new Set(itemIds)].flatMap((i) =>
-      i !== undefined && p.itemInfo[i] ? [{ name: p.itemInfo[i].name, icon: p.itemInfo[i].icon ?? null }] : [],
-    );
+    const named = (i: number | undefined) =>
+      i !== undefined && p.itemInfo[i] ? { name: p.itemInfo[i].name, icon: p.itemInfo[i].icon ?? null } : null;
+    const items = (core ? buildOrder(core) : []).flatMap((i) => named(i) ?? []);
+    const situational = p.situational.flatMap((s) => {
+      const n = named(s.options[0]?.items[0]);
+      return n ? [{ ...n, when: SITUATIONS[s.situation] }] : [];
+    });
     const rawSpells = fillSpells(id, t?.winRate ?? p.winRate ?? 0.5);
     const spells = (rawSpells.some((r) => r.estimated) ? rawSpells : scoreRows(rawSpells))[0];
-    const byScore = [...p.augments].sort(
-      (x, y) => (scores.get(y.id) ?? -1) - (scores.get(x.id) ?? -1) || y.pickRate - x.pickRate,
-    );
+    // The site's one augment ranking for this champion (lib/champion-augments.ts), as on its page.
+    const byScore = [...p.augments].sort(augmentOrder(augmentScores(id)));
     const augments = Object.fromEntries(
       RARITIES.map((r) => [
         r,
@@ -61,6 +66,7 @@ export function quickBuilds(): QuickBuild[] {
         skills: bestRow(p.skills, 0.1)?.max ?? [],
         spells: spells?.spells.map((s) => ({ name: s.name, icon: s.icon ?? null })) ?? [],
         items,
+        situational,
         augments,
       },
     ];

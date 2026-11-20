@@ -63,6 +63,7 @@ import {
 import { ITEM_TIERS, rewardItems, type ItemTier } from "@/lib/items";
 import { championAugmentStages, championEstimates } from "@/lib/estimates";
 import { augmentScores, byScore, rankedAugments } from "@/lib/champion-augments";
+import { SITUATIONS } from "@/lib/situations";
 import championIds from "@/data/champion-ids.json";
 import augmentNames from "@/data/augment-names.json";
 import descriptions from "@/data/descriptions.json";
@@ -192,11 +193,6 @@ const BOOTS_WHEN: Record<number, string> = {
 };
 const BOOTS_HELP =
   "Core builds show the boots where the Simulator says to buy them: the first point where they add as much per gold as the next item.";
-const SLOT_LABEL: Record<number, string> = {
-  4: "4th item",
-  5: "5th item",
-  6: "6th item",
-};
 // The slots after the core are narrow: win rate sits under the item's name, DeepScore on the right.
 function LateScore({ r }: { r: ItemRow }) {
   return (
@@ -655,25 +651,25 @@ export default async function ChampionPage({
               )}
             </div>
           )}
-          {p.late.length > 0 && (
-            <div className="cp-best cp-best-wide cp-best-late">
+          {p.situational.length > 0 && (
+            <div className="cp-best cp-best-wide cp-best-sit">
               <h4>
-                <T ns={NS}>Items 4 to 6</T>
+                <T ns={NS}>Situational items</T>
               </h4>
-              <div className="cp-late-mini">
-                {p.late.map((s) => (
-                  <div key={s.slot}>
+              <ul className="cp-sit-mini">
+                {p.situational.map((s) => (
+                  <li key={s.situation}>
                     <small>
-                      <T ns={NS}>{SLOT_LABEL[s.slot]}</T>
+                      <T ns={NS}>{SITUATIONS[s.situation]}</T>
                     </small>
                     <span className="cp-icons">
-                      {s.options.slice(0, 3).map((r) => (
-                        <ItemIcon key={r.items[0]} id={r.items[0]} info={info} named />
+                      {s.options.slice(0, 2).map((r, i) => (
+                        <ItemIcon key={r.items[0]} id={r.items[0]} info={info} named={i === 0} />
                       ))}
                     </span>
-                  </div>
+                  </li>
                 ))}
-              </div>
+              </ul>
             </div>
           )}
       </section>
@@ -820,22 +816,22 @@ export default async function ChampionPage({
               )}
             </Panel>
           )}
-          {p.late.length > 0 && (
+          {p.situational.length > 0 && (
             <Panel
-              title="After the core"
+              title="Situational items"
               note={
                 <T ns={NS}>
                   {
-                    "Options for each item slot after the best core build, best DeepScore first. Each slot assumes you bought the top pick before it."
+                    "After the core, swap in what the game calls for. Each situation comes from the item's own effect; its options are the ones bought with this core first, then best DeepScore."
                   }
                 </T>
               }
             >
               <div className="cp-late">
-                {p.late.map((s) => (
-                  <div key={s.slot}>
+                {p.situational.map((s) => (
+                  <div key={s.situation}>
                     <h4>
-                      <T ns={NS}>{SLOT_LABEL[s.slot]}</T>
+                      <T ns={NS}>{SITUATIONS[s.situation]}</T>
                     </h4>
                     {s.options.map((r, i) => (
                       <Row

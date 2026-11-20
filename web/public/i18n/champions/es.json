@@ -253,5 +253,16 @@
  "Items": "Objetos",
  "Win rate boosts": "Mejoras de tasa de victoria",
  "Spells and skills": "Hechizos y habilidades",
- "Stats": "Estadísticas"
+ "Stats": "Estadísticas",
+ "Situational items": "Objetos situacionales",
+ "Vs healing": "Contra curación",
+ "Vs shields": "Contra escudos",
+ "Vs heavy crowd control": "Contra mucho control",
+ "Vs burst": "Contra burst",
+ "Vs crit carries": "Contra tiradores de críticos",
+ "Vs tanks": "Contra tanques",
+ "Vs mixed damage": "Contra daño mixto",
+ "Vs magic damage": "Contra daño mágico",
+ "Vs physical damage": "Contra daño físico",
+ "After the core, swap in what the game calls for. Each situation comes from the item's own effect; its options are the ones bought with this core first, then best DeepScore.": "Tras la build principal, compra lo que pida la partida. Cada situación sale del efecto del objeto; primero van los que se compran con esta build y luego el mejor DeepScore."
 }

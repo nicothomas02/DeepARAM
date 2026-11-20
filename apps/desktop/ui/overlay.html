@@ -46,8 +46,10 @@
   <div class="row" id="skills"></div>
   <h2 id="spells-title">Spells</h2>
   <div class="row" id="spells"></div>
-  <h2>Items</h2>
+  <h2>Core build</h2>
   <div class="row" id="items"></div>
+  <h2 id="sit-title">Situational items</h2>
+  <div class="augs" id="sit"></div>
   <h2>Augments to look for</h2>
   <div class="augs" id="augs"></div>
   <footer id="hint">Ctrl+Shift+O hides this</footer>
@@ -93,6 +95,15 @@
       i.title = it.name;
       return i;
     }));
+
+    // Situational items: what to swap in after the core, with when (same as the champion page's card).
+    const sit = document.getElementById("sit");
+    sit.replaceChildren(...(b.situational || []).map((it) => {
+      const row = el("div", "aug");
+      row.append(img(site, it.icon, ""), el("span", "", `${it.name} · ${it.when}`));
+      return row;
+    }));
+    sit.hidden = document.getElementById("sit-title").hidden = !(b.situational || []).length;
 
     const augs = document.getElementById("augs");
     augs.replaceChildren();

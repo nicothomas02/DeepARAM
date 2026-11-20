@@ -1,6 +1,7 @@
 import { FIT } from "./deepscore";
-import { alongCore, bestRow, followed, scoreRows, skipsBoots, type ItemRow, type Rated } from "./card-score";
+import { alongCore, bestRow, followed, scoreRows, sameStyle, situational, skipsBoots, type ItemRow, type Rated } from "./card-score";
 import type { ItemTier } from "./items";
+import type { Situation } from "./situations";
 
 // The champion page's top card over picked patches (Nico, 2026-11-20: patch, set or all time, several at once).
 // Each patch's build numbers are saved per champion (data/cn/history/builds, from 16.20 on; the feed only ever
@@ -11,7 +12,7 @@ type Entry = [number[], number, number | null];
 export type ItemLists = Partial<Record<"starting" | "boots" | "core" | "other" | "full_builds", Entry[]>>;
 export type HistSkill = { max: string[]; pick: number; win: number };
 export type HistPatch = { augments: [number, number, string][]; skills: HistSkill[]; items: ItemLists };
-export type ItemMeta = { name: string; icon: string; tier: ItemTier; ranked: boolean };
+export type ItemMeta = { name: string; icon: string; tier: ItemTier; ranked: boolean; situation?: Situation | null; classes?: string[] };
 export type Rarity = "prismatic" | "gold" | "silver";
 /** /data/champion-history/<Alias>: one champion's saved patches, with what the card needs to draw them. */
 export type HistFile = {
@@ -41,7 +42,7 @@ export type Card = {
   augments: { id: number; name: string; rarity: Rarity }[];
   skill: (Rated & { max: string[] }) | null;
   core: ItemRow | null;
-  late: { slot: number; options: ItemRow[] }[];
+  situational: { situation: Situation; options: ItemRow[] }[];
 };
 
 /**
@@ -119,20 +120,12 @@ export function cardFor(file: HistFile, picked: string[], weight: Record<string,
     core?.items ?? [],
     full,
   );
-  const late: Card["late"] = [];
-  if (core)
-    for (const slot of [4, 5, 6]) {
-      const options = pool.filter((r) => !taken.has(r.items[0])).slice(0, 3);
-      if (!options.length) break;
-      late.push({ slot, options });
-      taken.add(options[0].items[0]);
-    }
 
   return {
     starting: scoreRows(lists("starting"), FIT.items)[0] ?? null,
     augments,
     skill: bestRow(skills, 0.1),
     core: coreRow,
-    late,
+    situational: core ? situational(sameStyle(pool, core.items, (i) => file.items[i]?.classes ?? []), (i) => file.items[i]?.situation) : [],
   };
 }

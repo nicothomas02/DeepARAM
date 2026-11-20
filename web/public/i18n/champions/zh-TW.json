@@ -253,5 +253,16 @@
  "Items": "裝備",
  "Win rate boosts": "勝率提升",
  "Spells and skills": "召喚師技能與技能",
- "Stats": "數據"
+ "Stats": "數據",
+ "Situational items": "情況裝",
+ "Vs healing": "針對治療",
+ "Vs shields": "針對護盾",
+ "Vs heavy crowd control": "針對大量控制",
+ "Vs burst": "針對爆發",
+ "Vs crit carries": "針對暴擊核心",
+ "Vs tanks": "針對坦克",
+ "Vs mixed damage": "針對混合傷害",
+ "Vs magic damage": "針對魔法傷害",
+ "Vs physical damage": "針對物理傷害",
+ "After the core, swap in what the game calls for. Each situation comes from the item's own effect; its options are the ones bought with this core first, then best DeepScore.": "核心出裝後，依對局需要購買。情況由裝備本身效果判斷；先列出與此核心一起購買的裝備，再依 DeepScore 排序。"
 }

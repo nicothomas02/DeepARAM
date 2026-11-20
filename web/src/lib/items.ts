@@ -5,6 +5,7 @@ import { localAsset } from "./assets";
 import { official } from "./dd-swap";
 import { readRepoJson } from "./repo-data";
 import itemGroups from "@/data/item-groups.json";
+import { situationFor, type Situation } from "./situations";
 
 // Item names and icons from the client's item list, mirrored in public/assets/.
 const GAME_DATA = "plugins/rcp-be-lol-game-data/global/default";
@@ -60,7 +61,7 @@ export const itemClasses = (id: number): string[] => GROUPS[id]?.c ?? [];
 
 /** An item's shop tier: the game's own rarity and item groups, or for items missing there, its recipe:
  *  boots, finished (legendary), a component of one (epic or basic), or a cheap standalone starter. */
-type Recipe = { id: number; from: number[]; to: number[]; categories: string[]; priceTotal: number; specialRecipe: number };
+type Recipe = { id: number; from: number[]; to: number[]; categories: string[]; priceTotal: number; specialRecipe: number; description?: string };
 let recipes: Map<number, Recipe> | null = null;
 export function itemTier(id: number): ItemTier {
   if (rewardItems().has(id)) return "reward";
@@ -80,6 +81,12 @@ function recipeMap(): Map<number, Recipe> {
   }
   return recipes;
 }
+
+/** When to buy this item, from its shop text (lib/situations.ts), or null for a general item. */
+export const itemSituation = (id: number): Situation | null => {
+  const r = recipeMap().get(id);
+  return r ? situationFor(r.description ?? "", r.categories ?? []) : null;
+};
 
 let transforms: Map<number, number> | null = null;
 /** The item this one turns into mid-game, at the end of the chain (Archangel's Staff into Seraph's Embrace,
