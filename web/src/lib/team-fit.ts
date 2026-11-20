@@ -1,4 +1,5 @@
 import "server-only";
+import championIds from "@/data/champion-ids.json";
 import { archetypeRows, archetypes, duoRows } from "./duos";
 import { liveTiers, livePatch } from "./highlights";
 import { patchName } from "./patch-name";

@@ -15,6 +15,8 @@ export type TeamFitData = {
   pairs: Record<string, number>;
   /** "X+Y" (archetypes sorted) -> boost */
   archetypes: Record<string, number>;
+  /** alias -> numeric champion id, for the desktop app's champion select (which reports ids) */
+  ids?: Record<string, number>;
 };
 
 export type PairPart = { ally: string; boost: number; exact: boolean };
