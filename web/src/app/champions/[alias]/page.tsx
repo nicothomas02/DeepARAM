@@ -595,6 +595,9 @@ export default async function ChampionPage({
             {bestSpells ? (
               <>
                 <Spells r={bestSpells} />
+                <small className="cp-stale-tag">
+                  <T ns={NS}>Estimated</T>
+                </small>
                 <div className="cp-mini">
                   {bestSpells.estimated ? (
                     <Cell value={pct(bestSpells.pickRate)} label="Pick rate" />
@@ -1016,7 +1019,7 @@ export default async function ChampionPage({
           <Panel
             title="Summoner spells"
             count={spells.length || undefined}
-            note={spellsEstimated ? <T ns={NS}>Estimated</T> : undefined}
+            note={rawSpells.length ? <T ns={NS}>Estimated</T> : undefined}
           >
             {spells.length ? (
               <>
