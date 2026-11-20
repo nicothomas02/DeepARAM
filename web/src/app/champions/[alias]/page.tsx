@@ -360,6 +360,31 @@ export default async function ChampionPage({
         (y.deepScore ?? -1) - (x.deepScore ?? -1) || y.pickRate - x.pickRate,
     );
   const synergyPairs = augmentSynergy(c.alias, augRows.map((a) => a.id));
+  // Augment combinations: the model's likely pairs plus the pairs that feed each other (lib/augment-synergy.ts), best
+  // first by both augments' boosts plus their synergy. Pick rate of an added pair: the two pick rates multiplied, as
+  // the model's own pairs (no real pair data).
+  const combos = (() => {
+    const row = new Map(augRows.map((a) => [a.id, a]));
+    const pairKey = (a: number, b: number) => (a < b ? `${a}-${b}` : `${b}-${a}`);
+    const synOf = new Map(synergyPairs.map((p) => [pairKey(p.a, p.b), (p.order ? Math.max(...p.order) : p.points) / 100]));
+    const out = new Map<string, { ids: [number, number]; pickRate: number; winRate?: number; synergy?: number }>();
+    for (const r of est?.pairs ?? []) out.set(pairKey(...r.ids), { ...r, synergy: synOf.get(pairKey(...r.ids)) });
+    const strong = synergyPairs
+      // Only pairs whose augments this champion's players actually take (1%+ of games each).
+      .filter((p) => (row.get(p.a)?.pickRate ?? 0) >= 0.01 && (row.get(p.b)?.pickRate ?? 0) >= 0.01)
+      .filter((p) => !out.has(pairKey(p.a, p.b)) && (p.order ? Math.max(...p.order) : p.points) >= 0.5)
+      .sort((x, y) => y.points - x.points)
+      .slice(0, 12);
+    for (const p of strong)
+      out.set(pairKey(p.a, p.b), {
+        ids: [p.a, p.b],
+        pickRate: (row.get(p.a)?.pickRate ?? 0) * (row.get(p.b)?.pickRate ?? 0),
+        synergy: synOf.get(pairKey(p.a, p.b)),
+      });
+    const score = (r: { ids: [number, number]; synergy?: number }) =>
+      (row.get(r.ids[0])?.lift ?? 0) + (row.get(r.ids[1])?.lift ?? 0) + (r.synergy ?? 0);
+    return [...out.values()].sort((x, y) => score(y) - score(x));
+  })();
   const interactions = kitInteractions(c.alias, p.augments);
   const bestStart = p.starting[0];
   const bestSkill = bestRow(p.skills, 0.1);
@@ -724,11 +749,11 @@ export default async function ChampionPage({
               <AugmentTable rows={augRows} champion={c.alias} synergy={synergyPairs} />
             </Panel>
           )}
-          {est?.pairs.length ? (
+          {combos.length ? (
             <Panel
               id="combos"
               title="Augment combinations"
-              count={est.pairs.length}
+              count={combos.length}
               note={
                 SHOW_AUGMENT_WIN_RATES ? (
                   <T ns={NS}>
@@ -737,20 +762,25 @@ export default async function ChampionPage({
                     }
                   </T>
                 ) : (
-                  <T ns={NS}>{"Estimated: augments that pair well on this champion, best first."}</T>
+                  <T ns={NS}>{"Estimated: augments that pair well on this champion, best first, with how much more they're worth together."}</T>
                 )
               }
             >
-              <Head what="Augment pair" cols={SHOW_AUGMENT_WIN_RATES ? ["Est. win rate", "Pick rate"] : ["Pick rate"]} />
-              <ShowMore total={est.pairs.length} limit={5}>
-                {est.pairs.map((r, i) => (
+              <Head what="Augment pair" cols={SHOW_AUGMENT_WIN_RATES ? ["Est. win rate", "Synergy", "Pick rate"] : ["Synergy", "Pick rate"]} />
+              <ShowMore total={combos.length} limit={5}>
+                {combos.map((r, i) => (
                   <Row
                     key={r.ids.join("-")}
                     rank={i + 1}
-                    cols={SHOW_AUGMENT_WIN_RATES ? 2 : 1}
+                    cols={SHOW_AUGMENT_WIN_RATES ? 3 : 2}
                     cells={
                       <>
-                        {SHOW_AUGMENT_WIN_RATES && <Cell value={pct(r.winRate)} label="Est. win rate" />}
+                        {SHOW_AUGMENT_WIN_RATES && <Cell value={r.winRate === undefined ? "–" : pct(r.winRate)} label="Est. win rate" />}
+                        <Cell
+                          value={r.synergy ? signed(r.synergy) : "–"}
+                          label="Synergy"
+                          tone={r.synergy && r.synergy > 0.0005 ? "up" : r.synergy && r.synergy < -0.0005 ? "down" : undefined}
+                        />
                         <Cell value={pct(r.pickRate)} label="Pick rate" />
                       </>
                     }

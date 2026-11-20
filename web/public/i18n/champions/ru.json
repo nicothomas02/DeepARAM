@@ -223,7 +223,6 @@
  "time dead": "время смерти",
  "Boost": "Прибавка",
  "Boost is estimated: how many points of win rate the augment adds to this champion.": "Прибавка — оценка: на сколько пунктов аугмент повышает процент побед этого чемпиона.",
- "Estimated: augments that pair well on this champion, best first.": "Оценка: аугменты, которые хорошо сочетаются на этом чемпионе, лучшие сначала.",
  "Augment pairs appear here once enough games are in. Each pair needs a minimum number of games before it shows.": "Пары аугментов появятся здесь, когда наберётся достаточно игр. Каждой паре нужно минимальное число игр, чтобы появиться.",
  "Kit interactions": "Взаимодействия с набором умений",
  "Augments that work with this champion's own abilities, and why.": "Усиления, которые работают с умениями этого чемпиона, и почему.",
@@ -235,8 +234,12 @@
  "With your picks": "С вашим выбором",
  "Synergy {n}": "Синергия {n}",
  "Estimated synergy with the augments you took.": "Оценка синергии с выбранными усилениями.",
- "Selected": "Выбрано",
  "Select {name}: the rest re-rank by synergy with it.": "Выбрать {name}: остальные пересортируются по синергии.",
  "Select: the rest re-rank by synergy with it.": "Выбрать: остальные пересортируются по синергии.",
- "Already have augments? Select them with + and the rest re-rank by synergy.": "Уже есть усиления? Выберите их кнопкой +, и остальные пересортируются по синергии."
+ "Your augments": "Ваши усиления",
+ "Drag an augment here, or press + on it.": "Перетащите сюда усиление или нажмите его +.",
+ "Drag another augment here to replace it.": "Перетащите сюда другое усиление, чтобы заменить.",
+ "No known synergy with {names} on this champion yet, so the rest rank by their boost alone.": "С {names} на этом чемпионе синергия пока не известна, поэтому остальные отсортированы только по бонусу.",
+ "Already have augments? Press + or drag them into your slots, and the rest re-rank by synergy.": "Уже есть усиления? Нажмите + или перетащите их в ячейки, и остальные пересортируются по синергии.",
+ "Estimated: augments that pair well on this champion, best first, with how much more they're worth together.": "Оценка: усиления, которые хорошо сочетаются на этом чемпионе, лучшие сначала, и насколько они ценнее вместе."
 }

@@ -223,7 +223,6 @@
  "time dead": "waktu mati",
  "Boost": "Dorongan",
  "Boost is estimated: how many points of win rate the augment adds to this champion.": "Dorongan adalah perkiraan: berapa poin win rate yang ditambahkan augment ini pada champion ini.",
- "Estimated: augments that pair well on this champion, best first.": "Perkiraan: augment yang cocok dipasangkan pada champion ini, yang terbaik lebih dulu.",
  "Augment pairs appear here once enough games are in. Each pair needs a minimum number of games before it shows.": "Pasangan augment muncul di sini setelah cukup banyak game. Setiap pasangan butuh jumlah game minimum sebelum ditampilkan.",
  "Kit interactions": "Interaksi kit",
  "Augments that work with this champion's own abilities, and why.": "Augment yang bekerja dengan ability champion ini sendiri, dan alasannya.",
@@ -235,8 +234,12 @@
  "With your picks": "Dengan pilihanmu",
  "Synergy {n}": "Sinergi {n}",
  "Estimated synergy with the augments you took.": "Perkiraan sinergi dengan augment yang kamu ambil.",
- "Selected": "Dipilih",
  "Select {name}: the rest re-rank by synergy with it.": "Pilih {name}: sisanya diurutkan ulang menurut sinergi.",
  "Select: the rest re-rank by synergy with it.": "Pilih: sisanya diurutkan ulang menurut sinergi.",
- "Already have augments? Select them with + and the rest re-rank by synergy.": "Sudah punya augment? Pilih dengan + dan sisanya diurutkan ulang menurut sinergi."
+ "Your augments": "Augment-mu",
+ "Drag an augment here, or press + on it.": "Seret augment ke sini, atau tekan + miliknya.",
+ "Drag another augment here to replace it.": "Seret augment lain ke sini untuk menggantinya.",
+ "No known synergy with {names} on this champion yet, so the rest rank by their boost alone.": "Belum ada sinergi yang diketahui dengan {names} pada champion ini, jadi sisanya diurutkan menurut peningkatannya saja.",
+ "Already have augments? Press + or drag them into your slots, and the rest re-rank by synergy.": "Sudah punya augment? Tekan + atau seret ke slotmu, dan sisanya diurutkan ulang menurut sinergi.",
+ "Estimated: augments that pair well on this champion, best first, with how much more they're worth together.": "Perkiraan: augment yang cocok bersama pada champion ini, terbaik dulu, dengan seberapa besar nilai tambahnya bersama."
 }

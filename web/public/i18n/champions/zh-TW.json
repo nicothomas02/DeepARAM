@@ -223,7 +223,6 @@
  "time dead": "死亡時間",
  "Boost": "提升",
  "Boost is estimated: how many points of win rate the augment adds to this champion.": "提升為估算值：該強化符文為這位英雄增加多少個百分點的勝率。",
- "Estimated: augments that pair well on this champion, best first.": "估算：在這位英雄身上搭配良好的強化符文組合，依優劣排序。",
  "Augment pairs appear here once enough games are in. Each pair needs a minimum number of games before it shows.": "當對戰場數足夠時，強化符文組合會顯示在這裡。每個組合需達到最低場數才會顯示。",
  "Kit interactions": "技能連動",
  "Augments that work with this champion's own abilities, and why.": "與這位英雄自身技能搭配的強化符文，以及原因。",
@@ -235,8 +234,12 @@
  "With your picks": "依你的選擇",
  "Synergy {n}": "協同 {n}",
  "Estimated synergy with the augments you took.": "與已選強化的估計協同。",
- "Selected": "已選",
  "Select {name}: the rest re-rank by synergy with it.": "選擇{name}：其餘依協同重新排序。",
  "Select: the rest re-rank by synergy with it.": "選擇：其餘依協同重新排序。",
- "Already have augments? Select them with + and the rest re-rank by synergy.": "已經有強化了？用 + 選取它們，其餘會依協同重新排序。"
+ "Your augments": "你的強化",
+ "Drag an augment here, or press + on it.": "把強化拖到這裡，或點它的 +。",
+ "Drag another augment here to replace it.": "把另一個強化拖到這裡即可替換。",
+ "No known synergy with {names} on this champion yet, so the rest rank by their boost alone.": "該英雄與{names}尚無已知協同，其餘僅依勝率提升排序。",
+ "Already have augments? Press + or drag them into your slots, and the rest re-rank by synergy.": "已經有強化了？點 + 或把它們拖進你的欄位，其餘會依協同重新排序。",
+ "Estimated: augments that pair well on this champion, best first, with how much more they're worth together.": "估計：該英雄上搭配良好的強化組合，依優劣排序，並顯示組合額外帶來的價值。"
 }

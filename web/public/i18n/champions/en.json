@@ -223,7 +223,6 @@
  "time dead": "time dead",
  "Boost": "Boost",
  "Boost is estimated: how many points of win rate the augment adds to this champion.": "Boost is estimated: how many points of win rate the augment adds to this champion.",
- "Estimated: augments that pair well on this champion, best first.": "Estimated: augments that pair well on this champion, best first.",
  "Augment pairs appear here once enough games are in. Each pair needs a minimum number of games before it shows.": "Augment pairs appear here once enough games are in. Each pair needs a minimum number of games before it shows.",
  "Kit interactions": "Kit interactions",
  "Augments that work with this champion's own abilities, and why.": "Augments that work with this champion's own abilities, and why.",
@@ -235,8 +234,12 @@
  "With your picks": "With your picks",
  "Synergy {n}": "Synergy {n}",
  "Estimated synergy with the augments you took.": "Estimated synergy with the augments you took.",
- "Selected": "Selected",
  "Select {name}: the rest re-rank by synergy with it.": "Select {name}: the rest re-rank by synergy with it.",
  "Select: the rest re-rank by synergy with it.": "Select: the rest re-rank by synergy with it.",
- "Already have augments? Select them with + and the rest re-rank by synergy.": "Already have augments? Select them with + and the rest re-rank by synergy."
+ "Your augments": "Your augments",
+ "Drag an augment here, or press + on it.": "Drag an augment here, or press + on it.",
+ "Drag another augment here to replace it.": "Drag another augment here to replace it.",
+ "No known synergy with {names} on this champion yet, so the rest rank by their boost alone.": "No known synergy with {names} on this champion yet, so the rest rank by their boost alone.",
+ "Already have augments? Press + or drag them into your slots, and the rest re-rank by synergy.": "Already have augments? Press + or drag them into your slots, and the rest re-rank by synergy.",
+ "Estimated: augments that pair well on this champion, best first, with how much more they're worth together.": "Estimated: augments that pair well on this champion, best first, with how much more they're worth together."
 }

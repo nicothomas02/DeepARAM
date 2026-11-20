@@ -223,7 +223,6 @@
  "time dead": "사망 시간",
  "Boost": "상승폭",
  "Boost is estimated: how many points of win rate the augment adds to this champion.": "상승폭은 추정치입니다: 이 증강이 이 챔피언의 승률을 몇 포인트 올리는지.",
- "Estimated: augments that pair well on this champion, best first.": "추정: 이 챔피언에게 잘 어울리는 증강 조합, 좋은 순서대로.",
  "Augment pairs appear here once enough games are in. Each pair needs a minimum number of games before it shows.": "충분한 게임이 쌓이면 증강 조합이 여기에 표시됩니다. 각 조합은 최소 게임 수를 채워야 표시됩니다.",
  "Kit interactions": "스킬 상호작용",
  "Augments that work with this champion's own abilities, and why.": "이 챔피언의 스킬과 맞물리는 증강과 그 이유.",
@@ -235,8 +234,12 @@
  "With your picks": "선택 반영",
  "Synergy {n}": "시너지 {n}",
  "Estimated synergy with the augments you took.": "선택한 증강과의 추정 시너지.",
- "Selected": "선택됨",
  "Select {name}: the rest re-rank by synergy with it.": "{name} 선택: 나머지가 시너지 순으로 다시 정렬됩니다.",
  "Select: the rest re-rank by synergy with it.": "선택: 나머지가 시너지 순으로 다시 정렬됩니다.",
- "Already have augments? Select them with + and the rest re-rank by synergy.": "이미 가진 증강이 있나요? + 로 선택하면 나머지가 시너지 순으로 다시 정렬됩니다."
+ "Your augments": "내 증강",
+ "Drag an augment here, or press + on it.": "여기로 증강을 끌어오거나 +를 누르세요.",
+ "Drag another augment here to replace it.": "다른 증강을 여기로 끌어오면 교체됩니다.",
+ "No known synergy with {names} on this champion yet, so the rest rank by their boost alone.": "이 챔피언에서는 {names}와(과)의 알려진 시너지가 아직 없어 나머지는 상승폭만으로 정렬됩니다.",
+ "Already have augments? Press + or drag them into your slots, and the rest re-rank by synergy.": "이미 증강이 있나요? +를 누르거나 슬롯으로 끌어오면 나머지가 시너지 순으로 다시 정렬됩니다.",
+ "Estimated: augments that pair well on this champion, best first, with how much more they're worth together.": "추정: 이 챔피언에게 잘 맞는 증강 조합, 좋은 순서대로, 함께일 때 얼마나 더 가치 있는지 포함."
 }

@@ -101,20 +101,20 @@ About 37,000 sim runs, 2.5 hours on 4 cores; results are cached in `~/.cache/dee
 ## Augment synergy after a pick (`augment_synergy.json`, simulated + estimated)
 
 `augment_synergy.py` scores, per champion, how much one augment is worth on top of another one already taken. The
-champion page's augment table uses it once a visitor marks augments with "I took this": the rest re-rank by their
+champion page's augment table uses it once a visitor puts augments in "Your augments" (the round + or drag): the rest re-rank by their
 estimated boost plus their synergy with the taken ones (`web/src/lib/synergy-picks.ts`).
 
-- **Simulated pairs:** the champion's 14 most picked augments the Simulator models, every pair, on its most popular
+- **Simulated pairs:** the champion's 30 most picked augments the Simulator models, every pair, on its most popular
   real build (1,500 shared fights). Synergy = sim gain of the pair minus the two gains alone, turned into win-rate
   points with `champion_upgrades.json`'s BETA and squashed toward +-3 points, as for the best sets of 4. Pairs under
-  0.3 points either way are left out.
+  0.15 points either way are left out.
 - **Rule pairs:** `augment_synergy_rules.json`, interactions confirmed in `data/cook-builds/MECHANICS.md` or the
   augments' own text (Ethereal Weapon + Mystic Punch, Vulnerability + Jeweled Gauntlet, snowball augments...). They
   are simulated when the Simulator models both, with the rule's points (2 strong, 1 some) as a floor, since the sim can
   miss part of an interaction; otherwise the rule's points are used.
 - There is still no real pair data, so this answers "what does the model expect", not "what do players win".
 
-Not scheduled (needs `make -C simulator mayhem_sim`): rerun after patches and after Simulator changes, about 15
+Not scheduled (needs `make -C simulator mayhem_sim`): rerun after patches and after Simulator changes, about 90
 minutes on 4 cores. Shares `champion_upgrades.py`'s cache.
 
 ## Synergies (`synergies.json`, estimated)

@@ -20,7 +20,7 @@ decides (`a_first` / `b_first`: One Hit Wonder and Purist Caster).
 
 Usage: python3 data/estimates/augment_synergy.py [--only Ahri,Jinx] [--jobs 4]
 Needs `make -C simulator mayhem_sim`. Shares champion_upgrades.py's sim cache (~/.cache/deeparam-sim/upgrades/), so a
-rerun only plays new builds. About 15 minutes on 4 cores.
+rerun only plays new builds. About 90 minutes on 4 cores.
 """
 
 import argparse
@@ -36,9 +36,9 @@ import common as cm
 
 OUT = os.path.join(cm.HERE, "augment_synergy.json")
 RULES = os.path.join(cm.HERE, "augment_synergy_rules.json")
-MOST_PICKED = 14  # the champion's most picked modeled augments, every pair simulated
+MOST_PICKED = 30  # the champion's most picked modeled augments, every pair simulated
 MIN_PICK = 0.002  # an augment under this share of the champion's games counts as not taken
-MIN_POINTS = 0.3  # win-rate points; smaller pairs are sim noise as often as not
+MIN_POINTS = 0.15  # win-rate points; smaller pairs are sim noise as often as not
 TRIALS = cu.PAIR_TRIALS
 
 

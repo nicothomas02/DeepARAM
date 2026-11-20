@@ -223,7 +223,6 @@
  "time dead": "وقت الموت",
  "Boost": "التعزيز",
  "Boost is estimated: how many points of win rate the augment adds to this champion.": "التعزيز تقديري: كم نقطة من نسبة الفوز يضيفها التعزيز لهذا البطل.",
- "Estimated: augments that pair well on this champion, best first.": "تقديري: تعزيزات تتناسب جيدًا مع هذا البطل، الأفضل أولًا.",
  "Augment pairs appear here once enough games are in. Each pair needs a minimum number of games before it shows.": "تظهر أزواج التعزيزات هنا عند توفر عدد كافٍ من المباريات. يحتاج كل زوج إلى حد أدنى من المباريات قبل أن يظهر.",
  "Kit interactions": "تفاعلات المهارات",
  "Augments that work with this champion's own abilities, and why.": "التعزيزات التي تعمل مع مهارات هذا البطل نفسه، ولماذا.",
@@ -235,8 +234,12 @@
  "With your picks": "مع اختياراتك",
  "Synergy {n}": "التآزر {n}",
  "Estimated synergy with the augments you took.": "التآزر التقديري مع المعززات التي اخترتها.",
- "Selected": "المحدد",
  "Select {name}: the rest re-rank by synergy with it.": "تحديد {name}: يُعاد ترتيب البقية حسب التآزر.",
  "Select: the rest re-rank by synergy with it.": "تحديد: يُعاد ترتيب البقية حسب التآزر.",
- "Already have augments? Select them with + and the rest re-rank by synergy.": "لديك معززات بالفعل؟ حددها بـ + وسيُعاد ترتيب البقية حسب التآزر."
+ "Your augments": "معززاتك",
+ "Drag an augment here, or press + on it.": "اسحب معززًا إلى هنا أو اضغط على + الخاص به.",
+ "Drag another augment here to replace it.": "اسحب معززًا آخر إلى هنا لاستبداله.",
+ "No known synergy with {names} on this champion yet, so the rest rank by their boost alone.": "لا يوجد تآزر معروف بعد مع {names} على هذا البطل، لذا تُرتَّب البقية حسب تعزيزها فقط.",
+ "Already have augments? Press + or drag them into your slots, and the rest re-rank by synergy.": "لديك معززات بالفعل؟ اضغط + أو اسحبها إلى خاناتك، وسيُعاد ترتيب البقية حسب التآزر.",
+ "Estimated: augments that pair well on this champion, best first, with how much more they're worth together.": "تقديري: معززات تتناسب جيدًا على هذا البطل، الأفضل أولًا، مع مقدار ما تضيفه معًا."
 }

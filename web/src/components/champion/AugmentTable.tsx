@@ -3,7 +3,7 @@
 
 import RowLink from "@/components/RowLink";
 import { PICK_EVENT } from "@/components/champion/AugmentBuildPicker";
-import { useRef, useState } from "react";
+import { useRef, useState, type DragEvent } from "react";
 import { KEPT, useKept } from "@/lib/kept";
 import { Name, useDescription, useNames, useT } from "@/components/I18n";
 import DeepScore from "@/components/DeepScore";
@@ -33,8 +33,11 @@ const PICKS = ["any", 0, 1, 2, 3] as const;
 const PICK_LABEL = ["1st augment", "2nd augment", "3rd augment", "4th augment"];
 const FAIR_SHARE = 0.25;
 type SortKey = "deepScore" | "winRate" | "lift" | "pickRate" | "fit";
-// At most four augments a game, so three taken leave one to pick.
-const MAX_TAKEN = 3;
+// Four augments a game: four slots, in pick order (order matters for some pairs, lib/synergy-picks.ts).
+const MAX_TAKEN = 4;
+const SLOT_LABEL = ["1st augment", "2nd augment", "3rd augment", "4th augment"];
+// Drag data type for an augment id, from a row or a slot to a slot.
+const DRAG = "application/x-deeparam-augment";
 
 export default function AugmentTable({
   rows: allRows,
@@ -101,6 +104,26 @@ export default function AugmentTable({
     if (!taken.length) setSort({ key: "fit", desc: true });
     setPage(0);
   };
+  /** Put `id` in slot `i`: replaces what's there; an augment already in another slot swaps places with it. */
+  const place = (id: number, i: number) => {
+    if (!byId.has(id)) return;
+    const next = [...taken];
+    const from = next.indexOf(id);
+    if (i >= next.length) {
+      if (from >= 0) next.splice(from, 1);
+      next.push(id);
+    } else if (from >= 0) {
+      [next[from], next[i]] = [next[i], next[from]];
+    } else next[i] = id;
+    setTook(next.slice(0, MAX_TAKEN));
+    if (!taken.length) setSort({ key: "fit", desc: true });
+    setPage(0);
+  };
+  const dragFrom = (id: number) => (e: DragEvent) => {
+    e.dataTransfer.setData(DRAG, String(id));
+    e.dataTransfer.effectAllowed = "move";
+  };
+  const [over, setOver] = useState<number | null>(null);
   const untake = (id?: number) => {
     const next = id === undefined ? [] : taken.filter((x) => x !== id);
     setTook(next);
@@ -158,6 +181,8 @@ export default function AugmentTable({
     const r = byId.get(id);
     return r ? names("augments", id, r.name) : String(id);
   };
+  // Taken augments that move nothing: no known pair with any augment left in the list.
+  const lonely = taken.filter((id) => ![...syn.values()].some((v) => v.parts.some((p) => p.with === id)));
   const why = (a: (typeof rows)[number]) => {
     const parts = [a.desc ? describe("augments", a.id, a.desc) : ""];
     // Synergy with the taken augments first: it's why the row moved.
@@ -191,23 +216,52 @@ export default function AugmentTable({
             setPage(0);
           }}
         />
-        {taken.length > 0 && (
-          <div className="cp-took" role="group" aria-label={t("Selected")}>
-            <span>{t("Selected")}</span>
-            {taken.map((id) => (
-              <button key={id} type="button" className="cp-pill cp-took-chip" onClick={() => untake(id)} title={t("Remove")}>
-                <img className="cp-icon round" src={`/icons/augments/${id}.webp`} alt="" width={20} height={20} />
-                <Name kind="augments" id={id}>
-                  {byId.get(id)?.name ?? ""}
-                </Name>
-                <span aria-hidden="true"> ×</span>
-              </button>
-            ))}
+        <div className="cp-took" role="group" aria-label={t("Your augments")}>
+          <span>{t("Your augments")}</span>
+          {Array.from({ length: MAX_TAKEN }, (_, i) => {
+            const id = taken[i];
+            return (
+              <div
+                key={i}
+                className={`cp-slot${id === undefined ? " empty" : ""}${over === i ? " over" : ""}`}
+                draggable={id !== undefined}
+                onDragStart={id !== undefined ? dragFrom(id) : undefined}
+                onDragOver={(e) => {
+                  if (!e.dataTransfer.types.includes(DRAG)) return;
+                  e.preventDefault();
+                  setOver(i);
+                }}
+                onDragLeave={() => setOver(null)}
+                onDrop={(e) => {
+                  e.preventDefault();
+                  setOver(null);
+                  const dropped = Number(e.dataTransfer.getData(DRAG));
+                  if (dropped) place(dropped, i);
+                }}
+                title={id === undefined ? t("Drag an augment here, or press + on it.") : t("Drag another augment here to replace it.")}
+              >
+                {id === undefined ? (
+                  <small>{t(SLOT_LABEL[i])}</small>
+                ) : (
+                  <>
+                    <img className="cp-icon round" src={`/icons/augments/${id}.webp`} alt="" width={24} height={24} />
+                    <Name kind="augments" id={id}>
+                      {byId.get(id)?.name ?? ""}
+                    </Name>
+                    <button type="button" className="cp-slot-x" onClick={() => untake(id)} aria-label={t("Remove")} title={t("Remove")}>
+                      ×
+                    </button>
+                  </>
+                )}
+              </div>
+            );
+          })}
+          {taken.length > 0 && (
             <button type="button" className="cp-took-clear" onClick={() => untake()}>
               {t("Clear")}
             </button>
-          </div>
-        )}
+          )}
+        </div>
         <div className="cp-seg" role="group" aria-label={t("Rarity")}>
           {RARITIES.filter(
             (r) => r === "all" || rows.some((x) => x.rarity === r),
@@ -242,10 +296,17 @@ export default function AugmentTable({
             ))}
           </div>
         )}
+        {lonely.length > 0 && (
+          <p className="cp-filter-note">
+            {t("No known synergy with {names} on this champion yet, so the rest rank by their boost alone.", {
+              names: lonely.map(augName).join(", "),
+            })}
+          </p>
+        )}
         <p className="cp-filter-note">
           {taken.length
             ? t("Estimated: ranked by each augment's boost plus its synergy with the ones you took.")
-            : t("Already have augments? Select them with + and the rest re-rank by synergy.")}
+            : t("Already have augments? Press + or drag them into your slots, and the rest re-rank by synergy.")}
         </p>
         {pick !== "any" && (
           <p className="cp-filter-note">
@@ -360,7 +421,7 @@ export default function AugmentTable({
           );
           const reason = why(a);
           return (
-            <div key={a.id} className="cp-row cp-aug" data-cols={cols}>
+            <div key={a.id} className="cp-row cp-aug" data-cols={cols} draggable onDragStart={dragFrom(a.id)}>
               <span className="cp-rk">#{i + 1}</span>
               {a.href ? (
                 <RowLink className="cp-what" href={a.href}>

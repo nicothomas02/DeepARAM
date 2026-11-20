@@ -223,7 +223,6 @@
  "time dead": "timp mort",
  "Boost": "Bonus",
  "Boost is estimated: how many points of win rate the augment adds to this champion.": "Bonusul este estimat: câte puncte de rată de victorie adaugă augmentul acestui campion.",
- "Estimated: augments that pair well on this champion, best first.": "Estimat: augmente care se potrivesc bine pe acest campion, cele mai bune primele.",
  "Augment pairs appear here once enough games are in. Each pair needs a minimum number of games before it shows.": "Perechile de augmente apar aici după ce se adună destule meciuri. Fiecare pereche are nevoie de un număr minim de meciuri înainte să apară.",
  "Kit interactions": "Interacțiuni de kit",
  "Augments that work with this champion's own abilities, and why.": "Augmentările care funcționează cu abilitățile acestui campion și de ce.",
@@ -235,8 +234,12 @@
  "With your picks": "Cu alegerile tale",
  "Synergy {n}": "Sinergie {n}",
  "Estimated synergy with the augments you took.": "Sinergie estimată cu augmentările alese.",
- "Selected": "Selectate",
  "Select {name}: the rest re-rank by synergy with it.": "Selectează {name}: restul se reordonează după sinergie.",
  "Select: the rest re-rank by synergy with it.": "Selectează: restul se reordonează după sinergie.",
- "Already have augments? Select them with + and the rest re-rank by synergy.": "Ai deja augmentări? Selectează-le cu + și restul se reordonează după sinergie."
+ "Your augments": "Augmentările tale",
+ "Drag an augment here, or press + on it.": "Trage aici o augmentare sau apasă pe + al ei.",
+ "Drag another augment here to replace it.": "Trage aici altă augmentare ca s-o înlocuiești.",
+ "No known synergy with {names} on this champion yet, so the rest rank by their boost alone.": "Încă nu e cunoscută nicio sinergie cu {names} pe acest campion, așa că restul se ordonează doar după bonus.",
+ "Already have augments? Press + or drag them into your slots, and the rest re-rank by synergy.": "Ai deja augmentări? Apasă + sau trage-le în sloturile tale, iar restul se reordonează după sinergie.",
+ "Estimated: augments that pair well on this champion, best first, with how much more they're worth together.": "Estimat: augmentări care merg bine împreună pe acest campion, cele mai bune primele, și cât valorează în plus împreună."
 }

@@ -223,7 +223,6 @@
  "time dead": "thời gian chết",
  "Boost": "Mức tăng",
  "Boost is estimated: how many points of win rate the augment adds to this champion.": "Mức tăng là ước tính: lõi nâng cấp cộng thêm bao nhiêu điểm tỉ lệ thắng cho tướng này.",
- "Estimated: augments that pair well on this champion, best first.": "Ước tính: các lõi nâng cấp hợp nhau trên tướng này, tốt nhất trước.",
  "Augment pairs appear here once enough games are in. Each pair needs a minimum number of games before it shows.": "Các cặp lõi nâng cấp sẽ hiện ở đây khi có đủ trận. Mỗi cặp cần số trận tối thiểu trước khi hiện.",
  "Kit interactions": "Tương tác bộ kỹ năng",
  "Augments that work with this champion's own abilities, and why.": "Các lõi nâng cấp phối hợp với kỹ năng riêng của tướng này, và lý do.",
@@ -235,8 +234,12 @@
  "With your picks": "Theo lựa chọn của bạn",
  "Synergy {n}": "Cộng hưởng {n}",
  "Estimated synergy with the augments you took.": "Cộng hưởng ước tính với các lõi bạn đã chọn.",
- "Selected": "Đã chọn",
  "Select {name}: the rest re-rank by synergy with it.": "Chọn {name}: phần còn lại xếp lại theo cộng hưởng.",
  "Select: the rest re-rank by synergy with it.": "Chọn: phần còn lại xếp lại theo cộng hưởng.",
- "Already have augments? Select them with + and the rest re-rank by synergy.": "Đã có lõi? Chọn bằng + và phần còn lại xếp lại theo cộng hưởng."
+ "Your augments": "Lõi của bạn",
+ "Drag an augment here, or press + on it.": "Kéo một lõi vào đây, hoặc nhấn + của nó.",
+ "Drag another augment here to replace it.": "Kéo lõi khác vào đây để thay thế.",
+ "No known synergy with {names} on this champion yet, so the rest rank by their boost alone.": "Chưa có cộng hưởng đã biết với {names} trên tướng này, nên phần còn lại chỉ xếp theo mức tăng.",
+ "Already have augments? Press + or drag them into your slots, and the rest re-rank by synergy.": "Đã có lõi? Nhấn + hoặc kéo vào ô của bạn, phần còn lại sẽ xếp lại theo cộng hưởng.",
+ "Estimated: augments that pair well on this champion, best first, with how much more they're worth together.": "Ước tính: các lõi hợp nhau trên tướng này, tốt nhất trước, kèm mức giá trị tăng thêm khi đi cùng nhau."
 }

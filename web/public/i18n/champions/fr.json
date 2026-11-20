@@ -223,7 +223,6 @@
  "time dead": "temps mort",
  "Boost": "Bonus",
  "Boost is estimated: how many points of win rate the augment adds to this champion.": "Le bonus est estimé : combien de points de taux de victoire l'augment ajoute à ce champion.",
- "Estimated: augments that pair well on this champion, best first.": "Estimé : augments qui vont bien ensemble sur ce champion, les meilleurs d'abord.",
  "Augment pairs appear here once enough games are in. Each pair needs a minimum number of games before it shows.": "Les paires d'augments apparaîtront ici quand il y aura assez de parties. Chaque paire doit atteindre un nombre minimum de parties pour s'afficher.",
  "Kit interactions": "Interactions de kit",
  "Augments that work with this champion's own abilities, and why.": "Les augments qui fonctionnent avec les compétences de ce champion, et pourquoi.",
@@ -235,8 +234,12 @@
  "With your picks": "Avec vos choix",
  "Synergy {n}": "Synergie {n}",
  "Estimated synergy with the augments you took.": "Synergie estimée avec les augments que vous avez pris.",
- "Selected": "Sélectionnés",
  "Select {name}: the rest re-rank by synergy with it.": "Sélectionner {name} : les autres sont reclassés selon la synergie.",
  "Select: the rest re-rank by synergy with it.": "Sélectionner : les autres sont reclassés selon la synergie.",
- "Already have augments? Select them with + and the rest re-rank by synergy.": "Vous avez déjà des augments ? Sélectionnez-les avec + et les autres sont reclassés selon la synergie."
+ "Your augments": "Vos augments",
+ "Drag an augment here, or press + on it.": "Glissez un augment ici, ou appuyez sur son +.",
+ "Drag another augment here to replace it.": "Glissez un autre augment ici pour le remplacer.",
+ "No known synergy with {names} on this champion yet, so the rest rank by their boost alone.": "Pas encore de synergie connue avec {names} sur ce champion : les autres sont classés selon leur bonus seul.",
+ "Already have augments? Press + or drag them into your slots, and the rest re-rank by synergy.": "Vous avez déjà des augments ? Appuyez sur + ou glissez-les dans vos emplacements, et les autres sont reclassés selon la synergie.",
+ "Estimated: augments that pair well on this champion, best first, with how much more they're worth together.": "Estimé : les augments qui vont bien ensemble sur ce champion, les meilleurs d'abord, avec ce qu'ils valent de plus ensemble."
 }

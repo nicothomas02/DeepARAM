@@ -223,7 +223,6 @@
  "time dead": "เวลาที่ตาย",
  "Boost": "ค่าเพิ่ม",
  "Boost is estimated: how many points of win rate the augment adds to this champion.": "ค่าเพิ่มเป็นค่าประมาณ: ออคเมนต์นี้เพิ่มอัตราชนะให้แชมเปียนนี้กี่จุด",
- "Estimated: augments that pair well on this champion, best first.": "ประมาณการ: ออคเมนต์ที่เข้ากันดีบนแชมเปียนนี้ เรียงจากดีที่สุด",
  "Augment pairs appear here once enough games are in. Each pair needs a minimum number of games before it shows.": "คู่ออคเมนต์จะแสดงที่นี่เมื่อมีเกมมากพอ แต่ละคู่ต้องมีจำนวนเกมขั้นต่ำก่อนจึงจะแสดง",
  "Kit interactions": "การทำงานร่วมกับสกิล",
  "Augments that work with this champion's own abilities, and why.": "ออคเมนต์ที่เข้ากับสกิลของแชมเปี้ยนตัวนี้ และเหตุผล",
@@ -235,8 +234,12 @@
  "With your picks": "ตามที่คุณเลือก",
  "Synergy {n}": "ซินเนอร์จี {n}",
  "Estimated synergy with the augments you took.": "ซินเนอร์จีโดยประมาณกับออคเมนต์ที่คุณเลือก",
- "Selected": "ที่เลือก",
  "Select {name}: the rest re-rank by synergy with it.": "เลือก {name}: ที่เหลือจะเรียงใหม่ตามซินเนอร์จี",
  "Select: the rest re-rank by synergy with it.": "เลือก: ที่เหลือจะเรียงใหม่ตามซินเนอร์จี",
- "Already have augments? Select them with + and the rest re-rank by synergy.": "มีออคเมนต์อยู่แล้ว? เลือกด้วย + แล้วที่เหลือจะเรียงใหม่ตามซินเนอร์จี"
+ "Your augments": "ออคเมนต์ของคุณ",
+ "Drag an augment here, or press + on it.": "ลากออคเมนต์มาที่นี่ หรือกด + ของมัน",
+ "Drag another augment here to replace it.": "ลากออคเมนต์อื่นมาที่นี่เพื่อแทนที่",
+ "No known synergy with {names} on this champion yet, so the rest rank by their boost alone.": "ยังไม่มีซินเนอร์จีที่รู้จักกับ {names} บนแชมเปียนนี้ ที่เหลือจึงเรียงตามค่าบูสต์อย่างเดียว",
+ "Already have augments? Press + or drag them into your slots, and the rest re-rank by synergy.": "มีออคเมนต์อยู่แล้ว? กด + หรือลากใส่ช่องของคุณ แล้วที่เหลือจะเรียงใหม่ตามซินเนอร์จี",
+ "Estimated: augments that pair well on this champion, best first, with how much more they're worth together.": "ประมาณการ: ออคเมนต์ที่เข้ากันดีบนแชมเปียนนี้ ดีที่สุดก่อน พร้อมค่าที่เพิ่มขึ้นเมื่อใช้ร่วมกัน"
 }

@@ -223,7 +223,6 @@
  "time dead": "Zeit tot",
  "Boost": "Plus",
  "Boost is estimated: how many points of win rate the augment adds to this champion.": "Das Plus ist geschätzt: wie viele Punkte Siegrate das Augment diesem Champion bringt.",
- "Estimated: augments that pair well on this champion, best first.": "Geschätzt: Augments, die auf diesem Champion gut zusammenpassen, die besten zuerst.",
  "Augment pairs appear here once enough games are in. Each pair needs a minimum number of games before it shows.": "Augment-Paare erscheinen hier, sobald genug Spiele vorliegen. Jedes Paar braucht eine Mindestzahl an Spielen, bevor es angezeigt wird.",
  "Kit interactions": "Kit-Interaktionen",
  "Augments that work with this champion's own abilities, and why.": "Augmente, die mit den eigenen Fähigkeiten dieses Champions zusammenspielen, und warum.",
@@ -235,8 +234,12 @@
  "With your picks": "Mit deiner Wahl",
  "Synergy {n}": "Synergie {n}",
  "Estimated synergy with the augments you took.": "Geschätzte Synergie mit deinen gewählten Augments.",
- "Selected": "Ausgewählt",
  "Select {name}: the rest re-rank by synergy with it.": "{name} auswählen: der Rest wird nach Synergie neu sortiert.",
  "Select: the rest re-rank by synergy with it.": "Auswählen: der Rest wird nach Synergie neu sortiert.",
- "Already have augments? Select them with + and the rest re-rank by synergy.": "Schon Augments? Wähle sie mit + aus, und der Rest wird nach Synergie neu sortiert."
+ "Your augments": "Deine Augments",
+ "Drag an augment here, or press + on it.": "Zieh ein Augment hierher oder drück darauf +.",
+ "Drag another augment here to replace it.": "Zieh ein anderes Augment hierher, um es zu ersetzen.",
+ "No known synergy with {names} on this champion yet, so the rest rank by their boost alone.": "Noch keine bekannte Synergie mit {names} auf diesem Champion, daher zählt beim Rest nur der Bonus.",
+ "Already have augments? Press + or drag them into your slots, and the rest re-rank by synergy.": "Schon Augments? Drück + oder zieh sie in deine Slots, und der Rest wird nach Synergie neu sortiert.",
+ "Estimated: augments that pair well on this champion, best first, with how much more they're worth together.": "Geschätzt: Augments, die auf diesem Champion gut zusammenpassen, die besten zuerst, und wie viel mehr sie zusammen wert sind."
 }

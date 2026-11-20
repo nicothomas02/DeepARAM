@@ -223,7 +223,6 @@
  "time dead": "čas po smrti",
  "Boost": "Přínos",
  "Boost is estimated: how many points of win rate the augment adds to this champion.": "Přínos je odhad: kolik bodů výherní míry augment tomuto šampionovi přidá.",
- "Estimated: augments that pair well on this champion, best first.": "Odhad: augmenty, které se k tomuto šampionovi dobře hodí, nejlepší první.",
  "Augment pairs appear here once enough games are in. Each pair needs a minimum number of games before it shows.": "Dvojice augmentů se tu objeví, jakmile bude dost her. Každá dvojice potřebuje minimální počet her, než se zobrazí.",
  "Kit interactions": "Interakce sady",
  "Augments that work with this champion's own abilities, and why.": "Vylepšení, která fungují se schopnostmi tohoto šampiona, a proč.",
@@ -235,8 +234,12 @@
  "With your picks": "S tvým výběrem",
  "Synergy {n}": "Synergie {n}",
  "Estimated synergy with the augments you took.": "Odhadovaná synergie s vybranými vylepšeními.",
- "Selected": "Vybráno",
  "Select {name}: the rest re-rank by synergy with it.": "Vybrat {name}: zbytek se seřadí podle synergie.",
  "Select: the rest re-rank by synergy with it.": "Vybrat: zbytek se seřadí podle synergie.",
- "Already have augments? Select them with + and the rest re-rank by synergy.": "Už máš vylepšení? Vyber je tlačítkem + a zbytek se seřadí podle synergie."
+ "Your augments": "Tvá vylepšení",
+ "Drag an augment here, or press + on it.": "Přetáhni sem vylepšení, nebo stiskni jeho +.",
+ "Drag another augment here to replace it.": "Přetáhni sem jiné vylepšení a nahraď ho.",
+ "No known synergy with {names} on this champion yet, so the rest rank by their boost alone.": "S {names} zatím na tomto šampionovi není známá synergie, takže zbytek se řadí jen podle bonusu.",
+ "Already have augments? Press + or drag them into your slots, and the rest re-rank by synergy.": "Už máš vylepšení? Stiskni + nebo je přetáhni do svých slotů a zbytek se seřadí podle synergie.",
+ "Estimated: augments that pair well on this champion, best first, with how much more they're worth together.": "Odhad: vylepšení, která se na tomto šampionovi dobře doplňují, nejlepší první, a o kolik víc mají dohromady."
 }

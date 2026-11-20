@@ -223,7 +223,6 @@
  "time dead": "czas po śmierci",
  "Boost": "Premia",
  "Boost is estimated: how many points of win rate the augment adds to this champion.": "Premia jest szacowana: o ile punktów współczynnika zwycięstw augment podnosi go temu bohaterowi.",
- "Estimated: augments that pair well on this champion, best first.": "Szacunek: augmenty, które dobrze do siebie pasują na tym bohaterze, najlepsze najpierw.",
  "Augment pairs appear here once enough games are in. Each pair needs a minimum number of games before it shows.": "Pary augmentów pojawią się tutaj, gdy będzie dość gier. Każda para potrzebuje minimalnej liczby gier, zanim się pokaże.",
  "Kit interactions": "Interakcje zestawu",
  "Augments that work with this champion's own abilities, and why.": "Ulepszenia, które współgrają z umiejętnościami tego bohatera, i dlaczego.",
@@ -235,8 +234,12 @@
  "With your picks": "Z twoim wyborem",
  "Synergy {n}": "Synergia {n}",
  "Estimated synergy with the augments you took.": "Szacowana synergia z wybranymi ulepszeniami.",
- "Selected": "Wybrane",
  "Select {name}: the rest re-rank by synergy with it.": "Wybierz {name}: reszta ułoży się według synergii.",
  "Select: the rest re-rank by synergy with it.": "Wybierz: reszta ułoży się według synergii.",
- "Already have augments? Select them with + and the rest re-rank by synergy.": "Masz już ulepszenia? Wybierz je przyciskiem +, a reszta ułoży się według synergii."
+ "Your augments": "Twoje ulepszenia",
+ "Drag an augment here, or press + on it.": "Przeciągnij tu ulepszenie albo naciśnij jego +.",
+ "Drag another augment here to replace it.": "Przeciągnij tu inne ulepszenie, aby je zastąpić.",
+ "No known synergy with {names} on this champion yet, so the rest rank by their boost alone.": "Brak znanej synergii z {names} na tym bohaterze, więc reszta jest ułożona tylko według bonusu.",
+ "Already have augments? Press + or drag them into your slots, and the rest re-rank by synergy.": "Masz już ulepszenia? Naciśnij + albo przeciągnij je do swoich miejsc, a reszta ułoży się według synergii.",
+ "Estimated: augments that pair well on this champion, best first, with how much more they're worth together.": "Szacunek: ulepszenia, które dobrze się łączą na tym bohaterze, najlepsze najpierw, z tym, ile więcej są warte razem."
 }
