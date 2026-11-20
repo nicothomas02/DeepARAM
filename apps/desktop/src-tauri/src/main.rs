@@ -4,6 +4,7 @@
 mod companion;
 mod overlay;
 mod review;
+mod sharing;
 
 use std::{fs, path::PathBuf, sync::Mutex, thread, time::Duration};
 
@@ -331,9 +332,10 @@ fn build_tray(app: &AppHandle) -> tauri::Result<()> {
         companion_on,
         None::<&str>,
     )?;
+    let share = sharing::menu_item(app)?;
     let menu = Menu::with_items(
         app,
-        &[&open, &sep()?, &tier, &sim, &patches, &pbe, &sep()?, &overlay_menu, &comp, &sep()?, &check, &notes],
+        &[&open, &sep()?, &tier, &sim, &patches, &pbe, &sep()?, &overlay_menu, &comp, &share, &sep()?, &check, &notes],
     )?;
     if autostart_available() {
         menu.append(&auto)?;
@@ -374,6 +376,7 @@ fn build_tray(app: &AppHandle) -> tauri::Result<()> {
                 let on = ov_smart.is_checked().unwrap_or(true);
                 app.state::<Store>().update(|s| s.overlay_all_game = !on);
             }
+            "share" => sharing::on_menu(app),
             "companion" => {
                 let on = comp.is_checked().unwrap_or(true);
                 app.state::<Store>().update(|s| s.companion_off = !on);
@@ -406,7 +409,7 @@ fn build_tray(app: &AppHandle) -> tauri::Result<()> {
 
 fn main() {
     tauri::Builder::default()
-        .invoke_handler(tauri::generate_handler![overlay::take_augment])
+        .invoke_handler(tauri::generate_handler![overlay::take_augment, sharing::share_choice])
         // Must come first: a second launch focuses the running app instead of opening another.
         .plugin(tauri_plugin_single_instance::init(|app, _args, _cwd| show(app)))
         .plugin(
@@ -427,11 +430,16 @@ fn main() {
             app.manage(Store::load(&handle));
             app.manage(overlay::Shared::default());
             app.manage(companion::Shared::default());
+            app.manage(sharing::Sharing::load(&handle));
             let hidden = std::env::args().any(|a| a == HIDDEN_ARG);
             build_window(&handle, hidden)?;
             build_tray(&handle)?;
             overlay::watch(handle.clone());
             companion::watch(handle.clone());
+            sharing::watch(handle.clone());
+            if !hidden {
+                sharing::ask_once(&handle);
+            }
             thread::spawn(move || loop {
                 check_patch(&handle, false);
                 thread::sleep(POLL_EVERY);

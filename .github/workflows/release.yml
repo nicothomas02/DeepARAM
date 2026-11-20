@@ -1,6 +1,6 @@
 name: Release apps
 
-# Builds the Mac app, the Windows installers and the Linux packages and attaches them to one GitHub release, so every
+# Builds the Windows installers and the Linux packages and attaches them to one GitHub release, so every
 # download has one home. Start one by pushing a tag (git tag v0.2.0 && git push origin v0.2.0), or
 # from the Actions tab with "Run workflow" and a version.
 on:
@@ -23,27 +23,6 @@ env:
   VERSION: ${{ inputs.version || github.ref_name }}
 
 jobs:
-  mac:
-    name: Mac app
-    runs-on: macos-15
-    timeout-minutes: 30
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-      - name: Use the newest Xcode
-        run: sudo xcode-select -s "$(ls -d /Applications/Xcode_16*.app | sort -V | tail -1)" && xcodebuild -version
-      - name: Build DeepARAM.app for Apple silicon and Intel
-        run: VERSION="${VERSION#v}" UNIVERSAL=1 apps/macos/scripts/build-app.sh
-      - name: Zip it
-        # ditto keeps the app's signature and permissions, which a plain zip would lose.
-        run: ditto -c -k --keepParent apps/macos/build/DeepARAM.app "DeepARAM-mac-${VERSION#v}.zip"
-      - uses: actions/upload-artifact@v4
-        with:
-          name: release-mac
-          path: DeepARAM-mac-*.zip
-          if-no-files-found: error
-
   windows:
     name: Windows installers
     runs-on: windows-latest
@@ -71,11 +50,17 @@ jobs:
         run: |
           npm ci
           npx tauri build
+      # A fixed name as well, so deeparam.com/download/windows always finds the newest one.
+      - name: Name it for the download page
+        if: steps.has.outputs.app == 'yes'
+        shell: bash
+        run: cp apps/desktop/src-tauri/target/release/bundle/nsis/*-setup.exe DeepARAM-Windows-Setup.exe
       - if: steps.has.outputs.app == 'yes'
         uses: actions/upload-artifact@v4
         with:
           name: release-windows
           path: |
+            DeepARAM-Windows-Setup.exe
             apps/desktop/src-tauri/target/release/bundle/nsis/*.exe
             apps/desktop/src-tauri/target/release/bundle/msi/*.msi
           if-no-files-found: error
@@ -115,7 +100,7 @@ jobs:
 
   publish:
     name: Publish the release
-    needs: [mac, windows, linux]
+    needs: [windows, linux]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/download-artifact@v4
@@ -132,8 +117,7 @@ jobs:
           ls -l files
           notes="DeepARAM apps $v.
 
-          - **Mac** (DeepARAM-mac-$v.zip): unzip and drag DeepARAM to Applications. It isn't notarized yet, so the first time, right-click it and choose Open.
-          - **Windows** (.exe installer, or .msi): Windows may say \"Windows protected your PC\" the first time. Choose More info, then Run anyway.
+          - **Windows** (DeepARAM-Windows-Setup.exe, or .msi): Windows may say \"Windows protected your PC\" the first time. Choose More info, then Run anyway.
           - **Linux** (.AppImage, .deb or .rpm, x86_64): the AppImage runs on most distributions after chmod +x; the .deb is for Debian and Ubuntu, the .rpm for Fedora and openSUSE."
           if gh release view "$tag" >/dev/null 2>&1; then
             gh release upload "$tag" files/* --clobber
