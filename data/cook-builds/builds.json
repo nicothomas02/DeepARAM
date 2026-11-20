@@ -526,26 +526,41 @@
       "chef": "2026-11-07"
     },
     {
-      "id": "rakan-hits-the-gym",
+      "id": "rakan-double-entrance",
       "champion": "Rakan",
-      "title": "Rakan Hits The Gym",
+      "title": "Double Entrance",
+      "tagline": "One entrance is a play. Two is a lifestyle.",
       "augments": [
-        "Protein Shake",
-        "Windspeaker's Blessing",
-        "Courage of the Colossus",
-        "Mighty Shield"
+        "Echo Cast",
+        "Ravenous Bind",
+        "Stuck In Here With Me",
+        "Porcupine"
       ],
       "core": 4,
       "items": [
+        "Thornmail",
+        "Sunfire Aegis",
+        "Unending Despair",
         "Jak'Sho, The Protean",
-        "Spirit Visage",
-        "Locket of the Iron Solari",
-        "Frozen Heart",
-        "Force of Nature",
-        "Mercury's Treads"
+        "Riftmaker",
+        "Plated Steelcaps"
       ],
-      "why": "Rakan's Gleaming Quill heals Rakan himself as well as his allies, and his Fey Feathers passive hands him a free shield every so often. Protein Shake turns bonus Armor and Magic Resist into Heal and Shield Power, and Windspeaker's Blessing makes every heal and shield he lands raise the target's Armor and Magic Resist for 3 seconds, so each self-heal buys him resists that make his next Quill heal and Battle Dance shield bigger. Grand Entrance knocks people up, which pops a Courage of the Colossus shield, and every shield he gains (his own passive included) triggers Mighty Shield for a burst of Adaptive Force into the next Quill. Jak'Sho, Frozen Heart and Force of Nature are pure resists that Protein Shake reads as healing stats, with Jak'Sho even growing them mid-fight, while Spirit Visage makes the heals and shields on him bigger and Locket adds another shield to inflate. The flashy feathered playmaker becomes a six-item gym rat whose heals grow with his armor instead of his Ability Power.",
-      "play": "Open with Grand Entrance into the pile for the shield, Quill yourself mid-fight, then Battle Dance out and watch the shields grow with your armor. Against a team of mages, swap Frozen Heart for Kaenic Rookern.",
+      "why": "Rakan never shields anyone. He knocks the enemy team up twice per Grand Entrance, heals off every knock and dares them to hit back.",
+      "how": [
+        [
+          "Grand Entrance",
+          "A dash that ends in a knock-up. Usually it's his engage, followed by a shield dash back to safety."
+        ],
+        [
+          "Augments",
+          "Echo Cast, rolled on Grand Entrance, sends a clone that knocks up a second time at your cursor. Ravenous Bind, also on Grand Entrance, makes every knock-up deal extra damage and heal him. Stuck In Here With Me taunts everyone after The Quickness, and Porcupine fires needles back at whoever hits him."
+        ],
+        [
+          "Items",
+          "Thornmail, Sunfire, Unending Despair and Jak'Sho make hitting him hurt and heal him in long fights. Riftmaker turns his Health into AP for the knock-ups."
+        ]
+      ],
+      "play": "Grand Entrance into the middle with the cursor on a second group, ult to taunt, then stand there. Battle Dance is only for chasing.",
       "chef": "2026-11-08"
     },
     {
@@ -572,49 +587,79 @@
       "chef": "2026-11-09"
     },
     {
-      "id": "warwick-frequent-flyer",
+      "id": "warwick-self-care-wolf",
       "champion": "Warwick",
-      "title": "Frequent Flyer",
+      "title": "Self-Care Wolf",
+      "tagline": "He doesn't bite anymore. He just heals at you.",
       "augments": [
-        "Get Excited!",
-        "Arcane Axiom",
-        "Nightstalking",
-        "Kill Secured"
+        "Rejuvenation",
+        "Siphon",
+        "Circle of Death",
+        "Don't Change the Channel"
       ],
       "core": 4,
       "items": [
-        "Axiom Arc",
-        "Experimental Hexplate",
-        "Youmuu's Ghostblade",
-        "Dead Man's Plate",
-        "Stridebreaker",
-        "Boots of Swiftness"
+        "Spirit Visage",
+        "Warmog's Armor",
+        "Riftmaker",
+        "Redemption",
+        "Rylai's Crystal Scepter",
+        "Mercury's Treads"
       ],
-      "why": "Warwick's Infinite Duress leaps a distance that scales with his bonus Move Speed, a detail that normally adds only a few steps. Get Excited! gives a huge burst of Move Speed on every takedown, and Arcane Axiom refunds part of his ultimate's cooldown when a champion he damaged dies, so each kill hands him both the fuel and the next launch. Nightstalking adds more Move Speed and a moment of invisibility on the same takedown, and Kill Secured speeds him toward low enemies on top of Blood Hunt, which already does the same. Axiom Arc refunds even more of the ultimate on kills and Experimental Hexplate adds ultimate haste plus Move Speed after each cast, while Youmuu's Ghostblade, Dead Man's Plate, Stridebreaker and Boots of Swiftness pile on more speed. The melee brawler becomes a cross-map reset assassin who launches from off screen onto whoever is lowest.",
-      "play": "Wait for a wounded enemy, pop Youmuu's Ghostblade and leap in from far outside the fight. After the takedown, aim the next Infinite Duress at the next low target while the speed lasts.",
+      "why": "Warwick stops hunting and starts healing, and every heal zaps the nearest enemy champion, so he tanks and lets his own regen fight for him.",
+      "how": [
+        [
+          "Primal Howl and Infinite Duress",
+          "Primal Howl is just damage reduction and a fear, and Infinite Duress is a channel. Neither is meant to keep him alive past the fight."
+        ],
+        [
+          "Augments",
+          "Rejuvenation, rolled on Primal Howl, heals him every time he howls, and Siphon on Jaws of the Beast heals him off each bite. Circle of Death turns 70% of every heal, and his Health Regen, into magic damage on the nearest enemy champion. Don't Change the Channel shields him for every second he channels Infinite Duress."
+        ],
+        [
+          "Items",
+          "Spirit Visage boosts every heal, and Warmog's regenerates him once he has 2,000 bonus Health and stays 8 seconds untouched. Riftmaker turns that Health into AP for the zaps. Redemption is one more heal, and Rylai's slows whoever the bites hit."
+        ]
+      ],
+      "play": "Max E. Howl into fights, bite whatever is close, and channel R on a tank just for the shield. Your regen does the damage.",
       "chef": "2026-11-10"
     },
     {
-      "id": "kalista-the-floor-is-spears",
+      "id": "kalista-javelin-thrower",
       "champion": "Kalista",
-      "title": "The Floor Is Spears",
+      "title": "Javelin Thrower",
+      "tagline": "Attacks are optional. Spears are not.",
       "augments": [
-        "Draw Your Sword",
-        "Earthwake",
-        "Shadow Runner",
-        "Swift and Safe"
+        "Skilled Sniper",
+        "Magic Missile",
+        "Hextech Soul",
+        "Siphon"
       ],
       "core": 4,
       "items": [
-        "Berserker's Greaves",
-        "Guinsoo's Rageblade",
-        "Blade of The Ruined King",
-        "Ravenous Hydra",
-        "Sterak's Gage",
-        "Death's Dance"
+        "Spear of Shojin",
+        "Serylda's Grudge",
+        "Axiom Arc",
+        "Edge of Night",
+        "Voltaic Cyclosword",
+        "Ionian Boots of Lucidity"
       ],
-      "why": "Kalista's passive, Martial Poise, lets her lunge a short distance every time she launches an attack, and her own Pierce text calls that lunge a dash. Earthwake makes every dash leave a trail that detonates after 0.75 seconds, but on a ranged Kalista those trails sit a full attack range away from anyone. Draw Your Sword fixes that: she becomes melee, is paid in Attack Damage, Health, Attack Speed, Lifesteal and Move Speed for the range she gave up, and now every hop draws its trail straight through the enemy she is hitting. Shadow Runner gives 300 Movement Speed for 2 seconds after each dash and Swift and Safe adds a Shield after one, so a champion who hops on every attack stays fast and protected in the middle of the fight. Guinsoo's Rageblade stacks Attack Speed with every Attack, which means more attacks, more lunges and more exploding trails, turning the backline marksman into a melee skirmisher who wins by where she steps.",
-      "play": "Walk into melee and give a move command during every attack so each lunge crosses the enemy and drops a trail under them. Hop sideways through the group rather than away from it, and use Rend to slow anyone trying to leave.",
+      "why": "Kalista stops attacking and becomes a Pierce sniper who throws a spear every couple of seconds from beyond 600 range.",
+      "how": [
+        [
+          "Pierce",
+          "A long-range spear she normally fires once between attack combos, mostly to stack Rend."
+        ],
+        [
+          "Augments",
+          "Skilled Sniper refunds 80% of Pierce's cooldown when it hits from over 600 units away. Magic Missile fires 3 true-damage missiles at everything each spear hits. Hextech Soul chains lightning off the spears, and Siphon, rolled on Pierce, heals her for 30% of their damage."
+        ],
+        [
+          "Items",
+          "Spear of Shojin and Lucidity add haste and boost her ability damage. Voltaic Cyclosword charges off each spear for current-Health damage, Serylda's slows the low ones, and Axiom Arc and Edge of Night add lethality."
+        ]
+      ],
+      "play": "Stand at max range and throw Pierce on cooldown. Only hop with Martial Poise to keep the 600-unit gap.",
       "chef": "2026-11-11"
     },
     {
