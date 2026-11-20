@@ -6,6 +6,13 @@ text, and answers from Nico, the site owner (marked "Nico"). Some of Nico's note
 rather than official text; they are marked "experience". For official definitions (for example, what counts as
 damage over time), check the League wiki first.
 
+Ability tags: `data/wiki/ability_tags.json` (built by `data/wiki/ability_tags.py`) tags every ability with the
+League wiki's own game terms, which follow the game's internal coding: dash vs blink, channel, airborne,
+immobilize (stun, root, snare, suppression, sleep), forced action (charm, taunt, fear), on-hit, attack reset and
+more. `data/checks/champion_pool.py` prints them. Match augment triggers to these tags, not to tooltip wording
+(Nico 2026-11-20). Tags come from the ability's description, so a mention like "can't be polymorphed" can add a
+stray tag; check the wiki text when a tag decides the build.
+
 ## Augments
 
 - **Archmage:** each cast takes 30% of the *cast* ability's *base* cooldown off another random ability. It can
