@@ -15,6 +15,7 @@ import meta_settling  # noqa: E402
 import patch_forecast  # noqa: E402
 import patch_impact  # noqa: E402
 import playstyle_clusters  # noqa: E402
+import predictive  # noqa: E402
 
 if __name__ == "__main__":
     c.write_json(c.OUT / "patch_impact.json", patch_impact.build())
@@ -24,7 +25,10 @@ if __name__ == "__main__":
     forecast_scorecard.snapshot()  # freezes the forecast for the patch still on the test server
     c.write_json(c.OUT / "forecast_scorecard.json", forecast_scorecard.build())
     c.write_json(c.OUT / "item_lift.json", item_lift.build())
+    ahead = predictive.build()  # fitted DeepScore settings, also copied to web/src/data/deepscore-fit.json
+    c.write_json(c.OUT / "predictive.json", ahead)
+    c.write_json(predictive.FIT_OUT, predictive.site_fit(ahead))
     length = game_length.build()  # needs archive_aggregates.json, written by hand with owner_archive.py
     if length:
         c.write_json(c.OUT / "game_length.json", length)
-    print("data/analysis: patch_impact, meta_settling, playstyle_clusters, patch_forecast, forecast_scorecard, item_lift" + (", game_length" if length else "") + " written")
+    print("data/analysis: patch_impact, meta_settling, playstyle_clusters, patch_forecast, forecast_scorecard, item_lift, predictive" + (", game_length" if length else "") + " written")

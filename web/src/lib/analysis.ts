@@ -147,3 +147,31 @@ export function itemLiftSummary() {
 
 /** How long games last, from the survival analysis of the owner's archive; private, so the JSON is not in the repo and this is null on the site. */
 export const gameLength = (): GameLength | null => length();
+
+// Fitted DeepScore settings and their backtest (data/analysis/predictive.py).
+type ModelScore = { rmse_pts: number; mae_pts: number; spearman: number; tier_match: number; n: number; coverage?: Record<"50" | "80" | "95", number> };
+type Backtest = { transitions: number; models: { current: ModelScore; no_change: ModelScore; fitted: ModelScore }; sampling_only_95_coverage?: number | null };
+type Predictive = {
+  champions?: { fit: { b: number; s0: number; q80: number; r: number }; backtest: Backtest };
+  augments?: { backtest: Backtest } | null;
+  items?: { backtest: Backtest } | null;
+};
+
+/** How well next patch's win rates were predicted, champions first: fitted settings against the old hand-set prior. */
+export function predictiveBacktest() {
+  const p = readRepoJson<Predictive>("data/analysis/predictive.json");
+  const ch = p?.champions;
+  if (!ch?.backtest?.models?.fitted?.coverage) return null;
+  const { current, fitted } = ch.backtest.models;
+  return {
+    transitions: ch.backtest.transitions,
+    carry: ch.fit.b,
+    range80: ch.fit.q80 * ch.fit.s0,
+    olderPatches: ch.fit.r,
+    current,
+    fitted,
+    samplingCoverage: ch.backtest.sampling_only_95_coverage ?? null,
+    augments: p?.augments?.backtest ?? null,
+    items: p?.items?.backtest ?? null,
+  };
+}

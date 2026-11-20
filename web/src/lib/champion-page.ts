@@ -3,7 +3,7 @@ import { readFileSync } from "node:fs";
 import championIds from "@/data/champion-ids.json";
 import augmentNames from "@/data/augment-names.json";
 import { liveWithChange } from "./champions";
-import { grade, lowerBound } from "./deepscore";
+import { FIT, fittedBound, grade, lowerBound, type Fit } from "./deepscore";
 import {
   ITEM_TIERS,
   itemTier,
@@ -231,7 +231,7 @@ export function championPage(alias: string): ChampionPage | null {
       "champions/modifiers.js",
     )?.[alias] ?? {};
 
-  const boots = scoreItems(rows(b?.items?.boots));
+  const boots = scoreItems(rows(b?.items?.boots), FIT.items);
   const full = scoreItems(rows(b?.items?.full_builds));
   const single = tiered([
     ...rows(b?.items?.other),
@@ -244,7 +244,7 @@ export function championPage(alias: string): ChampionPage | null {
   const page = {
     winRate: base,
     skills,
-    starting: scoreItems(rows(b?.items?.starting)),
+    starting: scoreItems(rows(b?.items?.starting), FIT.items),
     boots,
     core,
     full,
@@ -364,22 +364,27 @@ function lateSlots(core: ItemRow | undefined, single: ItemRow[]): LateSlot[] {
   return slots;
 }
 
-const scoreItems = (list: ItemRow[]): ItemRow[] => scoreRows(list);
+// Starting items and boots use the fitted settings, which were backtested on them; builds and single items keep
+// the old prior until their history can be backtested (data/analysis/predictive.py).
+const scoreItems = (list: ItemRow[], fit: Fit | null = null): ItemRow[] => scoreRows(list, fit);
 
-/** DeepScore for each row against the rest of the champion's list (items, builds, spell pairs; lib/deepscore.ts), best first. */
-export function scoreRows<T extends { winRate: number; pickRate: number }>(list: T[]): (T & { deepScore?: number })[] {
+/** DeepScore for each row against the rest of the champion's list (items, builds, spell pairs; lib/deepscore.ts), best first.
+ *  `fit`: fitted next-patch settings (single items); without it, the old hand-set prior (builds, spell pairs). */
+export function scoreRows<T extends { winRate: number; pickRate: number }>(list: T[], fit: Fit | null = null): (T & { deepScore?: number })[] {
   if (!list.length) return list;
   const picks = list.map((r) => r.pickRate).sort((x, y) => x - y);
   const median = picks[Math.floor(picks.length / 2)] || 1;
   const total = list.reduce((s, r) => s + r.pickRate, 0) || 1;
   const mean = list.reduce((s, r) => s + r.winRate * r.pickRate, 0) / total;
   const bounds = list.map((r) =>
-    lowerBound(
-      r.winRate,
-      (r.pickRate / median) * MEDIAN_GAMES,
-      mean,
-      PRIOR * MEDIAN_GAMES,
-    ),
+    fit
+      ? fittedBound(r.winRate, r.pickRate / median, mean, fit)
+      : lowerBound(
+          r.winRate,
+          (r.pickRate / median) * MEDIAN_GAMES,
+          mean,
+          PRIOR * MEDIAN_GAMES,
+        ),
   );
   const grades = grade(bounds);
   return list

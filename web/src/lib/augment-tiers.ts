@@ -3,7 +3,7 @@ import { readFileSync } from "node:fs";
 import { augmentPages } from "./augments";
 import { repoHas, repoPath, readRepoJson } from "./repo-data";
 import championIds from "@/data/champion-ids.json";
-import { grade, lowerBound } from "./deepscore";
+import { FIT, fittedBound, grade, lowerBound } from "./deepscore";
 import { officialStyles } from "./build-tags";
 
 // Augment tier list (/augments): every live augment ranked S to D against the others of its rarity
@@ -13,7 +13,7 @@ import { officialStyles } from "./build-tags";
 // win rate is first judged against what the champions who take it win anyway: its "baseline" is those
 // champions' win rates, weighted by how many of their games include it. A strong champion's favourite
 // then only scores well if it wins more than that champion usually does. The result is pulled toward
-// the rarity's average, more strongly the less often the augment is picked, and scored at its low end.
+// the rarity's average by the fitted carry-over (lib/deepscore.ts FIT) and scored at its low end.
 //
 // Styles: an augment fits a style when champions who play that style list it among that style's
 // augments (champions/data.js "Builds by style"), or when its internal name names the style. The game's own
@@ -59,6 +59,7 @@ export type TierAug = {
 type Raw = { augment_id: number; key?: string; tier?: string; pick_rate: number; win_rate: number };
 type ChampsData = { champions: { builds?: { styles?: { style: string; augments?: number[] }[] } }[] };
 
+// Fallback when no fitted settings exist (lib/deepscore.ts FIT): the old hand-set prior.
 const PRIOR = 0.25; // the average's weight, in "median augments' worth" of picks
 const MEDIAN_GAMES = 1000; // pseudo-games for an augment of median popularity, as for champions
 
@@ -115,7 +116,12 @@ export function augmentTiers(): TierAug[] {
     const usual = group.reduce((s, a) => s + (base.get(a.id) ?? mean) * a.pickRate, 0) / total;
     const adjusted = (a: (typeof group)[number]) => a.winRate - ((base.get(a.id) ?? usual) - usual);
     const scored = group
-      .map((a) => ({ a, score: lowerBound(adjusted(a), (a.pickRate / median) * MEDIAN_GAMES, mean, PRIOR * MEDIAN_GAMES) }))
+      .map((a) => ({
+        a,
+        score: FIT.augments
+          ? fittedBound(adjusted(a), a.pickRate / median, mean, FIT.augments)
+          : lowerBound(adjusted(a), (a.pickRate / median) * MEDIAN_GAMES, mean, PRIOR * MEDIAN_GAMES),
+      }))
       .sort((x, y) => y.score - x.score);
     const grades = grade(scored.map((x) => x.score));
     scored.forEach(({ a }, i) => {
