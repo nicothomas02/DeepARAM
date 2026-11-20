@@ -12,6 +12,8 @@ export type DamageTypes = {
   champions: Record<string, number>;
   /** item id (last four digits, so Mayhem's copies match) -> what it gives: "ad", "ap", "armor", "mr" */
   items: Record<string, string[]>;
+  /** boots ids (last four digits), to tell whether the player has bought boots yet */
+  boots: number[];
 };
 
 type DdChampion = { info: { attack: number; magic: number } };
@@ -35,7 +37,7 @@ export function damageTypes(): DamageTypes {
   const byLower = new Map(
     Object.entries(champs).map(([k, v]) => [k.toLowerCase(), v]),
   );
-  const out: DamageTypes = { champions: {}, items: {} };
+  const out: DamageTypes = { champions: {}, items: {}, boots: [] };
   for (const alias of Object.keys(championIds)) {
     const c = byLower.get(alias.toLowerCase());
     if (!c) continue;
@@ -46,6 +48,8 @@ export function damageTypes(): DamageTypes {
   for (const [id, it] of Object.entries(items)) {
     // Finished items and boots only: components say little about what a champion is building.
     const boots = it.tags?.includes("Boots") ?? false;
+    if (boots && !out.boots.includes(Number(id) % 10000))
+      out.boots.push(Number(id) % 10000);
     if (!boots && ((it.gold?.total ?? 0) < 2000 || it.into?.length)) continue;
     const kinds = KIND.filter(([, tags]) =>
       tags.some((t) => it.tags?.includes(t)),

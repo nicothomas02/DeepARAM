@@ -190,8 +190,9 @@
   }
 
   // The enemy team's damage, 0 (all physical) to 1 (all magic): each champion's usual mix, pulled toward what their
-  // finished items say as they buy them. A tip only when it leans hard one way and you aren't covered yet, since
-  // resists matched to a mixed team rarely pay off.
+  // finished items say as they buy them. Checked on past games, only one defense tip paid off: Plated Steelcaps
+  // against a team dealing 62%+ physical damage (about +5 win-rate points vs other boots). Magic resist boots, armor or
+  // magic resist items matched to the threat, and anti-heal showed little or no gain, so the panel doesn't suggest them.
   function enemyMagic(k, enemies) {
     const lower = new Map(Object.entries(k.champions).map(([a, m]) => [a.toLowerCase(), m]));
     const mixes = enemies.filter((e) => e.champ).map((e) => {
@@ -205,20 +206,12 @@
     });
     return mixes.length ? mixes.reduce((a, b) => a + b, 0) / mixes.length : null;
   }
-  function defenseTip(k, g, build, next) {
+  function defenseTip(k, g) {
     const magic = enemyMagic(k, g.enemies ?? []);
-    if (magic === null || (magic > 0.35 && magic < 0.65)) return "";
-    const want = magic >= 0.65 ? "mr" : "armor";
-    const has = (id) => (k.items[String(id % 10000)] ?? []).includes(want);
-    if (g.items.filter(has).length >= 2) return "";
-    const owned = new Set(g.items.map((i) => i % 10000));
-    const pick = build.find((it) => !owned.has(itemId(it.icon)) && has(itemId(it.icon)))?.name
-      ?? (!g.items.some((i) => [3111, 3047].includes(i % 10000)) ? (want === "mr" ? "Mercury's Treads" : "Plated Steelcaps") : null);
-    if (pick && pick === next[0]?.name) return "";
-    const kind = want === "mr" ? "magic" : "physical";
-    const advice = pick === next[1]?.name ? `Consider <b>${esc(pick)}</b> first.` : pick ? `Good next defense: <b>${esc(pick)}</b>.`
-      : `A ${want === "mr" ? "magic resist" : "armor"} item would help.`;
-    return `<div class="why tip">Enemy damage is mostly ${kind} (about ${pct(want === "mr" ? magic : 1 - magic)}). ${advice}</div>`;
+    if (magic === null || magic > 0.38) return "";
+    const boots = g.items.some((i) => (k.boots ?? []).includes(i % 10000));
+    if (boots) return "";
+    return `<div class="why tip">Enemy damage is mostly physical (about ${pct(1 - magic)}). If you buy boots: <b>Plated Steelcaps</b>.</div>`;
   }
 
   async function renderItems() {
@@ -228,7 +221,7 @@
     const build = d?.champions?.find((c) => c.id === game.champ)?.items ?? [];
     const owned = new Set(game.items.map((i) => i % 10000));
     const next = build.filter((it) => !owned.has(itemId(it.icon))).slice(0, 2);
-    const tip = k ? defenseTip(k, game, build, next) : "";
+    const tip = k ? defenseTip(k, game) : "";
     if (!next.length) { box.innerHTML = (build.length ? `<p class="note">You have the whole build.</p>` : `<p class="note">No build for this champion yet.</p>`) + tip; return; }
     box.innerHTML = `<div class="box${game.dead ? " now" : ""}">
       ${game.dead ? `<div class="why">You're dead: a good time to shop.</div>` : ""}
