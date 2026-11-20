@@ -42,6 +42,9 @@ import tempfile
 import time
 from concurrent.futures import ThreadPoolExecutor
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))  # live_coach.py sits next to this file
+import live_coach  # noqa: E402
+
 CONSTANTS_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "data", "constants")
 
 
@@ -1026,9 +1029,10 @@ def live_recordings(folder=None):
     return out
 
 
-def live_recorder(stop, status, fetch=None, folder=None, progress=log, on_end=None):
+def live_recorder(stop, status, fetch=None, folder=None, progress=log, on_end=None, on_data=None):
     """Runs until stop is set: waits for a game, snapshots it, saves it when it ends.
-    on_end, when given, is called after each saved game (the helper imports it once Riot has it)."""
+    on_end, when given, is called after each saved game (the helper imports it once Riot has it).
+    on_data, when given, gets every reading during a game, and None once the game is over (the live coach)."""
     fetch = fetch or (lambda: curl_json(LIVE_URL, cacert=riot_ca(), timeout=5))
     rec = None
     saved = 0.0  # wall clock of the last save; the file is written every LIVE_EVERY s, not every reading
@@ -1041,6 +1045,8 @@ def live_recorder(stop, status, fetch=None, folder=None, progress=log, on_end=No
         if data and (data.get("activePlayer") or {}).get("championStats"):
             started = rec is None
             rec = live_update(rec, data, time.time() * 1000)
+            if on_data:
+                on_data(data)
             if started or rec["complete"] or time.monotonic() - saved >= LIVE_EVERY:
                 save_live(rec, folder)
                 saved = time.monotonic()
@@ -1051,6 +1057,8 @@ def live_recorder(stop, status, fetch=None, folder=None, progress=log, on_end=No
                 progress("Live game saved.")
                 rec = None
                 status["recording"] = None
+                if on_data:
+                    on_data(None)
                 if on_end:
                     on_end()
                 stop.wait(60)  # the end screen keeps answering for a while
@@ -1061,6 +1069,8 @@ def live_recorder(stop, status, fetch=None, folder=None, progress=log, on_end=No
             progress("Live game saved.")
             rec = None
             status["recording"] = None
+            if on_data:
+                on_data(None)
             if on_end:
                 on_end()
         stop.wait(LIVE_HP_EVERY if rec else LIVE_IDLE)
@@ -1141,8 +1151,33 @@ def serve(out, port, lockfile=None, sgp_host=None, open_browser=True, record_liv
                 start_sync()
             stop_live.wait(WATCH_EVERY)
 
+    # Live coach (live_coach.py): only for the site owner, checked with the site once per game.
+    coach = {"owner": None, "checked_at": 0.0, "strengths": None, "game": None, "model": live_coach.Coach()}
+
+    def on_data(data):
+        if data is None:
+            coach.update(game=None, owner=coach["owner"] or None, checked_at=0.0)
+            coach["model"].reset()
+            return
+        if coach["owner"] is None and time.monotonic() - coach["checked_at"] > 60:
+            coach["checked_at"] = time.monotonic()
+            try:
+                coach["owner"] = bool(history_status(lockfile).get("available"))
+            except Exception:  # League client busy or site unreachable: ask again in a minute
+                coach["owner"] = None
+        if not coach["owner"]:
+            return
+        if coach["strengths"] is None:
+            try:
+                fit = curl_json(f"{SITE}/data/team-fit.json", timeout=15)
+                coach["strengths"] = {k: v[0] for k, v in (fit.get("champions") or {}).items()}
+            except Exception:
+                coach["strengths"] = {}
+        coach["game"] = coach["model"].update(data, coach["strengths"])
+
     if record_live:
-        threading.Thread(target=live_recorder, args=(stop_live, live), kwargs={"on_end": after_game}, daemon=True).start()
+        threading.Thread(target=live_recorder, args=(stop_live, live),
+                         kwargs={"on_end": after_game, "on_data": on_data}, daemon=True).start()
     if watch:
         threading.Thread(target=watcher, daemon=True).start()
 
@@ -1206,6 +1241,11 @@ def serve(out, port, lockfile=None, sgp_host=None, open_browser=True, record_liv
                     return self.send_json(dict(state))
             if path == "/api/live":
                 return self.send_json({**live, "games": live_recordings()})
+            if path == "/api/coach":
+                # Same-origin only (coach.html): no CORS header, so no other page can read it.
+                if self.headers.get("Origin"):
+                    return self.send_json({"error": "forbidden"}, 403)
+                return self.send_json({"owner": coach["owner"], "game": coach["game"]})
             if path.startswith(("/assets/", "/i18n/")):
                 body = site_asset(path)
                 if body is None:

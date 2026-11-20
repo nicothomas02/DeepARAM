@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Live coach</title>
+<link rel="stylesheet" href="style.css">
+<!-- Live coach (importer/live_coach.py): the site owner's private second-screen window. Open it from the helper at
+     http://127.0.0.1:<port>/coach.html and keep it off the game screen. It reads /api/coach every 2 s. -->
+<style>
+  body { margin: 0; padding: 20px; background: var(--bg); color: var(--fg); font-family: var(--sans); }
+  .coach { max-width: 520px; margin: 0 auto; display: grid; gap: 14px; }
+  .big { font-size: 3rem; font-weight: 700; font-variant-numeric: tabular-nums; }
+  .bar { height: 18px; border-radius: 9px; background: var(--raised); overflow: hidden; }
+  .bar span { display: block; height: 100%; transition: width .6s; }
+  .muted { color: var(--muted); }
+  .ff { padding: 12px 14px; border-radius: var(--r-sm); background: var(--surface); border: 1px solid var(--line); font-weight: 600; }
+  .ff.yes { border-color: var(--bad); color: var(--bad); }
+  svg { width: 100%; height: 120px; }
+</style>
+</head>
+<body>
+<main class="coach" id="coach"><p class="muted">Waiting for a game…</p></main>
+<script>
+const el = document.getElementById("coach");
+const pct = (p) => `${Math.round(p * 100)}%`;
+const color = (p) => (p >= 0.6 ? "var(--good)" : p >= 0.4 ? "var(--gold)" : "var(--bad)");
+function chart(hist, line) {
+  if (hist.length < 2) return "";
+  const end = Math.max(hist[hist.length - 1][0], 60);
+  const x = (t) => (t / end) * 500, y = (p) => 110 - p * 100;
+  const path = hist.map(([t, p], i) => `${i ? "L" : "M"}${x(t).toFixed(1)},${y(p).toFixed(1)}`).join(" ");
+  return `<svg viewBox="0 0 500 120" role="img" aria-label="Win chance over the game">
+    <line x1="0" x2="500" y1="${y(0.5)}" y2="${y(0.5)}" stroke="var(--line)" stroke-dasharray="4 4"/>
+    <path d="${path}" fill="none" stroke="var(--accent)" stroke-width="2.5"/></svg>`;
+}
+async function tick() {
+  try {
+    const r = await fetch("/api/coach", { cache: "no-store" });
+    const { owner, game } = await r.json();
+    if (owner === false) { el.innerHTML = `<p class="muted">The live coach is only for the site owner's account.</p>`; return; }
+    if (!game) { el.innerHTML = `<p class="muted">${owner === null ? "Checking your account…" : "Waiting for a game…"}</p>`; return; }
+    const min = Math.floor(game.minute), sec = Math.round((game.minute - min) * 60);
+    let ff = `<div class="ff muted">Too early to call a surrender (from minute 8).</div>`;
+    if (game.ffLine !== null)
+      ff = game.ffHint
+        ? `<div class="ff yes">Surrender: YES. Under ${pct(game.ffLine)} for a full minute; a new game is worth more.</div>`
+        : `<div class="ff">Surrender: NO. The line at this minute is ${pct(game.ffLine)}.</div>`;
+    el.innerHTML = `
+      <div class="muted">Minute ${min}:${String(sec).padStart(2, "0")}</div>
+      <div class="big" style="color:${color(game.win)}">${pct(game.win)} <span class="muted" style="font-size:1rem">to win</span></div>
+      <div class="bar"><span style="width:${pct(game.win)};background:${color(game.win)}"></span></div>
+      ${ff}
+      ${chart(game.history, game.ffLine)}`;
+  } catch {
+    el.innerHTML = `<p class="muted">The helper isn't answering. Is Mayhem Stats running?</p>`;
+  }
+}
+tick();
+setInterval(tick, 2000);
+</script>
+</body>
+</html>
