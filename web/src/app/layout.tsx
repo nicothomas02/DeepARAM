@@ -20,6 +20,8 @@ import NavLinks from "@/components/NavLinks";
 import SearchPalette from "@/components/SearchPalette";
 import ErrorReporter from "@/components/ErrorReporter";
 import SettingsMenu from "@/components/SettingsMenu";
+import DocTitle from "@/components/DocTitle";
+import HeaderLanguage from "@/components/HeaderLanguage";
 import { text } from "@/lib/content";
 import { livePatch, searchPages } from "@/lib/highlights";
 import { SETTINGS_SCRIPT } from "@/lib/settings";
@@ -106,6 +108,7 @@ export default function RootLayout({
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: STRUCTURED_DATA }} />
       </head>
       <body>
+        <DocTitle />
         <ErrorReporter />
         <SkipLink />
         <header className="site-header">
@@ -129,6 +132,7 @@ export default function RootLayout({
                 <span>Ko-fi</span>
               </a>
             )}
+            <HeaderLanguage />
             <SettingsMenu />
             <AccountButton />
           </div>

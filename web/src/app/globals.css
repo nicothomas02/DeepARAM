@@ -5507,6 +5507,43 @@ button.inline-link {
   font-size: 0.875rem;
 }
 
+/* Header language list: a globe and the language's own name, the same height as the header's buttons. */
+.header-lang {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  height: 38px;
+  padding: 0 0.3rem 0 0.7rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--muted);
+  cursor: pointer;
+}
+.header-lang:hover,
+.header-lang:focus-within {
+  color: var(--fg);
+}
+.header-lang-select {
+  max-width: 7.5rem;
+  height: 100%;
+  border: 0;
+  background: transparent;
+  color: var(--fg);
+  font: inherit;
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+.header-lang-select option {
+  background: var(--surface);
+  color: var(--fg);
+}
+@media (max-width: 1100px) {
+  .header-lang {
+    display: none;
+  }
+}
+
 html[data-device="mobile"] .lang-picker {
   font-size: 16px;
 }

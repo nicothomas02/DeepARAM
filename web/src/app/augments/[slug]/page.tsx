@@ -52,6 +52,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     SHOW_AUGMENT_WIN_RATES
       ? `${a.name} is a ${RARITY[a.tier] ?? a.tier} ARAM Mayhem augment with a ${pct(a.winRate)} win rate on patch ${patchName(livePatch())}.${best}`
       : `${a.name} is a ${RARITY[a.tier] ?? a.tier} ARAM Mayhem augment, picked ${pct(a.pickRate)} of the time it's offered on patch ${patchName(livePatch())}.${best}`,
+    `augments:${a.id}`,
   );
 }
 
