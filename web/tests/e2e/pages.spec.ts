@@ -359,8 +359,8 @@ test("a contact message of a few words offers the site search instead", async ({
 
 test("champion header timeframe: live patch by default, then patches, sets or all time change the numbers and the top card", async ({ page }) => {
   await page.goto("/champions/Ashe");
-  const pick = page.locator(".tf-pick");
-  await expect(pick.locator(".tf-live")).toHaveCount(1);
+  const pick = page.locator(".cp-tf-pick");
+  await expect(pick.locator(".cp-tf-live")).toHaveCount(1);
   const liveStrip = await page.locator(".cp-strip").first().innerText();
   // All time: rates over every patch, and the card says which patches its builds cover.
   await pick.getByRole("button", { name: "All time" }).click();
@@ -370,7 +370,7 @@ test("champion header timeframe: live patch by default, then patches, sets or al
   await expect(page.locator(".cp-game .cp-best-augs .cp-named")).not.toHaveCount(0);
   // One set at a time from the set dropdown.
   await pick.locator(".patch-pick").nth(1).locator("> summary").click();
-  await pick.locator(".tf-sets label").first().click();
+  await pick.locator(".cp-tf-sets label").first().click();
   await expect(page).toHaveURL(/tf=s(:|%3A)/);
   await expect(pick.getByRole("button", { name: "All time" })).toHaveAttribute("aria-pressed", "false");
   // An old patch has rates but no saved builds.

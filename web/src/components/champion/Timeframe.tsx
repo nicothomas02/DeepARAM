@@ -150,13 +150,13 @@ export function TimeframePicker({ patches, buildPatches }: { patches: string[]; 
   const inBuilds = picked ? picked.filter((p) => buildPatches.includes(p)) : [live];
   const first = buildPatches[0];
   return (
-    <div className="stat-range tf-pick">
-      <div className="tf-controls" role="group" aria-label={t("Stats over")}>
+    <div className="stat-range cp-tf-pick">
+      <div className="cp-tf-controls" role="group" aria-label={t("Stats over")}>
         <details className="patch-pick" ref={patchRef} data-on={pick.kind === "patch" || undefined}>
           <summary onClick={() => setRef.current?.removeAttribute("open")}>
-            {pick === LIVE && <span className="tf-live" aria-hidden="true" />}
+            {pick === LIVE && <span className="cp-tf-live" aria-hidden="true" />}
             {patchLabel}
-            {pick === LIVE && <span className="tf-live-word">{t("Live")}</span>}
+            {pick === LIVE && <span className="cp-tf-live-word">{t("Live")}</span>}
           </summary>
           <div className="patch-pick-list">
             {sets.map(({ set, patches: list }) => (
@@ -174,7 +174,7 @@ export function TimeframePicker({ patches, buildPatches }: { patches: string[]; 
         </details>
         <details className="patch-pick" ref={setRef} data-on={pick.kind === "set" || undefined}>
           <summary onClick={() => patchRef.current?.removeAttribute("open")}>{setLabel}</summary>
-          <div className="patch-pick-list tf-sets">
+          <div className="patch-pick-list cp-tf-sets">
             {sets.map(({ set, patches: list }) => (
               <label key={set.name}>
                 <input type="checkbox" checked={setList.includes(set.name)} onChange={() => toggleSet(set.name)} />
@@ -189,7 +189,7 @@ export function TimeframePicker({ patches, buildPatches }: { patches: string[]; 
         </details>
         <button
           type="button"
-          className="tf-all"
+          className="cp-tf-all"
           aria-pressed={pick.kind === "all"}
           onClick={() => choose(pick.kind === "all" ? LIVE : { kind: "all", list: [] }, live)}
         >
@@ -217,7 +217,7 @@ export function TimeframePicker({ patches, buildPatches }: { patches: string[]; 
 // ---- Views ----
 
 const Loading = () => (
-  <span className="tf-loading" role="status">
+  <span className="cp-tf-loading" role="status">
     <T>Loading…</T>
   </span>
 );
