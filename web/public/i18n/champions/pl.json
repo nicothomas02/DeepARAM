@@ -246,5 +246,8 @@
  "Raw shows every build's plain win rate, including items an augment gives you.": "Surowe pokazują zwykły współczynnik zwycięstw każdego buildu, z przedmiotami z augmentów.",
  "Augment item": "Przedmiot z augmentu",
  "Items 4 to 6": "Przedmioty 4–6",
- "From earlier games": "Z wcześniejszych gier"
+ "From earlier games": "Z wcześniejszych gier",
+ "Augment synergies": "Synergie augmentów",
+ "Augments that make each other stronger on this champion: worth more together than apart.": "Augmenty, które wzajemnie się wzmacniają na tym bohaterze: razem są warte więcej niż osobno.",
+ "No confirmed augment synergies for this champion yet.": "Brak jeszcze potwierdzonych synergii augmentów dla tego bohatera."
 }

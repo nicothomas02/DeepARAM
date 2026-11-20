@@ -246,5 +246,8 @@
  "Raw shows every build's plain win rate, including items an augment gives you.": "Ham görünüm, güçlendirmenin verdiği eşyalar dahil her dizilimin gerçek kazanma oranını gösterir.",
  "Augment item": "Güçlendirme eşyası",
  "Items 4 to 6": "4. ile 6. eşyalar",
- "From earlier games": "Önceki maçlardan"
+ "From earlier games": "Önceki maçlardan",
+ "Augment synergies": "Güçlendirme sinerjileri",
+ "Augments that make each other stronger on this champion: worth more together than apart.": "Bu şampiyonda birbirini güçlendiren güçlendirmeler: birlikte, ayrı ayrı olduklarından daha değerliler.",
+ "No confirmed augment synergies for this champion yet.": "Bu şampiyon için henüz doğrulanmış bir güçlendirme sinerjisi yok."
 }

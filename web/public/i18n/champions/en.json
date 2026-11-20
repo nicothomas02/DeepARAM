@@ -246,5 +246,8 @@
  "Raw shows every build's plain win rate, including items an augment gives you.": "Raw shows every build's plain win rate, including items an augment gives you.",
  "Augment item": "Augment item",
  "Items 4 to 6": "Items 4 to 6",
- "From earlier games": "From earlier games"
+ "From earlier games": "From earlier games",
+ "Augment synergies": "Augment synergies",
+ "Augments that make each other stronger on this champion: worth more together than apart.": "Augments that make each other stronger on this champion: worth more together than apart.",
+ "No confirmed augment synergies for this champion yet.": "No confirmed augment synergies for this champion yet."
 }

@@ -246,5 +246,8 @@
  "Raw shows every build's plain win rate, including items an augment gives you.": "Brut arată rata de victorie reală a fiecărui build, inclusiv obiectele date de un augment.",
  "Augment item": "Obiect de augment",
  "Items 4 to 6": "Obiectele 4–6",
- "From earlier games": "Din meciuri anterioare"
+ "From earlier games": "Din meciuri anterioare",
+ "Augment synergies": "Sinergii de augmenturi",
+ "Augments that make each other stronger on this champion: worth more together than apart.": "Augmenturi care se întăresc reciproc pe acest campion: valorează mai mult împreună decât separat.",
+ "No confirmed augment synergies for this champion yet.": "Încă nu există sinergii de augmenturi confirmate pentru acest campion."
 }

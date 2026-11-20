@@ -246,5 +246,8 @@
  "Raw shows every build's plain win rate, including items an augment gives you.": "原始显示每套出装的实际胜率，包括海克斯强化给的装备。",
  "Augment item": "强化装备",
  "Items 4 to 6": "第 4 到 6 件装备",
- "From earlier games": "来自较早的对局"
+ "From earlier games": "来自较早的对局",
+ "Augment synergies": "强化协同",
+ "Augments that make each other stronger on this champion: worth more together than apart.": "在这位英雄身上互相增强的强化：组合起来比各自单独更强。",
+ "No confirmed augment synergies for this champion yet.": "这位英雄暂无已确认的强化协同。"
 }

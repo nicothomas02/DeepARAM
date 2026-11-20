@@ -363,9 +363,11 @@ test("each Synergies list opens on its best score, and no Simulator-made panel s
   const syn = page.locator("#synergies + .cp-panel .syn");
   await syn.locator(".syn-sort").filter({ hasText: "Pick rate" }).click();
   await expect(syn.locator(".syn-sort[aria-pressed=true]")).toContainText("Pick rate");
-  await syn.getByRole("button", { name: /Augment combos/ }).click();
+  await syn.getByRole("button", { name: /Full builds/ }).click();
   await expect(syn.locator(".syn-sort[aria-pressed=true]")).toContainText("Score");
-  await expect(syn.locator(".syn-callout")).toBeVisible();
+  // Sums of two augments' own scores are gone (Nico, 2026-11-20); Augment synergies holds pairs that feed each other.
+  await expect(syn.getByRole("button", { name: /Augment combos/ })).toHaveCount(0);
+  await expect(page.locator("#combos")).toContainText("Augment synergies");
 });
 
 test("the Simulator opens in 3D even with the old owner switch's saved 2D pick", async ({ page }) => {

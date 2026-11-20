@@ -246,5 +246,8 @@
  "Raw shows every build's plain win rate, including items an augment gives you.": "生データでは、オーグメントで得たアイテムも含め、各ビルドの実際の勝率を表示します。",
  "Augment item": "オーグメントのアイテム",
  "Items 4 to 6": "4〜6個目のアイテム",
- "From earlier games": "過去の試合から"
+ "From earlier games": "過去の試合から",
+ "Augment synergies": "オーグメントのシナジー",
+ "Augments that make each other stronger on this champion: worth more together than apart.": "このチャンピオンで互いを強化し合うオーグメント。単体の合計より組み合わせたほうが強い。",
+ "No confirmed augment synergies for this champion yet.": "このチャンピオンで確認済みのオーグメントシナジーはまだありません。"
 }

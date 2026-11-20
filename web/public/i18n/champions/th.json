@@ -246,5 +246,8 @@
  "Raw shows every build's plain win rate, including items an augment gives you.": "แบบดิบแสดงอัตราชนะจริงของทุกบิลด์ รวมไอเทมที่ได้จากออคเมนต์",
  "Augment item": "ไอเทมจากออคเมนต์",
  "Items 4 to 6": "ไอเทมชิ้นที่ 4 ถึง 6",
- "From earlier games": "จากเกมก่อนหน้า"
+ "From earlier games": "จากเกมก่อนหน้า",
+ "Augment synergies": "การเสริมกันของออคเมนต์",
+ "Augments that make each other stronger on this champion: worth more together than apart.": "ออคเมนต์ที่เสริมพลังกันบนแชมเปียนนี้ ใช้คู่กันคุ้มกว่าแยกกัน",
+ "No confirmed augment synergies for this champion yet.": "ยังไม่มีการเสริมกันของออคเมนต์ที่ยืนยันแล้วสำหรับแชมเปียนนี้"
 }

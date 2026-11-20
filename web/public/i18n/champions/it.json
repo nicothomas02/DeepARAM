@@ -246,5 +246,8 @@
  "Raw shows every build's plain win rate, including items an augment gives you.": "Grezzi mostra la percentuale di vittorie reale di ogni build, inclusi gli oggetti dati da un potenziamento.",
  "Augment item": "Oggetto da potenziamento",
  "Items 4 to 6": "Oggetti da 4 a 6",
- "From earlier games": "Da partite precedenti"
+ "From earlier games": "Da partite precedenti",
+ "Augment synergies": "Sinergie dei potenziamenti",
+ "Augments that make each other stronger on this champion: worth more together than apart.": "Potenziamenti che si rafforzano a vicenda su questo campione: valgono di più insieme che separati.",
+ "No confirmed augment synergies for this champion yet.": "Ancora nessuna sinergia confermata tra potenziamenti per questo campione."
 }

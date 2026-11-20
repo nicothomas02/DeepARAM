@@ -246,5 +246,8 @@
  "Raw shows every build's plain win rate, including items an augment gives you.": "Исходные показывают реальный процент побед каждой сборки, включая предметы от аугментов.",
  "Augment item": "Предмет от аугмента",
  "Items 4 to 6": "Предметы 4–6",
- "From earlier games": "По прошлым играм"
+ "From earlier games": "По прошлым играм",
+ "Augment synergies": "Синергии аугментов",
+ "Augments that make each other stronger on this champion: worth more together than apart.": "Аугменты, усиливающие друг друга на этом чемпионе: вместе они ценнее, чем по отдельности.",
+ "No confirmed augment synergies for this champion yet.": "Подтверждённых синергий аугментов для этого чемпиона пока нет."
 }

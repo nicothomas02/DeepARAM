@@ -246,5 +246,8 @@
  "Raw shows every build's plain win rate, including items an augment gives you.": "원본은 증강으로 얻은 아이템을 포함해 각 빌드의 실제 승률을 보여 줍니다.",
  "Augment item": "증강 아이템",
  "Items 4 to 6": "4~6번째 아이템",
- "From earlier games": "이전 게임 기준"
+ "From earlier games": "이전 게임 기준",
+ "Augment synergies": "증강 시너지",
+ "Augments that make each other stronger on this champion: worth more together than apart.": "이 챔피언에서 서로를 강하게 만드는 증강: 따로보다 함께일 때 더 가치 있습니다.",
+ "No confirmed augment synergies for this champion yet.": "이 챔피언에 대해 확인된 증강 시너지가 아직 없습니다."
 }

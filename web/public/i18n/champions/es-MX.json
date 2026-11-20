@@ -246,5 +246,8 @@
  "Raw shows every build's plain win rate, including items an augment gives you.": "Bruto muestra el porcentaje de victorias real de cada build, incluidos los objetos que da un aumento.",
  "Augment item": "Objeto de aumento",
  "Items 4 to 6": "Objetos 4 a 6",
- "From earlier games": "De partidas anteriores"
+ "From earlier games": "De partidas anteriores",
+ "Augment synergies": "Sinergias de aumentos",
+ "Augments that make each other stronger on this champion: worth more together than apart.": "Aumentos que se potencian entre sí con este campeón: valen más juntos que por separado.",
+ "No confirmed augment synergies for this champion yet.": "Aún no hay sinergias de aumentos confirmadas para este campeón."
 }
