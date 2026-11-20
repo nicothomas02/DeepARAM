@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Help improve DeepARAM</title>
+<style>
+  :root { color-scheme: dark; --bg: #090b0f; --panel: #11151b; --text: #e7ebef; --muted: #8b95a1; --line: #222a33; --gold: #d8b25a; --ok: #6fcf97; --no: #e07a7a; }
+  @media (prefers-color-scheme: light) {
+    :root { color-scheme: light; --bg: #e7ebef; --panel: #f5f7f9; --text: #0d1117; --muted: #56606b; --line: #cfd6dd; --ok: #1e8e55; --no: #b03a3a; }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body { background: var(--bg); color: var(--text); font: 14px/1.5 "Segoe UI Variable", "Segoe UI", -apple-system, system-ui, sans-serif; padding: 22px 24px; }
+  header { display: flex; gap: 12px; align-items: center; margin-bottom: 12px; }
+  header img { width: 40px; height: 40px; border-radius: 10px; }
+  h1 { font-size: 18px; font-weight: 600; margin: 0; }
+  p { margin: 0 0 12px; color: var(--muted); }
+  .box { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 10px 14px; margin-bottom: 10px; }
+  .box h2 { font-size: 13px; font-weight: 600; margin: 0 0 4px; }
+  .box ul { margin: 0; padding-left: 18px; color: var(--muted); }
+  .yes h2 { color: var(--ok); }
+  .no h2 { color: var(--no); }
+  .actions { display: flex; gap: 10px; margin-top: 16px; }
+  button { flex: 1; font: inherit; font-weight: 600; border-radius: 8px; padding: 9px 14px; cursor: pointer; border: 1px solid var(--line); background: transparent; color: var(--text); }
+  button.primary { background: var(--text); color: var(--bg); border-color: var(--text); }
+  button:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+  small { display: block; margin-top: 12px; color: var(--muted); font-size: 12px; }
+</style>
+</head>
+<body>
+<header>
+  <img src="icon.png" alt="">
+  <h1>Help improve DeepARAM?</h1>
+</header>
+<p>You can share your finished ARAM Mayhem games to make the tier lists and builds better for everyone. It's off unless you turn it on.</p>
+<div class="box yes">
+  <h2>What's shared</h2>
+  <ul>
+    <li>Champions, items, augments, runes and summoner spells</li>
+    <li>Kills, deaths, damage, gold, game length and who won</li>
+  </ul>
+</div>
+<div class="box no">
+  <h2>What's never shared</h2>
+  <ul>
+    <li>Summoner names, Riot IDs or account ids, yours or anyone else's</li>
+    <li>Chat, anything outside League, or which player you were</li>
+  </ul>
+</div>
+<p>Each send is checked against your League sign-in so nobody can post fake games. The site keeps only a scrambled code for it, so turning sharing off removes the games you sent.</p>
+<div class="actions">
+  <button id="no" type="button">No thanks</button>
+  <button id="yes" type="button" class="primary">Share my games</button>
+</div>
+<small>You can change this any time from DeepARAM's tray icon: Share match data.</small>
+<script>
+  const answer = (enabled) => {
+    const ipc = window.__TAURI_INTERNALS__;
+    if (ipc) ipc.invoke("share_choice", { enabled }).catch(() => window.close());
+    else window.close();
+  };
+  document.getElementById("yes").addEventListener("click", () => answer(true));
+  document.getElementById("no").addEventListener("click", () => answer(false));
+</script>
+</body>
+</html>

@@ -6385,6 +6385,71 @@ html[data-view="detailed"] .wr-ci {
   }
 }
 
+/* Desktop app download page (/download) */
+.download-get {
+  margin-bottom: 1rem;
+}
+.download-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+.download-buttons .btn {
+  display: inline-flex;
+  align-items: center;
+  height: 44px;
+  padding: 0 1.4rem;
+  font-size: 0.95rem;
+  text-decoration: none;
+}
+.download-soon {
+  margin-top: 0.75rem;
+  color: var(--accent);
+  font-weight: 600;
+}
+.download-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
+  gap: 1rem;
+}
+.download-h {
+  margin-bottom: 0.6rem;
+  font-size: 1rem;
+  font-weight: 600;
+}
+.download-list {
+  display: grid;
+  gap: 0.6rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.download-list b,
+.download-split b {
+  display: block;
+  font-weight: 600;
+}
+.download-list span,
+.download-split span {
+  color: var(--muted);
+}
+.download-split {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+  gap: 0.5rem;
+  margin: 0.75rem 0;
+}
+.download-split div {
+  padding: 0.65rem 0.75rem;
+  border-radius: var(--r-sm);
+  background: var(--raised);
+}
+.download-note {
+  margin-top: 0.75rem;
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+
 /* Best pick (Tier List > Champions > Best pick, components/TeamFit.tsx). */
 .team-fit .tf-h {
   margin: 1rem 0 0.4rem;
