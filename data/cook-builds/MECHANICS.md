@@ -171,6 +171,13 @@ stray tag; check the wiki text when a tag decides the build.
   Ryze's passive. Mind to Matter stops at 99,999 Health, so the "infinite" AP loop levels off around 25,600 AP
   (Nico).
 
+- **Echo Cast:** can roll on an ultimate for some champions (Nico). Unconfirmed for Skarner's Impale.
+- **Echo Cast clone stuns:** probably trigger Cruelty and Ravenous Bind like the champion's own (Nico, not sure).
+- **Ethereal Weapon on Nunu:** each Snowball Barrage snowball counts as an ability hit, so it applies on-hit (Nico).
+- **Earthwake on Skarner:** Ixtal's Impact is not a dash, so it doesn't trigger Earthwake or Dashing (Nico).
+- **Mark (snowball) augments:** Biggest Snowball Ever, Snowday and Holy Snowball work on anyone, so a build built
+  only on them is too generic for a Chef Special (Nico).
+
 ## Items
 
 - **Moonstone Renewer:** its chained heal or shield triggers ally augments (Sound Barrier, Sonic Boom, Spirit
@@ -208,6 +215,7 @@ stray tag; check the wiki text when a tag decides the build.
 - **Quinn:** a crit champion, not a sustained on-hit one, so Statikk Shiv underperforms (Nico).
 - **Lucian:** strongest with Jeweled Gauntlet + Vulnerability + Jeweled Bracelet empowering his R, so on-hit and
   attack speed don't matter (Nico).
+- **Guinsoo's Rageblade on Braum:** the phantom hit adds a Concussive Blows stack, so he stuns in 3 attacks (Nico).
 - **Kog'Maw:** Navori refunds W, but it's likely only good with Vulnerability, which lets W damage crit. He
   usually builds AP on-hit (Nico).
 

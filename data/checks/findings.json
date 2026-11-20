@@ -3,10 +3,10 @@
  "built": "2026-11-20",
  "checks": {
   "loops": 3,
-  "gap": 44,
-  "sim": 13,
+  "gap": 45,
+  "sim": 11,
   "wasted": 0,
-  "kitchen": 46
+  "kitchen": 41
  },
  "traps": [
   {
@@ -36,9 +36,9 @@
     3006
    ],
    "theory": "The Simulator puts Berserker's Greaves in Corki's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Corki's builds with Berserker's Greaves win 3.2 points less often than their builds without it.",
-   "gap": -0.0321,
-   "share": 0.0378,
+   "practice": "In real games, Corki's builds with Berserker's Greaves win 4.4 points less often than their builds without it.",
+   "gap": -0.0438,
+   "share": 0.0362,
    "status": "trap"
   },
   {
@@ -53,9 +53,9 @@
     3006
    ],
    "theory": "The Simulator puts Berserker's Greaves in Draven's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Draven's builds with Berserker's Greaves win 4.3 points less often than their builds without it.",
-   "gap": -0.0426,
-   "share": 0.0518,
+   "practice": "In real games, Draven's builds with Berserker's Greaves win 4.4 points less often than their builds without it.",
+   "gap": -0.0436,
+   "share": 0.051,
    "status": "trap"
   },
   {
@@ -71,42 +71,8 @@
    ],
    "theory": "The Simulator puts Berserker's Greaves in Lucian's best build: in a fight it adds more than the items it beats.",
    "practice": "In real games, Lucian's builds with Berserker's Greaves win 6.4 points less often than their builds without it.",
-   "gap": -0.0639,
-   "share": 0.0347,
-   "status": "trap"
-  },
-  {
-   "id": "sim-Zeri-berserkers",
-   "kind": "sim",
-   "title": "Berserker's Greaves on Zeri",
-   "champions": [
-    "Zeri"
-   ],
-   "augments": [],
-   "items": [
-    3006
-   ],
-   "theory": "The Simulator puts Berserker's Greaves in Zeri's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Zeri's builds with Berserker's Greaves win 3.1 points less often than their builds without it.",
-   "gap": -0.0307,
-   "share": 0.1071,
-   "status": "trap"
-  },
-  {
-   "id": "sim-Riven-black_cleaver",
-   "kind": "sim",
-   "title": "Black Cleaver on Riven",
-   "champions": [
-    "Riven"
-   ],
-   "augments": [],
-   "items": [
-    3071
-   ],
-   "theory": "The Simulator puts Black Cleaver in Riven's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Riven's builds with Black Cleaver win 3.0 points less often than their builds without it.",
-   "gap": -0.0304,
-   "share": 0.033,
+   "gap": -0.064,
+   "share": 0.0335,
    "status": "trap"
   },
   {
@@ -121,26 +87,43 @@
     3153
    ],
    "theory": "The Simulator puts Blade of The Ruined King in Kayle's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Kayle's builds with Blade of The Ruined King win 3.4 points less often than their builds without it.",
-   "gap": -0.0338,
-   "share": 0.0521,
+   "practice": "In real games, Kayle's builds with Blade of The Ruined King win 3.3 points less often than their builds without it.",
+   "gap": -0.0327,
+   "share": 0.0515,
    "status": "trap"
   },
   {
-   "id": "sim-Yunara-botrk",
+   "id": "sim-XinZhao-botrk",
    "kind": "sim",
-   "title": "Blade of The Ruined King on Yunara",
+   "title": "Blade of The Ruined King on Xin Zhao",
    "champions": [
-    "Yunara"
+    "XinZhao"
    ],
    "augments": [],
    "items": [
     3153
    ],
-   "theory": "The Simulator puts Blade of The Ruined King in Yunara's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Yunara's builds with Blade of The Ruined King win 3.6 points less often than their builds without it.",
-   "gap": -0.0356,
-   "share": 0.1089,
+   "theory": "The Simulator puts Blade of The Ruined King in Xin Zhao's best build: in a fight it adds more than the items it beats.",
+   "practice": "In real games, Xin Zhao's builds with Blade of The Ruined King win 3.5 points less often than their builds without it.",
+   "gap": -0.0347,
+   "share": 0.0321,
+   "status": "trap"
+  },
+  {
+   "id": "sim-Karma-rabadons",
+   "kind": "sim",
+   "title": "Rabadon's Deathcap on Karma",
+   "champions": [
+    "Karma"
+   ],
+   "augments": [],
+   "items": [
+    3089
+   ],
+   "theory": "The Simulator puts Rabadon's Deathcap in Karma's best build: in a fight it adds more than the items it beats.",
+   "practice": "In real games, Karma's builds with Rabadon's Deathcap win 9.7 points less often than their builds without it.",
+   "gap": -0.0968,
+   "share": 0.1026,
    "status": "trap"
   },
   {
@@ -155,9 +138,9 @@
     6694
    ],
    "theory": "The Simulator puts Serylda's Grudge in Jayce's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Jayce's builds with Serylda's Grudge win 8.2 points less often than their builds without it.",
-   "gap": -0.0817,
-   "share": 0.0443,
+   "practice": "In real games, Jayce's builds with Serylda's Grudge win 8.6 points less often than their builds without it.",
+   "gap": -0.0859,
+   "share": 0.0434,
    "status": "trap"
   },
   {
@@ -172,9 +155,9 @@
     6694
    ],
    "theory": "The Simulator puts Serylda's Grudge in Talon's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Talon's builds with Serylda's Grudge win 4.2 points less often than their builds without it.",
-   "gap": -0.0423,
-   "share": 0.0586,
+   "practice": "In real games, Talon's builds with Serylda's Grudge win 3.9 points less often than their builds without it.",
+   "gap": -0.0391,
+   "share": 0.058,
    "status": "trap"
   },
   {
@@ -189,26 +172,9 @@
     6694
    ],
    "theory": "The Simulator puts Serylda's Grudge in Zed's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Zed's builds with Serylda's Grudge win 4.8 points less often than their builds without it.",
-   "gap": -0.0482,
-   "share": 0.0754,
-   "status": "trap"
-  },
-  {
-   "id": "sim-Milio-shadowflame",
-   "kind": "sim",
-   "title": "Shadowflame on Milio",
-   "champions": [
-    "Milio"
-   ],
-   "augments": [],
-   "items": [
-    4645
-   ],
-   "theory": "The Simulator puts Shadowflame in Milio's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Milio's builds with Shadowflame win 6.1 points less often than their builds without it.",
-   "gap": -0.0612,
-   "share": 0.0356,
+   "practice": "In real games, Zed's builds with Serylda's Grudge win 4.6 points less often than their builds without it.",
+   "gap": -0.0456,
+   "share": 0.0747,
    "status": "trap"
   },
   {
@@ -223,26 +189,26 @@
     3020
    ],
    "theory": "The Simulator puts Sorcerer's Shoes in Lillia's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Lillia's builds with Sorcerer's Shoes win 7.2 points less often than their builds without it.",
-   "gap": -0.0716,
-   "share": 0.0584,
+   "practice": "In real games, Lillia's builds with Sorcerer's Shoes win 7.4 points less often than their builds without it.",
+   "gap": -0.0737,
+   "share": 0.0579,
    "status": "trap"
   },
   {
-   "id": "sim-Karma-void_staff",
+   "id": "sim-Xerath-sorcerers",
    "kind": "sim",
-   "title": "Void Staff on Karma",
+   "title": "Sorcerer's Shoes on Xerath",
    "champions": [
-    "Karma"
+    "Xerath"
    ],
    "augments": [],
    "items": [
-    3135
+    3020
    ],
-   "theory": "The Simulator puts Void Staff in Karma's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Karma's builds with Void Staff win 6.1 points less often than their builds without it.",
-   "gap": -0.0609,
-   "share": 0.0678,
+   "theory": "The Simulator puts Sorcerer's Shoes in Xerath's best build: in a fight it adds more than the items it beats.",
+   "practice": "In real games, Xerath's builds with Sorcerer's Shoes win 3.9 points less often than their builds without it.",
+   "gap": -0.0393,
+   "share": 0.2193,
    "status": "trap"
   }
  ],
@@ -808,17 +774,18 @@
   {
    "id": "gap-Ryze",
    "kind": "gap",
-   "title": "Ryze never gets Heavy Is The Crown and 2 more",
+   "title": "Ryze never gets Heavy Is The Crown and 3 more",
    "champions": [
     "Ryze"
    ],
    "augments": [
     3132,
     1011,
+    3078,
     3118
    ],
    "items": [],
-   "theory": "At least 90% of champions get Heavy Is The Crown, Can't Touch This and Arcane Axiom, but Ryze has never been seen taking them, even though Ryze is picked often.",
+   "theory": "At least 90% of champions get Heavy Is The Crown, Can't Touch This, The Boom and the Bass and Arcane Axiom, but Ryze has never been seen taking them, even though Ryze is picked often.",
    "test": "Play Ryze and watch your augment choices. If they never show up, Riot has left them out for Ryze. If that doesn't look like it's on purpose, it's worth reporting.",
    "status": "to_test"
   },
@@ -1035,18 +1002,34 @@
    "status": "to_test"
   },
   {
+   "id": "gap-Vladimir",
+   "kind": "gap",
+   "title": "Vladimir never gets The Boom and the Bass",
+   "champions": [
+    "Vladimir"
+   ],
+   "augments": [
+    3078
+   ],
+   "items": [],
+   "theory": "At least 94% of champions get The Boom and the Bass, but Vladimir has never been seen taking it, even though Vladimir is picked often.",
+   "test": "Play Vladimir and watch your augment choices. If it never shows up, Riot has left it out for Vladimir. If that doesn't look like it's on purpose, it's worth reporting.",
+   "status": "to_test"
+  },
+  {
    "id": "gap-Xerath",
    "kind": "gap",
-   "title": "Xerath never gets Triggered Inferno and 1 more",
+   "title": "Xerath never gets The Boom and the Bass and 2 more",
    "champions": [
     "Xerath"
    ],
    "augments": [
+    3078,
     2005,
     2099
    ],
    "items": [],
-   "theory": "At least 91% of champions get Triggered Inferno and Rite of Ascension, but Xerath has never been seen taking them, even though Xerath is picked often.",
+   "theory": "At least 91% of champions get The Boom and the Bass, Triggered Inferno and Rite of Ascension, but Xerath has never been seen taking them, even though Xerath is picked often.",
    "test": "Play Xerath and watch your augment choices. If they never show up, Riot has left them out for Xerath. If that doesn't look like it's on purpose, it's worth reporting.",
    "status": "to_test"
   },
@@ -1062,13 +1045,13 @@
     1151,
     1415,
     1103,
-    2005,
     1098,
     2087,
+    2005,
     1996
    ],
    "items": [],
-   "theory": "At least 91% of champions get Recursion, Bread and Cheese, Twin Fire, Bread And Butter, Triggered Inferno, With Haste, Archmage and Upgrade Sheen, but Yasuo has never been seen taking them, even though Yasuo is picked often.",
+   "theory": "At least 91% of champions get Recursion, Bread and Cheese, Twin Fire, Bread And Butter, With Haste, Archmage, Triggered Inferno and Upgrade Sheen, but Yasuo has never been seen taking them, even though Yasuo is picked often.",
    "test": "Play Yasuo and watch your augment choices. If they never show up, Riot has left them out for Yasuo. If that doesn't look like it's on purpose, it's worth reporting.",
    "status": "to_test"
   },
@@ -1103,13 +1086,13 @@
     1004,
     1415,
     1103,
-    2005,
     1098,
     2087,
+    2005,
     1996
    ],
    "items": [],
-   "theory": "At least 91% of champions get Recursion, Ultimate Awakening, Back To Basics, Twin Fire, Bread And Butter, Triggered Inferno, With Haste, Archmage and Upgrade Sheen, but Yunara has never been seen taking them, even though Yunara is picked often.",
+   "theory": "At least 91% of champions get Recursion, Ultimate Awakening, Back To Basics, Twin Fire, Bread And Butter, With Haste, Archmage, Triggered Inferno and Upgrade Sheen, but Yunara has never been seen taking them, even though Yunara is picked often.",
    "test": "Play Yunara and watch your augment choices. If they never show up, Riot has left them out for Yunara. If that doesn't look like it's on purpose, it's worth reporting.",
    "status": "to_test"
   }
@@ -1118,7 +1101,7 @@
   {
    "id": "pool-tryndamere-bloodlust-doctor-critical_healing",
    "kind": "pool",
-   "title": "The Bloodlust Doctor: Critical Healing on Tryndamere",
+   "title": "Bloodlust Is Healthcare: Critical Healing on Tryndamere",
    "champions": [
     "Tryndamere"
    ],
@@ -1135,7 +1118,7 @@
   {
    "id": "pool-janna-speeding-ticket-tap_dancer",
    "kind": "pool",
-   "title": "Speeding Ticket: Tap Dancer on Janna",
+   "title": "Tailwind Has No Brakes: Tap Dancer on Janna",
    "champions": [
     "Janna"
    ],
@@ -1152,7 +1135,7 @@
   {
    "id": "pool-janna-speeding-ticket-get_excited",
    "kind": "pool",
-   "title": "Speeding Ticket: Get Excited! on Janna",
+   "title": "Tailwind Has No Brakes: Get Excited! on Janna",
    "champions": [
     "Janna"
    ],
@@ -1167,24 +1150,26 @@
    "why": "unseen"
   },
   {
-   "id": "pool-ivern-hedge-fund-hide_on_bush",
+   "id": "pool-ivern-hedge-fund-shadow_runner",
    "kind": "pool",
-   "title": "Hedge Fund: Hide on Bush on Ivern",
+   "title": "Brushmaker Is Lowkey Lethal: Shadow Runner on Ivern",
    "champions": [
     "Ivern"
    ],
-   "augments": [],
+   "augments": [
+    1073
+   ],
    "items": [],
-   "theory": "The build leans on Hide on Bush.",
-   "test": "Hide on Bush isn't in Mayhem on this patch.",
+   "theory": "The build leans on Shadow Runner.",
+   "test": "Ivern has never been seen taking Shadow Runner, so it may not be in their augment pool. Check whether it's ever offered on Ivern.",
    "build": "ivern-hedge-fund",
-   "augment": "Hide on Bush",
-   "why": "gone"
+   "augment": "Shadow Runner",
+   "why": "unseen"
   },
   {
    "id": "pool-ivern-hedge-fund-nature_is_healing",
    "kind": "pool",
-   "title": "Hedge Fund: Nature is Healing on Ivern",
+   "title": "Brushmaker Is Lowkey Lethal: Nature is Healing on Ivern",
    "champions": [
     "Ivern"
    ],
@@ -1201,7 +1186,7 @@
   {
    "id": "pool-ivern-hedge-fund-lil_extra_help",
    "kind": "pool",
-   "title": "Hedge Fund: Lil' Extra Help on Ivern",
+   "title": "Brushmaker Is Lowkey Lethal: Lil' Extra Help on Ivern",
    "champions": [
     "Ivern"
    ],
@@ -1216,9 +1201,26 @@
    "why": "unseen"
   },
   {
+   "id": "pool-quinn-wall-street-bouncer-cruelty",
+   "kind": "pool",
+   "title": "Vault Is Free Now: Cruelty on Quinn",
+   "champions": [
+    "Quinn"
+   ],
+   "augments": [
+    1323
+   ],
+   "items": [],
+   "theory": "The build leans on Cruelty.",
+   "test": "Quinn has never been seen taking Cruelty, so it may not be in their augment pool. Check whether it's ever offered on Quinn.",
+   "build": "quinn-wall-street-bouncer",
+   "augment": "Cruelty",
+   "why": "unseen"
+  },
+  {
    "id": "pool-quinn-wall-street-bouncer-chain_reaction",
    "kind": "pool",
-   "title": "Wall Street Bouncer: Chain Reaction on Quinn",
+   "title": "Vault Is Free Now: Chain Reaction on Quinn",
    "champions": [
     "Quinn"
    ],
@@ -1233,43 +1235,9 @@
    "why": "unseen"
   },
   {
-   "id": "pool-quinn-wall-street-bouncer-ravenous_bind",
-   "kind": "pool",
-   "title": "Wall Street Bouncer: Ravenous Bind on Quinn",
-   "champions": [
-    "Quinn"
-   ],
-   "augments": [
-    2077
-   ],
-   "items": [],
-   "theory": "The build leans on Ravenous Bind.",
-   "test": "Quinn has never been seen taking Ravenous Bind, so it may not be in their augment pool. Check whether it's ever offered on Quinn.",
-   "build": "quinn-wall-street-bouncer",
-   "augment": "Ravenous Bind",
-   "why": "unseen"
-  },
-  {
-   "id": "pool-quinn-wall-street-bouncer-soul_eater",
-   "kind": "pool",
-   "title": "Wall Street Bouncer: Soul Eater on Quinn",
-   "champions": [
-    "Quinn"
-   ],
-   "augments": [
-    1375
-   ],
-   "items": [],
-   "theory": "The build leans on Soul Eater.",
-   "test": "Quinn has never been seen taking Soul Eater, so it may not be in their augment pool. Check whether it's ever offered on Quinn.",
-   "build": "quinn-wall-street-bouncer",
-   "augment": "Soul Eater",
-   "why": "unseen"
-  },
-  {
    "id": "pool-zoe-flash-photography-flashbang",
    "kind": "pool",
-   "title": "Flash Photography: Flashbang on Zoe",
+   "title": "Spell Thief Flash Era: Flashbang on Zoe",
    "champions": [
     "Zoe"
    ],
@@ -1286,7 +1254,7 @@
   {
    "id": "pool-zoe-flash-photography-flash_2",
    "kind": "pool",
-   "title": "Flash Photography: Flash 2 on Zoe",
+   "title": "Spell Thief Flash Era: Flash 2 on Zoe",
    "champions": [
     "Zoe"
    ],
@@ -1303,7 +1271,7 @@
   {
    "id": "pool-zoe-flash-photography-poltergeist",
    "kind": "pool",
-   "title": "Flash Photography: Poltergeist on Zoe",
+   "title": "Spell Thief Flash Era: Poltergeist on Zoe",
    "champions": [
     "Zoe"
    ],
@@ -1320,7 +1288,7 @@
   {
    "id": "pool-olaf-health-is-mana-ominous_pact",
    "kind": "pool",
-   "title": "Health Is Mana: Ominous Pact on Olaf",
+   "title": "Reckless Swing on Repeat: Ominous Pact on Olaf",
    "champions": [
     "Olaf"
    ],
@@ -1337,7 +1305,7 @@
   {
    "id": "pool-olaf-health-is-mana-escapade",
    "kind": "pool",
-   "title": "Health Is Mana: escAPADe on Olaf",
+   "title": "Reckless Swing on Repeat: escAPADe on Olaf",
    "champions": [
     "Olaf"
    ],
@@ -1354,7 +1322,7 @@
   {
    "id": "pool-olaf-health-is-mana-skilled_sniper",
    "kind": "pool",
-   "title": "Health Is Mana: Skilled Sniper on Olaf",
+   "title": "Reckless Swing on Repeat: Skilled Sniper on Olaf",
    "champions": [
     "Olaf"
    ],
@@ -1369,24 +1337,26 @@
    "why": "range"
   },
   {
-   "id": "pool-nilah-whip-blade-nurse-support_main",
+   "id": "pool-nilah-whip-blade-nurse-group_hug",
    "kind": "pool",
-   "title": "Whip-Blade Nurse: Support Main on Nilah",
+   "title": "Joy Unending (Unhinged): Group Hug on Nilah",
    "champions": [
     "Nilah"
    ],
-   "augments": [],
+   "augments": [
+    3149
+   ],
    "items": [],
-   "theory": "The build leans on Support Main.",
-   "test": "Support Main isn't in Mayhem on this patch.",
+   "theory": "The build leans on Group Hug.",
+   "test": "Nilah has never been seen taking Group Hug, so it may not be in their augment pool. Check whether it's ever offered on Nilah.",
    "build": "nilah-whip-blade-nurse",
-   "augment": "Support Main",
-   "why": "gone"
+   "augment": "Group Hug",
+   "why": "unseen"
   },
   {
    "id": "pool-reksai-mole-artillery-skilled_sniper",
    "kind": "pool",
-   "title": "Mole Artillery: Skilled Sniper on Rek'Sai",
+   "title": "Prey Seeker From Orbit: Skilled Sniper on Rek'Sai",
    "champions": [
     "RekSai"
    ],
@@ -1403,7 +1373,7 @@
   {
    "id": "pool-reksai-mole-artillery-multishot",
    "kind": "pool",
-   "title": "Mole Artillery: Multishot on Rek'Sai",
+   "title": "Prey Seeker From Orbit: Multishot on Rek'Sai",
    "champions": [
     "RekSai"
    ],
@@ -1420,7 +1390,7 @@
   {
    "id": "pool-reksai-mole-artillery-spell_split",
    "kind": "pool",
-   "title": "Mole Artillery: Spell Split on Rek'Sai",
+   "title": "Prey Seeker From Orbit: Spell Split on Rek'Sai",
    "champions": [
     "RekSai"
    ],
@@ -1437,7 +1407,7 @@
   {
    "id": "pool-reksai-mole-artillery-magic_missile",
    "kind": "pool",
-   "title": "Mole Artillery: Magic Missile on Rek'Sai",
+   "title": "Prey Seeker From Orbit: Magic Missile on Rek'Sai",
    "champions": [
     "RekSai"
    ],
@@ -1452,92 +1422,43 @@
    "why": "range"
   },
   {
-   "id": "pool-skarner-crit-happens-vulnerability",
+   "id": "pool-skarner-crit-happens-ravenous_bind",
    "kind": "pool",
-   "title": "Crit Happens: Vulnerability on Skarner",
+   "title": "Impact Maxxing: Ravenous Bind on Skarner",
    "champions": [
     "Skarner"
    ],
    "augments": [
-    1092
+    2077
    ],
    "items": [],
-   "theory": "The build leans on Vulnerability.",
-   "test": "Skarner has never been seen taking Vulnerability, so it may not be in their augment pool. Check whether it's ever offered on Skarner.",
+   "theory": "The build leans on Ravenous Bind.",
+   "test": "Skarner has never been seen taking Ravenous Bind, so it may not be in their augment pool. Check whether it's ever offered on Skarner.",
    "build": "skarner-crit-happens",
-   "augment": "Vulnerability",
+   "augment": "Ravenous Bind",
    "why": "unseen"
   },
   {
-   "id": "pool-skarner-crit-happens-tank_it_or_leave_it",
+   "id": "pool-irelia-forgot-how-to-auto-overloaded",
    "kind": "pool",
-   "title": "Crit Happens: Tank It Or Leave It on Skarner",
-   "champions": [
-    "Skarner"
-   ],
-   "augments": [
-    1080
-   ],
-   "items": [],
-   "theory": "The build leans on Tank It Or Leave It.",
-   "test": "Skarner has never been seen taking Tank It Or Leave It, so it may not be in their augment pool. Check whether it's ever offered on Skarner.",
-   "build": "skarner-crit-happens",
-   "augment": "Tank It Or Leave It",
-   "why": "unseen"
-  },
-  {
-   "id": "pool-skarner-crit-happens-infernal_conduit",
-   "kind": "pool",
-   "title": "Crit Happens: Infernal Conduit on Skarner",
-   "champions": [
-    "Skarner"
-   ],
-   "augments": [
-    1045
-   ],
-   "items": [],
-   "theory": "The build leans on Infernal Conduit.",
-   "test": "Skarner has never been seen taking Infernal Conduit, so it may not be in their augment pool. Check whether it's ever offered on Skarner.",
-   "build": "skarner-crit-happens",
-   "augment": "Infernal Conduit",
-   "why": "unseen"
-  },
-  {
-   "id": "pool-irelia-forgot-how-to-auto-purist_caster",
-   "kind": "pool",
-   "title": "Forgot How To Auto: Purist - Caster on Irelia",
+   "title": "Bladesurge Locked In: Overloaded on Irelia",
    "champions": [
     "Irelia"
    ],
    "augments": [
-    2018
+    2123
    ],
    "items": [],
-   "theory": "The build leans on Purist - Caster.",
-   "test": "Irelia has never been seen taking Purist - Caster, so it may not be in their augment pool. Check whether it's ever offered on Irelia.",
+   "theory": "The build leans on Overloaded.",
+   "test": "Irelia has never been seen taking Overloaded, so it may not be in their augment pool. Check whether it's ever offered on Irelia.",
    "build": "irelia-forgot-how-to-auto",
-   "augment": "Purist - Caster",
+   "augment": "Overloaded",
    "why": "unseen"
-  },
-  {
-   "id": "pool-irelia-forgot-how-to-auto-double_strike",
-   "kind": "pool",
-   "title": "Forgot How To Auto: Double Strike on Irelia",
-   "champions": [
-    "Irelia"
-   ],
-   "augments": [],
-   "items": [],
-   "theory": "The build leans on Double Strike.",
-   "test": "Double Strike isn't in Mayhem on this patch.",
-   "build": "irelia-forgot-how-to-auto",
-   "augment": "Double Strike",
-   "why": "gone"
   },
   {
    "id": "pool-kled-nail-gun-salesman-reload",
    "kind": "pool",
-   "title": "The Nail Gun Salesman: Reload on Kled",
+   "title": "Beartrap Nail Gun: Reload on Kled",
    "champions": [
     "Kled"
    ],
@@ -1554,7 +1475,7 @@
   {
    "id": "pool-kled-nail-gun-salesman-lil_extra_help",
    "kind": "pool",
-   "title": "The Nail Gun Salesman: Lil' Extra Help on Kled",
+   "title": "Beartrap Nail Gun: Lil' Extra Help on Kled",
    "champions": [
     "Kled"
    ],
@@ -1571,7 +1492,7 @@
   {
    "id": "pool-kled-nail-gun-salesman-pin_cushion",
    "kind": "pool",
-   "title": "The Nail Gun Salesman: Pin Cushion on Kled",
+   "title": "Beartrap Nail Gun: Pin Cushion on Kled",
    "champions": [
     "Kled"
    ],
@@ -1588,7 +1509,7 @@
   {
    "id": "pool-annie-daycare-director-enchanting_butterflies",
    "kind": "pool",
-   "title": "Daycare Director: Enchanting Butterflies on Annie",
+   "title": "Tibbers' Babysitter Era: Enchanting Butterflies on Annie",
    "champions": [
     "Annie"
    ],
@@ -1605,7 +1526,7 @@
   {
    "id": "pool-annie-daycare-director-sonic_boom",
    "kind": "pool",
-   "title": "Daycare Director: Sonic Boom on Annie",
+   "title": "Tibbers' Babysitter Era: Sonic Boom on Annie",
    "champions": [
     "Annie"
    ],
@@ -1622,7 +1543,7 @@
   {
    "id": "pool-zeri-right-click-veigar-twin_fire",
    "kind": "pool",
-   "title": "Right-Click Veigar: Twin Fire on Zeri",
+   "title": "Burst Fire Veigar: Twin Fire on Zeri",
    "champions": [
     "Zeri"
    ],
@@ -1637,43 +1558,26 @@
    "why": "unseen"
   },
   {
-   "id": "pool-elise-revolving-door-stuck_in_here_with_me",
+   "id": "pool-elise-revolving-door-echo_cast",
    "kind": "pool",
-   "title": "The Revolving Door: Stuck In Here With Me on Elise",
+   "title": "Cocoon Maxxing: Echo Cast on Elise",
    "champions": [
     "Elise"
    ],
    "augments": [
-    1413
+    2062
    ],
    "items": [],
-   "theory": "The build leans on Stuck In Here With Me.",
-   "test": "Elise has never been seen taking Stuck In Here With Me, so it may not be in their augment pool. Check whether it's ever offered on Elise.",
+   "theory": "The build leans on Echo Cast.",
+   "test": "Elise has never been seen taking Echo Cast, so it may not be in their augment pool. Check whether it's ever offered on Elise.",
    "build": "elise-revolving-door",
-   "augment": "Stuck In Here With Me",
-   "why": "unseen"
-  },
-  {
-   "id": "pool-elise-revolving-door-ultimate_unstoppable",
-   "kind": "pool",
-   "title": "The Revolving Door: Ultimate Unstoppable on Elise",
-   "champions": [
-    "Elise"
-   ],
-   "augments": [
-    1112
-   ],
-   "items": [],
-   "theory": "The build leans on Ultimate Unstoppable.",
-   "test": "Elise has never been seen taking Ultimate Unstoppable, so it may not be in their augment pool. Check whether it's ever offered on Elise.",
-   "build": "elise-revolving-door",
-   "augment": "Ultimate Unstoppable",
+   "augment": "Echo Cast",
    "why": "unseen"
   },
   {
    "id": "pool-cassiopeia-drive-by-serpent-quickstep",
    "kind": "pool",
-   "title": "The Drive-By Serpent: Quickstep on Cassiopeia",
+   "title": "Serpentine Grace, No Boots: Quickstep on Cassiopeia",
    "champions": [
     "Cassiopeia"
    ],
@@ -1690,7 +1594,7 @@
   {
    "id": "pool-cassiopeia-drive-by-serpent-shadow_runner",
    "kind": "pool",
-   "title": "The Drive-By Serpent: Shadow Runner on Cassiopeia",
+   "title": "Serpentine Grace, No Boots: Shadow Runner on Cassiopeia",
    "champions": [
     "Cassiopeia"
    ],
@@ -1707,7 +1611,7 @@
   {
    "id": "pool-cassiopeia-drive-by-serpent-earthwake",
    "kind": "pool",
-   "title": "The Drive-By Serpent: Earthwake on Cassiopeia",
+   "title": "Serpentine Grace, No Boots: Earthwake on Cassiopeia",
    "champions": [
     "Cassiopeia"
    ],
@@ -1724,7 +1628,7 @@
   {
    "id": "pool-azir-melee-by-proxy-draw_your_sword",
    "kind": "pool",
-   "title": "Melee By Proxy: Draw Your Sword on Azir",
+   "title": "Arise! (The Interns): Draw Your Sword on Azir",
    "champions": [
     "Azir"
    ],
@@ -1741,7 +1645,7 @@
   {
    "id": "pool-anivia-overdraft-protection-mighty_shield",
    "kind": "pool",
-   "title": "Overdraft Protection: Mighty Shield on Anivia",
+   "title": "Glacial Storm Overdraft: Mighty Shield on Anivia",
    "champions": [
     "Anivia"
    ],
@@ -1787,6 +1691,23 @@
    "test": "Master Yi has never been seen taking Mosh Monster, so it may not be in their augment pool. Check whether it's ever offered on Master Yi.",
    "build": "masteryi-aura-farming",
    "augment": "Mosh Monster",
+   "why": "unseen"
+  },
+  {
+   "id": "pool-masteryi-aura-farming-overloaded",
+   "kind": "pool",
+   "title": "Aura Farming: Overloaded on Master Yi",
+   "champions": [
+    "MasterYi"
+   ],
+   "augments": [
+    2123
+   ],
+   "items": [],
+   "theory": "The build leans on Overloaded.",
+   "test": "Master Yi has never been seen taking Overloaded, so it may not be in their augment pool. Check whether it's ever offered on Master Yi.",
+   "build": "masteryi-aura-farming",
+   "augment": "Overloaded",
    "why": "unseen"
   },
   {
@@ -1872,23 +1793,6 @@
    "test": "Kindred has never been seen taking Stuck In Here With Me, so it may not be in their augment pool. Check whether it's ever offered on Kindred.",
    "build": "kindred-healing-the-opps",
    "augment": "Stuck In Here With Me",
-   "why": "unseen"
-  },
-  {
-   "id": "pool-kindred-healing-the-opps-first_aid_kit",
-   "kind": "pool",
-   "title": "Healing The Opps: First-Aid Kit on Kindred",
-   "champions": [
-    "Kindred"
-   ],
-   "augments": [
-    1037
-   ],
-   "items": [],
-   "theory": "The build leans on First-Aid Kit.",
-   "test": "Kindred has never been seen taking First-Aid Kit, so it may not be in their augment pool. Check whether it's ever offered on Kindred.",
-   "build": "kindred-healing-the-opps",
-   "augment": "First-Aid Kit",
    "why": "unseen"
   }
  ]
