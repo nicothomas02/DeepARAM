@@ -114,13 +114,15 @@ jobs:
           GH_REPO: ${{ github.repository }}
         run: |
           v="${VERSION#v}"; tag="v$v"
-          ls -l files
+          # Artifacts keep their folders (bundle/nsis, appimage, deb...), so collect the files themselves.
+          mapfile -t assets < <(find files -type f | sort)
+          printf '%s\n' "${assets[@]}"
           notes="DeepARAM apps $v.
 
           - **Windows** (DeepARAM-Windows-Setup.exe, or .msi): Windows may say \"Windows protected your PC\" the first time. Choose More info, then Run anyway.
           - **Linux** (.AppImage, .deb or .rpm, x86_64): the AppImage runs on most distributions after chmod +x; the .deb is for Debian and Ubuntu, the .rpm for Fedora and openSUSE."
           if gh release view "$tag" >/dev/null 2>&1; then
-            gh release upload "$tag" files/* --clobber
+            gh release upload "$tag" "${assets[@]}" --clobber
           else
-            gh release create "$tag" files/* --title "DeepARAM $v" --notes "$notes" --target "$GITHUB_SHA"
+            gh release create "$tag" "${assets[@]}" --title "DeepARAM $v" --notes "$notes" --target "$GITHUB_SHA"
           fi
