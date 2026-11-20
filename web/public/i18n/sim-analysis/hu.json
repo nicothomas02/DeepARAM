@@ -41,5 +41,7 @@
  "Real damage share above what the Simulator plus role predicts. Likely kit gaps.": "Valódi sebzésrészesedés a Szimulátor plusz szerep becslése felett. Valószínűleg hiányok a képességkészletben.",
  "Most overrated": "Leginkább túlértékeltek",
  "Real damage share below the prediction.": "Valódi sebzésrészesedés a becslés alatt.",
- "Patch {patch}, checked {date}. {b} resamples per range. Each 1% more simulated damage per second goes with {d}% more real damage share once role is known.": "{patch}. javítás, ellenőrizve: {date}. Tartományonként {b} újramintavétel. Minden 1%-kal több szimulált másodpercenkénti sebzés {d}%-kal több valódi sebzésrészesedéssel jár, ha a szerep ismert."
+ "Patch {patch}, checked {date}. {b} resamples per range. Each 1% more simulated damage per second goes with {d}% more real damage share once role is known.": "{patch}. javítás, ellenőrizve: {date}. Tartományonként {b} újramintavétel. Minden 1%-kal több szimulált másodpercenkénti sebzés {d}%-kal több valódi sebzésrészesedéssel jár, ha a szerep ismert.",
+ "Teamfight damage, simulated.": "Csapatharci sebzés, szimulálva.",
+ "An experiment: results can shift as the model changes. Monte Carlo teamfights against enemy teams weighted by Mayhem pick rates, with a build search for every champion. Use it to compare builds for one champion, not to rank champions.": "Kísérlet: az eredmények a modell változásával módosulhatnak. Monte Carlo csapatharcok ellenséges csapatok ellen, a módbeli választási arányok szerint súlyozva, minden bajnokhoz buildkereséssel. Egy bajnok buildjeinek összehasonlítására használd, ne bajnokok rangsorolására."
 }

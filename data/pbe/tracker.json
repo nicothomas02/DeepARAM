@@ -1,11 +1,12 @@
 {
  "builds": {
-  "pbe": "16.24.8398832",
-  "live": "16.23.8399929"
+  "pbe": "16.24.8403318",
+  "live": "16.23.8406595"
  },
- "dataAsOf": "2026-11-19",
+ "dataAsOf": "2026-11-20",
  "counts": {
-  "buff": 1
+  "buff": 1,
+  "new": 1
  },
  "entries": [
   {
@@ -18,6 +19,20 @@
     }
    ],
    "tag": "buff"
+  },
+  {
+   "kind": "augment",
+   "name": "Surge Field",
+   "tier": "prismatic",
+   "icon": "/assets/augments/pbe/surgefield_large.png",
+   "set": null,
+   "lines": [
+    {
+     "text": "Gain the Surge Field summoner spell. Casting it creates a zone for 10 seconds: while in it, you gain 40% Movement Speed and 150 Ability Haste, and fire missiles at enemies that deal 30% of the damage you deal.",
+     "tag": "new"
+    }
+   ],
+   "tag": "new"
   }
  ]
 }

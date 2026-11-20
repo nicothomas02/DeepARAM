@@ -41,5 +41,7 @@
  "Real damage share above what the Simulator plus role predicts. Likely kit gaps.": "実際のダメージシェアがシミュレーター＋ロールの予測を上回っています。スキル再現の不足の可能性。",
  "Most overrated": "最も過大評価",
  "Real damage share below the prediction.": "実際のダメージシェアが予測を下回っています。",
- "Patch {patch}, checked {date}. {b} resamples per range. Each 1% more simulated damage per second goes with {d}% more real damage share once role is known.": "パッチ{patch}、{date}に確認。範囲ごとに{b}回の再抽出。ロールがわかっていれば、シミュレーターの秒間ダメージが1%高いと実際のダメージシェアは{d}%高くなります。"
+ "Patch {patch}, checked {date}. {b} resamples per range. Each 1% more simulated damage per second goes with {d}% more real damage share once role is known.": "パッチ{patch}、{date}に確認。範囲ごとに{b}回の再抽出。ロールがわかっていれば、シミュレーターの秒間ダメージが1%高いと実際のダメージシェアは{d}%高くなります。",
+ "Teamfight damage, simulated.": "集団戦のダメージをシミュレーション。",
+ "An experiment: results can shift as the model changes. Monte Carlo teamfights against enemy teams weighted by Mayhem pick rates, with a build search for every champion. Use it to compare builds for one champion, not to rank champions.": "実験的な機能です。モデルの変更に伴い結果が変わることがあります。モードのピック率で重み付けした敵チームとのモンテカルロ集団戦を行い、各チャンピオンのビルドを探索します。チャンピオン同士の順位付けではなく、1体のチャンピオンのビルド比較に使ってください。"
 }

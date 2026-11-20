@@ -41,5 +41,7 @@
  "Real damage share above what the Simulator plus role predicts. Likely kit gaps.": "Cotă reală de daune peste ce prezice Simulatorul plus rol. Probabil lipsuri în kit.",
  "Most overrated": "Cei mai supraestimați",
  "Real damage share below the prediction.": "Cotă reală de daune sub predicție.",
- "Patch {patch}, checked {date}. {b} resamples per range. Each 1% more simulated damage per second goes with {d}% more real damage share once role is known.": "Patch {patch}, verificat pe {date}. {b} reeșantionări pe interval. Fiecare 1% în plus de daune pe secundă simulate merge cu {d}% în plus cotă reală de daune, odată ce rolul e cunoscut."
+ "Patch {patch}, checked {date}. {b} resamples per range. Each 1% more simulated damage per second goes with {d}% more real damage share once role is known.": "Patch {patch}, verificat pe {date}. {b} reeșantionări pe interval. Fiecare 1% în plus de daune pe secundă simulate merge cu {d}% în plus cotă reală de daune, odată ce rolul e cunoscut.",
+ "Teamfight damage, simulated.": "Daune în luptele de echipă, simulate.",
+ "An experiment: results can shift as the model changes. Monte Carlo teamfights against enemy teams weighted by Mayhem pick rates, with a build search for every champion. Use it to compare builds for one champion, not to rank champions.": "Un experiment: rezultatele se pot schimba odată cu modelul. Lupte de echipă Monte Carlo împotriva echipelor inamice ponderate după rata de alegere din mod, cu o căutare de build pentru fiecare campion. Folosește-l pentru a compara build-urile unui campion, nu pentru a clasa campionii."
 }
