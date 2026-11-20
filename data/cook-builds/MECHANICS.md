@@ -95,6 +95,13 @@ damage over time), check the League wiki first.
 - **One Hit Wonder + Purist - Caster:** pick order matters. Whichever is taken first decides how the ability's
   cooldown works (reported online, per Nico; untested). One Hit Wonder ignores haste and scales damage with it,
   while Purist - Caster also cuts total cooldowns by 10%.
+- **Triggered Inferno on Hecarim:** its move speed feeds his passive's speed-to-AD conversion, so hitting
+  different targets in turn stacks AD (Nico).
+- **Heavy Is The Crown on Yuumi:** the move speed penalty doesn't matter while she's attached (Nico).
+- **Double Time:** the permanent mana pays off on Ryze and Kassadin (mana scaling). Cassiopeia and Anivia have no
+  mana scaling, but they spend a lot and hit with two abilities often, so it procs constantly (Nico).
+- **Ominous Pact on Vladimir:** the 5% current-health cost stacks on his own health costs, and the missing-health
+  AP and omnivamp make up for it (Nico).
 - **Pin Cushion:** very weak damage for a prismatic, worse still on melee champions with few attacks (Nico).
 - **Terrain'd:** the AP Trundle items (Horizon Focus, Bloodletter's, Cryptbloom, Imperial Mandate) likely center
   on it (Nico, probably).
