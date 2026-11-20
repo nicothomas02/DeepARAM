@@ -140,6 +140,16 @@ damage over time), check the League wiki first.
 - **Sion:** Stackosaurus Rex doubles his W Health stacks, and charging Q counts as a channel (Nico).
 - **Akshan:** RISE works with his R (each recast is a full R), and the R charge-up counts as a channel (Nico).
 - **Gragas:** Ravenous Bind heals off Chain Reaction knock-ups (Nico).
+- **RISE:** R only. Gragas can't take it on E (Nico).
+- **Syndra:** Chain Reaction can go on E (Scatter the Weak), but the pushed spheres don't count as knocked-back
+  champions (Nico).
+- **Illaoi:** Minionmancer buffs her tentacles, and Echo Cast's clone Q makes a second tentacle slam (Nico).
+- **Aurelion Sol:** Stackosaurus Rex doubles Stardust, and Breath of Light (Q) counts as a channel (Nico).
+- **Overflow on Nunu:** it raises W's cast cost only, not a per-second cost (Nico).
+- **Janna:** Group Hug makes E shield 3 allies at once (Nico).
+- **Infernal Conduit:** its burn can crit through Vulnerability, like Liandry's (Nico).
+- **Fiddlesticks:** both the W drain and the R channel count for Don't Change the Channel, and the drain heal sets
+  off Circle of Death (Nico).
 - **Pin Cushion:** very weak damage for a prismatic, worse still on melee champions with few attacks (Nico).
 - **Pin Cushion on Ashe:** each arrow of her empowered Q volley counts as a separate hit (Nico). Zeri's Q (Burst Fire)
   likely works the same (Nico). Data check: Ashe is first on Pin Cushion's best-champions list and grades A
