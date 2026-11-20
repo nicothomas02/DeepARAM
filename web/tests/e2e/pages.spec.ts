@@ -280,8 +280,9 @@ test("augment and item pages show the official description under the name, the l
   const aug = page.locator('a[href^="/augments/"]').first();
   await aug.click();
   await expect(page.locator(".champ-hero .official-desc")).not.toBeEmpty();
-  // Synergies: champions it fits, scored in points (never an augment win rate).
-  await expect(page.locator("#synergies .syn-row").first()).toContainText("pts");
+  // Synergies: champions it fits scored in points, or (feed-only estimates) the share of its takers who build each item.
+  // Never an augment win rate.
+  await expect(page.locator("#synergies .syn-row").first()).toContainText(/pts|%/);
 });
 
 test("champion pages list Synergies and the Adjusted / Raw switch relabels build win rates", async ({ page }) => {
