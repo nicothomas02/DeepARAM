@@ -312,6 +312,32 @@ def test_trace_does_not_change_the_result(run_json, tmp_path):
     assert tr["summary"]["mean_dps"] == plain["builds"][0]["summary"]["mean_dps"]
 
 
+# Summons the replay draws: summon (u = its uid from 1000 up, x = model, a = how long it stays, ax/ay = where),
+# unsummon, sattack (u = the enemy it hits, by = its uid), and its uid in the pos triples while it's out.
+@pytest.mark.parametrize("champ, model", [("Ivern", "daisy"), ("Annie", "tibbers"), ("Viego", "viegosoul")])
+def test_trace_shows_summons(run_sim, tmp_path, champ, model):
+    path = tmp_path / "t.json"
+    run_sim("mayhem_sim", ["--champ", champ, "--trials", "60", "--seed", "1", "--json", "--trace", path], check=True)
+    ev = load_json(path)["events"]
+    summons = [e for e in ev if e["k"] == "summon"]
+    assert summons and all(e["x"] == model and e["u"] >= 1000 for e in summons), summons[:3]
+    uids = {e["u"] for e in summons}
+    assert len(uids) == len(summons)
+    for e in ev:
+        if e["k"] in ("unsummon",):
+            assert e["u"] in uids
+        if e["k"] == "sattack":
+            assert e["by"] in uids and e["u"] < 1000
+        if e["k"] in ("damage", "kill", "spawn", "focus", "attack"):
+            assert e["u"] < 1000  # enemies keep their own uids
+    if model == "daisy":
+        assert any(e["k"] == "sattack" for e in ev)
+        assert any(e["k"] == "pos" and summons[0]["u"] in e["p"][0::3] for e in ev)
+    if model == "viegosoul":  # he takes the soul as soon as it drops
+        gone = {e["u"]: e["t"] for e in ev if e["k"] == "unsummon"}
+        assert all(gone.get(s["u"]) == s["t"] for s in summons)
+
+
 def test_short_and_long_fight_dps_are_reported(run_json):
     """#130: every summary reports dps_short_fight (first 6 s) and dps_long_fight (first 20 s)."""
     s = summary(run_json("mayhem_sim", ["--champ", "Jinx", *JINX_BUILD, "--trials", "300", "--seed", "1", "--json"]))
