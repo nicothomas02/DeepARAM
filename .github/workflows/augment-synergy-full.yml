@@ -1,28 +1,25 @@
 name: Augment synergy (full pool)
 
-# Every pair of each champion's modeled augments in the Simulator (data/estimates/augment_synergy.py --full), split
-# over SHARDS runners, then merged into data/estimates/augment_synergy.json (site) and augment_synergy_full.json
-# (all details) and committed to the branch it ran on. About 15 minutes; the same run on one 4-core machine takes
-# about 10 hours. Start it from the Actions tab on a work branch, or push a commit whose message contains
-# [synergy-full] to a claude/ branch. Never on main.
+# Exploration only (the Simulator is kept out of the site's rankings for now): every pair of each champion's modeled
+# augments in the Simulator (data/estimates/augment_synergy.py --full), split over SHARDS runners, merged into
+# data/estimates/augment_synergy_full.json and committed to the branch it ran on. About 15 minutes; the same run on
+# one 4-core machine takes about 10 hours. Start it from the Actions tab on a work branch. Never on main.
 on:
   workflow_dispatch:
-  push:
-    branches: ["claude/**"]
 
 permissions:
   contents: write
 
 concurrency:
   group: augment-synergy-full-${{ github.ref }}
-  cancel-in-progress: false  # pushes without [synergy-full] start a run that skips; it must not cancel a real one
+  cancel-in-progress: true
 
 env:
   SHARDS: 24
 
 jobs:
   shard:
-    if: github.ref_name != 'main' && (github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, '[synergy-full]'))
+    if: github.ref_name != 'main'
     runs-on: ubuntu-24.04
     timeout-minutes: 90
     strategy:
@@ -67,7 +64,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/estimates/augment_synergy.json data/estimates/augment_synergy_full.json
+          git add data/estimates/augment_synergy_full.json
           git diff --cached --quiet && exit 0
           git commit -m "Augment synergy: full pool, every pair of each champion's modeled augments"
           git pull --rebase origin "$GITHUB_REF_NAME"

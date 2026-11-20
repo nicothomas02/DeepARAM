@@ -62,6 +62,22 @@ def load_rules():
     return out
 
 
+def champion_rule_pairs(e, ctx):
+    """Confirmed-mechanics pairs only (the default since 2026-11-20: the Simulator doesn't play like a real game yet,
+    so it is kept out of rankings): [(key a, key b, points, source, why)]."""
+    cid = str(e["champion_id"])
+    keys = {ctx["aug_key"].get(a["id"]) for a in ctx["builds"].get(cid, {}).get("augments", {}).get("all", [])}
+    out = []
+    for p, r in ctx["rules"].items():
+        if p <= keys:
+            if "points" in r:
+                a, b = sorted(p)
+                out.append((a, b, float(r["points"]), "rule", r["why"]))
+            else:
+                out.append((r["a"], r["b"], (float(r["a_first"]), float(r["b_first"])), "order", r["why"]))
+    return out
+
+
 def champion_pairs(e, ctx):
     """[(key a, key b, points, source, why)] for one champion."""
     champ, role, cid = e["id"], e["role"], str(e["champion_id"])
@@ -182,7 +198,8 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--only", default="")
     ap.add_argument("--jobs", type=int, default=os.cpu_count() or 2)
-    ap.add_argument("--full", action="store_true", help="every pair of the champion's modeled augments")
+    ap.add_argument("--sim", action="store_true", help="also simulate the most picked pairs (exploration only)")
+    ap.add_argument("--full", action="store_true", help="simulate every pair of the champion's modeled augments (exploration only)")
     ap.add_argument("--shard", type=int, default=0)
     ap.add_argument("--shards", type=int, default=1)
     ap.add_argument("--merge", nargs="+", help="combine --full shard files into augment_synergy.json")
@@ -195,21 +212,20 @@ def main():
                 merged = {**part, "champions": {}}
             merged["champions"].update(part["champions"])
         merged["method"].pop("shard", None)
-        # Everything goes to augment_synergy_full.json (analysis); the site's file keeps only what pages use.
-        site_keys = {"a", "b", "source", "points", "a_first", "b_first", "why", "lo", "hidden"}
-        site = {**merged, "champions": {c: [{k: v for k, v in r.items() if k in site_keys} for r in rows]
-                                         for c, rows in merged["champions"].items()}}
-        for path, data in ((OUT.replace(".json", "_full.json"), merged), (OUT, site)):
-            with open(path, "w", encoding="utf-8") as f:
-                json.dump(data, f, separators=(",", ":"), ensure_ascii=False)
-                f.write("\n")
+        # Exploration only: the site's augment_synergy.json stays rules-only (the Simulator is kept out of rankings).
+        full = OUT.replace(".json", "_full.json")
+        with open(full, "w", encoding="utf-8") as f:
+            json.dump(merged, f, separators=(",", ":"), ensure_ascii=False)
+            f.write("\n")
         n = sum(len(v) for v in merged["champions"].values())
-        print(f"{len(merged['champions'])} champions, {n} pairs -> {os.path.relpath(OUT, cm.REPO)}", file=sys.stderr)
+        print(f"{len(merged['champions'])} champions, {n} pairs -> {os.path.relpath(full, cm.REPO)}", file=sys.stderr)
         return
 
-    cu.BIN_STAMP = hashlib.sha1(open(cu.SIM_BIN, "rb").read()).hexdigest()[:12]
+    if args.sim or args.full:
+        cu.BIN_STAMP = hashlib.sha1(open(cu.SIM_BIN, "rb").read()).hexdigest()[:12]
     enemies = cm.load(os.path.join(cu.SIM, "data", "cn_enemy_pool.json"))["enemies"]
-    enemies = [e for e in enemies if len(cu.legal(e["build"]["items"])) >= 4]
+    if args.sim or args.full:
+        enemies = [e for e in enemies if len(cu.legal(e["build"]["items"])) >= 4]
     if args.only:
         keep = set(args.only.split(","))
         enemies = [e for e in enemies if e["id"] in keep or e["name"] in keep]
@@ -230,7 +246,9 @@ def main():
         try:
             if args.full:
                 return champion_pairs_full(e, ctx)
-            return [r + ({},) for r in champion_pairs(e, ctx)]
+            if args.sim:
+                return [r + ({},) for r in champion_pairs(e, ctx)]
+            return [r + ({},) for r in champion_rule_pairs(e, ctx)]
         except RuntimeError as err:
             print("skipped", err, file=sys.stderr)
             return None
@@ -245,6 +263,7 @@ def main():
     out = {
         "patch": cm.live_patch(), "estimated": True,
         "method": {"trials": TRIALS, "seed": cu.SEED, "beta": ctx["beta"], "min_points": MIN_POINTS, "cap": cu.SYNERGY_CAP,
+                   "simulated": bool(args.sim or args.full),
                    **({"pool": "full", "screen_trials": SCREEN_TRIALS, "recheck_share": RECHECK_SHARE,
                        "recheck_seeds": RECHECK_SEEDS, "shard": [args.shard, args.shards]} if args.full else
                       {"most_picked": MOST_PICKED, "min_pick": MIN_PICK})},

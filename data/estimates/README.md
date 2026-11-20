@@ -104,15 +104,14 @@ About 37,000 sim runs, 2.5 hours on 4 cores; results are cached in `~/.cache/dee
 champion page's augment table uses it once a visitor puts augments in "Your augments" (the round + or drag): the rest re-rank by their
 estimated boost plus their synergy with the taken ones (`web/src/lib/synergy-picks.ts`).
 
-- **Simulated pairs:** the champion's 30 most picked augments the Simulator models, every pair, on its most popular
-  real build (1,500 shared fights). Synergy = sim gain of the pair minus the two gains alone, turned into win-rate
-  points with `champion_upgrades.json`'s BETA and squashed toward +-3 points, as for the best sets of 4. Pairs under
-  0.15 points either way are left out.
+- **Rules only (default since 2026-11-20).** The Simulator doesn't play like a real game yet, so it is kept out of
+  rankings (it stays a fun tool on the site). `augment_synergy.json` lists the rule pairs below for every champion
+  whose pool holds both augments. `--sim` (the 30 most picked augments) and `--full` (the whole pool) still run the
+  Simulator for exploration; `--full` writes `augment_synergy_full.json` only, which no page reads.
 - **Rule pairs:** `augment_synergy_rules.json`, interactions confirmed in `data/cook-builds/MECHANICS.md` or the
-  augments' own text (Ethereal Weapon + Mystic Punch, Vulnerability + Jeweled Gauntlet, snowball augments...). They
-  are simulated when the Simulator models both, with the rule's points (2 strong, 1 some) as a floor, since the sim can
-  miss part of an interaction; otherwise the rule's points are used.
-- **Full pool** (`--full`, the GitHub workflow `augment-synergy-full.yml`, 24 runners, about 15 minutes): every pair
+  augments' own text (Ethereal Weapon + Mystic Punch, Vulnerability + Jeweled Gauntlet, snowball augments...), at the
+  rule's points (2 strong, 1 some, negative when they clash; pick-order pairs give both orders).
+- **Full pool, exploration only** (`--full`, the GitHub workflow `augment-synergy-full.yml`, started by hand, 24 runners, about 15 minutes): every pair
   of every modeled augment in the champion's pool (~800,000 pairs). A 400-fight screen, then the largest 3% per
   champion rerun on 3 seeds of 1,500 fights; `points` is the mean, `lo`/`hi` one standard deviation either side, and
   a pair is kept only when `lo` (or `hi` for clashes) clears 0.15 points. `hidden` marks pairs whose two augments are
