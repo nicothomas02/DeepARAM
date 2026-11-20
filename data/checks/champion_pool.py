@@ -1,9 +1,12 @@
 #!/usr/bin/env python3
 """Print a champion's Mayhem augment pool (augments seen taken on them this patch) with each augment's live text,
-plus their Q/W/E/R ability names, for designing a Chef Special with in-pool augments only.
+plus their Q/W/E/R ability names, for designing a Chef Special with in-pool augments only. The game text leaves
+many numbers out (or shows a placeholder), so each line also carries the full wiki text when we have it
+(data/wiki/mayhem_augments.json, refreshed by data/wiki/mayhem_augments.py).
 
     python3 data/checks/champion_pool.py Ashe
 """
+import json
 import sys
 from pathlib import Path
 
@@ -22,12 +25,16 @@ def main():
     import build_data as B
     live = B.mayhem_augments()
     slots = C.slot_augments()
+    wiki_file = HERE.parent / "wiki" / "mayhem_augments.json"
+    wiki = json.loads(wiki_file.read_text(encoding="utf-8")) if wiki_file.exists() else {}
     print(f"{c['name']} abilities:", ", ".join(f"{k}={v}" for k, v in C.abilities(c["champion_id"]).items()))
     for k in sorted(d["pools"].get(str(c["champion_id"]), []), key=lambda k: d["augments"][k]["name"]):
         a = d["augments"][k]
         text = (live.get(a["name"]) or {}).get("text", "")
         slot = slots.get(C._norm(a["name"]))
-        print(f"{a.get('rarity', '?'):9} {a['name']}{' [' + slot + ' only]' if slot else ''} | {text}")
+        full = wiki.get(a["name"])
+        print(f"{a.get('rarity', '?'):9} {a['name']}{' [' + slot + ' only]' if slot else ''} | {text}"
+              + (f" || full: {full}" if full and full != text else ""))
 
 
 if __name__ == "__main__":
