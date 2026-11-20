@@ -236,6 +236,12 @@ def test_game_length_survival_is_monotone_and_tested():
 # ---------- predictive.py: fitted DeepScore settings ----------
 
 predictive = load_module("data/analysis/predictive.py", "analysis_predictive", extra_path=["data/analysis"])
+# predictive.py imports data/analysis/common.py as "common"; drop it so data/estimates/common.py loads under that
+# name for the estimates tests collected after this file.
+import sys  # noqa: E402
+
+if getattr(sys.modules.get("common"), "__file__", "").replace("\\", "/").endswith("data/analysis/common.py"):
+    del sys.modules["common"]
 
 
 def test_predictive_fit_recovers_carry_over():
