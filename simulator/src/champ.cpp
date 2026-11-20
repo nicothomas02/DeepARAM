@@ -254,8 +254,10 @@ ChampionKit loadChampion(const json::Value& c, const Rules& rules) {
         ab.missingMax = a["missing_max"].asNumber(0);
         ab.missingIsolated = a["missing_isolated"].asBool(false);
         ab.placeholder = a["placeholder"].asBool(false);
+        ab.summon = a["summon"].asString("");
         if (const json::Value& pet = a["pet"]; pet.isObject()) {
             ab.petDuration = pet["duration"].asNumber(0);
+            ab.petModel = pet["model"].asString("");
             ab.petAs = std::max(0.1, pet["attack_speed"].asNumber(1));
             ab.petSlamEvery = static_cast<int>(pet["slam_every"].asNumber(0));
             ab.petSlamCd = pet["slam_cooldown"].asNumber(0);
@@ -1029,6 +1031,7 @@ private:
     double exposureSum_ = 0, exposureTime_ = 0;
     static constexpr double kStep = 0.05;     // movement and damage-taken step, seconds
     static constexpr double kPosEvery = 0.2;  // replay position snapshots, seconds
+    static constexpr double kSummonMs = 600;  // how fast a following summon moves in the replay
     bool rUp_ = false;
     double throughResists_ = 1, burstRaw_ = 0;  // for damage mitigated: see setupDefences and enemyCasts
     double myHp_ = 0, incomingDps_ = 0, engageAt_ = 0, damageClock_ = 0, auraClock_ = 0, auraDps_ = 0;
@@ -1943,7 +1946,47 @@ private:
         ev.pos = {-1, me_.x, me_.y};
         for (const auto& e : enemies_)
             if (e.alive) { ev.pos.push_back(e.uid); ev.pos.push_back(e.pos.x); ev.pos.push_back(e.pos.y); }
+        traceSummons(t);
+        for (const auto& s : summons_) { ev.pos.push_back(s.uid); ev.pos.push_back(s.pos.x); ev.pos.push_back(s.pos.y); }
         record(ev);
+    }
+
+    // Summons the replay draws. They only add trace events: no numbers change. uids from 1000 up,
+    // so they never meet an enemy's. A summon that follows (Daisy) stands beside your target.
+    struct TraceSummon { int uid; Vec pos; double until; bool follow; double movedAt = 0; };
+    std::vector<TraceSummon> summons_;
+    int nextSummonUid_ = 1000;
+    int summonAt(const std::string& model, Vec at, double stay, char slot, bool follow) {
+        if (!trace_ || model.empty()) return -1;
+        summons_.push_back({nextSummonUid_++, at, t_ + stay, follow, t_});
+        TraceEvent ev;
+        ev.t = t_; ev.kind = "summon"; ev.target = summons_.back().uid; ev.text = model; ev.amount = stay;
+        ev.slot = slot; ev.x = at.x; ev.y = at.y;
+        record(ev);
+        return summons_.back().uid;
+    }
+    void unsummon(int uid, double t) {
+        for (size_t i = 0; i < summons_.size(); ++i) {
+            if (summons_[i].uid != uid) continue;
+            TraceEvent ev;
+            ev.t = t; ev.kind = "unsummon"; ev.target = uid;
+            record(ev);
+            summons_.erase(summons_.begin() + static_cast<long>(i));
+            return;
+        }
+    }
+    void traceSummons(double t) {
+        for (size_t i = summons_.size(); i-- > 0;)
+            if (summons_[i].until <= t) unsummon(summons_[i].uid, summons_[i].until);
+        // A follower walks (kSummonMs) to its spot beside your target, so a new target isn't a jump.
+        for (auto& s : summons_) {
+            if (!s.follow) continue;
+            const Vec want = hasPrimary() ? P().pos + unit(me_ - P().pos) * 150.0 : me_ + Vec{80, 80};
+            const double step = std::max(0.0, t - s.movedAt) * kSummonMs;
+            s.movedAt = t;
+            const Vec d = want - s.pos;
+            s.pos = len(d) <= step ? want : s.pos + unit(d) * step;
+        }
     }
 
     double shieldLeft(double now) const {
@@ -2388,6 +2431,7 @@ private:
                       : g.shape == Shape::Circle ? (g.onSelf ? "self" : "circle") : "single";
             ev.x = shot.aim.x; ev.y = shot.aim.y; ev.flight = shot.flight;
             record(ev);
+            if (!a.summon.empty()) summonAt(a.summon, shot.aim, a.duration > 0 ? a.duration : 1.0, a.slot, false);
         }
         // Pentakill's empowered slot also heals and shields for as much more as it amps damage.
         const double slotAmp = get(fx_, slotKey);
@@ -3257,9 +3301,13 @@ private:
         if (get(ch_.kitEffects, "possess") > 0) {
             possessPending_ = e.profile;
             possessHp_ = e.maxHp;
+            if (soulUid_ >= 0) unsummon(soulUid_, t_);
+            soulUid_ = summonAt("viegosoul", e.pos, 0, 0, false);  // he takes it at once (possess)
         }
     }
+    int soulUid_ = -1;
     void possess(const EnemyProfile* p) {
+        if (soulUid_ >= 0) unsummon(std::exchange(soulUid_, -1), t_);
         const ChampionKit* k = lib_.find(p->id);
         if (!k) return;
         if (possessUntil_ < 0) {
@@ -3377,11 +3425,15 @@ private:
     const Ability* pet_ = nullptr;
     double petUntil_ = -1, petNext_ = 0, petSlamAt_ = 0;
     int petStreak_ = 0, petTarget_ = -1;
+    int petUid_ = -1;
     void startPet(const Ability& a) {
         pet_ = &a;
         petUntil_ = t_ + a.petDuration;
         petNext_ = t_ + 0.5;  // it leaps in
         petStreak_ = 0;
+        if (petUid_ >= 0) unsummon(petUid_, t_);
+        const Vec at = hasPrimary() ? P().pos + unit(me_ - P().pos) * 150.0 : me_;
+        petUid_ = summonAt(a.petModel, at, a.petDuration, a.slot, true);
     }
     void tickPet(double until) {
         if (!pet_ || petUntil_ < 0) return;
@@ -3412,6 +3464,11 @@ private:
             Enemy& e = P();
             if (!e.alive) continue;
             if (e.uid != petTarget_) { petTarget_ = e.uid; petStreak_ = 0; }
+            if (trace_ && petUid_ >= 0) {
+                TraceEvent ev;
+                ev.t = at; ev.kind = "sattack"; ev.target = e.uid; ev.by = petUid_;
+                record(ev);
+            }
             for (const auto& h : a.petHits) deal(&e, hitRaw(h, e) * abilityAmp_, h.type, src);
             if (a.petSlamEvery > 0 && ++petStreak_ >= a.petSlamEvery && at >= petSlamAt_) {
                 petStreak_ = 0;
@@ -3423,7 +3480,11 @@ private:
                 }
             }
         }
-        if (petNext_ >= petUntil_) petUntil_ = -1;
+        if (petNext_ >= petUntil_) {
+            petUntil_ = -1;
+            if (petUid_ >= 0) unsummon(petUid_, std::min(until, petNext_));
+            petUid_ = -1;
+        }
     }
 
     // A refund-only cast (Ashe E with Archmage) is worth it once another ability is on cooldown.

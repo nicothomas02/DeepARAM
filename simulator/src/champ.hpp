@@ -104,6 +104,9 @@ struct Ability {
     // knocks up for petSlamCc seconds (Ivern's Daisy).
     double petDuration = 0, petAs = 1, petSlamCd = 0, petSlamCc = 0;
     int petSlamEvery = 0;
+    // The model a replay draws for the summon (pet "model", e.g. "daisy"), and for an ability that
+    // puts one down where it's aimed for its duration ("summon", e.g. Annie's "tibbers"). Trace only.
+    std::string petModel, summon;
     std::vector<Hit> petHits, petSlam;
     // A drain around you rather than a summon (Swain's Demonic Ascension): with petAround its hits and
     // slams land on every enemy within that radius of you, each hit heals you for petHeal, and every
@@ -320,13 +323,16 @@ struct Result {
 };
 
 // One moment of a traced fight, for the animated replay. kind is one of:
-// cc, spawn, focus, cast, attack, proc, damage, kill, self, death, end, pos.
+// cc, spawn, focus, cast, attack, proc, damage, kill, self, death, end, pos, and for summons the replay
+// draws (Ivern's Daisy, Annie's Tibbers, Viego's souls): summon (target = its uid, text = model, amount =
+// how long it stays, x/y = where), unsummon (target = its uid), sattack (target = the enemy, by = its uid).
 struct TraceEvent {
     double t = 0;
     std::string kind;
     int target = -1;          // enemy uid (spawn, focus, damage, kill)
     char slot = 0;            // Q/W/E/R for cast and proc
-    std::string text;         // enemy champion id (spawn), damage type (damage), area (cast)
+    std::string text;         // enemy champion id (spawn), damage type (damage), area (cast), model (summon)
+    int by = -1;              // sattack: the summon's uid
     int source = -1;          // Source of a damage event
     double amount = 0;        // damage dealt; cast time for casts; wind-up for attacks; cc end time for cc
     double lock = 0;          // casts: seconds a channel keeps the caster busy after it fires
