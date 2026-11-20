@@ -231,3 +231,54 @@ def test_game_length_survival_is_monotone_and_tested():
     assert 10 < data["curves"]["all"]["median"] < 30
     for k in ("win_vs_loss", "blue_vs_red"):
         assert 0 <= data["compare"][k]["p"] <= 1
+
+
+# ---------- predictive.py: fitted DeepScore settings ----------
+
+predictive = load_module("data/analysis/predictive.py", "analysis_predictive", extra_path=["data/analysis"])
+
+
+def test_predictive_fit_recovers_carry_over():
+    """On synthetic lists where next = mean + 0.6 * (this - mean), the grid fit finds b = 0.6 and k = 0."""
+    cases = []
+    for t in range(6):
+        case = []
+        for i in range(40):
+            x = 0.45 + i * 0.0025 + 0.001 * t
+            case.append({"x": x, "n": 0.5 + (i % 5) / 2, "y": 0.0})
+        m = sum(e["x"] for e in case) / len(case)
+        for e in case:
+            e["y"] = m + 0.6 * (e["x"] - m)
+        cases.append(case)
+    b, k = predictive.fit_bk(cases)
+    assert (b, k) == (0.6, 0.0)
+    spread = predictive.fit_spread(cases, b, k)
+    assert spread["s0"] < 1e-6
+
+
+def test_predictive_helpers():
+    assert predictive.spearman([1, 2, 3], [10, 20, 30]) == pytest.approx(1.0)
+    assert predictive.spearman([1, 2, 3], [3, 2, 1]) == pytest.approx(-1.0)
+    assert predictive.quantile([0, 1, 2, 3, 4], 0.5) == 2
+    t = predictive.tiers([0.4 + i * 0.001 for i in range(100)])
+    assert t[0] == "D" and t[-1] == "S"
+    # tier cuts match the site's
+    assert [z for _, z in predictive.TIER_Z][:4] == [1.35, 0.6, -0.4, -1.2]
+
+
+def test_predictive_outputs_match_and_beat_the_old_rule():
+    """The checked-in outputs: the site's settings file mirrors predictive.json, and the fitted settings
+    predicted next patch at least as well as the old hand-set prior in the backtest."""
+    full = load_json("data/analysis/predictive.json")
+    site = load_json("web/src/data/deepscore-fit.json")
+    for fam in ("champions", "augments", "items"):
+        if full.get(fam):
+            for key in ("b", "k", "s0", "s1", "q80", "q95"):
+                assert site[fam][key] == full[fam]["fit"][key], (fam, key)
+            models = full[fam]["backtest"]["models"]
+            assert models["fitted"]["rmse_pts"] <= models["current"]["rmse_pts"], fam
+    champ = full["champions"]
+    cov = champ["backtest"]["models"]["fitted"]["coverage"]
+    assert 0.7 <= cov["80"] <= 0.95 and cov["95"] >= 0.85
+    for p in champ["projection"]["champions"].values():
+        assert p["lo95"] <= p["lo80"] <= p["wr"] <= p["hi80"] <= p["hi95"]

@@ -39,3 +39,16 @@ export default function WinRate({ p, n, digits = 1 }: { p: number; n?: number | 
     </Sampled>
   );
 }
+
+/** An expected next-patch win rate with its 80% range (lib/deepscore.ts nextPatch): the range shows on hover and
+ *  in Detailed view, as "50.1–52.6". */
+export function NextPatch({ p, lo, hi }: { p: number; lo: number; hi: number }) {
+  return (
+    <span className="wr" title={`80%: ${pct(lo)} – ${pct(hi)}`}>
+      {pct(p)}
+      <span className="wr-ci">
+        {(lo * 100).toFixed(1)}–{(hi * 100).toFixed(1)}
+      </span>
+    </span>
+  );
+}

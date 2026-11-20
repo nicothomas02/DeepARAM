@@ -36,6 +36,16 @@ const CHANGE: Column = {
   hint: "Win rate change since the previous patch, in percentage points.",
 };
 
+// Expected win rate next patch (lib/tiers.ts next), shown for the live patch alone: the settings were fitted
+// to predict the next patch from the latest one.
+const NEXT: Column = {
+  key: "next",
+  label: "Next patch",
+  format: "pct",
+  rangeKeys: ["next_lo", "next_hi"],
+  hint: "Expected win rate next patch if the champion isn't changed, fitted on how win rates moved between past patches. Detailed view adds the range it lands in 4 times out of 5.",
+};
+
 // Phones keep tier, name, DeepScore and win rate in view; pick rate shows from 360px wide (DataTable Column.phone).
 const STANDARD: Column[] = [
   TIER,
@@ -56,7 +66,7 @@ const ADVANCED: Column[] = [
     key: "score",
     label: "Confident win rate",
     format: "pct",
-    hint: "The low end of the win rate's likely range, after allowing for how many games there are. DeepScore ranks on this.",
+    hint: "The low end of the expected win rate next patch, one typical miss below it. DeepScore ranks on this.",
   },
   { key: "damage", label: "Damage share", format: "pct" },
   { key: "tank", label: "Damage taken", format: "pct" },
@@ -311,6 +321,7 @@ export default function ChampionTiers({
   };
   const showMulti = picked.size > 1;
   const showChange = !showMulti && Boolean(before);
+  const showNext = one === live && stats.some((c) => c.next !== undefined);
   const moversOn = sort === MOVERS && same([live]);
   // The dropdown's own label names the range in use, so phones need only this one control.
   const rangeLabel = moversOn
@@ -477,11 +488,13 @@ export default function ChampionTiers({
           key={sort.key}
           columns={[
             ...STANDARD,
+            ...(showNext ? [{ ...NEXT, phone: "hide" as const }] : []),
             ...(showChange ? [{ ...CHANGE, phone: "hide" as const }] : []),
             { ...tagCol, phone: "hide" },
           ]}
           advancedColumns={[
             ...ADVANCED.slice(0, 5),
+            ...(showNext ? [NEXT] : []),
             ...(showChange ? [CHANGE] : []),
             ...(games && one === live ? [GAMES] : []),
             ...(Object.keys(scaling).length ? [CURVE] : []),

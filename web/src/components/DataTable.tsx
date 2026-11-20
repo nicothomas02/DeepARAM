@@ -11,7 +11,7 @@ import { hintFor } from "@/lib/glossary";
 import { useNames, useT } from "./I18n";
 import { EmptyState } from "@/components/EmptyState";
 import DeepScore from "./DeepScore";
-import WinRate, { Sampled } from "./WinRate";
+import WinRate, { NextPatch, Sampled } from "./WinRate";
 import { useAdvanced } from "./Advanced";
 import ArchetypeTags from "./ArchetypeTags";
 import { openRankings, RANKINGS_ID } from "./HowRankings";
@@ -34,6 +34,8 @@ export type Column = {
   /** For "pct" win-rate and "pts" win-rate-boost columns: the row key holding the estimated games behind it, for
    *  its 95% range and a low-sample tag (components/WinRate.tsx). */
   gamesKey?: string;
+  /** For "pct" expected next-patch columns: the row keys holding the low and high end of its 80% range. */
+  rangeKeys?: [string, string];
   /** For "tags" columns: the colour and meaning of each tag (the cell holds them comma-separated). */
   tags?: TagInfo;
   /** Phones (globals.css): "hide" drops the column below 640px, "wide" only below 360px, so the main numbers fit
@@ -495,6 +497,8 @@ export default function DataTable({
                       <ArchetypeTags names={String(r[c.key] ?? "").split(",")} info={c.tags} compact />
                     ) : c.format === "tier" && r[c.key] ? (
                       <TierChip tier={String(r[c.key])} was={r[`${c.key}_was`]} />
+                    ) : c.format === "pct" && c.rangeKeys && typeof r[c.key] === "number" && typeof r[c.rangeKeys[0]] === "number" && typeof r[c.rangeKeys[1]] === "number" ? (
+                      <NextPatch p={r[c.key] as number} lo={r[c.rangeKeys[0]] as number} hi={r[c.rangeKeys[1]] as number} />
                     ) : c.format === "pct" && c.gamesKey && typeof r[c.key] === "number" && typeof r[c.gamesKey] === "number" ? (
                       <WinRate p={r[c.key] as number} n={r[c.gamesKey] as number} />
                     ) : c.format === "pts" && c.gamesKey && typeof r[c.gamesKey] === "number" ? (

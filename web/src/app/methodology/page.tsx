@@ -3,7 +3,7 @@ import Intro from "@/components/Intro";
 import Link from "next/link";
 import { T } from "@/components/I18n";
 import { pageMeta } from "@/lib/meta";
-import { damageDealtWorth, doseResponse, itemLiftSummary, pbeForecast, playstyleClusters, typicalSettling } from "@/lib/analysis";
+import { damageDealtWorth, doseResponse, itemLiftSummary, pbeForecast, playstyleClusters, predictiveBacktest, typicalSettling } from "@/lib/analysis";
 
 export const metadata: Metadata = pageMeta(
   "/methodology",
@@ -23,6 +23,7 @@ export default function Methodology() {
   const clusters = playstyleClusters();
   const model = pbeForecast()?.model;
   const lift = itemLiftSummary();
+  const ahead = predictiveBacktest();
   const pct = (x: number | null | undefined) => (x === null || x === undefined ? "" : Math.round(100 * x));
   return (
     <>
@@ -35,7 +36,7 @@ export default function Methodology() {
         </h2>
         <p>
           <T ns={NS}>
-            A win rate from a handful of games is mostly luck. DeepARAM never ranks a pick on its raw win rate: each win rate is pulled toward the average of its list, and the fewer games behind it, the harder it is pulled.
+            A win rate from a handful of games is mostly luck, but most win rates here rest on so many games that luck is small. The bigger unknown is the next patch, because the game keeps moving. So DeepARAM ranks champions, augments, boots and starting items on what they are expected to win next patch, with settings fitted on how win rates moved between past patches. Lists without enough history yet, such as full builds, are still pulled toward their average, harder the fewer games they have.
           </T>
         </p>
         <h2>
@@ -46,7 +47,7 @@ export default function Methodology() {
         </p>
         <ul>
           <li>
-            <T ns={NS}>Confidence: the score uses the low end of the win rate&apos;s likely range, so a high win rate from few games can&apos;t outrank a slightly lower one from many.</T>
+            <T ns={NS}>Prediction: the score uses the low end of the expected win rate next patch, one typical miss below it, so a pick is only rated highly when its edge is likely to last.</T>
           </li>
           <li>
             <T ns={NS}>Recency: when several patches are combined, newer patches count for more.</T>
@@ -58,6 +59,41 @@ export default function Methodology() {
             <T ns={NS}>Tiers: S, A, B, C and D are cut at fixed distances from average, which keeps them balanced from patch to patch.</T>
           </li>
         </ul>
+        <h2>
+          <T ns={NS}>Predicting next patch</T>
+        </h2>
+        <p>
+          <T ns={NS}>
+            Every past patch is a test: each champion&apos;s win rate is used to predict its final win rate one patch later. The settings are fitted only on the patches before the one being predicted and then scored on it, so the test never sees its answer. Three things came out of it: almost all of a champion&apos;s lead over the average carries over to the next patch, but not quite all; older patches add nothing once the latest one is known; and a rarely picked champion&apos;s lead carries over as well as a popular one&apos;s, so DeepScore no longer marks rare picks down for being rare.
+          </T>
+        </p>
+        {ahead && (
+          <p>
+            <T
+              ns={NS}
+              v={{
+                n: ahead.transitions,
+                carry: Math.round(100 * ahead.carry),
+                mae: ahead.fitted.mae_pts.toFixed(2),
+                old: ahead.current.mae_pts.toFixed(2),
+                tiers: pct(ahead.fitted.tier_match),
+                oldTiers: pct(ahead.current.tier_match),
+                r80: (100 * ahead.range80).toFixed(1),
+                c80: pct(ahead.fitted.coverage?.["80"]),
+                c95: pct(ahead.fitted.coverage?.["95"]),
+              }}
+            >
+              {"Over {n} patches: about {carry}% of a lead carried over; the typical miss was {mae} points, against {old} for the old rule; and the predicted tier matched next patch's tier {tiers}% of the time, against {oldTiers}%. The 80% range, about ±{r80} points, held {c80}% of the time and the 95% range {c95}%."}
+            </T>
+          </p>
+        )}
+        {ahead?.samplingCoverage != null && (
+          <p>
+            <T ns={NS} v={{ s: pct(ahead.samplingCoverage) }}>
+              {"A range built from game counts alone would have held next patch's win rate only {s}% of the time at 95%: from patch to patch the game drifts far more than luck can explain. That is why the Tier List shows a Next patch range rather than a sampling range."}
+            </T>
+          </p>
+        )}
         <h2>
           <T ns={NS}>Augments and pick bias</T>
         </h2>
@@ -167,7 +203,7 @@ export default function Methodology() {
         </h2>
         <p>
           <T ns={NS}>
-            Every win rate counted from games carries a 95% range: the true rate is inside it 95% of the time. When that range is wider than 5 points either way, the page tags the win rate Few games, and under 10 games Too few games. In the Detailed view the ± range is shown next to the number.
+            Every win rate counted from games carries a 95% range: the true rate is inside it 95% of the time. When that range is wider than 5 points either way, the page tags the win rate Few games, and under 10 games Too few games. In the Detailed view the ± range is shown next to the number. That range covers this patch&apos;s games only; the Tier List&apos;s Next patch column adds the expected win rate next patch and, in the Detailed view, the range it lands in 4 times out of 5.
           </T>
         </p>
         <h2>
