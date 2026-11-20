@@ -608,6 +608,31 @@ def test_live_recorder_saves_one_file_per_game(mi, tmp_path):
     assert r["events"][-1] == {"t": 35, "name": "GameEnd", "result": "Win"}
 
 
+def test_live_recorder_reads_health_every_second_and_snapshots_every_ten(mi, tmp_path):
+    import threading
+    frames = []
+    for t in range(5, 31):
+        f = live_frame(t, end=t == 30)
+        f["activePlayer"]["championStats"]["currentHealth"] = 900 - 10 * t
+        f["allPlayers"][0]["isDead"] = t == 20
+        frames.append(f)
+    frames = iter(frames)
+    stop = threading.Event()
+    stop.wait = lambda s: None
+
+    def fetch():
+        f = next(frames, None)
+        if f is None:
+            stop.set()
+            raise ConnectionError("over")
+        return f
+
+    mi.live_recorder(stop, {}, fetch=fetch, folder=str(tmp_path), progress=lambda m: None)
+    (r,) = mi.live_recordings(str(tmp_path))
+    assert len(r["hp"]) == 26 and r["hp"][0] == [5, 850, 900, 0] and r["hp"][15] == [20, 700, 900, 1]
+    assert [s["t"] for s in r["snapshots"]] == [5, 15, 25, 30]  # and the end
+
+
 def test_live_recording_closed_mid_game_is_kept(mi, tmp_path):
     import threading
     frames = iter([live_frame(5), live_frame(15), None])

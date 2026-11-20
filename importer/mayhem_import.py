@@ -861,6 +861,7 @@ def history_status(lockfile=None):
 LIVE_URL = "https://127.0.0.1:2999/liveclientdata/allgamedata"
 LIVE_DIR = os.path.join(APP_DIR, "live")
 LIVE_EVERY = 10   # seconds between snapshots during a game
+LIVE_HP_EVERY = 1  # seconds between health readings during a game (the "hp" track)
 LIVE_IDLE = 15    # seconds between checks for a game starting
 LIVE_KEEP = 200   # recordings kept on disk, newest first
 LIVE_FORMAT = 1
@@ -886,8 +887,11 @@ LIVE_FORMAT = 1
 #     "riotId": "...", "champion": "Ahri", "team": "ORDER", "level": 18, "bot": false,
 #     "items": [[slot, itemId, count]], "augments": [...], "spells": ["SummonerFlash", ...],
 #     "keystone": 8112, "scores": {...}}],
+#   "hp": [[610.1, 1480.2, 2210.0, 0], ...],  # the recording player every LIVE_HP_EVERY s:
+#                                            # [game time, current health, max health, 1 while dead]
 #   "events": [{"t": 95.3, "name": "ChampionKill", "killer": "...", "victim": "...", "assisters": [...]}]
 # }
+# Recordings stay on this computer (LIVE_DIR); nothing here is sent anywhere.
 # Damage dealt isn't in the live data; the synced match supplies it, matched by
 # champion and start time.
 
@@ -957,8 +961,18 @@ def live_events(data):
     return out
 
 
+def live_hp(data):
+    """[game time, current health, max health, 1 while dead] for the recording player."""
+    me = data.get("activePlayer") or {}
+    stats = me.get("championStats") or {}
+    row = next((p for p in data.get("allPlayers") or [] if _riot_id(p) == _riot_id(me)), {})
+    return [round((data.get("gameData") or {}).get("gameTime", 0), 1), round(stats.get("currentHealth", 0), 1),
+            round(stats.get("maxHealth", 0), 1), int(bool(row.get("isDead")))]
+
+
 def live_update(rec, data, now_ms):
-    """Folds one allgamedata response into a recording (a new one when rec is None)."""
+    """Folds one allgamedata response into a recording (a new one when rec is None): a health reading every
+    call, a full snapshot once LIVE_EVERY seconds of game time have passed since the last one."""
     game = data.get("gameData") or {}
     t = game.get("gameTime", 0)
     me = data.get("activePlayer") or {}
@@ -968,13 +982,17 @@ def live_update(rec, data, now_ms):
                "gameMode": game.get("gameMode"), "map": game.get("mapNumber"), "mapTerrain": game.get("mapTerrain"),
                "gameTime": 0,
                "player": {"riotId": _riot_id(me), "champion": mine.get("championName"), "team": mine.get("team")},
-               "snapshots": [], "players": [], "events": []}
+               "snapshots": [], "players": [], "hp": [], "events": []}
     rec["gameTime"] = round(t, 1)
-    rec["snapshots"].append(live_snapshot(data))
+    rec.setdefault("hp", []).append(live_hp(data))
+    if not rec["snapshots"] or t - rec["snapshots"][-1]["t"] >= LIVE_EVERY - 0.5:
+        rec["snapshots"].append(live_snapshot(data))
     rec["players"] = live_players(data)
     rec["events"] = live_events(data)
     if any(e["name"] == "GameEnd" for e in rec["events"]):
         rec["complete"] = True
+        if rec["snapshots"][-1]["t"] != round(t, 1):
+            rec["snapshots"].append(live_snapshot(data))  # the end state, whenever the game ends
     return rec
 
 
@@ -1013,6 +1031,7 @@ def live_recorder(stop, status, fetch=None, folder=None, progress=log, on_end=No
     on_end, when given, is called after each saved game (the helper imports it once Riot has it)."""
     fetch = fetch or (lambda: curl_json(LIVE_URL, cacert=riot_ca(), timeout=5))
     rec = None
+    saved = 0.0  # wall clock of the last save; the file is written every LIVE_EVERY s, not every reading
     while not stop.is_set():
         try:
             data = fetch()
@@ -1022,7 +1041,9 @@ def live_recorder(stop, status, fetch=None, folder=None, progress=log, on_end=No
         if data and (data.get("activePlayer") or {}).get("championStats"):
             started = rec is None
             rec = live_update(rec, data, time.time() * 1000)
-            save_live(rec, folder)
+            if started or rec["complete"] or time.monotonic() - saved >= LIVE_EVERY:
+                save_live(rec, folder)
+                saved = time.monotonic()
             status["recording"] = rec["player"]["champion"]
             if started:
                 progress(f"Recording live game ({rec['player']['champion']}).")
@@ -1042,7 +1063,7 @@ def live_recorder(stop, status, fetch=None, folder=None, progress=log, on_end=No
             status["recording"] = None
             if on_end:
                 on_end()
-        stop.wait(LIVE_EVERY if rec else LIVE_IDLE)
+        stop.wait(LIVE_HP_EVERY if rec else LIVE_IDLE)
 
 
 def serve(out, port, lockfile=None, sgp_host=None, open_browser=True, record_live=True, watch=False):
