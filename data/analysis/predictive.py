@@ -24,6 +24,11 @@ predicted tier matches next patch's tier (same z-score cuts as the site), and ho
 rate landed inside the 50/80/95% ranges. The old sampling-only 95% range (Wilson, from estimated games) is
 scored the same way, which is why the site switches to the calibrated range.
 
+History tested beyond the latest patch (champions, all rolling origin): older patches' win rates (r), a
+champion's own long-run level against the list, and a champion's own record of misses (champion_volatility,
+lam). None improved next-patch predictions so far, so r = 0 and lam = 0; both are refitted daily and switch on
+by themselves if that changes.
+
 Augments and items only have per-patch history since 16.20, so their settings are fitted on both available
 transitions and scored leave-one-transition-out. Augment win rates stay off the site (Riot policy); only the
 settings and their backtest errors are published.
@@ -278,6 +283,7 @@ def champions() -> dict:
             best = (err, r, b, k)
     _, r, b, k = best
     spread = fit_spread(cache[r], b, k)
+    vol = champion_volatility(cache[r], b, k, spread)
 
     fitted = score_cases(test_cases, test_fit, spreads)
     fitted["spearman_low_end"] = round(sum(lb_rho) / len(lb_rho), 3)
@@ -292,14 +298,66 @@ def champions() -> dict:
         },
         "sampling_only_95_coverage": round(wilson_in / wilson_n, 3) if wilson_n else None,
     }
+    backtest["volatility"] = vol["backtest"]
     return {
-        "fit": {"b": b, "k": k, "r": r, **{key: round(v, 5) for key, v in spread.items()}},
+        "fit": {"b": b, "k": k, "r": r, **{key: round(v, 5) for key, v in spread.items()},
+                "lam": vol["lam"], **{key: vol[key] for key in ("vq50", "vq80", "vq95")}, "vol": vol["vol"]},
         "backtest": backtest,
-        "projection": projection(bp, b, k, r, spread),
+        "projection": projection(bp, b, k, r, spread, vol),
     }
 
 
-def projection(bp: dict, b: float, k: float, r: float, spread: dict) -> dict:
+MIN_VOL = 4  # past transitions a champion needs before its own history sets its range
+GRID_LAM = [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
+
+
+def champion_volatility(cases: list[list[dict]], b: float, k: float, spread: dict) -> dict:
+    """Each champion's own history of misses, blended with the list-wide spread.
+
+    Some champions swing more from patch to patch than others. A champion's range uses
+    sd_c = sqrt(lam * own^2 + (1 - lam) * sd^2), own = the root mean square of its past misses (MIN_VOL+ past
+    transitions). lam is chosen by rolling origin on the Gaussian log score: for each transition, own comes only
+    from the transitions before it. The quantiles of |miss| / sd_c over those rolling misses give vq50/80/95."""
+    misses = []  # per transition: champion -> (miss, n)
+    for case in cases:
+        misses.append({e["key"]: (e["y"] - p, e["n"]) for e, p in zip(case, predict(case, b, k))})
+    rolling = []  # (own, base sd, miss)
+    for t in range(MIN_TRAIN, len(misses)):
+        for ch, (miss, n) in misses[t].items():
+            past = [m[ch][0] for m in misses[:t] if ch in m]
+            if len(past) >= MIN_VOL:
+                rolling.append((math.sqrt(sum(x * x for x in past) / len(past)), sd_of(spread, n), miss))
+
+    def blended(own, base, lam):
+        return math.sqrt(lam * own * own + (1 - lam) * base * base)
+
+    def log_score(lam):
+        return sum(math.log(blended(o, s, lam)) + (m / blended(o, s, lam)) ** 2 / 2 for o, s, m in rolling) / len(rolling)
+
+    lam = min(GRID_LAM, key=log_score) if rolling else 0.0
+    zs = [abs(m) / blended(o, s, lam) for o, s, m in rolling]
+    qs = {f"vq{int(q * 100)}": round(quantile(zs, q), 5) for q in QUANTS}
+    inside = {q: sum(z <= qs[f"vq{int(q * 100)}"] for z in zs) for q in QUANTS}
+    vol = {}
+    for ch in {ch for m in misses for ch in m}:
+        past = [m[ch] for m in misses if ch in m]
+        if len(past) >= MIN_VOL and lam > 0:  # with lam 0 every champion keeps the shared range
+            own = math.sqrt(sum(x * x for x, _ in past) / len(past))
+            vol[ch] = round(blended(own, sd_of(spread, past[-1][1]), lam), 5)
+    return {
+        "lam": lam, **qs, "vol": dict(sorted(vol.items())),
+        "backtest": {
+            "misses": len(rolling),
+            "log_score_shared": round(log_score(0.0), 4) if rolling else None,
+            "log_score_own": round(log_score(lam), 4) if rolling else None,
+            "coverage": {str(int(q * 100)): round(inside[q] / len(zs), 3) for q in QUANTS} if zs else None,
+            "own_vs_next_spearman": round(spearman([o for o, _, _ in rolling], [abs(m) for _, _, m in rolling]), 3)
+            if rolling else None,
+        },
+    }
+
+
+def projection(bp: dict, b: float, k: float, r: float, spread: dict, vol: dict | None = None) -> dict:
     """Expected next-patch win rate and 80/95% ranges for every champion, from all patches up to the live one."""
     allp = [p for p in c.patches() if p["patch"] in bp and p["days"] > 0]
     order = [p["patch"] for p in allp]
@@ -308,11 +366,14 @@ def projection(bp: dict, b: float, k: float, r: float, spread: dict) -> dict:
     pred = predict(case, b, k)
     out = {}
     for e, p in zip(case, pred):
-        sd = sd_of(spread, e["n"])
+        own = (vol or {}).get("vol", {}).get(e["key"]) if (vol or {}).get("lam") else None
+        sd = own if own else sd_of(spread, e["n"])
+        q80 = vol["vq80"] if own else spread["q80"]
+        q95 = vol["vq95"] if own else spread["q95"]
         out[e["key"]] = {
             "wr": round(p, 4),
-            "lo80": round(p - spread["q80"] * sd, 4), "hi80": round(p + spread["q80"] * sd, 4),
-            "lo95": round(p - spread["q95"] * sd, 4), "hi95": round(p + spread["q95"] * sd, 4),
+            "lo80": round(p - q80 * sd, 4), "hi80": round(p + q80 * sd, 4),
+            "lo95": round(p - q95 * sd, 4), "hi95": round(p + q95 * sd, 4),
         }
     tier_of = dict(zip([e["key"] for e in case], tiers(pred)))
     for key in out:
@@ -450,6 +511,8 @@ def site_fit(result: dict) -> dict:
         out = {key: f[key] for key in ("b", "k", "s0", "s1", "q50", "q80", "q95")}
         if with_r:
             out["r"] = f["r"]
+            if f.get("lam"):
+                out.update({key: f[key] for key in ("lam", "vq50", "vq80", "vq95", "vol")})
         return out
     return {
         "about": "Fitted DeepScore settings (data/analysis/predictive.py). est = m + b*n/(n+k)*(x-m); sd = sqrt(s0^2+s1^2/n).",
