@@ -94,6 +94,9 @@ damage over time), check the League wiki first.
 - **Can't Touch This on Udyr:** only his R stance counts as an ultimate cast (Nico).
 - **One Hit Wonder + Purist - Caster:** pick order matters. If One Hit Wonder is taken first, Purist's haste is
   not converted into One Hit Wonder damage; if taken after, it is (Nico). So take Purist - Caster first.
+  One Hit Wonder only ignores general ability haste. Direct cooldown effects still shorten that ability: Bread
+  augments (per-ability haste), Spear of Shojin, ultimate haste and similar. So you can keep the cooldown short
+  while all general haste turns into damage, which also avoids haste's diminishing returns (Nico).
 - **Triggered Inferno on Hecarim:** its move speed feeds his passive's speed-to-AD conversion, so hitting
   different targets in turn stacks AD (Nico).
 - **Heavy Is The Crown on Yuumi:** the move speed penalty doesn't matter while she's attached (Nico).
