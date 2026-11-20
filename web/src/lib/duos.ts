@@ -127,7 +127,7 @@ function build() {
 }
 
 // A champion's subclasses (Enchanter, Burst), else its class for champions too new for one.
-function archetypes(alias: string) {
+export function archetypes(alias: string) {
   const { info } = championTagData();
   const tags = championTags(alias);
   const sub = tags.filter((t) => info[t]?.kind === "sub");

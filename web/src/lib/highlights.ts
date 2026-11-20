@@ -127,7 +127,8 @@ export function searchItems(): SearchItem[] {
   ];
 }
 
-export type HomeChamp = { id: string; name: string; tier: string; winRate: number; pickRate: number; deepScore: number };
+/** next: expected win rate next patch (fitted DeepScore settings), else the live win rate. */
+export type HomeChamp = { id: string; name: string; tier: string; winRate: number; pickRate: number; deepScore: number; next: number };
 
 /** Live-patch tiers for every champion (same DeepScore tiers as the Tier List's default view). */
 export function liveTiers(): HomeChamp[] {
@@ -148,7 +149,7 @@ export function liveTiers(): HomeChamp[] {
       augs: r.augment_ids ?? "",
     }));
   if (!patch || !rows.length) return [];
-  return champStats(rows, new Set([patch])).map((c) => ({ id: c.name, name: champName(c.name), tier: c.tier, winRate: c.win_rate, pickRate: c.pick_rate, deepScore: c.deepScore }));
+  return champStats(rows, new Set([patch])).map((c) => ({ id: c.name, name: champName(c.name), tier: c.tier, winRate: c.win_rate, pickRate: c.pick_rate, deepScore: c.deepScore, next: c.next ?? c.win_rate }));
 }
 
 export const kitchenBuilds = () => readRepoJson<Builds>("data/cook-builds/builds.json")?.builds ?? [];
