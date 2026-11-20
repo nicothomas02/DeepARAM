@@ -25,7 +25,9 @@ Method (per family of choices: starting, boots, full builds, ...):
    alpha + beta x lift with a 90% range of +-1.645 x sqrt(drift^2 + (1 + beta^2) x sample variance).
    Expected (shown on the site): lift x w + alpha x (1 - w), with w = games / (games + K). K is set so
    that at the median rare option's games w equals beta, the carry-over fitted above; a choice with many
-   games keeps its own lift (w near 1, shown as "real"), one with few leans on the estimate.
+   games keeps its own lift (w near 1, shown as "real"), one with few leans on the estimate. The back-test
+   below also tries K x 0, 0.25, 0.5, 1 and 2 and the site uses the multiplier with the lowest error
+   (`prior_scale`; 0 shows each option's own lift), so the expected value never does worse than the raw lift.
 5. Back-test, cross-validated by champion (fit on 4/5 of champions, check the other 1/5): how often
    the next patch's lift lands inside the 90% range (about 91-92%) against the 95% sample-only interval
    (28-47%), and how many flagged gems still beat their slot next patch against every rare choice.
@@ -224,6 +226,7 @@ def score(opts, cal):
 
 REAL_W = 0.8  # a choice whose own games carry at least this weight is shown as "real"
 FEW_GAMES = 1000  # Synergies tags (and by default hides) choices with fewer estimated games
+PRIOR_SCALES = (0, 0.25, 0.5, 1, 2)  # multipliers of K the back-test compares (see backtest)
 SIM_TOP = 60  # rare choices per family, and augments overall, run in the Simulator
 
 
@@ -235,14 +238,14 @@ def prior_games(opts, cal):
 
 
 def expect(o, cal, k):
-    """Expected lift and its weight on the option's own games."""
-    w = o["games"] / (o["games"] + k)
+    """Expected lift and its weight on the option's own games (k = 0: the option's own lift)."""
+    w = o["games"] / (o["games"] + k) if k > 0 else 1.0
     return w * o["lift"] + (1 - w) * cal["alpha"], w
 
 
-def item_rows(checker, fam, opts, cal):
+def item_rows(checker, fam, opts, cal, scale=1.0):
     """Every option of one family with its expected lift, kind and checks, grouped by champion."""
-    k = prior_games(opts, cal)
+    k = prior_games(opts, cal) * scale
     rows = []
     for o in opts:
         e, w = expect(o, cal, k)
@@ -423,7 +426,8 @@ def backtest(data, folds=5):
         later = {key(o): o for o in after}
         champs = sorted({o["champion"] for o in before})
         inside = naive = seen = 0
-        err_raw = err_exp = 0.0
+        err_raw = 0.0
+        err_exp = dict.fromkeys(PRIOR_SCALES, 0.0)
         flagged, hits, lifts = 0, 0, []
         every = [later[key(o)]["lift"] for o in rare(before) if key(o) in later]
         for k in range(folds):
@@ -439,7 +443,8 @@ def backtest(data, folds=5):
                 y = later[key(o)]["lift"]
                 seen += 1
                 err_raw += (o["lift"] - y) ** 2
-                err_exp += (expect(o, cal, k_games)[0] - y) ** 2
+                for s in PRIOR_SCALES:
+                    err_exp[s] += (expect(o, cal, k_games * s)[0] - y) ** 2
                 inside += o["forecast_lo"] <= y <= o["forecast_hi"]
                 naive += o["lift_lo"] <= y <= o["lift_hi"]
                 if o["forecast_lo"] >= MIN_EDGE:
@@ -448,13 +453,16 @@ def backtest(data, folds=5):
                     lifts.append(y)
         if not seen:
             continue
+        best = min(PRIOR_SCALES, key=lambda s: (err_exp[s], abs(s - 1)))
         report[fam] = {
             "checked": seen,
             "forecast_90_coverage": round(inside / seen, 3),
             "sample_only_95_coverage": round(naive / seen, 3),
             # Next patch's lift against this patch's raw lift and the expected value (rare options, RMSE in points).
             "raw_rmse_pts": round(100 * math.sqrt(err_raw / seen), 2),
-            "expected_rmse_pts": round(100 * math.sqrt(err_exp / seen), 2),
+            "expected_rmse_pts": round(100 * math.sqrt(err_exp[best] / seen), 2),
+            # K's multiplier with the lowest back-test error (0 keeps every option's own lift); main() uses it.
+            "prior_scale": best,
             "gems_checked": flagged,
             "gems_still_ahead": round(hits / flagged, 3) if flagged else None,
             "gems_mean_lift_next_patch": round(sum(lifts) / len(lifts), 4) if lifts else None,
@@ -516,7 +524,8 @@ def main():
     for fam in ("starting", "boots", "full_builds"):
         if fam in stale:
             continue
-        rows, k = item_rows(checker, fam, options(stats, builds, fam, total), cals.get(fam) or fallback)
+        scale = ((bt or old.get("backtest") or {}).get(fam) or {}).get("prior_scale", 1)
+        rows, k = item_rows(checker, fam, options(stats, builds, fam, total), cals.get(fam) or fallback, scale)
         groups[fam] = (rows, item_keys)
         out["prior_games"][fam] = int(round(k, -1))
     e = cm.load(os.path.join(cm.HERE, "estimates.json"))

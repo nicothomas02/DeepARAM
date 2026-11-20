@@ -41,5 +41,7 @@
  "Real damage share above what the Simulator plus role predicts. Likely kit gaps.": "Participação real no dano acima do que o Simulador mais função prevê. Provavelmente lacunas no kit.",
  "Most overrated": "Mais superestimados",
  "Real damage share below the prediction.": "Participação real no dano abaixo da previsão.",
- "Patch {patch}, checked {date}. {b} resamples per range. Each 1% more simulated damage per second goes with {d}% more real damage share once role is known.": "Patch {patch}, verificado em {date}. {b} reamostragens por faixa. Cada 1% a mais de dano por segundo simulado acompanha {d}% a mais de participação real no dano, uma vez conhecida a função."
+ "Patch {patch}, checked {date}. {b} resamples per range. Each 1% more simulated damage per second goes with {d}% more real damage share once role is known.": "Patch {patch}, verificado em {date}. {b} reamostragens por faixa. Cada 1% a mais de dano por segundo simulado acompanha {d}% a mais de participação real no dano, uma vez conhecida a função.",
+ "Teamfight damage, simulated.": "Dano em lutas de equipe, simulado.",
+ "An experiment: results can shift as the model changes. Monte Carlo teamfights against enemy teams weighted by Mayhem pick rates, with a build search for every champion. Use it to compare builds for one champion, not to rank champions.": "Um experimento: os resultados podem mudar conforme o modelo muda. Lutas de equipe Monte Carlo contra equipes inimigas ponderadas pela taxa de escolha do modo, com uma busca de build para cada campeão. Use para comparar builds de um campeão, não para ranquear campeões."
 }

@@ -2,12 +2,14 @@
  "Ability values are listed for ranks 1-5 (basic abilities) or 1-3 (ultimates).": "技能數值依 1-5 級（基本技能）或 1-3 級（大絕招）列出。",
  "Base-game champion changes on the test server. They also apply in Mayhem.": "測試伺服器上的基礎遊戲英雄改動。它們同樣適用於 Mayhem。",
  "Changes to items in the Mayhem shop. Runes are unchanged.": "大混戰商店中的裝備變更。符文沒有變更。",
- "No new Fame bands on the test server yet.": "測試伺服器上暫時沒有新的名氣級距。",
- "PBE content can change before release.": "PBE 內容在正式推出前可能會變動。",
+ "Gain the Surge Field summoner spell. Casting it creates a zone for 10 seconds: while in it, you gain 40% Movement Speed and 150 Ability Haste, and fire missiles at enemies that deal 30% of the damage you deal.": "獲得召喚師技能 Surge Field。施放後產生持續 10 秒的區域：待在其中時，獲得 40% 跑速與 150 技能加速，並向敵人發射飛彈，造成你所造成傷害的 30%。",
  "Live is patch 26.23. This page lists what patch 26.24 changes.": "正式服為 26.23 版本。本頁列出 26.24 版本的改動。",
  "Mayhem Patch 26.24 on the test server.": "測試伺服器上的 Mayhem 26.24 版本。",
- "Patch 26.24": "26.24 版本",
+ "No new Fame bands on the test server yet.": "測試伺服器上暫時沒有新的名氣級距。",
  "No new Headliners on the test server yet.": "測試伺服器上暫無新的 Headliner。",
+ "PBE content can change before release.": "PBE 內容在正式推出前可能會變動。",
+ "Patch 26.24": "26.24 版本",
  "Q AD ratio 70% → 80%": "Q 攻擊力加成 70% → 80%",
- "Update 2026-11-18: patch 26.23 is live, so its changes left this page. The first patch 26.24 test build changes no Mayhem augments, Headliners or items. Akshan's Q scales more with AD (70% → 80%), and Goliath gets an extra effect for clones.": "2026-11-18 更新：26.23 版本已上線，其改動已從本頁移除。26.24 版本的首個測試版本未改動任何 Mayhem 強化、Headliner 或裝備。埃可尚的 Q 攻擊力加成提高（70% → 80%），巨人為分身新增了額外效果。"
+ "Update 2026-11-18: patch 26.23 is live, so its changes left this page. The first patch 26.24 test build changes no Mayhem augments, Headliners or items. Akshan's Q scales more with AD (70% → 80%), and Goliath gets an extra effect for clones.": "2026-11-18 更新：26.23 版本已上線，其改動已從本頁移除。26.24 版本的首個測試版本未改動任何 Mayhem 強化、Headliner 或裝備。埃可尚的 Q 攻擊力加成提高（70% → 80%），巨人為分身新增了額外效果。",
+ "Update 2026-11-20 (patch 26.24): Surge Field returns to the augment pool.": "2026-11-20 更新（26.24 版本）：Surge Field 回歸強化池。"
 }
