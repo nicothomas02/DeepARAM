@@ -59,7 +59,7 @@ test("champion page: Simple view folds, section links open them, Detailed shows 
   await page.goto("/champions/Swain");
   const stats = page.locator("#stats");
   await expect(stats).toBeHidden();
-  await expect(page.locator(".cp-side .cp-best").first()).toBeVisible();
+  await expect(page.locator(".cp-game .cp-best").first()).toBeVisible();
   // The first list long enough to be cut (which one depends on the champion's data).
   const panels = page.locator(".cp-main .cp-panel:not([data-detailed])");
   const long = await panels.evaluateAll((ps) => ps.findIndex((p) => !!p.querySelector(".cp-more") && p.querySelectorAll(".cp-row").length > 5));

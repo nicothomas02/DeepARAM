@@ -104,13 +104,12 @@
   }).catch(() => {});
   Promise.all([
     fetch(DATA + "index.json" + BUST).then((r) => r.json()),
-    fetch(DATA + "traces.json" + BUST).then((r) => r.json()),
     window.I18N.ready,
-  ]).then(([idx, tr]) => {
-    index = idx; traces = tr;
+  ]).then(([idx]) => {
+    index = idx; traces = {};
     for (const c of index.champions) { c.name = NAME("champions", c.id, c.name); byId.set(c.id.toLowerCase(), c); }
     const sel = $("champ");
-    const list = index.champions.filter((c) => traces[c.id]).sort((a, b) => a.name.localeCompare(b.name));
+    const list = index.champions.slice().sort((a, b) => a.name.localeCompare(b.name));
     for (const c of list) sel.add(new Option(c.name, c.id));
     // #Jinx, or #Jinx&items=a,b&augs=c,d for a shared build (simulated by sim-panel.js).
     const hashParts = decodeURIComponent(location.hash.slice(1)).split("&");
@@ -118,20 +117,46 @@
     const linked = new URLSearchParams(hashParts.slice(1).join("&"));
     if (linked.get("items")) window.linkedBuild = { champion: fromHash, items: linked.get("items").split(",").filter(Boolean), augs: (linked.get("augs") || "").split(",").filter(Boolean) };
     // A champion named in the link, else a random one each visit.
-    const start = (byId.get(fromHash) && traces[byId.get(fromHash).id] && byId.get(fromHash)) ||
+    const start = byId.get(fromHash) ||
       list[Math.floor(Math.random() * list.length)];
     sel.value = start.id;
     load(start.id);
-    loadedAt = performance.now();
-    requestAnimationFrame(frame);
-    if (window.onReplayData) window.onReplayData(index);
   }).catch((err) => {
     $("title").textContent = T("Replays could not be loaded");
     $("state").textContent = T("Try reloading the page.") + " (" + err + ")";
   });
 
   // ---------- one champion's fight ----------
+  // Each champion's trace is fetched when it is first shown (replay-data/traces/<id>.json, published by the
+  // site's sync-embeds.mjs); local copies without that folder load the whole traces.json once instead.
+  let allTraces = null;
+  function getTrace(id) {
+    if (traces[id]) return Promise.resolve();
+    return fetch(DATA + "traces/" + encodeURIComponent(id) + ".json" + BUST)
+      .then((r) => (r.ok ? r.json() : Promise.reject(new Error(String(r.status)))))
+      .then((tr) => { traces[id] = tr; })
+      .catch(() => (allTraces = allTraces || fetch(DATA + "traces.json" + BUST).then((r) => r.json())).then((all) => { Object.assign(traces, all); }));
+  }
+  let loading = null, started = false;
   function load(id) {
+    const c = byId.get(id.toLowerCase());
+    if (!c) return;
+    loading = c.id;
+    getTrace(c.id).then(() => {
+      if (loading !== c.id) return;
+      loadNow(c.id);
+      if (!started) {
+        // The first fight is in: start the clock and the panel.
+        started = true;
+        loadedAt = performance.now();
+        requestAnimationFrame(frame);
+        if (window.onReplayData) window.onReplayData(index);
+      }
+    }).catch((err) => {
+      $("state").textContent = T("Try reloading the page.") + " (" + err + ")";
+    });
+  }
+  function loadNow(id) {
     champ = byId.get(id.toLowerCase());
     trace = custom[champ.id] || traces[champ.id];
     fight = prepare(trace);
@@ -1445,7 +1470,7 @@
     try { if (window.parent !== window) window.parent.dispatchEvent(new Event("deeparam-settings")); } catch (e) {}
   };
   let soundOn = readSound(), gestured = false, soundFiles = {};
-  onSettings(() => { const on = readSound(); if (on !== soundOn) { soundOn = on; syncSound(); } });
+  onSettings(() => { const on = readSound(); if (on !== soundOn) { soundOn = on; syncSound(); if (gestured) requestSounds(); } });
   // Master volume from the slider, 0 to 1, remembered between visits.
   let masterVolume = 0.8;
   try { const v = parseFloat(localStorage.getItem("replayVolume")); if (v >= 0 && v <= 1) masterVolume = v; } catch (e) {}
@@ -1458,12 +1483,19 @@
   // clip would start at 0:00, which is Aatrox's first sound. A copy held in memory can be jumped into.
   let soundUrl = null;
   // On the website (/embed/...) replay-data/sounds/ is never there, so only local copies try it first.
-  (location.pathname.startsWith("/embed/") ? Promise.resolve(false) : loadSounds(DATA + "sounds/")).then((ok) => ok || loadSounds("/assets/sounds/")).then((ok) => {
-    if (!ok) return;
-    fetch(soundBase + soundFiles.file + BUST).then((r) => (r.ok ? r.blob() : null)).then((b) => {
-      if (b) soundUrl = URL.createObjectURL(b);
-    }).catch(() => {});
-  });
+  // The pack is several MB, so it is only fetched once sound can actually play: after the first click or key, with
+  // sound on. Until it arrives, playSound() uses the synthesized tones.
+  let soundsRequested = false;
+  function requestSounds() {
+    if (soundsRequested || !soundOn) return;
+    soundsRequested = true;
+    (location.pathname.startsWith("/embed/") ? Promise.resolve(false) : loadSounds(DATA + "sounds/")).then((ok) => ok || loadSounds("/assets/sounds/")).then((ok) => {
+      if (!ok) return;
+      fetch(soundBase + soundFiles.file + BUST).then((r) => (r.ok ? r.blob() : null)).then((b) => {
+        if (b) soundUrl = URL.createObjectURL(b);
+      }).catch(() => {});
+    });
+  }
   // A few audio players reused round robin. Each is started once inside the first click or
   // key press, which lets it play later from the animation loop (Safari needs this per player).
   const voices = [];
@@ -1544,6 +1576,7 @@
     pickVoice.play().catch(() => {});
   }
   function syncSound() {
+    if (gestured) requestSounds();
     video.muted = !(soundOn && gestured) || masterVolume === 0;
     video.volume = masterVolume;
     for (const a of voices) if (!a.paused) a.volume = Math.min(a.volume, masterVolume);
@@ -1554,7 +1587,7 @@
     b.setAttribute("aria-pressed", String(soundOn));
   }
   for (const type of ["pointerdown", "keydown"])
-    window.addEventListener(type, () => { if (!gestured) { gestured = true; unlockVoices(); syncSound(); } }, { capture: true });
+    window.addEventListener(type, () => { if (!gestured) { gestured = true; unlockVoices(); syncSound(); requestSounds(); } }, { capture: true });
 
   // ---------- ability clips ----------
   const video = $("video");

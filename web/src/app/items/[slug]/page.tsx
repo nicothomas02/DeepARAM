@@ -45,7 +45,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       if (!s || full.length + s.length > 160) break;
       full += ` ${s}`;
     }
-  return pageMeta(`/items/${i.slug}`, `${i.name} in ARAM Mayhem`, full);
+  return pageMeta(`/items/${i.slug}`, `${i.name} in ARAM Mayhem`, full, `items:${i.id}`);
 }
 
 // Live-patch builders carry the champion's estimated games (lib/sample.ts), for a low-sample tag on rarely built pairs.
