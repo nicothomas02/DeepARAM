@@ -155,6 +155,29 @@ damage over time), check the League wiki first.
 - **Bard's Meeps:** on-attack bonus magic damage that counts as spell damage, so Meeps themselves don't apply
   on-hit. The basic attack still does, so on-hit items work normally (wiki).
 
+- **Reading item stats:** an item that does unusually well on a champion often signals an augment, not the item
+  itself (Nico). Death's Dance on Corki means Draw Your Sword (stronger melee modifier). Statikk Shiv on Teemo
+  means Ethereal Weapon (Shiv doesn't apply his E poison, but abilities do with Ethereal). Overlord's Bloodmail on
+  Vladimir means ADAPt. Jak'Sho on Rakan means Protein Shake or Armored Impact. Liandry's on Yorick means AP Yorick,
+  which is weak without a specific augment combo.
+- **Enchanter items on Karma:** her empowered E shield triggers each item on every ally it hits (Nico).
+- **Stormsurge on Teemo:** shroom damage can trigger it if there is enough (Nico).
+- **Eclipse:** weak on everyone because other items and augments outclass its effect (Nico).
+- **Illaoi:** her tentacles don't proc Spellblade (Iceborn), unless maybe with Ethereal Weapon (Nico, not sure).
+- **Tahm Kench:** tank Tahm is still strong. Thornmail is a reactive buy against heavy healing, and Jak'Sho
+  matters less since his scalings are health, not resistances (Nico).
+- **Master Yi:** strongest spamming Q with Mystic Punch. If Q applies on-hit at all it's weaker than crit (Nico).
+- **Bruiser items are weak in Mayhem.** Go crit/lethality or tank on Vi and Wukong, not a mix (Nico).
+- **Rek'Sai:** her best full builds stack health (Heartsteel, Warmog's, Overlord's Bloodmail, Titanic Hydra,
+  Unending Despair, Spirit Visage, Mercury's). Builds with Thornmail, Plated Steelcaps or Randuin's do worst (data).
+- **Anti-heal (Morellonomicon):** good when no teammate applies it better. Its numbers look worse partly because
+  it's bought against strong healing teams, which are harder to beat (Nico).
+- **Quinn:** a crit champion, not a sustained on-hit one, so Statikk Shiv underperforms (Nico).
+- **Lucian:** strongest with Jeweled Gauntlet + Vulnerability + Jeweled Bracelet empowering his R, so on-hit and
+  attack speed don't matter (Nico).
+- **Kog'Maw:** Navori refunds W, but it's likely only good with Vulnerability, which lets W damage crit. He
+  usually builds AP on-hit (Nico).
+
 ## Data limits
 
 - The site has no real augment-pair data. "Augment combinations" are model estimates (product of pick rates),
