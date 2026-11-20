@@ -92,9 +92,8 @@ damage over time), check the League wiki first.
 - **Chain Reaction on Qiyana and Lee Sin:** Qiyana gets it on R (terrain shockwave, 250% damage). On Lee Sin's R
   kick it possibly stacks with the kick's own hit on champions behind (Nico, not sure).
 - **Can't Touch This on Udyr:** only his R stance counts as an ultimate cast (Nico).
-- **One Hit Wonder + Purist - Caster:** pick order matters. Whichever is taken first decides how the ability's
-  cooldown works (reported online, per Nico; untested). One Hit Wonder ignores haste and scales damage with it,
-  while Purist - Caster also cuts total cooldowns by 10%.
+- **One Hit Wonder + Purist - Caster:** pick order matters. If One Hit Wonder is taken first, Purist's haste is
+  not converted into One Hit Wonder damage; if taken after, it is (Nico). So take Purist - Caster first.
 - **Triggered Inferno on Hecarim:** its move speed feeds his passive's speed-to-AD conversion, so hitting
   different targets in turn stacks AD (Nico).
 - **Heavy Is The Crown on Yuumi:** the move speed penalty doesn't matter while she's attached (Nico).
@@ -102,6 +101,14 @@ damage over time), check the League wiki first.
   mana scaling, but they spend a lot and hit with two abilities often, so it procs constantly (Nico).
 - **Ominous Pact on Vladimir:** the 5% current-health cost stacks on his own health costs, and the missing-health
   AP and omnivamp make up for it (Nico).
+- **Juiced:** Ezreal's Q applies it, since his Q applies on-hit (Nico, believes).
+- **Glass Cannon:** a health ceiling you can't heal past, so effectively less health, for bonus true damage
+  (Nico).
+- **Gift of the Drowned:** Cho'Gath R stacks and Sion W stacks probably count as bonus health (Nico, not sure).
+- **It's Killing Time:** Karthus's global R marks the whole enemy team. On Udyr only his R stance triggers it
+  (Nico).
+- **RISE:** works on long ults like Karthus R and Fiddlesticks R (Nico).
+- **Rite of Ascension on Pyke:** R resets plus the essence blink can chain through a whole team (Nico).
 - **Pin Cushion:** very weak damage for a prismatic, worse still on melee champions with few attacks (Nico).
 - **Terrain'd:** the AP Trundle items (Horizon Focus, Bloodletter's, Cryptbloom, Imperial Mandate) likely center
   on it (Nico, probably).
