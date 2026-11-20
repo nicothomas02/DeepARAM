@@ -426,6 +426,7 @@ Library Library::load(const std::string& rulesPath, const Settings& settings, co
     const json::Value& r = root["rules"];
     lib.rules.critMult = ruleValue(r, "base_crit_multiplier", 2.0);
     lib.rules.grievous = ruleValue(r, "grievous_wounds", 0.4);
+    lib.rules.abyssManaRegen = ruleValue(r, "howling_abyss_mana_regen", 0.001);
     lib.rules.critOverflowAf = ruleValue(r, "crit_overflow_adaptive_per_percent", 0.75);
     lib.rules.asCap = ruleValue(r, "attack_speed_cap", 5.0);
     lib.rules.mayhemHpMelee = ruleValue(r, "mayhem_health_melee", 600);
@@ -453,6 +454,11 @@ Library Library::load(const std::string& rulesPath, const Settings& settings, co
     lib.rules.focusRamp = m["focus_ramp"].asNumber(lib.rules.focusRamp);
     lib.rules.deathBlastLife = m["death_blast_life"].asNumber(lib.rules.deathBlastLife);
     lib.rules.focusFromContact = m["focus_from_contact"].asNumber(0) > 0;
+    lib.rules.surgeShare = std::clamp(m["surge_share"].asNumber(lib.rules.surgeShare), 0.0, 0.99);
+    lib.rules.surgeLength = std::max(0.1, m["surge_length"].asNumber(lib.rules.surgeLength));
+    lib.rules.surgeGap = std::max(0.1, m["surge_gap"].asNumber(lib.rules.surgeGap));
+    lib.rules.surgeSpread = std::clamp(m["surge_spread"].asNumber(lib.rules.surgeSpread), 0.0, 1.0);
+    lib.rules.teamAntiHeal = m["team_anti_heal"].asNumber(lib.rules.teamAntiHeal);
     lib.rules.castMin = m["cast_time_min"].asNumber(lib.rules.castMin);
     lib.rules.castMax = m["cast_time_max"].asNumber(lib.rules.castMax);
     lib.rules.minCooldown = m["min_cooldown"].asNumber(lib.rules.minCooldown);
@@ -664,6 +670,19 @@ Scenario Library::scenarioFor(const ChampionKit& c) const {
         }
     }
     sc.damageTakenFactor = c.damageTaken;
+    // How often an enemy's build carries Grievous Wounds, for the teammates a small fight leaves out.
+    sc.antiHealShare = 0;
+    if (enemyTeam.empty() && !sc.enemies.empty()) {
+        double carriers = 0, all = 0;
+        for (const auto& e : sc.enemies) {
+            bool has = false;
+            for (const auto& it : e.items)
+                if (const auto f = items.find(it); f != items.end() && get(f->second.effects, "grievous") > 0) has = true;
+            all += e.weight;
+            if (has) carriers += e.weight;
+        }
+        if (all > 0) sc.antiHealShare = carriers / all;
+    }
     if (scenario.teamSizeRule > 0) sc.teamSize = scenario.teamSizeRule;
     if (auto it = fight.find("team_size"); it != fight.end()) sc.teamSize = static_cast<int>(it->second);
     sc.teamSize = std::clamp(sc.teamSize, 1, 5);
@@ -758,6 +777,7 @@ Scenario Library::scenarioFor(const ChampionKit& c) const {
     }
     if (auto it = fight.find("fixed_target"); it != fight.end() && it->second > 0) {
         sc.fixedTarget = true;
+        sc.antiHealShare = 0;
         sc.enemies.clear();
         sc.teamDrivenDamage = false;
         // Unless set, the dummy has the average enemy's HP and resists at the enemies' level.
@@ -1192,7 +1212,7 @@ private:
                 ap_ += get(fx_, "mana_to_ap") * get(stats, "mana") * (1.0 + get(fx_, "ap_amp"));
                 maxMana_ -= get(stats, "mana");
             }
-            manaRegen_ = (ch_.manaRegen + ch_.manaRegenG * g) * (1.0 + get(stats, "mana_regen"));
+            manaRegen_ = (ch_.manaRegen + ch_.manaRegenG * g) * (1.0 + get(stats, "mana_regen")) + rules_.abyssManaRegen * maxMana_;
             bonusMana_ = std::max(0.0, maxMana_ - (ch_.mana + ch_.manaG * g));
         } else if (ch_.resource == 2) {
             maxMana_ = ch_.mana;
@@ -1433,6 +1453,13 @@ private:
         moveRng_ = Rng(targetSeed_, 2);
         abilityRng_ = Rng(targetSeed_, 3);
         respawnRng_ = Rng(targetSeed_, 4);
+        surgeRng_ = Rng(targetSeed_, 5);
+        // The enemies this fight leaves out of a team of five: does any of them carry Grievous Wounds?
+        teamAntiHeal_ = false;
+        if (rules_.teamAntiHeal > 0 && sc_.antiHealShare > 0 && !sc_.fixedTarget) {
+            Rng r(targetSeed_, 6);
+            for (size_t k = team_.size(); k < 5; ++k) teamAntiHeal_ = r.chance(sc_.antiHealShare) || teamAntiHeal_;
+        }
         double teamDamage = 1.0, share = 0;
         if (sc_.teamDrivenDamage && !team_.empty()) {
             for (const auto* e : team_) share += e->damageShare;
@@ -1557,6 +1584,25 @@ private:
         return rules_.focusRamp > 0 ? std::min(1.0, std::max(0.0, now - from) / rules_.focusRamp) : 1.0;
     }
 
+    // Focus fire: how hard the enemies are on you right now, against their average (see Rules::surgeShare).
+    // Surges and the gaps between them are drawn from their own random stream as the fight goes.
+    Rng surgeRng_{1, 5};
+    bool teamAntiHeal_ = false;
+    double surgeFrom_ = -1, surgeUntil_ = -1, surgeSize_ = 1;
+    void nextSurge(double after) {
+        surgeFrom_ = after + surgeRng_.exponential(1.0 / rules_.surgeGap);
+        surgeUntil_ = surgeFrom_ + rules_.surgeLength;
+        surgeSize_ = (1.0 - rules_.surgeSpread) + rules_.surgeSpread * surgeRng_.exponential(1.0);
+    }
+    double surge(double now) {
+        if (rules_.surgeShare <= 0 || sc_.fixedTarget) return 1.0;
+        const double w = rules_.surgeLength, g = rules_.surgeGap;
+        if (surgeFrom_ < 0) nextSurge(engageAt_);
+        while (now >= surgeUntil_) nextSurge(surgeUntil_);
+        if (now < surgeFrom_) return (1.0 - rules_.surgeShare) * (w + g) / g;
+        return rules_.surgeShare * (w + g) / w * surgeSize_;
+    }
+
     // Enemies cast whatever is up and in range; returns the damage their hits deal you this step.
     double enemyCasts(double now) {
         if (enemyKits_.empty() || now <= engageAt_) return 0;
@@ -1583,7 +1629,7 @@ private:
                     spellShieldAt_ = now + get(fx_, "spell_shield_cd");
                     continue;
                 }
-                double dmg = incomingDps_ * e.damageWeight * c.burst * acting * (now < e.shrinkUntil ? 1.0 - shrink_ : 1.0) * focus(now);
+                double dmg = incomingDps_ * e.damageWeight * c.burst * acting * (now < e.shrinkUntil ? 1.0 - shrink_ : 1.0) * focus(now) * surge(now);
                 if (c.slot != 'R') dmg *= rules_.longRange(distTo(e));  // ARAM long-range cut
                 burstRaw_ += dmg / throughResists_;
                 if (now < reductionUntil_) dmg *= 1.0 - get(fx_, "r_reduction");
@@ -1748,7 +1794,7 @@ private:
                         // crowd control stops just one of them (all of it in a five-enemy fight).
                         share += e.damageWeight * (now < e.ccUntil ? ccLeft_ : 1.0) * (now < e.shrinkUntil ? 1.0 - shrink_ : 1.0) *
                                  streamShare(e);
-                dps = share > 0 ? incomingDps_ * share * focus(now) : 0.0;
+                dps = share > 0 ? incomingDps_ * share * focus(now) * surge(now) : 0.0;
                 rawTick = dps * dt / throughResists_;
                 if (now < reductionUntil_) dps *= 1.0 - get(fx_, "r_reduction");
                 exposureSum_ += share * dt;
@@ -1962,8 +2008,9 @@ private:
         amount *= (1.0 + get(fx_, "healing_received")) * ch_.mayhemHealing * (1.0 + buffHealAmp_);  // Spirit Visage, Mayhem balance
         if (sc_.onFire) amount *= 1.0 - rules_.fireHeal;
         // Grievous Wounds: an enemy whose build applies it and who can reach you cuts your healing by 40%.
+        // The rest of their team (not in a small fight) applies it too, when one of them carries it.
         for (const auto& e : enemies_)
-            if (e.alive && e.antiHeal && distTo(e) <= e.reach + 2 * rules_.hitbox) { amount *= 1.0 - rules_.grievous; break; }
+            if (e.alive && (e.antiHeal || teamAntiHeal_) && distTo(e) <= e.reach + 2 * rules_.hitbox) { amount *= 1.0 - rules_.grievous; break; }
         const double got = std::min(maxHp_, myHp_ + amount) - myHp_;
         myHp_ += got;
         res_.healed += got;

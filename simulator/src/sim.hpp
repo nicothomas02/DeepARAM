@@ -103,6 +103,9 @@ struct Scenario {
     double fightCap = 90, deathDamageScale = 1;
     int teamSizeRule = 0;
     int enemyLevel = 18;  // all-champion sim: the enemies' level
+    // All-champion sim: share of the pool's enemies (by how often they're played) whose build applies
+    // Grievous Wounds; 0 when the enemies are chosen by hand or a training dummy.
+    double antiHealShare = 0;
 
     static Scenario fromJson(const json::Value& s);
     // Replaces the enemy team with a champion pool built by tools/build_enemy_pool.py

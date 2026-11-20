@@ -183,6 +183,7 @@ struct Effect {
 struct Rules {
     double critMult = 2.0, critOverflowAf = 0.75, asCap = 5.0;
     double grievous = 0.4;  // healing cut by Grievous Wounds
+    double abyssManaRegen = 0.001;  // Howling Abyss aura: share of maximum mana restored per second
     // Mayhem stats every champion gets: base health growing from 20 at level 1 to these at 18, and bonus
     // armor and magic resist (melee only for now).
     double mayhemHpMelee = 600, mayhemHpRanged = 400, mayhemResistMelee = 15, mayhemResistRanged = 0;
@@ -217,6 +218,15 @@ struct Rules {
     double focusRamp = 0;     // seconds over which the enemies' damage on you builds up to full
     double deathBlastLife = 0;  // damage dealt on death counts in full only after a life this long
     bool focusFromContact = false;  // the ramp starts when an enemy first has you in reach
+    // Focus fire: the enemies' damage on you comes in surges (the team turning on you) with quieter
+    // spells in between, instead of a steady stream. surgeShare of it lands inside surges that last
+    // surgeLength seconds and come surgeGap seconds apart on average; each surge's size varies by
+    // surgeSpread (0: all the same). The average damage is unchanged. surgeShare 0 turns it off.
+    double surgeShare = 0, surgeLength = 2.5, surgeGap = 7.5, surgeSpread = 0.5;
+    // Grievous Wounds from the rest of the enemy team: with fewer than five enemies in the fight, each
+    // missing one carries an anti-heal item as often as the enemy pool's builds do (1: on, 0: only the
+    // enemies in the fight count).
+    double teamAntiHeal = 0;
     double comboOrder = 1;  // 1: cast in each champion's recommended combo order; 0: by damage
     // Enemies cast their own abilities: their damage partly arrives as those abilities' hits (on
     // their cooldowns, in their range), and their crowd control is their own (rate kept to real games).

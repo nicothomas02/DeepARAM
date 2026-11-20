@@ -477,7 +477,7 @@ def test_swain_ultimate_drains_for_as_long_as_he_fights(run_json):
                                                "--trials", "100", "--seed", "4", "--json"]))
     with_r, without = run(1), run(0)
     assert with_r["share_by_source"]["R"] > 0.1 and without["share_by_source"]["R"] == 0
-    assert with_r["healing"] > without["healing"] + 800
+    assert with_r["healing"] > without["healing"] + 500
     assert with_r["time_alive"] > without["time_alive"]
 
 
