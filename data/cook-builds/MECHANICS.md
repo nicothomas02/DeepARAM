@@ -12,7 +12,10 @@ damage over time), check the League wiki first.
   land on a ready ability (wasted) or on R, never on summoner spells. Haste doesn't shrink the refund.
 - **Overloaded:** resets the chosen ability whenever another ability is cast, even on a miss. Never rolls on an
   ultimate (Nico).
-- **Ethereal Weapon:** ability on-hits trigger Mystic Punch (Nico).
+- **Ethereal Weapon:** ability on-hits trigger Mystic Punch (Nico), and on-hit augments too (Firebrand, Light 'Em Up,
+  Tickle Monster...), which opens a lot of combinations (Nico).
+- **Mystic Punch:** its game value `MinCDR = 0.5` is not a half-cooldown cap: Hecarim with Ethereal Weapon + Mystic
+  Punch casts Q nonstop (Nico). The Simulator reads it as a 0.5-second floor on what's left of a cooldown.
 - **Skilled Sniper:** Ziggs' Satchel Charge gets the full 80% refund (Nico).
 - **Sound Barrier:** fires only when you shield an ally, not yourself (Mayhem text).
 - **Echo Cast:** the clone fires slightly in front of the champion. On Twisted Fate this makes the two card fans
@@ -159,3 +162,5 @@ damage over time), check the League wiki first.
 
 - The site has no real augment-pair data. "Augment combinations" are model estimates (product of pick rates),
   so they can't show which augments are actually taken together.
+- Augment pairs confirmed here also go in `data/estimates/augment_synergy_rules.json`, which re-ranks a champion
+  page's augments after a visitor marks the ones they took.

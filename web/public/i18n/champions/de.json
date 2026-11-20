@@ -226,5 +226,17 @@
  "Estimated: augments that pair well on this champion, best first.": "Geschätzt: Augments, die auf diesem Champion gut zusammenpassen, die besten zuerst.",
  "Augment pairs appear here once enough games are in. Each pair needs a minimum number of games before it shows.": "Augment-Paare erscheinen hier, sobald genug Spiele vorliegen. Jedes Paar braucht eine Mindestzahl an Spielen, bevor es angezeigt wird.",
  "Kit interactions": "Kit-Interaktionen",
- "Augments that work with this champion's own abilities, and why.": "Augmente, die mit den eigenen Fähigkeiten dieses Champions zusammenspielen, und warum."
+ "Augments that work with this champion's own abilities, and why.": "Augmente, die mit den eigenen Fähigkeiten dieses Champions zusammenspielen, und warum.",
+ "You took": "Gewählt",
+ "Remove": "Entfernen",
+ "Clear": "Zurücksetzen",
+ "Pairs well with {name}: +{n} pts.": "Passt gut zu {name}: +{n} Pkt.",
+ "Overlaps with {name}: -{n} pts.": "Überschneidet sich mit {name}: -{n} Pkt.",
+ "Estimated: ranked by each augment's boost plus its synergy with the ones you took.": "Geschätzt: sortiert nach dem Bonus jedes Augments plus seiner Synergie mit deinen gewählten.",
+ "Took an augment already? Mark it with \"I took this\" to re-rank the rest by synergy.": "Schon ein Augment gewählt? Markiere es mit „Hab ich“, um den Rest nach Synergie neu zu sortieren.",
+ "With your picks": "Mit deiner Wahl",
+ "Synergy {n}": "Synergie {n}",
+ "Estimated synergy with the augments you took.": "Geschätzte Synergie mit deinen gewählten Augments.",
+ "+ I took this": "+ Hab ich",
+ "Mark this augment as taken and re-rank the rest by synergy.": "Dieses Augment als gewählt markieren und den Rest nach Synergie neu sortieren."
 }

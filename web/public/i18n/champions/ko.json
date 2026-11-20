@@ -226,5 +226,17 @@
  "Estimated: augments that pair well on this champion, best first.": "추정: 이 챔피언에게 잘 어울리는 증강 조합, 좋은 순서대로.",
  "Augment pairs appear here once enough games are in. Each pair needs a minimum number of games before it shows.": "충분한 게임이 쌓이면 증강 조합이 여기에 표시됩니다. 각 조합은 최소 게임 수를 채워야 표시됩니다.",
  "Kit interactions": "스킬 상호작용",
- "Augments that work with this champion's own abilities, and why.": "이 챔피언의 스킬과 맞물리는 증강과 그 이유."
+ "Augments that work with this champion's own abilities, and why.": "이 챔피언의 스킬과 맞물리는 증강과 그 이유.",
+ "You took": "선택함",
+ "Remove": "제거",
+ "Clear": "초기화",
+ "Pairs well with {name}: +{n} pts.": "{name}와(과) 잘 맞음: +{n}점.",
+ "Overlaps with {name}: -{n} pts.": "{name}와(과) 겹침: -{n}점.",
+ "Estimated: ranked by each augment's boost plus its synergy with the ones you took.": "추정: 각 증강의 승률 상승폭에 선택한 증강과의 시너지를 더한 순서입니다.",
+ "Took an augment already? Mark it with \"I took this\" to re-rank the rest by synergy.": "이미 증강을 골랐나요? \"골랐음\"으로 표시하면 나머지가 시너지 순으로 다시 정렬됩니다.",
+ "With your picks": "선택 반영",
+ "Synergy {n}": "시너지 {n}",
+ "Estimated synergy with the augments you took.": "선택한 증강과의 추정 시너지.",
+ "+ I took this": "+ 골랐음",
+ "Mark this augment as taken and re-rank the rest by synergy.": "이 증강을 선택한 것으로 표시하고 나머지를 시너지 순으로 다시 정렬합니다."
 }
