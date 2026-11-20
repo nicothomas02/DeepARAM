@@ -406,6 +406,7 @@ fn build_tray(app: &AppHandle) -> tauri::Result<()> {
 
 fn main() {
     tauri::Builder::default()
+        .invoke_handler(tauri::generate_handler![overlay::take_augment])
         // Must come first: a second launch focuses the running app instead of opening another.
         .plugin(tauri_plugin_single_instance::init(|app, _args, _cwd| show(app)))
         .plugin(
@@ -418,7 +419,7 @@ fn main() {
         .plugin(tauri_plugin_autostart::init(MacosLauncher::LaunchAgent, Some(vec![HIDDEN_ARG])))
         .plugin(
             tauri_plugin_global_shortcut::Builder::new()
-                .with_handler(|app, shortcut, event| overlay::on_shortcut(app, shortcut, event.state()))
+                .with_handler(|app, _shortcut, event| overlay::on_shortcut(app, event.state()))
                 .build(),
         )
         .setup(|app| {

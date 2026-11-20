@@ -29,11 +29,11 @@
   .aug.prismatic .icon { box-shadow: 0 0 0 2px var(--prismatic); }
   .aug.gold .icon { box-shadow: 0 0 0 2px var(--gold); }
   .aug.silver .icon { box-shadow: 0 0 0 2px var(--silver); }
-  .aug .num { width: 12px; color: var(--muted); font-size: 11px; font-variant-numeric: tabular-nums; }
+  .picking .aug { cursor: pointer; border-radius: 14px; padding-right: 6px; }
+  .picking .aug:hover { background: rgba(255, 255, 255, .1); }
+  .picking footer { color: var(--text); }
   .aug.taken { opacity: .45; }
-  .aug.taken .num::after { content: "✓"; }
-  .aug.taken .num { font-size: 0; }
-  .aug.taken .num::after { font-size: 11px; color: var(--text); }
+  .aug.taken span:last-child::after { content: " ✓"; }
   footer { margin-top: 10px; color: var(--muted); font-size: 11px; }
   [hidden] { display: none !important; }
 </style>
@@ -55,7 +55,7 @@
   <div class="row" id="items"></div>
   <h2>Augments to look for</h2>
   <div class="augs" id="augs"></div>
-  <footer id="hint">Ctrl+Shift+1–9 marks the augment you took · Ctrl+Shift+O hides this</footer>
+  <footer id="hint">Ctrl+Shift+O hides this</footer>
 </div>
 <script>
   // The app calls showBuild with {site, patch, build} when a game starts; build is one champion from
@@ -101,19 +101,25 @@
 
     const augs = document.getElementById("augs");
     augs.replaceChildren();
-    let n = 0;
     for (const rarity of ["prismatic", "gold", "silver"]) {
       for (const a of b.augments[rarity] || []) {
-        n += 1;
         const row = el("div", `aug ${rarity}`);
         row.dataset.id = (a.icon.match(/(\d+)\.\w+$/) || [])[1] || "";
-        row.append(el("span", "num", n <= 9 ? String(n) : ""), img(site, a.icon, ""), el("span", "", a.name));
+        row.append(img(site, a.icon, ""), el("span", "", a.name));
+        // During a pick the panel takes clicks: clicking the augment you took marks it (again to undo).
+        row.addEventListener("click", () => {
+          const id = Number(row.dataset.id);
+          if (id && window.__TAURI_INTERNALS__) window.__TAURI_INTERNALS__.invoke("take_augment", { id });
+        });
         augs.append(row);
       }
     }
     document.getElementById("card").hidden = false;
   };
-  // Ctrl+Shift+1-9 in game: the augments marked as taken get a tick (pressing the same number again undoes it).
+  window.setPicking = (on) => {
+    document.body.classList.toggle("picking", on);
+    document.getElementById("hint").textContent = on ? "Click the augment you took" : "Ctrl+Shift+O hides this";
+  };
   window.markTaken = (ids) => {
     for (const row of document.querySelectorAll(".aug")) row.classList.toggle("taken", ids.map(String).includes(row.dataset.id));
   };

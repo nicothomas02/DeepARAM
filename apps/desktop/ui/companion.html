@@ -144,7 +144,7 @@
   function getTaken(g) {
     const s = readTaken(), start = Date.now() / 1000 - g.t;
     const mine = s && s.champ === g.champ && Math.abs(s.start - start) < 300 ? s.ids : [];
-    // Plus the ones marked on the overlay with Ctrl+Shift+1-9.
+    // Plus the ones clicked on the in-game overlay.
     return [...new Set([...mine, ...(g.taken ?? [])])];
   }
   function setTaken(g, ids) {
@@ -260,10 +260,16 @@
         <h2>Items</h2><div id="items"></div>
         <h2 id="augHead">Augments</h2>
         <div class="filters">${["", "prismatic", "gold", "silver"].map((r) => `<button class="chip f${r === rarity ? " on" : ""}" data-r="${r}">${r ? r[0].toUpperCase() + r.slice(1) : "All"}</button>`).join("")}</div>
-        <input id="search" type="search" placeholder="Search augments" autocomplete="off">
+        <input id="search" type="search" placeholder="Type your augment, then Enter" autocomplete="off">
         <div id="augs"></div>
         <div id="live"></div>`;
       document.getElementById("search").addEventListener("input", (e) => { query = e.target.value; renderAugments(); });
+      // Typing a few letters and Enter marks the top match as taken.
+      document.getElementById("search").addEventListener("keydown", (e) => {
+        if (e.key !== "Enter") return;
+        const first = document.querySelector("#augs button.aug");
+        if (first) first.click();
+      });
       document.querySelectorAll(".chip.f").forEach((b) => b.addEventListener("click", () => {
         rarity = b.dataset.r;
         document.querySelectorAll(".chip.f").forEach((x) => x.classList.toggle("on", x === b));
