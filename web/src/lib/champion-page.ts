@@ -4,7 +4,7 @@ import championIds from "@/data/champion-ids.json";
 import augmentNames from "@/data/augment-names.json";
 import { liveWithChange } from "./champions";
 import { FIT, type Fit } from "./deepscore";
-import { alongCore, bestRow, buildOrder, followed, scoreRows, type ItemRow, type Rated } from "./card-score";
+import { alongCore, bestRow, buildOrder, followed, scoreRows, skipsBoots, type ItemRow, type Rated } from "./card-score";
 
 export { bestRow, buildOrder, scoreRows, type ItemRow, type Rated };
 import { SIMULATOR_IN_STATS } from "./sim-policy";
@@ -100,6 +100,7 @@ export type ChampionPage = {
   winRate: number;
   skills: SkillRow[];
   starting: ItemRow[];
+  /** Empty when the champion skips boots (lib/card-score.ts skipsBoots). */
   boots: ItemRow[];
   core: ItemRow[];
   full: ItemRow[];
@@ -230,15 +231,18 @@ export function championPage(alias: string): ChampionPage | null {
   ]);
   const timing =
     (SIMULATOR_IN_STATS ? readRepoJson<BootsTiming>("data/estimates/boots_timing.json")?.champions[String(id)] : undefined) ?? {};
-  const core = withBoots(followed(scoreItems(rows(b?.items?.core))), full, boots[0], timing);
+  const bootsRows = rows(b?.items?.boots);
+  const noBoots = skipsBoots(bootsRows, full, (i) => itemTier(i) === "boots");
+  const scoredCore = followed(scoreItems(rows(b?.items?.core)));
+  const core = noBoots ? scoredCore : withBoots(scoredCore, full, boots[0], timing);
   const page = {
     winRate: base,
     skills,
     starting: scoreItems(rows(b?.items?.starting), FIT.items),
-    boots,
+    boots: noBoots ? [] : boots,
     core,
     full,
-    items: single,
+    items: noBoots ? single.filter((r) => r.tier !== "boots") : single,
     late: lateSlots(core[0], single, full),
     augments,
     mates,

@@ -79,6 +79,20 @@ export function alongCore<T extends { items: number[] }>(pool: T[], core: number
   return [...pool.filter(ok), ...pool.filter((r) => !ok(r))];
 }
 
+/** Below this share of games buying finished boots, a champion can count as skipping them (skipsBoots). */
+export const SKIP_BOOTS = 0.25;
+
+/**
+ * Whether the champion's card should leave boots out: under SKIP_BOOTS of its games buy finished boots and most of
+ * its listed six-item builds have none (Nico, 2026-11-20: a champion that skips boots shows none; Yuumi, Karthus).
+ */
+export function skipsBoots(boots: { pickRate: number }[], full: { items: number[]; pickRate: number }[], isBoots: (id: number) => boolean): boolean {
+  const bought = boots.reduce((s, r) => s + r.pickRate, 0);
+  const total = full.reduce((s, r) => s + r.pickRate, 0);
+  const without = full.filter((r) => !r.items.some(isBoots)).reduce((s, r) => s + r.pickRate, 0);
+  return bought < SKIP_BOOTS && total > 0 && without / total > 0.5;
+}
+
 /** The row players should copy: most wins among rows with a real following (2% of games, or the top three). */
 export function bestRow<T extends Rated>(rows: T[], min = 0.02): T | null {
   const common = rows.filter((r, i) => r.pickRate >= min || i < 3);

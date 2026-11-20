@@ -1,5 +1,5 @@
 import { FIT } from "./deepscore";
-import { alongCore, bestRow, followed, scoreRows, type ItemRow, type Rated } from "./card-score";
+import { alongCore, bestRow, followed, scoreRows, skipsBoots, type ItemRow, type Rated } from "./card-score";
 import type { ItemTier } from "./items";
 
 // The champion page's top card over picked patches (Nico, 2026-11-20: patch, set or all time, several at once).
@@ -95,7 +95,9 @@ export function cardFor(file: HistFile, picked: string[], weight: Record<string,
   const full = lists("full_builds");
   const core = followed(scoreRows(lists("core")))[0] ?? null;
   let coreRow: ItemRow | null = core;
-  if (core) {
+  // A champion that skips boots gets none on the card (lib/card-score.ts skipsBoots).
+  const noBoots = skipsBoots(lists("boots"), full, (i) => file.items[i]?.tier === "boots");
+  if (core && !noBoots) {
     // The boots most bought alongside this core in six-item builds, else the best boots; bought last.
     const share = new Map<number, number>();
     for (const f of full) {
