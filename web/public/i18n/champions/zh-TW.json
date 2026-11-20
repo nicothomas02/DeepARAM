@@ -244,5 +244,7 @@
  "Raw": "原始",
  "Adjusted leaves out items only an augment gives you, and builds with few games lean on the estimate.": "校正會排除只能由海克斯強化獲得的裝備，場次少的出裝會參考估算。",
  "Raw shows every build's plain win rate, including items an augment gives you.": "原始顯示每套出裝的實際勝率，包括海克斯強化給的裝備。",
- "Augment item": "強化裝備"
+ "Augment item": "強化裝備",
+ "Items 4 to 6": "第 4 到 6 件裝備",
+ "From earlier games": "來自較早的對局"
 }

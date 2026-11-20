@@ -244,5 +244,7 @@
  "Raw": "生データ",
  "Adjusted leaves out items only an augment gives you, and builds with few games lean on the estimate.": "補正では、オーグメントでしか手に入らないアイテムを除き、試合数の少ないビルドは推定値に寄せます。",
  "Raw shows every build's plain win rate, including items an augment gives you.": "生データでは、オーグメントで得たアイテムも含め、各ビルドの実際の勝率を表示します。",
- "Augment item": "オーグメントのアイテム"
+ "Augment item": "オーグメントのアイテム",
+ "Items 4 to 6": "4〜6個目のアイテム",
+ "From earlier games": "過去の試合から"
 }

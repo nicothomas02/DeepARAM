@@ -244,5 +244,7 @@
  "Raw": "ดิบ",
  "Adjusted leaves out items only an augment gives you, and builds with few games lean on the estimate.": "แบบปรับแล้วจะไม่นับไอเทมที่ได้จากออคเมนต์เท่านั้น และบิลด์ที่มีเกมน้อยจะอิงค่าประมาณ",
  "Raw shows every build's plain win rate, including items an augment gives you.": "แบบดิบแสดงอัตราชนะจริงของทุกบิลด์ รวมไอเทมที่ได้จากออคเมนต์",
- "Augment item": "ไอเทมจากออคเมนต์"
+ "Augment item": "ไอเทมจากออคเมนต์",
+ "Items 4 to 6": "ไอเทมชิ้นที่ 4 ถึง 6",
+ "From earlier games": "จากเกมก่อนหน้า"
 }

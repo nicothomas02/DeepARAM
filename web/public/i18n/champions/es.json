@@ -244,5 +244,7 @@
  "Raw": "Bruto",
  "Adjusted leaves out items only an augment gives you, and builds with few games lean on the estimate.": "Ajustado omite los objetos que solo da un aumento, y las builds con pocas partidas se apoyan en la estimación.",
  "Raw shows every build's plain win rate, including items an augment gives you.": "Bruto muestra el porcentaje de victorias real de cada build, incluidos los objetos que da un aumento.",
- "Augment item": "Objeto de aumento"
+ "Augment item": "Objeto de aumento",
+ "Items 4 to 6": "Objetos 4 a 6",
+ "From earlier games": "De partidas anteriores"
 }

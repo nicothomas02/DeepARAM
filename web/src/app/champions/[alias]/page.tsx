@@ -448,7 +448,6 @@ export default async function ChampionPage({
             : undefined
         }
       >
-        <ChampionShowcase alias={c.alias} name={c.name} />
         <nav className="champ-steps" aria-label="Other champions">
           <Link href={`/champions/${prev.id}`} data-swipe="prev" rel="prev">
             ‹{" "}
@@ -496,11 +495,6 @@ export default async function ChampionPage({
                 </Name>
               </p>
             )}
-            <ArchetypeTags
-              names={championTags(c.alias)}
-              info={championTagData().info}
-              link
-            />
           </div>
           {c.tier && (
             <RangeView
@@ -587,8 +581,8 @@ export default async function ChampionPage({
         <RangePicker ranges={ranges.map(({ key, label, patches }) => ({ key, label, patches }))} />
       </section>
 
-      {/* Game card: everything needed in champion select, on one screen (Nico, 2026-11-20). The taken-augments
-          row (drag to replace) is planned to sit at the end of this card. */}
+      {/* Game card: everything needed for a game on one screen, in the order it comes up from champion select to
+          late game (Nico, 2026-11-20). The taken-augments row (drag to replace) is planned to sit at its end. */}
       <section className="cp-game" aria-label="Build for your game">
           <div className="cp-best">
             <h4>
@@ -626,8 +620,28 @@ export default async function ChampionPage({
               </div>
             </div>
           )}
+          {augRows.length > 0 && (
+            <div className="cp-best cp-best-wide cp-best-augs">
+              <h4>
+                <T>Best augments</T>
+              </h4>
+              {/* The best on this champion whatever their rarity; the icon's ring shows the rarity. */}
+              <span className="cp-icons">
+                {augRows.slice(0, 6).map((a) => (
+                  <RowLink key={a.id} href={a.href ?? "#augments"} title={a.name} className={`cp-named rarity-${a.rarity}`}>
+                    <img className="cp-icon round" src={`/icons/augments/${a.id}.webp`} alt={a.name} width={40} height={40} />
+                    <small aria-hidden="true">
+                      <Name kind="augments" id={a.id}>
+                        {a.name}
+                      </Name>
+                    </small>
+                  </RowLink>
+                ))}
+              </span>
+            </div>
+          )}
           {bestSkill && (
-            <div className="cp-best">
+            <div className="cp-best cp-best-skill">
               <h4>
                 <T ns={NS}>Best skill order</T>
               </h4>
@@ -636,8 +650,8 @@ export default async function ChampionPage({
                 <RatedCells r={bestSkill} />
               </div>
               {p.skillsStale && (
-                <small className="cp-stale">
-                  <T ns={NS}>From earlier games: skill orders are not updating right now.</T>
+                <small className="cp-stale-tag" title="From earlier games: skill orders are not updating right now.">
+                  <T ns={NS}>From earlier games</T>
                 </small>
               )}
             </div>
@@ -667,56 +681,27 @@ export default async function ChampionPage({
                   <T ns={NS}>{"Few games so far: estimated from earlier games and this patch's changes."}</T>
                 </small>
               )}
-              {p.late.length > 0 && (
-                <div className="cp-late-mini">
-                  {p.late.map((s) => (
-                    <div key={s.slot}>
-                      <small>
-                        <T ns={NS}>{SLOT_LABEL[s.slot]}</T>
-                      </small>
-                      <span className="cp-icons">
-                        {s.options.slice(0, 1).map((r) => (
-                          <ItemIcon
-                            key={r.items[0]}
-                            id={r.items[0]}
-                            info={info}
-                            named
-                          />
-                        ))}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              )}
             </div>
           )}
-          {augRows.length > 0 && (
-            <div className="cp-best cp-best-wide cp-best-augs">
+          {p.late.length > 0 && (
+            <div className="cp-best cp-best-wide cp-best-late">
               <h4>
-                <T>Best augments</T>
+                <T ns={NS}>Items 4 to 6</T>
               </h4>
-              {(["prismatic", "gold", "silver"] as const).map((rar) => {
-                const top = augRows.filter((a) => a.rarity === rar).slice(0, 3);
-                return top.length ? (
-                  <div key={rar} className={`cp-aug-line rarity-${rar}`}>
+              <div className="cp-late-mini">
+                {p.late.map((s) => (
+                  <div key={s.slot}>
                     <small>
-                      <T>{rar === "prismatic" ? "Prismatic" : rar === "gold" ? "Gold" : "Silver"}</T>
+                      <T ns={NS}>{SLOT_LABEL[s.slot]}</T>
                     </small>
                     <span className="cp-icons">
-                      {top.map((a) => (
-                        <RowLink key={a.id} href={a.href ?? "#augments"} title={a.name} className="cp-named">
-                          <img className="cp-icon round" src={`/icons/augments/${a.id}.webp`} alt={a.name} width={40} height={40} />
-                          <small aria-hidden="true">
-                            <Name kind="augments" id={a.id}>
-                              {a.name}
-                            </Name>
-                          </small>
-                        </RowLink>
+                      {s.options.slice(0, 3).map((r) => (
+                        <ItemIcon key={r.items[0]} id={r.items[0]} info={info} named />
                       ))}
                     </span>
                   </div>
-                ) : null;
-              })}
+                ))}
+              </div>
             </div>
           )}
       </section>
@@ -1031,11 +1016,19 @@ export default async function ChampionPage({
           <h2 className="cp-group" id="playstyle">
             <T ns={NS}>Playstyle</T>
           </h2>
-          {championRatings(c.alias) && (
-            <div className="cp-bars">
-              <PlaystyleBars ratings={championRatings(c.alias)!} />
+          {/* Tags and the 3D model moved here from the header, so the top of the page is only what a game needs
+              (Nico, 2026-11-20). */}
+          <div className="cp-style-top">
+            <ArchetypeTags names={championTags(c.alias)} info={championTagData().info} link />
+            {championRatings(c.alias) && (
+              <div className="cp-bars">
+                <PlaystyleBars ratings={championRatings(c.alias)!} />
+              </div>
+            )}
+            <div className="cp-model">
+              <ChampionShowcase alias={c.alias} name={c.name} />
             </div>
-          )}
+          </div>
           <Panel
             title="Summoner spells"
             count={spells.length || undefined}

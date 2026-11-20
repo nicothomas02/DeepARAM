@@ -244,5 +244,7 @@
  "Raw": "Nyers",
  "Adjusted leaves out items only an augment gives you, and builds with few games lean on the estimate.": "A korrigált nézet kihagyja a csak augment által adott tárgyakat, a kevés meccses buildek pedig a becslésre támaszkodnak.",
  "Raw shows every build's plain win rate, including items an augment gives you.": "A nyers nézet minden build valódi győzelmi arányát mutatja, az augment adta tárgyakkal együtt.",
- "Augment item": "Augment-tárgy"
+ "Augment item": "Augment-tárgy",
+ "Items 4 to 6": "4–6. tárgy",
+ "From earlier games": "Korábbi meccsekből"
 }

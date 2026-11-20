@@ -244,5 +244,7 @@
  "Raw": "Ακατέργαστα",
  "Adjusted leaves out items only an augment gives you, and builds with few games lean on the estimate.": "Τα προσαρμοσμένα παραλείπουν αντικείμενα που δίνει μόνο ένα augment, και τα build με λίγα παιχνίδια στηρίζονται στην εκτίμηση.",
  "Raw shows every build's plain win rate, including items an augment gives you.": "Τα ακατέργαστα δείχνουν το απλό ποσοστό νικών κάθε build, μαζί με αντικείμενα από augment.",
- "Augment item": "Αντικείμενο augment"
+ "Augment item": "Αντικείμενο augment",
+ "Items 4 to 6": "Αντικείμενα 4 έως 6",
+ "From earlier games": "Από παλαιότερα παιχνίδια"
 }

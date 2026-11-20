@@ -244,5 +244,7 @@
  "Raw": "Исходные",
  "Adjusted leaves out items only an augment gives you, and builds with few games lean on the estimate.": "С поправкой скрывает предметы, которые даёт только аугмент, а сборки с малым числом игр опираются на оценку.",
  "Raw shows every build's plain win rate, including items an augment gives you.": "Исходные показывают реальный процент побед каждой сборки, включая предметы от аугментов.",
- "Augment item": "Предмет от аугмента"
+ "Augment item": "Предмет от аугмента",
+ "Items 4 to 6": "Предметы 4–6",
+ "From earlier games": "По прошлым играм"
 }
