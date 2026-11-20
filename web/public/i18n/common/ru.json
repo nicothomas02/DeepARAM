@@ -237,5 +237,12 @@
  "DeepScore weighs sample size, shows how sure it is, and estimates what each augment adds to your champion. It even forecasts patches before they land.": "DeepScore учитывает размер выборки, показывает, насколько он уверен, и оценивает, что каждая аугментация дает вашему чемпиону. Он даже предсказывает патчи до их выхода.",
  "A fight simulator to play with": "Симулятор боёв, чтобы поиграть",
  "Pit any build against real kits in a 3D replay. It's a sandbox for fun, so no ranking on the site leans on it.": "Сведите любую сборку с реальными наборами умений в 3D-повторе. Это песочница для развлечения, поэтому ни один рейтинг на сайте на неё не опирается.",
- "DeepARAM is built just for ARAM Mayhem. Rankings come from data science, and the fight simulator is there for fun.": "DeepARAM сделан только для ARAM Mayhem. Рейтинги строятся на науке о данных, а симулятор боёв — для развлечения."
+ "DeepARAM is built just for ARAM Mayhem. Rankings come from data science, and the fight simulator is there for fun.": "DeepARAM сделан только для ARAM Mayhem. Рейтинги строятся на науке о данных, а симулятор боёв — для развлечения.",
+ "Live": "Сейчас",
+ "{n} sets": "Сетов: {n}",
+ "Builds are saved from patch {patch} on, so the card shows rates only.": "Сборки сохраняются с патча {patch}, поэтому карточка показывает только показатели.",
+ "Builds cover patch {patch} on.": "Сборки охватывают патч {patch} и новее.",
+ "The rest of the page shows the live patch.": "Остальная страница показывает текущий патч.",
+ "Not played in these patches.": "В этих патчах не играли.",
+ "No saved builds for these patches.": "Для этих патчей нет сохранённых сборок."
 }

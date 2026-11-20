@@ -237,5 +237,12 @@
  "DeepScore weighs sample size, shows how sure it is, and estimates what each augment adds to your champion. It even forecasts patches before they land.": "DeepScore tính đến cỡ mẫu, cho biết mức độ chắc chắn và ước tính mỗi Lõi Nâng Cấp giúp tướng của bạn bao nhiêu. Nó còn dự đoán các phiên bản trước khi ra mắt.",
  "A fight simulator to play with": "Trình mô phỏng giao tranh để chơi",
  "Pit any build against real kits in a 3D replay. It's a sandbox for fun, so no ranking on the site leans on it.": "Cho bất kỳ lối lên đồ nào đấu với bộ kỹ năng thật trong bản phát lại 3D. Đây là sân chơi cho vui, nên không bảng xếp hạng nào trên trang dựa vào nó.",
- "DeepARAM is built just for ARAM Mayhem. Rankings come from data science, and the fight simulator is there for fun.": "DeepARAM được làm riêng cho ARAM Mayhem. Bảng xếp hạng đến từ khoa học dữ liệu, còn trình mô phỏng giao tranh là để chơi cho vui."
+ "DeepARAM is built just for ARAM Mayhem. Rankings come from data science, and the fight simulator is there for fun.": "DeepARAM được làm riêng cho ARAM Mayhem. Bảng xếp hạng đến từ khoa học dữ liệu, còn trình mô phỏng giao tranh là để chơi cho vui.",
+ "Live": "Trực tiếp",
+ "{n} sets": "{n} mùa",
+ "Builds are saved from patch {patch} on, so the card shows rates only.": "Bản build được lưu từ bản {patch}, nên thẻ chỉ hiện tỉ lệ.",
+ "Builds cover patch {patch} on.": "Bản build tính từ bản {patch} trở đi.",
+ "The rest of the page shows the live patch.": "Phần còn lại của trang hiển thị bản hiện tại.",
+ "Not played in these patches.": "Không được chơi trong các bản này.",
+ "No saved builds for these patches.": "Không có bản build đã lưu cho các bản này."
 }

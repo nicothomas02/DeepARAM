@@ -3,7 +3,10 @@ import { readFileSync } from "node:fs";
 import championIds from "@/data/champion-ids.json";
 import augmentNames from "@/data/augment-names.json";
 import { liveWithChange } from "./champions";
-import { FIT, fittedBound, grade, lowerBound, type Fit } from "./deepscore";
+import { FIT, type Fit } from "./deepscore";
+import { bestRow, buildOrder, scoreRows, type ItemRow, type Rated } from "./card-score";
+
+export { bestRow, buildOrder, scoreRows, type ItemRow, type Rated };
 import { SIMULATOR_IN_STATS } from "./sim-policy";
 import {
   ITEM_TIERS,
@@ -48,25 +51,7 @@ type Builds = {
   stale?: string[];
   derived?: string[];
 };
-/** games: estimated live-patch games behind winRate (the champion's games × pickRate), for its 95% range. */
-export type Rated = { winRate: number; pickRate: number; lift: number; games?: number };
-export type ItemRow = Rated & {
-  items: number[];
-  deepScore?: number;
-  tier?: ItemTier;
-  /** Core builds: the boots that go with the core. */
-  boots?: number;
-  /** Core builds: how many core items come before the boots (simulated, data/estimates/boots_timing.json). */
-  bootsAt?: number;
-};
 
-/** A row's items in the order they're bought: the boots go in at bootsAt (last when it isn't known, as real data
- *  doesn't say when they're bought). */
-export function buildOrder(r: ItemRow): number[] {
-  if (r.boots === undefined) return r.items;
-  const at = Math.min(r.bootsAt ?? r.items.length, r.items.length);
-  return [...r.items.slice(0, at), r.boots, ...r.items.slice(at)];
-}
 
 /** Per champion id: core build ("id,id,id") -> boots id -> core items bought before the boots. */
 type BootsTiming = { champions: Record<string, Record<string, Record<string, number>>> };
@@ -287,8 +272,6 @@ function earlyBuilds(id: number): Pick<Required<Builds>["items"], "core" | "full
   return { core: c.core, full_builds: c.full_builds, other: c.other };
 }
 
-const MEDIAN_GAMES = 1000; // pseudo-games for an item of median popularity, as on the Tier List
-const PRIOR = 0.25; // the average's weight, in median items' worth of games
 
 /** Every single item the champion builds, grouped by shop tier (Legendary, Boots, Epic...) and best DeepScore first within each tier. */
 function tiered(list: ItemRow[]): ItemRow[] {
@@ -370,34 +353,4 @@ function lateSlots(core: ItemRow | undefined, single: ItemRow[]): LateSlot[] {
 // the old prior until their history can be backtested (data/analysis/predictive.py).
 const scoreItems = (list: ItemRow[], fit: Fit | null = null): ItemRow[] => scoreRows(list, fit);
 
-/** DeepScore for each row against the rest of the champion's list (items, builds, spell pairs; lib/deepscore.ts), best first.
- *  `fit`: fitted next-patch settings (single items); without it, the old hand-set prior (builds, spell pairs). */
-export function scoreRows<T extends { winRate: number; pickRate: number }>(list: T[], fit: Fit | null = null): (T & { deepScore?: number })[] {
-  if (!list.length) return list;
-  const picks = list.map((r) => r.pickRate).sort((x, y) => x - y);
-  const median = picks[Math.floor(picks.length / 2)] || 1;
-  const total = list.reduce((s, r) => s + r.pickRate, 0) || 1;
-  const mean = list.reduce((s, r) => s + r.winRate * r.pickRate, 0) / total;
-  const bounds = list.map((r) =>
-    fit
-      ? fittedBound(r.winRate, r.pickRate / median, mean, fit)
-      : lowerBound(
-          r.winRate,
-          (r.pickRate / median) * MEDIAN_GAMES,
-          mean,
-          PRIOR * MEDIAN_GAMES,
-        ),
-  );
-  const grades = grade(bounds);
-  return list
-    .map((r, i) => ({ ...r, deepScore: grades[i].deepScore }))
-    .sort((x, y) => y.deepScore! - x.deepScore! || y.pickRate - x.pickRate);
-}
 
-/** The row players should copy: most wins among rows with a real following (2% of games, or the top three). */
-export function bestRow<T extends Rated>(rows: T[], min = 0.02): T | null {
-  const common = rows.filter((r, i) => r.pickRate >= min || i < 3);
-  return common.length
-    ? common.reduce((a, r) => (r.winRate > a.winRate ? r : a))
-    : null;
-}

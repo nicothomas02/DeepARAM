@@ -237,5 +237,12 @@
  "DeepScore weighs sample size, shows how sure it is, and estimates what each augment adds to your champion. It even forecasts patches before they land.": "O DeepScore considera o tamanho da amostra, mostra o quanto tem certeza e estima quanto cada aprimoramento acrescenta ao seu campeão. Ele até prevê os patches antes de saírem.",
  "A fight simulator to play with": "Um simulador de combate para brincar",
  "Pit any build against real kits in a 3D replay. It's a sandbox for fun, so no ranking on the site leans on it.": "Coloque qualquer build contra kits reais num replay 3D. É uma área para diversão, então nenhum ranking do site se apoia nele.",
- "DeepARAM is built just for ARAM Mayhem. Rankings come from data science, and the fight simulator is there for fun.": "O DeepARAM é feito só para ARAM Mayhem. Os rankings vêm da ciência de dados, e o simulador de combate está aí para diversão."
+ "DeepARAM is built just for ARAM Mayhem. Rankings come from data science, and the fight simulator is there for fun.": "O DeepARAM é feito só para ARAM Mayhem. Os rankings vêm da ciência de dados, e o simulador de combate está aí para diversão.",
+ "Live": "Ao vivo",
+ "{n} sets": "{n} sets",
+ "Builds are saved from patch {patch} on, so the card shows rates only.": "As builds são salvas desde o patch {patch}, então o card mostra só as taxas.",
+ "Builds cover patch {patch} on.": "As builds cobrem do patch {patch} em diante.",
+ "The rest of the page shows the live patch.": "O resto da página mostra o patch atual.",
+ "Not played in these patches.": "Não jogado nesses patches.",
+ "No saved builds for these patches.": "Nenhuma build salva para esses patches."
 }

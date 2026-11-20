@@ -10,6 +10,9 @@ import { readRepoCsv, readRepoJson } from "./repo-data";
 import { champStats, type ChampStats, type PatchRow } from "./tiers";
 import { statRanges, type RangeKey, type StatRange } from "./stat-ranges";
 import { matchesByPatch } from "./sample";
+import { radarFor, type RadarAxis } from "./radar";
+
+export type { RadarAxis };
 
 // One summary per champion for its own page (/champions/<Alias>) and the home page's movers:
 // live-patch tier and rates, the change since the previous patch, top augments and best partners.
@@ -121,30 +124,6 @@ export type ChampionSummary = {
   /** Live-patch profile: each stat's percentile among all champions (0 to 1), its rank and value. */
   radar: RadarAxis[];
 };
-
-export type RadarAxis = { key: string; label: string; hint: string; pct: number; rank: number; of: number; value: string };
-
-const AXES: { key: "win_rate" | "pick_rate" | "damage" | "tank" | "kp" | "dead"; label: string; hint: string; low?: boolean; fmt: (v: number) => string }[] = [
-  { key: "win_rate", label: "Win rate", hint: "Win rate", fmt: (v) => `${(v * 100).toFixed(1)}%` },
-  { key: "pick_rate", label: "Pick rate", hint: "How often this champion is picked", fmt: (v) => `${(v * 100).toFixed(1)}%` },
-  { key: "damage", label: "Damage dealt", hint: "Share of the team's damage to champions", fmt: (v) => `${(v * 100).toFixed(1)}%` },
-  { key: "tank", label: "Damage taken", hint: "Share of the team's damage taken that this champion soaked", fmt: (v) => `${(v * 100).toFixed(1)}%` },
-  { key: "kp", label: "Kill participation", hint: "Share of the team's kills this champion took part in", fmt: (v) => `${(v * 100).toFixed(1)}%` },
-  { key: "dead", label: "Time dead", hint: "Average time spent dead per game (less is better)", low: true, fmt: (v) => `${Math.floor(v / 60)}m ${String(Math.round(v % 60)).padStart(2, "0")}s dead` },
-];
-
-function radarFor(alias: string, live: ChampStats[]): RadarAxis[] {
-  const me = live.find((c) => c.name === alias);
-  if (!me) return [];
-  return AXES.flatMap((a) => {
-    const mine = me[a.key];
-    const all = live.map((c) => c[a.key]).filter((v): v is number => typeof v === "number");
-    if (typeof mine !== "number" || all.length < 2) return [];
-    // Rank 1 is the best: highest, or lowest where less is better.
-    const better = all.filter((v) => (a.low ? v < mine : v > mine)).length;
-    return [{ key: a.key, label: a.label, hint: a.hint, pct: 1 - better / (all.length - 1), rank: better + 1, of: all.length, value: a.fmt(mine) }];
-  });
-}
 
 /** Every champion's id and name, by name, for pickers. */
 export const champList = () => championAliases().map((id) => ({ id, name: champName(id) })).sort((a, b) => a.name.localeCompare(b.name));

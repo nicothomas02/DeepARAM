@@ -356,6 +356,28 @@ test("a contact message of a few words offers the site search instead", async ({
   await expect(box.getByRole("button", { name: /Search for/ })).toHaveCount(0);
 });
 
+test("champion header timeframe: live patch by default, then patches, sets or all time change the numbers and the top card", async ({ page }) => {
+  await page.goto("/champions/Ashe");
+  const pick = page.locator(".tf-pick");
+  await expect(pick.locator(".tf-live")).toHaveCount(1);
+  const liveStrip = await page.locator(".cp-strip").first().innerText();
+  // All time: rates over every patch, and the card says which patches its builds cover.
+  await pick.getByRole("button", { name: "All time" }).click();
+  await expect(page).toHaveURL(/tf=all/);
+  await expect(pick.locator(".stat-range-span")).toContainText("Patches");
+  await expect(page.locator(".cp-strip").first()).not.toHaveText(liveStrip);
+  await expect(page.locator(".cp-game .cp-best-augs .cp-named")).not.toHaveCount(0);
+  // One set at a time from the set dropdown.
+  await pick.locator(".patch-pick").nth(1).locator("> summary").click();
+  await pick.locator(".tf-sets label").first().click();
+  await expect(page).toHaveURL(/tf=s(:|%3A)/);
+  await expect(pick.getByRole("button", { name: "All time" })).toHaveAttribute("aria-pressed", "false");
+  // An old patch has rates but no saved builds.
+  await page.goto("/champions/Ashe?tf=p:16.10");
+  await expect(page.locator(".cp-game")).toContainText("No saved builds for these patches.");
+  await expect(page.locator(".cp-strip").first()).toContainText("Win rate");
+});
+
 test("each Synergies list opens on its best score, and no Simulator-made panel shows on champion pages", async ({ page }) => {
   await page.goto("/champions/Braum");
   // The Simulator is a fun tool only for now (lib/sim-policy.ts): no build picker, Best upgrades or "Changes your build" tag.

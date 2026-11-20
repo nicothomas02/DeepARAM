@@ -1719,3 +1719,73 @@ html:not([data-raw]) .cp-row.aug-item {
   font-size: 0.875rem;
   cursor: help;
 }
+
+/* Timeframe picker in the header (components/champion/Timeframe.tsx): patch, set, all time; the one in use is lit. */
+.tf-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.tf-controls .patch-pick summary,
+.tf-all {
+  min-height: 2.25rem;
+}
+.tf-controls .patch-pick[data-on] summary,
+.tf-all[aria-pressed="true"] {
+  border-color: var(--accent);
+  background: var(--raised);
+  font-weight: 600;
+}
+.tf-all {
+  padding: 0.35rem 0.75rem;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--surface);
+  color: var(--fg);
+  font: 500 0.875rem var(--mono);
+  cursor: pointer;
+}
+.tf-live {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: var(--good);
+  box-shadow: 0 0 0 0 rgb(var(--good-rgb) / 0.6);
+  animation: tf-live 2s ease-out infinite;
+}
+.tf-live-word {
+  color: var(--good);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+@keyframes tf-live {
+  70% {
+    box-shadow: 0 0 0 6px rgb(var(--good-rgb) / 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgb(var(--good-rgb) / 0);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .tf-live {
+    animation: none;
+  }
+}
+.patch-pick-list.tf-sets {
+  grid-template-columns: auto;
+}
+.tf-sets small {
+  margin-left: auto;
+  padding-left: 0.75rem;
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+.tf-loading {
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+/* The header clips its splash; while a timeframe dropdown is open it lets the list hang below it. */
+.cp-hero.champ-hero:has(.tf-pick details[open]) {
+  overflow: visible;
+  z-index: 30;
+}

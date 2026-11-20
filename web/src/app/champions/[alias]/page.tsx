@@ -11,8 +11,10 @@ import DeepScore from "@/components/DeepScore";
 import { BUILD_DEEPSCORE_HELP, ITEM_DEEPSCORE_HELP } from "@/lib/deepscore";
 import ChampionShowcase from "@/components/ChampionShowcase";
 import { notFound } from "next/navigation";
-import { championAliases, championRanges, championSummary, champList, type RadarAxis } from "@/lib/champions";
-import { RangePicker, RangeView } from "@/components/StatRange";
+import { championAliases, championSummary, champList, type RadarAxis } from "@/lib/champions";
+import { TfCard, TfPerf, TfStrip, TfTier, TimeframePicker } from "@/components/champion/Timeframe";
+import { historyPatches } from "@/lib/champion-history";
+import { matchesByPatch } from "@/lib/sample";
 import {
   bestRow,
   buildOrder,
@@ -385,7 +387,6 @@ export default async function ChampionPage({
   const bestSpells = spells[0];
   const games = fillGames()?.[c.alias];
   const gamesEstimated = fillEstimated();
-  const ranges = championRanges(c.alias);
   const perfOf = (axes: RadarAxis[]) => {
     const radar = new Map(axes.map((a) => [a.key, a]));
     return (
@@ -429,6 +430,34 @@ export default async function ChampionPage({
         {augTag(r)}
       </Row>
     ));
+
+  const spellsTile = (
+          <div className="cp-best">
+            <h4>
+              <T ns={NS}>Best summoner spells</T>
+            </h4>
+            {bestSpells ? (
+              <>
+                <Spells r={bestSpells} />
+                <small className="cp-stale-tag">
+                  <T ns={NS}>Estimated</T>
+                </small>
+                <div className="cp-mini">
+                  {bestSpells.estimated ? (
+                    <Cell value={pct(bestSpells.pickRate)} label="Pick rate" />
+                  ) : (
+                    <RatedCells r={bestSpells} />
+                  )}
+                </div>
+              </>
+            ) : (
+              <p className="cp-empty-line">
+                <T ns={NS}>Not enough games yet.</T>
+              </p>
+            )}
+          </div>
+  );
+  const matches = matchesByPatch();
 
   return (
     <>
@@ -501,26 +530,15 @@ export default async function ChampionPage({
             )}
           </div>
           {c.tier && (
-            <RangeView
-              views={Object.fromEntries(
-                ranges.map((r) => [
-                  r.key,
-                  <span
-                    key={r.key}
-                    className={`cp-tier chip tier-${r.tier.toLowerCase()}`}
-                    title="Tier"
-                  >
-                    {r.tier}
-                  </span>,
-                ]),
-              )}
-            />
+            <TfTier alias={c.alias} patches={c.patches} matches={matches}>
+              <span className={`cp-tier chip tier-${c.tier.toLowerCase()}`} title="Tier">
+                {c.tier}
+              </span>
+            </TfTier>
           )}
         </div>
         {c.winRate !== undefined && (
-          <RangeView
-            views={{
-              live: (
+          <TfStrip alias={c.alias} patches={c.patches} matches={matches}>
                 <div className="cp-strip">
                 <Cell
                   value={<WinRate p={c.winRate} n={c.games} />}
@@ -559,59 +577,16 @@ export default async function ChampionPage({
                   </small>
                 </div>
               </div>
-              ),
-              ...Object.fromEntries(
-                ranges
-                  .filter((r) => r.key !== "live")
-                  .map((r) => [
-                    r.key,
-                    <div key={r.key} className="cp-strip">
-                      <Cell value={<WinRate p={r.winRate} n={r.games} />} label="Win rate" tone={r.winRate >= 0.52 ? "up" : r.winRate <= 0.48 ? "down" : undefined} />
-                      <Cell value={pct(r.pickRate)} label="Pick rate" />
-                      <div className="cp-cell">
-                        <b>#{r.rank}</b>
-                        <small>
-                          <T ns={NS} v={{ n: r.of }}>
-                            {"of {n} by DeepScore"}
-                          </T>
-                        </small>
-                      </div>
-                    </div>,
-                  ]),
-              ),
-            }}
-          />
+          </TfStrip>
         )}
-        <RangePicker ranges={ranges.map(({ key, label, patches }) => ({ key, label, patches }))} />
+        <TimeframePicker patches={c.patches} buildPatches={historyPatches()} />
       </section>
 
       {/* Game card: everything needed for a game on one screen, in the order it comes up from champion select to
           late game (Nico, 2026-11-20). The taken-augments row (drag to replace) is planned to sit at its end. */}
+      <TfCard alias={c.alias} patches={c.patches} matches={matches} spells={spellsTile}>
       <section className="cp-game" aria-label="Build for your game">
-          <div className="cp-best">
-            <h4>
-              <T ns={NS}>Best summoner spells</T>
-            </h4>
-            {bestSpells ? (
-              <>
-                <Spells r={bestSpells} />
-                <small className="cp-stale-tag">
-                  <T ns={NS}>Estimated</T>
-                </small>
-                <div className="cp-mini">
-                  {bestSpells.estimated ? (
-                    <Cell value={pct(bestSpells.pickRate)} label="Pick rate" />
-                  ) : (
-                    <RatedCells r={bestSpells} />
-                  )}
-                </div>
-              </>
-            ) : (
-              <p className="cp-empty-line">
-                <T ns={NS}>Not enough games yet.</T>
-              </p>
-            )}
-          </div>
+          {spellsTile}
           {bestStart && (
             <div className="cp-best">
               <h4>
@@ -712,6 +687,7 @@ export default async function ChampionPage({
             </div>
           )}
       </section>
+      </TfCard>
 
       <div className="cp">
 
@@ -1162,44 +1138,33 @@ export default async function ChampionPage({
           <h2 className="cp-group" id="performance">
             <T ns={NS}>Performance</T>
           </h2>
-          <RangeView
-            views={Object.fromEntries(
-              ranges.map((r) => {
-                const tiles = r.key === "live" ? perf : perfOf(r.radar);
-                return [
-                  r.key,
-                  tiles.length > 0 && (
-                    <div key={r.key} className="cp-perf">
-                      {tiles.map((a) => (
-                        <div key={a.key}>
-                          <small>
-                            <T ns={NS}>{a.label}</T>
-                          </small>
-                          <b>{a.value.replace(/ dead$/, "")}</b>
-                          <span>
-                            #{a.rank}{" "}
-                            <T ns={NS} v={{ n: a.of }}>
-                              {"of {n}"}
-                            </T>
-                          </span>
-                          {r.key === "live" && est?.vsAverage.has(a.key) && (
-                            <em>
-                              <T
-                                ns={NS}
-                                v={{ n: vsAvg(a.key, est.vsAverage.get(a.key)!) }}
-                              >
-                                {"{n} vs average"}
-                              </T>
-                            </em>
-                          )}
-                        </div>
-                      ))}
-                    </div>
-                  ),
-                ];
-              }),
-            )}
-          />
+          {perf.length > 0 && (
+            <TfPerf alias={c.alias} patches={c.patches} matches={matches}>
+              <div className="cp-perf">
+                {perf.map((a) => (
+                  <div key={a.key}>
+                    <small>
+                      <T ns={NS}>{a.label}</T>
+                    </small>
+                    <b>{a.value.replace(/ dead$/, "")}</b>
+                    <span>
+                      #{a.rank}{" "}
+                      <T ns={NS} v={{ n: a.of }}>
+                        {"of {n}"}
+                      </T>
+                    </span>
+                    {est?.vsAverage.has(a.key) && (
+                      <em>
+                        <T ns={NS} v={{ n: vsAvg(a.key, est.vsAverage.get(a.key)!) }}>
+                          {"{n} vs average"}
+                        </T>
+                      </em>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </TfPerf>
+          )}
           {est && (est.profile.length > 0 || est.curve) && (
             <Fold
               section="performance"

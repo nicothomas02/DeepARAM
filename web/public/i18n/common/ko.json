@@ -237,5 +237,12 @@
  "DeepScore weighs sample size, shows how sure it is, and estimates what each augment adds to your champion. It even forecasts patches before they land.": "DeepScore는 표본 크기를 반영하고, 얼마나 확실한지 보여주며, 각 증강이 내 챔피언에게 더해 주는 효과를 추정합니다. 패치가 나오기 전에 미리 예측하기도 합니다.",
  "A fight simulator to play with": "즐길 수 있는 전투 시뮬레이터",
  "Pit any build against real kits in a 3D replay. It's a sandbox for fun, so no ranking on the site leans on it.": "어떤 빌드든 실제 스킬 구성과 3D 리플레이로 맞붙여 보세요. 재미용 샌드박스라서 사이트의 어떤 순위도 이것에 기대지 않습니다.",
- "DeepARAM is built just for ARAM Mayhem. Rankings come from data science, and the fight simulator is there for fun.": "DeepARAM은 ARAM Mayhem만을 위해 만들었습니다. 순위는 데이터 과학에서 나오고, 전투 시뮬레이터는 재미용입니다."
+ "DeepARAM is built just for ARAM Mayhem. Rankings come from data science, and the fight simulator is there for fun.": "DeepARAM은 ARAM Mayhem만을 위해 만들었습니다. 순위는 데이터 과학에서 나오고, 전투 시뮬레이터는 재미용입니다.",
+ "Live": "라이브",
+ "{n} sets": "{n}개 시즌",
+ "Builds are saved from patch {patch} on, so the card shows rates only.": "빌드는 {patch} 패치부터 저장되어 카드에는 비율만 표시됩니다.",
+ "Builds cover patch {patch} on.": "빌드는 {patch} 패치 이후를 다룹니다.",
+ "The rest of the page shows the live patch.": "페이지의 나머지는 현재 패치를 보여 줍니다.",
+ "Not played in these patches.": "이 패치들에서 플레이되지 않았습니다.",
+ "No saved builds for these patches.": "이 패치들에 저장된 빌드가 없습니다."
 }
