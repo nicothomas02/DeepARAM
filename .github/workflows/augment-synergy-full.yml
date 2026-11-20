@@ -15,7 +15,7 @@ permissions:
 
 concurrency:
   group: augment-synergy-full-${{ github.ref }}
-  cancel-in-progress: true
+  cancel-in-progress: false  # pushes without [synergy-full] start a run that skips; it must not cancel a real one
 
 env:
   SHARDS: 24
