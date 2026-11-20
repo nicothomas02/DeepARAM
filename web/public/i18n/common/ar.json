@@ -240,5 +240,16 @@
  "DeepARAM is built just for ARAM Mayhem. Rankings come from data science, and builds are tested in a fight simulator.": "DeepARAM مصمم خصيصًا لـ آرام: الفوضى. التصنيفات مبنية على علم البيانات، والتشكيلات مُختبرة في محاكي قتال.",
  "Announcer": "المعلّق",
  "Default": "افتراضي",
- "Male": "ذكر"
+ "Male": "ذكر",
+ "Built just for Mayhem, with stats that predict instead of just count, and a fight simulator to play with.": "مصمَّم خصيصًا لـ Mayhem، بإحصاءات تتنبأ بدل أن تكتفي بالعدّ، ومحاكي قتال للتسلية.",
+ "A fight simulator to play with": "محاكي قتال للتسلية",
+ "Pit any build against real kits in a 3D replay. It's a sandbox for fun, so no ranking on the site leans on it.": "واجه بأي بناء قدرات أبطال حقيقية في إعادة عرض ثلاثية الأبعاد. إنه ساحة للتسلية، فلا يعتمد عليه أي تصنيف في الموقع.",
+ "DeepARAM is built just for ARAM Mayhem. Rankings come from data science, and the fight simulator is there for fun.": "DeepARAM مصمَّم خصيصًا لـ ARAM Mayhem. التصنيفات تأتي من علم البيانات، ومحاكي القتال موجود للتسلية.",
+ "Live": "مباشر",
+ "{n} sets": "{n} مجموعات",
+ "Builds are saved from patch {patch} on, so the card shows rates only.": "تُحفظ البنيات منذ الباتش {patch}، لذا تعرض البطاقة النسب فقط.",
+ "Builds cover patch {patch} on.": "تغطي البنيات من الباتش {patch} فصاعدًا.",
+ "The rest of the page shows the live patch.": "بقية الصفحة تعرض الباتش الحالي.",
+ "Not played in these patches.": "لم يُلعب في هذه الباتشات.",
+ "No saved builds for these patches.": "لا توجد بنيات محفوظة لهذه الباتشات."
 }

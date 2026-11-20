@@ -240,5 +240,16 @@
  "DeepARAM is built just for ARAM Mayhem. Rankings come from data science, and builds are tested in a fight simulator.": "A DeepARAM kizárólag az ARAM: Káosz módhoz készült. A rangsorok adattudományon alapulnak, a buildeket pedig harci szimulátorban teszteljük.",
  "Announcer": "Bemondó",
  "Default": "Alapértelmezett",
- "Male": "Férfi"
+ "Male": "Férfi",
+ "Built just for Mayhem, with stats that predict instead of just count, and a fight simulator to play with.": "Kifejezetten a Mayhemhez készült, olyan statisztikákkal, amelyek előre jeleznek, nem csak számolnak, és egy harcszimulátorral játékra.",
+ "A fight simulator to play with": "Harcszimulátor játékra",
+ "Pit any build against real kits in a 3D replay. It's a sandbox for fun, so no ranking on the site leans on it.": "Engedj bármilyen buildet valódi képességkészletek ellen egy 3D-s visszajátszásban. Szórakozásra szolgáló homokozó, így az oldal egyetlen rangsora sem támaszkodik rá.",
+ "DeepARAM is built just for ARAM Mayhem. Rankings come from data science, and the fight simulator is there for fun.": "A DeepARAM kifejezetten az ARAM Mayhemhez készült. A rangsorok adattudományból jönnek, a harcszimulátor pedig szórakozásra van.",
+ "Live": "Élő",
+ "{n} sets": "{n} szett",
+ "Builds are saved from patch {patch} on, so the card shows rates only.": "A buildeket a(z) {patch} patch óta mentjük, így a kártya csak arányokat mutat.",
+ "Builds cover patch {patch} on.": "A buildek a(z) {patch} patchtől kezdve érhetők el.",
+ "The rest of the page shows the live patch.": "Az oldal többi része az aktuális patchet mutatja.",
+ "Not played in these patches.": "Ezekben a patchekben nem játszották.",
+ "No saved builds for these patches.": "Ezekhez a patchekhez nincs mentett build."
 }

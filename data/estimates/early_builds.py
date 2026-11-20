@@ -187,7 +187,7 @@ def patch_item_changes(patch):
 
 def item_rates(d):
     """{item: (share of the champion's listed builds, win rate)} from its six-item builds."""
-    _, other = cn_builds.from_full_builds(d["items"]["full_builds"], cn_builds.BOOTS)
+    _, other = cn_builds.from_full_builds(d["items"]["full_builds"], cn_builds.BOOTS, of_listed=True)
     return {r["items"][0]: (r["pick_rate"], r["win_rate"]) for r in other}
 
 

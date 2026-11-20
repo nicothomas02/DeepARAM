@@ -1,49 +1,51 @@
 import { describe, expect, it } from "vitest";
 import { buildOrder, championPage, scoreRows } from "@/lib/champion-page";
-import { itemTier } from "@/lib/items";
+import { itemSituation, itemTier } from "@/lib/items";
 import { championAugmentStages } from "@/lib/estimates";
+import { SIMULATOR_IN_STATS } from "@/lib/sim-policy";
+import { MIN_FOLLOWING } from "@/lib/card-score";
 
 // Champion page builds: the core shows its boots where they're bought, then the 4th, 5th and 6th item options.
 describe("champion page core build", () => {
   const p = championPage("Annie")!;
 
-  it("puts boots in every core build at their simulated buy step", () => {
+  it("puts real boots in every core build, after the core while the Simulator's buy step is off", () => {
     expect(p.core.length).toBeGreaterThan(0);
     for (const r of p.core) {
       expect(r.boots).toBeDefined();
       expect(itemTier(r.boots!)).toBe("boots");
       expect(p.itemInfo[r.boots!]?.name).toBeTruthy();
-      expect(r.bootsAt).toBeGreaterThanOrEqual(0);
-      expect(r.bootsAt).toBeLessThanOrEqual(r.items.length);
       const order = buildOrder(r);
       expect(order).toHaveLength(r.items.length + 1);
-      expect(order[r.bootsAt!]).toBe(r.boots);
       expect(order.filter((i) => i !== r.boots)).toEqual(r.items);
+      // The Simulator is a fun tool only for now (lib/sim-policy.ts), so no simulated buy step.
+      if (!SIMULATOR_IN_STATS) {
+        expect(r.bootsAt).toBeUndefined();
+        expect(order.at(-1)).toBe(r.boots);
+      }
     }
-    // Not every core starts with boots any more.
-    expect(p.core.some((r) => r.bootsAt! > 0)).toBe(true);
   });
 
-  it("orders a row without boots or timing as before", () => {
+  it("orders a row by its boots step, with the boots last when the step isn't known", () => {
     const r = { items: [1, 2, 3], winRate: 0.5, pickRate: 0.1, lift: 0 };
     expect(buildOrder(r)).toEqual([1, 2, 3]);
-    expect(buildOrder({ ...r, boots: 9 })).toEqual([9, 1, 2, 3]);
+    expect(buildOrder({ ...r, boots: 9 })).toEqual([1, 2, 3, 9]);
     expect(buildOrder({ ...r, boots: 9, bootsAt: 2 })).toEqual([1, 2, 9, 3]);
     expect(buildOrder({ ...r, boots: 9, bootsAt: 3 })).toEqual([1, 2, 3, 9]);
   });
 
-  it("offers legendary options for slots 4, 5 and 6 that skip the core and earlier top picks", () => {
-    expect(p.late.map((s) => s.slot)).toEqual([4, 5, 6]);
-    const taken = new Set(p.core[0].items);
-    for (const s of p.late) {
+  it("offers situational legendary items after the core, one row per situation, each tagged right", () => {
+    expect(p.situational.length).toBeGreaterThan(0);
+    expect(p.situational.length).toBeLessThanOrEqual(5);
+    const core = new Set(p.core[0].items);
+    expect(new Set(p.situational.map((s) => s.situation)).size).toBe(p.situational.length);
+    for (const s of p.situational) {
       expect(s.options.length).toBeGreaterThan(0);
       for (const o of s.options) {
         expect(o.tier).toBe("legendary");
-        expect(taken.has(o.items[0])).toBe(false);
+        expect(core.has(o.items[0])).toBe(false);
+        expect(itemSituation(o.items[0])).toBe(s.situation);
       }
-      const scores = s.options.map((o) => o.deepScore!);
-      expect([...scores].sort((a, b) => b - a)).toEqual(scores);
-      taken.add(s.options[0].items[0]);
     }
   });
 });
@@ -74,9 +76,12 @@ describe("DeepScore ranking of build lists", () => {
     expect(ranked.map((r) => r.id)).toEqual(["solid", "rare", "weak"]);
   });
 
-  it("ranks every list on the champion page best DeepScore first", () => {
+  it("ranks every list on the champion page best DeepScore first (cores: among those with a real following)", () => {
     const p = championPage("Annie")!;
-    for (const list of [p.starting, p.core, ...p.late.map((s) => s.options)]) {
+    const top = Math.max(...p.core.map((r) => r.pickRate));
+    const followedCores = p.core.filter((r) => r.pickRate >= MIN_FOLLOWING * top);
+    expect(p.core.slice(0, followedCores.length)).toEqual(followedCores);
+    for (const list of [p.starting, followedCores]) {
       const scores = list.map((r) => r.deepScore!);
       expect(scores).toEqual([...scores].sort((a, b) => b - a));
     }

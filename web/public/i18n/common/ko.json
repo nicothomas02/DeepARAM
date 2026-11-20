@@ -240,5 +240,16 @@
  "DeepARAM is built just for ARAM Mayhem. Rankings come from data science, and builds are tested in a fight simulator.": "DeepARAM은 무작위 총력전: 아수라장 전용 사이트입니다. 순위는 데이터 과학으로 산출하고, 빌드는 전투 시뮬레이터로 검증합니다.",
  "Announcer": "아나운서",
  "Default": "기본",
- "Male": "남성"
+ "Male": "남성",
+ "Built just for Mayhem, with stats that predict instead of just count, and a fight simulator to play with.": "Mayhem만을 위해 만든 사이트. 세기만 하는 대신 예측하는 통계와, 즐길 수 있는 전투 시뮬레이터.",
+ "A fight simulator to play with": "즐길 수 있는 전투 시뮬레이터",
+ "Pit any build against real kits in a 3D replay. It's a sandbox for fun, so no ranking on the site leans on it.": "어떤 빌드든 실제 스킬 구성과 3D 리플레이로 맞붙여 보세요. 재미용 샌드박스라서 사이트의 어떤 순위도 이것에 기대지 않습니다.",
+ "DeepARAM is built just for ARAM Mayhem. Rankings come from data science, and the fight simulator is there for fun.": "DeepARAM은 ARAM Mayhem만을 위해 만들었습니다. 순위는 데이터 과학에서 나오고, 전투 시뮬레이터는 재미용입니다.",
+ "Live": "라이브",
+ "{n} sets": "{n}개 시즌",
+ "Builds are saved from patch {patch} on, so the card shows rates only.": "빌드는 {patch} 패치부터 저장되어 카드에는 비율만 표시됩니다.",
+ "Builds cover patch {patch} on.": "빌드는 {patch} 패치 이후를 다룹니다.",
+ "The rest of the page shows the live patch.": "페이지의 나머지는 현재 패치를 보여 줍니다.",
+ "Not played in these patches.": "이 패치들에서 플레이되지 않았습니다.",
+ "No saved builds for these patches.": "이 패치들에 저장된 빌드가 없습니다."
 }

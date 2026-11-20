@@ -240,5 +240,16 @@
  "DeepARAM is built just for ARAM Mayhem. Rankings come from data science, and builds are tested in a fight simulator.": "DeepARAM 專為隨機單中：大混戰打造。排名來自資料科學，出裝經過戰鬥模擬器檢驗。",
  "Announcer": "播報員",
  "Default": "預設",
- "Male": "男聲"
+ "Male": "男聲",
+ "Built just for Mayhem, with stats that predict instead of just count, and a fight simulator to play with.": "專為 Mayhem 打造：數據不只計數，更能預測，還有好玩的對戰模擬器。",
+ "A fight simulator to play with": "好玩的對戰模擬器",
+ "Pit any build against real kits in a 3D replay. It's a sandbox for fun, so no ranking on the site leans on it.": "讓任意出裝在 3D 重播中對上真實英雄技能。它只是娛樂沙盒，網站上的任何排名都不依賴它。",
+ "DeepARAM is built just for ARAM Mayhem. Rankings come from data science, and the fight simulator is there for fun.": "DeepARAM 專為 ARAM Mayhem 打造。排名來自數據科學，對戰模擬器只為娛樂。",
+ "Live": "即時",
+ "{n} sets": "{n} 個賽季",
+ "Builds are saved from patch {patch} on, so the card shows rates only.": "出裝從 {patch} 版本開始保存，所以卡片只顯示勝率和選取率。",
+ "Builds cover patch {patch} on.": "出裝資料從 {patch} 版本開始。",
+ "The rest of the page shows the live patch.": "頁面其餘部分顯示目前版本。",
+ "Not played in these patches.": "這些版本中沒有出場。",
+ "No saved builds for these patches.": "這些版本沒有保存的出裝。"
 }

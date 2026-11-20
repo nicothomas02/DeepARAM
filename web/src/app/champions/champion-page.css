@@ -164,25 +164,71 @@
   overflow-wrap: normal;
   hyphens: auto;
 }
-.cp-aug-line {
+/* Best augments on the game card: one row whatever the rarity; the icon's ring shows it (Nico, 2026-11-20). */
+.cp-best-augs .cp-named.rarity-prismatic .cp-icon {
+  box-shadow: 0 0 0 2px #c9b8ff;
+}
+.cp-best-augs .cp-named.rarity-gold .cp-icon {
+  box-shadow: 0 0 0 2px var(--gold, #e9b949);
+}
+.cp-best-augs .cp-named.rarity-silver .cp-icon {
+  box-shadow: 0 0 0 2px var(--silver, #9aa3ad);
+}
+/* Situational items on the game card: one line per situation (vs healing, vs burst...), its best item named and
+   the runner-up as an icon. Two columns where there's room. */
+.cp-game .cp-sit-mini {
+  list-style: none;
+  margin: 0;
+  padding: 0;
   display: grid;
-  grid-template-columns: 4.5rem minmax(0, 1fr);
-  align-items: start;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  gap: 0.4rem 1rem;
+}
+.cp-game .cp-sit-mini li {
+  display: grid;
+  grid-template-columns: 9.5rem minmax(0, 1fr);
+  align-items: center;
   gap: 0.5rem;
 }
-.cp-aug-line > small {
-  padding-top: 0.75rem;
-  font-weight: 600;
-  font-size: 0.875rem;
+.cp-game .cp-sit-mini small {
+  font-size: 14px;
+  color: var(--muted, inherit);
 }
-.cp-aug-line.rarity-prismatic > small {
-  color: #c9b8ff;
+.cp-game .cp-sit-mini .cp-icons {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-wrap: nowrap;
 }
-.cp-aug-line.rarity-gold > small {
-  color: var(--gold, #e9b949);
+.cp-game .cp-sit-mini .cp-named {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  width: auto;
+  text-align: left;
 }
-.cp-aug-line.rarity-silver > small {
-  color: var(--muted);
+.cp-game .cp-sit-mini .cp-named > small {
+  display: inline;
+  color: inherit;
+  font-size: 14px;
+  text-align: left;
+  hyphens: none;
+}
+.cp-game .cp-sit-mini .cp-icon {
+  width: 30px;
+  height: 30px;
+}
+/* Playstyle: the champion's tags, rating bars and (admins) 3D model, moved down from the header. */
+.cp-style-top {
+  display: grid;
+  gap: 0.75rem;
+  margin-bottom: var(--cp-gap, 1rem);
+}
+.cp-model .showcase {
+  position: relative;
+  width: 100%;
+  height: 320px;
+  margin: 0;
 }
 /* Narrow tiles: the third number (boost) wraps under the first two instead of overflowing. */
 .cp-game .cp-best:not(.cp-best-wide) .cp-mini {
@@ -1296,24 +1342,6 @@ html[data-view="simple"] .cp-fold:not([data-open]) > .cp-fold-body {
     border-left: 0;
   }
 }
-/* Quick build: the top options for each slot after the core. */
-.cp-late-mini {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0.5rem;
-}
-.cp-late-mini > div {
-  display: grid;
-  gap: 0.3rem;
-}
-.cp-late-mini small {
-  color: var(--muted);
-  font-size: 0.875rem;
-}
-.cp-late-mini .cp-icon {
-  width: 28px;
-  height: 28px;
-}
 .cp-late .cp-what {
   flex-wrap: nowrap;
 }
@@ -1351,20 +1379,6 @@ html[data-view="simple"] .cp-fold:not([data-open]) > .cp-fold-body {
     text-align: center;
     overflow-wrap: break-word;
     hyphens: auto;
-  }
-  /* Later items: one slot per line, its label beside the two most common picks. */
-  .cp-late-mini {
-    grid-template-columns: minmax(0, 1fr);
-  }
-  .cp-late-mini > div {
-    grid-template-columns: 4.5rem minmax(0, 1fr);
-    align-items: start;
-  }
-  .cp-late-mini > div > small {
-    padding-top: 0.4rem;
-  }
-  .cp-late-mini .cp-icons {
-    flex-wrap: nowrap;
   }
 }
 
@@ -1521,11 +1535,23 @@ html[data-view="simple"] .cp-fold:not([data-open]) > .cp-fold-body {
   font-size: 0.85em;
 }
 
-/* Expected switch (components/champion/ExpectedSwitch.tsx): build panels show the real win rate by default and the
-   expected one, with its Real or Expected label, when it's on. */
-html:not([data-expected]) .xp-exp,
-html[data-expected] .xp-real {
+/* Adjusted / Raw switch (components/champion/ExpectedSwitch.tsx): build panels show the expected win rate, with its
+   Real or Expected label, and leave out rows with an item only an augment gives (Adjusted, the default); Raw
+   (data-raw) shows the real win rate and every row, the augment ones tagged. */
+html[data-raw] .xp-exp,
+html:not([data-raw]) .xp-real,
+html:not([data-raw]) .cp-row.aug-item {
   display: none;
+}
+.aug-item-tag {
+  margin-left: 0.4rem;
+  padding: 0.05rem 0.4rem;
+  border-radius: 999px;
+  background: var(--raised);
+  color: var(--gold);
+  font-size: 0.875rem;
+  font-weight: 600;
+  white-space: nowrap;
 }
 .cp-cell small.xp-tag {
   color: var(--gold);
@@ -1648,4 +1674,276 @@ html[data-expected] .xp-real {
   font: inherit;
   font-size: 0.875rem;
   text-decoration: underline;
+}
+
+/* Game card layout (Nico, 2026-11-20): on a laptop screen, champion select first (spells, starters, augments,
+   skill order), then the build (core, items 4 to 6), all above the fold at 1366x768. Each tile's numbers sit on
+   one compact line: value beside its label. */
+@media (min-width: 1000px) {
+  .cp-game {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+  }
+  .cp-game > .cp-best {
+    grid-column: span 3;
+  }
+  .cp-game > .cp-best:first-child {
+    grid-column: span 2;
+  }
+  .cp-game > .cp-best-augs {
+    grid-column: span 5;
+  }
+  .cp-game > .cp-best-skill {
+    grid-column: span 2;
+  }
+  .cp-game > .cp-best-wide:not(.cp-best-augs) {
+    grid-column: span 6;
+  }
+}
+.cp-game .cp-best .cp-mini {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.15rem 0.75rem;
+}
+.cp-game .cp-best .cp-mini .cp-cell {
+  flex-direction: row;
+  align-items: baseline;
+  gap: 0.3rem;
+  padding: 0;
+  border-left: 0;
+}
+.cp-game .cp-best .cp-mini .cp-cell b {
+  font-size: 1rem;
+}
+.cp-game .cp-best .cp-mini .cp-cell small {
+  white-space: nowrap;
+}
+.cp-game .cp-best {
+  padding: 0.75rem 0.9rem;
+  gap: 0.5rem;
+}
+.cp-game .cp-stale {
+  font-size: 0.875rem;
+}
+
+.cp-stale-tag {
+  justify-self: start;
+  padding: 0.05rem 0.45rem;
+  border-radius: 999px;
+  background: var(--raised);
+  color: var(--muted);
+  font-size: 0.875rem;
+  cursor: help;
+}
+
+/* Timeframe picker in the header (components/champion/Timeframe.tsx): patch, set, all time; the one in use is lit. */
+.cp-tf-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.cp-tf-controls .patch-pick summary,
+.cp-tf-all {
+  min-height: 2.25rem;
+}
+.cp-tf-controls .patch-pick[data-on] summary,
+.cp-tf-all[aria-pressed="true"] {
+  border-color: var(--accent);
+  background: var(--raised);
+  font-weight: 600;
+}
+.cp-tf-all {
+  padding: 0.35rem 0.75rem;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--surface);
+  color: var(--fg);
+  font: 500 0.875rem var(--mono);
+  cursor: pointer;
+}
+.cp-tf-live {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: var(--good);
+  box-shadow: 0 0 0 0 rgb(var(--good-rgb) / 0.6);
+  animation: cp-tf-live 2s ease-out infinite;
+}
+.cp-tf-live-word {
+  color: var(--good);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+@keyframes cp-tf-live {
+  70% {
+    box-shadow: 0 0 0 6px rgb(var(--good-rgb) / 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgb(var(--good-rgb) / 0);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cp-tf-live {
+    animation: none;
+  }
+}
+.patch-pick-list.cp-tf-sets {
+  grid-template-columns: auto;
+}
+.cp-tf-sets small {
+  margin-left: auto;
+  padding-left: 0.75rem;
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+.cp-tf-loading {
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+/* The header clips its splash; while a timeframe dropdown is open it lets the list hang below it. */
+.cp-hero.champ-hero:has(.cp-tf-pick details[open]) {
+  overflow: visible;
+  z-index: 30;
+}
+
+/* Tables with a header row don't repeat "Win rate" / "Pick rate" under every value (Nico, 2026-11-20: condense);
+   only the Expected tag stays, since it says something the header doesn't. */
+.cp-panel:has(.cp-th) .cp-row .cp-cell > small:not(.xp-tag) {
+  display: none;
+}
+.cp-panel:has(.cp-th) .cp-row {
+  align-items: center;
+}
+
+/* Build at a glance in the header: core, best augments, skill order (links to the card below). */
+.cp-glance {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 1rem;
+  margin-top: 0.6rem;
+  color: inherit;
+  text-decoration: none;
+}
+.cp-glance-part {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+.cp-glance-part + .cp-glance-part {
+  padding-left: 1rem;
+  border-left: 1px solid var(--line, rgba(127, 127, 127, 0.3));
+}
+.cp-glance .cp-icon {
+  width: 28px;
+  height: 28px;
+}
+.cp-glance .rarity-prismatic {
+  box-shadow: 0 0 0 2px #c9b8ff;
+}
+.cp-glance .rarity-gold {
+  box-shadow: 0 0 0 2px var(--gold, #e9b949);
+}
+.cp-glance .rarity-silver {
+  box-shadow: 0 0 0 2px var(--silver, #9aa3ad);
+}
+/* The core in buying order: 1 > 2 > 3. */
+.cp-game ol.cp-buy-order {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.cp-game ol.cp-buy-order > li {
+  display: inline-flex;
+  align-items: center;
+}
+.cp-game ol.cp-buy-order > li + li::before {
+  content: "›";
+  margin: 0 0.3rem;
+  color: var(--muted);
+  font-size: 18px;
+}
+.cp-rush {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0.4rem 0 0;
+  font-size: 14px;
+}
+.cp-rush small {
+  color: var(--muted);
+  font-size: 14px;
+}
+.cp-rush .cp-icon {
+  width: 24px;
+  height: 24px;
+}
+.cp-rush .cp-named {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  width: auto;
+}
+.cp-rush .cp-named > small {
+  display: inline;
+  color: inherit;
+}
+/* Augment-aware swaps under the core. */
+.cp-swaps {
+  list-style: none;
+  margin: 0.5rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0.3rem;
+  font-size: 14px;
+}
+.cp-swaps li {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.cp-swaps .cp-icon {
+  width: 24px;
+  height: 24px;
+}
+/* Build style tabs (AP / Tank...) on the card. */
+.cp-style-tabs {
+  grid-column: 1 / -1;
+  display: grid;
+  gap: 0.6rem;
+}
+.cp-style-tablist {
+  display: flex;
+  gap: 0.4rem;
+}
+.cp-style-tablist button {
+  font: inherit;
+  font-size: 14px;
+  padding: 0.35rem 0.8rem;
+  border-radius: 999px;
+  border: 1px solid var(--line, rgba(127, 127, 127, 0.35));
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+.cp-style-tablist button.on {
+  background: var(--accent-soft, rgba(127, 127, 255, 0.18));
+  border-color: var(--accent, #7f7fff);
+}
+.cp-style-tablist small {
+  color: var(--muted);
+  font-size: 14px;
+}
+.cp-style-panel {
+  display: grid;
+  gap: var(--cp-gap, 1rem);
+}
+.cp-tied {
+  margin-left: 0.4rem;
+  padding: 0 0.4rem;
+  border-radius: 6px;
+  font-size: 14px;
+  background: rgba(127, 127, 127, 0.18);
+}
+.cp-style-panel[hidden] {
+  display: none;
 }

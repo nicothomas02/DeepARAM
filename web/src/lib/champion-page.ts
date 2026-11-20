@@ -3,9 +3,18 @@ import { readFileSync } from "node:fs";
 import championIds from "@/data/champion-ids.json";
 import augmentNames from "@/data/augment-names.json";
 import { liveWithChange } from "./champions";
-import { FIT, fittedBound, grade, lowerBound, type Fit } from "./deepscore";
+import { FIT, type Fit } from "./deepscore";
+import { alongCore, bestRow, buildOrder, followed, scoreRows, sameStyle, situational, skipsBoots, type ItemRow, type Rated } from "./card-score";
+
+export { bestRow, buildOrder, scoreRows, type ItemRow, type Rated };
+import { SIMULATOR_IN_STATS } from "./sim-policy";
+import type { Situation } from "./situations";
+import { rushParts, styleCores, upgradeSwaps } from "./build-plan";
 import {
   ITEM_TIERS,
+  itemClasses,
+  itemRecipe,
+  itemSituation,
   itemTier,
   ranked,
   items,
@@ -47,35 +56,21 @@ type Builds = {
   stale?: string[];
   derived?: string[];
 };
-/** games: estimated live-patch games behind winRate (the champion's games × pickRate), for its 95% range. */
-export type Rated = { winRate: number; pickRate: number; lift: number; games?: number };
-export type ItemRow = Rated & {
-  items: number[];
-  deepScore?: number;
-  tier?: ItemTier;
-  /** Core builds: the boots that go with the core. */
-  boots?: number;
-  /** Core builds: how many core items come before the boots (simulated, data/estimates/boots_timing.json). */
-  bootsAt?: number;
-};
 
-/** A row's items in the order they're bought: the boots go in at bootsAt (first when it isn't known). */
-export function buildOrder(r: ItemRow): number[] {
-  if (r.boots === undefined) return r.items;
-  const at = Math.min(r.bootsAt ?? 0, r.items.length);
-  return [...r.items.slice(0, at), r.boots, ...r.items.slice(at)];
-}
 
 /** Per champion id: core build ("id,id,id") -> boots id -> core items bought before the boots. */
 type BootsTiming = { champions: Record<string, Record<string, Record<string, number>>> };
 /** The options for one item slot after the core (4th, 5th, 6th), best DeepScore first. */
-export type LateSlot = { slot: number; options: ItemRow[] };
+/** A situation the champion's items answer, with its best items (lib/card-score.ts situational). */
+export type SituationRow = { situation: Situation; options: ItemRow[] };
 export type SkillRow = Rated & { max: string[]; levels: string[] };
 export type AugmentRow = {
   id: number;
   name: string;
   rarity: "prismatic" | "gold" | "silver";
   pickRate: number;
+  /** The feed's letter grade for this augment on this champion (S, A, B, C), when it has one. */
+  grade?: string;
   /** The game's own build tags, as style names (lib/build-tags.ts). */
   tags: string[];
 };
@@ -111,12 +106,19 @@ export type ChampionPage = {
   winRate: number;
   skills: SkillRow[];
   starting: ItemRow[];
+  /** Empty when the champion skips boots (lib/card-score.ts skipsBoots). */
   boots: ItemRow[];
   core: ItemRow[];
   full: ItemRow[];
   items: ItemRow[];
-  /** What to buy after the best core: the 4th, 5th and 6th item. */
-  late: LateSlot[];
+  /** Items to swap in after the core, by situation (vs healing, vs burst...). */
+  situational: SituationRow[];
+  /** One entry per real build style when the champion has two (lib/build-plan.ts styleCores), else empty. */
+  buildStyles: { style: string; core: ItemRow; situational: SituationRow[]; rush: number[] }[];
+  /** Components to rush for the best core's first item. */
+  rush: number[];
+  /** Augments the champion takes that upgrade one of its items: with it, buy that item first. */
+  swaps: { augment: number; item: number }[];
   augments: AugmentRow[];
   mates: Mate[];
   styles: Style[];
@@ -206,6 +208,7 @@ export function championPage(alias: string): ChampionPage | null {
       tags: officialStyleLabels(a.id),
       rarity: rarity.get(a.id) ?? "silver",
       pickRate: a.pick_rate,
+      grade: a.grade,
     }));
 
   // Win rate boost: the Duos list's numbers (lib/duos.ts), the synergy adjusted for how often a pair is played,
@@ -239,17 +242,29 @@ export function championPage(alias: string): ChampionPage | null {
     ...rows(b?.items?.starting),
   ]);
   const timing =
-    readRepoJson<BootsTiming>("data/estimates/boots_timing.json")?.champions[String(id)] ?? {};
-  const core = withBoots(scoreItems(rows(b?.items?.core)), full, boots[0], timing);
+    (SIMULATOR_IN_STATS ? readRepoJson<BootsTiming>("data/estimates/boots_timing.json")?.champions[String(id)] : undefined) ?? {};
+  const bootsRows = rows(b?.items?.boots);
+  const noBoots = skipsBoots(bootsRows, full, (i) => itemTier(i) === "boots");
+  const scoredCore = followed(scoreItems(rows(b?.items?.core)));
+  const core = noBoots ? scoredCore : withBoots(scoredCore, full, boots[0], timing);
   const page = {
     winRate: base,
     skills,
     starting: scoreItems(rows(b?.items?.starting), FIT.items),
-    boots,
+    boots: noBoots ? [] : boots,
     core,
     full,
-    items: single,
-    late: lateSlots(core[0], single),
+    items: noBoots ? single.filter((r) => r.tier !== "boots") : single,
+    situational: situationalItems(core[0], single, full),
+    // A tab per real build style (tank and AP Alistar), each with its own situational items.
+    buildStyles: styleCores(core, itemClasses).map((s) => ({ ...s, situational: situationalItems(s.core, single, full), rush: rushParts(s.core.items[0], itemRecipe) })),
+    rush: core[0] ? rushParts(core[0].items[0], itemRecipe) : [],
+    swaps: upgradeSwaps(
+      [...augments].sort((x, y) => y.pickRate - x.pickRate),
+      [...(core[0]?.items ?? []), ...(core[0] ? sameStyle(single.filter((r) => r.tier === "legendary"), core[0].items, itemClasses) : []).map((r) => r.items[0])]
+        .filter((i, k, a) => a.indexOf(i) === k)
+        .flatMap((i) => (all.get(i) ? [{ id: i, name: all.get(i)!.name }] : [])),
+    ),
     augments,
     mates,
     styles,
@@ -263,7 +278,8 @@ export function championPage(alias: string): ChampionPage | null {
   const used = new Set(
     [page.starting, page.boots, page.core, page.full, page.items]
       .flat()
-      .flatMap((r) => (r.boots ? [r.boots, ...r.items] : r.items)),
+      .flatMap((r) => (r.boots ? [r.boots, ...r.items] : r.items))
+      .concat(page.rush, page.swaps.map((s) => s.item), page.buildStyles.flatMap((s) => s.rush)),
   );
   const itemInfo = Object.fromEntries(
     [...used].map((i) => [
@@ -285,8 +301,6 @@ function earlyBuilds(id: number): Pick<Required<Builds>["items"], "core" | "full
   return { core: c.core, full_builds: c.full_builds, other: c.other };
 }
 
-const MEDIAN_GAMES = 1000; // pseudo-games for an item of median popularity, as on the Tier List
-const PRIOR = 0.25; // the average's weight, in median items' worth of games
 
 /** Every single item the champion builds, grouped by shop tier (Legendary, Boots, Epic...) and best DeepScore first within each tier. */
 function tiered(list: ItemRow[]): ItemRow[] {
@@ -337,65 +351,27 @@ function withBoots(
   });
 }
 
-const LATE_SLOTS = [4, 5, 6];
-const LATE_OPTIONS = 4;
-
-/**
- * The 4th, 5th and 6th item after the best core: the champion's other legendary items, by DeepScore among
- * themselves. Each slot
- * assumes the best pick of the slots before it was bought, so it drops out of the later slots' options.
- */
-function lateSlots(core: ItemRow | undefined, single: ItemRow[]): LateSlot[] {
-  if (!core) return [];
-  const taken = new Set(core.items);
-  // Scored against each other: the core items would otherwise crowd every option to the bottom of the scale.
-  const pool = scoreItems(
-    single.filter((r) => r.tier === "legendary" && ranked(r.items[0]) && !taken.has(r.items[0])),
+/** The legendary items to pick from after this core: scored against each other (the core items would otherwise
+ *  crowd every option to the bottom of the scale), items bought with this core first (lib/card-score.ts alongCore). */
+function afterCore(core: ItemRow, single: ItemRow[], full: ItemRow[]): ItemRow[] {
+  return alongCore(
+    scoreItems(single.filter((r) => r.tier === "legendary" && ranked(r.items[0]) && !core.items.includes(r.items[0]))),
+    core.items,
+    full,
   );
-  const slots: LateSlot[] = [];
-  for (const slot of LATE_SLOTS) {
-    const options = pool
-      .filter((r) => !taken.has(r.items[0]))
-      .slice(0, LATE_OPTIONS);
-    if (!options.length) break;
-    slots.push({ slot, options });
-    taken.add(options[0].items[0]);
-  }
-  return slots;
+}
+
+/** Situational items after a core: one row per situation with its best items (lib/situations.ts), the swaps
+ *  players make most often first (by the best option's pick rate). */
+function situationalItems(core: ItemRow | undefined, single: ItemRow[], full: ItemRow[]): SituationRow[] {
+  if (!core) return [];
+  return situational(sameStyle(afterCore(core, single, full), core.items, itemClasses), itemSituation).sort(
+    (x, y) => y.options[0].pickRate - x.options[0].pickRate,
+  );
 }
 
 // Starting items and boots use the fitted settings, which were backtested on them; builds and single items keep
 // the old prior until their history can be backtested (data/analysis/predictive.py).
 const scoreItems = (list: ItemRow[], fit: Fit | null = null): ItemRow[] => scoreRows(list, fit);
 
-/** DeepScore for each row against the rest of the champion's list (items, builds, spell pairs; lib/deepscore.ts), best first.
- *  `fit`: fitted next-patch settings (single items); without it, the old hand-set prior (builds, spell pairs). */
-export function scoreRows<T extends { winRate: number; pickRate: number }>(list: T[], fit: Fit | null = null): (T & { deepScore?: number })[] {
-  if (!list.length) return list;
-  const picks = list.map((r) => r.pickRate).sort((x, y) => x - y);
-  const median = picks[Math.floor(picks.length / 2)] || 1;
-  const total = list.reduce((s, r) => s + r.pickRate, 0) || 1;
-  const mean = list.reduce((s, r) => s + r.winRate * r.pickRate, 0) / total;
-  const bounds = list.map((r) =>
-    fit
-      ? fittedBound(r.winRate, r.pickRate / median, mean, fit)
-      : lowerBound(
-          r.winRate,
-          (r.pickRate / median) * MEDIAN_GAMES,
-          mean,
-          PRIOR * MEDIAN_GAMES,
-        ),
-  );
-  const grades = grade(bounds);
-  return list
-    .map((r, i) => ({ ...r, deepScore: grades[i].deepScore }))
-    .sort((x, y) => y.deepScore! - x.deepScore! || y.pickRate - x.pickRate);
-}
 
-/** The row players should copy: most wins among rows with a real following (2% of games, or the top three). */
-export function bestRow<T extends Rated>(rows: T[], min = 0.02): T | null {
-  const common = rows.filter((r, i) => r.pickRate >= min || i < 3);
-  return common.length
-    ? common.reduce((a, r) => (r.winRate > a.winRate ? r : a))
-    : null;
-}

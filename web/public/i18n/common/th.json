@@ -240,5 +240,16 @@
  "DeepARAM is built just for ARAM Mayhem. Rankings come from data science, and builds are tested in a fight simulator.": "DeepARAM สร้างมาเพื่อ ARAM Mayhem โดยเฉพาะ การจัดอันดับมาจากวิทยาศาสตร์ข้อมูล และบิลด์ผ่านการทดสอบในเครื่องจำลองการต่อสู้",
  "Announcer": "ผู้ประกาศ",
  "Default": "ค่าเริ่มต้น",
- "Male": "ชาย"
+ "Male": "ชาย",
+ "Built just for Mayhem, with stats that predict instead of just count, and a fight simulator to play with.": "สร้างมาเพื่อ Mayhem โดยเฉพาะ ด้วยสถิติที่ทำนายแทนการนับเฉยๆ และตัวจำลองการต่อสู้ไว้เล่นสนุก",
+ "A fight simulator to play with": "ตัวจำลองการต่อสู้ไว้เล่นสนุก",
+ "Pit any build against real kits in a 3D replay. It's a sandbox for fun, so no ranking on the site leans on it.": "จับบิลด์ใดก็ได้ปะทะชุดสกิลจริงในรีเพลย์ 3 มิติ เป็นพื้นที่เล่นสนุก ไม่มีอันดับใดในเว็บที่อิงกับมัน",
+ "DeepARAM is built just for ARAM Mayhem. Rankings come from data science, and the fight simulator is there for fun.": "DeepARAM สร้างมาเพื่อ ARAM Mayhem โดยเฉพาะ อันดับมาจากวิทยาการข้อมูล ส่วนตัวจำลองการต่อสู้มีไว้เล่นสนุก",
+ "Live": "สด",
+ "{n} sets": "{n} เซ็ต",
+ "Builds are saved from patch {patch} on, so the card shows rates only.": "บันทึกบิลด์ตั้งแต่แพตช์ {patch} การ์ดจึงแสดงเฉพาะอัตรา",
+ "Builds cover patch {patch} on.": "บิลด์ครอบคลุมตั้งแต่แพตช์ {patch}",
+ "The rest of the page shows the live patch.": "ส่วนอื่นของหน้าแสดงแพตช์ปัจจุบัน",
+ "Not played in these patches.": "ไม่ได้เล่นในแพตช์เหล่านี้",
+ "No saved builds for these patches.": "ไม่มีบิลด์ที่บันทึกไว้สำหรับแพตช์เหล่านี้"
 }

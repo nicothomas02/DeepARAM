@@ -141,10 +141,19 @@ def signature(v):
     return hashlib.sha1(json.dumps(v, sort_keys=True).encode()).hexdigest()[:12]
 
 
-def from_full_builds(full, boots):
-    """Single items and three-item cores from the six-item builds. An item's pick rate is the share of the
-    listed builds that have it; a core is each build's three most common non-boots items, most common first
-    (the builds list items as a set, so the most built items stand in for the first ones bought)."""
+CORE_ROWS = 8
+
+
+def from_full_builds(full, boots, of_listed=False):
+    """Single items and three-item cores from the six-item builds, which keep updating when those blocks freeze.
+
+    Pick rates are shares of all the champion's games, like the feed's own rows: the summed pick rate of the
+    listed six-item builds that hold the item or core. (Dividing by the listed builds instead gave the trio in
+    every top build a 100% pick rate: Nico, 2026-11-20, on Yasuo.) A core is each build's three most built
+    non-boots items, most built first: the items nearly every build shares (Yasuo: Infinity Edge, Death's Dance,
+    Rite of Ruin). Splitting builds into every three-item set was tried and dropped: it showed cores without an
+    item that every one of those builds has, which read as that item being worse.
+    of_listed: single items' pick rates as shares of the listed builds instead (early_builds.py compares those)."""
     total = sum(r["pick_rate"] or 0 for r in full)
     if not total:
         return [], []
@@ -153,7 +162,8 @@ def from_full_builds(full, boots):
         for i in set(r["items"]):
             share[i] = share.get(i, 0) + r["pick_rate"]
             wins[i] = wins.get(i, 0) + r["pick_rate"] * (r["win_rate"] or 0)
-    other = [{"items": [i], "pick_rate": round(share[i] / total, 4), "win_rate": round(wins[i] / share[i], 4)}
+    scale = total if of_listed else 1.0
+    other = [{"items": [i], "pick_rate": round(share[i] / scale, 4), "win_rate": round(wins[i] / share[i], 4)}
              for i in share if i not in boots]
     other.sort(key=lambda r: -r["pick_rate"])
     cores = {}
@@ -163,10 +173,9 @@ def from_full_builds(full, boots):
             c = cores.setdefault(tuple(top), [0.0, 0.0])
             c[0] += r["pick_rate"]
             c[1] += r["pick_rate"] * (r["win_rate"] or 0)
-    core = [{"items": list(k), "pick_rate": round(v[0] / total, 4), "win_rate": round(v[1] / v[0], 4)}
-            for k, v in cores.items() if v[0]]
-    core.sort(key=lambda r: -r["pick_rate"])
-    return core, other
+    core = [{"items": list(k), "pick_rate": round(v[0], 4), "win_rate": round(v[1] / v[0], 4)} for k, v in cores.items() if v[0]]
+    core.sort(key=lambda r: (-r["pick_rate"], -r["win_rate"]))
+    return core[:CORE_ROWS], other
 
 
 def freshen(data, old, boots):

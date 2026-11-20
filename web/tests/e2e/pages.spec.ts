@@ -152,8 +152,9 @@ test("clicking a champion on the Tier List opens its page, with no favorites or 
 });
 
 test("a link to the Tier List's last tab shows that tab in the tab row", async ({ page }) => {
-  await page.goto("/tier-list?tab=pentakill");
-  const tab = page.getByRole("tab", { name: "Pentakill" });
+  // Items is the last tab while the Simulator-made Weapon of Destiny and Pentakill tabs are off (lib/sim-policy.ts).
+  await page.goto("/tier-list?tab=items");
+  const tab = page.getByRole("tab", { name: "Items" });
   await expect(tab).toHaveAttribute("aria-selected", "true");
   // On phones the row scrolls sideways: the open tab must be inside its visible part.
   await expect
@@ -283,19 +284,24 @@ test("augment and item pages show the official description under the name, the l
   await expect(page.locator("#synergies .syn-row").first()).toContainText("pts");
 });
 
-test("champion pages list Synergies and the Expected switch relabels build win rates", async ({ page }) => {
-  await page.goto("/champions/Jinx");
-  const syn = page.locator("#synergies + .cp-panel .syn");
+test("champion pages list Synergies and the Adjusted / Raw switch relabels build win rates", async ({ page }) => {
+  // Win rate boosts sit in a fold; its section link opens it.
+  await page.goto("/champions/Jinx#synergies");
+  const syn = page.locator(".cp-panel .syn");
   await expect(syn.locator(".syn-row").first()).toContainText("pts");
   await syn.getByRole("button", { name: /Items/ }).click();
   await expect(syn.locator(".syn-row").first()).toBeVisible();
-  // Off: build panels show "Win rate" under each value; on: each row says Real or Expected.
-  const sw = page.getByRole("switch", { name: "Expected" });
-  await sw.click();
-  await expect(sw).toHaveAttribute("aria-checked", "true");
-  await expect(page.locator(".cp-panel").filter({ has: page.locator("h3", { hasText: /^Boots$/ }) }).locator(".cp-cell small.xp-exp").first()).toBeVisible();
-  await sw.click();
-  await expect(page.locator(".cp-panel").filter({ has: page.locator("h3", { hasText: /^Boots$/ }) }).locator(".cp-cell small.xp-exp").first()).toBeHidden();
+  // Adjusted (the default) shows the adjusted win rate, tagging Expected ones; Raw shows the plain one.
+  const boots = page.locator(".cp-panel").filter({ has: page.locator("h3", { hasText: /^Boots$/ }) });
+  const adjusted = page.getByRole("button", { name: "Adjusted", exact: true });
+  const raw = page.getByRole("button", { name: "Raw", exact: true });
+  await expect(adjusted).toHaveAttribute("aria-pressed", "true");
+  await expect(boots.locator(".cp-cell b.xp-exp").first()).toBeVisible();
+  await raw.click();
+  await expect(raw).toHaveAttribute("aria-pressed", "true");
+  await expect(boots.locator(".cp-cell b.xp-exp").first()).toBeHidden();
+  await adjusted.click();
+  await expect(boots.locator(".cp-cell b.xp-exp").first()).toBeVisible();
 });
 
 test("share links for a Chef Special and a build give link previews their card", async ({ page, request }) => {
@@ -351,18 +357,41 @@ test("a contact message of a few words offers the site search instead", async ({
   await expect(box.getByRole("button", { name: /Search for/ })).toHaveCount(0);
 });
 
-test("Changes your build picks that augment in the build picker, and each Synergies list opens on its best score", async ({ page }) => {
+test("champion header timeframe: live patch by default, then patches, sets or all time change the numbers and the top card", async ({ page }) => {
+  await page.goto("/champions/Ashe");
+  const pick = page.locator(".cp-tf-pick");
+  await expect(pick.locator(".cp-tf-live")).toHaveCount(1);
+  const liveStrip = await page.locator(".cp-strip").first().innerText();
+  // All time: rates over every patch, and the card says which patches its builds cover.
+  await pick.getByRole("button", { name: "All time" }).click();
+  await expect(page).toHaveURL(/tf=all/);
+  await expect(pick.locator(".stat-range-span")).toContainText("Patches");
+  await expect(page.locator(".cp-strip").first()).not.toHaveText(liveStrip);
+  await expect(page.locator(".cp-game .cp-best-augs .cp-named")).not.toHaveCount(0);
+  // One set at a time from the set dropdown.
+  await pick.locator(".patch-pick").nth(1).locator("> summary").click();
+  await pick.locator(".cp-tf-sets label").first().click();
+  await expect(page).toHaveURL(/tf=s(:|%3A)/);
+  await expect(pick.getByRole("button", { name: "All time" })).toHaveAttribute("aria-pressed", "false");
+  // An old patch has rates but no saved builds.
+  await page.goto("/champions/Ashe?tf=p:16.10");
+  await expect(page.locator(".cp-game")).toContainText("No saved builds for these patches.");
+  await expect(page.locator(".cp-strip").first()).toContainText("Win rate");
+});
+
+test("each Synergies list opens on its best score, and no Simulator-made panel shows on champion pages", async ({ page }) => {
   await page.goto("/champions/Braum");
-  const tag = page.locator(".cp-changes").first();
-  await tag.click();
-  await expect(page).toHaveURL(/\/champions\/Braum#augment-builds$/);
-  await expect(page.locator(".cp-ab-chip[aria-pressed=true]")).toHaveCount(1);
-  const syn = page.locator("#synergies + .cp-panel .syn");
+  // The Simulator is a fun tool only for now (lib/sim-policy.ts): no build picker, Best upgrades or "Changes your build" tag.
+  await expect(page.locator("#augment-builds, #upgrades, .cp-changes")).toHaveCount(0);
+  await page.locator('.cp-rail a[href="#synergies"]').click();
+  const syn = page.locator(".cp-panel .syn");
   await syn.locator(".syn-sort").filter({ hasText: "Pick rate" }).click();
   await expect(syn.locator(".syn-sort[aria-pressed=true]")).toContainText("Pick rate");
-  await syn.getByRole("button", { name: /Augment combos/ }).click();
+  await syn.getByRole("button", { name: /Full builds/ }).click();
   await expect(syn.locator(".syn-sort[aria-pressed=true]")).toContainText("Score");
-  await expect(syn.locator(".syn-callout")).toBeVisible();
+  // Sums of two augments' own scores are gone (Nico, 2026-11-20); Augment synergies holds pairs that feed each other.
+  await expect(syn.getByRole("button", { name: /Augment combos/ })).toHaveCount(0);
+  await expect(page.locator("#combos")).toContainText("Augment synergies");
 });
 
 test("the Simulator opens in 3D even with the old owner switch's saved 2D pick", async ({ page }) => {

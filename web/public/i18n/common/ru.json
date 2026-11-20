@@ -240,5 +240,16 @@
  "DeepARAM is built just for ARAM Mayhem. Rankings come from data science, and builds are tested in a fight simulator.": "DeepARAM создан только для режима ARAM: Хаос. Рейтинги строятся на науке о данных, а сборки проверяются в боевом симуляторе.",
  "Announcer": "Комментатор",
  "Default": "По умолчанию",
- "Male": "Мужской"
+ "Male": "Мужской",
+ "Built just for Mayhem, with stats that predict instead of just count, and a fight simulator to play with.": "Сделано только для Mayhem: статистика, которая предсказывает, а не просто считает, и симулятор боёв, чтобы поиграть.",
+ "A fight simulator to play with": "Симулятор боёв, чтобы поиграть",
+ "Pit any build against real kits in a 3D replay. It's a sandbox for fun, so no ranking on the site leans on it.": "Сведите любую сборку с реальными наборами умений в 3D-повторе. Это песочница для развлечения, поэтому ни один рейтинг на сайте на неё не опирается.",
+ "DeepARAM is built just for ARAM Mayhem. Rankings come from data science, and the fight simulator is there for fun.": "DeepARAM сделан только для ARAM Mayhem. Рейтинги строятся на науке о данных, а симулятор боёв — для развлечения.",
+ "Live": "Сейчас",
+ "{n} sets": "Сетов: {n}",
+ "Builds are saved from patch {patch} on, so the card shows rates only.": "Сборки сохраняются с патча {patch}, поэтому карточка показывает только показатели.",
+ "Builds cover patch {patch} on.": "Сборки охватывают патч {patch} и новее.",
+ "The rest of the page shows the live patch.": "Остальная страница показывает текущий патч.",
+ "Not played in these patches.": "В этих патчах не играли.",
+ "No saved builds for these patches.": "Для этих патчей нет сохранённых сборок."
 }

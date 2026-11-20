@@ -51,8 +51,12 @@
   <div class="row" id="skills"></div>
   <h2 id="spells-title">Spells</h2>
   <div class="row" id="spells"></div>
-  <h2>Items</h2>
+  <h2>Core build</h2>
   <div class="row" id="items"></div>
+  <div class="row" id="rush"></div>
+  <div class="augs" id="swaps"></div>
+  <h2 id="sit-title">Situational items</h2>
+  <div class="augs" id="sit"></div>
   <h2>Augments to look for</h2>
   <div class="augs" id="augs"></div>
   <footer id="hint">Ctrl+Shift+O hides this</footer>
@@ -98,6 +102,27 @@
       i.title = it.name;
       return i;
     }));
+
+    // Parts to rush for the first core item, and augment swaps ("With X: buy Y first").
+    const rush = document.getElementById("rush");
+    rush.replaceChildren(...((b.rush || []).length ? [el("span", "", "Rush"), ...b.rush.map((it) => { const i = img(site, it.icon, it.name); i.title = it.name; return i; })] : []));
+    rush.hidden = !(b.rush || []).length;
+    const swaps = document.getElementById("swaps");
+    swaps.replaceChildren(...(b.swaps || []).map((sw) => {
+      const row = el("div", "aug");
+      row.append(img(site, sw.augment.icon, ""), el("span", "", `With ${sw.augment.name}: buy ${sw.item.name} first`));
+      return row;
+    }));
+    swaps.hidden = !(b.swaps || []).length;
+
+    // Situational items: what to swap in after the core, with when (same as the champion page's card).
+    const sit = document.getElementById("sit");
+    sit.replaceChildren(...(b.situational || []).map((it) => {
+      const row = el("div", "aug");
+      row.append(img(site, it.icon, ""), el("span", "", `${it.name} · ${it.when}`));
+      return row;
+    }));
+    sit.hidden = document.getElementById("sit-title").hidden = !(b.situational || []).length;
 
     const augs = document.getElementById("augs");
     augs.replaceChildren();

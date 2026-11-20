@@ -240,5 +240,16 @@
  "DeepARAM is built just for ARAM Mayhem. Rankings come from data science, and builds are tested in a fight simulator.": "DeepARAM yalnızca ARAM: Şamata için yapıldı. Sıralamalar veri biliminden gelir ve buildler bir dövüş simülatöründe test edilir.",
  "Announcer": "Spiker",
  "Default": "Varsayılan",
- "Male": "Erkek"
+ "Male": "Erkek",
+ "Built just for Mayhem, with stats that predict instead of just count, and a fight simulator to play with.": "Yalnızca Mayhem için yapıldı: sadece saymak yerine tahmin eden istatistikler ve oynamak için bir dövüş simülatörü.",
+ "A fight simulator to play with": "Oynamak için bir dövüş simülatörü",
+ "Pit any build against real kits in a 3D replay. It's a sandbox for fun, so no ranking on the site leans on it.": "İstediğin dizilimi 3B tekrarda gerçek yetenek setlerine karşı dövüştür. Eğlence için bir oyun alanı; sitedeki hiçbir sıralama ona dayanmaz.",
+ "DeepARAM is built just for ARAM Mayhem. Rankings come from data science, and the fight simulator is there for fun.": "DeepARAM yalnızca ARAM Mayhem için yapıldı. Sıralamalar veri biliminden gelir, dövüş simülatörü ise eğlence içindir.",
+ "Live": "Canlı",
+ "{n} sets": "{n} set",
+ "Builds are saved from patch {patch} on, so the card shows rates only.": "Buildler {patch} yamasından beri kaydediliyor, bu yüzden kart yalnızca oranları gösteriyor.",
+ "Builds cover patch {patch} on.": "Buildler {patch} yamasından itibaren.",
+ "The rest of the page shows the live patch.": "Sayfanın geri kalanı güncel yamayı gösteriyor.",
+ "Not played in these patches.": "Bu yamalarda oynanmadı.",
+ "No saved builds for these patches.": "Bu yamalar için kayıtlı build yok."
 }

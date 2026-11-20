@@ -240,5 +240,16 @@
  "DeepARAM is built just for ARAM Mayhem. Rankings come from data science, and builds are tested in a fight simulator.": "DeepARAM è creato solo per ARAM: Pandemonio. Le classifiche nascono dalla data science e le build vengono testate in un simulatore di combattimento.",
  "Announcer": "Annunciatore",
  "Default": "Predefinito",
- "Male": "Maschile"
+ "Male": "Maschile",
+ "Built just for Mayhem, with stats that predict instead of just count, and a fight simulator to play with.": "Creato solo per Mayhem, con statistiche che prevedono invece di contare soltanto, e un simulatore di combattimento con cui giocare.",
+ "A fight simulator to play with": "Un simulatore di combattimento con cui giocare",
+ "Pit any build against real kits in a 3D replay. It's a sandbox for fun, so no ranking on the site leans on it.": "Metti qualsiasi build contro kit reali in un replay 3D. È un'area di gioco per divertirsi, quindi nessuna classifica del sito si basa su di esso.",
+ "DeepARAM is built just for ARAM Mayhem. Rankings come from data science, and the fight simulator is there for fun.": "DeepARAM è creato solo per ARAM Mayhem. Le classifiche vengono dalla data science, e il simulatore di combattimento c'è per divertirsi.",
+ "Live": "Live",
+ "{n} sets": "{n} set",
+ "Builds are saved from patch {patch} on, so the card shows rates only.": "Le build sono salvate dalla patch {patch}, quindi la scheda mostra solo le percentuali.",
+ "Builds cover patch {patch} on.": "Le build coprono dalla patch {patch} in poi.",
+ "The rest of the page shows the live patch.": "Il resto della pagina mostra la patch attuale.",
+ "Not played in these patches.": "Non giocato in queste patch.",
+ "No saved builds for these patches.": "Nessuna build salvata per queste patch."
 }

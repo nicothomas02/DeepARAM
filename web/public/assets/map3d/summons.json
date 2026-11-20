@@ -1,0 +1,26 @@
+{
+ "tibbers": {
+  "file": "tibbers.glb",
+  "icon": "tibbers.png",
+  "scale": 0.012,
+  "clips": {
+   "idle": "idle",
+   "attack": "attack",
+   "attack2": "attack2",
+   "run": "run",
+   "respawn": "respawn",
+   "death": "death"
+  }
+ },
+ "viegosoul": {
+  "file": "viegosoul.glb",
+  "icon": "viegosoul.png",
+  "scale": 0.013,
+  "clips": {
+   "idle": "idle",
+   "respawn": "respawn",
+   "death": "death"
+  },
+  "tint": "#5fe0c0"
+ }
+}

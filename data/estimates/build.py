@@ -55,6 +55,9 @@ def vs_average(stats):
     return out
 
 
+ARCHIVE_PRIOR = 200  # pseudo-games of the public-stats prediction behind each champion's profile value
+
+
 def profiles(stats, fitted):
     dd = cm.data_dragon()
     p = fitted["profiles"]
@@ -64,12 +67,16 @@ def profiles(stats, fitted):
         feats[c] = [1.0, s["damage"] * 5, s["tank"] * 5, s["kp"] * 2, s["dead"] / 100,
                     1.0 if info["stats"].get("attackrange", 500) <= 250 else 0.0] + [1.0 if t in info["tags"] else 0.0 for t in cm.TAGS]
     out = defaultdict(dict)
+    # The prediction comes from the champion's public Mayhem stats; the archive's own per-champion average only
+    # adjusts it. Nico, 2026-11-20: use his games only where nothing else exists and weight the public stats far
+    # more, so a champion's archive games count as at most ARCHIVE_PRIOR / 5 of the value (60 games: ~23%).
+    prior_games = max(p["prior_games"], ARCHIVE_PRIOR)
     for name, d in p["stats"].items():
         vals = {}
         for c in stats:
             prior = sum(a * b for a, b in zip(d["coef"], feats[c]))
             mean, n = d["champions"].get(c, [prior, 0])
-            vals[c] = (mean * n + prior * p["prior_games"]) / (n + p["prior_games"])
+            vals[c] = (mean * n + prior * prior_games) / (n + prior_games)
         if name.endswith("_share"):  # the three damage types add up to 1
             continue
         ordered = sorted(vals.values())
