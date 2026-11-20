@@ -29,7 +29,7 @@ use serde_json::{json, Value};
 use tauri::{webview::PageLoadEvent, AppHandle, Manager, WebviewUrl, WebviewWindowBuilder};
 
 use crate::{
-    overlay::{champion_alias, local_agent, MAYHEM_MODE},
+    overlay::{champion_alias, local_agent, my_row, MAYHEM_MODE},
     review::{self, Sample},
     Store, SITE,
 };
@@ -303,7 +303,7 @@ fn live_game(app: &AppHandle, agent: &ureq::Agent, fit: &HashMap<String, f64>, o
     }
     let me = data.get("activePlayer").and_then(|p| p.get("riotId")?.as_str().map(str::to_owned)).unwrap_or_default();
     let players = data.get("allPlayers").and_then(Value::as_array).cloned().unwrap_or_default();
-    let Some(row) = players.iter().find(|p| p.get("riotId").and_then(Value::as_str) == Some(me.as_str())) else {
+    let Some(row) = my_row(&me, &players) else {
         return;
     };
     let team = row.get("team").and_then(Value::as_str).unwrap_or_default().to_owned();
@@ -405,7 +405,18 @@ pub fn watch(app: AppHandle) {
                 let state = app.state::<Shared>();
                 let mut s = state.lock().unwrap();
                 if s.phase != phase {
+                    // The game ended but no review is coming yet (it needs the overlay, and games of 5 minutes or
+                    // more): don't leave the in-game panel up as if the game were still on.
+                    let ended = s.phase == "InProgress"
+                        && s.script.as_deref().is_some_and(|x| x.starts_with("window.showGame"));
                     s.phase = phase.clone();
+                    if ended {
+                        drop(s);
+                        if app.get_webview_window(LABEL).is_some() {
+                            send(&app, "window.showOver()".into());
+                        }
+                        s = state.lock().unwrap();
+                    }
                     if phase == "ChampSelect" {
                         s.dismissed = false;
                         s.history.clear();
@@ -477,7 +488,7 @@ mod tests {
     #[test]
     fn companion_page_has_the_entry_points() {
         let page = include_str!("../../ui/companion.html");
-        for f in ["window.showPick", "window.showGame", "window.showReview", "Predicted"] {
+        for f in ["window.showPick", "window.showGame", "window.showOver", "window.showReview", "Predicted"] {
             assert!(page.contains(f), "{f}");
         }
     }

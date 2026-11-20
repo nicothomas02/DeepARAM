@@ -43,6 +43,11 @@
   .item img { width: 32px; height: 32px; border-radius: 6px; }
   .box.now { border-color: var(--gold); }
   .tip { margin-top: 8px; }
+  .filters { display: flex; gap: 6px; margin-bottom: 8px; }
+  .chip.f { padding: 3px 10px; }
+  .chip.on { color: var(--fg); border-color: var(--accent); }
+  .aug { padding: 6px 10px; margin-bottom: 4px; }
+  .aug img { width: 30px; height: 30px; }
   .tip b { color: var(--fg); }
   [hidden] { display: none !important; }
 </style>
@@ -136,7 +141,9 @@
   const loadBuilds = () => builds ?? (builds = fetch(`${SITE}/data/overlay.json`).then((r) => r.json()).catch(() => null));
   const augIcon = (id) => `<img src="${SITE}/icons/augments/${id}.webp" alt="">`;
   const itemId = (icon) => Number((icon.match(/(\d+)\.png$/) ?? [])[1]) % 10000;
-  let game = null, query = "";
+  let game = null, query = "", rarity = "", reached = {};
+  // The champion's key in a data file, whatever its capitals (the game says "FiddleSticks", files may not).
+  const keyIn = (obj, champ) => (obj && champ ? Object.keys(obj).find((k) => k.toLowerCase() === champ.toLowerCase()) : undefined);
 
   // What you took, kept per game (your champion plus when the game started) so a reopened window remembers.
   function readTaken() { try { return JSON.parse(localStorage.getItem("taken") ?? "null"); } catch { return null; } }
@@ -165,16 +172,17 @@
     const box = document.getElementById("augs");
     if (!box || !game) return;
     const d = await loadPicks();
-    if (!d || !d.champions[game.champ]) { box.innerHTML = `<p class="note">No augment ranking for this champion yet.</p>`; return; }
+    const ck = keyIn(d?.champions, game.champ);
+    if (!d || !ck) { box.innerHTML = `<p class="note">No augment ranking for this champion yet.</p>`; return; }
     const taken = getTaken(game);
     const name = (id) => d.augments[id]?.[0] ?? `#${id}`;
     const q = query.trim().toLowerCase();
-    const ranked = rankAugments(d, game.champ, taken);
+    const ranked = rankAugments(d, ck, taken).filter((a) => !rarity || d.augments[a.id]?.[1] === rarity);
     const shown = q ? ranked.filter((a) => name(a.id).toLowerCase().includes(q)) : ranked.slice(0, 8);
     const row = (a, i) => `
       <button class="row aug${i === 0 && !q ? " best" : ""}" data-id="${a.id}">
         ${augIcon(a.id)}
-        <div><div class="name">${esc(name(a.id))}</div><div class="why">${a.mate !== null ? `Synergy with ${esc(name(a.mate))}` : esc(d.augments[a.id]?.[1] ?? "")}</div></div>
+        <div><div class="name">${esc(name(a.id))}</div><div class="why">${a.mate !== null ? `Synergy with ${esc(name(a.mate))}` : esc((d.augments[a.id]?.[1] ?? "").replace(/^./, (c) => c.toUpperCase()))}</div></div>
         <div class="num">#${ranked.indexOf(a) + 1}</div>
       </button>`;
     box.innerHTML = `
@@ -184,7 +192,9 @@
     box.querySelectorAll("button[data-id]").forEach((b) => b.addEventListener("click", () => {
       const id = Number(b.dataset.id), t = getTaken(game);
       setTaken(game, t.includes(id) ? t.filter((x) => x !== id) : [...t, id]);
-      query = ""; const s = document.getElementById("search"); if (s) s.value = "";
+      // The next pick can be any rarity, so a tap clears the search and the rarity filter.
+      query = ""; rarity = ""; const s = document.getElementById("search"); if (s) s.value = "";
+      document.querySelectorAll(".chip.f").forEach((x) => x.classList.toggle("on", x.dataset.r === ""));
       renderAugments();
     }));
   }
@@ -216,13 +226,17 @@
     const box = document.getElementById("items");
     if (!box || !game) return;
     const [d, k] = await Promise.all([loadBuilds(), loadKinds()]);
-    const build = d?.champions?.find((c) => c.id === game.champ)?.items ?? [];
+    const build = d?.champions?.find((c) => c.id.toLowerCase() === game.champ.toLowerCase())?.items ?? [];
     const owned = new Set(game.items.map((i) => i % 10000));
-    const next = build.filter((it) => !owned.has(itemId(it.icon))).slice(0, 2);
+    // Any boots fill the build's boots slot: someone on other boots shouldn't be told to buy the build's pair.
+    const bootIds = new Set(k?.boots ?? []);
+    const hasBoots = [...owned].some((i) => bootIds.has(i));
+    const next = build.filter((it) => !owned.has(itemId(it.icon)) && !(hasBoots && bootIds.has(itemId(it.icon)))).slice(0, 2);
     const tip = k ? damageLine(k, game) : "";
     if (!next.length) { box.innerHTML = (build.length ? `<p class="note">You have the whole build.</p>` : `<p class="note">No build for this champion yet.</p>`) + tip; return; }
-    box.innerHTML = `<div class="box${game.dead ? " now" : ""}">
-      ${game.dead ? `<div class="why">You're dead: a good time to shop.</div>` : ""}
+    const shop = game.dead ? "You're dead: a good time to shop." : game.t < 60 ? "In base: a good time to shop." : "";
+    box.innerHTML = `<div class="box${shop ? " now" : ""}">
+      ${shop ? `<div class="why">${shop}</div>` : ""}
       <div class="items">${next.map((it, i) => `<div class="item"><img src="${SITE}${it.icon}" alt=""><div><div class="name">${esc(it.name)}</div><div class="why">${i ? "After that" : "Next"}</div></div></div>`).join("")}</div>
       ${tip}</div>`;
   }
@@ -249,20 +263,35 @@
         <h1 id="head"></h1>
         <h2>Items</h2><div id="items"></div>
         <h2 id="augHead">Augments</h2>
+        <div class="filters">${["", "prismatic", "gold", "silver"].map((r) => `<button class="chip f${r === rarity ? " on" : ""}" data-r="${r}">${r ? r[0].toUpperCase() + r.slice(1) : "All"}</button>`).join("")}</div>
         <input id="search" type="search" placeholder="Search augments" autocomplete="off">
         <div id="augs"></div>
         <div id="live"></div>`;
       document.getElementById("search").addEventListener("input", (e) => { query = e.target.value; renderAugments(); });
+      document.querySelectorAll(".chip.f").forEach((b) => b.addEventListener("click", () => {
+        rarity = b.dataset.r;
+        document.querySelectorAll(".chip.f").forEach((x) => x.classList.toggle("on", x === b));
+        renderAugments();
+      }));
       renderAugments();
     }
-    const pickNow = AUGMENT_LEVELS.filter((l) => l <= g.level).length > getTaken(g).length;
+    // "Augment pick" lights up for 90 seconds after each augment level, and stays lit only while one is untaken.
+    if (!prev || prev.champ !== g.champ) reached = {};
+    for (const l of AUGMENT_LEVELS) if (l <= g.level && reached[l] === undefined) reached[l] = prev ? g.t : 0;
+    const recent = AUGMENT_LEVELS.some((l) => reached[l] !== undefined && g.t - reached[l] < 90);
+    const pickNow = recent && AUGMENT_LEVELS.filter((l) => l <= g.level).length > getTaken(g).length;
     document.getElementById("head").textContent = `In game · ${clock(g.t)} · Level ${g.level}`;
     const head = document.getElementById("augHead");
     head.textContent = pickNow ? "Augment pick: best first" : "Augments";
     head.classList.toggle("now", pickNow);
     document.getElementById("live").innerHTML = liveBlock(g.live);
-    const key = (x) => JSON.stringify([x.champ, x.items, x.dead, x.enemies]);
+    const key = (x) => JSON.stringify([x.champ, x.items, x.dead, x.t < 60, x.enemies]);
     if (!prev || key(prev) !== key(g)) renderItems();
+  };
+
+  window.showOver = () => {
+    game = null;
+    view.innerHTML = `<h1>Game over</h1><p class="note">The game review shows here after games of 5 minutes or more, while the in-game overlay is switched on.</p>`;
   };
 
   window.showReview = ({ points, turns, ffFrom, result }) => {
