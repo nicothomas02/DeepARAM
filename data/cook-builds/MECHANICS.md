@@ -6,6 +6,13 @@ text, and answers from Nico, the site owner (marked "Nico"). Some of Nico's note
 rather than official text; they are marked "experience". For official definitions (for example, what counts as
 damage over time), check the League wiki first.
 
+Ability tags: `data/wiki/ability_tags.json` (built by `data/wiki/ability_tags.py`) tags every ability with the
+League wiki's own game terms, which follow the game's internal coding: dash vs blink, channel, airborne,
+immobilize (stun, root, snare, suppression, sleep), forced action (charm, taunt, fear), on-hit, attack reset and
+more. `data/checks/champion_pool.py` prints them. Match augment triggers to these tags, not to tooltip wording
+(Nico 2026-11-20). Tags come from the ability's description, so a mention like "can't be polymorphed" can add a
+stray tag; check the wiki text when a tag decides the build.
+
 ## Augments
 
 - **Archmage:** each cast takes 30% of the *cast* ability's *base* cooldown off another random ability. It can
@@ -131,6 +138,25 @@ damage over time), check the League wiki first.
 - **Volibear passive + BEES!!! + Statikk Shiv:** at full passive stacks his attacks chain lightning. BEES on-hit
   ticks and Statikk Shiv procs trigger that chain on every enemy hit, so the lightning spreads through the whole
   swarm (Nico).
+- **Terror:** always on R for every champion, never a rolled basic ability (Nico). check_build.py blocks it on
+  any other ability. Terror on Vayne's Tumble, Xin Zhao's E or Renekton's E is impossible.
+- **Vayne:** Tumble counts as a dash for Earthwake. Chain Reaction on Condemn likely stacks the rebound stun with
+  Condemn's own stun (Nico, guessing).
+- **Xin Zhao:** Chain Reaction goes on R (Crescent Guard) (Nico).
+- **Renekton:** both Slice and Dice dashes trigger Earthwake (Nico).
+- **Sion:** Stackosaurus Rex doubles his W Health stacks, and charging Q counts as a channel (Nico).
+- **Akshan:** RISE works with his R (each recast is a full R), and the R charge-up counts as a channel (Nico).
+- **Gragas:** Ravenous Bind heals off Chain Reaction knock-ups (Nico).
+- **RISE:** R only. Gragas can't take it on E (Nico).
+- **Syndra:** Chain Reaction can go on E (Scatter the Weak), but the pushed spheres don't count as knocked-back
+  champions (Nico).
+- **Illaoi:** Minionmancer buffs her tentacles, and Echo Cast's clone Q makes a second tentacle slam (Nico).
+- **Aurelion Sol:** Stackosaurus Rex doubles Stardust, and Breath of Light (Q) counts as a channel (Nico).
+- **Overflow on Nunu:** it raises W's cast cost only, not a per-second cost (Nico).
+- **Janna:** Group Hug makes E shield 3 allies at once (Nico).
+- **Infernal Conduit:** its burn can crit through Vulnerability, like Liandry's (Nico).
+- **Fiddlesticks:** both the W drain and the R channel count for Don't Change the Channel, and the drain heal sets
+  off Circle of Death (Nico).
 - **Pin Cushion:** very weak damage for a prismatic, worse still on melee champions with few attacks (Nico).
 - **Pin Cushion on Ashe:** each arrow of her empowered Q volley counts as a separate hit (Nico). Zeri's Q (Burst Fire)
   likely works the same (Nico). Data check: Ashe is first on Pin Cushion's best-champions list and grades A
