@@ -324,6 +324,14 @@ fn live_game(app: &AppHandle, agent: &ureq::Agent, fit: &HashMap<String, f64>, o
             json!({ "champ": champ, "items": items_of(p) })
         })
         .collect();
+    let skills: Vec<u64> = ["Q", "W", "E", "R"]
+        .iter()
+        .map(|k| {
+            data.get("activePlayer")
+                .and_then(|p| p.get("abilities")?.get(*k)?.get("abilityLevel")?.as_u64())
+                .unwrap_or(0)
+        })
+        .collect();
     let mut game = json!({
         "t": t,
         "champ": champ,
@@ -331,6 +339,9 @@ fn live_game(app: &AppHandle, agent: &ureq::Agent, fit: &HashMap<String, f64>, o
         "dead": row.get("isDead").and_then(Value::as_bool).unwrap_or(false),
         "items": items,
         "enemies": enemies,
+        "gold": data.get("activePlayer").and_then(|p| p.get("currentGold")?.as_f64()).unwrap_or(0.0),
+        // Points in Q, W, E and R, for the skill-up note.
+        "skills": skills,
         // Clicked on the overlay during the pick, without leaving the game.
         "taken": app.state::<crate::overlay::Shared>().lock().unwrap().taken.clone(),
         "live": null,

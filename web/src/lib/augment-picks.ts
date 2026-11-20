@@ -2,6 +2,7 @@ import "server-only";
 import championIds from "@/data/champion-ids.json";
 import { augmentSynergy } from "./augment-synergy";
 import { augmentTiers } from "./augment-tiers";
+import { readRepoJson } from "./repo-data";
 import { championPage } from "./champion-page";
 import { champList } from "./champions";
 import { championEstimates } from "./estimates";
@@ -18,14 +19,40 @@ export type AugmentPicks = {
   champions: Record<string, [number, number][]>;
   /** alias -> [a, b, points] synergy pairs (points: estimated win-rate points; order-dependent pairs use the larger) */
   pairs: Record<string, [number, number, number][]>;
+  /** augment id -> the build styles it points to (crit, onhit, ap, lethality, fighter, tank, enchanter) */
+  styles: Record<string, string[]>;
+  /** alias -> the champion's builds by style (public live stats, data/estimates/build_archetypes.json), most played
+   *  first: [style, share of games, boots, core, later] (item ids) */
+  builds: Record<string, [string, number, number[], number[], number[]][]>;
+};
+
+type Archetype = {
+  style: string;
+  share: number;
+  boots?: number[];
+  core?: number[];
+  later?: number[];
 };
 
 const r4 = (n: number) => Math.round(n * 10000) / 10000;
 
 export function augmentPicks(): AugmentPicks {
   const scores = new Map(augmentTiers().map((a) => [a.id, a.deepScore]));
+  const ids0 = championIds as Record<string, number>;
   const ids = championIds as Record<string, number>;
-  const out: AugmentPicks = { augments: {}, champions: {}, pairs: {} };
+  const tiers = augmentTiers();
+  const out: AugmentPicks = {
+    augments: {},
+    champions: {},
+    pairs: {},
+    styles: {},
+    builds: {},
+  };
+  for (const a of tiers) if (a.styles.length) out.styles[a.id] = a.styles;
+  const arch =
+    readRepoJson<{ champions: Record<string, Archetype[]> }>(
+      "data/estimates/build_archetypes.json",
+    )?.champions ?? {};
   for (const { id: alias } of champList()) {
     const p = championPage(alias);
     if (!p?.augments.length) continue;
@@ -38,6 +65,15 @@ export function augmentPicks(): AugmentPicks {
       return [a.id, r4(score)] as [number, number];
     });
     out.champions[alias] = rows.sort((x, y) => y[1] - x[1]);
+    const builds = arch[String(ids0[alias])] ?? [];
+    if (builds.length > 1)
+      out.builds[alias] = builds.map((b) => [
+        b.style,
+        r4(b.share),
+        b.boots ?? [],
+        b.core ?? [],
+        b.later ?? [],
+      ]);
     out.pairs[alias] = augmentSynergy(
       alias,
       rows.map((r) => r[0]),

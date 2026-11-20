@@ -14,10 +14,19 @@ export type DamageTypes = {
   items: Record<string, string[]>;
   /** boots ids (last four digits), to tell whether the player has bought boots yet */
   boots: number[];
+  /** item id (last four digits) -> [name, total cost, the components it's built from (ids)], for "buy now" */
+  recipes: Record<string, [string, number, number[]]>;
 };
 
 type DdChampion = { info: { attack: number; magic: number } };
-type DdItem = { tags?: string[]; gold?: { total: number }; into?: string[] };
+type DdItem = {
+  name?: string;
+  tags?: string[];
+  gold?: { total: number; purchasable?: boolean };
+  into?: string[];
+  from?: string[];
+  maps?: Record<string, boolean>;
+};
 
 const KIND: [string, string[]][] = [
   ["ad", ["Damage", "CriticalStrike", "AttackSpeed", "ArmorPenetration"]],
@@ -37,7 +46,7 @@ export function damageTypes(): DamageTypes {
   const byLower = new Map(
     Object.entries(champs).map(([k, v]) => [k.toLowerCase(), v]),
   );
-  const out: DamageTypes = { champions: {}, items: {}, boots: [] };
+  const out: DamageTypes = { champions: {}, items: {}, boots: [], recipes: {} };
   for (const alias of Object.keys(championIds)) {
     const c = byLower.get(alias.toLowerCase());
     if (!c) continue;
@@ -45,7 +54,20 @@ export function damageTypes(): DamageTypes {
     out.champions[alias] =
       attack + magic ? Math.round((magic / (attack + magic)) * 100) / 100 : 0.5;
   }
+  const short = (id: string | number) => Number(id) % 10000;
   for (const [id, it] of Object.entries(items)) {
+    // Every item the ARAM shop sells, with what it's built from, so the app can say what your gold buys now.
+    if (
+      it.maps?.["12"] &&
+      it.gold?.purchasable &&
+      it.gold.total > 0 &&
+      !out.recipes[short(id)]
+    )
+      out.recipes[short(id)] = [
+        it.name ?? "",
+        it.gold.total,
+        (it.from ?? []).map(short),
+      ];
     // Finished items and boots only: components say little about what a champion is building.
     const boots = it.tags?.includes("Boots") ?? false;
     if (boots && !out.boots.includes(Number(id) % 10000))
