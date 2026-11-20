@@ -8,7 +8,8 @@
     {
       "id": "tryndamere-bloodlust-doctor",
       "champion": "Tryndamere",
-      "title": "The Bloodlust Doctor",
+      "title": "Bloodlust Is Healthcare",
+      "tagline": "Screams for a living and heals off every crit",
       "augments": [
         "Critical Healing",
         "Circle of Death",
@@ -31,11 +32,12 @@
     {
       "id": "janna-speeding-ticket",
       "champion": "Janna",
-      "title": "Speeding Ticket",
+      "title": "Tailwind Has No Brakes",
+      "tagline": "Speed is her only stat and every auto hits harder for it",
       "augments": [
         "Tap Dancer",
         "Don't Blink",
-        "Ice Cold",
+        "Sound Barrier",
         "Get Excited!"
       ],
       "core": 3,
@@ -47,17 +49,32 @@
         "Cosmic Drive",
         "Boots of Swiftness"
       ],
-      "why": "Janna's Tailwind has a line nobody reads: a portion of her bonus Move Speed becomes bonus magic damage on hit and on Zephyr, and Zephyr's passive hands her free Move Speed just for existing. Tap Dancer gives her 10 Move Speed per attack, stacking for as long as she keeps hitting, and Don't Blink adds 1% damage for every 10 Move Speed she has over her target, so every attack makes the next one faster, harder on hit, and stronger on top. Zephyr's active slows the target and Ice Cold takes another 75 Move Speed off every slow, which widens the Don't Blink gap from the other side. Phantom Dancer, Lich Bane and Boots of Swiftness pile on raw speed, Dead Man's Plate stores speed while she runs and dumps it into her next attack, and Cosmic Drive gives her more Move Speed every time that on-hit magic damage lands. The enchanter stops shielding anyone and becomes an on-hit carry whose only real stat is Move Speed.",
-      "play": "Zephyr the squishiest target, then keep attacking: the longer the chase, the harder you hit. Get Excited! is the flex pick, since a takedown gives 100% Move Speed for 4 seconds and Don't Blink reads that as free damage.",
+      "why": "Janna stops shielding for the team and becomes an on-hit carry whose only real stat is Move Speed.",
+      "how": [
+        [
+          "Tailwind",
+          "Part of her bonus Move Speed becomes magic damage on hit and on Zephyr."
+        ],
+        [
+          "Augments",
+          "Tap Dancer adds speed on every attack and Don't Blink turns the speed gap into damage. Sound Barrier gives Move Speed whenever she shields an ally, and Get Excited! doubles her speed after a takedown."
+        ],
+        [
+          "Items",
+          "Phantom Dancer, Lich Bane and Swiftness add raw speed, Dead Man's Plate dumps it into her next hit, and Cosmic Drive gives more speed when the on-hit lands."
+        ]
+      ],
+      "play": "Zephyr the squishiest target and keep attacking. Shield an ally for a burst of speed. The longer the chase, the harder you hit.",
       "chef": "2026-10-18",
       "menu": "off"
     },
     {
       "id": "ivern-hedge-fund",
       "champion": "Ivern",
-      "title": "Hedge Fund",
+      "title": "Brushmaker Is Lowkey Lethal",
+      "tagline": "Makes a bush, leaves the bush and comes out swinging",
       "augments": [
-        "Hide on Bush",
+        "Shadow Runner",
         "Nature is Healing",
         "Mercy's Strike",
         "Lil' Extra Help"
@@ -71,83 +88,145 @@
         "Cosmic Drive",
         "Berserker's Greaves"
       ],
-      "why": "Ivern's Brushmaker has a passive almost nobody builds around: while he stands in brush, and for a moment after leaving it, his attacks deal bonus magic damage, and its active grows a fresh patch of brush anywhere he likes. Hide on Bush makes him deal 20% more damage for as long as he stays in brush, and Nature is Healing regenerates a large amount of Health every time he enters one, so every Brushmaker cast is a new entrance: a heal, a damage buff and a round of empowered attacks, on demand. Triggerseed feeds the other half: Mercy's Strike turns its shield into a next attack with extra range, Attack Speed and max Health magic damage, and Lil' Extra Help adds Attack Range and Attack Speed for as long as that shield lasts, so one shield from inside the brush is a short burst of long-range, fast, empowered attacks. Nashor's Tooth and Guinsoo's Rageblade stack more on-hit magic damage onto every one of those attacks, Rabadon's Deathcap grows all of it, and Cosmic Drive gives him the Move Speed to hop from one hedge to the next. The forest's gentlest support turns into an on-hit carry who plants his own ambush wherever he stands.",
-      "play": "Grow a brush on top of the fight, shield whoever is closest, and attack from inside it while the shield lasts; when the fight moves, grow another one and step in for the heal.",
+      "why": "Ivern grows his own ambush wherever he stands and fights from inside it as an on-hit carry.",
+      "how": [
+        [
+          "Brushmaker",
+          "Grows brush anywhere, and his attacks hit harder while he stands in it or just left it."
+        ],
+        [
+          "Augments",
+          "Nature is Healing heals him every time he enters brush, and Shadow Runner gives speed and stealth when he dashes out. Mercy's Strike and Lil' Extra Help turn each Triggerseed shield into fast, long-range empowered attacks."
+        ],
+        [
+          "Items",
+          "Nashor's and Guinsoo's stack on-hit damage, Rabadon's grows it, and Cosmic Drive moves him from hedge to hedge."
+        ]
+      ],
+      "play": "Grow a brush on top of the fight, shield the closest ally and attack from inside it. When the fight moves, grow another one.",
       "chef": "2026-10-19",
       "menu": "off"
     },
     {
       "id": "taric-friendly-fireworks",
       "champion": "Taric",
-      "title": "Friendly Fireworks",
+      "title": "Bravado Maxxing",
+      "tagline": "Every spell gives him two hits and every hit gives the spell back",
       "augments": [
-        "Upgrade Sword of Blossoming Dawn",
-        "Sonic Boom",
-        "Empowered By The Faithful"
+        "The Boom and the Bass",
+        "Upgrade Sheen",
+        "Mystic Punch",
+        "Firebrand"
       ],
-      "core": 3,
+      "core": 4,
       "items": [
-        "Sword of Blossoming Dawn",
-        "Ardent Censer",
-        "Moonstone Renewer",
-        "Echoes of Helia",
-        "Staff of Flowing Water",
+        "Lich Bane",
+        "Nashor's Tooth",
+        "Wit's End",
+        "Riftmaker",
+        "Rabadon's Deathcap",
         "Berserker's Greaves"
       ],
-      "why": "Taric's Bravado is the part of his kit everyone forgets: after every spell his next two attacks come out in quick succession and shave time off his spell cooldowns, so a Taric who keeps casting keeps swinging. Sword of Blossoming Dawn turns each of those swings into a heal on the lowest health ally nearby, and Upgrade Sword of Blossoming Dawn adds 100% Attack Speed and makes that heal far bigger whenever he is hitting champions. Sonic Boom makes every heal or shield on an ally explode, damaging and slowing the enemies around that ally, and Empowered By The Faithful blesses everyone he heals, so their damage fills him with devotion until a shockwave goes off that executes low health enemies. Bastion casts his Starlight's Touch from his linked ally too, Moonstone Renewer chains each heal to a second ally for another boom, Ardent Censer hands both of them extra Attack Speed, and Echoes of Helia adds even more healing. The gem knight stops being the team's bodyguard and becomes its bomb: his allies are the grenades and every autoattack pulls a pin.",
-      "play": "Link the carry with Bastion, cast anything, then keep attacking the closest champion so every swing heals a teammate and blows up whoever is standing next to them.",
+      "why": "Taric stops tanking and becomes an on-hit caster whose attacks refill his spells.",
+      "how": [
+        [
+          "Bravado",
+          "After each spell his next two attacks come out fast, deal bonus magic damage and cut his ability cooldowns."
+        ],
+        [
+          "Augments",
+          "The Boom and the Bass adds another fast, empowered hit after every spell, Mystic Punch takes more off every cooldown on each hit, Firebrand stacks a burn and Upgrade Sheen supercharges Lich Bane."
+        ],
+        [
+          "Items",
+          "Lich Bane procs after every spell, Nashor's and Wit's End add on-hit damage, and Riftmaker and Rabadon's bring the Ability Power."
+        ]
+      ],
+      "play": "Cast a spell, hit twice, cast again. Never let Bravado sit unused.",
       "chef": "2026-10-20"
     },
     {
       "id": "braum-group-project",
       "champion": "Braum",
-      "title": "Group Project",
+      "title": "Concussion Protocol",
+      "tagline": "Your carries make the hits and Braum gets the comet every fourth one",
       "augments": [
         "Cruelty",
         "Slap Around",
-        "Impassable"
+        "Impassable",
+        "Courage of the Colossus"
       ],
-      "core": 3,
+      "core": 4,
       "items": [
-        "Bandlepipes",
-        "Imperial Mandate",
+        "Guinsoo's Rageblade",
         "Nashor's Tooth",
+        "Wit's End",
+        "Bandlepipes",
         "Riftmaker",
-        "Rabadon's Deathcap",
-        "Mercury's Treads"
+        "Berserker's Greaves"
       ],
-      "why": "Braum's Concussive Blows has a line most people skim past: once he lands the first stack, his allies' basic attacks stack it too, and the fourth stack stuns. That turns every teammate who can swing a weapon into a stun button, and every one of those stuns counts as Braum's. Cruelty drops a comet of magic damage on each champion he Immobilizes, Slap Around banks 10 Adaptive Force per stun, and Impassable adds an Aftershock burst and Glacial Augment's slowing rays, so a single stun pays out three times and leaves him stronger for the next one. Bandlepipes hands the whole team Attack Speed every time he stuns someone, so the next four stacks land even faster, Imperial Mandate marks each stunned target to take more damage, and with Nashor's Tooth, Riftmaker and Rabadon's Deathcap all that Adaptive Force becomes Ability Power. The bodyguard stops standing in front of his team and becomes its artillery, and his teammates are the ones pulling the trigger.",
-      "play": "Tag one enemy with Winter's Bite, then let your carries hit the same target; every stun calls down a comet, so keep re-tagging whoever they are shooting.",
+      "why": "Braum turns his passive into the whole build, stacking it himself and cashing in every stun.",
+      "how": [
+        [
+          "Concussive Blows",
+          "Four hits from Braum or his allies stun, and every one of those stuns counts as Braum's."
+        ],
+        [
+          "Augments",
+          "Each stun drops a Cruelty comet, banks Slap Around Adaptive Force and shields him through Courage of the Colossus, and Impassable adds Aftershock and Glacial Augment."
+        ],
+        [
+          "Items",
+          "Guinsoo's phantom hit adds an extra stack, so he stuns in three attacks. Nashor's and Wit's End speed him up and Bandlepipes gives the team Attack Speed on every stun."
+        ]
+      ],
+      "play": "Tag a target with Winter's Bite and keep attacking with your carries. Swap targets after each stun.",
       "chef": "2026-10-21"
     },
     {
       "id": "quinn-wall-street-bouncer",
       "champion": "Quinn",
-      "title": "Wall Street Bouncer",
+      "title": "Vault Is Free Now",
+      "tagline": "Every spell resets Vault and every Vault leaves a bomb trail",
       "augments": [
-        "Chain Reaction",
-        "Ravenous Bind",
-        "Soul Eater",
-        "Dashing"
+        "Overloaded",
+        "Earthwake",
+        "Cruelty",
+        "Chain Reaction"
       ],
       "core": 4,
       "items": [
-        "Navori Flickerblade",
-        "Spear of Shojin",
-        "Heartsteel",
-        "Overlord's Bloodmail",
-        "Sterak's Gage",
-        "Mercury's Treads"
+        "Stormsurge",
+        "Rabadon's Deathcap",
+        "Shadowflame",
+        "Cosmic Drive",
+        "Rylai's Crystal Scepter",
+        "Sorcerer's Shoes"
       ],
-      "why": "Vault has a side effect nobody plays around: after Quinn dashes in she leaps backwards and slightly Knocks the target Back. Chain Reaction on Vault turns that polite nudge into a Knock Up whenever the shoved enemy hits another champion or a wall, with a longer Knock Up and bonus damage against terrain, and the bridge is one long corridor of walls. Every Vault is now an immobilize, so Ravenous Bind makes it heal her and hit harder, Soul Eater hands her permanent max Health for each one, and Dashing gives the dash 175 Ability Haste so it comes back almost at once. Navori Flickerblade closes the loop: Vault marks its target with Harrier, Heightened Senses gives Attack Speed for hitting Harrier targets, and each of those Attacks cuts the remaining Vault cooldown by 15%, while Spear of Shojin adds Basic Ability Haste on top. Heartsteel and Soul Eater stack Health that Overlord's Bloodmail turns into Attack Damage, so the ranged scout ends up a walking shoulder-check who throws people into walls and tanks off the bounce.",
-      "play": "Stand with your back to open ground and Vault enemies toward a wall or into their own teammate, then hit the Harrier mark so Vault is ready again. Behind Enemy Lines is just a bus to the next wall.",
+      "why": "Quinn drops crit for Ability Power and turns Vault into her main attack.",
+      "how": [
+        [
+          "Vault",
+          "She dashes to a target, knocks them back and slows them."
+        ],
+        [
+          "Augments",
+          "Overloaded on Vault resets it whenever she casts another ability. Every Vault is a dash for Earthwake, Cruelty drops a comet where the knock-back ends and Chain Reaction bounces the knock-back into other enemies."
+        ],
+        [
+          "Items",
+          "Stormsurge, Rabadon's and Shadowflame make every Vault burst, and Rylai's slows the whole trail."
+        ]
+      ],
+      "play": "Vault, cast Q, Vault, cast W, Vault. Behind Enemy Lines resets it once more.",
       "chef": "2026-10-22",
       "menu": "off"
     },
     {
       "id": "zoe-flash-photography",
       "champion": "Zoe",
-      "title": "Flash Photography",
+      "title": "Spell Thief Flash Era",
+      "tagline": "Three Flashes, zero plans and every one of them explodes",
       "augments": [
         "Flashy",
         "Flashbang",
@@ -171,9 +250,10 @@
     {
       "id": "olaf-health-is-mana",
       "champion": "Olaf",
-      "title": "Health Is Mana",
+      "title": "Reckless Swing on Repeat",
+      "tagline": "Pays in HP and swings again before the bill arrives",
       "augments": [
-        "Purist - Caster",
+        "Overloaded",
         "Ominous Pact",
         "escAPADe",
         "Skilled Sniper"
@@ -187,20 +267,35 @@
         "Spear of Shojin",
         "Kraken Slayer"
       ],
-      "why": "Olaf's Berserker Rage hands him Attack Speed for every point of Health he is missing, and Tough It Out stacks even more Attack Speed on top; Purist - Caster converts all of that Attack Speed into Ability Haste, so the lower his Health bar, the faster his cooldowns run. Ominous Pact makes every spell cast cost a slice of his current Health and pays him back with Ability Power, Movement Speed and Omnivamp based on missing Health, so casting Undertow drains him, the drain feeds Berserker Rage, and the Attack Speed comes back out as more Haste for the next axe. escAPADe turns that Ability Power into bonus Attack Damage for his physical damage axes, and Skilled Sniper refunds most of Undertow's cooldown whenever the axe lands on someone more than 600 units away, so he never has to walk up and pick it up. Nashor's Tooth, Wit's End, Kraken Slayer and Berserker's Greaves are bought purely as Attack Speed to be converted into Haste (the Nashor's Ability Power also becomes Attack Damage through escAPADe), while Spear of Shojin and Experimental Hexplate add Attack Damage, Haste and the Health pool he deliberately burns. The melee berserker who has to run at people becomes a long-range artillery piece that lobs axes from max range and plays better the closer he is to dead.",
-      "play": "Sit at max Undertow range, throw axes until your Health sits near the bottom third, then keep throwing instead of chasing the axe. Reckless Swing is your emergency self-damage if you are too healthy; Ragnarok is for walking out, not in.",
+      "why": "Olaf pays for every axe in Health, and the lower he goes, the harder and faster he throws.",
+      "how": [
+        [
+          "Berserker Rage",
+          "Attack Speed for every point of Health he's missing. Reckless Swing costs Health to cast."
+        ],
+        [
+          "Augments",
+          "Overloaded on Reckless Swing resets it every time he throws Undertow, so he can keep spending Health. Ominous Pact pays it back as Ability Power, Move Speed and Omnivamp, escAPADe turns that AP into Attack Damage, and Skilled Sniper refunds Undertow on hits beyond 600 range."
+        ],
+        [
+          "Items",
+          "Attack Speed from Berserker's, Wit's End and Kraken. Shojin and Hexplate add the damage and the Health he burns."
+        ]
+      ],
+      "play": "Throw axes from max range, Reckless Swing after every throw, and stay in the bottom third of your Health bar.",
       "chef": "2026-10-24",
       "menu": "off"
     },
     {
       "id": "nilah-whip-blade-nurse",
       "champion": "Nilah",
-      "title": "Whip-Blade Nurse",
+      "title": "Joy Unending (Unhinged)",
+      "tagline": "Her crits heal the team and the whip does the rest",
       "augments": [
         "Critical Healing",
         "Spirit Bomb",
         "Empowered By The Faithful",
-        "Support Main"
+        "Group Hug"
       ],
       "core": 4,
       "items": [
@@ -211,15 +306,30 @@
         "Infinity Edge",
         "Navori Flickerblade"
       ],
-      "why": "Nilah's kit already leaks healing everywhere: Formless Blade turns her crit chance into lifesteal that overflows into shields, and Apotheosis heals every nearby ally for a cut of its damage. Critical Healing hands her the crit chance that Formless Blade wants while letting all of those heals and shields crit, and Spirit Bomb, Empowered By The Faithful and Support Main all trigger off the same thing: healing allies, which her ultimate does on its own. Sword of Blossoming Dawn is the missing piece, because its Peppermint on-hit makes every single auto attack heal the lowest ally, so each basic attack now charges a Spirit Bomb, blesses teammates for an executing shockwave and leaves a heal-over-time behind, while Ardent Censer, Moonstone Renewer and Echoes of Helia reward each of those ally heals with attack speed, chained heals and stored damage turned into healing. Infinity Edge and Navori Flickerblade keep her crit chance high so the whip-blade still hurts and Formless Blade keeps her own health topped. A melee crit carry turns into a frontline medic whose auto attacks are the healing spell.",
-      "play": "Glue yourself to your tankiest ally and keep auto-attacking anything in range; every hit heals the team and fills the bomb. Hold Apotheosis for a brawl where the whole team is hurt so one ultimate dumps a flood of crit heals and sets off the Faithful shockwave.",
+      "why": "Nilah turns into a frontline medic whose auto attacks are the healing spell.",
+      "how": [
+        [
+          "Apotheosis",
+          "Heals every nearby ally for part of its damage. Formless Blade turns her crit chance into lifesteal."
+        ],
+        [
+          "Augments",
+          "Critical Healing lets every heal crit. Spirit Bomb and Empowered By The Faithful fire off each ally heal, and Group Hug, rolled on Apotheosis, spreads it to more allies."
+        ],
+        [
+          "Items",
+          "Sword of Blossoming Dawn makes each attack heal the lowest ally. Ardent, Moonstone and Helia reward every heal, and Infinity Edge and Navori keep the crits coming."
+        ]
+      ],
+      "play": "Stick to your tankiest ally and attack anything in range. Hold Apotheosis for a brawl where the whole team is hurt.",
       "chef": "2026-10-25",
       "menu": "off"
     },
     {
       "id": "reksai-mole-artillery",
       "champion": "RekSai",
-      "title": "Mole Artillery",
+      "title": "Prey Seeker From Orbit",
+      "tagline": "Pops out of the ground and shells you from across the map",
       "augments": [
         "Skilled Sniper",
         "Multishot",
@@ -243,36 +353,52 @@
     {
       "id": "skarner-crit-happens",
       "champion": "Skarner",
-      "title": "Crit Happens",
+      "title": "Impact Maxxing",
+      "tagline": "Every spell resets the charge and every wall hit drops a comet",
       "augments": [
-        "Vulnerability",
-        "Tank It Or Leave It",
-        "Infernal Conduit",
-        "Firebrand"
+        "Overloaded",
+        "Ravenous Bind",
+        "Cruelty",
+        "Ultimate Awakening"
       ],
       "core": 4,
       "items": [
+        "Rylai's Crystal Scepter",
         "Liandry's Torment",
-        "Sunfire Aegis",
-        "Hollow Radiance",
-        "Thornmail",
-        "Heartsteel",
-        "Plated Steelcaps"
+        "Riftmaker",
+        "Cosmic Drive",
+        "Rabadon's Deathcap",
+        "Ionian Boots of Lucidity"
       ],
-      "why": "Skarner's passive Threads of Vibration is mostly an afterthought: his attacks, boulder and ult stack Quaking, and at max stacks the target takes max Health magic damage over time, which is a damage-over-time effect. Vulnerability lets damage-over-time and item effects critically strike for 145% extra damage and hands him 25% crit chance, and Tank It Or Leave It adds another 25% so that same crit chance also rolls a 20% damage reduction every time he gets hit, so a tank who never crits suddenly wants crit for both offence and defence. Infernal Conduit makes every ability stack a burn that crits too and cuts his basic cooldowns, so he throws more boulders and quakes to re-stack Quaking, while Firebrand piles an infinitely stacking burn onto the three empowered attacks from Shattered Earth. Liandry's Torment, Sunfire Aegis, Hollow Radiance, Thornmail and Heartsteel are all item damage, so their burns, Immolate ticks, thorns and charged slam roll crits off the same 50% chance. The scorpion ends up a walking crit-chance bonfire whose tank items are his damage.",
-      "play": "Build full tank, walk into the enemy team and just keep stacking: Q three attacks, throw the boulder, quake, ult whoever is closest. You are not the one who crits, your burns are.",
+      "why": "Skarner skips every tank item and turns Ixtal's Impact into a wall-stun loop.",
+      "how": [
+        [
+          "Ixtal's Impact",
+          "He grabs an enemy and carries them, and slamming into a wall stuns them."
+        ],
+        [
+          "Augments",
+          "Overloaded on Ixtal's Impact resets it whenever he casts another ability, and Ultimate Awakening resets everything when he ults. Ravenous Bind on the charge damages and heals on every stun, and Cruelty drops a comet on top."
+        ],
+        [
+          "Items",
+          "Rylai's, Liandry's, Riftmaker and Rabadon's make each stun hurt, and Cosmic Drive keeps him moving between walls."
+        ]
+      ],
+      "play": "Charge someone into a wall, cast Q or W, charge the next one.",
       "chef": "2026-10-27",
       "menu": "off"
     },
     {
       "id": "irelia-forgot-how-to-auto",
       "champion": "Irelia",
-      "title": "Forgot How To Auto",
+      "title": "Bladesurge Locked In",
+      "tagline": "Never autos and never stops dashing",
       "augments": [
-        "Purist - Caster",
+        "Archmage",
         "Ethereal Weapon",
         "Mystic Punch",
-        "Double Strike"
+        "Overloaded"
       ],
       "core": 4,
       "items": [
@@ -283,15 +409,30 @@
         "Zhonya's Hourglass",
         "Ionian Boots of Lucidity"
       ],
-      "why": "Irelia's Ionian Fervor gives her stacking Attack Speed every time a spell hits, and at full stacks it adds bonus damage on hit. Purist - Caster converts all of that Attack Speed into Ability Haste, so the stacks she earns by casting come back as more casts. Ethereal Weapon makes her abilities apply On-Hit effects, so every Bladesurge, Flawless Duet and Vanguard's Edge carries her Fervor bonus and Mystic Punch, which cuts 1.25 seconds off all her cooldowns per On-Hit; Double Strike on Bladesurge applies those On-Hits a second time. Nashor's Tooth and Wit's End are bought for Attack Speed that Purist turns into Haste and for On-Hit magic damage that her spells now deliver, while Rabadon's Deathcap and Riftmaker bring the Ability Power. The auto-attack duelist never right-clicks again and becomes an AP caster whose spells are the on-hits.",
-      "play": "Mark targets with Flawless Duet or Vanguard's Edge, then chain Bladesurge through them and the minions. Every hit refunds cooldowns, so just keep dashing and forget your attack button exists.",
+      "why": "Irelia never right-clicks again and becomes an AP caster whose spells are the on-hits.",
+      "how": [
+        [
+          "Ionian Fervor",
+          "Stacks Attack Speed every time a spell hits, plus bonus on-hit damage at full stacks."
+        ],
+        [
+          "Augments",
+          "Ethereal Weapon makes her abilities apply on-hit, so every one triggers Mystic Punch and cuts her cooldowns. Overloaded on Bladesurge resets it whenever she casts another ability, and Archmage refunds part of a random cooldown with every cast."
+        ],
+        [
+          "Items",
+          "Nashor's and Wit's End add on-hit damage her spells now deliver. Rabadon's and Riftmaker bring the Ability Power."
+        ]
+      ],
+      "play": "Mark targets with Flawless Duet or Vanguard's Edge, then chain Bladesurge through them. Forget your attack button exists.",
       "chef": "2026-10-28",
       "menu": "off"
     },
     {
       "id": "kled-nail-gun-salesman",
       "champion": "Kled",
-      "title": "The Nail Gun Salesman",
+      "title": "Beartrap Nail Gun",
+      "tagline": "Every hook is a nail and Skaarl did not consent",
       "augments": [
         "Reload",
         "Mystic Punch",
@@ -315,7 +456,8 @@
     {
       "id": "annie-daycare-director",
       "champion": "Annie",
-      "title": "Daycare Director",
+      "title": "Tibbers' Babysitter Era",
+      "tagline": "Childcare by a child with fire included",
       "augments": [
         "Group Hug",
         "Enchanting Butterflies",
@@ -339,30 +481,46 @@
     {
       "id": "zac-deceased-repeatedly",
       "champion": "Zac",
-      "title": "Deceased, Repeatedly",
+      "title": "Slingshot Era",
+      "tagline": "Launches 1800 units and the whole runway explodes behind him",
       "augments": [
-        "Mad Scientist",
-        "Hellbent",
-        "Clown College",
-        "Dive Bomber"
+        "Earthwake",
+        "Ravenous Bind",
+        "Cruelty",
+        "Slime Time"
       ],
       "core": 4,
       "items": [
-        "Heartsteel",
-        "Warmog's Armor",
-        "Jak'Sho, The Protean",
-        "Sunfire Aegis",
-        "Unending Despair",
-        "Mercury's Treads"
+        "Stormsurge",
+        "Rabadon's Deathcap",
+        "Shadowflame",
+        "Void Staff",
+        "Cosmic Drive",
+        "Sorcerer's Shoes"
       ],
-      "why": "Zac's Cell Division already treats death as a speed bump: on fatal damage he splits into four bloblets and revives if any survive, and each bloblet carries a share of his max Health, Armor and Magic Resist. Clown College and Dive Bomber both go off when he dies, blasting true damage and Fearing nearby enemies, so the people who would normally stomp the blobs are running away while he reforms. Mad Scientist pays out on every Revive, growing him large or tiny with extra stats, and Hellbent adds a second revive once he has stacked enough champion damage, so one teamfight can hold two deaths, two explosions and two Mad Scientist upgrades. Heartsteel feeds the loop by permanently raising his max Health, which the bloblets inherit, while Warmog's Armor, Jak'Sho, The Protean and the rest pile on the Health and resists the blobs copy. The tank who is supposed to survive becomes a champion whose real job is to die in the middle of the enemy team and come back angrier.",
-      "play": "Slingshot into the whole enemy team and let them kill you on top of their own carries; the explosions and Fear cover your bloblets. Come back, keep hitting champions to stack Hellbent, and do it again.",
+      "why": "Zac skips every tank item and becomes an AP artillery shell.",
+      "how": [
+        [
+          "Elastic Slingshot",
+          "At rank 5 he flies up to 1800 units, just under the 2000 limit where Earthwake stops working."
+        ],
+        [
+          "Augments",
+          "Earthwake leaves an exploding trail along the whole flight. Ravenous Bind on Slingshot damages and heals on every knock-up, Cruelty drops a comet where they land and Slime Time keeps throwing out blobs to heal from."
+        ],
+        [
+          "Items",
+          "Stormsurge, Rabadon's, Shadowflame and Void Staff turn each landing into burst, and Cosmic Drive gets him back in position."
+        ]
+      ],
+      "play": "Max E, charge Slingshot from as far away as you can and fly over the enemy team.",
       "chef": "2026-10-31"
     },
     {
       "id": "zeri-right-click-veigar",
       "champion": "Zeri",
-      "title": "Right-Click Veigar",
+      "title": "Burst Fire Veigar",
+      "tagline": "Every auto is a spell and every spell is a stack",
       "augments": [
         "Phenomenal Evil",
         "Marksmage",
@@ -386,31 +544,47 @@
     {
       "id": "elise-revolving-door",
       "champion": "Elise",
-      "title": "The Revolving Door",
+      "title": "Cocoon Maxxing",
+      "tagline": "Every spell resets the stun and the sky drops a comet",
       "augments": [
-        "Stuck In Here With Me",
-        "Final Form",
-        "Can't Touch This",
-        "Ultimate Unstoppable"
+        "Overloaded",
+        "Ravenous Bind",
+        "Echo Cast",
+        "Cruelty"
       ],
       "core": 4,
       "items": [
-        "Thornmail",
-        "Warmog's Armor",
-        "Spirit Visage",
-        "Heartsteel",
-        "Sunfire Aegis",
-        "Plated Steelcaps"
+        "Rylai's Crystal Scepter",
+        "Liandry's Torment",
+        "Malignance",
+        "Riftmaker",
+        "Cosmic Drive",
+        "Ionian Boots of Lucidity"
       ],
-      "why": "Elise's ultimate is Spider Form, a form swap on a tiny cooldown, so every flip between spider and human counts as casting her ultimate, and that is the whole trick. Stuck In Here With Me gives her damage reduction after each ultimate and then taunts the enemies stuck with her, Final Form hands her a shield worth half her max Health plus omnivamp and move speed, Can't Touch This makes her briefly invulnerable, and Ultimate Unstoppable makes her immune to crowd control, so each swap fires whichever of them is off cooldown. Spider Form's own passive heals her on every bite, so with omnivamp on top she sustains while the enemy team is forced to stand on her. Warmog's Armor and Heartsteel make the max Health shield enormous, Spirit Visage makes that shield and her spider heals bigger, and Thornmail punishes every taunted enemy forced to attack her while Sunfire Aegis burns the crowd. The AP assassin becomes a taunting front-line tank whose only button is pressing R over and over.",
-      "play": "Cocoon an enemy, go spider and walk into their team, then keep swapping forms to chain damage reduction, taunts, invulnerability and shields while biting whoever is stuck on you. Build pure Health and Armor and never Rappel out.",
+      "why": "Elise stops assassinating and becomes a Cocoon turret.",
+      "how": [
+        [
+          "Cocoon",
+          "A long-range stun in human form. Swapping forms counts as casting a spell, so she has more casts than anyone."
+        ],
+        [
+          "Augments",
+          "Overloaded on Cocoon resets it whenever she casts another ability, and Echo Cast sends a clone to throw a second Cocoon. Each stun triggers Ravenous Bind for damage and healing and Cruelty for a comet."
+        ],
+        [
+          "Items",
+          "Rylai's, Liandry's and Malignance add slows and burns, and Riftmaker heals her through it."
+        ]
+      ],
+      "play": "Cocoon, cast any spell or swap form, Cocoon again.",
       "chef": "2026-11-02",
       "menu": "off"
     },
     {
       "id": "cassiopeia-drive-by-serpent",
       "champion": "Cassiopeia",
-      "title": "The Drive-By Serpent",
+      "title": "Serpentine Grace, No Boots",
+      "tagline": "No boots, no brakes and every dash explodes",
       "augments": [
         "Quickstep",
         "Shadow Runner",
@@ -434,7 +608,8 @@
     {
       "id": "azir-melee-by-proxy",
       "champion": "Azir",
-      "title": "Melee By Proxy",
+      "title": "Arise! (The Interns)",
+      "tagline": "Why fight when the soldiers do it on-hit",
       "augments": [
         "Draw Your Sword",
         "Tickle Monster",
@@ -458,7 +633,8 @@
     {
       "id": "anivia-overdraft-protection",
       "champion": "Anivia",
-      "title": "Overdraft Protection",
+      "title": "Glacial Storm Overdraft",
+      "tagline": "Spent all her mana and got paid in shields",
       "augments": [
         "Overflow",
         "Blue Barrier",
@@ -482,30 +658,46 @@
     {
       "id": "rammus-ok-im-a-mage-now",
       "champion": "Rammus",
-      "title": "OK, I'm a Mage Now",
+      "title": "Spiked Shell Speedrun",
+      "tagline": "Armordillo found the attack speed button and won't stop pressing it",
       "augments": [
-        "ADAPt",
-        "Marksmage",
-        "Titan's Resolve",
-        "Lonely Warrior"
+        "Firebrand",
+        "Mystic Punch",
+        "The Boom and the Bass",
+        "Armored Impact"
       ],
       "core": 4,
       "items": [
-        "Plated Steelcaps",
-        "Zhonya's Hourglass",
-        "Thornmail",
-        "Jak'Sho, The Protean",
+        "Guinsoo's Rageblade",
         "Nashor's Tooth",
-        "Rabadon's Deathcap"
+        "Wit's End",
+        "Kraken Slayer",
+        "Terminus",
+        "Berserker's Greaves"
       ],
-      "why": "Spiked Shell quietly gives Rammus bonus Attack Damage that scales with his Armor and Magic Resist, a side effect nobody builds around because Rammus barely auto-attacks. ADAPt converts that bonus Attack Damage into Ability Power and adds 15% more, so every point of armor becomes AP for Powerball, Ball Curl's return damage and Soaring Slam. Marksmage then makes his attacks deal extra physical damage equal to 75% of that AP, so the armor comes back out through his autos on whoever he just Taunted. Titan's Resolve, Lonely Warrior and Defensive Ball Curl all add Armor and Magic Resist that flow through Spiked Shell into more AP, while Zhonya's Hourglass feeds both ends with Armor and AP, Thornmail and Jak'Sho stack raw resists, Rabadon's Deathcap multiplies the converted total and Nashor's Tooth speeds up the Marksmage autos. The armadillo tank becomes an auto-attacking battle mage whose armor is his Ability Power.",
-      "play": "Powerball in, Ball Curl for the armor-to-AP spike, then Taunt the squishiest target and right-click them down. Zhonya's when the whole team turns on you.",
+      "why": "Rammus trades every tank item for Attack Speed and lets his shell do the damage.",
+      "how": [
+        [
+          "Spiked Shell",
+          "His attacks deal bonus magic damage from his armor, and Defensive Ball Curl makes them stronger."
+        ],
+        [
+          "Augments",
+          "After every spell, The Boom and the Bass and Armored Impact empower his next hit. Firebrand stacks a burn on every attack and Mystic Punch cuts his cooldowns, so the spells and empowered hits keep coming."
+        ],
+        [
+          "Items",
+          "Guinsoo's, Nashor's, Wit's End and Kraken stack on-hit damage, and Terminus gives armor as he attacks to feed Spiked Shell."
+        ]
+      ],
+      "play": "Powerball in, Ball Curl, then attack nonstop and cast a spell whenever one comes back.",
       "chef": "2026-11-06"
     },
     {
       "id": "kennen-lightning-strikes-twice",
       "champion": "Kennen",
-      "title": "Lightning Strikes Twice",
+      "title": "Lightning Rush Speedrun",
+      "tagline": "Three feet tall and every crit keeps the zoomies going",
       "augments": [
         "Critical Rhythm",
         "Double Tap",
@@ -521,114 +713,143 @@
         "Phantom Dancer",
         "Navori Flickerblade"
       ],
-      "why": "Lightning Rush has a clause nobody reads: the Attack Speed Kennen gains when the ball form ends is extended by a second every time he Critically Strikes, so a Kennen who crits on every attack simply never comes down from it. Critical Rhythm and Zealot hand him the crit chance and stack even more Attack Speed on each crit, and Tickle Monster converts his Attack Damage into Attack Speed and adds magic damage On-Hit, so his crits stop being about the physical hit and become a metronome that keeps the Rush running. Double Tap is the payoff: every crit applies On-Hit effects a second time, so Tickle Monster, Nashor's Tooth and Wit's End all land twice per attack, and so does Electrical Surge's every-fifth-attack lightning, which is On-Hit too. Nashor's Tooth pours Ability Power into all of that, Runaan's Hurricane carries the doubled On-Hits to two more enemies, Phantom Dancer and Navori Flickerblade fill out the crit chance, and Navori's attacks shave the cooldowns of Thundering Shuriken, Electrical Surge and Lightning Rush so the stun comes back faster. The burst mage who hides behind his ultimate becomes a zero-Attack-Damage crit marksman who never stops right-clicking.",
-      "play": "Open with Lightning Rush, then never stop right-clicking: as long as the crits keep coming the Attack Speed never ends. Weave Thundering Shuriken and Electrical Surge between attacks for the stun, and save Slicing Maelstrom for the teamfight.",
+      "why": "Kennen becomes a zero-AD crit marksman whose Lightning Rush speed never runs out.",
+      "how": [
+        [
+          "Lightning Rush",
+          "The Attack Speed he gets when it ends lasts a second longer every time he crits, so a Kennen who always crits never slows down."
+        ],
+        [
+          "Augments",
+          "Critical Rhythm and Zealot bring the crit chance and more Attack Speed per crit. Tickle Monster turns his Attack Damage into Attack Speed and on-hit magic damage, and Double Tap applies every on-hit twice on a crit."
+        ],
+        [
+          "Items",
+          "Nashor's and Wit's End hit twice per crit. Runaan's spreads the doubled on-hits, and Phantom Dancer and Navori fill the crit chance."
+        ]
+      ],
+      "play": "Open with Lightning Rush, then never stop right-clicking. Weave Q and W between attacks for the stun.",
       "chef": "2026-11-07"
     },
     {
       "id": "rakan-double-entrance",
       "champion": "Rakan",
-      "title": "Double Entrance",
-      "tagline": "One entrance is a play. Two is a lifestyle.",
+      "title": "Grand Entrance (Encore)",
+      "tagline": "Every dash leaves a fireworks trail and the clone does it again",
       "augments": [
+        "Earthwake",
         "Echo Cast",
-        "Ravenous Bind",
-        "Stuck In Here With Me",
-        "Porcupine"
+        "Cruelty",
+        "Prom Queen"
       ],
       "core": 4,
       "items": [
-        "Thornmail",
-        "Sunfire Aegis",
-        "Unending Despair",
-        "Jak'Sho, The Protean",
-        "Riftmaker",
-        "Plated Steelcaps"
+        "Stormsurge",
+        "Rabadon's Deathcap",
+        "Shadowflame",
+        "Lich Bane",
+        "Cosmic Drive",
+        "Sorcerer's Shoes"
       ],
-      "why": "Rakan never shields anyone. He knocks the enemy team up twice per Grand Entrance, heals off every knock and dares them to hit back.",
+      "why": "Rakan stops protecting the carry and becomes an AP dive bomb.",
       "how": [
         [
           "Grand Entrance",
-          "A dash that ends in a knock-up. Usually it's his engage, followed by a shield dash back to safety."
+          "A dash that ends in a knock-up. Battle Dance is a second dash back to an ally."
         ],
         [
           "Augments",
-          "Echo Cast, rolled on Grand Entrance, sends a clone that knocks up a second time at your cursor. Ravenous Bind, also on Grand Entrance, makes every knock-up deal extra damage and heal him. Stuck In Here With Me taunts everyone after The Quickness, and Porcupine fires needles back at whoever hits him."
+          "Earthwake leaves an exploding trail on both dashes. Echo Cast on Grand Entrance sends a clone for a second knock-up, Cruelty drops a comet on each one and Prom Queen casts The Quickness for him with a charm sprint."
         ],
         [
           "Items",
-          "Thornmail, Sunfire, Unending Despair and Jak'Sho make hitting him hurt and heal him in long fights. Riftmaker turns his Health into AP for the knock-ups."
+          "Stormsurge, Rabadon's, Shadowflame and Lich Bane make every entrance a full combo."
         ]
       ],
-      "play": "Grand Entrance into the middle with the cursor on a second group, ult to taunt, then stand there. Battle Dance is only for chasing.",
+      "play": "Grand Entrance into the team, aim the clone at a second group, then Battle Dance out and do it again.",
       "chef": "2026-11-08"
     },
     {
       "id": "nunu-minion-buffet",
       "champion": "Nunu",
-      "title": "The Minion Buffet",
+      "title": "Snowball Barrage Never Ends",
+      "tagline": "Every snowball is an auto and every spell reloads the barrage",
       "augments": [
-        "Circle of Death",
-        "Overflow",
-        "Ocean Soul",
-        "Goredrink"
+        "Ethereal Weapon",
+        "Mystic Punch",
+        "Overloaded",
+        "Erosion"
       ],
       "core": 4,
       "items": [
-        "Ionian Boots of Lucidity",
+        "Nashor's Tooth",
+        "Wit's End",
         "Riftmaker",
-        "Spirit Visage",
-        "Warmog's Armor",
-        "Unending Despair",
-        "Rod of Ages"
+        "Liandry's Torment",
+        "Cosmic Drive",
+        "Sorcerer's Shoes"
       ],
-      "why": "Consume is Nunu's snack button: Willump bites a minion and restores a big chunk of Health. Circle of Death turns 70% of all his healing and Health Regen into magic damage on the nearest enemy champion, and Overflow makes his ability heals stronger, so every minion he eats punches someone on the other team. Ocean Soul then hands him high Health Regen, which is more Circle of Death damage, plus the Mana Regen that pays for Overflow's doubled costs, while Goredrink heals him off his hits and feeds the circle again. Spirit Visage makes each heal bigger, Warmog's Armor adds regen, Unending Despair adds a heal every few seconds in a fight, and Riftmaker and Rod of Ages add the Health, Ability Power and Mana to keep eating. The snowball tank becomes a poke mage who hurts people by having lunch.",
-      "play": "Stand near the enemy you want hit and Consume a minion every time it is up; bite a champion instead when one is in reach. Use Absolute Zero and Snowball Barrage to keep Ocean Soul and Goredrink running.",
+      "why": "Nunu forgets his ult and turns Snowball Barrage into an on-hit machine gun.",
+      "how": [
+        [
+          "Snowball Barrage",
+          "Three volleys of snowballs, and enemies hit three times get rooted."
+        ],
+        [
+          "Augments",
+          "Ethereal Weapon makes every snowball apply on-hit, which triggers Mystic Punch to cut cooldowns. Overloaded on Barrage resets it whenever he casts another ability, and Erosion shreds resistances with every hit."
+        ],
+        [
+          "Items",
+          "Nashor's and Wit's End put on-hit damage on every snowball, and Liandry's and Riftmaker add a burn and healing."
+        ]
+      ],
+      "play": "Throw Barrage, cast Q or W to reset it, throw again. Save R for an escape.",
       "chef": "2026-11-09"
     },
     {
       "id": "warwick-self-care-wolf",
       "champion": "Warwick",
-      "title": "Self-Care Wolf",
-      "tagline": "He doesn't bite anymore. He just heals at you.",
+      "title": "Jaws Maxxing",
+      "tagline": "One ult buys fifteen seconds of nonstop bites and every heal hurts someone",
       "augments": [
-        "Rejuvenation",
-        "Siphon",
+        "Ultimate Awakening",
+        "Archmage",
         "Circle of Death",
-        "Don't Change the Channel"
+        "Infinite Recursion"
       ],
       "core": 4,
       "items": [
-        "Spirit Visage",
-        "Warmog's Armor",
         "Riftmaker",
-        "Redemption",
-        "Rylai's Crystal Scepter",
-        "Mercury's Treads"
+        "Rabadon's Deathcap",
+        "Shadowflame",
+        "Spirit Visage",
+        "Liandry's Torment",
+        "Sorcerer's Shoes"
       ],
-      "why": "Warwick stops hunting and starts healing, and every heal zaps the nearest enemy champion, so he tanks and lets his own regen fight for him.",
+      "why": "Warwick drops Attack Speed for Ability Power and turns Jaws of the Beast into his only attack.",
       "how": [
         [
-          "Primal Howl and Infinite Duress",
-          "Primal Howl is just damage reduction and a fear, and Infinite Duress is a channel. Neither is meant to keep him alive past the fight."
+          "Jaws of the Beast",
+          "A bite that scales with Ability Power and heals him for part of the damage."
         ],
         [
           "Augments",
-          "Rejuvenation, rolled on Primal Howl, heals him every time he howls, and Siphon on Jaws of the Beast heals him off each bite. Circle of Death turns 70% of every heal, and his Health Regen, into magic damage on the nearest enemy champion. Don't Change the Channel shields him for every second he channels Infinite Duress."
+          "Ultimate Awakening resets every basic ability when he ults and gives 300 haste for 15 seconds. Archmage and Infinite Recursion keep Q coming, and Circle of Death turns every heal into damage."
         ],
         [
           "Items",
-          "Spirit Visage boosts every heal, and Warmog's regenerates him once he has 2,000 bonus Health and stays 8 seconds untouched. Riftmaker turns that Health into AP for the zaps. Redemption is one more heal, and Rylai's slows whoever the bites hit."
+          "Riftmaker, Rabadon's, Shadowflame and Liandry's power up the bite, and Spirit Visage makes each heal, and so each Circle of Death hit, bigger."
         ]
       ],
-      "play": "Max E. Howl into fights, bite whatever is close, and channel R on a tank just for the shield. Your regen does the damage.",
+      "play": "Infinite Duress onto a target, then spam Q for the next 15 seconds.",
       "chef": "2026-11-10"
     },
     {
       "id": "kalista-javelin-thrower",
       "champion": "Kalista",
-      "title": "Javelin Thrower",
-      "tagline": "Attacks are optional. Spears are not.",
+      "title": "Pierce on Business",
+      "tagline": "Made an oath and brought a spear for every word",
       "augments": [
         "Skilled Sniper",
         "Magic Missile",
@@ -671,7 +892,7 @@
         "Circle of Death",
         "Don't Change the Channel",
         "Mosh Monster",
-        "Bread And Jam"
+        "Overloaded"
       ],
       "core": 4,
       "items": [
@@ -690,14 +911,14 @@
         ],
         [
           "Augments",
-          "Circle of Death turns his healing into damage and Don't Change the Channel shields him every second he sits. Mosh Monster, rolled on Meditate, slows everyone around him, and Bread And Jam (his W) lets him sit again almost right away."
+          "Circle of Death turns his healing into damage and Don't Change the Channel shields him every second he sits. Mosh Monster, rolled on Meditate, slows everyone around him, and Overloaded on Meditate resets it every time he casts another ability."
         ],
         [
           "Items",
           "Spirit Visage makes every heal bigger, so every hit gets bigger too. Warmog's, Unending Despair and Jak'Sho keep him seated."
         ]
       ],
-      "play": "Walk into the middle of the fight and press W. Repeat. Never right-click a champion.",
+      "play": "Walk into the middle of the fight and press W. Press Q or E to reset it, press W again. Never right-click a champion.",
       "chef": "2026-11-12",
       "menu": "off"
     },
@@ -748,8 +969,8 @@
       "augments": [
         "Ultimate Revolution",
         "Stuck In Here With Me",
-        "First-Aid Kit",
-        "Ultimate Recursion"
+        "Ethereal Weapon",
+        "Mystic Punch"
       ],
       "core": 4,
       "items": [
@@ -768,11 +989,11 @@
         ],
         [
           "Augments",
-          "Ultimate Revolution casts it twice, Stuck In Here With Me Taunts the enemies so they stay in the zone, and Ultimate Recursion brings it back fast. First-Aid Kit makes every heal bigger."
+          "Ultimate Revolution casts it twice and Stuck In Here With Me taunts the enemies so they stay in the zone. Ethereal Weapon makes her abilities apply on-hit, and each on-hit triggers Mystic Punch to cut the cooldowns, R included."
         ],
         [
           "Items",
-          "Redemption, Moonstone Renewer and Dawncore are pure support healing. Malignance adds more Ultimate Haste, so the zone is up all the time."
+          "Redemption, Moonstone Renewer and Dawncore are pure support healing. Malignance adds Ultimate Haste, so the zone is up all the time."
         ]
       ],
       "play": "Wait for a big fight, press R in the middle of all ten champions, then press it again. Nobody leaves, nobody dies, everybody heals.",
