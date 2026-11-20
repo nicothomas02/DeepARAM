@@ -161,6 +161,9 @@ export default function RootLayout({
               <T>Research</T>
             </Link>
           </nav>
+          <p className="footer-pitch">
+            <T>DeepARAM is built just for ARAM Mayhem. Rankings come from data science, and builds are tested in a fight simulator.</T>
+          </p>
           <p>
             <T>{text("footer")}</T>
           </p>

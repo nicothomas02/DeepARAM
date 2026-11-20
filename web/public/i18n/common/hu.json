@@ -229,5 +229,13 @@
  "Methodology": "Módszertan",
  "Looking for a page? Search for “{q}”": "Egy oldalt keresel? Keresés erre: „{q}”",
  "Champion win rates, augment rankings and duo synergy, patch by patch.": "Hősök győzelmi aránya, fejlesztések rangsora és párosok szinergiája, patchről patchre.",
- "Research": "Kutatás"
+ "Research": "Kutatás",
+ "Built just for Mayhem, with stats that predict instead of just count, and builds tested in real fights.": "Kizárólag az ARAM: Káosz módhoz készült: statisztikák, amelyek előre jeleznek, nem csak számolnak, és valódi harcokban tesztelt buildek.",
+ "Every augment, ranked for you": "Minden bővítés, neked rangsorolva",
+ "All the augments, quests and Mayhem-only items, scored for each champion. Mark what you took and the rest re-rank around it.": "Minden bővítés, küldetés és csak ebben a módban elérhető tárgy, bajnokonként pontozva. Jelöld meg, mit választottál, és a többi újrarendeződik.",
+ "Data science, not raw counts": "Adattudomány, nem puszta számok",
+ "DeepScore weighs sample size, shows how sure it is, and estimates what each augment adds to your champion. It even forecasts patches before they land.": "A DeepScore figyelembe veszi a mintaméretet, megmutatja, mennyire biztos, és megbecsüli, mennyit ad egy bővítés a bajnokodnak. Még a javításokat is előre jelzi, mielőtt megjelennének.",
+ "Tested in fights": "Harcban tesztelve",
+ "A full combat simulator runs builds against real kits, so you see why a build wins, not just that it did.": "Egy teljes harci szimulátor valódi képességek ellen futtatja a buildeket, így látod, miért nyer egy build, nem csak azt, hogy nyer.",
+ "DeepARAM is built just for ARAM Mayhem. Rankings come from data science, and builds are tested in a fight simulator.": "A DeepARAM kizárólag az ARAM: Káosz módhoz készült. A rangsorok adattudományon alapulnak, a buildeket pedig harci szimulátorban teszteljük."
 }

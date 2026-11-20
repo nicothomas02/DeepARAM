@@ -225,5 +225,13 @@
  "Methodology": "Methodology",
  "Looking for a page? Search for “{q}”": "Looking for a page? Search for “{q}”",
  "Champion win rates, augment rankings and duo synergy, patch by patch.": "Champion win rates, augment rankings and duo synergy, patch by patch.",
- "Research": "Research"
+ "Research": "Research",
+ "Built just for Mayhem, with stats that predict instead of just count, and builds tested in real fights.": "Built just for Mayhem, with stats that predict instead of just count, and builds tested in real fights.",
+ "Every augment, ranked for you": "Every augment, ranked for you",
+ "All the augments, quests and Mayhem-only items, scored for each champion. Mark what you took and the rest re-rank around it.": "All the augments, quests and Mayhem-only items, scored for each champion. Mark what you took and the rest re-rank around it.",
+ "Data science, not raw counts": "Data science, not raw counts",
+ "DeepScore weighs sample size, shows how sure it is, and estimates what each augment adds to your champion. It even forecasts patches before they land.": "DeepScore weighs sample size, shows how sure it is, and estimates what each augment adds to your champion. It even forecasts patches before they land.",
+ "Tested in fights": "Tested in fights",
+ "A full combat simulator runs builds against real kits, so you see why a build wins, not just that it did.": "A full combat simulator runs builds against real kits, so you see why a build wins, not just that it did.",
+ "DeepARAM is built just for ARAM Mayhem. Rankings come from data science, and builds are tested in a fight simulator.": "DeepARAM is built just for ARAM Mayhem. Rankings come from data science, and builds are tested in a fight simulator."
 }

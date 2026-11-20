@@ -62,6 +62,18 @@ function funValues(): Record<string, (id: number, alias: string) => string | nul
   };
 }
 
+const PILLARS: [string, string][] = [
+  [
+    "Every augment, ranked for you",
+    "All the augments, quests and Mayhem-only items, scored for each champion. Mark what you took and the rest re-rank around it.",
+  ],
+  [
+    "Data science, not raw counts",
+    "DeepScore weighs sample size, shows how sure it is, and estimates what each augment adds to your champion. It even forecasts patches before they land.",
+  ],
+  ["Tested in fights", "A full combat simulator runs builds against real kits, so you see why a build wins, not just that it did."],
+];
+
 export default function Home() {
   const tiers = liveTiers();
   const augs = topAugments();
@@ -136,6 +148,20 @@ export default function Home() {
           </Link>
           <TourChip />
         </div>
+      </section>
+
+      {/* What sets the site apart (Nico, 2026-11-20). */}
+      <section className="home-pillars" aria-label="Why DeepARAM">
+        {PILLARS.map(([title, body]) => (
+          <div key={title} className="home-pillar">
+            <h2>
+              <T>{title}</T>
+            </h2>
+            <p>
+              <T>{body}</T>
+            </p>
+          </div>
+        ))}
       </section>
 
       <div className="bento">
