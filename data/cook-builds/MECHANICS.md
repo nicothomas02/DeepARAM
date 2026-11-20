@@ -73,6 +73,22 @@ damage over time), check the League wiki first.
   max rank) and Aatrox (Nico).
 - **Mystic Punch:** bad on champions that only auto now and then for a passive and mainly cast (Aatrox, Maokai,
   Swain, Akali) (Nico).
+- **Ultimate Revolution:** after your R starts (instant casts) or ends (duration casts), its cooldown resets once,
+  so you get a second R. 75s cooldown, reset on death (wiki), so an unused second R is ready again after respawn
+  (Nico). Best on Karthus, Malphite, Renata Glasc and Amumu.
+- **Spell Split:** split missiles keep the full effect: Blitzcrank's split hooks pull, and Nidalee's split spears
+  keep the distance damage (Nico). Later hits on the same target from one cast deal 30% (wiki).
+- **Shark Bait:** you probably can't cast during the zombie state (Nico, not sure). It ranks high on Udyr, Nunu,
+  Lissandra and Fiddlesticks mostly because they dive and die often.
+- **Fey Magic:** the polymorph is a disarm plus slow, not an immobilize, so it doesn't trigger Cruelty (Nico).
+- **Chain Reaction:** only offered to champions with a knock-back (21 in our data). Collisions with champions knock
+  up; with terrain, the target rebounds, takes more damage and is stunned. On an R it deals 250% (wiki). Gragas
+  takes it most (his #1 augment): E knocks back often and his R has long range, so targets often hit each other
+  or a wall (Nico). Next most: Qiyana, Syndra, Gnar, Lee Sin, Alistar, Taliyah, Poppy.
+- **Ominous Pact:** Singed's Q toggle pays the 5% health cost once per toggle, so it's almost free (Nico).
+- **Master of Duality:** Katarina's daggers count as ability hits, and all stacks fall off together after 5s
+  without a hit (Nico).
+- **Multishot:** goes on Q for Vel'Koz, Ekko and Lux (Nico).
 - **Pin Cushion:** very weak damage for a prismatic, worse still on melee champions with few attacks (Nico).
 - **Terrain'd:** the AP Trundle items (Horizon Focus, Bloodletter's, Cryptbloom, Imperial Mandate) likely center
   on it (Nico, probably).
