@@ -189,9 +189,6 @@
  "Boots after the 3rd item": "第3件裝備後買鞋",
  "Boots are shown where to buy them.": "鞋子顯示在應購買的位置。",
  "Core builds show the boots where the Simulator says to buy them: the first point where they add as much per gold as the next item.": "核心出裝把鞋子放在模擬器建議購買的位置：即每金幣收益首次不低於下一件裝備的時刻。",
- "The biggest win rate boost of any augment on {champ}: +{n} pts.": "{champ}所有強化中勝率提升最大：+{n}個百分點。",
- "Raises {champ}'s win rate by {n} pts.": "使{champ}的勝率提高{n}個百分點。",
- "Lowers {champ}'s win rate by {n} pts.": "使{champ}的勝率降低{n}個百分點。",
  "Build for your augments": "依強化選出裝",
  "The builds below are for any augments. Pick yours to see the best items with it.": "下面的出裝適用於任何強化。選擇你的強化，查看搭配它的最佳裝備。",
  "Simulated: the Simulator's best items with this augment taken, compared with its best items with no augment.": "模擬：取得該強化時模擬器算出的最佳裝備，與不帶強化時的最佳裝備比較。",
@@ -246,5 +243,9 @@
  "Raw shows every build's plain win rate, including items an augment gives you.": "原始顯示每套出裝的實際勝率，包括海克斯強化給的裝備。",
  "Augment item": "強化裝備",
  "Items 4 to 6": "第 4 到 6 件裝備",
- "From earlier games": "來自較早的對局"
+ "From earlier games": "來自較早的對局",
+ "Pick rate here is the share of those builds, not of all games.": "此處的選取率是這些出裝中的占比，而非所有對局中的占比。",
+ "Only the top starters are listed, and they usually win more than the champion overall, so each one is compared with the others.": "只列出最好的幾種出門裝，它們通常比英雄整體勝率更高，所以每種都與其他幾種比較。",
+ "Estimated: {champ} wins {n} pts more in games with it.": "估算：選了它的對局中，{champ}的勝率高{n}個百分點。",
+ "Estimated: {champ} wins {n} pts less in games with it.": "估算：選了它的對局中，{champ}的勝率低{n}個百分點。"
 }

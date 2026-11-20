@@ -174,11 +174,13 @@ export function championPage(alias: string): ChampionPage | null {
   const rates = new Map(live.map((c) => [c.name, c.win_rate]));
   const base = rates.get(alias) ?? 0.5;
   const champGames = live.find((c) => c.name === alias)?.sample;
-  const rated = (win: number | undefined, pick: number): Rated => ({
+  // scale: the share of the champion's games the list's pick rates are shares of (1 for all games); baseline: what
+  // the row's lift is measured against (the champion's win rate unless a list says otherwise).
+  const rated = (win: number | undefined, pick: number, scale = 1, baseline = base): Rated => ({
     winRate: win ?? 0,
     pickRate: pick,
-    lift: (win ?? 0) - base,
-    ...(champGames ? { games: champGames * pick } : {}),
+    lift: (win ?? 0) - baseline,
+    ...(champGames ? { games: champGames * pick * scale } : {}),
   });
 
   const raw = readRepoJson<Builds>(`data/cn/builds/${id}.json`);
@@ -186,10 +188,23 @@ export function championPage(alias: string): ChampionPage | null {
   const b: Builds | null = raw && early ? { ...raw, items: { ...raw.items, ...early } } : raw;
   const rewards = rewardItems();
   const all = items();
-  const rows = (list: Raw[] | undefined) =>
+  const rows = (list: Raw[] | undefined, scale = 1, baseline = base) =>
     (list ?? [])
       .filter((r) => r.items.every((i) => all.has(i) && !rewards.has(i)))
-      .map((r) => ({ items: r.items, ...rated(r.win_rate, r.pick_rate) }));
+      .map((r) => ({ items: r.items, ...rated(r.win_rate, r.pick_rate, scale, baseline) }));
+  // Core and single-item rows rebuilt from the six-item builds (data/cn/builds.py from_full_builds) have pick rates that
+  // are shares of the listed full builds, which cover only part of the champion's games (a median of about 14%). Their
+  // games, and so their ranges and "Few games" tags, count only those games, not all of the champion's.
+  const derivedScale = (key: "items.core" | "items.other") =>
+    !early && b?.derived?.includes(key) ? Math.min(1, (b?.items?.full_builds ?? []).reduce((s, r) => s + (r.pick_rate ?? 0), 0)) : 1;
+  // Only the top few starters are listed, and nearly all of them (94% of rows, November 2026) win more than the
+  // champion does overall, so each starter's lift is measured against the listed starters' average: they compare with
+  // each other instead of all showing as above average.
+  const listAverage = (list: Raw[] | undefined) => {
+    const rated = (list ?? []).filter((r) => r.win_rate !== undefined);
+    const w = rated.reduce((s, r) => s + r.pick_rate, 0);
+    return w ? rated.reduce((s, r) => s + r.win_rate! * r.pick_rate, 0) / w : base;
+  };
 
   const skills = (b?.skills ?? []).map((s) => ({
     max: s.max_order,
@@ -236,17 +251,17 @@ export function championPage(alias: string): ChampionPage | null {
   const boots = scoreItems(rows(b?.items?.boots), FIT.items);
   const full = scoreItems(rows(b?.items?.full_builds));
   const single = tiered([
-    ...rows(b?.items?.other),
+    ...rows(b?.items?.other, derivedScale("items.other")),
     ...rows(b?.items?.boots),
-    ...rows(b?.items?.starting),
+    ...rows(b?.items?.starting, 1, listAverage(b?.items?.starting)),
   ]);
   const timing =
     (SIMULATOR_IN_STATS ? readRepoJson<BootsTiming>("data/estimates/boots_timing.json")?.champions[String(id)] : undefined) ?? {};
-  const core = withBoots(scoreItems(rows(b?.items?.core)), full, boots[0], timing);
+  const core = withBoots(scoreItems(rows(b?.items?.core, derivedScale("items.core"))), full, boots[0], timing);
   const page = {
     winRate: base,
     skills,
-    starting: scoreItems(rows(b?.items?.starting), FIT.items),
+    starting: scoreItems(rows(b?.items?.starting, 1, listAverage(b?.items?.starting)), FIT.items),
     boots,
     core,
     full,

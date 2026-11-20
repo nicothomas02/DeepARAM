@@ -189,9 +189,6 @@
  "Boots after the 3rd item": "Μπότες μετά το 3ο αντικείμενο",
  "Boots are shown where to buy them.": "Οι μπότες εμφανίζονται εκεί που πρέπει να τις αγοράσεις.",
  "Core builds show the boots where the Simulator says to buy them: the first point where they add as much per gold as the next item.": "Τα βασικά builds δείχνουν τις μπότες εκεί που ο Προσομοιωτής λέει να τις αγοράσεις: στο πρώτο σημείο όπου προσφέρουν ανά χρυσό όσο και το επόμενο αντικείμενο.",
- "The biggest win rate boost of any augment on {champ}: +{n} pts.": "Η μεγαλύτερη αύξηση ποσοστού νικών από κάθε ενίσχυση για {champ}: +{n} μον.",
- "Raises {champ}'s win rate by {n} pts.": "Αυξάνει το ποσοστό νικών του/της {champ} κατά {n} μον.",
- "Lowers {champ}'s win rate by {n} pts.": "Μειώνει το ποσοστό νικών του/της {champ} κατά {n} μον.",
  "Build for your augments": "Build για τις ενισχύσεις σου",
  "The builds below are for any augments. Pick yours to see the best items with it.": "Τα build παρακάτω ισχύουν για οποιεσδήποτε ενισχύσεις. Διάλεξε τη δική σου για να δεις τα καλύτερα αντικείμενα μαζί της.",
  "Simulated: the Simulator's best items with this augment taken, compared with its best items with no augment.": "Προσομοίωση: τα καλύτερα αντικείμενα του προσομοιωτή με αυτή την ενίσχυση, σε σύγκριση με τα καλύτερα χωρίς ενίσχυση.",
@@ -246,5 +243,9 @@
  "Raw shows every build's plain win rate, including items an augment gives you.": "Τα ακατέργαστα δείχνουν το απλό ποσοστό νικών κάθε build, μαζί με αντικείμενα από augment.",
  "Augment item": "Αντικείμενο augment",
  "Items 4 to 6": "Αντικείμενα 4 έως 6",
- "From earlier games": "Από παλαιότερα παιχνίδια"
+ "From earlier games": "Από παλαιότερα παιχνίδια",
+ "Pick rate here is the share of those builds, not of all games.": "Το ποσοστό επιλογής εδώ είναι το μερίδιο αυτών των build, όχι όλων των παιχνιδιών.",
+ "Only the top starters are listed, and they usually win more than the champion overall, so each one is compared with the others.": "Εμφανίζονται μόνο τα κορυφαία αρχικά αντικείμενα, που συνήθως κερδίζουν περισσότερο από τον πρωταθλητή συνολικά, οπότε το καθένα συγκρίνεται με τα υπόλοιπα.",
+ "Estimated: {champ} wins {n} pts more in games with it.": "Εκτίμηση: ο/η {champ} κερδίζει {n} μον. περισσότερο στα παιχνίδια με αυτό.",
+ "Estimated: {champ} wins {n} pts less in games with it.": "Εκτίμηση: ο/η {champ} κερδίζει {n} μον. λιγότερο στα παιχνίδια με αυτό."
 }

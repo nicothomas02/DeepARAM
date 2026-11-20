@@ -150,10 +150,9 @@ export default function AugmentTable({
   const pages = Math.ceil(shown.length / PAGE);
   const at = Math.min(page, Math.max(0, pages - 1));
   const hasPicks = rows.some((r) => r.stages);
-  // Why an augment ranks where it does (visitor feedback 2026-11-06): what it does, then how much it moves this
-  // champion's win rate, in plain words. The biggest boost on the champion says so.
+  // Why an augment ranks where it does (visitor feedback 2026-11-06): what it does, then how this champion's games
+  // with it go, in plain words.
   const champ = champion ? names("champions", champion, champion.replace(/([a-z])([A-Z])/g, "$1 $2")) : "";
-  const topLift = Math.max(...rows.map((r) => r.lift ?? -Infinity));
   const augName = (id: number) => {
     const r = byId.get(id);
     return r ? names("augments", id, r.name) : String(id);
@@ -170,10 +169,12 @@ export default function AugmentTable({
       parts.push(p.why ? `${line} ${p.why}` : line);
     }
     const n = Math.abs((a.lift ?? 0) * 100).toFixed(1);
+    // Worded as what games with it show, not what it causes: an augment's numbers often ride on the augments and
+    // items that come with it (Nico, 2026-11-20). No "biggest boost" superlative either, which a rarely taken
+    // augment could win.
     if (champ && a.lift !== undefined) {
-      if (a.lift === topLift && a.lift >= 0.005) parts.push(t("The biggest win rate boost of any augment on {champ}: +{n} pts.", { champ, n }));
-      else if (a.lift >= 0.005) parts.push(t("Raises {champ}'s win rate by {n} pts.", { champ, n }));
-      else if (a.lift <= -0.005) parts.push(t("Lowers {champ}'s win rate by {n} pts.", { champ, n }));
+      if (a.lift >= 0.005) parts.push(t("Estimated: {champ} wins {n} pts more in games with it.", { champ, n }));
+      else if (a.lift <= -0.005) parts.push(t("Estimated: {champ} wins {n} pts less in games with it.", { champ, n }));
     }
     return parts.filter(Boolean).join(" ");
   };

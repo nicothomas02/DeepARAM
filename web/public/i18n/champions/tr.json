@@ -189,9 +189,6 @@
  "Boots after the 3rd item": "3. eşyadan sonra botlar",
  "Boots are shown where to buy them.": "Botlar alınacakları yerde gösterilir.",
  "Core builds show the boots where the Simulator says to buy them: the first point where they add as much per gold as the next item.": "Temel dizilimler botları Simülatör'ün alınmasını önerdiği yerde gösterir: altın başına bir sonraki eşya kadar değer kattıkları ilk an.",
- "The biggest win rate boost of any augment on {champ}: +{n} pts.": "{champ} için tüm güçlendirmeler arasında en büyük kazanma oranı artışı: +{n} puan.",
- "Raises {champ}'s win rate by {n} pts.": "{champ} kazanma oranını {n} puan artırır.",
- "Lowers {champ}'s win rate by {n} pts.": "{champ} kazanma oranını {n} puan düşürür.",
  "Build for your augments": "Güçlendirmelerine göre dizilim",
  "The builds below are for any augments. Pick yours to see the best items with it.": "Aşağıdaki dizilimler her güçlendirmeyle uyar. En iyi eşyaları görmek için kendi güçlendirmeni seç.",
  "Simulated: the Simulator's best items with this augment taken, compared with its best items with no augment.": "Simülasyon: bu güçlendirme alındığında simülatörün en iyi eşyaları, güçlendirmesiz en iyi eşyalarıyla karşılaştırılarak.",
@@ -246,5 +243,9 @@
  "Raw shows every build's plain win rate, including items an augment gives you.": "Ham görünüm, güçlendirmenin verdiği eşyalar dahil her dizilimin gerçek kazanma oranını gösterir.",
  "Augment item": "Güçlendirme eşyası",
  "Items 4 to 6": "4. ile 6. eşyalar",
- "From earlier games": "Önceki maçlardan"
+ "From earlier games": "Önceki maçlardan",
+ "Pick rate here is the share of those builds, not of all games.": "Buradaki seçilme oranı tüm maçlar değil, bu dizilimler içindeki paydır.",
+ "Only the top starters are listed, and they usually win more than the champion overall, so each one is compared with the others.": "Yalnızca en iyi başlangıç eşyaları listelenir ve genelde şampiyonun genel oranından fazla kazanırlar, bu yüzden her biri diğerleriyle karşılaştırılır.",
+ "Estimated: {champ} wins {n} pts more in games with it.": "Tahmin: {champ} bununla oynanan maçlarda {n} puan daha fazla kazanır.",
+ "Estimated: {champ} wins {n} pts less in games with it.": "Tahmin: {champ} bununla oynanan maçlarda {n} puan daha az kazanır."
 }

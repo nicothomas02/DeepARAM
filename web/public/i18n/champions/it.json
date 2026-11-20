@@ -189,9 +189,6 @@
  "Boots after the 3rd item": "Stivali dopo il 3° oggetto",
  "Boots are shown where to buy them.": "Gli stivali sono mostrati dove comprarli.",
  "Core builds show the boots where the Simulator says to buy them: the first point where they add as much per gold as the next item.": "Le build principali mostrano gli stivali dove il Simulatore consiglia di comprarli: il primo punto in cui rendono per oro quanto l'oggetto successivo.",
- "The biggest win rate boost of any augment on {champ}: +{n} pts.": "Il maggiore aumento del tasso di vittoria fra tutti gli augment su {champ}: +{n} punti.",
- "Raises {champ}'s win rate by {n} pts.": "Alza il tasso di vittoria di {champ} di {n} punti.",
- "Lowers {champ}'s win rate by {n} pts.": "Abbassa il tasso di vittoria di {champ} di {n} punti.",
  "Build for your augments": "Build per i tuoi augment",
  "The builds below are for any augments. Pick yours to see the best items with it.": "Le build qui sotto valgono per qualsiasi augment. Scegli il tuo per vedere gli oggetti migliori con esso.",
  "Simulated: the Simulator's best items with this augment taken, compared with its best items with no augment.": "Simulato: gli oggetti migliori del simulatore con questo augment, confrontati con i migliori senza augment.",
@@ -246,5 +243,9 @@
  "Raw shows every build's plain win rate, including items an augment gives you.": "Grezzi mostra la percentuale di vittorie reale di ogni build, inclusi gli oggetti dati da un potenziamento.",
  "Augment item": "Oggetto da potenziamento",
  "Items 4 to 6": "Oggetti da 4 a 6",
- "From earlier games": "Da partite precedenti"
+ "From earlier games": "Da partite precedenti",
+ "Pick rate here is the share of those builds, not of all games.": "Qui la percentuale di scelta è la quota di quelle build, non di tutte le partite.",
+ "Only the top starters are listed, and they usually win more than the champion overall, so each one is compared with the others.": "Sono elencati solo gli oggetti iniziali migliori, che di solito vincono più del campione in generale, quindi ognuno è confrontato con gli altri.",
+ "Estimated: {champ} wins {n} pts more in games with it.": "Stima: {champ} vince {n} pt in più nelle partite con questo.",
+ "Estimated: {champ} wins {n} pts less in games with it.": "Stima: {champ} vince {n} pt in meno nelle partite con questo."
 }

@@ -189,9 +189,6 @@
  "Boots after the 3rd item": "Stiefel nach dem 3. Gegenstand",
  "Boots are shown where to buy them.": "Stiefel stehen dort, wo du sie kaufst.",
  "Core builds show the boots where the Simulator says to buy them: the first point where they add as much per gold as the next item.": "Kern-Builds zeigen die Stiefel dort, wo der Simulator sie zu kaufen empfiehlt: am ersten Punkt, an dem sie pro Gold so viel bringen wie der nächste Gegenstand.",
- "The biggest win rate boost of any augment on {champ}: +{n} pts.": "Der größte Siegquoten-Bonus aller Augments für {champ}: +{n} Pkt.",
- "Raises {champ}'s win rate by {n} pts.": "Erhöht die Siegquote von {champ} um {n} Pkt.",
- "Lowers {champ}'s win rate by {n} pts.": "Senkt die Siegquote von {champ} um {n} Pkt.",
  "Build for your augments": "Build für deine Augments",
  "The builds below are for any augments. Pick yours to see the best items with it.": "Die Builds unten passen zu beliebigen Augments. Wähle deins, um die besten Items damit zu sehen.",
  "Simulated: the Simulator's best items with this augment taken, compared with its best items with no augment.": "Simuliert: die besten Items des Simulators mit diesem Augment, verglichen mit seinen besten Items ohne Augment.",
@@ -246,5 +243,9 @@
  "Raw shows every build's plain win rate, including items an augment gives you.": "Roh zeigt die reine Siegquote jedes Builds, auch mit Items, die ein Augment gibt.",
  "Augment item": "Augment-Item",
  "Items 4 to 6": "Items 4 bis 6",
- "From earlier games": "Aus früheren Spielen"
+ "From earlier games": "Aus früheren Spielen",
+ "Pick rate here is the share of those builds, not of all games.": "Die Pickrate ist hier der Anteil an diesen Builds, nicht an allen Spielen.",
+ "Only the top starters are listed, and they usually win more than the champion overall, so each one is compared with the others.": "Nur die besten Start-Items werden gezeigt, und sie gewinnen meist häufiger als der Champion insgesamt, daher wird jedes mit den anderen verglichen.",
+ "Estimated: {champ} wins {n} pts more in games with it.": "Geschätzt: {champ} gewinnt in Spielen damit {n} Pkt. mehr.",
+ "Estimated: {champ} wins {n} pts less in games with it.": "Geschätzt: {champ} gewinnt in Spielen damit {n} Pkt. weniger."
 }

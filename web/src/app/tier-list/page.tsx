@@ -102,7 +102,10 @@ export default function TierListPage() {
               tagInfo={championTagData().info}
               games={fillGames()}
               matches={matchesByPatch()}
-              scaling={Object.fromEntries([...powerCurveLists().scaling].flatMap(([id, v]) => (ALIAS[id] ? [[ALIAS[id], v]] : [])))}
+              // The "Strongest" (early / late) column is simulated, so it stays off while the Simulator is a fun tool only.
+              scaling={
+                SIMULATOR_IN_STATS ? Object.fromEntries([...powerCurveLists().scaling].flatMap(([id, v]) => (ALIAS[id] ? [[ALIAS[id], v]] : []))) : {}
+              }
               reliance={Object.fromEntries([...championAugmentReliance()].flatMap(([id, v]) => (ALIAS[id] ? [[ALIAS[id], v]] : [])))}
             />
           }

@@ -842,7 +842,10 @@ export default async function ChampionPage({
                 p.buildsEstimated ? (
                   <T ns={NS}>{"Few games so far: estimated from earlier games and this patch's changes."}</T>
                 ) : p.coreDerived ? (
-                  <T ns={NS}>From the most common full builds, most built items first.</T>
+                  <>
+                    <T ns={NS}>From the most common full builds, most built items first.</T>{" "}
+                    <T ns={NS}>Pick rate here is the share of those builds, not of all games.</T>
+                  </>
                 ) : undefined
               }
             >
@@ -925,7 +928,15 @@ export default async function ChampionPage({
           )}
           <div className="cp-two">
             {p.starting.length > 0 && (
-              <Panel title="Starter items" count={p.starting.length}>
+              <Panel
+                title="Starter items"
+                count={p.starting.length}
+                note={
+                  <T ns={NS}>
+                    {"Only the top starters are listed, and they usually win more than the champion overall, so each one is compared with the others."}
+                  </T>
+                }
+              >
                 <Head what="Starter items" cols={SCORED_COLS} />
                 <ShowMore total={p.starting.length} limit={null}>
                   {itemRows(p.starting, false, "starting")}

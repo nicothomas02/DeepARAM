@@ -3,6 +3,7 @@ import { buildOrder, championPage, scoreRows } from "@/lib/champion-page";
 import { itemTier } from "@/lib/items";
 import { championAugmentStages } from "@/lib/estimates";
 import { SIMULATOR_IN_STATS } from "@/lib/sim-policy";
+import { liveWithChange } from "@/lib/champions";
 
 // Champion page builds: the core shows its boots where they're bought, then the 4th, 5th and 6th item options.
 describe("champion page core build", () => {
@@ -80,6 +81,25 @@ describe("DeepScore ranking of build lists", () => {
     for (const list of [p.starting, p.core, ...p.late.map((s) => s.options)]) {
       const scores = list.map((r) => r.deepScore!);
       expect(scores).toEqual([...scores].sort((a, b) => b - a));
+    }
+  });
+});
+
+describe("misleading-number guards", () => {
+  it("counts only the covered games for rows rebuilt from the six-item builds", () => {
+    // Yasuo's core and single items come from his most common full builds (data/cn/builds/157.json "derived").
+    const p = championPage("Yasuo")!;
+    const champGames = liveWithChange().live.find((c) => c.name === "Yasuo")!.sample!;
+    if (!p.coreDerived) return;
+    for (const r of p.core) expect(r.games!).toBeLessThan(champGames * r.pickRate * 0.5);
+  });
+
+  it("compares starters with each other, not with the champion's own win rate", () => {
+    for (const alias of ["Yasuo", "Ahri", "Jinx"]) {
+      const s = championPage(alias)!.starting;
+      if (s.length < 2) continue;
+      // Measured against the listed starters' average, so they can't all sit above it.
+      expect(s.some((r) => r.lift <= 0)).toBe(true);
     }
   });
 });

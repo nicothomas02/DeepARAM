@@ -189,9 +189,6 @@
  "Boots after the 3rd item": "Boty po 3. předmětu",
  "Boots are shown where to buy them.": "Boty jsou zobrazeny tam, kde je koupit.",
  "Core builds show the boots where the Simulator says to buy them: the first point where they add as much per gold as the next item.": "Základní buildy ukazují boty tam, kde je podle Simulátoru koupit: v prvním bodě, kdy za zlato přidají tolik jako další předmět.",
- "The biggest win rate boost of any augment on {champ}: +{n} pts.": "Největší zvýšení míry výher ze všech vylepšení na {champ}: +{n} b.",
- "Raises {champ}'s win rate by {n} pts.": "Zvyšuje míru výher {champ} o {n} b.",
- "Lowers {champ}'s win rate by {n} pts.": "Snižuje míru výher {champ} o {n} b.",
  "Build for your augments": "Sestava pro tvá vylepšení",
  "The builds below are for any augments. Pick yours to see the best items with it.": "Sestavy níže platí pro jakákoli vylepšení. Vyber své a uvidíš nejlepší předměty s ním.",
  "Simulated: the Simulator's best items with this augment taken, compared with its best items with no augment.": "Simulace: nejlepší předměty simulátoru s tímto vylepšením ve srovnání s nejlepšími předměty bez vylepšení.",
@@ -246,5 +243,9 @@
  "Raw shows every build's plain win rate, including items an augment gives you.": "Surová ukazuje prostou míru výher každého buildu, včetně předmětů z augmentů.",
  "Augment item": "Předmět z augmentu",
  "Items 4 to 6": "Předměty 4 až 6",
- "From earlier games": "Ze starších her"
+ "From earlier games": "Ze starších her",
+ "Pick rate here is the share of those builds, not of all games.": "Míra výběru je zde podíl z těchto sestav, ne ze všech her.",
+ "Only the top starters are listed, and they usually win more than the champion overall, so each one is compared with the others.": "Uvádí se jen nejlepší startovní předměty a obvykle vyhrávají víc než šampion celkově, takže se každý porovnává s ostatními.",
+ "Estimated: {champ} wins {n} pts more in games with it.": "Odhad: {champ} s ním vyhrává o {n} b. víc.",
+ "Estimated: {champ} wins {n} pts less in games with it.": "Odhad: {champ} s ním vyhrává o {n} b. méně."
 }
