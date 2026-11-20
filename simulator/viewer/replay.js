@@ -380,6 +380,8 @@
   const scratch = [0, 1, 2].map(() => ({ m: new Map() }));
   // The lane on screen: the view follows the fight.
   const LANE = 550;
+  // Health relics on the 3D map, in game units along and across the lane (as worldAt's positions).
+  const RELICS = [{ x: -250, y: -420 }, { x: 2650, y: 380 }, { x: -2900, y: 380 }, { x: 5400, y: -420 }];
   const cam = { x: null };
   // rate: playback speed, so the view keeps up with the fight at 2x and doesn't race it at 0.25x.
   function camera(W, H, world, focus, dt, rate) {
@@ -764,6 +766,10 @@
     // With the 3D models, abilities (and attacks, passives, toggles, Poros) the champion has effects for are
     // drawn with them (effects3d.js) instead of these shapes; fx collects this frame's for M.frame.
     const FX = world && M && M.effects, fx = [];
+    // On the 3D map, the health relics glow at the lane's edges, where the Howling Abyss has them
+    // (the fight doesn't pick them up; they're part of the scenery).
+    if (onMap && FX && FX.has("map", "Relic"))
+      for (const at of RELICS) fx.push({ champ: "map", slot: "Relic", role: "area", t: 3 + time, at: scr(at), dur: 1e6, h: 0 });
     // Poro Charge (Poro Stampede): each wave is a row of Poros running down the lane.
     // With the 3D models and the stampede's own effects, each Poro is the game's (effects3d.js).
     const poroFx = FX && FX.has("mayhem", "PoroCharge");
