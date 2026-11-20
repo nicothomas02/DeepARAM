@@ -505,9 +505,6 @@ export default async function ChampionPage({
               info={championTagData().info}
               link
             />
-            {championRatings(c.alias) && (
-              <PlaystyleBars ratings={championRatings(c.alias)!} />
-            )}
           </div>
           {c.tier && (
             <RangeView
@@ -594,48 +591,9 @@ export default async function ChampionPage({
         <RangePicker ranges={ranges.map(({ key, label, patches }) => ({ key, label, patches }))} />
       </section>
 
-      <div className="cp">
-        <aside className="cp-side" aria-label="Best picks">
-          {augRows.length > 0 && (
-            <div className="cp-best">
-              <h4>
-                <T>Best augments</T>
-              </h4>
-              <div className="cp-icons">
-                {augRows.slice(0, 5).map((a) => (
-                  <RowLink key={a.id} href={a.href ?? "#augments"} title={a.name} className="cp-named">
-                    <img
-                      className="cp-icon round"
-                      src={`/icons/augments/${a.id}.webp`}
-                      alt={a.name}
-                      width={36}
-                      height={36}
-                    />
-                    <small aria-hidden="true">
-                      <Name kind="augments" id={a.id}>
-                        {a.name}
-                      </Name>
-                    </small>
-                  </RowLink>
-                ))}
-              </div>
-            </div>
-          )}
-          {bestStart && (
-            <div className="cp-best">
-              <h4>
-                <T ns={NS}>Starter items</T>
-              </h4>
-              <div className="cp-icons">
-                {bestStart.items.map((id, i) => (
-                  <ItemIcon key={i} id={id} info={info} named />
-                ))}
-              </div>
-              <div className="cp-mini">
-                <RatedCells r={bestStart} />
-              </div>
-            </div>
-          )}
+      {/* Game card: everything needed in champion select, on one screen (Nico, 2026-11-20). The taken-augments
+          row (drag to replace) is planned to sit at the end of this card. */}
+      <section className="cp-game" aria-label="Build for your game">
           <div className="cp-best">
             <h4>
               <T ns={NS}>Best summoner spells</T>
@@ -657,8 +615,39 @@ export default async function ChampionPage({
               </p>
             )}
           </div>
-          {bestCore && (
+          {bestStart && (
             <div className="cp-best">
+              <h4>
+                <T ns={NS}>Starter items</T>
+              </h4>
+              <div className="cp-icons">
+                {bestStart.items.map((id, i) => (
+                  <ItemIcon key={i} id={id} info={info} named />
+                ))}
+              </div>
+              <div className="cp-mini">
+                <RatedCells r={bestStart} />
+              </div>
+            </div>
+          )}
+          {bestSkill && (
+            <div className="cp-best">
+              <h4>
+                <T ns={NS}>Best skill order</T>
+              </h4>
+              <Keys keys={bestSkill.max} />
+              <div className="cp-mini">
+                <RatedCells r={bestSkill} />
+              </div>
+              {p.skillsStale && (
+                <small className="cp-stale">
+                  <T ns={NS}>From earlier games: skill orders are not updating right now.</T>
+                </small>
+              )}
+            </div>
+          )}
+          {bestCore && (
+            <div className="cp-best cp-best-wide">
               <h4>
                 <T ns={NS}>Best core build</T>
               </h4>
@@ -690,7 +679,7 @@ export default async function ChampionPage({
                         <T ns={NS}>{SLOT_LABEL[s.slot]}</T>
                       </small>
                       <span className="cp-icons">
-                        {s.options.slice(0, 2).map((r) => (
+                        {s.options.slice(0, 1).map((r) => (
                           <ItemIcon
                             key={r.items[0]}
                             id={r.items[0]}
@@ -705,23 +694,38 @@ export default async function ChampionPage({
               )}
             </div>
           )}
-          {bestSkill && (
-            <div className="cp-best">
+          {augRows.length > 0 && (
+            <div className="cp-best cp-best-wide cp-best-augs">
               <h4>
-                <T ns={NS}>Best skill order</T>
+                <T>Best augments</T>
               </h4>
-              <Keys keys={bestSkill.max} />
-              <div className="cp-mini">
-                <RatedCells r={bestSkill} />
-              </div>
-              {p.skillsStale && (
-                <small className="cp-stale">
-                  <T ns={NS}>From earlier games: skill orders are not updating right now.</T>
-                </small>
-              )}
+              {(["prismatic", "gold", "silver"] as const).map((rar) => {
+                const top = augRows.filter((a) => a.rarity === rar).slice(0, 3);
+                return top.length ? (
+                  <div key={rar} className={`cp-aug-line rarity-${rar}`}>
+                    <small>
+                      <T>{rar === "prismatic" ? "Prismatic" : rar === "gold" ? "Gold" : "Silver"}</T>
+                    </small>
+                    <span className="cp-icons">
+                      {top.map((a) => (
+                        <RowLink key={a.id} href={a.href ?? "#augments"} title={a.name} className="cp-named">
+                          <img className="cp-icon round" src={`/icons/augments/${a.id}.webp`} alt={a.name} width={40} height={40} />
+                          <small aria-hidden="true">
+                            <Name kind="augments" id={a.id}>
+                              {a.name}
+                            </Name>
+                          </small>
+                        </RowLink>
+                      ))}
+                    </span>
+                  </div>
+                ) : null;
+              })}
             </div>
           )}
-        </aside>
+      </section>
+
+      <div className="cp">
 
         <div className="cp-main">
           <HowRankings />
@@ -1036,6 +1040,11 @@ export default async function ChampionPage({
           <h2 className="cp-group" id="playstyle">
             <T ns={NS}>Playstyle</T>
           </h2>
+          {championRatings(c.alias) && (
+            <div className="cp-bars">
+              <PlaystyleBars ratings={championRatings(c.alias)!} />
+            </div>
+          )}
           <Panel
             title="Summoner spells"
             count={spells.length || undefined}

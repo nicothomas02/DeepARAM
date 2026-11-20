@@ -49,6 +49,18 @@ for (const { name, from, exclude = [] } of embeds) {
   console.log(`sync-embeds: copied ${name}`);
 }
 
+// The 1v1 replay opens one champion at a time, so its traces are also published one file per champion
+// (replay-data/traces/<id>.json) and the page fetches only the one it shows. traces.json stays for local use.
+{
+  const dir = join(out, "simulator", "replay-data");
+  const all = existsSync(join(dir, "traces.json")) ? JSON.parse(readFileSync(join(dir, "traces.json"), "utf8")) : null;
+  if (all) {
+    mkdirSync(join(dir, "traces"), { recursive: true });
+    for (const [id, trace] of Object.entries(all)) writeFileSync(join(dir, "traces", `${id}.json`), JSON.stringify(trace));
+    console.log(`sync-embeds: split ${Object.keys(all).length} simulator traces`);
+  }
+}
+
 // Every image, sound, model, font and script the pages use is mirrored in public/assets/ (scripts/fetch_assets.py),
 // so links to the outside copies are pointed at the site's own. Pages that already use /assets/ are left as they are.
 // A rule with a third entry only applies when that file is in public/assets/ (in git, so in the deployed build):

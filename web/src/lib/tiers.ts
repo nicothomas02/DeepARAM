@@ -2,12 +2,13 @@
 //
 // Game counts aren't published, so a champion's sample size is estimated from pick rate × days:
 // that's proportional to how many games they appear in. Across several patches, each older patch's
-// games count for RECENT times the next one's, so a buff or nerf shows up quickly. The win rate is then
-// pulled toward the range's average (a beta prior worth PRIOR_STRENGTH "median champions' worth" of
-// games) and scored at the low end of its likely range, so a rarely picked champion needs a bigger edge.
+// games count for RECENT times the next one's, so a buff or nerf shows up quickly. DeepScore then ranks on
+// the expected win rate next patch at the low end of its likely range, with settings fitted on past
+// patches (lib/deepscore.ts FIT). Without them it falls back to the old rule: pulled toward the range's
+// average by a beta prior worth PRIOR_STRENGTH "median champions' worth" of games.
 
 import augmentNames from "@/data/augment-names.json";
-import { DEEPSCORE_HELP, grade, lowerBound } from "./deepscore";
+import { DEEPSCORE_HELP, FIT, grade, lowerBound, nextPatch, trueSpread, type Noise } from "./deepscore";
 
 const AUGS = augmentNames as Record<string, string>;
 
@@ -32,6 +33,11 @@ export type ChampStats = {
   deepScore: number;
   /** Low end of the likely win rate, which DeepScore ranks on. */
   score: number;
+  /** Expected win rate next patch if nothing about the champion changes, and its 80% range (fitted settings,
+   *  lib/deepscore.ts FIT). Meant for a single patch: the backtest predicts from the latest patch alone. */
+  next?: number;
+  next_lo?: number;
+  next_hi?: number;
   win_rate: number;
   pick_rate: number;
   damage: number | null;
@@ -117,10 +123,23 @@ export function champStats(rows: PatchRow[], patches: Set<string>, matches?: Rec
   const prior = MEDIAN_GAMES * PRIOR_STRENGTH;
   const allGames = base.reduce((a, b) => a + b.games, 0) || 1;
 
+  const fit = FIT.champions;
+  // Sampling noise, when real game counts are known: matters only for a champion with very few games.
+  const vOf = (b: (typeof base)[number]) =>
+    "sample" in b && b.sample && b.sample > 0 ? (b.win_rate * (1 - b.win_rate)) / b.sample : 0;
+  const tau2 = trueSpread(
+    base.map((b) => b.win_rate),
+    base.map(vOf),
+  );
   const scored = base
     .map((b) => {
-      const n = (b.games / median) * MEDIAN_GAMES;
-      return { ...b, share: b.games / allGames, score: lowerBound(b.win_rate, n, mean, prior) };
+      const share = b.games / allGames;
+      if (!fit) return { ...b, share, score: lowerBound(b.win_rate, (b.games / median) * MEDIAN_GAMES, mean, prior) };
+      const v = vOf(b);
+      const noise: Noise | undefined = v > 0 ? { v, tau2 } : undefined;
+      const { est, sd } = nextPatch(b.win_rate, b.games / median, mean, fit, noise);
+      const half = fit.q80 * sd;
+      return { ...b, share, score: est - sd, next: est, next_lo: est - half, next_hi: est + half };
     })
     .sort((a, b) => b.score - a.score);
   const grades = grade(scored.map((b) => b.score));

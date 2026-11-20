@@ -11,7 +11,7 @@ import { hintFor } from "@/lib/glossary";
 import { useNames, useT } from "./I18n";
 import { EmptyState } from "@/components/EmptyState";
 import DeepScore from "./DeepScore";
-import WinRate, { Sampled } from "./WinRate";
+import WinRate, { NextPatch, Sampled } from "./WinRate";
 import { useAdvanced } from "./Advanced";
 import ArchetypeTags from "./ArchetypeTags";
 import { openRankings, RANKINGS_ID } from "./HowRankings";
@@ -34,6 +34,8 @@ export type Column = {
   /** For "pct" win-rate and "pts" win-rate-boost columns: the row key holding the estimated games behind it, for
    *  its 95% range and a low-sample tag (components/WinRate.tsx). */
   gamesKey?: string;
+  /** For "pct" expected next-patch columns: the row keys holding the low and high end of its 80% range. */
+  rangeKeys?: [string, string];
   /** For "tags" columns: the colour and meaning of each tag (the cell holds them comma-separated). */
   tags?: TagInfo;
   /** Phones (globals.css): "hide" drops the column below 640px, "wide" only below 360px, so the main numbers fit
@@ -299,9 +301,18 @@ export default function DataTable({
 }) {
   // Every stat in one table: the advanced columns, when given, are the table's columns (Nico 2026-10-20).
   // On phones the extra ones drop out so the main numbers fit, unless Settings > Page detail is "Detailed".
-  const detailed = useAdvanced();
+  // Since 2026-11-20 (Nico: niche stats folded until opened) the extra columns are hidden on every screen until
+  // the table's "More columns" button or Settings > Page detail = "Detailed" opens them.
+  const detailedSetting = useAdvanced();
+  const [more, setMore] = useState(false);
+  const detailed = detailedSetting || more;
+  const extraCount = advancedColumns ? advancedColumns.filter((c) => !standardColumns.some((s) => s.key === c.key)).length : 0;
   const columns = useMemo(() => {
     if (!advancedColumns) return standardColumns;
+    if (!detailed) {
+      const keys = new Set(standardColumns.map((c) => c.key));
+      return advancedColumns.filter((c) => keys.has(c.key)).map((c) => ({ ...c, phone: standardColumns.find((s) => s.key === c.key)?.phone ?? c.phone }));
+    }
     // A column in the standard set keeps its phone setting from there.
     const standard = new Map(standardColumns.map((c) => [c.key, c]));
     return advancedColumns.map((c) => {
@@ -415,7 +426,18 @@ export default function DataTable({
 
   return (
     <div className={fit ? "data-table fit" : "data-table"} ref={box} {...KEPT}>
-      {fit ? <div className="table-tools">{search}</div> : search}
+      {extraCount > 0 && !detailedSetting ? (
+        <div className="table-tools">
+          {search}
+          <button type="button" className="table-more" aria-expanded={more} onClick={() => setMore((m) => !m)}>
+            {more ? t("Fewer columns") : t("More columns ({n})", { n: extraCount })}
+          </button>
+        </div>
+      ) : fit ? (
+        <div className="table-tools">{search}</div>
+      ) : (
+        search
+      )}
       <div className="table-scroll">
         <table ref={tableRef}>
           <thead>
@@ -495,6 +517,8 @@ export default function DataTable({
                       <ArchetypeTags names={String(r[c.key] ?? "").split(",")} info={c.tags} compact />
                     ) : c.format === "tier" && r[c.key] ? (
                       <TierChip tier={String(r[c.key])} was={r[`${c.key}_was`]} />
+                    ) : c.format === "pct" && c.rangeKeys && typeof r[c.key] === "number" && typeof r[c.rangeKeys[0]] === "number" && typeof r[c.rangeKeys[1]] === "number" ? (
+                      <NextPatch p={r[c.key] as number} lo={r[c.rangeKeys[0]] as number} hi={r[c.rangeKeys[1]] as number} />
                     ) : c.format === "pct" && c.gamesKey && typeof r[c.key] === "number" && typeof r[c.gamesKey] === "number" ? (
                       <WinRate p={r[c.key] as number} n={r[c.gamesKey] as number} />
                     ) : c.format === "pts" && c.gamesKey && typeof r[c.gamesKey] === "number" ? (

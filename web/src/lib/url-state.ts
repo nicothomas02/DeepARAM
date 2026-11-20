@@ -26,6 +26,8 @@ export function setParams(values: Record<string, string | null>, { push = false 
   const next = url.pathname + url.search + url.hash;
   if (push && next !== location.pathname + location.search + location.hash) history.pushState(history.state, "", next);
   else history.replaceState(history.state, "", next);
+  // The browser-tab title follows the open tab (components/DocTitle.tsx).
+  dispatchEvent(new Event("deeparam-url"));
   if (REMEMBERED.includes(url.pathname) && remembering()) {
     url.searchParams.delete("q");
     try {

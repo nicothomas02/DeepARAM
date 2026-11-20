@@ -164,9 +164,12 @@ test("a link to the Tier List's last tab shows that tab in the tab row", async (
     .toBe(true);
 });
 
-test("the Tier List shows every stat in one table, with no separate advanced section", async ({ page }) => {
+test("the Tier List shows every stat in one table, extra columns folded behind More columns", async ({ page }) => {
   await page.goto("/tier-list");
   const main = page.locator(".data-table").first();
+  // Niche columns stay folded until opened (Nico, 2026-11-20).
+  await expect(main.locator("thead")).not.toContainText("Damage share");
+  await main.locator(".table-more").click();
   await expect(main.locator("thead")).toContainText("Damage share");
   await expect(page.locator(".advanced-stats")).toHaveCount(0);
   // Changes read in percentage points, never as a negative zero.
@@ -266,7 +269,8 @@ test("augment and item pages show the official description under the name, the l
   await page.goto("/items/zhonyas-hourglass");
   await expect(page.locator(".champ-hero .official-desc")).toContainText("Time Stop");
   await page.goto("/tier-list?tab=augments");
-  // The augment list shows the best champion's icon and no longer the rank columns.
+  // The augment list shows the best champion's icon (under More columns) and no longer the rank columns.
+  await page.locator("#panel-augments .table-more").first().click();
   const heads = page.locator("#augments thead th, [role=tabpanel] thead th");
   await expect(heads.filter({ hasText: "Best champ" })).toHaveCount(1);
   await expect(heads.filter({ hasText: /Win rank|Pick rank/ })).toHaveCount(0);

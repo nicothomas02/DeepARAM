@@ -32,7 +32,9 @@ LabI18n.ready(function () {
   }
 
   document.getElementById("regions").innerHTML = data.regions.map(card).join("");
-  document.getElementById("patch").textContent = T("Patch {patch}.", { patch: data.patch.split(".").slice(0, 2).join(".") });
+  // Show the public patch number (16.23 -> 26.23), the same as the rest of the site.
+  const [major, minor] = data.patch.split(".").map(Number);
+  document.getElementById("patch").textContent = T("Patch {patch}.", { patch: `${major >= 10 && major < 20 ? major + 10 : major}.${minor}` });
   document.getElementById("footer").innerHTML = `
     <p><b>${T("How a team is picked:")}</b> ${T("every five-champion team from the region is scored by each champion's Mayhem win rate above 50%, plus how much better each pair in the team wins together. A team needs someone up front (a Tank or Fighter), someone for damage (a Mage, Marksman or Slayer), and at most two Marksmen. A region with no Tank or Fighter plays without one.")}</p>
     <p>${T("Regions come from each champion's official home; Runeterra is the champions with no single home. Champions from two regions can play for both.")}</p>`;

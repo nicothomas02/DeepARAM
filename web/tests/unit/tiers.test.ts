@@ -6,6 +6,11 @@ const row = (name: string, win_rate: number, pick_rate: number, patch = "16.20",
   patch, days, name, win_rate, pick_rate, damage: null, tank: null, kp: null, dead: null, augs: "",
 });
 
+const solidWidth = (out: ReturnType<typeof champStats>) => {
+  const s = out.find((c) => c.name === "Solid")!;
+  return s.next_hi! - s.next_lo!;
+};
+
 describe("champStats", () => {
   it("returns nothing for no rows or no chosen patches", () => {
     expect(champStats([], new Set(["16.20"]))).toEqual([]);
@@ -38,11 +43,29 @@ describe("champStats", () => {
       row("Lucky", 0.7, 0.0005),
       row("Solid", 0.56, 0.2),
     ];
-    const out = champStats(rows, new Set(["16.20"]));
+    // 100k matches: Lucky has 50 real games, Solid 20,000.
+    const out = champStats(rows, new Set(["16.20"]), { "16.20": 100_000 });
     expect(out[0].name).toBe("Solid");
     const lucky = out.find((c) => c.name === "Lucky")!;
     expect(lucky.score).toBeLessThan(0.6);
     expect(lucky.win_rate).toBeCloseTo(0.7);
+    // Its next-patch range is wide; Solid's is about the fitted drift.
+    expect(lucky.next_hi! - lucky.next_lo!).toBeGreaterThan(solidWidth(out) * 3);
+  });
+
+  it("keeps a rare champion's lead when its games are plentiful (fitted on past patches)", () => {
+    const rows = [
+      ...Array.from({ length: 20 }, (_, i) => row(`C${i}`, 0.5 + i * 0.001, 0.1)),
+      row("Rare", 0.56, 0.005),
+      row("Popular", 0.54, 0.2),
+    ];
+    // 50M matches: Rare still has 250,000 games, so its lead is real and carries over like anyone's.
+    const out = champStats(rows, new Set(["16.20"]), { "16.20": 50_000_000 });
+    expect(out[0].name).toBe("Rare");
+    const rare = out.find((c) => c.name === "Rare")!;
+    expect(rare.next!).toBeGreaterThan(0.55);
+    expect(rare.next_lo!).toBeLessThan(rare.next!);
+    expect(rare.next_hi!).toBeGreaterThan(rare.next!);
   });
 
   it("weights patches by pick rate times days, older patches at half, and keeps shares summing to 1", () => {
@@ -81,5 +104,19 @@ describe("DeepScore", () => {
     }
     expect(grade([0.5, 0.5])[0]).toEqual({ deepScore: 50, tier: "B" });
     expect(grade([])).toEqual([]);
+  });
+});
+
+describe("Fitted next-patch estimate", () => {
+  const fit = { b: 0.9, k: 0, s0: 0.01, s1: 0, q50: 0.4, q80: 1, q95: 2 };
+  it("keeps b of a lead and widens with sampling noise", async () => {
+    const { nextPatch, trueSpread } = await import("@/lib/deepscore");
+    const plain = nextPatch(0.6, 1, 0.5, fit);
+    expect(plain.est).toBeCloseTo(0.59);
+    expect(plain.sd).toBeCloseTo(0.01);
+    const noisy = nextPatch(0.6, 1, 0.5, fit, { v: 0.0004, tau2: 0.0004 });
+    expect(noisy.est).toBeCloseTo(0.545); // half the lead is noise
+    expect(noisy.sd).toBeGreaterThan(plain.sd);
+    expect(trueSpread([0.5, 0.5], [0.1, 0.1])).toBeGreaterThan(0);
   });
 });

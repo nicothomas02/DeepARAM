@@ -1019,7 +1019,8 @@ window.COOK_DATA = {
   {
    "id": "tryndamere-bloodlust-doctor",
    "champion": "Tryndamere",
-   "title": "The Bloodlust Doctor",
+   "title": "Bloodlust Is Healthcare",
+   "tagline": "Screams for a living and heals off every crit",
    "augments": [
     {
      "name": "Critical Healing",
@@ -1141,7 +1142,8 @@ window.COOK_DATA = {
   {
    "id": "janna-speeding-ticket",
    "champion": "Janna",
-   "title": "Speeding Ticket",
+   "title": "Tailwind Has No Brakes",
+   "tagline": "Speed is her only stat and every auto hits harder for it",
    "augments": [
     {
      "name": "Tap Dancer",
@@ -1184,24 +1186,24 @@ window.COOK_DATA = {
      "champion_is_best": false
     },
     {
-     "name": "Ice Cold",
-     "id": 1044,
+     "name": "Sound Barrier",
+     "id": 3025,
      "rarity": "Silver",
-     "text": "Your Slowing effects reduce Movement Speed by an extra 75.",
+     "text": "Shielding an ally grants Move Speed and Ghost decaying over 1.5 seconds. Cooldown per target: 1.5 seconds.",
      "core": true,
-     "icon": "icons/augments/ice-cold.png",
-     "win_rate": 0.5165,
-     "pick_rate": 0.197,
-     "win_rank": 123,
+     "icon": "icons/augments/sound-barrier.png",
+     "win_rate": 0.5211,
+     "pick_rate": 0.0192,
+     "win_rank": 108,
      "best_champions": [
-      "AurelionSol",
-      "Brand",
-      "Morgana",
-      "Malzahar",
-      "MissFortune",
-      "Teemo"
+      "Sona",
+      "Yuumi",
+      "Seraphine",
+      "Karma",
+      "Lulu",
+      "Janna"
      ],
-     "champion_is_best": false
+     "champion_is_best": true
     },
     {
      "name": "Get Excited!",
@@ -1233,8 +1235,22 @@ window.COOK_DATA = {
     "Cosmic Drive",
     "Boots of Swiftness"
    ],
-   "why": "Janna's Tailwind has a line nobody reads: a portion of her bonus Move Speed becomes bonus magic damage on hit and on Zephyr, and Zephyr's passive hands her free Move Speed just for existing. Tap Dancer gives her 10 Move Speed per attack, stacking for as long as she keeps hitting, and Don't Blink adds 1% damage for every 10 Move Speed she has over her target, so every attack makes the next one faster, harder on hit, and stronger on top. Zephyr's active slows the target and Ice Cold takes another 75 Move Speed off every slow, which widens the Don't Blink gap from the other side. Phantom Dancer, Lich Bane and Boots of Swiftness pile on raw speed, Dead Man's Plate stores speed while she runs and dumps it into her next attack, and Cosmic Drive gives her more Move Speed every time that on-hit magic damage lands. The enchanter stops shielding anyone and becomes an on-hit carry whose only real stat is Move Speed.",
-   "play": "Zephyr the squishiest target, then keep attacking: the longer the chase, the harder you hit. Get Excited! is the flex pick, since a takedown gives 100% Move Speed for 4 seconds and Don't Blink reads that as free damage.",
+   "why": "Janna stops shielding for the team and becomes an on-hit carry whose only real stat is Move Speed.",
+   "how": [
+    [
+     "Tailwind",
+     "Part of her bonus Move Speed becomes magic damage on hit and on Zephyr."
+    ],
+    [
+     "Augments",
+     "Tap Dancer adds speed on every attack and Don't Blink turns the speed gap into damage. Sound Barrier gives Move Speed whenever she shields an ally, and Get Excited! doubles her speed after a takedown."
+    ],
+    [
+     "Items",
+     "Phantom Dancer, Lich Bane and Swiftness add raw speed, Dead Man's Plate dumps it into her next hit, and Cosmic Drive gives more speed when the on-hit lands."
+    ]
+   ],
+   "play": "Zephyr the squishiest target and keep attacking. Shield an ally for a burst of speed. The longer the chase, the harder you hit.",
    "chef": "2026-10-18",
    "menu": "off",
    "champion_name": "Janna",
@@ -1250,10 +1266,10 @@ window.COOK_DATA = {
    "champion_win_rate": 0.5249,
    "champion_pick_rate": 0.0217,
    "champion_win_rank": 24,
-   "core_win_rate": 0.5157,
+   "core_win_rate": 0.5172,
    "tier": "Holds up",
-   "core_usual": 0,
-   "core_pick_rate": 0.1268,
+   "core_usual": 1,
+   "core_pick_rate": 0.0675,
    "sim": {
     "dps": 247,
     "survival": 0.012,
@@ -1281,19 +1297,27 @@ window.COOK_DATA = {
   {
    "id": "ivern-hedge-fund",
    "champion": "Ivern",
-   "title": "Hedge Fund",
+   "title": "Brushmaker Is Lowkey Lethal",
+   "tagline": "Makes a bush, leaves the bush and comes out swinging",
    "augments": [
     {
-     "name": "Hide on Bush",
-     "id": 2042,
-     "rarity": "Gold",
-     "text": "Entering Brush grants Brush Power for 2 seconds. While Brush Power is active, you deal 20% more damage. Damage done: Staying in Brush refreshes Brush Power.",
+     "name": "Shadow Runner",
+     "id": 1073,
+     "rarity": "Silver",
+     "text": "After using a Dash, Blink, or Teleport Ability or exiting Stealth, gain 300 Movement Speed for 2 seconds.",
      "core": true,
-     "icon": "icons/augments/hide-on-bush.png",
-     "win_rate": null,
-     "pick_rate": null,
-     "win_rank": null,
-     "best_champions": [],
+     "icon": "icons/augments/shadow-runner.png",
+     "win_rate": 0.557,
+     "pick_rate": 0.2214,
+     "win_rank": 37,
+     "best_champions": [
+      "Shaco",
+      "Vayne",
+      "Fizz",
+      "Yasuo",
+      "Pyke",
+      "Ekko"
+     ],
      "champion_is_best": false
     },
     {
@@ -1366,8 +1390,22 @@ window.COOK_DATA = {
     "Cosmic Drive",
     "Berserker's Greaves"
    ],
-   "why": "Ivern's Brushmaker has a passive almost nobody builds around: while he stands in brush, and for a moment after leaving it, his attacks deal bonus magic damage, and its active grows a fresh patch of brush anywhere he likes. Hide on Bush makes him deal 20% more damage for as long as he stays in brush, and Nature is Healing regenerates a large amount of Health every time he enters one, so every Brushmaker cast is a new entrance: a heal, a damage buff and a round of empowered attacks, on demand. Triggerseed feeds the other half: Mercy's Strike turns its shield into a next attack with extra range, Attack Speed and max Health magic damage, and Lil' Extra Help adds Attack Range and Attack Speed for as long as that shield lasts, so one shield from inside the brush is a short burst of long-range, fast, empowered attacks. Nashor's Tooth and Guinsoo's Rageblade stack more on-hit magic damage onto every one of those attacks, Rabadon's Deathcap grows all of it, and Cosmic Drive gives him the Move Speed to hop from one hedge to the next. The forest's gentlest support turns into an on-hit carry who plants his own ambush wherever he stands.",
-   "play": "Grow a brush on top of the fight, shield whoever is closest, and attack from inside it while the shield lasts; when the fight moves, grow another one and step in for the heal.",
+   "why": "Ivern grows his own ambush wherever he stands and fights from inside it as an on-hit carry.",
+   "how": [
+    [
+     "Brushmaker",
+     "Grows brush anywhere, and his attacks hit harder while he stands in it or just left it."
+    ],
+    [
+     "Augments",
+     "Nature is Healing heals him every time he enters brush, and Shadow Runner gives speed and stealth when he dashes out. Mercy's Strike and Lil' Extra Help turn each Triggerseed shield into fast, long-range empowered attacks."
+    ],
+    [
+     "Items",
+     "Nashor's and Guinsoo's stack on-hit damage, Rabadon's grows it, and Cosmic Drive moves him from hedge to hedge."
+    ]
+   ],
+   "play": "Grow a brush on top of the fight, shield the closest ally and attack from inside it. When the fight moves, grow another one.",
    "chef": "2026-10-19",
    "menu": "off",
    "champion_name": "Ivern",
@@ -1383,16 +1421,16 @@ window.COOK_DATA = {
    "champion_win_rate": 0.5202,
    "champion_pick_rate": 0.007,
    "champion_win_rank": 31,
-   "core_win_rate": 0.4989,
+   "core_win_rate": 0.5134,
    "tier": "Pure troll",
    "core_usual": 0,
-   "core_pick_rate": 0.0686,
+   "core_pick_rate": 0.1068,
    "sim": {
-    "dps": 1224,
-    "survival": 0.147,
+    "dps": 385,
+    "survival": 0.015,
     "best_dps": 1187,
     "best_survival": 0.167,
-    "pct_of_best": 1.031,
+    "pct_of_best": 0.325,
     "best_items": [
      "Sorcerer's Shoes",
      "Hextech Gunblade",
@@ -1408,110 +1446,145 @@ window.COOK_DATA = {
      "Tap Dancer"
     ],
     "items_not_modeled": [],
-    "whole_build": false
+    "whole_build": true
    }
   },
   {
    "id": "taric-friendly-fireworks",
    "champion": "Taric",
-   "title": "Friendly Fireworks",
+   "title": "Bravado Maxxing",
+   "tagline": "Every spell gives him two hits and every hit gives the spell back",
    "augments": [
     {
-     "name": "Upgrade Sword of Blossoming Dawn",
-     "id": 1379,
-     "rarity": "Prismatic",
-     "text": "Gain 100% Attack Speed. Increase Sword of Blossoming Dawn's healing to 250% when you attack enemy champions.",
+     "name": "The Boom and the Bass",
+     "id": 3078,
+     "rarity": "Gold",
+     "text": "After casting an Ability, your next Attack is faster, deals bonus magic damage, and grants you decaying Move Speed.",
      "core": true,
-     "icon": "icons/augments/upgrade-sword-of-blossoming-dawn.png",
-     "win_rate": 0.4919,
-     "pick_rate": 0.0127,
-     "win_rank": 191,
+     "icon": "icons/augments/the-boom-and-the-bass.png",
+     "win_rate": 0.6183,
+     "pick_rate": 0.4493,
+     "win_rank": 4,
      "best_champions": [
-      "Senna",
-      "Sona",
-      "Soraka",
-      "Lulu",
-      "Janna",
-      "Milio"
+      "Yasuo",
+      "Yone",
+      "Hecarim",
+      "Fiora",
+      "Ezreal",
+      "Jhin"
      ],
      "champion_is_best": false
     },
     {
-     "name": "Sonic Boom",
-     "id": 1076,
-     "rarity": "Silver",
-     "text": "Buffing, Healing, or Shielding your ally deals damage and Slows enemies surrounding them.",
+     "name": "Upgrade Sheen",
+     "id": 1996,
+     "rarity": "Gold",
+     "text": "Your Spellblade effects deal additional damage and heal you for a percent of the target's health. Additionally, gain 250 Gold.",
      "core": true,
-     "icon": "icons/augments/sonic-boom.png",
-     "win_rate": 0.5192,
-     "pick_rate": 0.0385,
-     "win_rank": 115,
+     "icon": "icons/augments/upgrade-sheen.png",
+     "win_rate": 0.5093,
+     "pick_rate": 0.1295,
+     "win_rank": 141,
      "best_champions": [
-      "Sona",
-      "Soraka",
-      "Yuumi",
-      "Seraphine",
-      "Senna",
-      "Nami"
+      "Ezreal",
+      "Smolder",
+      "XinZhao",
+      "Gangplank",
+      "Jax",
+      "Ekko"
      ],
      "champion_is_best": false
     },
     {
-     "name": "Empowered By The Faithful",
-     "id": 2004,
+     "name": "Mystic Punch",
+     "id": 1058,
      "rarity": "Prismatic",
-     "text": "Healing or Shielding allies blesses them, causing their damage to fill you with devotion. When you have enough devotion, unleash a shockwave dealing magic damage and executes low health enemies.",
+     "text": "On-Hit reduce the cooldown of your abilities by 1.25 seconds.",
      "core": true,
-     "icon": "icons/augments/empowered-by-the-faithful.png",
-     "win_rate": 0.4987,
-     "pick_rate": 0.0316,
-     "win_rank": 176,
+     "icon": "icons/augments/mystic-punch.png",
+     "win_rate": 0.565,
+     "pick_rate": 0.3174,
+     "win_rank": 28,
      "best_champions": [
-      "Sona",
-      "Soraka",
-      "Yuumi",
-      "Seraphine",
-      "Milio",
-      "Janna"
+      "Yasuo",
+      "MasterYi",
+      "Yone",
+      "Hecarim",
+      "Fiora",
+      "XinZhao"
+     ],
+     "champion_is_best": false
+    },
+    {
+     "name": "Firebrand",
+     "id": 1036,
+     "rarity": "Gold",
+     "text": "Your Attacks also Burn enemies, dealing 0.4% max Health magic damage per second over 5 seconds. This Burn stacks infinitely.",
+     "core": true,
+     "icon": "icons/augments/firebrand.png",
+     "win_rate": 0.4908,
+     "pick_rate": 0.0957,
+     "win_rank": 195,
+     "best_champions": [
+      "Ashe",
+      "Teemo",
+      "Katarina",
+      "Jinx",
+      "Kayle",
+      "Twitch"
      ],
      "champion_is_best": false
     }
    ],
-   "core": 3,
+   "core": 4,
    "items": [
-    "Sword of Blossoming Dawn",
-    "Ardent Censer",
-    "Moonstone Renewer",
-    "Echoes of Helia",
-    "Staff of Flowing Water",
+    "Lich Bane",
+    "Nashor's Tooth",
+    "Wit's End",
+    "Riftmaker",
+    "Rabadon's Deathcap",
     "Berserker's Greaves"
    ],
-   "why": "Taric's Bravado is the part of his kit everyone forgets: after every spell his next two attacks come out in quick succession and shave time off his spell cooldowns, so a Taric who keeps casting keeps swinging. Sword of Blossoming Dawn turns each of those swings into a heal on the lowest health ally nearby, and Upgrade Sword of Blossoming Dawn adds 100% Attack Speed and makes that heal far bigger whenever he is hitting champions. Sonic Boom makes every heal or shield on an ally explode, damaging and slowing the enemies around that ally, and Empowered By The Faithful blesses everyone he heals, so their damage fills him with devotion until a shockwave goes off that executes low health enemies. Bastion casts his Starlight's Touch from his linked ally too, Moonstone Renewer chains each heal to a second ally for another boom, Ardent Censer hands both of them extra Attack Speed, and Echoes of Helia adds even more healing. The gem knight stops being the team's bodyguard and becomes its bomb: his allies are the grenades and every autoattack pulls a pin.",
-   "play": "Link the carry with Bastion, cast anything, then keep attacking the closest champion so every swing heals a teammate and blows up whoever is standing next to them.",
+   "why": "Taric stops tanking and becomes an on-hit caster whose attacks refill his spells.",
+   "how": [
+    [
+     "Bravado",
+     "After each spell his next two attacks come out fast, deal bonus magic damage and cut his ability cooldowns."
+    ],
+    [
+     "Augments",
+     "The Boom and the Bass adds another fast, empowered hit after every spell, Mystic Punch takes more off every cooldown on each hit, Firebrand stacks a burn and Upgrade Sheen supercharges Lich Bane."
+    ],
+    [
+     "Items",
+     "Lich Bane procs after every spell, Nashor's and Wit's End add on-hit damage, and Riftmaker and Rabadon's bring the Ability Power."
+    ]
+   ],
+   "play": "Cast a spell, hit twice, cast again. Never let Bravado sit unused.",
    "chef": "2026-10-20",
    "champion_name": "Taric",
    "item_ids": [
-    124011,
-    3504,
-    6617,
-    6620,
-    6616,
+    3100,
+    3115,
+    3091,
+    4633,
+    3089,
     3006
    ],
    "champion_icon": "icons/champions/44.png",
    "champion_win_rate": 0.5264,
    "champion_pick_rate": 0.0104,
    "champion_win_rank": 22,
-   "core_win_rate": 0.5033,
-   "tier": "Pure troll",
+   "core_win_rate": 0.5458,
+   "tier": "Holds up",
    "core_usual": 0,
-   "core_pick_rate": 0.0276,
+   "core_pick_rate": 0.248,
    "sim": {
-    "dps": 70,
-    "survival": 0.009,
+    "dps": 296,
+    "survival": 0.011,
     "best_dps": 664,
     "best_survival": 0.017,
-    "pct_of_best": 0.106,
+    "pct_of_best": 0.445,
     "best_items": [
      "Sorcerer's Shoes",
      "Hextech Gunblade",
@@ -1526,16 +1599,15 @@ window.COOK_DATA = {
      "En Passant",
      "Forged By The Master"
     ],
-    "items_not_modeled": [
-     "Sword of Blossoming Dawn"
-    ],
+    "items_not_modeled": [],
     "whole_build": true
    }
   },
   {
    "id": "braum-group-project",
    "champion": "Braum",
-   "title": "Group Project",
+   "title": "Concussion Protocol",
+   "tagline": "Your carries make the hits and Braum gets the comet every fourth one",
    "augments": [
     {
      "name": "Cruelty",
@@ -1596,43 +1668,77 @@ window.COOK_DATA = {
       "Blitzcrank"
      ],
      "champion_is_best": false
+    },
+    {
+     "name": "Courage of the Colossus",
+     "id": 1018,
+     "rarity": "Prismatic",
+     "text": "Gain Shield after Immobilizing or Grounding an enemy champion.",
+     "core": true,
+     "icon": "icons/augments/courage-of-the-colossus.png",
+     "win_rate": 0.5129,
+     "pick_rate": 0.093,
+     "win_rank": 128,
+     "best_champions": [
+      "Thresh",
+      "Leona",
+      "Nautilus",
+      "Alistar",
+      "Galio",
+      "Maokai"
+     ],
+     "champion_is_best": false
     }
    ],
-   "core": 3,
+   "core": 4,
    "items": [
-    "Bandlepipes",
-    "Imperial Mandate",
+    "Guinsoo's Rageblade",
     "Nashor's Tooth",
+    "Wit's End",
+    "Bandlepipes",
     "Riftmaker",
-    "Rabadon's Deathcap",
-    "Mercury's Treads"
+    "Berserker's Greaves"
    ],
-   "why": "Braum's Concussive Blows has a line most people skim past: once he lands the first stack, his allies' basic attacks stack it too, and the fourth stack stuns. That turns every teammate who can swing a weapon into a stun button, and every one of those stuns counts as Braum's. Cruelty drops a comet of magic damage on each champion he Immobilizes, Slap Around banks 10 Adaptive Force per stun, and Impassable adds an Aftershock burst and Glacial Augment's slowing rays, so a single stun pays out three times and leaves him stronger for the next one. Bandlepipes hands the whole team Attack Speed every time he stuns someone, so the next four stacks land even faster, Imperial Mandate marks each stunned target to take more damage, and with Nashor's Tooth, Riftmaker and Rabadon's Deathcap all that Adaptive Force becomes Ability Power. The bodyguard stops standing in front of his team and becomes its artillery, and his teammates are the ones pulling the trigger.",
-   "play": "Tag one enemy with Winter's Bite, then let your carries hit the same target; every stun calls down a comet, so keep re-tagging whoever they are shooting.",
+   "why": "Braum turns his passive into the whole build, stacking it himself and cashing in every stun.",
+   "how": [
+    [
+     "Concussive Blows",
+     "Four hits from Braum or his allies stun, and every one of those stuns counts as Braum's."
+    ],
+    [
+     "Augments",
+     "Each stun drops a Cruelty comet, banks Slap Around Adaptive Force and shields him through Courage of the Colossus, and Impassable adds Aftershock and Glacial Augment."
+    ],
+    [
+     "Items",
+     "Guinsoo's phantom hit adds an extra stack, so he stuns in three attacks. Nashor's and Wit's End speed him up and Bandlepipes gives the team Attack Speed on every stun."
+    ]
+   ],
+   "play": "Tag a target with Winter's Bite and keep attacking with your carries. Swap targets after each stun.",
    "chef": "2026-10-21",
    "champion_name": "Braum",
    "item_ids": [
-    2524,
-    4005,
+    3124,
     3115,
+    3091,
+    2524,
     4633,
-    3089,
-    3111
+    3006
    ],
    "champion_icon": "icons/champions/201.png",
    "champion_win_rate": 0.4838,
    "champion_pick_rate": 0.0158,
    "champion_win_rank": 112,
-   "core_win_rate": 0.5077,
+   "core_win_rate": 0.509,
    "tier": "Pure troll",
    "core_usual": 0,
-   "core_pick_rate": 0.0851,
+   "core_pick_rate": 0.0871,
    "sim": {
-    "dps": 143,
-    "survival": 0.006,
+    "dps": 220,
+    "survival": 0.007,
     "best_dps": 834,
     "best_survival": 0.008,
-    "pct_of_best": 0.172,
+    "pct_of_best": 0.264,
     "best_items": [
      "Sorcerer's Shoes",
      "Blackfire Torch",
@@ -1654,8 +1760,69 @@ window.COOK_DATA = {
   {
    "id": "quinn-wall-street-bouncer",
    "champion": "Quinn",
-   "title": "Wall Street Bouncer",
+   "title": "Vault Is Free Now",
+   "tagline": "Every spell resets Vault and every Vault leaves a bomb trail",
    "augments": [
+    {
+     "name": "Overloaded",
+     "id": 2123,
+     "rarity": "Prismatic",
+     "text": "Using another Ability resets the cooldown of the chosen ability.",
+     "core": true,
+     "icon": "icons/augments/overloaded.png",
+     "win_rate": 0.4981,
+     "pick_rate": 0.1622,
+     "win_rank": 178,
+     "best_champions": [
+      "Ryze",
+      "Qiyana",
+      "TwistedFate",
+      "Smolder",
+      "Viktor",
+      "Morgana"
+     ],
+     "champion_is_best": false
+    },
+    {
+     "name": "Earthwake",
+     "id": 1027,
+     "rarity": "Prismatic",
+     "text": "Your dash, blink, or teleport Abilities leave behind a trail that detonates after 0.75 second.",
+     "core": true,
+     "icon": "icons/augments/earthwake.png",
+     "win_rate": 0.499,
+     "pick_rate": 0.0311,
+     "win_rank": 174,
+     "best_champions": [
+      "Yasuo",
+      "Ambessa",
+      "Pyke",
+      "LeeSin",
+      "Fiora",
+      "Irelia"
+     ],
+     "champion_is_best": false
+    },
+    {
+     "name": "Cruelty",
+     "id": 1323,
+     "rarity": "Prismatic",
+     "text": "On Immobilizing or Grounding a champion, summon a comet that lands after a delay, dealing magic damage to nearby enemies.",
+     "core": true,
+     "icon": "icons/augments/cruelty.png",
+     "win_rate": 0.507,
+     "pick_rate": 0.094,
+     "win_rank": 149,
+     "best_champions": [
+      "Alistar",
+      "Thresh",
+      "Rell",
+      "Nautilus",
+      "Galio",
+      "Leona"
+     ],
+     "champion_is_best": false
+    },
     {
      "name": "Chain Reaction",
      "id": 2078,
@@ -1675,104 +1842,58 @@ window.COOK_DATA = {
       "Qiyana"
      ],
      "champion_is_best": false
-    },
-    {
-     "name": "Ravenous Bind",
-     "id": 2077,
-     "rarity": "Gold",
-     "text": "Immobilizing or Grounding enemy champions with the chosen ability deals extra damage and heals you.",
-     "core": true,
-     "icon": "icons/augments/ravenous-bind.png",
-     "win_rate": 0.5232,
-     "pick_rate": 0.1632,
-     "win_rank": 102,
-     "best_champions": [
-      "Trundle",
-      "Aatrox",
-      "Swain",
-      "Chogath",
-      "Thresh",
-      "TahmKench"
-     ],
-     "champion_is_best": false
-    },
-    {
-     "name": "Soul Eater",
-     "id": 1375,
-     "rarity": "Gold",
-     "text": "Immobilizing an enemy champion grants 30 max Health. If taken as your second Augment, starts with Health.",
-     "core": true,
-     "icon": "icons/augments/soul-eater.png",
-     "win_rate": 0.5387,
-     "pick_rate": 0.0728,
-     "win_rank": 69,
-     "best_champions": [
-      "Thresh",
-      "Nautilus",
-      "Chogath",
-      "Leona",
-      "Swain",
-      "Alistar"
-     ],
-     "champion_is_best": false
-    },
-    {
-     "name": "Dashing",
-     "id": 1019,
-     "rarity": "Prismatic",
-     "text": "Your dash, leap, blink, or teleport Abilities gain 175 Ability Haste.",
-     "core": true,
-     "icon": "icons/augments/dashing.png",
-     "win_rate": 0.5042,
-     "pick_rate": 0.1717,
-     "win_rank": 161,
-     "best_champions": [
-      "Kayn",
-      "Fizz",
-      "MasterYi",
-      "Sylas",
-      "Fiora",
-      "Zed"
-     ],
-     "champion_is_best": false
     }
    ],
    "core": 4,
    "items": [
-    "Navori Flickerblade",
-    "Spear of Shojin",
-    "Heartsteel",
-    "Overlord's Bloodmail",
-    "Sterak's Gage",
-    "Mercury's Treads"
+    "Stormsurge",
+    "Rabadon's Deathcap",
+    "Shadowflame",
+    "Cosmic Drive",
+    "Rylai's Crystal Scepter",
+    "Sorcerer's Shoes"
    ],
-   "why": "Vault has a side effect nobody plays around: after Quinn dashes in she leaps backwards and slightly Knocks the target Back. Chain Reaction on Vault turns that polite nudge into a Knock Up whenever the shoved enemy hits another champion or a wall, with a longer Knock Up and bonus damage against terrain, and the bridge is one long corridor of walls. Every Vault is now an immobilize, so Ravenous Bind makes it heal her and hit harder, Soul Eater hands her permanent max Health for each one, and Dashing gives the dash 175 Ability Haste so it comes back almost at once. Navori Flickerblade closes the loop: Vault marks its target with Harrier, Heightened Senses gives Attack Speed for hitting Harrier targets, and each of those Attacks cuts the remaining Vault cooldown by 15%, while Spear of Shojin adds Basic Ability Haste on top. Heartsteel and Soul Eater stack Health that Overlord's Bloodmail turns into Attack Damage, so the ranged scout ends up a walking shoulder-check who throws people into walls and tanks off the bounce.",
-   "play": "Stand with your back to open ground and Vault enemies toward a wall or into their own teammate, then hit the Harrier mark so Vault is ready again. Behind Enemy Lines is just a bus to the next wall.",
+   "why": "Quinn drops crit for Ability Power and turns Vault into her main attack.",
+   "how": [
+    [
+     "Vault",
+     "She dashes to a target, knocks them back and slows them."
+    ],
+    [
+     "Augments",
+     "Overloaded on Vault resets it whenever she casts another ability. Every Vault is a dash for Earthwake, Cruelty drops a comet where the knock-back ends and Chain Reaction bounces the knock-back into other enemies."
+    ],
+    [
+     "Items",
+     "Stormsurge, Rabadon's and Shadowflame make every Vault burst, and Rylai's slows the whole trail."
+    ]
+   ],
+   "play": "Vault, cast Q, Vault, cast W, Vault. Behind Enemy Lines resets it once more.",
    "chef": "2026-10-22",
    "menu": "off",
    "champion_name": "Quinn",
    "item_ids": [
-    6675,
-    3161,
-    3084,
-    2501,
-    3053,
-    3111
+    4646,
+    3089,
+    4645,
+    4629,
+    3116,
+    3020
    ],
    "champion_icon": "icons/champions/133.png",
    "champion_win_rate": 0.4701,
    "champion_pick_rate": 0.0195,
    "champion_win_rank": 146,
-   "core_win_rate": 0.5085,
+   "core_win_rate": 0.493,
    "tier": "Pure troll",
    "core_usual": 0,
-   "core_pick_rate": 0.1174,
+   "core_pick_rate": 0.0873,
    "sim": {
-    "dps": 283,
-    "survival": 0.045,
+    "dps": 278,
+    "survival": 0.009,
     "best_dps": 1506,
     "best_survival": 0.281,
-    "pct_of_best": 0.188,
+    "pct_of_best": 0.184,
     "best_items": [
      "Berserker's Greaves",
      "Blade of The Ruined King",
@@ -1794,7 +1915,8 @@ window.COOK_DATA = {
   {
    "id": "zoe-flash-photography",
    "champion": "Zoe",
-   "title": "Flash Photography",
+   "title": "Spell Thief Flash Era",
+   "tagline": "Three Flashes, zero plans and every one of them explodes",
    "augments": [
     {
      "name": "Flashy",
@@ -1934,25 +2056,26 @@ window.COOK_DATA = {
   {
    "id": "olaf-health-is-mana",
    "champion": "Olaf",
-   "title": "Health Is Mana",
+   "title": "Reckless Swing on Repeat",
+   "tagline": "Pays in HP and swings again before the bill arrives",
    "augments": [
     {
-     "name": "Purist - Caster",
-     "id": 2018,
-     "rarity": "Silver",
-     "text": "Gain percent cooldown reduction and convert all of your Attack Speed into Ability Haste.",
+     "name": "Overloaded",
+     "id": 2123,
+     "rarity": "Prismatic",
+     "text": "Using another Ability resets the cooldown of the chosen ability.",
      "core": true,
-     "icon": "icons/augments/purist-caster.png",
-     "win_rate": 0.5408,
-     "pick_rate": 0.3657,
-     "win_rank": 64,
+     "icon": "icons/augments/overloaded.png",
+     "win_rate": 0.4981,
+     "pick_rate": 0.1622,
+     "win_rank": 178,
      "best_champions": [
-      "Teemo",
-      "Karthus",
-      "Jayce",
-      "MissFortune",
-      "Ashe",
-      "TwistedFate"
+      "Ryze",
+      "Qiyana",
+      "TwistedFate",
+      "Smolder",
+      "Viktor",
+      "Morgana"
      ],
      "champion_is_best": false
     },
@@ -2026,8 +2149,22 @@ window.COOK_DATA = {
     "Spear of Shojin",
     "Kraken Slayer"
    ],
-   "why": "Olaf's Berserker Rage hands him Attack Speed for every point of Health he is missing, and Tough It Out stacks even more Attack Speed on top; Purist - Caster converts all of that Attack Speed into Ability Haste, so the lower his Health bar, the faster his cooldowns run. Ominous Pact makes every spell cast cost a slice of his current Health and pays him back with Ability Power, Movement Speed and Omnivamp based on missing Health, so casting Undertow drains him, the drain feeds Berserker Rage, and the Attack Speed comes back out as more Haste for the next axe. escAPADe turns that Ability Power into bonus Attack Damage for his physical damage axes, and Skilled Sniper refunds most of Undertow's cooldown whenever the axe lands on someone more than 600 units away, so he never has to walk up and pick it up. Nashor's Tooth, Wit's End, Kraken Slayer and Berserker's Greaves are bought purely as Attack Speed to be converted into Haste (the Nashor's Ability Power also becomes Attack Damage through escAPADe), while Spear of Shojin and Experimental Hexplate add Attack Damage, Haste and the Health pool he deliberately burns. The melee berserker who has to run at people becomes a long-range artillery piece that lobs axes from max range and plays better the closer he is to dead.",
-   "play": "Sit at max Undertow range, throw axes until your Health sits near the bottom third, then keep throwing instead of chasing the axe. Reckless Swing is your emergency self-damage if you are too healthy; Ragnarok is for walking out, not in.",
+   "why": "Olaf pays for every axe in Health, and the lower he goes, the harder and faster he throws.",
+   "how": [
+    [
+     "Berserker Rage",
+     "Attack Speed for every point of Health he's missing. Reckless Swing costs Health to cast."
+    ],
+    [
+     "Augments",
+     "Overloaded on Reckless Swing resets it every time he throws Undertow, so he can keep spending Health. Ominous Pact pays it back as Ability Power, Move Speed and Omnivamp, escAPADe turns that AP into Attack Damage, and Skilled Sniper refunds Undertow on hits beyond 600 range."
+    ],
+    [
+     "Items",
+     "Attack Speed from Berserker's, Wit's End and Kraken. Shojin and Hexplate add the damage and the Health he burns."
+    ]
+   ],
+   "play": "Throw axes from max range, Reckless Swing after every throw, and stay in the bottom third of your Health bar.",
    "chef": "2026-10-24",
    "menu": "off",
    "champion_name": "Olaf",
@@ -2043,16 +2180,16 @@ window.COOK_DATA = {
    "champion_win_rate": 0.4759,
    "champion_pick_rate": 0.0203,
    "champion_win_rank": 131,
-   "core_win_rate": 0.5275,
+   "core_win_rate": 0.5168,
    "tier": "Holds up",
    "core_usual": 0,
-   "core_pick_rate": 0.223,
+   "core_pick_rate": 0.1722,
    "sim": {
-    "dps": 445,
-    "survival": 0.026,
+    "dps": 521,
+    "survival": 0.039,
     "best_dps": 1117,
     "best_survival": 0.118,
-    "pct_of_best": 0.399,
+    "pct_of_best": 0.467,
     "best_items": [
      "Berserker's Greaves",
      "Blade of The Ruined King",
@@ -2074,7 +2211,8 @@ window.COOK_DATA = {
   {
    "id": "nilah-whip-blade-nurse",
    "champion": "Nilah",
-   "title": "Whip-Blade Nurse",
+   "title": "Joy Unending (Unhinged)",
+   "tagline": "Her crits heal the team and the whip does the rest",
    "augments": [
     {
      "name": "Critical Healing",
@@ -2137,16 +2275,23 @@ window.COOK_DATA = {
      "champion_is_best": false
     },
     {
-     "name": "Support Main",
-     "id": 2108,
-     "rarity": "Silver",
-     "text": "QUEST: Heal allied champions for Health. REWARD: Any healing you provide now also Heals Over Time after the initial heal.",
+     "name": "Group Hug",
+     "id": 3149,
+     "rarity": "Prismatic",
+     "text": "Healing or Shielding an allied champion with the chosen ability casts that spell again on 2 other nearby allied champions. Heals and Shields are effective. The power of friendship!",
      "core": true,
-     "icon": "icons/augments/support-main.png",
-     "win_rate": null,
-     "pick_rate": null,
-     "win_rank": null,
-     "best_champions": [],
+     "icon": "icons/augments/group-hug.png",
+     "win_rate": 0.5197,
+     "pick_rate": 0.0177,
+     "win_rank": 113,
+     "best_champions": [
+      "Morgana",
+      "Yuumi",
+      "Karma",
+      "Lulu",
+      "Janna",
+      "Nidalee"
+     ],
      "champion_is_best": false
     }
    ],
@@ -2159,8 +2304,22 @@ window.COOK_DATA = {
     "Infinity Edge",
     "Navori Flickerblade"
    ],
-   "why": "Nilah's kit already leaks healing everywhere: Formless Blade turns her crit chance into lifesteal that overflows into shields, and Apotheosis heals every nearby ally for a cut of its damage. Critical Healing hands her the crit chance that Formless Blade wants while letting all of those heals and shields crit, and Spirit Bomb, Empowered By The Faithful and Support Main all trigger off the same thing: healing allies, which her ultimate does on its own. Sword of Blossoming Dawn is the missing piece, because its Peppermint on-hit makes every single auto attack heal the lowest ally, so each basic attack now charges a Spirit Bomb, blesses teammates for an executing shockwave and leaves a heal-over-time behind, while Ardent Censer, Moonstone Renewer and Echoes of Helia reward each of those ally heals with attack speed, chained heals and stored damage turned into healing. Infinity Edge and Navori Flickerblade keep her crit chance high so the whip-blade still hurts and Formless Blade keeps her own health topped. A melee crit carry turns into a frontline medic whose auto attacks are the healing spell.",
-   "play": "Glue yourself to your tankiest ally and keep auto-attacking anything in range; every hit heals the team and fills the bomb. Hold Apotheosis for a brawl where the whole team is hurt so one ultimate dumps a flood of crit heals and sets off the Faithful shockwave.",
+   "why": "Nilah turns into a frontline medic whose auto attacks are the healing spell.",
+   "how": [
+    [
+     "Apotheosis",
+     "Heals every nearby ally for part of its damage. Formless Blade turns her crit chance into lifesteal."
+    ],
+    [
+     "Augments",
+     "Critical Healing lets every heal crit. Spirit Bomb and Empowered By The Faithful fire off each ally heal, and Group Hug, rolled on Apotheosis, spreads it to more allies."
+    ],
+    [
+     "Items",
+     "Sword of Blossoming Dawn makes each attack heal the lowest ally. Ardent, Moonstone and Helia reward every heal, and Infinity Edge and Navori keep the crits coming."
+    ]
+   ],
+   "play": "Stick to your tankiest ally and attack anything in range. Hold Apotheosis for a brawl where the whole team is hurt.",
    "chef": "2026-10-25",
    "menu": "off",
    "champion_name": "Nilah",
@@ -2176,16 +2335,16 @@ window.COOK_DATA = {
    "champion_win_rate": 0.505,
    "champion_pick_rate": 0.0128,
    "champion_win_rank": 56,
-   "core_win_rate": 0.5141,
-   "tier": "Pure troll",
+   "core_win_rate": 0.5155,
+   "tier": "Holds up",
    "core_usual": 0,
-   "core_pick_rate": 0.0316,
+   "core_pick_rate": 0.0281,
    "sim": {
-    "dps": 292,
-    "survival": 0.01,
+    "dps": 150,
+    "survival": 0.009,
     "best_dps": 978,
     "best_survival": 0.026,
-    "pct_of_best": 0.299,
+    "pct_of_best": 0.154,
     "best_items": [
      "Berserker's Greaves",
      "Black Cleaver",
@@ -2203,13 +2362,14 @@ window.COOK_DATA = {
     "items_not_modeled": [
      "Sword of Blossoming Dawn"
     ],
-    "whole_build": false
+    "whole_build": true
    }
   },
   {
    "id": "reksai-mole-artillery",
    "champion": "RekSai",
-   "title": "Mole Artillery",
+   "title": "Prey Seeker From Orbit",
+   "tagline": "Pops out of the ground and shells you from across the map",
    "augments": [
     {
      "name": "Skilled Sniper",
@@ -2349,125 +2509,140 @@ window.COOK_DATA = {
   {
    "id": "skarner-crit-happens",
    "champion": "Skarner",
-   "title": "Crit Happens",
+   "title": "Impact Maxxing",
+   "tagline": "Every spell resets the charge and every wall hit drops a comet",
    "augments": [
     {
-     "name": "Vulnerability",
-     "id": 1092,
-     "rarity": "Gold",
-     "text": "Your Item and damage over time effects can Critically Strike for 145% extra damage. Gain 25% Crit chance.",
-     "core": true,
-     "icon": "icons/augments/vulnerability.png",
-     "win_rate": 0.5417,
-     "pick_rate": 0.2593,
-     "win_rank": 62,
-     "best_champions": [
-      "Lucian",
-      "Smolder",
-      "MissFortune",
-      "Gangplank",
-      "Caitlyn",
-      "Jhin"
-     ],
-     "champion_is_best": false
-    },
-    {
-     "name": "Tank It Or Leave It",
-     "id": 1080,
-     "rarity": "Silver",
-     "text": "You can Critically Defend using your Crit Chance (max 50% chance), giving you a chance to reduce damage taken by 20%. Gain 25% Crit Chance.",
-     "core": true,
-     "icon": "icons/augments/tank-it-or-leave-it.png",
-     "win_rate": 0.5461,
-     "pick_rate": 0.1804,
-     "win_rank": 53,
-     "best_champions": [
-      "Yone",
-      "Yasuo",
-      "Graves",
-      "Lucian",
-      "Jhin",
-      "Caitlyn"
-     ],
-     "champion_is_best": false
-    },
-    {
-     "name": "Infernal Conduit",
-     "id": 1045,
+     "name": "Overloaded",
+     "id": 2123,
      "rarity": "Prismatic",
-     "text": "Your Abilities apply stacking Burn that deals damage over time. Your Burn effects reduce your basic Ability Cooldowns.",
+     "text": "Using another Ability resets the cooldown of the chosen ability.",
      "core": true,
-     "icon": "icons/augments/infernal-conduit.png",
-     "win_rate": 0.5554,
-     "pick_rate": 0.2209,
-     "win_rank": 40,
+     "icon": "icons/augments/overloaded.png",
+     "win_rate": 0.4981,
+     "pick_rate": 0.1622,
+     "win_rank": 178,
      "best_champions": [
-      "Brand",
-      "AurelionSol",
-      "Lillia",
-      "Morgana",
-      "Malzahar",
-      "Teemo"
+      "Ryze",
+      "Qiyana",
+      "TwistedFate",
+      "Smolder",
+      "Viktor",
+      "Morgana"
      ],
      "champion_is_best": false
     },
     {
-     "name": "Firebrand",
-     "id": 1036,
+     "name": "Ravenous Bind",
+     "id": 2077,
      "rarity": "Gold",
-     "text": "Your Attacks also Burn enemies, dealing 0.4% max Health magic damage per second over 5 seconds. This Burn stacks infinitely.",
+     "text": "Immobilizing or Grounding enemy champions with the chosen ability deals extra damage and heals you.",
      "core": true,
-     "icon": "icons/augments/firebrand.png",
-     "win_rate": 0.4908,
-     "pick_rate": 0.0957,
-     "win_rank": 195,
+     "icon": "icons/augments/ravenous-bind.png",
+     "win_rate": 0.5232,
+     "pick_rate": 0.1632,
+     "win_rank": 102,
      "best_champions": [
-      "Ashe",
+      "Trundle",
+      "Aatrox",
+      "Swain",
+      "Chogath",
+      "Thresh",
+      "TahmKench"
+     ],
+     "champion_is_best": false
+    },
+    {
+     "name": "Cruelty",
+     "id": 1323,
+     "rarity": "Prismatic",
+     "text": "On Immobilizing or Grounding a champion, summon a comet that lands after a delay, dealing magic damage to nearby enemies.",
+     "core": true,
+     "icon": "icons/augments/cruelty.png",
+     "win_rate": 0.507,
+     "pick_rate": 0.094,
+     "win_rank": 149,
+     "best_champions": [
+      "Alistar",
+      "Thresh",
+      "Rell",
+      "Nautilus",
+      "Galio",
+      "Leona"
+     ],
+     "champion_is_best": false
+    },
+    {
+     "name": "Ultimate Awakening",
+     "id": 1349,
+     "rarity": "Prismatic",
+     "text": "Gain 30 Ultimate Ability Haste. After using your Ultimate, refresh your basic abilities and gain 300 basic ability haste for 15s. (20s Cooldown)",
+     "core": true,
+     "icon": "icons/augments/ultimate-awakening.png",
+     "win_rate": 0.5096,
+     "pick_rate": 0.2365,
+     "win_rank": 138,
+     "best_champions": [
+      "Hecarim",
       "Teemo",
-      "Katarina",
-      "Jinx",
-      "Kayle",
-      "Twitch"
+      "Ashe",
+      "MasterYi",
+      "Karthus",
+      "Kayn"
      ],
      "champion_is_best": false
     }
    ],
    "core": 4,
    "items": [
+    "Rylai's Crystal Scepter",
     "Liandry's Torment",
-    "Sunfire Aegis",
-    "Hollow Radiance",
-    "Thornmail",
-    "Heartsteel",
-    "Plated Steelcaps"
+    "Riftmaker",
+    "Cosmic Drive",
+    "Rabadon's Deathcap",
+    "Ionian Boots of Lucidity"
    ],
-   "why": "Skarner's passive Threads of Vibration is mostly an afterthought: his attacks, boulder and ult stack Quaking, and at max stacks the target takes max Health magic damage over time, which is a damage-over-time effect. Vulnerability lets damage-over-time and item effects critically strike for 145% extra damage and hands him 25% crit chance, and Tank It Or Leave It adds another 25% so that same crit chance also rolls a 20% damage reduction every time he gets hit, so a tank who never crits suddenly wants crit for both offence and defence. Infernal Conduit makes every ability stack a burn that crits too and cuts his basic cooldowns, so he throws more boulders and quakes to re-stack Quaking, while Firebrand piles an infinitely stacking burn onto the three empowered attacks from Shattered Earth. Liandry's Torment, Sunfire Aegis, Hollow Radiance, Thornmail and Heartsteel are all item damage, so their burns, Immolate ticks, thorns and charged slam roll crits off the same 50% chance. The scorpion ends up a walking crit-chance bonfire whose tank items are his damage.",
-   "play": "Build full tank, walk into the enemy team and just keep stacking: Q three attacks, throw the boulder, quake, ult whoever is closest. You are not the one who crits, your burns are.",
+   "why": "Skarner skips every tank item and turns Ixtal's Impact into a wall-stun loop.",
+   "how": [
+    [
+     "Ixtal's Impact",
+     "He grabs an enemy and carries them, and slamming into a wall stuns them."
+    ],
+    [
+     "Augments",
+     "Overloaded on Ixtal's Impact resets it whenever he casts another ability, and Ultimate Awakening resets everything when he ults. Ravenous Bind on the charge damages and heals on every stun, and Cruelty drops a comet on top."
+    ],
+    [
+     "Items",
+     "Rylai's, Liandry's, Riftmaker and Rabadon's make each stun hurt, and Cosmic Drive keeps him moving between walls."
+    ]
+   ],
+   "play": "Charge someone into a wall, cast Q or W, charge the next one.",
    "chef": "2026-10-27",
    "menu": "off",
    "champion_name": "Skarner",
    "item_ids": [
+    3116,
     6653,
-    3068,
-    6664,
-    3075,
-    3084,
-    3047
+    4633,
+    4629,
+    3089,
+    3158
    ],
    "champion_icon": "icons/champions/72.png",
    "champion_win_rate": 0.4837,
    "champion_pick_rate": 0.0184,
    "champion_win_rank": 113,
-   "core_win_rate": 0.5335,
-   "tier": "Holds up",
+   "core_win_rate": 0.5095,
+   "tier": "Pure troll",
    "core_usual": 0,
-   "core_pick_rate": 0.1891,
+   "core_pick_rate": 0.164,
    "sim": {
-    "dps": 391,
-    "survival": 0.013,
+    "dps": 512,
+    "survival": 0.011,
     "best_dps": 1046,
     "best_survival": 0.015,
-    "pct_of_best": 0.374,
+    "pct_of_best": 0.49,
     "best_items": [
      "Sorcerer's Shoes",
      "Blackfire Torch",
@@ -2489,25 +2664,26 @@ window.COOK_DATA = {
   {
    "id": "irelia-forgot-how-to-auto",
    "champion": "Irelia",
-   "title": "Forgot How To Auto",
+   "title": "Bladesurge Locked In",
+   "tagline": "Never autos and never stops dashing",
    "augments": [
     {
-     "name": "Purist - Caster",
-     "id": 2018,
-     "rarity": "Silver",
-     "text": "Gain percent cooldown reduction and convert all of your Attack Speed into Ability Haste.",
+     "name": "Archmage",
+     "id": 2087,
+     "rarity": "Prismatic",
+     "text": "Casting a spell refunds another random spell's cost by 30% of the original spell's Cooldown.",
      "core": true,
-     "icon": "icons/augments/purist-caster.png",
-     "win_rate": 0.5408,
-     "pick_rate": 0.3657,
-     "win_rank": 64,
+     "icon": "icons/augments/archmage.png",
+     "win_rate": 0.5307,
+     "pick_rate": 0.373,
+     "win_rank": 84,
      "best_champions": [
       "Teemo",
-      "Karthus",
-      "Jayce",
       "MissFortune",
       "Ashe",
-      "TwistedFate"
+      "Jayce",
+      "Zilean",
+      "Brand"
      ],
      "champion_is_best": false
     },
@@ -2552,16 +2728,23 @@ window.COOK_DATA = {
      "champion_is_best": false
     },
     {
-     "name": "Double Strike",
-     "id": 2148,
-     "rarity": "Silver",
-     "text": "the chosen ability applies On-Hit effects an additional time.",
+     "name": "Overloaded",
+     "id": 2123,
+     "rarity": "Prismatic",
+     "text": "Using another Ability resets the cooldown of the chosen ability.",
      "core": true,
-     "icon": "icons/augments/double-strike.png",
-     "win_rate": null,
-     "pick_rate": null,
-     "win_rank": null,
-     "best_champions": [],
+     "icon": "icons/augments/overloaded.png",
+     "win_rate": 0.4981,
+     "pick_rate": 0.1622,
+     "win_rank": 178,
+     "best_champions": [
+      "Ryze",
+      "Qiyana",
+      "TwistedFate",
+      "Smolder",
+      "Viktor",
+      "Morgana"
+     ],
      "champion_is_best": false
     }
    ],
@@ -2574,8 +2757,22 @@ window.COOK_DATA = {
     "Zhonya's Hourglass",
     "Ionian Boots of Lucidity"
    ],
-   "why": "Irelia's Ionian Fervor gives her stacking Attack Speed every time a spell hits, and at full stacks it adds bonus damage on hit. Purist - Caster converts all of that Attack Speed into Ability Haste, so the stacks she earns by casting come back as more casts. Ethereal Weapon makes her abilities apply On-Hit effects, so every Bladesurge, Flawless Duet and Vanguard's Edge carries her Fervor bonus and Mystic Punch, which cuts 1.25 seconds off all her cooldowns per On-Hit; Double Strike on Bladesurge applies those On-Hits a second time. Nashor's Tooth and Wit's End are bought for Attack Speed that Purist turns into Haste and for On-Hit magic damage that her spells now deliver, while Rabadon's Deathcap and Riftmaker bring the Ability Power. The auto-attack duelist never right-clicks again and becomes an AP caster whose spells are the on-hits.",
-   "play": "Mark targets with Flawless Duet or Vanguard's Edge, then chain Bladesurge through them and the minions. Every hit refunds cooldowns, so just keep dashing and forget your attack button exists.",
+   "why": "Irelia never right-clicks again and becomes an AP caster whose spells are the on-hits.",
+   "how": [
+    [
+     "Ionian Fervor",
+     "Stacks Attack Speed every time a spell hits, plus bonus on-hit damage at full stacks."
+    ],
+    [
+     "Augments",
+     "Ethereal Weapon makes her abilities apply on-hit, so every one triggers Mystic Punch and cuts her cooldowns. Overloaded on Bladesurge resets it whenever she casts another ability, and Archmage refunds part of a random cooldown with every cast."
+    ],
+    [
+     "Items",
+     "Nashor's and Wit's End add on-hit damage her spells now deliver. Rabadon's and Riftmaker bring the Ability Power."
+    ]
+   ],
+   "play": "Mark targets with Flawless Duet or Vanguard's Edge, then chain Bladesurge through them. Forget your attack button exists.",
    "chef": "2026-10-28",
    "menu": "off",
    "champion_name": "Irelia",
@@ -2591,16 +2788,16 @@ window.COOK_DATA = {
    "champion_win_rate": 0.4972,
    "champion_pick_rate": 0.037,
    "champion_win_rank": 78,
-   "core_win_rate": 0.5607,
-   "tier": "Secretly strong",
+   "core_win_rate": 0.5425,
+   "tier": "Holds up",
    "core_usual": 0,
-   "core_pick_rate": 0.3562,
+   "core_pick_rate": 0.3095,
    "sim": {
-    "dps": 714,
-    "survival": 0.018,
+    "dps": 648,
+    "survival": 0.01,
     "best_dps": 1017,
     "best_survival": 0.017,
-    "pct_of_best": 0.702,
+    "pct_of_best": 0.638,
     "best_items": [
      "Sorcerer's Shoes",
      "Blackfire Torch",
@@ -2616,13 +2813,14 @@ window.COOK_DATA = {
      "Ultimate Awakening"
     ],
     "items_not_modeled": [],
-    "whole_build": false
+    "whole_build": true
    }
   },
   {
    "id": "kled-nail-gun-salesman",
    "champion": "Kled",
-   "title": "The Nail Gun Salesman",
+   "title": "Beartrap Nail Gun",
+   "tagline": "Every hook is a nail and Skaarl did not consent",
    "augments": [
     {
      "name": "Reload",
@@ -2755,7 +2953,8 @@ window.COOK_DATA = {
   {
    "id": "annie-daycare-director",
    "champion": "Annie",
-   "title": "Daycare Director",
+   "title": "Tibbers' Babysitter Era",
+   "tagline": "Childcare by a child with fire included",
    "augments": [
     {
      "name": "Group Hug",
@@ -2895,124 +3094,139 @@ window.COOK_DATA = {
   {
    "id": "zac-deceased-repeatedly",
    "champion": "Zac",
-   "title": "Deceased, Repeatedly",
+   "title": "Slingshot Era",
+   "tagline": "Launches 1800 units and the whole runway explodes behind him",
    "augments": [
     {
-     "name": "Mad Scientist",
-     "id": 1053,
+     "name": "Earthwake",
+     "id": 1027,
      "rarity": "Prismatic",
-     "text": "On each Revive, you grow large (gaining 30% Adaptive Force and 20% Health) or tiny (gaining 70 Ability Haste and 40% Movement Speed).",
+     "text": "Your dash, blink, or teleport Abilities leave behind a trail that detonates after 0.75 second.",
      "core": true,
-     "icon": "icons/augments/mad-scientist.png",
-     "win_rate": 0.5791,
-     "pick_rate": 0.3632,
-     "win_rank": 19,
-     "best_champions": [
-      "TahmKench",
-      "Ashe",
-      "DrMundo",
-      "Sett",
-      "Teemo",
-      "Jayce"
-     ],
-     "champion_is_best": false
-    },
-    {
-     "name": "Hellbent",
-     "id": 2107,
-     "rarity": "Prismatic",
-     "text": "Damaging enemy champions with Attacks or Abilities grants stacks. At max stacks, you revive empowered upon death.",
-     "core": true,
-     "icon": "icons/augments/hellbent.png",
-     "win_rate": 0.4969,
-     "pick_rate": 0.0578,
-     "win_rank": 179,
+     "icon": "icons/augments/earthwake.png",
+     "win_rate": 0.499,
+     "pick_rate": 0.0311,
+     "win_rank": 174,
      "best_champions": [
       "Yasuo",
-      "Yone",
+      "Ambessa",
+      "Pyke",
+      "LeeSin",
+      "Fiora",
+      "Irelia"
+     ],
+     "champion_is_best": false
+    },
+    {
+     "name": "Ravenous Bind",
+     "id": 2077,
+     "rarity": "Gold",
+     "text": "Immobilizing or Grounding enemy champions with the chosen ability deals extra damage and heals you.",
+     "core": true,
+     "icon": "icons/augments/ravenous-bind.png",
+     "win_rate": 0.5232,
+     "pick_rate": 0.1632,
+     "win_rank": 102,
+     "best_champions": [
+      "Trundle",
       "Aatrox",
-      "TahmKench",
-      "XinZhao",
-      "Darius"
+      "Swain",
+      "Chogath",
+      "Thresh",
+      "TahmKench"
      ],
      "champion_is_best": false
     },
     {
-     "name": "Clown College",
-     "id": 1310,
+     "name": "Cruelty",
+     "id": 1323,
      "rarity": "Prismatic",
-     "text": "Gain Deceive Summoner Spell. Gain Backstab Passive. When you die, deal a large amount of true damage and Fear nearby enemies.",
+     "text": "On Immobilizing or Grounding a champion, summon a comet that lands after a delay, dealing magic damage to nearby enemies.",
      "core": true,
-     "icon": "icons/augments/clown-college.png",
-     "win_rate": 0.5559,
-     "pick_rate": 0.2785,
-     "win_rank": 39,
+     "icon": "icons/augments/cruelty.png",
+     "win_rate": 0.507,
+     "pick_rate": 0.094,
+     "win_rank": 149,
      "best_champions": [
-      "Shaco",
-      "Zed",
-      "Talon",
-      "JarvanIV",
-      "Khazix",
-      "Rengar"
+      "Alistar",
+      "Thresh",
+      "Rell",
+      "Nautilus",
+      "Galio",
+      "Leona"
      ],
      "champion_is_best": false
     },
     {
-     "name": "Dive Bomber",
-     "id": 1025,
+     "name": "Slime Time",
+     "id": 3262,
      "rarity": "Silver",
-     "text": "Explodes when you die, dealing 20% of the target's max Health as true damage to nearby enemies.",
+     "text": "Every few seconds, Autocast a burst of slime from your body, dealing magic damage to nearby enemies. If you hit a champion, secrete a blob that heals you when walked over.",
      "core": true,
-     "icon": "icons/augments/dive-bomber.png",
-     "win_rate": 0.5128,
-     "pick_rate": 0.1965,
-     "win_rank": 129,
+     "icon": "icons/augments/slime-time.png",
+     "win_rate": 0.553,
+     "pick_rate": 0.1254,
+     "win_rank": 46,
      "best_champions": [
-      "Karthus",
-      "Malphite",
-      "JarvanIV",
-      "Sion",
-      "Shaco",
-      "Blitzcrank"
+      "TahmKench",
+      "DrMundo",
+      "Swain",
+      "Thresh",
+      "Maokai",
+      "Chogath"
      ],
      "champion_is_best": false
     }
    ],
    "core": 4,
    "items": [
-    "Heartsteel",
-    "Warmog's Armor",
-    "Jak'Sho, The Protean",
-    "Sunfire Aegis",
-    "Unending Despair",
-    "Mercury's Treads"
+    "Stormsurge",
+    "Rabadon's Deathcap",
+    "Shadowflame",
+    "Void Staff",
+    "Cosmic Drive",
+    "Sorcerer's Shoes"
    ],
-   "why": "Zac's Cell Division already treats death as a speed bump: on fatal damage he splits into four bloblets and revives if any survive, and each bloblet carries a share of his max Health, Armor and Magic Resist. Clown College and Dive Bomber both go off when he dies, blasting true damage and Fearing nearby enemies, so the people who would normally stomp the blobs are running away while he reforms. Mad Scientist pays out on every Revive, growing him large or tiny with extra stats, and Hellbent adds a second revive once he has stacked enough champion damage, so one teamfight can hold two deaths, two explosions and two Mad Scientist upgrades. Heartsteel feeds the loop by permanently raising his max Health, which the bloblets inherit, while Warmog's Armor, Jak'Sho, The Protean and the rest pile on the Health and resists the blobs copy. The tank who is supposed to survive becomes a champion whose real job is to die in the middle of the enemy team and come back angrier.",
-   "play": "Slingshot into the whole enemy team and let them kill you on top of their own carries; the explosions and Fear cover your bloblets. Come back, keep hitting champions to stack Hellbent, and do it again.",
+   "why": "Zac skips every tank item and becomes an AP artillery shell.",
+   "how": [
+    [
+     "Elastic Slingshot",
+     "At rank 5 he flies up to 1800 units, just under the 2000 limit where Earthwake stops working."
+    ],
+    [
+     "Augments",
+     "Earthwake leaves an exploding trail along the whole flight. Ravenous Bind on Slingshot damages and heals on every knock-up, Cruelty drops a comet where they land and Slime Time keeps throwing out blobs to heal from."
+    ],
+    [
+     "Items",
+     "Stormsurge, Rabadon's, Shadowflame and Void Staff turn each landing into burst, and Cosmic Drive gets him back in position."
+    ]
+   ],
+   "play": "Max E, charge Slingshot from as far away as you can and fly over the enemy team.",
    "chef": "2026-10-31",
    "champion_name": "Zac",
    "item_ids": [
-    3084,
-    3083,
-    6665,
-    3068,
-    2502,
-    3111
+    4646,
+    3089,
+    4645,
+    3135,
+    4629,
+    3020
    ],
    "champion_icon": "icons/champions/154.png",
    "champion_win_rate": 0.4573,
    "champion_pick_rate": 0.0167,
    "champion_win_rank": 162,
-   "core_win_rate": 0.5362,
+   "core_win_rate": 0.5206,
    "tier": "Holds up",
    "core_usual": 0,
-   "core_pick_rate": 0.224,
+   "core_pick_rate": 0.1034,
    "sim": {
-    "dps": 284,
-    "survival": 0.035,
+    "dps": 742,
+    "survival": 0.018,
     "best_dps": 1442,
     "best_survival": 0.224,
-    "pct_of_best": 0.197,
+    "pct_of_best": 0.515,
     "best_items": [
      "Sorcerer's Shoes",
      "Horizon Focus",
@@ -3034,7 +3248,8 @@ window.COOK_DATA = {
   {
    "id": "zeri-right-click-veigar",
    "champion": "Zeri",
-   "title": "Right-Click Veigar",
+   "title": "Burst Fire Veigar",
+   "tagline": "Every auto is a spell and every spell is a stack",
    "augments": [
     {
      "name": "Phenomenal Evil",
@@ -3174,125 +3389,140 @@ window.COOK_DATA = {
   {
    "id": "elise-revolving-door",
    "champion": "Elise",
-   "title": "The Revolving Door",
+   "title": "Cocoon Maxxing",
+   "tagline": "Every spell resets the stun and the sky drops a comet",
    "augments": [
     {
-     "name": "Stuck In Here With Me",
-     "id": 1413,
+     "name": "Overloaded",
+     "id": 2123,
      "rarity": "Prismatic",
-     "text": "After using your Ultimate, gain damage reduction for 2 seconds, after which you Taunt enemies inside for 2 seconds. Gain 30 Ultimate Ability Haste.",
+     "text": "Using another Ability resets the cooldown of the chosen ability.",
      "core": true,
-     "icon": "icons/augments/stuck-in-here-with-me.png",
-     "win_rate": 0.4843,
-     "pick_rate": 0.0596,
-     "win_rank": 209,
+     "icon": "icons/augments/overloaded.png",
+     "win_rate": 0.4981,
+     "pick_rate": 0.1622,
+     "win_rank": 178,
      "best_champions": [
-      "Malphite",
-      "JarvanIV",
-      "DrMundo",
-      "Swain",
-      "Thresh",
-      "Blitzcrank"
+      "Ryze",
+      "Qiyana",
+      "TwistedFate",
+      "Smolder",
+      "Viktor",
+      "Morgana"
      ],
      "champion_is_best": false
     },
     {
-     "name": "Final Form",
-     "id": 1344,
-     "rarity": "Prismatic",
-     "text": "After casting your Ultimate, gain a 50% max Health Shield, 20% Omnivamp and 30% bonus Movement Speed for 10 seconds. (20 seconds Cooldown).",
+     "name": "Ravenous Bind",
+     "id": 2077,
+     "rarity": "Gold",
+     "text": "Immobilizing or Grounding enemy champions with the chosen ability deals extra damage and heals you.",
      "core": true,
-     "icon": "icons/augments/final-form.png",
-     "win_rate": 0.5308,
-     "pick_rate": 0.2313,
-     "win_rank": 82,
+     "icon": "icons/augments/ravenous-bind.png",
+     "win_rate": 0.5232,
+     "pick_rate": 0.1632,
+     "win_rank": 102,
      "best_champions": [
-      "Katarina",
+      "Trundle",
       "Aatrox",
-      "Viego",
       "Swain",
-      "Jayce",
-      "Zed"
+      "Chogath",
+      "Thresh",
+      "TahmKench"
      ],
      "champion_is_best": false
     },
     {
-     "name": "Can't Touch This",
-     "id": 1011,
+     "name": "Echo Cast",
+     "id": 2062,
      "rarity": "Prismatic",
-     "text": "Casting your Ultimate makes you Invulnerable for 2 seconds (8s Cooldown).",
+     "text": "Casting Your chosen ability sends a clone of the ability toward your mouse position and recasts it after 0.25 seconds.",
      "core": true,
-     "icon": "icons/augments/can-t-touch-this.png",
-     "win_rate": 0.4899,
-     "pick_rate": 0.1314,
-     "win_rank": 197,
+     "icon": "icons/augments/echo-cast.png",
+     "win_rate": 0.5181,
+     "pick_rate": 0.0877,
+     "win_rank": 118,
      "best_champions": [
-      "Katarina",
-      "Jayce",
-      "Samira",
-      "Kassadin",
-      "Viego",
-      "Twitch"
+      "TwistedFate",
+      "Hecarim",
+      "Lux",
+      "Sett",
+      "Blitzcrank",
+      "Darius"
      ],
      "champion_is_best": false
     },
     {
-     "name": "Ultimate Unstoppable",
-     "id": 1112,
-     "rarity": "Silver",
-     "text": "After using your Ultimate, you become immune to crowd control for 3 seconds. (8 second Cooldown).",
+     "name": "Cruelty",
+     "id": 1323,
+     "rarity": "Prismatic",
+     "text": "On Immobilizing or Grounding a champion, summon a comet that lands after a delay, dealing magic damage to nearby enemies.",
      "core": true,
-     "icon": "icons/augments/ultimate-unstoppable.png",
-     "win_rate": 0.4871,
-     "pick_rate": 0.1711,
-     "win_rank": 205,
+     "icon": "icons/augments/cruelty.png",
+     "win_rate": 0.507,
+     "pick_rate": 0.094,
+     "win_rank": 149,
      "best_champions": [
-      "Katarina",
-      "Samira",
-      "Lucian",
-      "MasterYi",
-      "FiddleSticks",
-      "MissFortune"
+      "Alistar",
+      "Thresh",
+      "Rell",
+      "Nautilus",
+      "Galio",
+      "Leona"
      ],
      "champion_is_best": false
     }
    ],
    "core": 4,
    "items": [
-    "Thornmail",
-    "Warmog's Armor",
-    "Spirit Visage",
-    "Heartsteel",
-    "Sunfire Aegis",
-    "Plated Steelcaps"
+    "Rylai's Crystal Scepter",
+    "Liandry's Torment",
+    "Malignance",
+    "Riftmaker",
+    "Cosmic Drive",
+    "Ionian Boots of Lucidity"
    ],
-   "why": "Elise's ultimate is Spider Form, a form swap on a tiny cooldown, so every flip between spider and human counts as casting her ultimate, and that is the whole trick. Stuck In Here With Me gives her damage reduction after each ultimate and then taunts the enemies stuck with her, Final Form hands her a shield worth half her max Health plus omnivamp and move speed, Can't Touch This makes her briefly invulnerable, and Ultimate Unstoppable makes her immune to crowd control, so each swap fires whichever of them is off cooldown. Spider Form's own passive heals her on every bite, so with omnivamp on top she sustains while the enemy team is forced to stand on her. Warmog's Armor and Heartsteel make the max Health shield enormous, Spirit Visage makes that shield and her spider heals bigger, and Thornmail punishes every taunted enemy forced to attack her while Sunfire Aegis burns the crowd. The AP assassin becomes a taunting front-line tank whose only button is pressing R over and over.",
-   "play": "Cocoon an enemy, go spider and walk into their team, then keep swapping forms to chain damage reduction, taunts, invulnerability and shields while biting whoever is stuck on you. Build pure Health and Armor and never Rappel out.",
+   "why": "Elise stops assassinating and becomes a Cocoon turret.",
+   "how": [
+    [
+     "Cocoon",
+     "A long-range stun in human form. Swapping forms counts as casting a spell, so she has more casts than anyone."
+    ],
+    [
+     "Augments",
+     "Overloaded on Cocoon resets it whenever she casts another ability, and Echo Cast sends a clone to throw a second Cocoon. Each stun triggers Ravenous Bind for damage and healing and Cruelty for a comet."
+    ],
+    [
+     "Items",
+     "Rylai's, Liandry's and Malignance add slows and burns, and Riftmaker heals her through it."
+    ]
+   ],
+   "play": "Cocoon, cast any spell or swap form, Cocoon again.",
    "chef": "2026-11-02",
    "menu": "off",
    "champion_name": "Elise",
    "item_ids": [
-    3075,
-    3083,
-    3065,
-    3084,
-    3068,
-    3047
+    3116,
+    6653,
+    3118,
+    4633,
+    4629,
+    3158
    ],
    "champion_icon": "icons/champions/60.png",
    "champion_win_rate": 0.4816,
    "champion_pick_rate": 0.0094,
    "champion_win_rank": 120,
-   "core_win_rate": 0.498,
+   "core_win_rate": 0.5116,
    "tier": "Pure troll",
    "core_usual": 0,
-   "core_pick_rate": 0.1484,
+   "core_pick_rate": 0.1268,
    "sim": {
-    "dps": 103,
-    "survival": 0.033,
+    "dps": 404,
+    "survival": 0.015,
     "best_dps": 1071,
     "best_survival": 0.011,
-    "pct_of_best": 0.096,
+    "pct_of_best": 0.377,
     "best_items": [
      "Sorcerer's Shoes",
      "Blackfire Torch",
@@ -3314,7 +3544,8 @@ window.COOK_DATA = {
   {
    "id": "cassiopeia-drive-by-serpent",
    "champion": "Cassiopeia",
-   "title": "The Drive-By Serpent",
+   "title": "Serpentine Grace, No Boots",
+   "tagline": "No boots, no brakes and every dash explodes",
    "augments": [
     {
      "name": "Quickstep",
@@ -3454,7 +3685,8 @@ window.COOK_DATA = {
   {
    "id": "azir-melee-by-proxy",
    "champion": "Azir",
-   "title": "Melee By Proxy",
+   "title": "Arise! (The Interns)",
+   "tagline": "Why fight when the soldiers do it on-hit",
    "augments": [
     {
      "name": "Draw Your Sword",
@@ -3594,7 +3826,8 @@ window.COOK_DATA = {
   {
    "id": "anivia-overdraft-protection",
    "champion": "Anivia",
-   "title": "Overdraft Protection",
+   "title": "Glacial Storm Overdraft",
+   "tagline": "Spent all her mana and got paid in shields",
    "augments": [
     {
      "name": "Overflow",
@@ -3736,124 +3969,139 @@ window.COOK_DATA = {
   {
    "id": "rammus-ok-im-a-mage-now",
    "champion": "Rammus",
-   "title": "OK, I'm a Mage Now",
+   "title": "Spiked Shell Speedrun",
+   "tagline": "Armordillo found the attack speed button and won't stop pressing it",
    "augments": [
     {
-     "name": "ADAPt",
-     "id": 1205,
-     "rarity": "Silver",
-     "text": "Convert Bonus Attack Damage to Ability Power. Gain 15% Ability Power.",
-     "core": true,
-     "icon": "icons/augments/adapt.png",
-     "win_rate": 0.5489,
-     "pick_rate": 0.3719,
-     "win_rank": 50,
-     "best_champions": [
-      "Karthus",
-      "TwistedFate",
-      "Kaisa",
-      "Teemo",
-      "Brand",
-      "Vladimir"
-     ],
-     "champion_is_best": false
-    },
-    {
-     "name": "Marksmage",
-     "id": 1129,
+     "name": "Firebrand",
+     "id": 1036,
      "rarity": "Gold",
-     "text": "Your Attacks deal additional physical damage equal to 75% Ability Power.",
+     "text": "Your Attacks also Burn enemies, dealing 0.4% max Health magic damage per second over 5 seconds. This Burn stacks infinitely.",
      "core": true,
-     "icon": "icons/augments/marksmage.png",
-     "win_rate": 0.5254,
-     "pick_rate": 0.1809,
-     "win_rank": 97,
+     "icon": "icons/augments/firebrand.png",
+     "win_rate": 0.4908,
+     "pick_rate": 0.0957,
+     "win_rank": 195,
      "best_champions": [
-      "Sylas",
+      "Ashe",
+      "Teemo",
+      "Katarina",
+      "Jinx",
       "Kayle",
-      "Ekko",
-      "Fizz",
-      "Kaisa",
-      "Gwen"
+      "Twitch"
      ],
      "champion_is_best": false
     },
     {
-     "name": "Titan's Resolve",
-     "id": 1001,
+     "name": "Mystic Punch",
+     "id": 1058,
      "rarity": "Prismatic",
-     "text": "Gain stacks when taking or dealing damage. For every 7 stacks, gain Adaptive Force, Armor, Magic Resist, Size, and Tenacity.",
+     "text": "On-Hit reduce the cooldown of your abilities by 1.25 seconds.",
      "core": true,
-     "icon": "icons/augments/titan-s-resolve.png",
-     "win_rate": 0.5103,
-     "pick_rate": 0.1845,
-     "win_rank": 135,
+     "icon": "icons/augments/mystic-punch.png",
+     "win_rate": 0.565,
+     "pick_rate": 0.3174,
+     "win_rank": 28,
      "best_champions": [
-      "TahmKench",
-      "DrMundo",
-      "Swain",
-      "Thresh",
-      "Sion",
-      "Chogath"
+      "Yasuo",
+      "MasterYi",
+      "Yone",
+      "Hecarim",
+      "Fiora",
+      "XinZhao"
      ],
      "champion_is_best": false
     },
     {
-     "name": "Lonely Warrior",
-     "id": 3134,
-     "rarity": "Silver",
-     "text": "Gain Attack Speed, 10 Armor, and 10 Magic Resist for each nearby enemy champion within 600 Range.",
+     "name": "The Boom and the Bass",
+     "id": 3078,
+     "rarity": "Gold",
+     "text": "After casting an Ability, your next Attack is faster, deals bonus magic damage, and grants you decaying Move Speed.",
      "core": true,
-     "icon": "icons/augments/lonely-warrior.png",
-     "win_rate": 0.522,
-     "pick_rate": 0.1693,
-     "win_rank": 107,
+     "icon": "icons/augments/the-boom-and-the-bass.png",
+     "win_rate": 0.6183,
+     "pick_rate": 0.4493,
+     "win_rank": 4,
      "best_champions": [
-      "TahmKench",
-      "XinZhao",
-      "Yone",
       "Yasuo",
+      "Yone",
+      "Hecarim",
+      "Fiora",
+      "Ezreal",
+      "Jhin"
+     ],
+     "champion_is_best": false
+    },
+    {
+     "name": "Armored Impact",
+     "id": 3049,
+     "rarity": "Gold",
+     "text": "After casting an Ability, your next Attack deals bonus physical damage to nearby enemies.",
+     "core": true,
+     "icon": "icons/augments/armored-impact.png",
+     "win_rate": 0.5732,
+     "pick_rate": 0.1982,
+     "win_rank": 23,
+     "best_champions": [
+      "Thresh",
+      "Malphite",
       "DrMundo",
-      "Thresh"
+      "TahmKench",
+      "Leona",
+      "Nautilus"
      ],
      "champion_is_best": false
     }
    ],
    "core": 4,
    "items": [
-    "Plated Steelcaps",
-    "Zhonya's Hourglass",
-    "Thornmail",
-    "Jak'Sho, The Protean",
+    "Guinsoo's Rageblade",
     "Nashor's Tooth",
-    "Rabadon's Deathcap"
+    "Wit's End",
+    "Kraken Slayer",
+    "Terminus",
+    "Berserker's Greaves"
    ],
-   "why": "Spiked Shell quietly gives Rammus bonus Attack Damage that scales with his Armor and Magic Resist, a side effect nobody builds around because Rammus barely auto-attacks. ADAPt converts that bonus Attack Damage into Ability Power and adds 15% more, so every point of armor becomes AP for Powerball, Ball Curl's return damage and Soaring Slam. Marksmage then makes his attacks deal extra physical damage equal to 75% of that AP, so the armor comes back out through his autos on whoever he just Taunted. Titan's Resolve, Lonely Warrior and Defensive Ball Curl all add Armor and Magic Resist that flow through Spiked Shell into more AP, while Zhonya's Hourglass feeds both ends with Armor and AP, Thornmail and Jak'Sho stack raw resists, Rabadon's Deathcap multiplies the converted total and Nashor's Tooth speeds up the Marksmage autos. The armadillo tank becomes an auto-attacking battle mage whose armor is his Ability Power.",
-   "play": "Powerball in, Ball Curl for the armor-to-AP spike, then Taunt the squishiest target and right-click them down. Zhonya's when the whole team turns on you.",
+   "why": "Rammus trades every tank item for Attack Speed and lets his shell do the damage.",
+   "how": [
+    [
+     "Spiked Shell",
+     "His attacks deal bonus magic damage from his armor, and Defensive Ball Curl makes them stronger."
+    ],
+    [
+     "Augments",
+     "After every spell, The Boom and the Bass and Armored Impact empower his next hit. Firebrand stacks a burn on every attack and Mystic Punch cuts his cooldowns, so the spells and empowered hits keep coming."
+    ],
+    [
+     "Items",
+     "Guinsoo's, Nashor's, Wit's End and Kraken stack on-hit damage, and Terminus gives armor as he attacks to feed Spiked Shell."
+    ]
+   ],
+   "play": "Powerball in, Ball Curl, then attack nonstop and cast a spell whenever one comes back.",
    "chef": "2026-11-06",
    "champion_name": "Rammus",
    "item_ids": [
-    3047,
-    3157,
-    3075,
-    6665,
+    3124,
     3115,
-    3089
+    3091,
+    6672,
+    3302,
+    3006
    ],
    "champion_icon": "icons/champions/33.png",
    "champion_win_rate": 0.467,
    "champion_pick_rate": 0.0185,
    "champion_win_rank": 150,
-   "core_win_rate": 0.5267,
-   "tier": "Holds up",
+   "core_win_rate": 0.5618,
+   "tier": "Secretly strong",
    "core_usual": 0,
-   "core_pick_rate": 0.2267,
+   "core_pick_rate": 0.2651,
    "sim": {
-    "dps": 334,
-    "survival": 0.009,
+    "dps": 319,
+    "survival": 0.007,
     "best_dps": 793,
     "best_survival": 0.01,
-    "pct_of_best": 0.42,
+    "pct_of_best": 0.402,
     "best_items": [
      "Sorcerer's Shoes",
      "Horizon Focus",
@@ -3875,7 +4123,8 @@ window.COOK_DATA = {
   {
    "id": "kennen-lightning-strikes-twice",
    "champion": "Kennen",
-   "title": "Lightning Strikes Twice",
+   "title": "Lightning Rush Speedrun",
+   "tagline": "Three feet tall and every crit keeps the zoomies going",
    "augments": [
     {
      "name": "Critical Rhythm",
@@ -3967,8 +4216,22 @@ window.COOK_DATA = {
     "Phantom Dancer",
     "Navori Flickerblade"
    ],
-   "why": "Lightning Rush has a clause nobody reads: the Attack Speed Kennen gains when the ball form ends is extended by a second every time he Critically Strikes, so a Kennen who crits on every attack simply never comes down from it. Critical Rhythm and Zealot hand him the crit chance and stack even more Attack Speed on each crit, and Tickle Monster converts his Attack Damage into Attack Speed and adds magic damage On-Hit, so his crits stop being about the physical hit and become a metronome that keeps the Rush running. Double Tap is the payoff: every crit applies On-Hit effects a second time, so Tickle Monster, Nashor's Tooth and Wit's End all land twice per attack, and so does Electrical Surge's every-fifth-attack lightning, which is On-Hit too. Nashor's Tooth pours Ability Power into all of that, Runaan's Hurricane carries the doubled On-Hits to two more enemies, Phantom Dancer and Navori Flickerblade fill out the crit chance, and Navori's attacks shave the cooldowns of Thundering Shuriken, Electrical Surge and Lightning Rush so the stun comes back faster. The burst mage who hides behind his ultimate becomes a zero-Attack-Damage crit marksman who never stops right-clicking.",
-   "play": "Open with Lightning Rush, then never stop right-clicking: as long as the crits keep coming the Attack Speed never ends. Weave Thundering Shuriken and Electrical Surge between attacks for the stun, and save Slicing Maelstrom for the teamfight.",
+   "why": "Kennen becomes a zero-AD crit marksman whose Lightning Rush speed never runs out.",
+   "how": [
+    [
+     "Lightning Rush",
+     "The Attack Speed he gets when it ends lasts a second longer every time he crits, so a Kennen who always crits never slows down."
+    ],
+    [
+     "Augments",
+     "Critical Rhythm and Zealot bring the crit chance and more Attack Speed per crit. Tickle Monster turns his Attack Damage into Attack Speed and on-hit magic damage, and Double Tap applies every on-hit twice on a crit."
+    ],
+    [
+     "Items",
+     "Nashor's and Wit's End hit twice per crit. Runaan's spreads the doubled on-hits, and Phantom Dancer and Navori fill the crit chance."
+    ]
+   ],
+   "play": "Open with Lightning Rush, then never stop right-clicking. Weave Q and W between attacks for the stun.",
    "chef": "2026-11-07",
    "champion_name": "Kennen",
    "item_ids": [
@@ -4014,9 +4277,29 @@ window.COOK_DATA = {
   {
    "id": "rakan-double-entrance",
    "champion": "Rakan",
-   "title": "Double Entrance",
-   "tagline": "One entrance is a play. Two is a lifestyle.",
+   "title": "Grand Entrance (Encore)",
+   "tagline": "Every dash leaves a fireworks trail and the clone does it again",
    "augments": [
+    {
+     "name": "Earthwake",
+     "id": 1027,
+     "rarity": "Prismatic",
+     "text": "Your dash, blink, or teleport Abilities leave behind a trail that detonates after 0.75 second.",
+     "core": true,
+     "icon": "icons/augments/earthwake.png",
+     "win_rate": 0.499,
+     "pick_rate": 0.0311,
+     "win_rank": 174,
+     "best_champions": [
+      "Yasuo",
+      "Ambessa",
+      "Pyke",
+      "LeeSin",
+      "Fiora",
+      "Irelia"
+     ],
+     "champion_is_best": false
+    },
     {
      "name": "Echo Cast",
      "id": 2062,
@@ -4038,115 +4321,95 @@ window.COOK_DATA = {
      "champion_is_best": false
     },
     {
-     "name": "Ravenous Bind",
-     "id": 2077,
-     "rarity": "Gold",
-     "text": "Immobilizing or Grounding enemy champions with the chosen ability deals extra damage and heals you.",
-     "core": true,
-     "icon": "icons/augments/ravenous-bind.png",
-     "win_rate": 0.5232,
-     "pick_rate": 0.1632,
-     "win_rank": 102,
-     "best_champions": [
-      "Trundle",
-      "Aatrox",
-      "Swain",
-      "Chogath",
-      "Thresh",
-      "TahmKench"
-     ],
-     "champion_is_best": false
-    },
-    {
-     "name": "Stuck In Here With Me",
-     "id": 1413,
+     "name": "Cruelty",
+     "id": 1323,
      "rarity": "Prismatic",
-     "text": "After using your Ultimate, gain damage reduction for 2 seconds, after which you Taunt enemies inside for 2 seconds. Gain 30 Ultimate Ability Haste.",
+     "text": "On Immobilizing or Grounding a champion, summon a comet that lands after a delay, dealing magic damage to nearby enemies.",
      "core": true,
-     "icon": "icons/augments/stuck-in-here-with-me.png",
-     "win_rate": 0.4843,
-     "pick_rate": 0.0596,
-     "win_rank": 209,
+     "icon": "icons/augments/cruelty.png",
+     "win_rate": 0.507,
+     "pick_rate": 0.094,
+     "win_rank": 149,
      "best_champions": [
-      "Malphite",
-      "JarvanIV",
-      "DrMundo",
-      "Swain",
+      "Alistar",
       "Thresh",
-      "Blitzcrank"
+      "Rell",
+      "Nautilus",
+      "Galio",
+      "Leona"
      ],
      "champion_is_best": false
     },
     {
-     "name": "Porcupine",
-     "id": 2139,
-     "rarity": "Gold",
-     "text": "Taking damage from champions builds up a burst of needles that fly out of you, dealing damage and slowing nearby enemies.",
+     "name": "Prom Queen",
+     "id": 1421,
+     "rarity": "Prismatic",
+     "text": "Every 35 seconds, Autocast a sparkly tiara descends upon you. When it lands, gain Rakan's Ultimate, charming enemies you touch.",
      "core": true,
-     "icon": "icons/augments/porcupine.png",
-     "win_rate": 0.4899,
-     "pick_rate": 0.0612,
-     "win_rank": 198,
+     "icon": "icons/augments/prom-queen.png",
+     "win_rate": 0.4806,
+     "pick_rate": 0.0271,
+     "win_rank": 214,
      "best_champions": [
-      "DrMundo",
       "TahmKench",
-      "Sion",
+      "Singed",
       "Thresh",
-      "Nautilus",
-      "Chogath"
+      "Sion",
+      "Galio",
+      "Nautilus"
      ],
      "champion_is_best": false
     }
    ],
    "core": 4,
    "items": [
-    "Thornmail",
-    "Sunfire Aegis",
-    "Unending Despair",
-    "Jak'Sho, The Protean",
-    "Riftmaker",
-    "Plated Steelcaps"
+    "Stormsurge",
+    "Rabadon's Deathcap",
+    "Shadowflame",
+    "Lich Bane",
+    "Cosmic Drive",
+    "Sorcerer's Shoes"
    ],
-   "why": "Rakan never shields anyone. He knocks the enemy team up twice per Grand Entrance, heals off every knock and dares them to hit back.",
+   "why": "Rakan stops protecting the carry and becomes an AP dive bomb.",
    "how": [
     [
      "Grand Entrance",
-     "A dash that ends in a knock-up. Usually it's his engage, followed by a shield dash back to safety."
+     "A dash that ends in a knock-up. Battle Dance is a second dash back to an ally."
     ],
     [
      "Augments",
-     "Echo Cast, rolled on Grand Entrance, sends a clone that knocks up a second time at your cursor. Ravenous Bind, also on Grand Entrance, makes every knock-up deal extra damage and heal him. Stuck In Here With Me taunts everyone after The Quickness, and Porcupine fires needles back at whoever hits him."
+     "Earthwake leaves an exploding trail on both dashes. Echo Cast on Grand Entrance sends a clone for a second knock-up, Cruelty drops a comet on each one and Prom Queen casts The Quickness for him with a charm sprint."
     ],
     [
      "Items",
-     "Thornmail, Sunfire, Unending Despair and Jak'Sho make hitting him hurt and heal him in long fights. Riftmaker turns his Health into AP for the knock-ups."
+     "Stormsurge, Rabadon's, Shadowflame and Lich Bane make every entrance a full combo."
     ]
    ],
-   "play": "Grand Entrance into the middle with the cursor on a second group, ult to taunt, then stand there. Battle Dance is only for chasing.",
+   "play": "Grand Entrance into the team, aim the clone at a second group, then Battle Dance out and do it again.",
    "chef": "2026-11-08",
    "champion_name": "Rakan",
    "item_ids": [
-    3075,
-    3068,
-    2502,
-    6665,
-    4633,
-    3047
+    4646,
+    3089,
+    4645,
+    3100,
+    4629,
+    3020
    ],
    "champion_icon": "icons/champions/497.png",
    "champion_win_rate": 0.4764,
    "champion_pick_rate": 0.0151,
    "champion_win_rank": 130,
-   "core_win_rate": 0.5039,
+   "core_win_rate": 0.5012,
    "tier": "Pure troll",
    "core_usual": 0,
-   "core_pick_rate": 0.0929,
+   "core_pick_rate": 0.06,
    "sim": {
-    "dps": 247,
-    "survival": 0.018,
+    "dps": 600,
+    "survival": 0.013,
     "best_dps": 961,
     "best_survival": 0.013,
-    "pct_of_best": 0.257,
+    "pct_of_best": 0.625,
     "best_items": [
      "Sorcerer's Shoes",
      "Blackfire Torch",
@@ -4168,124 +4431,139 @@ window.COOK_DATA = {
   {
    "id": "nunu-minion-buffet",
    "champion": "Nunu",
-   "title": "The Minion Buffet",
+   "title": "Snowball Barrage Never Ends",
+   "tagline": "Every snowball is an auto and every spell reloads the barrage",
    "augments": [
     {
-     "name": "Circle of Death",
-     "id": 1015,
-     "rarity": "Prismatic",
-     "text": "Your healing and Health Regen deal 70% of the value magic damage to the nearest enemy champion.",
-     "core": true,
-     "icon": "icons/augments/circle-of-death.png",
-     "win_rate": 0.5383,
-     "pick_rate": 0.0875,
-     "win_rank": 70,
-     "best_champions": [
-      "DrMundo",
-      "Swain",
-      "Vladimir",
-      "Trundle",
-      "Soraka",
-      "Yuumi"
-     ],
-     "champion_is_best": false
-    },
-    {
-     "name": "Overflow",
-     "id": 1311,
+     "name": "Ethereal Weapon",
+     "id": 1029,
      "rarity": "Gold",
-     "text": "Your Mana costs double. Your Ability Heals, Shields, and damage are more effective.",
+     "text": "Your Abilities apply On-Hit effects. 1 second Cooldown per target.",
      "core": true,
-     "icon": "icons/augments/overflow.png",
-     "win_rate": 0.5175,
-     "pick_rate": 0.0961,
-     "win_rank": 121,
+     "icon": "icons/augments/ethereal-weapon.png",
+     "win_rate": 0.5764,
+     "pick_rate": 0.3856,
+     "win_rank": 21,
      "best_champions": [
-      "Ryze",
-      "Ezreal",
-      "Karthus",
-      "Gangplank",
-      "Jayce",
-      "Kassadin"
-     ],
-     "champion_is_best": false
-    },
-    {
-     "name": "Ocean Soul",
-     "id": 1060,
-     "rarity": "Silver",
-     "text": "Gain the Ocean Soul, granting high Health and Mana Regen after damaging enemies.",
-     "core": true,
-     "icon": "icons/augments/ocean-soul.png",
-     "win_rate": 0.5272,
-     "pick_rate": 0.1498,
-     "win_rank": 91,
-     "best_champions": [
-      "Morgana",
-      "TwistedFate",
+      "Kaisa",
+      "Teemo",
+      "Hecarim",
       "TahmKench",
-      "Ziggs",
-      "Brand",
-      "Xerath"
+      "Ekko",
+      "Katarina"
      ],
      "champion_is_best": false
     },
     {
-     "name": "Goredrink",
-     "id": 1138,
-     "rarity": "Silver",
-     "text": "Gain 15% Omnivamp.",
+     "name": "Mystic Punch",
+     "id": 1058,
+     "rarity": "Prismatic",
+     "text": "On-Hit reduce the cooldown of your abilities by 1.25 seconds.",
      "core": true,
-     "icon": "icons/augments/goredrink.png",
-     "win_rate": 0.5536,
-     "pick_rate": 0.3369,
-     "win_rank": 43,
+     "icon": "icons/augments/mystic-punch.png",
+     "win_rate": 0.565,
+     "pick_rate": 0.3174,
+     "win_rank": 28,
      "best_champions": [
-      "Graves",
-      "Lucian",
-      "Kayn",
+      "Yasuo",
+      "MasterYi",
+      "Yone",
+      "Hecarim",
+      "Fiora",
+      "XinZhao"
+     ],
+     "champion_is_best": false
+    },
+    {
+     "name": "Overloaded",
+     "id": 2123,
+     "rarity": "Prismatic",
+     "text": "Using another Ability resets the cooldown of the chosen ability.",
+     "core": true,
+     "icon": "icons/augments/overloaded.png",
+     "win_rate": 0.4981,
+     "pick_rate": 0.1622,
+     "win_rank": 178,
+     "best_champions": [
       "Ryze",
+      "Qiyana",
+      "TwistedFate",
       "Smolder",
-      "Sylas"
+      "Viktor",
+      "Morgana"
+     ],
+     "champion_is_best": false
+    },
+    {
+     "name": "Erosion",
+     "id": 1028,
+     "rarity": "Silver",
+     "text": "Damaging enemies shreds 1.5% Armor and Magic Resist for 4s, up to % at 20 stacks.",
+     "core": true,
+     "icon": "icons/augments/erosion.png",
+     "win_rate": 0.5308,
+     "pick_rate": 0.1855,
+     "win_rank": 83,
+     "best_champions": [
+      "Brand",
+      "Morgana",
+      "Teemo",
+      "MissFortune",
+      "Malzahar",
+      "AurelionSol"
      ],
      "champion_is_best": false
     }
    ],
    "core": 4,
    "items": [
-    "Ionian Boots of Lucidity",
+    "Nashor's Tooth",
+    "Wit's End",
     "Riftmaker",
-    "Spirit Visage",
-    "Warmog's Armor",
-    "Unending Despair",
-    "Rod of Ages"
+    "Liandry's Torment",
+    "Cosmic Drive",
+    "Sorcerer's Shoes"
    ],
-   "why": "Consume is Nunu's snack button: Willump bites a minion and restores a big chunk of Health. Circle of Death turns 70% of all his healing and Health Regen into magic damage on the nearest enemy champion, and Overflow makes his ability heals stronger, so every minion he eats punches someone on the other team. Ocean Soul then hands him high Health Regen, which is more Circle of Death damage, plus the Mana Regen that pays for Overflow's doubled costs, while Goredrink heals him off his hits and feeds the circle again. Spirit Visage makes each heal bigger, Warmog's Armor adds regen, Unending Despair adds a heal every few seconds in a fight, and Riftmaker and Rod of Ages add the Health, Ability Power and Mana to keep eating. The snowball tank becomes a poke mage who hurts people by having lunch.",
-   "play": "Stand near the enemy you want hit and Consume a minion every time it is up; bite a champion instead when one is in reach. Use Absolute Zero and Snowball Barrage to keep Ocean Soul and Goredrink running.",
+   "why": "Nunu forgets his ult and turns Snowball Barrage into an on-hit machine gun.",
+   "how": [
+    [
+     "Snowball Barrage",
+     "Three volleys of snowballs, and enemies hit three times get rooted."
+    ],
+    [
+     "Augments",
+     "Ethereal Weapon makes every snowball apply on-hit, which triggers Mystic Punch to cut cooldowns. Overloaded on Barrage resets it whenever he casts another ability, and Erosion shreds resistances with every hit."
+    ],
+    [
+     "Items",
+     "Nashor's and Wit's End put on-hit damage on every snowball, and Liandry's and Riftmaker add a burn and healing."
+    ]
+   ],
+   "play": "Throw Barrage, cast Q or W to reset it, throw again. Save R for an escape.",
    "chef": "2026-11-09",
    "champion_name": "Nunu & Willump",
    "item_ids": [
-    3158,
+    3115,
+    3091,
     4633,
-    3065,
-    3083,
-    2502,
-    6657
+    6653,
+    4629,
+    3020
    ],
    "champion_icon": "icons/champions/20.png",
    "champion_win_rate": 0.4613,
    "champion_pick_rate": 0.0235,
    "champion_win_rank": 157,
-   "core_win_rate": 0.5342,
+   "core_win_rate": 0.5426,
    "tier": "Holds up",
    "core_usual": 0,
-   "core_pick_rate": 0.1676,
+   "core_pick_rate": 0.2627,
    "sim": {
-    "dps": 199,
-    "survival": 0.074,
+    "dps": 266,
+    "survival": 0.015,
     "best_dps": 834,
     "best_survival": 0.017,
-    "pct_of_best": 0.238,
+    "pct_of_best": 0.319,
     "best_items": [
      "Sorcerer's Shoes",
      "Blackfire Torch",
@@ -4307,46 +4585,46 @@ window.COOK_DATA = {
   {
    "id": "warwick-self-care-wolf",
    "champion": "Warwick",
-   "title": "Self-Care Wolf",
-   "tagline": "He doesn't bite anymore. He just heals at you.",
+   "title": "Jaws Maxxing",
+   "tagline": "One ult buys fifteen seconds of nonstop bites and every heal hurts someone",
    "augments": [
     {
-     "name": "Rejuvenation",
-     "id": 1067,
-     "rarity": "Gold",
-     "text": "Using the chosen ability restores Health.",
+     "name": "Ultimate Awakening",
+     "id": 1349,
+     "rarity": "Prismatic",
+     "text": "Gain 30 Ultimate Ability Haste. After using your Ultimate, refresh your basic abilities and gain 300 basic ability haste for 15s. (20s Cooldown)",
      "core": true,
-     "icon": "icons/augments/rejuvenation.png",
-     "win_rate": 0.493,
-     "pick_rate": 0.0255,
-     "win_rank": 189,
+     "icon": "icons/augments/ultimate-awakening.png",
+     "win_rate": 0.5096,
+     "pick_rate": 0.2365,
+     "win_rank": 138,
      "best_champions": [
-      "Soraka",
-      "TahmKench",
-      "LeeSin",
-      "Mordekaiser",
-      "Rumble",
-      "Zyra"
+      "Hecarim",
+      "Teemo",
+      "Ashe",
+      "MasterYi",
+      "Karthus",
+      "Kayn"
      ],
      "champion_is_best": false
     },
     {
-     "name": "Siphon",
-     "id": 2073,
-     "rarity": "Silver",
-     "text": "Heal for 30% of the damage dealt to enemy champions by the chosen ability.",
+     "name": "Archmage",
+     "id": 2087,
+     "rarity": "Prismatic",
+     "text": "Casting a spell refunds another random spell's cost by 30% of the original spell's Cooldown.",
      "core": true,
-     "icon": "icons/augments/siphon.png",
-     "win_rate": 0.5124,
-     "pick_rate": 0.1474,
-     "win_rank": 130,
+     "icon": "icons/augments/archmage.png",
+     "win_rate": 0.5307,
+     "pick_rate": 0.373,
+     "win_rank": 84,
      "best_champions": [
-      "Smolder",
-      "AurelionSol",
-      "Yasuo",
-      "Ryze",
-      "Trundle",
-      "Khazix"
+      "Teemo",
+      "MissFortune",
+      "Ashe",
+      "Jayce",
+      "Zilean",
+      "Brand"
      ],
      "champion_is_best": false
     },
@@ -4371,75 +4649,75 @@ window.COOK_DATA = {
      "champion_is_best": false
     },
     {
-     "name": "Don't Change the Channel",
-     "id": 2131,
-     "rarity": "Silver",
-     "text": "Gain a Shield for every second you spend Channeling.",
+     "name": "Infinite Recursion",
+     "id": 1388,
+     "rarity": "Prismatic",
+     "text": "Gain 60 Ability Haste, plus 3 Ability Haste per takedown.",
      "core": true,
-     "icon": "icons/augments/don-t-change-the-channel.png",
-     "win_rate": 0.5161,
-     "pick_rate": 0.0589,
-     "win_rank": 124,
+     "icon": "icons/augments/infinite-recursion.png",
+     "win_rate": 0.6003,
+     "pick_rate": 0.3557,
+     "win_rank": 6,
      "best_champions": [
+      "Karthus",
+      "Teemo",
       "AurelionSol",
-      "Katarina",
-      "FiddleSticks",
-      "Vladimir",
-      "Varus",
-      "Galio"
+      "MissFortune",
+      "Jayce",
+      "Brand"
      ],
      "champion_is_best": false
     }
    ],
    "core": 4,
    "items": [
-    "Spirit Visage",
-    "Warmog's Armor",
     "Riftmaker",
-    "Redemption",
-    "Rylai's Crystal Scepter",
-    "Mercury's Treads"
+    "Rabadon's Deathcap",
+    "Shadowflame",
+    "Spirit Visage",
+    "Liandry's Torment",
+    "Sorcerer's Shoes"
    ],
-   "why": "Warwick stops hunting and starts healing, and every heal zaps the nearest enemy champion, so he tanks and lets his own regen fight for him.",
+   "why": "Warwick drops Attack Speed for Ability Power and turns Jaws of the Beast into his only attack.",
    "how": [
     [
-     "Primal Howl and Infinite Duress",
-     "Primal Howl is just damage reduction and a fear, and Infinite Duress is a channel. Neither is meant to keep him alive past the fight."
+     "Jaws of the Beast",
+     "A bite that scales with Ability Power and heals him for part of the damage."
     ],
     [
      "Augments",
-     "Rejuvenation, rolled on Primal Howl, heals him every time he howls, and Siphon on Jaws of the Beast heals him off each bite. Circle of Death turns 70% of every heal, and his Health Regen, into magic damage on the nearest enemy champion. Don't Change the Channel shields him for every second he channels Infinite Duress."
+     "Ultimate Awakening resets every basic ability when he ults and gives 300 haste for 15 seconds. Archmage and Infinite Recursion keep Q coming, and Circle of Death turns every heal into damage."
     ],
     [
      "Items",
-     "Spirit Visage boosts every heal, and Warmog's regenerates him once he has 2,000 bonus Health and stays 8 seconds untouched. Riftmaker turns that Health into AP for the zaps. Redemption is one more heal, and Rylai's slows whoever the bites hit."
+     "Riftmaker, Rabadon's, Shadowflame and Liandry's power up the bite, and Spirit Visage makes each heal, and so each Circle of Death hit, bigger."
     ]
    ],
-   "play": "Max E. Howl into fights, bite whatever is close, and channel R on a tank just for the shield. Your regen does the damage.",
+   "play": "Infinite Duress onto a target, then spam Q for the next 15 seconds.",
    "chef": "2026-11-10",
    "champion_name": "Warwick",
    "item_ids": [
-    3065,
-    3083,
     4633,
-    3107,
-    3116,
-    3111
+    3089,
+    4645,
+    3065,
+    6653,
+    3020
    ],
    "champion_icon": "icons/champions/19.png",
    "champion_win_rate": 0.4881,
    "champion_pick_rate": 0.0222,
    "champion_win_rank": 101,
-   "core_win_rate": 0.515,
+   "core_win_rate": 0.5447,
    "tier": "Holds up",
    "core_usual": 0,
-   "core_pick_rate": 0.0798,
+   "core_pick_rate": 0.2632,
    "sim": {
-    "dps": 323,
-    "survival": 0.011,
+    "dps": 684,
+    "survival": 0.009,
     "best_dps": 1257,
     "best_survival": 0.013,
-    "pct_of_best": 0.257,
+    "pct_of_best": 0.544,
     "best_items": [
      "Berserker's Greaves",
      "Blade of The Ruined King",
@@ -4461,8 +4739,8 @@ window.COOK_DATA = {
   {
    "id": "kalista-javelin-thrower",
    "champion": "Kalista",
-   "title": "Javelin Thrower",
-   "tagline": "Attacks are optional. Spears are not.",
+   "title": "Pierce on Business",
+   "tagline": "Made an oath and brought a spear for every word",
    "augments": [
     {
      "name": "Skilled Sniper",
@@ -4679,22 +4957,22 @@ window.COOK_DATA = {
      "champion_is_best": false
     },
     {
-     "name": "Bread And Jam",
-     "id": 1150,
-     "rarity": "Gold",
-     "text": "Your W gains 100 Ability Haste.",
+     "name": "Overloaded",
+     "id": 2123,
+     "rarity": "Prismatic",
+     "text": "Using another Ability resets the cooldown of the chosen ability.",
      "core": true,
-     "icon": "icons/augments/bread-and-jam.png",
-     "win_rate": 0.4942,
-     "pick_rate": 0.1531,
-     "win_rank": 184,
+     "icon": "icons/augments/overloaded.png",
+     "win_rate": 0.4981,
+     "pick_rate": 0.1622,
+     "win_rank": 178,
      "best_champions": [
-      "Kaisa",
-      "Morgana",
-      "Sett",
-      "Khazix",
-      "Vladimir",
-      "Shaco"
+      "Ryze",
+      "Qiyana",
+      "TwistedFate",
+      "Smolder",
+      "Viktor",
+      "Morgana"
      ],
      "champion_is_best": false
     }
@@ -4716,14 +4994,14 @@ window.COOK_DATA = {
     ],
     [
      "Augments",
-     "Circle of Death turns his healing into damage and Don't Change the Channel shields him every second he sits. Mosh Monster, rolled on Meditate, slows everyone around him, and Bread And Jam (his W) lets him sit again almost right away."
+     "Circle of Death turns his healing into damage and Don't Change the Channel shields him every second he sits. Mosh Monster, rolled on Meditate, slows everyone around him, and Overloaded on Meditate resets it every time he casts another ability."
     ],
     [
      "Items",
      "Spirit Visage makes every heal bigger, so every hit gets bigger too. Warmog's, Unending Despair and Jak'Sho keep him seated."
     ]
    ],
-   "play": "Walk into the middle of the fight and press W. Repeat. Never right-click a champion.",
+   "play": "Walk into the middle of the fight and press W. Press Q or E to reset it, press W again. Never right-click a champion.",
    "chef": "2026-11-12",
    "menu": "off",
    "champion_name": "Master Yi",
@@ -4739,16 +5017,16 @@ window.COOK_DATA = {
    "champion_win_rate": 0.5364,
    "champion_pick_rate": 0.1053,
    "champion_win_rank": 13,
-   "core_win_rate": 0.5106,
+   "core_win_rate": 0.5116,
    "tier": "Pure troll",
    "core_usual": 0,
-   "core_pick_rate": 0.0815,
+   "core_pick_rate": 0.0838,
    "sim": {
-    "dps": 92,
+    "dps": 107,
     "survival": 0.011,
     "best_dps": 1202,
     "best_survival": 0.022,
-    "pct_of_best": 0.076,
+    "pct_of_best": 0.089,
     "best_items": [
      "Berserker's Greaves",
      "Blade of The Ruined King",
@@ -4969,42 +5247,42 @@ window.COOK_DATA = {
      "champion_is_best": false
     },
     {
-     "name": "First-Aid Kit",
-     "id": 1037,
-     "rarity": "Silver",
-     "text": "Gain 20% Heal and Shield Power.",
+     "name": "Ethereal Weapon",
+     "id": 1029,
+     "rarity": "Gold",
+     "text": "Your Abilities apply On-Hit effects. 1 second Cooldown per target.",
      "core": true,
-     "icon": "icons/augments/first-aid-kit.png",
-     "win_rate": 0.5264,
-     "pick_rate": 0.0465,
-     "win_rank": 94,
+     "icon": "icons/augments/ethereal-weapon.png",
+     "win_rate": 0.5764,
+     "pick_rate": 0.3856,
+     "win_rank": 21,
      "best_champions": [
-      "Sona",
-      "Soraka",
-      "Yuumi",
-      "Lulu",
-      "Nami",
-      "Milio"
+      "Kaisa",
+      "Teemo",
+      "Hecarim",
+      "TahmKench",
+      "Ekko",
+      "Katarina"
      ],
      "champion_is_best": false
     },
     {
-     "name": "Ultimate Recursion",
-     "id": 3055,
-     "rarity": "Silver",
-     "text": "Gain Ultimate Ability Haste.",
+     "name": "Mystic Punch",
+     "id": 1058,
+     "rarity": "Prismatic",
+     "text": "On-Hit reduce the cooldown of your abilities by 1.25 seconds.",
      "core": true,
-     "icon": "icons/augments/ultimate-recursion.png",
-     "win_rate": 0.5299,
-     "pick_rate": 0.4317,
-     "win_rank": 87,
+     "icon": "icons/augments/mystic-punch.png",
+     "win_rate": 0.565,
+     "pick_rate": 0.3174,
+     "win_rank": 28,
      "best_champions": [
-      "Teemo",
-      "Karthus",
-      "Ashe",
-      "Malphite",
-      "Lucian",
-      "Brand"
+      "Yasuo",
+      "MasterYi",
+      "Yone",
+      "Hecarim",
+      "Fiora",
+      "XinZhao"
      ],
      "champion_is_best": false
     }
@@ -5026,11 +5304,11 @@ window.COOK_DATA = {
     ],
     [
      "Augments",
-     "Ultimate Revolution casts it twice, Stuck In Here With Me Taunts the enemies so they stay in the zone, and Ultimate Recursion brings it back fast. First-Aid Kit makes every heal bigger."
+     "Ultimate Revolution casts it twice and Stuck In Here With Me taunts the enemies so they stay in the zone. Ethereal Weapon makes her abilities apply on-hit, and each on-hit triggers Mystic Punch to cut the cooldowns, R included."
     ],
     [
      "Items",
-     "Redemption, Moonstone Renewer and Dawncore are pure support healing. Malignance adds more Ultimate Haste, so the zone is up all the time."
+     "Redemption, Moonstone Renewer and Dawncore are pure support healing. Malignance adds Ultimate Haste, so the zone is up all the time."
     ]
    ],
    "play": "Wait for a big fight, press R in the middle of all ten champions, then press it again. Nobody leaves, nobody dies, everybody heals.",
@@ -5049,16 +5327,16 @@ window.COOK_DATA = {
    "champion_win_rate": 0.468,
    "champion_pick_rate": 0.0316,
    "champion_win_rank": 149,
-   "core_win_rate": 0.5076,
-   "tier": "Pure troll",
+   "core_win_rate": 0.5289,
+   "tier": "Holds up",
    "core_usual": 0,
-   "core_pick_rate": 0.188,
+   "core_pick_rate": 0.2442,
    "sim": {
-    "dps": 73,
+    "dps": 87,
     "survival": 0.009,
     "best_dps": 1369,
     "best_survival": 0.176,
-    "pct_of_best": 0.053,
+    "pct_of_best": 0.064,
     "best_items": [
      "Berserker's Greaves",
      "Blade of The Ruined King",

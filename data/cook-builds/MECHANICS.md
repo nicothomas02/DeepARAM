@@ -6,6 +6,13 @@ text, and answers from Nico, the site owner (marked "Nico"). Some of Nico's note
 rather than official text; they are marked "experience". For official definitions (for example, what counts as
 damage over time), check the League wiki first.
 
+Ability tags: `data/wiki/ability_tags.json` (built by `data/wiki/ability_tags.py`) tags every ability with the
+League wiki's own game terms, which follow the game's internal coding: dash vs blink, channel, airborne,
+immobilize (stun, root, snare, suppression, sleep), forced action (charm, taunt, fear), on-hit, attack reset and
+more. `data/checks/champion_pool.py` prints them. Match augment triggers to these tags, not to tooltip wording
+(Nico 2026-11-20). Tags come from the ability's description, so a mention like "can't be polymorphed" can add a
+stray tag; check the wiki text when a tag decides the build.
+
 ## Augments
 
 - **Archmage:** each cast takes 30% of the *cast* ability's *base* cooldown off another random ability. It can
@@ -131,6 +138,25 @@ damage over time), check the League wiki first.
 - **Volibear passive + BEES!!! + Statikk Shiv:** at full passive stacks his attacks chain lightning. BEES on-hit
   ticks and Statikk Shiv procs trigger that chain on every enemy hit, so the lightning spreads through the whole
   swarm (Nico).
+- **Terror:** always on R for every champion, never a rolled basic ability (Nico). check_build.py blocks it on
+  any other ability. Terror on Vayne's Tumble, Xin Zhao's E or Renekton's E is impossible.
+- **Vayne:** Tumble counts as a dash for Earthwake. Chain Reaction on Condemn likely stacks the rebound stun with
+  Condemn's own stun (Nico, guessing).
+- **Xin Zhao:** Chain Reaction goes on R (Crescent Guard) (Nico).
+- **Renekton:** both Slice and Dice dashes trigger Earthwake (Nico).
+- **Sion:** Stackosaurus Rex doubles his W Health stacks, and charging Q counts as a channel (Nico).
+- **Akshan:** RISE works with his R (each recast is a full R), and the R charge-up counts as a channel (Nico).
+- **Gragas:** Ravenous Bind heals off Chain Reaction knock-ups (Nico).
+- **RISE:** R only. Gragas can't take it on E (Nico).
+- **Syndra:** Chain Reaction can go on E (Scatter the Weak), but the pushed spheres don't count as knocked-back
+  champions (Nico).
+- **Illaoi:** Minionmancer buffs her tentacles, and Echo Cast's clone Q makes a second tentacle slam (Nico).
+- **Aurelion Sol:** Stackosaurus Rex doubles Stardust, and Breath of Light (Q) counts as a channel (Nico).
+- **Overflow on Nunu:** it raises W's cast cost only, not a per-second cost (Nico).
+- **Janna:** Group Hug makes E shield 3 allies at once (Nico).
+- **Infernal Conduit:** its burn can crit through Vulnerability, like Liandry's (Nico).
+- **Fiddlesticks:** both the W drain and the R channel count for Don't Change the Channel, and the drain heal sets
+  off Circle of Death (Nico).
 - **Pin Cushion:** very weak damage for a prismatic, worse still on melee champions with few attacks (Nico).
 - **Pin Cushion on Ashe:** each arrow of her empowered Q volley counts as a separate hit (Nico). Zeri's Q (Burst Fire)
   likely works the same (Nico). Data check: Ashe is first on Pin Cushion's best-champions list and grades A
@@ -140,6 +166,17 @@ damage over time), check the League wiki first.
 - **Tahm Kench AP (Rabadon's, Shadowflame, Dusk and Dawn, Riftmaker):** likely BEES or Ethereal Weapon + Dusk and
   Dawn, since one Q can stun a far target and R works too. With Goliath and/or Mad Scientist he already has the
   size, so Health is less needed (Nico, guess). Goliath, Ethereal Weapon and Mad Scientist are all top-6 on him.
+- **Ryze (Infinite Ryze):** W and E still reset Q in Mayhem. Lich Brain is 30 AP + 4% bonus Health as AP (the game
+  files leave the numbers out). Eureka's haste (30% AP) has no cap. Double Time's +25 max Mana is multiplied by
+  Ryze's passive. Mind to Matter stops at 99,999 Health, so the "infinite" AP loop levels off around 25,600 AP
+  (Nico).
+
+- **Echo Cast:** can roll on an ultimate for some champions (Nico). Unconfirmed for Skarner's Impale.
+- **Echo Cast clone stuns:** probably trigger Cruelty and Ravenous Bind like the champion's own (Nico, not sure).
+- **Ethereal Weapon on Nunu:** each Snowball Barrage snowball counts as an ability hit, so it applies on-hit (Nico).
+- **Earthwake on Skarner:** Ixtal's Impact is not a dash, so it doesn't trigger Earthwake or Dashing (Nico).
+- **Mark (snowball) augments:** Biggest Snowball Ever, Snowday and Holy Snowball work on anyone, so a build built
+  only on them is too generic for a Chef Special (Nico).
 
 ## Items
 
@@ -178,6 +215,7 @@ damage over time), check the League wiki first.
 - **Quinn:** a crit champion, not a sustained on-hit one, so Statikk Shiv underperforms (Nico).
 - **Lucian:** strongest with Jeweled Gauntlet + Vulnerability + Jeweled Bracelet empowering his R, so on-hit and
   attack speed don't matter (Nico).
+- **Guinsoo's Rageblade on Braum:** the phantom hit adds a Concussive Blows stack, so he stuns in 3 attacks (Nico).
 - **Kog'Maw:** Navori refunds W, but it's likely only good with Vulnerability, which lets W damage crit. He
   usually builds AP on-hit (Nico).
 
