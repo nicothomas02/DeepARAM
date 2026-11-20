@@ -24,7 +24,7 @@ def full_html(public: str) -> str:
         1,
     )
     out = out.replace("The champion sounds and icons belong to Riot Games.",
-                      "The champion models, animations, sounds and icons belong to Riot Games.", 1)
+                      "The map, champion models, animations, sounds and icons belong to Riot Games.", 1)
     return out
 
 

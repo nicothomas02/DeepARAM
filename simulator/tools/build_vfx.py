@@ -6,7 +6,7 @@ client) and Mayhem's augment effects, keeps the parts the replay can draw (textu
 the camera, flat quads, static meshes, trail streaks), and writes per champion a small JSON recipe and
 one texture atlas:
 
-    python3 simulator/tools/build_vfx.py DUMP_DIR [--out web/public/assets/vfx] [--only ahri zed]
+    python3 simulator/tools/build_vfx.py DUMP_DIR [--out web/public/assets/vfx] [--only ahri zed] [--map-export EXPORT_DIR]
 
 DUMP_DIR holds <alias>.json per champion, optionally _global.json (shared effects) and meshes/
 (the .scb/.sco meshes those effects use). Textures are fetched once and cached in
@@ -615,11 +615,38 @@ def build_mayhem(meshes_dir, out_dir):
     return write(ch, slots, out_dir, "mayhem")
 
 
+# The Howling Abyss's own effects the replay shows, from the map's definitions in a client export
+# (dump_map_assets.py output): (part, effect path). The health relic is an effect, not a model.
+MAP_EFFECTS = {
+    "Relic": [("area", "Maps/Shipping/Map12/Particles/Default/ARAMHealthPickup_AOE")],
+}
+
+
+def build_map_effects(export, out_dir):
+    from cdtb.binfile import BinFile
+    systems = {}
+    for e in BinFile(os.path.join(export, "data", "maps", "shipping", "map12", "map12.bin")).entries:
+        v = e.to_serializable()
+        if isinstance(v, dict) and v.get("__type") == "VfxSystemDefinitionData":
+            systems[str(e.path)] = json.loads(json.dumps(v, default=str))  # as dump_vfx_bins.py writes them
+    ch = Champion(systems, {}, None)
+    slots = {}
+    for slot, parts in MAP_EFFECTS.items():
+        for role, path in parts:
+            si = ch.system(path)
+            if si is not None:
+                slots.setdefault(slot, {})[role] = [si]
+    if not slots:
+        return None
+    return write(ch, slots, out_dir, "map")
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     ap.add_argument("dump", help="dump_vfx_bins.py output (one JSON per champion)")
     ap.add_argument("--out", default=os.path.join(ROOT, "web", "public", "assets", "vfx"))
     ap.add_argument("--only", nargs="*")
+    ap.add_argument("--map-export", help="dump_map_assets.py output, for the map's own effects (health relics)")
     args = ap.parse_args()
     os.makedirs(args.out, exist_ok=True)
     meshes = os.path.join(args.dump, "meshes")
@@ -656,6 +683,11 @@ def main():
         if res:
             index["champions"]["mayhem"] = "mayhem.json"
             print(f"mayhem: {res // 1024} KB")
+    if args.map_export:
+        res = build_map_effects(args.map_export, args.out)
+        if res:
+            index["champions"]["map"] = "map.json"
+            print(f"map: {res // 1024} KB")
     with open(index_path, "w") as f:
         json.dump(index, f, separators=(",", ":"), sort_keys=True)
     print(f"{len(todo)} champions, {total / 1e6:.1f} MB")
