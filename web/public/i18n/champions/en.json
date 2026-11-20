@@ -253,5 +253,21 @@
  "Items": "Items",
  "Win rate boosts": "Win rate boosts",
  "Spells and skills": "Spells and skills",
- "Stats": "Stats"
+ "Stats": "Stats",
+ "Situational items": "Situational items",
+ "Vs healing": "Vs healing",
+ "Vs shields": "Vs shields",
+ "Vs heavy crowd control": "Vs heavy crowd control",
+ "Vs burst": "Vs burst",
+ "Vs crit carries": "Vs crit carries",
+ "Vs tanks": "Vs tanks",
+ "Vs mixed damage": "Vs mixed damage",
+ "Vs magic damage": "Vs magic damage",
+ "Vs physical damage": "Vs physical damage",
+ "After the core, swap in what the game calls for. Each situation comes from the item's own effect; its options are the ones bought with this core first, then best DeepScore.": "After the core, swap in what the game calls for. Each situation comes from the item's own effect; its options are the ones bought with this core first, then best DeepScore.",
+ "AD": "AD",
+ "Support": "Support",
+ "Tied": "Tied",
+ "Rush": "Rush",
+ "With {augment}: buy {item} first": "With {augment}: buy {item} first"
 }

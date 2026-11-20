@@ -253,5 +253,21 @@
  "Items": "العناصر",
  "Win rate boosts": "زيادات نسبة الفوز",
  "Spells and skills": "التعويذات والمهارات",
- "Stats": "الإحصائيات"
+ "Stats": "الإحصائيات",
+ "Situational items": "عناصر حسب الموقف",
+ "Vs healing": "ضد العلاج",
+ "Vs shields": "ضد الدروع",
+ "Vs heavy crowd control": "ضد التحكم الكثيف",
+ "Vs burst": "ضد الضرر الخاطف",
+ "Vs crit carries": "ضد حاملي الضربات الحرجة",
+ "Vs tanks": "ضد الدبابات",
+ "Vs mixed damage": "ضد الضرر المختلط",
+ "Vs magic damage": "ضد الضرر السحري",
+ "Vs physical damage": "ضد الضرر الجسدي",
+ "After the core, swap in what the game calls for. Each situation comes from the item's own effect; its options are the ones bought with this core first, then best DeepScore.": "بعد البناء الأساسي، اشترِ ما تتطلبه المباراة. يأتي كل موقف من تأثير العنصر نفسه؛ أولًا ما يُشترى مع هذا البناء، ثم أفضل DeepScore.",
+ "AD": "AD",
+ "Support": "دعم",
+ "Tied": "متعادل",
+ "Rush": "أولًا",
+ "With {augment}: buy {item} first": "مع {augment}: اشترِ {item} أولًا"
 }

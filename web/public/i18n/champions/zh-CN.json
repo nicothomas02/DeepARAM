@@ -253,5 +253,21 @@
  "Items": "装备",
  "Win rate boosts": "胜率提升",
  "Spells and skills": "召唤师技能与技能",
- "Stats": "数据"
+ "Stats": "数据",
+ "Situational items": "情况装",
+ "Vs healing": "针对治疗",
+ "Vs shields": "针对护盾",
+ "Vs heavy crowd control": "针对大量控制",
+ "Vs burst": "针对爆发",
+ "Vs crit carries": "针对暴击核心",
+ "Vs tanks": "针对坦克",
+ "Vs mixed damage": "针对混合伤害",
+ "Vs magic damage": "针对魔法伤害",
+ "Vs physical damage": "针对物理伤害",
+ "After the core, swap in what the game calls for. Each situation comes from the item's own effect; its options are the ones bought with this core first, then best DeepScore.": "核心出装后，按对局需要购买。情况由装备本身效果判断；先列出与此核心一起购买的装备，再按 DeepScore 排序。",
+ "AD": "AD",
+ "Support": "辅助",
+ "Tied": "持平",
+ "Rush": "优先",
+ "With {augment}: buy {item} first": "有 {augment} 时：先买 {item}"
 }

@@ -253,5 +253,21 @@
  "Items": "Objets",
  "Win rate boosts": "Gains de taux de victoire",
  "Spells and skills": "Sorts et compétences",
- "Stats": "Statistiques"
+ "Stats": "Statistiques",
+ "Situational items": "Objets situationnels",
+ "Vs healing": "Contre les soins",
+ "Vs shields": "Contre les boucliers",
+ "Vs heavy crowd control": "Contre beaucoup de contrôle",
+ "Vs burst": "Contre le burst",
+ "Vs crit carries": "Contre les carrys critiques",
+ "Vs tanks": "Contre les tanks",
+ "Vs mixed damage": "Contre les dégâts mixtes",
+ "Vs magic damage": "Contre les dégâts magiques",
+ "Vs physical damage": "Contre les dégâts physiques",
+ "After the core, swap in what the game calls for. Each situation comes from the item's own effect; its options are the ones bought with this core first, then best DeepScore.": "Après le build principal, prenez ce que la partie demande. Chaque situation vient de l'effet de l'objet ; ses options sont d'abord celles achetées avec ce build, puis le meilleur DeepScore.",
+ "AD": "AD",
+ "Support": "Support",
+ "Tied": "Égalité",
+ "Rush": "À rusher",
+ "With {augment}: buy {item} first": "Avec {augment} : achetez {item} en premier"
 }

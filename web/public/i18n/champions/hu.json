@@ -253,5 +253,21 @@
  "Items": "Tárgyak",
  "Win rate boosts": "Győzelmi arány növelők",
  "Spells and skills": "Varázslatok és képességek",
- "Stats": "Statisztikák"
+ "Stats": "Statisztikák",
+ "Situational items": "Helyzeti tárgyak",
+ "Vs healing": "Gyógyítás ellen",
+ "Vs shields": "Pajzsok ellen",
+ "Vs heavy crowd control": "Erős irányításvesztés ellen",
+ "Vs burst": "Burst ellen",
+ "Vs crit carries": "Kritikus carryk ellen",
+ "Vs tanks": "Tankok ellen",
+ "Vs mixed damage": "Vegyes sebzés ellen",
+ "Vs magic damage": "Varázssebzés ellen",
+ "Vs physical damage": "Fizikai sebzés ellen",
+ "After the core, swap in what the game calls for. Each situation comes from the item's own effect; its options are the ones bought with this core first, then best DeepScore.": "Az alap build után vedd azt, amit a meccs kíván. A helyzet a tárgy hatásából jön; előbb az ezzel a builddel vett tárgyak, aztán a legjobb DeepScore.",
+ "AD": "AD",
+ "Support": "Support",
+ "Tied": "Holtverseny",
+ "Rush": "Először",
+ "With {augment}: buy {item} first": "{augment} mellett: először {item}"
 }

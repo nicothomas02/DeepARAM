@@ -4,12 +4,17 @@ import championIds from "@/data/champion-ids.json";
 import augmentNames from "@/data/augment-names.json";
 import { liveWithChange } from "./champions";
 import { FIT, type Fit } from "./deepscore";
-import { alongCore, bestRow, buildOrder, followed, scoreRows, skipsBoots, type ItemRow, type Rated } from "./card-score";
+import { alongCore, bestRow, buildOrder, followed, scoreRows, sameStyle, situational, skipsBoots, type ItemRow, type Rated } from "./card-score";
 
 export { bestRow, buildOrder, scoreRows, type ItemRow, type Rated };
 import { SIMULATOR_IN_STATS } from "./sim-policy";
+import type { Situation } from "./situations";
+import { rushParts, styleCores, upgradeSwaps } from "./build-plan";
 import {
   ITEM_TIERS,
+  itemClasses,
+  itemRecipe,
+  itemSituation,
   itemTier,
   ranked,
   items,
@@ -56,7 +61,8 @@ type Builds = {
 /** Per champion id: core build ("id,id,id") -> boots id -> core items bought before the boots. */
 type BootsTiming = { champions: Record<string, Record<string, Record<string, number>>> };
 /** The options for one item slot after the core (4th, 5th, 6th), best DeepScore first. */
-export type LateSlot = { slot: number; options: ItemRow[] };
+/** A situation the champion's items answer, with its best items (lib/card-score.ts situational). */
+export type SituationRow = { situation: Situation; options: ItemRow[] };
 export type SkillRow = Rated & { max: string[]; levels: string[] };
 export type AugmentRow = {
   id: number;
@@ -105,8 +111,14 @@ export type ChampionPage = {
   core: ItemRow[];
   full: ItemRow[];
   items: ItemRow[];
-  /** What to buy after the best core: the 4th, 5th and 6th item. */
-  late: LateSlot[];
+  /** Items to swap in after the core, by situation (vs healing, vs burst...). */
+  situational: SituationRow[];
+  /** One entry per real build style when the champion has two (lib/build-plan.ts styleCores), else empty. */
+  buildStyles: { style: string; core: ItemRow; situational: SituationRow[]; rush: number[] }[];
+  /** Components to rush for the best core's first item. */
+  rush: number[];
+  /** Augments the champion takes that upgrade one of its items: with it, buy that item first. */
+  swaps: { augment: number; item: number }[];
   augments: AugmentRow[];
   mates: Mate[];
   styles: Style[];
@@ -243,7 +255,16 @@ export function championPage(alias: string): ChampionPage | null {
     core,
     full,
     items: noBoots ? single.filter((r) => r.tier !== "boots") : single,
-    late: lateSlots(core[0], single, full),
+    situational: situationalItems(core[0], single, full),
+    // A tab per real build style (tank and AP Alistar), each with its own situational items.
+    buildStyles: styleCores(core, itemClasses).map((s) => ({ ...s, situational: situationalItems(s.core, single, full), rush: rushParts(s.core.items[0], itemRecipe) })),
+    rush: core[0] ? rushParts(core[0].items[0], itemRecipe) : [],
+    swaps: upgradeSwaps(
+      [...augments].sort((x, y) => y.pickRate - x.pickRate),
+      [...(core[0]?.items ?? []), ...(core[0] ? sameStyle(single.filter((r) => r.tier === "legendary"), core[0].items, itemClasses) : []).map((r) => r.items[0])]
+        .filter((i, k, a) => a.indexOf(i) === k)
+        .flatMap((i) => (all.get(i) ? [{ id: i, name: all.get(i)!.name }] : [])),
+    ),
     augments,
     mates,
     styles,
@@ -257,7 +278,8 @@ export function championPage(alias: string): ChampionPage | null {
   const used = new Set(
     [page.starting, page.boots, page.core, page.full, page.items]
       .flat()
-      .flatMap((r) => (r.boots ? [r.boots, ...r.items] : r.items)),
+      .flatMap((r) => (r.boots ? [r.boots, ...r.items] : r.items))
+      .concat(page.rush, page.swaps.map((s) => s.item), page.buildStyles.flatMap((s) => s.rush)),
   );
   const itemInfo = Object.fromEntries(
     [...used].map((i) => [
@@ -329,34 +351,23 @@ function withBoots(
   });
 }
 
-const LATE_SLOTS = [4, 5, 6];
-const LATE_OPTIONS = 4;
-
-/**
- * The 4th, 5th and 6th item after the best core: the champion's other legendary items, those bought with this core
- * first, by DeepScore among themselves. Each slot
- * assumes the best pick of the slots before it was bought, so it drops out of the later slots' options.
- */
-function lateSlots(core: ItemRow | undefined, single: ItemRow[], full: ItemRow[]): LateSlot[] {
-  if (!core) return [];
-  const taken = new Set(core.items);
-  // Scored against each other: the core items would otherwise crowd every option to the bottom of the scale.
-  // Items bought with this core come first (lib/card-score.ts alongCore).
-  const pool = alongCore(
-    scoreItems(single.filter((r) => r.tier === "legendary" && ranked(r.items[0]) && !taken.has(r.items[0]))),
+/** The legendary items to pick from after this core: scored against each other (the core items would otherwise
+ *  crowd every option to the bottom of the scale), items bought with this core first (lib/card-score.ts alongCore). */
+function afterCore(core: ItemRow, single: ItemRow[], full: ItemRow[]): ItemRow[] {
+  return alongCore(
+    scoreItems(single.filter((r) => r.tier === "legendary" && ranked(r.items[0]) && !core.items.includes(r.items[0]))),
     core.items,
     full,
   );
-  const slots: LateSlot[] = [];
-  for (const slot of LATE_SLOTS) {
-    const options = pool
-      .filter((r) => !taken.has(r.items[0]))
-      .slice(0, LATE_OPTIONS);
-    if (!options.length) break;
-    slots.push({ slot, options });
-    taken.add(options[0].items[0]);
-  }
-  return slots;
+}
+
+/** Situational items after a core: one row per situation with its best items (lib/situations.ts), the swaps
+ *  players make most often first (by the best option's pick rate). */
+function situationalItems(core: ItemRow | undefined, single: ItemRow[], full: ItemRow[]): SituationRow[] {
+  if (!core) return [];
+  return situational(sameStyle(afterCore(core, single, full), core.items, itemClasses), itemSituation).sort(
+    (x, y) => y.options[0].pickRate - x.options[0].pickRate,
+  );
 }
 
 // Starting items and boots use the fitted settings, which were backtested on them; builds and single items keep

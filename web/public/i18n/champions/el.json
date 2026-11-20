@@ -253,5 +253,21 @@
  "Items": "Αντικείμενα",
  "Win rate boosts": "Αυξήσεις ποσοστού νικών",
  "Spells and skills": "Ξόρκια και ικανότητες",
- "Stats": "Στατιστικά"
+ "Stats": "Στατιστικά",
+ "Situational items": "Αντικείμενα ανάλογα την περίσταση",
+ "Vs healing": "Κατά της θεραπείας",
+ "Vs shields": "Κατά των ασπίδων",
+ "Vs heavy crowd control": "Κατά πολλού ελέγχου",
+ "Vs burst": "Κατά του burst",
+ "Vs crit carries": "Κατά carry με κρίσιμα",
+ "Vs tanks": "Κατά των tank",
+ "Vs mixed damage": "Κατά μικτής ζημιάς",
+ "Vs magic damage": "Κατά μαγικής ζημιάς",
+ "Vs physical damage": "Κατά φυσικής ζημιάς",
+ "After the core, swap in what the game calls for. Each situation comes from the item's own effect; its options are the ones bought with this core first, then best DeepScore.": "Μετά το βασικό build, αγοράστε ό,τι χρειάζεται το παιχνίδι. Η περίσταση προκύπτει από το εφέ του αντικειμένου· πρώτα όσα αγοράζονται με αυτό το build, μετά το καλύτερο DeepScore.",
+ "AD": "AD",
+ "Support": "Υποστήριξη",
+ "Tied": "Ισοπαλία",
+ "Rush": "Πρώτα",
+ "With {augment}: buy {item} first": "Με {augment}: αγοράστε πρώτα {item}"
 }

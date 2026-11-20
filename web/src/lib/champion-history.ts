@@ -2,7 +2,7 @@ import "server-only";
 import { readdirSync } from "node:fs";
 import championIds from "@/data/champion-ids.json";
 import augmentNames from "@/data/augment-names.json";
-import { itemTier, items, ranked, rewardItems } from "./items";
+import { itemClasses, itemSituation, itemTier, items, ranked, rewardItems } from "./items";
 import { readRepoJson, repoHas, repoPath } from "./repo-data";
 import type { HistFile, HistPatch, ItemMeta, Rarity } from "./timeframe";
 
@@ -67,7 +67,7 @@ export function championHistory(alias: string): HistFile | null {
         for (const i of ids)
           if (!out.items[i]) {
             const it = all.get(i)!;
-            out.items[i] = { name: it.name, icon: it.icon ?? "", tier: itemTier(i), ranked: ranked(i) } satisfies ItemMeta;
+            out.items[i] = { name: it.name, icon: it.icon ?? "", tier: itemTier(i), ranked: ranked(i), situation: itemSituation(i), classes: itemClasses(i) } satisfies ItemMeta;
           }
     }
     const augs = c.augments.filter(([a]) => AUGS[a]);

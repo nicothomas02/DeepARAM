@@ -253,5 +253,21 @@
  "Items": "아이템",
  "Win rate boosts": "승률 상승",
  "Spells and skills": "주문과 스킬",
- "Stats": "통계"
+ "Stats": "통계",
+ "Situational items": "상황별 아이템",
+ "Vs healing": "회복 대응",
+ "Vs shields": "보호막 대응",
+ "Vs heavy crowd control": "강한 군중 제어 대응",
+ "Vs burst": "폭딜 대응",
+ "Vs crit carries": "치명타 캐리 대응",
+ "Vs tanks": "탱커 대응",
+ "Vs mixed damage": "혼합 피해 대응",
+ "Vs magic damage": "마법 피해 대응",
+ "Vs physical damage": "물리 피해 대응",
+ "After the core, swap in what the game calls for. Each situation comes from the item's own effect; its options are the ones bought with this core first, then best DeepScore.": "핵심 빌드 후에는 게임 상황에 맞춰 구매하세요. 상황은 아이템 자체 효과로 정하며, 이 핵심 빌드와 함께 사는 아이템을 먼저, 그다음 DeepScore 순입니다.",
+ "AD": "AD",
+ "Support": "서포터",
+ "Tied": "동률",
+ "Rush": "우선",
+ "With {augment}: buy {item} first": "{augment} 보유 시: {item} 먼저"
 }
