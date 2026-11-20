@@ -209,7 +209,33 @@ LabI18n.ready(function () {
       .catch(() => {});
   }
 
+  // Menu coverage (Nico 2026-11-20): every champion, and whether it has an on-the-menu (in-pool) and an
+  // off-menu Chef Special yet. Each tick opens that special.
+  function coverage() {
+    const sec = document.getElementById("menu-coverage");
+    const all = (data.meta && data.meta.champions) || [];
+    if (!sec || !all.length) return;
+    const on = {}, off = {};
+    for (const s of specials) { const m = s.menu === "off" ? off : on; if (!m[s.champion]) m[s.champion] = s; }
+    const name = (c) => LabI18n.name("champions", c[0], c[1]);
+    const rows = all.map((c) => ({ c, n: name(c) })).sort((a, b) => a.n.localeCompare(b.n, LabI18n.lang));
+    const cell = (s) => s
+      ? `<td class="yes"><a href="#chefs-special-${esc(s.chef)}" title="${esc(T(s.title))}">✓ <span>${esc(T(s.title))}</span></a></td>`
+      : `<td class="no"><span class="muted">${T("Not yet")}</span></td>`;
+    const body = document.getElementById("coverage-rows");
+    const paint = (q) => {
+      const f = q.trim().toLowerCase();
+      body.innerHTML = rows.filter((r) => !f || r.n.toLowerCase().includes(f))
+        .map((r) => `<tr><th scope="row"><img src="/icons/champions/${esc(r.c[0])}.webp" alt="" width="28" height="28" loading="lazy" onerror="this.remove()"><span>${esc(r.n)}</span></th>${cell(on[r.c[0]])}${cell(off[r.c[0]])}</tr>`).join("");
+    };
+    document.getElementById("coverage-count").textContent = T("{on} on the menu, {off} off-menu, of {total} champions", { on: Object.keys(on).length, off: Object.keys(off).length, total: all.length });
+    document.getElementById("coverage-search").addEventListener("input", (e) => paint(e.target.value));
+    paint("");
+    sec.hidden = false;
+  }
+
   if (chef) showSpecial(fromHash());
+  coverage();
   window.addEventListener("hashchange", () => {
     if (!chef || !/^#(chefs-special|chef-archive)/.test(location.hash)) return;
     showSpecial(fromHash());

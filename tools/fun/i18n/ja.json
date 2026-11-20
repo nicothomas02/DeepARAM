@@ -388,5 +388,11 @@
  "Off-menu": "裏メニュー",
  "Uses augments {champion} isn't normally offered. Just for fun: it may never come together in a real game.": "{champion}には通常出ないオーグメントを使用。お遊び用なので、実際の試合では揃わないかも。",
  "On the menu": "表メニュー",
- "Periodically, your next Ability hit against an enemy champion launches a hive of Bees that explodes, Slowing and dealing magic damage over a short duration. Bees apply On-Hit effects.": "一定間隔で、敵チャンピオンへの次のスキル命中時に蜂の巣を飛ばす。巣は爆発し、短時間スロウ効果と魔法ダメージを与える。蜂は通常攻撃時効果を発動する。"
+ "Periodically, your next Ability hit against an enemy champion launches a hive of Bees that explodes, Slowing and dealing magic damage over a short duration. Bees apply On-Hit effects.": "一定間隔で、敵チャンピオンへの次のスキル命中時に蜂の巣を飛ばす。巣は爆発し、短時間スロウ効果と魔法ダメージを与える。蜂は通常攻撃時効果を発動する。",
+ "Which champions have a Chef Special": "シェフのおすすめがあるチャンピオン",
+ "On the menu: built only from augments that champion can be offered in Mayhem. Off-menu: any augment goes.": "表メニュー：そのチャンピオンがMayhemで提示されうるオーグメントだけで構成。裏メニュー：どのオーグメントでもOK。",
+ "Find a champion": "チャンピオンを検索",
+ "Champion": "チャンピオン",
+ "Not yet": "まだなし",
+ "{on} on the menu, {off} off-menu, of {total} champions": "全{total}体中、表メニュー {on}、裏メニュー {off}"
 }

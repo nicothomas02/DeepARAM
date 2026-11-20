@@ -388,5 +388,11 @@
  "Off-menu": "În afara meniului",
  "Uses augments {champion} isn't normally offered. Just for fun: it may never come together in a real game.": "Folosește augmentări pe care {champion} nu le primește de obicei. Doar pentru distracție: s-ar putea să nu iasă niciodată într-un meci real.",
  "On the menu": "În meniu",
- "Periodically, your next Ability hit against an enemy champion launches a hive of Bees that explodes, Slowing and dealing magic damage over a short duration. Bees apply On-Hit effects.": "Periodic, următoarea ta lovitură cu abilitate asupra unui campion inamic lansează un stup de albine care explodează, încetinind și provocând daune magice pe o durată scurtă. Albinele aplică efectele la impact."
+ "Periodically, your next Ability hit against an enemy champion launches a hive of Bees that explodes, Slowing and dealing magic damage over a short duration. Bees apply On-Hit effects.": "Periodic, următoarea ta lovitură cu abilitate asupra unui campion inamic lansează un stup de albine care explodează, încetinind și provocând daune magice pe o durată scurtă. Albinele aplică efectele la impact.",
+ "Which champions have a Chef Special": "Ce campioni au o Specialitate a bucătarului",
+ "On the menu: built only from augments that champion can be offered in Mayhem. Off-menu: any augment goes.": "În meniu: doar din augmentări pe care campionul le poate primi în Mayhem. În afara meniului: orice augmentare.",
+ "Find a champion": "Caută un campion",
+ "Champion": "Campion",
+ "Not yet": "Încă nu",
+ "{on} on the menu, {off} off-menu, of {total} champions": "{on} în meniu, {off} în afara meniului, din {total} campioni"
 }

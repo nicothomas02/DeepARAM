@@ -388,5 +388,11 @@
  "Off-menu": "Mimo menu",
  "Uses augments {champion} isn't normally offered. Just for fun: it may never come together in a real game.": "Používá vylepšení, která {champion} normálně nedostává. Jen pro zábavu: ve skutečné hře se to možná nikdy nesejde.",
  "On the menu": "V menu",
- "Periodically, your next Ability hit against an enemy champion launches a hive of Bees that explodes, Slowing and dealing magic damage over a short duration. Bees apply On-Hit effects.": "Tvůj další zásah schopností proti nepřátelskému šampionovi pravidelně vypustí úl včel, který vybuchne, zpomalí a krátce udílí magické poškození. Včely aplikují efekty při zásahu."
+ "Periodically, your next Ability hit against an enemy champion launches a hive of Bees that explodes, Slowing and dealing magic damage over a short duration. Bees apply On-Hit effects.": "Tvůj další zásah schopností proti nepřátelskému šampionovi pravidelně vypustí úl včel, který vybuchne, zpomalí a krátce udílí magické poškození. Včely aplikují efekty při zásahu.",
+ "Which champions have a Chef Special": "Kteří šampioni mají Specialitu šéfkuchaře",
+ "On the menu: built only from augments that champion can be offered in Mayhem. Off-menu: any augment goes.": "V menu: jen z vylepšení, která šampion může v Mayhem dostat. Mimo menu: platí jakékoli vylepšení.",
+ "Find a champion": "Najít šampiona",
+ "Champion": "Šampion",
+ "Not yet": "Zatím ne",
+ "{on} on the menu, {off} off-menu, of {total} champions": "{on} v menu, {off} mimo menu, z {total} šampionů"
 }

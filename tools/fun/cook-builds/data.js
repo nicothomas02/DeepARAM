@@ -319,7 +319,701 @@ window.COOK_DATA = {
    "773518": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/assets/items/icons2d/2041_bag_of_tea.project_jade.png",
    "773519": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/assets/items/icons2d/candy_corn_item.png",
    "994403": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/assets/items/icons2d/4403_goldenspatula.png"
-  }
+  },
+  "champions": [
+   [
+    "Aatrox",
+    "Aatrox"
+   ],
+   [
+    "Ahri",
+    "Ahri"
+   ],
+   [
+    "Akali",
+    "Akali"
+   ],
+   [
+    "Akshan",
+    "Akshan"
+   ],
+   [
+    "Alistar",
+    "Alistar"
+   ],
+   [
+    "Ambessa",
+    "Ambessa"
+   ],
+   [
+    "Amumu",
+    "Amumu"
+   ],
+   [
+    "Anivia",
+    "Anivia"
+   ],
+   [
+    "Annie",
+    "Annie"
+   ],
+   [
+    "Aphelios",
+    "Aphelios"
+   ],
+   [
+    "Ashe",
+    "Ashe"
+   ],
+   [
+    "AurelionSol",
+    "Aurelion Sol"
+   ],
+   [
+    "Aurora",
+    "Aurora"
+   ],
+   [
+    "Azir",
+    "Azir"
+   ],
+   [
+    "Bard",
+    "Bard"
+   ],
+   [
+    "Belveth",
+    "Bel'Veth"
+   ],
+   [
+    "Blitzcrank",
+    "Blitzcrank"
+   ],
+   [
+    "Brand",
+    "Brand"
+   ],
+   [
+    "Braum",
+    "Braum"
+   ],
+   [
+    "Briar",
+    "Briar"
+   ],
+   [
+    "Caitlyn",
+    "Caitlyn"
+   ],
+   [
+    "Camille",
+    "Camille"
+   ],
+   [
+    "Cassiopeia",
+    "Cassiopeia"
+   ],
+   [
+    "Chogath",
+    "Cho'Gath"
+   ],
+   [
+    "Corki",
+    "Corki"
+   ],
+   [
+    "Darius",
+    "Darius"
+   ],
+   [
+    "Diana",
+    "Diana"
+   ],
+   [
+    "DrMundo",
+    "Dr. Mundo"
+   ],
+   [
+    "Draven",
+    "Draven"
+   ],
+   [
+    "Ekko",
+    "Ekko"
+   ],
+   [
+    "Elise",
+    "Elise"
+   ],
+   [
+    "Evelynn",
+    "Evelynn"
+   ],
+   [
+    "Ezreal",
+    "Ezreal"
+   ],
+   [
+    "Fiddlesticks",
+    "Fiddlesticks"
+   ],
+   [
+    "Fiora",
+    "Fiora"
+   ],
+   [
+    "Fizz",
+    "Fizz"
+   ],
+   [
+    "Galio",
+    "Galio"
+   ],
+   [
+    "Gangplank",
+    "Gangplank"
+   ],
+   [
+    "Garen",
+    "Garen"
+   ],
+   [
+    "Gnar",
+    "Gnar"
+   ],
+   [
+    "Gragas",
+    "Gragas"
+   ],
+   [
+    "Graves",
+    "Graves"
+   ],
+   [
+    "Gwen",
+    "Gwen"
+   ],
+   [
+    "Hecarim",
+    "Hecarim"
+   ],
+   [
+    "Heimerdinger",
+    "Heimerdinger"
+   ],
+   [
+    "Hwei",
+    "Hwei"
+   ],
+   [
+    "Illaoi",
+    "Illaoi"
+   ],
+   [
+    "Irelia",
+    "Irelia"
+   ],
+   [
+    "Ivern",
+    "Ivern"
+   ],
+   [
+    "Janna",
+    "Janna"
+   ],
+   [
+    "JarvanIV",
+    "Jarvan IV"
+   ],
+   [
+    "Jax",
+    "Jax"
+   ],
+   [
+    "Jayce",
+    "Jayce"
+   ],
+   [
+    "Jhin",
+    "Jhin"
+   ],
+   [
+    "Jinx",
+    "Jinx"
+   ],
+   [
+    "KSante",
+    "K'Sante"
+   ],
+   [
+    "Kaisa",
+    "Kai'Sa"
+   ],
+   [
+    "Kalista",
+    "Kalista"
+   ],
+   [
+    "Karma",
+    "Karma"
+   ],
+   [
+    "Karthus",
+    "Karthus"
+   ],
+   [
+    "Kassadin",
+    "Kassadin"
+   ],
+   [
+    "Katarina",
+    "Katarina"
+   ],
+   [
+    "Kayle",
+    "Kayle"
+   ],
+   [
+    "Kayn",
+    "Kayn"
+   ],
+   [
+    "Kennen",
+    "Kennen"
+   ],
+   [
+    "Khazix",
+    "Kha'Zix"
+   ],
+   [
+    "Kindred",
+    "Kindred"
+   ],
+   [
+    "Kled",
+    "Kled"
+   ],
+   [
+    "KogMaw",
+    "Kog'Maw"
+   ],
+   [
+    "Leblanc",
+    "LeBlanc"
+   ],
+   [
+    "LeeSin",
+    "Lee Sin"
+   ],
+   [
+    "Leona",
+    "Leona"
+   ],
+   [
+    "Lillia",
+    "Lillia"
+   ],
+   [
+    "Lissandra",
+    "Lissandra"
+   ],
+   [
+    "Locke",
+    "Locke"
+   ],
+   [
+    "Lucian",
+    "Lucian"
+   ],
+   [
+    "Lulu",
+    "Lulu"
+   ],
+   [
+    "Lux",
+    "Lux"
+   ],
+   [
+    "Malphite",
+    "Malphite"
+   ],
+   [
+    "Malzahar",
+    "Malzahar"
+   ],
+   [
+    "Maokai",
+    "Maokai"
+   ],
+   [
+    "MasterYi",
+    "Master Yi"
+   ],
+   [
+    "Mel",
+    "Mel"
+   ],
+   [
+    "Milio",
+    "Milio"
+   ],
+   [
+    "MissFortune",
+    "Miss Fortune"
+   ],
+   [
+    "Mordekaiser",
+    "Mordekaiser"
+   ],
+   [
+    "Morgana",
+    "Morgana"
+   ],
+   [
+    "Naafiri",
+    "Naafiri"
+   ],
+   [
+    "Nami",
+    "Nami"
+   ],
+   [
+    "Nasus",
+    "Nasus"
+   ],
+   [
+    "Nautilus",
+    "Nautilus"
+   ],
+   [
+    "Neeko",
+    "Neeko"
+   ],
+   [
+    "Nidalee",
+    "Nidalee"
+   ],
+   [
+    "Nilah",
+    "Nilah"
+   ],
+   [
+    "Nocturne",
+    "Nocturne"
+   ],
+   [
+    "Nunu",
+    "Nunu & Willump"
+   ],
+   [
+    "Olaf",
+    "Olaf"
+   ],
+   [
+    "Orianna",
+    "Orianna"
+   ],
+   [
+    "Ornn",
+    "Ornn"
+   ],
+   [
+    "Pantheon",
+    "Pantheon"
+   ],
+   [
+    "Poppy",
+    "Poppy"
+   ],
+   [
+    "Pyke",
+    "Pyke"
+   ],
+   [
+    "Qiyana",
+    "Qiyana"
+   ],
+   [
+    "Quinn",
+    "Quinn"
+   ],
+   [
+    "Rakan",
+    "Rakan"
+   ],
+   [
+    "Rammus",
+    "Rammus"
+   ],
+   [
+    "RekSai",
+    "Rek'Sai"
+   ],
+   [
+    "Rell",
+    "Rell"
+   ],
+   [
+    "Renata",
+    "Renata Glasc"
+   ],
+   [
+    "Renekton",
+    "Renekton"
+   ],
+   [
+    "Rengar",
+    "Rengar"
+   ],
+   [
+    "Riven",
+    "Riven"
+   ],
+   [
+    "Rumble",
+    "Rumble"
+   ],
+   [
+    "Ryze",
+    "Ryze"
+   ],
+   [
+    "Samira",
+    "Samira"
+   ],
+   [
+    "Sejuani",
+    "Sejuani"
+   ],
+   [
+    "Senna",
+    "Senna"
+   ],
+   [
+    "Seraphine",
+    "Seraphine"
+   ],
+   [
+    "Sett",
+    "Sett"
+   ],
+   [
+    "Shaco",
+    "Shaco"
+   ],
+   [
+    "Shen",
+    "Shen"
+   ],
+   [
+    "Shyvana",
+    "Shyvana"
+   ],
+   [
+    "Singed",
+    "Singed"
+   ],
+   [
+    "Sion",
+    "Sion"
+   ],
+   [
+    "Sivir",
+    "Sivir"
+   ],
+   [
+    "Skarner",
+    "Skarner"
+   ],
+   [
+    "Smolder",
+    "Smolder"
+   ],
+   [
+    "Sona",
+    "Sona"
+   ],
+   [
+    "Soraka",
+    "Soraka"
+   ],
+   [
+    "Swain",
+    "Swain"
+   ],
+   [
+    "Sylas",
+    "Sylas"
+   ],
+   [
+    "Syndra",
+    "Syndra"
+   ],
+   [
+    "TahmKench",
+    "Tahm Kench"
+   ],
+   [
+    "Taliyah",
+    "Taliyah"
+   ],
+   [
+    "Talon",
+    "Talon"
+   ],
+   [
+    "Taric",
+    "Taric"
+   ],
+   [
+    "Teemo",
+    "Teemo"
+   ],
+   [
+    "Thresh",
+    "Thresh"
+   ],
+   [
+    "Tristana",
+    "Tristana"
+   ],
+   [
+    "Trundle",
+    "Trundle"
+   ],
+   [
+    "Tryndamere",
+    "Tryndamere"
+   ],
+   [
+    "TwistedFate",
+    "Twisted Fate"
+   ],
+   [
+    "Twitch",
+    "Twitch"
+   ],
+   [
+    "Udyr",
+    "Udyr"
+   ],
+   [
+    "Urgot",
+    "Urgot"
+   ],
+   [
+    "Varus",
+    "Varus"
+   ],
+   [
+    "Vayne",
+    "Vayne"
+   ],
+   [
+    "Veigar",
+    "Veigar"
+   ],
+   [
+    "Velkoz",
+    "Vel'Koz"
+   ],
+   [
+    "Vex",
+    "Vex"
+   ],
+   [
+    "Vi",
+    "Vi"
+   ],
+   [
+    "Viego",
+    "Viego"
+   ],
+   [
+    "Viktor",
+    "Viktor"
+   ],
+   [
+    "Vladimir",
+    "Vladimir"
+   ],
+   [
+    "Volibear",
+    "Volibear"
+   ],
+   [
+    "Warwick",
+    "Warwick"
+   ],
+   [
+    "MonkeyKing",
+    "Wukong"
+   ],
+   [
+    "Xayah",
+    "Xayah"
+   ],
+   [
+    "Xerath",
+    "Xerath"
+   ],
+   [
+    "XinZhao",
+    "Xin Zhao"
+   ],
+   [
+    "Yasuo",
+    "Yasuo"
+   ],
+   [
+    "Yone",
+    "Yone"
+   ],
+   [
+    "Yorick",
+    "Yorick"
+   ],
+   [
+    "Yunara",
+    "Yunara"
+   ],
+   [
+    "Yuumi",
+    "Yuumi"
+   ],
+   [
+    "Zaahen",
+    "Zaahen"
+   ],
+   [
+    "Zac",
+    "Zac"
+   ],
+   [
+    "Zed",
+    "Zed"
+   ],
+   [
+    "Zeri",
+    "Zeri"
+   ],
+   [
+    "Ziggs",
+    "Ziggs"
+   ],
+   [
+    "Zilean",
+    "Zilean"
+   ],
+   [
+    "Zoe",
+    "Zoe"
+   ],
+   [
+    "Zyra",
+    "Zyra"
+   ]
+  ]
  },
  "builds": [
   {
@@ -419,24 +1113,24 @@ window.COOK_DATA = {
    "core_usual": 0,
    "core_pick_rate": 0.0578,
    "sim": {
-    "dps": 235,
-    "survival": 0.014,
-    "best_dps": 1490,
-    "best_survival": 0.395,
-    "pct_of_best": 0.158,
+    "dps": 236,
+    "survival": 0.009,
+    "best_dps": 1450,
+    "best_survival": 0.121,
+    "pct_of_best": 0.163,
     "best_items": [
      "Berserker's Greaves",
      "Blade of The Ruined King",
      "The Collector",
      "Essence Reaver",
-     "Kraken Slayer",
-     "Serylda's Grudge"
+     "Serylda's Grudge",
+     "Umbral Glaive"
     ],
     "best_augments": [
-     "Heavy Is The Crown",
+     "Dual Wield",
      "Symphony of War",
-     "Tap Dancer",
-     "Critical Rhythm"
+     "Critical Rhythm",
+     "Tap Dancer"
     ],
     "items_not_modeled": [
      "Rite of Ruin"
@@ -561,23 +1255,23 @@ window.COOK_DATA = {
    "core_usual": 0,
    "core_pick_rate": 0.1268,
    "sim": {
-    "dps": 246,
-    "survival": 0.021,
-    "best_dps": 1079,
-    "best_survival": 0.02,
-    "pct_of_best": 0.228,
+    "dps": 247,
+    "survival": 0.012,
+    "best_dps": 998,
+    "best_survival": 0.012,
+    "pct_of_best": 0.247,
     "best_items": [
      "Sorcerer's Shoes",
+     "Lich Bane",
      "Nashor's Tooth",
      "Rabadon's Deathcap",
-     "Guinsoo's Rageblade",
-     "Shadowflame",
+     "Stormsurge",
      "Void Staff"
     ],
     "best_augments": [
+     "Glass Cannon",
      "Marksmage",
      "Heavy Is The Crown",
-     "Glass Cannon",
      "Forged By The Master"
     ],
     "items_not_modeled": [],
@@ -694,24 +1388,24 @@ window.COOK_DATA = {
    "core_usual": 0,
    "core_pick_rate": 0.0686,
    "sim": {
-    "dps": 1295,
-    "survival": 0.475,
-    "best_dps": 1317,
-    "best_survival": 0.426,
-    "pct_of_best": 0.983,
+    "dps": 1224,
+    "survival": 0.147,
+    "best_dps": 1187,
+    "best_survival": 0.167,
+    "pct_of_best": 1.031,
     "best_items": [
      "Sorcerer's Shoes",
-     "Lich Bane",
+     "Hextech Gunblade",
      "Nashor's Tooth",
      "Rabadon's Deathcap",
-     "Guinsoo's Rageblade",
+     "Shadowflame",
      "Void Staff"
     ],
     "best_augments": [
      "Marksmage",
-     "Heavy Is The Crown",
+     "Master of Duality",
      "Symphony of War",
-     "Master of Duality"
+     "Tap Dancer"
     ],
     "items_not_modeled": [],
     "whole_build": false
@@ -813,24 +1507,24 @@ window.COOK_DATA = {
    "core_usual": 0,
    "core_pick_rate": 0.0276,
    "sim": {
-    "dps": 75,
-    "survival": 0.01,
-    "best_dps": 627,
-    "best_survival": 0.05,
-    "pct_of_best": 0.119,
+    "dps": 70,
+    "survival": 0.009,
+    "best_dps": 664,
+    "best_survival": 0.017,
+    "pct_of_best": 0.106,
     "best_items": [
      "Sorcerer's Shoes",
      "Hextech Gunblade",
      "Lich Bane",
      "Nashor's Tooth",
-     "Rabadon's Deathcap",
+     "Shadowflame",
      "Void Staff"
     ],
     "best_augments": [
-     "FireFox",
-     "Forged By The Master",
+     "Salvation",
+     "Circle of Death",
      "En Passant",
-     "Marksmage"
+     "Forged By The Master"
     ],
     "items_not_modeled": [
      "Sword of Blossoming Dawn"
@@ -934,11 +1628,11 @@ window.COOK_DATA = {
    "core_usual": 0,
    "core_pick_rate": 0.0851,
    "sim": {
-    "dps": 158,
-    "survival": 0.009,
-    "best_dps": 748,
-    "best_survival": 0.01,
-    "pct_of_best": 0.211,
+    "dps": 143,
+    "survival": 0.006,
+    "best_dps": 834,
+    "best_survival": 0.008,
+    "pct_of_best": 0.172,
     "best_items": [
      "Sorcerer's Shoes",
      "Blackfire Torch",
@@ -950,8 +1644,8 @@ window.COOK_DATA = {
     "best_augments": [
      "Upgrade Stormsurge",
      "Forged By The Master",
-     "Dive Bomber",
-     "It's Killing Time"
+     "Giant Slayer",
+     "Back To Basics"
     ],
     "items_not_modeled": [],
     "whole_build": true
@@ -1074,11 +1768,11 @@ window.COOK_DATA = {
    "core_usual": 0,
    "core_pick_rate": 0.1174,
    "sim": {
-    "dps": 272,
-    "survival": 0.145,
-    "best_dps": 1531,
-    "best_survival": 0.688,
-    "pct_of_best": 0.177,
+    "dps": 283,
+    "survival": 0.045,
+    "best_dps": 1506,
+    "best_survival": 0.281,
+    "pct_of_best": 0.188,
     "best_items": [
      "Berserker's Greaves",
      "Blade of The Ruined King",
@@ -1214,24 +1908,24 @@ window.COOK_DATA = {
    "core_usual": 0,
    "core_pick_rate": 0.0408,
    "sim": {
-    "dps": 392,
-    "survival": 0.013,
-    "best_dps": 842,
-    "best_survival": 0.014,
-    "pct_of_best": 0.465,
+    "dps": 456,
+    "survival": 0.009,
+    "best_dps": 923,
+    "best_survival": 0.01,
+    "pct_of_best": 0.494,
     "best_items": [
      "Sorcerer's Shoes",
      "Blackfire Torch",
      "Liandry's Torment",
-     "Lich Bane",
      "Shadowflame",
+     "Stormsurge",
      "Void Staff"
     ],
     "best_augments": [
      "Glass Cannon",
+     "Upgrade Stormsurge",
      "Ultimate Awakening",
-     "Forged By The Master",
-     "From Downtown"
+     "Forged By The Master"
     ],
     "items_not_modeled": [],
     "whole_build": true
@@ -1354,24 +2048,24 @@ window.COOK_DATA = {
    "core_usual": 0,
    "core_pick_rate": 0.223,
    "sim": {
-    "dps": 511,
-    "survival": 0.072,
-    "best_dps": 1230,
-    "best_survival": 0.427,
-    "pct_of_best": 0.415,
+    "dps": 445,
+    "survival": 0.026,
+    "best_dps": 1117,
+    "best_survival": 0.118,
+    "pct_of_best": 0.399,
     "best_items": [
      "Berserker's Greaves",
      "Blade of The Ruined King",
      "The Collector",
-     "Essence Reaver",
      "Kraken Slayer",
+     "Maw of Malmortius",
      "Serylda's Grudge"
     ],
     "best_augments": [
      "Scopiest Weapons",
      "Dual Wield",
-     "Tap Dancer",
-     "Heavy Is The Crown"
+     "Giant Slayer",
+     "Third Times the Harm"
     ],
     "items_not_modeled": [],
     "whole_build": true
@@ -1487,24 +2181,24 @@ window.COOK_DATA = {
    "core_usual": 0,
    "core_pick_rate": 0.0316,
    "sim": {
-    "dps": 490,
-    "survival": 0.014,
-    "best_dps": 1140,
-    "best_survival": 0.053,
-    "pct_of_best": 0.43,
+    "dps": 292,
+    "survival": 0.01,
+    "best_dps": 978,
+    "best_survival": 0.026,
+    "pct_of_best": 0.299,
     "best_items": [
      "Berserker's Greaves",
+     "Black Cleaver",
      "Blade of The Ruined King",
-     "The Collector",
      "Kraken Slayer",
-     "Guinsoo's Rageblade",
-     "Serylda's Grudge"
+     "Serylda's Grudge",
+     "Trinity Force"
     ],
     "best_augments": [
-     "Third Times the Harm",
-     "Tickle Monster",
-     "Forged By The Master",
-     "Scopiest Weapons"
+     "Gift of the Drowned",
+     "Giant Slayer",
+     "Scopiest Weapons",
+     "Dual Wield"
     ],
     "items_not_modeled": [
      "Sword of Blossoming Dawn"
@@ -1629,24 +2323,24 @@ window.COOK_DATA = {
    "core_usual": 0,
    "core_pick_rate": 0.1538,
    "sim": {
-    "dps": 248,
-    "survival": 0.008,
-    "best_dps": 804,
-    "best_survival": 0.019,
-    "pct_of_best": 0.309,
+    "dps": 313,
+    "survival": 0.006,
+    "best_dps": 934,
+    "best_survival": 0.015,
+    "pct_of_best": 0.335,
     "best_items": [
      "Berserker's Greaves",
      "Blade of The Ruined King",
      "Essence Reaver",
-     "Serpent's Fang",
+     "Profane Hydra",
      "Serylda's Grudge",
-     "Umbral Glaive"
+     "Youmuu's Ghostblade"
     ],
     "best_augments": [
+     "En Passant",
+     "Giant Slayer",
      "Dive Bomber",
-     "Forged By The Master",
-     "Scopiest Weapons",
-     "Triggered Inferno"
+     "Forged By The Master"
     ],
     "items_not_modeled": [],
     "whole_build": true
@@ -1769,24 +2463,24 @@ window.COOK_DATA = {
    "core_usual": 0,
    "core_pick_rate": 0.1891,
    "sim": {
-    "dps": 409,
-    "survival": 0.028,
-    "best_dps": 1215,
-    "best_survival": 0.013,
-    "pct_of_best": 0.337,
+    "dps": 391,
+    "survival": 0.013,
+    "best_dps": 1046,
+    "best_survival": 0.015,
+    "pct_of_best": 0.374,
     "best_items": [
      "Sorcerer's Shoes",
-     "Black Cleaver",
      "Blackfire Torch",
-     "Horizon Focus",
      "Liandry's Torment",
-     "Trinity Force"
+     "Shadowflame",
+     "Stormsurge",
+     "Void Staff"
     ],
     "best_augments": [
-     "Back To Basics",
-     "Scopiest Weapons",
-     "Gift of the Drowned",
-     "Tank Engine"
+     "En Passant",
+     "Forged By The Master",
+     "Giant Slayer",
+     "Dive Bomber"
     ],
     "items_not_modeled": [],
     "whole_build": true
@@ -1902,24 +2596,24 @@ window.COOK_DATA = {
    "core_usual": 0,
    "core_pick_rate": 0.3562,
    "sim": {
-    "dps": 866,
-    "survival": 0.015,
-    "best_dps": 988,
-    "best_survival": 0.013,
-    "pct_of_best": 0.876,
+    "dps": 714,
+    "survival": 0.018,
+    "best_dps": 1017,
+    "best_survival": 0.017,
+    "pct_of_best": 0.702,
     "best_items": [
      "Sorcerer's Shoes",
      "Blackfire Torch",
      "Liandry's Torment",
-     "Lich Bane",
-     "Nashor's Tooth",
+     "Shadowflame",
+     "Stormsurge",
      "Void Staff"
     ],
     "best_augments": [
-     "Take'em Down Down Down",
+     "En Passant",
      "Forged By The Master",
-     "Third Times the Harm",
-     "Giant Slayer"
+     "Giant Slayer",
+     "Ultimate Awakening"
     ],
     "items_not_modeled": [],
     "whole_build": false
@@ -2035,24 +2729,24 @@ window.COOK_DATA = {
    "core_usual": 0,
    "core_pick_rate": 0.1653,
    "sim": {
-    "dps": 725,
-    "survival": 0.015,
-    "best_dps": 1114,
-    "best_survival": 0.018,
-    "pct_of_best": 0.651,
+    "dps": 866,
+    "survival": 0.011,
+    "best_dps": 1157,
+    "best_survival": 0.013,
+    "pct_of_best": 0.748,
     "best_items": [
-     "Boots of Swiftness",
+     "Berserker's Greaves",
      "Blade of The Ruined King",
      "Kraken Slayer",
      "Navori Flickerblade",
-     "Guinsoo's Rageblade",
-     "Serylda's Grudge"
+     "Serylda's Grudge",
+     "Umbral Glaive"
     ],
     "best_augments": [
-     "Tickle Monster",
-     "Third Times the Harm",
      "Dive Bomber",
-     "Heavy Is The Crown"
+     "Forged By The Master",
+     "Tickle Monster",
+     "Bouncing Bees"
     ],
     "items_not_modeled": [],
     "whole_build": true
@@ -2175,17 +2869,17 @@ window.COOK_DATA = {
    "core_usual": 0,
    "core_pick_rate": 0.0348,
    "sim": {
-    "dps": 217,
-    "survival": 0.012,
-    "best_dps": 1154,
-    "best_survival": 0.014,
-    "pct_of_best": 0.188,
+    "dps": 247,
+    "survival": 0.009,
+    "best_dps": 1145,
+    "best_survival": 0.009,
+    "pct_of_best": 0.216,
     "best_items": [
      "Sorcerer's Shoes",
      "Lich Bane",
      "Nashor's Tooth",
      "Rabadon's Deathcap",
-     "Guinsoo's Rageblade",
+     "Shadowflame",
      "Void Staff"
     ],
     "best_augments": [
@@ -2314,11 +3008,11 @@ window.COOK_DATA = {
    "core_usual": 0,
    "core_pick_rate": 0.224,
    "sim": {
-    "dps": 275,
-    "survival": 0.122,
-    "best_dps": 1458,
-    "best_survival": 0.448,
-    "pct_of_best": 0.188,
+    "dps": 284,
+    "survival": 0.035,
+    "best_dps": 1442,
+    "best_survival": 0.224,
+    "pct_of_best": 0.197,
     "best_items": [
      "Sorcerer's Shoes",
      "Horizon Focus",
@@ -2329,9 +3023,9 @@ window.COOK_DATA = {
     ],
     "best_augments": [
      "Eureka",
-     "Heavy Is The Crown",
-     "Ravenous Bind",
-     "Back To Basics"
+     "Ominous Pact",
+     "Back To Basics",
+     "Ravenous Bind"
     ],
     "items_not_modeled": [],
     "whole_build": true
@@ -2454,24 +3148,24 @@ window.COOK_DATA = {
    "core_usual": 0,
    "core_pick_rate": 0.2485,
    "sim": {
-    "dps": 473,
-    "survival": 0.015,
-    "best_dps": 1377,
-    "best_survival": 0.293,
-    "pct_of_best": 0.344,
+    "dps": 525,
+    "survival": 0.011,
+    "best_dps": 1291,
+    "best_survival": 0.144,
+    "pct_of_best": 0.407,
     "best_items": [
      "Berserker's Greaves",
      "Blade of The Ruined King",
      "Infinity Edge",
      "Lord Dominik's Regards",
-     "Stormrazor",
+     "Serylda's Grudge",
      "Yun Tal Wildarrows"
     ],
     "best_augments": [
      "Heavy Is The Crown",
      "Symphony of War",
-     "Glass Cannon",
-     "Tap Dancer"
+     "Giant Slayer",
+     "Critical Rhythm"
     ],
     "items_not_modeled": [],
     "whole_build": true
@@ -2594,24 +3288,24 @@ window.COOK_DATA = {
    "core_usual": 0,
    "core_pick_rate": 0.1484,
    "sim": {
-    "dps": 90,
-    "survival": 0.108,
-    "best_dps": 1126,
-    "best_survival": 0.015,
-    "pct_of_best": 0.08,
+    "dps": 103,
+    "survival": 0.033,
+    "best_dps": 1071,
+    "best_survival": 0.011,
+    "pct_of_best": 0.096,
     "best_items": [
      "Sorcerer's Shoes",
+     "Blackfire Torch",
      "Lich Bane",
-     "Nashor's Tooth",
      "Rabadon's Deathcap",
-     "Shadowflame",
+     "Stormsurge",
      "Void Staff"
     ],
     "best_augments": [
-     "Glass Cannon",
+     "Overloaded",
      "Skilled Sniper",
-     "Heavy Is The Crown",
-     "Marksmage"
+     "Glass Cannon",
+     "Heavy Is The Crown"
     ],
     "items_not_modeled": [],
     "whole_build": true
@@ -2734,24 +3428,24 @@ window.COOK_DATA = {
    "core_usual": 0,
    "core_pick_rate": 0.0964,
    "sim": {
-    "dps": 366,
-    "survival": 0.018,
-    "best_dps": 1435,
-    "best_survival": 0.011,
-    "pct_of_best": 0.255,
+    "dps": 442,
+    "survival": 0.011,
+    "best_dps": 1404,
+    "best_survival": 0.008,
+    "pct_of_best": 0.315,
     "best_items": [
      "Sorcerer's Shoes",
-     "Blackfire Torch",
-     "Liandry's Torment",
+     "Lich Bane",
      "Rabadon's Deathcap",
      "Shadowflame",
+     "Stormsurge",
      "Void Staff"
     ],
     "best_augments": [
      "Back To Basics",
+     "Heavy Is The Crown",
      "Glass Cannon",
-     "Giant Slayer",
-     "Heavy Is The Crown"
+     "Giant Slayer"
     ],
     "items_not_modeled": [],
     "whole_build": true
@@ -2874,24 +3568,24 @@ window.COOK_DATA = {
    "core_usual": 0,
    "core_pick_rate": 0.1811,
    "sim": {
-    "dps": 1209,
-    "survival": 0.108,
-    "best_dps": 1817,
-    "best_survival": 0.726,
-    "pct_of_best": 0.665,
+    "dps": 1162,
+    "survival": 0.033,
+    "best_dps": 1705,
+    "best_survival": 0.012,
+    "pct_of_best": 0.682,
     "best_items": [
      "Sorcerer's Shoes",
+     "Lich Bane",
      "Nashor's Tooth",
      "Rabadon's Deathcap",
      "Shadowflame",
-     "Stormsurge",
      "Void Staff"
     ],
     "best_augments": [
      "Heavy Is The Crown",
      "Back To Basics",
-     "Master of Duality",
-     "Symphony of War"
+     "Glass Cannon",
+     "Rite of Ascension"
     ],
     "items_not_modeled": [],
     "whole_build": true
@@ -3014,11 +3708,11 @@ window.COOK_DATA = {
    "core_usual": 0,
    "core_pick_rate": 0.0979,
    "sim": {
-    "dps": 239,
-    "survival": 0.135,
-    "best_dps": 1283,
-    "best_survival": 0.025,
-    "pct_of_best": 0.187,
+    "dps": 244,
+    "survival": 0.041,
+    "best_dps": 1292,
+    "best_survival": 0.012,
+    "pct_of_best": 0.189,
     "best_items": [
      "Sorcerer's Shoes",
      "Blackfire Torch",
@@ -3029,9 +3723,9 @@ window.COOK_DATA = {
     ],
     "best_augments": [
      "Back To Basics",
-     "Heavy Is The Crown",
      "Giant Slayer",
-     "Glass Cannon"
+     "Glass Cannon",
+     "Forged By The Master"
     ],
     "items_not_modeled": [
      "Seraph's Embrace"
@@ -3155,24 +3849,24 @@ window.COOK_DATA = {
    "core_usual": 0,
    "core_pick_rate": 0.2267,
    "sim": {
-    "dps": 332,
-    "survival": 0.013,
-    "best_dps": 686,
-    "best_survival": 0.009,
-    "pct_of_best": 0.485,
+    "dps": 334,
+    "survival": 0.009,
+    "best_dps": 793,
+    "best_survival": 0.01,
+    "pct_of_best": 0.42,
     "best_items": [
      "Sorcerer's Shoes",
-     "Lich Bane",
+     "Horizon Focus",
      "Rabadon's Deathcap",
      "Shadowflame",
      "Stormsurge",
      "Void Staff"
     ],
     "best_augments": [
+     "En Passant",
      "Dive Bomber",
-     "Forged By The Master",
      "Erosion",
-     "Triggered Inferno"
+     "Archmage"
     ],
     "items_not_modeled": [],
     "whole_build": true
@@ -3294,11 +3988,11 @@ window.COOK_DATA = {
    "core_usual": 0,
    "core_pick_rate": 0.1726,
    "sim": {
-    "dps": 593,
-    "survival": 0.015,
-    "best_dps": 1289,
-    "best_survival": 0.015,
-    "pct_of_best": 0.46,
+    "dps": 594,
+    "survival": 0.011,
+    "best_dps": 1254,
+    "best_survival": 0.009,
+    "pct_of_best": 0.474,
     "best_items": [
      "Sorcerer's Shoes",
      "Lich Bane",
@@ -3433,24 +4127,24 @@ window.COOK_DATA = {
    "core_usual": 0,
    "core_pick_rate": 0.0434,
    "sim": {
-    "dps": 108,
-    "survival": 0.074,
-    "best_dps": 748,
-    "best_survival": 0.024,
-    "pct_of_best": 0.144,
+    "dps": 127,
+    "survival": 0.028,
+    "best_dps": 961,
+    "best_survival": 0.013,
+    "pct_of_best": 0.132,
     "best_items": [
      "Sorcerer's Shoes",
+     "Blackfire Torch",
      "Liandry's Torment",
-     "Rabadon's Deathcap",
+     "Lich Bane",
      "Shadowflame",
-     "Stormsurge",
      "Void Staff"
     ],
     "best_augments": [
      "Dive Bomber",
      "Tooth Fairy",
-     "Ultimate Awakening",
-     "Marksmage"
+     "Forged By The Master",
+     "Ultimate Awakening"
     ],
     "items_not_modeled": [],
     "whole_build": true
@@ -3572,11 +4266,11 @@ window.COOK_DATA = {
    "core_usual": 0,
    "core_pick_rate": 0.1676,
    "sim": {
-    "dps": 204,
-    "survival": 0.226,
-    "best_dps": 661,
-    "best_survival": 0.051,
-    "pct_of_best": 0.308,
+    "dps": 199,
+    "survival": 0.074,
+    "best_dps": 834,
+    "best_survival": 0.017,
+    "pct_of_best": 0.238,
     "best_items": [
      "Sorcerer's Shoes",
      "Blackfire Torch",
@@ -3588,8 +4282,8 @@ window.COOK_DATA = {
     "best_augments": [
      "Upgrade Stormsurge",
      "Forged By The Master",
-     "Take'em Down Down Down",
-     "Triggered Inferno"
+     "Dive Bomber",
+     "Giant Slayer"
     ],
     "items_not_modeled": [],
     "whole_build": true
@@ -3711,23 +4405,23 @@ window.COOK_DATA = {
    "core_usual": 0,
    "core_pick_rate": 0.1716,
    "sim": {
-    "dps": 380,
-    "survival": 0.011,
-    "best_dps": 1236,
-    "best_survival": 0.025,
-    "pct_of_best": 0.307,
+    "dps": 444,
+    "survival": 0.009,
+    "best_dps": 1257,
+    "best_survival": 0.013,
+    "pct_of_best": 0.353,
     "best_items": [
      "Berserker's Greaves",
      "Blade of The Ruined King",
      "Kraken Slayer",
-     "Guinsoo's Rageblade",
+     "Navori Flickerblade",
      "Serylda's Grudge",
      "Statikk Shiv"
     ],
     "best_augments": [
      "Tickle Monster",
      "Third Times the Harm",
-     "Scopiest Weapons",
+     "Giant Slayer",
      "Forged By The Master"
     ],
     "items_not_modeled": [],
@@ -3850,17 +4544,17 @@ window.COOK_DATA = {
    "core_usual": 0,
    "core_pick_rate": 0.1302,
    "sim": {
-    "dps": 484,
-    "survival": 0.24,
-    "best_dps": 1498,
-    "best_survival": 0.591,
-    "pct_of_best": 0.323,
+    "dps": 458,
+    "survival": 0.068,
+    "best_dps": 1459,
+    "best_survival": 0.237,
+    "pct_of_best": 0.314,
     "best_items": [
      "Berserker's Greaves",
      "Blade of The Ruined King",
      "Infinity Edge",
      "Lord Dominik's Regards",
-     "Stormrazor",
+     "Phantom Dancer",
      "Yun Tal Wildarrows"
     ],
     "best_augments": [
@@ -4005,23 +4699,23 @@ window.COOK_DATA = {
    "core_usual": 0,
    "core_pick_rate": 0.0815,
    "sim": {
-    "dps": 89,
-    "survival": 0.014,
-    "best_dps": 1313,
-    "best_survival": 0.053,
-    "pct_of_best": 0.068,
+    "dps": 92,
+    "survival": 0.011,
+    "best_dps": 1202,
+    "best_survival": 0.022,
+    "pct_of_best": 0.076,
     "best_items": [
      "Berserker's Greaves",
      "Blade of The Ruined King",
      "The Collector",
      "Kraken Slayer",
-     "Guinsoo's Rageblade",
+     "Navori Flickerblade",
      "Serylda's Grudge"
     ],
     "best_augments": [
-     "Third Times the Harm",
+     "Dual Wield",
      "Tickle Monster",
-     "Rite of Ascension",
+     "Third Times the Harm",
      "Forged By The Master"
     ],
     "items_not_modeled": [],
@@ -4160,24 +4854,24 @@ window.COOK_DATA = {
    "core_usual": 0,
    "core_pick_rate": 0.1872,
    "sim": {
-    "dps": 589,
-    "survival": 0.018,
-    "best_dps": 1057,
-    "best_survival": 0.195,
-    "pct_of_best": 0.558,
+    "dps": 490,
+    "survival": 0.011,
+    "best_dps": 892,
+    "best_survival": 0.012,
+    "pct_of_best": 0.549,
     "best_items": [
      "Sorcerer's Shoes",
-     "Lich Bane",
-     "Rabadon's Deathcap",
+     "Blackfire Torch",
+     "Liandry's Torment",
      "Shadowflame",
      "Stormsurge",
      "Void Staff"
     ],
     "best_augments": [
+     "Upgrade Stormsurge",
+     "Forged By The Master",
      "Eureka",
-     "Ominous Pact",
-     "Back To Basics",
-     "Giant Slayer"
+     "Dive Bomber"
     ],
     "items_not_modeled": [],
     "whole_build": true
@@ -4315,11 +5009,11 @@ window.COOK_DATA = {
    "core_usual": 0,
    "core_pick_rate": 0.188,
    "sim": {
-    "dps": 74,
-    "survival": 0.011,
-    "best_dps": 1416,
-    "best_survival": 0.524,
-    "pct_of_best": 0.052,
+    "dps": 73,
+    "survival": 0.009,
+    "best_dps": 1369,
+    "best_survival": 0.176,
+    "pct_of_best": 0.053,
     "best_items": [
      "Berserker's Greaves",
      "Blade of The Ruined King",
@@ -4330,8 +5024,8 @@ window.COOK_DATA = {
     ],
     "best_augments": [
      "Dual Wield",
-     "Symphony of War",
      "Heavy Is The Crown",
+     "Symphony of War",
      "Tap Dancer"
     ],
     "items_not_modeled": [],
@@ -4469,24 +5163,24 @@ window.COOK_DATA = {
    "core_usual": 3,
    "core_pick_rate": 0.2094,
    "sim": {
-    "dps": 252,
-    "survival": 0.025,
-    "best_dps": 1156,
-    "best_survival": 0.163,
-    "pct_of_best": 0.218,
+    "dps": 310,
+    "survival": 0.013,
+    "best_dps": 1014,
+    "best_survival": 0.029,
+    "pct_of_best": 0.306,
     "best_items": [
      "Berserker's Greaves",
-     "Black Cleaver",
      "Blade of The Ruined King",
      "The Collector",
-     "Essence Reaver",
-     "Serylda's Grudge"
+     "Kraken Slayer",
+     "Serylda's Grudge",
+     "Trinity Force"
     ],
     "best_augments": [
      "Giant Slayer",
-     "Dual Wield",
-     "Symphony of War",
-     "Tap Dancer"
+     "En Passant",
+     "Forged By The Master",
+     "Third Times the Harm"
     ],
     "items_not_modeled": [],
     "whole_build": true

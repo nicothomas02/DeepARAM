@@ -388,5 +388,11 @@
  "Off-menu": "메뉴 외",
  "Uses augments {champion} isn't normally offered. Just for fun: it may never come together in a real game.": "{champion}에게 보통 나오지 않는 증강을 씁니다. 재미용이라 실제 게임에서는 안 갖춰질 수도 있어요.",
  "On the menu": "메뉴",
- "Periodically, your next Ability hit against an enemy champion launches a hive of Bees that explodes, Slowing and dealing magic damage over a short duration. Bees apply On-Hit effects.": "주기적으로 적 챔피언에게 다음 스킬을 적중시키면 벌집을 날려 폭발시키고, 잠시 동안 둔화와 마법 피해를 입힙니다. 벌은 적중 시 효과를 적용합니다."
+ "Periodically, your next Ability hit against an enemy champion launches a hive of Bees that explodes, Slowing and dealing magic damage over a short duration. Bees apply On-Hit effects.": "주기적으로 적 챔피언에게 다음 스킬을 적중시키면 벌집을 날려 폭발시키고, 잠시 동안 둔화와 마법 피해를 입힙니다. 벌은 적중 시 효과를 적용합니다.",
+ "Which champions have a Chef Special": "셰프 스페셜이 있는 챔피언",
+ "On the menu: built only from augments that champion can be offered in Mayhem. Off-menu: any augment goes.": "메뉴: 그 챔피언이 Mayhem에서 받을 수 있는 증강만 사용. 메뉴 외: 어떤 증강이든 가능.",
+ "Find a champion": "챔피언 찾기",
+ "Champion": "챔피언",
+ "Not yet": "아직 없음",
+ "{on} on the menu, {off} off-menu, of {total} champions": "챔피언 {total}명 중 메뉴 {on}, 메뉴 외 {off}"
 }

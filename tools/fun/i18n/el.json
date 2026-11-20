@@ -388,5 +388,11 @@
  "Off-menu": "Εκτός μενού",
  "Uses augments {champion} isn't normally offered. Just for fun: it may never come together in a real game.": "Χρησιμοποιεί augments που ο/η {champion} κανονικά δεν παίρνει. Μόνο για πλάκα: μπορεί να μη βγει ποτέ σε πραγματικό παιχνίδι.",
  "On the menu": "Στο μενού",
- "Periodically, your next Ability hit against an enemy champion launches a hive of Bees that explodes, Slowing and dealing magic damage over a short duration. Bees apply On-Hit effects.": "Περιοδικά, το επόμενο χτύπημα Ικανότητάς σου σε αντίπαλο πρωταθλητή εκτοξεύει μια κυψέλη με Μέλισσες που εκρήγνυται, επιβραδύνοντας και προκαλώντας μαγική ζημιά για λίγο. Οι Μέλισσες εφαρμόζουν εφέ κατά το χτύπημα."
+ "Periodically, your next Ability hit against an enemy champion launches a hive of Bees that explodes, Slowing and dealing magic damage over a short duration. Bees apply On-Hit effects.": "Περιοδικά, το επόμενο χτύπημα Ικανότητάς σου σε αντίπαλο πρωταθλητή εκτοξεύει μια κυψέλη με Μέλισσες που εκρήγνυται, επιβραδύνοντας και προκαλώντας μαγική ζημιά για λίγο. Οι Μέλισσες εφαρμόζουν εφέ κατά το χτύπημα.",
+ "Which champions have a Chef Special": "Ποιοι πρωταθλητές έχουν Σπεσιαλιτέ του σεφ",
+ "On the menu: built only from augments that champion can be offered in Mayhem. Off-menu: any augment goes.": "Στο μενού: μόνο με ενισχύσεις που μπορεί να πάρει ο πρωταθλητής στο Mayhem. Εκτός μενού: οποιαδήποτε ενίσχυση.",
+ "Find a champion": "Βρες πρωταθλητή",
+ "Champion": "Πρωταθλητής",
+ "Not yet": "Όχι ακόμα",
+ "{on} on the menu, {off} off-menu, of {total} champions": "{on} στο μενού, {off} εκτός μενού, από {total} πρωταθλητές"
 }

@@ -388,5 +388,11 @@
  "Off-menu": "菜單外",
  "Uses augments {champion} isn't normally offered. Just for fun: it may never come together in a real game.": "使用了{champion}通常不會抽到的強化。純屬娛樂：實戰中可能永遠湊不齊。",
  "On the menu": "菜單內",
- "Periodically, your next Ability hit against an enemy champion launches a hive of Bees that explodes, Slowing and dealing magic damage over a short duration. Bees apply On-Hit effects.": "週期性地，你對敵方英雄的下一次技能命中會發射一個蜂巢，蜂巢爆炸，在短時間內造成緩速和魔法傷害。蜜蜂會施加攻擊特效。"
+ "Periodically, your next Ability hit against an enemy champion launches a hive of Bees that explodes, Slowing and dealing magic damage over a short duration. Bees apply On-Hit effects.": "週期性地，你對敵方英雄的下一次技能命中會發射一個蜂巢，蜂巢爆炸，在短時間內造成緩速和魔法傷害。蜜蜂會施加攻擊特效。",
+ "Which champions have a Chef Special": "哪些英雄有主廚特餐",
+ "On the menu: built only from augments that champion can be offered in Mayhem. Off-menu: any augment goes.": "菜單內：只用該英雄在Mayhem中可能抽到的強化。菜單外：任何強化都行。",
+ "Find a champion": "搜尋英雄",
+ "Champion": "英雄",
+ "Not yet": "尚無",
+ "{on} on the menu, {off} off-menu, of {total} champions": "共{total}位英雄：菜單內{on}，菜單外{off}"
 }
