@@ -129,7 +129,9 @@ damage over time), check the League wiki first.
   ticks and Statikk Shiv procs trigger that chain on every enemy hit, so the lightning spreads through the whole
   swarm (Nico).
 - **Pin Cushion:** very weak damage for a prismatic, worse still on melee champions with few attacks (Nico).
-- **Pin Cushion on Ashe:** each arrow of her empowered Q volley counts as a separate hit (Nico).
+- **Pin Cushion on Ashe:** each arrow of her empowered Q volley counts as a separate hit (Nico). Zeri's Q (Burst Fire)
+  likely works the same (Nico). Data check: Ashe is first on Pin Cushion's best-champions list and grades A
+  with it. Zeri takes it most of anyone (5.6%, grade A) but isn't on the best list, so her case is unconfirmed.
 - **Terrain'd:** the AP Trundle items (Horizon Focus, Bloodletter's, Cryptbloom, Imperial Mandate) likely center
   on it (Nico, probably).
 - **Tahm Kench AP (Rabadon's, Shadowflame, Dusk and Dawn, Riftmaker):** likely BEES or Ethereal Weapon + Dusk and
