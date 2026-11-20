@@ -26,5 +26,7 @@
  "The ability this champion most likely Empowers first.": "สกิลที่แชมเปี้ยนนี้น่าจะเสริมพลังเป็นอันแรก",
  "How sure the prediction is: High when many picks agree, Low when they're split.": "การคาดการณ์มั่นใจแค่ไหน: สูงเมื่อการเลือกส่วนใหญ่ตรงกัน ต่ำเมื่อแตกต่างกัน",
  "Low": "ต่ำ",
- "Medium": "กลาง"
+ "Medium": "กลาง",
+ "Pentakill lets you Empower one basic ability at level 1 and a second one at level 18, where the ultimate counts too: {heavy} for Q, {power} for W, {thrash} for E and {doom} for R. Each gives the ability 20 Ability Haste and 10% more damage, healing and shielding. Few games reach level 18, so this shows the level 1 pick.": "Pentakill ให้คุณเสริมพลังสกิลพื้นฐานหนึ่งสกิลที่เลเวล 1 และอีกสกิลที่เลเวล 18 ซึ่งเลือกอัลติเมตได้ด้วย: {heavy} สำหรับ Q, {power} สำหรับ W, {thrash} สำหรับ E และ {doom} สำหรับ R แต่ละอันให้สกิลได้ Ability Haste 20 และดาเมจ การฮีล และโล่เพิ่ม 10% เกมที่ถึงเลเวล 18 มีน้อย จึงแสดงตัวเลือกที่เลเวล 1",
+ "The basic ability this champion most likely Empowers at level 1.": "สกิลพื้นฐานที่แชมเปี้ยนนี้น่าจะเสริมพลังที่เลเวล 1"
 }

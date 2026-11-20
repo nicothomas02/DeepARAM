@@ -26,5 +26,7 @@
  "The ability this champion most likely Empowers first.": "Η ικανότητα που αυτός ο πρωταθλητής πιθανότατα ενισχύει πρώτη.",
  "How sure the prediction is: High when many picks agree, Low when they're split.": "Πόσο σίγουρη είναι η εκτίμηση: Υψηλή όταν πολλές επιλογές συμφωνούν, Χαμηλή όταν διαφέρουν.",
  "Low": "Χαμηλή",
- "Medium": "Μέτρια"
+ "Medium": "Μέτρια",
+ "Pentakill lets you Empower one basic ability at level 1 and a second one at level 18, where the ultimate counts too: {heavy} for Q, {power} for W, {thrash} for E and {doom} for R. Each gives the ability 20 Ability Haste and 10% more damage, healing and shielding. Few games reach level 18, so this shows the level 1 pick.": "Το Pentakill σου επιτρέπει να ενισχύσεις μία βασική ικανότητα στο επίπεδο 1 και μια δεύτερη στο επίπεδο 18, όπου μετράει και η υπέρτατη: {heavy} για Q, {power} για W, {thrash} για E και {doom} για R. Καθένα δίνει στην ικανότητα 20 επιτάχυνση ικανοτήτων και 10% περισσότερη ζημιά, θεραπεία και ασπίδες. Λίγα παιχνίδια φτάνουν στο επίπεδο 18, οπότε εδώ φαίνεται η επιλογή του επιπέδου 1.",
+ "The basic ability this champion most likely Empowers at level 1.": "Η βασική ικανότητα που αυτός ο πρωταθλητής πιθανότατα ενισχύει στο επίπεδο 1."
 }

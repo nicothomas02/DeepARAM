@@ -26,5 +26,7 @@
  "The ability this champion most likely Empowers first.": "Bu şampiyonun büyük olasılıkla ilk güçlendirdiği yetenek.",
  "How sure the prediction is: High when many picks agree, Low when they're split.": "Tahmin ne kadar güvenilir: Birçok seçim aynıysa Yüksek, bölünmüşse Düşük.",
  "Low": "Düşük",
- "Medium": "Orta"
+ "Medium": "Orta",
+ "Pentakill lets you Empower one basic ability at level 1 and a second one at level 18, where the ultimate counts too: {heavy} for Q, {power} for W, {thrash} for E and {doom} for R. Each gives the ability 20 Ability Haste and 10% more damage, healing and shielding. Few games reach level 18, so this shows the level 1 pick.": "Pentakill, 1. seviyede bir temel yeteneği, 18. seviyede ise ana yetenek dahil ikinci bir yeteneği güçlendirmeni sağlar: Q için {heavy}, W için {power}, E için {thrash} ve R için {doom}. Her biri yeteneğe 20 yetenek hızı ve %10 daha fazla hasar, iyileştirme ve kalkan verir. Az maç 18. seviyeye ulaştığı için burada 1. seviye seçimi gösterilir.",
+ "The basic ability this champion most likely Empowers at level 1.": "Bu şampiyonun büyük olasılıkla 1. seviyede güçlendirdiği temel yetenek."
 }

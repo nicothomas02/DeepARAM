@@ -26,5 +26,7 @@
  "The ability this champion most likely Empowers first.": "A képesség, amelyet ez a hős valószínűleg elsőként erősít fel.",
  "How sure the prediction is: High when many picks agree, Low when they're split.": "Mennyire biztos a becslés: Magas, ha sok választás egyezik, Alacsony, ha megoszlanak.",
  "Low": "Alacsony",
- "Medium": "Közepes"
+ "Medium": "Közepes",
+ "Pentakill lets you Empower one basic ability at level 1 and a second one at level 18, where the ultimate counts too: {heavy} for Q, {power} for W, {thrash} for E and {doom} for R. Each gives the ability 20 Ability Haste and 10% more damage, healing and shielding. Few games reach level 18, so this shows the level 1 pick.": "A Pentakill-lel az 1. szinten egy alapképességet, a 18. szinten egy másodikat erősíthetsz fel, ott már a végső képességet is: {heavy} a Q-t, {power} a W-t, {thrash} az E-t, {doom} az R-t. Mindegyik 20 képességgyorsítást és 10%-kal több sebzést, gyógyítást és pajzsot ad. Kevés meccs éri el a 18. szintet, ezért itt az 1. szintű választás látható.",
+ "The basic ability this champion most likely Empowers at level 1.": "Az alapképesség, amelyet ez a hős valószínűleg az 1. szinten erősít fel."
 }

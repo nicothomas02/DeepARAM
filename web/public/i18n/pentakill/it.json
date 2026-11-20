@@ -26,5 +26,7 @@
  "The ability this champion most likely Empowers first.": "L'abilità che questo campione probabilmente potenzia per prima.",
  "How sure the prediction is: High when many picks agree, Low when they're split.": "Quanto è sicura la previsione: Alta quando molte scelte concordano, Bassa quando sono divise.",
  "Low": "Bassa",
- "Medium": "Media"
+ "Medium": "Media",
+ "Pentakill lets you Empower one basic ability at level 1 and a second one at level 18, where the ultimate counts too: {heavy} for Q, {power} for W, {thrash} for E and {doom} for R. Each gives the ability 20 Ability Haste and 10% more damage, healing and shielding. Few games reach level 18, so this shows the level 1 pick.": "Pentakill ti fa potenziare un'abilità base al livello 1 e una seconda al livello 18, dove conta anche la suprema: {heavy} per la Q, {power} per la W, {thrash} per la E e {doom} per la R. Ognuno dà all'abilità 20 velocità abilità e il 10% in più di danni, cure e scudi. Poche partite arrivano al livello 18, quindi qui c'è la scelta del livello 1.",
+ "The basic ability this champion most likely Empowers at level 1.": "L'abilità base che questo campione probabilmente potenzia al livello 1."
 }

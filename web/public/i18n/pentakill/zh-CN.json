@@ -26,5 +26,7 @@
  "The ability this champion most likely Empowers first.": "该英雄最可能先强化的技能。",
  "How sure the prediction is: High when many picks agree, Low when they're split.": "预测的可信程度：多数选择一致时为高，意见分散时为低。",
  "Low": "低",
- "Medium": "中"
+ "Medium": "中",
+ "Pentakill lets you Empower one basic ability at level 1 and a second one at level 18, where the ultimate counts too: {heavy} for Q, {power} for W, {thrash} for E and {doom} for R. Each gives the ability 20 Ability Haste and 10% more damage, healing and shielding. Few games reach level 18, so this shows the level 1 pick.": "五杀让你在 1 级强化一个基础技能，在 18 级再强化一个（此时大招也可选）：{heavy}对应 Q，{power}对应 W，{thrash}对应 E，{doom}对应 R。每个都让该技能获得 20 技能急速，以及 10% 额外伤害、治疗和护盾。很少有对局打到 18 级，所以这里显示 1 级的选择。",
+ "The basic ability this champion most likely Empowers at level 1.": "该英雄最可能在 1 级强化的基础技能。"
 }

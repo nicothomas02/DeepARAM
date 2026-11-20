@@ -26,5 +26,7 @@
  "The ability this champion most likely Empowers first.": "Умение, которое этот чемпион скорее всего усилит первым.",
  "How sure the prediction is: High when many picks agree, Low when they're split.": "Насколько надёжен прогноз: Высокая, когда многие выборы совпадают, Низкая, когда они расходятся.",
  "Low": "Низкая",
- "Medium": "Средняя"
+ "Medium": "Средняя",
+ "Pentakill lets you Empower one basic ability at level 1 and a second one at level 18, where the ultimate counts too: {heavy} for Q, {power} for W, {thrash} for E and {doom} for R. Each gives the ability 20 Ability Haste and 10% more damage, healing and shielding. Few games reach level 18, so this shows the level 1 pick.": "Pentakill позволяет усилить одно базовое умение на 1-м уровне и второе на 18-м, где можно выбрать и суперспособность: {heavy} для Q, {power} для W, {thrash} для E и {doom} для R. Каждое даёт умению 20 ускорения умений и на 10% больше урона, лечения и щитов. До 18-го уровня доходит мало игр, поэтому здесь показан выбор на 1-м уровне.",
+ "The basic ability this champion most likely Empowers at level 1.": "Базовое умение, которое этот чемпион скорее всего усилит на 1-м уровне."
 }

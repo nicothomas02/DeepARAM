@@ -26,5 +26,7 @@
  "The ability this champion most likely Empowers first.": "Schopnost, kterou tento šampion nejspíš posílí jako první.",
  "How sure the prediction is: High when many picks agree, Low when they're split.": "Jak jistý je odhad: Vysoká, když se mnoho voleb shoduje, Nízká, když se liší.",
  "Low": "Nízká",
- "Medium": "Střední"
+ "Medium": "Střední",
+ "Pentakill lets you Empower one basic ability at level 1 and a second one at level 18, where the ultimate counts too: {heavy} for Q, {power} for W, {thrash} for E and {doom} for R. Each gives the ability 20 Ability Haste and 10% more damage, healing and shielding. Few games reach level 18, so this shows the level 1 pick.": "Pentakill ti dovolí posílit jednu základní schopnost na úrovni 1 a druhou na úrovni 18, kdy se počítá i ultimátka: {heavy} pro Q, {power} pro W, {thrash} pro E a {doom} pro R. Každé dá schopnosti 20 zrychlení schopností a o 10 % víc poškození, léčení a štítů. Úrovně 18 dosáhne málo her, proto je zde volba na úrovni 1.",
+ "The basic ability this champion most likely Empowers at level 1.": "Základní schopnost, kterou tento šampion nejspíš posílí na úrovni 1."
 }

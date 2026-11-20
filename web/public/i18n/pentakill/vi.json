@@ -26,5 +26,7 @@
  "The ability this champion most likely Empowers first.": "Kỹ năng mà tướng này nhiều khả năng cường hóa trước.",
  "How sure the prediction is: High when many picks agree, Low when they're split.": "Mức chắc chắn của dự đoán: Cao khi nhiều lựa chọn trùng nhau, Thấp khi bị chia rẽ.",
  "Low": "Thấp",
- "Medium": "Trung bình"
+ "Medium": "Trung bình",
+ "Pentakill lets you Empower one basic ability at level 1 and a second one at level 18, where the ultimate counts too: {heavy} for Q, {power} for W, {thrash} for E and {doom} for R. Each gives the ability 20 Ability Haste and 10% more damage, healing and shielding. Few games reach level 18, so this shows the level 1 pick.": "Pentakill cho bạn cường hóa một kỹ năng cơ bản ở cấp 1 và một kỹ năng nữa ở cấp 18, lúc đó tính cả chiêu cuối: {heavy} cho Q, {power} cho W, {thrash} cho E và {doom} cho R. Mỗi cái cho kỹ năng 20 Điểm hồi kỹ năng và thêm 10% sát thương, hồi máu và lá chắn. Ít trận đạt cấp 18 nên đây là lựa chọn ở cấp 1.",
+ "The basic ability this champion most likely Empowers at level 1.": "Kỹ năng cơ bản mà tướng này nhiều khả năng cường hóa ở cấp 1."
 }

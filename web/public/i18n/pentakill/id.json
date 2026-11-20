@@ -26,5 +26,7 @@
  "The ability this champion most likely Empowers first.": "Ability yang paling mungkin diperkuat champion ini lebih dulu.",
  "How sure the prediction is: High when many picks agree, Low when they're split.": "Seberapa yakin prediksinya: Tinggi bila banyak pilihan sama, Rendah bila terbagi.",
  "Low": "Rendah",
- "Medium": "Sedang"
+ "Medium": "Sedang",
+ "Pentakill lets you Empower one basic ability at level 1 and a second one at level 18, where the ultimate counts too: {heavy} for Q, {power} for W, {thrash} for E and {doom} for R. Each gives the ability 20 Ability Haste and 10% more damage, healing and shielding. Few games reach level 18, so this shows the level 1 pick.": "Pentakill memungkinkanmu memperkuat satu ability dasar di level 1 dan satu lagi di level 18, ketika ultimate juga bisa dipilih: {heavy} untuk Q, {power} untuk W, {thrash} untuk E, dan {doom} untuk R. Masing-masing memberi ability 20 Ability Haste dan 10% lebih banyak damage, heal, dan shield. Sedikit game yang mencapai level 18, jadi ini menampilkan pilihan level 1.",
+ "The basic ability this champion most likely Empowers at level 1.": "Ability dasar yang paling mungkin diperkuat champion ini di level 1."
 }

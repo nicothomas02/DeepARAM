@@ -26,5 +26,7 @@
  "The ability this champion most likely Empowers first.": "이 챔피언이 가장 먼저 강화할 가능성이 높은 스킬.",
  "How sure the prediction is: High when many picks agree, Low when they're split.": "예측의 확실성: 많은 선택이 일치하면 높음, 갈리면 낮음.",
  "Low": "낮음",
- "Medium": "보통"
+ "Medium": "보통",
+ "Pentakill lets you Empower one basic ability at level 1 and a second one at level 18, where the ultimate counts too: {heavy} for Q, {power} for W, {thrash} for E and {doom} for R. Each gives the ability 20 Ability Haste and 10% more damage, healing and shielding. Few games reach level 18, so this shows the level 1 pick.": "Pentakill은 레벨 1에 기본 스킬 하나를, 레벨 18에 궁극기를 포함해 하나를 더 강화하게 해 줍니다: Q는 {heavy}, W는 {power}, E는 {thrash}, R은 {doom}. 각각 스킬에 스킬 가속 20과 피해량, 회복, 보호막 10% 증가를 줍니다. 레벨 18까지 가는 게임이 적어 여기서는 레벨 1 선택을 보여 줍니다.",
+ "The basic ability this champion most likely Empowers at level 1.": "이 챔피언이 레벨 1에 강화할 가능성이 가장 높은 기본 스킬."
 }

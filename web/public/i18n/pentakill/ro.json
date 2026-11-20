@@ -26,5 +26,7 @@
  "The ability this champion most likely Empowers first.": "Abilitatea pe care acest campion o întărește cel mai probabil prima.",
  "How sure the prediction is: High when many picks agree, Low when they're split.": "Cât de sigură este estimarea: Ridicată când multe alegeri coincid, Scăzută când sunt împărțite.",
  "Low": "Scăzută",
- "Medium": "Medie"
+ "Medium": "Medie",
+ "Pentakill lets you Empower one basic ability at level 1 and a second one at level 18, where the ultimate counts too: {heavy} for Q, {power} for W, {thrash} for E and {doom} for R. Each gives the ability 20 Ability Haste and 10% more damage, healing and shielding. Few games reach level 18, so this shows the level 1 pick.": "Pentakill îți permite să întărești o abilitate de bază la nivelul 1 și o a doua la nivelul 18, când contează și abilitatea supremă: {heavy} pentru Q, {power} pentru W, {thrash} pentru E și {doom} pentru R. Fiecare îi dă abilității 20 accelerare a abilităților și cu 10% mai multe daune, vindecări și scuturi. Puține meciuri ajung la nivelul 18, așa că aici apare alegerea de la nivelul 1.",
+ "The basic ability this champion most likely Empowers at level 1.": "Abilitatea de bază pe care acest campion o întărește cel mai probabil la nivelul 1."
 }

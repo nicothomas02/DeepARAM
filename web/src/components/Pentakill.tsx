@@ -23,7 +23,7 @@ export default function Pentakill({ rows }: { rows: PredictedPentakill[] }) {
       format: "ability",
       iconKey: "icon",
       sortable: false,
-      hint: t("The ability this champion most likely Empowers first."),
+      hint: t("The basic ability this champion most likely Empowers at level 1."),
     },
     {
       key: "confidence",
@@ -53,7 +53,7 @@ export default function Pentakill({ rows }: { rows: PredictedPentakill[] }) {
       </p>
       <p className="patch-note subtab-note">
         {t(
-          "Pentakill Empowers one of your abilities: {heavy} for Q, {power} for W, {thrash} for E and {doom} for R. Each gives the ability 20 Ability Haste and 10% more damage, healing and shielding.",
+          "Pentakill lets you Empower one basic ability at level 1 and a second one at level 18, where the ultimate counts too: {heavy} for Q, {power} for W, {thrash} for E and {doom} for R. Each gives the ability 20 Ability Haste and 10% more damage, healing and shielding. Few games reach level 18, so this shows the level 1 pick.",
           {
             heavy: names("augments", 3170, "HEAVY"),
             power: names("augments", 3171, "POWER"),

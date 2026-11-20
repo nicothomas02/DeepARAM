@@ -26,5 +26,7 @@
  "The ability this champion most likely Empowers first.": "このチャンピオンが最初に強化する可能性が最も高いスキル。",
  "How sure the prediction is: High when many picks agree, Low when they're split.": "予測の確かさ: 多くの選択が一致すれば高、分かれていれば低。",
  "Low": "低",
- "Medium": "中"
+ "Medium": "中",
+ "Pentakill lets you Empower one basic ability at level 1 and a second one at level 18, where the ultimate counts too: {heavy} for Q, {power} for W, {thrash} for E and {doom} for R. Each gives the ability 20 Ability Haste and 10% more damage, healing and shielding. Few games reach level 18, so this shows the level 1 pick.": "Pentakillではレベル1で基本スキルを1つ、レベル18でアルティメットも含めてもう1つ強化できます: Qは{heavy}、Wは{power}、Eは{thrash}、Rは{doom}。それぞれスキルにスキルヘイスト20と、ダメージ・回復・シールド10%増加を与えます。レベル18まで行く試合は少ないため、ここではレベル1の選択を表示します。",
+ "The basic ability this champion most likely Empowers at level 1.": "このチャンピオンがレベル1で強化する可能性が最も高い基本スキル。"
 }
