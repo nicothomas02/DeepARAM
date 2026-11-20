@@ -125,6 +125,9 @@ damage over time), check the League wiki first.
 - **Holy Snowball:** matters least on tanky champions without big burst, who don't need a short invulnerability
   (Nico).
 - **Courage of the Colossus:** one shield per cast, even for multi-hit CC (Nico).
+- **Volibear passive + BEES!!! + Statikk Shiv:** at full passive stacks his attacks chain lightning. BEES on-hit
+  ticks and Statikk Shiv procs trigger that chain on every enemy hit, so the lightning spreads through the whole
+  swarm (Nico).
 - **Pin Cushion:** very weak damage for a prismatic, worse still on melee champions with few attacks (Nico).
 - **Terrain'd:** the AP Trundle items (Horizon Focus, Bloodletter's, Cryptbloom, Imperial Mandate) likely center
   on it (Nico, probably).
