@@ -166,6 +166,10 @@ stray tag; check the wiki text when a tag decides the build.
 - **Tahm Kench AP (Rabadon's, Shadowflame, Dusk and Dawn, Riftmaker):** likely BEES or Ethereal Weapon + Dusk and
   Dawn, since one Q can stun a far target and R works too. With Goliath and/or Mad Scientist he already has the
   size, so Health is less needed (Nico, guess). Goliath, Ethereal Weapon and Mad Scientist are all top-6 on him.
+- **Ryze (Infinite Ryze):** W and E still reset Q in Mayhem. Lich Brain is 30 AP + 4% bonus Health as AP (the game
+  files leave the numbers out). Eureka's haste (30% AP) has no cap. Double Time's +25 max Mana is multiplied by
+  Ryze's passive. Mind to Matter stops at 99,999 Health, so the "infinite" AP loop levels off around 25,600 AP
+  (Nico).
 
 ## Items
 
