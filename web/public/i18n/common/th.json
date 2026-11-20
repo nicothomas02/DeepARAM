@@ -229,5 +229,13 @@
  "Methodology": "วิธีการ",
  "Looking for a page? Search for “{q}”": "กำลังหาหน้าอยู่ใช่ไหม? ค้นหา “{q}”",
  "Champion win rates, augment rankings and duo synergy, patch by patch.": "อัตราชนะของแชมเปียน อันดับออคเมนต์ และความเข้ากันของคู่ดูโอ ในทุกแพตช์",
- "Research": "งานวิจัย"
+ "Research": "งานวิจัย",
+ "Built just for Mayhem, with stats that predict instead of just count, and builds tested in real fights.": "สร้างมาเพื่อโหมด Mayhem โดยเฉพาะ ด้วยสถิติที่คาดการณ์ได้ ไม่ใช่แค่นับ และบิลด์ที่ผ่านการทดสอบในการต่อสู้จริง",
+ "Every augment, ranked for you": "ทุก Augment จัดอันดับให้คุณ",
+ "All the augments, quests and Mayhem-only items, scored for each champion. Mark what you took and the rest re-rank around it.": "Augment เควสต์ และไอเทมเฉพาะโหมดทั้งหมด ให้คะแนนแยกตามแชมเปี้ยน ทำเครื่องหมายสิ่งที่คุณเลือก แล้วที่เหลือจะจัดลำดับใหม่",
+ "Data science, not raw counts": "วิทยาศาสตร์ข้อมูล ไม่ใช่แค่ตัวเลขดิบ",
+ "DeepScore weighs sample size, shows how sure it is, and estimates what each augment adds to your champion. It even forecasts patches before they land.": "DeepScore คำนึงถึงขนาดตัวอย่าง แสดงความมั่นใจของผลลัพธ์ และประเมินว่าแต่ละ Augment ช่วยแชมเปี้ยนของคุณได้แค่ไหน ทั้งยังคาดการณ์แพตช์ได้ก่อนออกจริง",
+ "Tested in fights": "ผ่านการทดสอบในการต่อสู้",
+ "A full combat simulator runs builds against real kits, so you see why a build wins, not just that it did.": "เครื่องจำลองการต่อสู้เต็มรูปแบบนำบิลด์ไปสู้กับชุดสกิลจริง คุณจึงเห็นว่าทำไมบิลด์ถึงชนะ ไม่ใช่แค่รู้ว่ามันชนะ",
+ "DeepARAM is built just for ARAM Mayhem. Rankings come from data science, and builds are tested in a fight simulator.": "DeepARAM สร้างมาเพื่อ ARAM Mayhem โดยเฉพาะ การจัดอันดับมาจากวิทยาศาสตร์ข้อมูล และบิลด์ผ่านการทดสอบในเครื่องจำลองการต่อสู้"
 }

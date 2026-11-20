@@ -5029,6 +5029,12 @@ th > button[data-tip] {
 .home-typical .stat-row b { font-size: 1.05rem; }
 /* Hero: what the site is, two ways in, and the tour offer for first-time visitors. Not .lede/.eyebrow, so
    Simple view keeps it. */
+/* Home: three cards on what sets the site apart, under the hero. */
+.home-pillars { display: grid; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); gap: 0.75rem; margin: 0 0 1rem; }
+.home-pillar { padding: 1rem 1.15rem; border-radius: var(--r); background: var(--card, var(--surface)); box-shadow: var(--depth, none); }
+.home-pillar h2 { margin: 0 0 0.35rem; font-size: 1.1rem; }
+.home-pillar p { margin: 0; color: var(--muted); }
+.footer-pitch { color: var(--fg); font-weight: 500; }
 .hero-tagline { max-width: 60ch; margin-top: 0.5rem; color: var(--muted); }
 .hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 0.6rem; margin-top: 0.9rem; }
 .hero-actions .btn { display: inline-flex; align-items: center; text-decoration: none; }

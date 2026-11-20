@@ -229,5 +229,13 @@
  "Methodology": "Metodologia",
  "Looking for a page? Search for “{q}”": "Cerchi una pagina? Cerca “{q}”",
  "Champion win rates, augment rankings and duo synergy, patch by patch.": "Percentuali di vittoria dei campioni, classifica degli augment e sinergia dei duo, patch dopo patch.",
- "Research": "Ricerca"
+ "Research": "Ricerca",
+ "Built just for Mayhem, with stats that predict instead of just count, and builds tested in real fights.": "Creato solo per ARAM: Pandemonio, con statistiche che prevedono invece di limitarsi a contare e build testate in veri scontri.",
+ "Every augment, ranked for you": "Ogni potenziamento, classificato per te",
+ "All the augments, quests and Mayhem-only items, scored for each champion. Mark what you took and the rest re-rank around it.": "Tutti i potenziamenti, le missioni e gli oggetti esclusivi della modalità, valutati per ogni campione. Segna cosa hai preso e il resto si riordina.",
+ "Data science, not raw counts": "Data science, non semplici conteggi",
+ "DeepScore weighs sample size, shows how sure it is, and estimates what each augment adds to your champion. It even forecasts patches before they land.": "Il DeepScore tiene conto della dimensione del campione, mostra quanto è affidabile e stima quanto ogni potenziamento aggiunge al tuo campione. Prevede persino le patch prima che escano.",
+ "Tested in fights": "Testato in combattimento",
+ "A full combat simulator runs builds against real kits, so you see why a build wins, not just that it did.": "Un simulatore di combattimento completo mette alla prova le build contro kit reali, così vedi perché una build vince, non solo che vince.",
+ "DeepARAM is built just for ARAM Mayhem. Rankings come from data science, and builds are tested in a fight simulator.": "DeepARAM è creato solo per ARAM: Pandemonio. Le classifiche nascono dalla data science e le build vengono testate in un simulatore di combattimento."
 }

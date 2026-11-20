@@ -229,5 +229,13 @@
  "Methodology": "Methodik",
  "Looking for a page? Search for “{q}”": "Suchst du eine Seite? Nach „{q}“ suchen",
  "Champion win rates, augment rankings and duo synergy, patch by patch.": "Champion-Siegraten, Augment-Ranglisten und Duo-Synergien, Patch für Patch.",
- "Research": "Forschung"
+ "Research": "Forschung",
+ "Built just for Mayhem, with stats that predict instead of just count, and builds tested in real fights.": "Nur für „ARAM: Chaos“ gebaut: Statistiken, die vorhersagen statt nur zu zählen, und Builds, die in echten Kämpfen getestet werden.",
+ "Every augment, ranked for you": "Jedes Augment, für dich bewertet",
+ "All the augments, quests and Mayhem-only items, scored for each champion. Mark what you took and the rest re-rank around it.": "Alle Augments, Quests und Chaos-Gegenstände, für jeden Champion bewertet. Markiere, was du genommen hast, und der Rest wird neu sortiert.",
+ "Data science, not raw counts": "Data Science statt bloßer Zahlen",
+ "DeepScore weighs sample size, shows how sure it is, and estimates what each augment adds to your champion. It even forecasts patches before they land.": "DeepScore berücksichtigt die Stichprobengröße, zeigt, wie sicher er ist, und schätzt, was jedes Augment deinem Champion bringt. Er sagt sogar Patches voraus, bevor sie erscheinen.",
+ "Tested in fights": "In Kämpfen getestet",
+ "A full combat simulator runs builds against real kits, so you see why a build wins, not just that it did.": "Ein vollständiger Kampfsimulator lässt Builds gegen echte Fähigkeiten antreten. So siehst du, warum ein Build gewinnt, nicht nur, dass er gewinnt.",
+ "DeepARAM is built just for ARAM Mayhem. Rankings come from data science, and builds are tested in a fight simulator.": "DeepARAM ist nur für „ARAM: Chaos“ gebaut. Die Rankings stammen aus Data Science, und Builds werden in einem Kampfsimulator getestet."
 }

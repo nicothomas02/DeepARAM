@@ -229,5 +229,13 @@
  "Methodology": "方法說明",
  "Looking for a page? Search for “{q}”": "在找頁面嗎？搜尋「{q}」",
  "Champion win rates, augment rankings and duo synergy, patch by patch.": "英雄勝率、強化符文排名與雙人組合綜效，逐個版本更新。",
- "Research": "研究"
+ "Research": "研究",
+ "Built just for Mayhem, with stats that predict instead of just count, and builds tested in real fights.": "專為隨機單中：大混戰打造：統計不只計數，更能預測；出裝經過真實戰鬥檢驗。",
+ "Every augment, ranked for you": "每個強化，為你排名",
+ "All the augments, quests and Mayhem-only items, scored for each champion. Mark what you took and the rest re-rank around it.": "所有強化、任務與模式專屬裝備，依英雄逐一評分。標記你已選的強化，其餘會重新排序。",
+ "Data science, not raw counts": "資料科學，而非單純計數",
+ "DeepScore weighs sample size, shows how sure it is, and estimates what each augment adds to your champion. It even forecasts patches before they land.": "DeepScore 會考慮樣本數，顯示其可信程度，並估算每個強化能為你的英雄帶來多少提升。它甚至能在新版本上線前做出預測。",
+ "Tested in fights": "經過實戰檢驗",
+ "A full combat simulator runs builds against real kits, so you see why a build wins, not just that it did.": "完整的戰鬥模擬器讓出裝與真實技能組對戰，讓你看到出裝為何獲勝，而不只是它贏了。",
+ "DeepARAM is built just for ARAM Mayhem. Rankings come from data science, and builds are tested in a fight simulator.": "DeepARAM 專為隨機單中：大混戰打造。排名來自資料科學，出裝經過戰鬥模擬器檢驗。"
 }
