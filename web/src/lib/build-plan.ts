@@ -80,3 +80,72 @@ export function tiedWith(best: { winRate: number; games?: number }, r: { winRate
   const se = Math.sqrt(p * (1 - p) * (1 / best.games + 1 / r.games));
   return Math.abs(best.winRate - r.winRate) < 1.96 * se;
 }
+
+/**
+ * Whether a starting buy agrees with the build (Nico, 2026-11-20: a Cloak and Tome start means a Rite of Ruin rush).
+ * Every bought part must build into a core item or the boots, or be a standalone starter (Doran's, Tear, Dark Seal),
+ * or a consumable.
+ */
+export function starterFits(
+  starter: number[],
+  build: number[],
+  partsOf: (id: number) => number[],
+  standalone: (id: number) => boolean,
+): boolean {
+  const parts = new Set(build.flatMap(partsOf));
+  return starter.every((i) => parts.has(i) || build.includes(i) || standalone(i));
+}
+
+/**
+ * The core with the item the starting buy is clearly heading for first: when two or more of the starter's parts
+ * (standalone starters aside) all go into one core item and no other holds them all (Cloak + Tome: Rite of Ruin).
+ * A single shared part (a Long Sword) says nothing about the order, so the core keeps its order then.
+ */
+export function startFirst(core: number[], starter: number[], partsOf: (id: number) => number[], standalone: (id: number) => boolean = () => false): number[] {
+  const want = starter.filter((s) => !standalone(s));
+  if (want.length < 2) return core;
+  const holds = core.filter((i) => {
+    const parts = new Set(partsOf(i));
+    return want.every((s) => parts.has(s));
+  });
+  return holds.length === 1 ? [holds[0], ...core.filter((i) => i !== holds[0])] : core;
+}
+
+/** A row that lists items in the order players bought them, weighted by how often it's played. */
+export type OrderedRow = { items: number[]; weight: number };
+
+/**
+ * The core in the order players buy it (Nico, 2026-11-20: items in order of purchase), from rows that list a core in
+ * buying order. Each pair of items goes the way most rows holding both put it, and items are sorted by how many
+ * others they come before; pairs no row holds count for neither, and ties keep the given order (the caller passes the
+ * core already opened by its starting items). `known`: whether any pair had a vote.
+ */
+export function buyingOrder(core: number[], ordered: OrderedRow[]): { items: number[]; known: boolean } {
+  const before = new Map<string, number>();
+  for (const r of ordered)
+    for (let a = 0; a < r.items.length; a++)
+      for (let b = a + 1; b < r.items.length; b++) {
+        const k = `${r.items[a]},${r.items[b]}`;
+        before.set(k, (before.get(k) ?? 0) + r.weight);
+      }
+  const vote = (x: number, y: number) => (before.get(`${x},${y}`) ?? 0) - (before.get(`${y},${x}`) ?? 0);
+  const pairs = core.flatMap((x, i) => core.slice(i + 1).map((y) => [x, y] as const));
+  if (!pairs.some(([x, y]) => before.has(`${x},${y}`) || before.has(`${y},${x}`))) return { items: core, known: false };
+  const wins = new Map(core.map((x) => [x, core.reduce((s, y) => s + (x !== y ? Math.sign(vote(x, y)) : 0), 0)]));
+  return { items: core.map((x, i) => [x, i] as const).sort((p, q) => wins.get(q[0])! - wins.get(p[0])! || p[1] - q[1]).map(([x]) => x), known: true };
+}
+
+/**
+ * The rest of the usual six-item build after a core (Nico, 2026-11-20: show the rest of the build above situational
+ * items): the items most often bought with this core in six-item builds, most built first, filling the slots the core
+ * and boots leave. Builds holding the whole core count; when none do, builds sharing two core items.
+ */
+export function restOfBuild(core: number[], boots: number | undefined, full: { items: number[]; pickRate: number }[], isBoots: (id: number) => boolean, slots = 6): number[] {
+  const need = slots - core.length - (boots !== undefined ? 1 : 0);
+  if (need <= 0) return [];
+  const holding = (k: number) => full.filter((f) => core.filter((i) => f.items.includes(i)).length >= k);
+  const with_ = holding(core.length).length ? holding(core.length) : holding(Math.min(2, core.length));
+  const share = new Map<number, number>();
+  for (const f of with_) for (const i of new Set(f.items)) if (!core.includes(i) && !isBoots(i)) share.set(i, (share.get(i) ?? 0) + f.pickRate);
+  return [...share].sort((x, y) => y[1] - x[1] || x[0] - y[0]).slice(0, need).map(([i]) => i);
+}

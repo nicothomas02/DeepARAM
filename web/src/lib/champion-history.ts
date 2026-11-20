@@ -2,7 +2,7 @@ import "server-only";
 import { readdirSync } from "node:fs";
 import championIds from "@/data/champion-ids.json";
 import augmentNames from "@/data/augment-names.json";
-import { itemClasses, itemSituation, itemTier, items, ranked, rewardItems } from "./items";
+import { itemClasses, itemParts, itemSituation, itemTier, items, ranked, rewardItems } from "./items";
 import { readRepoJson, repoHas, repoPath } from "./repo-data";
 import type { HistFile, HistPatch, ItemMeta, Rarity } from "./timeframe";
 
@@ -55,7 +55,7 @@ export function championHistory(alias: string): HistFile | null {
   if (id === undefined) return null;
   const all = items();
   const rewards = rewardItems();
-  const out: HistFile = { patches: {}, items: {}, augments: {} };
+  const out: HistFile = { patches: {}, items: {}, augments: {}, order: orderedCores(id).map((r) => [r.items, r.weight]) };
   for (const s of snapshots()) {
     const c = s.champions[String(id)];
     if (!c) continue;
@@ -67,7 +67,7 @@ export function championHistory(alias: string): HistFile | null {
         for (const i of ids)
           if (!out.items[i]) {
             const it = all.get(i)!;
-            out.items[i] = { name: it.name, icon: it.icon ?? "", tier: itemTier(i), ranked: ranked(i), situation: itemSituation(i), classes: itemClasses(i) } satisfies ItemMeta;
+            out.items[i] = { name: it.name, icon: it.icon ?? "", tier: itemTier(i), ranked: ranked(i), situation: itemSituation(i), classes: itemClasses(i), parts: itemParts(i) } satisfies ItemMeta;
           }
     }
     const augs = c.augments.filter(([a]) => AUGS[a]);
@@ -79,4 +79,28 @@ export function championHistory(alias: string): HistFile | null {
     };
   }
   return out;
+}
+
+/** Core rows listed in buying order from the patches whose core block still came from the feed (it froze in
+ *  mid-October 2026 and is rebuilt from six-item builds since, which carry no order). A patch counts as ordered when
+ *  most champions have the same three items in two orders, which a rebuilt block almost never has. */
+export function orderedCores(id: number): { items: number[]; weight: number }[] {
+  const out: { items: number[]; weight: number }[] = [];
+  for (const s of snapshots().filter(isOrdered))
+    for (const [ids, pick] of s.champions[String(id)]?.items.core ?? []) out.push({ items: ids, weight: pick ?? 0 });
+  return out;
+}
+
+const ordered = new Map<string, boolean>();
+function isOrdered(s: Snapshot): boolean {
+  let v = ordered.get(s.patch);
+  if (v === undefined) {
+    const champs = Object.values(s.champions);
+    v = champs.filter((c) => {
+      const sets = (c.items.core ?? []).map(([ids]) => [...ids].sort((x, y) => x - y).join(","));
+      return new Set(sets).size < sets.length;
+    }).length > champs.length / 2;
+    ordered.set(s.patch, v);
+  }
+  return v;
 }

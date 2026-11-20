@@ -267,5 +267,6 @@
  "Support": "Support",
  "Tied": "Holtverseny",
  "Rush": "Először",
- "With {augment}: buy {item} first": "{augment} mellett: először {item}"
+ "With {augment}: buy {item} first": "{augment} mellett: először {item}",
+ "Then": "Utána"
 }

@@ -267,5 +267,6 @@
  "Support": "Podpora",
  "Tied": "Nerozhodně",
  "Rush": "Nejdřív",
- "With {augment}: buy {item} first": "S {augment}: kupte nejdřív {item}"
+ "With {augment}: buy {item} first": "S {augment}: kupte nejdřív {item}",
+ "Then": "Potom"
 }

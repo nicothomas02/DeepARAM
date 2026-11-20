@@ -368,6 +368,16 @@ export function TfCard({ alias, patches, matches, spells, children }: Common & {
                   <ItemIcon key={id} id={id} info={info} named />
                 ))}
               </div>
+              {(card.core.rest ?? []).length > 0 && (
+                <p className="cp-rest">
+                  <small>
+                    <T ns="champions">Then</T>
+                  </small>
+                  {card.core.rest!.map((id) => (
+                    <ItemIcon key={id} id={id} info={info} named />
+                  ))}
+                </p>
+              )}
               <div className="cp-mini">
                 <RatedCells r={card.core} />
               </div>
@@ -385,7 +395,7 @@ export function TfCard({ alias, patches, matches, spells, children }: Common & {
                       <T ns="champions">{SITUATIONS[s.situation]}</T>
                     </small>
                     <span className="cp-icons">
-                      {s.options.slice(0, 2).map((r, i) => (
+                      {s.options.slice(0, 3).map((r, i) => (
                         <ItemIcon key={r.items[0]} id={r.items[0]} info={info} named={i === 0} />
                       ))}
                     </span>

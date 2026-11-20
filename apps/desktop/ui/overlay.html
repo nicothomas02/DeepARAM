@@ -52,7 +52,9 @@
   <h2 id="spells-title">Spells</h2>
   <div class="row" id="spells"></div>
   <h2>Core build</h2>
+  <div class="row" id="start"></div>
   <div class="row" id="items"></div>
+  <div class="row" id="rest"></div>
   <div class="row" id="rush"></div>
   <div class="augs" id="swaps"></div>
   <h2 id="sit-title">Situational items</h2>
@@ -102,6 +104,15 @@
       i.title = it.name;
       return i;
     }));
+
+    // Starting items, then the rest of the usual build after the core (as on the champion page's card).
+    const iconRow = (id, label, list) => {
+      const row = document.getElementById(id);
+      row.replaceChildren(...((list || []).length ? [el("span", "", label), ...list.map((it) => { const i = img(site, it.icon, it.name); i.title = it.name; return i; })] : []));
+      row.hidden = !(list || []).length;
+    };
+    iconRow("start", "Start", b.start);
+    iconRow("rest", "Then", b.rest);
 
     // Parts to rush for the first core item, and augment swaps ("With X: buy Y first").
     const rush = document.getElementById("rush");
