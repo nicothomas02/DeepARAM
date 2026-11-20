@@ -388,5 +388,11 @@
  "Off-menu": "Spoza menu",
  "Uses augments {champion} isn't normally offered. Just for fun: it may never come together in a real game.": "Używa ulepszeń, których {champion} normalnie nie dostaje. Dla zabawy: ten build może nigdy nie wyjść w prawdziwej grze.",
  "On the menu": "W menu",
- "Periodically, your next Ability hit against an enemy champion launches a hive of Bees that explodes, Slowing and dealing magic damage over a short duration. Bees apply On-Hit effects.": "Co jakiś czas twoje następne trafienie umiejętnością we wrogiego bohatera wypuszcza ul pszczół, który wybucha, spowalniając i zadając obrażenia magiczne przez krótki czas. Pszczoły nakładają efekty przy trafieniu."
+ "Periodically, your next Ability hit against an enemy champion launches a hive of Bees that explodes, Slowing and dealing magic damage over a short duration. Bees apply On-Hit effects.": "Co jakiś czas twoje następne trafienie umiejętnością we wrogiego bohatera wypuszcza ul pszczół, który wybucha, spowalniając i zadając obrażenia magiczne przez krótki czas. Pszczoły nakładają efekty przy trafieniu.",
+ "Which champions have a Chef Special": "Którzy bohaterowie mają Danie szefa",
+ "On the menu: built only from augments that champion can be offered in Mayhem. Off-menu: any augment goes.": "W menu: tylko ulepszenia, które bohater może dostać w Mayhem. Spoza menu: dowolne ulepszenie.",
+ "Find a champion": "Znajdź bohatera",
+ "Champion": "Bohater",
+ "Not yet": "Jeszcze nie",
+ "{on} on the menu, {off} off-menu, of {total} champions": "{on} w menu, {off} spoza menu, z {total} bohaterów"
 }

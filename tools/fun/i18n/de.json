@@ -388,5 +388,11 @@
  "Off-menu": "Abseits der Karte",
  "Uses augments {champion} isn't normally offered. Just for fun: it may never come together in a real game.": "Nutzt Augments, die {champion} normalerweise nicht angeboten werden. Nur zum Spaß: Der Build kommt in einem echten Spiel vielleicht nie zustande.",
  "On the menu": "Auf der Karte",
- "Periodically, your next Ability hit against an enemy champion launches a hive of Bees that explodes, Slowing and dealing magic damage over a short duration. Bees apply On-Hit effects.": "Dein nächster Fähigkeitstreffer gegen einen gegnerischen Champion schießt regelmäßig einen Bienenstock ab, der explodiert, verlangsamt und über kurze Zeit magischen Schaden verursacht. Bienen lösen Treffereffekte aus."
+ "Periodically, your next Ability hit against an enemy champion launches a hive of Bees that explodes, Slowing and dealing magic damage over a short duration. Bees apply On-Hit effects.": "Dein nächster Fähigkeitstreffer gegen einen gegnerischen Champion schießt regelmäßig einen Bienenstock ab, der explodiert, verlangsamt und über kurze Zeit magischen Schaden verursacht. Bienen lösen Treffereffekte aus.",
+ "Which champions have a Chef Special": "Welche Champions ein Tagesgericht haben",
+ "On the menu: built only from augments that champion can be offered in Mayhem. Off-menu: any augment goes.": "Auf der Karte: nur aus Augments gebaut, die der Champion in Mayhem angeboten bekommen kann. Abseits der Karte: jedes Augment ist erlaubt.",
+ "Find a champion": "Champion suchen",
+ "Champion": "Champion",
+ "Not yet": "Noch nicht",
+ "{on} on the menu, {off} off-menu, of {total} champions": "{on} auf der Karte, {off} abseits der Karte, von {total} Champions"
 }

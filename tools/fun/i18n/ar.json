@@ -388,5 +388,11 @@
  "Off-menu": "خارج القائمة",
  "Uses augments {champion} isn't normally offered. Just for fun: it may never come together in a real game.": "يستخدم معززات لا تُعرض عادةً على {champion}. للمتعة فقط: قد لا تكتمل هذه البنية أبدًا في مباراة حقيقية.",
  "On the menu": "على القائمة",
- "Periodically, your next Ability hit against an enemy champion launches a hive of Bees that explodes, Slowing and dealing magic damage over a short duration. Bees apply On-Hit effects.": "بشكل دوري، تطلق إصابتك التالية بقدرة على بطل عدو خلية نحل تنفجر، فتبطئ وتسبب ضررًا سحريًا لمدة قصيرة. النحل يطبق تأثيرات عند الإصابة."
+ "Periodically, your next Ability hit against an enemy champion launches a hive of Bees that explodes, Slowing and dealing magic damage over a short duration. Bees apply On-Hit effects.": "بشكل دوري، تطلق إصابتك التالية بقدرة على بطل عدو خلية نحل تنفجر، فتبطئ وتسبب ضررًا سحريًا لمدة قصيرة. النحل يطبق تأثيرات عند الإصابة.",
+ "Which champions have a Chef Special": "أي الأبطال لديهم طبق الشيف الخاص",
+ "On the menu: built only from augments that champion can be offered in Mayhem. Off-menu: any augment goes.": "على القائمة: من التعزيزات التي يمكن أن تُعرض على البطل في Mayhem فقط. خارج القائمة: أي تعزيز مسموح.",
+ "Find a champion": "ابحث عن بطل",
+ "Champion": "البطل",
+ "Not yet": "ليس بعد",
+ "{on} on the menu, {off} off-menu, of {total} champions": "{on} على القائمة، {off} خارج القائمة، من {total} بطلًا"
 }

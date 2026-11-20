@@ -198,6 +198,16 @@ def chef_i18n(chef):
     return out
 
 
+def champion_list():
+    """Every champion as [Data Dragon key, English name], by name: the Kitchen's menu coverage table."""
+    dd = sorted(glob.glob(os.path.join(REPO, "web", "public", "assets", "dd", "*", "data", "en_US", "champion.json")),
+                key=lambda p: [int(x) for x in re.findall(r"\d+", p.split(os.sep + "dd" + os.sep)[1].split(os.sep)[0])])
+    if not dd:
+        return []
+    data = json.load(open(dd[-1], encoding="utf-8"))["data"]
+    return sorted(([k, v["name"]] for k, v in data.items()), key=lambda kv: kv[1].lower())
+
+
 def item_id_map():
     """English item name -> an item id the site's name files translate (the lowest id sold in ARAM)."""
     dd = sorted(glob.glob(os.path.join(REPO, "web", "public", "assets", "dd", "*", "data", "en_US", "item.json")),
@@ -295,6 +305,7 @@ def main():
         "champion_count": n_champs, "augment_count": len(aug_stats),
         "generated": time.strftime("%Y-%m-%d"),
         "item_icons": item_icons(i for b in out for i in b["item_ids"]),
+        "champions": champion_list(),
     }
     with open(os.path.join(PAGE, "data.js"), "w", encoding="utf-8") as f:
         f.write("window.COOK_DATA = " + json.dumps({"meta": meta, "builds": out}, indent=1, ensure_ascii=False) + ";\n")

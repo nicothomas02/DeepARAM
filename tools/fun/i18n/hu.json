@@ -388,5 +388,11 @@
  "Off-menu": "Étlapon kívül",
  "Uses augments {champion} isn't normally offered. Just for fun: it may never come together in a real game.": "Olyan fejlesztéseket használ, amelyeket {champion} általában nem kap meg. Csak szórakozásból: lehet, hogy valódi meccsen sosem jön össze.",
  "On the menu": "Az étlapon",
- "Periodically, your next Ability hit against an enemy champion launches a hive of Bees that explodes, Slowing and dealing magic damage over a short duration. Bees apply On-Hit effects.": "Időnként a következő képességtalálatod egy ellenséges hősön kilő egy méhkaptárt, ami felrobban, lelassít és rövid ideig mágikus sebzést okoz. A méhek alkalmazzák a találati hatásokat."
+ "Periodically, your next Ability hit against an enemy champion launches a hive of Bees that explodes, Slowing and dealing magic damage over a short duration. Bees apply On-Hit effects.": "Időnként a következő képességtalálatod egy ellenséges hősön kilő egy méhkaptárt, ami felrobban, lelassít és rövid ideig mágikus sebzést okoz. A méhek alkalmazzák a találati hatásokat.",
+ "Which champions have a Chef Special": "Mely hősöknek van séf különlegessége",
+ "On the menu: built only from augments that champion can be offered in Mayhem. Off-menu: any augment goes.": "Az étlapon: csak olyan bővítésekből, amelyeket a hős Mayhemben kaphat. Étlapon kívül: bármilyen bővítés jöhet.",
+ "Find a champion": "Hős keresése",
+ "Champion": "Hős",
+ "Not yet": "Még nincs",
+ "{on} on the menu, {off} off-menu, of {total} champions": "{on} az étlapon, {off} étlapon kívül, {total} hősből"
 }

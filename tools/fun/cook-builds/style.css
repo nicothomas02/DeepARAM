@@ -145,3 +145,21 @@ a.chef-chip { text-decoration: none; }
 .how { list-style: none; padding: 0; margin: 0; display: grid; gap: 6px; max-width: 72ch; }
 .how li { padding: 6px 12px; border-left: 3px solid var(--chef, #e0a83c); background: color-mix(in srgb, var(--chef, #e0a83c) 7%, transparent); border-radius: 6px; font-size: 14.5px; }
 .how li b { display: block; font-weight: 600; color: var(--fg); font-size: 13px; letter-spacing: .02em; }
+
+/* Menu coverage table: every champion, on-the-menu and off-menu Chef Specials. */
+.coverage { margin-top: 24px; }
+.coverage summary { cursor: pointer; display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px; list-style: none; }
+.coverage summary::-webkit-details-marker { display: none; }
+.coverage summary h2 { display: inline; margin: 0; }
+.coverage summary h2::before { content: "▸ "; color: var(--gold-ink); }
+.coverage details[open] summary h2::before { content: "▾ "; }
+.coverage input[type="search"] { width: 100%; max-width: 320px; height: 38px; margin: 8px 0 12px; padding: 0 12px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); color: var(--fg); font: inherit; }
+.coverage-wrap { max-height: 520px; overflow: auto; border: 1px solid var(--line); border-radius: 12px; }
+.coverage table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.coverage thead th { position: sticky; top: 0; background: var(--surface); text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); z-index: 1; }
+.coverage tbody th, .coverage td { padding: 6px 10px; border-bottom: 1px solid var(--line); text-align: left; font-weight: 400; vertical-align: middle; }
+.coverage tbody th { display: flex; align-items: center; gap: 8px; font-weight: 500; }
+.coverage tbody th img { border-radius: 6px; }
+.coverage td.yes a { color: var(--gold-ink); text-decoration: none; }
+.coverage td.yes a span { color: var(--fg); }
+@media (max-width: 520px) { .coverage td.yes a span { display: none; } }

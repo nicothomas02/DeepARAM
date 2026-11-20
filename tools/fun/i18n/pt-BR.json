@@ -388,5 +388,11 @@
  "Off-menu": "Fora do cardápio",
  "Uses augments {champion} isn't normally offered. Just for fun: it may never come together in a real game.": "Usa aumentos que {champion} normalmente não recebe. Só por diversão: pode nunca acontecer numa partida de verdade.",
  "On the menu": "No cardápio",
- "Periodically, your next Ability hit against an enemy champion launches a hive of Bees that explodes, Slowing and dealing magic damage over a short duration. Bees apply On-Hit effects.": "Periodicamente, seu próximo acerto de Habilidade em um campeão inimigo lança uma colmeia de abelhas que explode, causando Lentidão e dano mágico por um curto período. As abelhas aplicam efeitos Ao Atingir."
+ "Periodically, your next Ability hit against an enemy champion launches a hive of Bees that explodes, Slowing and dealing magic damage over a short duration. Bees apply On-Hit effects.": "Periodicamente, seu próximo acerto de Habilidade em um campeão inimigo lança uma colmeia de abelhas que explode, causando Lentidão e dano mágico por um curto período. As abelhas aplicam efeitos Ao Atingir.",
+ "Which champions have a Chef Special": "Quais campeões têm um Especial do chef",
+ "On the menu: built only from augments that champion can be offered in Mayhem. Off-menu: any augment goes.": "No cardápio: só com aumentos que esse campeão pode receber no Mayhem. Fora do cardápio: vale qualquer aumento.",
+ "Find a champion": "Encontrar um campeão",
+ "Champion": "Campeão",
+ "Not yet": "Ainda não",
+ "{on} on the menu, {off} off-menu, of {total} champions": "{on} no cardápio, {off} fora do cardápio, de {total} campeões"
 }

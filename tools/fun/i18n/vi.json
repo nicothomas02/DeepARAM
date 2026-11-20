@@ -388,5 +388,11 @@
  "Off-menu": "Ngoài thực đơn",
  "Uses augments {champion} isn't normally offered. Just for fun: it may never come together in a real game.": "Dùng các lõi nâng cấp mà {champion} thường không được nhận. Chỉ để vui: có thể không bao giờ ghép được trong trận thật.",
  "On the menu": "Trong thực đơn",
- "Periodically, your next Ability hit against an enemy champion launches a hive of Bees that explodes, Slowing and dealing magic damage over a short duration. Bees apply On-Hit effects.": "Định kỳ, đòn Kỹ năng tiếp theo trúng tướng địch sẽ phóng ra một tổ ong phát nổ, làm Chậm và gây sát thương phép trong thời gian ngắn. Ong áp dụng hiệu ứng Trên Đòn Đánh."
+ "Periodically, your next Ability hit against an enemy champion launches a hive of Bees that explodes, Slowing and dealing magic damage over a short duration. Bees apply On-Hit effects.": "Định kỳ, đòn Kỹ năng tiếp theo trúng tướng địch sẽ phóng ra một tổ ong phát nổ, làm Chậm và gây sát thương phép trong thời gian ngắn. Ong áp dụng hiệu ứng Trên Đòn Đánh.",
+ "Which champions have a Chef Special": "Tướng nào đã có Món Đặc Biệt",
+ "On the menu: built only from augments that champion can be offered in Mayhem. Off-menu: any augment goes.": "Trong thực đơn: chỉ dùng lõi mà tướng đó có thể nhận trong Mayhem. Ngoài thực đơn: lõi nào cũng được.",
+ "Find a champion": "Tìm tướng",
+ "Champion": "Tướng",
+ "Not yet": "Chưa có",
+ "{on} on the menu, {off} off-menu, of {total} champions": "{on} trong thực đơn, {off} ngoài thực đơn, trên {total} tướng"
 }

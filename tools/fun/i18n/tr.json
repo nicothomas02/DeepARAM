@@ -388,5 +388,11 @@
  "Off-menu": "Menü dışı",
  "Uses augments {champion} isn't normally offered. Just for fun: it may never come together in a real game.": "{champion} karakterine normalde sunulmayan güçlendirmeler kullanır. Sadece eğlence için: gerçek bir maçta hiç bir araya gelmeyebilir.",
  "On the menu": "Menüde",
- "Periodically, your next Ability hit against an enemy champion launches a hive of Bees that explodes, Slowing and dealing magic damage over a short duration. Bees apply On-Hit effects.": "Belirli aralıklarla, rakip bir şampiyona yaptığın bir sonraki Yetenek isabeti patlayan bir arı kovanı fırlatır, kısa süre boyunca Yavaşlatır ve büyü hasarı verir. Arılar isabet etkilerini uygular."
+ "Periodically, your next Ability hit against an enemy champion launches a hive of Bees that explodes, Slowing and dealing magic damage over a short duration. Bees apply On-Hit effects.": "Belirli aralıklarla, rakip bir şampiyona yaptığın bir sonraki Yetenek isabeti patlayan bir arı kovanı fırlatır, kısa süre boyunca Yavaşlatır ve büyü hasarı verir. Arılar isabet etkilerini uygular.",
+ "Which champions have a Chef Special": "Hangi şampiyonların Şefin Spesiyali var",
+ "On the menu: built only from augments that champion can be offered in Mayhem. Off-menu: any augment goes.": "Menüde: yalnızca şampiyonun Mayhem'de alabileceği güçlendirmelerle. Menü dışı: her güçlendirme serbest.",
+ "Find a champion": "Şampiyon bul",
+ "Champion": "Şampiyon",
+ "Not yet": "Henüz yok",
+ "{on} on the menu, {off} off-menu, of {total} champions": "{total} şampiyondan {on} menüde, {off} menü dışı"
 }

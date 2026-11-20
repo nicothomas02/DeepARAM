@@ -17,6 +17,18 @@
 
     <section id="chefs-special" class="chef" aria-labelledby="chef-label" hidden></section>
 
+    <section id="menu-coverage" class="coverage" aria-labelledby="coverage-label" hidden>
+      <details>
+        <summary><h2 id="coverage-label">Which champions have a Chef Special</h2> <span id="coverage-count" class="muted small"></span></summary>
+        <p class="muted small">On the menu: built only from augments that champion can be offered in Mayhem. Off-menu: any augment goes.</p>
+        <input id="coverage-search" type="search" placeholder="Find a champion" aria-label="Find a champion" autocomplete="off">
+        <div class="coverage-wrap"><table>
+          <thead><tr><th scope="col">Champion</th><th scope="col">On the menu</th><th scope="col">Off-menu</th></tr></thead>
+          <tbody id="coverage-rows"></tbody>
+        </table></div>
+      </details>
+    </section>
+
     <section id="community" class="community" aria-labelledby="community-label" hidden>
       <div class="chef-head">
         <h2 id="community-label">Community builds</h2>

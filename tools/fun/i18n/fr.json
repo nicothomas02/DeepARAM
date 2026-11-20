@@ -388,5 +388,11 @@
  "Off-menu": "Hors menu",
  "Uses augments {champion} isn't normally offered. Just for fun: it may never come together in a real game.": "Utilise des augments que {champion} ne se voit normalement pas proposer. Juste pour le fun : ce build ne se fera peut-être jamais en vraie partie.",
  "On the menu": "Au menu",
- "Periodically, your next Ability hit against an enemy champion launches a hive of Bees that explodes, Slowing and dealing magic damage over a short duration. Bees apply On-Hit effects.": "Périodiquement, votre prochain coup de compétence contre un champion ennemi lance une ruche d'abeilles qui explose, ralentissant et infligeant des dégâts magiques sur une courte durée. Les abeilles appliquent les effets à l'impact."
+ "Periodically, your next Ability hit against an enemy champion launches a hive of Bees that explodes, Slowing and dealing magic damage over a short duration. Bees apply On-Hit effects.": "Périodiquement, votre prochain coup de compétence contre un champion ennemi lance une ruche d'abeilles qui explose, ralentissant et infligeant des dégâts magiques sur une courte durée. Les abeilles appliquent les effets à l'impact.",
+ "Which champions have a Chef Special": "Quels champions ont un plat du jour",
+ "On the menu: built only from augments that champion can be offered in Mayhem. Off-menu: any augment goes.": "Au menu : uniquement des augments que ce champion peut se voir proposer en Mayhem. Hors menu : tous les augments sont permis.",
+ "Find a champion": "Trouver un champion",
+ "Champion": "Champion",
+ "Not yet": "Pas encore",
+ "{on} on the menu, {off} off-menu, of {total} champions": "{on} au menu, {off} hors menu, sur {total} champions"
 }

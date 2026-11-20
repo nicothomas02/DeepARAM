@@ -388,5 +388,11 @@
  "Off-menu": "Di luar menu",
  "Uses augments {champion} isn't normally offered. Just for fun: it may never come together in a real game.": "Memakai augment yang biasanya tidak ditawarkan ke {champion}. Cuma buat seru: mungkin nggak pernah lengkap di game sungguhan.",
  "On the menu": "Di menu",
- "Periodically, your next Ability hit against an enemy champion launches a hive of Bees that explodes, Slowing and dealing magic damage over a short duration. Bees apply On-Hit effects.": "Secara berkala, hit Ability berikutnya ke champion musuh meluncurkan sarang lebah yang meledak, memberi Slow dan magic damage selama waktu singkat. Lebah menerapkan efek On-Hit."
+ "Periodically, your next Ability hit against an enemy champion launches a hive of Bees that explodes, Slowing and dealing magic damage over a short duration. Bees apply On-Hit effects.": "Secara berkala, hit Ability berikutnya ke champion musuh meluncurkan sarang lebah yang meledak, memberi Slow dan magic damage selama waktu singkat. Lebah menerapkan efek On-Hit.",
+ "Which champions have a Chef Special": "Champion mana yang punya Chef Special",
+ "On the menu: built only from augments that champion can be offered in Mayhem. Off-menu: any augment goes.": "Di menu: hanya augment yang bisa didapat champion itu di Mayhem. Di luar menu: augment apa pun boleh.",
+ "Find a champion": "Cari champion",
+ "Champion": "Champion",
+ "Not yet": "Belum ada",
+ "{on} on the menu, {off} off-menu, of {total} champions": "{on} di menu, {off} di luar menu, dari {total} champion"
 }
