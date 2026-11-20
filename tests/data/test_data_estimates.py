@@ -20,22 +20,42 @@ def test_augment_win_rate_follows_grade_and_lift():
     assert cm.augment_win_rate(0.5, 0.0, "S", model) > base
 
 
+# Feed-only estimates (build.py USE_OWNER_ARCHIVE off, Nico 2026-11-20: public numbers come only from the live stats)
+# leave out every section counted or fitted on the owner's games.
+ARCHIVE_SECTIONS = ("profiles", "augment_pairs", "augment_stages", "game_length", "side", "item_timing")
+
+
 def test_sections_present(est):
+    feed_only = est.get("feed_only") is True
     for key in ("vs_average", "profiles", "augments", "augment_pairs", "augment_stages", "augment_items",
                 "rarity_odds", "items", "duos", "game_length", "side", "fun"):
-        assert est[key], key
+        if feed_only and key in ARCHIVE_SECTIONS:
+            assert key not in est, key
+        else:
+            assert est[key], key
     assert est["estimated"] is True
+
+
+def test_feed_only_matches_the_switch(est):
+    build = load_module("data/estimates/build.py", "estimates_build", extra_path=["data/estimates"])
+    assert (est.get("feed_only") is True) == (not build.USE_OWNER_ARCHIVE)
+    if est.get("feed_only"):
+        assert set(est["fun"]) == {"damage", "tank", "teamplay"}
+        assert "by_stage" not in est["rarity_odds"]
+        for rows in est["augments"].values():
+            for r in rows:
+                assert "win_rate" not in r and "lift" not in r
 
 
 def test_rarity_odds_sum_to_one(est):
     odds = est["rarity_odds"]
     assert sum(odds["overall"].values()) == pytest.approx(1, abs=1e-3)
-    for stage in odds["by_stage"]:
+    for stage in odds.get("by_stage", []):
         assert sum(stage.values()) == pytest.approx(1, abs=1e-3)
 
 
 def test_profiles_and_damage_split(est):
-    for c, p in est["profiles"].items():
+    for c, p in est.get("profiles", {}).items():
         assert sum(p["damage_split"].values()) == pytest.approx(1, abs=2e-3)
         assert p["deaths"]["band"] in ("high", "average", "low")
         assert p["kills"]["value"] > 0
@@ -44,8 +64,10 @@ def test_profiles_and_damage_split(est):
 def test_augment_rows_consistent(est):
     for c, rows in est["augments"].items():
         for r in rows:
-            assert 0.2 < r["win_rate"] < 0.8
-        for r in est["augment_pairs"][c]:
+            assert 0 <= r["pick_rate"] <= 1
+            if "win_rate" in r:
+                assert 0.2 < r["win_rate"] < 0.8
+        for r in est.get("augment_pairs", {}).get(c, []):
             assert 0 < r["pick_rate"] <= 1
 
 

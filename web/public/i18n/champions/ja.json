@@ -189,9 +189,6 @@
  "Boots after the 3rd item": "3つ目のアイテムの後にブーツ",
  "Boots are shown where to buy them.": "ブーツは買うタイミングの位置に表示されます。",
  "Core builds show the boots where the Simulator says to buy them: the first point where they add as much per gold as the next item.": "コアビルドでは、シミュレーターが勧める購入タイミングにブーツを表示します。ゴールドあたりの効果が次のアイテムと同等以上になる最初の時点です。",
- "The biggest win rate boost of any augment on {champ}: +{n} pts.": "{champ}で最も勝率を上げるオーグメント：+{n}ポイント。",
- "Raises {champ}'s win rate by {n} pts.": "{champ}の勝率を{n}ポイント上げます。",
- "Lowers {champ}'s win rate by {n} pts.": "{champ}の勝率を{n}ポイント下げます。",
  "Build for your augments": "オーグメント別ビルド",
  "The builds below are for any augments. Pick yours to see the best items with it.": "下のビルドはどのオーグメントでも使えます。自分のオーグメントを選ぶと、それに合う最適なアイテムが見られます。",
  "Simulated: the Simulator's best items with this augment taken, compared with its best items with no augment.": "シミュレーション：このオーグメントを取ったときのシミュレーターの最適アイテムを、オーグメントなしの最適アイテムと比べたものです。",
@@ -249,5 +246,9 @@
  "From earlier games": "過去の試合から",
  "Augment synergies": "オーグメントのシナジー",
  "Augments that make each other stronger on this champion: worth more together than apart.": "このチャンピオンで互いを強化し合うオーグメント。単体の合計より組み合わせたほうが強い。",
- "No confirmed augment synergies for this champion yet.": "このチャンピオンで確認済みのオーグメントシナジーはまだありません。"
+ "No confirmed augment synergies for this champion yet.": "このチャンピオンで確認済みのオーグメントシナジーはまだありません。",
+ "Pick rate here is the share of those builds, not of all games.": "ここでのピック率は、全試合ではなくこれらのビルド内での割合です。",
+ "Only the top starters are listed, and they usually win more than the champion overall, so each one is compared with the others.": "上位のスターターアイテムだけを載せており、たいていチャンピオン全体より勝率が高いため、互いに比べて表示しています。",
+ "Estimated: {champ} wins {n} pts more in games with it.": "推定: これを取った試合では{champ}の勝率が{n}pt高くなります。",
+ "Estimated: {champ} wins {n} pts less in games with it.": "推定: これを取った試合では{champ}の勝率が{n}pt低くなります。"
 }

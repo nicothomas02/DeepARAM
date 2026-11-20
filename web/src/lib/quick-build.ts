@@ -1,7 +1,7 @@
 // The champion page's quick build for every champion, with names and icons resolved: skill order, summoner
-// spells, boots, core and late items, and the top augments by DeepScore. Feeds /data/watch.json (Apple Watch)
+// spells, boots, core and late items, and the top augments by DeepScore on that champion (the champion page's order). Feeds /data/watch.json (Apple Watch)
 // and /data/overlay.json (the desktop app's in-game overlay).
-import { augmentTiers } from "@/lib/augment-tiers";
+import { championAugmentScores } from "@/lib/champion-augment-scores";
 import { bestRow, buildOrder, championPage, scoreRows } from "@/lib/champion-page";
 import { champList } from "@/lib/champions";
 import { fillSpells } from "@/lib/fill";
@@ -25,7 +25,6 @@ export type QuickBuild = {
 
 export function quickBuilds(): QuickBuild[] {
   const tiers = new Map(liveTiers().map((t) => [t.id, t]));
-  const scores = new Map(augmentTiers().map((a) => [a.id, a.deepScore]));
   return champList().flatMap(({ id, name }) => {
     const p = championPage(id);
     if (!p) return [];
@@ -39,6 +38,8 @@ export function quickBuilds(): QuickBuild[] {
     );
     const rawSpells = fillSpells(id, t?.winRate ?? p.winRate ?? 0.5);
     const spells = (rawSpells.some((r) => r.estimated) ? rawSpells : scoreRows(rawSpells))[0];
+    // Ranked on this champion, as on its page, never by the Tier List's overall rating (lib/champion-augment-scores.ts).
+    const scores = championAugmentScores(id, p.augments);
     const byScore = [...p.augments].sort(
       (x, y) => (scores.get(y.id) ?? -1) - (scores.get(x.id) ?? -1) || y.pickRate - x.pickRate,
     );

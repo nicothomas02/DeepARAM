@@ -132,7 +132,6 @@
  "Estimated. How far the champion's win rate swings with the augments it gets. High means its augment picks matter a lot.": "Geschätzt. Wie stark die Siegrate des Champions mit seinen Augments schwankt. Hoch heißt: Die Augment-Wahl ist für ihn sehr wichtig.",
  "Varies by champion and Augment reliance are typical swings in pts: how much an augment's boost changes between champions, and how much a champion's win rate changes between augments.": "Schwankt je Champion und Augment-Abhängigkeit sind typische Schwankungen in Pkt.: wie stark sich das Plus eines Augments zwischen Champions ändert und wie stark sich die Siegrate eines Champions zwischen Augments ändert.",
  "Best champ": "Bester Champ",
- "The champion with the highest estimated win rate boost from this augment.": "Der Champion mit dem höchsten geschätzten Siegraten-Plus durch diese Verstärkung.",
  "Augment pick": "Augment-Wahl",
  "Estimated: the augment picks (1st to 4th) where it usually shows up.": "Geschätzt: die Augment-Wahlen (1. bis 4.), bei denen es meist auftaucht.",
  "Few games": "Wenige Spiele",
@@ -154,5 +153,7 @@
  "Bias %": "Verzerrung %",
  "Order within role": "Reihenfolge in der Rolle",
  "Real ÷ predicted": "Echt ÷ vorhergesagt",
- "Find an item": "Gegenstand suchen"
+ "Find an item": "Gegenstand suchen",
+ "The champion this augment does best on.": "Der Champion, bei dem dieses Augment am besten abschneidet.",
+ "On a champion's page, DeepScore follows each augment's grade on that champion: S 70+, A 59+, B 44+, C 32+. Within a grade, the more often the champion takes it, the higher it scores.": "Auf der Champion-Seite folgt der DeepScore der Note jedes Augments bei diesem Champion: S 70+, A 59+, B 44+, C 32+. Innerhalb einer Note punktet höher, was der Champion öfter nimmt."
 }

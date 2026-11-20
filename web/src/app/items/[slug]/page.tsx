@@ -68,7 +68,7 @@ function builderList(list: ItemPage["builders"], games?: Map<string, number>) {
           </span>
           <span className={`rank-v ${b.winRate !== null && b.winRate >= 0.52 ? "wr-good" : ""}`}>
             {b.winRate !== null ? (
-              <Sampled n={games?.has(b.id) ? games.get(b.id)! * b.pickRate : undefined} p={b.winRate}>
+              <Sampled n={games?.has(b.id) ? games.get(b.id)! * b.pickRate * (b.coverage ?? 1) : undefined} p={b.winRate}>
                 <T ns="items" v={{ pct: pct(b.winRate) }}>
                   {"{pct} win"}
                 </T>

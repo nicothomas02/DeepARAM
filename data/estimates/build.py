@@ -34,6 +34,12 @@ import common as cm
 
 MIN_PAIR = 0.003
 
+# Public numbers come only from the stats feed (Nico, 2026-11-20). fitted.json is fitted on the owner's own games, so
+# while this is off nothing it shapes is written: profiles and their top 10s, item timing, augment win rates and pairs
+# (augments keep only the feed's per-champion grade and pick rate), augment timing, rarity odds per pick, game length
+# and side. Summoner spells (data/fill) are the one exception Nico kept, labelled as estimates.
+USE_OWNER_ARCHIVE = False
+
 
 def pick_weighted_mean(stats, key):
     tot = sum(s["pick_rate"] for s in stats.values())
@@ -164,8 +170,10 @@ def rarity_odds(fair, tiers, fitted):
         if t in cm.RARITIES:
             picks[t] += r["pick_rate"]
     tot = sum(picks.values())
-    return {"overall": {t: round(picks[t] / tot, 4) for t in cm.RARITIES},
-            "by_stage": fitted["stages"]["by_stage"], "next": fitted["stages"]["next"]}
+    overall = {t: round(picks[t] / tot, 4) for t in cm.RARITIES}
+    if fitted is None:  # feed only: no per-pick odds
+        return {"overall": overall}
+    return {"overall": overall, "by_stage": fitted["stages"]["by_stage"], "next": fitted["stages"]["next"]}
 
 
 def items(stats, builds, granted):
@@ -248,10 +256,15 @@ def game_length(fitted):
 def fun(stats, prof):
     def top(key_fn, n=10):
         return [int(c) for c in sorted(stats, key=key_fn, reverse=True)[:n]]
-    return {
+    feed = {
         "damage": top(lambda c: stats[c]["damage"]),
         "tank": top(lambda c: stats[c]["tank"]),
         "teamplay": top(lambda c: stats[c]["kp"]),
+    }
+    if prof is None:
+        return feed
+    return {
+        **feed,
         "healing": top(lambda c: prof[c]["heal_per_min"]["value"]),
         "crowd_control": top(lambda c: prof[c]["cc_seconds"]["value"]),
         "multikills": top(lambda c: prof[c]["multikills"]["value"]),
@@ -259,12 +272,42 @@ def fun(stats, prof):
     }
 
 
+def feed_augments(stats, builds):
+    """Each champion's augments with the feed's own per-champion grade and pick rate only: no win rate, no lift."""
+    return {c: [{"id": a["id"], "pick_rate": a["pick_rate"], "grade": a.get("grade")} for a in b["augments"]["all"]]
+            for c, b in builds.items() if c in stats}
+
+
+def feed_only(stats, builds, fair, tiers, granted):
+    picks = rarity_odds(fair, tiers, None)
+    return {
+        "patch": cm.live_patch(),
+        "estimated": True,
+        "feed_only": True,
+        "built": dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+        "vs_average": vs_average(stats),
+        "augments": feed_augments(stats, builds),
+        "augment_items": augment_items(stats, builds),
+        "rarity_odds": picks,
+        "items": items(stats, builds, granted),
+        "duos": duos(stats),
+        "fun": {k: v for k, v in fun(stats, None).items() if k in ("damage", "tank", "teamplay")},
+    }
+
+
 def main():
-    fitted = cm.load(os.path.join(cm.HERE, "fitted.json"))
     stats, builds, fair = cm.champion_stats(), cm.builds(), cm.fair_augments()
     rules = cm.augment_rules()
     tiers = rules["tiers"]
     granted = {g["id"] for g in rules.get("grantedItems", [])}
+    if not USE_OWNER_ARCHIVE:
+        out = feed_only(stats, builds, fair, tiers, granted)
+        with open(os.path.join(cm.HERE, "estimates.json"), "w", encoding="utf-8") as f:
+            json.dump(out, f, ensure_ascii=False, separators=(",", ":"))
+            f.write("\n")
+        print(f"patch {out['patch']}: feed only, {len(out['augments'])} champions, {len(out['items'])} items")
+        return 0
+    fitted = cm.load(os.path.join(cm.HERE, "fitted.json"))
     augs = augments_on_champions(stats, builds, fair, fitted["augment_model"])
     prof = profiles(stats, fitted)
     out = {

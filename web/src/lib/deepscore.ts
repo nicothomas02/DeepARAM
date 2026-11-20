@@ -117,6 +117,11 @@ export const AUGMENT_DEEPSCORE_HELP =
   "augment's win rate with what the same champions win anyway, so augments that strong champions take don't look " +
   `better than they are, and predicts how much of its edge lasts into next patch. Tiers: ${CUTS}, D below.`;
 
+/** The champion page's augment list: DeepScore from the augment's grade on that champion (lib/champion-augment-scores.ts). */
+export const CHAMPION_AUGMENT_DEEPSCORE_HELP =
+  "On a champion's page, DeepScore follows each augment's grade on that champion: S 70+, A 59+, B 44+, C 32+. " +
+  "Within a grade, the more often the champion takes it, the higher it scores.";
+
 export const ITEM_DEEPSCORE_HELP =
   "DeepScore rates each item from 0 to 100 against this champion's other items of the same tier, where 50 is average. It starts " +
   `from the item's win rate with this champion and trusts rarely built items less. Tiers: ${CUTS}, D below.`;

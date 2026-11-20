@@ -132,7 +132,6 @@
  "Estimated. How far the champion's win rate swings with the augments it gets. High means its augment picks matter a lot.": "推定。取ったオーグメントによってチャンピオンの勝率がどれだけ変わるか。高いほど、オーグメント選びが重要です。",
  "Varies by champion and Augment reliance are typical swings in pts: how much an augment's boost changes between champions, and how much a champion's win rate changes between augments.": "「チャンピオン差」と「オーグメント依存度」は、ptで表した典型的な振れ幅です。オーグメントの上昇幅がチャンピオン間でどれだけ変わるか、チャンピオンの勝率がオーグメント間でどれだけ変わるかを示します。",
  "Best champ": "ベストチャンピオン",
- "The champion with the highest estimated win rate boost from this augment.": "このオーグメントで推定勝率上昇が最も大きいチャンピオン。",
  "Augment pick": "オーグメント選択",
  "Estimated: the augment picks (1st to 4th) where it usually shows up.": "推定：よく出てくるオーグメント選択（1回目〜4回目）です。",
  "Few games": "試合数少",
@@ -154,5 +153,7 @@
  "Bias %": "バイアス %",
  "Order within role": "ロール内の順位",
  "Real ÷ predicted": "実際 ÷ 予測",
- "Find an item": "アイテムを検索"
+ "Find an item": "アイテムを検索",
+ "The champion this augment does best on.": "このオーグメントが最も活きるチャンピオン。",
+ "On a champion's page, DeepScore follows each augment's grade on that champion: S 70+, A 59+, B 44+, C 32+. Within a grade, the more often the champion takes it, the higher it scores.": "チャンピオンページの DeepScore は、そのチャンピオンでの各オーグメントの評価に従います: S 70+、A 59+、B 44+、C 32+。同じ評価の中では、よく選ばれるものほど高くなります。"
 }

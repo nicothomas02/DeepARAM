@@ -189,9 +189,6 @@
  "Boots after the 3rd item": "Cizme după al 3-lea obiect",
  "Boots are shown where to buy them.": "Cizmele apar acolo unde trebuie cumpărate.",
  "Core builds show the boots where the Simulator says to buy them: the first point where they add as much per gold as the next item.": "Build-urile de bază arată cizmele acolo unde Simulatorul spune să le cumperi: primul moment în care aduc pe aur cât următorul obiect.",
- "The biggest win rate boost of any augment on {champ}: +{n} pts.": "Cea mai mare creștere a ratei de victorie dintre toate augmentările pentru {champ}: +{n} pct.",
- "Raises {champ}'s win rate by {n} pts.": "Crește rata de victorie a lui {champ} cu {n} pct.",
- "Lowers {champ}'s win rate by {n} pts.": "Scade rata de victorie a lui {champ} cu {n} pct.",
  "Build for your augments": "Build pentru augmentările tale",
  "The builds below are for any augments. Pick yours to see the best items with it.": "Build-urile de mai jos merg cu orice augmentări. Alege-o pe a ta ca să vezi cele mai bune obiecte cu ea.",
  "Simulated: the Simulator's best items with this augment taken, compared with its best items with no augment.": "Simulat: cele mai bune obiecte ale simulatorului cu această augmentare, comparate cu cele mai bune fără augmentare.",
@@ -249,5 +246,9 @@
  "From earlier games": "Din meciuri anterioare",
  "Augment synergies": "Sinergii de augmenturi",
  "Augments that make each other stronger on this champion: worth more together than apart.": "Augmenturi care se întăresc reciproc pe acest campion: valorează mai mult împreună decât separat.",
- "No confirmed augment synergies for this champion yet.": "Încă nu există sinergii de augmenturi confirmate pentru acest campion."
+ "No confirmed augment synergies for this champion yet.": "Încă nu există sinergii de augmenturi confirmate pentru acest campion.",
+ "Pick rate here is the share of those builds, not of all games.": "Rata de alegere este aici procentul din aceste build-uri, nu din toate meciurile.",
+ "Only the top starters are listed, and they usually win more than the champion overall, so each one is compared with the others.": "Sunt afișate doar cele mai bune obiecte de start, care de obicei câștigă mai des decât campionul în general, așa că fiecare e comparat cu celelalte.",
+ "Estimated: {champ} wins {n} pts more in games with it.": "Estimare: {champ} câștigă cu {n} pct mai mult în meciurile cu el.",
+ "Estimated: {champ} wins {n} pts less in games with it.": "Estimare: {champ} câștigă cu {n} pct mai puțin în meciurile cu el."
 }

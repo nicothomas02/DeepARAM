@@ -189,9 +189,6 @@
  "Boots after the 3rd item": "Botas depois do 3º item",
  "Boots are shown where to buy them.": "As botas aparecem onde comprá-las.",
  "Core builds show the boots where the Simulator says to buy them: the first point where they add as much per gold as the next item.": "As builds principais mostram as botas onde o Simulador diz para comprá-las: o primeiro ponto em que rendem por ouro tanto quanto o próximo item.",
- "The biggest win rate boost of any augment on {champ}: +{n} pts.": "O maior aumento de taxa de vitória entre todos os aumentos com {champ}: +{n} pts.",
- "Raises {champ}'s win rate by {n} pts.": "Aumenta a taxa de vitória de {champ} em {n} pts.",
- "Lowers {champ}'s win rate by {n} pts.": "Reduz a taxa de vitória de {champ} em {n} pts.",
  "Build for your augments": "Build para seus aumentos",
  "The builds below are for any augments. Pick yours to see the best items with it.": "As builds abaixo servem para qualquer aumento. Escolha o seu para ver os melhores itens com ele.",
  "Simulated: the Simulator's best items with this augment taken, compared with its best items with no augment.": "Simulado: os melhores itens do simulador com este aumento, comparados aos melhores itens sem aumento.",
@@ -249,5 +246,9 @@
  "From earlier games": "De partidas anteriores",
  "Augment synergies": "Sinergias de aprimoramentos",
  "Augments that make each other stronger on this champion: worth more together than apart.": "Aprimoramentos que se fortalecem neste campeão: valem mais juntos do que separados.",
- "No confirmed augment synergies for this champion yet.": "Ainda não há sinergias de aprimoramentos confirmadas para este campeão."
+ "No confirmed augment synergies for this champion yet.": "Ainda não há sinergias de aprimoramentos confirmadas para este campeão.",
+ "Pick rate here is the share of those builds, not of all games.": "Aqui a taxa de escolha é a fatia dessas builds, não de todas as partidas.",
+ "Only the top starters are listed, and they usually win more than the champion overall, so each one is compared with the others.": "Só os melhores itens iniciais aparecem, e eles costumam vencer mais que o campeão no geral, então cada um é comparado com os outros.",
+ "Estimated: {champ} wins {n} pts more in games with it.": "Estimativa: {champ} vence {n} pts a mais nas partidas com ele.",
+ "Estimated: {champ} wins {n} pts less in games with it.": "Estimativa: {champ} vence {n} pts a menos nas partidas com ele."
 }

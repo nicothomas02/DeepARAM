@@ -132,7 +132,6 @@
  "Estimated. How far the champion's win rate swings with the augments it gets. High means its augment picks matter a lot.": "估算。英雄的胜率随拿到的强化符文相差多少。数值高表示强化符文选择对它影响很大。",
  "Varies by champion and Augment reliance are typical swings in pts: how much an augment's boost changes between champions, and how much a champion's win rate changes between augments.": "“英雄差异”和“强化符文依赖度”是以百分点计的典型波动：一个强化符文的提升在不同英雄之间变化多少，以及一个英雄的胜率在不同强化符文之间变化多少。",
  "Best champ": "最佳英雄",
- "The champion with the highest estimated win rate boost from this augment.": "使用该强化符文时预计胜率提升最高的英雄。",
  "Augment pick": "强化轮次",
  "Estimated: the augment picks (1st to 4th) where it usually shows up.": "估算：该强化通常出现的强化轮次（第1到第4次）。",
  "Few games": "场次少",
@@ -154,5 +153,7 @@
  "Bias %": "偏差 %",
  "Order within role": "定位内排名",
  "Real ÷ predicted": "实际 ÷ 预测",
- "Find an item": "查找装备"
+ "Find an item": "查找装备",
+ "The champion this augment does best on.": "这个强化表现最好的英雄。",
+ "On a champion's page, DeepScore follows each augment's grade on that champion: S 70+, A 59+, B 44+, C 32+. Within a grade, the more often the champion takes it, the higher it scores.": "在英雄页面上，DeepScore 跟随每个强化在该英雄上的评级：S 70+、A 59+、B 44+、C 32+。同一评级内，英雄选得越多，分数越高。"
 }

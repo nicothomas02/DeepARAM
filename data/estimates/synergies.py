@@ -285,7 +285,8 @@ def augment_rows(checker, stats, builds, est, total):
     for c, b in builds.items():
         if c not in stats:
             continue
-        lifts = {str(r["id"]): r["lift"] for r in est.get(c, [])}
+        # Feed-only estimates (build.py USE_OWNER_ARCHIVE off) carry no augment lift, so no augment gets a score.
+        lifts = {str(r["id"]): r["lift"] for r in est.get(c, []) if r.get("lift") is not None}
         champ_games = stats[c]["pick_rate"] * total
         for a in (b.get("augments") or {}).get("all", []):
             aid = str(a["id"])

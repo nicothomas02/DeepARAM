@@ -70,6 +70,7 @@ import KitInteractions from "@/components/champion/KitInteractions";
 import { kitInteractions } from "@/lib/kit-interactions";
 import { championUpgrades } from "@/lib/champion-upgrades";
 import { SIMULATOR_IN_STATS } from "@/lib/sim-policy";
+import { championAugmentScores } from "@/lib/champion-augment-scores";
 import { augmentBuilds, buildChangers, CHANGES_BUILD } from "@/lib/augment-builds";
 import AugmentBuildPicker from "@/components/champion/AugmentBuildPicker";
 import { augmentSynergy } from "@/lib/augment-synergy";
@@ -340,17 +341,10 @@ export default async function ChampionPage({
   const augBuilds = SIMULATOR_IN_STATS ? augmentBuilds(c.alias) : null;
   const changers = SIMULATOR_IN_STATS ? buildChangers(c.alias) : new Set<number>();
   const bestCore = p.core[0]; // the lists rank by DeepScore, which already trusts rare builds less
-  // Augments rank by their DeepScore on this champion: the estimated win rate with it here, trusted less when the
-  // champion rarely takes it (Nico, 2026-11-20: the Tier List's overall rating put Icathia's Fall, taken in 0.3% of
-  // Yasuo games for +0.2 pts, at the top of Yasuo's list).
-  const scores = new Map(
-    scoreRows(
-      p.augments.flatMap((a) => {
-        const e = est?.augments.get(a.id);
-        return e ? [{ id: a.id, winRate: e.winRate, pickRate: a.pickRate }] : [];
-      }),
-    ).map((r) => [r.id, r.deepScore]),
-  );
+  // Augments rank by their DeepScore on this champion, from its grade and pick rate there (lib/champion-augment-scores.ts,
+  // shared with the overlay), never the Tier List's overall rating (Nico, 2026-11-20: that put Icathia's Fall, taken
+  // in 0.3% of Yasuo games, at the top of Yasuo's list).
+  const scores = championAugmentScores(c.alias, p.augments);
   // Each augment's share of this champion's picks at the 1st to 4th augment pick (estimated).
   const pickStages = championAugmentStages(p.augments);
   const augRows = p.augments
@@ -826,7 +820,10 @@ export default async function ChampionPage({
                 p.buildsEstimated ? (
                   <T ns={NS}>{"Few games so far: estimated from earlier games and this patch's changes."}</T>
                 ) : p.coreDerived ? (
-                  <T ns={NS}>From the most common full builds, most built items first.</T>
+                  <>
+                    <T ns={NS}>From the most common full builds, most built items first.</T>{" "}
+                    <T ns={NS}>Pick rate here is the share of those builds, not of all games.</T>
+                  </>
                 ) : undefined
               }
             >
@@ -909,7 +906,15 @@ export default async function ChampionPage({
           )}
           <div className="cp-two">
             {p.starting.length > 0 && (
-              <Panel title="Starter items" count={p.starting.length}>
+              <Panel
+                title="Starter items"
+                count={p.starting.length}
+                note={
+                  <T ns={NS}>
+                    {"Only the top starters are listed, and they usually win more than the champion overall, so each one is compared with the others."}
+                  </T>
+                }
+              >
                 <Head what="Starter items" cols={SCORED_COLS} />
                 <ShowMore total={p.starting.length} limit={null}>
                   {itemRows(p.starting, false, "starting")}

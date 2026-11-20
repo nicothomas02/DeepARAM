@@ -20,7 +20,7 @@ export const augmentSlug = (name: string) =>
     .replace(/^-|-$/g, "");
 
 type Raw = { augment_id: number; win_rate: number; pick_rate: number; win_rank?: number; pick_rank?: number; tier?: string; best_champions?: number[] };
-type Estimates = { augments?: Record<string, { id: number; pick_rate: number; lift: number }[]> };
+type Estimates = { augments?: Record<string, { id: number; pick_rate: number; lift?: number }[]> };
 type Builds = { augments?: { all?: { id: number; pick_rate: number }[] } };
 
 export type AugmentPage = {
@@ -49,16 +49,17 @@ export function augmentPages(): AugmentPage[] {
       pickers.set(a.id, [...(pickers.get(a.id) ?? []), { id: alias, name: champName(alias), pickRate: a.pick_rate }]);
     }
   }
-  // Estimated boost per champion and augment (data/estimates/estimates.json); ties go to the more picked.
-  const est = new Map<string, { lift: number; pick: number }>();
+  // Estimated boost per champion and augment (data/estimates/estimates.json), when the estimates carry one; ties go to
+  // the more picked. Feed-only estimates have no boost, so the stats' own best-champion order stands.
+  const est = new Map<string, { lift: number | null; pick: number }>();
   for (const [cid, list] of Object.entries(readRepoJson<Estimates>("data/estimates/estimates.json")?.augments ?? {}))
-    for (const x of list) est.set(`${cid}:${x.id}`, { lift: x.lift, pick: x.pick_rate });
+    for (const x of list) est.set(`${cid}:${x.id}`, { lift: x.lift ?? null, pick: x.pick_rate });
   const bestOf = (a: Raw) =>
     (a.best_champions ?? [])
       .filter((id) => ALIAS[id])
       .slice(0, 6)
       .map((id) => ({ id: ALIAS[id], name: champName(ALIAS[id]), boost: est.get(`${id}:${a.augment_id}`)?.lift ?? null, pick: est.get(`${id}:${a.augment_id}`)?.pick ?? 0 }))
-      .sort((x, y) => (y.boost ?? -1) - (x.boost ?? -1) || y.pick - x.pick)
+      .sort((x, y) => (x.boost === null && y.boost === null ? 0 : (y.boost ?? -1) - (x.boost ?? -1) || y.pick - x.pick))
       .map((b) => ({ id: b.id, name: b.name, boost: b.boost }));
   cache = raw.map((a) => ({
     id: a.augment_id,

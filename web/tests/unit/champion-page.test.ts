@@ -1,8 +1,9 @@
 import { describe, expect, it } from "vitest";
 import { buildOrder, championPage, scoreRows } from "@/lib/champion-page";
 import { itemTier } from "@/lib/items";
-import { championAugmentStages } from "@/lib/estimates";
+import { championAugmentStages, estimatesFeedOnly } from "@/lib/estimates";
 import { SIMULATOR_IN_STATS } from "@/lib/sim-policy";
+import { liveWithChange } from "@/lib/champions";
 
 // Champion page builds: the core shows its boots where they're bought, then the 4th, 5th and 6th item options.
 describe("champion page core build", () => {
@@ -53,6 +54,8 @@ describe("champion augment pick order estimate", () => {
   it("gives each augment shares that sum to 1 and spreads the champion's picks over all four picks", () => {
     const p = championPage("Annie")!;
     const m = championAugmentStages(p.augments);
+    // Feed-only estimates have no per-pick odds, so there is nothing to spread.
+    if (estimatesFeedOnly()) return expect(m.size).toBe(0);
     expect(m.size).toBe(p.augments.length);
     for (const s of m.values()) {
       expect(s).toHaveLength(4);
@@ -81,5 +84,41 @@ describe("DeepScore ranking of build lists", () => {
       const scores = list.map((r) => r.deepScore!);
       expect(scores).toEqual([...scores].sort((a, b) => b - a));
     }
+  });
+});
+
+describe("misleading-number guards", () => {
+  it("counts only the covered games for rows rebuilt from the six-item builds", () => {
+    // Yasuo's core and single items come from his most common full builds (data/cn/builds/157.json "derived").
+    const p = championPage("Yasuo")!;
+    const champGames = liveWithChange().live.find((c) => c.name === "Yasuo")!.sample!;
+    if (!p.coreDerived) return;
+    for (const r of p.core) expect(r.games!).toBeLessThan(champGames * r.pickRate * 0.5);
+  });
+
+  it("compares starters with each other, not with the champion's own win rate", () => {
+    for (const alias of ["Yasuo", "Ahri", "Jinx"]) {
+      const s = championPage(alias)!.starting;
+      if (s.length < 2) continue;
+      // Measured against the listed starters' average, so they can't all sit above it.
+      expect(s.some((r) => r.lift <= 0)).toBe(true);
+    }
+  });
+});
+
+describe("champion augment DeepScore from the live stats", () => {
+  it("follows the grade, then pick rate, with the grade's tier letter", async () => {
+    const { championAugmentScores } = await import("@/lib/champion-augment-scores");
+    const s = championAugmentScores("x", [
+      { id: 1, pickRate: 0.01, grade: "S" },
+      { id: 2, pickRate: 0.3, grade: "A" },
+      { id: 3, pickRate: 0.2, grade: "S" },
+      { id: 4, pickRate: 0.5, grade: "C" },
+    ]);
+    expect(s.get(3)!).toBeGreaterThan(s.get(1)!);
+    expect(s.get(1)!).toBeGreaterThanOrEqual(70);
+    expect(s.get(2)!).toBeGreaterThanOrEqual(59);
+    expect(s.get(2)!).toBeLessThan(70);
+    expect(s.get(4)!).toBeLessThan(44);
   });
 });

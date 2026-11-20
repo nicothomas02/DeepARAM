@@ -11,6 +11,7 @@ import PatchCountdown from "@/components/PatchCountdown";
 import { championSplash, championTile } from "@/lib/champions";
 import { FunLists, KitchenPick, TierSnapshot } from "@/components/HomeWidgets";
 import { funLists, powerCurveLists, profileValue, typicalGame } from "@/lib/estimates";
+import { SIMULATOR_IN_STATS } from "@/lib/sim-policy";
 import { liveWithChange } from "@/lib/champions";
 import championIds from "@/data/champion-ids.json";
 import { KITCHEN } from "@/lib/tabs";
@@ -111,7 +112,12 @@ export default function Home() {
     dead: topBy((id) => live.get(ALIAS[id])?.dead),
   };
   const fun = Object.fromEntries(
-    Object.entries({ ...funLists(), ...extra, early_game: powerCurveLists().early, late_game: powerCurveLists().late }).map(([k, ids]) => [
+    // The early and late game lists are simulated, so they stay off while the Simulator is a fun tool only (lib/sim-policy.ts).
+    Object.entries({
+      ...funLists(),
+      ...extra,
+      ...(SIMULATOR_IN_STATS ? { early_game: powerCurveLists().early, late_game: powerCurveLists().late } : {}),
+    }).map(([k, ids]) => [
       k,
       ids.flatMap((id) => (ALIAS[id] ? [{ id: ALIAS[id], name: NAMES[ALIAS[id]] ?? ALIAS[id], value: value[k]?.(id, ALIAS[id]) ?? null }] : [])),
     ]),

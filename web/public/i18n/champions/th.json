@@ -189,9 +189,6 @@
  "Boots after the 3rd item": "รองเท้าหลังไอเทมชิ้นที่ 3",
  "Boots are shown where to buy them.": "รองเท้าแสดงตรงจุดที่ควรซื้อ",
  "Core builds show the boots where the Simulator says to buy them: the first point where they add as much per gold as the next item.": "บิลด์หลักแสดงรองเท้าตรงจุดที่ตัวจำลองแนะนำให้ซื้อ: จุดแรกที่รองเท้าให้ผลต่อทองเท่ากับไอเทมชิ้นถัดไป",
- "The biggest win rate boost of any augment on {champ}: +{n} pts.": "ออคเมนต์ที่เพิ่มอัตราชนะให้ {champ} มากที่สุด: +{n} แต้ม",
- "Raises {champ}'s win rate by {n} pts.": "เพิ่มอัตราชนะของ {champ} {n} แต้ม",
- "Lowers {champ}'s win rate by {n} pts.": "ลดอัตราชนะของ {champ} {n} แต้ม",
  "Build for your augments": "บิลด์ตามออคเมนต์ของคุณ",
  "The builds below are for any augments. Pick yours to see the best items with it.": "บิลด์ด้านล่างใช้ได้กับทุกออคเมนต์ เลือกออคเมนต์ของคุณเพื่อดูไอเทมที่ดีที่สุดเมื่อมีออคเมนต์นั้น",
  "Simulated: the Simulator's best items with this augment taken, compared with its best items with no augment.": "จำลอง: ไอเทมที่ดีที่สุดจากตัวจำลองเมื่อมีออคเมนต์นี้ เทียบกับไอเทมที่ดีที่สุดเมื่อไม่มีออคเมนต์",
@@ -249,5 +246,9 @@
  "From earlier games": "จากเกมก่อนหน้า",
  "Augment synergies": "การเสริมกันของออคเมนต์",
  "Augments that make each other stronger on this champion: worth more together than apart.": "ออคเมนต์ที่เสริมพลังกันบนแชมเปียนนี้ ใช้คู่กันคุ้มกว่าแยกกัน",
- "No confirmed augment synergies for this champion yet.": "ยังไม่มีการเสริมกันของออคเมนต์ที่ยืนยันแล้วสำหรับแชมเปียนนี้"
+ "No confirmed augment synergies for this champion yet.": "ยังไม่มีการเสริมกันของออคเมนต์ที่ยืนยันแล้วสำหรับแชมเปียนนี้",
+ "Pick rate here is the share of those builds, not of all games.": "อัตราการเลือกในที่นี้คือสัดส่วนในบิลด์เหล่านั้น ไม่ใช่ในทุกเกม",
+ "Only the top starters are listed, and they usually win more than the champion overall, so each one is compared with the others.": "แสดงเฉพาะไอเทมเริ่มต้นอันดับต้น ๆ ซึ่งมักชนะมากกว่าแชมเปี้ยนโดยรวม จึงเทียบแต่ละชิ้นกับชิ้นอื่น",
+ "Estimated: {champ} wins {n} pts more in games with it.": "ประมาณการ: {champ} ชนะมากขึ้น {n} จุดในเกมที่มีสิ่งนี้",
+ "Estimated: {champ} wins {n} pts less in games with it.": "ประมาณการ: {champ} ชนะน้อยลง {n} จุดในเกมที่มีสิ่งนี้"
 }

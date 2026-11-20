@@ -132,7 +132,6 @@
  "Estimated. How far the champion's win rate swings with the augments it gets. High means its augment picks matter a lot.": "Odhad. Jak moc se procento výher šampiona mění podle augmentů, které dostane. Vysoká hodnota znamená, že na výběru augmentů hodně záleží.",
  "Varies by champion and Augment reliance are typical swings in pts: how much an augment's boost changes between champions, and how much a champion's win rate changes between augments.": "Liší se podle šampiona a Závislost na augmentech jsou typické výkyvy v b.: jak moc se přírůstek augmentu mění mezi šampiony a jak moc se procento výher šampiona mění mezi augmenty.",
  "Best champ": "Nejlepší šampion",
- "The champion with the highest estimated win rate boost from this augment.": "Šampion s nejvyšším odhadovaným nárůstem míry výher díky tomuto vylepšení.",
  "Augment pick": "Volba vylepšení",
  "Estimated: the augment picks (1st to 4th) where it usually shows up.": "Odhad: volby vylepšení (1. až 4.), ve kterých se obvykle objevuje.",
  "Few games": "Málo her",
@@ -154,5 +153,7 @@
  "Bias %": "Zkreslení %",
  "Order within role": "Pořadí v roli",
  "Real ÷ predicted": "Skutečné ÷ předpověď",
- "Find an item": "Najít předmět"
+ "Find an item": "Najít předmět",
+ "The champion this augment does best on.": "Šampion, se kterým si toto vylepšení vede nejlépe.",
+ "On a champion's page, DeepScore follows each augment's grade on that champion: S 70+, A 59+, B 44+, C 32+. Within a grade, the more often the champion takes it, the higher it scores.": "Na stránce šampiona se DeepScore řídí známkou vylepšení u daného šampiona: S 70+, A 59+, B 44+, C 32+. V rámci jedné známky má vyšší skóre to, které si šampion bere častěji."
 }

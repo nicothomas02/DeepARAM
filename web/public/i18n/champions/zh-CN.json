@@ -189,9 +189,6 @@
  "Boots after the 3rd item": "第3件装备后买鞋",
  "Boots are shown where to buy them.": "鞋子显示在应购买的位置。",
  "Core builds show the boots where the Simulator says to buy them: the first point where they add as much per gold as the next item.": "核心出装把鞋子放在模拟器建议购买的位置：即每金币收益首次不低于下一件装备的时刻。",
- "The biggest win rate boost of any augment on {champ}: +{n} pts.": "{champ}所有强化中胜率提升最大：+{n}个百分点。",
- "Raises {champ}'s win rate by {n} pts.": "使{champ}的胜率提高{n}个百分点。",
- "Lowers {champ}'s win rate by {n} pts.": "使{champ}的胜率降低{n}个百分点。",
  "Build for your augments": "按强化选出装",
  "The builds below are for any augments. Pick yours to see the best items with it.": "下面的出装适用于任何强化。选择你的强化，查看搭配它的最佳装备。",
  "Simulated: the Simulator's best items with this augment taken, compared with its best items with no augment.": "模拟：取得该强化时模拟器算出的最佳装备，与不带强化时的最佳装备对比。",
@@ -249,5 +246,9 @@
  "From earlier games": "来自较早的对局",
  "Augment synergies": "强化协同",
  "Augments that make each other stronger on this champion: worth more together than apart.": "在这位英雄身上互相增强的强化：组合起来比各自单独更强。",
- "No confirmed augment synergies for this champion yet.": "这位英雄暂无已确认的强化协同。"
+ "No confirmed augment synergies for this champion yet.": "这位英雄暂无已确认的强化协同。",
+ "Pick rate here is the share of those builds, not of all games.": "此处的选取率是这些出装中的占比，而非所有对局中的占比。",
+ "Only the top starters are listed, and they usually win more than the champion overall, so each one is compared with the others.": "只列出最好的几种出门装，它们通常比英雄整体胜率更高，所以每种都与其他几种比较。",
+ "Estimated: {champ} wins {n} pts more in games with it.": "估算：选了它的对局中，{champ}的胜率高{n}个百分点。",
+ "Estimated: {champ} wins {n} pts less in games with it.": "估算：选了它的对局中，{champ}的胜率低{n}个百分点。"
 }

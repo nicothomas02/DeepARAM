@@ -102,7 +102,8 @@ export default function TierListPage() {
               tagInfo={championTagData().info}
               games={fillGames()}
               matches={matchesByPatch()}
-              scaling={Object.fromEntries([...powerCurveLists().scaling].flatMap(([id, v]) => (ALIAS[id] ? [[ALIAS[id], v]] : [])))}
+              // The "Strongest" (early / late) column is simulated, so it stays off while the Simulator is a fun tool only.
+              scaling={SIMULATOR_IN_STATS ? Object.fromEntries([...powerCurveLists().scaling].flatMap(([id, v]) => (ALIAS[id] ? [[ALIAS[id], v]] : []))) : {}}
               reliance={Object.fromEntries([...championAugmentReliance()].flatMap(([id, v]) => (ALIAS[id] ? [[ALIAS[id], v]] : [])))}
             />
           }
@@ -116,8 +117,7 @@ export default function TierListPage() {
     const augName = (a: Record<string, unknown>) => names[String(a.augment_id)] ?? String(a.key).replace(/^ARAM_/, "");
     const bestById = new Map(augmentPages().map((p) => [p.id, p.best]));
     // The augment picks (1st to 4th) where at least a fair share (a quarter) of an augment's picks happen (estimated).
-    const picksAt = (id: number) =>
-      (augmentStages(id)?.stages ?? []).flatMap((share, i) => (share >= 0.25 ? [String(i + 1)] : []));
+    const picksAt = (id: number) => (augmentStages(id)?.stages ?? []).flatMap((share, i) => (share >= 0.25 ? [String(i + 1)] : []));
     const pickCol = {
       key: "picks",
       label: "Augment pick",
@@ -136,6 +136,10 @@ export default function TierListPage() {
     ];
     // No augment win rate column while Riot's policy rules them out (lib/augment-policy.ts).
     const shownAugCols = augCols.filter((c) => SHOW_AUGMENT_WIN_RATES || c.key !== "win_rate");
+    // Pick timing and the per-champion spread need estimates the live stats alone can't give (data/estimates/build.py
+    // USE_OWNER_ARCHIVE), so their columns go when no augment has them.
+    const hasPicks = augments.some((a) => picksAt(Number(a.augment_id)).length > 0);
+    const hasSpread = augments.some((a) => augmentSpread(Number(a.augment_id)) !== null);
     tabs.push({
       id: "augments",
       label: "Augments",
@@ -143,7 +147,7 @@ export default function TierListPage() {
         <>
           <AugmentTiers
             styles={STYLES}
-            columns={[...shownAugCols, pickCol]}
+            columns={[...shownAugCols, ...(hasPicks ? [pickCol] : [])]}
             // Most useful on the left: rank, DeepScore, the boost, pick rate, then the finer numbers.
             advancedColumns={[
               ...augCols.slice(0, 3),
@@ -152,17 +156,21 @@ export default function TierListPage() {
                 key: "lift",
                 label: "Win rate boost",
                 format: "pts" as const,
-                hint: "Win rate minus what the champions who take it win anyway. Above zero means it helps them.",
+                hint: "Win rate minus what the champions who take it win anyway. Above zero means they win more in games with it.",
               },
-              {
-                key: "spread",
-                label: "Varies by champion",
-                format: "spread" as const,
-                hint: "Estimated. How far its win rate boost swings from one champion to another. High means great on some champions and weak on others.",
-              },
+              ...(hasSpread
+                ? [
+                    {
+                      key: "spread",
+                      label: "Varies by champion",
+                      format: "spread" as const,
+                      hint: "Estimated. How far its win rate boost swings from one champion to another. High means great on some champions and weak on others.",
+                    },
+                  ]
+                : []),
               augCols[5],
-              pickCol,
-              { key: "best", label: "Best champ", format: "champion-icon", sortable: false, hint: "The champion with the highest estimated win rate boost from this augment." },
+              ...(hasPicks ? [pickCol] : []),
+              { key: "best", label: "Best champ", format: "champion-icon", sortable: false, hint: "The champion this augment does best on." },
               augCols[3],
             ]}
             rows={augments

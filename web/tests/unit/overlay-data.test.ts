@@ -49,3 +49,18 @@ describe("overlay.json", async () => {
     expect(text).not.toMatch(/winRate|pickRate|deepScore|"tier"/);
   });
 });
+
+describe("overlay augments follow the champion page", () => {
+  it("ranks each champion's augments on that champion, not by the overall tier rating", async () => {
+    const { quickBuilds } = await import("@/lib/quick-build");
+    const { championPage } = await import("@/lib/champion-page");
+    const { championAugmentScores } = await import("@/lib/champion-augment-scores");
+    const yasuo = quickBuilds().find((c) => c.id === "Yasuo")!;
+    const p = championPage("Yasuo")!;
+    const scores = championAugmentScores("Yasuo", p.augments);
+    const top = [...p.augments]
+      .filter((a) => a.rarity === "prismatic")
+      .sort((x, y) => (scores.get(y.id) ?? -1) - (scores.get(x.id) ?? -1) || y.pickRate - x.pickRate)[0];
+    expect(yasuo.augments.prismatic[0]?.name).toBe(top.name);
+  });
+});
