@@ -230,12 +230,12 @@
  "Looking for a page? Search for “{q}”": "Mencari halaman? Cari “{q}”",
  "Champion win rates, augment rankings and duo synergy, patch by patch.": "Win rate champion, peringkat augment, dan sinergi duo, patch demi patch.",
  "Research": "Riset",
- "Built just for Mayhem, with stats that predict instead of just count, and builds tested in real fights.": "Dibuat khusus untuk ARAM Mayhem, dengan statistik yang memprediksi, bukan sekadar menghitung, dan build yang diuji dalam pertarungan nyata.",
+ "Built just for Mayhem, with stats that predict instead of just count, and a fight simulator to play with.": "Dibuat khusus untuk Mayhem, dengan statistik yang memprediksi, bukan sekadar menghitung, plus simulator pertarungan untuk dimainkan.",
  "Every augment, ranked for you": "Setiap augment, diperingkat untukmu",
  "All the augments, quests and Mayhem-only items, scored for each champion. Mark what you took and the rest re-rank around it.": "Semua augment, quest, dan item khusus mode, dinilai untuk setiap champion. Tandai yang kamu ambil dan sisanya diurutkan ulang.",
  "Data science, not raw counts": "Data science, bukan sekadar hitungan",
  "DeepScore weighs sample size, shows how sure it is, and estimates what each augment adds to your champion. It even forecasts patches before they land.": "DeepScore memperhitungkan ukuran sampel, menunjukkan seberapa yakin hasilnya, dan memperkirakan seberapa besar setiap augment membantu champion-mu. Bahkan memprediksi patch sebelum rilis.",
- "Tested in fights": "Teruji dalam pertarungan",
- "A full combat simulator runs builds against real kits, so you see why a build wins, not just that it did.": "Simulator pertarungan lengkap mengadu build dengan kit asli, jadi kamu tahu kenapa sebuah build menang, bukan hanya bahwa ia menang.",
- "DeepARAM is built just for ARAM Mayhem. Rankings come from data science, and builds are tested in a fight simulator.": "DeepARAM dibuat khusus untuk ARAM Mayhem. Peringkatnya berasal dari data science, dan build diuji di simulator pertarungan."
+ "A fight simulator to play with": "Simulator pertarungan untuk dimainkan",
+ "Pit any build against real kits in a 3D replay. It's a sandbox for fun, so no ranking on the site leans on it.": "Adu build apa pun melawan kit asli dalam replay 3D. Ini arena bermain untuk seru-seruan, jadi tidak ada peringkat di situs yang bergantung padanya.",
+ "DeepARAM is built just for ARAM Mayhem. Rankings come from data science, and the fight simulator is there for fun.": "DeepARAM dibuat khusus untuk ARAM Mayhem. Peringkat berasal dari data science, dan simulator pertarungan ada untuk seru-seruan."
 }

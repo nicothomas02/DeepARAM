@@ -230,12 +230,12 @@
  "Looking for a page? Search for “{q}”": "ページをお探しですか？「{q}」を検索",
  "Champion win rates, augment rankings and duo synergy, patch by patch.": "チャンピオンの勝率、オーグメントのランキング、デュオの相性をパッチごとに。",
  "Research": "リサーチ",
- "Built just for Mayhem, with stats that predict instead of just count, and builds tested in real fights.": "ランダムミッド: メイヘム専用。数えるだけでなく予測する統計と、実戦形式でテストされたビルド。",
+ "Built just for Mayhem, with stats that predict instead of just count, and a fight simulator to play with.": "Mayhem専用。数えるだけでなく予測する統計と、遊べる戦闘シミュレーターつき。",
  "Every augment, ranked for you": "すべてのオーグメントを、あなた向けにランク付け",
  "All the augments, quests and Mayhem-only items, scored for each champion. Mark what you took and the rest re-rank around it.": "すべてのオーグメント、クエスト、モード専用アイテムをチャンピオンごとに採点。取ったものをマークすると残りが並び替わります。",
  "Data science, not raw counts": "単なる集計ではなくデータサイエンス",
  "DeepScore weighs sample size, shows how sure it is, and estimates what each augment adds to your champion. It even forecasts patches before they land.": "DeepScoreはサンプル数を考慮し、どれだけ確かかを示し、各オーグメントがあなたのチャンピオンにもたらす効果を推定します。パッチの影響もリリース前に予測します。",
- "Tested in fights": "戦闘でテスト済み",
- "A full combat simulator runs builds against real kits, so you see why a build wins, not just that it did.": "本格的な戦闘シミュレーターが実際のスキル構成を相手にビルドを戦わせるので、勝ったことだけでなく、なぜ勝つのかがわかります。",
- "DeepARAM is built just for ARAM Mayhem. Rankings come from data science, and builds are tested in a fight simulator.": "DeepARAMはランダムミッド: メイヘム専用のサイトです。ランキングはデータサイエンスに基づき、ビルドは戦闘シミュレーターでテストされています。"
+ "A fight simulator to play with": "遊べる戦闘シミュレーター",
+ "Pit any build against real kits in a 3D replay. It's a sandbox for fun, so no ranking on the site leans on it.": "好きなビルドを実際のキットと3Dリプレイで戦わせよう。お楽しみ用のサンドボックスなので、サイトのランキングには一切使っていません。",
+ "DeepARAM is built just for ARAM Mayhem. Rankings come from data science, and the fight simulator is there for fun.": "DeepARAMはARAM Mayhem専用です。ランキングはデータサイエンスから。戦闘シミュレーターはお楽しみ用です。"
 }

@@ -7,7 +7,6 @@ import RowLink from "@/components/RowLink";
 import SplashAccent from "@/components/SplashAccent";
 import WinRateChart from "@/components/WinRateChart";
 import WinRate, { Sampled } from "@/components/WinRate";
-import { augmentTiers } from "@/lib/augment-tiers";
 import DeepScore from "@/components/DeepScore";
 import { BUILD_DEEPSCORE_HELP, ITEM_DEEPSCORE_HELP } from "@/lib/deepscore";
 import ChampionShowcase from "@/components/ChampionShowcase";
@@ -70,6 +69,7 @@ import BestUpgrades from "@/components/champion/BestUpgrades";
 import KitInteractions from "@/components/champion/KitInteractions";
 import { kitInteractions } from "@/lib/kit-interactions";
 import { championUpgrades } from "@/lib/champion-upgrades";
+import { SIMULATOR_IN_STATS } from "@/lib/sim-policy";
 import { augmentBuilds, buildChangers, CHANGES_BUILD } from "@/lib/augment-builds";
 import AugmentBuildPicker from "@/components/champion/AugmentBuildPicker";
 import { augmentSynergy } from "@/lib/augment-synergy";
@@ -335,12 +335,22 @@ export default async function ChampionPage({
   const prev = all[(at - 1 + all.length) % all.length];
   const next = all[(at + 1) % all.length];
   const info = p.itemInfo;
-  const upgrades = championUpgrades(c.alias);
-  const augBuilds = augmentBuilds(c.alias);
-  const changers = buildChangers(c.alias);
+  // Simulator-made panels stay off while the Simulator is a fun tool only (lib/sim-policy.ts).
+  const upgrades = SIMULATOR_IN_STATS ? championUpgrades(c.alias) : null;
+  const augBuilds = SIMULATOR_IN_STATS ? augmentBuilds(c.alias) : null;
+  const changers = SIMULATOR_IN_STATS ? buildChangers(c.alias) : new Set<number>();
   const bestCore = p.core[0]; // the lists rank by DeepScore, which already trusts rare builds less
-  // Augments rank by their DeepScore, the same rating the Tier List uses.
-  const scores = new Map(augmentTiers().map((a) => [a.id, a.deepScore]));
+  // Augments rank by their DeepScore on this champion: the estimated win rate with it here, trusted less when the
+  // champion rarely takes it (Nico, 2026-11-20: the Tier List's overall rating put Icathia's Fall, taken in 0.3% of
+  // Yasuo games for +0.2 pts, at the top of Yasuo's list).
+  const scores = new Map(
+    scoreRows(
+      p.augments.flatMap((a) => {
+        const e = est?.augments.get(a.id);
+        return e ? [{ id: a.id, winRate: e.winRate, pickRate: a.pickRate }] : [];
+      }),
+    ).map((r) => [r.id, r.deepScore]),
+  );
   // Each augment's share of this champion's picks at the 1st to 4th augment pick (estimated).
   const pickStages = championAugmentStages(p.augments);
   const augRows = p.augments
@@ -1280,7 +1290,7 @@ export default async function ChampionPage({
                   )}
                 </Panel>
               )}
-              {est.curve && (
+              {SIMULATOR_IN_STATS && est.curve && (
                 <Panel
                   title="Early, mid and late game"
                   note={
@@ -1389,7 +1399,7 @@ export default async function ChampionPage({
           )}
         </div>
 
-        <SectionRail spots={interactions.length ? SPOTS : SPOTS.filter((s) => s.id !== "interactions")} />
+        <SectionRail spots={SPOTS.filter((s) => (s.id !== "interactions" || interactions.length > 0) && (s.id !== "upgrades" || upgrades))} />
       </div>
     </>
   );

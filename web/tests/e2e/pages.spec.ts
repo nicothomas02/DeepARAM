@@ -152,8 +152,9 @@ test("clicking a champion on the Tier List opens its page, with no favorites or 
 });
 
 test("a link to the Tier List's last tab shows that tab in the tab row", async ({ page }) => {
-  await page.goto("/tier-list?tab=pentakill");
-  const tab = page.getByRole("tab", { name: "Pentakill" });
+  // Items is the last tab while the Simulator-made Weapon of Destiny and Pentakill tabs are off (lib/sim-policy.ts).
+  await page.goto("/tier-list?tab=items");
+  const tab = page.getByRole("tab", { name: "Items" });
   await expect(tab).toHaveAttribute("aria-selected", "true");
   // On phones the row scrolls sideways: the open tab must be inside its visible part.
   await expect
@@ -355,12 +356,10 @@ test("a contact message of a few words offers the site search instead", async ({
   await expect(box.getByRole("button", { name: /Search for/ })).toHaveCount(0);
 });
 
-test("Changes your build picks that augment in the build picker, and each Synergies list opens on its best score", async ({ page }) => {
+test("each Synergies list opens on its best score, and no Simulator-made panel shows on champion pages", async ({ page }) => {
   await page.goto("/champions/Braum");
-  const tag = page.locator(".cp-changes").first();
-  await tag.click();
-  await expect(page).toHaveURL(/\/champions\/Braum#augment-builds$/);
-  await expect(page.locator(".cp-ab-chip[aria-pressed=true]")).toHaveCount(1);
+  // The Simulator is a fun tool only for now (lib/sim-policy.ts): no build picker, Best upgrades or "Changes your build" tag.
+  await expect(page.locator("#augment-builds, #upgrades, .cp-changes")).toHaveCount(0);
   const syn = page.locator("#synergies + .cp-panel .syn");
   await syn.locator(".syn-sort").filter({ hasText: "Pick rate" }).click();
   await expect(syn.locator(".syn-sort[aria-pressed=true]")).toContainText("Pick rate");

@@ -230,12 +230,12 @@
  "Looking for a page? Search for “{q}”": "تبحث عن صفحة؟ ابحث عن “{q}”",
  "Champion win rates, augment rankings and duo synergy, patch by patch.": "نسب فوز الأبطال وترتيب التعزيزات وتآزر الثنائيات، تحديثًا بتحديث.",
  "Research": "الأبحاث",
- "Built just for Mayhem, with stats that predict instead of just count, and builds tested in real fights.": "مصمم خصيصًا لـ آرام: الفوضى، بإحصائيات تتنبأ بدلًا من أن تكتفي بالعدّ، وتشكيلات مُختبرة في معارك حقيقية.",
+ "Built just for Mayhem, with stats that predict instead of just count, and a fight simulator to play with.": "مصمَّم خصيصًا لـ Mayhem، بإحصاءات تتنبأ بدل أن تكتفي بالعدّ، ومحاكي قتال للتسلية.",
  "Every augment, ranked for you": "كل تعزيز، مرتب لك",
  "All the augments, quests and Mayhem-only items, scored for each champion. Mark what you took and the rest re-rank around it.": "كل التعزيزات والمهام والعناصر الخاصة بالطور، مقيّمة لكل بطل. حدّد ما اخترته وسيُعاد ترتيب الباقي.",
  "Data science, not raw counts": "علم البيانات، لا مجرد أرقام",
  "DeepScore weighs sample size, shows how sure it is, and estimates what each augment adds to your champion. It even forecasts patches before they land.": "يراعي DeepScore حجم العينة، ويبيّن مدى ثقته، ويقدّر ما يضيفه كل تعزيز لبطلك. بل ويتنبأ بالتحديثات قبل صدورها.",
- "Tested in fights": "مُختبر في القتال",
- "A full combat simulator runs builds against real kits, so you see why a build wins, not just that it did.": "محاكي قتال كامل يضع التشكيلات في مواجهة قدرات حقيقية، لترى لماذا تفوز التشكيلة، لا أنها فازت فقط.",
- "DeepARAM is built just for ARAM Mayhem. Rankings come from data science, and builds are tested in a fight simulator.": "DeepARAM مصمم خصيصًا لـ آرام: الفوضى. التصنيفات مبنية على علم البيانات، والتشكيلات مُختبرة في محاكي قتال."
+ "A fight simulator to play with": "محاكي قتال للتسلية",
+ "Pit any build against real kits in a 3D replay. It's a sandbox for fun, so no ranking on the site leans on it.": "واجه بأي بناء قدرات أبطال حقيقية في إعادة عرض ثلاثية الأبعاد. إنه ساحة للتسلية، فلا يعتمد عليه أي تصنيف في الموقع.",
+ "DeepARAM is built just for ARAM Mayhem. Rankings come from data science, and the fight simulator is there for fun.": "DeepARAM مصمَّم خصيصًا لـ ARAM Mayhem. التصنيفات تأتي من علم البيانات، ومحاكي القتال موجود للتسلية."
 }

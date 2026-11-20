@@ -230,12 +230,12 @@
  "Looking for a page? Search for “{q}”": "Vous cherchez une page ? Rechercher « {q} »",
  "Champion win rates, augment rankings and duo synergy, patch by patch.": "Taux de victoire des champions, classement des augments et synergie des duos, patch par patch.",
  "Research": "Recherche",
- "Built just for Mayhem, with stats that predict instead of just count, and builds tested in real fights.": "Conçu uniquement pour ARAM du chaos : des stats qui prédisent au lieu de simplement compter, et des builds testés en vrai combat.",
+ "Built just for Mayhem, with stats that predict instead of just count, and a fight simulator to play with.": "Conçu uniquement pour Mayhem, avec des stats qui prédisent au lieu de simplement compter, et un simulateur de combat pour s'amuser.",
  "Every augment, ranked for you": "Chaque augment, classé pour vous",
  "All the augments, quests and Mayhem-only items, scored for each champion. Mark what you took and the rest re-rank around it.": "Tous les augments, quêtes et objets propres au mode, notés pour chaque champion. Indiquez ce que vous avez pris et le reste se reclasse.",
  "Data science, not raw counts": "De la data science, pas des chiffres bruts",
  "DeepScore weighs sample size, shows how sure it is, and estimates what each augment adds to your champion. It even forecasts patches before they land.": "Le DeepScore tient compte de la taille de l'échantillon, indique sa fiabilité et estime ce que chaque augment apporte à votre champion. Il prévoit même les patchs avant leur sortie.",
- "Tested in fights": "Testé en combat",
- "A full combat simulator runs builds against real kits, so you see why a build wins, not just that it did.": "Un simulateur de combat complet confronte les builds à de vrais kits : vous voyez pourquoi un build gagne, pas seulement qu'il gagne.",
- "DeepARAM is built just for ARAM Mayhem. Rankings come from data science, and builds are tested in a fight simulator.": "DeepARAM est conçu uniquement pour ARAM du chaos. Les classements reposent sur la data science, et les builds sont testés dans un simulateur de combat."
+ "A fight simulator to play with": "Un simulateur de combat pour s'amuser",
+ "Pit any build against real kits in a 3D replay. It's a sandbox for fun, so no ranking on the site leans on it.": "Opposez n'importe quel build à de vrais kits dans un replay 3D. C'est un bac à sable pour le plaisir : aucun classement du site ne s'appuie dessus.",
+ "DeepARAM is built just for ARAM Mayhem. Rankings come from data science, and the fight simulator is there for fun.": "DeepARAM est conçu uniquement pour ARAM Mayhem. Les classements viennent de la data science, et le simulateur de combat est là pour s'amuser."
 }

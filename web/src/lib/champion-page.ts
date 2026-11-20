@@ -4,6 +4,7 @@ import championIds from "@/data/champion-ids.json";
 import augmentNames from "@/data/augment-names.json";
 import { liveWithChange } from "./champions";
 import { FIT, fittedBound, grade, lowerBound, type Fit } from "./deepscore";
+import { SIMULATOR_IN_STATS } from "./sim-policy";
 import {
   ITEM_TIERS,
   itemTier,
@@ -59,10 +60,11 @@ export type ItemRow = Rated & {
   bootsAt?: number;
 };
 
-/** A row's items in the order they're bought: the boots go in at bootsAt (first when it isn't known). */
+/** A row's items in the order they're bought: the boots go in at bootsAt (last when it isn't known, as real data
+ *  doesn't say when they're bought). */
 export function buildOrder(r: ItemRow): number[] {
   if (r.boots === undefined) return r.items;
-  const at = Math.min(r.bootsAt ?? 0, r.items.length);
+  const at = Math.min(r.bootsAt ?? r.items.length, r.items.length);
   return [...r.items.slice(0, at), r.boots, ...r.items.slice(at)];
 }
 
@@ -239,7 +241,7 @@ export function championPage(alias: string): ChampionPage | null {
     ...rows(b?.items?.starting),
   ]);
   const timing =
-    readRepoJson<BootsTiming>("data/estimates/boots_timing.json")?.champions[String(id)] ?? {};
+    (SIMULATOR_IN_STATS ? readRepoJson<BootsTiming>("data/estimates/boots_timing.json")?.champions[String(id)] : undefined) ?? {};
   const core = withBoots(scoreItems(rows(b?.items?.core)), full, boots[0], timing);
   const page = {
     winRate: base,

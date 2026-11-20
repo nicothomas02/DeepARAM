@@ -230,12 +230,12 @@
  "Looking for a page? Search for “{q}”": "Bir sayfa mı arıyorsun? “{q}” için ara",
  "Champion win rates, augment rankings and duo synergy, patch by patch.": "Şampiyon kazanma oranları, güçlendirme sıralamaları ve ikili sinerjisi, yama yama.",
  "Research": "Araştırma",
- "Built just for Mayhem, with stats that predict instead of just count, and builds tested in real fights.": "Yalnızca ARAM: Şamata için yapıldı: sadece saymak yerine tahmin eden istatistikler ve gerçek dövüşlerde test edilmiş buildler.",
+ "Built just for Mayhem, with stats that predict instead of just count, and a fight simulator to play with.": "Yalnızca Mayhem için yapıldı: sadece saymak yerine tahmin eden istatistikler ve oynamak için bir dövüş simülatörü.",
  "Every augment, ranked for you": "Her güçlendirme, senin için sıralandı",
  "All the augments, quests and Mayhem-only items, scored for each champion. Mark what you took and the rest re-rank around it.": "Tüm güçlendirmeler, görevler ve moda özel eşyalar, her şampiyon için puanlandı. Aldığını işaretle, gerisi ona göre yeniden sıralansın.",
  "Data science, not raw counts": "Ham sayılar değil, veri bilimi",
  "DeepScore weighs sample size, shows how sure it is, and estimates what each augment adds to your champion. It even forecasts patches before they land.": "DeepScore örneklem büyüklüğünü hesaba katar, ne kadar emin olduğunu gösterir ve her güçlendirmenin şampiyonuna ne kattığını tahmin eder. Yamaları çıkmadan önce bile öngörür.",
- "Tested in fights": "Dövüşte test edildi",
- "A full combat simulator runs builds against real kits, so you see why a build wins, not just that it did.": "Tam bir dövüş simülatörü buildleri gerçek yetenek setlerine karşı çalıştırır; böylece bir buildin sadece kazandığını değil, neden kazandığını görürsün.",
- "DeepARAM is built just for ARAM Mayhem. Rankings come from data science, and builds are tested in a fight simulator.": "DeepARAM yalnızca ARAM: Şamata için yapıldı. Sıralamalar veri biliminden gelir ve buildler bir dövüş simülatöründe test edilir."
+ "A fight simulator to play with": "Oynamak için bir dövüş simülatörü",
+ "Pit any build against real kits in a 3D replay. It's a sandbox for fun, so no ranking on the site leans on it.": "İstediğin dizilimi 3B tekrarda gerçek yetenek setlerine karşı dövüştür. Eğlence için bir oyun alanı; sitedeki hiçbir sıralama ona dayanmaz.",
+ "DeepARAM is built just for ARAM Mayhem. Rankings come from data science, and the fight simulator is there for fun.": "DeepARAM yalnızca ARAM Mayhem için yapıldı. Sıralamalar veri biliminden gelir, dövüş simülatörü ise eğlence içindir."
 }

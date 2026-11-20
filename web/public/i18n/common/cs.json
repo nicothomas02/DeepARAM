@@ -230,12 +230,12 @@
  "Looking for a page? Search for “{q}”": "Hledáte stránku? Vyhledat „{q}“",
  "Champion win rates, augment rankings and duo synergy, patch by patch.": "Výherní míry šampionů, pořadí augmentů a synergie dvojic, patch po patchi.",
  "Research": "Výzkum",
- "Built just for Mayhem, with stats that predict instead of just count, and builds tested in real fights.": "Vytvořeno jen pro ARAM: Mela – statistiky, které předpovídají, ne jen počítají, a buildy otestované ve skutečných bojích.",
+ "Built just for Mayhem, with stats that predict instead of just count, and a fight simulator to play with.": "Stavěno jen pro Mayhem, se statistikami, které předpovídají místo pouhého počítání, a se simulátorem soubojů na hraní.",
  "Every augment, ranked for you": "Každé vylepšení, seřazené pro tebe",
  "All the augments, quests and Mayhem-only items, scored for each champion. Mark what you took and the rest re-rank around it.": "Všechna vylepšení, úkoly a předměty jen pro tento režim, ohodnocené pro každého šampiona. Označ, co sis vzal, a zbytek se přeřadí.",
  "Data science, not raw counts": "Datová věda místo holých čísel",
  "DeepScore weighs sample size, shows how sure it is, and estimates what each augment adds to your champion. It even forecasts patches before they land.": "DeepScore zohledňuje velikost vzorku, ukazuje, jak si je jistý, a odhaduje, co každé vylepšení přidá tvému šampionovi. Dokonce předpovídá patche dřív, než vyjdou.",
- "Tested in fights": "Otestováno v boji",
- "A full combat simulator runs builds against real kits, so you see why a build wins, not just that it did.": "Plnohodnotný bojový simulátor staví buildy proti skutečným schopnostem, takže vidíš, proč build vyhrává, a ne jen že vyhrává.",
- "DeepARAM is built just for ARAM Mayhem. Rankings come from data science, and builds are tested in a fight simulator.": "DeepARAM je vytvořený jen pro ARAM: Mela. Žebříčky vycházejí z datové vědy a buildy se testují v bojovém simulátoru."
+ "A fight simulator to play with": "Simulátor soubojů na hraní",
+ "Pit any build against real kits in a 3D replay. It's a sandbox for fun, so no ranking on the site leans on it.": "Postav jakýkoli build proti skutečným sadám schopností ve 3D záznamu. Je to pískoviště pro zábavu, takže se o něj žádné hodnocení na webu neopírá.",
+ "DeepARAM is built just for ARAM Mayhem. Rankings come from data science, and the fight simulator is there for fun.": "DeepARAM je stavěný jen pro ARAM Mayhem. Hodnocení pochází z datové vědy a simulátor soubojů je tu pro zábavu."
 }
