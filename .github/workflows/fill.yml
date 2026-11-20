@@ -50,6 +50,9 @@ jobs:
       - name: Estimate other stats (augments per champion, items, profiles, odds)
         if: steps.fresh.outputs.run == 'true'
         run: python3 data/estimates/build.py
+      - name: Build archetypes (crit / on-hit / AP... per champion, for champion pages and the overlay)
+        if: steps.fresh.outputs.run == 'true'
+        run: python3 data/estimates/build_archetypes.py || echo "::warning::Build archetypes not refreshed"
       - name: Weapon of Destiny tier list (follows who takes the augment)
         if: steps.fresh.outputs.run == 'true'
         # Downloads the augment and item data from CommunityDragon; keep yesterday's ranking if that fails.

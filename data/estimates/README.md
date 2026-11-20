@@ -191,3 +191,14 @@ What follows is the carry-over fit the expected value uses.
   (split-half r 0.14). Only typical game length is published, plus the simulated curve above.
 - **Map win rates**: every Mayhem game in the archive is on Howling Abyss (map 12), so there's nothing
   to split.
+
+## Build archetypes (`build_archetypes.json`)
+
+`build_archetypes.py` splits each champion's builds by style (the site's STYLES: crit, on-hit, AP, lethality, AD,
+tank, enchanter), so Ashe gets an AP build and a crit build. Items take their style from the Simulator's item roles,
+else their item class; each 3-item core takes the style most of its items share. An archetype is kept above 3% of the
+champion's games with a Wilson interval within +-3 points (else the most played one stands alone, `few_games`). Per
+archetype: `share`, `games`, `win_rate`, `lift`, `starters`, `core`, `boots`, `later`, and `augments` by rarity.
+Augments are champion-wide in the feed, so an archetype's are the most picked whose official build tags fit its style
+(or have none), marked `augments_estimated`. The champion page's archetype switch and the overlay both read this file.
+Refreshed by fill.yml.
