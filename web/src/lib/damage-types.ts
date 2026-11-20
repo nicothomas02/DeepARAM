@@ -4,7 +4,7 @@ import { ddVersion } from "./dd-swap";
 import { readRepoJson } from "./repo-data";
 
 // What kind of damage each champion deals and what each finished item gives, for the desktop app's enemy-aware
-// item tip (apps/desktop companion.html): the enemy team's mix of physical and magic damage, from their champions
+// damage line (apps/desktop companion.html): the enemy team's mix of physical and magic damage, from their champions
 // and, as the game goes on, from the items they've bought. Data Dragon only.
 
 export type DamageTypes = {

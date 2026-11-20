@@ -190,9 +190,8 @@
   }
 
   // The enemy team's damage, 0 (all physical) to 1 (all magic): each champion's usual mix, pulled toward what their
-  // finished items say as they buy them. Checked on past games, only one defense tip paid off: Plated Steelcaps
-  // against a team dealing 62%+ physical damage (about +5 win-rate points vs other boots). Magic resist boots, armor or
-  // magic resist items matched to the threat, and anti-heal showed little or no gain, so the panel doesn't suggest them.
+  // finished items say as they buy them. League doesn't show this. Shown only when it leans hard one way, as a fact,
+  // without an item prescription: no defense tip has been shown to pay off yet.
   function enemyMagic(k, enemies) {
     const lower = new Map(Object.entries(k.champions).map(([a, m]) => [a.toLowerCase(), m]));
     const mixes = enemies.filter((e) => e.champ).map((e) => {
@@ -206,12 +205,11 @@
     });
     return mixes.length ? mixes.reduce((a, b) => a + b, 0) / mixes.length : null;
   }
-  function defenseTip(k, g) {
+  function damageLine(k, g) {
     const magic = enemyMagic(k, g.enemies ?? []);
-    if (magic === null || magic > 0.38) return "";
-    const boots = g.items.some((i) => (k.boots ?? []).includes(i % 10000));
-    if (boots) return "";
-    return `<div class="why tip">Enemy damage is mostly physical (about ${pct(1 - magic)}). If you buy boots: <b>Plated Steelcaps</b>.</div>`;
+    if (magic === null || (magic > 0.35 && magic < 0.65)) return "";
+    const kind = magic >= 0.65 ? "magic" : "physical";
+    return `<div class="why tip">Enemy damage is mostly ${kind}: about ${pct(magic >= 0.65 ? magic : 1 - magic)}.</div>`;
   }
 
   async function renderItems() {
@@ -221,7 +219,7 @@
     const build = d?.champions?.find((c) => c.id === game.champ)?.items ?? [];
     const owned = new Set(game.items.map((i) => i % 10000));
     const next = build.filter((it) => !owned.has(itemId(it.icon))).slice(0, 2);
-    const tip = k ? defenseTip(k, game) : "";
+    const tip = k ? damageLine(k, game) : "";
     if (!next.length) { box.innerHTML = (build.length ? `<p class="note">You have the whole build.</p>` : `<p class="note">No build for this champion yet.</p>`) + tip; return; }
     box.innerHTML = `<div class="box${game.dead ? " now" : ""}">
       ${game.dead ? `<div class="why">You're dead: a good time to shop.</div>` : ""}
