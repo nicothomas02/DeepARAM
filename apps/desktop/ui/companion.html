@@ -174,16 +174,20 @@
     try { localStorage.setItem("taken", JSON.stringify({ champ: g.champ, start: Date.now() / 1000 - g.t, ids })); } catch {}
   }
 
+  // DeepScore tier, as on the site: 50 is average, S from 70, A 59, B 44, C 32, D below.
+  const deepTier = (ds) => (ds >= 70 ? "S" : ds >= 59 ? "A" : ds >= 44 ? "B" : ds >= 32 ? "C" : "D");
+  const deepLabel = (ds) => (ds >= 0 ? `${deepTier(ds)} ${ds}` : "");
+
   function rankAugments(d, champ, taken) {
     const own = d.champions[champ] ?? [];
     const pairs = d.pairs[champ] ?? [];
-    return own.filter(([id]) => !taken.includes(id)).map(([id, score]) => {
+    return own.filter(([id]) => !taken.includes(id)).map(([id, score, deep = -1]) => {
       let bonus = 0, mate = null, best = 0;
       for (const [a, b, p] of pairs) {
         const other = a === id ? b : b === id ? a : null;
         if (other !== null && taken.includes(other)) { bonus += p; if (p > best) { best = p; mate = other; } }
       }
-      return { id, score: score + bonus, mate };
+      return { id, score: score + bonus, mate, deep };
     }).sort((x, y) => y.score - x.score);
   }
 
@@ -202,12 +206,12 @@
       <button class="row aug${i === 0 && !q ? " best" : ""}" data-id="${a.id}">
         ${augIcon(a.id)}
         <div><div class="name">${esc(name(a.id))}</div><div class="why">${a.mate !== null ? `Synergy with ${esc(name(a.mate))}` : esc((d.augments[a.id]?.[1] ?? "").replace(/^./, (c) => c.toUpperCase()))}</div></div>
-        <div class="num">#${ranked.indexOf(a) + 1}</div>
+        <div class="num" title="DeepScore on this champion">${deepLabel(a.deep) || `#${ranked.indexOf(a) + 1}`}</div>
       </button>`;
     box.innerHTML = `
       ${taken.length ? `<div class="taken">${taken.map((id) => `<button class="chip" data-id="${id}" title="Tap to undo">${augIcon(id)}${esc(name(id))}</button>`).join("")}</div>` : ""}
       ${shown.map(row).join("") || `<p class="note">No augment matches "${esc(query)}".</p>`}
-      <p class="note">Best first for ${esc(label(game.champ))}. Tap the one you take and the rest re-rank around it. If yours isn't listed, search for it.</p>`;
+      <p class="note">Best first for ${esc(label(game.champ))}, with each augment's DeepScore here (50 is average). Tap the one you take and the rest re-rank around it. If yours isn't listed, search for it.</p>`;
     box.querySelectorAll("button[data-id]").forEach((b) => b.addEventListener("click", () => {
       const id = Number(b.dataset.id), t = getTaken(game);
       setTaken(game, t.includes(id) ? t.filter((x) => x !== id) : [...t, id]);
@@ -244,6 +248,9 @@
   const STYLE_NAMES = { crit: "Crit", onhit: "On-hit", ap: "AP", lethality: "Lethality", fighter: "AD", tank: "Tank", enchanter: "Enchanter" };
   // Items that grow with time or takedowns: worth buying first when they're in your build.
   const STACKING = new Set([6697, 3084, 3070, 3004, 3003, 3119]);
+  const BACK_TO_BASICS = new Set([1004, 4]);
+  // Champions whose R has a passive that works once R has a point, so Back to Basics still levels R (Nico 2026-11-20).
+  const R_PASSIVE = new Set(["ryze", "pantheon", "olaf", "reksai", "xinzhao", "masteryi", "teemo", "jax", "shyvana", "gnar", "sona", "belveth"]);
 
   // The build to follow: the champion's usual one, or, once the augments you took point to another of its build
   // styles (on-hit, crit, AP...), that style's build from the same public stats.
@@ -274,13 +281,15 @@
     return parts.length ? { name: k.recipes[parts[0]][0], whole: false, cost: k.recipes[parts[0]][1] } : null;
   }
 
-  // On level-up: where the point goes, from the champion's skill order. R at 6, 11 and 16, Back to Basics too:
-  // its R passive still works, and players holding it still level R.
-  function skillUp(order, pts, level) {
+  // On level-up: where the point goes, from the champion's skill order. R at 6, 11 and 16; with Back to Basics
+  // only when the champion's R has a passive (Back to Basics takes the active away, not the passive).
+  function skillUp(order, pts, level, taken, champName) {
     const spent = pts.reduce((a, b) => a + b, 0);
     if (!order?.length || !pts.length || spent >= level) return "";
+    const rPassive = R_PASSIVE.has(String(champName ?? "").toLowerCase().replace(/[^a-z]/g, ""));
+    const noR = !rPassive && taken.some((id) => BACK_TO_BASICS.has(id));
     const rDue = [6, 11, 16].filter((l) => l <= level).length;
-    if (pts[3] < rDue) return "R";
+    if (!noR && pts[3] < rDue) return "R";
     const idx = { Q: 0, W: 1, E: 2 };
     const cap = Math.min(5, Math.ceil(level / 2));
     const first = level <= 3 && order.find((key) => pts[idx[key]] === 0);
@@ -333,7 +342,7 @@
     // Tips, most useful first; only the top two show, so the panel stays small.
     const tips = [];
     const add = (rank, html) => tips.push([rank, html]);
-    const point = skillUp(champ?.skills, game.skills ?? [], game.level);
+    const point = skillUp(champ?.skills, game.skills ?? [], game.level, taken, game.champ);
     if (point) add(1, `Skill point: <b>${point}</b>`);
     const shop = game.dead ? "You're dead: a good time to shop." : game.t < 60 ? "In base: a good time to shop." : "";
     if (shop && k && next.length) {

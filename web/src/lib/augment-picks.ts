@@ -6,17 +6,20 @@ import { readRepoJson } from "./repo-data";
 import { championPage } from "./champion-page";
 import { champList } from "./champions";
 import { championEstimates } from "./estimates";
+import { augmentScores } from "./champion-augments";
 
 // Every champion's augments in the champion page's order, for the desktop app's augment panel (apps/desktop
 // companion.html): ranked by the champion's estimated boost from each augment (the page's "Boost"), else by its
 // DeepScore, with the confirmed synergy pairs so the panel can re-rank once the player marks what they took.
-// The panel shows a ranking only, never win rates (Riot's policy for overlays). Public data only.
+// The panel shows the ranking and each augment's DeepScore on this champion (Nico 2026-11-20), never raw win
+// rates. Public data only.
 
 export type AugmentPicks = {
   /** id -> [name, rarity] */
   augments: Record<string, [string, string]>;
-  /** alias -> augment ids, best first, and each one's ranking score (boost, as a fraction) */
-  champions: Record<string, [number, number][]>;
+  /** alias -> augment ids, best first, each one's ranking score (boost, as a fraction) and its DeepScore on this
+   *  champion (as on the champion page; -1 when there's no estimate) */
+  champions: Record<string, [number, number, number][]>;
   /** alias -> [a, b, points] synergy pairs (points: estimated win-rate points; order-dependent pairs use the larger) */
   pairs: Record<string, [number, number, number][]>;
   /** augment id -> the build styles it points to (crit, onhit, ap, lethality, fighter, tank, enchanter) */
@@ -57,12 +60,13 @@ export function augmentPicks(): AugmentPicks {
     const p = championPage(alias);
     if (!p?.augments.length) continue;
     const est = championEstimates(ids[alias] ?? -1);
+    const deep = augmentScores(alias);
     const rows = p.augments.map((a) => {
       out.augments[a.id] = [a.name, a.rarity];
       const lift = est?.augments.get(a.id)?.lift;
       // No estimate: fall back to DeepScore around its middle (50), scaled to about the same size as a boost.
       const score = lift ?? ((scores.get(a.id) ?? 50) - 50) / 1000;
-      return [a.id, r4(score)] as [number, number];
+      return [a.id, r4(score), deep.get(a.id) ?? -1] as [number, number, number];
     });
     out.champions[alias] = rows.sort((x, y) => y[1] - x[1]);
     const builds = arch[String(ids0[alias])] ?? [];

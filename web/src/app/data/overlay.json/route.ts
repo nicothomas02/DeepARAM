@@ -1,7 +1,7 @@
 // The desktop app's in-game overlay (apps/desktop): every champion's quick build from the champion page,
 // with names and icons, keyed for lookup by the champion's alias. Built once per deploy.
-// Only things a player can read before the game: no win rates (Riot's policy bans augment win rates in
-// overlays), no tiers. Shape is read by apps/desktop/ui/overlay.html.
+// Only things a player can read before the game: no raw win rates; augments carry their DeepScore on the
+// champion (Nico 2026-11-20). Shape is read by apps/desktop/ui/overlay.html.
 import { livePatch } from "@/lib/highlights";
 import { patchName } from "@/lib/patch-name";
 import { quickBuilds } from "@/lib/quick-build";

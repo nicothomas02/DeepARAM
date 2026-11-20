@@ -44,8 +44,12 @@ describe("overlay.json", async () => {
     }
   });
 
-  it("carries no win rates, pick rates or tiers", () => {
+  it("carries no raw win rates or pick rates; augments carry DeepScore only", () => {
     const text = JSON.stringify(body);
-    expect(text).not.toMatch(/winRate|pickRate|deepScore|"tier"/);
+    expect(text).not.toMatch(/winRate|pickRate|"tier"/);
+    // DeepScore on the champion is shown on the overlay (Nico 2026-11-20), as a 0-100 whole number.
+    const scores = [...text.matchAll(/"deepScore":(-?[\d.]+)/g)].map((m) => Number(m[1]));
+    expect(scores.length).toBeGreaterThan(0);
+    for (const s of scores) expect(Number.isInteger(s) && s >= 0 && s <= 100).toBe(true);
   });
 });
