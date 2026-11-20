@@ -738,38 +738,38 @@
       "id": "trundle-skibidi-pillar",
       "champion": "Trundle",
       "title": "Skibidi Pillar",
-      "tagline": "He stopped biting people. The pillar does all the talking now.",
+      "tagline": "Every pillar is a snack. Every snack hits the nearest enemy.",
       "augments": [
-        "Terrain'd",
-        "Bread and Cheese",
+        "Ravenous Bind",
+        "Circle of Death",
         "Purist - Caster",
         "Ice Cold"
       ],
       "core": 4,
       "items": [
+        "Spirit Visage",
+        "Warmog's Armor",
         "Rylai's Crystal Scepter",
-        "Imperial Mandate",
         "Cosmic Drive",
-        "Shurelya's Battlesong",
-        "Frozen Heart",
+        "Redemption",
         "Ionian Boots of Lucidity"
       ],
-      "why": "Trundle never uses Chomp. He spams Pillar of Ice until there is never a moment without one standing.",
+      "why": "Trundle stops biting and starts healing: every Pillar of Ice that knocks someone up heals him, and every heal hits the closest enemy champion.",
       "how": [
         [
           "Pillar of Ice",
-          "A button that knocks back whoever stands on it and slows everyone nearby for 6 seconds. It normally deals no damage at all."
+          "Knocks back whoever stands on it and slows everyone nearby. It normally deals no damage and never heals."
         ],
         [
           "Augments",
-          "Terrain'd, rolled on Pillar of Ice, makes the pillar hurt everything around it. Bread and Cheese gives Pillar of Ice 100 ability haste and Purist - Caster turns the attack speed he never uses into even more, so the next pillar lands before the last one melts. Ice Cold makes the slow brutal."
+          "Ravenous Bind, rolled on Pillar of Ice, makes each knock deal damage and heal Trundle. Circle of Death turns 70% of every heal and all his Health Regen into magic damage on the nearest enemy champion. Purist - Caster brings the next pillar back sooner, and Ice Cold makes the slow brutal."
         ],
         [
           "Items",
-          "Imperial Mandate speeds up the pillar and marks everyone it knocks back, Rylai's adds more slow, and Cosmic Drive, Shurelya's and Frozen Heart make every pillar come back faster."
+          "Spirit Visage boosts every heal. Rylai's, Cosmic Drive and Warmog's push his bonus Health past 2,000, so Warmog's regenerates him whenever he goes 8 seconds untouched, and that regen keeps zapping the nearest enemy. Redemption heals him again from far away."
         ]
       ],
-      "play": "Max E first. Drop the pillar right under the enemy carry and have the next one down before it melts. Never press Q, never right-click.",
+      "play": "Max E first. Drop pillars on the enemy carry, then step back and let the regen do the poking. Never press Q, never right-click.",
       "chef": "2026-11-18"
     }
   ]
