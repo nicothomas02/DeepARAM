@@ -235,7 +235,9 @@ LabI18n.ready(function () {
   }
 
   $("ryze-icon").src = data.champion.icon;
-  $("patch").textContent = T("Patch {patch}.", { patch: data.patch.split(".").slice(0, 2).join(".") });
+  // Game files number patches by client version (16.23); players and the rest of the site call it 26.23.
+  const [major, minor] = data.patch.split(".").map(Number);
+  $("patch").textContent = T("Patch {patch}.", { patch: `${major >= 10 && major < 20 ? major + 10 : major}.${minor}` });
   $("level").addEventListener("input", (e) => { build.level = +e.target.value; update(false); });
   $("preset").addEventListener("click", () => { build = structuredClone(PRESET); update(); });
   $("reset").addEventListener("click", () => { build = { level: 18, items: [], augments: [], opts: {}, extra: {} }; update(); });
