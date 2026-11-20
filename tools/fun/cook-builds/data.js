@@ -4385,42 +4385,42 @@ window.COOK_DATA = {
      "champion_is_best": true
     },
     {
-     "name": "Purist - Caster",
-     "id": 2018,
-     "rarity": "Silver",
-     "text": "Gain percent cooldown reduction and convert all of your Attack Speed into Ability Haste.",
+     "name": "Terrain'd",
+     "id": 2129,
+     "rarity": "Gold",
+     "text": "Your chosen ability deals damage in an area around it.",
      "core": true,
-     "icon": "icons/augments/purist-caster.png",
-     "win_rate": 0.5408,
-     "pick_rate": 0.3657,
-     "win_rank": 64,
+     "icon": "icons/augments/terrain-d.png",
+     "win_rate": 0.5109,
+     "pick_rate": 0.037,
+     "win_rank": 133,
      "best_champions": [
-      "Teemo",
-      "Karthus",
-      "Jayce",
-      "MissFortune",
-      "Ashe",
-      "TwistedFate"
+      "Trundle",
+      "JarvanIV",
+      "Anivia",
+      "Ornn",
+      "Taliyah",
+      "Azir"
      ],
-     "champion_is_best": false
+     "champion_is_best": true
     },
     {
-     "name": "Ice Cold",
-     "id": 1044,
-     "rarity": "Silver",
-     "text": "Your Slowing effects reduce Movement Speed by an extra 75.",
+     "name": "BEES!!!",
+     "id": 3086,
+     "rarity": "Gold",
+     "text": "Periodically, your next Ability hit against an enemy champion launches a hive of Bees that explodes, Slowing and dealing magic damage over a short duration. Bees apply On-Hit effects.",
      "core": true,
-     "icon": "icons/augments/ice-cold.png",
-     "win_rate": 0.5165,
-     "pick_rate": 0.197,
-     "win_rank": 123,
+     "icon": "icons/augments/bees.png",
+     "win_rate": 0.6345,
+     "pick_rate": 0.5498,
+     "win_rank": 2,
      "best_champions": [
-      "AurelionSol",
+      "Teemo",
+      "Kaisa",
       "Brand",
-      "Morgana",
-      "Malzahar",
-      "MissFortune",
-      "Teemo"
+      "TwistedFate",
+      "AurelionSol",
+      "Ashe"
      ],
      "champion_is_best": false
     }
@@ -4434,7 +4434,7 @@ window.COOK_DATA = {
     "Redemption",
     "Ionian Boots of Lucidity"
    ],
-   "why": "Trundle stops biting and starts healing: every Pillar of Ice that knocks someone up heals him, and every heal hits the closest enemy champion.",
+   "why": "Trundle quits being a melee bruiser and plays like a mage: every Pillar of Ice heals him, hurts everything nearby and launches bees, and every heal zaps the closest enemy champion.",
    "how": [
     [
      "Pillar of Ice",
@@ -4442,11 +4442,11 @@ window.COOK_DATA = {
     ],
     [
      "Augments",
-     "Ravenous Bind, rolled on Pillar of Ice, makes each knock deal damage and heal Trundle. Circle of Death turns 70% of every heal and all his Health Regen into magic damage on the nearest enemy champion. Purist - Caster brings the next pillar back sooner, and Ice Cold makes the slow brutal."
+     "Ravenous Bind and Terrain'd, both rolled on Pillar of Ice, make each knock heal Trundle and the pillar hurt everything around it. That damage counts as an ability hit, so BEES!!! keep launching hives off it. Circle of Death turns 70% of every heal and all his Health Regen into magic damage on the nearest enemy champion."
     ],
     [
      "Items",
-     "Spirit Visage boosts every heal. Rylai's, Cosmic Drive and Warmog's push his bonus Health past 2,000, so Warmog's regenerates him whenever he goes 8 seconds untouched, and that regen keeps zapping the nearest enemy. Redemption heals him again from far away."
+     "Spirit Visage boosts every heal and Rylai's slows everyone the pillar hurts. Rylai's, Cosmic Drive and Warmog's push his bonus Health past 2,000, so Warmog's regenerates him whenever he goes 8 seconds untouched, and that regen keeps zapping the nearest enemy. Redemption heals him again from far away."
     ]
    ],
    "play": "Max E first. Drop pillars on the enemy carry, then step back and let the regen do the poking. Never press Q, never right-click.",
@@ -4464,16 +4464,16 @@ window.COOK_DATA = {
    "champion_win_rate": 0.5099,
    "champion_pick_rate": 0.0914,
    "champion_win_rank": 48,
-   "core_win_rate": 0.5297,
+   "core_win_rate": 0.5517,
    "tier": "Holds up",
-   "core_usual": 2,
-   "core_pick_rate": 0.2034,
+   "core_usual": 3,
+   "core_pick_rate": 0.2094,
    "sim": {
-    "dps": 223,
-    "survival": 0.029,
+    "dps": 252,
+    "survival": 0.025,
     "best_dps": 1156,
     "best_survival": 0.163,
-    "pct_of_best": 0.193,
+    "pct_of_best": 0.218,
     "best_items": [
      "Berserker's Greaves",
      "Black Cleaver",

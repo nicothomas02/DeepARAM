@@ -377,16 +377,16 @@
  "Gain 20% Heal and Shield Power.": "회복 및 보호막 효과가 20% 증가합니다.",
  "Gain Ultimate Ability Haste.": "궁극기 스킬 가속을 얻습니다.",
  "Skibidi Pillar": "스키비디 기둥",
- "Trundle never uses Chomp. He spams Pillar of Ice until there is never a moment without one standing.": "트런들은 깨물기를 절대 쓰지 않습니다. 기둥이 항상 하나는 서 있을 때까지 얼음 기둥만 난사합니다.",
- "Max E first. Drop the pillar right under the enemy carry and have the next one down before it melts. Never press Q, never right-click.": "E 선마. 적 원딜 바로 밑에 기둥을 세우고, 이전 기둥이 녹기 전에 다음 기둥을 세우세요. Q도 우클릭도 절대 누르지 마세요.",
- "He stopped biting people. The pillar does all the talking now.": "이제 아무도 안 깨뭅니다. 말은 기둥이 다 합니다.",
+ "Trundle quits being a melee bruiser and plays like a mage: every Pillar of Ice heals him, hurts everything nearby and launches bees, and every heal zaps the closest enemy champion.": "트런들이 근접 브루저를 그만두고 마법사처럼 싸웁니다: 얼음 기둥마다 그를 회복시키고, 주변 모두에게 피해를 주고 벌을 날리며, 모든 회복은 가장 가까운 적 챔피언을 지집니다.",
+ "Max E first. Drop pillars on the enemy carry, then step back and let the regen do the poking. Never press Q, never right-click.": "E를 먼저 마스터하세요. 적 원딜 위에 기둥을 세우고 물러나서 재생이 견제하게 두세요. Q는 절대 누르지 말고, 우클릭도 절대 하지 마세요.",
+ "Every pillar is a snack. Every snack hits the nearest enemy.": "모든 기둥은 간식. 모든 간식은 가장 가까운 적을 때린다.",
  "Pillar of Ice": "얼음 기둥",
- "A button that knocks back whoever stands on it and slows everyone nearby for 6 seconds. It normally deals no damage at all.": "위에 선 적을 밀쳐내고 주변 모두를 6초 동안 둔화시키는 버튼. 원래는 피해를 전혀 주지 않습니다.",
- "Terrain'd, rolled on Pillar of Ice, makes the pillar hurt everything around it. Bread and Cheese gives Pillar of Ice 100 ability haste and Purist - Caster turns the attack speed he never uses into even more, so the next pillar lands before the last one melts. Ice Cold makes the slow brutal.": "얼음 기둥에 붙은 지형 생성됨으로 기둥이 주변 모두에게 피해를 줍니다. 빵과 치즈가 얼음 기둥에 스킬 가속 100을 주고, 순수주의자 - 마법사가 한 번도 안 쓰는 공격 속도를 더 많은 가속으로 바꿔 이전 기둥이 녹기 전에 다음 기둥이 섭니다. 차가운 냉기로 둔화가 잔인해집니다.",
- "Imperial Mandate speeds up the pillar and marks everyone it knocks back, Rylai's adds more slow, and Cosmic Drive, Shurelya's and Frozen Heart make every pillar come back faster.": "제국의 명령이 기둥을 빠르게 하고 밀려난 모두에게 표식을 남기며, 라일라이의 수정홀이 둔화를 더하고, 우주의 추진력, 슈렐리아의 군가, 얼어붙은 심장이 기둥을 더 빨리 돌려줍니다.",
+ "Knocks back whoever stands on it and slows everyone nearby. It normally deals no damage and never heals.": "위에 선 적을 밀쳐내고 주변 모두를 둔화시킵니다. 원래는 피해를 주지 않고 회복도 하지 않습니다.",
+ "Ravenous Bind and Terrain'd, both rolled on Pillar of Ice, make each knock heal Trundle and the pillar hurt everything around it. That damage counts as an ability hit, so BEES!!! keep launching hives off it. Circle of Death turns 70% of every heal and all his Health Regen into magic damage on the nearest enemy champion.": "굶주린 속박과 지형 생성됨을 둘 다 얼음 기둥에 받으면 밀쳐낼 때마다 트런들이 회복하고 기둥이 주변 모두에게 피해를 줍니다. 그 피해는 스킬 적중으로 치니 벌이다!!!가 계속 벌집을 날립니다. 죽음의 순환은 모든 회복의 70%와 체력 재생 전부를 가장 가까운 적 챔피언에게 마법 피해로 바꿉니다.",
+ "Spirit Visage boosts every heal and Rylai's slows everyone the pillar hurts. Rylai's, Cosmic Drive and Warmog's push his bonus Health past 2,000, so Warmog's regenerates him whenever he goes 8 seconds untouched, and that regen keeps zapping the nearest enemy. Redemption heals him again from far away.": "정령의 형상이 모든 회복을 늘리고 라일라이의 수정홀이 기둥에 맞은 모두를 둔화시킵니다. 라일라이, 우주의 추진력, 워모그의 갑옷으로 추가 체력이 2,000을 넘으니 8초간 맞지 않을 때마다 워모그가 회복시키고, 그 재생이 계속 가장 가까운 적을 지집니다. 구원으로 멀리서 한 번 더 회복합니다.",
  "Your chosen ability deals damage in an area around it.": "선택한 스킬이 주변 범위에 피해를 입힙니다.",
  "Off-menu": "메뉴 외",
  "Uses augments {champion} isn't normally offered. Just for fun: it may never come together in a real game.": "{champion}에게 보통 나오지 않는 증강을 씁니다. 재미용이라 실제 게임에서는 안 갖춰질 수도 있어요.",
  "On the menu": "메뉴",
- "Your E gains 100 Ability Haste.": "E가 스킬 가속 100을 얻습니다."
+ "Periodically, your next Ability hit against an enemy champion launches a hive of Bees that explodes, Slowing and dealing magic damage over a short duration. Bees apply On-Hit effects.": "주기적으로 적 챔피언에게 다음 스킬을 적중시키면 벌집을 날려 폭발시키고, 잠시 동안 둔화와 마법 피해를 입힙니다. 벌은 적중 시 효과를 적용합니다."
 }

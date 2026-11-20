@@ -377,16 +377,16 @@
  "Gain 20% Heal and Shield Power.": "获得20%治疗和护盾强度。",
  "Gain Ultimate Ability Haste.": "获得终极技能急速。",
  "Skibidi Pillar": "斯奇必迪冰柱",
- "Trundle never uses Chomp. He spams Pillar of Ice until there is never a moment without one standing.": "特朗德尔从不用利齿撕咬。他狂按寒冰之柱，直到场上永远立着一根柱子。",
- "Max E first. Drop the pillar right under the enemy carry and have the next one down before it melts. Never press Q, never right-click.": "主升E。把冰柱直接放在敌方C位脚下，在旧柱子融化前放下一根。永远别按Q，永远别点右键。",
- "He stopped biting people. The pillar does all the talking now.": "他不咬人了。现在全靠冰柱说话。",
+ "Trundle quits being a melee bruiser and plays like a mage: every Pillar of Ice heals him, hurts everything nearby and launches bees, and every heal zaps the closest enemy champion.": "特朗德尔不再当近战战士，而是像法师一样玩：每根寒冰之柱都会治疗他、伤害周围一切并放出蜜蜂，而每次治疗都会电击最近的敌方英雄。",
+ "Max E first. Drop pillars on the enemy carry, then step back and let the regen do the poking. Never press Q, never right-click.": "主E。把柱子放在敌方核心脚下，然后后退，让回血去消耗。永远别按Q，永远别右键。",
+ "Every pillar is a snack. Every snack hits the nearest enemy.": "每根柱子都是零食。每份零食都打最近的敌人。",
  "Pillar of Ice": "寒冰之柱",
- "A button that knocks back whoever stands on it and slows everyone nearby for 6 seconds. It normally deals no damage at all.": "一个能击退站在上面的人、并减速附近所有人6秒的按键。平时完全不造成伤害。",
- "Terrain'd, rolled on Pillar of Ice, makes the pillar hurt everything around it. Bread and Cheese gives Pillar of Ice 100 ability haste and Purist - Caster turns the attack speed he never uses into even more, so the next pillar lands before the last one melts. Ice Cold makes the slow brutal.": "随机到寒冰之柱上的地形专家让柱子伤害周围的一切。面包和奶酪给寒冰之柱100技能急速，纯粹主义者 - 术师把他从不使用的攻击速度变成更多急速，所以旧柱子融化前新柱子就到了。冰寒让减速变得残暴。",
- "Imperial Mandate speeds up the pillar and marks everyone it knocks back, Rylai's adds more slow, and Cosmic Drive, Shurelya's and Frozen Heart make every pillar come back faster.": "帝国指令让冰柱更快，并标记每一个被击退的人，瑞莱的冰晶节杖增加减速，星界驱驰、舒瑞娅的战歌和冰霜之心让每根柱子更快回来。",
+ "Knocks back whoever stands on it and slows everyone nearby. It normally deals no damage and never heals.": "击退站在上面的敌人并减速周围所有人。平时它不造成伤害，也从不治疗。",
+ "Ravenous Bind and Terrain'd, both rolled on Pillar of Ice, make each knock heal Trundle and the pillar hurt everything around it. That damage counts as an ability hit, so BEES!!! keep launching hives off it. Circle of Death turns 70% of every heal and all his Health Regen into magic damage on the nearest enemy champion.": "贪欲束缚和地形专家都随机到寒冰之柱时，每次击退都会治疗特朗德尔，柱子还会伤害周围一切。这份伤害算作技能命中，所以小蜜蜂！！！会不停放出蜂巢。死亡之环把每次治疗的70%和他全部的生命回复转化为对最近敌方英雄的魔法伤害。",
+ "Spirit Visage boosts every heal and Rylai's slows everyone the pillar hurts. Rylai's, Cosmic Drive and Warmog's push his bonus Health past 2,000, so Warmog's regenerates him whenever he goes 8 seconds untouched, and that regen keeps zapping the nearest enemy. Redemption heals him again from far away.": "振奋盔甲强化每次治疗，瑞莱的冰晶节杖减速被柱子伤到的所有人。瑞莱、星界驱驰和狂徒铠甲让他的额外生命值超过2000，所以只要8秒没挨打，狂徒就会给他回血，而这份回血会持续电击最近的敌人。救赎还能从远处再奶他一口。",
  "Your chosen ability deals damage in an area around it.": "你选择的技能会对其周围区域造成伤害。",
  "Off-menu": "菜单外",
  "Uses augments {champion} isn't normally offered. Just for fun: it may never come together in a real game.": "使用了{champion}通常不会刷到的强化符文。纯属娱乐：实战中可能永远凑不齐。",
  "On the menu": "菜单内",
- "Your E gains 100 Ability Haste.": "你的E获得100技能急速。"
+ "Periodically, your next Ability hit against an enemy champion launches a hive of Bees that explodes, Slowing and dealing magic damage over a short duration. Bees apply On-Hit effects.": "周期性地，你对敌方英雄的下一次技能命中会发射一个蜂巢，蜂巢爆炸，在短时间内造成减速和魔法伤害。蜜蜂会施加攻击特效。"
 }

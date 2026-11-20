@@ -742,8 +742,8 @@
       "augments": [
         "Ravenous Bind",
         "Circle of Death",
-        "Purist - Caster",
-        "Ice Cold"
+        "Terrain'd",
+        "BEES!!!"
       ],
       "core": 4,
       "items": [
@@ -754,7 +754,7 @@
         "Redemption",
         "Ionian Boots of Lucidity"
       ],
-      "why": "Trundle stops biting and starts healing: every Pillar of Ice that knocks someone up heals him, and every heal hits the closest enemy champion.",
+      "why": "Trundle quits being a melee bruiser and plays like a mage: every Pillar of Ice heals him, hurts everything nearby and launches bees, and every heal zaps the closest enemy champion.",
       "how": [
         [
           "Pillar of Ice",
@@ -762,11 +762,11 @@
         ],
         [
           "Augments",
-          "Ravenous Bind, rolled on Pillar of Ice, makes each knock deal damage and heal Trundle. Circle of Death turns 70% of every heal and all his Health Regen into magic damage on the nearest enemy champion. Purist - Caster brings the next pillar back sooner, and Ice Cold makes the slow brutal."
+          "Ravenous Bind and Terrain'd, both rolled on Pillar of Ice, make each knock heal Trundle and the pillar hurt everything around it. That damage counts as an ability hit, so BEES!!! keep launching hives off it. Circle of Death turns 70% of every heal and all his Health Regen into magic damage on the nearest enemy champion."
         ],
         [
           "Items",
-          "Spirit Visage boosts every heal. Rylai's, Cosmic Drive and Warmog's push his bonus Health past 2,000, so Warmog's regenerates him whenever he goes 8 seconds untouched, and that regen keeps zapping the nearest enemy. Redemption heals him again from far away."
+          "Spirit Visage boosts every heal and Rylai's slows everyone the pillar hurts. Rylai's, Cosmic Drive and Warmog's push his bonus Health past 2,000, so Warmog's regenerates him whenever he goes 8 seconds untouched, and that regen keeps zapping the nearest enemy. Redemption heals him again from far away."
         ]
       ],
       "play": "Max E first. Drop pillars on the enemy carry, then step back and let the regen do the poking. Never press Q, never right-click.",

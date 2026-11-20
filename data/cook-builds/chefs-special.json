@@ -4,7 +4,7 @@
   "champion": "Trundle",
   "champion_name": "Trundle",
   "chef": "2026-11-18",
-  "why": "Trundle stops biting and starts healing: every Pillar of Ice that knocks someone up heals him, and every heal hits the closest enemy champion.",
+  "why": "Trundle quits being a melee bruiser and plays like a mage: every Pillar of Ice heals him, hurts everything nearby and launches bees, and every heal zaps the closest enemy champion.",
   "play": "Max E first. Drop pillars on the enemy carry, then step back and let the regen do the poking. Never press Q, never right-click.",
   "items": [
     "Spirit Visage",
@@ -23,11 +23,11 @@
     ],
     [
       "Augments",
-      "Ravenous Bind, rolled on Pillar of Ice, makes each knock deal damage and heal Trundle. Circle of Death turns 70% of every heal and all his Health Regen into magic damage on the nearest enemy champion. Purist - Caster brings the next pillar back sooner, and Ice Cold makes the slow brutal."
+      "Ravenous Bind and Terrain'd, both rolled on Pillar of Ice, make each knock heal Trundle and the pillar hurt everything around it. That damage counts as an ability hit, so BEES!!! keep launching hives off it. Circle of Death turns 70% of every heal and all his Health Regen into magic damage on the nearest enemy champion."
     ],
     [
       "Items",
-      "Spirit Visage boosts every heal. Rylai's, Cosmic Drive and Warmog's push his bonus Health past 2,000, so Warmog's regenerates him whenever he goes 8 seconds untouched, and that regen keeps zapping the nearest enemy. Redemption heals him again from far away."
+      "Spirit Visage boosts every heal and Rylai's slows everyone the pillar hurts. Rylai's, Cosmic Drive and Warmog's push his bonus Health past 2,000, so Warmog's regenerates him whenever he goes 8 seconds untouched, and that regen keeps zapping the nearest enemy. Redemption heals him again from far away."
     ]
   ],
   "champion_icon": "/embed/fun/cook-builds/icons/champions/48.png",
@@ -49,20 +49,20 @@
       "id": 1015
     },
     {
-      "name": "Purist - Caster",
-      "rarity": "Silver",
+      "name": "Terrain'd",
+      "rarity": "Gold",
       "core": true,
-      "text": "Gain percent cooldown reduction and convert all of your Attack Speed into Ability Haste.",
-      "icon": "/embed/fun/cook-builds/icons/augments/purist-caster.png",
-      "id": 2018
+      "text": "Your chosen ability deals damage in an area around it.",
+      "icon": "/embed/fun/cook-builds/icons/augments/terrain-d.png",
+      "id": 2129
     },
     {
-      "name": "Ice Cold",
-      "rarity": "Silver",
+      "name": "BEES!!!",
+      "rarity": "Gold",
       "core": true,
-      "text": "Your Slowing effects reduce Movement Speed by an extra 75.",
-      "icon": "/embed/fun/cook-builds/icons/augments/ice-cold.png",
-      "id": 1044
+      "text": "Periodically, your next Ability hit against an enemy champion launches a hive of Bees that explodes, Slowing and dealing magic damage over a short duration. Bees apply On-Hit effects.",
+      "icon": "/embed/fun/cook-builds/icons/augments/bees.png",
+      "id": 3086
     }
   ],
   "href": "/kitchen#chefs-special",
@@ -80,548 +80,548 @@
   "i18n": {
     "ar": {
       "title": "عمود سكيبيدي",
-      "why": "Trundle stops biting and starts healing: every Pillar of Ice that knocks someone up heals him, and every heal hits the closest enemy champion.",
-      "play": "Max E first. Drop pillars on the enemy carry, then step back and let the regen do the poking. Never press Q, never right-click.",
-      "tagline": "Every pillar is a snack. Every snack hits the nearest enemy.",
+      "why": "يتوقف ترندل عن كونه مقاتلًا قريبًا ويلعب كساحر: كل عمود الجليد يشفيه ويؤذي كل ما حوله ويطلق النحل، وكل شفاء يصعق أقرب بطل عدو.",
+      "play": "ارفع E أولًا. ضع الأعمدة على حامل الفريق المعادي، ثم تراجع ودع التجدد يقوم بالمناوشة. لا تضغط Q أبدًا، ولا تنقر بالزر الأيمن أبدًا.",
+      "tagline": "كل عمود وجبة خفيفة. وكل وجبة خفيفة تضرب أقرب عدو.",
       "how": [
         [
           "عمود الجليد",
-          "Knocks back whoever stands on it and slows everyone nearby. It normally deals no damage and never heals."
+          "يدفع من يقف عليه ويبطئ كل من حوله. عادةً لا يسبب أي ضرر ولا يشفي أبدًا."
         ],
         [
           "التعزيزات",
-          "Ravenous Bind, rolled on Pillar of Ice, makes each knock deal damage and heal Trundle. Circle of Death turns 70% of every heal and all his Health Regen into magic damage on the nearest enemy champion. Purist - Caster brings the next pillar back sooner, and Ice Cold makes the slow brutal."
+          "القيود المفترسة وسلاح التضاريس، وكلاهما على عمود الجليد، يجعلان كل دفعة تشفي ترندل والعمود يؤذي كل ما حوله. هذا الضرر يُحسب إصابة بقدرة، لذا يطلق النحل!!! الخلايا باستمرار. حلقة الموت تحوّل 70% من كل شفاء وكل تجدد الصحة لديه إلى ضرر سحري على أقرب بطل عدو."
         ],
         [
           "العتاد",
-          "Spirit Visage boosts every heal. Rylai's, Cosmic Drive and Warmog's push his bonus Health past 2,000, so Warmog's regenerates him whenever he goes 8 seconds untouched, and that regen keeps zapping the nearest enemy. Redemption heals him again from far away."
+          "وجه الروح يعزز كل شفاء، وصولجان كريستال رايلاي يبطئ كل من يؤذيه العمود. رايلاي والحافز الكوني ودرع وارموغ ترفع صحته الإضافية فوق 2,000، لذا يجدده درع وارموغ كلما مرت 8 ثوانٍ دون أن يُصاب، ويستمر هذا التجدد في ضرب أقرب عدو. الافتداء يشفيه مرة أخرى من بعيد."
         ]
       ],
       "augments": [
         "شلّ حركة أبطال الأعداء أو تثبيتهم بالأرض بالقدرة المختارة يُلحق ضررًا إضافيًا ويشفيك.",
         "علاجك وتجدد صحتك يُلحقان ضررًا سحريًا بنسبة 70% من القيمة بأقرب بطل عدو.",
-        "احصل على تقليل نسبي لفترة التهدئة وحوّل كل سرعة هجومك إلى تسريع قدرات.",
-        "تأثيرات الإبطاء لديك تقلل سرعة الحركة بمقدار 75 إضافية."
+        "القدرة التي اخترتها تسبب ضررًا في منطقة حولها.",
+        "بشكل دوري، تطلق إصابتك التالية بقدرة على بطل عدو خلية نحل تنفجر، فتبطئ وتسبب ضررًا سحريًا لمدة قصيرة. النحل يطبق تأثيرات عند الإصابة."
       ]
     },
     "cs": {
       "title": "Skibidi sloup",
-      "why": "Trundle stops biting and starts healing: every Pillar of Ice that knocks someone up heals him, and every heal hits the closest enemy champion.",
-      "play": "Max E first. Drop pillars on the enemy carry, then step back and let the regen do the poking. Never press Q, never right-click.",
-      "tagline": "Every pillar is a snack. Every snack hits the nearest enemy.",
+      "why": "Trundle přestane být bojovníkem na blízko a hraje se jako mág: každý Sloup ledu ho vyléčí, zraní vše kolem a vypustí včely, a každé léčení zasáhne nejbližšího nepřátelského šampiona.",
+      "play": "Nejdřív maxuj E. Pokládej sloupy pod nepřátelského carryho, pak ustup a nech regeneraci pokovat. Nikdy nemačkej Q, nikdy neklikej pravým.",
+      "tagline": "Každý sloup je svačinka. Každá svačinka zasáhne nejbližšího nepřítele.",
       "how": [
         [
           "Sloup ledu",
-          "Knocks back whoever stands on it and slows everyone nearby. It normally deals no damage and never heals."
+          "Odhodí každého, kdo na něm stojí, a zpomalí všechny poblíž. Normálně neudělí žádné poškození a nikdy neléčí."
         ],
         [
           "Augmenty",
-          "Ravenous Bind, rolled on Pillar of Ice, makes each knock deal damage and heal Trundle. Circle of Death turns 70% of every heal and all his Health Regen into magic damage on the nearest enemy champion. Purist - Caster brings the next pillar back sooner, and Ice Cold makes the slow brutal."
+          "Hladové pouto a Nebezpečný terén, obojí padlé na Sloup ledu, zajistí, že každé odhození léčí Trundla a sloup zraňuje vše kolem. Toto poškození se počítá jako zásah schopností, takže VČELY!!! neustále vypouštějí úly. Kruh smrti mění 70 % každého léčení a veškerou jeho regeneraci zdraví v magické poškození nejbližšímu nepřátelskému šampionovi."
         ],
         [
           "Předměty",
-          "Spirit Visage boosts every heal. Rylai's, Cosmic Drive and Warmog's push his bonus Health past 2,000, so Warmog's regenerates him whenever he goes 8 seconds untouched, and that regen keeps zapping the nearest enemy. Redemption heals him again from far away."
+          "Otisk duše posiluje každé léčení a Rylaino křišťálové žezlo zpomaluje každého, koho sloup zraní. Rylai, Kosmický pohon a Warmogova zbroj zvednou jeho bonusové zdraví nad 2 000, takže ho Warmog regeneruje vždy, když 8 sekund nedostane zásah, a ta regenerace dál zasahuje nejbližšího nepřítele. Odplata ho vyléčí znovu zdálky."
         ]
       ],
       "augments": [
         "Znehybnění nebo uzemnění nepřátelských šampionů zvolenou schopností způsobí dodatečné poškození a vyléčí tě.",
         "Tvé léčení a regenerace zdraví udělí nejbližšímu nepřátelskému šampionovi magické poškození ve výši 70 % své hodnoty.",
-        "Získáš procentuální zkrácení přebíjení a přeměníš veškerou rychlost útoků na zrychlení schopností.",
-        "Tvoje zpomalení snižují rychlost pohybu o dalších 75."
+        "Zvolená schopnost způsobí poškození v oblasti kolem sebe.",
+        "Tvůj další zásah schopností proti nepřátelskému šampionovi pravidelně vypustí úl včel, který vybuchne, zpomalí a krátce udílí magické poškození. Včely aplikují efekty při zásahu."
       ]
     },
     "de": {
       "title": "Skibidi-Säule",
-      "why": "Trundle stops biting and starts healing: every Pillar of Ice that knocks someone up heals him, and every heal hits the closest enemy champion.",
-      "play": "Max E first. Drop pillars on the enemy carry, then step back and let the regen do the poking. Never press Q, never right-click.",
-      "tagline": "Every pillar is a snack. Every snack hits the nearest enemy.",
+      "why": "Trundle ist kein Nahkampf-Bruiser mehr und spielt sich wie ein Magier: Jede Eissäule heilt ihn, verletzt alles in der Nähe und schießt Bienen ab, und jede Heilung trifft den nächsten gegnerischen Champion.",
+      "play": "Maximiere zuerst E. Setz Säulen auf den gegnerischen Carry, geh dann zurück und lass die Regeneration den Poke machen. Drück nie Q, klick nie rechts.",
+      "tagline": "Jede Säule ist ein Snack. Jeder Snack trifft den nächsten Gegner.",
       "how": [
         [
           "Eissäule",
-          "Knocks back whoever stands on it and slows everyone nearby. It normally deals no damage and never heals."
+          "Stößt jeden zurück, der darauf steht, und verlangsamt alle in der Nähe. Normalerweise verursacht sie keinen Schaden und heilt nie."
         ],
         [
           "Augments",
-          "Ravenous Bind, rolled on Pillar of Ice, makes each knock deal damage and heal Trundle. Circle of Death turns 70% of every heal and all his Health Regen into magic damage on the nearest enemy champion. Purist - Caster brings the next pillar back sooner, and Ice Cold makes the slow brutal."
+          "Gefräßige Bindung und Terrainiert, beide auf Eissäule gerollt, lassen jeden Stoß Trundle heilen und die Säule alles um sich herum verletzen. Dieser Schaden zählt als Fähigkeitstreffer, also schießt BIENEN!!! ständig Bienenstöcke davon ab. Kreis des Todes verwandelt 70 % jeder Heilung und seine gesamte Lebensregeneration in magischen Schaden am nächsten gegnerischen Champion."
         ],
         [
           "Gegenstände",
-          "Spirit Visage boosts every heal. Rylai's, Cosmic Drive and Warmog's push his bonus Health past 2,000, so Warmog's regenerates him whenever he goes 8 seconds untouched, and that regen keeps zapping the nearest enemy. Redemption heals him again from far away."
+          "Geistessicht verstärkt jede Heilung, und Rylais Kristallzepter verlangsamt jeden, den die Säule verletzt. Rylais, Kosmischer Antrieb und Warmogs Rüstung bringen sein zusätzliches Leben über 2.000, also regeneriert Warmogs ihn, sobald er 8 Sekunden lang unberührt bleibt, und diese Regeneration trifft immer wieder den nächsten Gegner. Befreiungsschlag heilt ihn noch einmal aus der Ferne."
         ]
       ],
       "augments": [
         "Gegnerische Champions mit der gewählten Fähigkeit bewegungsunfähig zu machen oder zu fesseln, verursacht zusätzlichen Schaden und heilt dich.",
         "Deine Heilung und Lebensregeneration fügen dem nächsten gegnerischen Champion 70 % des Werts als magischen Schaden zu.",
-        "Erhalte prozentuale Abklingzeitverringerung und wandle dein gesamtes Angriffstempo in Fähigkeitstempo um.",
-        "Deine Verlangsamungen verringern das Lauftempo um zusätzliche 75."
+        "Deine gewählte Fähigkeit verursacht Schaden in einem Bereich um sie herum.",
+        "Dein nächster Fähigkeitstreffer gegen einen gegnerischen Champion schießt regelmäßig einen Bienenstock ab, der explodiert, verlangsamt und über kurze Zeit magischen Schaden verursacht. Bienen lösen Treffereffekte aus."
       ]
     },
     "el": {
       "title": "Skibidi Βράχος",
-      "why": "Trundle stops biting and starts healing: every Pillar of Ice that knocks someone up heals him, and every heal hits the closest enemy champion.",
-      "play": "Max E first. Drop pillars on the enemy carry, then step back and let the regen do the poking. Never press Q, never right-click.",
-      "tagline": "Every pillar is a snack. Every snack hits the nearest enemy.",
+      "why": "Ο Τράντλ παύει να είναι μαχητής σώμα με σώμα και παίζει σαν μάγος: κάθε Παγωμένος Βράχος τον θεραπεύει, πληγώνει ό,τι είναι γύρω και εκτοξεύει μέλισσες, και κάθε θεραπεία χτυπά τον πιο κοντινό αντίπαλο πρωταθλητή.",
+      "play": "Ανέβασε πρώτα το E. Ρίξε βράχους πάνω στον αντίπαλο carry, μετά κάνε πίσω και άσε την αναγέννηση να κάνει το poke. Μην πατάς ποτέ Q, μην κάνεις ποτέ δεξί κλικ.",
+      "tagline": "Κάθε βράχος είναι ένα σνακ. Κάθε σνακ χτυπά τον πιο κοντινό εχθρό.",
       "how": [
         [
           "Παγωμένος Βράχος",
-          "Knocks back whoever stands on it and slows everyone nearby. It normally deals no damage and never heals."
+          "Σπρώχνει όποιον στέκεται πάνω του και επιβραδύνει όλους γύρω. Κανονικά δεν προκαλεί ζημιά και δεν θεραπεύει ποτέ."
         ],
         [
           "Ενισχύσεις",
-          "Ravenous Bind, rolled on Pillar of Ice, makes each knock deal damage and heal Trundle. Circle of Death turns 70% of every heal and all his Health Regen into magic damage on the nearest enemy champion. Purist - Caster brings the next pillar back sooner, and Ice Cold makes the slow brutal."
+          "Ο Αδηφάγος Δεσμός και το Ένα με το Έδαφος, και τα δύο στον Παγωμένο Βράχο, κάνουν κάθε σπρώξιμο να θεραπεύει τον Τράντλ και τον βράχο να πληγώνει ό,τι είναι γύρω του. Αυτή η ζημιά μετράει ως χτύπημα ικανότητας, οπότε το ΜΕΛΙΣΣΕΣ!!! εκτοξεύει συνέχεια κυψέλες. Ο Κύκλος Θανάτου μετατρέπει το 70% κάθε θεραπείας και όλη την αναγέννηση Ζωής του σε μαγική ζημιά στον πιο κοντινό αντίπαλο πρωταθλητή."
         ],
         [
           "Αντικείμενα",
-          "Spirit Visage boosts every heal. Rylai's, Cosmic Drive and Warmog's push his bonus Health past 2,000, so Warmog's regenerates him whenever he goes 8 seconds untouched, and that regen keeps zapping the nearest enemy. Redemption heals him again from far away."
+          "Η Όψη Πνευμάτων ενισχύει κάθε θεραπεία και το Κρυστάλλινο Σκήπτρο της Ριλάι επιβραδύνει όποιον πληγώνει ο βράχος. Το Σκήπτρο, η Κοσμική Ενέργεια και η Πανοπλία του Γόρμογκ ανεβάζουν την πρόσθετη Ζωή του πάνω από 2.000, οπότε η Πανοπλία τον αναγεννά όταν μένει 8 δευτερόλεπτα ανέγγιχτος, και αυτή η αναγέννηση συνεχίζει να χτυπά τον πιο κοντινό εχθρό. Η Λύτρωση τον θεραπεύει ξανά από μακριά."
         ]
       ],
       "augments": [
         "Η ακινητοποίηση ή η καθήλωση εχθρικών ηρώων με την επιλεγμένη ικανότητα προκαλεί επιπλέον ζημιά και σε θεραπεύει.",
         "Οι θεραπείες και η Ανανέωση Ζωής σου προκαλούν το 70% της τιμής τους ως μαγική ζημιά στον πλησιέστερο εχθρικό ήρωα.",
-        "Αποκτάτε ποσοστιαία μείωση χρόνου επαναφόρτισης και μετατρέπετε όλη την Ταχύτητα Επίθεσης σε Επιτάχυνση Ικανοτήτων.",
-        "Οι επιβραδύνσεις σου μειώνουν την ταχύτητα κίνησης κατά επιπλέον 75."
+        "Η επιλεγμένη ικανότητα προκαλεί ζημιά σε μια περιοχή γύρω της.",
+        "Περιοδικά, το επόμενο χτύπημα Ικανότητάς σου σε αντίπαλο πρωταθλητή εκτοξεύει μια κυψέλη με Μέλισσες που εκρήγνυται, επιβραδύνοντας και προκαλώντας μαγική ζημιά για λίγο. Οι Μέλισσες εφαρμόζουν εφέ κατά το χτύπημα."
       ]
     },
     "es-MX": {
       "title": "Pilar Skibidi",
-      "why": "Trundle stops biting and starts healing: every Pillar of Ice that knocks someone up heals him, and every heal hits the closest enemy champion.",
-      "play": "Max E first. Drop pillars on the enemy carry, then step back and let the regen do the poking. Never press Q, never right-click.",
-      "tagline": "Every pillar is a snack. Every snack hits the nearest enemy.",
+      "why": "Trundle deja de ser un peleador cuerpo a cuerpo y se juega como un mago: cada Pilar de Hielo lo cura, daña todo a su alrededor y lanza abejas, y cada curación golpea al campeón enemigo más cercano.",
+      "play": "Sube la E primero. Pon pilares sobre el carry enemigo, luego retrocede y deja que la regeneración haga el poke. Nunca presiones Q, nunca hagas clic derecho.",
+      "tagline": "Cada pilar es una botana. Cada botana golpea al enemigo más cercano.",
       "how": [
         [
           "Pilar de Hielo",
-          "Knocks back whoever stands on it and slows everyone nearby. It normally deals no damage and never heals."
+          "Empuja a quien esté encima y ralentiza a todos los que estén cerca. Normalmente no inflige daño y nunca cura."
         ],
         [
           "Aumentos",
-          "Ravenous Bind, rolled on Pillar of Ice, makes each knock deal damage and heal Trundle. Circle of Death turns 70% of every heal and all his Health Regen into magic damage on the nearest enemy champion. Purist - Caster brings the next pillar back sooner, and Ice Cold makes the slow brutal."
+          "Vínculo Voraz y Terraneitor, ambos asignados a Pilar de Hielo, hacen que cada empujón cure a Trundle y que el pilar dañe todo a su alrededor. Ese daño cuenta como golpe de habilidad, así que ¡¡¡ABEJAS!!! no para de lanzar colmenas. Círculo de la Muerte convierte el 70 % de cada curación y toda su regeneración de vida en daño mágico al campeón enemigo más cercano."
         ],
         [
           "Objetos",
-          "Spirit Visage boosts every heal. Rylai's, Cosmic Drive and Warmog's push his bonus Health past 2,000, so Warmog's regenerates him whenever he goes 8 seconds untouched, and that regen keeps zapping the nearest enemy. Redemption heals him again from far away."
+          "Apariencia Espiritual potencia cada curación y el Cetro de Cristal de Rylai ralentiza a todos los que daña el pilar. Rylai, Impulso Cósmico y la Armadura de Warmog suben su vida adicional por encima de 2000, así que Warmog lo regenera cada vez que pasa 8 segundos sin recibir daño, y esa regeneración sigue golpeando al enemigo más cercano. Redención lo cura otra vez desde lejos."
         ]
       ],
       "augments": [
         "Inmovilizar o dejar sin movilidad a campeones enemigos con la habilidad elegida inflige daño adicional y te cura.",
         "Tus curaciones y Regeneración de Vida infligen el 70% del valor como daño mágico al campeón enemigo más cercano.",
-        "Obtienes reducción porcentual de enfriamiento y conviertes toda tu velocidad de ataque en velocidad de habilidades.",
-        "Tus ralentizaciones reducen la velocidad de movimiento en 75 adicionales."
+        "Tu habilidad elegida inflige daño en un área a su alrededor.",
+        "Periódicamente, tu siguiente golpe de habilidad contra un campeón enemigo lanza una colmena de abejas que explota, ralentiza e inflige daño mágico durante un breve tiempo. Las abejas aplican efectos al impactar."
       ]
     },
     "es": {
       "title": "Pilar Skibidi",
-      "why": "Trundle stops biting and starts healing: every Pillar of Ice that knocks someone up heals him, and every heal hits the closest enemy champion.",
-      "play": "Max E first. Drop pillars on the enemy carry, then step back and let the regen do the poking. Never press Q, never right-click.",
-      "tagline": "Every pillar is a snack. Every snack hits the nearest enemy.",
+      "why": "Trundle deja de ser un luchador cuerpo a cuerpo y se juega como un mago: cada Pilar de hielo lo cura, daña todo a su alrededor y lanza abejas, y cada curación golpea al campeón enemigo más cercano.",
+      "play": "Sube la E primero. Pon pilares sobre el carry enemigo, luego retrocede y deja que la regeneración haga el poke. Nunca pulses Q, nunca hagas clic derecho.",
+      "tagline": "Cada pilar es un aperitivo. Cada aperitivo golpea al enemigo más cercano.",
       "how": [
         [
           "Pilar de hielo",
-          "Knocks back whoever stands on it and slows everyone nearby. It normally deals no damage and never heals."
+          "Empuja a quien esté encima y ralentiza a todos los que estén cerca. Normalmente no inflige daño y nunca cura."
         ],
         [
           "Aumentos",
-          "Ravenous Bind, rolled on Pillar of Ice, makes each knock deal damage and heal Trundle. Circle of Death turns 70% of every heal and all his Health Regen into magic damage on the nearest enemy champion. Purist - Caster brings the next pillar back sooner, and Ice Cold makes the slow brutal."
+          "Vínculo voraz y Terrinator, ambos asignados a Pilar de hielo, hacen que cada empujón cure a Trundle y que el pilar dañe todo a su alrededor. Ese daño cuenta como golpe de habilidad, así que ¡ABEJAS! no para de lanzar colmenas. Círculo de muerte convierte el 70 % de cada curación y toda su regeneración de vida en daño mágico al campeón enemigo más cercano."
         ],
         [
           "Objetos",
-          "Spirit Visage boosts every heal. Rylai's, Cosmic Drive and Warmog's push his bonus Health past 2,000, so Warmog's regenerates him whenever he goes 8 seconds untouched, and that regen keeps zapping the nearest enemy. Redemption heals him again from far away."
+          "Rostro espiritual potencia cada curación y el Cetro de cristal de Rylai ralentiza a todos los que daña el pilar. Rylai, Impulso cósmico y la Armadura de Warmog suben su vida adicional por encima de 2000, así que Warmog lo regenera cada vez que pasa 8 segundos sin recibir daño, y esa regeneración sigue golpeando al enemigo más cercano. Redención lo cura otra vez desde lejos."
         ]
       ],
       "augments": [
         "Inmovilizar o dejar sin movilidad a campeones enemigos con la habilidad elegida inflige daño adicional y te cura.",
         "Tu curación y regeneración de vida infligen un 70 % de su valor como daño mágico al campeón enemigo más cercano.",
-        "Obtienes reducción porcentual de enfriamiento y conviertes toda tu velocidad de ataque en aceleración de habilidades.",
-        "Tus ralentizaciones reducen la velocidad de movimiento en 75 adicionales."
+        "Tu habilidad elegida inflige daño en un área a su alrededor.",
+        "Periódicamente, tu siguiente golpe de habilidad contra un campeón enemigo lanza una colmena de abejas que explota, ralentiza e inflige daño mágico durante un breve tiempo. Las abejas aplican efectos al impactar."
       ]
     },
     "fr": {
       "title": "Pilier Skibidi",
-      "why": "Trundle stops biting and starts healing: every Pillar of Ice that knocks someone up heals him, and every heal hits the closest enemy champion.",
-      "play": "Max E first. Drop pillars on the enemy carry, then step back and let the regen do the poking. Never press Q, never right-click.",
-      "tagline": "Every pillar is a snack. Every snack hits the nearest enemy.",
+      "why": "Trundle arrête d'être un combattant de mêlée et se joue comme un mage : chaque Montagne de glace le soigne, blesse tout autour et lance des abeilles, et chaque soin frappe le champion ennemi le plus proche.",
+      "play": "Montez E en premier. Posez des piliers sur le carry ennemi, puis reculez et laissez la régénération faire le poke. N'appuyez jamais sur Q, ne faites jamais de clic droit.",
+      "tagline": "Chaque pilier est un snack. Chaque snack frappe l'ennemi le plus proche.",
       "how": [
         [
           "Montagne de glace",
-          "Knocks back whoever stands on it and slows everyone nearby. It normally deals no damage and never heals."
+          "Repousse quiconque se tient dessus et ralentit tout le monde autour. Normalement, il n'inflige aucun dégât et ne soigne jamais."
         ],
         [
           "Augments",
-          "Ravenous Bind, rolled on Pillar of Ice, makes each knock deal damage and heal Trundle. Circle of Death turns 70% of every heal and all his Health Regen into magic damage on the nearest enemy champion. Purist - Caster brings the next pillar back sooner, and Ice Cold makes the slow brutal."
+          "Entrave vorace et Terrain, tous deux tirés sur Montagne de glace, font que chaque projection soigne Trundle et que le pilier blesse tout autour de lui. Ces dégâts comptent comme un coup de compétence, donc ABEILLES !!! lance sans arrêt des ruches. Soins meurtriers transforme 70 % de chaque soin et toute sa régénération de PV en dégâts magiques sur le champion ennemi le plus proche."
         ],
         [
           "Objets",
-          "Spirit Visage boosts every heal. Rylai's, Cosmic Drive and Warmog's push his bonus Health past 2,000, so Warmog's regenerates him whenever he goes 8 seconds untouched, and that regen keeps zapping the nearest enemy. Redemption heals him again from far away."
+          "Visage spirituel renforce chaque soin et le Sceptre de Rylai ralentit tous ceux que le pilier blesse. Rylai, Volonté cosmique et l'Armure de Warmog font passer ses PV supplémentaires au-delà de 2 000, donc Warmog le régénère dès qu'il reste 8 secondes sans être touché, et cette régénération continue de frapper l'ennemi le plus proche. Rédemption le soigne encore de loin."
         ]
       ],
       "augments": [
         "Immobiliser ou clouer au sol des champions ennemis avec la compétence choisie inflige des dégâts supplémentaires et vous soigne.",
         "Vos soins et votre régénération de PV infligent 70 % de leur valeur en dégâts magiques au champion ennemi le plus proche.",
-        "Obtenez de la réduction de délai de récupération en pourcentage et convertissez toute votre vitesse d'attaque en accélération de compétence.",
-        "Vos ralentissements réduisent la vitesse de déplacement de 75 supplémentaires."
+        "Votre compétence choisie inflige des dégâts dans une zone autour d'elle.",
+        "Périodiquement, votre prochain coup de compétence contre un champion ennemi lance une ruche d'abeilles qui explose, ralentissant et infligeant des dégâts magiques sur une courte durée. Les abeilles appliquent les effets à l'impact."
       ]
     },
     "hu": {
       "title": "Skibidi oszlop",
-      "why": "Trundle stops biting and starts healing: every Pillar of Ice that knocks someone up heals him, and every heal hits the closest enemy champion.",
-      "play": "Max E first. Drop pillars on the enemy carry, then step back and let the regen do the poking. Never press Q, never right-click.",
-      "tagline": "Every pillar is a snack. Every snack hits the nearest enemy.",
+      "why": "Trundle többé nem közelharci bruiser, hanem mágusként játszik: minden Jégoszlop gyógyítja, megsebez mindent a közelben és méheket lő ki, és minden gyógyulás eltalálja a legközelebbi ellenséges hőst.",
+      "play": "Először az E-t maxold. Rakj oszlopokat az ellenséges carryre, aztán lépj hátra, és hagyd, hogy a regeneráció pokeoljon. Soha ne nyomd meg a Q-t, soha ne kattints jobbal.",
+      "tagline": "Minden oszlop egy nasi. Minden nasi eltalálja a legközelebbi ellenfelet.",
       "how": [
         [
           "Jégoszlop",
-          "Knocks back whoever stands on it and slows everyone nearby. It normally deals no damage and never heals."
+          "Visszalöki, aki rajta áll, és lelassít mindenkit a közelben. Alapból nem sebez és sosem gyógyít."
         ],
         [
           "Bővítések",
-          "Ravenous Bind, rolled on Pillar of Ice, makes each knock deal damage and heal Trundle. Circle of Death turns 70% of every heal and all his Health Regen into magic damage on the nearest enemy champion. Purist - Caster brings the next pillar back sooner, and Ice Cold makes the slow brutal."
+          "A Vérszomjas kötelék és a Tereplés, mindkettő a Jégoszlopra dobva, minden lökésnél gyógyítja Trundle-t, az oszlop pedig mindent megsebez maga körül. Ez a sebzés képességtalálatnak számít, így a MÉHEK!!! folyamatosan kaptárakat lő ki róla. A halál körforgása minden gyógyulás 70%-át és teljes életerő-regenerációját mágikus sebzéssé alakítja a legközelebbi ellenséges hősön."
         ],
         [
           "Tárgyak",
-          "Spirit Visage boosts every heal. Rylai's, Cosmic Drive and Warmog's push his bonus Health past 2,000, so Warmog's regenerates him whenever he goes 8 seconds untouched, and that regen keeps zapping the nearest enemy. Redemption heals him again from far away."
+          "A Szellemarc minden gyógyulást felerősít, Rylai kristálybotja pedig lelassít mindenkit, akit az oszlop megsebez. Rylai, a Kozmikus hajtómű és Warmog vértje 2000 fölé viszi a bónusz életerejét, így Warmog regenerálja, valahányszor 8 másodpercig nem éri sebzés, és ez a regeneráció tovább csapkodja a legközelebbi ellenfelet. A Megváltás messziről is újra meggyógyítja."
         ]
       ],
       "augments": [
         "Ha a választott képességgel mozgásképtelenné teszel vagy földhöz szegezel ellenséges hősöket, extra sebzést okozol és gyógyulsz.",
         "A gyógyulásod és életerő-regenerációd az érték 70%-ának megfelelő mágikus sebzést okoz a legközelebbi ellenséges hősnek.",
-        "Százalékos töltésiidő-csökkentést kapsz, és az összes támadási sebességed képességsiettetéssé alakul.",
-        "A lassításaid további 75-tel csökkentik a mozgási sebességet."
+        "A választott képességed sebzést okoz egy körülötte lévő területen.",
+        "Időnként a következő képességtalálatod egy ellenséges hősön kilő egy méhkaptárt, ami felrobban, lelassít és rövid ideig mágikus sebzést okoz. A méhek alkalmazzák a találati hatásokat."
       ]
     },
     "id": {
       "title": "Pilar Skibidi",
-      "why": "Trundle stops biting and starts healing: every Pillar of Ice that knocks someone up heals him, and every heal hits the closest enemy champion.",
-      "play": "Max E first. Drop pillars on the enemy carry, then step back and let the regen do the poking. Never press Q, never right-click.",
-      "tagline": "Every pillar is a snack. Every snack hits the nearest enemy.",
+      "why": "Trundle berhenti jadi bruiser jarak dekat dan bermain seperti mage: setiap Pillar of Ice menyembuhkannya, melukai semua di sekitarnya, dan meluncurkan lebah, dan setiap heal menyetrum champion musuh terdekat.",
+      "play": "Maksimalkan E dulu. Taruh pilar di bawah carry musuh, lalu mundur dan biarkan regen yang melakukan poke. Jangan pernah tekan Q, jangan pernah klik kanan.",
+      "tagline": "Setiap pilar adalah camilan. Setiap camilan mengenai musuh terdekat.",
       "how": [
         [
           "Pillar of Ice",
-          "Knocks back whoever stands on it and slows everyone nearby. It normally deals no damage and never heals."
+          "Mendorong siapa pun yang berdiri di atasnya dan memperlambat semua yang di dekatnya. Biasanya tidak memberi damage dan tidak pernah heal."
         ],
         [
           "Augment",
-          "Ravenous Bind, rolled on Pillar of Ice, makes each knock deal damage and heal Trundle. Circle of Death turns 70% of every heal and all his Health Regen into magic damage on the nearest enemy champion. Purist - Caster brings the next pillar back sooner, and Ice Cold makes the slow brutal."
+          "Ravenous Bind dan Terrain'd, keduanya didapat di Pillar of Ice, membuat setiap dorongan menyembuhkan Trundle dan pilar melukai semua di sekitarnya. Damage itu dihitung sebagai hit ability, jadi BEES!!! terus meluncurkan sarang. Circle of Death mengubah 70% dari setiap heal dan seluruh Health Regen-nya menjadi magic damage ke champion musuh terdekat."
         ],
         [
           "Item",
-          "Spirit Visage boosts every heal. Rylai's, Cosmic Drive and Warmog's push his bonus Health past 2,000, so Warmog's regenerates him whenever he goes 8 seconds untouched, and that regen keeps zapping the nearest enemy. Redemption heals him again from far away."
+          "Spirit Visage memperkuat setiap heal dan Rylai's Crystal Scepter memperlambat semua yang dilukai pilar. Rylai's, Cosmic Drive, dan Warmog's Armor mendorong bonus Health-nya melewati 2.000, jadi Warmog's meregenerasinya setiap kali ia tidak terkena serangan selama 8 detik, dan regen itu terus menyetrum musuh terdekat. Redemption menyembuhkannya lagi dari jauh."
         ]
       ],
       "augments": [
         "Immobilize atau Ground champion musuh dengan ability pilihan memberikan damage tambahan dan menyembuhkanmu.",
         "Healing dan Health Regen-mu memberikan 70% nilainya sebagai magic damage ke champion musuh terdekat.",
-        "Dapatkan pengurangan cooldown persentase dan ubah semua Attack Speed-mu menjadi Ability Haste.",
-        "Efek slow kamu mengurangi Move Speed sebesar 75 tambahan."
+        "Ability pilihanmu memberi damage di area sekitarnya.",
+        "Secara berkala, hit Ability berikutnya ke champion musuh meluncurkan sarang lebah yang meledak, memberi Slow dan magic damage selama waktu singkat. Lebah menerapkan efek On-Hit."
       ]
     },
     "it": {
       "title": "Pilastro Skibidi",
-      "why": "Trundle stops biting and starts healing: every Pillar of Ice that knocks someone up heals him, and every heal hits the closest enemy champion.",
-      "play": "Max E first. Drop pillars on the enemy carry, then step back and let the regen do the poking. Never press Q, never right-click.",
-      "tagline": "Every pillar is a snack. Every snack hits the nearest enemy.",
+      "why": "Trundle smette di essere un combattente in mischia e si gioca come un mago: ogni Pilastro di ghiaccio lo cura, ferisce tutto intorno e lancia api, e ogni cura colpisce il campione nemico più vicino.",
+      "play": "Porta al massimo prima la E. Piazza pilastri sul carry nemico, poi fai un passo indietro e lascia che la rigenerazione faccia il poke. Non premere mai Q, non cliccare mai col destro.",
+      "tagline": "Ogni pilastro è uno spuntino. Ogni spuntino colpisce il nemico più vicino.",
       "how": [
         [
           "Pilastro di ghiaccio",
-          "Knocks back whoever stands on it and slows everyone nearby. It normally deals no damage and never heals."
+          "Respinge chiunque ci stia sopra e rallenta tutti quelli vicini. Di solito non infligge danni e non cura mai."
         ],
         [
           "Potenziamenti",
-          "Ravenous Bind, rolled on Pillar of Ice, makes each knock deal damage and heal Trundle. Circle of Death turns 70% of every heal and all his Health Regen into magic damage on the nearest enemy champion. Purist - Caster brings the next pillar back sooner, and Ice Cold makes the slow brutal."
+          "Vincolo famelico e Colpa del terreno, entrambi ottenuti su Pilastro di ghiaccio, fanno sì che ogni spinta curi Trundle e che il pilastro ferisca tutto intorno. Quel danno conta come colpo di abilità, quindi API! continua a lanciare alveari. Cerchio della morte trasforma il 70% di ogni cura e tutta la sua rigenerazione salute in danni magici sul campione nemico più vicino."
         ],
         [
           "Oggetti",
-          "Spirit Visage boosts every heal. Rylai's, Cosmic Drive and Warmog's push his bonus Health past 2,000, so Warmog's regenerates him whenever he goes 8 seconds untouched, and that regen keeps zapping the nearest enemy. Redemption heals him again from far away."
+          "Corazza spirituale potenzia ogni cura e lo Scettro di cristallo di Rylai rallenta chiunque il pilastro ferisca. Rylai, Spirito cosmico e l'Armatura di Warmog portano la sua salute bonus oltre 2.000, quindi Warmog lo rigenera ogni volta che resta 8 secondi senza essere colpito, e quella rigenerazione continua a colpire il nemico più vicino. Redenzione lo cura ancora da lontano."
         ]
       ],
       "augments": [
         "Immobilizzare o bloccare a terra i campioni nemici con l'abilità scelta infligge danni extra e ti cura.",
         "Le tue cure e la rigenerazione salute infliggono il 70% del valore in danni magici al campione nemico più vicino.",
-        "Ottieni riduzione ricarica percentuale e converti tutta la tua velocità d'attacco in velocità abilità.",
-        "I tuoi rallentamenti riducono la velocità di movimento di altri 75."
+        "L'abilità scelta infligge danni in un'area intorno a sé.",
+        "Periodicamente, il tuo prossimo colpo di abilità contro un campione nemico lancia un alveare di api che esplode, rallentando e infliggendo danni magici per un breve periodo. Le api applicano gli effetti sul colpo."
       ]
     },
     "ja": {
       "title": "スキビディ柱",
-      "why": "Trundle stops biting and starts healing: every Pillar of Ice that knocks someone up heals him, and every heal hits the closest enemy champion.",
-      "play": "Max E first. Drop pillars on the enemy carry, then step back and let the regen do the poking. Never press Q, never right-click.",
-      "tagline": "Every pillar is a snack. Every snack hits the nearest enemy.",
+      "why": "トランドルは近接ファイターをやめてメイジのように戦う：「氷冷の柱」が毎回彼を回復し、周囲にダメージを与えて蜂を飛ばし、その回復がすべて最寄りの敵チャンピオンに当たる。",
+      "play": "Eを最優先で上げる。敵キャリーに柱を置いたら下がって、リジェネにポークを任せよう。Qは絶対押さない、右クリックも絶対しない。",
+      "tagline": "柱はおやつ。おやつは一番近い敵に当たる。",
       "how": [
         [
           "氷冷の柱",
-          "Knocks back whoever stands on it and slows everyone nearby. It normally deals no damage and never heals."
+          "上に立つ敵をノックバックし、周囲の全員をスロウにする。普段はダメージを与えず、回復もしない。"
         ],
         [
           "オーグメント",
-          "Ravenous Bind, rolled on Pillar of Ice, makes each knock deal damage and heal Trundle. Circle of Death turns 70% of every heal and all his Health Regen into magic damage on the nearest enemy champion. Purist - Caster brings the next pillar back sooner, and Ice Cold makes the slow brutal."
+          "「貪欲な束縛」と「地形でドン」をどちらも「氷冷の柱」に付けると、ノックバックのたびにトランドルが回復し、柱が周囲にダメージを与える。そのダメージはスキル命中扱いなので「ブンブン！」が次々と巣を飛ばす。「死者の集い」は毎回の回復の70%と体力自動回復のすべてを、最寄りの敵チャンピオンへの魔法ダメージに変える。"
         ],
         [
           "アイテム",
-          "Spirit Visage boosts every heal. Rylai's, Cosmic Drive and Warmog's push his bonus Health past 2,000, so Warmog's regenerates him whenever he goes 8 seconds untouched, and that regen keeps zapping the nearest enemy. Redemption heals him again from far away."
+          "「スピリット ビサージュ」が回復を強化し、「リーライ クリスタル セプター」が柱で傷つけた敵をスロウにする。リーライ、「コズミック ドライブ」、「ワーモグ アーマー」で増加体力が2,000を超えるので、8秒間ダメージを受けないたびにワーモグが回復し、その回復が最寄りの敵を撃ち続ける。「リデンプション」で遠くからさらに回復。"
         ]
       ],
       "augments": [
         "選択したスキルで敵チャンピオンに行動妨害またはグラウンドを与えると、追加ダメージを与えて自身の体力を回復する。",
         "回復と体力自動回復の量の70%を、最寄りの敵チャンピオンに魔法ダメージとして与える。",
-        "割合クールダウン短縮を獲得し、すべての攻撃速度をスキルヘイストに変換する。",
-        "自身のスロウ効果が移動速度をさらに75低下させる。"
+        "選択したスキルが周囲の範囲にダメージを与える。",
+        "一定間隔で、敵チャンピオンへの次のスキル命中時に蜂の巣を飛ばす。巣は爆発し、短時間スロウ効果と魔法ダメージを与える。蜂は通常攻撃時効果を発動する。"
       ]
     },
     "ko": {
       "title": "스키비디 기둥",
-      "why": "Trundle stops biting and starts healing: every Pillar of Ice that knocks someone up heals him, and every heal hits the closest enemy champion.",
-      "play": "Max E first. Drop pillars on the enemy carry, then step back and let the regen do the poking. Never press Q, never right-click.",
-      "tagline": "Every pillar is a snack. Every snack hits the nearest enemy.",
+      "why": "트런들이 근접 브루저를 그만두고 마법사처럼 싸웁니다: 얼음 기둥마다 그를 회복시키고, 주변 모두에게 피해를 주고 벌을 날리며, 모든 회복은 가장 가까운 적 챔피언을 지집니다.",
+      "play": "E를 먼저 마스터하세요. 적 원딜 위에 기둥을 세우고 물러나서 재생이 견제하게 두세요. Q는 절대 누르지 말고, 우클릭도 절대 하지 마세요.",
+      "tagline": "모든 기둥은 간식. 모든 간식은 가장 가까운 적을 때린다.",
       "how": [
         [
           "얼음 기둥",
-          "Knocks back whoever stands on it and slows everyone nearby. It normally deals no damage and never heals."
+          "위에 선 적을 밀쳐내고 주변 모두를 둔화시킵니다. 원래는 피해를 주지 않고 회복도 하지 않습니다."
         ],
         [
           "증강",
-          "Ravenous Bind, rolled on Pillar of Ice, makes each knock deal damage and heal Trundle. Circle of Death turns 70% of every heal and all his Health Regen into magic damage on the nearest enemy champion. Purist - Caster brings the next pillar back sooner, and Ice Cold makes the slow brutal."
+          "굶주린 속박과 지형 생성됨을 둘 다 얼음 기둥에 받으면 밀쳐낼 때마다 트런들이 회복하고 기둥이 주변 모두에게 피해를 줍니다. 그 피해는 스킬 적중으로 치니 벌이다!!!가 계속 벌집을 날립니다. 죽음의 순환은 모든 회복의 70%와 체력 재생 전부를 가장 가까운 적 챔피언에게 마법 피해로 바꿉니다."
         ],
         [
           "아이템",
-          "Spirit Visage boosts every heal. Rylai's, Cosmic Drive and Warmog's push his bonus Health past 2,000, so Warmog's regenerates him whenever he goes 8 seconds untouched, and that regen keeps zapping the nearest enemy. Redemption heals him again from far away."
+          "정령의 형상이 모든 회복을 늘리고 라일라이의 수정홀이 기둥에 맞은 모두를 둔화시킵니다. 라일라이, 우주의 추진력, 워모그의 갑옷으로 추가 체력이 2,000을 넘으니 8초간 맞지 않을 때마다 워모그가 회복시키고, 그 재생이 계속 가장 가까운 적을 지집니다. 구원으로 멀리서 한 번 더 회복합니다."
         ]
       ],
       "augments": [
         "선택한 스킬로 적 챔피언에게 이동 불가 또는 이동기 사용 불가 효과를 적용하면 추가 피해를 입히고 체력을 회복합니다.",
         "회복량과 체력 재생량의 70%만큼 가장 가까운 적 챔피언에게 마법 피해를 입힙니다.",
-        "재사용 대기시간이 일정 비율 감소하고 모든 공격 속도가 스킬 가속으로 전환됩니다.",
-        "둔화 효과가 이동 속도를 75 추가로 감소시킵니다."
+        "선택한 스킬이 주변 범위에 피해를 입힙니다.",
+        "주기적으로 적 챔피언에게 다음 스킬을 적중시키면 벌집을 날려 폭발시키고, 잠시 동안 둔화와 마법 피해를 입힙니다. 벌은 적중 시 효과를 적용합니다."
       ]
     },
     "pl": {
       "title": "Skibidi Kolumna",
-      "why": "Trundle stops biting and starts healing: every Pillar of Ice that knocks someone up heals him, and every heal hits the closest enemy champion.",
-      "play": "Max E first. Drop pillars on the enemy carry, then step back and let the regen do the poking. Never press Q, never right-click.",
-      "tagline": "Every pillar is a snack. Every snack hits the nearest enemy.",
+      "why": "Trundle przestaje być wojownikiem do walki wręcz i gra jak mag: każda Kolumna Lodu leczy go, rani wszystko wokół i wypuszcza pszczoły, a każde leczenie trafia najbliższego wrogiego bohatera.",
+      "play": "Najpierw maksuj E. Stawiaj kolumny pod wrogim carry, potem cofnij się i pozwól regeneracji pokować. Nigdy nie wciskaj Q, nigdy nie klikaj prawym.",
+      "tagline": "Każda kolumna to przekąska. Każda przekąska trafia najbliższego wroga.",
       "how": [
         [
           "Kolumna Lodu",
-          "Knocks back whoever stands on it and slows everyone nearby. It normally deals no damage and never heals."
+          "Odrzuca każdego, kto na niej stoi, i spowalnia wszystkich w pobliżu. Normalnie nie zadaje obrażeń i nigdy nie leczy."
         ],
         [
           "Wzmocnienia",
-          "Ravenous Bind, rolled on Pillar of Ice, makes each knock deal damage and heal Trundle. Circle of Death turns 70% of every heal and all his Health Regen into magic damage on the nearest enemy champion. Purist - Caster brings the next pillar back sooner, and Ice Cold makes the slow brutal."
+          "Krwiożercze Sidła i Terenowość, oba wylosowane na Kolumnie Lodu, sprawiają, że każde odrzucenie leczy Trundle'a, a kolumna rani wszystko wokół. Te obrażenia liczą się jako trafienie umiejętnością, więc PSZCZOŁY!!! ciągle wypuszczają ule. Krąg Śmierci zamienia 70% każdego leczenia i całą jego regenerację zdrowia w obrażenia magiczne dla najbliższego wrogiego bohatera."
         ],
         [
           "Przedmioty",
-          "Spirit Visage boosts every heal. Rylai's, Cosmic Drive and Warmog's push his bonus Health past 2,000, so Warmog's regenerates him whenever he goes 8 seconds untouched, and that regen keeps zapping the nearest enemy. Redemption heals him again from far away."
+          "Oblicze Ducha wzmacnia każde leczenie, a Kryształowy Kostur Rylai spowalnia każdego, kogo rani kolumna. Rylai, Kosmiczny Impuls i Plemienna Zbroja podnoszą jego dodatkowe zdrowie ponad 2000, więc Zbroja regeneruje go, gdy przez 8 sekund nikt go nie trafi, a ta regeneracja dalej razi najbliższego wroga. Odkupienie leczy go jeszcze raz z daleka."
         ]
       ],
       "augments": [
         "Unieruchomienie lub uziemienie wrogich bohaterów wybraną umiejętnością zadaje dodatkowe obrażenia i cię leczy.",
         "Twoje leczenie i regeneracja zdrowia zadają najbliższemu wrogiemu bohaterowi obrażenia magiczne równe 70% ich wartości.",
-        "Zyskaj procentowe skrócenie czasu odnowienia i zamień całą swoją prędkość ataku na przyspieszenie umiejętności.",
-        "Twoje spowolnienia zmniejszają prędkość ruchu o dodatkowe 75."
+        "Wybrana umiejętność zadaje obrażenia na obszarze wokół siebie.",
+        "Co jakiś czas twoje następne trafienie umiejętnością we wrogiego bohatera wypuszcza ul pszczół, który wybucha, spowalniając i zadając obrażenia magiczne przez krótki czas. Pszczoły nakładają efekty przy trafieniu."
       ]
     },
     "pt-BR": {
       "title": "Pilar Skibidi",
-      "why": "Trundle stops biting and starts healing: every Pillar of Ice that knocks someone up heals him, and every heal hits the closest enemy champion.",
-      "play": "Max E first. Drop pillars on the enemy carry, then step back and let the regen do the poking. Never press Q, never right-click.",
-      "tagline": "Every pillar is a snack. Every snack hits the nearest enemy.",
+      "why": "Trundle deixa de ser um lutador corpo a corpo e joga como um mago: cada Pilar de Gelo o cura, fere tudo por perto e lança abelhas, e cada cura acerta o campeão inimigo mais próximo.",
+      "play": "Upe o E primeiro. Solte pilares no carry inimigo, depois recue e deixe a regeneração fazer o poke. Nunca aperte Q, nunca clique com o botão direito.",
+      "tagline": "Cada pilar é um lanchinho. Cada lanchinho acerta o inimigo mais próximo.",
       "how": [
         [
           "Pilar de Gelo",
-          "Knocks back whoever stands on it and slows everyone nearby. It normally deals no damage and never heals."
+          "Empurra quem estiver em cima e deixa todos por perto mais lentos. Normalmente não causa dano e nunca cura."
         ],
         [
           "Aumentos",
-          "Ravenous Bind, rolled on Pillar of Ice, makes each knock deal damage and heal Trundle. Circle of Death turns 70% of every heal and all his Health Regen into magic damage on the nearest enemy champion. Purist - Caster brings the next pillar back sooner, and Ice Cold makes the slow brutal."
+          "Vínculo Voraz e Aterramento, ambos sorteados no Pilar de Gelo, fazem cada empurrão curar o Trundle e o pilar ferir tudo ao redor. Esse dano conta como acerto de habilidade, então ABELHAS!!! não para de lançar colmeias. Círculo da Morte transforma 70% de cada cura e toda a sua Regeneração de Vida em dano mágico no campeão inimigo mais próximo."
         ],
         [
           "Itens",
-          "Spirit Visage boosts every heal. Rylai's, Cosmic Drive and Warmog's push his bonus Health past 2,000, so Warmog's regenerates him whenever he goes 8 seconds untouched, and that regen keeps zapping the nearest enemy. Redemption heals him again from far away."
+          "Semblante Espiritual aumenta cada cura e o Cetro de Cristal de Rylai deixa lento todo mundo que o pilar fere. Rylai, Ímpeto Cósmico e a Armadura de Warmog levam a Vida adicional dele acima de 2.000, então a Warmog o regenera sempre que ele passa 8 segundos sem ser atingido, e essa regeneração continua acertando o inimigo mais próximo. Redenção o cura de novo de longe."
         ]
       ],
       "augments": [
         "Imobilizar ou Prender ao Chão campeões inimigos com a habilidade escolhida causa dano extra e cura você.",
         "Suas curas e Regeneração de Vida causam 70% do valor como dano mágico no campeão inimigo mais próximo.",
-        "Receba redução percentual de recarga e converta toda a sua Velocidade de Ataque em Aceleração de Habilidade.",
-        "Suas lentidões reduzem a Velocidade de Movimento em 75 adicionais."
+        "Sua habilidade escolhida causa dano em uma área ao redor dela.",
+        "Periodicamente, seu próximo acerto de Habilidade em um campeão inimigo lança uma colmeia de abelhas que explode, causando Lentidão e dano mágico por um curto período. As abelhas aplicam efeitos Ao Atingir."
       ]
     },
     "ro": {
       "title": "Stâlpul Skibidi",
-      "why": "Trundle stops biting and starts healing: every Pillar of Ice that knocks someone up heals him, and every heal hits the closest enemy champion.",
-      "play": "Max E first. Drop pillars on the enemy carry, then step back and let the regen do the poking. Never press Q, never right-click.",
-      "tagline": "Every pillar is a snack. Every snack hits the nearest enemy.",
+      "why": "Trundle nu mai e un luptător corp la corp și se joacă precum un mag: fiecare Stâlp de gheață îl vindecă, rănește tot ce e în jur și lansează albine, iar fiecare vindecare lovește cel mai apropiat campion inamic.",
+      "play": "Maximizează E prima dată. Pune stâlpi sub carry-ul inamic, apoi dă-te înapoi și lasă regenerarea să facă poke. Nu apăsa niciodată Q, nu da niciodată click dreapta.",
+      "tagline": "Fiecare stâlp e o gustare. Fiecare gustare lovește cel mai apropiat inamic.",
       "how": [
         [
           "Stâlp de gheață",
-          "Knocks back whoever stands on it and slows everyone nearby. It normally deals no damage and never heals."
+          "Împinge pe oricine stă pe el și încetinește pe toți din apropiere. În mod normal nu provoacă daune și nu vindecă niciodată."
         ],
         [
           "Augmentări",
-          "Ravenous Bind, rolled on Pillar of Ice, makes each knock deal damage and heal Trundle. Circle of Death turns 70% of every heal and all his Health Regen into magic damage on the nearest enemy champion. Purist - Caster brings the next pillar back sooner, and Ice Cold makes the slow brutal."
+          "Legătură lacomă și Teren special, ambele primite pe Stâlp de gheață, fac ca fiecare împingere să-l vindece pe Trundle, iar stâlpul să rănească tot ce e în jur. Aceste daune contează ca lovitură cu abilitate, așa că ALBINE!!! lansează stupi întruna. Cercul morții transformă 70% din fiecare vindecare și toată regenerarea lui de viață în daune magice asupra celui mai apropiat campion inamic."
         ],
         [
           "Obiecte",
-          "Spirit Visage boosts every heal. Rylai's, Cosmic Drive and Warmog's push his bonus Health past 2,000, so Warmog's regenerates him whenever he goes 8 seconds untouched, and that regen keeps zapping the nearest enemy. Redemption heals him again from far away."
+          "Înfățișarea sufletului amplifică fiecare vindecare, iar Sceptrul de cristal al lui Rylai încetinește pe toți cei răniți de stâlp. Rylai, Avânt cosmic și Armura lui Warmog îi duc viața bonus peste 2.000, așa că Warmog îl regenerează oricând trec 8 secunde fără să fie lovit, iar regenerarea continuă să lovească cel mai apropiat inamic. Izbăvire îl vindecă din nou de la distanță."
         ]
       ],
       "augments": [
         "Imobilizarea sau țintuirea la sol a campionilor inamici cu abilitatea aleasă provoacă daune suplimentare și te vindecă.",
         "Vindecările și regenerarea ta de viață provoacă 70% din valoare ca daune magice celui mai apropiat campion inamic.",
-        "Primești reducere procentuală a timpului de reactivare și îți transformi toată viteza de atac în accelerare a abilităților.",
-        "Încetinirile tale reduc viteza de mișcare cu încă 75."
+        "Abilitatea aleasă provoacă daune într-o zonă din jurul ei.",
+        "Periodic, următoarea ta lovitură cu abilitate asupra unui campion inamic lansează un stup de albine care explodează, încetinind și provocând daune magice pe o durată scurtă. Albinele aplică efectele la impact."
       ]
     },
     "ru": {
       "title": "Скибиди-столп",
-      "why": "Trundle stops biting and starts healing: every Pillar of Ice that knocks someone up heals him, and every heal hits the closest enemy champion.",
-      "play": "Max E first. Drop pillars on the enemy carry, then step back and let the regen do the poking. Never press Q, never right-click.",
-      "tagline": "Every pillar is a snack. Every snack hits the nearest enemy.",
+      "why": "Трандл перестает быть брузером ближнего боя и играет как маг: каждый Ледяной столп лечит его, ранит всех вокруг и выпускает пчел, а каждое лечение бьет ближайшего вражеского чемпиона.",
+      "play": "Сначала качайте E. Ставьте столпы на вражеского керри, потом отходите и пусть регенерация покает. Никогда не жмите Q и не кликайте правой кнопкой.",
+      "tagline": "Каждый столп — перекус. Каждый перекус бьет ближайшего врага.",
       "how": [
         [
           "Ледяной столп",
-          "Knocks back whoever stands on it and slows everyone nearby. It normally deals no damage and never heals."
+          "Отбрасывает того, кто на нем стоит, и замедляет всех вокруг. Обычно не наносит урона и никогда не лечит."
         ],
         [
           "Аугменты",
-          "Ravenous Bind, rolled on Pillar of Ice, makes each knock deal damage and heal Trundle. Circle of Death turns 70% of every heal and all his Health Regen into magic damage on the nearest enemy champion. Purist - Caster brings the next pillar back sooner, and Ice Cold makes the slow brutal."
+          "Алчущие оковы и Угроза снизу, оба выпавшие на Ледяной столп, заставляют каждый толчок лечить Трандла, а столп — ранить всех вокруг. Этот урон считается попаданием умения, так что ПЧЕЛЫ! постоянно запускают ульи. Цикл смерти превращает 70% каждого лечения и всю его регенерацию здоровья в магический урон по ближайшему вражескому чемпиону."
         ],
         [
           "Предметы",
-          "Spirit Visage boosts every heal. Rylai's, Cosmic Drive and Warmog's push his bonus Health past 2,000, so Warmog's regenerates him whenever he goes 8 seconds untouched, and that regen keeps zapping the nearest enemy. Redemption heals him again from far away."
+          "Облачение духов усиливает каждое лечение, а Хрустальный скипетр Рилай замедляет всех, кого ранит столп. Рилай, Космический ускоритель и Доспех Вармога поднимают его дополнительное здоровье выше 2000, так что Вармог восстанавливает его каждый раз, когда он 8 секунд не получает урона, и эта регенерация продолжает бить ближайшего врага. Искупление лечит его еще раз издалека."
         ]
       ],
       "augments": [
         "Обездвиживание или приземление вражеских чемпионов выбранным умением наносит дополнительный урон и лечит вас.",
         "Ваше лечение и регенерация здоровья наносят ближайшему вражескому чемпиону магический урон, равный 70% восстановленного.",
-        "Получите процентное сокращение перезарядки и преобразуйте всю скорость атаки в ускорение умений.",
-        "Ваши замедления снижают скорость передвижения еще на 75."
+        "Выбранное умение наносит урон в области вокруг себя.",
+        "Периодически ваше следующее попадание умением по вражескому чемпиону запускает улей пчел, который взрывается, замедляя и нанося магический урон в течение короткого времени. Пчелы применяют эффекты при попадании."
       ]
     },
     "th": {
       "title": "เสาสกิบิดี้",
-      "why": "Trundle stops biting and starts healing: every Pillar of Ice that knocks someone up heals him, and every heal hits the closest enemy champion.",
-      "play": "Max E first. Drop pillars on the enemy carry, then step back and let the regen do the poking. Never press Q, never right-click.",
-      "tagline": "Every pillar is a snack. Every snack hits the nearest enemy.",
+      "why": "Trundle เลิกเป็นนักสู้ระยะประชิดแล้วเล่นเหมือนเมจ: ทุก Pillar of Ice ฮีลเขา สร้างความเสียหายรอบตัว และปล่อยผึ้ง และทุกการฮีลจะช็อตแชมเปี้ยนศัตรูที่ใกล้ที่สุด",
+      "play": "อัป E ให้สุดก่อน วางเสาใต้แครี่ศัตรู แล้วถอยออกมาให้การฟื้นฟูทำหน้าที่ก่อกวน ห้ามกด Q ห้ามคลิกขวาเด็ดขาด",
+      "tagline": "ทุกเสาคือขนม ทุกขนมโจมตีศัตรูที่ใกล้ที่สุด",
       "how": [
         [
           "Pillar of Ice",
-          "Knocks back whoever stands on it and slows everyone nearby. It normally deals no damage and never heals."
+          "ผลักทุกคนที่ยืนอยู่บนเสาและทำให้ทุกคนรอบ ๆ ช้าลง ปกติไม่สร้างความเสียหายและไม่ฮีลเลย"
         ],
         [
           "Augment",
-          "Ravenous Bind, rolled on Pillar of Ice, makes each knock deal damage and heal Trundle. Circle of Death turns 70% of every heal and all his Health Regen into magic damage on the nearest enemy champion. Purist - Caster brings the next pillar back sooner, and Ice Cold makes the slow brutal."
+          "Ravenous Bind และ Terrain'd ที่สุ่มได้บน Pillar of Ice ทั้งคู่ ทำให้ทุกการผลักฮีล Trundle และเสาสร้างความเสียหายรอบตัว ความเสียหายนั้นนับเป็นการโดนสกิล BEES!!! จึงปล่อยรังผึ้งไม่หยุด Circle of Death เปลี่ยน 70% ของทุกการฮีลและ Health Regen ทั้งหมดของเขาเป็นความเสียหายเวทใส่แชมเปี้ยนศัตรูที่ใกล้ที่สุด"
         ],
         [
           "ไอเทม",
-          "Spirit Visage boosts every heal. Rylai's, Cosmic Drive and Warmog's push his bonus Health past 2,000, so Warmog's regenerates him whenever he goes 8 seconds untouched, and that regen keeps zapping the nearest enemy. Redemption heals him again from far away."
+          "Spirit Visage เพิ่มทุกการฮีล และ Rylai's Crystal Scepter ทำให้ทุกคนที่โดนเสาช้าลง Rylai's, Cosmic Drive และ Warmog's Armor ดัน Health โบนัสของเขาเกิน 2,000 Warmog's จึงฟื้นฟูเขาทุกครั้งที่ไม่โดนโจมตี 8 วินาที และการฟื้นฟูนั้นจะช็อตศัตรูที่ใกล้ที่สุดต่อไป Redemption ฮีลเขาอีกครั้งจากระยะไกล"
         ]
       ],
       "augments": [
         "การ Immobilize หรือ Ground แชมเปี้ยนศัตรูด้วยสกิลที่เลือกจะสร้างดาเมจเพิ่มและฮีลคุณ",
         "การฮีลและการฟื้นฟูพลังชีวิตของคุณสร้างความเสียหายเวท 70% ของค่านั้นใส่แชมเปี้ยนศัตรูที่ใกล้ที่สุด",
-        "รับการลดคูลดาวน์เป็นเปอร์เซ็นต์ และแปลง Attack Speed ทั้งหมดเป็น Ability Haste",
-        "เอฟเฟกต์สโลว์ของคุณลดความเร็วเคลื่อนที่เพิ่มอีก 75"
+        "สกิลที่คุณเลือกสร้างดาเมจเป็นวงรอบตัวมัน",
+        "เป็นระยะ ๆ การโจมตีด้วยสกิลครั้งถัดไปใส่แชมเปี้ยนศัตรูจะปล่อยรังผึ้งที่ระเบิด ทำให้ช้าลงและสร้างความเสียหายเวทในช่วงเวลาสั้น ๆ ผึ้งใช้เอฟเฟกต์ On-Hit"
       ]
     },
     "tr": {
       "title": "Skibidi Sütun",
-      "why": "Trundle stops biting and starts healing: every Pillar of Ice that knocks someone up heals him, and every heal hits the closest enemy champion.",
-      "play": "Max E first. Drop pillars on the enemy carry, then step back and let the regen do the poking. Never press Q, never right-click.",
-      "tagline": "Every pillar is a snack. Every snack hits the nearest enemy.",
+      "why": "Trundle yakın dövüş dövüşçüsü olmayı bırakıp büyücü gibi oynuyor: Her Buzdan Sütun onu iyileştiriyor, yakındaki her şeye hasar veriyor ve arı fırlatıyor, her iyileşme de en yakın rakip şampiyona vuruyor.",
+      "play": "Önce E'yi fulle. Sütunları rakip carry'nin üstüne koy, sonra geri çekil ve dürtmeyi yenilenmeye bırak. Asla Q'ya basma, asla sağ tıklama.",
+      "tagline": "Her sütun bir atıştırmalık. Her atıştırmalık en yakın rakibe vuruyor.",
       "how": [
         [
           "Buzdan Sütun",
-          "Knocks back whoever stands on it and slows everyone nearby. It normally deals no damage and never heals."
+          "Üstünde duranı geri iter ve yakındaki herkesi yavaşlatır. Normalde hasar vermez ve asla iyileştirmez."
         ],
         [
           "Güçlendirmeler",
-          "Ravenous Bind, rolled on Pillar of Ice, makes each knock deal damage and heal Trundle. Circle of Death turns 70% of every heal and all his Health Regen into magic damage on the nearest enemy champion. Purist - Caster brings the next pillar back sooner, and Ice Cold makes the slow brutal."
+          "Açgözlü Bağ ve Yüzey Şeklinç, ikisi de Buzdan Sütun'a gelmişken, her itiş Trundle'ı iyileştirir ve sütun etrafındaki her şeye hasar verir. Bu hasar yetenek isabeti sayılır, yani ARILAR!!! sürekli kovan fırlatır. Ölüm Döngüsü her iyileşmenin %70'ini ve tüm Can Yenilenmesini en yakın rakip şampiyona büyü hasarı olarak çevirir."
         ],
         [
           "Eşyalar",
-          "Spirit Visage boosts every heal. Rylai's, Cosmic Drive and Warmog's push his bonus Health past 2,000, so Warmog's regenerates him whenever he goes 8 seconds untouched, and that regen keeps zapping the nearest enemy. Redemption heals him again from far away."
+          "Ruh Gömleği her iyileşmeyi güçlendirir, Rylai'nin Kristal Asası da sütunun vurduğu herkesi yavaşlatır. Rylai, Kozmik Hızlandırıcı ve Warmog'un Zırhı ek canını 2.000'in üstüne çıkarır, böylece Warmog 8 saniye hasar almadığı her an onu yeniler ve bu yenilenme en yakın rakibe vurmaya devam eder. Kefaret onu uzaktan bir kez daha iyileştirir."
         ]
       ],
       "augments": [
         "Seçilen yetenekle rakip şampiyonları etkisiz bırakmak veya yere çakmak ek hasar verir ve seni iyileştirir.",
         "İyileştirmelerin ve Can Yenilemen, değerin %70'i kadar büyü hasarını en yakın rakip şampiyona verir.",
-        "Yüzdesel bekleme süresi azaltma kazan ve tüm saldırı hızını yetenek hızına çevir.",
-        "Yavaşlatma etkilerin hareket hızını 75 daha azaltır."
+        "Seçtiğin yetenek etrafındaki bir alana hasar verir.",
+        "Belirli aralıklarla, rakip bir şampiyona yaptığın bir sonraki Yetenek isabeti patlayan bir arı kovanı fırlatır, kısa süre boyunca Yavaşlatır ve büyü hasarı verir. Arılar isabet etkilerini uygular."
       ]
     },
     "vi": {
       "title": "Cột Skibidi",
-      "why": "Trundle stops biting and starts healing: every Pillar of Ice that knocks someone up heals him, and every heal hits the closest enemy champion.",
-      "play": "Max E first. Drop pillars on the enemy carry, then step back and let the regen do the poking. Never press Q, never right-click.",
-      "tagline": "Every pillar is a snack. Every snack hits the nearest enemy.",
+      "why": "Trundle thôi làm đấu sĩ cận chiến và chơi như pháp sư: mỗi Cột Băng hồi máu cho hắn, gây sát thương mọi thứ xung quanh và phóng ong, và mỗi lần hồi máu lại giật vào tướng địch gần nhất.",
+      "play": "Tối đa E trước. Thả cột lên xạ thủ địch, rồi lùi lại để hồi máu tự cấu rỉa. Đừng bao giờ bấm Q, đừng bao giờ click chuột phải.",
+      "tagline": "Mỗi cột là một món ăn vặt. Mỗi món ăn vặt đánh trúng kẻ địch gần nhất.",
       "how": [
         [
           "Cột Băng",
-          "Knocks back whoever stands on it and slows everyone nearby. It normally deals no damage and never heals."
+          "Đẩy lùi kẻ đứng trên nó và làm chậm mọi người xung quanh. Bình thường nó không gây sát thương và không bao giờ hồi máu."
         ],
         [
           "Lõi nâng cấp",
-          "Ravenous Bind, rolled on Pillar of Ice, makes each knock deal damage and heal Trundle. Circle of Death turns 70% of every heal and all his Health Regen into magic damage on the nearest enemy champion. Purist - Caster brings the next pillar back sooner, and Ice Cold makes the slow brutal."
+          "Lòng Tham Trói Buộc và Kiến Tạo Địa Hình, cả hai đều rơi vào Cột Băng, khiến mỗi lần hất hồi máu cho Trundle và cột gây sát thương xung quanh. Sát thương đó tính là đòn kỹ năng, nên ONG KÌA!!! liên tục bắn tổ ong. Vòng Tròn Tử Thần biến 70% mỗi lần hồi máu và toàn bộ Hồi Máu của hắn thành sát thương phép lên tướng địch gần nhất."
         ],
         [
           "Trang bị",
-          "Spirit Visage boosts every heal. Rylai's, Cosmic Drive and Warmog's push his bonus Health past 2,000, so Warmog's regenerates him whenever he goes 8 seconds untouched, and that regen keeps zapping the nearest enemy. Redemption heals him again from far away."
+          "Giáp Tâm Linh tăng mọi lượng hồi máu và Trượng Pha Lê Rylai làm chậm mọi kẻ bị cột gây sát thương. Rylai, Động Cơ Vũ Trụ và Giáp Máu Warmog đẩy Máu cộng thêm của hắn vượt 2.000, nên Giáp Máu hồi máu cho hắn mỗi khi 8 giây không bị đánh, và lượng hồi đó tiếp tục giật vào kẻ địch gần nhất. Dây Chuyền Chuộc Tội hồi máu cho hắn thêm lần nữa từ xa."
         ]
       ],
       "augments": [
         "Làm bất động hoặc Trói Chân tướng địch bằng kỹ năng đã chọn gây thêm sát thương và hồi máu cho bạn.",
         "Lượng hồi máu và Hồi Máu của bạn gây sát thương phép bằng 70% giá trị lên tướng địch gần nhất.",
-        "Nhận giảm thời gian hồi chiêu theo phần trăm và chuyển toàn bộ tốc độ đánh thành điểm hồi kỹ năng.",
-        "Hiệu ứng làm chậm của bạn giảm thêm 75 tốc độ di chuyển."
+        "Kỹ năng bạn chọn gây sát thương trong một vùng xung quanh nó.",
+        "Định kỳ, đòn Kỹ năng tiếp theo trúng tướng địch sẽ phóng ra một tổ ong phát nổ, làm Chậm và gây sát thương phép trong thời gian ngắn. Ong áp dụng hiệu ứng Trên Đòn Đánh."
       ]
     },
     "zh-CN": {
       "title": "斯奇必迪冰柱",
-      "why": "Trundle stops biting and starts healing: every Pillar of Ice that knocks someone up heals him, and every heal hits the closest enemy champion.",
-      "play": "Max E first. Drop pillars on the enemy carry, then step back and let the regen do the poking. Never press Q, never right-click.",
-      "tagline": "Every pillar is a snack. Every snack hits the nearest enemy.",
+      "why": "特朗德尔不再当近战战士，而是像法师一样玩：每根寒冰之柱都会治疗他、伤害周围一切并放出蜜蜂，而每次治疗都会电击最近的敌方英雄。",
+      "play": "主E。把柱子放在敌方核心脚下，然后后退，让回血去消耗。永远别按Q，永远别右键。",
+      "tagline": "每根柱子都是零食。每份零食都打最近的敌人。",
       "how": [
         [
           "寒冰之柱",
-          "Knocks back whoever stands on it and slows everyone nearby. It normally deals no damage and never heals."
+          "击退站在上面的敌人并减速周围所有人。平时它不造成伤害，也从不治疗。"
         ],
         [
           "海克斯强化",
-          "Ravenous Bind, rolled on Pillar of Ice, makes each knock deal damage and heal Trundle. Circle of Death turns 70% of every heal and all his Health Regen into magic damage on the nearest enemy champion. Purist - Caster brings the next pillar back sooner, and Ice Cold makes the slow brutal."
+          "贪欲束缚和地形专家都随机到寒冰之柱时，每次击退都会治疗特朗德尔，柱子还会伤害周围一切。这份伤害算作技能命中，所以小蜜蜂！！！会不停放出蜂巢。死亡之环把每次治疗的70%和他全部的生命回复转化为对最近敌方英雄的魔法伤害。"
         ],
         [
           "装备",
-          "Spirit Visage boosts every heal. Rylai's, Cosmic Drive and Warmog's push his bonus Health past 2,000, so Warmog's regenerates him whenever he goes 8 seconds untouched, and that regen keeps zapping the nearest enemy. Redemption heals him again from far away."
+          "振奋盔甲强化每次治疗，瑞莱的冰晶节杖减速被柱子伤到的所有人。瑞莱、星界驱驰和狂徒铠甲让他的额外生命值超过2000，所以只要8秒没挨打，狂徒就会给他回血，而这份回血会持续电击最近的敌人。救赎还能从远处再奶他一口。"
         ]
       ],
       "augments": [
         "使用所选技能对敌方英雄施加定身或禁锢效果，会造成额外伤害并治疗你。",
         "你的治疗和生命回复会对最近的敌方英雄造成相当于该数值70%的魔法伤害。",
-        "获得百分比冷却缩减，并将你的全部攻击速度转化为技能急速。",
-        "你的减速效果额外降低75移动速度。"
+        "你选择的技能会对其周围区域造成伤害。",
+        "周期性地，你对敌方英雄的下一次技能命中会发射一个蜂巢，蜂巢爆炸，在短时间内造成减速和魔法伤害。蜜蜂会施加攻击特效。"
       ]
     },
     "zh-TW": {
       "title": "斯奇必迪冰柱",
-      "why": "Trundle stops biting and starts healing: every Pillar of Ice that knocks someone up heals him, and every heal hits the closest enemy champion.",
-      "play": "Max E first. Drop pillars on the enemy carry, then step back and let the regen do the poking. Never press Q, never right-click.",
-      "tagline": "Every pillar is a snack. Every snack hits the nearest enemy.",
+      "why": "特朗德不再當近戰鬥士，而是像法師一樣玩：每根狡詰冰柱都會治療他、傷害周圍一切並放出蜜蜂，而每次治療都會電擊最近的敵方英雄。",
+      "play": "主E。把冰柱放在敵方核心腳下，然後後退，讓回血去消耗。永遠別按Q，永遠別右鍵。",
+      "tagline": "每根冰柱都是零食。每份零食都打最近的敵人。",
       "how": [
         [
           "狡詰冰柱",
-          "Knocks back whoever stands on it and slows everyone nearby. It normally deals no damage and never heals."
+          "擊退站在上面的敵人並緩速周圍所有人。平時它不造成傷害，也從不治療。"
         ],
         [
           "強化",
-          "Ravenous Bind, rolled on Pillar of Ice, makes each knock deal damage and heal Trundle. Circle of Death turns 70% of every heal and all his Health Regen into magic damage on the nearest enemy champion. Purist - Caster brings the next pillar back sooner, and Ice Cold makes the slow brutal."
+          "貪婪束縛和劃地為王都抽到狡詰冰柱時，每次擊退都會治療特朗德，冰柱還會傷害周圍一切。這份傷害算作技能命中，所以蜜蜂來襲！！！會不停放出蜂巢。死亡循環把每次治療的70%和他全部的生命回復轉化為對最近敵方英雄的魔法傷害。"
         ],
         [
           "裝備",
-          "Spirit Visage boosts every heal. Rylai's, Cosmic Drive and Warmog's push his bonus Health past 2,000, so Warmog's regenerates him whenever he goes 8 seconds untouched, and that regen keeps zapping the nearest enemy. Redemption heals him again from far away."
+          "振奮盔甲強化每次治療，瑞萊的冰晶節杖緩速被冰柱傷到的所有人。瑞萊、星河馳騁和好戰者鎧甲讓他的額外生命超過2000，所以只要8秒沒挨打，好戰者就會幫他回血，而這份回血會持續電擊最近的敵人。贖罪神石還能從遠處再補他一口。"
         ]
       ],
       "augments": [
         "使用所選技能對敵方英雄施加定身或禁錮效果，會造成額外傷害並治療你。",
         "你的治療和生命回復會對最近的敵方英雄造成相當於該數值70%的魔法傷害。",
-        "獲得百分比冷卻縮減，並將所有攻擊速度轉換為技能急速。",
-        "你的減速效果額外降低75移動速度。"
+        "你選擇的技能會對其周圍區域造成傷害。",
+        "週期性地，你對敵方英雄的下一次技能命中會發射一個蜂巢，蜂巢爆炸，在短時間內造成緩速和魔法傷害。蜜蜂會施加攻擊特效。"
       ]
     }
   }
