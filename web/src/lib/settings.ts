@@ -11,6 +11,8 @@ export type Settings = {
   motion: "system" | "reduce";
   /** Champion pick quotes and Simulator sounds. */
   sound: boolean;
+  /** The announcer's voice in Simulator fights (kills, multikills, deaths), or "off". */
+  announcer: "female1" | "male1" | "pyke" | "rhaast" | "maverick" | "pundit" | "off";
   /** Simulator rendering quality; "auto" lets it adapt to the device. */
   graphics: "auto" | "low" | "high";
   /** Soft clicks and chimes on taps and finished actions (needs sound on). */
@@ -31,7 +33,7 @@ export type Settings = {
   view: "simple" | "detailed";
 };
 
-export const DEFAULT_SETTINGS: Settings = { motion: "system", sound: true, uiSound: false, haptics: true, graphics: "auto", contrast: "standard", colors: "standard", remember: true, text: "standard", tierRange: "live", view: "simple" };
+export const DEFAULT_SETTINGS: Settings = { motion: "system", sound: true, announcer: "female1", uiSound: false, haptics: true, graphics: "auto", contrast: "standard", colors: "standard", remember: true, text: "standard", tierRange: "live", view: "simple" };
 
 export function loadSettings(): Settings {
   try {

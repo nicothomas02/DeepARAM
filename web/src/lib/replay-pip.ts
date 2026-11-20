@@ -2,7 +2,7 @@
 // replay controls copies the arena's layers (map, 3D models, effects) into one canvas each frame and
 // plays that canvas as a video in a floating window, so the fight keeps playing while you scroll.
 
-const LAYERS = ["arena", "arena3d", "arenaOverlay"];
+const LAYERS = ["arenaMap", "arena", "arena3d", "arenaOverlay"];
 
 type PipVideo = HTMLVideoElement & { requestPictureInPicture?: () => Promise<unknown> };
 type PipDoc = Document & { pictureInPictureEnabled?: boolean; pictureInPictureElement?: Element | null; exitPictureInPicture?: () => Promise<void> };

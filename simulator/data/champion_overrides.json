@@ -1618,7 +1618,8 @@
       "calc": "TotalShockwaveDamage",
       "type": "magic"
      }
-    ]
+    ],
+    "model": "daisy"
    },
    "why": "Daisy fights for 45 s: attacks for 130 (+15% AP) at 1.2 attacks a second (rank 3), and after 2 attacks on one champion her next one (3 s cooldown) slams for the shockwave and a 1 s knock-up",
    "cc": null
@@ -2849,7 +2850,8 @@
      "ap": 0.1
     }
    },
-   "why": "Tibbers' own attacks (TibbersAADamage 60 + 10% AP at rank 3, about one a second while enraged) added to his per-second burn"
+   "why": "Tibbers' own attacks (TibbersAADamage 60 + 10% AP at rank 3, about one a second while enraged) added to his per-second burn; the replay draws Tibbers where R lands while the burn lasts",
+   "summon": "tibbers"
   }
  },
  "Brand": {

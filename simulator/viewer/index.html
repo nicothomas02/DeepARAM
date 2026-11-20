@@ -65,7 +65,10 @@ button:hover, select:hover { background: var(--accent-soft); border-color: var(-
 @media (max-width: 860px) { .stage { grid-template-columns: minmax(0, 1fr); } }
 .arena { background: var(--screen); border: 1px solid var(--line); border-radius: 14px; color-scheme: dark; overflow: hidden; position: relative; min-width: 0; }
 .arena canvas { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; max-width: 100%; }
-.arena canvas.layer { position: absolute; left: 0; top: 0; pointer-events: none; }
+.arena canvas.layer { position: absolute; left: 0; top: 0; pointer-events: none; z-index: 2; }
+/* The 3D map lies under the page's own layer, which is see-through over it. */
+.arena canvas.layer.under { z-index: 0; }
+#arena { position: relative; z-index: 1; }
 /* A 16:9 arena is a thin strip on a phone, so narrow screens get a taller one (the view fits any shape). */
 @media (max-width: 699px) { .arena canvas { aspect-ratio: 4 / 3; } }
 @media (max-width: 479px) { .arena canvas { aspect-ratio: 1 / 1; } }
@@ -241,6 +244,7 @@ fieldset.wide { grid-column: 1 / -1; }
 
   <section class="stage">
     <div class="arena">
+      <canvas id="arenaMap" class="layer under" aria-hidden="true"></canvas>
       <canvas id="arena" width="1280" height="720" aria-label="Animated fight"></canvas>
       <canvas id="arena3d" class="layer" aria-hidden="true"></canvas>
       <canvas id="arenaOverlay" class="layer" width="1280" height="720" aria-hidden="true"></canvas>
@@ -341,9 +345,9 @@ fieldset.wide { grid-column: 1 / -1; }
   <p class="note">The simulator is in beta: an experiment whose results can shift as the model changes. This is one typical fight (the median of 200) from the simulator, using the build it found best. Some champions' numbers are approximate, and passives that depend on allies, deaths or summons aren't counted.
   The champion sounds and icons belong to Riot Games. This project isn't endorsed by Riot Games and doesn't reflect the views or opinions of Riot Games or anyone officially involved in producing or managing League of Legends.</p>
 </div>
-<script>window.REPLAY_VERSION = "83";</script>
+<script>window.REPLAY_VERSION = "87";</script>
 <script src="i18n.js?v=82"></script>
-<script src="replay.js?v=82"></script>
+<script src="replay.js?v=87"></script>
 <!-- full-edition-scripts -->
 <script src="sim-panel.js?v=82"></script>
 <!-- replay-page-end -->

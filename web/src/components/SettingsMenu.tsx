@@ -14,6 +14,11 @@ import LanguagePicker from "./LanguagePicker";
 
 // Gear button at the top right: theme plus the site's other per-browser settings.
 
+// The announcer voices the Simulator's fights can use (simulator/tools/build_map_sounds.py VOICES).
+const ANNOUNCERS: [Settings["announcer"], string][] = [
+  ["female1", "Default"], ["male1", "Male"], ["pyke", "Pyke"], ["rhaast", "Rhaast"], ["maverick", "Maverick"], ["pundit", "Pundit"], ["off", "Off"],
+];
+
 function Choice<T extends string>({ label, value, options, onChange }: { label: string; value: T; options: [T, string][]; onChange: (v: T) => void }) {
   const t = useT();
   label = t(label);
@@ -91,6 +96,18 @@ export default function SettingsMenu() {
                 set({ uiSound: v === "on" });
                 if (v === "on") chime("done");
               }} />
+          )}
+          {s.sound && (
+            <label className="setting">
+              <span>{t("Announcer")}</span>
+              <select className="lang-picker" value={s.announcer} onChange={(e) => set({ announcer: e.target.value as Settings["announcer"] })}>
+                {ANNOUNCERS.map(([v, l]) => (
+                  <option key={v} value={v}>
+                    {t(l)}
+                  </option>
+                ))}
+              </select>
+            </label>
           )}
           {hapticsAvailable() && (
             <Choice label="Haptics" value={s.haptics ? "on" : "off"} options={[["on", "On"], ["off", "Off"]]} onChange={(v) => set({ haptics: v === "on" })} />

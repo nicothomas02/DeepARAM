@@ -237,5 +237,8 @@
  "DeepScore weighs sample size, shows how sure it is, and estimates what each augment adds to your champion. It even forecasts patches before they land.": "Το DeepScore λαμβάνει υπόψη το μέγεθος του δείγματος, δείχνει πόσο σίγουρο είναι και εκτιμά τι προσθέτει κάθε βελτίωση στον πρωταθλητή σου. Προβλέπει ακόμη και τα patches πριν κυκλοφορήσουν.",
  "Tested in fights": "Δοκιμασμένο στη μάχη",
  "A full combat simulator runs builds against real kits, so you see why a build wins, not just that it did.": "Ένας πλήρης προσομοιωτής μάχης βάζει τα builds απέναντι σε πραγματικές ικανότητες, ώστε να βλέπεις γιατί κερδίζει ένα build, όχι μόνο ότι κερδίζει.",
- "DeepARAM is built just for ARAM Mayhem. Rankings come from data science, and builds are tested in a fight simulator.": "Το DeepARAM είναι φτιαγμένο αποκλειστικά για το ARAM: Χαμός. Οι κατατάξεις βασίζονται στην επιστήμη δεδομένων και τα builds δοκιμάζονται σε προσομοιωτή μάχης."
+ "DeepARAM is built just for ARAM Mayhem. Rankings come from data science, and builds are tested in a fight simulator.": "Το DeepARAM είναι φτιαγμένο αποκλειστικά για το ARAM: Χαμός. Οι κατατάξεις βασίζονται στην επιστήμη δεδομένων και τα builds δοκιμάζονται σε προσομοιωτή μάχης.",
+ "Announcer": "Εκφωνητής",
+ "Default": "Προεπιλογή",
+ "Male": "Ανδρική"
 }
