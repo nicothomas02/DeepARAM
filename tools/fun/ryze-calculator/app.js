@@ -14,8 +14,8 @@ LabI18n.ready(function () {
   // Highest level-18 AP found by trying every combination of the loop items and augments (see README).
   const PRESET = {
     level: 18,
-    items: [3040, 228002, 6657, 2503, 4633, 3121],
-    augments: ["ARAM_Goliath", "ARAM_MadScientist", "ARAM_MindtoMatter", WOOGLET_QUEST],
+    items: [3040, 3089, 6657, 2503, 4633, 3121],
+    augments: ["ARAM_Goliath", "ARAM_MadScientist", "ARAM_MindtoMatter", "LichBrain"],
     opts: {}, extra: {},
   };
 
@@ -28,6 +28,7 @@ LabI18n.ready(function () {
     { key: "madLarge", label: "Mad Scientist: large form", aug: "ARAM_MadScientist", type: "check", def: true },
     { key: "evilStacks", label: "Phenomenal Evil stacks", aug: "ARAM_PhenomenalEvil", type: "number", def: 100 },
     { key: "evilSecond", label: "Phenomenal Evil as 2nd augment", aug: "ARAM_PhenomenalEvil", type: "check", def: false },
+    { key: "doubleTimeStacks", label: "Double Time stacks", aug: "DoubleTime", type: "number", def: 0 },
     { key: "dualityStacks", label: "Master of Duality stacks", aug: "ARAM_MasterofDuality", type: "number", def: 5 },
     { key: "slapStacks", label: "Slap Around stacks", aug: "ARAM_SlapAround", type: "number", def: 10 },
     { key: "shielded", label: "Mighty Shield: shielded", aug: "MightyShield", type: "check", def: true },
@@ -152,7 +153,7 @@ LabI18n.ready(function () {
     $("gain-note").textContent = r.infinite
       ? T("Infinite: every loop gives back more AP than it started with.")
       : r.loopGain === 0
-        ? T("No loop yet. Seraph's Embrace, or Riftmaker with Mind to Matter or Fimbulwinter, turns Mana back into AP.")
+        ? T("No loop yet. Seraph's Embrace, or Riftmaker or Lich Brain with Mind to Matter or Fimbulwinter, turns Mana back into AP.")
         : T("Each loop gives back {pct} of the AP that went in. About {mana} more base Mana would make it infinite.", { pct: pct(r.loopGain, 1), mana: fmt(need) });
 
     drawChart(r);
@@ -161,6 +162,9 @@ LabI18n.ready(function () {
       ["Max Mana", fmt(r.maxMana)], ["Bonus Mana", fmt(r.bonusMana)], ["Max Health", fmt(r.maxHP)],
       ["Passive Mana bonus", pct(r.passivePct)], ["AP multiplier", `×${fmt(1 + r.amp, 2)}`],
       ["AP before the loop", fmt(r.start)],
+      ["Ability Haste", fmt(r.haste)],
+      ["Cooldowns Q / W / E", T("{q} / {w} / {e} s", { q: fmt(r.cooldowns.Q, 2), w: fmt(r.cooldowns.W, 2), e: fmt(r.cooldowns.E, 2) })],
+      ["Nonstop casting", r.castLoop === "full" ? T("Yes: E-Q-W-Q never waits") : r.castLoop === "eq" ? T("Yes: E-Q-E-Q never waits") : T("No")],
     ];
     if (r.overflow) stats.push(["Overflow bonus", pct(r.overflow)]);
     if (r.actualizer) stats.push(["Actualizer bonus", pct(r.actualizer)]);
@@ -177,7 +181,7 @@ LabI18n.ready(function () {
     const rows = r.sources.map((s) => el("tr", {}, el("td", {}, s.label),
       el("td", {}, s.kind === "amp" ? `+${pct(s.value)} AP` : `+${fmt(s.value)} AP`)));
     if (r.awe) rows.push(el("tr", {}, el("td", {}, T("Awe ({pct} of bonus Mana), after multipliers", { pct: pct(r.awe) })), el("td", {}, `+${fmt(r.aweAP)} AP`)));
-    if (r.riftRatio && r.bonusHP) rows.push(el("tr", {}, el("td", {}, T("{name} ({pct} of bonus Health), after multipliers", { name: LabI18n.name("items", 4633, "Riftmaker"), pct: pct(r.riftRatio) })), el("td", {}, `+${fmt(r.riftAP)} AP`)));
+    if (r.riftRatio && r.bonusHP) rows.push(el("tr", {}, el("td", {}, T("Bonus Health to AP ({pct} of bonus Health), after multipliers", { pct: pct(r.riftRatio) })), el("td", {}, `+${fmt(r.riftAP)} AP`)));
     $("breakdown").replaceChildren(el("tr", {}, el("th", {}, T("Source")), el("th", {}, "AP")), ...rows);
   }
 

@@ -36,7 +36,7 @@
     // Flat sources. sources[] feeds the breakdown table.
     const sources = [];
     let flatAP = 0, flatMana = 0, flatHP = 0, amp = 0, hpAmp = 0;
-    let awe = 0, riftRatio = 0, hpPerBonusMana = 0, hpPerMana = 0;
+    let awe = 0, riftRatio = 0, hpPerBonusMana = 0, hpPerMana = 0, haste = 0, apToHaste = 0;
     const addAP = (label, v) => { if (v) { flatAP += v; sources.push({ label, kind: "ap", value: v }); } };
     const addAmp = (label, v) => { if (v) { amp += v; sources.push({ label, kind: "amp", value: v }); } };
 
@@ -44,6 +44,7 @@
       addAP(it.name, it.ap);
       flatMana += it.mana;
       flatHP += it.hp;
+      haste += it.haste || 0;
       const v = it.values;
       if (v.APFromMana) awe += v.APFromMana;                       // Seraph's / Archangel's Awe
       if (v.APAmp) addAmp(it.name, v.APAmp);                       // Rabadon's / Wooglet's Magical Opus
@@ -74,7 +75,13 @@
         case "HandOfBaron": addAmp(a.name, v.AFAmp); break;
         case "ARAM_MadScientist":
           if (opts.madLarge !== false) { addAmp(tr("{name} (large)", { name: a.name }), v.APAmp); hpAmp += v.HealthAmp; }
+          else haste += v.Haste || 0;
           break;
+        // Lich Brain: the game files leave its numbers out; the wiki gives 30 AP + 4% bonus Health as AP.
+        case "LichBrain": addAP(a.name, v.FlatAP ?? 30); riftRatio += v.BonusHealthToAP ?? 0.04; break;
+        case "ARAM_CelestialBody": flatHP += v.Health; break;
+        case "DoubleTime": flatMana += Math.max(0, opts.doubleTimeStacks ?? 0) * (v.ManaGain ?? 25); break;
+        case "ARAM_Eureka": apToHaste += v.APToHasteConversion; break;
         case "ARAM_ADAPt": addAmp(a.name, v.APAmp); break;
         case "ARAM_PhenomenalEvil": {
           const procs = Math.max(0, opts.evilStacks ?? 100);
@@ -146,13 +153,24 @@
       spells[k] = (s.base[4] + s.apRatio * ap5 + s.bonusManaRatio * at.bonusMana) * dmgMult;
     }
 
+    // Cooldown loop: W and E reset Q, so casting never stops once E is back by its next turn in E-Q-E-Q
+    // (two casts later), and the full E-Q-W-Q rotation never stops once W and E are back four casts later.
+    const totalHaste = haste + apToHaste * (infinite ? Infinity : finalAP);
+    const cooldowns = {};
+    for (const [k, s] of Object.entries(champ.spells)) {
+      if (s.cooldown) cooldowns[k] = s.cooldown[4] * 100 / (100 + totalHaste);
+    }
+    const cast = (champ.spells.Q && champ.spells.Q.castTime) || 0.25;
+    const castLoop = cooldowns.E === undefined ? "none"
+      : cooldowns.W <= 4 * cast && cooldowns.E <= 4 * cast ? "full" : cooldowns.E <= 2 * cast ? "eq" : "none";
+
     return {
       level: L, baseMana, baseHP, flatAP, flatMana, flatHP, amp, hpAmp, awe, riftRatio, hpPerMana, hpPerBonusMana,
       loopGain, infinite, start, finalAP, rounds, manaForInfinite, currentManaPool: M,
       maxMana: at.maxMana, bonusMana: at.bonusMana, maxHP: at.maxHP, bonusHP: at.bonusHP,
       passivePct: infinite ? Infinity : p * finalAP,
       aweAP: awe * at.bonusMana * mult, riftAP: riftRatio * at.bonusHP * mult,
-      overflow, actualizer, spells, sources,
+      overflow, actualizer, spells, sources, haste: totalHaste, cooldowns, castLoop,
     };
   }
 

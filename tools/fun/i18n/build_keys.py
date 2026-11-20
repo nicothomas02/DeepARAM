@@ -69,7 +69,7 @@ def main():
         keys += [unescape(m) for pair in re.findall(r"\b(?:T|tr)\(\s*[^\"()]*\?\s*" + STR + r"\s*:\s*" + STR, s) for m in pair]
         keys += [unescape(m) for m in re.findall(r"\blabel: " + STR, s)]
     ryze = open(os.path.join(FUN, "ryze-calculator/app.js"), encoding="utf-8").read()
-    keys += [unescape(m) for m in re.findall(r'\[' + STR + r', (?:fmt|pct|`)', ryze)]      # stats rows
+    keys += [unescape(m) for m in re.findall(r'\[' + STR + r', (?:fmt|pct|`|T\(|r\.)', ryze)]      # stats rows
     keys += [unescape(m) for m in re.findall(r'\["[QWE]", ' + STR + r'\]', ryze)]          # spell names
 
     cook = js_data("cook-builds/data.js", "COOK_DATA")
