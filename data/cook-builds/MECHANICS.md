@@ -1,6 +1,7 @@
 # Mayhem mechanics notes
 
-Rules and player knowledge for designing Chef Specials. Sources: the League wiki, the game's own augment
+Rules and player knowledge for designing Chef Specials. Sources: the League wiki (full augment text in `data/wiki/mayhem_augments.json`, also shown by
+`data/checks/champion_pool.py`), the game's own augment
 text, and answers from Nico, the site owner (marked "Nico"). Some of Nico's notes come from his own games
 rather than official text; they are marked "experience". For official definitions (for example, what counts as
 damage over time), check the League wiki first.
@@ -42,6 +43,26 @@ damage over time), check the League wiki first.
 - **Shrink Engine on Ashe:** easy to stack, because Ashe gets takedowns from long range at low risk (Nico).
 - **Goliath and Mad Scientist on Tahm Kench:** his Q range grows with size, so size augments are worth more
   on him (Nico).
+- **Recoil:** always launches you away from where you cast, so it's a very safe poke tool for artillery mages
+  (Xerath, Ziggs, Veigar, Vex). On Akali it gets her out of her own circle faster, which turns on her passive (Nico).
+- **Homeguard:** works anywhere on the map in Mayhem. Back-line poke mages rarely take damage, so the 100% Move
+  Speed is nearly always on (Nico).
+- **From Downtown:** a quest. Hit champions with abilities from 600+ units away 15 times. Afterwards, each such
+  hit drops a meteor that grows with distance (wiki). **Pressure Cooker:** a quest that ends in a damage-over-time
+  aura around you, stacking without limit (Nico; not on the wiki yet).
+- **Mad Scientist:** re-rolls large or tiny each time you respawn (wiki). Sion's passive is not a revive. He likes
+  these augments for the Health and because he dies early and often, which also stacks his W passive (Nico).
+  Dive Bomber probably only fires on the first death (Nico, not sure).
+- **Blade Waltz:** a summoner spell that blinks to enemies up to 8 times, untargetable, applying on-hit at 50%
+  (wiki). Garen's E keeps spinning during it, so full crit/attack speed Garen is invulnerable while it
+  guarantees hits. Q probably doesn't carry over (Nico, not sure).
+- **Echo Cast:** Kennen, Neeko and Amumu take it on R, the core of their kits. Blitzcrank's R echo gives a second
+  silence and suits AP Blitz (Nico).
+- **Draw Your Sword:** Caitlyn has E and R for a melee style, and Jhin's Move Speed and execute turn him into an
+  assassin with escapes. Both get huge stats from the range they lose (Nico).
+- **Biggest Snowball Ever:** suits utility/peel champions and champions without strong synergies. Its knock-up
+  counts as an immobilize (Nico, believes).
+- **Ashe:** her crits deal no bonus damage (passive), so crit damage augments like Big Shot are bad on her.
 
 ## Items
 
