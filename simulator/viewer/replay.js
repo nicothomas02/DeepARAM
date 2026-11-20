@@ -697,22 +697,35 @@
     const world = fight.positional ? worldAt(fight, time, scratch[0]) : null;
     const view = world ? camera(W, H, world, s.focus, dt, playing ? speed : 1) : null;
     const scr = (p) => ({ x: view.sx(p), y: view.sy(p) });
-    // Ground: a plain, dark lane, kept quiet so champions and ability effects stand out.
+    // Ground: with the 3D models, the Howling Abyss itself (drawn under this layer, which stays clear);
+    // otherwise a plain, dark lane, kept quiet so champions and ability effects stand out.
     const g = ctx;
     g.setTransform(1, 0, 0, 1, 0, 0);
-    g.fillStyle = "#091017"; g.fillRect(0, 0, W, H);
-    const top = world ? view.sy({ y: -LANE }) : H * 0.18, bottom = world ? view.sy({ y: LANE }) : H * 0.92;
-    const lane = g.createLinearGradient(0, top, 0, bottom);
-    lane.addColorStop(0, "#111b25"); lane.addColorStop(0.5, "#15212c"); lane.addColorStop(1, "#111b25");
-    g.fillStyle = lane; g.fillRect(0, top, W, bottom - top);
-    // Faint marks across the lane every 250 units scroll with the view, so you can see the fight move.
-    g.strokeStyle = "rgba(143,211,255,.045)"; g.lineWidth = 1.5 * u;
-    const step = world ? 250 * view.k : 80 * u, shift = world ? -(((view.cx * view.k) % step) + step) % step : 0;
-    g.beginPath();
-    for (let x = shift; x < W + step; x += step) { g.moveTo(x, top); g.lineTo(x, bottom); }
-    g.stroke();
-    g.strokeStyle = "rgba(143,211,255,.16)"; g.lineWidth = 2 * u;
-    g.beginPath(); g.moveTo(0, top); g.lineTo(W, top); g.moveTo(0, bottom); g.lineTo(W, bottom); g.stroke();
+    const M3 = window.Models3D && window.Models3D.ok ? window.Models3D : null;
+    // Low graphics (set, or picked automatically on a slow device) keeps the plain lane.
+    const onMap = !!(view && M3 && !lowQuality() && M3.drawGround(view.sx({ x: 0 }), view.sy({ y: 0 }), view.k, W, H));
+    if (onMap) {
+      g.clearRect(0, 0, W, H);
+      // A dark band along the top keeps the HUD readable over the snow.
+      const band = g.createLinearGradient(0, 0, 0, 72 * dpr);
+      band.addColorStop(0, "rgba(9,16,23,.82)"); band.addColorStop(1, "rgba(9,16,23,0)");
+      g.fillStyle = band; g.fillRect(0, 0, W, 72 * dpr);
+    } else {
+      if (M3) M3.clearGround();
+      g.fillStyle = "#091017"; g.fillRect(0, 0, W, H);
+      const top = world ? view.sy({ y: -LANE }) : H * 0.18, bottom = world ? view.sy({ y: LANE }) : H * 0.92;
+      const lane = g.createLinearGradient(0, top, 0, bottom);
+      lane.addColorStop(0, "#111b25"); lane.addColorStop(0.5, "#15212c"); lane.addColorStop(1, "#111b25");
+      g.fillStyle = lane; g.fillRect(0, top, W, bottom - top);
+      // Faint marks across the lane every 250 units scroll with the view, so you can see the fight move.
+      g.strokeStyle = "rgba(143,211,255,.045)"; g.lineWidth = 1.5 * u;
+      const step = world ? 250 * view.k : 80 * u, shift = world ? -(((view.cx * view.k) % step) + step) % step : 0;
+      g.beginPath();
+      for (let x = shift; x < W + step; x += step) { g.moveTo(x, top); g.lineTo(x, bottom); }
+      g.stroke();
+      g.strokeStyle = "rgba(143,211,255,.16)"; g.lineWidth = 2 * u;
+      g.beginPath(); g.moveTo(0, top); g.lineTo(W, top); g.moveTo(0, bottom); g.lineTo(W, bottom); g.stroke();
+    }
 
     // The fallen stay ~2 s so a 3D model can play its death and fade (a portrait goes after 0.8 s).
     let alive = [...s.enemies.values()].filter((e) => e.died === null || time - e.died < DEAD_FOR);
@@ -1431,7 +1444,7 @@
     // Antialiasing is fixed when the 3D canvas is made: off for low, and for auto on touch screens
     // (phones have dense screens, where it costs the most and shows the least).
     const coarse = window.matchMedia && window.matchMedia("(pointer: coarse)").matches;
-    if (!M || M.arena || !M.attach($("arena3d"), qualitySetting === "low" || (qualitySetting === "auto" && coarse))) return;
+    if (!M || M.arena || !M.attach($("arena3d"), qualitySetting === "low" || (qualitySetting === "auto" && coarse), $("arenaMap"))) return;
     if (champ) setupModels();
   }
   window.addEventListener("models3d-ready", attachModels);

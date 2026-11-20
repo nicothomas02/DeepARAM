@@ -2,7 +2,7 @@
 // animated model posed from the simulated timeline (cast, attack, stunned, death, idle), with
 // each ability's clips in order and idle variations (replay-data/anims.json). Models come from
 // replay-data/models/ when built there, else the website's /assets/models/. If WebGL or a model is missing,
-// replay.js keeps drawing the 2D portraits.
+// replay.js keeps drawing the 2D portraits. The Howling Abyss itself is drawn under the fight (drawGround).
 import * as THREE from "three";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 import { MeshoptDecoder } from "three/addons/libs/meshopt_decoder.module.js";
@@ -275,9 +275,33 @@ function makeRenderer(canvas, antialias) {
   return r;
 }
 
+// The Howling Abyss under the fight (/assets/map3d/, from tools/build_map3d.py). It is drawn on its own
+// canvas below the page's 2D layer, so the shapes and markers the page draws stay on top of it. The file
+// is in lane units: x along the lane from where the fight starts, z across it, y up, one game unit each.
+const MAP_FILE = "/assets/map3d/howling-abyss.glb";
+const MAP_LIGHT = 1.7;           // the light maps are stored at half strength; a little under keeps the floor quiet
+const ground = { renderer: null, scene: null, root: null, loading: false };
+function loadGround() {
+  if (ground.loading) return;
+  ground.loading = true;
+  loader.loadAsync(MAP_FILE + BUST).then((g) => {
+    g.scene.traverse((o) => {
+      if (!o.isMesh) return;
+      // Lit by its baked light (the second set of texture coordinates), not by scene lights.
+      const m = o.material, light = m.aoMap;
+      const basic = new THREE.MeshBasicMaterial({ map: m.map, alphaTest: m.alphaTest, side: THREE.DoubleSide });
+      if (light) { light.channel = 1; basic.lightMap = light; basic.lightMapIntensity = MAP_LIGHT; }
+      o.material = basic;
+      m.dispose();
+    });
+    ground.root = g.scene;
+    ground.scene.add(g.scene);
+  }).catch(() => {});
+}
+
 // Scratch objects reused every frame instead of made anew.
 const TMP = { ndc: new THREE.Vector2(), ray: new THREE.Raycaster(), floor: new THREE.Plane(new THREE.Vector3(0, 1, 0), 0),
-  head: new THREE.Vector3(), seen: new Set() };
+  head: new THREE.Vector3(), seen: new Set(), o: new THREE.Vector3(), a: new THREE.Vector3(), b: new THREE.Vector3() };
 
 const api = {
   ok: false,
@@ -286,8 +310,9 @@ const api = {
   pendingKeys: new Set(),
   preview: null,
 
-  // low: no antialiasing (a WebGL canvas keeps the choice it was made with).
-  attach(arenaCanvas, low) {
+  // low: no antialiasing (a WebGL canvas keeps the choice it was made with), and no 3D map.
+  // mapCanvas: where the map is drawn, under the page's 2D layer.
+  attach(arenaCanvas, low, mapCanvas) {
     try {
       this.arena = { renderer: makeRenderer(arenaCanvas, !low), scene: new THREE.Scene(),
         camera: new THREE.OrthographicCamera(-8, 8, 4.5, -4.5, 0.1, 100) };
@@ -297,7 +322,47 @@ const api = {
     } catch (e) {
       this.ok = false;
     }
+    if (this.ok && mapCanvas && !low) {
+      try {
+        ground.renderer = makeRenderer(mapCanvas, false);
+        ground.scene = new THREE.Scene();
+        loadGround();
+      } catch (e) {
+        ground.renderer = null;
+      }
+    }
     return this.ok;
+  },
+  // Keeps the floor 16 units wide whatever the canvas shape.
+  fit(W, H) {
+    const camera = this.arena.camera, aspect = H / W;
+    if (camera.top === 8 * aspect) return;
+    camera.left = -8; camera.right = 8; camera.top = 8 * aspect; camera.bottom = -8 * aspect;
+    camera.updateProjectionMatrix();
+  },
+  // Draws the map under the fight: (ox, oy) is where the lane's x = 0, y = 0 is on the canvas (device px)
+  // and k is px per game unit along the lane, as the page draws it. Returns false until the map is loaded
+  // (or when there is none), so the page draws its own plain lane instead.
+  drawGround(ox, oy, k, W, H, scale = 1) {
+    if (!this.ok || !ground.root || !(W > 0 && H > 0)) return false;
+    const r = ground.renderer, rw = Math.round(W * scale), rh = Math.round(H * scale);
+    if (r.domElement.width !== rw || r.domElement.height !== rh) r.setSize(rw, rh, false);
+    this.fit(W, H);
+    // The page's lane is a top-down drawing; the floor under it is seen at 45 degrees, so a game unit
+    // across the lane is longer on the floor than one along it, as for the fighters.
+    const o = this.toWorld(ox, oy, W, H, TMP.o), a = this.toWorld(ox + 1000 * k, oy, W, H, TMP.a), b = this.toWorld(ox, oy + 1000 * k, W, H, TMP.b);
+    const along = (a.x - o.x) / 1000;
+    ground.root.position.copy(o);
+    ground.root.scale.set(along, along, (b.z - o.z) / 1000);
+    r.render(ground.scene, this.arena.camera);
+    ground.shown = true;
+    return true;
+  },
+  // Takes the map away (the page went back to its plain lane).
+  clearGround() {
+    if (!ground.shown) return;
+    ground.renderer.clear();
+    ground.shown = false;
   },
 
   // Starts loading a fight's models. Resolves to whether your champion has a model.
@@ -352,10 +417,7 @@ const api = {
     const cw = renderer.domElement.width, ch = renderer.domElement.height;
     const rw = Math.round(W * scale), rh = Math.round(H * scale);
     if (cw !== rw || ch !== rh) renderer.setSize(rw, rh, false);
-    // Keep the floor 16 units wide whatever the canvas shape.
-    const aspect = H / W;
-    camera.left = -8; camera.right = 8; camera.top = 8 * aspect; camera.bottom = -8 * aspect;
-    camera.updateProjectionMatrix();
+    this.fit(W, H);
     const seen = TMP.seen;
     seen.clear();
     for (const f of fighters) {
