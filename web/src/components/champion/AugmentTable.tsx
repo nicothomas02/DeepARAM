@@ -9,7 +9,7 @@ import { Name, useDescription, useNames, useT } from "@/components/I18n";
 import DeepScore from "@/components/DeepScore";
 import { signedPts, tone } from "@/components/champion/Ranked";
 import type { AugmentRow } from "@/lib/champion-page";
-import { AUGMENT_DEEPSCORE_HELP } from "@/lib/deepscore";
+import { CHAMPION_AUGMENT_DEEPSCORE_HELP } from "@/lib/deepscore";
 import { SHOW_AUGMENT_WIN_RATES } from "@/lib/augment-policy";
 import { synergyWith, type SynergyPair } from "@/lib/synergy-picks";
 
@@ -374,7 +374,7 @@ export default function AugmentTable({
                 {a.deepScore !== undefined ? (
                   <DeepScore
                     value={a.deepScore}
-                    help={AUGMENT_DEEPSCORE_HELP}
+                    help={CHAMPION_AUGMENT_DEEPSCORE_HELP}
                   />
                 ) : (
                   <b>–</b>

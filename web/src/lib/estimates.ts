@@ -10,14 +10,18 @@ type Band = "high" | "average" | "low";
 type Rarity = "Silver" | "Gold" | "Prismatic";
 type Estimates = {
   patch?: string;
+  /** Built from the live stats alone (data/estimates/build.py USE_OWNER_ARCHIVE off). */
+  feed_only?: boolean;
   items?: { id: number; win_rate: number; lift: number; build_share: number; slots: number[] | null; granted: boolean }[];
   augment_stages?: Record<string, { stages: number[]; usual: number }>;
   augment_items?: Record<string, { id: number; share: number }[]>;
-  rarity_odds?: { overall: Record<Rarity, number>; by_stage: Record<Rarity, number>[] };
+  rarity_odds?: { overall: Record<Rarity, number>; by_stage?: Record<Rarity, number>[] };
   game_length?: { minutes: { mean: number; sd: number } };
   side?: { blue: number; red: number };
   fun?: Record<string, number[]>;
-  augments?: Record<string, { id: number; pick_rate: number; win_rate: number; lift: number }[]>;
+  /** win_rate and lift only while the estimates may use the owner's games (data/estimates/build.py USE_OWNER_ARCHIVE);
+   *  feed-only estimates carry each champion's grade and pick rate alone. */
+  augments?: Record<string, { id: number; pick_rate: number; win_rate?: number; lift?: number; grade?: string }[]>;
   augment_pairs?: Record<string, { ids: [number, number]; pick_rate: number; win_rate: number }[]>;
   profiles?: Record<string, Record<string, { value: number; band: Band } | Record<string, number>>>;
   vs_average?: Record<string, Record<string, { value: number; average: number; delta: number; percentile: number }>>;
@@ -55,7 +59,11 @@ export function championEstimates(id: number): ChampionEstimates | null {
   const k = String(id);
   const profile = e.profiles?.[k] ?? {};
   return {
-    augments: new Map((e.augments?.[k] ?? []).map((a) => [a.id, { winRate: a.win_rate, lift: a.lift }])),
+    augments: new Map(
+      (e.augments?.[k] ?? []).flatMap((a) =>
+        typeof a.win_rate === "number" && typeof a.lift === "number" ? [[a.id, { winRate: a.win_rate, lift: a.lift }] as const] : [],
+      ),
+    ),
     pairs: (e.augment_pairs?.[k] ?? []).map((p) => ({
       ids: p.ids,
       pickRate: p.pick_rate,
@@ -97,6 +105,9 @@ export function itemEstimate(id: number): ItemEstimate | null {
   );
   return items.get(id) ?? null;
 }
+
+/** The estimates come from the live stats alone: no pick timing, per-pick odds, typical game or augment win rates. */
+export const estimatesFeedOnly = () => data()?.feed_only === true;
 
 /** Share of an augment's picks at each of the four augment stages. */
 export const augmentStages = (id: number) => data()?.augment_stages?.[String(id)] ?? null;
@@ -147,7 +158,8 @@ export const augmentItems = (id: number) => data()?.augment_items?.[String(id)] 
 export function rarityOdds(rarity: string) {
   const r = (rarity[0].toUpperCase() + rarity.slice(1).toLowerCase()) as Rarity;
   const o = data()?.rarity_odds;
-  return o ? { overall: o.overall[r], byStage: o.by_stage.map((s) => s[r]) } : null;
+  // Per-pick odds were counted in the owner's games, so feed-only estimates have the overall odds alone.
+  return o?.by_stage ? { overall: o.overall[r], byStage: o.by_stage.map((s) => s[r]) } : null;
 }
 
 /** Typical game length in minutes and each side's win rate. */
@@ -212,8 +224,10 @@ function augmentSpreads() {
   for (const [c, list] of Object.entries(e?.augments ?? {})) {
     const p = pick.get(c);
     if (!p) continue;
-    byChampion.set(Number(c), list.map((a) => [a.pick_rate, a.lift]));
-    for (const a of list) {
+    const lifted = list.flatMap((a) => (typeof a.lift === "number" ? [{ ...a, lift: a.lift }] : []));
+    if (!lifted.length) continue;
+    byChampion.set(Number(c), lifted.map((a) => [a.pick_rate, a.lift]));
+    for (const a of lifted) {
       if (!byAugment.has(a.id)) byAugment.set(a.id, []);
       byAugment.get(a.id)!.push([p * a.pick_rate, a.lift]);
     }

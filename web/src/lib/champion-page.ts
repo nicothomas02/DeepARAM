@@ -80,6 +80,8 @@ export type AugmentRow = {
   pickRate: number;
   /** The game's own build tags, as style names (lib/build-tags.ts). */
   tags: string[];
+  /** The stats feed's grade for the augment on this champion (S, A, B, C), when it has one. */
+  grade?: string;
 };
 export type { Mate };
 export type Change = {
@@ -223,6 +225,7 @@ export function championPage(alias: string): ChampionPage | null {
       tags: officialStyleLabels(a.id),
       rarity: rarity.get(a.id) ?? "silver",
       pickRate: a.pick_rate,
+      ...(a.grade ? { grade: a.grade } : {}),
     }));
 
   // Win rate boost: the Duos list's numbers (lib/duos.ts), the synergy adjusted for how often a pair is played,

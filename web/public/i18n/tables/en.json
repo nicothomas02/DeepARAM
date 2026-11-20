@@ -152,5 +152,7 @@
  "Bias %": "Bias %",
  "Order within role": "Order within role",
  "Real ÷ predicted": "Real ÷ predicted",
- "Find an item": "Find an item"
+ "Find an item": "Find an item",
+ "The champion this augment does best on.": "The champion this augment does best on.",
+ "On a champion's page, DeepScore follows each augment's grade on that champion: S 70+, A 59+, B 44+, C 32+. Within a grade, the more often the champion takes it, the higher it scores.": "On a champion's page, DeepScore follows each augment's grade on that champion: S 70+, A 59+, B 44+, C 32+. Within a grade, the more often the champion takes it, the higher it scores."
 }

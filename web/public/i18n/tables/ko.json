@@ -132,7 +132,6 @@
  "Estimated. How far the champion's win rate swings with the augments it gets. High means its augment picks matter a lot.": "추정치. 얻는 증강에 따라 챔피언의 승률이 얼마나 달라지는지 나타냅니다. 높을수록 증강 선택이 중요합니다.",
  "Varies by champion and Augment reliance are typical swings in pts: how much an augment's boost changes between champions, and how much a champion's win rate changes between augments.": "챔피언별 편차와 증강 의존도는 %p 단위의 일반적인 변동 폭입니다. 증강의 상승 폭이 챔피언마다 얼마나 달라지는지, 챔피언의 승률이 증강마다 얼마나 달라지는지를 나타냅니다.",
  "Best champ": "최고 챔피언",
- "The champion with the highest estimated win rate boost from this augment.": "이 증강으로 예상 승률 상승이 가장 큰 챔피언입니다.",
  "Augment pick": "증강 선택",
  "Estimated: the augment picks (1st to 4th) where it usually shows up.": "추정: 이 증강이 주로 나오는 증강 선택(1~4번째)입니다.",
  "Few games": "판수 적음",
@@ -154,5 +153,7 @@
  "Bias %": "편향 %",
  "Order within role": "역할 내 순위",
  "Real ÷ predicted": "실제 ÷ 예측",
- "Find an item": "아이템 찾기"
+ "Find an item": "아이템 찾기",
+ "The champion this augment does best on.": "이 증강이 가장 잘 맞는 챔피언.",
+ "On a champion's page, DeepScore follows each augment's grade on that champion: S 70+, A 59+, B 44+, C 32+. Within a grade, the more often the champion takes it, the higher it scores.": "챔피언 페이지의 DeepScore는 해당 챔피언에서 각 증강의 등급을 따릅니다: S 70+, A 59+, B 44+, C 32+. 같은 등급 안에서는 자주 선택될수록 점수가 높습니다."
 }

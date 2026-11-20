@@ -10,6 +10,14 @@ coefficients are stored. Refit after big changes:
 
     python3 data/estimates/fit_games.py ~/path/to/mayhem-backup.json
 
+
+**Public site switch (Nico, 2026-11-20):** public numbers come only from the live stats feed. `build.py` has
+`USE_OWNER_ARCHIVE = False`, so `estimates.json` is built "feed only" (`"feed_only": true`): no profiles or their
+top 10s, item timing, augment win rates or pairs, augment timing, per-pick rarity odds, game length or side. Each
+champion's augments keep only the feed's grade and pick rate; the site ranks them with
+`web/src/lib/champion-augment-scores.ts`. Summoner spells (`data/fill`) are the exception Nico kept, labelled as
+estimates. `fitted.json` stays for private analysis.
+
 ## Methods and how well they hold up (held-out checks on the archive)
 
 | Section | Method | Check |

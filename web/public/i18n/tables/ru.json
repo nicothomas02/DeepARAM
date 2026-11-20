@@ -132,7 +132,6 @@
  "Estimated. How far the champion's win rate swings with the augments it gets. High means its augment picks matter a lot.": "Оценка. Насколько процент побед чемпиона меняется в зависимости от полученных аугментов. Высокое значение: выбор аугментов для него очень важен.",
  "Varies by champion and Augment reliance are typical swings in pts: how much an augment's boost changes between champions, and how much a champion's win rate changes between augments.": "«Зависит от чемпиона» и «Зависимость от аугментов» показывают типичный разброс в п.п.: насколько прирост аугмента меняется между чемпионами и насколько процент побед чемпиона меняется между аугментами.",
  "Best champ": "Лучший чемпион",
- "The champion with the highest estimated win rate boost from this augment.": "Чемпион с наибольшим расчётным приростом доли побед от этого усиления.",
  "Augment pick": "Выбор аугмента",
  "Estimated: the augment picks (1st to 4th) where it usually shows up.": "Оценка: выборы аугментов (с 1-го по 4-й), где он обычно появляется.",
  "Few games": "Мало игр",
@@ -154,5 +153,7 @@
  "Bias %": "Смещение %",
  "Order within role": "Порядок в роли",
  "Real ÷ predicted": "Реально ÷ прогноз",
- "Find an item": "Найти предмет"
+ "Find an item": "Найти предмет",
+ "The champion this augment does best on.": "Чемпион, на котором это усиление работает лучше всего.",
+ "On a champion's page, DeepScore follows each augment's grade on that champion: S 70+, A 59+, B 44+, C 32+. Within a grade, the more often the champion takes it, the higher it scores.": "На странице чемпиона DeepScore следует оценке каждого усиления на этом чемпионе: S 70+, A 59+, B 44+, C 32+. Внутри одной оценки выше то, что чемпион берёт чаще."
 }

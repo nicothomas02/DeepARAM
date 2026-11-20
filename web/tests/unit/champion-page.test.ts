@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { buildOrder, championPage, scoreRows } from "@/lib/champion-page";
 import { itemTier } from "@/lib/items";
-import { championAugmentStages } from "@/lib/estimates";
+import { championAugmentStages, estimatesFeedOnly } from "@/lib/estimates";
 import { SIMULATOR_IN_STATS } from "@/lib/sim-policy";
 import { liveWithChange } from "@/lib/champions";
 
@@ -54,6 +54,8 @@ describe("champion augment pick order estimate", () => {
   it("gives each augment shares that sum to 1 and spreads the champion's picks over all four picks", () => {
     const p = championPage("Annie")!;
     const m = championAugmentStages(p.augments);
+    // Feed-only estimates have no per-pick odds, so there is nothing to spread.
+    if (estimatesFeedOnly()) return expect(m.size).toBe(0);
     expect(m.size).toBe(p.augments.length);
     for (const s of m.values()) {
       expect(s).toHaveLength(4);
@@ -101,5 +103,22 @@ describe("misleading-number guards", () => {
       // Measured against the listed starters' average, so they can't all sit above it.
       expect(s.some((r) => r.lift <= 0)).toBe(true);
     }
+  });
+});
+
+describe("champion augment DeepScore from the live stats", () => {
+  it("follows the grade, then pick rate, with the grade's tier letter", async () => {
+    const { championAugmentScores } = await import("@/lib/champion-augment-scores");
+    const s = championAugmentScores("x", [
+      { id: 1, pickRate: 0.01, grade: "S" },
+      { id: 2, pickRate: 0.3, grade: "A" },
+      { id: 3, pickRate: 0.2, grade: "S" },
+      { id: 4, pickRate: 0.5, grade: "C" },
+    ]);
+    expect(s.get(3)!).toBeGreaterThan(s.get(1)!);
+    expect(s.get(1)!).toBeGreaterThanOrEqual(70);
+    expect(s.get(2)!).toBeGreaterThanOrEqual(59);
+    expect(s.get(2)!).toBeLessThan(70);
+    expect(s.get(4)!).toBeLessThan(44);
   });
 });

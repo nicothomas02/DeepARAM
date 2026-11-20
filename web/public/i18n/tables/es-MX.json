@@ -132,7 +132,6 @@
  "Estimated. How far the champion's win rate swings with the augments it gets. High means its augment picks matter a lot.": "Estimado. Cuánto cambia la tasa de victorias del campeón según los aumentos que obtiene. Alto significa que elegir bien los aumentos le importa mucho.",
  "Varies by champion and Augment reliance are typical swings in pts: how much an augment's boost changes between champions, and how much a champion's win rate changes between augments.": "Varía según campeón y Dependencia de aumentos son variaciones típicas en pts: cuánto cambia la mejora de un aumento entre campeones y cuánto cambia la tasa de victorias de un campeón entre aumentos.",
  "Best champ": "Mejor campeón",
- "The champion with the highest estimated win rate boost from this augment.": "El campeón con el mayor aumento estimado de tasa de victorias con este aumento.",
  "Augment pick": "Elección de aumento",
  "Estimated: the augment picks (1st to 4th) where it usually shows up.": "Estimado: las elecciones de aumento (1.ª a 4.ª) en las que suele aparecer.",
  "Few games": "Pocas partidas",
@@ -154,5 +153,7 @@
  "Bias %": "Sesgo %",
  "Order within role": "Orden en el rol",
  "Real ÷ predicted": "Real ÷ previsto",
- "Find an item": "Buscar un objeto"
+ "Find an item": "Buscar un objeto",
+ "The champion this augment does best on.": "El campeón con el que mejor rinde este aumento.",
+ "On a champion's page, DeepScore follows each augment's grade on that champion: S 70+, A 59+, B 44+, C 32+. Within a grade, the more often the champion takes it, the higher it scores.": "En la página de un campeón, el DeepScore sigue la nota de cada aumento con ese campeón: S 70+, A 59+, B 44+, C 32+. Dentro de una misma nota, cuanto más lo elige el campeón, más alto puntúa."
 }

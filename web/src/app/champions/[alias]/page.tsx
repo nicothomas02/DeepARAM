@@ -70,6 +70,7 @@ import KitInteractions from "@/components/champion/KitInteractions";
 import { kitInteractions } from "@/lib/kit-interactions";
 import { championUpgrades } from "@/lib/champion-upgrades";
 import { SIMULATOR_IN_STATS } from "@/lib/sim-policy";
+import { championAugmentScores } from "@/lib/champion-augment-scores";
 import { augmentBuilds, buildChangers, CHANGES_BUILD } from "@/lib/augment-builds";
 import AugmentBuildPicker from "@/components/champion/AugmentBuildPicker";
 import { augmentSynergy } from "@/lib/augment-synergy";
@@ -340,17 +341,10 @@ export default async function ChampionPage({
   const augBuilds = SIMULATOR_IN_STATS ? augmentBuilds(c.alias) : null;
   const changers = SIMULATOR_IN_STATS ? buildChangers(c.alias) : new Set<number>();
   const bestCore = p.core[0]; // the lists rank by DeepScore, which already trusts rare builds less
-  // Augments rank by their DeepScore on this champion: the estimated win rate with it here, trusted less when the
-  // champion rarely takes it (Nico, 2026-11-20: the Tier List's overall rating put Icathia's Fall, taken in 0.3% of
-  // Yasuo games for +0.2 pts, at the top of Yasuo's list).
-  const scores = new Map(
-    scoreRows(
-      p.augments.flatMap((a) => {
-        const e = est?.augments.get(a.id);
-        return e ? [{ id: a.id, winRate: e.winRate, pickRate: a.pickRate }] : [];
-      }),
-    ).map((r) => [r.id, r.deepScore]),
-  );
+  // Augments rank by their DeepScore on this champion, from its grade and pick rate there (lib/champion-augment-scores.ts,
+  // shared with the overlay), never the Tier List's overall rating (Nico, 2026-11-20: that put Icathia's Fall, taken
+  // in 0.3% of Yasuo games, at the top of Yasuo's list).
+  const scores = championAugmentScores(c.alias, p.augments);
   // Each augment's share of this champion's picks at the 1st to 4th augment pick (estimated).
   const pickStages = championAugmentStages(p.augments);
   const augRows = p.augments

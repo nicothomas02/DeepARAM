@@ -132,7 +132,6 @@
  "Estimated. How far the champion's win rate swings with the augments it gets. High means its augment picks matter a lot.": "ค่าประมาณ อัตราชนะของแชมเปี้ยนเปลี่ยนไปมากแค่ไหนตาม Augment ที่ได้ ค่าสูงหมายถึงการเลือก Augment สำคัญมาก",
  "Varies by champion and Augment reliance are typical swings in pts: how much an augment's boost changes between champions, and how much a champion's win rate changes between augments.": "ต่างกันตามแชมเปี้ยนและการพึ่งพา Augment คือช่วงแกว่งโดยทั่วไปเป็นจุด: อัตราที่เพิ่มขึ้นของ Augment เปลี่ยนไปเท่าไรระหว่างแชมเปี้ยน และอัตราชนะของแชมเปี้ยนเปลี่ยนไปเท่าไรระหว่าง Augment",
  "Best champ": "แชมเปียนที่ดีที่สุด",
- "The champion with the highest estimated win rate boost from this augment.": "แชมเปียนที่อัตราชนะเพิ่มขึ้นมากที่สุดโดยประมาณจากออคเมนต์นี้",
  "Augment pick": "ครั้งที่เลือกออคเมนต์",
  "Estimated: the augment picks (1st to 4th) where it usually shows up.": "ประมาณการ: ครั้งที่เลือกออคเมนต์ (ครั้งที่ 1 ถึง 4) ที่มักจะเจอออคเมนต์นี้",
  "Few games": "เกมน้อย",
@@ -154,5 +153,7 @@
  "Bias %": "ความเอนเอียง %",
  "Order within role": "ลำดับในบทบาท",
  "Real ÷ predicted": "จริง ÷ ทำนาย",
- "Find an item": "ค้นหาไอเทม"
+ "Find an item": "ค้นหาไอเทม",
+ "The champion this augment does best on.": "แชมเปี้ยนที่ออคเมนต์นี้ทำผลงานได้ดีที่สุด",
+ "On a champion's page, DeepScore follows each augment's grade on that champion: S 70+, A 59+, B 44+, C 32+. Within a grade, the more often the champion takes it, the higher it scores.": "ในหน้าแชมเปี้ยน DeepScore อิงตามเกรดของออคเมนต์แต่ละอันกับแชมเปี้ยนนั้น: S 70+, A 59+, B 44+, C 32+ ภายในเกรดเดียวกัน ยิ่งถูกเลือกบ่อยยิ่งได้คะแนนสูง"
 }
