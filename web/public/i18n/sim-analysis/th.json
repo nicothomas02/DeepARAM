@@ -41,5 +41,7 @@
  "Real damage share above what the Simulator plus role predicts. Likely kit gaps.": "ส่วนแบ่งดาเมจจริงสูงกว่าที่ Simulator รวมบทบาททำนาย น่าจะเป็นช่องโหว่ของชุดสกิล",
  "Most overrated": "ถูกประเมินสูงที่สุด",
  "Real damage share below the prediction.": "ส่วนแบ่งดาเมจจริงต่ำกว่าที่ทำนาย",
- "Patch {patch}, checked {date}. {b} resamples per range. Each 1% more simulated damage per second goes with {d}% more real damage share once role is known.": "แพตช์ {patch} ตรวจเมื่อ {date} สุ่มซ้ำ {b} ครั้งต่อช่วง เมื่อรู้บทบาทแล้ว ดาเมจต่อวินาทีจำลองที่สูงขึ้นทุก 1% มาพร้อมส่วนแบ่งดาเมจจริงที่สูงขึ้น {d}%"
+ "Patch {patch}, checked {date}. {b} resamples per range. Each 1% more simulated damage per second goes with {d}% more real damage share once role is known.": "แพตช์ {patch} ตรวจเมื่อ {date} สุ่มซ้ำ {b} ครั้งต่อช่วง เมื่อรู้บทบาทแล้ว ดาเมจต่อวินาทีจำลองที่สูงขึ้นทุก 1% มาพร้อมส่วนแบ่งดาเมจจริงที่สูงขึ้น {d}%",
+ "Teamfight damage, simulated.": "ดาเมจในการต่อสู้เป็นทีม แบบจำลอง",
+ "An experiment: results can shift as the model changes. Monte Carlo teamfights against enemy teams weighted by Mayhem pick rates, with a build search for every champion. Use it to compare builds for one champion, not to rank champions.": "การทดลอง: ผลลัพธ์อาจเปลี่ยนไปเมื่อโมเดลเปลี่ยน การต่อสู้เป็นทีมแบบมอนติคาร์โลกับทีมศัตรูที่ถ่วงน้ำหนักตามอัตราการเลือกในโหมด พร้อมการค้นหาบิลด์สำหรับแชมเปี้ยนทุกตัว ใช้เพื่อเปรียบเทียบบิลด์ของแชมเปี้ยนตัวเดียว ไม่ใช่เพื่อจัดอันดับแชมเปี้ยน"
 }

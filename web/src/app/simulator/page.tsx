@@ -4,6 +4,7 @@ import { pageMeta } from "@/lib/meta";
 import DataTable from "@/components/DataTable";
 import Embed from "@/components/Embed";
 import Intro from "@/components/Intro";
+import { T } from "@/components/I18n";
 import { text } from "@/lib/content";
 import Pending from "@/components/Pending";
 import SimBuildsTable, { type SimBuild } from "@/components/SimBuildsTable";
@@ -34,7 +35,7 @@ export default function SimulatorPage() {
   if (!repoHas(`${VIEWER}/index.html`) && !repoHas("simulator/README.md")) {
     return (
       <>
-        <Intro eyebrow="Simulator" title={text("page./simulator.title", "Teamfight damage, simulated.")} />
+        <Intro eyebrow="Simulator" title={<T ns="sim-analysis">{text("page./simulator.title", "Teamfight damage, simulated.")}</T>} />
         <Pending pr={4}>The simulator appears here once it is merged:</Pending>
       </>
     );
@@ -94,10 +95,12 @@ export default function SimulatorPage() {
 
   return (
     <>
-      <Intro eyebrow="Simulator" title={text("page./simulator.title", "Teamfight damage, simulated.")}>
-        An experiment: results can shift as the model changes. Monte Carlo teamfights against enemy teams weighted by
-        Mayhem pick rates, with a build search for every champion. Use it to compare builds for one champion, not to
-        rank champions.
+      <Intro eyebrow="Simulator" title={<T ns="sim-analysis">{text("page./simulator.title", "Teamfight damage, simulated.")}</T>}>
+        <T ns="sim-analysis">
+          {
+            "An experiment: results can shift as the model changes. Monte Carlo teamfights against enemy teams weighted by Mayhem pick rates, with a build search for every champion. Use it to compare builds for one champion, not to rank champions."
+          }
+        </T>
       </Intro>
       {tabs.length ? (
         <SubTabs tabs={tabs} />

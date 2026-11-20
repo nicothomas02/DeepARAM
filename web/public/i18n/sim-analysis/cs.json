@@ -41,5 +41,7 @@
  "Real damage share above what the Simulator plus role predicts. Likely kit gaps.": "Skutečný podíl poškození nad předpovědí Simulátoru s rolí. Pravděpodobně mezery v sadě schopností.",
  "Most overrated": "Nejvíce přeceňovaní",
  "Real damage share below the prediction.": "Skutečný podíl poškození pod předpovědí.",
- "Patch {patch}, checked {date}. {b} resamples per range. Each 1% more simulated damage per second goes with {d}% more real damage share once role is known.": "Patch {patch}, ověřeno {date}. {b} převzorkování na rozsah. Každé 1 % simulovaného poškození za sekundu navíc jde ruku v ruce s {d} % vyšším skutečným podílem poškození, když je role známá."
+ "Patch {patch}, checked {date}. {b} resamples per range. Each 1% more simulated damage per second goes with {d}% more real damage share once role is known.": "Patch {patch}, ověřeno {date}. {b} převzorkování na rozsah. Každé 1 % simulovaného poškození za sekundu navíc jde ruku v ruce s {d} % vyšším skutečným podílem poškození, když je role známá.",
+ "Teamfight damage, simulated.": "Poškození v týmových bojích, simulované.",
+ "An experiment: results can shift as the model changes. Monte Carlo teamfights against enemy teams weighted by Mayhem pick rates, with a build search for every champion. Use it to compare builds for one champion, not to rank champions.": "Experiment: výsledky se mohou měnit se změnami modelu. Týmové boje metodou Monte Carlo proti nepřátelským týmům váženým podle četnosti výběru v režimu, s hledáním buildu pro každého šampiona. Používej ho k porovnání buildů jednoho šampiona, ne k řazení šampionů."
 }

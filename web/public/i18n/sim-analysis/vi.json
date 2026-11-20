@@ -41,5 +41,7 @@
  "Real damage share above what the Simulator plus role predicts. Likely kit gaps.": "Tỉ lệ sát thương thật cao hơn dự đoán của Trình mô phỏng cộng vai trò. Có thể thiếu sót trong bộ kỹ năng.",
  "Most overrated": "Bị đánh giá cao nhất",
  "Real damage share below the prediction.": "Tỉ lệ sát thương thật thấp hơn dự đoán.",
- "Patch {patch}, checked {date}. {b} resamples per range. Each 1% more simulated damage per second goes with {d}% more real damage share once role is known.": "Phiên bản {patch}, kiểm tra ngày {date}. {b} lần lấy mẫu lại mỗi khoảng. Khi đã biết vai trò, mỗi 1% sát thương mỗi giây mô phỏng cao hơn đi kèm {d}% tỉ lệ sát thương thật cao hơn."
+ "Patch {patch}, checked {date}. {b} resamples per range. Each 1% more simulated damage per second goes with {d}% more real damage share once role is known.": "Phiên bản {patch}, kiểm tra ngày {date}. {b} lần lấy mẫu lại mỗi khoảng. Khi đã biết vai trò, mỗi 1% sát thương mỗi giây mô phỏng cao hơn đi kèm {d}% tỉ lệ sát thương thật cao hơn.",
+ "Teamfight damage, simulated.": "Sát thương giao tranh tổng, được mô phỏng.",
+ "An experiment: results can shift as the model changes. Monte Carlo teamfights against enemy teams weighted by Mayhem pick rates, with a build search for every champion. Use it to compare builds for one champion, not to rank champions.": "Một thử nghiệm: kết quả có thể thay đổi khi mô hình thay đổi. Giao tranh tổng Monte Carlo với các đội địch được tính trọng số theo tỉ lệ chọn trong chế độ, kèm tìm kiếm lối lên đồ cho mọi tướng. Hãy dùng để so sánh lối lên đồ của một tướng, không phải để xếp hạng các tướng."
 }

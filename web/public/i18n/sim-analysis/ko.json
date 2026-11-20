@@ -41,5 +41,7 @@
  "Real damage share above what the Simulator plus role predicts. Likely kit gaps.": "실제 피해 비중이 시뮬레이터 + 역할 예측보다 높습니다. 스킬 구현 누락일 가능성이 큽니다.",
  "Most overrated": "가장 과대평가됨",
  "Real damage share below the prediction.": "실제 피해 비중이 예측보다 낮습니다.",
- "Patch {patch}, checked {date}. {b} resamples per range. Each 1% more simulated damage per second goes with {d}% more real damage share once role is known.": "패치 {patch}, {date} 확인. 범위마다 {b}번 다시 뽑기. 역할을 알면 시뮬레이션 초당 피해가 1% 높을 때 실제 피해 비중은 {d}% 높습니다."
+ "Patch {patch}, checked {date}. {b} resamples per range. Each 1% more simulated damage per second goes with {d}% more real damage share once role is known.": "패치 {patch}, {date} 확인. 범위마다 {b}번 다시 뽑기. 역할을 알면 시뮬레이션 초당 피해가 1% 높을 때 실제 피해 비중은 {d}% 높습니다.",
+ "Teamfight damage, simulated.": "한타 피해량, 시뮬레이션으로.",
+ "An experiment: results can shift as the model changes. Monte Carlo teamfights against enemy teams weighted by Mayhem pick rates, with a build search for every champion. Use it to compare builds for one champion, not to rank champions.": "실험 기능입니다. 모델이 바뀌면 결과도 달라질 수 있습니다. 모드의 선택률로 가중치를 둔 상대 팀과 몬테카를로 한타를 돌리고, 모든 챔피언의 빌드를 탐색합니다. 챔피언 순위를 매기는 용도가 아니라 한 챔피언의 빌드를 비교하는 데 사용하세요."
 }

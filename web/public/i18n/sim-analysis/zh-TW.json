@@ -41,5 +41,7 @@
  "Real damage share above what the Simulator plus role predicts. Likely kit gaps.": "實際傷害占比高於模擬器加定位的預測。可能是技能還原的缺口。",
  "Most overrated": "最被高估",
  "Real damage share below the prediction.": "實際傷害占比低於預測。",
- "Patch {patch}, checked {date}. {b} resamples per range. Each 1% more simulated damage per second goes with {d}% more real damage share once role is known.": "版本 {patch}，檢查於 {date}。每個範圍重抽樣 {b} 次。在已知定位時，模擬每秒傷害每高 1%，實際傷害占比高 {d}%。"
+ "Patch {patch}, checked {date}. {b} resamples per range. Each 1% more simulated damage per second goes with {d}% more real damage share once role is known.": "版本 {patch}，檢查於 {date}。每個範圍重抽樣 {b} 次。在已知定位時，模擬每秒傷害每高 1%，實際傷害占比高 {d}%。",
+ "Teamfight damage, simulated.": "團戰傷害，模擬呈現。",
+ "An experiment: results can shift as the model changes. Monte Carlo teamfights against enemy teams weighted by Mayhem pick rates, with a build search for every champion. Use it to compare builds for one champion, not to rank champions.": "實驗性功能：模型更新後結果可能改變。以該模式選用率加權的敵方隊伍進行蒙地卡羅團戰模擬，並為每位英雄搜尋出裝。用於比較同一英雄的出裝，而不是替英雄排名。"
 }

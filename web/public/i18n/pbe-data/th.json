@@ -2,12 +2,14 @@
  "Ability values are listed for ranks 1-5 (basic abilities) or 1-3 (ultimates).": "ค่าสกิลแสดงตามระดับ 1-5 (สกิลพื้นฐาน) หรือ 1-3 (อัลติ)",
  "Base-game champion changes on the test server. They also apply in Mayhem.": "การเปลี่ยนแปลงแชมเปี้ยนของเกมหลักบนเซิร์ฟเวอร์ทดสอบ มีผลใน Mayhem ด้วย",
  "Changes to items in the Mayhem shop. Runes are unchanged.": "การเปลี่ยนแปลงไอเทมในร้านค้า ARAM: Mayhem รูนไม่เปลี่ยนแปลง",
- "No new Fame bands on the test server yet.": "ยังไม่มีระดับชื่อเสียงใหม่บนเซิร์ฟเวอร์ทดสอบ",
- "PBE content can change before release.": "เนื้อหาบน PBE อาจเปลี่ยนแปลงก่อนปล่อยจริง",
+ "Gain the Surge Field summoner spell. Casting it creates a zone for 10 seconds: while in it, you gain 40% Movement Speed and 150 Ability Haste, and fire missiles at enemies that deal 30% of the damage you deal.": "รับสเปลซัมมอนเนอร์ Surge Field เมื่อใช้จะสร้างโซนเป็นเวลา 10 วินาที: ขณะอยู่ในโซน จะได้รับความเร็วเคลื่อนที่ 40% และ Ability Haste 150 และยิงมิสไซล์ใส่ศัตรูซึ่งสร้างดาเมจ 30% ของดาเมจที่คุณสร้าง",
  "Live is patch 26.23. This page lists what patch 26.24 changes.": "เซิร์ฟเวอร์จริงคือแพตช์ 26.23 หน้านี้แสดงสิ่งที่แพตช์ 26.24 เปลี่ยนแปลง",
  "Mayhem Patch 26.24 on the test server.": "Mayhem แพตช์ 26.24 บนเซิร์ฟเวอร์ทดสอบ",
- "Patch 26.24": "แพตช์ 26.24",
+ "No new Fame bands on the test server yet.": "ยังไม่มีระดับชื่อเสียงใหม่บนเซิร์ฟเวอร์ทดสอบ",
  "No new Headliners on the test server yet.": "ยังไม่มี Headliner ใหม่บนเซิร์ฟเวอร์ทดสอบ",
+ "PBE content can change before release.": "เนื้อหาบน PBE อาจเปลี่ยนแปลงก่อนปล่อยจริง",
+ "Patch 26.24": "แพตช์ 26.24",
  "Q AD ratio 70% → 80%": "อัตรา AD ของ Q 70% → 80%",
- "Update 2026-11-18: patch 26.23 is live, so its changes left this page. The first patch 26.24 test build changes no Mayhem augments, Headliners or items. Akshan's Q scales more with AD (70% → 80%), and Goliath gets an extra effect for clones.": "อัปเดต 2026-11-18: แพตช์ 26.23 เปิดใช้งานแล้ว การเปลี่ยนแปลงของแพตช์นั้นจึงถูกนำออกจากหน้านี้ บิลด์ทดสอบแรกของแพตช์ 26.24 ไม่เปลี่ยนออคเมนต์ Headliner หรือไอเทมของ Mayhem สกิล Q ของ Akshan สเกลกับ AD มากขึ้น (70% → 80%) และ Goliath ได้เอฟเฟกต์เพิ่มสำหรับร่างโคลน"
+ "Update 2026-11-18: patch 26.23 is live, so its changes left this page. The first patch 26.24 test build changes no Mayhem augments, Headliners or items. Akshan's Q scales more with AD (70% → 80%), and Goliath gets an extra effect for clones.": "อัปเดต 2026-11-18: แพตช์ 26.23 เปิดใช้งานแล้ว การเปลี่ยนแปลงของแพตช์นั้นจึงถูกนำออกจากหน้านี้ บิลด์ทดสอบแรกของแพตช์ 26.24 ไม่เปลี่ยนออคเมนต์ Headliner หรือไอเทมของ Mayhem สกิล Q ของ Akshan สเกลกับ AD มากขึ้น (70% → 80%) และ Goliath ได้เอฟเฟกต์เพิ่มสำหรับร่างโคลน",
+ "Update 2026-11-20 (patch 26.24): Surge Field returns to the augment pool.": "อัปเดต 2026-11-20 (แพตช์ 26.24): Surge Field กลับมาอยู่ในกลุ่มออคเมนต์"
 }
