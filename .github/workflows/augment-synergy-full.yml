@@ -27,15 +27,15 @@ jobs:
       matrix:
         shard: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
         with:
           python-version: "3.12"
       - name: Build the Simulator
         run: make -C simulator mayhem_sim
       - name: Simulate this shard's champions
         run: python3 data/estimates/augment_synergy.py --full --shard ${{ matrix.shard }} --shards $SHARDS --jobs $(nproc)
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: synergy-shard-${{ matrix.shard }}
           path: data/estimates/augment_synergy.shard-${{ matrix.shard }}.json
@@ -46,11 +46,11 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
         with:
           python-version: "3.12"
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v8
         with:
           pattern: synergy-shard-*
           path: shards
