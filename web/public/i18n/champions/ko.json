@@ -238,5 +238,11 @@
  "Selected": "선택됨",
  "Select {name}: the rest re-rank by synergy with it.": "{name} 선택: 나머지가 시너지 순으로 다시 정렬됩니다.",
  "Select: the rest re-rank by synergy with it.": "선택: 나머지가 시너지 순으로 다시 정렬됩니다.",
- "Already have augments? Select them with + and the rest re-rank by synergy.": "이미 가진 증강이 있나요? + 로 선택하면 나머지가 시너지 순으로 다시 정렬됩니다."
+ "Already have augments? Select them with + and the rest re-rank by synergy.": "이미 가진 증강이 있나요? + 로 선택하면 나머지가 시너지 순으로 다시 정렬됩니다.",
+ "Build numbers": "빌드 수치",
+ "Adjusted": "보정",
+ "Raw": "원본",
+ "Adjusted leaves out items only an augment gives you, and builds with few games lean on the estimate.": "보정은 증강으로만 얻는 아이템을 빼고, 게임 수가 적은 빌드는 추정치를 따릅니다.",
+ "Raw shows every build's plain win rate, including items an augment gives you.": "원본은 증강으로 얻은 아이템을 포함해 각 빌드의 실제 승률을 보여 줍니다.",
+ "Augment item": "증강 아이템"
 }

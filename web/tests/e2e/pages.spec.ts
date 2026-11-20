@@ -283,19 +283,23 @@ test("augment and item pages show the official description under the name, the l
   await expect(page.locator("#synergies .syn-row").first()).toContainText("pts");
 });
 
-test("champion pages list Synergies and the Expected switch relabels build win rates", async ({ page }) => {
+test("champion pages list Synergies and the Adjusted / Raw switch relabels build win rates", async ({ page }) => {
   await page.goto("/champions/Jinx");
   const syn = page.locator("#synergies + .cp-panel .syn");
   await expect(syn.locator(".syn-row").first()).toContainText("pts");
   await syn.getByRole("button", { name: /Items/ }).click();
   await expect(syn.locator(".syn-row").first()).toBeVisible();
-  // Off: build panels show "Win rate" under each value; on: each row says Real or Expected.
-  const sw = page.getByRole("switch", { name: "Expected" });
-  await sw.click();
-  await expect(sw).toHaveAttribute("aria-checked", "true");
-  await expect(page.locator(".cp-panel").filter({ has: page.locator("h3", { hasText: /^Boots$/ }) }).locator(".cp-cell small.xp-exp").first()).toBeVisible();
-  await sw.click();
-  await expect(page.locator(".cp-panel").filter({ has: page.locator("h3", { hasText: /^Boots$/ }) }).locator(".cp-cell small.xp-exp").first()).toBeHidden();
+  // Adjusted (the default): each build row says Real or Expected; Raw: "Win rate" under each value.
+  const boots = page.locator(".cp-panel").filter({ has: page.locator("h3", { hasText: /^Boots$/ }) });
+  const adjusted = page.getByRole("button", { name: "Adjusted", exact: true });
+  const raw = page.getByRole("button", { name: "Raw", exact: true });
+  await expect(adjusted).toHaveAttribute("aria-pressed", "true");
+  await expect(boots.locator(".cp-cell small.xp-exp").first()).toBeVisible();
+  await raw.click();
+  await expect(raw).toHaveAttribute("aria-pressed", "true");
+  await expect(boots.locator(".cp-cell small.xp-exp").first()).toBeHidden();
+  await adjusted.click();
+  await expect(boots.locator(".cp-cell small.xp-exp").first()).toBeVisible();
 });
 
 test("share links for a Chef Special and a build give link previews their card", async ({ page, request }) => {

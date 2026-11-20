@@ -59,7 +59,7 @@ import {
   fillSpells,
   type SpellRow,
 } from "@/lib/fill";
-import { ITEM_TIERS, type ItemTier } from "@/lib/items";
+import { ITEM_TIERS, rewardItems, type ItemTier } from "@/lib/items";
 import { championAugmentStages, championEstimates } from "@/lib/estimates";
 import championIds from "@/data/champion-ids.json";
 import augmentNames from "@/data/augment-names.json";
@@ -148,7 +148,7 @@ const vsAvg = (key: string, d: number) =>
 
 // Build lists rank by DeepScore against the champion's other builds in the same list.
 const SCORED_COLS = ["DeepScore", "Win rate", "Pick rate"];
-// With the Expected switch on (components/champion/ExpectedSwitch.tsx), a row with few games of its own shows its
+// With the switch on Adjusted, the default (components/champion/ExpectedSwitch.tsx), a row with few games of its own shows its
 // expected win rate, leaning on the estimate (lib/synergies.ts), labelled "Expected"; the rest show "Real".
 type Expected = { delta: number; expected: boolean };
 function ScoredCells({ r, x }: { r: ItemRow; x?: Expected }) {
@@ -382,9 +382,18 @@ export default async function ChampionPage({
   const expected = expectedBuilds((championIds as Record<string, number>)[alias] ?? -1);
   const synergies = championSynergies((championIds as Record<string, number>)[alias] ?? -1);
   const xp = (fam: "starting" | "boots" | "full_builds" | null, r: ItemRow) => (fam ? expected.get(expectedKey(fam, r.items)) : undefined);
+  // A row holding an item only an augment hands out is hidden under Adjusted and tagged under Raw (ExpectedSwitch).
+  const rewards = rewardItems();
+  const augItem = (r: ItemRow) => r.items.some((id) => rewards.has(id));
+  const augTag = (r: ItemRow) =>
+    augItem(r) ? (
+      <span className="aug-item-tag">
+        <T ns={NS}>Augment item</T>
+      </span>
+    ) : null;
   const itemRows = (rows: typeof p.core, sep = false, fam: "starting" | "full_builds" | null = null) =>
     rows.map((r, i) => (
-      <Row key={i} rank={i + 1} cells={<ScoredCells r={r} x={xp(fam, r)} />}>
+      <Row key={i} rank={i + 1} className={augItem(r) ? "aug-item" : undefined} cells={<ScoredCells r={r} x={xp(fam, r)} />}>
         {buildOrder(r).map((id, j) => (
           <span key={j} className="cp-chain">
             {sep && j > 0 && (
@@ -395,13 +404,15 @@ export default async function ChampionPage({
             <ItemIcon id={id} info={info} />
           </span>
         ))}
+        {augTag(r)}
       </Row>
     ));
   const singleRows = (rows: typeof p.core, fam: "boots" | null = null) =>
     rows.map((r, i) => (
-      <Row key={i} rank={i + 1} cells={<ScoredCells r={r} x={xp(fam, r)} />}>
+      <Row key={i} rank={i + 1} className={augItem(r) ? "aug-item" : undefined} cells={<ScoredCells r={r} x={xp(fam, r)} />}>
         <ItemIcon id={r.items[0]} info={info} />
         <ItemName id={r.items[0]} info={info} />
+        {augTag(r)}
       </Row>
     ));
 

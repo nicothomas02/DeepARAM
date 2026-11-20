@@ -238,5 +238,11 @@
  "Selected": "已选",
  "Select {name}: the rest re-rank by synergy with it.": "选择{name}：其余按协同重新排序。",
  "Select: the rest re-rank by synergy with it.": "选择：其余按协同重新排序。",
- "Already have augments? Select them with + and the rest re-rank by synergy.": "已经有强化了？用 + 选中它们，其余会按协同重新排序。"
+ "Already have augments? Select them with + and the rest re-rank by synergy.": "已经有强化了？用 + 选中它们，其余会按协同重新排序。",
+ "Build numbers": "出装数据",
+ "Adjusted": "校正",
+ "Raw": "原始",
+ "Adjusted leaves out items only an augment gives you, and builds with few games lean on the estimate.": "校正会去掉只能由海克斯强化获得的装备，场次少的出装会参考估算。",
+ "Raw shows every build's plain win rate, including items an augment gives you.": "原始显示每套出装的实际胜率，包括海克斯强化给的装备。",
+ "Augment item": "强化装备"
 }

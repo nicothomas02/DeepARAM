@@ -238,5 +238,11 @@
  "Selected": "المحدد",
  "Select {name}: the rest re-rank by synergy with it.": "تحديد {name}: يُعاد ترتيب البقية حسب التآزر.",
  "Select: the rest re-rank by synergy with it.": "تحديد: يُعاد ترتيب البقية حسب التآزر.",
- "Already have augments? Select them with + and the rest re-rank by synergy.": "لديك معززات بالفعل؟ حددها بـ + وسيُعاد ترتيب البقية حسب التآزر."
+ "Already have augments? Select them with + and the rest re-rank by synergy.": "لديك معززات بالفعل؟ حددها بـ + وسيُعاد ترتيب البقية حسب التآزر.",
+ "Build numbers": "أرقام البناء",
+ "Adjusted": "معدّل",
+ "Raw": "خام",
+ "Adjusted leaves out items only an augment gives you, and builds with few games lean on the estimate.": "المعدّل يستبعد العناصر التي لا يمنحها إلا معزِّز، والبناءات ذات المباريات القليلة تعتمد على التقدير.",
+ "Raw shows every build's plain win rate, including items an augment gives you.": "الخام يعرض نسبة الفوز الفعلية لكل بناء، بما فيها العناصر التي يمنحها معزِّز.",
+ "Augment item": "عنصر معزِّز"
 }

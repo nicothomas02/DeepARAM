@@ -68,14 +68,16 @@ export function Row({
   cols = 3,
   children,
   cells,
+  className,
 }: {
   rank: number;
   cols?: number;
   children: React.ReactNode;
   cells: React.ReactNode;
+  className?: string;
 }) {
   return (
-    <div className="cp-row" data-cols={cols}>
+    <div className={className ? `cp-row ${className}` : "cp-row"} data-cols={cols}>
       <span className="cp-rk">#{rank}</span>
       <div className="cp-what">{children}</div>
       {cells}

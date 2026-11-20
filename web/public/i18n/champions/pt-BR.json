@@ -238,5 +238,11 @@
  "Selected": "Selecionados",
  "Select {name}: the rest re-rank by synergy with it.": "Selecionar {name}: o resto é reordenado por sinergia.",
  "Select: the rest re-rank by synergy with it.": "Selecionar: o resto é reordenado por sinergia.",
- "Already have augments? Select them with + and the rest re-rank by synergy.": "Já tem aumentos? Selecione-os com + e o resto é reordenado por sinergia."
+ "Already have augments? Select them with + and the rest re-rank by synergy.": "Já tem aumentos? Selecione-os com + e o resto é reordenado por sinergia.",
+ "Build numbers": "Números das builds",
+ "Adjusted": "Ajustado",
+ "Raw": "Bruto",
+ "Adjusted leaves out items only an augment gives you, and builds with few games lean on the estimate.": "Ajustado deixa de fora itens que só um aprimoramento dá, e builds com poucas partidas se apoiam na estimativa.",
+ "Raw shows every build's plain win rate, including items an augment gives you.": "Bruto mostra a taxa de vitória real de cada build, incluindo itens dados por aprimoramento.",
+ "Augment item": "Item de aprimoramento"
 }

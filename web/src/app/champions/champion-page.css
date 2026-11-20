@@ -1521,11 +1521,23 @@ html[data-view="simple"] .cp-fold:not([data-open]) > .cp-fold-body {
   font-size: 0.85em;
 }
 
-/* Expected switch (components/champion/ExpectedSwitch.tsx): build panels show the real win rate by default and the
-   expected one, with its Real or Expected label, when it's on. */
-html:not([data-expected]) .xp-exp,
-html[data-expected] .xp-real {
+/* Adjusted / Raw switch (components/champion/ExpectedSwitch.tsx): build panels show the expected win rate, with its
+   Real or Expected label, and leave out rows with an item only an augment gives (Adjusted, the default); Raw
+   (data-raw) shows the real win rate and every row, the augment ones tagged. */
+html[data-raw] .xp-exp,
+html:not([data-raw]) .xp-real,
+html:not([data-raw]) .cp-row.aug-item {
   display: none;
+}
+.aug-item-tag {
+  margin-left: 0.4rem;
+  padding: 0.05rem 0.4rem;
+  border-radius: 999px;
+  background: var(--raised);
+  color: var(--gold);
+  font-size: 0.875rem;
+  font-weight: 600;
+  white-space: nowrap;
 }
 .cp-cell small.xp-tag {
   color: var(--gold);

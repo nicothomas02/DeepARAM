@@ -238,5 +238,11 @@
  "Selected": "已選",
  "Select {name}: the rest re-rank by synergy with it.": "選擇{name}：其餘依協同重新排序。",
  "Select: the rest re-rank by synergy with it.": "選擇：其餘依協同重新排序。",
- "Already have augments? Select them with + and the rest re-rank by synergy.": "已經有強化了？用 + 選取它們，其餘會依協同重新排序。"
+ "Already have augments? Select them with + and the rest re-rank by synergy.": "已經有強化了？用 + 選取它們，其餘會依協同重新排序。",
+ "Build numbers": "出裝數據",
+ "Adjusted": "校正",
+ "Raw": "原始",
+ "Adjusted leaves out items only an augment gives you, and builds with few games lean on the estimate.": "校正會排除只能由海克斯強化獲得的裝備，場次少的出裝會參考估算。",
+ "Raw shows every build's plain win rate, including items an augment gives you.": "原始顯示每套出裝的實際勝率，包括海克斯強化給的裝備。",
+ "Augment item": "強化裝備"
 }

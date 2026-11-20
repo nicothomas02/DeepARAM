@@ -238,5 +238,11 @@
  "Selected": "Seçilenler",
  "Select {name}: the rest re-rank by synergy with it.": "{name} seç: kalanlar sinerjiye göre yeniden sıralanır.",
  "Select: the rest re-rank by synergy with it.": "Seç: kalanlar sinerjiye göre yeniden sıralanır.",
- "Already have augments? Select them with + and the rest re-rank by synergy.": "Zaten güçlendirmen var mı? + ile seç, kalanlar sinerjiye göre yeniden sıralanır."
+ "Already have augments? Select them with + and the rest re-rank by synergy.": "Zaten güçlendirmen var mı? + ile seç, kalanlar sinerjiye göre yeniden sıralanır.",
+ "Build numbers": "Dizilim sayıları",
+ "Adjusted": "Düzeltilmiş",
+ "Raw": "Ham",
+ "Adjusted leaves out items only an augment gives you, and builds with few games lean on the estimate.": "Düzeltilmiş görünüm yalnızca bir güçlendirmenin verdiği eşyaları dışarıda bırakır, az maçlı dizilimler tahmine dayanır.",
+ "Raw shows every build's plain win rate, including items an augment gives you.": "Ham görünüm, güçlendirmenin verdiği eşyalar dahil her dizilimin gerçek kazanma oranını gösterir.",
+ "Augment item": "Güçlendirme eşyası"
 }

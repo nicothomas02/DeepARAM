@@ -238,5 +238,11 @@
  "Selected": "Selectate",
  "Select {name}: the rest re-rank by synergy with it.": "Selectează {name}: restul se reordonează după sinergie.",
  "Select: the rest re-rank by synergy with it.": "Selectează: restul se reordonează după sinergie.",
- "Already have augments? Select them with + and the rest re-rank by synergy.": "Ai deja augmentări? Selectează-le cu + și restul se reordonează după sinergie."
+ "Already have augments? Select them with + and the rest re-rank by synergy.": "Ai deja augmentări? Selectează-le cu + și restul se reordonează după sinergie.",
+ "Build numbers": "Cifrele build-urilor",
+ "Adjusted": "Ajustat",
+ "Raw": "Brut",
+ "Adjusted leaves out items only an augment gives you, and builds with few games lean on the estimate.": "Ajustat lasă deoparte obiectele date doar de un augment, iar build-urile cu puține meciuri se bazează pe estimare.",
+ "Raw shows every build's plain win rate, including items an augment gives you.": "Brut arată rata de victorie reală a fiecărui build, inclusiv obiectele date de un augment.",
+ "Augment item": "Obiect de augment"
 }
