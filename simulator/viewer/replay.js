@@ -1506,6 +1506,7 @@
   // sound on. Until it arrives, playSound() uses the synthesized tones.
   let soundsRequested = false;
   function requestSounds() {
+    requestMapSounds();
     if (soundsRequested || !soundOn) return;
     soundsRequested = true;
     (location.pathname.startsWith("/embed/") ? Promise.resolve(false) : loadSounds(DATA + "sounds/")).then((ok) => ok || loadSounds("/assets/sounds/")).then((ok) => {
@@ -1541,11 +1542,16 @@
   }
   // A short synthesized tone per ability (lower for the ultimate, falling for a death).
   let audio = null;
+  const audioCtx = () => {
+    try { audio = audio || new (window.AudioContext || window.webkitAudioContext)(); } catch (e) { /* no Web Audio */ }
+    if (audio && audio.state === "suspended") audio.resume().catch(() => {});
+    return audio;
+  };
   const TONES = { Q: [660, 0.12], W: [520, 0.12], E: [440, 0.14], R: [220, 0.35], P: [780, 0.08], D: [300, 0.45] };
   function synth(slot, volume) {
     const [freq, len] = TONES[slot] || TONES.Q;
     try {
-      audio = audio || new (window.AudioContext || window.webkitAudioContext)();
+      if (!audioCtx()) return;
       const now = audio.currentTime, osc = audio.createOscillator(), gain = audio.createGain();
       osc.type = slot === "R" ? "sawtooth" : "triangle";
       osc.frequency.setValueAtTime(freq, now);
@@ -1581,6 +1587,103 @@
       a.src = src;
     }
   }
+  // ---------- map sounds: ambience, announcer, Mayhem sounds ----------
+  // /assets/sounds/map.json (tools/build_map_sounds.py): the Howling Abyss's ambience, a loop heard softly while
+  // the fight plays; the announcer's lines for your kills, multikills and death, in the voice picked in the
+  // site's settings ("announcer", or "off"); and a few Mayhem sounds (a champion kill, Poro Charge, Hellbent).
+  // Web Audio plays them from decoded buffers, fetched once sound can play.
+  const MAP_SOUNDS = "/assets/sounds/";
+  const ANNOUNCERS = ["female1", "male1", "pyke", "rhaast", "maverick", "pundit"];
+  const AMBIENCE_VOLUME = 0.3, MULTIKILL_GAP = 10, PENTA_GAP = 30, QUIET_FOR = 15;
+  const readAnnouncer = () => { const a = siteSettings().announcer; return a === "off" || ANNOUNCERS.includes(a) ? a : ANNOUNCERS[0]; };
+  let announcer = readAnnouncer();
+  onSettings(() => { announcer = readAnnouncer(); });
+  let mapSounds = null, mapBuffer = null, ambBuffer = null, mapRequested = false;
+  function requestMapSounds() {
+    if (mapRequested || !soundOn || !audioCtx()) return;
+    mapRequested = true;
+    const decode = (file) => fetch(MAP_SOUNDS + file + BUST).then((r) => (r.ok ? r.arrayBuffer() : Promise.reject(r.status)))
+      .then((b) => new Promise((ok, fail) => audio.decodeAudioData(b, ok, fail)));
+    fetch(MAP_SOUNDS + "map.json" + BUST).then((r) => (r.ok ? r.json() : Promise.reject(r.status))).then((m) => {
+      mapSounds = m;
+      decode(m.file).then((b) => { mapBuffer = b; }).catch(() => {});
+      if (m.ambience) decode(m.ambience.file).then((b) => { ambBuffer = b; }).catch(() => {});
+    }).catch(() => {});
+  }
+  const canPlayMap = () => soundOn && gestured && masterVolume > 0 && audio;
+  function playMapSound(seg, volume, at) {
+    if (!seg || !mapBuffer || !canPlayMap()) return;
+    const src = audio.createBufferSource(), gain = audio.createGain();
+    src.buffer = mapBuffer;
+    gain.gain.value = Math.min(1, volume * masterVolume);
+    src.connect(gain).connect(audio.destination);
+    src.start(at || audio.currentTime, seg[0], seg[1]);
+  }
+  // One announcer line at a time, like the game: a line waits for the one before it, and is dropped
+  // when the queue is already long (fast playback).
+  let announceFree = 0;
+  function announce(line) {
+    const lines = mapSounds && mapSounds.announcers && mapSounds.announcers[announcer];
+    if (!lines || !lines[line] || !canPlayMap()) return;
+    const at = Math.max(audio.currentTime + 0.25, announceFree);
+    if (at - audio.currentTime > 3) return;
+    playMapSound(lines[line], 0.9, at);
+    announceFree = at + lines[line][1] + 0.1;
+  }
+  // The ambience runs in a loop from the first time it can, louder while the fight plays and silent otherwise.
+  let ambGain = null, ambLevel = -1;
+  function syncAmbience() {
+    if (!ambBuffer || !audio) return;
+    if (!ambGain) {
+      ambGain = audio.createGain();
+      ambGain.gain.value = 0;
+      const src = audio.createBufferSource();
+      src.buffer = ambBuffer;
+      src.loop = true;
+      src.connect(ambGain).connect(audio.destination);
+      src.start();
+    }
+    const level = canPlayMap() && playing && !document.hidden ? AMBIENCE_VOLUME * masterVolume : 0;
+    if (level !== ambLevel) { ambLevel = level; ambGain.gain.setTargetAtTime(level, audio.currentTime, 0.4); }
+  }
+  // The announcer's lines for a fight, worked out once: first blood, then each multikill the first time you
+  // reach it (kills each within 10 s of the last; a penta may come up to 30 s after the quadra), "an enemy
+  // has been slain" when nothing was said for a while (endless waves would otherwise talk over every kill),
+  // the ace when every enemy is down, and your death.
+  function announcerLines(f) {
+    const kills = f.kills, out = [], said = new Set();
+    let last = -Infinity;
+    const chain = (j) => { let n = 1; while (j - n >= 0 && kills[j - n + 1].t - kills[j - n].t <= MULTIKILL_GAP) n++; return n; };
+    kills.forEach((k, i) => {
+      let streak = Math.min(5, chain(i));
+      if (streak < 5 && i > 0 && chain(i - 1) >= 4 && k.t - kills[i - 1].t <= PENTA_GAP) streak = 5;
+      const tier = i === 0 ? "first" : ["kill", "kill", "double", "triple", "quadra", "penta"][streak];
+      const line = tier !== "kill" && !said.has(tier) ? tier : k.t - last >= QUIET_FOR ? "kill" : null;
+      if (line) { said.add(line); last = k.t; out.push({ t: k.t, line }); }
+      if (i === kills.length - 1 && f.spawns.size > 1 && kills.length >= f.spawns.size) out.push({ t: k.t, line: "ace" });
+    });
+    if (f.death) out.push({ t: f.death.t, line: "slain" });
+    return out;
+  }
+  // The map's sounds for what happened between `before` and `now`.
+  function mapEvents(before, now) {
+    if (!mapSounds) return;
+    const C = mapSounds.clips || {}, at = (e) => e.t > before && e.t <= now;
+    for (const k of fight.kills) if (at(k)) playMapSound(C.kill, 0.4);
+    fight.announcer = fight.announcer || announcerLines(fight);
+    for (const a of fight.announcer) if (at(a)) announce(a.line);
+    const hellbent = trace && trace.build && (trace.build.augments || []).some((a) => a.key === "hellbent");
+    if (hellbent) for (const e of fight.self) if (e.k === "revive" && at(e)) playMapSound(C.revive, 0.8);
+    for (const w of fight.poros) {
+      if (at(w)) playMapSound(C.poro, 0.45);
+      if (w.f && at({ t: w.t + (w.fl || 0) })) playMapSound(C.porohit, 0.6);
+    }
+  }
+  // The fight's end: defeat when you fell, else victory (as the win haptic).
+  function mapEnd() {
+    if (mapSounds) announce(fight.death ? "defeat" : "victory");
+  }
+
   // The champion's pick quote, when you choose a champion.
   let pickVoice = null;
   function playPickQuote(c) {
@@ -1600,13 +1703,14 @@
     video.volume = masterVolume;
     for (const a of voices) if (!a.paused) a.volume = Math.min(a.volume, masterVolume);
     if (!soundOn) for (const a of voices) a.pause();
+    syncAmbience();
     if (pickVoice) { pickVoice.volume = Math.min(pickVoice.volume, masterVolume); if (!soundOn) pickVoice.pause(); }
     const b = $("sound");
     b.textContent = soundOn ? T("Sound on") : T("Sound off");
     b.setAttribute("aria-pressed", String(soundOn));
   }
   for (const type of ["pointerdown", "keydown"])
-    window.addEventListener(type, () => { if (!gestured) { gestured = true; unlockVoices(); syncSound(); requestSounds(); } }, { capture: true });
+    window.addEventListener(type, () => { if (!gestured) { gestured = true; unlockVoices(); audioCtx(); syncSound(); requestSounds(); } }, { capture: true });
 
   // ---------- ability clips ----------
   const video = $("video");
@@ -1798,7 +1902,7 @@
       const before = t;
       if (playing && !dragging) {
         t = Math.min(fight.duration, t + dt * speed);
-        if (t >= fight.duration) { playing = false; $("play").textContent = T("Play"); if (before < fight.duration && !fight.death) haptic("win"); }
+        if (t >= fight.duration) { playing = false; $("play").textContent = T("Play"); if (before < fight.duration && !fight.death) haptic("win"); if (before < fight.duration) mapEnd(); }
         // Clips for casts that started during this frame.
         let latest = null;
         for (const c of fight.casts) if (c.t > before && c.t <= t) latest = !latest || c.s === "R" ? c : latest;
@@ -1814,7 +1918,9 @@
           const sp = fight.spawns.get(k.u);
           playSound(sp && byId.get(String(sp.x).toLowerCase()), "D", 0.6);
         }
+        mapEvents(before, t);
       }
+      syncAmbience();
       const s = drawArena(t, reduceMotion ? 0 : dt);
       drawPlayhead();
       drawCooldowns(t);

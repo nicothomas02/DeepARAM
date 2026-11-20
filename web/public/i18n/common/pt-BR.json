@@ -237,5 +237,8 @@
  "DeepScore weighs sample size, shows how sure it is, and estimates what each augment adds to your champion. It even forecasts patches before they land.": "O DeepScore considera o tamanho da amostra, mostra o quanto tem certeza e estima quanto cada aprimoramento acrescenta ao seu campeão. Ele até prevê os patches antes de saírem.",
  "Tested in fights": "Testado em luta",
  "A full combat simulator runs builds against real kits, so you see why a build wins, not just that it did.": "Um simulador de combate completo coloca as builds contra kits reais, para você ver por que uma build vence, não só que ela vence.",
- "DeepARAM is built just for ARAM Mayhem. Rankings come from data science, and builds are tested in a fight simulator.": "O DeepARAM é feito só para ARAM: Desordem. Os rankings vêm da ciência de dados, e as builds são testadas em um simulador de combate."
+ "DeepARAM is built just for ARAM Mayhem. Rankings come from data science, and builds are tested in a fight simulator.": "O DeepARAM é feito só para ARAM: Desordem. Os rankings vêm da ciência de dados, e as builds são testadas em um simulador de combate.",
+ "Announcer": "Narrador",
+ "Default": "Padrão",
+ "Male": "Masculino"
 }
