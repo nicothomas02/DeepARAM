@@ -59,7 +59,9 @@ def test_estimates_file_shape():
     for c in d["champions"].values():
         assert c["games"] > 0
         for s in c["spells"]:
-            assert m.FLASH in s["ids"] and len(s["ids"]) == 2 and m.EXHAUST not in s["ids"]
-            assert s["win_rate"] is None
+            # Outside spell counts add real pairs without Flash (Ghost + Mark, say), so only the shape is fixed.
+            assert len(set(s["ids"])) == 2 and m.EXHAUST not in s["ids"]
+            # Win rates show only for pairs with enough outside games behind them (build_estimates.MIN_WIN_GAMES).
+            assert s["win_rate"] is None or 0 < s["win_rate"] < 1
         # each pick rate is rounded to 4 decimals, so the sum can overshoot by half a unit per spell
         assert sum(s["pick_rate"] for s in c["spells"]) <= 1 + 0.00005 * len(c["spells"])

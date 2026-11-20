@@ -3,7 +3,7 @@
 
 Writes data/fill/spells_games.json in the shape the site reads (web/src/lib/fill.ts):
   {patch, estimated: true, built, daily_games, total_games,
-   champions: {"<champion id>": {games, spells: [{ids: [4, x], games, pick_rate, win_rate: null}]}}}
+   champions: {"<champion id>": {games, spells: [{ids: [a, b], games, pick_rate, win_rate (null below MIN_WIN_GAMES outside games)}]}}}
 Spell rows are estimates of how often each loadout is picked; they carry no win rate.
 
 Usage: python3 data/fill/build_estimates.py   (standard library only)
