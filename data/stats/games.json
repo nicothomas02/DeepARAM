@@ -1,24 +1,24 @@
 {
  "about": "Effective matches behind each patch's stats (data/stats/games.py). A champion's games = pick_rate x matches; an item's or a teammate pair's = its share x the champion's games.",
- "updated": "2026-11-19",
- "median_per_day": 3629126,
+ "updated": "2026-11-20",
+ "median_per_day": 3971116,
  "patches": {
   "15.21": {
    "days": 14,
-   "per_day": 3629126,
-   "matches": 50807764,
+   "per_day": 3971116,
+   "matches": 55595619,
    "estimated": false
   },
   "15.22": {
    "days": 14,
-   "per_day": 3629126,
-   "matches": 50807764,
+   "per_day": 3971116,
+   "matches": 55595619,
    "estimated": false
   },
   "15.23": {
    "days": 14,
-   "per_day": 3629126,
-   "matches": 50807764,
+   "per_day": 3971116,
+   "matches": 55595619,
    "estimated": false
   },
   "15.24": {
@@ -77,8 +77,8 @@
   },
   "16.10": {
    "days": 14,
-   "per_day": 3629126,
-   "matches": 50807764,
+   "per_day": 3971116,
+   "matches": 55595619,
    "estimated": false
   },
   "16.11": {
@@ -89,8 +89,8 @@
   },
   "16.12": {
    "days": 14,
-   "per_day": 3629126,
-   "matches": 50807764,
+   "per_day": 3971116,
+   "matches": 55595619,
    "estimated": false
   },
   "16.13": {
@@ -125,20 +125,20 @@
   },
   "16.18": {
    "days": 13,
-   "per_day": 3629126,
-   "matches": 47178638,
+   "per_day": 3971116,
+   "matches": 51624503,
    "estimated": false
   },
   "16.19": {
    "days": 19,
-   "per_day": 3629126,
-   "matches": 68953394,
+   "per_day": 3971116,
+   "matches": 75451197,
    "estimated": false
   },
   "16.20": {
    "days": 10,
-   "per_day": 3629126,
-   "matches": 36291260,
+   "per_day": 3971116,
+   "matches": 39711156,
    "estimated": false
   },
   "16.21": {
@@ -149,8 +149,14 @@
   },
   "16.22": {
    "days": 14,
-   "per_day": 3629126,
-   "matches": 50807764,
+   "per_day": 3911104,
+   "matches": 54755450,
+   "estimated": true
+  },
+  "16.23": {
+   "days": 1,
+   "per_day": 3971116,
+   "matches": 3971116,
    "estimated": false
   }
  }
