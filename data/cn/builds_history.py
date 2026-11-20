@@ -22,6 +22,7 @@ import json
 import os
 import subprocess
 
+import builds as cn_builds
 import item_history as ih
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -32,7 +33,16 @@ LISTS = ("starting", "boots", "core", "other", "full_builds")
 def snapshot(builds):
     out = {}
     for b in builds:
-        items = b.get("items") or {}
+        items = dict(b.get("items") or {})
+        # Core builds and single items rebuilt from the six-item builds: redo them with today's rule (builds.py), so
+        # old snapshots match the live page.
+        derived = b.get("derived") or []
+        if derived and items.get("full_builds"):
+            core, other = cn_builds.from_full_builds(items["full_builds"], cn_builds.BOOTS)
+            if "items.core" in derived and core:
+                items["core"] = core
+            if "items.other" in derived and other:
+                items["other"] = other
         augs = (b.get("augments") or {}).get("all") or []
         entry = {
             "augments": [[a["id"], a["pick_rate"], a.get("grade") or ""] for a in augs],

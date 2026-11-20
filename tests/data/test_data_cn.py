@@ -475,9 +475,22 @@ def test_freshen_rebuilds_stale_core_and_items():
     assert out["derived"] == ["items.core", "items.other"]
     assert "skills" in out["stale"] and "items.full_builds" not in out["stale"]
     assert all(3111 not in r["items"] for r in out["items"]["core"] + out["items"]["other"])
-    assert out["items"]["other"][0]["pick_rate"] == 1.0
+    # Pick rates are shares of all games (the builds' own pick rates added up), never 100% of the listed builds.
+    assert out["items"]["other"][0]["pick_rate"] == 0.03
     assert len(out["items"]["core"][0]["items"]) == 3
+    assert all(r["pick_rate"] <= 0.03 for r in out["items"]["core"])
+    # Every three-item set is a candidate core, so a less common but better one can still rank.
+    assert len(out["items"]["core"]) > 1
     # A block that changes again is fresh from that day.
     data2 = dict(data, skills=[{"max_order": ["Q"]}])
     out2 = mod.freshen(data2, out, {3111})
     assert out2["fresh"]["skills"]["since"] == "2026-11-05" and "skills" not in out2["stale"]
+
+
+def test_no_build_row_claims_every_game(builds):
+    """A core build, item or build at a 100% pick rate is a counting slip (Nico, 2026-11-20: Yasuo's core showed
+    100% when cores were shares of the listed six-item builds), never a real number."""
+    for cid, b in builds.items():
+        for key, rows in (b.get("items") or {}).items():
+            for r in rows:
+                assert (r.get("pick_rate") or 0) < 0.999, (cid, key, r["items"])
