@@ -73,7 +73,65 @@ damage over time), check the League wiki first.
   max rank) and Aatrox (Nico).
 - **Mystic Punch:** bad on champions that only auto now and then for a passive and mainly cast (Aatrox, Maokai,
   Swain, Akali) (Nico).
+- **Ultimate Revolution:** after your R starts (instant casts) or ends (duration casts), its cooldown resets once,
+  so you get a second R. 75s cooldown, reset on death (wiki), so an unused second R is ready again after respawn
+  (Nico). Best on Karthus, Malphite, Renata Glasc and Amumu.
+- **Spell Split:** split missiles keep the full effect: Blitzcrank's split hooks pull, and Nidalee's split spears
+  keep the distance damage (Nico). Later hits on the same target from one cast deal 30% (wiki).
+- **Shark Bait:** you probably can't cast during the zombie state (Nico, not sure). It ranks high on Udyr, Nunu,
+  Lissandra and Fiddlesticks mostly because they dive and die often.
+- **Fey Magic:** the polymorph is a disarm plus slow, not an immobilize, so it doesn't trigger Cruelty (Nico).
+- **Chain Reaction:** only offered to champions with a knock-back (21 in our data). Collisions with champions knock
+  up; with terrain, the target rebounds, takes more damage and is stunned. On an R it deals 250% (wiki). Gragas
+  takes it most (his #1 augment): E knocks back often and his R has long range, so targets often hit each other
+  or a wall (Nico). Next most: Qiyana, Syndra, Gnar, Lee Sin, Alistar, Taliyah, Poppy.
+- **Ominous Pact:** Singed's Q toggle pays the 5% health cost once per toggle, so it's almost free (Nico).
+- **Master of Duality:** Katarina's daggers count as ability hits, and all stacks fall off together after 5s
+  without a hit (Nico).
+- **Multishot:** goes on Q for Vel'Koz, Ekko and Lux (Nico).
+- **Chain Reaction on Qiyana and Lee Sin:** Qiyana gets it on R (terrain shockwave, 250% damage). On Lee Sin's R
+  kick it possibly stacks with the kick's own hit on champions behind (Nico, not sure).
+- **Can't Touch This on Udyr:** only his R stance counts as an ultimate cast (Nico).
+- **One Hit Wonder + Purist - Caster:** pick order matters. If One Hit Wonder is taken first, Purist's haste is
+  not converted into One Hit Wonder damage; if taken after, it is (Nico). So take Purist - Caster first.
+  One Hit Wonder only ignores general ability haste. Direct cooldown effects still shorten that ability: Bread
+  augments (per-ability haste), Spear of Shojin, ultimate haste and similar. So you can keep the cooldown short
+  while all general haste turns into damage, which also avoids haste's diminishing returns (Nico).
+- **Triggered Inferno on Hecarim:** its move speed feeds his passive's speed-to-AD conversion, so hitting
+  different targets in turn stacks AD (Nico).
+- **Heavy Is The Crown on Yuumi:** the move speed penalty doesn't matter while she's attached (Nico).
+- **Double Time:** the permanent mana pays off on Ryze and Kassadin (mana scaling). Cassiopeia and Anivia have no
+  mana scaling, but they spend a lot and hit with two abilities often, so it procs constantly (Nico).
+- **Ominous Pact on Vladimir:** the 5% current-health cost stacks on his own health costs, and the missing-health
+  AP and omnivamp make up for it (Nico).
+- **Juiced:** Ezreal's Q applies it, since his Q applies on-hit (Nico, believes).
+- **Glass Cannon:** a health ceiling you can't heal past, so effectively less health, for bonus true damage
+  (Nico).
+- **Gift of the Drowned:** Cho'Gath R stacks and Sion W stacks probably count as bonus health (Nico, not sure).
+- **It's Killing Time:** Karthus's global R marks the whole enemy team. On Udyr only his R stance triggers it
+  (Nico).
+- **RISE:** works on long ults like Karthus R and Fiddlesticks R (Nico).
+- **Rite of Ascension on Pyke:** R resets plus the essence blink can chain through a whole team (Nico).
+- **Endless Decimation on Darius:** the auto-cast Q probably doesn't apply his bleed stacks (Nico, not sure).
+- **Still Here on Olaf:** stacks with his passive's missing-health attack speed (Nico, thinks so).
+- **Tickle Monster:** a trap on Graves and Kled too, since reload/ammo limits their attacks (Nico).
+- **Impassable:** grants Aftershock and Glacial Augment (Nico).
+- **Back To Basics:** you keep your R's passive and only lose the active. Best on champions whose R is
+  situational, like Taliyah, Ryze, Pantheon and Twisted Fate (Nico).
+- **Quickstep:** its dash triggers Dashing, Earthwake and Shadow Runner (Nico, thinks so).
+- **Soul Siphon:** does NOT heal from Vulnerability burn crits in Mayhem (Arena may) (Nico, thinks so).
+- **Thread the Needle:** stacks with Void Staff and Lord Dominik's (Nico).
+- **Chain Reaction:** only upgrades abilities, not summoner spells like Brass Blast (Nico, probably).
+- **Holy Snowball:** matters least on tanky champions without big burst, who don't need a short invulnerability
+  (Nico).
+- **Courage of the Colossus:** one shield per cast, even for multi-hit CC (Nico).
+- **Volibear passive + BEES!!! + Statikk Shiv:** at full passive stacks his attacks chain lightning. BEES on-hit
+  ticks and Statikk Shiv procs trigger that chain on every enemy hit, so the lightning spreads through the whole
+  swarm (Nico).
 - **Pin Cushion:** very weak damage for a prismatic, worse still on melee champions with few attacks (Nico).
+- **Pin Cushion on Ashe:** each arrow of her empowered Q volley counts as a separate hit (Nico). Zeri's Q (Burst Fire)
+  likely works the same (Nico). Data check: Ashe is first on Pin Cushion's best-champions list and grades A
+  with it. Zeri takes it most of anyone (5.6%, grade A) but isn't on the best list, so her case is unconfirmed.
 - **Terrain'd:** the AP Trundle items (Horizon Focus, Bloodletter's, Cryptbloom, Imperial Mandate) likely center
   on it (Nico, probably).
 - **Tahm Kench AP (Rabadon's, Shadowflame, Dusk and Dawn, Riftmaker):** likely BEES or Ethereal Weapon + Dusk and
