@@ -32,8 +32,8 @@ def test_2d_edition_loads_no_3d_models():
 def test_editions_differ_only_in_the_3d_models():
     public = (VIEWER / "index.html").read_text()
     full = (VIEWER / "full.html").read_text()
-    # Same page apart from the edition flag, the 3D scripts and the Riot notice naming the models.
-    strip = lambda h: re.sub(r'data-edition="\w+"|<!-- full-edition-scripts -->|<script type="importmap">.*?</script>\n?|<script type="module" src="models3d\.js[^"]*"></script>|The champion [a-z, ]+ belong to Riot Games\.', "", h, flags=re.S)
+    # Same page apart from the edition flag, the 3D scripts and the Riot notice naming the map and models.
+    strip = lambda h: re.sub(r'data-edition="\w+"|<!-- full-edition-scripts -->|<script type="importmap">.*?</script>\n?|<script type="module" src="models3d\.js[^"]*"></script>|The (?:map, )?champion [a-z, ]+ belong to Riot Games\.', "", h, flags=re.S)
     assert strip(public) == strip(full)
     # replay.js only checks the edition to attach the models; sounds, abilities and the fight are shared.
     js = (VIEWER / "replay.js").read_text()

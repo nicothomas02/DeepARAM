@@ -237,5 +237,8 @@
  "DeepScore weighs sample size, shows how sure it is, and estimates what each augment adds to your champion. It even forecasts patches before they land.": "A DeepScore figyelembe veszi a mintaméretet, megmutatja, mennyire biztos, és megbecsüli, mennyit ad egy bővítés a bajnokodnak. Még a javításokat is előre jelzi, mielőtt megjelennének.",
  "Tested in fights": "Harcban tesztelve",
  "A full combat simulator runs builds against real kits, so you see why a build wins, not just that it did.": "Egy teljes harci szimulátor valódi képességek ellen futtatja a buildeket, így látod, miért nyer egy build, nem csak azt, hogy nyer.",
- "DeepARAM is built just for ARAM Mayhem. Rankings come from data science, and builds are tested in a fight simulator.": "A DeepARAM kizárólag az ARAM: Káosz módhoz készült. A rangsorok adattudományon alapulnak, a buildeket pedig harci szimulátorban teszteljük."
+ "DeepARAM is built just for ARAM Mayhem. Rankings come from data science, and builds are tested in a fight simulator.": "A DeepARAM kizárólag az ARAM: Káosz módhoz készült. A rangsorok adattudományon alapulnak, a buildeket pedig harci szimulátorban teszteljük.",
+ "Announcer": "Bemondó",
+ "Default": "Alapértelmezett",
+ "Male": "Férfi"
 }
