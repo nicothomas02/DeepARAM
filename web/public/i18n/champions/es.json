@@ -226,5 +226,17 @@
  "Estimated: augments that pair well on this champion, best first.": "Estimado: aumentos que combinan bien en este campeón, los mejores primero.",
  "Augment pairs appear here once enough games are in. Each pair needs a minimum number of games before it shows.": "Las parejas de aumentos aparecen aquí cuando haya suficientes partidas. Cada pareja necesita un número mínimo de partidas para mostrarse.",
  "Kit interactions": "Interacciones del kit",
- "Augments that work with this champion's own abilities, and why.": "Aumentos que funcionan con las habilidades de este campeón, y por qué."
+ "Augments that work with this champion's own abilities, and why.": "Aumentos que funcionan con las habilidades de este campeón, y por qué.",
+ "You took": "Has elegido",
+ "Remove": "Quitar",
+ "Clear": "Borrar",
+ "Pairs well with {name}: +{n} pts.": "Combina bien con {name}: +{n} pts.",
+ "Overlaps with {name}: -{n} pts.": "Se solapa con {name}: -{n} pts.",
+ "Estimated: ranked by each augment's boost plus its synergy with the ones you took.": "Estimado: ordenado por la mejora de cada aumento más su sinergia con los que elegiste.",
+ "Took an augment already? Mark it with \"I took this\" to re-rank the rest by synergy.": "¿Ya elegiste un aumento? Márcalo con «Lo tengo» para reordenar el resto por sinergia.",
+ "With your picks": "Con tus elecciones",
+ "Synergy {n}": "Sinergia {n}",
+ "Estimated synergy with the augments you took.": "Sinergia estimada con los aumentos que elegiste.",
+ "+ I took this": "+ Lo tengo",
+ "Mark this augment as taken and re-rank the rest by synergy.": "Marcar este aumento como elegido y reordenar el resto por sinergia."
 }

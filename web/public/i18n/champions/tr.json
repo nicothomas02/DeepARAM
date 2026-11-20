@@ -226,5 +226,17 @@
  "Estimated: augments that pair well on this champion, best first.": "Tahmini: bu şampiyonda iyi eşleşen güçlendirmeler, en iyiler önce.",
  "Augment pairs appear here once enough games are in. Each pair needs a minimum number of games before it shows.": "Güçlendirme çiftleri yeterli maç toplandığında burada görünür. Her çiftin görünmesi için en az belirli sayıda maç gerekir.",
  "Kit interactions": "Kit etkileşimleri",
- "Augments that work with this champion's own abilities, and why.": "Bu şampiyonun kendi yetenekleriyle çalışan güçlendirmeler ve nedenleri."
+ "Augments that work with this champion's own abilities, and why.": "Bu şampiyonun kendi yetenekleriyle çalışan güçlendirmeler ve nedenleri.",
+ "You took": "Seçtiklerin",
+ "Remove": "Kaldır",
+ "Clear": "Temizle",
+ "Pairs well with {name}: +{n} pts.": "{name} ile iyi uyum: +{n} puan.",
+ "Overlaps with {name}: -{n} pts.": "{name} ile örtüşür: -{n} puan.",
+ "Estimated: ranked by each augment's boost plus its synergy with the ones you took.": "Tahmini: her güçlendirmenin artışı ile seçtiklerinle sinerjisinin toplamına göre sıralı.",
+ "Took an augment already? Mark it with \"I took this\" to re-rank the rest by synergy.": "Zaten bir güçlendirme mi aldın? Kalanları sinerjiye göre sıralamak için \"Aldım\" ile işaretle.",
+ "With your picks": "Seçimlerinle",
+ "Synergy {n}": "Sinerji {n}",
+ "Estimated synergy with the augments you took.": "Seçtiğin güçlendirmelerle tahmini sinerji.",
+ "+ I took this": "+ Aldım",
+ "Mark this augment as taken and re-rank the rest by synergy.": "Bu güçlendirmeyi alındı olarak işaretle ve kalanları sinerjiye göre sırala."
 }

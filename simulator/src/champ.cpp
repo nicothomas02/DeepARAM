@@ -1005,7 +1005,6 @@ private:
     // Attacks on one target in a row (afterAttacks), and the count each ability last cast at.
     int stackUid_ = -1, stackCount_ = 0;
     std::vector<std::pair<int, int>> castStack_;
-    std::vector<double> refundFloor_;  // attack refunds (Mystic Punch) can't bring a cooldown below this
     std::vector<size_t> order_;
     std::vector<std::pair<double, double>> cc_;
     int myCombo_ = 0; double myComboUntil_ = -1;  // Combo Breaker on you
@@ -1288,7 +1287,6 @@ private:
         // combo_order setting is on), otherwise R when it's up, then the rest by damage per cast.
         readyAt_.assign(ch_.abilities.size(), 0.0);
         castStack_.assign(ch_.abilities.size(), {-1, 0});
-        refundFloor_.assign(ch_.abilities.size(), 0.0);
         passiveState_.assign(ch_.passives.size(), PassiveState{});
         std::vector<std::pair<double, size_t>> byDamage;
         for (size_t i = 0; i < ch_.abilities.size(); ++i) {
@@ -2540,14 +2538,16 @@ private:
         }
     }
 
-    // Navori and Mystic Punch: attacks shorten ability cooldowns.
-    void reduceCooldowns(double flat, double pct, bool includeR, bool floored = false) {
+    // Navori and Mystic Punch: attacks shorten ability cooldowns. Mystic Punch's MinCDR (attack_cdr_min, 0.5) is a
+    // floor in seconds: its cut never leaves less than that on a cooldown (Nico 2026-11-20: Hecarim with Ethereal
+    // Weapon + Mystic Punch casts Q almost nonstop, so it isn't a share of the cooldown).
+    void reduceCooldowns(double flat, double pct, bool includeR, double minLeft = 0.0) {
         for (size_t i = 0; i < readyAt_.size(); ++i) {
             if (ch_.abilities[i].slot == 'R' && !includeR) continue;
             if (readyAt_[i] > t_ && readyAt_[i] < 1e17) {
-                double remaining = readyAt_[i] - t_;
-                remaining = std::max(0.0, remaining * (1.0 - pct) - flat);
-                readyAt_[i] = floored ? std::min(readyAt_[i], std::max(t_ + remaining, refundFloor_[i])) : t_ + remaining;
+                const double remaining = readyAt_[i] - t_;
+                const double cut = std::max(0.0, remaining * (1.0 - pct) - flat);
+                readyAt_[i] = t_ + std::max(cut, std::min(remaining, minLeft));
             }
         }
     }
@@ -2725,7 +2725,7 @@ private:
         }
         onhitProcs(e, true);
         if (e->alive) passivesOn(e, true);
-        reduceCooldowns(get(fx_, "attack_cdr_flat"), get(fx_, "attack_cdr_pct"), false, get(fx_, "attack_cdr_min") > 0);
+        reduceCooldowns(get(fx_, "attack_cdr_flat"), get(fx_, "attack_cdr_pct"), false, get(fx_, "attack_cdr_min"));
     }
 
     // Abilities that are on-hit passives: every Nth attack (attack), or every on-hit (an ability
@@ -2959,7 +2959,16 @@ private:
             if (!h->alive) continue;
             const double dmg = amountOf(f, "trig_", h) * scale * count * critF;
             if (dmg > 0) deal(h, dmg, type, SrcItems);
-            if (onhit > 0) applyOnHit(h, onhit * count);
+            if (onhit > 0) {
+                applyOnHit(h, onhit * count);
+                // Ethereal Weapon: an ability's on-hit also triggers Mystic Punch (Nico 2026-11-20,
+                // data/cook-builds/MECHANICS.md), though its text says basic attacks.
+                if (get(fx_, "attack_cdr_flat") > 0)
+                    reduceCooldowns(get(fx_, "attack_cdr_flat"), 0.0, false, get(fx_, "attack_cdr_min"));
+                // ...and on-hit augments (Firebrand, Light 'Em Up, Tickle Monster: trig_onhit_aug) (Nico 2026-11-20).
+                for (auto& other : trigs_)
+                    if (&other != &tr && get(*other.fx, "trig_onhit_aug") > 0) fireTrig(other, h, 1.0);
+            }
             if (cc > 0) ccEnemy(*h, cc, "stun");
         }
         const double shield = amountOf(f, "trig_shield_", nullptr) * scale * hsp_;
@@ -3426,7 +3435,6 @@ private:
 
     void afterCast(size_t i) {
         const Ability& a = ch_.abilities[i];
-        if (readyAt_[i] < 1e17) refundFloor_[i] = t_ + (readyAt_[i] - t_) * get(fx_, "attack_cdr_min");  // Mystic Punch: 50% at least
         if (a.slot == 'R' && get(fx_, "r_refresh_cd") > 0 && t_ >= rRefreshReady_) {  // Ultimate Revolution
             rRefreshReady_ = t_ + get(fx_, "r_refresh_cd");
             readyAt_[i] = t_ + 1.0;

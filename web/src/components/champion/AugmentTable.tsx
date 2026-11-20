@@ -11,10 +11,13 @@ import { signedPts, tone } from "@/components/champion/Ranked";
 import type { AugmentRow } from "@/lib/champion-page";
 import { AUGMENT_DEEPSCORE_HELP } from "@/lib/deepscore";
 import { SHOW_AUGMENT_WIN_RATES } from "@/lib/augment-policy";
+import { synergyWith, type SynergyPair } from "@/lib/synergy-picks";
 
 // A champion's augments as one ranked table with rarity and augment pick filters, best DeepScore first, each with the game's
 // build tags, ten to a page. The number columns' headers re-sort it (highest first; a second click flips it). The search box
 // above it finds an augment by name (English or the page's language) and keeps its rank, so a visitor sees where it places.
+// "I took this" on a row marks an augment the visitor already has: it leaves the list, and the rest re-rank by their boost
+// plus their estimated synergy with the taken ones (lib/synergy-picks.ts), so Mystic Punch climbs once Ethereal Weapon is in.
 
 const RARITIES = ["all", "prismatic", "gold", "silver"] as const;
 const LABEL = {
@@ -29,14 +32,19 @@ const PAGE = 10;
 const PICKS = ["any", 0, 1, 2, 3] as const;
 const PICK_LABEL = ["1st augment", "2nd augment", "3rd augment", "4th augment"];
 const FAIR_SHARE = 0.25;
-type SortKey = "deepScore" | "winRate" | "lift" | "pickRate";
+type SortKey = "deepScore" | "winRate" | "lift" | "pickRate" | "fit";
+// At most four augments a game, so three taken leave one to pick.
+const MAX_TAKEN = 3;
 
 export default function AugmentTable({
-  rows,
+  rows: allRows,
   champion,
+  synergy = [],
 }: {
   /** The champion's id ("Kayle"), for the "why" lines. */
   champion?: string;
+  /** Augment pairs that feed each other on this champion (estimated), for re-ranking after "I took this". */
+  synergy?: SynergyPair[];
   rows: (AugmentRow & {
     /** The augment's official description in English, translated on the page. */
     desc?: string;
@@ -79,12 +87,33 @@ export default function AugmentTable({
     "sort",
   );
   const [query, setQuery] = useState("");
+  const [took, setTook] = useKept<number[]>([], box, "took");
+  const byId = new Map(allRows.map((r) => [r.id, r]));
+  const taken = took.filter((id) => byId.has(id));
+  const syn = synergyWith(synergy, taken);
+  // With augments taken, each other one's boost gains its synergy with them, and "fit" ranks by that.
+  const rows = allRows
+    .filter((r) => !taken.includes(r.id))
+    .map((r) => ({ ...r, fit: taken.length ? (r.lift ?? 0) + (syn.get(r.id)?.total ?? 0) : undefined }));
+  const take = (id: number) => {
+    if (taken.includes(id) || taken.length >= MAX_TAKEN) return;
+    setTook([...taken, id]);
+    if (!taken.length) setSort({ key: "fit", desc: true });
+    setPage(0);
+  };
+  const untake = (id?: number) => {
+    const next = id === undefined ? [] : taken.filter((x) => x !== id);
+    setTook(next);
+    if (!next.length && sort.key === "fit") setSort({ key: "deepScore", desc: true });
+    setPage(0);
+  };
+  const sortKey: SortKey = sort.key === "fit" && !taken.length ? "deepScore" : sort.key;
   const ranked = rows
     .filter((r) => rarity === "all" || r.rarity === rarity)
     .filter((r) => pick === "any" || (r.stages?.[pick] ?? 0) >= FAIR_SHARE)
     .sort((a, b) => {
-      const x = a[sort.key];
-      const y = b[sort.key];
+      const x = a[sortKey];
+      const y = b[sortKey];
       // Rows without the number stay last either way.
       if (x === undefined) return y === undefined ? 0 : 1;
       if (y === undefined) return -1;
@@ -100,7 +129,7 @@ export default function AugmentTable({
       <button
         type="button"
         className="cp-sort"
-        aria-pressed={sort.key === key}
+        aria-pressed={sortKey === key}
         onClick={() => {
           setSort(
             sort.key === key ? { key, desc: !sort.desc } : { key, desc: true },
@@ -110,13 +139,13 @@ export default function AugmentTable({
       >
         {t(label)}
         <span className="sort-mark" aria-hidden="true">
-          {sort.key === key ? (sort.desc ? "↓" : "↑") : ""}
+          {sortKey === key ? (sort.desc ? "↓" : "↑") : ""}
         </span>
       </button>
     </span>
   );
   // Estimated win rates, when there are any: an extra column with each augment's win rate boost below it.
-  const est = rows.some((r) => r.winRate !== undefined || r.lift !== undefined);
+  const est = rows.some((r) => r.winRate !== undefined || r.lift !== undefined) || taken.length > 0;
   const cols = est ? 3 : 2;
   const pages = Math.ceil(shown.length / PAGE);
   const at = Math.min(page, Math.max(0, pages - 1));
@@ -125,8 +154,21 @@ export default function AugmentTable({
   // champion's win rate, in plain words. The biggest boost on the champion says so.
   const champ = champion ? names("champions", champion, champion.replace(/([a-z])([A-Z])/g, "$1 $2")) : "";
   const topLift = Math.max(...rows.map((r) => r.lift ?? -Infinity));
+  const augName = (id: number) => {
+    const r = byId.get(id);
+    return r ? names("augments", id, r.name) : String(id);
+  };
   const why = (a: (typeof rows)[number]) => {
     const parts = [a.desc ? describe("augments", a.id, a.desc) : ""];
+    // Synergy with the taken augments first: it's why the row moved.
+    for (const p of syn.get(a.id)?.parts ?? []) {
+      const n = Math.abs(p.points).toFixed(1);
+      const line =
+        p.points >= 0
+          ? t("Pairs well with {name}: +{n} pts.", { name: augName(p.with), n })
+          : t("Overlaps with {name}: -{n} pts.", { name: augName(p.with), n });
+      parts.push(p.why ? `${line} ${p.why}` : line);
+    }
     const n = Math.abs((a.lift ?? 0) * 100).toFixed(1);
     if (champ && a.lift !== undefined) {
       if (a.lift === topLift && a.lift >= 0.005) parts.push(t("The biggest win rate boost of any augment on {champ}: +{n} pts.", { champ, n }));
@@ -149,6 +191,23 @@ export default function AugmentTable({
             setPage(0);
           }}
         />
+        {taken.length > 0 && (
+          <div className="cp-took" role="group" aria-label={t("You took")}>
+            <span>{t("You took")}</span>
+            {taken.map((id) => (
+              <button key={id} type="button" className="cp-pill cp-took-chip" onClick={() => untake(id)} title={t("Remove")}>
+                <img className="cp-icon round" src={`/icons/augments/${id}.webp`} alt="" width={20} height={20} />
+                <Name kind="augments" id={id}>
+                  {byId.get(id)?.name ?? ""}
+                </Name>
+                <span aria-hidden="true"> ×</span>
+              </button>
+            ))}
+            <button type="button" className="cp-took-clear" onClick={() => untake()}>
+              {t("Clear")}
+            </button>
+          </div>
+        )}
         <div className="cp-seg" role="group" aria-label={t("Rarity")}>
           {RARITIES.filter(
             (r) => r === "all" || rows.some((x) => x.rarity === r),
@@ -183,6 +242,11 @@ export default function AugmentTable({
             ))}
           </div>
         )}
+        <p className="cp-filter-note">
+          {taken.length
+            ? t("Estimated: ranked by each augment's boost plus its synergy with the ones you took.")
+            : t("Took an augment already? Mark it with \"I took this\" to re-rank the rest by synergy.")}
+        </p>
         {pick !== "any" && (
           <p className="cp-filter-note">
             {t(
@@ -195,7 +259,12 @@ export default function AugmentTable({
         <span>{t("Rank")}</span>
         <span>{t("Augment")}</span>
         {head("deepScore", "DeepScore")}
-        {est && (SHOW_AUGMENT_WIN_RATES ? head("winRate", "Est. win rate") : head("lift", "Boost"))}
+        {est &&
+          (taken.length
+            ? head("fit", "With your picks")
+            : SHOW_AUGMENT_WIN_RATES
+              ? head("winRate", "Est. win rate")
+              : head("lift", "Boost"))}
         {head("pickRate", "Pick rate")}
       </div>
       <div className="cp-rows">
@@ -248,6 +317,37 @@ export default function AugmentTable({
                     {t("Changes your build")}
                   </span>
                 )}
+                {(() => {
+                  const total = syn.get(a.id)?.total ?? 0;
+                  return Math.abs(total) >= 0.003 ? (
+                    <span className={`cp-pill cp-syn ${tone(total) ?? ""}`} title={t("Estimated synergy with the augments you took.")}>
+                      {t("Synergy {n}", { n: tt("{n} pts", { n: signedPts(total) }) })}
+                    </span>
+                  ) : null;
+                })()}
+                {taken.length < MAX_TAKEN && (
+                  // Not an <a> or a link: the whole row links to the augment (see "Changes your build").
+                  <span
+                    className="cp-pill cp-took-add"
+                    role="button"
+                    tabIndex={0}
+                    data-no-link
+                    title={t("Mark this augment as taken and re-rank the rest by synergy.")}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      take(a.id);
+                    }}
+                    onKeyDown={(e) => {
+                      if (e.key !== "Enter" && e.key !== " ") return;
+                      e.preventDefault();
+                      e.stopPropagation();
+                      take(a.id);
+                    }}
+                  >
+                    {t("+ I took this")}
+                  </span>
+                )}
                 {(a.tags ?? []).map((tag) => (
                   <span key={tag} className="cp-pill cp-tag">
                     {ts(tag)}
@@ -279,7 +379,9 @@ export default function AugmentTable({
               </div>
               {est && (
                 <div className="cp-cell">
-                  {!SHOW_AUGMENT_WIN_RATES && a.lift !== undefined ? (
+                  {taken.length && a.fit !== undefined ? (
+                    <b className={tone(a.fit)}>{tt("{n} pts", { n: signedPts(a.fit) })}</b>
+                  ) : !SHOW_AUGMENT_WIN_RATES && a.lift !== undefined ? (
                     // Riot's policy rules out augment win rates (lib/augment-policy.ts): just the boost, in points.
                     <b className={tone(a.lift ?? 0)}>{tt("{n} pts", { n: signedPts(a.lift ?? 0) })}</b>
                   ) : SHOW_AUGMENT_WIN_RATES && a.winRate !== undefined ? (

@@ -226,5 +226,17 @@
  "Estimated: augments that pair well on this champion, best first.": "估算：在這位英雄身上搭配良好的強化符文組合，依優劣排序。",
  "Augment pairs appear here once enough games are in. Each pair needs a minimum number of games before it shows.": "當對戰場數足夠時，強化符文組合會顯示在這裡。每個組合需達到最低場數才會顯示。",
  "Kit interactions": "技能連動",
- "Augments that work with this champion's own abilities, and why.": "與這位英雄自身技能搭配的強化符文，以及原因。"
+ "Augments that work with this champion's own abilities, and why.": "與這位英雄自身技能搭配的強化符文，以及原因。",
+ "You took": "已選",
+ "Remove": "移除",
+ "Clear": "清除",
+ "Pairs well with {name}: +{n} pts.": "與{name}搭配良好：+{n} 分。",
+ "Overlaps with {name}: -{n} pts.": "與{name}效果重疊：-{n} 分。",
+ "Estimated: ranked by each augment's boost plus its synergy with the ones you took.": "估計：依每個強化的勝率提升加上與已選強化的協同排序。",
+ "Took an augment already? Mark it with \"I took this\" to re-rank the rest by synergy.": "已經選了強化？點「我選了」標記，其餘強化會依協同重新排序。",
+ "With your picks": "依你的選擇",
+ "Synergy {n}": "協同 {n}",
+ "Estimated synergy with the augments you took.": "與已選強化的估計協同。",
+ "+ I took this": "+ 我選了",
+ "Mark this augment as taken and re-rank the rest by synergy.": "將此強化標記為已選，並依協同重新排序其餘強化。"
 }

@@ -1480,3 +1480,59 @@ html[data-expected] .xp-real {
   flex-basis: 100%;
   margin-bottom: 0;
 }
+
+/* "I took this": augments the visitor already has, and the re-ranked list's synergy tags (AugmentTable.tsx) */
+.cp-pill.cp-took-add {
+  border-color: var(--line);
+  color: var(--muted);
+  cursor: pointer;
+}
+.cp-pill.cp-took-add:hover,
+.cp-pill.cp-took-add:focus-visible {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.cp-pill.cp-syn {
+  border-color: var(--line);
+  font-weight: 600;
+}
+.cp-pill.cp-syn.up {
+  border-color: var(--good);
+  color: var(--good);
+}
+.cp-pill.cp-syn.down {
+  border-color: var(--bad);
+  color: var(--bad);
+}
+.cp-took {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  flex-basis: 100%;
+  font-weight: 600;
+}
+.cp-took .cp-took-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border-color: var(--accent);
+  background: none;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.85rem;
+}
+.cp-took .cp-took-chip img {
+  width: 20px;
+  height: 20px;
+}
+.cp-took-clear {
+  border: 0;
+  background: none;
+  color: var(--muted);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.85rem;
+  text-decoration: underline;
+}
