@@ -1,6 +1,6 @@
 name: Desktop app
 
-# Builds the Tauri desktop app (apps/desktop): Windows installers and Linux packages, whenever it changes.
+# Builds the Tauri desktop app (apps/desktop): Windows installers, the Mac .dmg and Linux packages, whenever it changes.
 # Downloads are published only by release.yml, so nothing here puts a build in front of people.
 on:
   push:
@@ -96,6 +96,42 @@ jobs:
             apps/desktop/src-tauri/target/release/bundle/appimage/*.AppImage
             apps/desktop/src-tauri/target/release/bundle/deb/*.deb
             apps/desktop/src-tauri/target/release/bundle/rpm/*.rpm
+          if-no-files-found: error
+          retention-days: 14
+
+  mac:
+    name: Mac app
+    runs-on: macos-15
+    timeout-minutes: 45
+    defaults:
+      run:
+        working-directory: apps/desktop
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: apps/desktop/package-lock.json
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: clippy
+          targets: aarch64-apple-darwin, x86_64-apple-darwin
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: apps/desktop/src-tauri
+      - run: npm ci
+      - name: Lint and test
+        working-directory: apps/desktop/src-tauri
+        run: |
+          cargo clippy --locked --all-targets -- -D warnings
+          cargo test --locked
+      - name: Build the .dmg for Apple silicon and Intel
+        run: npx tauri build --target universal-apple-darwin
+      - uses: actions/upload-artifact@v4
+        with:
+          name: DeepARAM-Mac
+          path: apps/desktop/src-tauri/target/universal-apple-darwin/release/bundle/dmg/*.dmg
           if-no-files-found: error
           retention-days: 14
 

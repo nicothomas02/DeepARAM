@@ -2,6 +2,7 @@
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
 mod overlay;
+mod sharing;
 
 use std::{fs, path::PathBuf, sync::Mutex, thread, time::Duration};
 
@@ -65,7 +66,9 @@ const PAGE_SCRIPT: &str = r#"
 // What the page script tags the site with, and what the tray calls launching at sign-in.
 #[cfg(windows)]
 const PLATFORM: &str = "windows";
-#[cfg(not(windows))]
+#[cfg(target_os = "macos")]
+const PLATFORM: &str = "mac";
+#[cfg(not(any(windows, target_os = "macos")))]
 const PLATFORM: &str = "linux";
 #[cfg(windows)]
 const AUTOSTART_LABEL: &str = "Start with Windows";
@@ -318,9 +321,10 @@ fn build_tray(app: &AppHandle) -> tauri::Result<()> {
     let ov_right = CheckMenuItem::with_id(app, "ov_right", "Right side", true, overlay_right, None::<&str>)?;
     let overlay_menu =
         Submenu::with_items(app, "In-game overlay", true, &[&ov_on, &ov_smart, &sep()?, &ov_left, &ov_right])?;
+    let share = sharing::menu_item(app)?;
     let menu = Menu::with_items(
         app,
-        &[&open, &sep()?, &tier, &sim, &patches, &pbe, &sep()?, &overlay_menu, &sep()?, &check, &notes],
+        &[&open, &sep()?, &tier, &sim, &patches, &pbe, &sep()?, &overlay_menu, &share, &sep()?, &check, &notes],
     )?;
     if autostart_available() {
         menu.append(&auto)?;
@@ -361,6 +365,7 @@ fn build_tray(app: &AppHandle) -> tauri::Result<()> {
                 let on = ov_smart.is_checked().unwrap_or(true);
                 app.state::<Store>().update(|s| s.overlay_all_game = !on);
             }
+            "share" => sharing::on_menu(app),
             "ov_left" => side(app, false),
             "ov_right" => side(app, true),
             "notes" => {
@@ -405,16 +410,22 @@ fn main() {
             let handle = app.handle().clone();
             app.manage(Store::load(&handle));
             app.manage(overlay::Shared::default());
+            app.manage(sharing::Sharing::load(&handle));
             let hidden = std::env::args().any(|a| a == HIDDEN_ARG);
             build_window(&handle, hidden)?;
             build_tray(&handle)?;
             overlay::watch(handle.clone());
+            sharing::watch(handle.clone());
+            if !hidden {
+                sharing::ask_once(&handle);
+            }
             thread::spawn(move || loop {
                 check_patch(&handle, false);
                 thread::sleep(POLL_EVERY);
             });
             Ok(())
         })
+        .invoke_handler(tauri::generate_handler![sharing::share_choice])
         .on_window_event(|win, event| {
             // Closing the window keeps DeepARAM in the tray so patch notifications still arrive.
             if let WindowEvent::CloseRequested { api, .. } = event {
