@@ -332,6 +332,10 @@ fn live_game(app: &AppHandle, agent: &ureq::Agent, fit: &HashMap<String, f64>, o
                 .unwrap_or(0)
         })
         .collect();
+    let stats: Vec<f64> = ["critChance", "attackSpeed", "abilityHaste"]
+        .iter()
+        .map(|k| data.get("activePlayer").and_then(|p| p.get("championStats")?.get(*k)?.as_f64()).unwrap_or(0.0))
+        .collect();
     let mut game = json!({
         "t": t,
         "champ": champ,
@@ -340,6 +344,8 @@ fn live_game(app: &AppHandle, agent: &ureq::Agent, fit: &HashMap<String, f64>, o
         "items": items,
         "enemies": enemies,
         "gold": data.get("activePlayer").and_then(|p| p.get("currentGold")?.as_f64()).unwrap_or(0.0),
+        // For the stat-cap guard: crit chance, attack speed and ability haste as the game reports them.
+        "stats": stats,
         // Points in Q, W, E and R, for the skill-up note.
         "skills": skills,
         // Clicked on the overlay during the pick, without leaving the game.

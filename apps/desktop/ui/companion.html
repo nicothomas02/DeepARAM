@@ -43,6 +43,8 @@
   .item img { width: 32px; height: 32px; border-radius: 6px; }
   .box.now { border-color: var(--gold); }
   .tip { margin-top: 8px; }
+  .plan { display: flex; justify-content: space-between; align-items: center; }
+  .plan .keys b { color: var(--accent); }
   .filters { display: flex; gap: 6px; margin-bottom: 8px; }
   .chip.f { padding: 3px 10px; }
   .chip.on { color: var(--fg); border-color: var(--accent); }
@@ -106,11 +108,32 @@
         <div><div class="name">${esc(label(p.id))}${p.id === byId[mine] ? " <span class=\"why\">(yours)</span>" : ""}</div><div class="why">${p.strength >= 0.01 ? "Strong this patch" : ""}</div></div>
         <div class="num">Strength ${pts(p.strength)}</div>
       </div>`).join("");
+    const [builds, k] = await Promise.all([loadBuilds(), loadKinds()]);
+    // Game plan for the champion you're on: skill order and first three items, one glance before loading in.
+    const me = byId[mine];
+    const plan = me && builds?.champions?.find((c) => c.id.toLowerCase() === me.toLowerCase());
+    const planHtml = plan ? `<h2>Plan for ${esc(label(me))}</h2><div class="box plan">
+        <span class="keys">${(plan.skills ?? []).map((x) => `<b>${x}</b>`).join(" › ")}</span>
+        <span class="mates">${plan.items.slice(0, 3).map((it) => `<img src="${SITE}${it.icon}" alt="" title="${esc(it.name)}">`).join("")}</span></div>` : "";
+    // Team gap: one line, only once the whole team is in and only when something is missing.
+    let gap = "";
+    const all = [...team, ...(me ? [me] : [])];
+    if (all.length >= 5) {
+      const FRONT = new Set(["Vanguard", "Warden", "Juggernaut"]);
+      const front = all.some((a) => (d.champions[a]?.[1] ?? []).some((x) => FRONT.has(x)));
+      const lower = new Map(Object.entries(k?.champions ?? {}).map(([a, m]) => [a.toLowerCase(), m]));
+      const magic = all.reduce((t, a) => t + (lower.get(a.toLowerCase()) ?? 0.5), 0) / all.length;
+      gap = !front ? "No frontline on your team: tanky items go further this game."
+        : magic < 0.25 ? "Your team deals little magic damage: an AP or hybrid item helps if your champion can use one."
+        : magic > 0.75 ? "Your team deals little physical damage: an AD item helps if your champion can use one." : "";
+    }
     view.innerHTML = `
       <h1>Champion select</h1>
       ${team.length ? `<h2>Your team</h2><div class="mates">${team.map(icon).join("")}</div>` : ""}
+      ${gap ? `<div class="box">${esc(gap)}</div>` : ""}
       <h2>Your choices, best first</h2>
       ${rows || `<p class="note">Waiting for your champion and bench…</p>`}
+      ${planHtml}
       <p class="note">Strength this patch, in win-rate points. A guide, not a promise. You make the pick.</p>`;
   };
 
@@ -265,6 +288,21 @@
     return first || order.find((key) => pts[idx[key]] < cap) || "";
   }
 
+  // Penetration: %pen when two or more enemies stack your damage's resist, flat pen when they build almost none.
+  function penTip(k, g, owned) {
+    const lower = (c) => (c ?? "").toLowerCase();
+    const mine = Object.entries(k.champions).find(([a]) => lower(a) === lower(g.champ))?.[1] ?? 0.5;
+    const ap = mine > 0.5;
+    const resist = ap ? "mr" : "armor";
+    const ownsPen = [...owned].some((i) => (k.items[i] ?? []).includes(ap ? "magicpen" : "armorpen"));
+    if (ownsPen) return "";
+    const stacking = (g.enemies ?? []).filter((e) => e.items.some((i) => (k.items[String(i % 10000)] ?? []).includes(resist))).length;
+    if (stacking >= 2) return `${stacking} enemies build ${ap ? "magic resist" : "armor"}: <b>${ap ? "Void Staff or Cryptbloom" : "Lord Dominik's or Serylda's"}</b> cuts through it.`;
+    const built = (g.enemies ?? []).filter((e) => e.items.filter((i) => (k.recipes[i % 10000]?.[1] ?? 0) >= 2000).length >= 2).length;
+    if (stacking === 0 && built >= 3 && g.t >= 600) return `Enemies build no ${ap ? "magic resist" : "armor"}: flat pen (${ap ? "Sorcerer's Shoes, Shadowflame" : "lethality"}) hits harder than %pen.`;
+    return "";
+  }
+
   async function renderItems() {
     const box = document.getElementById("items");
     if (!box || !game) return;
@@ -281,27 +319,47 @@
     const finished = [...owned].filter((i) => (k?.recipes[i]?.[1] ?? 0) >= 2000).length;
     const stack = !finished && next.findIndex((it) => STACKING.has(itemId(it.icon)));
     if (stack > 0) next = [next[stack], ...next.filter((_, i) => i !== stack)];
+    // Stat-cap guard: crit stops at 100% and attack speed at 2.5, so items that mostly add those drop to the back.
+    const [crit, aspd, haste] = game.stats ?? [0, 0, 0];
+    const has = (it, kind) => (k?.items[String(itemId(it.icon))] ?? []).includes(kind);
+    const capped = [];
+    if (crit >= 0.99 || crit >= 99) capped.push("crit"); // Infinity Edge still pays at 100% (crit damage), so it stays.
+    if (aspd >= 2.5) capped.push("as");
+    const hit = (it) => itemId(it.icon) !== 3031 && capped.some((c) => has(it, c));
+    if (capped.length) next = [...next.filter((it) => !hit(it)), ...next.filter(hit)];
+    let capNote = capped.length ? `${capped.includes("crit") ? "Crit is at 100%" : "Attack speed is capped"}: those items moved back.` : "";
+    // Haste keeps paying off but each point cuts cooldowns a little less (100 haste = 50% shorter, 200 = 67%).
+    if (!capNote && haste >= 100 && next[0] && has(next[0], "haste"))
+      capNote = `You have ${Math.round(haste)} haste (cooldowns ${Math.round((haste / (100 + haste)) * 100)}% shorter): more adds less each point.`;
     next = next.slice(0, 2);
-    const lines = [];
+    // Tips, most useful first; only the top two show, so the panel stays small.
+    const tips = [];
+    const add = (rank, html) => tips.push([rank, html]);
     const point = skillUp(champ?.skills, game.skills ?? [], game.level, taken);
-    if (point) lines.push(`Skill point: <b>${point}</b>`);
-    if (style) lines.push(`Build switched to <b>${esc(style)}</b> to fit your augments.`);
-    if (stack > 0) lines.push(`<b>${esc(next[0].name)}</b> stacks over time, so it goes first.`);
+    if (point) add(1, `Skill point: <b>${point}</b>`);
     const shop = game.dead ? "You're dead: a good time to shop." : game.t < 60 ? "In base: a good time to shop." : "";
     if (shop && k && next.length) {
       const buy = buyNow(k, itemId(next[0].icon), owned, game.gold ?? 0);
-      if (buy) lines.push(buy.whole ? `Your gold buys <b>${esc(buy.name)}</b> now.` : `Buy <b>${esc(buy.name)}</b> now (${buy.cost} gold) toward it.`);
+      if (buy) add(2, buy.whole ? `Your gold buys <b>${esc(buy.name)}</b> now.` : `Buy <b>${esc(buy.name)}</b> now (${buy.cost} gold) toward it.`);
     }
+    if (capNote) add(3, capNote);
+    if (style) add(4, `Build switched to <b>${esc(style)}</b> to fit your augments.`);
+    if (stack > 0) add(4, `<b>${esc(next[0].name)}</b> stacks over time, so it goes first.`);
+    const pen = shop && k ? penTip(k, game, owned) : "";
+    if (pen) add(5, pen);
     // Six items and gold for the next one: sell an item that isn't in the build.
-    const slots = game.items.filter((i) => !(k?.recipes[i % 10000]?.[0] ?? "").includes("Totem") && ![3340, 3363, 3364].includes(i % 10000)).length;
+    const slots = game.items.filter((i) => (k?.recipes[i % 10000]?.[1] ?? 0) > 0 && !bootIds.has(i % 10000)).length + (hasBoots ? 1 : 0);
     if (k && slots >= 6 && next.length) {
       const inBuild = new Set(build.map((it) => itemId(it.icon)));
       const sell = [...owned].find((i) => (k.recipes[i]?.[1] ?? 0) >= 2000 && !inBuild.has(i) && !bootIds.has(i));
       const cost = k.recipes[itemId(next[0].icon)]?.[1] ?? Infinity;
       if (sell && (game.gold ?? 0) + Math.round((k.recipes[sell]?.[1] ?? 0) * 0.7) >= cost)
-        lines.push(`Full build: sell <b>${esc(k.recipes[sell][0])}</b> for <b>${esc(next[0].name)}</b>.`);
+        add(3, `Full build: sell <b>${esc(k.recipes[sell][0])}</b> for <b>${esc(next[0].name)}</b>.`);
     }
-    const tip = (k ? damageLine(k, game) : "") + lines.map((l) => `<div class="why tip">${l}</div>`).join("");
+    const dmg = k ? damageLine(k, game) : "";
+    if (dmg) add(6, dmg.replace(/^<div class="why tip">|<\/div>$/g, ""));
+    const lines = tips.sort((x, y) => x[0] - y[0]).slice(0, 2).map((x) => x[1]);
+    const tip = lines.map((l) => `<div class="why tip">${l}</div>`).join("");
     if (!next.length) { box.innerHTML = (build.length ? `<p class="note">You have the whole build.</p>` : `<p class="note">No build for this champion yet.</p>`) + tip; return; }
     box.innerHTML = `<div class="box${shop ? " now" : ""}">
       ${shop ? `<div class="why">${shop}</div>` : ""}
@@ -359,7 +417,7 @@
     head.textContent = pickNow ? "Augment pick: best first" : "Augments";
     head.classList.toggle("now", pickNow);
     document.getElementById("live").innerHTML = liveBlock(g.live);
-    const key = (x) => JSON.stringify([x.champ, x.items, x.dead, x.t < 60, x.enemies, x.skills, x.level, x.taken, x.dead && Math.round((x.gold ?? 0) / 100)]);
+    const key = (x) => JSON.stringify([x.champ, x.items, x.dead, x.t < 60, x.t >= 600, x.enemies, x.skills, x.level, x.taken, x.stats?.map((v) => Math.round(v * 10)), x.dead && Math.round((x.gold ?? 0) / 100)]);
     if (prev && JSON.stringify(prev.taken) !== JSON.stringify(g.taken)) renderAugments();
     if (!prev || key(prev) !== key(g)) renderItems();
   };
