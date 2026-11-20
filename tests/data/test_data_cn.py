@@ -479,8 +479,8 @@ def test_freshen_rebuilds_stale_core_and_items():
     assert out["items"]["other"][0]["pick_rate"] == 0.03
     assert len(out["items"]["core"][0]["items"]) == 3
     assert all(r["pick_rate"] <= 0.03 for r in out["items"]["core"])
-    # Every three-item set is a candidate core, so a less common but better one can still rank.
-    assert len(out["items"]["core"]) > 1
+    # The core is the three items the builds share most, with both builds' games behind it.
+    assert out["items"]["core"][0]["pick_rate"] == 0.03 and set(out["items"]["core"][0]["items"]) <= {6333, 3065, 2517, 3161}
     # A block that changes again is fresh from that day.
     data2 = dict(data, skills=[{"max_order": ["Q"]}])
     out2 = mod.freshen(data2, out, {3111})

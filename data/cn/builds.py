@@ -149,11 +149,11 @@ def from_full_builds(full, boots, of_listed=False):
 
     Pick rates are shares of all the champion's games, like the feed's own rows: the summed pick rate of the
     listed six-item builds that hold the item or core. (Dividing by the listed builds instead gave the trio in
-    every top build a 100% pick rate and made it the only core, so a better core could never show: Nico,
-    2026-11-20, on Yasuo.) Every three-item set of a build's non-boots items is a candidate core, ordered by how
-    often each item is built, so the site's DeepScore can pick the best one rather than the most common.
+    every top build a 100% pick rate: Nico, 2026-11-20, on Yasuo.) A core is each build's three most built
+    non-boots items, most built first: the items nearly every build shares (Yasuo: Infinity Edge, Death's Dance,
+    Rite of Ruin). Splitting builds into every three-item set was tried and dropped: it showed cores without an
+    item that every one of those builds has, which read as that item being worse.
     of_listed: single items' pick rates as shares of the listed builds instead (early_builds.py compares those)."""
-    from itertools import combinations
     total = sum(r["pick_rate"] or 0 for r in full)
     if not total:
         return [], []
@@ -167,20 +167,13 @@ def from_full_builds(full, boots, of_listed=False):
              for i in share if i not in boots]
     other.sort(key=lambda r: -r["pick_rate"])
     cores = {}
-    for n, r in enumerate(full):
-        items = sorted((i for i in set(r["items"]) if i not in boots), key=lambda i: (-share[i], i))
-        for top in combinations(items, 3):
-            c = cores.setdefault(top, [0.0, 0.0, set()])
+    for r in full:
+        top = sorted((i for i in set(r["items"]) if i not in boots), key=lambda i: (-share[i], i))[:3]
+        if len(top) == 3:
+            c = cores.setdefault(tuple(top), [0.0, 0.0])
             c[0] += r["pick_rate"]
             c[1] += r["pick_rate"] * (r["win_rate"] or 0)
-            c[2].add(n)
-    # Cores found in exactly the same builds have the same numbers: keep the one with the most built items.
-    best = {}
-    for k, v in cores.items():
-        key = frozenset(v[2])
-        if v[0] and (key not in best or sum(share[i] for i in k) > sum(share[i] for i in best[key][0])):
-            best[key] = (k, v)
-    core = [{"items": list(k), "pick_rate": round(v[0], 4), "win_rate": round(v[1] / v[0], 4)} for k, v in best.values()]
+    core = [{"items": list(k), "pick_rate": round(v[0], 4), "win_rate": round(v[1] / v[0], 4)} for k, v in cores.items() if v[0]]
     core.sort(key=lambda r: (-r["pick_rate"], -r["win_rate"]))
     return core[:CORE_ROWS], other
 
