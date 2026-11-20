@@ -109,6 +109,19 @@ damage over time), check the League wiki first.
   (Nico).
 - **RISE:** works on long ults like Karthus R and Fiddlesticks R (Nico).
 - **Rite of Ascension on Pyke:** R resets plus the essence blink can chain through a whole team (Nico).
+- **Endless Decimation on Darius:** the auto-cast Q probably doesn't apply his bleed stacks (Nico, not sure).
+- **Still Here on Olaf:** stacks with his passive's missing-health attack speed (Nico, thinks so).
+- **Tickle Monster:** a trap on Graves and Kled too, since reload/ammo limits their attacks (Nico).
+- **Impassable:** grants Aftershock and Glacial Augment (Nico).
+- **Back To Basics:** you keep your R's passive and only lose the active. Best on champions whose R is
+  situational, like Taliyah, Ryze, Pantheon and Twisted Fate (Nico).
+- **Quickstep:** its dash triggers Dashing, Earthwake and Shadow Runner (Nico, thinks so).
+- **Soul Siphon:** does NOT heal from Vulnerability burn crits in Mayhem (Arena may) (Nico, thinks so).
+- **Thread the Needle:** stacks with Void Staff and Lord Dominik's (Nico).
+- **Chain Reaction:** only upgrades abilities, not summoner spells like Brass Blast (Nico, probably).
+- **Holy Snowball:** matters least on tanky champions without big burst, who don't need a short invulnerability
+  (Nico).
+- **Courage of the Colossus:** one shield per cast, even for multi-hit CC (Nico).
 - **Pin Cushion:** very weak damage for a prismatic, worse still on melee champions with few attacks (Nico).
 - **Terrain'd:** the AP Trundle items (Horizon Focus, Bloodletter's, Cryptbloom, Imperial Mandate) likely center
   on it (Nico, probably).
