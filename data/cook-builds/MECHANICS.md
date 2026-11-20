@@ -129,6 +129,7 @@ damage over time), check the League wiki first.
   ticks and Statikk Shiv procs trigger that chain on every enemy hit, so the lightning spreads through the whole
   swarm (Nico).
 - **Pin Cushion:** very weak damage for a prismatic, worse still on melee champions with few attacks (Nico).
+- **Pin Cushion on Ashe:** each arrow of her empowered Q volley counts as a separate hit (Nico).
 - **Terrain'd:** the AP Trundle items (Horizon Focus, Bloodletter's, Cryptbloom, Imperial Mandate) likely center
   on it (Nico, probably).
 - **Tahm Kench AP (Rabadon's, Shadowflame, Dusk and Dawn, Riftmaker):** likely BEES or Ethereal Weapon + Dusk and
