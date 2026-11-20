@@ -3,7 +3,7 @@
 
 import RowLink from "@/components/RowLink";
 import { PICK_EVENT } from "@/components/champion/AugmentBuildPicker";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { KEPT, useKept } from "@/lib/kept";
 import { Name, useDescription, useNames, useT } from "@/components/I18n";
 import DeepScore from "@/components/DeepScore";
@@ -13,7 +13,8 @@ import { AUGMENT_DEEPSCORE_HELP } from "@/lib/deepscore";
 import { SHOW_AUGMENT_WIN_RATES } from "@/lib/augment-policy";
 
 // A champion's augments as one ranked table with rarity and augment pick filters, best DeepScore first, each with the game's
-// build tags, ten to a page. The number columns' headers re-sort it (highest first; a second click flips it).
+// build tags, ten to a page. The number columns' headers re-sort it (highest first; a second click flips it). The search box
+// above it finds an augment by name (English or the page's language) and keeps its rank, so a visitor sees where it places.
 
 const RARITIES = ["all", "prismatic", "gold", "silver"] as const;
 const LABEL = {
@@ -77,7 +78,8 @@ export default function AugmentTable({
     box,
     "sort",
   );
-  const shown = rows
+  const [query, setQuery] = useState("");
+  const ranked = rows
     .filter((r) => rarity === "all" || r.rarity === rarity)
     .filter((r) => pick === "any" || (r.stages?.[pick] ?? 0) >= FAIR_SHARE)
     .sort((a, b) => {
@@ -88,6 +90,11 @@ export default function AugmentTable({
       if (y === undefined) return -1;
       return (x - y) * (sort.desc ? -1 : 1);
     });
+  const rankOf = new Map(ranked.map((r, i) => [r.id, i]));
+  const q = fold(query);
+  const shown = q
+    ? ranked.filter((r) => fold(r.name).includes(q) || fold(names("augments", r.id, r.name)).includes(q))
+    : ranked;
   const head = (key: SortKey, label: string) => (
     <span>
       <button
@@ -131,6 +138,17 @@ export default function AugmentTable({
   return (
     <>
       <div className="cp-filters" ref={box} {...KEPT}>
+        <input
+          className="table-search"
+          type="search"
+          placeholder={tt("Find an augment")}
+          aria-label={tt("Find an augment")}
+          value={query}
+          onChange={(e) => {
+            setQuery(e.target.value);
+            setPage(0);
+          }}
+        />
         <div className="cp-seg" role="group" aria-label={t("Rarity")}>
           {RARITIES.filter(
             (r) => r === "all" || rows.some((x) => x.rarity === r),
@@ -182,7 +200,7 @@ export default function AugmentTable({
       </div>
       <div className="cp-rows">
         {shown.slice(at * PAGE, (at + 1) * PAGE).map((a, j) => {
-          const i = at * PAGE + j;
+          const i = rankOf.get(a.id) ?? at * PAGE + j;
           const body = (
             <>
               <img
@@ -336,6 +354,11 @@ export default function AugmentTable({
       )}
     </>
   );
+}
+
+/** Lower case without accents, so "Kleptomancy" matches "klepto" and "Éclair" matches "eclair". */
+function fold(s: string): string {
+  return s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim();
 }
 
 /** Page numbers to show: the first, the last and the current one with its neighbours, with gaps (null) between. */
