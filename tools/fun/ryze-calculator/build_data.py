@@ -17,7 +17,8 @@ ITEMS = [3040, 3003, 3089, 228002, 6657, 2503, 3118, 6655, 2522, 4633, 3041, 312
 # Mayhem augments that change Ryze's AP, mana or health, or how hard his abilities hit.
 AUGMENTS = ["ARAM_WitchfulThinking", "OminousPact", "ARAM_Goliath", "HandOfBaron", "ARAM_MadScientist",
             "ARAM_ADAPt", "ARAM_PhenomenalEvil", "ARAM_MasterofDuality", "ARAM_SlapAround", "MightyShield",
-            "ARAM_ImTheJuggernaut", "ARAM_MindtoMatter", "ARAM_Overflow", "ARAM_Quest_WoogletsWitchcap"]
+            "ARAM_ImTheJuggernaut", "ARAM_MindtoMatter", "ARAM_Overflow", "ARAM_Quest_WoogletsWitchcap",
+            "LichBrain", "ARAM_CelestialBody", "DoubleTime", "ARAM_Eureka"]
 
 
 def main():
@@ -37,7 +38,9 @@ def main():
         calc = next(c for n, c in sp["mSpellCalculations"].items() if n.endswith("DamageCalc"))
         ap_ratio = next(p["mCoefficient"] for p in calc["mFormulaParts"] if p["__type"] == "StatByCoefficientCalculationPart")
         mana_ratio = next(p["mCoefficient"] for p in calc["mFormulaParts"] if p["__type"] == "AbilityResourceByCoefficientCalculationPart")
-        spells[key] = {"base": dv["BaseDamage"], "apRatio": round(ap_ratio, 4), "bonusManaRatio": round(mana_ratio, 4)}
+        spells[key] = {"base": dv["BaseDamage"], "apRatio": round(ap_ratio, 4), "bonusManaRatio": round(mana_ratio, 4),
+                       "cooldown": sp["cooldownTime"][1:6], "mana": (sp.get("mana") or [0] * 6)[1:6],
+                       "castTime": sp.get("mCastTime", 0.25)}
     champion = {
         "name": "Ryze", "icon": g.champion_icon(13),
         "baseHP": root["baseHPModifiable"]["baseValue"], "hpPerLevel": root["hpPerLevelModifiable"]["baseValue"],

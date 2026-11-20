@@ -1,5 +1,5 @@
 window.RYZE_DATA = {
- "patch": "16.22.8348910",
+ "patch": "16.23.8406595",
  "channel": "latest",
  "champion": {
   "name": "Ryze",
@@ -20,7 +20,22 @@ window.RYZE_DATA = {
      155.0
     ],
     "apRatio": 0.55,
-    "bonusManaRatio": 0.02
+    "bonusManaRatio": 0.02,
+    "cooldown": [
+     5.0,
+     5.0,
+     5.0,
+     5.0,
+     5.0
+    ],
+    "mana": [
+     38.0,
+     36.0,
+     34.0,
+     32.0,
+     32.0
+    ],
+    "castTime": 0.25
    },
    "W": {
     "base": [
@@ -31,7 +46,22 @@ window.RYZE_DATA = {
      180.0
     ],
     "apRatio": 0.7,
-    "bonusManaRatio": 0.03
+    "bonusManaRatio": 0.03,
+    "cooldown": [
+     11.0,
+     10.5,
+     10.0,
+     9.5,
+     9.0
+    ],
+    "mana": [
+     60.0,
+     70.0,
+     80.0,
+     90.0,
+     100.0
+    ],
+    "castTime": 0.25
    },
    "E": {
     "base": [
@@ -42,7 +72,22 @@ window.RYZE_DATA = {
      180.0
     ],
     "apRatio": 0.5,
-    "bonusManaRatio": 0.02
+    "bonusManaRatio": 0.02,
+    "cooldown": [
+     3.5,
+     3.25,
+     3.0,
+     2.75,
+     2.5
+    ],
+    "mana": [
+     50.0,
+     60.0,
+     70.0,
+     80.0,
+     90.0
+    ],
+    "castTime": 0.25
    }
   }
  },
@@ -853,7 +898,7 @@ window.RYZE_DATA = {
     "APAmp": 0.15000000596046448
    },
    "calcs": {},
-   "text": "Convert Bonus Attack Damage to Ability Power, and gain @APAmpCalcTooltip@ Ability Power. Current Conversion: @f1@ Converts at a rate of @ConversionRate@ Ability Power per point of Attack Damage."
+   "text": ""
   },
   {
    "key": "ARAM_PhenomenalEvil",
@@ -994,6 +1039,61 @@ window.RYZE_DATA = {
    "values": {},
    "calcs": {},
    "text": "Immediately gain a Needlessly Large Rod. QUEST: Possess Rabadon's Deathcap and Zhonya's Hourglass. REWARD: Gain Wooglet's Witchcap."
+  },
+  {
+   "key": "LichBrain",
+   "id": 3094,
+   "name": "Lich Brain",
+   "tier": "Silver",
+   "icon": "/assets/cd/latest/game/assets/ux/kiwi/augments/icons/lichbrain_small.png",
+   "values": {},
+   "calcs": {},
+   "text": "Gain @Calc_AP@ Ability Power."
+  },
+  {
+   "key": "ARAM_CelestialBody",
+   "id": 1013,
+   "name": "Celestial Body",
+   "tier": "Gold",
+   "icon": "/assets/cd/latest/game/assets/ux/cherry/augments/icons/celestialbody_small.png",
+   "values": {
+    "Health": 1500.0,
+    "DamageReduction": 0.10000000149011612
+   },
+   "calcs": {},
+   "text": "Gain @Health@ Health, but you deal @DamageReduction*100@% less damage."
+  },
+  {
+   "key": "DoubleTime",
+   "id": 3036,
+   "name": "Double Time",
+   "tier": "Gold",
+   "icon": "/assets/cd/latest/game/assets/ux/kiwi/augments/icons/aram_phenomenalevil_large.png",
+   "values": {
+    "DamageWindowSeconds": 4.0,
+    "ManaGainCD": 4.0
+   },
+   "calcs": {
+    "{aa7499cd}": {
+     "flat": 0,
+     "manaRatio": 0.10000000149011612,
+     "bonusOnly": false,
+     "multiplier": 1.0
+    }
+   },
+   "text": "Damaging an enemy champion with 2 separate Abilities within @DamageWindowSeconds@ seconds deals @PercentOfManaDamage@ magic damage and grants @ManaGain@ %i:scaleMana% max Mana. Mana Gained: @f1@ @ManaGainCD@ second Cooldown Per Target"
+  },
+  {
+   "key": "ARAM_Eureka",
+   "id": 1030,
+   "name": "Eureka",
+   "tier": "Prismatic",
+   "icon": "/assets/cd/latest/game/assets/ux/cherry/augments/icons/eureka_small.png",
+   "values": {
+    "APToHasteConversion": 0.30000001192092896
+   },
+   "calcs": {},
+   "text": "Gain @APToHasteConversionCalc@ Ability Haste."
   }
  ]
 };
