@@ -63,6 +63,22 @@ damage over time), check the League wiki first.
 - **Biggest Snowball Ever:** suits utility/peel champions and champions without strong synergies. Its knock-up
   counts as an immobilize (Nico, believes).
 - **Ashe:** her crits deal no bonus damage (passive), so crit damage augments like Big Shot are bad on her.
+- **AP Ashe:** good only with Archmage (Nico). Her top augments in our data back this up: Shrink Engine,
+  Recursion, Archmage, Eureka and Purist - Caster are all in her top 8, and Shadowflame and Rabadon's beat her
+  average full build.
+- **Archmage Zilean:** loops all his abilities into near-permanent stun/slow with his revive almost always up.
+  One Hit Wonder combines with it (Nico). Data agrees: Archmage is his #1 augment, One Hit Wonder is S.
+- **Dashing:** best where the dash is a damage ability or the champion has several dashes (Aurora, Fizz, Riven).
+  Bad on Gwen (E uptime already near constant), Diana (already resets on marked targets), Zoe (R cooldown tiny at
+  max rank) and Aatrox (Nico).
+- **Mystic Punch:** bad on champions that only auto now and then for a passive and mainly cast (Aatrox, Maokai,
+  Swain, Akali) (Nico).
+- **Pin Cushion:** very weak damage for a prismatic, worse still on melee champions with few attacks (Nico).
+- **Terrain'd:** the AP Trundle items (Horizon Focus, Bloodletter's, Cryptbloom, Imperial Mandate) likely center
+  on it (Nico, probably).
+- **Tahm Kench AP (Rabadon's, Shadowflame, Dusk and Dawn, Riftmaker):** likely BEES or Ethereal Weapon + Dusk and
+  Dawn, since one Q can stun a far target and R works too. With Goliath and/or Mad Scientist he already has the
+  size, so Health is less needed (Nico, guess). Goliath, Ethereal Weapon and Mad Scientist are all top-6 on him.
 
 ## Items
 
@@ -74,6 +90,12 @@ damage over time), check the League wiki first.
 - **Liandry's Torment:** its burn can crit through Vulnerability (Nico).
 - **Blade of the Ruined King:** current-Health on-hit damage, so any champion with attack speed does real
   damage (Nico).
+- **Jeweled Gauntlet:** the only way Kha'Zix's Q can crit, which is why crit items do well on him (Nico).
+- **Spear of Shojin:** Yorick's ghoul and Maiden damage count as his own ability damage (Nico, believes).
+- **Muramana / Archangel's:** Overflow is best on champions that already build them (Ezreal, Gangplank, Udyr)
+  (Nico, assumes).
+- **Bard's Meeps:** on-attack bonus magic damage that counts as spell damage, so Meeps themselves don't apply
+  on-hit. The basic attack still does, so on-hit items work normally (wiki).
 
 ## Data limits
 
