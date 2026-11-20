@@ -77,7 +77,7 @@
           if (opts.madLarge !== false) { addAmp(tr("{name} (large)", { name: a.name }), v.APAmp); hpAmp += v.HealthAmp; }
           else haste += v.Haste || 0;
           break;
-        // Lich Brain: the game files leave its numbers out; the wiki gives 30 AP + 4% bonus Health as AP.
+        // Lich Brain: 30 AP + 4% bonus Health as AP.
         case "LichBrain": addAP(a.name, v.FlatAP ?? 30); riftRatio += v.BonusHealthToAP ?? 0.04; break;
         case "ARAM_CelestialBody": flatHP += v.Health; break;
         case "DoubleTime": flatMana += Math.max(0, opts.doubleTimeStacks ?? 0) * (v.ManaGain ?? 25); break;
