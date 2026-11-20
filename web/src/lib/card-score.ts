@@ -93,6 +93,46 @@ export function skipsBoots(boots: { pickRate: number }[], full: { items: number[
   return bought < SKIP_BOOTS && total > 0 && without / total > 0.5;
 }
 
+/**
+ * Items that fit this core's style: those sharing a shop class (fighter, marksman, mage, tank...) with a core item.
+ * Keeps a tank core from being offered mage items for a situation. Rows with no class data are kept.
+ */
+export function sameStyle<T extends { items: number[] }>(pool: T[], core: number[], classesOf: (id: number) => string[]): T[] {
+  const style = new Set(core.flatMap(classesOf));
+  if (!style.size) return pool;
+  return pool.filter((r) => {
+    const c = classesOf(r.items[0]);
+    return !c.length || c.some((x) => style.has(x));
+  });
+}
+
+/** How many situational items the card shows. */
+export const SITUATIONAL = 5;
+
+/**
+ * Situational items after the core: the situations the champion's items answer (lib/situations.ts), each with up to
+ * `per` items in pool order (bought with the core first, then DeepScore), situations in the order of their best item.
+ * Items with no situation aren't listed: the card shows the core plus what to swap in for the game you're in
+ * (Nico, 2026-11-20: buying the same six items every game isn't practical).
+ */
+export function situational<T extends { items: number[] }, S extends string>(
+  pool: T[],
+  situationOf: (id: number) => S | null | undefined,
+  n = SITUATIONAL,
+  per = 3,
+): { situation: S; options: T[] }[] {
+  const out = new Map<S, T[]>();
+  for (const r of pool) {
+    const s = situationOf(r.items[0]);
+    if (!s) continue;
+    const list = out.get(s);
+    if (list) {
+      if (list.length < per) list.push(r);
+    } else if (out.size < n) out.set(s, [r]);
+  }
+  return [...out].map(([situation, options]) => ({ situation, options }));
+}
+
 /** The row players should copy: most wins among rows with a real following (2% of games, or the top three). */
 export function bestRow<T extends Rated>(rows: T[], min = 0.02): T | null {
   const common = rows.filter((r, i) => r.pickRate >= min || i < 3);

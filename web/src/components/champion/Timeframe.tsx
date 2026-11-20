@@ -10,6 +10,7 @@ import { radarFor } from "@/lib/radar";
 import { bySet } from "@/lib/sets";
 import { champStats, type PatchRow } from "@/lib/tiers";
 import { cardFor, type HistFile } from "@/lib/timeframe";
+import { SITUATIONS } from "@/lib/situations";
 import { getParam, setParams } from "@/lib/url-state";
 import { patchName } from "@/lib/patch-name";
 
@@ -292,7 +293,6 @@ export function TfPerf({ alias, patches, matches, children }: Common) {
   );
 }
 
-const SLOT_LABEL: Record<number, string> = { 4: "4th item", 5: "5th item", 6: "6th item" };
 
 /** The top card over the picked patches. `spells`: the spells tile, which doesn't change with the range. */
 export function TfCard({ alias, patches, matches, spells, children }: Common & { spells: ReactNode }) {
@@ -373,25 +373,25 @@ export function TfCard({ alias, patches, matches, spells, children }: Common & {
               </div>
             </div>
           )}
-          {card.late.length > 0 && (
-            <div className="cp-best cp-best-wide cp-best-late">
+          {card.situational.length > 0 && (
+            <div className="cp-best cp-best-wide cp-best-sit">
               <h4>
-                <T ns="champions">Items 4 to 6</T>
+                <T ns="champions">Situational items</T>
               </h4>
-              <div className="cp-late-mini">
-                {card.late.map((l) => (
-                  <div key={l.slot}>
+              <ul className="cp-sit-mini">
+                {card.situational.map((s) => (
+                  <li key={s.situation}>
                     <small>
-                      <T ns="champions">{SLOT_LABEL[l.slot]}</T>
+                      <T ns="champions">{SITUATIONS[s.situation]}</T>
                     </small>
                     <span className="cp-icons">
-                      {l.options.map((r) => (
-                        <ItemIcon key={r.items[0]} id={r.items[0]} info={info} named />
+                      {s.options.slice(0, 2).map((r, i) => (
+                        <ItemIcon key={r.items[0]} id={r.items[0]} info={info} named={i === 0} />
                       ))}
                     </span>
-                  </div>
+                  </li>
                 ))}
-              </div>
+              </ul>
             </div>
           )}
         </>

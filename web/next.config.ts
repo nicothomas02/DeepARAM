@@ -28,7 +28,14 @@ const SECURITY_HEADERS = [
 
 const nextConfig: NextConfig = {
   async headers() {
-    return [{ source: "/:path*", headers: SECURITY_HEADERS }];
+    return [
+      { source: "/:path*", headers: SECURITY_HEADERS },
+      // The desktop app's companion window (apps/desktop/ui/companion.html) reads these public files from its own origin.
+      {
+        source: "/data/:file(team-fit.json|augment-picks.json|overlay.json|damage-types.json)",
+        headers: [{ key: "Access-Control-Allow-Origin", value: "*" }],
+      },
+    ];
   },
   // Old addresses of moved tabs. A #hash (like /tools/champions#Yasuo) carries over.
   async redirects() {

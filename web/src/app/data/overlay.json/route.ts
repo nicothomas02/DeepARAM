@@ -9,13 +9,16 @@ import { quickBuilds } from "@/lib/quick-build";
 export const dynamic = "force-static";
 
 export function GET() {
-  const champions = quickBuilds().map(({ id, name, skills, spells, items, augments }) => ({
+  const champions = quickBuilds().map(({ id, name, skills, spells, items, situational, rush, swaps, augments }) => ({
     id,
     name,
     icon: `/icons/champions/${id}.webp`,
     skills,
     spells,
     items,
+    situational,
+    rush,
+    swaps,
     augments,
   }));
   return Response.json({ patch: patchName(livePatch()) || null, champions });

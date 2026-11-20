@@ -272,3 +272,18 @@ def test_early_builds_output():
         for r in c["full_builds"]:
             assert 0 <= r["pick_rate"] <= 1 and 0 <= r["win_rate"] <= 1 and r["games"] >= 0
         assert all(len(r["items"]) == 3 for r in c["core"])
+
+
+def test_build_archetypes_split_ashe_into_ap_and_crit():
+    ba = load_module("data/estimates/build_archetypes.py", "build_archetypes", extra_path=["data/estimates"])
+    styles = ba.item_styles()
+    assert ba.style_of([3118, 4005, 4628], styles) == "ap"  # Malignance, Imperial Mandate, Horizon Focus
+    assert ba.style_of([3031, 3032, 3036], styles) == "crit"  # Infinity Edge, Yun Tal, Lord Dominik's
+    assert ba.fits([3006], "crit", styles, kin=True) and not ba.fits([3006], "crit", styles)
+    data = load_json("data/estimates/build_archetypes.json")
+    ashe = {a["style"]: a for a in data["champions"]["22"]}
+    assert {"ap", "crit"} <= set(ashe)
+    for rows in data["champions"].values():
+        assert rows == sorted(rows, key=lambda a: -a["share"])
+        for a in rows:
+            assert a["style"] in data["styles"] and a["core"] and a["augments_estimated"]

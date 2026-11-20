@@ -1,7 +1,9 @@
 // DeepARAM for desktop: the live site in a native window, with a tray menu and patch notifications.
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
+mod companion;
 mod overlay;
+mod review;
 mod sharing;
 
 use std::{fs, path::PathBuf, sync::Mutex, thread, time::Duration};
@@ -113,6 +115,8 @@ struct Saved {
     /// The overlay shows all game instead of only when useful (game start, while dead, augment picks).
     overlay_all_game: bool,
     overlay_hint_shown: bool,
+    /// The companion window (champion select picks, the game's review) doesn't open by itself.
+    companion_off: bool,
 }
 
 #[derive(Deserialize)]
@@ -319,10 +323,19 @@ fn build_tray(app: &AppHandle) -> tauri::Result<()> {
     let ov_right = CheckMenuItem::with_id(app, "ov_right", "Right side", true, overlay_right, None::<&str>)?;
     let overlay_menu =
         Submenu::with_items(app, "In-game overlay", true, &[&ov_on, &ov_smart, &sep()?, &ov_left, &ov_right])?;
+    let companion_on = !app.state::<Store>().saved.lock().unwrap().companion_off;
+    let comp = CheckMenuItem::with_id(
+        app,
+        "companion",
+        "Companion window in champ select and after games",
+        true,
+        companion_on,
+        None::<&str>,
+    )?;
     let share = sharing::menu_item(app)?;
     let menu = Menu::with_items(
         app,
-        &[&open, &sep()?, &tier, &sim, &patches, &pbe, &sep()?, &overlay_menu, &share, &sep()?, &check, &notes],
+        &[&open, &sep()?, &tier, &sim, &patches, &pbe, &sep()?, &overlay_menu, &comp, &share, &sep()?, &check, &notes],
     )?;
     if autostart_available() {
         menu.append(&auto)?;
@@ -364,6 +377,13 @@ fn build_tray(app: &AppHandle) -> tauri::Result<()> {
                 app.state::<Store>().update(|s| s.overlay_all_game = !on);
             }
             "share" => sharing::on_menu(app),
+            "companion" => {
+                let on = comp.is_checked().unwrap_or(true);
+                app.state::<Store>().update(|s| s.companion_off = !on);
+                if !on {
+                    companion::close(app);
+                }
+            }
             "ov_left" => side(app, false),
             "ov_right" => side(app, true),
             "notes" => {
@@ -389,6 +409,7 @@ fn build_tray(app: &AppHandle) -> tauri::Result<()> {
 
 fn main() {
     tauri::Builder::default()
+        .invoke_handler(tauri::generate_handler![overlay::take_augment, sharing::share_choice])
         // Must come first: a second launch focuses the running app instead of opening another.
         .plugin(tauri_plugin_single_instance::init(|app, _args, _cwd| show(app)))
         .plugin(
@@ -408,11 +429,13 @@ fn main() {
             let handle = app.handle().clone();
             app.manage(Store::load(&handle));
             app.manage(overlay::Shared::default());
+            app.manage(companion::Shared::default());
             app.manage(sharing::Sharing::load(&handle));
             let hidden = std::env::args().any(|a| a == HIDDEN_ARG);
             build_window(&handle, hidden)?;
             build_tray(&handle)?;
             overlay::watch(handle.clone());
+            companion::watch(handle.clone());
             sharing::watch(handle.clone());
             if !hidden {
                 sharing::ask_once(&handle);
@@ -423,7 +446,6 @@ fn main() {
             });
             Ok(())
         })
-        .invoke_handler(tauri::generate_handler![sharing::share_choice])
         .on_window_event(|win, event| {
             // Closing the window keeps DeepARAM in the tray so patch notifications still arrive.
             if let WindowEvent::CloseRequested { api, .. } = event {

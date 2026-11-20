@@ -174,30 +174,47 @@
 .cp-best-augs .cp-named.rarity-silver .cp-icon {
   box-shadow: 0 0 0 2px var(--silver, #9aa3ad);
 }
-/* Items 4 to 6 on the game card: a column per slot, its top three picks listed as small icon and name. */
-.cp-game .cp-best-late .cp-late-mini {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-.cp-game .cp-best-late .cp-late-mini > div,
-.cp-game .cp-best-late .cp-icons {
+/* Situational items on the game card: one line per situation (vs healing, vs burst...), its best item named and
+   the runner-up as an icon. Two columns where there's room. */
+.cp-game .cp-sit-mini {
+  list-style: none;
+  margin: 0;
+  padding: 0;
   display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  align-items: start;
-  gap: 0.3rem;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  gap: 0.4rem 1rem;
 }
-.cp-game .cp-best-late .cp-named {
+.cp-game .cp-sit-mini li {
+  display: grid;
+  grid-template-columns: 9.5rem minmax(0, 1fr);
+  align-items: center;
+  gap: 0.5rem;
+}
+.cp-game .cp-sit-mini small {
+  font-size: 14px;
+  color: var(--muted, inherit);
+}
+.cp-game .cp-sit-mini .cp-icons {
   display: flex;
   align-items: center;
-  justify-items: start;
+  gap: 0.4rem;
+  flex-wrap: nowrap;
+}
+.cp-game .cp-sit-mini .cp-named {
+  display: flex;
+  align-items: center;
   gap: 0.4rem;
   width: auto;
   text-align: left;
 }
-.cp-game .cp-best-late .cp-named small {
+.cp-game .cp-sit-mini .cp-named > small {
+  display: inline;
+  color: inherit;
+  font-size: 14px;
   text-align: left;
   hyphens: none;
 }
-.cp-game .cp-best-late .cp-icon {
+.cp-game .cp-sit-mini .cp-icon {
   width: 30px;
   height: 30px;
 }
@@ -1325,24 +1342,6 @@ html[data-view="simple"] .cp-fold:not([data-open]) > .cp-fold-body {
     border-left: 0;
   }
 }
-/* Quick build: the top options for each slot after the core. */
-.cp-late-mini {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0.5rem;
-}
-.cp-late-mini > div {
-  display: grid;
-  gap: 0.3rem;
-}
-.cp-late-mini small {
-  color: var(--muted);
-  font-size: 0.875rem;
-}
-.cp-late-mini .cp-icon {
-  width: 28px;
-  height: 28px;
-}
 .cp-late .cp-what {
   flex-wrap: nowrap;
 }
@@ -1380,20 +1379,6 @@ html[data-view="simple"] .cp-fold:not([data-open]) > .cp-fold-body {
     text-align: center;
     overflow-wrap: break-word;
     hyphens: auto;
-  }
-  /* Later items: one slot per line, its label beside the two most common picks. */
-  .cp-late-mini {
-    grid-template-columns: minmax(0, 1fr);
-  }
-  .cp-late-mini > div {
-    grid-template-columns: 4.5rem minmax(0, 1fr);
-    align-items: start;
-  }
-  .cp-late-mini > div > small {
-    padding-top: 0.4rem;
-  }
-  .cp-late-mini .cp-icons {
-    flex-wrap: nowrap;
   }
 }
 
@@ -1636,20 +1621,50 @@ html:not([data-raw]) .cp-row.aug-item {
   flex-basis: 100%;
   font-weight: 600;
 }
-.cp-took .cp-took-chip {
+.cp-slot {
   display: inline-flex;
   align-items: center;
   gap: 6px;
+  min-width: 120px;
+  min-height: 34px;
+  padding: 3px 6px 3px 4px;
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  font-size: 0.85rem;
+  cursor: grab;
+}
+.cp-slot.empty {
+  justify-content: center;
+  border-style: dashed;
+  border-color: var(--line);
+  color: var(--muted);
+  font-weight: 500;
+  cursor: default;
+}
+.cp-slot.over {
   border-color: var(--accent);
+  background: var(--card);
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
+}
+.cp-slot img {
+  width: 24px;
+  height: 24px;
+}
+.cp-slot-x {
+  margin-left: auto;
+  border: 0;
   background: none;
-  color: inherit;
+  color: var(--muted);
   cursor: pointer;
   font: inherit;
   font-size: 0.875rem;
+  line-height: 1;
 }
-.cp-took .cp-took-chip img {
-  width: 20px;
-  height: 20px;
+.cp-slot-x:hover {
+  color: var(--accent);
+}
+.cp-row.cp-aug[draggable="true"] {
+  cursor: grab;
 }
 .cp-took-clear {
   border: 0;
@@ -1797,4 +1812,138 @@ html:not([data-raw]) .cp-row.aug-item {
 }
 .cp-panel:has(.cp-th) .cp-row {
   align-items: center;
+}
+
+/* Build at a glance in the header: core, best augments, skill order (links to the card below). */
+.cp-glance {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 1rem;
+  margin-top: 0.6rem;
+  color: inherit;
+  text-decoration: none;
+}
+.cp-glance-part {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+.cp-glance-part + .cp-glance-part {
+  padding-left: 1rem;
+  border-left: 1px solid var(--line, rgba(127, 127, 127, 0.3));
+}
+.cp-glance .cp-icon {
+  width: 28px;
+  height: 28px;
+}
+.cp-glance .rarity-prismatic {
+  box-shadow: 0 0 0 2px #c9b8ff;
+}
+.cp-glance .rarity-gold {
+  box-shadow: 0 0 0 2px var(--gold, #e9b949);
+}
+.cp-glance .rarity-silver {
+  box-shadow: 0 0 0 2px var(--silver, #9aa3ad);
+}
+/* The core in buying order: 1 > 2 > 3. */
+.cp-game ol.cp-buy-order {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.cp-game ol.cp-buy-order > li {
+  display: inline-flex;
+  align-items: center;
+}
+.cp-game ol.cp-buy-order > li + li::before {
+  content: "›";
+  margin: 0 0.3rem;
+  color: var(--muted);
+  font-size: 18px;
+}
+.cp-rush {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0.4rem 0 0;
+  font-size: 14px;
+}
+.cp-rush small {
+  color: var(--muted);
+  font-size: 14px;
+}
+.cp-rush .cp-icon {
+  width: 24px;
+  height: 24px;
+}
+.cp-rush .cp-named {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  width: auto;
+}
+.cp-rush .cp-named > small {
+  display: inline;
+  color: inherit;
+}
+/* Augment-aware swaps under the core. */
+.cp-swaps {
+  list-style: none;
+  margin: 0.5rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0.3rem;
+  font-size: 14px;
+}
+.cp-swaps li {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.cp-swaps .cp-icon {
+  width: 24px;
+  height: 24px;
+}
+/* Build style tabs (AP / Tank...) on the card. */
+.cp-style-tabs {
+  grid-column: 1 / -1;
+  display: grid;
+  gap: 0.6rem;
+}
+.cp-style-tablist {
+  display: flex;
+  gap: 0.4rem;
+}
+.cp-style-tablist button {
+  font: inherit;
+  font-size: 14px;
+  padding: 0.35rem 0.8rem;
+  border-radius: 999px;
+  border: 1px solid var(--line, rgba(127, 127, 127, 0.35));
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+.cp-style-tablist button.on {
+  background: var(--accent-soft, rgba(127, 127, 255, 0.18));
+  border-color: var(--accent, #7f7fff);
+}
+.cp-style-tablist small {
+  color: var(--muted);
+  font-size: 14px;
+}
+.cp-style-panel {
+  display: grid;
+  gap: var(--cp-gap, 1rem);
+}
+.cp-tied {
+  margin-left: 0.4rem;
+  padding: 0 0.4rem;
+  border-radius: 6px;
+  font-size: 14px;
+  background: rgba(127, 127, 127, 0.18);
+}
+.cp-style-panel[hidden] {
+  display: none;
 }
