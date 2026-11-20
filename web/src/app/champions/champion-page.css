@@ -1474,3 +1474,9 @@ html[data-expected] .xp-real {
   font-weight: 600;
   cursor: pointer;
 }
+
+/* Augment search: its own line above the rarity and pick filters. */
+.cp-filters .table-search {
+  flex-basis: 100%;
+  margin-bottom: 0;
+}
