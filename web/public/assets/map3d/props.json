@@ -1,0 +1,74 @@
+{
+ "v": 1,
+ "models": {
+  "poro": "poro.glb"
+ },
+ "scale": {
+  "poro": 0.4
+ },
+ "places": [
+  {
+   "model": "poro",
+   "x": -700,
+   "z": -560,
+   "yaw": 150,
+   "clips": [
+    "idle",
+    "idle2",
+    "eat"
+   ]
+  },
+  {
+   "model": "poro",
+   "x": 350,
+   "z": 470,
+   "yaw": -20,
+   "clips": [
+    "idle3",
+    "idle"
+   ]
+  },
+  {
+   "model": "poro",
+   "x": 1250,
+   "z": -570,
+   "yaw": 200,
+   "clips": [
+    "idle4",
+    "idle",
+    "jump"
+   ]
+  },
+  {
+   "model": "poro",
+   "x": 2300,
+   "z": 480,
+   "yaw": 15,
+   "clips": [
+    "idle2",
+    "eat",
+    "idle"
+   ]
+  },
+  {
+   "model": "poro",
+   "x": 3400,
+   "z": -560,
+   "yaw": 170,
+   "clips": [
+    "idle",
+    "idle3"
+   ]
+  },
+  {
+   "model": "poro",
+   "x": 4700,
+   "z": 470,
+   "yaw": -30,
+   "clips": [
+    "eat",
+    "idle4"
+   ]
+  }
+ ]
+}

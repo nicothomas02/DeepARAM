@@ -296,6 +296,45 @@ function loadGround() {
     });
     ground.root = g.scene;
     ground.scene.add(g.scene);
+    loadProps();
+  }).catch(() => {});
+}
+// Props on the map (props.json from tools/build_props3d.py): Poros along the bridge's edges, idling.
+// Each stands at a lane position and plays its clips in turn, on the page's clock, not the fight's.
+ground.props = [];
+function loadProps() {
+  const dir = MAP_FILE.slice(0, MAP_FILE.lastIndexOf("/") + 1);
+  fetch(dir + "props.json" + BUST).then((r) => (r.ok ? r.json() : null)).then((list) => {
+    if (!list) return;
+    const models = {};
+    for (const [name, file] of Object.entries(list.models)) models[name] = loader.loadAsync(dir + file + BUST).catch(() => null);
+    list.places.forEach((p, i) => models[p.model] && models[p.model].then((g) => {
+      if (!g) return;
+      const obj = cloneSkinned(g.scene);
+      obj.traverse((o) => {
+        if (!o.isMesh) return;
+        // Unlit like the map, a touch darker so it sits in the map's light.
+        o.material = new THREE.MeshBasicMaterial({ map: o.material.map, color: 0xc8d0dc });
+        o.frustumCulled = false;
+      });
+      obj.rotation.y = (p.yaw || 0) * Math.PI / 180;
+      ground.scene.add(obj);
+      const mixer = new THREE.AnimationMixer(obj);
+      const clips = (p.clips || []).map((n) => THREE.AnimationClip.findByName(g.animations, n)).filter(Boolean);
+      const prop = { obj, at: p, size: (list.scale && list.scale[p.model]) || 1, mixer, clips, n: i % Math.max(1, clips.length), action: null };
+      const next = () => {
+        if (!prop.clips.length) return;
+        const clip = prop.clips[prop.n++ % prop.clips.length], a = mixer.clipAction(clip);
+        a.reset().setLoop(THREE.LoopOnce, 1).clampWhenFinished = true;
+        if (prop.action) a.crossFadeFrom(prop.action, 0.3, false);
+        a.play();
+        prop.action = a;
+      };
+      mixer.addEventListener("finished", next);
+      next();
+      mixer.update((i * 1.7) % 3);  // not all in step
+      ground.props.push(prop);
+    }));
   }).catch(() => {});
 }
 
@@ -352,8 +391,17 @@ const api = {
     // across the lane is longer on the floor than one along it, as for the fighters.
     const o = this.toWorld(ox, oy, W, H, TMP.o), a = this.toWorld(ox + 1000 * k, oy, W, H, TMP.a), b = this.toWorld(ox, oy + 1000 * k, W, H, TMP.b);
     const along = (a.x - o.x) / 1000;
+    const across = (b.z - o.z) / 1000;
     ground.root.position.copy(o);
-    ground.root.scale.set(along, along, (b.z - o.z) / 1000);
+    ground.root.scale.set(along, along, across);
+    // Props keep their own shape (the map is stretched across, as the page's lane is).
+    const now = performance.now() / 1000, dt = ground.clock ? Math.min(0.1, now - ground.clock) : 0;
+    ground.clock = now;
+    for (const p of ground.props) {
+      p.obj.position.set(o.x + p.at.x * along, o.y, o.z + p.at.z * across);
+      p.obj.scale.setScalar(along * p.size);
+      p.mixer.update(dt);
+    }
     r.render(ground.scene, this.arena.camera);
     ground.shown = true;
     return true;
