@@ -94,7 +94,13 @@ Tests pass.
 - **Mechanics notes** (League wiki + Nico, 2026-11-20). Archmage: each ability cast takes 30% of the *cast*
   ability's *base* (unhasted) cooldown off another, randomly picked ability; summoner spells are never picked. The
   refund ignores haste, so long base cooldowns feed it best. Overloaded: the chosen ability resets whenever a
-  different ability is cast. When the text or wiki leaves a mechanic unclear, ask Nico (he wants these questions).
+  different ability is cast, even on a miss, and Lulu's Whimsy keeps its full polymorph. Confirmed by Nico: Archmage
+  can land on a ready ability (wasted) and on R; Ethereal Weapon's ability on-hits trigger Mystic Punch; Skilled
+  Sniper gives Ziggs' Satchel Charge the full 80% refund. When the text or wiki leaves a mechanic unclear, ask Nico
+  (he wants these questions).
+- **Undiscovered builds** (Nico, 2026-11-20). Prefer combos nobody mentions online that you can still verify work
+  in-game (kit, augment and item text, the Simulator). Fine when that isn't possible, but finding something new is
+  the aim.
 - **Rare items too.** Items should be almost never built on that champion (`data/cn/builds/<champion id>.json`);
   at most ONE item the champion already builds often (boots don't count).
 - **Ability slots.** Bread And Butter / Jam / Cheese always affect Q / W / E; other ability augments
