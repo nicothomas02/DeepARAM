@@ -227,16 +227,16 @@
  "Augment pairs appear here once enough games are in. Each pair needs a minimum number of games before it shows.": "十分な試合数が集まると、オーグメントの組み合わせがここに表示されます。各組み合わせは最低試合数に達すると表示されます。",
  "Kit interactions": "スキルとの相互作用",
  "Augments that work with this champion's own abilities, and why.": "このチャンピオン自身のスキルと噛み合うオーグメントと、その理由。",
- "You took": "取得済み",
  "Remove": "外す",
  "Clear": "クリア",
  "Pairs well with {name}: +{n} pts.": "{name}と好相性: +{n}pt。",
  "Overlaps with {name}: -{n} pts.": "{name}と効果が重複: -{n}pt。",
  "Estimated: ranked by each augment's boost plus its synergy with the ones you took.": "推定: 各オーグメントの勝率への影響と、取得済みのものとのシナジーの合計で並べています。",
- "Took an augment already? Mark it with \"I took this\" to re-rank the rest by synergy.": "オーグメントを取得済みなら「取った」で印をつけると、残りがシナジー順に並び替わります。",
  "With your picks": "選択後の評価",
  "Synergy {n}": "シナジー {n}",
  "Estimated synergy with the augments you took.": "取得済みオーグメントとの推定シナジー。",
- "+ I took this": "+ 取った",
- "Mark this augment as taken and re-rank the rest by synergy.": "このオーグメントを取得済みにして、残りをシナジー順に並べ替えます。"
+ "Selected": "選択中",
+ "Select {name}: the rest re-rank by synergy with it.": "{name}を選択: 残りがシナジー順に並び替わります。",
+ "Select: the rest re-rank by synergy with it.": "選択: 残りがシナジー順に並び替わります。",
+ "Already have augments? Select them with + and the rest re-rank by synergy.": "取得済みのオーグメントは + で選択すると、残りがシナジー順に並び替わります。"
 }

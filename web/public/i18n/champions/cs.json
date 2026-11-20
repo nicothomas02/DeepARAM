@@ -227,16 +227,16 @@
  "Augment pairs appear here once enough games are in. Each pair needs a minimum number of games before it shows.": "Dvojice augmentů se tu objeví, jakmile bude dost her. Každá dvojice potřebuje minimální počet her, než se zobrazí.",
  "Kit interactions": "Interakce sady",
  "Augments that work with this champion's own abilities, and why.": "Vylepšení, která fungují se schopnostmi tohoto šampiona, a proč.",
- "You took": "Vybráno",
  "Remove": "Odebrat",
  "Clear": "Vymazat",
  "Pairs well with {name}: +{n} pts.": "Hodí se k {name}: +{n} b.",
  "Overlaps with {name}: -{n} pts.": "Překrývá se s {name}: -{n} b.",
  "Estimated: ranked by each augment's boost plus its synergy with the ones you took.": "Odhad: seřazeno podle bonusu každého vylepšení plus jeho synergie s vybranými.",
- "Took an augment already? Mark it with \"I took this\" to re-rank the rest by synergy.": "Už máš vylepšení? Označ ho tlačítkem „Mám“ a zbytek se seřadí podle synergie.",
  "With your picks": "S tvým výběrem",
  "Synergy {n}": "Synergie {n}",
  "Estimated synergy with the augments you took.": "Odhadovaná synergie s vybranými vylepšeními.",
- "+ I took this": "+ Mám",
- "Mark this augment as taken and re-rank the rest by synergy.": "Označit toto vylepšení jako vybrané a seřadit zbytek podle synergie."
+ "Selected": "Vybráno",
+ "Select {name}: the rest re-rank by synergy with it.": "Vybrat {name}: zbytek se seřadí podle synergie.",
+ "Select: the rest re-rank by synergy with it.": "Vybrat: zbytek se seřadí podle synergie.",
+ "Already have augments? Select them with + and the rest re-rank by synergy.": "Už máš vylepšení? Vyber je tlačítkem + a zbytek se seřadí podle synergie."
 }

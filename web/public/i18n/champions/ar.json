@@ -227,16 +227,16 @@
  "Augment pairs appear here once enough games are in. Each pair needs a minimum number of games before it shows.": "تظهر أزواج التعزيزات هنا عند توفر عدد كافٍ من المباريات. يحتاج كل زوج إلى حد أدنى من المباريات قبل أن يظهر.",
  "Kit interactions": "تفاعلات المهارات",
  "Augments that work with this champion's own abilities, and why.": "التعزيزات التي تعمل مع مهارات هذا البطل نفسه، ولماذا.",
- "You took": "اخترت",
  "Remove": "إزالة",
  "Clear": "مسح",
  "Pairs well with {name}: +{n} pts.": "يتناسب مع {name}: ‎+{n} نقطة.",
  "Overlaps with {name}: -{n} pts.": "يتداخل مع {name}: ‎-{n} نقطة.",
  "Estimated: ranked by each augment's boost plus its synergy with the ones you took.": "تقديري: مرتبة حسب تعزيز كل معزز مضافًا إليه تآزره مع ما اخترته.",
- "Took an augment already? Mark it with \"I took this\" to re-rank the rest by synergy.": "هل أخذت معززًا بالفعل؟ ضع عليه علامة \"أخذته\" لإعادة ترتيب البقية حسب التآزر.",
  "With your picks": "مع اختياراتك",
  "Synergy {n}": "التآزر {n}",
  "Estimated synergy with the augments you took.": "التآزر التقديري مع المعززات التي اخترتها.",
- "+ I took this": "+ أخذته",
- "Mark this augment as taken and re-rank the rest by synergy.": "ضع علامة على هذا المعزز كمأخوذ وأعد ترتيب البقية حسب التآزر."
+ "Selected": "المحدد",
+ "Select {name}: the rest re-rank by synergy with it.": "تحديد {name}: يُعاد ترتيب البقية حسب التآزر.",
+ "Select: the rest re-rank by synergy with it.": "تحديد: يُعاد ترتيب البقية حسب التآزر.",
+ "Already have augments? Select them with + and the rest re-rank by synergy.": "لديك معززات بالفعل؟ حددها بـ + وسيُعاد ترتيب البقية حسب التآزر."
 }

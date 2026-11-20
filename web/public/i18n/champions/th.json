@@ -227,16 +227,16 @@
  "Augment pairs appear here once enough games are in. Each pair needs a minimum number of games before it shows.": "คู่ออคเมนต์จะแสดงที่นี่เมื่อมีเกมมากพอ แต่ละคู่ต้องมีจำนวนเกมขั้นต่ำก่อนจึงจะแสดง",
  "Kit interactions": "การทำงานร่วมกับสกิล",
  "Augments that work with this champion's own abilities, and why.": "ออคเมนต์ที่เข้ากับสกิลของแชมเปี้ยนตัวนี้ และเหตุผล",
- "You took": "ที่เลือกแล้ว",
  "Remove": "นำออก",
  "Clear": "ล้าง",
  "Pairs well with {name}: +{n} pts.": "เข้ากันดีกับ {name}: +{n} แต้ม",
  "Overlaps with {name}: -{n} pts.": "ซ้ำซ้อนกับ {name}: -{n} แต้ม",
  "Estimated: ranked by each augment's boost plus its synergy with the ones you took.": "ประมาณการ: เรียงตามค่าบูสต์ของแต่ละออคเมนต์รวมกับซินเนอร์จีกับที่คุณเลือกแล้ว",
- "Took an augment already? Mark it with \"I took this\" to re-rank the rest by synergy.": "เลือกออคเมนต์ไปแล้วหรือยัง? กด \"เลือกแล้ว\" เพื่อเรียงที่เหลือใหม่ตามซินเนอร์จี",
  "With your picks": "ตามที่คุณเลือก",
  "Synergy {n}": "ซินเนอร์จี {n}",
  "Estimated synergy with the augments you took.": "ซินเนอร์จีโดยประมาณกับออคเมนต์ที่คุณเลือก",
- "+ I took this": "+ เลือกแล้ว",
- "Mark this augment as taken and re-rank the rest by synergy.": "ทำเครื่องหมายว่าเลือกออคเมนต์นี้แล้ว และเรียงที่เหลือใหม่ตามซินเนอร์จี"
+ "Selected": "ที่เลือก",
+ "Select {name}: the rest re-rank by synergy with it.": "เลือก {name}: ที่เหลือจะเรียงใหม่ตามซินเนอร์จี",
+ "Select: the rest re-rank by synergy with it.": "เลือก: ที่เหลือจะเรียงใหม่ตามซินเนอร์จี",
+ "Already have augments? Select them with + and the rest re-rank by synergy.": "มีออคเมนต์อยู่แล้ว? เลือกด้วย + แล้วที่เหลือจะเรียงใหม่ตามซินเนอร์จี"
 }

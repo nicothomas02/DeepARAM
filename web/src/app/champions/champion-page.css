@@ -1481,14 +1481,23 @@ html[data-expected] .xp-real {
   margin-bottom: 0;
 }
 
-/* "I took this": augments the visitor already has, and the re-ranked list's synergy tags (AugmentTable.tsx) */
-.cp-pill.cp-took-add {
-  border-color: var(--line);
+/* Selected augments: ones the visitor already has (the round "+"), and the re-ranked list's synergy tags (AugmentTable.tsx) */
+.cp-pick {
+  display: inline-grid;
+  place-items: center;
+  flex: none;
+  width: 24px;
+  height: 24px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
   color: var(--muted);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1;
   cursor: pointer;
 }
-.cp-pill.cp-took-add:hover,
-.cp-pill.cp-took-add:focus-visible {
+.cp-pick:hover,
+.cp-pick:focus-visible {
   border-color: var(--accent);
   color: var(--accent);
 }

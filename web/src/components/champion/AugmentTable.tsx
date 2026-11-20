@@ -16,7 +16,7 @@ import { synergyWith, type SynergyPair } from "@/lib/synergy-picks";
 // A champion's augments as one ranked table with rarity and augment pick filters, best DeepScore first, each with the game's
 // build tags, ten to a page. The number columns' headers re-sort it (highest first; a second click flips it). The search box
 // above it finds an augment by name (English or the page's language) and keeps its rank, so a visitor sees where it places.
-// "I took this" on a row marks an augment the visitor already has: it leaves the list, and the rest re-rank by their boost
+// The round "+" by a row's icon selects an augment the visitor already has: it leaves the list, and the rest re-rank by their boost
 // plus their estimated synergy with the taken ones (lib/synergy-picks.ts), so Mystic Punch climbs once Ethereal Weapon is in.
 
 const RARITIES = ["all", "prismatic", "gold", "silver"] as const;
@@ -43,7 +43,7 @@ export default function AugmentTable({
 }: {
   /** The champion's id ("Kayle"), for the "why" lines. */
   champion?: string;
-  /** Augment pairs that feed each other on this champion (estimated), for re-ranking after "I took this". */
+  /** Augment pairs that feed each other on this champion (estimated), for re-ranking after a selection. */
   synergy?: SynergyPair[];
   rows: (AugmentRow & {
     /** The augment's official description in English, translated on the page. */
@@ -192,8 +192,8 @@ export default function AugmentTable({
           }}
         />
         {taken.length > 0 && (
-          <div className="cp-took" role="group" aria-label={t("You took")}>
-            <span>{t("You took")}</span>
+          <div className="cp-took" role="group" aria-label={t("Selected")}>
+            <span>{t("Selected")}</span>
             {taken.map((id) => (
               <button key={id} type="button" className="cp-pill cp-took-chip" onClick={() => untake(id)} title={t("Remove")}>
                 <img className="cp-icon round" src={`/icons/augments/${id}.webp`} alt="" width={20} height={20} />
@@ -245,7 +245,7 @@ export default function AugmentTable({
         <p className="cp-filter-note">
           {taken.length
             ? t("Estimated: ranked by each augment's boost plus its synergy with the ones you took.")
-            : t("Took an augment already? Mark it with \"I took this\" to re-rank the rest by synergy.")}
+            : t("Already have augments? Select them with + and the rest re-rank by synergy.")}
         </p>
         {pick !== "any" && (
           <p className="cp-filter-note">
@@ -272,6 +272,31 @@ export default function AugmentTable({
           const i = rankOf.get(a.id) ?? at * PAGE + j;
           const body = (
             <>
+              {taken.length < MAX_TAKEN && (
+                // Select an augment you already have: a round "+" by its icon. Not an <a>: the whole row links to the
+                // augment, so this handles its own click (data-no-link), like "Changes your build".
+                <span
+                  className="cp-pick"
+                  role="button"
+                  tabIndex={0}
+                  data-no-link
+                  aria-label={t("Select {name}: the rest re-rank by synergy with it.", { name: augName(a.id) })}
+                  title={t("Select: the rest re-rank by synergy with it.")}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    take(a.id);
+                  }}
+                  onKeyDown={(e) => {
+                    if (e.key !== "Enter" && e.key !== " ") return;
+                    e.preventDefault();
+                    e.stopPropagation();
+                    take(a.id);
+                  }}
+                >
+                  +
+                </span>
+              )}
               <img
                 className="cp-icon round"
                 src={`/icons/augments/${a.id}.webp`}
@@ -325,29 +350,6 @@ export default function AugmentTable({
                     </span>
                   ) : null;
                 })()}
-                {taken.length < MAX_TAKEN && (
-                  // Not an <a> or a link: the whole row links to the augment (see "Changes your build").
-                  <span
-                    className="cp-pill cp-took-add"
-                    role="button"
-                    tabIndex={0}
-                    data-no-link
-                    title={t("Mark this augment as taken and re-rank the rest by synergy.")}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      e.stopPropagation();
-                      take(a.id);
-                    }}
-                    onKeyDown={(e) => {
-                      if (e.key !== "Enter" && e.key !== " ") return;
-                      e.preventDefault();
-                      e.stopPropagation();
-                      take(a.id);
-                    }}
-                  >
-                    {t("+ I took this")}
-                  </span>
-                )}
                 {(a.tags ?? []).map((tag) => (
                   <span key={tag} className="cp-pill cp-tag">
                     {ts(tag)}

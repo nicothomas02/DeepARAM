@@ -227,16 +227,16 @@
  "Augment pairs appear here once enough games are in. Each pair needs a minimum number of games before it shows.": "A fejlesztéspárok itt jelennek meg, amint elég meccs gyűlik össze. Minden párnak el kell érnie egy minimális meccsszámot, mielőtt megjelenik.",
  "Kit interactions": "Képesség-kölcsönhatások",
  "Augments that work with this champion's own abilities, and why.": "Fejlesztések, amelyek ennek a hősnek a saját képességeivel működnek, és hogy miért.",
- "You took": "Választottad",
  "Remove": "Eltávolítás",
  "Clear": "Törlés",
  "Pairs well with {name}: +{n} pts.": "Jól illik ehhez: {name}: +{n} pont.",
  "Overlaps with {name}: -{n} pts.": "Átfedésben van ezzel: {name}: -{n} pont.",
  "Estimated: ranked by each augment's boost plus its synergy with the ones you took.": "Becslés: minden kiegészítő bónusza plusz a választottakkal való szinergiája szerint.",
- "Took an augment already? Mark it with \"I took this\" to re-rank the rest by synergy.": "Már választottál kiegészítőt? Jelöld meg a „Megvan” gombbal, és a többi szinergia szerint rendeződik.",
  "With your picks": "A választásaiddal",
  "Synergy {n}": "Szinergia {n}",
  "Estimated synergy with the augments you took.": "Becsült szinergia a választott kiegészítőkkel.",
- "+ I took this": "+ Megvan",
- "Mark this augment as taken and re-rank the rest by synergy.": "Kiegészítő megjelölése választottként, a többi szinergia szerint rendezése."
+ "Selected": "Kiválasztva",
+ "Select {name}: the rest re-rank by synergy with it.": "{name} kiválasztása: a többi szinergia szerint rendeződik.",
+ "Select: the rest re-rank by synergy with it.": "Kiválasztás: a többi szinergia szerint rendeződik.",
+ "Already have augments? Select them with + and the rest re-rank by synergy.": "Már vannak kiegészítőid? Válaszd ki őket a + gombbal, és a többi szinergia szerint rendeződik."
 }

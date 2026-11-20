@@ -227,16 +227,16 @@
  "Augment pairs appear here once enough games are in. Each pair needs a minimum number of games before it shows.": "Pasangan augment muncul di sini setelah cukup banyak game. Setiap pasangan butuh jumlah game minimum sebelum ditampilkan.",
  "Kit interactions": "Interaksi kit",
  "Augments that work with this champion's own abilities, and why.": "Augment yang bekerja dengan ability champion ini sendiri, dan alasannya.",
- "You took": "Sudah diambil",
  "Remove": "Hapus",
  "Clear": "Bersihkan",
  "Pairs well with {name}: +{n} pts.": "Cocok dengan {name}: +{n} poin.",
  "Overlaps with {name}: -{n} pts.": "Tumpang tindih dengan {name}: -{n} poin.",
  "Estimated: ranked by each augment's boost plus its synergy with the ones you took.": "Perkiraan: diurutkan menurut peningkatan tiap augment ditambah sinerginya dengan yang sudah kamu ambil.",
- "Took an augment already? Mark it with \"I took this\" to re-rank the rest by synergy.": "Sudah ambil augment? Tandai dengan \"Sudah ambil\" untuk mengurutkan sisanya menurut sinergi.",
  "With your picks": "Dengan pilihanmu",
  "Synergy {n}": "Sinergi {n}",
  "Estimated synergy with the augments you took.": "Perkiraan sinergi dengan augment yang kamu ambil.",
- "+ I took this": "+ Sudah ambil",
- "Mark this augment as taken and re-rank the rest by synergy.": "Tandai augment ini sudah diambil dan urutkan sisanya menurut sinergi."
+ "Selected": "Dipilih",
+ "Select {name}: the rest re-rank by synergy with it.": "Pilih {name}: sisanya diurutkan ulang menurut sinergi.",
+ "Select: the rest re-rank by synergy with it.": "Pilih: sisanya diurutkan ulang menurut sinergi.",
+ "Already have augments? Select them with + and the rest re-rank by synergy.": "Sudah punya augment? Pilih dengan + dan sisanya diurutkan ulang menurut sinergi."
 }

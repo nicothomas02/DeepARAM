@@ -227,16 +227,16 @@
  "Augment pairs appear here once enough games are in. Each pair needs a minimum number of games before it shows.": "Các cặp lõi nâng cấp sẽ hiện ở đây khi có đủ trận. Mỗi cặp cần số trận tối thiểu trước khi hiện.",
  "Kit interactions": "Tương tác bộ kỹ năng",
  "Augments that work with this champion's own abilities, and why.": "Các lõi nâng cấp phối hợp với kỹ năng riêng của tướng này, và lý do.",
- "You took": "Đã chọn",
  "Remove": "Bỏ",
  "Clear": "Xóa",
  "Pairs well with {name}: +{n} pts.": "Hợp với {name}: +{n} điểm.",
  "Overlaps with {name}: -{n} pts.": "Trùng lặp với {name}: -{n} điểm.",
  "Estimated: ranked by each augment's boost plus its synergy with the ones you took.": "Ước tính: xếp theo mức tăng của mỗi lõi cộng với độ cộng hưởng với các lõi bạn đã chọn.",
- "Took an augment already? Mark it with \"I took this\" to re-rank the rest by synergy.": "Đã chọn lõi rồi? Đánh dấu bằng \"Đã chọn\" để xếp lại phần còn lại theo cộng hưởng.",
  "With your picks": "Theo lựa chọn của bạn",
  "Synergy {n}": "Cộng hưởng {n}",
  "Estimated synergy with the augments you took.": "Cộng hưởng ước tính với các lõi bạn đã chọn.",
- "+ I took this": "+ Đã chọn",
- "Mark this augment as taken and re-rank the rest by synergy.": "Đánh dấu lõi này là đã chọn và xếp lại phần còn lại theo cộng hưởng."
+ "Selected": "Đã chọn",
+ "Select {name}: the rest re-rank by synergy with it.": "Chọn {name}: phần còn lại xếp lại theo cộng hưởng.",
+ "Select: the rest re-rank by synergy with it.": "Chọn: phần còn lại xếp lại theo cộng hưởng.",
+ "Already have augments? Select them with + and the rest re-rank by synergy.": "Đã có lõi? Chọn bằng + và phần còn lại xếp lại theo cộng hưởng."
 }
